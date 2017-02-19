@@ -4,8 +4,20 @@ Created on Sat Feb 18 16:35:08 2017
 
 @author: Aeolitus
 """
+import Definitionen
 
 class Hilfsmethoden:
+    '''
+    Aufrufen entweder:
+        import Hilfsmethoden
+        Hilfsmethoden.Hilfsmethoden.XYZ
+        
+        oder
+        
+        from Hilfsmethoden import Hilfsmethoden
+        Hilfsmethoden.XYZ
+    '''
+    
     @staticmethod
     def FertStr2Array(FertString, Datenbank):
         '''
@@ -18,10 +30,11 @@ class Hilfsmethoden:
         for itm in FertString.split(","):
             strpItm = itm.strip()
             if len(strpItm) > 0:
-                if (strpItm in Datenbank.fertigkeiten ) or (strpItm in Datenbank.übernatürlicheFertigkeiten):
+                if (Datenbank is None) or (strpItm in Datenbank.fertigkeiten ) or (strpItm in Datenbank.übernatürlicheFertigkeiten):
                     retArr.append(strpItm)
                     count += 1
         return (retArr, count)
+    
     @staticmethod
     def FertArray2Str(Arr):
         '''
@@ -34,6 +47,7 @@ class Hilfsmethoden:
                 retStr += ", "
                 retStr += itm
         return retStr
+    
     @staticmethod
     def VorStr2Array(VoraussetzungenString, Datenbank):
         '''
@@ -54,10 +68,53 @@ class Hilfsmethoden:
                 arrItm = subArr
             else:
                 if strpItm.startswith("Vorteil "):
-                    arrItm = "V:" + strpItm[8:] + ":1"
+                    if (Datenbank is None) or (strpItm[8:] in Datenbank.vorteile):
+                        arrItm = "V:" + strpItm[8:] + ":1"
                 elif strpItm.startswith("Kein Vorteil "):
-                    arrItm = "V:" + strpItm[13:] + ":0"
+                    if (Datenbank is None) or (strpItm[13:] in Datenbank.vorteile):
+                        arrItm = "V:" + strpItm[13:] + ":0"
                 elif strpItm.startswith("Attribut "):
-                    arrItm = "A:" + strpItm[9:11] + ":" + str(strpItm[12:])
+                    if strpItm[9:11] in Definitionen.Attribute:
+                        arrItm = "A:" + strpItm[9:11] + ":" + str(strpItm[12:])
             retArr.append(arrItm)
         return retArr
+    
+    @staticmethod
+    def VorArray2Str(VoraussetzungenArray, Datenbank = None):
+        retArr = []
+        for itm in VoraussetzungenArray:
+            if type(itm) is list:
+                orArr = []
+                orStr = ""
+                for part in itm:
+                    orArr.append(Hilfsmethoden.VorArray2Str(part, Datenbank))    
+                if len(orArr) > 0:
+                    orStr = orArr[0]
+                if len(orArr) > 1:
+                    for ent in orArr[1:]:
+                        orStr += " ODER " + ent
+                if orStr != "":
+                    retArr.append(orStr)
+            else:
+                arr = itm.split(":")
+                enStr = ""
+                if arr[0] == "V":
+                    if arr[2] == "1":
+                        enStr += "Vorteil "
+                    else:
+                        enStr += "Kein Vorteil "
+                    enStr += arr[1]
+                elif arr[0] == "A":
+                    enStr += "Attribut "
+                    enStr += arr[1]
+                    enStr += " "
+                    enStr += str(arr[2])
+                if enStr != "":
+                    retArr.append(enStr)
+        if len(retArr) > 0:
+            retStr = retArr[0]
+        if len(retArr) > 1:
+            for itm in retArr[1:]:
+                if len(itm) > 0:
+                    retStr += ", " + itm
+        return retStr
