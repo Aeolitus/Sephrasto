@@ -19,24 +19,24 @@ class Hilfsmethoden:
     '''
     
     @staticmethod
-    def FertStr2Array(FertString, Datenbank):
+    def FertStr2Array(FertString, Datenbank = None):
         '''
         Fertigkeiten werden vom Nutzer Kommasepariert eingetragen. 
         Diese Hilfsmethode trennt den String und gibt ein Array aus einzelnen 
-        Fertigkeiten zurück sowie ihre Anzahl.
+        Fertigkeiten zurück.
         '''
         retArr = []
-        count = 0;
         for itm in FertString.split(","):
+            if len(itm) == 0:
+                continue
             strpItm = itm.strip()
             if len(strpItm) > 0:
                 if (Datenbank is None) or (strpItm in Datenbank.fertigkeiten ) or (strpItm in Datenbank.übernatürlicheFertigkeiten):
                     retArr.append(strpItm)
-                    count += 1
-        return (retArr, count)
+        return retArr
     
     @staticmethod
-    def FertArray2Str(Arr):
+    def FertArray2Str(Arr, Datenbank = None):
         '''
         Verwandelt die Intern verwendeten Arrays von Fertigkeiten zurück in Strings.
         '''
@@ -49,7 +49,7 @@ class Hilfsmethoden:
         return retStr
     
     @staticmethod
-    def VorStr2Array(VoraussetzungenString, Datenbank):
+    def VorStr2Array(VoraussetzungenString, Datenbank = None):
         '''
         Voraussetzungen werden vom User ebenfalls im Fließtext eingetragen.
         Das Format ist dabei im folgenden Illustriert:
@@ -59,6 +59,8 @@ class Hilfsmethoden:
         '''
         retArr = []
         for itm in VoraussetzungenString.split(","):
+            if len(itm) == 0:
+                continue
             arrItm = ""
             strpItm = itm.strip()
             if " ODER " in strpItm:
@@ -82,6 +84,7 @@ class Hilfsmethoden:
     @staticmethod
     def VorArray2Str(VoraussetzungenArray, Datenbank = None):
         retArr = []
+        retStr = ""
         for itm in VoraussetzungenArray:
             if type(itm) is list:
                 orArr = []

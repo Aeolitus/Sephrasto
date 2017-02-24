@@ -8,6 +8,7 @@
 
 from PyQt5 import QtCore, QtWidgets
 import Fertigkeiten
+from Hilfsmethoden import Hilfsmethoden
 
 class Ui_vorteilDialog(object):
     def setupUi(self, vorteilDialog):
@@ -103,7 +104,7 @@ class Ui_vorteilDialog(object):
         vort.name = self.nameEdit.text()
         vort.kosten = self.kostenEdit.value()
         vort.nachkauf = self.comboNachkauf.currentText()
-        vort.voraussetzungen = eval(self.voraussetzungenEdit.text())
+        vort.voraussetzungen = Hilfsmethoden.VorStr2Array(self.voraussetzungenEdit.text(),None)
         vort.text = self.textEdit.toPlainText()
         return vort
         

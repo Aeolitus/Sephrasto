@@ -8,6 +8,7 @@
 
 from PyQt5 import QtCore, QtWidgets
 import Fertigkeiten
+from Hilfsmethoden import Hilfsmethoden
 
 class Ui_fertigkeitDialog(object):
     def setupUi(self, fertigkeitDialog):
@@ -186,7 +187,7 @@ class Ui_fertigkeitDialog(object):
             if self.checkKampffertigkeit.isChecked():
                 fer.kampffertigkeit = 1;
         else:
-            fer.voraussetzungen = eval(self.voraussetzungenEdit.text())
+            fer.voraussetzungen = Hilfsmethoden.VorStr2Array(self.voraussetzungenEdit.text(),None)
         fer.attribute = [self.comboAttribut1.currentText(), 
                          self.comboAttribut2.currentText(),
                          self.comboAttribut3.currentText()]

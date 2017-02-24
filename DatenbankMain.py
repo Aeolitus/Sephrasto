@@ -13,6 +13,7 @@ import DatenbankEditFertigkeit
 import DatenbankEditTalent
 import DatenbankEditVorteil
 import DatenbankSelectType
+from Hilfsmethoden import Hilfsmethoden
 
 class Ui_Form(object):
     def __init__(self):
@@ -231,13 +232,13 @@ class Ui_Form(object):
         ui.nameEdit.setText(talent.name)
         if talent.verbilligt:
             ui.buttonVerbilligt.setChecked(True)
-        elif talent.kosten is not 0:
-            ui.buttonVerbilligt.setChecked(True)
+        elif talent.kosten is not 0 and talent.kosten is not -1:
+            ui.buttonSpezial.setChecked(True)
             ui.comboKosten.setCurrentText(str(talent.kosten) + " EP")
         else:
             ui.buttonRegulaer.setChecked(True)
-        ui.fertigkeitenEdit.setText(repr(talent.fertigkeiten))
-        ui.voraussetzungenEdit.setText(repr(talent.voraussetzungen))
+        ui.fertigkeitenEdit.setText(Hilfsmethoden.FertArray2Str(talent.fertigkeiten, None))
+        ui.voraussetzungenEdit.setText(Hilfsmethoden.VorArray2Str(talent.voraussetzungen, None))
         ui.textEdit.setPlainText(talent.text)
         talentDialog.show()
         ret = talentDialog.exec_()
@@ -254,7 +255,7 @@ class Ui_Form(object):
         ui.nameEdit.setText(vorteil.name)
         ui.kostenEdit.setValue(vorteil.kosten)
         ui.comboNachkauf.setCurrentText(vorteil.nachkauf)
-        ui.voraussetzungenEdit.setText(repr(vorteil.voraussetzungen))
+        ui.voraussetzungenEdit.setText(Hilfsmethoden.VorArray2Str(vorteil.voraussetzungen, None))
         ui.textEdit.setPlainText(vorteil.text)
         vorteilDialog.show()
         ret = vorteilDialog.exec_()
@@ -298,7 +299,7 @@ class Ui_Form(object):
         ui.comboAttribut1.setCurrentText(fertigkeit.attribute[0])
         ui.comboAttribut2.setCurrentText(fertigkeit.attribute[1])
         ui.comboAttribut3.setCurrentText(fertigkeit.attribute[2])
-        ui.voraussetzungenEdit.setText(repr(fertigkeit.voraussetzungen))
+        ui.voraussetzungenEdit.setText(Hilfsmethoden.VorArray2Str(fertigkeit.voraussetzungen, None))
         ui.checkKampffertigkeit.setCheckable(False)
         ui.radioProfan.setCheckable(False)
         ui.radioUebernatuerlich.setChecked(True)
@@ -372,7 +373,6 @@ class Ui_Form(object):
         self.datenbank.datei = spath
         self.datenbank.xmlSchreiben()
         
-    
     def loadDatenbank(self):
         spath, _ = QtWidgets.QFileDialog.getOpenFileName(None,"Datenbank laden...","","XML-Datei (*.xml)")
         self.datenbank.datei = spath

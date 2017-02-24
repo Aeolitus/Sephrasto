@@ -8,6 +8,7 @@
 
 from PyQt5 import QtCore, QtWidgets
 import Fertigkeiten
+from Hilfsmethoden import Hilfsmethoden
 
 class Ui_talentDialog(object):
     def setupUi(self, talentDialog):
@@ -111,8 +112,8 @@ class Ui_talentDialog(object):
     def createTalent(self):
         tal = Fertigkeiten.Talent()
         tal.name = self.nameEdit.text()
-        tal.fertigkeiten = eval(self.fertigkeitenEdit.text())
-        tal.voraussetzungen = eval(self.voraussetzungenEdit.text())
+        tal.fertigkeiten = Hilfsmethoden.FertStr2Array(self.fertigkeitenEdit.text(),None)
+        tal.voraussetzungen = Hilfsmethoden.VorStr2Array(self.voraussetzungenEdit.text(),None)
         tal.text = self.textEdit.toPlainText()
         if self.buttonSpezial.isChecked():
             tal.kosten = int(self.comboKosten.currentText()[:2])
