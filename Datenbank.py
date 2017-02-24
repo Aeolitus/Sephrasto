@@ -42,7 +42,7 @@ class Datenbank():
             v.set('name',self.fertigkeiten[fer].name)
             v.set('steigerungsfaktor',str(self.fertigkeiten[fer].steigerungsfaktor))
             v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(self.fertigkeiten[fer].voraussetzungen, None))
-            v.set('attribute',repr(self.fertigkeiten[fer].attribute))
+            v.set('attribute',Hilfsmethoden.AttrArray2Str(self.fertigkeiten[fer].attribute))
             v.text = self.fertigkeiten[fer].text
 
         for fer in self.übernatürlicheFertigkeiten:
@@ -50,7 +50,7 @@ class Datenbank():
             v.set('name',self.übernatürlicheFertigkeiten[fer].name)
             v.set('steigerungsfaktor',str(self.übernatürlicheFertigkeiten[fer].steigerungsfaktor))
             v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(self.übernatürlicheFertigkeiten[fer].voraussetzungen, None))
-            v.set('attribute',repr(self.übernatürlicheFertigkeiten[fer].attribute))
+            v.set('attribute',Hilfsmethoden.AttrArray2Str(self.übernatürlicheFertigkeiten[fer].attribute))
             v.text = self.übernatürlicheFertigkeiten[fer].text
 
         #Write XML to file
@@ -95,7 +95,7 @@ class Datenbank():
             F.name = fer.get('name')
             F.steigerungsfaktor = int(fer.get('steigerungsfaktor'))
             F.text = fer.text
-            F.attribute = eval(fer.get('attribute'))
+            F.attribute = Hilfsmethoden.AttrStr2Array(fer.get('attribute'))
             F.voraussetzungen = Hilfsmethoden.VorStr2Array(fer.get('voraussetzungen'),None)
             self.fertigkeiten.update({F.name: F})
 
@@ -104,7 +104,7 @@ class Datenbank():
             F.name = fer.get('name')
             F.steigerungsfaktor = int(fer.get('steigerungsfaktor'))
             F.text = fer.text
-            F.attribute = eval(fer.get('attribute'))
+            F.attribute = Hilfsmethoden.AttrStr2Array(fer.get('attribute'))
             F.voraussetzungen = Hilfsmethoden.VorStr2Array(fer.get('voraussetzungen'),None)
             self.übernatürlicheFertigkeiten.update({F.name: F})
             

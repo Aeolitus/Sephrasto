@@ -115,12 +115,13 @@ class Ui_talentDialog(object):
         tal.fertigkeiten = Hilfsmethoden.FertStr2Array(self.fertigkeitenEdit.text(),None)
         tal.voraussetzungen = Hilfsmethoden.VorStr2Array(self.voraussetzungenEdit.text(),None)
         tal.text = self.textEdit.toPlainText()
+        tal.kosten = -1
         if self.buttonSpezial.isChecked():
             tal.kosten = int(self.comboKosten.currentText()[:2])
             if tal.kosten == 10:
                 tal.kosten = 100
         elif self.buttonVerbilligt.isChecked():
-            tal.verbilligt = 1;
+            tal.verbilligt = 1
         return tal
 
 if __name__ == "__main__":

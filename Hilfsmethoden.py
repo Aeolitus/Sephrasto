@@ -121,3 +121,28 @@ class Hilfsmethoden:
                 if len(itm) > 0:
                     retStr += ", " + itm
         return retStr
+    
+    @staticmethod
+    def AttrArray2Str(AttrArray, Datenbank = None):
+        if len(AttrArray) != 3:
+            return ""
+        retStr = ""
+        for el in AttrArray:
+            if el not in Definitionen.Attribute:
+                return ""
+        retStr = AttrArray[0] + "|" + AttrArray[1] + "|" + AttrArray[2]
+        return retStr
+    
+    @staticmethod
+    def AttrStr2Array(AttrStr, Datenbank = None):
+        retArr = []
+        if len(AttrStr) == 0:
+            return []
+        for el in AttrStr.split("|"):
+            if len(el) == 0:
+                continue
+            if el not in Definitionen.Attribute:
+                return []
+            retArr.append(el)
+        return retArr
+    
