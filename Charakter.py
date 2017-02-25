@@ -3,6 +3,7 @@ import Fertigkeiten
 import Objekte
 import lxml.etree as etree
 import re
+import pdf
 
 class Char():
     def __init__(self):
@@ -26,8 +27,10 @@ class Char():
         self.dh = -1
         self.schadensbonus = -1
         self.ini = -1
+        self.asp = Fertigkeiten.Energie()
+        self.kap = Fertigkeiten.Energie()
         
-        #Dritter Block: Vorteile
+        #Dritter Block: Vorteile, gespeichert als String
         self.vorteile = []
 
         #Vierter Block: Fertigkeiten und Freie Fertigkeiten
@@ -51,6 +54,8 @@ class Char():
 
     def aktualisieren(self):
         '''Berechnet alle abgeleiteten Werte neu'''
+        for key in Definitionen.Attribute:
+            self.attribute[key].aktualisieren()
         self.ws = 4 + int(self.attribute['KO'].wert/4)
         self.mr = 4 + int(self.attribute['MU'].wert/4)
         self.gs = 4 + int(self.attribute['GE'].wert/4)
@@ -131,6 +136,9 @@ class Char():
         atr = etree.SubElement(root,'Attribute')
         for attr in self.attribute:
             etree.SubElement(atr,attr).text = str(self.attribute[attr].wert)
+        en = etree.SubElement(root,'Energien')
+        etree.SubElement(en,'AsP').set('wert',str(self.asp.wert))
+        etree.SubElement(en,'KaP').set('wert',str(self.kap.wert))
         #Dritter Block    
         vor = etree.SubElement(root,'Vorteile')
         for vort in self.vorteile:
@@ -217,6 +225,8 @@ class Char():
         for atr in root.findall('Attribute/*'):
             self.attribute[atr.tag].wert = int(atr.text)
             self.attribute[atr.tag].aktualisieren()
+        self.asp.wert = int(root.find('Energien/AsP').attrib['wert'])
+        self.kap.wert = int(root.find('Energien/KaP').attrib['wert'])
         #Dritter Block
         for vor in root.findall('Vorteile/*'):
             self.vorteile.append(vor.text)
@@ -274,3 +284,119 @@ class Char():
         #Siebter Block
         self.EPtotal = int(root.find('Erfahrung/EPtotal').text)
         self.EPspent = int(root.find('Erfahrung/EPspent').text)
+    
+    def pdfErstellen(self, filename):
+        self.aktualisieren()
+        fields = pdf.get_fields("Charakterbogen.pdf")
+        fields = self.pdfErsterBlock(fields)
+        fields = self.pdfZweiterBlock(fields)
+        fields = self.pdfDritterBlock(fields)
+        fields = self.pdfVierterBlock(fields)
+        fields = self.pdfFünfterBlock(fields)
+        fields = self.pdfSechsterBlock(fields)
+        fields = self.pdfSiebterBlock(fields)
+        
+        
+        #PDF erstellen - Felder bleiben bearbeitbar
+        pdf.write_pdf("Charakterbogen.pdf", fields, filename, False)
+    
+    def pdfErsterBlock(self, fields):
+        fields['Name'] = self.name
+        fields['Rasse'] = self.rasse
+        fields['Statu'] = Definitionen.Statusse[self.status]
+        fields['Kurzb'] = self.kurzbeschreibung
+        #TODO: Erhöhen bei Glück
+        fields['Schip'] = 3
+        fields['Schipm'] = self.schips
+        # Erste Acht Eigenheiten
+        count = 1;
+        for el in self.eigenheiten:
+            fields['Eigen' + str(count)] = el
+            if count == 8:
+                break
+            count += 1
+        return fields
+    
+    def pdfZweiterBlock(self, fields):
+        for key in Definitionen.Attribute:
+            fields[key] = self.attribute[key].wert
+            fields[key + '2'] = self.attribute[key].probenwert    
+        fields['Wundschwelle'] = self.ws
+        fields['WS'] = self.ws
+        fields['Magieresistenz'] = self.mr
+        fields['Geschwindigkeit'] = self.gs
+        fields['Schadensbonus'] = self.schadensbonus
+        fields['Initiative'] = self.ini
+        #TODO: Zauberer einrechnen
+        fields['Astralenergie'] = self.asp.wert
+        #TODO: Geweiht einrechnen
+        fields['Karmaenergie'] = self.kap.wert
+        #TODO: Übernatürliche Energie... wie?
+        #TODO: BE einrechnen?
+        fields['DHm'] = self.dh
+        fields['GSm'] = self.gs
+        fields['WSm'] = self.ws
+        return fields
+    
+    def pdfDritterBlock(self, fields):
+        count = 1
+        firstStr = 'Vorteil'
+        for el in self.vorteile:
+            fields[firstStr + str(count)] = self.vorteile[count-1]
+            if count == 8 and firstStr == 'Vorteil':
+                firstStr = 'Weite'
+                count = 1
+            elif count >= 13 and firstStr == 'Weite':
+                break
+            count += 1
+        return fields
+    
+    def pdfVierterBlock(self, fields):
+        count = 1
+        for el in self.freieFertigkeiten:
+            if el.wert < 1 or el.wert > 3:
+                continue
+            resp = el.name + " "
+            for i in range(el.wert):
+                resp += "I"
+            fields['Frei' + str(count)] = resp
+        # Standardfertigkeiten
+        #TODO: Weitere Fertigkeiten? 
+        for el in Definitionen.StandardFerts:
+            if el not in self.fertigkeiten:
+                continue
+            #TODO: Aktualisieren?
+            base = el[0:5]
+            # Fix Umlaute
+            if el == "Gebräuche":
+                base = "Gebra"
+            elif el == "Überleben":
+                base = "Ueber"
+            fields[base + "BA"] = self.fertigkeiten[el].basiswert
+            fields[base + "FW"] = self.fertigkeiten[el].wert
+            talStr = ""
+            for el2 in self.fertigkeiten[el].gekaufteTalente:
+                talStr += ", "
+                talStr += el2
+            talStr = talStr[2:]
+            fields[base + "TA"] = talStr
+            fields[base + "PW"] = self.fertigkeiten[el].probenwert
+            fields[base + "PWT"] = self.fertigkeiten[el].probenwertTalent
+                  
+        
+        return fields
+    
+    def pdfFünfterBlock(self, fields):
+        
+        return fields
+    
+    def pdfSechsterBlock(self, fields):
+        
+        return fields
+    
+    def pdfSiebterBlock(self, fields):
+        fields['ErfahGE'] = self.EPtotal
+        fields['ErfahEI'] = self.EPspent
+        fields['ErfahVE'] = self.EPtotal - self.EPspent
+        return fields
+    
