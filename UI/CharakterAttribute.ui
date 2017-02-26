@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>formAttribute</class>
+ <widget class="QWidget" name="formAttribute">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>701</width>
+    <height>409</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Attribute</string>
+  </property>
+  <widget class="QWidget" name="gridLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>-1</x>
+     <y>-1</y>
+     <width>701</width>
+     <height>411</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="2" column="1">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Konstitution</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="3">
+     <widget class="QSpinBox" name="pwKO">
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3">
+     <widget class="QLabel" name="label_17">
+      <property name="text">
+       <string>PW</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="3">
+     <widget class="QSpinBox" name="pwMU">
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="3">
+     <widget class="QSpinBox" name="pwCH">
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="3">
+     <widget class="QSpinBox" name="pwIN">
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="6">
+     <widget class="QSpinBox" name="abSB">
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="3">
+     <widget class="QSpinBox" name="pwKK">
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="3">
+     <widget class="QSpinBox" name="pwKL">
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="3">
+     <widget class="QSpinBox" name="pwGE">
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="6">
+     <widget class="QSpinBox" name="abGS">
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="6">
+     <widget class="QSpinBox" name="abMR">
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="6">
+     <widget class="QSpinBox" name="abIN">
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="3">
+     <widget class="QSpinBox" name="pwFF">
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2">
+     <widget class="QSpinBox" name="spinMU">
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::PlusMinus</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="6">
+     <widget class="QSpinBox" name="abWS">
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QLabel" name="label_16">
+      <property name="text">
+       <string>Wert</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="2">
+     <widget class="QSpinBox" name="spinIN">
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::PlusMinus</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="6">
+     <widget class="QSpinBox" name="spinAsP">
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::PlusMinus</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="2">
+     <widget class="QSpinBox" name="spinFF">
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::PlusMinus</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="2">
+     <widget class="QSpinBox" name="spinKL">
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::PlusMinus</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="2">
+     <widget class="QSpinBox" name="spinCH">
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::PlusMinus</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="6">
+     <widget class="QSpinBox" name="spinKaP">
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::PlusMinus</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="2">
+     <widget class="QSpinBox" name="spinGE">
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::PlusMinus</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="2">
+     <widget class="QSpinBox" name="spinKK">
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::PlusMinus</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Mut</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="8" column="1">
+     <widget class="QLabel" name="label_7">
+      <property name="text">
+       <string>Charisma</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QSpinBox" name="spinKO">
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::PlusMinus</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Intuition</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="1">
+     <widget class="QLabel" name="label_8">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Fingerfertigkeit</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>Klugheit</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Gewandheit</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="5">
+     <widget class="QLabel" name="label_9">
+      <property name="text">
+       <string>Wundschwelle</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Körperkraft</string>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="5">
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="5" column="4">
+     <spacer name="horizontalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>50</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="4" column="7">
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="6" column="5">
+     <widget class="QLabel" name="label_13">
+      <property name="text">
+       <string>Initiative</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="5">
+     <widget class="QLabel" name="label_12">
+      <property name="text">
+       <string>Schadensbonus</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="5">
+     <widget class="QLabel" name="label_11">
+      <property name="text">
+       <string>Geschwindigkeit</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="5">
+     <widget class="QLabel" name="label_14">
+      <property name="text">
+       <string>Astralenergie</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="5">
+     <widget class="QLabel" name="label_10">
+      <property name="text">
+       <string>Magieresistenz</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="9" column="5">
+     <widget class="QLabel" name="label_15">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>Karmalenergie</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

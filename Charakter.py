@@ -13,7 +13,7 @@ class Char():
         self.rasse = ''
         self.status = -1
         self.kurzbeschreibung = ''
-        self.schips = 3
+        self.schips = 4
         self.finanzen = 2;
         self.eigenheiten = []
 
@@ -38,6 +38,7 @@ class Char():
         self.freieFertigkeiten = []
 
         #Fünfter Block: Ausrüstung etc
+        self.be = 0
         self.rüstung = []
         self.waffen = []
         self.ausrüstung = []
@@ -64,7 +65,9 @@ class Char():
         for fert in self.fertigkeiten:
             if fert.wert > self.höchsteKampfF:
                 self.höchsteKampfF = fert.wert
-        self.schips = self.finanzen+1
+        self.schips = self.finanzen+2
+        if len(self.rüstung) > 0:
+            self.be = self.rüstung[0].be
 
     def epAusgeben(self,EP):
         '''Versucht, EP Erfahrungspunkte auszugeben. Returned 1 wenn erfolgreich und 0 wenn nicht genug vorhanden.'''
@@ -248,7 +251,7 @@ class Char():
             self.freieFertigkeiten.append(fert)
         #Fünfter Block
         for rüs in root.findall('Objekte/Rüstungen/Rüstung'):
-            rüst = Objekte.Rüstung()
+            rüst = Objekte.Ruestung()
             rüst.name = rüs.attrib['name']
             rüst.be = int(rüs.attrib['be'])
             rüst.rs = eval(rüs.attrib['rs'])
@@ -305,9 +308,13 @@ class Char():
         fields['Rasse'] = self.rasse
         fields['Statu'] = Definitionen.Statusse[self.status]
         fields['Kurzb'] = self.kurzbeschreibung
-        #TODO: Erhöhen bei Glück
-        fields['Schip'] = 3
-        fields['Schipm'] = self.schips
+        glMod = 0
+        if "Glück I" in self.vorteile:
+            glMod += 1
+        if "Glück II" in self.vorteile:
+            glMod += 1
+        fields['Schip'] = 4 + glMod
+        fields['Schipm'] = self.schips + glMod
         # Erste Acht Eigenheiten
         count = 1;
         for el in self.eigenheiten:
@@ -327,15 +334,48 @@ class Char():
         fields['Geschwindigkeit'] = self.gs
         fields['Schadensbonus'] = self.schadensbonus
         fields['Initiative'] = self.ini
-        #TODO: Zauberer einrechnen
-        fields['Astralenergie'] = self.asp.wert
-        #TODO: Geweiht einrechnen
-        fields['Karmaenergie'] = self.kap.wert
-        #TODO: Übernatürliche Energie... wie?
-        #TODO: BE einrechnen?
-        fields['DHm'] = self.dh
-        fields['GSm'] = self.gs
-        fields['WSm'] = self.ws
+        aspMod = 0
+        if "Zauberer I" in self.vorteile:
+            aspMod += 8
+        if "Zauberer II" in self.vorteile:
+            aspMod += 8
+        if "Zauberer III" in self.vorteile:
+            aspMod += 8
+        if "Zauberer IV" in self.vorteile:
+            aspMod += 8
+        if aspMod > 0:    
+            fields['Astralenergie'] = self.asp.wert + aspMod
+        kapMod = 0
+        if "Geweiht I" in self.vorteile:
+            kapMod += 8
+        if "Geweiht II" in self.vorteile:
+            kapMod += 8
+        if "Geweiht III" in self.vorteile:
+            kapMod += 8
+        if "Geweiht IV" in self.vorteile:
+            kapMod += 8
+        if kapMod > 0:
+            fields['Karmaenergie'] = self.kap.wert + kapMod
+        if aspMod > 0 and kapMod == 0:
+            fields['Energie'] = "AsP"
+            fields['EN'] = self.kap.wert + kapMod
+            fields['Energieg'] = "gAsP"   
+            fields['Text83'] = "0"
+            fields['Energiem'] = "AsP*"
+        elif aspMod == 0 and kapMod > 0:
+            fields['Energie'] = "KaP"
+            fields['EN'] = self.asp.wert + aspMod
+            fields['Energieg'] = "gKaP"   
+            fields['Text83'] = "0"
+            fields['Energiem'] = "KaP*"
+        # Wenn sowohl AsP als auch KaP vorhanden sind, muss der Spieler ran..
+        fields['DHm'] = max(self.dh - 2*self.be,1)
+        fields['GSm'] = max(self.gs-self.be,1)
+        if len(self.rüstung) > 0:    
+            fields['WSm'] = self.ws + sum(self.rüstung[0].rs)/6
+        else:
+            fields['WSm'] = self.ws
+                      
         return fields
     
     def pdfDritterBlock(self, fields):
@@ -387,11 +427,68 @@ class Char():
         return fields
     
     def pdfFünfterBlock(self, fields):
+        count = 0
+        for el in self.rüstung:
+            fields['Text53.' + str(count)] = el.name
+            fields['Text55.' + str(count)] = sum(el.rs)/6
+            fields['Text56.' + str(count)] = el.be
+            fields['Text58.' + str(count)] = el.rs[0]
+            fields['Text59.' + str(count)] = el.rs[1]
+            fields['Text60.' + str(count)] = el.rs[2]
+            fields['Text61.' + str(count)] = el.rs[3]
+            fields['Text62.' + str(count)] = el.rs[4]
+            fields['Text63.' + str(count)] = el.rs[5]
+            if count >= 1:
+                break
+            count += 1
+                      
+        count = 0
+        for el in self.waffen:
+            fields['Text65.' + str(count)] = el.name
+            fields['Text66.' + str(count)] = str(el.W6) + "W6+" + str(el.plus)
+            fields['Text69.' + str(count)] = str(el.haerte)
+            fields['Text70.' + str(count)] = el.eigenschaften
+            if type(el) == Objekte.Fernkampfwaffe:
+                fields['Text67.' + str(count)] = str(el.rwnah) + "/" + str(el.rwfern)
+                fields['Text68.' + str(count)] = str(el.lz)
+            else:
+                fields['Text67.' + str(count)] = str(el.rw)
+                fields['Text68.' + str(count)] = str(el.wm)
+            #TODO: Calculate AT*, PA*, TP*?
+            if count >= 4:
+                break
+            count += 1
         
+        count = 0
+        te = 'Text76.'
+        for el in self.ausrüstung:
+            fields[te+str(count)] = el
+            if count >= 12 and te == 'Text76.':
+                count = 0
+                te = 'Text77.'
+            elif count >= 12:
+                break
+            count += 1
         return fields
     
     def pdfSechsterBlock(self, fields):
-        
+        count = 0
+        for el in self.übernatürlicheFertigkeiten:
+            fields['text86.'+str(count)] = self.übernatürlicheFertigkeiten[el].name
+            fields['text87.'+str(count)] = str(self.übernatürlicheFertigkeiten[el].steigerungsfaktor)       
+            attr = str(self.übernatürlicheFertigkeiten[el].attribute[0]) + "/" + str(self.übernatürlicheFertigkeiten[el].attribute[1]) + "/" + str(self.übernatürlicheFertigkeiten[el].attribute[2])
+            fields['text88.'+str(count)] = attr
+            fields['text89.'+str(count)] = self.übernatürlicheFertigkeiten[el].basiswert       
+            fields['text90.'+str(count)] = self.übernatürlicheFertigkeiten[el].wert
+            tal = ""
+            for el2 in self.übernatürlicheFertigkeiten[el].gekaufteTalente:
+                tal += ", "
+                tal += el2
+            tal = tal[2:]
+            fields['text91.'+str(count)] = tal
+            fields['text92.'+str(count)] = self.übernatürlicheFertigkeiten[el].probenwertTalent
+            if count >= 7:
+                break
         return fields
     
     def pdfSiebterBlock(self, fields):

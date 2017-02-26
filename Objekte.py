@@ -2,8 +2,6 @@
 In dieser Datei werden Waffen und Rüstungen definiert.
 '''
 
-import sys
-
 class Objekt():
     def __init__(self):
         self.name = ''
@@ -15,7 +13,7 @@ class Waffe(Objekt):
         self.W6 = -1
         self.plus = -1
         self.eigenschaften = ''
-        self.härte = -1
+        self.haerte = -1
         
 class Nahkampfwaffe(Waffe):
     def __init__(self):
@@ -30,7 +28,7 @@ class Fernkampfwaffe(Waffe):
         self.rwfern = -1
         self.lz = -1
 
-class Rüstung(Objekt):
+class Ruestung(Objekt):
     def __init__(self):
         super().__init__()
         self.be = -1
