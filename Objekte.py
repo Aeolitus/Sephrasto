@@ -33,3 +33,4 @@ class Ruestung(Objekt):
         super().__init__()
         self.be = -1
         self.rs = [-1,-1,-1,-1,-1,-1]
+        # Bein LArm RArm Bauch Brust Kopf

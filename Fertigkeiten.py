@@ -46,6 +46,7 @@ class Energie(Steigerbar):
     def __init__(self):
         super().__init__()
         self.steigerungsfaktor = 1
+        
 
 # Implementation für freie Fertigkeiten
 class FreieFertigkeit(Steigerbar):
