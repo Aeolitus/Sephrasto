@@ -23,13 +23,19 @@
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="1" column="0">
+    <item row="1" column="1">
      <widget class="QGroupBox" name="groupBox">
       <property name="title">
        <string>Freie Fertigkeiten</string>
       </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="3" column="1">
+       <item row="3" column="2">
         <layout class="QHBoxLayout" name="horizontalLayout_7">
          <item>
           <widget class="QLineEdit" name="editFF11"/>
@@ -64,7 +70,7 @@
          </item>
         </layout>
        </item>
-       <item row="3" column="2">
+       <item row="3" column="3">
         <layout class="QHBoxLayout" name="horizontalLayout_12">
          <item>
           <widget class="QLineEdit" name="editFF12"/>
@@ -99,7 +105,7 @@
          </item>
         </layout>
        </item>
-       <item row="2" column="0">
+       <item row="2" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
           <widget class="QLineEdit" name="editFF7"/>
@@ -134,7 +140,7 @@
          </item>
         </layout>
        </item>
-       <item row="0" column="0">
+       <item row="0" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
           <widget class="QLineEdit" name="editFF1">
@@ -182,7 +188,7 @@
          </item>
         </layout>
        </item>
-       <item row="1" column="1">
+       <item row="1" column="2">
         <layout class="QHBoxLayout" name="horizontalLayout_5">
          <item>
           <widget class="QLineEdit" name="editFF5"/>
@@ -217,7 +223,7 @@
          </item>
         </layout>
        </item>
-       <item row="2" column="1">
+       <item row="2" column="2">
         <layout class="QHBoxLayout" name="horizontalLayout_10">
          <item>
           <widget class="QLineEdit" name="editFF8"/>
@@ -252,7 +258,7 @@
          </item>
         </layout>
        </item>
-       <item row="1" column="2">
+       <item row="1" column="3">
         <layout class="QHBoxLayout" name="horizontalLayout_8">
          <item>
           <widget class="QLineEdit" name="editFF6"/>
@@ -287,7 +293,7 @@
          </item>
         </layout>
        </item>
-       <item row="0" column="1">
+       <item row="0" column="2">
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
           <widget class="QLineEdit" name="editFF2"/>
@@ -322,7 +328,7 @@
          </item>
         </layout>
        </item>
-       <item row="2" column="2">
+       <item row="2" column="3">
         <layout class="QHBoxLayout" name="horizontalLayout_11">
          <item>
           <widget class="QLineEdit" name="editFF9"/>
@@ -357,7 +363,7 @@
          </item>
         </layout>
        </item>
-       <item row="1" column="0">
+       <item row="1" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
           <widget class="QLineEdit" name="editFF4"/>
@@ -392,7 +398,7 @@
          </item>
         </layout>
        </item>
-       <item row="0" column="2">
+       <item row="0" column="3">
         <layout class="QHBoxLayout" name="horizontalLayout_6">
          <item>
           <widget class="QLineEdit" name="editFF3"/>
@@ -427,7 +433,7 @@
          </item>
         </layout>
        </item>
-       <item row="3" column="0">
+       <item row="3" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_9">
          <item>
           <widget class="QLineEdit" name="editFF10"/>
@@ -465,7 +471,7 @@
       </layout>
      </widget>
     </item>
-    <item row="3" column="0">
+    <item row="3" column="1">
      <spacer name="verticalSpacer_2">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
@@ -478,7 +484,17 @@
       </property>
      </spacer>
     </item>
-    <item row="0" column="0">
+    <item row="2" column="1">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Jeder Charakter beherrscht seine Muttersprache meisterlich, ohne dafür zu bezahlen.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
      <spacer name="verticalSpacer">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
@@ -491,19 +507,61 @@
       </property>
      </spacer>
     </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>Jeder Charakter beherrscht seine Muttersprache meisterlich, ohne dafür zu bezahlen.</string>
+    <item row="1" column="2">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
       </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
       </property>
-     </widget>
+     </spacer>
+    </item>
+    <item row="1" column="0">
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
     </item>
    </layout>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>editFF1</tabstop>
+  <tabstop>comboFF1</tabstop>
+  <tabstop>editFF2</tabstop>
+  <tabstop>comboFF2</tabstop>
+  <tabstop>editFF3</tabstop>
+  <tabstop>comboFF3</tabstop>
+  <tabstop>editFF4</tabstop>
+  <tabstop>comboFF4</tabstop>
+  <tabstop>editFF5</tabstop>
+  <tabstop>comboFF5</tabstop>
+  <tabstop>editFF6</tabstop>
+  <tabstop>comboFF6</tabstop>
+  <tabstop>editFF7</tabstop>
+  <tabstop>comboFF7</tabstop>
+  <tabstop>editFF8</tabstop>
+  <tabstop>comboFF8</tabstop>
+  <tabstop>editFF9</tabstop>
+  <tabstop>comboFF9</tabstop>
+  <tabstop>editFF10</tabstop>
+  <tabstop>comboFF10</tabstop>
+  <tabstop>editFF11</tabstop>
+  <tabstop>comboFF11</tabstop>
+  <tabstop>editFF12</tabstop>
+  <tabstop>comboFF12</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
