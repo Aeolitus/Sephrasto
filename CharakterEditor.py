@@ -5,22 +5,27 @@ Created on Sun Feb 26 22:36:35 2017
 @author: Aeolitus
 """
 
-from PyQt5 import QtCore, QtWidgets
+from PyQt5 import QtCore, QtWidgets, QtGui
 import CharakterMain
 import CharakterBeschreibung
 import CharakterAttribute
 import CharakterEquipment
+import CharakterFertigkeiten
+import CharakterUeber
 import sys
 import Charakter
 import Objekte
+import Datenbank
+import Wolke
 
 class Editor(object):
     def __init__(self, Character=None):
         super().__init__()
         if Character is not None:
-            self.char = Character
+            Wolke.Char = Character
         else:
-            self.char = Charakter.Char()
+            Wolke.Char = Charakter.Char()
+        Wolke.DB = Datenbank.Datenbank()
         
     def setupMainForm(self):
         self.formMain = QtWidgets.QWidget()
@@ -37,6 +42,18 @@ class Editor(object):
         self.uiAttr = CharakterAttribute.Ui_formAttribute()
         self.uiAttr.setupUi(self.formAttr)
         
+        self.formFert = QtWidgets.QWidget()
+        self.uiFert = CharakterFertigkeiten.Ui_Form()
+        self.uiFert.setupUi(self.formFert)
+        header = self.uiFert.tableWidget.horizontalHeader()
+        header.setSectionResizeMode(0, 1)
+        header.setSectionResizeMode(1, 3)
+        header.setSectionResizeMode(2, 3)
+        
+        self.formUeber = QtWidgets.QWidget()
+        self.uiUeber = CharakterUeber.Ui_Form()
+        self.uiUeber.setupUi(self.formUeber)
+        
         self.formEq = QtWidgets.QWidget()
         self.uiEq = CharakterEquipment.Ui_formAusruestung()
         self.uiEq.setupUi(self.formEq)
@@ -50,6 +67,10 @@ class Editor(object):
         
         self.ui.tabs.addTab(self.formBeschr, "Beschreibung")
         self.ui.tabs.addTab(self.formAttr, "Attribute")
+        
+        self.ui.tabs.addTab(self.formFert, "Fertigkeiten")
+        self.ui.tabs.addTab(self.formUeber, "Übernatürliches")
+        
         self.ui.tabs.addTab(self.formEq, "Waffen und Rüstung")    
         
         self.ui.buttonSave.clicked.connect(self.updateEquipment)
@@ -60,31 +81,31 @@ class Editor(object):
         
     def updateBeschreibung(self):
         if self.uiBeschr.editName.text() != "":
-            self.char.name = self.uiBeschr.editName.text()
+            Wolke.Char.name = self.uiBeschr.editName.text()
         if self.uiBeschr.editRasse.text() != "":
-            self.char.rasse = self.uiBeschr.editRasse.text()
-        self.char.status = self.uiBeschr.comboStatus.currentIndex()
-        self.char.finanzen = self.uiBeschr.comboFinanzen.currentIndex()
-        self.char.kurzbeschreibung = self.uiBeschr.editKurzbeschreibung.text()
-        self.char.eigenheiten = []
-        self.char.eigenheiten.append(self.uiBeschr.editEig1.text())
-        self.char.eigenheiten.append(self.uiBeschr.editEig2.text())
-        self.char.eigenheiten.append(self.uiBeschr.editEig3.text())
-        self.char.eigenheiten.append(self.uiBeschr.editEig4.text())
-        self.char.eigenheiten.append(self.uiBeschr.editEig5.text())
-        self.char.eigenheiten.append(self.uiBeschr.editEig6.text())
-        self.char.eigenheiten.append(self.uiBeschr.editEig7.text())
-        self.char.eigenheiten.append(self.uiBeschr.editEig8.text())
+            Wolke.Char.rasse = self.uiBeschr.editRasse.text()
+        Wolke.Char.status = self.uiBeschr.comboStatus.currentIndex()
+        Wolke.Char.finanzen = self.uiBeschr.comboFinanzen.currentIndex()
+        Wolke.Char.kurzbeschreibung = self.uiBeschr.editKurzbeschreibung.text()
+        Wolke.Char.eigenheiten = []
+        Wolke.Char.eigenheiten.append(self.uiBeschr.editEig1.text())
+        Wolke.Char.eigenheiten.append(self.uiBeschr.editEig2.text())
+        Wolke.Char.eigenheiten.append(self.uiBeschr.editEig3.text())
+        Wolke.Char.eigenheiten.append(self.uiBeschr.editEig4.text())
+        Wolke.Char.eigenheiten.append(self.uiBeschr.editEig5.text())
+        Wolke.Char.eigenheiten.append(self.uiBeschr.editEig6.text())
+        Wolke.Char.eigenheiten.append(self.uiBeschr.editEig7.text())
+        Wolke.Char.eigenheiten.append(self.uiBeschr.editEig8.text())
 
     def loadBeschreibung(self):
-        self.uiBeschr.editName.setText(self.char.name)
-        self.uiBeschr.editRasse.setText(self.char.rasse)
-        self.uiBeschr.comboStatus.setCurrentIndex(self.char.status)
-        self.uiBeschr.comboFinanzen.setCurrentIndex(self.char.finanzen)
-        self.uiBeschr.editKurzbeschreibung.setText(self.char.kurzbeschreibung)
+        self.uiBeschr.editName.setText(Wolke.Char.name)
+        self.uiBeschr.editRasse.setText(Wolke.Char.rasse)
+        self.uiBeschr.comboStatus.setCurrentIndex(Wolke.Char.status)
+        self.uiBeschr.comboFinanzen.setCurrentIndex(Wolke.Char.finanzen)
+        self.uiBeschr.editKurzbeschreibung.setText(Wolke.Char.kurzbeschreibung)
         arr = ["", "", "", "", "", "", "", ""]
         count = 0
-        for el in self.char.eigenheiten:
+        for el in Wolke.Char.eigenheiten:
             arr[count] = el
             count += 1
         self.uiBeschr.editEig1.setText(arr[0])
@@ -97,54 +118,54 @@ class Editor(object):
         self.uiBeschr.editEig8.setText(arr[7])
         
     def updateAttribute(self):
-        self.char.attribute['KO'].wert = self.uiAttr.spinKO.value()
-        self.char.attribute['KO'].aktualisieren()
-        self.char.attribute['MU'].wert = self.uiAttr.spinMU.value()
-        self.char.attribute['MU'].aktualisieren()
-        self.char.attribute['GE'].wert = self.uiAttr.spinGE.value()
-        self.char.attribute['GE'].aktualisieren()
-        self.char.attribute['KK'].wert = self.uiAttr.spinKK.value()
-        self.char.attribute['KK'].aktualisieren()
-        self.char.attribute['IN'].wert = self.uiAttr.spinIN.value()
-        self.char.attribute['IN'].aktualisieren()
-        self.char.attribute['KL'].wert = self.uiAttr.spinKL.value()
-        self.char.attribute['KL'].aktualisieren()
-        self.char.attribute['CH'].wert = self.uiAttr.spinCH.value()
-        self.char.attribute['CH'].aktualisieren()
-        self.char.attribute['FF'].wert = self.uiAttr.spinFF.value()
-        self.char.attribute['FF'].aktualisieren()
-        self.char.asp.wert = self.uiAttr.spinAsP.value()
-        self.char.kap.wert = self.uiAttr.spinKaP.value()
-        self.char.aktualisieren()
+        Wolke.Char.attribute['KO'].wert = self.uiAttr.spinKO.value()
+        Wolke.Char.attribute['KO'].aktualisieren()
+        Wolke.Char.attribute['MU'].wert = self.uiAttr.spinMU.value()
+        Wolke.Char.attribute['MU'].aktualisieren()
+        Wolke.Char.attribute['GE'].wert = self.uiAttr.spinGE.value()
+        Wolke.Char.attribute['GE'].aktualisieren()
+        Wolke.Char.attribute['KK'].wert = self.uiAttr.spinKK.value()
+        Wolke.Char.attribute['KK'].aktualisieren()
+        Wolke.Char.attribute['IN'].wert = self.uiAttr.spinIN.value()
+        Wolke.Char.attribute['IN'].aktualisieren()
+        Wolke.Char.attribute['KL'].wert = self.uiAttr.spinKL.value()
+        Wolke.Char.attribute['KL'].aktualisieren()
+        Wolke.Char.attribute['CH'].wert = self.uiAttr.spinCH.value()
+        Wolke.Char.attribute['CH'].aktualisieren()
+        Wolke.Char.attribute['FF'].wert = self.uiAttr.spinFF.value()
+        Wolke.Char.attribute['FF'].aktualisieren()
+        Wolke.Char.asp.wert = self.uiAttr.spinAsP.value()
+        Wolke.Char.kap.wert = self.uiAttr.spinKaP.value()
+        Wolke.Char.aktualisieren()
         
     def loadAttribute(self):
-        self.char.aktualisieren()
-        self.uiAttr.spinKO.setValue(self.char.attribute['KO'].wert)
-        self.uiAttr.pwKO.setValue(self.char.attribute['KO'].wert*2)
-        self.uiAttr.spinMU.setValue(self.char.attribute['MU'].wert)
-        self.uiAttr.pwMU.setValue(self.char.attribute['MU'].wert*2)
-        self.uiAttr.spinGE.setValue(self.char.attribute['GE'].wert)
-        self.uiAttr.pwGE.setValue(self.char.attribute['GE'].wert*2)
-        self.uiAttr.spinKK.setValue(self.char.attribute['KK'].wert)
-        self.uiAttr.pwKK.setValue(self.char.attribute['KK'].wert*2)
-        self.uiAttr.spinIN.setValue(self.char.attribute['IN'].wert)
-        self.uiAttr.pwIN.setValue(self.char.attribute['IN'].wert*2)
-        self.uiAttr.spinKL.setValue(self.char.attribute['KL'].wert)
-        self.uiAttr.pwKL.setValue(self.char.attribute['KL'].wert*2)
-        self.uiAttr.spinCH.setValue(self.char.attribute['CH'].wert)
-        self.uiAttr.pwCH.setValue(self.char.attribute['CH'].wert*2)
-        self.uiAttr.spinFF.setValue(self.char.attribute['FF'].wert)
-        self.uiAttr.pwFF.setValue(self.char.attribute['FF'].wert*2)
-        self.uiAttr.abWS.setValue(self.char.ws)
-        self.uiAttr.abGS.setValue(self.char.gs)
-        self.uiAttr.abIN.setValue(self.char.ini)
-        self.uiAttr.abMR.setValue(self.char.mr)
-        self.uiAttr.abSB.setValue(self.char.schadensbonus)
-        self.uiAttr.spinAsP.setValue(self.char.asp.wert)
-        self.uiAttr.spinKaP.setValue(self.char.kap.wert)
+        Wolke.Char.aktualisieren()
+        self.uiAttr.spinKO.setValue(Wolke.Char.attribute['KO'].wert)
+        self.uiAttr.pwKO.setValue(Wolke.Char.attribute['KO'].wert*2)
+        self.uiAttr.spinMU.setValue(Wolke.Char.attribute['MU'].wert)
+        self.uiAttr.pwMU.setValue(Wolke.Char.attribute['MU'].wert*2)
+        self.uiAttr.spinGE.setValue(Wolke.Char.attribute['GE'].wert)
+        self.uiAttr.pwGE.setValue(Wolke.Char.attribute['GE'].wert*2)
+        self.uiAttr.spinKK.setValue(Wolke.Char.attribute['KK'].wert)
+        self.uiAttr.pwKK.setValue(Wolke.Char.attribute['KK'].wert*2)
+        self.uiAttr.spinIN.setValue(Wolke.Char.attribute['IN'].wert)
+        self.uiAttr.pwIN.setValue(Wolke.Char.attribute['IN'].wert*2)
+        self.uiAttr.spinKL.setValue(Wolke.Char.attribute['KL'].wert)
+        self.uiAttr.pwKL.setValue(Wolke.Char.attribute['KL'].wert*2)
+        self.uiAttr.spinCH.setValue(Wolke.Char.attribute['CH'].wert)
+        self.uiAttr.pwCH.setValue(Wolke.Char.attribute['CH'].wert*2)
+        self.uiAttr.spinFF.setValue(Wolke.Char.attribute['FF'].wert)
+        self.uiAttr.pwFF.setValue(Wolke.Char.attribute['FF'].wert*2)
+        self.uiAttr.abWS.setValue(Wolke.Char.ws)
+        self.uiAttr.abGS.setValue(Wolke.Char.gs)
+        self.uiAttr.abIN.setValue(Wolke.Char.ini)
+        self.uiAttr.abMR.setValue(Wolke.Char.mr)
+        self.uiAttr.abSB.setValue(Wolke.Char.schadensbonus)
+        self.uiAttr.spinAsP.setValue(Wolke.Char.asp.wert)
+        self.uiAttr.spinKaP.setValue(Wolke.Char.kap.wert)
         
     def updateEquipment(self):
-        self.char.rüstung = []
+        Wolke.Char.rüstung = []
         if self.uiEq.editR1name.text() != "":
             R = Objekte.Ruestung() 
             R.name = self.uiEq.editR1name.text()
@@ -153,7 +174,7 @@ class Editor(object):
                 R.rs = [self.uiEq.spinR1bein.value(), self.uiEq.spinR1larm.value(), self.uiEq.spinR1rarm.value(), self.uiEq.spinR1bauch.value(), self.uiEq.spinR1brust.value(), self.uiEq.spinR1kopf.value()]
             else:
                 R.rs = 6*[self.uiEq.spinR1RS]
-            self.char.rüstung.append(R)
+            Wolke.Char.rüstung.append(R)
         if self.uiEq.editR2name.text() != "":
             R = Objekte.Ruestung() 
             R.name = self.uiEq.editR2name.text()
@@ -162,9 +183,9 @@ class Editor(object):
                 R.rs = [self.uiEq.spinR2bein.value(), self.uiEq.spinR2larm.value(), self.uiEq.spinR2rarm.value(), self.uiEq.spinR2bauch.value(), self.uiEq.spinR2brust.value(), self.uiEq.spinR2kopf.value()]
             else:
                 R.rs = 6*[self.uiEq.spinR2RS]
-            self.char.rüstung.append(R)
+            Wolke.Char.rüstung.append(R)
             
-        self.char.waffen = []
+        Wolke.Char.waffen = []
         for el in ['W1', 'W2', 'W3', 'W4', 'W5']:
             if (eval("self.uiEq.edit" + el + "name.text()") != ""):
                 W = Objekte.Waffe()
@@ -182,14 +203,14 @@ class Editor(object):
                 W.W6 = eval("self.uiEq.spin" + el + "w6.value()")
                 W.plus = eval("self.uiEq.spin" + el + "plus.value()")
                 W.eigenschaften = eval("self.uiEq.edit" + el + "eig.text()")
-                self.char.waffen.append(W)
-        self.char.aktualisieren()
+                Wolke.Char.waffen.append(W)
+        Wolke.Char.aktualisieren()
         
     def loadEquipment(self):
         Rarr = ["R1", "R2"]
         count = 0
-        while count < len(self.char.rüstung):
-            R = self.char.rüstung[count]
+        while count < len(Wolke.Char.rüstung):
+            R = Wolke.Char.rüstung[count]
             eval("self.uiEq.edit" + Rarr[count] + "name.setText(\"" + R.name +"\")")
             eval("self.uiEq.spin" + Rarr[count] + "be.setValue(" + str(R.be) +")")
             eval("self.uiEq.spin" + Rarr[count] + "bein.setValue(" + str(R.rs[0]) +")")
@@ -202,8 +223,8 @@ class Editor(object):
             count += 1
         Warr = ["W1","W2","W3","W4","W5"]
         count = 0
-        while count < len(self.char.waffen):
-            W = self.char.waffen[count]
+        while count < len(Wolke.Char.waffen):
+            W = Wolke.Char.waffen[count]
             eval("self.uiEq.edit" + Warr[count] + "name.setText(\""+ W.name +"\")")
             eval("self.uiEq.edit" + Warr[count] + "eig.setText(\""+ W.eigenschaften +"\")")
             eval("self.uiEq.spin" + Warr[count] + "w6.setValue("+ str(W.W6) +")")

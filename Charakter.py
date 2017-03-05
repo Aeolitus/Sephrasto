@@ -228,8 +228,9 @@ class Char():
         for atr in root.findall('Attribute/*'):
             self.attribute[atr.tag].wert = int(atr.text)
             self.attribute[atr.tag].aktualisieren()
-        self.asp.wert = int(root.find('Energien/AsP').attrib['wert'])
-        self.kap.wert = int(root.find('Energien/KaP').attrib['wert'])
+        for ene in root.findall('Energien/*'):
+            self.asp.wert = int(root.find('AsP').attrib['wert'])
+            self.kap.wert = int(root.find('KaP').attrib['wert'])
         #Dritter Block
         for vor in root.findall('Vorteile/*'):
             self.vorteile.append(vor.text)

@@ -6,15 +6,13 @@ Created on Sun Mar  5 16:45:34 2017
 """
 import CharakterTalente
 from PyQt5 import QtCore, QtWidgets, QtGui
+import Wolke
 
 class TalentPicker(object):
-    def __init__(self,fert,datenbank,gekauft=[]):
+    def __init__(self,fert,gekauft=[]):
         super().__init__()
-        
         self.gekaufteTalente = gekauft
-        self.db = datenbank
         self.fert = fert
-        
         self.Form = QtWidgets.QDialog()
         self.ui = CharakterTalente.Ui_Dialog()
         self.ui.setupUi(self.Form)
@@ -22,8 +20,8 @@ class TalentPicker(object):
         self.ui.listTalente.setModel(self.model)
         self.ui.listTalente.clicked.connect(self.talClicked)
         
-        for el in datenbank.talente:
-            if fert in datenbank.talente[el].fertigkeiten:
+        for el in Wolke.DB.talente:
+            if fert in Wolke.DB.talente[el].fertigkeiten and Wolke.Char.voraussetzungenPrüfen(Wolke.DB.talente[el].voraussetzungen):
                 item = QtGui.QStandardItem(el)
                 item.setEditable(False)
                 item.setCheckable(True)
@@ -31,7 +29,6 @@ class TalentPicker(object):
                     item.setCheckState(2)
                 else:
                     item.setCheckState(0)
-                #TODO: Voraussetzungen prüfen!
                 self.model.appendRow(item)
         self.ui.listTalente.setModel(self.model)
         self.Form.show()
@@ -50,15 +47,15 @@ class TalentPicker(object):
         self.updateFields(text)
         
     def updateFields(self, talent):
-        self.ui.labelName.setText(self.db.talente[talent].name)
-        if self.db.talente[talent].kosten == -1:
-            if self.db.talente[talent].verbilligt:
+        self.ui.labelName.setText(Wolke.DB.talente[talent].name)
+        if Wolke.DB.talente[talent].kosten == -1:
+            if Wolke.DB.talente[talent].verbilligt:
                 self.ui.labelInfo.setText("Verbilligt")
-                self.ui.spinKosten.setValue(self.db.fertigkeiten[self.fert].steigerungsfaktor*20)
+                self.ui.spinKosten.setValue(Wolke.DB.fertigkeiten[self.fert].steigerungsfaktor*20)
             else:
                 self.ui.labelInfo.setText("")
-                self.ui.spinKosten.setValue(self.db.fertigkeiten[self.fert].steigerungsfaktor*10)
+                self.ui.spinKosten.setValue(Wolke.DB.fertigkeiten[self.fert].steigerungsfaktor*10)
         else:
             self.ui.labelInfo.setText("Spezialtalent")
-            self.ui.spinKosten.setValue(self.db.talente[talent].kosten)
-        self.ui.plainText.setPlainText(self.db.talente[talent].text)
+            self.ui.spinKosten.setValue(Wolke.DB.talente[talent].kosten)
+        self.ui.plainText.setPlainText(Wolke.DB.talente[talent].text)
