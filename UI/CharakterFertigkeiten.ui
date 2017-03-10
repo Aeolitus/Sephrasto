@@ -38,8 +38,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>223</width>
-          <height>387</height>
+          <width>225</width>
+          <height>362</height>
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
@@ -70,7 +70,7 @@
           </widget>
          </item>
          <item row="7" column="0" colspan="5">
-          <widget class="QPlainTextEdit" name="plainTextEdit">
+          <widget class="QPlainTextEdit" name="plainText">
            <property name="frameShape">
             <enum>QFrame::Box</enum>
            </property>
@@ -89,7 +89,7 @@
           </widget>
          </item>
          <item row="3" column="4">
-          <widget class="QSpinBox" name="spinBox_3">
+          <widget class="QSpinBox" name="spinFW">
            <property name="alignment">
             <set>Qt::AlignCenter</set>
            </property>
@@ -104,7 +104,7 @@
          <item row="6" column="0" colspan="5">
           <layout class="QHBoxLayout" name="horizontalLayout">
            <item>
-            <widget class="QListView" name="listView_3">
+            <widget class="QListView" name="listTalente">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                <horstretch>0</horstretch>
@@ -122,7 +122,7 @@
           </layout>
          </item>
          <item row="3" column="1">
-          <widget class="QSpinBox" name="spinBox_2">
+          <widget class="QSpinBox" name="spinBasis">
            <property name="alignment">
             <set>Qt::AlignCenter</set>
            </property>
@@ -152,7 +152,7 @@
           </widget>
          </item>
          <item row="4" column="4">
-          <widget class="QSpinBox" name="spinBox_5">
+          <widget class="QSpinBox" name="spinPWT">
            <property name="alignment">
             <set>Qt::AlignCenter</set>
            </property>
@@ -165,7 +165,7 @@
           </widget>
          </item>
          <item row="2" column="4">
-          <widget class="QSpinBox" name="spinBox">
+          <widget class="QSpinBox" name="spinSF">
            <property name="alignment">
             <set>Qt::AlignCenter</set>
            </property>
@@ -178,7 +178,7 @@
           </widget>
          </item>
          <item row="4" column="1">
-          <widget class="QSpinBox" name="spinBox_4">
+          <widget class="QSpinBox" name="spinPW">
            <property name="alignment">
             <set>Qt::AlignCenter</set>
            </property>
@@ -218,7 +218,7 @@
           </widget>
          </item>
          <item row="5" column="4">
-          <widget class="QPushButton" name="pushButton_3">
+          <widget class="QPushButton" name="buttonAdd">
            <property name="maximumSize">
             <size>
              <width>25</width>
@@ -245,6 +245,24 @@
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
         <widget class="QTableWidget" name="tableWidget">
+         <property name="editTriggers">
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::SingleSelection</enum>
+         </property>
+         <property name="selectionBehavior">
+          <enum>QAbstractItemView::SelectRows</enum>
+         </property>
+         <property name="showGrid">
+          <bool>false</bool>
+         </property>
+         <attribute name="horizontalHeaderHighlightSections">
+          <bool>false</bool>
+         </attribute>
+         <attribute name="verticalHeaderVisible">
+          <bool>false</bool>
+         </attribute>
          <column>
           <property name="text">
            <string>Fertigkeitsname</string>
