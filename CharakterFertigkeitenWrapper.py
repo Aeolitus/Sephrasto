@@ -6,6 +6,8 @@ Created on Fri Mar 10 17:33:11 2017
 """
 import Wolke
 import CharakterFertigkeiten
+import TalentPicker
+import Fertigkeiten
 from PyQt5 import QtWidgets, QtCore, QtGui
 
 class FertWrapper(object):
@@ -22,11 +24,25 @@ class FertWrapper(object):
         self.model = QtGui.QStandardItemModel(self.uiFert.listTalente)
         self.uiFert.listTalente.setModel(self.model)
         
-        self.currentFertName = Wolke.Char.fertigkeiten.
+        #A bit hacky. Sorry.
+        self.currentFertName = Wolke.Char.fertigkeiten.__iter__().__next__()
         
-        self.uiFert.tableWidget.cellClicked.connect(self.tableClicked)        
+        self.uiFert.tableWidget.cellClicked.connect(self.tableClicked)   
+        self.uiFert.buttonAdd.clicked.connect(self.editTalents)
         self.loadFertigkeiten()
         
+    def updateFertigkeiten(self):
+        for i in range(self.uiFert.tableWidget.rowCount):
+            name = self.uiFert.tableWidget.itemAt(i,0).text()
+            fert = Wolke.Char.fertigkeiten[name]
+            if fert is None:
+                fert = Fertigkeiten.Fertigkeit()
+                fert.name = name
+            fert.wert = self.uiFert.spinFW.value()
+            fert.aktualisieren()
+            Wolke.Char.fertigkeiten.update({name: fert})
+        Wolke.Char.aktualisieren()
+    
     def loadFertigkeiten(self):
         Wolke.Char.aktualisieren()
         self.uiFert.tableWidget.clear()
@@ -54,9 +70,12 @@ class FertWrapper(object):
         self.uiFert.tableWidget.cellClicked.connect(self.tableClicked) 
             
     def tableClicked(self,row,col):
-        name = self.uiFert.tableWidget.itemAt(row,0).text()
-        fert = Wolke.Char.fertigkeiten[name]
-        self.uiFert.labelFertigkeit.setText(name)
+        self.currentFertName = self.uiFert.tableWidget.itemAt(row,0).text()
+        self.updateInfo()
+        
+    def updateInfo(self):
+        fert = Wolke.Char.fertigkeiten[self.currentFertName]
+        self.uiFert.labelFertigkeit.setText(self.currentFertName)
         self.uiFert.labelAttribute.setText(fert.attribute[0] + "/" 
                                            + fert.attribute[1] + "/" 
                                            + fert.attribute[2])
@@ -66,14 +85,17 @@ class FertWrapper(object):
         self.uiFert.spinPW.setValue(fert.probenwert)
         self.uiFert.spinPWT.setValue(fert.probenwertTalent)
         self.uiFert.plainText.setPlainText(fert.text)
-        self.updateTalents(name)
+        self.updateTalents()
             
-    def updateTalents(self, fertName):
+    def updateTalents(self):
         self.model.clear()
-        for el in Wolke.Char.fertigkeiten[fertName].gekaufteTalente:
+        for el in Wolke.Char.fertigkeiten[self.currentFertName].gekaufteTalente:
             item = QtGui.QStandardItem(el)
             item.setEditable(False)
             self.model.appendRow(item)
         
-    def editTalents(self, fertName):
-        pass
+    def editTalents(self):
+        tal = TalentPicker.TalentPicker()
+        if tal.gekaufteTalente is not None:
+            #TODO: Voraussetzungen, Kosten
+            Wolke.Char.fertigkeiten[self.currentFertName].gekaufteTalente = tal.gekaufteTalente
