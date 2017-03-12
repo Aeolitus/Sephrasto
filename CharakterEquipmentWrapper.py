@@ -15,6 +15,9 @@ class EquipWrapper(object):
         self.formEq = QtWidgets.QWidget()
         self.uiEq = CharakterEquipment.Ui_formAusruestung()
         self.uiEq.setupUi(self.formEq)
+        #Signals
+        #TODO: If signals should be put, do that
+        
         self.uiEq.checkW1FK.stateChanged.connect(self.checkToggleEquip)
         self.uiEq.checkW2FK.stateChanged.connect(self.checkToggleEquip)
         self.uiEq.checkW3FK.stateChanged.connect(self.checkToggleEquip)

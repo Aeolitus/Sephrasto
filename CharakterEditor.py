@@ -75,6 +75,17 @@ class Editor(object):
         self.EquipWrapper.loadEquipment()
         self.FertWrapper.loadFertigkeiten()
     
+    def saveButton(self):
+        self.BeschrWrapper.updateBeschreibung()
+        self.AttrWrapper.updateAttribute()
+        self.EquipWrapper.updateEquipment()
+        self.FertWrapper.updateFertigkeiten()
+        #TODO: Select Path, then call xmlSchreiben
+        pass
+    
+    def pdfButton(self):
+        #TODO: Implement
+        pass
     
 if __name__ == "__main__":
     app = QtCore.QCoreApplication.instance()

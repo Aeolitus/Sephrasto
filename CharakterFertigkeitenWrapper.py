@@ -7,7 +7,6 @@ Created on Fri Mar 10 17:33:11 2017
 import Wolke
 import CharakterFertigkeiten
 import TalentPicker
-import Fertigkeiten
 from PyQt5 import QtWidgets, QtCore, QtGui
 
 class FertWrapper(object):
@@ -24,6 +23,9 @@ class FertWrapper(object):
         self.model = QtGui.QStandardItemModel(self.uiFert.listTalente)
         self.uiFert.listTalente.setModel(self.model)
         
+        #Signals
+        self.uiFert.spinFW.valueChanged.connect(self.fwChanged)
+        
         self.uiFert.tableWidget.cellClicked.connect(self.tableClicked)   
         self.uiFert.buttonAdd.clicked.connect(self.editTalents)
         
@@ -33,22 +35,18 @@ class FertWrapper(object):
         except StopIteration:
             self.currentFertName = ''
         else:
-            self.loadFertigkeiten()
-        
+            self.initFertigkeiten()
+            
     def updateFertigkeiten(self):
+        pass
+        
+    def loadFertigkeiten(self):
         for i in range(self.uiFert.tableWidget.rowCount):
             name = self.uiFert.tableWidget.itemAt(i,0).text()
-            fert = Wolke.Char.fertigkeiten[name]
-            if fert is None:
-                fert = Fertigkeiten.Fertigkeit()
-                fert.name = name
-            fert.wert = self.uiFert.spinFW.value()
-            fert.aktualisieren()
-            Wolke.Char.fertigkeiten.update({name: fert})
-        Wolke.Char.aktualisieren()
+            self.uiFert.tableWidget.setItem(i,1,str(Wolke.Char.fertigkeiten[name].wert))
+            self.uiFert.tableWidget.setItem(i,2,str(len(Wolke.Char.fertigkeiten[name].gekaufteTalente)))
     
-    def loadFertigkeiten(self):
-        Wolke.Char.aktualisieren()
+    def initFertigkeiten(self):
         self.uiFert.tableWidget.clear()
         
         self.uiFert.tableWidget.setRowCount(len(Wolke.DB.fertigkeiten))
@@ -69,16 +67,25 @@ class FertWrapper(object):
         count = 0
         for el in Wolke.DB.fertigkeiten:
             self.uiFert.tableWidget.setItem(count, 0, QtWidgets.QTableWidgetItem(Wolke.DB.fertigkeiten[el].name))
-            self.uiFert.tableWidget.setItem(count, 1, QtWidgets.QTableWidgetItem("1"))
-            self.uiFert.tableWidget.setItem(count, 2, QtWidgets.QTableWidgetItem("2"))
+            #self.uiFert.tableWidget.setItem(count, 1, QtWidgets.QTableWidgetItem("-"))
+            #self.uiFert.tableWidget.setItem(count, 2, QtWidgets.QTableWidgetItem("-"))
         self.uiFert.tableWidget.cellClicked.connect(self.tableClicked) 
+        self.loadFertigkeiten()
             
     def tableClicked(self,row,col):
         self.currentFertName = self.uiFert.tableWidget.itemAt(row,0).text()
         self.updateInfo()
         
+    def fwChanged(self):
+        Wolke.Char.fertigkeiten[self.currentFertName].wert = self.uiFert.spinFW.value()
+        Wolke.Char.fertigkeiten[self.currentFertName].aktualisieren()
+        self.uiFert.spinPW.setValue(Wolke.Char.fertigkeiten[self.currentFertName].probenwert)
+        self.uiFert.spinPWT.setValue(Wolke.Char.fertigkeiten[self.currentFertName].probenwertTalent)
+        self.loadFertigkeiten()
+        
     def updateInfo(self):
         fert = Wolke.Char.fertigkeiten[self.currentFertName]
+        fert.aktualisieren()
         self.uiFert.labelFertigkeit.setText(self.currentFertName)
         self.uiFert.labelAttribute.setText(fert.attribute[0] + "/" 
                                            + fert.attribute[1] + "/" 
@@ -86,11 +93,12 @@ class FertWrapper(object):
         self.uiFert.spinSF.setValue(fert.steigerungsfaktor)
         self.uiFert.spinBasis.setValue(fert.basiswert)
         self.uiFert.spinFW.setValue(fert.wert)
+        self.uiFert.spinFW.setMaximum(fert.maxWert)
         self.uiFert.spinPW.setValue(fert.probenwert)
         self.uiFert.spinPWT.setValue(fert.probenwertTalent)
         self.uiFert.plainText.setPlainText(fert.text)
         self.updateTalents()
-            
+        
     def updateTalents(self):
         self.model.clear()
         for el in Wolke.Char.fertigkeiten[self.currentFertName].gekaufteTalente:
@@ -99,7 +107,9 @@ class FertWrapper(object):
             self.model.appendRow(item)
         
     def editTalents(self):
-        tal = TalentPicker.TalentPicker()
+        tal = TalentPicker.TalentPicker(self.currentFertName)
         if tal.gekaufteTalente is not None:
             #TODO: Voraussetzungen, Kosten
             Wolke.Char.fertigkeiten[self.currentFertName].gekaufteTalente = tal.gekaufteTalente
+            self.updateTalents()
+            self.loadFertigkeiten()

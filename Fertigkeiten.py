@@ -4,6 +4,7 @@ Alle steigerbaren Traits verfügen über die Funktionen steigern() und senken()
 '''
 
 from Definitionen import FreieFertigkeitKosten, Attribute
+import Wolke
 
 # Allgemeine Implementation für steigerbare Traits
 class Steigerbar:
@@ -87,33 +88,34 @@ class Fertigkeit(Steigerbar):
         self.probenwert = -1
         self.probenwertTalent = -1
         self.voraussetzungen = []
-    def aktualisieren(self, attribute):
-        # Charakter �bergibt sein Dict
+        self.maxWert = -1
+    def aktualisieren(self):
         super().aktualisieren()
-        self.attributswerte = [attribute[self.attribute[0]], 
-                               attribute[self.attribute[1]],
-                               attribute[self.attribute[2]]]
-        if self.wert == max(self.attributswerte)+2:
-            self.lernkosten = -1
+        self.attributswerte = [Wolke.Char.attribute[self.attribute[0]], 
+                               Wolke.Char.attribute[self.attribute[1]],
+                               Wolke.Char.attribute[self.attribute[2]]]
+        self.maxWert = max(self.attributswerte)+2
         self.basiswert = round(sum(self.attributswerte)/3)
         self.probenwert = self.basiswert + round(self.wert/2)
         self.probenwertTalent = self.basiswert + self.wert
         self.talentkosten = 20*self.steigerungsfaktor
-    def steigern(self):
-        if self.wert < max(self.attributswerte)+2:
-            super().steigern()
-            return 1
-        return 0
-    def talentKauf(self,talent):
-        if talent in self.gekaufteTalente or self.name not in talent.fertigkeiten:
-            return 0
-        self.gekaufteTalente.append(Talent)
-        return 1
-    def talentVerlernen(self,talent):
-        if talent not in self.gekaufteTalente:
-            return 0
-        self.gekaufteTalente.remove(talent)
-        return 1
+#==============================================================================
+#     def steigern(self):
+#         if self.wert < max(self.attributswerte)+2:
+#             super().steigern()
+#             return 1
+#         return 0
+#     def talentKauf(self,talent):
+#         if talent in self.gekaufteTalente or self.name not in talent.fertigkeiten:
+#             return 0
+#         self.gekaufteTalente.append(Talent)
+#         return 1
+#     def talentVerlernen(self,talent):
+#         if talent not in self.gekaufteTalente:
+#             return 0
+#         self.gekaufteTalente.remove(talent)
+#         return 1
+#==============================================================================
 
 class Talent():
     def __init__(self):
