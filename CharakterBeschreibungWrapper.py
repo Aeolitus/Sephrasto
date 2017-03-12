@@ -14,6 +14,14 @@ class BeschrWrapper(object):
         self.formBeschr = QtWidgets.QWidget()
         self.uiBeschr = CharakterBeschreibung.Ui_formBeschreibung()
         self.uiBeschr.setupUi(self.formBeschr)
+        self.loadBeschreibung()
+        self.uiBeschr.editName.editingFinished.connect(self.updateBeschreibung)
+        self.uiBeschr.editRasse.editingFinished.connect(self.updateBeschreibung)
+        self.uiBeschr.editKurzbeschreibung.editingFinished.connect(self.updateBeschreibung)
+        for i in range(8):
+            eval("self.uiBeschr.editEig" + str(i+1) + ".editingFinished.connect(self.updateBeschreibung)")
+        self.uiBeschr.comboFinanzen.activated.connect(self.updateBeschreibung)
+        self.uiBeschr.comboStatus.activated.connect(self.updateBeschreibung)
         
     def updateBeschreibung(self):
         if self.uiBeschr.editName.text() != "":

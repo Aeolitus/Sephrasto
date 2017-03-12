@@ -4,6 +4,7 @@ import Objekte
 import lxml.etree as etree
 import re
 import pdf
+import Wolke
 
 class Char():
     def __init__(self):
@@ -11,7 +12,7 @@ class Char():
         #Erster Block: Allgemeine Infos
         self.name = ''
         self.rasse = ''
-        self.status = -1
+        self.status = 2
         self.kurzbeschreibung = ''
         self.schips = 4
         self.finanzen = 2;
@@ -68,13 +69,57 @@ class Char():
         self.schips = self.finanzen+2
         if len(self.rüstung) > 0:
             self.be = self.rüstung[0].be
+        self.epZaehlen()
 
-    def epAusgeben(self,EP):
-        '''Versucht, EP Erfahrungspunkte auszugeben. Returned 1 wenn erfolgreich und 0 wenn nicht genug vorhanden.'''
-        if self.EPtotal-self.EPspent>EP:
-            self.EPspent += EP
-            return 1
-        return 0
+    def epZaehlen(self):
+        '''Berechnet die bisher ausgegebenen EP'''
+        spent = 0
+        #Erster Block ist gratis
+        #Zweiter Block: Attribute und Abgeleitetes
+        for key in Definitionen.Attribute:
+            spent += sum(range(self.attribute[key].wert+1))*self.attribute[key].steigerungsfaktor
+        spent += sum(range(self.asp.wert+1))*self.asp.steigerungsfaktor
+        spent += sum(range(self.kap.wert+1))*self.kap.steigerungsfaktor            
+        #Dritter Block: Vorteile
+        for vor in self.vorteile:
+            spent += max(0,Wolke.DB.vorteile[vor].kosten)
+        #Vierter Block: Fertigkeiten und Freie Fertigkeiten
+        for fer in self.fertigkeiten:
+            spent += sum(range(self.fertigkeiten[fer].wert+1))*self.fertigkeiten[fer].steigerungsfaktor
+            for tal in self.fertigkeiten[fer].gekaufteTalente:
+                if Wolke.DB.talente[tal].kosten != -1:
+                    spent += Wolke.DB.talente[tal].kosten
+                elif Wolke.DB.talente[tal].verbilligt:
+                    spent += 10*self.fertigkeiten[fer].steigerungsfaktor
+                else:
+                    spent += 20*self.fertigkeiten[fer].steigerungsfaktor
+        for fer in self.freieFertigkeiten:
+            spent += Definitionen.FreieFertigkeitKosten[fer.wert-1]
+        #Fünfter Block ist gratis
+        #Sechster Block: Übernatürliches
+        for fer in self.übernatürlicheFertigkeiten:
+            spent += sum(range(self.fertigkeiten[fer].wert+1))*self.fertigkeiten[fer].steigerungsfaktor
+            for tal in self.übernatürlicheFertigkeiten[fer].gekaufteTalente:
+                if Wolke.DB.talente[tal].kosten > -1:
+                    spent += Wolke.DB.talente[tal].kosten
+                elif Wolke.DB.talente[tal].verbilligt:
+                    spent += 10*self.übernatürlicheFertigkeiten[fer].steigerungsfaktor
+                else:
+                    spent += 20*self.übernatürlicheFertigkeiten[fer].steigerungsfaktor
+        #Siebter Block ist gratis
+        #Achter Block: Fix für höchste Kampffertigkeit
+        spent += max(0,2*sum(range(self.höchsteKampfF+1)))
+        #Store
+        self.EPspent = spent
+        
+#==============================================================================
+#     def epAusgeben(self,EP):
+#         '''Versucht, EP Erfahrungspunkte auszugeben. Returned 1 wenn erfolgreich und 0 wenn nicht genug vorhanden.'''
+#         if self.EPtotal-self.EPspent>EP:
+#             self.EPspent += EP
+#             return 1
+#         return 0
+#==============================================================================
 
     def voraussetzungenPrüfen(self,Vor,Or=False):
         '''
@@ -299,7 +344,6 @@ class Char():
         fields = self.pdfFünfterBlock(fields)
         fields = self.pdfSechsterBlock(fields)
         fields = self.pdfSiebterBlock(fields)
-        
         
         #PDF erstellen - Felder bleiben bearbeitbar
         pdf.write_pdf("Charakterbogen.pdf", fields, filename, False)

@@ -24,12 +24,16 @@ class FertWrapper(object):
         self.model = QtGui.QStandardItemModel(self.uiFert.listTalente)
         self.uiFert.listTalente.setModel(self.model)
         
-        #A bit hacky. Sorry.
-        self.currentFertName = Wolke.Char.fertigkeiten.__iter__().__next__()
-        
         self.uiFert.tableWidget.cellClicked.connect(self.tableClicked)   
         self.uiFert.buttonAdd.clicked.connect(self.editTalents)
-        self.loadFertigkeiten()
+        
+        #A bit hacky. Sorry.
+        try:
+            self.currentFertName = Wolke.Char.fertigkeiten.__iter__().__next__()
+        except StopIteration:
+            self.currentFertName = ''
+        else:
+            self.loadFertigkeiten()
         
     def updateFertigkeiten(self):
         for i in range(self.uiFert.tableWidget.rowCount):

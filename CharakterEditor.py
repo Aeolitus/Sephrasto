@@ -33,6 +33,8 @@ class Editor(object):
         self.ui.tabs.removeTab(0)
         self.ui.tabs.removeTab(0)
         
+        self.updateEP()
+        
         self.BeschrWrapper = CharakterBeschreibungWrapper.BeschrWrapper()
         self.AttrWrapper = CharakterAttributeWrapper.AttrWrapper()
         self.FertWrapper = CharakterFertigkeitenWrapper.FertWrapper()
@@ -47,10 +49,24 @@ class Editor(object):
         
         self.ui.buttonSave.clicked.connect(self.EquipWrapper.updateEquipment)
         self.ui.buttonSavePDF.clicked.connect(self.EquipWrapper.loadEquipment)
+        self.ui.spinEP.valueChanged.connect(self.epChanged)
         
         
         self.formMain.show()
         
+    def updateEP(self):
+        self.ui.spinEP.setValue(Wolke.Char.EPtotal)
+        Wolke.Char.aktualisieren()
+        self.ui.spinRemaining.setValue(Wolke.Char.EPtotal-Wolke.Char.EPspent)
+        if Wolke.Char.EPtotal < Wolke.Char.EPspent:
+            self.ui.spinRemaining.setStyleSheet("QSpinBox { background-color: rgb(200,50,50) }")
+        else:
+            self.ui.spinRemaining.setStyleSheet("QSpinBox { background-color: white }")
+    
+    def epChanged(self):
+        Wolke.Char.EPtotal = self.ui.spinEP.value()
+        self.updateEP()
+    
 if __name__ == "__main__":
     app = QtCore.QCoreApplication.instance()
     if app is None:
