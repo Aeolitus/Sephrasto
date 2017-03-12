@@ -11,7 +11,7 @@ import CharakterBeschreibungWrapper
 import CharakterAttributeWrapper
 import CharakterEquipmentWrapper
 import CharakterFertigkeitenWrapper
-import CharakterUeberWrapper
+import CharakterUebernatuerlichWrapper
 import sys
 import Charakter
 import Datenbank
@@ -38,13 +38,13 @@ class Editor(object):
         self.BeschrWrapper = CharakterBeschreibungWrapper.BeschrWrapper()
         self.AttrWrapper = CharakterAttributeWrapper.AttrWrapper()
         self.FertWrapper = CharakterFertigkeitenWrapper.FertWrapper()
-        self.UeberWrapper = CharakterUeberWrapper.UeberWrapper()
+        self.UebernatuerlichWrapper = CharakterUebernatuerlichWrapper.UebernatuerlichWrapper()
         self.EquipWrapper = CharakterEquipmentWrapper.EquipWrapper()
         
         self.ui.tabs.addTab(self.BeschrWrapper.formBeschr, "Beschreibung")
         self.ui.tabs.addTab(self.AttrWrapper.formAttr, "Attribute")
         self.ui.tabs.addTab(self.FertWrapper.formFert, "Fertigkeiten")
-        self.ui.tabs.addTab(self.UeberWrapper.formUeber, "Übernatürliches")
+        self.ui.tabs.addTab(self.UebernatuerlichWrapper.formUeber, "Übernatürliches")
         self.ui.tabs.addTab(self.EquipWrapper.formEq, "Waffen und Rüstung")    
         
         
@@ -74,12 +74,14 @@ class Editor(object):
         self.AttrWrapper.loadAttribute()
         self.EquipWrapper.loadEquipment()
         self.FertWrapper.loadFertigkeiten()
-    
+        self.UebernatuerlichWrapper.loadFertigkeiten()
+        
     def saveButton(self):
         self.BeschrWrapper.updateBeschreibung()
         self.AttrWrapper.updateAttribute()
         self.EquipWrapper.updateEquipment()
         self.FertWrapper.updateFertigkeiten()
+        self.UebernatuerlichWrapper.updateFertigkeiten()
         #TODO: Select Path, then call xmlSchreiben
         pass
     

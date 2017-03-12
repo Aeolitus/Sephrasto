@@ -69,6 +69,7 @@ class FertWrapper(object):
             self.uiFert.tableWidget.setItem(count, 0, QtWidgets.QTableWidgetItem(Wolke.DB.fertigkeiten[el].name))
             #self.uiFert.tableWidget.setItem(count, 1, QtWidgets.QTableWidgetItem("-"))
             #self.uiFert.tableWidget.setItem(count, 2, QtWidgets.QTableWidgetItem("-"))
+            count += 1
         self.uiFert.tableWidget.cellClicked.connect(self.tableClicked) 
         self.loadFertigkeiten()
             
