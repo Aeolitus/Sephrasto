@@ -14,6 +14,22 @@ class AttrWrapper(object):
         self.formAttr = QtWidgets.QWidget()
         self.uiAttr = CharakterAttribute.Ui_formAttribute()
         self.uiAttr.setupUi(self.formAttr)
+        self.loadAttribute()
+        #Signals
+        self.uiAttr.spinAsP.valueChanged.connect(self.updateAttribute)
+        self.uiAttr.spinKaP.valueChanged.connect(self.updateAttribute)
+        self.uiAttr.spinKO.valueChanged.connect(self.refresh)
+        self.uiAttr.spinMU.valueChanged.connect(self.refresh)
+        self.uiAttr.spinIN.valueChanged.connect(self.refresh)
+        self.uiAttr.spinGE.valueChanged.connect(self.refresh)
+        self.uiAttr.spinKK.valueChanged.connect(self.refresh)
+        self.uiAttr.spinFF.valueChanged.connect(self.refresh)
+        self.uiAttr.spinKL.valueChanged.connect(self.refresh)
+        self.uiAttr.spinCH.valueChanged.connect(self.refresh)
+        
+    def refresh(self):
+        self.updateAttribute()
+        self.loadAttribute()
         
     def updateAttribute(self):
         Wolke.Char.attribute['KO'].wert = self.uiAttr.spinKO.value()
@@ -37,7 +53,6 @@ class AttrWrapper(object):
         Wolke.Char.aktualisieren()
         
     def loadAttribute(self):
-        Wolke.Char.aktualisieren()
         self.uiAttr.spinKO.setValue(Wolke.Char.attribute['KO'].wert)
         self.uiAttr.pwKO.setValue(Wolke.Char.attribute['KO'].wert*2)
         self.uiAttr.spinMU.setValue(Wolke.Char.attribute['MU'].wert)
