@@ -47,6 +47,8 @@ class Editor(object):
         self.ui.tabs.addTab(self.UeberWrapper.formUeber, "Übernatürliches")
         self.ui.tabs.addTab(self.EquipWrapper.formEq, "Waffen und Rüstung")    
         
+        
+        self.ui.tabs.currentChanged.connect(self.reloadAll)
         self.ui.buttonSave.clicked.connect(self.EquipWrapper.updateEquipment)
         self.ui.buttonSavePDF.clicked.connect(self.EquipWrapper.loadEquipment)
         self.ui.spinEP.valueChanged.connect(self.epChanged)
@@ -66,6 +68,13 @@ class Editor(object):
     def epChanged(self):
         Wolke.Char.EPtotal = self.ui.spinEP.value()
         self.updateEP()
+    
+    def reloadAll(self):
+        self.BeschrWrapper.loadBeschreibung()
+        self.AttrWrapper.loadAttribute()
+        self.EquipWrapper.loadEquipment()
+        self.FertWrapper.loadFertigkeiten()
+    
     
 if __name__ == "__main__":
     app = QtCore.QCoreApplication.instance()
