@@ -4,11 +4,13 @@ Created on Fri Mar 10 17:11:39 2017
 
 @author: Lennart
 """
-import Wolke
+from Wolke import Wolke
 import CharakterBeschreibung
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtCore
 
-class BeschrWrapper(object):
+class BeschrWrapper(QtCore.QObject):
+    modified = QtCore.pyqtSignal()
+    
     def __init__(self):
         super().__init__()
         self.formBeschr = QtWidgets.QWidget()
@@ -22,6 +24,8 @@ class BeschrWrapper(object):
             eval("self.uiBeschr.editEig" + str(i+1) + ".editingFinished.connect(self.updateBeschreibung)")
         self.uiBeschr.comboFinanzen.activated.connect(self.updateBeschreibung)
         self.uiBeschr.comboStatus.activated.connect(self.updateBeschreibung)
+        
+        
         
     def updateBeschreibung(self):
         if self.uiBeschr.editName.text() != "":
@@ -40,6 +44,7 @@ class BeschrWrapper(object):
         Wolke.Char.eigenheiten.append(self.uiBeschr.editEig6.text())
         Wolke.Char.eigenheiten.append(self.uiBeschr.editEig7.text())
         Wolke.Char.eigenheiten.append(self.uiBeschr.editEig8.text())
+        self.modified.emit()
 
     def loadBeschreibung(self):
         self.uiBeschr.editName.setText(Wolke.Char.name)

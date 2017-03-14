@@ -4,7 +4,7 @@ Created on Fri Mar 10 17:35:48 2017
 
 @author: Lennart
 """
-import Wolke
+from Wolke import Wolke
 import CharakterUeber
 from PyQt5 import QtWidgets, QtGui
 class UeberWrapper(object):

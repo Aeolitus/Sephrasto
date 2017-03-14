@@ -4,7 +4,7 @@ Created on Fri Mar 10 17:33:11 2017
 
 @author: Lennart
 """
-import Wolke
+from Wolke import Wolke
 import CharakterFertigkeiten
 import TalentPicker
 from PyQt5 import QtWidgets, QtCore, QtGui

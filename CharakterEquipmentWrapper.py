@@ -4,19 +4,28 @@ Created on Fri Mar 10 17:25:53 2017
 
 @author: Lennart
 """
-import Wolke
+from Wolke import Wolke
 import CharakterEquipment
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtCore
 import Objekte
 
-class EquipWrapper(object):
+class EquipWrapper(QtCore.QObject):
+    modified = QtCore.pyqtSignal()
+    
     def __init__(self):
         super().__init__()
         self.formEq = QtWidgets.QWidget()
         self.uiEq = CharakterEquipment.Ui_formAusruestung()
         self.uiEq.setupUi(self.formEq)
         #Signals
-        #TODO: If signals should be put, do that
+        # Connect all Spins and Edit boxes - hacky, sorry
+        fields = [el for el in self.uiEq.__dir__() if el[0:4] == "spin"]
+        for el in fields:
+            eval("self.uiEq." + el + ".valueChanged.connect(self.updateEquipment)")
+        fields = [el for el in self.uiEq.__dir__() if el[0:4] == "edit"]
+        for el in fields:
+            eval("self.uiEq." + el + ".editingFinished.connect(self.updateEquipment)")
+        
         
         self.uiEq.checkW1FK.stateChanged.connect(self.checkToggleEquip)
         self.uiEq.checkW2FK.stateChanged.connect(self.checkToggleEquip)
@@ -67,6 +76,7 @@ class EquipWrapper(object):
                 W.eigenschaften = eval("self.uiEq.edit" + el + "eig.text()")
                 Wolke.Char.waffen.append(W)
         Wolke.Char.aktualisieren()
+        self.modified.emit()
         
     def loadEquipment(self):
         Rarr = ["R1", "R2"]

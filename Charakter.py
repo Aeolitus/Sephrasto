@@ -4,7 +4,7 @@ import Objekte
 import lxml.etree as etree
 import re
 import pdf
-import Wolke
+from Wolke import Wolke
 
 class Char():
     def __init__(self):

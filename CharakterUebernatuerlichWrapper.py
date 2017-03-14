@@ -4,12 +4,14 @@ Created on Fri Mar 10 17:33:11 2017
 
 @author: Lennart
 """
-import Wolke
+from Wolke import Wolke
 import CharakterUebernatuerlich
 import TalentPicker
 from PyQt5 import QtWidgets, QtCore, QtGui
 
-class UebernatuerlichWrapper(object):
+class UebernatuerlichWrapper(QtCore.QObject):
+    modified = QtCore.pyqtSignal()
+    
     def __init__(self):
         super().__init__()
         self.formFert = QtWidgets.QWidget()
@@ -31,26 +33,22 @@ class UebernatuerlichWrapper(object):
         
         self.availableFerts = []
         
-        #A bit hacky. Sorry.
+        #If there is an ability already, then we take it to display already
         try:
             self.currentFertName = Wolke.Char.übernatürlicheFertigkeiten.__iter__().__next__()
         except StopIteration:
             self.currentFertName = ''
-        else:
-            self.loadFertigkeiten()
+        self.loadFertigkeiten()
             
     def updateFertigkeiten(self):
+        #Already implemented for the individual events
         pass
         
     def loadFertigkeiten(self):
-        temp = []
-        for el in Wolke.DB.übernatürlicheFertigkeiten:
-            if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.übernatürlicheFertigkeiten[el].voraussetzungen):
-                temp.append(el)
-        
+        temp = [el for el in Wolke.DB.übernatürlicheFertigkeiten 
+                if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.übernatürlicheFertigkeiten[el].voraussetzungen)]
         if temp != self.availableFerts:
             self.availableFerts = temp
-        
             self.uiFert.tableWidget.clear()
             
             self.uiFert.tableWidget.setRowCount(len(self.availableFerts))
@@ -79,10 +77,11 @@ class UebernatuerlichWrapper(object):
                 #Add abilities that werent there before
                 if el not in Wolke.Char.übernatürlicheFertigkeiten:
                     Wolke.Char.übernatürlicheFertigkeiten.update({el: Wolke.DB.übernatürlicheFertigkeiten[el]})
+                    Wolke.Char.übernatürlicheFertigkeiten[el].wert = 0
                     Wolke.Char.übernatürlicheFertigkeiten[el].aktualisieren()
                 self.uiFert.tableWidget.setItem(count, 0, QtWidgets.QTableWidgetItem(Wolke.Char.übernatürlicheFertigkeiten[el].name))
-                self.uiFert.tableWidget.setItem(count,1,str(Wolke.Char.übernatürlicheFertigkeiten[el].wert))
-                self.uiFert.tableWidget.setItem(count,2,str(len(Wolke.Char.übernatürlicheFertigkeiten[el].gekaufteTalente)))
+                self.uiFert.tableWidget.setItem(count,1,QtWidgets.QTableWidgetItem(str(Wolke.Char.übernatürlicheFertigkeiten[el].wert)))
+                self.uiFert.tableWidget.setItem(count,2,QtWidgets.QTableWidgetItem(str(len(Wolke.Char.übernatürlicheFertigkeiten[el].gekaufteTalente))))
                 count += 1
             self.uiFert.tableWidget.cellClicked.connect(self.tableClicked) 
             
@@ -94,6 +93,7 @@ class UebernatuerlichWrapper(object):
         Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].wert = self.uiFert.spinFW.value()
         Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].aktualisieren()
         self.uiFert.spinPW.setValue(Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].probenwert)
+        self.modified.emit()
         self.loadFertigkeiten()
         
     def updateInfo(self):
@@ -123,5 +123,6 @@ class UebernatuerlichWrapper(object):
         if tal.gekaufteTalente is not None:
             #TODO: Voraussetzungen, Kosten
             Wolke.Char.fertigkeiten[self.currentFertName].gekaufteTalente = tal.gekaufteTalente
+            self.modified.emit()
             self.updateTalents()
             self.loadFertigkeiten()

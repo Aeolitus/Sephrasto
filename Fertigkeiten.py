@@ -4,7 +4,7 @@ Alle steigerbaren Traits verfügen über die Funktionen steigern() und senken()
 '''
 
 from Definitionen import FreieFertigkeitKosten, Attribute
-import Wolke
+from Wolke import Wolke
 
 # Allgemeine Implementation für steigerbare Traits
 class Steigerbar:
@@ -91,9 +91,9 @@ class Fertigkeit(Steigerbar):
         self.maxWert = -1
     def aktualisieren(self):
         super().aktualisieren()
-        self.attributswerte = [Wolke.Char.attribute[self.attribute[0]], 
-                               Wolke.Char.attribute[self.attribute[1]],
-                               Wolke.Char.attribute[self.attribute[2]]]
+        self.attributswerte = [Wolke.Char.attribute[self.attribute[0]].wert, 
+                               Wolke.Char.attribute[self.attribute[1]].wert,
+                               Wolke.Char.attribute[self.attribute[2]].wert]
         self.maxWert = max(self.attributswerte)+2
         self.basiswert = round(sum(self.attributswerte)/3)
         self.probenwert = self.basiswert + round(self.wert/2)

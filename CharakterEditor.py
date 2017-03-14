@@ -15,7 +15,7 @@ import CharakterUebernatuerlichWrapper
 import sys
 import Charakter
 import Datenbank
-import Wolke
+from Wolke import Wolke
 
 class Editor(object):
     def __init__(self, Character=None):
@@ -44,9 +44,14 @@ class Editor(object):
         self.ui.tabs.addTab(self.BeschrWrapper.formBeschr, "Beschreibung")
         self.ui.tabs.addTab(self.AttrWrapper.formAttr, "Attribute")
         self.ui.tabs.addTab(self.FertWrapper.formFert, "Fertigkeiten")
-        self.ui.tabs.addTab(self.UebernatuerlichWrapper.formUeber, "Übernatürliches")
+        self.ui.tabs.addTab(self.UebernatuerlichWrapper.formFert, "Übernatürliches")
         self.ui.tabs.addTab(self.EquipWrapper.formEq, "Waffen und Rüstung")    
         
+        self.BeschrWrapper.modified.connect(self.updateEP)
+        self.AttrWrapper.modified.connect(self.updateEP)
+        #self.FertWrapper.modified.connect(self.updateEP)
+        self.UebernatuerlichWrapper.modified.connect(self.updateEP)
+        self.EquipWrapper.modified.connect(self.updateEP)
         
         self.ui.tabs.currentChanged.connect(self.reloadAll)
         self.ui.buttonSave.clicked.connect(self.EquipWrapper.updateEquipment)

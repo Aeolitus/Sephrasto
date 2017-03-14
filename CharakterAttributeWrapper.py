@@ -4,11 +4,13 @@ Created on Fri Mar 10 17:21:49 2017
 
 @author: Lennart
 """
-import Wolke
+from Wolke import Wolke
 import CharakterAttribute
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtCore
 
-class AttrWrapper(object):
+class AttrWrapper(QtCore.QObject):
+    modified = QtCore.pyqtSignal()
+    
     def __init__(self):
         super().__init__()
         self.formAttr = QtWidgets.QWidget()
@@ -51,6 +53,7 @@ class AttrWrapper(object):
         Wolke.Char.asp.wert = self.uiAttr.spinAsP.value()
         Wolke.Char.kap.wert = self.uiAttr.spinKaP.value()
         Wolke.Char.aktualisieren()
+        self.modified.emit()
         
     def loadAttribute(self):
         self.uiAttr.spinKO.setValue(Wolke.Char.attribute['KO'].wert)

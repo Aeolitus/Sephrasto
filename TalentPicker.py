@@ -6,7 +6,7 @@ Created on Sun Mar  5 16:45:34 2017
 """
 import CharakterTalente
 from PyQt5 import QtCore, QtWidgets, QtGui
-import Wolke
+from Wolke import Wolke
 
 class TalentPicker(object):
     def __init__(self,fert,gekauft=[]):

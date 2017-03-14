@@ -31,7 +31,7 @@ class Ui_formBeschreibung(object):
         self.label_6.setObjectName("label_6")
         self.gridLayout.addWidget(self.label_6, 6, 1, 1, 1)
         self.label_4 = QtWidgets.QLabel(self.gridLayoutWidget)
-        self.label_4.setMinimumSize(QtCore.QSize(100, 0))
+        self.label_4.setMinimumSize(QtCore.QSize(120, 0))
         self.label_4.setObjectName("label_4")
         self.gridLayout.addWidget(self.label_4, 5, 1, 1, 1)
         self.gridLayout_2 = QtWidgets.QGridLayout()
