@@ -76,7 +76,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
             for el in self.availableFerts:
                 #Add abilities that werent there before
                 if el not in Wolke.Char.übernatürlicheFertigkeiten:
-                    Wolke.Char.übernatürlicheFertigkeiten.update({el: Wolke.DB.übernatürlicheFertigkeiten[el]})
+                    Wolke.Char.übernatürlicheFertigkeiten.update({el: Wolke.DB.übernatürlicheFertigkeiten[el].__deepcopy__()})
                     Wolke.Char.übernatürlicheFertigkeiten[el].wert = 0
                     Wolke.Char.übernatürlicheFertigkeiten[el].aktualisieren()
                 self.uiFert.tableWidget.setItem(count, 0, QtWidgets.QTableWidgetItem(Wolke.Char.übernatürlicheFertigkeiten[el].name))

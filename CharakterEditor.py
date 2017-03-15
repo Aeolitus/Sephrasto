@@ -25,6 +25,7 @@ class Editor(object):
             Wolke.Char = Character
         else:
             Wolke.Char = Charakter.Char()
+        Wolke.Char.aktualisieren() # A bit later because it needs access to itself
         
         
     def setupMainForm(self):
@@ -55,8 +56,8 @@ class Editor(object):
         self.EquipWrapper.modified.connect(self.updateEP)
         
         self.ui.tabs.currentChanged.connect(self.reloadAll)
-        self.ui.buttonSave.clicked.connect(self.EquipWrapper.updateEquipment)
-        self.ui.buttonSavePDF.clicked.connect(self.EquipWrapper.loadEquipment)
+        self.ui.buttonSave.clicked.connect(self.saveButton)
+        self.ui.buttonSavePDF.clicked.connect(self.pdfButton)
         self.ui.spinEP.valueChanged.connect(self.epChanged)
         
         
@@ -88,8 +89,14 @@ class Editor(object):
         self.EquipWrapper.updateEquipment()
         self.FertWrapper.updateFertigkeiten()
         self.UebernatuerlichWrapper.updateFertigkeiten()
-        #TODO: Select Path, then call xmlSchreiben
-        pass
+        self.updateEP()
+        spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"Charakter speichern...","","XML-Datei (*.xml)")
+        if ".xml" not in spath:
+            spath = spath + ".xml"
+        try:
+            Wolke.Char.xmlSchreiben(spath)
+        except: 
+            pass #TODO: Error Handling
     
     def pdfButton(self):
         #TODO: Implement

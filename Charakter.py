@@ -4,6 +4,7 @@ import Objekte
 import lxml.etree as etree
 import re
 import pdf
+import copy
 from Wolke import Wolke
 
 class Char():
@@ -35,7 +36,7 @@ class Char():
         self.vorteile = []
 
         #Vierter Block: Fertigkeiten und Freie Fertigkeiten
-        self.fertigkeiten = Wolke.DB.fertigkeiten.copy()
+        self.fertigkeiten = copy.deepcopy(Wolke.DB.fertigkeiten)
         self.freieFertigkeiten = []
 
         #Fünfter Block: Ausrüstung etc
@@ -45,7 +46,7 @@ class Char():
         self.ausrüstung = []
 
         #Sechster Block: Übernatürliches
-        self.übernatürlicheFertigkeiten = Wolke.DB.übernatürlicheFertigkeiten.copy()
+        self.übernatürlicheFertigkeiten = copy.deepcopy(Wolke.DB.übernatürlicheFertigkeiten)
 
         #Siebter Block: EP
         self.EPtotal = 0
@@ -53,8 +54,6 @@ class Char():
 
         #Achter Block: Flags etc
         self.höchsteKampfF = -1
-        
-        self.aktualisieren()
 
     def aktualisieren(self):
         '''Berechnet alle abgeleiteten Werte neu'''
@@ -126,6 +125,10 @@ class Char():
             if not self.voraussetzungenPrüfen(self.fertigkeiten[fert].voraussetzungen):
                 remove.append(fert)
                 continue
+            self.fertigkeiten[fert].aktualisieren()
+            if self.fertigkeiten[fert].wert > self.fertigkeiten[fert].maxWert:
+                self.fertigkeiten[fert].wert = self.fertigkeiten[fert].maxWert
+                self.fertigkeiten[fert].aktualisieren()
             if self.fertigkeiten[fert].wert > self.höchsteKampfF:
                 self.höchsteKampfF = self.fertigkeiten[fert].wert
             for tal in self.fertigkeiten[fert].gekaufteTalente:
@@ -138,6 +141,10 @@ class Char():
             if not self.voraussetzungenPrüfen(self.übernatürlicheFertigkeiten[fert].voraussetzungen):
                 remove.append(fert)
                 continue
+            self.übernatürlicheFertigkeiten[fert].aktualisieren()
+            if self.übernatürlicheFertigkeiten[fert].wert > self.übernatürlicheFertigkeiten[fert].maxWert:
+                self.übernatürlicheFertigkeiten[fert].wert = self.übernatürlicheFertigkeiten[fert].maxWert
+                self.übernatürlicheFertigkeiten[fert].aktualisieren()
             for tal in self.übernatürlicheFertigkeiten[fert].gekaufteTalente:
                 if not self.voraussetzungenPrüfen(Wolke.DB.talente[tal].voraussetzungen):
                     self.übernatürlicheFertigkeiten[fert].gekaufteTalente.remove(tal)    
@@ -222,7 +229,7 @@ class Char():
             fertNode.set('wert',str(self.fertigkeiten[fert].wert))
             talentNode = etree.SubElement(fertNode,'Talente')
             for talent in self.fertigkeiten[fert].gekaufteTalente:
-                etree.SubElement(talentNode,'Talent').set('name',talent.name)
+                etree.SubElement(talentNode,'Talent').set('name',talent)
         for fert in self.freieFertigkeiten:
             freiNode = etree.SubElement(fer,'Freie-Fertigkeit')
             freiNode.set('name',fert.name)
@@ -259,11 +266,11 @@ class Char():
         üfer = etree.SubElement(root,'Übernatürliche-Fertigkeiten')
         for fert in self.übernatürlicheFertigkeiten:
             fertNode = etree.SubElement(üfer,'Übernatürliche-Fertigkeit')
-            fertNode.set('name',self.fertigkeiten[fert].name)
-            fertNode.set('wert',str(self.fertigkeiten[fert].wert))
+            fertNode.set('name',self.übernatürlicheFertigkeiten[fert].name)
+            fertNode.set('wert',str(self.übernatürlicheFertigkeiten[fert].wert))
             talentNode = etree.SubElement(fertNode,'Talente')
-            for talent in self.fertigkeiten[fert].gekaufteTalente:
-                etree.SubElement(talentNode,'Talent').set('name',talent.name)
+            for talent in self.übernatürlicheFertigkeiten[fert].gekaufteTalente:
+                etree.SubElement(talentNode,'Talent').set('name',talent)
         #Siebter Block
         epn = etree.SubElement(root,'Erfahrung')
         etree.SubElement(epn,'EPtotal').text = str(self.EPtotal)
@@ -304,12 +311,11 @@ class Char():
             self.vorteile.append(vor.text)
         #Vierter Block
         for fer in root.findall('Fertigkeiten/Fertigkeit'):
-            fert = Fertigkeiten.Fertigkeit()
-            fert.name = fer.attrib['name']
-            fert.wert = int(fer.attrib)
+            nam = fer.attrib['name']
+            fert = Wolke.DB.fertigkeiten[nam].__deepcopy__()
+            fert.wert = int(fer.attrib['wert'])
             for tal in fer.findall('Talente/Talent'):
                 fert.gekaufteTalente.append(tal.attrib['name'])
-            #TODO: Fertigkeit aus Datenbank laden
             fert.aktualisieren()
             self.fertigkeiten.update({fert.name: fert})
         for fer in root.findall('Fertigkeiten/Freie-Fertigkeit'):
@@ -345,12 +351,11 @@ class Char():
             self.ausrüstung.append(aus.text)
         #Sechster Block 
         for fer in root.findall('Übernatürliche-Fertigkeiten/Übernatürliche-Fertigkeit'):
-            fert = Fertigkeiten.Fertigkeit()
-            fert.name = fer.attrib['name']
-            fert.wert = int(fer.attrib)
+            nam = fer.attrib['name']
+            fert = Wolke.DB.übernatürlicheFertigkeiten[nam].__deepcopy__()
+            fert.wert = int(fer.attrib['wert'])
             for tal in fer.findall('Talente/Talent'):
                 fert.gekaufteTalente.append(tal.attrib['name'])
-            #TODO: Fertigkeit aus Datenbank laden
             fert.aktualisieren()
             self.übernatürlicheFertigkeiten.update({fert.name: fert})
         #Siebter Block

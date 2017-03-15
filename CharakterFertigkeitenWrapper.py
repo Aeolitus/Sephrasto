@@ -76,7 +76,7 @@ class FertigkeitenWrapper(QtCore.QObject):
             for el in self.availableFerts:
                 #Add abilities that werent there before
                 if el not in Wolke.Char.fertigkeiten:
-                    Wolke.Char.fertigkeiten.update({el: Wolke.DB.fertigkeiten[el]})
+                    Wolke.Char.fertigkeiten.update({el: Wolke.DB.fertigkeiten[el].__deepcopy__()})
                     Wolke.Char.fertigkeiten[el].wert = 0
                     Wolke.Char.fertigkeiten[el].aktualisieren()
                 self.uiFert.tableWidget.setItem(count, 0, QtWidgets.QTableWidgetItem(Wolke.Char.fertigkeiten[el].name))
