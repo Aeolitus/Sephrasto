@@ -9,9 +9,15 @@ from PyQt5 import QtCore, QtWidgets, QtGui
 from Wolke import Wolke
 
 class TalentPicker(object):
-    def __init__(self,fert,gekauft=[]):
+    def __init__(self,fert,ueber):
         super().__init__()
-        self.gekaufteTalente = gekauft
+        if ueber:    
+            self.refC = Wolke.Char.übernatürlicheFertigkeiten
+            self.refD = Wolke.DB.übernatürlicheFertigkeiten
+        else:
+            self.refC = Wolke.Char.fertigkeiten
+            self.refD = Wolke.DB.fertigkeiten
+        self.gekaufteTalente = self.refC[fert].gekaufteTalente.copy()
         self.fert = fert
         self.Form = QtWidgets.QDialog()
         self.ui = CharakterTalente.Ui_Dialog()
@@ -30,14 +36,25 @@ class TalentPicker(object):
                 else:
                     item.setCheckState(0)
                 self.model.appendRow(item)
+        if self.model.rowCount() > 0:
+            self.updateFields(self.model.item(0).text())
         self.ui.listTalente.setModel(self.model)
+        self.Form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.Form.show()
         self.ret = self.Form.exec_()
         if self.ret == QtWidgets.QDialog.Accepted:
             self.gekaufteTalente = []
             for i in range(self.model.rowCount()):
-                if self.model.item(i).checkState:
-                    self.gekaufteTalente.append(self.model.item(i).text())
+                tmp = self.model.item(i).text()
+                if self.model.item(i).checkState() == QtCore.Qt.Checked:
+                    for el in Wolke.DB.talente[tmp].fertigkeiten:
+                        if tmp not in self.refC[el].gekaufteTalente:
+                            self.refC[el].gekaufteTalente.append(tmp)
+                else:
+                    for el in Wolke.DB.talente[tmp].fertigkeiten:
+                        if tmp in self.refC[el].gekaufteTalente:
+                            self.refC[el].gekaufteTalente.remove(tmp)
+            self.gekaufteTalente = self.refC[fert].gekaufteTalente
         else:
             self.gekaufteTalente = None
         
@@ -51,10 +68,10 @@ class TalentPicker(object):
         if Wolke.DB.talente[talent].kosten == -1:
             if Wolke.DB.talente[talent].verbilligt:
                 self.ui.labelInfo.setText("Verbilligt")
-                self.ui.spinKosten.setValue(Wolke.DB.fertigkeiten[self.fert].steigerungsfaktor*20)
+                self.ui.spinKosten.setValue(self.refD[self.fert].steigerungsfaktor*10)
             else:
                 self.ui.labelInfo.setText("")
-                self.ui.spinKosten.setValue(Wolke.DB.fertigkeiten[self.fert].steigerungsfaktor*10)
+                self.ui.spinKosten.setValue(self.refD[self.fert].steigerungsfaktor*20)
         else:
             self.ui.labelInfo.setText("Spezialtalent")
             self.ui.spinKosten.setValue(Wolke.DB.talente[talent].kosten)

@@ -20,11 +20,12 @@ from Wolke import Wolke
 class Editor(object):
     def __init__(self, Character=None):
         super().__init__()
+        Wolke.DB = Datenbank.Datenbank()
         if Character is not None:
             Wolke.Char = Character
         else:
             Wolke.Char = Charakter.Char()
-        Wolke.DB = Datenbank.Datenbank()
+        
         
     def setupMainForm(self):
         self.formMain = QtWidgets.QWidget()
@@ -37,7 +38,7 @@ class Editor(object):
         
         self.BeschrWrapper = CharakterBeschreibungWrapper.BeschrWrapper()
         self.AttrWrapper = CharakterAttributeWrapper.AttrWrapper()
-        self.FertWrapper = CharakterFertigkeitenWrapper.FertWrapper()
+        self.FertWrapper = CharakterFertigkeitenWrapper.FertigkeitenWrapper()
         self.UebernatuerlichWrapper = CharakterUebernatuerlichWrapper.UebernatuerlichWrapper()
         self.EquipWrapper = CharakterEquipmentWrapper.EquipWrapper()
         
@@ -49,7 +50,7 @@ class Editor(object):
         
         self.BeschrWrapper.modified.connect(self.updateEP)
         self.AttrWrapper.modified.connect(self.updateEP)
-        #self.FertWrapper.modified.connect(self.updateEP)
+        self.FertWrapper.modified.connect(self.updateEP)
         self.UebernatuerlichWrapper.modified.connect(self.updateEP)
         self.EquipWrapper.modified.connect(self.updateEP)
         

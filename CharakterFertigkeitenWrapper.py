@@ -9,7 +9,9 @@ import CharakterFertigkeiten
 import TalentPicker
 from PyQt5 import QtWidgets, QtCore, QtGui
 
-class FertWrapper(object):
+class FertigkeitenWrapper(QtCore.QObject):
+    modified = QtCore.pyqtSignal()
+    
     def __init__(self):
         super().__init__()
         self.formFert = QtWidgets.QWidget()
@@ -25,92 +27,110 @@ class FertWrapper(object):
         
         #Signals
         self.uiFert.spinFW.valueChanged.connect(self.fwChanged)
-        
         self.uiFert.tableWidget.cellClicked.connect(self.tableClicked)   
         self.uiFert.buttonAdd.clicked.connect(self.editTalents)
         
-        #A bit hacky. Sorry.
+        self.availableFerts = []
+        self.rowRef = {}
+        
+        #If there is an ability already, then we take it to display already
         try:
             self.currentFertName = Wolke.Char.fertigkeiten.__iter__().__next__()
         except StopIteration:
             self.currentFertName = ''
-        else:
-            self.initFertigkeiten()
+        self.loadFertigkeiten()
             
     def updateFertigkeiten(self):
+        #Already implemented for the individual events
         pass
         
     def loadFertigkeiten(self):
-        for i in range(self.uiFert.tableWidget.rowCount):
-            name = self.uiFert.tableWidget.itemAt(i,0).text()
-            self.uiFert.tableWidget.setItem(i,1,str(Wolke.Char.fertigkeiten[name].wert))
-            self.uiFert.tableWidget.setItem(i,2,str(len(Wolke.Char.fertigkeiten[name].gekaufteTalente)))
+        temp = [el for el in Wolke.DB.fertigkeiten 
+                if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.fertigkeiten[el].voraussetzungen)]
+        if temp != self.availableFerts:
+            self.availableFerts = temp
+            self.uiFert.tableWidget.clear()
+            
+            self.uiFert.tableWidget.setRowCount(len(self.availableFerts))
+            self.uiFert.tableWidget.setColumnCount(3)
+            self.uiFert.tableWidget.verticalHeader().setVisible(False)
+            item = QtWidgets.QTableWidgetItem()
+            item.setText("Bezeichnung")
+            self.uiFert.tableWidget.setHorizontalHeaderItem(0, item)
+            item = QtWidgets.QTableWidgetItem()
+            item.setTextAlignment(QtCore.Qt.AlignCenter)
+            item.setText("FW")
+            self.uiFert.tableWidget.setHorizontalHeaderItem(1, item)
+            item = QtWidgets.QTableWidgetItem()
+            item.setTextAlignment(QtCore.Qt.AlignCenter)
+            item.setText("Talente")
+            self.uiFert.tableWidget.setHorizontalHeaderItem(2, item)
     
-    def initFertigkeiten(self):
-        self.uiFert.tableWidget.clear()
-        
-        self.uiFert.tableWidget.setRowCount(len(Wolke.DB.fertigkeiten))
-        self.uiFert.tableWidget.setColumnCount(3)
-        self.uiFert.tableWidget.verticalHeader().setVisible(False)
-        item = QtWidgets.QTableWidgetItem()
-        item.setText("Bezeichnung")
-        self.uiFert.tableWidget.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setTextAlignment(QtCore.Qt.AlignCenter)
-        item.setText("FW")
-        self.uiFert.tableWidget.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        item.setTextAlignment(QtCore.Qt.AlignCenter)
-        item.setText("Talente")
-        self.uiFert.tableWidget.setHorizontalHeaderItem(2, item)
-
-        count = 0
-        for el in Wolke.DB.fertigkeiten:
-            self.uiFert.tableWidget.setItem(count, 0, QtWidgets.QTableWidgetItem(Wolke.DB.fertigkeiten[el].name))
-            #self.uiFert.tableWidget.setItem(count, 1, QtWidgets.QTableWidgetItem("-"))
-            #self.uiFert.tableWidget.setItem(count, 2, QtWidgets.QTableWidgetItem("-"))
-            count += 1
-        self.uiFert.tableWidget.cellClicked.connect(self.tableClicked) 
-        self.loadFertigkeiten()
+            count = 0
+            
+            #Remove Abilities for which the conditions are not met
+            for el in Wolke.Char.fertigkeiten:
+                if el not in self.availableFerts:
+                    Wolke.Char.fertigkeiten.pop(el,None)
+            
+            for el in self.availableFerts:
+                #Add abilities that werent there before
+                if el not in Wolke.Char.fertigkeiten:
+                    Wolke.Char.fertigkeiten.update({el: Wolke.DB.fertigkeiten[el]})
+                    Wolke.Char.fertigkeiten[el].wert = 0
+                    Wolke.Char.fertigkeiten[el].aktualisieren()
+                self.uiFert.tableWidget.setItem(count, 0, QtWidgets.QTableWidgetItem(Wolke.Char.fertigkeiten[el].name))
+                self.uiFert.tableWidget.setItem(count,1,QtWidgets.QTableWidgetItem(str(Wolke.Char.fertigkeiten[el].wert)))
+                self.uiFert.tableWidget.setItem(count,2,QtWidgets.QTableWidgetItem(str(len(Wolke.Char.fertigkeiten[el].gekaufteTalente))))
+                self.rowRef.update({Wolke.Char.fertigkeiten[el].name: count})
+                count += 1
+            self.uiFert.tableWidget.cellClicked.connect(self.tableClicked) 
+        self.updateInfo()
+        self.updateTalents()
             
     def tableClicked(self,row,col):
         self.currentFertName = self.uiFert.tableWidget.itemAt(row,0).text()
         self.updateInfo()
         
     def fwChanged(self):
-        Wolke.Char.fertigkeiten[self.currentFertName].wert = self.uiFert.spinFW.value()
-        Wolke.Char.fertigkeiten[self.currentFertName].aktualisieren()
-        self.uiFert.spinPW.setValue(Wolke.Char.fertigkeiten[self.currentFertName].probenwert)
-        self.uiFert.spinPWT.setValue(Wolke.Char.fertigkeiten[self.currentFertName].probenwertTalent)
-        self.loadFertigkeiten()
+        if self.currentFertName != "":
+            Wolke.Char.fertigkeiten[self.currentFertName].wert = self.uiFert.spinFW.value()
+            Wolke.Char.fertigkeiten[self.currentFertName].aktualisieren()
+            self.uiFert.spinPW.setValue(Wolke.Char.fertigkeiten[self.currentFertName].probenwert)
+            self.uiFert.spinPWT.setValue(Wolke.Char.fertigkeiten[self.currentFertName].probenwertTalent)
+            self.modified.emit()
+            self.uiFert.tableWidget.setItem(self.rowRef[self.currentFertName],1,QtWidgets.QTableWidgetItem(str(Wolke.Char.fertigkeiten[self.currentFertName].wert)))
         
     def updateInfo(self):
-        fert = Wolke.Char.fertigkeiten[self.currentFertName]
-        fert.aktualisieren()
-        self.uiFert.labelFertigkeit.setText(self.currentFertName)
-        self.uiFert.labelAttribute.setText(fert.attribute[0] + "/" 
-                                           + fert.attribute[1] + "/" 
-                                           + fert.attribute[2])
-        self.uiFert.spinSF.setValue(fert.steigerungsfaktor)
-        self.uiFert.spinBasis.setValue(fert.basiswert)
-        self.uiFert.spinFW.setValue(fert.wert)
-        self.uiFert.spinFW.setMaximum(fert.maxWert)
-        self.uiFert.spinPW.setValue(fert.probenwert)
-        self.uiFert.spinPWT.setValue(fert.probenwertTalent)
-        self.uiFert.plainText.setPlainText(fert.text)
-        self.updateTalents()
+        if self.currentFertName != "":
+            fert = Wolke.Char.fertigkeiten[self.currentFertName]
+            fert.aktualisieren()
+            self.uiFert.labelFertigkeit.setText(self.currentFertName)
+            self.uiFert.labelAttribute.setText(fert.attribute[0] + "/" 
+                                               + fert.attribute[1] + "/" 
+                                               + fert.attribute[2])
+            self.uiFert.spinSF.setValue(fert.steigerungsfaktor)
+            self.uiFert.spinBasis.setValue(fert.basiswert)
+            self.uiFert.spinFW.setValue(fert.wert)
+            self.uiFert.spinFW.setMaximum(fert.maxWert)
+            self.uiFert.spinPW.setValue(fert.probenwert)
+            self.uiFert.spinPWT.setValue(fert.probenwertTalent)
+            self.uiFert.plainText.setPlainText(fert.text)
+            self.updateTalents()
         
     def updateTalents(self):
-        self.model.clear()
-        for el in Wolke.Char.fertigkeiten[self.currentFertName].gekaufteTalente:
-            item = QtGui.QStandardItem(el)
-            item.setEditable(False)
-            self.model.appendRow(item)
+        if self.currentFertName != "":
+            self.model.clear()
+            for el in Wolke.Char.fertigkeiten[self.currentFertName].gekaufteTalente:
+                item = QtGui.QStandardItem(el)
+                item.setEditable(False)
+                self.model.appendRow(item)
         
     def editTalents(self):
-        tal = TalentPicker.TalentPicker(self.currentFertName)
-        if tal.gekaufteTalente is not None:
-            #TODO: Voraussetzungen, Kosten
-            Wolke.Char.fertigkeiten[self.currentFertName].gekaufteTalente = tal.gekaufteTalente
-            self.updateTalents()
-            self.loadFertigkeiten()
+        if self.currentFertName != "":
+            tal = TalentPicker.TalentPicker(self.currentFertName, False)
+            if tal.gekaufteTalente is not None:
+                #Wolke.Char.fertigkeiten[self.currentFertName].gekaufteTalente = tal.gekaufteTalente
+                self.modified.emit()
+                self.updateTalents()
+                self.uiFert.tableWidget.setItem(self.rowRef[self.currentFertName],2,QtWidgets.QTableWidgetItem(str(len(Wolke.Char.fertigkeiten[self.currentFertName].gekaufteTalente))))
