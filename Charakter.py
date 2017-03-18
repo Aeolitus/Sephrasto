@@ -322,7 +322,7 @@ class Char():
             fert = Fertigkeiten.FreieFertigkeit()            
             fert.name = fer.attrib['name']
             fert.wert = int(fer.attrib['wert'])
-            fert.aktualisieren()
+#            fert.aktualisieren()
             self.freieFertigkeiten.append(fert)
         #Fünfter Block
         for rüs in root.findall('Objekte/Rüstungen/Rüstung'):

@@ -26,3 +26,7 @@ StandardFerts = ["Handgemenge", "Hiebwaffen", "Klingenwaffen", "Stangenwaffen",
                  "Beeinflussung", "Gebräuche", "Derekunde", "Magiekunde", 
                  "Mythenkunde", "Überleben", "Alchemie", "Heilkunde", 
                  "Holzbearbeitung", "Metallverarbeitung"]
+
+VorteilTypen = ["Allgemeine Vorteile", "Profane Vorteile", "Kampfvorteile", 
+"Kampfstile", "Magische Vorteile", "Repräsentationen", "Karmale Vorteile", 
+"Traditionen"]

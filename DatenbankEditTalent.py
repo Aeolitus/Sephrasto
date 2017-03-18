@@ -6,53 +6,44 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-from PyQt5 import QtCore, QtWidgets
-import Fertigkeiten
-from Hilfsmethoden import Hilfsmethoden
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_talentDialog(object):
     def setupUi(self, talentDialog):
         talentDialog.setObjectName("talentDialog")
+        talentDialog.setWindowModality(QtCore.Qt.ApplicationModal)
         talentDialog.resize(381, 304)
-        self.buttonBox = QtWidgets.QDialogButtonBox(talentDialog)
-        self.buttonBox.setGeometry(QtCore.QRect(10, 271, 361, 31))
-        self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Save)
-        self.buttonBox.setCenterButtons(True)
-        self.buttonBox.setObjectName("buttonBox")
-        self.gridLayoutWidget = QtWidgets.QWidget(talentDialog)
-        self.gridLayoutWidget.setGeometry(QtCore.QRect(10, 10, 361, 261))
-        self.gridLayoutWidget.setObjectName("gridLayoutWidget")
-        self.gridLayout = QtWidgets.QGridLayout(self.gridLayoutWidget)
-        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_2 = QtWidgets.QGridLayout(talentDialog)
+        self.gridLayout_2.setObjectName("gridLayout_2")
+        self.gridLayout = QtWidgets.QGridLayout()
         self.gridLayout.setObjectName("gridLayout")
-        self.nameEdit = QtWidgets.QLineEdit(self.gridLayoutWidget)
+        self.nameEdit = QtWidgets.QLineEdit(talentDialog)
         self.nameEdit.setObjectName("nameEdit")
         self.gridLayout.addWidget(self.nameEdit, 0, 1, 1, 1)
-        self.fertigkeitenEdit = QtWidgets.QLineEdit(self.gridLayoutWidget)
+        self.fertigkeitenEdit = QtWidgets.QLineEdit(talentDialog)
         self.fertigkeitenEdit.setObjectName("fertigkeitenEdit")
         self.gridLayout.addWidget(self.fertigkeitenEdit, 2, 1, 1, 1)
-        self.label = QtWidgets.QLabel(self.gridLayoutWidget)
+        self.label = QtWidgets.QLabel(talentDialog)
         self.label.setObjectName("label")
         self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
-        self.label_2 = QtWidgets.QLabel(self.gridLayoutWidget)
+        self.label_2 = QtWidgets.QLabel(talentDialog)
         self.label_2.setObjectName("label_2")
         self.gridLayout.addWidget(self.label_2, 1, 0, 1, 1)
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
-        self.buttonRegulaer = QtWidgets.QRadioButton(self.gridLayoutWidget)
+        self.buttonRegulaer = QtWidgets.QRadioButton(talentDialog)
         self.buttonRegulaer.setChecked(True)
         self.buttonRegulaer.setObjectName("buttonRegulaer")
         self.verticalLayout.addWidget(self.buttonRegulaer)
-        self.buttonVerbilligt = QtWidgets.QRadioButton(self.gridLayoutWidget)
+        self.buttonVerbilligt = QtWidgets.QRadioButton(talentDialog)
         self.buttonVerbilligt.setObjectName("buttonVerbilligt")
         self.verticalLayout.addWidget(self.buttonVerbilligt)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.buttonSpezial = QtWidgets.QRadioButton(self.gridLayoutWidget)
+        self.buttonSpezial = QtWidgets.QRadioButton(talentDialog)
         self.buttonSpezial.setObjectName("buttonSpezial")
         self.horizontalLayout.addWidget(self.buttonSpezial)
-        self.comboKosten = QtWidgets.QComboBox(self.gridLayoutWidget)
+        self.comboKosten = QtWidgets.QComboBox(talentDialog)
         self.comboKosten.setObjectName("comboKosten")
         self.comboKosten.addItem("")
         self.comboKosten.addItem("")
@@ -63,21 +54,28 @@ class Ui_talentDialog(object):
         self.horizontalLayout.addWidget(self.comboKosten)
         self.verticalLayout.addLayout(self.horizontalLayout)
         self.gridLayout.addLayout(self.verticalLayout, 1, 1, 1, 1)
-        self.label_3 = QtWidgets.QLabel(self.gridLayoutWidget)
+        self.label_3 = QtWidgets.QLabel(talentDialog)
         self.label_3.setObjectName("label_3")
         self.gridLayout.addWidget(self.label_3, 2, 0, 1, 1)
-        self.label_4 = QtWidgets.QLabel(self.gridLayoutWidget)
+        self.label_4 = QtWidgets.QLabel(talentDialog)
         self.label_4.setObjectName("label_4")
         self.gridLayout.addWidget(self.label_4, 3, 0, 1, 1)
-        self.voraussetzungenEdit = QtWidgets.QLineEdit(self.gridLayoutWidget)
+        self.voraussetzungenEdit = QtWidgets.QLineEdit(talentDialog)
         self.voraussetzungenEdit.setObjectName("voraussetzungenEdit")
         self.gridLayout.addWidget(self.voraussetzungenEdit, 3, 1, 1, 1)
-        self.label_5 = QtWidgets.QLabel(self.gridLayoutWidget)
+        self.label_5 = QtWidgets.QLabel(talentDialog)
         self.label_5.setObjectName("label_5")
         self.gridLayout.addWidget(self.label_5, 4, 0, 1, 1)
-        self.textEdit = QtWidgets.QPlainTextEdit(self.gridLayoutWidget)
+        self.textEdit = QtWidgets.QPlainTextEdit(talentDialog)
         self.textEdit.setObjectName("textEdit")
         self.gridLayout.addWidget(self.textEdit, 4, 1, 1, 1)
+        self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 1, 1)
+        self.buttonBox = QtWidgets.QDialogButtonBox(talentDialog)
+        self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
+        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Save)
+        self.buttonBox.setCenterButtons(True)
+        self.buttonBox.setObjectName("buttonBox")
+        self.gridLayout_2.addWidget(self.buttonBox, 1, 0, 1, 1)
 
         self.retranslateUi(talentDialog)
         self.buttonBox.accepted.connect(talentDialog.accept)
@@ -93,7 +91,7 @@ class Ui_talentDialog(object):
 
     def retranslateUi(self, talentDialog):
         _translate = QtCore.QCoreApplication.translate
-        talentDialog.setWindowTitle(_translate("talentDialog", "Talent-Editor"))
+        talentDialog.setWindowTitle(_translate("talentDialog", "Sephrasto - Talent bearbeiten..."))
         self.label.setText(_translate("talentDialog", "Talentname"))
         self.label_2.setText(_translate("talentDialog", "Lernkosten"))
         self.buttonRegulaer.setText(_translate("talentDialog", "Reguläres Talent (Kosten nach Fertigkeit)"))
@@ -109,26 +107,10 @@ class Ui_talentDialog(object):
         self.label_4.setText(_translate("talentDialog", "Voraussetzungen"))
         self.label_5.setText(_translate("talentDialog", "Text"))
 
-    def createTalent(self):
-        tal = Fertigkeiten.Talent()
-        tal.name = self.nameEdit.text()
-        tal.fertigkeiten = Hilfsmethoden.FertStr2Array(self.fertigkeitenEdit.text(),None)
-        tal.voraussetzungen = Hilfsmethoden.VorStr2Array(self.voraussetzungenEdit.text(),None)
-        tal.text = self.textEdit.toPlainText()
-        tal.kosten = -1
-        if self.buttonSpezial.isChecked():
-            tal.kosten = int(self.comboKosten.currentText()[:2])
-            if tal.kosten == 10:
-                tal.kosten = 100
-        elif self.buttonVerbilligt.isChecked():
-            tal.verbilligt = 1
-        return tal
 
 if __name__ == "__main__":
     import sys
-    app = QtCore.QCoreApplication.instance()
-    if app is None:
-        app = QtWidgets.QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
     talentDialog = QtWidgets.QDialog()
     ui = Ui_talentDialog()
     ui.setupUi(talentDialog)

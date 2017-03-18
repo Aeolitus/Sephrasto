@@ -12,6 +12,7 @@ import CharakterAttributeWrapper
 import CharakterEquipmentWrapper
 import CharakterFertigkeitenWrapper
 import CharakterUebernatuerlichWrapper
+import CharakterVorteileWrapper
 import sys
 import Charakter
 import Datenbank
@@ -24,7 +25,9 @@ class Editor(object):
         if Character is not None:
             Wolke.Char = Character
         else:
-            Wolke.Char = Charakter.Char()
+            Wolke.Char = Charakter.Char() 
+            #TODO: Remove
+            Wolke.Char.xmlLesen("Franz.xml")
         Wolke.Char.aktualisieren() # A bit later because it needs access to itself
         
         
@@ -42,9 +45,11 @@ class Editor(object):
         self.FertWrapper = CharakterFertigkeitenWrapper.FertigkeitenWrapper()
         self.UebernatuerlichWrapper = CharakterUebernatuerlichWrapper.UebernatuerlichWrapper()
         self.EquipWrapper = CharakterEquipmentWrapper.EquipWrapper()
+        self.VortWrapper = CharakterVorteileWrapper.CharakterVorteileWrapper()
         
         self.ui.tabs.addTab(self.BeschrWrapper.formBeschr, "Beschreibung")
         self.ui.tabs.addTab(self.AttrWrapper.formAttr, "Attribute")
+        self.ui.tabs.addTab(self.VortWrapper.formVor, "Vorteile")
         self.ui.tabs.addTab(self.FertWrapper.formFert, "Fertigkeiten")
         self.ui.tabs.addTab(self.UebernatuerlichWrapper.formFert, "Übernatürliches")
         self.ui.tabs.addTab(self.EquipWrapper.formEq, "Waffen und Rüstung")    
@@ -54,6 +59,7 @@ class Editor(object):
         self.FertWrapper.modified.connect(self.updateEP)
         self.UebernatuerlichWrapper.modified.connect(self.updateEP)
         self.EquipWrapper.modified.connect(self.updateEP)
+        self.VortWrapper.modified.connect(self.updateEP)
         
         self.ui.tabs.currentChanged.connect(self.reloadAll)
         self.ui.buttonSave.clicked.connect(self.saveButton)
@@ -82,6 +88,7 @@ class Editor(object):
         self.EquipWrapper.loadEquipment()
         self.FertWrapper.loadFertigkeiten()
         self.UebernatuerlichWrapper.loadFertigkeiten()
+        self.VortWrapper.loadVorteile()
         
     def saveButton(self):
         self.BeschrWrapper.updateBeschreibung()
@@ -89,6 +96,7 @@ class Editor(object):
         self.EquipWrapper.updateEquipment()
         self.FertWrapper.updateFertigkeiten()
         self.UebernatuerlichWrapper.updateFertigkeiten()
+        self.VortWrapper.updateVorteile()
         self.updateEP()
         spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"Charakter speichern...","","XML-Datei (*.xml)")
         if ".xml" not in spath:

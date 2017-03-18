@@ -24,6 +24,7 @@ class Datenbank():
             v.set('kosten',str(self.vorteile[vort].kosten))
             v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(self.vorteile[vort].voraussetzungen, None))
             v.set('nachkauf',self.vorteile[vort].nachkauf)
+            v.set('typ', str(self.vorteile[vort].typ))
             v.text = self.vorteile[vort].text
 
         #Talente
@@ -75,6 +76,7 @@ class Datenbank():
             V.kosten = int(vort.get('kosten'))
             V.voraussetzungen = Hilfsmethoden.VorStr2Array(vort.get('voraussetzungen'), None)
             V.nachkauf = vort.get('nachkauf')
+            V.typ = int(vort.get('typ'))
             V.text = vort.text
             self.vorteile.update({V.name: V})
 

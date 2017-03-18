@@ -1,5 +1,5 @@
 <Datenbank>
-  <Vorteil name="Eisenaffine Aura" kosten="40" voraussetzungen="" nachkauf="selten">Erschwernisse durch den Bann des Eisens sinken um 8 Punkte.</Vorteil>
+  <Vorteil name="Eisenaffine Aura" kosten="40" typ="1" voraussetzungen="" nachkauf="selten">Erschwernisse durch den Bann des Eisens sinken um 8 Punkte.</Vorteil>
   <Talent name="Laufen" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Athletik">Akrobatik wird nicht nur für gewagte Kunststücke und Balanceakte verwendet, sondern kann auch den Fallschaden nach Stürzen reduzieren.</Talent>
   <Fertigkeit name="Athletik" steigerungsfaktor="3" voraussetzungen="" attribute="GE|KK|KO">Athletik umfasst alle Aktivitäten, bei denen der Charakter seinen gesamten Körper kurz- oder längerfristig koordiniert einsetzen muss. Dazu gehören das Laufen, Klettern, Schwimmen, Reiten sowie akrobatische Kunststücke.</Fertigkeit>
   <Übernatürliche-Fertigkeit name="Zwölfgöttlicher Ritus" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I" attribute="CH|IN|MU">Durch die Zusammenarbeit der Kirchen hat sich ein Grundstock allgemein bekannter Liturgien ergeben, die aus dem Leben des Geweihten nicht mehr wegzudenken sind.</Übernatürliche-Fertigkeit>
