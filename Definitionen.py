@@ -12,7 +12,7 @@ Attribute = {
         'FF': 'Fingerfertigkeit'
     }
 
-FreieFertigkeitKosten = [4,8,16]
+FreieFertigkeitKosten = [4,12,28]
 
 Statusse = ['Elite','Oberschicht','Mittelschicht','Unterschicht','Abschaum']
 

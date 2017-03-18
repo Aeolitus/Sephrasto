@@ -1,7 +1,353 @@
 <Datenbank>
-  <Vorteil name="Eisenaffine Aura" kosten="40" typ="1" voraussetzungen="" nachkauf="selten">Erschwernisse durch den Bann des Eisens sinken um 8 Punkte.</Vorteil>
+  <Vorteil name="Besonderer Besitz I" kosten="40" voraussetzungen="" nachkauf="nicht möglich" typ="0">Ein besonderer Gegenstand wie die 33-fach geflämmte Klinge deines ruhmreichen Großvaters oder ein heilendes Diadem befindet sich in deinem Besitz. Der Spielleiter sollte diesem Gegenstand einen gewissen Schutz gewähren; er wird nicht zufällig von einem Taschendieb gestohlen oder geht durch Pech verloren, ohne dass du ihn wieder zurückerlangen kannst. Umgekehrt darf der Charakter den Gegenstand auch nicht zu Geld machen. 
+Die Kosten für einen Besonderen Besitz legt der Spielleiter fest, wobei er sich am Spielnutzen des Gegenstandes orientieren sollte. Ein Besonderer Besitz für 40 EP bringt einen willkommenen Bonus in manchen Situationen, während ein Besonderer Besitz für 160 EP in vielen Situationen entscheidend ist. Der Wert des Gegenstandes spielt übrigens keine Rolle! 
+Beispiele für einen besonderen Besitz der Stufe I wären ein Schlachtross, eine verbesserte Waffe (+2 TP) oder verbesserte
+Rüstung (-1 BE), oder gar eine Ferrara Kutsche mit Pferden.</Vorteil>
+  <Vorteil name="Besonderer Besitz II" kosten="80" voraussetzungen="" nachkauf="nicht möglich" typ="0">Ein besonderer Gegenstand wie die 33-fach geflämmte Klinge deines ruhmreichen Großvaters oder ein heilendes Diadem befindet sich in deinem Besitz. Der Spielleiter sollte diesem Gegenstand einen gewissen Schutz gewähren; er wird nicht zufällig von einem Taschendieb gestohlen oder geht durch Pech verloren, ohne dass du ihn wieder zurückerlangen kannst. Umgekehrt darf der Charakter den Gegenstand auch nicht zu Geld machen. 
+Die Kosten für einen Besonderen Besitz legt der Spielleiter fest, wobei er sich am Spielnutzen des Gegenstandes orientieren sollte. Ein Besonderer Besitz für 40 EP bringt einen willkommenen Bonus in manchen Situationen, während ein Besonderer Besitz für 160 EP in vielen Situationen entscheidend ist. Der Wert des Gegenstandes spielt übrigens keine Rolle! 
+Beispiele für einen besonderen Besitz der Stufe II wären eine verbesserte und magische Waffe oder ein Schutzartefakt mit einfachem Auslöser.</Vorteil>
+  <Vorteil name="Besonderer Besitz III" kosten="120" voraussetzungen="" nachkauf="nicht möglich" typ="0">Ein besonderer Gegenstand wie die 33-fach geflämmte Klinge deines ruhmreichen Großvaters oder ein heilendes Diadem befindet sich in deinem Besitz. Der Spielleiter sollte diesem Gegenstand einen gewissen Schutz gewähren; er wird nicht zufällig von einem Taschendieb gestohlen oder geht durch Pech verloren, ohne dass du ihn wieder zurückerlangen kannst. Umgekehrt darf der Charakter den Gegenstand auch nicht zu Geld machen. 
+Die Kosten für einen Besonderen Besitz legt der Spielleiter fest, wobei er sich am Spielnutzen des Gegenstandes orientieren sollte. Ein Besonderer Besitz für 40 EP bringt einen willkommenen Bonus in manchen Situationen, während ein Besonderer Besitz für 160 EP in vielen Situationen entscheidend ist. Der Wert des Gegenstandes spielt übrigens keine Rolle! 
+Beispiele für einen besonderen Besitz der Stufe III wären ein verbessertes Enduriumschwert, ein verbesserter Toschkrilpanzer oder eine Reithippogriff.</Vorteil>
+  <Vorteil name="Besonderer Besitz IV" kosten="160" voraussetzungen="" nachkauf="nicht möglich" typ="0">Ein besonderer Gegenstand wie die 33-fach geflämmte Klinge deines ruhmreichen Großvaters oder ein heilendes Diadem befindet sich in deinem Besitz. Der Spielleiter sollte diesem Gegenstand einen gewissen Schutz gewähren; er wird nicht zufällig von einem Taschendieb gestohlen oder geht durch Pech verloren, ohne dass du ihn wieder zurückerlangen kannst. Umgekehrt darf der Charakter den Gegenstand auch nicht zu Geld machen. 
+Die Kosten für einen Besonderen Besitz legt der Spielleiter fest, wobei er sich am Spielnutzen des Gegenstandes orientieren sollte. Ein Besonderer Besitz für 40 EP bringt einen willkommenen Bonus in manchen Situationen, während ein Besonderer Besitz für 160 EP in vielen Situationen entscheidend ist. Der Wert des Gegenstandes spielt übrigens keine Rolle! 
+Beispiele für einen besonderen Besitz der Stufe IV wären ein bewaffnetes Handelsschiff oder ein Semipermanentes Universalschutzamulett mit intelligentem Auslöser.</Vorteil>
+  <Vorteil name="Einkommen I" kosten="20" voraussetzungen="" nachkauf="häufig" typ="0">Deine Familie, Organisation oder ein persönlicher Mäzen stellt dir ein monatliches Einkommen von 4 Dukaten zur Verfügung, die du beispielsweise über eine Filiale der Nordlandbank oder ein Ordenshaus beziehen kannst. Fern der Zivilisation kannst du nicht auf dein Einkommen zugreifen. Das Einkommen reicht aus, um die Lebenserhaltungskosten eines Angehörigen der Unterschicht zu decken.</Vorteil>
+  <Vorteil name="Einkommen II" kosten="20" voraussetzungen="Vorteil Einkommen I" nachkauf="häufig" typ="0">Deine Familie, Organisation oder ein persönlicher Mäzen stellt dir ein monatliches Einkommen von 16 Dukaten zur Verfügung, die du beispielsweise über eine Filiale der Nordlandbank oder ein Ordenshaus beziehen kannst. Fern der Zivilisation kannst du nicht auf dein Einkommen zugreifen. Das Einkommen reicht aus, um die Lebenserhaltungskosten eines Angehörigen der Mittelschicht zu decken.</Vorteil>
+  <Vorteil name="Einkommen III" kosten="20" voraussetzungen="Vorteil Einkommen II" nachkauf="häufig" typ="0">Deine Familie, Organisation oder ein persönlicher Mäzen stellt dir ein monatliches Einkommen von 64 Dukaten zur Verfügung, die du beispielsweise über eine Filiale der Nordlandbank oder ein Ordenshaus beziehen kannst. Fern der Zivilisation kannst du nicht auf dein Einkommen zugreifen. Das Einkommen reicht aus, um die Lebenserhaltungskosten eines Angehörigen der Oberschicht zu decken.</Vorteil>
+  <Vorteil name="Einkommen IV" kosten="20" voraussetzungen="Vorteil Einkommen III" nachkauf="häufig" typ="0">Deine Familie, Organisation oder ein persönlicher Mäzen stellt dir ein monatliches Einkommen von 256 Dukaten zur Verfügung, die du beispielsweise über eine Filiale der Nordlandbank oder ein Ordenshaus beziehen kannst. Fern der Zivilisation kannst du nicht auf dein Einkommen zugreifen. Das Einkommen reicht aus, um die Lebenserhaltungskosten eines Angehörigen der Elite zu decken.</Vorteil>
+  <Vorteil name="Eisenaffine Aura" kosten="40" voraussetzungen="" nachkauf="selten" typ="0">Erschwernisse durch den Bann des Eisens sinken um 8 Punkte.</Vorteil>
+  <Vorteil name="Gefahreninstinkt" kosten="100" voraussetzungen="" nachkauf="extrem selten" typ="0">Mit der Gabe des Gefahreninstinkts kannst du mit dem Talent Wachsamkeit auch Gefahren wahrnehmen, die mit gewöhnlichen Sinnen nicht wahrzunehmen sind. Dazu gehören etwa magische Fallen, der lautlose Meuchler hinter der nächsten Wand oder eine bald losbrechende Lawine.</Vorteil>
+  <Vorteil name="Geweiht I" kosten="40" voraussetzungen="" nachkauf="üblich" typ="0">Du verfügst über 8 Karmapunkte und kannst kirchliche Traditionen erlernen.</Vorteil>
+  <Vorteil name="Geweiht II" kosten="40" voraussetzungen="Vorteil Geweiht I" nachkauf="üblich" typ="0">Du verfügst über 16 Karmapunkte und kannst kirchliche Traditionen erlernen.</Vorteil>
+  <Vorteil name="Geweiht III" kosten="40" voraussetzungen="Vorteil Geweiht II" nachkauf="üblich" typ="0">Du verfügst über 24 Karmapunkte und kannst kirchliche Traditionen erlernen.</Vorteil>
+  <Vorteil name="Geweiht IV" kosten="40" voraussetzungen="Vorteil Geweiht III" nachkauf="üblich" typ="0">Du verfügst über 32 Karmapunkte und kannst kirchliche Traditionen erlernen.</Vorteil>
+  <Vorteil name="Glück I" kosten="40" voraussetzungen="" nachkauf="häufig" typ="0">Deine maximalen Schicksalspunkte steigen um 1.</Vorteil>
+  <Vorteil name="Glück II" kosten="40" voraussetzungen="Vorteil Glück I" nachkauf="häufig" typ="0">Deine maximalen Schicksalspunkte steigen um 2.</Vorteil>
+  <Vorteil name="Kreis der Verdammnis I" kosten="0" voraussetzungen="" nachkauf="üblich" typ="0">Der Vorteil hat vier Auswirkungen. Erstens erhältst du beim Erwerb der ersten Stufe 400 EP, für jede weitere Stufe 200 EP. Zweitens erhältst du eine Empfindlichkeit I (Geweihter Boden) und eine Empfindlichkeit II (Heiliger Boden). Drittens erhältst du für jede Stufe eine verdorbene Eigenheit. Viertens entwickelst du ein Dämonenmal und kannst über die Liturgie Seelenprüfung als Paktierer erkannt werden. Diese Effekte werden in diesem Programm nicht automatisch implementiert.</Vorteil>
+  <Vorteil name="Kreis der Verdammnis II" kosten="0" voraussetzungen="Vorteil Kreis der Verdammnis I" nachkauf="üblich" typ="0">Der Vorteil hat vier Auswirkungen. Erstens erhältst du beim Erwerb der ersten Stufe 400 EP, für jede weitere Stufe 200 EP. Zweitens erhältst du eine Empfindlichkeit I (Geweihter Boden) und eine Empfindlichkeit II (Heiliger Boden). Drittens erhältst du für jede Stufe eine verdorbene Eigenheit. Viertens entwickelst du ein Dämonenmal und kannst über die Liturgie Seelenprüfung als Paktierer erkannt werden. Diese Effekte werden in diesem Programm nicht automatisch implementiert.</Vorteil>
+  <Vorteil name="Kreis der Verdammnis III" kosten="0" voraussetzungen="Vorteil Kreis der Verdammnis II" nachkauf="üblich" typ="0">Der Vorteil hat vier Auswirkungen. Erstens erhältst du beim Erwerb der ersten Stufe 400 EP, für jede weitere Stufe 200 EP. Zweitens erhältst du eine Empfindlichkeit I (Geweihter Boden) und eine Empfindlichkeit II (Heiliger Boden). Drittens erhältst du für jede Stufe eine verdorbene Eigenheit. Viertens entwickelst du ein Dämonenmal und kannst über die Liturgie Seelenprüfung als Paktierer erkannt werden. Diese Effekte werden in diesem Programm nicht automatisch implementiert.</Vorteil>
+  <Vorteil name="Kreis der Verdammnis IV" kosten="0" voraussetzungen="Vorteil Kreis der Verdammnis III" nachkauf="üblich" typ="0">Der Vorteil hat vier Auswirkungen. Erstens erhältst du beim Erwerb der ersten Stufe 400 EP, für jede weitere Stufe 200 EP. Zweitens erhältst du eine Empfindlichkeit I (Geweihter Boden) und eine Empfindlichkeit II (Heiliger Boden). Drittens erhältst du für jede Stufe eine verdorbene Eigenheit. Viertens entwickelst du ein Dämonenmal und kannst über die Liturgie Seelenprüfung als Paktierer erkannt werden. Diese Effekte werden in diesem Programm nicht automatisch implementiert.</Vorteil>
+  <Vorteil name="Kreis der Verdammnis V" kosten="0" voraussetzungen="Vorteil Kreis der Verdammnis IV" nachkauf="üblich" typ="0">Der Vorteil hat vier Auswirkungen. Erstens erhältst du beim Erwerb der ersten Stufe 400 EP, für jede weitere Stufe 200 EP. Zweitens erhältst du eine Empfindlichkeit I (Geweihter Boden) und eine Empfindlichkeit II (Heiliger Boden). Drittens erhältst du für jede Stufe eine verdorbene Eigenheit. Viertens entwickelst du ein Dämonenmal und kannst über die Liturgie Seelenprüfung als Paktierer erkannt werden. Diese Effekte werden in diesem Programm nicht automatisch implementiert.</Vorteil>
+  <Vorteil name="Kreis der Verdammnis VI" kosten="0" voraussetzungen="Vorteil Kreis der Verdammnis V" nachkauf="üblich" typ="0">Der Vorteil hat vier Auswirkungen. Erstens erhältst du beim Erwerb der ersten Stufe 400 EP, für jede weitere Stufe 200 EP. Zweitens erhältst du eine Empfindlichkeit I (Geweihter Boden) und eine Empfindlichkeit II (Heiliger Boden). Drittens erhältst du für jede Stufe eine verdorbene Eigenheit. Viertens entwickelst du ein Dämonenmal und kannst über die Liturgie Seelenprüfung als Paktierer erkannt werden. Diese Effekte werden in diesem Programm nicht automatisch implementiert.</Vorteil>
+  <Vorteil name="Kreis der Verdammnis VII" kosten="0" voraussetzungen="Vorteil Kreis der Verdammnis VI" nachkauf="üblich" typ="0">Der Vorteil hat vier Auswirkungen. Erstens erhältst du beim Erwerb der ersten Stufe 400 EP, für jede weitere Stufe 200 EP. Zweitens erhältst du eine Empfindlichkeit I (Geweihter Boden) und eine Empfindlichkeit II (Heiliger Boden). Drittens erhältst du für jede Stufe eine verdorbene Eigenheit. Viertens entwickelst du ein Dämonenmal und kannst über die Liturgie Seelenprüfung als Paktierer erkannt werden. Diese Effekte werden in diesem Programm nicht automatisch implementiert.</Vorteil>
+  <Vorteil name="Magieabweisend" kosten="40" voraussetzungen="" nachkauf="extrem selten" typ="0">Zauber wirken auf dich deutlich schwächer. Du ignorierst eine Stufe der spontanen Modifikation Mächtige Magie von schädlichen und nützlichen Zaubern, Zauber ohne Mächtige Magie scheitern automatisch.</Vorteil>
+  <Vorteil name="Magiegespür" kosten="60" voraussetzungen="" nachkauf="extrem selten" typ="0">Die Gabe Magiegespür ermöglicht es dir, Magie mit dem Talent Sinnenschärfe intuitiv zu erspüren. In der Nähe astraler Kräfte überfällt dich ein Frösteln, du hörst sphärische Klänge oder ein Farbschleier legt sich über die Umgebung. Du kannst deine Sinnenschärfe sogar zur Intensitätsanalyse von magischen Gegenständen verwenden.
+Durch diesen aktiven Einsatz der Gabe erleidest du 1 Punkt Erschöpfung.</Vorteil>
+  <Vorteil name="Nachtsicht I" kosten="40" voraussetzungen="" nachkauf="selten" typ="0">Die Abzüge aus Dunkelheit sind für dich um 1 Stufe gesenkt.</Vorteil>
+  <Vorteil name="Nachtsicht II" kosten="40" voraussetzungen="Vorteil Nachtsicht I" nachkauf="extrem selten" typ="0">Die Abzüge aus Dunkelheit sind für dich um 2 Stufen gesenkt.</Vorteil>
+  <Vorteil name="Natürliche Rüstung" kosten="80" voraussetzungen="" nachkauf="extrem selten" typ="0">Du verfügst über ein dichtes Fell oder zähe Schuppenhaut, wodurch dein RS um 1 steigt. Die BE verändert sich dadurch nicht.
+
+Dieser Vorteil kann üblicherweise nur von Achaz, Orks und ähnlichen Rassen gewählt werden.</Vorteil>
+  <Vorteil name="Paktierer I" kosten="40" voraussetzungen="Vorteil Kreis der Verdammnis I" nachkauf="üblich" typ="0">Du verfügst über 8 Gunstpunkte und kannst den dämonischen Kult deines Erzdämons erlernen.</Vorteil>
+  <Vorteil name="Paktierer II" kosten="40" voraussetzungen="Vorteil Paktierer I" nachkauf="üblich" typ="0">Du verfügst über 16 Gunstpunkte und kannst den dämonischen Kult deines Erzdämons erlernen.</Vorteil>
+  <Vorteil name="Paktierer III" kosten="40" voraussetzungen="Vorteil Paktierer II" nachkauf="üblich" typ="0">Du verfügst über 24 Gunstpunkte und kannst den dämonischen Kult deines Erzdämons erlernen.</Vorteil>
+  <Vorteil name="Paktierer IV" kosten="40" voraussetzungen="Vorteil Paktierer III" nachkauf="üblich" typ="0">Du verfügst über 32 Gunstpunkte und kannst den dämonischen Kult deines Erzdämons erlernen.</Vorteil>
+  <Vorteil name="Privilegien (Gering)" kosten="20" voraussetzungen="" nachkauf="selten" typ="0">Unzählige Privilegien können die Leben ihrer Träger erleichtern, weswegen wir auch nicht jedes einzelne Privileg in Werte kleiden möchten. Die Kosten eines Privilegs legt der Spielleiter fest, wobei er sich der Spielrelevanz und dem Geltungsbereich der Privilegien orientieren sollte. Zum Beispiel bringt ein eigenes Wappen keine spielrelevanten Vorteile - ganz im Gegensatz zu der Erlaubnis, in Städten Waffen zu tragen. Doch auch diese Erlaubnis verliert an Wert, wenn sie nur in Albenhus gilt. 
+
+Beispiele für geringe Privilegien wären:
+- Krieger/Schwertgeselle/Rondrageweihter: Du darfst an Tournieren teilnehmen und in Städten Waffen tragen. Diese Privilegien gelten im Mittel- und Horasreich, sowie eingeschränkt in fast ganz Aventurien.
+- Gildenmagier: Du darfst Geld für magische Dienstleistungen verlangen und hast erleichterten Zugang zu Bibliotheken und Lehrmeistern der eigenen Gilde. Von weltlichen Gerichten kannst du nur in deiner Anwesenheit verurteilt werden oder du wirst vor ein Gildengericht gestellt. Im Gegenzug musst du dich den Bedingungen des Codex Albyricus unterwerfen, also stets als Gildenmagier erkenntlich sein. Auch die meisten Waffen und fast alle Rüstungen mit einem RS von mehr als 1 sind verboten. Diese Privilegien gelten im Mittel- und Horasreich, dem Bornland, Kalifat und in Aranien, sowie eingeschränkt in den tulamidischen Stadtstaaten und in Südaventurien (Nur für Zauberer mit Gildenmagischer Repräsentation).</Vorteil>
+  <Vorteil name="Privilegien (Erheblich)" kosten="40" voraussetzungen="" nachkauf="selten" typ="0">Unzählige Privilegien können die Leben ihrer Träger erleichtern, weswegen wir auch nicht jedes einzelne Privileg in Werte kleiden möchten. Die Kosten eines Privilegs legt der Spielleiter fest, wobei er sich der Spielrelevanz und dem Geltungsbereich der Privilegien orientieren sollte. Zum Beispiel bringt ein eigenes Wappen keine spielrelevanten Vorteile - ganz im Gegensatz zu der Erlaubnis, in Städten Waffen zu tragen. Doch auch diese Erlaubnis verliert an Wert, wenn sie nur in Albenhus gilt. 
+
+Ein Beispiel für Privilegien wäre:
+- Adel: Du darfst ein „von“ im Namen tragen, an Tournieren teilnehmen und jederzeit angemessen bewaffnet und gerüstet sein. Vor Gericht kannst du nur von höheren Adeligen gerichtet werden und du darfst bei der Abwesenheit eines Richters über Leibeigene richten, solange dabei kein Blut fließt. Diese Privilegien gelten in ähnlicher Art und Weise im Mittel- und Horasreich, dem Bornland und Aranien.</Vorteil>
+  <Vorteil name="Prophezeien" kosten="40" voraussetzungen="" nachkauf="selten" typ="0">Du kannst das Talent Konzentration nutzen, um mit Spielkarten, Würfeln, Drogen oder prophetischen Träumen einen vagen Blick in die Zukunft zu werfen. Durch den Einsatz der Gabe erleidest du 1 Punkt Erschöpfung.</Vorteil>
+  <Vorteil name="Resistenz gegen Gifte" kosten="40" voraussetzungen="" nachkauf="selten" typ="0">Das Intervall, in dem du durch Gifte Schaden erleidest, verdoppelt sich. Andere Effekte haben nur die halben Auswirkungen.</Vorteil>
+  <Vorteil name="Immunität gegen Gifte" kosten="40" voraussetzungen="Vorteil Resistenz gegen Gifte" nachkauf="extrem selten" typ="0">Du bist immun gegen Gifte.</Vorteil>
+  <Vorteil name="Resistenz gegen Krankheiten" kosten="40" voraussetzungen="" nachkauf="selten" typ="0">Das Intervall, in dem du durch Krankheiten Schaden erleidest, verdoppelt sich. Andere Effekte haben nur die halben Auswirkungen.</Vorteil>
+  <Vorteil name="Immunität gegen Krankheiten" kosten="40" voraussetzungen="Vorteil Resistenz gegen Krankheiten" nachkauf="extrem selten" typ="0">Du bist immun gegen Krankheiten.</Vorteil>
+  <Vorteil name="Resistenz gegen Hitze" kosten="40" voraussetzungen="" nachkauf="selten" typ="0">Verschiebt die Temperaturstufe bei hohen Temperaturen um 1 Stufe Richtung normal.</Vorteil>
+  <Vorteil name="Resistenz gegen Kälte" kosten="40" voraussetzungen="" nachkauf="selten" typ="0">Verschiebt die Temperaturstufe bei niedrigen Temperaturen um 1 Stufe Richtung normal.</Vorteil>
+  <Vorteil name="Tieremphatie (Kleine Gruppe)" kosten="20" voraussetzungen="" nachkauf="extrem selten" typ="0">Mit der Gabe der Tierempathie kannst du das Talent Überleben verwenden, um die Gedanken von Tieren zu verstehen. Zusätzlich kannst du ihnen sogar einfache Botschaften zukommen lassen. Durch diesen aktiven Einsatz der Gabe erleidest du 1 Punkt Erschöpfung.
+
+Ein Beispiel für eine kleine Gruppe von Tieren wären zum Beispiel alle Vögel.</Vorteil>
+  <Vorteil name="Tieremphatie (Große Gruppe)" kosten="40" voraussetzungen="" nachkauf="extrem selten" typ="0">Mit der Gabe der Tierempathie kannst du das Talent Überleben verwenden, um die Gedanken von Tieren zu verstehen. Zusätzlich kannst du ihnen sogar einfache Botschaften zukommen lassen. Durch diesen aktiven Einsatz der Gabe erleidest du 1 Punkt Erschöpfung.
+
+Ein Beispiel für eine große Gruppe von Tieren wären zum Beispiel alle Säugetiere.</Vorteil>
+  <Vorteil name="Tierempathie (Alle)" kosten="60" voraussetzungen="" nachkauf="extrem selten" typ="0">Mit der Gabe der Tierempathie kannst du das Talent Überleben verwenden, um die Gedanken von beliebigen Tieren zu verstehen. Zusätzlich kannst du ihnen sogar einfache Botschaften zukommen lassen. Durch diesen aktiven Einsatz der Gabe erleidest du 1 Punkt Erschöpfung.</Vorteil>
+  <Vorteil name="Verbindungen (Geringer Einfluss)" kosten="20" voraussetzungen="" nachkauf="üblich" typ="0">Du hast einen guten Draht zu einer bestimmten Organisation oder Person, deren Verhältnis dir gegenüber üblicherweise freundlich ist. Außerdem gelten passende Verbindungen als Werkzeug für Recherchen und viele andere Tätigkeiten. Verbindungen können mehrmals gewählt werden, um gute Kontakte zu mehreren Gruppen darzustellen. Die Kosten einer Verbindung legt der Spielleiter fest, wobei er sich an der Macht und dem Einflussbereich der Verbindung orientieren sollte. 
+Beispiele für Verbindungen mit geringem Einfluss wären: 
+- Örtlicher Baron: Starker lokaler Einfluss mit geringem Einflussbereich.
+- Badilakaner: Geringer Einfluss in weiten Teilen des zwölfgöttergläubigen Aventuriens.</Vorteil>
+  <Vorteil name="Verbindungen (Mittlerer Einfluss)" kosten="40" voraussetzungen="" nachkauf="üblich" typ="0">Du hast einen guten Draht zu einer bestimmten Organisation oder Person, deren Verhältnis dir gegenüber üblicherweise freundlich ist. Außerdem gelten passende Verbindungen als Werkzeug für Recherchen und viele andere Tätigkeiten. Verbindungen können mehrmals gewählt werden, um gute Kontakte zu mehreren Gruppen darzustellen. Die Kosten einer Verbindung legt der Spielleiter fest, wobei er sich an der Macht und dem Einflussbereich der Verbindung orientieren sollte. 
+Beispiele für Verbindungen mit mittlerem Einfluss wären: 
+- Efferdbrüder: Ansehnlicher Einfluss in Hafenstädten des zwölfgöttergläubigen Aventuriens.</Vorteil>
+  <Vorteil name="Verbindungen (Großer Einfluss)" kosten="60" voraussetzungen="" nachkauf="selten" typ="0">Du hast einen guten Draht zu einer bestimmten Organisation oder Person, deren Verhältnis dir gegenüber üblicherweise freundlich ist. Außerdem gelten passende Verbindungen als Werkzeug für Recherchen und viele andere Tätigkeiten. Verbindungen können mehrmals gewählt werden, um gute Kontakte zu mehreren Gruppen darzustellen. Die Kosten einer Verbindung legt der Spielleiter fest, wobei er sich an der Macht und dem Einflussbereich der Verbindung orientieren sollte. 
+Beispiele für Verbindungen mit großem Einfluss wären: 
+- Rabe von Punin: Starker Einfluss auf alle zwölfgöttergläubigen Aventurier im Einflussbereich des Puniner Boron-Glaubens </Vorteil>
+  <Vorteil name="Verbindungen (Enormer Einfluss)" kosten="80" voraussetzungen="" nachkauf="selten" typ="0">Du hast einen guten Draht zu einer bestimmten Organisation oder Person, deren Verhältnis dir gegenüber üblicherweise freundlich ist. Außerdem gelten passende Verbindungen als Werkzeug für Recherchen und viele andere Tätigkeiten. Verbindungen können mehrmals gewählt werden, um gute Kontakte zu mehreren Gruppen darzustellen. Die Kosten einer Verbindung legt der Spielleiter fest, wobei er sich an der Macht und dem Einflussbereich der Verbindung orientieren sollte. 
+Beispiele für Verbindungen mit enormen Einfluss wären: 
+- Haus Gareth: Immenser Einfluss im Mittelreich, weitreichende Beziehungen in ganz Aventurien.</Vorteil>
+  <Vorteil name="Zauberer I" kosten="40" voraussetzungen="" nachkauf="extrem selten" typ="0">Du verfügst über 8 Astralpunkte und kannst magische Repräsentationen erlernen. Dämonen, Elementare oder Hellsichtsmagier können dich magisch wahrnehmen. Zauberer I entspricht dabei einem einfachen Magiedilettanten.</Vorteil>
+  <Vorteil name="Zauberer II" kosten="40" voraussetzungen="Vorteil Zauberer I" nachkauf="üblich" typ="0">Du verfügst über 16 Astralpunkte und kannst magische Repräsentationen erlernen. Dämonen, Elementare oder Hellsichtsmagier können dich magisch wahrnehmen. Zauberer II entspricht dabei einem wenig begabten Alchemisten. </Vorteil>
+  <Vorteil name="Zauberer III" kosten="40" voraussetzungen="Vorteil Zauberer II" nachkauf="üblich" typ="0">Du verfügst über 24 Astralpunkte und kannst magische Repräsentationen erlernen. Dämonen, Elementare oder Hellsichtsmagier können dich magisch wahrnehmen. Zauberer III entspricht dabei einem ausgebildeten Zauberer.</Vorteil>
+  <Vorteil name="Zauberer IV" kosten="40" voraussetzungen="Vorteil Zauberer III" nachkauf="üblich" typ="0">Du verfügst über 32 Astralpunkte und kannst magische Repräsentationen erlernen. Dämonen, Elementare oder Hellsichtsmagier können dich magisch wahrnehmen. Zauberer IV entspricht dabei einem sehr kompetenten Zauberer.</Vorteil>
+  <Vorteil name="Eindrucksvoll I" kosten="20" voraussetzungen="Attribut CH 4" nachkauf="häufig" typ="1">Proben auf Autorität, Beeinflussung und Gebräuche sind um +1 erleichtert.</Vorteil>
+  <Vorteil name="Eindrucksvoll II" kosten="40" voraussetzungen="Attribut CH 6" nachkauf="häufig" typ="1">Proben auf Autorität, Beeinflussung und Gebräuche sind um +1 erleichtert.
+Durch den Einsatz von Betören kannst du das Verhältnis um zwei Stufen verbessern.</Vorteil>
+  <Vorteil name="Eindringlichkeit" kosten="60" voraussetzungen="Attribut CH 8" nachkauf="häufig" typ="1">Einmal pro gesellschaftlichem Konflikt kannst du eine zentrales Argument, eine besonders wirkungsvolle Drohung oder entscheidenden Augenaufschlag wagen. Der Ausgang dieser Probe zählt zwei Erfolge. </Vorteil>
+  <Vorteil name="Starke Aura" kosten="60" voraussetzungen="Attribut CH 10" nachkauf="häufig" typ="1">Fremde sind dir besonders wohlgesonnen, hilfsbereit oder sogar vertrauensselig. Ihr Verhältnis dir gegenüber ist stets eine Stufe höher, also meist freundlich. 
+Außerdem erhalten deine Gegner in sozialen Konflikten niemals Vorteile durch ablehnendes oder feindliches Verhalten.</Vorteil>
+  <Vorteil name="Routiniert I" kosten="20" voraussetzungen="Attribut FF 4" nachkauf="häufig" typ="1">Die Basiszeit zur Herstellung handwerklicher Produkte und bei der Wundversorgung verkürzt sich um ein Viertel des unmodifizierten Werts.</Vorteil>
+  <Vorteil name="Routiniert II" kosten="40" voraussetzungen="Attribut FF 6" nachkauf="häufig" typ="1">Die Basiszeit zur Herstellung handwerklicher Produkte und bei der Versorgung von Wunden verkürzt sich um ein Viertel des unmodifizierten Werts. Bei Proben auf Alchemie, Heilkunde, Holzbearbeitung und Metallverarbeitung gelten Patzer als gewöhnlich misslungen.</Vorteil>
+  <Vorteil name="Improvisation" kosten="60" voraussetzungen="Attribut FF 8" nachkauf="häufig" typ="1">Unzureichendes Werkzeug oder minderwertige Verbrauchsmaterialien gelten um eine Stufe höher.</Vorteil>
+  <Vorteil name="Meisterwerk" kosten="80" voraussetzungen="Attribut FF 10" nachkauf="häufig" typ="1">Mit hervorragenden Materialien und dem doppelten Zeitaufwand kannst du ein Meisterwerk schaffen. Dieses erhält zusätzlich 2x die Modifikation hohe Qualität und kann verbesserte Eigenschaften nach Meisterentscheid haben. Solche Werke sind extrem selten und Gegenstand von Sagen und Legenden. Der Vorteil kann nur mit Handwerksfertigkeiten mit einem unmodifizierten Probenwert von mindestens 16 angewandt werden. </Vorteil>
+  <Vorteil name="Zerstörerisch I" kosten="20" voraussetzungen="Attribut KK 4" nachkauf="häufig" typ="1">Proben zum Zerstören oder Durchbrechen von Gegenständen sind um +4 erleichtert.</Vorteil>
+  <Vorteil name="Zerstörerisch II" kosten="40" voraussetzungen="Attribut KK 6" nachkauf="häufig" typ="1">Proben zum Zerstören oder Durchbrechen von Gegenständen sind um +4 erleichtert. 
+
+Erlaubt das Manöver Hammerschlag gegen Gegenstände. Bei waffenlosen Angriffen gegen Gegenstände verletzt du dich normalerweise nicht.</Vorteil>
+  <Vorteil name="Muskelprotz" kosten="60" voraussetzungen="Attribut KK 8" nachkauf="häufig" typ="1">Einschüchtern-Proben sind um +4 erleichtert und du kannst ohne zusätzliche Erschwernis bis zu 4 Gegner einschüchtern.</Vorteil>
+  <Vorteil name="Adrenalinschub" kosten="80" voraussetzungen="Attribut KK 10" nachkauf="häufig" typ="1">Du kannst dir eine Probe bei einer körperlichen Tätigkeit (z.B. Schmieden, Laufen, Nahkampfangriff) um +4 erleichtern. Anschließend erleidest du einen Punkt Erschöpfung.</Vorteil>
+  <Vorteil name="Scharfsinnig I" kosten="20" voraussetzungen="Attribut KL 4" nachkauf="häufig" typ="1">Proben bei einer Ermittlung, einer Informationssuche, in der Forschung oder zum Erinnern an Details sind um +2 erleichtert.</Vorteil>
+  <Vorteil name="Scharfsinnig II" kosten="40" voraussetzungen="Attribut KL 6" nachkauf="häufig" typ="1">Proben bei einer Ermittlung, einer Informationssuche, in der Forschung oder zum Erinnern an Details sind um +2 erleichtert.
+Bei Informationssuchen erhältst du eine zusätzliche Stufe Hohe Qualität, wenn der gewertete Würfel 12 oder höher zeigt.</Vorteil>
+  <Vorteil name="Vorbereitung" kosten="60" voraussetzungen="Attribut KL 8" nachkauf="häufig" typ="1">Du kannst Proben auf profane Fertigkeiten besonders sorgfältig vorbereiten (sofern Vorbereitung sinnvoll ist). Wenn du die doppelte notwendige Zeit aufwendest, erhältst du +2 Punkte Erleichterung.</Vorteil>
+  <Vorteil name="Brillanz" kosten="80" voraussetzungen="Attribut KL 10" nachkauf="häufig" typ="1">Pro Abenteuer kannst du den Spielleiter W3 mal um einen Tipp bitten. Diese Tipps sollen nicht das Abenteuer lösen, können dich aber auf Fehler in deinem Plan oder bisher übersehene Aspekte oder Zusammenhänge aufmerksam machen. </Vorteil>
+  <Vorteil name="Flink I" kosten="20" voraussetzungen="Attribut GE 4" nachkauf="häufig" typ="1">Deine GS steigt um 1 Punkt.</Vorteil>
+  <Vorteil name="Flink II" kosten="40" voraussetzungen="Attribut GE 6" nachkauf="häufig" typ="0">Deine GS steigt um 1 Punkt.
+
+Bei Athletikproben gelten Patzer als gewöhnlich misslungen.</Vorteil>
+  <Vorteil name="Katzenhaft" kosten="60" voraussetzungen="Attribut GE 8" nachkauf="häufig" typ="1">Erschwernisse durch unsicheren Untergrund sinken um 1 Stufe und gegen den Schaden aus Stürzen, Zusammenstößen usw. kannst du die GE als WS verwenden.</Vorteil>
+  <Vorteil name="Körperbeherrschung" kosten="80" voraussetzungen="Attribut GE 10" nachkauf="häufig" typ="1">Du kannst Nah- oder Fernkampfangriffen, elementaren Schadenszaubern oder ähnlichen Schadensquellen mit einer GE-Gegenprobe entgehen, auch wenn übliche Verteidigungsmöglichkeiten versagt haben (aber vor einem Schadenswurf). Anschließend erleidest du einen Punkt Erschöpfung.</Vorteil>
+  <Vorteil name="Anpassungsfähig I" kosten="20" voraussetzungen="Attribut IN 4" nachkauf="häufig" typ="0">Unpassender Status erhöht die Patzerchance in gesellschaftlichen Konflikten um 1 Punkt weniger.</Vorteil>
+  <Vorteil name="Anpassungsfähig II" kosten="40" voraussetzungen="Attribut IN 6" nachkauf="häufig" typ="1">Unpassender Status erhöht die Patzerchance in gesellschaftlichen Konflikten um 1 Punkt weniger. Bei Proben auf Autorität, Beeinflussung oder Gebräuche gelten Patzer als gewöhnlich misslungen.</Vorteil>
+  <Vorteil name="Empathie" kosten="60" voraussetzungen="Attribut IN 8" nachkauf="häufig" typ="1">Mit der Gabe der Empathie kannst du eine Menschenkenntnis-Probe gegen die Willenskraft deines Gegenübers ablegen, um seine Motivation (regeltechnisch oft eine Eigenheit) zu erahnen. Du kannst dieses Wissen in sozialen Konflikten nutzen. Durch den Einsatz der Gabe erleidest du 1 Punkt Erschöpfung.</Vorteil>
+  <Vorteil name="Vertrautheit" kosten="80" voraussetzungen="Attribut IN 10" nachkauf="häufig" typ="1">Du kannst Schicksalspunkte an einen Vertrauten weitergeben. Du solltest beschreiben, wie du die Person unterstützt: Durch Trost, eine aufpeitschende Rede oder eine knappe Geste. Wenn du durch das Ausnutzen einer Eigenheit einen Schicksalspunkt erhältst, bekommst du bei 4-6 auf dem W6 einen weiteren Schicksalspunkt.</Vorteil>
+  <Vorteil name="Abgehärtet I" kosten="20" voraussetzungen="Attribut KO 4" nachkauf="häufig" typ="1">Proben zur Abwehr von Giften und Krankheiten sind um +4 erleichtert.</Vorteil>
+  <Vorteil name="Abgehärtet II" kosten="40" voraussetzungen="Attribut KO 6" nachkauf="häufig" typ="1">Proben zur Abwehr von Giften und Krankheiten sind um +4 erleichtert und das DH steigt um 2.</Vorteil>
+  <Vorteil name="Schnelle Heilung" kosten="60" voraussetzungen="Attribut KO 8" nachkauf="häufig" typ="1">Du regenerierst 2 Wunden pro durchschlafener Nacht und immer noch 1 Wunde, wenn die Schlafphase unterbrochen wurde.</Vorteil>
+  <Vorteil name="Unverwüstlich" kosten="80" voraussetzungen="Attribut KO 10" nachkauf="häufig" typ="1">Deine WS steigt um 1 Punkt.
+
+Wenn Zähigkeitsproben zum Ignorieren von Kampfunfähigkeit misslingen, erleidest du keine Erschöpfung.</Vorteil>
+  <Vorteil name="Willensstark I" kosten="20" voraussetzungen="Attribut MU 4" nachkauf="häufig" typ="0">Deine MR steigt um 4 Punkte.</Vorteil>
+  <Vorteil name="Willensstark II" kosten="40" voraussetzungen="Attribut MU 6" nachkauf="häufig" typ="1">Deine MR steigt um 4 Punkte.
+
+Auf dich wirkende Furcht-Effekte zählen als eine Stufe niedriger.</Vorteil>
+  <Vorteil name="Geisterpanzer" kosten="60" voraussetzungen="Attribut MU 8" nachkauf="häufig" typ="1">Gegen direkten Schaden aus Zaubern wie Fulminictus, Ignisphaero oder Hexengalle kannst du deinen MU als WS verwenden.</Vorteil>
+  <Vorteil name="Unbeugsamkeit" kosten="80" voraussetzungen="Attribut MU 10" nachkauf="häufig" typ="1">Deine MR steigt um MU/2 Punkte.
+
+Mit einer Aktion Konflikt und einer Konterprobe (MU, 16) kannst du einen auf dir liegenden Zauber abschütteln. Anschließend erleidest du einen Punkt Erschöpfung.</Vorteil>
+  <Vorteil name="Kommando: Haltet Stand!" kosten="20" voraussetzungen="Attribut CH 4" nachkauf="häufig" typ="2">Furcht-Effekte für Betroffene zählen um 1 Stufe niedriger.</Vorteil>
+  <Vorteil name="Kommando: Formiert Euch!" kosten="40" voraussetzungen="Attribut CH 6" nachkauf="häufig" typ="2">Alle Betroffenen erhalten VT +1.</Vorteil>
+  <Vorteil name="Kommando: Keine Gefangenen!" kosten="60" voraussetzungen="Attribut CH 8" nachkauf="häufig" typ="2">Alle Betroffenen erhalten TP +2.</Vorteil>
+  <Vorteil name="Kommando: Kennt Keinen Schmerz!" kosten="80" voraussetzungen="Attribut CH 10" nachkauf="häufig" typ="2">Alle Betroffenen erhalten WS +1.</Vorteil>
+  <Vorteil name="Scharfschuss" kosten="20" voraussetzungen="Attribut FF 4" nachkauf="häufig" typ="2">Erlaubt das Manöver Wuchtschlag im Fernkampf. Beim Spiel mit Trefferzonen kannst du auch im Fernkampf das Manöver Gezielter Schlag einsetzen.</Vorteil>
+  <Vorteil name="Schnellziehen" kosten="40" voraussetzungen="Attribut FF 6" nachkauf="häufig" typ="2">Alle Waffen werden 50% (mind. 1 Aktion) schneller bereit gemacht oder geladen.</Vorteil>
+  <Vorteil name="Ruhige Hand" kosten="60" voraussetzungen="Attribut FF 8" nachkauf="häufig" typ="2">Verdoppelt den Bonus durch Zielen und ignoriert Erschwernis durch Wind und für berittene Schützen.</Vorteil>
+  <Vorteil name="Meisterschuss" kosten="80" voraussetzungen="Attribut FF 10" nachkauf="häufig" typ="2">Erlaubt das Manöver Todesstoß im Fernkampf.</Vorteil>
+  <Vorteil name="Niederwerfen" kosten="20" voraussetzungen="Attribut KK 4" nachkauf="häufig" typ="2">Erlaubt das Manöver Niederwerfen.</Vorteil>
+  <Vorteil name="Waffenloser Kampf" kosten="40" voraussetzungen="Attribut KK 6" nachkauf="häufig" typ="2">Deine unbewaffneten Angriffe erhalten die Attribute kopflastig und wendig.</Vorteil>
+  <Vorteil name="Hammerschlag" kosten="60" voraussetzungen="Attribut KK 8" nachkauf="häufig" typ="2">Erlaubt das Manöver Hammerschlag.</Vorteil>
+  <Vorteil name="Unaufhaltsam" kosten="80" voraussetzungen="Attribut KK 10" nachkauf="häufig" typ="2">Selbst bei einer gelungenen gegnerischen Verteidigung richtest du halben Schaden an. Ausweichen vermeidet diesen Schaden. Manövereffekte wirken weiterhin nur bei gelungenen Attacken.</Vorteil>
+  <Vorteil name="Standfest" kosten="20" voraussetzungen="Attribut GE 4" nachkauf="häufig" typ="2">Nach einem Sturz befindest du dich in kniender Position.</Vorteil>
+  <Vorteil name="Sturmangriff" kosten="40" voraussetzungen="Attribut GE 6" nachkauf="häufig" typ="2">Erlaubt das Manöver Sturmangriff.</Vorteil>
+  <Vorteil name="Todesstoß" kosten="60" voraussetzungen="Attribut GE 8" nachkauf="häufig" typ="2">Erlaubt das Manöver Todesstoß.</Vorteil>
+  <Vorteil name="Präzision" kosten="80" voraussetzungen="Attribut GE 10" nachkauf="häufig" typ="2">Im Kampf tritt ein Triumph auch bei einer 19 auf. Triumphale Angriffe richten rüstungsbrechenden Schaden an.</Vorteil>
+  <Vorteil name="Ausfall" kosten="20" voraussetzungen="Attribut MU 4" nachkauf="häufig" typ="2">Erlaubt das Manöver Ausfall.</Vorteil>
+  <Vorteil name="Offensiver Kampfstil" kosten="40" voraussetzungen="Attribut MU 6" nachkauf="häufig" typ="2">Der Verteidigungs-Malus durch volle Offensive sinkt auf -4.</Vorteil>
+  <Vorteil name="Gegenhalten" kosten="60" voraussetzungen="Attribut MU 8" nachkauf="häufig" typ="2">Wenn du eine Attacke abwehrst, die mit einem Manöver verstärkt wurde, darfst du sofort einen Passierschlag gegen den Angreifer ausführen.</Vorteil>
+  <Vorteil name="Kalte Wut" kosten="80" voraussetzungen="Attribut MU 10" nachkauf="häufig" typ="2">Der Held kann sich im Kampf in kalte Wut versetzen und Wundabzüge ignorieren.</Vorteil>
+  <Vorteil name="Kampfreflexe" kosten="20" voraussetzungen="Attribut IN 4" nachkauf="häufig" typ="2">Deine INI steigt um 4 Punkte.</Vorteil>
+  <Vorteil name="Defensiver Kampfstil" kosten="40" voraussetzungen="Attribut IN 6" nachkauf="häufig" typ="2">Die Aktion volle Defensive wird kombinierbar.</Vorteil>
+  <Vorteil name="Aufmerksamkeit" kosten="60" voraussetzungen="Attribut IN 8" nachkauf="häufig" typ="2">Misslingt deinem Gegner eine Verteidigung gegen dich, die mit einem Manöver verstärkt wurde, darfst du sofort einen Passierschlag gegen ihn ausführen. Passierschläge gegen dich sind um weitere -4 erschwert.</Vorteil>
+  <Vorteil name="Klingentanz" kosten="80" voraussetzungen="Attribut IN 10" nachkauf="häufig" typ="2">Erlaubt das Manöver Klingentanz.</Vorteil>
+  <Vorteil name="Zäher Hund" kosten="20" voraussetzungen="Attribut KO 4" nachkauf="häufig" typ="2">Blutungen drohen nur alle 2xWS Initiativephasen eine Wunde anzurichten.</Vorteil>
+  <Vorteil name="Rüstungsgewöhnung I" kosten="40" voraussetzungen="Attribut KO 6" nachkauf="häufig" typ="2">Die BE aller Rüstungen ist um 1 gesenkt.</Vorteil>
+  <Vorteil name="Eisern" kosten="60" voraussetzungen="Attribut KO 8" nachkauf="häufig" typ="2">Wundschmerzeffekte treten bei dir erst ab drei Wunden auf einen Schlag auf.</Vorteil>
+  <Vorteil name="Rüstungsgewöhnung II" kosten="80" voraussetzungen="Attribut KO 10" nachkauf="häufig" typ="2">Die BE aller Rüstungen ist um weitere 2 gesenkt.</Vorteil>
+  <Vorteil name="Beidhändiger Kampf I" kosten="20" voraussetzungen="Attribut GE 4" nachkauf="häufig" typ="3">Du erhälst AT +1.
+
+Bedingungen: 
+- zwei einhändige Waffen (kein Schild)
+- nicht beritten</Vorteil>
+  <Vorteil name="Beidhändiger Kampf II" kosten="40" voraussetzungen="Attribut GE 6, Vorteil Beidhändiger Kampf I" nachkauf="häufig" typ="0">Du erhälst AT +1 und erleidest keine Abzüge bei Verwendung der falschen Hand.
+
+Bedingungen: 
+- zwei einhändige Waffen (kein Schild)
+- nicht beritten</Vorteil>
+  <Vorteil name="Beidhändiger Kampf III" kosten="60" voraussetzungen="Attribut GE 8, Vorteil Beidhändiger Kampf II" nachkauf="häufig" typ="3">Du erhälst AT +1. Erlaubt das Manöver Doppelangriff.
+
+Bedingungen: 
+- zwei einhändige Waffen (kein Schild)
+- nicht beritten</Vorteil>
+  <Vorteil name="Waffenmeister Beidhändiger Kampf" kosten="80" voraussetzungen="Attribut GE 10, Vorteil Beidhändiger Kampf III" nachkauf="häufig" typ="3">8 Punkte können zur Verbesserung des Kampfstils verwendet werden. </Vorteil>
+  <Vorteil name="Kraftvoller Kampf I" kosten="20" voraussetzungen="Attribut KK 4" nachkauf="häufig" typ="3">Du erhältst TP +1.
+
+Bedingungen: 
+- einzelne Nahkampfwaffe
+- nicht beritten</Vorteil>
+  <Vorteil name="Kraftvoller Kampf II" kosten="40" voraussetzungen="Attribut KK 6, Vorteil Kraftvoller Kampf I" nachkauf="häufig" typ="3">Du erhälst TP +1. Boni für gegnerische Angriffe in deinen Rücken sinken um 1 Stufe.
+
+Bedingungen: 
+- einzelne Nahkampfwaffe
+- nicht beritten</Vorteil>
+  <Vorteil name="Kraftvoller Kampf III" kosten="60" voraussetzungen="Attribut KK 8, Vorteil Kraftvoller Kampf II" nachkauf="häufig" typ="3">Du erhälst TP +1. Erlaubt das Manöver Befreiungsschlag.
+
+Bedingungen: 
+- einzelne Nahkampfwaffe
+- nicht beritten</Vorteil>
+  <Vorteil name="Waffenmeister Kraftvoller Kampf" kosten="80" voraussetzungen="Attribut KK 10, Vorteil Kraftvoller Kampf III" nachkauf="häufig" typ="3">8 Punkte können zur Verbesserung des Kampfstils verwendet werden.</Vorteil>
+  <Vorteil name="Schildkampf I" kosten="20" voraussetzungen="Attribut KK 4" nachkauf="häufig" typ="3">Du erhälst VT +1.
+
+Bedingungen: 
+- Schild</Vorteil>
+  <Vorteil name="Schildkampf II" kosten="40" voraussetzungen="Attribut KK 6, Vorteil Schildkampf I" nachkauf="häufig" typ="3">Du erhälst VT +1. Abzüge auf zusätzliche Verteidigungen sinken um 1 Stufe.
+
+Bedingungen: 
+- Schild</Vorteil>
+  <Vorteil name="Schildkampf III" kosten="60" voraussetzungen="Attribut KK 8, Vorteil Schildkampf II" nachkauf="häufig" typ="3">Du erhälst VT +1. Erlaubt das Manöver Schildwall.
+
+Bedingungen: 
+- Schild</Vorteil>
+  <Vorteil name="Waffenmeister Schildkampf" kosten="80" voraussetzungen="Attribut KK 10, Vorteil Schildkampf III" nachkauf="häufig" typ="3">8 Punkte können zur Verbesserung des Kampfstils verwendet werden.</Vorteil>
+  <Vorteil name="Schneller Kampf I" kosten="20" voraussetzungen="Attribut GE 4" nachkauf="häufig" typ="3">Du erhälst AT +1. 
+
+Bedingungen: 
+- einzelne Nahkampfwaffe
+- nicht beritten</Vorteil>
+  <Vorteil name="Schneller Kampf II" kosten="40" voraussetzungen="Attribut GE 6, Vorteil Schneller Kampf I" nachkauf="häufig" typ="3">Du erhälst AT +1. Du kannst deine Waffe auch in einer um 1 geringeren Reichweite führen. Der Wechsel in die verringerte oder zurück in die ursprüngliche Reichweite geschieht in einer freien Aktion.
+
+Bedingungen: 
+- einzelne Nahkampfwaffe
+- nicht beritten</Vorteil>
+  <Vorteil name="Schneller Kampf III" kosten="60" voraussetzungen="Attribut GE 8, Vorteil Schneller Kampf II" nachkauf="häufig" typ="3">Du erhälst AT +1. Erlaubt das Manöver Befreiungsschlag.
+
+Bedingungen: 
+- einzelne Nahkampfwaffe
+- nicht beritten</Vorteil>
+  <Vorteil name="Waffenmeister Schneller Kampf" kosten="80" voraussetzungen="Attribut GE 10, Vorteil Schneller Kampf III" nachkauf="häufig" typ="3">8 Punkte können zur Verbesserung des Kampfstils verwendet werden.</Vorteil>
+  <Vorteil name="Parierwaffenkampf I" kosten="20" voraussetzungen="Attribut GE 4" nachkauf="häufig" typ="3">Du erhälst eine Manövererleichterung von +1 gegen Humanoide.
+
+Bedingungen: 
+- Parierwaffe
+- nicht beritten</Vorteil>
+  <Vorteil name="Parierwaffenkampf II" kosten="40" voraussetzungen="Attribut GE 6, Vorteil Parierwaffenkampf I" nachkauf="häufig" typ="3">Du erhälst eine Manövererleichterung von +1 gegen Humanoide. Abzüge durch unsicheren Untergrund sinken um 1 Stufe.
+
+Bedingungen: 
+- Parierwaffe
+- nicht beritten</Vorteil>
+  <Vorteil name="Parierwaffenkampf III" kosten="60" voraussetzungen="Attribut GE 8, Vorteil Parierwaffenkampf II" nachkauf="häufig" typ="3">Du erhälst eine Manövererleichterung von +1 gegen Humanoide. Erlaubt das Manöver Riposte.
+
+Bedingungen: 
+- Parierwaffe
+- nicht beritten</Vorteil>
+  <Vorteil name="Waffenmeister Parierwaffenkampf" kosten="80" voraussetzungen="Attribut GE 10, Vorteil Parierwaffenkampf III" nachkauf="häufig" typ="3">8 Punkte können zur Verbesserung des Kampfstils verwendet werden.</Vorteil>
+  <Vorteil name="Reiterkampf I" kosten="20" voraussetzungen="Attribut GE 4 ODER Attribut KK 4" nachkauf="häufig" typ="3">Du erhälst TP +1, AT +1 und VT +1. Erlaubt das Manöver Sturmangriff mit dem Pferd.
+
+Bedingungen: 
+- beritten</Vorteil>
+  <Vorteil name="Reiterkampf II" kosten="40" voraussetzungen="Attribut GE 6 ODER Attribut KK 6" nachkauf="häufig" typ="3">Du erhälst TP +1, AT +1 und VT +1. Erlaubt das Manöver Hammerschlag mit dem Pferd. Du erhälst keine Abzüge auf Reiten-Proben durch deine BE.
+
+Bedingungen: 
+- beritten</Vorteil>
+  <Vorteil name="Reiterkampf III" kosten="60" voraussetzungen="Attribut GE 8 ODER Attribut KK 8" nachkauf="häufig" typ="3">Du erhälst TP +1, AT +1 und VT +1. Erlaubt das Manöver Überrennen mit dem Pferd.
+
+Bedingungen: 
+- beritten</Vorteil>
+  <Vorteil name="Waffenmeister Reiterkampf" kosten="80" voraussetzungen="Attribut GE 10 ODER Attribut KK 10" nachkauf="häufig" typ="3">8 Punkte können zur Verbesserung des Kampfstils verwendet werden.</Vorteil>
   <Talent name="Laufen" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Athletik">Akrobatik wird nicht nur für gewagte Kunststücke und Balanceakte verwendet, sondern kann auch den Fallschaden nach Stürzen reduzieren.</Talent>
+  <Talent name="Unbewaffnet" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Handgemenge">Verbessert den waffenlosen Nahkampf.</Talent>
+  <Talent name="Handgemengewaffen" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Handgemenge">Verbessert den Einsatz von Messern, Dolchen, Schlagstöcken und Kettenstäben.</Talent>
+  <Talent name="Schilde" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Handgemenge">Verbessert den Einsatz von Schilden.</Talent>
+  <Talent name="Einhandklingenwaffen" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Klingenwaffen">Verbessert den Einsatz einhändig geführter Klingenwaffen wie Schwertern, Säbeln und Fechtwaffen.</Talent>
+  <Talent name="Einhandhiebwaffen" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Hiebwaffen">Verbessert den Einsatz einhändig geführter Hiebwaffen wie Keulen, Äxten, Beilen und kleineren Hämmern.</Talent>
+  <Talent name="Zweihandhiebwaffen" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Hiebwaffen">Verbessert den Einsatz beidhändig geführter Hiebwaffen wie großer Äxte und Hämmern.</Talent>
+  <Talent name="Zweihandklingenwaffen" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Klingenwaffen">Verbessert den Einsatz von zweihändig geführten Klingenwaffen wie Anderthalbhändern, Bastardschwertern und Zweihandschwertern.</Talent>
+  <Talent name="Infanteriewaffen" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Stangenwaffen">Verbessert den Einsatz von langen Infanteriewaffen wie Speeren, Hellebarden und Kampfstäben.</Talent>
+  <Talent name="Lanzenreiten" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Stangenwaffen">Verbessert den Einsatz von Lanzen im berittenen Kampf.</Talent>
+  <Talent name="Bögen" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Schusswaffen">Verbessert den Einsatz von Bögen.</Talent>
+  <Talent name="Armbrüste" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Schusswaffen">Verbessert den Einsatz von Armbrüsten und Torsionswaffen.</Talent>
+  <Talent name="Schleudern" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Schusswaffen">Verbessert den Einsatz von Schleudern.</Talent>
+  <Talent name="Blasrohre" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Schusswaffen">Verbessert den Einsatz von Blasrohren.</Talent>
+  <Talent name="Kurze Wurfwaffen" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Wurfwaffen">Verbessert den Einsatz von Wurfäxten, Wurfbeilen, Wurfmessern und Wurfsternen.</Talent>
+  <Talent name="Wurfspeere" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Wurfwaffen">Verbessert den Einsatz von Wurfspeeren.</Talent>
+  <Talent name="Diskusse" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Wurfwaffen">Verbessert den Einsatz von Diskussen.</Talent>
+  <Talent name="Klettern" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Athletik">Mit Klettern werden alle Arten von Hindernissen überwunden.</Talent>
+  <Talent name="Schwimmen" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Athletik">Schwimmen erlaubt eine schnellere Fortbewegung im Wasser und beinhaltet auch alle Arten des Tauchens.</Talent>
+  <Talent name="Reiten" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Athletik">Reiten ist die Fähigkeit, ein Pferd, Kamel oder einen Hippogriff zu kontrollieren und als schnelles Reisemittel oder im Kampf einzusetzen. Von Tieren gezogene Karren oder Wagen werden ebenfalls mit Reiten bedient.</Talent>
+  <Talent name="Akrobatik" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Athletik">Akrobatik wird nicht nur für gewagte Kunststücke und Balanceakte verwendet, sondern kann auch den Fallschaden nach Stürzen reduzieren.</Talent>
+  <Talent name="Pirschen" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Heimlichkeit">Pirschen ermöglicht das Schleichen, Verstecken und Lauern in der freien Natur. Du pirschst dich an Wild an, legst einen Hinterhalt an einer Reichsstraße oder beobachtest eine Orkbande.</Talent>
+  <Talent name="Untertauchen" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Heimlichkeit">Untertauchen erlaubt dir das Schleichen, Verstecken und Beschatten in der Zivilisation. Du verschwindest in Menschenmengen, steigst ungehört in eine Villa ein oder beschattest unauffällig einen Hehler.</Talent>
+  <Talent name="Willenskraft" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Selbstbeherrschung">Willenskraft erlaubt dir, Beeinflussungen und Versuchungen zu widerstehen und dich nicht ablenken zu lassen. Du kannst dich im Chaos eines Gefechts auf einen Zauber konzentrieren oder einem Heiligen Befehl widerstehen.</Talent>
+  <Talent name="Zähigkeit" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Selbstbeherrschung">Zähigkeit hilft dir, Schmerzen und Strapazen zu widerstehen. So kannst du trotz zahlreicher Wunden noch handlungsfähig bleiben und einen Kampf zu euren Gunsten wenden.</Talent>
+  <Talent name="Menschenkenntnis" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Wahrnehmung">Menschenkenntnis ist deine Fähigkeit, die Absichten deines Gegenüber zu durchschauen. So enttarnst du Lügen und falsche Annäherungsversuche.</Talent>
+  <Talent name="Sinnenschärfe" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Wahrnehmung">Sinnenschärfe ist die aktive Verwendung deiner Sinne, um einen Kollaborateur in einem geschäftigen Wirtshaus zu belauschen, die Flagge eines nahenden Schiffes zu identifizieren oder die sprichwörtliche Nadel im Heuhaufen zu finden.</Talent>
+  <Talent name="Wachsamkeit" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Wahrnehmung">Wachsamkeit fasst den passiven Einsatz deiner Sinne zusammen. Mit ihr entdeckst du Hinterhalte, bemerkst eine Unstimmigkeit an einem Tatort oder eine verborgene Notiz am Wegesrand.</Talent>
+  <Talent name="Anführen" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Autorität">Mit Anführen leitest und motivierst du Untergebene. Du kannst mit Anführen Löscharbeiten oder eine Truppe von Kämpfern koordinieren, um ihnen so Vorteile zu verschaffen. Gerade in großen Schlachten entscheidet der Heerführers über Sieg oder Niederlage.</Talent>
+  <Talent name="Einschüchtern" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Autorität">Einschüchtern jagt dem gegenüber Angst ein und bringt ihn so zu einer gewünschten Handlung. Das kann durch die Androhung von roher Gewalt, aber auch einer Verzauberung oder eines Fluchs geschehen. Die Probe wird oft vergleichend gegen den MU oder die Menschenkenntnis des Gegenüber abgelegt. </Talent>
+  <Talent name="Rhetorik" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Autorität">Rhetorik beinhaltet zahlreiche Fähigkeiten und Kniffe, um die eigenen Argumente wirkungsvoll einzusetzen und die Argumente des Gegenüber zu entkräften. Du kannst Rhetorik nur einsetzen, wenn dein Charakter von seinem Standpunkt überzeugt ist - der „Anwalt des Teufels“ oder dreiste Lügen fallen unter Überreden.</Talent>
+  <Talent name="Betören" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Beeinflussung">Beim Betören nutzt du deine persönliche Ausstrahlung, um zu bekommen, was du willst. Das reicht von Kleinigkeiten wie einem Freibier bis zum Verrat geheimer Staatsinformationen.</Talent>
+  <Talent name="Überreden" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Beeinflussung">Überreden bedeutet den geschickten Einsatz von Übertreibungen, Unwahrheiten oder Lügen, um das Gegenüber zumindest kurzfristig zu beeinflussen. Mit Überreden feilschst du am Marktplatz, bestichst eine Stadtwache oder schleichst dich in ein Borbaradianerkloster ein.</Talent>
+  <Talent name="Geographie" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Derekunde">Geographie befasst sich nicht nur mit Städten und fernen Ländern, sondern auch mit dem Sternenhimmel, der Kartographie und Navigation. Der Geograph kann Schatzkarten lesen und anfertigen, die Position eines Schiffes bestimmen und Sternenkonstellationen deuten. </Talent>
+  <Talent name="Pflanzenkunde" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Derekunde">Pflanzenkundige erforschen die vielen nützlichen, gefährlichen oder wundersamen Pflanzen Aventuriens. Sie sammeln die nötigen Kräuter für eine Heilsalbe, kennen die Gefahr von Jagdgras und finden essbare Früchte oder Wurzeln.</Talent>
+  <Talent name="Tierkunde" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Derekunde">Tierkunde bedeutet die Kenntnis der aventurischen Fauna. Dein Charakter kann einen Schleimfleck als Spur einer Riesenamöbe erkennen, einen gereizten Bären beruhigen und kennt die Schwachstelle eines Tatzelwurms.</Talent>
+  <Talent name="Gebräuche: Mittelreich" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Gebräuche"></Talent>
+  <Talent name="Gebräuche: Tulamidenlande" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Gebräuche"></Talent>
+  <Talent name="Gebräuche: Südaventurien" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Gebräuche"></Talent>
+  <Talent name="Gebräuche: Bornland" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Gebräuche"></Talent>
+  <Talent name="Gebräuche: Thorwal" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Gebräuche"></Talent>
+  <Talent name="Gebräuche: Maraskan" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Gebräuche"></Talent>
+  <Talent name="Gebräuche: Elfen" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Gebräuche"></Talent>
+  <Talent name="Gebräuche: Zwerge" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Gebräuche"></Talent>
+  <Talent name="Mythen: Mittelreich" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Mythenkunde"></Talent>
+  <Talent name="Mythen: Horasreich" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Mythenkunde"></Talent>
+  <Talent name="Mythen: Tulamidenlande" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Mythenkunde"></Talent>
+  <Talent name="Mythen: Bornland" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Mythenkunde"></Talent>
+  <Talent name="Mythen: Thorwal" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Mythenkunde"></Talent>
+  <Talent name="Mythen: Südaventurien" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Mythenkunde"></Talent>
+  <Talent name="Mythen: Maraskan" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Mythenkunde"></Talent>
+  <Talent name="Mythen: Elfen" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Mythenkunde"></Talent>
+  <Talent name="Mythen: Zwerge" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Mythenkunde"></Talent>
+  <Talent name="Gebräuche: Horasreich" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Gebräuche"></Talent>
+  <Talent name="Dämonenkunde" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Magiekunde">Dämonenkunde ist das Wissen um die Erzdämonen, ihre Diener und dämonische Zauber. Du kannst Dämonen bennenen und ihre Schwachstellen identifizieren.</Talent>
+  <Talent name="Elementarkunde" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Magiekunde">Elementarkunde befasst sich mit den sechs Elementen, der Kunst der Elementarbeschwörung und der elementaren Zauber.</Talent>
+  <Talent name="Magietheorie" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Magiekunde">Magietheorie ist das Wissen um die magische Kraft und ihre Ausformungen. Mit ihr kannst du magische Phänomene einschätzen und analysieren.</Talent>
+  <Talent name="Zauberpraxis" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Magiekunde">Zauberpraxis umfasst die Kenntnis der verbreiteten Zauber und Rituale, ihrer Wirkung und möglichen Gegenmaßnahmen. So kann dein Charakter vielleicht einem auf ihn gewirkten Schadenszauber entgehen.</Talent>
+  <Talent name="Überleben: Hoher Norden" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Überleben">Gilt für alle Regionen nördlich der Salamandersteine.</Talent>
+  <Talent name="Überleben: Norden" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Überleben">Gilt für die Region zwischen den Salamandersteinen im Norden und dem Steineichenwald und Ysilisee im Süden.</Talent>
+  <Talent name="Überleben: Mittelaventurien" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Überleben">Gilt für die Region zwischen Steineichenwald und Ysilisee im Norden und Eisenwald, Phecanowald und Raschtulswall im Süden.</Talent>
+  <Talent name="Überleben: Süden" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Überleben">Gilt für die Region zwischen Eisenwald, Phecanowald und Raschtulswall im Norden und Drôl und Thalusien im Süden.</Talent>
+  <Talent name="Überleben: Tiefer Süden" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Überleben">Gilt für alle Regionen südlich von Drôl und Thalusien.</Talent>
+  <Talent name="Überleben: Meer" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Überleben">Gilt für den Einsatz auf großen Gewässern wie zum Beispiel dem Perlenmeer.</Talent>
+  <Talent name="Überleben: Gebirge" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Überleben">Gilt für den Einsatz im Gebirge, egal ob Raschtulswall oder ehernes Schwert.</Talent>
+  <Talent name="Überleben: Wüste" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Überleben">Gilt für Wüstenregionen wie die Khomwüste und die Wüste Gor.</Talent>
+  <Talent name="Überleben: Maraskan" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Überleben">Gilt für die Insel Maraskan.</Talent>
+  <Talent name="Falschspiel" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Verschlagenheit">Falschsspieler helfen dem Glück etwas nach, zum Beispiel beim Hütchenspiel oder Boltan. Proben auf Falschspielen werden oft vergleichend gegen die Wachsamkeit der Mitspieler abgelegt.</Talent>
+  <Talent name="Schlösser knacken" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Verschlagenheit">Schlösser knacken öffnet mit Hilfe eines Dietrichs oder einer Haarnadel Schatzkisten, Tresorräume und Schmuckschatullen. Außerdem kann dein Charakter Fallen entschärfen.</Talent>
+  <Talent name="Stehlen" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Verschlagenheit">Mit Stehlen kannst du zur richtigen Zeit am richtigen Ort sein, um die richtige Person unauffällig um ihren Besitz zu erleichtern. Außerdem können Diebe den Wert ihrer Beute einschätzen und Kontakt zu einem Hehler aufnehmen.</Talent>
+  <Talent name="Alchemistische Analyse" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Alchemie">Mit alchemistischer Analyse untersuchst du unbekannte Gifte, Tränke oder Metalle.</Talent>
+  <Talent name="Synthese" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Alchemie">Mit Synthese stellst du profane Gifte und Brandöle sowie alle magischen Elixiere, wie zum Beispiel einen Heiltrank oder ein Unverwundbarkeitselixier, her.</Talent>
+  <Talent name="Gifte und Krankheiten" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Heilkunde">Mit dem Talent Gifte und Krankheiten kannst du diese heimtückischen Gefahren erkennen und kurieren.</Talent>
+  <Talent name="Wunden" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Heilkunde">Das Talent Wunden ermöglicht es dir, die Heilung zu beschleunigen oder tödliche Blutungen zu stoppen.</Talent>
+  <Talent name="Improvisation" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Holzbearbeitung">Improvisation befasst sich mit der schnellen Herstellung von allerlei nützlichen Gegenständen: Leitern, Schilden, Flößen oder Barrikaden.</Talent>
+  <Talent name="Waffenbau" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Holzbearbeitung">Waffenbau ermöglicht die Heerstellung von Holzspeeren, Schilden, Hartholzharnischen und Bögen.</Talent>
+  <Talent name="Mechanik" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Metallbearbeitung">Mit Mechanik werden Apparaturen wie Armbrüste, Flaschenzüge oder Fallen hergestellt und gewartet.</Talent>
+  <Talent name="Schmieden" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Metallbearbeitung">Schmieden ist die Herstellung und Reparatur von Waffen, Rüstungen und anderen Metallgegenständen.</Talent>
+  <Fertigkeit name="Handgemenge" steigerungsfaktor="2" voraussetzungen="" attribute="MU|GE|KK">Auf Handgemenge würfelst du bei allen waffenlosen Nahkampftechniken, im Umgang mit Handgemengewaffen wie Messern, Dolchen, Schlagstöcken oder Kettenstäben und bei der Verwendung von Schilden.</Fertigkeit>
+  <Fertigkeit name="Hiebwaffen" steigerungsfaktor="2" voraussetzungen="" attribute="MU|GE|KK">Mit der Fertigkeit Hiebwaffen führst du alle Arten von stumpfen und scharfen Hiebwaffen, wie Keulen, Äxte und Hämmer. </Fertigkeit>
+  <Fertigkeit name="Klingenwaffen" steigerungsfaktor="2" voraussetzungen="" attribute="MU|GE|KK">Im Kampf mit allen Varianten von Schwertern, Säbeln und Fechtwaffen werden Proben auf die Fertigkeit Klingenwaffen abgelegt. Dolche gehören nicht zu den Klingenwaffen - sie werden mit der Fertigkeit Handgemenge genutzt.</Fertigkeit>
+  <Fertigkeit name="Stangenwaffen" steigerungsfaktor="2" voraussetzungen="" attribute="MU|GE|KK">Alle Waffen mit einem langen Schaft gelten als Stangenwaffen. Zu den klassischen Stangenwaffen zählen Speere, Hellebarden und der Schnitter - aber auch Kampfstäbe und die Lanzen berittener Kämpfer werden mit diesem Talent genutzt.</Fertigkeit>
+  <Fertigkeit name="Schusswaffen" steigerungsfaktor="3" voraussetzungen="" attribute="FF|IN|KK">Mit der Fertigkeit Schusswaffen bedienst du alle Waffen, mit denen Geschosse auf den Gegner abgefeuert werden. Dazu gehören so verbreitete Schusswaffen wie der Bogen oder die Armbrust, aber auch die Schleuder oder das Blasrohr.</Fertigkeit>
+  <Fertigkeit name="Wurfwaffen" steigerungsfaktor="2" voraussetzungen="" attribute="FF|IN|KK">Sämtliche geworfenen Fernkampfwaffen wie Speere, Dolche oder Wurfsterne gelten als Wurfwaffen.</Fertigkeit>
   <Fertigkeit name="Athletik" steigerungsfaktor="3" voraussetzungen="" attribute="GE|KK|KO">Athletik umfasst alle Aktivitäten, bei denen der Charakter seinen gesamten Körper kurz- oder längerfristig koordiniert einsetzen muss. Dazu gehören das Laufen, Klettern, Schwimmen, Reiten sowie akrobatische Kunststücke.</Fertigkeit>
+  <Fertigkeit name="Heimlichkeit" steigerungsfaktor="2" voraussetzungen="" attribute="MU|IN|GE">Heimlichkeit ermöglicht dem Charakter, verborgen zu bleiben und wird häufig als vergleichende Probe gegen die Wachsamkeit eines Kontrahenten gewürfelt.</Fertigkeit>
+  <Fertigkeit name="Selbstbeherrschung" steigerungsfaktor="3" voraussetzungen="" attribute="MU|MU|KO">Selbstbeherrschung erlaubt es, widrige Umstände, körperliche Schmerzen oder andere Ablenkungen zu ignorieren.</Fertigkeit>
+  <Fertigkeit name="Wahrnehmung" steigerungsfaktor="4" voraussetzungen="" attribute="IN|IN|KL">Wahrnehmung ist die Fähigkeit, selbst kleinste Sinneseindrücke wahrzunehmen und richtig zu interpretieren.</Fertigkeit>
+  <Fertigkeit name="Autorität" steigerungsfaktor="3" voraussetzungen="" attribute="CH|KL|MU">Autorität erlaubt es deinem Charakter, sich Respekt zu verschaffen und seinen Willen durchzusetzen, sei es durch das Einschüchtern oder das Überzeugen des Gegenüber.</Fertigkeit>
+  <Fertigkeit name="Beeinflussung" steigerungsfaktor="3" voraussetzungen="" attribute="CH|CH|IN">Hierunter fallen sämtliche Techniken, um das Gegenüber zu einer gewünschten Handlung zu bewegen. Dabei werden Betören und Überreden oft als vergleichende Proben gegen die Menschenkenntnis des Opfers gewürfelt.</Fertigkeit>
+  <Fertigkeit name="Gebräuche" steigerungsfaktor="2" voraussetzungen="" attribute="CH|IN|KL">Gebräuche ist das Wissen um die eigene und fremde Kulturen und die dort herrschenden gesellschaftlichen Normen. Das beinhaltet die gängigen Begrüßungen und Verabschiedungen, korrekte Anreden und Benimmregeln, aber auch Kenntnis der wichtigsten Gesetze, Tänze und Spiele - kurz gesagt alles, was nötig ist, um nicht unangenehm aufzufallen.
+Außerdem hilft die Kenntnis lokaler Gebräuche bei der Orientierung in einer fremden Stadt. So kann dein Held Wirtshäuser und günstige Händler ausfindig machen, zwielichtige Viertel meiden oder durch Gerüchte an wichtige Informationen kommen.</Fertigkeit>
+  <Fertigkeit name="Derekunde" steigerungsfaktor="2" voraussetzungen="" attribute="KL|IN|FF">Darunter fällt das theoretische Wissen um die Natur, Tiere und Pflanzen, aber auch um die Geographie und den Sternenhimmel.</Fertigkeit>
+  <Fertigkeit name="Mythenkunde" steigerungsfaktor="2" voraussetzungen="" attribute="KK|KK|IN">Unzählige Mythen werden in Aventurien von Generation zu Generation weitergegeben. Viele dieser Mythen handeln von den Göttern, ihren Erwählten und ihren Kirchen. Andere berichten von berühmten Helden und bemerkenswerten Ereignissen, wobei erfundene Sagen fließend in historisch gesicherte Daten übergehen.
+Ein Mythenkundiger kann die Aspekte einer Gottheit erklären, eine alte Grabstätte einem Gott oder einem Erzdämonen zuordnen, aus einer Sage den Schwachpunkt eines Riesen ableiten und kennt den Hergang der Ogerschlacht.</Fertigkeit>
+  <Fertigkeit name="Magiekunde" steigerungsfaktor="2" voraussetzungen="" attribute="KL|KL|MU">Die astrale Kraft durchzieht die ganze Welt, und wird seit Jahrtausenden genutzt um Zauber zu wirken. Magiekunde ist das theoretische Wissen über die Magie und ihre Verwendung, egal ob Zauberei als astrale Matrix oder Veränderung der Harmonie der Welt gesehen wird.</Fertigkeit>
+  <Fertigkeit name="Überleben" steigerungsfaktor="3" voraussetzungen="" attribute="FF|GE|KO">Hierunter fallen alle Fähigkeiten, die zum Überleben in der Wildnis erforderlich sind. Du kannst dich in der Wildnis orientieren, einen Lagerplatz finden und dich und deine Gefährten mit Nahrung und Wasser versorgen. Außerdem bist du mit den Gefahren der Wildnis vertraut und kannst Fährten folgen und sie deuten.
+Dieses Wissen ist jedoch stark von deiner Umgebung abhängig und viele Überlebenskünstler stehen in der Fremde vor unerwarteten Problemen. Ebenso ist sämtliches Wissen rein praktisch, exotische Tiere, Monster oder seltene Heilpflanzen fallen nicht in diesen Bereich.</Fertigkeit>
+  <Fertigkeit name="Verschlagenheit" steigerungsfaktor="2" voraussetzungen="" attribute="FF|IN|MU">Verschlagenheit ist das Handwerk der zwielichtigen Gestalten, die Diebstahl, Falschsspiel und Einbruch nicht scheuen.</Fertigkeit>
+  <Fertigkeit name="Alchemie" steigerungsfaktor="3" voraussetzungen="" attribute="FF|FF|KL">Alchemie ist das Wissen um die Umwandlung der Stoffe. Mit ihr produzierst und analysierst du verschiedenste Alchemika.</Fertigkeit>
+  <Fertigkeit name="Heilkunde" steigerungsfaktor="3" voraussetzungen="" attribute="CH|FF|KL">Ein Heilkundiger bekämpft heimtückische Gifte,  klaffende Wunden und langwierige Krankheiten.</Fertigkeit>
+  <Fertigkeit name="Holzbearbeitung" steigerungsfaktor="1" voraussetzungen="" attribute="FF|FF|KK">Mit Holzbearbeitung und den richtigen Werkzeugen kannst du sämtliche Gegenstände aus Holz fertigen oder reparieren.</Fertigkeit>
+  <Fertigkeit name="Metallbearbeitung" steigerungsfaktor="2" voraussetzungen="" attribute="FF|FF|KO">Metallbearbeitung und das passende Werkzeug sind die Voraussetzung, um Gegenstände aus Metall herzustellen.</Fertigkeit>
   <Übernatürliche-Fertigkeit name="Zwölfgöttlicher Ritus" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I" attribute="CH|IN|MU">Durch die Zusammenarbeit der Kirchen hat sich ein Grundstock allgemein bekannter Liturgien ergeben, die aus dem Leben des Geweihten nicht mehr wegzudenken sind.</Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Dummyfert" steigerungsfaktor="2" voraussetzungen="" attribute="MU|IN|CH">Dies ist eine Dummyfertigkeit.</Übernatürliche-Fertigkeit>
 </Datenbank>

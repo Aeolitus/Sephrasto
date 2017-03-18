@@ -42,7 +42,6 @@ class FreieFertigkeit(Steigerbar):
         F = FreieFertigkeit()
         F.name = self.name
         F.steigerungsfaktor = -1
-        F.text = self.text
         F.wert = self.wert
         return F
 
