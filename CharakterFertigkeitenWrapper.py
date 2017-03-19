@@ -27,7 +27,7 @@ class FertigkeitenWrapper(QtCore.QObject):
         
         #Signals
         self.uiFert.spinFW.valueChanged.connect(self.fwChanged)
-        self.uiFert.tableWidget.cellClicked.connect(self.tableClicked)   
+        self.uiFert.tableWidget.currentItemChanged.connect(self.tableClicked)   
         self.uiFert.buttonAdd.clicked.connect(self.editTalents)
         
         self.availableFerts = []
@@ -88,8 +88,8 @@ class FertigkeitenWrapper(QtCore.QObject):
         self.updateInfo()
         self.updateTalents()
             
-    def tableClicked(self,row,col):
-        self.currentFertName = self.uiFert.tableWidget.itemAt(row,0).text()
+    def tableClicked(self,new,old):
+        self.currentFertName = new.text()
         self.updateInfo()
         
     def fwChanged(self):
@@ -133,4 +133,5 @@ class FertigkeitenWrapper(QtCore.QObject):
                 #Wolke.Char.fertigkeiten[self.currentFertName].gekaufteTalente = tal.gekaufteTalente
                 self.modified.emit()
                 self.updateTalents()
+                #TODO: Fill other talents with the same ferts as well!
                 self.uiFert.tableWidget.setItem(self.rowRef[self.currentFertName],2,QtWidgets.QTableWidgetItem(str(len(Wolke.Char.fertigkeiten[self.currentFertName].gekaufteTalente))))

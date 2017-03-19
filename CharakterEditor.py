@@ -78,14 +78,17 @@ class Editor(object):
         self.formMain.show()
         
     def updateEP(self):
-        if not self.ignoreModified:
-            self.ui.spinEP.setValue(Wolke.Char.EPtotal)
-            Wolke.Char.aktualisieren()
-            self.ui.spinRemaining.setValue(Wolke.Char.EPtotal-Wolke.Char.EPspent)
-            if Wolke.Char.EPtotal < Wolke.Char.EPspent:
-                self.ui.spinRemaining.setStyleSheet("QSpinBox { background-color: rgb(200,50,50) }")
-            else:
-                self.ui.spinRemaining.setStyleSheet("QSpinBox { background-color: white }")
+        try:
+            if not self.ignoreModified:
+                self.ui.spinEP.setValue(Wolke.Char.EPtotal)
+                Wolke.Char.aktualisieren()
+                self.ui.spinRemaining.setValue(Wolke.Char.EPtotal-Wolke.Char.EPspent)
+                if Wolke.Char.EPtotal < Wolke.Char.EPspent:
+                    self.ui.spinRemaining.setStyleSheet("QSpinBox { background-color: rgb(200,50,50) }")
+                else:
+                    self.ui.spinRemaining.setStyleSheet("QSpinBox { background-color: white }")
+        except:
+            print("Error thrown in CharakterEditor->updateEP")
     
     def epChanged(self):
         Wolke.Char.EPtotal = self.ui.spinEP.value()
@@ -129,10 +132,13 @@ class Editor(object):
         pass
     
 if __name__ == "__main__":
-    app = QtCore.QCoreApplication.instance()
-    if app is None:
-        app = QtWidgets.QApplication(sys.argv)
-    ed = Editor()
-    ed.setupMainForm()
-    app.exec_() 
+    try:
+        app = QtCore.QCoreApplication.instance()
+        if app is None:
+            app = QtWidgets.QApplication(sys.argv)
+        ed = Editor()
+        ed.setupMainForm()
+        app.exec_() 
+    except:
+        print("Error manhandled.")
     

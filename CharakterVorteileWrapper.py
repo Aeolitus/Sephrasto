@@ -28,24 +28,23 @@ class CharakterVorteileWrapper(QtCore.QObject):
         else:
             self.currentVort = ""
         
-        self.loadVorteile()
-            
-    def loadVorteile(self):
-        self.uiVor.treeWidget.blockSignals(True)
+        self.initVorteile()
+          
+    def initVorteile(self):
         try:
+            self.uiVor.treeWidget.blockSignals(True)
             vortList = [[],[],[],[],[],[],[],[]]
             for el in Wolke.DB.vorteile:
                 if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.vorteile[el].voraussetzungen):
-                    idx = Wolke.DB.vorteile[el].typ-1
+                    idx = Wolke.DB.vorteile[el].typ
                     vortList[idx].append(el)
-            self.uiVor.treeWidget.clear()
             for i in range(len(vortList)):
                 parent = QtWidgets.QTreeWidgetItem(self.uiVor.treeWidget)
                 parent.setText(0, VorteilTypen[i])
+                parent.setText(1,"")
                 parent.setExpanded(True)
                 for el in vortList[i]:
                     child = QtWidgets.QTreeWidgetItem(parent)
-                    #child.setC #setFlags(child.flags() | QtGui.Qt.ItemIsUserCheckable)
                     child.setText(0, Wolke.DB.vorteile[el].name)
                     if el in Wolke.Char.vorteile:    
                         child.setCheckState(0, QtCore.Qt.Checked)
@@ -53,17 +52,58 @@ class CharakterVorteileWrapper(QtCore.QObject):
                         child.setCheckState(0, QtCore.Qt.Unchecked)
                     child.setText(1, str(Wolke.DB.vorteile[el].kosten))
             self.updateInfo()
+            self.uiVor.treeWidget.blockSignals(False)
         except:
-            pass
-        self.uiVor.treeWidget.blockSignals(False)
+            print("Error thrown in CVW->initVorteile")
+        
+    def loadVorteile(self):
+        try:
+            self.uiVor.treeWidget.blockSignals(True)
+            vortList = [[],[],[],[],[],[],[],[]]
+            for el in Wolke.DB.vorteile:
+                if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.vorteile[el].voraussetzungen):
+                    idx = Wolke.DB.vorteile[el].typ
+                    vortList[idx].append(el)
+            #self.uiVor.treeWidget.clear()
+            # Workaround since clear causes python to crash sometimes:
+            cpy = vortList.copy()
+            print(cpy)
+            for i in range(len(vortList)):
+                itm = self.uiVor.treeWidget.topLevelItem(i)
+                if type(itm) != QtWidgets.QTreeWidgetItem:
+                        continue
+                if itm == 0: 
+                    continue
+                for j in range(itm.childCount()):
+                    chi = itm.child(j)
+                    if type(chi) != QtWidgets.QTreeWidgetItem:
+                        continue
+                    txt = chi.text(0)
+                    if txt not in vortList[i]:
+                        chi.setHidden(True)
+                    else:
+                        chi.setHidden(False)
+                        cpy[i].remove(txt)
+                for el in cpy[i]:
+                    child = QtWidgets.QTreeWidgetItem(itm)
+                    child.setText(0, Wolke.DB.vorteile[el].name)
+                    if el in Wolke.Char.vorteile:    
+                        child.setCheckState(0, QtCore.Qt.Checked)
+                    else:
+                        child.setCheckState(0, QtCore.Qt.Unchecked)
+                    child.setText(1, str(Wolke.DB.vorteile[el].kosten))
+            self.updateInfo()
+            self.uiVor.treeWidget.blockSignals(False)
+        except:
+            print("Error thrown in CVW->loadVorteile")
         
     def updateVorteile(self):
         pass
     
     def itemChangeHandler(self, item, column):
         # Block Signals to make sure we dont repeat infinitely
-        self.uiVor.treeWidget.blockSignals(True)
-        try:
+        try:            
+            self.uiVor.treeWidget.blockSignals(True)
             name = item.text(0)
             self.currentVort = name
             self.updateInfo()
@@ -75,25 +115,34 @@ class CharakterVorteileWrapper(QtCore.QObject):
                 if name in Wolke.Char.vorteile:
                     Wolke.Char.vorteile.remove(name)
             self.modified.emit()
-            self.loadVorteile()        
+            self.loadVorteile()      
+            self.uiVor.treeWidget.blockSignals(False)
         except:
-            pass
-        self.uiVor.treeWidget.blockSignals(False)
+            print("Error thrown in CVW->itemChangeHandler")            
     
     def vortClicked(self):
-        for el in self.uiVor.treeWidget.selectedItems():
-            self.currentVort = el.text(0)
-            break #First one should be all of them
-        self.updateInfo()
+        try:
+            for el in self.uiVor.treeWidget.selectedItems():
+                if el.text(1) == "":
+                    continue
+                self.currentVort = el.text(0)
+                break #First one should be all of them
+            self.updateInfo()
+        except:
+            print("Error thrown in CVW->vortClicked")
+
     
     def updateInfo(self):
-        if self.currentVort != "":
-            self.uiVor.labelVorteil.setText(Wolke.DB.vorteile[self.currentVort].name)
-            self.uiVor.labelTyp.setText(VorteilTypen[Wolke.DB.vorteile[self.currentVort].typ-1])
-            self.uiVor.labelNachkauf.setText(Wolke.DB.vorteile[self.currentVort].nachkauf)
-            self.uiVor.plainText.setPlainText(Wolke.DB.vorteile[self.currentVort].text)
-            self.uiVor.plainVoraussetzungen.setPlainText(Hilfsmethoden.VorArray2Str(
-                    Wolke.DB.vorteile[self.currentVort].voraussetzungen, Wolke.DB))
-            self.uiVor.spinKosten.setValue(Wolke.DB.vorteile[self.currentVort].kosten)
+        try:
+            if self.currentVort != "":
+                self.uiVor.labelVorteil.setText(Wolke.DB.vorteile[self.currentVort].name)
+                self.uiVor.labelTyp.setText(VorteilTypen[Wolke.DB.vorteile[self.currentVort].typ-1])
+                self.uiVor.labelNachkauf.setText(Wolke.DB.vorteile[self.currentVort].nachkauf)
+                self.uiVor.plainText.setPlainText(Wolke.DB.vorteile[self.currentVort].text)
+                self.uiVor.plainVoraussetzungen.setPlainText(Hilfsmethoden.VorArray2Str(
+                        Wolke.DB.vorteile[self.currentVort].voraussetzungen, None))
+                self.uiVor.spinKosten.setValue(Wolke.DB.vorteile[self.currentVort].kosten)
+        except:
+            print("Error thrown in CVW->updateInfo")
         
             

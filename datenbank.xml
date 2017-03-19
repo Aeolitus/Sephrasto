@@ -87,7 +87,7 @@ Beispiele für Verbindungen mit enormen Einfluss wären:
   <Vorteil name="Eindrucksvoll II" kosten="40" voraussetzungen="Attribut CH 6" nachkauf="häufig" typ="1">Proben auf Autorität, Beeinflussung und Gebräuche sind um +1 erleichtert.
 Durch den Einsatz von Betören kannst du das Verhältnis um zwei Stufen verbessern.</Vorteil>
   <Vorteil name="Eindringlichkeit" kosten="60" voraussetzungen="Attribut CH 8" nachkauf="häufig" typ="1">Einmal pro gesellschaftlichem Konflikt kannst du eine zentrales Argument, eine besonders wirkungsvolle Drohung oder entscheidenden Augenaufschlag wagen. Der Ausgang dieser Probe zählt zwei Erfolge. </Vorteil>
-  <Vorteil name="Starke Aura" kosten="60" voraussetzungen="Attribut CH 10" nachkauf="häufig" typ="1">Fremde sind dir besonders wohlgesonnen, hilfsbereit oder sogar vertrauensselig. Ihr Verhältnis dir gegenüber ist stets eine Stufe höher, also meist freundlich. 
+  <Vorteil name="Starke Aura" kosten="80" voraussetzungen="Attribut CH 10" nachkauf="häufig" typ="1">Fremde sind dir besonders wohlgesonnen, hilfsbereit oder sogar vertrauensselig. Ihr Verhältnis dir gegenüber ist stets eine Stufe höher, also meist freundlich. 
 Außerdem erhalten deine Gegner in sozialen Konflikten niemals Vorteile durch ablehnendes oder feindliches Verhalten.</Vorteil>
   <Vorteil name="Routiniert I" kosten="20" voraussetzungen="Attribut FF 4" nachkauf="häufig" typ="1">Die Basiszeit zur Herstellung handwerklicher Produkte und bei der Wundversorgung verkürzt sich um ein Viertel des unmodifizierten Werts.</Vorteil>
   <Vorteil name="Routiniert II" kosten="40" voraussetzungen="Attribut FF 6" nachkauf="häufig" typ="1">Die Basiszeit zur Herstellung handwerklicher Produkte und bei der Versorgung von Wunden verkürzt sich um ein Viertel des unmodifizierten Werts. Bei Proben auf Alchemie, Heilkunde, Holzbearbeitung und Metallverarbeitung gelten Patzer als gewöhnlich misslungen.</Vorteil>
@@ -105,12 +105,12 @@ Bei Informationssuchen erhältst du eine zusätzliche Stufe Hohe Qualität, wenn
   <Vorteil name="Vorbereitung" kosten="60" voraussetzungen="Attribut KL 8" nachkauf="häufig" typ="1">Du kannst Proben auf profane Fertigkeiten besonders sorgfältig vorbereiten (sofern Vorbereitung sinnvoll ist). Wenn du die doppelte notwendige Zeit aufwendest, erhältst du +2 Punkte Erleichterung.</Vorteil>
   <Vorteil name="Brillanz" kosten="80" voraussetzungen="Attribut KL 10" nachkauf="häufig" typ="1">Pro Abenteuer kannst du den Spielleiter W3 mal um einen Tipp bitten. Diese Tipps sollen nicht das Abenteuer lösen, können dich aber auf Fehler in deinem Plan oder bisher übersehene Aspekte oder Zusammenhänge aufmerksam machen. </Vorteil>
   <Vorteil name="Flink I" kosten="20" voraussetzungen="Attribut GE 4" nachkauf="häufig" typ="1">Deine GS steigt um 1 Punkt.</Vorteil>
-  <Vorteil name="Flink II" kosten="40" voraussetzungen="Attribut GE 6" nachkauf="häufig" typ="0">Deine GS steigt um 1 Punkt.
+  <Vorteil name="Flink II" kosten="40" voraussetzungen="Attribut GE 6" nachkauf="häufig" typ="1">Deine GS steigt um 1 Punkt.
 
 Bei Athletikproben gelten Patzer als gewöhnlich misslungen.</Vorteil>
   <Vorteil name="Katzenhaft" kosten="60" voraussetzungen="Attribut GE 8" nachkauf="häufig" typ="1">Erschwernisse durch unsicheren Untergrund sinken um 1 Stufe und gegen den Schaden aus Stürzen, Zusammenstößen usw. kannst du die GE als WS verwenden.</Vorteil>
   <Vorteil name="Körperbeherrschung" kosten="80" voraussetzungen="Attribut GE 10" nachkauf="häufig" typ="1">Du kannst Nah- oder Fernkampfangriffen, elementaren Schadenszaubern oder ähnlichen Schadensquellen mit einer GE-Gegenprobe entgehen, auch wenn übliche Verteidigungsmöglichkeiten versagt haben (aber vor einem Schadenswurf). Anschließend erleidest du einen Punkt Erschöpfung.</Vorteil>
-  <Vorteil name="Anpassungsfähig I" kosten="20" voraussetzungen="Attribut IN 4" nachkauf="häufig" typ="0">Unpassender Status erhöht die Patzerchance in gesellschaftlichen Konflikten um 1 Punkt weniger.</Vorteil>
+  <Vorteil name="Anpassungsfähig I" kosten="20" voraussetzungen="Attribut IN 4" nachkauf="häufig" typ="1">Unpassender Status erhöht die Patzerchance in gesellschaftlichen Konflikten um 1 Punkt weniger.</Vorteil>
   <Vorteil name="Anpassungsfähig II" kosten="40" voraussetzungen="Attribut IN 6" nachkauf="häufig" typ="1">Unpassender Status erhöht die Patzerchance in gesellschaftlichen Konflikten um 1 Punkt weniger. Bei Proben auf Autorität, Beeinflussung oder Gebräuche gelten Patzer als gewöhnlich misslungen.</Vorteil>
   <Vorteil name="Empathie" kosten="60" voraussetzungen="Attribut IN 8" nachkauf="häufig" typ="1">Mit der Gabe der Empathie kannst du eine Menschenkenntnis-Probe gegen die Willenskraft deines Gegenübers ablegen, um seine Motivation (regeltechnisch oft eine Eigenheit) zu erahnen. Du kannst dieses Wissen in sozialen Konflikten nutzen. Durch den Einsatz der Gabe erleidest du 1 Punkt Erschöpfung.</Vorteil>
   <Vorteil name="Vertrautheit" kosten="80" voraussetzungen="Attribut IN 10" nachkauf="häufig" typ="1">Du kannst Schicksalspunkte an einen Vertrauten weitergeben. Du solltest beschreiben, wie du die Person unterstützt: Durch Trost, eine aufpeitschende Rede oder eine knappe Geste. Wenn du durch das Ausnutzen einer Eigenheit einen Schicksalspunkt erhältst, bekommst du bei 4-6 auf dem W6 einen weiteren Schicksalspunkt.</Vorteil>
@@ -120,7 +120,7 @@ Bei Athletikproben gelten Patzer als gewöhnlich misslungen.</Vorteil>
   <Vorteil name="Unverwüstlich" kosten="80" voraussetzungen="Attribut KO 10" nachkauf="häufig" typ="1">Deine WS steigt um 1 Punkt.
 
 Wenn Zähigkeitsproben zum Ignorieren von Kampfunfähigkeit misslingen, erleidest du keine Erschöpfung.</Vorteil>
-  <Vorteil name="Willensstark I" kosten="20" voraussetzungen="Attribut MU 4" nachkauf="häufig" typ="0">Deine MR steigt um 4 Punkte.</Vorteil>
+  <Vorteil name="Willensstark I" kosten="20" voraussetzungen="Attribut MU 4" nachkauf="häufig" typ="1">Deine MR steigt um 4 Punkte.</Vorteil>
   <Vorteil name="Willensstark II" kosten="40" voraussetzungen="Attribut MU 6" nachkauf="häufig" typ="1">Deine MR steigt um 4 Punkte.
 
 Auf dich wirkende Furcht-Effekte zählen als eine Stufe niedriger.</Vorteil>
@@ -161,7 +161,7 @@ Mit einer Aktion Konflikt und einer Konterprobe (MU, 16) kannst du einen auf dir
 Bedingungen: 
 - zwei einhändige Waffen (kein Schild)
 - nicht beritten</Vorteil>
-  <Vorteil name="Beidhändiger Kampf II" kosten="40" voraussetzungen="Attribut GE 6, Vorteil Beidhändiger Kampf I" nachkauf="häufig" typ="0">Du erhälst AT +1 und erleidest keine Abzüge bei Verwendung der falschen Hand.
+  <Vorteil name="Beidhändiger Kampf II" kosten="40" voraussetzungen="Attribut GE 6, Vorteil Beidhändiger Kampf I" nachkauf="häufig" typ="3">Du erhälst AT +1 und erleidest keine Abzüge bei Verwendung der falschen Hand.
 
 Bedingungen: 
 - zwei einhändige Waffen (kein Schild)
@@ -282,24 +282,24 @@ Bedingungen:
   <Talent name="Geographie" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Derekunde">Geographie befasst sich nicht nur mit Städten und fernen Ländern, sondern auch mit dem Sternenhimmel, der Kartographie und Navigation. Der Geograph kann Schatzkarten lesen und anfertigen, die Position eines Schiffes bestimmen und Sternenkonstellationen deuten. </Talent>
   <Talent name="Pflanzenkunde" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Derekunde">Pflanzenkundige erforschen die vielen nützlichen, gefährlichen oder wundersamen Pflanzen Aventuriens. Sie sammeln die nötigen Kräuter für eine Heilsalbe, kennen die Gefahr von Jagdgras und finden essbare Früchte oder Wurzeln.</Talent>
   <Talent name="Tierkunde" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Derekunde">Tierkunde bedeutet die Kenntnis der aventurischen Fauna. Dein Charakter kann einen Schleimfleck als Spur einer Riesenamöbe erkennen, einen gereizten Bären beruhigen und kennt die Schwachstelle eines Tatzelwurms.</Talent>
-  <Talent name="Gebräuche: Mittelreich" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Gebräuche"></Talent>
-  <Talent name="Gebräuche: Tulamidenlande" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Gebräuche"></Talent>
-  <Talent name="Gebräuche: Südaventurien" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Gebräuche"></Talent>
-  <Talent name="Gebräuche: Bornland" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Gebräuche"></Talent>
-  <Talent name="Gebräuche: Thorwal" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Gebräuche"></Talent>
-  <Talent name="Gebräuche: Maraskan" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Gebräuche"></Talent>
-  <Talent name="Gebräuche: Elfen" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Gebräuche"></Talent>
-  <Talent name="Gebräuche: Zwerge" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Gebräuche"></Talent>
-  <Talent name="Mythen: Mittelreich" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Mythenkunde"></Talent>
-  <Talent name="Mythen: Horasreich" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Mythenkunde"></Talent>
-  <Talent name="Mythen: Tulamidenlande" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Mythenkunde"></Talent>
-  <Talent name="Mythen: Bornland" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Mythenkunde"></Talent>
-  <Talent name="Mythen: Thorwal" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Mythenkunde"></Talent>
-  <Talent name="Mythen: Südaventurien" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Mythenkunde"></Talent>
-  <Talent name="Mythen: Maraskan" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Mythenkunde"></Talent>
-  <Talent name="Mythen: Elfen" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Mythenkunde"></Talent>
-  <Talent name="Mythen: Zwerge" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Mythenkunde"></Talent>
-  <Talent name="Gebräuche: Horasreich" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Gebräuche"></Talent>
+  <Talent name="Gebräuche: Mittelreich" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Gebräuche"/>
+  <Talent name="Gebräuche: Tulamidenlande" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Gebräuche"/>
+  <Talent name="Gebräuche: Südaventurien" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Gebräuche"/>
+  <Talent name="Gebräuche: Bornland" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Gebräuche"/>
+  <Talent name="Gebräuche: Thorwal" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Gebräuche"/>
+  <Talent name="Gebräuche: Maraskan" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Gebräuche"/>
+  <Talent name="Gebräuche: Elfen" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Gebräuche"/>
+  <Talent name="Gebräuche: Zwerge" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Gebräuche"/>
+  <Talent name="Mythen: Mittelreich" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Mythenkunde"/>
+  <Talent name="Mythen: Horasreich" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Mythenkunde"/>
+  <Talent name="Mythen: Tulamidenlande" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Mythenkunde"/>
+  <Talent name="Mythen: Bornland" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Mythenkunde"/>
+  <Talent name="Mythen: Thorwal" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Mythenkunde"/>
+  <Talent name="Mythen: Südaventurien" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Mythenkunde"/>
+  <Talent name="Mythen: Maraskan" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Mythenkunde"/>
+  <Talent name="Mythen: Elfen" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Mythenkunde"/>
+  <Talent name="Mythen: Zwerge" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Mythenkunde"/>
+  <Talent name="Gebräuche: Horasreich" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Gebräuche"/>
   <Talent name="Dämonenkunde" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Magiekunde">Dämonenkunde ist das Wissen um die Erzdämonen, ihre Diener und dämonische Zauber. Du kannst Dämonen bennenen und ihre Schwachstellen identifizieren.</Talent>
   <Talent name="Elementarkunde" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Magiekunde">Elementarkunde befasst sich mit den sechs Elementen, der Kunst der Elementarbeschwörung und der elementaren Zauber.</Talent>
   <Talent name="Magietheorie" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Magiekunde">Magietheorie ist das Wissen um die magische Kraft und ihre Ausformungen. Mit ihr kannst du magische Phänomene einschätzen und analysieren.</Talent>
