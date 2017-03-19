@@ -85,7 +85,11 @@ class Char():
         #Vierter Block: Fertigkeiten und Freie Fertigkeiten
         for fer in self.fertigkeiten:
             spent += sum(range(self.fertigkeiten[fer].wert+1))*self.fertigkeiten[fer].steigerungsfaktor
+            skip = False
             for tal in self.fertigkeiten[fer].gekaufteTalente:
+                if fer == "Gebräuche" and not skip:
+                    skip = True
+                    continue
                 if Wolke.DB.talente[tal].kosten != -1:
                     spent += Wolke.DB.talente[tal].kosten
                 elif Wolke.DB.talente[tal].verbilligt:
@@ -164,6 +168,8 @@ class Char():
         Aus diesen Arrays muss nur ein Eintrag erfüllt sein.
         '''
         #Gehe über alle Elemente in der Liste
+        retNor = True
+        retOr = False
         for voraus in Vor:
             erfüllt = False
             if type(voraus) is list:
@@ -189,12 +195,15 @@ class Char():
                     #Wir greifen direkt auf den Eintrag zu und vergleichen. 
                     if self.attribute[arr[1]].wert >= int(arr[2]):
                         erfüllt = True            
-            if not Or and not erfüllt:
-                return False
-            elif Or and erfüllt:
-                return True
+            if not erfüllt:
+                retNor = False
+            else:
+                retOr = True
         # Alle Voraussetzungen sind gecheckt und wir sind nirgendwo gefailt.
-        return True
+        if Or and (retNor or retOr):
+            return retOr
+        else:
+            return retNor
     
     def xmlSchreiben(self,filename):
         '''Speichert dieses Charakter-Objekt in einer XML Datei, deren Dateiname inklusive Pfad als Argument übergeben wird'''

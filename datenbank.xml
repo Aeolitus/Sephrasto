@@ -237,15 +237,191 @@ Bedingungen:
 
 Bedingungen: 
 - beritten</Vorteil>
-  <Vorteil name="Reiterkampf II" kosten="40" voraussetzungen="Attribut GE 6 ODER Attribut KK 6" nachkauf="häufig" typ="3">Du erhälst TP +1, AT +1 und VT +1. Erlaubt das Manöver Hammerschlag mit dem Pferd. Du erhälst keine Abzüge auf Reiten-Proben durch deine BE.
+  <Vorteil name="Reiterkampf II" kosten="40" voraussetzungen="Attribut GE 6 ODER Attribut KK 6, Vorteil Reiterkampf I" nachkauf="häufig" typ="3">Du erhälst TP +1, AT +1 und VT +1. Erlaubt das Manöver Hammerschlag mit dem Pferd. Du erhälst keine Abzüge auf Reiten-Proben durch deine BE.
 
 Bedingungen: 
 - beritten</Vorteil>
-  <Vorteil name="Reiterkampf III" kosten="60" voraussetzungen="Attribut GE 8 ODER Attribut KK 8" nachkauf="häufig" typ="3">Du erhälst TP +1, AT +1 und VT +1. Erlaubt das Manöver Überrennen mit dem Pferd.
+  <Vorteil name="Reiterkampf III" kosten="60" voraussetzungen="Attribut GE 8 ODER Attribut KK 8, Vorteil Reiterkampf II" nachkauf="häufig" typ="3">Du erhälst TP +1, AT +1 und VT +1. Erlaubt das Manöver Überrennen mit dem Pferd.
 
 Bedingungen: 
 - beritten</Vorteil>
-  <Vorteil name="Waffenmeister Reiterkampf" kosten="80" voraussetzungen="Attribut GE 10 ODER Attribut KK 10" nachkauf="häufig" typ="3">8 Punkte können zur Verbesserung des Kampfstils verwendet werden.</Vorteil>
+  <Vorteil name="Waffenmeister Reiterkampf" kosten="80" voraussetzungen="Attribut GE 10 ODER Attribut KK 10, Vorteil Reiterkampf III" nachkauf="häufig" typ="3">8 Punkte können zur Verbesserung des Kampfstils verwendet werden.</Vorteil>
+  <Vorteil name="Bändiger der Elemente" kosten="20" voraussetzungen="Attribut CH 4, Vorteil Zauberer I" nachkauf="häufig" typ="4">Bei Elementaren sinkt die Erschwernis für schwierige und anmaßende Dienste um eine Stufe.</Vorteil>
+  <Vorteil name="Meister der Wünsche" kosten="40" voraussetzungen="Attribut CH 6, Vorteil Zauberer I" nachkauf="häufig" typ="4">Nachdem ein gebundenes Elementar einen Dienst erfüllt hat, kannst du für die Hälfte der Basisbeschwörungskosten einen zusätzlichen Dienst erbitten. Die Beherrschungsprobe dafür wird nicht durch Vorbereitung erleichtert.</Vorteil>
+  <Vorteil name="Gefäß der Sterne" kosten="60" voraussetzungen="Attribut CH 8, Vorteil Zauberer I" nachkauf="häufig" typ="4">Deine maximale Astralenergie steigt um 4 + CH Punkte.</Vorteil>
+  <Vorteil name="Gebieter der Urgewalten" kosten="80" voraussetzungen="Attribut CH 10, Vorteil Zauberer I" nachkauf="häufig" typ="4">Gebundene Elementare kosten nur noch die halben gAsP und eine misslungene Beherrschungsprobe kann einmalig für die Hälfte der Beschwörungskosten wiederholt werden.</Vorteil>
+  <Vorteil name="Reaktivierung" kosten="20" voraussetzungen="Attribut FF 4, Vorteil Zauberer I" nachkauf="häufig" typ="4">Du kannst wieder aufladbare Artefakte erschaffen und reaktivieren.</Vorteil>
+  <Vorteil name="Matrixverständnis" kosten="40" voraussetzungen="Attribut FF 6, Vorteil Zauberer I" nachkauf="häufig" typ="4">Bei der Erschaffung eines Artefakts darf ein wirkender Zauber misslingen.
+Bei Strukturanalysen erhältst du einen zusätzlichen Analysegrad, wenn der gewertete Würfel eine 12 oder höher zeigt.</Vorteil>
+  <Vorteil name="Semipermanenz" kosten="60" voraussetzungen="Attribut FF 8, Vorteil Zauberer I" nachkauf="häufig" typ="4">Du kannst Semipermanente Artefakte erschaffen.</Vorteil>
+  <Vorteil name="Thaumaturg" kosten="80" voraussetzungen="Attribut FF 10, Vorteil Zauberer I" nachkauf="häufig" typ="4">Artefakte kosten nur die halben gAsP. Außerdem können Thaumaturgen weitere Vorteile zur Artefaktherstellung nutzen: Mit Kraftlinienmagie kannst du ortsgebundene Artefakte erschaffen, ohne gAsP aufzuwenden. Mit Meister der Wünsche/Meister der Seelenlosen kannst du Elementare/Dämonen in Artefakte binden. Beim Auslösen solcher Artefakte ist keine Beherrschungsprobe nötig, solange diese nicht schwieriger wäre als die vom Erschaffer abgelegte Beherrschungsprobe. </Vorteil>
+  <Vorteil name="Regeneration" kosten="20" voraussetzungen="Attribut KO 4" nachkauf="häufig" typ="4">Du regenerierst 1 zusätzlichen AsP pro Nacht.</Vorteil>
+  <Vorteil name="Verbotene Pforten" kosten="40" voraussetzungen="Attribut KO 6, Vorteil Zauberer I" nachkauf="häufig" typ="4">Du kannst mit deiner Lebenskraft zaubern, wenn du über zu wenige AsP verfügst.</Vorteil>
+  <Vorteil name="Verbesserte Regeneration" kosten="60" voraussetzungen="Attribut KO 8, Vorteil Zauberer I" nachkauf="häufig" typ="4">Du regenerierst 2 weitere, zusätzliche AsP pro Nacht.</Vorteil>
+  <Vorteil name="Meisterliche Regeneration" kosten="80" voraussetzungen="Attribut KO 10, Vorteil Zauberer I" nachkauf="häufig" typ="4">Du regenerierst 3 weitere, zusätzliche AsP pro Nacht.</Vorteil>
+  <Vorteil name="Bändiger der Kreaturen" kosten="20" voraussetzungen="Attribut MU 4" nachkauf="häufig" typ="4">Du kannst von dir beschworenen unheiligen Wesenheiten zusätzliche Fähigkeiten im Wert von 4 Punkten verleihen.</Vorteil>
+  <Vorteil name="Meister der Seelenlosen" kosten="40" voraussetzungen="Attribut MU 6, Vorteil Zauberer I" nachkauf="häufig" typ="4">Nachdem ein gebundenes unheiliges Wesen seinen Dienst erfüllt hat, kannst du für die Hälfte der Basisbeschwörungskosten einen zusätzlichen Dienst erbitten. 
+Die nötige Beherrschungsprobe wird nicht durch Vorbereitung erleichtert.</Vorteil>
+  <Vorteil name="Blutmagie" kosten="60" voraussetzungen="Attribut MU 8, Vorteil Zauberer I" nachkauf="häufig" typ="4">Erlaubt den Einsatz von Blutmagie.</Vorteil>
+  <Vorteil name="Gebieter der Finsternis" kosten="80" voraussetzungen="Attribut MU 10, Vorteil Zauberer I" nachkauf="häufig" typ="4">Gebundene unheilige Wesenheiten kosten nur noch die halben gAsP und eine misslungene Beschwörungsprobe kann einmalig für die Hälfte der Beschwörungskosten wiederholt werden.</Vorteil>
+  <Vorteil name="Unitatio" kosten="20" voraussetzungen="Attribut IN 4, Vorteil Zauberer I" nachkauf="häufig" typ="4">Du kannst Zauber gemeinsam mit anderen Kennern des Vorteils wirken.</Vorteil>
+  <Vorteil name="Kraftlinienmagie" kosten="40" voraussetzungen="Attribut IN 6, Vorteil Zauberer I" nachkauf="häufig" typ="4">An Kraftlinien oder -knoten sind Zauber mit passenden Fertigkeiten je nach Linienstärke um +2 bis +4 erleichtert und die Regeneration um 2-4 AsP erhöht.</Vorteil>
+  <Vorteil name="Mühelose Magie" kosten="60" voraussetzungen="Attribut IN 8, Vorteil Zauberer I" nachkauf="häufig" typ="4">Zeigt der gewertete Würfel bei einem Zauber eine 16 oder höher, sinken die Kosten um die Hälfte der Basiskosten und der Zauber erhält zusätzlich 1 Stufe Mächtige Magie.</Vorteil>
+  <Vorteil name="Flinke Magie" kosten="80" voraussetzungen="Attribut IN 10, Vorteil Zauberer I" nachkauf="häufig" typ="4">Einmal pro Initiativphase kannst du eine Zauberprobe in einer freien Aktion (statt einer Aktion Konflikt) durchführen.</Vorteil>
+  <Vorteil name="Kontrolliertes Zaubern" kosten="20" voraussetzungen="Attribut KL 4, Vorteil Zauberer I" nachkauf="häufig" typ="4">Zauber können während ihrer Wirkungsdauer jederzeit beendet werden.</Vorteil>
+  <Vorteil name="Flexibles Zaubern" kosten="40" voraussetzungen="Attribut KL 6, Vorteil Zauber I" nachkauf="häufig" typ="4">Während du einen Zauber vorbereitest, kannst du Verteidigungen -4 ausführen.</Vorteil>
+  <Vorteil name="Effizientes Zaubern" kosten="60" voraussetzungen="Attribut KL 8, Vorteil Zauberer I" nachkauf="häufig" typ="4">Ermöglicht die spontane Modifikation Kosten sparen.</Vorteil>
+  <Vorteil name="Vorbereitendes Zaubern" kosten="80" voraussetzungen="Attribut KL 10, Vorteil Zauberer I" nachkauf="häufig" typ="4">Zwischen dem Vorbereiten des Zaubers und der Aktion Konflikt dürfen bis zu KL Minuten liegen. Danach gilt der Zauber als fehlgeschlagen. Ein Ziel in Reichweite wird erst in der Aktion Konflikt ausgewählt. Du kannst nur einen Zauber in Vorbereitung halten.</Vorteil>
+  <Vorteil name="Alchemistische Repräsentation I" kosten="20" voraussetzungen="Attribut FF 4, Vorteil Zauberer I" nachkauf="häufig" typ="5">Spruchzauberische Fertigkeiten in Alch und die Fertigkeit Schalenzauber können erlernt und benutzt werden.
+
+Zauber der Fertigkeiten Einfluss, Verwandlung und Eigenschaften können nur in Form von Artefakten verwendet werden.
+
+Bedingung: Laut gesprochene Zauberformel</Vorteil>
+  <Vorteil name="Alchemistische Repräsentation II" kosten="40" voraussetzungen="Attribut FF 6, Vorteil Alchemistische Repräsentation I" nachkauf="häufig" typ="5">Die Wirkungsdauer aller Zauber ist verdoppelt.</Vorteil>
+  <Vorteil name="Alchemistische Repräsentation III" kosten="60" voraussetzungen="Attribut FF 8, Vorteil Alchemistische Repräsentation II" nachkauf="häufig" typ="5">Erlaubt die spontane Modifikation Zeit lassen.</Vorteil>
+  <Vorteil name="Alchemistische Repräsentation IV" kosten="80" voraussetzungen="Attribut FF 10, Vorteil Alchemistische Repräsentation III" nachkauf="häufig" typ="5">8 Punkte können zur Verbesserung der Repräsentation verwendet werden.</Vorteil>
+  <Vorteil name="Borbaradianische Repräsentation I" kosten="20" voraussetzungen="Attribut MU 4, Vorteil Zauberer I" nachkauf="häufig" typ="5">Spruchzauberische Fertigkeiten in Bor können erlernt
+und benutzt werden und kannst Zauber mit deinem Blut wirken.
+
+Du kannst den Vorteil auch mit einem Minderpakt erwerben, ohne Zauberer zu sein.
+
+Bedingung: Laut gesprochene Zauberformel</Vorteil>
+  <Vorteil name="Borbaradianische Repräsentation II" kosten="40" voraussetzungen="Attribut MU 6, Vorteil Borbaradianische Repräsentation I" nachkauf="häufig" typ="5">Statt mit 3W20 kannst du Zauberproben auch mit 1W20 ablegen.</Vorteil>
+  <Vorteil name="Borbaradianische Repräsentation III" kosten="60" voraussetzungen="Attribut MU 8, Vorteil Borbaradianische Repräsentation II" nachkauf="häufig" typ="5">Erlaubt die spontane Modifikation Erzwingen.</Vorteil>
+  <Vorteil name="Borbaradianische Repräsentation IV" kosten="80" voraussetzungen="Attribut MU 10, Vorteil Borbaradianische Repräsentation III" nachkauf="häufig" typ="5">8 Punkte können zur Verbesserung der Repräsentation verwendet werden. Du kannst 4 Punkte davon verwenden, um den Minderpakt zu brechen, ohne die borbaradianische Rep. zu verlieren.</Vorteil>
+  <Vorteil name="Geodische Repräsentation I" kosten="20" voraussetzungen="Attribut IN 4, Vorteil Zauberer I" nachkauf="häufig" typ="5">Spruchzauberische Fertigkeiten in Geo und die Fertigkeiten Ringrituale und Vertrautenmagie können erlernt und benutzt werden.
+
+Du musst ein bevorzugtes Element wählen. Geodische Zauber können nicht schriftlich weitergegeben werden.
+
+Bedingungen: Kein Kontakt mit verhüttetem Material</Vorteil>
+  <Vorteil name="Geodische Repräsentation II" kosten="40" voraussetzungen="Attribut IN 6, Vorteil Geodische Repräsentation I" nachkauf="häufig" typ="5">Wenn du einen Zauber mit deinem bevorzugten Element wirkst, kannst du eine Basismodifikation (z.B. 1x Mächtige Magie) ohne Erschwernis ausführen.</Vorteil>
+  <Vorteil name="Geodische Repräsentation III" kosten="60" voraussetzungen="Attribut IN 8, Vorteil Geodische Repräsentation II" nachkauf="häufig" typ="5">Erlaubt die spontane Modifikation Zeit lassen.</Vorteil>
+  <Vorteil name="Geodische Repräsentation IV" kosten="80" voraussetzungen="Attribut IN 8, Vorteil Geodische Repräsentation III" nachkauf="häufig" typ="5">8 Punkte können zur Verbesserung der Repräsentation verwendet werden.</Vorteil>
+  <Vorteil name="Gildenmagische Repräsentation I" kosten="20" voraussetzungen="Attribut KL 4, Vorteil Zauberer I" nachkauf="häufig" typ="5">Spruchzauberische Fertigkeiten in Mag und die Fertigkeit Stabzauber können erlernt und benutzt werden. Gildenmagier verfügen über die größte Auswahl an Zaubern.
+
+Konzentrationsproben während des Zaubervorgangs sind um weitere 2 Punkte erschwert.
+
+Bedingungen: Laut gesprochene Zauberformel</Vorteil>
+  <Vorteil name="Gildenmagische Repräsentation II" kosten="40" voraussetzungen="Attribut KL 6, Vorteil Gildenmagische Repräsentation I" nachkauf="häufig" typ="5">Wird ein Zauber mit mindestens zwei unterschiedlichen Basismodifikationen gewirkt, ist er zusätzlich um +2 erleichtert.</Vorteil>
+  <Vorteil name="Gildenmagische Repräsentation III" kosten="60" voraussetzungen="Attribut KL 8, Vorteil Gildenmagische Repräsentation II" nachkauf="häufig" typ="5">Erlaubt die spontane Modifikation Zeit lassen.</Vorteil>
+  <Vorteil name="Gildenmagische Repräsentation IV" kosten="80" voraussetzungen="Attribut KL 10, Vorteil Gildenmagische Repräsentation III" nachkauf="häufig" typ="5">8 Punkte können zur Verbesserung der Repräsentation verwendet werden.</Vorteil>
+  <Vorteil name="Druidische Repräsentation I" kosten="20" voraussetzungen="Attribut KL 4, Vorteil Zauberer I" nachkauf="häufig" typ="5">Spruchzauberische Fertigkeiten in Dru und die Fertigkeit Dolchzauber können erlernt und benutzt werden.
+
+Druidische Zauber können nicht schriftlich weitergegeben werden.
+
+Bedingung: Kein Kontakt mit verhüttetem Material.</Vorteil>
+  <Vorteil name="Druidische Repräsentation II" kosten="40" voraussetzungen="Attribut KL 6, Vorteil Druidische Repräsentation I" nachkauf="häufig" typ="5">Auf Kraftlinien und -knoten sind alle druidische Zauber und Rituale um 2-4 Punkte erleichtert.</Vorteil>
+  <Vorteil name="Druidische Repräsentation III" kosten="60" voraussetzungen="Attribut KL 8, Vorteil Druidische Repräsentation II" nachkauf="häufig" typ="5">Erlaubt die spontane Modifikation Erzwingen.</Vorteil>
+  <Vorteil name="Druidische Repräsentation IV" kosten="80" voraussetzungen="Attribut KL 10, Vorteil Druidische Repräsentation III" nachkauf="häufig" typ="5">8 Punkte können zur Verbesserung der Repräsentation verwendet werden.</Vorteil>
+  <Vorteil name="Elfische Repräsentation I" kosten="20" voraussetzungen="Attribut IN 4, Vorteil Zauberer I" nachkauf="häufig" typ="5">Spruchzauberische Fertigkeiten in Elf und die Fertigkeit Elfenlieder können erlernt und benutzt werden.
+
+In Umgebungen mit gestörter Harmonie (zB. dämonische Verseuchung, Geisterscheinungen) sind Zauber um 2-4 Punkte erschwert.
+
+Bedingungen: Gesungene oder gespielte Formel</Vorteil>
+  <Vorteil name="Elfische Repräsentation II" kosten="40" voraussetzungen="Attribut IN 6, Vorteil Elfische Repräsentation I" nachkauf="häufig" typ="5">Die Wirkungsdauer aller deiner Zauber auf eine Einzelperson ist verdoppelt.</Vorteil>
+  <Vorteil name="Elfische Repräsentation III" kosten="60" voraussetzungen="Attribut IN 8, Vorteil Elfische Repräsentation II" nachkauf="häufig" typ="5">Erlaubt die spontane Modifikation Zeit lassen.</Vorteil>
+  <Vorteil name="Elfische Repräsentation IV" kosten="80" voraussetzungen="Attribut IN 10, Vorteil Elfische Repräsentation III" nachkauf="häufig" typ="5">8 Punkte können zur Verbesserung der Repräsentation verwendet werden.</Vorteil>
+  <Vorteil name="Hexische Repräsentation I" kosten="20" voraussetzungen="Attribut IN 4, Vorteil Zauberer I" nachkauf="häufig" typ="5">Spruchzauberische Fertigkeiten und die Fertigkeiten Hexenflüche und Vertrautenmagie können erlernt und benutzt werden. Du kannst auf einem Hexenbesen reiten.
+
+Die Komponente Bodenkontakt kann nur ignoriert werden, wenn du zumindest über indirekten Bodenkontakt verfügst (z.B. in einem mehrstöckigen Haus oder auf einem Schiff).
+
+Bedingungen: Bodenkontakt</Vorteil>
+  <Vorteil name="Hexische Repräsentation II" kosten="40" voraussetzungen="Attribut IN 6, Vorteil Hexische Repräsentation I" nachkauf="häufig" typ="5">Im Zustand besonders starker Emotionen sind Zauber und Rituale um 2-4 Punkte erleichtert.</Vorteil>
+  <Vorteil name="Hexische Repräsentation III" kosten="60" voraussetzungen="Attribut IN 8, Vorteil Hexische Repräsentation II" nachkauf="häufig" typ="5">Erlaubt die spontane Modifikation Erzwingen.</Vorteil>
+  <Vorteil name="Hexische Repräsentation IV" kosten="80" voraussetzungen="Attribut IN 10, Vorteil Hexische Repräsentation III" nachkauf="häufig" typ="5">8 Punkte können zur Verbesserung der Repräsentation verwendet werden.</Vorteil>
+  <Vorteil name="Magiedillettantische Repräsentation" kosten="20" voraussetzungen="Attribut KL 4" nachkauf="häufig" typ="5">Spruchzauberische Fertigkeiten können erlernt und benutzt werden. Du kannst alle Zauber erlernen, die 20 oder 40 EP kosten.
+
+Du kannst pro Zauber maximal zwei spontane Modifikationen (oder eine Modifikation zweimal) einsetzen.
+
+Bedingungen: Laut gesprochene Zauberformel</Vorteil>
+  <Vorteil name="Gemeinschaft der Gläubigen" kosten="20" voraussetzungen="Attribut CH 4, Vorteil Geweiht I" nachkauf="häufig" typ="6">Für mindestens 4/8/16/32 Mitbeter ist die Liturgieprobe um +1/2/3/4 erleichtert.</Vorteil>
+  <Vorteil name="Unterstützung der Gläubigen" kosten="40" voraussetzungen="Attribut CH 6, Vorteil Geweiht I" nachkauf="häufig" typ="6">Mirakel können auch auf andere Gläubige gewirkt werden. Die Wirkung solcher Mirakel ist halbiert.</Vorteil>
+  <Vorteil name="Segnung der Gläubigen" kosten="60" voraussetzungen="Attribut CH 8, Vorteil Geweiht I" nachkauf="häufig" typ="6">Liturgien, die ausschließlich gläubige Mitstreiter (und nicht dich selbst) verstärken, kosten nur die halben KaP.</Vorteil>
+  <Vorteil name="Aura der Heiligkeit" kosten="80" voraussetzungen="Attribut CH 10, Vorteil Geweiht I" nachkauf="häufig" typ="6">Für 4 KaP/Stunde verströmst du göttliche Energie. Im Umkreis von 16 Schritten erhalten gläubige Mitstreiter +2 auf alle Mirakel-Fertigkeiten und Liturgien. Patzer bei so verstärkten Proben gelten als gewöhnlich misslungen.</Vorteil>
+  <Vorteil name="Gemeinsames Wunder" kosten="20" voraussetzungen="Attribut IN 4, Vorteil Geweiht I" nachkauf="häufig" typ="6">Du kannst Liturgien gemeinsam mit anderen Kennern dieses Vorteils wirken.</Vorteil>
+  <Vorteil name="Zuverlässiges Wunder" kosten="40" voraussetzungen="Attribut IN 6, Vorteil Geweiht I" nachkauf="häufig" typ="6">Schlägt eine durch ein Mirakel unterstützte Probe fehl, bleibt die Wirkung des Mirakels aufrecht (1x pro Mirakel). Patzer bei solchen Proben gelten nur als gewöhnlich misslungen.</Vorteil>
+  <Vorteil name="Beeindruckendes Wunder" kosten="60" voraussetzungen="Attribut IN 8, Vorteil Geweiht I" nachkauf="häufig" typ="6">Bei Mirakeln verleiht die Modifikation Mächtige Liturgie einen Bonus von +4 statt +2.</Vorteil>
+  <Vorteil name="Göttliche Nähe" kosten="80" voraussetzungen="Attribut IN 10, Vorteil Geweiht I" nachkauf="häufig" typ="6">Du regenerierst 1 zusätzlichen KaP pro Nacht.</Vorteil>
+  <Vorteil name="Liturgische Routine" kosten="20" voraussetzungen="Attribut KL 4, Vorteil Geweiht I" nachkauf="häufig" typ="6">Bei Liturgien gewürfelte Patzer gelten nur als gewöhnlich misslungen.</Vorteil>
+  <Vorteil name="Liturgische Sorgfalt" kosten="40" voraussetzungen="Attribut KL 6, Vorteil Geweiht I" nachkauf="häufig" typ="0">Misslungene Liturgien kosten nur 1/4 der KaP.</Vorteil>
+  <Vorteil name="Liturgische Disziplin" kosten="60" voraussetzungen="Attribut KL 8, Vorteil Geweiht I" nachkauf="häufig" typ="6">Ermöglicht die spontane Modifikation Kosten sparen.</Vorteil>
+  <Vorteil name="Liebling der Gottheit" kosten="80" voraussetzungen="Attribut KL 10, Vorteil Geweiht I" nachkauf="häufig" typ="6">Zeigt der gewertete Würfel bei einer Liturgie eine 16 oder höher, kostet diese keine KaP und erhält eine zusätzliche Stufe Mächtige Liturgie.</Vorteil>
+  <Vorteil name="Verseuchung erspüren" kosten="20" voraussetzungen="Attribut MU 4, Vorteil Geweiht I" nachkauf="häufig" typ="6">Bei Verwendung spürst du die Anwesenheit und die grobe Stärke - nicht aber den genauen Ort - von dämonischen Präsenzen oder Verseuchung in unmittelbarer Nähe. Kostet 1 KaP/Minute.</Vorteil>
+  <Vorteil name="Gesegnete Waffe" kosten="40" voraussetzungen="Attribut MU 6, Vorteil Geweiht I" nachkauf="häufig" typ="6">Waffen in deiner Hand gelten immer als geweiht. Bereits geweihte Waffen verursachen +1W6 TP gegen unheilige Wesen.</Vorteil>
+  <Vorteil name="Stärke des Glaubens" kosten="60" voraussetzungen="Attribut MU 8, Vorteil Geweiht I" nachkauf="häufig" typ="6">Gegen Angriffe von unheiligen Wesenheiten steigt deine WS um 2.</Vorteil>
+  <Vorteil name="Streiter der Schöpfung" kosten="80" voraussetzungen="Attribut MU 10, Vorteil Geweiht I" nachkauf="häufig" typ="6">Alle Proben im Kampf gegen unheilige Wesen sind um +2 erleichtert, Liturgien sogar um +4.</Vorteil>
+  <Vorteil name="Boronkirchliche Tradition I" kosten="20" voraussetzungen="Attribut KL 4, Vorteil Geweiht I" nachkauf="häufig" typ="7">Die Fertigkeiten Zwölfgöttlicher Ritus, Schlaf, Tod und Vergessen können erlernt und benutzt werden.
+
+Liturgien sind um 2-8 Punkte erschwert, wenn ihr Einsatz gegen die Prinzipien des Geweihten verstößt.
+
+Bedingungen: innere Ruhe (unbeeinflusst von aufwühlenden Emotionen wie Leidenschaft, Zorn oder Panik)</Vorteil>
+  <Vorteil name="Boronkirchliche Tradition II" kosten="40" voraussetzungen="Attribut KL 6, Vorteil Boronkirchliche Tradition I" nachkauf="häufig" typ="7">In der Stille sind Liturgien um 2-4 Punkte erleichtert.</Vorteil>
+  <Vorteil name="Boronkirchliche Tradition III" kosten="60" voraussetzungen="Attribut KL 8, Vorteil Boronkirchliche Tradition II" nachkauf="häufig" typ="7">Erlaubt die spontane Modifikation Zeremonie.</Vorteil>
+  <Vorteil name="Boronkirchliche Tradition IV" kosten="80" voraussetzungen="Attribut KL 10, Vorteil Boronkirchliche Tradition III" nachkauf="häufig" typ="7">8 Punkte können zur Verbesserung der Tradition verwendet werden.</Vorteil>
+  <Vorteil name="Efferdkirchliche Tradition I" kosten="20" voraussetzungen="Attribut IN 4, Vorteil Geweiht I" nachkauf="häufig" typ="7">Die Fertigkeiten Zwölfgöttlicher Ritus, Quellen und Flüsse, Seefahrt und Wind und Wogen können erlernt und benutzt werden.
+
+Liturgien sind um 2-8 Punkte erschwert, wenn ihr Einsatz gegen die Prinzipien des Geweihten verstößt.
+
+Bedingungen: Gesprochenes oder gesungenes Gebet</Vorteil>
+  <Vorteil name="Efferdkirchliche Tradition II" kosten="40" voraussetzungen="Attribut IN 6, Vorteil Efferdkirchliche Tradition I" nachkauf="häufig" typ="7">Im Zustand besonders starker Emotionen sind Liturgien um 2-4 Punkte erleichtert.</Vorteil>
+  <Vorteil name="Efferdkirchliche Tradition III" kosten="60" voraussetzungen="Attribut IN 8, Vorteil Efferdkirchliche Tradition II" nachkauf="häufig" typ="7">Erlaubt die spontane Modifikation Opferung.</Vorteil>
+  <Vorteil name="Efferdkirchliche Tradition IV" kosten="80" voraussetzungen="Attribut IN 10, Vorteil Efferdkirchliche Tradition III" nachkauf="häufig" typ="7">8 Punkte können zur Verbesserung der Tradition verwendet werden.</Vorteil>
+  <Vorteil name="Firunkirchliche Tradition I" kosten="20" voraussetzungen="Attribut MU 4, Vorteil Geweiht I" nachkauf="häufig" typ="7">Die Fertigkeiten Zwölfgöttlicher Ritus, Jagd, Winter und Wildnis können erlernt und benutzt werden. 
+
+Liturgien sind um 2-8 Punkte erschwert, wenn ihr Einsatz gegen die Prinzipien des Geweihten verstößt.
+
+Bedingungen: innere Stärke (unbeeinflusst von Charakterschwächen wie Angst, Jähzorn oder Gier)</Vorteil>
+  <Vorteil name="Firunkirchliche Tradition II" kosten="40" voraussetzungen="Attribut MU 6, Vorteil Firunkirchliche Tradition I" nachkauf="häufig" typ="7">In Schnee und Eis sind alle Liturgien um 2-4 Punkte erleichtert.</Vorteil>
+  <Vorteil name="Firunkirchliche Tradition III" kosten="60" voraussetzungen="Attribut MU 8, Vorteil Firunkirchliche Tradition II" nachkauf="häufig" typ="7">Erlaubt die spontane Modifikation Opferung.</Vorteil>
+  <Vorteil name="Firunkirchliche Tradition IV" kosten="80" voraussetzungen="Attribut MU 10, Vorteil Firunkirchliche Tradition III" nachkauf="häufig" typ="7">8 Punkte können zur Verbesserung der Tradition verwendet werden.</Vorteil>
+  <Vorteil name="Hesindekirchliche Tradition I" kosten="20" voraussetzungen="Attribut KL 4, Vorteil Geweiht I" nachkauf="häufig" typ="7">Die Fertigkeiten Zwölfgöttlicher Ritus, Magie und Wissen können erlernt und benutzt werden.
+
+Liturgien sind um 2-8 Punkte erschwert, wenn ihr Einsatz gegen die Prinzipien des Geweihten verstößt.
+
+Bedingungen: Gesprochenes oder gesungenes Gebet</Vorteil>
+  <Vorteil name="Hesindekirchliche Tradition II" kosten="40" voraussetzungen="Attribut KL 6, Vorteil Hesindekirchliche Tradition I" nachkauf="häufig" typ="7">Wird eine Liturgie mit mindestens zwei unterschiedlichen spontanen Modifikationen gewirkt, ist sie zusätzlich um +2 erleichtert.</Vorteil>
+  <Vorteil name="Hesindekirchliche Tradition III" kosten="60" voraussetzungen="Attribut KL 8, Vorteil Hesindekirchliche Tradition II" nachkauf="häufig" typ="7">Erlaubt die spontane Modifikation Zeremonie.</Vorteil>
+  <Vorteil name="Hesindekirchliche Tradition IV" kosten="80" voraussetzungen="Attribut KL 10, Vorteil Hesindekirchliche Tradition III" nachkauf="häufig" typ="7">8 Punkte können zur Verbesserung der Tradition verwendet werden.</Vorteil>
+  <Vorteil name="Ingerimmkirchliche Tradition I" kosten="20" voraussetzungen="Attribut FF 4, Vorteil Geweiht I" nachkauf="häufig" typ="7">Die Fertigkeiten Zwölfgöttlicher Ritus, Heiliges Erz, Heiliges Feuer und Handwerk können erlernt und benutzt werden.
+
+Liturgien sind um 2-8 Punkte erschwert, wenn ihr Einsatz gegen die Prinzipien des Geweihten verstößt.
+
+Bedingungen: Gesprochenes oder gesungenes Gebet</Vorteil>
+  <Vorteil name="Ingerimmkirchliche Tradition II" kosten="40" voraussetzungen="Attribut FF 6, Vorteil Ingerimmkirchliche Tradition I" nachkauf="häufig" typ="7">Unterirdisch sind alle Liturgien um 2-4 Punkte erleichtert.</Vorteil>
+  <Vorteil name="Ingerimmkirchliche Tradition III" kosten="60" voraussetzungen="Attribut FF 8, Vorteil Ingerimmkirchliche Tradition II" nachkauf="häufig" typ="7">Erlaubt die spontane Modifikation Opferung.</Vorteil>
+  <Vorteil name="Ingerimmkirchliche Tradition IV" kosten="80" voraussetzungen="Attribut FF 10, Vorteil Ingerimmkirchliche Tradition III" nachkauf="häufig" typ="7">8 Punkte können zur Verbesserung der Tradition verwendet werden.</Vorteil>
+  <Vorteil name="Angroschkirchliche Tradition I" kosten="20" voraussetzungen="Attribut FF 4, Vorteil Geweiht I" nachkauf="häufig" typ="7">Die Fertigkeiten Zwölfgöttlicher Ritus, Heiliges Erz, Heiliges Feuer und Handwerk können erlernt und benutzt werden.
+
+Liturgien sind um 2-8 Punkte erschwert, wenn ihr Einsatz gegen die Prinzipien des Geweihten verstößt.
+
+Bedingungen: Gesprochenes oder gesungenes Gebet</Vorteil>
+  <Vorteil name="Angroschkirchliche Tradition II" kosten="40" voraussetzungen="Attribut FF 6, Vorteil Angroschkirchliche Tradition I" nachkauf="häufig" typ="7">Unterirdisch sind alle Liturgien um 2-4 Punkte erleichtert.</Vorteil>
+  <Vorteil name="Angroschkirchliche Tradition III" kosten="60" voraussetzungen="Attribut FF 8, Vorteil Angroschkirchliche Tradition II" nachkauf="häufig" typ="7">Erlaubt die spontane Modifikation Opferung.</Vorteil>
+  <Vorteil name="Angroschkirchliche Tradition IV" kosten="80" voraussetzungen="Attribut FF 10, Vorteil Angroschkirchliche Tradition III" nachkauf="häufig" typ="7">8 Punkte können zur Verbesserung der Tradition verwendet werden.</Vorteil>
+  <Vorteil name="Perainekirchliche Tradition I" kosten="20" voraussetzungen="Attribut CH 4, Vorteil Geweiht I" nachkauf="häufig" typ="7">Die Fertigkeiten Zwölfgöttlicher Ritus, Fruchtbarkeit und Heilung können erlernt und benutzt werden.
+
+Liturgien sind um 2-8 Punkte erschwert, wenn ihr Einsatz gegen die Prinzipien des Geweihten verstößt.
+
+Bedingungen: Gesprochenes oder gesungenes Gebet</Vorteil>
+  <Vorteil name="Perainekirchliche Tradition II" kosten="40" voraussetzungen="Attribut CH 6, Vorteil Perainekirchliche Tradition I" nachkauf="häufig" typ="7">Wird eine Liturgie mit der Modifikation Mehrere Ziele gesprochen, ist sie zusätzlich um +2 erleichtert.</Vorteil>
+  <Vorteil name="Perainekirchliche Tradition III" kosten="60" voraussetzungen="Attribut CH 8, Vorteil Perainekirchliche Tradition II" nachkauf="häufig" typ="7">Erlaubt die spontane Modifikation Zeremonie.</Vorteil>
+  <Vorteil name="Perainekirchliche Tradition IV" kosten="80" voraussetzungen="Attribut CH 10, Vorteil Perainekirchliche Tradition III" nachkauf="häufig" typ="7">8 Punkte können zur Verbesserung der Tradition verwendet werden.</Vorteil>
+  <Vorteil name="Phexkirchliche Tradition I" kosten="20" voraussetzungen="Attribut IN 4, Vorteil Geweiht I" nachkauf="häufig" typ="7">Die Fertigkeiten Zwölfgöttlicher Ritus, Abu al'Mada, List und Nächtlicher Schatten können erlernt und benutzt werden.
+
+Liturgien sind um 2-8 Punkte erschwert, wenn ihr Einsatz gegen die Prinzipien des Geweihten verstößt.
+
+Bedingungen: (Symbolische) Gegenleistung an Phex</Vorteil>
+  <Vorteil name="Phexkirchliche Tradition II" kosten="40" voraussetzungen="Attribut IN 6, Vorteil Phexkirchliche Tradition I" nachkauf="häufig" typ="7">Statt mit 3W20 kannst du Proben beim Wirken von Liturgien auch mit 1W20 ablegen.</Vorteil>
+  <Vorteil name="Phexkirchliche Tradition III" kosten="60" voraussetzungen="Attribut IN 8, Vorteil Phexkirchliche Tradition II" nachkauf="häufig" typ="7">Erlaubt die spontane Modifikation Opferung.</Vorteil>
+  <Vorteil name="Phexkirchliche Tradition IV" kosten="80" voraussetzungen="Attribut IN 10, Vorteil Phexkirchliche Tradition III" nachkauf="häufig" typ="7">8 Punkte können zur Verbesserung der Tradition verwendet werden.</Vorteil>
+  <Vorteil name="Praioskirchliche Tradition I" kosten="20" voraussetzungen="Attribut CH 4, Vorteil Geweiht I" nachkauf="häufig" typ="7">Die Fertigkeiten Zwölfgöttlicher Ritus, Licht, Magiebann und Ordnung können erlernt und benutzt werden.
+
+Liturgien sind um 2-8 Punkte erschwert, wenn ihr Einsatz gegen die Prinzipien des Geweihten verstößt.
+
+Bedingungen: Gesprochenes oder gesungenes Gebet</Vorteil>
+  <Vorteil name="Praioskirchliche Tradition II" kosten="40" voraussetzungen="Attribut CH 6, Vorteil Praioskirchliche Tradition I" nachkauf="häufig" typ="7">Im Sonnenlicht sind Liturgien um 2-4 Punkte erleichtert.</Vorteil>
+  <Vorteil name="Praioskirchliche Tradition III" kosten="60" voraussetzungen="Attribut CH 8, Vorteil Praioskirchliche Tradition II" nachkauf="häufig" typ="7">Erlaubt die spontane Modifikation Zeremonie.</Vorteil>
+  <Vorteil name="Praioskirchliche Tradition IV" kosten="80" voraussetzungen="Attribut CH 10, Vorteil Praioskirchliche Tradition III" nachkauf="häufig" typ="7">8 Punkte können zur Verbesserung der Tradition verwendet werden.</Vorteil>
   <Talent name="Laufen" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Athletik">Akrobatik wird nicht nur für gewagte Kunststücke und Balanceakte verwendet, sondern kann auch den Fallschaden nach Stürzen reduzieren.</Talent>
   <Talent name="Unbewaffnet" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Handgemenge">Verbessert den waffenlosen Nahkampf.</Talent>
   <Talent name="Handgemengewaffen" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Handgemenge">Verbessert den Einsatz von Messern, Dolchen, Schlagstöcken und Kettenstäben.</Talent>
@@ -324,6 +500,13 @@ Bedingungen:
   <Talent name="Waffenbau" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Holzbearbeitung">Waffenbau ermöglicht die Heerstellung von Holzspeeren, Schilden, Hartholzharnischen und Bögen.</Talent>
   <Talent name="Mechanik" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Metallbearbeitung">Mit Mechanik werden Apparaturen wie Armbrüste, Flaschenzüge oder Fallen hergestellt und gewartet.</Talent>
   <Talent name="Schmieden" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Metallbearbeitung">Schmieden ist die Herstellung und Reparatur von Waffen, Rüstungen und anderen Metallgegenständen.</Talent>
+  <Talent name="Eidsegen" kosten="-1" voraussetzungen="Vorteil Praioskirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Ordnung, Zwölfgöttlicher Ritus">Ein freiwilliges und aufrichtiges Gelübde der Zielperson wird gesegnet. Alle Versuche, den Schwörenden zum Eidbruch zu bewegen (etwa über Betören, Überreden oder einen Imperavi), sind um -4 erschwert. Bricht der Schwörende den Eid im Vollbesitz seiner geistigen Kräfte, endet der Segen.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Jahr
+Kosten: 8 KaP</Talent>
   <Fertigkeit name="Handgemenge" steigerungsfaktor="2" voraussetzungen="" attribute="MU|GE|KK">Auf Handgemenge würfelst du bei allen waffenlosen Nahkampftechniken, im Umgang mit Handgemengewaffen wie Messern, Dolchen, Schlagstöcken oder Kettenstäben und bei der Verwendung von Schilden.</Fertigkeit>
   <Fertigkeit name="Hiebwaffen" steigerungsfaktor="2" voraussetzungen="" attribute="MU|GE|KK">Mit der Fertigkeit Hiebwaffen führst du alle Arten von stumpfen und scharfen Hiebwaffen, wie Keulen, Äxte und Hämmer. </Fertigkeit>
   <Fertigkeit name="Klingenwaffen" steigerungsfaktor="2" voraussetzungen="" attribute="MU|GE|KK">Im Kampf mit allen Varianten von Schwertern, Säbeln und Fechtwaffen werden Proben auf die Fertigkeit Klingenwaffen abgelegt. Dolche gehören nicht zu den Klingenwaffen - sie werden mit der Fertigkeit Handgemenge genutzt.</Fertigkeit>
