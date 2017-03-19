@@ -66,8 +66,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
                     vortList[idx].append(el)
             #self.uiVor.treeWidget.clear()
             # Workaround since clear causes python to crash sometimes:
-            cpy = vortList.copy()
-            print(cpy)
+            cpy = vortList[:]
             for i in range(len(vortList)):
                 itm = self.uiVor.treeWidget.topLevelItem(i)
                 if type(itm) != QtWidgets.QTreeWidgetItem:
@@ -85,13 +84,19 @@ class CharakterVorteileWrapper(QtCore.QObject):
                         chi.setHidden(False)
                         cpy[i].remove(txt)
                 for el in cpy[i]:
-                    child = QtWidgets.QTreeWidgetItem(itm)
+                    ix = 0
+                    for i in range(itm.childCount()):
+                        if el < itm.child(i).text(0):
+                            break
+                        ix += 1
+                    child = QtWidgets.QTreeWidgetItem()
                     child.setText(0, Wolke.DB.vorteile[el].name)
                     if el in Wolke.Char.vorteile:    
                         child.setCheckState(0, QtCore.Qt.Checked)
                     else:
                         child.setCheckState(0, QtCore.Qt.Unchecked)
                     child.setText(1, str(Wolke.DB.vorteile[el].kosten))
+                    itm.insertChild(ix, child)
             self.updateInfo()
             self.uiVor.treeWidget.blockSignals(False)
         except:
