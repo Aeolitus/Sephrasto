@@ -533,4 +533,82 @@ Dieses Wissen ist jedoch stark von deiner Umgebung abhängig und viele Überlebe
   <Fertigkeit name="Holzbearbeitung" steigerungsfaktor="1" voraussetzungen="" attribute="FF|FF|KK">Mit Holzbearbeitung und den richtigen Werkzeugen kannst du sämtliche Gegenstände aus Holz fertigen oder reparieren.</Fertigkeit>
   <Fertigkeit name="Metallbearbeitung" steigerungsfaktor="2" voraussetzungen="" attribute="FF|FF|KO">Metallbearbeitung und das passende Werkzeug sind die Voraussetzung, um Gegenstände aus Metall herzustellen.</Fertigkeit>
   <Übernatürliche-Fertigkeit name="Zwölfgöttlicher Ritus" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I" attribute="CH|IN|MU">Durch die Zusammenarbeit der Kirchen hat sich ein Grundstock allgemein bekannter Liturgien ergeben, die aus dem Leben des Geweihten nicht mehr wegzudenken sind.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Licht" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I" attribute="CH|CH|MU">Das Licht Praios ist vor allem von den Mystikern in der Kirche hoch verehrt. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Magiebann" steigerungsfaktor="3" voraussetzungen="Vorteil Geweiht I" attribute="CH|MU|KO">Die Antimagie und der Kampf gegen Dämonen haben gerade in den letzten Jahren einen erhöhten Stellenwert innerhalb der Praioskirche erhalten.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Ordnung" steigerungsfaktor="1" voraussetzungen="Vorteil Geweiht I" attribute="CH|IN|KL">Die Praiospriester bewahren das Recht und die Gesetze, die göttergewollte Ordnung und die Wahrheit. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Ehre" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I" attribute="KL|KO|MU">Ehre ist der traditionellste und bekannteste Aspekt der Rondra. Dazu gehören neben den Geboten der Ritterlichkeit auch sehr spezielle Regeln, wann und wie gekämpft werden darf.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Schutz der Gläubigen" steigerungsfaktor="3" voraussetzungen="Vorteil Geweiht I" attribute="KK|KO|MU">Der Schutz der Gläubigen ist vielleicht noch mehr als die Ehre die Bestimmung der Rondrakirche. Ein Geweihter hat an vorderster Stelle zu stehen, wenn es um den Kampf gegen die Finsternis geht.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Abu al‘Mada" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I" attribute="IN|KO|MU">In den Tulamidenlanden gehört zum Glauben an Feqz, wie er dort genannt wird, seit jeher auch sein Beiname als Herr der Magie und Vertreiber der Echsen.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="List" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I" attribute="CH|IN|KL">Phex ist ein Gott der Opportunisten, Querdenker, Betrüger und listenreicher Händler. Alle seine Diener sind darauf angewiesen, schnell zu denken - und am besten um drei Ecken mehr als das Gegenüber.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Nächtlicher Schatten" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I" attribute="FF|GE|MU">Phex ist der Herrscher der Nacht und viele seiner Diener handeln unter dem Mantel der Dunkelheit wenig gesetzestreu. Doch die sternenerfüllte Nacht zieht auch viele phexgeweihte Mystiker an. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Magie" steigerungsfaktor="3" voraussetzungen="Vorteil Geweiht I" attribute="IN|KL|MU">Hesinde gilt als Schutzpatronin der Magie und Alchemie und nicht wenige Geweihte gelten als Experten in diesen Gebieten.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Wissen" steigerungsfaktor="3" voraussetzungen="Vorteil Geweiht I" attribute="CH|KL|KL">Stetes Lernen und Lehren prägen das Leben eines Hesindegeweihten. All dieses Wissen wird in den Büchern der Schlange gesammelt und in vielerlei Künsten und Handwerken zur Anwendung gebracht.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Schlaf" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I" attribute="CH|FF|KL">Boron schenkt den Menschen Schlaf und schickt ihnen Träume und Visionen, die zu erkunden sich viele Borongeweihte zur Aufgabe gemacht haben. Gerade im Al’Anfanischen Kult wird dabei auch mit Rauschkräutern nachgeholfen. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Tod" steigerungsfaktor="3" voraussetzungen="Vorteil Geweiht I" attribute="KL|MU|MU">Der Alltag vieler Borongeweihter besteht aus der Sterbebegleitung und der Pflege der Boronsanger. Doch die düsteren Zeiten haben auch zum vermehrten Auftreten von Untoten und ruhelosen Geistern geführt. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Vergessen" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I" attribute="CH|IN|KL">Vergessen ist eine weitere Gabe Borons, die insbesondere die Noioniten ihren geisteskranken Schützlingen zukommen lassen wollen. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Quellen und Flüsse" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I" attribute="IN|KL|KO">Der Legende nach sind die Flüsse die süßen Tränen Efferds, die das Salz ins Meer schwemmen, und viele Geweihte des Efferd sind auch im Binnenland tätig.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Seefahrt" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I" attribute="IN|KK|MU">Gerade pragmatische Efferdgeweihte sind aus der aventurischen Seefahrt nicht wegzudenken, gerade auch durch die häufigen Gefahren der Blutigen See. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Wind und Wogen" steigerungsfaktor="3" voraussetzungen="Vorteil Geweiht I" attribute="GE|IN|KL">Die Mystiker unter den Efferdgeweihten schwimmen mit den Delphinen, studieren Wind und Wetter und versuchen aus dem Wellenspiel oder dem Vogelflug den Willen des Unergründlichen abzuleiten.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Antimagie" steigerungsfaktor="2" voraussetzungen="Vorteil Zauberer I" attribute="CH|KL|MU">Mit Antimagie kannst du astrale Matrices sowohl während des Zaubervorganges manipulieren und so den Zauber zum Scheitern bringen, als auch bereits gewobene Matrices zerstören. Die meisten antimagischen Zauber richten sich gegen eine bestimmte übernatürliche Fertigkeit und verfügen über vier Modifikationen.
+
+1. Gegenzauber
+Der Gegenzauber stört einen anderen Zauber während dessen Zaubervorbereitung. Regeltechnisch wirkt er als Konterprobe (12), bei deren Gelingen der Zielzauber sofort scheitert. 
+Schwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: Zauber in Vorbereitung
+Reichweite: 16 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 4 AsP
+
+2. Zauber aufheben
+Hiermit hebst du bereits gewirkte Zauber auf. Der Zauber gilt als Konterprobe (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird. 
+Schwierigkeit: 12
+Vorbereitungszeit: 8 Aktionen
+Zielobjekt: Wirkender Zauber
+Reichweite: 8 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: Hälfte der Basiskosten des Zaubers 
+
+3. Wesenheit bannen
+Hiermit bannst beschworene Wesenheiten wie Elementare, Dämonen und Geis-ter.
+Schwierigkeit: Beschwörungsschwierigkeit des zu bannenden Wesens
+Vorbereitungszeit: 8 Aktionen
+Zielobjekt: Einzelwesen
+Reichweite: 8 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: Hälfte der Basiskosten der Beschwörung
+
+4. Magie unterdrücken
+Mit dieser präventiv gewirkten Variante kannst du alle Zauber einer Fertigkeit in einem Gebiet erschweren. In einer Zone von 16 Schritt Radius sind alle Zauber des Merkmals um -4 erschwert. 
+Mächtige Magie: Alle Zauber sind um weitere -4 erschwert.
+Schwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Zone
+Reichweite: 8 Schritt
+Wirkungsdauer: 1 Stunde
+Kosten: 8 AsP
+</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Dämonisch" steigerungsfaktor="4" voraussetzungen="Vorteil Zauberer I" attribute="CH|MU|MU">Diese finstere Zauberei ruft Dämonen in die dritte Sphäre, erhebt Untote, erschafft Chimaeren und Golems oder nutzt die Macht der Niederhöllen für andere zerstörerische Effekte. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Eigenschaften" steigerungsfaktor="3" voraussetzungen="Vorteil Zauberer I" attribute="GE|IN|KO">Mit Eigenschaftsmagie kannst du die Fähigkeiten von dir und deinen Gefährten verbessern oder Feinde behindern. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Einfluss" steigerungsfaktor="4" voraussetzungen="Vorteil Zauberer I" attribute="CH|CH|IN">Als Einflusszauberer kannst du die Gedanken, Sinne und Gefühle deiner Mitmenschen manipulieren oder sie sogar zu willenlosen Marionetten machen.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Eis" steigerungsfaktor="2" voraussetzungen="Vorteil Zauberer I" attribute="CH|KO|MU">Neben der Kälte wird Eis auch mit Stillstand, Tod, Gefühlskälte und Vernunft assoziiert, was auch die elementaren Wesenheiten des Eises zutrifft. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Erz" steigerungsfaktor="2" voraussetzungen="Vorteil Zauberer I" attribute="CH|KL|KO">Härte und Beständigkeit gelten als Eigenschaften des Erzes, die mit Erzzauberei verstärkt werden können und von Erzelementaren verkörpert werden. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Feuer" steigerungsfaktor="2" voraussetzungen="Vorteil Zauberer I" attribute="CH|IN|MU">Mit Feuerzauberei kannst du Gegenstände erwärmen oder verbrennen und die lodernden Wesenheiten des Feuers herbeirufen. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Hellsicht" steigerungsfaktor="3" voraussetzungen="Vorteil Zauberer I" attribute="IN|KL|KL">Die Hellsicht kann deine Sinne verstärken oder erweitern, sodass du magische Kräfte, Wärme oder Gefühle wahrnehmen kannst. Hellseher sind auch Experten für die Analyse von Zaubern und Artefakten. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Humus" steigerungsfaktor="2" voraussetzungen="Vorteil Zauberer I" attribute="CH|CH|IN">Mit Humusmagie kannst du die Kraft der lebenden Natur nutzen, um Wunden zu heilen, Pflanzen wachsen zu lassen oder Humuselementare herbeizurufen. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Illusion" steigerungsfaktor="2" voraussetzungen="Vorteil Zauberer I" attribute="CH|FF|IN">Illusionen sind Trugbilder, die durch gewitzte Magier, aber auch Dämonen gewirkt werden, um die Sinne der Betrachter zu täuschen. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Kraft" steigerungsfaktor="3" voraussetzungen="Vorteil Zauberer I" attribute="FF|KL|KO">Mit dieser Zauberei kannst du magische Kräfte und Zauber, verändern und beherrschen. Auch die Artefaktzauberei fällt in diesen Bereich. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Luft" steigerungsfaktor="2" voraussetzungen="Vorteil Zauberer I" attribute="CH|KO|MU">Luftzauberer können Stürme erzeugen und beruhigen, das Wetter beeinflussen und die unsteten Luftelementare Herbeirufen. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Temporal" steigerungsfaktor="2" voraussetzungen="Vorteil Zauberer I" attribute="CH|KL|KO">Die sehr seltene Temporalmagie kann in den Lauf der Zeit selbst eingreifen und manche Legende berichtet von mächtigen Zauberern, die immerwährende Zauber wirkten oder sich sogar unsterblich machten.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Umwelt" steigerungsfaktor="3" voraussetzungen="Vorteil Zauberer I" attribute="KK|KL|MU">Mit Umweltzaubern kannst du deine direkte Umgebung - also Wetter, Helligkeit oder Schwerkraft - verändern oder mittels Telekinese Gegenstände bewegen. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Verständigung" steigerungsfaktor="2" voraussetzungen="Vorteil Zauberer I" attribute="CH|IN|MU">Mit Verständigung kannst du Gefühle und Gedanken übertragen oder Tiere, Geister oder magische Wesen zur Hilfe rufen. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Verwandlung" steigerungsfaktor="4" voraussetzungen="Vorteil Zauberer I" attribute="FF|KL|KO">Verwandler können sich selbst, andere Menschen und sogar Gegenstände verwandeln. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Wasser" steigerungsfaktor="2" voraussetzungen="Vorteil Zauberer I" attribute="CH|KL|MU">Als Wasserzauberer beherrschst du das flüssige Element und kannst die Elementare des Wassers herbeirufen. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Stabzauber" steigerungsfaktor="1" voraussetzungen="Vorteil Zauberer I" attribute="IN|KL|KL">Der Zauberstab eines Gildenmagiers ist sicherlich das bekannteste Ritualinstrument. Er unterstützt den Magier als Fackel, Seil oder magischer Rammbock, kann aber auch Astralenergie speichern. Alle Talente gelten als Objektrituale. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Elfenlieder" steigerungsfaktor="1" voraussetzungen="Vorteil Zauberer I" attribute="CH|FF|IN">Die auf einem Iama gespielten, magischen Elfenlieder gehören zu den ältesten Spielarten der Zauberei, der du begegnen kannst. Da viele Lieder zweistimmig gesungen werden, steht die Fertigkeit nur Elfen und manchen Halbelfen zur Verfügung. Elfenlieder gelten als Objektrituale. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Hexenflüche" steigerungsfaktor="1" voraussetzungen="Vorteil Zauberer I" attribute="CH|IN|MU">Als Hexe hast du zwei Möglichkeiten, deine Flüche zu überbringen. Entweder du schleuderst sie direkt lautstark auf das Opfer, wodurch du häufig vom Bonus der Hexischen Repräsentation II profitieren kannst, oder du lässt den Fluch unauffällig von deinem Vertrauten überbringen. Dafür benötigst du allerdings ein Körperteil (z.B. Haar) deines Opfers. In beiden Fällen legst du die Probe auf die übernatürliche Fertigkeit Hexenflüche ab.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Vertrautenmagie" steigerungsfaktor="1" voraussetzungen="Vorteil Zauberer I" attribute="CH|IN|IN">Die übernatürliche Fertigkeit Vertrautenmagie spiegelt die Stärke der Bindung zwischen der Hexe und ihrem Vertrautentier. Alle Proben zum Wirken der Vertrautenmagie werden auf diesen Wert abgelegt. Die Kosten werden von der Hexe über diese Verbindung zur Verfügung gestellt, auch wenn eigentlich der Vertraute einen Zauber wirkt. Vertrautenmagische Wirkungen gelten als Objektrituale. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Schalenzauber" steigerungsfaktor="1" voraussetzungen="Vorteil Zauberer I" attribute="FF|IN|KL">Dieses Ritualinstrument aus Silber oder Mondsilber wird außer Alchemisten auch von Gildenmagiern und als Kessel auch von Hexen benutzt. Unabhängig vom Hintergrund benötigen diese Rituale ein Mindestmaß an alchemistischem Wissen, das durch die Kenntnis der Alchemistischen Repräsentation I dargestellt wird. Die Talente gelten als Objektrituale. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Dolchzauber" steigerungsfaktor="2" voraussetzungen="Vorteil Zauberer I" attribute="FF|IN|MU">Die geheimen Rituale der Druiden beruhen auf ihrem verzauberten Dolch aus Obsidian, während Geoden eine goldene Sichel als Ritualinstrument bevorzugen. Alle Talente gelten als Objektrituale.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Ringrituale" steigerungsfaktor="2" voraussetzungen="Vorteil Zauberer I" attribute="IN|KO|MU">Die Geoden sprechen ihre Rituale in einen Halsreif aus Gold, der eine sich in den Schwanz beißende Schlange darstellt. Gleichzeitig ist der Schlangenreif ein besonders einladender Ort für Geister. Alle Talente gelten als Objektrituale.</Übernatürliche-Fertigkeit>
 </Datenbank>
