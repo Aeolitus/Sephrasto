@@ -422,6 +422,14 @@ Bedingungen: Gesprochenes oder gesungenes Gebet</Vorteil>
   <Vorteil name="Praioskirchliche Tradition II" kosten="40" voraussetzungen="Attribut CH 6, Vorteil Praioskirchliche Tradition I" nachkauf="häufig" typ="7">Im Sonnenlicht sind Liturgien um 2-4 Punkte erleichtert.</Vorteil>
   <Vorteil name="Praioskirchliche Tradition III" kosten="60" voraussetzungen="Attribut CH 8, Vorteil Praioskirchliche Tradition II" nachkauf="häufig" typ="7">Erlaubt die spontane Modifikation Zeremonie.</Vorteil>
   <Vorteil name="Praioskirchliche Tradition IV" kosten="80" voraussetzungen="Attribut CH 10, Vorteil Praioskirchliche Tradition III" nachkauf="häufig" typ="7">8 Punkte können zur Verbesserung der Tradition verwendet werden.</Vorteil>
+  <Vorteil name="Rondrakirchliche Tradition I" kosten="20" voraussetzungen="Attribut MU 4, Vorteil Geweiht I" nachkauf="häufig" typ="7">Die Fertigkeiten Zwölfgöttlicher Ritus, Ehre, Schutz der Gläubigen und Heerführung können erlernt und benutzt werden.
+
+Liturgien sind um 2-8 Punkte erschwert, wenn ihr Einsatz gegen die Prinzipien des Geweihten verstößt.
+
+Bedingungen: Gesprochenes oder gesungenes Gebet</Vorteil>
+  <Vorteil name="Rondrakirchliche Tradition II" kosten="40" voraussetzungen="Attribut MU 6, Vorteil Rondrakirchliche Tradition I" nachkauf="häufig" typ="7">Placeholder</Vorteil>
+  <Vorteil name="Rondrakirchliche Tradition III" kosten="60" voraussetzungen="Attribut MU 8, Vorteil Rondrakirchliche Tradition II" nachkauf="häufig" typ="7">Erlaubt die spontane Modifikation Opferung.</Vorteil>
+  <Vorteil name="Rondrakirchliche Tradition IV" kosten="80" voraussetzungen="Attribut MU 10, Vorteil Rondrakirchliche Tradition III" nachkauf="häufig" typ="7">8 Punkte können zur Verbesserung der Tradition verwendet werden.</Vorteil>
   <Talent name="Laufen" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Athletik">Akrobatik wird nicht nur für gewagte Kunststücke und Balanceakte verwendet, sondern kann auch den Fallschaden nach Stürzen reduzieren.</Talent>
   <Talent name="Unbewaffnet" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Handgemenge">Verbessert den waffenlosen Nahkampf.</Talent>
   <Talent name="Handgemengewaffen" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Handgemenge">Verbessert den Einsatz von Messern, Dolchen, Schlagstöcken und Kettenstäben.</Talent>
