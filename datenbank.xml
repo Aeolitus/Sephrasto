@@ -508,13 +508,2065 @@ Bedingungen: Gesprochenes oder gesungenes Gebet</Vorteil>
   <Talent name="Waffenbau" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Holzbearbeitung">Waffenbau ermöglicht die Heerstellung von Holzspeeren, Schilden, Hartholzharnischen und Bögen.</Talent>
   <Talent name="Mechanik" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Metallbearbeitung">Mit Mechanik werden Apparaturen wie Armbrüste, Flaschenzüge oder Fallen hergestellt und gewartet.</Talent>
   <Talent name="Schmieden" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Metallbearbeitung">Schmieden ist die Herstellung und Reparatur von Waffen, Rüstungen und anderen Metallgegenständen.</Talent>
-  <Talent name="Eidsegen" kosten="-1" voraussetzungen="Vorteil Praioskirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Ordnung, Zwölfgöttlicher Ritus">Ein freiwilliges und aufrichtiges Gelübde der Zielperson wird gesegnet. Alle Versuche, den Schwörenden zum Eidbruch zu bewegen (etwa über Betören, Überreden oder einen Imperavi), sind um -4 erschwert. Bricht der Schwörende den Eid im Vollbesitz seiner geistigen Kräfte, endet der Segen.
+  <Talent name="Eidsegen" kosten="0" voraussetzungen="Vorteil Praioskirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Ordnung, Zwölfgöttlicher Ritus">Ein freiwilliges und aufrichtiges Gelübde der Zielperson wird gesegnet. Alle Versuche, den Schwörenden zum Eidbruch zu bewegen (etwa über Betören, Überreden oder einen Imperavi), sind um -4 erschwert. Bricht der Schwörende den Eid im Vollbesitz seiner geistigen Kräfte, endet der Segen.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
 Zielobjekt: Einzelperson
 Reichweite: Berührung
 Wirkungsdauer: 1 Jahr
 Kosten: 8 KaP</Talent>
+  <Talent name="Feuersegen" kosten="0" voraussetzungen="Vorteil Phexkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus">Eine kleine Flamme entsteht in deiner Hand. Sie und ein mit ihr entzündetes Feuer und wird durch Wind oder Regen nicht gelöscht. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 2 KaP</Talent>
+  <Talent name="Geburtssegen" kosten="0" voraussetzungen="Vorteil Phexkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus">Das gesegnete Kind ist immun gegen schädliche Einflüsse von Dämonen oder Kobolden.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: bis zum 12. Lebensjahr
+Kosten: 2 KaP</Talent>
+  <Talent name="Glückssegen" kosten="40" voraussetzungen="Vorteil Phexkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="List, Zwölfgöttlicher Ritus">Der Gesegnete darf eine Probe wiederholen und das bessere Ergebnis wählen. Kann nur für Fertigkeiten eingesetzt werden, denen deine Gottheit zumindest neutral gegenübersteht. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde</Talent>
+  <Talent name="Göttliche Verständigung" kosten="40" voraussetzungen="Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus">Du kannst der Vorsteherin deines Heimattempels eine Nachricht mit bis zu 8 Worten schicken. 
+Mächtige Liturgie: Die Nachricht kann 8 weitere Worte lang sein.
+Probenschwierigkeit: 12
+Modifikationen: Unbekannter Empfänger (-8, 16 KaP, die Nachricht kann an einen beliebigen Tempel geschickt werden)
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: selbst
+Reichweite: unendlich
+Wirkungsdauer: augenblicklich
+Kosten: 8 KaP</Talent>
+  <Talent name="Grabsegen" kosten="0" voraussetzungen="Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Tod, Zwölfgöttlicher Ritus">Du segnest ein Grab, das fortan als geweihter Boden gilt. Beschwörungen von unheiligen Wesenheiten sind um -8 Punkte erschwert. 
+Mächtige Liturgie: Der Malus steigt um -4.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: permanent</Talent>
+  <Talent name="Großer Eidsegen" kosten="0" voraussetzungen="Vorteil Praioskirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Ehre, Ordnung, Zwölfgöttlicher Ritus">Du segnest einen freiwillig geschworenen Eid, wie einen Traviabund oder einen Lehenseid. Alle Versuche, einen Schwörenden zum Eidbruch zu bewegen (etwa über Betören, Überreden oder einen Imperavi), sind um -4 erschwert. Bricht ein Schwörender den Eid im Vollbesitz seiner geistigen Kräfte, ruht die Wirkung des Segens, bis er Buße geübt hat. 
+Modifikationen: Erhöht den Malus um -2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: zwei Personen
+Reichweite: Berührung</Talent>
+  <Talent name="Harmoniesegen" kosten="20" voraussetzungen="Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus">Das Ziel gewinnt an Zuversicht. Auf ihm lastende Furcht-Effekte gelten als 1 Stufe niedriger.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 4 KaP</Talent>
+  <Talent name="Heilungssegen" kosten="20" voraussetzungen="Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus">Im Verlauf der nächsten Stunde regeneriert der Gesegnete eine Wunde.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 4 KaP</Talent>
+  <Talent name="Liturgische Bindung" kosten="60" voraussetzungen="Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus">Mit dieser Liturgie kannst du Liturgien in einem Gegenstand speichern. Die Regeln entsprechen jenen zur Erschaffung magischer Artefakte , allerdings können nur ladungsbasierte Artefakte erschaffen werden. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Stunden
+Zielobjekt: Einzelobjekt 
+Reichweite: Berührung
+Wirkungsdauer: nach Artefakt
+Kosten: 8 KaP</Talent>
+  <Talent name="Objektsegen" kosten="20" voraussetzungen="Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus">Du segnest ein Objekt bis zur Größe eines Rucksacks oder eine Substanz mit bis zu 8 Litern Volumen. Das Ziel gilt als geweiht und fügt unheiligen Wesen bei Berührung 1 Wunde pro Initiativephase zu. 
+Mächtige Liturgie: Verdoppelt die Größe des Objekts bzw. das Volumen. 
+Probenschwierigkeit: 12
+Modifikationen: größeres Ziel (-8, du kannst größere Objekte wie Brücken oder Stollen segnen. Kosten und Wirkungsdauer sind deutlich höher und Spielleiterentscheid.)
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: 1 Woche
+Kosten: 4 KaP</Talent>
+  <Talent name="Schutzsegen" kosten="40" voraussetzungen="Vorteil Rondrakirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Zwölfgöttlicher Ritus">Du ziehst einen Kreis von maximal 8 Schritt Radius und nennst eine Kreaturenklasse (Dämon, Daimonoid oder Untoter). Liegt die Beschwörungsschwierigkeit eines solchen Wesens unter deinem EW, kann es die Zone nicht betreten. Der Boden innerhalb des Schutzkreises gilt als geweihter Boden.
+Probenschwierigkeit: 12
+Modifikationen: Universeller Schutz (-4, der Schutzsegen wirkt gegen alle unheiligen Wesen)
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde</Talent>
+  <Talent name="Seelenprüfung" kosten="40" voraussetzungen="Vorteil Praioskirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus">Du erkennst, ob eine Person oder ein Ort geweiht (auch dem Namenlosen), profan oder dämonisch verzerrt ist. 
+Mächtige Liturgie: Du kannst den Dämonen oder Gott/den Grad der Verdammnis oder der Weihe erkennen. 
+Probenschwierigkeit: 12
+Vorbereitungszeit:  1 Stunde
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 8 KaP</Talent>
+  <Talent name="Speisesegen" kosten="0" voraussetzungen="Vorteil Efferdkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus">Du reinigst eine Mahlzeit für bis zu 16 Personen von Schmutz, Fäulnis und Krankheiten.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 2 KaP</Talent>
+  <Talent name="Tranksegen" kosten="0" voraussetzungen="Vorteil Efferdkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Quellen und Flüsse, Zwölfgöttlicher Ritus">Du reinigst 4 Liter Wasser von Schmutz, Fäulnis, Meersalz oder Krankheiten. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich</Talent>
+  <Talent name="Blendstrahl aus Alveran" kosten="40" voraussetzungen="Vorteil Praioskirchliche Tradition I" verbilligt="0" fertigkeiten="Licht">Ein gleißender Lichtblitz aus deiner Hand blendet den Gegner. Er befindet sich in einer ungünstigen Position (-2 auf Proben) und alle Zauberproben sind um -4 erschwert. 
+Mächtige Liturgie: Die Abzüge auf Proben steigen um -1, für Zauber um -2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: 16 Schritt
+Wirkungsdauer: 8 Aktionen
+Kosten: 4 KaP</Talent>
+  <Talent name="Garafans gleißende Schwingen" kosten="60" voraussetzungen="Vorteil Praioskirchliche Tradition I" verbilligt="0" fertigkeiten="Licht">Du rufst einen Greifen herbei, der dir zur Seite steht. Was der Greif zu tun bereit ist und wie lange er bis zum Eintreffen benötigt, hängt von der Situation ab. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Einzelwesen
+Reichweite: unendlich
+Wirkungsdauer: augenblicklich
+Kosten: 32 KaP</Talent>
+  <Talent name="Licht des Herrn" kosten="40" voraussetzungen="Vorteil Praioskirchliche Tradition I" verbilligt="0" fertigkeiten="Licht">Deine Umgebung wird in einem Umkreis von 16 Schritt von strahlendem Sonnenlicht erleuchtet, welches von deiner rechten Hand ausgeht. Unheilige Wesen im Bereich erleiden 1 Wunde pro Initiativphase.
+Mächtige Liturgie: Je zwei Stufen richten eine zusätzliche Wunde an.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Zone
+Reichweite: 32 Schritt
+Wirkungsdauer: 1 Stunde
+Kosten: 16 KaP</Talent>
+  <Talent name="Ucuris Geleit" kosten="20" voraussetzungen="Vorteil Praioskirchliche Tradition I" verbilligt="0" fertigkeiten="Licht">Ein funkelndes Licht weist dir den Weg zum nächsten zwölfgöttlichen Geweihten oder Tempel. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 KaP</Talent>
+  <Talent name="Weisung des Himmels" kosten="20" voraussetzungen="Vorteil Efferdkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I" verbilligt="0" fertigkeiten="Licht, Seefahrt">Du hast für die Wirkungsdauer einen untrüglichen Sinn für die Himmelsrichtungen, was passende Proben nach Meisterentscheid um bis zu +4 erleichtert.  
+Mächtige Liturgie: Der Bonus steigt um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Minute
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Stunden</Talent>
+  <Talent name="Zerschmetternder Bannstrahl" kosten="60" voraussetzungen="Vorteil Praioskirchliche Tradition I" verbilligt="0" fertigkeiten="Licht, Magiebann">Ein gleißender Bannstrahl fährt aus dem Himmel herab und richtet an einem unheiligen oder magischen Wesen 8W6 SP an und verbrennt ebenso viel Astralenergie. 
+Mächtige Liturgie: Richtet 16 SP zusätzlich an.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelwesen
+Reichweite: 32 Schritt
+Wirkungsdauer: augenblicklich </Talent>
+  <Talent name="Argelions bannende Hand" kosten="60" voraussetzungen="Vorteil Hesindekirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I" verbilligt="0" fertigkeiten="Magie, Magiebann">Der EW der Liturgie wirkt als Konterprobe (12) gegen einen Zauber, der bei gelungener Probe aufgehoben wird. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Wirkender Zauber
+Reichweite: 8 Schritt
+Wirkungsdauer: augenblicklich</Talent>
+  <Talent name="Argelions Mantel" kosten="60" voraussetzungen="Vorteil Praioskirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Abu, al Mada, Magie, Magiebann">Der EW der Liturgie wirkt als Konterprobe (12) gegen jeden auf dich gewirkten Zauber. Bei gelungener Probe misslingen die Zauber.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: selbst</Talent>
+  <Talent name="Exorzismus" kosten="60" voraussetzungen="Vorteil Hesindekirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Abu al, Mada, Magie, Magiebann, Schutz der Gläubigen, Tod, Wind und Wogen">Du verbannst einen freien oder gebundenen Dämon.  
+Probenschwierigkeit: Beschwörungsschwierigkeit des Dämonen
+Vorbereitungszeit: 8 Aktionen
+Zielobjekt: Einzelwesen
+Reichweite: 32 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: Halbe Basiskosten der Beschwörung </Talent>
+  <Talent name="Purgation" kosten="40" voraussetzungen="Vorteil Praioskirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Magiebann">Ein magisches Artefakt wird ausgebrannt. Es hat fortan keinerlei magische Wirkung mehr.
+Probenschwierigkeit: Erschaffungsschwierigkeit des Artefakts
+Modifikationen: Praios Gnade (-8, 32 KaP, brennt einem Magiebegabten seine Astrale Kraft aus. Er verliert den Vorteil Zauberer und seine komplette Astralenergie)
+Vorbereitungszeit: 8 Stunden
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 16 KaP</Talent>
+  <Talent name="Praios Magiebann" kosten="60" voraussetzungen="Vorteil Praioskirchliche Tradition I" verbilligt="0" fertigkeiten="Magiebann">In deiner Hand erscheint das Auge des Praios. Der EW der Liturgie wirkt als Konterprobe (12) gegen alle Zauber im Umkreis von 16 Schritt, die bei gelungener Probe aufgehoben werden (permanente Zauber werden unterdrückt). Außerdem können keine neuen Zauber gewirkt oder Artefakte ausgelöst werden.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde 
+Kosten: 16 KaP </Talent>
+  <Talent name="Sicht auf Madas Welt" kosten="20" voraussetzungen="Vorteil Hesindekirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Abu al, Mada, Magie, Magiebann">Du nimmst magische Kraft in deiner Umgebung als silbernen Schimmer wahr. Das entspricht einem Analysegrad von 1 für die Intensitätsanalyse.
+Mächtige Liturgie: Der Analysegrad steigt um 1. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: selbst</Talent>
+  <Talent name="Unverstellter Blick" kosten="20" voraussetzungen="Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I" verbilligt="0" fertigkeiten="Abu al, Mada, Magie, Magiebann">Du nimmst alle Illusionen als golden (Pra), silbern (Phe) oder grün (Hes) schillernd wahr. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Aktionen
+Zielobjekt: selbst</Talent>
+  <Talent name="Vertreibung des Dunkelsinns" kosten="40" voraussetzungen="Vorteil Praioskirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I" verbilligt="0" fertigkeiten="Magiebann">Der EW der Liturgie gilt als Konterprobe (12) gegen sämtliche Einflusszauber, Hexenflüche und Druidenrituale auf deinem Ziel auf. Bei gelungener Probe werden die Zauber aufgehoben. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Stunden
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 8 KaP</Talent>
+  <Talent name="Waffenweihe" kosten="60" voraussetzungen="Vorteil Rondrakirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I" verbilligt="0" fertigkeiten="Magiebann, Schutz der Gläubigen, Tod">Die gesegnete Waffe verursacht geweihten Schaden. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde 
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung</Talent>
+  <Talent name="Heiliger Befehl" kosten="60" voraussetzungen="Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I" verbilligt="0" fertigkeiten="Ehre, Ordnung, Vergessen">Das Ziel befolgt einen gottgefälligen Befehl, wenn ihm keine Konterprobe (Willenskraft, 20) gelingt. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: 32 Schritt</Talent>
+  <Talent name="Innere Ruhe" kosten="40" voraussetzungen="Vorteil Praioskirchliche Tradition I" verbilligt="0" fertigkeiten="Ordnung">Du besinnst dich auf dein inneres Licht und befreist deinen Geist. Alle Proben auf Selbstbeherrschung sind um +4 erleichtert. 
+Mächtige Liturgie: Der Bonus steigt um +2. Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 8 Stunden
+Kosten: 8 KaP</Talent>
+  <Talent name="Praios Mahnung" kosten="20" voraussetzungen="Vorteil Praioskirchliche Tradition I" verbilligt="0" fertigkeiten="Ordnung">Du nimmst dem Ziel eine von Praios Gaben: Für den Rest der Wirkungsdauer ist das Ziel entweder unfähig zu  sehen oder sich zu orientieren oder Wahrheit von Lügen zu unterscheiden Entsprechende Proben sind um -4 erschwert.
+Mächtige Liturgie: Der Malus steigt um -2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 16 KaP</Talent>
+  <Talent name="Urischars ordnender Blick" kosten="20" voraussetzungen="Vorteil Praioskirchliche Tradition I" verbilligt="0" fertigkeiten="Ordnung">Du siehst die verborgene Ordnung im Chaos: Du findest Bücher der gleichen Fachrichtung in einer alten Bibliothek, Gegenstände des gleichen Vorbesitzers beim Hehler, und das Muster in der Einbruchsliste der Stadtgarde. Entsprechende Proben (etwa bei Recherchen) sind um +4 erleichtert.
+Mächtige Liturgie: Der Bonus steigt um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: selbst
+Reichweite: Sicht
+Wirkungsdauer: augenblicklich
+Kosten: 8 KaP</Talent>
+  <Talent name="Wille zur Wahrheit" kosten="40" voraussetzungen="Vorteil Praioskirchliche Tradition I" verbilligt="0" fertigkeiten="Ordnung">Alle Zuhörer halten sich an Praios' Gebot der Wahrheit. Proben um zu Lügen sind um -4 erschwert. 
+Mächtige Liturgie: Der Malus steigt um -2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 16 KaP</Talent>
+  <Talent name="Ehrenhafter Zweikampf" kosten="40" voraussetzungen="Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Ehre">Dein Gegner muss sich an die Gebote des ehrenhaften Zweikampfes halten und niemand kann in den Kampf eingreifen. Mit einer Konterprobe (Willenskraft, 20) kann die Wirkung der Liturgie gebrochen werden.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: 32 Schritt
+Wirkungsdauer: 16 Aktionen
+Kosten: 8 KaP</Talent>
+  <Talent name="Schild der Ehre" kosten="60" voraussetzungen="Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Ehre">Der EW der Liturgie wirkt als Konterprobe (16) gegen alle auf dich gezielten Fernkampfangriffe und Zauber.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 16 Aktionen
+Kosten: 8 KaP</Talent>
+  <Talent name="Segen der heiligen Ardare" kosten="60" voraussetzungen="Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Ehre">Du rufst das heilige Schwert Armalion herbei. Die Waffe richtet 2W20 + 10 SP an.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelobjekt
+Reichweite: unendlich
+Wirkungsdauer: 16 Aktionen
+Kosten: 32 KaP</Talent>
+  <Talent name="Segnung der Schlacht" kosten="20" voraussetzungen="Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Ehre">Alle Kämpfer im Umkreis von 16 Schritt, denen keine Konterprobe (Willenskraft, 20) gelingt, verhalten sich rondragefällig.
+Mächtige Liturgie: Der Radius erhöht sich um 16 Schritt
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: 8 Stunden
+Kosten: 16 KaP</Talent>
+  <Talent name="Bund der Schwerter" kosten="20" voraussetzungen="Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Schutz der Gläubigen">Du wählst bis zu 8 Mitstreiter. Bis zum Ende der Schlacht spürst du, in welcher Richtung und ungefährer Entfernung sie sich befinden. Du fühlst auch ihren Tod. 
+Mächtige Liturgie: Du spürst, wenn die Mitstreiter kampfunfähig werden/eine Wunde erleiden/sie auf übermächtige Gegner treffen. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: 8 Stunden
+Kosten: 4 KaP</Talent>
+  <Talent name="Ritus der Schlachthilfe" kosten="40" voraussetzungen="Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Schutz der Gläubigen">Während du meditierst, kann deine Schwertseele einem Gefährten im Kampf beistehen. Sie erscheint als geisterhafte Walküre und kann 8 Angriffe oder Paraden führen. Die Schwertseele verwendet deine Kampfwerte und -fähigkeiten, ohne Abzüge durch Einschränkungen oder andere negative Effekte. 
+Mächtige Liturgie: 4 weitere Angriffe oder Paraden sind möglich.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelperson
+Reichweite: 1 Meile
+Wirkungsdauer: 16 Aktionen
+Kosten: 8 KaP</Talent>
+  <Talent name="Rondras Hochzeit" kosten="40" voraussetzungen="Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Schutz der Gläubigen">Du kannst in einer Zone von ungefähr 1 Meile Radius kleinere Stürme erzeugen. 
+Mächtige Liturgie: Du kannst einen stürmischen Regen/ein leichtes Gewitter/ein schweres Gewitter/ein Unwetter erzeugen. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: Zone
+Reichweite: 1 Meile
+Wirkungsdauer: 4 Stunden
+Kosten: 16 KaP</Talent>
+  <Talent name="Rondras wundersame Rüstung" kosten="60" voraussetzungen="Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Schutz der Gläubigen">Du rufst die Wundersame Rüstung, die dich mit RS 4 und BE 0 schützt. Solange du sie trägst, erleidest du keine Wundabzüge. Die Wirkung dieser Einschränkungen tritt erst ein, wenn du die Rüstung ablegst.
+Mächtige Liturgie: Der RS steigt um 2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Stunden
+Kosten: 16 KaP</Talent>
+  <Talent name="Segen des heiligen Hlûthar" kosten="20" voraussetzungen="Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Schutz der Gläubigen">Alle Mitglieder des Heeres, dem du angehörst, erhalten eine Erleichterung von +2 auf alle MU-Proben und ignorieren eine Stufe jedes Furchteffekts. Nicht kumulativ mit der Segnung der stählernen Stirn. 
+Mächtige Liturgie: Der Bonus steigt um +1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Zone
+Reichweite: 1 Meile
+Wirkungsdauer: 4 Stunden
+Kosten: 16 KaP</Talent>
+  <Talent name="Segnung der stählernen Stirn" kosten="20" voraussetzungen="Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Schutz der Gläubigen">Alle MU-Proben des Ziels sind um +4 Punkte erleichtert und es ignoriert eine Stufe jedes Furcht-Effekts.
+Mächtige Liturgie: Der Bonus steigt um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Aktionen 
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 4 Stunden
+Kosten: 4 KaP</Talent>
+  <Talent name="Thalionmels Schlachtgesang" kosten="20" voraussetzungen="Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Schutz der Gläubigen">Du ignorierst sämtliche Mali durch erlittene Wunden, Wundschmerzeffekte und wirst nicht kampfunfähig. Nach 16 erlittenen Einschränkungen tritt der Tod ein. Ermöglicht Aufrechterhalten. 
+Mächtige Liturgie: Du kannst 8 zusätzliche Einschränkungen erleiden, bis der Tod eintritt. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 KaP</Talent>
+  <Talent name="Weihesegen der Waffe" kosten="40" voraussetzungen="Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Schutz der Gläubigen">Du kannst vier Waffen weihen. 
+Mächtige Liturgie: Du segnest zwei weitere Waffen. 
+Probenschwierigkeit: 12
+Modifikationen: Heeressegen (-8, 32 KaP, Du segnest alle Waffen in einem Umkreis von 64 Schritt)
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 8 KaP</Talent>
+  <Talent name="Wundersames Teilen des Märtyriums" kosten="40" voraussetzungen="Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Schutz der Gläubigen">Jede zweite Wunde, die dein Ziel erleidet, wird auf dich übertragen (beginnend mit der ersten). 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: 16 Schritt
+Wirkungsdauer: 1 Stunde
+Kosten: 8 KaP</Talent>
+  <Talent name="Phexens Sternenwurf" kosten="60" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Abu al, Mada">Du rufst einen der Wurfsterne des Phex herbei. Dieser erleichtert die Fernkampfprobe um +4, richtet 2W20 TP an und verschwindet nach dem Wurf.
+Mächtige Liturgie: Erhöht die TP um 1W20.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten</Talent>
+  <Talent name="Auge des Händlers" kosten="20" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="List">Mit untrüglicher Sicherheit findest du ein besonderes Stück auf einem Markt, in einem Geschäft oder einer Ansammlung von Gegenständen. Meistens handelt es sich um ein Schnäppchen, es kann aber auch ein Gegenstand mit einer besonderen Vorgeschichte oder einem verborgenen Geheimnis sein.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 4 KaP</Talent>
+  <Talent name="Aura der Form" kosten="40" voraussetzungen="Vorteil Phexkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I" verbilligt="0" fertigkeiten="List, Wissen">Du erhältst einen groben Eindruck in die Vorgeschichte und die Vorbesitzer eines Gegenstandes. Du kannst nur etwa so weit zurückschauen, wie die Geschichte deiner Kirche zurückreicht. 
+Mächtige Liturgie: Du erhältst einen ungefähren / guten / präzisen / vollständigen Eindruck.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich</Talent>
+  <Talent name="Buchprüfung" kosten="20" voraussetzungen="Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="List, Wissen">In einem Buch findest du auf Anhieb die für dich interessante Stelle.
+Mächtige Liturgie: Du findest die Stelle aus 2/4/8 Büchern. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich</Talent>
+  <Talent name="Entzug von Nandus Gaben" kosten="20" voraussetzungen="Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="List, Wissen">Du strafst dein Ziel mit Dummheit und getrübten Sinnen. Alle Proben auf KL und IN sind um -4 erschwert, Proben auf Fertigkeiten mit KL oder IN um -2.
+Mächtige Liturgie: Der Malus steigt um -2/-1.
+Probenschwierigkeit: 12
+Vorbereitungszeit :8 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 8 Stunden</Talent>
+  <Talent name="Mondsilberzunge" kosten="40" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="List">Dein Ziel hat vollstes Vertrauen zu dir und findet deine Worte überzeugend. Alle Überreden-Proben gegen dein Ziel sind um +4 erleichtert. 
+Mächtige Liturgie: Der Bonus steigt um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: 8 Schritt
+Wirkungsdauer: 1 Stunde
+Kosten: 8 KaP</Talent>
+  <Talent name="Phexens Augenzwinkern" kosten="20" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="List">Das Ziel kann sich kaum an dein Gesicht erinnern. Selbst wenn er darauf angesprochen oder verhört wird, sind alle KL-Proben zur Erinnerung um -4 erschwert. Wirkt nur, wenn deine wahre Identität unbekannt ist. 
+Mächtige Liturgie: Der Malus steigt um -2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich 
+Kosten: 8 KaP</Talent>
+  <Talent name="Phexens Kunstverstand" kosten="20" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="List">Du erhältst einen groben Eindruck vom Verkaufswert des Gegenstandes. 
+Probenschwierigkeit: 12
+Mächtige Liturgie: Du erhältst einen ungefähren/guten/genauen/detaillierten Eindruck.
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 8 KaP</Talent>
+  <Talent name="Phexens wundersame Verständigung" kosten="40" voraussetzungen="Vorteil Phexkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I" verbilligt="0" fertigkeiten="List, Wissen">Du bist unerfahren in einer beliebigen Fremdsprache. 
+Mächtige Liturgie: Deine Sprachkenntnis steigt auf erfahren/meisterlich. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde</Talent>
+  <Talent name="Schrifttum ferner Lande" kosten="40" voraussetzungen="Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="List, Wissen">Du bist unerfahren in einer beliebigen Schrift.
+Mächtige Liturgie: Deine Schriftkenntnis steigt auf erfahren/meisterlich.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten</Talent>
+  <Talent name="Sternenglanz" kosten="40" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="List">Du streust Mondstaub über das Objekt, das dadurch neu und wertvoll erscheint. Der Betrug lässt sich mit einer Konterprobe (Wachsamkeit oder Handwerkstalent, 16) durchschauen. 
+Mächtige Liturgie: Probenschwierigkeit +4
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 KaP</Talent>
+  <Talent name="Auge des Mondes" kosten="40" voraussetzungen="Vorteil Phexkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I" verbilligt="0" fertigkeiten="Schlaf, Nächtlicher Schatten">Das Ziel ignoriert 1 Stufe Dunkelheit.
+Mächtige Liturgie: Das Ziel ignoriert 2 Stufen/3 Stufen/absolute Dunkelheit. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde</Talent>
+  <Talent name="Graues Siegel" kosten="20" voraussetzungen="Vorteil Phexkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I" verbilligt="0" fertigkeiten="Nächtlicher Schatten, Wissen">Das Dokument kann nur von der von dir genannten Person gelesen oder mit einer Konterprobe (KL, 16) entschlüsselt werden. 
+Probenschwierigkeit: 12
+Modifikationen: Personengruppe (-4, 8 KaP, eine Gruppe von Personen kann benannt werden)
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich</Talent>
+  <Talent name="Phexens Elsterflug" kosten="40" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Nächtlicher Schatten">Das mit dieser Liturgie belegte Objekt von maximal 0,5 Stein Gewicht wird an Phexens Sternenhimmel entrückt. Es kehrt nach spätestens einem Jahr als Sternschnuppe zurück oder verbleibt am Sternenhimmel.
+Mächtige Liturgie: Verdoppelt das maximale Gewicht.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: Bis zu 1 Jahr
+Kosten: 8 KaP</Talent>
+  <Talent name="Phexens Meisterschlüssel" kosten="40" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Nächtlicher Schatten">Du rufst Phexens Meisterschlüssel herbei, der fast jedes Schloss öffnet. Bei magisch gesicherten Schlössern wirkt die Liturgie als Konterprobe (16), bei deren Gelingen der Zauber aufgehoben wird. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 16 KaP</Talent>
+  <Talent name="Phexens Nebelleib" kosten="40" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Nächtlicher Schatten">Du verwandelst dich mitsamt Ausrüstung in Nebel, dem weder Waffen noch Magie etwas anhaben können. Du kannst dich mit GS 4 fortbewegen und sogar durch schmalste Öffnungen dringen. 
+Probenschwierigkeit: 12
+Mächtige Liturgie: Erhöht die GS um +2.
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 8 Stunden
+Kosten: 16 KaP</Talent>
+  <Talent name="Sechs Leben des Mungo" kosten="40" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Nächtlicher Schatten">Schaden durch Stürze und Sprünge wird halbiert (kumulativ zur Akrobatik-Probe). 
+Mächtige Liturgie: Die Akrobatik-Probe ist um +2 erleichtert. 
+Probenschwierigkeit: 12
+Vorbereitungszeit :0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 16 Aktionen
+Kosten: 8 KaP</Talent>
+  <Talent name="Sternenspur" kosten="20" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Nächtlicher Schatten">Du kannst mit einer einfachen Berührung einen leuchtenden Stern als Markierung auf einer Oberfläche hinterlassen, den nur du sehen kannst. Insgesamt kannst du 8 solcher Sterne hinterlassen.
+Mächtige Liturgie: Du kannst 4 weitere Sterne hinterlassen. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten :8 KaP</Talent>
+  <Talent name="Sternenstaub" kosten="40" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Nächtlicher Schatten">Du wirfst Mondstaub in die Luft, der deine Gegner verwirrt. Deine Paraden sind um +2 erleichtert.
+Mächtige Liturgie: Der Bonus steigt um +1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: selbst
+Reichweite :Berührung
+Wirkungsdauer: 16 Aktionen
+Kosten: 8 KaP</Talent>
+  <Talent name="Weg des Fuchses" kosten="40" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Nächtlicher Schatten">Du kannst dich auch auf schlechten Pfaden, durch natürliche Hindernisse oder Menschenmassen wie auf einer normalen Straße bewegen. Proben auf Verfolgungsjagden unter schwierigen Bedingungen sind um +4 erleichtert. 
+Mächtige Liturgie: Der Bonus steigt um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 KaP</Talent>
+  <Talent name="Sterne funkeln immerfort" kosten="20" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Nächtlicher Schatten">Dein Ziel kann selbst durch Wolken und Nebel die Sterne erkennen. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen 
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 8 Stunden
+Kosten: 2 KaP</Talent>
+  <Talent name="Verborgen wie der Neumond" kosten="40" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Nächtlicher Schatten">Du passt dich deiner Umgebung an, was deine Heimlichkeits-Proben um +4 erleichtert. 
+Mächtige Liturgie: Der Bonus steigt um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 KaP</Talent>
+  <Talent name="Argelions Spiegel" kosten="60" voraussetzungen="Vorteil Hesindekirchliche Tradition I" verbilligt="0" fertigkeiten="Magie">Der nächste auf dich gewirkte Zauber wird auf den Zauberer zurückgeworfen. 
+Mächtige Liturgie: Ein weiterer Zauber wird zurückgeworfen.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 8 Aktionen
+Kosten: 16 KaP</Talent>
+  <Talent name="Blick der Weberin" kosten="40" voraussetzungen="Vorteil Hesindekirchliche Tradition I" verbilligt="0" fertigkeiten="Magie">Du analysierst die magische Matrix eines arkanen Artefakts oder eines magischen Wesens. Das entspricht einem Analysegrad von 1 für die Strukturanalyse.
+Mächtige Liturgie: Der Analysegrad steigt um 1.
+Probenschwierigkeit: Herstellungsschwierigkeit des Zauberwerks
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Einzelobjekt, Einzelwesen
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 8 KaP</Talent>
+  <Talent name="Ingalfs Alchemie" kosten="40" voraussetzungen="Vorteil Hesindekirchliche Tradition I" verbilligt="0" fertigkeiten="Magie">Du rufst den heiligen Trichter Hesindes herbei, der jede alchemistische Substanz in ihre Bestandteile zerlegen kann. Proben zur Analyse alchemistischer Rezepte sind um +8 erleichtert. Außerdem können so seltene Zutaten gewonnen werden. 
+Mächtige Liturgie: Der Bonus steigt um +4.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 8 Stunden
+Kosten: 16 KaP</Talent>
+  <Talent name="Gift der Erkenntnis" kosten="40" voraussetzungen="Vorteil Hesindekirchliche Tradition I" verbilligt="0" fertigkeiten="Wissen">Du lässt dich von einer Schlange beißen. Solange der Schlangenbiss schmerzt (TP Aktionen), erhältst du einen ungefähren Eindruck von den Gedanken deines Ziels.
+Mächtige Liturgie: Du erhältst einen deutlichen/klaren/vollständigen Eindruck in die Gedanken deines Ziels.
+Probenschwierigkeit: 12
+Modifikationen: Tiefentelepathie (-4, 16 KaP, du erhältst einen tiefen Einblick in innerste Vorgänge)
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: TP in Aktionen
+Kosten: 4 KaP</Talent>
+  <Talent name="Schlangenstab" kosten="40" voraussetzungen="Vorteil Hesindekirchliche Tradition I" verbilligt="0" fertigkeiten="Wissen">Dein Stab verwandelt sich in eine Smaragdnatter, die dich verteidigt. Neben den normalen Werten einer Smaragdnatter verfügt sie über Resistenz gegen profanen Schaden III, und ihre Angriffe gelten als geweihter Schaden.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 KaP</Talent>
+  <Talent name="Sprechende Symbole" kosten="20" voraussetzungen="Vorteil Hesindekirchliche Tradition I" verbilligt="0" fertigkeiten="Wissen">Du erhältst einen groben Eindruck über die Bedeutung eines Symbols. 
+Mächtige Liturgie: Du erhältst einen ungefähren / guten / präzisen / vollständigen Eindruck.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 4 KaP</Talent>
+  <Talent name="Wandeln in Hesindes Hain" kosten="60" voraussetzungen="Vorteil Hesindekirchliche Tradition I" verbilligt="0" fertigkeiten="Wissen">Während du dich in deine Handwerkskunst versenkst, wirst du mit Inspiration erfüllt. Du kannst ein Kunstwerk wie mit dem Vorteil Meisterwerk erschaffen. Besitzt du den Vorteil bereits, steigt die Qualität um eine weitere Stufe. 
+Probenschwierigkeit: Herstellungsschwierigkeit des Handwerksstücks
+Vorbereitungszeit: 1 Tag
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: bis das Werk vollendet ist
+Kosten: 32 KaP</Talent>
+  <Talent name="Bishdariels Auge" kosten="40" voraussetzungen="Vorteil Boronkirchliche Tradition I" verbilligt="0" fertigkeiten="Schlaf">Du erhältst einen kurzen Einblick in den Traum deines Ziels. Über den Inhalt musst du anderen gegenüber schweigen. 
+Probenschwierigkeit: 12
+Modifikationen: Traumreise (-4, 8 KaP, du kannst in den Traum des Schlafenden reisen), große Traumreise (-8, 16 KaP, du kannst mit maximal 8 Personen in den Traum reisen).
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 4 KaP</Talent>
+  <Talent name="Bishdariels Warnung" kosten="40" voraussetzungen="Vorteil Boronkirchliche Tradition I" verbilligt="0" fertigkeiten="Schlaf">Dein Ziel wird Nacht für Nacht von der Albtraumgestalt Bishdariels heimgesucht, die Warnungen und Mahnungen überbringt. Es regeneriert in dieser Zeit nicht.
+Mächtige Liturgie: Alle Proben des Ziels sind um -1 erschwert.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Einzelperson
+Reichweite: unbegrenzt
+Wirkungsdauer: 1 Woche
+Kosten: 16 KaP</Talent>
+  <Talent name="Hauch Borons" kosten="40" voraussetzungen="Vorteil Boronkirchliche Tradition I" verbilligt="0" fertigkeiten="Schlaf">Deine Umgebung wird im Umkreis von 8 Schritt von absoluter Dunkelheit erfüllt, die dich selbst nicht einschränkt. Unheilige Wesen erleiden 1 Wunde pro Initiativephase, Lichtzauber werden aufgehoben. 
+Mächtige Liturgie: Je zwei Stufen richten eine zusätzliche Wunde an. 
+Probenschwierigkeit: 12
+Modifikationen: Bewegliche Dunkelheit (-8, die Dunkelheit bewegt sich mit dir, Wirkungsdauer 4 Minuten) 
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Zone
+Reichweite: 32 Schritt
+Wirkungsdauer: 1 Stunde
+Kosten: 8 KaP</Talent>
+  <Talent name="Kräutersegen des heiligen Nemekath" kosten="20" voraussetzungen="Vorteil Boronkirchliche Tradition I" verbilligt="0" fertigkeiten="Schlaf">Die gesegneten Rauschmittel entfalten stärkere Wirkung bei geringeren Nebenwirkungen und machen nicht mehr abhängig. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 1 KaP</Talent>
+  <Talent name="Ruf in Borons Arme" kosten="20" voraussetzungen="Vorteil Boronkirchliche Tradition I" verbilligt="0" fertigkeiten="Schlaf">Das Ziel fällt in einen tiefen Schlaf, während dem Gifte und Krankheiten nicht wirken. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 8 Stunden
+Kosten: 8 KaP</Talent>
+  <Talent name="Schlaf des Gesegneten" kosten="40" voraussetzungen="Vorteil Boronkirchliche Tradition I" verbilligt="0" fertigkeiten="Schlaf">Dein Ziel sinkt in einen tiefen Schlaf, währendem es 2 zusätzliche Wunden regeneriert und nicht von Albträumen geplagt wird.
+Mächtige Liturgie: Das Ziel regeneriert 1 weitere Wunde. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 8 Stunden
+Kosten: 8 KaP</Talent>
+  <Talent name="Bannfluch des heiligen Khalid" kosten="60" voraussetzungen="Vorteil Boronkirchliche Tradition I" verbilligt="0" fertigkeiten="Tod">Während der Wirkungsdauer zerfallen die ersten 4 Untoten, die du mit einem geweihten Gegenstand (wie Graberde, Weihrauch oder deiner Hand) berührst, zu Staub. Geister werden gebannt. Wirkt nur auf Wesen, deren Beschwörungsschwierigkeit unter deinem Erfolgswert liegt.
+Mächtige Liturgie: Zwei weitere Untote oder Geister können gebannt werden. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen 
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 16 Aktionen
+Kosten: 16 KaP</Talent>
+  <Talent name="Etilias Gnade" kosten="20" voraussetzungen="Vorteil Boronkirchliche Tradition I" verbilligt="0" fertigkeiten="Tod">Ein bereits Sterbender leidet keine Schmerzen mehr. 
+Probenschwierigkeit: 12
+Modifikationen: Marbos Aufschub (-8, Vorbereitungszeit 1 Stunde, 16 KaP; Ein langsamer Tod durch Siechtum oder Schwäche verzögert zusätzlich sich um 1 Woche. Der Gesegnete ist jedoch nicht immun gegen einen gewaltsamen Tod.)
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Woche
+Kosten: 4 KaP</Talent>
+  <Talent name="Marbos Geleit" kosten="20" voraussetzungen="Vorteil Boronkirchliche Tradition I" verbilligt="0" fertigkeiten="Tod">Deine Seele verlässt kurzzeitig deinen Körper und begleitet und beschützt die des Verstorbenen auf dem Weg über das Nirgendmeer.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag oder bis zum Ende der Seelenreise
+Kosten: 16 KaP</Talent>
+  <Talent name="Nemekaths Geisterblick" kosten="20" voraussetzungen="Vorteil Boronkirchliche Tradition I" verbilligt="0" fertigkeiten="Tod">Du siehst unsichtbare Geister, Dämonen oder Elementarwesen.
+Mächtige Liturgie: Du kannst die Geister hören/mit Geistern sprechen/Geister um Hilfe bitten (die sie normalerweise erfüllen). 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen 
+Zielobjekt: selbst
+Reichweite: Berührung 
+Wirkungsdauer: 1 Stunde
+Kosten: 8 KaP</Talent>
+  <Talent name="Weihe der letzten Ruhestatt" kosten="20" voraussetzungen="Vorteil Boronkirchliche Tradition I" verbilligt="0" fertigkeiten="Tod">Du segnest ein Gebiet von 64 Rechtschritt, das fortan als geweihter Boden gilt. Beschwörungen von unheiligen Wesenheiten sind um -8 Punkte erschwert. 
+Mächtige Liturgie: Verdoppelt die Fläche
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: permanent
+Kosten: 16 KaP</Talent>
+  <Talent name="Bishdariels Angesicht" kosten="20" voraussetzungen="Vorteil Boronkirchliche Tradition I" verbilligt="0" fertigkeiten="Vergessen">In seinen Träumen blickt der Gesegnete in seine Vergangenheit und längst verschüttete Erinnerungen, auch wenn diese magisch unterdrückt werden. 
+Probenschwierigkeit: 12 / EW des Zaubers
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer 1 Tag
+Kosten: 8 KaP</Talent>
+  <Talent name="Segen der heiligen Noiona" kosten="20" voraussetzungen="Vorteil Boronkirchliche Tradition I" verbilligt="0" fertigkeiten="Vergessen">Du erhältst während der Wirkungsdauer die Möglichkeit, mit deinem Fertigkeitswert in Heilkunde Gifte/Krankheiten auch Sucht- und Geisteskrankheiten zu heilen.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Woche
+Kosten: 16 KaP</Talent>
+  <Talent name="Segen der heiligen Velvenya" kosten="20" voraussetzungen="Vorteil Boronkirchliche Tradition I" verbilligt="0" fertigkeiten="Vergessen">Mit dem Segen Borons ist dein Ziel frei von Schlafstörungen, Alpträumen, Todesängsten und quälenden Erinnerungen.  
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Monat
+Kosten: 8 KaP</Talent>
+  <Talent name="Siegel Borons" kosten="40" voraussetzungen="Vorteil Boronkirchliche Tradition I" verbilligt="0" fertigkeiten="Vergessen">Dein Ziel kann über ein bestimmtes Wissen oder Ereignis nicht sprechen oder es auf irgendeine andere Art mitteilen, außer es gelingt ihm eine Konterprobe (Willenskraft, 20).
+Probenschwierigkeit: 12
+Modifikationen: Umfassendes Vergessen (-8, 32 KaP, das Ziel darf über einen großen Bereich seines Lebens nicht sprechen)
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: permanent
+Kosten: 16 KaP</Talent>
+  <Talent name="Ruf zur Ruhe" kosten="40" voraussetzungen="Vorteil Boronkirchliche Tradition I" verbilligt="0" fertigkeiten="Vergessen">Dein Ziel verliert das Bedürfnis zu sprechen, solange du nicht sprichst, außer es gelingt ihm eine Konterprobe (Willenskraft, 20).
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: 32 Schritt
+Wirkungsdauer: 1 Woche
+Kosten: 4 KaP</Talent>
+  <Talent name="Erwachen des Stromes" kosten="20" voraussetzungen="Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Quellen und Flüsse">Innerhalb weniger Minuten schwillt der Fluss an und führt so viel Wasser wie zur stärksten Regenzeit. Furten und manche Brücken werden unpassierbar und das Wasser reißt lose Gegenstände am Ufer mit.
+Mächtige Liturgie: Der Fluss um ein/zwei/drei/vier Viertel mehr Wasser als zur stärksten Regenzeit. 
+Probenschwierigkeit: 12
+Modifikationen: Flutwelle (-8, 8 Aktionen, Wirkungsdauer augenblicklich; das Wasser erscheint in einer plötzlichen, zerstörerischen Flutwelle) 
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: Zone
+Reichweite: 32 Schritt
+Wirkungsdauer: 1 Stunde
+Kosten: 16 KaP</Talent>
+  <Talent name="Flüstern der Fluten" kosten="20" voraussetzungen="Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Wind und Wogen, Quellen und Flüsse">Dur öffnest deine Sinne für die Strömungen des Wassers und nimmst Eindrücke von Fischen und Meereslebewesen, schwimmenden und versunkenen Gegenständen oder Verschmutzungen im Umkreis von 4 Meilen (bei Flüssen halb so weit mit- und doppelt so weit gegen die Strömung) wahr. Deine Eindrücke bleiben dabei stets vage. Erfordert Konzentration. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde</Talent>
+  <Talent name="Gesegneter Fang" kosten="20" voraussetzungen="Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Seefahrt, Quellen und Flüsse">Die Ausbeute der gesegneten Netze oder Reusen ist verdoppelt. 
+Mächtige Liturgie: Die Ausbeute steigt auf das drei-/vier-/fünf-/sechsfache. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: 8 Stunden oder bis der Fang eingeholt wird</Talent>
+  <Talent name="Hashnabiths Flehen" kosten="20" voraussetzungen="Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Quellen und Flüsse">Du findest den kürzesten begehbaren Weg zur nächsten Wasserquelle.
+Probenschwierigkeit: 12
+Modifikationen: Quellsegen (-4, Zielobjekt Zone, verdoppelt die Wassermenge einer Quelle), Azilas Quellgesang (-8, 16 KaP, Zielobjekt Zone, aus dem Boden strömt reines Trinkwasser)
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 8 Stunden
+Kosten: 4 KaP</Talent>
+  <Talent name="Tränen des Milden" kosten="20" voraussetzungen="Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Quellen und Flüsse">Innerhalb des nächsten Tages regnet es auf die Felder im Umkreis von einer Meile und das Saatgut kann wachsen.
+Mächtige Liturgie: Verdoppelt den Radius
+Probenschwierigkeit: 12
+Modifikationen: Tränen des Zürnenden (-8, 8 Aktionen, Wirkungsdauer 1 Stunde, 16 KaP, statt einem sanften Regen bricht nach 1 Minute ein heftiger Platzregen los, der Wege in Schlammpisten verwandelt und Fernkampfangriffe um -8 erschwert)
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 8 KaP</Talent>
+  <Talent name="Segensreiches Wasser" kosten="60" voraussetzungen="Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Quellen und Flüsse">Du rufst Efferds Wasserkrug herbei, der mit 8 Schlucken heiligen Wassers gefüllt ist. Jeder Schluck heilt 1 Wunde oder stillt den Durst für einen Tag.
+Mächtige Liturgie: Der Krug enthält 4 zusätzliche Schlucke. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 32 KaP</Talent>
+  <Talent name="Aitheokles' Klageruf" kosten="40" voraussetzungen="Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Seefahrt">Ein Feuer von bis zu 32 Raumschritt erlischt.
+Mächtige Liturgie: Verdoppelt die maximale Ausdehnung. 
+Probenschwierigkeit: 12
+Modifikationen: Kleiner Feuerbann (1 KaP, ein Feuer bis zur Größe einer Fackel erlischt), Selbstlöschung (Vorbereitungszeit 0 Aktionen, 4 KaP, du löschst dich selbst) 
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Zone
+Reichweite: 32 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 8 KaP</Talent>
+  <Talent name="Anrufung der Winde" kosten="40" voraussetzungen="Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Seefahrt, Wind und Wogen">Im Radius von einer Meile kannst du den Wind auf einer Skala von windstill/leichte Brise/steife Brise/ Sturm/Orkan um 2 Stufen verändern und seine Richtung lenken.
+Mächtige Liturgie: Du kannst den Wind um eine weitere Stufe verändern und den Radius verdoppeln.
+Probenschwierigkeit: 12
+Modifikationen: Windhauch (0 Akt., Wirkungsdauer augenblicklich, 1 KaP; Ein kurzer Windstoß weht giftige Dämpfe fort oder löscht ein kleines Feuer)
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: 8 Stunden</Talent>
+  <Talent name="Bootssegen" kosten="20" voraussetzungen="Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Seefahrt">Die Besatzung des gesegneten Schiffes geht -dem Glauben nach bei einem Unglück in Efferds Wasserreich ein. Nach Spielleiterentscheid sind Proben um widernatürlichen Gefahren zu entgehen um +2 erleichtert.
+Mächtige Magie: Der Bonus steigt um +1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: permanent oder bis das Schiff deutlich umgebaut wird
+Kosten: 16 KaP</Talent>
+  <Talent name="Conagas Ruf" kosten="20" voraussetzungen="Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Seefahrt">Alle Meeresungeheuer im Radius von 100 Schritt ergreifen die Flucht, wenn eine Konterprobe (MU, 20) misslingt. 
+Mächtige Liturgie: Verdoppelt den Radius.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 16 KaP</Talent>
+  <Talent name="Liaiellas Orakel" kosten="20" voraussetzungen="Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Seefahrt">Du erfährst, ob die Seele eines Verschollenen von Liaiella in Borons Hallen getragen wurde oder nicht. Letzteres ist auch der Fall, wenn der Verschollene lebt oder an Land oder verseuchtem Gewässer starb. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 4 KaP</Talent>
+  <Talent name="Mannschaftssegen" kosten="20" voraussetzungen="Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Seefahrt">Die gesamte Schiffsmannschaft erhält eine Erleichterung von +2 auf MU-Proben und ignorieren eine Stufe jedes Furchteffekts.
+Mächtige Liturgie: Der Bonus steigt um +1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Monat
+Kosten: 16 KaP</Talent>
+  <Talent name="Segen des Plättlings" kosten="20" voraussetzungen="Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Seefahrt">Du verwandelst 100 Liter Salzwasser in Trinkwasser. 
+Mächtige Liturgie: Du verwandelst 200/300/400/500 Liter.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 8 KaP</Talent>
+  <Talent name="Anrufung Kaucas" kosten="40" voraussetzungen="Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Wind und Wogen">Tosende Winde umgeben dich und wehren Fernkampfangriffe bis zur Größe eines Wurfspeeres ab. Solche Fernkampfangriffe sind um -4 erschwert. 
+Mächtige Liturgie: Der Malus steigt um -2.
+Probenschwierigkeit: 12
+Modifikationen: Im Auge des Sturms (-8, Zielobjekt Zone, 16 KaP, die Winde umgeben ein ganzes Schiff und wehren Geschosse bis zur Größe einer Rotzenkugel ab)
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 8 KaP</Talent>
+  <Talent name="Anrufung Nuiannas" kosten="40" voraussetzungen="Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Wind und Wogen">In einem Bereich von 100 Schritt Radius entsteht eine dichte Nebelfront und breitet sich in die von dir bestimmte Richtung aus.
+Mächtige Liturgie: Verdoppelt den Radius 
+Probenschwierigkeit: 12
+Modifikationen: Begleiter (-4, du bleibst immer im Zentrum der Nebelfront) 
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: 8 Stunden
+Kosten: 8 KaP</Talent>
+  <Talent name="Begehen der heiligen Wasser" kosten="20" voraussetzungen="Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Wind und Wogen">Du kannst auf der Wasseroberfläche gehen, als würdest du von einer Welle getragen. Du erleidest keine Abzüge durch ungünstige Position und wirst nicht durch Wellen und Strömungen beeinflusst. Erlaubt Aufrechterhalten. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 4 KaP</Talent>
+  <Talent name="Efferdanes Reinigung" kosten="40" voraussetzungen="Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Wind und Wogen">Dein Gebet schwächt charyptoide Einflüsse in der Umgebung. Auf der Skala normal/ leicht verseucht/ deutlich verseucht/ stark verseucht/ kleines Unheiligtum/ mittleres Unheiligtum/ mächtiges Unheiligtum sinkt das Gebiet um zwei Stufen. 
+Mächtige Liturgie: Das Gebiet sinkt um eine weitere Stufe. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Zone
+Reichweite: 32 Schritt
+Wirkungsdauer: 1 Jahr
+Kosten: 8 KaP</Talent>
+  <Talent name="Gesang der Delphine" kosten="20" voraussetzungen="Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Wind und Wogen">Die von dir gesegnete Person erhält den Vorteil Tierempathie (Delphine) und erleidet keine Erschöpfung durch den Einsatz dieser Gabe. Segnest du dich selbst, kannst du notwendige Proben auf Wind und Wogen statt auf Überleben ablegen. 
+Mächtige Liturgie: Der Vorteil gilt für alle Walartigen/Fische/Meeresbewohner. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 4 KaP</Talent>
+  <Talent name="Gleichklang des Geistes" kosten="20" voraussetzungen="Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Wind und Wogen">Du erhältst einen kurzen Einblick in die Gefühle deines Gegenübers.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 1 KaP</Talent>
+  <Talent name="Neckeratem" kosten="40" voraussetzungen="Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Wind und Wogen">Das Ziel kann im Wasser atmen und sieht durch Wasser wie durch Luft. Erlaubt Aufrechterhalten. 
+Probenschwierigkeit: 12
+Modifikationen: Gruß des Versunkenen (-4, Zone, Wirkungsdauer 4 Minuten, 16 KaP; Der Zauber betrifft alle im Radius von 4 Schritt)
+Vorbereitungszeit: 8 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 KaP</Talent>
+  <Talent name="Ruf der Gefährten" kosten="20" voraussetzungen="Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Wind und Wogen">Du rufst einen Delphin aus der Umgebung herbei, der sich so schnell wie möglich nähert, und kannst ihn um einen Gefallen bitten. Ist kein Tier in Reichweite, passiert nichts.
+Mächtige Liturgie: Du rufst 2/4/8/16 Tiere.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Zone
+Reichweite: 4 Meilen
+Wirkungsdauer: 1 Stunde
+Kosten: 8 KaP</Talent>
+  <Talent name="Dämonenbann" kosten="60" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Dämonisch"/>
+  <Talent name="Destructibo Arcanitas" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Kraft">Du zerstörst ein magisches Artefakt, einen  Trank, Untoten, Golem oder eine Chimäre.
+Probenschwierigkeit: Herstellungsschwierigkeit bzw. Beschwörungsschwierigkeit 
+Modifikationen: Astralkörper abbauen (-4, gegen Magieresistenz; pro eingesetztem AsP verliert das Ziel 1 AsP)
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich</Talent>
+  <Talent name="Eigenschaft wiederherstellen" kosten="40" voraussetzungen="Vorteil Alchemistische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Eigenschaften"/>
+  <Talent name="Einfluss bannen" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Einfluss"/>
+  <Talent name="Elementarbann" kosten="60" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, beliebiges Element"/>
+  <Talent name="Gardianum Zauberschild" kosten="40" voraussetzungen="Vorteil Elfische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Kraft">Um dich herum bildet sich eine unsichtbare, magische Schutzkuppel, die sich mit dir bewegt und eine Härte von 2 verfügt. Magische Schadenszauber durchdringen den Schutz, wenn ihr Erfolgswert höher als der Erfolgswert des Gardianums ist. Ansonsten werden sie abgewehrt und treffen die Schutzkuppel, die nach 8 Beschädigungen zusammenbricht. Überzähliger Schaden durchdringt den Schutz. 
+Mächtige Magie: Die Härte steigt um 1. 
+Probenschwierigkeit: 12
+Modifikationen: Schild gegen Dämonen (-4; Liegt die Beschwörungsschwierigkeit unter dem Erfolgswert des Gardianum, kann der Dämon den Gardianum nicht betreten. Die Härte ist gegen Angriffe von Dämonen vervierfacht.), Schild gegen Zauber (-4; Der Gardianum wirkt auch gegen Einfluss-, Eigenschafts-, und Formzauber, 1 AsP entspricht 1 TP gegen den Gardianum), Persönlicher Schild (-4, der Zauber legt sich als zweite Haut um den Zauberer).
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: Zone
+Reichweite: 2 Schritt Radius
+Wirkungsdauer: 4 Minuten oder bis alle Schildpunkte verbraucht sind.</Talent>
+  <Talent name="Hellsicht trüben" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Hellsicht"/>
+  <Talent name="Illusion auflösen" kosten="20" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Illusion"/>
+  <Talent name="Kraftmagie neutralisieren" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Kraft"/>
+  <Talent name="Psychostabilis" kosten="40" voraussetzungen="Vorteil Alchemistische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Eigenschaften">Magieresistenz-Proben des Ziels sind um +4 erleichtert. 
+Mächtige Magie: Erhöht den Bonus um +2. 
+Probenschwierigkeit: 12
+Modifikationen: Schnellsteigerung (-4, verdoppelt die Erleichterung, Wirkungsdauer 16 Aktionen), Stabilisierung (-8; Das Ziel darf sofort eine Magieresistenz-Probe gegen einen auf es wirkenden Zauber wiederholen.  Gelingt sie, wird dieser Zauber für die Wirkungsdauer des Psychostabilis unterdrückt.)
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 8 Minuten</Talent>
+  <Talent name="Schleier der Unwissenheit" kosten="40" voraussetzungen="Vorteil Hexische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Kraft">Du schützt die magische Aura des Ziels vor der Entdeckung. Der Zauber wirkt als Konterprobe (12) gegen Hellsichtszauber (wie Odem oder Analys Arkanstruktur) oder Magiegespür, bei deren Gelingen die Hellsicht ergebnislos bleibt.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelwesen, Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: 4 Stunden</Talent>
+  <Talent name="Veränderung aufheben" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Umwelt"/>
+  <Talent name="Verwandlung beenden" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Verwandlung"/>
+  <Talent name="Eigene Ängste quälen dich!" kosten="60" voraussetzungen="Vorteil Borbaradianische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Dämonisch, Eigenschaften, Einfluss">Du raubst deinem Ziel einen Sinn deiner Wahl und lieferst es völlig seinen inneren Ängsten aus. Es erleidet einen Furcht-Effekt Stufe I. Nach Meisterentscheid sind auch langfristige Nachwirkungen möglich.
+Mächtige Magie: Du raubst deinem Opfer einen weiteren Sinn und der Furcht-Effekt steigt um eine Stufe. 
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelperson
+Reichweite: Berührung</Talent>
+  <Talent name="Hartes schmelze!" kosten="60" voraussetzungen="Vorteil Borbaradianische Repräsentation I ODER Vorteil Kristallomantische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Dämonisch, Verwandlung, Wasser">Du schmilzt eine kopfgroße Menge an hartem Material, welches dadurch weich und formbar wie Wachs wird. Nach Ende der Wirkungsdauer erstarrt das Material in seiner aktuellen Form.
+Mächtige Magie: Verdoppelt die verformte Menge.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelobjekt oder Teil eines solchen
+Reichweite: Berührung</Talent>
+  <Talent name="Höllenpein zerreiße dich!" kosten="60" voraussetzungen="Vorteil Borbaradianische Repräsentation I ODER Vorteil Kristallomantische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Dämonisch, Einfluss">Dein Opfer windet sich in schrecklichen Schmerzen und ist zu keiner kontrollierten Bewegung fähig. Am Ende der Wirkungsdauer erleidet es 2 Punkte Erschöpfung. Die Wirkung endet, wenn das Opfer Schaden nimmt.
+Mächtige Magie: Das Opfer erleidet einen weiteren Punkt Erschöpfung.
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Einzelwesen
+Reichweite: 8 Schritt
+Wirkungsdauer: 16 Aktionen</Talent>
+  <Talent name="Karnifilo Raserei" kosten="40" voraussetzungen="Vorteil Alchemistische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Kristallomantische Repräsentation I ODER Vorteil Borbaradianische Repräsentation I" verbilligt="0" fertigkeiten="Dämonisch, Eigenschaften, Einfluss">Dein Ziel verfällt in einen Kampfrausch. Es erhält Vorteile Kalte Wut und Offensiver Kampfstil und nutzt jede INI-Phase volle Offensive. Sind keine Gegner mehr da, greift er auch Verbündete an.
+Mächtige Magie: Die Angriffe deines Ziels sind um +1 erleichtert.
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelperson
+Reichweite: Berührung</Talent>
+  <Talent name="Pandämonium" kosten="40" voraussetzungen="Vorteil Borbaradianische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Dämonisch">In einer Zone von 16 Rechtschritt brechen Klauen, Mäuler und Tentakel hervor. Jedes nicht-unheilige Wesen erleidet 2W6 TP pro Initiativephase und kann sich nur mit einer Konterprobe (GE, 16) fortbewegen.  
+Mächtige Magie: Der Schaden steigt um 1W6 TP und die Größe der Zone verdoppelt sich.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Aktionen
+Zielobjekt: Zone
+Reichweite: 16 Schritt
+Wirkungsdauer: 1 Stunde
+Kosten: 16 AsP</Talent>
+  <Talent name="Weiches Erstarre!" kosten="40" voraussetzungen="Vorteil Borbaradianische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Kristallomantische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Dämonisch, Erz, Verwandlung">Du lässt bis zu 8 Raumschritt Luft, Wasser oder ein anderes „weiches“ Material zu einer festen, harten Masse erstarren. Lebende Materie, oder Material, das ein Lebewesen berührt, kann nicht beeinflusst werden. Das Material hat eine Härte von 4.
+Mächtige Magie: Die Härte steigt um 4.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Zone
+Reichweite: Berührung</Talent>
+  <Talent name="Adlerauge Luchsenohr" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I ODER Vorteil Kristallomantische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Hellsicht">Du schärfst deine Sinne auf magische Weise. Alle Proben auf Sinnenschärfe und Wachsamkeit sind um +4 erleichtert.
+Mächtige Magie: Der Bonus steigt um +2.
+Probenschwierigkeit: 12
+Modifikationen: Einzelsinn (-4, Wirkungsdauer 1 Stunde, nur ein Sinn ist betroffen)
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten</Talent>
+  <Talent name="Armatrutz" kosten="40" voraussetzungen="Vorteil Elfische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Erz">Der RS deines Zieles steigt um 1. 
+Mächtige Magie: Je zwei Stufen erhöhen den RS um +1.
+Probenschwierigkeit: 12
+Modifikationen: Körperschild (-4, 1 AsP, der Armatrutz schützt nur eine Trefferzone)
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten</Talent>
+  <Talent name="Axxeleratus Blitzgeschwind" kosten="40" voraussetzungen="Vorteil Elfische Repräsentation I ODER Vorteil Kristallomantische Repräsentation I ODER Vorteil Schelmische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften">Die GS deines Zieles erhöht sich um 4 und alle AT und PA sind um +2 erleichtert, Ausweichen ist nicht erschwert.
+Mächtige Magie: Die GS erhöht sich um weitere 2 Punkte. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: 4 Schritt
+Wirkungsdauer: 16 Aktionen
+Kosten: 8 AsP</Talent>
+  <Talent name="Eins mit der Natur" kosten="40" voraussetzungen="Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Humus">Dein Ziel wird eins mit deiner Umgebung. In der Wildnis wird es wie mit der Gabe Gefahreninstinkt vor natürlichen Gefahren gewarnt.
+Mächtige Magie: Überleben-Proben sind um +2 erleichtert.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Minuten
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag</Talent>
+  <Talent name="Falkenauge Meisterschuss" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften">Durch ein geistiges Band mit dem Ziel ist dein nächster Fernkampfangriff um +4 erleichtert.
+Mächtige Magie: Der Bonus steigt um +2.
+Probenschwierigkeit: 12
+Modifikationen: Dauerndes Band (-8, der Zauber wirkt auf alle Fernkampfangriffe während der Wirkungsdauer)
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 8 Aktionen
+Kosten: 4 AsP</Talent>
+  <Talent name="Hexengalle" kosten="40" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften">Du spuckst auf deinen Gegner, wobei sich dein Speichel in ätzende Säure verwandelt. Das getroffene Opfer erleidet 2W6 SP und wird bei misslungener Konterprobe (Zähigkeit, 16) bis zu seiner übernächsten Initiativephase handlungsunfähig. Ballistischer Zauber.
+Mächtige Magie: Die SP steigen um 1W6. 
+Probenschwierigkeit: 12
+Modifikationen: Drachenspeichel (-4, der Zauber wirkt auch gegen unbelebte Ziele)
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: 4 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 8 AsP</Talent>
+  <Talent name="Katzenaugen" kosten="20" voraussetzungen="Vorteil Hexische Repräsentation I ODER Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften">Du ignorierst 1 Stufe Dunkelheit, bist aber besonders anfällig gegen helles Licht. Bei absoluter Dunkelheit ist der Zauber wirkungslos.
+Mächtige Magie: Du ignorierst 2/3 Stufen Dunkelheit.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 4 AsP</Talent>
+  <Talent name="Plumbumbarum schwerer Arm" kosten="20" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften">Alle Angriffe des Ziels sind um -4 erschwert.
+Mächtige Magie: Erhöht die Abzüge um -2.
+Probenschwierigkeit: Magieresistenz
+Modifikationen: Demotivation (-8, Erschwernis wirkt auch auf Zauberproben)
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelwesen
+Reichweite: 8 Schritt
+Wirkungsdauer: 8 Aktionen
+Kosten: 4 AsP</Talent>
+  <Talent name="Satuarias Herrlichkeit" kosten="20" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Illusion">Dein Aussehen weckt Begehren in allen an deinem Geschlecht und deiner Rasse interessierten Individuen. Ihnen gegenüber sind Betören-Proben um +4 erleichtert. 
+Mächtige Magie: Der Bonus steigt um +2. Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde</Talent>
+  <Talent name="Spinnenlauf" kosten="20" voraussetzungen="Vorteil Hexische Repräsentation I ODER Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften">Deine Hände und Füße haften an glatten Oberflächen, was Klettern-Proben um 4 Punkte erleichtert. Erlaubt Aufrechterhalten.
+Mächtige Magie: Der Bonus steigt um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 AsP</Talent>
+  <Talent name="Wellenlauf" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Kristallomantische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Wasser">Wasser ist für dich ein fester, sicherer Untergrund. Du erleidest keine Abzüge durch ungünstige Position und wirst nicht durch Wellen und Strömungen beeinflusst. Erlaubt Aufrechterhalten.
+Probenschwierigkeit: 12
+Modifikationen: Sinken (-4, du kannst nach Belieben die Zauberwirkung unterdrücken und wieder aktiv werden lassen. Bei Aktivierung unter Wasser wirst du an die Wasseroberfläche gehoben), Wasserwand (-8, du kannst selbst an Wasserfällen hochklettern, wofür einfache Klettern-Proben anfallen)
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 8 Minuten</Talent>
+  <Talent name="Bannbaladin" kosten="40" voraussetzungen="Vorteil Elfische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss">Das Verhältnis des Ziels zu dir verbessert sich um eine Stufe. Jede Stufe über vertraut erleichtert Rhetorik und Betören-Proben um +2.
+Mächtige Magie: Steigert das Verhältnis um eine weitere Stufe. 
+Probenschwierigkeit: Magieresistenz
+Modifikationen: gemeinsame Erinnerung (-4, du teilst eine von dir bestimmte positive Erinnerung mit dem Ziel)
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: 4 Schritt
+Wirkungsdauer: 1 Stunde
+Kosten: 8 AsP</Talent>
+  <Talent name="Blitz dich find" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss">Dein Ziel ist geblendet und erleidet eine Erschwernis von -2 auf Proben. 
+Mächtige Magie: Erhöht die Abzüge um -1.
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: Einzelwesen
+Reichweite: 8 Schritt
+Wirkungsdauer: 4 Aktionen
+Kosten: 4 AsP</Talent>
+  <Talent name="Böser Blick" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Kristallomantische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss">Dein Opfer hat schreckliche Angst vor dir und erleidet einen Furcht-Effekt Stufe II. 
+Mächtige Magie: Der Furcht-Effekt steigt um 1 Stufe. 
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelwesen 
+Reichweite: 8 Schritt
+Wirkungsdauer: ½ Stunde
+Kosten: 8 AsP</Talent>
+  <Talent name="Große Gier" kosten="40" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss">Du erweckst im Ziel ein dringendes Bedürfnis nach einem Gegenstand, einer Handlung oder einem Ort. Das Opfer wird aber keine großen Risiken eingehen, um das Bedürfnis zu erfüllen. Der Zauber ist um 2 bis 4 Punkte erleichtert, wenn er eine Charakterschwäche des Ziels besonders anspricht. 
+Mächtige Magie: Das Ziel nimmt Schmerzen oder eine peinliche Situation/kleinere Verletzungen oder einen momentanen Gesichtsverlust/schwere Verletzungen oder dauerhaften Verlust seines Rufes/jedes Risiko auf sich.
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 AsP</Talent>
+  <Talent name="Harmlose Gestalt" kosten="40" voraussetzungen="Vorteil Hexische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss, Illusion">Mit dieser Illusion (Sicht, Gehör, Geruch) erscheinst du den Umstehenden als kleines Kind, alter Krüppel, Orkfrau oder in einer anderen harmlosen Gestalt. Mitgeführte Gegenstände sind nicht betroffen. Erlaubt Aufrechterhalten.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten</Talent>
+  <Talent name="Hilfreiche Tatze, rettende Schwinge" kosten="20" voraussetzungen="Vorteil Geodische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Kristallomantische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss, Verständigung">Du rufst ein Tier einer Art deiner Wahl aus der Umgebung herbei und kannst es um einen Gefallen bitten. Wenn möglich wird es diesen erfüllen und sich dann trollen. Ist kein Tier in Reichweite, passiert nichts.
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 8 Aktionen
+Zielobjekt: Zone
+Reichweite: 1 Meile
+Wirkungsdauer: 1 Stunde</Talent>
+  <Talent name="Hexenknoten" kosten="40" voraussetzungen="Vorteil Hexische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss, Illusion">Wenn den Umstehenden keine Konterprobe (MR, 16) gelingt, erscheint ihnen der Zauber als eine bis zu 4 Schritt lange furchteinflößende Barriere, die sie keinesfalls durchschreiten wollen. Das Aussehen der Barriere bestimmt die Hexe. 
+Mächtige Magie: Erhöht die Länge der Barriere um 4 Schritt.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Zone
+Reichweite: 2 Schritt
+Wirkungsdauer: 4 Minuten</Talent>
+  <Talent name="Imperavi Handlungszwang" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss">Dein Ziel muss einen einzigen Befehl von dir ausführen und darf währenddessen nicht gegen dich vorgehen. Widerspricht der Befehl den tiefsten Überzeugungen oder dem Selbsterhaltungstrieb des Zieles, kann es mit einer Konterprobe (Willenskraft, 16) widerstehen.. Eine Verschachtelung von Befehlen („Folge allen weiteren Befehlen!“ ) ist nicht möglich. 
+Probenschwierigkeit: Magieresistenz
+Modifikationen: Sofort (-4, 8 AsP, 0 Aktionen; Ziel muss einen kurzen Befehl sofort ausführen), Später (-4; der Zauber wirkt erst, sobald ein einfacher Auslöser eintritt), Dauerhafter Diener (-4, Vorbereitungszeit 4 Minuten, Reichweite Berührung, 32 AsP, Wirkungsdauer 16 Tage, du kannst bis zu 16 Befehle äußern)
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: 2 Schritt
+Wirkungsdauer: 8 Stunden oder bis der Befehl erfüllt ist
+Kosten: 16 AsP</Talent>
+  <Talent name="Krähenruf" kosten="40" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss, Kraft, Verständigung">Du rufst einen Krähenschwarm aus bis zu 100 Meilen Entfernung zur Hilfe. Der Schwarm erscheint sofort und hat eine WS/WS* von 3 (Koloss I), eine AT von 10 mit 2W6-2 TP (Zusätzliche Attacke I) und eine PA von 3. Seine INI beträgt 6 und seine GS 8. 
+Mächtige Magie: WS, AT und TP des Schwarms steigen um je +1. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Zone
+Reichweite: 16 Schritt</Talent>
+  <Talent name="Levthans Feuer" kosten="20" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss, Verständigung">Das Ziel entbrennt in heißer Leidenschaft für dich. Auf einer Skala von abstoßend/uninteresant/neutral/begehrenswert/unwiderstehlich steigt seine Einstellung dir gegenüber um 1 Stufe. In einem folgenden Liebesspiel kannst du deine gesamte Wund- und AsP-Regeneration auf das Ziel übertragen oder die gesamte Regeneration des Ziels stehlen. 
+Mächtige Magie: Steigert die Einstellung um eine weitere Stufe.
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 4 Stunden</Talent>
+  <Talent name="Respondami Wahrheitszwang" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss">Das Ziel muss eine Ja-oder-Nein-Frage wahrheitsgemäß beantworten. Ist die Frage nicht mit Ja oder Nein zu beantworten, erleidet es 1W6-1 SP. 
+Mächtige Magie: Erlaubt eine weitere Frage.
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelperson
+Reichweite: 2 Schritt 
+Wirkungsdauer: augenblicklich
+Kosten: 4 AsP</Talent>
+  <Talent name="Sanftmut" kosten="20" voraussetzungen="Vorteil Hexische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss">Das verzauberte Tier verliert seine Angriffslust, solange es nicht angegriffen oder gereizt wird. 
+Mächtige Magie: Die Lethargie hält sogar dann, wenn das Tier gereizt/leicht verletzt/schwer verletzt wird. 
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Tier
+Reichweite: 8 Schritt
+Wirkungsdauer: 4 Minuten
+Kosten: 8 AsP</Talent>
+  <Talent name="Somnigravis" kosten="40" voraussetzungen="Vorteil Elfische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss">Ein Ziel in einer ruhenden Position sinkt langsam in einen Tiefschlaf, aus dem es durch lauten Lärm oder Schmerzen geweckt werden kann. 
+Probenschwierigkeit: Magieresistenz 
+Modifikationen: Beliebiges Wesen (-4; Der Zauber wirkt auf alle Wesen, die Schlaf kennen), Ohnmacht (-8, Vorbereitungszeit 1 Aktion, Wirkungsdauer 8 Aktionen; Das Opfer wird schlagartig ohnmächtig und ist nicht zu wecken.)
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: 4 Schritt
+Wirkungsdauer: 4 Stunden
+Kosten: 8 AsP</Talent>
+  <Talent name="Zauberzwang" kosten="60" voraussetzungen="Vorteil Hexische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss">Du erlegst dem Opfer eine Aufgabe auf, die nicht tödlich sein darf. Steht die moralischen Vorstellungen des Opfers der Aufgabe entgegen, kann es mit einer Konterprobe (Willenskraft, 16) widerstehen. Ignoriert das Opfer die Aufgabe oder lässt sie absichtlich scheitern, erleidet es pro Woche 1 Wunde, die während der Wirkungsdauer nicht geheilt oder regeneriert werden kann. 
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: Bis die Aufgabe gelöst, maximal 2 Monate
+Kosten: 32 AsP </Talent>
+  <Talent name="Zwingtanz" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss">Dein Opfer verliert die Kontrolle über seinen Körper, der wie wild zu tanzen beginnt. Angriffe auf das Ziel haben eine Schwierigkeit von 16. Nach Ende der Wirkungsdauer erleidet es 2 Punkte Erschöpfung.
+Mächtige Magie: Das Opfer erleidet einen weiteren Punkt Erschöpfung.
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: 8 Schritt
+Wirkungsdauer: 4 Minuten
+Kosten: 16 AsP</Talent>
+  <Talent name="Caldofrigo heiß und kalt" kosten="60" voraussetzungen="Vorteil Kristallomantische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Eis, Feuer, Verwandlung">Du veränderst die Temperaturstufe eines Objektes um zwei Stufen.
+Mächtige Magie: Du veränderst die Temperatur um eine weitere Stufe.
+Probenschwierigkeit: 12
+Modifikationen: Zone (-4, 32 AsP, Zielobjekt selbst, der Zauber betrifft einen Umkreis von 8 Schritt um dich herum), Zonenzentrum (-8, 32 AsP, Zielobjekt Zone, Reichweite 8 Schritt)
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung</Talent>
+  <Talent name="Elementare Herbeirufung (Eis)" kosten="60" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Eis">Ruft ein Elementarwesen des Eises herbei das in deiner unmittelbaren Nähe erscheint. 
+Probenschwierigkeit: 16/24/32 (Diener/ Dschinn /Meister)
+Vorbereitungszeit: frei wählbar
+Zielobjekt: einzelnes Elementar
+Wirkungsdauer: augenblicklich
+Kosten: 16/32/64 AsP (Diener/Dschinn/ Meister)</Talent>
+  <Talent name="Elementare Herbeirufung (Feuer)" kosten="60" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Feuer">Ruft ein Elementarwesen des Feuers herbei das in deiner unmittelbaren Nähe erscheint. 
+Probenschwierigkeit: 16/24/32 (Diener/ Dschinn /Meister)
+Vorbereitungszeit: frei wählbar
+Zielobjekt: einzelnes Elementar
+Wirkungsdauer: augenblicklich
+Kosten: 16/32/64 AsP (Diener/Dschinn/ Meister)</Talent>
+  <Talent name="Elementare Herbeirufung (Humus)" kosten="60" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Humus">Ruft ein Elementarwesen des Humus herbei das in deiner unmittelbaren Nähe erscheint. 
+Probenschwierigkeit: 16/24/32 (Diener/ Dschinn /Meister)
+Vorbereitungszeit: frei wählbar
+Zielobjekt: einzelnes Elementar
+Wirkungsdauer: augenblicklich
+Kosten: 16/32/64 AsP (Diener/Dschinn/ Meister)</Talent>
+  <Talent name="Elementare Herbeirufung (Erz)" kosten="60" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Erz">Ruft ein Elementarwesen des Erzes herbei das in deiner unmittelbaren Nähe erscheint. 
+Probenschwierigkeit: 16/24/32 (Diener/ Dschinn /Meister)
+Vorbereitungszeit: frei wählbar
+Zielobjekt: einzelnes Elementar
+Wirkungsdauer: augenblicklich
+Kosten: 16/32/64 AsP (Diener/Dschinn/ Meister)</Talent>
+  <Talent name="Elementare Herbeirufung (Wasser)" kosten="60" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Wasser">Ruft ein Elementarwesen des Wassers herbei das in deiner unmittelbaren Nähe erscheint. 
+Probenschwierigkeit: 16/24/32 (Diener/ Dschinn /Meister)
+Vorbereitungszeit: frei wählbar
+Zielobjekt: einzelnes Elementar
+Wirkungsdauer: augenblicklich
+Kosten: 16/32/64 AsP (Diener/Dschinn/ Meister)</Talent>
+  <Talent name="Elementare Herbeirufung (Luft)" kosten="60" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Luft">Ruft ein Elementarwesen der Luft herbei das in deiner unmittelbaren Nähe erscheint. 
+Probenschwierigkeit: 16/24/32 (Diener/ Dschinn /Meister)
+Vorbereitungszeit: frei wählbar
+Zielobjekt: einzelnes Elementar
+Wirkungsdauer: augenblicklich
+Kosten: 16/32/64 AsP (Diener/Dschinn/ Meister)</Talent>
+  <Talent name="Frigisfaxius" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Kristallomantische Repräsentation I" verbilligt="0" fertigkeiten="Eis">Ein Strahl scharfkantigen Eises fügt dem Ziel 4W6 SP zu. Ballistischer Zauber. 
+Merkmal (Eis): Erfrieren
+Mächtige Magie: Die SP steigen um 2W6. 
+Probenschwierigkeit: 12
+Modifikationen: Gezielter Strahl (-4, du kannst die Trefferzone bestimmen)
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelwesen, Einzelobjekt
+Reichweite: 16 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 16 AsP</Talent>
+  <Talent name="Frigisphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Eis">Du erschaffst eine elementare Kugel, die du mit Konzentration und Blickkontakt mit GS 8 bewegen kannst. Verlierst du eines von beiden, explodiert sie und richtet 4W6 TP an. Pro Schritt Entfernung fällt der niedrigs-te Würfel weg. 
+Merkmal (Eis): Erfrieren
+Mächtige Magie: Die TP steigen um 1W6.
+Probenschwierigkeit: 12
+Modifikationen: Komplexe Bewegung (-2, du gibst der Kugel die Bewegung bis zur Explosion vor, Konzentration und Blickkon-takt sind nicht nötig)
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Zone
+Reichweite: 32 Schritt
+Wirkungsdauer: augenblicklich 
+Kosten: 16 AsP</Talent>
+  <Talent name="Gletscherwand" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Eis">Eine 3 Schritt hohe und bis zu 4 Schritt lange Wand aus blankem Eis wächst entlang einer von dir bestimmten Linie aus dem Boden. Sie verfügt über eine Härte von 16.
+Merkmal (Eis): Wer sich der Wand nähert, erleidet bei misslungener Konterprobe (KO, 12) einen Erfrieren-Effekt.
+Mächtige Magie: Die Härte der Wand steigt um 8, die maximale Länge um 2 Schritt und die Höhe um 1 Schritt.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Zone
+Reichweite: 8 Schritt
+Wirkungsdauer: 16 Minuten
+Kosten: 8 AsP</Talent>
+  <Talent name="Manifesto" kosten="20" voraussetzungen="Vorteil Kristallomantische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Scharlatanische Repräsentation I ODER Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Eis, Erz, Feuer, Humus, Luft, Wasser">Du beschwörst eine etwa faustgroße Menge oder kleine Manifestation des Elements herbei, mit dem du den Zauber wirkst. Sie verschwindet nach Ende der Wirkungsdauer.
+Merkmal (Eis): Du kannst zum Beispiel einen Schneeball oder einen Eiszapfen erscheinen lassen, ein Getränk kühlen, oder deine Körpertemperatur etwas senken. 
+Merkmal (Erz): Du kannst zum Beispiel eine Hand voll Sand oder einen Stein erscheinen lassen oder das Gewicht eines Gegenstandes kurzzeitig etwas erhöhen.
+Merkmal (Feuer): Du kannst zum Beispiel eine kleine Flamme über deiner Hand tanzen lassen, deine Körpertemperatur etwas erhöhen, eine Pfeife anzünden  oder einen Funkenschwarm erzeugen.
+Merkmal (Humus): Du kannst zum Beispiel eine Knospe erblühen lassen, eine Hand voll Kuhmist herbeizaubern, ein Gänseblümchen erscheinen lassen, oder einen kleinen Kratzer schließen.
+Merkmal (Luft): Du kannst zum Beispiel einen frischen Windhauch rufen, einen Wohlgeruch erzeugen, oder einen kleinen Luftwirbel erschaffen.
+Merkmal (Wasser): Du kannst zum Beispiel einen Becher mit Wasser füllen, deine Hände abspülen, eine Pfütze bilden oder tagsüber einen kleinen Regenbogen glitzern lassen.
+Probenschwierigkeit: 12
+Modifikationen: Demanifesto (-4, du kannst die Manifestation nach Belieben Verschwinden und wieder auftauchen lassen)</Talent>
+  <Talent name="Zorn der Elemente" kosten="40" voraussetzungen="Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Kristallomantische Repräsentation I" verbilligt="0" fertigkeiten="Eis, Erz, Feuer, Humus, Luft, Wasser">Du schleuderst eine Handvoll des Elements, mit dem du den Zauber wirkst, auf deinen Gegner. Die Menge vervielfacht sich im Flug und richtet 2W6 TP an. Ballistischer Zauber.
+Merkmal (Eis): Erfrieren
+Merkmal (Erz): Niederschmettern
+Merkmal (Humus): Fesseln
+Merkmal (Feuer): Nachbrennen
+Merkmal (Wasser): Ertränken
+Merkmal (Luft): Zurückstoßen
+Mächtige Magie: Erhöht die TP um 4. 
+Probenschwierigkeit: 12</Talent>
+  <Talent name="Adamantium Erzstruktur" kosten="40" voraussetzungen="Vorteil Kristallomantische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Erz, Verwandlung">Du stärkst die Struktur eines Gegenstandes von maximal 16 Stein Gewicht. Seine Härte wird verdoppelt. Bei Waffen steigen die TP um 2 Punkte, bei Rüstungen der RS um 1. 
+Mächtige Magie: TP einer Waffe +1, für je 2 Stufen RS einer Rüstung +1.
+Probenschwierigkeit: 12
+Modifikationen: Kristallglanz (-2, während der Wirkungsdauer erscheint die Oberfläche des Materials wie die eines beliebigen anderen erzenen Materials), Adamantenquader (-4, das maximale Gewicht wird verdoppelt, mehrfach wählbar), Zauberklinge (-4, während der Wirkungsdauer gilt die Waffe als magisch)
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde</Talent>
+  <Talent name="Archofaxius" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Erz">Ein Strahl aus Erz fügt dem Ziel 4W6 SP zu. Ballistischer Zauber. 
+Merkmal (Erz): Niederschmettern
+Mächtige Magie: Die SP steigen um 2W6. 
+Probenschwierigkeit: 12
+Modifikationen: Gezielter Strahl (-4, du kannst die Trefferzone bestimmen)
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelwesen, Einzelobjekt
+Reichweite: 16 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 16 AsP</Talent>
+  <Talent name="Archosphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Erz">Du erschaffst eine elementare Kugel, die du mit Konzentration und Blickkontakt mit GS 8 bewegen kannst. Verlierst du eines von beiden, explodiert sie und richtet 4W6 TP an. Pro Schritt Entfernung fällt der niedrigs-te Würfel weg. 
+Merkmal (Erz): Niederschmettern
+Mächtige Magie: Die TP steigen um 1W6.
+Probenschwierigkeit: 12
+Modifikationen: Komplexe Bewegung (-2, du gibst der Kugel die Bewegung bis zur Explosion vor, Konzentration und Blickkon-takt sind nicht nötig)
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Zone
+Reichweite: 32 Schritt
+Wirkungsdauer: augenblicklich 
+Kosten: 16 AsP</Talent>
+  <Talent name="Fortifex Arkane Wand" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Erz, Umwelt">Es entsteht eine 4 Rechtschritt große, 5 Finger dicke, unsichtbare Wand. Die Wand ist undurchdringlich für Gegenstände bis zum Gewicht einer Rotzenkugel, schwerere Gegenstände werden nur leicht verlangsamt.
+Mächtige Magie: Die Wand ist bis zum Gewicht eines schweren Menschen/Pferdes mit Reiter/einer Kutsche/eines Schiffes undurchdringlich.
+Probenschwierigkeit: 12 
+Modifikationen: Bewegliche Wand (-8; die Wand bewegt sich mit dir), Schimmernder Schild (-8; erschafft einen unsichtbaren Schild (Werte wie Holzschild)), 
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Zone
+Reichweite: 4 Schritt
+Wirkungsdauer: 4 Minuten</Talent>
+  <Talent name="Paralysis starr wie Stein" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Erz, Verwandlung">Dein Ziel erstarrt zu einer unzerstörbaren und Statue, der auch Gifte oder Krankheiten nichts anhaben können. Es fühlt und hört nichts, kann aber sehen und riechen.
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Einzelwesen
+Reichweite: 8 Schritt
+Wirkungsdauer: 1 Stunde</Talent>
+  <Talent name="Ignifaxius Flammenstrahl" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Feuer">Eine Flammenlanze fügt dem Ziel 4W6 SP zu. Ballistischer Zauber. 
+Merkmal (Feuer): Nachbrennen
+Mächtige Magie: Die SP steigen um 2W6. 
+Probenschwierigkeit: 12
+Modifikationen: Gezielter Strahl (-4, du kannst die Trefferzone bestimmen)
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelwesen, Einzelobjekt
+Reichweite: 16 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 16 AsP</Talent>
+  <Talent name="Ignisphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Feuer">Du erschaffst eine elementare Kugel, die du mit Konzentration und Blickkontakt mit GS 8 bewegen kannst. Verlierst du eines von beiden, explodiert sie und richtet 4W6 TP an. Pro Schritt Entfernung fällt der niedrigste Würfel weg. 
+Merkmal (Feuer): Nachbrennen
+Mächtige Magie: Die TP steigen um 1W6.
+Probenschwierigkeit: 12
+Modifikationen: Komplexe Bewegung (-2, du gibst der Kugel die Bewegung bis zur Explosion vor, Konzentration und Blickkontakt sind nicht nötig)
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Zone
+Reichweite: 32 Schritt
+Wirkungsdauer: augenblicklich 
+Kosten: 16 AsP</Talent>
+  <Talent name="Ignifugo Feuerbann" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Schelmische Repräsentation I ODER Vorteil Scharlatanische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Feuer, Umwelt">Ein Feuer von bis zu 8 Raumschritt erlischt.
+Mächtige Magie: Verdoppelt die maximale Ausdehnung. 
+Probenschwierigkeit: 12
+Modifikationen: Feuerdiebstahl (-4, Wirkungsdauer 1 Stunde, du kannst ein maximal fackelgroßes Feuer von seiner alten Quelle nehmen und in deiner Hand mit dir tragen), Selbstlöschung (-4, Vorbereitungszeit 0 Aktionen, du löschst dich selbst)
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Zone
+Reichweite: 8 Schritt
+Wirkungsdauer: augenblicklich</Talent>
+  <Talent name="Wand aus Flammen" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Feuer">Eine 3 Schritt hohe und bis zu 4 Schritt lange Wand aus Flammen wächst entlang einer von dir bestimmten Linie aus dem Boden.
+Merkmal (Feuer): Wer sich der Wand nähert, erleidet bei misslungener Konterprobe (KO, 12) einen Nachbrennen-Effekt. Die Durchquerung verursacht 4W6 SP.
+Mächtige Magie: Der Schaden beim Durchqueren der Wand steigt um 2W6, die maximale Länge um 2 Schritt und die Höhe um 1 Schritt.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Zone
+Reichweite: 8 Schritt
+Wirkungsdauer: 16 Minuten
+Kosten: 8 AsP</Talent>
+  <Talent name="Analys Arcanstruktur" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Hellsicht, Kraft">Du analysierst die magische Matrix eines arkanen Artefakts oder eines magischen Wesens. Das entspricht einem Analysegrad von 1 für die Strukturanalyse.
+Mächtige Magie: Der Analysegrad steigt um 1.
+Probenschwierigkeit: Herstellungsschwierigkeit des Zauberwerks
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Einzelobjekt, Einzelwesen
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich</Talent>
+  <Talent name="Blick in die Gedanken" kosten="40" voraussetzungen="Vorteil Elfische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Hellsicht">Du siehst die Gedanken deines Ziels als verschwommene Bilder vor dir. Weiß das Ziel, dass seine Gedanken gelesen werden, kann es mit dich mit einer Konterprobe (Willenskraft, 16) in die Irre führen. 
+Probenschwierigkeit: Magieresistenz
+Modifikationen: Traumreise (-4, du kannst für 1 Stunde an den Träumen des Ziels teilhaben)
+Kampfsinn (nur Elf, -4; Du kannst die Angriffe des Gegners vorhersehen, Paraden gegen diesen Gegner sind um +4 erleichtert.)
+Verhandlungssinn (nicht Elf, -4; Du kannst die Argumente und Absichten deines Ziels vorhersehen, gesellschaftliche Proben sind um +2 erleichtert.)
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: 4 Schritte
+Wirkungsdauer: 16 Aktionen
+Kosten: 8 AsP </Talent>
+  <Talent name="Exposami Lebenskraft" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Hellsicht">Du nimmst lebendige Wesen als grün leuchtende Flecken wahr. Der Zauber kann alle Elemente bis auf Erz und Eis durchdringen.
+Mächtige Magie: Du kannst Angehörige verschiedener Spezies/verschiedene Individuen unterscheiden und wiedererkennen.
+Probenschwierigkeit: 12
+Modifikationen: Reinheit der Aura (-8, der Zauber zeigt den Gesundheitszustand des Ziels, dämonische Verseuchungen usw.)
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelperson
+Reichweite: 16 Schritt
+Wirkungsdauer: 8 Aktionen
+Kosten: 4 AsP</Talent>
+  <Talent name="Odem Arcanum" kosten="40" voraussetzungen="Vorteil Alchemistische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Hellsicht, Kraft">Du nimmst magische Kraft um das Ziel kurz als roten Schimmer wahr. Das entspricht einem Analysegrad von 1 für die Intensitätsanalyse.
+Mächtige Magie: Der Analysegrad steigt um 1 
+Probenschwierigkeit: 12
+Modifikationen: Sichtbereich (-4, wirkt auf alle Objekte im Sichtfeld)
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelwesen, Einzelobjekt
+Reichweite: 8 Schritt
+Wirkungsdauer: 2 Aktionen</Talent>
+  <Talent name="Penetrizzel Tiefenblick" kosten="20" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Hellsicht">Du kannst durch eine Wand von bis zu 2 Spann Dicke sehen, solange die Wand nicht aus einem magischen oder magieabweisenden Material besteht. 
+Mächtige Magie: Die mögliche Dicke steigt um 1 Spann. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 8 Aktionen
+Kosten: 4 AsP </Talent>
+  <Talent name="Sensibar Empathicus" kosten="40" voraussetzungen="Vorteil Elfische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Hellsicht">Du kannst die Gefühle deines Gegenübers erahnen, wodurch deine Menschenkenntnis gegen das Ziel um +4 steigt.
+Mächtige Magie: Der Bonus steigt um +2. 
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: 4 Schritt
+Wirkungsdauer: 1 Stunde 
+Kosten: 8 AsP</Talent>
+  <Talent name="Tiergedanken" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Hellsicht, Verständigung">Du siehst die Gedanken des Tiers als verschwommene Bilder. 
+Mächtige Magie: Zusätzlich kannst du das Tier um einen kleineren/größeren/gefährlichen Gefallen bitten. Der Spielleiter entscheidet, ob das Tier den Gefallen ausführen kann und will.
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Tier
+Reichweite: 8 Schritt
+Wirkungsdauer: 4 Minuten </Talent>
+  <Talent name="Balsam Salabunde" kosten="40" voraussetzungen="Vorteil Elfische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Humus, Verwandlung">Dein Ziel erhält im Laufe der nächsten Stunde 2W6 Heilpunkte, für jede Überschreitung der WS wird eine Wunde geheilt. 
+Mächtige Magie: Erhöht die Heilpunkte um 4.
+Modifikationen: Blutung stoppen ([Wunden] Aktionen, Schwierigkeit 16, hebt Blutungen auf); Sofortige Regeneration (-16, 4 Aktionen, 32 AsP; Das Ziel regeneriert für 32 Aktionen alle 2 Aktionen eine Wunde.)
+Probenschwierigkeit: 12+Wund-Mod des Ziels 
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelwesen
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich</Talent>
+  <Talent name="Fesselranken" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Humus">Aus dem Humusboden unter deinem Opfer wachsen Ranken hervor, die es mit einem Umklammern-Manöver (4) festhalten, aus der es sich mit einer Konterprobe (GE oder KK, 16) befreien kann.
+Mächtige Magie: Die Umklammern-"Ansage" steigt um 2.
+Probenschwierigkeit: Magieresistenz
+Modifikationen: Dornenfessel (-4, jede Gegenprobe fügt dem Opfer 2W6 TP zu)
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelperson
+Reichweite: 8 Schritt
+Wirkungsdauer: 4 Aktionen
+Kosten: 4 AsP</Talent>
+  <Talent name="Haselbusch und Ginsterkraut" kosten="60" voraussetzungen="Vorteil Elfische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Humus, Verwandlung">Du greifst leitest das Wachstum einer Pflanze, kannst es beschleunigen und sie formen. Die Kosten, Zauberdauer und Modifikationen Mächtige Magie sind Meisterentscheid. Beispiele:
+4 AsP, keine Mächtige Magie, 1 Minute: Aus einem Samen wächst eine kleine Heilpflanze.
+8 AsP, 1x Mächtige Magie, eine halbe Stunde: Ein Apfelbaum trägt drei Monate zu früh Früchte.
+4 AsP, 2x Mächtige Magie, 4 Minuten: Die Rinde eines Baumes zeigt eine Botschaft; 
+128 AsP, 4x Mächtige Magie, 4 Tage: Eine Baumkrone wird zu einem Baumhaus mit Möbeln, Dach und Fenstern
+Probenschwierigkeit: 12
+Vorbereitungszeit: nach Projekt
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich</Talent>
+  <Talent name="Hexenspeichel" kosten="40" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Humus">Dein Ziel erhält im Laufe der nächsten Stunde 2W6 Heilpunkte, für jede Überschreitung der WS wird eine Wunde geheilt. 
+Mächtige Magie: Erhöht die Heilpunkte um 4.
+Modifikationen: Blutung stoppen ([Wunden] Aktionen, Schwierigkeit 16, hebt Blutungen auf); Geheime Zutat (-4, Einzelobjekt, Wirkungsdauer 1 Stunde; der Zauber heilt den Esser des verzauberten Gerichts);
+Probenschwierigkeit: 12+Wund-Mod des Ziels 
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelwesen
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich </Talent>
+  <Talent name="Humufaxius" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Humus">Ein Strahl Dornenranken fügt dem Ziel 4W6 SP zu. Ballistischer Zauber. 
+Merkmal (Humus): Fesseln
+Mächtige Magie: Die SP steigen um 2W6. 
+Probenschwierigkeit: 12
+Modifikationen: Gezielter Strahl (-4, du kannst die Trefferzone bestimmen)
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelwesen, Einzelobjekt
+Reichweite: 16 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 16 AsP</Talent>
+  <Talent name="Humusphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Humus">Du erschaffst eine elementare Kugel, die du mit Konzentration und Blickkontakt mit GS 8 bewegen kannst. Verlierst du eines von beiden, explodiert sie und richtet 4W6 TP an. Pro Schritt Entfernung fällt der niedrigs-te Würfel weg. 
+Merkmal (Humus): Fesseln
+Mächtige Magie: Die TP steigen um 1W6.
+Probenschwierigkeit: 12
+Modifikationen: Komplexe Bewegung (-2, du gibst der Kugel die Bewegung bis zur Explosion vor, Konzentration und Blickkon-takt sind nicht nötig)
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Zone
+Reichweite: 32 Schritt
+Wirkungsdauer: augenblicklich 
+Kosten: 16 AsP</Talent>
+  <Talent name="Leib der Erde" kosten="40" voraussetzungen="Vorteil Geodische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Humus">Du wirst eins mit dem Element Humus. Dornen, Messergras und Pflanzen aller Art fügen dir keinen Schaden zu und verlangsamen dich nicht. Du bist gegen Schaden von Humuszaubern und -elementaren immun. 
+Probenschwierigkeit: 12
+Modifikationen: Durch Erde und Holz (-4, Wirkungsdauer 4 Minuten, du kannst dich mit 1 Schritt pro Aktion durch Humus wie Erdboden und Holz (nicht aber Lebewesen) bewegen und musst dabei nicht atmen), Begleiter (-4, Kosten 16 AsP, der Zauber betrifft auch eine weitere Person, mit der du permanent Hautkontakt halten musst), Leib aus Holz (-8, Wirkungsdauer 4 Minuten, du verwandelst dich in einen Humusdschinn, kannst aber keine Zauber mehr wirken) Vorbereitungszeit: 8 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 AsP </Talent>
+  <Talent name="Ruhe Körper, Ruhe Geist" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Humus">Dein Ziel sinkt in einen tiefen Schlaf, währendem es eine zusätzliche Wunde regeneriert.
+Mächtige Magie: Das Ziel regeneriert eine weitere Wunde. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 8 Stunden
+Kosten: 8 AsP</Talent>
+  <Talent name="Auris Nasus Oculus" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Illusion">Eine Illusion (Sicht, Gehör oder Geruch) deiner Wahl erscheint. Die maximale Größe der Illusion beträgt PW x4 Raumschritt. 
+Mächtige Magie: Die Illusion betrifft einen weiteren, oben gennannten Sinn.
+Probenschwierigkeit: 12
+Modifikationen: bewegte Illusion (-4, die Illusion führt eine beim Zaubern bestimmte Bewegung aus), kontrollierte Illusion (-4, du kannst die Illusion aktiv steuern, was Konzentration erfordert)
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Zone
+Reichweite: 32 Schritt
+Wirkungsdauer: 16 Minuten
+Kosten: 8 AsP</Talent>
+  <Talent name="Dupplicatus" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Illusion">Eine mit dir verschwimmender Doppelgänger-Illusion (Sicht) erscheint und verwirrt deine Gegner. Bei Nah- und Fernkampfangriffen wird ausgewürfelt, ob der Angriff dich oder einen Doppelgänger trifft. Wegen der schnellen Bewegung der Spiegelbilder ist das Durchschauen der Illusion nutzlos.
+Mächtige Magie: Erschafft 1 weiteren Doppelgänger.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 16 Aktionen
+Kosten: 8 AsP</Talent>
+  <Talent name="Arcanovi Artefakt" kosten="60" voraussetzungen="Vorteil Alchemistische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Kraft">Der Arcanovi ist der bindende Spruch eines Artefaktes, in das du weitere Zauber sprechen kannst. 
+Probenschwierigkeit: nach Artefakt
+Vorbereitungszeit: 8 Stunden
+Zielobjekt: Einzelobjekt 
+Reichweite: Berührung
+Wirkungsdauer: nach Artefakt
+Kosten: 8 AsP</Talent>
+  <Talent name="Applicatus Zauberspeicher" kosten="40" voraussetzungen="Vorteil Alchemistische Repräsentation I ODER Vorteil Kristallomantische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Scharlatanische Repräsentation I" verbilligt="0" fertigkeiten="Kraft">Du speicherst einen Zauber in deinem Zielobjekt, wozu du erst diesen Zauber und dann den zu speichernden Zauber wirkst. Der Zauber wirkt, sobald das Objekt bewegt wird oder ein einfacher, von dir bestimmter, Auslöser eintritt. Sein Zielobjekt ist der Auslösende oder eine Zone um ihn herum. 
+Probenschwierigkeit: 12
+Modifikationen: Tragbar (-2, das Objekt kann bewegt werden), Hauswächter (-4, Kosten 16 AsP, Wirkungsdauer bis zur nächsten Sonnenwende oder bis das Objekt bewegt wird)
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 8 AsP</Talent>
+  <Talent name="Fulminictus Donnerkeil" kosten="40" voraussetzungen="Vorteil Elfische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Kraft">Eine unsichtbare Welle magischer Kraft fügt deinem Ziel 2W6 SP zu. Ein Fulminictus verursacht keine Wundschmerzeffekte. 
+Mächtige Magie: Erhöht die SP um 4.
+Probenschwierigkeit: 12
+Modifikationen: Welle des Schmerzes (-4, für die doppelten Kosten trifft der Zauber alles in 4 Schritt um dich herum), Welle der Reinigung (1 AsP; der Zauber tötet alle Schädlinge und andere winzige Wesen mit sehr geringer Lebenskraft)
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: Einzelwesen
+Reichweite: 8 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 8 AsP</Talent>
+  <Talent name="Magischer Raub" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Kraft, Verständigung">Du kannst bei deinem nächsten Zauber teilweise oder ganz auf die AsP des Ziels zugreifen. Der nächste Zauber kann nicht auf das Ziel des magischen Raubs gewirkt werden.
+Probenschwierigkeit: Magieresistenz
+Modifikationen: Freiwilliger Spender (Der Zauber hat eine Probenschwierigkeit von 16.)
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 4 Stunden</Talent>
+  <Talent name="Aeolitus Windgebraus" kosten="40" voraussetzungen="Vorteil Elfische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Kristallomantische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Schelmische Repräsentation I ODER Vorteil Scharlatanische Repräsentation I" verbilligt="0" fertigkeiten="Luft">Ein kräftiger Windstoß breitet sich von deinem Mund in einem Kegel von 90° 16 Schritt weit aus und verursacht Zurückstoßen. Zurückgestoßene Ziele liegen am Boden. Ballistischer Zauber. 
+Probenschwierigkeit: 12
+Modifikationen: Langer Atem (-4, 8 AsP; der Windstoß hält KO Initiativphasen lang an. Um sich dir zu nähern, müssen Wesen im Windstoßjede Initiativphase eine KK-Gegenprobe bestehen), Winde der anderen Art (-2, der Wind bringt lieblichen Duft oder widerlichen Gestank)
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 4 AsP</Talent>
+  <Talent name="Orancofaxius" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Luft">Ein Luftstrahl fügt dem Ziel 4W6 SP zu. Ballistischer Zauber. 
+Merkmal (Luft): Zurückstoßen
+Mächtige Magie: Die SP steigen um 2W6. 
+Probenschwierigkeit: 12
+Modifikationen: Gezielter Strahl (-4, du kannst die Trefferzone bestimmen)
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelwesen, Einzelobjekt
+Reichweite: 16 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 16 AsP</Talent>
+  <Talent name="Orcanosphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Luft">Du erschaffst eine elementare Kugel, die du mit Konzentration und Blickkontakt mit GS 8 bewegen kannst. Verlierst du eines von beiden, explodiert sie und richtet 4W6 TP an. Pro Schritt Entfernung fällt der niedrigs-te Würfel weg. 
+Merkmal (Luft): Zurückstoßen
+Mächtige Magie: Die TP steigen um 1W6.
+Probenschwierigkeit: 12
+Modifikationen: Komplexe Bewegung (-2, du gibst der Kugel die Bewegung bis zur Explosion vor, Konzentration und Blickkon-takt sind nicht nötig)
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Zone
+Reichweite: 32 Schritt
+Wirkungsdauer: augenblicklich 
+Kosten: 16 AsP</Talent>
+  <Talent name="Nebelwand und Morgendunst" kosten="40" voraussetzungen="Vorteil Elfische Repräsentation I ODER Vorteil Kristallomantische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Scharlatanische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Luft, Umwelt, Wasser">Du erzeugst eine nahezu undurchsichtige Nebelwolke mit 64 Raumschritt Volumen und beliebiger, auch komplizierter, Form. Wind beeinflusst die Wolke nicht.
+Mächtige Magie: Vervierfacht das Volumen
+Probenschwierigkeit: 12
+Modifikationen: Dunst (-2, nur dünner Dunst erscheint, das Volumen ist verdoppelt), Beweglich (-2, die Wolke bewegt sich mit dir), Geisternebel (-4, im Nebel bilden sich schreckliche Fratzen, die bei misslungener MU-Gegenprobe einen Furcht-Effekt Stufe I verursachen), Nebelbilder (-8, du kannst während der Wirkungsdauer die Form der Nebelwolke verändern)
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Zone
+Reichweite: 8 Schritt</Talent>
+  <Talent name="Wettermeisterschaft" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Luft, Umwelt">Das Wetter in einer Zone von bis zu einer Meile Radius verändert sich nach deinem Willen. Du kannst folgende Skalen um insgesamt 2 Punkte verändern:
+Niederschlag: trocken/Nieselregen/Regen/ starker Regen/ Wolkenbruch
+Wind: windstill/leichte Brise/steife Brise/ Sturm/Orkan
+Temperatur: heiß/warm/mittel/kühl/kalt.
+Mächtige Magie: Du kannst die Skalen um 1 weiteren Punkt verändern.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: Zone
+Reichweite: 1 Meile
+Wirkungsdauer: 16 Minuten</Talent>
+  <Talent name="Dunkelheit" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Umwelt">Um deinen Körper herum entsteht eine Zone der Dunkelheit, die Helligkeit sinkt um 1 Stufe (etwa von normal auf Dämmerung, von Sternenlicht auf absolute Dunkelheit). Du selbst wirst durch den Zauber nicht betroffen. 
+Mächtige Magie: Senkt die Helligkeit um eine weitere Stufe. 
+Probenschwierigkeit: 12
+Modifikationen: Bewegliche Dunkelheit (-4, die Dunkelheit bewegt sich mit dir)
+Vorbereitungszeit: 8 Aktionen
+Zielobjekt: Zone
+Reichweite: 4 Schritt (Radius)
+Wirkungsdauer: 8 Minuten
+Kosten: 8 AsP</Talent>
+  <Talent name="Flim Flam Funkel" kosten="20" voraussetzungen="Vorteil Alchemistische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Umwelt">Ein bläuliches Licht erscheint in deiner Hand und senkt die Dunkelheit in einem Radius von 4 Schritt um 1 Stufe. Erlaubt Aufrechterhalten.
+Mächtige Magie: Senkt die Dunkelheit um eine weitere Stufe. Nach je 4 Schritt Radius nimmt die Dunkelheit um einen Schritt weniger ab. 
+Probenschwierigkeit: 12 
+Modifikationen: Variable Helligkeit (-4, du kannst die Helligkeit beliebig reduzieren und wieder auf das ursprüngliche Maß erhöhen), Begleiter (-4, die Lichtkugel bewegt sich mit dir), Lichtblitz (-8, 8 AsP; In einer Aktion bereit machen kannst du die Kugel einmalig explodieren lassen. Alle Beobachter sind 2 Aktionen lang geblendet, Proben sind um Helligkeitsstufe x2 erschwert), Leuchtturm (-8, 4 AsP; Eine weithin sichtbare Lichtkugel mit verdoppelter Leuchtkraft erscheint in 10 Schritt Höhe.)
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: Zone
+Reichweite: 8 Schritt
+Wirkungsdauer: 4 Minuten
+Kosten: 1 AsP</Talent>
+  <Talent name="Foramen Foraminor" kosten="40" voraussetzungen="Vorteil Alchemistische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Scharlatanische Repräsentation I ODER Vorteil Schelmische Repräsentation I" verbilligt="0" fertigkeiten="Umwelt">Du öffnest ein Schloss beliebiger Bauart.
+Probenschwierigkeit: Herstellungsschwierigkeit des Schlosses
+Modifikationen: Riegel (-2, 8 AsP, auch ein schwerer Riegel wie an einem Stadttor kann hiermit geöffnet werden)
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 4 AsP</Talent>
+  <Talent name="Motoricus Geisterhand" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Umwelt">Du kannst einen Gegenstand mit einer KK von 2 anheben und mit einer maximalen GS von 2 durch die Luft fliegen lassen. Besonders komplizierte und feine Bewegungen sind um bis zu 8 Punkte erschwert. Erfordert Konzentration.
+ Mächtige Magie: Erhöht KK und GS um je 2.
+Probenschwierigkeit: 12
+Modifikationen: Unsichtbarer Hieb (4 AsP AsP, Wirkungsdauer augenblicklich; Der Zauber fügt einem unbelebten Objekt 2W6 SP zu, mächtige Magie erhöht den Schaden um 4), Magische Abwehr (4 AsP; Vorbereitungszeit 0 Aktionen; Mit einer vergleichenden Motoricus-Probe gegen einen bewaffneten Angriff kannst du diesen abwehren.), Fesselfeld (-8, 32 AsP, in einer Zone von 4 Schritt Radius wird die Bewegung jedes unbelebten Objekts mit einer KK von 2 behindert, was Kampfhandlungen fast unmöglich macht.)
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelobjekt
+Reichweite: 8 Schritt
+Wirkungsdauer: 4 Minuten
+Kosten: 1 AsP/4 Stein Gewicht </Talent>
+  <Talent name="Silentium Schweigekreis" kosten="40" voraussetzungen="Vorteil Elfische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Umwelt">In einer stationären Kugel mit 2 Schritt Radius werden alle Geräusche gedämpft, was entsprechende Wahrnehmungs-Proben um -4 erschwert.  
+Mächtige Magie: Der Malus steigt um -2.  
+Probenschwierigkeit: 12
+Modifikationen: Begleiter (-4, die Kugel bewegt sich mit dir), Fremdbegleiter (-8, die Kugel bewegt sich mit einem Einzelwesen)
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Zone
+Reichweite: 2 Schritt
+Wirkungsdauer: 4 Minuten 
+Kosten: 2 AsP</Talent>
+  <Talent name="Gedankenbilder Elfenruf" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Verständigung">Du sendest eine Gedankenbotschaft an jeden im Umkreis, der den Zauber ebenfalls beherrscht und sie empfangen möchte. Die Botschaft ist nicht auf Sprache angewiesen.
+Probenschwierigkeit: 12
+Modifikationen: Bestimmter Empfänger (-4, nur ein von dir gewählter Empfänger erhält die Botschaft), Kreis der Eingeweihten (-4, nur deine engsten Vertrauten erhalten die Botschaft, die Reichweite ist verhundertfacht), Sinneseindrücke (-2 pro Sinn, du überträgst deine aktuellen Sinneseindrücke), Kontakt (-2, Reichweite Berührung, dein Ziel muss den Zauber nicht beherrschen), Illusionen (-4 pro Sinn, wie Sinneseindrücke, aber du kannst beliebige, scheinbar aktuelle und reale Sinneseindrücke übertragen), Erzwungene Botschaft (-4, der Empfang der Botschaft kann nur durch eine MR-Gegenprobe verhindert werden)
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: selbst
+Reichweite: 1 Meile
+Wirkungsdauer: 16 Aktionen
+Kosten: 4 AsP</Talent>
+  <Talent name="Hexenblick" kosten="20" voraussetzungen="Vorteil Hexische Repräsentation I ODER Vorteil Borbaradianische Repräsentation I" verbilligt="0" fertigkeiten="Verständigung">Du erfährst, ob dein Ziel die gleiche Repräsentation beherrschst wie du.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelperson
+Reichweite: 2 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 1 AsP </Talent>
+  <Talent name="Abevenum reine Speise" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Kristallomantische Repräsentation I ODER Vorteil Schelmische Repräsentation I" verbilligt="0" fertigkeiten="Verwandlung">Du reinigst die verzauberte Nahrung von Verfallserscheinungen wie Schimmel, Giften und Krankheitserregern, solange dein EW über der Gift-/Krankheitsstufe liegt.  Der Geschmack ändert sich nicht. 
+Probenschwierigkeit: 12
+Modifikationen: Schutz vor Übelkeit (-4, auch ungefährliche, aber unangenehme Inhalte wie Salz im Meerwasser entfernt), Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden, alles, was dem Essen hinzugefügt wird, wird gereinigt)
+Vorbereitungszeit: 8 Aktionen
+Zielobjekt: Einzelobjekte (Mahlzeit für 10 Personen)
+Reichweite: 2 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 4 AsP</Talent>
+  <Talent name="Salander Mutander" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Kristallomantische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Verwandlung">Du verwandelst dein Ziel in ein beliebiges anderes, kleineres und leichteres Lebewesen oder eine Pflanze. Du musst das Zielwesen schon einmal gesehen haben, es kann nicht übernatürlich sein. Dein Ziel hat in seiner neuen Form nur noch nebulöse Erinnerungen an sein vorheriges Selbst, behält aber seine alte WS und MR.
+Probenschwierigkeit: Magieresistenz
+Modifikationen: Tagelange Verwandlung (-4, Kosten 32 AsP, Wirkungsdauer 1 Woche), Permanenz (-4, Kosten 64 AsP, davon 4 gAsP, Wirkungsdauer bis die Bindung gelöst wird), Bärenfell und Froschschenkel (-8, du kannst einzelne Gliedmaßen verwandeln)
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 8 Stunden
+Kosten: 16 AsP</Talent>
+  <Talent name="Visibili Vanitar" kosten="40" voraussetzungen="Vorteil Elfische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Verwandlung">Dein Ziel wirst unsichtbar. Kleidung und andere Gegenstände sind nicht betroffen. Erlaubt Aufrechterhalten. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 8 Minuten
+Kosten: 8 AsP</Talent>
+  <Talent name="Wasseratem" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Verwandlung">Du kannst unter Wasser atmen, jedoch nicht mehr an Land. Erlaubt Aufrechterhalten. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 AsP </Talent>
+  <Talent name="Aquafaxius" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Wasser">Ein Wasserstrahl fügt dem Ziel 4W6 SP zu. Ballistischer Zauber. 
+Merkmal (Wasser): Ertränken
+Mächtige Magie: Die SP steigen um 2W6. 
+Probenschwierigkeit: 12
+Modifikationen: Gezielter Strahl (-4, du kannst die Trefferzone bestimmen)
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelwesen, Einzelobjekt
+Reichweite: 16 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 16 AsP</Talent>
+  <Talent name="Aquasphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Wasser">Du erschaffst eine elementare Kugel, die du mit Konzentration und Blickkontakt mit GS 8 bewegen kannst. Verlierst du eines von beiden, explodiert sie und richtet 4W6 TP an. Pro Schritt Entfernung fällt der niedrigs-te Würfel weg. 
+Merkmal (Wasser): Ertränken
+Mächtige Magie: Die TP steigen um 1W6.
+Probenschwierigkeit: 12
+Modifikationen: Komplexe Bewegung (-2, du gibst der Kugel die Bewegung bis zur Explosion vor, Konzentration und Blickkontakt sind nicht nötig)
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Zone
+Reichweite: 32 Schritt
+Wirkungsdauer: augenblicklich 
+Kosten: 16 AsP</Talent>
+  <Talent name="Bindung des Stabs" kosten="20" voraussetzungen="Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Kraft, Stabzauber">Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her. Der Stab wird unzerbrechlich, gilt als magische Waffe und kann weitere erlernte Stabzauber aufnehmen. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Stunden
+Zielobjekt: Zauberstab
+Reichweite: Berührung
+Wirkungsdauer: permanent</Talent>
+  <Talent name="Ewige Flamme" kosten="20" voraussetzungen="Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Feuer, Stabzauber">Die Spitze des Stabes bricht in Flammen aus, die in Leuchtkraft und Eigenschaften einer gewöhnlichen Fackel entsprechen. Der Zauber endet, wenn du den Stab nicht mehr berührst. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: Zauberstab
+Reichweite: Berührung
+Wirkungsdauer: 8 Stunden</Talent>
+  <Talent name="Langer Arm" kosten="20" voraussetzungen="Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Stabzauber, Umwelt">An der Spitze des Stabs entsteht eine astrale Hand, die du mit Geisteskräften steuern kannst. Neben gefährlichen Versuchen ist es auch möglich, über den Stab einen Zauber mit der Reichweite Berührung zu wirken. Der Zauber endet, wenn du den Stab nicht mehr berührst.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: Zauberstab
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde</Talent>
+  <Talent name="Reinigung" kosten="20" voraussetzungen="Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Luft, Stabzauber, Umwelt">Deine Kleidung ist so sauber, als wäre sie frisch gewaschen. Der Zauber ist jedoch nicht effektiver als eine normale Wäsche. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: Objekt
+Reichweite: Berührung</Talent>
+  <Talent name="Wandlung des Stabs" kosten="20" voraussetzungen="Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Stabzauber, Umwelt, Verwandlung">Du kannst den Stab auf die doppelte Länge ausdehnen oder auf die halbe Länge stauchen. Auch die Verwandlung in ein 10 Meter langes Seil, das durch die Luft schweben,  sich selbstständig verknoten und lösen kann ist möglich. Der Zauber endet, wenn du den Stab nicht mehr berührst. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: Zauberstab
+Reichweite: Berührung</Talent>
+  <Talent name="Zaubersiegel" kosten="20" voraussetzungen="Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Illusion, Stabzauber">Auf dem mit dem Stab berührten Objekt entsteht ein handtellergroßes Siegel, das bei jeder weiteren Berührung mit deinem Stab aufleuchtet. 
+Probenschwierigkeit: 12
+Modifikationen: Beständiges Siegel (Wirkungsdauer: Bis du das Siegel 1 Minute lang durchgehend mit dem Stab berührst, Kosten 1 AsP, davon 1 gAsP)
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: 1 Monat</Talent>
+  <Talent name="Astralspeicher (passiv)" kosten="80" voraussetzungen="Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Stabzauber">Der Zauberstab wird zu einem Speicher für Astralenergie. In einem einstündigen Ritual kannst du eigene Astralenergie in den Stab einspeichern, wobei 2 AsP verloren gehen. Bei diesem Ritual wählst du einen Zauber pro 4 volle Punkte PW Stabzauber. Bis zum nächsten Aufladen kannst du die Kosten für diese Zauber teilweise oder ganz aus dem Astralspeicher bezahlen.
+Der Astralspeicher kann maximal 32 AsP fassen. Bei der Erschaffung fließen 4 gAsP in den Stab. </Talent>
+  <Talent name="Aura des Stabes (passiv)" kosten="20" voraussetzungen="Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Stabzauber">Bei einer Verwandlung deiner Person (egal ob freiwillig oder unfreiwillig) wird dein Stab mitverwandelt. </Talent>
+  <Talent name="Flammenschwert" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Feuer, Stabzauber, Verwandlung, Umwelt, schwebendes Schwert">Dein Stab verwandelt sich in eine feurige Klinge. Die Kampfwerte entsprechen einem gewöhnlichen Schwert, zusätzlich verursacht das Schwert Nachbrennen. Der Zauber endet, wenn du den Stab nicht mehr berührst. 
+Mächtige Magie: Die TP erhöhen sich um 2. 
+Probenschwierigkeit: 12
+Modifikationen: Schwebendes Schwert (16 AsP; Du kannst das Schwert mit GS 2 fernsteuern. Der Angriffswert entspricht dem PW Stabzauber, das Schwert kann nur Aktionen Konflikt und nur Basismanöver ausführen. Du musst das Schwert nicht ständig berühren, aber der Zauber benötigt Konzentration).
+Vorbereitungszeit: 1 Aktion</Talent>
+  <Talent name="Hammer des Magus" kosten="20" voraussetzungen="Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Stabzauber, Umwelt">Das mit dem Stab berührte Objekt erleidet 4W6 SP. An Lebewesen richtet der Hammer keinerlei Schaden an. 
+Mächtige Magie: Die SP erhöhen sich um 4. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich</Talent>
+  <Talent name="Bindung des Iama" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Elfenlieder">Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her. Dein Iama wird unzerbrechlich und kann weitere erlernte Elfenlieder aufnehmen. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Stunden
+Zielobjekt: Iama
+Reichweite: Berührung
+Wirkungsdauer: permanent
+Kosten: 16 AsP
+</Talent>
+  <Talent name="Erinnerungsmelodie" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Elfenlieder">Du stimmst dich auf eine vergangene Situation ein, um dich an ein Detail zu erinnern. Die dafür notwendige KL-Probe ist um +4 erleichtert. 
+Mächtige Magie: Der Bonus steigt um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich</Talent>
+  <Talent name="Friedenslied" kosten="40" voraussetzungen="Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss, Elfenlieder">Alle Humanoiden und Tiere in deiner Umgebung verfallen in eine friedfertige Stimmung, sogar wenn sie die Musik nicht verstehen oder hören können. Aggressive Handlungen erfordern eine Konterprobe (Willenskraft, 16). Erfordert Konzentration, erlaubt Aufrechterhalten. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Zone
+Reichweite: 32 Schritt
+Wirkungsdauer: 1 Stunde</Talent>
+  <Talent name="Lied der Lieder" kosten="40" voraussetzungen="Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss, Elfenlieder">Humanoide Zuhörer sind von deiner immer berauschenderen Musik völlig gefesselt. Nur mit einer Konterprobe (Willenskraft, 16) kann sich ein Zuhörer für 16 Aktionen dem Zauber des Liedes entziehen. Ansonsten erwacht er wenn du aufhörst zu spielen oder er eine Wunde erleidet. Erfordert Konzentration, erlaubt Aufrechterhalten. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Zone
+Reichweite: 32 Schritt
+Wirkungsdauer: 1 Stunde</Talent>
+  <Talent name="Lied der Reinheit" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Elfenlieder, Umwelt">Dein Lied schwächt dämonische Einflüsse in der Umgebung, während natürliches Leben zurückkehrt. Auf der Skala normal/ leicht verseucht/ deutlich verseucht/ stark verseucht/ kleines Unheiligtum/ mittleres Unheiligtum/ mächtiges Unheiligtum sinkt das Gebiet um eine Stufe. 
+Mächtige Magie: Das Gebiet sinkt um eine weitere Stufe. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Zone
+Reichweite: 16 Schritt</Talent>
+  <Talent name="Lied des Trostes" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Einfluss, Elfenlieder">Dein Lied hilft einem Freund, erlebte Schicksalsschläge zu verkraften und neuen Lebensmut zu fassen. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Einzelperson
+Reichweite: 4 Schritt</Talent>
+  <Talent name="Melodie der Kunstfertigkeit" kosten="60" voraussetzungen="Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Elfenlieder">Die Melodie erleichtert alle Proben zur Herstellung eines bestimmten Handwerksstückes um +4.
+Mächtige Magie: Der Bonus steigt um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 8 Stunden</Talent>
+  <Talent name="Sorgenlied" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Elfenlieder, Hellsicht, Verständigung">Das Lied vermittelt dir einen vagen Eindruck vom Wohlergehen eines Freundes. Ist er gesund, krank oder befindet sich in Gefahr? Ist sein Leben erfolgreich oder nicht?
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Einzelperson
+Reichweite: beliebig</Talent>
+  <Talent name="Ruf des Iama" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Elfenlieder">Dein Iama kehrt zu dir zurück. Es weicht Hindernissen aus oder durchbricht sie notfalls, falls mit einer KK von PW Elfenlieder/2 möglich.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen. 
+Zielobjekt: Iama
+Reichweite: 4 Meilen
+Wirkungsdauer: augenblicklich</Talent>
+  <Talent name="Verwandlung des Iama" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Elfenlieder">Bei einer Verwandlung deiner Person (egal ob freiwillig oder unfreiwillig) wird dein Iama mitverwandelt. </Talent>
+  <Talent name="Windgeflüster" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Luft, Verständigung">Eine Botschaft von maximal 16 Worten wird von Luftelementaren in wenigen Minuten zu deinem Empfänger weitergeflüstert. Ist dieser unaufmerksam oder befindet er sich an einem von anderen Elementen umschlossenen Ort, verhallt die Botschaft ungehört.
+Mächtige Magie: Du kannst weitere 8 Worte übertragen.
+Probenschwierigkeit: 12
+Modifikationen: Sturmgebrüll (-4, die Botschaft wird laut wie Sturmböen und Donnerhall wiedergegeben. Sie ist kaum zu überhören, aber auch alles andere als privat.)
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: 8 Meilen
+Wirkungsdauer: augenblicklich</Talent>
+  <Talent name="Zaubermelodie" kosten="40" voraussetzungen="Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Elfenlieder, Kraft">Die Melodie erleichtert alle Spruchzauber um +2.
+Mächtige Magie: Der Bonus steigt um +1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung</Talent>
+  <Talent name="Ängste mehren" kosten="20" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss, Hexenflüche">Das Opfer leidet an einer Angst deiner Wahl. Wird die Angst ausgelöst, steht es unter einem Furcht-Effekt Stufe I. Litt das Opfer bereits zuvor an dieser Angst, steigt die Stufe des Furcht-Effekts um 1. 
+Mächtige Magie: Stufe des Furcht-Effekts +1 
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: 8 Schritt
+Wirkungsdauer: 1 Woche</Talent>
+  <Talent name="Beute!" kosten="20" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Hexenflüche">Tiere reagieren aggressiv auf dein Opfer. Proben zum Umgang mit Nutztieren sind um -4 erschwert, Raubtiere greifen stets das Opfer an, wobei ihre TP um +1 steigen. 
+Mächtige Magie: Der Malus steigt um -2, der TP-Bonus um +1.  
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: 8 Schritt
+Wirkungsdauer: 1 Woche</Talent>
+  <Talent name="Hexenschuss" kosten="20" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Hexenflüche">Das Opfer wird vom Hexenschuss geplagt, der entweder alle körperlichen oder alle geistigen Tätigkeiten um -2 erschwert. 
+Mächtige Magie: Der Malus steigt um -1.
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: 8 Schritt
+Wirkungsdauer: 4 Stunden</Talent>
+  <Talent name="Krötenkuss" kosten="40" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss, Hexenflüche, Illusion">Dein Ziel wird von seiner Umgebung furchtsam gemieden. Das Verhältnis aller Gesprächspartner sinkt um 1 Stufe, maximal bis auf feindlich. 
+Mächtige Magie: Das Verhältnis sinkt um 1 weitere Stufe.
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: 8 Schritt</Talent>
+  <Talent name="Pech an den Hals wünschen" kosten="40" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Hexenflüche">Dein Opfer wird vom Unglück verfolgt. Patzer drohen schon bei einer 2. 
+Mächtige Magie: Patzer auch bei 3/4/5. 
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: 8 Schritt
+Wirkungsdauer: 1 Tag.</Talent>
+  <Talent name="Sinn trüben" kosten="20" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Hexenflüche">Bei deinem Opfer trübt sich ein Sinn deiner Wahl. Alle Tätigkeiten, die den Einsatz dieses Sinnes benötigen, sind um -4 erschwert.
+Mächtige Magie: Der Malus steigt um -4.
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: 8 Schritt
+Wirkungsdauer: 1 Tag</Talent>
+  <Talent name="Warzen sprießen" kosten="20" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Hexenflüche, Verwandlung">Eklige Warzen entstellen das Gesicht deines Ziels. Die Vorteile Attraktiv I und II werden aufgehoben und alle Proben auf Autorität, Beeinflussung  und Gebräuche sind um -1 erschwert. 
+Mächtige Magie: Der Malus steigt um -1.
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: 8 Schritt
+Wirkungsdauer: 1 Tag.</Talent>
+  <Talent name="Zunge lähmen" kosten="20" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Hexenflüche">Es fällt dem Ziel schwer, artikuliert zu sprechen. Die Zuhörer müssen eine Konterprobe (Sinnenschärfe, 16) ablegen, um den Sprecher zu verstehen. Laut gesprochene oder gesungene Zauberformeln sind dadurch unmöglich. 
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: 8 Schritt
+Wirkungsdauer: 1 Tag.</Talent>
+  <Talent name="Bindung des Vertrauten" kosten="20" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Kraft, Verständigung, Vertrautenmagie">Du stellst eine enge magische Bindung zu deinem Vertrauten her. Das Tier erlangt magische Kräfte, versteht deine Muttersprache und kann dir seine Gefühle telepathisch mitteilen. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Stunden
+Zielobjekt: Vertrautentier
+Reichweite: Berührung</Talent>
+  <Talent name="Dinge aufspüren" kosten="20" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Hellsicht, Vertrautenmagie">Dein Vertrautentier teilt dir mit, in welcher Richtung sich ein Gegenstand aus deinem Besitz befindet. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Akt
+Zielobjekt: Einzelobjekt
+Reichweite: 16 Meilen
+Wirkungsdauer: augenblicklich</Talent>
+  <Talent name="Erster unter gleichen" kosten="20" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss, Vertrautenmagie">Tiere aus einer ähnlichen Gattung werden durch deinen Vertrauten eingeschüchtert und ziehen sich zurück. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Akt
+Zielobjekt: Tier
+Reichweite: 16 Schritt
+Wirkungsdauer: 1 Stunde</Talent>
+  <Talent name="Hexe finden" kosten="20" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss, Vertrautenmagie">Das Vertrautentier erspürt deinen ungefähren Aufenthaltsort. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Akt
+Zielobjekt: Hexe
+Reichweite: 16 Meilen
+Wirkungsdauer: 1 Stunde</Talent>
+  <Talent name="Letzter Ausweg" kosten="40" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Kraft, Vertrautenmagie">Dein Vertrautentier mobilisiert alle Kräfte, um dich oder sich zu retten. Alle Feinde in 4 Schritt Radius erleiden 2W6 SP. Das Vertrautentier erleidet sofort 4 Wunden. 
+Mächtige Magie: Der Schaden steigt um +4.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Akt
+Zielobjekt: Zone
+Reichweite: 8 Schritt
+Wirkungsdauer: augenblicklich</Talent>
+  <Talent name="Schlaf rauben" kosten="20" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss, Vertrautenmagie">Das von deinem Vertrautentier beobachtete Opfer regeneriert in dieser Nacht keine AsP oder Wunden. Stattdessen erscheint ihm das Vertrautentier in fürchterlichen Alpträumen. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Einzelperson
+Reichweite: 16 Schritt 
+Wirkungsdauer: augenblicklich</Talent>
+  <Talent name="Stimmungssinn" kosten="40" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Hellsicht, Vertrautenmagie">Dein Vertrautentier starrt das Ziel an und gibt dir seine Eindrücke weiter. Menschenkenntnis-Proben gegen das Ziel sind um +4 erleichtert.
+Mächtige Magie: Der Bonus steigt um +2. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 2 Akt
+Zielobjekt: Zone
+Reichweite: 2 Schritt
+Wirkungsdauer: 1 Stunde</Talent>
+  <Talent name="Tarnung" kosten="20" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Illusion, Vertrautenmagie">Dein Vertrautentier erhält die Eigenschaft Tarnung. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Akt
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde</Talent>
+  <Talent name="Tiersinne" kosten="40" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Verständigung, Vertrautenmagie">Dein Vertrauter schließt seine Augen und leiht dir seine Sinne. Deine Wahrnehmung steigt um +4, zusätzlich erhältst du einen Bonus je nach Tier (Katze und Eule Nachtsicht II, Rabe und Falke Sehsinn +4, Hund und Schlange Geruchssinn +4, Kröte Magiegespür +4, Affe Gehör +4, Spinne Tastsinn +4). Der Zauber endet, wenn der Vertraute seine Augen öffnet.
+Mächtige Magie: Der Bonus steigt um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 2 Akt
+Zielobjekt: Hexe
+Reichweite: Berührung</Talent>
+  <Talent name="Ungesehener Beobachter" kosten="40" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Verständigung, Vertrautenmagie">Dein Vertrauter spioniert ein Ziel aus, während die Hexe in Trance durch seine Augen blickt. Der Zauber endet mit der Rückkehr des Vertrauten und benötigt Konzentration.
+Mächtige Magie: Die Hexe teilt einen zusätzlichen Sinn mit dem Vertrauten. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 2 Akt
+Zielobjekt: Hexe
+Reichweite: 8 Meilen
+Wirkungsdauer: 8 Stunden</Talent>
+  <Talent name="Wachsame Augen" kosten="20" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss, Verständigung, Vertrautenmagie">Der Vertraute ruft Tiere seiner Gattung  aus bis zu 1 Meile herbei, die über deinen Schlaf wachen und dich vor Gefahren warnen. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Akt
+Zielobjekt: Zone
+Reichweite: Berührung</Talent>
+  <Talent name="Bindung der Schale" kosten="20" voraussetzungen="Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Schalenzauber">Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her. Er wird unzerbrechlich und kann weitere erlernte Schalenzauber aufnehmen. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Stunden
+Zielobjekt: Schale der Alchemie
+Reichweite: Berührung
+Wirkungsdauer: permanent
+Kosten: 16 AsP</Talent>
+  <Talent name="Apport" kosten="20" voraussetzungen="Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Stabzauber, Umwelt">Der Stab kehrt zu dir zurück. Er weicht Hindernissen aus oder durchbricht sie notfalls, falls mit einer KK von PW Stabzauber/2 möglich.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen. 
+Zielobjekt: Zauberstab
+Reichweite: 4 Meilen
+Wirkungsdauer: augenblicklich</Talent>
+  <Talent name="Allegorische Analyse" kosten="20" voraussetzungen="Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Hellsicht, Schalenzauber">Ein oder mehrere Symbole an deiner Schale leuchten auf. Symbole, die Farbe und die Stärke des Leuchtens geben dir Hinweise auf die Wirkung der Substanz in der Schale. Der Analysegrad einer Intensitätsanalyse steigt um 1. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Akt
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: 8 Aktionen</Talent>
+  <Talent name="Feuer und Eis" kosten="20" voraussetzungen="Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Eis, Feuer, Schalenzauber">Du kannst die Schale auf eine Temperatur zwischen niederhöllische Kälte und der Hitze einer Eisenschmelze einstellen. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Akt
+Zielobjekt: Schale der Alchemie
+Reichweite: 2 Schritt</Talent>
+  <Talent name="Sichere Aufbewahrung" kosten="20" voraussetzungen="Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Schalenzauber, Temporal, Verwandlung">In der Schale aufbewahrte Substanzen verderben oder zersetzen sich nicht. Du kannst so auch explosive Materialien sicher transportieren. Erlaubt Aufrechterhalten. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Akt
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung</Talent>
+  <Talent name="Transmutation der Elemente" kosten="20" voraussetzungen="Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="alle Elemente, Schalenzauber">In der Schale entsteht eine Manifestation eines Elements. Sie füllt sich mit Wasser, oder Sand oder ein Lufthauch weht in ihr. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Akt
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde</Talent>
+  <Talent name="Astrale Aufladung" kosten="40" voraussetzungen="Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Schalenzauber, Verwandlung">Du lässt zusätzliche Astralenergie durch die Schale in dein Gebräu fließen. Die entsprechende Synthese-Probe ist um +4 erleichtert. 
+Mächtige Magie: Der Bonus steigt um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag</Talent>
+  <Talent name="Chymische Hochzeit (passiv)" kosten="60" voraussetzungen="Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Schalenzauber">Für je 4 volle Punkte im PW Schale des Alchemisten sinken die Abzüge durch improvisiertes Werkzeug um 1. Dieser Bonus ist kumulativ zum Vorteil Improvisation .
+Bei der Herstellung fließen 2 gAsP in die Schale. </Talent>
+  <Talent name="Essenzkonzentration" kosten="40" voraussetzungen="Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Schalenzauber, Verwandlung">Du konzentrierst zwei alchemistische Produkte der gleichen Art zu einem. Qualität, Haltbarkeit, Wirkungsdauer und Modifikationen des entstehenden Produkts entsprechen jeweils dem besseren der Ausgangsprodukte. 
+Mächtige Magie: Die Haltbarkeit verdoppelt sich jeweils. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Stunden
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich</Talent>
+  <Talent name="Bindung des Dolches" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber">Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her. Er wird unzerbrechlich, gilt als magische Waffe und kann weitere erlernte Dolchzauber aufnehmen. Zauber mit der Reichweite Berührung können über den Dolch gewirkt werden.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Stunden
+Zielobjekt: Dolch
+Reichweite: Berührung
+Wirkungsdauer: permanent
+Kosten: 16 AsP</Talent>
+  <Talent name="Blut des Dolches (passiv)" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber">Statt mit Astralenergie kannst du die Dolchrituale auch mit deiner Lebenskraft bezahlen. Je 4 AsP Basiskosten entsprechen 1W6 SP. Effekte für 1 AsP erfordern nur kleine Kratzer ohne spieltechnische Auswirkung. </Talent>
+  <Talent name="Dämonenbann des Dolches" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Dolchzauber">Dämonen können die während der Wirkungsdauer gezogene Linie eine Stunde lang nicht übertreten, wenn dein EW höher ist als die Beschwörungsschwierigkeit des Dämons.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde</Talent>
+  <Talent name="Ernte des Dolches" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Temporal, Verwandlung">Die nächste mit dem Dolch geerntete Pflanze ist viermal so lange haltbar. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Akt
+Zielobjekt: Pflanze
+Reichweite: Berührung</Talent>
+  <Talent name="Geisterbann des Dolches" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Dolchzauber, Verständigung">Geister können die während der Wirkungsdauer gezogene Linie eine Stunde lang nicht übertreten. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Akt
+Zielobjekt: Zone
+Reichweite: Berührung</Talent>
+  <Talent name="Gespür des Dolches" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Hellsicht">Ist der mit dem Dolch berührte Boden dämonisch verseucht, kühlt der Dolch ab. Je stärker die Verderbnis ist, desto kälter wird der Dolch. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Akt
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich</Talent>
+  <Talent name="Kontrolle der Miniatur" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Einfluss, Hellsicht, Verständigung">Einmal pro Tag kannst du durch die Augen des Opfers der Miniatur der Herrschaft (s.u.) blicken und alle seine Handlungen bestimmen. Widersprechen die Handlungen den moralischen Prinzipien/dem Selbsterhaltungstrieb des Opfers, kann es mit einer Konterprobe (Willenskraft, 16) widerstehen. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Aktionen
+Zielobjekt: Miniatur der Herrschaft</Talent>
+  <Talent name="Lebenskraft des Dolches" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Humus">Einmal pro Tag kannst du dem Boden Lebenskraft entziehen und so eine Wunde regenerieren. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Akt
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich</Talent>
+  <Talent name="Leib des Dolches (passiv)" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber">Bei einer Verwandlung deiner Person (egal ob freiwillig oder unfreiwillig) wird dein Dolch mitverwandelt.  </Talent>
+  <Talent name="Licht des Dolches" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber">Du ignorierst 1 Stufe Dunkelheit, bist aber besonders anfällig gegen helles Licht. Bei absoluter Dunkelheit ist der Dolchzauber wirkungslos.
+Mächtige Magie: Du ignorierst 2/3 Stufen Dunkelheit.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 4 AsP
+</Talent>
+  <Talent name="Miniatur der Herrschaft" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Einfluss, Verständigung">Aus Lehm und einem Körperteil wie einem Haar oder einem Blutstropfen des Opfers fertigst du eine Miniatur der Herrschaft. Auf die Miniatur gesprochene Einflusszauber oder ein Fluch der Pestilenz werden einmal pro Tag direkt auf das Opfer übertragen (müssen aber trotzdem die MR überwinden), solange es in Reichweite ist.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Einzelperson
+Reichweite: 4 Meilen</Talent>
+  <Talent name="Opferdolch (passiv)" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber">Du kannst Tierblut blutmagisch nutzen. Verfügst du zusätzlich über den Vorteil Blutmagie, kannst du aus Tieren 2xWS AsP gewinnen.</Talent>
+  <Talent name="Schmerzen der Miniatur" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Einfluss, Verständigung">Mit Dolchstichen in eine Miniatur der Herrschaft kannst du dem Opfer Schmerzen zufügen. Dadurch sind geistige oder körperliche Tätigkeiten um -2 erschwert. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Akt
+Zielobjekt: Miniatur der Herrschaft
+Reichweite: Berührung </Talent>
+  <Talent name="Schneide des Dolches" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Erz, Feuer">Einmal pro Tag kannst du mit dem Dolch natürliches Gestein schneiden wie Wachs. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Akt
+Zielobjekt: Einzelobjekt
+Reichweite: Berührung</Talent>
+  <Talent name="Schutz des Dolches" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Umwelt">Einmal pro Tag steht dir die Natur schützend zur Seite. Du schwimmst leichter auf Wasser, Schnee bildet wärmende Höhlen und du findest überall Verstecke. Verbergen, Schwimmen, Überleben oder andere mit der Natur zusammenhängende Proben sind um +4 erleichtert. 
+Mächtige Magie: Der Bonus steigt um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Akt
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde</Talent>
+  <Talent name="Weg des Dolches" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Hellsicht, Umwelt">Dein Dolch zeigt in die Richtung des Ortes, an dem er geweiht wurde. Überleben-Proben zur Orientierung sind um +4 Punkte erleichtert. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Akt
+Zielobjekt: Zone
+Reichweite: unbegrenzt</Talent>
+  <Talent name="Weisung des Dolches" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Hellsicht, Kraft">Dein Dolch leuchtet rot auf, wenn er in Richtung einer Kraftlinie gehalten wird. Die Leuchtstärke hängt von Entfernung und Stärke der Kraftlinie ab. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Akt
+Zielobjekt: Zone
+Reichweite: 8 Meilen</Talent>
+  <Talent name="Bindung des Ringes" kosten="20" voraussetzungen="Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Ringrituale">Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her. Er wird unzerbrechlich und kann weitere erlernte Ringrituale aufnehmen. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Stunden
+Zielobjekt: Schlangenring
+Reichweite: Berührung
+Wirkungsdauer: permanent
+Kosten: 16 AsP
+</Talent>
+  <Talent name="Wasserbann" kosten="40" voraussetzungen="Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Luft, Ringrituale, Wasser">Eine Luftschicht schützt dich vor jeglichem Wasser. Du kannst unter Wasser atmen und hältst dem Wasserdruck und Strömungen stand, kannst aber nicht mehr schwimmen. Erlaubt Aufrechterhalten. 
+Mächtige Magie: Du kannst den Schutz auf eine Person oder einen ähnlich großen Gegenstand ausdehnen.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung</Talent>
+  <Talent name="Herr der Flammen" kosten="40" voraussetzungen="Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Feuer, Ringrituale, Umwelt">Du kannst ein Feuer bis zur Größe einer Fackel formen oder verlöschen lassen. Die Verformung geschieht mit einer GS von 8 und benötigt Konzentration. 
+Mächtige Magie: Du kannst Feuer bis zur Größe eines Kaminfeuer/großen Lagerfeuer/Scheiterhaufens/brennenden Hauses manipulieren.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelobjekt
+Reichweite: 16 Schritt</Talent>
+  <Talent name="Kräfte der Natur" kosten="40" voraussetzungen="Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Humus, Ringrituale">Die Heilkraft Sumus stoppt ein Gift oder eine Krankheit auf dem Ziel.
+Mächtige Magie: Gift-/Krankheitsstufe 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich</Talent>
+  <Talent name="Launen des Windes" kosten="40" voraussetzungen="Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Luft, Ringrituale">Dein Körper wird leicht wie eine Feder, die emporschwebt und vom Wind fortgetragen wird. Du kannst die Flugrichtung nur durch das Abstoßen von Gegenständen beeinflussen. Gegen Ende der Wirkungsdauer nimmt dein Gewicht langsam wieder zu.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: selbst
+Reichweite: Berührung</Talent>
+  <Talent name="Macht des Lebens" kosten="40" voraussetzungen="Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Luft, Ringrituale, Umwelt, Wasser">Die strahlende Kraft des Lebens schreckt Untote und Daimonoiden ab. Liegt die Beschwörungsschwierigkeit unter dem EW deines Zaubers, können sie dich nicht angreifen. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 8 Aktionen
+Kosten: 8 AsP
+Fertigkeiten: Antimagie, Ringrituale
+Erlernen: Geo 18; 40 EP</Talent>
+  <Talent name="Magnetismus" kosten="60" voraussetzungen="Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Erz, Ringrituale, Umwelt">Der Erdboden im Umkreis von 8 Schritt wirkt wie ein starker Magnet. Wenn eine Konterprobe (KK, 16) misslingt, werden Metallwaffen aus der Hand gerissen und kleben am Boden fest, während Kämpfer in Metallrüstungen zu Boden gehen und nicht mehr aufstehen können. Selbst bei einer gelungenen Konterprobe sind Kampfaktionen mit Metallwaffen um -4 erschwert.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Zone
+Reichweite: Berührung</Talent>
+  <Talent name="Seelenfeuer" kosten="60" voraussetzungen="Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Kraft, Ringrituale">Kalt leuchtendes Licht schießt in einem Radius von 4 Schritt aus dem Boden. Es erstarrt in der von dir gewünschten Form und verbrennt alle Humanoiden, die es berühren, mit 2W6 TP pro Initiativephase.
+Mächtige Magie: Verdoppelt die Fläche und erhöht den Schaden um 4 TP.  
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: 4 Aktionen</Talent>
+  <Talent name="Wirbelnder Luftschild" kosten="40" voraussetzungen="Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Hellsicht, Luft, Ringrituale">Unberechenbare Winde lenken alle auf dich gerichteten Geschosse bis zur Größe eines Wurfspeers ab. Solche Fernkampfangriffe sind um -4 erschwert. 
+Mächtige Magie: Der Malus steigt um -2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung</Talent>
   <Fertigkeit name="Handgemenge" steigerungsfaktor="2" voraussetzungen="" attribute="MU|GE|KK">Auf Handgemenge würfelst du bei allen waffenlosen Nahkampftechniken, im Umgang mit Handgemengewaffen wie Messern, Dolchen, Schlagstöcken oder Kettenstäben und bei der Verwendung von Schilden.</Fertigkeit>
   <Fertigkeit name="Hiebwaffen" steigerungsfaktor="2" voraussetzungen="" attribute="MU|GE|KK">Mit der Fertigkeit Hiebwaffen führst du alle Arten von stumpfen und scharfen Hiebwaffen, wie Keulen, Äxte und Hämmer. </Fertigkeit>
   <Fertigkeit name="Klingenwaffen" steigerungsfaktor="2" voraussetzungen="" attribute="MU|GE|KK">Im Kampf mit allen Varianten von Schwertern, Säbeln und Fechtwaffen werden Proben auf die Fertigkeit Klingenwaffen abgelegt. Dolche gehören nicht zu den Klingenwaffen - sie werden mit der Fertigkeit Handgemenge genutzt.</Fertigkeit>
@@ -541,22 +2593,22 @@ Dieses Wissen ist jedoch stark von deiner Umgebung abhängig und viele Überlebe
   <Fertigkeit name="Holzbearbeitung" steigerungsfaktor="1" voraussetzungen="" attribute="FF|FF|KK">Mit Holzbearbeitung und den richtigen Werkzeugen kannst du sämtliche Gegenstände aus Holz fertigen oder reparieren.</Fertigkeit>
   <Fertigkeit name="Metallbearbeitung" steigerungsfaktor="2" voraussetzungen="" attribute="FF|FF|KO">Metallbearbeitung und das passende Werkzeug sind die Voraussetzung, um Gegenstände aus Metall herzustellen.</Fertigkeit>
   <Übernatürliche-Fertigkeit name="Zwölfgöttlicher Ritus" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I" attribute="CH|IN|MU">Durch die Zusammenarbeit der Kirchen hat sich ein Grundstock allgemein bekannter Liturgien ergeben, die aus dem Leben des Geweihten nicht mehr wegzudenken sind.</Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Licht" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I" attribute="CH|CH|MU">Das Licht Praios ist vor allem von den Mystikern in der Kirche hoch verehrt. </Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Magiebann" steigerungsfaktor="3" voraussetzungen="Vorteil Geweiht I" attribute="CH|MU|KO">Die Antimagie und der Kampf gegen Dämonen haben gerade in den letzten Jahren einen erhöhten Stellenwert innerhalb der Praioskirche erhalten.</Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Ordnung" steigerungsfaktor="1" voraussetzungen="Vorteil Geweiht I" attribute="CH|IN|KL">Die Praiospriester bewahren das Recht und die Gesetze, die göttergewollte Ordnung und die Wahrheit. </Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Ehre" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I" attribute="KL|KO|MU">Ehre ist der traditionellste und bekannteste Aspekt der Rondra. Dazu gehören neben den Geboten der Ritterlichkeit auch sehr spezielle Regeln, wann und wie gekämpft werden darf.</Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Schutz der Gläubigen" steigerungsfaktor="3" voraussetzungen="Vorteil Geweiht I" attribute="KK|KO|MU">Der Schutz der Gläubigen ist vielleicht noch mehr als die Ehre die Bestimmung der Rondrakirche. Ein Geweihter hat an vorderster Stelle zu stehen, wenn es um den Kampf gegen die Finsternis geht.</Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Abu al‘Mada" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I" attribute="IN|KO|MU">In den Tulamidenlanden gehört zum Glauben an Feqz, wie er dort genannt wird, seit jeher auch sein Beiname als Herr der Magie und Vertreiber der Echsen.</Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="List" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I" attribute="CH|IN|KL">Phex ist ein Gott der Opportunisten, Querdenker, Betrüger und listenreicher Händler. Alle seine Diener sind darauf angewiesen, schnell zu denken - und am besten um drei Ecken mehr als das Gegenüber.</Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Nächtlicher Schatten" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I" attribute="FF|GE|MU">Phex ist der Herrscher der Nacht und viele seiner Diener handeln unter dem Mantel der Dunkelheit wenig gesetzestreu. Doch die sternenerfüllte Nacht zieht auch viele phexgeweihte Mystiker an. </Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Magie" steigerungsfaktor="3" voraussetzungen="Vorteil Geweiht I" attribute="IN|KL|MU">Hesinde gilt als Schutzpatronin der Magie und Alchemie und nicht wenige Geweihte gelten als Experten in diesen Gebieten.</Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Wissen" steigerungsfaktor="3" voraussetzungen="Vorteil Geweiht I" attribute="CH|KL|KL">Stetes Lernen und Lehren prägen das Leben eines Hesindegeweihten. All dieses Wissen wird in den Büchern der Schlange gesammelt und in vielerlei Künsten und Handwerken zur Anwendung gebracht.</Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Schlaf" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I" attribute="CH|FF|KL">Boron schenkt den Menschen Schlaf und schickt ihnen Träume und Visionen, die zu erkunden sich viele Borongeweihte zur Aufgabe gemacht haben. Gerade im Al’Anfanischen Kult wird dabei auch mit Rauschkräutern nachgeholfen. </Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Tod" steigerungsfaktor="3" voraussetzungen="Vorteil Geweiht I" attribute="KL|MU|MU">Der Alltag vieler Borongeweihter besteht aus der Sterbebegleitung und der Pflege der Boronsanger. Doch die düsteren Zeiten haben auch zum vermehrten Auftreten von Untoten und ruhelosen Geistern geführt. </Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Vergessen" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I" attribute="CH|IN|KL">Vergessen ist eine weitere Gabe Borons, die insbesondere die Noioniten ihren geisteskranken Schützlingen zukommen lassen wollen. </Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Quellen und Flüsse" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I" attribute="IN|KL|KO">Der Legende nach sind die Flüsse die süßen Tränen Efferds, die das Salz ins Meer schwemmen, und viele Geweihte des Efferd sind auch im Binnenland tätig.</Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Seefahrt" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I" attribute="IN|KK|MU">Gerade pragmatische Efferdgeweihte sind aus der aventurischen Seefahrt nicht wegzudenken, gerade auch durch die häufigen Gefahren der Blutigen See. </Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Wind und Wogen" steigerungsfaktor="3" voraussetzungen="Vorteil Geweiht I" attribute="GE|IN|KL">Die Mystiker unter den Efferdgeweihten schwimmen mit den Delphinen, studieren Wind und Wetter und versuchen aus dem Wellenspiel oder dem Vogelflug den Willen des Unergründlichen abzuleiten.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Licht" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I, Vorteil Praioskirchliche Tradition I" attribute="CH|CH|MU">Das Licht Praios ist vor allem von den Mystikern in der Kirche hoch verehrt. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Magiebann" steigerungsfaktor="3" voraussetzungen="Vorteil Geweiht I, Vorteil Praioskirchliche Tradition I" attribute="CH|MU|KO">Die Antimagie und der Kampf gegen Dämonen haben gerade in den letzten Jahren einen erhöhten Stellenwert innerhalb der Praioskirche erhalten.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Ordnung" steigerungsfaktor="1" voraussetzungen="Vorteil Geweiht I, Vorteil Praioskirchliche Tradition I" attribute="CH|IN|KL">Die Praiospriester bewahren das Recht und die Gesetze, die göttergewollte Ordnung und die Wahrheit. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Ehre" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I, Vorteil Rondrakirchliche Tradition I" attribute="KL|KO|MU">Ehre ist der traditionellste und bekannteste Aspekt der Rondra. Dazu gehören neben den Geboten der Ritterlichkeit auch sehr spezielle Regeln, wann und wie gekämpft werden darf.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Schutz der Gläubigen" steigerungsfaktor="3" voraussetzungen="Vorteil Geweiht I, Vorteil Rondrakirchliche Tradition I" attribute="KK|KO|MU">Der Schutz der Gläubigen ist vielleicht noch mehr als die Ehre die Bestimmung der Rondrakirche. Ein Geweihter hat an vorderster Stelle zu stehen, wenn es um den Kampf gegen die Finsternis geht.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Abu al‘Mada" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I, Vorteil Phexkirchliche Tradition I" attribute="IN|KO|MU">In den Tulamidenlanden gehört zum Glauben an Feqz, wie er dort genannt wird, seit jeher auch sein Beiname als Herr der Magie und Vertreiber der Echsen.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="List" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I, Vorteil Phexkirchliche Tradition I" attribute="CH|IN|KL">Phex ist ein Gott der Opportunisten, Querdenker, Betrüger und listenreicher Händler. Alle seine Diener sind darauf angewiesen, schnell zu denken - und am besten um drei Ecken mehr als das Gegenüber.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Nächtlicher Schatten" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I, Vorteil Phexkirchliche Tradition I" attribute="FF|GE|MU">Phex ist der Herrscher der Nacht und viele seiner Diener handeln unter dem Mantel der Dunkelheit wenig gesetzestreu. Doch die sternenerfüllte Nacht zieht auch viele phexgeweihte Mystiker an. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Magie" steigerungsfaktor="3" voraussetzungen="Vorteil Geweiht I, Vorteil Hesindekirchliche Tradition I" attribute="IN|KL|MU">Hesinde gilt als Schutzpatronin der Magie und Alchemie und nicht wenige Geweihte gelten als Experten in diesen Gebieten.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Wissen" steigerungsfaktor="3" voraussetzungen="Vorteil Geweiht I, Vorteil Hesindekirchliche Tradition I" attribute="CH|KL|KL">Stetes Lernen und Lehren prägen das Leben eines Hesindegeweihten. All dieses Wissen wird in den Büchern der Schlange gesammelt und in vielerlei Künsten und Handwerken zur Anwendung gebracht.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Schlaf" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I, Vorteil Boronkirchliche Tradition I" attribute="CH|FF|KL">Boron schenkt den Menschen Schlaf und schickt ihnen Träume und Visionen, die zu erkunden sich viele Borongeweihte zur Aufgabe gemacht haben. Gerade im Al’Anfanischen Kult wird dabei auch mit Rauschkräutern nachgeholfen. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Tod" steigerungsfaktor="3" voraussetzungen="Vorteil Geweiht I, Vorteil Boronkirchliche Tradition I attribute="KL|MU|MU">Der Alltag vieler Borongeweihter besteht aus der Sterbebegleitung und der Pflege der Boronsanger. Doch die düsteren Zeiten haben auch zum vermehrten Auftreten von Untoten und ruhelosen Geistern geführt. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Vergessen" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I, Vorteil Boronkirchliche Tradition I" attribute="CH|IN|KL">Vergessen ist eine weitere Gabe Borons, die insbesondere die Noioniten ihren geisteskranken Schützlingen zukommen lassen wollen. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Quellen und Flüsse" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I, Vorteil Efferdkirchliche Tradition I" attribute="IN|KL|KO">Der Legende nach sind die Flüsse die süßen Tränen Efferds, die das Salz ins Meer schwemmen, und viele Geweihte des Efferd sind auch im Binnenland tätig.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Seefahrt" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I, Vorteil Efferdkirchliche Tradition I" attribute="IN|KK|MU">Gerade pragmatische Efferdgeweihte sind aus der aventurischen Seefahrt nicht wegzudenken, gerade auch durch die häufigen Gefahren der Blutigen See. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Wind und Wogen" steigerungsfaktor="3" voraussetzungen="Vorteil Geweiht I, Vorteil Efferdkirchliche Tradition I" attribute="GE|IN|KL">Die Mystiker unter den Efferdgeweihten schwimmen mit den Delphinen, studieren Wind und Wetter und versuchen aus dem Wellenspiel oder dem Vogelflug den Willen des Unergründlichen abzuleiten.</Übernatürliche-Fertigkeit>
   <Übernatürliche-Fertigkeit name="Antimagie" steigerungsfaktor="2" voraussetzungen="Vorteil Zauberer I" attribute="CH|KL|MU">Mit Antimagie kannst du astrale Matrices sowohl während des Zaubervorganges manipulieren und so den Zauber zum Scheitern bringen, als auch bereits gewobene Matrices zerstören. Die meisten antimagischen Zauber richten sich gegen eine bestimmte übernatürliche Fertigkeit und verfügen über vier Modifikationen.
 
 1. Gegenzauber

@@ -83,7 +83,6 @@ class Hilfsmethoden:
     
     @staticmethod
     def VorArray2Str(VoraussetzungenArray, Datenbank = None):
-        print(VoraussetzungenArray)
         retArr = []
         retStr = ""
         for itm in VoraussetzungenArray:

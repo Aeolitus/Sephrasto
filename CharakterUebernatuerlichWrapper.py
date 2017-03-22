@@ -29,7 +29,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
         self.uiFert.spinFW.valueChanged.connect(self.fwChanged)
         self.uiFert.tableWidget.cellClicked.connect(self.tableClicked)   
         self.uiFert.buttonAdd.clicked.connect(self.editTalents)
-        
+
         self.availableFerts = []
         self.rowRef = {}
         
@@ -96,7 +96,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
         if self.currentFertName != "":
             Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].wert = self.uiFert.spinFW.value()
             Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].aktualisieren()
-            self.uiFert.spinPW.setValue(Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].probenwert)
+            self.uiFert.spinPW.setValue(Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].probenwertTalent)
             self.modified.emit()
             self.uiFert.tableWidget.setItem(self.rowRef[self.currentFertName],1,QtWidgets.QTableWidgetItem(str(Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].wert)))
         
@@ -112,7 +112,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
             self.uiFert.spinBasis.setValue(fert.basiswert)
             self.uiFert.spinFW.setValue(fert.wert)
             self.uiFert.spinFW.setMaximum(fert.maxWert)
-            self.uiFert.spinPW.setValue(fert.probenwert)
+            self.uiFert.spinPW.setValue(fert.probenwertTalent)
             self.uiFert.plainText.setPlainText(fert.text)
             self.updateTalents()
         
