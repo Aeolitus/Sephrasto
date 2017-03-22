@@ -132,13 +132,13 @@ class Editor(object):
         pass
     
 if __name__ == "__main__":
-    try:
+    #try:
         app = QtCore.QCoreApplication.instance()
         if app is None:
             app = QtWidgets.QApplication(sys.argv)
         ed = Editor()
         ed.setupMainForm()
         app.exec_() 
-    except:
-        print("Error manhandled.")
+    #except:
+     #   print("Error manhandled.")
     
