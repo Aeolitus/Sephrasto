@@ -25,7 +25,7 @@ class TalentPicker(object):
         self.model = QtGui.QStandardItemModel(self.ui.listTalente)
         self.ui.listTalente.setModel(self.model)
         self.ui.listTalente.clicked.connect(self.talClicked)
-        
+        self.rowCount = 0
         for el in Wolke.DB.talente:
             if fert in Wolke.DB.talente[el].fertigkeiten and Wolke.Char.voraussetzungenPrüfen(Wolke.DB.talente[el].voraussetzungen):
                 item = QtGui.QStandardItem(el)
@@ -36,7 +36,8 @@ class TalentPicker(object):
                 else:
                     item.setCheckState(0)
                 self.model.appendRow(item)
-        if self.model.rowCount() > 0:
+                self.rowCount += 1
+        if self.rowCount > 0:
             self.updateFields(self.model.item(0).text())
         self.ui.listTalente.setModel(self.model)
         self.Form.setWindowModality(QtCore.Qt.ApplicationModal)
@@ -44,16 +45,19 @@ class TalentPicker(object):
         self.ret = self.Form.exec_()
         if self.ret == QtWidgets.QDialog.Accepted:
             self.gekaufteTalente = []
-            for i in range(self.model.rowCount()):
+            for i in range(self.rowCount):
                 tmp = self.model.item(i).text()
                 if self.model.item(i).checkState() == QtCore.Qt.Checked:
                     for el in Wolke.DB.talente[tmp].fertigkeiten:
-                        if tmp not in self.refC[el].gekaufteTalente:
-                            self.refC[el].gekaufteTalente.append(tmp)
+                        if el in self.refC:
+                            if tmp not in self.refC[el].gekaufteTalente:
+                                self.refC[el].gekaufteTalente.append(tmp)
                 else:
                     for el in Wolke.DB.talente[tmp].fertigkeiten:
-                        if tmp in self.refC[el].gekaufteTalente:
-                            self.refC[el].gekaufteTalente.remove(tmp)
+                        if el in self.refC:
+                            if tmp in self.refC[el].gekaufteTalente:
+                                self.refC[el].gekaufteTalente.remove(tmp)
+
             self.gekaufteTalente = self.refC[fert].gekaufteTalente
         else:
             self.gekaufteTalente = None

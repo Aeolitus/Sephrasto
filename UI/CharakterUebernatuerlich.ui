@@ -39,7 +39,7 @@
           <x>0</x>
           <y>0</y>
           <width>223</width>
-          <height>383</height>
+          <height>387</height>
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
@@ -272,6 +272,17 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>spinFW</tabstop>
+  <tabstop>buttonAdd</tabstop>
+  <tabstop>tableWidget</tabstop>
+  <tabstop>scrollArea</tabstop>
+  <tabstop>spinSF</tabstop>
+  <tabstop>spinBasis</tabstop>
+  <tabstop>spinPW</tabstop>
+  <tabstop>listTalente</tabstop>
+  <tabstop>plainText</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

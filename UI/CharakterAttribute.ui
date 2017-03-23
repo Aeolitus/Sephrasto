@@ -647,6 +647,31 @@
    </layout>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>spinKO</tabstop>
+  <tabstop>spinMU</tabstop>
+  <tabstop>spinGE</tabstop>
+  <tabstop>spinKK</tabstop>
+  <tabstop>spinIN</tabstop>
+  <tabstop>spinKL</tabstop>
+  <tabstop>spinCH</tabstop>
+  <tabstop>spinFF</tabstop>
+  <tabstop>spinAsP</tabstop>
+  <tabstop>spinKaP</tabstop>
+  <tabstop>pwKO</tabstop>
+  <tabstop>pwMU</tabstop>
+  <tabstop>pwGE</tabstop>
+  <tabstop>pwKK</tabstop>
+  <tabstop>pwIN</tabstop>
+  <tabstop>pwKL</tabstop>
+  <tabstop>pwCH</tabstop>
+  <tabstop>pwFF</tabstop>
+  <tabstop>abWS</tabstop>
+  <tabstop>abMR</tabstop>
+  <tabstop>abGS</tabstop>
+  <tabstop>abSB</tabstop>
+  <tabstop>abIN</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

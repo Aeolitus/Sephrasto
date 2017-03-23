@@ -128,8 +128,22 @@ class Editor(object):
             pass #TODO: Error Handling
     
     def pdfButton(self):
-        #TODO: Implement
-        pass
+        self.updateAll()
+        spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"Charakterbogen erstellen...","","PDF-Datei (*.pdf)")
+        if ".pdf" not in spath:
+            spath = spath + ".pdf"
+        try:
+            Wolke.Char.pdfErstellen(spath)
+        except: 
+            infoBox = QtWidgets.QMessageBox()
+            infoBox.setIcon(QtWidgets.QMessageBox.Information)
+            infoBox.setText("PDF-Erstellung fehlgeschlagen!")
+            infoBox.setInformativeText("Um Charakterbögen befüllen zu können, muss PDFtk installiert sein.\n\
+PDFtk erhälst du auf: \n pdflabs.com/tools/pdftk-server/")
+            infoBox.setWindowTitle("Fehlende Voraussetzungen")
+            infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
+            infoBox.exec_()
     
 if __name__ == "__main__":
     #try:

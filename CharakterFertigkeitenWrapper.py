@@ -125,13 +125,17 @@ class FertigkeitenWrapper(QtCore.QObject):
                 item = QtGui.QStandardItem(el)
                 item.setEditable(False)
                 self.model.appendRow(item)
+                self.updateTalentRow()
         
     def editTalents(self):
         if self.currentFertName != "":
             tal = TalentPicker.TalentPicker(self.currentFertName, False)
             if tal.gekaufteTalente is not None:
-                #Wolke.Char.fertigkeiten[self.currentFertName].gekaufteTalente = tal.gekaufteTalente
                 self.modified.emit()
                 self.updateTalents()
-                #TODO: Fill other talents with the same ferts as well!
-                self.uiFert.tableWidget.setItem(self.rowRef[self.currentFertName],2,QtWidgets.QTableWidgetItem(str(len(Wolke.Char.fertigkeiten[self.currentFertName].gekaufteTalente))))
+                
+    def updateTalentRow(self):
+        for i in range(self.uiFert.tableWidget.rowCount()):
+            fert = self.uiFert.tableWidget.item(i,0).text()
+            self.uiFert.tableWidget.setItem(i,2,QtWidgets.QTableWidgetItem(str(len(Wolke.Char.fertigkeiten[fert].gekaufteTalente))))
+            

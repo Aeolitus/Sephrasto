@@ -22,7 +22,7 @@ class Ui_Form(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 225, 362))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 223, 387))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -146,6 +146,15 @@ class Ui_Form(object):
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
+        Form.setTabOrder(self.spinFW, self.buttonAdd)
+        Form.setTabOrder(self.buttonAdd, self.tableWidget)
+        Form.setTabOrder(self.tableWidget, self.scrollArea)
+        Form.setTabOrder(self.scrollArea, self.spinSF)
+        Form.setTabOrder(self.spinSF, self.spinBasis)
+        Form.setTabOrder(self.spinBasis, self.spinPW)
+        Form.setTabOrder(self.spinPW, self.spinPWT)
+        Form.setTabOrder(self.spinPWT, self.listTalente)
+        Form.setTabOrder(self.listTalente, self.plainText)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate

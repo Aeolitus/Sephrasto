@@ -1,0 +1,219 @@
+<Charakter>
+  <AllgemeineInfos>
+    <name>Franz</name>
+    <rasse>Testcharakter</rasse>
+    <status>0</status>
+    <kurzbeschreibung>Ein einfacher Testcharakter</kurzbeschreibung>
+    <schips>2</schips>
+    <finanzen>0</finanzen>
+    <eigenheiten>
+      <Eigenheit>Simpel</Eigenheit>
+      <Eigenheit>Einfach</Eigenheit>
+      <Eigenheit>Profan</Eigenheit>
+      <Eigenheit>Unbeeindruckend</Eigenheit>
+      <Eigenheit>Trivial</Eigenheit>
+      <Eigenheit>Leicht</Eigenheit>
+      <Eigenheit>Schlicht</Eigenheit>
+      <Eigenheit>Einsteigerfreundlich</Eigenheit>
+    </eigenheiten>
+  </AllgemeineInfos>
+  <Attribute>
+    <KO>10</KO>
+    <MU>10</MU>
+    <GE>10</GE>
+    <KK>10</KK>
+    <IN>10</IN>
+    <KL>10</KL>
+    <CH>10</CH>
+    <FF>10</FF>
+  </Attribute>
+  <Energien>
+    <AsP wert="10"/>
+    <KaP wert="10"/>
+  </Energien>
+  <Vorteile>
+    <Vorteil>Geweiht I</Vorteil>
+    <Vorteil>Praioskirchliche Tradition I</Vorteil>
+    <Vorteil>Zauberer I</Vorteil>
+    <Vorteil>Gildenmagische Repräsentation I</Vorteil>
+    <Vorteil>Gildenmagische Repräsentation II</Vorteil>
+    <Vorteil>Gildenmagische Repräsentation III</Vorteil>
+    <Vorteil>Gildenmagische Repräsentation IV</Vorteil>
+    <Vorteil>Praioskirchliche Tradition II</Vorteil>
+    <Vorteil>Praioskirchliche Tradition III</Vorteil>
+    <Vorteil>Praioskirchliche Tradition IV</Vorteil>
+  </Vorteile>
+  <Fertigkeiten>
+    <Fertigkeit name="Handgemenge" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Hiebwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Klingenwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Stangenwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Schusswaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wurfwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Athletik" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heimlichkeit" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Selbstbeherrschung" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wahrnehmung" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Autorität" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Beeinflussung" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Gebräuche" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Derekunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Mythenkunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Magiekunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Überleben" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Verschlagenheit" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Alchemie" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heilkunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Holzbearbeitung" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Metallbearbeitung" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Freie-Fertigkeit name="Muttersprache" wert="3"/>
+  </Fertigkeiten>
+  <Objekte>
+    <Rüstungen/>
+    <Waffen/>
+    <Ausrüstung>
+      <Ausrüstungsstück>1</Ausrüstungsstück>
+      <Ausrüstungsstück>2</Ausrüstungsstück>
+      <Ausrüstungsstück>3</Ausrüstungsstück>
+      <Ausrüstungsstück>4</Ausrüstungsstück>
+      <Ausrüstungsstück>5</Ausrüstungsstück>
+      <Ausrüstungsstück>6</Ausrüstungsstück>
+      <Ausrüstungsstück>7</Ausrüstungsstück>
+      <Ausrüstungsstück>8</Ausrüstungsstück>
+      <Ausrüstungsstück>9</Ausrüstungsstück>
+      <Ausrüstungsstück>10</Ausrüstungsstück>
+      <Ausrüstungsstück>11</Ausrüstungsstück>
+      <Ausrüstungsstück>12</Ausrüstungsstück>
+      <Ausrüstungsstück>13</Ausrüstungsstück>
+      <Ausrüstungsstück>14</Ausrüstungsstück>
+      <Ausrüstungsstück>15</Ausrüstungsstück>
+      <Ausrüstungsstück>16</Ausrüstungsstück>
+      <Ausrüstungsstück>17</Ausrüstungsstück>
+      <Ausrüstungsstück>18</Ausrüstungsstück>
+      <Ausrüstungsstück>19</Ausrüstungsstück>
+      <Ausrüstungsstück>20</Ausrüstungsstück>
+      <Ausrüstungsstück>21</Ausrüstungsstück>
+      <Ausrüstungsstück>22</Ausrüstungsstück>
+      <Ausrüstungsstück>23</Ausrüstungsstück>
+      <Ausrüstungsstück>24</Ausrüstungsstück>
+      <Ausrüstungsstück>25</Ausrüstungsstück>
+      <Ausrüstungsstück>26</Ausrüstungsstück>
+    </Ausrüstung>
+  </Objekte>
+  <Übernatürliche-Fertigkeiten>
+    <Übernatürliche-Fertigkeit name="Zwölfgöttlicher Ritus" wert="0">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Licht" wert="0">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Magiebann" wert="0">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Ordnung" wert="0">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Antimagie" wert="0">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Dämonisch" wert="0">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Eigenschaften" wert="0">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Einfluss" wert="0">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Eis" wert="0">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Erz" wert="0">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Feuer" wert="0">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Hellsicht" wert="0">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Humus" wert="0">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Illusion" wert="0">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Kraft" wert="0">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Luft" wert="0">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Temporal" wert="0">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Umwelt" wert="0">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Verständigung" wert="0">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Verwandlung" wert="0">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Wasser" wert="0">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Stabzauber" wert="0">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+  </Übernatürliche-Fertigkeiten>
+  <Erfahrung>
+    <EPtotal>10000</EPtotal>
+    <EPspent>7630</EPspent>
+  </Erfahrung>
+</Charakter>

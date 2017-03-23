@@ -27,7 +27,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
         
         #Signals
         self.uiFert.spinFW.valueChanged.connect(self.fwChanged)
-        self.uiFert.tableWidget.cellClicked.connect(self.tableClicked)   
+        self.uiFert.tableWidget.itemSelectionChanged.connect(self.tableClicked)   
         self.uiFert.buttonAdd.clicked.connect(self.editTalents)
 
         self.availableFerts = []
@@ -84,12 +84,12 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 self.uiFert.tableWidget.setItem(count,2,QtWidgets.QTableWidgetItem(str(len(Wolke.Char.übernatürlicheFertigkeiten[el].gekaufteTalente))))
                 self.rowRef.update({Wolke.Char.übernatürlicheFertigkeiten[el].name: count})
                 count += 1
-            self.uiFert.tableWidget.cellClicked.connect(self.tableClicked) 
+            self.uiFert.tableWidget.itemSelectionChanged.connect(self.tableClicked) 
         self.updateInfo()
         self.updateTalents()
             
-    def tableClicked(self,row,col):
-        self.currentFertName = self.uiFert.tableWidget.itemAt(row,0).text()
+    def tableClicked(self):
+        self.currentFertName = self.uiFert.tableWidget.selectedItems()[0].text()
         self.updateInfo()
         
     def fwChanged(self):
@@ -123,12 +123,17 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 item = QtGui.QStandardItem(el)
                 item.setEditable(False)
                 self.model.appendRow(item)
+            self.updateTalentRow()
         
     def editTalents(self):
         if self.currentFertName != "":
             tal = TalentPicker.TalentPicker(self.currentFertName, True)
             if tal.gekaufteTalente is not None:
-                #Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].gekaufteTalente = tal.gekaufteTalente
                 self.modified.emit()
                 self.updateTalents()
-                self.uiFert.tableWidget.setItem(self.rowRef[self.currentFertName],2,QtWidgets.QTableWidgetItem(str(len(Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].gekaufteTalente))))
+                
+    def updateTalentRow(self):
+        for i in range(self.uiFert.tableWidget.rowCount()):
+            fert = self.uiFert.tableWidget.item(i,0).text()
+            self.uiFert.tableWidget.setItem(i,2,QtWidgets.QTableWidgetItem(str(len(Wolke.Char.übernatürlicheFertigkeiten[fert].gekaufteTalente))))
+            

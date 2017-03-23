@@ -343,7 +343,7 @@ Bedingungen: Laut gesprochene Zauberformel</Vorteil>
   <Vorteil name="Beeindruckendes Wunder" kosten="60" voraussetzungen="Attribut IN 8, Vorteil Geweiht I" nachkauf="häufig" typ="6">Bei Mirakeln verleiht die Modifikation Mächtige Liturgie einen Bonus von +4 statt +2.</Vorteil>
   <Vorteil name="Göttliche Nähe" kosten="80" voraussetzungen="Attribut IN 10, Vorteil Geweiht I" nachkauf="häufig" typ="6">Du regenerierst 1 zusätzlichen KaP pro Nacht.</Vorteil>
   <Vorteil name="Liturgische Routine" kosten="20" voraussetzungen="Attribut KL 4, Vorteil Geweiht I" nachkauf="häufig" typ="6">Bei Liturgien gewürfelte Patzer gelten nur als gewöhnlich misslungen.</Vorteil>
-  <Vorteil name="Liturgische Sorgfalt" kosten="40" voraussetzungen="Attribut KL 6, Vorteil Geweiht I" nachkauf="häufig" typ="0">Misslungene Liturgien kosten nur 1/4 der KaP.</Vorteil>
+  <Vorteil name="Liturgische Sorgfalt" kosten="40" voraussetzungen="Attribut KL 6, Vorteil Geweiht I" nachkauf="häufig" typ="6">Misslungene Liturgien kosten nur 1/4 der KaP.</Vorteil>
   <Vorteil name="Liturgische Disziplin" kosten="60" voraussetzungen="Attribut KL 8, Vorteil Geweiht I" nachkauf="häufig" typ="6">Ermöglicht die spontane Modifikation Kosten sparen.</Vorteil>
   <Vorteil name="Liebling der Gottheit" kosten="80" voraussetzungen="Attribut KL 10, Vorteil Geweiht I" nachkauf="häufig" typ="6">Zeigt der gewertete Würfel bei einer Liturgie eine 16 oder höher, kostet diese keine KaP und erhält eine zusätzliche Stufe Mächtige Liturgie.</Vorteil>
   <Vorteil name="Verseuchung erspüren" kosten="20" voraussetzungen="Attribut MU 4, Vorteil Geweiht I" nachkauf="häufig" typ="6">Bei Verwendung spürst du die Anwesenheit und die grobe Stärke - nicht aber den genauen Ort - von dämonischen Präsenzen oder Verseuchung in unmittelbarer Nähe. Kostet 1 KaP/Minute.</Vorteil>
@@ -1358,7 +1358,7 @@ Zielobjekt: Zone
 Reichweite: 4 Meilen
 Wirkungsdauer: 1 Stunde
 Kosten: 8 KaP</Talent>
-  <Talent name="Dämonenbann" kosten="60" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Dämonisch"/>
+  <Talent name="Dämonenbann" kosten="60" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Dämonisch">Wirkt gegen dämonische Zauber und aktive oder gebundene Dämonen und Geister.</Talent>
   <Talent name="Destructibo Arcanitas" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Kraft">Du zerstörst ein magisches Artefakt, einen  Trank, Untoten, Golem oder eine Chimäre.
 Probenschwierigkeit: Herstellungsschwierigkeit bzw. Beschwörungsschwierigkeit 
 Modifikationen: Astralkörper abbauen (-4, gegen Magieresistenz; pro eingesetztem AsP verliert das Ziel 1 AsP)
@@ -1366,9 +1366,9 @@ Vorbereitungszeit: 1 Stunde
 Zielobjekt: Einzelobjekt
 Reichweite: Berührung
 Wirkungsdauer: augenblicklich</Talent>
-  <Talent name="Eigenschaft wiederherstellen" kosten="40" voraussetzungen="Vorteil Alchemistische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Eigenschaften"/>
-  <Talent name="Einfluss bannen" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Einfluss"/>
-  <Talent name="Elementarbann" kosten="60" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, beliebiges Element"/>
+  <Talent name="Eigenschaft wiederherstellen" kosten="40" voraussetzungen="Vorteil Alchemistische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Eigenschaften">Wirkt gegen Zauber der Fertigkeit Eigenschaften.</Talent>
+  <Talent name="Einfluss bannen" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Einfluss">Wirkt gegen Zauber der Fertigkeit Einfluss.</Talent>
+  <Talent name="Elementarbann" kosten="60" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Eis, Erz, Feuer, Humus, Luft, Wasser">Wirkt gegen Zauber der Fertigkeiten Eis, Erz, Feuer, Humus, Luft und Wasser sowie gegen Elementare. </Talent>
   <Talent name="Gardianum Zauberschild" kosten="40" voraussetzungen="Vorteil Elfische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Kraft">Um dich herum bildet sich eine unsichtbare, magische Schutzkuppel, die sich mit dir bewegt und eine Härte von 2 verfügt. Magische Schadenszauber durchdringen den Schutz, wenn ihr Erfolgswert höher als der Erfolgswert des Gardianums ist. Ansonsten werden sie abgewehrt und treffen die Schutzkuppel, die nach 8 Beschädigungen zusammenbricht. Überzähliger Schaden durchdringt den Schutz. 
 Mächtige Magie: Die Härte steigt um 1. 
 Probenschwierigkeit: 12
@@ -1377,9 +1377,9 @@ Vorbereitungszeit: 0 Aktionen
 Zielobjekt: Zone
 Reichweite: 2 Schritt Radius
 Wirkungsdauer: 4 Minuten oder bis alle Schildpunkte verbraucht sind.</Talent>
-  <Talent name="Hellsicht trüben" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Hellsicht"/>
-  <Talent name="Illusion auflösen" kosten="20" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Illusion"/>
-  <Talent name="Kraftmagie neutralisieren" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Kraft"/>
+  <Talent name="Hellsicht trüben" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Hellsicht">Wirkt gegen Zauber der Fertigkeit Hellsicht.</Talent>
+  <Talent name="Illusion auflösen" kosten="20" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Illusion">Wirkt gegen Zauber der Fertigkeit Illusion.</Talent>
+  <Talent name="Kraftmagie neutralisieren" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Kraft">Wirkt gegen Zauber der Fertigkeit Kraft.</Talent>
   <Talent name="Psychostabilis" kosten="40" voraussetzungen="Vorteil Alchemistische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Eigenschaften">Magieresistenz-Proben des Ziels sind um +4 erleichtert. 
 Mächtige Magie: Erhöht den Bonus um +2. 
 Probenschwierigkeit: 12
@@ -1394,8 +1394,8 @@ Vorbereitungszeit: 16 Aktionen
 Zielobjekt: Einzelwesen, Einzelobjekt
 Reichweite: Berührung
 Wirkungsdauer: 4 Stunden</Talent>
-  <Talent name="Veränderung aufheben" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Umwelt"/>
-  <Talent name="Verwandlung beenden" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Verwandlung"/>
+  <Talent name="Veränderung aufheben" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Umwelt">Wirkt gegen Zauber der Fertigkeit Umwelt.</Talent>
+  <Talent name="Verwandlung beenden" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Verwandlung">Wirkt gegen Zauber der Fertigkeit Verwandlung sowie Chimären.</Talent>
   <Talent name="Eigene Ängste quälen dich!" kosten="60" voraussetzungen="Vorteil Borbaradianische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Dämonisch, Eigenschaften, Einfluss">Du raubst deinem Ziel einen Sinn deiner Wahl und lieferst es völlig seinen inneren Ängsten aus. Es erleidet einen Furcht-Effekt Stufe I. Nach Meisterentscheid sind auch langfristige Nachwirkungen möglich.
 Mächtige Magie: Du raubst deinem Opfer einen weiteren Sinn und der Furcht-Effekt steigt um eine Stufe. 
 Probenschwierigkeit: Magieresistenz
@@ -1687,11 +1687,11 @@ Zielobjekt: Einzelwesen, Einzelobjekt
 Reichweite: 16 Schritt
 Wirkungsdauer: augenblicklich
 Kosten: 16 AsP</Talent>
-  <Talent name="Frigisphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Eis">Du erschaffst eine elementare Kugel, die du mit Konzentration und Blickkontakt mit GS 8 bewegen kannst. Verlierst du eines von beiden, explodiert sie und richtet 4W6 TP an. Pro Schritt Entfernung fällt der niedrigs-te Würfel weg. 
+  <Talent name="Frigisphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Eis">Du erschaffst eine elementare Kugel, die du mit Konzentration und Blickkontakt mit GS 8 bewegen kannst. Verlierst du eines von beiden, explodiert sie und richtet 4W6 TP an. Pro Schritt Entfernung fällt der niedrigste Würfel weg. 
 Merkmal (Eis): Erfrieren
 Mächtige Magie: Die TP steigen um 1W6.
 Probenschwierigkeit: 12
-Modifikationen: Komplexe Bewegung (-2, du gibst der Kugel die Bewegung bis zur Explosion vor, Konzentration und Blickkon-takt sind nicht nötig)
+Modifikationen: Komplexe Bewegung (-2, du gibst der Kugel die Bewegung bis zur Explosion vor, Konzentration und Blickkontakt sind nicht nötig)
 Vorbereitungszeit: 2 Aktionen
 Zielobjekt: Zone
 Reichweite: 32 Schritt
@@ -1742,11 +1742,11 @@ Zielobjekt: Einzelwesen, Einzelobjekt
 Reichweite: 16 Schritt
 Wirkungsdauer: augenblicklich
 Kosten: 16 AsP</Talent>
-  <Talent name="Archosphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Erz">Du erschaffst eine elementare Kugel, die du mit Konzentration und Blickkontakt mit GS 8 bewegen kannst. Verlierst du eines von beiden, explodiert sie und richtet 4W6 TP an. Pro Schritt Entfernung fällt der niedrigs-te Würfel weg. 
+  <Talent name="Archosphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Erz">Du erschaffst eine elementare Kugel, die du mit Konzentration und Blickkontakt mit GS 8 bewegen kannst. Verlierst du eines von beiden, explodiert sie und richtet 4W6 TP an. Pro Schritt Entfernung fällt der niedrigste Würfel weg. 
 Merkmal (Erz): Niederschmettern
 Mächtige Magie: Die TP steigen um 1W6.
 Probenschwierigkeit: 12
-Modifikationen: Komplexe Bewegung (-2, du gibst der Kugel die Bewegung bis zur Explosion vor, Konzentration und Blickkon-takt sind nicht nötig)
+Modifikationen: Komplexe Bewegung (-2, du gibst der Kugel die Bewegung bis zur Explosion vor, Konzentration und Blickkontakt sind nicht nötig)
 Vorbereitungszeit: 2 Aktionen
 Zielobjekt: Zone
 Reichweite: 32 Schritt
@@ -1905,11 +1905,11 @@ Zielobjekt: Einzelwesen, Einzelobjekt
 Reichweite: 16 Schritt
 Wirkungsdauer: augenblicklich
 Kosten: 16 AsP</Talent>
-  <Talent name="Humusphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Humus">Du erschaffst eine elementare Kugel, die du mit Konzentration und Blickkontakt mit GS 8 bewegen kannst. Verlierst du eines von beiden, explodiert sie und richtet 4W6 TP an. Pro Schritt Entfernung fällt der niedrigs-te Würfel weg. 
+  <Talent name="Humusphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Humus">Du erschaffst eine elementare Kugel, die du mit Konzentration und Blickkontakt mit GS 8 bewegen kannst. Verlierst du eines von beiden, explodiert sie und richtet 4W6 TP an. Pro Schritt Entfernung fällt der niedrigste Würfel weg. 
 Merkmal (Humus): Fesseln
 Mächtige Magie: Die TP steigen um 1W6.
 Probenschwierigkeit: 12
-Modifikationen: Komplexe Bewegung (-2, du gibst der Kugel die Bewegung bis zur Explosion vor, Konzentration und Blickkon-takt sind nicht nötig)
+Modifikationen: Komplexe Bewegung (-2, du gibst der Kugel die Bewegung bis zur Explosion vor, Konzentration und Blickkontakt sind nicht nötig)
 Vorbereitungszeit: 2 Aktionen
 Zielobjekt: Zone
 Reichweite: 32 Schritt
@@ -1996,11 +1996,11 @@ Zielobjekt: Einzelwesen, Einzelobjekt
 Reichweite: 16 Schritt
 Wirkungsdauer: augenblicklich
 Kosten: 16 AsP</Talent>
-  <Talent name="Orcanosphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Luft">Du erschaffst eine elementare Kugel, die du mit Konzentration und Blickkontakt mit GS 8 bewegen kannst. Verlierst du eines von beiden, explodiert sie und richtet 4W6 TP an. Pro Schritt Entfernung fällt der niedrigs-te Würfel weg. 
+  <Talent name="Orcanosphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Luft">Du erschaffst eine elementare Kugel, die du mit Konzentration und Blickkontakt mit GS 8 bewegen kannst. Verlierst du eines von beiden, explodiert sie und richtet 4W6 TP an. Pro Schritt Entfernung fällt der niedrigste Würfel weg. 
 Merkmal (Luft): Zurückstoßen
 Mächtige Magie: Die TP steigen um 1W6.
 Probenschwierigkeit: 12
-Modifikationen: Komplexe Bewegung (-2, du gibst der Kugel die Bewegung bis zur Explosion vor, Konzentration und Blickkon-takt sind nicht nötig)
+Modifikationen: Komplexe Bewegung (-2, du gibst der Kugel die Bewegung bis zur Explosion vor, Konzentration und Blickkontakt sind nicht nötig)
 Vorbereitungszeit: 2 Aktionen
 Zielobjekt: Zone
 Reichweite: 32 Schritt
@@ -2122,7 +2122,7 @@ Zielobjekt: Einzelwesen, Einzelobjekt
 Reichweite: 16 Schritt
 Wirkungsdauer: augenblicklich
 Kosten: 16 AsP</Talent>
-  <Talent name="Aquasphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Wasser">Du erschaffst eine elementare Kugel, die du mit Konzentration und Blickkontakt mit GS 8 bewegen kannst. Verlierst du eines von beiden, explodiert sie und richtet 4W6 TP an. Pro Schritt Entfernung fällt der niedrigs-te Würfel weg. 
+  <Talent name="Aquasphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Wasser">Du erschaffst eine elementare Kugel, die du mit Konzentration und Blickkontakt mit GS 8 bewegen kannst. Verlierst du eines von beiden, explodiert sie und richtet 4W6 TP an. Pro Schritt Entfernung fällt der niedrigste Würfel weg. 
 Merkmal (Wasser): Ertränken
 Mächtige Magie: Die TP steigen um 1W6.
 Probenschwierigkeit: 12
@@ -2664,11 +2664,11 @@ Kosten: 8 AsP
   <Übernatürliche-Fertigkeit name="Verständigung" steigerungsfaktor="2" voraussetzungen="Vorteil Zauberer I" attribute="CH|IN|MU">Mit Verständigung kannst du Gefühle und Gedanken übertragen oder Tiere, Geister oder magische Wesen zur Hilfe rufen. </Übernatürliche-Fertigkeit>
   <Übernatürliche-Fertigkeit name="Verwandlung" steigerungsfaktor="4" voraussetzungen="Vorteil Zauberer I" attribute="FF|KL|KO">Verwandler können sich selbst, andere Menschen und sogar Gegenstände verwandeln. </Übernatürliche-Fertigkeit>
   <Übernatürliche-Fertigkeit name="Wasser" steigerungsfaktor="2" voraussetzungen="Vorteil Zauberer I" attribute="CH|KL|MU">Als Wasserzauberer beherrschst du das flüssige Element und kannst die Elementare des Wassers herbeirufen. </Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Stabzauber" steigerungsfaktor="1" voraussetzungen="Vorteil Zauberer I" attribute="IN|KL|KL">Der Zauberstab eines Gildenmagiers ist sicherlich das bekannteste Ritualinstrument. Er unterstützt den Magier als Fackel, Seil oder magischer Rammbock, kann aber auch Astralenergie speichern. Alle Talente gelten als Objektrituale. </Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Elfenlieder" steigerungsfaktor="1" voraussetzungen="Vorteil Zauberer I" attribute="CH|FF|IN">Die auf einem Iama gespielten, magischen Elfenlieder gehören zu den ältesten Spielarten der Zauberei, der du begegnen kannst. Da viele Lieder zweistimmig gesungen werden, steht die Fertigkeit nur Elfen und manchen Halbelfen zur Verfügung. Elfenlieder gelten als Objektrituale. </Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Hexenflüche" steigerungsfaktor="1" voraussetzungen="Vorteil Zauberer I" attribute="CH|IN|MU">Als Hexe hast du zwei Möglichkeiten, deine Flüche zu überbringen. Entweder du schleuderst sie direkt lautstark auf das Opfer, wodurch du häufig vom Bonus der Hexischen Repräsentation II profitieren kannst, oder du lässt den Fluch unauffällig von deinem Vertrauten überbringen. Dafür benötigst du allerdings ein Körperteil (z.B. Haar) deines Opfers. In beiden Fällen legst du die Probe auf die übernatürliche Fertigkeit Hexenflüche ab.</Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Vertrautenmagie" steigerungsfaktor="1" voraussetzungen="Vorteil Zauberer I" attribute="CH|IN|IN">Die übernatürliche Fertigkeit Vertrautenmagie spiegelt die Stärke der Bindung zwischen der Hexe und ihrem Vertrautentier. Alle Proben zum Wirken der Vertrautenmagie werden auf diesen Wert abgelegt. Die Kosten werden von der Hexe über diese Verbindung zur Verfügung gestellt, auch wenn eigentlich der Vertraute einen Zauber wirkt. Vertrautenmagische Wirkungen gelten als Objektrituale. </Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Schalenzauber" steigerungsfaktor="1" voraussetzungen="Vorteil Zauberer I" attribute="FF|IN|KL">Dieses Ritualinstrument aus Silber oder Mondsilber wird außer Alchemisten auch von Gildenmagiern und als Kessel auch von Hexen benutzt. Unabhängig vom Hintergrund benötigen diese Rituale ein Mindestmaß an alchemistischem Wissen, das durch die Kenntnis der Alchemistischen Repräsentation I dargestellt wird. Die Talente gelten als Objektrituale. </Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Dolchzauber" steigerungsfaktor="2" voraussetzungen="Vorteil Zauberer I" attribute="FF|IN|MU">Die geheimen Rituale der Druiden beruhen auf ihrem verzauberten Dolch aus Obsidian, während Geoden eine goldene Sichel als Ritualinstrument bevorzugen. Alle Talente gelten als Objektrituale.</Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Ringrituale" steigerungsfaktor="2" voraussetzungen="Vorteil Zauberer I" attribute="IN|KO|MU">Die Geoden sprechen ihre Rituale in einen Halsreif aus Gold, der eine sich in den Schwanz beißende Schlange darstellt. Gleichzeitig ist der Schlangenreif ein besonders einladender Ort für Geister. Alle Talente gelten als Objektrituale.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Stabzauber" steigerungsfaktor="1" voraussetzungen="Vorteil Zauberer I, Vorteil Gildenmagische Repräsentation I" attribute="IN|KL|KL">Der Zauberstab eines Gildenmagiers ist sicherlich das bekannteste Ritualinstrument. Er unterstützt den Magier als Fackel, Seil oder magischer Rammbock, kann aber auch Astralenergie speichern. Alle Talente gelten als Objektrituale. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Elfenlieder" steigerungsfaktor="1" voraussetzungen="Vorteil Zauberer I, Vorteil Elfische Repräsentation I" attribute="CH|FF|IN">Die auf einem Iama gespielten, magischen Elfenlieder gehören zu den ältesten Spielarten der Zauberei, der du begegnen kannst. Da viele Lieder zweistimmig gesungen werden, steht die Fertigkeit nur Elfen und manchen Halbelfen zur Verfügung. Elfenlieder gelten als Objektrituale. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Hexenflüche" steigerungsfaktor="1" voraussetzungen="Vorteil Zauberer I, Vorteil Hexische Repräsentation I" attribute="CH|IN|MU">Als Hexe hast du zwei Möglichkeiten, deine Flüche zu überbringen. Entweder du schleuderst sie direkt lautstark auf das Opfer, wodurch du häufig vom Bonus der Hexischen Repräsentation II profitieren kannst, oder du lässt den Fluch unauffällig von deinem Vertrauten überbringen. Dafür benötigst du allerdings ein Körperteil (z.B. Haar) deines Opfers. In beiden Fällen legst du die Probe auf die übernatürliche Fertigkeit Hexenflüche ab.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Vertrautenmagie" steigerungsfaktor="1" voraussetzungen="Vorteil Zauberer I, Vorteil Hexische Repräsentation I" attribute="CH|IN|IN">Die übernatürliche Fertigkeit Vertrautenmagie spiegelt die Stärke der Bindung zwischen der Hexe und ihrem Vertrautentier. Alle Proben zum Wirken der Vertrautenmagie werden auf diesen Wert abgelegt. Die Kosten werden von der Hexe über diese Verbindung zur Verfügung gestellt, auch wenn eigentlich der Vertraute einen Zauber wirkt. Vertrautenmagische Wirkungen gelten als Objektrituale. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Schalenzauber" steigerungsfaktor="1" voraussetzungen="Vorteil Zauberer I, Vorteil Alchemistische Repräsentation I" attribute="FF|IN|KL">Dieses Ritualinstrument aus Silber oder Mondsilber wird außer Alchemisten auch von Gildenmagiern und als Kessel auch von Hexen benutzt. Unabhängig vom Hintergrund benötigen diese Rituale ein Mindestmaß an alchemistischem Wissen, das durch die Kenntnis der Alchemistischen Repräsentation I dargestellt wird. Die Talente gelten als Objektrituale. </Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Dolchzauber" steigerungsfaktor="2" voraussetzungen="Vorteil Zauberer I, Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I" attribute="FF|IN|MU">Die geheimen Rituale der Druiden beruhen auf ihrem verzauberten Dolch aus Obsidian, während Geoden eine goldene Sichel als Ritualinstrument bevorzugen. Alle Talente gelten als Objektrituale.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Ringrituale" steigerungsfaktor="2" voraussetzungen="Vorteil Zauberer I, Vorteil Geodische Repräsentation I" attribute="IN|KO|MU">Die Geoden sprechen ihre Rituale in einen Halsreif aus Gold, der eine sich in den Schwanz beißende Schlange darstellt. Gleichzeitig ist der Schlangenreif ein besonders einladender Ort für Geister. Alle Talente gelten als Objektrituale.</Übernatürliche-Fertigkeit>
 </Datenbank>

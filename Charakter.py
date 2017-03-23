@@ -140,6 +140,12 @@ class Char():
             for tal in self.fertigkeiten[fert].gekaufteTalente:
                 if not self.voraussetzungenPrüfen(Wolke.DB.talente[tal].voraussetzungen):
                     self.fertigkeiten[fert].gekaufteTalente.remove(tal)
+                else:
+                    for el in self.fertigkeiten[fert].gekaufteTalente:
+                        for f in Wolke.DB.talente[el].fertigkeiten:
+                            if f in self.fertigkeiten:
+                                if el not in self.fertigkeiten[f].gekaufteTalente:
+                                    self.fertigkeiten[f].gekaufteTalente.append(el)
         for el in remove:
             self.fertigkeiten.pop(el,None)
         remove = []
@@ -153,7 +159,13 @@ class Char():
                 self.übernatürlicheFertigkeiten[fert].aktualisieren()
             for tal in self.übernatürlicheFertigkeiten[fert].gekaufteTalente:
                 if not self.voraussetzungenPrüfen(Wolke.DB.talente[tal].voraussetzungen):
-                    self.übernatürlicheFertigkeiten[fert].gekaufteTalente.remove(tal)    
+                    self.übernatürlicheFertigkeiten[fert].gekaufteTalente.remove(tal) 
+                else:
+                    for el in self.übernatürlicheFertigkeiten[fert].gekaufteTalente:
+                        for f in Wolke.DB.talente[el].fertigkeiten:
+                            if f in self.übernatürlicheFertigkeiten:
+                                if el not in self.übernatürlicheFertigkeiten[f].gekaufteTalente:
+                                    self.übernatürlicheFertigkeiten[f].gekaufteTalente.append(el)
         for el in remove:
             self.übernatürlicheFertigkeiten.pop(el,None)
 
@@ -463,17 +475,14 @@ class Char():
                       
         return fields
     
-    def pdfDritterBlock(self, fields):
-        count = 1
-        firstStr = 'Vorteil'
-        for el in self.vorteile:
-            fields[firstStr + str(count)] = self.vorteile[count-1]
-            if count == 8 and firstStr == 'Vorteil':
-                firstStr = 'Weite'
-                count = 1
-            elif count >= 13 and firstStr == 'Weite':
-                break
-            count += 1
+    def pdfDritterBlock(self, fields):    
+        self.vorteile = sorted(self.vorteile, key=str.lower)
+        for i in range(1,9):
+            if len(self.vorteile)<i: break
+            fields['Vorteil' + str(i)] = self.vorteile[i-1]
+        for i in range(1,14):
+            if len(self.vorteile)-8<i: break
+            fields['Weite' + str(i)] = self.vorteile[i-1+8]
         return fields
     
     def pdfVierterBlock(self, fields):
@@ -549,7 +558,7 @@ class Char():
         for el in self.ausrüstung:
             fields[te+str(count)] = el
             if count >= 12 and te == 'Text76.':
-                count = 0
+                count = -1
                 te = 'Text77.'
             elif count >= 12:
                 break

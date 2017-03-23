@@ -115,6 +115,18 @@ class Ui_formBeschreibung(object):
         self.comboFinanzen.setCurrentIndex(2)
         self.comboStatus.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(formBeschreibung)
+        formBeschreibung.setTabOrder(self.editName, self.editRasse)
+        formBeschreibung.setTabOrder(self.editRasse, self.comboStatus)
+        formBeschreibung.setTabOrder(self.comboStatus, self.comboFinanzen)
+        formBeschreibung.setTabOrder(self.comboFinanzen, self.editKurzbeschreibung)
+        formBeschreibung.setTabOrder(self.editKurzbeschreibung, self.editEig1)
+        formBeschreibung.setTabOrder(self.editEig1, self.editEig2)
+        formBeschreibung.setTabOrder(self.editEig2, self.editEig3)
+        formBeschreibung.setTabOrder(self.editEig3, self.editEig4)
+        formBeschreibung.setTabOrder(self.editEig4, self.editEig5)
+        formBeschreibung.setTabOrder(self.editEig5, self.editEig6)
+        formBeschreibung.setTabOrder(self.editEig6, self.editEig7)
+        formBeschreibung.setTabOrder(self.editEig7, self.editEig8)
 
     def retranslateUi(self, formBeschreibung):
         _translate = QtCore.QCoreApplication.translate

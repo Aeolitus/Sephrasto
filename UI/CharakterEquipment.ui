@@ -1232,6 +1232,72 @@
    </layout>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>editR1name</tabstop>
+  <tabstop>spinR1be</tabstop>
+  <tabstop>spinR1RS</tabstop>
+  <tabstop>spinR1bein</tabstop>
+  <tabstop>spinR1larm</tabstop>
+  <tabstop>spinR1rarm</tabstop>
+  <tabstop>spinR1bauch</tabstop>
+  <tabstop>spinR1brust</tabstop>
+  <tabstop>spinR1kopf</tabstop>
+  <tabstop>editR2name</tabstop>
+  <tabstop>spinR2be</tabstop>
+  <tabstop>spinR2RS</tabstop>
+  <tabstop>spinR2bein</tabstop>
+  <tabstop>spinR2larm</tabstop>
+  <tabstop>spinR2rarm</tabstop>
+  <tabstop>spinR2bauch</tabstop>
+  <tabstop>spinR2brust</tabstop>
+  <tabstop>spinR2kopf</tabstop>
+  <tabstop>checkZonen</tabstop>
+  <tabstop>checkW1FK</tabstop>
+  <tabstop>editW1name</tabstop>
+  <tabstop>spinW1w6</tabstop>
+  <tabstop>spinW1plus</tabstop>
+  <tabstop>spinW1rw</tabstop>
+  <tabstop>spinW1rw2</tabstop>
+  <tabstop>spinW1wm</tabstop>
+  <tabstop>spinW1h</tabstop>
+  <tabstop>editW1eig</tabstop>
+  <tabstop>checkW2FK</tabstop>
+  <tabstop>editW2name</tabstop>
+  <tabstop>spinW2w6</tabstop>
+  <tabstop>spinW2plus</tabstop>
+  <tabstop>spinW2rw</tabstop>
+  <tabstop>spinW2rw2</tabstop>
+  <tabstop>spinW2wm</tabstop>
+  <tabstop>spinW2h</tabstop>
+  <tabstop>editW2eig</tabstop>
+  <tabstop>checkW3FK</tabstop>
+  <tabstop>editW3name</tabstop>
+  <tabstop>spinW3w6</tabstop>
+  <tabstop>spinW3plus</tabstop>
+  <tabstop>spinW3rw</tabstop>
+  <tabstop>spinW3rw2</tabstop>
+  <tabstop>spinW3wm</tabstop>
+  <tabstop>spinW3h</tabstop>
+  <tabstop>editW3eig</tabstop>
+  <tabstop>checkW4FK</tabstop>
+  <tabstop>editW4name</tabstop>
+  <tabstop>spinW4w6</tabstop>
+  <tabstop>spinW4plus</tabstop>
+  <tabstop>spinW4rw</tabstop>
+  <tabstop>spinW4rw2</tabstop>
+  <tabstop>spinW4wm</tabstop>
+  <tabstop>spinW4h</tabstop>
+  <tabstop>editW4eig</tabstop>
+  <tabstop>checkW5FK</tabstop>
+  <tabstop>editW5name</tabstop>
+  <tabstop>spinW5w6</tabstop>
+  <tabstop>spinW5plus</tabstop>
+  <tabstop>spinW5rw</tabstop>
+  <tabstop>spinW5rw2</tabstop>
+  <tabstop>spinW5wm</tabstop>
+  <tabstop>spinW5h</tabstop>
+  <tabstop>editW5eig</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
