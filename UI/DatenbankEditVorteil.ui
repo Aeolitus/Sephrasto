@@ -95,11 +95,17 @@
        </item>
        <item>
         <widget class="QSpinBox" name="kostenEdit">
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
          <property name="suffix">
           <string> EP</string>
          </property>
+         <property name="minimum">
+          <number>-1000</number>
+         </property>
          <property name="maximum">
-          <number>160</number>
+          <number>1000</number>
          </property>
          <property name="singleStep">
           <number>20</number>

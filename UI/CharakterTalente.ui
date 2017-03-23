@@ -37,7 +37,7 @@
         <x>0</x>
         <y>0</y>
         <width>223</width>
-        <height>241</height>
+        <height>251</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
@@ -74,8 +74,11 @@
          <property name="suffix">
           <string> EP</string>
          </property>
+         <property name="minimum">
+          <number>0</number>
+         </property>
          <property name="maximum">
-          <number>100</number>
+          <number>200</number>
          </property>
          <property name="singleStep">
           <number>20</number>

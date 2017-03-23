@@ -78,10 +78,11 @@ class Char():
         for key in Definitionen.Attribute:
             spent += sum(range(self.attribute[key].wert+1))*self.attribute[key].steigerungsfaktor
         spent += sum(range(self.asp.wert+1))*self.asp.steigerungsfaktor
-        spent += sum(range(self.kap.wert+1))*self.kap.steigerungsfaktor          
+        spent += sum(range(self.kap.wert+1))*self.kap.steigerungsfaktor   
         #Dritter Block: Vorteile
         for vor in self.vorteile:
-            spent += max(0,Wolke.DB.vorteile[vor].kosten)
+            if Wolke.DB.vorteile[vor].kosten != -1:
+                spent += Wolke.DB.vorteile[vor].kosten
         #Vierter Block: Fertigkeiten und Freie Fertigkeiten
         for fer in self.fertigkeiten:
             spent += sum(range(self.fertigkeiten[fer].wert+1))*self.fertigkeiten[fer].steigerungsfaktor

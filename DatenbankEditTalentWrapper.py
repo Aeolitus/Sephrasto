@@ -38,9 +38,7 @@ class DatenbankEditTalentWrapper(object):
             self.talent.text = ui.textEdit.toPlainText()
             self.talent.kosten = -1
             if ui.buttonSpezial.isChecked():
-                self.talent.kosten = int(ui.comboKosten.currentText()[:2])
-                if self.talent.kosten not in [0,20,40,60,80]:
-                    self.talent.kosten = int(ui.comboKosten.currentText()[:3])
+                self.talent.kosten = ui.spinKosten.value()
             elif ui.buttonVerbilligt.isChecked():
                 self.talent.verbilligt = 1
         else:

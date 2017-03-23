@@ -68,37 +68,25 @@
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboKosten">
-           <item>
-            <property name="text">
-             <string>0 EP</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>20 EP</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>40 EP</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>60 EP</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>80 EP</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>100 EP</string>
-            </property>
-           </item>
+          <widget class="QSpinBox" name="spinKosten">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::PlusMinus</enum>
+           </property>
+           <property name="suffix">
+            <string> EP</string>
+           </property>
+           <property name="minimum">
+            <number>0</number>
+           </property>
+           <property name="maximum">
+            <number>200</number>
+           </property>
+           <property name="singleStep">
+            <number>20</number>
+           </property>
           </widget>
          </item>
         </layout>
@@ -154,7 +142,6 @@
   <tabstop>buttonRegulaer</tabstop>
   <tabstop>buttonVerbilligt</tabstop>
   <tabstop>buttonSpezial</tabstop>
-  <tabstop>comboKosten</tabstop>
   <tabstop>fertigkeitenEdit</tabstop>
   <tabstop>voraussetzungenEdit</tabstop>
   <tabstop>textEdit</tabstop>
