@@ -104,7 +104,7 @@ class Char():
         for fer in self.übernatürlicheFertigkeiten:
             spent += sum(range(self.übernatürlicheFertigkeiten[fer].wert+1))*self.übernatürlicheFertigkeiten[fer].steigerungsfaktor
             for tal in self.übernatürlicheFertigkeiten[fer].gekaufteTalente:
-                if Wolke.DB.talente[tal].kosten > -1:
+                if Wolke.DB.talente[tal].kosten != -1:
                     spent += Wolke.DB.talente[tal].kosten
                 elif Wolke.DB.talente[tal].verbilligt:
                     spent += 10*self.übernatürlicheFertigkeiten[fer].steigerungsfaktor
