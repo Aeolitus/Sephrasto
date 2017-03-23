@@ -179,44 +179,48 @@ class Char():
             A für Attribut - prüft, ob das Attribut mit Key Str mindestens auf Wert W ist
         Einträge im Array können auch weitere Arrays and Voraussetzungen sein.
         Aus diesen Arrays muss nur ein Eintrag erfüllt sein.
+        Wenn Wolke.Reqs nicht gesetzt ist, gibt die Methode immer True zurück.
         '''
-        #Gehe über alle Elemente in der Liste
-        retNor = True
-        retOr = False
-        for voraus in Vor:
-            erfüllt = False
-            if type(voraus) is list:
-                erfüllt = self.voraussetzungenPrüfen(voraus,True)
-            else: 
-                #Split am Separator
-                arr = re.split(':',voraus)
-                #Vorteile:
-                if arr[0] is 'V':
-                    if len(arr) > 2:
-                        cond = int(arr[2])
-                    else: 
-                        cond = 1
-                    found = 0
-                    if arr[1] in self.vorteile:
-                        found = 1
-                    if found == 1 and cond == 1:
-                        erfüllt = True
-                    elif found == 0 and cond == 0:
-                        erfüllt = True
-                #Attribute:
-                elif arr[0] is 'A':
-                    #Wir greifen direkt auf den Eintrag zu und vergleichen. 
-                    if self.attribute[arr[1]].wert >= int(arr[2]):
-                        erfüllt = True            
-            if not erfüllt:
-                retNor = False
+        if Wolke.Reqs:
+            #Gehe über alle Elemente in der Liste
+            retNor = True
+            retOr = False
+            for voraus in Vor:
+                erfüllt = False
+                if type(voraus) is list:
+                    erfüllt = self.voraussetzungenPrüfen(voraus,True)
+                else: 
+                    #Split am Separator
+                    arr = re.split(':',voraus)
+                    #Vorteile:
+                    if arr[0] is 'V':
+                        if len(arr) > 2:
+                            cond = int(arr[2])
+                        else: 
+                            cond = 1
+                        found = 0
+                        if arr[1] in self.vorteile:
+                            found = 1
+                        if found == 1 and cond == 1:
+                            erfüllt = True
+                        elif found == 0 and cond == 0:
+                            erfüllt = True
+                    #Attribute:
+                    elif arr[0] is 'A':
+                        #Wir greifen direkt auf den Eintrag zu und vergleichen. 
+                        if self.attribute[arr[1]].wert >= int(arr[2]):
+                            erfüllt = True            
+                if not erfüllt:
+                    retNor = False
+                else:
+                    retOr = True
+            # Alle Voraussetzungen sind gecheckt und wir sind nirgendwo gefailt.
+            if Or and (retNor or retOr):
+                return retOr
             else:
-                retOr = True
-        # Alle Voraussetzungen sind gecheckt und wir sind nirgendwo gefailt.
-        if Or and (retNor or retOr):
-            return retOr
+                return retNor
         else:
-            return retNor
+            return True
     
     def xmlSchreiben(self,filename):
         '''Speichert dieses Charakter-Objekt in einer XML Datei, deren Dateiname inklusive Pfad als Argument übergeben wird'''

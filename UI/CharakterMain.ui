@@ -38,23 +38,11 @@
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
         <widget class="QLabel" name="label">
-         <property name="minimumSize">
-          <size>
-           <width>115</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
          <property name="text">
-          <string>Erfahrungspunke:</string>
+          <string> Erfahrung: </string>
          </property>
          <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -76,23 +64,11 @@
        </item>
        <item>
         <widget class="QLabel" name="label_2">
-         <property name="minimumSize">
-          <size>
-           <width>115</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
          <property name="text">
-          <string>Verfügbar:</string>
+          <string> Verfügbar: </string>
          </property>
          <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -118,6 +94,16 @@
          </property>
          <property name="maximum">
           <number>100000</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkReq">
+         <property name="text">
+          <string>Voraussetzungen</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
          </property>
         </widget>
        </item>

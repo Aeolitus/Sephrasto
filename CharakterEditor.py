@@ -75,6 +75,12 @@ class Editor(object):
         self.ui.buttonSave.clicked.connect(self.saveButton)
         self.ui.buttonSavePDF.clicked.connect(self.pdfButton)
         self.ui.spinEP.valueChanged.connect(self.epChanged)
+        self.ui.checkReq.stateChanged.connect(self.reqChanged)
+        
+    def reqChanged(self):
+        Wolke.Reqs = self.ui.checkReq.isChecked()
+        Wolke.Char.aktualisieren()
+        self.reloadAll()
         
     def updateEP(self):
         try:
@@ -150,8 +156,12 @@ if __name__ == "__main__":
         if app is None:
             app = QtWidgets.QApplication(sys.argv)
         ed = Editor()
+        ed.formMain = QtWidgets.QWidget()
+        ed.ui = CharakterMain.Ui_formMain()
+        ed.ui.setupUi(ed.formMain)
+        ed.ui.tabs.removeTab(0)
+        ed.ui.tabs.removeTab(0)
         ed.setupMainForm()
-        
         ed.formMain.show()
         app.exec_() 
     #except:
