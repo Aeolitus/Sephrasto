@@ -21,26 +21,26 @@ import Datenbank
 from Wolke import Wolke
 
 class Editor(object):
-    def __init__(self, Character=None):
+    def __init__(self, CharacterName=""):
         super().__init__()
         Wolke.DB = Datenbank.Datenbank()
-        if Character is not None:
-            Wolke.Char = Character
-        else:
-            Wolke.Char = Charakter.Char() 
-            #TODO: Remove
-            Wolke.Char.xmlLesen("Franz.xml")
+        Wolke.Char = Charakter.Char() 
+        if CharacterName != "":
+            Wolke.Char.xmlLesen(CharacterName)
         Wolke.Char.aktualisieren() # A bit later because it needs access to itself
         
         self.ignoreModified = False
         
         
     def setupMainForm(self):
-        self.formMain = QtWidgets.QWidget()
-        self.ui = CharakterMain.Ui_formMain()
-        self.ui.setupUi(self.formMain)
-        self.ui.tabs.removeTab(0)
-        self.ui.tabs.removeTab(0)
+
+#==============================================================================
+#         self.formMain = QtWidgets.QWidget()
+#         self.ui = CharakterMain.Ui_formMain()
+#         self.ui.setupUi(self.formMain)
+#         self.ui.tabs.removeTab(0)
+#         self.ui.tabs.removeTab(0)
+#==============================================================================
         
         self.updateEP()
         
@@ -75,7 +75,6 @@ class Editor(object):
         self.ui.buttonSave.clicked.connect(self.saveButton)
         self.ui.buttonSavePDF.clicked.connect(self.pdfButton)
         self.ui.spinEP.valueChanged.connect(self.epChanged)
-        self.formMain.show()
         
     def updateEP(self):
         try:
@@ -152,6 +151,8 @@ if __name__ == "__main__":
             app = QtWidgets.QApplication(sys.argv)
         ed = Editor()
         ed.setupMainForm()
+        
+        ed.formMain.show()
         app.exec_() 
     #except:
      #   print("Error manhandled.")

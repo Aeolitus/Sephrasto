@@ -18,13 +18,8 @@ class DatenbankEdit(object):
     def __init__(self):
         super().__init__()
         self.datenbank = Datenbank.Datenbank()
-        self.app = QtCore.QCoreApplication.instance()
-        if self.app is None:
-            self.app = QtWidgets.QApplication(sys.argv)
-        self.Form = QtWidgets.QWidget()
-        self.ui = DatenbankMain.Ui_Form()
-        self.ui.setupUi(self.Form)
-        
+    
+    def setupGUI(self):
         # GUI Mods
         self.model = QtGui.QStandardItemModel(self.ui.listDatenbank)
         self.ui.listDatenbank.setModel(self.model)
@@ -39,10 +34,7 @@ class DatenbankEdit(object):
         self.ui.buttonLoeschen.clicked.connect(self.deleteSelected)
         self.ui.buttonHinzufuegen.clicked.connect(self.hinzufuegen)
         self.updateGUI()
-        
-        self.Form.show()
-        self.app.exec_()
-        
+    
     def updateGUI(self):
         self.model.clear()
         if self.ui.showTalente.isChecked():
@@ -229,3 +221,12 @@ class DatenbankEdit(object):
         
 if __name__ == "__main__":
     D = DatenbankEdit()
+    app = QtCore.QCoreApplication.instance()
+    if app is None:
+        app = QtWidgets.QApplication(sys.argv)
+    D.Form = QtWidgets.QWidget()
+    D.ui = DatenbankMain.Ui_Form()
+    D.ui.setupUi(D.Form)
+    D.setupGUI()
+    D.Form.show()
+    app.exec_()
