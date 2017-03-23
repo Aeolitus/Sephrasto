@@ -473,7 +473,7 @@ class Char():
         fields['DHm'] = max(self.dh - 2*self.be,1)
         fields['GSm'] = max(self.gs-self.be,1)
         if len(self.rüstung) > 0:    
-            fields['WSm'] = self.ws + sum(self.rüstung[0].rs)/6
+            fields['WSm'] = int(self.ws + sum(self.rüstung[0].rs)/6+0.5)
         else:
             fields['WSm'] = self.ws
                       
@@ -498,6 +498,7 @@ class Char():
             for i in range(el.wert):
                 resp += "I"
             fields['Frei' + str(count)] = resp
+            count += 1
         # Standardfertigkeiten
         #TODO: Weitere Fertigkeiten? 
         for el in Definitionen.StandardFerts:
@@ -528,8 +529,9 @@ class Char():
         count = 0
         for el in self.rüstung:
             fields['Text53.' + str(count)] = el.name
-            fields['Text55.' + str(count)] = sum(el.rs)/6
+            fields['Text55.' + str(count)] = int(sum(el.rs)/6+0.5)
             fields['Text56.' + str(count)] = el.be
+            fields['Text57.' + str(count)] = int(sum(el.rs)/6+self.ws+0.5)
             fields['Text58.' + str(count)] = el.rs[0]
             fields['Text59.' + str(count)] = el.rs[1]
             fields['Text60.' + str(count)] = el.rs[2]
@@ -572,19 +574,22 @@ class Char():
     def pdfSechsterBlock(self, fields):
         count = 0
         for el in self.übernatürlicheFertigkeiten:
-            fields['text86.'+str(count)] = self.übernatürlicheFertigkeiten[el].name
-            fields['text87.'+str(count)] = str(self.übernatürlicheFertigkeiten[el].steigerungsfaktor)       
+            if self.übernatürlicheFertigkeiten[el].wert <= 0:
+                continue
+            fields['Text86.'+str(count)] = self.übernatürlicheFertigkeiten[el].name
+            fields['Text87.'+str(count)] = str(self.übernatürlicheFertigkeiten[el].steigerungsfaktor)       
             attr = str(self.übernatürlicheFertigkeiten[el].attribute[0]) + "/" + str(self.übernatürlicheFertigkeiten[el].attribute[1]) + "/" + str(self.übernatürlicheFertigkeiten[el].attribute[2])
-            fields['text88.'+str(count)] = attr
-            fields['text89.'+str(count)] = self.übernatürlicheFertigkeiten[el].basiswert       
-            fields['text90.'+str(count)] = self.übernatürlicheFertigkeiten[el].wert
+            fields['Text88.'+str(count)] = attr
+            fields['Text89.'+str(count)] = self.übernatürlicheFertigkeiten[el].basiswert       
+            fields['Text90.'+str(count)] = self.übernatürlicheFertigkeiten[el].wert
             tal = ""
             for el2 in self.übernatürlicheFertigkeiten[el].gekaufteTalente:
                 tal += ", "
                 tal += el2
             tal = tal[2:]
-            fields['text91.'+str(count)] = tal
-            fields['text92.'+str(count)] = self.übernatürlicheFertigkeiten[el].probenwertTalent
+            fields['Text91.'+str(count)] = tal
+            fields['Text92.'+str(count)] = self.übernatürlicheFertigkeiten[el].probenwertTalent
+            count += 1
             if count >= 7:
                 break
         return fields

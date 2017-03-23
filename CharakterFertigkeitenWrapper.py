@@ -86,8 +86,8 @@ class FertigkeitenWrapper(QtCore.QObject):
                 count += 1
             self.uiFert.tableWidget.cellClicked.connect(self.tableClicked) 
         self.updateInfo()
-        self.updateTalents()
-            
+        self.updateTalents()      
+        
     def tableClicked(self,new,old):
         self.currentFertName = new.text()
         self.updateInfo()

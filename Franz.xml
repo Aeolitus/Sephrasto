@@ -44,8 +44,12 @@
     <Vorteil>Praioskirchliche Tradition IV</Vorteil>
   </Vorteile>
   <Fertigkeiten>
-    <Fertigkeit name="Handgemenge" wert="0">
-      <Talente/>
+    <Fertigkeit name="Handgemenge" wert="6">
+      <Talente>
+        <Talent name="Unbewaffnet"/>
+        <Talent name="Handgemengewaffen"/>
+        <Talent name="Schilde"/>
+      </Talente>
     </Fertigkeit>
     <Fertigkeit name="Hiebwaffen" wert="0">
       <Talente/>
@@ -111,6 +115,17 @@
       <Talente/>
     </Fertigkeit>
     <Freie-Fertigkeit name="Muttersprache" wert="3"/>
+    <Freie-Fertigkeit name="A" wert="2"/>
+    <Freie-Fertigkeit name="B" wert="1"/>
+    <Freie-Fertigkeit name="C" wert="3"/>
+    <Freie-Fertigkeit name="D" wert="2"/>
+    <Freie-Fertigkeit name="E" wert="1"/>
+    <Freie-Fertigkeit name="F" wert="3"/>
+    <Freie-Fertigkeit name="G" wert="2"/>
+    <Freie-Fertigkeit name="H" wert="1"/>
+    <Freie-Fertigkeit name="I" wert="3"/>
+    <Freie-Fertigkeit name="J" wert="2"/>
+    <Freie-Fertigkeit name="K" wert="1"/>
   </Fertigkeiten>
   <Objekte>
     <Rüstungen/>
@@ -145,17 +160,27 @@
     </Ausrüstung>
   </Objekte>
   <Übernatürliche-Fertigkeiten>
-    <Übernatürliche-Fertigkeit name="Zwölfgöttlicher Ritus" wert="0">
-      <Talente/>
+    <Übernatürliche-Fertigkeit name="Zwölfgöttlicher Ritus" wert="6">
+      <Talente>
+        <Talent name="Eidsegen"/>
+        <Talent name="Feuersegen"/>
+        <Talent name="Geburtssegen"/>
+        <Talent name="Glückssegen"/>
+      </Talente>
     </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Licht" wert="0">
-      <Talente/>
+    <Übernatürliche-Fertigkeit name="Licht" wert="4">
+      <Talente>
+        <Talent name="Ucuris Geleit"/>
+        <Talent name="Weisung des Himmels"/>
+      </Talente>
     </Übernatürliche-Fertigkeit>
     <Übernatürliche-Fertigkeit name="Magiebann" wert="0">
       <Talente/>
     </Übernatürliche-Fertigkeit>
     <Übernatürliche-Fertigkeit name="Ordnung" wert="0">
-      <Talente/>
+      <Talente>
+        <Talent name="Eidsegen"/>
+      </Talente>
     </Übernatürliche-Fertigkeit>
     <Übernatürliche-Fertigkeit name="Antimagie" wert="0">
       <Talente/>
@@ -214,6 +239,6 @@
   </Übernatürliche-Fertigkeiten>
   <Erfahrung>
     <EPtotal>10000</EPtotal>
-    <EPspent>7630</EPspent>
+    <EPspent>8124</EPspent>
   </Erfahrung>
 </Charakter>
