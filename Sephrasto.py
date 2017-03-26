@@ -40,6 +40,8 @@ class MainWindowWrapper(object):
         
     def editExisting(self):
         spath, _ = QtWidgets.QFileDialog.getOpenFileName(None,"Charakter laden...","","XML-Datei (*.xml)")
+        if spath == "":
+            return
         if ".xml" not in spath:
             spath = spath + ".xml"
         try:
@@ -53,13 +55,14 @@ class MainWindowWrapper(object):
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
             infoBox.exec_()
-        self.ed.formMain = QtWidgets.QWidget()
-        self.ed.ui = CharakterMain.Ui_formMain()
-        self.ed.ui.setupUi(self.ed.formMain)
-        self.ed.ui.tabs.removeTab(0)
-        self.ed.ui.tabs.removeTab(0)
-        self.ed.setupMainForm()
-        self.ed.formMain.show()
+        else:
+            self.ed.formMain = QtWidgets.QWidget()
+            self.ed.ui = CharakterMain.Ui_formMain()
+            self.ed.ui.setupUi(self.ed.formMain)
+            self.ed.ui.tabs.removeTab(0)
+            self.ed.ui.tabs.removeTab(0)
+            self.ed.setupMainForm()
+            self.ed.formMain.show()
         
     def editRuleset(self):
         self.D = DatenbankEdit.DatenbankEdit()

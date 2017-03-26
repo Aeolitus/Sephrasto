@@ -6,6 +6,7 @@ import re
 import pdf
 import copy
 from Wolke import Wolke
+from Hilfsmethoden import Hilfsmethoden
 
 class Char():
     def __init__(self):
@@ -257,7 +258,6 @@ class Char():
             talentNode = etree.SubElement(fertNode,'Talente')
             for talent in self.fertigkeiten[fert].gekaufteTalente:
                 etree.SubElement(talentNode,'Talent').set('name',talent)
-        print(self.freieFertigkeiten)
         for fert in self.freieFertigkeiten:
             freiNode = etree.SubElement(fer,'Freie-Fertigkeit')
             freiNode.set('name',fert.name)
@@ -265,27 +265,25 @@ class Char():
         #Fünfter Block
         aus = etree.SubElement(root,'Objekte')
         rüs = etree.SubElement(aus,'Rüstungen')
-        print(self.rüstung)
         for rüst in self.rüstung:
             rüsNode = etree.SubElement(rüs,'Rüstung')
             rüsNode.set('name',rüst.name)
             rüsNode.set('be',str(rüst.be))
-            rüsNode.set('rs',repr(rüst.rs))
+            rüsNode.set('rs',Hilfsmethoden.RsArray2Str(rüst.rs))
         waf = etree.SubElement(aus,'Waffen')
-        print(self.waffen)
         for waff in self.waffen:
             wafNode = etree.SubElement(waf,'Waffe')
             wafNode.set('name',waff.name)
-            wafNode.set('W6',str(waff.w6))
+            wafNode.set('W6',str(waff.W6))
             wafNode.set('plus',str(waff.plus))
             wafNode.set('eigenschaften',waff.eigenschaften)
-            wafNode.set('härte',str(waff.härte))
+            wafNode.set('haerte',str(waff.haerte))
             if type(waff) is Objekte.Nahkampfwaffe:
-                wafNode.set('Typ','Nah')
+                wafNode.set('typ','Nah')
                 wafNode.set('rw',str(waff.rw))
                 wafNode.set('wm',str(waff.wm))
             elif type(waff) is Objekte.Fernkampfwaffe:
-                wafNode.set('Typ','Fern')
+                wafNode.set('typ','Fern')
                 wafNode.set('rwnah',str(waff.rwnah))
                 wafNode.set('rwfern',str(waff.rwfern))
                 wafNode.set('lz',str(waff.lz))
@@ -354,16 +352,15 @@ class Char():
             fert.name = fer.attrib['name']
             fert.wert = int(fer.attrib['wert'])
             self.freieFertigkeiten.append(fert)
-            print(fert.name + " loaded - Count: " + str(len(self.freieFertigkeiten)))
         #Fünfter Block
         for rüs in root.findall('Objekte/Rüstungen/Rüstung'):
             rüst = Objekte.Ruestung()
             rüst.name = rüs.attrib['name']
             rüst.be = int(rüs.attrib['be'])
-            rüst.rs = eval(rüs.attrib['rs'])
+            rüst.rs = Hilfsmethoden.RsStr2Array(rüs.attrib['rs'])
             self.rüstung.append(rüst)
         for waf in root.findall('Objekte/Waffen/Waffe'):
-            if waf.attrib['Typ'] is 'Nah':
+            if waf.attrib['typ'] == 'Nah':
                 waff = Objekte.Nahkampfwaffe()
                 waff.rw = int(waf.attrib['rw'])
                 waff.wm = int(waf.attrib['wm'])
@@ -376,7 +373,7 @@ class Char():
             waff.W6 = int(waf.attrib['W6'])
             waff.plus = int(waf.attrib['plus'])
             waff.eigenschaften = waf.attrib['eigenschaften']
-            waff.härte = int(waf.attrib['härte'])
+            waff.haerte = int(waf.attrib['haerte'])
             self.waffen.append(waff)
         for aus in root.findall('Objekte/Ausrüstung/Ausrüstungsstück'):
             self.ausrüstung.append(aus.text)

@@ -33,88 +33,97 @@ class EquipWrapper(QtCore.QObject):
         self.uiEq.checkW4FK.stateChanged.connect(self.checkToggleEquip)
         self.uiEq.checkW5FK.stateChanged.connect(self.checkToggleEquip)
         self.uiEq.checkZonen.stateChanged.connect(self.checkToggleEquip)
+        
+        self.currentlyLoading = False
+        
         self.checkToggleEquip()
         
     def updateEquipment(self):
-        Wolke.Char.rüstung = []
-        if self.uiEq.editR1name.text() != "":
-            R = Objekte.Ruestung() 
-            R.name = self.uiEq.editR1name.text()
-            R.be = int(self.uiEq.spinR1be.value())
-            if self.uiEq.checkZonen:
-                R.rs = [self.uiEq.spinR1bein.value(), self.uiEq.spinR1larm.value(), self.uiEq.spinR1rarm.value(), self.uiEq.spinR1bauch.value(), self.uiEq.spinR1brust.value(), self.uiEq.spinR1kopf.value()]
-            else:
-                R.rs = 6*[self.uiEq.spinR1RS]
-            Wolke.Char.rüstung.append(R)
-        if self.uiEq.editR2name.text() != "":
-            R = Objekte.Ruestung() 
-            R.name = self.uiEq.editR2name.text()
-            R.be = self.uiEq.spinR2be.value()
-            if self.uiEq.checkZonen:
-                R.rs = [self.uiEq.spinR2bein.value(), self.uiEq.spinR2larm.value(), self.uiEq.spinR2rarm.value(), self.uiEq.spinR2bauch.value(), self.uiEq.spinR2brust.value(), self.uiEq.spinR2kopf.value()]
-            else:
-                R.rs = 6*[self.uiEq.spinR2RS]
-            Wolke.Char.rüstung.append(R)
-            
-        Wolke.Char.waffen = []
-        for el in ['W1', 'W2', 'W3', 'W4', 'W5']:
-            if (eval("self.uiEq.edit" + el + "name.text()") != ""):
-                W = Objekte.Waffe()
-                if eval("self.uiEq.check" + el + "FK.isChecked()"):
-                    W = Objekte.Fernkampfwaffe()
-                    W.rwnah = eval("self.uiEq.spin" + el + "rw.value()")
-                    W.rwfern = eval("self.uiEq.spin" + el + "rw2.value()")
-                    W.lz = eval("self.uiEq.spin" + el + "wm.value()")
+        if not self.currentlyLoading:
+            Wolke.Char.rüstung = []
+            if self.uiEq.editR1name.text() != "":
+                R = Objekte.Ruestung() 
+                R.name = self.uiEq.editR1name.text()
+                R.be = int(self.uiEq.spinR1be.value())
+                if self.uiEq.checkZonen:
+                    R.rs = [self.uiEq.spinR1bein.value(), self.uiEq.spinR1larm.value(), self.uiEq.spinR1rarm.value(), self.uiEq.spinR1bauch.value(), self.uiEq.spinR1brust.value(), self.uiEq.spinR1kopf.value()]
                 else:
-                    W = Objekte.Nahkampfwaffe()
-                    W.rw = eval("self.uiEq.spin" + el + "rw.value()")
-                    W.wm = eval("self.uiEq.spin" + el + "wm.value()")
-                W.name = eval("self.uiEq.edit" + el + "name.text()")
-                W.haerte = eval("self.uiEq.spin" + el + "h.value()")
-                W.W6 = eval("self.uiEq.spin" + el + "w6.value()")
-                W.plus = eval("self.uiEq.spin" + el + "plus.value()")
-                W.eigenschaften = eval("self.uiEq.edit" + el + "eig.text()")
-                Wolke.Char.waffen.append(W)
-        Wolke.Char.aktualisieren()
-        self.modified.emit()
+                    R.rs = 6*[self.uiEq.spinR1RS]
+                Wolke.Char.rüstung.append(R)
+            if self.uiEq.editR2name.text() != "":
+                R = Objekte.Ruestung() 
+                R.name = self.uiEq.editR2name.text()
+                R.be = self.uiEq.spinR2be.value()
+                if self.uiEq.checkZonen:
+                    R.rs = [self.uiEq.spinR2bein.value(), self.uiEq.spinR2larm.value(), self.uiEq.spinR2rarm.value(), self.uiEq.spinR2bauch.value(), self.uiEq.spinR2brust.value(), self.uiEq.spinR2kopf.value()]
+                else:
+                    R.rs = 6*[self.uiEq.spinR2RS]
+                Wolke.Char.rüstung.append(R)
+                
+            Wolke.Char.waffen = []
+            for el in ['W1', 'W2', 'W3', 'W4', 'W5']:
+                if (eval("self.uiEq.edit" + el + "name.text()") != ""):
+                    if eval("self.uiEq.check" + el + "FK.isChecked()"):
+                        W = Objekte.Fernkampfwaffe()
+                        W.rwnah = eval("self.uiEq.spin" + el + "rw.value()")
+                        W.rwfern = eval("self.uiEq.spin" + el + "rw2.value()")
+                        W.lz = eval("self.uiEq.spin" + el + "wm.value()")
+                    else:
+                        W = Objekte.Nahkampfwaffe()
+                        W.rw = eval("self.uiEq.spin" + el + "rw.value()")
+                        W.wm = eval("self.uiEq.spin" + el + "wm.value()")
+                    W.name = eval("self.uiEq.edit" + el + "name.text()")
+                    W.haerte = eval("self.uiEq.spin" + el + "h.value()")
+                    W.W6 = eval("self.uiEq.spin" + el + "w6.value()")
+                    W.plus = eval("self.uiEq.spin" + el + "plus.value()")
+                    W.eigenschaften = eval("self.uiEq.edit" + el + "eig.text()")
+                    Wolke.Char.waffen.append(W)
+            Wolke.Char.aktualisieren()
+            self.modified.emit()
         
     def loadEquipment(self):
-        Rarr = ["R1", "R2"]
-        count = 0
-        while count < len(Wolke.Char.rüstung):
-            R = Wolke.Char.rüstung[count]
-            eval("self.uiEq.edit" + Rarr[count] + "name.setText(\"" + R.name +"\")")
-            eval("self.uiEq.spin" + Rarr[count] + "be.setValue(" + str(R.be) +")")
-            eval("self.uiEq.spin" + Rarr[count] + "bein.setValue(" + str(R.rs[0]) +")")
-            eval("self.uiEq.spin" + Rarr[count] + "larm.setValue(" + str(R.rs[1]) +")")
-            eval("self.uiEq.spin" + Rarr[count] + "rarm.setValue(" + str(R.rs[2]) +")")
-            eval("self.uiEq.spin" + Rarr[count] + "bauch.setValue(" + str(R.rs[3]) +")")
-            eval("self.uiEq.spin" + Rarr[count] + "brust.setValue(" + str(R.rs[4]) +")")
-            eval("self.uiEq.spin" + Rarr[count] + "kopf.setValue(" + str(R.rs[5]) +")")
-            eval("self.uiEq.spin" + Rarr[count] + "kopf.setValue(" + str(round(sum(R.rs)/6)) +")")
-            count += 1
-        Warr = ["W1","W2","W3","W4","W5"]
-        count = 0
-        while count < len(Wolke.Char.waffen):
-            W = Wolke.Char.waffen[count]
-            eval("self.uiEq.edit" + Warr[count] + "name.setText(\""+ W.name +"\")")
-            eval("self.uiEq.edit" + Warr[count] + "eig.setText(\""+ W.eigenschaften +"\")")
-            eval("self.uiEq.spin" + Warr[count] + "w6.setValue("+ str(W.W6) +")")
-            eval("self.uiEq.spin" + Warr[count] + "plus.setValue("+ str(W.plus) +")")
-            eval("self.uiEq.spin" + Warr[count] + "h.setValue("+ str(W.haerte) +")")
-            if type(W) == Objekte.Fernkampfwaffe:
-                eval("self.uiEq.spin" + Warr[count] + "rw.setValue("+ str(W.rwnah) +")")
-                eval("self.uiEq.spin" + Warr[count] + "rw2.setValue("+ str(W.rwfern) +")")
-                eval("self.uiEq.spin" + Warr[count] + "wm.setValue("+ str(W.lz) +")")
-                eval("self.uiEq.check" + Warr[count] + "FK.setChecked(True)")
-            elif type(W) == Objekte.Nahkampfwaffe:
-                eval("self.uiEq.spin" + Warr[count] + "rw.setValue("+ str(W.rw) +")")
-                eval("self.uiEq.spin" + Warr[count] + "wm.setValue("+ str(W.wm) +")")
-                eval("self.uiEq.check" + Warr[count] + "FK.setChecked(False)")
-            count += 1
+        self.currentlyLoading = True
+        try:
+            Rarr = ["R1", "R2"]
+            count = 0
+            while count < len(Wolke.Char.rüstung):
+                R = Wolke.Char.rüstung[count]
+                eval("self.uiEq.edit" + Rarr[count] + "name.setText(\"" + R.name +"\")")
+                eval("self.uiEq.spin" + Rarr[count] + "be.setValue(" + str(R.be) +")")
+                eval("self.uiEq.spin" + Rarr[count] + "bein.setValue(" + str(R.rs[0]) +")")
+                eval("self.uiEq.spin" + Rarr[count] + "larm.setValue(" + str(R.rs[1]) +")")
+                eval("self.uiEq.spin" + Rarr[count] + "rarm.setValue(" + str(R.rs[2]) +")")
+                eval("self.uiEq.spin" + Rarr[count] + "bauch.setValue(" + str(R.rs[3]) +")")
+                eval("self.uiEq.spin" + Rarr[count] + "brust.setValue(" + str(R.rs[4]) +")")
+                eval("self.uiEq.spin" + Rarr[count] + "kopf.setValue(" + str(R.rs[5]) +")")
+                eval("self.uiEq.spin" + Rarr[count] + "kopf.setValue(" + str(int(sum(R.rs)/6+0.5)) +")")
+                count += 1
+            Warr = ["W1","W2","W3","W4","W5"]
+            count = 0
+            while count < len(Wolke.Char.waffen):
+                W = Wolke.Char.waffen[count]
+                eval("self.uiEq.edit" + Warr[count] + "name.setText(\""+ W.name +"\")")
+                eval("self.uiEq.edit" + Warr[count] + "eig.setText(\""+ W.eigenschaften +"\")")
+                eval("self.uiEq.spin" + Warr[count] + "w6.setValue("+ str(W.W6) +")")
+                eval("self.uiEq.spin" + Warr[count] + "plus.setValue("+ str(W.plus) +")")
+                eval("self.uiEq.spin" + Warr[count] + "h.setValue("+ str(W.haerte) +")")
+                if type(W) == Objekte.Fernkampfwaffe:
+                    eval("self.uiEq.spin" + Warr[count] + "rw.setValue("+ str(W.rwnah) +")")
+                    eval("self.uiEq.spin" + Warr[count] + "rw2.setValue("+ str(W.rwfern) +")")
+                    eval("self.uiEq.spin" + Warr[count] + "wm.setValue("+ str(W.lz) +")")
+                    eval("self.uiEq.check" + Warr[count] + "FK.setChecked(True)")
+                elif type(W) == Objekte.Nahkampfwaffe:
+                    eval("self.uiEq.spin" + Warr[count] + "rw.setValue("+ str(W.rw) +")")
+                    eval("self.uiEq.spin" + Warr[count] + "wm.setValue("+ str(W.wm) +")")
+                    eval("self.uiEq.check" + Warr[count] + "FK.setChecked(False)")
+                count += 1
+        except:
+            pass
+        self.currentlyLoading = False
         
     def checkToggleEquip(self):
         Warr = ["W1","W2","W3","W4","W5"]
+        self.currentlyLoading = True
         for el in Warr:
             if not eval("self.uiEq.check" + el + "FK.isChecked()"):
                 eval("self.uiEq.spin" + el + "rw2.setValue(0)")
@@ -169,3 +178,4 @@ class EquipWrapper(QtCore.QObject):
             self.uiEq.labelLarm.hide()
             self.uiEq.labelRarm.hide()
             self.uiEq.labelKopf.hide()
+        self.currentlyLoading = False

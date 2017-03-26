@@ -146,3 +146,12 @@ class Hilfsmethoden:
             retArr.append(el)
         return retArr
     
+    @staticmethod
+    def RsArray2Str(RsArr):
+        return str(RsArr[0]) + "/" + str(RsArr[1]) + "/" + str(RsArr[2]) + "/"\
+            + str(RsArr[3]) + "/" + str(RsArr[4]) + "/" + str(RsArr[5])
+        
+    @staticmethod
+    def RsStr2Array(RsStr):
+        return [int(a) for a in RsStr.split("/")]
+    

@@ -125,6 +125,8 @@ class Editor(object):
     def saveButton(self):
         self.updateAll()
         spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"Charakter speichern...","","XML-Datei (*.xml)")
+        if spath == "":
+            return
         if ".xml" not in spath:
             spath = spath + ".xml"
         try:
@@ -135,6 +137,8 @@ class Editor(object):
     def pdfButton(self):
         self.updateAll()
         spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"Charakterbogen erstellen...","","PDF-Datei (*.pdf)")
+        if spath == "":
+            return
         if ".pdf" not in spath:
             spath = spath + ".pdf"
         try:

@@ -43,7 +43,7 @@ class CharakterFreieFertWrapper(QtCore.QObject):
             print("Error in loadFreie")
     
     def updateFreie(self):
-        Wolke.Char.freieFertigkeiten = []
+        Wolke.Char.freieFertigkeiten.clear()
         for count in range(1,13):
             tmp = eval("self.uiFert.editFF" + str(count) + ".text()")
             if tmp != "":

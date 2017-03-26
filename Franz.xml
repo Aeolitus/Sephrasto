@@ -129,9 +129,16 @@
   </Fertigkeiten>
   <Objekte>
     <Rüstungen>
-      <Rüstung name="R1" be="1" rs="[0, 0, 0, 0, 0, 0]"/>
+      <Rüstung name="R1" be="1" rs="1/1/1/1/1/1"/>
+      <Rüstung name="R2" be="1" rs="1/1/1/1/1/1"/>
     </Rüstungen>
-    <Waffen/>
+    <Waffen>
+      <Waffe name="W1" W6="1" plus="1" eigenschaften="W1E" haerte="7" typ="Nah" rw="1" wm="1"/>
+      <Waffe name="W2" W6="2" plus="2" eigenschaften="W2E" haerte="8" typ="Nah" rw="2" wm="2"/>
+      <Waffe name="W3" W6="3" plus="3" eigenschaften="W3E" haerte="9" typ="Nah" rw="3" wm="3"/>
+      <Waffe name="W4F" W6="1" plus="1" eigenschaften="W4E" haerte="7" typ="Fern" rwnah="1" rwfern="1" lz="1"/>
+      <Waffe name="W5F" W6="2" plus="2" eigenschaften="W5E" haerte="8" typ="Fern" rwnah="2" rwfern="2" lz="2"/>
+    </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>1</Ausrüstungsstück>
       <Ausrüstungsstück>2</Ausrüstungsstück>
