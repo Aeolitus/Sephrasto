@@ -257,6 +257,7 @@ class Char():
             talentNode = etree.SubElement(fertNode,'Talente')
             for talent in self.fertigkeiten[fert].gekaufteTalente:
                 etree.SubElement(talentNode,'Talent').set('name',talent)
+        print(self.freieFertigkeiten)
         for fert in self.freieFertigkeiten:
             freiNode = etree.SubElement(fer,'Freie-Fertigkeit')
             freiNode.set('name',fert.name)
@@ -264,12 +265,14 @@ class Char():
         #Fünfter Block
         aus = etree.SubElement(root,'Objekte')
         rüs = etree.SubElement(aus,'Rüstungen')
+        print(self.rüstung)
         for rüst in self.rüstung:
             rüsNode = etree.SubElement(rüs,'Rüstung')
             rüsNode.set('name',rüst.name)
             rüsNode.set('be',str(rüst.be))
             rüsNode.set('rs',repr(rüst.rs))
         waf = etree.SubElement(aus,'Waffen')
+        print(self.waffen)
         for waff in self.waffen:
             wafNode = etree.SubElement(waf,'Waffe')
             wafNode.set('name',waff.name)
@@ -277,11 +280,11 @@ class Char():
             wafNode.set('plus',str(waff.plus))
             wafNode.set('eigenschaften',waff.eigenschaften)
             wafNode.set('härte',str(waff.härte))
-            if waff is Objekte.Nahkampfwaffe:
+            if type(waff) is Objekte.Nahkampfwaffe:
                 wafNode.set('Typ','Nah')
                 wafNode.set('rw',str(waff.rw))
                 wafNode.set('wm',str(waff.wm))
-            elif waff is Objekte.Fernkampfwaffe:
+            elif type(waff) is Objekte.Fernkampfwaffe:
                 wafNode.set('Typ','Fern')
                 wafNode.set('rwnah',str(waff.rwnah))
                 wafNode.set('rwfern',str(waff.rwfern))
@@ -350,8 +353,8 @@ class Char():
             fert = Fertigkeiten.FreieFertigkeit()            
             fert.name = fer.attrib['name']
             fert.wert = int(fer.attrib['wert'])
-#            fert.aktualisieren()
             self.freieFertigkeiten.append(fert)
+            print(fert.name + " loaded - Count: " + str(len(self.freieFertigkeiten)))
         #Fünfter Block
         for rüs in root.findall('Objekte/Rüstungen/Rüstung'):
             rüst = Objekte.Ruestung()

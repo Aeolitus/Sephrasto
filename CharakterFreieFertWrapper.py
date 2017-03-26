@@ -18,32 +18,39 @@ class CharakterFreieFertWrapper(QtCore.QObject):
         self.uiFert = CharakterFreieFert.Ui_Form()
         self.uiFert.setupUi(self.formFert)
         
-        for count in range(1,13):
+        for count in range(2,13):
             eval("self.uiFert.editFF" + str(count) + ".editingFinished.connect(self.changedEntry)")
             eval("self.uiFert.comboFF" + str(count) + ".currentIndexChanged.connect(self.changedEntry)")
         
         self.loadFreie()
         
     def loadFreie(self):
-        count = 1
-        for el in Wolke.Char.freieFertigkeiten:
-            if el.name == "Muttersprache":
+        try:
+            count = 2
+            for el in Wolke.Char.freieFertigkeiten:
+                if el.name == "Muttersprache":
+                    continue
+                eval("self.uiFert.editFF" + str(count) + ".blockSignals(True)")
+                eval("self.uiFert.comboFF" + str(count) + ".blockSignals(True)")
+                eval("self.uiFert.editFF" + str(count) + ".setText(\"" + el.name + "\")")
+                eval("self.uiFert.comboFF" + str(count) + ".setCurrentIndex(" + str(el.wert-1) + ")")
+                eval("self.uiFert.editFF" + str(count) + ".blockSignals(False)")
+                eval("self.uiFert.comboFF" + str(count) + ".blockSignals(False)")
                 count += 1
-                continue
-            eval("self.uiFert.editFF" + str(count) + ".setText(\"" + el.name + "\")")
-            eval("self.uiFert.comboFF" + str(count) + ".setCurrentIndex(" + str(el.wert-1) + ")")
-            count += 1
-            if count > 12:
-                break
+                if count > 12:
+                    break
+        except:
+            print("Error in loadFreie")
     
     def updateFreie(self):
-        Wolke.Char.freieFertigkeiten.clear()
+        Wolke.Char.freieFertigkeiten = []
         for count in range(1,13):
             tmp = eval("self.uiFert.editFF" + str(count) + ".text()")
             if tmp != "":
+                val = eval("self.uiFert.comboFF" + str(count) + ".currentIndex()")+1
                 fert = Fertigkeiten.FreieFertigkeit()
                 fert.name = tmp
-                fert.wert = eval("self.uiFert.comboFF" + str(count) + ".currentIndex()")+1
+                fert.wert = val
                 Wolke.Char.freieFertigkeiten.append(fert)
         self.modified.emit()
         

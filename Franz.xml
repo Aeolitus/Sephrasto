@@ -128,7 +128,9 @@
     <Freie-Fertigkeit name="K" wert="1"/>
   </Fertigkeiten>
   <Objekte>
-    <Rüstungen/>
+    <Rüstungen>
+      <Rüstung name="R1" be="1" rs="[0, 0, 0, 0, 0, 0]"/>
+    </Rüstungen>
     <Waffen/>
     <Ausrüstung>
       <Ausrüstungsstück>1</Ausrüstungsstück>

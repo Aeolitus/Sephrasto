@@ -129,8 +129,8 @@ class Editor(object):
             spath = spath + ".xml"
         try:
             Wolke.Char.xmlSchreiben(spath)
-        except: 
-            pass #TODO: Error Handling
+        except Exception as e: 
+            print("Exception when saving: " + e)
     
     def pdfButton(self):
         self.updateAll()
