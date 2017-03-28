@@ -24,13 +24,19 @@ class Editor(object):
     def __init__(self, CharacterName=""):
         super().__init__()
         Wolke.DB = Datenbank.Datenbank()
+        if Wolke.DB.root is not None:
+            self.noDatabase = False
+            self.finishInit(CharacterName)
+        else:
+            self.noDatabase = True
+        
+    def finishInit(self, CharacterName):
         Wolke.Char = Charakter.Char() 
         if CharacterName != "":
             Wolke.Char.xmlLesen(CharacterName)
         Wolke.Char.aktualisieren() # A bit later because it needs access to itself
         
         self.ignoreModified = False
-        
         
     def setupMainForm(self):
 

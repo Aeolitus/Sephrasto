@@ -1,6 +1,7 @@
 import Fertigkeiten
 import lxml.etree as etree
 from Hilfsmethoden import Hilfsmethoden
+import os.path
 
 class Datenbank():
     def __init__(self):
@@ -11,7 +12,11 @@ class Datenbank():
 
         self.datei = 'datenbank.xml'
         self.root = None
-        self.xmlLaden()
+        if os.path.isfile(self.datei):
+            self.xmlLaden()
+        elif os.path.isfile("regelbasis.xml"):
+            self.datei = "regelbasis.xml"
+            self.xmlLaden()
 
     def xmlSchreiben(self):
         
