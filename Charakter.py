@@ -55,6 +55,8 @@ class Char():
 
         #Achter Block: Flags etc
         self.höchsteKampfF = -1
+        
+        self.CharakterBogen = "Charakterbogen.pdf"
 
     def aktualisieren(self):
         '''Berechnet alle abgeleiteten Werte neu'''
@@ -392,7 +394,7 @@ class Char():
     
     def pdfErstellen(self, filename):
         self.aktualisieren()
-        fields = pdf.get_fields("Charakterbogen.pdf")
+        fields = pdf.get_fields(self.CharakterBogen)
         fields = self.pdfErsterBlock(fields)
         fields = self.pdfZweiterBlock(fields)
         fields = self.pdfDritterBlock(fields)
@@ -402,7 +404,7 @@ class Char():
         fields = self.pdfSiebterBlock(fields)
         
         #PDF erstellen - Felder bleiben bearbeitbar
-        pdf.write_pdf("Charakterbogen.pdf", fields, filename, False)
+        pdf.write_pdf(self.CharakterBogen, fields, filename, False)
     
     def pdfErsterBlock(self, fields):
         fields['Name'] = self.name

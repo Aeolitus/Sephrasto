@@ -19,6 +19,7 @@ import sys
 import Charakter
 import Datenbank
 from Wolke import Wolke
+import os.path
 
 class Editor(object):
     def __init__(self, CharacterName=""):
@@ -142,6 +143,16 @@ class Editor(object):
     
     def pdfButton(self):
         self.updateAll()
+        # Check if there is a base Charakterbogen.pdf:
+        if not os.path.isfile(Wolke.Char.CharakterBogen):
+            spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"Leeren Charakterbogen auswählen...","","PDF-Datei (*.pdf)")
+            if spath == "":
+                return
+            if ".pdf" not in spath:
+                spath = spath + ".pdf"
+            Wolke.Char.CharakterBogen = spath
+        
+        # Let the user choose a saving location and name
         spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"Charakterbogen erstellen...","","PDF-Datei (*.pdf)")
         if spath == "":
             return
