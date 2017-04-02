@@ -60,14 +60,14 @@ class Editor(object):
         self.VortWrapper = CharakterVorteileWrapper.CharakterVorteileWrapper()
         self.ItmWrapper = CharakterItemsWrapper.CharakterItemsWrapper()
         
-        self.ui.tabs.addTab(self.BeschrWrapper.formBeschr, "Beschreibung")
-        self.ui.tabs.addTab(self.AttrWrapper.formAttr, "Attribute")
-        self.ui.tabs.addTab(self.VortWrapper.formVor, "Vorteile")
-        self.ui.tabs.addTab(self.FertWrapper.formFert, "Fertigkeiten")
-        self.ui.tabs.addTab(self.FreiWrapper.formFert, "Freie Fertigkeiten")
-        self.ui.tabs.addTab(self.UebernatuerlichWrapper.formFert, "Übernatürliches")
-        self.ui.tabs.addTab(self.EquipWrapper.formEq, "Ausrüstung")    
-        self.ui.tabs.addTab(self.ItmWrapper.formIt, "Inventar")
+        self.ui.tabs.addTab(self.BeschrWrapper.formBeschr, "    Beschreibung    ")
+        self.ui.tabs.addTab(self.AttrWrapper.formAttr, "    Attribute    ")
+        self.ui.tabs.addTab(self.VortWrapper.formVor, "    Vorteile    ")
+        self.ui.tabs.addTab(self.FertWrapper.formFert, "    Fertigkeiten    ")
+        self.ui.tabs.addTab(self.FreiWrapper.formFert, "    Freie Fertigkeiten    ")
+        self.ui.tabs.addTab(self.UebernatuerlichWrapper.formFert, "    Übernatürliches    ")
+        self.ui.tabs.addTab(self.EquipWrapper.formEq, "    Ausrüstung    ")    
+        self.ui.tabs.addTab(self.ItmWrapper.formIt, "    Inventar    ")
         
         self.BeschrWrapper.modified.connect(self.updateEP)
         self.AttrWrapper.modified.connect(self.updateEP)
@@ -83,6 +83,8 @@ class Editor(object):
         self.ui.buttonSavePDF.clicked.connect(self.pdfButton)
         self.ui.spinEP.valueChanged.connect(self.epChanged)
         self.ui.checkReq.stateChanged.connect(self.reqChanged)
+        
+        self.reloadAll()
         
     def reqChanged(self):
         Wolke.Reqs = self.ui.checkReq.isChecked()

@@ -33,15 +33,15 @@
   </Energien>
   <Vorteile>
     <Vorteil>Geweiht I</Vorteil>
-    <Vorteil>Praioskirchliche Tradition I</Vorteil>
-    <Vorteil>Zauberer I</Vorteil>
     <Vorteil>Gildenmagische Repräsentation I</Vorteil>
     <Vorteil>Gildenmagische Repräsentation II</Vorteil>
     <Vorteil>Gildenmagische Repräsentation III</Vorteil>
     <Vorteil>Gildenmagische Repräsentation IV</Vorteil>
+    <Vorteil>Praioskirchliche Tradition I</Vorteil>
     <Vorteil>Praioskirchliche Tradition II</Vorteil>
     <Vorteil>Praioskirchliche Tradition III</Vorteil>
     <Vorteil>Praioskirchliche Tradition IV</Vorteil>
+    <Vorteil>Zauberer I</Vorteil>
   </Vorteile>
   <Fertigkeiten>
     <Fertigkeit name="Handgemenge" wert="6">

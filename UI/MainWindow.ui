@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>232</width>
-    <height>300</height>
+    <width>286</width>
+    <height>336</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,6 +16,12 @@
   <layout class="QGridLayout" name="gridLayout">
    <item row="4" column="0">
     <widget class="QPushButton" name="buttonNew">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>25</height>
+      </size>
+     </property>
      <property name="text">
       <string>Neuen Charakter erstellen</string>
      </property>
@@ -23,6 +29,12 @@
    </item>
    <item row="7" column="0">
     <widget class="QPushButton" name="buttonRules">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>25</height>
+      </size>
+     </property>
      <property name="text">
       <string>Regelbasis bearbeiten</string>
      </property>
@@ -30,6 +42,12 @@
    </item>
    <item row="5" column="0">
     <widget class="QPushButton" name="buttonEdit">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>25</height>
+      </size>
+     </property>
      <property name="text">
       <string>Vorhandenen Charakter bearbeiten</string>
      </property>
@@ -37,9 +55,15 @@
    </item>
    <item row="1" column="0">
     <widget class="QLabel" name="label">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <pointsize>13</pointsize>
        <weight>75</weight>
        <italic>true</italic>
        <bold>true</bold>
@@ -59,6 +83,12 @@
    </item>
    <item row="2" column="0">
     <widget class="QLabel" name="label_2">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>20</height>
+      </size>
+     </property>
      <property name="text">
       <string>Ein Charaktergenerator für Ilaris</string>
      </property>
@@ -102,7 +132,7 @@
       </font>
      </property>
      <property name="text">
-      <string>by Aeolitus</string>
+      <string>by Aeolitus </string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

@@ -1,5 +1,7 @@
 python C:\Users\Aeolitus\Anaconda3\Scripts\cxfreeze --target-dir=C:\Users\Aeolitus\Desktop\Sephrasto\Build ^
---include-modules=lxml._elementpath,os C:\Users\Aeolitus\Desktop\Sephrasto\Sephrasto.py
+--base-name=Win32GUI ^
+--include-modules=lxml._elementpath,os ^
+C:\Users\Aeolitus\Desktop\Sephrasto\Sephrasto.py
 COPY /Y C:\Users\Aeolitus\Desktop\Sephrasto\IncludeInBuildFolder\* C:\Users\Aeolitus\Desktop\Sephrasto\Build
 mkdir Build\Library\plugins\platforms
 COPY /Y C:\Users\Aeolitus\Desktop\Sephrasto\IncludeInBuildFolder\Library\plugins\platforms\* ^

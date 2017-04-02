@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>379</width>
-    <height>303</height>
+    <width>440</width>
+    <height>370</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -69,6 +69,12 @@
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_2">
+       <property name="minimumSize">
+        <size>
+         <width>110</width>
+         <height>0</height>
+        </size>
+       </property>
        <property name="text">
         <string>Steigerungsfaktor</string>
        </property>
@@ -78,6 +84,12 @@
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
         <widget class="QComboBox" name="comboAttribut1">
+         <property name="minimumSize">
+          <size>
+           <width>45</width>
+           <height>0</height>
+          </size>
+         </property>
          <item>
           <property name="text">
            <string>KO</string>
@@ -132,6 +144,12 @@
        </item>
        <item>
         <widget class="QComboBox" name="comboAttribut2">
+         <property name="minimumSize">
+          <size>
+           <width>45</width>
+           <height>0</height>
+          </size>
+         </property>
          <item>
           <property name="text">
            <string>KO</string>
@@ -186,6 +204,12 @@
        </item>
        <item>
         <widget class="QComboBox" name="comboAttribut3">
+         <property name="minimumSize">
+          <size>
+           <width>45</width>
+           <height>0</height>
+          </size>
+         </property>
          <item>
           <property name="text">
            <string>KO</string>
@@ -253,7 +277,7 @@
      <item row="4" column="0">
       <widget class="QLabel" name="label_5">
        <property name="text">
-        <string>Text</string>
+        <string>Beschreibung</string>
        </property>
       </widget>
      </item>

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>701</width>
-    <height>409</height>
+    <width>872</width>
+    <height>421</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
       <widget class="QScrollArea" name="scrollArea">
        <property name="minimumSize">
         <size>
-         <width>225</width>
+         <width>300</width>
          <height>0</height>
         </size>
        </property>
@@ -38,8 +38,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>223</width>
-          <height>387</height>
+          <width>298</width>
+          <height>399</height>
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
@@ -124,6 +124,12 @@
          </item>
          <item row="0" column="0" colspan="5">
           <widget class="QLabel" name="labelFertigkeit">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>20</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <weight>75</weight>
@@ -207,6 +213,12 @@
          </item>
          <item row="2" column="0" colspan="5">
           <widget class="QLabel" name="labelAttribute">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>18</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <italic>true</italic>
@@ -228,20 +240,38 @@
          <property name="editTriggers">
           <set>QAbstractItemView::NoEditTriggers</set>
          </property>
+         <property name="alternatingRowColors">
+          <bool>true</bool>
+         </property>
          <property name="selectionMode">
           <enum>QAbstractItemView::SingleSelection</enum>
          </property>
          <property name="selectionBehavior">
           <enum>QAbstractItemView::SelectRows</enum>
          </property>
+         <property name="horizontalScrollMode">
+          <enum>QAbstractItemView::ScrollPerPixel</enum>
+         </property>
          <property name="showGrid">
-          <bool>false</bool>
+          <bool>true</bool>
          </property>
          <attribute name="horizontalHeaderHighlightSections">
           <bool>false</bool>
          </attribute>
+         <attribute name="horizontalHeaderMinimumSectionSize">
+          <number>80</number>
+         </attribute>
          <attribute name="verticalHeaderVisible">
           <bool>false</bool>
+         </attribute>
+         <attribute name="verticalHeaderDefaultSectionSize">
+          <number>40</number>
+         </attribute>
+         <attribute name="verticalHeaderHighlightSections">
+          <bool>true</bool>
+         </attribute>
+         <attribute name="verticalHeaderMinimumSectionSize">
+          <number>40</number>
          </attribute>
          <column>
           <property name="text">

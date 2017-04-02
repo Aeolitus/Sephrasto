@@ -16,6 +16,12 @@
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
     <widget class="QTreeWidget" name="treeWidget">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="editTriggers">
       <set>QAbstractItemView::NoEditTriggers</set>
      </property>
@@ -68,7 +74,7 @@
     <widget class="QScrollArea" name="scrollArea">
      <property name="minimumSize">
       <size>
-       <width>225</width>
+       <width>300</width>
        <height>0</height>
       </size>
      </property>
@@ -86,13 +92,19 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>223</width>
+        <width>298</width>
         <height>389</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="5" column="0" colspan="2">
         <widget class="QLabel" name="label_8">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>18</height>
+          </size>
+         </property>
          <property name="text">
           <string>Voraussetzungen:</string>
          </property>
@@ -144,6 +156,12 @@
        </item>
        <item row="3" column="0">
         <widget class="QLabel" name="labelTyp">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>18</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <italic>true</italic>
@@ -182,6 +200,12 @@
        </item>
        <item row="4" column="1">
         <widget class="QLabel" name="labelNachkauf">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>18</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <italic>true</italic>
@@ -194,6 +218,12 @@
        </item>
        <item row="1" column="0" colspan="2">
         <widget class="QLabel" name="labelVorteil">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <weight>75</weight>

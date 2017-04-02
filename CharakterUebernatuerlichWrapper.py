@@ -55,7 +55,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
             self.uiFert.tableWidget.setColumnCount(3)
             self.uiFert.tableWidget.verticalHeader().setVisible(False)
             item = QtWidgets.QTableWidgetItem()
-            item.setText("Bezeichnung")
+            item.setText("Name")
             self.uiFert.tableWidget.setHorizontalHeaderItem(0, item)
             item = QtWidgets.QTableWidgetItem()
             item.setTextAlignment(QtCore.Qt.AlignCenter)

@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>713</width>
-    <height>491</height>
+    <width>900</width>
+    <height>500</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,6 +23,18 @@
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
         <widget class="QTabWidget" name="tabs">
+         <property name="tabPosition">
+          <enum>QTabWidget::North</enum>
+         </property>
+         <property name="currentIndex">
+          <number>1</number>
+         </property>
+         <property name="elideMode">
+          <enum>Qt::ElideRight</enum>
+         </property>
+         <property name="documentMode">
+          <bool>false</bool>
+         </property>
          <widget class="QWidget" name="tab">
           <attribute name="title">
            <string>Tab 1</string>
@@ -41,6 +53,18 @@
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
         <widget class="QLabel" name="label">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>66</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="text">
           <string> Erfahrung: </string>
          </property>
@@ -67,6 +91,18 @@
        </item>
        <item>
         <widget class="QLabel" name="label_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>66</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="text">
           <string> Verfügbar: </string>
          </property>
@@ -102,6 +138,18 @@
        </item>
        <item>
         <widget class="QCheckBox" name="checkReq">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>125</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="text">
           <string>Voraussetzungen</string>
          </property>

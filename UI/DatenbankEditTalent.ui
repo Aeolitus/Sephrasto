@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>381</width>
-    <height>304</height>
+    <width>440</width>
+    <height>370</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -62,6 +62,12 @@
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
           <widget class="QRadioButton" name="buttonSpezial">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="text">
             <string>Spezialtalent (Kosten frei wählbar)</string>
            </property>
@@ -69,6 +75,18 @@
          </item>
          <item>
           <widget class="QSpinBox" name="spinKosten">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>60</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
            </property>
@@ -102,6 +120,12 @@
      </item>
      <item row="3" column="0">
       <widget class="QLabel" name="label_4">
+       <property name="minimumSize">
+        <size>
+         <width>110</width>
+         <height>0</height>
+        </size>
+       </property>
        <property name="text">
         <string>Voraussetzungen</string>
        </property>
@@ -113,7 +137,7 @@
      <item row="4" column="0">
       <widget class="QLabel" name="label_5">
        <property name="text">
-        <string>Text</string>
+        <string>Beschreibung</string>
        </property>
       </widget>
      </item>

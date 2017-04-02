@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>543</width>
-    <height>452</height>
+    <width>600</width>
+    <height>500</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -56,6 +56,12 @@
        </item>
        <item>
         <widget class="QCheckBox" name="showUebernatuerlicheFertigkeiten">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="text">
           <string>Übernatürliche Fertigkeiten</string>
          </property>
@@ -79,6 +85,12 @@
        </item>
        <item>
         <widget class="QPushButton" name="buttonLoadDB">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
          <property name="text">
           <string>Andere Regelbasis laden</string>
          </property>
@@ -86,6 +98,12 @@
        </item>
        <item>
         <widget class="QPushButton" name="buttonSaveDB">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
          <property name="text">
           <string>Regelbasis speichern</string>
          </property>
@@ -115,6 +133,12 @@
          </item>
          <item>
           <widget class="QPushButton" name="buttonHinzufuegen">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>25</height>
+            </size>
+           </property>
            <property name="text">
             <string>Hinzufügen</string>
            </property>
@@ -122,6 +146,12 @@
          </item>
          <item>
           <widget class="QPushButton" name="buttonEditieren">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>25</height>
+            </size>
+           </property>
            <property name="text">
             <string>Editieren</string>
            </property>
@@ -129,6 +159,12 @@
          </item>
          <item>
           <widget class="QPushButton" name="buttonLoeschen">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>25</height>
+            </size>
+           </property>
            <property name="text">
             <string>Löschen</string>
            </property>

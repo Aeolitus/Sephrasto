@@ -34,6 +34,12 @@
      </item>
      <item>
       <widget class="QLabel" name="label">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>20</height>
+        </size>
+       </property>
        <property name="font">
         <font>
          <weight>75</weight>
@@ -68,6 +74,12 @@
       <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="0">
         <widget class="QRadioButton" name="buttonTalent">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
          <property name="text">
           <string>Talent</string>
          </property>
@@ -78,6 +90,12 @@
        </item>
        <item row="1" column="1">
         <widget class="QRadioButton" name="buttonUebernatuerlich">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
          <property name="text">
           <string>Übernatürliche Fertigkeit</string>
          </property>
@@ -85,6 +103,12 @@
        </item>
        <item row="1" column="0">
         <widget class="QRadioButton" name="buttonFertigkeit">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
          <property name="text">
           <string>Profane Fertigkeit</string>
          </property>
@@ -92,6 +116,12 @@
        </item>
        <item row="0" column="1">
         <widget class="QRadioButton" name="buttonVorteil">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
          <property name="text">
           <string>Vorteil</string>
          </property>
