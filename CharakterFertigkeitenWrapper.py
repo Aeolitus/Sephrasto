@@ -88,9 +88,11 @@ class FertigkeitenWrapper(QtCore.QObject):
         self.updateInfo()
         self.updateTalents()      
         
-    def tableClicked(self,new,old):
-        self.currentFertName = new.text()
-        self.updateInfo()
+    def tableClicked(self):
+        tmp = self.uiFert.tableWidget.item(self.uiFert.tableWidget.currentRow(),0).text()
+        if tmp in Wolke.Char.fertigkeiten:    
+            self.currentFertName = tmp
+            self.updateInfo()
         
     def fwChanged(self):
         if self.currentFertName != "":

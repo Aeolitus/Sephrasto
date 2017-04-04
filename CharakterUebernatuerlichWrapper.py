@@ -27,7 +27,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
         
         #Signals
         self.uiFert.spinFW.valueChanged.connect(self.fwChanged)
-        self.uiFert.tableWidget.itemSelectionChanged.connect(self.tableClicked)   
+        self.uiFert.tableWidget.currentItemChanged.connect(self.tableClicked)   
         self.uiFert.buttonAdd.clicked.connect(self.editTalents)
 
         self.availableFerts = []
@@ -89,8 +89,10 @@ class UebernatuerlichWrapper(QtCore.QObject):
         self.updateTalents()
             
     def tableClicked(self):
-        self.currentFertName = self.uiFert.tableWidget.selectedItems()[0].text()
-        self.updateInfo()
+        tmp = self.uiFert.tableWidget.item(self.uiFert.tableWidget.currentRow(),0).text()
+        if tmp in Wolke.Char.übernatürlicheFertigkeiten:    
+            self.currentFertName = tmp
+            self.updateInfo()
         
     def fwChanged(self):
         if self.currentFertName != "":
