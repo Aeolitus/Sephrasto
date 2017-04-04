@@ -92,17 +92,17 @@ class Editor(object):
         self.reloadAll()
         
     def updateEP(self):
-        try:
-            if not self.ignoreModified:
-                self.ui.spinEP.setValue(Wolke.Char.EPtotal)
-                Wolke.Char.aktualisieren()
-                self.ui.spinRemaining.setValue(Wolke.Char.EPtotal-Wolke.Char.EPspent)
-                if Wolke.Char.EPtotal < Wolke.Char.EPspent:
-                    self.ui.spinRemaining.setStyleSheet("QSpinBox { background-color: rgb(200,50,50) }")
-                else:
-                    self.ui.spinRemaining.setStyleSheet("QSpinBox { background-color: white }")
-        except:
-            print("Error thrown in CharakterEditor->updateEP")
+       # try:
+        if not self.ignoreModified:
+            self.ui.spinEP.setValue(Wolke.Char.EPtotal)
+            Wolke.Char.aktualisieren()
+            self.ui.spinRemaining.setValue(Wolke.Char.EPtotal-Wolke.Char.EPspent)
+            if Wolke.Char.EPtotal < Wolke.Char.EPspent:
+                self.ui.spinRemaining.setStyleSheet("QSpinBox { background-color: rgb(200,50,50) }")
+            else:
+                self.ui.spinRemaining.setStyleSheet("QSpinBox { background-color: white }")
+        #except:
+        #    print("Error thrown in CharakterEditor->updateEP")
     
     def epChanged(self):
         Wolke.Char.EPtotal = self.ui.spinEP.value()
@@ -140,8 +140,15 @@ class Editor(object):
             spath = spath + ".xml"
         try:
             Wolke.Char.xmlSchreiben(spath)
-        except Exception as e: 
-            print("Exception when saving: " + e)
+        except:
+            infoBox = QtWidgets.QMessageBox()
+            infoBox.setIcon(QtWidgets.QMessageBox.Information)
+            infoBox.setText("Speichern fehlgeschlagen!")
+            infoBox.setInformativeText("Speichern fehlgeschlagen. Sind Schreibrechte in diesem Ordner vorhanden?")
+            infoBox.setWindowTitle("Fehler")
+            infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
+            infoBox.exec_()
     
     def pdfButton(self):
         self.updateAll()
