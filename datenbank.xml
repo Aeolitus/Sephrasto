@@ -669,7 +669,7 @@ Wirkungsdauer: augenblicklich</Talent>
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
 Zielobjekt: selbst</Talent>
-  <Talent name="Exorzismus" kosten="60" voraussetzungen="Vorteil Hesindekirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Abu al, Mada, Magie, Magiebann, Schutz der Gläubigen, Tod, Wind und Wogen">Du verbannst einen freien oder gebundenen Dämon.  
+  <Talent name="Exorzismus" kosten="60" voraussetzungen="Vorteil Hesindekirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Abu al'Mada, Magie, Magiebann, Schutz der Gläubigen, Tod, Wind und Wogen">Du verbannst einen freien oder gebundenen Dämon.  
 Probenschwierigkeit: Beschwörungsschwierigkeit des Dämonen
 Vorbereitungszeit: 8 Aktionen
 Zielobjekt: Einzelwesen
@@ -691,12 +691,12 @@ Zielobjekt: Zone
 Reichweite: Berührung
 Wirkungsdauer: 1 Stunde 
 Kosten: 16 KaP </Talent>
-  <Talent name="Sicht auf Madas Welt" kosten="20" voraussetzungen="Vorteil Hesindekirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Abu al, Mada, Magie, Magiebann">Du nimmst magische Kraft in deiner Umgebung als silbernen Schimmer wahr. Das entspricht einem Analysegrad von 1 für die Intensitätsanalyse.
+  <Talent name="Sicht auf Madas Welt" kosten="20" voraussetzungen="Vorteil Hesindekirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Abu al'Mada, Magie, Magiebann">Du nimmst magische Kraft in deiner Umgebung als silbernen Schimmer wahr. Das entspricht einem Analysegrad von 1 für die Intensitätsanalyse.
 Mächtige Liturgie: Der Analysegrad steigt um 1. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Aktion
 Zielobjekt: selbst</Talent>
-  <Talent name="Unverstellter Blick" kosten="20" voraussetzungen="Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I" verbilligt="0" fertigkeiten="Abu al, Mada, Magie, Magiebann">Du nimmst alle Illusionen als golden (Pra), silbern (Phe) oder grün (Hes) schillernd wahr. 
+  <Talent name="Unverstellter Blick" kosten="20" voraussetzungen="Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I" verbilligt="0" fertigkeiten="Abu al'Mada, Magie, Magiebann">Du nimmst alle Illusionen als golden (Pra), silbern (Phe) oder grün (Hes) schillernd wahr. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 8 Aktionen
 Zielobjekt: selbst</Talent>
@@ -849,7 +849,7 @@ Zielobjekt: Einzelperson
 Reichweite: 16 Schritt
 Wirkungsdauer: 1 Stunde
 Kosten: 8 KaP</Talent>
-  <Talent name="Phexens Sternenwurf" kosten="60" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Abu al, Mada">Du rufst einen der Wurfsterne des Phex herbei. Dieser erleichtert die Fernkampfprobe um +4, richtet 2W20 TP an und verschwindet nach dem Wurf.
+  <Talent name="Phexens Sternenwurf" kosten="60" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Abu al'Mada">Du rufst einen der Wurfsterne des Phex herbei. Dieser erleichtert die Fernkampfprobe um +4, richtet 2W20 TP an und verschwindet nach dem Wurf.
 Mächtige Liturgie: Erhöht die TP um 1W20.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Aktionen

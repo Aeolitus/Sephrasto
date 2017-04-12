@@ -87,7 +87,7 @@ def updateUeberTalents():
             tal.voraussetzungen.append(arr)
             #Move to fertigkeiten
             count -= 1
-            resFe = re.findall(u"[a-zA-ZäöüÄÖÜß ]+",txt.paragraphs[count].text, re.UNICODE)
+            resFe = re.findall(u"[a-zA-ZäöüÄÖÜß ']+",txt.paragraphs[count].text, re.UNICODE)
             if resFe[0] != "Fertigkeiten":
                 flag = True
             else:
