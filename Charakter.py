@@ -70,6 +70,7 @@ class Char():
         self.schips = self.finanzen+2
         if len(self.rüstung) > 0:
             self.be = self.rüstung[0].be
+        self.updateVorts()
         self.updateFerts()
         self.epZaehlen()
 
@@ -127,6 +128,13 @@ class Char():
 #             return 1
 #         return 0
 #==============================================================================
+    def updateVorts(self):
+        remove = []
+        for vor in self.vorteile:
+            if not self.voraussetzungenPrüfen(Wolke.DB.vorteile[vor].voraussetzungen):
+                remove.append(vor)
+        for el in remove:
+            self.vorteile.remove(el)
 
     def updateFerts(self):
         remove = []

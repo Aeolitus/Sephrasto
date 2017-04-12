@@ -78,14 +78,17 @@ class CharakterVorteileWrapper(QtCore.QObject):
                     if type(chi) != QtWidgets.QTreeWidgetItem:
                         continue
                     txt = chi.text(0)
-                    if txt not in vortList[i]:
-                        chi.setHidden(True)
-                    else:
-                        chi.setHidden(False)
                     if txt in Wolke.Char.vorteile:    
                         chi.setCheckState(0, QtCore.Qt.Checked)
                     else:
-                        chi.setCheckState(0, QtCore.Qt.Unchecked)                    
+                        chi.setCheckState(0, QtCore.Qt.Unchecked) 
+                    if txt not in vortList[i]:
+                        chi.setHidden(True)
+                        if txt in Wolke.Char.vorteile:
+                            chi.setCheckState(0,QtCore.Qt.Unchecked)
+                            Wolke.Char.vorteile.remove(txt)
+                    else:
+                        chi.setHidden(False)
             self.updateInfo()
             self.uiVor.treeWidget.blockSignals(False)
         except:
@@ -108,8 +111,11 @@ class CharakterVorteileWrapper(QtCore.QObject):
             else:
                 if name in Wolke.Char.vorteile:
                     Wolke.Char.vorteile.remove(name)
+            self.loadVorteile() 
+            # Do this before modified to filter those where we no longer fulfil 
+            # the reqs. Klicking on Vorteile should never change attributes and
+            # such anyways.
             self.modified.emit()
-            self.loadVorteile()      
             self.uiVor.treeWidget.blockSignals(False)
         except:
             print("Error thrown in CVW->itemChangeHandler")  
