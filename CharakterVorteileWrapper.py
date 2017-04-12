@@ -35,9 +35,8 @@ class CharakterVorteileWrapper(QtCore.QObject):
             self.uiVor.treeWidget.blockSignals(True)
             vortList = [[],[],[],[],[],[],[],[]]
             for el in Wolke.DB.vorteile:
-                if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.vorteile[el].voraussetzungen):
-                    idx = Wolke.DB.vorteile[el].typ
-                    vortList[idx].append(el)
+                idx = Wolke.DB.vorteile[el].typ
+                vortList[idx].append(el)
             for i in range(len(vortList)):
                 parent = QtWidgets.QTreeWidgetItem(self.uiVor.treeWidget)
                 parent.setText(0, VorteilTypen[i])
@@ -51,6 +50,10 @@ class CharakterVorteileWrapper(QtCore.QObject):
                     else:
                         child.setCheckState(0, QtCore.Qt.Unchecked)
                     child.setText(1, str(Wolke.DB.vorteile[el].kosten))
+                    if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.vorteile[el].voraussetzungen):
+                        child.setHidden(False)
+                    else:
+                        child.setHidden(True)
             self.updateInfo()
             self.uiVor.treeWidget.blockSignals(False)
         except:
@@ -64,9 +67,6 @@ class CharakterVorteileWrapper(QtCore.QObject):
                 if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.vorteile[el].voraussetzungen):
                     idx = Wolke.DB.vorteile[el].typ
                     vortList[idx].append(el)
-            #self.uiVor.treeWidget.clear()
-            # Workaround since clear causes python to crash sometimes:
-            cpy = vortList[:]
             for i in range(len(vortList)):
                 itm = self.uiVor.treeWidget.topLevelItem(i)
                 if type(itm) != QtWidgets.QTreeWidgetItem:
@@ -82,21 +82,10 @@ class CharakterVorteileWrapper(QtCore.QObject):
                         chi.setHidden(True)
                     else:
                         chi.setHidden(False)
-                        cpy[i].remove(txt)
-                for el in cpy[i]:
-                    ix = 0
-                    for i in range(itm.childCount()):
-                        if el < itm.child(i).text(0):
-                            break
-                        ix += 1
-                    child = QtWidgets.QTreeWidgetItem()
-                    child.setText(0, Wolke.DB.vorteile[el].name)
-                    if el in Wolke.Char.vorteile:    
-                        child.setCheckState(0, QtCore.Qt.Checked)
+                    if txt in Wolke.Char.vorteile:    
+                        chi.setCheckState(0, QtCore.Qt.Checked)
                     else:
-                        child.setCheckState(0, QtCore.Qt.Unchecked)
-                    child.setText(1, str(Wolke.DB.vorteile[el].kosten))
-                    itm.insertChild(ix, child)
+                        chi.setCheckState(0, QtCore.Qt.Unchecked)                    
             self.updateInfo()
             self.uiVor.treeWidget.blockSignals(False)
         except:
@@ -123,7 +112,8 @@ class CharakterVorteileWrapper(QtCore.QObject):
             self.loadVorteile()      
             self.uiVor.treeWidget.blockSignals(False)
         except:
-            print("Error thrown in CVW->itemChangeHandler")            
+            print("Error thrown in CVW->itemChangeHandler")  
+            self.uiVor.treeWidget.blockSignals(False)
     
     def vortClicked(self):
         try:
