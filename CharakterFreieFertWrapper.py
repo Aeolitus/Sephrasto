@@ -39,6 +39,14 @@ class CharakterFreieFertWrapper(QtCore.QObject):
                 count += 1
                 if count > 12:
                     break
+            while count < 13:
+                eval("self.uiFert.editFF" + str(count) + ".blockSignals(True)")
+                eval("self.uiFert.comboFF" + str(count) + ".blockSignals(True)")
+                eval("self.uiFert.editFF" + str(count) + ".setText(\"\")")
+                eval("self.uiFert.comboFF" + str(count) + ".setCurrentIndex(0)")
+                eval("self.uiFert.editFF" + str(count) + ".blockSignals(False)")
+                eval("self.uiFert.comboFF" + str(count) + ".blockSignals(False)")
+                count += 1
         except:
             print("Error in loadFreie")
     
