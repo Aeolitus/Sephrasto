@@ -497,13 +497,34 @@ class Char():
         return fields
     
     def pdfDritterBlock(self, fields):    
-        self.vorteile = sorted(self.vorteile, key=str.lower)
+        sortV = self.vorteile.copy()
+        for vort in sortV:
+            flag = False
+            if vort.endswith(" I"):
+                basename = vort[:-2]
+                flag = True
+            elif vort.endswith(" II") or vort.endswith(" IV"):
+                basename = vort[:-3]
+                flag = True
+            elif vort.endswith(" III"):
+                basename = vort[:-4]
+                flag = True
+            if flag:
+                fullset = [" I", " II", " III", " IV"]
+                fullenum = ""
+                for el in fullset:
+                    if basename+el in sortV:
+                        sortV.remove(basename+el)
+                        fullenum += "," + el[1:]
+                        print(fullenum)
+                sortV.append(basename + " " + fullenum[1:])
+        sortV = sorted(sortV, key=str.lower)
         for i in range(1,9):
-            if len(self.vorteile)<i: break
-            fields['Vorteil' + str(i)] = self.vorteile[i-1]
+            if len(sortV)<i: break
+            fields['Vorteil' + str(i)] = sortV[i-1]
         for i in range(1,14):
-            if len(self.vorteile)-8<i: break
-            fields['Weite' + str(i)] = self.vorteile[i-1+8]
+            if len(sortV)-8<i: break
+            fields['Weite' + str(i)] = sortV[i-1+8]
         return fields
     
     def pdfVierterBlock(self, fields):
