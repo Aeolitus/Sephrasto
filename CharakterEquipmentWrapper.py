@@ -45,16 +45,16 @@ class EquipWrapper(QtCore.QObject):
                 R = Objekte.Ruestung() 
                 R.name = self.uiEq.editR1name.text()
                 R.be = int(self.uiEq.spinR1be.value())
-                if self.uiEq.checkZonen:
+                if self.uiEq.checkZonen.isChecked():
                     R.rs = [self.uiEq.spinR1bein.value(), self.uiEq.spinR1larm.value(), self.uiEq.spinR1rarm.value(), self.uiEq.spinR1bauch.value(), self.uiEq.spinR1brust.value(), self.uiEq.spinR1kopf.value()]
                 else:
-                    R.rs = 6*[self.uiEq.spinR1RS]
+                    R.rs = 6*[self.uiEq.spinR1RS.value()]
                 Wolke.Char.rüstung.append(R)
             if self.uiEq.editR2name.text() != "":
                 R = Objekte.Ruestung() 
                 R.name = self.uiEq.editR2name.text()
                 R.be = self.uiEq.spinR2be.value()
-                if self.uiEq.checkZonen:
+                if self.uiEq.checkZonen.isChecked():
                     R.rs = [self.uiEq.spinR2bein.value(), self.uiEq.spinR2larm.value(), self.uiEq.spinR2rarm.value(), self.uiEq.spinR2bauch.value(), self.uiEq.spinR2brust.value(), self.uiEq.spinR2kopf.value()]
                 else:
                     R.rs = 6*[self.uiEq.spinR2RS]
@@ -108,13 +108,19 @@ class EquipWrapper(QtCore.QObject):
             eval("self.uiEq.spin" + Warr[count] + "h.setValue("+ str(W.haerte) +")")
             if type(W) == Objekte.Fernkampfwaffe:
                 eval("self.uiEq.spin" + Warr[count] + "rw.setValue("+ str(W.rwnah) +")")
+                eval("self.uiEq.spin" + Warr[count] + "rw2.setEnabled(True)")
+                eval("self.uiEq.spin" + Warr[count] + "rw2.show()")
                 eval("self.uiEq.spin" + Warr[count] + "rw2.setValue("+ str(W.rwfern) +")")
                 eval("self.uiEq.spin" + Warr[count] + "wm.setValue("+ str(W.lz) +")")
                 eval("self.uiEq.check" + Warr[count] + "FK.setChecked(True)")
+                eval("self.uiEq.labelDash" + Warr[count] + ".show()")
             elif type(W) == Objekte.Nahkampfwaffe:
                 eval("self.uiEq.spin" + Warr[count] + "rw.setValue("+ str(W.rw) +")")
                 eval("self.uiEq.spin" + Warr[count] + "wm.setValue("+ str(W.wm) +")")
+                eval("self.uiEq.spin" + Warr[count] + "rw2.setEnabled(False)")
+                eval("self.uiEq.spin" + Warr[count] + "rw2.hide()")
                 eval("self.uiEq.check" + Warr[count] + "FK.setChecked(False)")
+                eval("self.uiEq.labelDash" + Warr[count] + ".hide()")
             count += 1
         self.currentlyLoading = False
         

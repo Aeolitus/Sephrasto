@@ -88,6 +88,7 @@ class Char():
             if Wolke.DB.vorteile[vor].kosten != -1:
                 spent += Wolke.DB.vorteile[vor].kosten
         #Vierter Block: Fertigkeiten und Freie Fertigkeiten
+        paidTalents = []
         for fer in self.fertigkeiten:
             spent += sum(range(self.fertigkeiten[fer].wert+1))*self.fertigkeiten[fer].steigerungsfaktor
             skip = False
@@ -95,6 +96,9 @@ class Char():
                 if fer == "Gebräuche" and not skip:
                     skip = True
                     continue
+                if tal in paidTalents:
+                    continue
+                paidTalents.append(tal)
                 if Wolke.DB.talente[tal].kosten != -1:
                     spent += Wolke.DB.talente[tal].kosten
                 elif Wolke.DB.talente[tal].verbilligt:
@@ -109,6 +113,9 @@ class Char():
         for fer in self.übernatürlicheFertigkeiten:
             spent += sum(range(self.übernatürlicheFertigkeiten[fer].wert+1))*self.übernatürlicheFertigkeiten[fer].steigerungsfaktor
             for tal in self.übernatürlicheFertigkeiten[fer].gekaufteTalente:
+                if tal in paidTalents:
+                    continue
+                paidTalents.append(tal)
                 if Wolke.DB.talente[tal].kosten != -1:
                     spent += Wolke.DB.talente[tal].kosten
                 elif Wolke.DB.talente[tal].verbilligt:
@@ -472,13 +479,13 @@ class Char():
             fields['EN'] = self.kap.wert + kapMod
             fields['Energieg'] = "gAsP"   
             fields['Text83'] = "0"
-            fields['Energiem'] = "AsP*"
+            fields['Energiem'] = "AsP"
         elif aspMod == 0 and kapMod > 0:
             fields['Energie'] = "KaP"
             fields['EN'] = self.asp.wert + aspMod
             fields['Energieg'] = "gKaP"   
             fields['Text83'] = "0"
-            fields['Energiem'] = "KaP*"
+            fields['Energiem'] = "KaP"
         # Wenn sowohl AsP als auch KaP vorhanden sind, muss der Spieler ran..
         fields['DHm'] = max(self.dh - 2*self.be,1)
         fields['GSm'] = max(self.gs-self.be,1)
@@ -555,7 +562,10 @@ class Char():
         count = 0
         for el in self.waffen:
             fields['Text65.' + str(count)] = el.name
-            fields['Text66.' + str(count)] = str(el.W6) + "W6+" + str(el.plus)
+            sg = ""
+            if el.plus >= 0:
+                sg = "+"
+            fields['Text66.' + str(count)] = str(el.W6) + "W6" + sg + str(el.plus)
             fields['Text69.' + str(count)] = str(el.haerte)
             fields['Text70.' + str(count)] = el.eigenschaften
             if type(el) == Objekte.Fernkampfwaffe:
