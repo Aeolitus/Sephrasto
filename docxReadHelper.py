@@ -77,6 +77,7 @@ def updateUeberTalents():
         resEr = re.match(r"\s*?Erlernen:\s*?(?P<verb>.*?);\s*?(?P<EP>[0-9]{1,3})\s*?EP\s*?", txt.paragraphs[count].text, re.UNICODE)
         if resEr is not None:
             tal = Fertigkeiten.Talent()
+            textpart = []
             erDict = resEr.groupdict()
             tal.kosten = erDict['EP']
             # Get out different representations
@@ -87,15 +88,15 @@ def updateUeberTalents():
             tal.voraussetzungen.append(arr)
             #Move to fertigkeiten
             count -= 1
+            textpart.append(txt.paragraphs[count].text)
             resFe = re.findall(u"[a-zA-ZäöüÄÖÜß ']+",txt.paragraphs[count].text, re.UNICODE)
             if resFe[0] != "Fertigkeiten":
                 flag = True
             else:
                 for el in resFe[1:]:
                     tal.fertigkeiten.append(el.strip())
-                    count -= 1
+            count -= 1
             #Get Text
-            textpart = []
             iterate = txt.paragraphs[count].text
             while iterate != "":
                 textpart.append(txt.paragraphs[count].text)
@@ -129,6 +130,11 @@ def updateUeberTalents():
         tmp2.update({el: tals[el]})
     D.talente.update(tmp2)
     D.xmlSchreiben()
+    print("Passive Fähigkeiten stimmt noch nicht, braucht noch die Ferts!!")
+    print("Fix -alle Elemente- bei Transmutation der Elemente")
+    print("Fix Einzelelement bei Herbeirufung")
+    print("Fix Borbaradianisch -> Boronkirchlich")
+    
     return tmp2
 
 if __name__ == "__main__":

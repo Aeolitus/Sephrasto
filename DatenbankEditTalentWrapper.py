@@ -22,7 +22,7 @@ class DatenbankEditTalentWrapper(object):
             ui.buttonVerbilligt.setChecked(True)
         elif talent.kosten is not 0 and talent.kosten is not -1:
             ui.buttonSpezial.setChecked(True)
-            ui.comboKosten.setCurrentText(str(talent.kosten) + " EP")
+            ui.spinKosten.setValue(talent.kosten)
         else:
             ui.buttonRegulaer.setChecked(True)
         ui.fertigkeitenEdit.setText(Hilfsmethoden.FertArray2Str(talent.fertigkeiten, None))
