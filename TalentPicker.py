@@ -24,7 +24,8 @@ class TalentPicker(object):
         self.ui.setupUi(self.Form)
         self.model = QtGui.QStandardItemModel(self.ui.listTalente)
         self.ui.listTalente.setModel(self.model)
-        self.ui.listTalente.clicked.connect(self.talClicked)
+        self.ui.listTalente.selectionModel().currentChanged.connect(self.talChanged)
+        
         self.rowCount = 0
         for el in Wolke.DB.talente:
             if fert in Wolke.DB.talente[el].fertigkeiten and Wolke.Char.voraussetzungenPrüfen(Wolke.DB.talente[el].voraussetzungen):
@@ -61,9 +62,9 @@ class TalentPicker(object):
             self.gekaufteTalente = self.refC[fert].gekaufteTalente
         else:
             self.gekaufteTalente = None
-        
-    @QtCore.pyqtSlot("QModelIndex")   
-    def talClicked(self, item):
+    
+    @QtCore.pyqtSlot("QModelIndex", "QModelIndex")       
+    def talChanged(self, item, prev):
         text = self.model.itemData(item)[0]
         self.updateFields(text)
         
