@@ -136,6 +136,10 @@ def updateUeberTalents():
     print("Fix Borbaradianisch -> Boronkirchlich")
     print("Fix 'Entspricht dem Zauber' and stuff")
     print("Fix Oracnofaxius und Segen der heiligen Ardare Ferts")
+    print("Fix Requirements for Traditionen!")
+    '''
+    , Kein Vorteil Praioskirchliche Tradition I, Kein Vorteil Boronkirchliche Tradition I, Kein Vorteil Rondrakirchliche Tradition I, Kein Vorteil Boronkirchliche Tradition I, Kein Vorteil Phexkirchliche Tradition I, Kein Vorteil Hesindekirchliche Tradition I, Kein Vorteil Ingerimmkirchliche Tradition I, Kein Vorteil Angroschkirchliche Tradition I, Kein Vorteil Perainekirchliche Tradition I, Kein Vorteil Firunkirchliche Tradition I, Kein Vorteil Rahjakirchliche Tradition I, Kein Vorteil Tsakirchliche Tradition I, Kein Vorteil Traviakirchliche Tradition I
+    '''
     
     return tmp2
 
