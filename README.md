@@ -6,12 +6,13 @@ Features:
 * Einfaches Einarbeiten von Hausregeln wie neuen Fertigkeiten, Vorteilen etc. durch frei editierbare Regelbasis
 * Fast alle relevanten Regeln sind im Tool enthalten
 
-Bei Fragen / Änderungswünschen / Feedback einfach bescheid sagen im dsa4forum oder hier!
+Bei Fragen / Änderungswünschen / Feedback einfach Bescheid sagen - im dsa4forum oder hier!
 
 Dieses Tool verwendet 
 * fdfgen (https://github.com/ccnmtl/fdfgen) zum Editieren des Charakterbogens 
 * pdffields (https://github.com/evfredericksen/pdffields) für einfachere Bedienung von fdfgen ;)
 * PyQt5 (https://www.riverbankcomputing.com/software/pyqt/download5) für die Grafische Oberfläche
 * lxml (http://lxml.de/) als xml-parser
+Um Sephrasto direkt aus Python zu verwenden, ist Version 3.6 empfehlenswert, aber nicht dringend notwendig. Weiterhin müssen PyQt5 und lxml installiert werden. 
 
 Dieses Tool ist das Projekt, an dem ich Python / Qt gelernt habe. Deutliche Schwankungen im Coding-Stil und in der Codequalität sind demnach zu erwarten. Ich werde über die Zeit versuchen, das zu beheben; einige Spuren davon (wie das furchtbare denglisch) werden vermutlich bleiben. 
