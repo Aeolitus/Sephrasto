@@ -67,7 +67,11 @@ class Char():
         self.gs = 4 + int(self.attribute['GE'].wert/4)
         self.ini = self.attribute['IN'].wert
         self.schadensbonus = int(self.attribute['KK'].wert/4)
-        self.schips = self.finanzen+2
+        self.schips = 4
+        if self.finanzen >= 2: 
+            self.schips += self.finanzen - 2
+        else:
+            self.schips -= (2-self.finanzen)*2
         if len(self.rüstung) > 0:
             self.be = self.rüstung[0].be
         self.updateVorts()
