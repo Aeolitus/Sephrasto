@@ -49,6 +49,7 @@ class Datenbank():
             v.set('steigerungsfaktor',str(self.fertigkeiten[fer].steigerungsfaktor))
             v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(self.fertigkeiten[fer].voraussetzungen, None))
             v.set('attribute',Hilfsmethoden.AttrArray2Str(self.fertigkeiten[fer].attribute))
+            v.set('kampffertigkeit',str(self.fertigkeiten[fer].kampffertigkeit))
             v.text = self.fertigkeiten[fer].text
 
         for fer in self.übernatürlicheFertigkeiten:
@@ -104,6 +105,7 @@ class Datenbank():
             F.text = fer.text
             F.attribute = Hilfsmethoden.AttrStr2Array(fer.get('attribute'))
             F.voraussetzungen = Hilfsmethoden.VorStr2Array(fer.get('voraussetzungen'),None)
+            F.kampffertigkeit = int(fer.get('kampffertigkeit'))
             self.fertigkeiten.update({F.name: F})
 
         for fer in self.root.findall('Übernatürliche-Fertigkeit'):

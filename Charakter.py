@@ -131,14 +131,7 @@ class Char():
         spent += max(0,2*sum(range(self.höchsteKampfF+1)))
         #Store
         self.EPspent = spent
-#==============================================================================
-#     def epAusgeben(self,EP):
-#         '''Versucht, EP Erfahrungspunkte auszugeben. Returned 1 wenn erfolgreich und 0 wenn nicht genug vorhanden.'''
-#         if self.EPtotal-self.EPspent>EP:
-#             self.EPspent += EP
-#             return 1
-#         return 0
-#==============================================================================
+
     def updateVorts(self):
         remove = []
         for vor in self.vorteile:
@@ -149,6 +142,7 @@ class Char():
 
     def updateFerts(self):
         remove = []
+        self.höchsteKampfF = -1
         for fert in self.fertigkeiten:
             if not self.voraussetzungenPrüfen(self.fertigkeiten[fert].voraussetzungen):
                 remove.append(fert)
@@ -157,7 +151,7 @@ class Char():
             if self.fertigkeiten[fert].wert > self.fertigkeiten[fert].maxWert:
                 self.fertigkeiten[fert].wert = self.fertigkeiten[fert].maxWert
                 self.fertigkeiten[fert].aktualisieren()
-            if self.fertigkeiten[fert].wert > self.höchsteKampfF:
+            if self.fertigkeiten[fert].kampffertigkeit and self.fertigkeiten[fert].wert > self.höchsteKampfF:
                 self.höchsteKampfF = self.fertigkeiten[fert].wert
             for tal in self.fertigkeiten[fert].gekaufteTalente:
                 if not self.voraussetzungenPrüfen(Wolke.DB.talente[tal].voraussetzungen):
@@ -545,7 +539,6 @@ class Char():
         for el in Definitionen.StandardFerts:
             if el not in self.fertigkeiten:
                 continue
-            #TODO: Aktualisieren?
             base = el[0:5]
             # Fix Umlaute
             if el == "Gebräuche":

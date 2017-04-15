@@ -26,6 +26,7 @@ class DatenbankEditFertigkeitWrapper(object):
             ui.voraussetzungenEdit.setText(Hilfsmethoden.VorArray2Str(fertigkeit.voraussetzungen, None))
             ui.radioUebernatuerlich.setChecked(True)
             ui.radioProfan.setCheckable(False)
+            ui.checkKampffertigkeit.setCheckable(False)
         else:
             ui.voraussetzungenEdit.setText(" - ")
             ui.voraussetzungenEdit.setReadOnly(True)
