@@ -66,7 +66,7 @@ def updateUeberTalents():
             'Bor': "V:Borbaradianische Repräsentation I:1",
             'Alch': "V:Alchemistische Repräsentation I:1",
             'Elf': "V:Elfische Repräsentation I:1",
-            }
+            } 
     tals = {}
     txt = getText('ueber.docx')
     #results = re.search('', txt)
