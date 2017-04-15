@@ -171,7 +171,7 @@ Bedingungen:
 Bedingungen: 
 - zwei einhändige Waffen (kein Schild)
 - nicht beritten</Vorteil>
-  <Vorteil name="Waffenmeister Beidhändiger Kampf" kosten="80" voraussetzungen="Attribut GE 10, Vorteil Beidhändiger Kampf III" nachkauf="häufig" typ="3">8 Punkte können zur Verbesserung des Kampfstils verwendet werden. </Vorteil>
+  <Vorteil name="Beidhändiger Kampf IV" kosten="80" voraussetzungen="Attribut GE 10, Vorteil Beidhändiger Kampf III" nachkauf="häufig" typ="3">8 Punkte können zur Verbesserung des Kampfstils verwendet werden. </Vorteil>
   <Vorteil name="Kraftvoller Kampf I" kosten="20" voraussetzungen="Attribut KK 4" nachkauf="häufig" typ="3">Du erhältst TP +1.
 
 Bedingungen: 
@@ -187,7 +187,7 @@ Bedingungen:
 Bedingungen: 
 - einzelne Nahkampfwaffe
 - nicht beritten</Vorteil>
-  <Vorteil name="Waffenmeister Kraftvoller Kampf" kosten="80" voraussetzungen="Attribut KK 10, Vorteil Kraftvoller Kampf III" nachkauf="häufig" typ="3">8 Punkte können zur Verbesserung des Kampfstils verwendet werden.</Vorteil>
+  <Vorteil name="Kraftvoller Kampf IV" kosten="80" voraussetzungen="Attribut KK 10, Vorteil Kraftvoller Kampf III" nachkauf="häufig" typ="3">8 Punkte können zur Verbesserung des Kampfstils verwendet werden.</Vorteil>
   <Vorteil name="Schildkampf I" kosten="20" voraussetzungen="Attribut KK 4" nachkauf="häufig" typ="3">Du erhälst VT +1.
 
 Bedingungen: 
@@ -200,7 +200,7 @@ Bedingungen:
 
 Bedingungen: 
 - Schild</Vorteil>
-  <Vorteil name="Waffenmeister Schildkampf" kosten="80" voraussetzungen="Attribut KK 10, Vorteil Schildkampf III" nachkauf="häufig" typ="3">8 Punkte können zur Verbesserung des Kampfstils verwendet werden.</Vorteil>
+  <Vorteil name="Schildkampf IV" kosten="80" voraussetzungen="Attribut KK 10, Vorteil Schildkampf III" nachkauf="häufig" typ="3">8 Punkte können zur Verbesserung des Kampfstils verwendet werden.</Vorteil>
   <Vorteil name="Schneller Kampf I" kosten="20" voraussetzungen="Attribut GE 4" nachkauf="häufig" typ="3">Du erhälst AT +1. 
 
 Bedingungen: 
@@ -216,7 +216,7 @@ Bedingungen:
 Bedingungen: 
 - einzelne Nahkampfwaffe
 - nicht beritten</Vorteil>
-  <Vorteil name="Waffenmeister Schneller Kampf" kosten="80" voraussetzungen="Attribut GE 10, Vorteil Schneller Kampf III" nachkauf="häufig" typ="3">8 Punkte können zur Verbesserung des Kampfstils verwendet werden.</Vorteil>
+  <Vorteil name="Schneller Kampf IV" kosten="80" voraussetzungen="Attribut GE 10, Vorteil Schneller Kampf III" nachkauf="häufig" typ="3">8 Punkte können zur Verbesserung des Kampfstils verwendet werden.</Vorteil>
   <Vorteil name="Parierwaffenkampf I" kosten="20" voraussetzungen="Attribut GE 4" nachkauf="häufig" typ="3">Du erhälst eine Manövererleichterung von +1 gegen Humanoide.
 
 Bedingungen: 
@@ -232,7 +232,7 @@ Bedingungen:
 Bedingungen: 
 - Parierwaffe
 - nicht beritten</Vorteil>
-  <Vorteil name="Waffenmeister Parierwaffenkampf" kosten="80" voraussetzungen="Attribut GE 10, Vorteil Parierwaffenkampf III" nachkauf="häufig" typ="3">8 Punkte können zur Verbesserung des Kampfstils verwendet werden.</Vorteil>
+  <Vorteil name="Parierwaffenkampf IV" kosten="80" voraussetzungen="Attribut GE 10, Vorteil Parierwaffenkampf III" nachkauf="häufig" typ="3">8 Punkte können zur Verbesserung des Kampfstils verwendet werden.</Vorteil>
   <Vorteil name="Reiterkampf I" kosten="20" voraussetzungen="Attribut GE 4 ODER Attribut KK 4" nachkauf="häufig" typ="3">Du erhälst TP +1, AT +1 und VT +1. Erlaubt das Manöver Sturmangriff mit dem Pferd.
 
 Bedingungen: 
@@ -245,7 +245,7 @@ Bedingungen:
 
 Bedingungen: 
 - beritten</Vorteil>
-  <Vorteil name="Waffenmeister Reiterkampf" kosten="80" voraussetzungen="Attribut GE 10 ODER Attribut KK 10, Vorteil Reiterkampf III" nachkauf="häufig" typ="3">8 Punkte können zur Verbesserung des Kampfstils verwendet werden.</Vorteil>
+  <Vorteil name="Reiterkampf IV" kosten="80" voraussetzungen="Attribut GE 10 ODER Attribut KK 10, Vorteil Reiterkampf III" nachkauf="häufig" typ="3">8 Punkte können zur Verbesserung des Kampfstils verwendet werden.</Vorteil>
   <Vorteil name="Bändiger der Elemente" kosten="20" voraussetzungen="Attribut CH 4, Vorteil Zauberer I" nachkauf="häufig" typ="4">Bei Elementaren sinkt die Erschwernis für schwierige und anmaßende Dienste um eine Stufe.</Vorteil>
   <Vorteil name="Meister der Wünsche" kosten="40" voraussetzungen="Attribut CH 6, Vorteil Zauberer I" nachkauf="häufig" typ="4">Nachdem ein gebundenes Elementar einen Dienst erfüllt hat, kannst du für die Hälfte der Basisbeschwörungskosten einen zusätzlichen Dienst erbitten. Die Beherrschungsprobe dafür wird nicht durch Vorbereitung erleichtert.</Vorteil>
   <Vorteil name="Gefäß der Sterne" kosten="60" voraussetzungen="Attribut CH 8, Vorteil Zauberer I" nachkauf="häufig" typ="4">Deine maximale Astralenergie steigt um 4 + CH Punkte.</Vorteil>
