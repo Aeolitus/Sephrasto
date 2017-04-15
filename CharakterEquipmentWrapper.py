@@ -95,7 +95,7 @@ class EquipWrapper(QtCore.QObject):
             eval("self.uiEq.spin" + Rarr[count] + "bauch.setValue(" + str(R.rs[3]) +")")
             eval("self.uiEq.spin" + Rarr[count] + "brust.setValue(" + str(R.rs[4]) +")")
             eval("self.uiEq.spin" + Rarr[count] + "kopf.setValue(" + str(R.rs[5]) +")")
-            eval("self.uiEq.spin" + Rarr[count] + "kopf.setValue(" + str(int(sum(R.rs)/6+0.5)) +")")
+            eval("self.uiEq.spin" + Rarr[count] + "RS.setValue(" + str(int(sum(R.rs)/6+0.5)) +")")
             count += 1
         Warr = ["W1","W2","W3","W4","W5"]
         count = 0

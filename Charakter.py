@@ -516,7 +516,6 @@ class Char():
                     if basename+el in sortV:
                         sortV.remove(basename+el)
                         fullenum += "," + el[1:]
-                        print(fullenum)
                 sortV.append(basename + " " + fullenum[1:])
         sortV = sorted(sortV, key=str.lower)
         for i in range(1,9):

@@ -584,7 +584,7 @@ Reichweite: Berührung
 Wirkungsdauer: augenblicklich
 Kosten: 4 KaP
 Fertigkeiten: Zwölfgöttlicher Ritus</Talent>
-  <Talent name="Liturgische Bindung" kosten="60" voraussetzungen="Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus">Mit dieser Liturgie kannst du Liturgien in einem Gegenstand speichern. Die Regeln entsprechen jenen zur Erschaffung magischer Artefakte (S. VERWEIS), allerdings können nur ladungsbasierte Artefakte erschaffen werden. 
+  <Talent name="Liturgische Bindung" kosten="60" voraussetzungen="Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus">Mit dieser Liturgie kannst du Liturgien in einem Gegenstand speichern. Die Regeln entsprechen jenen zur Erschaffung magischer Artefakte, allerdings können nur ladungsbasierte Artefakte erschaffen werden. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 8 Stunden
 Zielobjekt: Einzelobjekt 
@@ -1123,7 +1123,7 @@ Reichweite: Berührung
 Wirkungsdauer: 8 Aktionen
 Kosten: 16 KaP
 Fertigkeiten: Magie </Talent>
-  <Talent name="Blick der Weberin" kosten="40" voraussetzungen="Vorteil Hesindekirchliche Tradition I" verbilligt="0" fertigkeiten="Magie">Du analysierst die magische Matrix eines arkanen Artefakts oder eines magischen Wesens. Das entspricht einem Analysegrad von 1 für die Strukturanalyse (mehr dazu siehe VERWEIS).
+  <Talent name="Blick der Weberin" kosten="40" voraussetzungen="Vorteil Hesindekirchliche Tradition I" verbilligt="0" fertigkeiten="Magie">Du analysierst die magische Matrix eines arkanen Artefakts oder eines magischen Wesens. Das entspricht einem Analysegrad von 1 für die Strukturanalyse.
 Mächtige Liturgie: Der Analysegrad steigt um 1.
 Probenschwierigkeit: Herstellungsschwierigkeit des Zauberwerks
 Vorbereitungszeit: 1 Stunde
@@ -1151,7 +1151,7 @@ Reichweite: Berührung
 Wirkungsdauer: TP in Aktionen
 Kosten: 4 KaP
 Fertigkeiten: Wissen</Talent>
-  <Talent name="Schlangenstab" kosten="40" voraussetzungen="Vorteil Hesindekirchliche Tradition I" verbilligt="0" fertigkeiten="Wissen">Dein Stab verwandelt sich in eine Smaragdnatter, die dich verteidigt. Neben den normalen Werten einer Smaragdnatter (s. Schlange VERWEIS) verfügt sie über Resistenz gegen profanen Schaden III, und ihre Angriffe gelten als geweihter Schaden.
+  <Talent name="Schlangenstab" kosten="40" voraussetzungen="Vorteil Hesindekirchliche Tradition I" verbilligt="0" fertigkeiten="Wissen">Dein Stab verwandelt sich in eine Smaragdnatter, die dich verteidigt. Neben den normalen Werten einer Smaragdnatter verfügt sie über Resistenz gegen profanen Schaden III, und ihre Angriffe gelten als geweihter Schaden.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Aktionen
 Zielobjekt: selbst
@@ -1168,7 +1168,7 @@ Reichweite: Berührung
 Wirkungsdauer: augenblicklich
 Kosten: 4 KaP
 Fertigkeiten: Wissen</Talent>
-  <Talent name="Wandeln in Hesindes Hain" kosten="60" voraussetzungen="Vorteil Hesindekirchliche Tradition I" verbilligt="0" fertigkeiten="Wissen">Während du dich in deine Handwerkskunst versenkst, wirst du mit Inspiration erfüllt. Du kannst ein Kunstwerk wie mit dem Vorteil Meisterwerk (VERWEIS) erschaffen. Besitzt du den Vorteil bereits, steigt die Qualität um eine weitere Stufe. 
+  <Talent name="Wandeln in Hesindes Hain" kosten="60" voraussetzungen="Vorteil Hesindekirchliche Tradition I" verbilligt="0" fertigkeiten="Wissen">Während du dich in deine Handwerkskunst versenkst, wirst du mit Inspiration erfüllt. Du kannst ein Kunstwerk wie mit dem Vorteil Meisterwerk erschaffen. Besitzt du den Vorteil bereits, steigt die Qualität um eine weitere Stufe. 
 Probenschwierigkeit: Herstellungsschwierigkeit des Handwerksstücks
 Vorbereitungszeit: 1 Tag
 Zielobjekt: selbst
@@ -1855,53 +1855,69 @@ Reichweite: Berührung
 Wirkungsdauer: 16 Minuten
 Kosten: 8 AsP
 Fertigkeiten: Eis, Feuer, Verwandlung</Talent>
-  <Talent name="Elementare Herbeirufung (Eis)" kosten="60" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Eis">Ruft ein Elementarwesen des jeweiligen Elements herbei (mehr zu Herbeirufungen siehe S. VERWEIS) das in deiner unmittelbaren Nähe erscheint. 
+  <Talent name="Elementare Herbeirufung (Eis)" kosten="60" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Eis">Ruft ein Elementarwesen des jeweiligen Elements herbei das in deiner unmittelbaren Nähe erscheint. 
 Probenschwierigkeit: 16/24/32 (Diener/ Dschinn /Meister)
 Vorbereitungszeit: frei wählbar
 Zielobjekt: einzelnes Elementar
 Wirkungsdauer: augenblicklich
 Kosten: 16/32/64 AsP (Diener/Dschinn/ Meister)
 Fertigkeiten: Einzelelement</Talent>
-<Talent name="Elementare Herbeirufung (Erz)" kosten="60" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Erz">Ruft ein Elementarwesen des jeweiligen Elements herbei (mehr zu Herbeirufungen siehe S. VERWEIS) das in deiner unmittelbaren Nähe erscheint. 
+<Talent name="Elementare Herbeirufung (Erz)" kosten="60" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Erz">Ruft ein Elementarwesen des jeweiligen Elements herbei das in deiner unmittelbaren Nähe erscheint. 
 Probenschwierigkeit: 16/24/32 (Diener/ Dschinn /Meister)
 Vorbereitungszeit: frei wählbar
 Zielobjekt: einzelnes Elementar
 Wirkungsdauer: augenblicklich
 Kosten: 16/32/64 AsP (Diener/Dschinn/ Meister)
 Fertigkeiten: Einzelelement</Talent>
-<Talent name="Elementare Herbeirufung (Feuer)" kosten="60" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Feuer">Ruft ein Elementarwesen des jeweiligen Elements herbei (mehr zu Herbeirufungen siehe S. VERWEIS) das in deiner unmittelbaren Nähe erscheint. 
+<Talent name="Elementare Herbeirufung (Feuer)" kosten="60" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Feuer">Ruft ein Elementarwesen des jeweiligen Elements herbei das in deiner unmittelbaren Nähe erscheint. 
 Probenschwierigkeit: 16/24/32 (Diener/ Dschinn /Meister)
 Vorbereitungszeit: frei wählbar
 Zielobjekt: einzelnes Elementar
 Wirkungsdauer: augenblicklich
 Kosten: 16/32/64 AsP (Diener/Dschinn/ Meister)
 Fertigkeiten: Einzelelement</Talent>
-<Talent name="Elementare Herbeirufung (Humus)" kosten="60" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Humus">Ruft ein Elementarwesen des jeweiligen Elements herbei (mehr zu Herbeirufungen siehe S. VERWEIS) das in deiner unmittelbaren Nähe erscheint. 
+<Talent name="Elementare Herbeirufung (Humus)" kosten="60" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Humus">Ruft ein Elementarwesen des jeweiligen Elements herbei das in deiner unmittelbaren Nähe erscheint. 
 Probenschwierigkeit: 16/24/32 (Diener/ Dschinn /Meister)
 Vorbereitungszeit: frei wählbar
 Zielobjekt: einzelnes Elementar
 Wirkungsdauer: augenblicklich
 Kosten: 16/32/64 AsP (Diener/Dschinn/ Meister)
 Fertigkeiten: Einzelelement</Talent>
-<Talent name="Elementare Herbeirufung (Luft)" kosten="60" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Luft">Ruft ein Elementarwesen des jeweiligen Elements herbei (mehr zu Herbeirufungen siehe S. VERWEIS) das in deiner unmittelbaren Nähe erscheint. 
+<Talent name="Elementare Herbeirufung (Luft)" kosten="60" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Luft">Ruft ein Elementarwesen des jeweiligen Elements herbei das in deiner unmittelbaren Nähe erscheint. 
 Probenschwierigkeit: 16/24/32 (Diener/ Dschinn /Meister)
 Vorbereitungszeit: frei wählbar
 Zielobjekt: einzelnes Elementar
 Wirkungsdauer: augenblicklich
 Kosten: 16/32/64 AsP (Diener/Dschinn/ Meister)
 Fertigkeiten: Einzelelement</Talent>
-<Talent name="Elementare Herbeirufung (Wasser)" kosten="60" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Wasser">Ruft ein Elementarwesen des jeweiligen Elements herbei (mehr zu Herbeirufungen siehe S. VERWEIS) das in deiner unmittelbaren Nähe erscheint. 
+<Talent name="Elementare Herbeirufung (Wasser)" kosten="60" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Wasser">Ruft ein Elementarwesen des jeweiligen Elements herbei das in deiner unmittelbaren Nähe erscheint. 
 Probenschwierigkeit: 16/24/32 (Diener/ Dschinn /Meister)
 Vorbereitungszeit: frei wählbar
 Zielobjekt: einzelnes Elementar
 Wirkungsdauer: augenblicklich
 Kosten: 16/32/64 AsP (Diener/Dschinn/ Meister)
 Fertigkeiten: Einzelelement</Talent>
-  <Talent name="Frigisfaxius" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Kristallomantische Repräsentation I" verbilligt="0" fertigkeiten="Eis">Der Zauber entspricht weitgehend dem Ignifaxius (Feuer).
+  <Talent name="Frigisfaxius" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Kristallomantische Repräsentation I" verbilligt="0" fertigkeiten="Eis">Ein Strahl scharfkantigen Eises fügt dem Ziel 4W6 SP zu. Ballistischer Zauber. 
 Merkmal (Eis): Erfrieren
+Mächtige Magie: Die SP steigen um 2W6. 
+Probenschwierigkeit: 12
+Modifikationen: Gezielter Strahl (-4, du kannst die Trefferzone bestimmen)
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelwesen, Einzelobjekt
+Reichweite: 16 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 16 AsP
 Fertigkeiten: Eis</Talent>
-  <Talent name="Frigisphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Eis">Der Zauber entspricht weitgehend dem Ignisphaero (Feuer).
+  <Talent name="Frigisphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Eis">Du erschaffst eine elementare Kugel, die du mit Konzentration und Blickkontakt mit GS 8 bewegen kannst. Verlierst du eines von beiden, explodiert sie und richtet 4W6 TP an. Pro Schritt Entfernung fällt der niedrigste Würfel weg. 
 Merkmal (Eis): Erfrieren
+Mächtige Magie: Die TP steigen um 1W6.
+Probenschwierigkeit: 12
+Modifikationen: Komplexe Bewegung (-2, du gibst der Kugel die Bewegung bis zur Explosion vor, Konzentration und Blickkontakt sind nicht nötig)
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Zone
+Reichweite: 32 Schritt
+Wirkungsdauer: augenblicklich 
+Kosten: 16 AsP
 Fertigkeiten: Eis</Talent>
   <Talent name="Gletscherwand" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Eis">Eine 3 Schritt hohe und bis zu 4 Schritt lange Wand aus blankem Eis wächst entlang einer von dir bestimmten Linie aus dem Boden. Sie verfügt über eine Härte von 16.
 Merkmal (Eis): Wer sich der Wand nähert, erleidet bei misslungener Konterprobe (KO, 12) einen Erfrieren-Effekt.
@@ -1953,11 +1969,27 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 8 AsP
 Fertigkeiten: Erz, Verwandlung</Talent>
-  <Talent name="Archofaxius" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Erz">Der Zauber entspricht weitgehend dem Ignifaxius (Feuer).
-Merkmal (Eis): Niederschmettern
-Fertigkeiten: Erz</Talent>
-  <Talent name="Archosphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Erz">Der Zauber entspricht regelmechanisch weitgehend dem Ignisphaero (Feuer). 
+  <Talent name="Archofaxius" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Erz">Ein Strahl aus Erz fügt dem Ziel 4W6 SP zu. Ballistischer Zauber. 
 Merkmal (Erz): Niederschmettern
+Mächtige Magie: Die SP steigen um 2W6. 
+Probenschwierigkeit: 12
+Modifikationen: Gezielter Strahl (-4, du kannst die Trefferzone bestimmen)
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelwesen, Einzelobjekt
+Reichweite: 16 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 16 AsP
+Fertigkeiten: Erz</Talent>
+  <Talent name="Archosphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Erz">Du erschaffst eine elementare Kugel, die du mit Konzentration und Blickkontakt mit GS 8 bewegen kannst. Verlierst du eines von beiden, explodiert sie und richtet 4W6 TP an. Pro Schritt Entfernung fällt der niedrigste Würfel weg. 
+Merkmal (Erz): Niederschmettern
+Mächtige Magie: Die TP steigen um 1W6.
+Probenschwierigkeit: 12
+Modifikationen: Komplexe Bewegung (-2, du gibst der Kugel die Bewegung bis zur Explosion vor, Konzentration und Blickkontakt sind nicht nötig)
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Zone
+Reichweite: 32 Schritt
+Wirkungsdauer: augenblicklich 
+Kosten: 16 AsP
 Fertigkeiten: Erz</Talent>
   <Talent name="Fortifex Arkane Wand" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Erz, Umwelt">Es entsteht eine 4 Rechtschritt große, 5 Finger dicke, unsichtbare Wand. Die Wand ist undurchdringlich für Gegenstände bis zum Gewicht einer Rotzenkugel, schwerere Gegenstände werden nur leicht verlangsamt.
 Mächtige Magie: Die Wand ist bis zum Gewicht eines schweren Menschen/Pferdes mit Reiter/einer Kutsche/eines Schiffes undurchdringlich.
@@ -2009,11 +2041,17 @@ Reichweite: 8 Schritt
 Wirkungsdauer: augenblicklich
 Kosten: 4 AsP
 Fertigkeiten: Feuer, Umwelt</Talent>
-  <Talent name="Wand aus Flammen" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Feuer">Der Zauber entspricht weitgehend der Gletscherwand (Eis). 
+  <Talent name="Wand aus Flammen" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Feuer">Eine 3 Schritt hohe und bis zu 4 Schritt lange Wand aus Flammen wächst entlang einer von dir bestimmten Linie aus dem Boden.
 Merkmal (Feuer): Wer sich der Wand nähert, erleidet bei misslungener Konterprobe (KO, 12) einen Nachbrennen-Effekt. Die Durchquerung verursacht 4W6 SP.
 Mächtige Magie: Der Schaden beim Durchqueren der Wand steigt um 2W6, die maximale Länge um 2 Schritt und die Höhe um 1 Schritt.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Zone
+Reichweite: 8 Schritt
+Wirkungsdauer: 16 Minuten
+Kosten: 8 AsP
 Fertigkeiten: Feuer</Talent>
-  <Talent name="Analys Arcanstruktur" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Hellsicht, Kraft">Du analysierst die magische Matrix eines arkanen Artefakts oder eines magischen Wesens. Das entspricht einem Analysegrad von 1 für die Strukturanalyse (mehr dazu siehe S. VERWEIS).
+  <Talent name="Analys Arcanstruktur" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Hellsicht, Kraft">Du analysierst die magische Matrix eines arkanen Artefakts oder eines magischen Wesens. Das entspricht einem Analysegrad von 1 für die Strukturanalyse.
 Mächtige Magie: Der Analysegrad steigt um 1.
 Probenschwierigkeit: Herstellungsschwierigkeit des Zauberwerks
 Vorbereitungszeit: 1 Stunde
@@ -2043,7 +2081,7 @@ Reichweite: 16 Schritt
 Wirkungsdauer: 8 Aktionen
 Kosten: 4 AsP
 Fertigkeiten: Hellsicht</Talent>
-  <Talent name="Odem Arcanum" kosten="40" voraussetzungen="Vorteil Alchemistische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Hellsicht, Kraft">Du nimmst magische Kraft um das Ziel kurz als roten Schimmer wahr. Das entspricht einem Analysegrad von 1 für die Intensitätsanalyse (mehr dazu siehe S. VERWEIS).
+  <Talent name="Odem Arcanum" kosten="40" voraussetzungen="Vorteil Alchemistische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Hellsicht, Kraft">Du nimmst magische Kraft um das Ziel kurz als roten Schimmer wahr. Das entspricht einem Analysegrad von 1 für die Intensitätsanalyse.
 Mächtige Magie: Der Analysegrad steigt um 1 
 Probenschwierigkeit: 12
 Modifikationen: Sichtbereich (-4, wirkt auf alle Objekte im Sichtfeld)
@@ -2112,13 +2150,37 @@ Reichweite: Berührung
 Wirkungsdauer: augenblicklich
 Kosten: nach Projekt
 Fertigkeiten: Humus, Verwandlung</Talent>
-  <Talent name="Hexenspeichel" kosten="40" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Humus, Verwandlung">Der Zauber entspricht regelmechanisch weitgehend dem Balsam. 
-Modifikationen: Geheime Zutat (-4, Einzelobjekt, Wirkungsdauer 1 Stunde; der Zauber heilt den Esser des verzauberten Gerichts); Sofortige Regeneration ist nicht verfügbar</Talent>
-  <Talent name="Humufaxius" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Humus">Der Zauber entspricht weitgehend dem Ignifaxius (Feuer).
+  <Talent name="Hexenspeichel" kosten="40" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Humus, Verwandlung">Dein Ziel erhält im Laufe der nächsten Stunde 2W6 Heilpunkte, für jede Überschreitung der WS wird eine Wunde geheilt. 
+Mächtige Magie: Erhöht die Heilpunkte um 4.
+Modifikationen: Blutung stoppen ([Wunden] Aktionen, Schwierigkeit 16, hebt Blutungen auf); Geheime Zutat (-4, Einzelobjekt, Wirkungsdauer 1 Stunde; der Zauber heilt den Esser des verzauberten Gerichts);
+Probenschwierigkeit: 12+Wund-Mod des Ziels 
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelwesen
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 8 AsP
+Fertigkeiten: Humus, Verwandlung</Talent>
+  <Talent name="Humufaxius" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Humus">Ein Strahl Dornenranken fügt dem Ziel 4W6 SP zu. Ballistischer Zauber. 
 Merkmal (Humus): Fesseln
+Mächtige Magie: Die SP steigen um 2W6. 
+Probenschwierigkeit: 12
+Modifikationen: Gezielter Strahl (-4, du kannst die Trefferzone bestimmen)
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelwesen, Einzelobjekt
+Reichweite: 16 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 16 AsP
 Fertigkeiten: Humus</Talent>
-  <Talent name="Humusphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Humus">Der Zauber entspricht regelmechanisch weitgehend dem Ignisphaero (Feuer). 
+  <Talent name="Humusphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Humus">Du erschaffst eine elementare Kugel, die du mit Konzentration und Blickkontakt mit GS 8 bewegen kannst. Verlierst du eines von beiden, explodiert sie und richtet 4W6 TP an. Pro Schritt Entfernung fällt der niedrigste Würfel weg. 
 Merkmal (Humus): Fesseln
+Mächtige Magie: Die TP steigen um 1W6.
+Probenschwierigkeit: 12
+Modifikationen: Komplexe Bewegung (-2, du gibst der Kugel die Bewegung bis zur Explosion vor, Konzentration und Blickkontakt sind nicht nötig)
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Zone
+Reichweite: 32 Schritt
+Wirkungsdauer: augenblicklich 
+Kosten: 16 AsP
 Fertigkeiten: Humus</Talent>
   <Talent name="Leib der Erde" kosten="40" voraussetzungen="Vorteil Geodische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Elfische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Humus">Du wirst eins mit dem Element Humus. Dornen, Messergras und Pflanzen aller Art fügen dir keinen Schaden zu und verlangsamen dich nicht. Du bist gegen Schaden von Humuszaubern und -elementaren immun. 
 Probenschwierigkeit: 12
@@ -2156,7 +2218,7 @@ Reichweite: Berührung
 Wirkungsdauer: 16 Aktionen
 Kosten: 8 AsP
 Fertigkeiten: Illusion</Talent>
-  <Talent name="Arcanovi Artefakt" kosten="60" voraussetzungen="Vorteil Alchemistische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Kraft">Der Arcanovi ist der bindende Spruch eines Artefaktes, in das du weitere Zauber sprechen kannst (siehe S. VERWEIS). 
+  <Talent name="Arcanovi Artefakt" kosten="60" voraussetzungen="Vorteil Alchemistische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Kraft">Der Arcanovi ist der bindende Spruch eines Artefaktes, in das du weitere Zauber sprechen kannst. 
 Probenschwierigkeit: nach Artefakt
 Vorbereitungszeit: 8 Stunden
 Zielobjekt: Einzelobjekt 
@@ -2201,11 +2263,27 @@ Reichweite: Berührung
 Wirkungsdauer: augenblicklich
 Kosten: 4 AsP
 Fertigkeiten: Luft</Talent>
-  <Talent name="Orancofaxius" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Luft">Der Zauber entspricht weitgehend dem Ignifaxius (Feuer).
+  <Talent name="Orcanofaxius" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Luft">Ein Luftstrahl fügt dem Ziel 4W6 SP zu. Ballistischer Zauber. 
 Merkmal (Luft): Zurückstoßen
+Mächtige Magie: Die SP steigen um 2W6. 
+Probenschwierigkeit: 12
+Modifikationen: Gezielter Strahl (-4, du kannst die Trefferzone bestimmen)
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelwesen, Einzelobjekt
+Reichweite: 16 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 16 AsP
 Fertigkeiten: Luft</Talent>
-  <Talent name="Orcanosphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Luft">Der Zauber entspricht regelmechanisch weitgehend dem Ignisphaero (Feuer). 
+  <Talent name="Orcanosphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Luft">Du erschaffst eine elementare Kugel, die du mit Konzentration und Blickkontakt mit GS 8 bewegen kannst. Verlierst du eines von beiden, explodiert sie und richtet 4W6 TP an. Pro Schritt Entfernung fällt der niedrigste Würfel weg. 
 Merkmal (Luft): Zurückstoßen
+Mächtige Magie: Die TP steigen um 1W6.
+Probenschwierigkeit: 12
+Modifikationen: Komplexe Bewegung (-2, du gibst der Kugel die Bewegung bis zur Explosion vor, Konzentration und Blickkontakt sind nicht nötig)
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Zone
+Reichweite: 32 Schritt
+Wirkungsdauer: augenblicklich 
+Kosten: 16 AsP
 Fertigkeiten: Luft</Talent>
   <Talent name="Nebelwand und Morgendunst" kosten="40" voraussetzungen="Vorteil Elfische Repräsentation I ODER Vorteil Kristallomantische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Scharlatanische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Luft, Umwelt, Wasser">Du erzeugst eine nahezu undurchsichtige Nebelwolke mit 64 Raumschritt Volumen und beliebiger, auch komplizierter, Form. Wind beeinflusst die Wolke nicht.
 Mächtige Magie: Vervierfacht das Volumen
@@ -2329,11 +2407,27 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 8 AsP 
 Fertigkeiten: Verwandlung</Talent>
-  <Talent name="Aquafaxius" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Wasser">Der Zauber entspricht weitgehend dem Ignifaxius (Feuer).
+  <Talent name="Aquafaxius" kosten="40" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Wasser">Ein Wasserstrahl fügt dem Ziel 4W6 SP zu. Ballistischer Zauber. 
 Merkmal (Wasser): Ertränken
+Mächtige Magie: Die SP steigen um 2W6. 
+Probenschwierigkeit: 12
+Modifikationen: Gezielter Strahl (-4, du kannst die Trefferzone bestimmen)
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelwesen, Einzelobjekt
+Reichweite: 16 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 16 AsP
 Fertigkeiten: Wasser</Talent>
-  <Talent name="Aquasphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Wasser">Der Zauber entspricht regelmechanisch weitgehend dem Ignisphaero (Feuer). 
+  <Talent name="Aquasphaero" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Wasser">Du erschaffst eine elementare Kugel, die du mit Konzentration und Blickkontakt mit GS 8 bewegen kannst. Verlierst du eines von beiden, explodiert sie und richtet 4W6 TP an. Pro Schritt Entfernung fällt der niedrigste Würfel weg. 
 Merkmal (Wasser): Ertränken
+Mächtige Magie: Die TP steigen um 1W6.
+Probenschwierigkeit: 12
+Modifikationen: Komplexe Bewegung (-2, du gibst der Kugel die Bewegung bis zur Explosion vor, Konzentration und Blickkontakt sind nicht nötig)
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: Zone
+Reichweite: 32 Schritt
+Wirkungsdauer: augenblicklich 
+Kosten: 16 AsP
 Fertigkeiten: Wasser</Talent>
   <Talent name="Bindung des Stabs" kosten="20" voraussetzungen="Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Kraft, Stabzauber">Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her. Der Stab wird unzerbrechlich, gilt als magische Waffe und kann weitere erlernte Stabzauber aufnehmen. 
 Probenschwierigkeit: 12
@@ -2406,7 +2500,14 @@ Reichweite: Berührung
 Wirkungsdauer: augenblicklich
 Kosten: 4 AsP
 Fertigkeiten: Stabzauber, Umwelt </Talent>
-  <Talent name="Bindung des Iama" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Elfenlieder">Entspricht der Bindung des Stabs</Talent>
+  <Talent name="Bindung des Iama" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Elfenlieder">Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her. Dein Iama wird unzerbrechlich und kann weitere erlernte Elfenlieder aufnehmen. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Stunden
+Zielobjekt: Iama
+Reichweite: Berührung
+Wirkungsdauer: permanent
+Kosten: 16 AsP
+Fertigkeiten: Elfenlieder</Talent>
   <Talent name="Erinnerungsmelodie" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Elfenlieder">Du stimmst dich auf eine vergangene Situation ein, um dich an ein Detail zu erinnern. Die dafür notwendige KL-Probe ist um +4 erleichtert. 
 Mächtige Magie: Der Bonus steigt um +2.
 Probenschwierigkeit: 12
@@ -2466,8 +2567,15 @@ Reichweite: beliebig
 Wirkungsdauer: augenblicklich
 Kosten: 1 AsP
 Fertigkeiten: Elfenlieder, Hellsicht, Verständigung</Talent>
-  <Talent name="Ruf des Iama" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Elfenlieder">Entspricht dem Apport, allerdings wird der PW Elfenlieder verwendet. </Talent>
-  <Talent name="Verwandlung des Iama" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Elfenlieder">Entspricht der Aura des Stabes. </Talent>
+  <Talent name="Ruf des Iama" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Elfenlieder">Dein Iama kehrt zu dir zurück. Es weicht Hindernissen aus oder durchbricht sie notfalls, falls mit einer KK von PW Elfenlieder/2 möglich.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen. 
+Zielobjekt: Iama
+Reichweite: 4 Meilen
+Wirkungsdauer: augenblicklich
+Kosten: 1 AsP
+Fertigkeiten: Elfenlieder</Talent>
+  <Talent name="Verwandlung des Iama" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Elfenlieder">Bei einer Verwandlung deiner Person (egal ob freiwillig oder unfreiwillig) wird dein Iama mitverwandelt.</Talent>
   <Talent name="Windgeflüster" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Luft, Verständigung">Eine Botschaft von maximal 16 Worten wird von Luftelementaren in wenigen Minuten zu deinem Empfänger weitergeflüstert. Ist dieser unaufmerksam oder befindet er sich an einem von anderen Elementen umschlossenen Ort, verhallt die Botschaft ungehört.
 Mächtige Magie: Du kannst weitere 8 Worte übertragen.
 Probenschwierigkeit: 12
@@ -2598,7 +2706,7 @@ Zielobjekt: Zone
 Reichweite: 8 Schritt
 Wirkungsdauer: augenblicklich
 Kosten: keine für die Hexe
-Fertigkeiten: Kraft. Vertrautenmagie</Talent>
+Fertigkeiten: Kraft, Vertrautenmagie</Talent>
   <Talent name="Schlaf rauben" kosten="20" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss, Vertrautenmagie">Das von deinem Vertrautentier beobachtete Opfer regeneriert in dieser Nacht keine AsP oder Wunden. Stattdessen erscheint ihm das Vertrautentier in fürchterlichen Alpträumen. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Stunde
@@ -2616,7 +2724,7 @@ Reichweite: 2 Schritt
 Wirkungsdauer: 1 Stunde
 Kosten: 8 AsP
 Fertigkeiten: Hellsicht, Vertrautenmagie</Talent>
-  <Talent name="Tarnung" kosten="20" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Illusion, Vertrautenmagie">Dein Vertrautentier erhält die Eigenschaft Tarnung (VERWEIS). 
+  <Talent name="Tarnung" kosten="20" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Illusion, Vertrautenmagie">Dein Vertrautentier erhält die Eigenschaft Tarnung. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Akt
 Zielobjekt: selbst
@@ -2650,7 +2758,14 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Nacht
 Kosten: 1 AsP
 Fertigkeiten: Einfluss, Verständigung, Vertrautenmagie</Talent>
-  <Talent name="Bindung der Schale" kosten="20" voraussetzungen="Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Schalenzauber">Entspricht der Bindung des Stabs.</Talent>
+  <Talent name="Bindung der Schale" kosten="20" voraussetzungen="Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Schalenzauber">Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her. Er wird unzerbrechlich und kann weitere erlernte Schalenzauber aufnehmen. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Stunden
+Zielobjekt: Schale der Alchemie
+Reichweite: Berührung
+Wirkungsdauer: permanent
+Kosten: 16 AsP
+Fertigkeiten: Schalenzauber</Talent>
   <Talent name="Apport" kosten="20" voraussetzungen="Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Stabzauber, Umwelt">Der Stab kehrt zu dir zurück. Er weicht Hindernissen aus oder durchbricht sie notfalls, falls mit einer KK von PW Stabzauber/2 möglich.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen. 
@@ -2700,7 +2815,7 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Tag
 Kosten: 8 AsP
 Fertigkeiten: Schalenzauber, Verwandlung</Talent>
-  <Talent name="Chymische Hochzeit (passiv)" kosten="60" voraussetzungen="Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Schalenzauber">Für je 4 volle Punkte im PW Schale des Alchemisten sinken die Abzüge durch improvisiertes Werkzeug um 1. Dieser Bonus ist kumulativ zum Vorteil Improvisation (S. VERWEIS).
+  <Talent name="Chymische Hochzeit (passiv)" kosten="60" voraussetzungen="Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Schalenzauber">Für je 4 volle Punkte im PW Schale des Alchemisten sinken die Abzüge durch improvisiertes Werkzeug um 1. Dieser Bonus ist kumulativ zum Vorteil Improvisation.
 Bei der Herstellung fließen 2 gAsP in die Schale. </Talent>
   <Talent name="Essenzkonzentration" kosten="40" voraussetzungen="Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Schalenzauber, Verwandlung">Du konzentrierst zwei alchemistische Produkte der gleichen Art zu einem. Qualität, Haltbarkeit, Wirkungsdauer und Modifikationen des entstehenden Produkts entsprechen jeweils dem besseren der Ausgangsprodukte. 
 Mächtige Magie: Die Haltbarkeit verdoppelt sich jeweils. 
@@ -2711,7 +2826,14 @@ Reichweite: Berührung
 Wirkungsdauer: augenblicklich
 Kosten: 8 AsP
 Fertigkeiten: Schalenzauber, Verwandlung</Talent>
-  <Talent name="Bindung des Dolches" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber">Entspricht der Bindung des Stabs. Zauber mit der Reichweite Berührung können über den Dolch gewirkt werden.</Talent>
+  <Talent name="Bindung des Dolches" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber">Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her. Er wird unzerbrechlich, gilt als magische Waffe und kann weitere erlernte Dolchzauber aufnehmen. Zauber mit der Reichweite Berührung können über den Dolch gewirkt werden.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Stunden
+Zielobjekt: Dolch
+Reichweite: Berührung
+Wirkungsdauer: permanent
+Kosten: 16 AsP
+Fertigkeiten: Dolchzauber</Talent>
   <Talent name="Blut des Dolches (passiv)" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber">Statt mit Astralenergie kannst du die Dolchrituale auch mit deiner Lebenskraft bezahlen. Je 4 AsP Basiskosten entsprechen 1W6 SP. Effekte für 1 AsP erfordern nur kleine Kratzer ohne spieltechnische Auswirkung. </Talent>
   <Talent name="Dämonenbann des Dolches" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Dolchzauber">Dämonen können die während der Wirkungsdauer gezogene Linie eine Stunde lang nicht übertreten, wenn dein EW höher ist als die Beschwörungsschwierigkeit des Dämons.
 Probenschwierigkeit: 12
@@ -2761,8 +2883,15 @@ Reichweite: Berührung
 Wirkungsdauer: augenblicklich
 Kosten: 1 AsP
 Fertigkeiten: Dolchzauber, Humus</Talent>
-  <Talent name="Leib des Dolches (passiv)" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber">Entspricht Aura des Stabes. </Talent>
-  <Talent name="Licht des Dolches" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber">Entspricht dem Zauber Katzenaugen. </Talent>
+  <Talent name="Leib des Dolches (passiv)" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber">Bei einer Verwandlung deiner Person (egal ob freiwillig oder unfreiwillig) wird dein Dolch mitverwandelt.</Talent>
+  <Talent name="Licht des Dolches" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber">Du ignorierst 1 Stufe Dunkelheit, bist aber besonders anfällig gegen helles Licht. Bei absoluter Dunkelheit ist der Zauber wirkungslos.
+Mächtige Magie: Du ignorierst 2/3 Stufen Dunkelheit.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 4 AsP</Talent>
   <Talent name="Miniatur der Herrschaft" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Einfluss, Verständigung">Aus Lehm und einem Körperteil wie einem Haar oder einem Blutstropfen des Opfers fertigst du eine Miniatur der Herrschaft. Auf die Miniatur gesprochene Einflusszauber oder ein Fluch der Pestilenz werden einmal pro Tag direkt auf das Opfer übertragen (müssen aber trotzdem die MR überwinden), solange es in Reichweite ist.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Stunde
@@ -2813,7 +2942,14 @@ Reichweite: 8 Meilen
 Wirkungsdauer: 1 Stunde
 Kosten: 1 AsP
 Fertigkeiten: Dolchzauber, Hellsicht, Kraft</Talent>
-  <Talent name="Bindung des Ringes" kosten="20" voraussetzungen="Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Ringrituale">Entspricht der Bindung des Stabs. </Talent>
+  <Talent name="Bindung des Ringes" kosten="20" voraussetzungen="Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Ringrituale">Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her. Er wird unzerbrechlich und kann weitere erlernte Ringrituale aufnehmen. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Stunden
+Zielobjekt: Schlangenring
+Reichweite: Berührung
+Wirkungsdauer: permanent
+Kosten: 16 AsP
+Fertigkeiten: Ringrituale</Talent>
   <Talent name="Wasserbann" kosten="40" voraussetzungen="Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Luft, Ringrituale, Wasser">Eine Luftschicht schützt dich vor jeglichem Wasser. Du kannst unter Wasser atmen und hältst dem Wasserdruck und Strömungen stand, kannst aber nicht mehr schwimmen. Erlaubt Aufrechterhalten. 
 Mächtige Magie: Du kannst den Schutz auf eine Person oder einen ähnlich großen Gegenstand ausdehnen.
 Probenschwierigkeit: 12
@@ -2857,7 +2993,17 @@ Reichweite: Berührung
 Wirkungsdauer: 8 Aktionen
 Kosten: 8 AsP
 Fertigkeiten: Antimagie, Ringrituale</Talent>
-  <Talent name="Macht über den Regen" kosten="40" voraussetzungen="Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Luft, Ringrituale, Umwelt, Wasser">Entspricht dem Zauber Wettermeisterschaft.
+  <Talent name="Macht über den Regen" kosten="40" voraussetzungen="Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Luft, Ringrituale, Umwelt, Wasser">Das Wetter in einer Zone von bis zu einer Meile Radius verändert sich nach deinem Willen. Du kannst folgende Skalen um insgesamt 2 Punkte verändern:
+Niederschlag: trocken/Nieselregen/Regen/ starker Regen/ Wolkenbruch
+Wind: windstill/leichte Brise/steife Brise/ Sturm/Orkan
+Temperatur: heiß/warm/mittel/kühl/kalt.
+Mächtige Magie: Du kannst die Skalen um 1 weiteren Punkt verändern.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: Zone
+Reichweite: 1 Meile
+Wirkungsdauer: 16 Minuten
+Kosten: 32 AsP 
 Fertigkeiten: Luft, Ringrituale, Umwelt, Wasser</Talent>
   <Talent name="Magnetismus" kosten="60" voraussetzungen="Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Erz, Ringrituale, Umwelt">Der Erdboden im Umkreis von 8 Schritt wirkt wie ein starker Magnet. Wenn eine Konterprobe (KK, 16) misslingt, werden Metallwaffen aus der Hand gerissen und kleben am Boden fest, während Kämpfer in Metallrüstungen zu Boden gehen und nicht mehr aufstehen können. Selbst bei einer gelungenen Konterprobe sind Kampfaktionen mit Metallwaffen um -4 erschwert.
 Probenschwierigkeit: 12

@@ -38,6 +38,7 @@ class FertigkeitenWrapper(QtCore.QObject):
             self.currentFertName = Wolke.Char.fertigkeiten.__iter__().__next__()
         except StopIteration:
             self.currentFertName = ''
+        self.currentlyLoading = False
         self.loadFertigkeiten()
             
     def updateFertigkeiten(self):
@@ -45,6 +46,7 @@ class FertigkeitenWrapper(QtCore.QObject):
         pass
         
     def loadFertigkeiten(self):
+        self.currentlyLoading = True
         temp = [el for el in Wolke.DB.fertigkeiten 
                 if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.fertigkeiten[el].voraussetzungen)]
         if temp != self.availableFerts:
@@ -86,25 +88,29 @@ class FertigkeitenWrapper(QtCore.QObject):
                 count += 1
             self.uiFert.tableWidget.cellClicked.connect(self.tableClicked) 
         self.updateInfo()
-        self.updateTalents()      
+        self.updateTalents()    
+        self.currentlyLoading = False
         
     def tableClicked(self):
-        tmp = self.uiFert.tableWidget.item(self.uiFert.tableWidget.currentRow(),0).text()
-        if tmp in Wolke.Char.fertigkeiten:    
-            self.currentFertName = tmp
-            self.updateInfo()
+        if not self.currentlyLoading:
+            tmp = self.uiFert.tableWidget.item(self.uiFert.tableWidget.currentRow(),0).text()
+            if tmp in Wolke.Char.fertigkeiten:    
+                self.currentFertName = tmp
+                self.updateInfo()
         
     def fwChanged(self):
-        if self.currentFertName != "":
-            Wolke.Char.fertigkeiten[self.currentFertName].wert = self.uiFert.spinFW.value()
-            Wolke.Char.fertigkeiten[self.currentFertName].aktualisieren()
-            self.uiFert.spinPW.setValue(Wolke.Char.fertigkeiten[self.currentFertName].probenwert)
-            self.uiFert.spinPWT.setValue(Wolke.Char.fertigkeiten[self.currentFertName].probenwertTalent)
-            self.modified.emit()
-            self.uiFert.tableWidget.setItem(self.rowRef[self.currentFertName],1,QtWidgets.QTableWidgetItem(str(Wolke.Char.fertigkeiten[self.currentFertName].wert)))
+        if not self.currentlyLoading:
+            if self.currentFertName != "":
+                Wolke.Char.fertigkeiten[self.currentFertName].wert = self.uiFert.spinFW.value()
+                Wolke.Char.fertigkeiten[self.currentFertName].aktualisieren()
+                self.uiFert.spinPW.setValue(Wolke.Char.fertigkeiten[self.currentFertName].probenwert)
+                self.uiFert.spinPWT.setValue(Wolke.Char.fertigkeiten[self.currentFertName].probenwertTalent)
+                self.modified.emit()
+                self.uiFert.tableWidget.setItem(self.rowRef[self.currentFertName],1,QtWidgets.QTableWidgetItem(str(Wolke.Char.fertigkeiten[self.currentFertName].wert)))
         
     def updateInfo(self):
         if self.currentFertName != "":
+            self.currentlyLoading = True
             fert = Wolke.Char.fertigkeiten[self.currentFertName]
             fert.aktualisieren()
             self.uiFert.labelFertigkeit.setText(self.currentFertName)
@@ -113,12 +119,13 @@ class FertigkeitenWrapper(QtCore.QObject):
                                                + fert.attribute[2])
             self.uiFert.spinSF.setValue(fert.steigerungsfaktor)
             self.uiFert.spinBasis.setValue(fert.basiswert)
-            self.uiFert.spinFW.setValue(fert.wert)
             self.uiFert.spinFW.setMaximum(fert.maxWert)
+            self.uiFert.spinFW.setValue(fert.wert)
             self.uiFert.spinPW.setValue(fert.probenwert)
             self.uiFert.spinPWT.setValue(fert.probenwertTalent)
             self.uiFert.plainText.setPlainText(fert.text)
             self.updateTalents()
+            self.currentlyLoading = False
         
     def updateTalents(self):
         if self.currentFertName != "":

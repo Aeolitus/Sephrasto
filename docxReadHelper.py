@@ -134,6 +134,8 @@ def updateUeberTalents():
     print("Fix -alle Elemente- bei Transmutation der Elemente")
     print("Fix Einzelelement bei Herbeirufung")
     print("Fix Borbaradianisch -> Boronkirchlich")
+    print("Fix 'Entspricht dem Zauber' and stuff")
+    print("Fix Oracnofaxius und Segen der heiligen Ardare Ferts")
     
     return tmp2
 
