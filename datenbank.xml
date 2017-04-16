@@ -255,11 +255,11 @@ Bedingungen:
 Bei Strukturanalysen erhältst du einen zusätzlichen Analysegrad, wenn der gewertete Würfel eine 12 oder höher zeigt.</Vorteil>
   <Vorteil name="Semipermanenz" kosten="60" voraussetzungen="Attribut FF 8, Vorteil Zauberer I" nachkauf="häufig" typ="4">Du kannst Semipermanente Artefakte erschaffen.</Vorteil>
   <Vorteil name="Thaumaturg" kosten="80" voraussetzungen="Attribut FF 10, Vorteil Zauberer I" nachkauf="häufig" typ="4">Artefakte kosten nur die halben gAsP. Außerdem können Thaumaturgen weitere Vorteile zur Artefaktherstellung nutzen: Mit Kraftlinienmagie kannst du ortsgebundene Artefakte erschaffen, ohne gAsP aufzuwenden. Mit Meister der Wünsche/Meister der Seelenlosen kannst du Elementare/Dämonen in Artefakte binden. Beim Auslösen solcher Artefakte ist keine Beherrschungsprobe nötig, solange diese nicht schwieriger wäre als die vom Erschaffer abgelegte Beherrschungsprobe. </Vorteil>
-  <Vorteil name="Regeneration" kosten="20" voraussetzungen="Attribut KO 4" nachkauf="häufig" typ="4">Du regenerierst 1 zusätzlichen AsP pro Nacht.</Vorteil>
+  <Vorteil name="Regeneration" kosten="20" voraussetzungen="Attribut KO 4, Vorteil Zauberer I" nachkauf="häufig" typ="4">Du regenerierst 1 zusätzlichen AsP pro Nacht.</Vorteil>
   <Vorteil name="Verbotene Pforten" kosten="40" voraussetzungen="Attribut KO 6, Vorteil Zauberer I" nachkauf="häufig" typ="4">Du kannst mit deiner Lebenskraft zaubern, wenn du über zu wenige AsP verfügst.</Vorteil>
   <Vorteil name="Verbesserte Regeneration" kosten="60" voraussetzungen="Attribut KO 8, Vorteil Zauberer I" nachkauf="häufig" typ="4">Du regenerierst 2 weitere, zusätzliche AsP pro Nacht.</Vorteil>
   <Vorteil name="Meisterliche Regeneration" kosten="80" voraussetzungen="Attribut KO 10, Vorteil Zauberer I" nachkauf="häufig" typ="4">Du regenerierst 3 weitere, zusätzliche AsP pro Nacht.</Vorteil>
-  <Vorteil name="Bändiger der Kreaturen" kosten="20" voraussetzungen="Attribut MU 4" nachkauf="häufig" typ="4">Du kannst von dir beschworenen unheiligen Wesenheiten zusätzliche Fähigkeiten im Wert von 4 Punkten verleihen.</Vorteil>
+  <Vorteil name="Bändiger der Kreaturen" kosten="20" voraussetzungen="Attribut MU 4, Vorteil Zauberer I" nachkauf="häufig" typ="4">Du kannst von dir beschworenen unheiligen Wesenheiten zusätzliche Fähigkeiten im Wert von 4 Punkten verleihen.</Vorteil>
   <Vorteil name="Meister der Seelenlosen" kosten="40" voraussetzungen="Attribut MU 6, Vorteil Zauberer I" nachkauf="häufig" typ="4">Nachdem ein gebundenes unheiliges Wesen seinen Dienst erfüllt hat, kannst du für die Hälfte der Basisbeschwörungskosten einen zusätzlichen Dienst erbitten. 
 Die nötige Beherrschungsprobe wird nicht durch Vorbereitung erleichtert.</Vorteil>
   <Vorteil name="Blutmagie" kosten="60" voraussetzungen="Attribut MU 8, Vorteil Zauberer I" nachkauf="häufig" typ="4">Erlaubt den Einsatz von Blutmagie.</Vorteil>
@@ -329,7 +329,7 @@ Bedingungen: Bodenkontakt</Vorteil>
   <Vorteil name="Hexische Repräsentation II" kosten="40" voraussetzungen="Attribut IN 6, Vorteil Hexische Repräsentation I" nachkauf="häufig" typ="5">Im Zustand besonders starker Emotionen sind Zauber und Rituale um 2-4 Punkte erleichtert.</Vorteil>
   <Vorteil name="Hexische Repräsentation III" kosten="60" voraussetzungen="Attribut IN 8, Vorteil Hexische Repräsentation II" nachkauf="häufig" typ="5">Erlaubt die spontane Modifikation Erzwingen.</Vorteil>
   <Vorteil name="Hexische Repräsentation IV" kosten="80" voraussetzungen="Attribut IN 10, Vorteil Hexische Repräsentation III" nachkauf="häufig" typ="5">8 Punkte können zur Verbesserung der Repräsentation verwendet werden.</Vorteil>
-  <Vorteil name="Magiedillettantische Repräsentation" kosten="20" voraussetzungen="Attribut KL 4" nachkauf="häufig" typ="5">Spruchzauberische Fertigkeiten können erlernt und benutzt werden. Du kannst alle Zauber erlernen, die 20 oder 40 EP kosten.
+  <Vorteil name="Magiedillettantische Repräsentation" kosten="20" voraussetzungen="Attribut KL 4, Vorteil Zauberer I" nachkauf="häufig" typ="5">Spruchzauberische Fertigkeiten können erlernt und benutzt werden. Du kannst alle Zauber erlernen, die 20 oder 40 EP kosten.
 
 Du kannst pro Zauber maximal zwei spontane Modifikationen (oder eine Modifikation zweimal) einsetzen.
 
