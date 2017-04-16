@@ -77,5 +77,15 @@ class AttrWrapper(QtCore.QObject):
         self.uiAttr.abIN.setValue(Wolke.Char.ini)
         self.uiAttr.abMR.setValue(Wolke.Char.mr)
         self.uiAttr.abSB.setValue(Wolke.Char.schadensbonus)
-        self.uiAttr.spinAsP.setValue(Wolke.Char.asp.wert)
-        self.uiAttr.spinKaP.setValue(Wolke.Char.kap.wert)
+        if "Zauberer I" in Wolke.Char.vorteile:
+            self.uiAttr.spinAsP.setEnabled(True)
+            self.uiAttr.spinAsP.setValue(Wolke.Char.asp.wert)
+        else:
+            self.uiAttr.spinAsP.setValue(0)
+            self.uiAttr.spinAsP.setEnabled(False)
+        if "Geweiht I" in Wolke.Char.vorteile:
+            self.uiAttr.spinKaP.setEnabled(True)
+            self.uiAttr.spinKaP.setValue(Wolke.Char.kap.wert)
+        else:
+            self.uiAttr.spinKaP.setValue(0)
+            self.uiAttr.spinKaP.setEnabled(False)

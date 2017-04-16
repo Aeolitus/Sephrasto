@@ -432,9 +432,10 @@ class Char():
         fields['Schip'] = 4 + glMod
         fields['Schipm'] = self.schips + glMod
         # Erste Acht Eigenheiten
-        count = 1;
+        count = 0;
+        eigFields = [1, 5, 2, 6, 3, 7, 4, 8]
         for el in self.eigenheiten:
-            fields['Eigen' + str(count)] = el
+            fields['Eigen' + str(eigFields[count])] = el
             if count == 8:
                 break
             count += 1
