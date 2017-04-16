@@ -45,6 +45,8 @@ class Char():
         self.rüstung = []
         self.waffen = []
         self.ausrüstung = []
+        self.rüstungsgewöhnung = 0
+        self.rsmod = 0
 
         #Sechster Block: Übernatürliches
         self.übernatürlicheFertigkeiten = copy.deepcopy(Wolke.DB.übernatürlicheFertigkeiten)
@@ -63,17 +65,41 @@ class Char():
         for key in Definitionen.Attribute:
             self.attribute[key].aktualisieren()
         self.ws = 4 + int(self.attribute['KO'].wert/4)
+        if "Unverwüstlich" in self.vorteile:
+            self.ws += 1
         self.mr = 4 + int(self.attribute['MU'].wert/4)
+        if "Willensstark I" in self.vorteile:
+            self.mr += 4
+        if "Willensstark II" in self.vorteile:
+            self.mr += 4
+        if "Unbeugsamkeit" in self.vorteile:
+            self.mr += self.attribute['MU'].wert/2
         self.gs = 4 + int(self.attribute['GE'].wert/4)
+        if "Flink I" in self.vorteile:
+            self.gs += 1
+        if "Flink II" in self.vorteile:
+            self.gs += 1
         self.ini = self.attribute['IN'].wert
+        if "Kampfreflexe" in self.vorteile:
+            self.ini += 4                                 
         self.schadensbonus = int(self.attribute['KK'].wert/4)
         self.schips = 4
         if self.finanzen >= 2: 
             self.schips += self.finanzen - 2
         else:
             self.schips -= (2-self.finanzen)*2
+        self.be = 0
+        self.rüstungsgewöhnung = 0
         if len(self.rüstung) > 0:
             self.be = self.rüstung[0].be
+        if "Rüstungsgewöhnung I" in self.vorteile:
+            self.rüstungsgewöhnung += 1
+        if "Rüstungsgewöhnung II" in self.vorteile:
+            self.rüstungsgewöhnung += 2
+        self.be = max(0,self.be-self.rüstungsgewöhnung)
+        self.rsmod = 0
+        if "Natürliche Rüstung" in self.vorteile:
+            self.rsmod += 1
         self.updateVorts()
         self.updateFerts()
         self.epZaehlen()
@@ -460,8 +486,10 @@ class Char():
             aspMod += 8
         if "Zauberer IV" in self.vorteile:
             aspMod += 8
+        if "Gefäß der Sterne" in self.vorteile:
+            aspMod += self.attribute['CH']+4
         if aspMod > 0:    
-            fields['Astralenergie'] = self.asp.wert + aspMod
+            fields['Astralenergie'] = self.asp.wert + aspMod    
         kapMod = 0
         if "Geweiht I" in self.vorteile:
             kapMod += 8
@@ -475,23 +503,24 @@ class Char():
             fields['Karmaenergie'] = self.kap.wert + kapMod
         if aspMod > 0 and kapMod == 0:
             fields['Energie'] = "AsP"
-            fields['EN'] = self.kap.wert + kapMod
+            fields['EN'] = self.asp.wert + aspMod
             fields['Energieg'] = "gAsP"   
             fields['Text83'] = "0"
             fields['Energiem'] = "AsP"
         elif aspMod == 0 and kapMod > 0:
             fields['Energie'] = "KaP"
-            fields['EN'] = self.asp.wert + aspMod
+            fields['EN'] = self.kap.wert + kapMod
             fields['Energieg'] = "gKaP"   
             fields['Text83'] = "0"
             fields['Energiem'] = "KaP"
         # Wenn sowohl AsP als auch KaP vorhanden sind, muss der Spieler ran..
-        fields['DHm'] = max(self.dh - 2*self.be,1)
-        fields['GSm'] = max(self.gs-self.be,1)
+        trueBE = max(self.be-self.rüstungsgewöhnung,0)
+        fields['DHm'] = max(self.dh - 2*trueBE,1)
+        fields['GSm'] = max(self.gs-trueBE,1)
+        wsmod = self.rsmod + self.ws
         if len(self.rüstung) > 0:    
-            fields['WSm'] = int(self.ws + sum(self.rüstung[0].rs)/6+0.5)
-        else:
-            fields['WSm'] = self.ws
+            wsmod += int(sum(self.rüstung[0].rs)/6+0.5)
+        fields['WSm'] = wsmod
                       
         return fields
     
@@ -564,15 +593,15 @@ class Char():
         count = 0
         for el in self.rüstung:
             fields['Text53.' + str(count)] = el.name
-            fields['Text55.' + str(count)] = int(sum(el.rs)/6+0.5)
-            fields['Text56.' + str(count)] = el.be
-            fields['Text57.' + str(count)] = int(sum(el.rs)/6+self.ws+0.5)
-            fields['Text58.' + str(count)] = el.rs[0]
-            fields['Text59.' + str(count)] = el.rs[1]
-            fields['Text60.' + str(count)] = el.rs[2]
-            fields['Text61.' + str(count)] = el.rs[3]
-            fields['Text62.' + str(count)] = el.rs[4]
-            fields['Text63.' + str(count)] = el.rs[5]
+            fields['Text55.' + str(count)] = int(sum(el.rs)/6+0.5)+self.rsmod
+            fields['Text56.' + str(count)] = max(el.be-self.rüstungsgewöhnung,0)
+            fields['Text57.' + str(count)] = int(sum(el.rs)/6+self.ws+0.5+self.rsmod)
+            fields['Text58.' + str(count)] = el.rs[0]+self.rsmod
+            fields['Text59.' + str(count)] = el.rs[1]+self.rsmod
+            fields['Text60.' + str(count)] = el.rs[2]+self.rsmod
+            fields['Text61.' + str(count)] = el.rs[3]+self.rsmod
+            fields['Text62.' + str(count)] = el.rs[4]+self.rsmod
+            fields['Text63.' + str(count)] = el.rs[5]+self.rsmod
             if count >= 1:
                 break
             count += 1
