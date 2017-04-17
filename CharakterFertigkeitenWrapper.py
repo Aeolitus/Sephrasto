@@ -134,7 +134,7 @@ class FertigkeitenWrapper(QtCore.QObject):
                 item = QtGui.QStandardItem(el)
                 item.setEditable(False)
                 self.model.appendRow(item)
-                self.updateTalentRow()
+            self.updateTalentRow()
         
     def editTalents(self):
         if self.currentFertName != "":
