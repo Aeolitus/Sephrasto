@@ -24,6 +24,7 @@ class BeschrWrapper(QtCore.QObject):
             eval("self.uiBeschr.editEig" + str(i+1) + ".editingFinished.connect(self.updateBeschreibung)")
         self.uiBeschr.comboFinanzen.activated.connect(self.updateBeschreibung)
         self.uiBeschr.comboStatus.activated.connect(self.updateBeschreibung)
+        self.uiBeschr.comboHeimat.activated.connect(self.updateBeschreibung)
         
         
         
@@ -34,6 +35,7 @@ class BeschrWrapper(QtCore.QObject):
             Wolke.Char.rasse = self.uiBeschr.editRasse.text()
         Wolke.Char.status = self.uiBeschr.comboStatus.currentIndex()
         Wolke.Char.finanzen = self.uiBeschr.comboFinanzen.currentIndex()
+        Wolke.Char.heimat = self.uiBeschr.comboHeimat.currentText()
         Wolke.Char.kurzbeschreibung = self.uiBeschr.editKurzbeschreibung.text()
         Wolke.Char.eigenheiten = []
         Wolke.Char.eigenheiten.append(self.uiBeschr.editEig1.text())
@@ -51,6 +53,7 @@ class BeschrWrapper(QtCore.QObject):
         self.uiBeschr.editRasse.setText(Wolke.Char.rasse)
         self.uiBeschr.comboStatus.setCurrentIndex(Wolke.Char.status)
         self.uiBeschr.comboFinanzen.setCurrentIndex(Wolke.Char.finanzen)
+        self.uiBeschr.comboHeimat.setCurrentText(Wolke.Char.heimat)
         self.uiBeschr.editKurzbeschreibung.setText(Wolke.Char.kurzbeschreibung)
         arr = ["", "", "", "", "", "", "", ""]
         count = 0

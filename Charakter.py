@@ -16,6 +16,7 @@ class Char():
         self.rasse = ''
         self.status = 2
         self.kurzbeschreibung = ''
+        self.heimat = 'Mittelreich'
         self.schips = 4
         self.finanzen = 2;
         self.eigenheiten = []
@@ -121,12 +122,10 @@ class Char():
         paidTalents = []
         for fer in self.fertigkeiten:
             spent += sum(range(self.fertigkeiten[fer].wert+1))*self.fertigkeiten[fer].steigerungsfaktor
-            skip = False
             for tal in self.fertigkeiten[fer].gekaufteTalente:
-                if fer == "Gebräuche" and not skip:
-                    skip = True
-                    continue
                 if tal in paidTalents:
+                    continue
+                if fer == "Gebräuche" and tal[11:] == self.heimat:
                     continue
                 paidTalents.append(tal)
                 if Wolke.DB.talente[tal].kosten != -1:
@@ -137,6 +136,7 @@ class Char():
                     spent += 20*self.fertigkeiten[fer].steigerungsfaktor
         skip = False                                                 
         for fer in self.freieFertigkeiten:
+            # Dont count Muttersprache
             if fer.wert == 3 and not skip:
                 skip = True
                 continue
@@ -297,6 +297,7 @@ class Char():
         etree.SubElement(sub,'kurzbeschreibung').text = self.kurzbeschreibung
         etree.SubElement(sub,'schips').text = str(self.schips)
         etree.SubElement(sub,'finanzen').text = str(self.finanzen)
+        etree.SubElement(sub,'heimat').text = self.heimat
         eigs = etree.SubElement(sub,'eigenheiten')
         for eigenh in self.eigenheiten:
             etree.SubElement(eigs,'Eigenheit').text = eigenh
@@ -387,6 +388,11 @@ class Char():
         self.kurzbeschreibung = alg.find('kurzbeschreibung').text
         self.schips = int(alg.find('schips').text)
         self.finanzen = int(alg.find('finanzen').text)
+        tmp = alg.find('heimat')
+        if tmp is None: 
+            self.heimat = 'Mittelreich'
+        else:
+            self.heimat = tmp.text
         for eig in alg.findall('eigenheiten/*'):
             self.eigenheiten.append(eig.text)
         #Zweiter Block
