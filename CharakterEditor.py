@@ -174,7 +174,8 @@ class Editor(object):
             infoBox.setIcon(QtWidgets.QMessageBox.Information)
             infoBox.setText("PDF-Erstellung fehlgeschlagen!")
             infoBox.setInformativeText("Um Charakterbögen befüllen zu können, muss PDFtk installiert sein.\n\
-PDFtk erhälst du auf: \n pdflabs.com/tools/pdftk-server/")
+PDFtk erhälst du auf: \n pdflabs.com/tools/pdftk-server/\n\
+Nach der Installation ist ein Neustart von Sephrasto erforderlich.")
             infoBox.setWindowTitle("Fehlende Voraussetzungen")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  

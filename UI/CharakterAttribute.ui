@@ -746,7 +746,7 @@
         </size>
        </property>
        <property name="text">
-        <string>Karmalenergie</string>
+        <string>Zugekaufte Karmaenergie</string>
        </property>
       </widget>
      </item>
@@ -788,7 +788,7 @@
      <item row="8" column="6">
       <widget class="QLabel" name="label_14">
        <property name="text">
-        <string>Astralenergie</string>
+        <string>Zugekaufte Astralenergie</string>
        </property>
       </widget>
      </item>
