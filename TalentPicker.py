@@ -26,10 +26,19 @@ class TalentPicker(object):
         self.ui.listTalente.setModel(self.model)
         self.ui.listTalente.selectionModel().currentChanged.connect(self.talChanged)
         
+        if self.fert == "Gebräuche":
+            self.baseStr = "Gebräuche: "
+        elif self.fert == "Mythenkunde":
+            self.baseStr = "Mythen: "
+        elif self.fert == "Überleben":
+            self.baseStr = "Überleben: "
+        else: 
+            self.baseStr = None
+        
         self.rowCount = 0
         for el in Wolke.DB.talente:
             if fert in Wolke.DB.talente[el].fertigkeiten and Wolke.Char.voraussetzungenPrüfen(Wolke.DB.talente[el].voraussetzungen):
-                item = QtGui.QStandardItem(el)
+                item = QtGui.QStandardItem(self.displayStr(el))
                 item.setEditable(False)
                 item.setCheckable(True)
                 if el in self.gekaufteTalente:
@@ -39,7 +48,7 @@ class TalentPicker(object):
                 self.model.appendRow(item)
                 self.rowCount += 1
         if self.rowCount > 0:
-            self.updateFields(self.model.item(0).text())
+            self.updateFields(self.dataStr(self.model.item(0).text()))
         self.ui.listTalente.setModel(self.model)
         self.Form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.Form.show()
@@ -47,7 +56,7 @@ class TalentPicker(object):
         if self.ret == QtWidgets.QDialog.Accepted:
             self.gekaufteTalente = []
             for i in range(self.rowCount):
-                tmp = self.model.item(i).text()
+                tmp = self.dataStr(self.model.item(i).text())
                 if self.model.item(i).checkState() == QtCore.Qt.Checked:
                     for el in Wolke.DB.talente[tmp].fertigkeiten:
                         if el in self.refC:
@@ -65,11 +74,11 @@ class TalentPicker(object):
     
     @QtCore.pyqtSlot("QModelIndex", "QModelIndex")       
     def talChanged(self, item, prev):
-        text = self.model.itemData(item)[0]
+        text = self.dataStr(self.model.itemData(item)[0])
         self.updateFields(text)
         
     def updateFields(self, talent):
-        self.ui.labelName.setText(Wolke.DB.talente[talent].name)
+        self.ui.labelName.setText(self.displayStr(Wolke.DB.talente[talent].name))
         if Wolke.DB.talente[talent].kosten == -1:
             if Wolke.DB.talente[talent].verbilligt:
                 self.ui.labelInfo.setText("Verbilligt")
@@ -81,3 +90,14 @@ class TalentPicker(object):
             self.ui.labelInfo.setText("Spezialtalent")
             self.ui.spinKosten.setValue(Wolke.DB.talente[talent].kosten)
         self.ui.plainText.setPlainText(Wolke.DB.talente[talent].text)
+
+    def displayStr(self,inp):
+        if self.baseStr is not None:
+            if inp.startswith(self.baseStr):
+                return inp[len(self.baseStr):]
+            return inp
+        
+    def dataStr(self,inp):
+        if self.baseStr is not None:
+            return self.baseStr + inp
+        
