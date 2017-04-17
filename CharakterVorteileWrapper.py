@@ -111,11 +111,8 @@ class CharakterVorteileWrapper(QtCore.QObject):
             else:
                 if name in Wolke.Char.vorteile:
                     Wolke.Char.vorteile.remove(name)
-            self.loadVorteile() 
-            # Do this before modified to filter those where we no longer fulfil 
-            # the reqs. Klicking on Vorteile should never change attributes and
-            # such anyways.
             self.modified.emit()
+            self.loadVorteile() 
             self.uiVor.treeWidget.blockSignals(False)
         except:
             print("Error thrown in CVW->itemChangeHandler")  

@@ -159,20 +159,46 @@ class Char():
         self.EPspent = spent
 
     def updateVorts(self):
-        remove = []
-        for vor in self.vorteile:
-            if not self.voraussetzungenPrüfen(Wolke.DB.vorteile[vor].voraussetzungen):
-                remove.append(vor)
-        for el in remove:
-            self.vorteile.remove(el)
+        while True:
+            contFlag = True
+            remove = []
+            for vor in self.vorteile:
+                if not self.voraussetzungenPrüfen(Wolke.DB.vorteile[vor].voraussetzungen):
+                    remove.append(vor)
+                    contFlag = False
+            for el in remove:
+                self.vorteile.remove(el)
+            if contFlag:
+                break
 
     def updateFerts(self):
-        remove = []
+        # Remover 
+        while True:
+            remove = []
+            contFlag = True
+            for fert in self.fertigkeiten:
+                if not self.voraussetzungenPrüfen(self.fertigkeiten[fert].voraussetzungen):
+                    remove.append(fert)
+                    contFlag = False
+            for el in remove:
+                self.fertigkeiten.pop(el,None)
+            if contFlag:
+                break
+        while True:
+            remove = []
+            contFlag = True
+            for fert in self.übernatürlicheFertigkeiten:
+                if not self.voraussetzungenPrüfen(self.übernatürlicheFertigkeiten[fert].voraussetzungen):
+                    remove.append(fert)
+                    contFlag = False
+            for el in remove:
+                self.übernatürlicheFertigkeiten.pop(el,None)
+            if contFlag:
+                break
+                
+                
         self.höchsteKampfF = -1
         for fert in self.fertigkeiten:
-            if not self.voraussetzungenPrüfen(self.fertigkeiten[fert].voraussetzungen):
-                remove.append(fert)
-                continue
             self.fertigkeiten[fert].aktualisieren()
             if self.fertigkeiten[fert].wert > self.fertigkeiten[fert].maxWert:
                 self.fertigkeiten[fert].wert = self.fertigkeiten[fert].maxWert
@@ -188,13 +214,7 @@ class Char():
                             if f in self.fertigkeiten:
                                 if el not in self.fertigkeiten[f].gekaufteTalente:
                                     self.fertigkeiten[f].gekaufteTalente.append(el)
-        for el in remove:
-            self.fertigkeiten.pop(el,None)
-        remove = []
         for fert in self.übernatürlicheFertigkeiten:
-            if not self.voraussetzungenPrüfen(self.übernatürlicheFertigkeiten[fert].voraussetzungen):
-                remove.append(fert)
-                continue
             self.übernatürlicheFertigkeiten[fert].aktualisieren()
             if self.übernatürlicheFertigkeiten[fert].wert > self.übernatürlicheFertigkeiten[fert].maxWert:
                 self.übernatürlicheFertigkeiten[fert].wert = self.übernatürlicheFertigkeiten[fert].maxWert
@@ -208,8 +228,6 @@ class Char():
                             if f in self.übernatürlicheFertigkeiten:
                                 if el not in self.übernatürlicheFertigkeiten[f].gekaufteTalente:
                                     self.übernatürlicheFertigkeiten[f].gekaufteTalente.append(el)
-        for el in remove:
-            self.übernatürlicheFertigkeiten.pop(el,None)
 
     def voraussetzungenPrüfen(self,Vor,Or=False):
         '''
