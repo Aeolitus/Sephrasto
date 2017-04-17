@@ -39,7 +39,7 @@ class Ui_Form(object):
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.editFF1 = QtWidgets.QLineEdit(self.groupBox)
-        self.editFF1.setReadOnly(True)
+        self.editFF1.setReadOnly(False)
         self.editFF1.setObjectName("editFF1")
         self.horizontalLayout_2.addWidget(self.editFF1)
         self.comboFF1 = QtWidgets.QComboBox(self.groupBox)
@@ -276,7 +276,8 @@ class Ui_Form(object):
         self.comboFF10.setItemText(0, _translate("Form", "I"))
         self.comboFF10.setItemText(1, _translate("Form", "II"))
         self.comboFF10.setItemText(2, _translate("Form", "III"))
-        self.label.setText(_translate("Form", "Jeder Charakter beherrscht seine Muttersprache meisterlich, ohne dafür zu bezahlen."))
+        self.label.setText(_translate("Form", "Der erste Eintrag ist die Muttersprache des Charakters.\n"
+"Jeder Charakter beherrscht seine Muttersprache meisterlich, ohne dafür zu bezahlen."))
 
 
 if __name__ == "__main__":

@@ -18,7 +18,7 @@ class CharakterFreieFertWrapper(QtCore.QObject):
         self.uiFert = CharakterFreieFert.Ui_Form()
         self.uiFert.setupUi(self.formFert)
         
-        for count in range(2,13):
+        for count in range(1,13):
             eval("self.uiFert.editFF" + str(count) + ".editingFinished.connect(self.changedEntry)")
             eval("self.uiFert.comboFF" + str(count) + ".currentIndexChanged.connect(self.changedEntry)")
         
@@ -26,10 +26,10 @@ class CharakterFreieFertWrapper(QtCore.QObject):
         
     def loadFreie(self):
         try:
-            count = 2
+            count = 1
             for el in Wolke.Char.freieFertigkeiten:
-                if el.name == "Muttersprache":
-                    continue
+                #if el.name == "Muttersprache":
+                #    continue
                 eval("self.uiFert.editFF" + str(count) + ".blockSignals(True)")
                 eval("self.uiFert.comboFF" + str(count) + ".blockSignals(True)")
                 eval("self.uiFert.editFF" + str(count) + ".setText(\"" + el.name + "\")")

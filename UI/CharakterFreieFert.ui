@@ -71,7 +71,7 @@
              <string>Muttersprache</string>
             </property>
             <property name="readOnly">
-             <bool>true</bool>
+             <bool>false</bool>
             </property>
            </widget>
           </item>
@@ -486,7 +486,8 @@
         </size>
        </property>
        <property name="text">
-        <string>Jeder Charakter beherrscht seine Muttersprache meisterlich, ohne dafür zu bezahlen.</string>
+        <string>Der erste Eintrag ist die Muttersprache des Charakters.
+Jeder Charakter beherrscht seine Muttersprache meisterlich, ohne dafür zu bezahlen.</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>

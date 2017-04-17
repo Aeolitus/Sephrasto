@@ -135,9 +135,12 @@ class Char():
                     spent += 10*self.fertigkeiten[fer].steigerungsfaktor
                 else:
                     spent += 20*self.fertigkeiten[fer].steigerungsfaktor
+        skip = False                                                 
         for fer in self.freieFertigkeiten:
-            if fer.name != "Muttersprache":
-                spent += Definitionen.FreieFertigkeitKosten[fer.wert-1]
+            if fer.wert == 3 and not skip:
+                skip = True
+                continue
+            spent += Definitionen.FreieFertigkeitKosten[fer.wert-1]
         #Fünfter Block ist gratis
         #Sechster Block: Übernatürliches
         for fer in self.übernatürlicheFertigkeiten:
