@@ -553,7 +553,12 @@ class Char():
     
     def pdfDritterBlock(self, fields):    
         sortV = self.vorteile.copy()
+        typeDict = {}
+        assembled = []
+        removed = []
         for vort in sortV:
+            if vort in removed:
+                continue
             flag = False
             if vort.endswith(" I"):
                 basename = vort[:-2]
@@ -569,16 +574,38 @@ class Char():
                 fullenum = ""
                 for el in fullset:
                     if basename+el in sortV:
-                        sortV.remove(basename+el)
+                        removed.append(basename+el)
                         fullenum += "," + el[1:]
-                sortV.append(basename + " " + fullenum[1:])
+                vname = basename + " " + fullenum[1:]
+                #sortV.append(vname)
+                typeDict[vname] = Wolke.DB.vorteile[vort].typ
+                assembled.append(vname)
+                if "Zauberer" in vname or "Geweiht" in vname:
+                    typeDict[vname] = 4
+            else:
+                typeDict[vort] = Wolke.DB.vorteile[vort].typ
+        for el in removed:
+            if el in sortV:
+                sortV.remove(el)
+        for el in assembled:
+            sortV.append(el)
         sortV = sorted(sortV, key=str.lower)
-        for i in range(1,9):
-            if len(sortV)<i: break
-            fields['Vorteil' + str(i)] = sortV[i-1]
-        for i in range(1,14):
-            if len(sortV)-8<i: break
-            fields['Weite' + str(i)] = sortV[i-1+8]
+        tmpVorts = [el for el in sortV if typeDict[el] < 2]
+        tmpUeber = [el for el in sortV if typeDict[el] >= 2]
+        if len(tmpVorts) <= 8 and len(tmpUeber) <= 13:
+            for i in range(1,9):
+                if len(tmpVorts)<i: break
+                fields['Vorteil' + str(i)] = tmpVorts[i-1]
+            for i in range(1,14):
+                if len(tmpUeber)<i: break
+                fields['Weite' + str(i)] = tmpUeber[i-1]
+        else:
+            for i in range(1,9):
+                if len(sortV)<i: break
+                fields['Vorteil' + str(i)] = sortV[i-1]
+            for i in range(1,14):
+                if len(sortV)-8<i: break
+                fields['Weite' + str(i)] = sortV[i-1+8]
         return fields
     
     def pdfVierterBlock(self, fields):
