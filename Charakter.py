@@ -598,7 +598,14 @@ class Char():
             talStr = ""
             for el2 in self.fertigkeiten[el].gekaufteTalente:
                 talStr += ", "
-                talStr += el2
+                if el2.startswith("Gebräuche: "):
+                    talStr += el2[11:]
+                elif el2.startswith("Mythen: "):
+                    talStr += el2[8:]
+                elif el2.startswith("Überleben: "):
+                    talStr += el2[11:]
+                else:
+                    talStr += el2
             talStr = talStr[2:]
             fields[base + "TA"] = talStr
             fields[base + "PW"] = self.fertigkeiten[el].probenwert
