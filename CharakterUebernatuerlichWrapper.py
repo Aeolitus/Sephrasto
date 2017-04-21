@@ -29,9 +29,14 @@ class UebernatuerlichWrapper(QtCore.QObject):
         self.uiFert.spinFW.valueChanged.connect(self.fwChanged)
         self.uiFert.tableWidget.currentItemChanged.connect(self.tableClicked)   
         self.uiFert.buttonAdd.clicked.connect(self.editTalents)
-
+        
         self.availableFerts = []
         self.rowRef = {}
+        self.spinRef = {}
+        self.labelRef = {}
+        self.layoutRef = {}
+        self.buttonRef = {}
+        self.widgetRef = {}
         
         #If there is an ability already, then we take it to display already
         try:
@@ -80,17 +85,42 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 if el not in Wolke.Char.übernatürlicheFertigkeiten:
                     Wolke.Char.übernatürlicheFertigkeiten.update({el: Wolke.DB.übernatürlicheFertigkeiten[el].__deepcopy__()})
                     Wolke.Char.übernatürlicheFertigkeiten[el].wert = 0
-                    Wolke.Char.übernatürlicheFertigkeiten[el].aktualisieren()
+                Wolke.Char.übernatürlicheFertigkeiten[el].aktualisieren()
                 self.uiFert.tableWidget.setItem(count, 0, QtWidgets.QTableWidgetItem(Wolke.Char.übernatürlicheFertigkeiten[el].name))
-                self.uiFert.tableWidget.setItem(count,1,QtWidgets.QTableWidgetItem(str(Wolke.Char.übernatürlicheFertigkeiten[el].wert)))
-                self.uiFert.tableWidget.setItem(count,2,QtWidgets.QTableWidgetItem(str(len(Wolke.Char.übernatürlicheFertigkeiten[el].gekaufteTalente))))
+                
+                # Add Spinner for FW
+                #self.uiFert.tableWidget.setItem(count,1,QtWidgets.QTableWidgetItem(str(Wolke.Char.übernatürlicheFertigkeiten[el].wert)))
+                self.spinRef[Wolke.Char.übernatürlicheFertigkeiten[el].name] = QtWidgets.QSpinBox()
+                self.spinRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].setMinimum(0)
+                self.spinRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].setMaximum(Wolke.Char.übernatürlicheFertigkeiten[el].maxWert)
+                self.spinRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].setValue(Wolke.Char.übernatürlicheFertigkeiten[el].wert)
+                self.spinRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].setAlignment(QtCore.Qt.AlignCenter)
+                self.spinRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].valueChanged.connect(lambda state, name=Wolke.Char.übernatürlicheFertigkeiten[el].name: self.spinnerClicked(name))
+                self.uiFert.tableWidget.setCellWidget(count,1,self.spinRef[Wolke.Char.übernatürlicheFertigkeiten[el].name])
+                
+                # Add Talents Count and Add Button
+                self.layoutRef[Wolke.Char.übernatürlicheFertigkeiten[el].name] = QtWidgets.QHBoxLayout()
+                self.labelRef[Wolke.Char.übernatürlicheFertigkeiten[el].name] = QtWidgets.QLabel()
+                self.labelRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].setText(str(len(Wolke.Char.übernatürlicheFertigkeiten[el].gekaufteTalente)))
+                self.labelRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].setAlignment(QtCore.Qt.AlignCenter)
+                #self.labelRef.update({Wolke.Char.übernatürlicheFertigkeiten[el].name: lab})
+                self.layoutRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].addWidget(self.labelRef[Wolke.Char.übernatürlicheFertigkeiten[el].name])
+                self.buttonRef[Wolke.Char.übernatürlicheFertigkeiten[el].name] = QtWidgets.QPushButton()
+                self.buttonRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].setText("+")
+                self.buttonRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].setMaximumSize(QtCore.QSize(25, 20))
+                self.buttonRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].clicked.connect(lambda state, name=Wolke.Char.übernatürlicheFertigkeiten[el].name: self.addClicked(name))
+                self.layoutRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].addWidget(self.buttonRef[Wolke.Char.übernatürlicheFertigkeiten[el].name])
+                self.widgetRef[Wolke.Char.übernatürlicheFertigkeiten[el].name] = QtWidgets.QWidget()
+                self.widgetRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].setLayout(self.layoutRef[Wolke.Char.übernatürlicheFertigkeiten[el].name])
+                self.uiFert.tableWidget.setCellWidget(count,2,self.widgetRef[Wolke.Char.übernatürlicheFertigkeiten[el].name])
+                #self.uiFert.tableWidget.setItem(count,2,QtWidgets.QTableWidgetItem(str(len(Wolke.Char.übernatürlicheFertigkeiten[el].gekaufteTalente))))
                 self.rowRef.update({Wolke.Char.übernatürlicheFertigkeiten[el].name: count})
                 count += 1
-            self.uiFert.tableWidget.itemSelectionChanged.connect(self.tableClicked) 
+            self.uiFert.tableWidget.cellClicked.connect(self.tableClicked) 
         self.updateInfo()
-        self.updateTalents()
+        self.updateTalents()    
         self.currentlyLoading = False
-            
+        
     def tableClicked(self):
         if not self.currentlyLoading:
             tmp = self.uiFert.tableWidget.item(self.uiFert.tableWidget.currentRow(),0).text()
@@ -98,14 +128,34 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 self.currentFertName = tmp
                 self.updateInfo()
         
-    def fwChanged(self):
+    def fwChanged(self, flag = False):
         if not self.currentlyLoading:
             if self.currentFertName != "":
-                Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].wert = self.uiFert.spinFW.value()
+                if flag:
+                    val = self.spinRef[self.currentFertName].value()
+                else:
+                    val = self.uiFert.spinFW.value()
+                Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].wert = val
                 Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].aktualisieren()
-                self.uiFert.spinPW.setValue(Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].probenwertTalent)
+                self.uiFert.spinPW.setValue(Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].probenwert)
+                #self.uiFert.spinPWT.setValue(Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].probenwertTalent)
                 self.modified.emit()
-                self.uiFert.tableWidget.setItem(self.rowRef[self.currentFertName],1,QtWidgets.QTableWidgetItem(str(Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].wert)))
+                #self.uiFert.tableWidget.setItem(self.rowRef[self.currentFertName],1,QtWidgets.QTableWidgetItem(str(Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].wert)))
+                if flag:
+                    self.uiFert.spinFW.setValue(val)
+                else:
+                    self.spinRef[self.currentFertName].setValue(val)
+    
+    def spinnerClicked(self, fert):
+        if not self.currentlyLoading:
+            self.currentFertName = fert
+            self.updateInfo()
+            self.fwChanged(True)
+            
+    def addClicked(self, fert):
+        self.currentFertName = fert
+        self.updateInfo()
+        self.editTalents()
         
     def updateInfo(self):
         if self.currentFertName != "":
@@ -119,8 +169,10 @@ class UebernatuerlichWrapper(QtCore.QObject):
             self.uiFert.spinSF.setValue(fert.steigerungsfaktor)
             self.uiFert.spinBasis.setValue(fert.basiswert)
             self.uiFert.spinFW.setMaximum(fert.maxWert)
+            self.spinRef[self.currentFertName].setMaximum(fert.maxWert)
             self.uiFert.spinFW.setValue(fert.wert)
-            self.uiFert.spinPW.setValue(fert.probenwertTalent)
+            self.uiFert.spinPW.setValue(fert.probenwert)
+            #self.uiFert.spinPWT.setValue(fert.probenwertTalent)
             self.uiFert.plainText.setPlainText(fert.text)
             self.updateTalents()
             self.currentlyLoading = False
@@ -129,7 +181,15 @@ class UebernatuerlichWrapper(QtCore.QObject):
         if self.currentFertName != "":
             self.model.clear()
             for el in Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].gekaufteTalente:
-                item = QtGui.QStandardItem(el)
+                if el.startswith("Gebräuche: "):
+                    talStr = el[11:]
+                elif el.startswith("Mythen: "):
+                    talStr = el[8:]
+                elif el.startswith("Überleben: "):
+                    talStr = el[11:]
+                else:
+                    talStr = el
+                item = QtGui.QStandardItem(talStr)
                 item.setEditable(False)
                 self.model.appendRow(item)
             self.updateTalentRow()
@@ -144,5 +204,6 @@ class UebernatuerlichWrapper(QtCore.QObject):
     def updateTalentRow(self):
         for i in range(self.uiFert.tableWidget.rowCount()):
             fert = self.uiFert.tableWidget.item(i,0).text()
-            self.uiFert.tableWidget.setItem(i,2,QtWidgets.QTableWidgetItem(str(len(Wolke.Char.übernatürlicheFertigkeiten[fert].gekaufteTalente))))
+            #self.uiFert.tableWidget.setItem(i,2,QtWidgets.QTableWidgetItem(str(len(Wolke.Char.übernatürlicheFertigkeiten[fert].gekaufteTalente))))
+            self.labelRef[fert].setText(str(len(Wolke.Char.übernatürlicheFertigkeiten[fert].gekaufteTalente)))
             

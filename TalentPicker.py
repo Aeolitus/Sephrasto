@@ -78,26 +78,28 @@ class TalentPicker(object):
         self.updateFields(text)
         
     def updateFields(self, talent):
-        self.ui.labelName.setText(self.displayStr(Wolke.DB.talente[talent].name))
-        if Wolke.DB.talente[talent].kosten == -1:
-            if Wolke.DB.talente[talent].verbilligt:
-                self.ui.labelInfo.setText("Verbilligt")
-                self.ui.spinKosten.setValue(self.refD[self.fert].steigerungsfaktor*10)
+        if talent is not None:
+            self.ui.labelName.setText(self.displayStr(Wolke.DB.talente[talent].name))
+            if Wolke.DB.talente[talent].kosten == -1:
+                if Wolke.DB.talente[talent].verbilligt:
+                    self.ui.labelInfo.setText("Verbilligt")
+                    self.ui.spinKosten.setValue(self.refD[self.fert].steigerungsfaktor*10)
+                else:
+                    self.ui.labelInfo.setText("")
+                    self.ui.spinKosten.setValue(self.refD[self.fert].steigerungsfaktor*20)
             else:
-                self.ui.labelInfo.setText("")
-                self.ui.spinKosten.setValue(self.refD[self.fert].steigerungsfaktor*20)
-        else:
-            self.ui.labelInfo.setText("Spezialtalent")
-            self.ui.spinKosten.setValue(Wolke.DB.talente[talent].kosten)
-        self.ui.plainText.setPlainText(Wolke.DB.talente[talent].text)
+                self.ui.labelInfo.setText("Spezialtalent")
+                self.ui.spinKosten.setValue(Wolke.DB.talente[talent].kosten)
+            self.ui.plainText.setPlainText(Wolke.DB.talente[talent].text)
 
     def displayStr(self,inp):
         if self.baseStr is not None:
             if inp.startswith(self.baseStr):
                 return inp[len(self.baseStr):]
-            return inp
+        return inp
         
     def dataStr(self,inp):
         if self.baseStr is not None:
             return self.baseStr + inp
+        return inp
         
