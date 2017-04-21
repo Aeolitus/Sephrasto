@@ -296,7 +296,7 @@ Du musst ein bevorzugtes Element wählen. Geodische Zauber können nicht schrift
 Bedingungen: Kein Kontakt mit verhüttetem Material</Vorteil>
   <Vorteil name="Geodische Repräsentation II" kosten="40" voraussetzungen="Attribut IN 6, Vorteil Geodische Repräsentation I" nachkauf="häufig" typ="5">Wenn du einen Zauber mit deinem bevorzugten Element wirkst, kannst du eine Basismodifikation (z.B. 1x Mächtige Magie) ohne Erschwernis ausführen.</Vorteil>
   <Vorteil name="Geodische Repräsentation III" kosten="60" voraussetzungen="Attribut IN 8, Vorteil Geodische Repräsentation II" nachkauf="häufig" typ="5">Erlaubt die spontane Modifikation Zeit lassen.</Vorteil>
-  <Vorteil name="Geodische Repräsentation IV" kosten="80" voraussetzungen="Attribut IN 8, Vorteil Geodische Repräsentation III" nachkauf="häufig" typ="5">8 Punkte können zur Verbesserung der Repräsentation verwendet werden.</Vorteil>
+  <Vorteil name="Geodische Repräsentation IV" kosten="80" voraussetzungen="Attribut IN 10, Vorteil Geodische Repräsentation III" nachkauf="häufig" typ="5">8 Punkte können zur Verbesserung der Repräsentation verwendet werden.</Vorteil>
   <Vorteil name="Gildenmagische Repräsentation I" kosten="20" voraussetzungen="Attribut KL 4, Vorteil Zauberer I" nachkauf="häufig" typ="5">Spruchzauberische Fertigkeiten in Mag und die Fertigkeit Stabzauber können erlernt und benutzt werden. Gildenmagier verfügen über die größte Auswahl an Zaubern.
 
 Konzentrationsproben während des Zaubervorgangs sind um weitere 2 Punkte erschwert.

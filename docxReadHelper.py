@@ -19,7 +19,7 @@ def getText(filename):
     return doc
 def updateUeber():
     ferts = {}
-    txt = getText('ueber.docx')
+    txt = getText('ueber_new.docx')
     #results = re.search('', txt)
     count = 0
     while True:
@@ -37,6 +37,7 @@ def updateUeber():
         if count >= len(txt.paragraphs):
             break
     D = Datenbank.Datenbank()
+    D.datei = "datenbank2.xml"
     D.übernatürlicheFertigkeiten.update(ferts)
     D.xmlSchreiben()
     return ferts
@@ -144,4 +145,5 @@ def updateUeberTalents():
     return tmp2
 
 if __name__ == "__main__":
-    ret = updateUeberTalents()
+    pass
+    #ret = updateUeberTalents()
