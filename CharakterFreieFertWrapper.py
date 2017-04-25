@@ -25,30 +25,31 @@ class CharakterFreieFertWrapper(QtCore.QObject):
         self.loadFreie()
         
     def loadFreie(self):
-        try:
-            count = 1
-            for el in Wolke.Char.freieFertigkeiten:
-                #if el.name == "Muttersprache":
-                #    continue
-                eval("self.uiFert.editFF" + str(count) + ".blockSignals(True)")
-                eval("self.uiFert.comboFF" + str(count) + ".blockSignals(True)")
-                eval("self.uiFert.editFF" + str(count) + ".setText(\"" + el.name + "\")")
-                eval("self.uiFert.comboFF" + str(count) + ".setCurrentIndex(" + str(el.wert-1) + ")")
-                eval("self.uiFert.editFF" + str(count) + ".blockSignals(False)")
-                eval("self.uiFert.comboFF" + str(count) + ".blockSignals(False)")
-                count += 1
-                if count > 12:
-                    break
-            while count < 13:
-                eval("self.uiFert.editFF" + str(count) + ".blockSignals(True)")
-                eval("self.uiFert.comboFF" + str(count) + ".blockSignals(True)")
-                eval("self.uiFert.editFF" + str(count) + ".setText(\"\")")
-                eval("self.uiFert.comboFF" + str(count) + ".setCurrentIndex(0)")
-                eval("self.uiFert.editFF" + str(count) + ".blockSignals(False)")
-                eval("self.uiFert.comboFF" + str(count) + ".blockSignals(False)")
-                count += 1
-        except:
-            print("Error in loadFreie")
+        count = 1
+        for el in Wolke.Char.freieFertigkeiten:
+            #if el.name == "Muttersprache":
+            #    continue
+            eval("self.uiFert.editFF" + str(count) + ".blockSignals(True)")
+            eval("self.uiFert.comboFF" + str(count) + ".blockSignals(True)")
+            eval("self.uiFert.editFF" + str(count) + ".setText(\"" + el.name + "\")")
+            eval("self.uiFert.comboFF" + str(count) + ".setCurrentIndex(" + str(el.wert-1) + ")")
+            eval("self.uiFert.editFF" + str(count) + ".blockSignals(False)")
+            eval("self.uiFert.comboFF" + str(count) + ".blockSignals(False)")
+            count += 1
+            if count > 12:
+                break
+        while count < 13:
+            eval("self.uiFert.editFF" + str(count) + ".blockSignals(True)")
+            eval("self.uiFert.comboFF" + str(count) + ".blockSignals(True)")
+            eval("self.uiFert.editFF" + str(count) + ".setText(\"\")")
+            eval("self.uiFert.comboFF" + str(count) + ".setCurrentIndex(0)")
+            eval("self.uiFert.editFF" + str(count) + ".blockSignals(False)")
+            eval("self.uiFert.comboFF" + str(count) + ".blockSignals(False)")
+            count += 1
+            
+        self.uiFert.comboFF1.blockSignals(True)
+        self.uiFert.comboFF1.setCurrentIndex(2)
+        self.uiFert.comboFF1.blockSignals(False)
     
     def updateFreie(self):
         Wolke.Char.freieFertigkeiten.clear()
