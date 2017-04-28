@@ -598,16 +598,9 @@ Bedingung: 2 weitere Attribute auf insgesamt 16</Vorteil>
   <Talent name="Gebräuche: Maraskan" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Gebräuche"/>
   <Talent name="Gebräuche: Elfen" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Gebräuche"/>
   <Talent name="Gebräuche: Zwerge" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Gebräuche"/>
-  <Talent name="Mythen: Mittelreich" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Mythenkunde"/>
-  <Talent name="Mythen: Horasreich" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Mythenkunde"/>
-  <Talent name="Mythen: Tulamidenlande" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Mythenkunde"/>
-  <Talent name="Mythen: Bornland" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Mythenkunde"/>
-  <Talent name="Mythen: Thorwal" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Mythenkunde"/>
-  <Talent name="Mythen: Südaventurien" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Mythenkunde"/>
-  <Talent name="Mythen: Maraskan" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Mythenkunde"/>
-  <Talent name="Mythen: Elfen" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Mythenkunde"/>
-  <Talent name="Mythen: Zwerge" kosten="-1" voraussetzungen="" verbilligt="1" fertigkeiten="Mythenkunde"/>
   <Talent name="Gebräuche: Horasreich" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Gebräuche"/>
+  <Talent name="Götter und Kulte" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Mythenkunde">Götter und Kulte befasst sich mit dem Wesen der Götter, ihrer Schöpfung und ihren sterblichen Dienern. Du kennst den Aufbau und die Ziele der Kirchen, weißt wie man ihren Angehörigen gegenübertritt, genauso wie du eine alte Kultstätte einer Gottheit oder vielleicht einem Erzdämon zuordnen kannst.</Talent>
+  <Talent name="Sagen und Legenden" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Mythenkunde">Sagen und Legenden ist das Wissen um alte Überlieferungen. Damit kannst du das Alter von Grabmälern und Artefakten bestimmen oder aus einer Sage die Vorlieben und Schwachpunkte eines Riesen ableiten.</Talent>
   <Talent name="Dämonenkunde" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Magiekunde">Dämonenkunde ist das Wissen um die Erzdämonen, ihre Diener und dämonische Zauber. Du kannst Dämonen bennenen und ihre Schwachstellen identifizieren.</Talent>
   <Talent name="Elementarkunde" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Magiekunde">Elementarkunde befasst sich mit den sechs Elementen, der Kunst der Elementarbeschwörung und der elementaren Zauber.</Talent>
   <Talent name="Magietheorie" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Magiekunde">Magietheorie hilft dir bei der Einschätzung und der Analyse von magischen Phänomenen.</Talent>

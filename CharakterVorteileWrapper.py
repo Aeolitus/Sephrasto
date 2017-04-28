@@ -53,7 +53,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
                 if Wolke.DB.vorteile[el].variable!=0:
                     spin = QtWidgets.QSpinBox()
                     spin.setMinimum(0)
-                    #spin.setSuffix(" EP")
+                    spin.setSuffix(" EP")
                     spin.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
                     spin.setMaximum(9999)
                     if el in Wolke.Char.vorteileVariable:
@@ -65,7 +65,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
                     spin.valueChanged.connect(lambda state, name=el: self.spinnerChanged(name,state))
                     self.uiVor.treeWidget.setItemWidget(child,1,spin)
                 else:
-                    child.setText(1, str(Wolke.DB.vorteile[el].kosten))
+                    child.setText(1, str(Wolke.DB.vorteile[el].kosten) + " EP")
                 if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.vorteile[el].voraussetzungen):
                     child.setHidden(False)
                 else:

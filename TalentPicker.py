@@ -28,8 +28,10 @@ class TalentPicker(object):
         
         if self.fert == "Gebräuche":
             self.baseStr = "Gebräuche: "
-        elif self.fert == "Mythenkunde":
-            self.baseStr = "Mythen: "
+#==============================================================================
+#         elif self.fert == "Mythenkunde":
+#             self.baseStr = "Mythen: "
+#==============================================================================
         elif self.fert == "Überleben":
             self.baseStr = "Überleben: "
         else: 
