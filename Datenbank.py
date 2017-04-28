@@ -30,6 +30,7 @@ class Datenbank():
             v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(self.vorteile[vort].voraussetzungen, None))
             v.set('nachkauf',self.vorteile[vort].nachkauf)
             v.set('typ', str(self.vorteile[vort].typ))
+            v.set('variable', str(self.vorteile[vort].variable))
             v.text = self.vorteile[vort].text
 
         #Talente
@@ -84,6 +85,10 @@ class Datenbank():
             V.nachkauf = vort.get('nachkauf')
             V.typ = int(vort.get('typ'))
             V.text = vort.text
+            try:
+                V.variable = int(vort.get('variable'))
+            except:
+                V.variable = 0
             self.vorteile.update({V.name: V})
 
         #Talente

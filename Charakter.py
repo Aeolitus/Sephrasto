@@ -36,6 +36,7 @@ class Char():
         
         #Dritter Block: Vorteile, gespeichert als String
         self.vorteile = []
+        self.vorteileVariable = {} #Contains Name: Cost
 
         #Vierter Block: Fertigkeiten und Freie Fertigkeiten
         self.fertigkeiten = copy.deepcopy(Wolke.DB.fertigkeiten)
@@ -116,7 +117,9 @@ class Char():
         spent += sum(range(self.kap.wert+1))*self.kap.steigerungsfaktor   
         #Dritter Block: Vorteile
         for vor in self.vorteile:
-            if Wolke.DB.vorteile[vor].kosten != -1:
+            if vor in self.vorteileVariable:
+                spent += self.vorteileVariable[vor]
+            elif Wolke.DB.vorteile[vor].kosten != -1:
                 spent += Wolke.DB.vorteile[vor].kosten
         #Vierter Block: Fertigkeiten und Freie Fertigkeiten
         paidTalents = []
@@ -311,7 +314,12 @@ class Char():
         #Dritter Block    
         vor = etree.SubElement(root,'Vorteile')
         for vort in self.vorteile:
-            etree.SubElement(vor,'Vorteil').text = vort
+            v = etree.SubElement(vor,'Vorteil')
+            v.text = vort
+            if vort in self.vorteileVariable:
+                v.set('variable',str(self.vorteileVariable[vort]))
+            else:
+                v.set('variable','-1')
         #Vierter Block
         fer = etree.SubElement(root,'Fertigkeiten')
         for fert in self.fertigkeiten:
@@ -406,6 +414,9 @@ class Char():
         #Dritter Block
         for vor in root.findall('Vorteile/*'):
             self.vorteile.append(vor.text)
+            var = int(vor.get('variable'))
+            if var != -1:
+                self.vorteileVariable[vor.text] = var
         #Vierter Block
         for fer in root.findall('Fertigkeiten/Fertigkeit'):
             nam = fer.attrib['name']
@@ -589,7 +600,19 @@ class Char():
                 sortV.remove(el)
         for el in assembled:
             sortV.append(el)
-        sortV = sorted(sortV, key=str.lower)
+        removed = []
+        added = []
+        for el in sortV: #This is only going to be general Vorteile anyways, so type doesnt matter
+            if el in self.vorteileVariable:
+                removed.append(el)
+                nname = el + " (" + str(self.vorteileVariable[el]) + " EP)"
+                added.append(nname)
+                typeDict[nname] = typeDict[el]
+        for el in removed:
+            sortV.remove(el)
+        for el in added:
+            sortV.append(el)
+        sortV = sorted(sortV, key=str.lower)       
         tmpVorts = [el for el in sortV if typeDict[el] < 2]
         tmpUeber = [el for el in sortV if typeDict[el] >= 2]
         if len(tmpVorts) <= 8 and len(tmpUeber) <= 13:

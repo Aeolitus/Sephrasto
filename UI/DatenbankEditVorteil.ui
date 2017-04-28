@@ -94,6 +94,13 @@
         </spacer>
        </item>
        <item>
+        <widget class="QCheckBox" name="checkVariable">
+         <property name="text">
+          <string>Variabel</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QSpinBox" name="kostenEdit">
          <property name="alignment">
           <set>Qt::AlignCenter</set>

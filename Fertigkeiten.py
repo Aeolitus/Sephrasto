@@ -91,6 +91,7 @@ class Vorteil():
     def __init__(self):
         self.name = ''
         self.kosten = -1
+        self.variable = 0
         self.typ = 0
         self.voraussetzungen = []
         self.nachkauf = ''
