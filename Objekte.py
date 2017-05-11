@@ -10,23 +10,23 @@ class Objekt():
 class Waffe(Objekt):
     def __init__(self):
         super().__init__()
-        self.W6 = -1
-        self.plus = -1
+        self.W6 = 2
+        self.plus = 2
         self.eigenschaften = ''
-        self.haerte = -1
+        self.haerte = 7
         
 class Nahkampfwaffe(Waffe):
     def __init__(self):
         super().__init__()
-        self.rw = -1
-        self.wm = -1
+        self.rw = 0
+        self.wm = 0
 
 class Fernkampfwaffe(Waffe):
     def __init__(self):
         super().__init__()
-        self.rwnah = -1
-        self.rwfern = -1
-        self.lz = -1
+        self.rwnah = 0
+        self.rwfern = 0
+        self.lz = 1
 
 class Ruestung(Objekt):
     def __init__(self):

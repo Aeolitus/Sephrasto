@@ -12,7 +12,7 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.setWindowModality(QtCore.Qt.ApplicationModal)
-        Dialog.resize(443, 163)
+        Dialog.resize(443, 167)
         self.gridLayout_2 = QtWidgets.QGridLayout(Dialog)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.verticalLayout = QtWidgets.QVBoxLayout()
@@ -50,6 +50,10 @@ class Ui_Dialog(object):
         self.buttonVorteil.setMinimumSize(QtCore.QSize(0, 20))
         self.buttonVorteil.setObjectName("buttonVorteil")
         self.gridLayout.addWidget(self.buttonVorteil, 0, 1, 1, 1)
+        self.buttonWaffe = QtWidgets.QRadioButton(Dialog)
+        self.buttonWaffe.setMinimumSize(QtCore.QSize(0, 20))
+        self.buttonWaffe.setObjectName("buttonWaffe")
+        self.gridLayout.addWidget(self.buttonWaffe, 2, 0, 1, 1)
         self.verticalLayout.addLayout(self.gridLayout)
         spacerItem2 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem2)
@@ -77,6 +81,7 @@ class Ui_Dialog(object):
         self.buttonUebernatuerlich.setText(_translate("Dialog", "Übernatürliche Fertigkeit"))
         self.buttonFertigkeit.setText(_translate("Dialog", "Profane Fertigkeit"))
         self.buttonVorteil.setText(_translate("Dialog", "Vorteil"))
+        self.buttonWaffe.setText(_translate("Dialog", "Waffe"))
 
 
 if __name__ == "__main__":

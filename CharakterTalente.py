@@ -77,7 +77,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Talente wählen..."))
+        Dialog.setWindowTitle(_translate("Dialog", "Sephrasto - Talente wählen..."))
         self.spinKosten.setSuffix(_translate("Dialog", " EP"))
         self.labelName.setText(_translate("Dialog", "Talentname"))
         self.labelInfo.setText(_translate("Dialog", "Spezialtalent"))

@@ -13,6 +13,8 @@ import DatenbankEditFertigkeitWrapper
 import DatenbankEditTalentWrapper
 import DatenbankEditVorteilWrapper
 import DatenbankSelectTypeWrapper
+import DatenbankEditWaffeWrapper
+import Objekte
 
 class DatenbankEdit(object):
     def __init__(self):
@@ -28,6 +30,7 @@ class DatenbankEdit(object):
         self.ui.showVorteile.stateChanged.connect(self.updateGUI)
         self.ui.showFertigkeiten.stateChanged.connect(self.updateGUI)
         self.ui.showUebernatuerlicheFertigkeiten.stateChanged.connect(self.updateGUI)
+        self.ui.showWaffen.stateChanged.connect(self.updateGUI)
         self.ui.buttonLoadDB.clicked.connect(self.loadDatenbank)
         self.ui.buttonSaveDB.clicked.connect(self.saveDatenbank)
         self.ui.buttonEditieren.clicked.connect(self.editSelected)
@@ -55,6 +58,11 @@ class DatenbankEdit(object):
         if self.ui.showUebernatuerlicheFertigkeiten.isChecked():
             for itm in self.datenbank.übernatürlicheFertigkeiten:
                 item = QtGui.QStandardItem(itm + " : Übernatürliche Fertigkeit")
+                item.setEditable(False)
+                self.model.appendRow(item) 
+        if self.ui.showWaffen.isChecked():
+            for itm in self.datenbank.waffen:
+                item = QtGui.QStandardItem(itm + " : Waffe")
                 item.setEditable(False)
                 self.model.appendRow(item) 
         self.ui.listDatenbank.setModel(self.model)
@@ -90,6 +98,13 @@ class DatenbankEdit(object):
                 self.datenbank.übernatürlicheFertigkeiten.pop(nameSt,None)
                 self.datenbank.übernatürlicheFertigkeiten.update({fer.name: fer})
                 self.updateGUI()
+        elif tmp[1] == "Waffe":
+            nameSt = self.datenbank.waffen[tmp[0]].name
+            waf = self.editWaffe(self.datenbank.waffen[tmp[0]])
+            if waf is not None:
+                self.datenbank.waffen.pop(nameSt,None)
+                self.datenbank.waffen.update({waf.name: waf})
+                self.updateGUI()
     
     def hinzufuegen(self):
         '''
@@ -107,8 +122,10 @@ class DatenbankEdit(object):
                 self.addVorteil()
             elif dbS.entryType is "Fertigkeit":
                 self.addFertigkeit()
-            else:
+            elif dbS.entryType is "Übernatürliche Fertigkeit":
                 self.addUebernatuerlich()
+            else:
+                self.addWaffe()
         
     def addTalent(self):
         tal = Fertigkeiten.Talent()
@@ -138,6 +155,13 @@ class DatenbankEdit(object):
             self.datenbank.übernatürlicheFertigkeiten.update({ret.name: ret})
             self.updateGUI();
                           
+    def addWaffe(self):
+        waf = Objekte.Nahkampfwaffe()
+        ret = self.editWaffe(waf)
+        if ret is not None:
+            self.datenbank.waffen.update({ret.name: ret})
+            self.updateGUI();
+                          
     def editTalent(self, inp):
         dbT = DatenbankEditTalentWrapper.DatenbankEditTalentWrapper(inp)
         return dbT.talent
@@ -153,6 +177,10 @@ class DatenbankEdit(object):
     def editUebernatuerlich(self, inp):
         dbU = DatenbankEditFertigkeitWrapper.DatenbankEditFertigkeitWrapper(inp, True)
         return dbU.fertigkeit
+    
+    def editWaffe(self, inp):
+        dbW = DatenbankEditWaffeWrapper.DatenbankEditWaffeWrapper(inp)
+        return dbW.waffe
         
     def editSelected(self):
         for itm in self.ui.listDatenbank.selectedIndexes():
@@ -189,6 +217,14 @@ class DatenbankEdit(object):
                         self.datenbank.übernatürlicheFertigkeiten.pop(tmp[0],None)
                         self.datenbank.übernatürlicheFertigkeiten.update({ret.name: ret})
                         self.updateGUI();
+            elif tmp[1] == "Waffe":
+                tal = self.datenbank.waffen[tmp[0]]
+                if tal is not None:
+                    ret = self.editWaffe(tal)
+                    if ret is not None:
+                        self.datenbank.waffen.pop(tmp[0],None)
+                        self.datenbank.waffen.update({ret.name: ret})
+                        self.updateGUI();
                                 
     def deleteSelected(self):
         for itm in self.ui.listDatenbank.selectedIndexes():
@@ -204,6 +240,9 @@ class DatenbankEdit(object):
                 self.updateGUI();
             elif tmp[1] == "Übernatürliche Fertigkeit":
                 self.datenbank.übernatürlicheFertigkeiten.pop(tmp[0],None)
+                self.updateGUI();
+            elif tmp[1] == "Waffe":
+                self.datenbank.waffen.pop(tmp[0],None)
                 self.updateGUI();
                               
     def saveDatenbank(self):

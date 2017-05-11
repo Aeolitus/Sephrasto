@@ -2,6 +2,7 @@ import Fertigkeiten
 import lxml.etree as etree
 from Hilfsmethoden import Hilfsmethoden
 import os.path
+import Objekte
 
 class Datenbank():
     def __init__(self):
@@ -9,6 +10,7 @@ class Datenbank():
         self.fertigkeiten = {}
         self.talente = {}
         self.übernatürlicheFertigkeiten = {}
+        self.waffen = {}
 
         self.datei = 'datenbank.xml'
         self.root = None
@@ -60,6 +62,24 @@ class Datenbank():
             v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(self.übernatürlicheFertigkeiten[fer].voraussetzungen, None))
             v.set('attribute',Hilfsmethoden.AttrArray2Str(self.übernatürlicheFertigkeiten[fer].attribute))
             v.text = self.übernatürlicheFertigkeiten[fer].text
+                                                    
+        #Waffen
+        for wa in self.waffen:
+            w = etree.SubElement(self.root,'Waffe')
+            w.set('name', self.waffen[wa].name)
+            w.set('W6', str(self.waffen[wa].W6))
+            w.set('plus', str(self.waffen[wa].plus))
+            w.set('haerte', str(self.waffen[wa].haerte))
+            w.text = self.waffen[wa].eigenschaften
+            if type(self.waffen[wa]) == Objekte.Fernkampfwaffe:
+                w.set('rwnah', str(self.waffen[wa].rwnah))
+                w.set('rwfern', str(self.waffen[wa].rwfern))
+                w.set('lz', str(self.waffen[wa].lz))
+                w.set('fk', '1')
+            else:
+                w.set('rw', str(self.waffen[wa].rw))
+                w.set('wm', str(self.waffen[wa].wm))
+                w.set('fk', '0')
 
         #Write XML to file
         doc = etree.ElementTree(self.root)
@@ -75,6 +95,7 @@ class Datenbank():
         self.fertigkeiten = {}
         self.talente = {}
         self.übernatürlicheFertigkeiten = {}
+        self.waffen = {}
         
         #Vorteile
         for vort in self.root.findall('Vorteil'):
@@ -122,3 +143,20 @@ class Datenbank():
             F.voraussetzungen = Hilfsmethoden.VorStr2Array(fer.get('voraussetzungen'),None)
             self.übernatürlicheFertigkeiten.update({F.name: F})
             
+        #Waffen
+        for wa in self.root.findall('Waffe'):
+            if wa.get('fk') == '1':
+                w = Objekte.Fernkampfwaffe()
+                w.rwnah = int(wa.get('rwnah'))
+                w.rwfern = int(wa.get('rwfern'))
+                w.lz = int(wa.get('lz'))
+            else:
+                w = Objekte.Nahkampfwaffe()
+                w.rw = int(wa.get('rw'))
+                w.wm = int(wa.get('wm'))
+            w.name = wa.get('name')
+            w.W6 = int(wa.get('W6'))
+            w.plus = int(wa.get('plus'))
+            w.haerte = int(wa.get('haerte'))
+            w.eigenschaften = wa.text
+            self.waffen.update({w.name: w})
