@@ -179,7 +179,7 @@ class DatenbankEdit(object):
         return dbU.fertigkeit
     
     def editWaffe(self, inp):
-        dbW = DatenbankEditWaffeWrapper.DatenbankEditWaffeWrapper(inp)
+        dbW = DatenbankEditWaffeWrapper.DatenbankEditWaffeWrapper(self.datenbank, inp)
         return dbW.waffe
         
     def editSelected(self):

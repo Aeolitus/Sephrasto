@@ -9,8 +9,9 @@ import DatenbankEditWaffe
 from PyQt5 import QtWidgets
 
 class DatenbankEditWaffeWrapper(object):
-    def __init__(self, waffe=None):
+    def __init__(self, datenbank, waffe=None):
         super().__init__()
+        self.db = datenbank
         if waffe is None:
             waffe = Objekte.Nahkampfwaffe()
         waffeDialog = QtWidgets.QDialog()
@@ -35,6 +36,28 @@ class DatenbankEditWaffeWrapper(object):
             self.switchType(0)
             self.ui.spinRW1.setValue(waffe.rw)
             self.ui.spinWMLZ.setValue(waffe.wm)
+        if waffe.fertigkeit != '':
+            try: 
+                self.ui.comboFert.setCurrentText(waffe.fertigkeit)
+                fff = waffe.fertigkeit
+            except:
+                pass
+        else:
+            fff = self.ui.comboFert.currentText()
+        self.switchTals(fff)
+        self.ui.comboFert.currentTextChanged.connect(self.switchTals)
+        if waffe.talent != '':
+            try:
+                self.ui.comboTalent.setCurrentText(waffe.talent)
+            except:
+                pass
+        self.ui.checkBeid.setChecked(waffe.beid != 0)
+        self.ui.checkParry.setChecked(waffe.pari != 0)
+        self.ui.checkReiter.setChecked(waffe.reit != 0)
+        self.ui.checkSchild.setChecked(waffe.schi != 0)
+        self.ui.checkKraft.setChecked(waffe.kraf != 0)
+        self.ui.checkSchnell.setChecked(waffe.schn != 0)
+        
         waffeDialog.show()
         ret = waffeDialog.exec_()
         if ret == QtWidgets.QDialog.Accepted:
@@ -52,6 +75,14 @@ class DatenbankEditWaffeWrapper(object):
             self.waffe.haerte = int(self.ui.spinHaerte.value())
             self.waffe.eigenschaften = self.ui.textEigenschaften.toPlainText()
             self.waffe.name = self.ui.nameEdit.text()
+            self.waffe.fertigkeit = self.ui.comboFert.currentText()
+            self.waffe.talent = self.ui.comboTalent.currentText()
+            self.waffe.beid = int(self.ui.checkBeid.isChecked())
+            self.waffe.pari = int(self.ui.checkParry.isChecked())
+            self.waffe.reit = int(self.ui.checkReiter.isChecked())
+            self.waffe.schi = int(self.ui.checkSchild.isChecked())
+            self.waffe.kraf = int(self.ui.checkKraft.isChecked())
+            self.waffe.schn = int(self.ui.checkSchnell.isChecked())
         else:
             self.waffe = None
             
@@ -66,3 +97,10 @@ class DatenbankEditWaffeWrapper(object):
             self.ui.spinRW2.show()
             self.ui.spinWMLZ.setMinimum(1)
             self.ui.labelWMLZ.setText("Ladezeit")
+            
+    def switchTals(self, ff):
+        self.ui.comboTalent.setCurrentIndex(0)
+        self.ui.comboTalent.clear()
+        for tal in self.db.talente:
+            if ff in self.db.talente[tal].fertigkeiten:
+                self.ui.comboTalent.addItem(tal)
