@@ -30,3 +30,6 @@ StandardFerts = ["Handgemenge", "Hiebwaffen", "Klingenwaffen", "Stangenwaffen",
 VorteilTypen = ["Allgemeine Vorteile", "Profane Vorteile", "Kampfvorteile", 
 "Kampfstile", "Magische Vorteile", "Repräsentationen", "Karmale Vorteile", 
 "Traditionen"]
+
+Kampftalente = ["Handgemenge", "Hiebwaffen", "Klingenwaffen", "Stangenwaffen",
+                 "Schusswaffen", "Wurfwaffen", "Andere"]

@@ -71,6 +71,14 @@ class Datenbank():
             w.set('plus', str(self.waffen[wa].plus))
             w.set('haerte', str(self.waffen[wa].haerte))
             w.text = self.waffen[wa].eigenschaften
+            w.set('fertigkeit', self.waffen[wa].fertigkeit)
+            w.set('talent', self.waffen[wa].talent)
+            w.set('beid', str(self.waffen[wa].beid))
+            w.set('pari', str(self.waffen[wa].pari))
+            w.set('reit', str(self.waffen[wa].reit))
+            w.set('schi', str(self.waffen[wa].schi))
+            w.set('kraf', str(self.waffen[wa].kraf))
+            w.set('schn', str(self.waffen[wa].schn))
             if type(self.waffen[wa]) == Objekte.Fernkampfwaffe:
                 w.set('rwnah', str(self.waffen[wa].rwnah))
                 w.set('rwfern', str(self.waffen[wa].rwfern))
@@ -159,4 +167,12 @@ class Datenbank():
             w.plus = int(wa.get('plus'))
             w.haerte = int(wa.get('haerte'))
             w.eigenschaften = wa.text
+            w.fertigkeit = wa.get('fertigkeit')
+            w.talent = wa.get('talent')
+            w.beid = int(wa.get('beid'))
+            w.pari = int(wa.get('pari'))
+            w.reit = int(wa.get('reit'))
+            w.schi = int(wa.get('schi'))
+            w.kraf = int(wa.get('kraf'))
+            w.schn = int(wa.get('schn'))
             self.waffen.update({w.name: w})

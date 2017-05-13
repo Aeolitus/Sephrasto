@@ -14,6 +14,14 @@ class Waffe(Objekt):
         self.plus = 2
         self.eigenschaften = ''
         self.haerte = 7
+        self.fertigkeit = ''
+        self.talent = ''
+        self.beid = 0
+        self.pari = 0
+        self.reit = 0
+        self.schi = 0
+        self.kraf = 0
+        self.schn = 0
         
 class Nahkampfwaffe(Waffe):
     def __init__(self):
