@@ -1,0 +1,6 @@
+Nahkampfwaffen:
+([a-zA-ZäöüÄÖÜß. ]+?) ([0-9]{1})W6([+])?([0-9-]{1,2})? ([0-9-]{1,2}) ([-])?([+])?([0-9]{1}) ([0-9]{1,2})([ ])?([a-zA-ZäöüÄÖÜß ,.()0-9]+)?
+<Waffe name="$1" W6="$2" plus="$4" haerte="$9" rw="$5" wm="$6$8" fk="0">$11</Waffe>
++ remove plus=""
++ add fert, talent, stile
+Fernkampfwaffen:
