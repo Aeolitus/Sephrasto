@@ -13,6 +13,8 @@ class AttrWrapper(QtCore.QObject):
     
     def __init__(self):
         super().__init__()
+        if Wolke.Debug:
+            print("Initializing AttrWrapper...")
         self.formAttr = QtWidgets.QWidget()
         self.uiAttr = CharakterAttribute.Ui_formAttribute()
         self.uiAttr.setupUi(self.formAttr)

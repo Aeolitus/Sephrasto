@@ -79,13 +79,11 @@ class Datenbank():
             w.set('schi', str(self.waffen[wa].schi))
             w.set('kraf', str(self.waffen[wa].kraf))
             w.set('schn', str(self.waffen[wa].schn))
+            w.set('rw', str(self.waffen[wa].rw))
             if type(self.waffen[wa]) == Objekte.Fernkampfwaffe:
-                w.set('rwnah', str(self.waffen[wa].rwnah))
-                w.set('rwfern', str(self.waffen[wa].rwfern))
                 w.set('lz', str(self.waffen[wa].lz))
                 w.set('fk', '1')
             else:
-                w.set('rw', str(self.waffen[wa].rw))
                 w.set('wm', str(self.waffen[wa].wm))
                 w.set('fk', '0')
 
@@ -155,14 +153,12 @@ class Datenbank():
         for wa in self.root.findall('Waffe'):
             if wa.get('fk') == '1':
                 w = Objekte.Fernkampfwaffe()
-                w.rwnah = int(wa.get('rwnah'))
-                w.rwfern = int(wa.get('rwfern'))
                 w.lz = int(wa.get('lz'))
             else:
                 w = Objekte.Nahkampfwaffe()
-                w.rw = int(wa.get('rw'))
                 w.wm = int(wa.get('wm'))
             w.name = wa.get('name')
+            w.rw = int(wa.get('rw'))
             w.W6 = int(wa.get('W6'))
             w.plus = int(wa.get('plus'))
             w.haerte = int(wa.get('haerte'))

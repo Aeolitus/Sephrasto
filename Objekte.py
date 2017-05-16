@@ -32,8 +32,7 @@ class Nahkampfwaffe(Waffe):
 class Fernkampfwaffe(Waffe):
     def __init__(self):
         super().__init__()
-        self.rwnah = 0
-        self.rwfern = 0
+        self.rw = 0
         self.lz = 1
 
 class Ruestung(Objekt):

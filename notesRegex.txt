@@ -4,3 +4,7 @@ Nahkampfwaffen:
 + remove plus=""
 + add fert, talent, stile
 Fernkampfwaffen:
+([a-zA-ZäöüÄÖÜß. ]+?)\s([0-9]{1})W6([+])?([0-9-]{1,2})?\s([0-9]{1,2})\s([-])?([0-9-]{1})?\s([0-9]{1,2})([\s])
+<Waffe name="$1" W6="$2" plus="$4" haerte="$8" rw="$5" lz="$7" fk="1"></Waffe>\n
++ Put Eigenschaften in
++ add fert, talent, stile

@@ -14,6 +14,8 @@ class CharakterFreieFertWrapper(QtCore.QObject):
     
     def __init__(self):
         super().__init__()
+        if Wolke.Debug:
+            print("Initializing FreieFertWrapper...")
         self.formFert = QtWidgets.QWidget()
         self.uiFert = CharakterFreieFert.Ui_Form()
         self.uiFert.setupUi(self.formFert)

@@ -8,15 +8,22 @@ from Wolke import Wolke
 import CharakterEquipment
 from PyQt5 import QtWidgets, QtCore
 import Objekte
+import Definitionen
+from WaffenPicker import WaffenPicker
 
 class EquipWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
     
     def __init__(self):
         super().__init__()
+        if Wolke.Debug:
+            print("Initializing EquipWrapper...")
+        
         self.formEq = QtWidgets.QWidget()
         self.uiEq = CharakterEquipment.Ui_formAusruestung()
         self.uiEq.setupUi(self.formEq)
+        if Wolke.Debug:
+            print("UI Setup...")
         #Signals
         # Connect all Spins and Edit boxes - hacky, sorry
         fields = [el for el in self.uiEq.__dir__() if el[0:4] == "spin"]
@@ -25,13 +32,22 @@ class EquipWrapper(QtCore.QObject):
         fields = [el for el in self.uiEq.__dir__() if el[0:4] == "edit"]
         for el in fields:
             eval("self.uiEq." + el + ".editingFinished.connect(self.updateEquipment)")
-        
-        
-        self.uiEq.checkW1FK.stateChanged.connect(self.checkToggleEquip)
-        self.uiEq.checkW2FK.stateChanged.connect(self.checkToggleEquip)
-        self.uiEq.checkW3FK.stateChanged.connect(self.checkToggleEquip)
-        self.uiEq.checkW4FK.stateChanged.connect(self.checkToggleEquip)
-        self.uiEq.checkW5FK.stateChanged.connect(self.checkToggleEquip)
+        if Wolke.Debug:
+            print("Signals Set...")
+        for el in range(1,6):
+            eval("self.uiEq.comboStil"+str(el)+".setCurrentIndex(0)")
+            eval("self.uiEq.comboStil"+str(el)+".clear()")
+            for el2 in Definitionen.Kampfstile:
+                eval("self.uiEq.comboStil"+str(el)+".addItem(\""+el2+"\")")
+        if Wolke.Debug:
+            print("Kampfstile added...")
+        self.uiEq.addW1.clicked.connect(lambda state, idx=1: self.selectWeapon(idx))   
+        self.uiEq.addW2.clicked.connect(lambda state, idx=2: self.selectWeapon(idx))   
+        self.uiEq.addW3.clicked.connect(lambda state, idx=3: self.selectWeapon(idx))   
+        self.uiEq.addW4.clicked.connect(lambda state, idx=4: self.selectWeapon(idx))   
+        self.uiEq.addW5.clicked.connect(lambda state, idx=5: self.selectWeapon(idx))   
+        if Wolke.Debug:
+            print("Check Toggle...")
         self.uiEq.checkZonen.stateChanged.connect(self.checkToggleEquip)
         
         self.currentlyLoading = False
@@ -65,14 +81,12 @@ class EquipWrapper(QtCore.QObject):
                 if (eval("self.uiEq.edit" + el + "name.text()") != ""):
                     if eval("self.uiEq.check" + el + "FK.isChecked()"):
                         W = Objekte.Fernkampfwaffe()
-                        W.rwnah = eval("self.uiEq.spin" + el + "rw.value()")
-                        W.rwfern = eval("self.uiEq.spin" + el + "rw2.value()")
                         W.lz = eval("self.uiEq.spin" + el + "wm.value()")
                     else:
                         W = Objekte.Nahkampfwaffe()
-                        W.rw = eval("self.uiEq.spin" + el + "rw.value()")
                         W.wm = eval("self.uiEq.spin" + el + "wm.value()")
                     W.name = eval("self.uiEq.edit" + el + "name.text()")
+                    W.rw = eval("self.uiEq.spin" + el + "rw.value()")
                     W.haerte = eval("self.uiEq.spin" + el + "h.value()")
                     W.W6 = eval("self.uiEq.spin" + el + "w6.value()")
                     W.plus = eval("self.uiEq.spin" + el + "plus.value()")
@@ -97,47 +111,56 @@ class EquipWrapper(QtCore.QObject):
             eval("self.uiEq.spin" + Rarr[count] + "kopf.setValue(" + str(R.rs[5]) +")")
             eval("self.uiEq.spin" + Rarr[count] + "RS.setValue(" + str(int(sum(R.rs)/6+0.5)) +")")
             count += 1
-        Warr = ["W1","W2","W3","W4","W5"]
+        
         count = 0
         while count < len(Wolke.Char.waffen):
             W = Wolke.Char.waffen[count]
-            eval("self.uiEq.edit" + Warr[count] + "name.setText(\""+ W.name +"\")")
-            eval("self.uiEq.edit" + Warr[count] + "eig.setText(\""+ W.eigenschaften +"\")")
-            eval("self.uiEq.spin" + Warr[count] + "w6.setValue("+ str(W.W6) +")")
-            eval("self.uiEq.spin" + Warr[count] + "plus.setValue("+ str(W.plus) +")")
-            eval("self.uiEq.spin" + Warr[count] + "h.setValue("+ str(W.haerte) +")")
-            if type(W) == Objekte.Fernkampfwaffe:
-                eval("self.uiEq.spin" + Warr[count] + "rw.setValue("+ str(W.rwnah) +")")
-                eval("self.uiEq.spin" + Warr[count] + "rw2.setEnabled(True)")
-                eval("self.uiEq.spin" + Warr[count] + "rw2.show()")
-                eval("self.uiEq.spin" + Warr[count] + "rw2.setValue("+ str(W.rwfern) +")")
-                eval("self.uiEq.spin" + Warr[count] + "wm.setValue("+ str(W.lz) +")")
-                eval("self.uiEq.check" + Warr[count] + "FK.setChecked(True)")
-                eval("self.uiEq.labelDash" + Warr[count] + ".show()")
-            elif type(W) == Objekte.Nahkampfwaffe:
-                eval("self.uiEq.spin" + Warr[count] + "rw.setValue("+ str(W.rw) +")")
-                eval("self.uiEq.spin" + Warr[count] + "wm.setValue("+ str(W.wm) +")")
-                eval("self.uiEq.spin" + Warr[count] + "rw2.setEnabled(False)")
-                eval("self.uiEq.spin" + Warr[count] + "rw2.hide()")
-                eval("self.uiEq.check" + Warr[count] + "FK.setChecked(False)")
-                eval("self.uiEq.labelDash" + Warr[count] + ".hide()")
+            self.loadWeaponIntoFields(W, count+1)
             count += 1
         self.currentlyLoading = False
         
+    def loadWeaponIntoFields(self, W, index):
+        Warr = ["W1","W2","W3","W4","W5"]
+        count = index - 1
+        eval("self.uiEq.edit" + Warr[count] + "name.setText(\""+ W.name +"\")")
+        eval("self.uiEq.edit" + Warr[count] + "eig.setText(\""+ W.eigenschaften +"\")")
+        eval("self.uiEq.spin" + Warr[count] + "w6.setValue("+ str(W.W6) +")")
+        eval("self.uiEq.spin" + Warr[count] + "plus.setValue("+ str(W.plus) +")")
+        if W.name == "Unbewaffnet":
+            wsmod = Wolke.Char.rsmod + Wolke.Char.ws
+            if len(Wolke.Char.rüstung) > 0:    
+                wsmod += int(sum(Wolke.Char.rüstung[0].rs)/6+0.5)
+            eval("self.uiEq.spin" + Warr[count] + "h.setValue("+ str(wsmod) +")")
+        else:
+            eval("self.uiEq.spin" + Warr[count] + "h.setValue("+ str(W.haerte) +")")
+        eval("self.uiEq.spin" + Warr[count] + "rw.setValue("+ str(W.rw) +")")
+        if type(W) == Objekte.Fernkampfwaffe:
+            eval("self.uiEq.spin" + Warr[count] + "wm.setValue("+ str(W.lz) +")")
+            eval("self.uiEq.check" + Warr[count] + "FK.setChecked(True)")
+        elif type(W) == Objekte.Nahkampfwaffe:
+            eval("self.uiEq.spin" + Warr[count] + "wm.setValue("+ str(W.wm) +")")
+            eval("self.uiEq.check" + Warr[count] + "FK.setChecked(False)")
+        
+    def selectWeapon(self, index):
+        W = None
+        try:
+            wname = eval("self.uiEq.editW" + str(index) + "name.text()")
+            for el in Wolke.DB.waffen:
+                if Wolke.DB.waffen[el].name == wname:
+                    W = el
+                    print("Weapon found - its " + wname)
+                    break
+        except:
+            print("Error in selectWeapon!")
+        print("Starting WaffenPicker")
+        picker = WaffenPicker(W)
+        print("WaffenPicker created")
+        if picker.waffe is not None:
+            self.loadWeaponIntoFields(picker.waffe, index)
+        
     def checkToggleEquip(self):
         if not self.currentlyLoading:
-            Warr = ["W1","W2","W3","W4","W5"]
             self.currentlyLoading = True
-            for el in Warr:
-                if not eval("self.uiEq.check" + el + "FK.isChecked()"):
-                    eval("self.uiEq.spin" + el + "rw2.setValue(0)")
-                    eval("self.uiEq.spin" + el + "rw2.hide()")
-                    eval("self.uiEq.spin" + el + "rw2.setEnabled(False)")
-                    eval("self.uiEq.labelDash" + el + ".hide()")
-                else:
-                    eval("self.uiEq.spin" + el + "rw2.show()")
-                    eval("self.uiEq.spin" + el + "rw2.setEnabled(True)")
-                    eval("self.uiEq.labelDash" + el + ".show()")
             if self.uiEq.checkZonen.isChecked():
                 self.uiEq.spinR1bauch.show()
                 self.uiEq.spinR1brust.show()

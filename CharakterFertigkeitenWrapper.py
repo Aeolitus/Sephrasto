@@ -14,6 +14,8 @@ class FertigkeitenWrapper(QtCore.QObject):
     
     def __init__(self):
         super().__init__()
+        if Wolke.Debug:
+            print("Initializing FertigkeitenWrapper...")
         self.formFert = QtWidgets.QWidget()
         self.uiFert = CharakterFertigkeiten.Ui_Form()
         self.uiFert.setupUi(self.formFert)

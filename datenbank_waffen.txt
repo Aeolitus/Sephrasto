@@ -84,33 +84,32 @@
 <Waffe name="Holzschild" W6="1" plus="0" haerte="8" rw="0" wm="1" fk="0" fertigkeit="Handgemenge" talent="Schilde" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0">Schild, Stumpf</Waffe>
 <Waffe name="Lederschild" W6="1" plus="-1" haerte="5" rw="0" wm="1" fk="0" fertigkeit="Handgemenge" talent="Schilde" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0">Schild, Stumpf</Waffe>
 <Waffe name="Unbewaffnet" W6="1" plus="0" haerte="1" rw="0" wm="0" fk="0" fertigkeit="Handgemenge" talent="Unbewaffnet" beid="1" pari="1" reit="1" schi="1" kraf="1" schn="1">Stumpf, Zerbrechlich, kein Malus als Nebenwaffe</Waffe>
-
-<Waffe name="Borndorn (Kurze Wurfwaffen)" W6="1" plus="2" haerte="9" rw="4" lz="" fk="1" fertigkeit="Wurfwaffen" talent="Kurze Wurfwaffen" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
-<Waffe name="Diskus" W6="2" plus="" haerte="7" rw="16" lz="" fk="1" fertigkeit="Wurfwaffen" talent="Diskusse" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
-<Waffe name="Dolch (Kurze Wurfwaffen)" W6="1" plus="" haerte="8" rw="4" lz="" fk="1" fertigkeit="Wurfwaffen" talent="Kurze Wurfwaffen" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
-<Waffe name="Dschadra (Wurfspeere)" W6="2" plus="2" haerte="5" rw="8" lz="" fk="1" fertigkeit="Wurfwaffen" talent="Wurfspeere" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
-<Waffe name="Efferdbart (Wurfspeere)" W6="2" plus="" haerte="5" rw="8" lz="" fk="1" fertigkeit="Wurfwaffen" talent="Wurfspeere" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0">Niederwerfen</Waffe>
-<Waffe name="Holzspeer (Wurfspeere)" W6="1" plus="2" haerte="4" rw="8" lz="" fk="1" fertigkeit="Wurfwaffen" talent="Wurfspeere" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
-<Waffe name="Jagddiskus" W6="2" plus="" haerte="7" rw="16" lz="" fk="1" fertigkeit="Wurfwaffen" talent="Diskusse" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0">Stumpf</Waffe>´
-<Waffe name="Kampfdiskus" W6="2" plus="3" haerte="8" rw="16" lz="" fk="1" fertigkeit="Wurfwaffen" talent="Diskusse" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0">Schwer (4)</Waffe>
-<Waffe name="Schneidzahn" W6="2" plus="1" haerte="8" rw="8" lz="" fk="1" fertigkeit="Wurfwaffen" talent="Kurze Wurfwaffen" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
-<Waffe name="Speer (Wurfwaffe)" W6="2" plus="" haerte="5" rw="8" lz="" fk="1" fertigkeit="Wurfwaffen" talent="Wurfspeere" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
+<Waffe name="Borndorn (Kurze Wurfwaffen)" W6="1" plus="2" haerte="9" rw="4" lz="0" fk="1" fertigkeit="Wurfwaffen" talent="Kurze Wurfwaffen" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
+<Waffe name="Diskus" W6="2" plus="0" haerte="7" rw="16" lz="0" fk="1" fertigkeit="Wurfwaffen" talent="Diskusse" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
+<Waffe name="Dolch (Kurze Wurfwaffen)" W6="1" plus="0" haerte="8" rw="4" lz="0" fk="1" fertigkeit="Wurfwaffen" talent="Kurze Wurfwaffen" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
+<Waffe name="Dschadra (Wurfspeere)" W6="2" plus="2" haerte="5" rw="8" lz="0" fk="1" fertigkeit="Wurfwaffen" talent="Wurfspeere" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
+<Waffe name="Efferdbart (Wurfspeere)" W6="2" plus="0" haerte="5" rw="8" lz="0" fk="1" fertigkeit="Wurfwaffen" talent="Wurfspeere" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0">Niederwerfen</Waffe>
+<Waffe name="Holzspeer (Wurfspeere)" W6="1" plus="2" haerte="4" rw="8" lz="0" fk="1" fertigkeit="Wurfwaffen" talent="Wurfspeere" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
+<Waffe name="Jagddiskus" W6="2" plus="0" haerte="7" rw="16" lz="0" fk="1" fertigkeit="Wurfwaffen" talent="Diskusse" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0">Stumpf</Waffe>´
+<Waffe name="Kampfdiskus" W6="2" plus="3" haerte="8" rw="16" lz="0" fk="1" fertigkeit="Wurfwaffen" talent="Diskusse" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0">Schwer (4)</Waffe>
+<Waffe name="Schneidzahn" W6="2" plus="1" haerte="8" rw="8" lz="0" fk="1" fertigkeit="Wurfwaffen" talent="Kurze Wurfwaffen" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
+<Waffe name="Speer (Wurfwaffe)" W6="2" plus="0" haerte="5" rw="8" lz="0" fk="1" fertigkeit="Wurfwaffen" talent="Wurfspeere" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
 <Waffe name="Speerschleuder" W6="2" plus="1" haerte="5" rw="32" lz="1" fk="1" fertigkeit="Wurfwaffen" talent="Wurfspeere" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
-<Waffe name="Stabschleuder" W6="2" plus="" haerte="4" rw="16" lz="1" fk="1" fertigkeit="Wurfwaffen" talent="Wurfspeere" beid="1" pari="1" reit="0" schi="1" kraf="0" schn="0">Nicht für Reiter</Waffe>
-<Waffe name="Wurfbeil" W6="2" plus="" haerte="8" rw="8" lz="" fk="1" fertigkeit="Wurfwaffen" talent="Kurze Wurfwaffen" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
-<Waffe name="Wurfdolch, -scheibe" W6="1" plus="1" haerte="10" rw="4" lz="" fk="1" fertigkeit="Wurfwaffen" talent="Kurze Wurfwaffen" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
-<Waffe name="Wurfkeule" W6="1" plus="2" haerte="7" rw="8" lz="" fk="1" fertigkeit="Wurfwaffen" talent="Kurze Wurfwaffen" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0">Stumpf</Waffe>
-<Waffe name="Wurfmesser" W6="1" plus="" haerte="8" rw="4" lz="" fk="1" fertigkeit="Wurfwaffen" talent="Kurze Wurfwaffen" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
-<Waffe name="Wurfspeer" W6="2" plus="2" haerte="5" rw="8" lz="" fk="1" fertigkeit="Wurfwaffen" talent="Wurfspeere" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
-<Waffe name="Fledermaus" W6="0" plus="0" haerte="3" rw="8" lz="" fk="1" fertigkeit="Schusswaffen" talent="Schleudern" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0">Umklammern (2)</Waffe>
-<Waffe name="Kettenkugel" W6="2" plus="2" haerte="7" rw="4" lz="" fk="1" fertigkeit="Schusswaffen" talent="Schleudern" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0">Niederwerfen</Waffe>
-<Waffe name="Lasso" W6="0" plus="0" haerte="2" rw="4" lz="" fk="1" fertigkeit="Schusswaffen" talent="Schleudern" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0">Umklammern (2)</Waffe>
-<Waffe name="Schleuder" W6="1" plus="2" haerte="3" rw="8" lz="" fk="1" fertigkeit="Schusswaffen" talent="Schleudern" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
-<Waffe name="Wurfnetz" W6="0" plus="0" haerte="5" rw="2" lz="" fk="1" fertigkeit="Schusswaffen" talent="Schleudern" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0">Umklammern (4)</Waffe>
-<Waffe name="Schweres Wurfnetz" W6="0" plus="0" haerte="6" rw="2" lz="" fk="1" fertigkeit="Schusswaffen" talent="Schleudern" beid="0" pari="0" reit="1" schi="0" kraf="0" schn="0">Umklammern (8), Zweihändig</Waffe>
+<Waffe name="Stabschleuder" W6="2" plus="0" haerte="4" rw="16" lz="1" fk="1" fertigkeit="Wurfwaffen" talent="Wurfspeere" beid="1" pari="1" reit="0" schi="1" kraf="0" schn="0">Nicht für Reiter</Waffe>
+<Waffe name="Wurfbeil" W6="2" plus="0" haerte="8" rw="8" lz="0" fk="1" fertigkeit="Wurfwaffen" talent="Kurze Wurfwaffen" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
+<Waffe name="Wurfdolch, -scheibe" W6="1" plus="1" haerte="10" rw="4" lz="0" fk="1" fertigkeit="Wurfwaffen" talent="Kurze Wurfwaffen" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
+<Waffe name="Wurfkeule" W6="1" plus="2" haerte="7" rw="8" lz="0" fk="1" fertigkeit="Wurfwaffen" talent="Kurze Wurfwaffen" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0">Stumpf</Waffe>
+<Waffe name="Wurfmesser" W6="1" plus="0" haerte="8" rw="4" lz="0" fk="1" fertigkeit="Wurfwaffen" talent="Kurze Wurfwaffen" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
+<Waffe name="Wurfspeer" W6="2" plus="2" haerte="5" rw="8" lz="0" fk="1" fertigkeit="Wurfwaffen" talent="Wurfspeere" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
+<Waffe name="Fledermaus" W6="0" plus="0" haerte="3" rw="8" lz="0" fk="1" fertigkeit="Schusswaffen" talent="Schleudern" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0">Umklammern (2)</Waffe>
+<Waffe name="Kettenkugel" W6="2" plus="2" haerte="7" rw="4" lz="0" fk="1" fertigkeit="Schusswaffen" talent="Schleudern" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0">Niederwerfen</Waffe>
+<Waffe name="Lasso" W6="0" plus="0" haerte="2" rw="4" lz="0" fk="1" fertigkeit="Schusswaffen" talent="Schleudern" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0">Umklammern (2)</Waffe>
+<Waffe name="Schleuder" W6="1" plus="2" haerte="3" rw="8" lz="0" fk="1" fertigkeit="Schusswaffen" talent="Schleudern" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
+<Waffe name="Wurfnetz" W6="0" plus="0" haerte="5" rw="2" lz="0" fk="1" fertigkeit="Schusswaffen" talent="Schleudern" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0">Umklammern (4)</Waffe>
+<Waffe name="Schweres Wurfnetz" W6="0" plus="0" haerte="6" rw="2" lz="0" fk="1" fertigkeit="Schusswaffen" talent="Schleudern" beid="0" pari="0" reit="1" schi="0" kraf="0" schn="0">Umklammern (8), Zweihändig</Waffe>
 <Waffe name="Arbalette" W6="3" plus="2" haerte="5" rw="32" lz="8" fk="1" fertigkeit="Schusswaffen" talent="Armbrüste" beid="0" pari="0" reit="1" schi="0" kraf="0" schn="0">Niederwerfen (-4), Zweihändig</Waffe>
-<Waffe name="Arbalone" W6="3" plus="7" haerte="16" rw="64" lz="" fk="1" fertigkeit="Schusswaffen" talent="Armbrüste" beid="1" pari="1" reit="0" schi="1" kraf="0" schn="0">Niederwerfen (-8), nicht für Reiter, Stationär</Waffe>
-<Waffe name="Balestra" W6="3" plus="" haerte="4" rw="32" lz="4" fk="1" fertigkeit="Schusswaffen" talent="Armbrüste" beid="0" pari="0" reit="1" schi="0" kraf="0" schn="0">Niederwerfen, Zweihändig</Waffe>
+<Waffe name="Arbalone" W6="3" plus="7" haerte="16" rw="64" lz="0" fk="1" fertigkeit="Schusswaffen" talent="Armbrüste" beid="1" pari="1" reit="0" schi="1" kraf="0" schn="0">Niederwerfen (-8), nicht für Reiter, Stationär</Waffe>
+<Waffe name="Balestra" W6="3" plus="0" haerte="4" rw="32" lz="4" fk="1" fertigkeit="Schusswaffen" talent="Armbrüste" beid="0" pari="0" reit="1" schi="0" kraf="0" schn="0">Niederwerfen, Zweihändig</Waffe>
 <Waffe name="Balestrina" W6="2" plus="1" haerte="4" rw="8" lz="1" fk="1" fertigkeit="Schusswaffen" talent="Armbrüste" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0"></Waffe>
 <Waffe name="Balläster" W6="2" plus="3" haerte="4" rw="32" lz="2" fk="1" fertigkeit="Schusswaffen" talent="Armbrüste" beid="0" pari="0" reit="1" schi="0" kraf="0" schn="0">Zweihändig</Waffe>
 <Waffe name="Eisenwalder" W6="2" plus="2" haerte="4" rw="8" lz="1" fk="1" fertigkeit="Schusswaffen" talent="Armbrüste" beid="0" pari="0" reit="1" schi="0" kraf="0" schn="0">Magazin (10 Bolzen) laden 8 Akt., Zweihändig</Waffe>

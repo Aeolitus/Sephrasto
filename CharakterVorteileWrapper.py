@@ -15,6 +15,8 @@ class CharakterVorteileWrapper(QtCore.QObject):
     
     def __init__(self):
         super().__init__()
+        if Wolke.Debug:
+            print("Initializing VorteileWrapper...")
         self.formVor = QtWidgets.QWidget()
         self.uiVor = CharakterVorteile.Ui_Form()
         self.uiVor.setupUi(self.formVor)

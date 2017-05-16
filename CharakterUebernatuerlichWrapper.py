@@ -14,6 +14,8 @@ class UebernatuerlichWrapper(QtCore.QObject):
     
     def __init__(self):
         super().__init__()
+        if Wolke.Debug:
+            print("Initializing UebernatuerlichWrapper...")
         self.formFert = QtWidgets.QWidget()
         self.uiFert = CharakterUebernatuerlich.Ui_Form()
         self.uiFert.setupUi(self.formFert)

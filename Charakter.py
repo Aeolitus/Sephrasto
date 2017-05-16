@@ -349,14 +349,12 @@ class Char():
             wafNode.set('plus',str(waff.plus))
             wafNode.set('eigenschaften',waff.eigenschaften)
             wafNode.set('haerte',str(waff.haerte))
+            wafNode.set('rw',str(waff.rw))
             if type(waff) is Objekte.Nahkampfwaffe:
                 wafNode.set('typ','Nah')
-                wafNode.set('rw',str(waff.rw))
                 wafNode.set('wm',str(waff.wm))
             elif type(waff) is Objekte.Fernkampfwaffe:
                 wafNode.set('typ','Fern')
-                wafNode.set('rwnah',str(waff.rwnah))
-                wafNode.set('rwfern',str(waff.rwfern))
                 wafNode.set('lz',str(waff.lz))
         ausrüst = etree.SubElement(aus,'Ausrüstung')
         for ausr in self.ausrüstung:
@@ -441,14 +439,12 @@ class Char():
         for waf in root.findall('Objekte/Waffen/Waffe'):
             if waf.attrib['typ'] == 'Nah':
                 waff = Objekte.Nahkampfwaffe()
-                waff.rw = int(waf.attrib['rw'])
                 waff.wm = int(waf.attrib['wm'])
             else:
                 waff = Objekte.Fernkampfwaffe()
-                waff.rwnah = int(waf.attrib['rwnah'])
-                waff.rwfern = int(waf.attrib['rwfern'])
                 waff.lz = int(waf.attrib['lz'])
             waff.name = waf.attrib['name']
+            waff.rw = int(waf.attrib['rw'])
             waff.W6 = int(waf.attrib['W6'])
             waff.plus = int(waf.attrib['plus'])
             waff.eigenschaften = waf.attrib['eigenschaften']
@@ -699,11 +695,10 @@ class Char():
             fields['Text66.' + str(count)] = str(el.W6) + "W6" + sg + str(el.plus)
             fields['Text69.' + str(count)] = str(el.haerte)
             fields['Text70.' + str(count)] = el.eigenschaften
+            fields['Text67.' + str(count)] = str(el.rw)
             if type(el) == Objekte.Fernkampfwaffe:
-                fields['Text67.' + str(count)] = str(el.rwnah) + "/" + str(el.rwfern)
                 fields['Text68.' + str(count)] = str(el.lz)
             else:
-                fields['Text67.' + str(count)] = str(el.rw)
                 fields['Text68.' + str(count)] = str(el.wm)
             #TODO: Calculate AT*, PA*, TP*?
             if count >= 4:

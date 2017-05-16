@@ -13,6 +13,8 @@ class CharakterItemsWrapper(QtCore.QObject):
     
     def __init__(self):
         super().__init__()
+        if Wolke.Debug:
+            print("Initializing ItemsWrapper...")
         self.formIt = QtWidgets.QWidget()
         self.uiIt = CharakterItems.Ui_Form()
         self.uiIt.setupUi(self.formIt)

@@ -13,12 +13,18 @@ import Definitionen
 class WaffenPicker(object):
     def __init__(self,waffe=None):
         super().__init__()
+        if Wolke.Debug:
+            print("Initializing WaffenPicker...")
         self.waffe = waffe
-        self.current = waffe.name
+        if self.waffe is not None:
+            self.current = waffe.name
+        else:
+            self.current = ""
         self.Form = QtWidgets.QDialog()
         self.ui = CharakterWaffen.Ui_Dialog()
         self.ui.setupUi(self.Form)
-        
+        if Wolke.Debug:
+            print("Ui is Setup...")
         for kind in Definitionen.Kampftalente:
             parent = QtWidgets.QTreeWidgetItem(self.ui.treeWeapons)
             parent.setText(0,kind)
@@ -33,10 +39,13 @@ class WaffenPicker(object):
                 child = QtWidgets.QTreeWidgetItem(parent)
                 child.setText(0,el)
                 child.setText(1,Wolke.DB.waffen[waf].talent)  
-        
+        if Wolke.Debug:
+            print("Tree Filled...")
         self.ui.treeWeapons.itemChanged.connect(self.changeHandler)
         self.ui.treeWeapons.header().setSectionResizeMode(0,1)
         self.updateInfo()
+        if Wolke.Debug:
+            print("Info Updated...")
         self.Form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.Form.show()
         self.ret = self.Form.exec_()
@@ -61,38 +70,39 @@ class WaffenPicker(object):
                 self.ui.labelTyp.setText("Nah")
             else:
                 self.ui.labelTyp.setText("Fern")
-            self.ui.labelFert.setText(w.fertigkeit + ": " + w.talent)
+            self.ui.labelFert.setText(w.fertigkeit + " (" + w.talent + ")")
             stile = ""
             if w.beid:
-                stile += "Beidhändiger Kampf, "
+                stile += Definitionen.Kampfstile[1] + ", "
             if w.pari:
-                stile += "Parierwaffenkampf, "
+                stile += Definitionen.Kampfstile[2] + ", "
             if w.reit:
-                stile += "Reiterkampf, "
+                stile += Definitionen.Kampfstile[3] + ", "
             if w.schi:
-                stile += "Schildkampf, "
+                stile += Definitionen.Kampfstile[4] + ", "
             if w.kraf:
-                stile += "Kraftvoller Kampf, "
+                stile += Definitionen.Kampfstile[5] + ", "
             if w.schn:
-                stile += "Schneller Kampf, "
+                stile += Definitionen.Kampfstile[6] + ", "
             if len(stile)>2:
                 stile = stile[:-2]
-            self.ui.labelStile.setText(stile)
+            else:
+                stile = Definitionen.Kampfstile[0]
+            self.ui.plainStile.setPlainText(stile)
             tp = str(w.W6) + " W6"
             if w.plus < 0:
                 tp += " " + str(w.plus)
             else:
                 tp += " +" + str(w.plus)
             self.ui.labelTP.setText(tp)
+            self.ui.labelRW.setText(str(w.rw))
             if type(w) == Objekte.Nahkampfwaffe:
-                self.ui.labelRW.setText(str(w.rw))
                 self.ui.labelWMLZ_Text.setText("Waffenmodifikator")
                 if w.wm<0:
                     self.ui.labelWMLZ.setText(str(w.wm))
                 else:
                     self.ui.labelWMLZ.setText("+" + str(w.wm))
             else:
-                self.ui.labelRW.setText(str(w.rwnah) + " / " + str(w.rwfern))
                 self.ui.labelWMLZ_Text.setText("Ladezeit")
                 self.ui.labelWMLZ.setText(str(w.lz))
             self.ui.labelH.setText(str(w.haerte))

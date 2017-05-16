@@ -13,6 +13,8 @@ class BeschrWrapper(QtCore.QObject):
     
     def __init__(self):
         super().__init__()
+        if Wolke.Debug:
+            print("Initializing BeschrWrapper...")
         self.formBeschr = QtWidgets.QWidget()
         self.uiBeschr = CharakterBeschreibung.Ui_formBeschreibung()
         self.uiBeschr.setupUi(self.formBeschr)
