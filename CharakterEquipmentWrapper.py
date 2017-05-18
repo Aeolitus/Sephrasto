@@ -94,6 +94,7 @@ class EquipWrapper(QtCore.QObject):
                     Wolke.Char.waffen.append(W)
             Wolke.Char.aktualisieren()
             self.modified.emit()
+            self.refreshKampfstile()
         
     def loadEquipment(self):
         self.currentlyLoading = True
@@ -117,7 +118,32 @@ class EquipWrapper(QtCore.QObject):
             W = Wolke.Char.waffen[count]
             self.loadWeaponIntoFields(W, count+1)
             count += 1
+        self.refreshKampfstile()
         self.currentlyLoading = False
+        
+    def refreshKampfstile(self):
+        if Wolke.Debug:
+            print("Starting refreshKampfstile...")
+        Warr = ["W1","W2","W3","W4","W5"]
+        for strp in Warr:
+            eval("self.uiEq.comboStil" + strp[-1] + ".setCurrentIndex(0)")
+            eval("self.uiEq.comboStil" + strp[-1] + ".clear()")
+            eval("self.uiEq.comboStil" + strp[-1] + ".addItem(Definitionen.Kampfstile[0])")
+            name = eval("self.uiEq.edit" + strp + "name.text()")
+            if name != "":
+                if name in Wolke.DB.waffen:
+                    if Wolke.DB.waffen[name].beid and Definitionen.Kampfstile[1] + " I" in Wolke.Char.vorteile:
+                        eval("self.uiEq.comboStil" + strp[-1] + ".addItem(Definitionen.Kampfstile[1])")
+                    if Wolke.DB.waffen[name].pari and Definitionen.Kampfstile[2] + " I" in Wolke.Char.vorteile:
+                        eval("self.uiEq.comboStil" + strp[-1] + ".addItem(Definitionen.Kampfstile[2])")
+                    if Wolke.DB.waffen[name].reit and Definitionen.Kampfstile[3] + " I" in Wolke.Char.vorteile:
+                        eval("self.uiEq.comboStil" + strp[-1] + ".addItem(Definitionen.Kampfstile[3])")
+                    if Wolke.DB.waffen[name].schi and Definitionen.Kampfstile[4] + " I" in Wolke.Char.vorteile:
+                        eval("self.uiEq.comboStil" + strp[-1] + ".addItem(Definitionen.Kampfstile[4])")
+                    if Wolke.DB.waffen[name].kraf and Definitionen.Kampfstile[5] + " I" in Wolke.Char.vorteile:
+                        eval("self.uiEq.comboStil" + strp[-1] + ".addItem(Definitionen.Kampfstile[5])")
+                    if Wolke.DB.waffen[name].schn and Definitionen.Kampfstile[6] + " I" in Wolke.Char.vorteile:
+                        eval("self.uiEq.comboStil" + strp[-1] + ".addItem(Definitionen.Kampfstile[6])")
         
     def loadWeaponIntoFields(self, W, index):
         Warr = ["W1","W2","W3","W4","W5"]
@@ -148,15 +174,22 @@ class EquipWrapper(QtCore.QObject):
             for el in Wolke.DB.waffen:
                 if Wolke.DB.waffen[el].name == wname:
                     W = el
-                    print("Weapon found - its " + wname)
+                    if Wolke.Debug:
+                        print("Weapon found - its " + wname)
                     break
         except:
-            print("Error in selectWeapon!")
-        print("Starting WaffenPicker")
+            pass
+            #print("Error in selectWeapon!")
+        if Wolke.Debug:
+            print("Starting WaffenPicker")
         picker = WaffenPicker(W)
-        print("WaffenPicker created")
+        if Wolke.Debug:
+            print("WaffenPicker created")
         if picker.waffe is not None:
+            self.currentlyLoading = True
             self.loadWeaponIntoFields(picker.waffe, index)
+            self.currentlyLoading = False
+            self.updateEquipment()
         
     def checkToggleEquip(self):
         if not self.currentlyLoading:

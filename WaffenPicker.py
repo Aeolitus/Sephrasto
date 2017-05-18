@@ -15,9 +15,9 @@ class WaffenPicker(object):
         super().__init__()
         if Wolke.Debug:
             print("Initializing WaffenPicker...")
-        self.waffe = waffe
-        if self.waffe is not None:
-            self.current = waffe.name
+        self.waffe = None
+        if waffe is not None and waffe in Wolke.DB.waffen:
+            self.current = waffe
         else:
             self.current = ""
         self.Form = QtWidgets.QDialog()
@@ -25,6 +25,7 @@ class WaffenPicker(object):
         self.ui.setupUi(self.Form)
         if Wolke.Debug:
             print("Ui is Setup...")
+        currSet = self.current != ""
         for kind in Definitionen.Kampftalente:
             parent = QtWidgets.QTreeWidgetItem(self.ui.treeWeapons)
             parent.setText(0,kind)
@@ -36,12 +37,15 @@ class WaffenPicker(object):
                     wafs.append(waf)
             wafs.sort()
             for el in wafs:
+                if not currSet:
+                    self.current = el
+                    currSet = True
                 child = QtWidgets.QTreeWidgetItem(parent)
                 child.setText(0,el)
-                child.setText(1,Wolke.DB.waffen[waf].talent)  
+                child.setText(1,Wolke.DB.waffen[el].talent)  
         if Wolke.Debug:
             print("Tree Filled...")
-        self.ui.treeWeapons.itemChanged.connect(self.changeHandler)
+        self.ui.treeWeapons.itemSelectionChanged.connect(self.changeHandler)
         self.ui.treeWeapons.header().setSectionResizeMode(0,1)
         self.updateInfo()
         if Wolke.Debug:
@@ -58,7 +62,7 @@ class WaffenPicker(object):
         for el in self.ui.treeWeapons.selectedItems():
             if el.text(0) in Definitionen.Kampftalente:
                 continue
-            self.current = el
+            self.current = el.text(0)
             break
         self.updateInfo()
         
