@@ -350,6 +350,7 @@ class Char():
             wafNode.set('eigenschaften',waff.eigenschaften)
             wafNode.set('haerte',str(waff.haerte))
             wafNode.set('rw',str(waff.rw))
+            wafNode.set('kampfstil',str(waff.kampfstil))
             if type(waff) is Objekte.Nahkampfwaffe:
                 wafNode.set('typ','Nah')
                 wafNode.set('wm',str(waff.wm))
@@ -449,6 +450,7 @@ class Char():
             waff.plus = int(waf.attrib['plus'])
             waff.eigenschaften = waf.attrib['eigenschaften']
             waff.haerte = int(waf.attrib['haerte'])
+            waff.kampfstil = int(waf.attrib['kampfstil'])
             self.waffen.append(waff)
         for aus in root.findall('Objekte/Ausrüstung/Ausrüstungsstück'):
             self.ausrüstung.append(aus.text)
@@ -700,7 +702,58 @@ class Char():
                 fields['Text68.' + str(count)] = str(el.lz)
             else:
                 fields['Text68.' + str(count)] = str(el.wm)
-            #TODO: Calculate AT*, PA*, TP*?
+            if el.fertigkeit in Wolke.Char.fertigkeiten:
+                if el.talent in Wolke.Char.fertigkeiten[el.fertigkeit].gekaufteTalente:
+                    bwert = Wolke.Char.fertigkeiten[el.fertigkeit].probenwertTalent
+                else:
+                    bwert = Wolke.Char.fertigkeiten[el.fertigkeit].probenwert
+                at = bwert
+                vt = bwert
+                sp = 0
+                if el.kampfstil == 1:
+                    levelC = 0
+                    for vor in self.vorteile:
+                        if Definitionen.Kampfstile[1] in vor:
+                            levelC += 1
+                    at += levelC
+                # Parierwaffenkampf does nothing
+                elif el.kampfstil == 3:
+                    levelC = 0
+                    for vor in self.vorteile:
+                        if Definitionen.Kampfstile[3] in vor:
+                            levelC += 1
+                    at += levelC
+                    vt += levelC
+                    sp += levelC
+                elif el.kampfstil == 4:
+                    levelC = 0
+                    for vor in self.vorteile:
+                        if Definitionen.Kampfstile[4] in vor:
+                            levelC += 1
+                    vt += levelC
+                elif el.kampfstil == 5:
+                    levelC = 0
+                    for vor in self.vorteile:
+                        if Definitionen.Kampfstile[5] in vor:
+                            levelC += 1
+                    sp += levelC
+                elif el.kampfstil == 6:
+                    levelC = 0
+                    for vor in self.vorteile:
+                        if Definitionen.Kampfstile[6] in vor:
+                            levelC += 1
+                    at += levelC
+                if "Kopflastig" in el.eigenschaften:
+                    sp += self.schadensbonus*2
+                else:
+                    sp += self.schadensbonus
+                fields['Text71.' + str(count)] = at
+                fields['Text72.' + str(count)] = vt
+                sg = ""
+                if el.plus+sp >= 0:
+                    sg = "+"
+                fields['Text73.' + str(count)] = str(el.W6) + "W6" + sg + str(el.plus+sp)
+            
             if count >= 4:
                 break
             count += 1

@@ -22,6 +22,7 @@ class Waffe(Objekt):
         self.schi = 0
         self.kraf = 0
         self.schn = 0
+        self.kampfstil = 0
         
 class Nahkampfwaffe(Waffe):
     def __init__(self):

@@ -43,6 +43,7 @@ class WaffenPicker(object):
                 child = QtWidgets.QTreeWidgetItem(parent)
                 child.setText(0,el)
                 child.setText(1,Wolke.DB.waffen[el].talent)  
+        self.ui.treeWeapons.sortItems(1,QtCore.Qt.AscendingOrder)
         if Wolke.Debug:
             print("Tree Filled...")
         self.ui.treeWeapons.itemSelectionChanged.connect(self.changeHandler)
