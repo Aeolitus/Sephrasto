@@ -715,34 +715,35 @@ class Char():
                     for vor in self.vorteile:
                         if Definitionen.Kampfstile[1] in vor:
                             levelC += 1
-                    at += levelC
+                    at += min(levelC,3)
                 # Parierwaffenkampf does nothing
                 elif el.kampfstil == 3:
                     levelC = 0
                     for vor in self.vorteile:
                         if Definitionen.Kampfstile[3] in vor:
                             levelC += 1
-                    at += levelC
-                    vt += levelC
-                    sp += levelC
+                    at += min(levelC,3)
+                    vt += min(levelC,3)
+                    sp += min(levelC,3)
                 elif el.kampfstil == 4:
                     levelC = 0
                     for vor in self.vorteile:
                         if Definitionen.Kampfstile[4] in vor:
                             levelC += 1
-                    vt += levelC
+                    vt += min(levelC,3)
                 elif el.kampfstil == 5:
                     levelC = 0
                     for vor in self.vorteile:
                         if Definitionen.Kampfstile[5] in vor:
                             levelC += 1
-                    sp += levelC
+                    sp += min(levelC,3)
                 elif el.kampfstil == 6:
                     levelC = 0
                     for vor in self.vorteile:
                         if Definitionen.Kampfstile[6] in vor:
                             levelC += 1
-                    at += levelC
+                    at += min(levelC,3)
+                
                 if "Kopflastig" in el.eigenschaften:
                     sp += self.schadensbonus*2
                 else:

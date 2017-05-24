@@ -91,7 +91,6 @@ class EquipWrapper(QtCore.QObject):
                     W.plus = eval("self.uiEq.spin" + el + "plus.value()")
                     W.eigenschaften = eval("self.uiEq.edit" + el + "eig.text()")
                     self.refreshKampfstile(int(el[-1])-1)
-                    print("Refreshed!")
                     tmp = eval("self.uiEq.comboStil" + el[-1] + ".currentText()")
                     if tmp in Definitionen.Kampfstile:
                         W.kampfstil = Definitionen.Kampfstile.index(tmp)

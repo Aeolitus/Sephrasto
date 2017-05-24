@@ -8,4 +8,4 @@ class Wolke:
     Char = None
     DB = None
     Reqs = True
-    Debug = True
+    Debug = False
