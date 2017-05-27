@@ -17,6 +17,7 @@ class TalentPicker(object):
         else:
             self.refC = Wolke.Char.fertigkeiten
             self.refD = Wolke.DB.fertigkeiten
+        self.talenteVariable = Wolke.Char.talenteVariable.copy()
         self.gekaufteTalente = self.refC[fert].gekaufteTalente.copy()
         self.fert = fert
         self.Form = QtWidgets.QDialog()
@@ -51,6 +52,7 @@ class TalentPicker(object):
                 self.rowCount += 1
         if self.rowCount > 0:
             self.updateFields(self.dataStr(self.model.item(0).text()))
+        self.ui.spinKosten.valueChanged.connect(self.spinChanged)
         self.ui.listTalente.setModel(self.model)
         self.Form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.Form.show()
@@ -65,7 +67,7 @@ class TalentPicker(object):
                             if tmp not in self.refC[el].gekaufteTalente:
                                 self.refC[el].gekaufteTalente.append(tmp)
                     if Wolke.DB.talente[tmp].variable:
-                        Wolke.Char.talenteVariable[tmp] = self.ui.spinKosten.value()
+                        Wolke.Char.talenteVariable[tmp] = self.talenteVariable[tmp]
                 else:
                     for el in Wolke.DB.talente[tmp].fertigkeiten:
                         if el in self.refC:
@@ -80,6 +82,9 @@ class TalentPicker(object):
     def talChanged(self, item, prev):
         text = self.dataStr(self.model.itemData(item)[0])
         self.updateFields(text)
+        
+    def spinChanged(self):
+        self.talenteVariable[self.ui.labelName.text()] = self.ui.spinKosten.value()
         
     def updateFields(self, talent):
         if talent is not None:
