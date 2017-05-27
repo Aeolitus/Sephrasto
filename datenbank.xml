@@ -3239,7 +3239,7 @@ Reichweite: 8 Schritt
 Wirkungsdauer: 16 Minuten
 Kosten: 8 AsP
 Fertigkeiten: Wasser</Talent>
-  <Talent name="Bindung des Dolches" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Kraft" variable="0">Du stellst eine enge magische Bindung zu deinem Obsidiandolch her, welche die Voraussetzung für alle weiteren Talente dieser Fertigkeit ist. Außerdem wird der Dolch unzerbrechlich und gilt als magische Waffe. 
+  <Talent name="Bindung des Dolches" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Kraft" variable="0">Du stellst eine enge magische Bindung zu deinem Obsidiandolch her, welche die Voraussetzung für alle weiteren Talente dieser Fertigkeit ist. Außerdem wird der Dolch unzerbrechlich und gilt als magische Waffe. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 8 Stunden
 Ziel: Ritualgegenstand
@@ -3257,7 +3257,7 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 8 AsP
 Fertigkeiten: Antimagie, Dolchzauber</Talent>
-  <Talent name="Ernte des Dolches" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Temporal, Verwandlung" variable="0">Die nächste mit dem Dolch geerntete Pflanze ist viermal so lange haltbar. 
+  <Talent name="Ernte des Dolches" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Temporal, Verwandlung" variable="0">Die nächste mit dem Dolch geerntete Pflanze ist viermal so lange haltbar. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Akt
 Ziel: Obsidiandolch
@@ -3273,7 +3273,7 @@ Reichweite: Berührung
 Wirkungsdauer: 8 Aktionen
 Kosten: 1 AsP
 Fertigkeiten: Antimagie, Dolchzauber, Verständigung</Talent>
-  <Talent name="Gespür des Dolches" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Hellsicht" variable="0">Dein Dolch kühlt ab, wenn er dämonisch verseuchten Boden berührt. So erfährst du, ob die Umgebung normal/ leicht verseucht/ deutlich verseucht/ stark verseucht/ ein kleines Unheiligtum/ ein mittleres Unheiligtum/ ein mächtiges Unheiligtum ist. 
+  <Talent name="Gespür des Dolches" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Hellsicht" variable="0">Dein Dolch kühlt ab, wenn er dämonisch verseuchten Boden berührt. So erfährst du, ob die Umgebung normal/ leicht verseucht/ deutlich verseucht/ stark verseucht/ ein kleines Unheiligtum/ ein mittleres Unheiligtum/ ein mächtiges Unheiligtum ist. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Akt
 Ziel: Obsidiandolch
@@ -3289,7 +3289,7 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 8 AsP
 Fertigkeiten: Dolchzauber, Einfluss, Hellsicht, Verständigung</Talent>
-  <Talent name="Lebenskraft des Dolches" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Humus" variable="0">Du entziehst dem Boden Lebenskraft und regenerierst in der nächsten Ruhephase eine zusätzliche Wunde. 
+  <Talent name="Lebenskraft des Dolches" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Humus" variable="0">Du entziehst dem Boden Lebenskraft und regenerierst in der nächsten Ruhephase eine zusätzliche Wunde. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Akt
 Ziel: selbst
@@ -3298,7 +3298,7 @@ Wirkungsdauer: augenblicklich
 Kosten: 4 AsP
 Fertigkeiten: Dolchzauber, Humus</Talent>
   <Talent name="Leib des Dolches (passiv)" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber" variable="0">Bei einer Verwandlung deiner Person (egal ob freiwillig oder unfreiwillig) wird dein Obsidiandolch mitverwandelt. </Talent>
-  <Talent name="Licht des Dolches" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Eigenschaften" variable="0">Du ignorierst 1 Stufe Dunkelheit, aber grelles Licht erschwert alle Proben um -2. Bei absoluter Dunkelheit ist der Zauber wirkungslos.
+  <Talent name="Licht des Dolches" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Eigenschaften" variable="0">Du ignorierst 1 Stufe Dunkelheit, aber grelles Licht erschwert alle Proben um -2. Bei absoluter Dunkelheit ist der Zauber wirkungslos.
 Mächtige Magie: Du ignorierst 2/3 Stufen Dunkelheit.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
@@ -3326,7 +3326,7 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 1 AsP
 Fertigkeiten: Dolchzauber, Einfluss, Verständigung</Talent>
-  <Talent name="Schneide des Dolches" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Erz, Feuer" variable="0">Du kannst mit dem Dolch natürliches Gestein schneiden wie Wachs. 
+  <Talent name="Schneide des Dolches" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Erz, Feuer" variable="0">Du kannst mit dem Dolch natürliches Gestein schneiden wie Wachs. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Akt
 Ziel: Einzelobjekt
@@ -3334,7 +3334,7 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 8 AsP
 Fertigkeiten: Dolchzauber, Erz, Feuer</Talent>
-  <Talent name="Schutz des Dolches" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Umwelt" variable="0">Dir steht die Natur schützend zur Seite. Du schwimmst leichter auf Wasser, Schnee bildet wärmende Höhlen und du findest überall Verstecke. Verbergen, Schwimmen, 
+  <Talent name="Schutz des Dolches" kosten="40" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Umwelt" variable="0">Dir steht die Natur schützend zur Seite. Du schwimmst leichter auf Wasser, Schnee bildet wärmende Höhlen und du findest überall Verstecke. Verbergen, Schwimmen, 
 Überleben oder andere mit der Natur zusammenhängende Proben sind um +4 erleichtert. 
 Mächtige Magie: Der Bonus steigt um +2.
 Probenschwierigkeit: 12
@@ -3352,7 +3352,7 @@ Reichweite: Berührung
 Wirkungsdauer: augenblicklich
 Kosten: 8 AsP
 Fertigkeiten: Dolchzauber, Verständigung</Talent>
-  <Talent name="Weg des Dolches" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Hellsicht, Umwelt" variable="0">Dein Dolch zeigt in die Richtung des Ortes, an dem er geweiht wurde.  Eine Überleben-Proben zur Orientierung ist um +4 Punkte erleichtert. 
+  <Talent name="Weg des Dolches" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Hellsicht, Umwelt" variable="0">Dein Dolch zeigt in die Richtung des Ortes, an dem er geweiht wurde.  Eine Überleben-Proben zur Orientierung ist um +4 Punkte erleichtert. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Akt
 Ziel: Zone
@@ -3360,7 +3360,7 @@ Reichweite: dereweit
 Wirkungsdauer: 16 Aktionen
 Kosten: 4 AsP
 Fertigkeiten: Dolchzauber, Hellsicht, Umwelt</Talent>
-  <Talent name="Weisung des Dolches" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Hellsicht, Kraft" variable="0">Dein Dolch leuchtet rot auf, wenn er in Richtung einer Kraftlinie gehalten wird. Die Leuchtstärke hängt von Entfernung und Stärke der Kraftlinie ab. 
+  <Talent name="Weisung des Dolches" kosten="20" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Dolchzauber, Hellsicht, Kraft" variable="0">Dein Dolch leuchtet rot auf, wenn er in Richtung einer Kraftlinie gehalten wird. Die Leuchtstärke hängt von Entfernung und Stärke der Kraftlinie ab. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Akt
 Ziel: Zone
@@ -5940,7 +5940,7 @@ Eine dieser vier Modifikationen kombinierst du mit einem antimagischen Zauber. Z
   <Übernatürliche-Fertigkeit name="Verständigung" steigerungsfaktor="2" voraussetzungen="Vorteil Zauberer I" attribute="CH|IN|MU">Mit Verständigung kannst du Gefühle und Gedanken übertragen oder Tiere, Geister oder magische Wesen zur Hilfe rufen. </Übernatürliche-Fertigkeit>
   <Übernatürliche-Fertigkeit name="Verwandlung" steigerungsfaktor="4" voraussetzungen="Vorteil Zauberer I" attribute="FF|KL|KO">Verwandler können sich selbst, andere Menschen und sogar Gegenstände verwandeln. </Übernatürliche-Fertigkeit>
   <Übernatürliche-Fertigkeit name="Wasser" steigerungsfaktor="2" voraussetzungen="Vorteil Zauberer I" attribute="CH|KL|MU">Als Wasserzauberer beherrschst du das flüssige Element und kannst die Elementare des Wassers herbeirufen.</Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Dolchzauber" steigerungsfaktor="2" voraussetzungen="Vorteil Druidische Repräsentation I" attribute="FF|IN|MU">Die geheimen Rituale der Druiden beruhen auf ihrem verzauberten Dolch aus Obsidian, während Geoden eine goldene Sichel als Ritualinstrument bevorzugen. Alle Talente gelten als Objektrituale.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Dolchzauber" steigerungsfaktor="2" voraussetzungen="Vorteil Druidische Repräsentation I ODER Vorteil Geodische Repräsentation I" attribute="FF|IN|MU">Die geheimen Rituale der Druiden beruhen auf ihrem verzauberten Dolch aus Obsidian, während Geoden eine goldene Sichel als Ritualinstrument bevorzugen. Alle Talente gelten als Objektrituale.</Übernatürliche-Fertigkeit>
   <Übernatürliche-Fertigkeit name="Elfenlieder" steigerungsfaktor="1" voraussetzungen="Vorteil Elfische Repräsentation I" attribute="CH|FF|IN">Die auf einem Iama vorgetragenen Elfenlieder gehören zu den ältesten Spielarten der Zauberei, der du begegnen kannst. Da viele Lieder zweistimmig gesungen werden, steht die Fertigkeit nur Elfen und manchen Halbelfen zur Verfügung. Elfenlieder gelten als Objektrituale. </Übernatürliche-Fertigkeit>
   <Übernatürliche-Fertigkeit name="Hexenflüche" steigerungsfaktor="1" voraussetzungen="Vorteil Hexische Repräsentation I" attribute="CH|IN|MU">Als Hexe hast du zwei Möglichkeiten, deine Flüche zu überbringen. Entweder du schleuderst sie direkt lautstark auf das Opfer, wodurch du häufig vom Bonus der Hexischen Repräsentation II profitieren kannst, oder du lässt den Fluch unauffällig von deinem Vertrauten überbringen. Dafür benötigst du allerdings ein Körperteil (z.B. Haar) deines Opfers. In beiden Fällen legst du danach die Probe auf eine passende übernatürliche Fertigkeit ab. Jeder Hexenfluch kann auch permanent gesprochen werden. Das verdoppelt die Kosten und ein Achtel der AsP halten als gAsP den Fluch aufrecht. Neben Antimagie oder göttlichem Wirken kann ein permanenter Fluch immer auch durch das Erfüllen einer Bedingung beendet werden. Diese Bedingung muss realistisch erfüllbar sein und du musst sie dem Verfluchten mitteilen (direkter Fluch) oder er erfährt sie in seinen Träumen (überbrachter Fluch). 
   
