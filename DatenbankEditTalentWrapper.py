@@ -25,6 +25,10 @@ class DatenbankEditTalentWrapper(object):
             ui.spinKosten.setValue(talent.kosten)
         else:
             ui.buttonRegulaer.setChecked(True)
+        if talent.variable:
+            ui.checkVariable.setChecked(True)
+        else:
+            ui.checkVariable.setChecked(False)
         ui.fertigkeitenEdit.setText(Hilfsmethoden.FertArray2Str(talent.fertigkeiten, None))
         ui.voraussetzungenEdit.setText(Hilfsmethoden.VorArray2Str(talent.voraussetzungen, None))
         ui.textEdit.setPlainText(talent.text)
@@ -37,6 +41,10 @@ class DatenbankEditTalentWrapper(object):
             self.talent.voraussetzungen = Hilfsmethoden.VorStr2Array(ui.voraussetzungenEdit.text(),None)
             self.talent.text = ui.textEdit.toPlainText()
             self.talent.kosten = -1
+            if ui.checkVariable.isChecked():
+                self.talent.variable = 1
+            else:
+                self.talent.variable = -1
             if ui.buttonSpezial.isChecked():
                 self.talent.kosten = ui.spinKosten.value()
             elif ui.buttonVerbilligt.isChecked():

@@ -37,7 +37,7 @@
         <x>0</x>
         <y>0</y>
         <width>223</width>
-        <height>251</height>
+        <height>241</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
@@ -69,7 +69,7 @@
           <number>0</number>
          </property>
          <property name="maximum">
-          <number>200</number>
+          <number>8000</number>
          </property>
          <property name="singleStep">
           <number>20</number>

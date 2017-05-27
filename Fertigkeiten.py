@@ -85,6 +85,7 @@ class Talent():
         self.verbilligt = 0
         self.fertigkeiten = []
         self.voraussetzungen = []
+        self.variable = 0
         self.text = ''
 
 class Vorteil():

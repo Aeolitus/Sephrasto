@@ -109,6 +109,13 @@
          </item>
         </layout>
        </item>
+       <item>
+        <widget class="QCheckBox" name="checkVariable">
+         <property name="text">
+          <string>Kosten sind variabel</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </item>
      <item row="2" column="0">

@@ -64,6 +64,8 @@ class TalentPicker(object):
                         if el in self.refC:
                             if tmp not in self.refC[el].gekaufteTalente:
                                 self.refC[el].gekaufteTalente.append(tmp)
+                    if Wolke.DB.talente[tmp].variable:
+                        Wolke.Char.talenteVariable[tmp] = self.ui.spinKosten.value()
                 else:
                     for el in Wolke.DB.talente[tmp].fertigkeiten:
                         if el in self.refC:
@@ -92,6 +94,16 @@ class TalentPicker(object):
             else:
                 self.ui.labelInfo.setText("Spezialtalent")
                 self.ui.spinKosten.setValue(Wolke.DB.talente[talent].kosten)
+            if Wolke.DB.talente[talent].variable:
+                self.ui.spinKosten.setReadOnly(False)
+                self.ui.spinKosten.setStyleSheet("QSpinBox { background-color: #FFFFFF }")
+                self.ui.spinKosten.setButtonSymbols(1)
+                if talent in Wolke.Char.talenteVariable:
+                    self.ui.spinKosten.setValue(Wolke.Char.talenteVariable[talent])
+            else:
+                self.ui.spinKosten.setReadOnly(True)
+                self.ui.spinKosten.setStyleSheet("QSpinBox { background-color: #F5F5F5 }")
+                self.ui.spinKosten.setButtonSymbols(2)
             self.ui.plainText.setPlainText(Wolke.DB.talente[talent].text)
 
     def displayStr(self,inp):

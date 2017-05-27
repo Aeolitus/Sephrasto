@@ -191,7 +191,14 @@ class UebernatuerlichWrapper(QtCore.QObject):
                     talStr = el[11:]
                 else:
                     talStr = el
-                item = QtGui.QStandardItem(talStr)
+                if el in Wolke.DB.talente:
+                    if el in Wolke.Char.talenteVariable:
+                        costStr = " (" + str(Wolke.Char.talenteVariable[el]) + " EP)"    
+                    else:
+                        costStr = " (" + str(Wolke.DB.talente[el].kosten) + " EP)"
+                else:
+                    costStr = ""
+                item = QtGui.QStandardItem(talStr + costStr)
                 item.setEditable(False)
                 self.model.appendRow(item)
             self.updateTalentRow()

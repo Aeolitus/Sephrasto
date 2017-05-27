@@ -41,6 +41,7 @@ class Char():
         #Vierter Block: Fertigkeiten und Freie Fertigkeiten
         self.fertigkeiten = copy.deepcopy(Wolke.DB.fertigkeiten)
         self.freieFertigkeiten = []
+        self.talenteVariable = {} #Contains Name: Cost
 
         #Fünfter Block: Ausrüstung etc
         self.be = 0
@@ -131,7 +132,9 @@ class Char():
                 if fer == "Gebräuche" and tal[11:] == self.heimat:
                     continue
                 paidTalents.append(tal)
-                if Wolke.DB.talente[tal].kosten != -1:
+                if tal in self.talenteVariable:
+                    spent += self.talenteVariable[tal]
+                elif Wolke.DB.talente[tal].kosten != -1:
                     spent += Wolke.DB.talente[tal].kosten
                 elif Wolke.DB.talente[tal].verbilligt:
                     spent += 10*self.fertigkeiten[fer].steigerungsfaktor
@@ -152,7 +155,9 @@ class Char():
                 if tal in paidTalents:
                     continue
                 paidTalents.append(tal)
-                if Wolke.DB.talente[tal].kosten != -1:
+                if tal in self.talenteVariable:
+                    spent += self.talenteVariable[tal]
+                elif Wolke.DB.talente[tal].kosten != -1:
                     spent += Wolke.DB.talente[tal].kosten
                 elif Wolke.DB.talente[tal].verbilligt:
                     spent += 10*self.übernatürlicheFertigkeiten[fer].steigerungsfaktor
@@ -328,7 +333,12 @@ class Char():
             fertNode.set('wert',str(self.fertigkeiten[fert].wert))
             talentNode = etree.SubElement(fertNode,'Talente')
             for talent in self.fertigkeiten[fert].gekaufteTalente:
-                etree.SubElement(talentNode,'Talent').set('name',talent)
+                talNode = etree.SubElement(talentNode,'Talent')
+                talNode.set('name',talent)
+                if talent in self.talenteVariable:
+                    talNode.set('variable',str(self.talenteVariable[talent]))
+                else:
+                    talNode.set('variable','-1')
         for fert in self.freieFertigkeiten:
             freiNode = etree.SubElement(fer,'Freie-Fertigkeit')
             freiNode.set('name',fert.name)
@@ -368,7 +378,12 @@ class Char():
             fertNode.set('wert',str(self.übernatürlicheFertigkeiten[fert].wert))
             talentNode = etree.SubElement(fertNode,'Talente')
             for talent in self.übernatürlicheFertigkeiten[fert].gekaufteTalente:
-                etree.SubElement(talentNode,'Talent').set('name',talent)
+                talNode = etree.SubElement(talentNode,'Talent')
+                talNode.set('name',talent)
+                if talent in self.talenteVariable:
+                    talNode.set('variable',str(self.talenteVariable[talent]))
+                else:
+                    talNode.set('variable','-1')
         #Siebter Block
         epn = etree.SubElement(root,'Erfahrung')
         etree.SubElement(epn,'EPtotal').text = str(self.EPtotal)
@@ -423,6 +438,8 @@ class Char():
             fert.wert = int(fer.attrib['wert'])
             for tal in fer.findall('Talente/Talent'):
                 fert.gekaufteTalente.append(tal.attrib['name'])
+                if tal.attrib['variable'] != '-1':
+                    self.talenteVariable[tal] = int(tal.attrib['variable'])
             fert.aktualisieren()
             self.fertigkeiten.update({fert.name: fert})
         for fer in root.findall('Fertigkeiten/Freie-Fertigkeit'):
@@ -461,6 +478,8 @@ class Char():
             fert.wert = int(fer.attrib['wert'])
             for tal in fer.findall('Talente/Talent'):
                 fert.gekaufteTalente.append(tal.attrib['name'])
+                if tal.attrib['variable'] != '-1':
+                    self.talenteVariable[tal.attrib['name']] = int(tal.attrib['variable'])
             fert.aktualisieren()
             self.übernatürlicheFertigkeiten.update({fert.name: fert})
         #Siebter Block
@@ -663,6 +682,8 @@ class Char():
                     talStr += el2[11:]
                 else:
                     talStr += el2
+                if el2 in self.talenteVariable:
+                    talStr += " (" + str(self.talenteVariable[el2]) + " EP)"
             talStr = talStr[2:]
             fields[base + "TA"] = talStr
             fields[base + "PW"] = self.fertigkeiten[el].probenwert
@@ -702,7 +723,6 @@ class Char():
                 fields['Text68.' + str(count)] = str(el.lz)
             else:
                 fields['Text68.' + str(count)] = str(el.wm)
-            print("Starting for el = " + el.name + " with Fert " + el.fertigkeit)
             if el.name in Wolke.DB.waffen:    
                 fertig = Wolke.DB.waffen[el.name].fertigkeit
                 tale = Wolke.DB.waffen[el.name].talent
@@ -710,7 +730,6 @@ class Char():
                 fertig = ""
                 tale = ""
             if fertig in Wolke.Char.fertigkeiten:
-                print("Entered!")
                 if tale in Wolke.Char.fertigkeiten[fertig].gekaufteTalente:
                     bwert = Wolke.Char.fertigkeiten[fertig].probenwertTalent
                 else:
@@ -794,6 +813,8 @@ class Char():
             for el2 in self.übernatürlicheFertigkeiten[el].gekaufteTalente:
                 tal += ", "
                 tal += el2
+                if el2 in self.talenteVariable:
+                    tal += " (" + str(self.talenteVariable[el2]) + " EP)"
             tal = tal[2:]
             fields['Text91.'+str(count)] = tal
             fields['Text92.'+str(count)] = self.übernatürlicheFertigkeiten[el].probenwertTalent
