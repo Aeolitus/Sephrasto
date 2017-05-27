@@ -21,6 +21,7 @@ class EquipWrapper(QtCore.QObject):
         self.formEq = QtWidgets.QWidget()
         self.uiEq = CharakterEquipment.Ui_formAusruestung()
         self.uiEq.setupUi(self.formEq)
+        self.initialLoad = True
         if Wolke.Debug:
             print("UI Setup...")
         #Signals
@@ -120,6 +121,7 @@ class EquipWrapper(QtCore.QObject):
             W = Wolke.Char.waffen[count]
             self.loadWeaponIntoFields(W, count+1)
             count += 1
+        self.initialLoad = False
         self.currentlyLoading = False
         
     def refreshKampfstile(self, index):
@@ -147,9 +149,16 @@ class EquipWrapper(QtCore.QObject):
                 eval("self.uiEq.comboStil" + str(index+1) + ".clear()")
                 for el in entries:
                     eval("self.uiEq.comboStil" + str(index+1) + ".addItem(\"" + el + "\")")
-                if tmp in entries:
+                if self.initialLoad:
+                    stil = Definitionen.Kampfstile[Wolke.Char.waffen[index].kampfstil]
+                    if stil in entries:
+                        eval("self.uiEq.comboStil" + str(index+1) + ".setCurrentIndex(" + str(entries.index(stil)) + ")")
+                    else:
+                        eval("self.uiEq.comboStil" + str(index+1) + ".setCurrentIndex(0)")
+                elif tmp in entries:
                     eval("self.uiEq.comboStil" + str(index+1) + ".setCurrentIndex(" + str(entries.index(tmp)) + ")")
-            
+                
+                    
     def loadWeaponIntoFields(self, W, index):
         Warr = ["W1","W2","W3","W4","W5"]
         count = index - 1

@@ -702,11 +702,19 @@ class Char():
                 fields['Text68.' + str(count)] = str(el.lz)
             else:
                 fields['Text68.' + str(count)] = str(el.wm)
-            if el.fertigkeit in Wolke.Char.fertigkeiten:
-                if el.talent in Wolke.Char.fertigkeiten[el.fertigkeit].gekaufteTalente:
-                    bwert = Wolke.Char.fertigkeiten[el.fertigkeit].probenwertTalent
+            print("Starting for el = " + el.name + " with Fert " + el.fertigkeit)
+            if el.name in Wolke.DB.waffen:    
+                fertig = Wolke.DB.waffen[el.name].fertigkeit
+                tale = Wolke.DB.waffen[el.name].talent
+            else:
+                fertig = ""
+                tale = ""
+            if fertig in Wolke.Char.fertigkeiten:
+                print("Entered!")
+                if tale in Wolke.Char.fertigkeiten[fertig].gekaufteTalente:
+                    bwert = Wolke.Char.fertigkeiten[fertig].probenwertTalent
                 else:
-                    bwert = Wolke.Char.fertigkeiten[el.fertigkeit].probenwert
+                    bwert = Wolke.Char.fertigkeiten[fertig].probenwert
                 at = bwert
                 vt = bwert
                 sp = 0
