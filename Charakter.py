@@ -76,7 +76,7 @@ class Char():
         if "Willensstark II" in self.vorteile:
             self.mr += 4
         if "Unbeugsamkeit" in self.vorteile:
-            self.mr += self.attribute['MU'].wert/2
+            self.mr += round(self.attribute['MU'].wert/2+0.0001)
         self.gs = 4 + int(self.attribute['GE'].wert/4)
         if "Flink I" in self.vorteile:
             self.gs += 1
@@ -574,7 +574,7 @@ class Char():
         fields['GSm'] = max(self.gs-trueBE,1)
         wsmod = self.rsmod + self.ws
         if len(self.rüstung) > 0:    
-            wsmod += int(sum(self.rüstung[0].rs)/6+0.5)
+            wsmod += int(sum(self.rüstung[0].rs)/6+0.5+0.0001)
         fields['WSm'] = wsmod
                       
         return fields
@@ -696,9 +696,9 @@ class Char():
         count = 0
         for el in self.rüstung:
             fields['Text53.' + str(count)] = el.name
-            fields['Text55.' + str(count)] = int(sum(el.rs)/6+0.5)+self.rsmod
+            fields['Text55.' + str(count)] = int(sum(el.rs)/6+0.5+0.0001)+self.rsmod
             fields['Text56.' + str(count)] = max(el.be-self.rüstungsgewöhnung,0)
-            fields['Text57.' + str(count)] = int(sum(el.rs)/6+self.ws+0.5+self.rsmod)
+            fields['Text57.' + str(count)] = int(sum(el.rs)/6+self.ws+0.5+self.rsmod+0.0001)
             fields['Text58.' + str(count)] = el.rs[0]+self.rsmod
             fields['Text59.' + str(count)] = el.rs[1]+self.rsmod
             fields['Text60.' + str(count)] = el.rs[2]+self.rsmod

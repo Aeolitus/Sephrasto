@@ -63,8 +63,9 @@ class Fertigkeit(Steigerbar):
                                Wolke.Char.attribute[self.attribute[1]].wert,
                                Wolke.Char.attribute[self.attribute[2]].wert]
         self.maxWert = max(self.attributswerte)+2
-        self.basiswert = round(sum(self.attributswerte)/3)
-        self.probenwert = self.basiswert + round(self.wert/2)
+        # Python Round does mess up sometimes
+        self.basiswert = round(sum(self.attributswerte)/3+0.0001)
+        self.probenwert = self.basiswert + round(self.wert/2+0.0001)
         self.probenwertTalent = self.basiswert + self.wert
     def __deepcopy__(self, memo=""):
         F = Fertigkeit()

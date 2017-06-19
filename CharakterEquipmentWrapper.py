@@ -113,7 +113,7 @@ class EquipWrapper(QtCore.QObject):
             eval("self.uiEq.spin" + Rarr[count] + "bauch.setValue(" + str(R.rs[3]) +")")
             eval("self.uiEq.spin" + Rarr[count] + "brust.setValue(" + str(R.rs[4]) +")")
             eval("self.uiEq.spin" + Rarr[count] + "kopf.setValue(" + str(R.rs[5]) +")")
-            eval("self.uiEq.spin" + Rarr[count] + "RS.setValue(" + str(int(sum(R.rs)/6+0.5)) +")")
+            eval("self.uiEq.spin" + Rarr[count] + "RS.setValue(" + str(int(sum(R.rs)/6+0.5+0.0001)) +")")
             count += 1
         
         count = 0
@@ -170,7 +170,7 @@ class EquipWrapper(QtCore.QObject):
         if W.name == "Unbewaffnet":
             wsmod = Wolke.Char.rsmod + Wolke.Char.ws
             if len(Wolke.Char.rüstung) > 0:    
-                wsmod += int(sum(Wolke.Char.rüstung[0].rs)/6+0.5)
+                wsmod += int(sum(Wolke.Char.rüstung[0].rs)/6+0.5+0.0001)
             eval("self.uiEq.spin" + Warr[count] + "h.setValue("+ str(wsmod) +")")
         else:
             eval("self.uiEq.spin" + Warr[count] + "h.setValue("+ str(W.haerte) +")")
