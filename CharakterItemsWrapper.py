@@ -27,8 +27,8 @@ class CharakterItemsWrapper(QtCore.QObject):
             count += 1
             if count > 20:
                 break
-        while count <= 21:
-            eval("self.uiIt.lineEdit_" + str(count) + ".setText(\"\")")
+        while count <= 20:
+            eval("self.uiIt.lineEdit_" + str(count) + ".clear()")
             count += 1
     
     def updateFreie(self):
