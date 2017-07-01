@@ -34,7 +34,7 @@ class EquipWrapper(QtCore.QObject):
             eval("self.uiEq." + el + ".editingFinished.connect(self.updateEquipment)")
         if Wolke.Debug:
             print("Signals Set...")
-        for el in range(1,6):
+        for el in range(1,9):
             eval("self.uiEq.comboStil"+str(el)+".setCurrentIndex(0)")
             eval("self.uiEq.comboStil"+str(el)+".clear()")
             for el2 in Definitionen.Kampfstile:
@@ -46,6 +46,9 @@ class EquipWrapper(QtCore.QObject):
         self.uiEq.addW3.clicked.connect(lambda state, idx=3: self.selectWeapon(idx))   
         self.uiEq.addW4.clicked.connect(lambda state, idx=4: self.selectWeapon(idx))   
         self.uiEq.addW5.clicked.connect(lambda state, idx=5: self.selectWeapon(idx))   
+        self.uiEq.addW6.clicked.connect(lambda state, idx=6: self.selectWeapon(idx))   
+        self.uiEq.addW7.clicked.connect(lambda state, idx=7: self.selectWeapon(idx))   
+        self.uiEq.addW8.clicked.connect(lambda state, idx=8: self.selectWeapon(idx))   
         if Wolke.Debug:
             print("Check Toggle...")
         self.uiEq.checkZonen.stateChanged.connect(self.checkToggleEquip)
@@ -75,9 +78,18 @@ class EquipWrapper(QtCore.QObject):
                 else:
                     R.rs = 6*[self.uiEq.spinR2RS]
                 Wolke.Char.rüstung.append(R)
+            if self.uiEq.editR3name.text() != "":
+                R = Objekte.Ruestung() 
+                R.name = self.uiEq.editR3name.text()
+                R.be = self.uiEq.spinR3be.value()
+                if self.uiEq.checkZonen.isChecked():
+                    R.rs = [self.uiEq.spinR3bein.value(), self.uiEq.spinR3larm.value(), self.uiEq.spinR3rarm.value(), self.uiEq.spinR3bauch.value(), self.uiEq.spinR3brust.value(), self.uiEq.spinR3kopf.value()]
+                else:
+                    R.rs = 6*[self.uiEq.spinR3RS]
+                Wolke.Char.rüstung.append(R)
                 
             Wolke.Char.waffen = []
-            for el in ['W1', 'W2', 'W3', 'W4', 'W5']:
+            for el in ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8']:
                 if (eval("self.uiEq.edit" + el + "name.text()") != ""):
                     if eval("self.uiEq.check" + el + "FK.isChecked()"):
                         W = Objekte.Fernkampfwaffe()
@@ -98,29 +110,61 @@ class EquipWrapper(QtCore.QObject):
                     Wolke.Char.waffen.append(W)
             Wolke.Char.aktualisieren()
             self.modified.emit()
+            self.loadEquipment()
         
     def loadEquipment(self):
         self.currentlyLoading = True
-        Rarr = ["R1", "R2"]
+        Rarr = ["R1", "R2", "R3"]
         count = 0
+        # Add in Armor
         while count < len(Wolke.Char.rüstung):
             R = Wolke.Char.rüstung[count]
-            eval("self.uiEq.edit" + Rarr[count] + "name.setText(\"" + R.name +"\")")
-            eval("self.uiEq.spin" + Rarr[count] + "be.setValue(" + str(R.be) +")")
-            eval("self.uiEq.spin" + Rarr[count] + "bein.setValue(" + str(R.rs[0]) +")")
-            eval("self.uiEq.spin" + Rarr[count] + "larm.setValue(" + str(R.rs[1]) +")")
-            eval("self.uiEq.spin" + Rarr[count] + "rarm.setValue(" + str(R.rs[2]) +")")
-            eval("self.uiEq.spin" + Rarr[count] + "bauch.setValue(" + str(R.rs[3]) +")")
-            eval("self.uiEq.spin" + Rarr[count] + "brust.setValue(" + str(R.rs[4]) +")")
-            eval("self.uiEq.spin" + Rarr[count] + "kopf.setValue(" + str(R.rs[5]) +")")
-            eval("self.uiEq.spin" + Rarr[count] + "RS.setValue(" + str(int(sum(R.rs)/6+0.5+0.0001)) +")")
+            if count < len(Rarr):
+                eval("self.uiEq.edit" + Rarr[count] + "name.setText(\"" + R.name +"\")")
+                eval("self.uiEq.spin" + Rarr[count] + "be.setValue(" + str(R.be) +")")
+                eval("self.uiEq.spin" + Rarr[count] + "bein.setValue(" + str(R.rs[0]) +")")
+                eval("self.uiEq.spin" + Rarr[count] + "larm.setValue(" + str(R.rs[1]) +")")
+                eval("self.uiEq.spin" + Rarr[count] + "rarm.setValue(" + str(R.rs[2]) +")")
+                eval("self.uiEq.spin" + Rarr[count] + "bauch.setValue(" + str(R.rs[3]) +")")
+                eval("self.uiEq.spin" + Rarr[count] + "brust.setValue(" + str(R.rs[4]) +")")
+                eval("self.uiEq.spin" + Rarr[count] + "kopf.setValue(" + str(R.rs[5]) +")")
+                eval("self.uiEq.spin" + Rarr[count] + "RS.setValue(" + str(int(sum(R.rs)/6+0.5+0.0001)) +")")
+                count += 1
+        
+        # Empty all other cells
+        while count < 3:
+            eval("self.uiEq.edit" + Rarr[count] + "name.setText(\"\")")
+            eval("self.uiEq.spin" + Rarr[count] + "be.setValue(0)")
+            eval("self.uiEq.spin" + Rarr[count] + "bein.setValue(0)")
+            eval("self.uiEq.spin" + Rarr[count] + "larm.setValue(0)")
+            eval("self.uiEq.spin" + Rarr[count] + "rarm.setValue(0)")
+            eval("self.uiEq.spin" + Rarr[count] + "bauch.setValue(0)")
+            eval("self.uiEq.spin" + Rarr[count] + "brust.setValue(0)")
+            eval("self.uiEq.spin" + Rarr[count] + "kopf.setValue(0)")
+            eval("self.uiEq.spin" + Rarr[count] + "RS.setValue(0)")
             count += 1
         
         count = 0
+        # Load in Weapons
         while count < len(Wolke.Char.waffen):
             W = Wolke.Char.waffen[count]
             self.loadWeaponIntoFields(W, count+1)
             count += 1
+        
+        # Empty all other fields
+        while count < 8:
+            Warr = ["W1","W2","W3","W4","W5","W6","W7","W8"]
+            eval("self.uiEq.edit" + Warr[count] + "name.setText(\"\")")
+            eval("self.uiEq.comboStil" + str(count+1) + ".clear()")
+            eval("self.uiEq.edit" + Warr[count] + "eig.setText(\"\")")
+            eval("self.uiEq.spin" + Warr[count] + "w6.setValue(0)")
+            eval("self.uiEq.spin" + Warr[count] + "plus.setValue(0)")
+            eval("self.uiEq.spin" + Warr[count] + "h.setValue(6)")
+            eval("self.uiEq.spin" + Warr[count] + "rw.setValue(0)")
+            eval("self.uiEq.spin" + Warr[count] + "wm.setValue(0)")
+            eval("self.uiEq.check" + Warr[count] + "FK.setChecked(False)")  
+            count += 1
+        
         self.initialLoad = False
         self.currentlyLoading = False
         
@@ -160,7 +204,7 @@ class EquipWrapper(QtCore.QObject):
                 
                     
     def loadWeaponIntoFields(self, W, index):
-        Warr = ["W1","W2","W3","W4","W5"]
+        Warr = ["W1","W2","W3","W4","W5","W6","W7","W8"]
         count = index - 1
         eval("self.uiEq.edit" + Warr[count] + "name.setText(\""+ W.name +"\")")
         self.refreshKampfstile(count)
@@ -172,7 +216,9 @@ class EquipWrapper(QtCore.QObject):
             if len(Wolke.Char.rüstung) > 0:    
                 wsmod += int(sum(Wolke.Char.rüstung[0].rs)/6+0.5+0.0001)
             eval("self.uiEq.spin" + Warr[count] + "h.setValue("+ str(wsmod) +")")
+            eval("self.uiEq.spin" + Warr[count] + "h.setReadOnly(True)")
         else:
+            eval("self.uiEq.spin" + Warr[count] + "h.setReadOnly(False)")
             eval("self.uiEq.spin" + Warr[count] + "h.setValue("+ str(W.haerte) +")")
         eval("self.uiEq.spin" + Warr[count] + "rw.setValue("+ str(W.rw) +")")
         if type(W) == Objekte.Fernkampfwaffe:
@@ -222,8 +268,15 @@ class EquipWrapper(QtCore.QObject):
                 self.uiEq.spinR2rarm.show()
                 self.uiEq.spinR2kopf.show()
                 self.uiEq.spinR2bein.show()
+                self.uiEq.spinR3bauch.show()
+                self.uiEq.spinR3brust.show()
+                self.uiEq.spinR3larm.show()
+                self.uiEq.spinR3rarm.show()
+                self.uiEq.spinR3kopf.show()
+                self.uiEq.spinR3bein.show()
                 self.uiEq.spinR1RS.hide()
                 self.uiEq.spinR2RS.hide()
+                self.uiEq.spinR3RS.hide()
                 self.uiEq.labelRS.hide()
                 self.uiEq.labelBein.show()
                 self.uiEq.labelBauch.show()
@@ -244,8 +297,15 @@ class EquipWrapper(QtCore.QObject):
                 self.uiEq.spinR2rarm.hide()
                 self.uiEq.spinR2kopf.hide()
                 self.uiEq.spinR2bein.hide()
+                self.uiEq.spinR3bauch.hide()
+                self.uiEq.spinR3brust.hide()
+                self.uiEq.spinR3larm.hide()
+                self.uiEq.spinR3rarm.hide()
+                self.uiEq.spinR3kopf.hide()
+                self.uiEq.spinR3bein.hide()
                 self.uiEq.spinR1RS.show()
                 self.uiEq.spinR2RS.show()
+                self.uiEq.spinR3RS.show()
                 self.uiEq.labelRS.show()
                 self.uiEq.labelBein.hide()
                 self.uiEq.labelBauch.hide()

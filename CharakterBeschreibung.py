@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_formBeschreibung(object):
     def setupUi(self, formBeschreibung):
         formBeschreibung.setObjectName("formBeschreibung")
-        formBeschreibung.resize(872, 421)
+        formBeschreibung.resize(872, 460)
         self.gridLayout_3 = QtWidgets.QGridLayout(formBeschreibung)
         self.gridLayout_3.setObjectName("gridLayout_3")
         self.gridLayout = QtWidgets.QGridLayout()

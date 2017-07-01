@@ -191,6 +191,7 @@ class Char():
                 if not self.voraussetzungenPrüfen(self.fertigkeiten[fert].voraussetzungen):
                     remove.append(fert)
                     contFlag = False
+                self.fertigkeiten[fert].aktualisieren()
             for el in remove:
                 self.fertigkeiten.pop(el,None)
             if contFlag:
@@ -202,6 +203,7 @@ class Char():
                 if not self.voraussetzungenPrüfen(self.übernatürlicheFertigkeiten[fert].voraussetzungen):
                     remove.append(fert)
                     contFlag = False
+                self.übernatürlicheFertigkeiten[fert].aktualisieren()
             for el in remove:
                 self.übernatürlicheFertigkeiten.pop(el,None)
             if contFlag:
@@ -501,6 +503,8 @@ class Char():
         pdf.write_pdf(self.CharakterBogen, fields, filename, False)
     
     def pdfErsterBlock(self, fields):
+        if Wolke.Debug:
+            print("PDF Block 1")
         fields['Name'] = self.name
         fields['Rasse'] = self.rasse
         fields['Statu'] = Definitionen.Statusse[self.status]
@@ -523,15 +527,19 @@ class Char():
         return fields
     
     def pdfZweiterBlock(self, fields):
+        if Wolke.Debug:
+            print("PDF Block 2")
         for key in Definitionen.Attribute:
             fields[key] = self.attribute[key].wert
             fields[key + '2'] = self.attribute[key].probenwert    
+            fields[key + '3'] = self.attribute[key].probenwert    
         fields['Wundschwelle'] = self.ws
         fields['WS'] = self.ws
         fields['Magieresistenz'] = self.mr
         fields['Geschwindigkeit'] = self.gs
         fields['Schadensbonus'] = self.schadensbonus
         fields['Initiative'] = self.ini
+        fields['INIm'] = self.ini
         aspMod = 0
         if "Zauberer I" in self.vorteile:
             aspMod += 8
@@ -557,17 +565,17 @@ class Char():
         if kapMod > 0:
             fields['Karmaenergie'] = self.kap.wert + kapMod
         if aspMod > 0 and kapMod == 0:
-            fields['Energie'] = "AsP"
+            #fields['Energie'] = "AsP"
             fields['EN'] = self.asp.wert + aspMod
-            fields['Energieg'] = "gAsP"   
-            fields['Text83'] = "0"
-            fields['Energiem'] = "AsP"
+            #fields['Energieg'] = "gAsP"   
+            fields['gEN'] = "0"
+            #fields['Energiem'] = "AsP"
         elif aspMod == 0 and kapMod > 0:
-            fields['Energie'] = "KaP"
+            #fields['Energie'] = "KaP"
             fields['EN'] = self.kap.wert + kapMod
-            fields['Energieg'] = "gKaP"   
-            fields['Text83'] = "0"
-            fields['Energiem'] = "KaP"
+            #fields['Energieg'] = "gKaP"   
+            fields['gEN'] = "0"
+            #fields['Energiem'] = "KaP"
         # Wenn sowohl AsP als auch KaP vorhanden sind, muss der Spieler ran..
         trueBE = max(self.be-self.rüstungsgewöhnung,0)
         fields['DHm'] = max(self.dh - 2*trueBE,1)
@@ -580,10 +588,14 @@ class Char():
         return fields
     
     def pdfDritterBlock(self, fields):    
+        if Wolke.Debug:
+            print("PDF Block 3")
         sortV = self.vorteile.copy()
         typeDict = {}
         assembled = []
         removed = []
+        # Collect a list of Vorteils, where different levels of the same are
+        # combined into one entry and the type of Vorteil is preserved
         for vort in sortV:
             if vort in removed:
                 continue
@@ -619,6 +631,8 @@ class Char():
             sortV.append(el)
         removed = []
         added = []
+        
+        # Add the cost for Vorteils with variable costs
         for el in sortV: #This is only going to be general Vorteile anyways, so type doesnt matter
             if el in self.vorteileVariable:
                 removed.append(el)
@@ -629,26 +643,55 @@ class Char():
             sortV.remove(el)
         for el in added:
             sortV.append(el)
+            
+        # Sort and split the Vorteile into the three categories
         sortV = sorted(sortV, key=str.lower)       
         tmpVorts = [el for el in sortV if typeDict[el] < 2]
-        tmpUeber = [el for el in sortV if typeDict[el] >= 2]
-        if len(tmpVorts) <= 8 and len(tmpUeber) <= 13:
-            for i in range(1,9):
-                if len(tmpVorts)<i: break
+        tmpKampf = [el for el in sortV if (typeDict[el] < 4 and typeDict[el] >= 2)]
+        tmpUeber = [el for el in sortV if typeDict[el] >= 4]
+        tmpOverflow = []
+        
+        # Fill up categories that are not full with the other categories overflow
+        if len(tmpVorts) > 8:
+            tmpOverflow.extend(tmpVorts[8:])
+            tmpVorts = tmpVorts[:8]
+        if len(tmpKampf) > 16:
+            tmpOverflow.extend(tmpKampf[16:])
+            tmpKampf = tmpKampf[:16]
+        if len(tmpUeber) > 12:
+            tmpOverflow.extend(tmpUeber[12:])
+            tmpUeber = tmpUeber[:12]
+        counter = 0
+        for i in range(len(tmpVorts),8):
+            if len(tmpOverflow) > counter:
+                tmpVorts.append(tmpOverflow[counter])
+                counter += 1
+        for i in range(len(tmpKampf),16):
+            if len(tmpOverflow) > counter:
+                tmpKampf.append(tmpOverflow[counter])
+                counter += 1
+        for i in range(len(tmpUeber),12):
+            if len(tmpOverflow) > counter:
+                tmpUeber.append(tmpOverflow[counter])
+                counter += 1
+                
+        # Fill fields
+        for i in range(1,9):
+            if i < len(tmpVorts):
                 fields['Vorteil' + str(i)] = tmpVorts[i-1]
-            for i in range(1,14):
-                if len(tmpUeber)<i: break
-                fields['Weite' + str(i)] = tmpUeber[i-1]
-        else:
-            for i in range(1,9):
-                if len(sortV)<i: break
-                fields['Vorteil' + str(i)] = sortV[i-1]
-            for i in range(1,14):
-                if len(sortV)-8<i: break
-                fields['Weite' + str(i)] = sortV[i-1+8]
+        for i in range(1,9):
+            if i < len(tmpKampf):
+                fields['Kampfvorteil' + str(i)] = tmpKampf[i-1]
+        for i in range(1,9):
+            if i < len(tmpUeber):
+                fields['Uebervorteil' + str(i)] = tmpUeber[i-1]
+        
         return fields
     
     def pdfVierterBlock(self, fields):
+        if Wolke.Debug:
+            print("PDF Block 4")
+        # Freie Fertigkeiten
         count = 1
         for el in self.freieFertigkeiten:
             if el.wert < 1 or el.wert > 3:
@@ -658,8 +701,10 @@ class Char():
                 resp += "I"
             fields['Frei' + str(count)] = resp
             count += 1
+            if count > 12:
+                break
+            
         # Standardfertigkeiten
-        #TODO: Weitere Fertigkeiten? 
         for el in Definitionen.StandardFerts:
             if el not in self.fertigkeiten:
                 continue
@@ -689,40 +734,74 @@ class Char():
             fields[base + "PW"] = self.fertigkeiten[el].probenwert
             fields[base + "PWT"] = self.fertigkeiten[el].probenwertTalent
                   
-        
+        # Nonstandard Ferts
+        count = 1
+        for el in self.fertigkeiten:
+            if el in Definitionen.StandardFerts:
+                continue
+            if count > 2:
+                continue
+            fields['Indi' + str(count) + 'NA'] = self.fertigkeiten[el].name
+            fields['Indi' + str(count) + 'FA'] = self.fertigkeiten[el].steigerungsfaktor
+            fields['Indi' + str(count) + 'AT'] = \
+                   self.fertigkeiten[el].attribute[0] + '/' + \
+                   self.fertigkeiten[el].attribute[1] + '/' + \
+                   self.fertigkeiten[el].attribute[2]
+            fields['Indi' + str(count) + 'BA'] = self.fertigkeiten[el].basiswert
+            fields['Indi' + str(count) + 'FW'] = self.fertigkeiten[el].wert
+            fields['Indi' + str(count) + 'PW'] = self.fertigkeiten[el].probenwert
+            fields['Indi' + str(count) + 'PWT'] = self.fertigkeiten[el].probenwertTalent
+            talStr = ""
+            for el2 in self.fertigkeiten[el].gekaufteTalente:
+                talStr += ", "
+                talStr += el2
+                if el2 in self.talenteVariable:
+                    talStr += " (" + str(self.talenteVariable[el2]) + " EP)"
+            talStr = talStr[2:]
+            fields['Indi' + str(count) + 'TA'] = talStr
+            count += 1
         return fields
     
     def pdfFünfterBlock(self, fields):
-        count = 0
+        if Wolke.Debug:
+            print("PDF Block 5")
+        # Fill three rows of Rüstung
+        count = 1
         for el in self.rüstung:
-            fields['Text53.' + str(count)] = el.name
-            fields['Text55.' + str(count)] = int(sum(el.rs)/6+0.5+0.0001)+self.rsmod
-            fields['Text56.' + str(count)] = max(el.be-self.rüstungsgewöhnung,0)
-            fields['Text57.' + str(count)] = int(sum(el.rs)/6+self.ws+0.5+self.rsmod+0.0001)
-            fields['Text58.' + str(count)] = el.rs[0]+self.rsmod
-            fields['Text59.' + str(count)] = el.rs[1]+self.rsmod
-            fields['Text60.' + str(count)] = el.rs[2]+self.rsmod
-            fields['Text61.' + str(count)] = el.rs[3]+self.rsmod
-            fields['Text62.' + str(count)] = el.rs[4]+self.rsmod
-            fields['Text63.' + str(count)] = el.rs[5]+self.rsmod
-            if count >= 1:
-                break
+            base = 'Ruest' + str(count)
+            fields[base + 'NA'] = el.name
+            fields[base + 'RS'] = int(sum(el.rs)/6+0.5+0.0001)+self.rsmod
+            fields[base + 'BE'] = max(el.be-self.rüstungsgewöhnung,0)
+            fields[base + 'WS'] = int(sum(el.rs)/6+self.ws+0.5+self.rsmod+0.0001)
+            base += 'RS'
+            fields[base + 'Bein'] = el.rs[0]+self.rsmod
+            fields[base + 'lArm'] = el.rs[1]+self.rsmod
+            fields[base + 'rArm'] = el.rs[2]+self.rsmod
+            fields[base + 'Bauch'] = el.rs[3]+self.rsmod
+            fields[base + 'Brust'] = el.rs[4]+self.rsmod
+            fields[base + 'Kopf'] = el.rs[5]+self.rsmod
             count += 1
-                      
-        count = 0
+            if count > 3:
+                break
+            
+        # Fill eight rows of weapons
+        count = 1
         for el in self.waffen:
-            fields['Text65.' + str(count)] = el.name
+            base = 'Waffe' + str(count)
+            fields[base + 'NA'] = el.name
             sg = ""
             if el.plus >= 0:
                 sg = "+"
-            fields['Text66.' + str(count)] = str(el.W6) + "W6" + sg + str(el.plus)
-            fields['Text69.' + str(count)] = str(el.haerte)
-            fields['Text70.' + str(count)] = el.eigenschaften
-            fields['Text67.' + str(count)] = str(el.rw)
+            fields[base + 'TP'] = str(el.W6) + "W6" + sg + str(el.plus)
+            fields[base + 'HA'] = str(el.haerte)
+            fields[base + 'EI'] = el.eigenschaften
+            fields[base + 'RW'] = str(el.rw)
             if type(el) == Objekte.Fernkampfwaffe:
-                fields['Text68.' + str(count)] = str(el.lz)
+                fields[base + 'WM'] = str(el.lz)
             else:
-                fields['Text68.' + str(count)] = str(el.wm)
+                fields[base + 'WM'] = str(el.wm)
+                
+            # Calculate modifiers for AT, PA, TP from Kampfstil
             if el.name in Wolke.DB.waffen:    
                 fertig = Wolke.DB.waffen[el.name].fertigkeit
                 tale = Wolke.DB.waffen[el.name].talent
@@ -737,13 +816,16 @@ class Char():
                 at = bwert
                 vt = bwert
                 sp = 0
+                # 0 is no Kampfstil, no Effect
+                # 1 is Beidhändig
                 if el.kampfstil == 1:
                     levelC = 0
                     for vor in self.vorteile:
                         if Definitionen.Kampfstile[1] in vor:
                             levelC += 1
                     at += min(levelC,3)
-                # Parierwaffenkampf does nothing
+                # 2 is Parierwaffenkampf which does nothing
+                # 3 is Reiterkampf
                 elif el.kampfstil == 3:
                     levelC = 0
                     for vor in self.vorteile:
@@ -752,18 +834,21 @@ class Char():
                     at += min(levelC,3)
                     vt += min(levelC,3)
                     sp += min(levelC,3)
+                # 4 is Schildkampf
                 elif el.kampfstil == 4:
                     levelC = 0
                     for vor in self.vorteile:
                         if Definitionen.Kampfstile[4] in vor:
                             levelC += 1
                     vt += min(levelC,3)
+                # 5 is Kraftvoller Kampf
                 elif el.kampfstil == 5:
                     levelC = 0
                     for vor in self.vorteile:
                         if Definitionen.Kampfstile[5] in vor:
                             levelC += 1
                     sp += min(levelC,3)
+                # 6 is Schneller Kampf
                 elif el.kampfstil == 6:
                     levelC = 0
                     for vor in self.vorteile:
@@ -775,55 +860,79 @@ class Char():
                     sp += self.schadensbonus*2
                 else:
                     sp += self.schadensbonus
-                fields['Text71.' + str(count)] = at
-                fields['Text72.' + str(count)] = vt
+                fields[base + 'ATm'] = at
+                fields[base + 'VTm'] = vt
                 sg = ""
                 if el.plus+sp >= 0:
                     sg = "+"
-                fields['Text73.' + str(count)] = str(el.W6) + "W6" + sg + str(el.plus+sp)
+                fields[base + 'TPm'] = str(el.W6) + "W6" + sg + str(el.plus+sp)
             
-            if count >= 4:
+            if count >= 8:
                 break
             count += 1
         
-        count = 0
-        te = 'Text76.'
+        # Fill 20 Cells of Ausrüstung
+        count = 1
         for el in self.ausrüstung:
-            fields[te+str(count)] = el
-            if count >= 12 and te == 'Text76.':
-                count = -1
-                te = 'Text77.'
-            elif count >= 12:
+            fields['Ausruestung' + str(count)] = el
+            if count >= 20:
                 break
             count += 1
         return fields
     
     def pdfSechsterBlock(self, fields):
-        count = 0
-        for el in self.übernatürlicheFertigkeiten:
-            if self.übernatürlicheFertigkeiten[el].wert <= 0:
+        if Wolke.Debug:
+            print("PDF Block 6")
+        countF = 1
+        countT = 1
+        for f in self.übernatürlicheFertigkeiten:
+            if self.übernatürlicheFertigkeiten[f].wert <= 0:
                 continue
-            fields['Text86.'+str(count)] = self.übernatürlicheFertigkeiten[el].name
-            fields['Text87.'+str(count)] = str(self.übernatürlicheFertigkeiten[el].steigerungsfaktor)       
-            attr = str(self.übernatürlicheFertigkeiten[el].attribute[0]) + "/" + str(self.übernatürlicheFertigkeiten[el].attribute[1]) + "/" + str(self.übernatürlicheFertigkeiten[el].attribute[2])
-            fields['Text88.'+str(count)] = attr
-            fields['Text89.'+str(count)] = self.übernatürlicheFertigkeiten[el].basiswert       
-            fields['Text90.'+str(count)] = self.übernatürlicheFertigkeiten[el].wert
-            tal = ""
-            for el2 in self.übernatürlicheFertigkeiten[el].gekaufteTalente:
-                tal += ", "
-                tal += el2
-                if el2 in self.talenteVariable:
-                    tal += " (" + str(self.talenteVariable[el2]) + " EP)"
-            tal = tal[2:]
-            fields['Text91.'+str(count)] = tal
-            fields['Text92.'+str(count)] = self.übernatürlicheFertigkeiten[el].probenwertTalent
-            count += 1
-            if count >= 7:
-                break
+            fe = self.übernatürlicheFertigkeiten[f]
+            
+            if countF < 13:
+                # Fill Fertigkeitsslots
+                base = 'Ueberfer' + str(countF)
+                fields[base + 'NA'] = fe.name
+                fields[base + 'FA'] = fe.steigerungsfaktor
+                fields[base + 'AT'] = fe.attribute[0] + '/' + \
+                      fe.attribute[1] + '/' + fe.attribute[2]
+                fields[base + 'BA'] = fe.basiswert
+                fields[base + 'FW'] = fe.wert
+                fields[base + 'PW'] = fe.probenwertTalent
+                countF += 1
+            
+            # Fill Talente
+            for t in fe.gekaufteTalente:
+                if countT < 30:
+                    base = 'Uebertal' + str(countT)
+                    mod = ""
+                    if t in self.talenteVariable:
+                        mod += " (" + str(self.talenteVariable[t]) + " EP)"
+                    fields[base + 'NA'] = t + mod
+                    fields[base + 'PW'] = fe.probenwertTalent
+                    # Get Spellinfo from text
+                    if t in Wolke.DB.talente:
+                        txt = Wolke.DB.talente[t].text
+                        res = re.findall('Vorbereitungszeit:(.*?)\n', txt, re.UNICODE)
+                        if len(res) == 1:
+                            fields[base + 'VO'] = res[0].strip()
+                        res = re.findall('Reichweite:(.*?)\n', txt, re.UNICODE)
+                        if len(res) == 1:
+                            fields[base + 'RE'] = res[0].strip()
+                        res = re.findall('Wirkungsdauer:(.*?)\n', txt, re.UNICODE)
+                        if len(res) == 1:
+                            fields[base + 'WD'] = res[0].strip()
+                        res = re.findall('Kosten:(.*?)\n', txt, re.UNICODE)
+                        if len(res) == 1:
+                            fields[base + 'KO'] = res[0].strip()
+                    countT += 1
+                    
         return fields
     
     def pdfSiebterBlock(self, fields):
+        if Wolke.Debug:
+            print("PDF Block 7")
         fields['ErfahGE'] = self.EPtotal
         fields['ErfahEI'] = self.EPspent
         fields['ErfahVE'] = self.EPtotal - self.EPspent

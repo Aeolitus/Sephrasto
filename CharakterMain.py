@@ -12,7 +12,7 @@ class Ui_formMain(object):
     def setupUi(self, formMain):
         formMain.setObjectName("formMain")
         formMain.setWindowModality(QtCore.Qt.ApplicationModal)
-        formMain.resize(900, 500)
+        formMain.resize(900, 541)
         self.gridLayout = QtWidgets.QGridLayout(formMain)
         self.gridLayout.setObjectName("gridLayout")
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()

@@ -7,74 +7,27 @@
     <x>0</x>
     <y>0</y>
     <width>872</width>
-    <height>421</height>
+    <height>460</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="1">
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>19</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="1" column="1">
-    <widget class="QLineEdit" name="lineEdit_1"/>
-   </item>
-   <item row="1" column="2">
-    <widget class="QLineEdit" name="lineEdit_2"/>
-   </item>
-   <item row="3" column="1">
-    <widget class="QLineEdit" name="lineEdit_3"/>
-   </item>
    <item row="3" column="2">
     <widget class="QLineEdit" name="lineEdit_4"/>
    </item>
    <item row="4" column="1">
     <widget class="QLineEdit" name="lineEdit_5"/>
    </item>
-   <item row="4" column="2">
-    <widget class="QLineEdit" name="lineEdit_6"/>
+   <item row="8" column="2">
+    <widget class="QLineEdit" name="lineEdit_14"/>
    </item>
-   <item row="5" column="1">
-    <widget class="QLineEdit" name="lineEdit_7"/>
-   </item>
-   <item row="5" column="2">
-    <widget class="QLineEdit" name="lineEdit_8"/>
+   <item row="9" column="2">
+    <widget class="QLineEdit" name="lineEdit_16"/>
    </item>
    <item row="6" column="1">
     <widget class="QLineEdit" name="lineEdit_9"/>
-   </item>
-   <item row="6" column="2">
-    <widget class="QLineEdit" name="lineEdit_10"/>
-   </item>
-   <item row="7" column="0">
-    <spacer name="horizontalSpacer">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>163</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="7" column="1">
-    <widget class="QLineEdit" name="lineEdit_11"/>
-   </item>
-   <item row="7" column="2">
-    <widget class="QLineEdit" name="lineEdit_12"/>
    </item>
    <item row="7" column="3">
     <spacer name="horizontalSpacer_2">
@@ -89,49 +42,78 @@
      </property>
     </spacer>
    </item>
-   <item row="8" column="1">
-    <widget class="QLineEdit" name="lineEdit_13"/>
-   </item>
-   <item row="8" column="2">
-    <widget class="QLineEdit" name="lineEdit_14"/>
+   <item row="6" column="2">
+    <widget class="QLineEdit" name="lineEdit_10"/>
    </item>
    <item row="9" column="1">
     <widget class="QLineEdit" name="lineEdit_15"/>
    </item>
-   <item row="9" column="2">
-    <widget class="QLineEdit" name="lineEdit_16"/>
+   <item row="11" column="1">
+    <widget class="QLineEdit" name="lineEdit_19"/>
    </item>
-   <item row="10" column="1">
-    <widget class="QLineEdit" name="lineEdit_17"/>
+   <item row="5" column="1">
+    <widget class="QLineEdit" name="lineEdit_7"/>
    </item>
    <item row="10" column="2">
     <widget class="QLineEdit" name="lineEdit_18"/>
    </item>
-   <item row="11" column="1">
-    <widget class="QLineEdit" name="lineEdit_19"/>
+   <item row="1" column="1">
+    <widget class="QLineEdit" name="lineEdit_1"/>
+   </item>
+   <item row="4" column="2">
+    <widget class="QLineEdit" name="lineEdit_6"/>
+   </item>
+   <item row="7" column="2">
+    <widget class="QLineEdit" name="lineEdit_12"/>
+   </item>
+   <item row="7" column="0">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>163</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="1" column="2">
+    <widget class="QLineEdit" name="lineEdit_2"/>
+   </item>
+   <item row="8" column="1">
+    <widget class="QLineEdit" name="lineEdit_13"/>
+   </item>
+   <item row="10" column="1">
+    <widget class="QLineEdit" name="lineEdit_17"/>
+   </item>
+   <item row="7" column="1">
+    <widget class="QLineEdit" name="lineEdit_11"/>
+   </item>
+   <item row="3" column="1">
+    <widget class="QLineEdit" name="lineEdit_3"/>
+   </item>
+   <item row="5" column="2">
+    <widget class="QLineEdit" name="lineEdit_8"/>
+   </item>
+   <item row="0" column="1">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>19</height>
+      </size>
+     </property>
+    </spacer>
    </item>
    <item row="11" column="2">
     <widget class="QLineEdit" name="lineEdit_20"/>
    </item>
    <item row="12" column="1">
-    <widget class="QLineEdit" name="lineEdit_21"/>
-   </item>
-   <item row="12" column="2">
-    <widget class="QLineEdit" name="lineEdit_22"/>
-   </item>
-   <item row="13" column="1">
-    <widget class="QLineEdit" name="lineEdit_23"/>
-   </item>
-   <item row="13" column="2">
-    <widget class="QLineEdit" name="lineEdit_24"/>
-   </item>
-   <item row="14" column="1">
-    <widget class="QLineEdit" name="lineEdit_25"/>
-   </item>
-   <item row="14" column="2">
-    <widget class="QLineEdit" name="lineEdit_26"/>
-   </item>
-   <item row="15" column="1">
     <spacer name="verticalSpacer_2">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -146,6 +128,28 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>lineEdit_1</tabstop>
+  <tabstop>lineEdit_2</tabstop>
+  <tabstop>lineEdit_3</tabstop>
+  <tabstop>lineEdit_4</tabstop>
+  <tabstop>lineEdit_5</tabstop>
+  <tabstop>lineEdit_6</tabstop>
+  <tabstop>lineEdit_7</tabstop>
+  <tabstop>lineEdit_8</tabstop>
+  <tabstop>lineEdit_9</tabstop>
+  <tabstop>lineEdit_10</tabstop>
+  <tabstop>lineEdit_11</tabstop>
+  <tabstop>lineEdit_12</tabstop>
+  <tabstop>lineEdit_13</tabstop>
+  <tabstop>lineEdit_14</tabstop>
+  <tabstop>lineEdit_15</tabstop>
+  <tabstop>lineEdit_16</tabstop>
+  <tabstop>lineEdit_17</tabstop>
+  <tabstop>lineEdit_18</tabstop>
+  <tabstop>lineEdit_19</tabstop>
+  <tabstop>lineEdit_20</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

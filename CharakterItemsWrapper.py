@@ -25,12 +25,15 @@ class CharakterItemsWrapper(QtCore.QObject):
         for el in Wolke.Char.ausrüstung:
             eval("self.uiIt.lineEdit_" + str(count) + ".setText(\"" + el + "\")")
             count += 1
-            if count > 26:
+            if count > 20:
                 break
+        while count <= 21:
+            eval("self.uiIt.lineEdit_" + str(count) + ".setText(\"\")")
+            count += 1
     
     def updateFreie(self):
         Wolke.Char.ausrüstung.clear()
-        for i in range(1,27):
+        for i in range(1,21):
             txt = eval("self.uiIt.lineEdit_" + str(i) + ".text()")
             if txt != "":
                 Wolke.Char.ausrüstung.append(txt)

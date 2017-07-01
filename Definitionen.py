@@ -24,8 +24,8 @@ StandardFerts = ["Handgemenge", "Hiebwaffen", "Klingenwaffen", "Stangenwaffen",
                  "Schusswaffen", "Wurfwaffen", "Athletik", "Heimlichkeit", 
                  "Selbstbeherrschung", "Wahrnehmung", "Autorität", 
                  "Beeinflussung", "Gebräuche", "Derekunde", "Magiekunde", 
-                 "Mythenkunde", "Überleben", "Alchemie", "Heilkunde", 
-                 "Holzbearbeitung", "Metallbearbeitung"]
+                 "Mythenkunde", "Überleben", "Alchemie", "Handwerk", 
+                 "Heilkunde", "Verschlagenheit"]
 
 VorteilTypen = ["Allgemeine Vorteile", "Profane Vorteile", "Kampfvorteile", 
 "Kampfstile", "Magische Vorteile", "Repräsentationen", "Karmale Vorteile", 
