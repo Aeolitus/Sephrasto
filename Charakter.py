@@ -77,12 +77,13 @@ class Char():
             self.mr += 4
         if "Unbeugsamkeit" in self.vorteile:
             self.mr += round(self.attribute['MU'].wert/2+0.0001)
-        self.gs = 4 + int(self.attribute['GE'].wert/4)
+        self.gs = 4 + int(self.attribute['GE'].wert/4+0.0001)
         if "Flink I" in self.vorteile:
             self.gs += 1
         if "Flink II" in self.vorteile:
             self.gs += 1
         self.ini = self.attribute['IN'].wert
+        self.dh = self.attribute['KO'].wert
         if "Kampfreflexe" in self.vorteile:
             self.ini += 4                                 
         self.schadensbonus = int(self.attribute['KK'].wert/4)
@@ -577,7 +578,7 @@ class Char():
             fields['gEN'] = "0"
             #fields['Energiem'] = "KaP"
         # Wenn sowohl AsP als auch KaP vorhanden sind, muss der Spieler ran..
-        trueBE = max(self.be-self.rüstungsgewöhnung,0)
+        trueBE = max(self.be,0)
         fields['DHm'] = max(self.dh - 2*trueBE,1)
         fields['GSm'] = max(self.gs-trueBE,1)
         wsmod = self.rsmod + self.ws
@@ -677,13 +678,13 @@ class Char():
                 
         # Fill fields
         for i in range(1,9):
-            if i < len(tmpVorts):
+            if i <= len(tmpVorts):
                 fields['Vorteil' + str(i)] = tmpVorts[i-1]
         for i in range(1,9):
-            if i < len(tmpKampf):
+            if i <= len(tmpKampf):
                 fields['Kampfvorteil' + str(i)] = tmpKampf[i-1]
         for i in range(1,9):
-            if i < len(tmpUeber):
+            if i <= len(tmpUeber):
                 fields['Uebervorteil' + str(i)] = tmpUeber[i-1]
         
         return fields
