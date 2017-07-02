@@ -139,7 +139,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
                     val = self.uiFert.spinFW.value()
                 Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].wert = val
                 Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].aktualisieren()
-                self.uiFert.spinPW.setValue(Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].probenwert)
+                self.uiFert.spinPW.setValue(Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].probenwertTalent)
                 #self.uiFert.spinPWT.setValue(Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].probenwertTalent)
                 self.modified.emit()
                 #self.uiFert.tableWidget.setItem(self.rowRef[self.currentFertName],1,QtWidgets.QTableWidgetItem(str(Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].wert)))

@@ -883,6 +883,9 @@ class Char():
     def pdfSechsterBlock(self, fields):
         if Wolke.Debug:
             print("PDF Block 6")
+            
+        addedTals = {} # Name: (PWT, base)
+            
         countF = 1
         countT = 1
         for f in self.übernatürlicheFertigkeiten:
@@ -909,24 +912,31 @@ class Char():
                     mod = ""
                     if t in self.talenteVariable:
                         mod += " (" + str(self.talenteVariable[t]) + " EP)"
-                    fields[base + 'NA'] = t + mod
-                    fields[base + 'PW'] = fe.probenwertTalent
-                    # Get Spellinfo from text
-                    if t in Wolke.DB.talente:
-                        txt = Wolke.DB.talente[t].text
-                        res = re.findall('Vorbereitungszeit:(.*?)\n', txt, re.UNICODE)
-                        if len(res) == 1:
-                            fields[base + 'VO'] = res[0].strip()
-                        res = re.findall('Reichweite:(.*?)\n', txt, re.UNICODE)
-                        if len(res) == 1:
-                            fields[base + 'RE'] = res[0].strip()
-                        res = re.findall('Wirkungsdauer:(.*?)\n', txt, re.UNICODE)
-                        if len(res) == 1:
-                            fields[base + 'WD'] = res[0].strip()
-                        res = re.findall('Kosten:(.*?)\n', txt, re.UNICODE)
-                        if len(res) == 1:
-                            fields[base + 'KO'] = res[0].strip()
-                    countT += 1
+                    
+                    if t+mod in addedTals:
+                        if fe.probenwertTalent > addedTals[t+mod][0]:
+                            fields[addedTals[t+mod][1] + 'PW'] = fe.probenwertTalent
+                            addedTals[t+mod] = (fe.probenwertTalent,addedTals[t+mod][1])
+                    else:
+                        addedTals[t+mod] = (fe.probenwertTalent, base)
+                        fields[base + 'NA'] = t + mod
+                        fields[base + 'PW'] = fe.probenwertTalent
+                        # Get Spellinfo from text
+                        if t in Wolke.DB.talente:
+                            txt = Wolke.DB.talente[t].text
+                            res = re.findall('Vorbereitungszeit:(.*?)\n', txt, re.UNICODE)
+                            if len(res) == 1:
+                                fields[base + 'VO'] = res[0].strip()
+                            res = re.findall('Reichweite:(.*?)\n', txt, re.UNICODE)
+                            if len(res) == 1:
+                                fields[base + 'RE'] = res[0].strip()
+                            res = re.findall('Wirkungsdauer:(.*?)\n', txt, re.UNICODE)
+                            if len(res) == 1:
+                                fields[base + 'WD'] = res[0].strip()
+                            res = re.findall('Kosten:(.*?)\n', txt, re.UNICODE)
+                            if len(res) == 1:
+                                fields[base + 'KO'] = res[0].strip()
+                        countT += 1
                     
         return fields
     

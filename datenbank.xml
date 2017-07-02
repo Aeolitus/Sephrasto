@@ -4000,7 +4000,7 @@ Fertigkeiten: Illusion, Vertrautenmagie</Talent>
  Angepasst II (Dunkelheit), Rabe und Falke Sehsinn +4, Hund und Schlange Geruchssinn +4, Kröte Magiegespür +4, Affe Gehör +4, Spinne Tastsinn +4). Der Zauber endet, wenn der Vertraute seine Augen öffnet.
 Mächtige Magie: Der Bonus steigt um +2.
 Probenschwierigkeit: 12
-Vorbereitungszeit: 2 Akt
+Vorbereitungszeit: 2 Aktionen
 Ziel: selbst
 Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
@@ -4009,7 +4009,7 @@ Fertigkeiten: Eigenschaften, Verständigung, Vertrautenmagie</Talent>
   <Talent name="Ungesehener Beobachter" kosten="40" voraussetzungen="Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Verständigung, Vertrautenmagie" variable="0">Du blickst in Trance durch die Augen deines Vertrautentiers, das ein Ziel ausspioniert. Der Zauber endet mit der Rückkehr des Vertrautentiers und benötigt Konzentration.
 Mächtige Magie: Du teilst einen zusätzlichen Sinn mit dem Vertrauten. 
 Probenschwierigkeit: 12
-Vorbereitungszeit: 2 Akt
+Vorbereitungszeit: 2 Aktionen
 Ziel: Vertrautentier
 Reichweite: 8 Meilen
 Wirkungsdauer: 8 Stunden
@@ -4017,7 +4017,7 @@ Kosten: 8 AsP
 Fertigkeiten: Verständigung, Vertrautenmagie</Talent>
   <Talent name="Wachsame Augen" kosten="20" voraussetzungen="Vorteil Geodische Repräsentation I ODER Vorteil Hexische Repräsentation I" verbilligt="0" fertigkeiten="Verständigung, Vertrautenmagie" variable="0">Dein Vertrautentier ruft Tiere seiner Gattung  aus bis zu 1 Meile herbei, die über deinen Schlaf wachen und dich vor Gefahren warnen. 
 Probenschwierigkeit: 12
-Vorbereitungszeit: 0 Akt
+Vorbereitungszeit: 0 Aktionen
 Ziel: Zone
 Reichweite: Berührung
 Wirkungsdauer: 8 Stunden
