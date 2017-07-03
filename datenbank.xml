@@ -543,7 +543,7 @@ Bedingungen: Sichtkontakt, Geste, gesprochenes oder gesungenes Gebet</Vorteil>
   <Vorteil name="Rondrakirchliche Tradition IV" kosten="80" voraussetzungen="Attribut MU 10, Vorteil Rondrakirchliche Tradition III" nachkauf="häufig" typ="7" variable="0">8 Punkte können zur Verbesserung der Tradition verwendet werden.
   
 Bedingung: 2 weitere Attribute auf insgesamt 16</Vorteil>
-  <Vorteil name="Swafnirkirchliche Tradition I" kosten="20" voraussetzungen="Attribut MU 4, Vorteil Geweiht I, Kein Vorteil Praioskirchliche Tradition I, Kein Vorteil Boronkirchliche Tradition I, Kein Vorteil Phexkirchliche Tradition I, Kein Vorteil Efferdkirchliche Tradition I, Kein Vorteil Hesindekirchliche Tradition I, Kein Vorteil Ingerimmkirchliche Tradition I, Kein Vorteil Angroschkirchliche Tradition I, Kein Vorteil Perainekirchliche Tradition I, Kein Vorteil Firunkirchliche Tradition I, Kein Vorteil Rahjakirchliche Tradition I, Kein Vorteil Tsakirchliche Tradition I, Kein Vorteil Traviakirchliche Tradition I, Kein Vorteil Ifirnkirchliche Tradition I, Kein Vorteil Nanduskirchliche Tradition I" nachkauf="häufig" typ="7" variable="0">Die Fertigkeiten Zwölfgöttlicher Ritus, Seefahrt und Wind und Wogen können erlernt und benutzt werden.
+  <Vorteil name="Swafnirkirchliche Tradition I" kosten="20" voraussetzungen="Attribut MU 4, Vorteil Geweiht I, Kein Vorteil Praioskirchliche Tradition I, Kein Vorteil Boronkirchliche Tradition I, Kein Vorteil Phexkirchliche Tradition I, Kein Vorteil Efferdkirchliche Tradition I, Kein Vorteil Hesindekirchliche Tradition I, Kein Vorteil Ingerimmkirchliche Tradition I, Kein Vorteil Angroschkirchliche Tradition I, Kein Vorteil Perainekirchliche Tradition I, Kein Vorteil Firunkirchliche Tradition I, Kein Vorteil Rahjakirchliche Tradition I, Kein Vorteil Tsakirchliche Tradition I, Kein Vorteil Traviakirchliche Tradition I, Kein Vorteil Ifirnkirchliche Tradition I, Kein Vorteil Nanduskirchliche Tradition I, Kein Vorteil Rondrakirchliche Tradition I" nachkauf="häufig" typ="7" variable="0">Die Fertigkeiten Zwölfgöttlicher Ritus, Seefahrt und Wind und Wogen können erlernt und benutzt werden.
 
 Liturgien sind um 2-8 Punkte erschwert, wenn ihr Einsatz gegen die Prinzipien des Geweihten verstößt.
 
@@ -4293,7 +4293,7 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 16 KaP
 Fertigkeiten: Tod</Talent>
-  <Talent name="Tiergestalt" kosten="40" voraussetzungen="Vorteil Firunkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Ehre, Jagd, List, Tod, Wind und Wogen" variable="0">Du verwandelst dich in das heilige Tier deiner Gottheit, wobei du deine geistigen Fähigkeiten behältst. Deine körperlichen Fähigkeiten entsprechen denen des Tiers und du kannst in Tiergestalt keine Liturgien wirken. Erlaubt Aufrechterhalten. 
+  <Talent name="Tiergestalt" kosten="40" voraussetzungen="Vorteil Firunkirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Ehre, Jagd, List, Tod, Wind und Wogen" variable="0">Du verwandelst dich in das heilige Tier deiner Gottheit, wobei du deine geistigen Fähigkeiten behältst. Deine körperlichen Fähigkeiten entsprechen denen des Tiers und du kannst in Tiergestalt keine Liturgien wirken. Erlaubt Aufrechterhalten. 
 Mächtige Liturgie: Das Tier ist ein überdurchschnittlicher/außergewöhnlicher/herausragender/einzigartiger Vertreter seiner Art. Die Werte des Tieres sind nach Spielleiterentscheid erhöht. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
@@ -5828,15 +5828,6 @@ Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Fertigkeiten: Jagd</Talent>
   <Talent name="Mirakel: Wurfwaffen" kosten="20" voraussetzungen="Kein Vorteil Ifirnkirchliche Tradition I" verbilligt="0" fertigkeiten="Jagd" variable="0">Dein nächster Wurf auf Wurfwaffen ist um +4 Punkte erleichtert.
-Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
-Probenschwierigkeit: 12
-Vorbereitungszeit: 0 Aktionen
-Zielobjekt: selbst
-Reichweite: Berührung
-Wirkungsdauer: 4 Minuten
-Kosten: 4 KaP
-Fertigkeiten: Jagd</Talent>
-  <Talent name="Mirakel: Tiergestalt" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Jagd" variable="0">Dein nächster Wurf auf Tiergestalt ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
