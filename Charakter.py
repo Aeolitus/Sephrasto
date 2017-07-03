@@ -857,10 +857,15 @@ class Char():
                             levelC += 1
                     at += min(levelC,3)
                 
-                if "Kopflastig" in el.eigenschaften:
+                if "Kopflastig" in el.eigenschaften or\
+                    (el.name == "Unbewaffnet" and "Waffenloser Kampf" in self.vorteile):
                     sp += self.schadensbonus*2
                 else:
                     sp += self.schadensbonus
+                    
+                at -= self.be
+                vt -= self.be
+                    
                 fields[base + 'ATm'] = at
                 fields[base + 'VTm'] = vt
                 sg = ""
