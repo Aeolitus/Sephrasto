@@ -857,12 +857,23 @@ class Char():
                             levelC += 1
                     at += min(levelC,3)
                 
-                if "Kopflastig" in el.eigenschaften or\
-                    (el.name == "Unbewaffnet" and "Waffenloser Kampf" in self.vorteile):
-                    sp += self.schadensbonus*2
-                else:
-                    sp += self.schadensbonus
+                if type(el) == Objekte.Nahkampfwaffe:
+                    if "Kopflastig" in el.eigenschaften or\
+                        (el.name == "Unbewaffnet" and "Waffenloser Kampf" in self.vorteile):
+                        sp += self.schadensbonus*2
+                    else:
+                        sp += self.schadensbonus
+                    at += el.wm
+                    vt += el.wm
+                
+                res = re.findall('Schwer \(([0-9]{1,2})\)', el.eigenschaften, re.UNICODE)
+                if len(res) > 0:
+                    minkk = int(res[0])
+                    if self.attribute['KK'].wert < minkk:
+                        at -= 2
+                        vt -= 2
                     
+                
                 at -= self.be
                 vt -= self.be
                     
