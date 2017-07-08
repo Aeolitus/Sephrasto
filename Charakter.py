@@ -902,6 +902,18 @@ class Char():
             print("PDF Block 6")
             
         addedTals = {} # Name: (PWT, base)
+        
+        # Get number of talents
+        countFerts = 0
+        talsList = []
+        for f in self.übernatürlicheFertigkeiten:
+            if self.übernatürlicheFertigkeiten[f].wert > 0 and len(self.übernatürlicheFertigkeiten[f].gekaufteTalente) > 0:
+                talsList.extend(self.übernatürlicheFertigkeiten[f].gekaufteTalente)
+                countFerts += 1
+        talsList = set(talsList)
+        flagPutEmpty = False
+        if len(talsList)+countFerts-1 < 31:
+            flagPutEmpty = True
             
         countF = 1
         countT = 1
@@ -925,7 +937,7 @@ class Char():
             # Fill Talente
             tals = sorted(fe.gekaufteTalente, key=lambda s: s.lower())
             for t in tals:
-                if countT < 30:
+                if countT < 31:
                     base = 'Uebertal' + str(countT)
                     mod = ""
                     if t in self.talenteVariable:
@@ -955,7 +967,9 @@ class Char():
                             if len(res) == 1:
                                 fields[base + 'KO'] = res[0].strip()
                         countT += 1
-                    
+            if flagPutEmpty:
+                countT += 1
+                
         return fields
     
     def pdfSiebterBlock(self, fields):
