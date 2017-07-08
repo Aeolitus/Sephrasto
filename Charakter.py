@@ -519,7 +519,8 @@ class Char():
         fields['Schipm'] = self.schips + glMod
         # Erste Acht Eigenheiten
         count = 0;
-        eigFields = [1, 5, 2, 6, 3, 7, 4, 8]
+        #eigFields = [1, 5, 2, 6, 3, 7, 4, 8]
+        eigFields = [1, 2, 3, 4, 5, 6, 7, 8]
         for el in self.eigenheiten:
             fields['Eigen' + str(eigFields[count])] = el
             if count == 8:
@@ -551,7 +552,7 @@ class Char():
         if "Zauberer IV" in self.vorteile:
             aspMod += 8
         if "Gefäß der Sterne" in self.vorteile:
-            aspMod += self.attribute['CH']+4
+            aspMod += self.attribute['CH'].wert+4
         if aspMod > 0:    
             fields['Astralenergie'] = self.asp.wert + aspMod    
         kapMod = 0
@@ -675,15 +676,14 @@ class Char():
             if len(tmpOverflow) > counter:
                 tmpUeber.append(tmpOverflow[counter])
                 counter += 1
-                
         # Fill fields
         for i in range(1,9):
             if i <= len(tmpVorts):
                 fields['Vorteil' + str(i)] = tmpVorts[i-1]
-        for i in range(1,9):
+        for i in range(1,17):
             if i <= len(tmpKampf):
                 fields['Kampfvorteil' + str(i)] = tmpKampf[i-1]
-        for i in range(1,9):
+        for i in range(1,13):
             if i <= len(tmpUeber):
                 fields['Uebervorteil' + str(i)] = tmpUeber[i-1]
         
@@ -923,7 +923,8 @@ class Char():
                 countF += 1
             
             # Fill Talente
-            for t in fe.gekaufteTalente:
+            tals = sorted(fe.gekaufteTalente, key=lambda s: s.lower())
+            for t in tals:
                 if countT < 30:
                     base = 'Uebertal' + str(countT)
                     mod = ""
