@@ -38,6 +38,7 @@ Beispiele für besonderen Besitz sind:
   <Vorteil name="Geweiht IV" kosten="40" voraussetzungen="Vorteil Geweiht III" nachkauf="üblich" typ="0" variable="0">Du verfügst über 32 Karmapunkte und kannst kirchliche Traditionen erlernen.</Vorteil>
   <Vorteil name="Glück I" kosten="40" voraussetzungen="" nachkauf="häufig" typ="0" variable="0">Deine maximalen Schicksalspunkte steigen um 1.</Vorteil>
   <Vorteil name="Glück II" kosten="40" voraussetzungen="Vorteil Glück I" nachkauf="häufig" typ="0" variable="0">Deine maximalen Schicksalspunkte steigen um 2.</Vorteil>
+  <Vorteil name="Kältestarre" kosten="-40" voraussetzungen="" nachkauf="extrem selten" typ="0" variable="0">Echsenwesen leiden von Natur aus unter Kältestarre, die sie bei niedrigen Temperaturen behindert. Jede Temperaturstufe unter normal erschwert alle Proben um -4. Für andere Rassen ist Kältestarre in der Regel nicht verfügbar.</Vorteil>
   <Vorteil name="Kreis der Verdammnis I" kosten="-400" voraussetzungen="" nachkauf="üblich" typ="0" variable="0">Der Vorteil hat vier Auswirkungen. Erstens erhältst du beim Erwerb der ersten Stufe 400 EP, für jede weitere Stufe 200 EP. Zweitens werden deine Gunstpunkte sofort aufgefüllt. Drittens erhältst du für jede Stufe eine verdorbene Eigenheit. Viertens entwickelst du ein Dämonenmal und kannst über die Liturgie Seelenprüfung als Paktierer erkannt werden. Auf geweihtem/heiligen Boden musst du jede Minute eine Willensstärke-Probe (20/28) ablegen, um nicht durch starke Schmerzen aufzufallen und eine Wunde zu erleiden.</Vorteil>
   <Vorteil name="Kreis der Verdammnis II" kosten="-200" voraussetzungen="Vorteil Kreis der Verdammnis I" nachkauf="üblich" typ="0" variable="0">Der Vorteil hat vier Auswirkungen. Erstens erhältst du beim Erwerb der ersten Stufe 400 EP, für jede weitere Stufe 200 EP. Zweitens werden deine GuP sofort aufgefüllt. Drittens erhältst du für jede Stufe eine verdorbene Eigenheit. Viertens entwickelst du ein Dämonenmal und kannst über die Liturgie Seelenprüfung als Paktierer erkannt werden. Auf geweihtem/heiligen Boden musst du jede Minute eine Willensstärke-Probe (20/28) ablegen, um nicht durch starke Schmerzen aufzufallen und eine Wunde zu erleiden.</Vorteil>
   <Vorteil name="Kreis der Verdammnis III" kosten="-200" voraussetzungen="Vorteil Kreis der Verdammnis II" nachkauf="üblich" typ="0" variable="0">Der Vorteil hat vier Auswirkungen. Erstens erhältst du beim Erwerb der ersten Stufe 400 EP, für jede weitere Stufe 200 EP. Zweitens werden deine GuP sofort aufgefüllt. Drittens erhältst du für jede Stufe eine verdorbene Eigenheit. Viertens entwickelst du ein Dämonenmal und kannst über die Liturgie Seelenprüfung als Paktierer erkannt werden. Auf geweihtem/heiligen Boden musst du jede Minute eine Willensstärke-Probe (20/28) ablegen, um nicht durch starke Schmerzen aufzufallen und eine Wunde zu erleiden.</Vorteil>
@@ -3523,6 +3524,14 @@ Reichweite: 8 Schritt
 Wirkungsdauer: 1 Tag
 Kosten: 8 AsP
 Fertigkeiten: Eigenschaften, Hexenflüche</Talent>
+    <Talent name="Bindung des Schuppenbeutels" kosten="20" voraussetzungen="Vorteil Kristallomantische Repräsentation I" verbilligt="0" fertigkeiten="Kraft, Kristallmagie" variable="0">Du stellst eine enge magische Bindung zu deinem Schuppenbeutel her, welche die Voraussetzung für alle weiteren Talente dieser Fertigkeit ist. Außerdem wird der Schuppenbeutel unzerbrechlich. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Stunden
+Ziel: Ritualgegenstand
+Reichweite: Berührung
+Wirkungsdauer: permanent
+Kosten: 16 AsP
+Fertigkeiten: Kraft, Kristallmagie</Talent>
   <Talent name="Apport des Schuppenbeutels" kosten="20" voraussetzungen="Vorteil Kristallomantische Repräsentation I" verbilligt="0" fertigkeiten="Kristallmagie, Umwelt" variable="0">Dein Schuppelbeutel kehrt aus einer Entfernung von bis zu 2 Meilen zu dir zurück. Er weicht Hindernissen aus oder durchbricht sie notfalls, wenn die KK von PW Kristallmagie/2 oder Umwelt/2 dafür ausreicht.
 Mächtige Magie: Verdoppelt die Entfernung.
 Probenschwierigkeit: 12
