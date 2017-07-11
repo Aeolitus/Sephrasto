@@ -83,9 +83,11 @@ class Char():
         if "Flink II" in self.vorteile:
             self.gs += 1
         self.ini = self.attribute['IN'].wert
-        self.dh = self.attribute['KO'].wert
         if "Kampfreflexe" in self.vorteile:
             self.ini += 4                                 
+        self.dh = self.attribute['KO'].wert
+        if "Abgehärtet II" in self.vorteile:
+            self.dh += 2
         self.schadensbonus = int(self.attribute['KK'].wert/4)
         self.schips = 4
         if self.finanzen >= 2: 
