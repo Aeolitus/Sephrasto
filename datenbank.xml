@@ -3366,6 +3366,14 @@ Reichweite: 8 Meilen
 Wirkungsdauer: 1 Stunde
 Kosten: 1 AsP
 Fertigkeiten: Dolchzauber, Hellsicht, Kraft</Talent>
+  <Talent name="Bindung des Iama" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Elfenlieder, Kraft" variable="0">Du stellst eine enge magische Bindung zu deinem Iama her, welche die Voraussetzung für alle weiteren Talente dieser Fertigkeit ist. Außerdem wird das Iama dabei unzerbrechlich. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Stunden
+Ziel: Ritualgegenstand
+Reichweite: Berührung
+Wirkungsdauer: permanent
+Kosten: 16 AsP
+Fertigkeiten: Elfenlieder, Kraft</Talent>
   <Talent name="Apport des Iama" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Elfenlieder, Umwelt" variable="0">Das Iama kehrt aus einer Entfernung von bis zu 2 Meilen zu dir zurück. Es weicht Hindernissen aus oder durchbricht sie notfalls, wenn die KK von PW Elfenlieder/2 oder Umwelt/2 dafür ausreicht.
 Mächtige Magie: Verdoppelt die Entfernung.
 Probenschwierigkeit: 12
