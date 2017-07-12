@@ -9,9 +9,15 @@ import CharakterBeschreibung
 from PyQt5 import QtWidgets, QtCore
 
 class BeschrWrapper(QtCore.QObject):
+    ''' 
+    Wrapper class for the Beschreibung GUI. Contains methods for updating
+    the GUI elements to the current values and for changing the current values
+    to the values set by the user. 
+    '''
     modified = QtCore.pyqtSignal()
     
     def __init__(self):
+        ''' Initialize and connect signals '''
         super().__init__()
         if Wolke.Debug:
             print("Initializing BeschrWrapper...")
@@ -31,6 +37,7 @@ class BeschrWrapper(QtCore.QObject):
         
         
     def updateBeschreibung(self):
+        ''' Transfer current values to Char object '''
         if self.uiBeschr.editName.text() != "":
             Wolke.Char.name = self.uiBeschr.editName.text()
         if self.uiBeschr.editRasse.text() != "":
@@ -51,6 +58,7 @@ class BeschrWrapper(QtCore.QObject):
         self.modified.emit()
 
     def loadBeschreibung(self):
+        ''' Load values from Char object '''
         self.uiBeschr.editName.setText(Wolke.Char.name)
         self.uiBeschr.editRasse.setText(Wolke.Char.rasse)
         self.uiBeschr.comboStatus.setCurrentIndex(Wolke.Char.status)

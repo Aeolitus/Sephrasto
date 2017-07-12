@@ -28,6 +28,19 @@ class MainWindowWrapper(object):
         if self.app is None:
             self.app = QtWidgets.QApplication(sys.argv)
         self.app.setStyleSheet("*[readOnly=\"true\"] { background-color: #F5F5F5 } QAbstractScrollArea #scrollAreaWidgetContents { background-color: #FFFFFF }")
+#==============================================================================
+#         self.app.setStyleSheet("""
+#         *[readOnly=\"true\"] 
+#         { 
+#             background-color: #FFFFFF;
+#             border: none
+#         } 
+#         QAbstractScrollArea #scrollAreaWidgetContents 
+#         { 
+#             background-color: #FFFFFF 
+#         }
+#         """)
+#==============================================================================
         self.Form = QtWidgets.QWidget()
         self.ui = MainWindow.Ui_Form()
         self.ui.setupUi(self.Form)

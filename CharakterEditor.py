@@ -5,8 +5,7 @@ Created on Sun Feb 26 22:36:35 2017
 @author: Aeolitus
 """
 
-from PyQt5 import QtCore, QtWidgets
-import CharakterMain
+from PyQt5 import QtWidgets
 import CharakterBeschreibungWrapper
 import CharakterAttributeWrapper
 import CharakterEquipmentWrapper
@@ -15,13 +14,16 @@ import CharakterUebernatuerlichWrapper
 import CharakterFreieFertWrapper
 import CharakterVorteileWrapper
 import CharakterItemsWrapper
-import sys
 import Charakter
 import Datenbank
 from Wolke import Wolke
 import os.path
 
 class Editor(object):
+    ''' 
+    Main class for the character editing window. Mostly puts together the 
+    different parts of the GUI and handles the communication inbetween. 
+    '''
     def __init__(self, CharacterName=""):
         super().__init__()
         Wolke.DB = Datenbank.Datenbank()
@@ -39,16 +41,7 @@ class Editor(object):
         
         self.ignoreModified = False
         
-    def setupMainForm(self):
-
-#==============================================================================
-#         self.formMain = QtWidgets.QWidget()
-#         self.ui = CharakterMain.Ui_formMain()
-#         self.ui.setupUi(self.formMain)
-#         self.ui.tabs.removeTab(0)
-#         self.ui.tabs.removeTab(0)
-#==============================================================================
-        
+    def setupMainForm(self):      
         self.updateEP()
         
         self.BeschrWrapper = CharakterBeschreibungWrapper.BeschrWrapper()
@@ -92,7 +85,6 @@ class Editor(object):
         self.reloadAll()
         
     def updateEP(self):
-       # try:
         if not self.ignoreModified:
             self.ui.spinEP.setValue(Wolke.Char.EPtotal)
             Wolke.Char.aktualisieren()
@@ -102,8 +94,6 @@ class Editor(object):
             else:
                 self.ui.spinRemaining.setStyleSheet("QSpinBox { background-color: #F5F5F5 }")
             self.ui.spinSpent.setValue(Wolke.Char.EPspent)
-        #except:
-        #    print("Error thrown in CharakterEditor->updateEP")
     
     def epChanged(self):
         Wolke.Char.EPtotal = self.ui.spinEP.value()
@@ -181,21 +171,3 @@ Nach der Installation ist ein Neustart von Sephrasto erforderlich.")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
             infoBox.exec_()
-    
-if __name__ == "__main__":
-    #try:
-        app = QtCore.QCoreApplication.instance()
-        if app is None:
-            app = QtWidgets.QApplication(sys.argv)
-        ed = Editor()
-        ed.formMain = QtWidgets.QWidget()
-        ed.ui = CharakterMain.Ui_formMain()
-        ed.ui.setupUi(ed.formMain)
-        ed.ui.tabs.removeTab(0)
-        ed.ui.tabs.removeTab(0)
-        ed.setupMainForm()
-        ed.formMain.show()
-        app.exec_() 
-    #except:
-     #   print("Error manhandled.")
-    

@@ -9,6 +9,14 @@ from Wolke import Wolke
 from Hilfsmethoden import Hilfsmethoden
 
 class Char():
+    ''' 
+    Main Workhorse Class. Contains all information about a charakter, performs
+    calculations of EP-Costs and MR and such, checks requirements, reads and 
+    writes xml and writes to pdf. Probably should refactor this into multiple
+    subclasses someday. 
+    
+    Someday.
+    '''
     def __init__(self):
         '''Initialisiert alle Variablen und füllt die Listen'''
         #Erster Block: Allgemeine Infos
@@ -61,6 +69,7 @@ class Char():
         #Achter Block: Flags etc
         self.höchsteKampfF = -1
         
+        #Name des Charakterbogens, der verwendet wird (liegt im gleichen Ordner)
         self.CharakterBogen = "Charakterbogen.pdf"
 
     def aktualisieren(self):
@@ -173,6 +182,11 @@ class Char():
         self.EPspent = spent
 
     def updateVorts(self):
+        ''' 
+        Checks for all Vorteile if the requirements are still met until in one 
+        run, all of them meet the requirements. This gets rid of stacks of them
+        that all depend onto each other, like Zauberer I-IV when removing I
+        '''
         while True:
             contFlag = True
             remove = []
@@ -186,6 +200,17 @@ class Char():
                 break
 
     def updateFerts(self):
+        '''
+        Similar to updateVorts, this removes all Fertigkeiten for which the
+        requirements are no longer met until all are removed. Furthermore, all
+        Fertigkeiten are updated, which recalculates the PW and such.
+        Then, all Fertigkeiten are checked against their maximum value from the 
+        attributes and if neccessary, reduced to that value. 
+        Last, all Talente are iterated through, their requirements are checked, 
+        and it is made sure that they appear at all Fertigkeiten where they are
+        available. 
+        All this is done both for Fertigkeiten and for Übernatürliche.
+        '''
         # Remover 
         while True:
             remove = []
@@ -299,7 +324,8 @@ class Char():
             return True
     
     def xmlSchreiben(self,filename):
-        '''Speichert dieses Charakter-Objekt in einer XML Datei, deren Dateiname inklusive Pfad als Argument übergeben wird'''
+        '''Speichert dieses Charakter-Objekt in einer XML Datei, deren 
+        Dateiname inklusive Pfad als Argument übergeben wird'''
         #Document Root
         root = etree.Element('Charakter')
         #Erster Block
@@ -403,7 +429,8 @@ class Char():
             file.truncate()
 
     def xmlLesen(self,filename):
-        '''Läd ein Charakter-Objekt aus einer XML Datei, deren Dateiname inklusive Pfad als Argument übergeben wird'''
+        '''Läd ein Charakter-Objekt aus einer XML Datei, deren Dateiname 
+        inklusive Pfad als Argument übergeben wird'''
         #Alles bisherige löschen
         self.__init__()
         root = etree.parse(filename).getroot()
@@ -491,7 +518,13 @@ class Char():
         self.EPtotal = int(root.find('Erfahrung/EPtotal').text)
         self.EPspent = int(root.find('Erfahrung/EPspent').text)
     
+    
     def pdfErstellen(self, filename):
+        ''' 
+        This entire subblock is responsible for filling all the fields of the 
+        Charakterbogen. It has been broken down into seven subroutines for 
+        testing purposes.        
+        '''
         self.aktualisieren()
         fields = pdf.get_fields(self.CharakterBogen)
         fields = self.pdfErsterBlock(fields)
@@ -569,17 +602,11 @@ class Char():
         if kapMod > 0:
             fields['Karmaenergie'] = self.kap.wert + kapMod
         if aspMod > 0 and kapMod == 0:
-            #fields['Energie'] = "AsP"
             fields['EN'] = self.asp.wert + aspMod
-            #fields['Energieg'] = "gAsP"   
             fields['gEN'] = "0"
-            #fields['Energiem'] = "AsP"
         elif aspMod == 0 and kapMod > 0:
-            #fields['Energie'] = "KaP"
             fields['EN'] = self.kap.wert + kapMod
-            #fields['Energieg'] = "gKaP"   
             fields['gEN'] = "0"
-            #fields['Energiem'] = "KaP"
         # Wenn sowohl AsP als auch KaP vorhanden sind, muss der Spieler ran..
         trueBE = max(self.be,0)
         fields['DHm'] = max(self.dh - 2*trueBE,1)
@@ -621,7 +648,6 @@ class Char():
                         removed.append(basename+el)
                         fullenum += "," + el[1:]
                 vname = basename + " " + fullenum[1:]
-                #sortV.append(vname)
                 typeDict[vname] = Wolke.DB.vorteile[vort].typ
                 assembled.append(vname)
                 if "Zauberer" in vname or "Geweiht" in vname:

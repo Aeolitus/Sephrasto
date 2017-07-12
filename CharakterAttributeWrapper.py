@@ -9,9 +9,15 @@ import CharakterAttribute
 from PyQt5 import QtWidgets, QtCore
 
 class AttrWrapper(QtCore.QObject):
+    ''' 
+    Wrapper class for the Attribute setting GUI. Contains methods for updating
+    the GUI elements to the current values and for changing the current values
+    to the values set by the user. 
+    '''
     modified = QtCore.pyqtSignal()
     
     def __init__(self):
+        ''' Initialize the GUI and set signals for the spinners'''
         super().__init__()
         if Wolke.Debug:
             print("Initializing AttrWrapper...")
@@ -32,10 +38,13 @@ class AttrWrapper(QtCore.QObject):
         self.uiAttr.spinCH.valueChanged.connect(self.refresh)
         
     def refresh(self):
+        ''' The calculation of values is done by the Attribut objects, so we 
+        first update them with the current value, and then set the PW's. '''
         self.updateAttribute()
         self.loadAttribute()
         
     def updateAttribute(self):
+        ''' Set and refresh all Attributes '''
         Wolke.Char.attribute['KO'].wert = self.uiAttr.spinKO.value()
         Wolke.Char.attribute['KO'].aktualisieren()
         Wolke.Char.attribute['MU'].wert = self.uiAttr.spinMU.value()
@@ -58,6 +67,7 @@ class AttrWrapper(QtCore.QObject):
         self.modified.emit()
         
     def loadAttribute(self):
+        ''' Load all values and derived values '''
         self.uiAttr.spinKO.setValue(Wolke.Char.attribute['KO'].wert)
         self.uiAttr.pwKO.setValue(Wolke.Char.attribute['KO'].wert*2)
         self.uiAttr.spinMU.setValue(Wolke.Char.attribute['MU'].wert)
