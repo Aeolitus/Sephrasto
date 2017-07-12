@@ -1,12 +1,14 @@
 # Sephrasto
 Ein Charaktergenerator für das DSA-Hausregelsystem Ilaris, erstellt von Aeolitus. So vollständig wie möglich.
 
+In der Bedienungsanweisung.pdf finden sich Erklärungen und Warnhinweise.
+
 Features:
 * Automatisches Befüllen des Ilaris Charakterbogens (Benötigt pdftk : Gratis-Download @ https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/)
 * Einfaches Einarbeiten von Hausregeln wie neuen Fertigkeiten, Vorteilen etc. durch frei editierbare Regelbasis
 * Fast alle relevanten Regeln sind im Tool enthalten
 
-Bei Fragen / Änderungswünschen / Feedback einfach Bescheid sagen - im dsa4forum oder hier!
+Bei Fragen / Änderungswünschen / Feedback einfach Bescheid sagen - im dsaforum oder hier!
 
 Dieses Tool verwendet 
 * fdfgen (https://github.com/ccnmtl/fdfgen) zum Editieren des Charakterbogens 
