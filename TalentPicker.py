@@ -41,6 +41,9 @@ class TalentPicker(object):
         self.rowCount = 0
         for el in Wolke.DB.talente:
             if fert in Wolke.DB.talente[el].fertigkeiten and Wolke.Char.voraussetzungenPrüfen(Wolke.DB.talente[el].voraussetzungen):
+                if Wolke.DB.talente[el].variable:
+                    if el not in self.talenteVariable:
+                        self.talenteVariable[el] = Wolke.DB.talente[el].kosten
                 item = QtGui.QStandardItem(self.displayStr(el))
                 item.setEditable(False)
                 item.setCheckable(True)
