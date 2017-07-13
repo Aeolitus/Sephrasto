@@ -20,7 +20,7 @@
       <widget class="QScrollArea" name="scrollArea">
        <property name="minimumSize">
         <size>
-         <width>300</width>
+         <width>250</width>
          <height>0</height>
         </size>
        </property>
@@ -30,6 +30,12 @@
          <height>16777215</height>
         </size>
        </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Sunken</enum>
+       </property>
        <property name="widgetResizable">
         <bool>true</bool>
        </property>
@@ -38,8 +44,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>298</width>
-          <height>438</height>
+          <width>246</width>
+          <height>436</height>
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
@@ -124,7 +130,7 @@
          <item row="3" column="1">
           <widget class="QSpinBox" name="spinBasis">
            <property name="alignment">
-            <set>Qt::AlignCenter</set>
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
            <property name="readOnly">
             <bool>true</bool>
@@ -154,7 +160,7 @@
          <item row="4" column="4">
           <widget class="QSpinBox" name="spinPWT">
            <property name="alignment">
-            <set>Qt::AlignCenter</set>
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
            <property name="readOnly">
             <bool>true</bool>
@@ -167,7 +173,7 @@
          <item row="2" column="4">
           <widget class="QSpinBox" name="spinSF">
            <property name="alignment">
-            <set>Qt::AlignCenter</set>
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
            <property name="readOnly">
             <bool>true</bool>
@@ -180,7 +186,7 @@
          <item row="4" column="1">
           <widget class="QSpinBox" name="spinPW">
            <property name="alignment">
-            <set>Qt::AlignCenter</set>
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
            <property name="readOnly">
             <bool>true</bool>
@@ -236,7 +242,7 @@
            </property>
           </widget>
          </item>
-         <item row="5" column="0" colspan="4">
+         <item row="5" column="0" colspan="3">
           <widget class="QLabel" name="label_9">
            <property name="text">
             <string>Erworbene Talente:</string>

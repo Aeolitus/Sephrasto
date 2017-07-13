@@ -6,7 +6,7 @@ Created on Sat Mar 18 10:52:34 2017
 """
 import Objekte
 import DatenbankEditWaffe
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtCore
 
 class DatenbankEditWaffeWrapper(object):
     def __init__(self, datenbank, waffe=None):
@@ -17,6 +17,13 @@ class DatenbankEditWaffeWrapper(object):
         waffeDialog = QtWidgets.QDialog()
         self.ui = DatenbankEditWaffe.Ui_talentDialog()
         self.ui.setupUi(waffeDialog)
+        
+        waffeDialog.setWindowFlags(
+                QtCore.Qt.Window |
+                QtCore.Qt.CustomizeWindowHint |
+                QtCore.Qt.WindowTitleHint |
+                QtCore.Qt.WindowCloseButtonHint)
+        
         self.ui.nameEdit.setText(waffe.name)
         if type(waffe) == Objekte.Fernkampfwaffe:
             self.ui.comboTyp.setCurrentIndex(1)

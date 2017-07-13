@@ -10,13 +10,13 @@
     <x>0</x>
     <y>0</y>
     <width>814</width>
-    <height>344</height>
+    <height>362</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Sephrasto - Waffe wählen...</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_2" columnstretch="1,0,0">
+  <layout class="QGridLayout" name="gridLayout_2" columnstretch="1,0">
    <property name="sizeConstraint">
     <enum>QLayout::SetDefaultConstraint</enum>
    </property>
@@ -36,6 +36,12 @@
          <bold>false</bold>
         </font>
        </property>
+       <property name="styleSheet">
+        <string notr="true">padding: 1px</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
        <property name="widgetResizable">
         <bool>true</bool>
        </property>
@@ -44,8 +50,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>298</width>
-          <height>293</height>
+          <width>296</width>
+          <height>309</height>
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout">

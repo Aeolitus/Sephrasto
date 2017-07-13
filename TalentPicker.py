@@ -23,6 +23,13 @@ class TalentPicker(object):
         self.Form = QtWidgets.QDialog()
         self.ui = CharakterTalente.Ui_Dialog()
         self.ui.setupUi(self.Form)
+        
+        self.Form.setWindowFlags(
+                QtCore.Qt.Window |
+                QtCore.Qt.CustomizeWindowHint |
+                QtCore.Qt.WindowTitleHint |
+                QtCore.Qt.WindowCloseButtonHint)
+        
         self.model = QtGui.QStandardItemModel(self.ui.listTalente)
         self.ui.listTalente.setModel(self.model)
         self.ui.listTalente.selectionModel().currentChanged.connect(self.talChanged)
@@ -56,6 +63,7 @@ class TalentPicker(object):
         if self.rowCount > 0:
             self.updateFields(self.dataStr(self.model.item(0).text()))
         self.ui.spinKosten.valueChanged.connect(self.spinChanged)
+        self.ui.spinKosten.setStyleSheet("QSpinBox {background-color: #FFFFFF}")
         self.ui.listTalente.setModel(self.model)
         self.Form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.Form.show()
@@ -104,13 +112,11 @@ class TalentPicker(object):
                 self.ui.spinKosten.setValue(Wolke.DB.talente[talent].kosten)
             if Wolke.DB.talente[talent].variable:
                 self.ui.spinKosten.setReadOnly(False)
-                self.ui.spinKosten.setStyleSheet("QSpinBox { background-color: #FFFFFF }")
-                self.ui.spinKosten.setButtonSymbols(1)
+                self.ui.spinKosten.setButtonSymbols(0)
                 if talent in Wolke.Char.talenteVariable:
                     self.ui.spinKosten.setValue(Wolke.Char.talenteVariable[talent])
             else:
                 self.ui.spinKosten.setReadOnly(True)
-                self.ui.spinKosten.setStyleSheet("QSpinBox { background-color: #F5F5F5 }")
                 self.ui.spinKosten.setButtonSymbols(2)
             self.ui.plainText.setPlainText(Wolke.DB.talente[talent].text)
 

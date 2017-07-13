@@ -92,7 +92,8 @@ class Editor(object):
             if Wolke.Char.EPtotal < Wolke.Char.EPspent:
                 self.ui.spinRemaining.setStyleSheet("QSpinBox { background-color: rgb(200,50,50) }")
             else:
-                self.ui.spinRemaining.setStyleSheet("QSpinBox { background-color: #F5F5F5 }")
+                self.ui.spinRemaining.setStyleSheet("QSpinBox { background-color: #FFFFFF}")
+            self.ui.spinSpent.setStyleSheet("QSpinBox { background-color: #FFFFFF}")
             self.ui.spinSpent.setValue(Wolke.Char.EPspent)
     
     def epChanged(self):

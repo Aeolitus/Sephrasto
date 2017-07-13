@@ -23,6 +23,13 @@ class WaffenPicker(object):
         self.Form = QtWidgets.QDialog()
         self.ui = CharakterWaffen.Ui_Dialog()
         self.ui.setupUi(self.Form)
+        
+        self.Form.setWindowFlags(
+                QtCore.Qt.Window |
+                QtCore.Qt.CustomizeWindowHint |
+                QtCore.Qt.WindowTitleHint |
+                QtCore.Qt.WindowCloseButtonHint)
+        
         if Wolke.Debug:
             print("Ui is Setup...")
         currSet = self.current != ""

@@ -7,7 +7,7 @@ Created on Sat Mar 18 10:52:34 2017
 import Fertigkeiten
 import DatenbankEditVorteil
 from Hilfsmethoden import Hilfsmethoden
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtCore
 
 class DatenbankEditVorteilWrapper(object):
     def __init__(self, vorteil=None):
@@ -17,6 +17,13 @@ class DatenbankEditVorteilWrapper(object):
         vorteilDialog = QtWidgets.QDialog()
         ui = DatenbankEditVorteil.Ui_talentDialog()
         ui.setupUi(vorteilDialog)
+        
+        vorteilDialog.setWindowFlags(
+                QtCore.Qt.Window |
+                QtCore.Qt.CustomizeWindowHint |
+                QtCore.Qt.WindowTitleHint |
+                QtCore.Qt.WindowCloseButtonHint)
+        
         ui.nameEdit.setText(vorteil.name)
         ui.kostenEdit.setValue(vorteil.kosten)
         ui.comboNachkauf.setCurrentText(vorteil.nachkauf)

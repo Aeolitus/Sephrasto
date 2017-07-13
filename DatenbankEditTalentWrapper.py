@@ -7,7 +7,7 @@ Created on Sat Mar 18 11:04:21 2017
 import Fertigkeiten
 from Hilfsmethoden import Hilfsmethoden
 import DatenbankEditTalent
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtCore
 
 class DatenbankEditTalentWrapper(object):
     def __init__(self, talent=None):
@@ -17,6 +17,13 @@ class DatenbankEditTalentWrapper(object):
         talentDialog = QtWidgets.QDialog()
         ui = DatenbankEditTalent.Ui_talentDialog()
         ui.setupUi(talentDialog)
+        
+        talentDialog.setWindowFlags(
+                QtCore.Qt.Window |
+                QtCore.Qt.CustomizeWindowHint |
+                QtCore.Qt.WindowTitleHint |
+                QtCore.Qt.WindowCloseButtonHint)
+        
         ui.nameEdit.setText(talent.name)
         if talent.verbilligt:
             ui.buttonVerbilligt.setChecked(True)

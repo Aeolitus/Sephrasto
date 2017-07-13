@@ -4,7 +4,7 @@ Created on Sat Mar 18 10:33:39 2017
 
 @author: Aeolitus
 """
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtCore
 import DatenbankSelectType
 
 class DatenbankSelectTypeWrapper(object):
@@ -13,6 +13,13 @@ class DatenbankSelectTypeWrapper(object):
         Dialog = QtWidgets.QDialog()
         ui = DatenbankSelectType.Ui_Dialog()
         ui.setupUi(Dialog)
+        
+        Dialog.setWindowFlags(
+                QtCore.Qt.Window |
+                QtCore.Qt.CustomizeWindowHint |
+                QtCore.Qt.WindowTitleHint |
+                QtCore.Qt.WindowCloseButtonHint)
+        
         Dialog.show()
         ret = Dialog.exec_()
         if ret == QtWidgets.QDialog.Accepted:

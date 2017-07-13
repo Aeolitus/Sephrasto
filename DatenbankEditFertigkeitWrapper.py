@@ -7,7 +7,7 @@ Created on Sat Mar 18 11:21:32 2017
 import Fertigkeiten
 from Hilfsmethoden import Hilfsmethoden
 import DatenbankEditFertigkeit
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtCore
 
 class DatenbankEditFertigkeitWrapper(object):
     def __init__(self, fertigkeit=None, ueber=False):
@@ -17,6 +17,13 @@ class DatenbankEditFertigkeitWrapper(object):
         fertDialog = QtWidgets.QDialog()
         ui = DatenbankEditFertigkeit.Ui_talentDialog()
         ui.setupUi(fertDialog)
+        
+        fertDialog.setWindowFlags(
+                QtCore.Qt.Window |
+                QtCore.Qt.CustomizeWindowHint |
+                QtCore.Qt.WindowTitleHint |
+                QtCore.Qt.WindowCloseButtonHint)
+        
         ui.nameEdit.setText(fertigkeit.name)
         ui.steigerungsfaktorEdit.setValue(fertigkeit.steigerungsfaktor)
         ui.comboAttribut1.setCurrentText(fertigkeit.attribute[0])

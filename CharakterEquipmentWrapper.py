@@ -52,7 +52,7 @@ class EquipWrapper(QtCore.QObject):
         if Wolke.Debug:
             print("Check Toggle...")
         self.uiEq.checkZonen.stateChanged.connect(self.checkToggleEquip)
-        
+        self.defaultStyle = self.uiEq.spinW1h.styleSheet()
         self.currentlyLoading = False
         
         self.checkToggleEquip()
@@ -99,7 +99,13 @@ class EquipWrapper(QtCore.QObject):
                         W.wm = eval("self.uiEq.spin" + el + "wm.value()")
                     W.name = eval("self.uiEq.edit" + el + "name.text()")
                     W.rw = eval("self.uiEq.spin" + el + "rw.value()")
-                    W.haerte = eval("self.uiEq.spin" + el + "h.value()")
+                    if W.name == "Unbewaffnet":
+                        wsmod = Wolke.Char.rsmod + Wolke.Char.ws
+                        if len(Wolke.Char.rüstung) > 0:    
+                            wsmod += int(sum(Wolke.Char.rüstung[0].rs)/6+0.5+0.0001)
+                        W.haerte = wsmod
+                    else:
+                        W.haerte = eval("self.uiEq.spin" + el + "h.value()")
                     W.W6 = eval("self.uiEq.spin" + el + "w6.value()")
                     W.plus = eval("self.uiEq.spin" + el + "plus.value()")
                     W.eigenschaften = eval("self.uiEq.edit" + el + "eig.text()")
@@ -216,9 +222,7 @@ class EquipWrapper(QtCore.QObject):
             if len(Wolke.Char.rüstung) > 0:    
                 wsmod += int(sum(Wolke.Char.rüstung[0].rs)/6+0.5+0.0001)
             eval("self.uiEq.spin" + Warr[count] + "h.setValue("+ str(wsmod) +")")
-            eval("self.uiEq.spin" + Warr[count] + "h.setReadOnly(True)")
         else:
-            eval("self.uiEq.spin" + Warr[count] + "h.setReadOnly(False)")
             eval("self.uiEq.spin" + Warr[count] + "h.setValue("+ str(W.haerte) +")")
         eval("self.uiEq.spin" + Warr[count] + "rw.setValue("+ str(W.rw) +")")
         if type(W) == Objekte.Fernkampfwaffe:
@@ -240,7 +244,6 @@ class EquipWrapper(QtCore.QObject):
                     break
         except:
             pass
-            #print("Error in selectWeapon!")
         if Wolke.Debug:
             print("Starting WaffenPicker")
         picker = WaffenPicker(W)
