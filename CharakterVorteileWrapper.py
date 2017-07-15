@@ -142,6 +142,8 @@ class CharakterVorteileWrapper(QtCore.QObject):
                             if minderp.minderpakt in self.itemWidgets:
                                 self.itemWidgets[minderp.minderpakt].setValue(20)   
                                 self.itemWidgets[minderp.minderpakt].setReadOnly(True)
+                    else:
+                        Wolke.Char.vorteile.remove(name)
         else:
             if name in Wolke.Char.vorteile:
                 Wolke.Char.vorteile.remove(name)
