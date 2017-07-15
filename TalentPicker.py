@@ -88,8 +88,7 @@ class TalentPicker(object):
             self.gekaufteTalente = self.refC[fert].gekaufteTalente
         else:
             self.gekaufteTalente = None
-    
-    @QtCore.pyqtSlot("QModelIndex", "QModelIndex")       
+     
     def talChanged(self, item, prev):
         text = self.dataStr(self.model.itemData(item)[0])
         self.updateFields(text)

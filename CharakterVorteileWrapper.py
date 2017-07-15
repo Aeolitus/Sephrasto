@@ -9,7 +9,6 @@ import CharakterVorteile
 import CharakterMinderpaktWrapper
 from PyQt5 import QtWidgets, QtCore
 from Definitionen import VorteilTypen
-from Hilfsmethoden import Hilfsmethoden
 
 class CharakterVorteileWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
@@ -171,8 +170,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
             self.currentVort = el.text(0)
             break #First one should be all of them
         self.updateInfo()
-
-    
+        
     def updateInfo(self):
         if self.currentVort != "":
             self.uiVor.labelVorteil.setText(Wolke.DB.vorteile[self.currentVort].name)

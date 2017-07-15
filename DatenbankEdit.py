@@ -25,7 +25,7 @@ class DatenbankEdit(object):
         # GUI Mods
         self.model = QtGui.QStandardItemModel(self.ui.listDatenbank)
         self.ui.listDatenbank.setModel(self.model)
-        self.ui.listDatenbank.doubleClicked.connect(self.listItemEvent)
+        self.ui.listDatenbank.doubleClicked["QModelIndex"].connect(self.listItemEvent)
         self.ui.showTalente.stateChanged.connect(self.updateGUI)
         self.ui.showVorteile.stateChanged.connect(self.updateGUI)
         self.ui.showFertigkeiten.stateChanged.connect(self.updateGUI)
@@ -67,7 +67,6 @@ class DatenbankEdit(object):
                 self.model.appendRow(item) 
         self.ui.listDatenbank.setModel(self.model)
                
-    @QtCore.pyqtSlot("QModelIndex")   
     def listItemEvent(self, item):
         tmp = self.model.itemData(item)[0].split(" : ")
         if tmp[1] == "Talent":
