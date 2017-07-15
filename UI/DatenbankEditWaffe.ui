@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>440</width>
-    <height>370</height>
+    <height>388</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -327,6 +327,11 @@
        <item>
         <property name="text">
          <string>Wurfwaffen</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Athletik</string>
         </property>
        </item>
        <item>

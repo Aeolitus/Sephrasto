@@ -32,7 +32,7 @@ VorteilTypen = ["Allgemeine Vorteile", "Profane Vorteile", "Kampfvorteile",
 "Traditionen"]
 
 Kampftalente = ["Handgemenge", "Hiebwaffen", "Klingenwaffen", "Stangenwaffen",
-                 "Schusswaffen", "Wurfwaffen", "Andere"]
+                 "Schusswaffen", "Wurfwaffen", "Athletik", "Andere"]
 
 Kampfstile = ["Kein Kampfstil", "Beidhändiger Kampf", "Parierwaffenkampf", "Reiterkampf", 
               "Schildkampf", "Kraftvoller Kampf", "Schneller Kampf"]

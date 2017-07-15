@@ -1146,6 +1146,15 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 AsP
 Fertigkeiten: Eigenschaften</Talent>
+  <Talent name="Standfest Katzengleich" kosten="40" voraussetzungen="Vorteil Magiedillettant ODER Vorteil Kristallomantische Repräsentation I ODER Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften" variable="0">Deine Geschicklichkeit erhöht sich. Alle Proben, um auf den Beinen zu bleiben, sind um +4 erleichtert und deine Patzerchance im Kampf sinkt um 1 auf dem W20.
+Mächtige Magie: Der Bonus steigt um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 2 Aktionen
+Ziel: selbst
+Reichweite: Berührung
+Wirkungsdauer: 16 Aktionen
+Kosten: 8 AsP
+Fertigkeiten: Eigenschaften</Talent>
   <Talent name="Warmes Blut" kosten="20" voraussetzungen="Vorteil Magiedillettant ODER Vorteil Kristallomantische Repräsentation I ODER Vorteil Alchemistische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Feuer, Hellsicht" variable="0">Durch diesen Zauber siehst du die Wärmestrahlung deiner Umgebung. Kaltes erscheint schwarz bis grünblau, Warmblüter sind gelb und Feuer ist orange bis tiefrot.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
@@ -3532,7 +3541,7 @@ Reichweite: 8 Schritt
 Wirkungsdauer: 1 Tag
 Kosten: 8 AsP
 Fertigkeiten: Eigenschaften, Hexenflüche</Talent>
-    <Talent name="Bindung des Schuppenbeutels" kosten="20" voraussetzungen="Vorteil Kristallomantische Repräsentation I" verbilligt="0" fertigkeiten="Kraft, Kristallmagie" variable="0">Du stellst eine enge magische Bindung zu deinem Schuppenbeutel her, welche die Voraussetzung für alle weiteren Talente dieser Fertigkeit ist. Außerdem wird der Schuppenbeutel unzerbrechlich. 
+  <Talent name="Bindung des Schuppenbeutels" kosten="20" voraussetzungen="Vorteil Kristallomantische Repräsentation I" verbilligt="0" fertigkeiten="Kraft, Kristallmagie" variable="0">Du stellst eine enge magische Bindung zu deinem Schuppenbeutel her, welche die Voraussetzung für alle weiteren Talente dieser Fertigkeit ist. Außerdem wird der Schuppenbeutel unzerbrechlich. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 8 Stunden
 Ziel: Ritualgegenstand
@@ -6102,4 +6111,7 @@ Die Spielwerte typischer Vertrautentiere findest du im Bestiarium. Da Vertrauten
   <Waffe name="Kurzbogen" W6="2" plus="1" haerte="3" fertigkeit="Schusswaffen" talent="Bögen" beid="0" pari="0" reit="0" schi="0" kraf="0" schn="0" rw="16" lz="0" fk="1">Zweihändig</Waffe>
   <Waffe name="Langbogen" W6="2" plus="3" haerte="3" fertigkeit="Schusswaffen" talent="Bögen" beid="0" pari="0" reit="0" schi="0" kraf="0" schn="0" rw="64" lz="1" fk="1">Schwer (4), nicht für Reiter, Zweihändig</Waffe>
   <Waffe name="Orkischer Reiterbogen" W6="2" plus="3" haerte="4" fertigkeit="Schusswaffen" talent="Bögen" beid="0" pari="0" reit="0" schi="0" kraf="0" schn="0" rw="32" lz="1" fk="1">Schwer (4), Zweihändig</Waffe>
+  <Waffe name="Reitpferd" W6="2" plus="0" haerte="13" fertigkeit="Athletik" talent="Reiten" beid="0" pari="0" reit="1" schi="1" kraf="0" schn="0" rw="1" wm="-1" fk="0">Niederwerfen, Reittier</Waffe>
+  <Waffe name="Kriegspferd" W6="2" plus="2" haerte="14" fertigkeit="Athletik" talent="Reiten" beid="0" pari="0" reit="1" schi="1" kraf="0" schn="0" rw="1" wm="1" fk="0">Niederwerfen, Reittier</Waffe>
+  <Waffe name="Tralloper Riese" W6="2" plus="4" haerte="16" fertigkeit="Athletik" talent="Reiten" beid="0" pari="0" reit="1" schi="1" kraf="0" schn="0" rw="1" wm="0" fk="0">Niederwerfen, Reittier</Waffe>
 </Datenbank>
