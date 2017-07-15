@@ -50,7 +50,7 @@ class Ui_Form(object):
         self.gridLayout.addItem(spacerItem1, 6, 0, 1, 1)
         self.label_3 = QtWidgets.QLabel(Form)
         font = QtGui.QFont()
-        font.setPointSize(6)
+        font.setPointSize(7)
         font.setItalic(True)
         self.label_3.setFont(font)
         self.label_3.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
@@ -74,7 +74,7 @@ class Ui_Form(object):
         self.buttonEdit.setText(_translate("Form", "Vorhandenen Charakter bearbeiten"))
         self.label.setText(_translate("Form", "Sephrasto"))
         self.label_2.setText(_translate("Form", "Ein Charaktergenerator für Ilaris"))
-        self.label_3.setText(_translate("Form", "by Aeolitus "))
+        self.label_3.setText(_translate("Form", "v0.3.5 - by Aeolitus "))
 
 
 if __name__ == "__main__":

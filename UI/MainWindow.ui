@@ -127,12 +127,12 @@
     <widget class="QLabel" name="label_3">
      <property name="font">
       <font>
-       <pointsize>6</pointsize>
+       <pointsize>7</pointsize>
        <italic>true</italic>
       </font>
      </property>
      <property name="text">
-      <string>by Aeolitus </string>
+      <string>v0.3.5 - by Aeolitus </string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
