@@ -9,6 +9,7 @@ CALL C:\Users\Aeolitus\Anaconda3\Library\bin\pyuic5.bat -x CharakterVorteile.ui 
 CALL C:\Users\Aeolitus\Anaconda3\Library\bin\pyuic5.bat -x CharakterEquipment.ui -o CharakterEquipment.py
 CALL C:\Users\Aeolitus\Anaconda3\Library\bin\pyuic5.bat -x CharakterTalente.ui -o CharakterTalente.py
 CALL C:\Users\Aeolitus\Anaconda3\Library\bin\pyuic5.bat -x CharakterWaffen.ui -o CharakterWaffen.py
+CALL C:\Users\Aeolitus\Anaconda3\Library\bin\pyuic5.bat -x CharakterMinderpakt.ui -o CharakterMinderpakt.py
 
 CALL C:\Users\Aeolitus\Anaconda3\Library\bin\pyuic5.bat -x DatenbankMain.ui -o DatenbankMain.py
 CALL C:\Users\Aeolitus\Anaconda3\Library\bin\pyuic5.bat -x DatenbankEditFertigkeit.ui -o DatenbankEditFertigkeit.py

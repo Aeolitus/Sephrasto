@@ -45,6 +45,7 @@ class Char():
         #Dritter Block: Vorteile, gespeichert als String
         self.vorteile = []
         self.vorteileVariable = {} #Contains Name: Cost
+        self.minderpakt = None
 
         #Vierter Block: Fertigkeiten und Freie Fertigkeiten
         self.fertigkeiten = copy.deepcopy(Wolke.DB.fertigkeiten)
@@ -130,6 +131,11 @@ class Char():
         spent += sum(range(self.kap.wert+1))*self.kap.steigerungsfaktor   
         #Dritter Block: Vorteile
         for vor in self.vorteile:
+            if vor == self.minderpakt:
+                if "Minderpakt" in self.vorteile:
+                    continue
+                else:
+                    self.minderpakt = None
             if vor in self.vorteileVariable:
                 spent += self.vorteileVariable[vor]
             elif Wolke.DB.vorteile[vor].kosten != -1:
@@ -191,6 +197,11 @@ class Char():
             contFlag = True
             remove = []
             for vor in self.vorteile:
+                if vor == self.minderpakt:
+                    if "Minderpakt" in self.vorteile:
+                        continue
+                    else:
+                        self.minderpakt = None
                 if not self.voraussetzungenPrüfen(Wolke.DB.vorteile[vor].voraussetzungen):
                     remove.append(vor)
                     contFlag = False
@@ -349,6 +360,10 @@ class Char():
         etree.SubElement(en,'KaP').set('wert',str(self.kap.wert))
         #Dritter Block    
         vor = etree.SubElement(root,'Vorteile')
+        if self.minderpakt is not None:
+            vor.set('minderpakt',self.minderpakt)
+        else:
+            vor.set('minderpakt','')
         for vort in self.vorteile:
             v = etree.SubElement(vor,'Vorteil')
             v.text = vort
@@ -458,6 +473,11 @@ class Char():
         for ene in root.findall('Energien/KaP'):
             self.kap.wert = int(ene.attrib['wert'])
         #Dritter Block
+        for vor in root.findall('Vorteile'):
+            if "minderpakt" in vor.attrib:
+                self.minderpakt = vor.get('minderpakt')
+            else:
+                self.minderpakt = None
         for vor in root.findall('Vorteile/*'):
             self.vorteile.append(vor.text)
             var = int(vor.get('variable'))
@@ -629,6 +649,12 @@ class Char():
         # combined into one entry and the type of Vorteil is preserved
         for vort in sortV:
             if vort in removed:
+                continue
+            if vort == "Minderpakt" and self.minderpakt is not None:
+                removed.append(vort)
+                mindername = "Minderpakt (" + self.minderpakt + ")"
+                assembled.append(mindername)
+                typeDict[mindername] = 0
                 continue
             flag = False
             if vort.endswith(" I"):

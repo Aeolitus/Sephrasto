@@ -6,6 +6,7 @@ Created on Sat Mar 18 12:21:03 2017
 """
 from Wolke import Wolke
 import CharakterVorteile
+import CharakterMinderpaktWrapper
 from PyQt5 import QtWidgets, QtCore
 from Definitionen import VorteilTypen
 from Hilfsmethoden import Hilfsmethoden
@@ -58,10 +59,14 @@ class CharakterVorteileWrapper(QtCore.QObject):
                     spin.setSuffix(" EP")
                     spin.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
                     spin.setMaximum(9999)
-                    if el in Wolke.Char.vorteileVariable:
-                        spin.setValue(Wolke.Char.vorteileVariable[el])
+                    if el == Wolke.Char.minderpakt:
+                        spin.setValue(20)
+                        spin.setReadOnly(True)
                     else:
-                        spin.setValue(Wolke.DB.vorteile[el].kosten)
+                        if el in Wolke.Char.vorteileVariable:
+                            spin.setValue(Wolke.Char.vorteileVariable[el])
+                        else:
+                            spin.setValue(Wolke.DB.vorteile[el].kosten)
                     spin.setSingleStep(20)
                     self.itemWidgets[el] = spin
                     spin.valueChanged.connect(lambda state, name=el: self.spinnerChanged(name,state))
@@ -93,11 +98,11 @@ class CharakterVorteileWrapper(QtCore.QObject):
                 if type(chi) != QtWidgets.QTreeWidgetItem:
                     continue
                 txt = chi.text(0)
-                if txt in Wolke.Char.vorteile:    
+                if txt in Wolke.Char.vorteile or txt == Wolke.Char.minderpakt:    
                     chi.setCheckState(0, QtCore.Qt.Checked)
                 else:
                     chi.setCheckState(0, QtCore.Qt.Unchecked) 
-                if txt not in vortList[i]:
+                if txt not in vortList[i] and txt != Wolke.Char.minderpakt:
                     chi.setHidden(True)
                     if txt in Wolke.Char.vorteile:
                         chi.setCheckState(0,QtCore.Qt.Unchecked)
@@ -128,9 +133,31 @@ class CharakterVorteileWrapper(QtCore.QObject):
         if cs ==  QtCore.Qt.Checked:
             if name not in Wolke.Char.vorteile and name != "":
                 Wolke.Char.vorteile.append(name)
+                if name == "Minderpakt":
+                    minderp = CharakterMinderpaktWrapper.CharakterMinderpaktWrapper()
+                    if minderp.minderpakt is not None:
+                        if minderp.minderpakt in Wolke.DB.vorteile and minderp.minderpakt not in Wolke.Char.vorteile:
+                            Wolke.Char.minderpakt = minderp.minderpakt
+                            Wolke.Char.vorteile.append(minderp.minderpakt)
+                            if minderp.minderpakt in self.itemWidgets:
+                                self.itemWidgets[minderp.minderpakt].setValue(20)   
+                                self.itemWidgets[minderp.minderpakt].setReadOnly(True)
         else:
             if name in Wolke.Char.vorteile:
                 Wolke.Char.vorteile.remove(name)
+                if name == "Minderpakt":
+                    if Wolke.Char.minderpakt in Wolke.Char.vorteile:
+                        Wolke.Char.vorteile.remove(Wolke.Char.minderpakt)
+                        if Wolke.Char.minderpakt in self.itemWidgets:
+                            self.itemWidgets[Wolke.Char.minderpakt].setReadOnly(False)
+                    Wolke.Char.minderpakt = None
+                if Wolke.Char.minderpakt is not None:
+                    if name == Wolke.Char.minderpakt:
+                        if "Minderpakt" in Wolke.Char.vorteile:
+                            Wolke.Char.vorteile.remove("Minderpakt")
+                        if Wolke.Char.minderpakt in self.itemWidgets:
+                            self.itemWidgets[Wolke.Char.minderpakt].setReadOnly(False)
+                        Wolke.Char.minderpakt = None
         self.modified.emit()
         self.loadVorteile() 
         self.uiVor.treeWidget.blockSignals(False)
