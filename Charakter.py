@@ -871,6 +871,7 @@ class Char():
                 at = bwert
                 vt = bwert
                 sp = 0
+                flagReiter2 = False
                 # 0 is no Kampfstil, no Effect
                 # 1 is Beidhändig
                 if el.kampfstil == 1:
@@ -886,6 +887,8 @@ class Char():
                     for vor in self.vorteile:
                         if Definitionen.Kampfstile[3] in vor:
                             levelC += 1
+                    if levelC>=2:
+                        flagReiter2 = True
                     at += min(levelC,3)
                     vt += min(levelC,3)
                     sp += min(levelC,3)
@@ -927,9 +930,9 @@ class Char():
                         at -= 2
                         vt -= 2
                     
-                
-                at -= self.be
-                vt -= self.be
+                if not flagReiter2:
+                    at -= self.be
+                    vt -= self.be
                     
                 fields[base + 'ATm'] = at
                 fields[base + 'VTm'] = vt

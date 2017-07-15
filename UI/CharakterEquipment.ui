@@ -542,7 +542,7 @@
            <number>1</number>
           </property>
           <property name="maximum">
-           <number>12</number>
+           <number>20</number>
           </property>
           <property name="value">
            <number>6</number>
@@ -574,7 +574,7 @@
            <number>1</number>
           </property>
           <property name="maximum">
-           <number>12</number>
+           <number>20</number>
           </property>
           <property name="value">
            <number>6</number>
@@ -728,7 +728,7 @@
            <number>1</number>
           </property>
           <property name="maximum">
-           <number>12</number>
+           <number>20</number>
           </property>
           <property name="value">
            <number>6</number>
@@ -857,7 +857,7 @@
            <number>1</number>
           </property>
           <property name="maximum">
-           <number>12</number>
+           <number>20</number>
           </property>
           <property name="value">
            <number>6</number>
@@ -924,7 +924,7 @@
            <number>1</number>
           </property>
           <property name="maximum">
-           <number>12</number>
+           <number>20</number>
           </property>
           <property name="value">
            <number>6</number>
@@ -1177,7 +1177,7 @@
            <number>1</number>
           </property>
           <property name="maximum">
-           <number>12</number>
+           <number>20</number>
           </property>
           <property name="value">
            <number>6</number>
@@ -1334,7 +1334,7 @@
            <number>1</number>
           </property>
           <property name="maximum">
-           <number>12</number>
+           <number>20</number>
           </property>
           <property name="value">
            <number>6</number>
@@ -1679,7 +1679,7 @@
            <number>1</number>
           </property>
           <property name="maximum">
-           <number>12</number>
+           <number>20</number>
           </property>
           <property name="value">
            <number>6</number>
