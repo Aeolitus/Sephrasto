@@ -3718,6 +3718,14 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 8 AsP
 Fertigkeiten: Antimagie, Kugelzauber</Talent>
+  <Talent name="Bindung des Ringes" kosten="20" voraussetzungen="Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Kraft, Ringrituale" variable="0">Du stellst eine enge magische Bindung zu deinem Schlangenhalsreif her, welche die Voraussetzung für alle weiteren Talente dieser Fertigkeit ist. Außerdem wird der Ring unzerbrechlich. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Stunden
+Ziel: Ritualgegenstand
+Reichweite: Berührung
+Wirkungsdauer: permanent
+Kosten: 16 AsP
+Fertigkeiten: Kraft, Ringrituale</Talent>
   <Talent name="Herr der Flammen" kosten="20" voraussetzungen="Vorteil Geodische Repräsentation I" verbilligt="0" fertigkeiten="Feuer, Ringrituale" variable="0">Du kannst ein bestehendes Feuer bis zur Größe einer Fackel formen oder verlöschen lassen. Die Verformung geschieht mit einer GS von 8 Schritt pro Initiativephase und benötigt Konzentration. 
 Mächtige Magie: Du kannst ein Feuer bis zur Größe eines Kaminfeuers/eines großen Lagerfeuers/eines Scheiterhaufens/eines brennenden Schiffes manipulieren.
 Probenschwierigkeit: 12
