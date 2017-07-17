@@ -121,7 +121,8 @@ class DatenbankEdit(object):
                 self.addVorteil()
             elif dbS.entryType is "Fertigkeit":
                 self.addFertigkeit()
-            elif dbS.entryType is "Übernatürliche Fertigkeit":
+            elif dbS.entryType is "Uebernatuerlich":
+                print("In")
                 self.addUebernatuerlich()
             else:
                 self.addWaffe()
