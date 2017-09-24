@@ -2530,6 +2530,15 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Woche
 Kosten: 8 AsP
 Fertigkeiten: Kraft, Verwandlung</Talent>
+  <Talent name="Aeolitus Windgebraus" kosten="40" voraussetzungen="Vorteil Magiedillettant ODER Vorteil Elfische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Kristallomantische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Schelmische Repräsentation I ODER Vorteil Scharlatanische Repräsentation I" verbilligt="0" fertigkeiten="Luft" variable="0">Ein kräftiger Windstoß breitet sich von deinem Mund kegelförmig 16 Schritt weit aus und verursacht Zurückstoßen. Zurückgestoßene Ziele liegen am Boden. Ballistischer Zauber.
+Probenschwierigkeit: 12
+Modifikationen: Langer Atem (-4, 8 AsP; der Windstoß hält KO Initiativphasen lang an. Um sich dir zu nähern, müssen Wesen im Windstoß jede Initiativphase eine Konterprobe (KK, 16) bestehen. Erfordert Konzentration.) Winde der anderen Art (-4; der Wind bringt lieblichen Duft oder widerlichen Gestank.)  
+Vorbereitungszeit: 0 Aktionen 
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 4 AsP
+Fertigkeiten: Luft</Talent>
   <Talent name="Aerofugo Vakuum" kosten="40" voraussetzungen="Vorteil Magiedillettant ODER Vorteil Kristallomantische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Luft, Umwelt" variable="0">Du entfernst sämtliche Luft aus einem Bereich mit bis zu 4 Schritt Radius. Flammen erlöschen,Lebewesen erleiden alle DH* Initiativephasen 1 Punkt Erschöpfung und Luftelementare nehmen schwersten Schaden.
 Mächtige Magie: Der maximale Radius steigt um 2 Schritt.
 Probenschwierigkeit: 12
