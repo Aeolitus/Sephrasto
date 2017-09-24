@@ -67,6 +67,14 @@ class Char():
         #Siebter Block: EP
         self.EPtotal = 0
         self.EPspent = 0
+        
+        self.EP_Attribute = 0
+        self.EP_Vorteile = 0
+        self.EP_Fertigkeiten = 0
+        self.EP_Fertigkeiten_Talente = 0
+        self.EP_FreieFertigkeiten = 0
+        self.EP_Uebernatuerlich = 0
+        self.EP_Uebernatuerlich_Talente = 0
 
         #Achter Block: Flags etc
         self.höchsteKampfF = -1
@@ -131,6 +139,8 @@ class Char():
                         self.attribute[key].steigerungsfaktor
         spent += sum(range(self.asp.wert+1))*self.asp.steigerungsfaktor
         spent += sum(range(self.kap.wert+1))*self.kap.steigerungsfaktor   
+
+        self.EP_Attribute = spent
         #Dritter Block: Vorteile
         for vor in self.vorteile:
             if vor == self.minderpakt:
@@ -142,11 +152,18 @@ class Char():
                 spent += self.vorteileVariable[vor]
             elif Wolke.DB.vorteile[vor].kosten != -1:
                 spent += Wolke.DB.vorteile[vor].kosten
+        
+        self.EP_Vorteile = spent - self.EP_Attribute
         #Vierter Block: Fertigkeiten und Freie Fertigkeiten
+        self.EP_Fertigkeiten = 0
+        self.EP_Fertigkeiten_Talente = 0
+        self.EP_FreieFertigkeiten = 0
         paidTalents = []
         for fer in self.fertigkeiten:
-            spent += sum(range(self.fertigkeiten[fer].wert+1))*\
+            val = sum(range(self.fertigkeiten[fer].wert+1))*\
                         self.fertigkeiten[fer].steigerungsfaktor
+            spent += val
+            self.EP_Fertigkeiten += val
             for tal in self.fertigkeiten[fer].gekaufteTalente:
                 if tal in paidTalents:
                     continue
@@ -154,42 +171,54 @@ class Char():
                     continue
                 paidTalents.append(tal)
                 if tal in self.talenteVariable:
-                    spent += self.talenteVariable[tal]
+                    val = self.talenteVariable[tal]
                 elif Wolke.DB.talente[tal].kosten != -1:
-                    spent += Wolke.DB.talente[tal].kosten
+                    val = Wolke.DB.talente[tal].kosten
                 elif Wolke.DB.talente[tal].verbilligt:
-                    spent += 10*self.fertigkeiten[fer].steigerungsfaktor
+                    val = 10*self.fertigkeiten[fer].steigerungsfaktor
                 else:
-                    spent += 20*self.fertigkeiten[fer].steigerungsfaktor
+                    val = 20*self.fertigkeiten[fer].steigerungsfaktor
+                spent += val
+                self.EP_Fertigkeiten_Talente += val
         skip = False                                                 
         for fer in self.freieFertigkeiten:
             # Dont count Muttersprache
             if fer.wert == 3 and not skip:
                 skip = True
                 continue
-            spent += Definitionen.FreieFertigkeitKosten[fer.wert-1]
+            val = Definitionen.FreieFertigkeitKosten[fer.wert-1]
+            spent += val
+            self.EP_FreieFertigkeiten += val
         #Fünfter Block ist gratis
         #Sechster Block: Übernatürliches
+        self.EP_Uebernatuerlich = 0
+        self.EP_Uebernatuerlich_Talente = 0
         for fer in self.übernatürlicheFertigkeiten:
-            spent += sum(range(self.übernatürlicheFertigkeiten[fer].wert+1))*\
+            val = sum(range(self.übernatürlicheFertigkeiten[fer].wert+1))*\
                         self.übernatürlicheFertigkeiten[fer].steigerungsfaktor
+            spent += val
+            self.EP_Uebernatuerlich += val
             for tal in self.übernatürlicheFertigkeiten[fer].gekaufteTalente:
                 if tal in paidTalents:
                     continue
                 paidTalents.append(tal)
                 if tal in self.talenteVariable:
-                    spent += self.talenteVariable[tal]
+                    val = self.talenteVariable[tal]
                 elif Wolke.DB.talente[tal].kosten != -1:
-                    spent += Wolke.DB.talente[tal].kosten
+                    val = Wolke.DB.talente[tal].kosten
                 elif Wolke.DB.talente[tal].verbilligt:
-                    spent += 10*self.übernatürlicheFertigkeiten[fer]\
+                    val = 10*self.übernatürlicheFertigkeiten[fer]\
                                                         .steigerungsfaktor
                 else:
-                    spent += 20*self.übernatürlicheFertigkeiten[fer]\
+                    val = 20*self.übernatürlicheFertigkeiten[fer]\
                                                         .steigerungsfaktor
+                spent += val
+                self.EP_Uebernatuerlich_Talente += val
         #Siebter Block ist gratis
         #Achter Block: Fix für höchste Kampffertigkeit
-        spent += max(0,2*sum(range(self.höchsteKampfF+1)))
+        val = max(0,2*sum(range(self.höchsteKampfF+1)))
+        spent += val
+        self.EP_Fertigkeiten += val
         #Store
         self.EPspent = spent
 
