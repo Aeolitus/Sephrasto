@@ -28,7 +28,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
         self.uiFert.listTalente.setModel(self.model)
         
         #Signals
-        self.uiFert.spinFW.valueChanged.connect(self.fwChanged)
+        self.uiFert.spinFW.valueChanged.connect(lambda state : self.fwChanged(False))
         self.uiFert.tableWidget.currentItemChanged.connect(self.tableClicked)   
         self.uiFert.buttonAdd.clicked.connect(self.editTalents)
         
