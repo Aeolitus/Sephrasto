@@ -12,7 +12,7 @@ class Ui_talentDialog(object):
     def setupUi(self, talentDialog):
         talentDialog.setObjectName("talentDialog")
         talentDialog.setWindowModality(QtCore.Qt.ApplicationModal)
-        talentDialog.resize(440, 388)
+        talentDialog.resize(440, 550)
         self.gridLayout_2 = QtWidgets.QGridLayout(talentDialog)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.gridLayout = QtWidgets.QGridLayout()

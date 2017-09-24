@@ -12,7 +12,7 @@ class Ui_talentDialog(object):
     def setupUi(self, talentDialog):
         talentDialog.setObjectName("talentDialog")
         talentDialog.setWindowModality(QtCore.Qt.ApplicationModal)
-        talentDialog.resize(440, 370)
+        talentDialog.resize(440, 550)
         self.gridLayout_2 = QtWidgets.QGridLayout(talentDialog)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.gridLayout = QtWidgets.QGridLayout()
@@ -39,7 +39,7 @@ class Ui_talentDialog(object):
         self.radioUebernatuerlich = QtWidgets.QRadioButton(talentDialog)
         self.radioUebernatuerlich.setObjectName("radioUebernatuerlich")
         self.verticalLayout.addWidget(self.radioUebernatuerlich)
-        self.voraussetzungenEdit = QtWidgets.QLineEdit(talentDialog)
+        self.voraussetzungenEdit = QtWidgets.QPlainTextEdit(talentDialog)
         self.voraussetzungenEdit.setObjectName("voraussetzungenEdit")
         self.verticalLayout.addWidget(self.voraussetzungenEdit)
         self.gridLayout.addLayout(self.verticalLayout, 3, 2, 1, 1)
@@ -103,6 +103,11 @@ class Ui_talentDialog(object):
         self.label_5.setObjectName("label_5")
         self.gridLayout.addWidget(self.label_5, 4, 0, 1, 1)
         self.textEdit = QtWidgets.QPlainTextEdit(talentDialog)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.MinimumExpanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.textEdit.sizePolicy().hasHeightForWidth())
+        self.textEdit.setSizePolicy(sizePolicy)
         self.textEdit.setObjectName("textEdit")
         self.gridLayout.addWidget(self.textEdit, 4, 2, 1, 1)
         self.label_4 = QtWidgets.QLabel(talentDialog)
@@ -140,8 +145,7 @@ class Ui_talentDialog(object):
         talentDialog.setTabOrder(self.comboAttribut3, self.radioProfan)
         talentDialog.setTabOrder(self.radioProfan, self.checkKampffertigkeit)
         talentDialog.setTabOrder(self.checkKampffertigkeit, self.radioUebernatuerlich)
-        talentDialog.setTabOrder(self.radioUebernatuerlich, self.voraussetzungenEdit)
-        talentDialog.setTabOrder(self.voraussetzungenEdit, self.textEdit)
+        talentDialog.setTabOrder(self.radioUebernatuerlich, self.textEdit)
 
     def retranslateUi(self, talentDialog):
         _translate = QtCore.QCoreApplication.translate

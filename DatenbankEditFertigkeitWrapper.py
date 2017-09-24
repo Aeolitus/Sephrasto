@@ -30,12 +30,12 @@ class DatenbankEditFertigkeitWrapper(object):
         ui.comboAttribut2.setCurrentText(fertigkeit.attribute[1])
         ui.comboAttribut3.setCurrentText(fertigkeit.attribute[2])
         if ueber:
-            ui.voraussetzungenEdit.setText(Hilfsmethoden.VorArray2Str(fertigkeit.voraussetzungen, None))
+            ui.voraussetzungenEdit.setPlainText(Hilfsmethoden.VorArray2Str(fertigkeit.voraussetzungen, None))
             ui.radioUebernatuerlich.setChecked(True)
             ui.radioProfan.setCheckable(False)
             ui.checkKampffertigkeit.setCheckable(False)
         else:
-            ui.voraussetzungenEdit.setText(" - ")
+            ui.voraussetzungenEdit.setPlainText(" - ")
             ui.voraussetzungenEdit.setReadOnly(True)
             ui.radioProfan.setChecked(True)
             ui.radioUebernatuerlich.setCheckable(False)
@@ -52,7 +52,7 @@ class DatenbankEditFertigkeitWrapper(object):
                 if ui.checkKampffertigkeit.isChecked():
                     self.fertigkeit.kampffertigkeit = 1;
             else:
-                self.fertigkeit.voraussetzungen = Hilfsmethoden.VorStr2Array(ui.voraussetzungenEdit.text(),None)
+                self.fertigkeit.voraussetzungen = Hilfsmethoden.VorStr2Array(ui.voraussetzungenEdit.toPlainText(),None)
             self.fertigkeit.attribute = [ui.comboAttribut1.currentText(), 
                              ui.comboAttribut2.currentText(),
                              ui.comboAttribut3.currentText()]

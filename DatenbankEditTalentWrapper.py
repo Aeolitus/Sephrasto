@@ -37,7 +37,7 @@ class DatenbankEditTalentWrapper(object):
         else:
             ui.checkVariable.setChecked(False)
         ui.fertigkeitenEdit.setText(Hilfsmethoden.FertArray2Str(talent.fertigkeiten, None))
-        ui.voraussetzungenEdit.setText(Hilfsmethoden.VorArray2Str(talent.voraussetzungen, None))
+        ui.voraussetzungenEdit.setPlainText(Hilfsmethoden.VorArray2Str(talent.voraussetzungen, None))
         ui.textEdit.setPlainText(talent.text)
         talentDialog.show()
         ret = talentDialog.exec_()
@@ -45,7 +45,7 @@ class DatenbankEditTalentWrapper(object):
             self.talent = Fertigkeiten.Talent()
             self.talent.name = ui.nameEdit.text()
             self.talent.fertigkeiten = Hilfsmethoden.FertStr2Array(ui.fertigkeitenEdit.text(),None)
-            self.talent.voraussetzungen = Hilfsmethoden.VorStr2Array(ui.voraussetzungenEdit.text(),None)
+            self.talent.voraussetzungen = Hilfsmethoden.VorStr2Array(ui.voraussetzungenEdit.toPlainText(),None)
             self.talent.text = ui.textEdit.toPlainText()
             self.talent.kosten = -1
             if ui.checkVariable.isChecked():
