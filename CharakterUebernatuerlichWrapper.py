@@ -161,6 +161,18 @@ class UebernatuerlichWrapper(QtCore.QObject):
         
     def updateInfo(self):
         if self.currentFertName != "":
+            if self.currentFertName not in Wolke.Char.übernatürlicheFertigkeiten:
+                self.currentFertName = ""
+                self.uiFert.labelFertigkeit.setText("Fertigkeit")
+                self.uiFert.labelAttribute.setText("Attribute")
+                self.uiFert.spinSF.setValue(0)
+                self.uiFert.spinBasis.setValue(0)
+                self.uiFert.spinFW.setMaximum(0)
+                self.uiFert.spinFW.setValue(0)
+                self.uiFert.spinPW.setValue(0)
+                self.uiFert.plainText.setPlainText("")
+                self.model.clear()
+                return
             self.currentlyLoading = True
             fert = Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName]
             fert.aktualisieren()

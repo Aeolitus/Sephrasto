@@ -14,6 +14,7 @@ import CharakterUebernatuerlichWrapper
 import CharakterFreieFertWrapper
 import CharakterVorteileWrapper
 import CharakterItemsWrapper
+import CharakterEPWrapper
 import Charakter
 import Datenbank
 from Wolke import Wolke
@@ -52,6 +53,7 @@ class Editor(object):
         self.EquipWrapper = CharakterEquipmentWrapper.EquipWrapper()
         self.VortWrapper = CharakterVorteileWrapper.CharakterVorteileWrapper()
         self.ItmWrapper = CharakterItemsWrapper.CharakterItemsWrapper()
+        self.EPWrapper = CharakterEPWrapper.EPWrapper()
         
         self.ui.tabs.addTab(self.BeschrWrapper.formBeschr, "    Beschreibung    ")
         self.ui.tabs.addTab(self.AttrWrapper.formAttr, "    Attribute    ")
@@ -61,6 +63,7 @@ class Editor(object):
         self.ui.tabs.addTab(self.UebernatuerlichWrapper.formFert, "    Übernatürliches    ")
         self.ui.tabs.addTab(self.EquipWrapper.formEq, "    Ausrüstung    ")    
         self.ui.tabs.addTab(self.ItmWrapper.formIt, "    Inventar    ")
+        self.ui.tabs.addTab(self.EPWrapper.formEP, "    EP-Verteilung    ")
         
         self.BeschrWrapper.modified.connect(self.updateEP)
         self.AttrWrapper.modified.connect(self.updateEP)
@@ -70,6 +73,7 @@ class Editor(object):
         self.EquipWrapper.modified.connect(self.updateEP)
         self.VortWrapper.modified.connect(self.updateEP)
         self.ItmWrapper.modified.connect(self.updateEP)
+        self.EPWrapper.modified.connect(self.updateEP)
         
         self.ui.tabs.currentChanged.connect(self.reloadAll)
         self.ui.buttonSave.clicked.connect(self.saveButton)
@@ -109,6 +113,7 @@ class Editor(object):
         self.UebernatuerlichWrapper.loadFertigkeiten()
         self.VortWrapper.loadVorteile()
         self.ItmWrapper.loadItems()
+        self.EPWrapper.loadEP()
         
     def updateAll(self):
         self.ignoreModified = True
@@ -120,6 +125,7 @@ class Editor(object):
         self.UebernatuerlichWrapper.updateFertigkeiten()
         self.VortWrapper.updateVorteile()
         self.ItmWrapper.updateFreie()
+        self.EPWrapper.updateEP()
         self.updateEP()
         self.ignoreModified = False
         
