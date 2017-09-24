@@ -61,7 +61,8 @@ class Char():
         self.rsmod = 0
 
         #Sechster Block: Übernatürliches
-        self.übernatürlicheFertigkeiten = copy.deepcopy(Wolke.DB.übernatürlicheFertigkeiten)
+        self.übernatürlicheFertigkeiten = copy.deepcopy(
+            Wolke.DB.übernatürlicheFertigkeiten)
 
         #Siebter Block: EP
         self.EPtotal = 0
@@ -70,7 +71,7 @@ class Char():
         #Achter Block: Flags etc
         self.höchsteKampfF = -1
         
-        #Name des Charakterbogens, der verwendet wird (liegt im gleichen Ordner)
+        #Name des Charakterbogens, der verwendet wird (im gleichen Ordner)
         self.CharakterBogen = "Charakterbogen.pdf"
 
     def aktualisieren(self):
@@ -126,7 +127,8 @@ class Char():
         #Erster Block ist gratis
         #Zweiter Block: Attribute und Abgeleitetes
         for key in Definitionen.Attribute:
-            spent += sum(range(self.attribute[key].wert+1))*self.attribute[key].steigerungsfaktor
+            spent += sum(range(self.attribute[key].wert+1)) *\
+                        self.attribute[key].steigerungsfaktor
         spent += sum(range(self.asp.wert+1))*self.asp.steigerungsfaktor
         spent += sum(range(self.kap.wert+1))*self.kap.steigerungsfaktor   
         #Dritter Block: Vorteile
@@ -143,7 +145,8 @@ class Char():
         #Vierter Block: Fertigkeiten und Freie Fertigkeiten
         paidTalents = []
         for fer in self.fertigkeiten:
-            spent += sum(range(self.fertigkeiten[fer].wert+1))*self.fertigkeiten[fer].steigerungsfaktor
+            spent += sum(range(self.fertigkeiten[fer].wert+1))*\
+                        self.fertigkeiten[fer].steigerungsfaktor
             for tal in self.fertigkeiten[fer].gekaufteTalente:
                 if tal in paidTalents:
                     continue
@@ -168,7 +171,8 @@ class Char():
         #Fünfter Block ist gratis
         #Sechster Block: Übernatürliches
         for fer in self.übernatürlicheFertigkeiten:
-            spent += sum(range(self.übernatürlicheFertigkeiten[fer].wert+1))*self.übernatürlicheFertigkeiten[fer].steigerungsfaktor
+            spent += sum(range(self.übernatürlicheFertigkeiten[fer].wert+1))*\
+                        self.übernatürlicheFertigkeiten[fer].steigerungsfaktor
             for tal in self.übernatürlicheFertigkeiten[fer].gekaufteTalente:
                 if tal in paidTalents:
                     continue
@@ -178,9 +182,11 @@ class Char():
                 elif Wolke.DB.talente[tal].kosten != -1:
                     spent += Wolke.DB.talente[tal].kosten
                 elif Wolke.DB.talente[tal].verbilligt:
-                    spent += 10*self.übernatürlicheFertigkeiten[fer].steigerungsfaktor
+                    spent += 10*self.übernatürlicheFertigkeiten[fer]\
+                                                        .steigerungsfaktor
                 else:
-                    spent += 20*self.übernatürlicheFertigkeiten[fer].steigerungsfaktor
+                    spent += 20*self.übernatürlicheFertigkeiten[fer]\
+                                                        .steigerungsfaktor
         #Siebter Block ist gratis
         #Achter Block: Fix für höchste Kampffertigkeit
         spent += max(0,2*sum(range(self.höchsteKampfF+1)))
@@ -202,7 +208,8 @@ class Char():
                         continue
                     else:
                         self.minderpakt = None
-                if not self.voraussetzungenPrüfen(Wolke.DB.vorteile[vor].voraussetzungen):
+                if not self.voraussetzungenPrüfen(Wolke.DB.vorteile[vor]\
+                                                  .voraussetzungen):
                     remove.append(vor)
                     contFlag = False
             for el in remove:
@@ -227,7 +234,8 @@ class Char():
             remove = []
             contFlag = True
             for fert in self.fertigkeiten:
-                if not self.voraussetzungenPrüfen(self.fertigkeiten[fert].voraussetzungen):
+                if not self.voraussetzungenPrüfen(self.fertigkeiten[fert]\
+                                                  .voraussetzungen):
                     remove.append(fert)
                     contFlag = False
                 self.fertigkeiten[fert].aktualisieren()
@@ -239,7 +247,8 @@ class Char():
             remove = []
             contFlag = True
             for fert in self.übernatürlicheFertigkeiten:
-                if not self.voraussetzungenPrüfen(self.übernatürlicheFertigkeiten[fert].voraussetzungen):
+                if not self.voraussetzungenPrüfen(\
+                        self.übernatürlicheFertigkeiten[fert].voraussetzungen):
                     remove.append(fert)
                     contFlag = False
                 self.übernatürlicheFertigkeiten[fert].aktualisieren()
@@ -255,21 +264,27 @@ class Char():
             if self.fertigkeiten[fert].wert > self.fertigkeiten[fert].maxWert:
                 self.fertigkeiten[fert].wert = self.fertigkeiten[fert].maxWert
                 self.fertigkeiten[fert].aktualisieren()
-            if self.fertigkeiten[fert].kampffertigkeit and self.fertigkeiten[fert].wert > self.höchsteKampfF:
+            if self.fertigkeiten[fert].kampffertigkeit and \
+                            self.fertigkeiten[fert].wert > self.höchsteKampfF:
                 self.höchsteKampfF = self.fertigkeiten[fert].wert
             for tal in self.fertigkeiten[fert].gekaufteTalente:
-                if not self.voraussetzungenPrüfen(Wolke.DB.talente[tal].voraussetzungen):
+                if not self.voraussetzungenPrüfen(
+                        Wolke.DB.talente[tal].voraussetzungen):
                     self.fertigkeiten[fert].gekaufteTalente.remove(tal)
                 else:
                     for el in self.fertigkeiten[fert].gekaufteTalente:
                         for f in Wolke.DB.talente[el].fertigkeiten:
                             if f in self.fertigkeiten:
-                                if el not in self.fertigkeiten[f].gekaufteTalente:
-                                    self.fertigkeiten[f].gekaufteTalente.append(el)
+                                if el not in self.fertigkeiten[f]\
+                                                              .gekaufteTalente:
+                                    self.fertigkeiten[f].gekaufteTalente\
+                                                     .append(el)
         for fert in self.übernatürlicheFertigkeiten:
             self.übernatürlicheFertigkeiten[fert].aktualisieren()
-            if self.übernatürlicheFertigkeiten[fert].wert > self.übernatürlicheFertigkeiten[fert].maxWert:
-                self.übernatürlicheFertigkeiten[fert].wert = self.übernatürlicheFertigkeiten[fert].maxWert
+            if self.übernatürlicheFertigkeiten[fert].wert > \
+                                self.übernatürlicheFertigkeiten[fert].maxWert:
+                self.übernatürlicheFertigkeiten[fert].wert = \
+                                self.übernatürlicheFertigkeiten[fert].maxWert
                 self.übernatürlicheFertigkeiten[fert].aktualisieren()
             for tal in self.übernatürlicheFertigkeiten[fert].gekaufteTalente:
                 if not self.voraussetzungenPrüfen(Wolke.DB.talente[tal].voraussetzungen):

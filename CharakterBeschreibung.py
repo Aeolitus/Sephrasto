@@ -122,7 +122,6 @@ class Ui_formBeschreibung(object):
         self.comboHeimat.addItem("")
         self.comboHeimat.addItem("")
         self.comboHeimat.addItem("")
-        self.comboHeimat.addItem("")
         self.gridLayout.addWidget(self.comboHeimat, 5, 2, 1, 1)
         self.gridLayout_3.addLayout(self.gridLayout, 0, 0, 1, 1)
 
@@ -170,10 +169,9 @@ class Ui_formBeschreibung(object):
         self.comboHeimat.setItemText(3, _translate("formBeschreibung", "Südaventurien"))
         self.comboHeimat.setItemText(4, _translate("formBeschreibung", "Bornland"))
         self.comboHeimat.setItemText(5, _translate("formBeschreibung", "Thorwal"))
-        self.comboHeimat.setItemText(6, _translate("formBeschreibung", "Südaventurien"))
-        self.comboHeimat.setItemText(7, _translate("formBeschreibung", "Maraskan"))
-        self.comboHeimat.setItemText(8, _translate("formBeschreibung", "Elfen"))
-        self.comboHeimat.setItemText(9, _translate("formBeschreibung", "Zwerge"))
+        self.comboHeimat.setItemText(6, _translate("formBeschreibung", "Maraskan"))
+        self.comboHeimat.setItemText(7, _translate("formBeschreibung", "Elfen"))
+        self.comboHeimat.setItemText(8, _translate("formBeschreibung", "Zwerge"))
 
 
 if __name__ == "__main__":

@@ -117,6 +117,10 @@ class TalentPicker(object):
             else:
                 self.ui.spinKosten.setReadOnly(True)
                 self.ui.spinKosten.setButtonSymbols(2)
+            if self.baseStr == "Gebräuche: ":
+                if self.displayStr(Wolke.DB.talente[talent].name) == \
+                        Wolke.Char.heimat:
+                    self.ui.spinKosten.setValue(0)
             self.ui.plainText.setPlainText(Wolke.DB.talente[talent].text)
 
     def displayStr(self,inp):

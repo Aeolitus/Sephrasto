@@ -8,14 +8,15 @@ from Wolke import Wolke
 import CharakterBeschreibung
 from PyQt5 import QtWidgets, QtCore
 
+
 class BeschrWrapper(QtCore.QObject):
-    ''' 
+    '''
     Wrapper class for the Beschreibung GUI. Contains methods for updating
     the GUI elements to the current values and for changing the current values
-    to the values set by the user. 
+    to the values set by the user.
     '''
     modified = QtCore.pyqtSignal()
-    
+
     def __init__(self):
         ''' Initialize and connect signals '''
         super().__init__()
@@ -26,16 +27,22 @@ class BeschrWrapper(QtCore.QObject):
         self.uiBeschr.setupUi(self.formBeschr)
         self.loadBeschreibung()
         self.uiBeschr.editName.editingFinished.connect(self.updateBeschreibung)
-        self.uiBeschr.editRasse.editingFinished.connect(self.updateBeschreibung)
-        self.uiBeschr.editKurzbeschreibung.editingFinished.connect(self.updateBeschreibung)
+        self.uiBeschr.editRasse.editingFinished.connect(
+                self.updateBeschreibung)
+        self.uiBeschr.editKurzbeschreibung.editingFinished.connect(
+            self.updateBeschreibung)
         for i in range(8):
-            eval("self.uiBeschr.editEig" + str(i+1) + ".editingFinished.connect(self.updateBeschreibung)")
+            eval("self.uiBeschr.editEig" + str(i+1) +
+                 ".editingFinished.connect(self.updateBeschreibung)")
         self.uiBeschr.comboFinanzen.activated.connect(self.updateBeschreibung)
         self.uiBeschr.comboStatus.activated.connect(self.updateBeschreibung)
         self.uiBeschr.comboHeimat.activated.connect(self.updateBeschreibung)
-        
-        
-        
+        self.currentGebraeuche = "Mittelreich"
+        if "Gebräuche: " + self.currentGebraeuche not in \
+                Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente:
+            Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.append(
+                    "Gebräuche: " + self.currentGebraeuche)
+
     def updateBeschreibung(self):
         ''' Transfer current values to Char object '''
         if self.uiBeschr.editName.text() != "":
@@ -44,6 +51,17 @@ class BeschrWrapper(QtCore.QObject):
             Wolke.Char.rasse = self.uiBeschr.editRasse.text()
         Wolke.Char.status = self.uiBeschr.comboStatus.currentIndex()
         Wolke.Char.finanzen = self.uiBeschr.comboFinanzen.currentIndex()
+
+        if self.uiBeschr.comboHeimat.currentText() != self.currentGebraeuche:
+            if "Gebräuche: " + self.currentGebraeuche in \
+                    Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente:
+                Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.remove(
+                        "Gebräuche: " + self.currentGebraeuche)
+            self.currentGebraeuche = self.uiBeschr.comboHeimat.currentText()
+            if "Gebräuche: " + self.currentGebraeuche not in \
+                    Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente:
+                Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.append(
+                    "Gebräuche: " + self.currentGebraeuche)
         Wolke.Char.heimat = self.uiBeschr.comboHeimat.currentText()
         Wolke.Char.kurzbeschreibung = self.uiBeschr.editKurzbeschreibung.text()
         Wolke.Char.eigenheiten = []
@@ -78,3 +96,4 @@ class BeschrWrapper(QtCore.QObject):
         self.uiBeschr.editEig6.setText(arr[5])
         self.uiBeschr.editEig7.setText(arr[6])
         self.uiBeschr.editEig8.setText(arr[7])
+        
