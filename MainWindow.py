@@ -48,14 +48,14 @@ class Ui_Form(object):
         self.gridLayout.addItem(spacerItem, 3, 0, 1, 1)
         spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.gridLayout.addItem(spacerItem1, 6, 0, 1, 1)
-        self.label_3 = QtWidgets.QLabel(Form)
+        self.labelVersion = QtWidgets.QLabel(Form)
         font = QtGui.QFont()
         font.setPointSize(7)
         font.setItalic(True)
-        self.label_3.setFont(font)
-        self.label_3.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.label_3.setObjectName("label_3")
-        self.gridLayout.addWidget(self.label_3, 9, 0, 1, 1)
+        self.labelVersion.setFont(font)
+        self.labelVersion.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.labelVersion.setObjectName("labelVersion")
+        self.gridLayout.addWidget(self.labelVersion, 9, 0, 1, 1)
         spacerItem2 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.gridLayout.addItem(spacerItem2, 8, 0, 1, 1)
         spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
@@ -74,7 +74,7 @@ class Ui_Form(object):
         self.buttonEdit.setText(_translate("Form", "Vorhandenen Charakter bearbeiten"))
         self.label.setText(_translate("Form", "Sephrasto"))
         self.label_2.setText(_translate("Form", "Ein Charaktergenerator für Ilaris"))
-        self.label_3.setText(_translate("Form", "v0.3.5 - by Aeolitus "))
+        self.labelVersion.setText(_translate("Form", "v0.3.5 - by Aeolitus "))
 
 
 if __name__ == "__main__":

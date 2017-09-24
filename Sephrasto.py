@@ -22,6 +22,7 @@ class MainWindowWrapper(object):
         '''
         Initializes the GUI and connects the buttons.
         '''
+        self._version_ = "v0.3.7"
         super().__init__()
             
         self.app = QtCore.QCoreApplication.instance()
@@ -45,6 +46,7 @@ class MainWindowWrapper(object):
         self.ui.buttonNew.clicked.connect(self.createNew)
         self.ui.buttonEdit.clicked.connect(self.editExisting)
         self.ui.buttonRules.clicked.connect(self.editRuleset)
+        self.ui.labelVersion.setText(self._version_ + " - by Aeolitus ")
         self.Form.show()
         sys.exit(self.app.exec_())
         
