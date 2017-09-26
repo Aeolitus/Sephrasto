@@ -185,7 +185,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
             self.uiFert.spinFW.setMaximum(fert.maxWert)
             self.spinRef[self.currentFertName].setMaximum(fert.maxWert)
             self.uiFert.spinFW.setValue(fert.wert)
-            self.uiFert.spinPW.setValue(fert.probenwert)
+            self.uiFert.spinPW.setValue(fert.probenwertTalent)
             #self.uiFert.spinPWT.setValue(fert.probenwertTalent)
             self.uiFert.plainText.setPlainText(fert.text)
             self.updateTalents()

@@ -37,7 +37,7 @@ class BeschrWrapper(QtCore.QObject):
         self.uiBeschr.comboFinanzen.activated.connect(self.updateBeschreibung)
         self.uiBeschr.comboStatus.activated.connect(self.updateBeschreibung)
         self.uiBeschr.comboHeimat.activated.connect(self.updateBeschreibung)
-        self.currentGebraeuche = "Mittelreich"
+        self.currentGebraeuche = Wolke.Char.heimat
         if "Gebräuche: " + self.currentGebraeuche not in \
                 Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente:
             Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.append(

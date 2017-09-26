@@ -1,11 +1,11 @@
-python C:\Users\Aeolitus\Anaconda3\Scripts\cxfreeze --target-dir=C:\Users\Aeolitus\Desktop\Sephrasto\Build ^
+python C:\Users\Lennart\Anaconda3\Scripts\cxfreeze --target-dir=C:\Users\Lennart\Desktop\Sephrasto\Build ^
 --base-name=Win32GUI ^
 --include-modules=lxml._elementpath,os ^
-C:\Users\Aeolitus\Desktop\Sephrasto\Sephrasto.py
-COPY /Y C:\Users\Aeolitus\Desktop\Sephrasto\IncludeInBuildFolder\* C:\Users\Aeolitus\Desktop\Sephrasto\Build
+C:\Users\Lennart\Desktop\Sephrasto\Sephrasto.py
+COPY /Y C:\Users\Lennart\Desktop\Sephrasto\IncludeInBuildFolder\* C:\Users\Lennart\Desktop\Sephrasto\Build
 mkdir Build\Library\plugins\platforms
-COPY /Y C:\Users\Aeolitus\Desktop\Sephrasto\IncludeInBuildFolder\Library\plugins\platforms\* ^
-C:\Users\Aeolitus\Desktop\Sephrasto\Build\Library\plugins\platforms
-COPY /Y C:\Users\Aeolitus\Desktop\Sephrasto\datenbank.xml C:\Users\Aeolitus\Desktop\Sephrasto\Build
-COPY /Y C:\Users\Aeolitus\Desktop\Sephrasto\Charakterbogen.pdf C:\Users\Aeolitus\Desktop\Sephrasto\Build
-COPY /Y C:\Users\Aeolitus\Desktop\Sephrasto\Gebrauchsanleitung.pdf C:\Users\Aeolitus\Desktop\Sephrasto\Build
+COPY /Y C:\Users\Lennart\Desktop\Sephrasto\IncludeInBuildFolder\Library\plugins\platforms\* ^
+C:\Users\Lennart\Desktop\Sephrasto\Build\Library\plugins\platforms
+COPY /Y C:\Users\Lennart\Desktop\Sephrasto\datenbank.xml C:\Users\Lennart\Desktop\Sephrasto\Build
+COPY /Y C:\Users\Lennart\Desktop\Sephrasto\Charakterbogen.pdf C:\Users\Lennart\Desktop\Sephrasto\Build
+COPY /Y C:\Users\Lennart\Desktop\Sephrasto\Gebrauchsanleitung.pdf C:\Users\Lennart\Desktop\Sephrasto\Build
