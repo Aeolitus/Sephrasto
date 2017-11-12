@@ -1008,7 +1008,7 @@ class Char():
         countFerts = 0
         talsList = []
         for f in self.übernatürlicheFertigkeiten:
-            if self.übernatürlicheFertigkeiten[f].wert > 0 and len(self.übernatürlicheFertigkeiten[f].gekaufteTalente) > 0:
+            if self.übernatürlicheFertigkeiten[f].wert > 0 or len(self.übernatürlicheFertigkeiten[f].gekaufteTalente) > 0:
                 talsList.extend(self.übernatürlicheFertigkeiten[f].gekaufteTalente)
                 countFerts += 1
         talsList = set(talsList)
@@ -1019,7 +1019,7 @@ class Char():
         countF = 1
         countT = 1
         for f in self.übernatürlicheFertigkeiten:
-            if self.übernatürlicheFertigkeiten[f].wert <= 0:
+            if self.übernatürlicheFertigkeiten[f].wert <= 0 and len(self.übernatürlicheFertigkeiten[f].gekaufteTalente) == 0:
                 continue
             fe = self.übernatürlicheFertigkeiten[f]
             
