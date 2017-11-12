@@ -2789,6 +2789,16 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Woche
 Kosten: 4 AsP
 Fertigkeiten: Temporal, Verwandlung</Talent>
+  <Talent name="Animatio stummer Diener" kosten="60" voraussetzungen="Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Umwelt" variable="0">Du verzauberst ein Objekt von maximal 4 Stein, sodass es eine einfache Bewegung wiederholt. Du musst die Bewegung während der Vorbereitungszeit sieben Mal eigenhändig ausführen und ein Signal bestimmen (z.B. ein Fingerschnippen oder ein Wort). Gibst du das Signal, führt der Gegenstand die Bewegung aus. Seine KK entspricht deiner KK während der Vorbereitungszeit.
+Mächtige Magie: Das maximale Gewicht verdoppelt sich.
+Probenschwierigkeit: 12
+Modifikationen: Mehrere Objekte (-4; du kannst bis zu FF Objekte gleichzeitig verzaubern, solange ihre Bewegungen zusammengehören.), Mehrere Auslösende (-2; eine zusätzliche Person kann das Signal geben. Mehrfach wählbar.), Geworfen (-4; du musst das Objekt während der Vorbereitungszeit nicht permanent in der Hand halten.), Tagelöhner (4 AsP, Wirkungsdauer 8 Stunden), Ad Infinitum Ad Nauseam (-8; das Objekt wiederholt die Bewegung immer wieder, bis du das Signal wiederholst.)
+Vorbereitungszeit: 4 Minuten
+Ziel: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: 1 Jahr
+Kosten: 16 AsP
+Fertigkeiten: Umwelt</Talent>
   <Talent name="Dunkelheit" kosten="40" voraussetzungen="Vorteil Magiedillettant ODER Vorteil Druidische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Geodische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I ODER Vorteil Kristallomantische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Scharlatanische Repräsentation I ODER Vorteil Elfische Repräsentation I" verbilligt="0" fertigkeiten="Umwelt" variable="0">Um deinen Körper herum entsteht eine Zone der Dunkelheit, die Helligkeit sinkt um 1 Stufe (etwa von normal auf Dämmerung, von Sternenlicht auf absolute Dunkelheit). Du selbst wirst durch den Zauber nicht betroffen. 
 Mächtige Magie: Senkt die Helligkeit um eine weitere Stufe. 
 Probenschwierigkeit: 12
