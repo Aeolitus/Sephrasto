@@ -32,7 +32,7 @@ class DatenbankEditTalentWrapper(object):
             ui.spinKosten.setValue(talent.kosten)
         else:
             ui.buttonRegulaer.setChecked(True)
-        if talent.variable:
+        if talent.variable == 1:
             ui.checkVariable.setChecked(True)
         else:
             ui.checkVariable.setChecked(False)
