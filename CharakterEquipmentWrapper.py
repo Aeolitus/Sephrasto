@@ -76,7 +76,7 @@ class EquipWrapper(QtCore.QObject):
                 if self.uiEq.checkZonen.isChecked():
                     R.rs = [self.uiEq.spinR2bein.value(), self.uiEq.spinR2larm.value(), self.uiEq.spinR2rarm.value(), self.uiEq.spinR2bauch.value(), self.uiEq.spinR2brust.value(), self.uiEq.spinR2kopf.value()]
                 else:
-                    R.rs = 6*[self.uiEq.spinR2RS]
+                    R.rs = 6*[self.uiEq.spinR2RS.value()]
                 Wolke.Char.rüstung.append(R)
             if self.uiEq.editR3name.text() != "":
                 R = Objekte.Ruestung() 
@@ -85,7 +85,7 @@ class EquipWrapper(QtCore.QObject):
                 if self.uiEq.checkZonen.isChecked():
                     R.rs = [self.uiEq.spinR3bein.value(), self.uiEq.spinR3larm.value(), self.uiEq.spinR3rarm.value(), self.uiEq.spinR3bauch.value(), self.uiEq.spinR3brust.value(), self.uiEq.spinR3kopf.value()]
                 else:
-                    R.rs = 6*[self.uiEq.spinR3RS]
+                    R.rs = 6*[self.uiEq.spinR3RS.value()]
                 Wolke.Char.rüstung.append(R)
                 
             Wolke.Char.waffen = []
