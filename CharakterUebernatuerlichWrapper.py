@@ -7,6 +7,7 @@ Created on Fri Mar 10 17:33:11 2017
 from Wolke import Wolke
 import CharakterUebernatuerlich
 import TalentPicker
+import MousewheelProtector
 from PyQt5 import QtWidgets, QtCore, QtGui
 
 class UebernatuerlichWrapper(QtCore.QObject):
@@ -26,7 +27,9 @@ class UebernatuerlichWrapper(QtCore.QObject):
         
         self.model = QtGui.QStandardItemModel(self.uiFert.listTalente)
         self.uiFert.listTalente.setModel(self.model)
-        
+
+        self.mwp = MousewheelProtector.MousewheelProtector()
+
         #Signals
         self.uiFert.spinFW.valueChanged.connect(lambda state : self.fwChanged(False))
         self.uiFert.tableWidget.currentItemChanged.connect(self.tableClicked)   
@@ -93,6 +96,8 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 # Add Spinner for FW
                 #self.uiFert.tableWidget.setItem(count,1,QtWidgets.QTableWidgetItem(str(Wolke.Char.übernatürlicheFertigkeiten[el].wert)))
                 self.spinRef[Wolke.Char.übernatürlicheFertigkeiten[el].name] = QtWidgets.QSpinBox()
+                self.spinRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].setFocusPolicy(QtCore.Qt.StrongFocus)
+                self.spinRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].installEventFilter(self.mwp)
                 self.spinRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].setMinimum(0)
                 self.spinRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].setMaximum(Wolke.Char.übernatürlicheFertigkeiten[el].maxWert)
                 self.spinRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].setValue(Wolke.Char.übernatürlicheFertigkeiten[el].wert)
