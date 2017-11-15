@@ -974,7 +974,7 @@ class Char():
                         at -= 2
                         vt -= 2
                     
-                if not flagReiter2:
+                if not flagReiter2 and tale == "Reiten" and fertig=="Athletik":
                     at -= self.be
                     vt -= self.be
                     
