@@ -11,7 +11,7 @@ class Char():
     ''' 
     Main Workhorse Class. Contains all information about a charakter, performs
     calculations of EP-Costs and MR and such, checks requirements, reads and 
-    writes xml and writes to pdf. Probably should refactor this into multiple
+    writes xml. Probably should refactor this into multiple
     subclasses someday. 
     
     Someday.
@@ -77,6 +77,9 @@ class Char():
 
         #Achter Block: Flags etc
         self.höchsteKampfF = -1
+        
+        # Diagnostics
+        self.fehlercode = 0
 
     def aktualisieren(self):
         '''Berechnet alle abgeleiteten Werte neu'''
@@ -378,8 +381,10 @@ class Char():
         '''Speichert dieses Charakter-Objekt in einer XML Datei, deren 
         Dateiname inklusive Pfad als Argument übergeben wird'''
         #Document Root
+        Wolke.Fehlercode = -53
         root = etree.Element('Charakter')
         #Erster Block
+        Wolke.Fehlercode = -54
         sub =  etree.SubElement(root,'AllgemeineInfos')
         etree.SubElement(sub,'name').text = self.name
         etree.SubElement(sub,'rasse').text = self.rasse
@@ -392,6 +397,7 @@ class Char():
         for eigenh in self.eigenheiten:
             etree.SubElement(eigs,'Eigenheit').text = eigenh
         #Zweiter Block - abgeleitete nicht notwendig da automatisch neu berechnet
+        Wolke.Fehlercode = -55
         atr = etree.SubElement(root,'Attribute')
         for attr in self.attribute:
             etree.SubElement(atr,attr).text = str(self.attribute[attr].wert)
@@ -399,6 +405,7 @@ class Char():
         etree.SubElement(en,'AsP').set('wert',str(self.asp.wert))
         etree.SubElement(en,'KaP').set('wert',str(self.kap.wert))
         #Dritter Block    
+        Wolke.Fehlercode = -56
         vor = etree.SubElement(root,'Vorteile')
         if self.minderpakt is not None:
             vor.set('minderpakt',self.minderpakt)
@@ -412,6 +419,7 @@ class Char():
             else:
                 v.set('variable','-1')
         #Vierter Block
+        Wolke.Fehlercode = -57
         fer = etree.SubElement(root,'Fertigkeiten')
         for fert in self.fertigkeiten:
             fertNode = etree.SubElement(fer,'Fertigkeit')
@@ -425,11 +433,13 @@ class Char():
                     talNode.set('variable',str(self.talenteVariable[talent]))
                 else:
                     talNode.set('variable','-1')
+        Wolke.Fehlercode = -58
         for fert in self.freieFertigkeiten:
             freiNode = etree.SubElement(fer,'Freie-Fertigkeit')
             freiNode.set('name',fert.name)
             freiNode.set('wert',str(fert.wert))
         #Fünfter Block
+        Wolke.Fehlercode = -59
         aus = etree.SubElement(root,'Objekte')
         rüs = etree.SubElement(aus,'Rüstungen')
         for rüst in self.rüstung:
@@ -437,6 +447,7 @@ class Char():
             rüsNode.set('name',rüst.name)
             rüsNode.set('be',str(rüst.be))
             rüsNode.set('rs',Hilfsmethoden.RsArray2Str(rüst.rs))
+        Wolke.Fehlercode = -60
         waf = etree.SubElement(aus,'Waffen')
         for waff in self.waffen:
             wafNode = etree.SubElement(waf,'Waffe')
@@ -453,10 +464,12 @@ class Char():
             elif type(waff) is Objekte.Fernkampfwaffe:
                 wafNode.set('typ','Fern')
                 wafNode.set('lz',str(waff.lz))
+        Wolke.Fehlercode = -61
         ausrüst = etree.SubElement(aus,'Ausrüstung')
         for ausr in self.ausrüstung:
             etree.SubElement(ausrüst,'Ausrüstungsstück').text = ausr
         #Sechster Block
+        Wolke.Fehlercode = -62
         üfer = etree.SubElement(root,'Übernatürliche-Fertigkeiten')
         for fert in self.übernatürlicheFertigkeiten:
             fertNode = etree.SubElement(üfer,'Übernatürliche-Fertigkeit')
@@ -471,25 +484,30 @@ class Char():
                 else:
                     talNode.set('variable','-1')
         #Siebter Block
+        Wolke.Fehlercode = -63
         epn = etree.SubElement(root,'Erfahrung')
         etree.SubElement(epn,'EPtotal').text = str(self.EPtotal)
         etree.SubElement(epn,'EPspent').text = str(self.EPspent)
-        
         #Write XML to file
+        Wolke.Fehlercode = -64
         doc = etree.ElementTree(root)
         with open(filename,'wb') as file:
             file.seek(0)
             file.truncate()
             doc.write(file, encoding='UTF-8', pretty_print=True)
             file.truncate()
+        Wolke.Fehlercode = 0
 
     def xmlLesen(self,filename):
         '''Läd ein Charakter-Objekt aus einer XML Datei, deren Dateiname 
         inklusive Pfad als Argument übergeben wird'''
         #Alles bisherige löschen
+        Wolke.Fehlercode = -41
         self.__init__()
+        Wolke.Fehlercode = -42
         root = etree.parse(filename).getroot()
         #Erster Block
+        Wolke.Fehlercode = -43
         alg = root.find('AllgemeineInfos')
         self.name = alg.find('name').text
         self.rasse = alg.find('rasse').text
@@ -505,6 +523,7 @@ class Char():
         for eig in alg.findall('eigenheiten/*'):
             self.eigenheiten.append(eig.text)
         #Zweiter Block
+        Wolke.Fehlercode = -44
         for atr in root.findall('Attribute/*'):
             self.attribute[atr.tag].wert = int(atr.text)
             self.attribute[atr.tag].aktualisieren()
@@ -513,6 +532,7 @@ class Char():
         for ene in root.findall('Energien/KaP'):
             self.kap.wert = int(ene.attrib['wert'])
         #Dritter Block
+        Wolke.Fehlercode = -45
         for vor in root.findall('Vorteile'):
             if "minderpakt" in vor.attrib:
                 self.minderpakt = vor.get('minderpakt')
@@ -524,6 +544,7 @@ class Char():
             if var != -1:
                 self.vorteileVariable[vor.text] = var
         #Vierter Block
+        Wolke.Fehlercode = -46
         for fer in root.findall('Fertigkeiten/Fertigkeit'):
             nam = fer.attrib['name']
             fert = Wolke.DB.fertigkeiten[nam].__deepcopy__()
@@ -534,18 +555,21 @@ class Char():
                     self.talenteVariable[tal] = int(tal.attrib['variable'])
             fert.aktualisieren()
             self.fertigkeiten.update({fert.name: fert})
+        Wolke.Fehlercode = -47
         for fer in root.findall('Fertigkeiten/Freie-Fertigkeit'):
             fert = Fertigkeiten.FreieFertigkeit()            
             fert.name = fer.attrib['name']
             fert.wert = int(fer.attrib['wert'])
             self.freieFertigkeiten.append(fert)
         #Fünfter Block
+        Wolke.Fehlercode = -48
         for rüs in root.findall('Objekte/Rüstungen/Rüstung'):
             rüst = Objekte.Ruestung()
             rüst.name = rüs.attrib['name']
             rüst.be = int(rüs.attrib['be'])
             rüst.rs = Hilfsmethoden.RsStr2Array(rüs.attrib['rs'])
             self.rüstung.append(rüst)
+        Wolke.Fehlercode = -49
         for waf in root.findall('Objekte/Waffen/Waffe'):
             if waf.attrib['typ'] == 'Nah':
                 waff = Objekte.Nahkampfwaffe()
@@ -561,9 +585,11 @@ class Char():
             waff.haerte = int(waf.attrib['haerte'])
             waff.kampfstil = int(waf.attrib['kampfstil'])
             self.waffen.append(waff)
+        Wolke.Fehlercode = -50
         for aus in root.findall('Objekte/Ausrüstung/Ausrüstungsstück'):
             self.ausrüstung.append(aus.text)
         #Sechster Block 
+        Wolke.Fehlercode = -51
         for fer in root.findall('Übernatürliche-Fertigkeiten/Übernatürliche-Fertigkeit'):
             nam = fer.attrib['name']
             fert = Wolke.DB.übernatürlicheFertigkeiten[nam].__deepcopy__()
@@ -575,5 +601,8 @@ class Char():
             fert.aktualisieren()
             self.übernatürlicheFertigkeiten.update({fert.name: fert})
         #Siebter Block
+        Wolke.Fehlercode = -52
         self.EPtotal = int(root.find('Erfahrung/EPtotal').text)
-        self.EPspent = int(root.find('Erfahrung/EPspent').text)    
+        self.EPspent = int(root.find('Erfahrung/EPspent').text)   
+        
+        Wolke.Fehlercode = 0

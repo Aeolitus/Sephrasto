@@ -171,11 +171,11 @@ class Editor(object):
             
         retV = self.pdfMeister.pdfErstellen(spath)
         
-        if retV < 0:
+        if retV < 0.5:
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Information)
             infoBox.setText("PDF-Erstellung fehlgeschlagen!")
-            if retV == -1:
+            if retV > -1.5:
                 infoBox.setInformativeText("Um Charakterbögen befüllen zu können, muss PDFtk installiert sein.\n\
 PDFtk erhälst du auf: \n pdflabs.com/tools/pdftk-server/\n\
 Nach der Installation ist ein Neustart von Sephrasto erforderlich.\n\
