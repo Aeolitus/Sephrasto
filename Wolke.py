@@ -89,6 +89,8 @@ File called ExtraSpells.pdf in your Sephrasto folder!',
         -92: 'Error assigning extra fields!', 
         -93: 'Error writing temporary extra page to pdf!', 
         -94: 'Error merging pdf files!',
+        -95: 'Error deleting or renaming files on file system. \
+Please check the created PDFs to see which one is your character!',
     ### Other Errors
         -200: 'General Error you shouldnt see. Please contact Aeolitus.'
     }

@@ -13,7 +13,7 @@ import Objekte
 import re
 import Talentbox
 from subprocess import check_output
-
+import os
 
 class pdfMeister(object):
 
@@ -35,6 +35,11 @@ class pdfMeister(object):
         '''
         Wolke.Fehlercode = -80
         Wolke.Char.aktualisieren()
+        self.ExtraVorts = []
+        self.ExtraTalents = []
+        self.ExtraUeber = []
+        self.Talents = {}
+        self.UseExtraPage = False
         Wolke.Fehlercode = -81
         fields = pdf.get_fields(self.CharakterBogen)
         Wolke.Fehlercode = -82
@@ -59,22 +64,24 @@ class pdfMeister(object):
             while len(self.ExtraVorts) > 0 or \
                      len(self.ExtraTalents) > 0 or \
                         len(self.ExtraUeber) > 0:
-                vor = self.ExtraVorts[0:13]
-                fer = self.ExtraUeber[0:13]
-                tal = self.ExtraTalents[0:31]
-                self.ExtraVorts = self.ExtraVorts[13:]
-                self.ExtraUeber = self.ExtraUeber[13:]
-                self.ExtraTalents = self.ExtraTalents[31:]
-                
+                fieldsNew = None
                 Wolke.Fehlercode = -91
-                fields = pdf.get_fields(self.ExtraPage)
+                fieldsNew = pdf.get_fields(self.ExtraPage)
                 Wolke.Fehlercode = -92
-                fields = self.createExtra(vor,fer,tal,fields)
+                fieldsNew = self.createExtra(self.ExtraVorts,self.ExtraUeber,self.ExtraTalents,fieldsNew)
                 Wolke.Fehlercode = -93
-                pdf.write_pdf(self.ExtraPage, fields, 'temp_ex_page_feel_free_to_remove.pdf', False)
+                pdf.write_pdf(self.ExtraPage, fieldsNew, 'temp_ex_page_feel_free_to_remove.pdf', False)
                 Wolke.Fehlercode = -94
-                call = 'pdftk ' + filename + ' temp_ex_page_feel_free_to_remove.pdf cat output ' + filename
+                call = 'pdftk ' + filename + ' temp_ex_page_feel_free_to_remove.pdf cat output \
+temp_full_cb_feel_free_to_remove.pdf'                
                 check_output(call)
+                Wolke.Fehlercode = -95
+                os.remove(filename)
+                os.remove('temp_ex_page_feel_free_to_remove.pdf')
+                os.rename('temp_full_cb_feel_free_to_remove.pdf', filename)
+                del self.ExtraVorts[0:13]
+                del self.ExtraUeber[0:13]
+                del self.ExtraTalents[0:31]
         Wolke.Fehlercode = 0
 
     def pdfErsterBlock(self, fields):
@@ -237,9 +244,6 @@ class pdfMeister(object):
         if len(tmpKampf) > 16:
             tmpOverflow.extend(tmpKampf[16:])
             tmpKampf = tmpKampf[:16]
-        if len(tmpUeber) > 24:
-            tmpOverflow.extend(tmpUeber[24:])
-            tmpUeber = tmpUeber[:24]
         if len(tmpUeber) > 12:
             tmpUeberflow.extend(tmpUeber[12:])
             tmpUeber = tmpUeber[:12]
@@ -269,7 +273,9 @@ class pdfMeister(object):
                 fields['Uebervorteil' + str(i)] = tmpUeber[i-1]
         if len(tmpUeberflow) > 0:
             self.UseExtraPage = True
-            self.ExtraVorts = tmpUeberflow
+            for el in tmpUeberflow:
+                if len(el) > 0:
+                    self.ExtraVorts.append(el)
             
         return fields
 
@@ -537,76 +543,82 @@ class pdfMeister(object):
                 fields[base + 'BA'] = fe.basiswert
                 fields[base + 'FW'] = fe.wert
                 fields[base + 'PW'] = fe.probenwertTalent
-                countF += 1
             else:
                 self.UseExtraPage = True
                 self.ExtraUeber.append(fe)
-
+            countF += 1
+            
             # Fill Talente
             tals = sorted(fe.gekaufteTalente, key=lambda s: s.lower())
             for t in tals:
-                    #base = 'Uebertal' + str(countT)
-                    tt = Talentbox.Talentbox()
-                    mod = ""
-                    if t in Wolke.Char.talenteVariable:
-                        mod += " (" + str(Wolke.Char.talenteVariable[t]) + \
-                                  " EP)"
+                #base = 'Uebertal' + str(countT)
+                tt = Talentbox.Talentbox()
+                mod = ""
+                if t in Wolke.Char.talenteVariable:
+                    mod += " (" + str(Wolke.Char.talenteVariable[t]) + \
+                              " EP)"
 
-                    if t+mod in self.Talents:
-                        if fe.probenwertTalent > self.Talents[t+mod]:
-                            self.Talents[t+mod].pw = fe.probenwertTalent
-                            #fields[self.addedTals[t+mod][1] + 'PW'] = \
-                                  #fe.probenwertTalent
-                            #self.addedTals[t+mod] = (fe.probenwertTalent,
-                            #                    self.addedTals[t+mod][1])
-                    else:
-                        #self.addedTals[t+mod] = (fe.probenwertTalent, base)
-                        tt.na = t + mod
-                        #fields[base + 'NA'] = t + mod
-                        tt.pw = fe.probenwertTalent
-                        #fields[base + 'PW'] = fe.probenwertTalent
-                        # Get Spellinfo from text
-                        if t in Wolke.DB.talente:
-                            txt = Wolke.DB.talente[t].text
-                            res = re.findall('Vorbereitungszeit:(.*?)\n',
-                                             txt,
-                                             re.UNICODE)
-                            if len(res) == 1:
-                                tt.vo = res[0].strip()
-                                #fields[base + 'VO'] = res[0].strip()
-                            res = re.findall('Reichweite:(.*?)\n',
-                                             txt,
-                                             re.UNICODE)
-                            if len(res) == 1:
-                                tt.re = res[0].strip()
-                                #fields[base + 'RE'] = res[0].strip()
-                            res = re.findall('Wirkungsdauer:(.*?)\n',
-                                             txt,
-                                             re.UNICODE)
-                            if len(res) == 1:
-                                tt.wd = res[0].strip()
-                                #fields[base + 'WD'] = res[0].strip()
-                            res = re.findall('Kosten:(.*?)\n',
-                                             txt,
-                                             re.UNICODE)
-                            if len(res) == 1:
-                                tt.ko = res[0].strip()
-                                #fields[base + 'KO'] = res[0].strip()
-                        self.Talents.append(tt)
-            for tt in self.Talents:
-                if countT < 31:
-                    base = 'Uebertal' + str(countT)
-                    fields[base + 'NA'] = tt.na
-                    fields[base + 'PW'] = tt.pw
-                    fields[base + 'VO'] = tt.vo
-                    fields[base + 'WD'] = tt.wd
-                    fields[base + 'KO'] = tt.ko
-                    fields[base + 'RE'] = tt.re
+                #if t+mod in self.Talents:
+                #    if fe.probenwertTalent > self.Talents[t+mod].pw:
+                #        self.Talents[t+mod].pw = fe.probenwertTalent
+                        #fields[self.addedTals[t+mod][1] + 'PW'] = \
+                              #fe.probenwertTalent
+                        #self.addedTals[t+mod] = (fe.probenwertTalent,
+                        #                    self.addedTals[t+mod][1])
+                #else:
+                #self.addedTals[t+mod] = (fe.probenwertTalent, base)
+                tt.na = t + mod
+                #fields[base + 'NA'] = t + mod
+                tt.pw = fe.probenwertTalent
+                #fields[base + 'PW'] = fe.probenwertTalent
+                # Get Spellinfo from text
+                if t in Wolke.DB.talente:
+                    txt = Wolke.DB.talente[t].text
+                    res = re.findall('Vorbereitungszeit:(.*?)\n',
+                                     txt,
+                                     re.UNICODE)
+                    if len(res) == 1:
+                        tt.vo = res[0].strip()
+                        #fields[base + 'VO'] = res[0].strip()
+                    res = re.findall('Reichweite:(.*?)\n',
+                                     txt,
+                                     re.UNICODE)
+                    if len(res) == 1:
+                        tt.re = res[0].strip()
+                        #fields[base + 'RE'] = res[0].strip()
+                    res = re.findall('Wirkungsdauer:(.*?)\n',
+                                     txt,
+                                     re.UNICODE)
+                    if len(res) == 1:
+                        tt.wd = res[0].strip()
+                        #fields[base + 'WD'] = res[0].strip()
+                    res = re.findall('Kosten:(.*?)\n',
+                                     txt,
+                                     re.UNICODE)
+                    if len(res) == 1:
+                        tt.ko = res[0].strip()
+                        #fields[base + 'KO'] = res[0].strip()
+                if tt.na in self.Talents:
+                    if tt.pw > self.Talents[tt.na].pw:
+                        self.Talents[tt.na] = tt
                 else:
+                    self.Talents[tt.na] = tt
+        for tt in self.Talents:
+            if countT < 31:
+                base = 'Uebertal' + str(countT)
+                fields[base + 'NA'] = self.Talents[tt].na
+                fields[base + 'PW'] = self.Talents[tt].pw
+                fields[base + 'VO'] = self.Talents[tt].vo
+                fields[base + 'WD'] = self.Talents[tt].wd
+                fields[base + 'KO'] = self.Talents[tt].ko
+                fields[base + 'RE'] = self.Talents[tt].re
+            else:
+                if self.Talents[tt] not in self.ExtraTalents:
                     self.UseExtraPage = True
-                    self.ExtraTalents.append(tt)
-            if flagPutEmpty:
-                countT += 1
+                    self.ExtraTalents.append(self.Talents[tt])
+            countT += 1
+        if flagPutEmpty:
+            countT += 1
 
         return fields
 
@@ -622,10 +634,10 @@ class pdfMeister(object):
         for i in range(1, 13):
             if i <= len(vorts):
                 fields['Uebervorteil' + str(i) + "S2"] = vorts[i-1]
-        countF = 1
-        for fe in ferts:
-            if countF < 13:
-                base = 'Ueberfer' + str(countF)
+        for i in range(1, 13):
+            if i <= len(ferts):
+                fe = ferts[i-1]
+                base = 'Ueberfer' + str(i)
                 fields[base + 'NA' + '2'] = fe.name
                 fields[base + 'FA' + '2'] = fe.steigerungsfaktor
                 fields[base + 'AT' + '2'] = fe.attribute[0] + '/' + \
@@ -633,16 +645,14 @@ class pdfMeister(object):
                 fields[base + 'BA' + '2'] = fe.basiswert
                 fields[base + 'FW' + '2'] = fe.wert
                 fields[base + 'PW' + '2'] = fe.probenwertTalent
-            countF += 1
-        countT = 1
-        for tt in tals:
-            if countT < 31:
-                base = 'Uebertal' + str(countT)
+        for i in range(1, 31):
+            if i <= len(tals):
+                tt = tals[i-1]
+                base = 'Uebertal' + str(i)
                 fields[base + 'NA' + '2'] = tt.na
                 fields[base + 'PW' + '2'] = tt.pw
                 fields[base + 'VO' + '2'] = tt.vo
                 fields[base + 'WD' + '2'] = tt.wd
                 fields[base + 'KO' + '2'] = tt.ko
                 fields[base + 'RE' + '2'] = tt.re
-            countT += 1
         return fields
