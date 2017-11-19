@@ -6109,7 +6109,7 @@ Die Spielwerte typischer Vertrautentiere findest du im Bestiarium. Da Vertrauten
   <Waffe name="Großschild" W6="1" plus="-1" haerte="7" fertigkeit="Handgemenge" talent="Schilde" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0" rw="0" wm="2" fk="0">Schild, Stumpf</Waffe>
   <Waffe name="Holzschild" W6="1" plus="0" haerte="8" fertigkeit="Handgemenge" talent="Schilde" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0" rw="0" wm="1" fk="0">Schild, Stumpf</Waffe>
   <Waffe name="Lederschild" W6="1" plus="-1" haerte="5" fertigkeit="Handgemenge" talent="Schilde" beid="1" pari="1" reit="1" schi="1" kraf="0" schn="0" rw="0" wm="1" fk="0">Schild, Stumpf</Waffe>
-  <Waffe name="Unbewaffnet" W6="1" plus="0" haerte="1" fertigkeit="Handgemenge" talent="Unbewaffnet" beid="0" pari="0" reit="0" schi="0" kraf="0" schn="0" rw="0" wm="0" fk="0">Stumpf, Zerbrechlich, kein Malus als Nebenwaffe</Waffe>
+  <Waffe name="Unbewaffnet" W6="1" plus="0" haerte="1" fertigkeit="Handgemenge" talent="Unbewaffnet" beid="1" pari="1" reit="1" schi="1" kraf="1" schn="1" rw="0" wm="0" fk="0">Stumpf, Zerbrechlich, kein Malus als Nebenwaffe</Waffe>
   <Waffe name="Borndorn (Kurze Wurfwaffen)" W6="1" plus="2" haerte="9" fertigkeit="Wurfwaffen" talent="Kurze Wurfwaffen" beid="0" pari="0" reit="0" schi="0" kraf="0" schn="0" rw="4" lz="0" fk="1"> </Waffe>
   <Waffe name="Diskus" W6="2" plus="0" haerte="7" fertigkeit="Wurfwaffen" talent="Diskusse" beid="0" pari="0" reit="0" schi="0" kraf="0" schn="0" rw="16" lz="0" fk="1"> </Waffe>
   <Waffe name="Dolch (Kurze Wurfwaffen)" W6="1" plus="0" haerte="8" fertigkeit="Wurfwaffen" talent="Kurze Wurfwaffen" beid="0" pari="0" reit="0" schi="0" kraf="0" schn="0" rw="4" lz="0" fk="1"> </Waffe>
