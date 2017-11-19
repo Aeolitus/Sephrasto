@@ -25,27 +25,28 @@ class pdfMeister(object):
         Charakterbogen. It has been broken down into seven subroutines for
         testing purposes,
         '''
+        Wolke.Fehlercode = -80
         Wolke.Char.aktualisieren()
-        try:
-            fields = pdf.get_fields(self.CharakterBogen)
-        except:
-            return -1
-        try:
-            fields = self.pdfErsterBlock(fields)
-            fields = self.pdfZweiterBlock(fields)
-            fields = self.pdfDritterBlock(fields)
-            fields = self.pdfVierterBlock(fields)
-            fields = self.pdfFünfterBlock(fields)
-            fields = self.pdfSechsterBlock(fields)
-            fields = self.pdfSiebterBlock(fields)
-        except:
-            return -2
+        Wolke.Fehlercode = -81
+        fields = pdf.get_fields(self.CharakterBogen)
+        Wolke.Fehlercode = -82
+        fields = self.pdfErsterBlock(fields)
+        Wolke.Fehlercode = -83
+        fields = self.pdfZweiterBlock(fields)
+        Wolke.Fehlercode = -84
+        fields = self.pdfDritterBlock(fields)
+        Wolke.Fehlercode = -85
+        fields = self.pdfVierterBlock(fields)
+        Wolke.Fehlercode = -86
+        fields = self.pdfFünfterBlock(fields)
+        Wolke.Fehlercode = -87
+        fields = self.pdfSechsterBlock(fields)
+        Wolke.Fehlercode = -88
+        fields = self.pdfSiebterBlock(fields)
         # PDF erstellen - Felder bleiben bearbeitbar
-        try:
-            pdf.write_pdf(self.CharakterBogen, fields, filename, False)
-        except:
-            return -1
-        return 0
+        Wolke.Fehlercode = -89
+        pdf.write_pdf(self.CharakterBogen, fields, filename, False)
+        Wolke.Fehlercode = 0
 
     def pdfErsterBlock(self, fields):
         if Wolke.Debug:

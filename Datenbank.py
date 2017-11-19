@@ -115,9 +115,12 @@ class Datenbank():
         self.übernatürlicheFertigkeiten = {}
         self.waffen = {}
         
+        numLoaded = 0
+        
         #Vorteile
         Wolke.Fehlercode = -21
         for vort in self.root.findall('Vorteil'):
+            numLoaded += 1
             V = Fertigkeiten.Vorteil()
             V.name = vort.get('name')
             V.kosten = int(vort.get('kosten'))
@@ -130,10 +133,11 @@ class Datenbank():
             except:
                 V.variable = 0
             self.vorteile.update({V.name: V})
-
+            
         #Talente
         Wolke.Fehlercode = -22
         for tal in self.root.findall('Talent'):
+            numLoaded += 1
             T = Fertigkeiten.Talent()
             T.name = tal.get('name')
             T.kosten = int(tal.get('kosten'))
@@ -147,6 +151,7 @@ class Datenbank():
         #Fertigkeiten
         Wolke.Fehlercode = -23
         for fer in self.root.findall('Fertigkeit'):
+            numLoaded += 1
             F = Fertigkeiten.Fertigkeit()
             F.name = fer.get('name')
             F.steigerungsfaktor = int(fer.get('steigerungsfaktor'))
@@ -158,6 +163,7 @@ class Datenbank():
 
         Wolke.Fehlercode = -24
         for fer in self.root.findall('Übernatürliche-Fertigkeit'):
+            numLoaded += 1
             F = Fertigkeiten.Fertigkeit()
             F.name = fer.get('name')
             F.steigerungsfaktor = int(fer.get('steigerungsfaktor'))
@@ -169,6 +175,7 @@ class Datenbank():
         #Waffen
         Wolke.Fehlercode = -25
         for wa in self.root.findall('Waffe'):
+            numLoaded += 1
             if wa.get('fk') == '1':
                 w = Objekte.Fernkampfwaffe()
                 w.lz = int(wa.get('lz'))
@@ -190,6 +197,10 @@ class Datenbank():
             w.kraf = int(wa.get('kraf'))
             w.schn = int(wa.get('schn'))
             self.waffen.update({w.name: w})
+        
+        if numLoaded <1:
+            Wolke.Fehlercode = -33
+            raise Exception('The selected database file is empty!')
         
         # Reset 
         Wolke.Fehlercode = 0

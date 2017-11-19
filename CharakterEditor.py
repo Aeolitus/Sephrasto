@@ -144,9 +144,11 @@ class Editor(object):
         except:
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Information)
-            infoBox.setText("Speichern fehlgeschlagen!")
-            infoBox.setInformativeText("Speichern fehlgeschlagen. Sind Schreibrechte in diesem Ordner vorhanden?")
-            infoBox.setWindowTitle("Fehler")
+            infoBox.setText("Speichern des Charakters fehlgeschlagen!")
+            infoBox.setInformativeText("Beim Speichern des Charakters ist ein Fehler aufgetreten!\n\
+Fehlercode: " + str(Wolke.Fehlercode) + "\n\
+Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
+            infoBox.setWindowTitle("Charakter speichern fehlgeschlagen.")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
             infoBox.exec_()
@@ -169,24 +171,16 @@ class Editor(object):
         if ".pdf" not in spath:
             spath = spath + ".pdf"
             
-        retV = self.pdfMeister.pdfErstellen(spath)
-        
-        if retV < 0.5:
+        try:
+            self.pdfMeister.pdfErstellen(spath)
+        except:
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Information)
             infoBox.setText("PDF-Erstellung fehlgeschlagen!")
-            if retV > -1.5:
-                infoBox.setInformativeText("Um Charakterbögen befüllen zu können, muss PDFtk installiert sein.\n\
-PDFtk erhälst du auf: \n pdflabs.com/tools/pdftk-server/\n\
-Nach der Installation ist ein Neustart von Sephrasto erforderlich.\n\
-Sollte PDFtk installiert sein, scheint es nicht zu funktionieren.\n")
-                infoBox.setWindowTitle("Fehlende Voraussetzungen")
-            else:
-                infoBox.setInformativeText("Der Charakter konnte nicht in den Charakterbogen übertragen werden.\n\
-Eventuell hast du einen ungültigen Zustand des Programms erzeugt.\n\
-Bitte schicke eine Kopie deines Charakters an Aeolitus im dsaforum\n\
-oder schreib ihm eine Mail unter praiodor@gmail.com!\n")
-                infoBox.setWindowTitle("Fehler beim Schreiben")
+            infoBox.setInformativeText("Beim Erstellen des Charakterbogens ist ein Fehler aufgetreten.\n\
+Fehlercode: " + str(Wolke.Fehlercode) + "\n\
+Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
+            infoBox.setWindowTitle("PDF-Erstellung fehlgeschlagen.")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
             infoBox.exec_()

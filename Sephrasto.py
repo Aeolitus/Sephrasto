@@ -61,7 +61,8 @@ class MainWindowWrapper(object):
         '''
         self.ed = CharakterEditor.Editor()
         if self.ed.noDatabase:
-            spathDB, _ = QtWidgets.QFileDialog.getOpenFileName(None,"Regelbasis wählen... ","","XML-Datei (*.xml)")
+            spathDB, _ = QtWidgets.QFileDialog.getOpenFileName(
+                         None, "Regelbasis wählen...", "", "XML-Datei (*.xml)")
             if ".xml" not in spathDB:
                 spathDB = spathDB + ".xml"
             Wolke.DB.datei = spathDB
@@ -73,13 +74,14 @@ class MainWindowWrapper(object):
                 infoBox.setIcon(QtWidgets.QMessageBox.Information)
                 if Wolke.Fehlercode <= -20 and Wolke.Fehlercode > -40:
                     infoBox.setText("Regelbasis öffnen fehlgeschlagen")
-                    infoBox.setInformativeText("Die XML-Datei konnte nicht gelesen werden. Ist sie mit dieser Version von Sephrasto kompatibel?\n\
-Fehlercode: " + str(Wolke.Fehlercode) + "\n\")
+                    infoBox.setInformativeText("Die XML-Datei konnte nicht gelesen werden.\n\
+Fehlercode: " + str(Wolke.Fehlercode) + "\n\
+Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
                     infoBox.setWindowTitle("Fehlerhafte Datei")
                 else:
                     infoBox.setText("Ein unerwarteter Fehler ist aufgetreten!")
                     infoBox.setInformativeText("Ein Fehler ist aufgetreten. Versuche, Sephrasto neu zu starten?\n\
-Fehlercode: " + str(Wolke.Fehlercode) + "\n\")
+Fehlercode: " + str(Wolke.Fehlercode) + "\n")
                     infoBox.setWindowTitle("Unbekannter Fehler")
                 infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
                 infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
@@ -111,15 +113,16 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n\")
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Information)
             if Wolke.Fehlercode <= -40 and Wolke.Fehlercode > -80:
-                    infoBox.setText("Charakterdatei öffnen fehlgeschlagen")
-                    infoBox.setInformativeText("Die XML-Datei konnte nicht gelesen werden. Ist sie mit dieser Version von Sephrasto kompatibel?\n\
-Fehlercode: " + str(Wolke.Fehlercode) + "\n\")
-                    infoBox.setWindowTitle("Fehlerhafte Datei")
-                else:
-                    infoBox.setText("Ein unerwarteter Fehler ist aufgetreten!")
-                    infoBox.setInformativeText("Ein Fehler ist aufgetreten. Versuche, Sephrasto neu zu starten?\n\
-Fehlercode: " + str(Wolke.Fehlercode) + "\n\")
-                    infoBox.setWindowTitle("Unbekannter Fehler")
+                infoBox.setText("Charakterdatei öffnen fehlgeschlagen")
+                infoBox.setInformativeText("Die XML-Datei konnte nicht gelesen werden.\n\
+Fehlercode: " + str(Wolke.Fehlercode) + "\n\
+Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
+                infoBox.setWindowTitle("Fehlerhafte Datei")
+            else:
+                infoBox.setText("Ein unerwarteter Fehler ist aufgetreten!")
+                infoBox.setInformativeText("Ein Fehler ist aufgetreten. Versuche, Sephrasto neu zu starten?\n\
+Fehlercode: " + str(Wolke.Fehlercode) + "\n")
+                infoBox.setWindowTitle("Unbekannter Fehler")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
             infoBox.exec_()
@@ -137,13 +140,14 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n\")
                     infoBox.setIcon(QtWidgets.QMessageBox.Information)
                     if Wolke.Fehlercode <= -20 and Wolke.Fehlercode > -40:
                         infoBox.setText("Regelbasis öffnen fehlgeschlagen")
-                        infoBox.setInformativeText("Die XML-Datei konnte nicht gelesen werden. Ist sie mit dieser Version von Sephrasto kompatibel?\n\
-Fehlercode: " + str(Wolke.Fehlercode) + "\n\")
+                        infoBox.setInformativeText("Die XML-Datei konnte nicht gelesen werden.\n\
+Fehlercode: " + str(Wolke.Fehlercode) + "\n\
+Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
                         infoBox.setWindowTitle("Fehlerhafte Datei")
                     else:
                         infoBox.setText("Ein unerwarteter Fehler ist aufgetreten!")
                         infoBox.setInformativeText("Ein Fehler ist aufgetreten. Versuche, Sephrasto neu zu starten?\n\
-Fehlercode: " + str(Wolke.Fehlercode) + "\n\")
+Fehlercode: " + str(Wolke.Fehlercode) + "\n")
                         infoBox.setWindowTitle("Unbekannter Fehler")
                     infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
                     infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
