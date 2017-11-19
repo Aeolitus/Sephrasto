@@ -11,6 +11,8 @@ import pdf
 import Definitionen
 import Objekte
 import re
+import Talentbox
+from subprocess import check_output
 
 
 class pdfMeister(object):
@@ -18,6 +20,12 @@ class pdfMeister(object):
     def __init__(self):
         # Name des Charakterbogens, der verwendet wird (im gleichen Ordner)
         self.CharakterBogen = "Charakterbogen.pdf"
+        self.ExtraPage = "ExtraSpells.pdf"
+        self.UseExtraPage = False
+        self.ExtraVorts = []
+        self.ExtraUeber = []
+        self.ExtraTalents = []
+        self.Talents = {}
     
     def pdfErstellen(self, filename):
         '''
@@ -46,6 +54,27 @@ class pdfMeister(object):
         # PDF erstellen - Felder bleiben bearbeitbar
         Wolke.Fehlercode = -89
         pdf.write_pdf(self.CharakterBogen, fields, filename, False)
+        Wolke.Fehlercode = -90
+        if self.UseExtraPage:
+            while len(self.ExtraVorts) > 0 or \
+                     len(self.ExtraTalents) > 0 or \
+                        len(self.ExtraUeber) > 0:
+                vor = self.ExtraVorts[0:13]
+                fer = self.ExtraUeber[0:13]
+                tal = self.ExtraTalents[0:31]
+                self.ExtraVorts = self.ExtraVorts[13:]
+                self.ExtraUeber = self.ExtraUeber[13:]
+                self.ExtraTalents = self.ExtraTalents[31:]
+                
+                Wolke.Fehlercode = -91
+                fields = pdf.get_fields(self.ExtraPage)
+                Wolke.Fehlercode = -92
+                fields = self.createExtra(vor,fer,tal,fields)
+                Wolke.Fehlercode = -93
+                pdf.write_pdf(self.ExtraPage, fields, 'temp_ex_page_feel_free_to_remove.pdf', False)
+                Wolke.Fehlercode = -94
+                call = 'pdftk ' + filename + ' temp_ex_page_feel_free_to_remove.pdf cat output ' + filename
+                check_output(call)
         Wolke.Fehlercode = 0
 
     def pdfErsterBlock(self, fields):
@@ -199,7 +228,8 @@ class pdfMeister(object):
                                            typeDict[el] >= 2)]
         tmpUeber = [el for el in sortV if typeDict[el] >= 4]
         tmpOverflow = []
-
+        tmpUeberflow = []
+        
         # Fill up categories that are not full with the overflow
         if len(tmpVorts) > 8:
             tmpOverflow.extend(tmpVorts[8:])
@@ -207,8 +237,11 @@ class pdfMeister(object):
         if len(tmpKampf) > 16:
             tmpOverflow.extend(tmpKampf[16:])
             tmpKampf = tmpKampf[:16]
+        if len(tmpUeber) > 24:
+            tmpOverflow.extend(tmpUeber[24:])
+            tmpUeber = tmpUeber[:24]
         if len(tmpUeber) > 12:
-            tmpOverflow.extend(tmpUeber[12:])
+            tmpUeberflow.extend(tmpUeber[12:])
             tmpUeber = tmpUeber[:12]
         counter = 0
         for i in range(len(tmpVorts), 8):
@@ -223,6 +256,7 @@ class pdfMeister(object):
             if len(tmpOverflow) > counter:
                 tmpUeber.append(tmpOverflow[counter])
                 counter += 1
+        tmpUeberflow.append(tmpOverflow[counter:])
         # Fill fields
         for i in range(1, 9):
             if i <= len(tmpVorts):
@@ -233,7 +267,10 @@ class pdfMeister(object):
         for i in range(1, 13):
             if i <= len(tmpUeber):
                 fields['Uebervorteil' + str(i)] = tmpUeber[i-1]
-
+        if len(tmpUeberflow) > 0:
+            self.UseExtraPage = True
+            self.ExtraVorts = tmpUeberflow
+            
         return fields
 
     def pdfVierterBlock(self, fields):
@@ -464,7 +501,7 @@ class pdfMeister(object):
         if Wolke.Debug:
             print("PDF Block 6")
 
-        addedTals = {}  # Name: (PWT, base)
+        #addedTals = {}  # Name: (PWT, base)
 
         # Get number of talents
         countFerts = 0
@@ -501,27 +538,33 @@ class pdfMeister(object):
                 fields[base + 'FW'] = fe.wert
                 fields[base + 'PW'] = fe.probenwertTalent
                 countF += 1
+            else:
+                self.UseExtraPage = True
+                self.ExtraUeber.append(fe)
 
             # Fill Talente
             tals = sorted(fe.gekaufteTalente, key=lambda s: s.lower())
             for t in tals:
-                if countT < 31:
-                    base = 'Uebertal' + str(countT)
+                    #base = 'Uebertal' + str(countT)
+                    tt = Talentbox.Talentbox()
                     mod = ""
                     if t in Wolke.Char.talenteVariable:
                         mod += " (" + str(Wolke.Char.talenteVariable[t]) + \
                                   " EP)"
 
-                    if t+mod in addedTals:
-                        if fe.probenwertTalent > addedTals[t+mod][0]:
-                            fields[addedTals[t+mod][1] + 'PW'] = \
-                                fe.probenwertTalent
-                            addedTals[t+mod] = (fe.probenwertTalent,
-                                                addedTals[t+mod][1])
+                    if t+mod in self.Talents:
+                        if fe.probenwertTalent > self.Talents[t+mod]:
+                            self.Talents[t+mod].pw = fe.probenwertTalent
+                            #fields[self.addedTals[t+mod][1] + 'PW'] = \
+                                  #fe.probenwertTalent
+                            #self.addedTals[t+mod] = (fe.probenwertTalent,
+                            #                    self.addedTals[t+mod][1])
                     else:
-                        addedTals[t+mod] = (fe.probenwertTalent, base)
-                        fields[base + 'NA'] = t + mod
-                        fields[base + 'PW'] = fe.probenwertTalent
+                        #self.addedTals[t+mod] = (fe.probenwertTalent, base)
+                        tt.na = t + mod
+                        #fields[base + 'NA'] = t + mod
+                        tt.pw = fe.probenwertTalent
+                        #fields[base + 'PW'] = fe.probenwertTalent
                         # Get Spellinfo from text
                         if t in Wolke.DB.talente:
                             txt = Wolke.DB.talente[t].text
@@ -529,23 +572,39 @@ class pdfMeister(object):
                                              txt,
                                              re.UNICODE)
                             if len(res) == 1:
-                                fields[base + 'VO'] = res[0].strip()
+                                tt.vo = res[0].strip()
+                                #fields[base + 'VO'] = res[0].strip()
                             res = re.findall('Reichweite:(.*?)\n',
                                              txt,
                                              re.UNICODE)
                             if len(res) == 1:
-                                fields[base + 'RE'] = res[0].strip()
+                                tt.re = res[0].strip()
+                                #fields[base + 'RE'] = res[0].strip()
                             res = re.findall('Wirkungsdauer:(.*?)\n',
                                              txt,
                                              re.UNICODE)
                             if len(res) == 1:
-                                fields[base + 'WD'] = res[0].strip()
+                                tt.wd = res[0].strip()
+                                #fields[base + 'WD'] = res[0].strip()
                             res = re.findall('Kosten:(.*?)\n',
                                              txt,
                                              re.UNICODE)
                             if len(res) == 1:
-                                fields[base + 'KO'] = res[0].strip()
-                        countT += 1
+                                tt.ko = res[0].strip()
+                                #fields[base + 'KO'] = res[0].strip()
+                        self.Talents.append(tt)
+            for tt in self.Talents:
+                if countT < 31:
+                    base = 'Uebertal' + str(countT)
+                    fields[base + 'NA'] = tt.na
+                    fields[base + 'PW'] = tt.pw
+                    fields[base + 'VO'] = tt.vo
+                    fields[base + 'WD'] = tt.wd
+                    fields[base + 'KO'] = tt.ko
+                    fields[base + 'RE'] = tt.re
+                else:
+                    self.UseExtraPage = True
+                    self.ExtraTalents.append(tt)
             if flagPutEmpty:
                 countT += 1
 
@@ -557,4 +616,33 @@ class pdfMeister(object):
         fields['ErfahGE'] = Wolke.Char.EPtotal
         fields['ErfahEI'] = Wolke.Char.EPspent
         fields['ErfahVE'] = Wolke.Char.EPtotal - Wolke.Char.EPspent
+        return fields
+
+    def createExtra(self, vorts, ferts, tals, fields):
+        for i in range(1, 13):
+            if i <= len(vorts):
+                fields['Uebervorteil' + str(i) + "S2"] = vorts[i-1]
+        countF = 1
+        for fe in ferts:
+            if countF < 13:
+                base = 'Ueberfer' + str(countF)
+                fields[base + 'NA' + '2'] = fe.name
+                fields[base + 'FA' + '2'] = fe.steigerungsfaktor
+                fields[base + 'AT' + '2'] = fe.attribute[0] + '/' + \
+                    fe.attribute[1] + '/' + fe.attribute[2]
+                fields[base + 'BA' + '2'] = fe.basiswert
+                fields[base + 'FW' + '2'] = fe.wert
+                fields[base + 'PW' + '2'] = fe.probenwertTalent
+            countF += 1
+        countT = 1
+        for tt in tals:
+            if countT < 31:
+                base = 'Uebertal' + str(countT)
+                fields[base + 'NA' + '2'] = tt.na
+                fields[base + 'PW' + '2'] = tt.pw
+                fields[base + 'VO' + '2'] = tt.vo
+                fields[base + 'WD' + '2'] = tt.wd
+                fields[base + 'KO' + '2'] = tt.ko
+                fields[base + 'RE' + '2'] = tt.re
+            countT += 1
         return fields
