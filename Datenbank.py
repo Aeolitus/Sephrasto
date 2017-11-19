@@ -3,6 +3,7 @@ import lxml.etree as etree
 from Hilfsmethoden import Hilfsmethoden
 import os.path
 import Objekte
+from Wolke import Wolke
 
 class Datenbank():
     def __init__(self):
@@ -21,10 +22,11 @@ class Datenbank():
             self.xmlLaden()
 
     def xmlSchreiben(self):
-        
+        Wolke.Fehlercode = -26
         self.root = etree.Element('Datenbank')
         
         #Vorteile
+        Wolke.Fehlercode = -27
         for vort in self.vorteile:
             v = etree.SubElement(self.root,'Vorteil')
             v.set('name',self.vorteile[vort].name)
@@ -36,6 +38,7 @@ class Datenbank():
             v.text = self.vorteile[vort].text
 
         #Talente
+        Wolke.Fehlercode = -28
         for tal in self.talente:
             v = etree.SubElement(self.root,'Talent')
             v.set('name',self.talente[tal].name)
@@ -47,6 +50,7 @@ class Datenbank():
             v.text = self.talente[tal].text
             
         #Fertigkeiten
+        Wolke.Fehlercode = -29
         for fer in self.fertigkeiten:
             v = etree.SubElement(self.root,'Fertigkeit')
             v.set('name',self.fertigkeiten[fer].name)
@@ -56,6 +60,7 @@ class Datenbank():
             v.set('kampffertigkeit',str(self.fertigkeiten[fer].kampffertigkeit))
             v.text = self.fertigkeiten[fer].text
 
+        Wolke.Fehlercode = -30
         for fer in self.übernatürlicheFertigkeiten:
             v = etree.SubElement(self.root,'Übernatürliche-Fertigkeit')
             v.set('name',self.übernatürlicheFertigkeiten[fer].name)
@@ -65,6 +70,7 @@ class Datenbank():
             v.text = self.übernatürlicheFertigkeiten[fer].text
                                                     
         #Waffen
+        Wolke.Fehlercode = -31
         for wa in self.waffen:
             w = etree.SubElement(self.root,'Waffe')
             w.set('name', self.waffen[wa].name)
@@ -89,14 +95,19 @@ class Datenbank():
                 w.set('fk', '0')
 
         #Write XML to file
+        Wolke.Fehlercode = -26
         doc = etree.ElementTree(self.root)
+        Wolke.Fehlercode = -32
         with open(self.datei,'wb') as file:
             file.seek(0)
             file.truncate()
             doc.write(file, encoding='UTF-8', pretty_print=True)
             file.truncate()
+            
+        Wolke.Fehlercode = 0
         
     def xmlLaden(self):
+        Wolke.Fehlercode = -20
         self.root = etree.parse(self.datei).getroot()
         self.vorteile = {}
         self.fertigkeiten = {}
@@ -104,8 +115,12 @@ class Datenbank():
         self.übernatürlicheFertigkeiten = {}
         self.waffen = {}
         
+        numLoaded = 0
+        
         #Vorteile
+        Wolke.Fehlercode = -21
         for vort in self.root.findall('Vorteil'):
+            numLoaded += 1
             V = Fertigkeiten.Vorteil()
             V.name = vort.get('name')
             V.kosten = int(vort.get('kosten'))
@@ -118,9 +133,11 @@ class Datenbank():
             except:
                 V.variable = 0
             self.vorteile.update({V.name: V})
-
+            
         #Talente
+        Wolke.Fehlercode = -22
         for tal in self.root.findall('Talent'):
+            numLoaded += 1
             T = Fertigkeiten.Talent()
             T.name = tal.get('name')
             T.kosten = int(tal.get('kosten'))
@@ -132,7 +149,9 @@ class Datenbank():
             self.talente.update({T.name: T})
             
         #Fertigkeiten
+        Wolke.Fehlercode = -23
         for fer in self.root.findall('Fertigkeit'):
+            numLoaded += 1
             F = Fertigkeiten.Fertigkeit()
             F.name = fer.get('name')
             F.steigerungsfaktor = int(fer.get('steigerungsfaktor'))
@@ -142,7 +161,9 @@ class Datenbank():
             F.kampffertigkeit = int(fer.get('kampffertigkeit'))
             self.fertigkeiten.update({F.name: F})
 
+        Wolke.Fehlercode = -24
         for fer in self.root.findall('Übernatürliche-Fertigkeit'):
+            numLoaded += 1
             F = Fertigkeiten.Fertigkeit()
             F.name = fer.get('name')
             F.steigerungsfaktor = int(fer.get('steigerungsfaktor'))
@@ -152,7 +173,9 @@ class Datenbank():
             self.übernatürlicheFertigkeiten.update({F.name: F})
             
         #Waffen
+        Wolke.Fehlercode = -25
         for wa in self.root.findall('Waffe'):
+            numLoaded += 1
             if wa.get('fk') == '1':
                 w = Objekte.Fernkampfwaffe()
                 w.lz = int(wa.get('lz'))
@@ -174,3 +197,10 @@ class Datenbank():
             w.kraf = int(wa.get('kraf'))
             w.schn = int(wa.get('schn'))
             self.waffen.update({w.name: w})
+        
+        if numLoaded <1:
+            Wolke.Fehlercode = -33
+            raise Exception('The selected database file is empty!')
+        
+        # Reset 
+        Wolke.Fehlercode = 0

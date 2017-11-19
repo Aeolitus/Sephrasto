@@ -19,15 +19,18 @@ import Charakter
 import Datenbank
 from Wolke import Wolke
 import os.path
+import pdfMeister as pdfM
+
 
 class Editor(object):
-    ''' 
-    Main class for the character editing window. Mostly puts together the 
-    different parts of the GUI and handles the communication inbetween. 
+    '''
+    Main class for the character editing window. Mostly puts together the
+    different parts of the GUI and handles the communication inbetween.
     '''
     def __init__(self, CharacterName=""):
         super().__init__()
         Wolke.DB = Datenbank.Datenbank()
+        self.pdfMeister = pdfM.pdfMeister()
         if Wolke.DB.root is not None:
             self.noDatabase = False
             self.finishInit(CharacterName)
@@ -141,9 +144,11 @@ class Editor(object):
         except:
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Information)
-            infoBox.setText("Speichern fehlgeschlagen!")
-            infoBox.setInformativeText("Speichern fehlgeschlagen. Sind Schreibrechte in diesem Ordner vorhanden?")
-            infoBox.setWindowTitle("Fehler")
+            infoBox.setText("Speichern des Charakters fehlgeschlagen!")
+            infoBox.setInformativeText("Beim Speichern des Charakters ist ein Fehler aufgetreten!\n\
+Fehlercode: " + str(Wolke.Fehlercode) + "\n\
+Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
+            infoBox.setWindowTitle("Charakter speichern fehlgeschlagen.")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
             infoBox.exec_()
@@ -151,13 +156,13 @@ class Editor(object):
     def pdfButton(self):
         self.updateAll()
         # Check if there is a base Charakterbogen.pdf:
-        if not os.path.isfile(Wolke.Char.CharakterBogen):
+        if not os.path.isfile(self.pdfMeister.CharakterBogen):
             spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"Leeren Charakterbogen auswählen...","","PDF-Datei (*.pdf)")
             if spath == "":
                 return
             if ".pdf" not in spath:
                 spath = spath + ".pdf"
-            Wolke.Char.CharakterBogen = spath
+            self.pdfMeister.CharakterBogen = spath
         
         # Let the user choose a saving location and name
         spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"Charakterbogen erstellen...","","PDF-Datei (*.pdf)")
@@ -165,16 +170,17 @@ class Editor(object):
             return
         if ".pdf" not in spath:
             spath = spath + ".pdf"
+            
         try:
-            Wolke.Char.pdfErstellen(spath)
-        except: 
+            self.pdfMeister.pdfErstellen(spath)
+        except:
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Information)
             infoBox.setText("PDF-Erstellung fehlgeschlagen!")
-            infoBox.setInformativeText("Um Charakterbögen befüllen zu können, muss PDFtk installiert sein.\n\
-PDFtk erhälst du auf: \n pdflabs.com/tools/pdftk-server/\n\
-Nach der Installation ist ein Neustart von Sephrasto erforderlich.")
-            infoBox.setWindowTitle("Fehlende Voraussetzungen")
+            infoBox.setInformativeText("Beim Erstellen des Charakterbogens ist ein Fehler aufgetreten.\n\
+Fehlercode: " + str(Wolke.Fehlercode) + "\n\
+Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
+            infoBox.setWindowTitle("PDF-Erstellung fehlgeschlagen.")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
             infoBox.exec_()
