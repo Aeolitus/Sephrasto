@@ -23,7 +23,7 @@ class MainWindowWrapper(object):
         '''
         Initializes the GUI and connects the buttons.
         '''
-        self._version_ = "v0.4.0"
+        self._version_ = "v0.4.1"
         super().__init__()
             
         self.app = QtCore.QCoreApplication.instance()

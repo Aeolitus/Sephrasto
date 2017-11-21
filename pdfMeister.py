@@ -14,6 +14,7 @@ import re
 import Talentbox
 from subprocess import check_output
 import os
+from shutil import copyfile
 
 class pdfMeister(object):
 
@@ -26,6 +27,7 @@ class pdfMeister(object):
         self.ExtraUeber = []
         self.ExtraTalents = []
         self.Talents = {}
+        self.Energie = 0
     
     def pdfErstellen(self, filename):
         '''
@@ -60,11 +62,13 @@ class pdfMeister(object):
         Wolke.Fehlercode = -89
         pdf.write_pdf(self.CharakterBogen, fields, filename, False)
         Wolke.Fehlercode = -90
+        extraPageAdded = False
         if self.UseExtraPage:
             while len(self.ExtraVorts) > 0 or \
                      len(self.ExtraTalents) > 0 or \
                         len(self.ExtraUeber) > 0:
                 fieldsNew = None
+                extraPageAdded = True
                 Wolke.Fehlercode = -91
                 fieldsNew = pdf.get_fields(self.ExtraPage)
                 Wolke.Fehlercode = -92
@@ -79,9 +83,18 @@ temp_full_cb_feel_free_to_remove.pdf'
                 os.remove(filename)
                 os.remove('temp_ex_page_feel_free_to_remove.pdf')
                 os.rename('temp_full_cb_feel_free_to_remove.pdf', filename)
-                del self.ExtraVorts[0:13]
-                del self.ExtraUeber[0:13]
-                del self.ExtraTalents[0:31]
+                del self.ExtraVorts[0:12]
+                del self.ExtraUeber[0:12]
+                del self.ExtraTalents[0:30]
+        
+        if fields['Uebervorteil1'] == '' and \
+           fields['Ueberfer1NA'] == '' and \
+           fields['Uebertal1NA'] == '' and not extraPageAdded:
+            Wolke.Fehlercode = -96
+            copyfile(filename, 'temp_copy_feel_free_to_remove.pdf')
+            call = 'pdftk temp_copy_feel_free_to_remove.pdf cat 1-2 output ' + filename
+            check_output(call)
+            os.remove('temp_copy_feel_free_to_remove.pdf')
         Wolke.Fehlercode = 0
 
     def pdfErsterBlock(self, fields):
@@ -147,11 +160,13 @@ temp_full_cb_feel_free_to_remove.pdf'
         if kapMod > 0:
             fields['Karmaenergie'] = Wolke.Char.kap.wert + kapMod
         if aspMod > 0 and kapMod == 0:
-            fields['EN'] = Wolke.Char.asp.wert + aspMod
-            fields['gEN'] = "0"
+            self.Energie = Wolke.Char.asp.wert + aspMod
+            fields['EN'] = self.Energie
+            #fields['gEN'] = "0"
         elif aspMod == 0 and kapMod > 0:
-            fields['EN'] = Wolke.Char.kap.wert + kapMod
-            fields['gEN'] = "0"
+            self.Energie = Wolke.Char.kap.wert + kapMod
+            fields['EN'] = self.Energie
+            #fields['gEN'] = "0"
         # Wenn sowohl AsP als auch KaP vorhanden sind, muss der Spieler ran..
         trueBE = max(Wolke.Char.be, 0)
         fields['DHm'] = max(Wolke.Char.dh - 2*trueBE, 1)
@@ -655,4 +670,5 @@ temp_full_cb_feel_free_to_remove.pdf'
                 fields[base + 'WD' + '2'] = tt.wd
                 fields[base + 'KO' + '2'] = tt.ko
                 fields[base + 'RE' + '2'] = tt.re
+        fields['EN2'] = self.Energie
         return fields

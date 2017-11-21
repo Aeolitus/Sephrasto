@@ -91,6 +91,7 @@ File called ExtraSpells.pdf in your Sephrasto folder!',
         -94: 'Error merging pdf files!',
         -95: 'Error deleting or renaming files on file system. \
 Please check the created PDFs to see which one is your character!',
+        -96: 'Error cutting of last page of the PDF. This shouldnt really matter.',
     ### Other Errors
         -200: 'General Error you shouldnt see. Please contact Aeolitus.'
     }
