@@ -83,6 +83,15 @@ Note that Sephrasto must be restarted after the installation.''',
         -89: 'PDFtk-Error: The new Charactersheet could not be created. Do you \
 have writing permissions? If you cannot get it to work, send me a copy of the \
 character and the database and Ill take a look.',
+        -90: 'Error selecting additional fields for extra page',
+        -91: 'Error reading ExtraSpells.pdf. Please do not rename or remove the \
+File called ExtraSpells.pdf in your Sephrasto folder!',
+        -92: 'Error assigning extra fields!', 
+        -93: 'Error writing temporary extra page to pdf!', 
+        -94: 'Error merging pdf files!',
+        -95: 'Error deleting or renaming files on file system. \
+Please check the created PDFs to see which one is your character!',
+        -96: 'Error cutting of last page of the PDF. This shouldnt really matter.',
     ### Other Errors
         -200: 'General Error you shouldnt see. Please contact Aeolitus.'
     }
