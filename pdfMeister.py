@@ -275,7 +275,9 @@ temp_full_cb_feel_free_to_remove.pdf'
             if len(tmpOverflow) > counter:
                 tmpUeber.append(tmpOverflow[counter])
                 counter += 1
-        tmpUeberflow.append(tmpOverflow[counter:])
+        tmptmp = tmpOverflow[counter:]
+        for el in tmptmp:
+            tmpUeberflow.append(el)
         # Fill fields
         for i in range(1, 9):
             if i <= len(tmpVorts):

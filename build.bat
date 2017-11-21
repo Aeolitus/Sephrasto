@@ -9,3 +9,4 @@ C:\Users\Lennart\Desktop\Sephrasto\Build\Library\plugins\platforms
 COPY /Y C:\Users\Lennart\Desktop\Sephrasto\datenbank.xml C:\Users\Lennart\Desktop\Sephrasto\Build
 COPY /Y C:\Users\Lennart\Desktop\Sephrasto\Charakterbogen.pdf C:\Users\Lennart\Desktop\Sephrasto\Build
 COPY /Y C:\Users\Lennart\Desktop\Sephrasto\Gebrauchsanleitung.pdf C:\Users\Lennart\Desktop\Sephrasto\Build
+COPY /Y C:\Users\Lennart\Desktop\Sephrasto\ExtraSpells.pdf C:\Users\Lennart\Desktop\Sephrasto\Build
