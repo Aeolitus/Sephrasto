@@ -18,9 +18,11 @@ class CharakterItemsWrapper(QtCore.QObject):
         self.formIt = QtWidgets.QWidget()
         self.uiIt = CharakterItems.Ui_Form()
         self.uiIt.setupUi(self.formIt)
+        self.currentlyLoading = False
         
         
     def loadItems(self):
+        self.currentlyLoading = True
         count = 1
         for el in Wolke.Char.ausrüstung:
             eval("self.uiIt.lineEdit_" + str(count) + ".setText(\"" + el + "\")")
@@ -30,11 +32,12 @@ class CharakterItemsWrapper(QtCore.QObject):
         while count <= 20:
             eval("self.uiIt.lineEdit_" + str(count) + ".clear()")
             count += 1
+        self.currentlyLoading = False
     
     def updateFreie(self):
-        Wolke.Char.ausrüstung.clear()
-        for i in range(1,21):
-            txt = eval("self.uiIt.lineEdit_" + str(i) + ".text()")
-            if txt != "":
-                Wolke.Char.ausrüstung.append(txt)
-        #self.modified.emit() - Not needed since this is not costing any EP
+        if not self.currentlyLoading:
+            Wolke.Char.ausrüstung.clear()
+            for i in range(1,21):
+                txt = eval("self.uiIt.lineEdit_" + str(i) + ".text()")
+                if txt != "":
+                    Wolke.Char.ausrüstung.append(txt)
