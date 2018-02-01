@@ -73,7 +73,7 @@ class Ui_formMain(object):
         self.spinSpent.setReadOnly(True)
         self.spinSpent.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
         self.spinSpent.setMinimum(-100000)
-        self.spinSpent.setMaximum(10000)
+        self.spinSpent.setMaximum(100000)
         self.spinSpent.setObjectName("spinSpent")
         self.horizontalLayout_2.addWidget(self.spinSpent)
         self.label_2 = QtWidgets.QLabel(formMain)
