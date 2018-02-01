@@ -495,8 +495,8 @@ temp_full_cb_feel_free_to_remove.pdf'
                         at -= 2
                         vt -= 2
 
-                if not flagReiter2 and tale == "Reiten" and \
-                        fertig == "Athletik":
+                if not (flagReiter2 and tale == "Reiten" and \
+                        fertig == "Athletik"):
                     at -= Wolke.Char.be
                     vt -= Wolke.Char.be
 
