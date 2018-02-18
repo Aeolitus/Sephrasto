@@ -494,7 +494,7 @@ Bedingungen: Sichtkontakt, Geste, gesprochenes oder gesungenes Gebet</Vorteil>
   <Vorteil name="Angroschkirchliche Tradition IV" kosten="80" voraussetzungen="Attribut FF 10, Vorteil Angroschkirchliche Tradition III" nachkauf="häufig" typ="7" variable="-1">8 Punkte können zur Verbesserung der Tradition verwendet werden.
   
 Bedingung: 2 weitere Attribute auf insgesamt 16</Vorteil>
-  <Vorteil name="Nanduskirchliche Tradition I" kosten="20" voraussetzungen="Attribut KL 4, Vorteil Geweiht I, Kein Vorteil Praioskirchliche Tradition I, Kein Vorteil Rondrakirchliche Tradition I, Kein Vorteil Boronkirchliche Tradition I, Kein Vorteil Phexkirchliche Tradition I, Kein Vorteil Efferdkirchliche Tradition I, Kein Vorteil Hesindekirchliche Tradition I, Kein Vorteil Ingerimmkirchliche Tradition I, Kein Vorteil Perainekirchliche Tradition I, Kein Vorteil Firunkirchliche Tradition I, Kein Vorteil Rahjakirchliche Tradition I, Kein Vorteil Tsakirchliche Tradition I, Kein Vorteil Traviakirchliche Tradition I, Kein Vorteil Swafnirkirchliche Tradition I, Kein Vorteil Ifirnkirchliche Tradition I, Kein Vorteil Korkirchliche Tradition I, Kein Vorteil Aveskirchliche Tradition I" nachkauf="häufig" typ="7" variable="-1">Die Fertigkeiten List, Lehre und Wissen können erlernt und benutzt werden.
+  <Vorteil name="Nanduskirchliche Tradition I" kosten="20" voraussetzungen="Attribut KL 4, Vorteil Geweiht I, Kein Vorteil Praioskirchliche Tradition I, Kein Vorteil Rondrakirchliche Tradition I, Kein Vorteil Boronkirchliche Tradition I, Kein Vorteil Phexkirchliche Tradition I, Kein Vorteil Efferdkirchliche Tradition I, Kein Vorteil Hesindekirchliche Tradition I, Kein Vorteil Ingerimmkirchliche Tradition I, Kein Vorteil Perainekirchliche Tradition I, Kein Vorteil Firunkirchliche Tradition I, Kein Vorteil Rahjakirchliche Tradition I, Kein Vorteil Tsakirchliche Tradition I, Kein Vorteil Traviakirchliche Tradition I, Kein Vorteil Swafnirkirchliche Tradition I, Kein Vorteil Ifirnkirchliche Tradition I, Kein Vorteil Korkirchliche Tradition I, Kein Vorteil Aveskirchliche Tradition I" nachkauf="häufig" typ="7" variable="-1">Die Fertigkeiten Zwölfgöttlicher Ritus, List, Lehre und Wissen können erlernt und benutzt werden.
 
 Liturgien sind um 2-8 Punkte erschwert, wenn ihr Einsatz gegen die Prinzipien des Geweihten verstößt.
 
@@ -2217,6 +2217,15 @@ Ziel: Einzelobjekt
 Reichweite: Berührung
 Wirkungsdauer: 8 Aktionen
 Kosten: 4 AsP
+Fertigkeiten: Humus</Talent>
+  <Talent name="Ruhe Körper, Ruhe Geist" kosten="20" voraussetzungen="Vorteil Magiedillettant ODER Vorteil Elfische Repräsentation I ODER Vorteil Kristallomantische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Humus" variable="-1">Dein Ziel sinkt in einen tiefen Schlaf. Dabei regeneriert es eine zusätzliche Wunde.
+Mächtige Magie: Regeneriert eine weitere Wunde. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Ziel: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 8 Stunden
+Kosten: 8 AsP
 Fertigkeiten: Humus</Talent>
   <Talent name="Sumpfstrudel" kosten="60" voraussetzungen="Vorteil Geodische Repräsentation I ODER Vorteil Druidische Repräsentation I" verbilligt="0" fertigkeiten="Humus, Umwelt" variable="-1">Im Humusboden bildet sich ein morastiger Strudel. Wesen in der Umgebung müssen jede Initiativephase eine Konterprobe (KK, 16) ablegen, die um die Distanz zum Zentrum in Schritt erleichtert ist. Beim Misslingen wird es 2 Schritt in Richtung des Zentrums gezerrt. Im Zentrum erleidet jedes Ziel 8W6 SP und wird für die verbleibende Wirkungsdauer handlungsunfähig. 
 Probenschwierigkeit: 12
@@ -4136,7 +4145,7 @@ Reichweite: Berührung
 Wirkungsdauer: 8 Stunden
 Kosten: 1 AsP
 Fertigkeiten: Verständigung, Vertrautenmagie</Talent>
-  <Talent name="Eidsegen" kosten="0" voraussetzungen="Vorteil Praioskirchliche Tradition I ODER Vorteil Angroschkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I" verbilligt="0" fertigkeiten="Ordnung, Zwölfgöttlicher Ritus" variable="-1">Ein freiwilliges und aufrichtiges Gelübde der Zielperson wird gesegnet. Alle Versuche, den Schwörenden zum Eidbruch zu bewegen (etwa über Betören, Überreden oder einen Imperavi), sind um -4 erschwert. Bricht der Schwörende den Eid im Vollbesitz seiner geistigen Kräfte, endet der Segen.
+  <Talent name="Eidsegen" kosten="0" voraussetzungen="Vorteil Praioskirchliche Tradition I ODER Vorteil Angroschkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Ordnung, Zwölfgöttlicher Ritus" variable="-1">Ein freiwilliges und aufrichtiges Gelübde der Zielperson wird gesegnet. Alle Versuche, den Schwörenden zum Eidbruch zu bewegen (etwa über Betören, Überreden oder einen Imperavi), sind um -4 erschwert. Bricht der Schwörende den Eid im Vollbesitz seiner geistigen Kräfte, endet der Segen.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
 Ziel: Einzelperson
@@ -4144,7 +4153,7 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Jahr
 Kosten: 8 KaP
 Fertigkeiten: Ordnung, Zwölfgöttlicher Ritus</Talent>
-  <Talent name="Feuersegen" kosten="0" voraussetzungen="Vorteil Angroschkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Heiliges Feuer, Zwölfgöttlicher Ritus" variable="-1">Eine kleine Flamme entsteht in deiner Hand. Die Flamme und ein mit ihr entzündetes Feuer und wird durch Wind oder Regen nicht gelöscht. 
+  <Talent name="Feuersegen" kosten="0" voraussetzungen="Vorteil Angroschkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Heiliges Feuer, Zwölfgöttlicher Ritus" variable="-1">Eine kleine Flamme entsteht in deiner Hand. Die Flamme und ein mit ihr entzündetes Feuer und wird durch Wind oder Regen nicht gelöscht. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 2 Aktionen
 Ziel: Zone
@@ -4152,7 +4161,7 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 1 KaP
 Fertigkeiten: Heiliges Feuer, Zwölfgöttlicher Ritus</Talent>
-  <Talent name="Geburtssegen" kosten="0" voraussetzungen="Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus" variable="-1">Das gesegnete Kind ist immun gegen Einflüsterungen von Dämonen und Kobolden.
+  <Talent name="Geburtssegen" kosten="0" voraussetzungen="Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus" variable="-1">Das gesegnete Kind ist immun gegen Einflüsterungen von Dämonen und Kobolden.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
 Ziel: Einzelperson
@@ -4160,7 +4169,7 @@ Reichweite: Berührung
 Wirkungsdauer: bis zum 12. Lebensjahr
 Kosten: 2 KaP
 Fertigkeiten: Zwölfgöttlicher Ritus</Talent>
-  <Talent name="Glückssegen" kosten="40" voraussetzungen="Vorteil Phexkirchliche Tradition I ODER Vorteil Angroschkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I" verbilligt="0" fertigkeiten="List, Zwölfgöttlicher Ritus" variable="-1">Der Gesegnete darf eine Probe wiederholen und das bessere Ergebnis wählen. Der Segen kann nur für Fertigkeiten eingesetzt werden, denen deine Gottheit zumindest neutral gegenübersteht. 
+  <Talent name="Glückssegen" kosten="40" voraussetzungen="Vorteil Phexkirchliche Tradition I ODER Vorteil Angroschkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="List, Zwölfgöttlicher Ritus" variable="-1">Der Gesegnete darf eine Probe wiederholen und das bessere Ergebnis wählen. Der Segen kann nur für Fertigkeiten eingesetzt werden, denen deine Gottheit zumindest neutral gegenübersteht. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelperson
@@ -4168,7 +4177,7 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 4 KaP
 Fertigkeiten: List, Zwölfgöttlicher Ritus</Talent>
-  <Talent name="Göttliche Verständigung" kosten="40" voraussetzungen="Vorteil Angroschkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus" variable="-1">Du kannst der Vorsteherin deines Heimattempels eine Nachricht mit bis zu 8 Worten schicken. 
+  <Talent name="Göttliche Verständigung" kosten="40" voraussetzungen="Vorteil Angroschkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus" variable="-1">Du kannst der Vorsteherin deines Heimattempels eine Nachricht mit bis zu 8 Worten schicken. 
 Mächtige Liturgie: Die Nachricht kann 8 weitere Worte lang sein.
 Probenschwierigkeit: 12
 Modifikationen: Bekannter Empfänger (-4; die Nachricht kann an einen beliebigen, dir bekannten Geweihten gehen.)
@@ -4179,7 +4188,7 @@ Reichweite: dereweit
 Wirkungsdauer: augenblicklich
 Kosten: 8 KaP
 Fertigkeiten: Zwölfgöttlicher Ritus</Talent>
-  <Talent name="Grabsegen" kosten="0" voraussetzungen="Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I" verbilligt="0" fertigkeiten="Tod, Zwölfgöttlicher Ritus" variable="-1">Du segnest ein Grab, das fortan als geweihter Boden gilt. Beschwörungen von unheiligen Wesenheiten sind um -8 erschwert. 
+  <Talent name="Grabsegen" kosten="0" voraussetzungen="Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Tod, Zwölfgöttlicher Ritus" variable="-1">Du segnest ein Grab, das fortan als geweihter Boden gilt. Beschwörungen von unheiligen Wesenheiten sind um -8 erschwert. 
 Mächtige Liturgie: Der Malus steigt um -4.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
@@ -4188,7 +4197,7 @@ Reichweite: Berührung
 Wirkungsdauer: permanent
 Kosten: 2 KaP
 Fertigkeiten: Tod, Zwölfgöttlicher Ritus</Talent>
-  <Talent name="Großer Eidsegen" kosten="0" voraussetzungen="Vorteil Angroschkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Ehre, Ordnung, Zwölfgöttlicher Ritus" variable="-1">Du segnest einen freiwillig geschworenen Eid, wie einen Traviabund oder einen Lehenseid. Alle Versuche, einen Schwörenden zum Eidbruch zu bewegen (etwa über Betören, Überreden oder einen Imperavi), sind um -4 erschwert. Bricht ein Schwörender den Eid im Vollbesitz seiner geistigen Kräfte, ruht die Wirkung des Segens, bis er Buße geübt hat. 
+  <Talent name="Großer Eidsegen" kosten="0" voraussetzungen="Vorteil Angroschkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Ehre, Ordnung, Zwölfgöttlicher Ritus" variable="-1">Du segnest einen freiwillig geschworenen Eid, wie einen Traviabund oder einen Lehenseid. Alle Versuche, einen Schwörenden zum Eidbruch zu bewegen (etwa über Betören, Überreden oder einen Imperavi), sind um -4 erschwert. Bricht ein Schwörender den Eid im Vollbesitz seiner geistigen Kräfte, ruht die Wirkung des Segens, bis er Buße geübt hat. 
 Mächtige Liturgie: Erhöht den Malus um -2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Stunde
@@ -4197,7 +4206,7 @@ Reichweite: Berührung
 Wirkungsdauer: permanent
 Kosten: 16 KaP
 Fertigkeiten: Ehre, Ordnung, Zwölfgöttlicher Ritus</Talent>
-  <Talent name="Harmoniesegen" kosten="20" voraussetzungen="Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus" variable="-1">Der Gesegnete empfindet tiefe Harmonie und strahlt diese auch aus. Proben um Frieden und Harmonie zu stiften sind um +2 erleichtert.
+  <Talent name="Harmoniesegen" kosten="20" voraussetzungen="Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus, Harmonie" variable="-1">Der Gesegnete empfindet tiefe Harmonie und strahlt diese auch aus. Proben um Frieden und Harmonie zu stiften sind um +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: Einzelperson
@@ -4205,7 +4214,7 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 4 KaP
 Fertigkeiten: Zwölfgöttlicher Ritus</Talent>
-  <Talent name="Heilungssegen" kosten="20" voraussetzungen="Vorteil Ifirnkirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Angroschkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus" variable="-1">Im Verlauf der nächsten Stunde regeneriert der Gesegnete eine Wunde.
+  <Talent name="Heilungssegen" kosten="20" voraussetzungen="Vorteil Ifirnkirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Angroschkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus" variable="-1">Im Verlauf der nächsten Stunde regeneriert der Gesegnete eine Wunde.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
 Ziel: Einzelperson
@@ -4213,7 +4222,7 @@ Reichweite: Berührung
 Wirkungsdauer: augenblicklich
 Kosten: 4 KaP
 Fertigkeiten: Zwölfgöttlicher Ritus</Talent>
-  <Talent name="Liturgische Bindung" kosten="60" voraussetzungen="Vorteil Angroschkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus" variable="-1">Mit dieser Liturgie kannst du Liturgien in einem Gegenstand speichern. Die Regeln entsprechen jenen zur Erschaffung magischer Artefakte, allerdings können nur ladungsbasierte Artefakte erschaffen werden. 
+  <Talent name="Liturgische Bindung" kosten="60" voraussetzungen="Vorteil Angroschkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus" variable="-1">Mit dieser Liturgie kannst du Liturgien in einem Gegenstand speichern. Die Regeln entsprechen jenen zur Erschaffung magischer Artefakte, allerdings können nur ladungsbasierte Artefakte erschaffen werden. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 8 Stunden
 Ziel: Einzelobjekt 
@@ -4222,7 +4231,7 @@ Wirkungsdauer: nach Artefakt
 Kosten: 8 KaP
 Fertigkeiten: Zwölfgöttlicher Ritus
 Anmerkung: Geweihte Artefakte werden nur sehr selten an Laien vergeben. Am ehesten kommen Gläubige auf einer gottgefälligen Queste in Frage.</Talent>
-  <Talent name="Märtyrersegen" kosten="20" voraussetzungen="Vorteil Firunkirchliche Tradition I ODER Vorteil Angroschkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I" verbilligt="0" fertigkeiten="Winter, Zwölfgöttlicher Ritus" variable="-1">Der Gesegnete gewinnt an Tapferkeit. Auf ihm lastende Furcht-Effekte gelten als 1 Stufe niedriger.
+  <Talent name="Märtyrersegen" kosten="20" voraussetzungen="Vorteil Firunkirchliche Tradition I ODER Vorteil Angroschkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Winter, Zwölfgöttlicher Ritus" variable="-1">Der Gesegnete gewinnt an Tapferkeit. Auf ihm lastende Furcht-Effekte gelten als 1 Stufe niedriger.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: Einzelperson
@@ -4230,7 +4239,7 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 4 KaP
 Fertigkeiten: Winter, Zwölfgöttlicher Ritus</Talent>
-  <Talent name="Objektsegen" kosten="20" voraussetzungen="Vorteil Angroschkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus" variable="-1">Du segnest ein Objekt bis zur Größe eines Rucksacks oder eine Substanz mit bis zu 8 Litern Volumen. Das Objekt gilt als geweiht.
+  <Talent name="Objektsegen" kosten="20" voraussetzungen="Vorteil Angroschkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus" variable="-1">Du segnest ein Objekt bis zur Größe eines Rucksacks oder eine Substanz mit bis zu 8 Litern Volumen. Das Objekt gilt als geweiht.
 Mächtige Liturgie: Verdoppelt die Größe des Objekts bzw. das Volumen. 
 Probenschwierigkeit: 12
 Modifikationen: Bauwerk (-8; du kannst größere Objekte wie Brücken oder Stollen segnen. Kosten und Wirkungsdauer sind deutlich höher und Spielleiterentscheid.)
@@ -4240,7 +4249,7 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Tag
 Kosten: 4 KaP
 Fertigkeiten: Zwölfgöttlicher Ritus</Talent>
-  <Talent name="Schutzsegen" kosten="40" voraussetzungen="Vorteil Rondrakirchliche Tradition I ODER Vorteil Angroschkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Zwölfgöttlicher Ritus" variable="-1">Du ziehst einen Kreis von maximal 8 Schritt Radius und nennst eine Kreaturenklasse (Dämon, Daimonoid oder Untoter). Liegt die Beschwörungsschwierigkeit eines dieser Wesen bei maximal 20, kann es die Zone nicht betreten. Der Boden innerhalb des Schutzkreises gilt als geweihter Boden.
+  <Talent name="Schutzsegen" kosten="40" voraussetzungen="Vorteil Rondrakirchliche Tradition I ODER Vorteil Angroschkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Zwölfgöttlicher Ritus" variable="-1">Du ziehst einen Kreis von maximal 8 Schritt Radius und nennst eine Kreaturenklasse (Dämon, Daimonoid oder Untoter). Liegt die Beschwörungsschwierigkeit eines dieser Wesen bei maximal 20, kann es die Zone nicht betreten. Der Boden innerhalb des Schutzkreises gilt als geweihter Boden.
 Mächtige Liturgie: Erhöht die Beschwörungsschwierigkeit um 4.
 Probenschwierigkeit: 12
 Modifikationen: Universeller Schutz (-4; der Schutzsegen wirkt gegen alle unheiligen Wesen.)
@@ -4250,7 +4259,7 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 4 KaP
 Fertigkeiten: Schutz der Gläubigen, Zwölfgöttlicher Ritus</Talent>
-  <Talent name="Seelenprüfung" kosten="40" voraussetzungen="Vorteil Praioskirchliche Tradition I ODER Vorteil Angroschkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus" variable="-1">Du erkennst, ob eine Person oder ein Ort geweiht (auch dem Namenlosen), profan oder dämonisch verzerrt ist. 
+  <Talent name="Seelenprüfung" kosten="40" voraussetzungen="Vorteil Praioskirchliche Tradition I ODER Vorteil Angroschkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus" variable="-1">Du erkennst, ob eine Person oder ein Ort geweiht (auch dem Namenlosen), profan oder dämonisch verzerrt ist. 
 Mächtige Liturgie: Du kannst den Dämonen oder Gott/den Grad der Verdammnis oder der Weihe erkennen. 
 Probenschwierigkeit: 12
 Vorbereitungszeit:  1 Stunde
@@ -4259,7 +4268,7 @@ Reichweite: Berührung
 Wirkungsdauer: augenblicklich
 Kosten: 8 KaP
 Fertigkeiten: Zwölfgöttlicher Ritus</Talent>
-  <Talent name="Speisesegen" kosten="0" voraussetzungen="Vorteil Angroschkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus" variable="-1">Du reinigst eine Mahlzeit für bis zu 16 Personen von Schmutz, Fäulnis und Krankheiten.
+  <Talent name="Speisesegen" kosten="0" voraussetzungen="Vorteil Angroschkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus" variable="-1">Du reinigst eine Mahlzeit für bis zu 16 Personen von Schmutz, Fäulnis und Krankheiten.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: Zone
@@ -4267,7 +4276,7 @@ Reichweite: Berührung
 Wirkungsdauer: augenblicklich
 Kosten: 2 KaP
 Fertigkeiten: Zwölfgöttlicher Ritus</Talent>
-  <Talent name="Tranksegen" kosten="0" voraussetzungen="Vorteil Efferdkirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Quellen und Flüsse, Zwölfgöttlicher Ritus" variable="-1">Du reinigst 4 Liter Wasser von Schmutz, Fäulnis, Meersalz oder Krankheiten. 
+  <Talent name="Tranksegen" kosten="0" voraussetzungen="Vorteil Efferdkirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Quellen und Flüsse, Zwölfgöttlicher Ritus" variable="-1">Du reinigst 4 Liter Wasser von Schmutz, Fäulnis, Meersalz oder Krankheiten. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: Einzelobjekt
@@ -4275,7 +4284,7 @@ Reichweite: Berührung
 Wirkungsdauer: augenblicklich
 Kosten: 2 KaP
 Fertigkeiten: Quellen und Flüsse, Zwölfgöttlicher Ritus</Talent>
-  <Talent name="Weisheitssegen" kosten="20" voraussetzungen="Vorteil Hesindekirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Angroschkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I" verbilligt="0" fertigkeiten="Lehre, Zwölfgöttlicher Ritus" variable="-1">Proben des Gesegneten auf KL sind um +4 erleichtert, alle Fertigkeiten mit KL um +2. 
+  <Talent name="Weisheitssegen" kosten="20" voraussetzungen="Vorteil Hesindekirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Angroschkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Lehre, Zwölfgöttlicher Ritus" variable="-1">Proben des Gesegneten auf KL sind um +4 erleichtert, alle Fertigkeiten mit KL um +2. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: Einzelperson
@@ -4283,15 +4292,6 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 4 KaP
 Fertigkeiten: Lehre, Zwölfgöttlicher Ritus  </Talent>
-  <Talent name="Ruhe Körper, Ruhe Geist" kosten="20" voraussetzungen="Vorteil Elfische Repräsentation I ODER Vorteil Kristallomantische Repräsentation I ODER Vorteil Alchemistische Repräsentation I ODER Vorteil Druidische Repräsentation I ODER Vorteil Hexische Repräsentation I ODER Vorteil Gildenmagische Repräsentation I" verbilligt="0" fertigkeiten="Humus" variable="-1">Dein Ziel sinkt in einen tiefen Schlaf. Dabei regeneriert es eine zusätzliche Wunde.
-Mächtige Magie: Regeneriert eine weitere Wunde. 
-Probenschwierigkeit: 12
-Vorbereitungszeit: 16 Aktionen
-Ziel: Einzelperson
-Reichweite: Berührung
-Wirkungsdauer: 8 Stunden
-Kosten: 8 AsP
-Fertigkeiten: Humus</Talent>
   <Talent name="Auge des Mondes" kosten="40" voraussetzungen="Vorteil Boronkirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Nächtlicher Schatten, Schlaf" variable="-1">Das Ziel ignoriert 1 Stufe Dunkelheit.
 Mächtige Liturgie: Das Ziel ignoriert 2 Stufen/3 Stufen/absolute Dunkelheit.
 Probenschwierigkeit: 12
@@ -4346,7 +4346,7 @@ Reichweite: Berührung
 Wirkungsdauer: 8 Stunden
 Kosten: 2 KaP
 Fertigkeiten: Schlaf </Talent>
-  <Talent name="Schlaf des Gesegneten" kosten="40" voraussetzungen="Vorteil Boronkirchliche Tradition I" verbilligt="0" fertigkeiten="Schlaf" variable="-1">Dein Ziel sinkt in einen tiefen Schlaf, währenddem es 2 zusätzliche Wunden regeneriert und nicht von Albträumen geplagt wird.
+  <Talent name="Schlaf des Gesegneten" kosten="40" voraussetzungen="Vorteil Boronkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition" verbilligt="0" fertigkeiten="Schlaf, Harmonie" variable="-1">Dein Ziel sinkt in einen tiefen Schlaf, währenddem es 2 zusätzliche Wunden regeneriert und nicht von Albträumen geplagt wird.
 Mächtige Liturgie: Das Ziel regeneriert 1 weitere Wunde. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
@@ -4354,7 +4354,7 @@ Ziel: Einzelperson
 Reichweite: Berührung
 Wirkungsdauer: 8 Stunden
 Kosten: 8 KaP
-Fertigkeiten: Schlaf </Talent>
+Fertigkeiten: Schlaf, Harmonie </Talent>
   <Talent name="Bannfluch des heiligen Khalid" kosten="40" voraussetzungen="Vorteil Boronkirchliche Tradition I" verbilligt="0" fertigkeiten="Tod" variable="-1">Während der Wirkungsdauer zerfallen die ersten 4 Untoten, die du mit einem geweihten Gegenstand (wie Graberde, Weihrauch oder deiner Hand) berührst, zu Staub. Geister werden gebannt. Wirkt nur auf Wesen, deren Beschwörungsschwierigkeit bei maximal 16 liegt.
 Mächtige Liturgie: Zwei weitere Untote oder Geister können gebannt werden und die Beschwörungsschwierigkeit steigt um 4.
 Probenschwierigkeit: 12
@@ -4449,14 +4449,14 @@ Reichweite: Berührung
 Wirkungsdauer: permanent
 Kosten: 16 KaP
 Fertigkeiten: Vergessen</Talent>
-  <Talent name="Heiliger Befehl" kosten="60" voraussetzungen="Vorteil Praioskirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Ehre, Ordnung, Vergessen" variable="-1">Das Ziel befolgt einen gottgefälligen Befehl, wenn ihm keine Konterprobe (Willenskraft, 20) gelingt. 
+  <Talent name="Heiliger Befehl" kosten="60" voraussetzungen="Vorteil Praioskirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I" verbilligt="0" fertigkeiten="Ehre, Ordnung, Vergessen, Rausch" variable="-1">Das Ziel befolgt einen gottgefälligen Befehl, wenn ihm keine Konterprobe (Willenskraft, 20) gelingt. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: Einzelperson
 Reichweite: 32 Schritt
 Wirkungsdauer: 1 Tag
 Kosten: 8 KaP 
-Fertigkeiten: Ehre, Ordnung, Vergessen</Talent>
+Fertigkeiten: Ehre, Ordnung, Vergessen, Rausch</Talent>
   <Talent name="Innere Ruhe" kosten="40" voraussetzungen="Vorteil Boronkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I" verbilligt="0" fertigkeiten="Ordnung, Vergessen" variable="-1">Du besinnst dich auf deine innere Kraft und befreist deinen Geist. Alle Proben auf Selbstbeherrschung sind um +4 erleichtert. 
 Mächtige Liturgie: Der Bonus steigt um +2. Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
@@ -4673,14 +4673,14 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 4 KaP
 Fertigkeiten: Wind und Wogen</Talent>
-  <Talent name="Gleichklang des Geistes" kosten="20" voraussetzungen="Vorteil Swafnirkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I" verbilligt="0" fertigkeiten="Heilung, Wind und Wogen" variable="-1">Du erhältst einen kurzen Einblick in die Gefühle deines Gegenübers.
+  <Talent name="Gleichklang des Geistes" kosten="20" voraussetzungen="Vorteil Swafnirkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I" verbilligt="0" fertigkeiten="Heilung, Wind und Wogen, Harmonie" variable="-1">Du erhältst einen kurzen Einblick in die Gefühle deines Gegenübers.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 8 Aktionen
 Ziel: Einzelperson
 Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 1 KaP
-Fertigkeiten: Heilung, Wind und Wogen</Talent>
+Fertigkeiten: Heilung, Wind und Wogen, Harmonie</Talent>
   <Talent name="Neckeratem" kosten="20" voraussetzungen="Vorteil Efferdkirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I" verbilligt="0" fertigkeiten="Wind und Wogen" variable="-1">Das Ziel kann im Wasser atmen und sieht durch Wasser wie durch Luft. Erlaubt Aufrechterhalten. 
 Probenschwierigkeit: 12
 Modifikationen: Gruß des Versunkenen (-8, Zone, 16 KaP; der Zauber betrifft alle im Radius von 4 Schritt.)
@@ -5218,14 +5218,14 @@ Reichweite: Berührung
 Wirkungsdauer: augenblicklich
 Kosten: 4 KaP
 Fertigkeiten: List, Wissen </Talent>
-  <Talent name="Ein Bild für die Ewigkeit" kosten="40" voraussetzungen="Vorteil Nanduskirchliche Tradition I" verbilligt="0" fertigkeiten="Wissen" variable="-1">Du kannst dir deine aktuellen Sinneseindrücke für immer einprägen
+  <Talent name="Ein Bild für die Ewigkeit" kosten="40" voraussetzungen="Vorteil Nanduskirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I" verbilligt="0" fertigkeiten="Wissen, Rausch" variable="-1">Du kannst dir deine aktuellen Sinneseindrücke für immer einprägen.
 Probenschwierigkeit:12
 Vorbereitungszeit: 16 Aktionen
 Ziel: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Wissen</Talent>
+Fertigkeiten: Wissen, Rausch</Talent>
   <Talent name="Graues Siegel" kosten="20" voraussetzungen="Vorteil Nanduskirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I" verbilligt="0" fertigkeiten="Nächtlicher Schatten, Wissen" variable="-1">Du verschlüsselst eine Nachricht, sodass sie nur noch von der von dir genannten Person gelesen werden kann. Die Verschlüsselung kann nur mit einer Freien Fertigkeit (z.B. Kryptograph) auf meisterlich oder mit einer Konterprobe (KL, 20) und 4 Stunden Zeitaufwand entschlüsselt werden. 
 Probenschwierigkeit: 12
 Modifikationen: Personengruppe (-4; du kannst eine Personengruppe nennen.)
@@ -5688,7 +5688,182 @@ Reichweite: 16 Schritt
 Wirkungsdauer: 1 Stunde
 Kosten: 8 KaP
 Fertigkeiten: Schutz der Gläubigen</Talent>
-  <Talent name="Mirakel: GE" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Nächtlicher Schatten, Jagd, Seefahrt" variable="-1">Dein nächster Wurf auf GE ist um +4 Punkte erleichtert.
+  <Talent name="Auge für die Schönheit" kosten="0" voraussetzungen="Vorteil Rahjakirchliche Tradition I" verbilligt="0" fertigkeiten="Harmonie" variable="-1">Der Gesegnete kann die Schönheit in sich selbst oder jemand anderem sehen. Dabei wird er nicht durch schlechte Eigenheiten oder andere Charakterschwächen und Vorurteile abgelenkt. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 1 KaP
+Fertigkeiten: Harmonie</Talent>
+  <Talent name="Ewige Jugend" kosten="20" voraussetzungen="Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I" verbilligt="0" fertigkeiten="Harmonie, Neubeginn" variable="-1">Der Gesegnete behält Zeit seines Lebens ein jugendliches Aussehen. Frevelt der Gesegnete gegen die segenspendende Gottheit, setzt die natürliche Alterung wieder ein.
+Probenschwierigkeit: 12
+Modifikationen: Ewige Schönheit (-8, 32 KaP, Wirkungsdauer augenblicklich; verbessert das Aussehen des Gesegneten. Eine Eigenheit, die sich auf Hässlichkeit bezieht, verschwindet oder er erhält eine Eigenheit, die sich auf seine Schönheit bezieht.)
+Vorbereitungszeit: 1 Tag
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: bis die Bindung gelöst wird
+Kosten: 16 KaP, davon 4 gKaP
+Fertigkeiten: Harmonie, Neubeginn</Talent>
+  <Talent name="Fest der Freude" kosten="20" voraussetzungen="Vorteil Rahjakirchliche Tradition I" verbilligt="0" fertigkeiten="Harmonie" variable="-1">Du erbittest Rahjas Segen für ein Fest. Essen, Getränke und Unterhaltung übertreffen die Erwartungen und negative Eigenheiten (und nicht verregelte Charakterschwächen) können ignoriert werden. Aggressive Handlungen erfordern eine Konterprobe (Willenskraft, 20). Die Wirkung endet gemeinsam mit dem Fest.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 16 KaP
+Fertigkeiten: Harmonie</Talent>
+  <Talent name="Göttliche Inspiration" kosten="40" voraussetzungen="Vorteil Rahjakirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I" verbilligt="0" fertigkeiten="Handwerk, Harmonie, Neubeginn" variable="-1">Wähle eine göttergefällige Freie Fertigkeit. Die Stufe dieser Freien Fertigkeit steigt um eins, oder du erhältst diese Fertigkeit auf unerfahren. 
+Tsa: Alle Fertigkeiten außer Sprachen und Schriften, die du noch nicht besitzt, sind tsagefällig.
+Rahja: Fertigkeiten mit Bezug zu Kunst, Weinbau und Pferdezucht.
+Ingerimm & Angrosch: Fertigkeiten des ehrbaren Handwerks.
+Mächtige Liturgie: Je zwei Stufen erhöhen die Stufe der Freien Fertigkeit um 1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 8 KaP
+Fertigkeiten: Handwerk, Harmonie, Neubeginn</Talent>
+  <Talent name="Harmonischer Rausch" kosten="40" voraussetzungen="Vorteil Rahjakirchliche Tradition I" verbilligt="0" fertigkeiten="Harmonie, Rausch" variable="-1">Du genießt mit dem Gesegneten gemeinsam den Rausch (egal ob mit Alkohol, Drogen, Sex, Tanz, einem Ausritt oder einem reinen Adrenalinrausch). Danach erfüllt euch die Harmonie Rahjas, durch die Furcht-Effekte um eine Stufe verringert sind.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Woche
+Kosten: 8 KaP
+Fertigkeiten: Harmonie, Rausch
+</Talent>
+  <Talent name="Levthans Fessel" kosten="60" voraussetzungen="Vorteil Rahjakirchliche Tradition I" verbilligt="0" fertigkeiten="Harmonie" variable="-1">Du rufst das heilige Levthansband herbei, das sich um das Ziel legt und es bindet. Das Ziel muss ein Daimonid, Dämon, Elementar, Feenwesen oder Untoter sein und die Beschwörungsschwierigkeit von maximal 24 aufweisen. Während der Fesselung ist das Ziel entrückt und zu keiner Handlung fähig, kann aber auch nicht zum Ziel von AT, Zaubern oder Liturgien werden.
+Mächtige Liturgie: Erhöht die Beschwörungsschwierigkeit um 4.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelwesen
+Reichweite: 4 Schritt
+Wirkungsdauer: 1 Tag
+Kosten: 16 KaP
+Fertigkeiten: Harmonie
+Anmerkung: Legenden zufolge soll es eine Variante der Liturgie geben,
+die sogar halbgöttliche Wesen binden kann.</Talent>
+  <Talent name="Rahjas Wohlgefallen" kosten="40" voraussetzungen="Vorteil Rahjakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I" verbilligt="0" fertigkeiten="Fröhlicher Wanderer, Harmonie" variable="-1">Du rufst die Gunst der Göttin auf dich herab. Menschenkenntnis- und Betören-Proben sind um +4 erleichtert. 
+Mächtige Liturgie: Der Bonus steigt um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 KaP
+Fertigkeiten: Fröhlicher Wanderer, Harmonie</Talent>
+  <Talent name="Schicksalsgemeinschaft" kosten="40" voraussetzungen="Vorteil Rahjakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I" verbilligt="0" fertigkeiten="Harmonie, Heim und Herd, Stiller Wanderer" variable="-1">Du stärkst das gegenseitige Vertrauen zwischen bis zu 8 treuen Gefährten. Häufig wird dieser Segen auf eine Familie (Tra), ein Liebespaar (Rah) oder eine Reisegruppe (Aves) gewirkt. Einmal pro Woche kann einer der Gesegneten einen Schicksalspunkt an einen anderen weitergeben.
+Mächtige Liturgie: Der Schicksalspunkt kann einmal pro Tag/4 Stunden/1 Stunde/jederzeit weitergegeben werden.
+Probenschwierigkeit: 12
+Modifikationen: Permanenz (-4, Wirkungsdauer bis die Bindung gelöst wird, Kosten 8 KaP, davon 2 gKaP)
+Vorbereitungszeit: 16 Aktionen
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Woche
+Kosten: 8 KaP
+Fertigkeiten: Harmonie, Heim und Herd, Stiller Wanderer</Talent>
+  <Talent name="Sulvas Gnade" kosten="40" voraussetzungen="Vorteil Rahjakirchliche Tradition I" verbilligt="0" fertigkeiten="Harmonie" variable="-1">Die Gnade der göttlichen Stute stärkt deine Beziehung zu einem Pferd. Erstens sind Proben im Umgang mit dem Pferd sind um +4 erleichtert, freie Fertigkeiten (wie Abrichter) zählen als eine Stufe höher. Zweitens erhältst du den Vorteil Tierempathie für dieses Pferd und erleidest keine Erschöpfung durch den Einsatz dieser Gabe. Die dafür nötigen Proben kannst du auch auf Harmonie statt auf Überleben ablegen.
+Mächtige Liturgie: Erhöht den Bonus um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Tier
+Reichweite: Berührung
+Wirkungsdauer: bis die Bindung gelöst wird
+Kosten: 8 KaP, davon 2 gKaP
+Fertigkeiten: Harmonie</Talent>
+  <Talent name="Tharvuns Schwingen" kosten="20" voraussetzungen="Vorteil Rahjakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I" verbilligt="0" fertigkeiten="Harmonie, Fröhlicher Wanderer" variable="-1">Das gesegnete Pferd ist unaufhaltsam wie der göttliche Hengst. Seine GS erhöht sich um +4 und es verfügt über ein unendliches DH. Alle Versuche, es in seiner Bewegung einzuschränken (etwa über Reiten, KK oder einen Corpofrigo) sind um -4 erschwert. 
+Mächtige Liturgie: Der Bonus steigt um +2, der Malus um -2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Tier
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 4 KaP
+Fertigkeiten: Fröhlicher Wanderer, Harmonie</Talent>
+  <Talent name="Verbrüderung der Feinde" kosten="40" voraussetzungen="Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I" verbilligt="0" fertigkeiten="Harmonie, Friede" variable="-1">Alle Lebewesen in einer Zone von 4 Schritt Radius verfallen in eine friedfertige Stimmung. Aggressive Handlungen erfordern eine Konterprobe (Willenskraft, 20). Erfordert Konzentration, erlaubt Aufrechterhalten. 
+Mächtige Liturgie: Verdoppelt den Radius.
+Probenschwierigkeit: 12
+Modifikationen: Heiliger Friedensschluss (-16, 1 Stunde, Wirkungsdauer 1 Woche, 32 KaP; du rufst das Joborner Friedenslicht (Rah) oder das Eidechsenauge (Tsa) herbei, das ganze Armeen in eine friedliche Stimmung versetzt und meist in einem großes Fest (Rah) oder eifrige Diskussionen über die Zukunft (Tsa) enden. Die Liturgie wirkt nicht, wenn eine der Seiten von dämonischen Kräften getrieben wird.)
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 KaP
+Fertigkeiten: Friede, Harmonie</Talent>
+  <Talent name="Entfesselnder Rausch" kosten="20" voraussetzungen="Vorteil Rahjakirchliche Tradition I" verbilligt="0" fertigkeiten="Rausch" variable="-1">Du genießt mit dem Gesegneten gemeinsam den Rausch (egal ob mit Alkohol, Drogen, Sex, Tanz, einem Ausritt oder einem reinen Adrenalinrausch). Dabei bekommt ihr einem tiefen Einblick in die Seele des Gegenübers: Ihr erfahrt von den Eigenheiten des jeweils anderen und Menschenkenntnis-Proben zwischen euch sind um +8 erleichtert, alle anderen Menschenkenntnis-Proben um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Woche
+Kosten: 4 KaP
+Fertigkeiten: Rausch</Talent>
+  <Talent name="Göttliche Freiheit" kosten="40" voraussetzungen="Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I" verbilligt="0" fertigkeiten="Frieden, Fröhlicher Wanderer, Rausch" variable="-1">Der Gesegnete wird von einer Fessel befreit, zum Beispiel von einer Eisenkette, von einer Sucht oder einem Einflusszauber. Körperliche Fesseln verschwinden dabei, geistige Fesseln werden während der Wirkungsdauer unterdrückt. Handelt sich es bei der Fessel um einen Zauber, wirkt die Liturgie als Konterprobe 8 gegen diesen Zauber. Bei einer gelungenen Probe wird der Zauber aufgehoben.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelwesen
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 8 KaP
+Fertigkeiten: Frieden, Fröhlicher Wanderer, Rausch</Talent>
+  <Talent name="Rahjas Geheiligter Wein" kosten="20" voraussetzungen="Vorteil Rahjakirchliche Tradition I" verbilligt="0" fertigkeiten="Rausch" variable="-1">Du rufst den Kelch der Rahja. In den Kelch gegossene Flüssigkeiten verwandeln sich in Wein, Wein erhält hingegen ein einzigartiges Aroma. Am Ende der Wirkungsdauer verschwindet der Kelch, die Verwandlung ist permanent.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: selbst
+Reichweite: dereweit
+Wirkungsdauer: 4 Minuten
+Kosten: 2 KaP
+Fertigkeiten: Rausch
+Anmerkung: Erfahrene Rahjageweihte (oft Tempelvorsteher) können mit einer Variante dieser Liturgie den geweihten Tharf erschaffen, den Rahjageweihte der Göttin opfern.</Talent>
+  <Talent name="Rahjalinas Kuss" kosten="20" voraussetzungen="Vorteil Rahjakirchliche Tradition I" verbilligt="0" fertigkeiten="Rausch" variable="-1">Du erhältst einen kurzen Einblick in den Traum deines Ziels. Über den Inhalt musst du anderen gegenüber schweigen.  
+Probenschwierigkeit: 12
+Modifikationen: Traumreise (-4, 8 KaP; du kannst in den Traum des Schlafenden reisen.), Große Traumreise (-8, 16 KaP; du kannst mit einigen Gefährten in den Traum reisen.)
+Vorbereitungszeit: 16 Aktionen
+Ziel: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 4 KaP
+Fertigkeiten: Rausch</Talent>
+  <Talent name="Rahjas Sinnlichkeit" kosten="60" voraussetzungen="Vorteil Rahjakirchliche Tradition I" verbilligt="0" fertigkeiten="Rausch" variable="-1">Durch den Segen der Göttin erhältst Resistenz I (alle Schadensquellen). Gleichzeitig sind aber alle Sinneseindrücke verstärkt, weswegen du schon beim Erleiden von einer Wunde eine Wundschmerz-Probe ablegen musst.
+Mächtige Liturgie: Je zwei Stufen erhöhen die Resistenz um eine Stufe.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 16 KaP
+Fertigkeiten: Rausch</Talent>
+  <Talent name="Reichung des Amethyst" kosten="40" voraussetzungen="Vorteil Rahjakirchliche Tradition I" verbilligt="0" fertigkeiten="Rausch" variable="-1">Beendet die Wirkung eines Giftes bis maximal Stufe 20.
+Mächtige Liturgie: Die maximal aufgehobene Giftstufe steigt um 4.
+Probenschwierigkeit: 12
+Modifikationen: Rausch beenden (Kosten 1 KaP; du beendest einen Rauschzustand.)
+Vorbereitungszeit: 16 Aktionen
+Ziel: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 8 KaP
+Fertigkeiten: Rausch</Talent>
+  <Talent name="Segen der Roten Schwester" kosten="40" voraussetzungen="Vorteil Rahjakirchliche Tradition I" verbilligt="0" fertigkeiten="Rausch" variable="-1">Der Gesegnete wird von einem glücklichen Rausch ergriffen, wenn ihm keine Konterprobe (Zähigkeit, 20) gelingt. Er erwacht nur, wenn er eine Wunde erleidet.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 KaP
+Fertigkeiten: Rausch</Talent>
+  <Talent name="Tanz der Schwerter" kosten="40" voraussetzungen="Vorteil Rahjakirchliche Tradition I" verbilligt="0" fertigkeiten="Rausch" variable="-1">Dein Kampfstil gleicht einem hypnotischen Tanz. Deine GS erhöht sich um +4 und alle AT und VT sind um +2 erleichtert. 
+Mächtige Liturgie: Die GS steigt um weitere +2.
+Probenschwierigkeit: 12
+Modifikationen: Fliegender Tanz (-8; du wirst nicht mehr zum Ziel von Passierschlägen.)
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 16 Aktionen
+Kosten: 4 KaP
+Fertigkeiten: Rausch</Talent>
+  <Talent name="Mirakel: GE" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Nächtlicher Schatten, Jagd, Seefahrt, Rausch" variable="-1">Dein nächster Wurf auf GE ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -5696,7 +5871,7 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Schutz der Gläubigen, Nächtlicher Schatten, Jagd, Seefahrt</Talent>
+Fertigkeiten: Schutz der Gläubigen, Nächtlicher Schatten, Jagd, Seefahrt, Rausch</Talent>
   <Talent name="Mirakel: KK" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Heiliges Feuer, Winter, Seefahrt" variable="-1">Dein nächster Wurf auf KK ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
@@ -5760,7 +5935,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Fertigkeiten: Heerführung, Ordnung, Wachstum</Talent>
-  <Talent name="Mirakel: MU" kosten="20" voraussetzungen="Kein Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Ehre, Magiebann, Abu al'Mada, Heiliges Feuer, Wildnis, Wind und Wogen, Tod" variable="-1">Dein nächster Wurf auf MU ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: MU" kosten="20" voraussetzungen="Kein Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Ehre, Magiebann, Abu al'Mada, Heiliges Feuer, Wildnis, Wind und Wogen, Tod, Rausch" variable="-1">Dein nächster Wurf auf MU ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -5768,7 +5943,7 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Ehre, Magiebann, Abu al'Mada, Heiliges Feuer, Wildnis, Wind und Wogen, Tod</Talent>
+Fertigkeiten: Ehre, Magiebann, Abu al'Mada, Heiliges Feuer, Wildnis, Wind und Wogen, Tod, Rausch</Talent>
   <Talent name="Mirakel: Selbstbeherrschung" kosten="20" voraussetzungen="Kein Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Ehre, Heiliges Erz, Wind und Wogen" variable="-1">Dein nächster Wurf auf Selbstbeherrschung ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
@@ -5778,7 +5953,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Fertigkeiten: Ehre, Heiliges Erz, Wind und Wogen</Talent>
-  <Talent name="Mirakel: IN" kosten="20" voraussetzungen="Kein Vorteil Firunkirchliche Tradition I" verbilligt="0" fertigkeiten="Ordnung, List, Heilung, Magie, Jagd, Wind und Wogen, Schlaf" variable="-1">Dein nächster Wurf auf IN ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: IN" kosten="20" voraussetzungen="Kein Vorteil Firunkirchliche Tradition I" verbilligt="0" fertigkeiten="Ordnung, List, Heilung, Magie, Jagd, Wind und Wogen, Schlaf, Harmonie" variable="-1">Dein nächster Wurf auf IN ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -5786,8 +5961,8 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Ordnung, List, Heilung, Magie, Jagd, Wind und Wogen, Schlaf</Talent>
-  <Talent name="Mirakel: Wahrnehmung" kosten="20" voraussetzungen="Kein Vorteil Firunkirchliche Tradition I, Kein Vorteil Swafnirkirchliche Tradition I" verbilligt="0" fertigkeiten="Ordnung, Heilung, Jagd, Wind und Wogen, Tod" variable="-1">Dein nächster Wurf auf Wahrnehmung ist um +4 Punkte erleichtert.
+Fertigkeiten: Ordnung, List, Heilung, Magie, Jagd, Wind und Wogen, Schlaf, Harmonie</Talent>
+  <Talent name="Mirakel: Wahrnehmung" kosten="20" voraussetzungen="Kein Vorteil Firunkirchliche Tradition I, Kein Vorteil Swafnirkirchliche Tradition I" verbilligt="0" fertigkeiten="Ordnung, Heilung, Jagd, Wind und Wogen, Tod, Rausch" variable="-1">Dein nächster Wurf auf Wahrnehmung ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -5795,7 +5970,7 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Ordnung, Heilung, Jagd, Wind und Wogen, Tod</Talent>
+Fertigkeiten: Ordnung, Heilung, Jagd, Wind und Wogen, Tod, Rausch</Talent>
   <Talent name="Mirakel: Magiekunde" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Magiebann, Magie" variable="-1">Dein nächster Wurf auf Magiekunde ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
@@ -5814,7 +5989,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Fertigkeiten: Magiebann, Abu al'Mada, Magie, Heiliges Feuer</Talent>
-  <Talent name="Mirakel: CH" kosten="20" voraussetzungen="Kein Vorteil Firunkirchliche Tradition I" verbilligt="0" fertigkeiten="Licht, Wachstum, Lehre, Wildnis, Vergessen" variable="-1">Dein nächster Wurf auf CH ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: CH" kosten="20" voraussetzungen="Kein Vorteil Firunkirchliche Tradition I" verbilligt="0" fertigkeiten="Licht, Wachstum, Lehre, Wildnis, Vergessen, Harmonie" variable="-1">Dein nächster Wurf auf CH ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -5822,7 +5997,7 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Licht, Wachstum, Lehre, Wildnis, Vergessen</Talent>
+Fertigkeiten: Licht, Wachstum, Lehre, Wildnis, Vergessen, Harmonie</Talent>
   <Talent name="Mirakel: Mythenkunde" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Licht, Lehre, Schlaf" variable="-1">Dein nächster Wurf auf Mythenkunde ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
@@ -5832,7 +6007,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Fertigkeiten: Licht, Lehre, Schlaf</Talent>
-  <Talent name="Mirakel: Athletik" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Nächtlicher Schatten, Seefahrt" variable="-1">Dein nächster Wurf auf Athletik ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Athletik" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Nächtlicher Schatten, Seefahrt, Harmonie" variable="-1">Dein nächster Wurf auf Athletik ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -5840,7 +6015,7 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Nächtlicher Schatten, Seefahrt</Talent>
+Fertigkeiten: Nächtlicher Schatten, Seefahrt, Harmonie</Talent>
   <Talent name="Mirakel: FF" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Nächtlicher Schatten, Heilung, Heiliges Handwerk" variable="-1">Dein nächster Wurf auf FF ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
@@ -5868,7 +6043,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Fertigkeiten: Nächtlicher Schatten</Talent>
-  <Talent name="Mirakel: Beeinflussung" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="List" variable="-1">Dein nächster Wurf auf Beeinflussung ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Beeinflussung" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="List, Harmonie" variable="-1">Dein nächster Wurf auf Beeinflussung ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -5876,7 +6051,7 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: List</Talent>
+Fertigkeiten: List, Harmonie</Talent>
   <Talent name="Mirakel: Heilkunde" kosten="20" voraussetzungen="Kein Vorteil Firunkirchliche Tradition I" verbilligt="0" fertigkeiten="Heilung, Wildnis, Vergessen" variable="-1">Dein nächster Wurf auf Heilkunde ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
