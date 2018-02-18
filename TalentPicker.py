@@ -48,7 +48,7 @@ class TalentPicker(object):
         self.rowCount = 0
         for el in Wolke.DB.talente:
             if fert in Wolke.DB.talente[el].fertigkeiten and Wolke.Char.voraussetzungenPrüfen(Wolke.DB.talente[el].voraussetzungen):
-                if Wolke.DB.talente[el].variable:
+                if Wolke.DB.talente[el].variable != -1:
                     if el not in self.talenteVariable:
                         self.talenteVariable[el] = Wolke.DB.talente[el].kosten
                 item = QtGui.QStandardItem(self.displayStr(el))
@@ -77,7 +77,7 @@ class TalentPicker(object):
                         if el in self.refC:
                             if tmp not in self.refC[el].gekaufteTalente:
                                 self.refC[el].gekaufteTalente.append(tmp)
-                    if Wolke.DB.talente[tmp].variable:
+                    if Wolke.DB.talente[tmp].variable != -1:
                         Wolke.Char.talenteVariable[tmp] = self.talenteVariable[tmp]
                 else:
                     for el in Wolke.DB.talente[tmp].fertigkeiten:
@@ -94,7 +94,8 @@ class TalentPicker(object):
         self.updateFields(text)
         
     def spinChanged(self):
-        self.talenteVariable[self.ui.labelName.text()] = self.ui.spinKosten.value()
+        if self.ui.labelName.text() in self.talenteVariable:
+            self.talenteVariable[self.ui.labelName.text()] = self.ui.spinKosten.value()
         
     def updateFields(self, talent):
         if talent is not None:
@@ -109,7 +110,7 @@ class TalentPicker(object):
             else:
                 self.ui.labelInfo.setText("Spezialtalent")
                 self.ui.spinKosten.setValue(Wolke.DB.talente[talent].kosten)
-            if Wolke.DB.talente[talent].variable:
+            if Wolke.DB.talente[talent].variable != -1:
                 self.ui.spinKosten.setReadOnly(False)
                 self.ui.spinKosten.setButtonSymbols(0)
                 if talent in Wolke.Char.talenteVariable:

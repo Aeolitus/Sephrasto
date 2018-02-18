@@ -551,7 +551,8 @@ class Char():
             fert.wert = int(fer.attrib['wert'])
             for tal in fer.findall('Talente/Talent'):
                 fert.gekaufteTalente.append(tal.attrib['name'])
-                if tal.attrib['variable'] != '-1':
+                var = int(tal.attrib['variable'])
+                if int(tal.attrib['variable']) != -1:
                     self.talenteVariable[tal] = int(tal.attrib['variable'])
             fert.aktualisieren()
             self.fertigkeiten.update({fert.name: fert})
@@ -596,7 +597,7 @@ class Char():
             fert.wert = int(fer.attrib['wert'])
             for tal in fer.findall('Talente/Talent'):
                 fert.gekaufteTalente.append(tal.attrib['name'])
-                if tal.attrib['variable'] != '-1':
+                if int(tal.attrib['variable']) != -1:
                     self.talenteVariable[tal.attrib['name']] = int(tal.attrib['variable'])
             fert.aktualisieren()
             self.übernatürlicheFertigkeiten.update({fert.name: fert})

@@ -52,7 +52,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
                     child.setCheckState(0, QtCore.Qt.Checked)
                 else:
                     child.setCheckState(0, QtCore.Qt.Unchecked)
-                if Wolke.DB.vorteile[el].variable!=0:
+                if Wolke.DB.vorteile[el].variable!=-1:
                     spin = QtWidgets.QSpinBox()
                     spin.setMinimum(0)
                     spin.setSuffix(" EP")
@@ -108,7 +108,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
                         Wolke.Char.vorteile.remove(txt)
                 else:
                     chi.setHidden(False)
-                if Wolke.DB.vorteile[el].variable!=0:
+                if Wolke.DB.vorteile[el].variable!=-1:
                     Wolke.Char.vorteileVariable[el] = self.itemWidgets[el].value()
         self.updateInfo()
         self.uiVor.treeWidget.blockSignals(False)
@@ -177,7 +177,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
             self.uiVor.labelTyp.setText(VorteilTypen[Wolke.DB.vorteile[self.currentVort].typ])
             self.uiVor.labelNachkauf.setText(Wolke.DB.vorteile[self.currentVort].nachkauf)
             self.uiVor.plainText.setPlainText(Wolke.DB.vorteile[self.currentVort].text)
-            if Wolke.DB.vorteile[self.currentVort].variable!=0 and self.currentVort in Wolke.Char.vorteileVariable:
+            if Wolke.DB.vorteile[self.currentVort].variable!=-1 and self.currentVort in Wolke.Char.vorteileVariable:
                 self.uiVor.spinKosten.setValue(Wolke.Char.vorteileVariable[self.currentVort])
             else:
                 self.uiVor.spinKosten.setValue(Wolke.DB.vorteile[self.currentVort].kosten)      

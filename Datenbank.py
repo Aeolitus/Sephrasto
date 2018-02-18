@@ -131,7 +131,7 @@ class Datenbank():
             try:
                 V.variable = int(vort.get('variable'))
             except:
-                V.variable = 0
+                V.variable = -1
             self.vorteile.update({V.name: V})
             
         #Talente
