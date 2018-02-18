@@ -14,6 +14,9 @@ class Steigerbar(object):
         self.wert = 0
         self.steigerungsfaktor = 0
         self.text = ''
+    def __eq__(self, other) : 
+        if self.__class__ != other.__class__: return False
+        return self.__dict__ == other.__dict__
 
 # Implementation für Attribute: SF ist 16, PW ist 2x Wert
 class Attribut(Steigerbar):
@@ -88,6 +91,9 @@ class Talent():
         self.voraussetzungen = []
         self.variable = 0
         self.text = ''
+    def __eq__(self, other) : 
+        if self.__class__ != other.__class__: return False
+        return self.__dict__ == other.__dict__
 
 class Vorteil():
     def __init__(self):
@@ -98,3 +104,6 @@ class Vorteil():
         self.voraussetzungen = []
         self.nachkauf = ''
         self.text = '' 
+    def __eq__(self, other) : 
+        if self.__class__ != other.__class__: return False
+        if self.__dict__ == other.__dict__: return True

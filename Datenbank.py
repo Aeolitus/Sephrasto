@@ -12,7 +12,7 @@ class Datenbank():
         self.talente = {}
         self.übernatürlicheFertigkeiten = {}
         self.waffen = {}
-
+        
         self.datei = 'datenbank.xml'
         self.root = None
         if os.path.isfile(self.datei):
@@ -20,6 +20,10 @@ class Datenbank():
         elif os.path.isfile("regelbasis.xml"):
             self.datei = "regelbasis.xml"
             self.xmlLaden()
+            
+        if os.path.isfile("datenbank_user.xml"):
+            self.datei = "datenbank_user.xml"
+            self.xmlLaden(False)
 
     def xmlSchreiben(self):
         Wolke.Fehlercode = -26
@@ -106,14 +110,15 @@ class Datenbank():
             
         Wolke.Fehlercode = 0
         
-    def xmlLaden(self):
+    def xmlLaden(self, clearVars=True):
         Wolke.Fehlercode = -20
         self.root = etree.parse(self.datei).getroot()
-        self.vorteile = {}
-        self.fertigkeiten = {}
-        self.talente = {}
-        self.übernatürlicheFertigkeiten = {}
-        self.waffen = {}
+        if clearVars:
+            self.vorteile = {}
+            self.fertigkeiten = {}
+            self.talente = {}
+            self.übernatürlicheFertigkeiten = {}
+            self.waffen = {}
         
         numLoaded = 0
         
@@ -198,7 +203,7 @@ class Datenbank():
             w.schn = int(wa.get('schn'))
             self.waffen.update({w.name: w})
         
-        if numLoaded <1:
+        if numLoaded <1 and clearVars:
             Wolke.Fehlercode = -33
             raise Exception('The selected database file is empty!')
         
