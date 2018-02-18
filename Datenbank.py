@@ -6,12 +6,18 @@ import Objekte
 from Wolke import Wolke
 
 class Datenbank():
-    def __init__(self):
+    def __init__(self, LoadUser = True):
         self.vorteile = {}
         self.fertigkeiten = {}
         self.talente = {}
         self.übernatürlicheFertigkeiten = {}
         self.waffen = {}
+        
+        self.vExclude = []
+        self.fExclude = []
+        self.tExclude = []
+        self.üExclude = []
+        self.wExclude = []
         
         self.datei = 'datenbank.xml'
         self.root = None
@@ -21,9 +27,40 @@ class Datenbank():
             self.datei = "regelbasis.xml"
             self.xmlLaden()
             
-        if os.path.isfile("datenbank_user.xml"):
+        if LoadUser and os.path.isfile("datenbank_user.xml"):
             self.datei = "datenbank_user.xml"
             self.xmlLaden(False)
+            
+    def prepUserDBSchreiben(self):
+        refDB = Datenbank(False)        
+        for el in self.vorteile:
+            if el in refDB.vorteile:
+                if self.vorteile[el] == refDB.vorteile[el]:
+                    self.vExclude.append(el)
+        for el in self.fertigkeiten:
+            if el in refDB.fertigkeiten:
+                if self.fertigkeiten[el] == refDB.fertigkeiten[el]:
+                    self.fExclude.append(el)
+        for el in self.talente:
+            if el in refDB.talente:
+                if self.talente[el] == refDB.talente[el]:
+                    self.tExclude.append(el)
+        for el in self.übernatürlicheFertigkeiten:
+            if el in refDB.übernatürlicheFertigkeiten:
+                if self.übernatürlicheFertigkeiten[el] == refDB.übernatürlicheFertigkeiten[el]:
+                    self.üExclude.append(el)
+        for el in self.waffen:
+            if el in refDB.waffen:
+                if self.waffen[el] == refDB.waffen[el]:
+                    self.wExclude.append(el)
+        
+    def postUserDBSchreiben(self):
+        self.vExclude = []
+        self.fExclude = []
+        self.tExclude = []
+        self.üExclude = []
+        self.wExclude = []
+                
 
     def xmlSchreiben(self):
         Wolke.Fehlercode = -26
@@ -32,6 +69,7 @@ class Datenbank():
         #Vorteile
         Wolke.Fehlercode = -27
         for vort in self.vorteile:
+            if vort in self.vExclude: continue
             v = etree.SubElement(self.root,'Vorteil')
             v.set('name',self.vorteile[vort].name)
             v.set('kosten',str(self.vorteile[vort].kosten))
@@ -44,6 +82,7 @@ class Datenbank():
         #Talente
         Wolke.Fehlercode = -28
         for tal in self.talente:
+            if tal in self.tExclude: continue
             v = etree.SubElement(self.root,'Talent')
             v.set('name',self.talente[tal].name)
             v.set('kosten',str(self.talente[tal].kosten))
@@ -56,6 +95,7 @@ class Datenbank():
         #Fertigkeiten
         Wolke.Fehlercode = -29
         for fer in self.fertigkeiten:
+            if fer in self.fExclude: continue
             v = etree.SubElement(self.root,'Fertigkeit')
             v.set('name',self.fertigkeiten[fer].name)
             v.set('steigerungsfaktor',str(self.fertigkeiten[fer].steigerungsfaktor))
@@ -66,6 +106,7 @@ class Datenbank():
 
         Wolke.Fehlercode = -30
         for fer in self.übernatürlicheFertigkeiten:
+            if fer in self.üExclude: continue
             v = etree.SubElement(self.root,'Übernatürliche-Fertigkeit')
             v.set('name',self.übernatürlicheFertigkeiten[fer].name)
             v.set('steigerungsfaktor',str(self.übernatürlicheFertigkeiten[fer].steigerungsfaktor))
@@ -76,6 +117,7 @@ class Datenbank():
         #Waffen
         Wolke.Fehlercode = -31
         for wa in self.waffen:
+            if wa in self.wExclude: continue
             w = etree.SubElement(self.root,'Waffe')
             w.set('name', self.waffen[wa].name)
             w.set('W6', str(self.waffen[wa].W6))

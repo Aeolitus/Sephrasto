@@ -20,6 +20,7 @@ class DatenbankEdit(object):
     def __init__(self):
         super().__init__()
         self.datenbank = Datenbank.Datenbank()
+        self.savepath = "datenbank_user.xml"
     
     def setupGUI(self):
         # GUI Mods
@@ -33,6 +34,7 @@ class DatenbankEdit(object):
         self.ui.showWaffen.stateChanged.connect(self.updateGUI)
         self.ui.buttonLoadDB.clicked.connect(self.loadDatenbank)
         self.ui.buttonSaveDB.clicked.connect(self.saveDatenbank)
+        self.ui.buttonQuicksave.clicked.connect(self.quicksaveDatenbank)
         self.ui.buttonEditieren.clicked.connect(self.editSelected)
         self.ui.buttonLoeschen.clicked.connect(self.deleteSelected)
         self.ui.buttonHinzufuegen.clicked.connect(self.hinzufuegen)
@@ -249,8 +251,45 @@ class DatenbankEdit(object):
         spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"Datenbank speichern...","","XML-Datei (*.xml)")
         if ".xml" not in spath:
             spath = spath + ".xml"
-        self.datenbank.datei = spath
-        self.datenbank.xmlSchreiben()
+        if spath.endswith("datenbank.xml"):
+            infoBox = QtWidgets.QMessageBox()
+            infoBox.setIcon(QtWidgets.QMessageBox.Information)
+            infoBox.setText("Überschreiben der zentralen Datenbank verhindert!")
+            infoBox.setInformativeText("Bitte schreibe deine eigenen Regeln nicht mit in die zentrale datenbank.xml - \
+diese wird bei vielen Updates von Sephrasto verändert, wodurch du deine Regeln \
+verlieren würdest. Stattdessen kannst du die datenbank_user.xml verwenden, die \
+automatisch beim Programmstart mit geladen wird. Änderungen darin überschreiben \
+die datenbank.xml, aber bleiben bei Updates erhalten! Auch andere Dateien sind \
+in Ordnung, werden aber nicht von Sephrasto geladen.")
+            infoBox.setWindowTitle("Ungültige Datei!")
+            infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
+            infoBox.exec_()
+            self.saveDatenbank()
+        else:
+            self.savepath = spath
+            self.quicksaveDatenbank()
+        
+    def quicksaveDatenbank(self):
+        if self.savepath.endswith("datenbank.xml"):
+            infoBox = QtWidgets.QMessageBox()
+            infoBox.setIcon(QtWidgets.QMessageBox.Information)
+            infoBox.setText("Überschreiben der zentralen Datenbank verhindert!")
+            infoBox.setInformativeText("Bitte schreibe deine eigenen Regeln nicht mit in die zentrale datenbank.xml - \
+diese wird bei vielen Updates von Sephrasto verändert, wodurch du deine Regeln \
+verlieren würdest. Stattdessen kannst du die datenbank_user.xml verwenden, die \
+automatisch beim Programmstart mit geladen wird. Änderungen darin überschreiben \
+die datenbank.xml, aber bleiben bei Updates erhalten! Auch andere Dateien sind \
+in Ordnung, werden aber nicht von Sephrasto geladen.")
+            infoBox.setWindowTitle("Ungültige Datei!")
+            infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
+            infoBox.exec_()
+        else:
+            self.datenbank.datei = self.savepath
+            self.datenbank.prepUserDBSchreiben()
+            self.datenbank.xmlSchreiben()
+            self.datenbank.postUserDBSchreiben()
         
     def loadDatenbank(self):
         spath, _ = QtWidgets.QFileDialog.getOpenFileName(None,"Datenbank laden...","","XML-Datei (*.xml)")
