@@ -31,16 +31,17 @@ class Editor(object):
         super().__init__()
         Wolke.DB = Datenbank.Datenbank()
         self.pdfMeister = pdfM.pdfMeister()
+        self.savepath = CharacterName
         if Wolke.DB.root is not None:
             self.noDatabase = False
-            self.finishInit(CharacterName)
+            self.finishInit()
         else:
             self.noDatabase = True
         
-    def finishInit(self, CharacterName):
+    def finishInit(self):
         Wolke.Char = Charakter.Char() 
-        if CharacterName != "":
-            Wolke.Char.xmlLesen(CharacterName)
+        if self.savepath != "":
+            Wolke.Char.xmlLesen(self.savepath)
         Wolke.Char.aktualisieren() # A bit later because it needs access to itself
         
         self.ignoreModified = False
@@ -80,6 +81,7 @@ class Editor(object):
         
         self.ui.tabs.currentChanged.connect(self.reloadAll)
         self.ui.buttonSave.clicked.connect(self.saveButton)
+        self.ui.buttonQuicksave.clicked.connect(self.quicksaveButton)
         self.ui.buttonSavePDF.clicked.connect(self.pdfButton)
         self.ui.spinEP.valueChanged.connect(self.epChanged)
         self.ui.checkReq.stateChanged.connect(self.reqChanged)
@@ -133,26 +135,45 @@ class Editor(object):
         self.ignoreModified = False
         
     def saveButton(self):
-        self.updateAll()
         spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"Charakter speichern...","","XML-Datei (*.xml)")
         if spath == "":
             return
         if ".xml" not in spath:
             spath = spath + ".xml"
-        try:
-            Wolke.Char.xmlSchreiben(spath)
-        except:
+            
+        if spath.endswith("datenbank.xml") or spath.endswith("datenbank_user.xml"):
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Information)
             infoBox.setText("Speichern des Charakters fehlgeschlagen!")
-            infoBox.setInformativeText("Beim Speichern des Charakters ist ein Fehler aufgetreten!\n\
-Fehlercode: " + str(Wolke.Fehlercode) + "\n\
-Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
+            infoBox.setInformativeText("Ich empfehle, die Regelbasis nicht mit einem Charakter zu überschreiben. \
+Versuchs doch bitte nochmal mit einer anderen Zieldatei.")
             infoBox.setWindowTitle("Charakter speichern fehlgeschlagen.")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
             infoBox.exec_()
-    
+            return
+        self.savepath = spath
+        self.quicksaveButton()
+            
+    def quicksaveButton(self):
+        self.updateAll()
+        if self.savepath == "":
+            self.saveButton()
+        else:
+            try:
+                Wolke.Char.xmlSchreiben(self.savepath)
+            except:
+                infoBox = QtWidgets.QMessageBox()
+                infoBox.setIcon(QtWidgets.QMessageBox.Information)
+                infoBox.setText("Speichern des Charakters fehlgeschlagen!")
+                infoBox.setInformativeText("Beim Speichern des Charakters ist ein Fehler aufgetreten!\n\
+Fehlercode: " + str(Wolke.Fehlercode) + "\n\
+Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
+                infoBox.setWindowTitle("Charakter speichern fehlgeschlagen.")
+                infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+                infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
+                infoBox.exec_()
+            
     def pdfButton(self):
         self.updateAll()
         # Check if there is a base Charakterbogen.pdf:

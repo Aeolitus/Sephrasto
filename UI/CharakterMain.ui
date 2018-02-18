@@ -42,7 +42,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="buttonSave">
+      <widget class="QPushButton" name="buttonQuicksave">
        <property name="minimumSize">
         <size>
          <width>75</width>
@@ -51,6 +51,19 @@
        </property>
        <property name="text">
         <string>Speichern</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="buttonSave">
+       <property name="minimumSize">
+        <size>
+         <width>75</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Speichern als...</string>
        </property>
       </widget>
      </item>
