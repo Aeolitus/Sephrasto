@@ -4231,14 +4231,14 @@ Wirkungsdauer: nach Artefakt
 Kosten: 8 KaP
 Fertigkeiten: Zwölfgöttlicher Ritus
 Anmerkung: Geweihte Artefakte werden nur sehr selten an Laien vergeben. Am ehesten kommen Gläubige auf einer gottgefälligen Queste in Frage.</Talent>
-  <Talent name="Märtyrersegen" kosten="20" voraussetzungen="Vorteil Firunkirchliche Tradition I ODER Vorteil Angroschkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Winter, Zwölfgöttlicher Ritus" variable="-1">Der Gesegnete gewinnt an Tapferkeit. Auf ihm lastende Furcht-Effekte gelten als 1 Stufe niedriger.
+  <Talent name="Märtyrersegen" kosten="20" voraussetzungen="Vorteil Firunkirchliche Tradition I ODER Vorteil Angroschkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Winter, Guter Kampf, Zwölfgöttlicher Ritus" variable="-1">Der Gesegnete gewinnt an Tapferkeit. Auf ihm lastende Furcht-Effekte gelten als 1 Stufe niedriger.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: Einzelperson
 Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 4 KaP
-Fertigkeiten: Winter, Zwölfgöttlicher Ritus</Talent>
+Fertigkeiten: Winter, Guter Kampf, Zwölfgöttlicher Ritus</Talent>
   <Talent name="Objektsegen" kosten="20" voraussetzungen="Vorteil Angroschkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus" variable="-1">Du segnest ein Objekt bis zur Größe eines Rucksacks oder eine Substanz mit bis zu 8 Litern Volumen. Das Objekt gilt als geweiht.
 Mächtige Liturgie: Verdoppelt die Größe des Objekts bzw. das Volumen. 
 Probenschwierigkeit: 12
@@ -4406,7 +4406,7 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 16 KaP
 Fertigkeiten: Tod</Talent>
-  <Talent name="Tiergestalt" kosten="40" voraussetzungen="Vorteil Firunkirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Ehre, Jagd, List, Tod, Wind und Wogen" variable="-1">Du verwandelst dich in das heilige Tier deiner Gottheit, wobei du deine geistigen Fähigkeiten behältst. Deine körperlichen Fähigkeiten entsprechen denen des Tiers und du kannst in Tiergestalt keine Liturgien wirken. Erlaubt Aufrechterhalten. 
+  <Talent name="Tiergestalt" kosten="40" voraussetzungen="Vorteil Firunkirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Ehre, Jagd, List, Tod, Wind und Wogen, Guter Kampf" variable="-1">Du verwandelst dich in das heilige Tier deiner Gottheit, wobei du deine geistigen Fähigkeiten behältst. Deine körperlichen Fähigkeiten entsprechen denen des Tiers und du kannst in Tiergestalt keine Liturgien wirken. Erlaubt Aufrechterhalten. 
 Mächtige Liturgie: Das Tier ist ein überdurchschnittlicher/außergewöhnlicher/herausragender/einzigartiger Vertreter seiner Art. Die Werte des Tieres sind nach Spielleiterentscheid erhöht. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
@@ -4414,15 +4414,15 @@ Ziel: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Stunden
 Kosten: 8 KaP
-Fertigkeiten: Ehre, Jagd, List, Tod, Wind und Wogen</Talent>
-  <Talent name="Waffenweihe" kosten="60" voraussetzungen="Vorteil Rondrakirchliche Tradition I ODER Vorteil Angroschkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I" verbilligt="0" fertigkeiten="Magiebann, Heiliges Feuer, Heerführung, Tod" variable="-1">Du segnest eine Waffe. Diese gilt als geweiht.
+Fertigkeiten: Ehre, Jagd, List, Tod, Wind und Wogen, Guter Kampf</Talent>
+  <Talent name="Waffenweihe" kosten="60" voraussetzungen="Vorteil Rondrakirchliche Tradition I ODER Vorteil Angroschkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Magiebann, Heiliges Feuer, Heerführung, Tod, Gutes Gold" variable="-1">Du segnest eine Waffe. Diese gilt als geweiht.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Stunde 
 Ziel: Einzelobjekt
 Reichweite: Berührung
 Wirkungsdauer: bis die Bindung gelöst wird
 Kosten: 8 KaP, davon 2 gKaP
-Fertigkeiten: Magiebann, Heiliges Feuer, Heerführung, Tod
+Fertigkeiten: Magiebann, Heiliges Feuer, Heerführung, Tod, Gutes Gold
 Anmerkung: Geweihte Waffen werden nur in seltenen Ausnahmefällen und nach sorgfältiger Überprüfung an Nicht-Geweihte ausgegeben.</Talent>
   <Talent name="Weihe der letzten Ruhestatt" kosten="20" voraussetzungen="Vorteil Boronkirchliche Tradition I" verbilligt="0" fertigkeiten="Tod" variable="-1">Du segnest einen Boronsanger, der fortan als geweihter Boden gilt und Platz für etwa 32 Gräber bietet. Beschwörungen von unheiligen Wesenheiten sind um -8 erschwert. 
 Mächtige Liturgie: Verdoppelt die Größe.
@@ -4449,14 +4449,14 @@ Reichweite: Berührung
 Wirkungsdauer: permanent
 Kosten: 16 KaP
 Fertigkeiten: Vergessen</Talent>
-  <Talent name="Heiliger Befehl" kosten="60" voraussetzungen="Vorteil Praioskirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I" verbilligt="0" fertigkeiten="Ehre, Ordnung, Vergessen, Rausch" variable="-1">Das Ziel befolgt einen gottgefälligen Befehl, wenn ihm keine Konterprobe (Willenskraft, 20) gelingt. 
+  <Talent name="Heiliger Befehl" kosten="60" voraussetzungen="Vorteil Praioskirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Ehre, Ordnung, Vergessen, Rausch, Gutes Gold" variable="-1">Das Ziel befolgt einen gottgefälligen Befehl, wenn ihm keine Konterprobe (Willenskraft, 20) gelingt. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: Einzelperson
 Reichweite: 32 Schritt
 Wirkungsdauer: 1 Tag
 Kosten: 8 KaP 
-Fertigkeiten: Ehre, Ordnung, Vergessen, Rausch</Talent>
+Fertigkeiten: Ehre, Ordnung, Vergessen, Rausch, Gutes Gold</Talent>
   <Talent name="Innere Ruhe" kosten="40" voraussetzungen="Vorteil Boronkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I" verbilligt="0" fertigkeiten="Ordnung, Vergessen" variable="-1">Du besinnst dich auf deine innere Kraft und befreist deinen Geist. Alle Proben auf Selbstbeherrschung sind um +4 erleichtert. 
 Mächtige Liturgie: Der Bonus steigt um +2. Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
@@ -5417,7 +5417,7 @@ Reichweite: Berührung
 Wirkungsdauer: 16 Aktionen
 Kosten: 8 KaP
 Fertigkeiten: Abu al'Mada</Talent>
-  <Talent name="Mondsilberzunge" kosten="40" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="List, Friede, Stiller Wanderer" variable="-1">Dein Ziel hat vollstes Vertrauen zu dir und findet deine Worte überzeugend. Alle Überreden-Proben gegen dein Ziel sind um +4 erleichtert. 
+  <Talent name="Mondsilberzunge" kosten="40" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="List, Friede, Stiller Wanderer, Gutes Gold" variable="-1">Dein Ziel hat vollstes Vertrauen zu dir und findet deine Worte überzeugend. Alle Überreden-Proben gegen dein Ziel sind um +4 erleichtert. 
 Mächtige Liturgie: Der Bonus steigt um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
@@ -5425,7 +5425,7 @@ Ziel: Einzelperson
 Reichweite: 8 Schritt
 Wirkungsdauer: 1 Stunde
 Kosten: 8 KaP
-Fertigkeiten: List, Friede, Stiller Wanderer</Talent>
+Fertigkeiten: List, Friede, Stiller Wanderer, Gutes Gold</Talent>
   <Talent name="Phexens Augenzwinkern" kosten="20" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="List, Stiller Wanderer" variable="-1">Das Ziel kann sich kaum an dein Gesicht erinnern. Selbst wenn er darauf angesprochen oder verhört wird, sind alle KL-Proben zur Erinnerung um -4 erschwert. Die Liturgie wirkt nur, wenn deine wahre Identität unbekannt ist. 
 Mächtige Liturgie: Der Malus steigt um -2.
 Probenschwierigkeit: 12
@@ -5634,14 +5634,14 @@ Reichweite: Berührung
 Wirkungsdauer: 8 Stunden
 Kosten: 16 KaP
 Fertigkeiten: Heerführung</Talent>
-  <Talent name="Segen des heiligen Hlûthar" kosten="20" voraussetzungen="Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Heerführung" variable="-1">Alle Mitglieder des Heeres, dem du angehörst, erhalten eine Erleichterung von +2 auf alle MU-Proben und und auf ihnen lastende Furcht-Effekte gelten als 1 Stufe niedriger. 
+  <Talent name="Segen des heiligen Hlûthar" kosten="20" voraussetzungen="Vorteil Rondrakirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Heerführung, Gutes Gold" variable="-1">Alle Mitglieder des Heeres, dem du angehörst, erhalten eine Erleichterung von +2 auf alle MU-Proben und und auf ihnen lastende Furcht-Effekte gelten als 1 Stufe niedriger. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
 Ziel: Zone
 Reichweite: 1 Meile
 Wirkungsdauer: 4 Stunden
 Kosten: 16 KaP
-Fertigkeiten: Heerführung </Talent>
+Fertigkeiten: Heerführung, Gutes Gold</Talent>
   <Talent name="Weihesegen der Waffe" kosten="40" voraussetzungen="Vorteil Rondrakirchliche Tradition I" verbilligt="0" fertigkeiten="Heerführung" variable="-1">Du kannst vier Nahkampfaffen weihen. 
 Mächtige Liturgie: Du weihst zwei weitere Waffen. 
 Probenschwierigkeit: 12
@@ -6142,7 +6142,60 @@ Reichweite: Berührung
 Wirkungsdauer: bis die Bindung gelöst wird
 Kosten: 8 KaP, davon 2 gKaP
 Fertigkeiten: Stiller Wanderer</Talent>
-  <Talent name="Mirakel: GE" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Nächtlicher Schatten, Jagd, Seefahrt, Rausch, Neubeginn, Fröhlicher Wanderer" variable="-1">Dein nächster Wurf auf GE ist um +4 Punkte erleichtert.
+  <Talent name="Das schwarze Fell durch das rote Blut" kosten="40" voraussetzungen="Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Guter Kampf" variable="-1">Dein vergossenes Blut legt sich wie eine schützende Haut um deinen Körper. Dein RS steigt um 1 und für je zwei erlittene Wunden steigt der RS um einen weiteren Punkt.
+Mächtige Liturgie: Je zwei Stufen erhöhen den RS um +1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Ziel: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 KaP
+Fertigkeiten: Guter Kampf</Talent>
+  <Talent name="Der über das Schlachtfeld schreitet" kosten="40" voraussetzungen="Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Guter Kampf" variable="-1">Der Boden erzittert unter deinen Füßen. Für feindlich gesinnte Humanoide, Tiere, Feenwesen oder Mythenwesen giltst du als Schreckgestalt Stufe II. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Ziel: selbst
+Reichweite: Berührung
+Wirkungsdauer: 16 Aktionen
+Kosten: 8 KaP
+Fertigkeiten: Guter Kampf</Talent>
+  <Talent name="Immerwährender Kampf" kosten="80" voraussetzungen="Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Guter Kampf" variable="-1">Die Lebenskraft deiner Feinde stärkt dich. Wenn du seit dem Beginn deiner letzten Initiativephase einen mindestens normal großen Gegner besiegt hast, regenerierst du eine Wunde, bei großen oder sehr großen Gegnern sogar zwei Wunden. Du kannst die Liturgie pro besiegtem Gegner nur einmal nutzen.
+Mächtige Liturgie: Du kannst den Gegner seit der vor-/dritt-/viert-/fünftletzten Initiativephase besiegt haben.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Ziel: selbst
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 4 KaP
+Fertigkeiten: Guter Kampf</Talent>
+  <Talent name="Neun Streiche in einem" kosten="40" voraussetzungen="Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Guter Kampf" variable="-1">Du wirfst die Kraft des Gnadenlosen in deinen nächsten Angriff. Trifft dieser Angriff, richtest du für jeden bisherigen Treffer gegen das Ziel in diesem Kampf 1W6 TP zusätzlich an. Das Maximum liegt bei 8W6 TP.
+Mächtige Liturgie: Der Angriff ist um +2 erleichtert.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Ziel: selbst
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 8 KaP
+Fertigkeiten: Guter Kampf</Talent>
+  <Talent name="Orakel des Mantikor" kosten="20" voraussetzungen="Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Gutes Gold" variable="-1">Du erfährst, ob ein Verschollener im Kampf gefallen ist. Sollte der Verschollene auf eine andere Art und Weise ums Leben gekommen sein, schlägt das Orakel nicht an.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Minuten
+Ziel: selbst
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 4 KaP
+Fertigkeiten: Gutes Gold</Talent>
+  <Talent name="Fluch des Verräters" kosten="20" voraussetzungen="Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Gutes Gold" variable="-1">Du rufst Kors Strafe auf einen reuelosen Sünder oder Deserteur herab. Wenn ihm eine Konterprobe (Willenskraft, 20) misslingt, erleidet es in jedem Kampf einen Furcht-Effekt Stufe 1.
+Mächtige Liturgie: Je zwei Stufen erhöhen den Furcht-Effekt um eine Stufe.
+Probenschwierigkeit: 12
+Modifikationen: Permanenz (-4, Wirkungsdauer bis die Bindung gelöst wird, 8 KaP, davon 2 gKaP)
+Vorbereitungszeit: 4 Minuten
+Ziel: Einzelperson
+Reichweite: 16 Schritt
+Wirkungsdauer: 1 Woche
+Kosten: 8 KaP
+Fertigkeiten: Heim und Herd</Talent>
+  <Talent name="Mirakel: GE" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Nächtlicher Schatten, Jagd, Seefahrt, Rausch, Neubeginn, Fröhlicher Wanderer, Guter Kampf" variable="-1">Dein nächster Wurf auf GE ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -6150,8 +6203,8 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Schutz der Gläubigen, Nächtlicher Schatten, Jagd, Seefahrt, Rausch, Neubeginn, Fröhlicher Wanderer</Talent>
-  <Talent name="Mirakel: KK" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Heiliges Feuer, Winter, Seefahrt" variable="-1">Dein nächster Wurf auf KK ist um +4 Punkte erleichtert.
+Fertigkeiten: Schutz der Gläubigen, Nächtlicher Schatten, Jagd, Seefahrt, Rausch, Neubeginn, Fröhlicher Wanderer, Guter Kampf</Talent>
+  <Talent name="Mirakel: KK" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Heiliges Feuer, Winter, Seefahrt, Guter Kampf" variable="-1">Dein nächster Wurf auf KK ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -6159,8 +6212,8 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Schutz der Gläubigen, Heiliges Feuer, Winter, Seefahrt</Talent>
-  <Talent name="Mirakel: Handgemenge" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen" variable="-1">Dein nächster Wurf auf Handgemenge ist um +4 Punkte erleichtert.
+Fertigkeiten: Schutz der Gläubigen, Heiliges Feuer, Winter, Seefahrt, Guter Kampf</Talent>
+  <Talent name="Mirakel: Handgemenge" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Guter Kampf" variable="-1">Dein nächster Wurf auf Handgemenge ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -6168,8 +6221,8 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Schutz der Gläubigen</Talent>
-  <Talent name="Mirakel: Hiebwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Heiliges Erz" variable="-1">Dein nächster Wurf auf Hiebwaffen ist um +4 Punkte erleichtert.
+Fertigkeiten: Schutz der Gläubigen, Guter Kampf</Talent>
+  <Talent name="Mirakel: Hiebwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Heiliges Erz, Guter Kampf" variable="-1">Dein nächster Wurf auf Hiebwaffen ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -6177,8 +6230,8 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Schutz der Gläubigen, Heiliges Erz</Talent>
-  <Talent name="Mirakel: Klingenwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen" variable="-1">Dein nächster Wurf auf Klingenwaffen ist um +4 Punkte erleichtert.
+Fertigkeiten: Schutz der Gläubigen, Heiliges Erz, Guter Kampf</Talent>
+  <Talent name="Mirakel: Klingenwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Guter Kampf" variable="-1">Dein nächster Wurf auf Klingenwaffen ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -6186,8 +6239,8 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Schutz der Gläubigen</Talent>
-  <Talent name="Mirakel: Stangenwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen" variable="-1">Dein nächster Wurf auf Stangenwaffen ist um +4 Punkte erleichtert.
+Fertigkeiten: Schutz der Gläubigen, Guter Kampf</Talent>
+  <Talent name="Mirakel: Stangenwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Guter Kampf" variable="-1">Dein nächster Wurf auf Stangenwaffen ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -6195,8 +6248,8 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Schutz der Gläubigen</Talent>
-  <Talent name="Mirakel: KO" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Heerführung, Heiliges Erz, Winter, Quellen und Flüsse, Stiller Wanderer" variable="-1">Dein nächster Wurf auf KO ist um +4 Punkte erleichtert.
+Fertigkeiten: Schutz der Gläubigen, Guter Kampf</Talent>
+  <Talent name="Mirakel: KO" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Heerführung, Heiliges Erz, Winter, Quellen und Flüsse, Stiller Wanderer, Guter Kampf" variable="-1">Dein nächster Wurf auf KO ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -6204,8 +6257,8 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Heerführung, Heiliges Erz, Winter, Quellen und Flüsse, Stiller Wanderer</Talent>
-  <Talent name="Mirakel: Autorität" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Heerführung, Ordnung, Wachstum, Heim und Herd" variable="-1">Dein nächster Wurf auf Autorität ist um +4 Punkte erleichtert.
+Fertigkeiten: Heerführung, Heiliges Erz, Winter, Quellen und Flüsse, Stiller Wanderer, Guter Kampf</Talent>
+  <Talent name="Mirakel: Autorität" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Heerführung, Ordnung, Wachstum, Heim und Herd, Gutes Gold" variable="-1">Dein nächster Wurf auf Autorität ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -6213,8 +6266,8 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Heerführung, Ordnung, Wachstum, Heim und Herd</Talent>
-  <Talent name="Mirakel: MU" kosten="20" voraussetzungen="Kein Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Ehre, Magiebann, Abu al'Mada, Heiliges Feuer, Wildnis, Wind und Wogen, Tod, Rausch, Sichere Heimkehr" variable="-1">Dein nächster Wurf auf MU ist um +4 Punkte erleichtert.
+Fertigkeiten: Heerführung, Ordnung, Wachstum, Heim und Herd, Gutes Gold</Talent>
+  <Talent name="Mirakel: MU" kosten="20" voraussetzungen="Kein Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Ehre, Magiebann, Abu al'Mada, Heiliges Feuer, Wildnis, Wind und Wogen, Tod, Rausch, Sichere Heimkehr, Gutes Gold" variable="-1">Dein nächster Wurf auf MU ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -6222,8 +6275,8 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Ehre, Magiebann, Abu al'Mada, Heiliges Feuer, Wildnis, Wind und Wogen, Tod, Rausch, Sichere Heimkehr</Talent>
-  <Talent name="Mirakel: Selbstbeherrschung" kosten="20" voraussetzungen="Kein Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Ehre, Heiliges Erz, Wind und Wogen" variable="-1">Dein nächster Wurf auf Selbstbeherrschung ist um +4 Punkte erleichtert.
+Fertigkeiten: Ehre, Magiebann, Abu al'Mada, Heiliges Feuer, Wildnis, Wind und Wogen, Tod, Rausch, Sichere Heimkehr, Gutes Gold</Talent>
+  <Talent name="Mirakel: Selbstbeherrschung" kosten="20" voraussetzungen="Kein Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Ehre, Heiliges Erz, Wind und Wogen, Gutes Gold" variable="-1">Dein nächster Wurf auf Selbstbeherrschung ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -6231,7 +6284,7 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Ehre, Heiliges Erz, Wind und Wogen</Talent>
+Fertigkeiten: Ehre, Heiliges Erz, Wind und Wogen, Gutes Gold</Talent>
   <Talent name="Mirakel: IN" kosten="20" voraussetzungen="Kein Vorteil Firunkirchliche Tradition I" verbilligt="0" fertigkeiten="Ordnung, List, Heilung, Magie, Jagd, Wind und Wogen, Schlaf, Harmonie, Sichere Heimkehr, Friede, Stiller Wanderer" variable="-1">Dein nächster Wurf auf IN ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
