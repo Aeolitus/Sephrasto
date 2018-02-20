@@ -4853,6 +4853,246 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 8 AsP
 Fertigkeiten: Keulenrituale, Kraft</Talent>
+  <Talent name="Aufpeitschender Klang" kosten="40" voraussetzungen="Vorteil Repräsentation der Zauberbarden I" verbilligt="0" fertigkeiten="Eigenschaften, Zaubermelodien" variable="-1">Du entlockst deinem Instrument einen elektrisierenden Ton. Wenn das Ziel die nächste Probe auf eine körperliche Aktivität (z.B. Laufen, Nahkampfangriff) ablegt, ist diese um +2 erleichtert.
+Mächtige Magie: Der Bonus steigt um +1
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Ziel: Einzelperson
+Reichweite: 8 Schritt
+Wirkungsdauer: 4 Aktionen
+Kosten: 4 AsP
+Fertigkeiten: Eigenschaften, Zaubermelodien</Talent>
+  <Talent name="Disharmonischer Klang" kosten="40" voraussetzungen="Vorteil Repräsentation der Zauberbarden I" verbilligt="0" fertigkeiten="Antimagie, Einfluss, Zaubermelodien" variable="-1">Der Klang stört einen anderen Zauberer während dessen Zaubervorbereitung. Das Ziel muss eine Konterprobe (Willenskraft, 16) ablegen, um den Zauber fortzusetzen.
+Schwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Ziel: Einzelperson
+Reichweite: 8 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 4 AsP
+Fertigkeiten: Antimagie, Einfluss, Zaubermelodien</Talent>
+  <Talent name="Lied der Feen" kosten="20" voraussetzungen="Vorteil Repräsentation der Zauberbarden I" verbilligt="0" fertigkeiten="Verständigung, Zaubermelodien" variable="-1">Du rufst ein Feenwesen zur Hilfe. Befinden sich Feenwesen in einem Umkreis von 1 Meile, eilt eines von ihnen herbei. Du kannst das Feenwesen um einen Gefallen bitten, aber es entscheidet selbst, ob es den Gefallen erfüllt. 
+Probenschwierigkeit: 12
+Modifikationen: Namensruf (-4; 8 Meilen; du rufst ein dir bereits bekanntes Feenwesen herbei.)
+Vorbereitungszeit: 4 Minuten
+Ziel: Zone
+Reichweite: 1 Meile
+Wirkungsdauer: augenblicklich
+Kosten: 8 AsP
+Fertigkeiten: Verständigung, Zaubermelodien</Talent>
+  <Talent name="Lied der Flammen" kosten="20" voraussetzungen="Vorteil Repräsentation der Zauberbarden I" verbilligt="0" fertigkeiten="Feuer, Verwandlung, Zaubermelodien" variable="-1">Flammen im Umkreis von 4 Schritt lodern heller und spenden mehr Wärme. In ihrer Umgebung steigt die Temperaturstufe um eins.
+Probenschwierigkeit: 12
+Modifikationen: Innere Wärme (-8; auch ohne Feuer steigt die Temperaturstufe für alle Zuhörer um eins)
+Vorbereitungszeit: 16 Aktionen
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 AsP
+Fertigkeiten: Feuer, Verwandlung, Zaubermelodien</Talent>
+  <Talent name="Lied der Heilung" kosten="40" voraussetzungen="Vorteil Repräsentation der Zauberbarden I" verbilligt="0" fertigkeiten="Humus, Verwandlung, Zaubermelodien" variable="-1">Das Lied stärkt die Lebenskraft der Verwundeten. Der am schwersten verletze Zuhörer in 4 Schritt Umkreis regeneriert in der nächsten Ruhephase eine zusätzliche Wunde. Bei Gleichstand entscheidet der Spieler.
+Mächtige Magie: Mit zwei/vier Stufen erstreckt sich die Wirkung auf den am zweit-/drittstärksten Verletzten.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 8 AsP
+Fertigkeiten: Humus, Verwandlung, Zaubermelodien</Talent>
+  <Talent name="Lied des Wanderers" kosten="20" voraussetzungen="Vorteil Repräsentation der Zauberbarden I" verbilligt="0" fertigkeiten="Eigenschaften, Zaubermelodien" variable="-1">Das Lied stärkt das Durchhaltevermögen eines müden Wanderers. Der Zuhörer mit dem geringsten DH in 4 Schritt Umkreis erhält ein verdoppeltes DH* und der Intervall, in dem er durch körperliche Anstrengung Erschöpfung verursacht, verdoppelt sich.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Ziel: Zone
+Reichweite: 4 Schritt
+Wirkungsdauer: 8 Stunden
+Kosten: 4AsP
+Fertigkeiten: Eigenschaften, Zaubermelodien</Talent>
+  <Talent name="Melodie der Beruhigung" kosten="60" voraussetzungen="Vorteil Repräsentation der Zauberbarden I" verbilligt="0" fertigkeiten="Einfluss, Zaubermelodien" variable="-1">Solange du spielst, stärkt die Melodie den Mut deiner Zuhörer im Umkreis von 4 Schritt. Auf ihnen lastende Furcht-Effekte sinken um eine Stufe. Erfordert Konzentration, erlaubt Aufrechterhalten.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Aktion
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 16 Aktionen
+Kosten: 16 AsP
+Fertigkeiten: Einfluss, Zaubermelodien</Talent>
+  <Talent name="Melodie der Besänftigung" kosten="20" voraussetzungen="Vorteil Repräsentation der Zauberbarden I" verbilligt="0" fertigkeiten="Einfluss, Zaubermelodien" variable="-1">Die Melodie besänftigt Tiere im Umkreis von 4 Schritt. Wenn ihnen eine Konterprobe (Magieresistenz, 16) misslingt, verlieren sie ihre Angriffslust, solange sie nicht angegriffen oder gereizt werden. Erfordert Konzentration, erlaubt Aufrechterhalten.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Aktion
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 8 AsP
+Fertigkeiten: Einfluss, Zaubermelodien</Talent>
+  <Talent name="Melodie der Besänftigung" kosten="40" voraussetzungen="Vorteil Repräsentation der Zauberbarden I" verbilligt="0" fertigkeiten="Eigenschaften, Einfluss, Zaubermelodien" variable="-1">Die Melodie schenkt den Menschen Zuversicht. Alle Zuhörer in einem Umkreis von 4 Schritt erhalten eine Erleichterung +2 auf Anführen und MU. Erfordert Konzentration, erlaubt Aufrechterhalten.
+Mächtige Magie: Der Bonus steigt um +1
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Aktion
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 16 Aktionen
+Kosten: 8 AsP
+Fertigkeiten: Eigenschaften, Einfluss, Zaubermelodien </Talent>
+  <Talent name="Melodie der Versöhnung" kosten="40" voraussetzungen="Vorteil Repräsentation der Zauberbarden I" verbilligt="0" fertigkeiten="Einfluss, Zaubermelodien" variable="-1">Die Melodie schafft eine versöhnliche Atmosphäre. Das Verhältnis aller Zuhörer in einem Umkreis von 4 Schritt untereinander verbessert sich um eine Stufe, wenn ihnen eine Gegenprobe (Magieresistenz, 20). Erfordert Konzentration, erlaubt Aufrechterhalten.
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 4 Aktionen
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 AsP
+Fertigkeiten: Einfluss, Zaubermelodien</Talent>
+  <Talent name="Melodie der Verwirrung" kosten="20" voraussetzungen="Vorteil Repräsentation der Zauberbarden I" verbilligt="0" fertigkeiten="Eigenschaften, Zaubermelodien" variable="-1">Die Melodie verwirrt die Zuhörer. Wenn ihnen eine Gegenprobe (Magieresistenz, 16) misslingt, sind alle Proben auf KL und IN sind um -2 erschwert, Proben auf Fertigkeiten mit KL und IN um -1. Erfordert Konzentration, erlaubt Aufrechterhalten.
+Mächtige Magie: Der Malus steigt um -1/-1.
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 4 Aktionen
+Ziel: Zone
+Reichweite: 4 Schritt
+Wirkungsdauer: 16 Aktionen
+Kosten: 4 AsP
+Fertigkeiten: Eigenschaften, Zaubermelodien</Talent>
+  <Talent name="Melodie des Einlullens" kosten="40" voraussetzungen="Vorteil Repräsentation der Zauberbarden I" verbilligt="0" fertigkeiten="Eigenschaften, Zaubermelodien" variable="-1">Alle Humanoide in Hörreichweite sind von deiner immer berauschenderen Musik völlig gefesselt. Nur mit einer Konterprobe (Willenskraft, 16) kann sich ein Zuhörer für 16 Aktionen dem Zauber des Liedes entziehen. Ansonsten erwacht er, wenn du aufhörst zu spielen oder er eine Wunde erleidet. Erfordert Konzentration, erlaubt Aufrechterhalten. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Ziel: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 AsP
+Fertigkeiten: Einfluss, Zaubermelodien</Talent>
+  <Talent name="Melodie des Zauberschutzes" kosten="40" voraussetzungen="Vorteil Repräsentation der Zauberbarden I" verbilligt="0" fertigkeiten="Antimagie, Einfluss, Zaubermelodien" variable="-1">Magieresistenz-Proben aller Zuhörer im Umkreis von 4 Metern sind um +2 erleichtert. Erfordert Konzentration, erlaubt Aufrechterhalten.
+Mächtige Magie: Erhöht den Bonus um +1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Aktion
+Ziel: Zone
+Reichweite: 4 Schritt
+Wirkungsdauer: 16 Aktionen
+Kosten: 4 AsP
+Fertigkeiten: Antimagie, Einfluss, Zaubermelodien</Talent>
+  <Talent name="Schriller Klang" kosten="40" voraussetzungen="Vorteil Repräsentation der Zauberbarden I" verbilligt="0" fertigkeiten="Einfluss, Zaubermelodien" variable="-1">Du entlockst deinem Instrument einen schrillen Klang, der für dein Ziel hundertfach verstärkt ist. Bis zur nächsten eigenen Intitiativephase sind alle Proben des Ziels um -4 erschwert. Der schrille Klang wirkt nicht auf unheilige Wesen und Elementare.
+Mächtige Magie: Der Malus steigt um -2.
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 0 Aktionen
+Ziel: Einzelwesen
+Reichweite: 8 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 2 AsP
+Fertigkeiten: Einfluss, Zaubermelodien</Talent>
+  <Talent name="Warnender Klang" kosten="20" voraussetzungen="Vorteil Repräsentation der Zauberbarden I" verbilligt="0" fertigkeiten="Eigenschaften, Zaubermelodien" variable="-1">Du entlockst deinem Instrument einen alarmierenden Klang. Alle Zuhörer in 8 Meter Umkreis erwachen augenblicklich und sind hellwach. Gegen folgende Angriffe gelten sie nicht als überrascht.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 4 AsP
+Fertigkeiten: Eigenschaften, Zaubermelodien</Talent>
+  <Talent name="Tanz der Bilder" kosten="0" voraussetzungen="Vorteil Repräsentation der Zaubertänzer I" verbilligt="0" fertigkeiten="Illusion, Zaubertänze" variable="-1">Alle humanoiden Zuseher im Umkreis von 4 Schritt werden von einer raschen Abfolge von Bilder mit einer beruhigenden, heiteren oder alptraumhaften Grundstimmung (nach deiner Wahl) gefesselt. Die Wirkung endet, wenn du aufhörst zu tanzen. Erlaubt Aufrechterhalten, erforder Konzentration.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 4 AsP
+Fertigkeiten: Illusion, Zaubertänze</Talent>
+  <Talent name="Tanz der Erholung" kosten="40" voraussetzungen="Vorteil Repräsentation der Zaubertänzer I" verbilligt="0" fertigkeiten="Humus, Zaubertänze" variable="-1">Dein Tanz verschafft allen Humanoiden im Umkreis von 4 Schritt einen erholsamen Schlaf. In ihrer nächsten Ruhepause regenerieren sie eine zusätzliche Wunde.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 16 AsP
+Fertigkeiten: Humus, Zaubertänze</Talent>
+  <Talent name="Tanz der Erlösung" kosten="20" voraussetzungen="Vorteil Repräsentation der Zaubertänzer I" verbilligt="0" fertigkeiten="Antimagie, Einfluss, Zaubertänze" variable="-1">Dieser Tanz gilt als Konterprobe (12) gegen sämtliche Einflusszauber, Hexenflüche und Druidenrituale auf dem Ziel. Bei gelungener Probe werden die Zauber aufgehoben.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Stunden
+Ziel: Einzelperson
+Reichweite: 4 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 8 AsP
+Fertigkeiten: Antimagie, Einfluss, Zaubertänze</Talent>
+  <Talent name="Tanz der Ermutigung" kosten="40" voraussetzungen="Vorteil Repräsentation der Zaubertänzer I" verbilligt="0" fertigkeiten="Eigenschaften, Einfluss, Zaubertänze" variable="-1">Dein Tanz schenkt den Menschen Zuversicht. Alle Zuschauer in einem Umkreis von 4 Schritt erhalten eine Erleichterung +2 auf Anführen und MU.
+Mächtige Magie: Der Bonus steigt um +1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 16 AsP
+Fertigkeiten: Eigenschaften, Einfluss, Zaubertänze</Talent>
+  <Talent name="Tanz der Freude" kosten="20" voraussetzungen="Vorteil Repräsentation der Zaubertänzer I" verbilligt="0" fertigkeiten="Humus, Zaubertänze" variable="-1">Der Tanz stärkt die Lebenskräfte und beendet ein Gift oder eine Krankheit bis maximal Stufe 16.
+Mächtige Magie: Die maximal aufgehobene Gift-/Krankheitsstufe steigt um 4.
+Vorbereitungszeit: 1 Stunde
+Ziel: Einzelperson
+Reichweite: 4 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 8 AsP
+Fertigkeiten: Humus, Zaubertänze</Talent>
+  <Talent name="Tanz der Jagd" kosten="40" voraussetzungen="Vorteil Repräsentation der Zaubertänzer I" verbilligt="0" fertigkeiten="Eigenschaften, Zaubertänze" variable="-1">Der Tanz schärft die Jagdinstinkte der Zuschauer. Alle Zuschauer in einem Umkreis von 4 Schritt erhalten eine Erleichterung +2 auf Pirschen, Überleben, Tierkunde und GE-Proben.
+Mächtige Magie: Der Bonus steigt um +1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 16 AsP
+Fertigkeiten: Eigenschaften, Zaubertänze</Talent>
+  <Talent name="Tanz der Liebe" kosten="20" voraussetzungen="Vorteil Repräsentation der Zaubertänzer I" verbilligt="0" fertigkeiten="Einfluss, Verständigung, Zaubertänze" variable="-1">Das Ziel entbrennt in heißer Leidenschaft zu dir. Auf einer Skala von abstoßend/uninteressant/neutral/begehrenswert/unwiderstehlich steigt seine Einstellung dir gegenüber um eine Stufe. 
+Probenschwierigkeit: Magieresistenz
+Modifikationen: Tanz des Begehrens (-8, Ziel Zone, Wirkungsdauer 1 Stunde, alle Zuseher im Umkreis von 4 Schritt, denen eine Konterprobe (MR, 12) misslingt, entbrennen in Leidenschaft zu dir))
+Vorbereitungszeit: 1 Stunde
+Ziel: Einzelperson
+Reichweite: 4 Schritt
+Wirkungsdauer: 1 Tag
+Kosten: 8 AsP
+Fertigkeiten: Einfluss, Verständigung, Zaubertänze</Talent>
+  <Talent name="Tanz der Unantastbarkeit" kosten="40" voraussetzungen="Vorteil Repräsentation der Zaubertänzer I" verbilligt="0" fertigkeiten="Eigenschaften, Zaubertänze" variable="-1">Der Tanz verbessert deinen Gleichgewichtssinn und deine Körperbeherrschung. Du erhältst den Vorteil Körperbeherrschung. Besitzt du den Vorteil bereits, erleidest du beim Einsatz des Vorteils keine Erschöpfung.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Minuten
+Ziel: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 AsP
+Fertigkeiten: Eigenschaften, Zaubertänze</Talent>
+  <Talent name="Tanz der Wahrheit" kosten="40" voraussetzungen="Vorteil Repräsentation der Zaubertänzer I" verbilligt="0" fertigkeiten="Hellsicht, Zaubertänze" variable="-1">Du siehst die Gedanken deines Ziels als verschwommene Bilder vor dir. Weiß das Ziel, dass seine Gedanken gelesen werden, kann es dich mit einer Konterprobe (Willenskraft, 16) in die Irre führen. Die Wirkung endet, wenn du aufhörst zu tanzen. Erlaubt Aufrechterhalten, erfordert Konzentration.
+Mächtige Magie: Du erhältst einen deutlichen/klaren/vollständigen Eindruck in die Gedanken deines Ziels.
+Probenschwierigkeit: Magieresistenz
+Modifikationen: Tanz des Wahrheitssinns (-8, Ziel Zone, 16 AsP; du ließt die Gedanken aller Humanoiden im Umkreis von 4 Schritt, denen eine Konterprobe (MR, 12) misslingt.)
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 16 Aktionen
+Ziel: Einzelperson
+Reichweite: 4 Schritt
+Wirkungsdauer: 16 Aktionen
+Kosten: 8 AsP
+Fertigkeiten: Hellsicht, Zaubertänze</Talent>
+  <Talent name="Tanz der Weisheit" kosten="40" voraussetzungen="Vorteil Repräsentation der Zaubertänzer I" verbilligt="0" fertigkeiten="Eigenschaften, Zaubertänze" variable="-1">Der Tanz schärft den Geist der Zuseher. Alle Zuseher in einem Umkreis von 4 Schritt erhalten eine Erleichterung +2 auf Mythenkunde, Geographie, Heilkunde und KL.
+Mächtige Magie: Der Bonus steigt um +1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 16 AsP
+Fertigkeiten: Eigenschaften, Zaubertänze</Talent>
+  <Talent name="Tanz des Mondes" kosten="40" voraussetzungen="Vorteil Repräsentation der Zaubertänzer I" verbilligt="0" fertigkeiten="Verständigung, Zaubertänze" variable="-1">Mit diesem Tanz kannst du in die Träume eines schlafenden Zieles eindringen und kannst ihm dort Botschaften überbringen. Woran sich das Ziel erinnern kann, ist Spielleiterentscheid. Du musst eine emotionale Beziehung zum Ziel haben.
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 1 Stunde
+Ziel: Einzelperson
+Reichweite: 100 Meilen
+Wirkungsdauer: 1 Stunde
+Kosten: 8 AsP
+Fertigkeiten: Verständigung, Zaubertänze</Talent>
+  <Talent name="Tanz des Ungehorsams" kosten="40" voraussetzungen="Vorteil Repräsentation der Zaubertänzer I" verbilligt="0" fertigkeiten="Antimagie, Eigenschaften, Zaubertänze" variable="-1">Magieresistenz-Proben des Ziels sind um +4 erleichtert.
+Mächtige Magie: Erhöht den Bonus um +2
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: Einzelperson
+Reichweite: 4 Schritt
+Wirkungsdauer: 1 Tag
+Kosten: 8 AsP
+Fertigkeiten: Antimagie, Eigenschaften, Zaubertänze</Talent>
+  <Talent name="Tanz ohne Ende" kosten="60" voraussetzungen="Vorteil Repräsentation der Zaubertänzer I" verbilligt="0" fertigkeiten="Verständigung, Zaubertänze" variable="-1">Alle Humanoide in Sichtweite sind von deinem berauschenderen Tanz völlig gefesselt. Nur mit einer Konterprobe (Willenskraft, 16) kann sich ein Zuhörer für 16 Aktionen dem Zauber des Tanzes entziehen. Ansonsten erwacht er, wenn du aufhörst zu tanzen oder er eine Wunde erleidet. Erfordert Konzentration, erlaubt Aufrechterhalten. 
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Ziel: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 AsP
+Fertigkeiten: Einfluss, Zaubertänze</Talent>
   <Talent name="Eidsegen" kosten="0" voraussetzungen="Vorteil Praioskirchliche Tradition I ODER Vorteil Angroschkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Ordnung, Zwölfgöttlicher Ritus" variable="-1">Ein freiwilliges und aufrichtiges Gelübde der Zielperson wird gesegnet. Alle Versuche, den Schwörenden zum Eidbruch zu bewegen (etwa über Betören, Überreden oder einen Imperavi), sind um -4 erschwert. Bricht der Schwörende den Eid im Vollbesitz seiner geistigen Kräfte, endet der Segen.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
