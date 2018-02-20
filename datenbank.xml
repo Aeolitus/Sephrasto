@@ -4425,7 +4425,7 @@ Fertigkeiten: Antimagie, Geister vertreiben, Kraft, Stärkende Geister</Talent>
   <Talent name="Tabu" kosten="20" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss, Geister Vertreiben, Zornige Geister" variable="-1">Um die verzauberte Zone von 16 Schritt Radius zu betreten, ist eine Konterprobe (Willenskraft, 12) nötig. Davon sind all jene, die während der gesamten Vorbereitungszeit in der Zone waren, ausgenommen.
 Mächtige Magie: Verdoppelt den Radius.
 Probenschwierigkeit: 12
-Vorbereitungszeit: ?
+Vorbereitungszeit: 4 Minuten
 Ziel: Zone
 Reichweite: Berührung
 Wirkungsdauer: bis die Bindung gelöst wird
