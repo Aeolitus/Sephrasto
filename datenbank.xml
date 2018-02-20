@@ -4206,6 +4206,653 @@ Reichweite: Berührung
 Wirkungsdauer: 8 Stunden
 Kosten: 1 AsP
 Fertigkeiten: Verständigung, Vertrautenmagie</Talent>
+  <Talent name="Blutgeist aufnehmen" kosten="60" voraussetzungen="Vorteil Repräsentation der Anach-Nurim I" verbilligt="0" fertigkeiten="Verwandlung, Gaben des Blutgeists" variable="-1">Du verzehrst das frische Herz eines Tieres, um den Blutgeist des Tieres aufzunehmen. Damit beginnt die Besessenheit, die drei Effekte hat: Erstens kannst du die Zauber Stärke des Blutgeists und Körper des Blutgeists nutzen. Diese Zauber beziehen sich immer auf das aufgenommene Tier. Zweitens kannst du alle dem Tier zugeordneten Spruchzauber wirken, ohne dass du sie erlernen musst. Die Probe wird dabei auf die Fertigkeit Gaben des Blutgeists abgelegt. Drittens erhältst du die Eigenheit "Gefahr des Blutes": Wann immer du in Kontakt mit fremdem Blut kommst, kann der Blutgeist die Oberhand gewinnen. Meist gerätst du in einen mörderischen Blutrausch, aber auch teilweise oder ganze Verwandlungen oder andere, zum Tier passende Effekte sind denkbar. Positive und negative Effekte verschwinden mit dem Ende der Besessenheit. Du kannst niemals zwei Blutgeister gleichzeitig aufnehmen.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: selbst
+Reichweite: Berührung
+Wirkungsdauer: bis die Bindung gelöst wird
+Kosten: 8 AsP, davon 8 gAsP
+Fertigkeiten: Verwandlung, Gaben des Blutgeists</Talent>
+  <Talent name="Stärke des Blutgeists" kosten="40" voraussetzungen="Vorteil Repräsentation der Anach-Nurim I" verbilligt="0" fertigkeiten="Eigenschaften, Gaben des Blutgeists" variable="-1">Der Blutgeist stärkt dich. Du erhältst einen Bonus von +2 auf alle bei dem Tier des Blutgeists angegebenen Werte.
+Mächtige Magie: Der Bonus steigt um +1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 4 AsP
+Fertigkeiten: Eigenschaften, Gaben des Blutgeists</Talent>
+  <Talent name="Körper des Blutgeists" kosten="60" voraussetzungen="Vorteil Repräsentation der Anach-Nurim I" verbilligt="0" fertigkeiten="Verwandlung, Gaben des Blutgeists" variable="-1">Du setzt eine der beim Tier deines Blutgeists angegebenen Verwandlungen ein. Du kannst auch beide Verwandlungen gleichzeitig nutzen, dafür musst du den Zauber zwei Mal wirken.
+Mächtige Magie: Falls zutreffend, geschieht das Folgende: Probenerleichterungen steigen um +2, TP um +2, die Giftstufe um +4, die Flugweiten und -höhen um 4/2 Schritt. Je zwei Stufen erhöhen einen RS-Bonus um +1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 AsP
+Fertigkeiten: Verwandlung, Gaben des Blutgeists</Talent>
+  <Talent name="Rhythmen der Ermutigung" kosten="40" voraussetzungen="Vorteil Repräsentation der Derwische I" verbilligt="0" fertigkeiten="Eigenschaften, Einfluss, Trommelrituale" variable="-1">Die Rhythmen schenken den Menschen Zuversicht. Alle Zuhörer in einem Umkreis von 4 Schritt erhalten eine Erleichterung +2 auf Anführen und MU.
+Mächtige Magie: Der Bonus steigt um +1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 16 AsP
+Fertigkeiten: Eigenschaften, Einfluss, Trommelrituale</Talent>
+  <Talent name="Rhythmen der Güte" kosten="40" voraussetzungen="Vorteil Repräsentation der Derwische I" verbilligt="0" fertigkeiten="Humus, Trommelrituale" variable="-1">Deine Rhythmen verschaffen allen Humanoiden im Umkreis von 4 Schritt einen erholsamen Schlaf. In ihrer nächsten Ruhepause regenerieren sie eine zusätzliche Wunde.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 16 AsP
+Fertigkeiten: Humus, Trommelrituale</Talent>
+  <Talent name="Rhythmen der Jagd" kosten="40" voraussetzungen="Vorteil Repräsentation der Derwische I" verbilligt="0" fertigkeiten="Eigenschaften, Trommelrituale" variable="-1">Die Rhythmen schärfen die Jagdinstinkte der Zuseher. Alle Zuseher in einem Umkreis von 4 Schritt erhalten eine Erleichterung +2 auf Pirschen, Überleben, Tierkunde und GE-Proben.
+Mächtige Magie: Der Bonus steigt um +1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 16 AsP
+Fertigkeiten: Eigenschaften, Trommelrituale</Talent>
+  <Talent name="Rhythmen des gottgefälligen Zorns" kosten="60" voraussetzungen="Vorteil Repräsentation der Derwische I" verbilligt="0" fertigkeiten="Kraft, Trommelrituale" variable="-1">Alle Waffen der Zuhörer im Umkreis von 4 Schritt gelten während der Wirkungsdauer als magisch.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 16 AsP
+Fertigkeiten: Kraft, Trommelrituale </Talent>
+  <Talent name="Rhythmen des Krieges" kosten="60" voraussetzungen="Vorteil Repräsentation der Derwische I" verbilligt="0" fertigkeiten="Eigenschaften, Trommelrituale" variable="-1">Der aufpeitschenden Rhythmen stärkt den Kampfesmut der
+Zuhörer. Alle Zuhörer in einem Umkreis von 4 Schritt erhalten eine
+Erleichterung +1 auf alle Nahkampffertigkeiten, Zähigkeit und KK.
+Mächtige Magie: Je zwei Stufen erhöhen den Bonus um +1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 16 AsP
+Fertigkeiten: Eigenschaften, Trommelrituale</Talent>
+  <Talent name="Rhythmen der Reinigung" kosten="40" voraussetzungen="Vorteil Repräsentation der Derwische I" verbilligt="0" fertigkeiten="Humus, Trommelrituale" variable="-1">Die Rhythmen gelten als Konterprobe (12) gegen sämtliche Einflusszauber, Hexenflüche und Druidenrituale auf dem Ziel. Bei gelungener Probe werden die Zauber aufgehoben.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Stunden
+Ziel: Einzelperson
+Reichweite: 4 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 8 AsP
+Fertigkeiten: Humus, Trommelrituale</Talent>
+  <Talent name="Rhythmen des Schutzes" kosten="40" voraussetzungen="Vorteil Repräsentation der Derwische I" verbilligt="0" fertigkeiten="Eigenschaften, Trommelrituale" variable="-1">Die sanften Rhythmen erhöhen die Magieresistenz. Alle Zuhörer im Umkreis von 4 Schritt erhalten eine Erleichterung von +4 auf die MR.
+Mächtige Magie: Der Bonus steigt um +1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 16 AsP
+Fertigkeiten: Eigenschaften, Trommelrituale</Talent>
+  <Talent name="Rhythmen des Sturmes" kosten="40" voraussetzungen="Vorteil Repräsentation der Derwische I" verbilligt="0" fertigkeiten="Eigenschaften, Trommelrituale" variable="-1">Die sanften Rhythmen erhöhen die Reitkünste. Alle Zuhörer im Umkreis von 4 Schritt erhalten eine Erleichterung von +2 auf Lanzenreiten, Reiten und andere Proben im Umgang mit Pferden.
+Mächtige Magie: Der Bonus steigt um +1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 16 AsP
+Fertigkeiten: Eigenschaften, Trommelrituale</Talent>
+  <Talent name="Blut des Tieres" kosten="40" voraussetzungen="Vorteil Repräsentation der Durro-dun I" verbilligt="0" fertigkeiten="Verwandlung, Gaben des Odun" variable="-1">Du wirst von der animalischen Essenz deines Tiergeistes erfüllt. Jedem, der keine eine Konterprobe (MU, 16) besteht, erscheinst du als ein Wesen mit Schreckgestalt II.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Ziel: selbst
+Reichweite: Berührung
+Wirkungsdauer: 16 Aktionen
+Kosten: 8 AsP
+Fertigkeiten: Verwandlung, Gaben des Odûn</Talent>
+  <Talent name="Hauch des Tieres" kosten="40" voraussetzungen="Vorteil Repräsentation der Durro-dun I" verbilligt="0" fertigkeiten="Eigenschaften, Gaben des Odun" variable="-1">Der Tiergeist stärkt und unterstützt dich. Du erhältst einen Bonus von +2 auf alle bei deinem Tier angegebenen Werte.
+Mächtige Magie: Der Bonus steigt um +1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Ziel: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 4 AsP
+Fertigkeiten: Eigenschaften, Gaben des Odûn</Talent>
+  <Talent name="Haut des Tieres" kosten="60" voraussetzungen="Vorteil Repräsentation der Durro-dun I" verbilligt="0" fertigkeiten="Verwandlung, Gaben des Odun" variable="-1">Du setzt eine der bei deinem Tier angegebenen Verwandlungen ein. Du kannst auch beide Verwandlungen gleichzeitig nutzen, dafür musst du den Zauber zwei Mal wirken. 
+Mächtige Magie: Falls zutreffend, geschieht das Folgende: Probenerleichterungen steigen um +2, TP um +2, die Giftstufe um +4, die Flugweiten und -höhen um 4/2 Schritt. Je zwei Stufen erhöhen einen RS-Bonus um +1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 AsP
+Fertigkeiten: Verwandlung, Gaben des Odûn</Talent>
+  <Talent name="Ruf des Tieres" kosten="20" voraussetzungen="Vorteil Repräsentation der Durro-dun I" verbilligt="0" fertigkeiten="Einfluss, Verständigung, Gaben des Odun" variable="-1">Du rufst dein Tier herbei. Befindet sich ein Wesen dieser Art in einem Umkreis von 4 Meilen, eilt es herbei. Du kannst dieses Wesen um einen Gefallen bitten, das dieses wenn möglich erfüllen wird. Dann trollt sich das Wesen. 
+Mächtige Magie: Verdoppelt den Umkreis und die Zahl der herbeieilenden Wesen.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 16 AsP
+Fertigkeiten: Einfluss, Verständigung, Gaben des Odun</Talent>
+  <Talent name="Wesen des Tieres" kosten="20" voraussetzungen="Vorteil Repräsentation der Durro-dun I" verbilligt="0" fertigkeiten="Hellsicht, Verständigung, Gaben des Odun" variable="-1">Du siehst die Gedanken deines Tiers als verschwommene Bilder. 
+Mächtige Magie: Zusätzlich kannst du das Tier um einen kleineren/größeren/gefährlichen Gefallen bitten. Ob das Tier den Gefallen ausführen kann und will, ist Spielleiterentscheid.
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 4 Aktionen
+Ziel: Tier
+Reichweite: 8 Schritt
+Wirkungsdauer: 1 Stunde
+Kosten: 8 AsP
+Fertigkeiten: Hellsicht, Verständigung, Gaben des Odun</Talent>
+  <Talent name="Seele des Tieres" kosten="40" voraussetzungen="Vorteil Repräsentation der Durro-dun I" verbilligt="0" fertigkeiten="Verwandlung, Gaben des Odun" variable="1">Du verwandelst dich in dein Tier, wobei du deine geistigen Fähigkeiten behältst. Die körperlichen Fähigkeiten entsprechen denen des Tiers. Du kannst in Tiergestalt nicht zaubern. Erlaubt Aufrechterhalten.
+Mächtige Magie: Das Tier ist ein überdurchschnittlicher/außergewöhnlicher/herausragender/einzigartiger Vertreter seiner Art, was die Werte des Tieres nach Spielleiterentscheid erhöht.
+Probenschwierigkeit: 12
+Modifikationen: Seelentier (Wirkungsdauer 1 Tag; Während der Wirkungsdauer können die Instinkte des Tieres überhand nehmen.)
+Vorbereitungszeit: 8 Aktionen
+Ziel: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 16 AsP
+Fertigkeiten: Verwandlung, Gaben des Odun
+Anmerkungen: Die Lernkosten des Zaubers orientieren sich an der Tierart, wobei fliegende, giftige, sehr starke usw. Tiere teurer sind.</Talent>
+  <Talent name="Schamanischer Geisterbann" kosten="60" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Geister vertreiben" variable="-1">Der Zauber gilt als Konterprobe (12) gegen einen Zauber. Gelingt sie, wird der Zauber aufgehoben.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Minuten
+Ziel: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: halbe Basiskosten des Zaubers
+Fertigkeiten: Antimagie, Geister vertreiben</Talent>
+  <Talent name="Geistheilung" kosten="60" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Geister vertreiben, Humus, Verwandlung" variable="-1">Dein Ziel erhält 2W6 Heilpunkte, für jede Überschreitung der WS wird eine Wunde geheilt.
+Mächtige Magie: Erhöht die Heilpunkte um +4.
+Probenschwierigkeit: 12 + Wund-Mod. des Ziels
+Modifikationen: Siechtum heilen (Du stoppst die Wirkung eines Giftes oder einer Krankheit bis Stufe 16 sofort. Mächtige Magie erhöht die maximal aufgehobene Stufe um +4.)
+Vorbereitungszeit: 1 Stunde
+Ziel: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 8 AsP
+Fertigkeiten: Geister vertreiben, Humus, Verwandlung</Talent>
+  <Talent name="Großer Geisterbann" kosten="80" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Geister vertreiben" variable="-1">Du verbannst einen Dämon, ein Elementar oder einen Untoten. 
+Probenschwierigkeit: Beschwörungsschwierigkeit des Wesens
+Modifikationen: Geisterkerker (+4; das Wesen wird nicht verbannt, sondern permanent in ein Gefäß gesperrt. Wird das Gefäß geöffnet oder zerstört, ist das Wesen frei und meist sehr wütend auf den Schamanen und/oder den Befreier.), Geister vertreiben (Entspricht dem Zauber Geisterbann), Artefakt zerstören (Probenschwierigkeit Herstellungsschwierigkeit, Vorbereitungszeit 1 Stunde. Kosten Hälfte der Basiskosten der Herstellung; du zerstörst ein Artefakt)
+Vorbereitungszeit: 8 Aktionen
+Ziel: Beschworenes Wesen
+Reichweite: 4 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: Hälfte der Basiskosten der Beschwörung
+Fertigkeiten: Antimagie, Geister vertreiben</Talent>
+  <Talent name="Große Geistheilung" kosten="40" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Geister vertreiben, Humus" variable="-1">Du erfüllst ein großes humusaffines Objekt wie einen Baum mit elementarer Lebenskraft. Wer im Umkreis von 8 Schritt eine Ruhepause verbringt, regeneriert eine zusätzliche Wunde.
+Probenschwierigkeit: 12
+Modifikationen: Heiliger Hain (-16, Wirkungsdauer bis die Bindung gelöst wird, 64 AsP, davon 16 gAsP)
+Vorbereitungszeit: 1 Stunde
+Ziel: Einzelwesen
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 16 AsP
+Fertigkeiten: Geister vertreiben, Humus</Talent>
+  <Talent name="Reines Wasser" kosten="20" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Geister vertreiben, Stärkende Geister, Verwandlung, Wasser" variable="-1">Du verwandelst 100 Liter Salzwasser in Trinkwasser. 
+Mächtige Magie: Du verwandelst 200/300/400/500 Liter.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Minuten
+Ziel: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 16 AsP
+Fertigkeiten: Geister vertreiben, Stärkende Geister, Verwandlung, Wasser</Talent>
+  <Talent name="Schutz der Jurte" kosten="40" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Geister vertreiben, Stärkende Geister" variable="-1">Du schützt einen abgeschlossenen Raum, wie eine Jurte oder einer Höhle, mit bis zu 16 Schritt Radius vor übernatürlichen Wesen. Dämonen, Daimonoiden und Untote können den Raum nicht betreten, wenn ihre Beschwörungsschwierigkeit bei maximal 20 liegt, bei Geistern und Feenwesen entscheidet der Spielleiter. Innerhalb des Raumes erleiden alle genannten Wesenheiten 1 Wunde pro Initiativephase. Wenn ein beweglicher Raum wie eine Jurte verzaubert wird, wirkt der Zauber unabhängig vom Ort, an dem die Jurte steht.
+Mächtige Magie: Die maximale Beschwörungsschwierigkeit steigt um +4.
+Probenschwierigkeit: 12
+Modifikationen: Permanenz (-4, Wirkungsdauer bis die Bindung gelöst wird, 16 AsP, davon 2 gAsP)
+Vorbereitungszeit: 1 Stunde
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Woche
+Kosten: 16 AsP
+Fertigkeiten: Antimagie, Geister vertreiben, Stärkende Geister</Talent>
+  <Talent name="Schützende Rotte" kosten="20" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Antimagie, Geister vertreiben, Kraft, Stärkende Geister" variable="-1">Du bemalst einen Schild mit Tieren. Proben zur Abwehr von ballistischen Zaubern sind mit diesem Schild um +4 erleichtert. Der Schild erleidet dabei keinen Schaden.
+Mächtige Magie: Der Bonus steigt um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Ziel: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: bis die Bindung gelöst wird
+Kosten: 4 AsP, davon 1 gAsP
+Fertigkeiten: Antimagie, Geister vertreiben, Kraft, Stärkende Geister</Talent>
+  <Talent name="Tabu" kosten="20" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss, Geister Vertreiben, Zornige Geister" variable="-1">Um die verzauberte Zone von 16 Schritt Radius zu betreten, ist eine Konterprobe (Willenskraft, 12) nötig. Davon sind all jene, die während der gesamten Vorbereitungszeit in der Zone waren, ausgenommen.
+Mächtige Magie: Verdoppelt den Radius.
+Probenschwierigkeit: 12
+Vorbereitungszeit: ?
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: bis die Bindung gelöst wird
+Kosten: 16 AsP, davon 1 gAsP
+Fertigkeiten: Einfluss, Geister Vertreiben, Zornige Geister</Talent>
+  <Talent name="Blick in Liskas Augen" kosten="20" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Hellsicht, Kontakt zur Geisterwelt" variable="-1">Du erhältst den Vorteil Prophezeien und erleidest keine Erschöpfung durch den Einsatz dieser Gabe. Notwendige Proben kannst du auf Kontakt zur Geisterwelt statt auf Willenskraft ablegen.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 AsP
+Fertigkeiten: Hellsicht, Kontakt zur Geisterwelt</Talent>
+  <Talent name="Blick ins Geisterreich" kosten="60" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Hellsicht, Kontakt zur Geisterwelt, Kraft" variable="-1">Du wirfst einen Blick in die Welt der Magie. Während nichtmagische Gegenständen nur schwer zu erkennen sind, erscheint Magie als Ansammlung pulsierende Kraftfäden (AG 1 der Intensitätsanalyse). Während der Wirkungsdauer kannst du deine Sinnenschärfe zur Strukturanalyse verwenden, wodurch du 1 Punkt Erschöpfung erleidest. Außerdem kannst du dich im Limbus orientieren.
+Mächtige Magie: Der AG der Intensitätsanalyse steigt um +1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Aktionen
+Ziel: selbst
+Reichweite: Berührung
+Wirkungsdauer: 16 Minuten
+Kosten: 8 AsP
+Fertigkeiten: Hellsicht, Kontakt zur Geisterwelt, Kraft</Talent>
+  <Talent name="Geisterbote" kosten="60" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Kontakt zur Geisterwelt, Verständigung" variable="-1">Durch das Geisterreich schließt du eine Verbindung mit dem Ziel, von dem du einen Körperteil (z.B: ein Haar oder einen Blutstropfen) besitzt. Der Körperteil wird dabei verbraucht. Während der Wirkungsdauer kannst einmal am Tag einen Zauber auf das Ziel sprechen, als könntest du es berühren. Das Ziel kann wie gewöhnlich MR-Proben ablegen, um den Zaubern zu widerstehen.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: Einzelperson
+Reichweite: aventurienweit
+Wirkungsdauer: 1 Woche
+Kosten: 16 AsP
+Fertigkeiten: Kontakt zur Geisterwelt, Verständigung</Talent>
+  <Talent name="Macht des Erzes" kosten="60" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Kontakt zur Geisterwelt, Erz" variable="-1">Ruft ein Elementarwesen des Erzes herbei, das in deiner unmittelbaren Nähe erscheint. 
+Probenschwierigkeit: 16/24/32 (Diener/Dschinn/Meister)
+Vorbereitungszeit: frei wählbar
+Wirkungsdauer: augenblicklich
+Kosten: 16/32/64 AsP (Diener/Dschinn/ Meister)
+Fertigkeiten: Erz, Kontakt zur Geisterwelt</Talent>
+  <Talent name="Macht des Feuers" kosten="60" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Kontakt zur Geisterwelt, Feuer" variable="-1">Ruft ein Elementarwesen des Feuers herbei, das in deiner unmittelbaren Nähe erscheint. 
+Probenschwierigkeit: 16/24/32 (Diener/Dschinn/Meister)
+Vorbereitungszeit: frei wählbar
+Wirkungsdauer: augenblicklich
+Kosten: 16/32/64 AsP (Diener/Dschinn/ Meister)
+Fertigkeiten: Feuer, Kontakt zur Geisterwelt</Talent>
+  <Talent name="Macht des Humus" kosten="60" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Kontakt zur Geisterwelt, Humus" variable="-1">Ruft ein Elementarwesen des Humus herbei, das in deiner unmittelbaren Nähe erscheint. 
+Probenschwierigkeit: 16/24/32 (Diener/Dschinn/Meister)
+Vorbereitungszeit: frei wählbar
+Wirkungsdauer: augenblicklich
+Kosten: 16/32/64 AsP (Diener/Dschinn/ Meister)
+Fertigkeiten: Humus, Kontakt zur Geisterwelt</Talent>
+  <Talent name="Macht des Luft" kosten="60" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Kontakt zur Geisterwelt, Luft" variable="-1">Ruft ein Elementarwesen der Luft herbei, das in deiner unmittelbaren Nähe erscheint. 
+Probenschwierigkeit: 16/24/32 (Diener/Dschinn/Meister)
+Vorbereitungszeit: frei wählbar
+Wirkungsdauer: augenblicklich
+Kosten: 16/32/64 AsP (Diener/Dschinn/ Meister)
+Fertigkeiten: Luft, Kontakt zur Geisterwelt</Talent>
+  <Talent name="Macht des Wasser" kosten="60" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Kontakt zur Geisterwelt, Wasser" variable="-1">Ruft ein Elementarwesen des Wassers herbei, das in deiner unmittelbaren Nähe erscheint. 
+Probenschwierigkeit: 16/24/32 (Diener/Dschinn/Meister)
+Vorbereitungszeit: frei wählbar
+Wirkungsdauer: augenblicklich
+Kosten: 16/32/64 AsP (Diener/Dschinn/ Meister)
+Fertigkeiten: Wasser, Kontakt zur Geisterwelt</Talent>
+  <Talent name="Hilferuf" kosten="60" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Kontakt zur Geisterwelt, Verständigung" variable="-1">Du rufst ein Feenwesen, einen Totengeist oder einige Mindergeister aus einem Umkreis von 1 Meile herbei. Das Wesen eilt herbei und du kannst es um Hilfe bei einem unmittelbaren Problem bitten. Meistens hilft das Wesen, es kann aber auch einen Gegengefallen fordern oder (selten) die Hilfe ablehnen.
+Mächtige Magie: Verdoppelt den Umkreis.
+Probenschwierigkeit: 12
+Modifikationen: Art (-4, du kannst dir die Art des helfenden Geists aussuchen), Wesen (-4; du rufst ein dir bereits bekanntes Wesen aus bis zu 8 Meilen Umkreis herbei)
+Vorbereitungszeit: 4 Aktionen
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich; der Geist erscheint nach 2W6 Aktionen.
+Kosten: 8 AsP
+Fertigkeiten: Kontakt zur Geisterwelt, Verständigung</Talent>
+  <Talent name="Geistertausch" kosten="60" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Kontakt zur Geisterwelt, Verständigung" variable="-1">Wenn du ein Körperteil (z.B. Haare oder Blut) deines Opfers besitzt, kannst du mit ihm den Körper tauschen. Geistige Attribute, Fertigkeiten und Vorteile bleiben erhalten, körperliche werden getauscht. Wird einer der Körper während des Tausches vernichtet, endet der Tausch und der ursprüngliche Besitzer des vernichteten Körpers stirbt. 
+Probenschwierigkeit: Magieresistenz
+Modifikationen: Tiersinne (-4, Einzelwesen), Fremdtausch (-8; zwei Ziele tauschen Körper.)
+Vorbereitungszeit: 16 Aktionen
+Ziel: Einzelperson
+Reichweite: 8 Meilen
+Wirkungsdauer: 4 Minuten
+Kosten: 16 AsP
+Fertigkeiten: Eigenschaften, Kontakt zur Geisterwelt, Verständigung
+Anmerkung: Gerüchten zufolge gibt es eine Möglichkeit, mit der der Zaubernde den Körper seines Zieles permanent übernehmen kann.</Talent>
+  <Talent name="Gesang der Wölfe" kosten="20" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Kontakt zur Geisterwelt, Verständigung" variable="-1">Du stößt ein lautes Wolfsgeheul aus, das im Umkreis von 16 Meilen zu hören ist und von allen Kennern der Wolfssprache (z.B. Wölfe, Wolfskinder oder Schamanen) verstanden werden kann.
+Mächtige Magie: Verdoppelt den Umkreis.
+Probenschwierigkeit: 12
+Modifikationen: Gespräch der Wölfe (-4, 8 AsP, Wirkungsdauer 1 Stunde; Du kannst während der Wirkungsdauer beliebig viele Nachrichten aussenden.)
+Vorbereitungszeit: 4 Aktionen
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 16 Aktionen
+Kosten: 2 AsP
+Fertigkeiten: Kontakt zur Geisterwelt, Verständigung
+Anmerkung: Vereinzelt soll dieser Zauber auch in anderen Tiervarianten verbreitet sein.</Talent>
+  <Talent name="Lockruf" kosten="20" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss, Kontakt zur Geisterwelt, Verständigung" variable="1">Du rufst das beim Erlernen gewählte Wesen, meist ein Tier, herbei. Befindet sich ein Wesen dieser Art in einem Umkreis von 4 Meilen, eilt es herbei. Du kannst dieses Wesen um einen Gefallen bitten, das dieses wenn möglich erfüllen wird. Dann trollt sich das Wesen.
+Mächtige Magie: Verdoppelt den Umkreis und die Zahl der herbeieilenden Wesen.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 16 AsP
+Fertigkeiten: Einfluss, Kontakt zur Geisterwelt, Verständigung
+Anmerkung: Der Zauber muss für jedes Wesen extra gelernt werden. Dies wird in Sephrasto durch die variablen Kosten dargestellt. Folgende Wesen sind üblich: Wölfe (Nivesen), Wildschweine (Goblins), Rinder (Ferkinas), Schlinger (Achaz), Seeschlangen (Achaz), Haie (Tocamujac), Oger (Ork), Mammuts (Gjalsker).</Talent>
+  <Talent name="Macht des Ungeformten" kosten="100" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Dämonisch, Kontakt zur Geisterwelt, Zornige Geister" variable="-1">Ruft einen Dämon herbei, der in deiner unmittelbaren Nähe erscheint. 
+Probenschwierigkeit: nach Dämon
+Vorbereitungszeit: frei wählbar
+Wirkungsdauer: augenblicklich
+Kosten: nach Dämon
+Fertigkeiten: Dämonisch, Kontakt zur Geisterwelt, Zornige Geister</Talent>
+  <Talent name="Rat der Ahnen" kosten="20" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Kontakt zur Geisterwelt, Verständigung" variable="-1">Du rufst einen Totengeist in den Körper einer seiner Nachfahren herab. Dort verhält sich der Geist seinem Charakter gemäß; er kann Rat geben oder die Stammeskrieger anführen. Der Totengeist entscheidet selbst, wann er den Körper verlässt - notfalls ist ein Großer Geisterbann nötig. Der Tote muss im letzten Jahr verstorben sein.
+Mächtige Magie: Der Tote kann seit 10 Jahren/100 Jahren/1000 Jahren/seit Menschengedenken verstorben sein.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 4 AsP, davon 2 gAsP
+Fertigkeiten: Kontakt zur Geisterwelt, Verständigung</Talent>
+  <Talent name="Raub der Geisterkraft" kosten="40" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Kontakt zur Geisterwelt, Kraft, Verständigung" variable="-1">Du kannst bei deinem nächsten Zauber teilweise oder ganz auf die AsP des Ziels zugreifen. Der nächste Zauber kann nicht auf das Ziel des magischen Raubs gewirkt werden.
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 16 Aktionen
+Ziel: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 4 Stunden
+Kosten: 4 AsP
+Fertigkeiten: Kontakt zur Geisterwelt, Kraft, Verständigung</Talent>
+  <Talent name="Ruf des Schamanen" kosten="40" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Kontakt zur Geisterwelt, Verständigung" variable="-1">Du sendest ein geistiges Signal an alle Stammesmitglieder im Umkreis von 4 Meilen, dass sie zu dir kommen sollen. 
+Mächtige Magie: Verdoppelt den UmkreisProbenschwierigkeit
+Probenschwierigkeit: 12
+Modifikationen: Ruf der Gefährten (-8; du rufst alle engen Gefährten (Verhältnis vertraut) zu dir)
+Vorbereitungszeit: 16 Aktionen
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 4 AsP
+Fertigkeiten: Kontakt zur Geisterwelt, Verständigung</Talent>
+  <Talent name="Stimme des Nipakau" kosten="40" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Hellsicht, Kontakt zur Geisterwelt, Verständigung" variable="-1">Du erforschst die Erinnerung eines Gegenstandes, einer Pflanze oder eines Tieres. Dabei beantwortet dir das Ziel 4 Ja/Nein-Fragen. Beachte, dass die meisten Gegenstände und Pflanzen nicht gerade intelligent sind und meist nur Dinge wahrnehmen, mit denen sie direkt in Kontakt stehen. Sollte das Ziel tatsächlich durch eine intelligente Wesenheit beseelt sein, beantwortet diese Wesenheit die Fragen.
+Mächtige Magie: Beantwortet 2 weitere Fragen.
+Probenschwierigkeit: 12 / Magieresistenz (bei Tieren)
+Vorbereitungszeit: 16 Aktionen
+Ziel: Einzelobjekt / Tier
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 AsP
+Fertigkeiten: Hellsicht, Kontakt zur Geisterwelt, Verständigung</Talent>
+  <Talent name="Tairachs Krieger" kosten="40" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Dämonisch, Kontakt zur Geisterwelt, Zornige Geister" variable="-1">Du erhebst eine Leiche als Untoten, der in zwei INI-Phasen einsatzfähig ist.
+Probenschwierigkeit: nach Untotem
+Modifikationen: Schnelle Erhebung (-4; der Untote ist sofort bereit.)
+Vorbereitungszeit: frei wählbar
+Wirkungsdauer: 1 Stunde
+Kosten: nach Untotem
+Fertigkeiten: Dämonisch, Kontakt zur Geisterwelt, Zornige Geister</Talent>
+  <Talent name="Tierischer Helfer" kosten="40" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Dämonisch, Kontakt zur Geisterwelt, Zornige Geister" variable="-1">Du siehst die Gedanken des Tiers als verschwommene Bilder. 
+Mächtige Magie: Zusätzlich kannst du das Tier um einen kleineren/größeren/gefährlichen Gefallen bitten. Ob das Tier den Gefallen ausführen kann und will, ist Spielleiterentscheid.
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 4 Aktionen
+Ziel: Tier
+Reichweite: 8 Schritt
+Wirkungsdauer: 4 Minuten 
+Kosten: 8 AsP
+Fertigkeiten: Hellsicht, Kontakt zur Geisterwelt, Verständigung</Talent>
+  <Talent name="Wegzeichen" kosten="20" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Hellsicht, Kontakt zur Geisterwelt, Stärkende Geister, Verständigung" variable="-1">Du vergräbst einen Talisman. Von jetzt an kannst du immer unter Aufwendung von 1 AsP erfahren, wo deine Wegzeichen liegen und diese intuitiv unterscheiden.
+Probenschwierigkeit: 12
+Modifikationen: Permanenz (-4, Wirkungsdauer bis die Bindung gelöst wird, Kosten 8 AsP, davon 1 gAsP), Sprechendes Zeichen (-4; das Zeichen kann aber einen kurzen Satz als Botschaft enthalten, der mit einem AG von 2 gelesen werden kann)
+Vorbereitungszeit: 16 Aktionen
+Ziel: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 4 AsP
+Fertigkeiten: Hellsicht, Kontakt zur Geisterwelt, Stärkende Geister, Verständigung</Talent>
+  <Talent name="Weidegründe finden" kosten="0" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Hellsicht, Kontakt zur Geisterwelt, Stärkende Geister" variable="-1">Die Geister helfen dir auf dem Weg zu den nächsten Weidegründen. Entsprechende Überleben-Proben sind um +4 erleichtert.
+Mächtige Magie: Der Bonus steigt um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 4 AsP
+Fertigkeiten: Eigenschaften, Hellsicht, Kontakt zur Geisterwelt, Stärkende Geister</Talent>
+  <Talent name="Wild finden" kosten="20" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Hellsicht, Kontakt zur Geisterwelt, Stärkende Geister" variable="-1">Du erfährst, ob und wo sich in Reichweite jagdbares Wild befindet und um welche Tiere es sich handelt. Sind jagdbare Tiere in der Nähe, können Jäger gezielt in die richtige Richtung losziehen. Das senkt die Schwierigkeit der Jagd auf 12, so als ob sie sich in wildreichem Gebiet befänden.
+Probenschwierigkeit: 12
+Modifikationen: Gaben der Erde (die Wirkung bezieht sich auf nahrhafte Pflanzen und verringert die Schwierigkeit von ÜberlebenProben)
+Vorbereitungszeit: 1Stunde
+Ziel: Zone
+Reichweite: 1 Meile
+Wirkungsdauer: augenblicklich
+Kosten: 8 AsP
+Fertigkeiten: Eigenschaften, Hellsicht, Kontakt zur Geisterwelt, Stärkende Geister</Talent>
+  <Talent name="Arngrimms Höhle" kosten="20" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Feuer, Stärkende Geister, Umwelt" variable="-1">In einem abgeschlossenen Raum wie einer Jurte oder einer Höhle von bis zu 16 Schritt Durchmesser steigt die Temperaturstufe um +1, bis maximal auf normal.
+Mächtige Magie: Für je zwei Stufen steigt die Temperaturstufe um weitere +1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Minuten
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 8 AsP
+Fertigkeiten: Feuer, Stärkende Geister, Umwelt</Talent>
+  <Talent name="Aufmerksamer Wächter" kosten="20" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Hellsicht, Illusion, Stärkende Geister" variable="-1">Du malst, schnitzt oder formst das Abbild eines Tieres. Dieses Tier wird mit seinen üblichen Sinnen Wache halten. Wenn es eine Gefahr entdeckt, stößt es einen Warnruf aus (eine Illusion (Gehör)). Was das Tier als Gefahr betrachtet, hängt von der Tierart ab: Eine Katze stellt für einen Affen keine Gefahr dar, für einen Vogel aber sehr wohl - bei einem Skorpion wäre es umgekehrt.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Minuten
+Ziel: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 4 AsP
+Fertigkeiten: Hellsicht, Illusion, Stärkende Geister</Talent>
+  <Talent name="Blutsbund" kosten="0" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Stärkende Geister, Verständigung" variable="-1">Du segnest einen Blutsbund wie etwa eine Hochzeit oder Blutsbrüderschaft. Alle Versuche, einen Teilnehmer des Blutsbunds gegen den anderen handeln zu lassen (etwa durch Überreden oder einen Imperavi), sind um -4 erschwert. Stirbt einer der Partner, so nimmt der andere dies intuitiv wahr. Der Blutsbund selbst fügt jedem Teilnehmer eine Wunde zu.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: zwei Personen
+Reichweite: Berührung
+Wirkungsdauer: permanent
+Kosten: 16 AsP
+Fertigkeiten: Eigenschaften, Stärkende Geister, Verständigung</Talent>
+  <Talent name="Geisterklinge" kosten="40" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Kraft, Stärkende Geister, Verwandlung" variable="-1">Die verzauberte Waffe gilt während der Wirkungsdauer als magisch.
+Probenschwierigkeit: 12
+Modifikationen: Personalisierung (-4; der Zauber wirkt nur, solange der beim Zaubern gewählte Träger die Waffe führt.), Namenssigille (-8; erfordert den wahren Namen eines Dämons. Wann immer der Dämon Wunden durch diese Waffe erleidet, erleidet er eine zusätzliche Wunde.) 
+Permanenz (-4, Wirkungsdauer bis die Bindung gelöst wird, 16 AsP, davon 2 gAsP)
+Vorbereitungszeit: 16 Aktionen
+Ziel: Einzelobjekt 
+Reichweite: Berührung
+Wirkungsdauer: 1 Woche
+Kosten: 8 AsP
+Fertigkeiten: Kraft, Stärkende Geister, Verwandlung</Talent>
+  <Talent name="Hauch des Elements" kosten="40" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Eis, Erz, Feuer, Humus, Luft, Wasser, Stärkende Geister" variable="-1">Du bindest einen elementaren Effekt in ein maximal truhengrosses Objekt. Der genaue Effekt bemisst sich nach dem gewählten Element.
+Eis: Senkt die Temperatur des Objekts und in seinem Inneren um 1 Stufe.
+Erz: Verdoppelt das Gewicht des Objekts und seines Inhaltes.
+Feuer: Erhöht die Temperatur des Objekts und in seinem Inneren um 1 Stufe.
+Humus: Vervierfacht die Wachstumsgeschwindigkeit von Pflanzen.
+Luft: Verringert das Gewicht des Objekts und seines Inhalts um ein Viertel.
+Wasser: Macht einen faustgroßen Teil biegsam wie Wachs.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: bis die Bindung gelöst wird
+Kosten: 1 AsP, davon 1 gAsP
+Fertigkeiten: Eis, Erz, Feuer, Humus, Luft, Wasser, Stärkende Geister
+Anmerkung: Manche elementaren Wirkungen sind für manche
+Schamanen äußerst ungewöhnlich (zum Beispiel Eis für Achaz oder
+Erz für Gjalsker)</Talent>
+  <Talent name="Schutzgeist" kosten="40" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Stärkende Geister" variable="1">Du bittest den Geist eines Tieres, über eine Gruppe von bis zu 8 Gefährten zu wachen. Sie erhalten einen Bonus von +1 auf alle beim entsprechenden Tier angegebenen Werte, solange sie sich nicht weiter als eine Meile von dir entfernen.. Es kann nur ein Schutzgeist gleichzeitig aktiv sein.
+Mächtige Magie: Verdoppelt die Zahl der Ziele, je zwei Stufen erhöhen den Bonus um +1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: bis die Bindung gelöst wird
+Kosten: 16 AsP, davon 4 gAsP
+Fertigkeiten: Eigenschaften, Stärkende Geister
+Anmerkung: Der Zauber muss für jedes Tier extra erlernt werden. Dies wird in Sephrasto über die variablen Kosten dargestellt.</Talent>
+  <Talent name="Segen der Erdgeister" kosten="60" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Humus, Stärkende Geister, Verwandlung" variable="-1">Du leitest das Wachstum einer Pflanze, kannst es beschleunigen und formen. Die Kosten, Zauberdauer und Modifikationen Mächtige Magie sind Meisterentscheid. Beispiele:
+4 AsP, keine Mächtige Magie, 1 Minute: Aus einem Samen wächst eine kleine Heilpflanze.
+8 AsP, 1x Mächtige Magie, eine halbe Stunde: Ein Baum trägt drei Monate zu früh Früchte.
+4 AsP, 2x Mächtige Magie, 4 Minuten: Die Rinde eines Baumes zeigt eine Botschaft; 
+128 AsP, 4x Mächtige Magie, 4 Tage: Eine Baumkrone wird zu einem Baumhaus mit Möbeln, Dach und Fenstern
+Probenschwierigkeit: 12
+Vorbereitungszeit: nach Projekt
+Ziel: Pflanze
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: nach Projekt
+Fertigkeiten: Humus, Stärkende Geister, Verwandlung</Talent>
+  <Talent name="Tauschplatz" kosten="20" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss, Stärkende Geister" variable="-1">In einer Zone von 16 Schritt Radius sind Proben auf Einschüchtern
+oder Überreden um -4 erschwert. Davon sind all jene, die während
+der gesamten Vorbereitungszeit in der Zone waren, ausgenommen.
+Mächtige Magie: Verdoppelt den Radius und die Proben sind um
+weitere -2 erschwert.
+Probenschwierigkeit: 12
+Modifikationen: Permanenz (-4, Wirkungsdauer bis die Bindung
+gelöst wird, Kosten 16 AsP, davon 2 gAsP)
+Vorbereitungszeit: 1 Tag
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: bis die Bindung gelöst wird
+Kosten: 16 AsP, davon 1 gAsP
+Fertigkeiten: Einfluss, Stärkende Geister</Talent>
+  <Talent name="Weg des Windes" kosten="20" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Stärkende Geister" variable="-1">Verdoppelt das DH* deines Ziels und das Intervall, in dem körperliche Anstrengung Erschöpfung verursacht. Proben, um natürliche Hindernisse zu überwinden, sind um +4 erleichtert.
+Mächtige Magie: Der Bonus steigt um +2 und je zwei Stufen verdreifachen/vervierfachen das DH* und das Intervall.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 8 AsP
+Fertigkeiten: Eigenschaften, Stärkende Geister</Talent>
+  <Talent name="Brazoraghs Hieb" kosten="40" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Zornige Geister" variable="-1">Die so verzauberte Nahkampfwaffe gilt als magisch und verursacht Niederwerfen.
+Mächtige Magie: Waffenschaden +1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: bis die Bindung gelöst wird
+Kosten: 16 AsP, davon 4 gAsP
+Fertigkeiten: Eigenschaften, Zornige Geister</Talent>
+  <Talent name="Fluch der Verwirrung" kosten="40" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Dämonisch, Einfluss, Zornige Geister" variable="-1">Der Fluch verwirrt alle Humanoide in einem Radius von 2 Schritt, denen keine MR-Gegenprobe (16) gelingt. Sie erleiden eine Erschwernis von -2 auf Proben.
+Mächtige Magie: Erhöht den Malus um -1 und verdoppelt den Radius.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Ziel: Zone
+Reichweite: 16 Schritt
+Wirkungsdauer: 8 Aktionen
+Kosten: 16 AsP
+Fertigkeiten: Dämonisch, Einfluss, Zornige Geister</Talent>
+  <Talent name="Fluch der Wandlung" kosten="40" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Verwandlung, Zornige Geister" variable="-1">Das Ziel verwandelt sich im Laufe einer Woche in ein Tier, typischerweise in eine Schlange (aber bei manchen Völkern sind auch andere Tiere verbreitet). Mit Abschluss der Verwandlung verliert es seine Erinnerung an sein früheres Leben. In der letzten Woche der Wirkungsdauer verwandelt sich das Ziel in seine ursprüngliche Gestalt zurück und gewinnt dabei auch sein Gedächtnis zurück.
+Probenschwierigkeit: Magieresistenz
+Modifikationen: Permanenz (-4, Wirkungsdauer bis die Bindung gelöst wird, 16 AsP, davon 2 gAsP)
+Vorbereitungszeit: 1 Stunde
+Ziel: Einzelperson
+Reichweite: 4 Meilen
+Wirkungsdauer: 1 Monat
+Kosten: 16 AsP
+Fertigkeiten: Verwandlung, Zornige Geister</Talent>
+  <Talent name="Fluch des Tieres" kosten="20" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss, Zornige Geister" variable="1">Ein zorniger Tiergeist straft das Ziel. Es erleidet einen Malus von -2 auf alle beim Tier angegebenen Werte.
+Mächtige Magie: Der Malus steigt um -1.
+Probenschwierigkeit: Magieresistenz
+Modifikationen: Permanenz(-4, Wirkungsdauer bis die Bindung gelöst wird, 16 AsP, davon 2 gAsP)
+Vorbereitungszeit: 16 Aktionen
+Ziel: Einzelperson
+Reichweite: 32 Schritt
+Wirkungsdauer: 1 Tag
+Kosten: 8 AsP
+Fertigkeiten: Einfluss, Zornige Geister
+Anmerkung: Der Zauber muss für jedes Tier extra erlernt werden. Dies wird in Sephrasto über die variablen Kosten dargestellt.</Talent>
+  <Talent name="Fluch des Gewürms" kosten="40" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Dämonisch, Verständigung, Zornige Geister" variable="-1">Dein Opfer wird von einer Myriade Insekten und Kleintieren bedeckt. Misslingt eine Konterprobe (Willenskraft, 16), ist es handlungsunfähig. Gelingt die Konterprobe, sind alle Proben um -4 erschwert.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Aktionen
+Ziel: Einzelperson
+Reichweite: 16 Schritt
+Wirkungsdauer: 16 Aktionen
+Kosten: 16 AsP
+Fertigkeiten: Dämonisch, Verständigung, Zornige Geister</Talent>
+  <Talent name="Fluch des Siechtums" kosten="40" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Dämonisch, Zornige Geister" variable="-1">Du infizierst dein Opfer mit einer dir bekannten Krankheit deiner Wahl, die dann ihren natürlichen Krankheitsverlauf nimmt. Die maximale Krankheitsstufe ist 16.
+Mächtige Magie: Erhöht die maximale Krankheitsstufe um +4.
+Probenschwierigkeit: Magieresistenz
+Modifikationen: Einzelfall (-4; die Krankheit ist nicht ansteckend.) 
+Vorbereitungszeit: 4 Aktionen
+Ziel: Einzelperson
+Reichweite: 4 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 16 AsP
+Fertigkeiten: Dämonisch, Zornige Geister</Talent>
+  <Talent name="Fluch des Unglücks" kosten="20" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Eigenschaften, Zornige Geister" variable="-1">Das Opfer wird vom Unglück verfolgt. Seine Chance auf einen Patzer steigt um 1 auf dem W20 (zum Beispiel von 1 auf 1-2).
+Mächtige Magie: Je zwei Stufen steigern die Chance auf einen Patzer um einen weiteren Punkt.
+Probenschwierigkeit: Magieresistenz
+Modifikationen: Permanenz(-4, Wirkungsdauer bis die Bindung gelöst wird, 16 AsP, davon 2 gAsP)
+Vorbereitungszeit: 16 Aktionen
+Ziel: Einzelperson
+Reichweite: 32 Schritt
+Wirkungsdauer: 1 Tag
+Kosten: 8 AsP
+Fertigkeiten: Eigenschaften, Zornige Geister</Talent>
+  <Talent name="Macht des Blutes" kosten="40" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Einfluss, Zornige Geister" variable="-1">Dein Ziel muss eine körperliche Handlung deiner Wahl ausführen. Widerspricht der Befehl dem Selbsterhaltungstrieb des Zieles, kann es mit einer Konterprobe (Willenskraft, 16) widerstehen. Du fügst dir beim Wirken dieses Rituals eine Wunde zu.
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 4 Aktionen
+Ziel: Einzelperson
+Reichweite: 8 Schritt
+Wirkungsdauer: 8 Aktionen
+Kosten: 4 AsP
+Fertigkeiten: Einfluss, Zornige Geister</Talent>
+  <Talent name="Rikais Fluch" kosten="20" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Dämonisch, Zornige Geister, Umwelt" variable="-1">Der Zauber schwächt Pflanzen und Gegenstände aus dem Element Humus in einem Radius von 2 Schritt. Pflanzen und verderbliches Material verrotten, die Härte hölzerner oder lederner Objekte sinkt um ein Viertel der Basishärte. Die Auswirkungen auf Lebewesen sind zu gering, um sie zu bemerken.
+Mächtige Magie: Verdoppelt den Radius.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Aktionen
+Ziel: Zone
+Reichweite: 16 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 8 AsP
+Fertigkeiten: Dämonisch, Zornige Geister, Umwelt</Talent>
+  <Talent name="Tairachs Sklaven" kosten="40" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Verständigung, Zornige Geister" variable="-1">Dein Geist fährt in den frischen Leichnam eines Lebewesens ein, der sich als von dir gesteuerter Untoter erhebt. Dabei sind keine Beschwörungs- oder Beherrschungsproben notwendig. Dein Körper bleibt währenddessen reglos zurück; sollte er vernichtet werden, endet der Zauber und du bist tot.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Ziel: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 AsP
+Fertigkeiten: Verständigung, Zornige Geister</Talent>
+  <Talent name="Weihe der Keule" kosten="20" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Keulenrituale, Kraft" variable="-1">Du stellst eine enge magische Bindung zu deiner Knochenkeule her, welche die Voraussetzung für alle weiteren Talente dieser Fertigkeit ist. Außerdem wird die Keule unzerbrechlich und gilt als magische Waffe. 
+Probenschwierigkeit: 12
+Modifikationen: Geerbte Keule (Du bindest die Keule deines Lehrmeisters. Von ihm auf die Keule gewirkte Rituale verfliegen,aber die Keule gilt als Lehrmeister für diese Rituale.) 
+Vorbereitungszeit: 8 Stunden
+Ziel: Ritualgegenstand
+Reichweite: Berührung
+Wirkungsdauer: permanent
+Kosten: 16 AsP
+Fertigkeiten: Keulenrituale, Kraft</Talent>
+  <Talent name="Apport der Keule" kosten="20" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Keulenrituale, Umwelt" variable="-1">Deine Keule kehrt aus einer Entfernung von bis zu 2 Meilen zu dir zurück. Sie weicht Hindernissen aus oder durchbricht sie notfalls, wenn die KK von PW Keulenrituale/2 oder Umwelt/2 dafür ausreicht.
+Mächtige Magie: Verdoppelt die Entfernung.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 1 AsP
+Fertigkeiten: Keulenrituale, Umwelt</Talent>
+  <Talent name="Bann der Keule (passiv)" kosten="40" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Keulenrituale" variable="-1">Erleichtert alle Beherrschungsproben für Elementare oder für Untote und Dämonen um +X (maximal +4). Bei der Erstellung fließen doppelt so viele gAsP in die Keule, wie die Erleichterung beträgt.
+Fertigkeiten: Keulenrituale</Talent>
+  <Talent name="Geist der Keule" kosten="40" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Keulenrituale, Verständigung" variable="-1">Du bindest einen Totengeist in die Keule. Solange der Geist an die Keule gebunden ist, erfüllt er dir eine Bitte, wenn dir eine CH-Probe (16) gelingt. Die erste Bitte seit dem letzten Neumond ist nicht erschwert, aber bei jeder zusätzlichen Bitte erleidest du einen kumulativen Malus von -4. Es kann immer nur ein Wesen in der Keule gebunden sein.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: Knochenkeule
+Reichweite: Berührung
+Wirkungsdauer: bis die Bindung gelöst wird
+Kosten: 4 AsP, davon 2 gAsP
+Fertigkeiten: Keulenrituale, Verständigung</Talent>
+  <Talent name="Elementar der Keule (passiv)" kosten="20" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Keulenrituale" variable="-1">In deiner Keule gebundene Elementare können unbegrenzt lange gebunden bleiben. Das Binden in die Keule gilt immer als gewöhnlicher Dienst. Es kann immer nur ein Wesen in der Keule gebunden sein. Bei der Erstellung fließen 2 gAsP in die Keule.
+Fertigkeiten: Keulenrituale
+Anmerkung: Zusammen mit dem Vorteil Meister der Wünsche ist damit natürlich auch eine permanente Besessenheit möglich.</Talent>
+  <Talent name="Dämon der Keule (passiv)" kosten="20" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Keulenrituale" variable="-1">In deiner Keule gebundene Dämonen können unbegrenzt lange gebunden bleiben. Das Binden in die Keule gilt immer als gewöhnlicher Dienst. Es kann immer nur ein Wesen in der Keule gebunden sein. Bei der Erstellung fließen 2 gAsP in die Keule.
+Fertigkeiten: Keulenrituale
+Anmerkung: Zusammen mit dem Vorteil Meister der Seelenlosen ist damit natürlich auch eine permanente Besessenheit möglich.</Talent>
+  <Talent name="Gespür der Keule" kosten="40" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Kontakt zur Geisterwelt, Keulenrituale, Kraft" variable="-1">Die Keule zeigt dir die Gegenwart von Magie an in einem Umkreis von 1 Schritt an. Das entspricht einem Analysegrad von 1 für die Intensitätsanalyse.
+Mächtige Magie: Der Analysegrad steigt um 1.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 1 AsP
+Fertigkeiten: Kontakt zur Geisterwelt, Keulenrituale, Kraft</Talent>
+  <Talent name="Kraft der Keule" kosten="40" voraussetzungen="Vorteil Schamanistische Repräsentation I" verbilligt="0" fertigkeiten="Keulenrituale, Kraft" variable="-1">Gegen Geister (Kreaturenklassen Dämonen, Elementare, Untote, Feenwesen) steigt der Waffenschaden der Keule um +2. 
+Mächtige Magie: Der Bonus steigt um +1.
+Probenschwierigkeit: 12
+Modifikationen: Permanenz (Wirkungsdauer bis die Bindung gelöst wird, Kosten 8 AsP, davon 1 gAsP)
+Vorbereitungszeit: 16 Aktionen
+Ziel: Knochenkeule
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 AsP
+Fertigkeiten: Keulenrituale, Kraft</Talent>
   <Talent name="Eidsegen" kosten="0" voraussetzungen="Vorteil Praioskirchliche Tradition I ODER Vorteil Angroschkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Ordnung, Zwölfgöttlicher Ritus" variable="-1">Ein freiwilliges und aufrichtiges Gelübde der Zielperson wird gesegnet. Alle Versuche, den Schwörenden zum Eidbruch zu bewegen (etwa über Betören, Überreden oder einen Imperavi), sind um -4 erschwert. Bricht der Schwörende den Eid im Vollbesitz seiner geistigen Kräfte, endet der Segen.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
