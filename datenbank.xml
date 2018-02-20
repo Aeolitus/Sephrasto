@@ -4161,14 +4161,14 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 1 KaP
 Fertigkeiten: Heiliges Feuer, Zwölfgöttlicher Ritus</Talent>
-  <Talent name="Geburtssegen" kosten="0" voraussetzungen="Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus" variable="-1">Das gesegnete Kind ist immun gegen Einflüsterungen von Dämonen und Kobolden.
+  <Talent name="Geburtssegen" kosten="0" voraussetzungen="Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="Neubeginn, Zwölfgöttlicher Ritus" variable="-1">Das gesegnete Kind ist immun gegen Einflüsterungen von Dämonen und Kobolden.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
 Ziel: Einzelperson
 Reichweite: Berührung
 Wirkungsdauer: bis zum 12. Lebensjahr
 Kosten: 2 KaP
-Fertigkeiten: Zwölfgöttlicher Ritus</Talent>
+Fertigkeiten: Neubeginn, Zwölfgöttlicher Ritus</Talent>
   <Talent name="Glückssegen" kosten="40" voraussetzungen="Vorteil Phexkirchliche Tradition I ODER Vorteil Angroschkirchliche Tradition I ODER Vorteil Boronkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Firunkirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Rondrakirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I ODER Vorteil Korkirchliche Tradition I" verbilligt="0" fertigkeiten="List, Zwölfgöttlicher Ritus" variable="-1">Der Gesegnete darf eine Probe wiederholen und das bessere Ergebnis wählen. Der Segen kann nur für Fertigkeiten eingesetzt werden, denen deine Gottheit zumindest neutral gegenübersteht. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Aktion
@@ -4346,7 +4346,7 @@ Reichweite: Berührung
 Wirkungsdauer: 8 Stunden
 Kosten: 2 KaP
 Fertigkeiten: Schlaf </Talent>
-  <Talent name="Schlaf des Gesegneten" kosten="40" voraussetzungen="Vorteil Boronkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition" verbilligt="0" fertigkeiten="Schlaf, Harmonie" variable="-1">Dein Ziel sinkt in einen tiefen Schlaf, währenddem es 2 zusätzliche Wunden regeneriert und nicht von Albträumen geplagt wird.
+  <Talent name="Schlaf des Gesegneten" kosten="40" voraussetzungen="Vorteil Boronkirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition ODER Vorteil Aveskirchliche Tradition I" verbilligt="0" fertigkeiten="Schlaf, Harmonie, Stiller Wanderer" variable="-1">Dein Ziel sinkt in einen tiefen Schlaf, währenddem es 2 zusätzliche Wunden regeneriert und nicht von Albträumen geplagt wird.
 Mächtige Liturgie: Das Ziel regeneriert 1 weitere Wunde. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
@@ -4354,7 +4354,7 @@ Ziel: Einzelperson
 Reichweite: Berührung
 Wirkungsdauer: 8 Stunden
 Kosten: 8 KaP
-Fertigkeiten: Schlaf, Harmonie </Talent>
+Fertigkeiten: Schlaf, Harmonie, Stiller Wanderer</Talent>
   <Talent name="Bannfluch des heiligen Khalid" kosten="40" voraussetzungen="Vorteil Boronkirchliche Tradition I" verbilligt="0" fertigkeiten="Tod" variable="-1">Während der Wirkungsdauer zerfallen die ersten 4 Untoten, die du mit einem geweihten Gegenstand (wie Graberde, Weihrauch oder deiner Hand) berührst, zu Staub. Geister werden gebannt. Wirkt nur auf Wesen, deren Beschwörungsschwierigkeit bei maximal 16 liegt.
 Mächtige Liturgie: Zwei weitere Untote oder Geister können gebannt werden und die Beschwörungsschwierigkeit steigt um 4.
 Probenschwierigkeit: 12
@@ -4525,7 +4525,7 @@ Reichweite: Berührung
 Wirkungsdauer: 8 Stunden oder bis der Fang eingeholt wird
 Kosten: 8 KaP
 Fertigkeiten: Quellen und Flüsse, Seefahrt</Talent>
-  <Talent name="Hashnabiths Flehen" kosten="20" voraussetzungen="Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Quellen und Flüsse" variable="-1">Du findest den kürzesten begehbaren Weg zur nächsten Wasserquelle.
+  <Talent name="Hashnabiths Flehen" kosten="20" voraussetzungen="Vorteil Efferdkirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I" verbilligt="0" fertigkeiten="Quellen und Flüsse, Stiller Wanderer" variable="-1">Du findest den kürzesten begehbaren Weg zur nächsten Wasserquelle.
 Probenschwierigkeit: 12
 Modifikationen: Quellsegen (-4, Zone; verdoppelt die Wassermenge einer Quelle.)
 Azilas Quellgesang (-8, 16 KaP, Ziel Zone; aus dem Boden strömt reines Trinkwasser.)
@@ -4534,7 +4534,7 @@ Ziel: selbst
 Reichweite: Berührung
 Wirkungsdauer: 8 Stunden
 Kosten: 4 KaP
-Fertigkeiten: Quellen und Flüsse</Talent>
+Fertigkeiten: Quellen und Flüsse, Stiller Wanderer</Talent>
   <Talent name="Tränen des Milden" kosten="20" voraussetzungen="Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Quellen und Flüsse" variable="-1">Innerhalb des nächsten Tages regnet es auf die Felder im Umkreis von einer Meile und das Saatgut kann wachsen.
 Mächtige Liturgie: Verdoppelt den Radius.
 Probenschwierigkeit: 12
@@ -4618,14 +4618,14 @@ Reichweite: Berührung
 Wirkungsdauer: augenblicklich
 Kosten: 8 KaP
 Fertigkeiten: Seefahrt</Talent>
-  <Talent name="Sterne funkeln immerfort" kosten="20" voraussetzungen="Vorteil Phexkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I" verbilligt="0" fertigkeiten="Nächtlicher Schatten, Seefahrt, Wissen" variable="-1">Dein Ziel kann selbst durch Wolken und Nebel die Sterne erkennen. 
+  <Talent name="Sterne funkeln immerfort" kosten="20" voraussetzungen="Vorteil Phexkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I" verbilligt="0" fertigkeiten="Nächtlicher Schatten, Seefahrt, Wissen, Stiller Wanderer" variable="-1">Dein Ziel kann selbst durch Wolken und Nebel die Sterne erkennen. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen 
 Ziel: Einzelperson
 Reichweite: Berührung
 Wirkungsdauer: 8 Stunden
 Kosten: 2 KaP
-Fertigkeiten: Nächtlicher Schatten, Seefahrt, Wissen </Talent>
+Fertigkeiten: Nächtlicher Schatten, Seefahrt, Wissen, Stiller Wanderer</Talent>
   <Talent name="Anrufung Kaucas" kosten="40" voraussetzungen="Vorteil Swafnirkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I" verbilligt="0" fertigkeiten="Wind und Wogen" variable="-1">Tosende Winde umgeben dich und wehren Fernkampfangriffe bis zur Größe eines Wurfspeeres ab. Ungezielte Geschosse (wie in einem Pfeilhagel) treffen dich nicht, Fernkampfangriffe auf dich sind um -4 erschwert. 
 Mächtige Liturgie: Der Malus steigt um -2.
 Probenschwierigkeit: 12
@@ -4673,14 +4673,14 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 4 KaP
 Fertigkeiten: Wind und Wogen</Talent>
-  <Talent name="Gleichklang des Geistes" kosten="20" voraussetzungen="Vorteil Swafnirkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I" verbilligt="0" fertigkeiten="Heilung, Wind und Wogen, Harmonie" variable="-1">Du erhältst einen kurzen Einblick in die Gefühle deines Gegenübers.
+  <Talent name="Gleichklang des Geistes" kosten="20" voraussetzungen="Vorteil Swafnirkirchliche Tradition I ODER Vorteil Efferdkirchliche Tradition I ODER Vorteil Perainekirchliche Tradition I ODER Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I" verbilligt="0" fertigkeiten="Heilung, Wind und Wogen, Harmonie, Friede" variable="-1">Du erhältst einen kurzen Einblick in die Gefühle deines Gegenübers.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 8 Aktionen
 Ziel: Einzelperson
 Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 1 KaP
-Fertigkeiten: Heilung, Wind und Wogen, Harmonie</Talent>
+Fertigkeiten: Heilung, Wind und Wogen, Harmonie, Friede</Talent>
   <Talent name="Neckeratem" kosten="20" voraussetzungen="Vorteil Efferdkirchliche Tradition I ODER Vorteil Swafnirkirchliche Tradition I" verbilligt="0" fertigkeiten="Wind und Wogen" variable="-1">Das Ziel kann im Wasser atmen und sieht durch Wasser wie durch Luft. Erlaubt Aufrechterhalten. 
 Probenschwierigkeit: 12
 Modifikationen: Gruß des Versunkenen (-8, Zone, 16 KaP; der Zauber betrifft alle im Radius von 4 Schritt.)
@@ -4709,14 +4709,14 @@ Wirkungsdauer: 1 Stunde
 Kosten: 4 KaP
 Fertigkeiten: Wind und Wogen
 Anmerkung: Alternativ kann die Liturgie wie Antimagie gegen Berserkerzauber wirken. Die Randbedingungen entsprechen den dort angegebenen, außer dass die Kosten mit KaP bezahlt werden und die Reichweiten 32 Schritt betragen.</Talent>
-  <Talent name="Gemeinschaft treuer Gefährten" kosten="40" voraussetzungen="Vorteil Ifirnkirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I" verbilligt="0" fertigkeiten="Jagd, Sichere Heimkehr" variable="-1">Du stärkst die Bindung zwischen einem Tier und seinem Besitzer. Proben im Umgang mit dem Tier sind um +4 erleichtert, freie Fertigkeiten (wie Abrichter) zählen als eine Stufe höher. 
+  <Talent name="Gemeinschaft treuer Gefährten" kosten="40" voraussetzungen="Vorteil Ifirnkirchliche Tradition I ODER Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I" verbilligt="0" fertigkeiten="Jagd, Sichere Heimkehr, Fröhlicher Wanderer" variable="-1">Du stärkst die Bindung zwischen einem Tier und seinem Besitzer. Proben im Umgang mit dem Tier sind um +4 erleichtert, freie Fertigkeiten (wie Abrichter) zählen als eine Stufe höher. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Woche
 Ziel: Tier und Einzelperson
 Reichweite: Berührung
 Wirkungsdauer: 1 Jahr
 Kosten: 8 KaP
-Fertigkeiten: Jagd, Sichere Heimkehr</Talent>
+Fertigkeiten: Jagd, Sichere Heimkehr, Fröhlicher Wanderer</Talent>
   <Talent name="Jagdglück" kosten="20" voraussetzungen="Vorteil Firunkirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I" verbilligt="0" fertigkeiten="Jagd" variable="-1">Im Laufe der Wirkungsdauer findest du das nächste Tier, das firungefällig erjagt werden kann. Dadurch sinkt die Schwierigkeit einer Jagd auf 12 (entsprechend eines wildreichen Gebiets). 
 Mächtige Liturgie: Verdoppelt die Zahl der gefundenen Tiere.
 Probenschwierigkeit: 12
@@ -4745,14 +4745,14 @@ Reichweite: Berührung
 Wirkungsdauer: 8 Aktionen
 Kosten: 4 KaP
 Fertigkeiten: Jagd</Talent>
-  <Talent name="Tierempathie" kosten="40" voraussetzungen="Vorteil Ifirnkirchliche Tradition I" verbilligt="0" fertigkeiten="Jagd" variable="-1">Du erhältst den Vorteil Tierempathie und erleidet keine Erschöpfung durch den Einsatz dieser Gabe. Außerdem kannst du notwendige Proben auf Jagd statt auf Überleben ablegen. 
+  <Talent name="Tierempathie" kosten="40" voraussetzungen="Vorteil Ifirnkirchliche Tradition I" verbilligt="0" fertigkeiten="Jagd, Friede" variable="-1">Du erhältst den Vorteil Tierempathie und erleidet keine Erschöpfung durch den Einsatz dieser Gabe. Außerdem kannst du notwendige Proben auf Jagd (Ifi) / Friede (Tsa) statt auf Überleben ablegen. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
 Ziel: selbst
 Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 8 KaP
-Fertigkeiten: Jagd</Talent>
+Fertigkeiten: Jagd, Friede</Talent>
   <Talent name="Trophäe erhalten" kosten="20" voraussetzungen="Vorteil Firunkirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I" verbilligt="0" fertigkeiten="Jagd" variable="-1">Die gesegnete Jagdbeute verdirbt während der Wirkungsdauer nicht und kann so verarbeitet werden, als wäre das Beutetier frisch erlegt worden.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 8 Aktionen
@@ -4796,7 +4796,7 @@ Reichweite: Berührung
 Wirkungsdauer: 8 Aktionen
 Kosten: 8 KaP
 Fertigkeiten: Wildnis</Talent>
-  <Talent name="Segen des Heiligen Isegrein" kosten="40" voraussetzungen="Vorteil Firunkirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I" verbilligt="0" fertigkeiten="Wildnis" variable="-1">Der Gesegnete wird eins mit seiner Umgebung. In der Wildnis wird er wie mit der Gabe Gefahreninstinkt vor natürlichen Gefahren gewarnt. Wirkt nicht unter der Erde, auf dem Meer oder in dämonisch pervertiertem Gebiet.
+  <Talent name="Segen des Heiligen Isegrein" kosten="40" voraussetzungen="Vorteil Firunkirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I" verbilligt="0" fertigkeiten="Wildnis, Stiller Wanderer" variable="-1">Der Gesegnete wird eins mit seiner Umgebung. In der Wildnis wird er wie mit der Gabe Gefahreninstinkt vor natürlichen Gefahren gewarnt. Wirkt nicht unter der Erde, auf dem Meer oder in dämonisch pervertiertem Gebiet.
 Mächtige Liturgie: Überleben-Proben sind um +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Minuten
@@ -4804,7 +4804,7 @@ Ziel: Einzelperson
 Reichweite: Berührung
 Wirkungsdauer: 2 Tage
 Kosten: 8 KaP
-Fertigkeiten: Wildnis</Talent>
+Fertigkeiten: Wildnis, Stiller Wanderer</Talent>
   <Talent name="Sichere Wanderung im Schnee" kosten="20" voraussetzungen="Vorteil Firunkirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I" verbilligt="0" fertigkeiten="Wildnis, Winter" variable="-1">Der Gesegnete kann in tiefstem Schnee und auf Eis laufen, als würde er über festen Boden gehen. Erlaubt Aufrechterhalten. 
 Probenschwierigkeit: 12
 Modifikationen: Eiskletterer (-4; der Gesegnete kann an Eiswänden wie auf Fels klettern.)
@@ -4814,7 +4814,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Stunden
 Kosten: 4 KaP
 Fertigkeiten: Wildnis, Winter</Talent>
-  <Talent name="Stärke des Waldläufers" kosten="20" voraussetzungen="Vorteil Firunkirchliche Tradition I" verbilligt="0" fertigkeiten="Wildnis" variable="-1">Verdoppelt dein DH* und den Intervall, in dem körperliche Anstrengung Erschöpfung verursacht.
+  <Talent name="Stärke des Waldläufers" kosten="20" voraussetzungen="Vorteil Firunkirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I" verbilligt="0" fertigkeiten="Wildnis, Stiller Wanderer" variable="-1">Verdoppelt dein DH* und den Intervall, in dem körperliche Anstrengung Erschöpfung verursacht.
 Mächtige Liturgie: Verdreifacht/vierfacht/fünffacht/sechsfacht dein DH* und den Intervall.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
@@ -4822,8 +4822,8 @@ Ziel: selbst
 Reichweite: Berührung
 Wirkungsdauer: 2 Tage
 Kosten: 8 KaP
-Fertigkeiten: Wildnis</Talent>
-  <Talent name="Weg des Fuchses" kosten="40" voraussetzungen="Vorteil Firunkirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I" verbilligt="0" fertigkeiten="Nächtlicher Schatten, Wildnis" variable="-1">Du kannst dich auch auf schlechten Pfaden, durch natürliche Hindernisse oder Menschenmassen wie auf einer normalen Straße bewegen. Proben in Verfolgungsjagden und unter schwierigen Bedingungen sind um +4 erleichtert. 
+Fertigkeiten: Wildnis, Stiller Wanderer</Talent>
+  <Talent name="Weg des Fuchses" kosten="40" voraussetzungen="Vorteil Firunkirchliche Tradition I ODER Vorteil Phexkirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I" verbilligt="0" fertigkeiten="Nächtlicher Schatten, Wildnis, Stiller Wanderer" variable="-1">Du kannst dich auch auf schlechten Pfaden, durch natürliche Hindernisse oder Menschenmassen wie auf einer normalen Straße bewegen. Proben in Verfolgungsjagden und unter schwierigen Bedingungen sind um +4 erleichtert. 
 Mächtige Liturgie: Der Bonus steigt um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 2 Aktionen
@@ -4831,7 +4831,7 @@ Ziel: selbst
 Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 8 KaP
-Fertigkeiten: Nächtlicher Schatten, Wildnis</Talent>
+Fertigkeiten: Nächtlicher Schatten, Wildnis, Stiller Wanderer</Talent>
   <Talent name="Weisung des Himmels" kosten="20" voraussetzungen="Vorteil Firunkirchliche Tradition I ODER Vorteil Ifirnkirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I" verbilligt="0" fertigkeiten="Licht, Wildnis, Wissen" variable="-1">Du hast für die Wirkungsdauer einen untrüglichen Sinn für die Himmelsrichtungen, was passende Proben nach Meisterentscheid um bis zu +4 erleichtert.
 Mächtige Liturgie: Der Bonus steigt um +2.
 Probenschwierigkeit: 12
@@ -4896,7 +4896,7 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Tag
 Kosten: 8 KaP
 Fertigkeiten: Winter</Talent>
-  <Talent name="Erneuerung des Geborstenen" kosten="40" voraussetzungen="Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Angroschkirchliche Tradition I" verbilligt="0" fertigkeiten="Heiliges Handwerk" variable="-1">Ein einfacher Gegenstand wie eine Nahkampfwaffe oder ein Kutschenrad erhält sofort 8W6 Reparaturpunkte. Für jede Überschreitung der Härte wird eine Beschädigung repariert. Wirkt nicht auf völlig zerstörte Gegenstände.
+  <Talent name="Erneuerung des Geborstenen" kosten="40" voraussetzungen="Vorteil Ingerimmkirchliche Tradition I ODER Vorteil Angroschkirchliche Tradition I" verbilligt="0" fertigkeiten="Heiliges Handwerk, Neubeginn" variable="-1">Ein einfacher Gegenstand wie eine Nahkampfwaffe oder ein Kutschenrad erhält sofort 8W6 Reparaturpunkte. Für jede Überschreitung der Härte wird eine Beschädigung repariert. Wirkt nicht auf völlig zerstörte Gegenstände.
 Mächtige Liturgie: Erhöht die Reparaturpunkte um 16.
 Probenschwierigkeit: 12
 Modifikationen: Komplexer Gegenstand (-4; repariert einen komplexen Gegenstand wie eine Armbrust.)
@@ -4907,7 +4907,7 @@ Ziel: Einzelobjekt
 Reichweite: Berührung
 Wirkungsdauer: augenblicklich
 Kosten: 8 KaP
-Fertigkeiten: Heiliges Handwerk</Talent>
+Fertigkeiten: Heiliges Handwerk, Neubeginn</Talent>
   <Talent name="Handwerkssegen" kosten="60" voraussetzungen="Vorteil Angroschkirchliche Tradition I ODER Vorteil Ingerimmkirchliche Tradition I" verbilligt="0" fertigkeiten="Heiliges Heiliges Handwerk" variable="-1">Der Segen erleichtert alle Proben zur Herstellung eines bestimmten Handwerksstückes um +2.
 Mächtige Liturgie: Der Bonus steigt um +1.
 Probenschwierigkeit: 12
@@ -5131,7 +5131,7 @@ Reichweite: Berührung
 Wirkungsdauer: augenblicklich
 Kosten: 4 KaP
 Fertigkeiten: Wissen</Talent>
-  <Talent name="Wundersame Verständigung" kosten="40" voraussetzungen="Vorteil Phexkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I" verbilligt="0" fertigkeiten="Lehre, List" variable="-1">Du bist unerfahren in einer beliebigen Sprache. 
+  <Talent name="Wundersame Verständigung" kosten="40" voraussetzungen="Vorteil Phexkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Hesindekirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I" verbilligt="0" fertigkeiten="Lehre, List, Fröhlicher Wanderer" variable="-1">Du bist unerfahren in einer beliebigen Sprache. 
 Mächtige Liturgie: Je zwei Stufen steigern deine Sprachkenntnis auf erfahren/meisterlich. 
 Probenschwierigkeit: 12
 Modifikationen: Hoftag der Sprachen (Zone, Wirkungsdauer 4 Stunden, 16 KaP; die Liturgie wirkt auf alle Ziele in einem Umkreis von 8 Schritt) 
@@ -5140,7 +5140,7 @@ Ziel: selbst
 Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 8 KaP
-Fertigkeiten: Lehre, List</Talent>
+Fertigkeiten: Lehre, List, Fröhlicher Wanderer</Talent>
   <Talent name="Argelions bannende Hand" kosten="60" voraussetzungen="Vorteil Hesindekirchliche Tradition I ODER Vorteil Praioskirchliche Tradition I" verbilligt="0" fertigkeiten="Magie, Magiebann" variable="-1">Die Liturgie wirkt als Konterprobe (12) gegen einen Zauber. Gelingt sie, wird der Zauber aufgehoben. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
@@ -5252,7 +5252,7 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 8 KaP
 Fertigkeiten: Wissen</Talent>
-  <Talent name="Sternenspur" kosten="20" voraussetzungen="Vorteil Phexkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I" verbilligt="0" fertigkeiten="Nächtlicher Schatten, Wissen" variable="-1">Du kannst mit einer einfachen Berührung einen leuchtenden Stern als Markierung auf einer Oberfläche hinterlassen, den nur du sehen kannst. Insgesamt kannst du 8 solcher Sterne hinterlassen.
+  <Talent name="Sternenspur" kosten="20" voraussetzungen="Vorteil Phexkirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I" verbilligt="0" fertigkeiten="Nächtlicher Schatten, Wissen, Stiller Wanderer" variable="-1">Du kannst mit einer einfachen Berührung einen leuchtenden Stern als Markierung auf einer Oberfläche hinterlassen, den nur du sehen kannst. Insgesamt kannst du 8 solcher Sterne hinterlassen.
 Mächtige Liturgie: Du kannst 4 weitere Sterne hinterlassen. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -5260,7 +5260,7 @@ Ziel: selbst
 Reichweite: Berührung
 Wirkungsdauer: 1 Tag
 Kosten: 4 KaP
-Fertigkeiten: Nächtlicher Schatten, Wissen</Talent>
+Fertigkeiten: Nächtlicher Schatten, Wissen, Stiller Wanderer</Talent>
   <Talent name="Urischars ordnender Blick" kosten="20" voraussetzungen="Vorteil Praioskirchliche Tradition I ODER Vorteil Nanduskirchliche Tradition I" verbilligt="0" fertigkeiten="Ordnung, Wissen" variable="-1">Du siehst die verborgene Ordnung im Chaos: Du findest Bücher der gleichen Fachrichtung in einer alten Bibliothek, Gegenstände des gleichen Vorbesitzers beim Hehler, und das Muster in der Einbruchsliste der Stadtgarde. Entsprechende Proben (etwa bei Recherchen) sind um +4 erleichtert.
 Mächtige Liturgie: Der Bonus steigt um +2.
 Probenschwierigkeit: 12
@@ -5289,14 +5289,14 @@ Wirkungsdauer: 1 Jahr
 Kosten: 16 KaP
 Fertigkeiten: Wachstum
 Anmerkung: Verschiebst du die Skala auf normal, kehren die dämonischen Einflüsse nicht von selbst zurück - außer die Ursache der Verseuchung existiert weiterhin.</Talent>
-  <Talent name="Kälbchensegen" kosten="0" voraussetzungen="Vorteil Perainekirchliche Tradition I" verbilligt="0" fertigkeiten="Wachstum" variable="-1">Das gesegnete neugeborene Tier ist immun gegen Krankheiten.
+  <Talent name="Kälbchensegen" kosten="0" voraussetzungen="Vorteil Perainekirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I" verbilligt="0" fertigkeiten="Wachstum, Neubeginn" variable="-1">Das gesegnete neugeborene Tier ist immun gegen Krankheiten.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Minuten
 Ziel: Tier
 Reichweite: Berührung
 Wirkungsdauer: 1 Woche
 Kosten: 2 KaP
-Fertigkeiten: Wachstum</Talent>
+Fertigkeiten: Wachstum, Neubeginn</Talent>
   <Talent name="Kraft des Lebens" kosten="40" voraussetzungen="Vorteil Perainekirchliche Tradition I" verbilligt="0" fertigkeiten="Wachstum" variable="-1">Du segnest bis zu 4 Personen. Proben auf KO und KK sind um +2 erleichtert, Fertigkeitsproben mit einem dieser Attribute (außer Kampffertigkeiten) um +1. 
 Mächtige Liturgie: Der Bonus steigt um +2/+1.
 Probenschwierigkeit: 12
@@ -5389,7 +5389,7 @@ Reichweite: Berührung
 Wirkungsdauer: augenblicklich
 Kosten: 4 KaP
 Fertigkeiten: Heilung</Talent>
-  <Talent name="Wundsegen" kosten="40" voraussetzungen="Vorteil Perainekirchliche Tradition I" verbilligt="0" fertigkeiten="Heilung" variable="-1">Der Gesegnete erhält 4W6 Heilpunkte, für jede Überschreitung der WS wird eine Wunde geheilt.
+  <Talent name="Wundsegen" kosten="40" voraussetzungen="Vorteil Perainekirchliche Tradition I" verbilligt="0" fertigkeiten="Heilung, Friede" variable="-1">Der Gesegnete erhält 4W6 Heilpunkte, für jede Überschreitung der WS wird eine Wunde geheilt.
 Mächtige Liturgie: Erhöht die Heilpunkte um 8.
 Probenschwierigkeit: 12
 Modifikationen: Blutung stoppen (4 Aktionen, 8 KaP; hebt Blutungen auf.)
@@ -5398,7 +5398,7 @@ Ziel: Einzelperson
 Reichweite: Berührung
 Wirkungsdauer: augenblicklich
 Kosten: 16 KaP
-Fertigkeiten: Heilung</Talent>
+Fertigkeiten: Heilung, Friede</Talent>
   <Talent name="Phexens Sternenwurf" kosten="60" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="Abu al'Mada" variable="-1">Du rufst einen der Wurfsterne des Phex herbei. Dieser erleichtert die Fernkampfprobe um +4, richtet 2W20 TP an und verschwindet nach dem Wurf.
 Mächtige Liturgie: Erhöht die TP um 1W20.
 Probenschwierigkeit: 12
@@ -5417,7 +5417,7 @@ Reichweite: Berührung
 Wirkungsdauer: 16 Aktionen
 Kosten: 8 KaP
 Fertigkeiten: Abu al'Mada</Talent>
-  <Talent name="Mondsilberzunge" kosten="40" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="List" variable="-1">Dein Ziel hat vollstes Vertrauen zu dir und findet deine Worte überzeugend. Alle Überreden-Proben gegen dein Ziel sind um +4 erleichtert. 
+  <Talent name="Mondsilberzunge" kosten="40" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="List, Friede, Stiller Wanderer" variable="-1">Dein Ziel hat vollstes Vertrauen zu dir und findet deine Worte überzeugend. Alle Überreden-Proben gegen dein Ziel sind um +4 erleichtert. 
 Mächtige Liturgie: Der Bonus steigt um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
@@ -5425,8 +5425,8 @@ Ziel: Einzelperson
 Reichweite: 8 Schritt
 Wirkungsdauer: 1 Stunde
 Kosten: 8 KaP
-Fertigkeiten: List</Talent>
-  <Talent name="Phexens Augenzwinkern" kosten="20" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="List" variable="-1">Das Ziel kann sich kaum an dein Gesicht erinnern. Selbst wenn er darauf angesprochen oder verhört wird, sind alle KL-Proben zur Erinnerung um -4 erschwert. Die Liturgie wirkt nur, wenn deine wahre Identität unbekannt ist. 
+Fertigkeiten: List, Friede, Stiller Wanderer</Talent>
+  <Talent name="Phexens Augenzwinkern" kosten="20" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="List, Stiller Wanderer" variable="-1">Das Ziel kann sich kaum an dein Gesicht erinnern. Selbst wenn er darauf angesprochen oder verhört wird, sind alle KL-Proben zur Erinnerung um -4 erschwert. Die Liturgie wirkt nur, wenn deine wahre Identität unbekannt ist. 
 Mächtige Liturgie: Der Malus steigt um -2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Aktion
@@ -5434,7 +5434,7 @@ Ziel: Einzelperson
 Reichweite: 2 Schritt
 Wirkungsdauer: augenblicklich 
 Kosten: 8 KaP
-Fertigkeiten: List </Talent>
+Fertigkeiten: List, Stiller Wanderer</Talent>
   <Talent name="Sternenglanz" kosten="40" voraussetzungen="Vorteil Phexkirchliche Tradition I" verbilligt="0" fertigkeiten="List" variable="-1">Du streust Mondstaub über das Objekt, das dadurch neu und wertvoll erscheint. Der Betrug lässt sich mit einer Konterprobe (Wachsamkeit oder Handwerkstalent, 16) durchschauen. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Minuten
@@ -5800,14 +5800,14 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Woche
 Kosten: 4 KaP
 Fertigkeiten: Rausch</Talent>
-  <Talent name="Göttliche Freiheit" kosten="40" voraussetzungen="Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I" verbilligt="0" fertigkeiten="Frieden, Fröhlicher Wanderer, Rausch" variable="-1">Der Gesegnete wird von einer Fessel befreit, zum Beispiel von einer Eisenkette, von einer Sucht oder einem Einflusszauber. Körperliche Fesseln verschwinden dabei, geistige Fesseln werden während der Wirkungsdauer unterdrückt. Handelt sich es bei der Fessel um einen Zauber, wirkt die Liturgie als Konterprobe 8 gegen diesen Zauber. Bei einer gelungenen Probe wird der Zauber aufgehoben.
+  <Talent name="Göttliche Freiheit" kosten="40" voraussetzungen="Vorteil Rahjakirchliche Tradition I ODER Vorteil Tsakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I" verbilligt="0" fertigkeiten="Frieden, Fröhlicher Wanderer, Neubeginn, Rausch" variable="-1">Der Gesegnete wird von einer Fessel befreit, zum Beispiel von einer Eisenkette, von einer Sucht oder einem Einflusszauber. Körperliche Fesseln verschwinden dabei, geistige Fesseln werden während der Wirkungsdauer unterdrückt. Handelt sich es bei der Fessel um einen Zauber, wirkt die Liturgie als Konterprobe 8 gegen diesen Zauber. Bei einer gelungenen Probe wird der Zauber aufgehoben.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
 Zielobjekt: Einzelwesen
 Reichweite: Berührung
 Wirkungsdauer: 1 Tag
 Kosten: 8 KaP
-Fertigkeiten: Frieden, Fröhlicher Wanderer, Rausch</Talent>
+Fertigkeiten: Frieden, Fröhlicher Wanderer, Neubeginn, Rausch</Talent>
   <Talent name="Rahjas Geheiligter Wein" kosten="20" voraussetzungen="Vorteil Rahjakirchliche Tradition I" verbilligt="0" fertigkeiten="Rausch" variable="-1">Du rufst den Kelch der Rahja. In den Kelch gegossene Flüssigkeiten verwandeln sich in Wein, Wein erhält hingegen ein einzigartiges Aroma. Am Ende der Wirkungsdauer verschwindet der Kelch, die Verwandlung ist permanent.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
@@ -5946,7 +5946,7 @@ Reichweite: Berührung
 Wirkungsdauer: augenblicklich
 Kosten: 4 KaP
 Fertigkeiten: Heim und Herd</Talent>
-  <Talent name="Hilfe der Gemeinschaft" kosten="40" voraussetzungen="Vorteil Traviakirchliche Tradition I" verbilligt="0" fertigkeiten="Heim und Herd" variable="-1">Du stärkst den Zusammenhalt in einer Familie, zwischen treuen Gefährten oder einer Pilgergruppe. Muss eine Gruppenprobe abgelegt werden, bei der ein einziger Misserfolg zum Scheitern führt, ist diese Probe um +4 erleichtert. Außerdem erleidet die Gruppe keinen Malus, wenn ein Versuch der Zusammenarbeit scheitert.
+  <Talent name="Hilfe der Gemeinschaft" kosten="40" voraussetzungen="Vorteil Traviakirchliche Tradition I ODER Vorteil Aveskirchliche Tradition I" verbilligt="0" fertigkeiten="Heim und Herd, Fröhlicher Wanderer" variable="-1">Du stärkst den Zusammenhalt in einer Familie, zwischen treuen Gefährten oder einer Pilgergruppe. Muss eine Gruppenprobe abgelegt werden, bei der ein einziger Misserfolg zum Scheitern führt, ist diese Probe um +4 erleichtert. Außerdem erleidet die Gruppe keinen Malus, wenn ein Versuch der Zusammenarbeit scheitert.
 Mächtige Liturgie: Erhöht den Bonus um +2.
 Probenschwierigkeit: 12
 Modifikationen: Permanenz (-4, Wirkungsdauer bis die Bindung gelöst wird, Kosten 8 KaP, davon 2 gKaP)
@@ -5955,7 +5955,7 @@ Ziel: Zone
 Reichweite: Berührung
 Wirkungsdauer: 1 Woche
 Kosten: 8 KaP
-Fertigkeiten: Heim und Herd</Talent>
+Fertigkeiten: Heim und Herd, Fröhlicher Wanderer</Talent>
   <Talent name="Travinians Segen der Schwelle" kosten="20" voraussetzungen="Vorteil Traviakirchliche Tradition I" verbilligt="0" fertigkeiten="Heim und Herd" variable="-1">Du segnest die Schwelle. Der dahinter liegende Raum gilt als geweihter Boden und kann von unheiligen Wesenheiten mit einer Beschwörungsschwierigkeit von maximal 24 nicht betreten werden.
 Mächtige Liturgie: Erhöht die Beschwörungsschwierigkeit um 4.
 Probenschwierigkeit: 12
@@ -5982,7 +5982,167 @@ Reichweite: Berührung
 Wirkungsdauer: bis die Unterkunft deutlich umgebaut wird
 Kosten: 16 KaP
 Fertigkeiten: Heim und Herd</Talent>
-  <Talent name="Mirakel: GE" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Nächtlicher Schatten, Jagd, Seefahrt, Rausch" variable="-1">Dein nächster Wurf auf GE ist um +4 Punkte erleichtert.
+  <Talent name="Aura des Regenbogens" kosten="40" voraussetzungen="Vorteil Tsakirchliche Tradition I" verbilligt="0" fertigkeiten="Friede" variable="-1">Das Licht des Regenbogens erleuchtet deine Umgebung im Umkreis von 8 Schritt. Das Gebiet gilt als geweihter Boden. Zusätzlich erleiden alle Chimären innerhalb der Zone einen Furcht-Effekt Stufe 2.
+Mächtige Liturgie: Mit zwei Stufen gilt der Boden als heilig.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 16 KaP
+Fertigkeiten: Friede</Talent>
+  <Talent name="Gabe der Ewigjungen" kosten="40" voraussetzungen="Vorteil Tsakirchliche Tradition I" verbilligt="0" fertigkeiten="Friede" variable="-1">In deiner Hand erscheint eine Frühlingsblume. Solange die Blume blüht, erhält ihr Träger einen Bonus von +1 auf Menschenkenntnis. Die Blume verblüht, wenn der Träger einer Person begegnet, die ihm feindlich gesonnen ist, er sich gegen Tsa versündigt oder am Ende der Wirkungsdauer.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Woche
+Kosten: 4 KaP
+Fertigkeiten: Friede</Talent>
+  <Talent name="Kirschblütenregen" kosten="40" voraussetzungen="Vorteil Tsakirchliche Tradition I" verbilligt="0" fertigkeiten="Friede" variable="-1">Kirschblüten regnen aus dem Himmel herab. Nah- und Fernkampfangriffe auf dich sind um -4 erschwert, solange du selbst nicht angreifst.
+Mächtige Liturgie: Der Malus steigt um -2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 8 KaP
+Fertigkeiten: Friede</Talent>
+  <Talent name="Tsas Lebensschutz" kosten="60" voraussetzungen="Vorteil Tsakirchliche Tradition I" verbilligt="0" fertigkeiten="Friede, Neubeginn" variable="-1">Verstirbt der Gesegnete während der Wirkung der Liturgie, erscheint ein überraschend stabiles Ei an einem sicheren Ort in der Nähe. Nach einer Stunde schlüpft der Gesegnete aus dem Ei und erreicht innerhalb einer Woche seine ursprüngliche Größe (währenddessen Einschränkungen
+nach Spielleiterentscheid). Das Aussehen ähnelt seinem früheren Aussehen, kleinere Veränderungen wie eine bunte Haarsträhne sind aber wahrscheinlich. Die Wirkung der Liturgie kann nur einmal ausgelöst werden, dann endet ihre Wirkung.
+Probenschwierigkeit: 12
+Modifikationen: Permanenz (-8, Wirkungsdauer bis die Bindung gelöst wird, Kosten 16 KaP, davon 8 gKaP)
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 16 KaP
+Fertigkeiten: Friede, Neubeginn</Talent>
+  <Talent name="Wille zum Frieden" kosten="40" voraussetzungen="Vorteil Tsakirchliche Tradition I" verbilligt="0" fertigkeiten="Friede" variable="-1">Alle Zuhörer halten sich ans Gebot der Friedfertigkeit. Alle Versuche, Zwietracht zu sähen oder die Zuhörer aufzuwiegeln, sind um -4 erschwert.
+Mächtige Liturgie: Der Malus steigt um -2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 16 KaP
+Fertigkeiten: Friede</Talent>
+  <Talent name="Haut des Chamäleons" kosten="40" voraussetzungen="Vorteil Tsakirchliche Tradition I" verbilligt="0" fertigkeiten="Neubeginn" variable="-1">Nach dem Willen Tsas ändern sich deine Haare, Gesichtszüge und Körperbau soweit, dass du nicht mehr als du selbst zu erkennen bist (Details sind Spielleiterentscheid). Du behältst dabei dein Geschlecht und bist immer noch demselben Kulturkreis zuzuordnen.
+Mächtige Liturgie: Für je zwei Stufen kannst du auch den Kulturkreis/das Geschlecht verändern.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 KaP
+Fertigkeiten: Neubeginn</Talent>
+  <Talent name="Salajanas Segen" kosten="0" voraussetzungen="Vorteil Tsakirchliche Tradition I" verbilligt="0" fertigkeiten="Neubeginn" variable="-1">Der Segen mildert den Wehenschmerz der Gesegneten.
+Probenschwierigkeit: 12
+Modifikationen: Salajanas Schutz (-8, Wirkungsdauer 1 Jahr, 8 KaP; die Gesegnete bleibt während der Schwangerschaft vor Krankheiten verschont)
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 4 KaP
+Fertigkeiten: Neubeginn</Talent>
+  <Talent name="Segensreicher Neuanfang" kosten="40" voraussetzungen="Vorteil Tsakirchliche Tradition I" verbilligt="0" fertigkeiten="Neubeginn" variable="-1">Du segnest ein neues Unternehmen. Der Gesegnete erhält während der Wirkungsdauer die Eigenheit "Euphorisch für [Unternehmen]: Du widmest dich mit Elan der bevorstehenden Aufgabe und vergisst dabei alles um dich herum." Für den ersten Einsatz der Eigenheit bezahlt er keinen Schicksalspunkt.
+Mächtige Liturgie: Für je zwei Stufen kostet ein weiterer Einsatz der Eigenheit keinen Schicksalspunkt.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Woche
+Kosten: 8 KaP
+Fertigkeiten: Neubeginn</Talent>
+  <Talent name="Tsas lachende Gefolgschaft" kosten="20" voraussetzungen="Vorteil Tsakirchliche Tradition I" verbilligt="0" fertigkeiten="Neubeginn" variable="-1">Du rufst einen Kobold zur Hilfe. Befinden sich Kobolde in einem Umkreis von 1 Meile, eilt einer von ihnen herbei. Du kannst den Kobold um einen Gefallen bitten, aber er entscheidet selbst, ob er den Gefallen erfüllt. 
+Mächtige Liturgie: Verdoppelt den Umkreis.
+Probenschwierigkeit: 12
+Modifikationen: Namensruf (-4, 8 Meilen; du rufst einen dir bereits bekannten Kobold herbei.)
+Vorbereitungszeit: 2 Aktionen
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 4 KaP
+Fertigkeiten: Neubeginn</Talent>
+  <Talent name="Tsas wunderbare Erneuerung" kosten="0" voraussetzungen="Vorteil Tsakirchliche Tradition I" verbilligt="0" fertigkeiten="Neubeginn" variable="-1">Ein verlorenes Körperteil wächst innerhalb einer Woche nach (währenddessen Einschränkungen nach Spielleiterentscheid). Der Verlust des Körperteils darf maximal 1 Stunde zurück liegen.
+Mächtige Liturgie: Der Verlust darf maximal 1 Tag/1 Woche/1 Monat/1 Jahr zurückliegen.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 16 KaP
+Fertigkeiten: Neubeginn</Talent>
+  <Talent name="Tsas Fruchtbarkeit" kosten="0" voraussetzungen="Vorteil Tsakirchliche Tradition I" verbilligt="0" fertigkeiten="Neubeginn" variable="-1">Das gesegnete Lebewesen ist für die Wirkungsdauer deutlich fruchtbarer.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Einzelwesen
+Reichweite: Berührung
+Wirkungsdauer: 1 Woche
+Kosten: 1 KaP
+Fertigkeiten: Neubeginn</Talent>
+  <Talent name="Unschuldiger Geist" kosten="40" voraussetzungen="Vorteil Tsakirchliche Tradition I" verbilligt="0" fertigkeiten="Neubeginn" variable="-1">Du ermöglichst dem Gesegneten einen unvoreingenommenen Blick auf eine Entscheidung oder eine Person. Der Gesegnete verliert während der Wirkungsdauer alle früheren Erinnerungen, aber auch alle negativen Eigenheiten wie Vorurteile oder andere Charakterschwächen. Solche Entscheidungen erweisen sich meist als richtig - regeltechnisch kannst er den Spielleiter diesbezüglich um einen Tipp bitten (wie mit dem Vorteil Brillanz).
+Mächtige Liturgie: Je zwei Stufen ermöglichen einen zusätzlichen Tipp.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 KaP
+Fertigkeiten: Neubeginn</Talent>
+  <Talent name="Aller Welt Freund" kosten="60" voraussetzungen="Vorteil Aveskirchliche Tradition I" verbilligt="0" fertigkeiten="Fröhlicher Wanderer" variable="-1">Du rufst die Lapislazuliflöte. Solange du sie spielst, können dich Humanoide nur mit einer gelungenen Konterprobe (Willenskraft, 20) angreifen und Tiere gar nicht. Das Gebiet in 16 Schritt Umkreis gilt als geweihter Boden. Benötigt Konzentration, ermöglicht Aufrechterhalten.
+Mächtige Liturgie: Mit zwei Stufen gilt der Boden als heilig.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Ziel: Einzelobjekt
+Reichweite: dereweit
+Wirkungsdauer: 1 Stunde
+Kosten: 16 KaP
+Fertigkeiten: Fröhlicher Wanderer</Talent>
+  <Talent name="Ein Freund in der Not" kosten="40" voraussetzungen="Vorteil Aveskirchliche Tradition I" verbilligt="0" fertigkeiten="Fröhlicher Wanderer" variable="-1">Durch Aves' Hilfe findest du den Weg zu einer hilfsbereiten Person im Radius von 1 Meile, die dich aus einer Notlage zu befreien versucht. Kommen mehrere Personen in Frage, führt der Weg zu der Person, die du schnell genug erreichen kannst und die dir am besten helfen kann.
+Mächtige Magie: Verdoppelt den Radius.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Ziel: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Tag
+Kosten: 8 KaP
+Fertigkeiten: Fröhlicher Wanderer
+Anmerkung: Mit dieser Liturgie fanden schon viele Avesgeweihte
+Hilfe an den seltsamsten Orten - als hätte der Weber des Schicksals
+selbst seine Hände im Spiel. Wenn also eine geringe Chance auf
+Hilfe besteht, sollte der Spielleiter sie gewähren. An völlig
+menschenleeren Orten wie dem ewigen Eis des Nordens ist die
+Liturgie hingegen nutzlos.</Talent>
+  <Talent name="Über die Wolken" kosten="60" voraussetzungen="Vorteil Aveskirchliche Tradition I" verbilligt="0" fertigkeiten="Fröhlicher Wanderer" variable="-1">An deinem Rücken wachsen gewaltige Schwingen, mit denen du fliegen kannst. Dafür sind keine weiteren Proben nötig, nur besonders tollkühne Manöver erfordern eine GE- oder Akrobatik-Probe. Du bewegst dich in der Luft etwa so schnell wie am Boden und kannst etwa ein Viertel so viel tragen. Erlaubt Aufrechterhalten.
+Mächtige Liturgie: Du bewegst dich zwei/drei/vier/fünfmal schneller als am Boden und kannst zwei/drei/vier/fünf Viertel so viel tragen.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Ziel: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 16 KaP
+Fertigkeiten: Fröhlicher Wanderer</Talent>
+  <Talent name="Blick des Kartographen" kosten="60" voraussetzungen="Vorteil Aveskirchliche Tradition I" verbilligt="0" fertigkeiten="Stiller Wanderer" variable="-1">Du kannst dir alle Landmarken, denen du während der Wirkungsdauer auf deiner Reise begegnest, perfekt einprägen. Reist du noch einmal durch die eingeprägte Region, sind Proben zur Orientierung um +4 erleichtert. Die Erinnerung verschwindet, wenn du eine Karte der Region anfertigst oder die Gelegenheit dazu verstreichen lässt.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Woche
+Kosten: 4 KaP
+Fertigkeiten: Fröhlicher Wanderer
+Anmerkung: Eine mit diesem Wissen angefertigte Karte bringt einen Bonus von +2 (entsprechende Freie Fertigkeit auf erfahren) oder sogar +4 (Freie Fertigkeit auf meisterlich) auf Orientierungs-Proben in der Region.</Talent>
+  <Talent name="Versöhnliches Schicksal" kosten="40" voraussetzungen="Vorteil Aveskirchliche Tradition I" verbilligt="0" fertigkeiten="Stiller Wanderer" variable="-1">Wenn eine mit glücklicher Fügung verbesserte Probe misslingt, erhältst du bei 1-2 auf dem W6 den Schicksalspunkt zurück.
+Probenschwierigkeit: 12
+Mächtige Liturgie: Je zwei Stufen erhöhen die Chance auf 1-4/1-6.
+Modifikationen: Zweite Chance (-8; die Liturgie wirkt auch, wenn eine mit einem Schicksalspunkt wiederholte Probe misslingt. Das gilt nur für die erste solche Wiederholung.)
+Vorbereitungszeit: 1 Stunde
+Ziel: selbst
+Reichweite: Berührung
+Wirkungsdauer: bis die Bindung gelöst wird
+Kosten: 8 KaP, davon 2 gKaP
+Fertigkeiten: Stiller Wanderer</Talent>
+  <Talent name="Mirakel: GE" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Nächtlicher Schatten, Jagd, Seefahrt, Rausch, Neubeginn, Fröhlicher Wanderer" variable="-1">Dein nächster Wurf auf GE ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -5990,7 +6150,7 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Schutz der Gläubigen, Nächtlicher Schatten, Jagd, Seefahrt, Rausch</Talent>
+Fertigkeiten: Schutz der Gläubigen, Nächtlicher Schatten, Jagd, Seefahrt, Rausch, Neubeginn, Fröhlicher Wanderer</Talent>
   <Talent name="Mirakel: KK" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Heiliges Feuer, Winter, Seefahrt" variable="-1">Dein nächster Wurf auf KK ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
@@ -6036,7 +6196,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Fertigkeiten: Schutz der Gläubigen</Talent>
-  <Talent name="Mirakel: KO" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Heerführung, Heiliges Erz, Winter, Quellen und Flüsse" variable="-1">Dein nächster Wurf auf KO ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: KO" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Heerführung, Heiliges Erz, Winter, Quellen und Flüsse, Stiller Wanderer" variable="-1">Dein nächster Wurf auf KO ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -6044,7 +6204,7 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Heerführung, Heiliges Erz, Winter, Quellen und Flüsse</Talent>
+Fertigkeiten: Heerführung, Heiliges Erz, Winter, Quellen und Flüsse, Stiller Wanderer</Talent>
   <Talent name="Mirakel: Autorität" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Heerführung, Ordnung, Wachstum, Heim und Herd" variable="-1">Dein nächster Wurf auf Autorität ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
@@ -6072,7 +6232,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Fertigkeiten: Ehre, Heiliges Erz, Wind und Wogen</Talent>
-  <Talent name="Mirakel: IN" kosten="20" voraussetzungen="Kein Vorteil Firunkirchliche Tradition I" verbilligt="0" fertigkeiten="Ordnung, List, Heilung, Magie, Jagd, Wind und Wogen, Schlaf, Harmonie, Sichere Heimkehr" variable="-1">Dein nächster Wurf auf IN ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: IN" kosten="20" voraussetzungen="Kein Vorteil Firunkirchliche Tradition I" verbilligt="0" fertigkeiten="Ordnung, List, Heilung, Magie, Jagd, Wind und Wogen, Schlaf, Harmonie, Sichere Heimkehr, Friede, Stiller Wanderer" variable="-1">Dein nächster Wurf auf IN ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -6080,7 +6240,7 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Ordnung, List, Heilung, Magie, Jagd, Wind und Wogen, Schlaf, Harmonie, Sichere Heimkehr</Talent>
+Fertigkeiten: Ordnung, List, Heilung, Magie, Jagd, Wind und Wogen, Schlaf, Harmonie, Sichere Heimkehr, Friede, Stiller Wanderer</Talent>
   <Talent name="Mirakel: Wahrnehmung" kosten="20" voraussetzungen="Kein Vorteil Firunkirchliche Tradition I, Kein Vorteil Swafnirkirchliche Tradition I" verbilligt="0" fertigkeiten="Ordnung, Heilung, Jagd, Wind und Wogen, Tod, Rausch, Sichere Heimkehr" variable="-1">Dein nächster Wurf auf Wahrnehmung ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
@@ -6108,7 +6268,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Fertigkeiten: Magiebann, Abu al'Mada, Magie, Heiliges Feuer</Talent>
-  <Talent name="Mirakel: CH" kosten="20" voraussetzungen="Kein Vorteil Firunkirchliche Tradition I" verbilligt="0" fertigkeiten="Licht, Wachstum, Lehre, Wildnis, Vergessen, Harmonie, Heim und Herd" variable="-1">Dein nächster Wurf auf CH ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: CH" kosten="20" voraussetzungen="Kein Vorteil Firunkirchliche Tradition I" verbilligt="0" fertigkeiten="Licht, Wachstum, Lehre, Wildnis, Vergessen, Harmonie, Heim und Herd, Friede, Fröhlicher Wanderer" variable="-1">Dein nächster Wurf auf CH ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -6116,7 +6276,7 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Licht, Wachstum, Lehre, Wildnis, Vergessen, Harmonie, Heim und Herd</Talent>
+Fertigkeiten: Licht, Wachstum, Lehre, Wildnis, Vergessen, Harmonie, Heim und Herd, Friede, Fröhlicher Wanderer</Talent>
   <Talent name="Mirakel: Mythenkunde" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Licht, Lehre, Schlaf" variable="-1">Dein nächster Wurf auf Mythenkunde ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
@@ -6135,7 +6295,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Fertigkeiten: Nächtlicher Schatten, Seefahrt, Harmonie</Talent>
-  <Talent name="Mirakel: FF" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Nächtlicher Schatten, Heilung, Heiliges Handwerk, Heim und Herd" variable="-1">Dein nächster Wurf auf FF ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: FF" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Nächtlicher Schatten, Heilung, Heiliges Handwerk, Heim und Herd, Neubeginn" variable="-1">Dein nächster Wurf auf FF ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -6143,7 +6303,7 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Nächtlicher Schatten, Heilung, Heiliges Handwerk, Heim und Herd</Talent>
+Fertigkeiten: Nächtlicher Schatten, Heilung, Heiliges Handwerk, Heim und Herd, Neubeginn</Talent>
   <Talent name="Mirakel: Heimlichkeit" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Nächtlicher Schatten, Jagd" variable="-1">Dein nächster Wurf auf Heimlichkeit ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
@@ -6162,7 +6322,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Fertigkeiten: Nächtlicher Schatten</Talent>
-  <Talent name="Mirakel: Beeinflussung" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="List, Harmonie" variable="-1">Dein nächster Wurf auf Beeinflussung ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Beeinflussung" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="List, Harmonie, Friede, Fröhlicher Wanderer" variable="-1">Dein nächster Wurf auf Beeinflussung ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -6170,8 +6330,8 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: List, Harmonie</Talent>
-  <Talent name="Mirakel: Heilkunde" kosten="20" voraussetzungen="Kein Vorteil Firunkirchliche Tradition I" verbilligt="0" fertigkeiten="Heilung, Wildnis, Vergessen, Heim und Herd" variable="-1">Dein nächster Wurf auf Heilkunde ist um +4 Punkte erleichtert.
+Fertigkeiten: List, Harmonie, Friede, Fröhlicher Wanderer</Talent>
+  <Talent name="Mirakel: Heilkunde" kosten="20" voraussetzungen="Kein Vorteil Firunkirchliche Tradition I" verbilligt="0" fertigkeiten="Heilung, Wildnis, Vergessen, Heim und Herd, Friede" variable="-1">Dein nächster Wurf auf Heilkunde ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -6179,7 +6339,7 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Heilung, Wildnis, Vergessen, Heim und Herd</Talent>
+Fertigkeiten: Heilung, Wildnis, Vergessen, Heim und Herd, Friede</Talent>
   <Talent name="Mirakel: KL" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Wachstum, Wissen, Vergessen" variable="-1">Dein nächster Wurf auf KL ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
@@ -6189,7 +6349,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Fertigkeiten: Wachstum, Wissen, Vergessen</Talent>
-  <Talent name="Mirakel: Derekunde" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Wachstum, Wissen" variable="-1">Dein nächster Wurf auf Derekunde ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Derekunde" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Wachstum, Wissen, Stiller Wanderer" variable="-1">Dein nächster Wurf auf Derekunde ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -6197,7 +6357,7 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Wachstum, Wissen</Talent>
+Fertigkeiten: Wachstum, Wissen, Stiller Wanderer</Talent>
   <Talent name="Mirakel: Alchemie" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Wissen, Schlaf" variable="-1">Dein nächster Wurf auf Alchemie ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
@@ -6216,7 +6376,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Fertigkeiten: Heiliges Handwerk</Talent>
-  <Talent name="Mirakel: Überleben" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Wildnis, Wind und Wogen" variable="-1">Dein nächster Wurf auf Überleben ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Überleben" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Wildnis, Wind und Wogen, Stiller Wanderer" variable="-1">Dein nächster Wurf auf Überleben ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -6224,7 +6384,7 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Wildnis, Wind und Wogen</Talent>
+Fertigkeiten: Wildnis, Wind und Wogen, Stiller Wanderer</Talent>
   <Talent name="Mirakel: Schusswaffen" kosten="20" voraussetzungen="Kein Vorteil Ifirnkirchliche Tradition I" verbilligt="0" fertigkeiten="Jagd" variable="-1">Dein nächster Wurf auf Schusswaffen ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
@@ -6243,7 +6403,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Fertigkeiten: Jagd</Talent>
-  <Talent name="Mirakel: Gebräuche" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Sichere Heimkehr" variable="-1">Dein nächster Wurf auf Gebräuche ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Gebräuche" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Sichere Heimkehr, Fröhlicher Wanderer" variable="-1">Dein nächster Wurf auf Gebräuche ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Der Wurf ist um zusätzliche +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -6251,7 +6411,7 @@ Zielobjekt: selbst
 Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
-Fertigkeiten: Sichere Heimkehr</Talent>
+Fertigkeiten: Sichere Heimkehr, Fröhlicher Wanderer</Talent>
   <Fertigkeit name="Handgemenge" steigerungsfaktor="2" voraussetzungen="" attribute="MU|GE|KK" kampffertigkeit="1">Auf Handgemenge würfelst du bei allen waffenlosen Nahkampftechniken, im Umgang mit Handgemengewaffen wie Messern, Dolchen, Schlagstöcken oder Kettenstäben und bei der Verwendung von Schilden.</Fertigkeit>
   <Fertigkeit name="Hiebwaffen" steigerungsfaktor="2" voraussetzungen="" attribute="MU|GE|KK" kampffertigkeit="1">Mit der Fertigkeit Hiebwaffen führst du alle Arten von stumpfen und scharfen Hiebwaffen, wie Keulen, Äxte und Hämmer. </Fertigkeit>
   <Fertigkeit name="Klingenwaffen" steigerungsfaktor="2" voraussetzungen="" attribute="MU|GE|KK" kampffertigkeit="1">Im Kampf mit allen Varianten von Schwertern, Säbeln und Fechtwaffen werden Proben auf die Fertigkeit Klingenwaffen abgelegt. Dolche gehören nicht zu den Klingenwaffen - sie werden mit der Fertigkeit Handgemenge genutzt.</Fertigkeit>
