@@ -408,6 +408,67 @@ Bedingung: 2 weitere Attribute auf insgesamt 16</Vorteil>
 Du kannst pro Zauber maximal zwei spontane Modifikationen (oder eine Modifikation zweimal) einsetzen.
 
 Bedingungen: Sichtkontakt, Geste</Vorteil>
+  <Vorteil name="Repräsentation der Anach-Nurim I" kosten="20" voraussetzungen="Attribut KO 4, Vorteil Zauberer I" nachkauf="häufig" typ="5" variable="-1">Die Fertigkeit Gaben des Blutgeists kann erlernt und verwendet werden und du kannst zauber mit deinem Blut wirken. 
+  
+Wenn du einen Zauber ohne verbotene Pforten oder Blutmagie wirkst, ist er um -2 erschwert.
+
+Bedingungen: Sichtkontakt, Geste</Vorteil>
+  <Vorteil name="Repräsentation der Anach-Nurim II" kosten="40" voraussetzungen="Attribut KO 6, Vorteil Repräsentation der Anach-Nurim I" nachkauf="häufig" typ="5" variable="-1">Wenn du einen Zauber mit verbotenen Pforten oder Blutmagie wirkst, kannst du eine Basismodifikation (z.B. 1x Mächtige Magie) ohne Erschwernis ausführen.</Vorteil>
+  <Vorteil name="Repräsentation der Anach-Nurim III" kosten="60" voraussetzungen="Attribut KO 8, Vorteil Repräsentation der Anach-Nurim II" nachkauf="häufig" typ="5" variable="-1">Erlaubt die spontane Modifikation Erzwingen.</Vorteil>
+  <Vorteil name="Repräsentation der Anach-Nurim IV" kosten="80" voraussetzungen="Attribut KO 10, Vorteil Repräsentation der Anach-Nurim III" nachkauf="häufig" typ="5" variable="-1">8 Punkte können zur Verbesserung der Repräsentation verwendet werden.
+  
+Bedingung: 2 weitere Attribute auf insgesamt 16</Vorteil>
+  <Vorteil name="Repräsentation der Derwische I" kosten="20" voraussetzungen="Attribut FF 4, Vorteil Zauberer I" nachkauf="häufig" typ="5" variable="-1">Die Fertigkeit Trommelrituale kann erlernt und verwendet werden. 
+  
+Die Komponente Trommelspiel kann nicht ignoriert werden.
+
+Bedingungen: Sichtkontakt, Trommelspiel, Nur Rashtullahgläubige profitieren von Zaubern</Vorteil>
+  <Vorteil name="Repräsentation der Derwische II" kosten="40" voraussetzungen="Attribut FF 6, Vorteil Repräsentation der Derwische I" nachkauf="häufig" typ="5" variable="-1">Alle deine Zauber mit dem Ziel Zone wirken auf alle Ziele im Umkreis von 8 Schritt statt 4 Schritt.</Vorteil>
+  <Vorteil name="Repräsentation der Derwische III" kosten="60" voraussetzungen="Attribut FF 8, Vorteil Repräsentation der Derwische II" nachkauf="häufig" typ="5" variable="-1">Erlaubt die spontane Modifikation Opferung (2 Erschöpfung).</Vorteil>
+  <Vorteil name="Repräsentation der Derwische IV" kosten="80" voraussetzungen="Attribut FF 10, Vorteil Repräsentation der Derwische III" nachkauf="häufig" typ="5" variable="-1">8 Punkte können zur Verbesserung der Repräsentation verwendet werden.
+  
+Bedingung: 2 weitere Attribute auf insgesamt 16</Vorteil>
+  <Vorteil name="Repräsentation der Durro-dun I" kosten="20" voraussetzungen="Attribut MU 4, Vorteil Zauberer I" nachkauf="häufig" typ="5" variable="-1">Die Fertigkeit Gaben des Odun kann erlernt und verwendet werden. 
+  
+Du musst dich beim Erlernen für ein Tier entscheiden. Alle deine Zauber beziehen sich auf dieses Tier. 
+
+Bedingungen: Sichtkontakt, Geste</Vorteil>
+  <Vorteil name="Repräsentation der Durro-dun II" kosten="40" voraussetzungen="Attribut MU 6, Vorteil Repräsentation der Durro-dun I" nachkauf="häufig" typ="5" variable="-1">Die Kosten aller Zauber, die auf dich selbst wirken, sinken um ein Viertel der Basiskosten.</Vorteil>
+  <Vorteil name="Repräsentation der Durro-dun III" kosten="60" voraussetzungen="Attribut MU 8, Vorteil Repräsentation der Durro-dun II" nachkauf="häufig" typ="5" variable="-1">Erlaubt die spontane Modifikation Opferung (1 Wunde).</Vorteil>
+  <Vorteil name="Repräsentation der Durro-dun IV" kosten="80" voraussetzungen="Attribut MU 10, Vorteil Repräsentation der Durro-dun III" nachkauf="häufig" typ="5" variable="-1">8 Punkte können zur Verbesserung der Repräsentation verwendet werden.
+  
+Bedingung: 2 weitere Attribute auf insgesamt 16</Vorteil>
+  <Vorteil name="Schamanistische Repräsentation I" kosten="20" voraussetzungen="Attribut IN 4, Vorteil Zauberer I" nachkauf="häufig" typ="5" variable="-1">Die Fertigkeiten Geister vertreiben, Kontakt zur Geisterwelt, Stärkende Geister, Zornige Geister und Keulenrituale können erlernt und verwendet werden. 
+  
+Verärgert der Nutznießer eines positiven schamanischen Zaubers den entsprechenden Geist, endet der Zauber sofort (Spielleiterentscheid).
+
+Bedingungen: Sichtkontakt, Geste oder Tanz, Gesprochene oder gesungene Formel</Vorteil>
+  <Vorteil name="Schamanistische Repräsentation II" kosten="40" voraussetzungen="Attribut IN 6, Vorteil Schamanistische Repräsentation I" nachkauf="häufig" typ="5" variable="-1">Wenn du mindestens 4/8/16/32 gAsP gebunden hast, sind deine Zauber um +1/+2/+3/+4 erleichtert.</Vorteil>
+  <Vorteil name="Schamanistische Repräsentation III" kosten="60" voraussetzungen="Attribut IN 8, Vorteil Schamanistische Repräsentation II" nachkauf="häufig" typ="5" variable="-1">Erlaubt die spontane Modifikation Zeremonie.</Vorteil>
+  <Vorteil name="Schamanistische Repräsentation IV" kosten="80" voraussetzungen="Attribut IN 10, Vorteil Schamanistische Repräsentation III" nachkauf="häufig" typ="5" variable="-1">8 Punkte können zur Verbesserung der Repräsentation verwendet werden. Du kannst 4 Punkte davon
+verwenden, um mittels Freier Seelenfahrt ins Geisterreich zu reisen und dort verschiedenste Zauberwirkungen hervorzurufen - solche Reisen sind jedoch stets gefährlich, Details sind Spielleiterentscheid.
+  
+Bedingung: 2 weitere Attribute auf insgesamt 16</Vorteil>
+  <Vorteil name="Repräsentation der Zauberbarden I" kosten="20" voraussetzungen="Attribut CH 4, Vorteil Zauberer I" nachkauf="häufig" typ="5" variable="-1">Die Fertigkeit Zaubermelodien kann erlernt und verwendet werden.
+  
+Die Komponente Instrumentenspiel kann nicht ignoriert werden.
+
+Bedingungen: Sichtkontakt, Instrumentenspiel, Ziel kann dich hören</Vorteil>
+  <Vorteil name="Repräsentation der Zauberbarden II" kosten="40" voraussetzungen="Attribut CH 6, Vorteil Repräsentation der Zauberbarden I" nachkauf="häufig" typ="5" variable="-1">Wenn du eine Zaubermelodie mit der Zaubereigenschaft Konzentration gewirkt hast, kannst du einen Punkt Erschöpfung auf dich nehmen. Du musst nur Aktionen Bereit machen (statt Konzentration) aufwenden, damit die Wirkung nicht endet.</Vorteil>
+  <Vorteil name="Repräsentation der Zauberbarden III" kosten="60" voraussetzungen="Attribut CH 8, Vorteil Repräsentation der Zauberbarden II" nachkauf="häufig" typ="5" variable="-1">Erlaubt die spontane Modifikation Zeit lassen.</Vorteil>
+  <Vorteil name="Repräsentation der Zauberbarden IV" kosten="80" voraussetzungen="Attribut CH 10, Vorteil Repräsentation der Zauberbarden III" nachkauf="häufig" typ="5" variable="-1">8 Punkte können zur Verbesserung der Repräsentation verwendet werden.
+  
+Bedingung: 2 weitere Attribute auf insgesamt 16</Vorteil>
+  <Vorteil name="Repräsentation der Zaubertänzer I" kosten="20" voraussetzungen="Attribut GE 4, Vorteil Zauberer I" nachkauf="häufig" typ="5" variable="-1">Die Fertigkeit Zaubertänze kann erlernt und verwendet werden.
+  
+Die Komponente Tanz kann nicht ignoriert werden.
+
+Bedingungen: Sichtkontakt, Tanz</Vorteil>
+  <Vorteil name="Repräsentation der Zaubertänzer II" kosten="40" voraussetzungen="Attribut GE 6, Vorteil Repräsentation der Zaubertänzer I" nachkauf="häufig" typ="5" variable="-1">Verdoppelt die Wirkungsdauer aller Zaubertänze.</Vorteil>
+  <Vorteil name="Repräsentation der Zaubertänzer III" kosten="60" voraussetzungen="Attribut GE 8, Vorteil Repräsentation der Zaubertänzer II" nachkauf="häufig" typ="5" variable="-1">Erlaubt die spontane Modifikation Opferung (2 Erschöpfung).</Vorteil>
+  <Vorteil name="Repräsentation der Zaubertänzer IV" kosten="80" voraussetzungen="Attribut GE 10, Vorteil Repräsentation der Zaubertänzer III" nachkauf="häufig" typ="5" variable="-1">8 Punkte können zur Verbesserung der Repräsentation verwendet werden.
+  
+Bedingung: 2 weitere Attribute auf insgesamt 16</Vorteil>
   <Vorteil name="Gemeinschaft der Gläubigen" kosten="20" voraussetzungen="Attribut CH 4, Vorteil Geweiht I" nachkauf="häufig" typ="6" variable="-1">Für mindestens 4/8/16/32 Mitbeter ist die Liturgieprobe um +1/2/3/4 erleichtert.</Vorteil>
   <Vorteil name="Unterstützung der Gläubigen" kosten="40" voraussetzungen="Attribut CH 6, Vorteil Geweiht I" nachkauf="häufig" typ="6" variable="-1">Mirakel können auch auf andere Gläubige gewirkt werden. Die Wirkung solcher Mirakel ist halbiert.</Vorteil>
   <Vorteil name="Aura der Heiligkeit" kosten="60" voraussetzungen="Attribut CH 8, Vorteil Geweiht I" nachkauf="häufig" typ="6" variable="-1">Für 4 KaP/Stunde verströmst du göttliche Energie. Im Umkreis von 16 Schritten erhalten gläubige Mitstreiter +2 auf alle Mirakel-Fertigkeiten und Liturgien deiner Gottheit. Patzer bei so verstärkten Proben gelten als gewöhnlich misslungen.</Vorteil>
