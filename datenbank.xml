@@ -5346,7 +5346,7 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 8 KaP
 Fertigkeiten: Tod </Talent>
-  <Talent name="Nemekaths Zwiesprache" kosten="20" voraussetzungen="Vorteil Boronkirchliche Tradition I" verbilligt="0" fertigkeiten="Tod" variable="-1">Deine Seele verlässt kurzzeitig deinen Körper. Sie kann sich frei bewegen und mit Geistern und verlorenen Seelen kommunizieren.
+  <Talent name="Nemekaths Zwiesprache" kosten="40" voraussetzungen="Vorteil Boronkirchliche Tradition I" verbilligt="0" fertigkeiten="Tod" variable="-1">Deine Seele verlässt kurzzeitig deinen Körper. Sie kann sich frei bewegen und mit Geistern und verlorenen Seelen kommunizieren.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Stunde
 Ziel: selbst
