@@ -617,6 +617,7 @@ temp_full_cb_feel_free_to_remove.pdf'
                         #fields[base + 'KO'] = res[0].strip()
                 if tt.na in self.Talents:
                     if tt.pw > self.Talents[tt.na].pw:
+                        self.Talents.pop(tt.na,None)
                         self.Talents[tt.na] = tt
                 else:
                     self.Talents[tt.na] = tt
