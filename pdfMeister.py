@@ -26,7 +26,7 @@ class pdfMeister(object):
         self.ExtraVorts = []
         self.ExtraUeber = []
         self.ExtraTalents = []
-        self.Talents = {}
+        self.Talents = []
         self.Energie = 0
     
     def pdfErstellen(self, filename):
@@ -40,7 +40,7 @@ class pdfMeister(object):
         self.ExtraVorts = []
         self.ExtraTalents = []
         self.ExtraUeber = []
-        self.Talents = {}
+        self.Talents = []
         self.UseExtraPage = False
         Wolke.Fehlercode = -81
         fields = pdf.get_fields(self.CharakterBogen)
@@ -615,28 +615,46 @@ temp_full_cb_feel_free_to_remove.pdf'
                     if len(res) == 1:
                         tt.ko = res[0].strip()
                         #fields[base + 'KO'] = res[0].strip()
-                if tt.na in self.Talents:
-                    if tt.pw > self.Talents[tt.na].pw:
-                        self.Talents.pop(tt.na,None)
-                        self.Talents[tt.na] = tt
+
+                    tt.pc = Wolke.DB.talente[t].printclass
+
+                idx = -1
+                for i in range(len(self.Talents)):
+                    if self.Talents[i].na == tt.na:
+                        idx = i
+                        break
+                if idx >= 0:
+                    if self.Talents[idx].pw < tt.pw:
+                        self.Talents.pop(idx)
+                        self.Talents.append(tt)
                 else:
-                    self.Talents[tt.na] = tt
-        for tt in self.Talents:
-            if countT < 31:
-                base = 'Uebertal' + str(countT)
-                fields[base + 'NA'] = self.Talents[tt].na
-                fields[base + 'PW'] = self.Talents[tt].pw
-                fields[base + 'VO'] = self.Talents[tt].vo
-                fields[base + 'WD'] = self.Talents[tt].wd
-                fields[base + 'KO'] = self.Talents[tt].ko
-                fields[base + 'RE'] = self.Talents[tt].re
+                    self.Talents.append(tt)
+                # if tt.na in self.Talents:
+                #     if tt.pw > self.Talents[tt.na].pw:
+                #         self.Talents.pop(tt.na,None)
+                #         self.Talents[tt.na] = tt
+                # else:
+                #     self.Talents[tt.na] = tt
+
+        # Sort by printclass. Old sorting stays for same printclass, so this should not mess stuff up.
+        self.Talents.sort(key = lambda x: x.pc)
+        i = 0
+        while i < len(self.Talents):
+            if i < 31:
+                base = 'Uebertal' + str(i)
+                fields[base + 'NA'] = self.Talents[i].na
+                fields[base + 'PW'] = self.Talents[i].pw
+                fields[base + 'VO'] = self.Talents[i].vo
+                fields[base + 'WD'] = self.Talents[i].wd
+                fields[base + 'KO'] = self.Talents[i].ko
+                fields[base + 'RE'] = self.Talents[i].re
             else:
-                if self.Talents[tt] not in self.ExtraTalents:
+                if self.Talents[i] not in self.ExtraTalents:
                     self.UseExtraPage = True
-                    self.ExtraTalents.append(self.Talents[tt])
-            countT += 1
-        if flagPutEmpty:
-            countT += 1
+                    self.ExtraTalents.append(self.Talents[i])
+            if flagPutEmpty:
+                i += 1
+            i += 1
 
         return fields
 

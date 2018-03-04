@@ -13,4 +13,5 @@ class Talentbox(object):
         self.re = ''
         self.wd = ''
         self.ko = ''
+        self.pc = -1
         

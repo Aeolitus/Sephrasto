@@ -91,6 +91,7 @@ class Talent():
         self.voraussetzungen = []
         self.variable = 0
         self.text = ''
+        self.printclass = -1
     def __eq__(self, other) : 
         if self.__class__ != other.__class__: return False
         return self.__dict__ == other.__dict__
@@ -103,7 +104,7 @@ class Vorteil():
         self.typ = 0
         self.voraussetzungen = []
         self.nachkauf = ''
-        self.text = '' 
+        self.text = ''
     def __eq__(self, other) : 
         if self.__class__ != other.__class__: return False
         if self.__dict__ == other.__dict__: return True
