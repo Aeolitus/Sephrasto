@@ -640,8 +640,8 @@ temp_full_cb_feel_free_to_remove.pdf'
         self.Talents.sort(key = lambda x: x.pc)
         i = 0
         while i < len(self.Talents):
-            if i < 31:
-                base = 'Uebertal' + str(i)
+            if i < 30:
+                base = 'Uebertal' + str(i+1)
                 fields[base + 'NA'] = self.Talents[i].na
                 fields[base + 'PW'] = self.Talents[i].pw
                 fields[base + 'VO'] = self.Talents[i].vo
