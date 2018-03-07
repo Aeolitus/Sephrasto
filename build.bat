@@ -11,3 +11,5 @@ COPY /Y C:\Users\Lennart\Desktop\Sephrasto\datenbank.xml C:\Users\Lennart\Deskto
 COPY /Y C:\Users\Lennart\Desktop\Sephrasto\Charakterbogen.pdf C:\Users\Lennart\Desktop\Sephrasto\Build
 COPY /Y C:\Users\Lennart\Desktop\Sephrasto\Gebrauchsanleitung.pdf C:\Users\Lennart\Desktop\Sephrasto\Build
 COPY /Y C:\Users\Lennart\Desktop\Sephrasto\ExtraSpells.pdf C:\Users\Lennart\Desktop\Sephrasto\Build
+COPY /Y C:\Users\Lennart\Desktop\Sephrasto\icon_large.png C:\Users\Lennart\Desktop\Sephrasto\Build
+COPY /Y C:\Users\Lennart\Desktop\Sephrasto\icon_multi.ico C:\Users\Lennart\Desktop\Sephrasto\Build

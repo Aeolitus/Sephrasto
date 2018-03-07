@@ -5,7 +5,7 @@ Created on Thu Mar 23 21:30:34 2017
 
 @author: Aeolitus
 """
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtWidgets, QtCore, QtGui
 import sys
 import MainWindow
 import CharakterEditor
@@ -48,6 +48,9 @@ class MainWindowWrapper(object):
         self.ui.buttonEdit.clicked.connect(self.editExisting)
         self.ui.buttonRules.clicked.connect(self.editRuleset)
         self.ui.labelVersion.setText(self._version_ + " - by Aeolitus ")
+
+        self.app.setWindowIcon(QtGui.QIcon('icon_large.png'))
+
         self.Form.show()
         sys.exit(self.app.exec_())
         
