@@ -1,4 +1,5 @@
-python C:\Users\Lennart\Anaconda3\Scripts\cxfreeze --target-dir=C:\Users\Lennart\Desktop\Sephrasto\Build ^
+del Build
+py "C:\Program Files (x86)\Python36-32\Scripts\cxfreeze" --target-dir=C:\Users\Lennart\Desktop\Sephrasto\Build ^
 --base-name=Win32GUI ^
 --include-modules=lxml._elementpath,os ^
 C:\Users\Lennart\Desktop\Sephrasto\Sephrasto.py
