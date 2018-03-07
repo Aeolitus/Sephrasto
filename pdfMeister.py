@@ -537,9 +537,6 @@ temp_full_cb_feel_free_to_remove.pdf'
                                 gekaufteTalente)
                 countFerts += 1
         talsList = set(talsList)
-        flagPutEmpty = False
-        if len(talsList)+countFerts-1 < 31:
-            flagPutEmpty = True
 
         countF = 1
         countT = 1
@@ -652,8 +649,6 @@ temp_full_cb_feel_free_to_remove.pdf'
                 if self.Talents[i] not in self.ExtraTalents:
                     self.UseExtraPage = True
                     self.ExtraTalents.append(self.Talents[i])
-            if flagPutEmpty:
-                i += 1
             i += 1
 
         return fields
