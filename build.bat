@@ -1,7 +1,7 @@
 del Build
 py "C:\Program Files (x86)\Python36-32\Scripts\cxfreeze" --target-dir=C:\Users\Lennart\Desktop\Sephrasto\Build ^
 --base-name=Win32GUI ^
---include-modules=lxml._elementpath,os ^
+--include-modules=lxml._elementpath,os --icon=icon_multi.ico ^
 C:\Users\Lennart\Desktop\Sephrasto\Sephrasto.py
 COPY /Y C:\Users\Lennart\Desktop\Sephrasto\IncludeInBuildFolder\* C:\Users\Lennart\Desktop\Sephrasto\Build
 mkdir Build\Library\plugins\platforms
