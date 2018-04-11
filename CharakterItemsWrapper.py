@@ -26,7 +26,8 @@ class CharakterItemsWrapper(QtCore.QObject):
         self.currentlyLoading = True
         count = 1
         for el in Wolke.Char.ausrüstung:
-            eval("self.uiIt.lineEdit_" + str(count) + ".setText(\"" + el + "\")")
+            getName = lambda : el
+            eval("self.uiIt.lineEdit_" + str(count) + ".setText(getName())")
             count += 1
             if count > 20:
                 break

@@ -33,7 +33,8 @@ class CharakterFreieFertWrapper(QtCore.QObject):
             #    continue
             eval("self.uiFert.editFF" + str(count) + ".blockSignals(True)")
             eval("self.uiFert.comboFF" + str(count) + ".blockSignals(True)")
-            eval("self.uiFert.editFF" + str(count) + ".setText(\"" + el.name + "\")")
+            getName = lambda : el.name
+            eval("self.uiFert.editFF" + str(count) + ".setText(getName())")
             eval("self.uiFert.comboFF" + str(count) + ".setCurrentIndex(" + str(el.wert-1) + ")")
             eval("self.uiFert.editFF" + str(count) + ".blockSignals(False)")
             eval("self.uiFert.comboFF" + str(count) + ".blockSignals(False)")

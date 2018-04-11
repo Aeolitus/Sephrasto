@@ -38,7 +38,8 @@ class EquipWrapper(QtCore.QObject):
             eval("self.uiEq.comboStil"+str(el)+".setCurrentIndex(0)")
             eval("self.uiEq.comboStil"+str(el)+".clear()")
             for el2 in Definitionen.Kampfstile:
-                eval("self.uiEq.comboStil"+str(el)+".addItem(\""+el2+"\")")
+                getName = lambda : el2
+                eval("self.uiEq.comboStil"+str(el)+".addItem(getName())")
         if Wolke.Debug:
             print("Kampfstile added...")
         self.uiEq.addW1.clicked.connect(lambda state, idx=1: self.selectWeapon(idx))   
@@ -126,7 +127,8 @@ class EquipWrapper(QtCore.QObject):
         while count < len(Wolke.Char.rüstung):
             R = Wolke.Char.rüstung[count]
             if count < len(Rarr):
-                eval("self.uiEq.edit" + Rarr[count] + "name.setText(\"" + R.name +"\")")
+                getName = lambda : R.name
+                eval("self.uiEq.edit" + Rarr[count] + "name.setText(getName())")
                 eval("self.uiEq.spin" + Rarr[count] + "be.setValue(" + str(R.be) +")")
                 eval("self.uiEq.spin" + Rarr[count] + "bein.setValue(" + str(R.rs[0]) +")")
                 eval("self.uiEq.spin" + Rarr[count] + "larm.setValue(" + str(R.rs[1]) +")")
@@ -198,7 +200,8 @@ class EquipWrapper(QtCore.QObject):
                 eval("self.uiEq.comboStil" + str(index+1) + ".setCurrentIndex(0)")
                 eval("self.uiEq.comboStil" + str(index+1) + ".clear()")
                 for el in entries:
-                    eval("self.uiEq.comboStil" + str(index+1) + ".addItem(\"" + el + "\")")
+                    getName = lambda : el
+                    eval("self.uiEq.comboStil" + str(index+1) + ".addItem(getName())")
                 if self.initialLoad:
                     stil = Definitionen.Kampfstile[Wolke.Char.waffen[index].kampfstil]
                     if stil in entries:
@@ -212,9 +215,11 @@ class EquipWrapper(QtCore.QObject):
     def loadWeaponIntoFields(self, W, index):
         Warr = ["W1","W2","W3","W4","W5","W6","W7","W8"]
         count = index - 1
-        eval("self.uiEq.edit" + Warr[count] + "name.setText(\""+ W.name +"\")")
+        getName = lambda : W.name
+        eval("self.uiEq.edit" + Warr[count] + "name.setText(getName())")
         self.refreshKampfstile(count)
-        eval("self.uiEq.edit" + Warr[count] + "eig.setText(\""+ W.eigenschaften +"\")")
+        getEigenschaften = lambda : W.eigenschaften
+        eval("self.uiEq.edit" + Warr[count] + "eig.setText(getEigenschaften())")
         eval("self.uiEq.spin" + Warr[count] + "w6.setValue("+ str(W.W6) +")")
         eval("self.uiEq.spin" + Warr[count] + "plus.setValue("+ str(W.plus) +")")
         if W.name == "Unbewaffnet":
