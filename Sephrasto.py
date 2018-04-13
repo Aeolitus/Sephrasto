@@ -26,6 +26,13 @@ class MainWindowWrapper(object):
         self._version_ = "v0.5.1"
         super().__init__()
             
+
+        #Make sure the application scales properly, i.e. in Win10 users can change the UI scale in the display settings
+        if hasattr(QtCore.Qt, 'AA_EnableHighDpiScaling'):
+            QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling, True)
+        if hasattr(QtCore.Qt, 'AA_UseHighDpiPixmaps'):
+            QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_UseHighDpiPixmaps, True)
+
         self.app = QtCore.QCoreApplication.instance()
         if self.app is None:
             self.app = QtWidgets.QApplication(sys.argv)
