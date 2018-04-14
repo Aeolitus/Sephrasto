@@ -194,9 +194,11 @@ class Datenbank():
             T.fertigkeiten = Hilfsmethoden.FertStr2Array(tal.get('fertigkeiten'), None)
             T.voraussetzungen = Hilfsmethoden.VorStr2Array(tal.get('voraussetzungen'), None)
             T.variable = int(tal.get('variable'))
-            try:
-                T.printclass = int(tal.get('printclass'))
-            except:
+
+            printClass = tal.get('printclass')
+            if printClass:
+                T.printclass = int(printClass)
+            else:
                 T.printclass = -1
             self.talente.update({T.name: T})
             

@@ -25,5 +25,6 @@ Anleitung für die Nutzung von Visual Studio als IDE:
     * lxml
     * PyQt5
 * Stelle das Tab-Verhalten auf "Insert Spaces": Tools -> Options -> Text Editor -> Python -> Tabs
+* Öffne das Exception Settigns Fenster (Debug -> Windows -> Exception Settings) und selektiere alle Python Exceptions
 
 Dieses Tool ist das Projekt, an dem ich Python / Qt gelernt habe. Deutliche Schwankungen im Coding-Stil und in der Codequalität sind demnach zu erwarten. Ich werde über die Zeit versuchen, das zu beheben; einige Spuren davon (wie das furchtbare denglisch) werden vermutlich bleiben. 

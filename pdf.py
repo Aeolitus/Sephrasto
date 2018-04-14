@@ -17,7 +17,6 @@ PDFFields - found at:
 import codecs
 import sys
 
-
 if sys.version_info[0] < 3:
     bytes = str
     
@@ -75,9 +74,9 @@ class PdftkNotInstalledError(Exception):
 
 def smart_encode_str(s):
     """Create a UTF-16 encoded PDF string literal for `s`."""
-    try:
+    if isinstance(s, str):
         utf16 = s.encode('utf_16_be')
-    except AttributeError:  # ints and floats
+    else: #ints and floats
         utf16 = str(s).encode('utf_16_be')
     safe = utf16.replace(b'\x00)', b'\x00\\)').replace(b'\x00(', b'\x00\\(')
     return b''.join((codecs.BOM_UTF16_BE, safe))
