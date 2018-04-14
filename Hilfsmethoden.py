@@ -54,7 +54,8 @@ class Hilfsmethoden:
         Voraussetzungen werden vom User ebenfalls im Fließtext eingetragen.
         Das Format ist dabei im folgenden Illustriert:
             "Kein Vorteil Eisenaffine Aura, 
-            Attribut MU 8 ODER Vorteil Geweiht I ODER Vorteil Emphatie"
+            Attribut MU 8 ODER Vorteil Geweiht I ODER Vorteil Emphatie,
+            Waffeneigenschaft Rüstungsbrechend"
         Groß- und Kleinschreibung sind wichtig! Kein geht nicht für Attribute.
         '''
         retArr = []
@@ -75,6 +76,9 @@ class Hilfsmethoden:
                 elif strpItm.startswith("Kein Vorteil "):
                     if (Datenbank is None) or (strpItm[13:] in Datenbank.vorteile):
                         arrItm = "V:" + strpItm[13:] + ":0"
+                elif strpItm.startswith("Waffeneigenschaft "):
+                    if (Datenbank is None) or (strpItm[18:] in Datenbank.manöver):
+                        arrItm = "W:" + strpItm[18:] + ":1"
                 elif strpItm.startswith("Attribut "):
                     if strpItm[9:11] in Definitionen.Attribute:
                         arrItm = "A:" + strpItm[9:11] + ":" + str(strpItm[12:])
@@ -106,6 +110,9 @@ class Hilfsmethoden:
                         enStr += "Vorteil "
                     else:
                         enStr += "Kein Vorteil "
+                    enStr += arr[1]
+                elif arr[0] == "W":
+                    enStr += "Waffeneigenschaft "
                     enStr += arr[1]
                 elif arr[0] == "A":
                     enStr += "Attribut "

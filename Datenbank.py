@@ -12,6 +12,7 @@ class Datenbank():
         self.talente = {}
         self.übernatürlicheFertigkeiten = {}
         self.waffen = {}
+        self.manöver = {}
         
         self.vExclude = []
         self.fExclude = []
@@ -52,6 +53,10 @@ class Datenbank():
         for el in self.waffen:
             if el in refDB.waffen:
                 if self.waffen[el] == refDB.waffen[el]:
+                    self.wExclude.append(el)
+        for el in self.manöver:
+            if el in refDB.manöver:
+                if self.manöver[el] == refDB.manöver[el]:
                     self.wExclude.append(el)
         
     def postUserDBSchreiben(self):
@@ -162,6 +167,7 @@ class Datenbank():
             self.talente = {}
             self.übernatürlicheFertigkeiten = {}
             self.waffen = {}
+            self.manöver = {}
         
         numLoaded = 0
         
@@ -252,6 +258,19 @@ class Datenbank():
             w.schn = int(wa.get('schn'))
             self.waffen.update({w.name: w})
         
+        #Manöver
+        Wolke.Fehlercode = -26
+        for ma in self.root.findall('Manöver'):
+            numLoaded += 1
+            m = Fertigkeiten.Manoever()
+            m.name = ma.get('name')
+            m.voraussetzungen = Hilfsmethoden.VorStr2Array(ma.get('voraussetzungen'), None)
+            m.probe = ma.get('probe')
+            m.gegenprobe = ma.get('gegenprobe')
+            m.typ = int(ma.get('typ'))
+            m.text = ma.text
+            self.manöver.update({m.name: m})
+
         if numLoaded <1 and clearVars:
             Wolke.Fehlercode = -33
             raise Exception('The selected database file is empty!')
