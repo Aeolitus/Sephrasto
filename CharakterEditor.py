@@ -5,7 +5,7 @@ Created on Sun Feb 26 22:36:35 2017
 @author: Aeolitus
 """
 
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtCore
 import CharakterBeschreibungWrapper
 import CharakterAttributeWrapper
 import CharakterEquipmentWrapper
@@ -176,15 +176,36 @@ Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
             
     def pdfButton(self):
         self.updateAll()
+
+        messagebox = QtWidgets.QMessageBox()
+        messagebox.setWindowTitle("Charakterbogen wählen")
+        messagebox.setText("Welcher Charakterbogen soll genutzt werden?")
+        messagebox.setIcon(QtWidgets.QMessageBox.Question)
+
+        check = QtWidgets.QCheckBox("Regelübersicht anhängen")
+        check.setCheckState(QtCore.Qt.Checked)
+        messagebox.setCheckBox(check)
+        messagebox.addButton(QtWidgets.QPushButton("Standard"), QtWidgets.QMessageBox.AcceptRole)
+        messagebox.addButton(QtWidgets.QPushButton("Lange Version"), QtWidgets.QMessageBox.AcceptRole)
+        messagebox.addButton(QtWidgets.QPushButton("Abbrechen"), QtWidgets.QMessageBox.RejectRole)
+        result = messagebox.exec_()
+        if result == 0:
+            self.pdfMeister.setCharakterbogenKurz()
+        elif result == 1:
+            self.pdfMeister.setCharakterbogenLang()
+        else:
+            return
+
         # Check if there is a base Charakterbogen.pdf:
-        if not os.path.isfile(self.pdfMeister.CharakterBogen):
-            spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"Leeren Charakterbogen auswählen...","","PDF-Datei (*.pdf)")
-            if spath == "":
-                return
-            if ".pdf" not in spath:
-                spath = spath + ".pdf"
-            self.pdfMeister.CharakterBogen = spath
-        
+        if not os.path.isfile(self.pdfMeister.CharakterBogen.filePath):
+            messagebox = QtWidgets.QMessageBox()
+            messagebox.setWindowTitle("Fehler!")
+            messagebox.setText("Konnte " + self.pdfMeister.CharakterBogen.filePath + " nicht im Installationsordner finden")
+            messagebox.setIcon(QtWidgets.QMessageBox.Critical)
+            messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            messagebox.exec_()
+            return
+       
         # Let the user choose a saving location and name
         spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"Charakterbogen erstellen...","","PDF-Datei (*.pdf)")
         if spath == "":
@@ -193,7 +214,8 @@ Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
             spath = spath + ".pdf"
             
         try:
-            self.pdfMeister.pdfErstellen(spath)
+            printRules = check.checkState() == QtCore.Qt.Checked
+            self.pdfMeister.pdfErstellen(spath, printRules)
         except:
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Information)

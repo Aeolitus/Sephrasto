@@ -14,22 +14,37 @@ import re
 import Talentbox
 from subprocess import check_output
 import os
+import math
 from shutil import copyfile
+from collections import namedtuple
+
+CharakterbogenInfo = namedtuple('CharakterbogenInfo', 'filePath maxVorteile maxFreie maxFertigkeiten kurzbogenHack')
 
 class pdfMeister(object):
 
     def __init__(self):
         # Name des Charakterbogens, der verwendet wird (im gleichen Ordner)
-        self.CharakterBogen = "Charakterbogen.pdf"
+        self.CharakterBogen = None
         self.ExtraPage = "ExtraSpells.pdf"
         self.UseExtraPage = False
         self.ExtraVorts = []
         self.ExtraUeber = []
         self.ExtraTalents = []
+        self.PrintRules = True
+        self.RulesPage = "Regeln.pdf"
+        self.Rules = []
+        self.RuleWeights = []
+        self.RuleCategories = ['Allgemeine Vorteile', 'Profane Vorteile', 'Kampfvorteile', 'Nahkampfmanöver', 'Fernkampfmanöver', 'Übernatürliche Vorteile', 'Übernatürliche Talente']
         self.Talents = []
         self.Energie = 0
     
-    def pdfErstellen(self, filename):
+    def setCharakterbogenKurz(self):
+        self.CharakterBogen = CharakterbogenInfo(filePath="Charakterbogen.pdf", maxVorteile = 8, maxFreie = 12, maxFertigkeiten = 2, kurzbogenHack=True)
+
+    def setCharakterbogenLang(self):
+        self.CharakterBogen = CharakterbogenInfo(filePath="Charakterbogen_lang.pdf", maxVorteile = 24, maxFreie = 28, maxFertigkeiten = 28, kurzbogenHack=False)
+
+    def pdfErstellen(self, filename, printRules):
         '''
         This entire subblock is responsible for filling all the fields of the
         Charakterbogen. It has been broken down into seven subroutines for
@@ -43,7 +58,7 @@ class pdfMeister(object):
         self.Talents = []
         self.UseExtraPage = False
         Wolke.Fehlercode = -81
-        fields = pdf.get_fields(self.CharakterBogen)
+        fields = pdf.get_fields(self.CharakterBogen.filePath)
         Wolke.Fehlercode = -82
         fields = self.pdfErsterBlock(fields)
         Wolke.Fehlercode = -83
@@ -60,7 +75,7 @@ class pdfMeister(object):
         fields = self.pdfSiebterBlock(fields)
         # PDF erstellen - Felder bleiben bearbeitbar
         Wolke.Fehlercode = -89
-        pdf.write_pdf(self.CharakterBogen, fields, filename, False)
+        pdf.write_pdf(self.CharakterBogen.filePath, fields, filename, False)
         Wolke.Fehlercode = -90
         extraPageAdded = False
         if self.UseExtraPage:
@@ -76,7 +91,7 @@ class pdfMeister(object):
                 Wolke.Fehlercode = -93
                 pdf.write_pdf(self.ExtraPage, fieldsNew, 'temp_ex_page_feel_free_to_remove.pdf', False)
                 Wolke.Fehlercode = -94
-                call = 'pdftk ' + filename + ' temp_ex_page_feel_free_to_remove.pdf cat output \
+                call = 'pdftk "' + filename + '" temp_ex_page_feel_free_to_remove.pdf cat output \
 temp_full_cb_feel_free_to_remove.pdf'                
                 check_output(call)
                 Wolke.Fehlercode = -95
@@ -92,17 +107,39 @@ temp_full_cb_feel_free_to_remove.pdf'
            fields['Uebertal1NA'] == '' and not extraPageAdded:
             Wolke.Fehlercode = -96
             copyfile(filename, 'temp_copy_feel_free_to_remove.pdf')
-            call = 'pdftk temp_copy_feel_free_to_remove.pdf cat 1-2 output ' + filename
+            call = 'pdftk temp_copy_feel_free_to_remove.pdf cat 1-2 output "' + filename + '"'
             check_output(call)
             os.remove('temp_copy_feel_free_to_remove.pdf')
+
+        if printRules:
+            rulesFields = pdf.get_fields(self.RulesPage)
+            self.prepareRules()
+            startIndex = 0
+            pageCount = 0
+            while startIndex != -1:
+                pageCount += 1
+                rulesFields["Seite"] = pageCount
+                startIndex = self.writeRules(rulesFields, startIndex, 80)
+                pdf.write_pdf(self.RulesPage, rulesFields, 'temp_rules_page_feel_free_to_remove.pdf', False)
+                call = 'pdftk "' + filename + '" temp_rules_page_feel_free_to_remove.pdf cat output temp_full_cb_feel_free_to_remove.pdf'                
+                check_output(call)
+                Wolke.Fehlercode = -97
+                os.remove(filename)
+                os.remove('temp_rules_page_feel_free_to_remove.pdf')
+                os.rename('temp_full_cb_feel_free_to_remove.pdf', filename)
+
         Wolke.Fehlercode = 0
+        #Open PDF with default application:
+        os.startfile(filename, 'open')
 
     def pdfErsterBlock(self, fields):
         if Wolke.Debug:
             print("PDF Block 1")
         fields['Name'] = Wolke.Char.name
         fields['Rasse'] = Wolke.Char.rasse
+        fields['Kultur'] = Wolke.Char.heimat
         fields['Statu'] = Definitionen.Statusse[Wolke.Char.status]
+        fields['Finanzen'] = Definitionen.Finanzen[Wolke.Char.finanzen]
         fields['Kurzb'] = Wolke.Char.kurzbeschreibung
         glMod = 0
         if "Glück I" in Wolke.Char.vorteile:
@@ -128,43 +165,75 @@ temp_full_cb_feel_free_to_remove.pdf'
             fields[key] = Wolke.Char.attribute[key].wert
             fields[key + '2'] = Wolke.Char.attribute[key].probenwert
             fields[key + '3'] = Wolke.Char.attribute[key].probenwert
+        fields['WundschwelleBasis'] = Wolke.Char.wsBasis
         fields['Wundschwelle'] = Wolke.Char.ws
         fields['WS'] = Wolke.Char.ws
+        if "Unverwüstlich" in Wolke.Char.vorteile:
+            fields['ModUnverwuestlich'] = 'Yes'
+
+        fields['MagieresistenzBasis'] = Wolke.Char.mrBasis
         fields['Magieresistenz'] = Wolke.Char.mr
+        if "Willensstark I" in Wolke.Char.vorteile:
+            fields['ModWillensstark1'] = 'Yes'
+        if "Willensstark II" in Wolke.Char.vorteile:
+            fields['ModWillensstark2'] = 'Yes'
+        if "Unbeugsamkeit" in Wolke.Char.vorteile:
+            fields['ModUnbeugsam'] = 'Yes'
+
+        fields['GeschwindigkeitBasis'] = Wolke.Char.gsBasis
         fields['Geschwindigkeit'] = Wolke.Char.gs
+        if "Flink I" in Wolke.Char.vorteile:
+            fields['ModFlink1'] = 'Yes'
+        if "Flink II" in Wolke.Char.vorteile:
+            fields['ModFlink2'] = 'Yes'
+
+        fields['SchadensbonusBasis'] = Wolke.Char.schadensbonusBasis
         fields['Schadensbonus'] = Wolke.Char.schadensbonus
+
+        fields['InitiativeBasis'] = Wolke.Char.iniBasis
         fields['Initiative'] = Wolke.Char.ini
         fields['INIm'] = Wolke.Char.ini
-        aspMod = 0
+        if "Kampfreflexe" in Wolke.Char.vorteile:
+            fields['ModKampfreflexe'] = 'Yes'
+
+        aspBasis = 0
         if "Zauberer I" in Wolke.Char.vorteile:
-            aspMod += 8
+            aspBasis += 8
         if "Zauberer II" in Wolke.Char.vorteile:
-            aspMod += 8
+            aspBasis += 8
         if "Zauberer III" in Wolke.Char.vorteile:
-            aspMod += 8
+            aspBasis += 8
         if "Zauberer IV" in Wolke.Char.vorteile:
-            aspMod += 8
+            aspBasis += 8
+        aspMod = 0
         if "Gefäß der Sterne" in Wolke.Char.vorteile:
             aspMod += Wolke.Char.attribute['CH'].wert+4
-        if aspMod > 0:
-            fields['Astralenergie'] = Wolke.Char.asp.wert + aspMod
-        kapMod = 0
+            fields['ModGefaess'] = 'Yes'
+
+        if aspBasis + aspMod > 0:
+            fields['AstralenergieBasis'] = aspBasis
+            fields['Astralenergie'] = Wolke.Char.asp.wert + aspBasis + aspMod
+            fields['ModAstralenergie'] = Wolke.Char.asp.wert
+
+        kapBasis = 0
         if "Geweiht I" in Wolke.Char.vorteile:
-            kapMod += 8
+            kapBasis += 8
         if "Geweiht II" in Wolke.Char.vorteile:
-            kapMod += 8
+            kapBasis += 8
         if "Geweiht III" in Wolke.Char.vorteile:
-            kapMod += 8
+            kapBasis += 8
         if "Geweiht IV" in Wolke.Char.vorteile:
-            kapMod += 8
-        if kapMod > 0:
-            fields['Karmaenergie'] = Wolke.Char.kap.wert + kapMod
-        if aspMod > 0 and kapMod == 0:
-            self.Energie = Wolke.Char.asp.wert + aspMod
+            kapBasis += 8
+        if kapBasis > 0:
+            fields['KarmaenergieBasis'] = kapBasis
+            fields['Karmaenergie'] = Wolke.Char.kap.wert + kapBasis
+            fields['ModKarmaenergie'] = Wolke.Char.kap.wert
+        if aspBasis + aspMod > 0 and kapBasis == 0:
+            self.Energie = Wolke.Char.asp.wert + aspBasis + aspMod
             fields['EN'] = self.Energie
             #fields['gEN'] = "0"
-        elif aspMod == 0 and kapMod > 0:
-            self.Energie = Wolke.Char.kap.wert + kapMod
+        elif aspBasis + aspMod == 0 and kapBasis > 0:
+            self.Energie = Wolke.Char.kap.wert + kapBasis
             fields['EN'] = self.Energie
             #fields['gEN'] = "0"
         # Wenn sowohl AsP als auch KaP vorhanden sind, muss der Spieler ran..
@@ -253,9 +322,9 @@ temp_full_cb_feel_free_to_remove.pdf'
         tmpUeberflow = []
         
         # Fill up categories that are not full with the overflow
-        if len(tmpVorts) > 8:
-            tmpOverflow.extend(tmpVorts[8:])
-            tmpVorts = tmpVorts[:8]
+        if len(tmpVorts) > self.CharakterBogen.maxVorteile:
+            tmpOverflow.extend(tmpVorts[self.CharakterBogen.maxVorteile:])
+            tmpVorts = tmpVorts[:self.CharakterBogen.maxVorteile]
         if len(tmpKampf) > 16:
             tmpOverflow.extend(tmpKampf[16:])
             tmpKampf = tmpKampf[:16]
@@ -263,7 +332,7 @@ temp_full_cb_feel_free_to_remove.pdf'
             tmpUeberflow.extend(tmpUeber[12:])
             tmpUeber = tmpUeber[:12]
         counter = 0
-        for i in range(len(tmpVorts), 8):
+        for i in range(len(tmpVorts), self.CharakterBogen.maxVorteile):
             if len(tmpOverflow) > counter:
                 tmpVorts.append(tmpOverflow[counter])
                 counter += 1
@@ -279,7 +348,7 @@ temp_full_cb_feel_free_to_remove.pdf'
         for el in tmptmp:
             tmpUeberflow.append(el)
         # Fill fields
-        for i in range(1, 9):
+        for i in range(1, self.CharakterBogen.maxVorteile+1):
             if i <= len(tmpVorts):
                 fields['Vorteil' + str(i)] = tmpVorts[i-1]
         for i in range(1, 17):
@@ -301,6 +370,7 @@ temp_full_cb_feel_free_to_remove.pdf'
             print("PDF Block 4")
         # Freie Fertigkeiten
         count = 1
+
         for el in Wolke.Char.freieFertigkeiten:
             if el.wert < 1 or el.wert > 3:
                 continue
@@ -309,10 +379,11 @@ temp_full_cb_feel_free_to_remove.pdf'
                 resp += "I"
             fields['Frei' + str(count)] = resp
             count += 1
-            if count > 12:
+            if count > self.CharakterBogen.maxFreie:
                 break
 
         # Standardfertigkeiten
+        count = 1
         for el in Definitionen.StandardFerts:
             if el not in Wolke.Char.fertigkeiten:
                 continue
@@ -322,10 +393,21 @@ temp_full_cb_feel_free_to_remove.pdf'
                 base = "Gebra"
             elif el == "Überleben":
                 base = "Ueber"
-            fields[base + "BA"] = Wolke.Char.fertigkeiten[el].basiswert
-            fields[base + "FW"] = Wolke.Char.fertigkeiten[el].wert
+            fertigkeit = Wolke.Char.fertigkeiten[el]
+
+            if not self.CharakterBogen.kurzbogenHack:
+                base = "Fertigkeit" + str(count)
+                fields[base + "NA"] = fertigkeit.name           
+                fields[base + "FA"] = fertigkeit.steigerungsfaktor
+                fields[base + "AT"] = \
+                    fertigkeit.attribute[0] + '/' + \
+                    fertigkeit.attribute[1] + '/' + \
+                    fertigkeit.attribute[2]
+
+            fields[base + "BA"] = fertigkeit.basiswert
+            fields[base + "FW"] = fertigkeit.wert
             talStr = ""
-            for el2 in Wolke.Char.fertigkeiten[el].gekaufteTalente:
+            for el2 in fertigkeit.gekaufteTalente:
                 talStr += ", "
                 if el2.startswith("Gebräuche: "):
                     talStr += el2[11:]
@@ -340,41 +422,48 @@ temp_full_cb_feel_free_to_remove.pdf'
                                  " EP)"
             talStr = talStr[2:]
             fields[base + "TA"] = talStr
-            fields[base + "PW"] = Wolke.Char.fertigkeiten[el].probenwert
-            fields[base + "PWT"] = Wolke.Char.fertigkeiten[el].probenwertTalent
+            fields[base + "PW"] = fertigkeit.probenwert
+            fields[base + "PWT"] = fertigkeit.probenwertTalent
+            count += 1
 
         # Nonstandard Ferts
-        count = 1
+        if self.CharakterBogen.kurzbogenHack:
+            count = 1
+
         for el in Wolke.Char.fertigkeiten:
             if el in Definitionen.StandardFerts:
                 continue
-            if count > 2:
-                continue
-            fields['Indi' + str(count) + 'NA'] = \
-                Wolke.Char.fertigkeiten[el].name
-            fields['Indi' + str(count) + 'FA'] = \
-                Wolke.Char.fertigkeiten[el].steigerungsfaktor
-            fields['Indi' + str(count) + 'AT'] = \
-                Wolke.Char.fertigkeiten[el].attribute[0] + '/' + \
-                Wolke.Char.fertigkeiten[el].attribute[1] + '/' + \
-                Wolke.Char.fertigkeiten[el].attribute[2]
-            fields['Indi' + str(count) + 'BA'] = \
-                Wolke.Char.fertigkeiten[el].basiswert
-            fields['Indi' + str(count) + 'FW'] = \
-                Wolke.Char.fertigkeiten[el].wert
-            fields['Indi' + str(count) + 'PW'] = \
-                Wolke.Char.fertigkeiten[el].probenwert
-            fields['Indi' + str(count) + 'PWT'] = \
-                Wolke.Char.fertigkeiten[el].probenwertTalent
+            if count > self.CharakterBogen.maxFertigkeiten:
+                break
+            fertigkeit = Wolke.Char.fertigkeiten[el]
+            base = 'Indi' + str(count)
+            if not self.CharakterBogen.kurzbogenHack:
+                base = 'Fertigkeit' + str(count)
+            fields[base + 'NA'] = \
+                fertigkeit.name
+            fields[base + 'FA'] = \
+                fertigkeit.steigerungsfaktor
+            fields[base + 'AT'] = \
+                fertigkeit.attribute[0] + '/' + \
+                fertigkeit.attribute[1] + '/' + \
+                fertigkeit.attribute[2]
+            fields[base + 'BA'] = \
+                fertigkeit.basiswert
+            fields[base + 'FW'] = \
+                fertigkeit.wert
+            fields[base + 'PW'] = \
+                fertigkeit.probenwert
+            fields[base + 'PWT'] = \
+                fertigkeit.probenwertTalent
             talStr = ""
-            for el2 in Wolke.Char.fertigkeiten[el].gekaufteTalente:
+            for el2 in fertigkeit.gekaufteTalente:
                 talStr += ", "
                 talStr += el2
                 if el2 in Wolke.Char.talenteVariable:
                     talStr += " (" + str(Wolke.Char.talenteVariable[el2]) + \
                                  " EP)"
             talStr = talStr[2:]
-            fields['Indi' + str(count) + 'TA'] = talStr
+            fields[base + 'TA'] = talStr
             count += 1
         return fields
 
@@ -688,3 +777,177 @@ temp_full_cb_feel_free_to_remove.pdf'
                 fields[base + 'RE' + '2'] = tt.re
         fields['EN2'] = self.Energie
         return fields
+
+    #The idea to divide by 100 is that one line is on average 100 characters.
+    #This weighs lines with 140 characters same as much as those with 200 characters because they take up same as much vertical space.
+    #Since every entry also creates a new paragraph (two \n), add one to the weight
+    def getWeight(str):
+        return max(int(math.ceil(len(str)/100)), 1) + 1
+
+    def formatRuleCategory(category, firstLine = False):
+        if firstLine:
+            return category + '\n\n'
+        else:
+            return '\n' + category + '\n\n'
+
+    def appendVorteile(strList, weights, category, vorteile):
+        strList.append(pdfMeister.formatRuleCategory(category))
+        weights.append(pdfMeister.getWeight(strList[-1]))
+        for vor in vorteile:
+            if vor in Wolke.DB.manöver:
+                continue
+
+            str = []
+            vorteil = Wolke.DB.vorteile[vor]
+            str.append(vorteil.name)
+            str.append(": ")
+            #Replace all line endings by space
+            str.append(vorteil.text.replace('\n', ' '))
+            str.append('\n\n')
+            strList.append("".join(str))
+            weights.append(pdfMeister.getWeight(strList[-1]))
+    
+    def appendManöver(strList, weights, category, manöverList):
+        strList.append(pdfMeister.formatRuleCategory(category))
+        weights.append(pdfMeister.getWeight(strList[-1]))
+        for man in manöverList:
+            manöver = Wolke.DB.manöver[man]
+            if not Wolke.Char.voraussetzungenPrüfen(manöver.voraussetzungen):
+                continue
+            str = []
+            str.append(manöver.name)
+            str.append(" (")
+            str.append(manöver.probe)
+            str.append("): ")
+            if manöver.gegenprobe:
+                str.append("Gegenprobe: ")
+                str.append(manöver.gegenprobe)
+                str.append(". ")
+            #Replace all line endings by space
+            str.append(manöver.text.replace('\n', ' '))
+            str.append('\n\n')
+            strList.append("".join(str))
+            weights.append(pdfMeister.getWeight(strList[-1]))
+
+    def appendTalente(strList, weights, category, talente):
+        strList.append(pdfMeister.formatRuleCategory(category))
+        weights.append(pdfMeister.getWeight(strList[-1]))
+        for tal in talente:
+            str = []
+            talent = Wolke.DB.talente[tal]
+            str.append(talent.name)
+            str.append(': ')
+
+            text = talent.text
+            
+            #The page für uebernatuerliches already has most of the text information from vorbereitungszeit on, so remove it
+            #Except for Reichweite...
+            match = re.search('^Reichweite: (.*)', talent.text, re.MULTILINE)
+            reichweite = ""
+            if match:
+                reichweite = match.group()
+  
+            index = text.find('Vorbereitungszeit')
+            if index != -1:
+                text = text[:index]
+            #Some talents only specify Fertigkeiten in their text...
+            index = text.find('Fertigkeiten')
+            if index != -1:
+                text = text[:index]
+
+            text = text + reichweite
+            #Replace line endings without a full stop by just a full stop
+            text = re.sub('(?<!\.)\n', '. ', text)
+            #Replace all the remaining line endings by space
+            str.append(text.replace('\n', ' '))
+            str.append('\n\n')
+            strList.append("".join(str))
+            weights.append(pdfMeister.getWeight(strList[-1]))
+
+    def prepareRules(self):
+        sortV = Wolke.Char.vorteile.copy()
+        sortV = sorted(sortV, key=str.lower)
+
+        allgemein = [el for el in sortV if Wolke.DB.vorteile[el].typ == 0]
+
+        #Allgemein Vorteile with different levels contain the lower levels in the description, so remove them
+        remove = set()
+        for vort in allgemein:
+            if vort.endswith(" II"):
+                remove.add(vort[:-1])    
+            elif vort.endswith(" III"):
+                remove.add(vort[:-1])
+            elif vort.endswith(" IV"):
+                remove.add(vort[:-1] + "II")
+
+        for vort in remove:
+            if vort in allgemein:
+                allgemein.remove(vort)
+        
+        profan = [el for el in sortV if Wolke.DB.vorteile[el].typ == 1]
+
+        kampf = [el for el in sortV if (Wolke.DB.vorteile[el].typ < 4 and
+                                           Wolke.DB.vorteile[el].typ >= 2)]
+
+        ueber = [el for el in sortV if Wolke.DB.vorteile[el].typ >= 4]
+
+        sortM = list(Wolke.DB.manöver.keys())
+        sortM = sorted(sortM, key=str.lower)
+        manövernah = [el for el in sortM if (Wolke.DB.manöver[el].typ == 0)]
+
+        manöverfern = []
+        for waffe in Wolke.Char.waffen:
+            if type(waffe) is Objekte.Fernkampfwaffe:
+                manöverfern = [el for el in sortM if (Wolke.DB.manöver[el].typ == 1)]
+                break
+
+        ueberTalente = set()
+        for fer in Wolke.Char.übernatürlicheFertigkeiten:
+            for tal in Wolke.Char.übernatürlicheFertigkeiten[fer].gekaufteTalente:
+                ueberTalente.add(tal)
+        ueberTalente = sorted(ueberTalente, key=str.lower)
+        self.Rules = []
+        self.RuleWeights = []
+
+        if allgemein:
+            pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[0], allgemein)
+        if profan:
+            pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[1], profan)
+        if kampf:
+            pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[2], kampf)
+        if manövernah:
+            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[3], manövernah)
+        if manöverfern:
+            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[4], manöverfern)
+        if ueber:
+            pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[5], ueber)
+        if ueberTalente:
+            pdfMeister.appendTalente(self.Rules, self.RuleWeights, self.RuleCategories[6], ueberTalente)
+
+    def writeRules(self, fields, start, roughLineCount):
+        weights = 0
+        endIndex = start
+        while weights < roughLineCount and endIndex < len(self.RuleWeights):
+            weights = weights + self.RuleWeights[endIndex]
+            endIndex = endIndex + 1
+
+        if endIndex <= start:
+            return -1
+
+        #Make sure to remove the leading new line from a category if its at the start of the page
+        #Also make sure a category is never the last line on the page
+        for category in self.RuleCategories:
+            formatted = pdfMeister.formatRuleCategory(category)
+            if self.Rules[start] == formatted:
+                self.Rules[start] = pdfMeister.formatRuleCategory(category, firstLine=True)
+            if self.Rules[endIndex-1] == formatted:
+                endIndex = endIndex - 1
+
+        #Remove the two trailing new lines from the last entry
+        self.Rules[endIndex-1] = self.Rules[endIndex-1][:-2]
+
+        fields['Regeln'] = ''.join(self.Rules[start:endIndex])
+
+        if len(self.Rules) == endIndex:
+            return -1
+        return endIndex
