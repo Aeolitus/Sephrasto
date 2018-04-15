@@ -7,6 +7,7 @@ Created on Thu Mar 23 21:30:34 2017
 """
 from PyQt5 import QtWidgets, QtCore, QtGui
 import sys
+import logging
 import MainWindow
 import CharakterEditor
 import DatenbankEdit
@@ -14,19 +15,43 @@ import CharakterMain
 import DatenbankMain
 from Wolke import Wolke
 
+logging.basicConfig(filename="sephrasto.log", level=logging.DEBUG, format="%(asctime)s | %(levelname)s | %(filename)s::%(funcName)s(%(lineno)d) | %(message)s")
+
+def sephrasto_excepthook(exc_type, exc_value, tb):
+    traceback = [' Traceback (most recent call last):']
+    while tb:
+        filename = tb.tb_frame.f_code.co_filename
+        name = tb.tb_frame.f_code.co_name
+        lineno = tb.tb_lineno
+        traceback.append('   File "%.500s", line %d, in %.500s' %(filename, lineno, name))
+        tb = tb.tb_next
+
+    # Exception type and value
+    exception = ' %s: %s' %(exc_type.__name__, exc_value)
+    logging.critical(exception + "\n".join(traceback))
+
+    #Try to show message box, hopefully its not a crash in Qt
+    messagebox = QtWidgets.QMessageBox()
+    messagebox.setWindowTitle("Fehler!")
+    messagebox.setText("Unerwarteter Fehler:" + exception + ". Bei Fragen zum diesem Fehler bitte sephrasto.log mitsenden.")
+    messagebox.setIcon(QtWidgets.QMessageBox.Critical)
+    messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+    messagebox.exec_()
+
 class MainWindowWrapper(object):
     '''
     Main Class responsible for running the entire application. 
     Just shows three buttons and handles the execution of the individual subparts.
     '''
     def __init__(self):
+        sys.excepthook = sephrasto_excepthook
+
         '''
         Initializes the GUI and connects the buttons.
         '''
         self._version_ = "v0.5.1"
         super().__init__()
-            
-
+        
         #Make sure the application scales properly, i.e. in Win10 users can change the UI scale in the display settings
         if hasattr(QtCore.Qt, 'AA_EnableHighDpiScaling'):
             QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling, True)
