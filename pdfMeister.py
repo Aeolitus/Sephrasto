@@ -34,7 +34,7 @@ class pdfMeister(object):
         self.RulesPage = "Regeln.pdf"
         self.Rules = []
         self.RuleWeights = []
-        self.RuleCategories = ['Allgemeine Vorteile', 'Profane Vorteile', 'Kampfvorteile', 'Nahkampfmanöver', 'Fernkampfmanöver', 'Übernatürliche Vorteile', 'Übernatürliche Talente']
+        self.RuleCategories = ['ALLGEMEINE VORTEILE', 'PROFANE VORTEILE', 'KAMPFVORTEILE', 'NAHKAMPFMANÖVER', 'FERNKAMPFMANÖVER', 'ÜBERNATÜRLICHE VORTEILE', 'SPONTANE MODIFIKATIONEN (ZAUBER)', 'SPONTANE MODIFIKATIONEN (LITURGIEN)', 'ÜBERNATÜRLICHE TALENTE']
         self.Talents = []
         self.Energie = 0
     
@@ -797,7 +797,7 @@ temp_full_cb_feel_free_to_remove.pdf'
             if vor in Wolke.DB.manöver:
                 continue
 
-            str = []
+            str = ['-']
             vorteil = Wolke.DB.vorteile[vor]
             str.append(vorteil.name)
             str.append(": ")
@@ -814,8 +814,11 @@ temp_full_cb_feel_free_to_remove.pdf'
             manöver = Wolke.DB.manöver[man]
             if not Wolke.Char.voraussetzungenPrüfen(manöver.voraussetzungen):
                 continue
-            str = []
-            str.append(manöver.name)
+            str = ['-']
+            if manöver.name.endswith(" (M)") or manöver.name.endswith(" (L)"):
+                str.append(manöver.name[:-4])
+            else:
+                str.append(manöver.name)
             str.append(" (")
             str.append(manöver.probe)
             str.append("): ")
@@ -833,7 +836,7 @@ temp_full_cb_feel_free_to_remove.pdf'
         strList.append(pdfMeister.formatRuleCategory(category))
         weights.append(pdfMeister.getWeight(strList[-1]))
         for tal in talente:
-            str = []
+            str = ['-']
             talent = Wolke.DB.talente[tal]
             str.append(talent.name)
             str.append(': ')
@@ -900,6 +903,12 @@ temp_full_cb_feel_free_to_remove.pdf'
             if type(waffe) is Objekte.Fernkampfwaffe:
                 manöverfern = [el for el in sortM if (Wolke.DB.manöver[el].typ == 1)]
                 break
+        manövermagisch = []
+        if "Zauberer I" in Wolke.Char.vorteile or "Borbaradianische Repräsentation I" in Wolke.Char.vorteile:
+            manövermagisch = [el for el in sortM if (Wolke.DB.manöver[el].typ == 2)]
+        manöverkarmal = []
+        if "Geweiht I" in Wolke.Char.vorteile:
+            manöverkarmal = [el for el in sortM if (Wolke.DB.manöver[el].typ == 3)]
 
         ueberTalente = set()
         for fer in Wolke.Char.übernatürlicheFertigkeiten:
@@ -921,8 +930,12 @@ temp_full_cb_feel_free_to_remove.pdf'
             pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[4], manöverfern)
         if ueber:
             pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[5], ueber)
+        if manövermagisch:
+            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[6], manövermagisch)
+        if manöverkarmal:
+            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[7], manöverkarmal)
         if ueberTalente:
-            pdfMeister.appendTalente(self.Rules, self.RuleWeights, self.RuleCategories[6], ueberTalente)
+            pdfMeister.appendTalente(self.Rules, self.RuleWeights, self.RuleCategories[8], ueberTalente)
 
     def writeRules(self, fields, start, roughLineCount):
         weights = 0
