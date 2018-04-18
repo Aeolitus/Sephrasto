@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'DatenbankSelectType.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -72,6 +72,7 @@ class Ui_Dialog(object):
         Dialog.setTabOrder(self.buttonTalent, self.buttonVorteil)
         Dialog.setTabOrder(self.buttonVorteil, self.buttonFertigkeit)
         Dialog.setTabOrder(self.buttonFertigkeit, self.buttonUebernatuerlich)
+        Dialog.setTabOrder(self.buttonUebernatuerlich, self.buttonWaffe)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate

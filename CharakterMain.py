@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'CharakterMain.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -100,6 +100,13 @@ class Ui_formMain(object):
         self.retranslateUi(formMain)
         self.tabs.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(formMain)
+        formMain.setTabOrder(self.tabs, self.spinEP)
+        formMain.setTabOrder(self.spinEP, self.spinSpent)
+        formMain.setTabOrder(self.spinSpent, self.spinRemaining)
+        formMain.setTabOrder(self.spinRemaining, self.checkReq)
+        formMain.setTabOrder(self.checkReq, self.buttonQuicksave)
+        formMain.setTabOrder(self.buttonQuicksave, self.buttonSave)
+        formMain.setTabOrder(self.buttonSave, self.buttonSavePDF)
 
     def retranslateUi(self, formMain):
         _translate = QtCore.QCoreApplication.translate

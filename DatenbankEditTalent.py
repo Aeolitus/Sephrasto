@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'DatenbankEditTalent.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -103,8 +103,11 @@ class Ui_talentDialog(object):
         talentDialog.setTabOrder(self.nameEdit, self.buttonRegulaer)
         talentDialog.setTabOrder(self.buttonRegulaer, self.buttonVerbilligt)
         talentDialog.setTabOrder(self.buttonVerbilligt, self.buttonSpezial)
-        talentDialog.setTabOrder(self.buttonSpezial, self.fertigkeitenEdit)
-        talentDialog.setTabOrder(self.fertigkeitenEdit, self.textEdit)
+        talentDialog.setTabOrder(self.buttonSpezial, self.spinKosten)
+        talentDialog.setTabOrder(self.spinKosten, self.checkVariable)
+        talentDialog.setTabOrder(self.checkVariable, self.fertigkeitenEdit)
+        talentDialog.setTabOrder(self.fertigkeitenEdit, self.voraussetzungenEdit)
+        talentDialog.setTabOrder(self.voraussetzungenEdit, self.textEdit)
 
     def retranslateUi(self, talentDialog):
         _translate = QtCore.QCoreApplication.translate

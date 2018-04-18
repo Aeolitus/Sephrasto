@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'DatenbankMain.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -86,11 +86,14 @@ class Ui_Form(object):
         Form.setTabOrder(self.showTalente, self.showVorteile)
         Form.setTabOrder(self.showVorteile, self.showFertigkeiten)
         Form.setTabOrder(self.showFertigkeiten, self.showUebernatuerlicheFertigkeiten)
-        Form.setTabOrder(self.showUebernatuerlicheFertigkeiten, self.buttonHinzufuegen)
+        Form.setTabOrder(self.showUebernatuerlicheFertigkeiten, self.showWaffen)
+        Form.setTabOrder(self.showWaffen, self.buttonLoadDB)
+        Form.setTabOrder(self.buttonLoadDB, self.buttonSaveDB)
+        Form.setTabOrder(self.buttonSaveDB, self.buttonQuicksave)
+        Form.setTabOrder(self.buttonQuicksave, self.listDatenbank)
+        Form.setTabOrder(self.listDatenbank, self.buttonHinzufuegen)
         Form.setTabOrder(self.buttonHinzufuegen, self.buttonEditieren)
         Form.setTabOrder(self.buttonEditieren, self.buttonLoeschen)
-        Form.setTabOrder(self.buttonLoeschen, self.buttonLoadDB)
-        Form.setTabOrder(self.buttonLoadDB, self.buttonSaveDB)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate

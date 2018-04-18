@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'DatenbankEditVorteil.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -105,9 +105,12 @@ class Ui_talentDialog(object):
         self.buttonBox.accepted.connect(talentDialog.accept)
         self.buttonBox.rejected.connect(talentDialog.reject)
         QtCore.QMetaObject.connectSlotsByName(talentDialog)
-        talentDialog.setTabOrder(self.nameEdit, self.kostenEdit)
+        talentDialog.setTabOrder(self.nameEdit, self.checkVariable)
+        talentDialog.setTabOrder(self.checkVariable, self.kostenEdit)
         talentDialog.setTabOrder(self.kostenEdit, self.comboNachkauf)
-        talentDialog.setTabOrder(self.comboNachkauf, self.textEdit)
+        talentDialog.setTabOrder(self.comboNachkauf, self.voraussetzungenEdit)
+        talentDialog.setTabOrder(self.voraussetzungenEdit, self.comboTyp)
+        talentDialog.setTabOrder(self.comboTyp, self.textEdit)
 
     def retranslateUi(self, talentDialog):
         _translate = QtCore.QCoreApplication.translate

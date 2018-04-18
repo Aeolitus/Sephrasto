@@ -242,8 +242,11 @@
  </widget>
  <tabstops>
   <tabstop>nameEdit</tabstop>
+  <tabstop>checkVariable</tabstop>
   <tabstop>kostenEdit</tabstop>
   <tabstop>comboNachkauf</tabstop>
+  <tabstop>voraussetzungenEdit</tabstop>
+  <tabstop>comboTyp</tabstop>
   <tabstop>textEdit</tabstop>
  </tabstops>
  <resources/>

@@ -180,7 +180,10 @@
   <tabstop>buttonRegulaer</tabstop>
   <tabstop>buttonVerbilligt</tabstop>
   <tabstop>buttonSpezial</tabstop>
+  <tabstop>spinKosten</tabstop>
+  <tabstop>checkVariable</tabstop>
   <tabstop>fertigkeitenEdit</tabstop>
+  <tabstop>voraussetzungenEdit</tabstop>
   <tabstop>textEdit</tabstop>
  </tabstops>
  <resources/>

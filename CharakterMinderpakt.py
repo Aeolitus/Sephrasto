@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'CharakterMinderpakt.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -113,6 +113,9 @@ class Ui_Dialog(object):
         self.buttonBox.accepted.connect(Dialog.accept)
         self.buttonBox.rejected.connect(Dialog.reject)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
+        Dialog.setTabOrder(self.treeWidget, self.scrollArea)
+        Dialog.setTabOrder(self.scrollArea, self.spinKosten)
+        Dialog.setTabOrder(self.spinKosten, self.plainText)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate

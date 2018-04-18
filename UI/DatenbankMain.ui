@@ -206,11 +206,14 @@
   <tabstop>showVorteile</tabstop>
   <tabstop>showFertigkeiten</tabstop>
   <tabstop>showUebernatuerlicheFertigkeiten</tabstop>
+  <tabstop>showWaffen</tabstop>
+  <tabstop>buttonLoadDB</tabstop>
+  <tabstop>buttonSaveDB</tabstop>
+  <tabstop>buttonQuicksave</tabstop>
+  <tabstop>listDatenbank</tabstop>
   <tabstop>buttonHinzufuegen</tabstop>
   <tabstop>buttonEditieren</tabstop>
   <tabstop>buttonLoeschen</tabstop>
-  <tabstop>buttonLoadDB</tabstop>
-  <tabstop>buttonSaveDB</tabstop>
  </tabstops>
  <resources/>
  <connections/>

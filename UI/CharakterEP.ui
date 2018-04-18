@@ -513,6 +513,26 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>spinAttributeSpent</tabstop>
+  <tabstop>spinAttributePercent</tabstop>
+  <tabstop>spinVorteileSpent</tabstop>
+  <tabstop>spinVorteilePercent</tabstop>
+  <tabstop>spinProfanSpent</tabstop>
+  <tabstop>spinProfanPercent</tabstop>
+  <tabstop>spinFertigkeitenSpent</tabstop>
+  <tabstop>spinFertigkeitenPercent</tabstop>
+  <tabstop>spinTalenteSpent</tabstop>
+  <tabstop>spinTalentePercent</tabstop>
+  <tabstop>spinFreieSpent</tabstop>
+  <tabstop>spinFreiePercent</tabstop>
+  <tabstop>spinUebernatuerlichSpent</tabstop>
+  <tabstop>spinUebernatuerlichPercent</tabstop>
+  <tabstop>spinUeberFertigkeitenSpent</tabstop>
+  <tabstop>spinUeberFertigkeitenPercent</tabstop>
+  <tabstop>spinUeberTalenteSpent</tabstop>
+  <tabstop>spinUeberTalentePercent</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
