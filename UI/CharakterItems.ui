@@ -15,19 +15,39 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="3" column="2">
-    <widget class="QLineEdit" name="lineEdit_4"/>
+    <widget class="QLineEdit" name="lineEdit_4">
+     <property name="maxLength">
+      <number>52</number>
+     </property>
+    </widget>
    </item>
    <item row="4" column="1">
-    <widget class="QLineEdit" name="lineEdit_5"/>
+    <widget class="QLineEdit" name="lineEdit_5">
+     <property name="maxLength">
+      <number>52</number>
+     </property>
+    </widget>
    </item>
    <item row="8" column="2">
-    <widget class="QLineEdit" name="lineEdit_14"/>
+    <widget class="QLineEdit" name="lineEdit_14">
+     <property name="maxLength">
+      <number>52</number>
+     </property>
+    </widget>
    </item>
    <item row="9" column="2">
-    <widget class="QLineEdit" name="lineEdit_16"/>
+    <widget class="QLineEdit" name="lineEdit_16">
+     <property name="maxLength">
+      <number>52</number>
+     </property>
+    </widget>
    </item>
    <item row="6" column="1">
-    <widget class="QLineEdit" name="lineEdit_9"/>
+    <widget class="QLineEdit" name="lineEdit_9">
+     <property name="maxLength">
+      <number>52</number>
+     </property>
+    </widget>
    </item>
    <item row="7" column="3">
     <spacer name="horizontalSpacer_2">
@@ -43,28 +63,53 @@
     </spacer>
    </item>
    <item row="6" column="2">
-    <widget class="QLineEdit" name="lineEdit_10"/>
+    <widget class="QLineEdit" name="lineEdit_10">
+     <property name="maxLength">
+      <number>52</number>
+     </property>
+    </widget>
    </item>
    <item row="9" column="1">
-    <widget class="QLineEdit" name="lineEdit_15"/>
+    <widget class="QLineEdit" name="lineEdit_15">
+     <property name="maxLength">
+      <number>52</number>
+     </property>
+    </widget>
    </item>
    <item row="11" column="1">
-    <widget class="QLineEdit" name="lineEdit_19"/>
+    <widget class="QLineEdit" name="lineEdit_19">
+     <property name="maxLength">
+      <number>52</number>
+     </property>
+    </widget>
    </item>
    <item row="5" column="1">
-    <widget class="QLineEdit" name="lineEdit_7"/>
+    <widget class="QLineEdit" name="lineEdit_7">
+     <property name="maxLength">
+      <number>52</number>
+     </property>
+    </widget>
    </item>
    <item row="10" column="2">
-    <widget class="QLineEdit" name="lineEdit_18"/>
-   </item>
-   <item row="1" column="1">
-    <widget class="QLineEdit" name="lineEdit_1"/>
+    <widget class="QLineEdit" name="lineEdit_18">
+     <property name="maxLength">
+      <number>52</number>
+     </property>
+    </widget>
    </item>
    <item row="4" column="2">
-    <widget class="QLineEdit" name="lineEdit_6"/>
+    <widget class="QLineEdit" name="lineEdit_6">
+     <property name="maxLength">
+      <number>52</number>
+     </property>
+    </widget>
    </item>
    <item row="7" column="2">
-    <widget class="QLineEdit" name="lineEdit_12"/>
+    <widget class="QLineEdit" name="lineEdit_12">
+     <property name="maxLength">
+      <number>52</number>
+     </property>
+    </widget>
    </item>
    <item row="7" column="0">
     <spacer name="horizontalSpacer">
@@ -80,22 +125,52 @@
     </spacer>
    </item>
    <item row="1" column="2">
-    <widget class="QLineEdit" name="lineEdit_2"/>
+    <widget class="QLineEdit" name="lineEdit_2">
+     <property name="minimumSize">
+      <size>
+       <width>320</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maxLength">
+      <number>52</number>
+     </property>
+    </widget>
    </item>
    <item row="8" column="1">
-    <widget class="QLineEdit" name="lineEdit_13"/>
+    <widget class="QLineEdit" name="lineEdit_13">
+     <property name="maxLength">
+      <number>52</number>
+     </property>
+    </widget>
    </item>
    <item row="10" column="1">
-    <widget class="QLineEdit" name="lineEdit_17"/>
+    <widget class="QLineEdit" name="lineEdit_17">
+     <property name="maxLength">
+      <number>52</number>
+     </property>
+    </widget>
    </item>
    <item row="7" column="1">
-    <widget class="QLineEdit" name="lineEdit_11"/>
+    <widget class="QLineEdit" name="lineEdit_11">
+     <property name="maxLength">
+      <number>52</number>
+     </property>
+    </widget>
    </item>
    <item row="3" column="1">
-    <widget class="QLineEdit" name="lineEdit_3"/>
+    <widget class="QLineEdit" name="lineEdit_3">
+     <property name="maxLength">
+      <number>52</number>
+     </property>
+    </widget>
    </item>
    <item row="5" column="2">
-    <widget class="QLineEdit" name="lineEdit_8"/>
+    <widget class="QLineEdit" name="lineEdit_8">
+     <property name="maxLength">
+      <number>52</number>
+     </property>
+    </widget>
    </item>
    <item row="0" column="1">
     <spacer name="verticalSpacer">
@@ -125,6 +200,22 @@
       </size>
      </property>
     </spacer>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLineEdit" name="lineEdit_1">
+     <property name="minimumSize">
+      <size>
+       <width>320</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="maxLength">
+      <number>52</number>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
