@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'CharakterEP.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -193,6 +193,23 @@ class Ui_Form(object):
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
+        Form.setTabOrder(self.spinAttributeSpent, self.spinAttributePercent)
+        Form.setTabOrder(self.spinAttributePercent, self.spinVorteileSpent)
+        Form.setTabOrder(self.spinVorteileSpent, self.spinVorteilePercent)
+        Form.setTabOrder(self.spinVorteilePercent, self.spinProfanSpent)
+        Form.setTabOrder(self.spinProfanSpent, self.spinProfanPercent)
+        Form.setTabOrder(self.spinProfanPercent, self.spinFertigkeitenSpent)
+        Form.setTabOrder(self.spinFertigkeitenSpent, self.spinFertigkeitenPercent)
+        Form.setTabOrder(self.spinFertigkeitenPercent, self.spinTalenteSpent)
+        Form.setTabOrder(self.spinTalenteSpent, self.spinTalentePercent)
+        Form.setTabOrder(self.spinTalentePercent, self.spinFreieSpent)
+        Form.setTabOrder(self.spinFreieSpent, self.spinFreiePercent)
+        Form.setTabOrder(self.spinFreiePercent, self.spinUebernatuerlichSpent)
+        Form.setTabOrder(self.spinUebernatuerlichSpent, self.spinUebernatuerlichPercent)
+        Form.setTabOrder(self.spinUebernatuerlichPercent, self.spinUeberFertigkeitenSpent)
+        Form.setTabOrder(self.spinUeberFertigkeitenSpent, self.spinUeberFertigkeitenPercent)
+        Form.setTabOrder(self.spinUeberFertigkeitenPercent, self.spinUeberTalenteSpent)
+        Form.setTabOrder(self.spinUeberTalenteSpent, self.spinUeberTalentePercent)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate

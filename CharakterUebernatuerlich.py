@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'CharakterUebernatuerlich.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -146,13 +146,13 @@ class Ui_Form(object):
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
-        Form.setTabOrder(self.spinFW, self.buttonAdd)
-        Form.setTabOrder(self.buttonAdd, self.tableWidget)
         Form.setTabOrder(self.tableWidget, self.scrollArea)
         Form.setTabOrder(self.scrollArea, self.spinSF)
-        Form.setTabOrder(self.spinSF, self.spinBasis)
+        Form.setTabOrder(self.spinSF, self.spinFW)
+        Form.setTabOrder(self.spinFW, self.spinBasis)
         Form.setTabOrder(self.spinBasis, self.spinPW)
-        Form.setTabOrder(self.spinPW, self.listTalente)
+        Form.setTabOrder(self.spinPW, self.buttonAdd)
+        Form.setTabOrder(self.buttonAdd, self.listTalente)
         Form.setTabOrder(self.listTalente, self.plainText)
 
     def retranslateUi(self, Form):

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'CharakterVorteile.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -101,6 +101,9 @@ class Ui_Form(object):
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
+        Form.setTabOrder(self.treeWidget, self.scrollArea)
+        Form.setTabOrder(self.scrollArea, self.spinKosten)
+        Form.setTabOrder(self.spinKosten, self.plainText)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate

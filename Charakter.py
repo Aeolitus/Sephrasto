@@ -32,11 +32,16 @@ class Char():
         self.attribute = {}
         for key in Definitionen.Attribute.keys():
             self.attribute[key] = Fertigkeiten.Attribut(key)
+        self.wsBasis = -1
         self.ws = -1
+        self.mrBasis = -1
         self.mr = -1
+        self.gsBasis = -1
         self.gs = -1
         self.dh = -1
+        self.schadensbonusBasis = -1
         self.schadensbonus = -1
+        self.iniBasis = -1
         self.ini = -1
         self.asp = Fertigkeiten.Energie()
         self.kap = Fertigkeiten.Energie()
@@ -85,28 +90,33 @@ class Char():
         '''Berechnet alle abgeleiteten Werte neu'''
         for key in Definitionen.Attribute:
             self.attribute[key].aktualisieren()
-        self.ws = 4 + int(self.attribute['KO'].wert/4)
+        self.wsBasis = 4 + int(self.attribute['KO'].wert/4)
+        self.ws = self.wsBasis
         if "Unverwüstlich" in self.vorteile:
             self.ws += 1
-        self.mr = 4 + int(self.attribute['MU'].wert/4)
+        self.mrBasis = 4 + int(self.attribute['MU'].wert/4)
+        self.mr = self.mrBasis
         if "Willensstark I" in self.vorteile:
             self.mr += 4
         if "Willensstark II" in self.vorteile:
             self.mr += 4
         if "Unbeugsamkeit" in self.vorteile:
             self.mr += round(self.attribute['MU'].wert/2+0.0001)
-        self.gs = 4 + int(self.attribute['GE'].wert/4+0.0001)
+        self.gsBasis = 4 + int(self.attribute['GE'].wert/4+0.0001)
+        self.gs = self.gsBasis
         if "Flink I" in self.vorteile:
             self.gs += 1
         if "Flink II" in self.vorteile:
             self.gs += 1
-        self.ini = self.attribute['IN'].wert
+        self.iniBasis = self.attribute['IN'].wert
+        self.ini = self.iniBasis
         if "Kampfreflexe" in self.vorteile:
             self.ini += 4                                 
         self.dh = self.attribute['KO'].wert
         if "Abgehärtet II" in self.vorteile:
             self.dh += 2
-        self.schadensbonus = int(self.attribute['KK'].wert/4)
+        self.schadensbonusBasis = int(self.attribute['KK'].wert/4)
+        self.schadensbonus = self.schadensbonusBasis
         self.schips = 4
         if self.finanzen >= 2: 
             self.schips += self.finanzen - 2
@@ -331,6 +341,7 @@ class Char():
         Dabei ist L:
             V für Vorteil - prüft, ob ein Vorteil vorhanden ist. W = 1 bedeutet, der
                 Vorteil muss vorhanden sein. W=0 bedeutet, der Vorteil darf nicht vorhanden sein.
+            W für Waffeneigenschaft - prüft, ob der Charakter eine Waffe mit der angegebenen Eigenschaft besitzt. W ist immer 1.
             A für Attribut - prüft, ob das Attribut mit Key Str mindestens auf Wert W ist
         Einträge im Array können auch weitere Arrays and Voraussetzungen sein.
         Aus diesen Arrays muss nur ein Eintrag erfüllt sein.
@@ -360,6 +371,12 @@ class Char():
                             erfüllt = True
                         elif found == 0 and cond == 0:
                             erfüllt = True
+                    #Waffeneigenschaften:
+                    elif arr[0] is 'W':
+                        for waffe in self.waffen:
+                            if arr[1] in waffe.eigenschaften:
+                                erfüllt = True
+                                break
                     #Attribute:
                     elif arr[0] is 'A':
                         #Wir greifen direkt auf den Eintrag zu und vergleichen. 

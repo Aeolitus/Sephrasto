@@ -108,3 +108,15 @@ class Vorteil():
     def __eq__(self, other) : 
         if self.__class__ != other.__class__: return False
         if self.__dict__ == other.__dict__: return True
+
+class Manoever():
+    def __init__(self):
+        self.name = ''
+        self.typ = 0
+        self.voraussetzungen = []
+        self.probe = ''
+        self.gegenprobe = ''
+        self.text = ''
+    def __eq__(self, other) : 
+        if self.__class__ != other.__class__: return False
+        if self.__dict__ == other.__dict__: return True

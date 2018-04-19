@@ -22,6 +22,7 @@ class Wolke:
         -23: 'Error loading Fertigkeiten. Please check the database file!',
         -24: 'Error loading Übernatürliches. Please check the database file!',
         -25: 'Error loading Waffen. Please check the database file!',
+        -26: 'Error loading Manöver. Please check the database file!',
         -33: '''The Database file seems to be empty or not a database file! Please \
 check if you have correctly selected your rulebase and whether the file contains \
 any content.''',
@@ -92,6 +93,7 @@ File called ExtraSpells.pdf in your Sephrasto folder!',
         -95: 'Error deleting or renaming files on file system. \
 Please check the created PDFs to see which one is your character!',
         -96: 'Error cutting of last page of the PDF. This shouldnt really matter.',
+        -97: 'Error merging the rules page!',
     ### Other Errors
         -200: 'General Error you shouldnt see. Please contact Aeolitus.'
     }

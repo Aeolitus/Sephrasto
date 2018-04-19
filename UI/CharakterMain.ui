@@ -225,6 +225,16 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>tabs</tabstop>
+  <tabstop>spinEP</tabstop>
+  <tabstop>spinSpent</tabstop>
+  <tabstop>spinRemaining</tabstop>
+  <tabstop>checkReq</tabstop>
+  <tabstop>buttonQuicksave</tabstop>
+  <tabstop>buttonSave</tabstop>
+  <tabstop>buttonSavePDF</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

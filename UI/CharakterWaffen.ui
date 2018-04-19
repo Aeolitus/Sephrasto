@@ -55,6 +55,18 @@
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
          <item row="9" column="2">
           <widget class="QLabel" name="labelH">
            <property name="text">
@@ -263,6 +275,12 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>treeWeapons</tabstop>
+  <tabstop>scrollArea</tabstop>
+  <tabstop>plainStile</tabstop>
+  <tabstop>plainEigenschaften</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>
