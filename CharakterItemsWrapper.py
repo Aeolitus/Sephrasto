@@ -29,9 +29,11 @@ class CharakterItemsWrapper(QtCore.QObject):
             count += 1
             if count > 20:
                 break
-        while count <= 20:
-            eval("self.uiIt.lineEdit_" + str(count) + ".clear()")
-            count += 1
+#==============================================================================
+#         while count <= 20:
+#             eval("self.uiIt.lineEdit_" + str(count) + ".clear()")
+#             count += 1
+#==============================================================================
         self.currentlyLoading = False
     
     def updateFreie(self):
@@ -39,5 +41,5 @@ class CharakterItemsWrapper(QtCore.QObject):
             Wolke.Char.ausrüstung.clear()
             for i in range(1,21):
                 txt = eval("self.uiIt.lineEdit_" + str(i) + ".text()")
-                if txt != "":
-                    Wolke.Char.ausrüstung.append(txt)
+                #if txt != "":
+                Wolke.Char.ausrüstung.append(txt)
