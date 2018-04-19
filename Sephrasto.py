@@ -49,7 +49,7 @@ class MainWindowWrapper(object):
         '''
         Initializes the GUI and connects the buttons.
         '''
-        self._version_ = "v0.5.1"
+        self._version_ = "v0.5.2"
         super().__init__()
         
         #Make sure the application scales properly, i.e. in Win10 users can change the UI scale in the display settings
