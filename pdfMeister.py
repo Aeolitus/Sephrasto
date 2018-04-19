@@ -119,7 +119,7 @@ temp_full_cb_feel_free_to_remove.pdf'
             while startIndex != -1:
                 pageCount += 1
                 rulesFields["Seite"] = pageCount
-                startIndex = self.writeRules(rulesFields, startIndex, 80)
+                startIndex = self.writeRules(rulesFields, startIndex, 75)
                 pdf.write_pdf(self.RulesPage, rulesFields, 'temp_rules_page_feel_free_to_remove.pdf', False)
                 call = 'pdftk "' + filename + '" temp_rules_page_feel_free_to_remove.pdf cat output temp_full_cb_feel_free_to_remove.pdf'                
                 check_output(call)
@@ -962,5 +962,11 @@ temp_full_cb_feel_free_to_remove.pdf'
         fields['Regeln'] = ''.join(self.Rules[start:endIndex])
 
         if len(self.Rules) == endIndex:
+            #append newlines to make the auto-fontsize about same as large as the other pages (kinda hack-ish...)
+            #give it a tendency to be bigger than average by subtracting 10% of the line count
+            lastPageMissingNewlines = roughLineCount - weights - int(0.1*roughLineCount)
+            if lastPageMissingNewlines > 0:
+                fields['Regeln'] += lastPageMissingNewlines*'\n'
+            #return -1 to signal that we are done
             return -1
         return endIndex

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'DatenbankSelectType.ui'
 #
-# Created by: PyQt5 UI code generator 5.10.1
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -54,6 +54,10 @@ class Ui_Dialog(object):
         self.buttonWaffe.setMinimumSize(QtCore.QSize(0, 20))
         self.buttonWaffe.setObjectName("buttonWaffe")
         self.gridLayout.addWidget(self.buttonWaffe, 2, 0, 1, 1)
+        self.buttonManoever = QtWidgets.QRadioButton(Dialog)
+        self.buttonManoever.setMinimumSize(QtCore.QSize(0, 20))
+        self.buttonManoever.setObjectName("buttonManoever")
+        self.gridLayout.addWidget(self.buttonManoever, 2, 1, 1, 1)
         self.verticalLayout.addLayout(self.gridLayout)
         spacerItem2 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem2)
@@ -83,6 +87,7 @@ class Ui_Dialog(object):
         self.buttonFertigkeit.setText(_translate("Dialog", "Profane Fertigkeit"))
         self.buttonVorteil.setText(_translate("Dialog", "Vorteil"))
         self.buttonWaffe.setText(_translate("Dialog", "Waffe"))
+        self.buttonManoever.setText(_translate("Dialog", "Manöver / Modifikation"))
 
 
 if __name__ == "__main__":

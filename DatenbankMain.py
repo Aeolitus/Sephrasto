@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'DatenbankMain.ui'
 #
-# Created by: PyQt5 UI code generator 5.10.1
+# Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -41,6 +41,10 @@ class Ui_Form(object):
         self.showWaffen.setChecked(True)
         self.showWaffen.setObjectName("showWaffen")
         self.verticalLayout.addWidget(self.showWaffen)
+        self.showManoever = QtWidgets.QCheckBox(Form)
+        self.showManoever.setChecked(True)
+        self.showManoever.setObjectName("showManoever")
+        self.verticalLayout.addWidget(self.showManoever)
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem)
         self.buttonLoadDB = QtWidgets.QPushButton(Form)
@@ -103,6 +107,7 @@ class Ui_Form(object):
         self.showFertigkeiten.setText(_translate("Form", "Profane Fertigkeiten"))
         self.showUebernatuerlicheFertigkeiten.setText(_translate("Form", "Übernatürliche Fertigkeiten"))
         self.showWaffen.setText(_translate("Form", "Waffen"))
+        self.showManoever.setText(_translate("Form", "Manöver / Modifikationen"))
         self.buttonLoadDB.setText(_translate("Form", "Andere Regelbasis laden"))
         self.buttonSaveDB.setText(_translate("Form", "Regelbasis speichern als..."))
         self.buttonQuicksave.setText(_translate("Form", "Regelbasis speichern"))

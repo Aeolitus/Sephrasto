@@ -31,6 +31,8 @@ class DatenbankSelectTypeWrapper(object):
                 self.entryType = "Fertigkeit"
             elif ui.buttonUebernatuerlich.isChecked():
                 self.entryType = "Uebernatuerlich"
+            elif ui.buttonManoever.isChecked():
+                self.entryType = "Manoever"
             else:
                 self.entryType = "Waffe"
         else: 

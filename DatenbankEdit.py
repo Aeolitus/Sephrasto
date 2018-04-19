@@ -14,6 +14,7 @@ import DatenbankEditTalentWrapper
 import DatenbankEditVorteilWrapper
 import DatenbankSelectTypeWrapper
 import DatenbankEditWaffeWrapper
+import DatenbankEditManoeverWrapper
 import Objekte
 
 class DatenbankEdit(object):
@@ -32,6 +33,7 @@ class DatenbankEdit(object):
         self.ui.showFertigkeiten.stateChanged.connect(self.updateGUI)
         self.ui.showUebernatuerlicheFertigkeiten.stateChanged.connect(self.updateGUI)
         self.ui.showWaffen.stateChanged.connect(self.updateGUI)
+        self.ui.showManoever.stateChanged.connect(self.updateGUI)
         self.ui.buttonLoadDB.clicked.connect(self.loadDatenbank)
         self.ui.buttonSaveDB.clicked.connect(self.saveDatenbank)
         self.ui.buttonQuicksave.clicked.connect(self.quicksaveDatenbank)
@@ -65,6 +67,11 @@ class DatenbankEdit(object):
         if self.ui.showWaffen.isChecked():
             for itm in self.datenbank.waffen:
                 item = QtGui.QStandardItem(itm + " : Waffe")
+                item.setEditable(False)
+                self.model.appendRow(item) 
+        if self.ui.showManoever.isChecked():
+            for itm in self.datenbank.manöver:
+                item = QtGui.QStandardItem(itm + " : Manöver / Modifikation")
                 item.setEditable(False)
                 self.model.appendRow(item) 
         self.ui.listDatenbank.setModel(self.model)
@@ -106,6 +113,13 @@ class DatenbankEdit(object):
                 self.datenbank.waffen.pop(nameSt,None)
                 self.datenbank.waffen.update({waf.name: waf})
                 self.updateGUI()
+        elif tmp[1] == "Manöver / Modifikation":
+            nameSt = self.datenbank.manöver[tmp[0]].name
+            man = self.editManoever(self.datenbank.manöver[tmp[0]])
+            if man is not None:
+                self.datenbank.manöver.pop(nameSt,None)
+                self.datenbank.manöver.update({man.name: man})
+                self.updateGUI()
     
     def hinzufuegen(self):
         '''
@@ -124,8 +138,9 @@ class DatenbankEdit(object):
             elif dbS.entryType is "Fertigkeit":
                 self.addFertigkeit()
             elif dbS.entryType is "Uebernatuerlich":
-                print("In")
                 self.addUebernatuerlich()
+            elif dbS.entryType is "Manoever":
+                self.addManoever()
             else:
                 self.addWaffe()
         
@@ -141,28 +156,35 @@ class DatenbankEdit(object):
         ret = self.editVorteil(vor)
         if ret is not None:
             self.datenbank.vorteile.update({ret.name: ret})
-            self.updateGUI();
+            self.updateGUI()
                           
     def addFertigkeit(self):
         fer = Fertigkeiten.Fertigkeit()
         ret = self.editFertigkeit(fer)
         if ret is not None:
             self.datenbank.fertigkeiten.update({ret.name: ret})
-            self.updateGUI();
+            self.updateGUI()
                           
     def addUebernatuerlich(self):
         fer = Fertigkeiten.Fertigkeit()
         ret = self.editUebernatuerlich(fer)
         if ret is not None:
             self.datenbank.übernatürlicheFertigkeiten.update({ret.name: ret})
-            self.updateGUI();
+            self.updateGUI()
                           
     def addWaffe(self):
         waf = Objekte.Nahkampfwaffe()
         ret = self.editWaffe(waf)
         if ret is not None:
             self.datenbank.waffen.update({ret.name: ret})
-            self.updateGUI();
+            self.updateGUI()
+    
+    def addManoever(self):
+        man = Fertigkeiten.Manoever()
+        ret = self.editManoever(man)
+        if ret is not None:
+            self.datenbank.manöver.update({ret.name: ret})
+            self.updateGUI()
                           
     def editTalent(self, inp):
         dbT = DatenbankEditTalentWrapper.DatenbankEditTalentWrapper(inp)
@@ -183,6 +205,10 @@ class DatenbankEdit(object):
     def editWaffe(self, inp):
         dbW = DatenbankEditWaffeWrapper.DatenbankEditWaffeWrapper(self.datenbank, inp)
         return dbW.waffe
+    
+    def editManoever(self, inp):
+        dbM = DatenbankEditManoeverWrapper.DatenbankEditManoeverWrapper(inp)
+        return dbM.man
         
     def editSelected(self):
         for itm in self.ui.listDatenbank.selectedIndexes():
@@ -194,7 +220,7 @@ class DatenbankEdit(object):
                     if ret is not None:
                         self.datenbank.talente.pop(tmp[0],None)
                         self.datenbank.talente.update({ret.name: ret})
-                        self.updateGUI();
+                        self.updateGUI()
             elif tmp[1] == "Vorteil":
                 tal = self.datenbank.vorteile[tmp[0]]
                 if tal is not None:
@@ -202,7 +228,7 @@ class DatenbankEdit(object):
                     if ret is not None:
                         self.datenbank.vorteile.pop(tmp[0],None)
                         self.datenbank.vorteile.update({ret.name: ret})
-                        self.updateGUI();
+                        self.updateGUI()
             elif tmp[1] == "Fertigkeit":
                 tal = self.datenbank.fertigkeiten[tmp[0]]
                 if tal is not None:
@@ -210,7 +236,7 @@ class DatenbankEdit(object):
                     if ret is not None:
                         self.datenbank.fertigkeiten.pop(tmp[0],None)
                         self.datenbank.fertigkeiten.update({ret.name: ret})
-                        self.updateGUI();
+                        self.updateGUI()
             elif tmp[1] == "Übernatürliche Fertigkeit":
                 tal = self.datenbank.übernatürlicheFertigkeiten[tmp[0]]
                 if tal is not None:
@@ -218,7 +244,7 @@ class DatenbankEdit(object):
                     if ret is not None:
                         self.datenbank.übernatürlicheFertigkeiten.pop(tmp[0],None)
                         self.datenbank.übernatürlicheFertigkeiten.update({ret.name: ret})
-                        self.updateGUI();
+                        self.updateGUI()
             elif tmp[1] == "Waffe":
                 tal = self.datenbank.waffen[tmp[0]]
                 if tal is not None:
@@ -226,26 +252,37 @@ class DatenbankEdit(object):
                     if ret is not None:
                         self.datenbank.waffen.pop(tmp[0],None)
                         self.datenbank.waffen.update({ret.name: ret})
-                        self.updateGUI();
+                        self.updateGUI()
+            elif tmp[1] == "Manöver / Modifikation":
+                tal = self.datenbank.manöver[tmp[0]]
+                if tal is not None:
+                    ret = self.editManoever(tal)
+                    if ret is not None:
+                        self.datenbank.manöver.pop(tmp[0],None)
+                        self.datenbank.manöver.update({ret.name: ret})
+                        self.updateGUI()
                                 
     def deleteSelected(self):
         for itm in self.ui.listDatenbank.selectedIndexes():
             tmp = self.model.itemData(itm)[0].split(" : ")
             if tmp[1] == "Talent":
                 self.datenbank.talente.pop(tmp[0],None)
-                self.updateGUI();
+                self.updateGUI()
             elif tmp[1] == "Vorteil":
                 self.datenbank.vorteile.pop(tmp[0],None)
-                self.updateGUI();
+                self.updateGUI()
             elif tmp[1] == "Fertigkeit":
                 self.datenbank.fertigkeiten.pop(tmp[0],None)
-                self.updateGUI();
+                self.updateGUI()
             elif tmp[1] == "Übernatürliche Fertigkeit":
                 self.datenbank.übernatürlicheFertigkeiten.pop(tmp[0],None)
-                self.updateGUI();
+                self.updateGUI()
             elif tmp[1] == "Waffe":
                 self.datenbank.waffen.pop(tmp[0],None)
-                self.updateGUI();
+                self.updateGUI()
+            elif tmp[1] == "Manöver / Modifikation":
+                self.datenbank.manöver.pop(tmp[0],None)
+                self.updateGUI()
                               
     def saveDatenbank(self):
         spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"Datenbank speichern...","","XML-Datei (*.xml)")
