@@ -90,6 +90,7 @@ class Datenbank():
             v.set('verbilligt',str(self.talente[tal].verbilligt))
             v.set('fertigkeiten',Hilfsmethoden.FertArray2Str(self.talente[tal].fertigkeiten, None))
             v.set('variable',str(self.talente[tal].variable))
+            v.set('printclass',str(self.talente[tal].printclass))
             v.text = self.talente[tal].text
             
         #Fertigkeiten
@@ -193,6 +194,10 @@ class Datenbank():
             T.fertigkeiten = Hilfsmethoden.FertStr2Array(tal.get('fertigkeiten'), None)
             T.voraussetzungen = Hilfsmethoden.VorStr2Array(tal.get('voraussetzungen'), None)
             T.variable = int(tal.get('variable'))
+            try:
+                T.printclass = int(tal.get('printclass'))
+            except:
+                T.printclass = -1
             self.talente.update({T.name: T})
             
         #Fertigkeiten

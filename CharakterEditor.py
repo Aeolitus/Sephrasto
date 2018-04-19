@@ -129,7 +129,7 @@ class Editor(object):
         self.FreiWrapper.updateFreie()
         self.UebernatuerlichWrapper.updateFertigkeiten()
         self.VortWrapper.updateVorteile()
-        self.ItmWrapper.updateFreie()
+        self.ItmWrapper.updateItems()
         self.EPWrapper.updateEP()
         self.updateEP()
         self.ignoreModified = False

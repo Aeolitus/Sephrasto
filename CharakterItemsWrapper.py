@@ -18,14 +18,16 @@ class CharakterItemsWrapper(QtCore.QObject):
         self.formIt = QtWidgets.QWidget()
         self.uiIt = CharakterItems.Ui_Form()
         self.uiIt.setupUi(self.formIt)
+        for i in range(1,21):
+            eval("self.uiIt.lineEdit_" + str(i) + ".editingFinished.connect(self.updateItems)")
         self.currentlyLoading = False
-        
-        
+
     def loadItems(self):
         self.currentlyLoading = True
         count = 1
         for el in Wolke.Char.ausrüstung:
-            eval("self.uiIt.lineEdit_" + str(count) + ".setText(\"" + el + "\")")
+            getName = lambda : el
+            eval("self.uiIt.lineEdit_" + str(count) + ".setText(getName())")
             count += 1
             if count > 20:
                 break
@@ -36,7 +38,7 @@ class CharakterItemsWrapper(QtCore.QObject):
 #==============================================================================
         self.currentlyLoading = False
     
-    def updateFreie(self):
+    def updateItems(self):
         if not self.currentlyLoading:
             Wolke.Char.ausrüstung.clear()
             for i in range(1,21):

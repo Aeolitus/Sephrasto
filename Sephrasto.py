@@ -5,7 +5,7 @@ Created on Thu Mar 23 21:30:34 2017
 
 @author: Aeolitus
 """
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtWidgets, QtCore, QtGui
 import sys
 import MainWindow
 import CharakterEditor
@@ -23,9 +23,16 @@ class MainWindowWrapper(object):
         '''
         Initializes the GUI and connects the buttons.
         '''
-        self._version_ = "v0.4.2"
+        self._version_ = "v0.5.1"
         super().__init__()
             
+
+        #Make sure the application scales properly, i.e. in Win10 users can change the UI scale in the display settings
+        if hasattr(QtCore.Qt, 'AA_EnableHighDpiScaling'):
+            QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling, True)
+        if hasattr(QtCore.Qt, 'AA_UseHighDpiPixmaps'):
+            QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_UseHighDpiPixmaps, True)
+
         self.app = QtCore.QCoreApplication.instance()
         if self.app is None:
             self.app = QtWidgets.QApplication(sys.argv)
@@ -48,6 +55,9 @@ class MainWindowWrapper(object):
         self.ui.buttonEdit.clicked.connect(self.editExisting)
         self.ui.buttonRules.clicked.connect(self.editRuleset)
         self.ui.labelVersion.setText(self._version_ + " - by Aeolitus ")
+
+        self.app.setWindowIcon(QtGui.QIcon('icon_large.png'))
+
         self.Form.show()
         sys.exit(self.app.exec_())
         
