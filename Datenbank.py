@@ -3,69 +3,25 @@ import lxml.etree as etree
 from Hilfsmethoden import Hilfsmethoden
 import os.path
 import Objekte
+from PyQt5 import QtWidgets
 from Wolke import Wolke
 
+class DatabaseException(Exception):
+    pass
+
 class Datenbank():
-    def __init__(self, LoadUser = True):
+    def __init__(self):
         self.vorteile = {}
         self.fertigkeiten = {}
         self.talente = {}
         self.übernatürlicheFertigkeiten = {}
         self.waffen = {}
         self.manöver = {}
+        self.removeList = []
         
-        self.vExclude = []
-        self.fExclude = []
-        self.tExclude = []
-        self.üExclude = []
-        self.wExclude = []
-        
-        self.datei = 'datenbank.xml'
+        self.datei = "datenbank_user.xml"
         self.root = None
-        if os.path.isfile(self.datei):
-            self.xmlLaden()
-        elif os.path.isfile("regelbasis.xml"):
-            self.datei = "regelbasis.xml"
-            self.xmlLaden()
-            
-        if LoadUser and os.path.isfile("datenbank_user.xml"):
-            self.datei = "datenbank_user.xml"
-            self.xmlLaden(False)
-            
-    def prepUserDBSchreiben(self):
-        refDB = Datenbank(False)        
-        for el in self.vorteile:
-            if el in refDB.vorteile:
-                if self.vorteile[el] == refDB.vorteile[el]:
-                    self.vExclude.append(el)
-        for el in self.fertigkeiten:
-            if el in refDB.fertigkeiten:
-                if self.fertigkeiten[el] == refDB.fertigkeiten[el]:
-                    self.fExclude.append(el)
-        for el in self.talente:
-            if el in refDB.talente:
-                if self.talente[el] == refDB.talente[el]:
-                    self.tExclude.append(el)
-        for el in self.übernatürlicheFertigkeiten:
-            if el in refDB.übernatürlicheFertigkeiten:
-                if self.übernatürlicheFertigkeiten[el] == refDB.übernatürlicheFertigkeiten[el]:
-                    self.üExclude.append(el)
-        for el in self.waffen:
-            if el in refDB.waffen:
-                if self.waffen[el] == refDB.waffen[el]:
-                    self.wExclude.append(el)
-        for el in self.manöver:
-            if el in refDB.manöver:
-                if self.manöver[el] == refDB.manöver[el]:
-                    self.wExclude.append(el)
-        
-    def postUserDBSchreiben(self):
-        self.vExclude = []
-        self.fExclude = []
-        self.tExclude = []
-        self.üExclude = []
-        self.wExclude = []
-                
+        self.xmlLaden()              
 
     def xmlSchreiben(self):
         Wolke.Fehlercode = -26
@@ -74,77 +30,88 @@ class Datenbank():
         #Vorteile
         Wolke.Fehlercode = -27
         for vort in self.vorteile:
-            if vort in self.vExclude: continue
+            vorteil = self.vorteile[vort]
+            if not vorteil.isUserAdded: continue
             v = etree.SubElement(self.root,'Vorteil')
-            v.set('name',self.vorteile[vort].name)
-            v.set('kosten',str(self.vorteile[vort].kosten))
-            v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(self.vorteile[vort].voraussetzungen, None))
-            v.set('nachkauf',self.vorteile[vort].nachkauf)
-            v.set('typ', str(self.vorteile[vort].typ))
-            v.set('variable', str(self.vorteile[vort].variable))
-            v.text = self.vorteile[vort].text
+            v.set('name',vorteil.name)
+            v.set('kosten',str(vorteil.kosten))
+            v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(vorteil.voraussetzungen, None))
+            v.set('nachkauf',vorteil.nachkauf)
+            v.set('typ', str(vorteil.typ))
+            v.set('variable', str(vorteil.variable))
+            v.text = vorteil.text
 
         #Talente
         Wolke.Fehlercode = -28
         for tal in self.talente:
-            if tal in self.tExclude: continue
+            talent = self.talente[tal]
+            if not talent.isUserAdded: continue
             v = etree.SubElement(self.root,'Talent')
-            v.set('name',self.talente[tal].name)
-            v.set('kosten',str(self.talente[tal].kosten))
-            v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(self.talente[tal].voraussetzungen, None))
-            v.set('verbilligt',str(self.talente[tal].verbilligt))
-            v.set('fertigkeiten',Hilfsmethoden.FertArray2Str(self.talente[tal].fertigkeiten, None))
-            v.set('variable',str(self.talente[tal].variable))
-            v.set('printclass',str(self.talente[tal].printclass))
-            v.text = self.talente[tal].text
+            v.set('name',talent.name)
+            v.set('kosten',str(talent.kosten))
+            v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(talent.voraussetzungen, None))
+            v.set('verbilligt',str(talent.verbilligt))
+            v.set('fertigkeiten',Hilfsmethoden.FertArray2Str(talent.fertigkeiten, None))
+            v.set('variable',str(talent.variable))
+            v.set('printclass',str(talent.printclass))
+            v.text = talent.text
             
         #Fertigkeiten
         Wolke.Fehlercode = -29
         for fer in self.fertigkeiten:
-            if fer in self.fExclude: continue
+            fertigkeit = self.fertigkeiten[fer]
+            if not fertigkeit.isUserAdded: continue
             v = etree.SubElement(self.root,'Fertigkeit')
-            v.set('name',self.fertigkeiten[fer].name)
-            v.set('steigerungsfaktor',str(self.fertigkeiten[fer].steigerungsfaktor))
-            v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(self.fertigkeiten[fer].voraussetzungen, None))
-            v.set('attribute',Hilfsmethoden.AttrArray2Str(self.fertigkeiten[fer].attribute))
-            v.set('kampffertigkeit',str(self.fertigkeiten[fer].kampffertigkeit))
-            v.text = self.fertigkeiten[fer].text
+            v.set('name',fertigkeit.name)
+            v.set('steigerungsfaktor',str(fertigkeit.steigerungsfaktor))
+            v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(fertigkeit.voraussetzungen, None))
+            v.set('attribute',Hilfsmethoden.AttrArray2Str(fertigkeit.attribute))
+            v.set('kampffertigkeit',str(fertigkeit.kampffertigkeit))
+            v.text = fertigkeit.text
 
         Wolke.Fehlercode = -30
         for fer in self.übernatürlicheFertigkeiten:
-            if fer in self.üExclude: continue
+            fertigkeit = self.übernatürlicheFertigkeiten[fer]
+            if not fertigkeit.isUserAdded: continue
             v = etree.SubElement(self.root,'Übernatürliche-Fertigkeit')
-            v.set('name',self.übernatürlicheFertigkeiten[fer].name)
-            v.set('steigerungsfaktor',str(self.übernatürlicheFertigkeiten[fer].steigerungsfaktor))
-            v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(self.übernatürlicheFertigkeiten[fer].voraussetzungen, None))
-            v.set('attribute',Hilfsmethoden.AttrArray2Str(self.übernatürlicheFertigkeiten[fer].attribute))
-            v.text = self.übernatürlicheFertigkeiten[fer].text
+            v.set('name',fertigkeit.name)
+            v.set('steigerungsfaktor',str(fertigkeit.steigerungsfaktor))
+            v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(fertigkeit.voraussetzungen, None))
+            v.set('attribute',Hilfsmethoden.AttrArray2Str(fertigkeit.attribute))
+            v.text = fertigkeit.text
                                                     
         #Waffen
         Wolke.Fehlercode = -31
         for wa in self.waffen:
-            if wa in self.wExclude: continue
+            waffe = self.waffen[wa]
+            if not waffe.isUserAdded: continue
             w = etree.SubElement(self.root,'Waffe')
-            w.set('name', self.waffen[wa].name)
-            w.set('W6', str(self.waffen[wa].W6))
-            w.set('plus', str(self.waffen[wa].plus))
-            w.set('haerte', str(self.waffen[wa].haerte))
-            w.text = self.waffen[wa].eigenschaften
-            w.set('fertigkeit', self.waffen[wa].fertigkeit)
-            w.set('talent', self.waffen[wa].talent)
-            w.set('beid', str(self.waffen[wa].beid))
-            w.set('pari', str(self.waffen[wa].pari))
-            w.set('reit', str(self.waffen[wa].reit))
-            w.set('schi', str(self.waffen[wa].schi))
-            w.set('kraf', str(self.waffen[wa].kraf))
-            w.set('schn', str(self.waffen[wa].schn))
-            w.set('rw', str(self.waffen[wa].rw))
-            if type(self.waffen[wa]) == Objekte.Fernkampfwaffe:
-                w.set('lz', str(self.waffen[wa].lz))
+            w.set('name', waffe.name)
+            w.set('W6', str(waffe.W6))
+            w.set('plus', str(waffe.plus))
+            w.set('haerte', str(waffe.haerte))
+            w.text = waffe.eigenschaften
+            w.set('fertigkeit', waffe.fertigkeit)
+            w.set('talent', waffe.talent)
+            w.set('beid', str(waffe.beid))
+            w.set('pari', str(waffe.pari))
+            w.set('reit', str(waffe.reit))
+            w.set('schi', str(waffe.schi))
+            w.set('kraf', str(waffe.kraf))
+            w.set('schn', str(waffe.schn))
+            w.set('rw', str(waffe.rw))
+            if type(waffe) == Objekte.Fernkampfwaffe:
+                w.set('lz', str(waffe.lz))
                 w.set('fk', '1')
             else:
-                w.set('wm', str(self.waffen[wa].wm))
+                w.set('wm', str(waffe.wm))
                 w.set('fk', '0')
+
+        #Remove list
+        for rm in self.removeList:
+            r = etree.SubElement(self.root,'Remove')
+            r.set('name', rm[0])
+            r.set('typ', rm[1])
 
         #Write XML to file
         Wolke.Fehlercode = -26
@@ -157,18 +124,37 @@ class Datenbank():
             file.truncate()
             
         Wolke.Fehlercode = 0
-        
-    def xmlLaden(self, clearVars=True):
+
+    def xmlLaden(self):
+        self.vorteile = {}
+        self.fertigkeiten = {}
+        self.talente = {}
+        self.übernatürlicheFertigkeiten = {}
+        self.waffen = {}
+        self.manöver = {}
+        self.removeList = []
+
+        if os.path.isfile('datenbank.xml'):
+            self.xmlLadenInternal('datenbank.xml', refDB=True)
+        try:   
+            if os.path.isfile(self.datei):
+                self.xmlLadenInternal(self.datei, refDB=False) 
+        except DatabaseException:
+            messagebox = QtWidgets.QMessageBox()
+            messagebox.setWindowTitle("Fehler!")
+            messagebox.setText(self.datei + " ist keine valide Datenbank-Datei!")
+            messagebox.setIcon(QtWidgets.QMessageBox.Critical)
+            messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            messagebox.exec_()
+            self.datei = "datenbank_user.xml"
+
+    def xmlLadenInternal(self, file, refDB):
         Wolke.Fehlercode = -20
-        self.root = etree.parse(self.datei).getroot()
-        if clearVars:
-            self.vorteile = {}
-            self.fertigkeiten = {}
-            self.talente = {}
-            self.übernatürlicheFertigkeiten = {}
-            self.waffen = {}
-            self.manöver = {}
-        
+        self.root = etree.parse(file).getroot()
+
+        if self.root.tag != 'Datenbank':
+            raise DatabaseException('Not a valid database file')
+
         numLoaded = 0
         
         #Vorteile
@@ -182,6 +168,7 @@ class Datenbank():
             V.nachkauf = vort.get('nachkauf')
             V.typ = int(vort.get('typ'))
             V.text = vort.text
+            V.isUserAdded = not refDB
             try:
                 V.variable = int(vort.get('variable'))
             except:
@@ -200,6 +187,7 @@ class Datenbank():
             T.fertigkeiten = Hilfsmethoden.FertStr2Array(tal.get('fertigkeiten'), None)
             T.voraussetzungen = Hilfsmethoden.VorStr2Array(tal.get('voraussetzungen'), None)
             T.variable = int(tal.get('variable'))
+            T.isUserAdded = not refDB
 
             printClass = tal.get('printclass')
             if printClass:
@@ -219,6 +207,7 @@ class Datenbank():
             F.attribute = Hilfsmethoden.AttrStr2Array(fer.get('attribute'))
             F.voraussetzungen = Hilfsmethoden.VorStr2Array(fer.get('voraussetzungen'),None)
             F.kampffertigkeit = int(fer.get('kampffertigkeit'))
+            F.isUserAdded = not refDB
             self.fertigkeiten.update({F.name: F})
 
         Wolke.Fehlercode = -24
@@ -230,6 +219,7 @@ class Datenbank():
             F.text = fer.text
             F.attribute = Hilfsmethoden.AttrStr2Array(fer.get('attribute'))
             F.voraussetzungen = Hilfsmethoden.VorStr2Array(fer.get('voraussetzungen'),None)
+            F.isUserAdded = not refDB
             self.übernatürlicheFertigkeiten.update({F.name: F})
             
         #Waffen
@@ -256,6 +246,7 @@ class Datenbank():
             w.schi = int(wa.get('schi'))
             w.kraf = int(wa.get('kraf'))
             w.schn = int(wa.get('schn'))
+            w.isUserAdded = not refDB
             self.waffen.update({w.name: w})
         
         #Manöver
@@ -269,11 +260,33 @@ class Datenbank():
             m.gegenprobe = ma.get('gegenprobe')
             m.typ = int(ma.get('typ'))
             m.text = ma.text
+            m.isUserAdded = not refDB
             self.manöver.update({m.name: m})
 
-        if numLoaded <1 and clearVars:
+        #Remove existing entries (should be used in database_user only)
+        for rem in self.root.findall('Remove'):
+            typ = rem.get('typ')
+            name = rem.get('name')
+            removed = None
+            if typ == 'Vorteil':
+                removed = self.vorteile.pop(name)
+            elif typ == 'Fertigkeit':
+                removed = self.fertigkeiten.pop(name)
+            elif typ == 'Talent':
+                removed = self.talente.pop(name)
+            elif typ == 'Übernatürliche-Fertigkeit':
+                removed = self.übernatürlicheFertigkeiten.pop(name)
+            elif typ == 'Waffe':
+                removed = self.waffen.pop(name)
+            elif typ == 'Manöver':
+                removed = self.manöver.pop(name)
+            self.removeList.append((name, typ, removed))
+
+        if numLoaded <1 and refDB:
             Wolke.Fehlercode = -33
             raise Exception('The selected database file is empty!')
         
         # Reset 
         Wolke.Fehlercode = 0
+
+        return True
