@@ -38,6 +38,7 @@ class DatenbankEdit(object):
         self.ui.showUebernatuerlicheFertigkeiten.stateChanged.connect(self.updateGUI)
         self.ui.showWaffen.stateChanged.connect(self.updateGUI)
         self.ui.showManoever.stateChanged.connect(self.updateGUI)
+        self.ui.showDeleted.stateChanged.connect(self.updateGUI)
         self.ui.buttonLoadDB.clicked.connect(self.loadDatenbank)
         self.ui.buttonSaveDB.clicked.connect(self.saveDatenbank)
         self.ui.buttonQuicksave.clicked.connect(self.quicksaveDatenbank)
@@ -136,12 +137,12 @@ class DatenbankEdit(object):
                 item = QtGui.QStandardItem(itm + " : Manöver / Modifikation")
                 item.setEditable(False)
                 self.model.appendRow(item)
-
-        for itm in self.datenbank.removeList:
-            item = QtGui.QStandardItem(itm[0] + " : "  + itm[1] + " (gelöscht)")
-            item.setEditable(False)
-            item.setBackground(QtGui.QBrush(QtCore.Qt.red))
-            self.model.appendRow(item)
+        if self.ui.showDeleted.isChecked():
+            for itm in self.datenbank.removeList:
+                item = QtGui.QStandardItem(itm[0] + " : "  + itm[1] + " (gelöscht)")
+                item.setEditable(False)
+                item.setBackground(QtGui.QBrush(QtCore.Qt.red))
+                self.model.appendRow(item)
         self.ui.listDatenbank.setModel(self.model)
                
     def wiederherstellen(self):
