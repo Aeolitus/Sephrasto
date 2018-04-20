@@ -17,6 +17,7 @@ import DatenbankEditWaffeWrapper
 import DatenbankEditManoeverWrapper
 import Objekte
 import os
+from Wolke import Wolke
 
 class DatenbankEdit(object):
     def __init__(self):
@@ -401,7 +402,11 @@ class DatenbankEdit(object):
                 self.onDatabaseChange()
                               
     def saveDatenbank(self):
-        spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"User Datenbank speichern...","","XML-Datei (*.xml)")
+        if os.path.isdir(Wolke.Settings['Pfad-Regeln']):
+            startDir = Wolke.Settings['Pfad-Regeln']
+        else:
+            startDir = ""
+        spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"User Datenbank speichern...",startDir,"XML-Datei (*.xml)")
         spath = os.path.realpath(spath)
         refDatabaseFile = os.getcwd() + "\\datenbank.xml"
 
@@ -451,7 +456,11 @@ in Ordnung, werden aber nicht von Sephrasto geladen.")
     def loadDatenbank(self):
         if self.cancelDueToPendingChanges("Andere Datenbank laden"):
             return
-        spath, _ = QtWidgets.QFileDialog.getOpenFileName(None,"User Datenbank laden...","","XML-Datei (*.xml)")
+        if os.path.isdir(Wolke.Settings['Pfad-Regeln']):
+            startDir = Wolke.Settings['Pfad-Regeln']
+        else:
+            startDir = ""
+        spath, _ = QtWidgets.QFileDialog.getOpenFileName(None,"User Datenbank laden...",startDir,"XML-Datei (*.xml)")
         if not spath:
             return
         spath = os.path.realpath(spath)

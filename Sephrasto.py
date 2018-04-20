@@ -88,8 +88,10 @@ class MainWindowWrapper(object):
         self.app.setWindowIcon(QtGui.QIcon('icon_large.png'))
         
         # Get the Settings loaded
-        if os.path.isfile('Sephrasto.ini'):
-            with open('Sephrasto.ini','r') as infile:
+        SettingsPath = os.path.join(os.path.expanduser('~'),'Sephrasto', 
+                                        'Sephrasto.ini')
+        if os.path.isfile(SettingsPath):
+            with open(SettingsPath,'r') as infile:
                 Wolke.Settings = yaml.safe_load(infile)
         
         self.Form.show()
@@ -116,7 +118,11 @@ class MainWindowWrapper(object):
         '''
         Creates a CharakterEditor for an existing character and shows it.
         '''
-        spath, _ = QtWidgets.QFileDialog.getOpenFileName(None,"Charakter laden...","","XML-Datei (*.xml)")
+        if os.path.isdir(Wolke.Settings['Pfad-Chars']):
+            startDir = Wolke.Settings['Pfad-Chars']
+        else:
+            startDir = ""
+        spath, _ = QtWidgets.QFileDialog.getOpenFileName(None,"Charakter laden...",startDir,"XML-Datei (*.xml)")
         if spath == "":
             return
         if not spath.endswith(".xml"):

@@ -53,6 +53,11 @@ class EinstellungenWrapper():
         self.form.show()
         self.ret = self.form.exec_()
         if self.ret == QtWidgets.QDialog.Accepted:
+            if not os.path.isdir(os.path.join(os.path.expanduser('~'),'Sephrasto')):
+                os.mkdir(os.path.join(os.path.expanduser('~'),'Sephrasto'))
+                os.mkdir(os.path.join(os.path.expanduser('~'),'Sephrasto', 'Charaktere'))
+                os.mkdir(os.path.join(os.path.expanduser('~'),'Sephrasto', 'Regeln'))
+            
             Wolke.Settings['Bogen'] = self.ui.comboBogen.currentText()
             db = self.ui.comboRegelbasis.currentText()
             if db == 'Keine':
@@ -68,8 +73,10 @@ class EinstellungenWrapper():
                 Wolke.Settings['Pfad-Regeln'] = self.ui.editRegeln.text()
             else:
                 Wolke.Settings['Pfad-Regeln'] = ''
-                
-            with open('Sephrasto.ini', 'w') as outfile:
+            
+            SettingsPath = os.path.join(os.path.expanduser('~'),'Sephrasto', 
+                                        'Sephrasto.ini')
+            with open(SettingsPath, 'w') as outfile:
                 yaml.dump(Wolke.Settings, outfile)
     
     
