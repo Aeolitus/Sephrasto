@@ -26,18 +26,12 @@ class EinstellungenWrapper():
         self.ui.comboBogen.setCurrentText(Wolke.Settings['Bogen'])
         
         if Wolke.Settings['Pfad-Chars'] == '':
-            p = os.path.expanduser('~')
-            p = os.path.join(p, 'Sephrasto', 'Charaktere')
-            Wolke.Settings['Pfad-Chars'] = p
-            self.ui.editChar.setText(p)
+            self.resetCharPath()
         else:
             self.ui.editChar.setText(Wolke.Settings['Pfad-Chars'])
         
         if Wolke.Settings['Pfad-Regeln'] == '':
-            p = os.path.expanduser('~')
-            p = os.path.join(p, 'Sephrasto', 'Regeln')
-            Wolke.Settings['Pfad-Regeln'] = p
-            self.ui.editRegeln.setText(p)
+            self.resetRulePath()
         else:
             self.ui.editRegeln.setText(Wolke.Settings['Pfad-Regeln'])
 
@@ -50,7 +44,11 @@ class EinstellungenWrapper():
         self.ui.comboRegelbasis.addItems(optionsList)
         if Wolke.Settings['Datenbank'] in optionsList:
             self.ui.comboRegelbasis.setCurrentText(Wolke.Settings['Datenbank'])
-        
+            
+        self.ui.buttonChar.clicked.connect(self.setCharPath)
+        self.ui.buttonRegeln.clicked.connect(self.setRulePath)
+        self.ui.resetChar.clicked.connect(self.resetCharPath)
+        self.ui.resetRegeln.clicked.connect(self.resetRulePath)
         self.form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.form.show()
         self.ret = self.form.exec_()
@@ -75,4 +73,34 @@ class EinstellungenWrapper():
                 yaml.dump(Wolke.Settings, outfile)
     
     
-          
+    def setCharPath(self):
+        path = QtWidgets.QFileDialog.getExistingDirectory(None,
+          "Wähle einen Speicherort für Charaktere aus!",
+          Wolke.Settings['Pfad-Chars'],
+          QtWidgets.QFileDialog.ShowDirsOnly)
+        if os.path.isdir(path):
+            Wolke.Settings['Pfad-Chars'] = path
+            self.ui.editChar.setText(path)
+            
+    def setRulePath(self):
+        path = QtWidgets.QFileDialog.getExistingDirectory(None,
+          "Wähle einen Speicherort für Regeln aus!",
+          Wolke.Settings['Pfad-Regeln'],
+          QtWidgets.QFileDialog.ShowDirsOnly)
+        if os.path.isdir(path):
+            Wolke.Settings['Pfad-Regeln'] = path
+            self.ui.editRegeln.setText(path)
+            
+    def resetCharPath(self):
+        p = os.path.expanduser('~')
+        p = os.path.join(p, 'Sephrasto', 'Charaktere')
+        Wolke.Settings['Pfad-Chars'] = p
+        self.ui.editChar.setText(p)
+        
+    def resetRulePath(self):
+        p = os.path.expanduser('~')
+        p = os.path.join(p, 'Sephrasto', 'Regeln')
+        Wolke.Settings['Pfad-Regeln'] = p
+        self.ui.editRegeln.setText(p)
+        
+        

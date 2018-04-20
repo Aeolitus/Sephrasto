@@ -1,3 +1,4 @@
+echo "NICHT VERGESSEN, DIE SETTINGS ZU BEREINIGEN"
 del Build
 py "C:\Program Files (x86)\Python36-32\Scripts\cxfreeze" --target-dir=C:\Users\Lennart\Desktop\Sephrasto\Build ^
 --base-name=Win32GUI ^
