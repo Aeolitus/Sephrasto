@@ -19,7 +19,12 @@ class Datenbank():
         self.manöver = {}
         self.removeList = []
         
-        self.datei = "datenbank_user.xml"
+        tmp = os.path.join(Wolke.Settings['Pfad-Regeln'], 
+                           Wolke.Settings['Datenbank'])
+        if os.path.isfile(tmp):
+            self.datei = tmp
+        else:
+            self.datei = "datenbank_user.xml"
         self.root = None
         self.xmlLaden()              
 

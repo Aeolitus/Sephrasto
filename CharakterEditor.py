@@ -135,7 +135,11 @@ class Editor(object):
         self.ignoreModified = False
         
     def saveButton(self):
-        spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"Charakter speichern...","","XML-Datei (*.xml)")
+        if os.path.isdir(Wolke.Settings['Pfad-Chars']):
+            startDir = Wolke.Settings['Pfad-Chars']
+        else:
+            startDir = ""
+        spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"Charakter speichern...",startDir,"XML-Datei (*.xml)")
         if spath == "":
             return
         if ".xml" not in spath:
@@ -176,22 +180,24 @@ Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
             
     def pdfButton(self):
         self.updateAll()
-
-        messagebox = QtWidgets.QMessageBox()
-        messagebox.setWindowTitle("Charakterbogen wählen")
-        messagebox.setText("Welcher Charakterbogen soll genutzt werden?")
-        messagebox.setIcon(QtWidgets.QMessageBox.Question)
-
-        check = QtWidgets.QCheckBox("Regelübersicht anhängen")
-        check.setCheckState(QtCore.Qt.Unchecked)
-        messagebox.setCheckBox(check)
-        messagebox.addButton(QtWidgets.QPushButton("  Standard Ilaris-Charakterbogen  "), QtWidgets.QMessageBox.AcceptRole)
-        messagebox.addButton(QtWidgets.QPushButton("  Lange Version von Gatsu  "), QtWidgets.QMessageBox.AcceptRole)
-        messagebox.addButton(QtWidgets.QPushButton("Abbrechen"), QtWidgets.QMessageBox.RejectRole)
-        result = messagebox.exec_()
-        if result == 0:
+        
+        result = -1
+        if Wolke.Settings['Bogen'] == 'Frag immer nach':
+            messagebox = QtWidgets.QMessageBox()
+            messagebox.setWindowTitle("Charakterbogen wählen")
+            messagebox.setText("Welcher Charakterbogen soll genutzt werden?")
+            messagebox.setIcon(QtWidgets.QMessageBox.Question)
+    
+            check = QtWidgets.QCheckBox("Regelübersicht anhängen")
+            check.setCheckState(QtCore.Qt.Unchecked)
+            messagebox.setCheckBox(check)
+            messagebox.addButton(QtWidgets.QPushButton("  Standard Ilaris-Charakterbogen  "), QtWidgets.QMessageBox.AcceptRole)
+            messagebox.addButton(QtWidgets.QPushButton("  Lange Version von Gatsu  "), QtWidgets.QMessageBox.AcceptRole)
+            messagebox.addButton(QtWidgets.QPushButton("Abbrechen"), QtWidgets.QMessageBox.RejectRole)
+            result = messagebox.exec_()
+        if result == 0 or Wolke.Settings['Bogen'] == 'Standard Ilaris-Charakterbogen':
             self.pdfMeister.setCharakterbogenKurz()
-        elif result == 1:
+        elif result == 1 or Wolke.Settings['Bogen'] == 'Die lange Version von Gatsu':
             self.pdfMeister.setCharakterbogenLang()
         else:
             return
@@ -205,16 +211,24 @@ Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
             messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             messagebox.exec_()
             return
-       
+        
+        if os.path.isdir(Wolke.Settings['Pfad-Chars']):
+            startDir = Wolke.Settings['Pfad-Chars']
+        else:
+            startDir = ""
+            
         # Let the user choose a saving location and name
-        spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"Charakterbogen erstellen...","","PDF-Datei (*.pdf)")
+        spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"Charakterbogen erstellen...",startDir,"PDF-Datei (*.pdf)")
         if spath == "":
             return
         if ".pdf" not in spath:
             spath = spath + ".pdf"
             
         try:
-            printRules = check.checkState() == QtCore.Qt.Checked
+            if Wolke.Settings['Cheatsheet'] or check.checkState() == QtCore.Qt.Checked:
+                printRules = True
+            else:
+                printRules = False
             self.pdfMeister.pdfErstellen(spath, printRules)
         except:
             infoBox = QtWidgets.QMessageBox()
