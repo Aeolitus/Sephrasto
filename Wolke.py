@@ -10,6 +10,13 @@ class Wolke:
     Reqs = True
     Debug = False
     Fehlercode = 0
+    Settings = {
+        'Bogen': 'Frag immer nach', 
+        'Datenbank': 'datenbank_user.xml', 
+        'Cheatsheet': False, 
+        'Pfad-Chars': '',
+        'Pfad-Regeln': ''
+    }
     ErrorCode = {
          0: 'No Error. You really shouldnt be seeing this.',
         -1: 'General, unspecified Error. Contact Aeolitus.',

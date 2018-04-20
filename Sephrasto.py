@@ -15,6 +15,8 @@ import DatenbankEdit
 import CharakterMain
 import DatenbankMain
 from Wolke import Wolke
+import yaml
+import EinstellungenWrapper
 
 logging.basicConfig(filename="sephrasto.log", level=logging.DEBUG, format="%(asctime)s | %(levelname)s | %(filename)s::%(funcName)s(%(lineno)d) | %(message)s")
 
@@ -80,10 +82,16 @@ class MainWindowWrapper(object):
         self.ui.buttonNew.clicked.connect(self.createNew)
         self.ui.buttonEdit.clicked.connect(self.editExisting)
         self.ui.buttonRules.clicked.connect(self.editRuleset)
+        self.ui.buttonSettings.clicked.connect(self.editSettings)
         self.ui.labelVersion.setText(self._version_ + " - by Aeolitus ")
 
         self.app.setWindowIcon(QtGui.QIcon('icon_large.png'))
-
+        
+        # Get the Settings loaded
+        if os.path.isfile('Sephrasto.ini'):
+            with open('Sephrasto.ini','r') as infile:
+                Wolke.Settings = yaml.safe_load(infile)
+        
         self.Form.show()
         sys.exit(self.app.exec_())
         
@@ -155,6 +163,9 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n")
         self.D.ui.setupUi(self.D.Form)
         self.D.setupGUI()
         self.D.Form.show()
+        
+    def editSettings(self):
+        EinstellungenWrapper.EinstellungenWrapper()
         
 if __name__ == "__main__":
     itm = MainWindowWrapper()
