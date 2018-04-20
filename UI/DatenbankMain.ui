@@ -193,6 +193,22 @@
            </property>
           </widget>
          </item>
+		 <item>
+          <widget class="QPushButton" name="buttonWiederherstellen">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Wiederherstellen</string>
+           </property>
+		   <property name="visible">
+            <bool>False</bool>
+           </property>
+          </widget>
+         </item>
         </layout>
        </item>
       </layout>

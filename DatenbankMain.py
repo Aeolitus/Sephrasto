@@ -77,6 +77,11 @@ class Ui_Form(object):
         self.buttonLoeschen.setMinimumSize(QtCore.QSize(0, 25))
         self.buttonLoeschen.setObjectName("buttonLoeschen")
         self.horizontalLayout.addWidget(self.buttonLoeschen)
+        self.buttonWiederherstellen = QtWidgets.QPushButton(Form)
+        self.buttonWiederherstellen.setMinimumSize(QtCore.QSize(0, 25))
+        self.buttonWiederherstellen.setVisible(False)
+        self.buttonWiederherstellen.setObjectName("buttonWiederherstellen")
+        self.horizontalLayout.addWidget(self.buttonWiederherstellen)
         self.verticalLayout_2.addLayout(self.horizontalLayout)
         self.horizontalLayout_2.addLayout(self.verticalLayout_2)
         self.gridLayout.addLayout(self.horizontalLayout_2, 0, 0, 1, 1)
@@ -109,6 +114,7 @@ class Ui_Form(object):
         self.buttonHinzufuegen.setText(_translate("Form", "Hinzufügen"))
         self.buttonEditieren.setText(_translate("Form", "Editieren"))
         self.buttonLoeschen.setText(_translate("Form", "Löschen"))
+        self.buttonWiederherstellen.setText(_translate("Form", "Wiederherstellen"))
 
 
 if __name__ == "__main__":
