@@ -17,7 +17,10 @@ class DatenbankEditManoeverWrapper(object):
         manDialog = QtWidgets.QDialog()
         ui = DatenbankEditManoever.Ui_manDialog()
         ui.setupUi(manDialog)
-        
+
+        if not man.isUserAdded:
+            ui.warning.setVisible(True)
+
         manDialog.setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |

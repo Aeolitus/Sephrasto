@@ -90,6 +90,16 @@
          </property>
         </widget>
        </item>
+	   <item>
+        <widget class="QCheckBox" name="showDeleted">
+         <property name="text">
+          <string>Gelöschtes</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
        <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
@@ -200,6 +210,22 @@
            </property>
            <property name="text">
             <string>Löschen</string>
+           </property>
+          </widget>
+         </item>
+		 <item>
+          <widget class="QPushButton" name="buttonWiederherstellen">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Wiederherstellen</string>
+           </property>
+		   <property name="visible">
+            <bool>False</bool>
            </property>
           </widget>
          </item>

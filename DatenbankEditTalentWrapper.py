@@ -17,7 +17,10 @@ class DatenbankEditTalentWrapper(object):
         talentDialog = QtWidgets.QDialog()
         ui = DatenbankEditTalent.Ui_talentDialog()
         ui.setupUi(talentDialog)
-        
+
+        if not talent.isUserAdded:
+            ui.warning.setVisible(True)
+
         talentDialog.setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |

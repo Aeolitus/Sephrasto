@@ -61,6 +61,8 @@ class Fertigkeit(Steigerbar):
         self.probenwertTalent = -1
         self.voraussetzungen = []
         self.maxWert = -1
+        self.isUserAdded = True
+
     def aktualisieren(self):
         self.attributswerte = [Wolke.Char.attribute[self.attribute[0]].wert, 
                                Wolke.Char.attribute[self.attribute[1]].wert,
@@ -92,6 +94,7 @@ class Talent():
         self.variable = 0
         self.text = ''
         self.printclass = -1
+        self.isUserAdded = True
     def __eq__(self, other) : 
         if self.__class__ != other.__class__: return False
         return self.__dict__ == other.__dict__
@@ -105,6 +108,7 @@ class Vorteil():
         self.voraussetzungen = []
         self.nachkauf = ''
         self.text = ''
+        self.isUserAdded = True
     def __eq__(self, other) : 
         if self.__class__ != other.__class__: return False
         if self.__dict__ == other.__dict__: return True
@@ -117,6 +121,7 @@ class Manoever():
         self.probe = ''
         self.gegenprobe = ''
         self.text = ''
+        self.isUserAdded = True
     def __eq__(self, other) : 
         if self.__class__ != other.__class__: return False
         if self.__dict__ == other.__dict__: return True

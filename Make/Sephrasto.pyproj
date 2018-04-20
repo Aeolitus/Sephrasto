@@ -76,6 +76,8 @@
     <Compile Include="..\TalentPicker.py" />
     <Compile Include="..\WaffenPicker.py" />
     <Compile Include="..\Wolke.py" />
+    <Compile Include="..\DatenbankEditManoever.py" />
+    <Compile Include="..\DatenbankEditManoeverWrapper.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>
