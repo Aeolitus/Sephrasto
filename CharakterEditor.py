@@ -183,10 +183,10 @@ Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
         messagebox.setIcon(QtWidgets.QMessageBox.Question)
 
         check = QtWidgets.QCheckBox("Regelübersicht anhängen")
-        check.setCheckState(QtCore.Qt.Checked)
+        check.setCheckState(QtCore.Qt.Unchecked)
         messagebox.setCheckBox(check)
-        messagebox.addButton(QtWidgets.QPushButton("Standard"), QtWidgets.QMessageBox.AcceptRole)
-        messagebox.addButton(QtWidgets.QPushButton("Lange Version"), QtWidgets.QMessageBox.AcceptRole)
+        messagebox.addButton(QtWidgets.QPushButton("  Standard Ilaris-Charakterbogen  "), QtWidgets.QMessageBox.AcceptRole)
+        messagebox.addButton(QtWidgets.QPushButton("  Lange Version von Gatsu  "), QtWidgets.QMessageBox.AcceptRole)
         messagebox.addButton(QtWidgets.QPushButton("Abbrechen"), QtWidgets.QMessageBox.RejectRole)
         result = messagebox.exec_()
         if result == 0:
