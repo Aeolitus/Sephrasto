@@ -8,6 +8,7 @@ Created on Thu Mar 23 21:30:34 2017
 from PyQt5 import QtWidgets, QtCore, QtGui
 import sys
 import logging
+import os.path
 import MainWindow
 import CharakterEditor
 import DatenbankEdit
@@ -89,58 +90,28 @@ class MainWindowWrapper(object):
     def createNew(self):
         '''
         Creates a new CharakterEditor which is empty and shows it.
-        If the folder this script is in does not contain a datenbank.xml or
-        regelbasis.xml, it prompts the user for a valid one first. If either 
-        of the xml files cannot be parsed properly, it will display an infobox
-        and exit.
         '''
         self.ed = CharakterEditor.Editor()
         if self.ed.noDatabase:
-            spathDB, _ = QtWidgets.QFileDialog.getOpenFileName(
-                         None, "Regelbasis wählen...", "", "XML-Datei (*.xml)")
-            if ".xml" not in spathDB:
-                spathDB = spathDB + ".xml"
-            Wolke.DB.datei = spathDB
-            try:
-                Wolke.DB.xmlLaden()
-                self.ed.finishInit("")
-            except:
-                infoBox = QtWidgets.QMessageBox()
-                infoBox.setIcon(QtWidgets.QMessageBox.Information)
-                if Wolke.Fehlercode <= -20 and Wolke.Fehlercode > -40:
-                    infoBox.setText("Regelbasis öffnen fehlgeschlagen")
-                    infoBox.setInformativeText("Die XML-Datei konnte nicht gelesen werden.\n\
-Fehlercode: " + str(Wolke.Fehlercode) + "\n\
-Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
-                    infoBox.setWindowTitle("Fehlerhafte Datei")
-                else:
-                    infoBox.setText("Ein unerwarteter Fehler ist aufgetreten!")
-                    infoBox.setInformativeText("Ein Fehler ist aufgetreten. Versuche, Sephrasto neu zu starten?\n\
-Fehlercode: " + str(Wolke.Fehlercode) + "\n")
-                    infoBox.setWindowTitle("Unbekannter Fehler")
-                infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-                infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-                infoBox.exec_()
+            raise Exception("Konnte datenbank.xml nicht finden")
         self.ed.formMain = QtWidgets.QWidget()
         self.ed.ui = CharakterMain.Ui_formMain()
         self.ed.ui.setupUi(self.ed.formMain)
         self.ed.ui.tabs.removeTab(0)
         self.ed.ui.tabs.removeTab(0)
         self.ed.setupMainForm()
+        splitpath = os.path.split(Wolke.DB.datei)
+        self.ed.formMain.setWindowTitle(self.ed.formMain.windowTitle() + " (" + splitpath[-1] + ")")
         self.ed.formMain.show()
         
     def editExisting(self):
         '''
         Creates a CharakterEditor for an existing character and shows it.
-        If the folder this script is in does not contain a datenbank.xml or
-        regelbasis.xml, it prompts the user for a valid one first. If either 
-        of the xml files cannot be parsed properly, it will display an infobox
-        and exit.
         '''
         spath, _ = QtWidgets.QFileDialog.getOpenFileName(None,"Charakter laden...","","XML-Datei (*.xml)")
         if spath == "":
             return
-        if ".xml" not in spath:
+        if not spath.endswith(".xml"):
             spath = spath + ".xml"
         try:
             self.ed = CharakterEditor.Editor(spath)
@@ -163,44 +134,20 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n")
             infoBox.exec_()
         else:
             if self.ed.noDatabase:
-                spathDB, _ = QtWidgets.QFileDialog.getOpenFileName(None,"Regelbasis wählen... ","","XML-Datei (*.xml)")
-                if ".xml" not in spathDB:
-                    spathDB = spathDB + ".xml"
-                Wolke.DB.datei = spathDB
-                try:
-                    Wolke.DB.xmlLaden()
-                    self.ed.finishInit(spath)
-                except:
-                    infoBox = QtWidgets.QMessageBox()
-                    infoBox.setIcon(QtWidgets.QMessageBox.Information)
-                    if Wolke.Fehlercode <= -20 and Wolke.Fehlercode > -40:
-                        infoBox.setText("Regelbasis öffnen fehlgeschlagen")
-                        infoBox.setInformativeText("Die XML-Datei konnte nicht gelesen werden.\n\
-Fehlercode: " + str(Wolke.Fehlercode) + "\n\
-Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
-                        infoBox.setWindowTitle("Fehlerhafte Datei")
-                    else:
-                        infoBox.setText("Ein unerwarteter Fehler ist aufgetreten!")
-                        infoBox.setInformativeText("Ein Fehler ist aufgetreten. Versuche, Sephrasto neu zu starten?\n\
-Fehlercode: " + str(Wolke.Fehlercode) + "\n")
-                        infoBox.setWindowTitle("Unbekannter Fehler")
-                    infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-                    infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-                    infoBox.exec_()
+                raise Exception("Konnte datenbank.xml nicht finden")
             self.ed.formMain = QtWidgets.QWidget()
             self.ed.ui = CharakterMain.Ui_formMain()
             self.ed.ui.setupUi(self.ed.formMain)
             self.ed.ui.tabs.removeTab(0)
             self.ed.ui.tabs.removeTab(0)
             self.ed.setupMainForm()
+            splitpath = os.path.split(Wolke.DB.datei)
+            self.ed.formMain.setWindowTitle(self.ed.formMain.windowTitle() + " (" + splitpath[-1] + ")")
             self.ed.formMain.show()
         
     def editRuleset(self):
         '''
-        Creates the DatenbankEdit Form and shows it. If the folder contains a 
-        datenbank.xml, it shows that; alternatively, if there is a file called
-        regelbasis.xml, that one will be shown. Otherwise, the rulebase remains
-        empty at first.
+        Creates the DatenbankEdit Form and shows the contents of datenbank.xml.
         '''
         self.D = DatenbankEdit.DatenbankEdit()
         self.D.Form = QtWidgets.QWidget()
