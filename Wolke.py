@@ -34,7 +34,7 @@ any content.''',
         -30: 'Error writing Übernatürliches. Please check your input!',
         -31: 'Error writing Waffen. Please check your input!',
         -32: 'Error writing database to file systems. Do you have writing permissions?',
-        
+        -34: 'Error writing Manöver. Please check your input!',
     ### Character Errors
         -41: 'Error clearing character. Please restart Sephrasto.',
         -42: 'Error parsing character. Is the file intact, readable and valid?',

@@ -107,6 +107,19 @@ class Datenbank():
                 w.set('wm', str(waffe.wm))
                 w.set('fk', '0')
 
+        #Manöver
+        Wolke.Fehlercode = -34
+        for ma in self.manöver:
+            manöver = self.manöver[ma]
+            if not manöver.isUserAdded: continue
+            m = etree.SubElement(self.root, 'Manoever')
+            m.set('name', manöver.name)
+            m.set('typ', str(manöver.typ))
+            m.set('voraussetzungen', Hilfsmethoden.VorArray2Str(manöver.voraussetzungen, None))
+            m.set('probe', manöver.probe)
+            m.set('gegenprobe', manöver.gegenprobe)
+            m.text = manöver.text
+
         #Remove list
         for rm in self.removeList:
             r = etree.SubElement(self.root,'Remove')
@@ -274,11 +287,11 @@ class Datenbank():
                 removed = self.fertigkeiten.pop(name)
             elif typ == 'Talent':
                 removed = self.talente.pop(name)
-            elif typ == 'Übernatürliche-Fertigkeit':
+            elif typ == 'Übernatürliche Fertigkeit':
                 removed = self.übernatürlicheFertigkeiten.pop(name)
             elif typ == 'Waffe':
                 removed = self.waffen.pop(name)
-            elif typ == 'Manöver':
+            elif typ == 'Manöver / Modifikation':
                 removed = self.manöver.pop(name)
             self.removeList.append((name, typ, removed))
 
