@@ -17,6 +17,9 @@ class DatenbankEditFertigkeitWrapper(object):
         fertDialog = QtWidgets.QDialog()
         ui = DatenbankEditFertigkeit.Ui_talentDialog()
         ui.setupUi(fertDialog)
+
+        if not fertigkeit.isUserAdded:
+            ui.warning.setVisible(True)
         
         fertDialog.setWindowFlags(
                 QtCore.Qt.Window |

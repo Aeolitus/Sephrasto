@@ -18,6 +18,9 @@ class DatenbankEditVorteilWrapper(object):
         ui = DatenbankEditVorteil.Ui_talentDialog()
         ui.setupUi(vorteilDialog)
         
+        if not vorteil.isUserAdded:
+            ui.warning.setVisible(True)
+
         vorteilDialog.setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |

@@ -18,6 +18,9 @@ class DatenbankEditWaffeWrapper(object):
         self.ui = DatenbankEditWaffe.Ui_talentDialog()
         self.ui.setupUi(waffeDialog)
         
+        if not waffe.isUserAdded:
+            self.ui.warning.setVisible(True)
+
         waffeDialog.setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
