@@ -3,9 +3,12 @@ import Fertigkeiten
 import Objekte
 import lxml.etree as etree
 import re
+import binascii
 import copy
+import logging
 from Wolke import Wolke
 from Hilfsmethoden import Hilfsmethoden
+from PyQt5 import QtWidgets, QtCore
 
 class Char():
     ''' 
@@ -82,9 +85,43 @@ class Char():
 
         #Achter Block: Flags etc
         self.höchsteKampfF = -1
-        
+
         # Diagnostics
         self.fehlercode = 0
+
+        #Versionierung
+        #Wenn die Ref-DB eine Änderung erhält durch die existierende Charakter-XMLs aktualisiert werden müssen,
+        #kann hier die Datenbank Code Version inkrementiert werden und in der Migrationen-Map eine Migrationsfunktion für die neue Version angelegt werden.
+        #In dieser Funktion kann dann die Charakter-XML-Datei angepasst werden, bevor sie geladen wird.
+        #WICHTIG: Bei Vorteilen/(ÜB-)Fertigkeiten/Talenten nur solche migrieren, bei denen in der aktuell geladenen Datenbasis userAdded == False ist.
+        #Die Migrationsfunktion sollte einen string zurückgeben, der erklärt was geändert wurde - dies wird dem Nutzer in einer Messagebox angezeigt.
+        #Die Funktionen werden inkrementell ausgeführt, bspw. bei Charakter-DB-Version '0' und Code-DB-Version '2' wird zuerst die Funktion für 1, dann die Funktion für 2 aufgerufen
+        self.datenbankCodeVersion = 0
+        self.migrationen = [
+            lambda xmlRoot: None, #nichts zu tun, initiale db version
+            self.migriere0zu1,
+            self.migriere1zu2,      
+        ]
+
+        if not self.migrationen[self.datenbankCodeVersion]:
+            raise Exception("Migrations-Code vergessen.")
+
+    def migriere0zu1(self, xmlRoot):
+        #Dies würde aufgerufen werden, wenn datenbankCodeVersion 1 oder höher und Charakter-DatenbankVersion geringer als 1 wäre
+        #WICHTIG: bei Vorteilen/(ÜB-)Fertigkeiten/Talenten nur solche migrieren, bei denen in der aktuell geladenen Datenbasis userAdded == False ist.
+        #Beispiel:
+        #if not 'Handgemenge' in Wolke.DB.fertigkeiten or not Wolke.DB.fertigkeiten['Handgemenge'].isUserAdded:
+        #    for fer in xmlRoot.findall('Fertigkeiten/Fertigkeit'):
+        #        if fer.attrib['name'] == 'Handgemenge':
+        #            fer.attrib['name'] = 'Raufen'
+        #            return "Handgemenge wurde in Raufen umbenannt"
+        #return None
+        raise Exception('Not implemented')
+
+    def migriere1zu2(self, xmlRoot):
+        #Dies würde aufgerufen werden, wenn datenbankCodeVersion 2 oder höher und Charakter-DatenbankVersion geringer als 2 wäre
+        #WICHTIG: bei Vorteilen/(ÜB-)Fertigkeiten/Talenten nur solche migrieren, bei denen in der aktuell geladenen Datenbasis userAdded == False ist.
+        raise Exception('Not implemented')
 
     def aktualisieren(self):
         '''Berechnet alle abgeleiteten Werte neu'''
@@ -399,9 +436,17 @@ class Char():
         Dateiname inklusive Pfad als Argument übergeben wird'''
         #Document Root
         Wolke.Fehlercode = -53
+
         root = etree.Element('Charakter')
+
+        versionXml = etree.SubElement(root, 'Version')
+        etree.SubElement(versionXml, 'DatenbankVersion').text = str(self.datenbankCodeVersion)
+        etree.SubElement(versionXml, 'NutzerDatenbankCRC').text = str(binascii.crc32(etree.tostring(Wolke.DB.userDbXml)))
+        etree.SubElement(versionXml, 'NutzerDatenbankName').text = Wolke.DB.datei
+
         #Erster Block
         Wolke.Fehlercode = -54
+
         sub =  etree.SubElement(root,'AllgemeineInfos')
         etree.SubElement(sub,'name').text = self.name
         etree.SubElement(sub,'rasse').text = self.rasse
@@ -515,6 +560,29 @@ class Char():
             file.truncate()
         Wolke.Fehlercode = 0
 
+    def charakterMigrieren(self, xmlRoot, charDBVersion, datenbankCodeVersion):
+        strArr = ["Weitere Informationen:"]
+        dbChanged = charDBVersion < datenbankCodeVersion
+        while charDBVersion < datenbankCodeVersion:
+            logging.info("Migriere Charakter von Version " + str(charDBVersion ) + " zu " + str(charDBVersion + 1))
+            charDBVersion +=1
+            info = self.migrationen[charDBVersion](xmlRoot)
+            if info:
+                strArr.append(info)
+
+        if dbChanged:
+            messageBox = QtWidgets.QMessageBox()
+            messageBox.setIcon(QtWidgets.QMessageBox.Information)
+            messageBox.setWindowTitle("Charakter laden - Datenbank wurde aktualisiert.")
+            messageBox.setText("Seit du diesen Charakter das letzte mal bearbeitet hast wurde die offizielle Sephrasto-Datenbank aktualisiert. " \
+                              "Dein Charakter ist jetzt auf dem neuesten Stand. " \
+                              "Ausnahmen: Waffen werden nicht automatisch angepasst und behalten ihren (eventuell alten) Stand, ebenso alles was in der Nutzer-Datenbank geändert wurde.")
+            if len(strArr) > 1:
+                messageBox.setInformativeText("\n".join(strArr))
+            messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
+            messageBox.exec_()
+
     def xmlLesen(self,filename):
         '''Läd ein Charakter-Objekt aus einer XML Datei, deren Dateiname 
         inklusive Pfad als Argument übergeben wird'''
@@ -525,6 +593,21 @@ class Char():
         root = etree.parse(filename).getroot()
         #Erster Block
         Wolke.Fehlercode = -43
+
+        versionXml = root.find('Version')
+        charDBVersion = 0
+        userDBChanged = False
+        userDBName = "Unbekannt"
+        if versionXml is not None:
+            charDBVersion = int(versionXml.find('DatenbankVersion').text)
+            userDBCRC = int(versionXml.find('NutzerDatenbankCRC').text)
+            userDBName = versionXml.find('NutzerDatenbankName').text
+            currentUserDBCRC = binascii.crc32(etree.tostring(Wolke.DB.userDbXml))
+            if userDBCRC != 0 and userDBCRC != currentUserDBCRC:
+                userDBChanged = True
+
+        self.charakterMigrieren(root, charDBVersion, self.datenbankCodeVersion)
+
         alg = root.find('AllgemeineInfos')
         self.name = alg.find('name').text
         self.rasse = alg.find('rasse').text
@@ -549,6 +632,12 @@ class Char():
         for ene in root.findall('Energien/KaP'):
             self.kap.wert = int(ene.attrib['wert'])
         #Dritter Block
+
+        vIgnored = []
+        tIgnored = set()
+        fIgnored = []
+        übIgnored = []
+
         Wolke.Fehlercode = -45
         for vor in root.findall('Vorteile'):
             if "minderpakt" in vor.attrib:
@@ -556,18 +645,30 @@ class Char():
             else:
                 self.minderpakt = None
         for vor in root.findall('Vorteile/*'):
+            if not vor.text in Wolke.DB.vorteile:
+                vIgnored.append(vor.text)
+                continue
             self.vorteile.append(vor.text)
             var = int(vor.get('variable'))
             if var != -1:
                 self.vorteileVariable[vor.text] = var
+                
         #Vierter Block
         Wolke.Fehlercode = -46
         for fer in root.findall('Fertigkeiten/Fertigkeit'):
             nam = fer.attrib['name']
+            if not nam in Wolke.DB.fertigkeiten:
+                fIgnored.append(nam)
+                continue
+
             fert = Wolke.DB.fertigkeiten[nam].__deepcopy__()
             fert.wert = int(fer.attrib['wert'])
             for tal in fer.findall('Talente/Talent'):
-                fert.gekaufteTalente.append(tal.attrib['name'])
+                nam = tal.attrib['name']
+                if not nam in Wolke.DB.talente:
+                    tIgnored.add(nam)
+                    continue
+                fert.gekaufteTalente.append(nam)
                 var = int(tal.attrib['variable'])
                 if int(tal.attrib['variable']) != -1:
                     self.talenteVariable[tal] = int(tal.attrib['variable'])
@@ -610,10 +711,18 @@ class Char():
         Wolke.Fehlercode = -51
         for fer in root.findall('Übernatürliche-Fertigkeiten/Übernatürliche-Fertigkeit'):
             nam = fer.attrib['name']
+            if not nam in Wolke.DB.übernatürlicheFertigkeiten:
+                übIgnored.append(nam)
+                continue
+
             fert = Wolke.DB.übernatürlicheFertigkeiten[nam].__deepcopy__()
             fert.wert = int(fer.attrib['wert'])
             for tal in fer.findall('Talente/Talent'):
-                fert.gekaufteTalente.append(tal.attrib['name'])
+                nam = tal.attrib['name']
+                if not nam in Wolke.DB.talente:
+                    tIgnored.add(nam)
+                    continue
+                fert.gekaufteTalente.append(nam)
                 if int(tal.attrib['variable']) != -1:
                     self.talenteVariable[tal.attrib['name']] = int(tal.attrib['variable'])
             fert.aktualisieren()
@@ -623,4 +732,50 @@ class Char():
         self.EPtotal = int(root.find('Erfahrung/EPtotal').text)
         self.EPspent = int(root.find('Erfahrung/EPspent').text)   
         
+        if userDBChanged or vIgnored or fIgnored or tIgnored or übIgnored:
+            messageBox = QtWidgets.QMessageBox()
+            messageBox.setIcon(QtWidgets.QMessageBox.Warning)
+            messageBox.setWindowTitle("Charakter laden - Nutzer-Datenbank wurde geändert.")
+
+            strArr = ["Seit du diesen Charakter das letzte mal bearbeitet hast wurde die Nutzer-Datenbank aktualisiert. "]
+            if not userDBName == Wolke.DB.datei:
+                strArr.append("Auch der Pfad der aktuell geladenen Nutzer-Datenbank ist ein anderer:\n- Vorher: '")
+                strArr.append(userDBName)
+                strArr.append("'\n- Jetzt: '")
+                strArr.append(Wolke.DB.datei)
+                strArr.append("'")
+
+            strArr.append("\n\nEventuell hat der Charakter Vorteile/Fertigkeiten/Talente verloren und sein EP-Stand könnte sich verändert haben! ")
+            strArr.append("Neu zur Datenbank hinzugefügte Dinge sind unproblematisch. Waffen werden nicht automatisch angepasst und behalten ihren (eventuell alten) Stand. ")
+            strArr.append("Dein Charakter ist jetzt an die aktuelle Nutzer-Datenbank angepasst, überspeichere den Charakter nur wenn du dir sicher bist.")
+            text = "".join(strArr)
+            logging.warning(text)
+            messageBox.setText(text)
+
+            strArr = ["Weitere Informationen:"]
+
+            if vIgnored or fIgnored or tIgnored or übIgnored:
+                strArr.append("\nDas Folgende war charakterrelevant und wurde aus der Regelbasis gelöscht:")
+                if vIgnored:
+                    strArr.append("\n- Vorteile: ")
+                    strArr.append(", ".join(vIgnored))
+                if fIgnored:
+                    strArr.append("\n- Fertigkeiten: ")
+                    strArr.append(", ".join(fIgnored))
+                if tIgnored:
+                    strArr.append("\n- Talente: ")
+                    strArr.append(", ".join(tIgnored))
+                if übIgnored:
+                    strArr.append("\n- Übernatürliche Fertigkeiten: ")
+                    strArr.append(", ".join(übIgnored))
+            else:
+                strArr.append("\nEs wurde nichts charakterrelevantes gelöscht.")
+
+            text = "".join(strArr)
+            logging.warning(text)
+            messageBox.setInformativeText(text + "\n\nDu kannst diese Nachricht sephrasto.log nochmal nachlesen.")
+            messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
+            messageBox.exec_()
+
         Wolke.Fehlercode = 0

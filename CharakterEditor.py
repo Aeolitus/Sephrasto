@@ -32,7 +32,7 @@ class Editor(object):
         Wolke.DB = Datenbank.Datenbank()
         self.pdfMeister = pdfM.pdfMeister()
         self.savepath = CharacterName
-        if Wolke.DB.root is not None:
+        if Wolke.DB.loaded:
             self.noDatabase = False
             self.finishInit()
         else:
