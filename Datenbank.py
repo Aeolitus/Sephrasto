@@ -175,6 +175,25 @@ class Datenbank():
 
         numLoaded = 0
         
+        #Remove existing entries (should be used in database_user only)
+        for rem in self.root.findall('Remove'):
+            typ = rem.get('typ')
+            name = rem.get('name')
+            removed = None
+            if typ == 'Vorteil':
+                removed = self.vorteile.pop(name)
+            elif typ == 'Fertigkeit':
+                removed = self.fertigkeiten.pop(name)
+            elif typ == 'Talent':
+                removed = self.talente.pop(name)
+            elif typ == 'Übernatürliche Fertigkeit':
+                removed = self.übernatürlicheFertigkeiten.pop(name)
+            elif typ == 'Waffe':
+                removed = self.waffen.pop(name)
+            elif typ == 'Manöver / Modifikation':
+                removed = self.manöver.pop(name)
+            self.removeList.append((name, typ, removed))
+
         #Vorteile
         Wolke.Fehlercode = -21
         for vort in self.root.findall('Vorteil'):
@@ -280,25 +299,6 @@ class Datenbank():
             m.text = ma.text
             m.isUserAdded = not refDB
             self.manöver.update({m.name: m})
-
-        #Remove existing entries (should be used in database_user only)
-        for rem in self.root.findall('Remove'):
-            typ = rem.get('typ')
-            name = rem.get('name')
-            removed = None
-            if typ == 'Vorteil':
-                removed = self.vorteile.pop(name)
-            elif typ == 'Fertigkeit':
-                removed = self.fertigkeiten.pop(name)
-            elif typ == 'Talent':
-                removed = self.talente.pop(name)
-            elif typ == 'Übernatürliche Fertigkeit':
-                removed = self.übernatürlicheFertigkeiten.pop(name)
-            elif typ == 'Waffe':
-                removed = self.waffen.pop(name)
-            elif typ == 'Manöver / Modifikation':
-                removed = self.manöver.pop(name)
-            self.removeList.append((name, typ, removed))
 
         if numLoaded <1 and refDB:
             Wolke.Fehlercode = -33
