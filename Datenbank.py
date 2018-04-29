@@ -25,19 +25,20 @@ class Datenbank():
             self.datei = tmp
         else:
             self.datei = "datenbank_user.xml"
-        self.root = None
+        self.userDbXml = None
+        self.loaded = False
         self.xmlLaden()              
 
     def xmlSchreiben(self):
         Wolke.Fehlercode = -26
-        self.root = etree.Element('Datenbank')
+        root = etree.Element('Datenbank')
         
         #Vorteile
         Wolke.Fehlercode = -27
         for vort in self.vorteile:
             vorteil = self.vorteile[vort]
             if not vorteil.isUserAdded: continue
-            v = etree.SubElement(self.root,'Vorteil')
+            v = etree.SubElement(root,'Vorteil')
             v.set('name',vorteil.name)
             v.set('kosten',str(vorteil.kosten))
             v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(vorteil.voraussetzungen, None))
@@ -51,7 +52,7 @@ class Datenbank():
         for tal in self.talente:
             talent = self.talente[tal]
             if not talent.isUserAdded: continue
-            v = etree.SubElement(self.root,'Talent')
+            v = etree.SubElement(root,'Talent')
             v.set('name',talent.name)
             v.set('kosten',str(talent.kosten))
             v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(talent.voraussetzungen, None))
@@ -66,7 +67,7 @@ class Datenbank():
         for fer in self.fertigkeiten:
             fertigkeit = self.fertigkeiten[fer]
             if not fertigkeit.isUserAdded: continue
-            v = etree.SubElement(self.root,'Fertigkeit')
+            v = etree.SubElement(root,'Fertigkeit')
             v.set('name',fertigkeit.name)
             v.set('steigerungsfaktor',str(fertigkeit.steigerungsfaktor))
             v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(fertigkeit.voraussetzungen, None))
@@ -78,7 +79,7 @@ class Datenbank():
         for fer in self.übernatürlicheFertigkeiten:
             fertigkeit = self.übernatürlicheFertigkeiten[fer]
             if not fertigkeit.isUserAdded: continue
-            v = etree.SubElement(self.root,'Übernatürliche-Fertigkeit')
+            v = etree.SubElement(root,'Übernatürliche-Fertigkeit')
             v.set('name',fertigkeit.name)
             v.set('steigerungsfaktor',str(fertigkeit.steigerungsfaktor))
             v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(fertigkeit.voraussetzungen, None))
@@ -90,7 +91,7 @@ class Datenbank():
         for wa in self.waffen:
             waffe = self.waffen[wa]
             if not waffe.isUserAdded: continue
-            w = etree.SubElement(self.root,'Waffe')
+            w = etree.SubElement(root,'Waffe')
             w.set('name', waffe.name)
             w.set('W6', str(waffe.W6))
             w.set('plus', str(waffe.plus))
@@ -117,7 +118,7 @@ class Datenbank():
         for ma in self.manöver:
             manöver = self.manöver[ma]
             if not manöver.isUserAdded: continue
-            m = etree.SubElement(self.root, 'Manoever')
+            m = etree.SubElement(root, 'Manoever')
             m.set('name', manöver.name)
             m.set('typ', str(manöver.typ))
             m.set('voraussetzungen', Hilfsmethoden.VorArray2Str(manöver.voraussetzungen, None))
@@ -127,13 +128,13 @@ class Datenbank():
 
         #Remove list
         for rm in self.removeList:
-            r = etree.SubElement(self.root,'Remove')
+            r = etree.SubElement(root,'Remove')
             r.set('name', rm[0])
             r.set('typ', rm[1])
 
         #Write XML to file
         Wolke.Fehlercode = -26
-        doc = etree.ElementTree(self.root)
+        doc = etree.ElementTree(root)
         Wolke.Fehlercode = -32
         with open(self.datei,'wb') as file:
             file.seek(0)
@@ -154,6 +155,8 @@ class Datenbank():
 
         if os.path.isfile('datenbank.xml'):
             self.xmlLadenInternal('datenbank.xml', refDB=True)
+            self.loaded = True
+
         try:   
             if os.path.isfile(self.datei):
                 self.xmlLadenInternal(self.datei, refDB=False) 
@@ -168,35 +171,40 @@ class Datenbank():
 
     def xmlLadenInternal(self, file, refDB):
         Wolke.Fehlercode = -20
-        self.root = etree.parse(file).getroot()
+        root = etree.parse(file).getroot()
 
-        if self.root.tag != 'Datenbank':
+        if not refDB:
+            self.userDbXml = root
+
+        if root.tag != 'Datenbank':
             raise DatabaseException('Not a valid database file')
 
         numLoaded = 0
         
         #Remove existing entries (should be used in database_user only)
-        for rem in self.root.findall('Remove'):
+        #Also check if the entries exist at all (might have been removed/renamed due to a ref db update)
+        for rem in root.findall('Remove'):
             typ = rem.get('typ')
             name = rem.get('name')
             removed = None
-            if typ == 'Vorteil':
+            if typ == 'Vorteil' and name in self.vorteile:
                 removed = self.vorteile.pop(name)
-            elif typ == 'Fertigkeit':
+            elif typ == 'Fertigkeit' and name in self.fertigkeiten:
                 removed = self.fertigkeiten.pop(name)
-            elif typ == 'Talent':
+            elif typ == 'Talent' and name in self.talente:
                 removed = self.talente.pop(name)
-            elif typ == 'Übernatürliche Fertigkeit':
+            elif typ == 'Übernatürliche Fertigkeit' and name in self.übernatürlicheFertigkeiten:
                 removed = self.übernatürlicheFertigkeiten.pop(name)
-            elif typ == 'Waffe':
+            elif typ == 'Waffe' and name in self.waffen:
                 removed = self.waffen.pop(name)
-            elif typ == 'Manöver / Modifikation':
+            elif typ == 'Manöver / Modifikation' and name in self.manöver:
                 removed = self.manöver.pop(name)
-            self.removeList.append((name, typ, removed))
+            if removed:
+                self.removeList.append((name, typ, removed))
 
         #Vorteile
         Wolke.Fehlercode = -21
-        for vort in self.root.findall('Vorteil'):
+        for vort in root.findall('Vorteil'):
             numLoaded += 1
             V = Fertigkeiten.Vorteil()
             V.name = vort.get('name')
@@ -214,7 +222,7 @@ class Datenbank():
             
         #Talente
         Wolke.Fehlercode = -22
-        for tal in self.root.findall('Talent'):
+        for tal in root.findall('Talent'):
             numLoaded += 1
             T = Fertigkeiten.Talent()
             T.name = tal.get('name')
@@ -235,7 +243,7 @@ class Datenbank():
             
         #Fertigkeiten
         Wolke.Fehlercode = -23
-        for fer in self.root.findall('Fertigkeit'):
+        for fer in root.findall('Fertigkeit'):
             numLoaded += 1
             F = Fertigkeiten.Fertigkeit()
             F.name = fer.get('name')
@@ -248,7 +256,7 @@ class Datenbank():
             self.fertigkeiten.update({F.name: F})
 
         Wolke.Fehlercode = -24
-        for fer in self.root.findall('Übernatürliche-Fertigkeit'):
+        for fer in root.findall('Übernatürliche-Fertigkeit'):
             numLoaded += 1
             F = Fertigkeiten.Fertigkeit()
             F.name = fer.get('name')
@@ -261,7 +269,7 @@ class Datenbank():
             
         #Waffen
         Wolke.Fehlercode = -25
-        for wa in self.root.findall('Waffe'):
+        for wa in root.findall('Waffe'):
             numLoaded += 1
             if wa.get('fk') == '1':
                 w = Objekte.Fernkampfwaffe()
@@ -288,7 +296,7 @@ class Datenbank():
         
         #Manöver
         Wolke.Fehlercode = -26
-        for ma in self.root.findall('Manöver'):
+        for ma in root.findall('Manöver'):
             numLoaded += 1
             m = Fertigkeiten.Manoever()
             m.name = ma.get('name')

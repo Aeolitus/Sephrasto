@@ -53,6 +53,8 @@ class MainWindowWrapper(object):
         Initializes the GUI and connects the buttons.
         '''
         self._version_ = "v0.5.2"
+        logging.critical("Starte Sephrasto " + self._version_) #critical so it's always printed, independent of the debug level setting
+
         super().__init__()
         
         #Make sure the application scales properly, i.e. in Win10 users can change the UI scale in the display settings
