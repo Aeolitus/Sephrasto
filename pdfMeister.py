@@ -110,7 +110,8 @@ temp_full_cb_feel_free_to_remove.pdf'
             call = 'pdftk temp_copy_feel_free_to_remove.pdf cat 1-2 output "' + filename + '"'
             check_output(call)
             os.remove('temp_copy_feel_free_to_remove.pdf')
-
+        
+        Wolke.Fehlercode = -97
         if printRules:
             rulesFields = pdf.get_fields(self.RulesPage)
             self.prepareRules()
@@ -123,7 +124,6 @@ temp_full_cb_feel_free_to_remove.pdf'
                 pdf.write_pdf(self.RulesPage, rulesFields, 'temp_rules_page_feel_free_to_remove.pdf', False)
                 call = 'pdftk "' + filename + '" temp_rules_page_feel_free_to_remove.pdf cat output temp_full_cb_feel_free_to_remove.pdf'                
                 check_output(call)
-                Wolke.Fehlercode = -97
                 os.remove(filename)
                 os.remove('temp_rules_page_feel_free_to_remove.pdf')
                 os.rename('temp_full_cb_feel_free_to_remove.pdf', filename)

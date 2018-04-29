@@ -52,7 +52,7 @@ class MainWindowWrapper(object):
         '''
         Initializes the GUI and connects the buttons.
         '''
-        self._version_ = "v0.5.2"
+        self._version_ = "v0.6.0"
         logging.critical("Starte Sephrasto " + self._version_) #critical so it's always printed, independent of the debug level setting
 
         super().__init__()

@@ -92,6 +92,7 @@ class Editor(object):
         Wolke.Reqs = self.ui.checkReq.isChecked()
         Wolke.Char.aktualisieren()
         self.reloadAll()
+        self.updateEP()
         
     def updateEP(self):
         if not self.ignoreModified:
