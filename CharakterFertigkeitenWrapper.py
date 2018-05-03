@@ -9,14 +9,14 @@ import CharakterFertigkeiten
 import TalentPicker
 import MousewheelProtector
 from PyQt5 import QtWidgets, QtCore, QtGui
+import logging
 
 class FertigkeitenWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
     
     def __init__(self):
         super().__init__()
-        if Wolke.Debug:
-            print("Initializing FertigkeitenWrapper...")
+        logging.debug("Initializing FertigkeitenWrapper...")
         self.formFert = QtWidgets.QWidget()
         self.uiFert = CharakterFertigkeiten.Ui_Form()
         self.uiFert.setupUi(self.formFert)

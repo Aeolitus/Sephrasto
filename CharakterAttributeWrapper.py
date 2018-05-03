@@ -7,6 +7,7 @@ Created on Fri Mar 10 17:21:49 2017
 from Wolke import Wolke
 import CharakterAttribute
 from PyQt5 import QtWidgets, QtCore
+import logging
 
 class AttrWrapper(QtCore.QObject):
     ''' 
@@ -19,8 +20,7 @@ class AttrWrapper(QtCore.QObject):
     def __init__(self):
         ''' Initialize the GUI and set signals for the spinners'''
         super().__init__()
-        if Wolke.Debug:
-            print("Initializing AttrWrapper...")
+        logging.debug("Initializing AttrWrapper...")
         self.formAttr = QtWidgets.QWidget()
         self.uiAttr = CharakterAttribute.Ui_formAttribute()
         self.uiAttr.setupUi(self.formAttr)

@@ -8,7 +8,6 @@ class Wolke:
     Char = None
     DB = None
     Reqs = True
-    Debug = False
     Fehlercode = 0
     Settings = {
         'Bogen': 'Frag immer nach', 

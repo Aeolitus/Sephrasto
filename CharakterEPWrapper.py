@@ -8,7 +8,7 @@ Created on Sun Sep 24 15:58:13 2017
 from Wolke import Wolke
 import CharakterEP
 from PyQt5 import QtWidgets, QtCore
-
+import logging
 
 class EPWrapper(QtCore.QObject):
     '''
@@ -20,8 +20,7 @@ class EPWrapper(QtCore.QObject):
     def __init__(self):
         ''' Initialize the GUI and set signals for the spinners'''
         super().__init__()
-        if Wolke.Debug:
-            print("Initializing EPWrapper...")
+        logging.debug("Initializing EPWrapper...")
         self.formEP = QtWidgets.QWidget()
         self.uiEP = CharakterEP.Ui_Form()
         self.uiEP.setupUi(self.formEP)

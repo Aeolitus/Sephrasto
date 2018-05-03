@@ -17,6 +17,7 @@ import os
 import math
 from shutil import copyfile
 from collections import namedtuple
+import logging
 
 CharakterbogenInfo = namedtuple('CharakterbogenInfo', 'filePath maxVorteile maxFreie maxFertigkeiten kurzbogenHack')
 
@@ -133,8 +134,7 @@ temp_full_cb_feel_free_to_remove.pdf'
         os.startfile(filename, 'open')
 
     def pdfErsterBlock(self, fields):
-        if Wolke.Debug:
-            print("PDF Block 1")
+        logging.debug("PDF Block 1")
         fields['Name'] = Wolke.Char.name
         fields['Rasse'] = Wolke.Char.rasse
         fields['Kultur'] = Wolke.Char.heimat
@@ -159,8 +159,7 @@ temp_full_cb_feel_free_to_remove.pdf'
         return fields
 
     def pdfZweiterBlock(self, fields):
-        if Wolke.Debug:
-            print("PDF Block 2")
+        logging.debug("PDF Block 2")
         for key in Definitionen.Attribute:
             fields[key] = Wolke.Char.attribute[key].wert
             fields[key + '2'] = Wolke.Char.attribute[key].probenwert
@@ -248,8 +247,7 @@ temp_full_cb_feel_free_to_remove.pdf'
         return fields
 
     def pdfDritterBlock(self, fields):
-        if Wolke.Debug:
-            print("PDF Block 3")
+        logging.debug("PDF Block 3")
         sortV = Wolke.Char.vorteile.copy()
         typeDict = {}
         assembled = []
@@ -366,8 +364,7 @@ temp_full_cb_feel_free_to_remove.pdf'
         return fields
 
     def pdfVierterBlock(self, fields):
-        if Wolke.Debug:
-            print("PDF Block 4")
+        logging.debug("PDF Block 4")
         # Freie Fertigkeiten
         count = 1
 
@@ -468,8 +465,7 @@ temp_full_cb_feel_free_to_remove.pdf'
         return fields
 
     def pdfFünfterBlock(self, fields):
-        if Wolke.Debug:
-            print("PDF Block 5")
+        logging.debug("PDF Block 5")
         # Fill three rows of Rüstung
         count = 1
         for el in Wolke.Char.rüstung:
@@ -610,8 +606,7 @@ temp_full_cb_feel_free_to_remove.pdf'
         return fields
 
     def pdfSechsterBlock(self, fields):
-        if Wolke.Debug:
-            print("PDF Block 6")
+        logging.debug("PDF Block 6")
 
         #addedTals = {}  # Name: (PWT, base)
 
@@ -743,8 +738,7 @@ temp_full_cb_feel_free_to_remove.pdf'
         return fields
 
     def pdfSiebterBlock(self, fields):
-        if Wolke.Debug:
-            print("PDF Block 7")
+        logging.debug("PDF Block 7")
         fields['ErfahGE'] = Wolke.Char.EPtotal
         fields['ErfahEI'] = Wolke.Char.EPspent
         fields['ErfahVE'] = Wolke.Char.EPtotal - Wolke.Char.EPspent

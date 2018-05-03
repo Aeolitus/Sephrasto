@@ -9,12 +9,12 @@ from PyQt5 import QtCore, QtWidgets, QtGui
 from Wolke import Wolke
 import Objekte
 import Definitionen
+import logging
 
 class WaffenPicker(object):
     def __init__(self,waffe=None):
         super().__init__()
-        if Wolke.Debug:
-            print("Initializing WaffenPicker...")
+        logging.debug("Initializing WaffenPicker...")
         self.waffe = None
         if waffe is not None and waffe in Wolke.DB.waffen:
             self.current = waffe
@@ -30,8 +30,7 @@ class WaffenPicker(object):
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
         
-        if Wolke.Debug:
-            print("Ui is Setup...")
+        logging.debug("Ui is Setup...")
         currSet = self.current != ""
         for kind in Definitionen.Kampftalente:
             parent = QtWidgets.QTreeWidgetItem(self.ui.treeWeapons)
@@ -51,13 +50,11 @@ class WaffenPicker(object):
                 child.setText(0,el)
                 child.setText(1,Wolke.DB.waffen[el].talent)  
         self.ui.treeWeapons.sortItems(1,QtCore.Qt.AscendingOrder)
-        if Wolke.Debug:
-            print("Tree Filled...")
+        logging.debug("Tree Filled...")
         self.ui.treeWeapons.itemSelectionChanged.connect(self.changeHandler)
         self.ui.treeWeapons.header().setSectionResizeMode(0,1)
         self.updateInfo()
-        if Wolke.Debug:
-            print("Info Updated...")
+        logging.debug("Info Updated...")
         self.Form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.Form.show()
         self.ret = self.Form.exec_()
