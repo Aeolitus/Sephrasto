@@ -18,7 +18,10 @@ from Wolke import Wolke
 import yaml
 import EinstellungenWrapper
 
-logging.basicConfig(filename="sephrasto.log", level=logging.WARNING, format="%(asctime)s | %(levelname)s | %(filename)s::%(funcName)s(%(lineno)d) | %(message)s")
+loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
+logging.basicConfig(filename="sephrasto.log", \
+    level=loglevels[Wolke.Settings['Logging']], \
+    format="%(asctime)s | %(levelname)s | %(filename)s::%(funcName)s(%(lineno)d) | %(message)s")
 
 def sephrasto_excepthook(exc_type, exc_value, tb):
     traceback = [' Traceback (most recent call last):']
@@ -94,8 +97,10 @@ class MainWindowWrapper(object):
                                         'Sephrasto.ini')
         if os.path.isfile(SettingsPath):
             with open(SettingsPath,'r') as infile:
-                Wolke.Settings = yaml.safe_load(infile)
-        
+                tmpSet = yaml.safe_load(infile)
+                for el in tmpSet:
+                    Wolke.Settings[el] = tmpSet[el]
+        logging.getLogger().setLevel(loglevels[Wolke.Settings['Logging']])
         self.Form.show()
         sys.exit(self.app.exec_())
         

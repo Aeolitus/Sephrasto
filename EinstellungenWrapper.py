@@ -9,6 +9,7 @@ import Einstellungen
 from PyQt5 import QtWidgets, QtCore
 import os.path
 import yaml
+import logging
 
 class EinstellungenWrapper():    
     def __init__(self):
@@ -45,6 +46,10 @@ class EinstellungenWrapper():
         if Wolke.Settings['Datenbank'] in optionsList:
             self.ui.comboRegelbasis.setCurrentText(Wolke.Settings['Datenbank'])
             
+        self.ui.checkPDFOpen.setChecked(Wolke.Settings['PDF-Open'])
+        
+        self.ui.comboLogging.setCurrentIndex(Wolke.Settings['Logging'])
+            
         self.ui.buttonChar.clicked.connect(self.setCharPath)
         self.ui.buttonRegeln.clicked.connect(self.setRulePath)
         self.ui.resetChar.clicked.connect(self.resetCharPath)
@@ -73,6 +78,12 @@ class EinstellungenWrapper():
                 Wolke.Settings['Pfad-Regeln'] = self.ui.editRegeln.text()
             else:
                 Wolke.Settings['Pfad-Regeln'] = ''
+                
+            Wolke.Settings['Logging'] = self.ui.comboLogging.currentIndex()
+            loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
+            logging.getLogger().setLevel(loglevels[Wolke.Settings['Logging']])
+            
+            Wolke.Settings['PDF-Open'] = self.ui.checkPDFOpen.isChecked()
             
             SettingsPath = os.path.join(os.path.expanduser('~'),'Sephrasto', 
                                         'Sephrasto.ini')

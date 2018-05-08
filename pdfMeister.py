@@ -138,9 +138,12 @@ class pdfMeister(object):
         for page in allPages:
             os.remove(page)
 
-        Wolke.Fehlercode = 0
+        Wolke.Fehlercode = -98
         #Open PDF with default application:
-        os.startfile(filename, 'open')
+        if Wolke.Settings['PDF-Open']:
+            os.startfile(filename, 'open')
+            
+        Wolke.Fehlercode = 0
 
     def pdfErsterBlock(self, fields):
         logging.debug("PDF Block 1")

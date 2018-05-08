@@ -14,7 +14,9 @@ class Wolke:
         'Datenbank': 'datenbank_user.xml', 
         'Cheatsheet': False, 
         'Pfad-Chars': '',
-        'Pfad-Regeln': ''
+        'Pfad-Regeln': '',
+        'Logging': 1,
+        'PDF-Open': False
     }
     ErrorCode = {
          0: 'No Error. You really shouldnt be seeing this.',
@@ -100,6 +102,7 @@ File called ExtraSpells.pdf in your Sephrasto folder!',
 Please check the created PDFs to see which one is your character!',
         -96: 'Error cutting of last page of the PDF. This shouldnt really matter.',
         -97: 'Error merging the rules page!',
+        -98: 'Could not automatically open the PDF! Everything else works though.',
     ### Other Errors
         -200: 'General Error you shouldnt see. Please contact Aeolitus.'
     }

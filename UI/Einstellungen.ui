@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>431</width>
-    <height>357</height>
+    <height>458</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -99,6 +99,13 @@
             </property>
            </widget>
           </item>
+          <item>
+           <widget class="QCheckBox" name="checkPDFOpen">
+            <property name="text">
+             <string>PDF nach dem Erstellen öffnen</string>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
        </item>
@@ -170,6 +177,50 @@
              </widget>
             </item>
            </layout>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_4">
+            <property name="title">
+             <string>Sonstiges</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_6">
+             <item>
+              <widget class="QLabel" name="label_5">
+               <property name="text">
+                <string>Logging-Level:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="comboLogging">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="currentIndex">
+                <number>1</number>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Protokolliere nur Fehler</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Protokolliere Warnungen und Fehler</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Protokolliere auch Debugging-Informationen</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </widget>
           </item>
          </layout>
         </widget>
