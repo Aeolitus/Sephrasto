@@ -8,14 +8,14 @@ import Fertigkeiten
 from Wolke import Wolke
 import CharakterFreieFert
 from PyQt5 import QtWidgets, QtCore
+import logging
 
 class CharakterFreieFertWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
     
     def __init__(self):
         super().__init__()
-        if Wolke.Debug:
-            print("Initializing FreieFertWrapper...")
+        logging.debug("Initializing FreieFertWrapper...")
         self.formFert = QtWidgets.QWidget()
         self.uiFert = CharakterFreieFert.Ui_Form()
         self.uiFert.setupUi(self.formFert)

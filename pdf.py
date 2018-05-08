@@ -239,3 +239,26 @@ def forge_fdf(pdf_form_url=None, fdf_data_strings=[], fdf_data_names=[],
 #     args.output.close()
 # 
 #==============================================================================
+
+def concat(files, out_file=None):
+    '''
+        Merge multiples PDF files.
+        Return temp file if no out_file provided.
+    '''
+    cleanOnFail = False
+    if not out_file:
+        cleanOnFail = True
+        handle, out_file = tempfile.mkstemp()
+        os.close(handle)
+    if len(files) == 1:
+        shutil.copyfile(files[0], out_file)
+    args = ['pdftk']
+    args += files
+    args += ['cat', 'output', out_file]
+    try:
+        check_output(args)
+    except:
+        if cleanOnFail:
+            os.remove(out_file)
+        raise
+    return out_file

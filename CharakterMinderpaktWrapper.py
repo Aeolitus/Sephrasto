@@ -8,12 +8,12 @@ from Wolke import Wolke
 import CharakterMinderpakt
 from PyQt5 import QtWidgets, QtCore
 from Definitionen import VorteilTypen
+import logging
 
 class CharakterMinderpaktWrapper():    
     def __init__(self):
         super().__init__()
-        if Wolke.Debug:
-            print("Initializing Minderpakt...")
+        logging.debug("Initializing Minderpakt...")
         self.formVor = QtWidgets.QDialog()
         self.uiVor = CharakterMinderpakt.Ui_Dialog()
         self.uiVor.setupUi(self.formVor)

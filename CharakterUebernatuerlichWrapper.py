@@ -9,14 +9,14 @@ import CharakterUebernatuerlich
 import TalentPicker
 import MousewheelProtector
 from PyQt5 import QtWidgets, QtCore, QtGui
+import logging
 
 class UebernatuerlichWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
     
     def __init__(self):
         super().__init__()
-        if Wolke.Debug:
-            print("Initializing UebernatuerlichWrapper...")
+        logging.debug("Initializing UebernatuerlichWrapper...")
         self.formFert = QtWidgets.QWidget()
         self.uiFert = CharakterUebernatuerlich.Ui_Form()
         self.uiFert.setupUi(self.formFert)

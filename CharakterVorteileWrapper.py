@@ -9,14 +9,14 @@ import CharakterVorteile
 import CharakterMinderpaktWrapper
 from PyQt5 import QtWidgets, QtCore
 from Definitionen import VorteilTypen
+import logging
 
 class CharakterVorteileWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
     
     def __init__(self):
         super().__init__()
-        if Wolke.Debug:
-            print("Initializing VorteileWrapper...")
+        logging.debug("Initializing VorteileWrapper...")
         self.formVor = QtWidgets.QWidget()
         self.uiVor = CharakterVorteile.Ui_Form()
         self.uiVor.setupUi(self.formVor)

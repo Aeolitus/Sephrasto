@@ -17,6 +17,8 @@ import os
 import math
 from shutil import copyfile
 from collections import namedtuple
+import logging
+import tempfile
 
 CharakterbogenInfo = namedtuple('CharakterbogenInfo', 'filePath maxVorteile maxFreie maxFertigkeiten kurzbogenHack')
 
@@ -75,7 +77,10 @@ class pdfMeister(object):
         fields = self.pdfSiebterBlock(fields)
         # PDF erstellen - Felder bleiben bearbeitbar
         Wolke.Fehlercode = -89
-        pdf.write_pdf(self.CharakterBogen.filePath, fields, filename, False)
+        handle, out_file = tempfile.mkstemp()
+        os.close(handle)
+        allPages = [out_file]
+        pdf.write_pdf(self.CharakterBogen.filePath, fields, out_file, False)
         Wolke.Fehlercode = -90
         extraPageAdded = False
         if self.UseExtraPage:
@@ -89,27 +94,26 @@ class pdfMeister(object):
                 Wolke.Fehlercode = -92
                 fieldsNew = self.createExtra(self.ExtraVorts,self.ExtraUeber,self.ExtraTalents,fieldsNew)
                 Wolke.Fehlercode = -93
-                pdf.write_pdf(self.ExtraPage, fieldsNew, 'temp_ex_page_feel_free_to_remove.pdf', False)
-                Wolke.Fehlercode = -94
-                call = 'pdftk "' + filename + '" temp_ex_page_feel_free_to_remove.pdf cat output \
-temp_full_cb_feel_free_to_remove.pdf'                
-                check_output(call)
-                Wolke.Fehlercode = -95
-                os.remove(filename)
-                os.remove('temp_ex_page_feel_free_to_remove.pdf')
-                os.rename('temp_full_cb_feel_free_to_remove.pdf', filename)
+
+                handle, out_file = tempfile.mkstemp()
+                os.close(handle)
+                allPages.append(out_file)
+                pdf.write_pdf(self.ExtraPage, fieldsNew, out_file, False)
                 del self.ExtraVorts[0:12]
                 del self.ExtraUeber[0:12]
                 del self.ExtraTalents[0:30]
         
+        #Entferne Seite 3, falls keine übernatürlichen Fertigkeiten
         if fields['Uebervorteil1'] == '' and \
            fields['Ueberfer1NA'] == '' and \
            fields['Uebertal1NA'] == '' and not extraPageAdded:
             Wolke.Fehlercode = -96
-            copyfile(filename, 'temp_copy_feel_free_to_remove.pdf')
-            call = 'pdftk temp_copy_feel_free_to_remove.pdf cat 1-2 output "' + filename + '"'
+            handle, out_file = tempfile.mkstemp()
+            os.close(handle)
+            call = ['pdftk', allPages[0], 'cat', '1-2', 'output', out_file]
             check_output(call)
-            os.remove('temp_copy_feel_free_to_remove.pdf')
+            os.remove(allPages[0])
+            allPages[0] = out_file
         
         Wolke.Fehlercode = -97
         if printRules:
@@ -117,24 +121,29 @@ temp_full_cb_feel_free_to_remove.pdf'
             self.prepareRules()
             startIndex = 0
             pageCount = 0
+
             while startIndex != -1:
                 pageCount += 1
                 rulesFields["Seite"] = pageCount
                 startIndex = self.writeRules(rulesFields, startIndex, 75)
-                pdf.write_pdf(self.RulesPage, rulesFields, 'temp_rules_page_feel_free_to_remove.pdf', False)
-                call = 'pdftk "' + filename + '" temp_rules_page_feel_free_to_remove.pdf cat output temp_full_cb_feel_free_to_remove.pdf'                
-                check_output(call)
-                os.remove(filename)
-                os.remove('temp_rules_page_feel_free_to_remove.pdf')
-                os.rename('temp_full_cb_feel_free_to_remove.pdf', filename)
+                handle, out_file = tempfile.mkstemp()
+                os.close(handle)
+                pdf.write_pdf(self.RulesPage, rulesFields, out_file, False)
+                allPages.append(out_file)
+
+        Wolke.Fehlercode = -94
+        pdf.concat(allPages, filename)
+
+        Wolke.Fehlercode = -95
+        for page in allPages:
+            os.remove(page)
 
         Wolke.Fehlercode = 0
         #Open PDF with default application:
         os.startfile(filename, 'open')
 
     def pdfErsterBlock(self, fields):
-        if Wolke.Debug:
-            print("PDF Block 1")
+        logging.debug("PDF Block 1")
         fields['Name'] = Wolke.Char.name
         fields['Rasse'] = Wolke.Char.rasse
         fields['Kultur'] = Wolke.Char.heimat
@@ -159,8 +168,7 @@ temp_full_cb_feel_free_to_remove.pdf'
         return fields
 
     def pdfZweiterBlock(self, fields):
-        if Wolke.Debug:
-            print("PDF Block 2")
+        logging.debug("PDF Block 2")
         for key in Definitionen.Attribute:
             fields[key] = Wolke.Char.attribute[key].wert
             fields[key + '2'] = Wolke.Char.attribute[key].probenwert
@@ -248,8 +256,7 @@ temp_full_cb_feel_free_to_remove.pdf'
         return fields
 
     def pdfDritterBlock(self, fields):
-        if Wolke.Debug:
-            print("PDF Block 3")
+        logging.debug("PDF Block 3")
         sortV = Wolke.Char.vorteile.copy()
         typeDict = {}
         assembled = []
@@ -366,8 +373,7 @@ temp_full_cb_feel_free_to_remove.pdf'
         return fields
 
     def pdfVierterBlock(self, fields):
-        if Wolke.Debug:
-            print("PDF Block 4")
+        logging.debug("PDF Block 4")
         # Freie Fertigkeiten
         count = 1
 
@@ -468,8 +474,7 @@ temp_full_cb_feel_free_to_remove.pdf'
         return fields
 
     def pdfFünfterBlock(self, fields):
-        if Wolke.Debug:
-            print("PDF Block 5")
+        logging.debug("PDF Block 5")
         # Fill three rows of Rüstung
         count = 1
         for el in Wolke.Char.rüstung:
@@ -610,8 +615,7 @@ temp_full_cb_feel_free_to_remove.pdf'
         return fields
 
     def pdfSechsterBlock(self, fields):
-        if Wolke.Debug:
-            print("PDF Block 6")
+        logging.debug("PDF Block 6")
 
         #addedTals = {}  # Name: (PWT, base)
 
@@ -743,8 +747,7 @@ temp_full_cb_feel_free_to_remove.pdf'
         return fields
 
     def pdfSiebterBlock(self, fields):
-        if Wolke.Debug:
-            print("PDF Block 7")
+        logging.debug("PDF Block 7")
         fields['ErfahGE'] = Wolke.Char.EPtotal
         fields['ErfahEI'] = Wolke.Char.EPspent
         fields['ErfahVE'] = Wolke.Char.EPtotal - Wolke.Char.EPspent

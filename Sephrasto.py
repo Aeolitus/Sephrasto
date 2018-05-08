@@ -18,7 +18,7 @@ from Wolke import Wolke
 import yaml
 import EinstellungenWrapper
 
-logging.basicConfig(filename="sephrasto.log", level=logging.DEBUG, format="%(asctime)s | %(levelname)s | %(filename)s::%(funcName)s(%(lineno)d) | %(message)s")
+logging.basicConfig(filename="sephrasto.log", level=logging.WARNING, format="%(asctime)s | %(levelname)s | %(filename)s::%(funcName)s(%(lineno)d) | %(message)s")
 
 def sephrasto_excepthook(exc_type, exc_value, tb):
     traceback = [' Traceback (most recent call last):']
@@ -131,7 +131,8 @@ class MainWindowWrapper(object):
             spath = spath + ".xml"
         try:
             self.ed = CharakterEditor.Editor(spath)
-        except:
+        except Exception as e:
+            logging.error("Sephrasto Fehlercode " + str(Wolke.Fehlercode) + ". Exception: " + str(e))
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Information)
             if Wolke.Fehlercode <= -40 and Wolke.Fehlercode > -80:

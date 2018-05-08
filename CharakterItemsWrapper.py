@@ -7,14 +7,14 @@ Created on Sat Mar 18 18:53:43 2017
 from Wolke import Wolke
 import CharakterItems
 from PyQt5 import QtWidgets, QtCore
+import logging
 
 class CharakterItemsWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
     
     def __init__(self):
         super().__init__()
-        if Wolke.Debug:
-            print("Initializing ItemsWrapper...")
+        logging.debug("Initializing ItemsWrapper...")
         self.formIt = QtWidgets.QWidget()
         self.uiIt = CharakterItems.Ui_Form()
         self.uiIt.setupUi(self.formIt)

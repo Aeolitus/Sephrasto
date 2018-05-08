@@ -7,7 +7,7 @@ Created on Fri Mar 10 17:11:39 2017
 from Wolke import Wolke
 import CharakterBeschreibung
 from PyQt5 import QtWidgets, QtCore
-
+import logging
 
 class BeschrWrapper(QtCore.QObject):
     '''
@@ -20,8 +20,7 @@ class BeschrWrapper(QtCore.QObject):
     def __init__(self):
         ''' Initialize and connect signals '''
         super().__init__()
-        if Wolke.Debug:
-            print("Initializing BeschrWrapper...")
+        logging.debug("Initializing BeschrWrapper...")
         self.formBeschr = QtWidgets.QWidget()
         self.uiBeschr = CharakterBeschreibung.Ui_formBeschreibung()
         self.uiBeschr.setupUi(self.formBeschr)

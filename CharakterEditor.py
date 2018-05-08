@@ -20,7 +20,7 @@ import Datenbank
 from Wolke import Wolke
 import os.path
 import pdfMeister as pdfM
-
+import logging
 
 class Editor(object):
     '''
@@ -167,7 +167,8 @@ Versuchs doch bitte nochmal mit einer anderen Zieldatei.")
         else:
             try:
                 Wolke.Char.xmlSchreiben(self.savepath)
-            except:
+            except Exception as e:
+                logging.error("Sephrasto Fehlercode " + str(Wolke.Fehlercode) + ". Exception: " + str(e))
                 infoBox = QtWidgets.QMessageBox()
                 infoBox.setIcon(QtWidgets.QMessageBox.Information)
                 infoBox.setText("Speichern des Charakters fehlgeschlagen!")
@@ -231,7 +232,8 @@ Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
             else:
                 printRules = False
             self.pdfMeister.pdfErstellen(spath, printRules)
-        except:
+        except Exception as e:
+            logging.error("Sephrasto Fehlercode " + str(Wolke.Fehlercode) + ". Exception: " + str(e))
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Information)
             infoBox.setText("PDF-Erstellung fehlgeschlagen!")
