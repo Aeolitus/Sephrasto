@@ -440,9 +440,13 @@ class Char():
         root = etree.Element('Charakter')
 
         versionXml = etree.SubElement(root, 'Version')
-        etree.SubElement(versionXml, 'DatenbankVersion').text = str(self.datenbankCodeVersion)
-        etree.SubElement(versionXml, 'NutzerDatenbankCRC').text = str(binascii.crc32(etree.tostring(Wolke.DB.userDbXml)))
-        etree.SubElement(versionXml, 'NutzerDatenbankName').text = Wolke.DB.datei
+        etree.SubElement(versionXml, 'DatenbankVersion').text = \
+            str(self.datenbankCodeVersion)
+        etree.SubElement(versionXml, 'NutzerDatenbankCRC').text = \
+            str(binascii.crc32(etree.tostring(Wolke.DB.userDbXml))) if \
+            Wolke.DB.userDbXml is not None else "0"
+        etree.SubElement(versionXml, 'NutzerDatenbankName').text = \
+            Wolke.DB.datei
 
         #Erster Block
         Wolke.Fehlercode = -54
@@ -599,13 +603,15 @@ class Char():
         userDBChanged = False
         userDBName = "Unbekannt"
         if versionXml is not None:
+            logging.debug("VersionXML found")
             charDBVersion = int(versionXml.find('DatenbankVersion').text)
             userDBCRC = int(versionXml.find('NutzerDatenbankCRC').text)
             userDBName = versionXml.find('NutzerDatenbankName').text
-            currentUserDBCRC = binascii.crc32(etree.tostring(Wolke.DB.userDbXml))
-            if userDBCRC != 0 and userDBCRC != currentUserDBCRC:
-                userDBChanged = True
-
+            if Wolke.DB.userDbXml is not None:
+                currentUserDBCRC = binascii.crc32(etree.tostring(Wolke.DB.userDbXml))
+                if userDBCRC != 0 and userDBCRC != currentUserDBCRC:
+                    userDBChanged = True
+        logging.debug("Starting Migration")
         self.charakterMigrieren(root, charDBVersion, self.datenbankCodeVersion)
 
         alg = root.find('AllgemeineInfos')
