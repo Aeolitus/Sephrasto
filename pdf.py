@@ -16,11 +16,14 @@ PDFFields - found at:
 
 import codecs
 import sys
+import shutil
 
 if sys.version_info[0] < 3:
     bytes = str
     
 from os import remove
+import os
+import tempfile
 from re import match
 from tempfile import NamedTemporaryFile
 from subprocess import check_output

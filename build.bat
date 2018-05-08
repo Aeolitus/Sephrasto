@@ -1,7 +1,7 @@
 del Build
 python "C:\Users\Aeolitus\Anaconda3\Scripts\cxfreeze" --target-dir=C:\Users\Aeolitus\Desktop\Sephrasto\Build ^
 --base-name=Win32GUI ^
---include-modules=lxml._elementpath,os,binascii --icon=icon_multi.ico ^
+--include-modules=lxml._elementpath,os,binascii,shutil,tempfile --icon=icon_multi.ico ^
 C:\Users\Aeolitus\Desktop\Sephrasto\Sephrasto.py
 COPY /Y C:\Users\Aeolitus\Desktop\Sephrasto\IncludeInBuildFolder\* C:\Users\Aeolitus\Desktop\Sephrasto\Build
 mkdir Build\Library\plugins\platforms

@@ -15,7 +15,6 @@ import Talentbox
 from subprocess import check_output
 import os
 import math
-from shutil import copyfile
 from collections import namedtuple
 import logging
 import tempfile
