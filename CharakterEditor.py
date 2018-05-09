@@ -32,6 +32,7 @@ class Editor(object):
         Wolke.DB = Datenbank.Datenbank()
         self.pdfMeister = pdfM.pdfMeister()
         self.savepath = CharacterName
+        self.changed = False
         if Wolke.DB.loaded:
             self.noDatabase = False
             self.finishInit()
@@ -69,15 +70,15 @@ class Editor(object):
         self.ui.tabs.addTab(self.ItmWrapper.formIt, "    Inventar    ")
         self.ui.tabs.addTab(self.EPWrapper.formEP, "    EP-Verteilung    ")
         
-        self.BeschrWrapper.modified.connect(self.updateEP)
-        self.AttrWrapper.modified.connect(self.updateEP)
-        self.FertWrapper.modified.connect(self.updateEP)
-        self.FreiWrapper.modified.connect(self.updateEP)
-        self.UebernatuerlichWrapper.modified.connect(self.updateEP)
-        self.EquipWrapper.modified.connect(self.updateEP)
-        self.VortWrapper.modified.connect(self.updateEP)
-        self.ItmWrapper.modified.connect(self.updateEP)
-        self.EPWrapper.modified.connect(self.updateEP)
+        self.BeschrWrapper.modified.connect(self.onModified)
+        self.AttrWrapper.modified.connect(self.onModified)
+        self.FertWrapper.modified.connect(self.onModified)
+        self.FreiWrapper.modified.connect(self.onModified)
+        self.UebernatuerlichWrapper.modified.connect(self.onModified)
+        self.EquipWrapper.modified.connect(self.onModified)
+        self.VortWrapper.modified.connect(self.onModified)
+        self.ItmWrapper.modified.connect(self.onModified)
+        self.EPWrapper.modified.connect(self.onModified)
         
         self.ui.tabs.currentChanged.connect(self.reloadAll)
         self.ui.buttonSave.clicked.connect(self.saveButton)
@@ -87,13 +88,43 @@ class Editor(object):
         self.ui.checkReq.stateChanged.connect(self.reqChanged)
         
         self.reloadAll()
+
+        self.formMain.closeEvent = self.closeEvent
         
+    def cancelDueToPendingChanges(self, action):
+        if self.changed:
+            messagebox = QtWidgets.QMessageBox()
+            messagebox.setWindowTitle(action)
+            messagebox.setText("Sollen die ausstehenden Änderungen gespeichert werden?")
+            messagebox.setIcon(QtWidgets.QMessageBox.Question)
+            messagebox.addButton(QtWidgets.QPushButton("Ja"), QtWidgets.QMessageBox.YesRole)
+            messagebox.addButton(QtWidgets.QPushButton("Nein"), QtWidgets.QMessageBox.NoRole)
+            messagebox.addButton(QtWidgets.QPushButton("Abbrechen"), QtWidgets.QMessageBox.RejectRole)
+            result = messagebox.exec_()
+            if result == 0:
+                self.quicksaveButton()
+            elif result == 2:
+                return True
+        return False
+
+    def closeEvent(self,event):
+        self.formMain.setFocus() #make sure editingfinished is called on potential line edits in focus
+        if self.cancelDueToPendingChanges("Beenden"):
+            event.ignore()
+
     def reqChanged(self):
         Wolke.Reqs = self.ui.checkReq.isChecked()
+        epBefore = Wolke.Char.EPspent
         Wolke.Char.aktualisieren()
         self.reloadAll()
         self.updateEP()
-        
+        if epBefore != Wolke.Char.EPspent:
+            self.changed = True
+    
+    def onModified(self):
+        self.changed = True
+        self.updateEP()
+
     def updateEP(self):
         if not self.ignoreModified:
             self.ui.spinEP.setValue(Wolke.Char.EPtotal)
@@ -108,7 +139,7 @@ class Editor(object):
     
     def epChanged(self):
         Wolke.Char.EPtotal = self.ui.spinEP.value()
-        self.updateEP()
+        self.onModified()
     
     def reloadAll(self):
         self.BeschrWrapper.loadBeschreibung()
@@ -179,6 +210,7 @@ Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
                 infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
                 infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
                 infoBox.exec_()
+        self.changed = False
             
     def pdfButton(self):
         self.updateAll()

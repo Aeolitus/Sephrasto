@@ -8,6 +8,7 @@ from Wolke import Wolke
 import CharakterItems
 from PyQt5 import QtWidgets, QtCore
 import logging
+from Hilfsmethoden import Hilfsmethoden
 
 class CharakterItemsWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
@@ -40,8 +41,19 @@ class CharakterItemsWrapper(QtCore.QObject):
     
     def updateItems(self):
         if not self.currentlyLoading:
-            Wolke.Char.ausrüstung.clear()
+            ausruestungNeu = []
             for i in range(1,21):
                 txt = eval("self.uiIt.lineEdit_" + str(i) + ".text()")
-                #if txt != "":
-                Wolke.Char.ausrüstung.append(txt)
+                ausruestungNeu.append(txt)
+
+            #Preserve the position of actual elements but remove any trailing empty elements
+            #This is needed for ArrayEqual later to work as intended
+            for ausr in reversed(ausruestungNeu):
+                if ausr == "":
+                    ausruestungNeu.pop()
+                else:
+                    break
+
+            if not Hilfsmethoden.ArrayEqual(ausruestungNeu, Wolke.Char.ausrüstung):
+                Wolke.Char.ausrüstung = ausruestungNeu
+                self.modified.emit()

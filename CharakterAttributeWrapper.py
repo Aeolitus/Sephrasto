@@ -45,26 +45,58 @@ class AttrWrapper(QtCore.QObject):
         
     def updateAttribute(self):
         ''' Set and refresh all Attributes '''
-        Wolke.Char.attribute['KO'].wert = self.uiAttr.spinKO.value()
-        Wolke.Char.attribute['KO'].aktualisieren()
-        Wolke.Char.attribute['MU'].wert = self.uiAttr.spinMU.value()
-        Wolke.Char.attribute['MU'].aktualisieren()
-        Wolke.Char.attribute['GE'].wert = self.uiAttr.spinGE.value()
-        Wolke.Char.attribute['GE'].aktualisieren()
-        Wolke.Char.attribute['KK'].wert = self.uiAttr.spinKK.value()
-        Wolke.Char.attribute['KK'].aktualisieren()
-        Wolke.Char.attribute['IN'].wert = self.uiAttr.spinIN.value()
-        Wolke.Char.attribute['IN'].aktualisieren()
-        Wolke.Char.attribute['KL'].wert = self.uiAttr.spinKL.value()
-        Wolke.Char.attribute['KL'].aktualisieren()
-        Wolke.Char.attribute['CH'].wert = self.uiAttr.spinCH.value()
-        Wolke.Char.attribute['CH'].aktualisieren()
-        Wolke.Char.attribute['FF'].wert = self.uiAttr.spinFF.value()
-        Wolke.Char.attribute['FF'].aktualisieren()
-        Wolke.Char.asp.wert = self.uiAttr.spinAsP.value()
-        Wolke.Char.kap.wert = self.uiAttr.spinKaP.value()
-        Wolke.Char.aktualisieren()
-        self.modified.emit()
+        changed = False
+        if Wolke.Char.attribute['KO'].wert != self.uiAttr.spinKO.value():
+            Wolke.Char.attribute['KO'].wert = self.uiAttr.spinKO.value()
+            Wolke.Char.attribute['KO'].aktualisieren()
+            changed = True
+
+        if Wolke.Char.attribute['MU'].wert != self.uiAttr.spinMU.value():
+            Wolke.Char.attribute['MU'].wert = self.uiAttr.spinMU.value()
+            Wolke.Char.attribute['MU'].aktualisieren()
+            changed = True
+
+        if Wolke.Char.attribute['GE'].wert != self.uiAttr.spinGE.value():
+            Wolke.Char.attribute['GE'].wert = self.uiAttr.spinGE.value()
+            Wolke.Char.attribute['GE'].aktualisieren()
+            changed = True
+
+        if Wolke.Char.attribute['KK'].wert != self.uiAttr.spinKK.value():
+            Wolke.Char.attribute['KK'].wert = self.uiAttr.spinKK.value()
+            Wolke.Char.attribute['KK'].aktualisieren()
+            changed = True
+
+        if Wolke.Char.attribute['IN'].wert != self.uiAttr.spinIN.value():
+            Wolke.Char.attribute['IN'].wert = self.uiAttr.spinIN.value()
+            Wolke.Char.attribute['IN'].aktualisieren()
+            changed = True
+
+        if Wolke.Char.attribute['KL'].wert != self.uiAttr.spinKL.value():
+            Wolke.Char.attribute['KL'].wert = self.uiAttr.spinKL.value()
+            Wolke.Char.attribute['KL'].aktualisieren()
+            changed = True
+
+        if Wolke.Char.attribute['CH'].wert != self.uiAttr.spinCH.value():
+            Wolke.Char.attribute['CH'].wert = self.uiAttr.spinCH.value()
+            Wolke.Char.attribute['CH'].aktualisieren()
+            changed = True
+
+        if Wolke.Char.attribute['FF'].wert != self.uiAttr.spinFF.value():
+            Wolke.Char.attribute['FF'].wert = self.uiAttr.spinFF.value()
+            Wolke.Char.attribute['FF'].aktualisieren()
+            changed = True
+
+        if Wolke.Char.asp.wert != self.uiAttr.spinAsP.value():
+            Wolke.Char.asp.wert = self.uiAttr.spinAsP.value()
+            changed = True
+
+        if Wolke.Char.kap.wert != self.uiAttr.spinKaP.value():
+            Wolke.Char.kap.wert = self.uiAttr.spinKaP.value()
+            changed = True
+
+        if changed:
+            Wolke.Char.aktualisieren()
+            self.modified.emit()
         
     def loadAttribute(self):
         ''' Load all values and derived values '''

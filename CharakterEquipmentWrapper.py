@@ -11,6 +11,7 @@ import Objekte
 import Definitionen
 from WaffenPicker import WaffenPicker
 import logging
+from Hilfsmethoden import Hilfsmethoden
 
 class EquipWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
@@ -56,7 +57,9 @@ class EquipWrapper(QtCore.QObject):
         
     def updateEquipment(self):
         if not self.currentlyLoading:
-            Wolke.Char.rüstung = []
+            changed = False
+            ruestungNeu = []
+
             if self.uiEq.editR1name.text() != "":
                 R = Objekte.Ruestung() 
                 R.name = self.uiEq.editR1name.text()
@@ -65,7 +68,7 @@ class EquipWrapper(QtCore.QObject):
                     R.rs = [self.uiEq.spinR1bein.value(), self.uiEq.spinR1larm.value(), self.uiEq.spinR1rarm.value(), self.uiEq.spinR1bauch.value(), self.uiEq.spinR1brust.value(), self.uiEq.spinR1kopf.value()]
                 else:
                     R.rs = 6*[self.uiEq.spinR1RS.value()]
-                Wolke.Char.rüstung.append(R)
+                ruestungNeu.append(R)
             if self.uiEq.editR2name.text() != "":
                 R = Objekte.Ruestung() 
                 R.name = self.uiEq.editR2name.text()
@@ -74,7 +77,7 @@ class EquipWrapper(QtCore.QObject):
                     R.rs = [self.uiEq.spinR2bein.value(), self.uiEq.spinR2larm.value(), self.uiEq.spinR2rarm.value(), self.uiEq.spinR2bauch.value(), self.uiEq.spinR2brust.value(), self.uiEq.spinR2kopf.value()]
                 else:
                     R.rs = 6*[self.uiEq.spinR2RS.value()]
-                Wolke.Char.rüstung.append(R)
+                ruestungNeu.append(R)
             if self.uiEq.editR3name.text() != "":
                 R = Objekte.Ruestung() 
                 R.name = self.uiEq.editR3name.text()
@@ -83,9 +86,13 @@ class EquipWrapper(QtCore.QObject):
                     R.rs = [self.uiEq.spinR3bein.value(), self.uiEq.spinR3larm.value(), self.uiEq.spinR3rarm.value(), self.uiEq.spinR3bauch.value(), self.uiEq.spinR3brust.value(), self.uiEq.spinR3kopf.value()]
                 else:
                     R.rs = 6*[self.uiEq.spinR3RS.value()]
-                Wolke.Char.rüstung.append(R)
-                
-            Wolke.Char.waffen = []
+                ruestungNeu.append(R)
+
+            if not Hilfsmethoden.ArrayEqual(ruestungNeu, Wolke.Char.rüstung):
+                changed = True
+                Wolke.Char.rüstung = ruestungNeu
+
+            waffenNeu = []
             for el in ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8']:
                 if (eval("self.uiEq.edit" + el + "name.text()") != ""):
                     if eval("self.uiEq.check" + el + "FK.isChecked()"):
@@ -110,9 +117,15 @@ class EquipWrapper(QtCore.QObject):
                     tmp = eval("self.uiEq.comboStil" + el[-1] + ".currentText()")
                     if tmp in Definitionen.Kampfstile:
                         W.kampfstil = Definitionen.Kampfstile.index(tmp)
-                    Wolke.Char.waffen.append(W)
-            Wolke.Char.aktualisieren()
-            self.modified.emit()
+                    waffenNeu.append(W)
+            
+            if not Hilfsmethoden.ArrayEqual(waffenNeu, Wolke.Char.waffen):
+                Wolke.Char.waffen = waffenNeu
+                changed = True
+
+            if changed:
+                Wolke.Char.aktualisieren()
+                self.modified.emit()
             self.loadEquipment()
         
     def loadEquipment(self):

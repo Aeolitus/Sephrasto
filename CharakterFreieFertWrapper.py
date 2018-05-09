@@ -9,6 +9,7 @@ from Wolke import Wolke
 import CharakterFreieFert
 from PyQt5 import QtWidgets, QtCore
 import logging
+from Hilfsmethoden import Hilfsmethoden
 
 class CharakterFreieFertWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
@@ -21,8 +22,8 @@ class CharakterFreieFertWrapper(QtCore.QObject):
         self.uiFert.setupUi(self.formFert)
         
         for count in range(1,13):
-            eval("self.uiFert.editFF" + str(count) + ".editingFinished.connect(self.changedEntry)")
-            eval("self.uiFert.comboFF" + str(count) + ".currentIndexChanged.connect(self.changedEntry)")
+            eval("self.uiFert.editFF" + str(count) + ".editingFinished.connect(self.updateFreie)")
+            eval("self.uiFert.comboFF" + str(count) + ".currentIndexChanged.connect(self.updateFreie)")
         
         self.loadFreie()
         
@@ -55,17 +56,23 @@ class CharakterFreieFertWrapper(QtCore.QObject):
         self.uiFert.comboFF1.blockSignals(False)
     
     def updateFreie(self):
-        Wolke.Char.freieFertigkeiten.clear()
+        freieNeu = []
         for count in range(1,13):
             tmp = eval("self.uiFert.editFF" + str(count) + ".text()")
-            if tmp != "":
-                val = eval("self.uiFert.comboFF" + str(count) + ".currentIndex()")+1
-                fert = Fertigkeiten.FreieFertigkeit()
-                fert.name = tmp
-                fert.wert = val
-                Wolke.Char.freieFertigkeiten.append(fert)
-        self.modified.emit()
-        
-    def changedEntry(self):
-        self.updateFreie()
-        self.modified.emit()
+            val = eval("self.uiFert.comboFF" + str(count) + ".currentIndex()")+1
+            fert = Fertigkeiten.FreieFertigkeit()
+            fert.name = tmp
+            fert.wert = val
+            freieNeu.append(fert)
+
+        #Preserve the position of actual elements but remove any trailing empty elements
+        #This is needed for ArrayEqual later to work as intended
+        for frei in reversed(freieNeu):
+            if frei.name == "":
+                freieNeu.pop()
+            else:
+                break
+
+        if not Hilfsmethoden.ArrayEqual(freieNeu, Wolke.Char.freieFertigkeiten):
+            Wolke.Char.freieFertigkeiten = freieNeu
+            self.modified.emit()
