@@ -17,6 +17,7 @@ import DatenbankMain
 from Wolke import Wolke
 import yaml
 import EinstellungenWrapper
+import Version
 
 loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
 logging.basicConfig(filename="sephrasto.log", \
@@ -55,7 +56,7 @@ class MainWindowWrapper(object):
         '''
         Initializes the GUI and connects the buttons.
         '''
-        self._version_ = "v0.6.0"
+        self._version_ = "v" + str(Version._sephrasto_version_major) + "." + str(Version._sephrasto_version_minor) + "." + str(Version._sephrasto_version_build)
         logging.critical("Starte Sephrasto " + self._version_) #critical so it's always printed, independent of the debug level setting
 
         super().__init__()
