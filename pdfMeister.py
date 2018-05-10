@@ -152,6 +152,7 @@ class pdfMeister(object):
         fields['Statu'] = Definitionen.Statusse[Wolke.Char.status]
         fields['Finanzen'] = Definitionen.Finanzen[Wolke.Char.finanzen]
         fields['Kurzb'] = Wolke.Char.kurzbeschreibung
+        fields['Notiz1'] = Wolke.Char.kurzbeschreibung
         glMod = 0
         if "Glück I" in Wolke.Char.vorteile:
             glMod += 1
