@@ -8,6 +8,7 @@ from Wolke import Wolke
 import CharakterBeschreibung
 from PyQt5 import QtWidgets, QtCore
 import logging
+from Hilfsmethoden import Hilfsmethoden
 
 class BeschrWrapper(QtCore.QObject):
     '''
@@ -44,12 +45,23 @@ class BeschrWrapper(QtCore.QObject):
 
     def updateBeschreibung(self):
         ''' Transfer current values to Char object '''
-        if self.uiBeschr.editName.text() != "":
+        changed = False
+
+        if self.uiBeschr.editName.text() != "" and Wolke.Char.name != self.uiBeschr.editName.text():
             Wolke.Char.name = self.uiBeschr.editName.text()
-        if self.uiBeschr.editRasse.text() != "":
+            changed = True
+
+        if self.uiBeschr.editRasse.text() != "" and Wolke.Char.rasse != self.uiBeschr.editRasse.text():
             Wolke.Char.rasse = self.uiBeschr.editRasse.text()
-        Wolke.Char.status = self.uiBeschr.comboStatus.currentIndex()
-        Wolke.Char.finanzen = self.uiBeschr.comboFinanzen.currentIndex()
+            changed = True
+
+        if Wolke.Char.status != self.uiBeschr.comboStatus.currentIndex():
+            Wolke.Char.status = self.uiBeschr.comboStatus.currentIndex()
+            changed = True
+
+        if Wolke.Char.finanzen != self.uiBeschr.comboFinanzen.currentIndex():
+            Wolke.Char.finanzen = self.uiBeschr.comboFinanzen.currentIndex()
+            changed = True
 
         if self.uiBeschr.comboHeimat.currentText() != self.currentGebraeuche:
             if "Gebräuche: " + self.currentGebraeuche in \
@@ -61,18 +73,35 @@ class BeschrWrapper(QtCore.QObject):
                     Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente:
                 Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.append(
                     "Gebräuche: " + self.currentGebraeuche)
-        Wolke.Char.heimat = self.uiBeschr.comboHeimat.currentText()
-        Wolke.Char.kurzbeschreibung = self.uiBeschr.editKurzbeschreibung.text()
-        Wolke.Char.eigenheiten = []
-        Wolke.Char.eigenheiten.append(self.uiBeschr.editEig1.text())
-        Wolke.Char.eigenheiten.append(self.uiBeschr.editEig2.text())
-        Wolke.Char.eigenheiten.append(self.uiBeschr.editEig3.text())
-        Wolke.Char.eigenheiten.append(self.uiBeschr.editEig4.text())
-        Wolke.Char.eigenheiten.append(self.uiBeschr.editEig5.text())
-        Wolke.Char.eigenheiten.append(self.uiBeschr.editEig6.text())
-        Wolke.Char.eigenheiten.append(self.uiBeschr.editEig7.text())
-        Wolke.Char.eigenheiten.append(self.uiBeschr.editEig8.text())
-        self.modified.emit()
+            changed = True
+
+        if Wolke.Char.heimat != self.uiBeschr.comboHeimat.currentText():
+            Wolke.Char.heimat = self.uiBeschr.comboHeimat.currentText()
+            changed = True
+
+        if Wolke.Char.kurzbeschreibung != self.uiBeschr.editKurzbeschreibung.text():
+            Wolke.Char.kurzbeschreibung = self.uiBeschr.editKurzbeschreibung.text()
+            changed = True
+
+        eigenheitenNeu = []
+        for i in range(8):
+            text = eval("self.uiBeschr.editEig" + str(i+1) + ".text()")
+            eigenheitenNeu.append(text)
+
+        #Preserve the position of actual elements but remove any trailing empty elements
+        #This is needed for ArrayEqual later to work as intended
+        for eig in reversed(eigenheitenNeu):
+            if eig == "":
+                eigenheitenNeu.pop()
+            else:
+                break
+
+        if not Hilfsmethoden.ArrayEqual(eigenheitenNeu, Wolke.Char.eigenheiten):
+            changed = True
+            Wolke.Char.eigenheiten = eigenheitenNeu
+
+        if changed:
+            self.modified.emit()
 
     def loadBeschreibung(self):
         ''' Load values from Char object '''

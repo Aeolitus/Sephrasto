@@ -1,15 +1,27 @@
-del Build
-python "C:\Users\Aeolitus\Anaconda3\Scripts\cxfreeze" --target-dir=C:\Users\Aeolitus\Desktop\Sephrasto\Build ^
---base-name=Win32GUI ^
---include-modules=lxml._elementpath,os,binascii,shutil,tempfile --icon=icon_multi.ico ^
-C:\Users\Aeolitus\Desktop\Sephrasto\Sephrasto.py
-COPY /Y C:\Users\Aeolitus\Desktop\Sephrasto\IncludeInBuildFolder\* C:\Users\Aeolitus\Desktop\Sephrasto\Build
+@ECHO OFF
+
+cd /d %0\..
+
+rmdir /s /q Build
+
+python CxFreezeBuild.py build
+
+if %errorlevel% neq 0 (
+    ECHO Canceling build due to error.
+    PAUSE
+    exit /b %errorlevel%
+)
+
+COPY /Y IncludeInBuildFolder\* Build
 mkdir Build\Library\plugins\platforms
-COPY /Y C:\Users\Aeolitus\Desktop\Sephrasto\IncludeInBuildFolder\Library\plugins\platforms\* ^
-C:\Users\Aeolitus\Desktop\Sephrasto\Build\Library\plugins\platforms
-COPY /Y C:\Users\Aeolitus\Desktop\Sephrasto\datenbank.xml C:\Users\Aeolitus\Desktop\Sephrasto\Build
-COPY /Y C:\Users\Aeolitus\Desktop\Sephrasto\Charakterbogen.pdf C:\Users\Aeolitus\Desktop\Sephrasto\Build
-COPY /Y C:\Users\Aeolitus\Desktop\Sephrasto\Gebrauchsanleitung.pdf C:\Users\Aeolitus\Desktop\Sephrasto\Build
-COPY /Y C:\Users\Aeolitus\Desktop\Sephrasto\ExtraSpells.pdf C:\Users\Aeolitus\Desktop\Sephrasto\Build
-COPY /Y C:\Users\Aeolitus\Desktop\Sephrasto\icon_large.png C:\Users\Aeolitus\Desktop\Sephrasto\Build
-COPY /Y C:\Users\Aeolitus\Desktop\Sephrasto\icon_multi.ico C:\Users\Aeolitus\Desktop\Sephrasto\Build
+COPY /Y IncludeInBuildFolder\Library\plugins\platforms\* Build\Library\plugins\platforms
+COPY /Y datenbank.xml Build
+COPY /Y Charakterbogen.pdf Build
+COPY /Y Charakterbogen_lang.pdf Build
+COPY /Y Regeln.pdf Build
+COPY /Y Gebrauchsanleitung.pdf Build
+COPY /Y ExtraSpells.pdf Build
+COPY /Y icon_large.png Build
+COPY /Y icon_multi.ico Build
+
+PAUSE

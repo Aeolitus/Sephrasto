@@ -615,10 +615,10 @@ class Char():
         self.charakterMigrieren(root, charDBVersion, self.datenbankCodeVersion)
 
         alg = root.find('AllgemeineInfos')
-        self.name = alg.find('name').text
-        self.rasse = alg.find('rasse').text
+        self.name = alg.find('name').text or ''
+        self.rasse = alg.find('rasse').text or ''
         self.status = int(alg.find('status').text)
-        self.kurzbeschreibung = alg.find('kurzbeschreibung').text
+        self.kurzbeschreibung = alg.find('kurzbeschreibung').text or ''
         self.schips = int(alg.find('schips').text)
         self.finanzen = int(alg.find('finanzen').text)
         tmp = alg.find('heimat')
@@ -627,7 +627,7 @@ class Char():
         else:
             self.heimat = tmp.text
         for eig in alg.findall('eigenheiten/*'):
-            self.eigenheiten.append(eig.text)
+            self.eigenheiten.append(eig.text or "")
         #Zweiter Block
         Wolke.Fehlercode = -44
         for atr in root.findall('Attribute/*'):
@@ -712,7 +712,7 @@ class Char():
             self.waffen.append(waff)
         Wolke.Fehlercode = -50
         for aus in root.findall('Objekte/Ausrüstung/Ausrüstungsstück'):
-            self.ausrüstung.append(aus.text)
+            self.ausrüstung.append(aus.text or "")
         #Sechster Block 
         Wolke.Fehlercode = -51
         for fer in root.findall('Übernatürliche-Fertigkeiten/Übernatürliche-Fertigkeit'):

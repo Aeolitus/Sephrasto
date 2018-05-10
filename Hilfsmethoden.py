@@ -161,4 +161,14 @@ class Hilfsmethoden:
     @staticmethod
     def RsStr2Array(RsStr):
         return [int(a) for a in RsStr.split("/")]
+
+    @staticmethod
+    def ArrayEqual(lh, rh):
+        if len(lh) != len(rh):
+            return False
+        else:
+            for count in range(0,len(lh)):
+                if lh[count] != rh[count]:
+                    return False
+        return True
     
