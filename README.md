@@ -33,6 +33,7 @@ Anleitung für die UI:
 * Modifiziere niemals Dateien, die am Anfang "Created by: PyQt5 UI code generator" stehen haben von Hand!
 * Stattdessen wird die UI durch ".ui"-XML-Dateien im "Sephrasto/UI" Ordner definiert. Optionalerweise können diese mit dem Qt Creator visuell designed werden (enthalten im Qt-Installer unter https://www.qt.io/).
 * Aus diesen Dateien wird dann der Python-Code mit Hilfe von "Sephrasto/UI/convert.bat" erzeugt.
+* Erstelle in deinem "Python/Scripts" Ordner "pyuic5.bat" mit dem Inhalt "CALL pyuic5.exe %*"
 * Bei Problemen mit convert.bat, stelle sicher, dass:
     * ... der Python Install-Ordner und der Unterordner "Scripts" in deiner PATH-Umgebungsvariable enthalten sind. Dies wird normalerweise vom Python installer automatisch gemacht. (Windows 10: System -> Advanced System Settings -> Environment Variables -> Path - in User oder System)
     * ... "Python/Scripts" die Datei "pyuic5.exe" enthält. Diese wird normalerweise durch das Installieren von PyQt5 dort angelegt.

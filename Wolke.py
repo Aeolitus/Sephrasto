@@ -11,8 +11,9 @@ class Wolke:
     Fehlercode = 0
     Settings = {
         'Bogen': 'Frag immer nach', 
-        'Datenbank': 'datenbank_user.xml', 
+        'Datenbank': None, 
         'Cheatsheet': False, 
+        'Cheatsheet-Fontsize' : 0,
         'Pfad-Chars': '',
         'Pfad-Regeln': '',
         'Logging': 1,

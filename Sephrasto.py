@@ -118,7 +118,7 @@ class MainWindowWrapper(object):
         self.ed.ui.tabs.removeTab(0)
         self.ed.ui.tabs.removeTab(0)
         self.ed.setupMainForm()
-        splitpath = os.path.split(Wolke.DB.datei)
+        splitpath = Wolke.DB.datei and os.path.split(Wolke.DB.datei) or ["keine Nutzer-DB geladen"]
         self.ed.formMain.setWindowTitle(self.ed.formMain.windowTitle() + " (" + splitpath[-1] + ")")
         self.ed.formMain.show()
         
@@ -164,7 +164,7 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n")
             self.ed.ui.tabs.removeTab(0)
             self.ed.ui.tabs.removeTab(0)
             self.ed.setupMainForm()
-            splitpath = os.path.split(Wolke.DB.datei)
+            splitpath = Wolke.DB.datei and os.path.split(Wolke.DB.datei) or ["keine Nutzer-DB geladen"]
             self.ed.formMain.setWindowTitle(self.ed.formMain.windowTitle() + " (" + splitpath[-1] + ")")
             self.ed.formMain.show()
         

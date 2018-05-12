@@ -80,6 +80,8 @@
     <Compile Include="..\DatenbankEditManoeverWrapper.py" />
     <Compile Include="..\CxFreezeBuild.py" />
     <Compile Include="..\Version.py" />
+    <Compile Include="..\Einstellungen.py" />
+    <Compile Include="..\EinstellungenWrapper.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>

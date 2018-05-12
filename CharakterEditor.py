@@ -177,7 +177,7 @@ class Editor(object):
         if ".xml" not in spath:
             spath = spath + ".xml"
             
-        if spath.endswith("datenbank.xml") or spath.endswith("datenbank_user.xml"):
+        if spath.endswith("datenbank.xml"):
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Information)
             infoBox.setText("Speichern des Charakters fehlgeschlagen!")

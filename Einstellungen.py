@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'Einstellungen.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -55,6 +55,18 @@ class Ui_SettingsWindow(object):
         self.checkCheatsheet = QtWidgets.QCheckBox(self.groupBox)
         self.checkCheatsheet.setObjectName("checkCheatsheet")
         self.verticalLayout_3.addWidget(self.checkCheatsheet)
+        self.label_6 = QtWidgets.QLabel(self.groupBox)
+        font = QtGui.QFont()
+        font.setItalic(False)
+        self.label_6.setFont(font)
+        self.label_6.setObjectName("label_6")
+        self.verticalLayout_3.addWidget(self.label_6)
+        self.comboFontSize = QtWidgets.QComboBox(self.groupBox)
+        self.comboFontSize.setObjectName("comboFontSize")
+        self.comboFontSize.addItem("")
+        self.comboFontSize.addItem("")
+        self.comboFontSize.addItem("")
+        self.verticalLayout_3.addWidget(self.comboFontSize)
         self.checkPDFOpen = QtWidgets.QCheckBox(self.groupBox)
         self.checkPDFOpen.setObjectName("checkPDFOpen")
         self.verticalLayout_3.addWidget(self.checkPDFOpen)
@@ -148,6 +160,10 @@ class Ui_SettingsWindow(object):
         self.comboBogen.setItemText(1, _translate("SettingsWindow", "Standard Ilaris-Charakterbogen"))
         self.comboBogen.setItemText(2, _translate("SettingsWindow", "Die lange Version von Gatsu"))
         self.checkCheatsheet.setText(_translate("SettingsWindow", "Cheatsheet mit den Regeln anhängen"))
+        self.label_6.setText(_translate("SettingsWindow", "Cheatsheet Schriftgröße:"))
+        self.comboFontSize.setItemText(0, _translate("SettingsWindow", "Klein"))
+        self.comboFontSize.setItemText(1, _translate("SettingsWindow", "Mittel"))
+        self.comboFontSize.setItemText(2, _translate("SettingsWindow", "Groß"))
         self.checkPDFOpen.setText(_translate("SettingsWindow", "PDF nach dem Erstellen öffnen"))
         self.groupBox_2.setTitle(_translate("SettingsWindow", "Speicherpfade"))
         self.label_2.setText(_translate("SettingsWindow", "Speicherpfad für Charaktere:"))

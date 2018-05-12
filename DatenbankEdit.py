@@ -102,7 +102,7 @@ class DatenbankEdit(object):
         self.updateGUI()
     
     def updateWindowTitle(self):
-        splitpath = os.path.split(self.savepath)
+        splitpath = self.savepath and os.path.split(self.savepath) or ["keine Nutzer-DB geladen"]
         self.Form.setWindowTitle(self.windowTitleDefault + " (" + splitpath[-1] + ")")
 
     def updateGUI(self):
@@ -407,43 +407,75 @@ class DatenbankEdit(object):
         else:
             startDir = ""
         spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"User Datenbank speichern...",startDir,"XML-Datei (*.xml)")
+        if spath == "":
+            return
         spath = os.path.realpath(spath)
-        refDatabaseFile = os.getcwd() + "\\datenbank.xml"
-
         if not spath.endswith(".xml"):
             spath = spath + ".xml"
+
+        isInRulesPath = os.path.dirname(spath) == Wolke.Settings['Pfad-Regeln']
+        if not isInRulesPath:
+            infoBox = QtWidgets.QMessageBox()
+            infoBox.setIcon(QtWidgets.QMessageBox.Question)
+            infoBox.setText("Der Charakter-Editor kann nur Datenbanken aus dem in den Einstellungen gesetzten Pfad laden, sicher dass du die Datenbank hierhin speichern möchtest?")
+            infoBox.setWindowTitle("User Datenbank speichern")
+            infoBox.addButton(QtWidgets.QPushButton("Ja"), QtWidgets.QMessageBox.YesRole)
+            infoBox.addButton(QtWidgets.QPushButton("Nein"), QtWidgets.QMessageBox.NoRole)
+            infoBox.addButton(QtWidgets.QPushButton("Abbrechen"), QtWidgets.QMessageBox.RejectRole)
+            result = infoBox.exec_()
+            if result == 1:
+                self.saveDatenbank()
+                return
+            elif result == 2:
+                return
+
+        refDatabaseFile = os.getcwd() + os.path.normpath("/datenbank.xml")
         if spath == refDatabaseFile:
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Information)
             infoBox.setText("Überschreiben der zentralen Datenbank verhindert!")
             infoBox.setInformativeText("Bitte schreibe deine eigenen Regeln nicht mit in die zentrale datenbank.xml - \
 diese wird bei vielen Updates von Sephrasto verändert, wodurch du deine Regeln \
-verlieren würdest. Stattdessen kannst du die datenbank_user.xml verwenden, die \
-automatisch beim Programmstart mit geladen wird. Änderungen darin überschreiben \
-die datenbank.xml, aber bleiben bei Updates erhalten! Auch andere Dateien sind \
-in Ordnung, werden aber nicht von Sephrasto geladen.")
+verlieren würdest. Stattdessen kannst du sie als separate Datei abspeichern und in den Einstellungen selektieren. \
+Sie wird dann automatisch beim Programmstart mit geladen. Änderungen darin überschreiben \
+die datenbank.xml, aber bleiben bei Updates erhalten!")
             infoBox.setWindowTitle("Ungültige Datei!")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
             infoBox.exec_()
             self.saveDatenbank()
-        else:
-            self.savepath = spath
-            self.quicksaveDatenbank()
-            self.updateWindowTitle()
+            return
+
+        self.savepath = spath
+        self.quicksaveDatenbank()
+        self.updateWindowTitle()
+
+        if isInRulesPath and Wolke.Settings['Datenbank'] != os.path.basename(spath):
+            infoBox = QtWidgets.QMessageBox()
+            infoBox.setIcon(QtWidgets.QMessageBox.Question)
+            infoBox.setText("Soll die neue Nutzer-Datenbank in den Einstellungen aktiv gesetzt werden?")
+            infoBox.setWindowTitle("Nutzer-Datenbank aktiv setzen")
+            infoBox.addButton(QtWidgets.QPushButton("Ja"), QtWidgets.QMessageBox.YesRole)
+            infoBox.addButton(QtWidgets.QPushButton("Nein"), QtWidgets.QMessageBox.NoRole)
+            result = infoBox.exec_()
+            if result == 0:
+                Wolke.Settings['Datenbank'] = os.path.basename(spath)
         
     def quicksaveDatenbank(self):
-        refDatabaseFile = os.getcwd() + "\\datenbank.xml"
+        if not self.savepath:
+            self.saveDatenbank()
+            return
+
+        refDatabaseFile = os.getcwd() + os.path.normpath("/datenbank.xml")
         if self.savepath == refDatabaseFile:
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Information)
             infoBox.setText("Überschreiben der zentralen Datenbank verhindert!")
             infoBox.setInformativeText("Bitte schreibe deine eigenen Regeln nicht mit in die zentrale datenbank.xml - \
 diese wird bei vielen Updates von Sephrasto verändert, wodurch du deine Regeln \
-verlieren würdest. Stattdessen kannst du die datenbank_user.xml verwenden, die \
-automatisch beim Programmstart mit geladen wird. Änderungen darin überschreiben \
-die datenbank.xml, aber bleiben bei Updates erhalten! Auch andere Dateien sind \
-in Ordnung, werden aber nicht von Sephrasto geladen.")
+verlieren würdest. Stattdessen kannst du sie als separate Datei abspeichern und in den Einstellungen selektieren. \
+Sie wird dann automatisch beim Programmstart mit geladen. Änderungen darin überschreiben \
+die datenbank.xml, aber bleiben bei Updates erhalten!")
             infoBox.setWindowTitle("Ungültige Datei!")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
@@ -464,7 +496,7 @@ in Ordnung, werden aber nicht von Sephrasto geladen.")
         if not spath:
             return
         spath = os.path.realpath(spath)
-        databaseFile = os.getcwd() + "\\datenbank.xml"
+        databaseFile = os.getcwd() + os.path.normpath("/datenbank.xml")
         if spath == databaseFile:
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Warning)

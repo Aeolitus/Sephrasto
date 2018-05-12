@@ -19,12 +19,12 @@ class Datenbank():
         self.manöver = {}
         self.removeList = []
         
-        tmp = os.path.join(Wolke.Settings['Pfad-Regeln'], 
-                           Wolke.Settings['Datenbank'])
-        if os.path.isfile(tmp):
-            self.datei = tmp
-        else:
-            self.datei = "datenbank_user.xml"
+        self.datei = None
+        if Wolke.Settings['Datenbank']:
+            tmp = os.path.join(Wolke.Settings['Pfad-Regeln'], 
+                               Wolke.Settings['Datenbank'])
+            if os.path.isfile(tmp):
+                self.datei = tmp
         self.userDbXml = None
         self.loaded = False
         self.xmlLaden()              
@@ -158,7 +158,7 @@ class Datenbank():
             self.loaded = True
 
         try:   
-            if os.path.isfile(self.datei):
+            if self.datei and os.path.isfile(self.datei):
                 self.xmlLadenInternal(self.datei, refDB=False) 
         except DatabaseException:
             messagebox = QtWidgets.QMessageBox()
@@ -167,7 +167,6 @@ class Datenbank():
             messagebox.setIcon(QtWidgets.QMessageBox.Critical)
             messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             messagebox.exec_()
-            self.datei = "datenbank_user.xml"
 
     def xmlLadenInternal(self, file, refDB):
         Wolke.Fehlercode = -20

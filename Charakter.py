@@ -611,6 +611,9 @@ class Char():
                 currentUserDBCRC = binascii.crc32(etree.tostring(Wolke.DB.userDbXml))
                 if userDBCRC != 0 and userDBCRC != currentUserDBCRC:
                     userDBChanged = True
+            elif userDBCRC != 0:
+                userDBChanged = True
+
         logging.debug("Starting Migration")
         self.charakterMigrieren(root, charDBVersion, self.datenbankCodeVersion)
 
@@ -748,7 +751,7 @@ class Char():
                 strArr.append("Auch der Pfad der aktuell geladenen Nutzer-Datenbank ist ein anderer:\n- Vorher: '")
                 strArr.append(userDBName)
                 strArr.append("'\n- Jetzt: '")
-                strArr.append(Wolke.DB.datei)
+                strArr.append(Wolke.DB.datei or "Keine Datenbank")
                 strArr.append("'")
 
             strArr.append("\n\nEventuell hat der Charakter Vorteile/Fertigkeiten/Talente verloren und sein EP-Stand könnte sich verändert haben! ")

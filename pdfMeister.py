@@ -19,7 +19,7 @@ from collections import namedtuple
 import logging
 import tempfile
 
-CharakterbogenInfo = namedtuple('CharakterbogenInfo', 'filePath maxVorteile maxFreie maxFertigkeiten kurzbogenHack')
+CharakterbogenInfo = namedtuple('CharakterbogenInfo', 'filePath maxVorteile maxFreie maxFertigkeiten seitenProfan kurzbogenHack')
 
 class pdfMeister(object):
 
@@ -40,10 +40,10 @@ class pdfMeister(object):
         self.Energie = 0
     
     def setCharakterbogenKurz(self):
-        self.CharakterBogen = CharakterbogenInfo(filePath="Charakterbogen.pdf", maxVorteile = 8, maxFreie = 12, maxFertigkeiten = 2, kurzbogenHack=True)
+        self.CharakterBogen = CharakterbogenInfo(filePath="Charakterbogen.pdf", maxVorteile = 8, maxFreie = 12, maxFertigkeiten = 2, seitenProfan = "1-2", kurzbogenHack=True)
 
     def setCharakterbogenLang(self):
-        self.CharakterBogen = CharakterbogenInfo(filePath="Charakterbogen_lang.pdf", maxVorteile = 24, maxFreie = 28, maxFertigkeiten = 28, kurzbogenHack=False)
+        self.CharakterBogen = CharakterbogenInfo(filePath="Charakterbogen_lang.pdf", maxVorteile = 24, maxFreie = 28, maxFertigkeiten = 28, seitenProfan = "1-3", kurzbogenHack=False)
 
     def pdfErstellen(self, filename, printRules):
         '''
@@ -109,7 +109,7 @@ class pdfMeister(object):
             Wolke.Fehlercode = -96
             handle, out_file = tempfile.mkstemp()
             os.close(handle)
-            call = ['pdftk', allPages[0], 'cat', '1-2', 'output', out_file]
+            call = ['pdftk', allPages[0], 'cat', self.CharakterBogen.seitenProfan, 'output', out_file]
             check_output(call)
             os.remove(allPages[0])
             allPages[0] = out_file
@@ -121,10 +121,19 @@ class pdfMeister(object):
             startIndex = 0
             pageCount = 0
 
+            fontSize = Wolke.Settings["Cheatsheet-Fontsize"]
+            lineCount = 0
+            if fontSize == 0:
+                lineCount = 80
+            elif fontSize == 1:
+                lineCount = 60
+            elif fontSize == 2:
+                lineCount = 40
+
             while startIndex != -1:
                 pageCount += 1
                 rulesFields["Seite"] = pageCount
-                startIndex = self.writeRules(rulesFields, startIndex, 75)
+                startIndex = self.writeRules(rulesFields, startIndex, lineCount)
                 handle, out_file = tempfile.mkstemp()
                 os.close(handle)
                 pdf.write_pdf(self.RulesPage, rulesFields, out_file, False)

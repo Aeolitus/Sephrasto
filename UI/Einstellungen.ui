@@ -100,6 +100,37 @@
            </widget>
           </item>
           <item>
+           <widget class="QLabel" name="label_6">
+            <property name="font">
+             <font>
+              <italic>false</italic>
+             </font>
+            </property>
+            <property name="text">
+             <string>Cheatsheet Schriftgröße:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboFontSize">
+            <item>
+             <property name="text">
+              <string>Klein</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Mittel</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Groß</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
            <widget class="QCheckBox" name="checkPDFOpen">
             <property name="text">
              <string>PDF nach dem Erstellen öffnen</string>
