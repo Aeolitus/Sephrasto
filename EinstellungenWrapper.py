@@ -22,10 +22,12 @@ class EinstellungenWrapper():
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
-        
+
         self.ui.checkCheatsheet.setChecked(Wolke.Settings['Cheatsheet'])
         self.ui.comboBogen.setCurrentText(Wolke.Settings['Bogen'])
-        
+        self.comboBogenIndexChanged()
+        self.ui.comboFontSize.setCurrentIndex(Wolke.Settings['Cheatsheet-Fontsize'])
+
         if Wolke.Settings['Pfad-Chars'] == '':
             self.resetCharPath()
         else:
@@ -54,6 +56,8 @@ class EinstellungenWrapper():
         self.ui.buttonRegeln.clicked.connect(self.setRulePath)
         self.ui.resetChar.clicked.connect(self.resetCharPath)
         self.ui.resetRegeln.clicked.connect(self.resetRulePath)
+        self.ui.comboBogen.currentIndexChanged.connect(self.comboBogenIndexChanged)
+
         self.form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.form.show()
         self.ret = self.form.exec_()
@@ -70,6 +74,8 @@ class EinstellungenWrapper():
             else:
                 Wolke.Settings['Datenbank'] = db
             Wolke.Settings['Cheatsheet'] = self.ui.checkCheatsheet.isChecked()
+            Wolke.Settings['Cheatsheet-Fontsize'] = self.ui.comboFontSize.currentIndex()
+
             if os.path.isdir(self.ui.editChar.text()):
                 Wolke.Settings['Pfad-Chars'] = self.ui.editChar.text()
             else:
@@ -89,8 +95,12 @@ class EinstellungenWrapper():
                                         'Sephrasto.ini')
             with open(SettingsPath, 'w') as outfile:
                 yaml.dump(Wolke.Settings, outfile)
-    
-    
+
+    def comboBogenIndexChanged(self):
+        self.ui.checkCheatsheet.setEnabled(self.ui.comboBogen.currentIndex() != 0)
+        if not self.ui.checkCheatsheet.isEnabled():
+            self.ui.checkCheatsheet.setChecked(False)
+
     def setCharPath(self):
         path = QtWidgets.QFileDialog.getExistingDirectory(None,
           "Wähle einen Speicherort für Charaktere aus!",

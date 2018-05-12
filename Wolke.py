@@ -13,6 +13,7 @@ class Wolke:
         'Bogen': 'Frag immer nach', 
         'Datenbank': None, 
         'Cheatsheet': False, 
+        'Cheatsheet-Fontsize' : 0,
         'Pfad-Chars': '',
         'Pfad-Regeln': '',
         'Logging': 1,
