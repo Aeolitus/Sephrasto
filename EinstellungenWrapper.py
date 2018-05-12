@@ -66,7 +66,7 @@ class EinstellungenWrapper():
             Wolke.Settings['Bogen'] = self.ui.comboBogen.currentText()
             db = self.ui.comboRegelbasis.currentText()
             if db == 'Keine':
-                Wolke.Settings['Datenbank'] = 'datenbank_user.xml'
+                Wolke.Settings['Datenbank'] = None
             else:
                 Wolke.Settings['Datenbank'] = db
             Wolke.Settings['Cheatsheet'] = self.ui.checkCheatsheet.isChecked()
