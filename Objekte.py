@@ -26,6 +26,7 @@ class Waffe(Objekt):
         self.kraf = 0
         self.schn = 0
         self.kampfstil = 0    
+        self.isUserAdded = True
         
 class Nahkampfwaffe(Waffe):
     def __init__(self):
