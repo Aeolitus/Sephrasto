@@ -5,6 +5,7 @@ import Version
 build_exe_options = {
     "build_exe" : "Build/",
     "includes" : ["lxml._elementpath", "os", "binascii", "shutil", "tempfile"],
+    "optimize" : 2
     #"zip_include_packages" : ["PyQt5"]
 }
 
