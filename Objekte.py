@@ -15,7 +15,7 @@ class Waffe(Objekt):
         super().__init__()
         self.W6 = 2
         self.plus = 2
-        self.eigenschaften = ''
+        self.eigenschaften = []
         self.haerte = 7
         self.fertigkeit = ''
         self.talent = ''

@@ -33,7 +33,7 @@ class DatenbankEditWaffeWrapper(object):
         else:
             self.ui.comboTyp.setCurrentIndex(0)
         self.ui.comboTyp.currentIndexChanged[int].connect(self.switchType)
-        self.ui.textEigenschaften.setPlainText(waffe.eigenschaften)
+        self.ui.textEigenschaften.setPlainText(", ".join(waffe.eigenschaften))
         self.ui.spinHaerte.setValue(waffe.haerte)
         self.ui.spinW6.setValue(waffe.W6)
         self.ui.spinPlus.setValue(waffe.plus)
@@ -79,7 +79,9 @@ class DatenbankEditWaffeWrapper(object):
             self.waffe.W6 = int(self.ui.spinW6.value())
             self.waffe.plus = int(self.ui.spinPlus.value())
             self.waffe.haerte = int(self.ui.spinHaerte.value())
-            self.waffe.eigenschaften = self.ui.textEigenschaften.toPlainText()
+            eigenschaftStr = self.ui.textEigenschaften.toPlainText()
+            if eigenschaftStr:
+                self.waffe.eigenschaften = list(map(str.strip, eigenschaftStr.split(",")))
             self.waffe.name = self.ui.nameEdit.text()
             self.waffe.fertigkeit = self.ui.comboFert.currentText()
             self.waffe.talent = self.ui.comboTalent.currentText()

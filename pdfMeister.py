@@ -517,7 +517,7 @@ class pdfMeister(object):
                 sg = "+"
             fields[base + 'TP'] = str(el.W6) + "W6" + sg + str(el.plus)
             fields[base + 'HA'] = str(el.haerte)
-            fields[base + 'EI'] = el.eigenschaften
+            fields[base + 'EI'] = ", ".join(el.eigenschaften)
             fields[base + 'RW'] = str(el.rw)
             if type(el) == Objekte.Fernkampfwaffe:
                 fields[base + 'WM'] = str(el.lz)
@@ -592,14 +592,16 @@ class pdfMeister(object):
                     at += el.wm
                     vt += el.wm
 
-                res = re.findall('Schwer \(([0-9]{1,2})\)',
-                                 el.eigenschaften,
-                                 re.UNICODE)
-                if len(res) > 0:
-                    minkk = int(res[0])
-                    if Wolke.Char.attribute['KK'].wert < minkk:
-                        at -= 2
-                        vt -= 2
+                for eigenschaft in el.eigenschaften:
+                    res = re.findall('Schwer \(([0-9]{1,2})\)',
+                                     eigenschaft,
+                                     re.UNICODE)
+                    if len(res) > 0:
+                        minkk = int(res[0])
+                        if Wolke.Char.attribute['KK'].wert < minkk:
+                            at -= 2
+                            vt -= 2
+                        break
 
                 if not (flagReiter2 and tale == "Reiten" and \
                         fertig == "Athletik"):

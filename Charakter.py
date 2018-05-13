@@ -520,7 +520,7 @@ class Char():
             wafNode.set('name',waff.name)
             wafNode.set('W6',str(waff.W6))
             wafNode.set('plus',str(waff.plus))
-            wafNode.set('eigenschaften',waff.eigenschaften)
+            wafNode.set('eigenschaften',", ".join(waff.eigenschaften))
             wafNode.set('haerte',str(waff.haerte))
             wafNode.set('rw',str(waff.rw))
             wafNode.set('kampfstil',str(waff.kampfstil))
@@ -709,7 +709,8 @@ class Char():
             waff.rw = int(waf.attrib['rw'])
             waff.W6 = int(waf.attrib['W6'])
             waff.plus = int(waf.attrib['plus'])
-            waff.eigenschaften = waf.attrib['eigenschaften']
+            if waf.attrib['eigenschaften']:
+                waff.eigenschaften = list(map(str.strip, waf.attrib['eigenschaften'].split(",")))
             waff.haerte = int(waf.attrib['haerte'])
             waff.kampfstil = int(waf.attrib['kampfstil'])
             self.waffen.append(waff)

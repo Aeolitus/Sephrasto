@@ -112,7 +112,9 @@ class EquipWrapper(QtCore.QObject):
                         W.haerte = eval("self.uiEq.spin" + el + "h.value()")
                     W.W6 = eval("self.uiEq.spin" + el + "w6.value()")
                     W.plus = eval("self.uiEq.spin" + el + "plus.value()")
-                    W.eigenschaften = eval("self.uiEq.edit" + el + "eig.text()")
+                    eigenschaftStr = eval("self.uiEq.edit" + el + "eig.text()")
+                    if eigenschaftStr:
+                        W.eigenschaften = list(map(str.strip, eigenschaftStr.split(","))) 
                     self.refreshKampfstile(int(el[-1])-1)
                     tmp = eval("self.uiEq.comboStil" + el[-1] + ".currentText()")
                     if tmp in Definitionen.Kampfstile:
@@ -226,7 +228,7 @@ class EquipWrapper(QtCore.QObject):
         getName = lambda : W.name
         eval("self.uiEq.edit" + Warr[count] + "name.setText(getName())")
         self.refreshKampfstile(count)
-        getEigenschaften = lambda : W.eigenschaften
+        getEigenschaften = lambda : ", ".join(W.eigenschaften)
         eval("self.uiEq.edit" + Warr[count] + "eig.setText(getEigenschaften())")
         eval("self.uiEq.spin" + Warr[count] + "w6.setValue("+ str(W.W6) +")")
         eval("self.uiEq.spin" + Warr[count] + "plus.setValue("+ str(W.plus) +")")

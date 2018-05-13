@@ -96,7 +96,7 @@ class Datenbank():
             w.set('W6', str(waffe.W6))
             w.set('plus', str(waffe.plus))
             w.set('haerte', str(waffe.haerte))
-            w.text = waffe.eigenschaften
+            w.text = ", ".join(waffe.eigenschaften)
             w.set('fertigkeit', waffe.fertigkeit)
             w.set('talent', waffe.talent)
             w.set('beid', str(waffe.beid))
@@ -281,7 +281,8 @@ class Datenbank():
             w.W6 = int(wa.get('W6'))
             w.plus = int(wa.get('plus'))
             w.haerte = int(wa.get('haerte'))
-            w.eigenschaften = wa.text
+            if wa.text:
+                w.eigenschaften = list(map(str.strip, wa.text.split(",")))
             w.fertigkeit = wa.get('fertigkeit')
             w.talent = wa.get('talent')
             w.beid = int(wa.get('beid'))
