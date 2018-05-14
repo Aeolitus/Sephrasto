@@ -380,6 +380,9 @@ class Char():
                 Vorteil muss vorhanden sein. W=0 bedeutet, der Vorteil darf nicht vorhanden sein.
             W für Waffeneigenschaft - prüft, ob der Charakter eine Waffe mit der angegebenen Eigenschaft besitzt. W ist immer 1.
             A für Attribut - prüft, ob das Attribut mit Key Str mindestens auf Wert W ist
+            U für Übernatürliche Fertigkeit - prüft, ob für die Übernatürliche Fertigkeit mit Key Str die Voraussetzungen erfüllt sind \
+                und sie mindestens auf Wert W ist. W=-1 hat ein spezielle Bedeutung, hier wird an Stelle des Fertigkeitswerts überprüft ob mindestens ein Talent aktiviert ist.
+            F für Fertigkeit - prüft, ob für die Übernatürliche Fertigkeit mit Key Str die Voraussetzungen erfüllt sind und sie mindestens auf Wert W ist.
         Einträge im Array können auch weitere Arrays and Voraussetzungen sein.
         Aus diesen Arrays muss nur ein Eintrag erfüllt sein.
         Wenn Wolke.Reqs nicht gesetzt ist, gibt die Methode immer True zurück.
@@ -418,7 +421,25 @@ class Char():
                     elif arr[0] is 'A':
                         #Wir greifen direkt auf den Eintrag zu und vergleichen. 
                         if self.attribute[arr[1]].wert >= int(arr[2]):
-                            erfüllt = True            
+                            erfüllt = True     
+                    #Übernatürliche Fertigkeiten:
+                    elif arr[0] is 'U':
+                        if arr[1] in self.übernatürlicheFertigkeiten:
+                            fertigkeit = self.übernatürlicheFertigkeiten[arr[1]]
+                            wert = int(arr[2])
+                            if wert == -1:
+                                erfüllt = len(fertigkeit.gekaufteTalente) > 0
+                            else:
+                                erfüllt = fertigkeit.wert >= wert
+                        else:
+                            erfüllt = False
+                    #Fertigkeiten:
+                    elif arr[0] is 'F':
+                        if arr[1] in self.fertigkeiten:
+                            fertigkeit = self.fertigkeiten[arr[1]]
+                            erfüllt = fertigkeit.wert >= int(arr[2])
+                        else:
+                            erfüllt = False
                 if not erfüllt:
                     retNor = False
                 else:

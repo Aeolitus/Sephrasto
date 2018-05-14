@@ -5,21 +5,22 @@ Created on Thu Apr 19 22:33:21 2018
 @author: Aeolitus
 """
 import Fertigkeiten
-from Hilfsmethoden import Hilfsmethoden
+from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
 import DatenbankEditManoever
 from PyQt5 import QtWidgets, QtCore
 
 class DatenbankEditManoeverWrapper(object):
-    def __init__(self, man=None):
+    def __init__(self, datenbank, man=None):
         super().__init__()
+        self.datenbank = datenbank
         if man is None:
             man = Fertigkeiten.Manoever()
         manDialog = QtWidgets.QDialog()
-        ui = DatenbankEditManoever.Ui_manDialog()
-        ui.setupUi(manDialog)
+        self.ui = DatenbankEditManoever.Ui_manDialog()
+        self.ui.setupUi(manDialog)
 
         if not man.isUserAdded:
-            ui.warning.setVisible(True)
+            self.ui.warning.setVisible(True)
 
         manDialog.setWindowFlags(
                 QtCore.Qt.Window |
@@ -27,21 +28,36 @@ class DatenbankEditManoeverWrapper(object):
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
         
-        ui.nameEdit.setText(man.name)
-        ui.probeEdit.setText(man.probe)
-        ui.gegenEdit.setText(man.gegenprobe)
-        ui.comboTyp.setCurrentIndex(man.typ)
-        ui.voraussetzungenEdit.setPlainText(Hilfsmethoden.VorArray2Str(man.voraussetzungen, None))
-        ui.textEdit.setPlainText(man.text)
+        self.ui.nameEdit.setText(man.name)
+        self.ui.probeEdit.setText(man.probe)
+        self.ui.gegenEdit.setText(man.gegenprobe)
+        self.ui.comboTyp.setCurrentIndex(man.typ)
+        
+        self.ui.voraussetzungenEdit.setPlainText(Hilfsmethoden.VorArray2Str(man.voraussetzungen, None))
+        self.ui.voraussetzungenEdit.textChanged.connect(self.voraussetzungenTextChanged)
+        self.voraussetzungenEditStyleSheet = self.ui.voraussetzungenEdit.styleSheet()
+
+        self.ui.textEdit.setPlainText(man.text)
         manDialog.show()
         ret = manDialog.exec_()
         if ret == QtWidgets.QDialog.Accepted:
             self.man = Fertigkeiten.Manoever()
-            self.man.name = ui.nameEdit.text()
-            self.man.probe = ui.probeEdit.text()
-            self.man.gegenprobe = ui.gegenEdit.text()
-            self.man.typ = ui.comboTyp.currentIndex()
-            self.man.voraussetzungen = Hilfsmethoden.VorStr2Array(ui.voraussetzungenEdit.toPlainText(),None)
-            self.man.text = ui.textEdit.toPlainText()
+            self.man.name = self.ui.nameEdit.text()
+            self.man.probe = self.ui.probeEdit.text()
+            self.man.gegenprobe = self.ui.gegenEdit.text()
+            self.man.typ = self.ui.comboTyp.currentIndex()
+            self.man.voraussetzungen = Hilfsmethoden.VorStr2Array(self.ui.voraussetzungenEdit.toPlainText(), datenbank)
+            self.man.text = self.ui.textEdit.toPlainText()
         else:
             self.man = None
+
+    def voraussetzungenTextChanged(self):
+        try:
+            Hilfsmethoden.VorStr2Array(self.ui.voraussetzungenEdit.toPlainText(), self.datenbank)
+            self.ui.voraussetzungenEdit.setStyleSheet(self.voraussetzungenEditStyleSheet)
+            self.ui.voraussetzungenEdit.setToolTip("")
+            self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(True)
+        except VoraussetzungException as e:
+            self.ui.voraussetzungenEdit.setStyleSheet("border: 1px solid red;")
+            self.ui.voraussetzungenEdit.setToolTip(str(e))
+            self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(False)

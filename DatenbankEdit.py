@@ -274,19 +274,19 @@ class DatenbankEdit(object):
             self.onDatabaseChange()
                           
     def editTalent(self, inp):
-        dbT = DatenbankEditTalentWrapper.DatenbankEditTalentWrapper(inp)
+        dbT = DatenbankEditTalentWrapper.DatenbankEditTalentWrapper(self.datenbank, inp)
         return dbT.talent
 
     def editVorteil(self, inp):
-        dbV = DatenbankEditVorteilWrapper.DatenbankEditVorteilWrapper(inp)
+        dbV = DatenbankEditVorteilWrapper.DatenbankEditVorteilWrapper(self.datenbank, inp)
         return dbV.vorteil
 
     def editFertigkeit(self, inp):
-        dbF = DatenbankEditFertigkeitWrapper.DatenbankEditFertigkeitWrapper(inp, False)
+        dbF = DatenbankEditFertigkeitWrapper.DatenbankEditFertigkeitWrapper(self.datenbank, inp, False)
         return dbF.fertigkeit
 
     def editUebernatuerlich(self, inp):
-        dbU = DatenbankEditFertigkeitWrapper.DatenbankEditFertigkeitWrapper(inp, True)
+        dbU = DatenbankEditFertigkeitWrapper.DatenbankEditFertigkeitWrapper(self.datenbank, inp, True)
         return dbU.fertigkeit
     
     def editWaffe(self, inp):
@@ -294,7 +294,7 @@ class DatenbankEdit(object):
         return dbW.waffe
         
     def editManoever(self, inp):
-        dbM = DatenbankEditManoeverWrapper.DatenbankEditManoeverWrapper(inp)
+        dbM = DatenbankEditManoeverWrapper.DatenbankEditManoeverWrapper(self.datenbank, inp)
         return dbM.man
         
     def editSelected(self):

@@ -5,6 +5,10 @@ Created on Sat Feb 18 16:35:08 2017
 @author: Aeolitus
 """
 import Definitionen
+import logging
+
+class VoraussetzungException(Exception):
+    pass
 
 class Hilfsmethoden:
     '''
@@ -47,9 +51,9 @@ class Hilfsmethoden:
                 retStr += ", "
                 retStr += itm
         return retStr
-    
+
     @staticmethod
-    def VorStr2Array(VoraussetzungenString, Datenbank = None):
+    def VorStr2Array(VoraussetzungenString, Datenbank):
         '''
         Voraussetzungen werden vom User ebenfalls im Fließtext eingetragen.
         Das Format ist dabei im folgenden Illustriert:
@@ -71,17 +75,63 @@ class Hilfsmethoden:
                 arrItm = subArr
             else:
                 if strpItm.startswith("Vorteil "):
-                    if (Datenbank is None) or (strpItm[8:] in Datenbank.vorteile):
-                        arrItm = "V:" + strpItm[8:] + ":1"
+                    if not (strpItm[8:] in Datenbank.vorteile):
+                        raise VoraussetzungException("Kann Vorteil '" + strpItm + "' in der Datenbank nicht finden.")
+                    arrItm = "V:" + strpItm[8:] + ":1"
                 elif strpItm.startswith("Kein Vorteil "):
-                    if (Datenbank is None) or (strpItm[13:] in Datenbank.vorteile):
-                        arrItm = "V:" + strpItm[13:] + ":0"
+                    if not (strpItm[13:] in Datenbank.vorteile):
+                        raise VoraussetzungException("Kann Vorteil '" + strpItm + "' in der Datenbank nicht finden.")
+                    arrItm = "V:" + strpItm[13:] + ":0"
                 elif strpItm.startswith("Waffeneigenschaft "):
-                    if (Datenbank is None) or (strpItm[18:] in Datenbank.manöver):
-                        arrItm = "W:" + strpItm[18:] + ":1"
+                    waffen = [waffe for waffenName, waffe in Datenbank.waffen.items() if (strpItm[18:] in waffe.eigenschaften)]
+                    if len(waffen) == 0:
+                        raise VoraussetzungException("Kann keine Waffe mit der Waffeneigenschaft '" + strpItm + "' in der Datenbank finden.")
+                    arrItm = "W:" + strpItm[18:] + ":1"
                 elif strpItm.startswith("Attribut "):
-                    if strpItm[9:11] in Definitionen.Attribute:
-                        arrItm = "A:" + strpItm[9:11] + ":" + str(strpItm[12:])
+                    attribut = strpItm[9:11]
+                    if attribut in Definitionen.Attribute:
+                        try:
+                            wert = int(strpItm[12:])
+                            arrItm = "A:" + attribut + ":" + str(wert)
+                        except ValueError:
+                            raise VoraussetzungException("Der angegebene Attribut-Wert '" + strpItm[12:] + "' ist keine gültige Zahl.")
+                    else:
+                        raise VoraussetzungException("Das angegebene Attribut '" + attribut + "' ist ungültig. Unterstützt werden 'KO', 'MU', 'GE', 'KK', 'IN', 'KL', 'CH' und 'FF'")
+                elif strpItm.startswith("Übernatürliche-Fertigkeit "):
+                    if not strpItm[26] == "'":
+                        raise VoraussetzungException("Der Name einer Übernatürlichen Fertigkeit muss in Apostrophen gefasst werden. (" + strpItm + ")")
+                    strpItm = strpItm[27:]
+                    index = strpItm.find("'")
+                    if index == -1:
+                        raise VoraussetzungException("Der Name einer Übernatürlichen Fertigkeit muss in Apostrophen gefasst werden. (" + strpItm + ")")
+                    fertigkeit = strpItm[:index]
+
+                    if not (fertigkeit in Datenbank.übernatürlicheFertigkeiten):
+                        raise VoraussetzungException("Kann Übernatürliche Fertigkeit '" + fertigkeit + "' in der Datenbank nicht finden.")
+                    try:
+                        wert = int(strpItm[index+2:])
+                        arrItm = "U:" + fertigkeit + ":" + str(wert)
+                    except ValueError:
+                        raise VoraussetzungException("Der angegebene Fertigkeitswert '" + strpItm[index+2:] + "' ist keine gültige Zahl")
+                elif strpItm.startswith("Fertigkeit "):
+                    if not strpItm[11] == "'":
+                        raise VoraussetzungException("Der Name einer Fertigkeit muss in Apostrophen gefasst werden. . (" + strpItm + ")")
+                    strpItm = strpItm[12:]
+                    index = strpItm.find("'")
+                    if index == -1:
+                        raise VoraussetzungException("Der Name einer Fertigkeit muss in Apostrophen gefasst werden. . (" + strpItm + ")")
+                    fertigkeit = strpItm[:index]
+
+                    if not (fertigkeit in Datenbank.fertigkeiten):
+                        raise VoraussetzungException("Kann Fertigkeit '" + fertigkeit + "' in der Datenbank nicht finden.")
+
+                    try:
+                        wert = int(strpItm[index+2:])
+                        arrItm = "F:" + fertigkeit + ":" + str(wert)
+                    except ValueError:
+                        raise VoraussetzungException("Der angegebene Fertigkeitswert '" + strpItm[index+2:] + "' ist keine gültige Zahl")
+                else:
+                    raise VoraussetzungException("Unbekanntes Schlüsselwort '" + strpItm + "'. Unterstützt werden 'Vorteil', 'Kein Vorteil', 'Waffeneigenschaft', 'Attribut', 'Übernatürliche-Fertigkeit' und 'Fertigkeit'.")
             retArr.append(arrItm)
         return retArr
     
@@ -118,6 +168,14 @@ class Hilfsmethoden:
                     enStr += "Attribut "
                     enStr += arr[1]
                     enStr += " "
+                    enStr += str(arr[2])
+                elif arr[0] == "U":
+                    enStr += "Übernatürliche-Fertigkeit "
+                    enStr += "'" + arr[1] + "' "
+                    enStr += str(arr[2])
+                elif arr[0] == "F":
+                    enStr += "Fertigkeit "
+                    enStr += "'" + arr[1] + "' "
                     enStr += str(arr[2])
                 if enStr != "":
                     retArr.append(enStr)

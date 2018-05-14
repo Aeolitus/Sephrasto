@@ -1,10 +1,11 @@
 import Fertigkeiten
 import lxml.etree as etree
-from Hilfsmethoden import Hilfsmethoden
+from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
 import os.path
 import Objekte
 from PyQt5 import QtWidgets
 from Wolke import Wolke
+import logging
 
 class DatabaseException(Exception):
     pass
@@ -203,12 +204,12 @@ class Datenbank():
 
         #Vorteile
         Wolke.Fehlercode = -21
-        for vort in root.findall('Vorteil'):
+        vorteilNodes = root.findall('Vorteil')
+        for vort in vorteilNodes:
             numLoaded += 1
             V = Fertigkeiten.Vorteil()
             V.name = vort.get('name')
             V.kosten = int(vort.get('kosten'))
-            V.voraussetzungen = Hilfsmethoden.VorStr2Array(vort.get('voraussetzungen'), None)
             V.nachkauf = vort.get('nachkauf')
             V.typ = int(vort.get('typ'))
             V.text = vort.text
@@ -221,7 +222,8 @@ class Datenbank():
             
         #Talente
         Wolke.Fehlercode = -22
-        for tal in root.findall('Talent'):
+        talentNodes = root.findall('Talent')
+        for tal in talentNodes:
             numLoaded += 1
             T = Fertigkeiten.Talent()
             T.name = tal.get('name')
@@ -229,7 +231,6 @@ class Datenbank():
             T.verbilligt = int(tal.get('verbilligt'))
             T.text = tal.text
             T.fertigkeiten = Hilfsmethoden.FertStr2Array(tal.get('fertigkeiten'), None)
-            T.voraussetzungen = Hilfsmethoden.VorStr2Array(tal.get('voraussetzungen'), None)
             T.variable = int(tal.get('variable'))
             T.isUserAdded = not refDB
 
@@ -242,27 +243,27 @@ class Datenbank():
             
         #Fertigkeiten
         Wolke.Fehlercode = -23
-        for fer in root.findall('Fertigkeit'):
+        fertigkeitNodes = root.findall('Fertigkeit')
+        for fer in fertigkeitNodes:
             numLoaded += 1
             F = Fertigkeiten.Fertigkeit()
             F.name = fer.get('name')
             F.steigerungsfaktor = int(fer.get('steigerungsfaktor'))
             F.text = fer.text
             F.attribute = Hilfsmethoden.AttrStr2Array(fer.get('attribute'))
-            F.voraussetzungen = Hilfsmethoden.VorStr2Array(fer.get('voraussetzungen'),None)
             F.kampffertigkeit = int(fer.get('kampffertigkeit'))
             F.isUserAdded = not refDB
             self.fertigkeiten.update({F.name: F})
 
         Wolke.Fehlercode = -24
-        for fer in root.findall('Übernatürliche-Fertigkeit'):
+        überFertigkeitNodes = root.findall('Übernatürliche-Fertigkeit')
+        for fer in überFertigkeitNodes:
             numLoaded += 1
             F = Fertigkeiten.Fertigkeit()
             F.name = fer.get('name')
             F.steigerungsfaktor = int(fer.get('steigerungsfaktor'))
             F.text = fer.text
             F.attribute = Hilfsmethoden.AttrStr2Array(fer.get('attribute'))
-            F.voraussetzungen = Hilfsmethoden.VorStr2Array(fer.get('voraussetzungen'),None)
             F.isUserAdded = not refDB
             self.übernatürlicheFertigkeiten.update({F.name: F})
             
@@ -296,17 +297,72 @@ class Datenbank():
         
         #Manöver
         Wolke.Fehlercode = -26
-        for ma in root.findall('Manöver'):
+        manöverNodes = root.findall('Manöver')
+        for ma in manöverNodes:
             numLoaded += 1
             m = Fertigkeiten.Manoever()
             m.name = ma.get('name')
-            m.voraussetzungen = Hilfsmethoden.VorStr2Array(ma.get('voraussetzungen'), None)
             m.probe = ma.get('probe')
             m.gegenprobe = ma.get('gegenprobe')
             m.typ = int(ma.get('typ'))
             m.text = ma.text
             m.isUserAdded = not refDB
             self.manöver.update({m.name: m})
+
+        # Step 2: Voraussetzungen - requires everything else to be loaded for cross validation
+
+        #Vorteile
+        Wolke.Fehlercode = -21
+        for vort in vorteilNodes:
+            V = self.vorteile[vort.get('name')]
+            try:
+                V.voraussetzungen = Hilfsmethoden.VorStr2Array(vort.get('voraussetzungen'), self)
+            except VoraussetzungException as e:
+                errorStr = "Error in Voraussetzungen of Vorteil " + V.name + ": " + str(e)
+                assert False, errorStr
+                logging.warning(errorStr)
+            
+        #Talente
+        Wolke.Fehlercode = -22
+        for tal in talentNodes:
+            T = self.talente[tal.get('name')] 
+            try:
+                T.voraussetzungen = Hilfsmethoden.VorStr2Array(tal.get('voraussetzungen'), self)
+            except VoraussetzungException as e:
+                errorStr = "Error in Voraussetzungen of Talent " + T.name + ": " + str(e)
+                assert False, errorStr
+                logging.warning(errorStr)
+        #Fertigkeiten
+        Wolke.Fehlercode = -23
+        for fer in fertigkeitNodes:
+            F = self.fertigkeiten[fer.get('name')]
+            try:
+                F.voraussetzungen = Hilfsmethoden.VorStr2Array(fer.get('voraussetzungen'), self)
+            except VoraussetzungException as e:
+                errorStr = "Error in Voraussetzungen of Fertigkeit " + F.name + ": " + str(e)
+                assert False, errorStr
+                logging.warning(errorStr)
+
+        Wolke.Fehlercode = -24
+        for fer in überFertigkeitNodes:
+            F = self.übernatürlicheFertigkeiten[fer.get('name')]
+            try:
+                F.voraussetzungen = Hilfsmethoden.VorStr2Array(fer.get('voraussetzungen'), self)
+            except VoraussetzungException as e:
+                errorStr = "Error in Voraussetzungen of Übernatürliche Fertigkeit " + F.name + ": " + str(e)
+                assert False, errorStr
+                logging.warning(errorStr)
+      
+        #Manöver
+        Wolke.Fehlercode = -26
+        for ma in manöverNodes:
+            m = self.manöver[ma.get('name')]
+            try:
+                m.voraussetzungen = Hilfsmethoden.VorStr2Array(ma.get('voraussetzungen'), self)
+            except VoraussetzungException as e:
+                errorStr = "Error in Voraussetzungen of Manöver " + m.name + ": " + str(e)
+                assert False, errorStr
+                logging.warning(errorStr)
 
         if numLoaded <1 and refDB:
             Wolke.Fehlercode = -33
