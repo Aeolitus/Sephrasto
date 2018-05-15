@@ -14,6 +14,7 @@ class DatenbankEditWaffeWrapper(object):
         self.db = datenbank
         if waffe is None:
             waffe = Objekte.Nahkampfwaffe()
+        self.waffePicked = waffe
         waffeDialog = QtWidgets.QDialog()
         self.ui = DatenbankEditWaffe.Ui_talentDialog()
         self.ui.setupUi(waffeDialog)
@@ -28,6 +29,9 @@ class DatenbankEditWaffeWrapper(object):
                 QtCore.Qt.WindowCloseButtonHint)
         
         self.ui.nameEdit.setText(waffe.name)
+        self.ui.nameEdit.textChanged.connect(self.nameChanged)
+        self.nameChanged()
+
         if type(waffe) == Objekte.Fernkampfwaffe:
             self.ui.comboTyp.setCurrentIndex(1)
         else:
@@ -108,3 +112,18 @@ class DatenbankEditWaffeWrapper(object):
         for tal in self.db.talente:
             if ff in self.db.talente[tal].fertigkeiten:
                 self.ui.comboTalent.addItem(tal)
+
+    def nameChanged(self):
+        name = self.ui.nameEdit.text()
+        if name == "":
+            self.ui.nameEdit.setToolTip("Name darf nicht leer sein.")
+            self.ui.nameEdit.setStyleSheet("border: 1px solid red;")
+            self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(False)
+        elif name != self.waffePicked.name and name in self.db.waffen:
+            self.ui.nameEdit.setToolTip("Name existiert bereits.")
+            self.ui.nameEdit.setStyleSheet("border: 1px solid red;")
+            self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(False)
+        else:
+            self.ui.nameEdit.setToolTip("")
+            self.ui.nameEdit.setStyleSheet("")
+            self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(True)
