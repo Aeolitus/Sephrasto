@@ -40,6 +40,7 @@ class DatenbankEdit(object):
         self.ui.showWaffen.stateChanged.connect(self.updateGUI)
         self.ui.showManoever.stateChanged.connect(self.updateGUI)
         self.ui.showDeleted.stateChanged.connect(self.updateGUI)
+        self.ui.buttonCloseDB.clicked.connect(self.closeDatenbank)
         self.ui.buttonLoadDB.clicked.connect(self.loadDatenbank)
         self.ui.buttonSaveDB.clicked.connect(self.saveDatenbank)
         self.ui.buttonQuicksave.clicked.connect(self.quicksaveDatenbank)
@@ -53,7 +54,7 @@ class DatenbankEdit(object):
         self.Form.closeEvent = self.closeEvent
         self.windowTitleDefault = self.Form.windowTitle()
         self.updateGUI()
-        self.updateWindowTitle()
+        self.updateWindowTitleAndCloseButton()
     
     def listSelectionChanged(self):
         indexes = self.ui.listDatenbank.selectedIndexes()
@@ -101,9 +102,10 @@ class DatenbankEdit(object):
         self.changed = True
         self.updateGUI()
     
-    def updateWindowTitle(self):
+    def updateWindowTitleAndCloseButton(self):
         splitpath = self.savepath and os.path.split(self.savepath) or ["keine Nutzer-DB geladen"]
         self.Form.setWindowTitle(self.windowTitleDefault + " (" + splitpath[-1] + ")")
+        self.ui.buttonCloseDB.setEnabled(self.savepath and True or False)
 
     def updateGUI(self):
 
@@ -448,7 +450,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
 
         self.savepath = spath
         self.quicksaveDatenbank()
-        self.updateWindowTitle()
+        self.updateWindowTitleAndCloseButton()
 
         if isInRulesPath and Wolke.Settings['Datenbank'] != os.path.basename(spath):
             infoBox = QtWidgets.QMessageBox()
@@ -484,7 +486,17 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             self.datenbank.datei = self.savepath
             self.datenbank.xmlSchreiben()
             self.changed = False
-        
+    
+    def closeDatenbank(self):
+        if self.cancelDueToPendingChanges("Datenbank schließen"):
+            return
+        self.datenbank.datei = None
+        self.savepath = None
+        self.datenbank.xmlLaden()
+        self.updateGUI()
+        self.updateWindowTitleAndCloseButton()
+        self.changed = False
+
     def loadDatenbank(self):
         if self.cancelDueToPendingChanges("Andere Datenbank laden"):
             return
@@ -511,7 +523,8 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         self.datenbank.datei = spath
         self.datenbank.xmlLaden()
         self.updateGUI()
-        self.updateWindowTitle()
+        self.updateWindowTitleAndCloseButton()
+        self.changed = False
         
 if __name__ == "__main__":
     D = DatenbankEdit()
