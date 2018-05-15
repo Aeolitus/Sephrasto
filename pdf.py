@@ -17,6 +17,7 @@ PDFFields - found at:
 import codecs
 import sys
 import shutil
+import platform
 
 if sys.version_info[0] < 3:
     bytes = str
@@ -26,7 +27,14 @@ import os
 import tempfile
 from re import match
 from tempfile import NamedTemporaryFile
-from subprocess import check_output
+import subprocess
+
+def check_output_silent(call):
+    if platform.system() == 'Windows':
+        startupinfo = subprocess.STARTUPINFO()
+        startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+
+    return subprocess.check_output(call, startupinfo=startupinfo)
 
 def get_fields(pdf_file):
     '''
@@ -37,7 +45,7 @@ def get_fields(pdf_file):
     fields = {}
     call = ['pdftk', pdf_file, 'dump_data_fields']
     try:
-        data_string = check_output(call).decode('utf8')
+        data_string = check_output_silent(call).decode('utf8')
     except FileNotFoundError:
         raise PdftkNotInstalledError('Could not locate PDFtk installation')
     data_list = data_string.split('\r\n')
@@ -66,7 +74,7 @@ def write_pdf(source, fields, output, flatten=False):
     if flatten:
         call.append('flatten')
     try:
-        check_output(call)
+        check_output_silent(call)
     except FileNotFoundError:
         raise PdftkNotInstalledError('Could not locate PDFtk installation')
     remove(file.name)
@@ -259,9 +267,13 @@ def concat(files, out_file=None):
     args += files
     args += ['cat', 'output', out_file]
     try:
-        check_output(args)
+        check_output_silent(args)
     except:
         if cleanOnFail:
             os.remove(out_file)
         raise
     return out_file
+
+def shrink(file, fromPageNumber, toPageNumber, out_file):
+    call = ['pdftk', file, 'cat', str(fromPageNumber) + "-" + str(toPageNumber), 'output', out_file]
+    check_output_silent(call)
