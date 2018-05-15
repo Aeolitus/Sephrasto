@@ -39,6 +39,7 @@ class DatenbankEdit(object):
         self.ui.showUebernatuerlicheFertigkeiten.stateChanged.connect(self.updateGUI)
         self.ui.showWaffen.stateChanged.connect(self.updateGUI)
         self.ui.showManoever.stateChanged.connect(self.updateGUI)
+        self.ui.showUserAdded.stateChanged.connect(self.updateGUI)
         self.ui.showDeleted.stateChanged.connect(self.updateGUI)
         self.ui.buttonCloseDB.clicked.connect(self.closeDatenbank)
         self.ui.buttonLoadDB.clicked.connect(self.loadDatenbank)
@@ -110,35 +111,60 @@ class DatenbankEdit(object):
     def updateGUI(self):
 
         self.model.clear()
+        showUserAdded = self.ui.showUserAdded.isChecked()
         if self.ui.showTalente.isChecked():
-            for itm in self.datenbank.talente:
+            for itm, value in self.datenbank.talente.items():
+                if not value.isUserAdded and showUserAdded:
+                    continue
                 item = QtGui.QStandardItem(itm + " : Talent")
                 item.setEditable(False)
+                if value.isUserAdded:
+                    item.setBackground(QtGui.QBrush(QtCore.Qt.green))
                 self.model.appendRow(item)
         if self.ui.showVorteile.isChecked():
-            for itm in self.datenbank.vorteile:
+            for itm, value in self.datenbank.vorteile.items():
+                if not value.isUserAdded and showUserAdded:
+                    continue
                 item = QtGui.QStandardItem(itm + " : Vorteil")
                 item.setEditable(False)
+                if value.isUserAdded:
+                    item.setBackground(QtGui.QBrush(QtCore.Qt.green))
                 self.model.appendRow(item) 
         if self.ui.showFertigkeiten.isChecked():
-            for itm in self.datenbank.fertigkeiten:
+            for itm, value in self.datenbank.fertigkeiten.items():
+                if not value.isUserAdded and showUserAdded:
+                    continue
                 item = QtGui.QStandardItem(itm + " : Fertigkeit")
                 item.setEditable(False)
+                if value.isUserAdded:
+                    item.setBackground(QtGui.QBrush(QtCore.Qt.green))
                 self.model.appendRow(item) 
         if self.ui.showUebernatuerlicheFertigkeiten.isChecked():
-            for itm in self.datenbank.übernatürlicheFertigkeiten:
+            for itm, value in self.datenbank.übernatürlicheFertigkeiten.items():
+                if not value.isUserAdded and showUserAdded:
+                    continue
                 item = QtGui.QStandardItem(itm + " : Übernatürliche Fertigkeit")
                 item.setEditable(False)
+                if value.isUserAdded:
+                    item.setBackground(QtGui.QBrush(QtCore.Qt.green))
                 self.model.appendRow(item) 
         if self.ui.showWaffen.isChecked():
-            for itm in self.datenbank.waffen:
+            for itm, value in self.datenbank.waffen.items():
+                if not value.isUserAdded and showUserAdded:
+                    continue
                 item = QtGui.QStandardItem(itm + " : Waffe")
                 item.setEditable(False)
+                if value.isUserAdded:
+                    item.setBackground(QtGui.QBrush(QtCore.Qt.green))
                 self.model.appendRow(item) 
         if self.ui.showManoever.isChecked():
-            for itm in self.datenbank.manöver:
+            for itm, value in self.datenbank.manöver.items():
+                if not value.isUserAdded and showUserAdded:
+                    continue
                 item = QtGui.QStandardItem(itm + " : Manöver / Modifikation")
                 item.setEditable(False)
+                if value.isUserAdded:
+                    item.setBackground(QtGui.QBrush(QtCore.Qt.green))
                 self.model.appendRow(item)
         if self.ui.showDeleted.isChecked():
             for itm in self.datenbank.removeList:

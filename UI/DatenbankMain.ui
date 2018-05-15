@@ -101,6 +101,16 @@
         </widget>
        </item>
        <item>
+        <widget class="QCheckBox" name="showUserAdded">
+         <property name="text">
+          <string>Nur eigene Änderungen</string>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -135,7 +145,7 @@
           </size>
          </property>
          <property name="text">
-          <string>Andere Regelbasis laden</string>
+          <string>Regelbasis laden</string>
          </property>
         </widget>
        </item>
