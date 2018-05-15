@@ -95,6 +95,12 @@ class DatenbankEditWaffeWrapper(object):
             self.waffe.schi = int(self.ui.checkSchild.isChecked())
             self.waffe.kraf = int(self.ui.checkKraft.isChecked())
             self.waffe.schn = int(self.ui.checkSchnell.isChecked())
+
+            self.waffe.isUserAdded = False
+            if self.waffe == self.waffePicked:
+                self.waffe = None
+            else:
+                self.waffe.isUserAdded = True
         else:
             self.waffe = None
             

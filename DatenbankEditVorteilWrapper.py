@@ -57,6 +57,12 @@ class DatenbankEditVorteilWrapper(object):
             else:
                 self.vorteil.variable = -1
             self.vorteil.text = self.ui.textEdit.toPlainText()
+            
+            self.vorteil.isUserAdded = False
+            if self.vorteil == self.vorteilPicked:
+                self.vorteil = None
+            else:
+                self.vorteil.isUserAdded = True
         else:
             self.vorteil = None
            

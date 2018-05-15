@@ -52,6 +52,12 @@ class DatenbankEditManoeverWrapper(object):
             self.man.typ = self.ui.comboTyp.currentIndex()
             self.man.voraussetzungen = Hilfsmethoden.VorStr2Array(self.ui.voraussetzungenEdit.toPlainText(), datenbank)
             self.man.text = self.ui.textEdit.toPlainText()
+
+            self.man.isUserAdded = False
+            if self.man == self.manöverPicked:
+                self.man = None
+            else:
+                self.man.isUserAdded = True
         else:
             self.man = None
 

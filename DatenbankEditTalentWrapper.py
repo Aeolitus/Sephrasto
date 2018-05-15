@@ -70,6 +70,12 @@ class DatenbankEditTalentWrapper(object):
                 self.talent.kosten = self.ui.spinKosten.value()
             elif self.ui.buttonVerbilligt.isChecked():
                 self.talent.verbilligt = 1
+
+            self.talent.isUserAdded = False
+            if self.talent == self.talentPicked:
+                self.talent = None
+            else:
+                self.talent.isUserAdded = True
         else:
             self.talent = None
 
