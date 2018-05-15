@@ -35,7 +35,7 @@ class pdfMeister(object):
         self.RulesPage = "Regeln.pdf"
         self.Rules = []
         self.RuleWeights = []
-        self.RuleCategories = ['ALLGEMEINE VORTEILE', 'PROFANE VORTEILE', 'KAMPFVORTEILE', 'NAHKAMPFMANÖVER', 'FERNKAMPFMANÖVER', 'ÜBERNATÜRLICHE VORTEILE', 'SPONTANE MODIFIKATIONEN (ZAUBER)', 'SPONTANE MODIFIKATIONEN (LITURGIEN)', 'ÜBERNATÜRLICHE TALENTE']
+        self.RuleCategories = ['ALLGEMEINE VORTEILE', 'PROFANE VORTEILE', 'KAMPFVORTEILE', 'NAHKAMPFMANÖVER', 'FERNKAMPFMANÖVER', 'ÜBERNATÜRLICHE VORTEILE', 'SPONTANE MODIFIKATIONEN (ZAUBER)', 'SPONTANE MODIFIKATIONEN (LITURGIEN)', 'ÜBERNATÜRLICHE TALENTE', 'SONSTIGES']
         self.Talents = []
         self.Energie = 0
     
@@ -827,27 +827,38 @@ class pdfMeister(object):
     def appendManöver(strList, weights, category, manöverList):
         strList.append(pdfMeister.formatRuleCategory(category))
         weights.append(pdfMeister.getWeight(strList[-1]))
+        count = 0
         for man in manöverList:
             manöver = Wolke.DB.manöver[man]
             if not Wolke.Char.voraussetzungenPrüfen(manöver.voraussetzungen):
                 continue
+            count += 1
             str = ['-']
             if manöver.name.endswith(" (M)") or manöver.name.endswith(" (L)"):
                 str.append(manöver.name[:-4])
             else:
                 str.append(manöver.name)
-            str.append(" (")
-            str.append(manöver.probe)
-            str.append("): ")
+            if manöver.probe:
+                str.append(" (")
+                str.append(manöver.probe)
+                str.append(")")
+            str.append(": ")
             if manöver.gegenprobe:
                 str.append("Gegenprobe: ")
                 str.append(manöver.gegenprobe)
                 str.append(". ")
-            #Replace all line endings by space
-            str.append(manöver.text.replace('\n', ' '))
+
+            #Replace line endings without a full stop by just a full stop
+            text = re.sub('(?<!\.)\n', '. ', manöver.text)
+            #Replace all the remaining line endings by space
+            str.append(text.replace('\n', ' '))
+
             str.append('\n\n')
             strList.append("".join(str))
             weights.append(pdfMeister.getWeight(strList[-1]))
+        if count == 0:
+            strList.pop()
+            weights.pop()
 
     def appendTalente(strList, weights, category, talente):
         strList.append(pdfMeister.formatRuleCategory(category))
@@ -926,7 +937,8 @@ class pdfMeister(object):
         manöverkarmal = []
         if "Geweiht I" in Wolke.Char.vorteile:
             manöverkarmal = [el for el in sortM if (Wolke.DB.manöver[el].typ == 3)]
-
+        manöversonstiges = [el for el in sortM if (Wolke.DB.manöver[el].typ == 4)]
+            
         ueberTalente = set()
         for fer in Wolke.Char.übernatürlicheFertigkeiten:
             for tal in Wolke.Char.übernatürlicheFertigkeiten[fer].gekaufteTalente:
@@ -953,6 +965,8 @@ class pdfMeister(object):
             pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[7], manöverkarmal)
         if ueberTalente:
             pdfMeister.appendTalente(self.Rules, self.RuleWeights, self.RuleCategories[8], ueberTalente)
+        if manöversonstiges:
+            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[9], manöversonstiges)
 
     def writeRules(self, fields, start, roughLineCount):
         weights = 0

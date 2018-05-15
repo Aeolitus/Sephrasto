@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'DatenbankEditManoever.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -56,6 +56,7 @@ class Ui_manDialog(object):
         self.comboTyp.addItem("")
         self.comboTyp.addItem("")
         self.comboTyp.addItem("")
+        self.comboTyp.addItem("")
         self.gridLayout.addWidget(self.comboTyp, 4, 1, 1, 1)
         self.label_6 = QtWidgets.QLabel(manDialog)
         self.label_6.setObjectName("label_6")
@@ -96,6 +97,7 @@ class Ui_manDialog(object):
         self.comboTyp.setItemText(1, _translate("manDialog", "Fernkampfmanöver"))
         self.comboTyp.setItemText(2, _translate("manDialog", "Magische Modifikation"))
         self.comboTyp.setItemText(3, _translate("manDialog", "Karmale Modifikation"))
+        self.comboTyp.setItemText(4, _translate("manDialog", "Sonstiges"))
         self.label_6.setText(_translate("manDialog", "Typ"))
         self.warning.setText(_translate("manDialog", "Dies ist ein Ilaris-Standardmanöver / eine Ilaris-Standardmodifikation. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für dieses Manöver / diese Modifikation keine automatischen Updates mehr mit neuen Sephrasto-Versionen."))
 
