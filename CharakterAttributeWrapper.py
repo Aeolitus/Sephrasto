@@ -8,6 +8,7 @@ from Wolke import Wolke
 import CharakterAttribute
 from PyQt5 import QtWidgets, QtCore
 import logging
+import copy
 
 class AttrWrapper(QtCore.QObject):
     ''' 
@@ -42,48 +43,55 @@ class AttrWrapper(QtCore.QObject):
         first update them with the current value, and then set the PW's. '''
         self.updateAttribute()
         self.loadAttribute()
-        
+     
+    def checkConsequences(self, attribut, wert):
+        attribute = copy.deepcopy(Wolke.Char.attribute)
+        attribute[attribut].wert = wert
+        attribute[attribut].aktualisieren()
+        remove = Wolke.Char.findUnerfüllteVorteilVoraussetzungen(attribute=attribute)
+        if remove:
+            messageBox = QtWidgets.QMessageBox()
+            messageBox.setIcon(QtWidgets.QMessageBox.Question)
+            messageBox.setWindowTitle(attribut + " senken")
+            messageBox.setText("Wenn du " + attribut + " auf " + str(wert) + " senkst, verlierst du die folgenden Vorteile:")
+            remove.append("\nBist du sicher?")
+            messageBox.setInformativeText("\n".join(remove))
+            messageBox.addButton(QtWidgets.QPushButton("Ja"), QtWidgets.QMessageBox.YesRole)
+            messageBox.addButton(QtWidgets.QPushButton("Abbrechen"), QtWidgets.QMessageBox.RejectRole)
+            result = messageBox.exec_()
+            return result == 0
+        return True
+
+    def updateAttribut(self, attribut, uiElement):
+        changed = False
+        if Wolke.Char.attribute[attribut].wert != uiElement.value():
+            if self.checkConsequences(attribut, uiElement.value()):
+                Wolke.Char.attribute[attribut].wert = uiElement.value()
+                Wolke.Char.attribute[attribut].aktualisieren()
+                changed = True
+            else:
+                uiElement.setValue(Wolke.Char.attribute[attribut].wert)
+        return changed
+
     def updateAttribute(self):
         ''' Set and refresh all Attributes '''
         changed = False
-        if Wolke.Char.attribute['KO'].wert != self.uiAttr.spinKO.value():
-            Wolke.Char.attribute['KO'].wert = self.uiAttr.spinKO.value()
-            Wolke.Char.attribute['KO'].aktualisieren()
-            changed = True
 
-        if Wolke.Char.attribute['MU'].wert != self.uiAttr.spinMU.value():
-            Wolke.Char.attribute['MU'].wert = self.uiAttr.spinMU.value()
-            Wolke.Char.attribute['MU'].aktualisieren()
+        if self.updateAttribut('KO', self.uiAttr.spinKO):
             changed = True
-
-        if Wolke.Char.attribute['GE'].wert != self.uiAttr.spinGE.value():
-            Wolke.Char.attribute['GE'].wert = self.uiAttr.spinGE.value()
-            Wolke.Char.attribute['GE'].aktualisieren()
+        if self.updateAttribut('MU', self.uiAttr.spinMU):
             changed = True
-
-        if Wolke.Char.attribute['KK'].wert != self.uiAttr.spinKK.value():
-            Wolke.Char.attribute['KK'].wert = self.uiAttr.spinKK.value()
-            Wolke.Char.attribute['KK'].aktualisieren()
+        if self.updateAttribut('GE', self.uiAttr.spinGE):
             changed = True
-
-        if Wolke.Char.attribute['IN'].wert != self.uiAttr.spinIN.value():
-            Wolke.Char.attribute['IN'].wert = self.uiAttr.spinIN.value()
-            Wolke.Char.attribute['IN'].aktualisieren()
+        if self.updateAttribut('KK', self.uiAttr.spinKK):
             changed = True
-
-        if Wolke.Char.attribute['KL'].wert != self.uiAttr.spinKL.value():
-            Wolke.Char.attribute['KL'].wert = self.uiAttr.spinKL.value()
-            Wolke.Char.attribute['KL'].aktualisieren()
+        if self.updateAttribut('IN', self.uiAttr.spinIN):
             changed = True
-
-        if Wolke.Char.attribute['CH'].wert != self.uiAttr.spinCH.value():
-            Wolke.Char.attribute['CH'].wert = self.uiAttr.spinCH.value()
-            Wolke.Char.attribute['CH'].aktualisieren()
+        if self.updateAttribut('KL', self.uiAttr.spinKL):
             changed = True
-
-        if Wolke.Char.attribute['FF'].wert != self.uiAttr.spinFF.value():
-            Wolke.Char.attribute['FF'].wert = self.uiAttr.spinFF.value()
-            Wolke.Char.attribute['FF'].aktualisieren()
+        if self.updateAttribut('CH', self.uiAttr.spinCH):
+            changed = True
+        if self.updateAttribut('FF', self.uiAttr.spinFF):
             changed = True
 
         if Wolke.Char.asp.wert != self.uiAttr.spinAsP.value():

@@ -292,6 +292,41 @@ class Char():
             if contFlag:
                 break
 
+    def findUnerfüllteVorteilVoraussetzungen(self, vorteile = None, waffen = None, attribute = None, übernatürlicheFertigkeiten = None, fertigkeiten = None):
+        ''' 
+        Checks for all Vorteile if the requirements are still met until in one 
+        run, all of them meet the requirements. This gets rid of stacks of them
+        that all depend onto each other, like Zauberer I-IV when removing I.
+        The parameters can be used to override character values. If None is specified, the character values are used.
+        '''
+        vorteile = copy.deepcopy(vorteile or self.vorteile)
+        waffen = waffen or self.waffen
+        attribute = attribute or self.attribute
+        übernatürlicheFertigkeiten = übernatürlicheFertigkeiten or self.übernatürlicheFertigkeiten
+        fertigkeiten = fertigkeiten or self.fertigkeiten
+        minderpakt = self.minderpakt
+        allRemoved = []
+        while True:
+            contFlag = True
+            remove = []
+            for vor in vorteile:
+                if vor == minderpakt:
+                    if "Minderpakt" in vorteile:
+                        continue
+                    else:
+                        allRemoved.append(minderpakt)
+                        minderpakt = None
+                if not Char.voraussetzungenPrüfenInternal(vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, Wolke.DB.vorteile[vor].voraussetzungen):
+                    remove.append(vor)
+                    allRemoved.append(vor)
+                    contFlag = False
+            for el in remove:
+                vorteile.remove(el)
+            if contFlag:
+                break
+
+        return allRemoved
+
     def updateFerts(self):
         '''
         Similar to updateVorts, this removes all Fertigkeiten for which the
@@ -372,6 +407,9 @@ class Char():
                                     self.übernatürlicheFertigkeiten[f].gekaufteTalente.append(el)
 
     def voraussetzungenPrüfen(self,Vor,Or=False):
+        return Char.voraussetzungenPrüfenInternal(self.vorteile, self.waffen, self.attribute, self.übernatürlicheFertigkeiten, self.fertigkeiten, Vor, Or)
+    
+    def voraussetzungenPrüfenInternal(vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, Vor, Or=False):
         '''
         Prüft, ob ein Array von Voraussetzungen erfüllt ist.
         Format: ['L:Str:W', 'L:Str:W']
@@ -394,7 +432,7 @@ class Char():
             for voraus in Vor:
                 erfüllt = False
                 if type(voraus) is list:
-                    erfüllt = self.voraussetzungenPrüfen(voraus,True)
+                    erfüllt = Char.voraussetzungenPrüfenInternal(vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, voraus,True)
                 else: 
                     #Split am Separator
                     arr = re.split(':',voraus)
@@ -405,7 +443,7 @@ class Char():
                         else: 
                             cond = 1
                         found = 0
-                        if arr[1] in self.vorteile:
+                        if arr[1] in vorteile:
                             found = 1
                         if found == 1 and cond == 1:
                             erfüllt = True
@@ -413,19 +451,19 @@ class Char():
                             erfüllt = True
                     #Waffeneigenschaften:
                     elif arr[0] is 'W':
-                        for waffe in self.waffen:
+                        for waffe in waffen:
                             if arr[1] in waffe.eigenschaften:
                                 erfüllt = True
                                 break
                     #Attribute:
                     elif arr[0] is 'A':
                         #Wir greifen direkt auf den Eintrag zu und vergleichen. 
-                        if self.attribute[arr[1]].wert >= int(arr[2]):
+                        if attribute[arr[1]].wert >= int(arr[2]):
                             erfüllt = True     
                     #Übernatürliche Fertigkeiten:
                     elif arr[0] is 'U':
-                        if arr[1] in self.übernatürlicheFertigkeiten:
-                            fertigkeit = self.übernatürlicheFertigkeiten[arr[1]]
+                        if arr[1] in übernatürlicheFertigkeiten:
+                            fertigkeit = übernatürlicheFertigkeiten[arr[1]]
                             wert = int(arr[2])
                             if wert == -1:
                                 erfüllt = len(fertigkeit.gekaufteTalente) > 0
@@ -435,8 +473,8 @@ class Char():
                             erfüllt = False
                     #Fertigkeiten:
                     elif arr[0] is 'F':
-                        if arr[1] in self.fertigkeiten:
-                            fertigkeit = self.fertigkeiten[arr[1]]
+                        if arr[1] in fertigkeiten:
+                            fertigkeit = fertigkeiten[arr[1]]
                             erfüllt = fertigkeit.wert >= int(arr[2])
                         else:
                             erfüllt = False
