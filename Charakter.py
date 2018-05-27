@@ -232,6 +232,8 @@ class Char():
             if fer.wert == 3 and not skip:
                 skip = True
                 continue
+            if not fer.name:
+                continue
             val = Definitionen.FreieFertigkeitKosten[fer.wert-1]
             spent += val
             self.EP_FreieFertigkeiten += val
