@@ -39,7 +39,9 @@ class DatenbankEdit(object):
         self.ui.showUebernatuerlicheFertigkeiten.stateChanged.connect(self.updateGUI)
         self.ui.showWaffen.stateChanged.connect(self.updateGUI)
         self.ui.showManoever.stateChanged.connect(self.updateGUI)
+        self.ui.showUserAdded.stateChanged.connect(self.updateGUI)
         self.ui.showDeleted.stateChanged.connect(self.updateGUI)
+        self.ui.buttonCloseDB.clicked.connect(self.closeDatenbank)
         self.ui.buttonLoadDB.clicked.connect(self.loadDatenbank)
         self.ui.buttonSaveDB.clicked.connect(self.saveDatenbank)
         self.ui.buttonQuicksave.clicked.connect(self.quicksaveDatenbank)
@@ -53,7 +55,7 @@ class DatenbankEdit(object):
         self.Form.closeEvent = self.closeEvent
         self.windowTitleDefault = self.Form.windowTitle()
         self.updateGUI()
-        self.updateWindowTitle()
+        self.updateWindowTitleAndCloseButton()
     
     def listSelectionChanged(self):
         indexes = self.ui.listDatenbank.selectedIndexes()
@@ -101,42 +103,68 @@ class DatenbankEdit(object):
         self.changed = True
         self.updateGUI()
     
-    def updateWindowTitle(self):
+    def updateWindowTitleAndCloseButton(self):
         splitpath = self.savepath and os.path.split(self.savepath) or ["keine Nutzer-DB geladen"]
         self.Form.setWindowTitle(self.windowTitleDefault + " (" + splitpath[-1] + ")")
+        self.ui.buttonCloseDB.setEnabled(self.savepath and True or False)
 
     def updateGUI(self):
 
         self.model.clear()
+        showUserAdded = self.ui.showUserAdded.isChecked()
         if self.ui.showTalente.isChecked():
-            for itm in self.datenbank.talente:
+            for itm, value in self.datenbank.talente.items():
+                if not value.isUserAdded and showUserAdded:
+                    continue
                 item = QtGui.QStandardItem(itm + " : Talent")
                 item.setEditable(False)
+                if value.isUserAdded:
+                    item.setBackground(QtGui.QBrush(QtCore.Qt.green))
                 self.model.appendRow(item)
         if self.ui.showVorteile.isChecked():
-            for itm in self.datenbank.vorteile:
+            for itm, value in self.datenbank.vorteile.items():
+                if not value.isUserAdded and showUserAdded:
+                    continue
                 item = QtGui.QStandardItem(itm + " : Vorteil")
                 item.setEditable(False)
+                if value.isUserAdded:
+                    item.setBackground(QtGui.QBrush(QtCore.Qt.green))
                 self.model.appendRow(item) 
         if self.ui.showFertigkeiten.isChecked():
-            for itm in self.datenbank.fertigkeiten:
+            for itm, value in self.datenbank.fertigkeiten.items():
+                if not value.isUserAdded and showUserAdded:
+                    continue
                 item = QtGui.QStandardItem(itm + " : Fertigkeit")
                 item.setEditable(False)
+                if value.isUserAdded:
+                    item.setBackground(QtGui.QBrush(QtCore.Qt.green))
                 self.model.appendRow(item) 
         if self.ui.showUebernatuerlicheFertigkeiten.isChecked():
-            for itm in self.datenbank.übernatürlicheFertigkeiten:
+            for itm, value in self.datenbank.übernatürlicheFertigkeiten.items():
+                if not value.isUserAdded and showUserAdded:
+                    continue
                 item = QtGui.QStandardItem(itm + " : Übernatürliche Fertigkeit")
                 item.setEditable(False)
+                if value.isUserAdded:
+                    item.setBackground(QtGui.QBrush(QtCore.Qt.green))
                 self.model.appendRow(item) 
         if self.ui.showWaffen.isChecked():
-            for itm in self.datenbank.waffen:
+            for itm, value in self.datenbank.waffen.items():
+                if not value.isUserAdded and showUserAdded:
+                    continue
                 item = QtGui.QStandardItem(itm + " : Waffe")
                 item.setEditable(False)
+                if value.isUserAdded:
+                    item.setBackground(QtGui.QBrush(QtCore.Qt.green))
                 self.model.appendRow(item) 
         if self.ui.showManoever.isChecked():
-            for itm in self.datenbank.manöver:
+            for itm, value in self.datenbank.manöver.items():
+                if not value.isUserAdded and showUserAdded:
+                    continue
                 item = QtGui.QStandardItem(itm + " : Manöver / Modifikation")
                 item.setEditable(False)
+                if value.isUserAdded:
+                    item.setBackground(QtGui.QBrush(QtCore.Qt.green))
                 self.model.appendRow(item)
         if self.ui.showDeleted.isChecked():
             for itm in self.datenbank.removeList:
@@ -274,19 +302,19 @@ class DatenbankEdit(object):
             self.onDatabaseChange()
                           
     def editTalent(self, inp):
-        dbT = DatenbankEditTalentWrapper.DatenbankEditTalentWrapper(inp)
+        dbT = DatenbankEditTalentWrapper.DatenbankEditTalentWrapper(self.datenbank, inp)
         return dbT.talent
 
     def editVorteil(self, inp):
-        dbV = DatenbankEditVorteilWrapper.DatenbankEditVorteilWrapper(inp)
+        dbV = DatenbankEditVorteilWrapper.DatenbankEditVorteilWrapper(self.datenbank, inp)
         return dbV.vorteil
 
     def editFertigkeit(self, inp):
-        dbF = DatenbankEditFertigkeitWrapper.DatenbankEditFertigkeitWrapper(inp, False)
+        dbF = DatenbankEditFertigkeitWrapper.DatenbankEditFertigkeitWrapper(self.datenbank, inp, False)
         return dbF.fertigkeit
 
     def editUebernatuerlich(self, inp):
-        dbU = DatenbankEditFertigkeitWrapper.DatenbankEditFertigkeitWrapper(inp, True)
+        dbU = DatenbankEditFertigkeitWrapper.DatenbankEditFertigkeitWrapper(self.datenbank, inp, True)
         return dbU.fertigkeit
     
     def editWaffe(self, inp):
@@ -294,7 +322,7 @@ class DatenbankEdit(object):
         return dbW.waffe
         
     def editManoever(self, inp):
-        dbM = DatenbankEditManoeverWrapper.DatenbankEditManoeverWrapper(inp)
+        dbM = DatenbankEditManoeverWrapper.DatenbankEditManoeverWrapper(self.datenbank, inp)
         return dbM.man
         
     def editSelected(self):
@@ -448,7 +476,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
 
         self.savepath = spath
         self.quicksaveDatenbank()
-        self.updateWindowTitle()
+        self.updateWindowTitleAndCloseButton()
 
         if isInRulesPath and Wolke.Settings['Datenbank'] != os.path.basename(spath):
             infoBox = QtWidgets.QMessageBox()
@@ -484,7 +512,17 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             self.datenbank.datei = self.savepath
             self.datenbank.xmlSchreiben()
             self.changed = False
-        
+    
+    def closeDatenbank(self):
+        if self.cancelDueToPendingChanges("Datenbank schließen"):
+            return
+        self.datenbank.datei = None
+        self.savepath = None
+        self.datenbank.xmlLaden()
+        self.updateGUI()
+        self.updateWindowTitleAndCloseButton()
+        self.changed = False
+
     def loadDatenbank(self):
         if self.cancelDueToPendingChanges("Andere Datenbank laden"):
             return
@@ -511,7 +549,8 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         self.datenbank.datei = spath
         self.datenbank.xmlLaden()
         self.updateGUI()
-        self.updateWindowTitle()
+        self.updateWindowTitleAndCloseButton()
+        self.changed = False
         
 if __name__ == "__main__":
     D = DatenbankEdit()

@@ -232,6 +232,8 @@ class Char():
             if fer.wert == 3 and not skip:
                 skip = True
                 continue
+            if not fer.name:
+                continue
             val = Definitionen.FreieFertigkeitKosten[fer.wert-1]
             spent += val
             self.EP_FreieFertigkeiten += val
@@ -291,6 +293,41 @@ class Char():
                 self.vorteile.remove(el)
             if contFlag:
                 break
+
+    def findUnerfüllteVorteilVoraussetzungen(self, vorteile = None, waffen = None, attribute = None, übernatürlicheFertigkeiten = None, fertigkeiten = None):
+        ''' 
+        Checks for all Vorteile if the requirements are still met until in one 
+        run, all of them meet the requirements. This gets rid of stacks of them
+        that all depend onto each other, like Zauberer I-IV when removing I.
+        The parameters can be used to override character values. If None is specified, the character values are used.
+        '''
+        vorteile = copy.deepcopy(vorteile or self.vorteile)
+        waffen = waffen or self.waffen
+        attribute = attribute or self.attribute
+        übernatürlicheFertigkeiten = übernatürlicheFertigkeiten or self.übernatürlicheFertigkeiten
+        fertigkeiten = fertigkeiten or self.fertigkeiten
+        minderpakt = self.minderpakt
+        allRemoved = []
+        while True:
+            contFlag = True
+            remove = []
+            for vor in vorteile:
+                if vor == minderpakt:
+                    if "Minderpakt" in vorteile:
+                        continue
+                    else:
+                        allRemoved.append(minderpakt)
+                        minderpakt = None
+                if not Char.voraussetzungenPrüfenInternal(vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, Wolke.DB.vorteile[vor].voraussetzungen):
+                    remove.append(vor)
+                    allRemoved.append(vor)
+                    contFlag = False
+            for el in remove:
+                vorteile.remove(el)
+            if contFlag:
+                break
+
+        return allRemoved
 
     def updateFerts(self):
         '''
@@ -372,6 +409,9 @@ class Char():
                                     self.übernatürlicheFertigkeiten[f].gekaufteTalente.append(el)
 
     def voraussetzungenPrüfen(self,Vor,Or=False):
+        return Char.voraussetzungenPrüfenInternal(self.vorteile, self.waffen, self.attribute, self.übernatürlicheFertigkeiten, self.fertigkeiten, Vor, Or)
+    
+    def voraussetzungenPrüfenInternal(vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, Vor, Or=False):
         '''
         Prüft, ob ein Array von Voraussetzungen erfüllt ist.
         Format: ['L:Str:W', 'L:Str:W']
@@ -380,6 +420,9 @@ class Char():
                 Vorteil muss vorhanden sein. W=0 bedeutet, der Vorteil darf nicht vorhanden sein.
             W für Waffeneigenschaft - prüft, ob der Charakter eine Waffe mit der angegebenen Eigenschaft besitzt. W ist immer 1.
             A für Attribut - prüft, ob das Attribut mit Key Str mindestens auf Wert W ist
+            U für Übernatürliche Fertigkeit - prüft, ob für die Übernatürliche Fertigkeit mit Key Str die Voraussetzungen erfüllt sind \
+                und sie mindestens auf Wert W ist. W=-1 hat ein spezielle Bedeutung, hier wird an Stelle des Fertigkeitswerts überprüft ob mindestens ein Talent aktiviert ist.
+            F für Fertigkeit - prüft, ob für die Übernatürliche Fertigkeit mit Key Str die Voraussetzungen erfüllt sind und sie mindestens auf Wert W ist.
         Einträge im Array können auch weitere Arrays and Voraussetzungen sein.
         Aus diesen Arrays muss nur ein Eintrag erfüllt sein.
         Wenn Wolke.Reqs nicht gesetzt ist, gibt die Methode immer True zurück.
@@ -391,7 +434,7 @@ class Char():
             for voraus in Vor:
                 erfüllt = False
                 if type(voraus) is list:
-                    erfüllt = self.voraussetzungenPrüfen(voraus,True)
+                    erfüllt = Char.voraussetzungenPrüfenInternal(vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, voraus,True)
                 else: 
                     #Split am Separator
                     arr = re.split(':',voraus)
@@ -402,7 +445,7 @@ class Char():
                         else: 
                             cond = 1
                         found = 0
-                        if arr[1] in self.vorteile:
+                        if arr[1] in vorteile:
                             found = 1
                         if found == 1 and cond == 1:
                             erfüllt = True
@@ -410,15 +453,33 @@ class Char():
                             erfüllt = True
                     #Waffeneigenschaften:
                     elif arr[0] is 'W':
-                        for waffe in self.waffen:
+                        for waffe in waffen:
                             if arr[1] in waffe.eigenschaften:
                                 erfüllt = True
                                 break
                     #Attribute:
                     elif arr[0] is 'A':
                         #Wir greifen direkt auf den Eintrag zu und vergleichen. 
-                        if self.attribute[arr[1]].wert >= int(arr[2]):
-                            erfüllt = True            
+                        if attribute[arr[1]].wert >= int(arr[2]):
+                            erfüllt = True     
+                    #Übernatürliche Fertigkeiten:
+                    elif arr[0] is 'U':
+                        if arr[1] in übernatürlicheFertigkeiten:
+                            fertigkeit = übernatürlicheFertigkeiten[arr[1]]
+                            wert = int(arr[2])
+                            if wert == -1:
+                                erfüllt = len(fertigkeit.gekaufteTalente) > 0
+                            else:
+                                erfüllt = fertigkeit.wert >= wert
+                        else:
+                            erfüllt = False
+                    #Fertigkeiten:
+                    elif arr[0] is 'F':
+                        if arr[1] in fertigkeiten:
+                            fertigkeit = fertigkeiten[arr[1]]
+                            erfüllt = fertigkeit.wert >= int(arr[2])
+                        else:
+                            erfüllt = False
                 if not erfüllt:
                     retNor = False
                 else:
@@ -520,7 +581,7 @@ class Char():
             wafNode.set('name',waff.name)
             wafNode.set('W6',str(waff.W6))
             wafNode.set('plus',str(waff.plus))
-            wafNode.set('eigenschaften',waff.eigenschaften)
+            wafNode.set('eigenschaften',", ".join(waff.eigenschaften))
             wafNode.set('haerte',str(waff.haerte))
             wafNode.set('rw',str(waff.rw))
             wafNode.set('kampfstil',str(waff.kampfstil))
@@ -709,7 +770,8 @@ class Char():
             waff.rw = int(waf.attrib['rw'])
             waff.W6 = int(waf.attrib['W6'])
             waff.plus = int(waf.attrib['plus'])
-            waff.eigenschaften = waf.attrib['eigenschaften']
+            if waf.attrib['eigenschaften']:
+                waff.eigenschaften = list(map(str.strip, waf.attrib['eigenschaften'].split(",")))
             waff.haerte = int(waf.attrib['haerte'])
             waff.kampfstil = int(waf.attrib['kampfstil'])
             self.waffen.append(waff)

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'DatenbankMain.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.10.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -49,8 +49,16 @@ class Ui_Form(object):
         self.showDeleted.setChecked(True)
         self.showDeleted.setObjectName("showDeleted")
         self.verticalLayout.addWidget(self.showDeleted)
+        self.showUserAdded = QtWidgets.QCheckBox(Form)
+        self.showUserAdded.setChecked(False)
+        self.showUserAdded.setObjectName("showUserAdded")
+        self.verticalLayout.addWidget(self.showUserAdded)
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem)
+        self.buttonCloseDB = QtWidgets.QPushButton(Form)
+        self.buttonCloseDB.setMinimumSize(QtCore.QSize(0, 25))
+        self.buttonCloseDB.setObjectName("buttonCloseDB")
+        self.verticalLayout.addWidget(self.buttonCloseDB)
         self.buttonLoadDB = QtWidgets.QPushButton(Form)
         self.buttonLoadDB.setMinimumSize(QtCore.QSize(0, 25))
         self.buttonLoadDB.setObjectName("buttonLoadDB")
@@ -118,7 +126,9 @@ class Ui_Form(object):
         self.showWaffen.setText(_translate("Form", "Waffen"))
         self.showManoever.setText(_translate("Form", "Manöver / Modifikationen"))
         self.showDeleted.setText(_translate("Form", "Gelöschtes"))
-        self.buttonLoadDB.setText(_translate("Form", "Andere Regelbasis laden"))
+        self.showUserAdded.setText(_translate("Form", "Nur eigene Änderungen"))
+        self.buttonCloseDB.setText(_translate("Form", "Regelbasis schließen"))
+        self.buttonLoadDB.setText(_translate("Form", "Regelbasis laden"))
         self.buttonSaveDB.setText(_translate("Form", "Regelbasis speichern als..."))
         self.buttonQuicksave.setText(_translate("Form", "Regelbasis speichern"))
         self.buttonHinzufuegen.setText(_translate("Form", "Hinzufügen"))

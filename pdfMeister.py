@@ -35,15 +35,15 @@ class pdfMeister(object):
         self.RulesPage = "Regeln.pdf"
         self.Rules = []
         self.RuleWeights = []
-        self.RuleCategories = ['ALLGEMEINE VORTEILE', 'PROFANE VORTEILE', 'KAMPFVORTEILE', 'NAHKAMPFMANÖVER', 'FERNKAMPFMANÖVER', 'ÜBERNATÜRLICHE VORTEILE', 'SPONTANE MODIFIKATIONEN (ZAUBER)', 'SPONTANE MODIFIKATIONEN (LITURGIEN)', 'ÜBERNATÜRLICHE TALENTE']
+        self.RuleCategories = ['ALLGEMEINE VORTEILE', 'PROFANE VORTEILE', 'KAMPFVORTEILE', 'NAHKAMPFMANÖVER', 'FERNKAMPFMANÖVER', 'ÜBERNATÜRLICHE VORTEILE', 'SPONTANE MODIFIKATIONEN (ZAUBER)', 'SPONTANE MODIFIKATIONEN (LITURGIEN)', 'ÜBERNATÜRLICHE TALENTE', 'SONSTIGES']
         self.Talents = []
         self.Energie = 0
     
     def setCharakterbogenKurz(self):
-        self.CharakterBogen = CharakterbogenInfo(filePath="Charakterbogen.pdf", maxVorteile = 8, maxFreie = 12, maxFertigkeiten = 2, seitenProfan = "1-2", kurzbogenHack=True)
+        self.CharakterBogen = CharakterbogenInfo(filePath="Charakterbogen.pdf", maxVorteile = 8, maxFreie = 12, maxFertigkeiten = 2, seitenProfan = 2, kurzbogenHack=True)
 
     def setCharakterbogenLang(self):
-        self.CharakterBogen = CharakterbogenInfo(filePath="Charakterbogen_lang.pdf", maxVorteile = 24, maxFreie = 28, maxFertigkeiten = 28, seitenProfan = "1-3", kurzbogenHack=False)
+        self.CharakterBogen = CharakterbogenInfo(filePath="Charakterbogen_lang.pdf", maxVorteile = 24, maxFreie = 28, maxFertigkeiten = 28, seitenProfan = 3, kurzbogenHack=False)
 
     def pdfErstellen(self, filename, printRules):
         '''
@@ -109,8 +109,7 @@ class pdfMeister(object):
             Wolke.Fehlercode = -96
             handle, out_file = tempfile.mkstemp()
             os.close(handle)
-            call = ['pdftk', allPages[0], 'cat', self.CharakterBogen.seitenProfan, 'output', out_file]
-            check_output(call)
+            pdf.shrink(allPages[0], 1, self.CharakterBogen.seitenProfan, out_file)
             os.remove(allPages[0])
             allPages[0] = out_file
         
@@ -517,7 +516,7 @@ class pdfMeister(object):
                 sg = "+"
             fields[base + 'TP'] = str(el.W6) + "W6" + sg + str(el.plus)
             fields[base + 'HA'] = str(el.haerte)
-            fields[base + 'EI'] = el.eigenschaften
+            fields[base + 'EI'] = ", ".join(el.eigenschaften)
             fields[base + 'RW'] = str(el.rw)
             if type(el) == Objekte.Fernkampfwaffe:
                 fields[base + 'WM'] = str(el.lz)
@@ -592,14 +591,16 @@ class pdfMeister(object):
                     at += el.wm
                     vt += el.wm
 
-                res = re.findall('Schwer \(([0-9]{1,2})\)',
-                                 el.eigenschaften,
-                                 re.UNICODE)
-                if len(res) > 0:
-                    minkk = int(res[0])
-                    if Wolke.Char.attribute['KK'].wert < minkk:
-                        at -= 2
-                        vt -= 2
+                for eigenschaft in el.eigenschaften:
+                    res = re.findall('Schwer \(([0-9]{1,2})\)',
+                                     eigenschaft,
+                                     re.UNICODE)
+                    if len(res) > 0:
+                        minkk = int(res[0])
+                        if Wolke.Char.attribute['KK'].wert < minkk:
+                            at -= 2
+                            vt -= 2
+                        break
 
                 if not (flagReiter2 and tale == "Reiten" and \
                         fertig == "Athletik"):
@@ -825,27 +826,38 @@ class pdfMeister(object):
     def appendManöver(strList, weights, category, manöverList):
         strList.append(pdfMeister.formatRuleCategory(category))
         weights.append(pdfMeister.getWeight(strList[-1]))
+        count = 0
         for man in manöverList:
             manöver = Wolke.DB.manöver[man]
             if not Wolke.Char.voraussetzungenPrüfen(manöver.voraussetzungen):
                 continue
+            count += 1
             str = ['-']
             if manöver.name.endswith(" (M)") or manöver.name.endswith(" (L)"):
                 str.append(manöver.name[:-4])
             else:
                 str.append(manöver.name)
-            str.append(" (")
-            str.append(manöver.probe)
-            str.append("): ")
+            if manöver.probe:
+                str.append(" (")
+                str.append(manöver.probe)
+                str.append(")")
+            str.append(": ")
             if manöver.gegenprobe:
                 str.append("Gegenprobe: ")
                 str.append(manöver.gegenprobe)
                 str.append(". ")
-            #Replace all line endings by space
-            str.append(manöver.text.replace('\n', ' '))
+
+            #Replace line endings without a full stop by just a full stop
+            text = re.sub('(?<!\.)\n', '. ', manöver.text)
+            #Replace all the remaining line endings by space
+            str.append(text.replace('\n', ' '))
+
             str.append('\n\n')
             strList.append("".join(str))
             weights.append(pdfMeister.getWeight(strList[-1]))
+        if count == 0:
+            strList.pop()
+            weights.pop()
 
     def appendTalente(strList, weights, category, talente):
         strList.append(pdfMeister.formatRuleCategory(category))
@@ -924,7 +936,8 @@ class pdfMeister(object):
         manöverkarmal = []
         if "Geweiht I" in Wolke.Char.vorteile:
             manöverkarmal = [el for el in sortM if (Wolke.DB.manöver[el].typ == 3)]
-
+        manöversonstiges = [el for el in sortM if (Wolke.DB.manöver[el].typ == 4)]
+            
         ueberTalente = set()
         for fer in Wolke.Char.übernatürlicheFertigkeiten:
             for tal in Wolke.Char.übernatürlicheFertigkeiten[fer].gekaufteTalente:
@@ -951,6 +964,8 @@ class pdfMeister(object):
             pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[7], manöverkarmal)
         if ueberTalente:
             pdfMeister.appendTalente(self.Rules, self.RuleWeights, self.RuleCategories[8], ueberTalente)
+        if manöversonstiges:
+            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[9], manöversonstiges)
 
     def writeRules(self, fields, start, roughLineCount):
         weights = 0

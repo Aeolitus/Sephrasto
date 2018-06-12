@@ -101,6 +101,11 @@
          <string>Karmale Modifikation</string>
         </property>
        </item>
+       <item>
+        <property name="text">
+         <string>Sonstiges</string>
+        </property>
+       </item>
       </widget>
      </item>
      <item row="4" column="0">

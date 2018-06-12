@@ -101,6 +101,16 @@
         </widget>
        </item>
        <item>
+        <widget class="QCheckBox" name="showUserAdded">
+         <property name="text">
+          <string>Nur eigene Änderungen</string>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -114,6 +124,19 @@
         </spacer>
        </item>
        <item>
+        <widget class="QPushButton" name="buttonCloseDB">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Regelbasis schließen</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="buttonLoadDB">
          <property name="minimumSize">
           <size>
@@ -122,7 +145,7 @@
           </size>
          </property>
          <property name="text">
-          <string>Andere Regelbasis laden</string>
+          <string>Regelbasis laden</string>
          </property>
         </widget>
        </item>

@@ -14,6 +14,7 @@ class DatenbankEditWaffeWrapper(object):
         self.db = datenbank
         if waffe is None:
             waffe = Objekte.Nahkampfwaffe()
+        self.waffePicked = waffe
         waffeDialog = QtWidgets.QDialog()
         self.ui = DatenbankEditWaffe.Ui_talentDialog()
         self.ui.setupUi(waffeDialog)
@@ -28,12 +29,15 @@ class DatenbankEditWaffeWrapper(object):
                 QtCore.Qt.WindowCloseButtonHint)
         
         self.ui.nameEdit.setText(waffe.name)
+        self.ui.nameEdit.textChanged.connect(self.nameChanged)
+        self.nameChanged()
+
         if type(waffe) == Objekte.Fernkampfwaffe:
             self.ui.comboTyp.setCurrentIndex(1)
         else:
             self.ui.comboTyp.setCurrentIndex(0)
         self.ui.comboTyp.currentIndexChanged[int].connect(self.switchType)
-        self.ui.textEigenschaften.setPlainText(waffe.eigenschaften)
+        self.ui.textEigenschaften.setPlainText(", ".join(waffe.eigenschaften))
         self.ui.spinHaerte.setValue(waffe.haerte)
         self.ui.spinW6.setValue(waffe.W6)
         self.ui.spinPlus.setValue(waffe.plus)
@@ -79,7 +83,9 @@ class DatenbankEditWaffeWrapper(object):
             self.waffe.W6 = int(self.ui.spinW6.value())
             self.waffe.plus = int(self.ui.spinPlus.value())
             self.waffe.haerte = int(self.ui.spinHaerte.value())
-            self.waffe.eigenschaften = self.ui.textEigenschaften.toPlainText()
+            eigenschaftStr = self.ui.textEigenschaften.toPlainText()
+            if eigenschaftStr:
+                self.waffe.eigenschaften = list(map(str.strip, eigenschaftStr.split(",")))
             self.waffe.name = self.ui.nameEdit.text()
             self.waffe.fertigkeit = self.ui.comboFert.currentText()
             self.waffe.talent = self.ui.comboTalent.currentText()
@@ -89,6 +95,12 @@ class DatenbankEditWaffeWrapper(object):
             self.waffe.schi = int(self.ui.checkSchild.isChecked())
             self.waffe.kraf = int(self.ui.checkKraft.isChecked())
             self.waffe.schn = int(self.ui.checkSchnell.isChecked())
+
+            self.waffe.isUserAdded = False
+            if self.waffe == self.waffePicked:
+                self.waffe = None
+            else:
+                self.waffe.isUserAdded = True
         else:
             self.waffe = None
             
@@ -106,3 +118,18 @@ class DatenbankEditWaffeWrapper(object):
         for tal in self.db.talente:
             if ff in self.db.talente[tal].fertigkeiten:
                 self.ui.comboTalent.addItem(tal)
+
+    def nameChanged(self):
+        name = self.ui.nameEdit.text()
+        if name == "":
+            self.ui.nameEdit.setToolTip("Name darf nicht leer sein.")
+            self.ui.nameEdit.setStyleSheet("border: 1px solid red;")
+            self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(False)
+        elif name != self.waffePicked.name and name in self.db.waffen:
+            self.ui.nameEdit.setToolTip("Name existiert bereits.")
+            self.ui.nameEdit.setStyleSheet("border: 1px solid red;")
+            self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(False)
+        else:
+            self.ui.nameEdit.setToolTip("")
+            self.ui.nameEdit.setStyleSheet("")
+            self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(True)

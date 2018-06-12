@@ -115,6 +115,6 @@ class WaffenPicker(object):
                 self.ui.labelWMLZ_Text.setText("Ladezeit")
                 self.ui.labelWMLZ.setText(str(w.lz))
             self.ui.labelH.setText(str(w.haerte))
-            self.ui.plainEigenschaften.setPlainText(w.eigenschaften)
+            self.ui.plainEigenschaften.setPlainText(", ".join(w.eigenschaften))
         
             
