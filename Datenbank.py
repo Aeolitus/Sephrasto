@@ -48,6 +48,8 @@ class Datenbank():
         Wolke.Fehlercode = -26
         root = etree.Element('Datenbank')
         
+        etree.SubElement(root, 'Version').text = str(self.datenbankCodeVersion)
+
         #Vorteile
         Wolke.Fehlercode = -27
         for vort in self.vorteile:
@@ -205,7 +207,7 @@ class Datenbank():
             userDBVersion = 0
             if versionXml is not None:
                 logging.debug("User DB: VersionXML found")
-                userDBVersion = int(versionXml.find('DatenbankVersion').text)
+                userDBVersion = int(versionXml.text)
 
             logging.debug("Starting User DB Migration")
             self.userDBMigrieren(root, userDBVersion, self.datenbankCodeVersion)
