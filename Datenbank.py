@@ -28,6 +28,20 @@ class Datenbank():
                 self.datei = tmp
         self.userDbXml = None
         self.loaded = False
+
+        #Versionierung
+        #Wenn sich das Schema der Ref-DB ändert müssen bestehende user dbs aktualisiert werden.
+        #Hier kann die Datenbank Code Version inkrementiert werden und in der Migrationen-Map eine Migrationsfunktion für die neue Version angelegt werden.
+        #In dieser Funktion kann dann die UserDB-XML-Datei angepasst werden, bevor sie geladen wird.
+        #Da Migrationen hier im Gegensatz zur Charaktermigration nur bei Schema-Änderungen nötig sind, gibt es nichts was wir dem User in einer messagebox zeigen müssten
+        #Die Funktionen werden inkrementell ausgeführt, bspw. bei UserDB-Version '0' und DB-Code-Version '2' wird zuerst die Funktion für 1, dann die Funktion für 2 aufgerufen
+        self.datenbankCodeVersion = 0
+        self.migrationen = [
+            lambda xmlRoot: None, #nichts zu tun, initiale db version   
+        ]
+        if not self.migrationen[self.datenbankCodeVersion]:
+            raise Exception("Migrations-Code vergessen.")
+
         self.xmlLaden()              
 
     def xmlSchreiben(self):
@@ -169,15 +183,32 @@ class Datenbank():
             messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             messagebox.exec_()
 
+    def userDBMigrieren(self, xmlRoot, userDBVersion, datenbankCodeVersion):
+        dbChanged = userDBVersion < datenbankCodeVersion
+        while userDBVersion < datenbankCodeVersion:
+            logging.warning("Migriere UserDB von Version " + str(userDBVersion ) + " zu " + str(userDBVersion + 1))
+            userDBVersion +=1
+            self.migrationen[userDBVersion](xmlRoot)
+
     def xmlLadenInternal(self, file, refDB):
         Wolke.Fehlercode = -20
         root = etree.parse(file).getroot()
 
+        if root.tag != 'Datenbank':
+            raise DatabaseException('Not a valid database file')
+
         if not refDB:
             self.userDbXml = root
 
-        if root.tag != 'Datenbank':
-            raise DatabaseException('Not a valid database file')
+            #Versionierung
+            versionXml = root.find('Version')
+            userDBVersion = 0
+            if versionXml is not None:
+                logging.debug("User DB: VersionXML found")
+                userDBVersion = int(versionXml.find('DatenbankVersion').text)
+
+            logging.debug("Starting User DB Migration")
+            self.userDBMigrieren(root, userDBVersion, self.datenbankCodeVersion)
 
         numLoaded = 0
         
