@@ -97,7 +97,9 @@ class Talent():
         self.isUserAdded = True
     def __eq__(self, other) : 
         if self.__class__ != other.__class__: return False
-        return self.__dict__ == other.__dict__
+        return self.__dict__ == other.__dict__  
+    def isSpezialTalent(self):
+        return self.kosten != -1
 
 class Vorteil():
     def __init__(self):
