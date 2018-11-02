@@ -44,10 +44,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
         self.widgetRef = {}
         
         #If there is an ability already, then we take it to display already
-        try:
-            self.currentFertName = Wolke.Char.übernatürlicheFertigkeiten.__iter__().__next__()
-        except StopIteration:
-            self.currentFertName = ''
+        self.currentFertName = next(iter(Wolke.Char.übernatürlicheFertigkeiten), "")
         self.currentlyLoading = False
         self.loadFertigkeiten()
             
