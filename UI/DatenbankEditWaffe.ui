@@ -299,93 +299,21 @@
      </item>
      <item row="7" column="1">
       <widget class="QComboBox" name="comboFert">
-       <item>
-        <property name="text">
-         <string>Handgemenge</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Hiebwaffen</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Klingenwaffen</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Stangenwaffen</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Schusswaffen</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Wurfwaffen</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Athletik</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Andere</string>
-        </property>
-       </item>
       </widget>
      </item>
      <item row="9" column="1">
-      <layout class="QGridLayout" name="gridLayout_3">
-       <item row="1" column="1">
-        <widget class="QCheckBox" name="checkKraft">
-         <property name="text">
-          <string>Kraftvoll</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="2">
-        <widget class="QCheckBox" name="checkSchild">
-         <property name="text">
-          <string>Schild</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QCheckBox" name="checkBeid">
-         <property name="text">
-          <string>Beidhändig</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QCheckBox" name="checkSchnell">
-         <property name="text">
-          <string>Schnell</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QCheckBox" name="checkParry">
-         <property name="text">
-          <string>Parierwaffen</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="2">
-        <widget class="QCheckBox" name="checkReiter">
-         <property name="text">
-          <string>Reiter</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+ 	  <!--<widget class="QScrollArea" name="scrollArea">
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="widgetResizable">
+         <bool>true</bool>
+        </property>
+        <layout class="QGridLayout" name="layoutKampfstile">
+        </layout>
+	  </widget>-->
+	          <layout class="QGridLayout" name="layoutKampfstile">
+        </layout>
      </item>
      <item row="0" column="0" colspan="3">
       <widget class="QLabel" name="warning">
@@ -430,12 +358,6 @@
   <tabstop>spinHaerte</tabstop>
   <tabstop>comboFert</tabstop>
   <tabstop>comboTalent</tabstop>
-  <tabstop>checkBeid</tabstop>
-  <tabstop>checkKraft</tabstop>
-  <tabstop>checkSchild</tabstop>
-  <tabstop>checkSchnell</tabstop>
-  <tabstop>checkParry</tabstop>
-  <tabstop>checkReiter</tabstop>
   <tabstop>textEigenschaften</tabstop>
  </tabstops>
  <resources/>

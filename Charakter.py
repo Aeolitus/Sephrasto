@@ -117,14 +117,13 @@ class Char():
         #Wenn die Ref-DB eine Änderung erhält durch die existierende Charakter-XMLs aktualisiert werden müssen,
         #kann hier die Datenbank Code Version inkrementiert werden und in der Migrationen-Map eine Migrationsfunktion für die neue Version angelegt werden.
         #In dieser Funktion kann dann die Charakter-XML-Datei angepasst werden, bevor sie geladen wird.
-        #WICHTIG: Bei Vorteilen/(ÜB-)Fertigkeiten/Talenten nur solche migrieren, bei denen in der aktuell geladenen Datenbasis userAdded == False ist.
+        #WICHTIG: Bei Vorteilen/(ÜB-)Fertigkeiten/Talenten nur solche migrieren, bei denen in der aktuell geladenen Datenbasis userAdded == False ist, außer das schema hat sich geändert.
         #Die Migrationsfunktion sollte einen string zurückgeben, der erklärt was geändert wurde - dies wird dem Nutzer in einer Messagebox angezeigt.
         #Die Funktionen werden inkrementell ausgeführt, bspw. bei Charakter-DB-Version '0' und Code-DB-Version '2' wird zuerst die Funktion für 1, dann die Funktion für 2 aufgerufen
-        self.datenbankCodeVersion = 0
+        self.datenbankCodeVersion = 1
         self.migrationen = [
             lambda xmlRoot: None, #nichts zu tun, initiale db version
-            self.migriere0zu1,
-            self.migriere1zu2,      
+            self.migriere0zu1,     
         ]
 
         if not self.migrationen[self.datenbankCodeVersion]:
@@ -244,8 +243,18 @@ class Char():
         
 
     def migriere0zu1(self, xmlRoot):
-        #Dies würde aufgerufen werden, wenn datenbankCodeVersion 1 oder höher und Charakter-DatenbankVersion geringer als 1 wäre
-        #WICHTIG: bei Vorteilen/(ÜB-)Fertigkeiten/Talenten nur solche migrieren, bei denen in der aktuell geladenen Datenbasis userAdded == False ist.
+        Kampfstile = ["Kein Kampfstil", "Beidhändiger Kampf", "Parierwaffenkampf", "Reiterkampf", 
+              "Schildkampf", "Kraftvoller Kampf", "Schneller Kampf"]
+
+        for waf in xmlRoot.findall('Objekte/Waffen/Waffe'):
+            kampfstilIndex = int(waf.attrib['kampfstil'])
+            waf.attrib['kampfstil'] = Kampfstile[kampfstilIndex]
+
+        return "Datenbank Schema-Änderung (der selektierte Kampfstil bei Waffen wurde von indexbasiert zu stringbasiert geändert)"
+
+    def migriere1zu2(self, xmlRoot):
+        #Dies würde aufgerufen werden, wenn datenbankCodeVersion 2 oder höher und Charakter-DatenbankVersion geringer als 2 wäre
+        #WICHTIG: bei Vorteilen/(ÜB-)Fertigkeiten/Talenten nur solche migrieren, bei denen in der aktuell geladenen Datenbasis userAdded == False ist, außer das Schema hat sich geändert.
         #Beispiel:
         #if not 'Handgemenge' in Wolke.DB.fertigkeiten or not Wolke.DB.fertigkeiten['Handgemenge'].isUserAdded:
         #    for fer in xmlRoot.findall('Fertigkeiten/Fertigkeit'):
@@ -253,11 +262,6 @@ class Char():
         #            fer.attrib['name'] = 'Raufen'
         #            return "Handgemenge wurde in Raufen umbenannt"
         #return None
-        raise Exception('Not implemented')
-
-    def migriere1zu2(self, xmlRoot):
-        #Dies würde aufgerufen werden, wenn datenbankCodeVersion 2 oder höher und Charakter-DatenbankVersion geringer als 2 wäre
-        #WICHTIG: bei Vorteilen/(ÜB-)Fertigkeiten/Talenten nur solche migrieren, bei denen in der aktuell geladenen Datenbasis userAdded == False ist.
         raise Exception('Not implemented')
 
     def aktualisieren(self):
@@ -296,7 +300,7 @@ class Char():
         self.rsmod = 0
 
         self.kampfstilMods = {}
-        for ks in Definitionen.Kampfstile:
+        for ks in Wolke.DB.findKampfstile():
             self.kampfstilMods[ks] = KampfstilMod()
 
         for value in self.waffenEigenschaftenUndo:
@@ -542,7 +546,7 @@ class Char():
             if self.fertigkeiten[fert].wert > self.fertigkeiten[fert].maxWert:
                 self.fertigkeiten[fert].wert = self.fertigkeiten[fert].maxWert
                 self.fertigkeiten[fert].aktualisieren()
-            if self.fertigkeiten[fert].kampffertigkeit and \
+            if self.fertigkeiten[fert].kampffertigkeit == 1 and \
                             self.fertigkeiten[fert].wert > self.höchsteKampfF:
                 self.höchsteKampfF = self.fertigkeiten[fert].wert
             for tal in self.fertigkeiten[fert].gekaufteTalente:
@@ -750,7 +754,7 @@ class Char():
             wafNode.set('eigenschaften',", ".join(waff.eigenschaften))
             wafNode.set('haerte',str(waff.haerte))
             wafNode.set('rw',str(waff.rw))
-            wafNode.set('kampfstil',str(waff.kampfstil))
+            wafNode.set('kampfstil',waff.kampfstil)
             if type(waff) is Objekte.Nahkampfwaffe:
                 wafNode.set('typ','Nah')
                 wafNode.set('wm',str(waff.wm))
@@ -795,7 +799,7 @@ class Char():
         strArr = ["Weitere Informationen:"]
         dbChanged = charDBVersion < datenbankCodeVersion
         while charDBVersion < datenbankCodeVersion:
-            logging.info("Migriere Charakter von Version " + str(charDBVersion ) + " zu " + str(charDBVersion + 1))
+            logging.warning("Migriere Charakter von Version " + str(charDBVersion ) + " zu " + str(charDBVersion + 1))
             charDBVersion +=1
             info = self.migrationen[charDBVersion](xmlRoot)
             if info:
@@ -830,7 +834,7 @@ class Char():
         userDBChanged = False
         userDBName = "Unbekannt"
         if versionXml is not None:
-            logging.debug("VersionXML found")
+            logging.debug("Character: VersionXML found")
             charDBVersion = int(versionXml.find('DatenbankVersion').text)
             userDBCRC = int(versionXml.find('NutzerDatenbankCRC').text)
             userDBName = versionXml.find('NutzerDatenbankName').text
@@ -841,7 +845,7 @@ class Char():
             elif userDBCRC != 0:
                 userDBChanged = True
 
-        logging.debug("Starting Migration")
+        logging.debug("Starting Character Migration")
         self.charakterMigrieren(root, charDBVersion, self.datenbankCodeVersion)
 
         alg = root.find('AllgemeineInfos')
@@ -939,7 +943,7 @@ class Char():
             if waf.attrib['eigenschaften']:
                 waff.eigenschaften = list(map(str.strip, waf.attrib['eigenschaften'].split(",")))
             waff.haerte = int(waf.attrib['haerte'])
-            waff.kampfstil = int(waf.attrib['kampfstil'])
+            waff.kampfstil = waf.attrib['kampfstil']
             self.waffen.append(waff)
         Wolke.Fehlercode = -50
         for aus in root.findall('Objekte/Ausrüstung/Ausrüstungsstück'):

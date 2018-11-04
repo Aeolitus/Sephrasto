@@ -48,6 +48,12 @@ class DatenbankEditWaffeWrapper(object):
         else:
             self.switchType(0)
             self.ui.spinWMLZ.setValue(waffe.wm)
+
+        for fert in datenbank.fertigkeiten.values():
+            if fert.kampffertigkeit == 0:
+                continue
+            self.ui.comboFert.addItem(fert.name)
+
         if waffe.fertigkeit != '':
             try: 
                 self.ui.comboFert.setCurrentText(waffe.fertigkeit)
@@ -63,13 +69,24 @@ class DatenbankEditWaffeWrapper(object):
                 self.ui.comboTalent.setCurrentText(waffe.talent)
             except:
                 pass
-        self.ui.checkBeid.setChecked(waffe.beid != 0)
-        self.ui.checkParry.setChecked(waffe.pari != 0)
-        self.ui.checkReiter.setChecked(waffe.reit != 0)
-        self.ui.checkSchild.setChecked(waffe.schi != 0)
-        self.ui.checkKraft.setChecked(waffe.kraf != 0)
-        self.ui.checkSchnell.setChecked(waffe.schn != 0)
+
+        col = 0
+        row = 0
+        self.kampfstile = []
+        for kampfstil in datenbank.findKampfstile():
+            checkbox = QtWidgets.QCheckBox(kampfstil)
+            checkbox.stateChanged.connect(lambda state, kampfstil=kampfstil : self.kampfstilChanged(kampfstil, state))
+            if kampfstil in waffe.kampfstile:
+                checkbox.setChecked(True)
+            self.ui.layoutKampfstile.addWidget(checkbox, row, col)
+            if col == 0:
+                col +=1
+            else:
+                row += 1
+                col = 0
         
+        waffeDialog.adjustSize()
+
         waffeDialog.show()
         ret = waffeDialog.exec_()
         if ret == QtWidgets.QDialog.Accepted:
@@ -89,12 +106,7 @@ class DatenbankEditWaffeWrapper(object):
             self.waffe.name = self.ui.nameEdit.text()
             self.waffe.fertigkeit = self.ui.comboFert.currentText()
             self.waffe.talent = self.ui.comboTalent.currentText()
-            self.waffe.beid = int(self.ui.checkBeid.isChecked())
-            self.waffe.pari = int(self.ui.checkParry.isChecked())
-            self.waffe.reit = int(self.ui.checkReiter.isChecked())
-            self.waffe.schi = int(self.ui.checkSchild.isChecked())
-            self.waffe.kraf = int(self.ui.checkKraft.isChecked())
-            self.waffe.schn = int(self.ui.checkSchnell.isChecked())
+            self.waffe.kampfstile = self.kampfstile
 
             self.waffe.isUserAdded = False
             if self.waffe == self.waffePicked:
@@ -103,7 +115,13 @@ class DatenbankEditWaffeWrapper(object):
                 self.waffe.isUserAdded = True
         else:
             self.waffe = None
-            
+
+    def kampfstilChanged(self, kampfstil, state):
+        if state == 0:
+            self.kampfstile.remove(kampfstil)
+        else:
+            self.kampfstile.append(kampfstil)
+
     def switchType(self, melee):
         if melee == 0:
             self.ui.spinWMLZ.setMinimum(-9)

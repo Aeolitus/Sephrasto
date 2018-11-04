@@ -511,14 +511,13 @@ class pdfMeister(object):
                 else:
                     bwert = Wolke.Char.fertigkeiten[fertig].probenwert
                 
-                kampfstil = Definitionen.Kampfstile[el.kampfstil]
                 kampfstilMods = None
-                if kampfstil in Wolke.Char.kampfstilMods:
-                    kampfstilMods = Wolke.Char.kampfstilMods[kampfstil]
+                if el.kampfstil in Wolke.Char.kampfstilMods:
+                    kampfstilMods = Wolke.Char.kampfstilMods[el.kampfstil]
                 else:
                     kampfstilMods = KampfstilMod()
-                    logging.warn("Waffe " + el.name + " referenziert einen nicht existierenden Kampfstil")
-                
+                    logging.warn("Waffe " + el.name + " referenziert einen nicht existierenden Kampfstil: " + el.kampfstil)
+
                 at = bwert + kampfstilMods.AT
                 vt = bwert + kampfstilMods.VT
                 sp = kampfstilMods.TP

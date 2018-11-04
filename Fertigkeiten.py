@@ -53,7 +53,7 @@ class Fertigkeit(Steigerbar):
     def __init__(self):
         super().__init__()
         self.gekaufteTalente = []
-        self.kampffertigkeit = 0;
+        self.kampffertigkeit = 0; #0 = nein, 1 = nahkampffertigkeit, 2 = sonstige kampffertigkeit
         self.attribute = ['KO','KO','KO']
         self.attributswerte = [-1,-1,-1]
         self.basiswert = -1

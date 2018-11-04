@@ -215,44 +215,42 @@
         <string>Fertigkeitsname</string>
        </property>
       </widget>
+     </item> 
+	 <item row="4" column="0">
+      <widget class="QLabel" name="labelKampffertigkeit">
+       <property name="text">
+        <string>Fertigkeitstyp</string>
+       </property>
+      </widget>
+     </item>
+	 <item row="4" column="2">	  
+	  <widget class="QComboBox" name="comboKampffertigkeit">
+	   <item>
+		<property name="text">
+		 <string>Keine Kampffertigkeit</string>
+		</property>
+	   </item>
+	   <item>
+		<property name="text">
+		 <string>Nahkampffertigkeit</string>
+		</property>
+	   </item>
+	   <item>
+		<property name="text">
+		 <string>Sonstige Kampffertigkeit</string>
+		</property>
+	   </item>
+	  </widget>
+	 </item> 
+	 <item row="4" column="0">
+      <widget class="QLabel" name="labelVoraussetzungen">
+       <property name="text">
+        <string>Voraussetzungen</string>
+       </property>
+      </widget>
      </item>
      <item row="4" column="2">
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_4">
-         <item>
-          <widget class="QRadioButton" name="radioProfan">
-           <property name="autoFillBackground">
-            <bool>false</bool>
-           </property>
-           <property name="text">
-            <string>Profan</string>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="checkKampffertigkeit">
-           <property name="text">
-            <string>Kampffertigkeit</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="radioUebernatuerlich">
-         <property name="text">
-          <string>Übernatürlich mit Voraussetzungen:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QPlainTextEdit" name="voraussetzungenEdit"/>
-       </item>
-      </layout>
      </item>
      <item row="2" column="0">
       <widget class="QLabel" name="label_2">
@@ -327,13 +325,6 @@
        </item>
       </layout>
      </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="label_4">
-       <property name="text">
-        <string>Fertigkeitstyp</string>
-       </property>
-      </widget>
-     </item>
      <item row="0" column="0" colspan="3">
       <widget class="QLabel" name="warning">
        <property name="styleSheet">
@@ -373,9 +364,7 @@
   <tabstop>comboAttribut1</tabstop>
   <tabstop>comboAttribut2</tabstop>
   <tabstop>comboAttribut3</tabstop>
-  <tabstop>radioProfan</tabstop>
-  <tabstop>checkKampffertigkeit</tabstop>
-  <tabstop>radioUebernatuerlich</tabstop>
+  <tabstop>comboKampffertigkeit</tabstop>
   <tabstop>voraussetzungenEdit</tabstop>
   <tabstop>textEdit</tabstop>
  </tabstops>

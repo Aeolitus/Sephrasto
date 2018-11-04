@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'DatenbankEditWaffe.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.11.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -135,36 +135,10 @@ class Ui_talentDialog(object):
         self.gridLayout.addWidget(self.label_10, 9, 0, 1, 1)
         self.comboFert = QtWidgets.QComboBox(talentDialog)
         self.comboFert.setObjectName("comboFert")
-        self.comboFert.addItem("")
-        self.comboFert.addItem("")
-        self.comboFert.addItem("")
-        self.comboFert.addItem("")
-        self.comboFert.addItem("")
-        self.comboFert.addItem("")
-        self.comboFert.addItem("")
-        self.comboFert.addItem("")
         self.gridLayout.addWidget(self.comboFert, 7, 1, 1, 1)
-        self.gridLayout_3 = QtWidgets.QGridLayout()
-        self.gridLayout_3.setObjectName("gridLayout_3")
-        self.checkKraft = QtWidgets.QCheckBox(talentDialog)
-        self.checkKraft.setObjectName("checkKraft")
-        self.gridLayout_3.addWidget(self.checkKraft, 1, 1, 1, 1)
-        self.checkSchild = QtWidgets.QCheckBox(talentDialog)
-        self.checkSchild.setObjectName("checkSchild")
-        self.gridLayout_3.addWidget(self.checkSchild, 1, 2, 1, 1)
-        self.checkBeid = QtWidgets.QCheckBox(talentDialog)
-        self.checkBeid.setObjectName("checkBeid")
-        self.gridLayout_3.addWidget(self.checkBeid, 1, 0, 1, 1)
-        self.checkSchnell = QtWidgets.QCheckBox(talentDialog)
-        self.checkSchnell.setObjectName("checkSchnell")
-        self.gridLayout_3.addWidget(self.checkSchnell, 2, 0, 1, 1)
-        self.checkParry = QtWidgets.QCheckBox(talentDialog)
-        self.checkParry.setObjectName("checkParry")
-        self.gridLayout_3.addWidget(self.checkParry, 2, 1, 1, 1)
-        self.checkReiter = QtWidgets.QCheckBox(talentDialog)
-        self.checkReiter.setObjectName("checkReiter")
-        self.gridLayout_3.addWidget(self.checkReiter, 2, 2, 1, 1)
-        self.gridLayout.addLayout(self.gridLayout_3, 9, 1, 1, 1)
+        self.layoutKampfstile = QtWidgets.QGridLayout()
+        self.layoutKampfstile.setObjectName("layoutKampfstile")
+        self.gridLayout.addLayout(self.layoutKampfstile, 9, 1, 1, 1)
         self.warning = QtWidgets.QLabel(talentDialog)
         self.warning.setStyleSheet("background-color: rgb(255, 255, 0);")
         self.warning.setWordWrap(True)
@@ -191,13 +165,7 @@ class Ui_talentDialog(object):
         talentDialog.setTabOrder(self.spinWMLZ, self.spinHaerte)
         talentDialog.setTabOrder(self.spinHaerte, self.comboFert)
         talentDialog.setTabOrder(self.comboFert, self.comboTalent)
-        talentDialog.setTabOrder(self.comboTalent, self.checkBeid)
-        talentDialog.setTabOrder(self.checkBeid, self.checkKraft)
-        talentDialog.setTabOrder(self.checkKraft, self.checkSchild)
-        talentDialog.setTabOrder(self.checkSchild, self.checkSchnell)
-        talentDialog.setTabOrder(self.checkSchnell, self.checkParry)
-        talentDialog.setTabOrder(self.checkParry, self.checkReiter)
-        talentDialog.setTabOrder(self.checkReiter, self.textEigenschaften)
+        talentDialog.setTabOrder(self.comboTalent, self.textEigenschaften)
 
     def retranslateUi(self, talentDialog):
         _translate = QtCore.QCoreApplication.translate
@@ -216,20 +184,6 @@ class Ui_talentDialog(object):
         self.label_7.setText(_translate("talentDialog", "+"))
         self.label_8.setText(_translate("talentDialog", "Talent"))
         self.label_10.setText(_translate("talentDialog", "Kampfstil"))
-        self.comboFert.setItemText(0, _translate("talentDialog", "Handgemenge"))
-        self.comboFert.setItemText(1, _translate("talentDialog", "Hiebwaffen"))
-        self.comboFert.setItemText(2, _translate("talentDialog", "Klingenwaffen"))
-        self.comboFert.setItemText(3, _translate("talentDialog", "Stangenwaffen"))
-        self.comboFert.setItemText(4, _translate("talentDialog", "Schusswaffen"))
-        self.comboFert.setItemText(5, _translate("talentDialog", "Wurfwaffen"))
-        self.comboFert.setItemText(6, _translate("talentDialog", "Athletik"))
-        self.comboFert.setItemText(7, _translate("talentDialog", "Andere"))
-        self.checkKraft.setText(_translate("talentDialog", "Kraftvoll"))
-        self.checkSchild.setText(_translate("talentDialog", "Schild"))
-        self.checkBeid.setText(_translate("talentDialog", "Beidhändig"))
-        self.checkSchnell.setText(_translate("talentDialog", "Schnell"))
-        self.checkParry.setText(_translate("talentDialog", "Parierwaffen"))
-        self.checkReiter.setText(_translate("talentDialog", "Reiter"))
         self.warning.setText(_translate("talentDialog", "Dies ist eine Ilaris-Standardwaffe. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für diese Waffe keine automatischen Updates mehr mit neuen Sephrasto-Versionen."))
 
 

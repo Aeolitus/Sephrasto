@@ -35,9 +35,10 @@ class Datenbank():
         #In dieser Funktion kann dann die UserDB-XML-Datei angepasst werden, bevor sie geladen wird.
         #Da Migrationen hier im Gegensatz zur Charaktermigration nur bei Schema-Änderungen nötig sind, gibt es nichts was wir dem User in einer messagebox zeigen müssten
         #Die Funktionen werden inkrementell ausgeführt, bspw. bei UserDB-Version '0' und DB-Code-Version '2' wird zuerst die Funktion für 1, dann die Funktion für 2 aufgerufen
-        self.datenbankCodeVersion = 0
+        self.datenbankCodeVersion = 1
         self.migrationen = [
-            lambda xmlRoot: None, #nichts zu tun, initiale db version   
+            lambda xmlRoot: None, #nichts zu tun, initiale db version
+            self.migriere0zu1,     
         ]
         if not self.migrationen[self.datenbankCodeVersion]:
             raise Exception("Migrations-Code vergessen.")
@@ -120,12 +121,7 @@ class Datenbank():
             w.text = ", ".join(waffe.eigenschaften)
             w.set('fertigkeit', waffe.fertigkeit)
             w.set('talent', waffe.talent)
-            w.set('beid', str(waffe.beid))
-            w.set('pari', str(waffe.pari))
-            w.set('reit', str(waffe.reit))
-            w.set('schi', str(waffe.schi))
-            w.set('kraf', str(waffe.kraf))
-            w.set('schn', str(waffe.schn))
+            w.set('kampfstile', ", ".join(waffe.kampfstile))
             w.set('rw', str(waffe.rw))
             if type(waffe) == Objekte.Fernkampfwaffe:
                 w.set('lz', str(waffe.lz))
@@ -195,6 +191,30 @@ class Datenbank():
             logging.warning("Migriere UserDB von Version " + str(userDBVersion ) + " zu " + str(userDBVersion + 1))
             userDBVersion +=1
             self.migrationen[userDBVersion](xmlRoot)
+
+    def migriere0zu1(self, root):
+        for wa in root.findall('Waffe'):
+            kampfstile = []
+            if int(wa.get('beid')) == 1:
+                kampfstile.append("Beidhändiger Kampf")
+            if int(wa.get('pari')) == 1:
+                kampfstile.append("Parierwaffenkampf")
+            if int(wa.get('reit')) == 1:
+                kampfstile.append("Reiterkampf")
+            if int(wa.get('schi')) == 1:
+                kampfstile.append("Schildkampf")
+            if int(wa.get('kraf')) == 1:
+                kampfstile.append("Kraftvoller Kampf")
+            if int(wa.get('schn')) == 1:
+                kampfstile.append("Schneller Kampf")
+
+            wa.attrib.pop('beid')
+            wa.attrib.pop('pari')
+            wa.attrib.pop('reit')
+            wa.attrib.pop('schi')
+            wa.attrib.pop('kraf')
+            wa.attrib.pop('schn')
+            wa.set('kampfstile', ", ".join(kampfstile))
 
     def xmlLadenInternal(self, file, refDB):
         Wolke.Fehlercode = -20
@@ -330,12 +350,9 @@ class Datenbank():
                 w.eigenschaften = list(map(str.strip, wa.text.split(",")))
             w.fertigkeit = wa.get('fertigkeit')
             w.talent = wa.get('talent')
-            w.beid = int(wa.get('beid'))
-            w.pari = int(wa.get('pari'))
-            w.reit = int(wa.get('reit'))
-            w.schi = int(wa.get('schi'))
-            w.kraf = int(wa.get('kraf'))
-            w.schn = int(wa.get('schn'))
+            kampfstile = wa.get('kampfstile')
+            if kampfstile:
+                w.kampfstile = list(map(str.strip, kampfstile.split(",")))
             w.isUserAdded = not refDB
             self.waffen.update({w.name: w})
         
@@ -416,3 +433,11 @@ class Datenbank():
         Wolke.Fehlercode = 0
 
         return True
+    
+    def findKampfstile(self):
+        kampfstilVorteile = [vort for vort in self.vorteile.values() if vort.typ == 3 and vort.name.endswith(" I")]
+
+        kampfstile = []
+        for vort in kampfstilVorteile:
+            kampfstile.append(vort.name[:-2])
+        return kampfstile

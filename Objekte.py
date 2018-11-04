@@ -19,13 +19,8 @@ class Waffe(Objekt):
         self.haerte = 7
         self.fertigkeit = ''
         self.talent = ''
-        self.beid = 0
-        self.pari = 0
-        self.reit = 0
-        self.schi = 0
-        self.kraf = 0
-        self.schn = 0
-        self.kampfstil = 0    
+        self.kampfstile = []
+        self.kampfstil = ""
         self.isUserAdded = True
         
 class Nahkampfwaffe(Waffe):

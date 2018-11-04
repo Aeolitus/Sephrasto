@@ -33,10 +33,12 @@ class EquipWrapper(QtCore.QObject):
         for el in fields:
             eval("self.uiEq." + el + ".editingFinished.connect(self.updateEquipment)")
         logging.debug("Signals Set...")
+
+        kampfstile = [Definitionen.KeinKampfstil] + Wolke.DB.findKampfstile()
         for el in range(1,9):
             eval("self.uiEq.comboStil"+str(el)+".setCurrentIndex(0)")
             eval("self.uiEq.comboStil"+str(el)+".clear()")
-            for el2 in Definitionen.Kampfstile:
+            for el2 in kampfstile:
                 getName = lambda : el2
                 eval("self.uiEq.comboStil"+str(el)+".addItem(getName())")
         logging.debug("Kampfstile added...")
@@ -93,6 +95,8 @@ class EquipWrapper(QtCore.QObject):
                 Wolke.Char.rüstung = ruestungNeu
 
             waffenNeu = []
+            kampfstile = [Definitionen.KeinKampfstil] + Wolke.DB.findKampfstile()
+
             for el in ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8']:
                 if (eval("self.uiEq.edit" + el + "name.text()") != ""):
                     if eval("self.uiEq.check" + el + "FK.isChecked()"):
@@ -117,8 +121,8 @@ class EquipWrapper(QtCore.QObject):
                         W.eigenschaften = list(map(str.strip, eigenschaftStr.split(","))) 
                     self.refreshKampfstile(int(el[-1])-1)
                     tmp = eval("self.uiEq.comboStil" + el[-1] + ".currentText()")
-                    if tmp in Definitionen.Kampfstile:
-                        W.kampfstil = Definitionen.Kampfstile.index(tmp)
+                    if tmp in kampfstile:
+                        W.kampfstil = tmp
                     waffenNeu.append(W)
             
             if not Hilfsmethoden.ArrayEqual(waffenNeu, Wolke.Char.waffen):
@@ -194,26 +198,19 @@ class EquipWrapper(QtCore.QObject):
         if name != "":
             if name in Wolke.DB.waffen:
                 entries = []
-                entries.append(Definitionen.Kampfstile[0])
-                if Wolke.DB.waffen[name].beid and Definitionen.Kampfstile[1] + " I" in Wolke.Char.vorteile:
-                    entries.append(Definitionen.Kampfstile[1])
-                if Wolke.DB.waffen[name].pari and Definitionen.Kampfstile[2] + " I" in Wolke.Char.vorteile:
-                    entries.append(Definitionen.Kampfstile[2])
-                if Wolke.DB.waffen[name].reit and Definitionen.Kampfstile[3] + " I" in Wolke.Char.vorteile:
-                    entries.append(Definitionen.Kampfstile[3])
-                if Wolke.DB.waffen[name].schi and Definitionen.Kampfstile[4] + " I" in Wolke.Char.vorteile:
-                    entries.append(Definitionen.Kampfstile[4])
-                if Wolke.DB.waffen[name].kraf and Definitionen.Kampfstile[5] + " I" in Wolke.Char.vorteile:
-                    entries.append(Definitionen.Kampfstile[5])
-                if Wolke.DB.waffen[name].schn and Definitionen.Kampfstile[6] + " I" in Wolke.Char.vorteile:
-                    entries.append(Definitionen.Kampfstile[6])
+                entries.append(Definitionen.KeinKampfstil)
+                kampfstile = Wolke.DB.findKampfstile()
+                for kampfstil in Wolke.DB.waffen[name].kampfstile:
+                    if kampfstil in kampfstile and kampfstil + " I" in Wolke.Char.vorteile:
+                        entries.append(kampfstil)
+
                 eval("self.uiEq.comboStil" + str(index+1) + ".setCurrentIndex(0)")
                 eval("self.uiEq.comboStil" + str(index+1) + ".clear()")
                 for el in entries:
                     getName = lambda : el
                     eval("self.uiEq.comboStil" + str(index+1) + ".addItem(getName())")
                 if self.initialLoad:
-                    stil = Definitionen.Kampfstile[Wolke.Char.waffen[index].kampfstil]
+                    stil = Wolke.Char.waffen[index].kampfstil
                     if stil in entries:
                         eval("self.uiEq.comboStil" + str(index+1) + ".setCurrentIndex(" + str(entries.index(stil)) + ")")
                     else:
