@@ -32,12 +32,12 @@ Beispiele für besonderen Besitz sind:
   <Vorteil name="Einkommen IV" kosten="20" voraussetzungen="Vorteil Einkommen III" nachkauf="häufig" typ="0" variable="-1" printclass="-1">Deine Familie, Organisation oder ein persönlicher Mäzen stellt dir ein monatliches Einkommen von 256 Dukaten zur Verfügung, die du beispielsweise über eine Filiale der Nordlandbank oder ein Ordenshaus beziehen kannst. Fern der Zivilisation kannst du nicht auf dein Einkommen zugreifen. Das Einkommen reicht aus, um die Lebenserhaltungskosten eines Angehörigen der Elite zu decken.</Vorteil>
   <Vorteil name="Eisenaffine Aura" kosten="40" voraussetzungen="" nachkauf="selten" typ="0" variable="-1" printclass="-1">Erschwernisse durch den Bann des Eisens sinken um 8 Punkte.</Vorteil>
   <Vorteil name="Gefahreninstinkt" kosten="100" voraussetzungen="" nachkauf="extrem selten" typ="0" variable="-1" printclass="-1">Mit der Gabe des Gefahreninstinkts kannst du mit dem Talent Wachsamkeit auch Gefahren wahrnehmen, die mit gewöhnlichen Sinnen nicht wahrzunehmen sind. Dazu gehören etwa magische Fallen, der lautlose Meuchler hinter der nächsten Wand oder eine bald losbrechende Lawine.</Vorteil>
-  <Vorteil name="Geweiht I" kosten="40" voraussetzungen="" nachkauf="üblich" typ="0" variable="-1" printclass="-1">Du verfügst über 8 Karmapunkte und kannst kirchliche Traditionen erlernen.</Vorteil>
-  <Vorteil name="Geweiht II" kosten="40" voraussetzungen="Vorteil Geweiht I" nachkauf="üblich" typ="0" variable="-1" printclass="-1">Du verfügst über 16 Karmapunkte und kannst kirchliche Traditionen erlernen.</Vorteil>
-  <Vorteil name="Geweiht III" kosten="40" voraussetzungen="Vorteil Geweiht II" nachkauf="üblich" typ="0" variable="-1" printclass="-1">Du verfügst über 24 Karmapunkte und kannst kirchliche Traditionen erlernen.</Vorteil>
-  <Vorteil name="Geweiht IV" kosten="40" voraussetzungen="Vorteil Geweiht III" nachkauf="üblich" typ="0" variable="-1" printclass="-1">Du verfügst über 32 Karmapunkte und kannst kirchliche Traditionen erlernen.</Vorteil>
-  <Vorteil name="Glück I" kosten="40" voraussetzungen="" nachkauf="häufig" typ="0" variable="-1" printclass="-1">Deine maximalen Schicksalspunkte steigen um 1.</Vorteil>
-  <Vorteil name="Glück II" kosten="40" voraussetzungen="Vorteil Glück I" nachkauf="häufig" typ="0" variable="-1" printclass="-1">Deine maximalen Schicksalspunkte steigen um 2.</Vorteil>
+  <Vorteil name="Geweiht I" kosten="40" voraussetzungen="" nachkauf="üblich" typ="0" variable="-1" printclass="-1" script="modifyKaPBasis(8)">Du verfügst über 8 Karmapunkte und kannst kirchliche Traditionen erlernen.</Vorteil>
+  <Vorteil name="Geweiht II" kosten="40" voraussetzungen="Vorteil Geweiht I" nachkauf="üblich" typ="0" variable="-1" printclass="-1" script="modifyKaPBasis(8)">Du verfügst über 16 Karmapunkte und kannst kirchliche Traditionen erlernen.</Vorteil>
+  <Vorteil name="Geweiht III" kosten="40" voraussetzungen="Vorteil Geweiht II" nachkauf="üblich" typ="0" variable="-1" printclass="-1" script="modifyKaPBasis(8)">Du verfügst über 24 Karmapunkte und kannst kirchliche Traditionen erlernen.</Vorteil>
+  <Vorteil name="Geweiht IV" kosten="40" voraussetzungen="Vorteil Geweiht III" nachkauf="üblich" typ="0" variable="-1" printclass="-1" script="modifyKaPBasis(8)">Du verfügst über 32 Karmapunkte und kannst kirchliche Traditionen erlernen.</Vorteil>
+  <Vorteil name="Glück I" kosten="40" voraussetzungen="" nachkauf="häufig" typ="0" variable="-1" printclass="-1" script="modifySchiPMax(1)">Deine maximalen Schicksalspunkte steigen um 1.</Vorteil>
+  <Vorteil name="Glück II" kosten="40" voraussetzungen="Vorteil Glück I" nachkauf="häufig" typ="0" variable="-1" printclass="-1" script="modifySchiPMax(1)">Deine maximalen Schicksalspunkte steigen um 2.</Vorteil>
   <Vorteil name="Kältestarre" kosten="-40" voraussetzungen="" nachkauf="extrem selten" typ="0" variable="-1" printclass="-1">Echsenwesen leiden von Natur aus unter Kältestarre, die sie bei niedrigen Temperaturen behindert. Jede Temperaturstufe unter normal erschwert alle Proben um -4. Für andere Rassen ist Kältestarre in der Regel nicht verfügbar.</Vorteil>
   <Vorteil name="Kreis der Verdammnis I" kosten="-400" voraussetzungen="" nachkauf="üblich" typ="0" variable="-1" printclass="-1">Der Vorteil hat vier Auswirkungen. Erstens erhältst du beim Erwerb der ersten Stufe 400 EP, für jede weitere Stufe 200 EP. Zweitens werden deine Gunstpunkte sofort aufgefüllt. Drittens erhältst du für jede Stufe eine verdorbene Eigenheit. Viertens entwickelst du ein Dämonenmal und kannst über die Liturgie Seelenprüfung als Paktierer erkannt werden. Auf geweihtem/heiligen Boden musst du jede Minute eine Willensstärke-Probe (20/28) ablegen, um nicht durch starke Schmerzen aufzufallen und eine Wunde zu erleiden.</Vorteil>
   <Vorteil name="Kreis der Verdammnis II" kosten="-200" voraussetzungen="Vorteil Kreis der Verdammnis I" nachkauf="üblich" typ="0" variable="-1" printclass="-1">Der Vorteil hat vier Auswirkungen. Erstens erhältst du beim Erwerb der ersten Stufe 400 EP, für jede weitere Stufe 200 EP. Zweitens werden deine GuP sofort aufgefüllt. Drittens erhältst du für jede Stufe eine verdorbene Eigenheit. Viertens entwickelst du ein Dämonenmal und kannst über die Liturgie Seelenprüfung als Paktierer erkannt werden. Auf geweihtem/heiligen Boden musst du jede Minute eine Willensstärke-Probe (20/28) ablegen, um nicht durch starke Schmerzen aufzufallen und eine Wunde zu erleiden.</Vorteil>
@@ -50,7 +50,7 @@ Beispiele für besonderen Besitz sind:
   <Vorteil name="Magiegespür" kosten="60" voraussetzungen="" nachkauf="extrem selten" typ="0" variable="-1" printclass="-1">In der Nähe astraler Kräfte überfällt dich ein Frösteln, du hörst sphärische Klänge oder ein Farbschleier legt sich über die Umgebung. Mit dem Talent Sinnenschärfe kannst du Intensitätsanalysen von magischen Gegenständen durchführen. Nach dem aktiven Einsatz der Gabe erleidest du 1 Punkt Erschöpfung.</Vorteil>
   <Vorteil name="Minderpakt" kosten="0" voraussetzungen="" nachkauf="üblich" typ="0" variable="-1" printclass="-1">Minderpakte werden deutlich leichter als reguläre Pakte geschlossen - und oft auch unfreiwillig. Dafür bedeutet ein Minderpakt noch keinen Eintritt in die Kreise der Verdammnis. Stattdessen kann ein Minderpaktierer sofort einen Vorteil für maximal 20 EP erwerben, für den er nicht zwingend die Voraussetzungen erfüllen muss - ein klassisches Beispiel ist die Borbaradianische Repräsentation I.
   Im Gegenzug erhält ein Minderpaktierer die Eigenheit „Von (Erzdämon) berührt“. Mit dieser Eigenheit kann der Erzdämon versuchen, den Minderpaktierer in passenden Situationen zu einem Seelenpakt zu verführen.</Vorteil>
-  <Vorteil name="Natürliche Rüstung" kosten="80" voraussetzungen="" nachkauf="extrem selten" typ="0" variable="-1" printclass="-1">Du verfügst über ein dichtes Fell oder zähe Schuppenhaut, wodurch dein RS um 1 steigt. Die BE verändert sich dadurch nicht.
+  <Vorteil name="Natürliche Rüstung" kosten="80" voraussetzungen="" nachkauf="extrem selten" typ="0" variable="-1" printclass="-1" script="modifyRSMod(1)">Du verfügst über ein dichtes Fell oder zähe Schuppenhaut, wodurch dein RS um 1 steigt. Die BE verändert sich dadurch nicht.
 
 Dieser Vorteil kann üblicherweise nur von Achaz, Orks und ähnlichen Rassen gewählt werden.</Vorteil>
   <Vorteil name="Paktierer I" kosten="40" voraussetzungen="Vorteil Kreis der Verdammnis I" nachkauf="üblich" typ="0" variable="-1" printclass="-1">Du verfügst über 8 Gunstpunkte und kannst den dämonischen Kult deines Erzdämons erlernen.</Vorteil>
@@ -82,10 +82,10 @@ Beispiele für Verbindungen sind:
 - Badilakaner: Geringer Einfluss in weiten Teilen des zwölfgöttergläubigen Aventuriens (20 EP).
 - Efferdbrüder: Ansehnlicher Einfluss in Hafenstädten des zwölfgöttergläubigen Aventuriens (40 EP).
 - Haus Gareth: Immenser Einfluss im Mittelreich, weitreichende Beziehungen in ganz Aventurien (80 EP).</Vorteil>
-  <Vorteil name="Zauberer I" kosten="40" voraussetzungen="" nachkauf="extrem selten" typ="0" variable="-1" printclass="-1">Du verfügst über 8 Astralpunkte und kannst magische Repräsentationen erlernen. Dämonen, Elementare oder Hellsichtsmagier können dich magisch wahrnehmen. Zauberer I entspricht einem einfachen Magiedilettanten.</Vorteil>
-  <Vorteil name="Zauberer II" kosten="40" voraussetzungen="Vorteil Zauberer I" nachkauf="üblich" typ="0" variable="-1" printclass="-1">Du verfügst über 16 Astralpunkte und kannst magische Repräsentationen erlernen. Dämonen, Elementare oder Hellsichtsmagier können dich magisch wahrnehmen. Zauberer II entspricht einem wenig begabten Alchemisten. </Vorteil>
-  <Vorteil name="Zauberer III" kosten="40" voraussetzungen="Vorteil Zauberer II" nachkauf="üblich" typ="0" variable="-1" printclass="-1">Du verfügst über 24 Astralpunkte und kannst magische Repräsentationen erlernen. Dämonen, Elementare oder Hellsichtsmagier können dich magisch wahrnehmen. Zauberer III entspricht einem ausgebildeten Zauberer.</Vorteil>
-  <Vorteil name="Zauberer IV" kosten="40" voraussetzungen="Vorteil Zauberer III" nachkauf="üblich" typ="0" variable="-1" printclass="-1">Du verfügst über 32 Astralpunkte und kannst magische Repräsentationen erlernen. Dämonen, Elementare oder Hellsichtsmagier können dich magisch wahrnehmen. Zauberer IV entspricht einem sehr kompetenten Zauberer.</Vorteil>
+  <Vorteil name="Zauberer I" kosten="40" voraussetzungen="" nachkauf="extrem selten" typ="0" variable="-1" printclass="-1" script="modifyAsPBasis(8)">Du verfügst über 8 Astralpunkte und kannst magische Repräsentationen erlernen. Dämonen, Elementare oder Hellsichtsmagier können dich magisch wahrnehmen. Zauberer I entspricht einem einfachen Magiedilettanten.</Vorteil>
+  <Vorteil name="Zauberer II" kosten="40" voraussetzungen="Vorteil Zauberer I" nachkauf="üblich" typ="0" variable="-1" printclass="-1" script="modifyAsPBasis(8)">Du verfügst über 16 Astralpunkte und kannst magische Repräsentationen erlernen. Dämonen, Elementare oder Hellsichtsmagier können dich magisch wahrnehmen. Zauberer II entspricht einem wenig begabten Alchemisten. </Vorteil>
+  <Vorteil name="Zauberer III" kosten="40" voraussetzungen="Vorteil Zauberer II" nachkauf="üblich" typ="0" variable="-1" printclass="-1" script="modifyAsPBasis(8)">Du verfügst über 24 Astralpunkte und kannst magische Repräsentationen erlernen. Dämonen, Elementare oder Hellsichtsmagier können dich magisch wahrnehmen. Zauberer III entspricht einem ausgebildeten Zauberer.</Vorteil>
+  <Vorteil name="Zauberer IV" kosten="40" voraussetzungen="Vorteil Zauberer III" nachkauf="üblich" typ="0" variable="-1" printclass="-1" script="modifyAsPBasis(8)">Du verfügst über 32 Astralpunkte und kannst magische Repräsentationen erlernen. Dämonen, Elementare oder Hellsichtsmagier können dich magisch wahrnehmen. Zauberer IV entspricht einem sehr kompetenten Zauberer.</Vorteil>
   <Vorteil name="Zwergennase" kosten="60" voraussetzungen="" nachkauf="extrem selten" typ="0" variable="-1" printclass="-1">Mit der Gabe der Zwergennase besitzt du einen übernatürlichen Riecher für Verstecke, Geheimgänge und mechanische Fallen. Du kannst sie mit dem Talent Wachsamkeit wahrnehmen, auch wenn das mit gewöhnlichen Sinnen unmöglich wäre.</Vorteil>
   <Vorteil name="Eindrucksvoll I" kosten="20" voraussetzungen="Attribut CH 4" nachkauf="häufig" typ="1" variable="-1" printclass="-1">Proben auf Autorität, Beeinflussung und Gebräuche sind um +1 erleichtert.</Vorteil>
   <Vorteil name="Eindrucksvoll II" kosten="40" voraussetzungen="Attribut CH 6" nachkauf="häufig" typ="1" variable="-1" printclass="-1">Proben auf Autorität, Beeinflussung und Gebräuche sind um +1 erleichtert.
@@ -108,8 +108,8 @@ Erlaubt das Manöver Hammerschlag gegen Gegenstände. Bei waffenlosen Angriffen 
 Bei Informationssuchen erhältst du eine zusätzliche Stufe Hohe Qualität, wenn der gewertete Würfel 12 oder höher zeigt.</Vorteil>
   <Vorteil name="Vorbereitung" kosten="60" voraussetzungen="Attribut KL 8" nachkauf="häufig" typ="1" variable="-1" printclass="-1">Du kannst Proben auf profane Fertigkeiten besonders sorgfältig vorbereiten (sofern Vorbereitung sinnvoll ist). Wenn du die doppelte notwendige Zeit aufwendest, erhältst du +2 Punkte Erleichterung.</Vorteil>
   <Vorteil name="Brillanz" kosten="80" voraussetzungen="Attribut KL 10" nachkauf="häufig" typ="1" variable="-1" printclass="-1">Pro Abenteuer kannst du den Spielleiter W3 mal um einen Tipp bitten. Diese Tipps sollen nicht das Abenteuer lösen, können dich aber auf Fehler in deinem Plan oder bisher übersehene Aspekte oder Zusammenhänge aufmerksam machen. </Vorteil>
-  <Vorteil name="Flink I" kosten="20" voraussetzungen="Attribut GE 4" nachkauf="häufig" typ="1" variable="-1" printclass="-1">Deine GS steigt um 1 Punkt.</Vorteil>
-  <Vorteil name="Flink II" kosten="40" voraussetzungen="Attribut GE 6" nachkauf="häufig" typ="1" variable="-1" printclass="-1">Deine GS steigt um 1 Punkt.
+  <Vorteil name="Flink I" kosten="20" voraussetzungen="Attribut GE 4" nachkauf="häufig" typ="1" variable="-1" printclass="-1" script="modifyGS(1)">Deine GS steigt um 1 Punkt.</Vorteil>
+  <Vorteil name="Flink II" kosten="40" voraussetzungen="Attribut GE 6" nachkauf="häufig" typ="1" variable="-1" printclass="-1" script="modifyGS(1)">Deine GS steigt um 1 Punkt.
 
 Bei Athletikproben gelten Patzer als gewöhnlich misslungen.</Vorteil>
   <Vorteil name="Katzenhaft" kosten="60" voraussetzungen="Attribut GE 8" nachkauf="häufig" typ="1" variable="-1" printclass="-1">Erschwernisse durch unsicheren Untergrund sinken um 1 Stufe und gegen den Schaden aus Stürzen, Zusammenstößen usw. kannst du die GE als WS verwenden.</Vorteil>
@@ -119,17 +119,17 @@ Bei Athletikproben gelten Patzer als gewöhnlich misslungen.</Vorteil>
   <Vorteil name="Empathie" kosten="60" voraussetzungen="Attribut IN 8" nachkauf="häufig" typ="1" variable="-1" printclass="-1">Mit der Gabe der Empathie kannst du eine Menschenkenntnis-Probe gegen die Willenskraft deines Gegenübers ablegen, um seine Motivation (regeltechnisch oft eine Eigenheit) zu erahnen. Du kannst dieses Wissen in sozialen Konflikten nutzen. Durch den Einsatz der Gabe erleidest du 1 Punkt Erschöpfung.</Vorteil>
   <Vorteil name="Vertrautheit" kosten="80" voraussetzungen="Attribut IN 10" nachkauf="häufig" typ="1" variable="-1" printclass="-1">Du kannst Schicksalspunkte an einen Vertrauten weitergeben. Du solltest beschreiben, wie du die Person unterstützt: Durch Trost, eine aufpeitschende Rede oder eine knappe Geste. Wenn du durch das Ausnutzen einer Eigenheit einen Schicksalspunkt erhältst, bekommst du bei 4-6 auf dem W6 einen weiteren Schicksalspunkt.</Vorteil>
   <Vorteil name="Abgehärtet I" kosten="20" voraussetzungen="Attribut KO 4" nachkauf="häufig" typ="1" variable="-1" printclass="-1">Proben zur Abwehr von Giften und Krankheiten sind um +4 erleichtert.</Vorteil>
-  <Vorteil name="Abgehärtet II" kosten="40" voraussetzungen="Attribut KO 6" nachkauf="häufig" typ="1" variable="-1" printclass="-1">Proben zur Abwehr von Giften und Krankheiten sind um +4 erleichtert und das Durchhaltevermögen steigt um 2.</Vorteil>
+  <Vorteil name="Abgehärtet II" kosten="40" voraussetzungen="Attribut KO 6" nachkauf="häufig" typ="1" variable="-1" printclass="-1" script="modifyDH(2)">Proben zur Abwehr von Giften und Krankheiten sind um +4 erleichtert und das Durchhaltevermögen steigt um 2.</Vorteil>
   <Vorteil name="Schnelle Heilung" kosten="60" voraussetzungen="Attribut KO 8" nachkauf="häufig" typ="1" variable="-1" printclass="-1">Du regenerierst 2 Wunden pro durchschlafener Nacht und immer noch 1 Wunde, wenn die Schlafphase unterbrochen wurde.</Vorteil>
-  <Vorteil name="Unverwüstlich" kosten="80" voraussetzungen="Attribut KO 10" nachkauf="häufig" typ="1" variable="-1" printclass="-1">Deine WS steigt um 1 Punkt.
+  <Vorteil name="Unverwüstlich" kosten="80" voraussetzungen="Attribut KO 10" nachkauf="häufig" typ="1" variable="-1" printclass="-1" script="modifyWS(1)">Deine WS steigt um 1 Punkt.
 
 Wenn Zähigkeitsproben zum Ignorieren von Kampfunfähigkeit misslingen, erleidest du keine Erschöpfung.</Vorteil>
-  <Vorteil name="Willensstark I" kosten="20" voraussetzungen="Attribut MU 4" nachkauf="häufig" typ="1" variable="-1" printclass="-1">Deine MR steigt um 4 Punkte.</Vorteil>
-  <Vorteil name="Willensstark II" kosten="40" voraussetzungen="Attribut MU 6" nachkauf="häufig" typ="1" variable="-1" printclass="-1">Deine MR steigt um 4 Punkte.
+  <Vorteil name="Willensstark I" kosten="20" voraussetzungen="Attribut MU 4" nachkauf="häufig" typ="1" variable="-1" printclass="-1" script="modifyMR(4)">Deine MR steigt um 4 Punkte.</Vorteil>
+  <Vorteil name="Willensstark II" kosten="40" voraussetzungen="Attribut MU 6" nachkauf="häufig" typ="1" variable="-1" printclass="-1" script="modifyMR(4)">Deine MR steigt um 4 Punkte.
 
 Auf dich wirkende Furcht-Effekte zählen als eine Stufe niedriger.</Vorteil>
   <Vorteil name="Geisterpanzer" kosten="60" voraussetzungen="Attribut MU 8" nachkauf="häufig" typ="1" variable="-1" printclass="-1">Gegen direkten Schaden aus Zaubern wie Fulminictus, Ignisphaero oder Hexengalle kannst du deinen MU als WS verwenden.</Vorteil>
-  <Vorteil name="Unbeugsamkeit" kosten="80" voraussetzungen="Attribut MU 10" nachkauf="häufig" typ="1" variable="-1" printclass="-1">Deine MR steigt um MU/2 Punkte.
+  <Vorteil name="Unbeugsamkeit" kosten="80" voraussetzungen="Attribut MU 10" nachkauf="häufig" typ="1" variable="-1" printclass="-1" script="modifyMR(round(getMU()/2+0.0001))">Deine MR steigt um MU/2 Punkte.
 
 Mit einer Aktion Konflikt und einer Konterprobe (MU, 16) kannst du einen auf dir liegenden Zauber abschütteln. Anschließend erleidest du einen Punkt Erschöpfung.</Vorteil>
   <Vorteil name="Kommando: Haltet Stand!" kosten="20" voraussetzungen="Attribut CH 4" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Furcht-Effekte für Mitstreiter zählen um 1 Stufe niedriger.</Vorteil>
@@ -141,7 +141,7 @@ Mit einer Aktion Konflikt und einer Konterprobe (MU, 16) kannst du einen auf dir
   <Vorteil name="Schnellziehen" kosten="60" voraussetzungen="Attribut FF 8" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Erlaubt das Manöver Schnellschuss im Fernkampf. Nahkampf- und Wurfwaffen können in einer freien Aktion gezogen werden.</Vorteil>
   <Vorteil name="Meisterschuss" kosten="80" voraussetzungen="Attribut FF 10" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Erlaubt das Manöver Meisterschuss im Fernkampf.</Vorteil>
   <Vorteil name="Niederwerfen" kosten="20" voraussetzungen="Attribut KK 4" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Erlaubt das Manöver Niederwerfen.</Vorteil>
-  <Vorteil name="Waffenloser Kampf" kosten="40" voraussetzungen="Attribut KK 6" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Deine unbewaffneten Angriffe erhalten die Attribute kopflastig und wendig.</Vorteil>
+  <Vorteil name="Waffenloser Kampf" kosten="40" voraussetzungen="Attribut KK 6" nachkauf="häufig" typ="2" variable="-1" printclass="-1" script="addWaffeneigenschaft('Unbewaffnet', 'Kopflastig');addWaffeneigenschaft('Unbewaffnet', 'Wendig')">Deine unbewaffneten Angriffe erhalten die Attribute kopflastig und wendig.</Vorteil>
   <Vorteil name="Hammerschlag" kosten="60" voraussetzungen="Attribut KK 8" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Erlaubt das Manöver Hammerschlag.</Vorteil>
   <Vorteil name="Unaufhaltsam" kosten="80" voraussetzungen="Attribut KK 10" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Selbst bei einer gelungenen gegnerischen Verteidigung richtest du halben Schaden an. Ausweichen vermeidet diesen Schaden. Manövereffekte wirken weiterhin nur bei gelungenen Attacken.</Vorteil>
   <Vorteil name="Standfest" kosten="20" voraussetzungen="Attribut GE 4" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Nach einem Sturz befindest du dich in kniender statt liegender Position.</Vorteil>
@@ -152,25 +152,25 @@ Mit einer Aktion Konflikt und einer Konterprobe (MU, 16) kannst du einen auf dir
   <Vorteil name="Offensiver Kampfstil" kosten="40" voraussetzungen="Attribut MU 6" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Der Verteidigungs-Malus durch volle Offensive sinkt auf -4.</Vorteil>
   <Vorteil name="Gegenhalten" kosten="60" voraussetzungen="Attribut MU 8" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Wenn du eine Attacke abwehrst, die mit einem Manöver verstärkt wurde, darfst du sofort einen Passierschlag gegen den Angreifer ausführen.</Vorteil>
   <Vorteil name="Kalte Wut" kosten="80" voraussetzungen="Attribut MU 10" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Der Held kann sich im Kampf in kalte Wut versetzen und Wundabzüge ignorieren.</Vorteil>
-  <Vorteil name="Kampfreflexe" kosten="20" voraussetzungen="Attribut IN 4" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Deine INI steigt um 4 Punkte.</Vorteil>
+  <Vorteil name="Kampfreflexe" kosten="20" voraussetzungen="Attribut IN 4" nachkauf="häufig" typ="2" variable="-1" printclass="-1" script="modifyINI(4)">Deine INI steigt um 4 Punkte.</Vorteil>
   <Vorteil name="Defensiver Kampfstil" kosten="40" voraussetzungen="Attribut IN 6" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Die Aktion volle Defensive wird kombinierbar.</Vorteil>
   <Vorteil name="Aufmerksamkeit" kosten="60" voraussetzungen="Attribut IN 8" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Misslingt deinem Gegner eine Verteidigung gegen dich, die mit einem Manöver verstärkt wurde, darfst du sofort einen Passierschlag gegen ihn ausführen. Passierschläge gegen dich sind um weitere -4 erschwert.</Vorteil>
   <Vorteil name="Klingentanz" kosten="80" voraussetzungen="Attribut IN 10" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Erlaubt das Manöver Klingentanz.</Vorteil>
   <Vorteil name="Zäher Hund" kosten="20" voraussetzungen="Attribut KO 4" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Blutungen drohen nur alle 2xWS Initiativephasen eine Wunde anzurichten.</Vorteil>
-  <Vorteil name="Rüstungsgewöhnung I" kosten="40" voraussetzungen="Attribut KO 6" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Die BE aller Rüstungen ist um 1 gesenkt.</Vorteil>
+  <Vorteil name="Rüstungsgewöhnung I" kosten="40" voraussetzungen="Attribut KO 6" nachkauf="häufig" typ="2" variable="-1" printclass="-1" script="modifyBEMod(1)">Die BE aller Rüstungen ist um 1 gesenkt.</Vorteil>
   <Vorteil name="Eisern" kosten="60" voraussetzungen="Attribut KO 8" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Wundschmerzeffekte treten bei dir erst ab drei Wunden auf einen Schlag auf.</Vorteil>
-  <Vorteil name="Rüstungsgewöhnung II" kosten="80" voraussetzungen="Attribut KO 10" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Die BE aller Rüstungen ist um weitere 2 gesenkt.</Vorteil>
-  <Vorteil name="Beidhändiger Kampf I" kosten="20" voraussetzungen="Attribut GE 4" nachkauf="häufig" typ="3" variable="-1" printclass="-1">Du erhälst AT +1.
+  <Vorteil name="Rüstungsgewöhnung II" kosten="80" voraussetzungen="Attribut KO 10" nachkauf="häufig" typ="2" variable="-1" printclass="-1" script="modifyBEMod(2)">Die BE aller Rüstungen ist um weitere 2 gesenkt.</Vorteil>
+  <Vorteil name="Beidhändiger Kampf I" kosten="20" voraussetzungen="Attribut GE 4" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Beidhändiger Kampf', 1, 0, 0, 0, 0)">Du erhälst AT +1.
 
 Bedingungen:
 - zwei einhändige Waffen (kein Schild)
 - nicht beritten</Vorteil>
-  <Vorteil name="Beidhändiger Kampf II" kosten="40" voraussetzungen="Attribut GE 6, Vorteil Beidhändiger Kampf I" nachkauf="häufig" typ="3" variable="-1" printclass="-1">Du erhälst AT +1. Deine zweite Waffe ignoriert die übliche Erschwernis für Nebenwaffen.
+  <Vorteil name="Beidhändiger Kampf II" kosten="40" voraussetzungen="Attribut GE 6, Vorteil Beidhändiger Kampf I" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Beidhändiger Kampf', 1, 0, 0, 0, 0)">Du erhälst AT +1. Deine zweite Waffe ignoriert die übliche Erschwernis für Nebenwaffen.
 
 Bedingungen:
 - zwei einhändige Waffen (kein Schild)
 - nicht beritten</Vorteil>
-  <Vorteil name="Beidhändiger Kampf III" kosten="60" voraussetzungen="Attribut GE 8, Vorteil Beidhändiger Kampf II" nachkauf="häufig" typ="3" variable="-1" printclass="-1">Du erhälst AT +1. Erlaubt das Manöver Doppelangriff.
+  <Vorteil name="Beidhändiger Kampf III" kosten="60" voraussetzungen="Attribut GE 8, Vorteil Beidhändiger Kampf II" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Beidhändiger Kampf', 1, 0, 0, 0, 0)">Du erhälst AT +1. Erlaubt das Manöver Doppelangriff.
 
 Bedingungen:
 - zwei einhändige Waffen (kein Schild)
@@ -182,17 +182,17 @@ Bedingungen:
 - nicht beritten
 - zwei weitere Attribute auf insgesamt 16
 </Vorteil>
-  <Vorteil name="Kraftvoller Kampf I" kosten="20" voraussetzungen="Attribut KK 4" nachkauf="häufig" typ="3" variable="-1" printclass="-1">Du erhältst TP +1.
+  <Vorteil name="Kraftvoller Kampf I" kosten="20" voraussetzungen="Attribut KK 4" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Kraftvoller Kampf', 0, 0, 1, 0, 0)">Du erhältst TP +1.
 
 Bedingungen:
 - einzelne Nahkampfwaffe
 - nicht beritten</Vorteil>
-  <Vorteil name="Kraftvoller Kampf II" kosten="40" voraussetzungen="Attribut KK 6, Vorteil Kraftvoller Kampf I" nachkauf="häufig" typ="3" variable="-1" printclass="-1">Du erhälst TP +1. Deine Gegner erhalten keinen Bonus für Angriffe in deinen Rücken.
+  <Vorteil name="Kraftvoller Kampf II" kosten="40" voraussetzungen="Attribut KK 6, Vorteil Kraftvoller Kampf I" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Kraftvoller Kampf', 0, 0, 1, 0, 0)">Du erhälst TP +1. Deine Gegner erhalten keinen Bonus für Angriffe in deinen Rücken.
 
 Bedingungen:
 - einzelne Nahkampfwaffe
 - nicht beritten</Vorteil>
-  <Vorteil name="Kraftvoller Kampf III" kosten="60" voraussetzungen="Attribut KK 8, Vorteil Kraftvoller Kampf II" nachkauf="häufig" typ="3" variable="-1" printclass="-1">Du erhälst TP +1. Erlaubt das Manöver Befreiungsschlag.
+  <Vorteil name="Kraftvoller Kampf III" kosten="60" voraussetzungen="Attribut KK 8, Vorteil Kraftvoller Kampf II" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Kraftvoller Kampf', 0, 0, 1, 0, 0)">Du erhälst TP +1. Erlaubt das Manöver Befreiungsschlag.
 
 Bedingungen:
 - einzelne Nahkampfwaffe
@@ -203,15 +203,15 @@ Bedingungen:
 - einzelne Nahkampfwaffe
 - nicht beritten
 - zwei weitere Attribute auf insgesamt 16</Vorteil>
-  <Vorteil name="Schildkampf I" kosten="20" voraussetzungen="Attribut KK 4" nachkauf="häufig" typ="3" variable="-1" printclass="-1">Du erhälst VT +1.
+  <Vorteil name="Schildkampf I" kosten="20" voraussetzungen="Attribut KK 4" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Schildkampf', 0, 1, 0, 0, 0)">Du erhälst VT +1.
 
 Bedingungen:
 - Schild</Vorteil>
-  <Vorteil name="Schildkampf II" kosten="40" voraussetzungen="Attribut KK 6, Vorteil Schildkampf I" nachkauf="häufig" typ="3" variable="-1" printclass="-1">Du erhälst VT +1. Dein Schild ignoriert die übliche Erschwernis für Nebenwaffen und Abzüge auf zusätzliche Verteidigungen sinken um 1 Stufe.
+  <Vorteil name="Schildkampf II" kosten="40" voraussetzungen="Attribut KK 6, Vorteil Schildkampf I" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Schildkampf', 0, 1, 0, 0, 0)">Du erhälst VT +1. Dein Schild ignoriert die übliche Erschwernis für Nebenwaffen und Abzüge auf zusätzliche Verteidigungen sinken um 1 Stufe.
 
 Bedingungen:
 - Schild</Vorteil>
-  <Vorteil name="Schildkampf III" kosten="60" voraussetzungen="Attribut KK 8, Vorteil Schildkampf II" nachkauf="häufig" typ="3" variable="-1" printclass="-1">Du erhälst VT +1. Erlaubt das Manöver Schildwall.
+  <Vorteil name="Schildkampf III" kosten="60" voraussetzungen="Attribut KK 8, Vorteil Schildkampf II" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Schildkampf', 0, 1, 0, 0, 0)">Du erhälst VT +1. Erlaubt das Manöver Schildwall.
 
 Bedingungen:
 - Schild</Vorteil>
@@ -220,17 +220,17 @@ Bedingungen:
 Bedingungen:
 - Schild
 - zwei weitere Attribute auf insgesamt 16</Vorteil>
-  <Vorteil name="Schneller Kampf I" kosten="20" voraussetzungen="Attribut GE 4" nachkauf="häufig" typ="3" variable="-1" printclass="-1">Du erhälst AT +1.
+  <Vorteil name="Schneller Kampf I" kosten="20" voraussetzungen="Attribut GE 4" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Schneller Kampf', 1, 0, 0, 0, 0)">Du erhälst AT +1.
 
 Bedingungen:
 - einzelne Nahkampfwaffe
 - nicht beritten</Vorteil>
-  <Vorteil name="Schneller Kampf II" kosten="40" voraussetzungen="Attribut GE 6, Vorteil Schneller Kampf I" nachkauf="häufig" typ="3" variable="-1" printclass="-1">Du erhälst AT +1. Du kannst deine Waffe auch in einer um 1 geringeren Reichweite führen. Der Wechsel in die verringerte oder zurück in die ursprüngliche Reichweite geschieht in einer freien Aktion.
+  <Vorteil name="Schneller Kampf II" kosten="40" voraussetzungen="Attribut GE 6, Vorteil Schneller Kampf I" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Schneller Kampf', 1, 0, 0, 0, 0)">Du erhälst AT +1. Du kannst deine Waffe auch in einer um 1 geringeren Reichweite führen. Der Wechsel in die verringerte oder zurück in die ursprüngliche Reichweite geschieht in einer freien Aktion.
 
 Bedingungen:
 - einzelne Nahkampfwaffe
 - nicht beritten</Vorteil>
-  <Vorteil name="Schneller Kampf III" kosten="60" voraussetzungen="Attribut GE 8, Vorteil Schneller Kampf II" nachkauf="häufig" typ="3" variable="-1" printclass="-1">Du erhälst AT +1. Erlaubt das Manöver Befreiungsschlag.
+  <Vorteil name="Schneller Kampf III" kosten="60" voraussetzungen="Attribut GE 8, Vorteil Schneller Kampf II" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Schneller Kampf', 1, 0, 0, 0, 0)">Du erhälst AT +1. Erlaubt das Manöver Befreiungsschlag.
 
 Bedingungen:
 - einzelne Nahkampfwaffe
@@ -262,15 +262,15 @@ Bedingungen:
 - Parierwaffe
 - nicht beritten
 - zwei weitere Attribute auf insgesamt 16</Vorteil>
-  <Vorteil name="Reiterkampf I" kosten="20" voraussetzungen="Attribut GE 4 ODER Attribut KK 4" nachkauf="häufig" typ="3" variable="-1" printclass="-1">Du erhälst TP +1, AT +1 und VT +1. Erlaubt das Manöver Sturmangriff mit dem Pferd.
+  <Vorteil name="Reiterkampf I" kosten="20" voraussetzungen="Attribut GE 4 ODER Attribut KK 4" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Reiterkampf', 1, 1, 1, 0, 0)">Du erhälst TP +1, AT +1 und VT +1. Erlaubt das Manöver Sturmangriff mit dem Pferd.
 
 Bedingungen:
 - beritten</Vorteil>
-  <Vorteil name="Reiterkampf II" kosten="40" voraussetzungen="Attribut GE 6 ODER Attribut KK 6, Vorteil Reiterkampf I" nachkauf="häufig" typ="3" variable="-1" printclass="-1">Du erhälst TP +1, AT +1 und VT +1. Erlaubt das Manöver Hammerschlag mit dem Pferd. Dein Pferd ignoriert die übliche Erschwernis für Nebenwaffen und Reiten-Proben werden nicht durch die BE modifiziert.
+  <Vorteil name="Reiterkampf II" kosten="40" voraussetzungen="Attribut GE 6 ODER Attribut KK 6, Vorteil Reiterkampf I" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Reiterkampf', 1, 1, 1, 0, 0);setKampfstilBEIgnore('Reiterkampf', 'Athletik', 'Reiten')">Du erhälst TP +1, AT +1 und VT +1. Erlaubt das Manöver Hammerschlag mit dem Pferd. Dein Pferd ignoriert die übliche Erschwernis für Nebenwaffen und Reiten-Proben werden nicht durch die BE modifiziert.
 
 Bedingungen:
 - beritten</Vorteil>
-  <Vorteil name="Reiterkampf III" kosten="60" voraussetzungen="Attribut GE 8 ODER Attribut KK 8, Vorteil Reiterkampf II" nachkauf="häufig" typ="3" variable="-1" printclass="-1">Du erhälst TP +1, AT +1 und VT +1. Erlaubt das Manöver Überrennen mit dem Pferd.
+  <Vorteil name="Reiterkampf III" kosten="60" voraussetzungen="Attribut GE 8 ODER Attribut KK 8, Vorteil Reiterkampf II" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Reiterkampf', 1, 1, 1, 0, 0)">Du erhälst TP +1, AT +1 und VT +1. Erlaubt das Manöver Überrennen mit dem Pferd.
 
 Bedingungen:
 - beritten</Vorteil>
@@ -281,7 +281,7 @@ Bedingungen:
 - zwei weitere Attribute auf insgesamt 16</Vorteil>
   <Vorteil name="Bändiger der Elemente" kosten="20" voraussetzungen="Attribut CH 4, Vorteil Zauberer I" nachkauf="häufig" typ="4" variable="-1" printclass="-1">Bei Elementaren sinkt die Erschwernis für schwierige und anmaßende Dienste um eine Stufe.</Vorteil>
   <Vorteil name="Meister der Wünsche" kosten="40" voraussetzungen="Attribut CH 6, Vorteil Zauberer I" nachkauf="häufig" typ="4" variable="-1" printclass="-1">Nachdem ein gebundenes Elementar einen Dienst erfüllt hat, kannst du für die Hälfte der Basisbeschwörungskosten einen zusätzlichen Dienst erbitten.</Vorteil>
-  <Vorteil name="Gefäß der Sterne" kosten="60" voraussetzungen="Attribut CH 8, Vorteil Zauberer I" nachkauf="häufig" typ="4" variable="-1" printclass="-1">Deine maximale Astralenergie steigt um 4 + CH Punkte.</Vorteil>
+  <Vorteil name="Gefäß der Sterne" kosten="60" voraussetzungen="Attribut CH 8, Vorteil Zauberer I" nachkauf="häufig" typ="4" variable="-1" printclass="-1" script="modifyAsPMod(getCH() + 4)">Deine maximale Astralenergie steigt um 4 + CH Punkte.</Vorteil>
   <Vorteil name="Gebieter der Urgewalten" kosten="80" voraussetzungen="Attribut CH 10, Vorteil Zauberer I" nachkauf="häufig" typ="4" variable="-1" printclass="-1">Gebundene Elementare kosten nur noch die halben gAsP und eine misslungene Beherrschungsprobe kann einmalig für die Hälfte der Beschwörungskosten wiederholt werden.</Vorteil>
   <Vorteil name="Reaktivierung" kosten="20" voraussetzungen="Attribut FF 4, Vorteil Zauberer I" nachkauf="häufig" typ="4" variable="-1" printclass="-1">Du kannst wieder aufladbare Artefakte erschaffen und reaktivieren.</Vorteil>
   <Vorteil name="Matrixverständnis" kosten="40" voraussetzungen="Attribut FF 6, Vorteil Zauberer I" nachkauf="häufig" typ="4" variable="-1" printclass="-1">Der erste wirkende Zauber, der bei der Artefakterschaffung misslingt, darf einmal wiederholt werden. Bei Strukturanalysen erhältst du einen zusätzlichen Analysegrad, wenn der gewertete Würfel eine 12 oder höher zeigt.</Vorteil>

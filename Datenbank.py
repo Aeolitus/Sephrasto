@@ -63,6 +63,10 @@ class Datenbank():
             v.set('typ', str(vorteil.typ))
             v.set('variable', str(vorteil.variable))
             v.text = vorteil.text
+            if len(vorteil.script) > 0:
+                v.set('script', "; ".join(vorteil.script))
+            if vorteil.scriptPrio != 0:
+                v.set('scriptPrio', str(vorteil.scriptPrio))
 
         #Talente
         Wolke.Fehlercode = -28
@@ -246,6 +250,13 @@ class Datenbank():
             V.nachkauf = vort.get('nachkauf')
             V.typ = int(vort.get('typ'))
             V.text = vort.text
+            script = vort.get('script')
+            if script:
+                V.script = list(map(str.strip, script.split(";")))
+            prio = vort.get('scriptPrio')
+            if prio:
+                V.scriptPrio = int(prio)
+
             V.isUserAdded = not refDB
             try:
                 V.variable = int(vort.get('variable'))

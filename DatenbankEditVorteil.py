@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'DatenbankEditVorteil.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.11.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -44,11 +44,34 @@ class Ui_talentDialog(object):
         self.label_4 = QtWidgets.QLabel(talentDialog)
         self.label_4.setMinimumSize(QtCore.QSize(110, 0))
         self.label_4.setObjectName("label_4")
-        self.gridLayout.addWidget(self.label_4, 4, 0, 1, 1)
+        self.gridLayout.addWidget(self.label_4, 7, 0, 1, 1)
+        self.horizontalLayout1 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout1.setObjectName("horizontalLayout1")
+        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout1.addItem(spacerItem1)
+        self.scriptPrioEdit = QtWidgets.QSpinBox(talentDialog)
+        self.scriptPrioEdit.setMinimum(-10)
+        self.scriptPrioEdit.setMaximum(10)
+        self.scriptPrioEdit.setSingleStep(1)
+        self.scriptPrioEdit.setProperty("value", 0)
+        self.scriptPrioEdit.setObjectName("scriptPrioEdit")
+        self.horizontalLayout1.addWidget(self.scriptPrioEdit)
+        self.gridLayout.addLayout(self.horizontalLayout1, 7, 1, 1, 1)
+        self.label_41 = QtWidgets.QLabel(talentDialog)
+        self.label_41.setMinimumSize(QtCore.QSize(110, 0))
+        self.label_41.setObjectName("label_41")
+        self.gridLayout.addWidget(self.label_41, 8, 0, 1, 1)
+        self.scriptEdit = QtWidgets.QLineEdit(talentDialog)
+        self.scriptEdit.setObjectName("scriptEdit")
+        self.gridLayout.addWidget(self.scriptEdit, 8, 1, 1, 1)
+        self.label_42 = QtWidgets.QLabel(talentDialog)
+        self.label_42.setMinimumSize(QtCore.QSize(110, 0))
+        self.label_42.setObjectName("label_42")
+        self.gridLayout.addWidget(self.label_42, 4, 0, 1, 1)
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_2.addItem(spacerItem1)
+        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_2.addItem(spacerItem2)
         self.checkVariable = QtWidgets.QCheckBox(talentDialog)
         self.checkVariable.setObjectName("checkVariable")
         self.horizontalLayout_2.addWidget(self.checkVariable)
@@ -127,7 +150,9 @@ class Ui_talentDialog(object):
         self.comboNachkauf.setItemText(2, _translate("talentDialog", "selten"))
         self.comboNachkauf.setItemText(3, _translate("talentDialog", "extrem selten"))
         self.comboNachkauf.setItemText(4, _translate("talentDialog", "nicht möglich"))
-        self.label_4.setText(_translate("talentDialog", "Voraussetzungen"))
+        self.label_4.setText(_translate("talentDialog", "Script Priorität"))
+        self.label_41.setText(_translate("talentDialog", "Script"))
+        self.label_42.setText(_translate("talentDialog", "Voraussetzungen"))
         self.checkVariable.setText(_translate("talentDialog", "Variabel"))
         self.kostenEdit.setSuffix(_translate("talentDialog", " EP"))
         self.label_5.setText(_translate("talentDialog", "Beschreibung"))

@@ -18,6 +18,7 @@ import math
 from collections import namedtuple
 import logging
 import tempfile
+from Charakter import KampfstilMod
 
 CharakterbogenInfo = namedtuple('CharakterbogenInfo', 'filePath maxVorteile maxFreie maxFertigkeiten seitenProfan kurzbogenHack')
 
@@ -161,13 +162,8 @@ class pdfMeister(object):
         fields['Finanzen'] = Definitionen.Finanzen[Wolke.Char.finanzen]
         fields['Kurzb'] = Wolke.Char.kurzbeschreibung
         fields['Notiz1'] = Wolke.Char.kurzbeschreibung
-        glMod = 0
-        if "Glück I" in Wolke.Char.vorteile:
-            glMod += 1
-        if "Glück II" in Wolke.Char.vorteile:
-            glMod += 1
-        fields['Schip'] = 4 + glMod
-        fields['Schipm'] = Wolke.Char.schips + glMod
+        fields['Schip'] = Wolke.Char.schipsMax
+        fields['Schipm'] = Wolke.Char.schips
         # Erste Acht Eigenheiten
         count = 0
         eigFields = [1, 2, 3, 4, 5, 6, 7, 8]
@@ -215,47 +211,31 @@ class pdfMeister(object):
         if "Kampfreflexe" in Wolke.Char.vorteile:
             fields['ModKampfreflexe'] = 'Yes'
 
-        aspBasis = 0
-        if "Zauberer I" in Wolke.Char.vorteile:
-            aspBasis += 8
-        if "Zauberer II" in Wolke.Char.vorteile:
-            aspBasis += 8
-        if "Zauberer III" in Wolke.Char.vorteile:
-            aspBasis += 8
-        if "Zauberer IV" in Wolke.Char.vorteile:
-            aspBasis += 8
-        aspMod = 0
         if "Gefäß der Sterne" in Wolke.Char.vorteile:
-            aspMod += Wolke.Char.attribute['CH'].wert+4
             fields['ModGefaess'] = 'Yes'
 
-        if aspBasis + aspMod > 0:
-            fields['AstralenergieBasis'] = aspBasis
-            fields['Astralenergie'] = Wolke.Char.asp.wert + aspBasis + aspMod
+        isZauberer = Wolke.Char.aspBasis + Wolke.Char.aspMod > 0
+        isGeweiht = Wolke.Char.kapBasis + Wolke.Char.kapMod > 0
+        if isZauberer:
+            fields['AstralenergieBasis'] = Wolke.Char.aspBasis
+            fields['Astralenergie'] = Wolke.Char.asp.wert + Wolke.Char.aspBasis + Wolke.Char.aspMod
             fields['ModAstralenergie'] = Wolke.Char.asp.wert
 
-        kapBasis = 0
-        if "Geweiht I" in Wolke.Char.vorteile:
-            kapBasis += 8
-        if "Geweiht II" in Wolke.Char.vorteile:
-            kapBasis += 8
-        if "Geweiht III" in Wolke.Char.vorteile:
-            kapBasis += 8
-        if "Geweiht IV" in Wolke.Char.vorteile:
-            kapBasis += 8
-        if kapBasis > 0:
-            fields['KarmaenergieBasis'] = kapBasis
-            fields['Karmaenergie'] = Wolke.Char.kap.wert + kapBasis
+        if isGeweiht:
+            fields['KarmaenergieBasis'] = Wolke.Char.kapBasis
+            fields['Karmaenergie'] = Wolke.Char.kap.wert + Wolke.Char.kapBasis + Wolke.Char.kapMod
             fields['ModKarmaenergie'] = Wolke.Char.kap.wert
-        if aspBasis + aspMod > 0 and kapBasis == 0:
-            self.Energie = Wolke.Char.asp.wert + aspBasis + aspMod
+
+        if isZauberer and not isGeweiht:
+            self.Energie = Wolke.Char.asp.wert + Wolke.Char.aspBasis + Wolke.Char.aspMod
             fields['EN'] = self.Energie
             #fields['gEN'] = "0"
-        elif aspBasis + aspMod == 0 and kapBasis > 0:
-            self.Energie = Wolke.Char.kap.wert + kapBasis
+        elif not isZauberer and isGeweiht:
+            self.Energie = Wolke.Char.kap.wert + Wolke.Char.kapBasis + Wolke.Char.kapMod
             fields['EN'] = self.Energie
             #fields['gEN'] = "0"
         # Wenn sowohl AsP als auch KaP vorhanden sind, muss der Spieler ran..
+
         trueBE = max(Wolke.Char.be, 0)
         fields['DHm'] = max(Wolke.Char.dh - 2*trueBE, 1)
         fields['GSm'] = max(Wolke.Char.gs-trueBE, 1)
@@ -517,11 +497,6 @@ class pdfMeister(object):
             fields[base + 'TP'] = str(el.W6) + "W6" + sg + str(el.plus)
             fields[base + 'HA'] = str(el.haerte)
             fields[base + 'EI'] = ", ".join(el.eigenschaften)
-            fields[base + 'RW'] = str(el.rw)
-            if type(el) == Objekte.Fernkampfwaffe:
-                fields[base + 'WM'] = str(el.lz)
-            else:
-                fields[base + 'WM'] = str(el.wm)
 
             # Calculate modifiers for AT, PA, TP from Kampfstil
             if el.name in Wolke.DB.waffen:
@@ -535,61 +510,33 @@ class pdfMeister(object):
                     bwert = Wolke.Char.fertigkeiten[fertig].probenwertTalent
                 else:
                     bwert = Wolke.Char.fertigkeiten[fertig].probenwert
-                at = bwert
-                vt = bwert
-                sp = 0
-                flagReiter2 = False
-                # 0 is no Kampfstil, no Effect
-                # 1 is Beidhändig
-                if el.kampfstil == 1:
-                    levelC = 0
-                    for vor in Wolke.Char.vorteile:
-                        if Definitionen.Kampfstile[1] in vor:
-                            levelC += 1
-                    at += min(levelC, 3)
-                # 2 is Parierwaffenkampf which does nothing
-                # 3 is Reiterkampf
-                elif el.kampfstil == 3:
-                    levelC = 0
-                    for vor in Wolke.Char.vorteile:
-                        if Definitionen.Kampfstile[3] in vor:
-                            levelC += 1
-                    if levelC >= 2:
-                        flagReiter2 = True
-                    at += min(levelC, 3)
-                    vt += min(levelC, 3)
-                    sp += min(levelC, 3)
-                # 4 is Schildkampf
-                elif el.kampfstil == 4:
-                    levelC = 0
-                    for vor in Wolke.Char.vorteile:
-                        if Definitionen.Kampfstile[4] in vor:
-                            levelC += 1
-                    vt += min(levelC, 3)
-                # 5 is Kraftvoller Kampf
-                elif el.kampfstil == 5:
-                    levelC = 0
-                    for vor in Wolke.Char.vorteile:
-                        if Definitionen.Kampfstile[5] in vor:
-                            levelC += 1
-                    sp += min(levelC, 3)
-                # 6 is Schneller Kampf
-                elif el.kampfstil == 6:
-                    levelC = 0
-                    for vor in Wolke.Char.vorteile:
-                        if Definitionen.Kampfstile[6] in vor:
-                            levelC += 1
-                    at += min(levelC, 3)
+                
+                kampfstil = Definitionen.Kampfstile[el.kampfstil]
+                kampfstilMods = None
+                if kampfstil in Wolke.Char.kampfstilMods:
+                    kampfstilMods = Wolke.Char.kampfstilMods[kampfstil]
+                else:
+                    kampfstilMods = KampfstilMod()
+                    logging.warn("Waffe " + el.name + " referenziert einen nicht existierenden Kampfstil")
+                
+                at = bwert + kampfstilMods.AT
+                vt = bwert + kampfstilMods.VT
+                sp = kampfstilMods.TP
+                rw = el.rw + kampfstilMods.RW
+                wm = 0
+                if type(el) == Objekte.Fernkampfwaffe:
+                    wm = el.lz
+                else:
+                    wm = el.wm
+                wm += kampfstilMods.WM_LZ
 
                 if type(el) == Objekte.Nahkampfwaffe:
-                    if "Kopflastig" in el.eigenschaften or\
-                        (el.name == "Unbewaffnet" and "Waffenloser Kampf" in
-                         Wolke.Char.vorteile):
+                    if "Kopflastig" in el.eigenschaften:
                         sp += Wolke.Char.schadensbonus*2
                     else:
                         sp += Wolke.Char.schadensbonus
-                    at += el.wm
-                    vt += el.wm
+                    at += wm
+                    vt += wm
 
                 for eigenschaft in el.eigenschaften:
                     res = re.findall('Schwer \(([0-9]{1,2})\)',
@@ -602,13 +549,21 @@ class pdfMeister(object):
                             vt -= 2
                         break
 
-                if not (flagReiter2 and tale == "Reiten" and \
-                        fertig == "Athletik"):
+                ignoreBE = False
+                for values in kampfstilMods.BEIgnore:
+                    if values[0] == fertig and values[1] == tale:
+                        ignoreBE = True
+                        break
+
+                if not ignoreBE:
                     at -= Wolke.Char.be
                     vt -= Wolke.Char.be
 
                 fields[base + 'ATm'] = at
                 fields[base + 'VTm'] = vt
+                fields[base + 'RW'] = str(rw)
+                fields[base + 'WM'] = str(wm)
+
                 sg = ""
                 if el.plus+sp >= 0:
                     sg = "+"

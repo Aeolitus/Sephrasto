@@ -6,9 +6,25 @@ import re
 import binascii
 import copy
 import logging
+import collections
 from Wolke import Wolke
 from Hilfsmethoden import Hilfsmethoden
 from PyQt5 import QtWidgets, QtCore
+
+class KampfstilMod():
+    def __init__(self):
+        self.AT = 0
+        self.VT = 0
+        self.TP = 0
+        self.RW = 0
+        self.WM_LZ = 0
+        self.BEIgnore = [] #Tupel aus Kampffertigkeit und Talent für welche die BE ignoriert wird
+
+    def __deepcopy__(self):
+      clone = type(self)()
+      clone.__dict__.update(self.__dict__)
+      clone.beIgnore = copy.deepcopy(self.beIgnore)
+      return clone
 
 class Char():
     ''' 
@@ -27,7 +43,9 @@ class Char():
         self.status = 2
         self.kurzbeschreibung = ''
         self.heimat = 'Mittelreich'
+        self.schipsMax = 4
         self.schips = 4
+
         self.finanzen = 2;
         self.eigenheiten = []
 
@@ -47,12 +65,17 @@ class Char():
         self.iniBasis = -1
         self.ini = -1
         self.asp = Fertigkeiten.Energie()
+        self.aspBasis = 0
+        self.aspMod = 0
         self.kap = Fertigkeiten.Energie()
+        self.kapBasis = 0
+        self.kapMod = 0
         
         #Dritter Block: Vorteile, gespeichert als String
         self.vorteile = []
         self.vorteileVariable = {} #Contains Name: Cost
         self.minderpakt = None
+        self.kampfstilMods = {}
 
         #Vierter Block: Fertigkeiten und Freie Fertigkeiten
         self.fertigkeiten = copy.deepcopy(Wolke.DB.fertigkeiten)
@@ -66,6 +89,7 @@ class Char():
         self.ausrüstung = []
         self.rüstungsgewöhnung = 0
         self.rsmod = 0
+        self.waffenEigenschaftenUndo = [] #For undoing changes made by Vorteil scripts
 
         #Sechster Block: Übernatürliches
         self.übernatürlicheFertigkeiten = copy.deepcopy(
@@ -106,6 +130,119 @@ class Char():
         if not self.migrationen[self.datenbankCodeVersion]:
             raise Exception("Migrations-Code vergessen.")
 
+        #Bei Änderungen nicht vergessen die script docs in DatenbankEditVorteilWrapper anzupassen
+        self.vorteilScriptAPI = {
+            #Asp
+            'getAsPBasis' : lambda: self.aspBasis,
+            'setAsPBasis' : lambda aspBasis: setattr(self, 'aspBasis', aspBasis),
+            'modifyAsPBasis' : lambda aspBasis: setattr(self, 'aspBasis', self.aspBasis + aspBasis),
+            'getAsPMod' : lambda: self.aspMod,
+            'setAsPMod' : lambda aspMod: setattr(self, 'aspMod', aspMod),
+            'modifyAsPMod' : lambda aspMod: setattr(self, 'aspMod', self.aspMod + aspMod),
+
+            #Kap
+            'getKaPBasis' : lambda: self.kapBasis,
+            'setKaPBasis' : lambda kapBasis: setattr(self, 'kapBasis', kapBasis),
+            'modifyKaPBasis' : lambda kapBasis: setattr(self, 'kapBasis', self.kapBasis + kapBasis),
+            'getKaPMod' : lambda: self.kapMod,
+            'setKaPMod' : lambda kapMod: setattr(self, 'kapMod', kapMod),
+            'modifyKaPMod' : lambda kapMod: setattr(self, 'kapMod', self.kapMod + kapMod),
+
+            #Schip
+            'getSchiPMax' : lambda: self.schipsMax,
+            'setSchiPMax' : lambda schipsMax: setattr(self, 'schipsMax', schipsMax),
+            'modifySchiPMax' : lambda schipsMax: setattr(self, 'schipsMax', self.schipsMax + schipsMax),
+
+            #WS
+            'getWSBasis' : lambda: self.wsBasis,
+            'getWS' : lambda: self.ws,
+            'setWS' : lambda ws: setattr(self, 'ws', ws),
+            'modifyWS' : lambda ws: setattr(self, 'ws', self.ws + ws),
+
+            #MR
+            'getMRBasis' : lambda: self.mrBasis,
+            'getMR' : lambda: self.ws,
+            'setMR' : lambda mr: setattr(self, 'mr', mr),
+            'modifyMR' : lambda mr: setattr(self, 'mr', self.mr + mr),
+
+            #GS
+            'getGSBasis' : lambda: self.gsBasis,
+            'getGS' : lambda: self.gs,
+            'setGS' : lambda gs: setattr(self, 'gs', gs),
+            'modifyGS' : lambda gs: setattr(self, 'gs', self.gs + gs),
+
+            #DH
+            'getDH' : lambda: self.dh,
+            'setDH' : lambda dh: setattr(self, 'dh', dh),
+            'modifyDH' : lambda dh: setattr(self, 'dh', self.dh + dh),
+
+            #Schadensbonus
+            'getSchadensbonusBasis' : lambda: self.schadensbonusBasis,
+            'getSchadensbonus' : lambda: self.schadensbonus,
+            'setSchadensbonus' : lambda schadensbonus: setattr(self, 'schadensbonus', schadensbonus),
+            'modifySchadensbonus' : lambda schadensbonus: setattr(self, 'schadensbonus', self.schadensbonus + schadensbonus),
+
+            #INI
+            'getINIBasis' : lambda: self.iniBasis,
+            'getINI' : lambda: self.ini,
+            'setINI' : lambda ini: setattr(self, 'ini', ini),
+            'modifyINI' : lambda ini: setattr(self, 'ini', self.ini + ini),
+
+            #RS
+            'getRSMod' : lambda: self.rsmod,
+            'setRSMod' : lambda rsmod: setattr(self, 'rsmod', rsmod),
+            'modifyRSMod' : lambda rsmod: setattr(self, 'rsmod', self.rsmod + rsmod),
+
+            #BE
+            'getBEBasis' : lambda: self.be,
+            'getBEMod' : lambda: self.rüstungsgewöhnung,
+            'setBEMod' : lambda beMod: setattr(self, 'rüstungsgewöhnung', beMod),
+            'modifyBEMod' : lambda beMod: setattr(self, 'rüstungsgewöhnung', self.rüstungsgewöhnung + beMod),
+
+            #Kampfstil
+             'getKampfstil' : lambda kampfstil: copy.copy(self.kampfstilMods[kampfstil]),
+             'setKampfstil' : self.API_setKampfstil,
+             'modifyKampfstil' : self.API_modifyKampfstil,
+             'setKampfstilBEIgnore' : lambda kampfstil, fertigkeit, talent: self.kampfstilMods[kampfstil].BEIgnore.append([fertigkeit, talent]),
+
+            #Attribute
+            'getAttribut' : lambda attribut: self.attribute[attribut].wert,
+
+            #Misc
+            'addWaffeneigenschaft' : self.API_addWaffeneigenschaft 
+        }
+
+        #Add Attribute to API (readonly)
+        for attribut in self.attribute.values():
+            self.vorteilScriptAPI["get" + attribut.key] = lambda attribut=attribut.key: self.attribute[attribut].wert
+
+    def API_setKampfstil(self, kampfstil, at, vt, tp, rw, wmlz):
+        k = self.kampfstilMods[kampfstil]
+        k.AT = at
+        k.VT = vt
+        k.TP = tp
+        k.RW = rw
+        k.WM_LZ = wmlz
+    
+    def API_modifyKampfstil(self, kampfstil, at, vt, tp, rw, wmlz):
+        k = self.kampfstilMods[kampfstil]
+        self.API_setKampfstil(kampfstil, k.AT + at, k.VT + vt, k.TP + tp, k.RW + rw, k.WM_LZ + wmlz)
+
+    def API_addWaffeneigenschaft(self, waffenName, eigenschaft):
+        waffe = None
+        for w in self.waffen:
+            if w.name == waffenName:
+                waffe = w
+                break
+        if not waffe:
+            return
+
+        self.waffenEigenschaftenUndo.append([waffenName, eigenschaft])
+        if eigenschaft in waffe.eigenschaften:
+            return
+        waffe.eigenschaften.append(eigenschaft)
+        
+
     def migriere0zu1(self, xmlRoot):
         #Dies würde aufgerufen werden, wenn datenbankCodeVersion 1 oder höher und Charakter-DatenbankVersion geringer als 1 wäre
         #WICHTIG: bei Vorteilen/(ÜB-)Fertigkeiten/Talenten nur solche migrieren, bei denen in der aktuell geladenen Datenbasis userAdded == False ist.
@@ -127,50 +264,79 @@ class Char():
         '''Berechnet alle abgeleiteten Werte neu'''
         for key in Definitionen.Attribute:
             self.attribute[key].aktualisieren()
+
+        self.aspBasis = 0
+        self.aspMod = 0
+        self.kapBasis = 0
+        self.kapMod = 0
+
         self.wsBasis = 4 + int(self.attribute['KO'].wert/4)
         self.ws = self.wsBasis
-        if "Unverwüstlich" in self.vorteile:
-            self.ws += 1
+
         self.mrBasis = 4 + int(self.attribute['MU'].wert/4)
         self.mr = self.mrBasis
-        if "Willensstark I" in self.vorteile:
-            self.mr += 4
-        if "Willensstark II" in self.vorteile:
-            self.mr += 4
-        if "Unbeugsamkeit" in self.vorteile:
-            self.mr += round(self.attribute['MU'].wert/2+0.0001)
+
         self.gsBasis = 4 + int(self.attribute['GE'].wert/4+0.0001)
         self.gs = self.gsBasis
-        if "Flink I" in self.vorteile:
-            self.gs += 1
-        if "Flink II" in self.vorteile:
-            self.gs += 1
+
         self.iniBasis = self.attribute['IN'].wert
-        self.ini = self.iniBasis
-        if "Kampfreflexe" in self.vorteile:
-            self.ini += 4                                 
+        self.ini = self.iniBasis     
+        
         self.dh = self.attribute['KO'].wert
-        if "Abgehärtet II" in self.vorteile:
-            self.dh += 2
+
         self.schadensbonusBasis = int(self.attribute['KK'].wert/4)
         self.schadensbonus = self.schadensbonusBasis
-        self.schips = 4
-        if self.finanzen >= 2: 
-            self.schips += self.finanzen - 2
-        else:
-            self.schips -= (2-self.finanzen)*2
+
+        self.schipsMax = 4
+      
         self.be = 0
         self.rüstungsgewöhnung = 0
         if len(self.rüstung) > 0:
             self.be = self.rüstung[0].be
-        if "Rüstungsgewöhnung I" in self.vorteile:
-            self.rüstungsgewöhnung += 1
-        if "Rüstungsgewöhnung II" in self.vorteile:
-            self.rüstungsgewöhnung += 2
-        self.be = max(0,self.be-self.rüstungsgewöhnung)
         self.rsmod = 0
-        if "Natürliche Rüstung" in self.vorteile:
-            self.rsmod += 1
+
+        self.kampfstilMods = {}
+        for ks in Definitionen.Kampfstile:
+            self.kampfstilMods[ks] = KampfstilMod()
+
+        for value in self.waffenEigenschaftenUndo:
+            waffe = None
+            for w in self.waffen:
+                if w.name == value[0]:
+                    waffe = w
+                    break
+            if not waffe:
+                continue
+            if value[1] in waffe.eigenschaften:
+                waffe.eigenschaften.remove(value[1])
+        self.waffenEigenschaftenUndo = []
+
+        #Execute Vorteil scripts to modify character stats
+        vorteileByPrio = collections.defaultdict(list)
+        for vortName in self.vorteile:
+            if not vortName in Wolke.DB.vorteile:
+                continue
+            vort = Wolke.DB.vorteile[vortName]
+            if not vort.script:
+                continue
+            vorteileByPrio[vort.scriptPrio].append(vort)
+
+        for key in sorted(vorteileByPrio):
+            for vort in vorteileByPrio[key]:
+                logging.info("Character: applying script for Vorteil" + vort.name)
+                for script in vort.script:
+                    exec(script, self.vorteilScriptAPI)
+
+        #Update BE afterwards because Rüstungsgewöhnung is modified by Vorteil scripts
+        self.be = max(0,self.be-self.rüstungsgewöhnung)
+
+        #Update Schips afterwards because SchipsMax is modified by Vorteil scripts
+        self.schips = self.schipsMax
+        if self.finanzen >= 2: 
+            self.schips += self.finanzen - 2
+        else:
+            self.schips -= (2-self.finanzen)*2
+
         self.updateVorts()
         self.updateFerts()
         self.epZaehlen()
