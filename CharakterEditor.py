@@ -216,13 +216,14 @@ Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
         self.updateAll()
         
         result = -1
+
+        check = QtWidgets.QCheckBox("Regelübersicht anhängen")
         if Wolke.Settings['Bogen'] == 'Frag immer nach':
             messagebox = QtWidgets.QMessageBox()
             messagebox.setWindowTitle("Charakterbogen wählen")
             messagebox.setText("Welcher Charakterbogen soll genutzt werden?")
             messagebox.setIcon(QtWidgets.QMessageBox.Question)
-    
-            check = QtWidgets.QCheckBox("Regelübersicht anhängen")
+
             check.setCheckState(QtCore.Qt.Unchecked)
             messagebox.setCheckBox(check)
             messagebox.addButton(QtWidgets.QPushButton("  Standard Ilaris-Charakterbogen  "), QtWidgets.QMessageBox.AcceptRole)
