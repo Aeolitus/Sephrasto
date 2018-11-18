@@ -206,6 +206,8 @@ class EquipWrapper(QtCore.QObject):
 
                 eval("self.uiEq.comboStil" + str(index+1) + ".setCurrentIndex(0)")
                 eval("self.uiEq.comboStil" + str(index+1) + ".clear()")
+                eval("self.uiEq.comboStil" + str(index+1) + ".setToolTip(None)")
+
                 for el in entries:
                     getName = lambda : el
                     eval("self.uiEq.comboStil" + str(index+1) + ".addItem(getName())")
@@ -217,7 +219,11 @@ class EquipWrapper(QtCore.QObject):
                         eval("self.uiEq.comboStil" + str(index+1) + ".setCurrentIndex(0)")
                 elif tmp in entries:
                     eval("self.uiEq.comboStil" + str(index+1) + ".setCurrentIndex(" + str(entries.index(tmp)) + ")")
-                
+            else:
+                eval("self.uiEq.comboStil" + str(index+1) + ".setCurrentIndex(0)")
+                eval("self.uiEq.comboStil" + str(index+1) + ".clear()")
+                eval("self.uiEq.comboStil" + str(index+1) + ".addItem('Waffe unbekannt')")
+                eval("self.uiEq.comboStil" + str(index+1) + ".setToolTip('Der Name der Waffe ist unbekannt, daher kann kein Kampfstil ausgewählt werden. Die Kampfwerte müssen in der PDF manuell ausgefüllt werden.')")
                     
     def loadWeaponIntoFields(self, W, index):
         Warr = ["W1","W2","W3","W4","W5","W6","W7","W8"]
