@@ -227,20 +227,21 @@ class Char():
         k = self.kampfstilMods[kampfstil]
         self.API_setKampfstil(kampfstil, k.AT + at, k.VT + vt, k.TP + tp, k.RW + rw, k.WM_LZ + wmlz)
 
-    def API_addWaffeneigenschaft(self, waffenName, eigenschaft):
-        waffe = None
-        for w in self.waffen:
-            if w.name == waffenName:
-                waffe = w
-                break
-        if not waffe:
-            return
-
-        self.waffenEigenschaftenUndo.append([waffenName, eigenschaft])
-        if eigenschaft in waffe.eigenschaften:
-            return
-        waffe.eigenschaften.append(eigenschaft)
-        
+    def API_addWaffeneigenschaft(self, talentName, eigenschaft):
+        for waffe in self.waffen:
+            talent = None
+            eigenschaftExists = False
+            if waffe.name in Wolke.DB.waffen:
+                dbWaffe = Wolke.DB.waffen[waffe.name]
+                talent = dbWaffe.talent
+                if eigenschaft in dbWaffe.eigenschaften:
+                    continue
+            if talent != talentName:
+                continue
+            self.waffenEigenschaftenUndo.append([waffe.name, eigenschaft])
+            if eigenschaft in waffe.eigenschaften:
+                continue
+            waffe.eigenschaften.append(eigenschaft)
 
     def migriere0zu1(self, xmlRoot):
         Kampfstile = ["Kein Kampfstil", "Beidhändiger Kampf", "Parierwaffenkampf", "Reiterkampf", 

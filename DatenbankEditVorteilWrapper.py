@@ -83,7 +83,7 @@ class DatenbankEditVorteilWrapper(object):
             "                Beispiel: setKampfstilBEIgnore('Reiterkampf', 'Athletik', 'Reiten'>",
             "Attribute: getAttribut <Parameter: Attribut-Name. Return: Wert des Attributes>",
             "                Beispiel: getAttribut('KO')",
-            "Sonstiges: addWaffeneigenschaft <Parameter: WaffenName, Eigenschaft>",
+            "Sonstiges: addWaffeneigenschaft <Parameter: TalentName, Eigenschaft>",
             "                Beispiel: addWaffeneigenschaft('Waffenlos', 'Kopflastig')"
         ]
 
