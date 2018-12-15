@@ -135,7 +135,7 @@ class Datenbank():
         for ma in self.manöver:
             manöver = self.manöver[ma]
             if not manöver.isUserAdded: continue
-            m = etree.SubElement(root, 'Manoever')
+            m = etree.SubElement(root, 'Manöver')
             m.set('name', manöver.name)
             m.set('typ', str(manöver.typ))
             m.set('voraussetzungen', Hilfsmethoden.VorArray2Str(manöver.voraussetzungen, None))
