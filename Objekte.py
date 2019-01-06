@@ -9,7 +9,18 @@ class Objekt():
     def __eq__(self, other) : 
         if self.__class__ != other.__class__: return False
         return self.__dict__ == other.__dict__
-        
+
+class Waffeneigenschaft():
+    def __init__(self):
+        self.name = ''
+        self.text = ''
+        self.script = None
+        self.scriptPrio = 0
+        self.isUserAdded = True
+    def __eq__(self, other) : 
+        if self.__class__ != other.__class__: return False
+        return self.__dict__ == other.__dict__
+     
 class Waffe(Objekt):
     def __init__(self):
         super().__init__()

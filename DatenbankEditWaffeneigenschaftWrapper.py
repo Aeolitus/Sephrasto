@@ -4,47 +4,37 @@ Created on Sat Mar 18 10:52:34 2017
 
 @author: Aeolitus
 """
-import Fertigkeiten
-import DatenbankEditVorteil
-from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
+import Objekte
+import DatenbankEditWaffeneigenschaft
 from PyQt5 import QtWidgets, QtCore
 
-class DatenbankEditVorteilWrapper(object):
-    def __init__(self, datenbank, vorteil=None):
+class DatenbankEditWaffeneigenschaftWrapper(object):
+    def __init__(self, datenbank, waffeneigenschaft=None):
         super().__init__()
         self.datenbank = datenbank
-        if vorteil is None:
-            vorteil = Fertigkeiten.Vorteil()
-        self.vorteilPicked = vorteil
+        if waffeneigenschaft is None:
+            waffeneigenschaft = Objekte.Waffeneigenschaft()
+        self.waffeneigenschaftPicked = waffeneigenschaft
         self.nameValid = True
-        self.voraussetzungenValid = True
-        vorteilDialog = QtWidgets.QDialog()
-        self.ui = DatenbankEditVorteil.Ui_talentDialog()
-        self.ui.setupUi(vorteilDialog)
+        waffeneigenschaftDialog = QtWidgets.QDialog()
+        self.ui = DatenbankEditWaffeneigenschaft.Ui_waffeneigenschaftDialog()
+        self.ui.setupUi(waffeneigenschaftDialog)
         
-        if not vorteil.isUserAdded:
+        if not waffeneigenschaft.isUserAdded:
             self.ui.warning.setVisible(True)
 
-        vorteilDialog.setWindowFlags(
+        waffeneigenschaftDialog.setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
         
-        self.ui.nameEdit.setText(vorteil.name)
+        self.ui.nameEdit.setText(waffeneigenschaft.name)
         self.ui.nameEdit.textChanged.connect(self.nameChanged)
         self.nameChanged()
-        self.ui.kostenEdit.setValue(vorteil.kosten)
-        self.ui.comboNachkauf.setCurrentText(vorteil.nachkauf)
-        self.ui.comboTyp.setCurrentIndex(vorteil.typ)
 
-        self.ui.voraussetzungenEdit.setPlainText(Hilfsmethoden.VorArray2Str(vorteil.voraussetzungen, None))
-        self.ui.voraussetzungenEdit.textChanged.connect(self.voraussetzungenTextChanged)
-
-        self.ui.textEdit.setPlainText(vorteil.text)
-        self.ui.checkVariable.setChecked(vorteil.variable!=-1)
-
-        self.ui.scriptPrioEdit.setValue(vorteil.scriptPrio)
+        self.ui.textEdit.setPlainText(waffeneigenschaft.text)
+        self.ui.scriptPrioEdit.setValue(waffeneigenschaft.scriptPrio)
 
         scriptPrioDoc = [
             "Die Skript-Priorität legt die Reihenfolge der Auswertung fest. 0 ist Standard, negative Werte werden davor,",
@@ -54,7 +44,7 @@ class DatenbankEditVorteilWrapper(object):
 
         self.ui.scriptPrioEdit.setToolTip("\n".join(scriptPrioDoc))
 
-        self.ui.scriptEdit.setText(vorteil.script)
+        self.ui.scriptEdit.setText(waffeneigenschaft.script)
 
         scriptDocs = [
             "API:",
@@ -63,6 +53,8 @@ class DatenbankEditVorteilWrapper(object):
             "Skripte werden in Python geschrieben, wobei alles in eine Zeile geschrieben werden muss. Bei komplexeren Vorhaben am besten einen 'one-lined python converter' nutzen.",
             "Das folgende Beispiel senkt die Wundschwelle um das Durchhaltevermögen +2: modifyWS(-(getDH() + 2))",
             "Die folgenden Funktionen stehen neben Python-Builtins wie 'round' zur Verfügung:",
+            "Parameter dieser Waffeneigenschaft als string erhalten: getEigenschaftParam <Parameter: Parameternummer>. Parameter müssen mit Semikolon getrennt werden.",
+            "Waffen mit dieser Waffeneigenschaft modifizieren: modifyWaffeAT, modifyWaffeVT, modifyWaffeTPW6, modifyWaffeTPPlus",
             "AsP: getAsPBasis, setAsPBasis, modifyAsPBasis, getAsPMod, setAsPMod, modifyAsPMod",
             "KaP: getKaPBasis, setKaPBasis, modifyKaPBasis, getKaPMod, setKaPMod, modifyKaPMod",
             "SchiP: getSchiPMax, setSchiPMax, modifySchiPMax",
@@ -75,10 +67,10 @@ class DatenbankEditVorteilWrapper(object):
             "RS: getRSMod, setRSMod, modifyRSMod",
             "BE: getBEBasis, getBEMod, setBEMod, modifyBEMod",
             "Kampfstile:",
-            "  getKampfstil <Parameter: Kampfstil-Name. Return: Gibt ein Objekt zurück mit den folgenden Feldern: AT, VT, TP, RW>",
+            "  getKampfstil <Parameter: Kampfstil-Name. Return: Gibt ein Objekt zurück mit den folgenden Feldern: AT, VT, TP, RW, WM_LZ>",
             "                Beispiel: getKampfstil('Reiterkampf').TP",
-            "  setKampfstil/modifyKampfstil <Parameter: Kampfstil-Name, AT, VT, TP, RW>",
-            "                Beispiel: modifyKampfstil('Reiterkampf', 1, 1, 1, 0)",
+            "  setKampfstil/modifyKampfstil <Parameter: Kampfstil-Name, AT, VT, TP, RW, WM_LZ>",
+            "                Beispiel: modifyKampfstil('Reiterkampf', 1, 1, 1, 0, 0)",
             "  setKampfstilBEIgnore <Parameter: Kampfstil-Name, Fertigkeit-Name, Talent-Name>",
             "                Beispiel: setKampfstilBEIgnore('Reiterkampf', 'Athletik', 'Reiten'>",
             "Attribute: getAttribut <Parameter: Attribut-Name. Return: Wert des Attributes>",
@@ -89,31 +81,23 @@ class DatenbankEditVorteilWrapper(object):
 
         self.ui.scriptEdit.setToolTip("\n".join(scriptDocs))
 
-        vorteilDialog.show()
-        ret = vorteilDialog.exec_()
+        waffeneigenschaftDialog.show()
+        ret = waffeneigenschaftDialog.exec_()
         if ret == QtWidgets.QDialog.Accepted:
-            self.vorteil = Fertigkeiten.Vorteil()
-            self.vorteil.name = self.ui.nameEdit.text()
-            self.vorteil.kosten = self.ui.kostenEdit.value()
-            self.vorteil.nachkauf = self.ui.comboNachkauf.currentText()
-            self.vorteil.voraussetzungen = Hilfsmethoden.VorStr2Array(self.ui.voraussetzungenEdit.toPlainText(), datenbank)
-            self.vorteil.typ = self.ui.comboTyp.currentIndex()
-            if self.ui.checkVariable.isChecked():
-                self.vorteil.variable = 1
-            else:
-                self.vorteil.variable = -1
-            self.vorteil.text = self.ui.textEdit.toPlainText()
-            
-            self.vorteil.scriptPrio = self.ui.scriptPrioEdit.value()
-            self.vorteil.script = str.strip(self.ui.scriptEdit.text())
+            self.waffeneigenschaft = Objekte.Waffeneigenschaft()
+            self.waffeneigenschaft.name = self.ui.nameEdit.text()
+            self.waffeneigenschaft.text = self.ui.textEdit.toPlainText()
 
-            self.vorteil.isUserAdded = False
-            if self.vorteil == self.vorteilPicked:
-                self.vorteil = None
+            self.waffeneigenschaft.scriptPrio = self.ui.scriptPrioEdit.value()
+            self.waffeneigenschaft.script = str.strip(self.ui.scriptEdit.text())
+
+            self.waffeneigenschaft.isUserAdded = False
+            if self.waffeneigenschaft == self.waffeneigenschaftPicked:
+                self.waffeneigenschaft = None
             else:
-                self.vorteil.isUserAdded = True
+                self.waffeneigenschaft.isUserAdded = True
         else:
-            self.vorteil = None
+            self.waffeneigenschaft = None
            
     def nameChanged(self):
         name = self.ui.nameEdit.text()
@@ -121,7 +105,7 @@ class DatenbankEditVorteilWrapper(object):
             self.ui.nameEdit.setToolTip("Name darf nicht leer sein.")
             self.ui.nameEdit.setStyleSheet("border: 1px solid red;")
             self.nameValid = False
-        elif name != self.vorteilPicked.name and name in self.datenbank.vorteile:
+        elif name != self.waffeneigenschaftPicked.name and name in self.datenbank.waffeneigenschaften:
             self.ui.nameEdit.setToolTip("Name existiert bereits.")
             self.ui.nameEdit.setStyleSheet("border: 1px solid red;")
             self.nameValid = False
@@ -131,17 +115,5 @@ class DatenbankEditVorteilWrapper(object):
             self.nameValid = True
         self.updateSaveButtonState()
 
-    def voraussetzungenTextChanged(self):
-        try:
-            Hilfsmethoden.VorStr2Array(self.ui.voraussetzungenEdit.toPlainText(), self.datenbank)
-            self.ui.voraussetzungenEdit.setStyleSheet("")
-            self.ui.voraussetzungenEdit.setToolTip("")
-            self.voraussetzungenValid = True
-        except VoraussetzungException as e:
-            self.ui.voraussetzungenEdit.setStyleSheet("border: 1px solid red;")
-            self.ui.voraussetzungenEdit.setToolTip(str(e))
-            self.voraussetzungenValid = False
-        self.updateSaveButtonState()
-
     def updateSaveButtonState(self):
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(self.nameValid and self.voraussetzungenValid)
+        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(self.nameValid)

@@ -110,7 +110,7 @@ class Vorteil():
         self.voraussetzungen = []
         self.nachkauf = ''
         self.text = ''
-        self.script = []
+        self.script = None
         self.scriptPrio = 0
         self.isUserAdded = True
     def __eq__(self, other) : 

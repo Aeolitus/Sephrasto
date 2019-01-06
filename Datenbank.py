@@ -1,6 +1,6 @@
 import Fertigkeiten
 import lxml.etree as etree
-from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
+from Hilfsmethoden import Hilfsmethoden, VoraussetzungException, WaffeneigenschaftException
 import os.path
 import Objekte
 from PyQt5 import QtWidgets
@@ -18,6 +18,7 @@ class Datenbank():
         self.übernatürlicheFertigkeiten = {}
         self.waffen = {}
         self.manöver = {}
+        self.waffeneigenschaften = {}
         self.removeList = []
         
         self.datei = None
@@ -64,8 +65,8 @@ class Datenbank():
             v.set('typ', str(vorteil.typ))
             v.set('variable', str(vorteil.variable))
             v.text = vorteil.text
-            if len(vorteil.script) > 0:
-                v.set('script', "; ".join(vorteil.script))
+            if vorteil.script:
+                v.set('script', vorteil.script)
             if vorteil.scriptPrio != 0:
                 v.set('scriptPrio', str(vorteil.scriptPrio))
 
@@ -107,7 +108,19 @@ class Datenbank():
             v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(fertigkeit.voraussetzungen, None))
             v.set('attribute',Hilfsmethoden.AttrArray2Str(fertigkeit.attribute))
             v.text = fertigkeit.text
-                                                    
+              
+        #Waffeneigenschaften
+        for we in self.waffeneigenschaften:
+            eigenschaft = self.waffeneigenschaften[we]
+            if not eigenschaft.isUserAdded: continue
+            w = etree.SubElement(root, 'Waffeneigenschaft')
+            w.set('name', eigenschaft.name)
+            if eigenschaft.script:
+                w.set('script', eigenschaft.script)
+            if eigenschaft.scriptPrio != 0:
+                w.set('scriptPrio', str(eigenschaft.scriptPrio))
+            w.text = eigenschaft.text
+
         #Waffen
         Wolke.Fehlercode = -31
         for wa in self.waffen:
@@ -252,6 +265,8 @@ class Datenbank():
                 removed = self.talente.pop(name)
             elif typ == 'Übernatürliche Fertigkeit' and name in self.übernatürlicheFertigkeiten:
                 removed = self.übernatürlicheFertigkeiten.pop(name)
+            elif typ == 'Waffeneigenschaft' and name in self.waffeneigenschaften:
+                removed = self.waffeneigenschaften.pop(name)
             elif typ == 'Waffe' and name in self.waffen:
                 removed = self.waffen.pop(name)
             elif typ == 'Manöver / Modifikation' and name in self.manöver:
@@ -269,10 +284,8 @@ class Datenbank():
             V.kosten = int(vort.get('kosten'))
             V.nachkauf = vort.get('nachkauf')
             V.typ = int(vort.get('typ'))
-            V.text = vort.text
-            script = vort.get('script')
-            if script:
-                V.script = list(map(str.strip, script.split(";")))
+            V.text = vort.text or ''
+            V.script = vort.get('script')
             prio = vort.get('scriptPrio')
             if prio:
                 V.scriptPrio = int(prio)
@@ -293,7 +306,7 @@ class Datenbank():
             T.name = tal.get('name')
             T.kosten = int(tal.get('kosten'))
             T.verbilligt = int(tal.get('verbilligt'))
-            T.text = tal.text
+            T.text = tal.text or ''
             T.fertigkeiten = Hilfsmethoden.FertStr2Array(tal.get('fertigkeiten'), None)
             T.variable = int(tal.get('variable'))
             T.isUserAdded = not refDB
@@ -313,7 +326,7 @@ class Datenbank():
             F = Fertigkeiten.Fertigkeit()
             F.name = fer.get('name')
             F.steigerungsfaktor = int(fer.get('steigerungsfaktor'))
-            F.text = fer.text
+            F.text = fer.text or ''
             F.attribute = Hilfsmethoden.AttrStr2Array(fer.get('attribute'))
             F.kampffertigkeit = int(fer.get('kampffertigkeit'))
             F.isUserAdded = not refDB
@@ -326,11 +339,26 @@ class Datenbank():
             F = Fertigkeiten.Fertigkeit()
             F.name = fer.get('name')
             F.steigerungsfaktor = int(fer.get('steigerungsfaktor'))
-            F.text = fer.text
+            F.text = fer.text or ''
             F.attribute = Hilfsmethoden.AttrStr2Array(fer.get('attribute'))
             F.isUserAdded = not refDB
             self.übernatürlicheFertigkeiten.update({F.name: F})
-            
+          
+        #Waffeneigenschaften
+        eigenschaftNodes = root.findall('Waffeneigenschaft')
+        for eigenschaft in eigenschaftNodes:
+            numLoaded += 1
+            W = Objekte.Waffeneigenschaft()
+            W.name = eigenschaft.get('name')
+            W.text = eigenschaft.text or ''
+            W.script = eigenschaft.get('script')
+            prio = eigenschaft.get('scriptPrio')
+            if prio:
+                W.scriptPrio = int(prio)
+
+            W.isUserAdded = not refDB
+            self.waffeneigenschaften.update({W.name: W})
+
         #Waffen
         Wolke.Fehlercode = -25
         for wa in root.findall('Waffe'):
@@ -366,11 +394,12 @@ class Datenbank():
             m.probe = ma.get('probe')
             m.gegenprobe = ma.get('gegenprobe')
             m.typ = int(ma.get('typ'))
-            m.text = ma.text
+            m.text = ma.text or ''
             m.isUserAdded = not refDB
             self.manöver.update({m.name: m})
 
         # Step 2: Voraussetzungen - requires everything else to be loaded for cross validation
+        notifyError = False # For testing of manual db changes
 
         #Vorteile
         Wolke.Fehlercode = -21
@@ -380,7 +409,8 @@ class Datenbank():
                 V.voraussetzungen = Hilfsmethoden.VorStr2Array(vort.get('voraussetzungen'), self)
             except VoraussetzungException as e:
                 errorStr = "Error in Voraussetzungen of Vorteil " + V.name + ": " + str(e)
-                assert False, errorStr
+                if notifyError:
+                    assert False, errorStr
                 logging.warning(errorStr)
             
         #Talente
@@ -391,7 +421,8 @@ class Datenbank():
                 T.voraussetzungen = Hilfsmethoden.VorStr2Array(tal.get('voraussetzungen'), self)
             except VoraussetzungException as e:
                 errorStr = "Error in Voraussetzungen of Talent " + T.name + ": " + str(e)
-                assert False, errorStr
+                if notifyError:
+                    assert False, errorStr
                 logging.warning(errorStr)
         #Fertigkeiten
         Wolke.Fehlercode = -23
@@ -401,7 +432,8 @@ class Datenbank():
                 F.voraussetzungen = Hilfsmethoden.VorStr2Array(fer.get('voraussetzungen'), self)
             except VoraussetzungException as e:
                 errorStr = "Error in Voraussetzungen of Fertigkeit " + F.name + ": " + str(e)
-                assert False, errorStr
+                if notifyError:
+                    assert False, errorStr
                 logging.warning(errorStr)
 
         Wolke.Fehlercode = -24
@@ -411,7 +443,8 @@ class Datenbank():
                 F.voraussetzungen = Hilfsmethoden.VorStr2Array(fer.get('voraussetzungen'), self)
             except VoraussetzungException as e:
                 errorStr = "Error in Voraussetzungen of Übernatürliche Fertigkeit " + F.name + ": " + str(e)
-                assert False, errorStr
+                if notifyError:
+                    assert False, errorStr
                 logging.warning(errorStr)
       
         #Manöver
@@ -422,8 +455,20 @@ class Datenbank():
                 m.voraussetzungen = Hilfsmethoden.VorStr2Array(ma.get('voraussetzungen'), self)
             except VoraussetzungException as e:
                 errorStr = "Error in Voraussetzungen of Manöver " + m.name + ": " + str(e)
-                assert False, errorStr
+                if notifyError:
+                    assert False, errorStr
                 logging.warning(errorStr)
+
+        #Further verifications
+        for wa in self.waffen.values():
+            for eig in wa.eigenschaften:
+                try:
+                    Hilfsmethoden.VerifyWaffeneigenschaft(eig, self)
+                except WaffeneigenschaftException as e:
+                    errorStr = "Error in Eigenschaften of Waffe " + wa.name + ": " + str(e)
+                    if notifyError:
+                        assert False, errorStr
+                    logging.warning(errorStr)
 
         if numLoaded <1 and refDB:
             Wolke.Fehlercode = -33

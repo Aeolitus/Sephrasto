@@ -160,17 +160,17 @@ Mit einer Aktion Konflikt und einer Konterprobe (MU, 16) kannst du einen auf dir
   <Vorteil name="Rüstungsgewöhnung I" kosten="40" voraussetzungen="Attribut KO 6" nachkauf="häufig" typ="2" variable="-1" printclass="-1" script="modifyBEMod(1)">Die BE aller Rüstungen ist um 1 gesenkt.</Vorteil>
   <Vorteil name="Eisern" kosten="60" voraussetzungen="Attribut KO 8" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Wundschmerzeffekte treten bei dir erst ab drei Wunden auf einen Schlag auf.</Vorteil>
   <Vorteil name="Rüstungsgewöhnung II" kosten="80" voraussetzungen="Attribut KO 10" nachkauf="häufig" typ="2" variable="-1" printclass="-1" script="modifyBEMod(2)">Die BE aller Rüstungen ist um weitere 2 gesenkt.</Vorteil>
-  <Vorteil name="Beidhändiger Kampf I" kosten="20" voraussetzungen="Attribut GE 4" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Beidhändiger Kampf', 1, 0, 0, 0, 0)">Du erhälst AT +1.
+  <Vorteil name="Beidhändiger Kampf I" kosten="20" voraussetzungen="Attribut GE 4" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Beidhändiger Kampf', 1, 0, 0, 0)">Du erhälst AT +1.
 
 Bedingungen:
 - zwei einhändige Waffen (kein Schild)
 - nicht beritten</Vorteil>
-  <Vorteil name="Beidhändiger Kampf II" kosten="40" voraussetzungen="Attribut GE 6, Vorteil Beidhändiger Kampf I" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Beidhändiger Kampf', 1, 0, 0, 0, 0)">Du erhälst AT +1. Deine zweite Waffe ignoriert die übliche Erschwernis für Nebenwaffen.
+  <Vorteil name="Beidhändiger Kampf II" kosten="40" voraussetzungen="Attribut GE 6, Vorteil Beidhändiger Kampf I" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Beidhändiger Kampf', 1, 0, 0, 0)">Du erhälst AT +1. Deine zweite Waffe ignoriert die übliche Erschwernis für Nebenwaffen.
 
 Bedingungen:
 - zwei einhändige Waffen (kein Schild)
 - nicht beritten</Vorteil>
-  <Vorteil name="Beidhändiger Kampf III" kosten="60" voraussetzungen="Attribut GE 8, Vorteil Beidhändiger Kampf II" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Beidhändiger Kampf', 1, 0, 0, 0, 0)">Du erhälst AT +1. Erlaubt das Manöver Doppelangriff.
+  <Vorteil name="Beidhändiger Kampf III" kosten="60" voraussetzungen="Attribut GE 8, Vorteil Beidhändiger Kampf II" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Beidhändiger Kampf', 1, 0, 0, 0)">Du erhälst AT +1. Erlaubt das Manöver Doppelangriff.
 
 Bedingungen:
 - zwei einhändige Waffen (kein Schild)
@@ -182,17 +182,17 @@ Bedingungen:
 - nicht beritten
 - zwei weitere Attribute auf insgesamt 16
 </Vorteil>
-  <Vorteil name="Kraftvoller Kampf I" kosten="20" voraussetzungen="Attribut KK 4" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Kraftvoller Kampf', 0, 0, 1, 0, 0)">Du erhältst TP +1.
+  <Vorteil name="Kraftvoller Kampf I" kosten="20" voraussetzungen="Attribut KK 4" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Kraftvoller Kampf', 0, 0, 1, 0)">Du erhältst TP +1.
 
 Bedingungen:
 - einzelne Nahkampfwaffe
 - nicht beritten</Vorteil>
-  <Vorteil name="Kraftvoller Kampf II" kosten="40" voraussetzungen="Attribut KK 6, Vorteil Kraftvoller Kampf I" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Kraftvoller Kampf', 0, 0, 1, 0, 0)">Du erhälst TP +1. Deine Gegner erhalten keinen Bonus für Angriffe in deinen Rücken.
+  <Vorteil name="Kraftvoller Kampf II" kosten="40" voraussetzungen="Attribut KK 6, Vorteil Kraftvoller Kampf I" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Kraftvoller Kampf', 0, 0, 1, 0)">Du erhälst TP +1. Deine Gegner erhalten keinen Bonus für Angriffe in deinen Rücken.
 
 Bedingungen:
 - einzelne Nahkampfwaffe
 - nicht beritten</Vorteil>
-  <Vorteil name="Kraftvoller Kampf III" kosten="60" voraussetzungen="Attribut KK 8, Vorteil Kraftvoller Kampf II" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Kraftvoller Kampf', 0, 0, 1, 0, 0)">Du erhälst TP +1. Erlaubt das Manöver Befreiungsschlag.
+  <Vorteil name="Kraftvoller Kampf III" kosten="60" voraussetzungen="Attribut KK 8, Vorteil Kraftvoller Kampf II" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Kraftvoller Kampf', 0, 0, 1, 0)">Du erhälst TP +1. Erlaubt das Manöver Befreiungsschlag.
 
 Bedingungen:
 - einzelne Nahkampfwaffe
@@ -203,15 +203,15 @@ Bedingungen:
 - einzelne Nahkampfwaffe
 - nicht beritten
 - zwei weitere Attribute auf insgesamt 16</Vorteil>
-  <Vorteil name="Schildkampf I" kosten="20" voraussetzungen="Attribut KK 4" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Schildkampf', 0, 1, 0, 0, 0)">Du erhälst VT +1.
+  <Vorteil name="Schildkampf I" kosten="20" voraussetzungen="Attribut KK 4" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Schildkampf', 0, 1, 0, 0)">Du erhälst VT +1.
 
 Bedingungen:
 - Schild</Vorteil>
-  <Vorteil name="Schildkampf II" kosten="40" voraussetzungen="Attribut KK 6, Vorteil Schildkampf I" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Schildkampf', 0, 1, 0, 0, 0)">Du erhälst VT +1. Dein Schild ignoriert die übliche Erschwernis für Nebenwaffen und Abzüge auf zusätzliche Verteidigungen sinken um 1 Stufe.
+  <Vorteil name="Schildkampf II" kosten="40" voraussetzungen="Attribut KK 6, Vorteil Schildkampf I" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Schildkampf', 0, 1, 0, 0)">Du erhälst VT +1. Dein Schild ignoriert die übliche Erschwernis für Nebenwaffen und Abzüge auf zusätzliche Verteidigungen sinken um 1 Stufe.
 
 Bedingungen:
 - Schild</Vorteil>
-  <Vorteil name="Schildkampf III" kosten="60" voraussetzungen="Attribut KK 8, Vorteil Schildkampf II" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Schildkampf', 0, 1, 0, 0, 0)">Du erhälst VT +1. Erlaubt das Manöver Schildwall.
+  <Vorteil name="Schildkampf III" kosten="60" voraussetzungen="Attribut KK 8, Vorteil Schildkampf II" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Schildkampf', 0, 1, 0, 0)">Du erhälst VT +1. Erlaubt das Manöver Schildwall.
 
 Bedingungen:
 - Schild</Vorteil>
@@ -220,17 +220,17 @@ Bedingungen:
 Bedingungen:
 - Schild
 - zwei weitere Attribute auf insgesamt 16</Vorteil>
-  <Vorteil name="Schneller Kampf I" kosten="20" voraussetzungen="Attribut GE 4" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Schneller Kampf', 1, 0, 0, 0, 0)">Du erhälst AT +1.
+  <Vorteil name="Schneller Kampf I" kosten="20" voraussetzungen="Attribut GE 4" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Schneller Kampf', 1, 0, 0, 0)">Du erhälst AT +1.
 
 Bedingungen:
 - einzelne Nahkampfwaffe
 - nicht beritten</Vorteil>
-  <Vorteil name="Schneller Kampf II" kosten="40" voraussetzungen="Attribut GE 6, Vorteil Schneller Kampf I" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Schneller Kampf', 1, 0, 0, 0, 0)">Du erhälst AT +1. Du kannst deine Waffe auch in einer um 1 geringeren Reichweite führen. Der Wechsel in die verringerte oder zurück in die ursprüngliche Reichweite geschieht in einer freien Aktion.
+  <Vorteil name="Schneller Kampf II" kosten="40" voraussetzungen="Attribut GE 6, Vorteil Schneller Kampf I" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Schneller Kampf', 1, 0, 0, 0)">Du erhälst AT +1. Du kannst deine Waffe auch in einer um 1 geringeren Reichweite führen. Der Wechsel in die verringerte oder zurück in die ursprüngliche Reichweite geschieht in einer freien Aktion.
 
 Bedingungen:
 - einzelne Nahkampfwaffe
 - nicht beritten</Vorteil>
-  <Vorteil name="Schneller Kampf III" kosten="60" voraussetzungen="Attribut GE 8, Vorteil Schneller Kampf II" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Schneller Kampf', 1, 0, 0, 0, 0)">Du erhälst AT +1. Erlaubt das Manöver Befreiungsschlag.
+  <Vorteil name="Schneller Kampf III" kosten="60" voraussetzungen="Attribut GE 8, Vorteil Schneller Kampf II" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Schneller Kampf', 1, 0, 0, 0)">Du erhälst AT +1. Erlaubt das Manöver Befreiungsschlag.
 
 Bedingungen:
 - einzelne Nahkampfwaffe
@@ -262,15 +262,15 @@ Bedingungen:
 - Parierwaffe
 - nicht beritten
 - zwei weitere Attribute auf insgesamt 16</Vorteil>
-  <Vorteil name="Reiterkampf I" kosten="20" voraussetzungen="Attribut GE 4 ODER Attribut KK 4" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Reiterkampf', 1, 1, 1, 0, 0)">Du erhälst TP +1, AT +1 und VT +1. Erlaubt das Manöver Sturmangriff mit dem Pferd.
+  <Vorteil name="Reiterkampf I" kosten="20" voraussetzungen="Attribut GE 4 ODER Attribut KK 4" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Reiterkampf', 1, 1, 1, 0)">Du erhälst TP +1, AT +1 und VT +1. Erlaubt das Manöver Sturmangriff mit dem Pferd.
 
 Bedingungen:
 - beritten</Vorteil>
-  <Vorteil name="Reiterkampf II" kosten="40" voraussetzungen="Attribut GE 6 ODER Attribut KK 6, Vorteil Reiterkampf I" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Reiterkampf', 1, 1, 1, 0, 0);setKampfstilBEIgnore('Reiterkampf', 'Athletik', 'Reiten')">Du erhälst TP +1, AT +1 und VT +1. Erlaubt das Manöver Hammerschlag mit dem Pferd. Dein Pferd ignoriert die übliche Erschwernis für Nebenwaffen und Reiten-Proben werden nicht durch die BE modifiziert.
+  <Vorteil name="Reiterkampf II" kosten="40" voraussetzungen="Attribut GE 6 ODER Attribut KK 6, Vorteil Reiterkampf I" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Reiterkampf', 1, 1, 1, 0);setKampfstilBEIgnore('Reiterkampf', 'Athletik', 'Reiten')">Du erhälst TP +1, AT +1 und VT +1. Erlaubt das Manöver Hammerschlag mit dem Pferd. Dein Pferd ignoriert die übliche Erschwernis für Nebenwaffen und Reiten-Proben werden nicht durch die BE modifiziert.
 
 Bedingungen:
 - beritten</Vorteil>
-  <Vorteil name="Reiterkampf III" kosten="60" voraussetzungen="Attribut GE 8 ODER Attribut KK 8, Vorteil Reiterkampf II" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Reiterkampf', 1, 1, 1, 0, 0)">Du erhälst TP +1, AT +1 und VT +1. Erlaubt das Manöver Überrennen mit dem Pferd.
+  <Vorteil name="Reiterkampf III" kosten="60" voraussetzungen="Attribut GE 8 ODER Attribut KK 8, Vorteil Reiterkampf II" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Reiterkampf', 1, 1, 1, 0)">Du erhälst TP +1, AT +1 und VT +1. Erlaubt das Manöver Überrennen mit dem Pferd.
 
 Bedingungen:
 - beritten</Vorteil>
@@ -7575,7 +7575,7 @@ Die Spielwerte typischer Vertrautentiere findest du im Bestiarium. Da Vertrauten
   <Waffe name="Echsische Axt" W6="2" plus="2" haerte="8" fertigkeit="Hiebwaffen" talent="Zweihandhiebwaffen" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="0" fk="0">Rüstungsbrechend, Wendig, Zweihändig</Waffe>
   <Waffe name="Felsspalter" W6="3" plus="2" haerte="11" fertigkeit="Hiebwaffen" talent="Zweihandhiebwaffen" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="1" wm="-1" fk="0">Kopflastig, Schwer (4), Zweihändig</Waffe>
   <Waffe name="Kriegsflegel" W6="3" plus="0" haerte="6" fertigkeit="Hiebwaffen" talent="Zweihandhiebwaffen" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="-1" fk="0">Kopflastig, Zweihändig</Waffe>
-  <Waffe name="Kriegshammer" W6="3" plus="1" haerte="9" fertigkeit="Hiebwaffen" talent="Zweihandhiebwaffen" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="1" wm="-1" fk="0">Kopflastig, Schwer (4), Rüstungsbrechend, Stumpf, Zweih.</Waffe>
+  <Waffe name="Kriegshammer" W6="3" plus="1" haerte="9" fertigkeit="Hiebwaffen" talent="Zweihandhiebwaffen" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="1" wm="-1" fk="0">Kopflastig, Schwer (4), Rüstungsbrechend, Stumpf, Zweihändig</Waffe>
   <Waffe name="Langaxt" W6="3" plus="1" haerte="9" fertigkeit="Hiebwaffen" talent="Zweihandhiebwaffen" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="1" wm="-1" fk="0">Kopflastig, Schwer (4), Rüstungsbrechend, Zweihändig</Waffe>
   <Waffe name="Orknase (Zweihandhiebwaffen)" W6="3" plus="0" haerte="8" fertigkeit="Hiebwaffen" talent="Zweihandhiebwaffen" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="1" wm="0" fk="0">Kopflastig, Schwer (4), Zweihändig</Waffe>
   <Waffe name="Warunker Hammer" W6="2" plus="2" haerte="8" fertigkeit="Hiebwaffen" talent="Zweihandhiebwaffen" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="0" fk="0">Kopflastig, Rüstungsbrechend, Zweihändig</Waffe>
@@ -7652,7 +7652,7 @@ Die Spielwerte typischer Vertrautentiere findest du im Bestiarium. Da Vertrauten
   <Waffe name="Schneidzahn" W6="2" plus="1" haerte="8" fertigkeit="Wurfwaffen" talent="Kurze Wurfwaffen" kampfstile="" rw="8" lz="0" fk="1"></Waffe>
   <Waffe name="Speer (Wurfwaffe)" W6="2" plus="0" haerte="5" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="8" lz="0" fk="1"></Waffe>
   <Waffe name="Speerschleuder" W6="2" plus="1" haerte="5" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="32" lz="1" fk="1"></Waffe>
-  <Waffe name="Stabschleuder" W6="2" plus="0" haerte="4" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="16" lz="1" fk="1">Nicht für Reiter</Waffe>
+  <Waffe name="Stabschleuder" W6="2" plus="0" haerte="4" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="16" lz="1" fk="1">nicht für Reiter</Waffe>
   <Waffe name="Wurfbeil" W6="2" plus="0" haerte="8" fertigkeit="Wurfwaffen" talent="Kurze Wurfwaffen" kampfstile="" rw="8" lz="0" fk="1"></Waffe>
   <Waffe name="Wurfdolch, -scheibe" W6="1" plus="1" haerte="10" fertigkeit="Wurfwaffen" talent="Kurze Wurfwaffen" kampfstile="" rw="4" lz="0" fk="1"></Waffe>
   <Waffe name="Wurfkeule" W6="1" plus="2" haerte="7" fertigkeit="Wurfwaffen" talent="Kurze Wurfwaffen" kampfstile="" rw="8" lz="0" fk="1">Stumpf</Waffe>
@@ -7763,4 +7763,22 @@ Reichweite: 8 Schritt
 Wirkungsdauer: 1 Stunde
 Kosten: 8 AsP</Manöver>
   <Manöver name="Hexenbesen reiten" typ="4" voraussetzungen="Vorteil Hexische Repräsentation I" probe="" gegenprobe="">Jede Hexe kann auf einem Besen oder einem anderen Holzgegenstand reiten. Dazu erhält sie bei der halbjährlichen Hexennacht die Hexensalbe, mit der das bestrichene Objekt flugfähig ist. Die Aktivierung des Besens vor jedem Flug kostet 1 AsP. Tollkühne Flugmanöver erfordern Proben auf das Talent Akrobatik. Misslungene Proben bedeuten, dass die Hexe die Kontrolle über den Besen verliert und schlimmstenfalls unsanft notlanden muss - schwere Verletzungen nicht ausgeschlossen. Bei einem Patzer kann der Hexe der Absturz drohen, sie könnte aber auch den Zorn eines Drachen geweckt haben.</Manöver>
+  <Waffeneigenschaft name="Kopflastig" script="modifyWaffeTPPlus(getSchadensbonus())">Die Waffe kann zusätzliche Kraft besonders effizient in Schaden umwandeln. Der Schadensbonus durch hohe KK zählt für sie doppelt.</Waffeneigenschaft>
+  <Waffeneigenschaft name="Parierwaffe">Das Führen einer solchen Waffe ist Voraussetzung für den Parierwaffenstil.</Waffeneigenschaft>
+  <Waffeneigenschaft name="Reittier">Ein Reittier ist Voraussetzung für den Reiterkampfstil. Angriffe mit dem Reittier sind um +4 erleichtert, wenn das Reittier in einer höheren Größenklasse als das Ziel ist.</Waffeneigenschaft>
+  <Waffeneigenschaft name="Rüstungsbrechend">Ein schmaler Stoßdorn oder andere Waffenteile können Rüstungen durchschlagen. Ermöglicht das Manöver Rüstungsbrecher (S. 49).</Waffeneigenschaft>
+  <Waffeneigenschaft name="Schild">Ermöglicht den Kampf im Schildkampfstil. Verteidigungen mit einem Schild sind um +4 erleichtert, wenn der Angreifer in einer höheren Größenklasse ist.</Waffeneigenschaft>
+  <Waffeneigenschaft name="Schwer" script="if getKK() &lt; int(getEigenschaftParam(1)): modifyWaffeAT(-2); modifyWaffeVT(-2)">Du brauchst mindestens die angegebene Körperkraft, um die Waffe ohne Einschränkungen führen zu können. Darunter erleidest du einen Malus von -2.</Waffeneigenschaft>
+  <Waffeneigenschaft name="Stumpf">Stumpfe Waffen können den Gegner mit dem Manöver Stumpfer Schlag (S. 49) bewusstlos schlagen.</Waffeneigenschaft>
+  <Waffeneigenschaft name="Unberechenbar">Die Waffe verursacht auch bei einer 2 einen Patzer. Dafür kann sie auch um Schilde herumschlagen, was Angriffe gegen Schildträger um +4 erleichtert.</Waffeneigenschaft>
+  <Waffeneigenschaft name="Wendig">Die Waffe ist ungewöhnlich wendig, Passierschläge sind nicht erschwert.</Waffeneigenschaft>
+  <Waffeneigenschaft name="Zerbrechlich">Die Waffe erleidet den vollen Waffenschaden, wenn sie eine nicht-zerbrechliche Waffe erfolgreich verteidigt oder von einer solchen erfolgreich verteidigt wird. Ausweichen vermeidet diesen Schaden.</Waffeneigenschaft>
+  <Waffeneigenschaft name="Zweihändig">Die Waffe benötigt die Führung mit beiden Händen. Bei einhändiger Führung erleidest du einen Malus von -2 und die Waffe richtet -4 TP weniger an. Zweihändige Fernkampfwaffen können nicht einhändig benutzt werden.</Waffeneigenschaft>
+  <Waffeneigenschaft name="Niederwerfen">Schon gewöhnliche Angriffe den Effekt des Manövers Niederwerfen. In Klammern befinden sich - falls relevant - der Modifikator der Gegenprobe und die Ansage des Manövers.</Waffeneigenschaft>
+  <Waffeneigenschaft name="Unzerstörbar"></Waffeneigenschaft>
+  <Waffeneigenschaft name="kein Malus als Nebenwaffe"></Waffeneigenschaft>
+  <Waffeneigenschaft name="nicht für Reiter"></Waffeneigenschaft>
+  <Waffeneigenschaft name="Umklammern">Schon gewöhnliche Angriffe den Effekt des Manövers Umklammern. In Klammern befinden sich - falls relevant - der Modifikator der Gegenprobe und die Ansage des Manövers.</Waffeneigenschaft>
+  <Waffeneigenschaft name="Stationär"></Waffeneigenschaft>
+  <Waffeneigenschaft name="Magazin"></Waffeneigenschaft>
 </Datenbank>

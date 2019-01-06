@@ -6,6 +6,7 @@ Created on Sat Mar 18 10:52:34 2017
 """
 import Objekte
 import DatenbankEditWaffe
+from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
 from PyQt5 import QtWidgets, QtCore
 
 class DatenbankEditWaffeWrapper(object):
@@ -28,6 +29,8 @@ class DatenbankEditWaffeWrapper(object):
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
         
+        self.eigenschaftenValid = True
+        self.nameValid = True
         self.ui.nameEdit.setText(waffe.name)
         self.ui.nameEdit.textChanged.connect(self.nameChanged)
         self.nameChanged()
@@ -38,6 +41,7 @@ class DatenbankEditWaffeWrapper(object):
             self.ui.comboTyp.setCurrentIndex(0)
         self.ui.comboTyp.currentIndexChanged[int].connect(self.switchType)
         self.ui.textEigenschaften.setPlainText(", ".join(waffe.eigenschaften))
+        self.ui.textEigenschaften.textChanged.connect(self.eigenschaftenChanged)
         self.ui.spinHaerte.setValue(waffe.haerte)
         self.ui.spinW6.setValue(waffe.W6)
         self.ui.spinPlus.setValue(waffe.plus)
@@ -139,15 +143,37 @@ class DatenbankEditWaffeWrapper(object):
 
     def nameChanged(self):
         name = self.ui.nameEdit.text()
+        self.nameValid = False
         if name == "":
             self.ui.nameEdit.setToolTip("Name darf nicht leer sein.")
             self.ui.nameEdit.setStyleSheet("border: 1px solid red;")
-            self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(False)
         elif name != self.waffePicked.name and name in self.db.waffen:
             self.ui.nameEdit.setToolTip("Name existiert bereits.")
             self.ui.nameEdit.setStyleSheet("border: 1px solid red;")
-            self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(False)
         else:
             self.ui.nameEdit.setToolTip("")
             self.ui.nameEdit.setStyleSheet("")
-            self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(True)
+            self.nameValid = True
+        self.updateSaveButtonState()
+
+    def eigenschaftenChanged(self):
+        eigenschaftStr = self.ui.textEigenschaften.toPlainText()
+        if eigenschaftStr:
+            eigenschaften = list(map(str.strip, eigenschaftStr.split(",")))
+            for el in eigenschaften:
+                try:
+                    Hilfsmethoden.VerifyWaffeneigenschaft(el, self.db)
+                except WaffeneigenschaftException as e:
+                    self.ui.textEigenschaften.setToolTip(str(e))
+                    self.ui.textEigenschaften.setStyleSheet("border: 1px solid red;")
+                    self.eigenschaftenValid = False
+                    self.updateSaveButtonState()
+                    return
+
+        self.ui.textEigenschaften.setToolTip("")
+        self.ui.textEigenschaften.setStyleSheet("")
+        self.eigenschaftenValid = True
+        self.updateSaveButtonState()
+
+    def updateSaveButtonState(self):
+        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(self.nameValid and self.eigenschaftenValid)

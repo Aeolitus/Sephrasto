@@ -13,6 +13,7 @@ import DatenbankEditFertigkeitWrapper
 import DatenbankEditTalentWrapper
 import DatenbankEditVorteilWrapper
 import DatenbankSelectTypeWrapper
+import DatenbankEditWaffeneigenschaftWrapper
 import DatenbankEditWaffeWrapper
 import DatenbankEditManoeverWrapper
 import Objekte
@@ -37,10 +38,12 @@ class DatenbankEdit(object):
         self.ui.showVorteile.stateChanged.connect(self.updateGUI)
         self.ui.showFertigkeiten.stateChanged.connect(self.updateGUI)
         self.ui.showUebernatuerlicheFertigkeiten.stateChanged.connect(self.updateGUI)
+        self.ui.showWaffeneigenschaften.stateChanged.connect(self.updateGUI)
         self.ui.showWaffen.stateChanged.connect(self.updateGUI)
         self.ui.showManoever.stateChanged.connect(self.updateGUI)
         self.ui.showUserAdded.stateChanged.connect(self.updateGUI)
         self.ui.showDeleted.stateChanged.connect(self.updateGUI)
+        self.ui.nameFilterEdit.textChanged.connect(self.updateGUI)
         self.ui.buttonCloseDB.clicked.connect(self.closeDatenbank)
         self.ui.buttonLoadDB.clicked.connect(self.loadDatenbank)
         self.ui.buttonSaveDB.clicked.connect(self.saveDatenbank)
@@ -116,6 +119,8 @@ class DatenbankEdit(object):
             for itm, value in self.datenbank.talente.items():
                 if not value.isUserAdded and showUserAdded:
                     continue
+                if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
+                    continue
                 item = QtGui.QStandardItem(itm + " : Talent")
                 item.setEditable(False)
                 if value.isUserAdded:
@@ -124,6 +129,8 @@ class DatenbankEdit(object):
         if self.ui.showVorteile.isChecked():
             for itm, value in self.datenbank.vorteile.items():
                 if not value.isUserAdded and showUserAdded:
+                    continue
+                if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
                     continue
                 item = QtGui.QStandardItem(itm + " : Vorteil")
                 item.setEditable(False)
@@ -134,6 +141,8 @@ class DatenbankEdit(object):
             for itm, value in self.datenbank.fertigkeiten.items():
                 if not value.isUserAdded and showUserAdded:
                     continue
+                if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
+                    continue
                 item = QtGui.QStandardItem(itm + " : Fertigkeit")
                 item.setEditable(False)
                 if value.isUserAdded:
@@ -143,7 +152,20 @@ class DatenbankEdit(object):
             for itm, value in self.datenbank.übernatürlicheFertigkeiten.items():
                 if not value.isUserAdded and showUserAdded:
                     continue
+                if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
+                    continue
                 item = QtGui.QStandardItem(itm + " : Übernatürliche Fertigkeit")
+                item.setEditable(False)
+                if value.isUserAdded:
+                    item.setBackground(QtGui.QBrush(QtCore.Qt.green))
+                self.model.appendRow(item) 
+        if self.ui.showWaffeneigenschaften.isChecked():
+            for itm, value in self.datenbank.waffeneigenschaften.items():
+                if not value.isUserAdded and showUserAdded:
+                    continue
+                if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
+                    continue
+                item = QtGui.QStandardItem(itm + " : Waffeneigenschaft")
                 item.setEditable(False)
                 if value.isUserAdded:
                     item.setBackground(QtGui.QBrush(QtCore.Qt.green))
@@ -151,6 +173,8 @@ class DatenbankEdit(object):
         if self.ui.showWaffen.isChecked():
             for itm, value in self.datenbank.waffen.items():
                 if not value.isUserAdded and showUserAdded:
+                    continue
+                if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
                     continue
                 item = QtGui.QStandardItem(itm + " : Waffe")
                 item.setEditable(False)
@@ -161,6 +185,8 @@ class DatenbankEdit(object):
             for itm, value in self.datenbank.manöver.items():
                 if not value.isUserAdded and showUserAdded:
                     continue
+                if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
+                    continue
                 item = QtGui.QStandardItem(itm + " : Manöver / Modifikation")
                 item.setEditable(False)
                 if value.isUserAdded:
@@ -168,10 +194,19 @@ class DatenbankEdit(object):
                 self.model.appendRow(item)
         if self.ui.showDeleted.isChecked():
             for itm in self.datenbank.removeList:
-                item = QtGui.QStandardItem(itm[0] + " : "  + itm[1] + " (gelöscht)")
-                item.setEditable(False)
-                item.setBackground(QtGui.QBrush(QtCore.Qt.red))
-                self.model.appendRow(item)
+                if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm[0].lower():
+                    continue
+                if itm[1] == "Talent" and self.ui.showTalente.isChecked() or\
+                   itm[1] == "Vorteil" and self.ui.showVorteile.isChecked() or\
+                   itm[1] == "Fertigkeit" and self.ui.showFertigkeiten.isChecked() or\
+                   itm[1] == "Übernatürliche Fertigkeit" and self.ui.showUebernatuerlicheFertigkeiten.isChecked() or\
+                   itm[1] == "Waffeneigenschaft" and self.ui.showWaffeneigenschaften.isChecked() or\
+                   itm[1] == "Waffe" and self.ui.showWaffen.isChecked() or\
+                   itm[1] == "Manöver / Modifikation" and self.ui.showManoever.isChecked():
+                    item = QtGui.QStandardItem(itm[0] + " : "  + itm[1] + " (gelöscht)")
+                    item.setEditable(False)
+                    item.setBackground(QtGui.QBrush(QtCore.Qt.red))
+                    self.model.appendRow(item)
         self.ui.listDatenbank.setModel(self.model)
                
     def wiederherstellen(self):
@@ -211,6 +246,11 @@ class DatenbankEdit(object):
                 exists = True
             else:
                 self.datenbank.übernatürlicheFertigkeiten.update({tmp[0]: removed[2]})
+        elif tmp[1] == "Waffeneigenschaft":
+            if tmp[0] in self.datenbank.waffeneigenschaften:
+                exists = True
+            else:
+                self.datenbank.waffeneigenschaften.update({tmp[0]: removed[2]})
         elif tmp[1] == "Waffe":
             if tmp[0] in self.datenbank.waffen:
                 exists = True
@@ -256,6 +296,8 @@ class DatenbankEdit(object):
                 self.addUebernatuerlich()
             elif dbS.entryType is "Manoever":
                 self.addManoever()
+            elif dbS.entryType is "Waffeneigenschaft":
+                self.addWaffeneigenschaft()
             else:
                 self.addWaffe()
         
@@ -286,7 +328,14 @@ class DatenbankEdit(object):
         if ret is not None:
             self.datenbank.übernatürlicheFertigkeiten.update({ret.name: ret})
             self.onDatabaseChange()
-                          
+                      
+    def addWaffeneigenschaft(self):
+        we = Objekte.Waffeneigenschaft()
+        ret = self.editWaffeneigenschaft(we)
+        if ret is not None:
+            self.datenbank.waffeneigenschaften.update({ret.name: ret})
+            self.onDatabaseChange()
+
     def addWaffe(self):
         waf = Objekte.Nahkampfwaffe()
         ret = self.editWaffe(waf)
@@ -317,6 +366,10 @@ class DatenbankEdit(object):
         dbU = DatenbankEditFertigkeitWrapper.DatenbankEditFertigkeitWrapper(self.datenbank, inp, True)
         return dbU.fertigkeit
     
+    def editWaffeneigenschaft(self, inp):
+        dbW = DatenbankEditWaffeneigenschaftWrapper.DatenbankEditWaffeneigenschaftWrapper(self.datenbank, inp)
+        return dbW.waffeneigenschaft
+
     def editWaffe(self, inp):
         dbW = DatenbankEditWaffeWrapper.DatenbankEditWaffeWrapper(self.datenbank, inp)
         return dbW.waffe
@@ -368,6 +421,16 @@ class DatenbankEdit(object):
                         self.datenbank.übernatürlicheFertigkeiten.pop(tmp[0],None)
                         self.datenbank.übernatürlicheFertigkeiten.update({ret.name: ret})
                         self.onDatabaseChange()
+            elif tmp[1] == "Waffeneigenschaft":
+                tal = self.datenbank.waffeneigenschaften[tmp[0]]
+                if tal is not None:
+                    ret = self.editWaffeneigenschaft(tal)
+                    if ret is not None:
+                        if not tal.isUserAdded:
+                            self.datenbank.removeList.append((tmp[0], tmp[1], tal))
+                        self.datenbank.waffeneigenschaften.pop(tmp[0],None)
+                        self.datenbank.waffeneigenschaften.update({ret.name: ret})
+                        self.onDatabaseChange()
             elif tmp[1] == "Waffe":
                 tal = self.datenbank.waffen[tmp[0]]
                 if tal is not None:
@@ -415,6 +478,12 @@ class DatenbankEdit(object):
                 if not f.isUserAdded:
                     self.datenbank.removeList.append((tmp[0], tmp[1], f))
                 self.datenbank.übernatürlicheFertigkeiten.pop(tmp[0],None)
+                self.onDatabaseChange()
+            elif tmp[1] == "Waffeneigenschaft":
+                w = self.datenbank.waffeneigenschaften[tmp[0]]
+                if not w.isUserAdded:
+                    self.datenbank.removeList.append((tmp[0], tmp[1], w))
+                self.datenbank.waffeneigenschaften.pop(tmp[0],None)
                 self.onDatabaseChange()
             elif tmp[1] == "Waffe":
                 w = self.datenbank.waffen[tmp[0]]

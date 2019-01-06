@@ -8,7 +8,7 @@ import copy
 import logging
 import collections
 from Wolke import Wolke
-from Hilfsmethoden import Hilfsmethoden
+from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
 from PyQt5 import QtWidgets, QtCore
 
 class KampfstilMod():
@@ -17,7 +17,6 @@ class KampfstilMod():
         self.VT = 0
         self.TP = 0
         self.RW = 0
-        self.WM_LZ = 0
         self.BEIgnore = [] #Tupel aus Kampffertigkeit und Talent für welche die BE ignoriert wird
 
     def __deepcopy__(self):
@@ -25,6 +24,14 @@ class KampfstilMod():
       clone.__dict__.update(self.__dict__)
       clone.beIgnore = copy.deepcopy(self.beIgnore)
       return clone
+
+class Waffenwerte():
+    def __init__(self):
+        self.AT = 0
+        self.VT = 0
+        self.RW = 0
+        self.TPW6 = 0
+        self.TPPlus = 0
 
 class Char():
     ''' 
@@ -86,6 +93,9 @@ class Char():
         self.be = 0
         self.rüstung = []
         self.waffen = []
+        self.waffenwerte = []
+        self.currentEigenschaft = None #used by waffenScriptAPI during iteration
+        self.currentWaffenwerte = None #used by waffenScriptAPI during iteration
         self.ausrüstung = []
         self.rüstungsgewöhnung = 0
         self.rsmod = 0
@@ -129,8 +139,8 @@ class Char():
         if not self.migrationen[self.datenbankCodeVersion]:
             raise Exception("Migrations-Code vergessen.")
 
-        #Bei Änderungen nicht vergessen die script docs in DatenbankEditVorteilWrapper anzupassen
-        self.vorteilScriptAPI = {
+        #Bei Änderungen nicht vergessen die script docs in DatenbankEditVorteilWrapper und DatenbankEditWaffeneigenschaftWrapper anzupassen
+        self.charakterScriptAPI = {
             #Asp
             'getAsPBasis' : lambda: self.aspBasis,
             'setAsPBasis' : lambda aspBasis: setattr(self, 'aspBasis', aspBasis),
@@ -208,24 +218,36 @@ class Char():
             'getAttribut' : lambda attribut: self.attribute[attribut].wert,
 
             #Misc
-            'addWaffeneigenschaft' : self.API_addWaffeneigenschaft 
+            'addWaffeneigenschaft' : self.API_addWaffeneigenschaft            
         }
 
         #Add Attribute to API (readonly)
         for attribut in self.attribute.values():
-            self.vorteilScriptAPI["get" + attribut.key] = lambda attribut=attribut.key: self.attribute[attribut].wert
+            self.charakterScriptAPI["get" + attribut.key] = lambda attribut=attribut.key: self.attribute[attribut].wert
+        
+        self.waffenScriptAPI = {
+            'getEigenschaftParam' : lambda paramNb: self.API_getWaffeneigenschaftParam(paramNb),
+            'modifyWaffeAT' : lambda atmod: setattr(self.currentWaffenwerte, 'AT', self.currentWaffenwerte.AT + atmod),
+            'modifyWaffeVT' : lambda vtmod: setattr(self.currentWaffenwerte, 'VT', self.currentWaffenwerte.VT + vtmod),
+            'modifyWaffeTPW6' : lambda tpw6mod: setattr(self.currentWaffenwerte, 'TPW6', self.currentWaffenwerte.TPW6 + tpw6mod),
+            'modifyWaffeTPPlus' : lambda tpplusmod: setattr(self.currentWaffenwerte, 'TPPlus', self.currentWaffenwerte.TPPlus + tpplusmod),
+        }
 
-    def API_setKampfstil(self, kampfstil, at, vt, tp, rw, wmlz):
+        for k,v in self.charakterScriptAPI.items():
+            if k in self.waffenScriptAPI:
+                assert False, "Duplicate entry"
+            self.waffenScriptAPI[k] = v
+
+    def API_setKampfstil(self, kampfstil, at, vt, tp, rw):
         k = self.kampfstilMods[kampfstil]
         k.AT = at
         k.VT = vt
         k.TP = tp
         k.RW = rw
-        k.WM_LZ = wmlz
     
-    def API_modifyKampfstil(self, kampfstil, at, vt, tp, rw, wmlz):
+    def API_modifyKampfstil(self, kampfstil, at, vt, tp, rw):
         k = self.kampfstilMods[kampfstil]
-        self.API_setKampfstil(kampfstil, k.AT + at, k.VT + vt, k.TP + tp, k.RW + rw, k.WM_LZ + wmlz)
+        self.API_setKampfstil(kampfstil, k.AT + at, k.VT + vt, k.TP + tp, k.RW + rw)
 
     def API_addWaffeneigenschaft(self, talentName, eigenschaft):
         for waffe in self.waffen:
@@ -242,6 +264,15 @@ class Char():
             if eigenschaft in waffe.eigenschaften:
                 continue
             waffe.eigenschaften.append(eigenschaft)
+
+    def API_getWaffeneigenschaftParam(self, paramNb):
+        match = re.search(r"\((.*?)\)", self.currentEigenschaft)
+        if not match:
+            raise Exception("Die Waffeneigenschaft '" + self.currentEigenschaft + "' erfordert einen Parameter, aber es wurde keiner gefunden")
+        parameters = list(map(str.strip, match.group(1).split(";")))
+        if not len(parameters) >= paramNb:
+            raise Exception("Die Waffeneigenschaft '" + self.currentEigenschaft + "' erfordert " + paramNb + " Parameter, aber es wurden nur " + len(parameters) + " gefunden. Parameter müssen mit Semikolon getrennt werden")
+        return parameters[paramNb-1]
 
     def migriere0zu1(self, xmlRoot):
         Kampfstile = ["Kein Kampfstil", "Beidhändiger Kampf", "Parierwaffenkampf", "Reiterkampf", 
@@ -328,9 +359,8 @@ class Char():
 
         for key in sorted(vorteileByPrio):
             for vort in vorteileByPrio[key]:
-                logging.info("Character: applying script for Vorteil" + vort.name)
-                for script in vort.script:
-                    exec(script, self.vorteilScriptAPI)
+                logging.info("Character: applying script for Vorteil " + vort.name)
+                exec(vort.script, self.charakterScriptAPI)
 
         #Update BE afterwards because Rüstungsgewöhnung is modified by Vorteil scripts
         self.be = max(0,self.be-self.rüstungsgewöhnung)
@@ -344,7 +374,83 @@ class Char():
 
         self.updateVorts()
         self.updateFerts()
+        self.updateWaffenwerte()
         self.epZaehlen()
+
+    def updateWaffenwerte(self):
+        self.waffenwerte = []
+
+        for el in self.waffen:
+            waffenwerte = Waffenwerte()
+            self.waffenwerte.append(waffenwerte)
+            waffenwerte.RW = el.rw
+            waffenwerte.TPW6 = el.W6
+            waffenwerte.TPPlus = el.plus
+
+            # Calculate modifiers for AT, PA, TP from Kampfstil and Talent
+            if el.name in Wolke.DB.waffen:
+                fertig = Wolke.DB.waffen[el.name].fertigkeit
+                tale = Wolke.DB.waffen[el.name].talent
+            else:
+                fertig = ""
+                tale = ""
+            if not fertig in self.fertigkeiten:
+                continue
+
+            if tale in self.fertigkeiten[fertig].gekaufteTalente:
+                bwert = self.fertigkeiten[fertig].probenwertTalent
+            else:
+                bwert = self.fertigkeiten[fertig].probenwert
+                
+            kampfstilMods = None
+            if el.kampfstil in self.kampfstilMods:
+                kampfstilMods = self.kampfstilMods[el.kampfstil]
+            else:
+                kampfstilMods = KampfstilMod()
+                if el.kampfstil != Definitionen.KeinKampfstil:
+                    logging.warn("Waffe " + el.name + " referenziert einen nicht existierenden Kampfstil: " + el.kampfstil)
+
+            waffenwerte.AT = bwert + kampfstilMods.AT
+            waffenwerte.VT = bwert + kampfstilMods.VT
+            waffenwerte.TPPlus += kampfstilMods.TP
+            waffenwerte.RW += kampfstilMods.RW
+
+            if type(el) == Objekte.Nahkampfwaffe:
+                waffenwerte.TPPlus += self.schadensbonus
+                waffenwerte.AT += el.wm
+                waffenwerte.VT += el.wm
+
+            ignoreBE = False
+            for values in kampfstilMods.BEIgnore:
+                if values[0] == fertig and values[1] == tale:
+                    ignoreBE = True
+                    break
+            if not ignoreBE:
+                waffenwerte.AT -= self.be
+                waffenwerte.VT -= self.be
+
+            self.currentWaffenwerte = waffenwerte
+
+            #Execute Waffeneigenschaft scripts to modify character/weapon stats
+            eigenschaftenByPrio = collections.defaultdict(list)
+            for weName in el.eigenschaften:
+                try:
+                    we = Hilfsmethoden.GetWaffeneigenschaft(weName, Wolke.DB)
+                except WaffeneigenschaftException:
+                    continue #Manually added Eigenschaften are allowed
+                if not we.script:
+                    continue
+                eigenschaftenByPrio[we.scriptPrio].append(weName)
+
+            for key in sorted(eigenschaftenByPrio):
+                for weName in eigenschaftenByPrio[key]:
+                    self.currentEigenschaft = weName
+                    logging.info("Character: applying script for Waffeneigenschaft " + weName)
+                    we = Hilfsmethoden.GetWaffeneigenschaft(weName, Wolke.DB)
+                    exec(we.script, self.waffenScriptAPI)
+
+            self.currentWaffenwert = None
+            self.currentEigenschaft = None
 
     def epZaehlen(self):
         '''Berechnet die bisher ausgegebenen EP'''

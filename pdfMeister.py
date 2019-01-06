@@ -19,6 +19,7 @@ from collections import namedtuple
 import logging
 import tempfile
 from Charakter import KampfstilMod
+from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
 
 CharakterbogenInfo = namedtuple('CharakterbogenInfo', 'filePath maxVorteile maxFreie maxFertigkeiten seitenProfan kurzbogenHack')
 
@@ -36,7 +37,7 @@ class pdfMeister(object):
         self.RulesPage = "Regeln.pdf"
         self.Rules = []
         self.RuleWeights = []
-        self.RuleCategories = ['ALLGEMEINE VORTEILE', 'PROFANE VORTEILE', 'KAMPFVORTEILE', 'NAHKAMPFMANÖVER', 'FERNKAMPFMANÖVER', 'ÜBERNATÜRLICHE VORTEILE', 'SPONTANE MODIFIKATIONEN (ZAUBER)', 'SPONTANE MODIFIKATIONEN (LITURGIEN)', 'ÜBERNATÜRLICHE TALENTE', 'SONSTIGES']
+        self.RuleCategories = ['ALLGEMEINE VORTEILE', 'PROFANE VORTEILE', 'KAMPFVORTEILE', 'WAFFENEIGENSCHAFTEN', 'NAHKAMPFMANÖVER', 'FERNKAMPFMANÖVER', 'ÜBERNATÜRLICHE VORTEILE', 'SPONTANE MODIFIKATIONEN (ZAUBER)', 'SPONTANE MODIFIKATIONEN (LITURGIEN)', 'ÜBERNATÜRLICHE TALENTE', 'SONSTIGES']
         self.Talents = []
         self.Energie = 0
     
@@ -489,6 +490,8 @@ class pdfMeister(object):
         # Fill eight rows of weapons
         count = 1
         for el in Wolke.Char.waffen:
+            waffenwerte = Wolke.Char.waffenwerte[count-1]
+
             base = 'Waffe' + str(count)
             fields[base + 'NA'] = el.name
             sg = ""
@@ -498,75 +501,21 @@ class pdfMeister(object):
             fields[base + 'HA'] = str(el.haerte)
             fields[base + 'EI'] = ", ".join(el.eigenschaften)
 
-            # Calculate modifiers for AT, PA, TP from Kampfstil
-            if el.name in Wolke.DB.waffen:
-                fertig = Wolke.DB.waffen[el.name].fertigkeit
-                tale = Wolke.DB.waffen[el.name].talent
+            fields[base + 'ATm'] = str(waffenwerte.AT)
+            fields[base + 'VTm'] = str(waffenwerte.VT)
+            fields[base + 'RW'] = str(waffenwerte.RW)
+
+            wm = 0
+            if type(el) == Objekte.Fernkampfwaffe:
+                wm = el.lz
             else:
-                fertig = ""
-                tale = ""
-            if fertig in Wolke.Char.fertigkeiten:
-                if tale in Wolke.Char.fertigkeiten[fertig].gekaufteTalente:
-                    bwert = Wolke.Char.fertigkeiten[fertig].probenwertTalent
-                else:
-                    bwert = Wolke.Char.fertigkeiten[fertig].probenwert
-                
-                kampfstilMods = None
-                if el.kampfstil in Wolke.Char.kampfstilMods:
-                    kampfstilMods = Wolke.Char.kampfstilMods[el.kampfstil]
-                else:
-                    kampfstilMods = KampfstilMod()
-                    logging.warn("Waffe " + el.name + " referenziert einen nicht existierenden Kampfstil: " + el.kampfstil)
+                wm = el.wm
+            fields[base + 'WM'] = wm
 
-                at = bwert + kampfstilMods.AT
-                vt = bwert + kampfstilMods.VT
-                sp = kampfstilMods.TP
-                rw = el.rw + kampfstilMods.RW
-                wm = 0
-                if type(el) == Objekte.Fernkampfwaffe:
-                    wm = el.lz
-                else:
-                    wm = el.wm
-                wm += kampfstilMods.WM_LZ
-
-                if type(el) == Objekte.Nahkampfwaffe:
-                    if "Kopflastig" in el.eigenschaften:
-                        sp += Wolke.Char.schadensbonus*2
-                    else:
-                        sp += Wolke.Char.schadensbonus
-                    at += wm
-                    vt += wm
-
-                for eigenschaft in el.eigenschaften:
-                    res = re.findall('Schwer \(([0-9]{1,2})\)',
-                                     eigenschaft,
-                                     re.UNICODE)
-                    if len(res) > 0:
-                        minkk = int(res[0])
-                        if Wolke.Char.attribute['KK'].wert < minkk:
-                            at -= 2
-                            vt -= 2
-                        break
-
-                ignoreBE = False
-                for values in kampfstilMods.BEIgnore:
-                    if values[0] == fertig and values[1] == tale:
-                        ignoreBE = True
-                        break
-
-                if not ignoreBE:
-                    at -= Wolke.Char.be
-                    vt -= Wolke.Char.be
-
-                fields[base + 'ATm'] = at
-                fields[base + 'VTm'] = vt
-                fields[base + 'RW'] = str(rw)
-                fields[base + 'WM'] = str(wm)
-
-                sg = ""
-                if el.plus+sp >= 0:
-                    sg = "+"
-                fields[base + 'TPm'] = str(el.W6) + "W6" + sg + str(el.plus+sp)
+            sg = ""
+            if waffenwerte.TPPlus >= 0:
+                sg = "+"
+            fields[base + 'TPm'] = str(waffenwerte.TPW6) + "W6" + sg + str(waffenwerte.TPPlus)
 
             if count >= 8:
                 break
@@ -760,6 +709,22 @@ class pdfMeister(object):
         else:
             return '\n' + category + '\n\n'
 
+    def appendWaffeneigenschaften(strList, weights, category, eigenschaften):
+        strList.append(pdfMeister.formatRuleCategory(category))
+        weights.append(pdfMeister.getWeight(strList[-1]))
+        for weName in eigenschaften:
+            str = ['-']
+            we = Wolke.DB.waffeneigenschaften[weName]
+            if not we.text:
+                continue
+            str.append(we.name)
+            str.append(": ")
+            #Replace all line endings by space
+            str.append(we.text.replace('\n', ' '))
+            str.append('\n\n')
+            strList.append("".join(str))
+            weights.append(pdfMeister.getWeight(strList[-1]))
+
     def appendVorteile(strList, weights, category, vorteile):
         strList.append(pdfMeister.formatRuleCategory(category))
         weights.append(pdfMeister.getWeight(strList[-1]))
@@ -769,6 +734,8 @@ class pdfMeister(object):
 
             str = ['-']
             vorteil = Wolke.DB.vorteile[vor]
+            if not vorteil.text:
+                continue
             str.append(vorteil.name)
             str.append(": ")
             #Replace all line endings by space
@@ -819,6 +786,8 @@ class pdfMeister(object):
         for tal in talente:
             str = ['-']
             talent = Wolke.DB.talente[tal]
+            if not talent.text:
+                continue
             str.append(talent.name)
             str.append(': ')
 
@@ -879,6 +848,17 @@ class pdfMeister(object):
         sortM = sorted(sortM, key=str.lower)
         manövernah = [el for el in sortM if (Wolke.DB.manöver[el].typ == 0)]
 
+        waffeneigenschaften = []
+        for waffe in Wolke.Char.waffen:
+            for el in waffe.eigenschaften:
+                try:
+                    we = Hilfsmethoden.GetWaffeneigenschaft(el, Wolke.DB)
+                    if not we.name in waffeneigenschaften:
+                        waffeneigenschaften.append(we.name)
+                except WaffeneigenschaftException:
+                    pass
+        waffeneigenschaften = sorted(waffeneigenschaften, key=str.lower)
+
         manöverfern = []
         for waffe in Wolke.Char.waffen:
             if type(waffe) is Objekte.Fernkampfwaffe:
@@ -906,20 +886,22 @@ class pdfMeister(object):
             pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[1], profan)
         if kampf:
             pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[2], kampf)
+        if waffeneigenschaften:
+            pdfMeister.appendWaffeneigenschaften(self.Rules, self.RuleWeights, self.RuleCategories[3], waffeneigenschaften)
         if manövernah:
-            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[3], manövernah)
+            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[4], manövernah)
         if manöverfern:
-            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[4], manöverfern)
+            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[5], manöverfern)
         if ueber:
-            pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[5], ueber)
+            pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[6], ueber)
         if manövermagisch:
-            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[6], manövermagisch)
+            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[7], manövermagisch)
         if manöverkarmal:
-            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[7], manöverkarmal)
+            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[8], manöverkarmal)
         if ueberTalente:
-            pdfMeister.appendTalente(self.Rules, self.RuleWeights, self.RuleCategories[8], ueberTalente)
+            pdfMeister.appendTalente(self.Rules, self.RuleWeights, self.RuleCategories[9], ueberTalente)
         if manöversonstiges:
-            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[9], manöversonstiges)
+            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[10], manöversonstiges)
 
     def writeRules(self, fields, start, roughLineCount):
         weights = 0
