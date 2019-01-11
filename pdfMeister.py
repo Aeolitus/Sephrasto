@@ -370,7 +370,7 @@ class pdfMeister(object):
         count = 1
 
         for el in Wolke.Char.freieFertigkeiten:
-            if el.wert < 1 or el.wert > 3:
+            if el.wert < 1 or el.wert > 3 or not el.name:
                 continue
             resp = el.name + " "
             for i in range(el.wert):
