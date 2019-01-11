@@ -16,6 +16,7 @@ class Wolke:
         'Cheatsheet-Fontsize' : 0,
         'Pfad-Chars': '',
         'Pfad-Regeln': '',
+        'Pfad-Export-Plugin': '',
         'Logging': 1,
         'PDF-Open': False
     }

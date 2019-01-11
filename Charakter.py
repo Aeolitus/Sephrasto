@@ -139,8 +139,30 @@ class Char():
         if not self.migrationen[self.datenbankCodeVersion]:
             raise Exception("Migrations-Code vergessen.")
 
-        #Bei Änderungen nicht vergessen die script docs in DatenbankEditVorteilWrapper und DatenbankEditWaffeneigenschaftWrapper anzupassen
+
+
+        #Bei Änderungen nicht vergessen die script docs in ScriptAPI.md anzupassen
         self.charakterScriptAPI = {
+            #Hintergrund
+            'getName' : lambda: self.name,
+            'getRasse' : lambda: self.rasse,
+            'getStatus' : lambda: self.status,
+            'getKurzbeschreibung' : lambda: self.kurzbeschreibung,
+            'getHeimat' : lambda: self.heimat,
+            'getFinanzen' : lambda: self.finanzen,
+            'getEigenheiten' : lambda: copy.deepcopy(self.eigenheiten),
+            'getEPTotal' : lambda: self.EPtotal,
+            'getEPSpent' : lambda: self.EPspent,
+
+            #Fertigkeiten, Vorteile & Ausrüstung
+            'getFertigkeit' : lambda name: copy.deepcopy(self.fertigkeiten[name]),
+            'getÜbernatürlicheFertigkeit' : lambda name: copy.deepcopy(self.übernatürlicheFertigkeiten[name]),
+            'getFreieFertigkeiten' : lambda: copy.deepcopy(self.freieFertigkeiten),
+            'getVorteile' : lambda: copy.deepcopy([el for el in Wolke.DB.vorteile if el in self.vorteile]),
+            'getRüstung' : lambda: copy.deepcopy(self.rüstung),
+            'getWaffen' : lambda: copy.deepcopy(self.waffen),
+            'getAusrüstung' : lambda: copy.deepcopy(self.ausrüstung),
+
             #Asp
             'getAsPBasis' : lambda: self.aspBasis,
             'setAsPBasis' : lambda aspBasis: setattr(self, 'aspBasis', aspBasis),

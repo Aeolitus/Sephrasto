@@ -23,5 +23,6 @@ COPY /Y Gebrauchsanleitung.pdf Build
 COPY /Y ExtraSpells.pdf Build
 COPY /Y icon_large.png Build
 COPY /Y icon_multi.ico Build
+COPY /Y ScriptAPI.md Build
 
 PAUSE

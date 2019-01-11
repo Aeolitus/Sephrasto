@@ -82,6 +82,12 @@ class Fertigkeit(Steigerbar):
         F.attribute = self.attribute.copy()
         F.kampffertigkeit = self.kampffertigkeit
         F.gekaufteTalente = self.gekaufteTalente.copy()
+        F.attributswerte = self.attributswerte.copy()
+        F.basiswert = self.basiswert
+        F.probenwert = self.probenwert
+        F.probenwertTalent = -self.probenwertTalent
+        F.maxWert = self.maxWert
+        F.isUserAdded = self.isUserAdded
         return F
 
 class Talent():

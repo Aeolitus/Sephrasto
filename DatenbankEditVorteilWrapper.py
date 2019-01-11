@@ -56,38 +56,7 @@ class DatenbankEditVorteilWrapper(object):
 
         self.ui.scriptEdit.setText(vorteil.script)
 
-        scriptDocs = [
-            "API:",
-            "'get' Funktionen liefern den entsprechenden Wert zurück, die 'set' Funktionen setzen den Wert auf den übergebenen Ganzzahl-Parameter,",
-            "und die 'modify' Funktionen verändern den gewünschten Wert um den übergebenen Ganzzahl-Parameter. Ausnahmen sind in spitzen Klammern aufgeführt.",
-            "Skripte werden in Python geschrieben, wobei alles in eine Zeile geschrieben werden muss. Bei komplexeren Vorhaben am besten einen 'one-lined python converter' nutzen.",
-            "Das folgende Beispiel senkt die Wundschwelle um das Durchhaltevermögen +2: modifyWS(-(getDH() + 2))",
-            "Die folgenden Funktionen stehen neben Python-Builtins wie 'round' zur Verfügung:",
-            "AsP: getAsPBasis, setAsPBasis, modifyAsPBasis, getAsPMod, setAsPMod, modifyAsPMod",
-            "KaP: getKaPBasis, setKaPBasis, modifyKaPBasis, getKaPMod, setKaPMod, modifyKaPMod",
-            "SchiP: getSchiPMax, setSchiPMax, modifySchiPMax",
-            "WS: getWSBasis, getWS, setWS, modifyWS",
-            "MR: getMRBasis, getMR, setMR, modifyMR",
-            "GS: getGSBasis, getGS, setGS, modifyGS",
-            "DH: getDH, setDH, modifyDH",
-            "Schadensbonus: getSchadensbonusBasis, getSchadensbonus, setSchadensbonus, modifySchadensbonus",
-            "INI: getINIBasis, getINI, setINI, modifyINI",
-            "RS: getRSMod, setRSMod, modifyRSMod",
-            "BE: getBEBasis, getBEMod, setBEMod, modifyBEMod",
-            "Kampfstile:",
-            "  getKampfstil <Parameter: Kampfstil-Name. Return: Gibt ein Objekt zurück mit den folgenden Feldern: AT, VT, TP, RW>",
-            "                Beispiel: getKampfstil('Reiterkampf').TP",
-            "  setKampfstil/modifyKampfstil <Parameter: Kampfstil-Name, AT, VT, TP, RW>",
-            "                Beispiel: modifyKampfstil('Reiterkampf', 1, 1, 1, 0)",
-            "  setKampfstilBEIgnore <Parameter: Kampfstil-Name, Fertigkeit-Name, Talent-Name>",
-            "                Beispiel: setKampfstilBEIgnore('Reiterkampf', 'Athletik', 'Reiten'>",
-            "Attribute: getAttribut <Parameter: Attribut-Name. Return: Wert des Attributes>",
-            "                Beispiel: getAttribut('KO')",
-            "Sonstiges: addWaffeneigenschaft <Parameter: TalentName, Eigenschaft>",
-            "                Beispiel: addWaffeneigenschaft('Waffenlos', 'Kopflastig')"
-        ]
-
-        self.ui.scriptEdit.setToolTip("\n".join(scriptDocs))
+        self.ui.scriptEdit.setToolTip("Siehe ScriptAPI.md im Installationsordner für verfügbare Funktionen und Beispiele.")
 
         vorteilDialog.show()
         ret = vorteilDialog.exec_()

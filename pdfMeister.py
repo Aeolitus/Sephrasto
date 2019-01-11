@@ -76,6 +76,11 @@ class pdfMeister(object):
         fields = self.pdfSechsterBlock(fields)
         Wolke.Fehlercode = -88
         fields = self.pdfSiebterBlock(fields)
+
+        if not self.pdfExecutePlugin(fields):
+            Wolke.Fehlercode = 0
+            return
+
         # PDF erstellen - Felder bleiben bearbeitbar
         Wolke.Fehlercode = -89
         handle, out_file = tempfile.mkstemp()
@@ -668,6 +673,18 @@ class pdfMeister(object):
         fields['ErfahEI'] = Wolke.Char.EPspent
         fields['ErfahVE'] = Wolke.Char.EPtotal - Wolke.Char.EPspent
         return fields
+
+    def pdfExecutePlugin(self, fields):
+        if Wolke.Settings['Pfad-Export-Plugin'] and os.path.isfile(Wolke.Settings['Pfad-Export-Plugin']):
+            api = {}
+            for k, v in Wolke.Char.charakterScriptAPI.items():
+                if k.startswith('get'):
+                    api[k] = v
+            api['data'] = fields
+            api['sephrastoExport'] = True
+            exec(open(Wolke.Settings['Pfad-Export-Plugin']).read(), api)
+            return api['sephrastoExport']
+        return True
 
     def createExtra(self, vorts, ferts, tals, fields):
         for i in range(1, 13):

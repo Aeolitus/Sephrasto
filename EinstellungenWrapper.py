@@ -38,6 +38,8 @@ class EinstellungenWrapper():
         else:
             self.ui.editRegeln.setText(Wolke.Settings['Pfad-Regeln'])
 
+        self.ui.editExportPlugin.setText(Wolke.Settings['Pfad-Export-Plugin'])
+
         optionsList = ['Keine']            
         if os.path.isdir(Wolke.Settings['Pfad-Regeln']):
             for file in os.listdir(Wolke.Settings['Pfad-Regeln']):
@@ -54,8 +56,10 @@ class EinstellungenWrapper():
             
         self.ui.buttonChar.clicked.connect(self.setCharPath)
         self.ui.buttonRegeln.clicked.connect(self.setRulePath)
+        self.ui.buttonExportPlugin.clicked.connect(self.setExportPluginPath)
         self.ui.resetChar.clicked.connect(self.resetCharPath)
         self.ui.resetRegeln.clicked.connect(self.resetRulePath)
+        self.ui.resetExportPlugin.clicked.connect(self.resetExportPluginPath)
         self.ui.comboBogen.currentIndexChanged.connect(self.comboBogenIndexChanged)
 
         self.form.setWindowModality(QtCore.Qt.ApplicationModal)
@@ -84,6 +88,11 @@ class EinstellungenWrapper():
                 Wolke.Settings['Pfad-Regeln'] = self.ui.editRegeln.text()
             else:
                 Wolke.Settings['Pfad-Regeln'] = ''
+
+            if os.path.isfile(self.ui.editExportPlugin.text()):
+                Wolke.Settings['Pfad-Export-Plugin'] = self.ui.editExportPlugin.text()
+            else:
+                Wolke.Settings['Pfad-Export-Plugin'] = ''
                 
             Wolke.Settings['Logging'] = self.ui.comboLogging.currentIndex()
             loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
@@ -118,6 +127,15 @@ class EinstellungenWrapper():
         if os.path.isdir(path):
             Wolke.Settings['Pfad-Regeln'] = path
             self.ui.editRegeln.setText(path)
+
+    def setExportPluginPath(self):
+        path = QtWidgets.QFileDialog.getOpenFileName(None,
+          "Wähle einen Speicherort für das Export-Plugin aus!",
+          Wolke.Settings['Pfad-Export-Plugin'], 'Python scripts (*.py)', None,
+          QtWidgets.QFileDialog.ShowDirsOnly)
+        if os.path.isfile(path[0]):
+            Wolke.Settings['Pfad-Export-Plugin'] = path[0]
+            self.ui.editExportPlugin.setText(path[0])
             
     def resetCharPath(self):
         p = os.path.expanduser('~')
@@ -131,4 +149,7 @@ class EinstellungenWrapper():
         Wolke.Settings['Pfad-Regeln'] = p
         self.ui.editRegeln.setText(p)
         
+    def resetExportPluginPath(self):
+        Wolke.Settings['Pfad-Export-Plugin'] = ''
+        self.ui.editExportPlugin.setText('')
         
