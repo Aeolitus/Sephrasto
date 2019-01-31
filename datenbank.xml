@@ -7665,17 +7665,17 @@ Die Spielwerte typischer Vertrautentiere findest du im Bestiarium. Da Vertrauten
   <Waffe name="Wurfnetz" W6="0" plus="0" haerte="5" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="2" lz="0" fk="1">Umklammern (4)</Waffe>
   <Waffe name="Schweres Wurfnetz" W6="0" plus="0" haerte="6" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="2" lz="0" fk="1">Umklammern (8), Zweihändig</Waffe>
   <Waffe name="Arbalette" W6="3" plus="2" haerte="5" fertigkeit="Schusswaffen" talent="Armbrüste" kampfstile="" rw="32" lz="8" fk="1">Niederwerfen (-4), Zweihändig</Waffe>
-  <Waffe name="Arbalone" W6="3" plus="7" haerte="16" fertigkeit="Schusswaffen" talent="Armbrüste" kampfstile="" rw="64" lz="0" fk="1">Niederwerfen (-8), nicht für Reiter, Stationär</Waffe>
+  <Waffe name="Arbalone" W6="3" plus="7" haerte="6" fertigkeit="Schusswaffen" talent="Armbrüste" kampfstile="" rw="64" lz="16" fk="1">Niederwerfen (-8), nicht für Reiter, Stationär</Waffe>
   <Waffe name="Balestra" W6="3" plus="0" haerte="4" fertigkeit="Schusswaffen" talent="Armbrüste" kampfstile="" rw="32" lz="4" fk="1">Niederwerfen, Zweihändig</Waffe>
   <Waffe name="Balestrina" W6="2" plus="1" haerte="4" fertigkeit="Schusswaffen" talent="Armbrüste" kampfstile="" rw="8" lz="1" fk="1"></Waffe>
   <Waffe name="Balläster" W6="2" plus="3" haerte="4" fertigkeit="Schusswaffen" talent="Armbrüste" kampfstile="" rw="32" lz="2" fk="1">Zweihändig</Waffe>
   <Waffe name="Eisenwalder" W6="2" plus="2" haerte="4" fertigkeit="Schusswaffen" talent="Armbrüste" kampfstile="" rw="8" lz="1" fk="1">Magazin (10 Bolzen) laden 8 Akt., Zweihändig</Waffe>
   <Waffe name="Leichte Armbrust" W6="3" plus="1" haerte="4" fertigkeit="Schusswaffen" talent="Armbrüste" kampfstile="" rw="32" lz="4" fk="1">Zweihändig</Waffe>
   <Waffe name="Windenarmbrust" W6="3" plus="4" haerte="5" fertigkeit="Schusswaffen" talent="Armbrüste" kampfstile="" rw="64" lz="8" fk="1">Zweihändig</Waffe>
-  <Waffe name="Blasrohr" W6="1" plus="-1" haerte="2" fertigkeit="Schusswaffen" talent="Blasrohre" kampfstile="" rw="8" lz="1" fk="1">Zweihändig</Waffe>
+  <Waffe name="Blasrohr" W6="1" plus="-1" haerte="2" fertigkeit="Schusswaffen" talent="Blasrohre" kampfstile="" rw="8" lz="1" fk="1"></Waffe>
   <Waffe name="Elfenbogen" W6="2" plus="3" haerte="3" fertigkeit="Schusswaffen" talent="Bögen" kampfstile="" rw="64" lz="1" fk="1">Zweihändig</Waffe>
   <Waffe name="Kompositbogen" W6="2" plus="3" haerte="3" fertigkeit="Schusswaffen" talent="Bögen" kampfstile="" rw="32" lz="1" fk="1">Zweihändig</Waffe>
-  <Waffe name="Kriegsbogen" W6="2" plus="4" haerte="3" fertigkeit="Schusswaffen" talent="Bögen" kampfstile="" rw="32" lz="1" fk="1">Schwer (8), nicht für Reiter, Zweihändig</Waffe>
+  <Waffe name="Kriegsbogen" W6="2" plus="5" haerte="3" fertigkeit="Schusswaffen" talent="Bögen" kampfstile="" rw="32" lz="1" fk="1">Schwer (8), nicht für Reiter, Zweihändig</Waffe>
   <Waffe name="Kurzbogen" W6="2" plus="1" haerte="3" fertigkeit="Schusswaffen" talent="Bögen" kampfstile="" rw="16" lz="0" fk="1">Zweihändig</Waffe>
   <Waffe name="Langbogen" W6="2" plus="3" haerte="3" fertigkeit="Schusswaffen" talent="Bögen" kampfstile="" rw="64" lz="1" fk="1">Schwer (4), nicht für Reiter, Zweihändig</Waffe>
   <Waffe name="Orkischer Reiterbogen" W6="2" plus="3" haerte="4" fertigkeit="Schusswaffen" talent="Bögen" kampfstile="" rw="32" lz="1" fk="1">Schwer (4), Zweihändig</Waffe>
