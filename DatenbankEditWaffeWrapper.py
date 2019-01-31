@@ -131,7 +131,7 @@ class DatenbankEditWaffeWrapper(object):
             self.ui.spinWMLZ.setMinimum(-9)
             self.ui.labelWMLZ.setText("Waffenmodifikator")
         else:
-            self.ui.spinWMLZ.setMinimum(1)
+            self.ui.spinWMLZ.setMinimum(0)
             self.ui.labelWMLZ.setText("Ladezeit")
             
     def switchTals(self, ff):
