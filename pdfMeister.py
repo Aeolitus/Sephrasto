@@ -682,7 +682,7 @@ class pdfMeister(object):
                     api[k] = v
             api['data'] = fields
             api['sephrastoExport'] = True
-            exec(open(Wolke.Settings['Pfad-Export-Plugin']).read(), api)
+            exec(open(Wolke.Settings['Pfad-Export-Plugin'], mode="r", encoding="utf-8").read(), api)
             return api['sephrastoExport']
         return True
 
