@@ -77,6 +77,7 @@ class pdfMeister(object):
         Wolke.Fehlercode = -88
         fields = self.pdfSiebterBlock(fields)
 
+        Wolke.Fehlercode = -99
         if not self.pdfExecutePlugin(fields):
             Wolke.Fehlercode = 0
             return
