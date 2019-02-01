@@ -61,6 +61,7 @@ class Fertigkeit(Steigerbar):
         self.probenwertTalent = -1
         self.voraussetzungen = []
         self.maxWert = -1
+        self.printclass = -1
         self.isUserAdded = True
 
     def aktualisieren(self):
@@ -87,6 +88,7 @@ class Fertigkeit(Steigerbar):
         F.probenwert = self.probenwert
         F.probenwertTalent = -self.probenwertTalent
         F.maxWert = self.maxWert
+        F.printclass = self.printclass
         F.isUserAdded = self.isUserAdded
         return F
 

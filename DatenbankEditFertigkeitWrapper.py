@@ -51,6 +51,9 @@ class DatenbankEditFertigkeitWrapper(object):
             self.ui.comboKampffertigkeit.setCurrentIndex(fertigkeit.kampffertigkeit)
 
         self.ui.textEdit.setPlainText(fertigkeit.text)
+        self.ui.sortierungEdit.setValue(fertigkeit.printclass)
+        self.ui.sortierungEdit.setToolTip("Fertigkeiten werden nach dieser Zahl gruppiert und dann alphabetisch sortiert")
+
         fertDialog.show()
         ret = fertDialog.exec_()
         if ret == QtWidgets.QDialog.Accepted:
@@ -65,6 +68,7 @@ class DatenbankEditFertigkeitWrapper(object):
                              self.ui.comboAttribut2.currentText(),
                              self.ui.comboAttribut3.currentText()]
             self.fertigkeit.text = self.ui.textEdit.toPlainText()
+            self.fertigkeit.printclass = self.ui.sortierungEdit.value()
 
             self.fertigkeit.isUserAdded = False
             if self.fertigkeit == self.fertigkeitPicked:

@@ -96,6 +96,7 @@ class Datenbank():
             v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(fertigkeit.voraussetzungen, None))
             v.set('attribute',Hilfsmethoden.AttrArray2Str(fertigkeit.attribute))
             v.set('kampffertigkeit',str(fertigkeit.kampffertigkeit))
+            v.set('printclass',str(fertigkeit.printclass))
             v.text = fertigkeit.text
 
         Wolke.Fehlercode = -30
@@ -107,6 +108,7 @@ class Datenbank():
             v.set('steigerungsfaktor',str(fertigkeit.steigerungsfaktor))
             v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(fertigkeit.voraussetzungen, None))
             v.set('attribute',Hilfsmethoden.AttrArray2Str(fertigkeit.attribute))
+            v.set('printclass',str(fertigkeit.printclass))
             v.text = fertigkeit.text
               
         #Waffeneigenschaften
@@ -330,6 +332,12 @@ class Datenbank():
             F.attribute = Hilfsmethoden.AttrStr2Array(fer.get('attribute'))
             F.kampffertigkeit = int(fer.get('kampffertigkeit'))
             F.isUserAdded = not refDB
+
+            printClass = fer.get('printclass')
+            if printClass:
+                F.printclass = int(printClass)
+            else:
+                F.printclass = -1
             self.fertigkeiten.update({F.name: F})
 
         Wolke.Fehlercode = -24
@@ -342,6 +350,12 @@ class Datenbank():
             F.text = fer.text or ''
             F.attribute = Hilfsmethoden.AttrStr2Array(fer.get('attribute'))
             F.isUserAdded = not refDB
+
+            printClass = fer.get('printclass')
+            if printClass:
+                T.printclass = int(printClass)
+            else:
+                T.printclass = -1
             self.übernatürlicheFertigkeiten.update({F.name: F})
           
         #Waffeneigenschaften

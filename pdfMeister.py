@@ -385,27 +385,43 @@ class pdfMeister(object):
             if count > self.CharakterBogen.maxFreie:
                 break
 
-        # Standardfertigkeiten
+        if self.CharakterBogen.kurzbogenHack:
+            self.writeFertigkeiten(fields, None, Definitionen.StandardFerts)
+
+            nonstandardFerts = []
+            for el in Wolke.Char.fertigkeiten:
+                if not el in Definitionen.StandardFerts:
+                    nonstandardFerts.append(el)
+            nonstandardFerts.sort(key = lambda x: Wolke.DB.fertigkeiten[x].printclass)
+            self.writeFertigkeiten(fields, "Indi", nonstandardFerts)
+        else:
+            sortedFerts = sorted(Wolke.Char.fertigkeiten)
+            sortedFerts.sort(key = lambda x: Wolke.DB.fertigkeiten[x].printclass)
+            self.writeFertigkeiten(fields, "Fertigkeit", sortedFerts)
+        return fields
+
+    def writeFertigkeiten(self, fields, baseStr, fertigkeitenNames):
         count = 1
-        for el in Definitionen.StandardFerts:
+        for el in fertigkeitenNames:
             if el not in Wolke.Char.fertigkeiten:
                 continue
-            base = el[0:5]
-            # Fix Umlaute
-            if el == "Gebräuche":
-                base = "Gebra"
-            elif el == "Überleben":
-                base = "Ueber"
             fertigkeit = Wolke.Char.fertigkeiten[el]
 
-            if not self.CharakterBogen.kurzbogenHack:
-                base = "Fertigkeit" + str(count)
+            if baseStr:
+                base = baseStr + str(count)
                 fields[base + "NA"] = fertigkeit.name           
                 fields[base + "FA"] = fertigkeit.steigerungsfaktor
                 fields[base + "AT"] = \
                     fertigkeit.attribute[0] + '/' + \
                     fertigkeit.attribute[1] + '/' + \
                     fertigkeit.attribute[2]
+            else:
+                base = el[0:5]
+                # Fix Umlaute
+                if el == "Gebräuche":
+                    base = "Gebra"
+                elif el == "Überleben":
+                    base = "Ueber"
 
             fields[base + "BA"] = fertigkeit.basiswert
             fields[base + "FW"] = fertigkeit.wert
@@ -428,47 +444,6 @@ class pdfMeister(object):
             fields[base + "PW"] = fertigkeit.probenwert
             fields[base + "PWT"] = fertigkeit.probenwertTalent
             count += 1
-
-        # Nonstandard Ferts
-        if self.CharakterBogen.kurzbogenHack:
-            count = 1
-
-        for el in Wolke.Char.fertigkeiten:
-            if el in Definitionen.StandardFerts:
-                continue
-            if count > self.CharakterBogen.maxFertigkeiten:
-                break
-            fertigkeit = Wolke.Char.fertigkeiten[el]
-            base = 'Indi' + str(count)
-            if not self.CharakterBogen.kurzbogenHack:
-                base = 'Fertigkeit' + str(count)
-            fields[base + 'NA'] = \
-                fertigkeit.name
-            fields[base + 'FA'] = \
-                fertigkeit.steigerungsfaktor
-            fields[base + 'AT'] = \
-                fertigkeit.attribute[0] + '/' + \
-                fertigkeit.attribute[1] + '/' + \
-                fertigkeit.attribute[2]
-            fields[base + 'BA'] = \
-                fertigkeit.basiswert
-            fields[base + 'FW'] = \
-                fertigkeit.wert
-            fields[base + 'PW'] = \
-                fertigkeit.probenwert
-            fields[base + 'PWT'] = \
-                fertigkeit.probenwertTalent
-            talStr = ""
-            for el2 in fertigkeit.gekaufteTalente:
-                talStr += ", "
-                talStr += el2
-                if el2 in Wolke.Char.talenteVariable:
-                    talStr += " (" + str(Wolke.Char.talenteVariable[el2]) + \
-                                 " EP)"
-            talStr = talStr[2:]
-            fields[base + 'TA'] = talStr
-            count += 1
-        return fields
 
     def pdfFünfterBlock(self, fields):
         logging.debug("PDF Block 5")
