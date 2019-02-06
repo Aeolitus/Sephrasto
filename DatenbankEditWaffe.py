@@ -108,7 +108,7 @@ class Ui_talentDialog(object):
         self.spinW6 = QtWidgets.QSpinBox(talentDialog)
         self.spinW6.setAlignment(QtCore.Qt.AlignCenter)
         self.spinW6.setButtonSymbols(QtWidgets.QAbstractSpinBox.PlusMinus)
-        self.spinW6.setMinimum(1)
+        self.spinW6.setMinimum(0)
         self.spinW6.setMaximum(9)
         self.spinW6.setProperty("value", 2)
         self.spinW6.setObjectName("spinW6")

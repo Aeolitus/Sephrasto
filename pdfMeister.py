@@ -479,12 +479,20 @@ class pdfMeister(object):
             sg = ""
             if el.plus >= 0:
                 sg = "+"
-            fields[base + 'TP'] = str(el.W6) + "W6" + sg + str(el.plus)
+
+            keinSchaden = el.W6 == 0 and el.plus == 0
+            
+            fields[base + 'TP'] = "-" if keinSchaden else str(el.W6) + "W6" + sg + str(el.plus)
             fields[base + 'HA'] = str(el.haerte)
             fields[base + 'EI'] = ", ".join(el.eigenschaften)
 
             fields[base + 'ATm'] = str(waffenwerte.AT)
-            fields[base + 'VTm'] = str(waffenwerte.VT)
+
+            if type(el) == Objekte.Fernkampfwaffe or (el.name in Wolke.DB.waffen and Wolke.DB.waffen[el.name].talent == 'Lanzenreiten'):
+                fields[base + 'VTm'] = "-"
+            else:
+                fields[base + 'VTm'] = str(waffenwerte.VT)
+
             fields[base + 'RW'] = str(waffenwerte.RW)
 
             wm = 0
@@ -492,12 +500,13 @@ class pdfMeister(object):
                 wm = el.lz
             else:
                 wm = el.wm
+
             fields[base + 'WM'] = wm
 
             sg = ""
             if waffenwerte.TPPlus >= 0:
                 sg = "+"
-            fields[base + 'TPm'] = str(waffenwerte.TPW6) + "W6" + sg + str(waffenwerte.TPPlus)
+            fields[base + 'TPm'] = "-" if keinSchaden else str(waffenwerte.TPW6) + "W6" + sg + str(waffenwerte.TPPlus)
 
             if count >= 8:
                 break
