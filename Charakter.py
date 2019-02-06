@@ -966,7 +966,7 @@ class Char():
             logging.debug("Character: VersionXML found")
             charDBVersion = int(versionXml.find('DatenbankVersion').text)
             userDBCRC = int(versionXml.find('NutzerDatenbankCRC').text)
-            userDBName = versionXml.find('NutzerDatenbankName').text
+            userDBName = versionXml.find('NutzerDatenbankName').text or 'Keine Nutzer-Regelbasis'
             if Wolke.DB.userDbXml is not None:
                 currentUserDBCRC = binascii.crc32(etree.tostring(Wolke.DB.userDbXml))
                 if userDBCRC != 0 and userDBCRC != currentUserDBCRC:
