@@ -45,7 +45,7 @@ class TalentPicker(object):
         else: 
             self.baseStr = None
         
-        self.rowCount = 0
+        talente = []
         for el in Wolke.DB.talente:
             talent = Wolke.DB.talente[el]
             if (ueber and not talent.isSpezialTalent()) or (not ueber and talent.isSpezialTalent()):
@@ -54,15 +54,20 @@ class TalentPicker(object):
                 if talent.variable != -1:
                     if el not in self.talenteVariable:
                         self.talenteVariable[el] = talent.kosten
-                item = QtGui.QStandardItem(self.displayStr(el))
-                item.setEditable(False)
-                item.setCheckable(True)
-                if el in self.gekaufteTalente:
-                    item.setCheckState(2)
-                else:
-                    item.setCheckState(0)
-                self.model.appendRow(item)
-                self.rowCount += 1
+                talente.append(el)
+        talente.sort()
+
+        self.rowCount = 0
+        for el in talente:
+            item = QtGui.QStandardItem(self.displayStr(el))
+            item.setEditable(False)
+            item.setCheckable(True)
+            if el in self.gekaufteTalente:
+                item.setCheckState(2)
+            else:
+                item.setCheckState(0)
+            self.model.appendRow(item)
+            self.rowCount += 1
         if self.rowCount > 0:
             self.updateFields(self.dataStr(self.model.item(0).text()))
         self.ui.spinKosten.valueChanged.connect(self.spinChanged)

@@ -40,6 +40,10 @@ class CharakterVorteileWrapper(QtCore.QObject):
         for el in Wolke.DB.vorteile:
             idx = Wolke.DB.vorteile[el].typ
             vortList[idx].append(el)
+        
+        for vorteile in vortList:
+            vorteile.sort()
+
         for i in range(len(vortList)):
             parent = QtWidgets.QTreeWidgetItem(self.uiVor.treeWidget)
             parent.setText(0, VorteilTypen[i])

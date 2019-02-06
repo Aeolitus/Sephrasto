@@ -396,8 +396,7 @@ class pdfMeister(object):
             nonstandardFerts.sort(key = lambda x: Wolke.DB.fertigkeiten[x].printclass)
             self.writeFertigkeiten(fields, "Indi", nonstandardFerts)
         else:
-            sortedFerts = sorted(Wolke.Char.fertigkeiten)
-            sortedFerts.sort(key = lambda x: Wolke.DB.fertigkeiten[x].printclass)
+            sortedFerts = sorted(Wolke.Char.fertigkeiten, key = lambda x: (Wolke.DB.fertigkeiten[x].printclass, x))
             self.writeFertigkeiten(fields, "Fertigkeit", sortedFerts)
         return fields
 
@@ -427,7 +426,9 @@ class pdfMeister(object):
             fields[base + "BA"] = fertigkeit.basiswert
             fields[base + "FW"] = fertigkeit.wert
             talStr = ""
-            for el2 in fertigkeit.gekaufteTalente:
+
+            talente = sorted(fertigkeit.gekaufteTalente)
+            for el2 in talente:
                 talStr += ", "
                 if el2.startswith("Gebräuche: "):
                     talStr += el2[11:]
@@ -528,13 +529,18 @@ class pdfMeister(object):
                 countFerts += 1
         talsList = set(talsList)
 
-        countF = 1
-        countT = 1
+        fertsList = []
         for f in Wolke.Char.übernatürlicheFertigkeiten:
             if Wolke.Char.übernatürlicheFertigkeiten[f].wert <= 0 and\
                     len(Wolke.Char.übernatürlicheFertigkeiten[f].
                         gekaufteTalente) == 0:
                 continue
+            fertsList.append(f)
+        fertsList.sort(key = lambda x: (Wolke.DB.übernatürlicheFertigkeiten[x].printclass, x))
+
+        countF = 1
+        countT = 1
+        for f in fertsList:
             fe = Wolke.Char.übernatürlicheFertigkeiten[f]
 
             if countF < 13:
@@ -624,7 +630,7 @@ class pdfMeister(object):
                 #     self.Talents[tt.na] = tt
 
         # Sort by printclass. Old sorting stays for same printclass, so this should not mess stuff up.
-        self.Talents.sort(key = lambda x: x.pc)
+        self.Talents.sort(key = lambda x: (x.pc, x.na))
         i = 0
         while i < len(self.Talents):
             if i < 30:

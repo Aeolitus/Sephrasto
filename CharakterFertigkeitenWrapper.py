@@ -61,6 +61,10 @@ class FertigkeitenWrapper(QtCore.QObject):
                 if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.fertigkeiten[el].voraussetzungen)]
         if temp != self.availableFerts:
             self.availableFerts = temp
+
+            # sort by printclass, then by name
+            self.availableFerts.sort(key = lambda x: (Wolke.DB.fertigkeiten[x].printclass, x)) 
+
             self.uiFert.tableWidget.clear()
             
             self.uiFert.tableWidget.setRowCount(len(self.availableFerts))

@@ -353,9 +353,9 @@ class Datenbank():
 
             printClass = fer.get('printclass')
             if printClass:
-                T.printclass = int(printClass)
+                F.printclass = int(printClass)
             else:
-                T.printclass = -1
+                F.printclass = -1
             self.übernatürlicheFertigkeiten.update({F.name: F})
           
         #Waffeneigenschaften

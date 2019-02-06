@@ -58,6 +58,10 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.übernatürlicheFertigkeiten[el].voraussetzungen)]
         if temp != self.availableFerts:
             self.availableFerts = temp
+
+            # sort by printclass, then by name
+            self.availableFerts.sort(key = lambda x: (Wolke.DB.übernatürlicheFertigkeiten[x].printclass, x)) 
+
             self.uiFert.tableWidget.clear()
             
             self.uiFert.tableWidget.setRowCount(len(self.availableFerts))
