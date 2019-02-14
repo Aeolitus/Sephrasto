@@ -108,10 +108,7 @@ class EquipWrapper(QtCore.QObject):
                     W.name = eval("self.uiEq.edit" + el + "name.text()")
                     W.rw = eval("self.uiEq.spin" + el + "rw.value()")
                     if W.name == "Unbewaffnet":
-                        wsmod = Wolke.Char.rsmod + Wolke.Char.ws
-                        if len(Wolke.Char.rüstung) > 0:    
-                            wsmod += int(sum(Wolke.Char.rüstung[0].rs)/6+0.5+0.0001)
-                        W.haerte = wsmod
+                        W.haerte = Wolke.Char.wsStern
                     else:
                         W.haerte = eval("self.uiEq.spin" + el + "h.value()")
                     W.W6 = eval("self.uiEq.spin" + el + "w6.value()")
@@ -236,10 +233,7 @@ class EquipWrapper(QtCore.QObject):
         eval("self.uiEq.spin" + Warr[count] + "w6.setValue("+ str(W.W6) +")")
         eval("self.uiEq.spin" + Warr[count] + "plus.setValue("+ str(W.plus) +")")
         if W.name == "Unbewaffnet":
-            wsmod = Wolke.Char.rsmod + Wolke.Char.ws
-            if len(Wolke.Char.rüstung) > 0:    
-                wsmod += int(sum(Wolke.Char.rüstung[0].rs)/6+0.5+0.0001)
-            eval("self.uiEq.spin" + Warr[count] + "h.setValue("+ str(wsmod) +")")
+            eval("self.uiEq.spin" + Warr[count] + "h.setValue("+ str(Wolke.Char.wsStern) +")")
         else:
             eval("self.uiEq.spin" + Warr[count] + "h.setValue("+ str(W.haerte) +")")
         eval("self.uiEq.spin" + Warr[count] + "rw.setValue("+ str(W.rw) +")")

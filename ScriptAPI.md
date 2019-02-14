@@ -14,7 +14,7 @@ Die folgenden Funktionen stehen neben Python-Builtins wie 'round' zur Verfügung
     AsP: getAsPBasis, setAsPBasis, modifyAsPBasis, getAsPMod, setAsPMod, modifyAsPMod
     KaP: getKaPBasis, setKaPBasis, modifyKaPBasis, getKaPMod, setKaPMod, modifyKaPMod
     SchiP: getSchiPMax, setSchiPMax, modifySchiPMax
-    WS: getWSBasis, getWS, setWS, modifyWS
+    WS: getWSBasis, getWS, setWS, modifyWS, getWSStern
     MR: getMRBasis, getMR, setMR, modifyMR
     GS: getGSBasis, getGS, setGS, modifyGS
     DH: getDH, setDH, modifyDH
@@ -46,7 +46,8 @@ Die folgenden Funktionen stehen neben Python-Builtins wie 'round' zur Verfügung
 Diese Funktionen stehen nur innerhalb von Waffeneigenschaft-Scripts zur Verfügung.
 
     Parameter dieser WE als string erhalten: getEigenschaftParam <Parameter: Parameternummer>. Parameter müssen mit Semikolon getrennt werden.  
-    Waffen mit dieser WE modifizieren: modifyWaffeAT, modifyWaffeVT, modifyWaffeTPW6, modifyWaffeTPPlus
+    Waffen mit dieser WE modifizieren: modifyWaffeAT, modifyWaffeVT, modifyWaffeTPW6, modifyWaffeTPPlus, modifyWaffeHaerte, setWaffeAT, setWaffeVT, setWaffeTPW6, setWaffeTPPlus, setWaffeHaerte
+	Aktuelle Werte der Waffe erhalten: getWaffenWerte <Return: { AT, VT, RW, TPW6, TPPlus, Haerte }>
        
 ## Beispiele
 

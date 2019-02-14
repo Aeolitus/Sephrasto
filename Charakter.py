@@ -32,6 +32,7 @@ class Waffenwerte():
         self.RW = 0
         self.TPW6 = 0
         self.TPPlus = 0
+        self.Haerte = 0
 
 class Char():
     ''' 
@@ -62,6 +63,7 @@ class Char():
             self.attribute[key] = Fertigkeiten.Attribut(key)
         self.wsBasis = -1
         self.ws = -1
+        self.wsStern = -1
         self.mrBasis = -1
         self.mr = -1
         self.gsBasis = -1
@@ -189,6 +191,7 @@ class Char():
             'getWS' : lambda: self.ws,
             'setWS' : lambda ws: setattr(self, 'ws', ws),
             'modifyWS' : lambda ws: setattr(self, 'ws', self.ws + ws),
+            'getWSStern' : lambda: self.wsStern,
 
             #MR
             'getMRBasis' : lambda: self.mrBasis,
@@ -240,7 +243,7 @@ class Char():
             'getAttribut' : lambda attribut: self.attribute[attribut].wert,
 
             #Misc
-            'addWaffeneigenschaft' : self.API_addWaffeneigenschaft            
+            'addWaffeneigenschaft' : self.API_addWaffeneigenschaft
         }
 
         #Add Attribute to API (readonly)
@@ -253,6 +256,13 @@ class Char():
             'modifyWaffeVT' : lambda vtmod: setattr(self.currentWaffenwerte, 'VT', self.currentWaffenwerte.VT + vtmod),
             'modifyWaffeTPW6' : lambda tpw6mod: setattr(self.currentWaffenwerte, 'TPW6', self.currentWaffenwerte.TPW6 + tpw6mod),
             'modifyWaffeTPPlus' : lambda tpplusmod: setattr(self.currentWaffenwerte, 'TPPlus', self.currentWaffenwerte.TPPlus + tpplusmod),
+            'modifyWaffeHaerte' : lambda haertemod: setattr(self.currentWaffenwerte, 'Haerte', self.currentWaffenwerte.Haerte + haertemod),
+            'setWaffeAT' : lambda at: setattr(self.currentWaffenwerte, 'AT', at),
+            'setWaffeVT' : lambda vt: setattr(self.currentWaffenwerte, 'VT', vt),
+            'setWaffeTPW6' : lambda tpw6: setattr(self.currentWaffenwerte, 'TPW6', tpw6),
+            'setWaffeTPPlus' : lambda tpplus: setattr(self.currentWaffenwerte, 'TPPlus', tpplus),
+            'setWaffeHaerte' : lambda haerte: setattr(self.currentWaffenwerte, 'Haerte', haerte),
+            'getWaffenWerte' : lambda: copy.deepcopy(self.currentWaffenwerte)
         }
 
         for k,v in self.charakterScriptAPI.items():
@@ -384,10 +394,13 @@ class Char():
                 logging.info("Character: applying script for Vorteil " + vort.name)
                 exec(vort.script, self.charakterScriptAPI)
 
-        #Update BE afterwards because Rüstungsgewöhnung is modified by Vorteil scripts
+        #Update these values afterwards because values they depend on might be modified by Vorteil scripts
         self.be = max(0,self.be-self.rüstungsgewöhnung)
 
-        #Update Schips afterwards because SchipsMax is modified by Vorteil scripts
+        self.wsStern = self.rsmod + self.ws
+        if len(self.rüstung) > 0:
+            self.wsStern += int(sum(self.rüstung[0].rs)/6+0.5+0.0001)
+
         self.schips = self.schipsMax
         if self.finanzen >= 2: 
             self.schips += self.finanzen - 2
@@ -408,6 +421,7 @@ class Char():
             waffenwerte.RW = el.rw
             waffenwerte.TPW6 = el.W6
             waffenwerte.TPPlus = el.plus
+            waffenwerte.Haerte = el.haerte
 
             # Calculate modifiers for AT, PA, TP from Kampfstil and Talent
             if el.name in Wolke.DB.waffen:

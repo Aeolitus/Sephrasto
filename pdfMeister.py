@@ -20,6 +20,8 @@ import logging
 import tempfile
 from Charakter import KampfstilMod
 from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
+import sys
+import traceback
 
 CharakterbogenInfo = namedtuple('CharakterbogenInfo', 'filePath maxVorteile maxFreie maxFertigkeiten seitenProfan kurzbogenHack')
 
@@ -246,10 +248,7 @@ class pdfMeister(object):
         trueBE = max(Wolke.Char.be, 0)
         fields['DHm'] = max(Wolke.Char.dh - 2*trueBE, 1)
         fields['GSm'] = max(Wolke.Char.gs-trueBE, 1)
-        wsmod = Wolke.Char.rsmod + Wolke.Char.ws
-        if len(Wolke.Char.rüstung) > 0:
-            wsmod += int(sum(Wolke.Char.rüstung[0].rs)/6+0.5+0.0001)
-        fields['WSm'] = wsmod
+        fields['WSm'] = Wolke.Char.wsStern
 
         return fields
 
@@ -483,7 +482,7 @@ class pdfMeister(object):
             keinSchaden = el.W6 == 0 and el.plus == 0
             
             fields[base + 'TP'] = "-" if keinSchaden else str(el.W6) + "W6" + sg + str(el.plus)
-            fields[base + 'HA'] = str(el.haerte)
+            fields[base + 'HA'] = str(waffenwerte.Haerte)
             fields[base + 'EI'] = ", ".join(el.eigenschaften)
 
             fields[base + 'ATm'] = str(waffenwerte.AT)
@@ -673,7 +672,16 @@ class pdfMeister(object):
                     api[k] = v
             api['data'] = fields
             api['sephrastoExport'] = True
-            exec(open(Wolke.Settings['Pfad-Export-Plugin'], mode="r", encoding="utf-8").read(), api)
+
+            try:
+                exec(open(Wolke.Settings['Pfad-Export-Plugin'], mode="r", encoding="utf-8").read(), api)
+            except Exception as err:
+                error_class = err.__class__.__name__
+                detail = err.args[0]
+                cl, exc, tb = sys.exc_info()
+                line_number = traceback.extract_tb(tb)[-1][1]
+                raise Exception("%s at line %d: %s" % (error_class, line_number, detail))
+
             return api['sephrastoExport']
         return True
 
