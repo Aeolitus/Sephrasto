@@ -21,9 +21,26 @@ class CharakterFreieFertWrapper(QtCore.QObject):
         self.uiFert = CharakterFreieFert.Ui_Form()
         self.uiFert.setupUi(self.formFert)
         
-        for count in range(1,13):
-            eval("self.uiFert.editFF" + str(count) + ".editingFinished.connect(self.updateFreie)")
-            eval("self.uiFert.comboFF" + str(count) + ".currentIndexChanged.connect(self.updateFreie)")
+        self.ffCount = 0
+        for row in range(1,8):
+            for column in range(1,5):
+                self.ffCount +=1
+                ffLayout = QtWidgets.QHBoxLayout()
+                ffEdit = QtWidgets.QLineEdit()
+                ffEdit.editingFinished.connect(self.updateFreie)
+                setattr(self.uiFert, "editFF" + str(self.ffCount), ffEdit)
+                ffLayout.addWidget(ffEdit)
+                ffCombo = QtWidgets.QComboBox()
+                ffCombo.addItem("I")
+                ffCombo.addItem("II")
+                ffCombo.addItem("III")
+                ffCombo.currentIndexChanged.connect(self.updateFreie)
+                setattr(self.uiFert, "comboFF" + str(self.ffCount), ffCombo)
+                ffLayout.addWidget(ffCombo)
+
+                self.uiFert.freieFertsGrid.addLayout(ffLayout, row, column)
+                
+        self.uiFert.comboFF1.setEnabled(False)
         
         self.loadFreie()
         
@@ -40,9 +57,9 @@ class CharakterFreieFertWrapper(QtCore.QObject):
             eval("self.uiFert.editFF" + str(count) + ".blockSignals(False)")
             eval("self.uiFert.comboFF" + str(count) + ".blockSignals(False)")
             count += 1
-            if count > 12:
+            if count > self.ffCount:
                 break
-        while count < 13:
+        while count < self.ffCount + 1:
             eval("self.uiFert.editFF" + str(count) + ".blockSignals(True)")
             eval("self.uiFert.comboFF" + str(count) + ".blockSignals(True)")
             eval("self.uiFert.editFF" + str(count) + ".setText(\"\")")
@@ -57,7 +74,7 @@ class CharakterFreieFertWrapper(QtCore.QObject):
     
     def updateFreie(self):
         freieNeu = []
-        for count in range(1,13):
+        for count in range(1,self.ffCount + 1):
             tmp = eval("self.uiFert.editFF" + str(count) + ".text()")
             val = eval("self.uiFert.comboFF" + str(count) + ".currentIndex()")+1
             fert = Fertigkeiten.FreieFertigkeit()

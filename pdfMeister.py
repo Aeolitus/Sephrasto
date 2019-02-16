@@ -380,10 +380,14 @@ class pdfMeister(object):
             resp = el.name + " "
             for i in range(el.wert):
                 resp += "I"
-            fields['Frei' + str(count)] = resp
+
+            if fields['Frei' + str(count)]:
+                fields['Frei' + str(count)] += ", " + resp
+            else:
+                fields['Frei' + str(count)] = resp
             count += 1
             if count > self.CharakterBogen.maxFreie:
-                break
+                count = 1
 
         if self.CharakterBogen.kurzbogenHack:
             self.writeFertigkeiten(fields, None, Definitionen.StandardFerts)
