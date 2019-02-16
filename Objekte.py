@@ -32,6 +32,7 @@ class Waffe(Objekt):
         self.talent = ''
         self.kampfstile = []
         self.kampfstil = ""
+        self.anzeigename = ""
         self.isUserAdded = True
         
 class Nahkampfwaffe(Waffe):

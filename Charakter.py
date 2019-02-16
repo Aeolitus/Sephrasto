@@ -891,7 +891,8 @@ class Char():
         waf = etree.SubElement(aus,'Waffen')
         for waff in self.waffen:
             wafNode = etree.SubElement(waf,'Waffe')
-            wafNode.set('name',waff.name)
+            wafNode.set('name',waff.anzeigename)
+            wafNode.set('id',waff.name)
             wafNode.set('W6',str(waff.W6))
             wafNode.set('plus',str(waff.plus))
             wafNode.set('eigenschaften',", ".join(waff.eigenschaften))
@@ -1079,7 +1080,8 @@ class Char():
             else:
                 waff = Objekte.Fernkampfwaffe()
                 waff.lz = int(waf.attrib['lz'])
-            waff.name = waf.attrib['name']
+            waff.anzeigename = waf.attrib['name']
+            waff.name = waf.get('id') or waff.anzeigename
             waff.rw = int(waf.attrib['rw'])
             waff.W6 = int(waf.attrib['W6'])
             waff.plus = int(waf.attrib['plus'])

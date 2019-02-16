@@ -105,7 +105,11 @@ class EquipWrapper(QtCore.QObject):
                     else:
                         W = Objekte.Nahkampfwaffe()
                         W.wm = eval("self.uiEq.spin" + el + "wm.value()")
-                    W.name = eval("self.uiEq.edit" + el + "name.text()")
+                    W.name = eval("self.uiEq.edit" + el + "name.toolTip()")
+                    W.anzeigename = eval("self.uiEq.edit" + el + "name.text()")
+                    if not W.name and W.anzeigename and W.anzeigename in Wolke.DB.waffen:
+                        W.name = W.anzeigename
+
                     W.rw = eval("self.uiEq.spin" + el + "rw.value()")
                     if W.name == "Unbewaffnet":
                         W.haerte = Wolke.Char.wsStern
@@ -175,6 +179,7 @@ class EquipWrapper(QtCore.QObject):
         while count < 8:
             Warr = ["W1","W2","W3","W4","W5","W6","W7","W8"]
             eval("self.uiEq.edit" + Warr[count] + "name.setText(\"\")")
+            eval("self.uiEq.edit" + Warr[count] + "name.setToolTip(\"\")")
             eval("self.uiEq.comboStil" + str(count+1) + ".clear()")
             eval("self.uiEq.edit" + Warr[count] + "eig.setText(\"\")")
             eval("self.uiEq.spin" + Warr[count] + "w6.setValue(0)")
@@ -190,9 +195,10 @@ class EquipWrapper(QtCore.QObject):
         
     def refreshKampfstile(self, index):
         logging.debug("Starting refreshKampfstile for index " + str(index))
-        name = eval("self.uiEq.editW" + str(index+1) + "name.text()")
+        name = eval("self.uiEq.editW" + str(index+1) + "name.toolTip()")
+        anzeigename = eval("self.uiEq.editW" + str(index+1) + "name.text()")
         tmp = eval("self.uiEq.comboStil" + str(index+1) + ".currentText()")
-        if name != "":
+        if name != "" or anzeigename != "":
             if name in Wolke.DB.waffen:
                 entries = []
                 entries.append(Definitionen.KeinKampfstil)
@@ -226,7 +232,9 @@ class EquipWrapper(QtCore.QObject):
         Warr = ["W1","W2","W3","W4","W5","W6","W7","W8"]
         count = index - 1
         getName = lambda : W.name
-        eval("self.uiEq.edit" + Warr[count] + "name.setText(getName())")
+        getAnzeigename = lambda : W.anzeigename or W.name
+        eval("self.uiEq.edit" + Warr[count] + "name.setText(getAnzeigename())")
+        eval("self.uiEq.edit" + Warr[count] + "name.setToolTip(getName())")
         self.refreshKampfstile(count)
         getEigenschaften = lambda : ", ".join(W.eigenschaften)
         eval("self.uiEq.edit" + Warr[count] + "eig.setText(getEigenschaften())")
