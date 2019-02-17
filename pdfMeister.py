@@ -39,7 +39,7 @@ class pdfMeister(object):
         self.RulesPage = "Regeln.pdf"
         self.Rules = []
         self.RuleWeights = []
-        self.RuleCategories = ['ALLGEMEINE VORTEILE', 'PROFANE VORTEILE', 'KAMPFVORTEILE', 'WAFFENEIGENSCHAFTEN', 'NAHKAMPFMANÖVER', 'FERNKAMPFMANÖVER', 'ÜBERNATÜRLICHE VORTEILE', 'SPONTANE MODIFIKATIONEN (ZAUBER)', 'SPONTANE MODIFIKATIONEN (LITURGIEN)', 'ÜBERNATÜRLICHE TALENTE', 'SONSTIGES']
+        self.RuleCategories = ['ALLGEMEINE VORTEILE', 'PROFANE VORTEILE', 'KAMPFVORTEILE', 'AKTIONEN', 'WAFFENEIGENSCHAFTEN', 'NAHKAMPFMANÖVER', 'FERNKAMPFMANÖVER', 'ÜBERNATÜRLICHE VORTEILE', 'SPONTANE MODIFIKATIONEN (ZAUBER)', 'SPONTANE MODIFIKATIONEN (LITURGIEN)', 'ÜBERNATÜRLICHE TALENTE', 'SONSTIGES']
         self.Talents = []
         self.Energie = 0
     
@@ -866,6 +866,9 @@ class pdfMeister(object):
 
         sortM = list(Wolke.DB.manöver.keys())
         sortM = sorted(sortM, key=str.lower)
+
+        aktionen = [el for el in sortM if (Wolke.DB.manöver[el].typ == 5)]
+
         manövernah = [el for el in sortM if (Wolke.DB.manöver[el].typ == 0)]
 
         waffeneigenschaften = []
@@ -906,22 +909,24 @@ class pdfMeister(object):
             pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[1], profan)
         if kampf:
             pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[2], kampf)
+        if aktionen:
+            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[3], aktionen)
         if waffeneigenschaften:
-            pdfMeister.appendWaffeneigenschaften(self.Rules, self.RuleWeights, self.RuleCategories[3], waffeneigenschaften)
+            pdfMeister.appendWaffeneigenschaften(self.Rules, self.RuleWeights, self.RuleCategories[4], waffeneigenschaften)
         if manövernah:
-            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[4], manövernah)
+            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[5], manövernah)
         if manöverfern:
-            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[5], manöverfern)
+            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[6], manöverfern)
         if ueber:
-            pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[6], ueber)
+            pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[7], ueber)
         if manövermagisch:
-            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[7], manövermagisch)
+            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[8], manövermagisch)
         if manöverkarmal:
-            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[8], manöverkarmal)
+            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[9], manöverkarmal)
         if ueberTalente:
-            pdfMeister.appendTalente(self.Rules, self.RuleWeights, self.RuleCategories[9], ueberTalente)
+            pdfMeister.appendTalente(self.Rules, self.RuleWeights, self.RuleCategories[10], ueberTalente)
         if manöversonstiges:
-            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[10], manöversonstiges)
+            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[11], manöversonstiges)
 
     def writeRules(self, fields, start, roughLineCount):
         weights = 0
