@@ -307,8 +307,8 @@ class pdfMeister(object):
             # so type doesnt matter
             if el in Wolke.Char.vorteileVariable:
                 removed.append(el)
-                nname = el + " (" + str(Wolke.Char.vorteileVariable[el]) + \
-                    " EP)"
+                vk = Wolke.Char.vorteileVariable[el]
+                nname = el + " (" + vk.kommentar + "; " + str(vk.kosten) + " EP)"
                 added.append(nname)
                 typeDict[nname] = typeDict[el]
         for el in removed:

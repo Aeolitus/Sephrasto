@@ -34,6 +34,11 @@ class Waffenwerte():
         self.TPPlus = 0
         self.Haerte = 0
 
+class VariableKosten():
+    def __init__(self):
+        self.kosten = 0
+        self.kommentar = ""
+
 class Char():
     ''' 
     Main Workhorse Class. Contains all information about a charakter, performs
@@ -82,7 +87,7 @@ class Char():
         
         #Dritter Block: Vorteile, gespeichert als String
         self.vorteile = []
-        self.vorteileVariable = {} #Contains Name: Cost
+        self.vorteileVariable = {} #Contains Name: VariableKosten
         self.minderpakt = None
         self.kampfstilMods = {}
 
@@ -504,11 +509,12 @@ class Char():
         for vor in self.vorteile:
             if vor == self.minderpakt:
                 if "Minderpakt" in self.vorteile:
+                    spent += 20
                     continue
                 else:
                     self.minderpakt = None
             if vor in self.vorteileVariable:
-                spent += self.vorteileVariable[vor]
+                spent += self.vorteileVariable[vor].kosten
             elif Wolke.DB.vorteile[vor].kosten != -1:
                 spent += Wolke.DB.vorteile[vor].kosten
         
@@ -855,7 +861,7 @@ class Char():
             v = etree.SubElement(vor,'Vorteil')
             v.text = vort
             if vort in self.vorteileVariable:
-                v.set('variable',str(self.vorteileVariable[vort]))
+                v.set('variable',str(self.vorteileVariable[vort].kosten) + "," + self.vorteileVariable[vort].kommentar)
             else:
                 v.set('variable','-1')
         #Vierter Block
@@ -1033,9 +1039,13 @@ class Char():
                 vIgnored.append(vor.text)
                 continue
             self.vorteile.append(vor.text)
-            var = int(vor.get('variable'))
-            if var != -1:
-                self.vorteileVariable[vor.text] = var
+            var = list(map(str.strip, vor.get('variable').split(",", 1)))
+            if int(var[0]) != -1:
+                vk = VariableKosten()
+                vk.kosten = int(var[0])
+                if len(var) > 1:
+                    vk.kommentar = var[1]
+                self.vorteileVariable[vor.text] = vk
                 
         #Vierter Block
         Wolke.Fehlercode = -46
