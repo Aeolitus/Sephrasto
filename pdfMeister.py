@@ -442,8 +442,8 @@ class pdfMeister(object):
                 else:
                     talStr += el2
                 if el2 in Wolke.Char.talenteVariable:
-                    talStr += " (" + str(Wolke.Char.talenteVariable[el2]) + \
-                                 " EP)"
+                    vk = Wolke.Char.talenteVariable[el2]
+                    talStr += " (" + vk.kommentar + ")"
             talStr = talStr[2:]
             fields[base + "TA"] = talStr
             fields[base + "PW"] = fertigkeit.probenwert
@@ -577,8 +577,8 @@ class pdfMeister(object):
                 tt = Talentbox.Talentbox()
                 mod = ""
                 if t in Wolke.Char.talenteVariable:
-                    mod += " (" + str(Wolke.Char.talenteVariable[t]) + \
-                              " EP)"
+                    vk = Wolke.Char.talenteVariable[t]
+                    mod += " (" + vk.kommentar + ")"
 
                 #if t+mod in self.Talents:
                 #    if fe.probenwertTalent > self.Talents[t+mod].pw:

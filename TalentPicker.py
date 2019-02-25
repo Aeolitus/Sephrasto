@@ -7,6 +7,8 @@ Created on Sun Mar  5 16:45:34 2017
 import CharakterTalente
 from PyQt5 import QtCore, QtWidgets, QtGui
 from Wolke import Wolke
+from Charakter import VariableKosten
+import copy
 
 class TalentPicker(object):
     def __init__(self,fert,ueber):
@@ -17,7 +19,7 @@ class TalentPicker(object):
         else:
             self.refC = Wolke.Char.fertigkeiten
             self.refD = Wolke.DB.fertigkeiten
-        self.talenteVariable = Wolke.Char.talenteVariable.copy()
+        self.talenteVariable = copy.deepcopy(Wolke.Char.talenteVariable)
         self.gekaufteTalente = self.refC[fert].gekaufteTalente.copy()
         self.fert = fert
         self.Form = QtWidgets.QDialog()
@@ -51,9 +53,8 @@ class TalentPicker(object):
             if (ueber and not talent.isSpezialTalent()) or (not ueber and talent.isSpezialTalent()):
                 continue
             if fert in talent.fertigkeiten and Wolke.Char.voraussetzungenPrüfen(talent.voraussetzungen):
-                if talent.variable != -1:
-                    if el not in self.talenteVariable:
-                        self.talenteVariable[el] = talent.kosten
+                if talent.variable != -1 and not el in self.talenteVariable:
+                    self.setVariableKosten(el, Wolke.Char.getTalentCost(el, self.refD[self.fert].steigerungsfaktor), None)
                 talente.append(el)
         talente.sort()
 
@@ -70,6 +71,7 @@ class TalentPicker(object):
             self.rowCount += 1
         if self.rowCount > 0:
             self.updateFields(self.dataStr(self.model.item(0).text()))
+        self.ui.textKommentar.textChanged.connect(self.kommentarChanged)
         self.ui.spinKosten.valueChanged.connect(self.spinChanged)
         self.ui.spinKosten.setStyleSheet("QSpinBox {background-color: #FFFFFF}")
         self.ui.listTalente.setModel(self.model)
@@ -85,7 +87,7 @@ class TalentPicker(object):
                         if el in self.refC:
                             if tmp not in self.refC[el].gekaufteTalente:
                                 self.refC[el].gekaufteTalente.append(tmp)
-                    if Wolke.DB.talente[tmp].variable != -1:
+                    if tmp in self.talenteVariable:
                         Wolke.Char.talenteVariable[tmp] = self.talenteVariable[tmp]
                 else:
                     for el in Wolke.DB.talente[tmp].fertigkeiten:
@@ -97,35 +99,58 @@ class TalentPicker(object):
         else:
             self.gekaufteTalente = None
      
+    def setVariableKosten(self, name, kosten, kommentar):
+        if Wolke.DB.talente[name].variable == -1:
+            return
+
+        if not name in self.talenteVariable:
+            vk = VariableKosten()
+            self.talenteVariable[name] = vk
+
+        if kosten != None:
+            self.talenteVariable[name].kosten = kosten
+        if kommentar != None:
+            self.talenteVariable[name].kommentar = kommentar
+
     def talChanged(self, item, prev):
         text = self.dataStr(self.model.itemData(item)[0])
         self.updateFields(text)
         
     def spinChanged(self):
-        if self.ui.labelName.text() in self.talenteVariable:
-            self.talenteVariable[self.ui.labelName.text()] = self.ui.spinKosten.value()
+        self.setVariableKosten(self.ui.labelName.text(), self.ui.spinKosten.value(), None)
         
+    def kommentarChanged(self, text):
+        self.setVariableKosten(self.ui.labelName.text(), None, text)
+
     def updateFields(self, talent):
         if talent is not None:
             self.ui.labelName.setText(self.displayStr(Wolke.DB.talente[talent].name))
+            self.ui.labelInfo.hide()
+            self.ui.spinKosten.setReadOnly(True)
+            self.ui.spinKosten.setButtonSymbols(2)
+            self.ui.spinKosten.setMinimum(0)
+            self.ui.textKommentar.hide()
+            self.ui.labelKommentar.hide()
             if Wolke.DB.talente[talent].kosten == -1:
                 if Wolke.DB.talente[talent].verbilligt:
+                    self.ui.labelInfo.show()
                     self.ui.labelInfo.setText("Verbilligt")
-                    self.ui.spinKosten.setValue(self.refD[self.fert].steigerungsfaktor*10)
-                else:
-                    self.ui.labelInfo.setText("")
-                    self.ui.spinKosten.setValue(self.refD[self.fert].steigerungsfaktor*20)
             else:
+                self.ui.labelInfo.show()
                 self.ui.labelInfo.setText("Spezialtalent")
-                self.ui.spinKosten.setValue(Wolke.DB.talente[talent].kosten)
-            if Wolke.DB.talente[talent].variable != -1:
+
+            if talent in self.talenteVariable:
                 self.ui.spinKosten.setReadOnly(False)
                 self.ui.spinKosten.setButtonSymbols(0)
-                if talent in Wolke.Char.talenteVariable:
-                    self.ui.spinKosten.setValue(Wolke.Char.talenteVariable[talent])
+                step = Wolke.Char.getDefaultTalentCost(talent, self.refD[self.fert].steigerungsfaktor)
+                self.ui.spinKosten.setSingleStep(step)
+                self.ui.spinKosten.setMinimum(step)
+                self.ui.textKommentar.show()
+                self.ui.labelKommentar.show()
+                self.ui.textKommentar.setText(self.talenteVariable[talent].kommentar)
+                self.ui.spinKosten.setValue(self.talenteVariable[talent].kosten)
             else:
-                self.ui.spinKosten.setReadOnly(True)
-                self.ui.spinKosten.setButtonSymbols(2)
+                self.ui.spinKosten.setValue(Wolke.Char.getDefaultTalentCost(talent, self.refD[self.fert].steigerungsfaktor))
             if self.baseStr == "Gebräuche: ":
                 if self.displayStr(Wolke.DB.talente[talent].name) == \
                         Wolke.Char.heimat:

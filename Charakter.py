@@ -94,7 +94,7 @@ class Char():
         #Vierter Block: Fertigkeiten und Freie Fertigkeiten
         self.fertigkeiten = copy.deepcopy(Wolke.DB.fertigkeiten)
         self.freieFertigkeiten = []
-        self.talenteVariable = {} #Contains Name: Cost
+        self.talenteVariable = {} #Contains Name: VariableKosten
 
         #Fünfter Block: Ausrüstung etc
         self.be = 0
@@ -493,6 +493,18 @@ class Char():
             self.currentWaffenwert = None
             self.currentEigenschaft = None
 
+    def getDefaultTalentCost(self, talent, steigerungsfaktor):
+        if Wolke.DB.talente[talent].kosten != -1:
+            return Wolke.DB.talente[talent].kosten
+        if Wolke.DB.talente[talent].verbilligt:
+            return 10*steigerungsfaktor
+        return 20*steigerungsfaktor
+
+    def getTalentCost(self, talent, steigerungsfaktor):
+        if talent in self.talenteVariable:
+            return self.talenteVariable[talent].kosten
+        return self.getDefaultTalentCost(talent, steigerungsfaktor)
+
     def epZaehlen(self):
         '''Berechnet die bisher ausgegebenen EP'''
         spent = 0
@@ -535,14 +547,7 @@ class Char():
                 if fer == "Gebräuche" and tal[11:] == self.heimat:
                     continue
                 paidTalents.append(tal)
-                if tal in self.talenteVariable:
-                    val = self.talenteVariable[tal]
-                elif Wolke.DB.talente[tal].kosten != -1:
-                    val = Wolke.DB.talente[tal].kosten
-                elif Wolke.DB.talente[tal].verbilligt:
-                    val = 10*self.fertigkeiten[fer].steigerungsfaktor
-                else:
-                    val = 20*self.fertigkeiten[fer].steigerungsfaktor
+                val = self.getTalentCost(tal, self.fertigkeiten[fer].steigerungsfaktor)
                 spent += val
                 self.EP_Fertigkeiten_Talente += val
         skip = False                                                 
@@ -569,16 +574,7 @@ class Char():
                 if tal in paidTalents:
                     continue
                 paidTalents.append(tal)
-                if tal in self.talenteVariable:
-                    val = self.talenteVariable[tal]
-                elif Wolke.DB.talente[tal].kosten != -1:
-                    val = Wolke.DB.talente[tal].kosten
-                elif Wolke.DB.talente[tal].verbilligt:
-                    val = 10*self.übernatürlicheFertigkeiten[fer]\
-                                                        .steigerungsfaktor
-                else:
-                    val = 20*self.übernatürlicheFertigkeiten[fer]\
-                                                        .steigerungsfaktor
+                val = self.getTalentCost(tal, self.übernatürlicheFertigkeiten[fer].steigerungsfaktor)
                 spent += val
                 self.EP_Uebernatuerlich_Talente += val
         #Siebter Block ist gratis
@@ -876,7 +872,7 @@ class Char():
                 talNode = etree.SubElement(talentNode,'Talent')
                 talNode.set('name',talent)
                 if talent in self.talenteVariable:
-                    talNode.set('variable',str(self.talenteVariable[talent]))
+                    talNode.set('variable',str(self.talenteVariable[talent].kosten) + "," + self.talenteVariable[talent].kommentar)
                 else:
                     talNode.set('variable','-1')
         Wolke.Fehlercode = -58
@@ -927,7 +923,7 @@ class Char():
                 talNode = etree.SubElement(talentNode,'Talent')
                 talNode.set('name',talent)
                 if talent in self.talenteVariable:
-                    talNode.set('variable',str(self.talenteVariable[talent]))
+                    talNode.set('variable',str(self.talenteVariable[talent].kosten) + "," + self.talenteVariable[talent].kommentar)
                 else:
                     talNode.set('variable','-1')
         #Siebter Block
@@ -1034,19 +1030,26 @@ class Char():
                 self.minderpakt = vor.get('minderpakt')
             else:
                 self.minderpakt = None
-        for vor in root.findall('Vorteile/*'):
-            if not vor.text in Wolke.DB.vorteile:
-                vIgnored.append(vor.text)
-                continue
-            self.vorteile.append(vor.text)
-            var = list(map(str.strip, vor.get('variable').split(",", 1)))
+
+        def parseVariableKosten(variable):
+            var = list(map(str.strip, variable.split(",", 1)))
             if int(var[0]) != -1:
                 vk = VariableKosten()
                 vk.kosten = int(var[0])
                 if len(var) > 1:
                     vk.kommentar = var[1]
-                self.vorteileVariable[vor.text] = vk
-                
+                return vk
+            return None
+
+        for vor in root.findall('Vorteile/*'):
+            if not vor.text in Wolke.DB.vorteile:
+                vIgnored.append(vor.text)
+                continue
+            self.vorteile.append(vor.text)
+            var = parseVariableKosten(vor.get('variable'))
+            if var:
+                self.vorteileVariable[vor.text] = var
+
         #Vierter Block
         Wolke.Fehlercode = -46
         for fer in root.findall('Fertigkeiten/Fertigkeit'):
@@ -1063,9 +1066,12 @@ class Char():
                     tIgnored.add(nam)
                     continue
                 fert.gekaufteTalente.append(nam)
-                var = int(tal.attrib['variable'])
-                if int(tal.attrib['variable']) != -1:
-                    self.talenteVariable[tal] = int(tal.attrib['variable'])
+                var = parseVariableKosten(tal.attrib['variable'])
+                if var:
+                    #round down to nearest multiple in case of a db cost change
+                    defaultKosten = self.getDefaultTalentCost(nam, fert.steigerungsfaktor)
+                    var.kosten = max(var.kosten - (var.kosten%defaultKosten), defaultKosten)
+                    self.talenteVariable[nam] = var
             fert.aktualisieren()
             self.fertigkeiten.update({fert.name: fert})
         Wolke.Fehlercode = -47
@@ -1119,8 +1125,12 @@ class Char():
                     tIgnored.add(nam)
                     continue
                 fert.gekaufteTalente.append(nam)
-                if int(tal.attrib['variable']) != -1:
-                    self.talenteVariable[tal.attrib['name']] = int(tal.attrib['variable'])
+                var = parseVariableKosten(tal.attrib['variable'])
+                if var:
+                    #round down to nearest multiple in case of a db cost change
+                    defaultKosten = self.getDefaultTalentCost(nam, fert.steigerungsfaktor)
+                    var.kosten = max(var.kosten - (var.kosten%defaultKosten), defaultKosten)
+                    self.talenteVariable[nam] = var
             fert.aktualisieren()
             self.übernatürlicheFertigkeiten.update({fert.name: fert})
         #Siebter Block

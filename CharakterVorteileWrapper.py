@@ -229,12 +229,6 @@ class CharakterVorteileWrapper(QtCore.QObject):
             self.handleRemoveKommentarWidget(item)
             manualUpdate = self.handleRemoveMinderpakt(name, item)
 
-        #if name in self.itemWidgets:
-        #    self.itemWidgets[name].setReadOnly(name == Wolke.Char.minderpakt)
-        #    self.itemWidgets[name].setValue(20 if name == Wolke.Char.minderpakt else Wolke.DB.vorteile[name].kosten)
-        #else:
-        #    item.setText(1, "20 EP" if name == Wolke.Char.minderpakt else str(Wolke.DB.vorteile[name].kosten) + " EP")
-
         self.modified.emit()
         self.loadVorteile() 
         self.uiVor.treeWidget.blockSignals(False)

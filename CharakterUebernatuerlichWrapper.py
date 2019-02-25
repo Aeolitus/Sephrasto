@@ -211,7 +211,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
                     talStr = el
                 if el in Wolke.DB.talente:
                     if el in Wolke.Char.talenteVariable:
-                        costStr = " (" + str(Wolke.Char.talenteVariable[el]) + " EP)"    
+                        costStr = " (" + str(Wolke.Char.talenteVariable[el].kosten) + " EP)"    
                     else:
                         costStr = " (" + str(Wolke.DB.talente[el].kosten) + " EP)"
                 else:
