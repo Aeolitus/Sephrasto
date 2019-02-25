@@ -13,8 +13,10 @@ if %errorlevel% neq 0 (
 )
 
 COPY /Y IncludeInBuildFolder\* Build
-mkdir Build\Library\plugins\platforms
-COPY /Y IncludeInBuildFolder\Library\plugins\platforms\* Build\Library\plugins\platforms
+mkdir Build\platforms
+COPY /Y IncludeInBuildFolder\platforms\* Build\platforms
+mkdir Build\styles
+COPY /Y IncludeInBuildFolder\styles\* Build\styles
 COPY /Y datenbank.xml Build
 COPY /Y Charakterbogen.pdf Build
 COPY /Y Charakterbogen_lang.pdf Build
