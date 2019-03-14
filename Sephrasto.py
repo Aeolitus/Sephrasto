@@ -109,7 +109,7 @@ class MainWindowWrapper(object):
         '''
         Creates a new CharakterEditor which is empty and shows it.
         '''
-        self.ed = CharakterEditor.Editor()
+        self.ed = CharakterEditor.Editor(self.savePathUpdated)
         if self.ed.noDatabase:
             raise Exception("Konnte datenbank.xml nicht finden")
         self.ed.formMain = QtWidgets.QWidget()
@@ -118,8 +118,7 @@ class MainWindowWrapper(object):
         self.ed.ui.tabs.removeTab(0)
         self.ed.ui.tabs.removeTab(0)
         self.ed.setupMainForm()
-        splitpath = Wolke.DB.datei and os.path.split(Wolke.DB.datei) or ["keine Nutzer-DB geladen"]
-        self.ed.formMain.setWindowTitle(self.ed.formMain.windowTitle() + " (" + splitpath[-1] + ")")
+        self.savePathUpdated()
         self.ed.formMain.show()
         
     def editExisting(self):
@@ -136,7 +135,7 @@ class MainWindowWrapper(object):
         if not spath.endswith(".xml"):
             spath = spath + ".xml"
         try:
-            self.ed = CharakterEditor.Editor(spath)
+            self.ed = CharakterEditor.Editor(self.savePathUpdated, spath)
         except Exception as e:
             logging.error("Sephrasto Fehlercode " + str(Wolke.Fehlercode) + ". Exception: " + str(e))
             infoBox = QtWidgets.QMessageBox()
@@ -164,8 +163,7 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n")
             self.ed.ui.tabs.removeTab(0)
             self.ed.ui.tabs.removeTab(0)
             self.ed.setupMainForm()
-            splitpath = Wolke.DB.datei and os.path.split(Wolke.DB.datei) or ["keine Nutzer-DB geladen"]
-            self.ed.formMain.setWindowTitle(self.ed.formMain.windowTitle() + " (" + splitpath[-1] + ")")
+            self.savePathUpdated()
             self.ed.formMain.show()
         
     def editRuleset(self):
@@ -181,6 +179,15 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n")
         
     def editSettings(self):
         EinstellungenWrapper.EinstellungenWrapper()
+
+    def savePathUpdated(self):
+        file = " - Neuer Charakter"
+        if self.ed.savepath:
+            file = " - " + os.path.basename(self.ed.savepath)
+        rules = ""
+        if Wolke.DB.datei:
+           rules = " (" + os.path.basename(Wolke.DB.datei) + ")"
+        self.ed.formMain.setWindowTitle("Sephrasto" + file + rules)
         
 if __name__ == "__main__":
     itm = MainWindowWrapper()

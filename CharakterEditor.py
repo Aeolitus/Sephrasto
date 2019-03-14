@@ -27,12 +27,13 @@ class Editor(object):
     Main class for the character editing window. Mostly puts together the
     different parts of the GUI and handles the communication inbetween.
     '''
-    def __init__(self, CharacterName=""):
+    def __init__(self, savePathUpdatedCallback, CharacterName=""):
         super().__init__()
         Wolke.DB = Datenbank.Datenbank()
         self.pdfMeister = pdfM.pdfMeister()
         self.savepath = CharacterName
         self.changed = False
+        self.savePathUpdatedCallback = savePathUpdatedCallback
         if Wolke.DB.loaded:
             self.noDatabase = False
             self.finishInit()
@@ -189,6 +190,7 @@ Versuchs doch bitte nochmal mit einer anderen Zieldatei.")
             infoBox.exec_()
             return
         self.savepath = spath
+        self.savePathUpdatedCallback()
         self.quicksaveButton()
             
     def quicksaveButton(self):
