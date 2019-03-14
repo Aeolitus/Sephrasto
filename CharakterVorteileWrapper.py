@@ -115,7 +115,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
                         Wolke.Char.vorteile.remove(txt)
                 else:
                     chi.setHidden(False)
-                if Wolke.DB.vorteile[txt].variable!=-1:
+                if Wolke.DB.vorteile[txt].variable!=-1 and not txt in Wolke.Char.vorteileVariable:
                     self.setVariableKosten(txt, self.itemWidgets[txt].value(), "")
         self.updateInfo()
         self.uiVor.treeWidget.blockSignals(False)
