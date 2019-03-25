@@ -10,6 +10,7 @@ from PyQt5 import QtWidgets, QtCore
 import os.path
 import yaml
 import logging
+import sys
 
 class EinstellungenWrapper():    
     def __init__(self):
@@ -58,10 +59,20 @@ class EinstellungenWrapper():
         self.form.show()
         self.ret = self.form.exec_()
         if self.ret == QtWidgets.QDialog.Accepted:
-            if not os.path.isdir(os.path.join(os.path.expanduser('~'),'Sephrasto')):
-                os.mkdir(os.path.join(os.path.expanduser('~'),'Sephrasto'))
-                os.mkdir(os.path.join(os.path.expanduser('~'),'Sephrasto', 'Charaktere'))
-                os.mkdir(os.path.join(os.path.expanduser('~'),'Sephrasto', 'Regeln'))
+            userFolder = os.path.expanduser('~')
+            if sys.platform.startswith("win"):
+                import ctypes.wintypes
+                CSIDL_PERSONAL = 5       # My Documents
+                SHGFP_TYPE_CURRENT = 0   # Get current, not default value
+                buf= ctypes.create_unicode_buffer(ctypes.wintypes.MAX_PATH)
+                ctypes.windll.shell32.SHGetFolderPathW(None, CSIDL_PERSONAL, None, SHGFP_TYPE_CURRENT, buf)
+                userFolder = buf.value or userFolder
+
+            sephrastoFolder = os.path.join(userFolder,'Sephrasto')
+            if not os.path.isdir(sephrastoFolder):
+                os.mkdir(sephrastoFolder)
+                os.mkdir(os.path.join(sephrastoFolder, 'Charaktere'))
+                os.mkdir(os.path.join(sephrastoFolder, 'Regeln'))
             
             Wolke.Settings['Bogen'] = self.ui.comboBogen.currentText()
             db = self.ui.comboRegelbasis.currentText()
