@@ -29,6 +29,8 @@ class EinstellungenWrapper():
         self.comboBogenIndexChanged()
         self.ui.comboFontSize.setCurrentIndex(Wolke.Settings['Cheatsheet-Fontsize'])
 
+        self.settingsFolder = EinstellungenWrapper.getSettingsFolder()
+
         if Wolke.Settings['Pfad-Chars'] == '':
             self.resetCharPath()
         else:
@@ -59,20 +61,10 @@ class EinstellungenWrapper():
         self.form.show()
         self.ret = self.form.exec_()
         if self.ret == QtWidgets.QDialog.Accepted:
-            userFolder = os.path.expanduser('~')
-            if sys.platform.startswith("win"):
-                import ctypes.wintypes
-                CSIDL_PERSONAL = 5       # My Documents
-                SHGFP_TYPE_CURRENT = 0   # Get current, not default value
-                buf= ctypes.create_unicode_buffer(ctypes.wintypes.MAX_PATH)
-                ctypes.windll.shell32.SHGetFolderPathW(None, CSIDL_PERSONAL, None, SHGFP_TYPE_CURRENT, buf)
-                userFolder = buf.value or userFolder
-
-            sephrastoFolder = os.path.join(userFolder,'Sephrasto')
-            if not os.path.isdir(sephrastoFolder):
-                os.mkdir(sephrastoFolder)
-                os.mkdir(os.path.join(sephrastoFolder, 'Charaktere'))
-                os.mkdir(os.path.join(sephrastoFolder, 'Regeln'))
+            if not os.path.isdir(self.settingsFolder):
+                os.mkdir(self.settingsFolder)
+                os.mkdir(os.path.join(self.settingsFolder, 'Charaktere'))
+                os.mkdir(os.path.join(self.settingsFolder, 'Regeln'))
             
             Wolke.Settings['Bogen'] = self.ui.comboBogen.currentText()
             db = self.ui.comboRegelbasis.currentText()
@@ -103,10 +95,21 @@ class EinstellungenWrapper():
             
             Wolke.Settings['PDF-Open'] = self.ui.checkPDFOpen.isChecked()
             
-            SettingsPath = os.path.join(os.path.expanduser('~'),'Sephrasto', 
-                                        'Sephrasto.ini')
+            SettingsPath = os.path.join(self.settingsFolder, 'Sephrasto.ini')
             with open(SettingsPath, 'w') as outfile:
                 yaml.dump(Wolke.Settings, outfile)
+
+    @staticmethod
+    def getSettingsFolder():
+        userFolder = os.path.expanduser('~')
+        if sys.platform.startswith("win"):
+            import ctypes.wintypes
+            CSIDL_PERSONAL = 5       # My Documents
+            SHGFP_TYPE_CURRENT = 0   # Get current, not default value
+            buf= ctypes.create_unicode_buffer(ctypes.wintypes.MAX_PATH)
+            ctypes.windll.shell32.SHGetFolderPathW(None, CSIDL_PERSONAL, None, SHGFP_TYPE_CURRENT, buf)
+            userFolder = buf.value or userFolder
+        return os.path.join(userFolder,'Sephrasto')
 
     def comboBogenIndexChanged(self):
         self.ui.checkCheatsheet.setEnabled(self.ui.comboBogen.currentIndex() != 0)
@@ -153,14 +156,12 @@ class EinstellungenWrapper():
             self.ui.editExportPlugin.setText(path[0])
             
     def resetCharPath(self):
-        p = os.path.expanduser('~')
-        p = os.path.join(p, 'Sephrasto', 'Charaktere')
+        p = os.path.join(self.settingsFolder, 'Charaktere')
         Wolke.Settings['Pfad-Chars'] = p
         self.ui.editChar.setText(p)
         
     def resetRulePath(self):
-        p = os.path.expanduser('~')
-        p = os.path.join(p, 'Sephrasto', 'Regeln')
+        p = os.path.join(self.settingsFolder, 'Regeln')
         Wolke.Settings['Pfad-Regeln'] = p
         self.ui.editRegeln.setText(p)
         

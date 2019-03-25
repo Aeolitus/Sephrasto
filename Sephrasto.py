@@ -16,7 +16,7 @@ import CharakterMain
 import DatenbankMain
 from Wolke import Wolke
 import yaml
-import EinstellungenWrapper
+from EinstellungenWrapper import EinstellungenWrapper
 import Version
 
 loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
@@ -94,8 +94,7 @@ class MainWindowWrapper(object):
         self.app.setWindowIcon(QtGui.QIcon('icon_large.png'))
         
         # Get the Settings loaded
-        SettingsPath = os.path.join(os.path.expanduser('~'),'Sephrasto', 
-                                        'Sephrasto.ini')
+        SettingsPath = os.path.join(EinstellungenWrapper.getSettingsFolder(), 'Sephrasto.ini')
         if os.path.isfile(SettingsPath):
             with open(SettingsPath,'r') as infile:
                 tmpSet = yaml.safe_load(infile)
@@ -178,7 +177,7 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n")
         self.D.Form.show()
         
     def editSettings(self):
-        EinstellungenWrapper.EinstellungenWrapper()
+        EinstellungenWrapper()
 
     def savePathUpdated(self):
         file = " - Neuer Charakter"
