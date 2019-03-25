@@ -40,15 +40,7 @@ class EinstellungenWrapper():
 
         self.ui.editExportPlugin.setText(Wolke.Settings['Pfad-Export-Plugin'])
 
-        optionsList = ['Keine']            
-        if os.path.isdir(Wolke.Settings['Pfad-Regeln']):
-            for file in os.listdir(Wolke.Settings['Pfad-Regeln']):
-                if file.lower().endswith('.xml'):
-                    optionsList.append(file)
-        self.ui.comboRegelbasis.clear()
-        self.ui.comboRegelbasis.addItems(optionsList)
-        if Wolke.Settings['Datenbank'] in optionsList:
-            self.ui.comboRegelbasis.setCurrentText(Wolke.Settings['Datenbank'])
+        self.updateComboRegelbasis()
             
         self.ui.checkPDFOpen.setChecked(Wolke.Settings['PDF-Open'])
         
@@ -110,6 +102,17 @@ class EinstellungenWrapper():
         if not self.ui.checkCheatsheet.isEnabled():
             self.ui.checkCheatsheet.setChecked(False)
 
+    def updateComboRegelbasis(self):
+        optionsList = ['Keine']            
+        if os.path.isdir(Wolke.Settings['Pfad-Regeln']):
+            for file in os.listdir(Wolke.Settings['Pfad-Regeln']):
+                if file.lower().endswith('.xml'):
+                    optionsList.append(file)
+        self.ui.comboRegelbasis.clear()
+        self.ui.comboRegelbasis.addItems(optionsList)
+        if Wolke.Settings['Datenbank'] in optionsList:
+            self.ui.comboRegelbasis.setCurrentText(Wolke.Settings['Datenbank'])
+
     def setCharPath(self):
         path = QtWidgets.QFileDialog.getExistingDirectory(None,
           "Wähle einen Speicherort für Charaktere aus!",
@@ -127,6 +130,7 @@ class EinstellungenWrapper():
         if os.path.isdir(path):
             Wolke.Settings['Pfad-Regeln'] = path
             self.ui.editRegeln.setText(path)
+            self.updateComboRegelbasis()
 
     def setExportPluginPath(self):
         path = QtWidgets.QFileDialog.getOpenFileName(None,
