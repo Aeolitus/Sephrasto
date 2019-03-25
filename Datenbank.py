@@ -392,6 +392,8 @@ class Datenbank():
                 w.eigenschaften = list(map(str.strip, wa.text.split(",")))
             w.fertigkeit = wa.get('fertigkeit')
             w.talent = wa.get('talent')
+            if w.name and w.talent:
+                w.anzeigename = w.name.replace(" (" + w.talent + ")", "")
             kampfstile = wa.get('kampfstile')
             if kampfstile:
                 w.kampfstile = list(map(str.strip, kampfstile.split(",")))

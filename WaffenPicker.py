@@ -50,8 +50,9 @@ class WaffenPicker(object):
                     self.current = el
                     currSet = True
                 child = QtWidgets.QTreeWidgetItem(parent)
-                child.setText(0,el)
-                child.setText(1,Wolke.DB.waffen[el].talent)  
+                child.setText(0,Wolke.DB.waffen[el].anzeigename or el)
+                child.setText(1,Wolke.DB.waffen[el].talent)
+                child.setData(0, QtCore.Qt.UserRole, el) # store key of weapon in user data
         self.ui.treeWeapons.sortItems(1,QtCore.Qt.AscendingOrder)
         logging.debug("Tree Filled...")
         self.ui.treeWeapons.itemSelectionChanged.connect(self.changeHandler)
@@ -77,7 +78,7 @@ class WaffenPicker(object):
         for el in self.ui.treeWeapons.selectedItems():
             if el.text(0) in kampfferts:
                 continue
-            self.current = el.text(0)
+            self.current = el.data(0, QtCore.Qt.UserRole) # contains key of weapon
             break
         self.updateInfo()
         

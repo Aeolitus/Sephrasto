@@ -478,7 +478,7 @@ class pdfMeister(object):
             waffenwerte = Wolke.Char.waffenwerte[count-1]
 
             base = 'Waffe' + str(count)
-            fields[base + 'NA'] = el.name
+            fields[base + 'NA'] = el.anzeigename
             sg = ""
             if el.plus >= 0:
                 sg = "+"
