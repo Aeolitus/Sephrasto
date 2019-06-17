@@ -20,10 +20,12 @@ Um Sephrasto mit Python zu verwenden, ist Version 3.6 empfehlenswert, aber nicht
 
 Anleitung für die Nutzung von Visual Studio als IDE:
 * Installiere VS 2017 Community Edition mit dem Python Workload (kann auch nachträglich über den Installer installiert werden)
+* Setze den Pfad der Python-Umgebung in der Umgebungsvariable PATH (in der Regel C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64)
 * Starte Make/Sephrasto.sln
 * Installiere die dependencies: Solution Explorer -> Python Environments -> Rechtsclick auf Python 3.x -> Install Python Package. Installiere die folgenden Pakete:
     * lxml
     * PyQt5
+	* PyYAML
     * Um mit build.bat einen Build erstellen zu können: cx_freeze, pywin32
 * Erstelle die IntelliSense Datenbank: Solution Explorer -> Rechtsclick auf Python Environments -> View all Python environments -> IntelliSense im Dropdown auswahlen und aktivieren/refreshen
 * Stelle das Tab-Verhalten auf "Insert Spaces": Tools -> Options -> Text Editor -> Python -> Tabs

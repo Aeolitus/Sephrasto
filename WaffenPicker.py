@@ -32,14 +32,17 @@ class WaffenPicker(object):
         
         logging.debug("Ui is Setup...")
         currSet = self.current != ""
-        for kind in Definitionen.Kampftalente:
+
+        kampfferts = self.findKampfFertigkeiten()
+
+        for kind in kampfferts:
             parent = QtWidgets.QTreeWidgetItem(self.ui.treeWeapons)
-            parent.setText(0,kind)
+            parent.setText(0,kind.name)
             parent.setText(1,"")
             parent.setExpanded(True)
             wafs = []
             for waf in Wolke.DB.waffen:
-                if Wolke.DB.waffen[waf].fertigkeit == kind:
+                if Wolke.DB.waffen[waf].fertigkeit == kind.name:
                     wafs.append(waf)
             wafs.sort()
             for el in wafs:
@@ -47,8 +50,9 @@ class WaffenPicker(object):
                     self.current = el
                     currSet = True
                 child = QtWidgets.QTreeWidgetItem(parent)
-                child.setText(0,el)
-                child.setText(1,Wolke.DB.waffen[el].talent)  
+                child.setText(0,Wolke.DB.waffen[el].anzeigename or el)
+                child.setText(1,Wolke.DB.waffen[el].talent)
+                child.setData(0, QtCore.Qt.UserRole, el) # store key of weapon in user data
         self.ui.treeWeapons.sortItems(1,QtCore.Qt.AscendingOrder)
         logging.debug("Tree Filled...")
         self.ui.treeWeapons.itemSelectionChanged.connect(self.changeHandler)
@@ -62,12 +66,19 @@ class WaffenPicker(object):
             self.waffe = Wolke.DB.waffen[self.current]
         else:
             self.waffe = None
-    
+
+    def findKampfFertigkeiten(self):
+        return [el for el in Wolke.DB.fertigkeiten.values() if el.kampffertigkeit > 0]
+
     def changeHandler(self):
+        kampfferts = []
+        for fert in self.findKampfFertigkeiten():
+            kampfferts.append(fert.name)
+
         for el in self.ui.treeWeapons.selectedItems():
-            if el.text(0) in Definitionen.Kampftalente:
+            if el.text(0) in kampfferts:
                 continue
-            self.current = el.text(0)
+            self.current = el.data(0, QtCore.Qt.UserRole) # contains key of weapon
             break
         self.updateInfo()
         
@@ -80,23 +91,11 @@ class WaffenPicker(object):
             else:
                 self.ui.labelTyp.setText("Fern")
             self.ui.labelFert.setText(w.fertigkeit + " (" + w.talent + ")")
-            stile = ""
-            if w.beid:
-                stile += Definitionen.Kampfstile[1] + ", "
-            if w.pari:
-                stile += Definitionen.Kampfstile[2] + ", "
-            if w.reit:
-                stile += Definitionen.Kampfstile[3] + ", "
-            if w.schi:
-                stile += Definitionen.Kampfstile[4] + ", "
-            if w.kraf:
-                stile += Definitionen.Kampfstile[5] + ", "
-            if w.schn:
-                stile += Definitionen.Kampfstile[6] + ", "
-            if len(stile)>2:
-                stile = stile[:-2]
-            else:
-                stile = Definitionen.Kampfstile[0]
+            stile = Definitionen.KeinKampfstil
+
+            if len(w.kampfstile) > 0:
+                stile = ", ".join(w.kampfstile)
+
             self.ui.plainStile.setPlainText(stile)
             tp = str(w.W6) + " W6"
             if w.plus < 0:

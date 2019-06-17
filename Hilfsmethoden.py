@@ -10,6 +10,9 @@ import logging
 class VoraussetzungException(Exception):
     pass
 
+class WaffeneigenschaftException(Exception):
+    pass
+
 class Hilfsmethoden:
     '''
     Aufrufen entweder:
@@ -22,6 +25,27 @@ class Hilfsmethoden:
         Hilfsmethoden.XYZ
     '''
     
+    @staticmethod
+    def GetWaffeneigenschaft(WaffeneigenschaftStr, Datenbank):
+        weName = WaffeneigenschaftStr
+        index = weName.find("(")
+        if index != -1:
+            weName = str.strip(weName[:index])
+        
+        if not weName in Datenbank.waffeneigenschaften:
+            raise WaffeneigenschaftException("Unbekannte Waffeneigenschaft '" + weName + "'")
+
+        if index != -1:
+            endIndex = WaffeneigenschaftStr[index:].find(")")
+            if endIndex == -1:
+                raise WaffeneigenschaftException("Parameter der Waffeneigenschaft '" + weName + "' müssen mit ')' abgeschlossen werden. Mehrere Parameter werden mit Semikolon getrennt.")
+
+        return Datenbank.waffeneigenschaften[weName]
+
+    @staticmethod
+    def VerifyWaffeneigenschaft(WaffeneigenschaftStr, Datenbank):
+        we = Hilfsmethoden.GetWaffeneigenschaft(WaffeneigenschaftStr, Datenbank)
+
     @staticmethod
     def FertStr2Array(FertString, Datenbank = None):
         '''
@@ -83,9 +107,8 @@ class Hilfsmethoden:
                         raise VoraussetzungException("Kann Vorteil '" + strpItm + "' in der Datenbank nicht finden.")
                     arrItm = "V:" + strpItm[13:] + ":0"
                 elif strpItm.startswith("Waffeneigenschaft "):
-                    waffen = [waffe for waffenName, waffe in Datenbank.waffen.items() if (strpItm[18:] in waffe.eigenschaften)]
-                    if len(waffen) == 0:
-                        raise VoraussetzungException("Kann keine Waffe mit der Waffeneigenschaft '" + strpItm + "' in der Datenbank finden.")
+                    if not (strpItm[18:] in Datenbank.waffeneigenschaften):
+                        raise VoraussetzungException("Kann keine Waffeneigenschaft '" + strpItm + "' in der Datenbank finden.")
                     arrItm = "W:" + strpItm[18:] + ":1"
                 elif strpItm.startswith("Attribut "):
                     attribut = strpItm[9:11]

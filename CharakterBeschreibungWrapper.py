@@ -38,10 +38,11 @@ class BeschrWrapper(QtCore.QObject):
         self.uiBeschr.comboStatus.activated.connect(self.updateBeschreibung)
         self.uiBeschr.comboHeimat.activated.connect(self.updateBeschreibung)
         self.currentGebraeuche = Wolke.Char.heimat
-        if "Gebräuche: " + self.currentGebraeuche not in \
-                Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente:
-            Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.append(
-                    "Gebräuche: " + self.currentGebraeuche)
+        if "Gebräuche" in Wolke.Char.fertigkeiten:
+            if "Gebräuche: " + self.currentGebraeuche not in \
+                    Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente:
+                Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.append(
+                        "Gebräuche: " + self.currentGebraeuche)
 
     def updateBeschreibung(self):
         ''' Transfer current values to Char object '''
@@ -63,17 +64,18 @@ class BeschrWrapper(QtCore.QObject):
             Wolke.Char.finanzen = self.uiBeschr.comboFinanzen.currentIndex()
             changed = True
 
-        if self.uiBeschr.comboHeimat.currentText() != self.currentGebraeuche:
-            if "Gebräuche: " + self.currentGebraeuche in \
-                    Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente:
-                Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.remove(
+        if "Gebräuche" in Wolke.Char.fertigkeiten:
+            if self.uiBeschr.comboHeimat.currentText() != self.currentGebraeuche:
+                if "Gebräuche: " + self.currentGebraeuche in \
+                        Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente:
+                    Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.remove(
+                            "Gebräuche: " + self.currentGebraeuche)
+                self.currentGebraeuche = self.uiBeschr.comboHeimat.currentText()
+                if "Gebräuche: " + self.currentGebraeuche not in \
+                        Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente:
+                    Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.append(
                         "Gebräuche: " + self.currentGebraeuche)
-            self.currentGebraeuche = self.uiBeschr.comboHeimat.currentText()
-            if "Gebräuche: " + self.currentGebraeuche not in \
-                    Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente:
-                Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.append(
-                    "Gebräuche: " + self.currentGebraeuche)
-            changed = True
+                changed = True
 
         if Wolke.Char.heimat != self.uiBeschr.comboHeimat.currentText():
             Wolke.Char.heimat = self.uiBeschr.comboHeimat.currentText()

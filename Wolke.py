@@ -16,6 +16,7 @@ class Wolke:
         'Cheatsheet-Fontsize' : 0,
         'Pfad-Chars': '',
         'Pfad-Regeln': '',
+        'Pfad-Export-Plugin': '',
         'Logging': 1,
         'PDF-Open': False
     }
@@ -104,6 +105,7 @@ Please check the created PDFs to see which one is your character!',
         -96: 'Error cutting of last page of the PDF. This shouldnt really matter.',
         -97: 'Error merging the rules page!',
         -98: 'Could not automatically open the PDF! Everything else works though.',
+        -99: 'Error when trying to execute export plugin',
     ### Other Errors
         -200: 'General Error you shouldnt see. Please contact Aeolitus.'
     }

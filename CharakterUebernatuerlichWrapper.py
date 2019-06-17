@@ -44,10 +44,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
         self.widgetRef = {}
         
         #If there is an ability already, then we take it to display already
-        try:
-            self.currentFertName = Wolke.Char.übernatürlicheFertigkeiten.__iter__().__next__()
-        except StopIteration:
-            self.currentFertName = ''
+        self.currentFertName = next(iter(Wolke.Char.übernatürlicheFertigkeiten), "")
         self.currentlyLoading = False
         self.loadFertigkeiten()
             
@@ -61,6 +58,10 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.übernatürlicheFertigkeiten[el].voraussetzungen)]
         if temp != self.availableFerts:
             self.availableFerts = temp
+
+            # sort by printclass, then by name
+            self.availableFerts.sort(key = lambda x: (Wolke.DB.übernatürlicheFertigkeiten[x].printclass, x)) 
+
             self.uiFert.tableWidget.clear()
             
             self.uiFert.tableWidget.setRowCount(len(self.availableFerts))
@@ -210,7 +211,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
                     talStr = el
                 if el in Wolke.DB.talente:
                     if el in Wolke.Char.talenteVariable:
-                        costStr = " (" + str(Wolke.Char.talenteVariable[el]) + " EP)"    
+                        costStr = " (" + str(Wolke.Char.talenteVariable[el].kosten) + " EP)"    
                     else:
                         costStr = " (" + str(Wolke.DB.talente[el].kosten) + " EP)"
                 else:

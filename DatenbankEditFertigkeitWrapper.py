@@ -39,37 +39,36 @@ class DatenbankEditFertigkeitWrapper(object):
         self.ui.comboAttribut1.setCurrentText(fertigkeit.attribute[0])
         self.ui.comboAttribut2.setCurrentText(fertigkeit.attribute[1])
         self.ui.comboAttribut3.setCurrentText(fertigkeit.attribute[2])
-        if ueber:
-            self.ui.voraussetzungenEdit.setPlainText(Hilfsmethoden.VorArray2Str(fertigkeit.voraussetzungen, None))
-            self.ui.radioUebernatuerlich.setChecked(True)
-            self.ui.radioProfan.setCheckable(False)
-            self.ui.checkKampffertigkeit.setCheckable(False)
-        else:
-            self.ui.voraussetzungenEdit.setPlainText(" - ")
-            self.ui.voraussetzungenEdit.setReadOnly(True)
-            self.ui.radioProfan.setChecked(True)
-            self.ui.radioUebernatuerlich.setCheckable(False)
-            if fertigkeit.kampffertigkeit == 1:
-                self.ui.checkKampffertigkeit.setChecked(True)
 
-        self.ui.voraussetzungenEdit.textChanged.connect(self.voraussetzungenTextChanged)
+        if ueber:
+            self.ui.labelKampffertigkeit.setVisible(False)
+            self.ui.comboKampffertigkeit.setVisible(False)
+            self.ui.voraussetzungenEdit.setPlainText(Hilfsmethoden.VorArray2Str(fertigkeit.voraussetzungen, None))
+            self.ui.voraussetzungenEdit.textChanged.connect(self.voraussetzungenTextChanged)
+        else:
+            self.ui.voraussetzungenEdit.setVisible(False)
+            self.ui.labelVoraussetzungen.setVisible(False)
+            self.ui.comboKampffertigkeit.setCurrentIndex(fertigkeit.kampffertigkeit)
 
         self.ui.textEdit.setPlainText(fertigkeit.text)
+        self.ui.sortierungEdit.setValue(fertigkeit.printclass)
+        self.ui.sortierungEdit.setToolTip("Fertigkeiten werden nach dieser Zahl gruppiert und dann alphabetisch sortiert")
+
         fertDialog.show()
         ret = fertDialog.exec_()
         if ret == QtWidgets.QDialog.Accepted:
             self.fertigkeit = Fertigkeiten.Fertigkeit()
             self.fertigkeit.name = self.ui.nameEdit.text()
             self.fertigkeit.steigerungsfaktor = int(self.ui.steigerungsfaktorEdit.value())
-            if self.ui.radioProfan.isChecked():
-                if self.ui.checkKampffertigkeit.isChecked():
-                    self.fertigkeit.kampffertigkeit = 1;
-            else:
+            if ueber:
                 self.fertigkeit.voraussetzungen = Hilfsmethoden.VorStr2Array(self.ui.voraussetzungenEdit.toPlainText(), datenbank)
+            else:
+                self.fertigkeit.kampffertigkeit = self.ui.comboKampffertigkeit.currentIndex()
             self.fertigkeit.attribute = [self.ui.comboAttribut1.currentText(), 
                              self.ui.comboAttribut2.currentText(),
                              self.ui.comboAttribut3.currentText()]
             self.fertigkeit.text = self.ui.textEdit.toPlainText()
+            self.fertigkeit.printclass = self.ui.sortierungEdit.value()
 
             self.fertigkeit.isUserAdded = False
             if self.fertigkeit == self.fertigkeitPicked:

@@ -53,7 +53,7 @@ class Fertigkeit(Steigerbar):
     def __init__(self):
         super().__init__()
         self.gekaufteTalente = []
-        self.kampffertigkeit = 0;
+        self.kampffertigkeit = 0; #0 = nein, 1 = nahkampffertigkeit, 2 = sonstige kampffertigkeit
         self.attribute = ['KO','KO','KO']
         self.attributswerte = [-1,-1,-1]
         self.basiswert = -1
@@ -61,6 +61,7 @@ class Fertigkeit(Steigerbar):
         self.probenwertTalent = -1
         self.voraussetzungen = []
         self.maxWert = -1
+        self.printclass = -1
         self.isUserAdded = True
 
     def aktualisieren(self):
@@ -82,6 +83,13 @@ class Fertigkeit(Steigerbar):
         F.attribute = self.attribute.copy()
         F.kampffertigkeit = self.kampffertigkeit
         F.gekaufteTalente = self.gekaufteTalente.copy()
+        F.attributswerte = self.attributswerte.copy()
+        F.basiswert = self.basiswert
+        F.probenwert = self.probenwert
+        F.probenwertTalent = -self.probenwertTalent
+        F.maxWert = self.maxWert
+        F.printclass = self.printclass
+        F.isUserAdded = self.isUserAdded
         return F
 
 class Talent():
@@ -97,7 +105,9 @@ class Talent():
         self.isUserAdded = True
     def __eq__(self, other) : 
         if self.__class__ != other.__class__: return False
-        return self.__dict__ == other.__dict__
+        return self.__dict__ == other.__dict__  
+    def isSpezialTalent(self):
+        return self.kosten != -1
 
 class Vorteil():
     def __init__(self):
@@ -108,6 +118,8 @@ class Vorteil():
         self.voraussetzungen = []
         self.nachkauf = ''
         self.text = ''
+        self.script = None
+        self.scriptPrio = 0
         self.isUserAdded = True
     def __eq__(self, other) : 
         if self.__class__ != other.__class__: return False

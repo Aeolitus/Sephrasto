@@ -6,9 +6,38 @@ import re
 import binascii
 import copy
 import logging
+import collections
 from Wolke import Wolke
-from Hilfsmethoden import Hilfsmethoden
+from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
 from PyQt5 import QtWidgets, QtCore
+
+class KampfstilMod():
+    def __init__(self):
+        self.AT = 0
+        self.VT = 0
+        self.TP = 0
+        self.RW = 0
+        self.BEIgnore = [] #Tupel aus Kampffertigkeit und Talent für welche die BE ignoriert wird
+
+    def __deepcopy__(self):
+      clone = type(self)()
+      clone.__dict__.update(self.__dict__)
+      clone.beIgnore = copy.deepcopy(self.beIgnore)
+      return clone
+
+class Waffenwerte():
+    def __init__(self):
+        self.AT = 0
+        self.VT = 0
+        self.RW = 0
+        self.TPW6 = 0
+        self.TPPlus = 0
+        self.Haerte = 0
+
+class VariableKosten():
+    def __init__(self):
+        self.kosten = 0
+        self.kommentar = ""
 
 class Char():
     ''' 
@@ -27,7 +56,9 @@ class Char():
         self.status = 2
         self.kurzbeschreibung = ''
         self.heimat = 'Mittelreich'
+        self.schipsMax = 4
         self.schips = 4
+
         self.finanzen = 2;
         self.eigenheiten = []
 
@@ -37,6 +68,7 @@ class Char():
             self.attribute[key] = Fertigkeiten.Attribut(key)
         self.wsBasis = -1
         self.ws = -1
+        self.wsStern = -1
         self.mrBasis = -1
         self.mr = -1
         self.gsBasis = -1
@@ -47,25 +79,34 @@ class Char():
         self.iniBasis = -1
         self.ini = -1
         self.asp = Fertigkeiten.Energie()
+        self.aspBasis = 0
+        self.aspMod = 0
         self.kap = Fertigkeiten.Energie()
+        self.kapBasis = 0
+        self.kapMod = 0
         
         #Dritter Block: Vorteile, gespeichert als String
         self.vorteile = []
-        self.vorteileVariable = {} #Contains Name: Cost
+        self.vorteileVariable = {} #Contains Name: VariableKosten
         self.minderpakt = None
+        self.kampfstilMods = {}
 
         #Vierter Block: Fertigkeiten und Freie Fertigkeiten
         self.fertigkeiten = copy.deepcopy(Wolke.DB.fertigkeiten)
         self.freieFertigkeiten = []
-        self.talenteVariable = {} #Contains Name: Cost
+        self.talenteVariable = {} #Contains Name: VariableKosten
 
         #Fünfter Block: Ausrüstung etc
         self.be = 0
         self.rüstung = []
         self.waffen = []
+        self.waffenwerte = []
+        self.currentEigenschaft = None #used by waffenScriptAPI during iteration
+        self.currentWaffenwerte = None #used by waffenScriptAPI during iteration
         self.ausrüstung = []
         self.rüstungsgewöhnung = 0
         self.rsmod = 0
+        self.waffenEigenschaftenUndo = [] #For undoing changes made by Vorteil scripts
 
         #Sechster Block: Übernatürliches
         self.übernatürlicheFertigkeiten = copy.deepcopy(
@@ -93,22 +134,196 @@ class Char():
         #Wenn die Ref-DB eine Änderung erhält durch die existierende Charakter-XMLs aktualisiert werden müssen,
         #kann hier die Datenbank Code Version inkrementiert werden und in der Migrationen-Map eine Migrationsfunktion für die neue Version angelegt werden.
         #In dieser Funktion kann dann die Charakter-XML-Datei angepasst werden, bevor sie geladen wird.
-        #WICHTIG: Bei Vorteilen/(ÜB-)Fertigkeiten/Talenten nur solche migrieren, bei denen in der aktuell geladenen Datenbasis userAdded == False ist.
+        #WICHTIG: Bei Vorteilen/(ÜB-)Fertigkeiten/Talenten nur solche migrieren, bei denen in der aktuell geladenen Datenbasis userAdded == False ist, außer das schema hat sich geändert.
         #Die Migrationsfunktion sollte einen string zurückgeben, der erklärt was geändert wurde - dies wird dem Nutzer in einer Messagebox angezeigt.
         #Die Funktionen werden inkrementell ausgeführt, bspw. bei Charakter-DB-Version '0' und Code-DB-Version '2' wird zuerst die Funktion für 1, dann die Funktion für 2 aufgerufen
-        self.datenbankCodeVersion = 0
+        self.datenbankCodeVersion = 1
         self.migrationen = [
             lambda xmlRoot: None, #nichts zu tun, initiale db version
-            self.migriere0zu1,
-            self.migriere1zu2,      
+            self.migriere0zu1,     
         ]
 
         if not self.migrationen[self.datenbankCodeVersion]:
             raise Exception("Migrations-Code vergessen.")
 
+
+
+        #Bei Änderungen nicht vergessen die script docs in ScriptAPI.md anzupassen
+        self.charakterScriptAPI = {
+            #Hintergrund
+            'getName' : lambda: self.name,
+            'getRasse' : lambda: self.rasse,
+            'getStatus' : lambda: self.status,
+            'getKurzbeschreibung' : lambda: self.kurzbeschreibung,
+            'getHeimat' : lambda: self.heimat,
+            'getFinanzen' : lambda: self.finanzen,
+            'getEigenheiten' : lambda: copy.deepcopy(self.eigenheiten),
+            'getEPTotal' : lambda: self.EPtotal,
+            'getEPSpent' : lambda: self.EPspent,
+
+            #Fertigkeiten, Vorteile & Ausrüstung
+            'getFertigkeit' : lambda name: copy.deepcopy(self.fertigkeiten[name]),
+            'getÜbernatürlicheFertigkeit' : lambda name: copy.deepcopy(self.übernatürlicheFertigkeiten[name]),
+            'getFreieFertigkeiten' : lambda: copy.deepcopy(self.freieFertigkeiten),
+            'getVorteile' : lambda: copy.deepcopy([el for el in Wolke.DB.vorteile if el in self.vorteile]),
+            'getRüstung' : lambda: copy.deepcopy(self.rüstung),
+            'getWaffen' : lambda: copy.deepcopy(self.waffen),
+            'getAusrüstung' : lambda: copy.deepcopy(self.ausrüstung),
+
+            #Asp
+            'getAsPBasis' : lambda: self.aspBasis,
+            'setAsPBasis' : lambda aspBasis: setattr(self, 'aspBasis', aspBasis),
+            'modifyAsPBasis' : lambda aspBasis: setattr(self, 'aspBasis', self.aspBasis + aspBasis),
+            'getAsPMod' : lambda: self.aspMod,
+            'setAsPMod' : lambda aspMod: setattr(self, 'aspMod', aspMod),
+            'modifyAsPMod' : lambda aspMod: setattr(self, 'aspMod', self.aspMod + aspMod),
+
+            #Kap
+            'getKaPBasis' : lambda: self.kapBasis,
+            'setKaPBasis' : lambda kapBasis: setattr(self, 'kapBasis', kapBasis),
+            'modifyKaPBasis' : lambda kapBasis: setattr(self, 'kapBasis', self.kapBasis + kapBasis),
+            'getKaPMod' : lambda: self.kapMod,
+            'setKaPMod' : lambda kapMod: setattr(self, 'kapMod', kapMod),
+            'modifyKaPMod' : lambda kapMod: setattr(self, 'kapMod', self.kapMod + kapMod),
+
+            #Schip
+            'getSchiPMax' : lambda: self.schipsMax,
+            'setSchiPMax' : lambda schipsMax: setattr(self, 'schipsMax', schipsMax),
+            'modifySchiPMax' : lambda schipsMax: setattr(self, 'schipsMax', self.schipsMax + schipsMax),
+
+            #WS
+            'getWSBasis' : lambda: self.wsBasis,
+            'getWS' : lambda: self.ws,
+            'setWS' : lambda ws: setattr(self, 'ws', ws),
+            'modifyWS' : lambda ws: setattr(self, 'ws', self.ws + ws),
+            'getWSStern' : lambda: self.wsStern,
+
+            #MR
+            'getMRBasis' : lambda: self.mrBasis,
+            'getMR' : lambda: self.ws,
+            'setMR' : lambda mr: setattr(self, 'mr', mr),
+            'modifyMR' : lambda mr: setattr(self, 'mr', self.mr + mr),
+
+            #GS
+            'getGSBasis' : lambda: self.gsBasis,
+            'getGS' : lambda: self.gs,
+            'setGS' : lambda gs: setattr(self, 'gs', gs),
+            'modifyGS' : lambda gs: setattr(self, 'gs', self.gs + gs),
+
+            #DH
+            'getDH' : lambda: self.dh,
+            'setDH' : lambda dh: setattr(self, 'dh', dh),
+            'modifyDH' : lambda dh: setattr(self, 'dh', self.dh + dh),
+
+            #Schadensbonus
+            'getSchadensbonusBasis' : lambda: self.schadensbonusBasis,
+            'getSchadensbonus' : lambda: self.schadensbonus,
+            'setSchadensbonus' : lambda schadensbonus: setattr(self, 'schadensbonus', schadensbonus),
+            'modifySchadensbonus' : lambda schadensbonus: setattr(self, 'schadensbonus', self.schadensbonus + schadensbonus),
+
+            #INI
+            'getINIBasis' : lambda: self.iniBasis,
+            'getINI' : lambda: self.ini,
+            'setINI' : lambda ini: setattr(self, 'ini', ini),
+            'modifyINI' : lambda ini: setattr(self, 'ini', self.ini + ini),
+
+            #RS
+            'getRSMod' : lambda: self.rsmod,
+            'setRSMod' : lambda rsmod: setattr(self, 'rsmod', rsmod),
+            'modifyRSMod' : lambda rsmod: setattr(self, 'rsmod', self.rsmod + rsmod),
+
+            #BE
+            'getBEBasis' : lambda: self.be,
+            'getBEMod' : lambda: self.rüstungsgewöhnung,
+            'setBEMod' : lambda beMod: setattr(self, 'rüstungsgewöhnung', beMod),
+            'modifyBEMod' : lambda beMod: setattr(self, 'rüstungsgewöhnung', self.rüstungsgewöhnung + beMod),
+
+            #Kampfstil
+             'getKampfstil' : lambda kampfstil: copy.copy(self.kampfstilMods[kampfstil]),
+             'setKampfstil' : self.API_setKampfstil,
+             'modifyKampfstil' : self.API_modifyKampfstil,
+             'setKampfstilBEIgnore' : lambda kampfstil, fertigkeit, talent: self.kampfstilMods[kampfstil].BEIgnore.append([fertigkeit, talent]),
+
+            #Attribute
+            'getAttribut' : lambda attribut: self.attribute[attribut].wert,
+
+            #Misc
+            'addWaffeneigenschaft' : self.API_addWaffeneigenschaft
+        }
+
+        #Add Attribute to API (readonly)
+        for attribut in self.attribute.values():
+            self.charakterScriptAPI["get" + attribut.key] = lambda attribut=attribut.key: self.attribute[attribut].wert
+        
+        self.waffenScriptAPI = {
+            'getEigenschaftParam' : lambda paramNb: self.API_getWaffeneigenschaftParam(paramNb),
+            'modifyWaffeAT' : lambda atmod: setattr(self.currentWaffenwerte, 'AT', self.currentWaffenwerte.AT + atmod),
+            'modifyWaffeVT' : lambda vtmod: setattr(self.currentWaffenwerte, 'VT', self.currentWaffenwerte.VT + vtmod),
+            'modifyWaffeTPW6' : lambda tpw6mod: setattr(self.currentWaffenwerte, 'TPW6', self.currentWaffenwerte.TPW6 + tpw6mod),
+            'modifyWaffeTPPlus' : lambda tpplusmod: setattr(self.currentWaffenwerte, 'TPPlus', self.currentWaffenwerte.TPPlus + tpplusmod),
+            'modifyWaffeHaerte' : lambda haertemod: setattr(self.currentWaffenwerte, 'Haerte', self.currentWaffenwerte.Haerte + haertemod),
+            'setWaffeAT' : lambda at: setattr(self.currentWaffenwerte, 'AT', at),
+            'setWaffeVT' : lambda vt: setattr(self.currentWaffenwerte, 'VT', vt),
+            'setWaffeTPW6' : lambda tpw6: setattr(self.currentWaffenwerte, 'TPW6', tpw6),
+            'setWaffeTPPlus' : lambda tpplus: setattr(self.currentWaffenwerte, 'TPPlus', tpplus),
+            'setWaffeHaerte' : lambda haerte: setattr(self.currentWaffenwerte, 'Haerte', haerte),
+            'getWaffenWerte' : lambda: copy.deepcopy(self.currentWaffenwerte)
+        }
+
+        for k,v in self.charakterScriptAPI.items():
+            if k in self.waffenScriptAPI:
+                assert False, "Duplicate entry"
+            self.waffenScriptAPI[k] = v
+
+    def API_setKampfstil(self, kampfstil, at, vt, tp, rw):
+        k = self.kampfstilMods[kampfstil]
+        k.AT = at
+        k.VT = vt
+        k.TP = tp
+        k.RW = rw
+    
+    def API_modifyKampfstil(self, kampfstil, at, vt, tp, rw):
+        k = self.kampfstilMods[kampfstil]
+        self.API_setKampfstil(kampfstil, k.AT + at, k.VT + vt, k.TP + tp, k.RW + rw)
+
+    def API_addWaffeneigenschaft(self, talentName, eigenschaft):
+        for waffe in self.waffen:
+            talent = None
+            eigenschaftExists = False
+            if waffe.name in Wolke.DB.waffen:
+                dbWaffe = Wolke.DB.waffen[waffe.name]
+                talent = dbWaffe.talent
+                if eigenschaft in dbWaffe.eigenschaften:
+                    continue
+            if talent != talentName:
+                continue
+            self.waffenEigenschaftenUndo.append([waffe.name, eigenschaft])
+            if eigenschaft in waffe.eigenschaften:
+                continue
+            waffe.eigenschaften.append(eigenschaft)
+
+    def API_getWaffeneigenschaftParam(self, paramNb):
+        match = re.search(r"\((.*?)\)", self.currentEigenschaft)
+        if not match:
+            raise Exception("Die Waffeneigenschaft '" + self.currentEigenschaft + "' erfordert einen Parameter, aber es wurde keiner gefunden")
+        parameters = list(map(str.strip, match.group(1).split(";")))
+        if not len(parameters) >= paramNb:
+            raise Exception("Die Waffeneigenschaft '" + self.currentEigenschaft + "' erfordert " + paramNb + " Parameter, aber es wurden nur " + len(parameters) + " gefunden. Parameter müssen mit Semikolon getrennt werden")
+        return parameters[paramNb-1]
+
     def migriere0zu1(self, xmlRoot):
-        #Dies würde aufgerufen werden, wenn datenbankCodeVersion 1 oder höher und Charakter-DatenbankVersion geringer als 1 wäre
-        #WICHTIG: bei Vorteilen/(ÜB-)Fertigkeiten/Talenten nur solche migrieren, bei denen in der aktuell geladenen Datenbasis userAdded == False ist.
+        Kampfstile = ["Kein Kampfstil", "Beidhändiger Kampf", "Parierwaffenkampf", "Reiterkampf", 
+              "Schildkampf", "Kraftvoller Kampf", "Schneller Kampf"]
+
+        for waf in xmlRoot.findall('Objekte/Waffen/Waffe'):
+            kampfstilIndex = int(waf.attrib['kampfstil'])
+            waf.attrib['kampfstil'] = Kampfstile[kampfstilIndex]
+
+        return "Datenbank Schema-Änderung (der selektierte Kampfstil bei Waffen wurde von indexbasiert zu stringbasiert geändert)"
+
+    def migriere1zu2(self, xmlRoot):
+        #Dies würde aufgerufen werden, wenn datenbankCodeVersion 2 oder höher und Charakter-DatenbankVersion geringer als 2 wäre
+        #WICHTIG: bei Vorteilen/(ÜB-)Fertigkeiten/Talenten nur solche migrieren, bei denen in der aktuell geladenen Datenbasis userAdded == False ist, außer das Schema hat sich geändert.
         #Beispiel:
         #if not 'Handgemenge' in Wolke.DB.fertigkeiten or not Wolke.DB.fertigkeiten['Handgemenge'].isUserAdded:
         #    for fer in xmlRoot.findall('Fertigkeiten/Fertigkeit'):
@@ -118,62 +333,177 @@ class Char():
         #return None
         raise Exception('Not implemented')
 
-    def migriere1zu2(self, xmlRoot):
-        #Dies würde aufgerufen werden, wenn datenbankCodeVersion 2 oder höher und Charakter-DatenbankVersion geringer als 2 wäre
-        #WICHTIG: bei Vorteilen/(ÜB-)Fertigkeiten/Talenten nur solche migrieren, bei denen in der aktuell geladenen Datenbasis userAdded == False ist.
-        raise Exception('Not implemented')
-
     def aktualisieren(self):
         '''Berechnet alle abgeleiteten Werte neu'''
         for key in Definitionen.Attribute:
             self.attribute[key].aktualisieren()
+
+        self.aspBasis = 0
+        self.aspMod = 0
+        self.kapBasis = 0
+        self.kapMod = 0
+
         self.wsBasis = 4 + int(self.attribute['KO'].wert/4)
         self.ws = self.wsBasis
-        if "Unverwüstlich" in self.vorteile:
-            self.ws += 1
+
         self.mrBasis = 4 + int(self.attribute['MU'].wert/4)
         self.mr = self.mrBasis
-        if "Willensstark I" in self.vorteile:
-            self.mr += 4
-        if "Willensstark II" in self.vorteile:
-            self.mr += 4
-        if "Unbeugsamkeit" in self.vorteile:
-            self.mr += round(self.attribute['MU'].wert/2+0.0001)
+
         self.gsBasis = 4 + int(self.attribute['GE'].wert/4+0.0001)
         self.gs = self.gsBasis
-        if "Flink I" in self.vorteile:
-            self.gs += 1
-        if "Flink II" in self.vorteile:
-            self.gs += 1
+
         self.iniBasis = self.attribute['IN'].wert
-        self.ini = self.iniBasis
-        if "Kampfreflexe" in self.vorteile:
-            self.ini += 4                                 
+        self.ini = self.iniBasis     
+        
         self.dh = self.attribute['KO'].wert
-        if "Abgehärtet II" in self.vorteile:
-            self.dh += 2
+
         self.schadensbonusBasis = int(self.attribute['KK'].wert/4)
         self.schadensbonus = self.schadensbonusBasis
-        self.schips = 4
-        if self.finanzen >= 2: 
-            self.schips += self.finanzen - 2
-        else:
-            self.schips -= (2-self.finanzen)*2
+
+        self.schipsMax = 4
+      
         self.be = 0
         self.rüstungsgewöhnung = 0
         if len(self.rüstung) > 0:
             self.be = self.rüstung[0].be
-        if "Rüstungsgewöhnung I" in self.vorteile:
-            self.rüstungsgewöhnung += 1
-        if "Rüstungsgewöhnung II" in self.vorteile:
-            self.rüstungsgewöhnung += 2
-        self.be = max(0,self.be-self.rüstungsgewöhnung)
         self.rsmod = 0
-        if "Natürliche Rüstung" in self.vorteile:
-            self.rsmod += 1
+
+        self.kampfstilMods = {}
+        for ks in Wolke.DB.findKampfstile():
+            self.kampfstilMods[ks] = KampfstilMod()
+
+        for value in self.waffenEigenschaftenUndo:
+            waffe = None
+            for w in self.waffen:
+                if w.name == value[0]:
+                    waffe = w
+                    break
+            if not waffe:
+                continue
+            if value[1] in waffe.eigenschaften:
+                waffe.eigenschaften.remove(value[1])
+        self.waffenEigenschaftenUndo = []
+
+        #Execute Vorteil scripts to modify character stats
+        vorteileByPrio = collections.defaultdict(list)
+        for vortName in self.vorteile:
+            if not vortName in Wolke.DB.vorteile:
+                continue
+            vort = Wolke.DB.vorteile[vortName]
+            if not vort.script:
+                continue
+            vorteileByPrio[vort.scriptPrio].append(vort)
+
+        for key in sorted(vorteileByPrio):
+            for vort in vorteileByPrio[key]:
+                logging.info("Character: applying script for Vorteil " + vort.name)
+                exec(vort.script, self.charakterScriptAPI)
+
+        #Update these values afterwards because values they depend on might be modified by Vorteil scripts
+        self.be = max(0,self.be-self.rüstungsgewöhnung)
+
+        self.wsStern = self.rsmod + self.ws
+        if len(self.rüstung) > 0:
+            self.wsStern += int(sum(self.rüstung[0].rs)/6+0.5+0.0001)
+
+        self.schips = self.schipsMax
+        if self.finanzen >= 2: 
+            self.schips += self.finanzen - 2
+        else:
+            self.schips -= (2-self.finanzen)*2
+
         self.updateVorts()
         self.updateFerts()
+        self.updateWaffenwerte()
         self.epZaehlen()
+
+    def updateWaffenwerte(self):
+        self.waffenwerte = []
+
+        for el in self.waffen:
+            waffenwerte = Waffenwerte()
+            self.waffenwerte.append(waffenwerte)
+            waffenwerte.RW = el.rw
+            waffenwerte.TPW6 = el.W6
+            waffenwerte.TPPlus = el.plus
+            waffenwerte.Haerte = el.haerte
+
+            # Calculate modifiers for AT, PA, TP from Kampfstil and Talent
+            if el.name in Wolke.DB.waffen:
+                fertig = Wolke.DB.waffen[el.name].fertigkeit
+                tale = Wolke.DB.waffen[el.name].talent
+            else:
+                fertig = ""
+                tale = ""
+            if not fertig in self.fertigkeiten:
+                continue
+
+            if tale in self.fertigkeiten[fertig].gekaufteTalente:
+                bwert = self.fertigkeiten[fertig].probenwertTalent
+            else:
+                bwert = self.fertigkeiten[fertig].probenwert
+                
+            kampfstilMods = None
+            if el.kampfstil in self.kampfstilMods:
+                kampfstilMods = self.kampfstilMods[el.kampfstil]
+            else:
+                kampfstilMods = KampfstilMod()
+                if el.kampfstil != Definitionen.KeinKampfstil:
+                    logging.warn("Waffe " + el.name + " referenziert einen nicht existierenden Kampfstil: " + el.kampfstil)
+
+            waffenwerte.AT = bwert + kampfstilMods.AT
+            waffenwerte.VT = bwert + kampfstilMods.VT
+            waffenwerte.TPPlus += kampfstilMods.TP
+            waffenwerte.RW += kampfstilMods.RW
+
+            if type(el) == Objekte.Nahkampfwaffe:
+                waffenwerte.TPPlus += self.schadensbonus
+                waffenwerte.AT += el.wm
+                waffenwerte.VT += el.wm
+
+            ignoreBE = False
+            for values in kampfstilMods.BEIgnore:
+                if values[0] == fertig and values[1] == tale:
+                    ignoreBE = True
+                    break
+            if not ignoreBE:
+                waffenwerte.AT -= self.be
+                waffenwerte.VT -= self.be
+
+            self.currentWaffenwerte = waffenwerte
+
+            #Execute Waffeneigenschaft scripts to modify character/weapon stats
+            eigenschaftenByPrio = collections.defaultdict(list)
+            for weName in el.eigenschaften:
+                try:
+                    we = Hilfsmethoden.GetWaffeneigenschaft(weName, Wolke.DB)
+                except WaffeneigenschaftException:
+                    continue #Manually added Eigenschaften are allowed
+                if not we.script:
+                    continue
+                eigenschaftenByPrio[we.scriptPrio].append(weName)
+
+            for key in sorted(eigenschaftenByPrio):
+                for weName in eigenschaftenByPrio[key]:
+                    self.currentEigenschaft = weName
+                    logging.info("Character: applying script for Waffeneigenschaft " + weName)
+                    we = Hilfsmethoden.GetWaffeneigenschaft(weName, Wolke.DB)
+                    exec(we.script, self.waffenScriptAPI)
+
+            self.currentWaffenwert = None
+            self.currentEigenschaft = None
+
+    def getDefaultTalentCost(self, talent, steigerungsfaktor):
+        if Wolke.DB.talente[talent].kosten != -1:
+            return Wolke.DB.talente[talent].kosten
+        if Wolke.DB.talente[talent].verbilligt:
+            return 10*steigerungsfaktor
+        return 20*steigerungsfaktor
+
+    def getTalentCost(self, talent, steigerungsfaktor):
+        if talent in self.talenteVariable:
+            return self.talenteVariable[talent].kosten
+        return self.getDefaultTalentCost(talent, steigerungsfaktor)
 
     def epZaehlen(self):
         '''Berechnet die bisher ausgegebenen EP'''
@@ -191,11 +521,12 @@ class Char():
         for vor in self.vorteile:
             if vor == self.minderpakt:
                 if "Minderpakt" in self.vorteile:
+                    spent += 20
                     continue
                 else:
                     self.minderpakt = None
             if vor in self.vorteileVariable:
-                spent += self.vorteileVariable[vor]
+                spent += self.vorteileVariable[vor].kosten
             elif Wolke.DB.vorteile[vor].kosten != -1:
                 spent += Wolke.DB.vorteile[vor].kosten
         
@@ -216,14 +547,7 @@ class Char():
                 if fer == "Gebräuche" and tal[11:] == self.heimat:
                     continue
                 paidTalents.append(tal)
-                if tal in self.talenteVariable:
-                    val = self.talenteVariable[tal]
-                elif Wolke.DB.talente[tal].kosten != -1:
-                    val = Wolke.DB.talente[tal].kosten
-                elif Wolke.DB.talente[tal].verbilligt:
-                    val = 10*self.fertigkeiten[fer].steigerungsfaktor
-                else:
-                    val = 20*self.fertigkeiten[fer].steigerungsfaktor
+                val = self.getTalentCost(tal, self.fertigkeiten[fer].steigerungsfaktor)
                 spent += val
                 self.EP_Fertigkeiten_Talente += val
         skip = False                                                 
@@ -250,16 +574,7 @@ class Char():
                 if tal in paidTalents:
                     continue
                 paidTalents.append(tal)
-                if tal in self.talenteVariable:
-                    val = self.talenteVariable[tal]
-                elif Wolke.DB.talente[tal].kosten != -1:
-                    val = Wolke.DB.talente[tal].kosten
-                elif Wolke.DB.talente[tal].verbilligt:
-                    val = 10*self.übernatürlicheFertigkeiten[fer]\
-                                                        .steigerungsfaktor
-                else:
-                    val = 20*self.übernatürlicheFertigkeiten[fer]\
-                                                        .steigerungsfaktor
+                val = self.getTalentCost(tal, self.übernatürlicheFertigkeiten[fer].steigerungsfaktor)
                 spent += val
                 self.EP_Uebernatuerlich_Talente += val
         #Siebter Block ist gratis
@@ -376,7 +691,7 @@ class Char():
             if self.fertigkeiten[fert].wert > self.fertigkeiten[fert].maxWert:
                 self.fertigkeiten[fert].wert = self.fertigkeiten[fert].maxWert
                 self.fertigkeiten[fert].aktualisieren()
-            if self.fertigkeiten[fert].kampffertigkeit and \
+            if self.fertigkeiten[fert].kampffertigkeit == 1 and \
                             self.fertigkeiten[fert].wert > self.höchsteKampfF:
                 self.höchsteKampfF = self.fertigkeiten[fert].wert
             for tal in self.fertigkeiten[fert].gekaufteTalente:
@@ -542,7 +857,7 @@ class Char():
             v = etree.SubElement(vor,'Vorteil')
             v.text = vort
             if vort in self.vorteileVariable:
-                v.set('variable',str(self.vorteileVariable[vort]))
+                v.set('variable',str(self.vorteileVariable[vort].kosten) + "," + self.vorteileVariable[vort].kommentar)
             else:
                 v.set('variable','-1')
         #Vierter Block
@@ -557,7 +872,7 @@ class Char():
                 talNode = etree.SubElement(talentNode,'Talent')
                 talNode.set('name',talent)
                 if talent in self.talenteVariable:
-                    talNode.set('variable',str(self.talenteVariable[talent]))
+                    talNode.set('variable',str(self.talenteVariable[talent].kosten) + "," + self.talenteVariable[talent].kommentar)
                 else:
                     talNode.set('variable','-1')
         Wolke.Fehlercode = -58
@@ -578,13 +893,14 @@ class Char():
         waf = etree.SubElement(aus,'Waffen')
         for waff in self.waffen:
             wafNode = etree.SubElement(waf,'Waffe')
-            wafNode.set('name',waff.name)
+            wafNode.set('name',waff.anzeigename)
+            wafNode.set('id',waff.name)
             wafNode.set('W6',str(waff.W6))
             wafNode.set('plus',str(waff.plus))
             wafNode.set('eigenschaften',", ".join(waff.eigenschaften))
             wafNode.set('haerte',str(waff.haerte))
             wafNode.set('rw',str(waff.rw))
-            wafNode.set('kampfstil',str(waff.kampfstil))
+            wafNode.set('kampfstil',waff.kampfstil)
             if type(waff) is Objekte.Nahkampfwaffe:
                 wafNode.set('typ','Nah')
                 wafNode.set('wm',str(waff.wm))
@@ -607,7 +923,7 @@ class Char():
                 talNode = etree.SubElement(talentNode,'Talent')
                 talNode.set('name',talent)
                 if talent in self.talenteVariable:
-                    talNode.set('variable',str(self.talenteVariable[talent]))
+                    talNode.set('variable',str(self.talenteVariable[talent].kosten) + "," + self.talenteVariable[talent].kommentar)
                 else:
                     talNode.set('variable','-1')
         #Siebter Block
@@ -629,7 +945,7 @@ class Char():
         strArr = ["Weitere Informationen:"]
         dbChanged = charDBVersion < datenbankCodeVersion
         while charDBVersion < datenbankCodeVersion:
-            logging.info("Migriere Charakter von Version " + str(charDBVersion ) + " zu " + str(charDBVersion + 1))
+            logging.warning("Migriere Charakter von Version " + str(charDBVersion ) + " zu " + str(charDBVersion + 1))
             charDBVersion +=1
             info = self.migrationen[charDBVersion](xmlRoot)
             if info:
@@ -664,10 +980,10 @@ class Char():
         userDBChanged = False
         userDBName = "Unbekannt"
         if versionXml is not None:
-            logging.debug("VersionXML found")
+            logging.debug("Character: VersionXML found")
             charDBVersion = int(versionXml.find('DatenbankVersion').text)
             userDBCRC = int(versionXml.find('NutzerDatenbankCRC').text)
-            userDBName = versionXml.find('NutzerDatenbankName').text
+            userDBName = versionXml.find('NutzerDatenbankName').text or 'Keine Nutzer-Regelbasis'
             if Wolke.DB.userDbXml is not None:
                 currentUserDBCRC = binascii.crc32(etree.tostring(Wolke.DB.userDbXml))
                 if userDBCRC != 0 and userDBCRC != currentUserDBCRC:
@@ -675,7 +991,7 @@ class Char():
             elif userDBCRC != 0:
                 userDBChanged = True
 
-        logging.debug("Starting Migration")
+        logging.debug("Starting Character Migration")
         self.charakterMigrieren(root, charDBVersion, self.datenbankCodeVersion)
 
         alg = root.find('AllgemeineInfos')
@@ -714,15 +1030,26 @@ class Char():
                 self.minderpakt = vor.get('minderpakt')
             else:
                 self.minderpakt = None
+
+        def parseVariableKosten(variable):
+            var = list(map(str.strip, variable.split(",", 1)))
+            if int(var[0]) != -1:
+                vk = VariableKosten()
+                vk.kosten = int(var[0])
+                if len(var) > 1:
+                    vk.kommentar = var[1]
+                return vk
+            return None
+
         for vor in root.findall('Vorteile/*'):
             if not vor.text in Wolke.DB.vorteile:
                 vIgnored.append(vor.text)
                 continue
             self.vorteile.append(vor.text)
-            var = int(vor.get('variable'))
-            if var != -1:
+            var = parseVariableKosten(vor.get('variable'))
+            if var:
                 self.vorteileVariable[vor.text] = var
-                
+
         #Vierter Block
         Wolke.Fehlercode = -46
         for fer in root.findall('Fertigkeiten/Fertigkeit'):
@@ -739,9 +1066,12 @@ class Char():
                     tIgnored.add(nam)
                     continue
                 fert.gekaufteTalente.append(nam)
-                var = int(tal.attrib['variable'])
-                if int(tal.attrib['variable']) != -1:
-                    self.talenteVariable[tal] = int(tal.attrib['variable'])
+                var = parseVariableKosten(tal.attrib['variable'])
+                if var:
+                    #round down to nearest multiple in case of a db cost change
+                    defaultKosten = self.getDefaultTalentCost(nam, fert.steigerungsfaktor)
+                    var.kosten = max(var.kosten - (var.kosten%defaultKosten), defaultKosten)
+                    self.talenteVariable[nam] = var
             fert.aktualisieren()
             self.fertigkeiten.update({fert.name: fert})
         Wolke.Fehlercode = -47
@@ -766,14 +1096,15 @@ class Char():
             else:
                 waff = Objekte.Fernkampfwaffe()
                 waff.lz = int(waf.attrib['lz'])
-            waff.name = waf.attrib['name']
+            waff.anzeigename = waf.attrib['name']
+            waff.name = waf.get('id') or waff.anzeigename
             waff.rw = int(waf.attrib['rw'])
             waff.W6 = int(waf.attrib['W6'])
             waff.plus = int(waf.attrib['plus'])
             if waf.attrib['eigenschaften']:
                 waff.eigenschaften = list(map(str.strip, waf.attrib['eigenschaften'].split(",")))
             waff.haerte = int(waf.attrib['haerte'])
-            waff.kampfstil = int(waf.attrib['kampfstil'])
+            waff.kampfstil = waf.attrib['kampfstil']
             self.waffen.append(waff)
         Wolke.Fehlercode = -50
         for aus in root.findall('Objekte/Ausrüstung/Ausrüstungsstück'):
@@ -794,8 +1125,12 @@ class Char():
                     tIgnored.add(nam)
                     continue
                 fert.gekaufteTalente.append(nam)
-                if int(tal.attrib['variable']) != -1:
-                    self.talenteVariable[tal.attrib['name']] = int(tal.attrib['variable'])
+                var = parseVariableKosten(tal.attrib['variable'])
+                if var:
+                    #round down to nearest multiple in case of a db cost change
+                    defaultKosten = self.getDefaultTalentCost(nam, fert.steigerungsfaktor)
+                    var.kosten = max(var.kosten - (var.kosten%defaultKosten), defaultKosten)
+                    self.talenteVariable[nam] = var
             fert.aktualisieren()
             self.übernatürlicheFertigkeiten.update({fert.name: fert})
         #Siebter Block

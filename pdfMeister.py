@@ -18,6 +18,10 @@ import math
 from collections import namedtuple
 import logging
 import tempfile
+from Charakter import KampfstilMod
+from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
+import sys
+import traceback
 
 CharakterbogenInfo = namedtuple('CharakterbogenInfo', 'filePath maxVorteile maxFreie maxFertigkeiten seitenProfan kurzbogenHack')
 
@@ -35,7 +39,7 @@ class pdfMeister(object):
         self.RulesPage = "Regeln.pdf"
         self.Rules = []
         self.RuleWeights = []
-        self.RuleCategories = ['ALLGEMEINE VORTEILE', 'PROFANE VORTEILE', 'KAMPFVORTEILE', 'NAHKAMPFMANÖVER', 'FERNKAMPFMANÖVER', 'ÜBERNATÜRLICHE VORTEILE', 'SPONTANE MODIFIKATIONEN (ZAUBER)', 'SPONTANE MODIFIKATIONEN (LITURGIEN)', 'ÜBERNATÜRLICHE TALENTE', 'SONSTIGES']
+        self.RuleCategories = ['ALLGEMEINE VORTEILE', 'PROFANE VORTEILE', 'KAMPFVORTEILE', 'AKTIONEN', 'WAFFENEIGENSCHAFTEN', 'NAHKAMPFMANÖVER', 'FERNKAMPFMANÖVER', 'ÜBERNATÜRLICHE VORTEILE', 'SPONTANE MODIFIKATIONEN (ZAUBER)', 'SPONTANE MODIFIKATIONEN (LITURGIEN)', 'ÜBERNATÜRLICHE TALENTE', 'SONSTIGES']
         self.Talents = []
         self.Energie = 0
     
@@ -74,6 +78,12 @@ class pdfMeister(object):
         fields = self.pdfSechsterBlock(fields)
         Wolke.Fehlercode = -88
         fields = self.pdfSiebterBlock(fields)
+
+        Wolke.Fehlercode = -99
+        if not self.pdfExecutePlugin(fields):
+            Wolke.Fehlercode = 0
+            return
+
         # PDF erstellen - Felder bleiben bearbeitbar
         Wolke.Fehlercode = -89
         handle, out_file = tempfile.mkstemp()
@@ -161,13 +171,8 @@ class pdfMeister(object):
         fields['Finanzen'] = Definitionen.Finanzen[Wolke.Char.finanzen]
         fields['Kurzb'] = Wolke.Char.kurzbeschreibung
         fields['Notiz1'] = Wolke.Char.kurzbeschreibung
-        glMod = 0
-        if "Glück I" in Wolke.Char.vorteile:
-            glMod += 1
-        if "Glück II" in Wolke.Char.vorteile:
-            glMod += 1
-        fields['Schip'] = 4 + glMod
-        fields['Schipm'] = Wolke.Char.schips + glMod
+        fields['Schip'] = Wolke.Char.schipsMax
+        fields['Schipm'] = Wolke.Char.schips
         # Erste Acht Eigenheiten
         count = 0
         eigFields = [1, 2, 3, 4, 5, 6, 7, 8]
@@ -215,54 +220,35 @@ class pdfMeister(object):
         if "Kampfreflexe" in Wolke.Char.vorteile:
             fields['ModKampfreflexe'] = 'Yes'
 
-        aspBasis = 0
-        if "Zauberer I" in Wolke.Char.vorteile:
-            aspBasis += 8
-        if "Zauberer II" in Wolke.Char.vorteile:
-            aspBasis += 8
-        if "Zauberer III" in Wolke.Char.vorteile:
-            aspBasis += 8
-        if "Zauberer IV" in Wolke.Char.vorteile:
-            aspBasis += 8
-        aspMod = 0
         if "Gefäß der Sterne" in Wolke.Char.vorteile:
-            aspMod += Wolke.Char.attribute['CH'].wert+4
             fields['ModGefaess'] = 'Yes'
 
-        if aspBasis + aspMod > 0:
-            fields['AstralenergieBasis'] = aspBasis
-            fields['Astralenergie'] = Wolke.Char.asp.wert + aspBasis + aspMod
+        isZauberer = Wolke.Char.aspBasis + Wolke.Char.aspMod > 0
+        isGeweiht = Wolke.Char.kapBasis + Wolke.Char.kapMod > 0
+        if isZauberer:
+            fields['AstralenergieBasis'] = Wolke.Char.aspBasis
+            fields['Astralenergie'] = Wolke.Char.asp.wert + Wolke.Char.aspBasis + Wolke.Char.aspMod
             fields['ModAstralenergie'] = Wolke.Char.asp.wert
 
-        kapBasis = 0
-        if "Geweiht I" in Wolke.Char.vorteile:
-            kapBasis += 8
-        if "Geweiht II" in Wolke.Char.vorteile:
-            kapBasis += 8
-        if "Geweiht III" in Wolke.Char.vorteile:
-            kapBasis += 8
-        if "Geweiht IV" in Wolke.Char.vorteile:
-            kapBasis += 8
-        if kapBasis > 0:
-            fields['KarmaenergieBasis'] = kapBasis
-            fields['Karmaenergie'] = Wolke.Char.kap.wert + kapBasis
+        if isGeweiht:
+            fields['KarmaenergieBasis'] = Wolke.Char.kapBasis
+            fields['Karmaenergie'] = Wolke.Char.kap.wert + Wolke.Char.kapBasis + Wolke.Char.kapMod
             fields['ModKarmaenergie'] = Wolke.Char.kap.wert
-        if aspBasis + aspMod > 0 and kapBasis == 0:
-            self.Energie = Wolke.Char.asp.wert + aspBasis + aspMod
+
+        if isZauberer and not isGeweiht:
+            self.Energie = Wolke.Char.asp.wert + Wolke.Char.aspBasis + Wolke.Char.aspMod
             fields['EN'] = self.Energie
             #fields['gEN'] = "0"
-        elif aspBasis + aspMod == 0 and kapBasis > 0:
-            self.Energie = Wolke.Char.kap.wert + kapBasis
+        elif not isZauberer and isGeweiht:
+            self.Energie = Wolke.Char.kap.wert + Wolke.Char.kapBasis + Wolke.Char.kapMod
             fields['EN'] = self.Energie
             #fields['gEN'] = "0"
         # Wenn sowohl AsP als auch KaP vorhanden sind, muss der Spieler ran..
+
         trueBE = max(Wolke.Char.be, 0)
         fields['DHm'] = max(Wolke.Char.dh - 2*trueBE, 1)
         fields['GSm'] = max(Wolke.Char.gs-trueBE, 1)
-        wsmod = Wolke.Char.rsmod + Wolke.Char.ws
-        if len(Wolke.Char.rüstung) > 0:
-            wsmod += int(sum(Wolke.Char.rüstung[0].rs)/6+0.5+0.0001)
-        fields['WSm'] = wsmod
+        fields['WSm'] = Wolke.Char.wsStern
 
         return fields
 
@@ -321,8 +307,8 @@ class pdfMeister(object):
             # so type doesnt matter
             if el in Wolke.Char.vorteileVariable:
                 removed.append(el)
-                nname = el + " (" + str(Wolke.Char.vorteileVariable[el]) + \
-                    " EP)"
+                vk = Wolke.Char.vorteileVariable[el]
+                nname = el + " (" + vk.kommentar + "; " + str(vk.kosten) + " EP)"
                 added.append(nname)
                 typeDict[nname] = typeDict[el]
         for el in removed:
@@ -389,42 +375,63 @@ class pdfMeister(object):
         count = 1
 
         for el in Wolke.Char.freieFertigkeiten:
-            if el.wert < 1 or el.wert > 3:
+            if el.wert < 1 or el.wert > 3 or not el.name:
                 continue
             resp = el.name + " "
             for i in range(el.wert):
                 resp += "I"
-            fields['Frei' + str(count)] = resp
+
+            if fields['Frei' + str(count)]:
+                fields['Frei' + str(count)] += ", " + resp
+            else:
+                fields['Frei' + str(count)] = resp
             count += 1
             if count > self.CharakterBogen.maxFreie:
-                break
+                count = 1
 
-        # Standardfertigkeiten
+        if self.CharakterBogen.kurzbogenHack:
+            self.writeFertigkeiten(fields, None, Definitionen.StandardFerts)
+
+            nonstandardFerts = []
+            for el in Wolke.Char.fertigkeiten:
+                if not el in Definitionen.StandardFerts:
+                    nonstandardFerts.append(el)
+            nonstandardFerts.sort(key = lambda x: Wolke.DB.fertigkeiten[x].printclass)
+            self.writeFertigkeiten(fields, "Indi", nonstandardFerts)
+        else:
+            sortedFerts = sorted(Wolke.Char.fertigkeiten, key = lambda x: (Wolke.DB.fertigkeiten[x].printclass, x))
+            self.writeFertigkeiten(fields, "Fertigkeit", sortedFerts)
+        return fields
+
+    def writeFertigkeiten(self, fields, baseStr, fertigkeitenNames):
         count = 1
-        for el in Definitionen.StandardFerts:
+        for el in fertigkeitenNames:
             if el not in Wolke.Char.fertigkeiten:
                 continue
-            base = el[0:5]
-            # Fix Umlaute
-            if el == "Gebräuche":
-                base = "Gebra"
-            elif el == "Überleben":
-                base = "Ueber"
             fertigkeit = Wolke.Char.fertigkeiten[el]
 
-            if not self.CharakterBogen.kurzbogenHack:
-                base = "Fertigkeit" + str(count)
+            if baseStr:
+                base = baseStr + str(count)
                 fields[base + "NA"] = fertigkeit.name           
                 fields[base + "FA"] = fertigkeit.steigerungsfaktor
                 fields[base + "AT"] = \
                     fertigkeit.attribute[0] + '/' + \
                     fertigkeit.attribute[1] + '/' + \
                     fertigkeit.attribute[2]
+            else:
+                base = el[0:5]
+                # Fix Umlaute
+                if el == "Gebräuche":
+                    base = "Gebra"
+                elif el == "Überleben":
+                    base = "Ueber"
 
             fields[base + "BA"] = fertigkeit.basiswert
             fields[base + "FW"] = fertigkeit.wert
             talStr = ""
-            for el2 in fertigkeit.gekaufteTalente:
+
+            talente = sorted(fertigkeit.gekaufteTalente)
+            for el2 in talente:
                 talStr += ", "
                 if el2.startswith("Gebräuche: "):
                     talStr += el2[11:]
@@ -435,54 +442,13 @@ class pdfMeister(object):
                 else:
                     talStr += el2
                 if el2 in Wolke.Char.talenteVariable:
-                    talStr += " (" + str(Wolke.Char.talenteVariable[el2]) + \
-                                 " EP)"
+                    vk = Wolke.Char.talenteVariable[el2]
+                    talStr += " (" + vk.kommentar + ")"
             talStr = talStr[2:]
             fields[base + "TA"] = talStr
             fields[base + "PW"] = fertigkeit.probenwert
             fields[base + "PWT"] = fertigkeit.probenwertTalent
             count += 1
-
-        # Nonstandard Ferts
-        if self.CharakterBogen.kurzbogenHack:
-            count = 1
-
-        for el in Wolke.Char.fertigkeiten:
-            if el in Definitionen.StandardFerts:
-                continue
-            if count > self.CharakterBogen.maxFertigkeiten:
-                break
-            fertigkeit = Wolke.Char.fertigkeiten[el]
-            base = 'Indi' + str(count)
-            if not self.CharakterBogen.kurzbogenHack:
-                base = 'Fertigkeit' + str(count)
-            fields[base + 'NA'] = \
-                fertigkeit.name
-            fields[base + 'FA'] = \
-                fertigkeit.steigerungsfaktor
-            fields[base + 'AT'] = \
-                fertigkeit.attribute[0] + '/' + \
-                fertigkeit.attribute[1] + '/' + \
-                fertigkeit.attribute[2]
-            fields[base + 'BA'] = \
-                fertigkeit.basiswert
-            fields[base + 'FW'] = \
-                fertigkeit.wert
-            fields[base + 'PW'] = \
-                fertigkeit.probenwert
-            fields[base + 'PWT'] = \
-                fertigkeit.probenwertTalent
-            talStr = ""
-            for el2 in fertigkeit.gekaufteTalente:
-                talStr += ", "
-                talStr += el2
-                if el2 in Wolke.Char.talenteVariable:
-                    talStr += " (" + str(Wolke.Char.talenteVariable[el2]) + \
-                                 " EP)"
-            talStr = talStr[2:]
-            fields[base + 'TA'] = talStr
-            count += 1
-        return fields
 
     def pdfFünfterBlock(self, fields):
         logging.debug("PDF Block 5")
@@ -509,110 +475,41 @@ class pdfMeister(object):
         # Fill eight rows of weapons
         count = 1
         for el in Wolke.Char.waffen:
+            waffenwerte = Wolke.Char.waffenwerte[count-1]
+
             base = 'Waffe' + str(count)
-            fields[base + 'NA'] = el.name
+            fields[base + 'NA'] = el.anzeigename
             sg = ""
             if el.plus >= 0:
                 sg = "+"
-            fields[base + 'TP'] = str(el.W6) + "W6" + sg + str(el.plus)
-            fields[base + 'HA'] = str(el.haerte)
+
+            keinSchaden = el.W6 == 0 and el.plus == 0
+            
+            fields[base + 'TP'] = "-" if keinSchaden else str(el.W6) + "W6" + sg + str(el.plus)
+            fields[base + 'HA'] = str(waffenwerte.Haerte)
             fields[base + 'EI'] = ", ".join(el.eigenschaften)
-            fields[base + 'RW'] = str(el.rw)
+
+            fields[base + 'ATm'] = str(waffenwerte.AT)
+
+            if type(el) == Objekte.Fernkampfwaffe or (el.name in Wolke.DB.waffen and Wolke.DB.waffen[el.name].talent == 'Lanzenreiten'):
+                fields[base + 'VTm'] = "-"
+            else:
+                fields[base + 'VTm'] = str(waffenwerte.VT)
+
+            fields[base + 'RW'] = str(waffenwerte.RW)
+
+            wm = 0
             if type(el) == Objekte.Fernkampfwaffe:
-                fields[base + 'WM'] = str(el.lz)
+                wm = el.lz
             else:
-                fields[base + 'WM'] = str(el.wm)
+                wm = el.wm
 
-            # Calculate modifiers for AT, PA, TP from Kampfstil
-            if el.name in Wolke.DB.waffen:
-                fertig = Wolke.DB.waffen[el.name].fertigkeit
-                tale = Wolke.DB.waffen[el.name].talent
-            else:
-                fertig = ""
-                tale = ""
-            if fertig in Wolke.Char.fertigkeiten:
-                if tale in Wolke.Char.fertigkeiten[fertig].gekaufteTalente:
-                    bwert = Wolke.Char.fertigkeiten[fertig].probenwertTalent
-                else:
-                    bwert = Wolke.Char.fertigkeiten[fertig].probenwert
-                at = bwert
-                vt = bwert
-                sp = 0
-                flagReiter2 = False
-                # 0 is no Kampfstil, no Effect
-                # 1 is Beidhändig
-                if el.kampfstil == 1:
-                    levelC = 0
-                    for vor in Wolke.Char.vorteile:
-                        if Definitionen.Kampfstile[1] in vor:
-                            levelC += 1
-                    at += min(levelC, 3)
-                # 2 is Parierwaffenkampf which does nothing
-                # 3 is Reiterkampf
-                elif el.kampfstil == 3:
-                    levelC = 0
-                    for vor in Wolke.Char.vorteile:
-                        if Definitionen.Kampfstile[3] in vor:
-                            levelC += 1
-                    if levelC >= 2:
-                        flagReiter2 = True
-                    at += min(levelC, 3)
-                    vt += min(levelC, 3)
-                    sp += min(levelC, 3)
-                # 4 is Schildkampf
-                elif el.kampfstil == 4:
-                    levelC = 0
-                    for vor in Wolke.Char.vorteile:
-                        if Definitionen.Kampfstile[4] in vor:
-                            levelC += 1
-                    vt += min(levelC, 3)
-                # 5 is Kraftvoller Kampf
-                elif el.kampfstil == 5:
-                    levelC = 0
-                    for vor in Wolke.Char.vorteile:
-                        if Definitionen.Kampfstile[5] in vor:
-                            levelC += 1
-                    sp += min(levelC, 3)
-                # 6 is Schneller Kampf
-                elif el.kampfstil == 6:
-                    levelC = 0
-                    for vor in Wolke.Char.vorteile:
-                        if Definitionen.Kampfstile[6] in vor:
-                            levelC += 1
-                    at += min(levelC, 3)
+            fields[base + 'WM'] = wm
 
-                if type(el) == Objekte.Nahkampfwaffe:
-                    if "Kopflastig" in el.eigenschaften or\
-                        (el.name == "Unbewaffnet" and "Waffenloser Kampf" in
-                         Wolke.Char.vorteile):
-                        sp += Wolke.Char.schadensbonus*2
-                    else:
-                        sp += Wolke.Char.schadensbonus
-                    at += el.wm
-                    vt += el.wm
-
-                for eigenschaft in el.eigenschaften:
-                    res = re.findall('Schwer \(([0-9]{1,2})\)',
-                                     eigenschaft,
-                                     re.UNICODE)
-                    if len(res) > 0:
-                        minkk = int(res[0])
-                        if Wolke.Char.attribute['KK'].wert < minkk:
-                            at -= 2
-                            vt -= 2
-                        break
-
-                if not (flagReiter2 and tale == "Reiten" and \
-                        fertig == "Athletik"):
-                    at -= Wolke.Char.be
-                    vt -= Wolke.Char.be
-
-                fields[base + 'ATm'] = at
-                fields[base + 'VTm'] = vt
-                sg = ""
-                if el.plus+sp >= 0:
-                    sg = "+"
-                fields[base + 'TPm'] = str(el.W6) + "W6" + sg + str(el.plus+sp)
+            sg = ""
+            if waffenwerte.TPPlus >= 0:
+                sg = "+"
+            fields[base + 'TPm'] = "-" if keinSchaden else str(waffenwerte.TPW6) + "W6" + sg + str(waffenwerte.TPPlus)
 
             if count >= 8:
                 break
@@ -644,13 +541,18 @@ class pdfMeister(object):
                 countFerts += 1
         talsList = set(talsList)
 
-        countF = 1
-        countT = 1
+        fertsList = []
         for f in Wolke.Char.übernatürlicheFertigkeiten:
             if Wolke.Char.übernatürlicheFertigkeiten[f].wert <= 0 and\
                     len(Wolke.Char.übernatürlicheFertigkeiten[f].
                         gekaufteTalente) == 0:
                 continue
+            fertsList.append(f)
+        fertsList.sort(key = lambda x: (Wolke.DB.übernatürlicheFertigkeiten[x].printclass, x))
+
+        countF = 1
+        countT = 1
+        for f in fertsList:
             fe = Wolke.Char.übernatürlicheFertigkeiten[f]
 
             if countF < 13:
@@ -675,8 +577,8 @@ class pdfMeister(object):
                 tt = Talentbox.Talentbox()
                 mod = ""
                 if t in Wolke.Char.talenteVariable:
-                    mod += " (" + str(Wolke.Char.talenteVariable[t]) + \
-                              " EP)"
+                    vk = Wolke.Char.talenteVariable[t]
+                    mod += " (" + vk.kommentar + ")"
 
                 #if t+mod in self.Talents:
                 #    if fe.probenwertTalent > self.Talents[t+mod].pw:
@@ -740,7 +642,7 @@ class pdfMeister(object):
                 #     self.Talents[tt.na] = tt
 
         # Sort by printclass. Old sorting stays for same printclass, so this should not mess stuff up.
-        self.Talents.sort(key = lambda x: x.pc)
+        self.Talents.sort(key = lambda x: (x.pc, x.na))
         i = 0
         while i < len(self.Talents):
             if i < 30:
@@ -765,6 +667,27 @@ class pdfMeister(object):
         fields['ErfahEI'] = Wolke.Char.EPspent
         fields['ErfahVE'] = Wolke.Char.EPtotal - Wolke.Char.EPspent
         return fields
+
+    def pdfExecutePlugin(self, fields):
+        if Wolke.Settings['Pfad-Export-Plugin'] and os.path.isfile(Wolke.Settings['Pfad-Export-Plugin']):
+            api = {}
+            for k, v in Wolke.Char.charakterScriptAPI.items():
+                if k.startswith('get'):
+                    api[k] = v
+            api['data'] = fields
+            api['sephrastoExport'] = True
+
+            try:
+                exec(open(Wolke.Settings['Pfad-Export-Plugin'], mode="r", encoding="utf-8").read(), api)
+            except Exception as err:
+                error_class = err.__class__.__name__
+                detail = err.args[0]
+                cl, exc, tb = sys.exc_info()
+                line_number = traceback.extract_tb(tb)[-1][1]
+                raise Exception("%s at line %d: %s" % (error_class, line_number, detail))
+
+            return api['sephrastoExport']
+        return True
 
     def createExtra(self, vorts, ferts, tals, fields):
         for i in range(1, 13):
@@ -806,6 +729,22 @@ class pdfMeister(object):
         else:
             return '\n' + category + '\n\n'
 
+    def appendWaffeneigenschaften(strList, weights, category, eigenschaften):
+        strList.append(pdfMeister.formatRuleCategory(category))
+        weights.append(pdfMeister.getWeight(strList[-1]))
+        for weName in eigenschaften:
+            str = ['-']
+            we = Wolke.DB.waffeneigenschaften[weName]
+            if not we.text:
+                continue
+            str.append(we.name)
+            str.append(": ")
+            #Replace all line endings by space
+            str.append(we.text.replace('\n', ' '))
+            str.append('\n\n')
+            strList.append("".join(str))
+            weights.append(pdfMeister.getWeight(strList[-1]))
+
     def appendVorteile(strList, weights, category, vorteile):
         strList.append(pdfMeister.formatRuleCategory(category))
         weights.append(pdfMeister.getWeight(strList[-1]))
@@ -815,6 +754,8 @@ class pdfMeister(object):
 
             str = ['-']
             vorteil = Wolke.DB.vorteile[vor]
+            if not vorteil.text:
+                continue
             str.append(vorteil.name)
             str.append(": ")
             #Replace all line endings by space
@@ -865,6 +806,8 @@ class pdfMeister(object):
         for tal in talente:
             str = ['-']
             talent = Wolke.DB.talente[tal]
+            if not talent.text:
+                continue
             str.append(talent.name)
             str.append(': ')
 
@@ -923,7 +866,21 @@ class pdfMeister(object):
 
         sortM = list(Wolke.DB.manöver.keys())
         sortM = sorted(sortM, key=str.lower)
+
+        aktionen = [el for el in sortM if (Wolke.DB.manöver[el].typ == 5)]
+
         manövernah = [el for el in sortM if (Wolke.DB.manöver[el].typ == 0)]
+
+        waffeneigenschaften = []
+        for waffe in Wolke.Char.waffen:
+            for el in waffe.eigenschaften:
+                try:
+                    we = Hilfsmethoden.GetWaffeneigenschaft(el, Wolke.DB)
+                    if not we.name in waffeneigenschaften:
+                        waffeneigenschaften.append(we.name)
+                except WaffeneigenschaftException:
+                    pass
+        waffeneigenschaften = sorted(waffeneigenschaften, key=str.lower)
 
         manöverfern = []
         for waffe in Wolke.Char.waffen:
@@ -952,20 +909,24 @@ class pdfMeister(object):
             pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[1], profan)
         if kampf:
             pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[2], kampf)
+        if aktionen:
+            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[3], aktionen)
+        if waffeneigenschaften:
+            pdfMeister.appendWaffeneigenschaften(self.Rules, self.RuleWeights, self.RuleCategories[4], waffeneigenschaften)
         if manövernah:
-            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[3], manövernah)
+            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[5], manövernah)
         if manöverfern:
-            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[4], manöverfern)
+            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[6], manöverfern)
         if ueber:
-            pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[5], ueber)
+            pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[7], ueber)
         if manövermagisch:
-            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[6], manövermagisch)
+            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[8], manövermagisch)
         if manöverkarmal:
-            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[7], manöverkarmal)
+            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[9], manöverkarmal)
         if ueberTalente:
-            pdfMeister.appendTalente(self.Rules, self.RuleWeights, self.RuleCategories[8], ueberTalente)
+            pdfMeister.appendTalente(self.Rules, self.RuleWeights, self.RuleCategories[10], ueberTalente)
         if manöversonstiges:
-            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[9], manöversonstiges)
+            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[11], manöversonstiges)
 
     def writeRules(self, fields, start, roughLineCount):
         weights = 0

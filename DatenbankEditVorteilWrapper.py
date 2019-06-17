@@ -43,6 +43,21 @@ class DatenbankEditVorteilWrapper(object):
 
         self.ui.textEdit.setPlainText(vorteil.text)
         self.ui.checkVariable.setChecked(vorteil.variable!=-1)
+
+        self.ui.scriptPrioEdit.setValue(vorteil.scriptPrio)
+
+        scriptPrioDoc = [
+            "Die Skript-Priorität legt die Reihenfolge der Auswertung fest. 0 ist Standard, negative Werte werden davor,",
+            "positive Werte danach ausgewertet. Dies ist relevant, falls bspw. die INI verdoppelt werden soll nachdem",
+            "Kampfreflexe eingerechnet wurde. In diesem Fall sollte die Skript-Priorität höher als die von Kampfreflexe sein."
+        ]
+
+        self.ui.scriptPrioEdit.setToolTip("\n".join(scriptPrioDoc))
+
+        self.ui.scriptEdit.setText(vorteil.script)
+
+        self.ui.scriptEdit.setToolTip("Siehe ScriptAPI.md im Installationsordner für verfügbare Funktionen und Beispiele.")
+
         vorteilDialog.show()
         ret = vorteilDialog.exec_()
         if ret == QtWidgets.QDialog.Accepted:
@@ -58,6 +73,9 @@ class DatenbankEditVorteilWrapper(object):
                 self.vorteil.variable = -1
             self.vorteil.text = self.ui.textEdit.toPlainText()
             
+            self.vorteil.scriptPrio = self.ui.scriptPrioEdit.value()
+            self.vorteil.script = str.strip(self.ui.scriptEdit.text())
+
             self.vorteil.isUserAdded = False
             if self.vorteil == self.vorteilPicked:
                 self.vorteil = None

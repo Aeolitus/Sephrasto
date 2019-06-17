@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>manDialog</class>
- <widget class="QDialog" name="manDialog">
+ <class>waffeneigenschaftDialog</class>
+ <widget class="QDialog" name="waffeneigenschaftDialog">
   <property name="windowModality">
    <enum>Qt::ApplicationModal</enum>
   </property>
@@ -10,16 +10,23 @@
     <x>0</x>
     <y>0</y>
     <width>440</width>
-    <height>550</height>
+    <height>200</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Sephrasto - Manöver / Modifikation bearbeiten...</string>
+   <string>Sephrasto - Waffeneigenschaft bearbeiten...</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
     <layout class="QGridLayout" name="gridLayout">
-     <item row="6" column="1">
+	 <item row="2" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Beschreibung</string>
+       </property>
+      </widget>
+     </item>
+	 <item row="2" column="1">
       <widget class="QPlainTextEdit" name="textEdit">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
@@ -29,17 +36,7 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string>Gegenprobe</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="1">
-      <widget class="QPlainTextEdit" name="voraussetzungenEdit"/>
-     </item>
-     <item row="5" column="0">
+	 <item row="3" column="0">
       <widget class="QLabel" name="label_4">
        <property name="minimumSize">
         <size>
@@ -48,19 +45,58 @@
         </size>
        </property>
        <property name="text">
-        <string>Voraussetzungen</string>
+        <string>Script Priorität</string>
        </property>
       </widget>
      </item>
-     <item row="6" column="0">
-      <widget class="QLabel" name="label_5">
+	 <item row="3" column="1">
+	  <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="scriptPrioEdit">
+         <property name="minimum">
+          <number>-10</number>
+         </property>
+         <property name="maximum">
+          <number>10</number>
+         </property>
+         <property name="singleStep">
+          <number>1</number>
+         </property>
+         <property name="value">
+          <number>0</number>
+         </property>
+        </widget>
+	   </item>
+	  </layout>
+	 </item>
+	 <item row="4" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="minimumSize">
+        <size>
+         <width>110</width>
+         <height>0</height>
+        </size>
+       </property>
        <property name="text">
-        <string>Beschreibung</string>
+        <string>Script</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="nameEdit"/>
+	 <item row="4" column="1">
+      <widget class="QLineEdit" name="scriptEdit"/>
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label">
@@ -69,59 +105,8 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>Probe</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLineEdit" name="probeEdit"/>
-     </item>
-     <item row="4" column="1">
-      <widget class="QComboBox" name="comboTyp">
-       <item>
-        <property name="text">
-         <string>Nahkampfmanöver</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Fernkampfmanöver</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Magische Modifikation</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Karmale Modifikation</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Sonstiges</string>
-        </property>
-       </item>
-	   <item>
-        <property name="text">
-         <string>Aktion</string>
-        </property>
-       </item>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="label_6">
-       <property name="text">
-        <string>Typ</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QLineEdit" name="gegenEdit"/>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="nameEdit"/>
      </item>
      <item row="0" column="0" colspan="2">
       <widget class="QLabel" name="warning">
@@ -129,7 +114,7 @@
         <string notr="true">background-color: rgb(255, 255, 0);</string>
        </property>
        <property name="text">
-        <string>Dies ist ein Ilaris-Standardmanöver / eine Ilaris-Standardmodifikation. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für dieses Manöver / diese Modifikation keine automatischen Updates mehr mit neuen Sephrasto-Versionen.</string>
+        <string>Dies ist eine Ilaris-Standardwaffeneigenschaft. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für diese Waffeneigenschaft keine automatischen Updates mehr mit neuen Sephrasto-Versionen.</string>
        </property>
        <property name="wordWrap">
         <bool>true</bool>
@@ -156,17 +141,11 @@
    </item>
   </layout>
  </widget>
- <tabstops>
-  <tabstop>nameEdit</tabstop>
-  <tabstop>gegenEdit</tabstop>
-  <tabstop>textEdit</tabstop>
- </tabstops>
- <resources/>
  <connections>
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>manDialog</receiver>
+   <receiver>waffeneigenschaftDialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -182,7 +161,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>manDialog</receiver>
+   <receiver>waffeneigenschaftDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

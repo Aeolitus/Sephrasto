@@ -16,7 +16,7 @@ import CharakterMain
 import DatenbankMain
 from Wolke import Wolke
 import yaml
-import EinstellungenWrapper
+from EinstellungenWrapper import EinstellungenWrapper
 import Version
 
 loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
@@ -94,8 +94,7 @@ class MainWindowWrapper(object):
         self.app.setWindowIcon(QtGui.QIcon('icon_large.png'))
         
         # Get the Settings loaded
-        SettingsPath = os.path.join(os.path.expanduser('~'),'Sephrasto', 
-                                        'Sephrasto.ini')
+        SettingsPath = os.path.join(EinstellungenWrapper.getSettingsFolder(), 'Sephrasto.ini')
         if os.path.isfile(SettingsPath):
             with open(SettingsPath,'r') as infile:
                 tmpSet = yaml.safe_load(infile)
@@ -109,7 +108,7 @@ class MainWindowWrapper(object):
         '''
         Creates a new CharakterEditor which is empty and shows it.
         '''
-        self.ed = CharakterEditor.Editor()
+        self.ed = CharakterEditor.Editor(self.savePathUpdated)
         if self.ed.noDatabase:
             raise Exception("Konnte datenbank.xml nicht finden")
         self.ed.formMain = QtWidgets.QWidget()
@@ -118,8 +117,7 @@ class MainWindowWrapper(object):
         self.ed.ui.tabs.removeTab(0)
         self.ed.ui.tabs.removeTab(0)
         self.ed.setupMainForm()
-        splitpath = Wolke.DB.datei and os.path.split(Wolke.DB.datei) or ["keine Nutzer-DB geladen"]
-        self.ed.formMain.setWindowTitle(self.ed.formMain.windowTitle() + " (" + splitpath[-1] + ")")
+        self.savePathUpdated()
         self.ed.formMain.show()
         
     def editExisting(self):
@@ -136,7 +134,7 @@ class MainWindowWrapper(object):
         if not spath.endswith(".xml"):
             spath = spath + ".xml"
         try:
-            self.ed = CharakterEditor.Editor(spath)
+            self.ed = CharakterEditor.Editor(self.savePathUpdated, spath)
         except Exception as e:
             logging.error("Sephrasto Fehlercode " + str(Wolke.Fehlercode) + ". Exception: " + str(e))
             infoBox = QtWidgets.QMessageBox()
@@ -164,8 +162,7 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n")
             self.ed.ui.tabs.removeTab(0)
             self.ed.ui.tabs.removeTab(0)
             self.ed.setupMainForm()
-            splitpath = Wolke.DB.datei and os.path.split(Wolke.DB.datei) or ["keine Nutzer-DB geladen"]
-            self.ed.formMain.setWindowTitle(self.ed.formMain.windowTitle() + " (" + splitpath[-1] + ")")
+            self.savePathUpdated()
             self.ed.formMain.show()
         
     def editRuleset(self):
@@ -180,7 +177,16 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n")
         self.D.Form.show()
         
     def editSettings(self):
-        EinstellungenWrapper.EinstellungenWrapper()
+        EinstellungenWrapper()
+
+    def savePathUpdated(self):
+        file = " - Neuer Charakter"
+        if self.ed.savepath:
+            file = " - " + os.path.basename(self.ed.savepath)
+        rules = ""
+        if Wolke.DB.datei:
+           rules = " (" + os.path.basename(Wolke.DB.datei) + ")"
+        self.ed.formMain.setWindowTitle("Sephrasto" + file + rules)
         
 if __name__ == "__main__":
     itm = MainWindowWrapper()

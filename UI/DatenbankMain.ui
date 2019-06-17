@@ -21,6 +21,23 @@
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
+	   <item>
+	    <widget class="QLabel" name="labelParameter">
+	     <property name="text">
+		  <string>Filter nach Name:</string>
+	     </property>
+	    </widget>
+	   </item>
+	   <item>
+	    <widget class="QLineEdit" name="nameFilterEdit"/>
+	   </item>
+	   <item>
+	    <widget class="QLabel" name="labelParameter">
+	     <property name="text">
+		  <string>Filter nach Typ:</string>
+	     </property>
+	    </widget>
+	   </item>
        <item>
         <widget class="QCheckBox" name="showTalente">
          <property name="text">
@@ -70,6 +87,16 @@
          </property>
         </widget>
        </item>
+	   <item>
+        <widget class="QCheckBox" name="showWaffeneigenschaften">
+         <property name="text">
+          <string>Waffeneigenschaften</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
        <item>
         <widget class="QCheckBox" name="showWaffen">
          <property name="text">
@@ -91,9 +118,16 @@
         </widget>
        </item>
 	   <item>
+	    <widget class="QLabel" name="labelParameter">
+	     <property name="text">
+		  <string>Filter nach Status:</string>
+	     </property>
+	    </widget>
+	   </item>
+	   <item>
         <widget class="QCheckBox" name="showDeleted">
          <property name="text">
-          <string>Gelöschtes</string>
+          <string>Gelöschte Standardelemente</string>
          </property>
          <property name="checked">
           <bool>true</bool>

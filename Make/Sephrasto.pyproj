@@ -82,6 +82,8 @@
     <Compile Include="..\Version.py" />
     <Compile Include="..\Einstellungen.py" />
     <Compile Include="..\EinstellungenWrapper.py" />
+    <Compile Include="..\DatenbankEditWaffeneigenschaft.py" />
+    <Compile Include="..\DatenbankEditWaffeneigenschaftWrapper.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>

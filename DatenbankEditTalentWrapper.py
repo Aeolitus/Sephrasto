@@ -53,6 +53,10 @@ class DatenbankEditTalentWrapper(object):
         self.ui.voraussetzungenEdit.textChanged.connect(self.voraussetzungenTextChanged)
 
         self.ui.textEdit.setPlainText(talent.text)
+
+        self.ui.sortierungEdit.setValue(talent.printclass)
+        self.ui.sortierungEdit.setToolTip("Talente werden nach dieser Zahl gruppiert und dann alphabetisch sortiert")
+
         talentDialog.show()
         ret = talentDialog.exec_()
         if ret == QtWidgets.QDialog.Accepted:
@@ -70,6 +74,7 @@ class DatenbankEditTalentWrapper(object):
                 self.talent.kosten = self.ui.spinKosten.value()
             elif self.ui.buttonVerbilligt.isChecked():
                 self.talent.verbilligt = 1
+            self.talent.printclass = self.ui.sortierungEdit.value()
 
             self.talent.isUserAdded = False
             if self.talent == self.talentPicked:

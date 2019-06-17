@@ -1,6 +1,6 @@
 import Fertigkeiten
 import lxml.etree as etree
-from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
+from Hilfsmethoden import Hilfsmethoden, VoraussetzungException, WaffeneigenschaftException
 import os.path
 import Objekte
 from PyQt5 import QtWidgets
@@ -18,6 +18,7 @@ class Datenbank():
         self.übernatürlicheFertigkeiten = {}
         self.waffen = {}
         self.manöver = {}
+        self.waffeneigenschaften = {}
         self.removeList = []
         
         self.datei = None
@@ -28,12 +29,29 @@ class Datenbank():
                 self.datei = tmp
         self.userDbXml = None
         self.loaded = False
+
+        #Versionierung
+        #Wenn sich das Schema der Ref-DB ändert müssen bestehende user dbs aktualisiert werden.
+        #Hier kann die Datenbank Code Version inkrementiert werden und in der Migrationen-Map eine Migrationsfunktion für die neue Version angelegt werden.
+        #In dieser Funktion kann dann die UserDB-XML-Datei angepasst werden, bevor sie geladen wird.
+        #Da Migrationen hier im Gegensatz zur Charaktermigration nur bei Schema-Änderungen nötig sind, gibt es nichts was wir dem User in einer messagebox zeigen müssten
+        #Die Funktionen werden inkrementell ausgeführt, bspw. bei UserDB-Version '0' und DB-Code-Version '2' wird zuerst die Funktion für 1, dann die Funktion für 2 aufgerufen
+        self.datenbankCodeVersion = 1
+        self.migrationen = [
+            lambda xmlRoot: None, #nichts zu tun, initiale db version
+            self.migriere0zu1,     
+        ]
+        if not self.migrationen[self.datenbankCodeVersion]:
+            raise Exception("Migrations-Code vergessen.")
+
         self.xmlLaden()              
 
     def xmlSchreiben(self):
         Wolke.Fehlercode = -26
         root = etree.Element('Datenbank')
         
+        etree.SubElement(root, 'Version').text = str(self.datenbankCodeVersion)
+
         #Vorteile
         Wolke.Fehlercode = -27
         for vort in self.vorteile:
@@ -47,6 +65,10 @@ class Datenbank():
             v.set('typ', str(vorteil.typ))
             v.set('variable', str(vorteil.variable))
             v.text = vorteil.text
+            if vorteil.script:
+                v.set('script', vorteil.script)
+            if vorteil.scriptPrio != 0:
+                v.set('scriptPrio', str(vorteil.scriptPrio))
 
         #Talente
         Wolke.Fehlercode = -28
@@ -74,6 +96,7 @@ class Datenbank():
             v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(fertigkeit.voraussetzungen, None))
             v.set('attribute',Hilfsmethoden.AttrArray2Str(fertigkeit.attribute))
             v.set('kampffertigkeit',str(fertigkeit.kampffertigkeit))
+            v.set('printclass',str(fertigkeit.printclass))
             v.text = fertigkeit.text
 
         Wolke.Fehlercode = -30
@@ -85,8 +108,21 @@ class Datenbank():
             v.set('steigerungsfaktor',str(fertigkeit.steigerungsfaktor))
             v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(fertigkeit.voraussetzungen, None))
             v.set('attribute',Hilfsmethoden.AttrArray2Str(fertigkeit.attribute))
+            v.set('printclass',str(fertigkeit.printclass))
             v.text = fertigkeit.text
-                                                    
+              
+        #Waffeneigenschaften
+        for we in self.waffeneigenschaften:
+            eigenschaft = self.waffeneigenschaften[we]
+            if not eigenschaft.isUserAdded: continue
+            w = etree.SubElement(root, 'Waffeneigenschaft')
+            w.set('name', eigenschaft.name)
+            if eigenschaft.script:
+                w.set('script', eigenschaft.script)
+            if eigenschaft.scriptPrio != 0:
+                w.set('scriptPrio', str(eigenschaft.scriptPrio))
+            w.text = eigenschaft.text
+
         #Waffen
         Wolke.Fehlercode = -31
         for wa in self.waffen:
@@ -100,12 +136,7 @@ class Datenbank():
             w.text = ", ".join(waffe.eigenschaften)
             w.set('fertigkeit', waffe.fertigkeit)
             w.set('talent', waffe.talent)
-            w.set('beid', str(waffe.beid))
-            w.set('pari', str(waffe.pari))
-            w.set('reit', str(waffe.reit))
-            w.set('schi', str(waffe.schi))
-            w.set('kraf', str(waffe.kraf))
-            w.set('schn', str(waffe.schn))
+            w.set('kampfstile', ", ".join(waffe.kampfstile))
             w.set('rw', str(waffe.rw))
             if type(waffe) == Objekte.Fernkampfwaffe:
                 w.set('lz', str(waffe.lz))
@@ -119,7 +150,7 @@ class Datenbank():
         for ma in self.manöver:
             manöver = self.manöver[ma]
             if not manöver.isUserAdded: continue
-            m = etree.SubElement(root, 'Manoever')
+            m = etree.SubElement(root, 'Manöver')
             m.set('name', manöver.name)
             m.set('typ', str(manöver.typ))
             m.set('voraussetzungen', Hilfsmethoden.VorArray2Str(manöver.voraussetzungen, None))
@@ -169,15 +200,56 @@ class Datenbank():
             messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             messagebox.exec_()
 
+    def userDBMigrieren(self, xmlRoot, userDBVersion, datenbankCodeVersion):
+        dbChanged = userDBVersion < datenbankCodeVersion
+        while userDBVersion < datenbankCodeVersion:
+            logging.warning("Migriere UserDB von Version " + str(userDBVersion ) + " zu " + str(userDBVersion + 1))
+            userDBVersion +=1
+            self.migrationen[userDBVersion](xmlRoot)
+
+    def migriere0zu1(self, root):
+        for wa in root.findall('Waffe'):
+            kampfstile = []
+            if int(wa.get('beid')) == 1:
+                kampfstile.append("Beidhändiger Kampf")
+            if int(wa.get('pari')) == 1:
+                kampfstile.append("Parierwaffenkampf")
+            if int(wa.get('reit')) == 1:
+                kampfstile.append("Reiterkampf")
+            if int(wa.get('schi')) == 1:
+                kampfstile.append("Schildkampf")
+            if int(wa.get('kraf')) == 1:
+                kampfstile.append("Kraftvoller Kampf")
+            if int(wa.get('schn')) == 1:
+                kampfstile.append("Schneller Kampf")
+
+            wa.attrib.pop('beid')
+            wa.attrib.pop('pari')
+            wa.attrib.pop('reit')
+            wa.attrib.pop('schi')
+            wa.attrib.pop('kraf')
+            wa.attrib.pop('schn')
+            wa.set('kampfstile', ", ".join(kampfstile))
+
     def xmlLadenInternal(self, file, refDB):
         Wolke.Fehlercode = -20
         root = etree.parse(file).getroot()
 
+        if root.tag != 'Datenbank':
+            raise DatabaseException('Not a valid database file')
+
         if not refDB:
             self.userDbXml = root
 
-        if root.tag != 'Datenbank':
-            raise DatabaseException('Not a valid database file')
+            #Versionierung
+            versionXml = root.find('Version')
+            userDBVersion = 0
+            if versionXml is not None:
+                logging.debug("User DB: VersionXML found")
+                userDBVersion = int(versionXml.text)
+
+            logging.debug("Starting User DB Migration")
+            self.userDBMigrieren(root, userDBVersion, self.datenbankCodeVersion)
 
         numLoaded = 0
         
@@ -195,6 +267,8 @@ class Datenbank():
                 removed = self.talente.pop(name)
             elif typ == 'Übernatürliche Fertigkeit' and name in self.übernatürlicheFertigkeiten:
                 removed = self.übernatürlicheFertigkeiten.pop(name)
+            elif typ == 'Waffeneigenschaft' and name in self.waffeneigenschaften:
+                removed = self.waffeneigenschaften.pop(name)
             elif typ == 'Waffe' and name in self.waffen:
                 removed = self.waffen.pop(name)
             elif typ == 'Manöver / Modifikation' and name in self.manöver:
@@ -212,7 +286,12 @@ class Datenbank():
             V.kosten = int(vort.get('kosten'))
             V.nachkauf = vort.get('nachkauf')
             V.typ = int(vort.get('typ'))
-            V.text = vort.text
+            V.text = vort.text or ''
+            V.script = vort.get('script')
+            prio = vort.get('scriptPrio')
+            if prio:
+                V.scriptPrio = int(prio)
+
             V.isUserAdded = not refDB
             try:
                 V.variable = int(vort.get('variable'))
@@ -229,7 +308,7 @@ class Datenbank():
             T.name = tal.get('name')
             T.kosten = int(tal.get('kosten'))
             T.verbilligt = int(tal.get('verbilligt'))
-            T.text = tal.text
+            T.text = tal.text or ''
             T.fertigkeiten = Hilfsmethoden.FertStr2Array(tal.get('fertigkeiten'), None)
             T.variable = int(tal.get('variable'))
             T.isUserAdded = not refDB
@@ -249,10 +328,16 @@ class Datenbank():
             F = Fertigkeiten.Fertigkeit()
             F.name = fer.get('name')
             F.steigerungsfaktor = int(fer.get('steigerungsfaktor'))
-            F.text = fer.text
+            F.text = fer.text or ''
             F.attribute = Hilfsmethoden.AttrStr2Array(fer.get('attribute'))
             F.kampffertigkeit = int(fer.get('kampffertigkeit'))
             F.isUserAdded = not refDB
+
+            printClass = fer.get('printclass')
+            if printClass:
+                F.printclass = int(printClass)
+            else:
+                F.printclass = -1
             self.fertigkeiten.update({F.name: F})
 
         Wolke.Fehlercode = -24
@@ -262,11 +347,32 @@ class Datenbank():
             F = Fertigkeiten.Fertigkeit()
             F.name = fer.get('name')
             F.steigerungsfaktor = int(fer.get('steigerungsfaktor'))
-            F.text = fer.text
+            F.text = fer.text or ''
             F.attribute = Hilfsmethoden.AttrStr2Array(fer.get('attribute'))
             F.isUserAdded = not refDB
+
+            printClass = fer.get('printclass')
+            if printClass:
+                F.printclass = int(printClass)
+            else:
+                F.printclass = -1
             self.übernatürlicheFertigkeiten.update({F.name: F})
-            
+          
+        #Waffeneigenschaften
+        eigenschaftNodes = root.findall('Waffeneigenschaft')
+        for eigenschaft in eigenschaftNodes:
+            numLoaded += 1
+            W = Objekte.Waffeneigenschaft()
+            W.name = eigenschaft.get('name')
+            W.text = eigenschaft.text or ''
+            W.script = eigenschaft.get('script')
+            prio = eigenschaft.get('scriptPrio')
+            if prio:
+                W.scriptPrio = int(prio)
+
+            W.isUserAdded = not refDB
+            self.waffeneigenschaften.update({W.name: W})
+
         #Waffen
         Wolke.Fehlercode = -25
         for wa in root.findall('Waffe'):
@@ -286,12 +392,11 @@ class Datenbank():
                 w.eigenschaften = list(map(str.strip, wa.text.split(",")))
             w.fertigkeit = wa.get('fertigkeit')
             w.talent = wa.get('talent')
-            w.beid = int(wa.get('beid'))
-            w.pari = int(wa.get('pari'))
-            w.reit = int(wa.get('reit'))
-            w.schi = int(wa.get('schi'))
-            w.kraf = int(wa.get('kraf'))
-            w.schn = int(wa.get('schn'))
+            if w.name and w.talent:
+                w.anzeigename = w.name.replace(" (" + w.talent + ")", "")
+            kampfstile = wa.get('kampfstile')
+            if kampfstile:
+                w.kampfstile = list(map(str.strip, kampfstile.split(",")))
             w.isUserAdded = not refDB
             self.waffen.update({w.name: w})
         
@@ -305,11 +410,12 @@ class Datenbank():
             m.probe = ma.get('probe')
             m.gegenprobe = ma.get('gegenprobe')
             m.typ = int(ma.get('typ'))
-            m.text = ma.text
+            m.text = ma.text or ''
             m.isUserAdded = not refDB
             self.manöver.update({m.name: m})
 
         # Step 2: Voraussetzungen - requires everything else to be loaded for cross validation
+        notifyError = False # For testing of manual db changes
 
         #Vorteile
         Wolke.Fehlercode = -21
@@ -319,7 +425,8 @@ class Datenbank():
                 V.voraussetzungen = Hilfsmethoden.VorStr2Array(vort.get('voraussetzungen'), self)
             except VoraussetzungException as e:
                 errorStr = "Error in Voraussetzungen of Vorteil " + V.name + ": " + str(e)
-                assert False, errorStr
+                if notifyError:
+                    assert False, errorStr
                 logging.warning(errorStr)
             
         #Talente
@@ -330,7 +437,8 @@ class Datenbank():
                 T.voraussetzungen = Hilfsmethoden.VorStr2Array(tal.get('voraussetzungen'), self)
             except VoraussetzungException as e:
                 errorStr = "Error in Voraussetzungen of Talent " + T.name + ": " + str(e)
-                assert False, errorStr
+                if notifyError:
+                    assert False, errorStr
                 logging.warning(errorStr)
         #Fertigkeiten
         Wolke.Fehlercode = -23
@@ -340,7 +448,8 @@ class Datenbank():
                 F.voraussetzungen = Hilfsmethoden.VorStr2Array(fer.get('voraussetzungen'), self)
             except VoraussetzungException as e:
                 errorStr = "Error in Voraussetzungen of Fertigkeit " + F.name + ": " + str(e)
-                assert False, errorStr
+                if notifyError:
+                    assert False, errorStr
                 logging.warning(errorStr)
 
         Wolke.Fehlercode = -24
@@ -350,7 +459,8 @@ class Datenbank():
                 F.voraussetzungen = Hilfsmethoden.VorStr2Array(fer.get('voraussetzungen'), self)
             except VoraussetzungException as e:
                 errorStr = "Error in Voraussetzungen of Übernatürliche Fertigkeit " + F.name + ": " + str(e)
-                assert False, errorStr
+                if notifyError:
+                    assert False, errorStr
                 logging.warning(errorStr)
       
         #Manöver
@@ -361,8 +471,20 @@ class Datenbank():
                 m.voraussetzungen = Hilfsmethoden.VorStr2Array(ma.get('voraussetzungen'), self)
             except VoraussetzungException as e:
                 errorStr = "Error in Voraussetzungen of Manöver " + m.name + ": " + str(e)
-                assert False, errorStr
+                if notifyError:
+                    assert False, errorStr
                 logging.warning(errorStr)
+
+        #Further verifications
+        for wa in self.waffen.values():
+            for eig in wa.eigenschaften:
+                try:
+                    Hilfsmethoden.VerifyWaffeneigenschaft(eig, self)
+                except WaffeneigenschaftException as e:
+                    errorStr = "Error in Eigenschaften of Waffe " + wa.name + ": " + str(e)
+                    if notifyError:
+                        assert False, errorStr
+                    logging.warning(errorStr)
 
         if numLoaded <1 and refDB:
             Wolke.Fehlercode = -33
@@ -372,3 +494,11 @@ class Datenbank():
         Wolke.Fehlercode = 0
 
         return True
+    
+    def findKampfstile(self):
+        kampfstilVorteile = [vort for vort in self.vorteile.values() if vort.typ == 3 and vort.name.endswith(" I")]
+
+        kampfstile = []
+        for vort in kampfstilVorteile:
+            kampfstile.append(vort.name[:-2])
+        return kampfstile

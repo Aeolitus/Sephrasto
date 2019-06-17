@@ -9,7 +9,18 @@ class Objekt():
     def __eq__(self, other) : 
         if self.__class__ != other.__class__: return False
         return self.__dict__ == other.__dict__
-        
+
+class Waffeneigenschaft():
+    def __init__(self):
+        self.name = ''
+        self.text = ''
+        self.script = None
+        self.scriptPrio = 0
+        self.isUserAdded = True
+    def __eq__(self, other) : 
+        if self.__class__ != other.__class__: return False
+        return self.__dict__ == other.__dict__
+     
 class Waffe(Objekt):
     def __init__(self):
         super().__init__()
@@ -19,13 +30,9 @@ class Waffe(Objekt):
         self.haerte = 7
         self.fertigkeit = ''
         self.talent = ''
-        self.beid = 0
-        self.pari = 0
-        self.reit = 0
-        self.schi = 0
-        self.kraf = 0
-        self.schn = 0
-        self.kampfstil = 0    
+        self.kampfstile = []
+        self.kampfstil = ""
+        self.anzeigename = ""
         self.isUserAdded = True
         
 class Nahkampfwaffe(Waffe):

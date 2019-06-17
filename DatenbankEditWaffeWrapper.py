@@ -6,6 +6,7 @@ Created on Sat Mar 18 10:52:34 2017
 """
 import Objekte
 import DatenbankEditWaffe
+from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
 from PyQt5 import QtWidgets, QtCore
 
 class DatenbankEditWaffeWrapper(object):
@@ -28,6 +29,8 @@ class DatenbankEditWaffeWrapper(object):
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
         
+        self.eigenschaftenValid = True
+        self.nameValid = True
         self.ui.nameEdit.setText(waffe.name)
         self.ui.nameEdit.textChanged.connect(self.nameChanged)
         self.nameChanged()
@@ -38,6 +41,7 @@ class DatenbankEditWaffeWrapper(object):
             self.ui.comboTyp.setCurrentIndex(0)
         self.ui.comboTyp.currentIndexChanged[int].connect(self.switchType)
         self.ui.textEigenschaften.setPlainText(", ".join(waffe.eigenschaften))
+        self.ui.textEigenschaften.textChanged.connect(self.eigenschaftenChanged)
         self.ui.spinHaerte.setValue(waffe.haerte)
         self.ui.spinW6.setValue(waffe.W6)
         self.ui.spinPlus.setValue(waffe.plus)
@@ -48,6 +52,12 @@ class DatenbankEditWaffeWrapper(object):
         else:
             self.switchType(0)
             self.ui.spinWMLZ.setValue(waffe.wm)
+
+        for fert in datenbank.fertigkeiten.values():
+            if fert.kampffertigkeit == 0:
+                continue
+            self.ui.comboFert.addItem(fert.name)
+
         if waffe.fertigkeit != '':
             try: 
                 self.ui.comboFert.setCurrentText(waffe.fertigkeit)
@@ -63,13 +73,24 @@ class DatenbankEditWaffeWrapper(object):
                 self.ui.comboTalent.setCurrentText(waffe.talent)
             except:
                 pass
-        self.ui.checkBeid.setChecked(waffe.beid != 0)
-        self.ui.checkParry.setChecked(waffe.pari != 0)
-        self.ui.checkReiter.setChecked(waffe.reit != 0)
-        self.ui.checkSchild.setChecked(waffe.schi != 0)
-        self.ui.checkKraft.setChecked(waffe.kraf != 0)
-        self.ui.checkSchnell.setChecked(waffe.schn != 0)
+
+        col = 0
+        row = 0
+        self.kampfstile = []
+        for kampfstil in datenbank.findKampfstile():
+            checkbox = QtWidgets.QCheckBox(kampfstil)
+            checkbox.stateChanged.connect(lambda state, kampfstil=kampfstil : self.kampfstilChanged(kampfstil, state))
+            if kampfstil in waffe.kampfstile:
+                checkbox.setChecked(True)
+            self.ui.layoutKampfstile.addWidget(checkbox, row, col)
+            if col == 0:
+                col +=1
+            else:
+                row += 1
+                col = 0
         
+        waffeDialog.adjustSize()
+
         waffeDialog.show()
         ret = waffeDialog.exec_()
         if ret == QtWidgets.QDialog.Accepted:
@@ -89,12 +110,7 @@ class DatenbankEditWaffeWrapper(object):
             self.waffe.name = self.ui.nameEdit.text()
             self.waffe.fertigkeit = self.ui.comboFert.currentText()
             self.waffe.talent = self.ui.comboTalent.currentText()
-            self.waffe.beid = int(self.ui.checkBeid.isChecked())
-            self.waffe.pari = int(self.ui.checkParry.isChecked())
-            self.waffe.reit = int(self.ui.checkReiter.isChecked())
-            self.waffe.schi = int(self.ui.checkSchild.isChecked())
-            self.waffe.kraf = int(self.ui.checkKraft.isChecked())
-            self.waffe.schn = int(self.ui.checkSchnell.isChecked())
+            self.waffe.kampfstile = self.kampfstile
 
             self.waffe.isUserAdded = False
             if self.waffe == self.waffePicked:
@@ -103,13 +119,19 @@ class DatenbankEditWaffeWrapper(object):
                 self.waffe.isUserAdded = True
         else:
             self.waffe = None
-            
+
+    def kampfstilChanged(self, kampfstil, state):
+        if state == 0:
+            self.kampfstile.remove(kampfstil)
+        else:
+            self.kampfstile.append(kampfstil)
+
     def switchType(self, melee):
         if melee == 0:
             self.ui.spinWMLZ.setMinimum(-9)
             self.ui.labelWMLZ.setText("Waffenmodifikator")
         else:
-            self.ui.spinWMLZ.setMinimum(1)
+            self.ui.spinWMLZ.setMinimum(0)
             self.ui.labelWMLZ.setText("Ladezeit")
             
     def switchTals(self, ff):
@@ -121,15 +143,37 @@ class DatenbankEditWaffeWrapper(object):
 
     def nameChanged(self):
         name = self.ui.nameEdit.text()
+        self.nameValid = False
         if name == "":
             self.ui.nameEdit.setToolTip("Name darf nicht leer sein.")
             self.ui.nameEdit.setStyleSheet("border: 1px solid red;")
-            self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(False)
         elif name != self.waffePicked.name and name in self.db.waffen:
             self.ui.nameEdit.setToolTip("Name existiert bereits.")
             self.ui.nameEdit.setStyleSheet("border: 1px solid red;")
-            self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(False)
         else:
             self.ui.nameEdit.setToolTip("")
             self.ui.nameEdit.setStyleSheet("")
-            self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(True)
+            self.nameValid = True
+        self.updateSaveButtonState()
+
+    def eigenschaftenChanged(self):
+        eigenschaftStr = self.ui.textEigenschaften.toPlainText()
+        if eigenschaftStr:
+            eigenschaften = list(map(str.strip, eigenschaftStr.split(",")))
+            for el in eigenschaften:
+                try:
+                    Hilfsmethoden.VerifyWaffeneigenschaft(el, self.db)
+                except WaffeneigenschaftException as e:
+                    self.ui.textEigenschaften.setToolTip(str(e))
+                    self.ui.textEigenschaften.setStyleSheet("border: 1px solid red;")
+                    self.eigenschaftenValid = False
+                    self.updateSaveButtonState()
+                    return
+
+        self.ui.textEigenschaften.setToolTip("")
+        self.ui.textEigenschaften.setStyleSheet("")
+        self.eigenschaftenValid = True
+        self.updateSaveButtonState()
+
+    def updateSaveButtonState(self):
+        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(self.nameValid and self.eigenschaftenValid)
