@@ -2,11 +2,12 @@
 
 # Form implementation generated from reading ui file 'DatenbankEditVorteil.ui'
 #
-# Created by: PyQt5 UI code generator 5.11.3
+# Created by: PyQt5 UI code generator 5.12.1
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_talentDialog(object):
     def setupUi(self, talentDialog):
@@ -163,11 +164,13 @@ class Ui_talentDialog(object):
         self.comboTyp.setItemText(2, _translate("talentDialog", "Kampfvorteil"))
         self.comboTyp.setItemText(3, _translate("talentDialog", "Kampfstil"))
         self.comboTyp.setItemText(4, _translate("talentDialog", "Magischer Vorteil"))
-        self.comboTyp.setItemText(5, _translate("talentDialog", "Repräsentation"))
+        self.comboTyp.setItemText(5, _translate("talentDialog", "Magische Tradition"))
         self.comboTyp.setItemText(6, _translate("talentDialog", "Karmaler Vorteil"))
-        self.comboTyp.setItemText(7, _translate("talentDialog", "Tradition"))
+        self.comboTyp.setItemText(7, _translate("talentDialog", "Karmale Tradition"))
         self.label_3.setText(_translate("talentDialog", "Nachkauf"))
         self.warning.setText(_translate("talentDialog", "Dies ist ein Ilaris-Standardvorteil. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für diesen Vorteil keine automatischen Updates mehr mit neuen Sephrasto-Versionen."))
+
+
 
 
 if __name__ == "__main__":
@@ -178,4 +181,3 @@ if __name__ == "__main__":
     ui.setupUi(talentDialog)
     talentDialog.show()
     sys.exit(app.exec_())
-

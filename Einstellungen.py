@@ -2,11 +2,12 @@
 
 # Form implementation generated from reading ui file 'Einstellungen.ui'
 #
-# Created by: PyQt5 UI code generator 5.10.1
+# Created by: PyQt5 UI code generator 5.12.1
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_SettingsWindow(object):
     def setupUi(self, SettingsWindow):
@@ -197,6 +198,8 @@ class Ui_SettingsWindow(object):
         self.comboLogging.setItemText(2, _translate("SettingsWindow", "Protokolliere auch Debugging-Informationen"))
 
 
+
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
@@ -205,4 +208,3 @@ if __name__ == "__main__":
     ui.setupUi(SettingsWindow)
     SettingsWindow.show()
     sys.exit(app.exec_())
-

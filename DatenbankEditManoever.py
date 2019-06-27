@@ -2,11 +2,12 @@
 
 # Form implementation generated from reading ui file 'DatenbankEditManoever.ui'
 #
-# Created by: PyQt5 UI code generator 5.10.1
+# Created by: PyQt5 UI code generator 5.12.1
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_manDialog(object):
     def setupUi(self, manDialog):
@@ -104,6 +105,8 @@ class Ui_manDialog(object):
         self.warning.setText(_translate("manDialog", "Dies ist ein Ilaris-Standardmanöver / eine Ilaris-Standardmodifikation. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für dieses Manöver / diese Modifikation keine automatischen Updates mehr mit neuen Sephrasto-Versionen."))
 
 
+
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
@@ -112,4 +115,3 @@ if __name__ == "__main__":
     ui.setupUi(manDialog)
     manDialog.show()
     sys.exit(app.exec_())
-

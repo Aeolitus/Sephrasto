@@ -2,11 +2,12 @@
 
 # Form implementation generated from reading ui file 'CharakterBeschreibung.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.12.1
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_formBeschreibung(object):
     def setupUi(self, formBeschreibung):
@@ -174,6 +175,8 @@ class Ui_formBeschreibung(object):
         self.comboHeimat.setItemText(8, _translate("formBeschreibung", "Zwerge"))
 
 
+
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
@@ -182,4 +185,3 @@ if __name__ == "__main__":
     ui.setupUi(formBeschreibung)
     formBeschreibung.show()
     sys.exit(app.exec_())
-

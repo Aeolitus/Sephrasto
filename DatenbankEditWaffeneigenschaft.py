@@ -2,11 +2,12 @@
 
 # Form implementation generated from reading ui file 'DatenbankEditWaffeneigenschaft.ui'
 #
-# Created by: PyQt5 UI code generator 5.11.3
+# Created by: PyQt5 UI code generator 5.12.1
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_waffeneigenschaftDialog(object):
     def setupUi(self, waffeneigenschaftDialog):
@@ -86,6 +87,8 @@ class Ui_waffeneigenschaftDialog(object):
         self.warning.setText(_translate("waffeneigenschaftDialog", "Dies ist eine Ilaris-Standardwaffeneigenschaft. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für diese Waffeneigenschaft keine automatischen Updates mehr mit neuen Sephrasto-Versionen."))
 
 
+
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
@@ -94,4 +97,3 @@ if __name__ == "__main__":
     ui.setupUi(waffeneigenschaftDialog)
     waffeneigenschaftDialog.show()
     sys.exit(app.exec_())
-

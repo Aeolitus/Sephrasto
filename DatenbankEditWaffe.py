@@ -2,11 +2,12 @@
 
 # Form implementation generated from reading ui file 'DatenbankEditWaffe.ui'
 #
-# Created by: PyQt5 UI code generator 5.11.3
+# Created by: PyQt5 UI code generator 5.12.1
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_talentDialog(object):
     def setupUi(self, talentDialog):
@@ -187,6 +188,8 @@ class Ui_talentDialog(object):
         self.warning.setText(_translate("talentDialog", "Dies ist eine Ilaris-Standardwaffe. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für diese Waffe keine automatischen Updates mehr mit neuen Sephrasto-Versionen."))
 
 
+
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
@@ -195,4 +198,3 @@ if __name__ == "__main__":
     ui.setupUi(talentDialog)
     talentDialog.show()
     sys.exit(app.exec_())
-

@@ -205,6 +205,7 @@ class EquipWrapper(QtCore.QObject):
                 kampfstile = Wolke.DB.findKampfstile()
                 for kampfstil in Wolke.DB.waffen[name].kampfstile:
                     if kampfstil in kampfstile and kampfstil + " I" in Wolke.Char.vorteile:
+					#if kampfstil in list(map(str.strip, kampfstile.split(","))) and kampfstil + " I" in Wolke.Char.vorteile:
                         entries.append(kampfstil)
 
                 eval("self.uiEq.comboStil" + str(index+1) + ".setCurrentIndex(0)")

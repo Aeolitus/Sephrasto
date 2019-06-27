@@ -45,7 +45,7 @@ class TalentPicker(object):
         elif self.fert == "Überleben":
             self.baseStr = "Überleben: "
         else: 
-            self.baseStr = None
+            self.baseStr = ""
         
         talente = []
         for el in Wolke.DB.talente:
@@ -53,7 +53,7 @@ class TalentPicker(object):
             if (ueber and not talent.isSpezialTalent()) or (not ueber and talent.isSpezialTalent()):
                 continue
             if fert in talent.fertigkeiten and Wolke.Char.voraussetzungenPrüfen(talent.voraussetzungen):
-                if talent.variable != -1 and not el in self.talenteVariable:
+                if talent.variable > 0.5 and not el in self.talenteVariable:
                     self.setVariableKosten(el, Wolke.Char.getTalentCost(el, self.refD[self.fert].steigerungsfaktor), None)
                 talente.append(el)
         talente.sort()
@@ -100,7 +100,12 @@ class TalentPicker(object):
             self.gekaufteTalente = None
      
     def setVariableKosten(self, name, kosten, kommentar):
-        if Wolke.DB.talente[name].variable == -1:
+        nam = ""
+        if len(self.baseStr) > 0.5:
+            nam = self.baseStr + name
+        else:
+            nam = name
+        if Wolke.DB.talente[nam].variable < 0.5:
             return
 
         if not name in self.talenteVariable:
@@ -158,13 +163,13 @@ class TalentPicker(object):
             self.ui.plainText.setPlainText(Wolke.DB.talente[talent].text)
 
     def displayStr(self,inp):
-        if self.baseStr is not None:
+        if len(self.baseStr) > 0.5:
             if inp.startswith(self.baseStr):
                 return inp[len(self.baseStr):]
         return inp
         
     def dataStr(self,inp):
-        if self.baseStr is not None:
+        if len(self.baseStr) > 0.5:
             return self.baseStr + inp
         return inp
         

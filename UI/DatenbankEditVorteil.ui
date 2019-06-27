@@ -255,7 +255,7 @@
          </item>
          <item>
           <property name="text">
-           <string>Repräsentation</string>
+           <string>Magische Tradition</string>
           </property>
          </item>
          <item>
@@ -265,7 +265,7 @@
          </item>
          <item>
           <property name="text">
-           <string>Tradition</string>
+           <string>Karmale Tradition</string>
           </property>
          </item>
         </widget>
