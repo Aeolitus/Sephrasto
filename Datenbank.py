@@ -440,6 +440,19 @@ class Datenbank():
                 if notifyError:
                     assert False, errorStr
                 logging.warning(errorStr)
+
+            if len(T.fertigkeiten) == 0:
+                errorStr = "Talent " + T.name + " has no Fertigkeiten."
+                if notifyError:
+                    assert False, errorStr
+                logging.warning("Talent " + T.name + " has no Fertigkeiten.")
+            for fert in T.fertigkeiten:
+                if not fert in self.fertigkeiten and not fert in self.übernatürlicheFertigkeiten:
+                    errorStr = "Talent is referencing non-existing Fertigkeit " + T.name + ": " + fert
+                    if notifyError:
+                        assert False, errorStr
+                    logging.warning(errorStr)
+
         #Fertigkeiten
         Wolke.Fehlercode = -23
         for fer in fertigkeitNodes:
