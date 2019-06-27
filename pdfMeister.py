@@ -462,12 +462,12 @@ class pdfMeister(object):
             fields[base + 'WS'] = int(sum(el.rs) / 6 + Wolke.Char.ws +
                                       0.5 + Wolke.Char.rsmod + 0.0001)
             base += 'RS'
-            fields[base + 'Bein'] = el.rs[0]+Wolke.Char.rsmod
-            fields[base + 'lArm'] = el.rs[1]+Wolke.Char.rsmod
-            fields[base + 'rArm'] = el.rs[2]+Wolke.Char.rsmod
-            fields[base + 'Bauch'] = el.rs[3]+Wolke.Char.rsmod
-            fields[base + 'Brust'] = el.rs[4]+Wolke.Char.rsmod
-            fields[base + 'Kopf'] = el.rs[5]+Wolke.Char.rsmod
+            fields[base + 'Bein'] = el.rs[0]+Wolke.Char.rsmod+Wolke.Char.ws
+            fields[base + 'lArm'] = el.rs[1]+Wolke.Char.rsmod+Wolke.Char.ws
+            fields[base + 'rArm'] = el.rs[2]+Wolke.Char.rsmod+Wolke.Char.ws
+            fields[base + 'Bauch'] = el.rs[3]+Wolke.Char.rsmod+Wolke.Char.ws
+            fields[base + 'Brust'] = el.rs[4]+Wolke.Char.rsmod+Wolke.Char.ws
+            fields[base + 'Kopf'] = el.rs[5]+Wolke.Char.rsmod+Wolke.Char.ws
             count += 1
             if count > 3:
                 break

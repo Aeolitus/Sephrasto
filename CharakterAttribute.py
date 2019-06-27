@@ -2,11 +2,12 @@
 
 # Form implementation generated from reading ui file 'CharakterAttribute.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.12.1
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_formAttribute(object):
     def setupUi(self, formAttribute):
@@ -442,6 +443,8 @@ class Ui_formAttribute(object):
         self.label_32.setText(_translate("formAttribute", "KaP"))
 
 
+
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
@@ -450,4 +453,3 @@ if __name__ == "__main__":
     ui.setupUi(formAttribute)
     formAttribute.show()
     sys.exit(app.exec_())
-

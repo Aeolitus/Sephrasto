@@ -2,11 +2,12 @@
 
 # Form implementation generated from reading ui file 'CharakterEquipment.ui'
 #
-# Created by: PyQt5 UI code generator 5.6
+# Created by: PyQt5 UI code generator 5.12.1
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_formAusruestung(object):
     def setupUi(self, formAusruestung):
@@ -986,6 +987,8 @@ class Ui_formAusruestung(object):
         self.addW8.setText(_translate("formAusruestung", "+"))
 
 
+
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
@@ -994,4 +997,3 @@ if __name__ == "__main__":
     ui.setupUi(formAusruestung)
     formAusruestung.show()
     sys.exit(app.exec_())
-
