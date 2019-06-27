@@ -8532,13 +8532,13 @@ Fast alle Geweihten der Zwölf beherrschen die zwölf Segnungen: Eid-, Feuer-, G
   <Waffe name="Speer (Wurfwaffe)" W6="2" plus="0" haerte="5" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="8" lz="0" fk="1"></Waffe>
   <Waffe name="Speerschleuder" W6="2" plus="1" haerte="5" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="32" lz="1" fk="1"></Waffe>
   <Waffe name="Wurfspeer" W6="2" plus="3" haerte="5" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="8" lz="0" fk="1"></Waffe>
-  <Waffe name="Fledermaus" W6="0" plus="0" haerte="3" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="8" lz="0" fk="1">Umklammern (2)</Waffe>
+  <Waffe name="Fledermaus" W6="0" plus="0" haerte="3" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="8" lz="0" fk="1">Umklammern (-2; 12)</Waffe>
   <Waffe name="Kettenkugel" W6="2" plus="2" haerte="7" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="4" lz="0" fk="1">Niederwerfen</Waffe>
-  <Waffe name="Lasso" W6="0" plus="0" haerte="2" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="4" lz="0" fk="1">Umklammern (2)</Waffe>
+  <Waffe name="Lasso" W6="0" plus="0" haerte="2" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="4" lz="0" fk="1">Umklammern (-2; 12)</Waffe>
   <Waffe name="Schleuder" W6="1" plus="2" haerte="3" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="8" lz="0" fk="1"></Waffe>
   <Waffe name="Stabschleuder" W6="2" plus="0" haerte="4" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="16" lz="1" fk="1">Nicht für Reiter</Waffe>
-  <Waffe name="Wurfnetz" W6="0" plus="0" haerte="5" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="2" lz="0" fk="1">Umklammern (4)</Waffe>
-  <Waffe name="Schweres Wurfnetz" W6="0" plus="0" haerte="6" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="2" lz="0" fk="1">Umklammern (8), Zweihändig</Waffe>
+  <Waffe name="Wurfnetz" W6="0" plus="0" haerte="5" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="2" lz="0" fk="1">Umklammern (-4; 16)</Waffe>
+  <Waffe name="Schweres Wurfnetz" W6="0" plus="0" haerte="6" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="2" lz="0" fk="1">Umklammern (-8; 16), Zweihändig</Waffe>
   <Waffe name="Arbalette" W6="3" plus="2" haerte="5" fertigkeit="Schusswaffen" talent="Armbrüste" kampfstile="" rw="32" lz="8" fk="1">Niederwerfen (-4), Zweihändig</Waffe>
   <Waffe name="Arbalone" W6="3" plus="7" haerte="6" fertigkeit="Schusswaffen" talent="Armbrüste" kampfstile="" rw="64" lz="16" fk="1">Niederwerfen (-8), nicht für Reiter, Stationär</Waffe>
   <Waffe name="Balestra" W6="3" plus="0" haerte="4" fertigkeit="Schusswaffen" talent="Armbrüste" kampfstile="" rw="32" lz="4" fk="1">Niederwerfen, Zweihändig</Waffe>
