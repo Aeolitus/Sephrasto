@@ -150,7 +150,7 @@ class Ui_formBeschreibung(object):
         self.label_4.setText(_translate("formBeschreibung", "Kurzbeschreibung"))
         self.label_6.setText(_translate("formBeschreibung", "Eigenheiten"))
         self.label.setText(_translate("formBeschreibung", "Name"))
-        self.label_2.setText(_translate("formBeschreibung", "Rasse"))
+        self.label_2.setText(_translate("formBeschreibung", "Spezies"))
         self.label_3.setText(_translate("formBeschreibung", "Status"))
         self.comboFinanzen.setItemText(0, _translate("formBeschreibung", "Sehr Reich"))
         self.comboFinanzen.setItemText(1, _translate("formBeschreibung", "Reich"))

@@ -81,7 +81,7 @@
      <item row="2" column="1">
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>Rasse</string>
+        <string>Spezies</string>
        </property>
       </widget>
      </item>
