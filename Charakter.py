@@ -455,11 +455,11 @@ class Char():
             waffenwerte.VT = bwert + kampfstilMods.VT
             waffenwerte.TPPlus += kampfstilMods.TP
             waffenwerte.RW += kampfstilMods.RW
+            waffenwerte.AT += el.wm
+            waffenwerte.VT += el.wm
 
             if type(el) == Objekte.Nahkampfwaffe:
                 waffenwerte.TPPlus += self.schadensbonus
-                waffenwerte.AT += el.wm
-                waffenwerte.VT += el.wm
 
             ignoreBE = False
             for values in kampfstilMods.BEIgnore:
@@ -568,7 +568,7 @@ class Char():
         for fer in self.übernatürlicheFertigkeiten:
             val = sum(range(self.übernatürlicheFertigkeiten[fer].wert+1))*\
                         self.übernatürlicheFertigkeiten[fer].steigerungsfaktor
-            spent += val
+            spent += vall
             self.EP_Uebernatuerlich += val
             for tal in self.übernatürlicheFertigkeiten[fer].gekaufteTalente:
                 if tal in paidTalents:
@@ -901,9 +901,9 @@ class Char():
             wafNode.set('haerte',str(waff.haerte))
             wafNode.set('rw',str(waff.rw))
             wafNode.set('kampfstil',waff.kampfstil)
+            wafNode.set('wm',str(waff.wm))
             if type(waff) is Objekte.Nahkampfwaffe:
                 wafNode.set('typ','Nah')
-                wafNode.set('wm',str(waff.wm))
             elif type(waff) is Objekte.Fernkampfwaffe:
                 wafNode.set('typ','Fern')
                 wafNode.set('lz',str(waff.lz))
@@ -1090,10 +1090,10 @@ class Char():
         for waf in root.findall('Objekte/Waffen/Waffe'):
             if waf.attrib['typ'] == 'Nah':
                 waff = Objekte.Nahkampfwaffe()
-                waff.wm = int(waf.attrib['wm'])
             else:
                 waff = Objekte.Fernkampfwaffe()
                 waff.lz = int(waf.attrib['lz'])
+            waff.wm = int(waf.get('wm') or 0)
             waff.anzeigename = waf.attrib['name']
             waff.name = waf.get('id') or waff.anzeigename
             waff.rw = int(waf.attrib['rw'])

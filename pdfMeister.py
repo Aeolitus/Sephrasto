@@ -498,11 +498,9 @@ class pdfMeister(object):
 
             fields[base + 'RW'] = str(waffenwerte.RW)
 
-            wm = 0
+            wm = str(el.wm)
             if type(el) == Objekte.Fernkampfwaffe:
-                wm = el.lz
-            else:
-                wm = el.wm
+                wm = wm + " / " + str(el.lz)
 
             fields[base + 'WM'] = wm
 
