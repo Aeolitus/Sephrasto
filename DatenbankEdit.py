@@ -123,7 +123,7 @@ class DatenbankEdit(object):
         self.model.clear()
         showUserAdded = self.ui.showUserAdded.isChecked()
         if self.ui.showTalente.isChecked():
-            for itm, value in self.datenbank.talente.items():
+            for itm, value in sorted(self.datenbank.talente.items()):
                 if not value.isUserAdded and showUserAdded:
                     continue
                 if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
@@ -134,7 +134,7 @@ class DatenbankEdit(object):
                     item.setBackground(QtGui.QBrush(QtCore.Qt.green))
                 self.model.appendRow(item)
         if self.ui.showVorteile.isChecked():
-            for itm, value in self.datenbank.vorteile.items():
+            for itm, value in sorted(self.datenbank.vorteile.items()):
                 if not value.isUserAdded and showUserAdded:
                     continue
                 if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
@@ -145,7 +145,7 @@ class DatenbankEdit(object):
                     item.setBackground(QtGui.QBrush(QtCore.Qt.green))
                 self.model.appendRow(item) 
         if self.ui.showFertigkeiten.isChecked():
-            for itm, value in self.datenbank.fertigkeiten.items():
+            for itm, value in sorted(self.datenbank.fertigkeiten.items()):
                 if not value.isUserAdded and showUserAdded:
                     continue
                 if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
@@ -156,7 +156,7 @@ class DatenbankEdit(object):
                     item.setBackground(QtGui.QBrush(QtCore.Qt.green))
                 self.model.appendRow(item) 
         if self.ui.showUebernatuerlicheFertigkeiten.isChecked():
-            for itm, value in self.datenbank.übernatürlicheFertigkeiten.items():
+            for itm, value in sorted(self.datenbank.übernatürlicheFertigkeiten.items()):
                 if not value.isUserAdded and showUserAdded:
                     continue
                 if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
@@ -167,7 +167,7 @@ class DatenbankEdit(object):
                     item.setBackground(QtGui.QBrush(QtCore.Qt.green))
                 self.model.appendRow(item) 
         if self.ui.showWaffeneigenschaften.isChecked():
-            for itm, value in self.datenbank.waffeneigenschaften.items():
+            for itm, value in sorted(self.datenbank.waffeneigenschaften.items()):
                 if not value.isUserAdded and showUserAdded:
                     continue
                 if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
@@ -178,7 +178,7 @@ class DatenbankEdit(object):
                     item.setBackground(QtGui.QBrush(QtCore.Qt.green))
                 self.model.appendRow(item) 
         if self.ui.showWaffen.isChecked():
-            for itm, value in self.datenbank.waffen.items():
+            for itm, value in sorted(self.datenbank.waffen.items()):
                 if not value.isUserAdded and showUserAdded:
                     continue
                 if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
@@ -189,7 +189,7 @@ class DatenbankEdit(object):
                     item.setBackground(QtGui.QBrush(QtCore.Qt.green))
                 self.model.appendRow(item) 
         if self.ui.showManoever.isChecked():
-            for itm, value in self.datenbank.manöver.items():
+            for itm, value in sorted(self.datenbank.manöver.items()):
                 if not value.isUserAdded and showUserAdded:
                     continue
                 if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
@@ -200,7 +200,7 @@ class DatenbankEdit(object):
                     item.setBackground(QtGui.QBrush(QtCore.Qt.green))
                 self.model.appendRow(item)
         if self.ui.showDeleted.isChecked():
-            for itm in self.datenbank.removeList:
+            for itm in sorted(self.datenbank.removeList):
                 if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm[0].lower():
                     continue
                 if itm[1] == "Talent" and self.ui.showTalente.isChecked() or\
