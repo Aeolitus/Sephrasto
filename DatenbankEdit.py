@@ -72,7 +72,7 @@ class DatenbankEdit(object):
             return
         item = self.model.itemData(indexes[0])[0]
         if item.endswith(" (gelöscht)"):
-            self.ui.buttonEditieren.setEnabled(False)
+            self.ui.buttonEditieren.setEnabled(True)
             self.ui.buttonLoeschen.setVisible(False)
             self.ui.buttonWiederherstellen.setVisible(True)
         else:
