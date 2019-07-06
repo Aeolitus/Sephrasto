@@ -57,8 +57,11 @@ class WaffenPicker(object):
         logging.debug("Tree Filled...")
         self.ui.treeWeapons.itemSelectionChanged.connect(self.changeHandler)
         self.ui.treeWeapons.header().setSectionResizeMode(0,1)
+        self.ui.treeWeapons.setFocus()
+        self.ui.treeWeapons.setCurrentItem(self.ui.treeWeapons.topLevelItem(0).child(0), 0, QtCore.QItemSelectionModel.Select)
         self.updateInfo()
         logging.debug("Info Updated...")
+
         self.Form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.Form.show()
         self.ret = self.Form.exec_()
