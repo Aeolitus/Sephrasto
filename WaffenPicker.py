@@ -34,6 +34,7 @@ class WaffenPicker(object):
         self.populateTree()
         logging.debug("Tree Filled...")
         self.ui.treeWeapons.itemSelectionChanged.connect(self.changeHandler)
+        self.ui.treeWeapons.itemDoubleClicked.connect(lambda item, column: self.ui.buttonBox.buttons()[0].click())
         self.ui.treeWeapons.header().setSectionResizeMode(0,1)
         self.ui.treeWeapons.setFocus()
         self.updateInfo()
