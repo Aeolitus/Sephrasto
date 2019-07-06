@@ -55,7 +55,7 @@ class Char():
         self.rasse = ''
         self.status = 2
         self.kurzbeschreibung = ''
-        self.heimat = 'Mittelreich'
+        self.heimat = ''
         self.schipsMax = 4
         self.schips = 4
 
@@ -1002,9 +1002,7 @@ class Char():
         self.schips = int(alg.find('schips').text)
         self.finanzen = int(alg.find('finanzen').text)
         tmp = alg.find('heimat')
-        if tmp is None: 
-            self.heimat = 'Mittelreich'
-        else:
+        if not tmp is None: 
             self.heimat = tmp.text
         for eig in alg.findall('eigenheiten/*'):
             self.eigenheiten.append(eig.text or "")

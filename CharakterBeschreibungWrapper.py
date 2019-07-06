@@ -40,7 +40,7 @@ class BeschrWrapper(QtCore.QObject):
         self.currentGebraeuche = Wolke.Char.heimat
         if "Gebräuche" in Wolke.Char.fertigkeiten:
             if "Gebräuche: " + self.currentGebraeuche not in \
-                    Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente:
+                    Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente and "Gebräuche: " + self.currentGebraeuche in Wolke.DB.talente:
                 Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.append(
                         "Gebräuche: " + self.currentGebraeuche)
 
@@ -140,8 +140,10 @@ class BeschrWrapper(QtCore.QObject):
             if Wolke.Char.heimat in heimatList:
                 self.uiBeschr.comboHeimat.setCurrentText(Wolke.Char.heimat)
             else:
-                for tal in heimatList:
-                    if "Mittelreich" in tal:
-                        self.uiBeschr.comboHeimat.setCurrentText(tal)
+                Wolke.Char.heimat = heimatList[0]
+                for heimat in heimatList:
+                    if "Mittelreich" in heimat:
+                        Wolke.Char.heimat = heimat
+                        self.uiBeschr.comboHeimat.setCurrentText(heimat)
                         break
         
