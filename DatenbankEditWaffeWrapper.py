@@ -10,17 +10,20 @@ from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
 from PyQt5 import QtWidgets, QtCore
 
 class DatenbankEditWaffeWrapper(object):
-    def __init__(self, datenbank, waffe=None):
+    def __init__(self, datenbank, waffe=None, readonly=False):
         super().__init__()
         self.db = datenbank
         if waffe is None:
             waffe = Objekte.Nahkampfwaffe()
         self.waffePicked = waffe
+        self.readonly = readonly
         waffeDialog = QtWidgets.QDialog()
         self.ui = DatenbankEditWaffe.Ui_talentDialog()
         self.ui.setupUi(waffeDialog)
         
         if not waffe.isUserAdded:
+            if readonly:
+                self.ui.warning.setText("Gelöschte Elemente können nicht verändert werden.")
             self.ui.warning.setVisible(True)
 
         waffeDialog.setWindowFlags(
@@ -176,4 +179,4 @@ class DatenbankEditWaffeWrapper(object):
         self.updateSaveButtonState()
 
     def updateSaveButtonState(self):
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(self.nameValid and self.eigenschaftenValid)
+        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(not self.readonly and self.nameValid and self.eigenschaftenValid)

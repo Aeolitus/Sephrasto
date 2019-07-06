@@ -10,19 +10,22 @@ from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
 from PyQt5 import QtWidgets, QtCore
 
 class DatenbankEditVorteilWrapper(object):
-    def __init__(self, datenbank, vorteil=None):
+    def __init__(self, datenbank, vorteil=None, readonly=False):
         super().__init__()
         self.datenbank = datenbank
         if vorteil is None:
             vorteil = Fertigkeiten.Vorteil()
         self.vorteilPicked = vorteil
         self.nameValid = True
+        self.readonly = readonly
         self.voraussetzungenValid = True
         vorteilDialog = QtWidgets.QDialog()
         self.ui = DatenbankEditVorteil.Ui_talentDialog()
         self.ui.setupUi(vorteilDialog)
         
         if not vorteil.isUserAdded:
+            if readonly:
+                self.ui.warning.setText("Gelöschte Elemente können nicht verändert werden.")
             self.ui.warning.setVisible(True)
 
         vorteilDialog.setWindowFlags(
@@ -113,4 +116,4 @@ class DatenbankEditVorteilWrapper(object):
         self.updateSaveButtonState()
 
     def updateSaveButtonState(self):
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(self.nameValid and self.voraussetzungenValid)
+        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(not self.readonly and self.nameValid and self.voraussetzungenValid)

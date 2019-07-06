@@ -9,18 +9,21 @@ import DatenbankEditWaffeneigenschaft
 from PyQt5 import QtWidgets, QtCore
 
 class DatenbankEditWaffeneigenschaftWrapper(object):
-    def __init__(self, datenbank, waffeneigenschaft=None):
+    def __init__(self, datenbank, waffeneigenschaft=None, readonly = False):
         super().__init__()
         self.datenbank = datenbank
         if waffeneigenschaft is None:
             waffeneigenschaft = Objekte.Waffeneigenschaft()
         self.waffeneigenschaftPicked = waffeneigenschaft
         self.nameValid = True
+        self.readonly = readonly
         waffeneigenschaftDialog = QtWidgets.QDialog()
         self.ui = DatenbankEditWaffeneigenschaft.Ui_waffeneigenschaftDialog()
         self.ui.setupUi(waffeneigenschaftDialog)
         
         if not waffeneigenschaft.isUserAdded:
+            if readonly:
+                self.ui.warning.setText("Gelöschte Elemente können nicht verändert werden.")
             self.ui.warning.setVisible(True)
 
         waffeneigenschaftDialog.setWindowFlags(
@@ -83,4 +86,4 @@ class DatenbankEditWaffeneigenschaftWrapper(object):
         self.updateSaveButtonState()
 
     def updateSaveButtonState(self):
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(self.nameValid)
+        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(not self.readonly and self.nameValid)

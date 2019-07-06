@@ -346,39 +346,60 @@ class DatenbankEdit(object):
         if ret is not None:
             self.datenbank.manöver.update({ret.name: ret})
             self.onDatabaseChange()
-                          
-    def editTalent(self, inp):
-        dbT = DatenbankEditTalentWrapper.DatenbankEditTalentWrapper(self.datenbank, inp)
+    
+    def editTalent(self, inp, readonly = False):
+        dbT = DatenbankEditTalentWrapper.DatenbankEditTalentWrapper(self.datenbank, inp, readonly)
         return dbT.talent
 
-    def editVorteil(self, inp):
-        dbV = DatenbankEditVorteilWrapper.DatenbankEditVorteilWrapper(self.datenbank, inp)
+    def editVorteil(self, inp, readonly = False):
+        dbV = DatenbankEditVorteilWrapper.DatenbankEditVorteilWrapper(self.datenbank, inp, readonly)
         return dbV.vorteil
 
-    def editFertigkeit(self, inp):
-        dbF = DatenbankEditFertigkeitWrapper.DatenbankEditFertigkeitWrapper(self.datenbank, inp, False)
+    def editFertigkeit(self, inp, readonly = False):
+        dbF = DatenbankEditFertigkeitWrapper.DatenbankEditFertigkeitWrapper(self.datenbank, inp, False, readonly)
         return dbF.fertigkeit
 
-    def editUebernatuerlich(self, inp):
-        dbU = DatenbankEditFertigkeitWrapper.DatenbankEditFertigkeitWrapper(self.datenbank, inp, True)
+    def editUebernatuerlich(self, inp, readonly = False):
+        dbU = DatenbankEditFertigkeitWrapper.DatenbankEditFertigkeitWrapper(self.datenbank, inp, True, readonly)
         return dbU.fertigkeit
     
-    def editWaffeneigenschaft(self, inp):
-        dbW = DatenbankEditWaffeneigenschaftWrapper.DatenbankEditWaffeneigenschaftWrapper(self.datenbank, inp)
+    def editWaffeneigenschaft(self, inp, readonly = False):
+        dbW = DatenbankEditWaffeneigenschaftWrapper.DatenbankEditWaffeneigenschaftWrapper(self.datenbank, inp, readonly)
         return dbW.waffeneigenschaft
 
-    def editWaffe(self, inp):
-        dbW = DatenbankEditWaffeWrapper.DatenbankEditWaffeWrapper(self.datenbank, inp)
+    def editWaffe(self, inp, readonly = False):
+        dbW = DatenbankEditWaffeWrapper.DatenbankEditWaffeWrapper(self.datenbank, inp, readonly)
         return dbW.waffe
         
-    def editManoever(self, inp):
-        dbM = DatenbankEditManoeverWrapper.DatenbankEditManoeverWrapper(self.datenbank, inp)
+    def editManoever(self, inp, readonly = False):
+        dbM = DatenbankEditManoeverWrapper.DatenbankEditManoeverWrapper(self.datenbank, inp, readonly)
         return dbM.man
-        
+
     def editSelected(self):
         databaseChanged = False
         for itm in self.ui.listDatenbank.selectedIndexes():
             tmp = self.model.itemData(itm)[0].split(" : ")
+            if tmp[1].endswith(" (gelöscht)"):
+                tmp[1] = tmp[1][:-11]
+                deletedItem = [item for item in self.datenbank.removeList if item[0] == tmp[0] and item[1] == tmp[1]][0]
+                if not deletedItem:
+                    raise Exception('State corrupted.')
+                if deletedItem[1] == "Talent":
+                    self.editTalent(deletedItem[2], True)
+                elif deletedItem[1] == "Vorteil":
+                    self.editVorteil(deletedItem[2], True)
+                elif deletedItem[1] == "Fertigkeit":
+                    self.editFertigkeit(deletedItem[2], True)
+                elif deletedItem[1] == "Übernatürliche Fertigkeit":
+                    self.editUebernatuerlich(deletedItem[2], True)
+                elif deletedItem[1] == "Waffeneigenschaft":
+                    self.editWaffeneigenschaft(deletedItem[2], True)
+                elif deletedItem[1] == "Waffe":
+                    self.editWaffe(deletedItem[2], True)
+                elif deletedItem[1] == "Manöver / Modifikation":
+                    self.editManoever(deletedItem[2], True)
+                continue
+
             if tmp[1] == "Talent":
                 tal = self.datenbank.talente[tmp[0]]
                 if tal is not None:

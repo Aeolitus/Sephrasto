@@ -10,19 +10,22 @@ import DatenbankEditManoever
 from PyQt5 import QtWidgets, QtCore
 
 class DatenbankEditManoeverWrapper(object):
-    def __init__(self, datenbank, man=None):
+    def __init__(self, datenbank, man=None, readonly=False):
         super().__init__()
         self.datenbank = datenbank
         if man is None:
             man = Fertigkeiten.Manoever()
         self.manöverPicked = man
         self.nameValid = True
+        self.readonly = readonly
         self.voraussetzungenValid = True
         manDialog = QtWidgets.QDialog()
         self.ui = DatenbankEditManoever.Ui_manDialog()
         self.ui.setupUi(manDialog)
 
         if not man.isUserAdded:
+            if readonly:
+                self.ui.warning.setText("Gelöschte Elemente können nicht verändert werden.")
             self.ui.warning.setVisible(True)
 
         manDialog.setWindowFlags(
@@ -90,4 +93,4 @@ class DatenbankEditManoeverWrapper(object):
         self.updateSaveButtonState()
 
     def updateSaveButtonState(self):
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(self.nameValid and self.voraussetzungenValid)
+        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(not self.readonly and self.nameValid and self.voraussetzungenValid)
