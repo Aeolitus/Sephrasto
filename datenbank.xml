@@ -8529,7 +8529,7 @@ Fast alle Geweihten der Zwölf beherrschen die zwölf Segnungen: Eid-, Feuer-, G
   <Waffe name="Dschadra (Wurfspeere)" W6="2" plus="2" haerte="5" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="8" lz="0" fk="1"></Waffe>
   <Waffe name="Efferdbart (Wurfspeere)" W6="2" plus="0" haerte="5" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="8" lz="0" fk="1">Niederwerfen</Waffe>
   <Waffe name="Holzspeer (Wurfspeere)" W6="1" plus="2" haerte="4" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="8" lz="0" fk="1"></Waffe>
-  <Waffe name="Speer (Wurfwaffe)" W6="2" plus="0" haerte="5" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="8" lz="0" fk="1"></Waffe>
+  <Waffe name="Speer (Wurfspeere)" W6="2" plus="0" haerte="5" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="8" lz="0" fk="1"></Waffe>
   <Waffe name="Speerschleuder" W6="2" plus="1" haerte="5" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="32" lz="1" fk="1"></Waffe>
   <Waffe name="Wurfspeer" W6="2" plus="3" haerte="5" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="8" lz="0" fk="1"></Waffe>
   <Waffe name="Fledermaus" W6="0" plus="0" haerte="3" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="8" lz="0" fk="1">Umklammern (-2; 12)</Waffe>
