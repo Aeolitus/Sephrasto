@@ -258,6 +258,19 @@
           </widget>
          </item>
          <item>
+          <widget class="QPushButton" name="buttonDuplizieren">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Duplizieren</string>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QPushButton" name="buttonLoeschen">
            <property name="minimumSize">
             <size>

@@ -19,6 +19,7 @@ import DatenbankEditManoeverWrapper
 import Objekte
 import os
 from Wolke import Wolke
+from copy import copy
 
 class DatenbankEdit(object):
     def __init__(self):
@@ -51,6 +52,8 @@ class DatenbankEdit(object):
         self.ui.buttonQuicksave.clicked.connect(self.quicksaveDatenbank)
         self.ui.buttonEditieren.clicked.connect(self.editSelected)
         self.ui.buttonEditieren.setEnabled(False)
+        self.ui.buttonDuplizieren.clicked.connect(self.duplicateSelected)
+        self.ui.buttonDuplizieren.setEnabled(False)
         self.ui.buttonLoeschen.clicked.connect(self.deleteSelected)
         self.ui.buttonLoeschen.setEnabled(False)
         self.ui.buttonLoeschen.setShortcut(QtGui.QKeySequence(QtCore.Qt.Key_Delete))
@@ -69,13 +72,16 @@ class DatenbankEdit(object):
             self.ui.buttonLoeschen.setEnabled(False)
             self.ui.buttonLoeschen.setVisible(True)
             self.ui.buttonWiederherstellen.setVisible(False)
+            self.ui.buttonDuplizieren.setEnabled(False)
             return
         item = self.model.itemData(indexes[0])[0]
         if item.endswith(" (gelöscht)"):
+            self.ui.buttonDuplizieren.setEnabled(False)
             self.ui.buttonEditieren.setEnabled(True)
             self.ui.buttonLoeschen.setVisible(False)
             self.ui.buttonWiederherstellen.setVisible(True)
         else:
+            self.ui.buttonDuplizieren.setEnabled(True)
             self.ui.buttonEditieren.setEnabled(True)
             self.ui.buttonLoeschen.setEnabled(True)
             self.ui.buttonLoeschen.setVisible(True)
@@ -105,6 +111,7 @@ class DatenbankEdit(object):
     def onDatabaseChange(self):
         self.changed = True
         self.updateGUI()
+        self.listSelectionChanged()
     
     def updateWindowTitleAndCloseButton(self):
         splitpath = self.savepath and os.path.split(self.savepath) or ["keine Nutzer-DB geladen"]
@@ -470,6 +477,43 @@ class DatenbankEdit(object):
                         self.datenbank.manöver.pop(tmp[0],None)
                         self.datenbank.manöver.update({ret.name: ret})
                         databaseChanged = True
+
+        if databaseChanged:
+            self.onDatabaseChange()
+
+    def duplicate(self, list, name):
+        item = list[name]
+        clone = copy(item)
+        clone.isUserAdded = True
+        while clone.name in list:
+            clone.name = clone.name + " (Kopie)"
+        list[clone.name] = clone
+
+    def duplicateSelected(self):
+        databaseChanged = False
+        for itm in self.ui.listDatenbank.selectedIndexes():
+            tmp = self.model.itemData(itm)[0].split(" : ")
+            if tmp[1] == "Talent":
+                self.duplicate(self.datenbank.talente, tmp[0])
+                databaseChanged = True
+            elif tmp[1] == "Vorteil":
+                self.duplicate(self.datenbank.vorteile, tmp[0])
+                databaseChanged = True
+            elif tmp[1] == "Fertigkeit":
+                self.duplicate(self.datenbank.fertigkeiten, tmp[0])
+                databaseChanged = True
+            elif tmp[1] == "Übernatürliche Fertigkeit":
+                self.duplicate(self.datenbank.übernatürlicheFertigkeiten, tmp[0])
+                databaseChanged = True
+            elif tmp[1] == "Waffeneigenschaft":
+                self.duplicate(self.datenbank.waffeneigenschaften, tmp[0])
+                databaseChanged = True
+            elif tmp[1] == "Waffe":
+                self.duplicate(self.datenbank.waffen, tmp[0])
+                databaseChanged = True
+            elif tmp[1] == "Manöver / Modifikation":
+                self.duplicate(self.datenbank.manöver, tmp[0])
+                databaseChanged = True
 
         if databaseChanged:
             self.onDatabaseChange()
