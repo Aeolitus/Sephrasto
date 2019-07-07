@@ -64,6 +64,16 @@ class pdfMeister(object):
         self.UseExtraPage = False
         Wolke.Fehlercode = -81
         fields = pdf.get_fields(self.CharakterBogen.filePath)
+        if self.CharakterBogen.filePath == "Charakterbogen_lang.pdf" and os.path.isfile(filename):
+            oldFields = pdf.get_fields(filename)
+            keep = ["Kultur", "Profession", "Geschlecht", "Geburtsdatum", "Groesse", "Gewicht", "Haarfarbe", "Augenfarbe",
+                    "Aussehen1", "Aussehen2", "Aussehen3", "Aussehen4", "Aussehen5", "Aussehen6", "Titel", "Hintergrund0",
+                    "Hintergrund1", "Hintergrund2", "Hintergrund3", "Hintergrund4", "Hintergrund5", "Hintergrund6", "Hintergrund7",
+                    "Hintergrund8", "Notiz1", "Notiz2", "Notiz3", "Notiz4", "Notiz5"]
+            for key in keep:
+                if key in oldFields:
+                    fields[key] = oldFields[key]
+
         Wolke.Fehlercode = -82
         fields = self.pdfErsterBlock(fields)
         Wolke.Fehlercode = -83
@@ -170,7 +180,6 @@ class pdfMeister(object):
         fields['Statu'] = Definitionen.Statusse[Wolke.Char.status]
         fields['Finanzen'] = Definitionen.Finanzen[Wolke.Char.finanzen]
         fields['Kurzb'] = Wolke.Char.kurzbeschreibung
-        fields['Notiz1'] = Wolke.Char.kurzbeschreibung
         fields['Schip'] = Wolke.Char.schipsMax
         fields['Schipm'] = Wolke.Char.schips
         # Erste Acht Eigenheiten
