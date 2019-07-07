@@ -568,7 +568,7 @@ class Char():
         for fer in self.übernatürlicheFertigkeiten:
             val = sum(range(self.übernatürlicheFertigkeiten[fer].wert+1))*\
                         self.übernatürlicheFertigkeiten[fer].steigerungsfaktor
-            spent += vall
+            spent += val
             self.EP_Uebernatuerlich += val
             for tal in self.übernatürlicheFertigkeiten[fer].gekaufteTalente:
                 if tal in paidTalents:
