@@ -106,6 +106,10 @@ class Ui_Form(object):
         self.buttonEditieren.setMinimumSize(QtCore.QSize(0, 25))
         self.buttonEditieren.setObjectName("buttonEditieren")
         self.horizontalLayout.addWidget(self.buttonEditieren)
+        self.buttonDuplizieren = QtWidgets.QPushButton(Form)
+        self.buttonDuplizieren.setMinimumSize(QtCore.QSize(0, 25))
+        self.buttonDuplizieren.setObjectName("buttonDuplizieren")
+        self.horizontalLayout.addWidget(self.buttonDuplizieren)
         self.buttonLoeschen = QtWidgets.QPushButton(Form)
         self.buttonLoeschen.setMinimumSize(QtCore.QSize(0, 25))
         self.buttonLoeschen.setObjectName("buttonLoeschen")
@@ -154,10 +158,9 @@ class Ui_Form(object):
         self.buttonQuicksave.setText(_translate("Form", "Regelbasis speichern"))
         self.buttonHinzufuegen.setText(_translate("Form", "Hinzufügen"))
         self.buttonEditieren.setText(_translate("Form", "Editieren"))
+        self.buttonDuplizieren.setText(_translate("Form", "Duplizieren"))
         self.buttonLoeschen.setText(_translate("Form", "Löschen"))
         self.buttonWiederherstellen.setText(_translate("Form", "Wiederherstellen"))
-
-
 
 
 if __name__ == "__main__":

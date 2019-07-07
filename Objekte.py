@@ -28,6 +28,8 @@ class Waffe(Objekt):
         self.plus = 2
         self.eigenschaften = []
         self.haerte = 7
+        self.rw = 0
+        self.wm = 0
         self.fertigkeit = ''
         self.talent = ''
         self.kampfstile = []
@@ -38,13 +40,10 @@ class Waffe(Objekt):
 class Nahkampfwaffe(Waffe):
     def __init__(self):
         super().__init__()
-        self.rw = 0
-        self.wm = 0
 
 class Fernkampfwaffe(Waffe):
     def __init__(self):
         super().__init__()
-        self.rw = 0
         self.lz = 1
 
 class Ruestung(Objekt):

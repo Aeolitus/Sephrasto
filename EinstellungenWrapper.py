@@ -30,17 +30,8 @@ class EinstellungenWrapper():
         self.ui.comboFontSize.setCurrentIndex(Wolke.Settings['Cheatsheet-Fontsize'])
 
         self.settingsFolder = EinstellungenWrapper.getSettingsFolder()
-
-        if Wolke.Settings['Pfad-Chars'] == '':
-            self.resetCharPath()
-        else:
-            self.ui.editChar.setText(Wolke.Settings['Pfad-Chars'])
-        
-        if Wolke.Settings['Pfad-Regeln'] == '':
-            self.resetRulePath()
-        else:
-            self.ui.editRegeln.setText(Wolke.Settings['Pfad-Regeln'])
-
+        self.ui.editChar.setText(Wolke.Settings['Pfad-Chars'])
+        self.ui.editRegeln.setText(Wolke.Settings['Pfad-Regeln'])
         self.ui.editExportPlugin.setText(Wolke.Settings['Pfad-Export-Plugin'])
 
         self.updateComboRegelbasis()
@@ -95,8 +86,8 @@ class EinstellungenWrapper():
             
             Wolke.Settings['PDF-Open'] = self.ui.checkPDFOpen.isChecked()
             
-            SettingsPath = os.path.join(self.settingsFolder, 'Sephrasto.ini')
-            with open(SettingsPath, 'w') as outfile:
+            settingsPath = os.path.join(self.settingsFolder, 'Sephrasto.ini')
+            with open(settingsPath, 'w') as outfile:
                 yaml.dump(Wolke.Settings, outfile)
 
     @staticmethod
@@ -110,6 +101,20 @@ class EinstellungenWrapper():
             ctypes.windll.shell32.SHGetFolderPathW(None, CSIDL_PERSONAL, None, SHGFP_TYPE_CURRENT, buf)
             userFolder = buf.value or userFolder
         return os.path.join(userFolder,'Sephrasto')
+
+    @staticmethod
+    def load():
+        settingsFolder = EinstellungenWrapper.getSettingsFolder()
+        settingsPath = os.path.join(settingsFolder, 'Sephrasto.ini')
+        if os.path.isfile(settingsPath):
+            with open(settingsPath,'r') as infile:
+                tmpSet = yaml.safe_load(infile)
+                for el in tmpSet:
+                    Wolke.Settings[el] = tmpSet[el]
+        else:
+            #Init defaults
+            Wolke.Settings['Pfad-Chars'] = os.path.join(settingsFolder, 'Charaktere')
+            Wolke.Settings['Pfad-Regeln'] = os.path.join(settingsFolder, 'Regeln')
 
     def comboBogenIndexChanged(self):
         self.ui.checkCheatsheet.setEnabled(self.ui.comboBogen.currentIndex() != 0)
@@ -132,8 +137,8 @@ class EinstellungenWrapper():
           "Wähle einen Speicherort für Charaktere aus!",
           Wolke.Settings['Pfad-Chars'],
           QtWidgets.QFileDialog.ShowDirsOnly)
+        path = os.path.realpath(path)
         if os.path.isdir(path):
-            Wolke.Settings['Pfad-Chars'] = path
             self.ui.editChar.setText(path)
             
     def setRulePath(self):
@@ -141,8 +146,8 @@ class EinstellungenWrapper():
           "Wähle einen Speicherort für Regeln aus!",
           Wolke.Settings['Pfad-Regeln'],
           QtWidgets.QFileDialog.ShowDirsOnly)
+        path = os.path.realpath(path)
         if os.path.isdir(path):
-            Wolke.Settings['Pfad-Regeln'] = path
             self.ui.editRegeln.setText(path)
             self.updateComboRegelbasis()
 
@@ -151,21 +156,18 @@ class EinstellungenWrapper():
           "Wähle einen Speicherort für das Export-Plugin aus!",
           Wolke.Settings['Pfad-Export-Plugin'], 'Python scripts (*.py)', None,
           QtWidgets.QFileDialog.ShowDirsOnly)
-        if os.path.isfile(path[0]):
-            Wolke.Settings['Pfad-Export-Plugin'] = path[0]
-            self.ui.editExportPlugin.setText(path[0])
+        fpath = os.path.realpath(path[0])
+        if os.path.isfile(fpath):
+            self.ui.editExportPlugin.setText(fpath)
             
     def resetCharPath(self):
         p = os.path.join(self.settingsFolder, 'Charaktere')
-        Wolke.Settings['Pfad-Chars'] = p
         self.ui.editChar.setText(p)
         
     def resetRulePath(self):
         p = os.path.join(self.settingsFolder, 'Regeln')
-        Wolke.Settings['Pfad-Regeln'] = p
         self.ui.editRegeln.setText(p)
         
     def resetExportPluginPath(self):
-        Wolke.Settings['Pfad-Export-Plugin'] = ''
         self.ui.editExportPlugin.setText('')
         

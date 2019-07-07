@@ -114,15 +114,6 @@ class Ui_formBeschreibung(object):
         self.gridLayout.addWidget(self.label_7, 5, 1, 1, 1)
         self.comboHeimat = QtWidgets.QComboBox(formBeschreibung)
         self.comboHeimat.setObjectName("comboHeimat")
-        self.comboHeimat.addItem("")
-        self.comboHeimat.addItem("")
-        self.comboHeimat.addItem("")
-        self.comboHeimat.addItem("")
-        self.comboHeimat.addItem("")
-        self.comboHeimat.addItem("")
-        self.comboHeimat.addItem("")
-        self.comboHeimat.addItem("")
-        self.comboHeimat.addItem("")
         self.gridLayout.addWidget(self.comboHeimat, 5, 2, 1, 1)
         self.gridLayout_3.addLayout(self.gridLayout, 0, 0, 1, 1)
 
@@ -150,7 +141,7 @@ class Ui_formBeschreibung(object):
         self.label_4.setText(_translate("formBeschreibung", "Kurzbeschreibung"))
         self.label_6.setText(_translate("formBeschreibung", "Eigenheiten"))
         self.label.setText(_translate("formBeschreibung", "Name"))
-        self.label_2.setText(_translate("formBeschreibung", "Rasse"))
+        self.label_2.setText(_translate("formBeschreibung", "Spezies"))
         self.label_3.setText(_translate("formBeschreibung", "Status"))
         self.comboFinanzen.setItemText(0, _translate("formBeschreibung", "Sehr Reich"))
         self.comboFinanzen.setItemText(1, _translate("formBeschreibung", "Reich"))
@@ -164,17 +155,6 @@ class Ui_formBeschreibung(object):
         self.comboStatus.setItemText(4, _translate("formBeschreibung", "Abschaum"))
         self.label_5.setText(_translate("formBeschreibung", "Finanzen"))
         self.label_7.setText(_translate("formBeschreibung", "Heimatgebiet"))
-        self.comboHeimat.setItemText(0, _translate("formBeschreibung", "Mittelreich"))
-        self.comboHeimat.setItemText(1, _translate("formBeschreibung", "Tulamidenlande"))
-        self.comboHeimat.setItemText(2, _translate("formBeschreibung", "Horasreich"))
-        self.comboHeimat.setItemText(3, _translate("formBeschreibung", "Südaventurien"))
-        self.comboHeimat.setItemText(4, _translate("formBeschreibung", "Bornland"))
-        self.comboHeimat.setItemText(5, _translate("formBeschreibung", "Thorwal"))
-        self.comboHeimat.setItemText(6, _translate("formBeschreibung", "Maraskan"))
-        self.comboHeimat.setItemText(7, _translate("formBeschreibung", "Elfen"))
-        self.comboHeimat.setItemText(8, _translate("formBeschreibung", "Zwerge"))
-
-
 
 
 if __name__ == "__main__":

@@ -40,7 +40,7 @@ class BeschrWrapper(QtCore.QObject):
         self.currentGebraeuche = Wolke.Char.heimat
         if "Gebräuche" in Wolke.Char.fertigkeiten:
             if "Gebräuche: " + self.currentGebraeuche not in \
-                    Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente:
+                    Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente and "Gebräuche: " + self.currentGebraeuche in Wolke.DB.talente:
                 Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.append(
                         "Gebräuche: " + self.currentGebraeuche)
 
@@ -111,7 +111,6 @@ class BeschrWrapper(QtCore.QObject):
         self.uiBeschr.editRasse.setText(Wolke.Char.rasse)
         self.uiBeschr.comboStatus.setCurrentIndex(Wolke.Char.status)
         self.uiBeschr.comboFinanzen.setCurrentIndex(Wolke.Char.finanzen)
-        self.uiBeschr.comboHeimat.setCurrentText(Wolke.Char.heimat)
         self.uiBeschr.editKurzbeschreibung.setText(Wolke.Char.kurzbeschreibung)
         arr = ["", "", "", "", "", "", "", ""]
         count = 0
@@ -126,4 +125,25 @@ class BeschrWrapper(QtCore.QObject):
         self.uiBeschr.editEig6.setText(arr[5])
         self.uiBeschr.editEig7.setText(arr[6])
         self.uiBeschr.editEig8.setText(arr[7])
+
+        ''' Fill and set Heimat '''
+        self.uiBeschr.comboHeimat.clear()
+        heimatList = []
+        for tal in Wolke.DB.talente:
+            if tal.startswith("Gebräuche: "):
+                heimatList.append(tal[11:])
+        heimatList.sort()
+        if len(heimatList) == 0:
+            self.uiBeschr.comboHeimat.setToolTip("Diese Liste wird anhand der Talente befüllt, die mit 'Gebräuche: ' im Namen starten.\nBitte diese Talente in der Regelbasis beibehalten, die Fertigkeit 'Gebräuche' kann jedoch gelöscht werden.")
+        else:
+            self.uiBeschr.comboHeimat.addItems(heimatList)
+            if Wolke.Char.heimat in heimatList:
+                self.uiBeschr.comboHeimat.setCurrentText(Wolke.Char.heimat)
+            else:
+                Wolke.Char.heimat = heimatList[0]
+                for heimat in heimatList:
+                    if "Mittelreich" in heimat:
+                        Wolke.Char.heimat = heimat
+                        self.uiBeschr.comboHeimat.setCurrentText(heimat)
+                        break
         

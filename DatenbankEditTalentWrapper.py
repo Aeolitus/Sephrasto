@@ -10,7 +10,7 @@ import DatenbankEditTalent
 from PyQt5 import QtWidgets, QtCore
 
 class DatenbankEditTalentWrapper(object):
-    def __init__(self, datenbank, talent=None):
+    def __init__(self, datenbank, talent=None, readonly=False):
         super().__init__()
         self.datenbank = datenbank
         if talent is None:
@@ -19,11 +19,14 @@ class DatenbankEditTalentWrapper(object):
         self.nameValid = True
         self.voraussetzungenValid = True
         self.fertigkeitenValid = True
+        self.readonly = readonly
         talentDialog = QtWidgets.QDialog()
         self.ui = DatenbankEditTalent.Ui_talentDialog()
         self.ui.setupUi(talentDialog)
 
         if not talent.isUserAdded:
+            if readonly:
+                self.ui.warning.setText("Gelöschte Elemente können nicht verändert werden.")
             self.ui.warning.setVisible(True)
 
         talentDialog.setWindowFlags(
@@ -127,4 +130,4 @@ class DatenbankEditTalentWrapper(object):
         self.updateSaveButtonState()
 
     def updateSaveButtonState(self):
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(self.nameValid and self.voraussetzungenValid and self.fertigkeitenValid)
+        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(not self.readonly and self.nameValid and self.voraussetzungenValid and self.fertigkeitenValid)

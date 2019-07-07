@@ -8529,16 +8529,16 @@ Fast alle Geweihten der Zwölf beherrschen die zwölf Segnungen: Eid-, Feuer-, G
   <Waffe name="Dschadra (Wurfspeere)" W6="2" plus="2" haerte="5" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="8" lz="0" fk="1"></Waffe>
   <Waffe name="Efferdbart (Wurfspeere)" W6="2" plus="0" haerte="5" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="8" lz="0" fk="1">Niederwerfen</Waffe>
   <Waffe name="Holzspeer (Wurfspeere)" W6="1" plus="2" haerte="4" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="8" lz="0" fk="1"></Waffe>
-  <Waffe name="Speer (Wurfwaffe)" W6="2" plus="0" haerte="5" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="8" lz="0" fk="1"></Waffe>
+  <Waffe name="Speer (Wurfspeere)" W6="2" plus="0" haerte="5" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="8" lz="0" fk="1"></Waffe>
   <Waffe name="Speerschleuder" W6="2" plus="1" haerte="5" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="32" lz="1" fk="1"></Waffe>
   <Waffe name="Wurfspeer" W6="2" plus="3" haerte="5" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="8" lz="0" fk="1"></Waffe>
-  <Waffe name="Fledermaus" W6="0" plus="0" haerte="3" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="8" lz="0" fk="1">Umklammern (2)</Waffe>
+  <Waffe name="Fledermaus" W6="0" plus="0" haerte="3" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="8" lz="0" fk="1">Umklammern (-2; 12)</Waffe>
   <Waffe name="Kettenkugel" W6="2" plus="2" haerte="7" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="4" lz="0" fk="1">Niederwerfen</Waffe>
-  <Waffe name="Lasso" W6="0" plus="0" haerte="2" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="4" lz="0" fk="1">Umklammern (2)</Waffe>
+  <Waffe name="Lasso" W6="0" plus="0" haerte="2" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="4" lz="0" fk="1">Umklammern (-2; 12)</Waffe>
   <Waffe name="Schleuder" W6="1" plus="2" haerte="3" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="8" lz="0" fk="1"></Waffe>
   <Waffe name="Stabschleuder" W6="2" plus="0" haerte="4" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="16" lz="1" fk="1">Nicht für Reiter</Waffe>
-  <Waffe name="Wurfnetz" W6="0" plus="0" haerte="5" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="2" lz="0" fk="1">Umklammern (4)</Waffe>
-  <Waffe name="Schweres Wurfnetz" W6="0" plus="0" haerte="6" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="2" lz="0" fk="1">Umklammern (8), Zweihändig</Waffe>
+  <Waffe name="Wurfnetz" W6="0" plus="0" haerte="5" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="2" lz="0" fk="1">Umklammern (-4; 16)</Waffe>
+  <Waffe name="Schweres Wurfnetz" W6="0" plus="0" haerte="6" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="2" lz="0" fk="1">Umklammern (-8; 16), Zweihändig</Waffe>
   <Waffe name="Arbalette" W6="3" plus="2" haerte="5" fertigkeit="Schusswaffen" talent="Armbrüste" kampfstile="" rw="32" lz="8" fk="1">Niederwerfen (-4), Zweihändig</Waffe>
   <Waffe name="Arbalone" W6="3" plus="7" haerte="6" fertigkeit="Schusswaffen" talent="Armbrüste" kampfstile="" rw="64" lz="16" fk="1">Niederwerfen (-8), nicht für Reiter, Stationär</Waffe>
   <Waffe name="Balestra" W6="3" plus="0" haerte="4" fertigkeit="Schusswaffen" talent="Armbrüste" kampfstile="" rw="32" lz="4" fk="1">Niederwerfen, Zweihändig</Waffe>
@@ -8586,7 +8586,7 @@ Fast alle Geweihten der Zwölf beherrschen die zwölf Segnungen: Eid-, Feuer-, G
   <Manöver name="Scharfschuss" typ="1" voraussetzungen="" probe="FK -X" gegenprobe="">Der Angriff richtet X (maximal 8) Trefferpunkte mehr an.</Manöver>
   <Manöver name="Zielen" typ="1" voraussetzungen="" probe="FK +2" gegenprobe="">Erhöht die Vorbereitungszeit um 1 Aktion. Ruhige Hand (S. 42) verdoppelt den Bonus.</Manöver>
   <Manöver name="Meisterschuss" typ="1" voraussetzungen="Vorteil Meisterschuss" probe="FK -8" gegenprobe="">Der Angriff richtet zwei zusätzliche Wunden an - auch wenn der Schaden zu gering ist, um eine Wunde anzurichten.</Manöver>
-  <Manöver name="Rüstungsbrecher" typ="1" voraussetzungen="" probe="FK -4" gegenprobe="">Der Angriff ignoriert die gegnerische Rüstung und richtet SP statt TP an. Voraussetzung: Pfeile mit Waffeneigenschaft Rüstungsbrechend.</Manöver>
+  <Manöver name="Rüstungsbrecher (FK)" typ="1" voraussetzungen="" probe="FK -4" gegenprobe="">Der Angriff ignoriert die gegnerische Rüstung und richtet SP statt TP an. Voraussetzung: Pfeile mit Waffeneigenschaft Rüstungsbrechend.</Manöver>
   <Manöver name="Schnellschuss" typ="1" voraussetzungen="Vorteil Schnellziehen" probe="FK -4" gegenprobe="">Verkürzt die Vorbereitungszeit um die Hälfte. Eine Vorbereitungszeit von 1 Aktion wird zu 0 Aktionen. Die Aktion Konflikt ist von dieser Modifikation nicht betroffen. Kann bis zu zweimal pro FK eingesetzt werden.</Manöver>
   <Manöver name="Mächtige Magie" typ="2" voraussetzungen="" probe="Zauber -4" gegenprobe="">Verstärkt die Wirkung des Zaubers (siehe Zauber). Zusätzlich steigt die Schwierigkeit von Konterproben (S. 122) gegen den Zauber um +4 Punkte.</Manöver>
   <Manöver name="Mehrere Ziele (M)" typ="2" voraussetzungen="" probe="Zauber -4" gegenprobe="">Der Zauber wirkt auf mehrere Ziele in Reichweite. Die Kosten werden für jedes Ziel einzeln bezahlt. Richtet sich der Zauber gegen die MR, steht jedem unfreiwilligen Ziel eine eigene MR-Probe zu, um dem Zauber zu widerstehen.</Manöver>

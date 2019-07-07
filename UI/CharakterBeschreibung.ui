@@ -81,7 +81,7 @@
      <item row="2" column="1">
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>Rasse</string>
+        <string>Spezies</string>
        </property>
       </widget>
      </item>
@@ -299,53 +299,7 @@
       </widget>
      </item>
      <item row="5" column="2">
-      <widget class="QComboBox" name="comboHeimat">
-       <item>
-        <property name="text">
-         <string>Mittelreich</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Tulamidenlande</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Horasreich</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Südaventurien</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Bornland</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Thorwal</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Maraskan</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Elfen</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Zwerge</string>
-        </property>
-       </item>
-      </widget>
+      <widget class="QComboBox" name="comboHeimat"/>
      </item>
     </layout>
    </item>

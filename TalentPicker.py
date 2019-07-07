@@ -75,6 +75,8 @@ class TalentPicker(object):
         self.ui.spinKosten.valueChanged.connect(self.spinChanged)
         self.ui.spinKosten.setStyleSheet("QSpinBox {background-color: #FFFFFF}")
         self.ui.listTalente.setModel(self.model)
+        self.ui.listTalente.setFocus()
+        self.ui.listTalente.setCurrentIndex(self.model.index(0, 0))
         self.Form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.Form.show()
         self.ret = self.Form.exec_()

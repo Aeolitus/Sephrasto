@@ -111,6 +111,17 @@ class Ui_Dialog(object):
         self.buttonBox.setObjectName("buttonBox")
         self.verticalLayout.addWidget(self.buttonBox)
         self.gridLayout_2.addLayout(self.verticalLayout, 0, 1, 1, 1)
+        self.verticalLayout2 = QtWidgets.QVBoxLayout()
+        self.verticalLayout2.setObjectName("verticalLayout2")
+        self.filterLayout = QtWidgets.QHBoxLayout()
+        self.filterLayout.setObjectName("filterLayout")
+        self.labelFilter = QtWidgets.QLabel(Dialog)
+        self.labelFilter.setObjectName("labelFilter")
+        self.filterLayout.addWidget(self.labelFilter)
+        self.nameFilterEdit = QtWidgets.QLineEdit(Dialog)
+        self.nameFilterEdit.setObjectName("nameFilterEdit")
+        self.filterLayout.addWidget(self.nameFilterEdit)
+        self.verticalLayout2.addLayout(self.filterLayout)
         self.treeWeapons = QtWidgets.QTreeWidget(Dialog)
         self.treeWeapons.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
         self.treeWeapons.setProperty("showDropIndicator", False)
@@ -121,7 +132,8 @@ class Ui_Dialog(object):
         self.treeWeapons.header().setCascadingSectionResizes(False)
         self.treeWeapons.header().setDefaultSectionSize(150)
         self.treeWeapons.header().setStretchLastSection(True)
-        self.gridLayout_2.addWidget(self.treeWeapons, 0, 0, 1, 1)
+        self.verticalLayout2.addWidget(self.treeWeapons)
+        self.gridLayout_2.addLayout(self.verticalLayout2, 0, 0, 1, 1)
         self.gridLayout_2.setColumnStretch(0, 1)
 
         self.retranslateUi(Dialog)
@@ -147,11 +159,10 @@ class Ui_Dialog(object):
         self.labelTyp.setText(_translate("Dialog", "Nah"))
         self.labelName.setText(_translate("Dialog", "Brabakbengel"))
         self.labelFert.setText(_translate("Dialog", "Hiebwaffen (Einhandhiebwaffen)"))
+        self.labelFilter.setText(_translate("Dialog", "Suchen:"))
         self.treeWeapons.setSortingEnabled(False)
         self.treeWeapons.headerItem().setText(0, _translate("Dialog", "Name"))
         self.treeWeapons.headerItem().setText(1, _translate("Dialog", "Talent"))
-
-
 
 
 if __name__ == "__main__":

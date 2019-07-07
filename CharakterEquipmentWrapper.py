@@ -50,6 +50,16 @@ class EquipWrapper(QtCore.QObject):
         self.uiEq.addW6.clicked.connect(lambda state, idx=6: self.selectWeapon(idx))   
         self.uiEq.addW7.clicked.connect(lambda state, idx=7: self.selectWeapon(idx))   
         self.uiEq.addW8.clicked.connect(lambda state, idx=8: self.selectWeapon(idx))   
+
+        self.uiEq.checkW1FK.stateChanged.connect(lambda state: self.uiEq.spinW1lz.setEnabled(state))
+        self.uiEq.checkW2FK.stateChanged.connect(lambda state: self.uiEq.spinW2lz.setEnabled(state))
+        self.uiEq.checkW3FK.stateChanged.connect(lambda state: self.uiEq.spinW3lz.setEnabled(state))
+        self.uiEq.checkW4FK.stateChanged.connect(lambda state: self.uiEq.spinW4lz.setEnabled(state))
+        self.uiEq.checkW5FK.stateChanged.connect(lambda state: self.uiEq.spinW5lz.setEnabled(state))
+        self.uiEq.checkW6FK.stateChanged.connect(lambda state: self.uiEq.spinW6lz.setEnabled(state))
+        self.uiEq.checkW7FK.stateChanged.connect(lambda state: self.uiEq.spinW7lz.setEnabled(state))
+        self.uiEq.checkW8FK.stateChanged.connect(lambda state: self.uiEq.spinW8lz.setEnabled(state))
+
         logging.debug("Check Toggle...")
         self.uiEq.checkZonen.stateChanged.connect(self.checkToggleEquip)
         self.defaultStyle = self.uiEq.spinW1h.styleSheet()
@@ -101,11 +111,11 @@ class EquipWrapper(QtCore.QObject):
                 if (eval("self.uiEq.edit" + el + "name.text()") != ""):
                     if eval("self.uiEq.check" + el + "FK.isChecked()"):
                         W = Objekte.Fernkampfwaffe()
-                        W.lz = eval("self.uiEq.spin" + el + "wm.value()")
+                        W.lz = eval("self.uiEq.spin" + el + "lz.value()")
                     else:
                         W = Objekte.Nahkampfwaffe()
-                        W.wm = eval("self.uiEq.spin" + el + "wm.value()")
-                    W.name = eval("self.uiEq.edit" + el + "name.toolTip()")
+                    W.wm = eval("self.uiEq.spin" + el + "wm.value()")
+                    W.name = eval("self.uiEq.label" + el + "typ.text()")
                     W.anzeigename = eval("self.uiEq.edit" + el + "name.text()")
                     if not W.name and W.anzeigename and W.anzeigename in Wolke.DB.waffen:
                         W.name = W.anzeigename
@@ -179,7 +189,7 @@ class EquipWrapper(QtCore.QObject):
         while count < 8:
             Warr = ["W1","W2","W3","W4","W5","W6","W7","W8"]
             eval("self.uiEq.edit" + Warr[count] + "name.setText(\"\")")
-            eval("self.uiEq.edit" + Warr[count] + "name.setToolTip(\"\")")
+            eval("self.uiEq.label" + Warr[count] + "typ.setText(\"\")")
             eval("self.uiEq.comboStil" + str(count+1) + ".clear()")
             eval("self.uiEq.edit" + Warr[count] + "eig.setText(\"\")")
             eval("self.uiEq.spin" + Warr[count] + "w6.setValue(0)")
@@ -187,6 +197,8 @@ class EquipWrapper(QtCore.QObject):
             eval("self.uiEq.spin" + Warr[count] + "h.setValue(6)")
             eval("self.uiEq.spin" + Warr[count] + "rw.setValue(0)")
             eval("self.uiEq.spin" + Warr[count] + "wm.setValue(0)")
+            eval("self.uiEq.spin" + Warr[count] + "lz.setValue(0)")
+            eval("self.uiEq.spin" + Warr[count] + "lz.setEnabled(False)")
             eval("self.uiEq.check" + Warr[count] + "FK.setChecked(False)")  
             count += 1
         
@@ -195,7 +207,7 @@ class EquipWrapper(QtCore.QObject):
         
     def refreshKampfstile(self, index):
         logging.debug("Starting refreshKampfstile for index " + str(index))
-        name = eval("self.uiEq.editW" + str(index+1) + "name.toolTip()")
+        name = eval("self.uiEq.labelW" + str(index+1) + "typ.text()")
         anzeigename = eval("self.uiEq.editW" + str(index+1) + "name.text()")
         tmp = eval("self.uiEq.comboStil" + str(index+1) + ".currentText()")
         if name != "" or anzeigename != "":
@@ -235,7 +247,7 @@ class EquipWrapper(QtCore.QObject):
         getName = lambda : W.name
         getAnzeigename = lambda : W.anzeigename or W.name
         eval("self.uiEq.edit" + Warr[count] + "name.setText(getAnzeigename())")
-        eval("self.uiEq.edit" + Warr[count] + "name.setToolTip(getName())")
+        eval("self.uiEq.label" + Warr[count] + "typ.setText(getName())")
         self.refreshKampfstile(count)
         getEigenschaften = lambda : ", ".join(W.eigenschaften)
         eval("self.uiEq.edit" + Warr[count] + "eig.setText(getEigenschaften())")
@@ -246,17 +258,19 @@ class EquipWrapper(QtCore.QObject):
         else:
             eval("self.uiEq.spin" + Warr[count] + "h.setValue("+ str(W.haerte) +")")
         eval("self.uiEq.spin" + Warr[count] + "rw.setValue("+ str(W.rw) +")")
+        eval("self.uiEq.spin" + Warr[count] + "wm.setValue("+ str(W.wm) +")")
         if type(W) == Objekte.Fernkampfwaffe:
-            eval("self.uiEq.spin" + Warr[count] + "wm.setValue("+ str(W.lz) +")")
+            eval("self.uiEq.spin" + Warr[count] + "lz.setValue("+ str(W.lz) +")")
             eval("self.uiEq.check" + Warr[count] + "FK.setChecked(True)")
+            eval("self.uiEq.spin" + Warr[count] + "lz.setEnabled(True)")
         elif type(W) == Objekte.Nahkampfwaffe:
-            eval("self.uiEq.spin" + Warr[count] + "wm.setValue("+ str(W.wm) +")")
             eval("self.uiEq.check" + Warr[count] + "FK.setChecked(False)")
+            eval("self.uiEq.spin" + Warr[count] + "lz.setEnabled(False)")
         
     def selectWeapon(self, index):
         W = None
         try:
-            wname = eval("self.uiEq.editW" + str(index) + "name.text()")
+            wname = eval("self.uiEq.labelW" + str(index) + "typ.text()")
             for el in Wolke.DB.waffen:
                 if Wolke.DB.waffen[el].name == wname:
                     W = el

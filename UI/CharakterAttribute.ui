@@ -826,6 +826,71 @@
        </property>
       </widget>
      </item>
+     <item row="2" column="9">
+      <widget class="QLabel" name="label_100">
+       <property name="minimumSize">
+        <size>
+         <width>25</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>(4 + 1 je 4 KO)</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="9">
+      <widget class="QLabel" name="label_101">
+       <property name="minimumSize">
+        <size>
+         <width>25</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>(4 + 1 je 4 MU)</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="9">
+      <widget class="QLabel" name="label_102">
+       <property name="minimumSize">
+        <size>
+         <width>25</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>(4 + 1 je 4 GE)</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="9">
+      <widget class="QLabel" name="label_103">
+       <property name="minimumSize">
+        <size>
+         <width>25</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>(4 + 1 je 4 KK)</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="9">
+      <widget class="QLabel" name="label_104">
+       <property name="minimumSize">
+        <size>
+         <width>25</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>(IN)</string>
+       </property>
+      </widget>
+     </item>
      <item row="3" column="7">
       <widget class="QLabel" name="label_27">
        <property name="minimumSize">
