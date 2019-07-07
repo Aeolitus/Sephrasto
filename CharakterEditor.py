@@ -168,8 +168,10 @@ class Editor(object):
         self.ignoreModified = False
         
     def saveButton(self):
-        if os.path.isdir(Wolke.Settings['Pfad-Chars']):
-            startDir = Wolke.Settings['Pfad-Chars']
+        if self.savepath != "":
+            startDir = self.savepath
+        elif os.path.isdir(Wolke.Settings['Pfad-Chars']):
+            startDir = os.path.join(Wolke.Settings['Pfad-Chars'], Wolke.Char.name)
         else:
             startDir = ""
         spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"Charakter speichern...",startDir,"XML-Datei (*.xml)")
