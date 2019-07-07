@@ -94,12 +94,7 @@ class MainWindowWrapper(object):
         self.app.setWindowIcon(QtGui.QIcon('icon_large.png'))
         
         # Get the Settings loaded
-        SettingsPath = os.path.join(EinstellungenWrapper.getSettingsFolder(), 'Sephrasto.ini')
-        if os.path.isfile(SettingsPath):
-            with open(SettingsPath,'r') as infile:
-                tmpSet = yaml.safe_load(infile)
-                for el in tmpSet:
-                    Wolke.Settings[el] = tmpSet[el]
+        EinstellungenWrapper.load()
         logging.getLogger().setLevel(loglevels[Wolke.Settings['Logging']])
         self.Form.show()
         sys.exit(self.app.exec_())
