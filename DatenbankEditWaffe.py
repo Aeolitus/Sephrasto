@@ -26,7 +26,7 @@ class Ui_talentDialog(object):
         self.spinHaerte.setAlignment(QtCore.Qt.AlignCenter)
         self.spinHaerte.setButtonSymbols(QtWidgets.QAbstractSpinBox.PlusMinus)
         self.spinHaerte.setMinimum(0)
-        self.spinHaerte.setMaximum(999)
+        self.spinHaerte.setMaximum(99)
         self.spinHaerte.setProperty("value", 7)
         self.spinHaerte.setObjectName("spinHaerte")
         self.horizontalLayout_6.addWidget(self.spinHaerte)
