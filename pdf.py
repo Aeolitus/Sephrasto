@@ -33,8 +33,10 @@ def check_output_silent(call):
     if platform.system() == 'Windows':
         startupinfo = subprocess.STARTUPINFO()
         startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-
-    return subprocess.check_output(call, startupinfo=startupinfo)
+        return subprocess.check_output(call, startupinfo=startupinfo)
+    else:
+        #TODO
+        return subprocess.check_output(call)
 
 def get_fields(pdf_file):
     '''
