@@ -112,6 +112,8 @@ class Editor(object):
         self.formMain.setFocus() #make sure editingfinished is called on potential line edits in focus
         if self.cancelDueToPendingChanges("Beenden"):
             event.ignore()
+        else:
+            Wolke.Reqs = True
 
     def reqChanged(self):
         Wolke.Reqs = self.ui.checkReq.isChecked()
