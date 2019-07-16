@@ -279,15 +279,17 @@ class pdfMeister(object):
                 typeDict[mindername] = 0
                 continue
             flag = False
-            if vort.endswith(" I"):
-                basename = vort[:-2]
-                flag = True
-            elif vort.endswith(" II") or vort.endswith(" IV"):
-                basename = vort[:-3]
-                flag = True
-            elif vort.endswith(" III"):
-                basename = vort[:-4]
-                flag = True
+            if not vort in Wolke.Char.vorteileVariable:
+                if vort.endswith(" I"):
+                    basename = vort[:-2]
+                    flag = True
+                elif vort.endswith(" II") or vort.endswith(" IV"):
+                    basename = vort[:-3]
+                    flag = True
+                elif vort.endswith(" III"):
+                    basename = vort[:-4]
+                    flag = True
+
             if flag:
                 fullset = [" I", " II", " III", " IV"]
                 fullenum = ""
