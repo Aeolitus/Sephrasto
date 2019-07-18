@@ -4226,7 +4226,7 @@ Wirkungsdauer: bis die Bindung gelöst wird
 Kosten: 4 AsP, davon 1 gAsP
 Fertigkeiten: Antimagie, Geister der Stärkung, Geister vertreiben, Kraft
 Erlernen: Smn 18; 20 EP</Talent>
-  <Talent name="Schutzgeist (Tier)" kosten="40" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Eigenschaften, Geister der Stärkung" variable="-1" printclass="5">Du bittest den Geist eines Tieres, über eine Gruppe von bis zu 8 Gefährten zu wachen. Sie erhalten einen Bonus von +1 auf alle beim entsprechenden Tier angegebenen Werte, solange sie sich nicht weiter als eine Meile von dir entfernen. Es kann nur ein Schutzgeist gleichzeitig aktiv sein. 
+  <Talent name="Schutzgeist (Tier)" kosten="40" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Eigenschaften, Geister der Stärkung" variable="1" printclass="5">Du bittest den Geist eines Tieres, über eine Gruppe von bis zu 8 Gefährten zu wachen. Sie erhalten einen Bonus von +1 auf alle beim entsprechenden Tier angegebenen Werte, solange sie sich nicht weiter als eine Meile von dir entfernen. Es kann nur ein Schutzgeist gleichzeitig aktiv sein. 
 Mächtige Magie: Verdoppelt die Zahl der Ziele, je zwei Stufen erhöhen den Bonus um +1.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Stunde
@@ -4236,7 +4236,7 @@ Wirkungsdauer: bis die Bindung gelöst wird
 Kosten: 16 AsP, davon 4 gAsP
 Fertigkeiten: Eigenschaften, Geister der Stärkung
 Erlernen: Smn 14; 40 EP
-Anmerkung: Der Zauber muss für jedes Tier extra erlernt werden. </Talent>
+Anmerkung: Der Zauber muss für jedes Tier extra erlernt werden, erhöhe in Sephrasto die Kosten entsprechend der Anzahl Tiere. </Talent>
   <Talent name="Segen der Erdgeister" kosten="60" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Humus, Geister der Stärkung, Verwandlung" variable="-1" printclass="5">Du leitest das Wachstum einer Pflanze, kannst es beschleunigen und formen. Die Kosten, Zauberdauer und Modifikationen Mächtige Magie sind Meisterentscheid. Beispiele:
 4 AsP, keine Mächtige Magie, 1 Minute: Aus einem Samen wächst eine kleine Heilpflanze.
 8 AsP, 1x Mächtige Magie, eine halbe Stunde: Ein Baum trägt drei Monate zu früh Früchte.
@@ -4332,7 +4332,7 @@ Wirkungsdauer: 1 Monat
 Kosten: 16 AsP
 Fertigkeiten: Verwandlung, Geister des Zorns
 Erlernen: Smn 16; 40 EP</Talent>
-  <Talent name="Fluch des (Tieres)" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Einfluss, Geister des Zorns" variable="-1" printclass="6">Ein zorniger Tiergeist straft das Ziel. Es erleidet einen Malus von –2 auf alle Werte, die dem Tier zugeordnet sind (S. 160).
+  <Talent name="Fluch des (Tieres)" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Einfluss, Geister des Zorns" variable="1" printclass="6">Ein zorniger Tiergeist straft das Ziel. Es erleidet einen Malus von –2 auf alle Werte, die dem Tier zugeordnet sind (S. 160).
 Mächtige Magie: Der Malus steigt um –1.
 Probenschwierigkeit: Magieresistenz
 Modifikationen: Permanenz (–4, Wirkungsdauer bis die Bindung gelöst wird, 16 AsP, davon 2 gAsP)
@@ -4343,7 +4343,7 @@ Wirkungsdauer: 1 Tag
 Kosten: 8 AsP
 Fertigkeiten: Einfluss, Geister des Zorns
 Erlernen: Smn 16; 20 EP
-Anmerkung: Der Zauber muss für jedes Tier extra erlernt werden.</Talent>
+Anmerkung: Der Zauber muss für jedes Tier extra erlernt werden, erhöhe in Sephrasto die Kosten entsprechend der Anzahl Tiere.</Talent>
   <Talent name="Fluch des Gewürms" kosten="40" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Dämonisch, Verständigung, Geister des Zorns" variable="-1" printclass="6">Dein Opfer wird von einer Myriade Insekten und Kleintieren bedeckt. Misslingt eine Konterprobe (Willenskraft, 16), ist es handlungsunfähig. Gelingt die Konterprobe, sind alle Proben um –4 erschwert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 8 Aktionen
@@ -4531,7 +4531,7 @@ Kosten: 2 AsP
 Fertigkeiten: Geister rufen, Verständigung
 Erlernen: Smn 18; 20 EP
 Anmerkung: Vereinzelt soll dieser Zauber auch in anderen Tiervarianten verbreitet sein.</Talent>
-  <Talent name="Lockruf (Wesen)" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Einfluss, Geister rufen, Verständigung" variable="-1" printclass="7">Du rufst das beim Erlernen gewählte Wesen, meist ein Tier, herbei. Befindet sich ein Wesen dieser Art in einem Radius von 4 Meilen, eilt es herbei. Du kannst dieses Wesen um einen Gefallen bitten, das dieses wenn möglich erfüllen wird. Dann trollt sich das Wesen. 
+  <Talent name="Lockruf (Wesen)" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Einfluss, Geister rufen, Verständigung" variable="1" printclass="7">Du rufst das beim Erlernen gewählte Wesen, meist ein Tier, herbei. Befindet sich ein Wesen dieser Art in einem Radius von 4 Meilen, eilt es herbei. Du kannst dieses Wesen um einen Gefallen bitten, das dieses wenn möglich erfüllen wird. Dann trollt sich das Wesen. 
 Mächtige Magie: Verdoppelt den Radius und die Zahl der herbeieilenden Wesen. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
@@ -4541,7 +4541,7 @@ Wirkungsdauer: 1 Stunde
 Kosten: 16 AsP
 Fertigkeiten: Einfluss, Geister rufen, Verständigung
 Erlernen: Smn 14; 20 EP
-Anmerkung: Der Zauber muss für jedes Wesen extra gelernt werden. Übliche Wesen sind Wölfe (Nivesen), Wildschweine (Goblins), Rinder (Ferkinas), Schlinger (Achaz), Seeschlangen (Achaz), Haie (Tocamujac), Oger (Ork), Mammuts (Gjalsker); Tierkrieger rufen ihr gewähltes Tier </Talent>
+Anmerkung: Der Zauber muss für jedes Wesen extra gelernt werden, erhöhe in Sephrasto die Kosten entsprechend der Anzahl Tiere. Übliche Wesen sind Wölfe (Nivesen), Wildschweine (Goblins), Rinder (Ferkinas), Schlinger (Achaz), Seeschlangen (Achaz), Haie (Tocamujac), Oger (Ork), Mammuts (Gjalsker); Tierkrieger rufen ihr gewähltes Tier </Talent>
   <Talent name="Rat der Ahnen" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Geister rufen, Verständigung" variable="-1" printclass="7">Du rufst einen Totengeist in den Körper eines seiner Nachfahren herab. Dort verhält er sich seinem Charakter gemäß; er kann Rat geben oder die Stammeskrieger anführen. Der Totengeist entscheidet selbst, wann er den Körper verlässt – notfalls ist ein Großer Geisterbann (S. 166) nötig. Der Tote muss im letzten Jahr verstorben sein.
 Mächtige Magie: Der Tote kann seit 10 Jahren/100 Jahren/1000 Jahren/seit Menschengedenken verstorben sein.
 Probenschwierigkeit: 12
