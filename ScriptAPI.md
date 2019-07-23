@@ -36,7 +36,8 @@ Die folgenden Funktionen stehen neben Python-Builtins wie 'round' zur Verfügung
 
 #### Ausrüstung
     getAusrüstung <Return: string[]>, getRüstung <Return: { name, text, be, rs[6] }[]>,
-    getWaffen <Return: { name, text, W6, plus, eigenschaften[], haerte, fertigkeit, talent, kampfstile[], kampfstil, rw, wm/lz}[]>
+    getWaffen <Return: { name, text, W6, plus, eigenschaften[], haerte, fertigkeit, talent, kampfstile[], kampfstil, rw, wm, lz}[]>
+    Hinweis: Nur Fernkampfwaffen haben das Feld 'lz'.
 
 #### Sonstiges
     addWaffeneigenschaft <Parameter: TalentName, Eigenschaft>

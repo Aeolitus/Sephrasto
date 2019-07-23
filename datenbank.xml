@@ -5659,7 +5659,7 @@ Wirkungsdauer: 16 Initiativphasen
 Kosten: 8 AsP
 Fertigkeiten: Hellsicht, Zaubertänze
 Erlernen: Ztz 16; 40 EP</Talent>
-  <Talent name="Tanz der Weisheit" kosten="40" voraussetzungen="Vorteil Tradition der Zaubertänzer I" verbilligt="0" fertigkeiten="Eigenschaften, Zaubertänze" variable="-1" printclass="19">Der Tanz schärft den Geist der Zuseher. Alle Zuseher in einem Radius von 4 Schritt erhalten eine Erleichterung +2 auf Mythenkunde, Geographie, Heilkunde und KL.
+  <Talent name="Tanz der Weisheit" kosten="40" voraussetzungen="Vorteil Tradition der Zaubertänzer I" verbilligt="0" fertigkeiten="Eigenschaften, Zaubertänze" variable="-1" printclass="19">Der Tanz schärft den Geist der Zuseher. Alle Zuseher in einem Radius von 4 Schritt erhalten eine Erleichterung +2 auf Derekunde, Heilkunde, Mythenkunde und KL.
 Mächtige Magie: Der Bonus steigt um +1.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Stunde
@@ -8182,7 +8182,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Hiebwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Heiliges Erz, Schutz der Gläubigen" variable="-1" printclass="99">Dein nächster Wurf auf Hiebwaffen ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Hiebwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Heiliges Erz, Schutz der Gläubigen, Guter Kampf" variable="-1" printclass="99">Dein nächster Wurf auf Hiebwaffen ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8218,7 +8218,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Handgemenge" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen" variable="-1" printclass="99">Dein nächster Wurf auf Handgemenge ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Handgemenge" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Guter Kampf" variable="-1" printclass="99">Dein nächster Wurf auf Handgemenge ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8227,7 +8227,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Klingenwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen" variable="-1" printclass="99">Dein nächster Wurf auf Klingenwaffen ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Klingenwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Guter Kampf" variable="-1" printclass="99">Dein nächster Wurf auf Klingenwaffen ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8236,7 +8236,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Stangenwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen" variable="-1" printclass="99">Dein nächster Wurf auf Stangenwaffen ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Stangenwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Guter Kampf" variable="-1" printclass="99">Dein nächster Wurf auf Stangenwaffen ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8264,15 +8264,6 @@ Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
   <Talent name="Mirakel: Zweite Fertigkeit nach Wahl" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Neubeginn" variable="-1" printclass="99">Dein nächster Wurf auf die zweite Fertigkeit nach Wahl ist um +4 Punkte erleichtert.
-Mächtige Liturgie: Erhöht die Erleichterung um +2.
-Probenschwierigkeit: 12
-Vorbereitungszeit: 0 Aktionen
-Zielobjekt: selbst
-Reichweite: Berührung
-Wirkungsdauer: 4 Minuten
-Kosten: 4 KaP
-Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Nahkampffertigkeiten" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Guter Kampf" variable="-1" printclass="99">Dein nächster Wurf auf eine Nahkampffertigkeit ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8510,11 +8501,11 @@ Fast alle Geweihten der Zwölf beherrschen die zwölf Segnungen: Eid-, Feuer-, G
   <Waffe name="Scheibendolch" W6="1" plus="1" haerte="9" fertigkeit="Handgemenge" talent="Handgemengewaffen" kampfstile="Beidhändiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller Kampf, Schneller Kampf" rw="0" wm="0" fk="0">Rüstungsbrechend</Waffe>
   <Waffe name="Schlagring" W6="1" plus="1" haerte="9" fertigkeit="Handgemenge" talent="Handgemengewaffen" kampfstile="Beidhändiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller Kampf, Schneller Kampf" rw="0" wm="0" fk="0">Stumpf</Waffe>
   <Waffe name="Veteranenhand" W6="1" plus="2" haerte="7" fertigkeit="Handgemenge" talent="Handgemengewaffen" kampfstile="Beidhändiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller Kampf, Schneller Kampf" rw="0" wm="0" fk="0"></Waffe>
-  <Waffe name="Bock (Schilde)" W6="1" plus="2" haerte="11" fertigkeit="Handgemenge" talent="Schilde" kampfstile="Beidhändiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf" rw="0" wm="0" fk="0">Parierwaffe, Schild</Waffe>
-  <Waffe name="Buckler (Schilde)" W6="1" plus="1" haerte="11" fertigkeit="Handgemenge" talent="Schilde" kampfstile="Beidhändiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf" rw="0" wm="0" fk="0">Parierwaffe, Schild, Stumpf</Waffe>
-  <Waffe name="Großschild" W6="1" plus="-1" haerte="7" fertigkeit="Handgemenge" talent="Schilde" kampfstile="Beidhändiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf" rw="0" wm="2" fk="0">Schild, Stumpf</Waffe>
-  <Waffe name="Holzschild" W6="1" plus="0" haerte="8" fertigkeit="Handgemenge" talent="Schilde" kampfstile="Beidhändiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf" rw="0" wm="1" fk="0">Schild, Stumpf</Waffe>
-  <Waffe name="Lederschild" W6="1" plus="-1" haerte="5" fertigkeit="Handgemenge" talent="Schilde" kampfstile="Beidhändiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf" rw="0" wm="1" fk="0">Schild, Stumpf</Waffe>
+  <Waffe name="Bock (Schilde)" W6="1" plus="2" haerte="11" fertigkeit="Handgemenge" talent="Schilde" kampfstile="Parierwaffenkampf, Reiterkampf, Schildkampf" rw="0" wm="0" fk="0">Parierwaffe, Schild</Waffe>
+  <Waffe name="Buckler (Schilde)" W6="1" plus="1" haerte="11" fertigkeit="Handgemenge" talent="Schilde" kampfstile="Parierwaffenkampf, Reiterkampf, Schildkampf" rw="0" wm="0" fk="0">Parierwaffe, Schild, Stumpf</Waffe>
+  <Waffe name="Großschild" W6="1" plus="-1" haerte="7" fertigkeit="Handgemenge" talent="Schilde" kampfstile="Parierwaffenkampf, Reiterkampf, Schildkampf" rw="0" wm="2" fk="0">Schild, Stumpf</Waffe>
+  <Waffe name="Holzschild" W6="1" plus="0" haerte="8" fertigkeit="Handgemenge" talent="Schilde" kampfstile="Parierwaffenkampf, Reiterkampf, Schildkampf" rw="0" wm="1" fk="0">Schild, Stumpf</Waffe>
+  <Waffe name="Lederschild" W6="1" plus="-1" haerte="5" fertigkeit="Handgemenge" talent="Schilde" kampfstile="Parierwaffenkampf, Reiterkampf, Schildkampf" rw="0" wm="1" fk="0">Schild, Stumpf</Waffe>
   <Waffe name="Unbewaffnet" W6="1" plus="0" haerte="1" fertigkeit="Handgemenge" talent="Unbewaffnet" kampfstile="Beidhändiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller Kampf, Schneller Kampf" rw="0" wm="0" fk="0">Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe</Waffe>
   <Waffe name="Diskus" W6="2" plus="0" haerte="7" fertigkeit="Wurfwaffen" talent="Diskusse" kampfstile="" rw="16" lz="0" fk="1"></Waffe>
   <Waffe name="Jagddiskus" W6="2" plus="0" haerte="7" fertigkeit="Wurfwaffen" talent="Diskusse" kampfstile="" rw="16" lz="0" fk="1">Stumpf</Waffe>
