@@ -123,8 +123,8 @@ class EinstellungenWrapper():
 
     def updateComboRegelbasis(self):
         optionsList = ['Keine']            
-        if os.path.isdir(Wolke.Settings['Pfad-Regeln']):
-            for file in os.listdir(Wolke.Settings['Pfad-Regeln']):
+        if os.path.isdir(self.ui.editRegeln.text()):
+            for file in os.listdir(self.ui.editRegeln.text()):
                 if file.lower().endswith('.xml'):
                     optionsList.append(file)
         self.ui.comboRegelbasis.clear()
@@ -135,7 +135,7 @@ class EinstellungenWrapper():
     def setCharPath(self):
         path = QtWidgets.QFileDialog.getExistingDirectory(None,
           "Wähle einen Speicherort für Charaktere aus!",
-          Wolke.Settings['Pfad-Chars'],
+          self.ui.editChar.text(),
           QtWidgets.QFileDialog.ShowDirsOnly)
         path = os.path.realpath(path)
         if os.path.isdir(path):
@@ -144,7 +144,7 @@ class EinstellungenWrapper():
     def setRulePath(self):
         path = QtWidgets.QFileDialog.getExistingDirectory(None,
           "Wähle einen Speicherort für Regeln aus!",
-          Wolke.Settings['Pfad-Regeln'],
+          self.ui.editRegeln.text(),
           QtWidgets.QFileDialog.ShowDirsOnly)
         path = os.path.realpath(path)
         if os.path.isdir(path):
@@ -167,6 +167,7 @@ class EinstellungenWrapper():
     def resetRulePath(self):
         p = os.path.join(self.settingsFolder, 'Regeln')
         self.ui.editRegeln.setText(p)
+        self.updateComboRegelbasis()
         
     def resetExportPluginPath(self):
         self.ui.editExportPlugin.setText('')
