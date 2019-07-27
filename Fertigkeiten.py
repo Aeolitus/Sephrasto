@@ -99,7 +99,7 @@ class Talent():
         self.verbilligt = 0
         self.fertigkeiten = []
         self.voraussetzungen = []
-        self.variable = 0
+        self.variable = -1
         self.text = ''
         self.printclass = -1
         self.isUserAdded = True
@@ -113,7 +113,7 @@ class Vorteil():
     def __init__(self):
         self.name = ''
         self.kosten = -1
-        self.variable = 0
+        self.variable = -1
         self.typ = 0
         self.voraussetzungen = []
         self.nachkauf = ''

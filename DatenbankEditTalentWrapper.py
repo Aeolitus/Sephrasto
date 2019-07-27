@@ -89,12 +89,21 @@ class DatenbankEditTalentWrapper(object):
 
     def nameChanged(self):
         name = self.ui.nameEdit.text()
+        fertigkeiten = Hilfsmethoden.FertStr2Array(self.ui.fertigkeitenEdit.text(),None)
         if name == "":
             self.ui.nameEdit.setToolTip("Name darf nicht leer sein.")
             self.ui.nameEdit.setStyleSheet("border: 1px solid red;")
             self.nameValid = False
         elif name != self.talentPicked.name and name in self.datenbank.talente:
             self.ui.nameEdit.setToolTip("Name existiert bereits.")
+            self.ui.nameEdit.setStyleSheet("border: 1px solid red;")
+            self.nameValid = False
+        elif "Gebräuche" in fertigkeiten and not name.startswith("Gebräuche: "):
+            self.ui.nameEdit.setToolTip("Talentnamen für die Fertigkeit Gebräuche müssen mit 'Gebräuche: ' anfangen.")
+            self.ui.nameEdit.setStyleSheet("border: 1px solid red;")
+            self.nameValid = False
+        elif "Überleben" in fertigkeiten and not name.startswith("Überleben: "):
+            self.ui.nameEdit.setToolTip("Talentnamen für die Fertigkeit Überleben müssen mit 'Überleben: ' anfangen.")
             self.ui.nameEdit.setStyleSheet("border: 1px solid red;")
             self.nameValid = False
         else:
@@ -127,7 +136,7 @@ class DatenbankEditTalentWrapper(object):
         if self.fertigkeitenValid:
             self.ui.fertigkeitenEdit.setStyleSheet("")
             self.ui.fertigkeitenEdit.setToolTip("")
-        self.updateSaveButtonState()
+        self.nameChanged()
 
     def updateSaveButtonState(self):
         self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(not self.readonly and self.nameValid and self.voraussetzungenValid and self.fertigkeitenValid)
