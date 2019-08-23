@@ -6898,7 +6898,7 @@ Wirkungsdauer: 1 Stunde
 Kosten: 8 KaP
 Fertigkeiten: Heiliges Feuer, Heim und Herd
 Erlernen: Ang, Ing 12; Tra 18; 40 EP</Talent>
-  <Talent name="Waliburias Wehr" kosten="40" voraussetzungen="Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition der Angroschgeweihten I" verbilligt="0" fertigkeiten="Heiliges Feuer" variable="-1" printclass="33">Bei jeder deiner Bewegungen stieben Funken und Rauch steigt auf. Für feindlich gesinnte Humanoide, Tiere, Feenwesen oder Mythenwesen giltst du als Schreckgestalt Stufe 2 (S. 38). 
+  <Talent name="Waliburias Wehr" kosten="40" voraussetzungen="Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition der Angroschgeweihten I ODER Vorteil Tradition der Korgeweihten I" verbilligt="0" fertigkeiten="Heiliges Feuer, Guter Kampf" variable="-1" printclass="33">Bei jeder deiner Bewegungen stieben Funken und Rauch steigt auf. Für feindlich gesinnte Humanoide, Tiere, Feenwesen oder Mythenwesen giltst du als Schreckgestalt Stufe 2 (S. 38). 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: selbst
