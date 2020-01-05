@@ -73,6 +73,8 @@ def write_pdf(source, fields, output, flatten=False):
     with NamedTemporaryFile(delete=False) as file:
         file.write(fdf)
     call = ['pdftk', source, 'fill_form', file.name, 'output', output]
+    # call.append('need_appearances')
+    # call.append('drop_xfa')
     if flatten:
         call.append('flatten')
     try:
