@@ -5794,7 +5794,7 @@ Kosten: 8 KaP
 Fertigkeiten: Zwölfgöttlicher Ritus
 Erlernen: Ang, Ing 18; Aves, Brn, Eff, Fir, Hes, Ifi, Kor, Nan, Per, Phe, Pra, Rah, Ron, Tsa, Tra, Swa 20; 60 EP
 Anmerkung: Geweihte Artefakte werden nur sehr selten an Laien vergeben. Am ehesten kommen Gläubige auf einer gottgefälligen Queste in Frage.</Talent>
-  <Talent name="Märtyrersegen" kosten="20" voraussetzungen="Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der Ifirngeweihten I ODER Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition der Angroschgeweihten I ODER Vorteil Tradition der Korgeweihten I ODER Vorteil Tradition der Nandusgeweihten I ODER Vorteil Tradition der Perainegeweihten I ODER Vorteil Tradition der Phexgeweihten I ODER Vorteil Tradition der Praiosgeweihten I ODER Vorteil Tradition der Rahjageweihten I ODER Vorteil Tradition der Rondrageweihten I ODER Vorteil Tradition der Swafnirgeweihten I ODER Vorteil Tradition der Traviageweihten I ODER Vorteil Tradition der Tsageweihten I" verbilligt="0" fertigkeiten="Winter, Zwölfgöttlicher Ritus" variable="-1" printclass="20">Der Gesegnete gewinnt an Tapferkeit. Auf ihm lastende Furcht-Effekte gelten als 1 Stufe niedriger.
+  <Talent name="Märtyrersegen" kosten="20" voraussetzungen="Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der Ifirngeweihten I ODER Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition der Angroschgeweihten I ODER Vorteil Tradition der Korgeweihten I ODER Vorteil Tradition der Nandusgeweihten I ODER Vorteil Tradition der Perainegeweihten I ODER Vorteil Tradition der Phexgeweihten I ODER Vorteil Tradition der Praiosgeweihten I ODER Vorteil Tradition der Rahjageweihten I ODER Vorteil Tradition der Rondrageweihten I ODER Vorteil Tradition der Swafnirgeweihten I ODER Vorteil Tradition der Traviageweihten I ODER Vorteil Tradition der Tsageweihten I" verbilligt="0" fertigkeiten="Winter, Zwölfgöttlicher Ritus, Guter Kampf" variable="-1" printclass="20">Der Gesegnete gewinnt an Tapferkeit. Auf ihm lastende Furcht-Effekte gelten als 1 Stufe niedriger.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: Einzelperson
@@ -5981,7 +5981,7 @@ Wirkungsdauer: 1 Stunde
 Kosten: 8 KaP
 Fertigkeiten: Tod 
 Erlernen: Brn 16; 20 EP</Talent>
-  <Talent name="Tiergestalt" kosten="40" voraussetzungen="Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der Ifirngeweihten I ODER Vorteil Tradition der Korgeweihten I ODER Vorteil Tradition der Phexgeweihten I ODER Vorteil Tradition der Rondrageweihten I" verbilligt="0" fertigkeiten="Ehre, Jagd, List, Tod, Wind und Wogen" variable="1" printclass="22">Du verwandelst dich in das heilige Tier deiner Gottheit, wobei du deine geistigen Fähigkeiten behältst. Deine körperlichen Fähigkeiten entsprechen denen des Tiers und du kannst in Tiergestalt keine Liturgien wirken. Erlaubt Aufrechterhalten. 
+  <Talent name="Tiergestalt" kosten="40" voraussetzungen="Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der Ifirngeweihten I ODER Vorteil Tradition der Korgeweihten I ODER Vorteil Tradition der Phexgeweihten I ODER Vorteil Tradition der Rondrageweihten I" verbilligt="0" fertigkeiten="Ehre, Jagd, List, Tod, Wind und Wogen, Guter Kampf" variable="1" printclass="22">Du verwandelst dich in das heilige Tier deiner Gottheit, wobei du deine geistigen Fähigkeiten behältst. Deine körperlichen Fähigkeiten entsprechen denen des Tiers und du kannst in Tiergestalt keine Liturgien wirken. Erlaubt Aufrechterhalten. 
 Mächtige Liturgie: Das Tier ist ein überdurchschnittlicher/außergewöhnlicher/herausragender/einzigartiger Vertreter seiner Art. Die Werte des Tieres sind nach Spielleiterentscheid erhöht. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
@@ -5992,7 +5992,7 @@ Kosten: 8 KaP
 Fertigkeiten: Ehre, Jagd, List, Tod, Wind und Wogen
 Erlernen: Fir, Ifi 14; Eff, Ron 16; Bor, Hes, Kor, Phe 18; normalerweise 40 EP
 Anmerkungen: Nur herausragende Geweihte können sich in Tiere verwandeln, die nicht zu den Größenklassen klein oder mittel gehören. Solche Verwandlungen sind prinzipiell um –8 erschwert. Die Lernkosten des Zaubers orientieren sich an der Tierart, wobei fliegende, giftige, sehr starke usw. Tiere teurer sind. </Talent>
-  <Talent name="Waffenweihe" kosten="60" voraussetzungen="Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition der Angroschgeweihten I ODER Vorteil Tradition der Praiosgeweihten I ODER Vorteil Tradition der Rondrageweihten I" verbilligt="0" fertigkeiten="Magiebann, Heiliges Feuer, Heerführung, Tod" variable="-1" printclass="22">Du segnest eine Waffe. Diese gilt als geweiht.
+  <Talent name="Waffenweihe" kosten="60" voraussetzungen="Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition der Angroschgeweihten I ODER Vorteil Tradition der Praiosgeweihten I ODER Vorteil Tradition der Rondrageweihten I ODER Vorteil Tradition der Korgeweihten I" verbilligt="0" fertigkeiten="Magiebann, Heiliges Feuer, Heerführung, Tod, Gutes Gold" variable="-1" printclass="22">Du segnest eine Waffe. Diese gilt als geweiht.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Stunde 
 Ziel: Einzelobjekt
@@ -6021,7 +6021,7 @@ Wirkungsdauer: permanent
 Kosten: 8 KaP
 Fertigkeiten: Vergessen
 Erlernen: Bor 18; 40 EP</Talent>
-  <Talent name="Heiliger Befehl" kosten="60" voraussetzungen="Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der Praiosgeweihten I ODER Vorteil Tradition der Rahjageweihten I ODER Vorteil Tradition der Rondrageweihten I" verbilligt="0" fertigkeiten="Ehre, Ordnung, Rausch, Vergessen" variable="-1" printclass="23">Das Ziel befolgt einen gottgefälligen Befehl, wenn ihm keine Konterprobe (Willenskraft, 20) gelingt. 
+  <Talent name="Heiliger Befehl" kosten="60" voraussetzungen="Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der Praiosgeweihten I ODER Vorteil Tradition der Rahjageweihten I ODER Vorteil Tradition der Rondrageweihten I ODER Vorteil Tradition der Korgeweihten I" verbilligt="0" fertigkeiten="Ehre, Ordnung, Rausch, Vergessen, Gutes Gold" variable="-1" printclass="23">Das Ziel befolgt einen gottgefälligen Befehl, wenn ihm keine Konterprobe (Willenskraft, 20) gelingt. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: Einzelperson
@@ -6898,7 +6898,7 @@ Wirkungsdauer: 1 Stunde
 Kosten: 8 KaP
 Fertigkeiten: Heiliges Feuer, Heim und Herd
 Erlernen: Ang, Ing 12; Tra 18; 40 EP</Talent>
-  <Talent name="Waliburias Wehr" kosten="40" voraussetzungen="Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition der Angroschgeweihten I" verbilligt="0" fertigkeiten="Heiliges Feuer" variable="-1" printclass="33">Bei jeder deiner Bewegungen stieben Funken und Rauch steigt auf. Für feindlich gesinnte Humanoide, Tiere, Feenwesen oder Mythenwesen giltst du als Schreckgestalt Stufe 2 (S. 38). 
+  <Talent name="Waliburias Wehr" kosten="40" voraussetzungen="Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition der Angroschgeweihten I ODER Vorteil Tradition der Korgeweihten I" verbilligt="0" fertigkeiten="Heiliges Feuer, Guter Kampf" variable="-1" printclass="33">Bei jeder deiner Bewegungen stieben Funken und Rauch steigt auf. Für feindlich gesinnte Humanoide, Tiere, Feenwesen oder Mythenwesen giltst du als Schreckgestalt Stufe 2 (S. 38). 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: selbst
@@ -7117,7 +7117,7 @@ Wirkungsdauer: 4 Minuten
 Kosten: 8 KaP
 Fertigkeiten: Abu al'Mada
 Erlernen: Phe 12; 40 EP</Talent>
-  <Talent name="Mondsilberzunge" kosten="40" voraussetzungen="Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der Phexgeweihten I ODER Vorteil Tradition der Tsageweihten I" verbilligt="0" fertigkeiten="Friede, List, Stiller Wanderer" variable="-1" printclass="38">Deine Zunge ist flink und die Worte fließen dir nur so von den Lippen. Überreden-Proben sind um +4 erleichtert.
+  <Talent name="Mondsilberzunge" kosten="40" voraussetzungen="Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der Phexgeweihten I ODER Vorteil Tradition der Tsageweihten I ODER Vorteil Tradition der Korgeweihten I" verbilligt="0" fertigkeiten="Friede, List, Stiller Wanderer, Gutes Gold" variable="-1" printclass="38">Deine Zunge ist flink und die Worte fließen dir nur so von den Lippen. Überreden-Proben sind um +4 erleichtert.
 Mächtige Liturgie: Der Bonus steigt um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
@@ -7542,7 +7542,7 @@ Wirkungsdauer: 8 Stunden
 Kosten: 16 KaP
 Fertigkeiten: Heerführung
 Erlernen: Ron 18; 40 EP</Talent>
-  <Talent name="Segen des Heiligen Hlûthar" kosten="40" voraussetzungen="Vorteil Tradition der Rondrageweihten I" verbilligt="0" fertigkeiten="Heerführung" variable="-1" printclass="46">Du wählst bis zu 8 Mitstreiter. Auf ihnen lastende Furcht-Effekte gelten als eine Stufe niedriger.
+  <Talent name="Segen des Heiligen Hlûthar" kosten="40" voraussetzungen="Vorteil Tradition der Rondrageweihten I ODER Vorteil Tradition der Korgeweihten I" verbilligt="0" fertigkeiten="Heerführung, Gutes Gold" variable="-1" printclass="46">Du wählst bis zu 8 Mitstreiter. Auf ihnen lastende Furcht-Effekte gelten als eine Stufe niedriger.
 Probenschwierigkeit: 12
 Modifikationen: Mut der Schlacht (–8, 16 KaP, Wirkungsdauer 4 Stunden; die Wirkung betrifft alle Mitglieder des Heeres, dem du angehörst.)
 Vorbereitungszeit: 16 Aktionen
@@ -8466,23 +8466,23 @@ Fast alle Geweihten der Zwölf beherrschen die zwölf Segnungen: Eid-, Feuer-, G
   <Waffe name="Rondrakamm" W6="2" plus="4" haerte="10" fertigkeit="Klingenwaffen" talent="Zweihandklingenwaffen" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="0" fk="0">Zweihändig</Waffe>
   <Waffe name="Tuzakmesser" W6="2" plus="3" haerte="10" fertigkeit="Klingenwaffen" talent="Zweihandklingenwaffen" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="0" fk="0">Wendig, Zweihändig</Waffe>
   <Waffe name="Zweihänder" W6="3" plus="1" haerte="8" fertigkeit="Klingenwaffen" talent="Zweihandklingenwaffen" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="0" fk="0">Schwer (4), Zweihändig</Waffe>
-  <Waffe name="Dschadra (Infanteriewaffen)" W6="2" plus="3" haerte="6" fertigkeit="Stangenwaffen" talent="Infanteriewaffen" kampfstile="Beidhändiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="-1" fk="0"></Waffe>
-  <Waffe name="Efferdbart (Infanteriewaffen)" W6="2" plus="0" haerte="6" fertigkeit="Stangenwaffen" talent="Infanteriewaffen" kampfstile="Beidhändiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="0" fk="0"></Waffe>
-  <Waffe name="Hellebarde" W6="2" plus="2" haerte="7" fertigkeit="Stangenwaffen" talent="Infanteriewaffen" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="0" fk="0">Kopflastig, Rüstungsbrechend, Zweihändig</Waffe>
-  <Waffe name="Holzspeer (Infanteriewaffen)" W6="2" plus="-1" haerte="4" fertigkeit="Stangenwaffen" talent="Infanteriewaffen" kampfstile="Beidhändiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="-1" fk="0">Wendig</Waffe>
-  <Waffe name="Jagdspieß" W6="3" plus="0" haerte="7" fertigkeit="Stangenwaffen" talent="Infanteriewaffen" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="0" fk="0">Wendig, Zweihändig</Waffe>
-  <Waffe name="Kampfstab" W6="1" plus="1" haerte="4" fertigkeit="Stangenwaffen" talent="Infanteriewaffen" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="1" fk="0">Wendig, Stumpf, Zweihändig</Waffe>
-  <Waffe name="Korspieß" W6="2" plus="3" haerte="8" fertigkeit="Stangenwaffen" talent="Infanteriewaffen" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="0" fk="0">Kopflastig, Zweihändig</Waffe>
-  <Waffe name="Magierstab" W6="1" plus="1" haerte="1" fertigkeit="Stangenwaffen" talent="Infanteriewaffen" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="0" fk="0">Stumpf, Unzerstörbar, Zweihändig</Waffe>
-  <Waffe name="Pailos" W6="3" plus="3" haerte="9" fertigkeit="Stangenwaffen" talent="Infanteriewaffen" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="-2" fk="0">Kopflastig, Schwer (4), Zweihändig</Waffe>
-  <Waffe name="Partisane" W6="3" plus="1" haerte="7" fertigkeit="Stangenwaffen" talent="Infanteriewaffen" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="-1" fk="0">Kopflastig, Schwer (4), Zweihändig</Waffe>
-  <Waffe name="Pike" W6="2" plus="2" haerte="5" fertigkeit="Stangenwaffen" talent="Infanteriewaffen" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="-3" fk="0">Zweihändig</Waffe>
-  <Waffe name="Schnitter" W6="2" plus="3" haerte="8" fertigkeit="Stangenwaffen" talent="Infanteriewaffen" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="0" fk="0">Wendig, Zweihändig</Waffe>
-  <Waffe name="Speer (Infanteriewaffen)" W6="2" plus="1" haerte="6" fertigkeit="Stangenwaffen" talent="Infanteriewaffen" kampfstile="Beidhändiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="0" fk="0"></Waffe>
-  <Waffe name="Stoßspeer" W6="3" plus="3" haerte="7" fertigkeit="Stangenwaffen" talent="Infanteriewaffen" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="-1" fk="0">Zweihändig</Waffe>
-  <Waffe name="Sturmsense" W6="2" plus="3" haerte="6" fertigkeit="Stangenwaffen" talent="Infanteriewaffen" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="-2" fk="0">Zweihändig</Waffe>
-  <Waffe name="Wurmspieß" W6="3" plus="2" haerte="8" fertigkeit="Stangenwaffen" talent="Infanteriewaffen" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="-1" fk="0">Rüstungsbrechend, Zweihändig</Waffe>
-  <Waffe name="Zweililien" W6="2" plus="2" haerte="5" fertigkeit="Stangenwaffen" talent="Infanteriewaffen" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="1" wm="1" fk="0">Wendig, Zweihändig</Waffe>
+  <Waffe name="Dschadra (Infanteriewaffen)" W6="2" plus="3" haerte="6" fertigkeit="Stangenwaffen" talent="Infanteriewaffen und Speere" kampfstile="Beidhändiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="-1" fk="0"></Waffe>
+  <Waffe name="Efferdbart (Infanteriewaffen)" W6="2" plus="0" haerte="6" fertigkeit="Stangenwaffen" talent="Infanteriewaffen und Speere" kampfstile="Beidhändiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="0" fk="0"></Waffe>
+  <Waffe name="Hellebarde" W6="2" plus="2" haerte="7" fertigkeit="Stangenwaffen" talent="Infanteriewaffen und Speere" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="0" fk="0">Kopflastig, Rüstungsbrechend, Zweihändig</Waffe>
+  <Waffe name="Holzspeer (Infanteriewaffen)" W6="2" plus="-1" haerte="4" fertigkeit="Stangenwaffen" talent="Infanteriewaffen und Speere" kampfstile="Beidhändiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="-1" fk="0">Wendig</Waffe>
+  <Waffe name="Jagdspieß" W6="3" plus="0" haerte="7" fertigkeit="Stangenwaffen" talent="Infanteriewaffen und Speere" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="0" fk="0">Wendig, Zweihändig</Waffe>
+  <Waffe name="Kampfstab" W6="1" plus="1" haerte="4" fertigkeit="Stangenwaffen" talent="Infanteriewaffen und Speere" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="1" fk="0">Wendig, Stumpf, Zweihändig</Waffe>
+  <Waffe name="Korspieß" W6="2" plus="3" haerte="8" fertigkeit="Stangenwaffen" talent="Infanteriewaffen und Speere" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="0" fk="0">Kopflastig, Zweihändig</Waffe>
+  <Waffe name="Magierstab" W6="1" plus="1" haerte="1" fertigkeit="Stangenwaffen" talent="Infanteriewaffen und Speere" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="0" fk="0">Stumpf, Unzerstörbar, Zweihändig</Waffe>
+  <Waffe name="Pailos" W6="3" plus="3" haerte="9" fertigkeit="Stangenwaffen" talent="Infanteriewaffen und Speere" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="-2" fk="0">Kopflastig, Schwer (4), Zweihändig</Waffe>
+  <Waffe name="Partisane" W6="3" plus="1" haerte="7" fertigkeit="Stangenwaffen" talent="Infanteriewaffen und Speere" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="-1" fk="0">Kopflastig, Schwer (4), Zweihändig</Waffe>
+  <Waffe name="Pike" W6="2" plus="2" haerte="5" fertigkeit="Stangenwaffen" talent="Infanteriewaffen und Speere" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="-3" fk="0">Zweihändig</Waffe>
+  <Waffe name="Schnitter" W6="2" plus="3" haerte="8" fertigkeit="Stangenwaffen" talent="Infanteriewaffen und Speere" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="0" fk="0">Wendig, Zweihändig</Waffe>
+  <Waffe name="Speer (Infanteriewaffen)" W6="2" plus="1" haerte="6" fertigkeit="Stangenwaffen" talent="Infanteriewaffen und Speere" kampfstile="Beidhändiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="0" fk="0"></Waffe>
+  <Waffe name="Stoßspeer" W6="3" plus="3" haerte="7" fertigkeit="Stangenwaffen" talent="Infanteriewaffen und Speere" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="-1" fk="0">Zweihändig</Waffe>
+  <Waffe name="Sturmsense" W6="2" plus="3" haerte="6" fertigkeit="Stangenwaffen" talent="Infanteriewaffen und Speere" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="-2" fk="0">Zweihändig</Waffe>
+  <Waffe name="Wurmspieß" W6="3" plus="2" haerte="8" fertigkeit="Stangenwaffen" talent="Infanteriewaffen und Speere" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="2" wm="-1" fk="0">Rüstungsbrechend, Zweihändig</Waffe>
+  <Waffe name="Zweililien" W6="2" plus="2" haerte="5" fertigkeit="Stangenwaffen" talent="Infanteriewaffen und Speere" kampfstile="Reiterkampf, Kraftvoller Kampf, Schneller Kampf" rw="1" wm="1" fk="0">Wendig, Zweihändig</Waffe>
   <Waffe name="Dschadra (Lanzenreiten)" W6="2" plus="1" haerte="6" fertigkeit="Stangenwaffen" talent="Lanzenreiten" kampfstile="Reiterkampf, Schildkampf" rw="2" wm="-1" fk="0"></Waffe>
   <Waffe name="Kriegslanze" W6="3" plus="1" haerte="5" fertigkeit="Stangenwaffen" talent="Lanzenreiten" kampfstile="Reiterkampf, Schildkampf" rw="2" wm="-1" fk="0"></Waffe>
   <Waffe name="Basiliskenzunge" W6="1" plus="1" haerte="7" fertigkeit="Handgemenge" talent="Handgemengewaffen" kampfstile="Beidhändiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller Kampf, Schneller Kampf" rw="0" wm="0" fk="0"></Waffe>
@@ -8523,13 +8523,13 @@ Fast alle Geweihten der Zwölf beherrschen die zwölf Segnungen: Eid-, Feuer-, G
   <Waffe name="Speer (Wurfspeere)" W6="2" plus="0" haerte="5" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="8" lz="0" fk="1"></Waffe>
   <Waffe name="Speerschleuder" W6="2" plus="1" haerte="5" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="32" lz="1" fk="1"></Waffe>
   <Waffe name="Wurfspeer" W6="2" plus="3" haerte="5" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="8" lz="0" fk="1"></Waffe>
-  <Waffe name="Fledermaus" W6="0" plus="0" haerte="3" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="8" lz="0" fk="1">Umklammern (-2; 12)</Waffe>
-  <Waffe name="Kettenkugel" W6="2" plus="2" haerte="7" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="4" lz="0" fk="1">Niederwerfen</Waffe>
-  <Waffe name="Lasso" W6="0" plus="0" haerte="2" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="4" lz="0" fk="1">Umklammern (-2; 12)</Waffe>
-  <Waffe name="Schleuder" W6="1" plus="2" haerte="3" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="8" lz="0" fk="1"></Waffe>
-  <Waffe name="Stabschleuder" W6="2" plus="0" haerte="4" fertigkeit="Wurfwaffen" talent="Wurfspeere" kampfstile="" rw="16" lz="1" fk="1">Nicht für Reiter</Waffe>
-  <Waffe name="Wurfnetz" W6="0" plus="0" haerte="5" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="2" lz="0" fk="1">Umklammern (-4; 16)</Waffe>
-  <Waffe name="Schweres Wurfnetz" W6="0" plus="0" haerte="6" fertigkeit="Schusswaffen" talent="Schleudern" kampfstile="" rw="2" lz="0" fk="1">Umklammern (-8; 16), Zweihändig</Waffe>
+  <Waffe name="Fledermaus" W6="0" plus="0" haerte="3" fertigkeit="Wurfwaffen" talent="Schleudern" kampfstile="" rw="8" lz="0" fk="1">Umklammern (-2; 12)</Waffe>
+  <Waffe name="Kettenkugel" W6="2" plus="2" haerte="7" fertigkeit="Wurfwaffen" talent="Schleudern" kampfstile="" rw="4" lz="0" fk="1">Niederwerfen</Waffe>
+  <Waffe name="Lasso" W6="0" plus="0" haerte="2" fertigkeit="Wurfwaffen" talent="Schleudern" kampfstile="" rw="4" lz="0" fk="1">Umklammern (-2; 12)</Waffe>
+  <Waffe name="Schleuder" W6="1" plus="2" haerte="3" fertigkeit="Wurfwaffen" talent="Schleudern" kampfstile="" rw="8" lz="0" fk="1"></Waffe>
+  <Waffe name="Stabschleuder" W6="2" plus="0" haerte="4" fertigkeit="Wurfwaffen" talent="Schleudern" kampfstile="" rw="16" lz="1" fk="1">Nicht für Reiter</Waffe>
+  <Waffe name="Wurfnetz" W6="0" plus="0" haerte="5" fertigkeit="Wurfwaffen" talent="Schleudern" kampfstile="" rw="2" lz="0" fk="1">Umklammern (-4; 16)</Waffe>
+  <Waffe name="Schweres Wurfnetz" W6="0" plus="0" haerte="6" fertigkeit="Wurfwaffen" talent="Schleudern" kampfstile="" rw="2" lz="0" fk="1">Umklammern (-8; 16), Zweihändig</Waffe>
   <Waffe name="Arbalette" W6="3" plus="2" haerte="5" fertigkeit="Schusswaffen" talent="Armbrüste" kampfstile="" rw="32" lz="8" fk="1">Niederwerfen (-4), Zweihändig</Waffe>
   <Waffe name="Arbalone" W6="3" plus="7" haerte="6" fertigkeit="Schusswaffen" talent="Armbrüste" kampfstile="" rw="64" lz="16" fk="1">Niederwerfen (-8), nicht für Reiter, Stationär</Waffe>
   <Waffe name="Balestra" W6="3" plus="0" haerte="4" fertigkeit="Schusswaffen" talent="Armbrüste" kampfstile="" rw="32" lz="4" fk="1">Niederwerfen, Zweihändig</Waffe>
