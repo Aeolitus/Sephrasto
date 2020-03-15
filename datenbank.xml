@@ -5982,7 +5982,7 @@ Wirkungsdauer: 1 Stunde
 Kosten: 8 KaP
 Fertigkeiten: Tod 
 Erlernen: Brn 16; 20 EP</Talent>
-  <Talent name="Tiergestalt" kosten="40" voraussetzungen="Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der Ifirngeweihten I ODER Vorteil Tradition der Korgeweihten I ODER Vorteil Tradition der Phexgeweihten I ODER Vorteil Tradition der Rondrageweihten I" verbilligt="0" fertigkeiten="Ehre, Jagd, List, Tod, Wind und Wogen, Guter Kampf" variable="1" printclass="22">Du verwandelst dich in das heilige Tier deiner Gottheit, wobei du deine geistigen Fähigkeiten behältst. Deine körperlichen Fähigkeiten entsprechen denen des Tiers und du kannst in Tiergestalt keine Liturgien wirken. Erlaubt Aufrechterhalten. 
+  <Talent name="Tiergestalt" kosten="40" voraussetzungen="Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der Ifirngeweihten I ODER Vorteil Tradition der Korgeweihten I ODER Vorteil Tradition der Phexgeweihten I ODER Vorteil Tradition der Rondrageweihten I" verbilligt="0" fertigkeiten="Ehre, Jagd, List, Tod, Wind und Wogen, Guter Kampf" variable="1" printclass="22">Du verwandelst dich in das heilige Tier deiner Gottheit, wobei du deine geistigen Fähigkeiten behältst. Deine körperlichen Fähigkeiten entsprechen denen des Tiers und du kannst in Tiergestalt keine Liturgien wirken. Erlaubt Aufrechterhalten. 
 Mächtige Liturgie: Das Tier ist ein überdurchschnittlicher/außergewöhnlicher/herausragender/einzigartiger Vertreter seiner Art. Die Werte des Tieres sind nach Spielleiterentscheid erhöht. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
@@ -6012,7 +6012,7 @@ Wirkungsdauer: permanent
 Kosten: 16 KaP
 Fertigkeiten: Tod
 Erlernen: Brn 12; 20 EP</Talent>
-  <Talent name="Borons süße Gnade" kosten="40" voraussetzungen="Vorteil Tradition der Borbaradianer I" verbilligt="0" fertigkeiten="Vergessen" variable="-1" printclass="23">Du stellst verlorene Erinnerungen wieder her oder nimmst deinem Ziel die Erinnerung an bestimmte Ereignisse, wenn ihm eine Konterprobe (KL, 20) misslingt. Du kannst Erinnerungen an maximal einen Zeitraum von einer Woche beeinflussen.
+  <Talent name="Borons süße Gnade" kosten="40" voraussetzungen="Vorteil Tradition der Borongeweihten I" verbilligt="0" fertigkeiten="Vergessen" variable="-1" printclass="23">Du stellst verlorene Erinnerungen wieder her oder nimmst deinem Ziel die Erinnerung an bestimmte Ereignisse, wenn ihm eine Konterprobe (KL, 20) misslingt. Du kannst Erinnerungen an maximal einen Zeitraum von einer Woche beeinflussen.
 Mächtige Liturgie: Der Zeitraum beträgt maximal 1 Monat/Jahr/Jahrzehnt/unbegrenzt.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Stunde
