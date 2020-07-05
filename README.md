@@ -4,7 +4,7 @@ Ein Charaktergenerator für das DSA-Hausregelsystem Ilaris, erstellt von Aeolitu
 In der Gebrauchsanleitung.pdf finden sich Erklärungen und Warnhinweise.
 
 Features:
-* Automatisches Befüllen des Ilaris Charakterbogens (Benötigt pdftk : Gratis-Download @ https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/)
+* Automatisches Befüllen des Ilaris Charakterbogens (Benötigt pdftk : Gratis-Download für Windows @ https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/, unter Linux das Paket `pdftk` installieren)
 * Einfaches Einarbeiten von Hausregeln wie neuen Fertigkeiten, Vorteilen etc. durch frei editierbare Regelbasis
 * Fast alle relevanten Regeln sind im Tool enthalten
 
@@ -14,7 +14,7 @@ Dieses Tool verwendet
 * fdfgen (https://github.com/ccnmtl/fdfgen) zum Editieren des Charakterbogens 
 * pdffields (https://github.com/evfredericksen/pdffields) für einfachere Bedienung von fdfgen ;)
 * PyQt5 (https://www.riverbankcomputing.com/software/pyqt/download5) für die Grafische Oberfläche
-* lxml (http://lxml.de/) als xml-parser
+* lxml (http://lxml.de/) als xml-parser (unter Linux: `libxml2-dev` und `libxmlsec1-dev` global installieren, wenn lxml via pip installiert werden soll)
 
 Um Sephrasto mit Python zu verwenden, ist Version 3.6 empfehlenswert, aber nicht dringend notwendig. Weiterhin müssen PyQt5 und lxml installiert werden. Starte einfach die Sephrasto.py und los gehts.
 
