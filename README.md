@@ -38,7 +38,9 @@ Anleitung für die Nutzung auf der Kommandzeile (z.B. Linux, OS X):
   python3 -m venv .venv
   source .venv/bin/activate
   ```
-* Installiere die Abhängigkeiten mit `pip install -r requirements.txt`
+* Installiere die Abhängigkeiten mit `python3 -m pip install -r requirements.txt`
+* Baue die Applikation lokal mit `python3 setup.py py2app -A`
+* Baue die Applikation zur Auslieferung mit `python3 setup.py py2app`
 
 Anleitung für die UI:
 * Modifiziere niemals Dateien, die am Anfang "Created by: PyQt5 UI code generator" stehen haben von Hand!
