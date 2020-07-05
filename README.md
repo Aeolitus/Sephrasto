@@ -31,6 +31,15 @@ Anleitung für die Nutzung von Visual Studio als IDE:
 * Stelle das Tab-Verhalten auf "Insert Spaces": Tools -> Options -> Text Editor -> Python -> Tabs
 * Öffne das Exception Settings Fenster (Debug -> Windows -> Exception Settings) und selektiere alle Python Exceptions
 
+Anleitung für die Nutzung auf der Kommandzeile (z.B. Linux, OS X):
+* Installiere Python 3 für dein Betriebssystem
+* Erstelle eine virtuelle Umgebung für Sephrasto und aktiviere es:
+  ```bash
+  python3 -m venv .venv
+  source .venv/bin/activate
+  ```
+* Installiere die Abhängigkeiten mit `pip install -r requirements.txt`
+
 Anleitung für die UI:
 * Modifiziere niemals Dateien, die am Anfang "Created by: PyQt5 UI code generator" stehen haben von Hand!
 * Stattdessen wird die UI durch ".ui"-XML-Dateien im "Sephrasto/UI" Ordner definiert. Optionalerweise können diese mit dem Qt Creator visuell designed werden (enthalten im Qt-Installer unter https://www.qt.io/).
