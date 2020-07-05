@@ -157,6 +157,8 @@ class Ui_formBeschreibung(object):
         self.label_7.setText(_translate("formBeschreibung", "Heimatgebiet"))
 
 
+
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)

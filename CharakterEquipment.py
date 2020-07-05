@@ -1082,6 +1082,8 @@ class Ui_formAusruestung(object):
         self.label_7.setText(_translate("formAusruestung", "BE*"))
 
 
+
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)

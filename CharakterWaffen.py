@@ -165,6 +165,8 @@ class Ui_Dialog(object):
         self.treeWeapons.headerItem().setText(1, _translate("Dialog", "Talent"))
 
 
+
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
