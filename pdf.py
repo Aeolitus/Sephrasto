@@ -45,7 +45,7 @@ def get_fields(pdf_file):
     and field values as values.
     '''
     fields = {}
-    call = ['pdftk', pdf_file, 'dump_data_fields']
+    call = ['pdftk', pdf_file, 'dump_data_fields_utf8']
     try:
         data_string = check_output_silent(call).decode('utf8')
     except FileNotFoundError:
@@ -73,6 +73,7 @@ def write_pdf(source, fields, output, flatten=False):
     with NamedTemporaryFile(delete=False) as file:
         file.write(fdf)
     call = ['pdftk', source, 'fill_form', file.name, 'output', output]
+    call.append('need_appearances')
     if flatten:
         call.append('flatten')
     try:

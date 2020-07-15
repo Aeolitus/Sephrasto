@@ -59,7 +59,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
                     child.setCheckState(0, QtCore.Qt.Unchecked)
                 if Wolke.DB.vorteile[el].variable!=-1:
                     spin = QtWidgets.QSpinBox()
-                    spin.setMinimum(0)
+                    spin.setMinimum(-9999)
                     spin.setSuffix(" EP")
                     spin.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
                     spin.setMaximum(9999)

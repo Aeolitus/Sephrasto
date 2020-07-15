@@ -40,7 +40,7 @@ class DatenbankEditTalentWrapper(object):
         self.nameChanged()
         if talent.verbilligt:
             self.ui.buttonVerbilligt.setChecked(True)
-        elif talent.kosten is not 0 and talent.kosten is not -1:
+        elif talent.kosten is not -1:
             self.ui.buttonSpezial.setChecked(True)
             self.ui.spinKosten.setValue(talent.kosten)
         else:

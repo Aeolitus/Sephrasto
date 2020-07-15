@@ -60,14 +60,15 @@ Die Kosten eines Privilegs legt der Spielleiter fest, wobei er sich an der Spiel
   <Vorteil name="Prophezeien" kosten="40" voraussetzungen="" nachkauf="selten" typ="0" variable="-1" printclass="-1">Du kannst das Talent Willenskraft nutzen, um mit Spielkarten, Würfeln, Astrologie, Drogen oder prophetischen Träumen einen vagen und meist mehrdeutigen Blick in die Zukunft zu werfen. Durch den Einsatz der Gabe erleidest du 1 Punkt Erschöpfung.</Vorteil>
   <Vorteil name="Resistenz gegen Gifte" kosten="40" voraussetzungen="" nachkauf="selten" typ="0" variable="-1">Resistenz mildert die Auswirkungen von Giften (S. 34).</Vorteil>
   <Vorteil name="Immunität gegen Gifte" kosten="40" voraussetzungen="Vorteil Resistenz gegen Gifte" nachkauf="extrem selten" typ="0" variable="-1" printclass="-1">Du bist immun gegen Gifte (S. 34).</Vorteil>
-  <Vorteil name="Resistenz gegen Krankheiten" kosten="40" voraussetzungen="" nachkauf="selten" typ="0" variable="-1" printclass="-1">Resistenz mildert die Auswirkungen von Krankheiten (S. 35).</Vorteil>
-  <Vorteil name="Immunität gegen Krankheiten" kosten="40" voraussetzungen="Vorteil Resistenz gegen Krankheiten" nachkauf="extrem selten" typ="0" variable="-1" printclass="-1">Du bist immun gegen Krankheiten (S.35).</Vorteil>
+  <Vorteil name="Resistenz gegen Krankheiten" kosten="20" voraussetzungen="" nachkauf="selten" typ="0" variable="-1" printclass="-1">Resistenz mildert die Auswirkungen von Krankheiten (S. 35).</Vorteil>
+  <Vorteil name="Immunität gegen Krankheiten" kosten="20" voraussetzungen="Vorteil Resistenz gegen Krankheiten" nachkauf="extrem selten" typ="0" variable="-1" printclass="-1">Du bist immun gegen Krankheiten (S.35).</Vorteil>
   <Vorteil name="Resistenz gegen Hitze" kosten="40" voraussetzungen="" nachkauf="selten" typ="0" variable="-1" printclass="-1">Verschiebt die Temperaturstufe bei hohen Temperaturen um eine Stufe in Richtung normal.</Vorteil>
   <Vorteil name="Resistenz gegen Kälte" kosten="40" voraussetzungen="" nachkauf="selten" typ="0" variable="-1" printclass="-1">Verschiebt die Temperaturstufe bei niedrigen Temperaturen um eine Stufe in Richtung normal.</Vorteil>
   <Vorteil name="Tieremphatie" kosten="60" voraussetzungen="" nachkauf="extrem selten" typ="0" variable="1" printclass="-1">Mit der Gabe der Tierempathie kannst du das Talent Überleben verwenden, um die Gedanken von Tieren zu verstehen. Zusätzlich kannst du ihnen sogar einfache Botschaften zukommen lassen. Nach dem aktiven Einsatz der Gabe erleidest du 1 Punkt Erschöpfung.
 
 Die Kosten dieses Vorteils hängen von der Größe der Gruppe von Tieren ab, mit denen du kommunizieren kannst, und dem möglichen Spielnutzen dieser Fähigkeit. Beispiele wären:
-- Vögel: Du kannst mit allen Vögeln kommunizieren (20 EP).
+- Fische: Du kannst mit allen Fischen kommunizieren (20 EP).
+- Vögel: Du kannst mit allen Vögeln kommunizieren (40 EP).
 - Alle Tiere: Du kannst mit allen Tieren kommunizieren (60 EP).</Vorteil>
   <Vorteil name="Verbindungen" kosten="20" voraussetzungen="" nachkauf="üblich" typ="0" variable="1" printclass="-1">Du hast einen guten Draht zu einer bestimmten Organisation oder Person, die dir üblicherweise freundlich gegenübersteht. Außerdem gelten passende Verbindungen als Werkzeug für Recherchen und viele andere Tätigkeiten. Du kannst Verbindungen zu mehreren Organisationen und Personen haben. Die Kosten deiner Verbindungen legt der Spielleiter fest, wobei er sich an der Macht und dem Einflussbereich der Verbindungen orientieren sollte.
 
@@ -5981,7 +5982,7 @@ Wirkungsdauer: 1 Stunde
 Kosten: 8 KaP
 Fertigkeiten: Tod 
 Erlernen: Brn 16; 20 EP</Talent>
-  <Talent name="Tiergestalt" kosten="40" voraussetzungen="Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der Ifirngeweihten I ODER Vorteil Tradition der Korgeweihten I ODER Vorteil Tradition der Phexgeweihten I ODER Vorteil Tradition der Rondrageweihten I" verbilligt="0" fertigkeiten="Ehre, Jagd, List, Tod, Wind und Wogen, Guter Kampf" variable="1" printclass="22">Du verwandelst dich in das heilige Tier deiner Gottheit, wobei du deine geistigen Fähigkeiten behältst. Deine körperlichen Fähigkeiten entsprechen denen des Tiers und du kannst in Tiergestalt keine Liturgien wirken. Erlaubt Aufrechterhalten. 
+  <Talent name="Tiergestalt" kosten="40" voraussetzungen="Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der Ifirngeweihten I ODER Vorteil Tradition der Korgeweihten I ODER Vorteil Tradition der Phexgeweihten I ODER Vorteil Tradition der Rondrageweihten I" verbilligt="0" fertigkeiten="Ehre, Jagd, List, Tod, Wind und Wogen, Guter Kampf" variable="1" printclass="22">Du verwandelst dich in das heilige Tier deiner Gottheit, wobei du deine geistigen Fähigkeiten behältst. Deine körperlichen Fähigkeiten entsprechen denen des Tiers und du kannst in Tiergestalt keine Liturgien wirken. Erlaubt Aufrechterhalten. 
 Mächtige Liturgie: Das Tier ist ein überdurchschnittlicher/außergewöhnlicher/herausragender/einzigartiger Vertreter seiner Art. Die Werte des Tieres sind nach Spielleiterentscheid erhöht. 
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
@@ -6011,7 +6012,7 @@ Wirkungsdauer: permanent
 Kosten: 16 KaP
 Fertigkeiten: Tod
 Erlernen: Brn 12; 20 EP</Talent>
-  <Talent name="Borons süße Gnade" kosten="40" voraussetzungen="Vorteil Tradition der Borbaradianer I" verbilligt="0" fertigkeiten="Vergessen" variable="-1" printclass="23">Du stellst verlorene Erinnerungen wieder her oder nimmst deinem Ziel die Erinnerung an bestimmte Ereignisse, wenn ihm eine Konterprobe (KL, 20) misslingt. Du kannst Erinnerungen an maximal einen Zeitraum von einer Woche beeinflussen.
+  <Talent name="Borons süße Gnade" kosten="40" voraussetzungen="Vorteil Tradition der Borongeweihten I" verbilligt="0" fertigkeiten="Vergessen" variable="-1" printclass="23">Du stellst verlorene Erinnerungen wieder her oder nimmst deinem Ziel die Erinnerung an bestimmte Ereignisse, wenn ihm eine Konterprobe (KL, 20) misslingt. Du kannst Erinnerungen an maximal einen Zeitraum von einer Woche beeinflussen.
 Mächtige Liturgie: Der Zeitraum beträgt maximal 1 Monat/Jahr/Jahrzehnt/unbegrenzt.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Stunde
