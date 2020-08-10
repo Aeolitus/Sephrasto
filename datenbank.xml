@@ -8012,7 +8012,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: MU" kosten="20" voraussetzungen="Kein Vorteil Tradition der Swafnirgeweihten I" verbilligt="0" fertigkeiten="Tod, Wind und Wogen, Wildnis, Heiliges Feuer, Abu al'Mada, Magiebann, Rausch, Ehre, Sichere Heimkehr, Gutes Gold" variable="-1" printclass="99">Dein nächster Wurf auf MU ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: MU" kosten="20" voraussetzungen="Kein Vorteil Tradition der Efferdgeweihten I" verbilligt="0" fertigkeiten="Tod, Wind und Wogen, Wildnis, Heiliges Feuer, Abu al'Mada, Magiebann, Rausch, Ehre, Sichere Heimkehr, Gutes Gold" variable="-1" printclass="99">Dein nächster Wurf auf MU ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
