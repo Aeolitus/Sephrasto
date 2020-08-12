@@ -253,10 +253,14 @@ Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
             messagebox.exec_()
             return
         
-        if os.path.isdir(Wolke.Settings['Pfad-Chars']):
+        if os.path.isfile(self.savepath):
+            startDir = os.path.dirname(self.savepath)
+        elif os.path.isdir(Wolke.Settings['Pfad-Chars']):
             startDir = Wolke.Settings['Pfad-Chars']
         else:
             startDir = ""
+
+        startDir = os.path.join(startDir, Wolke.Char.name or os.path.splitext(os.path.basename(self.savepath))[0])
             
         # Let the user choose a saving location and name
         spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"Charakterbogen erstellen...",startDir,"PDF-Datei (*.pdf)")
