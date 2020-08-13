@@ -169,6 +169,9 @@ class Char():
             'getRüstung' : lambda: copy.deepcopy(self.rüstung),
             'getWaffen' : lambda: copy.deepcopy(self.waffen),
             'getAusrüstung' : lambda: copy.deepcopy(self.ausrüstung),
+            'modifyFertigkeitBasiswert' : lambda name, mod: setattr(self.fertigkeiten[name], 'basiswertMod', self.fertigkeiten[name].basiswertMod + mod),
+            'modifyÜbernatürlicheFertigkeitBasiswert' : self.API_modifyÜbernatürlicheFertigkeitBasiswert,
+            'modifyTalent' : self.API_modifyTalent,
 
             #Asp
             'getAsPBasis' : lambda: self.aspBasis,
@@ -275,6 +278,22 @@ class Char():
                 assert False, "Duplicate entry"
             self.waffenScriptAPI[k] = v
 
+    def API_modifyTalent(self, fertigkeit, talent, condition, mod):
+        fert = self.fertigkeiten[fertigkeit]
+        if not talent in fert.talentMods:
+            fert.talentMods[talent] = {}
+
+        if not condition in fert.talentMods[talent]:
+            fert.talentMods[talent][condition] = mod
+        else:
+            fert.talentMods[talent][condition] += mod
+
+    def API_modifyÜbernatürlicheFertigkeitBasiswert (self, name, mod):
+        if not name in self.übernatürlicheFertigkeiten:
+            return
+
+        self.übernatürlicheFertigkeiten[name].basiswertMod += mod
+
     def API_setKampfstil(self, kampfstil, at, vt, tp, rw):
         k = self.kampfstilMods[kampfstil]
         k.AT = at
@@ -372,6 +391,7 @@ class Char():
         for ks in Wolke.DB.findKampfstile():
             self.kampfstilMods[ks] = KampfstilMod()
 
+        #Undo previous changes by Vorteil scripts before executing them again
         for value in self.waffenEigenschaftenUndo:
             waffe = None
             for w in self.waffen:
@@ -383,6 +403,14 @@ class Char():
             if value[1] in waffe.eigenschaften:
                 waffe.eigenschaften.remove(value[1])
         self.waffenEigenschaftenUndo = []
+
+        for fert in self.fertigkeiten:
+            self.fertigkeiten[fert].basiswertMod = 0
+            self.fertigkeiten[fert].talentMods = {}
+
+        for fert in self.übernatürlicheFertigkeiten:
+            self.übernatürlicheFertigkeiten[fert].basiswertMod = 0
+            self.übernatürlicheFertigkeiten[fert].talentMods = {}
 
         #Execute Vorteil scripts to modify character stats
         vorteileByPrio = collections.defaultdict(list)

@@ -452,10 +452,25 @@ class pdfMeister(object):
                     talStr += el2[11:]
                 else:
                     talStr += el2
+
+                if el2 in fertigkeit.talentMods:
+                    for condition,mod in fertigkeit.talentMods[el2].items():
+                        talStr += " " + (condition + " " if condition else "") + ("+" if mod >= 0 else "") + str(mod)
+
                 if el2 in Wolke.Char.talenteVariable:
                     vk = Wolke.Char.talenteVariable[el2]
                     talStr += " (" + vk.kommentar + ")"
+
+            #Append any talent mods of talents the character doesn't own in parentheses
+            for talentName, talentMods in fertigkeit.talentMods.items():
+                if not talentName in talente:
+                    talStr += ", (" + talentName
+                    for condition,mod in talentMods.items():
+                        talStr += " " + (condition + " " if condition else "") + ("+" if mod >= 0 else "") + str(mod)
+                    talStr += ")"
+
             talStr = talStr[2:]
+
             fields[base + "TA"] = talStr
             fields[base + "PW"] = fertigkeit.probenwert
             fields[base + "PWT"] = fertigkeit.probenwertTalent
