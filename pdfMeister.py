@@ -444,14 +444,7 @@ class pdfMeister(object):
             talente = sorted(fertigkeit.gekaufteTalente)
             for el2 in talente:
                 talStr += ", "
-                if el2.startswith("Gebräuche: "):
-                    talStr += el2[11:]
-                elif el2.startswith("Mythen: "):
-                    talStr += el2[8:]
-                elif el2.startswith("Überleben: "):
-                    talStr += el2[11:]
-                else:
-                    talStr += el2
+                talStr += el2.replace(fertigkeit.name + ": ", "")
 
                 if el2 in fertigkeit.talentMods:
                     for condition,mod in fertigkeit.talentMods[el2].items():
@@ -613,7 +606,10 @@ class pdfMeister(object):
                         #                    self.addedTals[t+mod][1])
                 #else:
                 #self.addedTals[t+mod] = (fe.probenwertTalent, base)
-                tt.na = t + mod
+                if t in Wolke.DB.talente and len(Wolke.DB.talente[t].fertigkeiten) == 1:
+                    tt.na = t.replace(f + ": ", "") + mod
+                else:
+                    tt.na = t + mod
                 #fields[base + 'NA'] = t + mod
                 tt.pw = fe.probenwertTalent
                 #fields[base + 'PW'] = fe.probenwertTalent

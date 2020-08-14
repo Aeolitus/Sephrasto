@@ -205,14 +205,7 @@ class FertigkeitenWrapper(QtCore.QObject):
         if self.currentFertName != "":
             self.model.clear()
             for el in Wolke.Char.fertigkeiten[self.currentFertName].gekaufteTalente:
-                if el.startswith("Gebräuche: "):
-                    talStr = el[11:]
-                elif el.startswith("Mythen: "):
-                    talStr = el[8:]
-                elif el.startswith("Überleben: "):
-                    talStr = el[11:]
-                else:
-                    talStr = el
+                talStr = el.replace(self.currentFertName + ": ", "")
                 item = QtGui.QStandardItem(talStr)
                 item.setEditable(False)
                 self.model.appendRow(item)

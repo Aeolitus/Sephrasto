@@ -102,10 +102,6 @@ class DatenbankEditTalentWrapper(object):
             self.ui.nameEdit.setToolTip("Talentnamen für die Fertigkeit Gebräuche müssen mit 'Gebräuche: ' anfangen.")
             self.ui.nameEdit.setStyleSheet("border: 1px solid red;")
             self.nameValid = False
-        elif "Überleben" in fertigkeiten and not name.startswith("Überleben: "):
-            self.ui.nameEdit.setToolTip("Talentnamen für die Fertigkeit Überleben müssen mit 'Überleben: ' anfangen.")
-            self.ui.nameEdit.setStyleSheet("border: 1px solid red;")
-            self.nameValid = False
         else:
             self.ui.nameEdit.setToolTip("")
             self.ui.nameEdit.setStyleSheet("")

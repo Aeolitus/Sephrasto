@@ -201,14 +201,8 @@ class UebernatuerlichWrapper(QtCore.QObject):
         if self.currentFertName != "":
             self.model.clear()
             for el in Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].gekaufteTalente:
-                if el.startswith("Gebräuche: "):
-                    talStr = el[11:]
-                elif el.startswith("Mythen: "):
-                    talStr = el[8:]
-                elif el.startswith("Überleben: "):
-                    talStr = el[11:]
-                else:
-                    talStr = el
+                talStr = el.replace(self.currentFertName + ": ", "")
+
                 if el in Wolke.DB.talente:
                     if el in Wolke.Char.talenteVariable:
                         costStr = " (" + str(Wolke.Char.talenteVariable[el].kosten) + " EP)"    
