@@ -18,6 +18,7 @@ import DatenbankEditWaffeWrapper
 import DatenbankEditManoeverWrapper
 import Objekte
 import os
+from EinstellungenWrapper import EinstellungenWrapper
 from Wolke import Wolke
 from copy import copy
 
@@ -587,7 +588,7 @@ class DatenbankEdit(object):
             infoBox.setText("Der Charakter-Editor kann nur Datenbanken aus dem in den Einstellungen gesetzten Pfad laden, sicher dass du die Datenbank hierhin speichern möchtest?")
             infoBox.setWindowTitle("User Datenbank speichern")
             infoBox.addButton(QtWidgets.QPushButton("Ja"), QtWidgets.QMessageBox.YesRole)
-            infoBox.addButton(QtWidgets.QPushButton("Nein"), QtWidgets.QMessageBox.NoRole)
+            infoBox.addButton(QtWidgets.QPushButton("Anderer Pfad"), QtWidgets.QMessageBox.NoRole)
             infoBox.addButton(QtWidgets.QPushButton("Abbrechen"), QtWidgets.QMessageBox.RejectRole)
             result = infoBox.exec_()
             if result == 1:
@@ -627,6 +628,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             result = infoBox.exec_()
             if result == 0:
                 Wolke.Settings['Datenbank'] = os.path.basename(spath)
+                EinstellungenWrapper.save()
         
     def quicksaveDatenbank(self):
         if not self.savepath:
