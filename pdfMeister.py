@@ -437,7 +437,11 @@ class pdfMeister(object):
                 elif el == "Überleben":
                     base = "Ueber"
 
-            fields[base + "BA"] = fertigkeit.basiswert
+            if fertigkeit.basiswertMod == 0:
+                fields[base + "BA"] = fertigkeit.basiswert
+            else:
+                fields[base + "BA"] = str(fertigkeit.basiswert) + "*"
+
             fields[base + "FW"] = fertigkeit.wert
             talStr = ""
 
@@ -579,9 +583,13 @@ class pdfMeister(object):
                 fields[base + 'FA'] = fe.steigerungsfaktor
                 fields[base + 'AT'] = fe.attribute[0] + '/' + \
                     fe.attribute[1] + '/' + fe.attribute[2]
-                fields[base + 'BA'] = fe.basiswert
                 fields[base + 'FW'] = fe.wert
                 fields[base + 'PW'] = fe.probenwertTalent
+
+                if fe.basiswertMod == 0:
+                    fields[base + 'BA'] = fe.basiswert
+                else:
+                    fields[base + 'BA'] = str(fe.basiswert) + "*"
             else:
                 self.UseExtraPage = True
                 self.ExtraUeber.append(fe)
@@ -721,9 +729,13 @@ class pdfMeister(object):
                 fields[base + 'FA' + '2'] = fe.steigerungsfaktor
                 fields[base + 'AT' + '2'] = fe.attribute[0] + '/' + \
                     fe.attribute[1] + '/' + fe.attribute[2]
-                fields[base + 'BA' + '2'] = fe.basiswert
                 fields[base + 'FW' + '2'] = fe.wert
                 fields[base + 'PW' + '2'] = fe.probenwertTalent
+
+                if fe.basiswertMod == 0:
+                    fields[base + 'BA' + '2'] = fe.basiswert
+                else:
+                    fields[base + 'BA' + '2'] = str(fe.basiswert) + "*"
         for i in range(1, 31):
             if i <= len(tals):
                 tt = tals[i-1]
