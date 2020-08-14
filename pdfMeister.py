@@ -820,8 +820,8 @@ class pdfMeister(object):
                 str.append(manöver.gegenprobe)
                 str.append(". ")
 
-            #Replace line endings without a full stop by just a full stop
-            text = re.sub('(?<!\.)\n', '. ', manöver.text)
+            #Replace line endings without a full stop, colon or another line ending before by just a full stop
+            text = re.sub('(?<![\.\n\:])\n', '. ', manöver.text)
             #Replace all the remaining line endings by space
             str.append(text.replace('\n', ' '))
 
@@ -845,12 +845,12 @@ class pdfMeister(object):
 
             text = talent.text
             
-            #The page für uebernatuerliches already has most of the text information from vorbereitungszeit on, so remove it
-            #Except for Reichweite...
-            match = re.search('^Reichweite: (.*)', talent.text, re.MULTILINE)
-            reichweite = ""
+            #The page for uebernatuerliches already has most of the text information from vorbereitungszeit on, so remove it
+            #Except for Ziel...
+            match = re.search('^Ziel: (.*)', talent.text, re.MULTILINE)
+            ziel = ""
             if match:
-                reichweite = match.group()
+                ziel = match.group()
   
             index = text.find('Vorbereitungszeit')
             if index != -1:
@@ -860,9 +860,9 @@ class pdfMeister(object):
             if index != -1:
                 text = text[:index]
 
-            text = text + reichweite
-            #Replace line endings without a full stop by just a full stop
-            text = re.sub('(?<!\.)\n', '. ', text)
+            text = text + ziel
+            #Replace line endings without a full stop, colon or another line ending before by just a full stop
+            text = re.sub('(?<![\.\n\:])\n', '. ', text)
             #Replace all the remaining line endings by space
             str.append(text.replace('\n', ' '))
             str.append('\n\n')
