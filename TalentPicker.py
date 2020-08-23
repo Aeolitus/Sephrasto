@@ -36,17 +36,6 @@ class TalentPicker(object):
         self.ui.listTalente.setModel(self.model)
         self.ui.listTalente.selectionModel().currentChanged.connect(self.talChanged)
         
-        if self.fert == "Gebräuche":
-            self.baseStr = "Gebräuche: "
-#==============================================================================
-#         elif self.fert == "Mythenkunde":
-#             self.baseStr = "Mythen: "
-#==============================================================================
-        elif self.fert == "Überleben":
-            self.baseStr = "Überleben: "
-        else: 
-            self.baseStr = ""
-        
         talente = []
         for el in Wolke.DB.talente:
             talent = Wolke.DB.talente[el]
@@ -61,6 +50,7 @@ class TalentPicker(object):
         self.rowCount = 0
         for el in talente:
             item = QtGui.QStandardItem(self.displayStr(el))
+            item.setData(el, QtCore.Qt.UserRole) # store talent name in user data
             item.setEditable(False)
             item.setCheckable(True)
             if el in self.gekaufteTalente:
@@ -70,7 +60,7 @@ class TalentPicker(object):
             self.model.appendRow(item)
             self.rowCount += 1
         if self.rowCount > 0:
-            self.updateFields(self.dataStr(self.model.item(0).text()))
+            self.updateFields(self.model.item(0).data(QtCore.Qt.UserRole))
         self.ui.textKommentar.textChanged.connect(self.kommentarChanged)
         self.ui.spinKosten.valueChanged.connect(self.spinChanged)
         self.ui.spinKosten.setStyleSheet("QSpinBox {background-color: #FFFFFF}")
@@ -83,7 +73,7 @@ class TalentPicker(object):
         if self.ret == QtWidgets.QDialog.Accepted:
             self.gekaufteTalente = []
             for i in range(self.rowCount):
-                tmp = self.dataStr(self.model.item(i).text())
+                tmp = self.model.item(i).data(QtCore.Qt.UserRole)
                 if self.model.item(i).checkState() == QtCore.Qt.Checked:
                     for el in Wolke.DB.talente[tmp].fertigkeiten:
                         if el in self.refC:
@@ -101,37 +91,33 @@ class TalentPicker(object):
         else:
             self.gekaufteTalente = None
      
-    def setVariableKosten(self, name, kosten, kommentar):
-        nam = ""
-        if len(self.baseStr) > 0.5:
-            nam = self.baseStr + name
-        else:
-            nam = name
-        if Wolke.DB.talente[nam].variable < 0.5:
+    def setVariableKosten(self, talent, kosten, kommentar):
+        if Wolke.DB.talente[talent].variable < 0.5:
             return
 
-        if not name in self.talenteVariable:
+        if not talent in self.talenteVariable:
             vk = VariableKosten()
-            self.talenteVariable[name] = vk
+            self.talenteVariable[talent] = vk
 
         if kosten != None:
-            self.talenteVariable[name].kosten = kosten
+            self.talenteVariable[talent].kosten = kosten
         if kommentar != None:
-            self.talenteVariable[name].kommentar = kommentar
+            self.talenteVariable[talent].kommentar = kommentar
 
     def talChanged(self, item, prev):
-        text = self.dataStr(self.model.itemData(item)[0])
+        text = item.data(QtCore.Qt.UserRole)
         self.updateFields(text)
         
     def spinChanged(self):
-        self.setVariableKosten(self.ui.labelName.text(), self.ui.spinKosten.value(), None)
+        self.setVariableKosten(self.ui.labelName.property("data"), self.ui.spinKosten.value(), None)
         
     def kommentarChanged(self, text):
-        self.setVariableKosten(self.ui.labelName.text(), None, text)
+        self.setVariableKosten(self.ui.labelName.property("data"), None, text)
 
     def updateFields(self, talent):
         if talent is not None:
-            self.ui.labelName.setText(self.displayStr(Wolke.DB.talente[talent].name))
+            self.ui.labelName.setText(self.displayStr(talent))
+            self.ui.labelName.setProperty("data", talent) # store talent name in user data
             self.ui.labelInfo.hide()
             self.ui.spinKosten.setReadOnly(True)
             self.ui.spinKosten.setButtonSymbols(2)
@@ -158,20 +144,11 @@ class TalentPicker(object):
                 self.ui.spinKosten.setValue(self.talenteVariable[talent].kosten)
             else:
                 self.ui.spinKosten.setValue(Wolke.Char.getDefaultTalentCost(talent, self.refD[self.fert].steigerungsfaktor))
-            if self.baseStr == "Gebräuche: ":
+            if self.fert == "Gebräuche":
                 if self.displayStr(Wolke.DB.talente[talent].name) == \
                         Wolke.Char.heimat:
                     self.ui.spinKosten.setValue(0)
             self.ui.plainText.setPlainText(Wolke.DB.talente[talent].text)
 
     def displayStr(self,inp):
-        if len(self.baseStr) > 0.5:
-            if inp.startswith(self.baseStr):
-                return inp[len(self.baseStr):]
-        return inp
-        
-    def dataStr(self,inp):
-        if len(self.baseStr) > 0.5:
-            return self.baseStr + inp
-        return inp
-        
+        return inp.replace(self.fert + ": ", "")

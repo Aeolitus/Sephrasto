@@ -437,25 +437,37 @@ class pdfMeister(object):
                 elif el == "Überleben":
                     base = "Ueber"
 
-            fields[base + "BA"] = fertigkeit.basiswert
+            if fertigkeit.basiswertMod == 0:
+                fields[base + "BA"] = fertigkeit.basiswert
+            else:
+                fields[base + "BA"] = str(fertigkeit.basiswert) + "*"
+
             fields[base + "FW"] = fertigkeit.wert
             talStr = ""
 
             talente = sorted(fertigkeit.gekaufteTalente)
             for el2 in talente:
                 talStr += ", "
-                if el2.startswith("Gebräuche: "):
-                    talStr += el2[11:]
-                elif el2.startswith("Mythen: "):
-                    talStr += el2[8:]
-                elif el2.startswith("Überleben: "):
-                    talStr += el2[11:]
-                else:
-                    talStr += el2
+                talStr += el2.replace(fertigkeit.name + ": ", "")
+
+                if el2 in fertigkeit.talentMods:
+                    for condition,mod in fertigkeit.talentMods[el2].items():
+                        talStr += " " + (condition + " " if condition else "") + ("+" if mod >= 0 else "") + str(mod)
+
                 if el2 in Wolke.Char.talenteVariable:
                     vk = Wolke.Char.talenteVariable[el2]
                     talStr += " (" + vk.kommentar + ")"
+
+            #Append any talent mods of talents the character doesn't own in parentheses
+            for talentName, talentMods in fertigkeit.talentMods.items():
+                if not talentName in talente:
+                    talStr += ", (" + talentName
+                    for condition,mod in talentMods.items():
+                        talStr += " " + (condition + " " if condition else "") + ("+" if mod >= 0 else "") + str(mod)
+                    talStr += ")"
+
             talStr = talStr[2:]
+
             fields[base + "TA"] = talStr
             fields[base + "PW"] = fertigkeit.probenwert
             fields[base + "PWT"] = fertigkeit.probenwertTalent
@@ -571,9 +583,13 @@ class pdfMeister(object):
                 fields[base + 'FA'] = fe.steigerungsfaktor
                 fields[base + 'AT'] = fe.attribute[0] + '/' + \
                     fe.attribute[1] + '/' + fe.attribute[2]
-                fields[base + 'BA'] = fe.basiswert
                 fields[base + 'FW'] = fe.wert
                 fields[base + 'PW'] = fe.probenwertTalent
+
+                if fe.basiswertMod == 0:
+                    fields[base + 'BA'] = fe.basiswert
+                else:
+                    fields[base + 'BA'] = str(fe.basiswert) + "*"
             else:
                 self.UseExtraPage = True
                 self.ExtraUeber.append(fe)
@@ -598,7 +614,10 @@ class pdfMeister(object):
                         #                    self.addedTals[t+mod][1])
                 #else:
                 #self.addedTals[t+mod] = (fe.probenwertTalent, base)
-                tt.na = t + mod
+                if t in Wolke.DB.talente and len(Wolke.DB.talente[t].fertigkeiten) == 1:
+                    tt.na = t.replace(f + ": ", "") + mod
+                else:
+                    tt.na = t + mod
                 #fields[base + 'NA'] = t + mod
                 tt.pw = fe.probenwertTalent
                 #fields[base + 'PW'] = fe.probenwertTalent
@@ -710,9 +729,13 @@ class pdfMeister(object):
                 fields[base + 'FA' + '2'] = fe.steigerungsfaktor
                 fields[base + 'AT' + '2'] = fe.attribute[0] + '/' + \
                     fe.attribute[1] + '/' + fe.attribute[2]
-                fields[base + 'BA' + '2'] = fe.basiswert
                 fields[base + 'FW' + '2'] = fe.wert
                 fields[base + 'PW' + '2'] = fe.probenwertTalent
+
+                if fe.basiswertMod == 0:
+                    fields[base + 'BA' + '2'] = fe.basiswert
+                else:
+                    fields[base + 'BA' + '2'] = str(fe.basiswert) + "*"
         for i in range(1, 31):
             if i <= len(tals):
                 tt = tals[i-1]
@@ -797,8 +820,8 @@ class pdfMeister(object):
                 str.append(manöver.gegenprobe)
                 str.append(". ")
 
-            #Replace line endings without a full stop by just a full stop
-            text = re.sub('(?<!\.)\n', '. ', manöver.text)
+            #Replace line endings without a full stop, colon or another line ending before by just a full stop
+            text = re.sub('(?<![\.\n\:])\n', '. ', manöver.text)
             #Replace all the remaining line endings by space
             str.append(text.replace('\n', ' '))
 
@@ -822,12 +845,12 @@ class pdfMeister(object):
 
             text = talent.text
             
-            #The page für uebernatuerliches already has most of the text information from vorbereitungszeit on, so remove it
-            #Except for Reichweite...
-            match = re.search('^Reichweite: (.*)', talent.text, re.MULTILINE)
-            reichweite = ""
+            #The page for uebernatuerliches already has most of the text information from vorbereitungszeit on, so remove it
+            #Except for Ziel...
+            match = re.search('^Ziel: (.*)', talent.text, re.MULTILINE)
+            ziel = ""
             if match:
-                reichweite = match.group()
+                ziel = match.group()
   
             index = text.find('Vorbereitungszeit')
             if index != -1:
@@ -837,9 +860,9 @@ class pdfMeister(object):
             if index != -1:
                 text = text[:index]
 
-            text = text + reichweite
-            #Replace line endings without a full stop by just a full stop
-            text = re.sub('(?<!\.)\n', '. ', text)
+            text = text + ziel
+            #Replace line endings without a full stop, colon or another line ending before by just a full stop
+            text = re.sub('(?<![\.\n\:])\n', '. ', text)
             #Replace all the remaining line endings by space
             str.append(text.replace('\n', ' '))
             str.append('\n\n')

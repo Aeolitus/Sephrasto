@@ -53,10 +53,12 @@ class Fertigkeit(Steigerbar):
     def __init__(self):
         super().__init__()
         self.gekaufteTalente = []
+        self.talentMods = {} #for vorteil scripts, { talentnname1 : { condition1 : mod1, condition2 : mod2, ... }, talentname2 : {}, ... }
         self.kampffertigkeit = 0; #0 = nein, 1 = nahkampffertigkeit, 2 = sonstige kampffertigkeit
         self.attribute = ['KO','KO','KO']
         self.attributswerte = [-1,-1,-1]
         self.basiswert = -1
+        self.basiswertMod = 0 #for vorteil scripts
         self.probenwert = -1
         self.probenwertTalent = -1
         self.voraussetzungen = []
@@ -70,7 +72,7 @@ class Fertigkeit(Steigerbar):
                                Wolke.Char.attribute[self.attribute[2]].wert]
         self.maxWert = max(self.attributswerte)+2
         # Python Round does mess up sometimes
-        self.basiswert = round(sum(self.attributswerte)/3+0.0001)
+        self.basiswert = round(sum(self.attributswerte)/3+0.0001) + self.basiswertMod
         self.probenwert = self.basiswert + round(self.wert/2+0.0001)
         self.probenwertTalent = self.basiswert + self.wert
     def __deepcopy__(self, memo=""):
@@ -83,8 +85,10 @@ class Fertigkeit(Steigerbar):
         F.attribute = self.attribute.copy()
         F.kampffertigkeit = self.kampffertigkeit
         F.gekaufteTalente = self.gekaufteTalente.copy()
+        F.talentMods = self.talentMods.copy()
         F.attributswerte = self.attributswerte.copy()
         F.basiswert = self.basiswert
+        F.basiswertMod = self.basiswertMod
         F.probenwert = self.probenwert
         F.probenwertTalent = -self.probenwertTalent
         F.maxWert = self.maxWert

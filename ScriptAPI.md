@@ -28,7 +28,11 @@ Die folgenden Funktionen stehen neben Python-Builtins wie 'round' zur Verfügung
     getVorteile <Return: { name, wert, steigerungsfaktor, text, kosten, typ, voraussetzungen[], nachkauf, text }[]>,
     getFertigkeit/getÜbernatürlicheFertigkeit <Parameter: Fertigkeits-Name. Return: { name, wert, steigerungsfaktor, text, gekaufteTalente[],
         kampffertigkeit, attribute[3], attributswerte[3], basiswert, probenwert, probenwertTalent, voraussetzungen[], maxWert }>
-
+    modifyFertigkeitBasiswert : <Parameter: Fertigkeits-Name, Modifikator>
+    modifyÜbernatürlicheFertigkeitBasiswert : <Parameter: Fertigkeits-Name, Modifikator>
+    modifyTalent : <Parameter: Fertigkeits-Name, Talent-Name, Bedingung, Modifikator>
+        Beispiel: modifyTalent('Beeinflussung', 'Überreden', 'Rededuell', 2)
+    
 #### Kampfstile
     getKampfstil <Parameter: Kampfstil-Name. Return: { AT, VT, TP, RW }>
     setKampfstil/modifyKampfstil <Parameter: Kampfstil-Name, AT, VT, TP, RW>

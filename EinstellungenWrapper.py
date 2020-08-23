@@ -52,11 +52,6 @@ class EinstellungenWrapper():
         self.form.show()
         self.ret = self.form.exec_()
         if self.ret == QtWidgets.QDialog.Accepted:
-            if not os.path.isdir(self.settingsFolder):
-                os.mkdir(self.settingsFolder)
-                os.mkdir(os.path.join(self.settingsFolder, 'Charaktere'))
-                os.mkdir(os.path.join(self.settingsFolder, 'Regeln'))
-            
             Wolke.Settings['Bogen'] = self.ui.comboBogen.currentText()
             db = self.ui.comboRegelbasis.currentText()
             if db == 'Keine':
@@ -86,9 +81,7 @@ class EinstellungenWrapper():
             
             Wolke.Settings['PDF-Open'] = self.ui.checkPDFOpen.isChecked()
             
-            settingsPath = os.path.join(self.settingsFolder, 'Sephrasto.ini')
-            with open(settingsPath, 'w') as outfile:
-                yaml.dump(Wolke.Settings, outfile)
+            EinstellungenWrapper.save()
 
     @staticmethod
     def getSettingsFolder():
@@ -103,8 +96,18 @@ class EinstellungenWrapper():
         return os.path.join(userFolder,'Sephrasto')
 
     @staticmethod
+    def createUserFolders(basePath):
+        if not os.path.isdir(basePath):
+            os.mkdir(basePath)
+            if not os.path.isdir(os.path.join(basePath, 'Charaktere')):
+                os.mkdir(os.path.join(basePath, 'Charaktere'))
+            if not os.path.isdir(os.path.join(basePath, 'Regeln')):
+                os.mkdir(os.path.join(basePath, 'Regeln'))
+
+    @staticmethod
     def load():
         settingsFolder = EinstellungenWrapper.getSettingsFolder()
+        EinstellungenWrapper.createUserFolders(settingsFolder)
         settingsPath = os.path.join(settingsFolder, 'Sephrasto.ini')
         if os.path.isfile(settingsPath):
             with open(settingsPath,'r') as infile:
@@ -115,6 +118,15 @@ class EinstellungenWrapper():
             #Init defaults
             Wolke.Settings['Pfad-Chars'] = os.path.join(settingsFolder, 'Charaktere')
             Wolke.Settings['Pfad-Regeln'] = os.path.join(settingsFolder, 'Regeln')
+
+    @staticmethod
+    def save():
+        settingsFolder = EinstellungenWrapper.getSettingsFolder()
+        EinstellungenWrapper.createUserFolders(settingsFolder)
+
+        settingsPath = os.path.join(settingsFolder, 'Sephrasto.ini')
+        with open(settingsPath, 'w') as outfile:
+            yaml.dump(Wolke.Settings, outfile)
 
     def comboBogenIndexChanged(self):
         self.ui.checkCheatsheet.setEnabled(self.ui.comboBogen.currentIndex() != 0)
@@ -152,9 +164,12 @@ class EinstellungenWrapper():
             self.updateComboRegelbasis()
 
     def setExportPluginPath(self):
+        startPath = Wolke.Settings['Pfad-Export-Plugin']
+        if not startPath:
+            startPath = self.ui.editRegeln.text()
         path = QtWidgets.QFileDialog.getOpenFileName(None,
           "Wähle einen Speicherort für das Export-Plugin aus!",
-          Wolke.Settings['Pfad-Export-Plugin'], 'Python scripts (*.py)', None,
+          startPath, 'Python scripts (*.py)', None,
           QtWidgets.QFileDialog.ShowDirsOnly)
         fpath = os.path.realpath(path[0])
         if os.path.isfile(fpath):
