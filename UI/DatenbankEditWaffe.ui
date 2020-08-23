@@ -248,7 +248,7 @@
           <number>0</number>
          </property>
          <property name="maximum">
-          <number>9</number>
+          <number>19</number>
          </property>
          <property name="value">
           <number>2</number>
@@ -298,25 +298,16 @@
       </widget>
      </item>
      <item row="7" column="1">
-      <widget class="QComboBox" name="comboFert">
-      </widget>
+      <widget class="QComboBox" name="comboFert"/>
      </item>
      <item row="9" column="1">
- 	  <!--<widget class="QScrollArea" name="scrollArea">
-        <property name="frameShape">
-         <enum>QFrame::Box</enum>
-        </property>
-        <property name="widgetResizable">
-         <bool>true</bool>
-        </property>
-        <layout class="QGridLayout" name="layoutKampfstile">
-        </layout>
-	  </widget>-->
-	          <layout class="QGridLayout" name="layoutKampfstile">
-        </layout>
+      <layout class="QGridLayout" name="layoutKampfstile"/>
      </item>
      <item row="0" column="0" colspan="3">
       <widget class="QLabel" name="warning">
+       <property name="visible">
+        <bool>false</bool>
+       </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(255, 255, 0);</string>
        </property>
@@ -326,9 +317,6 @@
        <property name="wordWrap">
         <bool>true</bool>
        </property>
-	   <property name="visible">
-	    <bool>False</bool>
-	   </property>
       </widget>
      </item>
     </layout>
