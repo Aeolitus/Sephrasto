@@ -451,7 +451,7 @@ class pdfMeister(object):
                 talStr += el2.replace(fertigkeit.name + ": ", "")
 
                 if el2 in fertigkeit.talentMods:
-                    for condition,mod in fertigkeit.talentMods[el2].items():
+                    for condition,mod in sorted(fertigkeit.talentMods[el2].items()):
                         talStr += " " + (condition + " " if condition else "") + ("+" if mod >= 0 else "") + str(mod)
 
                 if el2 in Wolke.Char.talenteVariable:
@@ -459,10 +459,10 @@ class pdfMeister(object):
                     talStr += " (" + vk.kommentar + ")"
 
             #Append any talent mods of talents the character doesn't own in parentheses
-            for talentName, talentMods in fertigkeit.talentMods.items():
+            for talentName, talentMods in sorted(fertigkeit.talentMods.items()):
                 if not talentName in talente:
                     talStr += ", (" + talentName
-                    for condition,mod in talentMods.items():
+                    for condition,mod in sorted(talentMods.items()):
                         talStr += " " + (condition + " " if condition else "") + ("+" if mod >= 0 else "") + str(mod)
                     talStr += ")"
 
