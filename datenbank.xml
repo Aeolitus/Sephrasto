@@ -5567,9 +5567,8 @@ Reichweite: 8 Schritt
 Wirkungsdauer: augenblicklich
 Kosten: 2 AsP
 Fertigkeiten: Einfluss, Zaubermelodien
-Kosten: Bard 14; 40 EP
-Warnender Klang
-Du entlockst deinem Instrument einen alarmierenden Klang. Alle Zuhörer in 8 Meter Radius schrecken sofort auf und sind hellwach. Gegen folgende Angriffe gelten sie nicht als überrascht.
+Erlernen: Bard 14; 40 EP</Talent>
+  <Talent name="Warnender Klang" kosten="20" voraussetzungen="Vorteil Tradition der Zauberbarden I" verbilligt="0" fertigkeiten="Eigenschaften, Zaubermelodien" variable="-1" printclass="18">Du entlockst deinem Instrument einen alarmierenden Klang. Alle Zuhörer in 8 Meter Radius schrecken sofort auf und sind hellwach. Gegen folgende Angriffe gelten sie nicht als überrascht.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
 Ziel: Zone
