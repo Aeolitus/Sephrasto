@@ -15,14 +15,17 @@ Dieses Tool verwendet
 * pdffields (https://github.com/evfredericksen/pdffields) für einfachere Bedienung von fdfgen ;)
 * PyQt5 (https://www.riverbankcomputing.com/software/pyqt/download5) für die Grafische Oberfläche
 * lxml (http://lxml.de/) als xml-parser (unter Linux: `libxml2-dev` und `libxmlsec1-dev` global installieren, wenn lxml via pip installiert werden soll)
+* PyYAML (https://pyyaml.org/) als yaml-parser
 
-Um Sephrasto mit Python zu verwenden, ist Version 3.6 empfehlenswert, aber nicht dringend notwendig. Weiterhin müssen PyQt5 und lxml installiert werden. Starte einfach die Sephrasto.py und los gehts.
+Um Sephrasto mit Python zu verwenden, ist Version 3.6+ empfehlenswert, aber nicht dringend notwendig. Weiterhin müssen PyQt5 und lxml installiert werden. Starte einfach die Sephrasto.py und los gehts.
 
 Anleitung für die Nutzung von Visual Studio als IDE:
-* Installiere VS 2017 Community Edition mit dem Python Workload (kann auch nachträglich über den Installer installiert werden)
-* Setze den Pfad der Python-Umgebung in der Umgebungsvariable PATH (in der Regel C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64)
+* Installiere VS 2019 Community Edition mit dem Python Workload (kann auch nachträglich über den Installer installiert werden)
+* Setze den Pfad der Python-Umgebung in der Umgebungsvariable PATH (in der Regel C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64)
 * Starte Make/Sephrasto.sln
-* Installiere die dependencies: Solution Explorer -> Python Environments -> Rechtsclick auf Python 3.x -> Install Python Package. Installiere die folgenden Pakete:
+* Installiere die dependencies: Solution Explorer -> Python Environments -> Rechtsclick auf Python 3.x -> Install Python Package.
+* Stelle zuerst sicher, dass deine pip Version aktuell ist, aktualisiere diese gegebenenfalls und starte Visual Studio neu
+* Installiere nun die folgenden Pakete im gleichen Menu:
     * lxml
     * PyQt5
 	* PyYAML
