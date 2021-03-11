@@ -7,6 +7,7 @@ import binascii
 import copy
 import logging
 import collections
+from EventBus import EventBus
 from Wolke import Wolke
 from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
 from PyQt5 import QtWidgets, QtCore
@@ -94,6 +95,7 @@ class Char():
         #Vierter Block: Fertigkeiten und Freie Fertigkeiten
         self.fertigkeiten = copy.deepcopy(Wolke.DB.fertigkeiten)
         self.freieFertigkeiten = []
+        self.freieFertigkeitenNumKostenlos = EventBus.applyFilter("freiefertigkeit_num_kostenlos", 1)
         self.talenteVariable = {} #Contains Name: VariableKosten
 
         #Fünfter Block: Ausrüstung etc
@@ -353,6 +355,8 @@ class Char():
         raise Exception('Not implemented')
 
     def aktualisieren(self):
+        EventBus.doAction("pre_charakter_aktualisieren")
+
         '''Berechnet alle abgeleiteten Werte neu'''
         for key in Definitionen.Attribute:
             self.attribute[key].aktualisieren()
@@ -443,6 +447,8 @@ class Char():
         self.updateVorts()
         self.updateFerts()
         self.updateWaffenwerte()
+
+        EventBus.doAction("post_charakter_aktualisieren")
         self.epZaehlen()
 
     def updateWaffenwerte(self):
@@ -539,10 +545,14 @@ class Char():
         #Erster Block ist gratis
         #Zweiter Block: Attribute und Abgeleitetes
         for key in Definitionen.Attribute:
-            spent += sum(range(self.attribute[key].wert+1)) *\
+            val = sum(range(self.attribute[key].wert+1)) *\
                         self.attribute[key].steigerungsfaktor
-        spent += sum(range(self.asp.wert+1))*self.asp.steigerungsfaktor
-        spent += sum(range(self.kap.wert+1))*self.kap.steigerungsfaktor   
+            spent += EventBus.applyFilter("attribut_kosten", val, { "attribut" : key, "wert" : self.attribute[key].wert })
+
+        val = sum(range(self.asp.wert+1))*self.asp.steigerungsfaktor
+        spent += EventBus.applyFilter("asp_kosten", val, { "wert" : self.asp.wert })
+        val = sum(range(self.kap.wert+1))*self.kap.steigerungsfaktor   
+        spent += EventBus.applyFilter("kap_kosten", val, { "wert" : self.kap.wert })
 
         self.EP_Attribute = spent
         #Dritter Block: Vorteile
@@ -576,17 +586,19 @@ class Char():
                     continue
                 paidTalents.append(tal)
                 val = self.getTalentCost(tal, self.fertigkeiten[fer].steigerungsfaktor)
+                val = EventBus.applyFilter("talent_kosten", val, { "talent": tal })
                 spent += val
                 self.EP_Fertigkeiten_Talente += val
-        skip = False                                                 
+
+        numKostenlos = 0
         for fer in self.freieFertigkeiten:
             # Dont count Muttersprache
-            if fer.wert == 3 and not skip:
-                skip = True
+            if fer.wert == 3 and numKostenlos < self.freieFertigkeitenNumKostenlos:
+                numKostenlos += 1
                 continue
             if not fer.name:
                 continue
-            val = Definitionen.FreieFertigkeitKosten[fer.wert-1]
+            val = EventBus.applyFilter("freiefertigkeit_kosten", Definitionen.FreieFertigkeitKosten[fer.wert-1], { "name" : fer.name, "wert" : fer.wert })
             spent += val
             self.EP_FreieFertigkeiten += val
         #Fünfter Block ist gratis
@@ -603,6 +615,7 @@ class Char():
                     continue
                 paidTalents.append(tal)
                 val = self.getTalentCost(tal, self.übernatürlicheFertigkeiten[fer].steigerungsfaktor)
+                val = EventBus.applyFilter("talent_kosten", val, { "talent": tal })
                 spent += val
                 self.EP_Uebernatuerlich_Talente += val
         #Siebter Block ist gratis
@@ -959,6 +972,10 @@ class Char():
         epn = etree.SubElement(root,'Erfahrung')
         etree.SubElement(epn,'EPtotal').text = str(self.EPtotal)
         etree.SubElement(epn,'EPspent').text = str(self.EPspent)
+
+        #Plugins
+        root = EventBus.applyFilter("charakter_xml_schreiben", root)
+
         #Write XML to file
         Wolke.Fehlercode = -64
         doc = etree.ElementTree(root)
@@ -1163,6 +1180,9 @@ class Char():
         Wolke.Fehlercode = -52
         self.EPtotal = int(root.find('Erfahrung/EPtotal').text)
         self.EPspent = int(root.find('Erfahrung/EPspent').text)   
+
+        #Plugins
+        root = EventBus.applyFilter("charakter_xml_laden", root)
         
         if userDBChanged or vIgnored or fIgnored or tIgnored or übIgnored:
             messageBox = QtWidgets.QMessageBox()

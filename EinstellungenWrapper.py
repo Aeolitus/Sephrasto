@@ -11,6 +11,7 @@ import os.path
 import yaml
 import logging
 import sys
+from PluginLoader import PluginLoader
 
 class EinstellungenWrapper():    
     def __init__(self):
@@ -32,8 +33,10 @@ class EinstellungenWrapper():
         self.settingsFolder = EinstellungenWrapper.getSettingsFolder()
         self.ui.editChar.setText(Wolke.Settings['Pfad-Chars'])
         self.ui.editRegeln.setText(Wolke.Settings['Pfad-Regeln'])
-        self.ui.editExportPlugin.setText(Wolke.Settings['Pfad-Export-Plugin'])
+        self.ui.editPlugins.setText(Wolke.Settings['Pfad-Plugins'])
 
+        self.pluginCheckboxes = []
+        self.updatePluginCheckboxes()
         self.updateComboRegelbasis()
             
         self.ui.checkPDFOpen.setChecked(Wolke.Settings['PDF-Open'])
@@ -42,10 +45,10 @@ class EinstellungenWrapper():
             
         self.ui.buttonChar.clicked.connect(self.setCharPath)
         self.ui.buttonRegeln.clicked.connect(self.setRulePath)
-        self.ui.buttonExportPlugin.clicked.connect(self.setExportPluginPath)
+        self.ui.buttonPlugins.clicked.connect(self.setPluginsPath)
         self.ui.resetChar.clicked.connect(self.resetCharPath)
         self.ui.resetRegeln.clicked.connect(self.resetRulePath)
-        self.ui.resetExportPlugin.clicked.connect(self.resetExportPluginPath)
+        self.ui.resetPlugins.clicked.connect(self.resetPluginsPath)
         self.ui.comboBogen.currentIndexChanged.connect(self.comboBogenIndexChanged)
 
         self.form.setWindowModality(QtCore.Qt.ApplicationModal)
@@ -70,10 +73,16 @@ class EinstellungenWrapper():
             else:
                 Wolke.Settings['Pfad-Regeln'] = ''
 
-            if os.path.isfile(self.ui.editExportPlugin.text()):
-                Wolke.Settings['Pfad-Export-Plugin'] = self.ui.editExportPlugin.text()
+            if os.path.isdir(self.ui.editPlugins.text()):
+                Wolke.Settings['Pfad-Plugins'] = self.ui.editPlugins.text()
             else:
-                Wolke.Settings['Pfad-Export-Plugin'] = ''
+                Wolke.Settings['Pfad-Plugins'] = ''
+
+            for checkbox in self.pluginCheckboxes:
+                if checkbox.isChecked() and (checkbox.text() in Wolke.Settings['Deaktivierte-Plugins']):
+                    Wolke.Settings['Deaktivierte-Plugins'].remove(checkbox.text())
+                elif not checkbox.isChecked() and not (checkbox.text() in Wolke.Settings['Deaktivierte-Plugins']):
+                    Wolke.Settings['Deaktivierte-Plugins'].append(checkbox.text())
                 
             Wolke.Settings['Logging'] = self.ui.comboLogging.currentIndex()
             loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
@@ -103,6 +112,8 @@ class EinstellungenWrapper():
                 os.mkdir(os.path.join(basePath, 'Charaktere'))
             if not os.path.isdir(os.path.join(basePath, 'Regeln')):
                 os.mkdir(os.path.join(basePath, 'Regeln'))
+            if not os.path.isdir(os.path.join(basePath, 'Plugins')):
+                os.mkdir(os.path.join(basePath, 'Plugins'))
 
     @staticmethod
     def load():
@@ -114,10 +125,14 @@ class EinstellungenWrapper():
                 tmpSet = yaml.safe_load(infile)
                 for el in tmpSet:
                     Wolke.Settings[el] = tmpSet[el]
-        else:
-            #Init defaults
+        
+        #Init defaults
+        if not Wolke.Settings['Pfad-Chars']:
             Wolke.Settings['Pfad-Chars'] = os.path.join(settingsFolder, 'Charaktere')
+        if not Wolke.Settings['Pfad-Regeln']:
             Wolke.Settings['Pfad-Regeln'] = os.path.join(settingsFolder, 'Regeln')
+        if not Wolke.Settings['Pfad-Plugins']:
+            Wolke.Settings['Pfad-Plugins'] = os.path.join(settingsFolder, 'Plugins')
 
     @staticmethod
     def save():
@@ -127,6 +142,22 @@ class EinstellungenWrapper():
         settingsPath = os.path.join(settingsFolder, 'Sephrasto.ini')
         with open(settingsPath, 'w') as outfile:
             yaml.dump(Wolke.Settings, outfile)
+
+    def updatePluginCheckboxes(self):
+        self.pluginCheckboxes = []
+        for i in reversed(range(self.ui.vlPlugins.count())): 
+            self.ui.vlPlugins.itemAt(i).widget().setParent(None)
+        pluginNames = PluginLoader.getPlugins(self.ui.editPlugins.text())
+        if len(pluginNames) > 0:
+            self.ui.vlPlugins.addWidget(QtWidgets.QLabel("Plugins:"))
+        for pluginName in pluginNames:
+            check = QtWidgets.QCheckBox(pluginName)
+            if not (pluginName in Wolke.Settings['Deaktivierte-Plugins']):
+                check.setChecked(True)
+            self.ui.vlPlugins.addWidget(check)
+            self.pluginCheckboxes.append(check)
+        if len(pluginNames) > 0:
+            self.ui.vlPlugins.addWidget(QtWidgets.QLabel("(De-)Aktivieren erfordert einen Neustart!"))
 
     def comboBogenIndexChanged(self):
         self.ui.checkCheatsheet.setEnabled(self.ui.comboBogen.currentIndex() != 0)
@@ -163,17 +194,15 @@ class EinstellungenWrapper():
             self.ui.editRegeln.setText(path)
             self.updateComboRegelbasis()
 
-    def setExportPluginPath(self):
-        startPath = Wolke.Settings['Pfad-Export-Plugin']
-        if not startPath:
-            startPath = self.ui.editRegeln.text()
-        path = QtWidgets.QFileDialog.getOpenFileName(None,
-          "Wähle einen Speicherort für das Export-Plugin aus!",
-          startPath, 'Python scripts (*.py)', None,
+    def setPluginsPath(self):
+        path = QtWidgets.QFileDialog.getExistingDirectory(None,
+          "Wähle einen Speicherort für Plugins aus!",
+          self.ui.editPlugins.text(),
           QtWidgets.QFileDialog.ShowDirsOnly)
-        fpath = os.path.realpath(path[0])
-        if os.path.isfile(fpath):
-            self.ui.editExportPlugin.setText(fpath)
+        path = os.path.realpath(path)
+        if os.path.isdir(path):
+            self.ui.editPlugins.setText(path)
+            self.updatePluginCheckboxes()
             
     def resetCharPath(self):
         p = os.path.join(self.settingsFolder, 'Charaktere')
@@ -184,6 +213,8 @@ class EinstellungenWrapper():
         self.ui.editRegeln.setText(p)
         self.updateComboRegelbasis()
         
-    def resetExportPluginPath(self):
-        self.ui.editExportPlugin.setText('')
+    def resetPluginsPath(self):
+        p = os.path.join(self.settingsFolder, 'Plugins')
+        self.ui.editPlugins.setText(p)
+        self.updatePluginCheckboxes()
         

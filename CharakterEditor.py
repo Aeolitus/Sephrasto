@@ -20,7 +20,9 @@ import Datenbank
 from Wolke import Wolke
 import os.path
 import pdfMeister as pdfM
+from pdfMeister import CharakterbogenInfo
 import logging
+from EventBus import EventBus
 
 class Editor(object):
     '''
@@ -46,9 +48,10 @@ class Editor(object):
             Wolke.Char.xmlLesen(self.savepath)
         Wolke.Char.aktualisieren() # A bit later because it needs access to itself
         
+        EventBus.doAction("charakter_geladen")
         self.ignoreModified = False
         
-    def setupMainForm(self):      
+    def setupMainForm(self, plugins):      
         self.updateEP()
         
         self.BeschrWrapper = CharakterBeschreibungWrapper.BeschrWrapper()
@@ -61,16 +64,29 @@ class Editor(object):
         self.ItmWrapper = CharakterItemsWrapper.CharakterItemsWrapper()
         self.EPWrapper = CharakterEPWrapper.EPWrapper()
         
-        self.ui.tabs.addTab(self.BeschrWrapper.formBeschr, "    Beschreibung    ")
-        self.ui.tabs.addTab(self.AttrWrapper.formAttr, "    Attribute    ")
-        self.ui.tabs.addTab(self.VortWrapper.formVor, "    Vorteile    ")
-        self.ui.tabs.addTab(self.FertWrapper.formFert, "    Fertigkeiten    ")
-        self.ui.tabs.addTab(self.FreiWrapper.formFert, "    Freie Fertigkeiten    ")
-        self.ui.tabs.addTab(self.UebernatuerlichWrapper.formFert, "    Übernatürliches    ")
-        self.ui.tabs.addTab(self.EquipWrapper.formEq, "    Ausrüstung    ")    
-        self.ui.tabs.addTab(self.ItmWrapper.formIt, "    Inventar    ")
-        self.ui.tabs.addTab(self.EPWrapper.formEP, "    EP-Verteilung    ")
+        tabs = []
+        tabs.append((10, self.BeschrWrapper.formBeschr, "Beschreibung"))
+        tabs.append((30, self.AttrWrapper.formAttr, "Attribute"))
+        tabs.append((40, self.VortWrapper.formVor, "Vorteile"))
+        tabs.append((50, self.FertWrapper.formFert, "Fertigkeiten"))
+        tabs.append((60, self.FreiWrapper.formFert, "Freie Fertigkeiten"))
+        tabs.append((70, self.UebernatuerlichWrapper.formFert, "Übernatürliches"))
+        tabs.append((80, self.EquipWrapper.formEq, "Ausrüstung"))   
+        tabs.append((90, self.ItmWrapper.formIt, "Inventar"))
+        tabs.append((100, self.EPWrapper.formEP, "EP-Verteilung"))
+
+        for plugin in plugins:
+            if hasattr(plugin, "getCharakterTabs"):
+                for tab in plugin.getCharakterTabs():
+                   tabs.append((tab[0], tab[1], tab[2]))
         
+        tabs = sorted(tabs, key=lambda tab: tab[0])
+        tabPadding = "    "
+        if len(tabs) > 9:
+            tabPadding = ""
+        for tab in tabs:
+            self.ui.tabs.addTab(tab[1], tabPadding + tab[2] + tabPadding)
+
         self.BeschrWrapper.modified.connect(self.onModified)
         self.AttrWrapper.modified.connect(self.onModified)
         self.FertWrapper.modified.connect(self.onModified)
@@ -236,12 +252,16 @@ Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
             messagebox.addButton(QtWidgets.QPushButton("  Lange Version von Gatsu  "), QtWidgets.QMessageBox.AcceptRole)
             messagebox.addButton(QtWidgets.QPushButton("Abbrechen"), QtWidgets.QMessageBox.RejectRole)
             result = messagebox.exec_()
+
+        charakterBogen = None
         if result == 0 or Wolke.Settings['Bogen'] == 'Standard Ilaris-Charakterbogen':
-            self.pdfMeister.setCharakterbogenKurz()
+            charakterBogen = CharakterbogenInfo(filePath="Charakterbogen.pdf", maxVorteile = 8, maxFreie = 12, maxFertigkeiten = 2, seitenProfan = 2, kurzbogenHack=True)
         elif result == 1 or Wolke.Settings['Bogen'] == 'Die lange Version von Gatsu':
-            self.pdfMeister.setCharakterbogenLang()
+            charakterBogen = CharakterbogenInfo(filePath="Charakterbogen_lang.pdf", maxVorteile = 24, maxFreie = 28, maxFertigkeiten = 28, seitenProfan = 3, kurzbogenHack=False)
         else:
             return
+
+        self.pdfMeister.setCharakterbogen(EventBus.applyFilter("set_charakterbogen", charakterBogen))
 
         # Check if there is a base Charakterbogen.pdf:
         if not os.path.isfile(self.pdfMeister.CharakterBogen.filePath):

@@ -22,6 +22,7 @@ from Charakter import KampfstilMod
 from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
 import sys
 import traceback
+from EventBus import EventBus
 
 CharakterbogenInfo = namedtuple('CharakterbogenInfo', 'filePath maxVorteile maxFreie maxFertigkeiten seitenProfan kurzbogenHack')
 
@@ -43,11 +44,8 @@ class pdfMeister(object):
         self.Talents = []
         self.Energie = 0
     
-    def setCharakterbogenKurz(self):
-        self.CharakterBogen = CharakterbogenInfo(filePath="Charakterbogen.pdf", maxVorteile = 8, maxFreie = 12, maxFertigkeiten = 2, seitenProfan = 2, kurzbogenHack=True)
-
-    def setCharakterbogenLang(self):
-        self.CharakterBogen = CharakterbogenInfo(filePath="Charakterbogen_lang.pdf", maxVorteile = 24, maxFreie = 28, maxFertigkeiten = 28, seitenProfan = 3, kurzbogenHack=False)
+    def setCharakterbogen(self, charakterBogenInfo):
+        self.CharakterBogen = charakterBogenInfo
 
     def pdfErstellen(self, filename, printRules):
         '''
@@ -64,7 +62,7 @@ class pdfMeister(object):
         self.UseExtraPage = False
         Wolke.Fehlercode = -81
         fields = pdf.get_fields(self.CharakterBogen.filePath)
-        if self.CharakterBogen.filePath == "Charakterbogen_lang.pdf" and os.path.isfile(filename):
+        if self.CharakterBogen.filePath.endswith("Charakterbogen_lang.pdf") and os.path.isfile(filename):
             oldFields = pdf.get_fields(filename)
             keep = ["Kultur", "Profession", "Geschlecht", "Geburtsdatum", "Groesse", "Gewicht", "Haarfarbe", "Augenfarbe",
                     "Aussehen1", "Aussehen2", "Aussehen3", "Aussehen4", "Aussehen5", "Aussehen6", "Titel", "Hintergrund0",
@@ -90,9 +88,9 @@ class pdfMeister(object):
         fields = self.pdfSiebterBlock(fields)
 
         Wolke.Fehlercode = -99
-        if not self.pdfExecutePlugin(fields):
-            Wolke.Fehlercode = 0
-            return
+
+        # Plugins die felder filtern lassen
+        fields = EventBus.applyFilter("pdf_export", fields)
 
         # PDF erstellen - Felder bleiben bearbeitbar
         Wolke.Fehlercode = -89
@@ -695,27 +693,6 @@ class pdfMeister(object):
         fields['ErfahEI'] = Wolke.Char.EPspent
         fields['ErfahVE'] = Wolke.Char.EPtotal - Wolke.Char.EPspent
         return fields
-
-    def pdfExecutePlugin(self, fields):
-        if Wolke.Settings['Pfad-Export-Plugin'] and os.path.isfile(Wolke.Settings['Pfad-Export-Plugin']):
-            api = {}
-            for k, v in Wolke.Char.charakterScriptAPI.items():
-                if k.startswith('get'):
-                    api[k] = v
-            api['data'] = fields
-            api['sephrastoExport'] = True
-
-            try:
-                exec(open(Wolke.Settings['Pfad-Export-Plugin'], mode="r", encoding="utf-8").read(), api)
-            except Exception as err:
-                error_class = err.__class__.__name__
-                detail = err.args[0]
-                cl, exc, tb = sys.exc_info()
-                line_number = traceback.extract_tb(tb)[-1][1]
-                raise Exception("%s at line %d: %s" % (error_class, line_number, detail))
-
-            return api['sephrastoExport']
-        return True
 
     def createExtra(self, vorts, ferts, tals, fields):
         for i in range(1, 13):
