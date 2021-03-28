@@ -277,24 +277,19 @@ class pdfMeister(object):
                 typeDict[mindername] = 0
                 continue
             flag = False
+            fullset = [" I", " II", " III", " IV", " V", " VI", " VII"]
             if not vort in Wolke.Char.vorteileVariable:
-                if vort.endswith(" I"):
-                    basename = vort[:-2]
-                    flag = True
-                elif vort.endswith(" II") or vort.endswith(" IV"):
-                    basename = vort[:-3]
-                    flag = True
-                elif vort.endswith(" III"):
-                    basename = vort[:-4]
-                    flag = True
+                for el in fullset:
+                    if vort.endswith(el):
+                        basename = vort[:-len(el)]
+                        flag = True
 
             if flag:
-                fullset = [" I", " II", " III", " IV"]
                 fullenum = ""
                 for el in fullset:
                     if basename+el in sortV:
                         removed.append(basename+el)
-                        fullenum += "," + el[1:]
+                        fullenum += ", " + el[1:]
                 vname = basename + " " + fullenum[1:]
                 typeDict[vname] = Wolke.DB.vorteile[vort].typ
                 assembled.append(vname)
@@ -741,13 +736,15 @@ class pdfMeister(object):
     def appendWaffeneigenschaften(strList, weights, category, eigenschaften):
         strList.append(pdfMeister.formatRuleCategory(category))
         weights.append(pdfMeister.getWeight(strList[-1]))
-        for weName in eigenschaften:
+        for weName, waffen in sorted(eigenschaften.items()):
             str = ['-']
             we = Wolke.DB.waffeneigenschaften[weName]
             if not we.text:
                 continue
             str.append(we.name)
-            str.append(": ")
+            str.append(" (")
+            str.append(", ".join(waffen))
+            str.append("): ")
             #Replace all line endings by space
             str.append(we.text.replace('\n', ' '))
             str.append('\n\n')
@@ -822,26 +819,17 @@ class pdfMeister(object):
 
             text = talent.text
             
-            #The page for uebernatuerliches already has most of the text information from vorbereitungszeit on, so remove it
-            #Except for Ziel...
-            match = re.search('^Ziel: (.*)', talent.text, re.MULTILINE)
-            ziel = ""
-            if match:
-                ziel = match.group()
-  
-            index = text.find('Vorbereitungszeit')
-            if index != -1:
-                text = text[:index]
-            #Some talents only specify Fertigkeiten in their text...
-            index = text.find('Fertigkeiten')
+            #Remove everything from Fertigkeiten on
+            index = text.find('\nFertigkeiten')
             if index != -1:
                 text = text[:index]
 
-            text = text + ziel
             #Replace line endings without a full stop, colon or another line ending before by just a full stop
             text = re.sub('(?<![\.\n\:])\n', '. ', text)
+
             #Replace all the remaining line endings by space
             str.append(text.replace('\n', ' '))
+
             str.append('\n\n')
             strList.append("".join(str))
             weights.append(pdfMeister.getWeight(strList[-1]))
@@ -861,6 +849,12 @@ class pdfMeister(object):
                 remove.add(vort[:-1])
             elif vort.endswith(" IV"):
                 remove.add(vort[:-1] + "II")
+            elif vort.endswith(" V"):
+                remove.add(vort[:-1] + "IV")
+            elif vort.endswith(" VI"):
+                remove.add(vort[:-1])
+            elif vort.endswith(" VII"):
+                remove.add(vort[:-1])
 
         for vort in remove:
             if vort in allgemein:
@@ -880,16 +874,17 @@ class pdfMeister(object):
 
         manövernah = [el for el in sortM if (Wolke.DB.manöver[el].typ == 0)]
 
-        waffeneigenschaften = []
+        waffeneigenschaften = {}
         for waffe in Wolke.Char.waffen:
             for el in waffe.eigenschaften:
                 try:
                     we = Hilfsmethoden.GetWaffeneigenschaft(el, Wolke.DB)
                     if not we.name in waffeneigenschaften:
-                        waffeneigenschaften.append(we.name)
+                        waffeneigenschaften[we.name] = [waffe.anzeigename]
+                    else:
+                        waffeneigenschaften[we.name].append(waffe.anzeigename)
                 except WaffeneigenschaftException:
                     pass
-        waffeneigenschaften = sorted(waffeneigenschaften, key=str.lower)
 
         manöverfern = []
         for waffe in Wolke.Char.waffen:
