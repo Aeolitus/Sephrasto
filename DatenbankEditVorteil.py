@@ -98,14 +98,6 @@ class Ui_talentDialog(object):
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.comboTyp = QtWidgets.QComboBox(talentDialog)
         self.comboTyp.setObjectName("comboTyp")
-        self.comboTyp.addItem("")
-        self.comboTyp.addItem("")
-        self.comboTyp.addItem("")
-        self.comboTyp.addItem("")
-        self.comboTyp.addItem("")
-        self.comboTyp.addItem("")
-        self.comboTyp.addItem("")
-        self.comboTyp.addItem("")
         self.horizontalLayout_3.addWidget(self.comboTyp)
         self.gridLayout.addLayout(self.horizontalLayout_3, 5, 1, 1, 1)
         self.label_3 = QtWidgets.QLabel(talentDialog)
@@ -159,18 +151,8 @@ class Ui_talentDialog(object):
         self.label_5.setText(_translate("talentDialog", "Beschreibung"))
         self.label.setText(_translate("talentDialog", "Vorteilsname"))
         self.label_6.setText(_translate("talentDialog", "Typ"))
-        self.comboTyp.setItemText(0, _translate("talentDialog", "Allgemeiner Vorteil"))
-        self.comboTyp.setItemText(1, _translate("talentDialog", "Profaner Vorteil"))
-        self.comboTyp.setItemText(2, _translate("talentDialog", "Kampfvorteil"))
-        self.comboTyp.setItemText(3, _translate("talentDialog", "Kampfstil"))
-        self.comboTyp.setItemText(4, _translate("talentDialog", "Magischer Vorteil"))
-        self.comboTyp.setItemText(5, _translate("talentDialog", "Magische Tradition"))
-        self.comboTyp.setItemText(6, _translate("talentDialog", "Karmaler Vorteil"))
-        self.comboTyp.setItemText(7, _translate("talentDialog", "Karmale Tradition"))
         self.label_3.setText(_translate("talentDialog", "Nachkauf"))
         self.warning.setText(_translate("talentDialog", "Dies ist ein Ilaris-Standardvorteil. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für diesen Vorteil keine automatischen Updates mehr mit neuen Sephrasto-Versionen."))
-
-
 
 
 if __name__ == "__main__":

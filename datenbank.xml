@@ -31,7 +31,7 @@ Beispiele für besonderen Besitz sind:
   <Vorteil name="Einkommen IV" kosten="20" voraussetzungen="Vorteil Einkommen III" nachkauf="häufig" typ="0" variable="-1" printclass="-1">Deine Familie, Organisation oder ein persönlicher Mäzen stellt dir ein monatliches Einkommen von 256 Dukaten zur Verfügung, die du beispielsweise über eine Filiale der Nordlandbank oder ein Ordenshaus beziehen kannst. Fern der Zivilisation kannst du nicht auf dein Einkommen zugreifen. Das Einkommen reicht aus, um die Lebenserhaltungskosten eines Angehörigen der Elite zu decken.</Vorteil>
   <Vorteil name="Eisenaffine Aura" kosten="40" voraussetzungen="Vorteil Zauberer I" nachkauf="selten" typ="0" variable="-1" printclass="-1">Erschwernisse durch den Bann des Eisens (S. 78) sinken um 8 Punkte.</Vorteil>
   <Vorteil name="Gefahreninstinkt" kosten="100" voraussetzungen="" nachkauf="extrem selten" typ="0" variable="-1">Mit der Gabe des Gefahreninstinkts kannst du mit dem Talent Wachsamkeit auch Gefahren wahrnehmen, die mit gewöhnlichen Sinnen nicht wahrzunehmen sind. Dazu gehören etwa magische Fallen oder eine bald losbrechende Lawine. Ist die Gefahr auch mit gewöhnlichen Sinnen wahrnehmbar, erhältst du eine Erleichterung von +4.</Vorteil>
-  <Vorteil name="Geweiht I" kosten="40" voraussetzungen="" nachkauf="üblich" typ="0" variable="-1" printclass="-1" script="modifyKaPBasis(8)">Du verfügst über 8 Karmapunkte und kannst kirchliche Traditionen erlernen.</Vorteil>
+  <Vorteil name="Geweiht I" kosten="40" voraussetzungen="Kein Vorteil Paktierer I" nachkauf="üblich" typ="0" variable="-1" script="modifyKaPBasis(8)">Du verfügst über 8 Karmapunkte und kannst kirchliche Traditionen erlernen.</Vorteil>
   <Vorteil name="Geweiht II" kosten="40" voraussetzungen="Vorteil Geweiht I" nachkauf="üblich" typ="0" variable="-1" printclass="-1" script="modifyKaPBasis(8)">Du verfügst über 16 Karmapunkte und kannst kirchliche Traditionen erlernen.</Vorteil>
   <Vorteil name="Geweiht III" kosten="40" voraussetzungen="Vorteil Geweiht II" nachkauf="üblich" typ="0" variable="-1" printclass="-1" script="modifyKaPBasis(8)">Du verfügst über 24 Karmapunkte und kannst kirchliche Traditionen erlernen.</Vorteil>
   <Vorteil name="Geweiht IV" kosten="40" voraussetzungen="Vorteil Geweiht III" nachkauf="üblich" typ="0" variable="-1" printclass="-1" script="modifyKaPBasis(8)">Du verfügst über 32 Karmapunkte und kannst kirchliche Traditionen erlernen.</Vorteil>
@@ -51,10 +51,11 @@ Beispiele für besonderen Besitz sind:
   <Vorteil name="Natürliche Rüstung" kosten="80" voraussetzungen="" nachkauf="extrem selten" typ="0" variable="-1" printclass="-1" script="modifyRSMod(1)">Du verfügst über ein dichtes Fell oder zähe Schuppenhaut, wodurch dein RS um 1 steigt. Die BE verändert sich dadurch nicht.
 
 Dieser Vorteil kann üblicherweise nur von Achaz, Orks und ähnlichen Rassen gewählt werden.</Vorteil>
-  <Vorteil name="Paktierer I" kosten="40" voraussetzungen="Vorteil Kreis der Verdammnis I" nachkauf="üblich" typ="0" variable="-1" printclass="-1">Du verfügst über 8 Gunstpunkte und kannst die dämonische Tradition deines Erzdämons erlernen.</Vorteil>
-  <Vorteil name="Paktierer II" kosten="40" voraussetzungen="Vorteil Paktierer I" nachkauf="üblich" typ="0" variable="-1" printclass="-1">Du verfügst über 16 Gunstpunkte und kannst die dämonische Tradition deines Erzdämons erlernen.</Vorteil>
-  <Vorteil name="Paktierer III" kosten="40" voraussetzungen="Vorteil Paktierer II" nachkauf="üblich" typ="0" variable="-1" printclass="-1">Du verfügst über 24 Gunstpunkte und kannst die dämonische Tradition deines Erzdämons erlernen.</Vorteil>
-  <Vorteil name="Paktierer IV" kosten="40" voraussetzungen="Vorteil Paktierer III" nachkauf="üblich" typ="0" variable="-1" printclass="-1">Du verfügst über 32 Gunstpunkte und kannst die dämonische Tradition deines Erzdämons erlernen.</Vorteil>
+  <Vorteil name="Paktierer I" kosten="40" voraussetzungen="Vorteil Kreis der Verdammnis I, Kein Vorteil Geweiht I" nachkauf="üblich" typ="0" variable="-1" script="modifyKaPBasis(8)">Du verfügst über 8 Gunstpunkte und kannst die dämonische Tradition deines Erzdämons erlernen.</Vorteil>
+  <Vorteil name="Paktierer II" kosten="40" voraussetzungen="Vorteil Paktierer I" nachkauf="üblich" typ="0" variable="-1" script="modifyKaPBasis(8)">Du verfügst über 16 Gunstpunkte und kannst die dämonische Tradition deines Erzdämons erlernen.</Vorteil>
+  <Vorteil name="Paktierer III" kosten="40" voraussetzungen="Vorteil Paktierer II" nachkauf="üblich" typ="0" variable="-1" script="modifyKaPBasis(8)">Du verfügst über 24 Gunstpunkte und kannst die dämonische Tradition deines Erzdämons erlernen.</Vorteil>
+  <Vorteil name="Paktierer IV" kosten="40" voraussetzungen="Vorteil Paktierer III" nachkauf="üblich" typ="0" variable="-1" script="modifyKaPBasis(8)">Du verfügst über 32 Gunstpunkte und kannst die dämonische Tradition deines Erzdämons erlernen.</Vorteil>
+  
   <Vorteil name="Privilegien (Adel)" kosten="40" voraussetzungen="" nachkauf="selten" typ="0" variable="-1">Du darfst ein „von“ im Namen tragen, an Turnieren teilnehmen und jederzeit angemessen bewaffnet und gerüstet sein. Vor Gericht kannst du nur von höheren Adeligen gerichtet werden und du darfst bei der Abwesenheit eines Richters über Leibeigene richten, solange dabei kein Blut fließt. Diese Privilegien gelten in ähnlicher Art und Weise im Mittel- und Horasreich, dem Bornland und Aranien.</Vorteil>
   <Vorteil name="Privilegien (Krieger)" kosten="20" voraussetzungen="" nachkauf="selten" typ="0" variable="-1">Als Krieger/Schwertgeselle/Rondrageweihter darfst du an Turnieren teilnehmen und in Städten Waffen tragen. Diese Privilegien gelten im Mittel- und Horasreich, sowie eingeschränkt in fast ganz Aventurien.</Vorteil>
   <Vorteil name="Privilegien (Gildenmagier)" kosten="20" voraussetzungen="Vorteil Zauberer I, Vorteil Tradition der Gildenmagier I" nachkauf="selten" typ="0" variable="-1">Du darfst Geld für magische Dienstleistungen verlangen und hast erleichterten Zugang zu Bibliotheken und Lehrmeistern der eigenen Gilde. Von weltlichen Gerichten kannst du nur in deiner Anwesenheit verurteilt werden oder du wirst vor ein Gildengericht gestellt. Im Gegenzug musst du dich den Bedingungen des Codex Albyricus unterwerfen, also stets als Gildenmagier erkenntlich sein. Auch die meisten Waffen und fast alle Rüstungen mit einem RS von mehr als 1 sind verboten. Diese Privilegien gelten im Mittel- und Horasreich, dem Bornland, Kalifat und in Aranien, sowie eingeschränkt in den tulamidischen Stadtstaaten und in Südaventurien.</Vorteil>
@@ -675,6 +676,12 @@ Bedingungen: Sichtkontakt, Geste, gesprochenes oder gesungenes Gebet</Vorteil>
   <Vorteil name="Tradition der Tsageweihten II" kosten="40" voraussetzungen="Attribut IN 6, Vorteil Tradition der Tsageweihten I" nachkauf="häufig" typ="7" variable="-1" printclass="-1">Tsageweihte sind schnell entschlossen und spontan. Wird eine Liturgie mit der Modifikation Vorbereitungszeit verkürzen gewirkt, ist sie zusätzlich um +2 erleichtert.</Vorteil>
   <Vorteil name="Tradition der Tsageweihten III" kosten="60" voraussetzungen="Attribut IN 8, Vorteil Tradition der Tsageweihten II" nachkauf="häufig" typ="7" variable="-1" printclass="-1">Erlaubt die spontane Modifikation Zeremonie (S. 84).</Vorteil>
   <Vorteil name="Tradition der Tsageweihten IV" kosten="80" voraussetzungen="Attribut IN 10, Vorteil Tradition der Tsageweihten III" nachkauf="häufig" typ="7" variable="-1" printclass="-1">8 Punkte können zur Verbesserung der Tradition verwendet werden.
+
+Bedingung: 2 weitere Attribute auf insgesamt 16</Vorteil>
+  <Vorteil name="Tradition der Paktierer I" kosten="20" voraussetzungen="Attribut MU 4, Vorteil Paktierer I" nachkauf="häufig" typ="8" variable="-1">Die Fertigkeit Dämonische Hilfe (Erzdämon) kann erlernt und benutzt werden. Proben auf Dämonische Hilfe (Erzdämon) werden mit 1W20 gewürfelt.</Vorteil>
+  <Vorteil name="Tradition der Paktierer II" kosten="40" voraussetzungen="Attribut MU 6, Vorteil Tradition der Paktierer I" nachkauf="häufig" typ="8" variable="-1">Wird eine Anrufung mit der Modifikation Mächtige Anrufung gewirkt, ist sie zusätzlich um +2 erleichtert.</Vorteil>
+  <Vorteil name="Tradition der Paktierer III" kosten="60" voraussetzungen="Attribut MU 8, Vorteil Tradition der Paktierer II" nachkauf="häufig" typ="8" variable="-1">Erlaubt die spontane Modifikation Opferung (S. 84). Paktierer opfern ein kulturschaffendes Wesen, ein Geweihter der Gegen­gottheit als Opfer verdoppelt den Bonus.</Vorteil>
+  <Vorteil name="Tradition der Paktierer IV" kosten="80" voraussetzungen="Attribut MU 10, Vorteil Tradition der Paktierer III" nachkauf="häufig" typ="8" variable="-1">8 Punkte können zur Verbesserung der Tradition verwendet werden.
 
 Bedingung: 2 weitere Attribute auf insgesamt 16</Vorteil>
   <Talent name="Unbewaffnet" kosten="-1" voraussetzungen="" verbilligt="0" fertigkeiten="Handgemenge" variable="-1" printclass="-1">Verbessert den waffenlosen Nahkampf.</Talent>
@@ -8276,6 +8283,459 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: Alchemie" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf Alchemie ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: IN" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="99">Dein nächster Wurf auf IN ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: Mythenkunde" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf Mythenkunde ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: MU" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="99">Dein nächster Wurf auf MU ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: Wahrnehmung" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf Wahrnehmung ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: CH" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf CH ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: Heilkunde" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf Heilkunde ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: KL" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf KL ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: GE" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="99">Dein nächster Wurf auf GE ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: KK" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf KK ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: Athletik" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="99">Dein nächster Wurf auf Athletik ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: KO" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="99">Dein nächster Wurf auf KO ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: Selbstbeherrschung" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf Selbstbeherrschung ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: Überleben" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="99">Dein nächster Wurf auf Überleben ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: Heimlichkeit" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf Heimlichkeit ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: Schusswaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf Schusswaffen ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: Wurfwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf Wurfwaffen ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: Magiekunde" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf Magiekunde ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: MR" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf MR ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: Autorität" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf Autorität ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: Beeinflussung" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf Beeinflussung ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: Derekunde" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="99">Dein nächster Wurf auf Derekunde ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: Hiebwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf Hiebwaffen ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: FF" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf FF ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: Handwerk" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf Handwerk ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: Verschlagenheit" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf Verschlagenheit ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: Handgemenge" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf Handgemenge ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: Klingenwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf Klingenwaffen ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: Stangenwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf Stangenwaffen ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: Gebräuche" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf Gebräuche ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: Erste Fertigkeit nach Wahl" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf die erste Fertigkeit nach Wahl ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Dämonische Stärkung: Zweite Fertigkeit nach Wahl" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="-1" printclass="99">Dein nächster Wurf auf die zweite Fertigkeit nach Wahl ist um +4 Punkte erleichtert.
+Mächtige Anrufung: Erhöht die Erleichterung um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 4 GuP
+Erlernen: 20 EP</Talent>
+  <Talent name="Austrocknen" kosten="60" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="56">Das Opfer trocknet langsam aus. Jede Stunde erleidet es 1 Wunde. Stirbt es während der Wirkungsdauer, erhebt es sich als Wasserleiche.
+Probenschwierigkeit: Magieresistenz
+Vorbereitungszeit: 4 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: 8 Schritt
+Wirkungsdauer: 8 Stunden
+Kosten: 16 GuP
+Fertigkeiten: Dämonische Hilfe (Cpt)
+Erlernen: Cpt 16; 60 EP</Talent>
+  <Talent name="Ertränken" kosten="40" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="56">Brackwasser füllt die Lunge des Opfers und verursacht 2W6 SP und Ertränken (S. 98), aber keine Wundschmerzeffekte.
+Mächtige Anrufung: Erhöht die SP um +4.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 0 Aktionen
+Zielobjekt: Einzelperson
+Reichweite: 4 Schritt
+Wirkungsdauer: augenblicklich
+Kosten: 4 GuP
+Fertigkeiten: Dämonische Hilfe (Cpt)
+Erlernen: Cpt 12; 40 EP</Talent>
+  <Talent name="Fischgift" kosten="20" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="56">Vergiftet das Wasser in einem Radius von 16 Schritt, sodass kleinere Fische und Meeresfrüchte sterben und sogar Wale eine Vergiftung erleiden.
+Mächtige Anrufung: Verdoppelt den Radius.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: augenblicklich
+Kosten: 2 GuP
+Fertigkeiten: Dämonische Hilfe (Cpt)
+Erlernen: Cpt 8; 20 EP</Talent>
+  <Talent name="Gebieter der Gezeiten" kosten="20" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="56">Ebbe oder Flut können in einem Radius von 2 Meilen zurückgehalten, beschleunigt oder verstärkt werden.
+Mächtige Anrufung: Verdoppelt den Radius
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Minuten
+Zielobjekt: Zone
+Reichweite: 4 Meilen
+Wirkungsdauer: 4 Stunden
+Kosten: 8 GuP
+Fertigkeiten: Dämonische Hilfe (Cpt)
+Erlernen: Cpt 16; 20 EP</Talent>
+  <Talent name="Herrschaft über Dämonen (passiv)" kosten="60" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="56">Erleichtert die Beschwörungsproben für Dämonen aus der Domäne Charyptoroths um +2, Kontrollproben um +4.
+Fertigkeiten: Dämonische Hilfe (Cpt)
+Erlernen: Cpt 18; 60 EP</Talent>
+  <Talent name="Herrschaft über Wasserelementare" kosten="40" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="56">Während der Wirkungsdauer kannst du einmal einen Dienst von einem Wasserelementar fordern. Wenn die Beherrschungsprobe (S. 81), die auf MU gewürfelt wird, gelingt, erfüllt das Elementar den Dienst des Paktierers anstatt des ursprünglichen Dienstes.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 2 Aktionen
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 16 Initiativephasen
+Kosten: halbe Basiskosten der Beschwörung in GuP
+Fertigkeiten: Dämonische Hilfe (Cpt)
+Erlernen: Cpt 16; 40 EP</Talent>
+  <Talent name="Jäger aus der Tiefe" kosten="20" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="56">Verleiht unter Wasser die Kreatureneigenschaft Tarnung (S. 98) und Pirschen-Proben sind um +4 erleichtert.
+Mächtige Anrufung: Erleichtert Pirschen-Proben unter Wasser um +2.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Aktion
+Zielobjekt: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 4 GuP
+Fertigkeiten: Dämonische Hilfe (Cpt)
+Erlernen: Cpt 12; 20 EP</Talent>
+  <Talent name="Schiffssymbiose" kosten="40" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="56">Der Paktierer übt besondere Macht über ein Schiff aus und kann Gegenstände wie mit einem Motoricus (S. 151) bewegen, das Deck mit rutschigem Brackwasser überziehen und ähnliche Effekte hervorrufen.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Zielobjekt: Zone
+Reichweite: Berührung
+Wirkungsdauer: bis die Bindung gelöst wird
+Kosten: 16 GuP, davon 4 gGuP
+Fertigkeiten: Dämonische Hilfe (Cpt)
+Erlernen: Cpt 18; 40 EP</Talent>
+  <Talent name="Sicherer Tritt (passiv)" kosten="40" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="56">An Bord eines Schiffes sinken die Abzüge durch schwierigen Untergrund um eine Stufe.
+Fertigkeiten: Dämonische Hilfe (Cpt)
+Erlernen: Cpt 14; 40 EP</Talent>
+  <Talent name="Wasseratmung (passiv)" kosten="60" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="56">Der Paktierer kann unter Wasser atmen, sieht unter Wasser wie durch Luft und wird vom Druck der Tiefe nicht beeinflusst.
+Fertigkeiten: Dämonische Hilfe (Cpt)
+Erlernen: Cpt 14; 60 EP</Talent>
+  <Talent name="Dämonische Waffe" kosten="60" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="56">Du segnest eine Waffe. Diese gilt als dämonisch.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: bis die Bindung gelöst wird
+Kosten: 8 GuP, davon 2 gGuP
+Fertigkeiten: Dämonische Hilfe (Cpt)
+Erlernen: Cpt 18; 60 EP</Talent>
+  <Talent name="Irrlichtertanz" kosten="40" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="56">Bei jeder deiner Bewegungen stieben Funken und Rauch steigt auf. Für feindlich gesinnte Humanoide, Tiere, Feenwesen oder Mythenwesen giltst du als Schreckgestalt Stufe 2 (S. 38).
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Ziel: selbst
+Reichweite: Berührung
+Wirkungsdauer: 16 Initiativphasen
+Kosten: 8 GuP
+Fertigkeiten: Dämonische Hilfe (Cpt)
+Erlernen: Cpt 14; 40 EP</Talent>
+  <Talent name="Meister der Maritimen" kosten="40" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="56">Das  Ziel befolgt einen Charyptorothgefälligen Befehl, wenn ihm keine Konterprobe (Willenskraft, 20) gelingt.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 4 Aktionen
+Ziel: Einzelperson (nur maritime Humanoide)
+Reichweite: 32 Schritt
+Wirkungsdauer: 1 Tag
+Kosten: 8 GuP
+Fertigkeiten: Dämonische Hilfe (Cpt)
+Erlernen: Cpt 16; 40 EP
+</Talent>
+  <Talent name="Wasserbrücke" kosten="20" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="56">Du kannst auf der Wasseroberfläche gehen, als würdest du von einer Welle getragen. Du erleidest keine Abzüge durch ungünstige Position und wirst nicht durch Wellen und Strömungen beeinflusst. Erlaubt Aufrechterhalten.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 8 Aktionen
+Ziel: selbst
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 4 GuP
+Fertigkeiten: Dämonische Hilfe (Cpt)
+Erlernen: Cpt 14; 20 EP</Talent>
+  <Talent name="Wasserleiche erheben" kosten="40" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="56">Du erhebst eine Leiche als Wasserleiche (mehr zu Beschwörungen siehe S. 81), die in zwei INI-Phasen einsatzfähig ist.
+Probenschwierigkeit: 12
+Modifikationen: Schnelle Erhebung (–4; die Wasserleiche ist sofort bereit.)
+Vorbereitungszeit: frei wählbar
+Ziel: Material für eine einzelne Wasserleiche
+Wirkungsdauer: augenblicklich
+Kosten: 4 GuP
+Fertigkeiten: Dämonische Hilfe (Cpt)
+Erlernen: Cpt 14; 40 EP</Talent>
+  <Talent name="Amrychoths Tanz" kosten="40" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="56">Im Radius von einer Meile kannst du den Wind auf einer Skala von windstill/leichte Brise/steife Brise/Sturm/Orkan um zwei Stufen verändern und seine Richtung lenken.
+Mächtige Anrufung: Verändert den Wind um eine weitere Stufe und verdoppelt den Radius.
+Probenschwierigkeit: 12
+Modifikationen: Windhauch (0 Aktionen, Wirkungsdauer augenblicklich, 1 GuP; ein kurzer Windstoß weht giftige Dämpfe fort oder löscht ein kleines Feuer.)
+Vorbereitungszeit: 4 Minuten
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 8 Stunden
+Kosten: 16 GuP
+Fertigkeiten: Dämonische Hilfe (Cpt)
+Erlernen: Cpt 12; 40 EP</Talent>
+  <Talent name="Krakenhaut" kosten="40" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="1" printclass="56">Du verwandelst dich in einen Krakenmolch, Hai oder Rochen (beim Erlernen wählen), wobei du deine geistigen Fähigkeiten behältst. Deine körperlichen Fähigkeiten entsprechen denen des Tiers und du kannst in Tiergestalt keine Anrufungen wirken. Erlaubt Aufrechterhalten.
+Mächtige Anrufung: Das Tier ist ein überdurchschnittlicher/außergewöhnlicher/herausragender/einzigartiger Vertreter seiner Art. Die Werte des Tieres sind nach Spielleiterentscheid erhöht.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 16 Aktionen
+Ziel: selbst
+Reichweite: Berührung
+Wirkungsdauer: 4 Stunden
+Kosten: 8 GuP
+Fertigkeiten: Dämonische Hilfe (Cpt)
+Erlernen: Cpt 16; 40 EP
+Anmerkungen: Nur herausragende Paktierere können sich in Tiere verwandeln, die nicht zu den Größenklassen klein oder mittel gehören. Solche Verwandlungen sind prinzipiell um –8 erschwert. Die Lernkosten des Zaubers orientieren sich an der Tierart, wobei fliegende, giftige, sehr starke usw. Tiere teurer sind.</Talent>
+  <Talent name="Krakenruf" kosten="60" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="56">Du rufst ein Seeungeheuer wie eine Krake oder eine Seeschlage aus der Umgebung herbei, das sich so schnell wie möglich nähert, und kannst es um einen Gefallen bitten. Ist kein Ungeheuer in Reichweite, passiert nichts.
+Mächtige Anrufung: Du rufst 2/4/8/16 Tiere.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 2 Aktionen
+Ziel: Zone
+Reichweite: 4 Meilen
+Wirkungsdauer: 1 Stunde
+Kosten: 16 GuP
+Fertigkeiten: Dämonische Hilfe (Cpt)
+Erlernen: Cpt 16; 60 EP</Talent>
+  <Talent name="Mholurenhaut" kosten="40" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="-1" printclass="56">Der RS deines Zieles steigt um 1.
+Mächtige Anrufung: Je zwei Stufen verleihen +1 RS.
+Probenschwierigkeit: 12
+Modifikationen: Körperschild (–4, 1 GuP; die Mholurenhaut schützt nur eine Trefferzone.)
+Vorbereitungszeit: 1 Aktion
+Ziel: Einzelperson
+Reichweite: Berührung
+Wirkungsdauer: 4 Minuten
+Kosten: 2 GuP
+Fertigkeiten: Dämonische Hilfe (Cpt)
+Erlernen: Cpt 14; 40 EP</Talent>
   <Fertigkeit name="Handgemenge" steigerungsfaktor="2" voraussetzungen="" attribute="GE|KK|MU" kampffertigkeit="1" printclass="0">Auf Handgemenge würfelst du bei allen waffenlosen Nahkampftechniken, im Umgang mit Handgemengewaffen wie Messern, Dolchen, Schlagstöcken oder Kettenstäben und bei der Verwendung von Schilden.</Fertigkeit>
   <Fertigkeit name="Hiebwaffen" steigerungsfaktor="2" voraussetzungen="" attribute="GE|KK|MU" kampffertigkeit="1" printclass="0">Mit der Fertigkeit Hiebwaffen führst du alle Arten von stumpfen und scharfen Hiebwaffen, wie Keulen, Äxte und Hämmer. </Fertigkeit>
   <Fertigkeit name="Klingenwaffen" steigerungsfaktor="2" voraussetzungen="" attribute="GE|KK|MU" kampffertigkeit="1" printclass="0">Im Kampf mit allen Varianten von Schwertern, Säbeln und Fechtwaffen werden Proben auf die Fertigkeit Klingenwaffen abgelegt. Dolche gehören nicht zu den Klingenwaffen - sie werden mit der Fertigkeit Handgemenge genutzt.</Fertigkeit>
@@ -8426,6 +8886,7 @@ Fast alle Geweihten der Zwölf beherrschen die zwölf Segnungen: Eid-, Feuer-, G
   <Übernatürliche-Fertigkeit name="Stiller Wanderer" steigerungsfaktor="3" voraussetzungen="Vorteil Tradition der Avesgeweihten I" attribute="IN|KO|MU" printclass="1">Andere Avesgeweihte wandern auf den Spuren von dessen göttlichen Vaters Phex' und ziehen unerkannt durch die Welt. Sie vertrauen auf die Macht des Schicksals und die Tatsache, dass oft auch kleine Taten den Lauf der Welt ändern können.</Übernatürliche-Fertigkeit>
   <Übernatürliche-Fertigkeit name="Guter Kampf" steigerungsfaktor="3" voraussetzungen="Vorteil Tradition der Korgeweihten I" attribute="KK|KO|MU" printclass="1">Die Mystiker der Korkirche suchen den Willen ihres Gottes im Kampf. Ihr Weg führt sie dorthin, wo die Schlacht am heftigsten tobt und wo sie ihr Blut für den Geifernden Schnitter vergießen.</Übernatürliche-Fertigkeit>
   <Übernatürliche-Fertigkeit name="Gutes Gold" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Korgeweihten I" attribute="CH|IN|MU" printclass="1">Die Pragmatiker unter den Korgeweihten stehen Gladiatoren zur Seite oder führen Söldnerbanner an. Sie sorgen für vertragsgetreue Bezahlung und die Einhaltung der Söldnerehre.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Dämonische Hilfe (Cpt)" steigerungsfaktor="3" voraussetzungen="Vorteil Tradition der Paktierer I" attribute="IN|KO|MU" printclass="1">Charyptoroth ist die Herrin der nachtblauen Tiefen, aus denen verseuchtes Wasser und Meeresungeheuer strömen.</Übernatürliche-Fertigkeit>
   <Waffe name="Brabakbengel" W6="2" plus="2" haerte="8" fertigkeit="Hiebwaffen" talent="Einhandhiebwaffen" kampfstile="Beidhändiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller Kampf, Schneller Kampf" rw="1" wm="-1" fk="0">Kopflastig, Rüstungsbrechend</Waffe>
   <Waffe name="Haumesser" W6="2" plus="1" haerte="9" fertigkeit="Hiebwaffen" talent="Einhandhiebwaffen" kampfstile="Beidhändiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller Kampf, Schneller Kampf" rw="1" wm="-1" fk="0"></Waffe>
   <Waffe name="Keule" W6="2" plus="0" haerte="8" fertigkeit="Hiebwaffen" talent="Einhandhiebwaffen" kampfstile="Beidhändiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller Kampf, Schneller Kampf" rw="1" wm="-1" fk="0">Stumpf, Kopflastig</Waffe>

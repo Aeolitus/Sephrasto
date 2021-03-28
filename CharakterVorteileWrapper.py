@@ -37,7 +37,10 @@ class CharakterVorteileWrapper(QtCore.QObject):
 
     def initVorteile(self):
         self.uiVor.treeWidget.blockSignals(True)
-        vortList = [[],[],[],[],[],[],[],[]]
+        vortList = []
+        for vortTyp in VorteilTypen:
+            vortList.append([])
+
         for el in Wolke.DB.vorteile:
             idx = Wolke.DB.vorteile[el].typ
             vortList[idx].append(el)
@@ -88,7 +91,10 @@ class CharakterVorteileWrapper(QtCore.QObject):
         
     def loadVorteile(self):
         self.uiVor.treeWidget.blockSignals(True)
-        vortList = [[],[],[],[],[],[],[],[]]
+        vortList = []
+        for vortTyp in VorteilTypen:
+            vortList.append([])
+
         for el in Wolke.DB.vorteile:
             if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.vorteile[el].voraussetzungen):
                 idx = Wolke.DB.vorteile[el].typ
