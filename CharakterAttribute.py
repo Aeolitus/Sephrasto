@@ -458,7 +458,7 @@ class Ui_formAttribute(object):
         self.label_100.setText(_translate("formAttribute", "(4 + 1 je 4 KO)"))
         self.label_101.setText(_translate("formAttribute", "(4 + 1 je 4 MU)"))
         self.label_102.setText(_translate("formAttribute", "(4 + 1 je 4 GE)"))
-        self.label_103.setText(_translate("formAttribute", "(4 + 1 je 4 KK)"))
+        self.label_103.setText(_translate("formAttribute", "(1 je 4 KK)"))
         self.label_104.setText(_translate("formAttribute", "(IN)"))
         self.label_27.setText(_translate("formAttribute", "MR"))
         self.label_28.setText(_translate("formAttribute", "GS"))
