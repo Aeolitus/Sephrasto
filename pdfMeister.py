@@ -824,6 +824,11 @@ class pdfMeister(object):
             if index != -1:
                 text = text[:index]
 
+            #Remove everything from Erlernen on (some talents don't have a Fertigkeiten list)
+            index = text.find('\nErlernen')
+            if index != -1:
+                text = text[:index]
+
             #Replace line endings without a full stop, colon or another line ending before by just a full stop
             text = re.sub('(?<![\.\n\:])\n', '. ', text)
 
