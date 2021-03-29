@@ -9,6 +9,7 @@ import CharakterUebernatuerlich
 import TalentPicker
 import MousewheelProtector
 from PyQt5 import QtWidgets, QtCore, QtGui
+from PyQt5.QtWidgets import QHeaderView
 import logging
 
 class UebernatuerlichWrapper(QtCore.QObject):
@@ -42,6 +43,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
         self.layoutRef = {}
         self.buttonRef = {}
         self.widgetRef = {}
+        self.pdfRef = {}
         
         #If there is an ability already, then we take it to display already
         self.currentFertName = next(iter(Wolke.Char.übernatürlicheFertigkeiten), "")
@@ -65,19 +67,34 @@ class UebernatuerlichWrapper(QtCore.QObject):
             self.uiFert.tableWidget.clear()
             
             self.uiFert.tableWidget.setRowCount(len(self.availableFerts))
-            self.uiFert.tableWidget.setColumnCount(3)
+            self.uiFert.tableWidget.setColumnCount(4)
+            header = self.uiFert.tableWidget.horizontalHeader()
+            header.setMinimumSectionSize(0)
+            header.setSectionResizeMode(0, QHeaderView.Fixed)
+            header.setSectionResizeMode(1, QHeaderView.Stretch)
+            header.setSectionResizeMode(2, QHeaderView.Fixed)
+            header.setSectionResizeMode(3, QHeaderView.Fixed)
+            self.uiFert.tableWidget.setColumnWidth(0, 40)
+            self.uiFert.tableWidget.setColumnWidth(2, 80)
+            self.uiFert.tableWidget.setColumnWidth(3, 80)
+
+            #header.setMinimumSectionSize
+
             self.uiFert.tableWidget.verticalHeader().setVisible(False)
             item = QtWidgets.QTableWidgetItem()
-            item.setText("Name")
+            item.setText("PDF")
             self.uiFert.tableWidget.setHorizontalHeaderItem(0, item)
             item = QtWidgets.QTableWidgetItem()
-            item.setTextAlignment(QtCore.Qt.AlignCenter)
-            item.setText("FW")
+            item.setText("Name")
             self.uiFert.tableWidget.setHorizontalHeaderItem(1, item)
             item = QtWidgets.QTableWidgetItem()
             item.setTextAlignment(QtCore.Qt.AlignCenter)
-            item.setText("Talente")
+            item.setText("FW")
             self.uiFert.tableWidget.setHorizontalHeaderItem(2, item)
+            item = QtWidgets.QTableWidgetItem()
+            item.setTextAlignment(QtCore.Qt.AlignCenter)
+            item.setText("Talente")
+            self.uiFert.tableWidget.setHorizontalHeaderItem(3, item)
     
             count = 0
             
@@ -91,8 +108,16 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 if el not in Wolke.Char.übernatürlicheFertigkeiten:
                     Wolke.Char.übernatürlicheFertigkeiten.update({el: Wolke.DB.übernatürlicheFertigkeiten[el].__deepcopy__()})
                     Wolke.Char.übernatürlicheFertigkeiten[el].wert = 0
+                    Wolke.Char.übernatürlicheFertigkeiten[el].addToPDF = False
                 Wolke.Char.übernatürlicheFertigkeiten[el].aktualisieren()
-                self.uiFert.tableWidget.setItem(count, 0, QtWidgets.QTableWidgetItem(Wolke.Char.übernatürlicheFertigkeiten[el].name))
+
+                self.pdfRef[Wolke.Char.übernatürlicheFertigkeiten[el].name] = QtWidgets.QCheckBox()
+                self.pdfRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].setStyleSheet("margin-left:10; margin-right:10;");
+                self.pdfRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].setChecked(Wolke.Char.übernatürlicheFertigkeiten[el].addToPDF)
+                self.pdfRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].stateChanged.connect(lambda state, name=Wolke.Char.übernatürlicheFertigkeiten[el].name: self.addToPDFClicked(name, state))
+                self.uiFert.tableWidget.setCellWidget(count,0,self.pdfRef[Wolke.Char.übernatürlicheFertigkeiten[el].name])
+
+                self.uiFert.tableWidget.setItem(count, 1, QtWidgets.QTableWidgetItem(Wolke.Char.übernatürlicheFertigkeiten[el].name))
                 
                 # Add Spinner for FW
                 #self.uiFert.tableWidget.setItem(count,1,QtWidgets.QTableWidgetItem(str(Wolke.Char.übernatürlicheFertigkeiten[el].wert)))
@@ -104,7 +129,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 self.spinRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].setValue(Wolke.Char.übernatürlicheFertigkeiten[el].wert)
                 self.spinRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].setAlignment(QtCore.Qt.AlignCenter)
                 self.spinRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].valueChanged.connect(lambda state, name=Wolke.Char.übernatürlicheFertigkeiten[el].name: self.spinnerClicked(name))
-                self.uiFert.tableWidget.setCellWidget(count,1,self.spinRef[Wolke.Char.übernatürlicheFertigkeiten[el].name])
+                self.uiFert.tableWidget.setCellWidget(count,2,self.spinRef[Wolke.Char.übernatürlicheFertigkeiten[el].name])
                 
                 # Add Talents Count and Add Button
                 self.layoutRef[Wolke.Char.übernatürlicheFertigkeiten[el].name] = QtWidgets.QHBoxLayout()
@@ -120,7 +145,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 self.layoutRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].addWidget(self.buttonRef[Wolke.Char.übernatürlicheFertigkeiten[el].name])
                 self.widgetRef[Wolke.Char.übernatürlicheFertigkeiten[el].name] = QtWidgets.QWidget()
                 self.widgetRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].setLayout(self.layoutRef[Wolke.Char.übernatürlicheFertigkeiten[el].name])
-                self.uiFert.tableWidget.setCellWidget(count,2,self.widgetRef[Wolke.Char.übernatürlicheFertigkeiten[el].name])
+                self.uiFert.tableWidget.setCellWidget(count,3,self.widgetRef[Wolke.Char.übernatürlicheFertigkeiten[el].name])
                 #self.uiFert.tableWidget.setItem(count,2,QtWidgets.QTableWidgetItem(str(len(Wolke.Char.übernatürlicheFertigkeiten[el].gekaufteTalente))))
                 self.rowRef.update({Wolke.Char.übernatürlicheFertigkeiten[el].name: count})
                 count += 1
@@ -131,7 +156,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
         
     def tableClicked(self):
         if not self.currentlyLoading:
-            tmp = self.uiFert.tableWidget.item(self.uiFert.tableWidget.currentRow(),0).text()
+            tmp = self.uiFert.tableWidget.item(self.uiFert.tableWidget.currentRow(),1).text()
             if tmp in Wolke.Char.übernatürlicheFertigkeiten:    
                 self.currentFertName = tmp
                 self.updateInfo()
@@ -153,7 +178,12 @@ class UebernatuerlichWrapper(QtCore.QObject):
                     self.uiFert.spinFW.setValue(val)
                 else:
                     self.spinRef[self.currentFertName].setValue(val)
+                self.updateAddToPDF()
     
+    def addToPDFClicked(self, fert, state):
+        Wolke.Char.übernatürlicheFertigkeiten[fert].addToPDF = state
+        self.modified.emit()
+
     def spinnerClicked(self, fert):
         if not self.currentlyLoading:
             self.currentFertName = fert
@@ -218,13 +248,21 @@ class UebernatuerlichWrapper(QtCore.QObject):
     def editTalents(self):
         if self.currentFertName != "":
             tal = TalentPicker.TalentPicker(self.currentFertName, True)
+            self.updateAddToPDF()
             if tal.gekaufteTalente is not None:
                 self.modified.emit()
                 self.updateTalents()
                 
     def updateTalentRow(self):
         for i in range(self.uiFert.tableWidget.rowCount()):
-            fert = self.uiFert.tableWidget.item(i,0).text()
+            fert = self.uiFert.tableWidget.item(i,1).text()
             #self.uiFert.tableWidget.setItem(i,2,QtWidgets.QTableWidgetItem(str(len(Wolke.Char.übernatürlicheFertigkeiten[fert].gekaufteTalente))))
             self.labelRef[fert].setText(str(len(Wolke.Char.übernatürlicheFertigkeiten[fert].gekaufteTalente)))
+
+    def updateAddToPDF(self):
+        if self.currentFertName != "":
+            fert = Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName]
+            add = len(fert.gekaufteTalente) > 0 and fert.wert > 0
+            fert.addToPDF = add
+            self.pdfRef[self.currentFertName].setChecked(add)
             

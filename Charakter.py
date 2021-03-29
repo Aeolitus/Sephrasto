@@ -964,6 +964,7 @@ class Char():
             fertNode = etree.SubElement(üfer,'Übernatürliche-Fertigkeit')
             fertNode.set('name',self.übernatürlicheFertigkeiten[fert].name)
             fertNode.set('wert',str(self.übernatürlicheFertigkeiten[fert].wert))
+            fertNode.set('addToPDF',str(self.übernatürlicheFertigkeiten[fert].addToPDF))
             talentNode = etree.SubElement(fertNode,'Talente')
             for talent in self.übernatürlicheFertigkeiten[fert].gekaufteTalente:
                 talNode = etree.SubElement(talentNode,'Talent')
@@ -1173,6 +1174,8 @@ class Char():
 
             fert = Wolke.DB.übernatürlicheFertigkeiten[nam].__deepcopy__()
             fert.wert = int(fer.attrib['wert'])
+            if 'addToPDF' in fer.attrib:
+                fert.addToPDF = fer.attrib['addToPDF'] == "True"
             for tal in fer.findall('Talente/Talent'):
                 nam = tal.attrib['name']
                 if not nam in Wolke.DB.talente:

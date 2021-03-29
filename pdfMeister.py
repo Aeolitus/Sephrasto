@@ -557,9 +557,7 @@ class pdfMeister(object):
 
         fertsList = []
         for f in Wolke.Char.übernatürlicheFertigkeiten:
-            if Wolke.Char.übernatürlicheFertigkeiten[f].wert <= 0 and\
-                    len(Wolke.Char.übernatürlicheFertigkeiten[f].
-                        gekaufteTalente) == 0:
+            if not Wolke.Char.übernatürlicheFertigkeiten[f].addToPDF:
                 continue
             fertsList.append(f)
         fertsList.sort(key = lambda x: (Wolke.DB.übernatürlicheFertigkeiten[x].printclass, x))
