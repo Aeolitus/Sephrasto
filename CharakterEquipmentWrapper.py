@@ -61,6 +61,7 @@ class EquipWrapper(QtCore.QObject):
         self.uiEq.checkW8FK.stateChanged.connect(lambda state: self.uiEq.spinW8lz.setEnabled(state))
 
         logging.debug("Check Toggle...")
+        self.uiEq.checkZonen.setChecked(Wolke.Char.zonenSystemNutzen)
         self.uiEq.checkZonen.stateChanged.connect(self.checkToggleEquip)
         self.defaultStyle = self.uiEq.spinW1h.styleSheet()
         self.currentlyLoading = False
@@ -103,6 +104,10 @@ class EquipWrapper(QtCore.QObject):
             if not Hilfsmethoden.ArrayEqual(ruestungNeu, Wolke.Char.rüstung):
                 changed = True
                 Wolke.Char.rüstung = ruestungNeu
+
+            if Wolke.Char.zonenSystemNutzen != self.uiEq.checkZonen.isChecked():
+                Wolke.Char.zonenSystemNutzen = self.uiEq.checkZonen.isChecked()
+                changed = True
 
             waffenNeu = []
             kampfstile = [Definitionen.KeinKampfstil] + Wolke.DB.findKampfstile()

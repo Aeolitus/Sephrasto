@@ -109,6 +109,7 @@ class Char():
         self.rüstungsgewöhnung = 0
         self.rsmod = 0
         self.waffenEigenschaftenUndo = [] #For undoing changes made by Vorteil scripts
+        self.zonenSystemNutzen = False
 
         #Sechster Block: Übernatürliches
         self.übernatürlicheFertigkeiten = copy.deepcopy(
@@ -924,6 +925,10 @@ class Char():
         #Fünfter Block
         Wolke.Fehlercode = -59
         aus = etree.SubElement(root,'Objekte')
+
+        zonenSystem = etree.SubElement(aus,'Zonensystem')
+        zonenSystem.text = str(self.zonenSystemNutzen)
+
         rüs = etree.SubElement(aus,'Rüstungen')
         for rüst in self.rüstung:
             rüsNode = etree.SubElement(rüs,'Rüstung')
@@ -1125,14 +1130,20 @@ class Char():
             self.freieFertigkeiten.append(fert)
         #Fünfter Block
         Wolke.Fehlercode = -48
-        for rüs in root.findall('Objekte/Rüstungen/Rüstung'):
+
+        objekte = root.find('Objekte');
+        zonenSystem = objekte.find('Zonensystem')
+        if zonenSystem != None:
+            self.zonenSystemNutzen = zonenSystem.text == "True"
+
+        for rüs in objekte.findall('Rüstungen/Rüstung'):
             rüst = Objekte.Ruestung()
             rüst.name = rüs.attrib['name']
             rüst.be = int(rüs.attrib['be'])
             rüst.rs = Hilfsmethoden.RsStr2Array(rüs.attrib['rs'])
             self.rüstung.append(rüst)
         Wolke.Fehlercode = -49
-        for waf in root.findall('Objekte/Waffen/Waffe'):
+        for waf in objekte.findall('Waffen/Waffe'):
             if waf.attrib['typ'] == 'Nah':
                 waff = Objekte.Nahkampfwaffe()
             else:
@@ -1150,7 +1161,7 @@ class Char():
             waff.kampfstil = waf.attrib['kampfstil']
             self.waffen.append(waff)
         Wolke.Fehlercode = -50
-        for aus in root.findall('Objekte/Ausrüstung/Ausrüstungsstück'):
+        for aus in objekte.findall('Ausrüstung/Ausrüstungsstück'):
             self.ausrüstung.append(aus.text or "")
         #Sechster Block 
         Wolke.Fehlercode = -51
