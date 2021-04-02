@@ -738,7 +738,7 @@
       </widget>
      </item>
      <item row="9" column="6">
-      <widget class="QLabel" name="label_15">
+      <widget class="QLabel" name="lblKapZugekauft">
        <property name="minimumSize">
         <size>
          <width>100</width>
@@ -997,7 +997,7 @@
       </widget>
      </item>
      <item row="9" column="7">
-      <widget class="QLabel" name="label_32">
+      <widget class="QLabel" name="lblKap">
        <property name="minimumSize">
         <size>
          <width>26</width>

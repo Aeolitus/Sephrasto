@@ -42,7 +42,7 @@ class pdfMeister(object):
         self.RuleWeights = []
         self.RuleCategories = ['ALLGEMEINE VORTEILE', 'PROFANE VORTEILE', 'KAMPFVORTEILE', 'AKTIONEN', 'WAFFENEIGENSCHAFTEN', 'NAHKAMPFMANÖVER', 'FERNKAMPFMANÖVER', 'ÜBERNATÜRLICHE VORTEILE', 'SPONTANE MODIFIKATIONEN (ZAUBER)', 'SPONTANE MODIFIKATIONEN (LITURGIEN)', 'ÜBERNATÜRLICHE TALENTE', 'SONSTIGES']
         self.Talents = []
-        self.Energie = 0
+        self.Energie = ""
     
     def setCharakterbogen(self, charakterBogenInfo):
         self.CharakterBogen = charakterBogenInfo
@@ -242,15 +242,14 @@ class pdfMeister(object):
             fields['Karmaenergie'] = Wolke.Char.kap.wert + Wolke.Char.kapBasis + Wolke.Char.kapMod
             fields['ModKarmaenergie'] = Wolke.Char.kap.wert
 
-        if isZauberer and not isGeweiht:
-            self.Energie = Wolke.Char.asp.wert + Wolke.Char.aspBasis + Wolke.Char.aspMod
-            fields['EN'] = self.Energie
-            #fields['gEN'] = "0"
-        elif not isZauberer and isGeweiht:
-            self.Energie = Wolke.Char.kap.wert + Wolke.Char.kapBasis + Wolke.Char.kapMod
-            fields['EN'] = self.Energie
-            #fields['gEN'] = "0"
-        # Wenn sowohl AsP als auch KaP vorhanden sind, muss der Spieler ran..
+        self.Energie = ""
+        if isZauberer:
+            self.Energie = str(Wolke.Char.asp.wert + Wolke.Char.aspBasis + Wolke.Char.aspMod)
+            if isGeweiht:
+                self.Energie += " / "
+        if isGeweiht:
+            self.Energie += str(Wolke.Char.kap.wert + Wolke.Char.kapBasis + Wolke.Char.kapMod)
+        fields['EN'] = self.Energie
 
         trueBE = max(Wolke.Char.be, 0)
         fields['DHm'] = max(Wolke.Char.dh - 2*trueBE, 1)
