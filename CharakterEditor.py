@@ -24,6 +24,13 @@ from pdfMeister import CharakterbogenInfo
 import logging
 from EventBus import EventBus
 
+class Tab():
+    def __init__(self, order, wrapper, form, name):
+        self.order = order
+        self.wrapper = wrapper
+        self.form = form
+        self.name = name
+
 class Editor(object):
     '''
     Main class for the character editing window. Mostly puts together the
@@ -65,37 +72,29 @@ class Editor(object):
         self.EPWrapper = CharakterEPWrapper.EPWrapper()
         
         tabs = []
-        tabs.append((10, self.BeschrWrapper.formBeschr, "Beschreibung"))
-        tabs.append((30, self.AttrWrapper.formAttr, "Attribute"))
-        tabs.append((40, self.VortWrapper.formVor, "Vorteile"))
-        tabs.append((50, self.FertWrapper.formFert, "Fertigkeiten"))
-        tabs.append((60, self.FreiWrapper.formFert, "Freie Fertigkeiten"))
-        tabs.append((70, self.UebernatuerlichWrapper.formFert, "Übernatürliches"))
-        tabs.append((80, self.EquipWrapper.formEq, "Ausrüstung"))   
-        tabs.append((90, self.ItmWrapper.formIt, "Inventar"))
-        tabs.append((100, self.EPWrapper.formEP, "EP-Verteilung"))
+        tabs.append(Tab(10, self.BeschrWrapper, self.BeschrWrapper.formBeschr, "Beschreibung"))
+        tabs.append(Tab(30, self.AttrWrapper, self.AttrWrapper.formAttr, "Attribute"))
+        tabs.append(Tab(40, self.VortWrapper, self.VortWrapper.formVor, "Vorteile"))
+        tabs.append(Tab(50, self.FertWrapper, self.FertWrapper.formFert, "Fertigkeiten"))
+        tabs.append(Tab(60, self.FreiWrapper, self.FreiWrapper.formFert, "Freie Fertigkeiten"))
+        tabs.append(Tab(70, self.UebernatuerlichWrapper, self.UebernatuerlichWrapper.formFert, "Übernatürliches"))
+        tabs.append(Tab(80, self.EquipWrapper, self.EquipWrapper.formEq, "Ausrüstung"))   
+        tabs.append(Tab(90, self.ItmWrapper, self.ItmWrapper.formIt, "Inventar"))
+        tabs.append(Tab(100, self.EPWrapper, self.EPWrapper.formEP, "EP-Verteilung"))
 
         for plugin in plugins:
             if hasattr(plugin, "getCharakterTabs"):
                 for tab in plugin.getCharakterTabs():
-                   tabs.append((tab[0], tab[1], tab[2]))
+                   tabs.append(tab)
         
-        tabs = sorted(tabs, key=lambda tab: tab[0])
+        tabs = sorted(tabs, key=lambda tab: tab.order)
         tabPadding = "    "
         if len(tabs) > 9:
             tabPadding = ""
         for tab in tabs:
-            self.ui.tabs.addTab(tab[1], tabPadding + tab[2] + tabPadding)
-
-        self.BeschrWrapper.modified.connect(self.onModified)
-        self.AttrWrapper.modified.connect(self.onModified)
-        self.FertWrapper.modified.connect(self.onModified)
-        self.FreiWrapper.modified.connect(self.onModified)
-        self.UebernatuerlichWrapper.modified.connect(self.onModified)
-        self.EquipWrapper.modified.connect(self.onModified)
-        self.VortWrapper.modified.connect(self.onModified)
-        self.ItmWrapper.modified.connect(self.onModified)
-        self.EPWrapper.modified.connect(self.onModified)
+            self.ui.tabs.addTab(tab.form, tabPadding + tab.name + tabPadding)
+            if hasattr(tab.wrapper, "modified"):
+                tab.wrapper.modified.connect(self.onModified)
         
         self.ui.tabs.currentChanged.connect(self.reloadAll)
         self.ui.buttonSave.clicked.connect(self.saveButton)
