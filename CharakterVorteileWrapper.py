@@ -11,6 +11,7 @@ from Charakter import VariableKosten
 from PyQt5 import QtWidgets, QtCore
 from Definitionen import VorteilTypen
 import logging
+from EventBus import EventBus
 
 class CharakterVorteileWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
@@ -184,6 +185,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
         if minderp.minderpakt in Wolke.DB.vorteile and minderp.minderpakt not in Wolke.Char.vorteile:
             Wolke.Char.minderpakt = minderp.minderpakt
             Wolke.Char.vorteile.append(minderp.minderpakt)
+            EventBus.doAction("vorteil_gekauft", { "name" : minderp.minderpakt})
             minderpaktWidget = self.uiVor.treeWidget.findItems(Wolke.Char.minderpakt, QtCore.Qt.MatchRecursive)[0]
 
             if Wolke.Char.minderpakt in self.itemWidgets:
@@ -205,6 +207,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
         if name == "Minderpakt":
             if Wolke.Char.minderpakt in Wolke.Char.vorteile:
                 Wolke.Char.vorteile.remove(Wolke.Char.minderpakt)
+                EventBus.doAction("vorteil_entfernt", { "name" : Wolke.Char.minderpakt})
             minderpaktWidget = self.uiVor.treeWidget.findItems(Wolke.Char.minderpakt, QtCore.Qt.MatchRecursive)[0]
             self.restoreMinderpaktWidgets(Wolke.Char.minderpakt, minderpaktWidget)
             Wolke.Char.minderpakt = None
@@ -213,6 +216,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
         if Wolke.Char.minderpakt is not None and name == Wolke.Char.minderpakt:
             if "Minderpakt" in Wolke.Char.vorteile:
                 Wolke.Char.vorteile.remove("Minderpakt")
+                EventBus.doAction("vorteil_entfernt", { "name" : "Minderpakt"})
             self.restoreMinderpaktWidgets(Wolke.Char.minderpakt, item)
             Wolke.Char.minderpakt = None
         return None
@@ -230,10 +234,12 @@ class CharakterVorteileWrapper(QtCore.QObject):
             Wolke.Char.vorteile.append(name)
             self.handleAddKommentarWidget(name, item)
             manualUpdate = self.handleAddMinderpakt(name, item)
+            EventBus.doAction("vorteil_gekauft", { "name" : name})
         elif cs != QtCore.Qt.Checked and name in Wolke.Char.vorteile:
             Wolke.Char.vorteile.remove(name)
             self.handleRemoveKommentarWidget(item)
             manualUpdate = self.handleRemoveMinderpakt(name, item)
+            EventBus.doAction("vorteil_entfernt", { "name" : name})
 
         self.modified.emit()
         self.loadVorteile() 

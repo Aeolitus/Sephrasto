@@ -648,6 +648,7 @@ class Char():
                     contFlag = False
             for el in remove:
                 self.vorteile.remove(el)
+                EventBus.doAction("vorteil_entfernt", { "name" : el})
             if contFlag:
                 break
 
