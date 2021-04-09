@@ -310,10 +310,18 @@
   <tabstop>comboRegelbasis</tabstop>
   <tabstop>comboBogen</tabstop>
   <tabstop>checkCheatsheet</tabstop>
+  <tabstop>comboFontSize</tabstop>
+  <tabstop>checkPDFOpen</tabstop>
   <tabstop>editChar</tabstop>
   <tabstop>buttonChar</tabstop>
+  <tabstop>resetChar</tabstop>
   <tabstop>editRegeln</tabstop>
   <tabstop>buttonRegeln</tabstop>
+  <tabstop>resetRegeln</tabstop>
+  <tabstop>editPlugins</tabstop>
+  <tabstop>buttonPlugins</tabstop>
+  <tabstop>resetPlugins</tabstop>
+  <tabstop>comboLogging</tabstop>
  </tabstops>
  <resources/>
  <connections>

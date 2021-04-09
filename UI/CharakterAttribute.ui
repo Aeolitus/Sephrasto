@@ -28,6 +28,9 @@
      </item>
      <item row="8" column="4">
       <widget class="QSpinBox" name="pwCH">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="wrapping">
         <bool>false</bool>
        </property>
@@ -50,6 +53,9 @@
      </item>
      <item row="3" column="4">
       <widget class="QSpinBox" name="pwMU">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="wrapping">
         <bool>false</bool>
        </property>
@@ -72,6 +78,9 @@
      </item>
      <item row="5" column="4">
       <widget class="QSpinBox" name="pwKK">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="wrapping">
         <bool>false</bool>
        </property>
@@ -94,6 +103,9 @@
      </item>
      <item row="5" column="8">
       <widget class="QSpinBox" name="abSB">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="wrapping">
         <bool>false</bool>
        </property>
@@ -116,6 +128,9 @@
      </item>
      <item row="6" column="4">
       <widget class="QSpinBox" name="pwIN">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="wrapping">
         <bool>false</bool>
        </property>
@@ -145,6 +160,9 @@
      </item>
      <item row="2" column="4">
       <widget class="QSpinBox" name="pwKO">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="wrapping">
         <bool>false</bool>
        </property>
@@ -334,6 +352,9 @@
      </item>
      <item row="4" column="4">
       <widget class="QSpinBox" name="pwGE">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="wrapping">
         <bool>false</bool>
        </property>
@@ -356,6 +377,9 @@
      </item>
      <item row="2" column="8">
       <widget class="QSpinBox" name="abWS">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="wrapping">
         <bool>false</bool>
        </property>
@@ -424,6 +448,9 @@
      </item>
      <item row="3" column="8">
       <widget class="QSpinBox" name="abMR">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="wrapping">
         <bool>false</bool>
        </property>
@@ -446,6 +473,9 @@
      </item>
      <item row="4" column="8">
       <widget class="QSpinBox" name="abGS">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="wrapping">
         <bool>false</bool>
        </property>
@@ -521,6 +551,9 @@
      </item>
      <item row="7" column="4">
       <widget class="QSpinBox" name="pwKL">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="wrapping">
         <bool>false</bool>
        </property>
@@ -613,6 +646,9 @@
      </item>
      <item row="6" column="8">
       <widget class="QSpinBox" name="abIN">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="wrapping">
         <bool>false</bool>
        </property>
@@ -662,6 +698,9 @@
      </item>
      <item row="9" column="4">
       <widget class="QSpinBox" name="pwFF">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="wrapping">
         <bool>false</bool>
        </property>

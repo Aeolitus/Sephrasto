@@ -294,6 +294,7 @@
   </layout>
  </widget>
  <tabstops>
+  <tabstop>nameFilterEdit</tabstop>
   <tabstop>treeWeapons</tabstop>
   <tabstop>scrollArea</tabstop>
   <tabstop>plainStile</tabstop>

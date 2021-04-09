@@ -16,6 +16,9 @@
   <layout class="QGridLayout" name="gridLayout">
    <item row="6" column="4">
     <widget class="QSpinBox" name="spinFreiePercent">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
@@ -38,6 +41,9 @@
    </item>
    <item row="6" column="3">
     <widget class="QSpinBox" name="spinFreieSpent">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
@@ -82,6 +88,9 @@
    </item>
    <item row="9" column="3">
     <widget class="QSpinBox" name="spinUeberFertigkeitenSpent">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
@@ -127,6 +136,9 @@
    </item>
    <item row="5" column="4">
     <widget class="QSpinBox" name="spinTalentePercent">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
@@ -161,6 +173,9 @@
    </item>
    <item row="10" column="3">
     <widget class="QSpinBox" name="spinUeberTalenteSpent">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
@@ -180,6 +195,9 @@
    </item>
    <item row="2" column="4">
     <widget class="QSpinBox" name="spinVorteilePercent">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
@@ -199,6 +217,9 @@
    </item>
    <item row="2" column="3">
     <widget class="QSpinBox" name="spinVorteileSpent">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
@@ -218,6 +239,9 @@
    </item>
    <item row="1" column="4">
     <widget class="QSpinBox" name="spinAttributePercent">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
@@ -237,6 +261,9 @@
    </item>
    <item row="7" column="3">
     <widget class="QSpinBox" name="spinUebernatuerlichSpent">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
@@ -263,6 +290,9 @@
    </item>
    <item row="3" column="3">
     <widget class="QSpinBox" name="spinProfanSpent">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
@@ -289,6 +319,9 @@
    </item>
    <item row="10" column="4">
     <widget class="QSpinBox" name="spinUeberTalentePercent">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
@@ -323,6 +356,9 @@
    </item>
    <item row="3" column="4">
     <widget class="QSpinBox" name="spinProfanPercent">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
@@ -362,6 +398,9 @@
    </item>
    <item row="1" column="3">
     <widget class="QSpinBox" name="spinAttributeSpent">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
@@ -381,6 +420,9 @@
    </item>
    <item row="7" column="4">
     <widget class="QSpinBox" name="spinUebernatuerlichPercent">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
@@ -400,6 +442,9 @@
    </item>
    <item row="9" column="4">
     <widget class="QSpinBox" name="spinUeberFertigkeitenPercent">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
@@ -446,6 +491,9 @@
    </item>
    <item row="4" column="3">
     <widget class="QSpinBox" name="spinFertigkeitenSpent">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
@@ -465,6 +513,9 @@
    </item>
    <item row="5" column="3">
     <widget class="QSpinBox" name="spinTalenteSpent">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
@@ -491,6 +542,9 @@
    </item>
    <item row="4" column="4">
     <widget class="QSpinBox" name="spinFertigkeitenPercent">
+     <property name="focusPolicy">
+      <enum>Qt::NoFocus</enum>
+     </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>

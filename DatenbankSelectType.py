@@ -81,7 +81,9 @@ class Ui_Dialog(object):
         Dialog.setTabOrder(self.buttonTalent, self.buttonVorteil)
         Dialog.setTabOrder(self.buttonVorteil, self.buttonFertigkeit)
         Dialog.setTabOrder(self.buttonFertigkeit, self.buttonUebernatuerlich)
-        Dialog.setTabOrder(self.buttonUebernatuerlich, self.buttonWaffe)
+        Dialog.setTabOrder(self.buttonUebernatuerlich, self.buttonWaffeneigenschaft)
+        Dialog.setTabOrder(self.buttonWaffeneigenschaft, self.buttonWaffe)
+        Dialog.setTabOrder(self.buttonWaffe, self.buttonManoever)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate

@@ -140,6 +140,7 @@ class Ui_Dialog(object):
         self.buttonBox.accepted.connect(Dialog.accept)
         self.buttonBox.rejected.connect(Dialog.reject)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
+        Dialog.setTabOrder(self.nameFilterEdit, self.treeWeapons)
         Dialog.setTabOrder(self.treeWeapons, self.scrollArea)
         Dialog.setTabOrder(self.scrollArea, self.plainStile)
         Dialog.setTabOrder(self.plainStile, self.plainEigenschaften)

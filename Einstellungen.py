@@ -162,10 +162,18 @@ class Ui_SettingsWindow(object):
         QtCore.QMetaObject.connectSlotsByName(SettingsWindow)
         SettingsWindow.setTabOrder(self.comboRegelbasis, self.comboBogen)
         SettingsWindow.setTabOrder(self.comboBogen, self.checkCheatsheet)
-        SettingsWindow.setTabOrder(self.checkCheatsheet, self.editChar)
+        SettingsWindow.setTabOrder(self.checkCheatsheet, self.comboFontSize)
+        SettingsWindow.setTabOrder(self.comboFontSize, self.checkPDFOpen)
+        SettingsWindow.setTabOrder(self.checkPDFOpen, self.editChar)
         SettingsWindow.setTabOrder(self.editChar, self.buttonChar)
-        SettingsWindow.setTabOrder(self.buttonChar, self.editRegeln)
+        SettingsWindow.setTabOrder(self.buttonChar, self.resetChar)
+        SettingsWindow.setTabOrder(self.resetChar, self.editRegeln)
         SettingsWindow.setTabOrder(self.editRegeln, self.buttonRegeln)
+        SettingsWindow.setTabOrder(self.buttonRegeln, self.resetRegeln)
+        SettingsWindow.setTabOrder(self.resetRegeln, self.editPlugins)
+        SettingsWindow.setTabOrder(self.editPlugins, self.buttonPlugins)
+        SettingsWindow.setTabOrder(self.buttonPlugins, self.resetPlugins)
+        SettingsWindow.setTabOrder(self.resetPlugins, self.comboLogging)
 
     def retranslateUi(self, SettingsWindow):
         _translate = QtCore.QCoreApplication.translate

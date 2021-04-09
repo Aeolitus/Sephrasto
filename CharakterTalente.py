@@ -85,7 +85,8 @@ class Ui_Dialog(object):
         QtCore.QMetaObject.connectSlotsByName(Dialog)
         Dialog.setTabOrder(self.listTalente, self.scrollArea)
         Dialog.setTabOrder(self.scrollArea, self.spinKosten)
-        Dialog.setTabOrder(self.spinKosten, self.plainText)
+        Dialog.setTabOrder(self.spinKosten, self.textKommentar)
+        Dialog.setTabOrder(self.textKommentar, self.plainText)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
