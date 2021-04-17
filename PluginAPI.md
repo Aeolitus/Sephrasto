@@ -1,3 +1,4 @@
+
 # Plugin API
 
 ## Was kann ich mit Plugins machen?
@@ -73,6 +74,16 @@ Zweck: Die Kosten für Attributs-Steigerungen anpassen. Die Parameter enthalten 
 Zweck: Die Kosten für freie Fertigkeiten anpassen. Die Parameter enthalten den Namen der freien Fertigkeit und die Stufe.
 - "talent_kosten" (Filter: kosten: int, Parameter: { "talent" : string })
 Zweck: Die Kosten für Talente anpassen. Der Parameter enthält den Namen des Talents.
+- Die folgenden Filter haben alle eine Gemeinsamkeit:  Der Filterwert ist eine Wrapperklasse eines der UI-Tabs. Im Filter kann der Wrapper komplett ersetzt oder beerbt werden, um die Sephrasto-UI anzupassen.
+-- "class_beschreibung_wrapper" (Filter: BeschrWrapper : class)
+-- "class_attribute_wrapper" (Filter: AttrWrapper : class)
+-- "class_fertigkeiten_wrapper" (Filter: FertigkeitenWrapper : class)
+-- "class_freiefertigkeiten_wrapper" (Filter: CharakterFreieFertWrapper : class)
+-- "class_uebernatuerlichefertigkeiten_wrapper" (Filter: UebernatuerlichWrapper : class)
+-- "class_ausruestung_wrapper" (Filter: EquipWrapper : class)
+-- "class_vorteile_wrapper" (Filter: CharakterVorteileWrapper : class)
+-- "class_items_wrapper" (Filter: CharakterItemsWrapper : class)
+-- "class_ep_wrapper" (Filter: EPWrapper : class)
 
 ## Neues Plugin erstellen
 - Gehe in deinen `Dokumente/Sephrasto/Plugins` Ordner
@@ -139,7 +150,6 @@ class Plugin:
     def __init__(self):
         self.meinFensterButton = None
         self.meinFenster = None
-        pass
 
     def createMainWindowButtons(self):
         self.meinFensterButton = QtWidgets.QPushButton()
@@ -162,4 +172,30 @@ class MeinFensterWrapper(QtCore.QObject):
         self.form = QtWidgets.QWidget()
         self.ui = MeinFenster.Ui_Form()
         self.ui.setupUi(self.form)
+```
+## Existierende UI anpassen
+Implementiere einen der "class_xx_wrapper" Filter, die UI-Wrapper-Klasse wird als Parameter gereicht. Du kannst diesen Parameter im Handler beerben und diese oder eine ganz neue Klasse returnen. Im folgenden Beispiel wird bei den freien Fertigkeiten die dritte Stufe entfernt.
+
+```python
+from PyQt5 import QtWidgets, QtCore, QtGui
+from EventBus import EventBus
+
+class Plugin:
+    def __init__(self):
+	EventBus.addFilter("class_freiefertigkeiten_wrapper", self.provideFreieFertigkeitenWrapper)
+	
+    def provideFreieFertigkeitenWrapper(self, base, params):
+        class MeinFreieFertigkeitenWrapper(base):
+            def __init__(self):
+                super().__init__()
+                ffCount = 0
+                for row in range(1,8):
+                    for column in range(1,5):
+                        ffCount +=1
+                        combo = getattr(self.uiFert, "comboFF" + str(ffCount))
+                        combo.clear()
+                        combo.addItem("I")
+                        combo.addItem("II")
+
+        return MeinFreieFertigkeitenWrapper
 ```

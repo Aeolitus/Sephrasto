@@ -60,16 +60,16 @@ class Editor(object):
         
     def setupMainForm(self, plugins):      
         self.updateEP()
-        
-        self.BeschrWrapper = CharakterBeschreibungWrapper.BeschrWrapper()
-        self.AttrWrapper = CharakterAttributeWrapper.AttrWrapper()
-        self.FertWrapper = CharakterFertigkeitenWrapper.FertigkeitenWrapper()
-        self.FreiWrapper = CharakterFreieFertWrapper.CharakterFreieFertWrapper()
-        self.UebernatuerlichWrapper = CharakterUebernatuerlichWrapper.UebernatuerlichWrapper()
-        self.EquipWrapper = CharakterEquipmentWrapper.EquipWrapper()
-        self.VortWrapper = CharakterVorteileWrapper.CharakterVorteileWrapper()
-        self.ItmWrapper = CharakterItemsWrapper.CharakterItemsWrapper()
-        self.EPWrapper = CharakterEPWrapper.EPWrapper()
+
+        self.BeschrWrapper = EventBus.applyFilter("class_beschreibung_wrapper", CharakterBeschreibungWrapper.BeschrWrapper)()
+        self.AttrWrapper = EventBus.applyFilter("class_attribute_wrapper", CharakterAttributeWrapper.AttrWrapper)()
+        self.FertWrapper = EventBus.applyFilter("class_fertigkeiten_wrapper", CharakterFertigkeitenWrapper.FertigkeitenWrapper)()
+        self.FreiWrapper = EventBus.applyFilter("class_freiefertigkeiten_wrapper", CharakterFreieFertWrapper.CharakterFreieFertWrapper)()
+        self.UebernatuerlichWrapper = EventBus.applyFilter("class_uebernatuerlichefertigkeiten_wrapper", CharakterUebernatuerlichWrapper.UebernatuerlichWrapper)()
+        self.EquipWrapper = EventBus.applyFilter("class_ausruestung_wrapper", CharakterEquipmentWrapper.EquipWrapper)()
+        self.VortWrapper = EventBus.applyFilter("class_vorteile_wrapper", CharakterVorteileWrapper.CharakterVorteileWrapper)()
+        self.ItmWrapper = EventBus.applyFilter("class_items_wrapper", CharakterItemsWrapper.CharakterItemsWrapper)()
+        self.EPWrapper = EventBus.applyFilter("class_ep_wrapper", CharakterEPWrapper.EPWrapper)()
         
         tabs = []
         tabs.append(Tab(10, self.BeschrWrapper, self.BeschrWrapper.formBeschr, "Beschreibung"))
