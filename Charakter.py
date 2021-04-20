@@ -18,6 +18,7 @@ class KampfstilMod():
         self.VT = 0
         self.TP = 0
         self.RW = 0
+        self.BE = 0
         self.BEIgnore = [] #Tupel aus Kampffertigkeit und Talent für welche die BE ignoriert wird
 
     def __deepcopy__(self):
@@ -34,6 +35,7 @@ class Waffenwerte():
         self.TPW6 = 0
         self.TPPlus = 0
         self.Haerte = 0
+        self.Kampfstil = ""
 
 class VariableKosten():
     def __init__(self):
@@ -268,12 +270,14 @@ class Char():
             'modifyWaffeTPW6' : lambda tpw6mod: setattr(self.currentWaffenwerte, 'TPW6', self.currentWaffenwerte.TPW6 + tpw6mod),
             'modifyWaffeTPPlus' : lambda tpplusmod: setattr(self.currentWaffenwerte, 'TPPlus', self.currentWaffenwerte.TPPlus + tpplusmod),
             'modifyWaffeHaerte' : lambda haertemod: setattr(self.currentWaffenwerte, 'Haerte', self.currentWaffenwerte.Haerte + haertemod),
+            'modifyWaffeRW' : lambda rwmod: setattr(self.currentWaffenwerte, 'RW', self.currentWaffenwerte.RW + rwmod),
             'setWaffeAT' : lambda at: setattr(self.currentWaffenwerte, 'AT', at),
             'setWaffeVT' : lambda vt: setattr(self.currentWaffenwerte, 'VT', vt),
             'setWaffeTPW6' : lambda tpw6: setattr(self.currentWaffenwerte, 'TPW6', tpw6),
             'setWaffeTPPlus' : lambda tpplus: setattr(self.currentWaffenwerte, 'TPPlus', tpplus),
             'setWaffeHaerte' : lambda haerte: setattr(self.currentWaffenwerte, 'Haerte', haerte),
-            'getWaffenWerte' : lambda: copy.deepcopy(self.currentWaffenwerte)
+            'setWaffeRW' : lambda rw: setattr(self.currentWaffenwerte, 'RW', rw),
+            'getWaffenWerte' : lambda: copy.deepcopy(self.currentWaffenwerte),
         }
 
         for k,v in self.charakterScriptAPI.items():
@@ -297,16 +301,17 @@ class Char():
 
         self.übernatürlicheFertigkeiten[name].basiswertMod += mod
 
-    def API_setKampfstil(self, kampfstil, at, vt, tp, rw):
+    def API_setKampfstil(self, kampfstil, at, vt, tp, rw, be = 0):
         k = self.kampfstilMods[kampfstil]
         k.AT = at
         k.VT = vt
         k.TP = tp
         k.RW = rw
+        k.BE = (be or 0)
     
-    def API_modifyKampfstil(self, kampfstil, at, vt, tp, rw):
+    def API_modifyKampfstil(self, kampfstil, at, vt, tp, rw, be = 0):
         k = self.kampfstilMods[kampfstil]
-        self.API_setKampfstil(kampfstil, k.AT + at, k.VT + vt, k.TP + tp, k.RW + rw)
+        self.API_setKampfstil(kampfstil, k.AT + at, k.VT + vt, k.TP + tp, k.RW + rw, k.BE + be)
 
     def API_addWaffeneigenschaft(self, talentName, eigenschaft):
         for waffe in self.waffen:
@@ -462,6 +467,7 @@ class Char():
             waffenwerte.TPW6 = el.W6
             waffenwerte.TPPlus = el.plus
             waffenwerte.Haerte = el.haerte
+            waffenwerte.Kampfstil = el.kampfstil
 
             # Calculate modifiers for AT, PA, TP from Kampfstil and Talent
             if el.name in Wolke.DB.waffen:
@@ -502,8 +508,9 @@ class Char():
                     ignoreBE = True
                     break
             if not ignoreBE:
-                waffenwerte.AT -= self.be
-                waffenwerte.VT -= self.be
+                be = max(self.be + kampfstilMods.BE, 0)
+                waffenwerte.AT -= be
+                waffenwerte.VT -= be
 
             self.currentWaffenwerte = waffenwerte
 

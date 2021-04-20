@@ -34,8 +34,8 @@ Die folgenden Funktionen stehen neben Python-Builtins wie 'round' zur Verfügung
         Beispiel: modifyTalent('Beeinflussung', 'Überreden', 'Rededuell', 2)
     
 #### Kampfstile
-    getKampfstil <Parameter: Kampfstil-Name. Return: { AT, VT, TP, RW }>
-    setKampfstil/modifyKampfstil <Parameter: Kampfstil-Name, AT, VT, TP, RW>
+    getKampfstil <Parameter: Kampfstil-Name. Return: { AT, VT, TP, RW, BE }>
+    setKampfstil/modifyKampfstil <Parameter: Kampfstil-Name, AT, VT, TP, RW, BE>
     setKampfstilBEIgnore <Parameter: Kampfstil-Name, Fertigkeit-Name, Talent-Name>
 
 #### Ausrüstung
@@ -51,8 +51,8 @@ Die folgenden Funktionen stehen neben Python-Builtins wie 'round' zur Verfügung
 Diese Funktionen stehen nur innerhalb von Waffeneigenschaft-Scripts zur Verfügung.
 
     Parameter dieser WE als string erhalten: getEigenschaftParam <Parameter: Parameternummer>. Parameter müssen mit Semikolon getrennt werden.  
-    Waffen mit dieser WE modifizieren: modifyWaffeAT, modifyWaffeVT, modifyWaffeTPW6, modifyWaffeTPPlus, modifyWaffeHaerte, setWaffeAT, setWaffeVT, setWaffeTPW6, setWaffeTPPlus, setWaffeHaerte
-	Aktuelle Werte der Waffe erhalten: getWaffenWerte <Return: { AT, VT, RW, TPW6, TPPlus, Haerte }>
+    Waffen mit dieser WE modifizieren: modifyWaffeAT, modifyWaffeVT, modifyWaffeTPW6, modifyWaffeTPPlus, modifyWaffeHaerte, modifyWaffeRW, setWaffeAT, setWaffeVT, setWaffeTPW6, setWaffeTPPlus, setWaffeHaerte, setWaffeRW
+	Aktuelle Werte der Waffe erhalten: getWaffenWerte <Return: { AT, VT, RW, TPW6, TPPlus, Haerte, Kampfstil }>
        
 ## Beispiele
 
