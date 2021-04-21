@@ -511,7 +511,9 @@ class Char():
             waffenwerte.AT += el.wm
             waffenwerte.VT += el.wm
 
-            if type(el) == Objekte.Nahkampfwaffe:
+            schadensbonusWirkt = type(el) == Objekte.Nahkampfwaffe
+            schadensbonusWirkt = EventBus.applyFilter("waffe_schadensbonus_wirkt", schadensbonusWirkt, { "waffe" : el })
+            if schadensbonusWirkt:
                 waffenwerte.TPPlus += self.schadensbonus
 
             ignoreBE = False
