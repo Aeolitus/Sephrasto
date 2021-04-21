@@ -35,12 +35,11 @@ class CharakterFreieFertWrapper(QtCore.QObject):
                 ffCombo.addItem("II")
                 ffCombo.addItem("III")
                 ffCombo.currentIndexChanged.connect(self.updateFreie)
+                if self.ffCount <= Wolke.Char.freieFertigkeitenNumKostenlos:
+                    ffCombo.setEnabled(False)
                 setattr(self.uiFert, "comboFF" + str(self.ffCount), ffCombo)
                 ffLayout.addWidget(ffCombo)
-
                 self.uiFert.freieFertsGrid.addLayout(ffLayout, row, column)
-                
-        self.uiFert.comboFF1.setEnabled(False)
         
         self.loadFreie()
         
@@ -53,9 +52,14 @@ class CharakterFreieFertWrapper(QtCore.QObject):
             eval("self.uiFert.comboFF" + str(count) + ".blockSignals(True)")
             getName = lambda : el.name
             eval("self.uiFert.editFF" + str(count) + ".setText(getName())")
-            eval("self.uiFert.comboFF" + str(count) + ".setCurrentIndex(" + str(el.wert-1) + ")")
+
+            index = el.wert-1
+            if count <= Wolke.Char.freieFertigkeitenNumKostenlos:
+                index = 2
+            eval("self.uiFert.comboFF" + str(count) + ".setCurrentIndex(" + str(index) + ")")
             eval("self.uiFert.editFF" + str(count) + ".blockSignals(False)")
             eval("self.uiFert.comboFF" + str(count) + ".blockSignals(False)")
+
             count += 1
             if count > self.ffCount:
                 break
@@ -63,14 +67,13 @@ class CharakterFreieFertWrapper(QtCore.QObject):
             eval("self.uiFert.editFF" + str(count) + ".blockSignals(True)")
             eval("self.uiFert.comboFF" + str(count) + ".blockSignals(True)")
             eval("self.uiFert.editFF" + str(count) + ".setText(\"\")")
-            eval("self.uiFert.comboFF" + str(count) + ".setCurrentIndex(0)")
+            index = 0
+            if count <= Wolke.Char.freieFertigkeitenNumKostenlos:
+                index = 2
+            eval("self.uiFert.comboFF" + str(count) + ".setCurrentIndex(" + str(index) + ")")
             eval("self.uiFert.editFF" + str(count) + ".blockSignals(False)")
             eval("self.uiFert.comboFF" + str(count) + ".blockSignals(False)")
             count += 1
-            
-        self.uiFert.comboFF1.blockSignals(True)
-        self.uiFert.comboFF1.setCurrentIndex(2)
-        self.uiFert.comboFF1.blockSignals(False)
     
     def updateFreie(self):
         freieNeu = []

@@ -135,9 +135,17 @@ class AttrWrapper(QtCore.QObject):
         else:
             self.uiAttr.spinAsP.setValue(0)
             self.uiAttr.spinAsP.setEnabled(False)
+
+        self.uiAttr.lblKap.setText("KaP")
+        self.uiAttr.lblKapZugekauft.setText("Zugekaufte Karmaenergie")
         if "Geweiht I" in Wolke.Char.vorteile:
             self.uiAttr.spinKaP.setEnabled(True)
             self.uiAttr.spinKaP.setValue(Wolke.Char.kap.wert)
+        elif "Paktierer I" in Wolke.Char.vorteile:
+            self.uiAttr.spinKaP.setEnabled(True)
+            self.uiAttr.spinKaP.setValue(Wolke.Char.kap.wert)
+            self.uiAttr.lblKap.setText("GuP")
+            self.uiAttr.lblKapZugekauft.setText("Zugekaufte Gunstpunkte")
         else:
             self.uiAttr.spinKaP.setValue(0)
             self.uiAttr.spinKaP.setEnabled(False)

@@ -12,6 +12,7 @@ import Definitionen
 from WaffenPicker import WaffenPicker
 import logging
 from Hilfsmethoden import Hilfsmethoden
+from EventBus import EventBus
 
 class EquipWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
@@ -61,6 +62,7 @@ class EquipWrapper(QtCore.QObject):
         self.uiEq.checkW8FK.stateChanged.connect(lambda state: self.uiEq.spinW8lz.setEnabled(state))
 
         logging.debug("Check Toggle...")
+        self.uiEq.checkZonen.setChecked(Wolke.Char.zonenSystemNutzen)
         self.uiEq.checkZonen.stateChanged.connect(self.checkToggleEquip)
         self.defaultStyle = self.uiEq.spinW1h.styleSheet()
         self.currentlyLoading = False
@@ -104,6 +106,10 @@ class EquipWrapper(QtCore.QObject):
                 changed = True
                 Wolke.Char.rüstung = ruestungNeu
 
+            if Wolke.Char.zonenSystemNutzen != self.uiEq.checkZonen.isChecked():
+                Wolke.Char.zonenSystemNutzen = self.uiEq.checkZonen.isChecked()
+                changed = True
+
             waffenNeu = []
             kampfstile = [Definitionen.KeinKampfstil] + Wolke.DB.findKampfstile()
 
@@ -119,12 +125,13 @@ class EquipWrapper(QtCore.QObject):
                     W.anzeigename = eval("self.uiEq.edit" + el + "name.text()")
                     if not W.name and W.anzeigename and W.anzeigename in Wolke.DB.waffen:
                         W.name = W.anzeigename
+                    if W.name in Wolke.DB.waffen:
+                        dbWaffe = Wolke.DB.waffen[W.name]
+                        W.fertigkeit = dbWaffe.fertigkeit
+                        W.talent = dbWaffe.talent
+                        W.kampfstile = dbWaffe.kampfstile.copy()
 
                     W.rw = eval("self.uiEq.spin" + el + "rw.value()")
-                    if W.name == "Unbewaffnet":
-                        W.haerte = Wolke.Char.wsStern
-                    else:
-                        W.haerte = eval("self.uiEq.spin" + el + "h.value()")
                     W.W6 = eval("self.uiEq.spin" + el + "w6.value()")
                     W.plus = eval("self.uiEq.spin" + el + "plus.value()")
                     eigenschaftStr = eval("self.uiEq.edit" + el + "eig.text()")
@@ -134,6 +141,11 @@ class EquipWrapper(QtCore.QObject):
                     tmp = eval("self.uiEq.comboStil" + el[-1] + ".currentText()")
                     if tmp in kampfstile:
                         W.kampfstil = tmp
+
+                    if EventBus.applyFilter("waffe_haerte_wsstern", W.name == "Unbewaffnet", { "waffe" : W }):
+                        W.haerte = Wolke.Char.wsStern
+                    else:
+                        W.haerte = eval("self.uiEq.spin" + el + "h.value()")
                     waffenNeu.append(W)
             
             if not Hilfsmethoden.ArrayEqual(waffenNeu, Wolke.Char.waffen):
@@ -253,7 +265,7 @@ class EquipWrapper(QtCore.QObject):
         eval("self.uiEq.edit" + Warr[count] + "eig.setText(getEigenschaften())")
         eval("self.uiEq.spin" + Warr[count] + "w6.setValue("+ str(W.W6) +")")
         eval("self.uiEq.spin" + Warr[count] + "plus.setValue("+ str(W.plus) +")")
-        if W.name == "Unbewaffnet":
+        if EventBus.applyFilter("waffe_haerte_wsstern", W.name == "Unbewaffnet", { "waffe" : W }):
             eval("self.uiEq.spin" + Warr[count] + "h.setValue("+ str(Wolke.Char.wsStern) +")")
         else:
             eval("self.uiEq.spin" + Warr[count] + "h.setValue("+ str(W.haerte) +")")

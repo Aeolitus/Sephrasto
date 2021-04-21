@@ -154,6 +154,9 @@
        </item>
        <item>
         <widget class="QSpinBox" name="spinSpent">
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
          </property>
@@ -183,6 +186,9 @@
        </item>
        <item>
         <widget class="QSpinBox" name="spinRemaining">
+         <property name="focusPolicy">
+          <enum>Qt::NoFocus</enum>
+         </property>
          <property name="autoFillBackground">
           <bool>false</bool>
          </property>

@@ -34,8 +34,8 @@ Die folgenden Funktionen stehen neben Python-Builtins wie 'round' zur Verfügung
         Beispiel: modifyTalent('Beeinflussung', 'Überreden', 'Rededuell', 2)
     
 #### Kampfstile
-    getKampfstil <Parameter: Kampfstil-Name. Return: { AT, VT, TP, RW }>
-    setKampfstil/modifyKampfstil <Parameter: Kampfstil-Name, AT, VT, TP, RW>
+    getKampfstil <Parameter: Kampfstil-Name. Return: { AT, VT, TP, RW, BE }>
+    setKampfstil/modifyKampfstil <Parameter: Kampfstil-Name, AT, VT, TP, RW, BE>
     setKampfstilBEIgnore <Parameter: Kampfstil-Name, Fertigkeit-Name, Talent-Name>
 
 #### Ausrüstung
@@ -45,14 +45,15 @@ Die folgenden Funktionen stehen neben Python-Builtins wie 'round' zur Verfügung
 
 #### Sonstiges
     addWaffeneigenschaft <Parameter: TalentName, Eigenschaft>
-        Beispiel: addWaffeneigenschaft('Waffenlos', 'Kopflastig')
-    
+        Beispiel: addWaffeneigenschaft('Unbewaffnet', 'Kopflastig')
+    removeWaffeneigenschaft <Parameter: TalentName, Eigenschaft>
+        Beispiel: removeWaffeneigenschaft('Unbewaffnet', 'Zerbrechlich')
 #### Waffeneigenschaften (WE)
 Diese Funktionen stehen nur innerhalb von Waffeneigenschaft-Scripts zur Verfügung.
 
     Parameter dieser WE als string erhalten: getEigenschaftParam <Parameter: Parameternummer>. Parameter müssen mit Semikolon getrennt werden.  
-    Waffen mit dieser WE modifizieren: modifyWaffeAT, modifyWaffeVT, modifyWaffeTPW6, modifyWaffeTPPlus, modifyWaffeHaerte, setWaffeAT, setWaffeVT, setWaffeTPW6, setWaffeTPPlus, setWaffeHaerte
-	Aktuelle Werte der Waffe erhalten: getWaffenWerte <Return: { AT, VT, RW, TPW6, TPPlus, Haerte }>
+    Waffen mit dieser WE modifizieren: modifyWaffeAT, modifyWaffeVT, modifyWaffeTPW6, modifyWaffeTPPlus, modifyWaffeHaerte, modifyWaffeRW, setWaffeAT, setWaffeVT, setWaffeTPW6, setWaffeTPPlus, setWaffeHaerte, setWaffeRW
+	Aktuelle Werte der Waffe erhalten: getWaffenWerte <Return: { AT, VT, RW, TPW6, TPPlus, Haerte, Kampfstil }>
        
 ## Beispiele
 
@@ -75,9 +76,3 @@ Erhöht die TP aller Waffen mit dieser Eigenschaft um den Schadensbonus.
 #### Waffeneigenschaft Schwer
     if getKK() < int(getEigenschaftParam(1)): modifyWaffeAT(-2); modifyWaffeVT(-2)
 Verringert AT und VT aller Waffen mit dieser Eigenschaft um 2, falls der Wert der Körperkraft unter dem Wert des ersten Parameters der Eigenschaft liegt (bei Schwer(4) ist dies 4).
-
-## Export-Plugin
-In den Einstellungen von Sephrasto kann ein Pfad zu einem Export-Plugin gesetzt werden, welches ein Pythonscript sein muss. Dieses kann genutzt werden, um Felder im Charakterbogen verändern, ohne den Charakter in Sephrasto selbst zu verändern.
-- In diesem Script stehen sämtliche oben genannte APIs zur Verfügung, welche mit 'get' starten.
-- Zusätzlich existiert ein globales Dictionary mit dem namen 'data', welches alle (vorausgefüllten) PDF-Felder enthält, die Sephrasto später nutzen wird, um den Charakterbogen zu befüllen (auf Unterschiede zwischen dem kurzen und langen Bogen achten).
-- Die globale Variable sephrastoExport kann au False gesetzt werden, um den PDF-Export abzubrechen. Dies ist nützlich, wenn der Charakter mit Hilfe des Exportscripts in ein komplett anderes eigenes Format gebracht werden soll.

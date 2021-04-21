@@ -203,7 +203,9 @@
   <tabstop>buttonVorteil</tabstop>
   <tabstop>buttonFertigkeit</tabstop>
   <tabstop>buttonUebernatuerlich</tabstop>
+  <tabstop>buttonWaffeneigenschaft</tabstop>
   <tabstop>buttonWaffe</tabstop>
+  <tabstop>buttonManoever</tabstop>
  </tabstops>
  <resources/>
  <connections>

@@ -308,18 +308,25 @@
   </layout>
  </widget>
  <tabstops>
+  <tabstop>nameFilterEdit</tabstop>
+  <tabstop>listDatenbank</tabstop>
   <tabstop>showTalente</tabstop>
   <tabstop>showVorteile</tabstop>
   <tabstop>showFertigkeiten</tabstop>
   <tabstop>showUebernatuerlicheFertigkeiten</tabstop>
+  <tabstop>showWaffeneigenschaften</tabstop>
   <tabstop>showWaffen</tabstop>
+  <tabstop>showManoever</tabstop>
+  <tabstop>showDeleted</tabstop>
+  <tabstop>showUserAdded</tabstop>
+  <tabstop>buttonHinzufuegen</tabstop>
+  <tabstop>buttonEditieren</tabstop>
+  <tabstop>buttonDuplizieren</tabstop>
+  <tabstop>buttonLoeschen</tabstop>
+  <tabstop>buttonCloseDB</tabstop>
   <tabstop>buttonLoadDB</tabstop>
   <tabstop>buttonSaveDB</tabstop>
   <tabstop>buttonQuicksave</tabstop>
-  <tabstop>listDatenbank</tabstop>
-  <tabstop>buttonHinzufuegen</tabstop>
-  <tabstop>buttonEditieren</tabstop>
-  <tabstop>buttonLoeschen</tabstop>
  </tabstops>
  <resources/>
  <connections/>

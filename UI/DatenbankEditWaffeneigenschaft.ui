@@ -141,6 +141,13 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>nameEdit</tabstop>
+  <tabstop>textEdit</tabstop>
+  <tabstop>scriptPrioEdit</tabstop>
+  <tabstop>scriptEdit</tabstop>
+ </tabstops>
+ <resources/>
  <connections>
   <connection>
    <sender>buttonBox</sender>

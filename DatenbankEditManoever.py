@@ -84,8 +84,11 @@ class Ui_manDialog(object):
         self.buttonBox.accepted.connect(manDialog.accept)
         self.buttonBox.rejected.connect(manDialog.reject)
         QtCore.QMetaObject.connectSlotsByName(manDialog)
-        manDialog.setTabOrder(self.nameEdit, self.gegenEdit)
-        manDialog.setTabOrder(self.gegenEdit, self.textEdit)
+        manDialog.setTabOrder(self.nameEdit, self.probeEdit)
+        manDialog.setTabOrder(self.probeEdit, self.gegenEdit)
+        manDialog.setTabOrder(self.gegenEdit, self.comboTyp)
+        manDialog.setTabOrder(self.comboTyp, self.voraussetzungenEdit)
+        manDialog.setTabOrder(self.voraussetzungenEdit, self.textEdit)
 
     def retranslateUi(self, manDialog):
         _translate = QtCore.QCoreApplication.translate

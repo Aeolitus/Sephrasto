@@ -7,6 +7,7 @@ import binascii
 import copy
 import logging
 import collections
+from EventBus import EventBus
 from Wolke import Wolke
 from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
 from PyQt5 import QtWidgets, QtCore
@@ -17,6 +18,7 @@ class KampfstilMod():
         self.VT = 0
         self.TP = 0
         self.RW = 0
+        self.BE = 0
         self.BEIgnore = [] #Tupel aus Kampffertigkeit und Talent für welche die BE ignoriert wird
 
     def __deepcopy__(self):
@@ -33,6 +35,7 @@ class Waffenwerte():
         self.TPW6 = 0
         self.TPPlus = 0
         self.Haerte = 0
+        self.Kampfstil = ""
 
 class VariableKosten():
     def __init__(self):
@@ -94,6 +97,7 @@ class Char():
         #Vierter Block: Fertigkeiten und Freie Fertigkeiten
         self.fertigkeiten = copy.deepcopy(Wolke.DB.fertigkeiten)
         self.freieFertigkeiten = []
+        self.freieFertigkeitenNumKostenlos = EventBus.applyFilter("freiefertigkeit_num_kostenlos", 1)
         self.talenteVariable = {} #Contains Name: VariableKosten
 
         #Fünfter Block: Ausrüstung etc
@@ -107,6 +111,7 @@ class Char():
         self.rüstungsgewöhnung = 0
         self.rsmod = 0
         self.waffenEigenschaftenUndo = [] #For undoing changes made by Vorteil scripts
+        self.zonenSystemNutzen = False
 
         #Sechster Block: Übernatürliches
         self.übernatürlicheFertigkeiten = copy.deepcopy(
@@ -251,7 +256,8 @@ class Char():
             'getAttribut' : lambda attribut: self.attribute[attribut].wert,
 
             #Misc
-            'addWaffeneigenschaft' : self.API_addWaffeneigenschaft
+            'addWaffeneigenschaft' : self.API_addWaffeneigenschaft,
+            'removeWaffeneigenschaft' : self.API_removeWaffeneigenschaft
         }
 
         #Add Attribute to API (readonly)
@@ -265,12 +271,14 @@ class Char():
             'modifyWaffeTPW6' : lambda tpw6mod: setattr(self.currentWaffenwerte, 'TPW6', self.currentWaffenwerte.TPW6 + tpw6mod),
             'modifyWaffeTPPlus' : lambda tpplusmod: setattr(self.currentWaffenwerte, 'TPPlus', self.currentWaffenwerte.TPPlus + tpplusmod),
             'modifyWaffeHaerte' : lambda haertemod: setattr(self.currentWaffenwerte, 'Haerte', self.currentWaffenwerte.Haerte + haertemod),
+            'modifyWaffeRW' : lambda rwmod: setattr(self.currentWaffenwerte, 'RW', self.currentWaffenwerte.RW + rwmod),
             'setWaffeAT' : lambda at: setattr(self.currentWaffenwerte, 'AT', at),
             'setWaffeVT' : lambda vt: setattr(self.currentWaffenwerte, 'VT', vt),
             'setWaffeTPW6' : lambda tpw6: setattr(self.currentWaffenwerte, 'TPW6', tpw6),
             'setWaffeTPPlus' : lambda tpplus: setattr(self.currentWaffenwerte, 'TPPlus', tpplus),
             'setWaffeHaerte' : lambda haerte: setattr(self.currentWaffenwerte, 'Haerte', haerte),
-            'getWaffenWerte' : lambda: copy.deepcopy(self.currentWaffenwerte)
+            'setWaffeRW' : lambda rw: setattr(self.currentWaffenwerte, 'RW', rw),
+            'getWaffenWerte' : lambda: copy.deepcopy(self.currentWaffenwerte),
         }
 
         for k,v in self.charakterScriptAPI.items():
@@ -294,32 +302,46 @@ class Char():
 
         self.übernatürlicheFertigkeiten[name].basiswertMod += mod
 
-    def API_setKampfstil(self, kampfstil, at, vt, tp, rw):
+    def API_setKampfstil(self, kampfstil, at, vt, tp, rw, be = 0):
         k = self.kampfstilMods[kampfstil]
         k.AT = at
         k.VT = vt
         k.TP = tp
         k.RW = rw
+        k.BE = (be or 0)
     
-    def API_modifyKampfstil(self, kampfstil, at, vt, tp, rw):
+    def API_modifyKampfstil(self, kampfstil, at, vt, tp, rw, be = 0):
         k = self.kampfstilMods[kampfstil]
-        self.API_setKampfstil(kampfstil, k.AT + at, k.VT + vt, k.TP + tp, k.RW + rw)
+        self.API_setKampfstil(kampfstil, k.AT + at, k.VT + vt, k.TP + tp, k.RW + rw, k.BE + be)
 
     def API_addWaffeneigenschaft(self, talentName, eigenschaft):
+        self.modifyWaffeneigenschaft(talentName, eigenschaft, False)
+
+    def API_removeWaffeneigenschaft(self, talentName, eigenschaft):
+        self.modifyWaffeneigenschaft(talentName, eigenschaft, True)
+
+    def modifyWaffeneigenschaft(self, talentName, eigenschaft, remove):
         for waffe in self.waffen:
             talent = None
             eigenschaftExists = False
             if waffe.name in Wolke.DB.waffen:
                 dbWaffe = Wolke.DB.waffen[waffe.name]
                 talent = dbWaffe.talent
-                if eigenschaft in dbWaffe.eigenschaften:
+                if (not remove) and (eigenschaft in dbWaffe.eigenschaften):
+                    continue
+                if remove and not (eigenschaft in dbWaffe.eigenschaften):
                     continue
             if talent != talentName:
                 continue
-            self.waffenEigenschaftenUndo.append([waffe.name, eigenschaft])
-            if eigenschaft in waffe.eigenschaften:
-                continue
-            waffe.eigenschaften.append(eigenschaft)
+            self.waffenEigenschaftenUndo.append([waffe, eigenschaft, remove])
+            if remove:
+                if not (eigenschaft in waffe.eigenschaften):
+                    continue
+                waffe.eigenschaften.remove(eigenschaft)
+            else:
+                if eigenschaft in waffe.eigenschaften:
+                    continue
+                waffe.eigenschaften.append(eigenschaft)
 
     def API_getWaffeneigenschaftParam(self, paramNb):
         match = re.search(r"\((.*?)\)", self.currentEigenschaft)
@@ -353,6 +375,8 @@ class Char():
         raise Exception('Not implemented')
 
     def aktualisieren(self):
+        EventBus.doAction("pre_charakter_aktualisieren")
+
         '''Berechnet alle abgeleiteten Werte neu'''
         for key in Definitionen.Attribute:
             self.attribute[key].aktualisieren()
@@ -393,15 +417,13 @@ class Char():
 
         #Undo previous changes by Vorteil scripts before executing them again
         for value in self.waffenEigenschaftenUndo:
-            waffe = None
-            for w in self.waffen:
-                if w.name == value[0]:
-                    waffe = w
-                    break
-            if not waffe:
-                continue
-            if value[1] in waffe.eigenschaften:
-                waffe.eigenschaften.remove(value[1])
+            waffe = value[0]
+            wEigenschaft = value[1]
+            remove = value[2]
+            if (not remove) and (wEigenschaft in waffe.eigenschaften):
+                waffe.eigenschaften.remove(wEigenschaft)
+            elif remove and (not (wEigenschaft in waffe.eigenschaften)):
+                waffe.eigenschaften.append(wEigenschaft)
         self.waffenEigenschaftenUndo = []
 
         for fert in self.fertigkeiten:
@@ -443,6 +465,8 @@ class Char():
         self.updateVorts()
         self.updateFerts()
         self.updateWaffenwerte()
+
+        EventBus.doAction("post_charakter_aktualisieren")
         self.epZaehlen()
 
     def updateWaffenwerte(self):
@@ -455,6 +479,7 @@ class Char():
             waffenwerte.TPW6 = el.W6
             waffenwerte.TPPlus = el.plus
             waffenwerte.Haerte = el.haerte
+            waffenwerte.Kampfstil = el.kampfstil
 
             # Calculate modifiers for AT, PA, TP from Kampfstil and Talent
             if el.name in Wolke.DB.waffen:
@@ -486,7 +511,9 @@ class Char():
             waffenwerte.AT += el.wm
             waffenwerte.VT += el.wm
 
-            if type(el) == Objekte.Nahkampfwaffe:
+            schadensbonusWirkt = type(el) == Objekte.Nahkampfwaffe
+            schadensbonusWirkt = EventBus.applyFilter("waffe_schadensbonus_wirkt", schadensbonusWirkt, { "waffe" : el })
+            if schadensbonusWirkt:
                 waffenwerte.TPPlus += self.schadensbonus
 
             ignoreBE = False
@@ -495,8 +522,9 @@ class Char():
                     ignoreBE = True
                     break
             if not ignoreBE:
-                waffenwerte.AT -= self.be
-                waffenwerte.VT -= self.be
+                be = max(self.be + kampfstilMods.BE, 0)
+                waffenwerte.AT -= be
+                waffenwerte.VT -= be
 
             self.currentWaffenwerte = waffenwerte
 
@@ -539,10 +567,14 @@ class Char():
         #Erster Block ist gratis
         #Zweiter Block: Attribute und Abgeleitetes
         for key in Definitionen.Attribute:
-            spent += sum(range(self.attribute[key].wert+1)) *\
+            val = sum(range(self.attribute[key].wert+1)) *\
                         self.attribute[key].steigerungsfaktor
-        spent += sum(range(self.asp.wert+1))*self.asp.steigerungsfaktor
-        spent += sum(range(self.kap.wert+1))*self.kap.steigerungsfaktor   
+            spent += EventBus.applyFilter("attribut_kosten", val, { "attribut" : key, "wert" : self.attribute[key].wert })
+
+        val = sum(range(self.asp.wert+1))*self.asp.steigerungsfaktor
+        spent += EventBus.applyFilter("asp_kosten", val, { "wert" : self.asp.wert })
+        val = sum(range(self.kap.wert+1))*self.kap.steigerungsfaktor   
+        spent += EventBus.applyFilter("kap_kosten", val, { "wert" : self.kap.wert })
 
         self.EP_Attribute = spent
         #Dritter Block: Vorteile
@@ -576,17 +608,19 @@ class Char():
                     continue
                 paidTalents.append(tal)
                 val = self.getTalentCost(tal, self.fertigkeiten[fer].steigerungsfaktor)
+                val = EventBus.applyFilter("talent_kosten", val, { "talent": tal })
                 spent += val
                 self.EP_Fertigkeiten_Talente += val
-        skip = False                                                 
+
+        numKostenlos = 0
         for fer in self.freieFertigkeiten:
             # Dont count Muttersprache
-            if fer.wert == 3 and not skip:
-                skip = True
+            if fer.wert == 3 and numKostenlos < self.freieFertigkeitenNumKostenlos:
+                numKostenlos += 1
                 continue
             if not fer.name:
                 continue
-            val = Definitionen.FreieFertigkeitKosten[fer.wert-1]
+            val = EventBus.applyFilter("freiefertigkeit_kosten", Definitionen.FreieFertigkeitKosten[fer.wert-1], { "name" : fer.name, "wert" : fer.wert })
             spent += val
             self.EP_FreieFertigkeiten += val
         #Fünfter Block ist gratis
@@ -603,6 +637,7 @@ class Char():
                     continue
                 paidTalents.append(tal)
                 val = self.getTalentCost(tal, self.übernatürlicheFertigkeiten[fer].steigerungsfaktor)
+                val = EventBus.applyFilter("talent_kosten", val, { "talent": tal })
                 spent += val
                 self.EP_Uebernatuerlich_Talente += val
         #Siebter Block ist gratis
@@ -634,6 +669,7 @@ class Char():
                     contFlag = False
             for el in remove:
                 self.vorteile.remove(el)
+                EventBus.doAction("vorteil_entfernt", { "name" : el})
             if contFlag:
                 break
 
@@ -911,6 +947,10 @@ class Char():
         #Fünfter Block
         Wolke.Fehlercode = -59
         aus = etree.SubElement(root,'Objekte')
+
+        zonenSystem = etree.SubElement(aus,'Zonensystem')
+        zonenSystem.text = str(self.zonenSystemNutzen)
+
         rüs = etree.SubElement(aus,'Rüstungen')
         for rüst in self.rüstung:
             rüsNode = etree.SubElement(rüs,'Rüstung')
@@ -946,6 +986,7 @@ class Char():
             fertNode = etree.SubElement(üfer,'Übernatürliche-Fertigkeit')
             fertNode.set('name',self.übernatürlicheFertigkeiten[fert].name)
             fertNode.set('wert',str(self.übernatürlicheFertigkeiten[fert].wert))
+            fertNode.set('addToPDF',str(self.übernatürlicheFertigkeiten[fert].addToPDF))
             talentNode = etree.SubElement(fertNode,'Talente')
             for talent in self.übernatürlicheFertigkeiten[fert].gekaufteTalente:
                 talNode = etree.SubElement(talentNode,'Talent')
@@ -959,6 +1000,10 @@ class Char():
         epn = etree.SubElement(root,'Erfahrung')
         etree.SubElement(epn,'EPtotal').text = str(self.EPtotal)
         etree.SubElement(epn,'EPspent').text = str(self.EPspent)
+
+        #Plugins
+        root = EventBus.applyFilter("charakter_xml_schreiben", root)
+
         #Write XML to file
         Wolke.Fehlercode = -64
         doc = etree.ElementTree(root)
@@ -1108,14 +1153,20 @@ class Char():
             self.freieFertigkeiten.append(fert)
         #Fünfter Block
         Wolke.Fehlercode = -48
-        for rüs in root.findall('Objekte/Rüstungen/Rüstung'):
+
+        objekte = root.find('Objekte');
+        zonenSystem = objekte.find('Zonensystem')
+        if zonenSystem != None:
+            self.zonenSystemNutzen = zonenSystem.text == "True"
+
+        for rüs in objekte.findall('Rüstungen/Rüstung'):
             rüst = Objekte.Ruestung()
             rüst.name = rüs.attrib['name']
             rüst.be = int(rüs.attrib['be'])
             rüst.rs = Hilfsmethoden.RsStr2Array(rüs.attrib['rs'])
             self.rüstung.append(rüst)
         Wolke.Fehlercode = -49
-        for waf in root.findall('Objekte/Waffen/Waffe'):
+        for waf in objekte.findall('Waffen/Waffe'):
             if waf.attrib['typ'] == 'Nah':
                 waff = Objekte.Nahkampfwaffe()
             else:
@@ -1131,9 +1182,15 @@ class Char():
                 waff.eigenschaften = list(map(str.strip, waf.attrib['eigenschaften'].split(",")))
             waff.haerte = int(waf.attrib['haerte'])
             waff.kampfstil = waf.attrib['kampfstil']
+            if waff.name in Wolke.DB.waffen:
+                dbWaffe = Wolke.DB.waffen[waff.name]
+                waff.fertigkeit = dbWaffe.fertigkeit
+                waff.talent = dbWaffe.talent
+                waff.kampfstile = dbWaffe.kampfstile.copy()
+
             self.waffen.append(waff)
         Wolke.Fehlercode = -50
-        for aus in root.findall('Objekte/Ausrüstung/Ausrüstungsstück'):
+        for aus in objekte.findall('Ausrüstung/Ausrüstungsstück'):
             self.ausrüstung.append(aus.text or "")
         #Sechster Block 
         Wolke.Fehlercode = -51
@@ -1145,6 +1202,8 @@ class Char():
 
             fert = Wolke.DB.übernatürlicheFertigkeiten[nam].__deepcopy__()
             fert.wert = int(fer.attrib['wert'])
+            if 'addToPDF' in fer.attrib:
+                fert.addToPDF = fer.attrib['addToPDF'] == "True"
             for tal in fer.findall('Talente/Talent'):
                 nam = tal.attrib['name']
                 if not nam in Wolke.DB.talente:
@@ -1163,6 +1222,9 @@ class Char():
         Wolke.Fehlercode = -52
         self.EPtotal = int(root.find('Erfahrung/EPtotal').text)
         self.EPspent = int(root.find('Erfahrung/EPspent').text)   
+
+        #Plugins
+        root = EventBus.applyFilter("charakter_xml_laden", root)
         
         if userDBChanged or vIgnored or fIgnored or tIgnored or übIgnored:
             messageBox = QtWidgets.QMessageBox()

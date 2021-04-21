@@ -20,7 +20,16 @@ import Datenbank
 from Wolke import Wolke
 import os.path
 import pdfMeister as pdfM
+from pdfMeister import CharakterbogenInfo
 import logging
+from EventBus import EventBus
+
+class Tab():
+    def __init__(self, order, wrapper, form, name):
+        self.order = order
+        self.wrapper = wrapper
+        self.form = form
+        self.name = name
 
 class Editor(object):
     '''
@@ -46,40 +55,46 @@ class Editor(object):
             Wolke.Char.xmlLesen(self.savepath)
         Wolke.Char.aktualisieren() # A bit later because it needs access to itself
         
+        EventBus.doAction("charakter_geladen")
         self.ignoreModified = False
         
-    def setupMainForm(self):      
+    def setupMainForm(self, plugins):      
         self.updateEP()
+
+        self.BeschrWrapper = EventBus.applyFilter("class_beschreibung_wrapper", CharakterBeschreibungWrapper.BeschrWrapper)()
+        self.AttrWrapper = EventBus.applyFilter("class_attribute_wrapper", CharakterAttributeWrapper.AttrWrapper)()
+        self.FertWrapper = EventBus.applyFilter("class_fertigkeiten_wrapper", CharakterFertigkeitenWrapper.FertigkeitenWrapper)()
+        self.FreiWrapper = EventBus.applyFilter("class_freiefertigkeiten_wrapper", CharakterFreieFertWrapper.CharakterFreieFertWrapper)()
+        self.UebernatuerlichWrapper = EventBus.applyFilter("class_uebernatuerlichefertigkeiten_wrapper", CharakterUebernatuerlichWrapper.UebernatuerlichWrapper)()
+        self.EquipWrapper = EventBus.applyFilter("class_ausruestung_wrapper", CharakterEquipmentWrapper.EquipWrapper)()
+        self.VortWrapper = EventBus.applyFilter("class_vorteile_wrapper", CharakterVorteileWrapper.CharakterVorteileWrapper)()
+        self.ItmWrapper = EventBus.applyFilter("class_items_wrapper", CharakterItemsWrapper.CharakterItemsWrapper)()
+        self.EPWrapper = EventBus.applyFilter("class_ep_wrapper", CharakterEPWrapper.EPWrapper)()
         
-        self.BeschrWrapper = CharakterBeschreibungWrapper.BeschrWrapper()
-        self.AttrWrapper = CharakterAttributeWrapper.AttrWrapper()
-        self.FertWrapper = CharakterFertigkeitenWrapper.FertigkeitenWrapper()
-        self.FreiWrapper = CharakterFreieFertWrapper.CharakterFreieFertWrapper()
-        self.UebernatuerlichWrapper = CharakterUebernatuerlichWrapper.UebernatuerlichWrapper()
-        self.EquipWrapper = CharakterEquipmentWrapper.EquipWrapper()
-        self.VortWrapper = CharakterVorteileWrapper.CharakterVorteileWrapper()
-        self.ItmWrapper = CharakterItemsWrapper.CharakterItemsWrapper()
-        self.EPWrapper = CharakterEPWrapper.EPWrapper()
+        tabs = []
+        tabs.append(Tab(10, self.BeschrWrapper, self.BeschrWrapper.formBeschr, "Beschreibung"))
+        tabs.append(Tab(30, self.AttrWrapper, self.AttrWrapper.formAttr, "Attribute"))
+        tabs.append(Tab(40, self.VortWrapper, self.VortWrapper.formVor, "Vorteile"))
+        tabs.append(Tab(50, self.FertWrapper, self.FertWrapper.formFert, "Fertigkeiten"))
+        tabs.append(Tab(60, self.FreiWrapper, self.FreiWrapper.formFert, "Freie Fertigkeiten"))
+        tabs.append(Tab(70, self.UebernatuerlichWrapper, self.UebernatuerlichWrapper.formFert, "Übernatürliches"))
+        tabs.append(Tab(80, self.EquipWrapper, self.EquipWrapper.formEq, "Ausrüstung"))   
+        tabs.append(Tab(90, self.ItmWrapper, self.ItmWrapper.formIt, "Inventar"))
+        tabs.append(Tab(100, self.EPWrapper, self.EPWrapper.formEP, "EP-Verteilung"))
+
+        for plugin in plugins:
+            if hasattr(plugin, "getCharakterTabs"):
+                for tab in plugin.getCharakterTabs():
+                   tabs.append(tab)
         
-        self.ui.tabs.addTab(self.BeschrWrapper.formBeschr, "    Beschreibung    ")
-        self.ui.tabs.addTab(self.AttrWrapper.formAttr, "    Attribute    ")
-        self.ui.tabs.addTab(self.VortWrapper.formVor, "    Vorteile    ")
-        self.ui.tabs.addTab(self.FertWrapper.formFert, "    Fertigkeiten    ")
-        self.ui.tabs.addTab(self.FreiWrapper.formFert, "    Freie Fertigkeiten    ")
-        self.ui.tabs.addTab(self.UebernatuerlichWrapper.formFert, "    Übernatürliches    ")
-        self.ui.tabs.addTab(self.EquipWrapper.formEq, "    Ausrüstung    ")    
-        self.ui.tabs.addTab(self.ItmWrapper.formIt, "    Inventar    ")
-        self.ui.tabs.addTab(self.EPWrapper.formEP, "    EP-Verteilung    ")
-        
-        self.BeschrWrapper.modified.connect(self.onModified)
-        self.AttrWrapper.modified.connect(self.onModified)
-        self.FertWrapper.modified.connect(self.onModified)
-        self.FreiWrapper.modified.connect(self.onModified)
-        self.UebernatuerlichWrapper.modified.connect(self.onModified)
-        self.EquipWrapper.modified.connect(self.onModified)
-        self.VortWrapper.modified.connect(self.onModified)
-        self.ItmWrapper.modified.connect(self.onModified)
-        self.EPWrapper.modified.connect(self.onModified)
+        tabs = sorted(tabs, key=lambda tab: tab.order)
+        tabPadding = "    "
+        if len(tabs) > 9:
+            tabPadding = ""
+        for tab in tabs:
+            self.ui.tabs.addTab(tab.form, tabPadding + tab.name + tabPadding)
+            if hasattr(tab.wrapper, "modified"):
+                tab.wrapper.modified.connect(self.onModified)
         
         self.ui.tabs.currentChanged.connect(self.reloadAll)
         self.ui.buttonSave.clicked.connect(self.saveButton)
@@ -136,8 +151,8 @@ class Editor(object):
             if Wolke.Char.EPtotal < Wolke.Char.EPspent:
                 self.ui.spinRemaining.setStyleSheet("QSpinBox { background-color: rgb(200,50,50) }")
             else:
-                self.ui.spinRemaining.setStyleSheet("QSpinBox { background-color: #FFFFFF}")
-            self.ui.spinSpent.setStyleSheet("QSpinBox { background-color: #FFFFFF}")
+                self.ui.spinRemaining.setStyleSheet("")
+            self.ui.spinSpent.setStyleSheet("")
             self.ui.spinSpent.setValue(Wolke.Char.EPspent)
     
     def epChanged(self):
@@ -236,12 +251,16 @@ Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
             messagebox.addButton(QtWidgets.QPushButton("  Lange Version von Gatsu  "), QtWidgets.QMessageBox.AcceptRole)
             messagebox.addButton(QtWidgets.QPushButton("Abbrechen"), QtWidgets.QMessageBox.RejectRole)
             result = messagebox.exec_()
+
+        charakterBogen = None
         if result == 0 or Wolke.Settings['Bogen'] == 'Standard Ilaris-Charakterbogen':
-            self.pdfMeister.setCharakterbogenKurz()
+            charakterBogen = CharakterbogenInfo(filePath="Charakterbogen.pdf", maxVorteile = 8, maxFreie = 12, maxFertigkeiten = 2, seitenProfan = 2, kurzbogenHack=True)
         elif result == 1 or Wolke.Settings['Bogen'] == 'Die lange Version von Gatsu':
-            self.pdfMeister.setCharakterbogenLang()
+            charakterBogen = CharakterbogenInfo(filePath="Charakterbogen_lang.pdf", maxVorteile = 24, maxFreie = 28, maxFertigkeiten = 28, seitenProfan = 3, kurzbogenHack=False)
         else:
             return
+
+        self.pdfMeister.setCharakterbogen(EventBus.applyFilter("set_charakterbogen", charakterBogen))
 
         # Check if there is a base Charakterbogen.pdf:
         if not os.path.isfile(self.pdfMeister.CharakterBogen.filePath):

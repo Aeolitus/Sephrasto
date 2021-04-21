@@ -22,6 +22,7 @@ from Charakter import KampfstilMod
 from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
 import sys
 import traceback
+from EventBus import EventBus
 
 CharakterbogenInfo = namedtuple('CharakterbogenInfo', 'filePath maxVorteile maxFreie maxFertigkeiten seitenProfan kurzbogenHack')
 
@@ -41,13 +42,10 @@ class pdfMeister(object):
         self.RuleWeights = []
         self.RuleCategories = ['ALLGEMEINE VORTEILE', 'PROFANE VORTEILE', 'KAMPFVORTEILE', 'AKTIONEN', 'WAFFENEIGENSCHAFTEN', 'NAHKAMPFMANÖVER', 'FERNKAMPFMANÖVER', 'ÜBERNATÜRLICHE VORTEILE', 'SPONTANE MODIFIKATIONEN (ZAUBER)', 'SPONTANE MODIFIKATIONEN (LITURGIEN)', 'ÜBERNATÜRLICHE TALENTE', 'SONSTIGES']
         self.Talents = []
-        self.Energie = 0
+        self.Energie = ""
     
-    def setCharakterbogenKurz(self):
-        self.CharakterBogen = CharakterbogenInfo(filePath="Charakterbogen.pdf", maxVorteile = 8, maxFreie = 12, maxFertigkeiten = 2, seitenProfan = 2, kurzbogenHack=True)
-
-    def setCharakterbogenLang(self):
-        self.CharakterBogen = CharakterbogenInfo(filePath="Charakterbogen_lang.pdf", maxVorteile = 24, maxFreie = 28, maxFertigkeiten = 28, seitenProfan = 3, kurzbogenHack=False)
+    def setCharakterbogen(self, charakterBogenInfo):
+        self.CharakterBogen = charakterBogenInfo
 
     def pdfErstellen(self, filename, printRules):
         '''
@@ -64,7 +62,7 @@ class pdfMeister(object):
         self.UseExtraPage = False
         Wolke.Fehlercode = -81
         fields = pdf.get_fields(self.CharakterBogen.filePath)
-        if self.CharakterBogen.filePath == "Charakterbogen_lang.pdf" and os.path.isfile(filename):
+        if self.CharakterBogen.filePath.endswith("Charakterbogen_lang.pdf") and os.path.isfile(filename):
             oldFields = pdf.get_fields(filename)
             keep = ["Kultur", "Profession", "Geschlecht", "Geburtsdatum", "Groesse", "Gewicht", "Haarfarbe", "Augenfarbe",
                     "Aussehen1", "Aussehen2", "Aussehen3", "Aussehen4", "Aussehen5", "Aussehen6", "Titel", "Hintergrund0",
@@ -90,9 +88,9 @@ class pdfMeister(object):
         fields = self.pdfSiebterBlock(fields)
 
         Wolke.Fehlercode = -99
-        if not self.pdfExecutePlugin(fields):
-            Wolke.Fehlercode = 0
-            return
+
+        # Plugins die felder filtern lassen
+        fields = EventBus.applyFilter("pdf_export", fields)
 
         # PDF erstellen - Felder bleiben bearbeitbar
         Wolke.Fehlercode = -89
@@ -244,15 +242,14 @@ class pdfMeister(object):
             fields['Karmaenergie'] = Wolke.Char.kap.wert + Wolke.Char.kapBasis + Wolke.Char.kapMod
             fields['ModKarmaenergie'] = Wolke.Char.kap.wert
 
-        if isZauberer and not isGeweiht:
-            self.Energie = Wolke.Char.asp.wert + Wolke.Char.aspBasis + Wolke.Char.aspMod
-            fields['EN'] = self.Energie
-            #fields['gEN'] = "0"
-        elif not isZauberer and isGeweiht:
-            self.Energie = Wolke.Char.kap.wert + Wolke.Char.kapBasis + Wolke.Char.kapMod
-            fields['EN'] = self.Energie
-            #fields['gEN'] = "0"
-        # Wenn sowohl AsP als auch KaP vorhanden sind, muss der Spieler ran..
+        self.Energie = ""
+        if isZauberer:
+            self.Energie = str(Wolke.Char.asp.wert + Wolke.Char.aspBasis + Wolke.Char.aspMod)
+            if isGeweiht:
+                self.Energie += " / "
+        if isGeweiht:
+            self.Energie += str(Wolke.Char.kap.wert + Wolke.Char.kapBasis + Wolke.Char.kapMod)
+        fields['EN'] = self.Energie
 
         trueBE = max(Wolke.Char.be, 0)
         fields['DHm'] = max(Wolke.Char.dh - 2*trueBE, 1)
@@ -279,24 +276,19 @@ class pdfMeister(object):
                 typeDict[mindername] = 0
                 continue
             flag = False
+            fullset = [" I", " II", " III", " IV", " V", " VI", " VII"]
             if not vort in Wolke.Char.vorteileVariable:
-                if vort.endswith(" I"):
-                    basename = vort[:-2]
-                    flag = True
-                elif vort.endswith(" II") or vort.endswith(" IV"):
-                    basename = vort[:-3]
-                    flag = True
-                elif vort.endswith(" III"):
-                    basename = vort[:-4]
-                    flag = True
+                for el in fullset:
+                    if vort.endswith(el):
+                        basename = vort[:-len(el)]
+                        flag = True
 
             if flag:
-                fullset = [" I", " II", " III", " IV"]
                 fullenum = ""
                 for el in fullset:
                     if basename+el in sortV:
                         removed.append(basename+el)
-                        fullenum += "," + el[1:]
+                        fullenum += ", " + el[1:]
                 vname = basename + " " + fullenum[1:]
                 typeDict[vname] = Wolke.DB.vorteile[vort].typ
                 assembled.append(vname)
@@ -451,7 +443,7 @@ class pdfMeister(object):
                 talStr += el2.replace(fertigkeit.name + ": ", "")
 
                 if el2 in fertigkeit.talentMods:
-                    for condition,mod in fertigkeit.talentMods[el2].items():
+                    for condition,mod in sorted(fertigkeit.talentMods[el2].items()):
                         talStr += " " + (condition + " " if condition else "") + ("+" if mod >= 0 else "") + str(mod)
 
                 if el2 in Wolke.Char.talenteVariable:
@@ -459,10 +451,10 @@ class pdfMeister(object):
                     talStr += " (" + vk.kommentar + ")"
 
             #Append any talent mods of talents the character doesn't own in parentheses
-            for talentName, talentMods in fertigkeit.talentMods.items():
+            for talentName, talentMods in sorted(fertigkeit.talentMods.items()):
                 if not talentName in talente:
                     talStr += ", (" + talentName
-                    for condition,mod in talentMods.items():
+                    for condition,mod in sorted(talentMods.items()):
                         talStr += " " + (condition + " " if condition else "") + ("+" if mod >= 0 else "") + str(mod)
                     talStr += ")"
 
@@ -514,10 +506,12 @@ class pdfMeister(object):
 
             fields[base + 'ATm'] = str(waffenwerte.AT)
 
-            if type(el) == Objekte.Fernkampfwaffe or (el.name in Wolke.DB.waffen and Wolke.DB.waffen[el.name].talent == 'Lanzenreiten'):
-                fields[base + 'VTm'] = "-"
-            else:
+            vtErlaubt = not (type(el) == Objekte.Fernkampfwaffe or (el.name in Wolke.DB.waffen and Wolke.DB.waffen[el.name].talent == 'Lanzenreiten'))
+            vtErlaubt = EventBus.applyFilter("waffe_vt_erlaubt", vtErlaubt, { "waffe" : el })
+            if vtErlaubt:
                 fields[base + 'VTm'] = str(waffenwerte.VT)
+            else:
+                fields[base + 'VTm'] = "-"
 
             fields[base + 'RW'] = str(waffenwerte.RW)
 
@@ -564,9 +558,7 @@ class pdfMeister(object):
 
         fertsList = []
         for f in Wolke.Char.übernatürlicheFertigkeiten:
-            if Wolke.Char.übernatürlicheFertigkeiten[f].wert <= 0 and\
-                    len(Wolke.Char.übernatürlicheFertigkeiten[f].
-                        gekaufteTalente) == 0:
+            if not Wolke.Char.übernatürlicheFertigkeiten[f].addToPDF:
                 continue
             fertsList.append(f)
         fertsList.sort(key = lambda x: (Wolke.DB.übernatürlicheFertigkeiten[x].printclass, x))
@@ -696,27 +688,6 @@ class pdfMeister(object):
         fields['ErfahVE'] = Wolke.Char.EPtotal - Wolke.Char.EPspent
         return fields
 
-    def pdfExecutePlugin(self, fields):
-        if Wolke.Settings['Pfad-Export-Plugin'] and os.path.isfile(Wolke.Settings['Pfad-Export-Plugin']):
-            api = {}
-            for k, v in Wolke.Char.charakterScriptAPI.items():
-                if k.startswith('get'):
-                    api[k] = v
-            api['data'] = fields
-            api['sephrastoExport'] = True
-
-            try:
-                exec(open(Wolke.Settings['Pfad-Export-Plugin'], mode="r", encoding="utf-8").read(), api)
-            except Exception as err:
-                error_class = err.__class__.__name__
-                detail = err.args[0]
-                cl, exc, tb = sys.exc_info()
-                line_number = traceback.extract_tb(tb)[-1][1]
-                raise Exception("%s at line %d: %s" % (error_class, line_number, detail))
-
-            return api['sephrastoExport']
-        return True
-
     def createExtra(self, vorts, ferts, tals, fields):
         for i in range(1, 13):
             if i <= len(vorts):
@@ -764,13 +735,15 @@ class pdfMeister(object):
     def appendWaffeneigenschaften(strList, weights, category, eigenschaften):
         strList.append(pdfMeister.formatRuleCategory(category))
         weights.append(pdfMeister.getWeight(strList[-1]))
-        for weName in eigenschaften:
+        for weName, waffen in sorted(eigenschaften.items()):
             str = ['-']
             we = Wolke.DB.waffeneigenschaften[weName]
             if not we.text:
                 continue
             str.append(we.name)
-            str.append(": ")
+            str.append(" (")
+            str.append(", ".join(waffen))
+            str.append("): ")
             #Replace all line endings by space
             str.append(we.text.replace('\n', ' '))
             str.append('\n\n')
@@ -845,26 +818,22 @@ class pdfMeister(object):
 
             text = talent.text
             
-            #The page for uebernatuerliches already has most of the text information from vorbereitungszeit on, so remove it
-            #Except for Ziel...
-            match = re.search('^Ziel: (.*)', talent.text, re.MULTILINE)
-            ziel = ""
-            if match:
-                ziel = match.group()
-  
-            index = text.find('Vorbereitungszeit')
-            if index != -1:
-                text = text[:index]
-            #Some talents only specify Fertigkeiten in their text...
-            index = text.find('Fertigkeiten')
+            #Remove everything from Fertigkeiten on
+            index = text.find('\nFertigkeiten')
             if index != -1:
                 text = text[:index]
 
-            text = text + ziel
+            #Remove everything from Erlernen on (some talents don't have a Fertigkeiten list)
+            index = text.find('\nErlernen')
+            if index != -1:
+                text = text[:index]
+
             #Replace line endings without a full stop, colon or another line ending before by just a full stop
             text = re.sub('(?<![\.\n\:])\n', '. ', text)
+
             #Replace all the remaining line endings by space
             str.append(text.replace('\n', ' '))
+
             str.append('\n\n')
             strList.append("".join(str))
             weights.append(pdfMeister.getWeight(strList[-1]))
@@ -884,6 +853,12 @@ class pdfMeister(object):
                 remove.add(vort[:-1])
             elif vort.endswith(" IV"):
                 remove.add(vort[:-1] + "II")
+            elif vort.endswith(" V"):
+                remove.add(vort[:-1] + "IV")
+            elif vort.endswith(" VI"):
+                remove.add(vort[:-1])
+            elif vort.endswith(" VII"):
+                remove.add(vort[:-1])
 
         for vort in remove:
             if vort in allgemein:
@@ -903,16 +878,17 @@ class pdfMeister(object):
 
         manövernah = [el for el in sortM if (Wolke.DB.manöver[el].typ == 0)]
 
-        waffeneigenschaften = []
+        waffeneigenschaften = {}
         for waffe in Wolke.Char.waffen:
             for el in waffe.eigenschaften:
                 try:
                     we = Hilfsmethoden.GetWaffeneigenschaft(el, Wolke.DB)
                     if not we.name in waffeneigenschaften:
-                        waffeneigenschaften.append(we.name)
+                        waffeneigenschaften[we.name] = [waffe.anzeigename]
+                    else:
+                        waffeneigenschaften[we.name].append(waffe.anzeigename)
                 except WaffeneigenschaftException:
                     pass
-        waffeneigenschaften = sorted(waffeneigenschaften, key=str.lower)
 
         manöverfern = []
         for waffe in Wolke.Char.waffen:

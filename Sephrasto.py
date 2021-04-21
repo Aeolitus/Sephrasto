@@ -8,6 +8,7 @@ Created on Thu Mar 23 21:30:34 2017
 from PyQt5 import QtWidgets, QtCore, QtGui
 import sys
 import logging
+import os
 import os.path
 import MainWindow
 import CharakterEditor
@@ -18,6 +19,8 @@ from Wolke import Wolke
 import yaml
 from EinstellungenWrapper import EinstellungenWrapper
 import Version
+from EventBus import EventBus
+from PluginLoader import PluginLoader
 
 loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
 logging.basicConfig(filename="sephrasto.log", \
@@ -96,6 +99,24 @@ class MainWindowWrapper(object):
         # Get the Settings loaded
         EinstellungenWrapper.load()
         logging.getLogger().setLevel(loglevels[Wolke.Settings['Logging']])
+
+        self._plugins = []
+        pluginNames = PluginLoader.getPlugins(Wolke.Settings['Pfad-Plugins'])
+
+        for pluginName in pluginNames:
+            if pluginName in Wolke.Settings['Deaktivierte-Plugins']:
+                continue
+            plugin = PluginLoader.loadPlugin(Wolke.Settings['Pfad-Plugins'], pluginName)
+            self._plugins.append(plugin)
+            logging.info("Plugin: loaded " + pluginName)
+            if hasattr(plugin, "createMainWindowButtons"):
+                for button in plugin.createMainWindowButtons():
+                    button.setParent(self.Form)
+                    button.setMinimumSize(QtCore.QSize(0, 25))
+                    self.ui.vlPluginButtons.addWidget(button)
+
+        EventBus.doAction("plugins_geladen")
+
         self.Form.show()
         sys.exit(self.app.exec_())
         
@@ -103,6 +124,7 @@ class MainWindowWrapper(object):
         '''
         Creates a new CharakterEditor which is empty and shows it.
         '''
+        EventBus.doAction("charaktereditor_oeffnet", { "neu" : True })
         self.ed = CharakterEditor.Editor(self.savePathUpdated)
         if self.ed.noDatabase:
             raise Exception("Konnte datenbank.xml nicht finden")
@@ -111,7 +133,7 @@ class MainWindowWrapper(object):
         self.ed.ui.setupUi(self.ed.formMain)
         self.ed.ui.tabs.removeTab(0)
         self.ed.ui.tabs.removeTab(0)
-        self.ed.setupMainForm()
+        self.ed.setupMainForm(self._plugins)
         self.savePathUpdated()
         self.ed.formMain.show()
         
@@ -129,6 +151,7 @@ class MainWindowWrapper(object):
         if not spath.endswith(".xml"):
             spath = spath + ".xml"
         try:
+            EventBus.doAction("charaktereditor_oeffnet", { "neu" : False })
             self.ed = CharakterEditor.Editor(self.savePathUpdated, spath)
         except Exception as e:
             logging.error("Sephrasto Fehlercode " + str(Wolke.Fehlercode) + ". Exception: " + str(e))
@@ -156,7 +179,7 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n")
             self.ed.ui.setupUi(self.ed.formMain)
             self.ed.ui.tabs.removeTab(0)
             self.ed.ui.tabs.removeTab(0)
-            self.ed.setupMainForm()
+            self.ed.setupMainForm(self._plugins)
             self.savePathUpdated()
             self.ed.formMain.show()
         

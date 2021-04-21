@@ -76,6 +76,9 @@ class Ui_waffeneigenschaftDialog(object):
         self.buttonBox.accepted.connect(waffeneigenschaftDialog.accept)
         self.buttonBox.rejected.connect(waffeneigenschaftDialog.reject)
         QtCore.QMetaObject.connectSlotsByName(waffeneigenschaftDialog)
+        waffeneigenschaftDialog.setTabOrder(self.nameEdit, self.textEdit)
+        waffeneigenschaftDialog.setTabOrder(self.textEdit, self.scriptPrioEdit)
+        waffeneigenschaftDialog.setTabOrder(self.scriptPrioEdit, self.scriptEdit)
 
     def retranslateUi(self, waffeneigenschaftDialog):
         _translate = QtCore.QCoreApplication.translate

@@ -29,6 +29,6 @@ StandardFerts = ["Handgemenge", "Hiebwaffen", "Klingenwaffen", "Stangenwaffen",
 
 VorteilTypen = ["Allgemeine Vorteile", "Profane Vorteile", "Kampfvorteile", 
 "Kampfstile", "Magische Vorteile", "Magische Traditionen", "Karmale Vorteile", 
-"Karmale Traditionen"]
+"Karmale Traditionen", "Dämonische Traditionen"]
 
 KeinKampfstil = "Kein Kampfstil"

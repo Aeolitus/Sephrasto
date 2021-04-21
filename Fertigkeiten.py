@@ -65,6 +65,7 @@ class Fertigkeit(Steigerbar):
         self.maxWert = -1
         self.printclass = -1
         self.isUserAdded = True
+        self.addToPDF = True
 
     def aktualisieren(self):
         self.attributswerte = [Wolke.Char.attribute[self.attribute[0]].wert, 
@@ -75,6 +76,7 @@ class Fertigkeit(Steigerbar):
         self.basiswert = round(sum(self.attributswerte)/3+0.0001) + self.basiswertMod
         self.probenwert = self.basiswert + round(self.wert/2+0.0001)
         self.probenwertTalent = self.basiswert + self.wert
+
     def __deepcopy__(self, memo=""):
         F = Fertigkeit()
         F.name = self.name
@@ -94,6 +96,7 @@ class Fertigkeit(Steigerbar):
         F.maxWert = self.maxWert
         F.printclass = self.printclass
         F.isUserAdded = self.isUserAdded
+        F.addToPDF = self.addToPDF
         return F
 
 class Talent():

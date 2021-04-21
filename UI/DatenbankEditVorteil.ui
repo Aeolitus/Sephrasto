@@ -188,10 +188,10 @@
           <string> EP</string>
          </property>
          <property name="minimum">
-          <number>-1000</number>
+          <number>-10000</number>
          </property>
          <property name="maximum">
-          <number>1000</number>
+          <number>10000</number>
          </property>
          <property name="singleStep">
           <number>20</number>
@@ -227,48 +227,7 @@
      <item row="5" column="1">
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
-        <widget class="QComboBox" name="comboTyp">
-         <item>
-          <property name="text">
-           <string>Allgemeiner Vorteil</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Profaner Vorteil</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Kampfvorteil</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Kampfstil</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Magischer Vorteil</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Magische Tradition</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Karmaler Vorteil</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Karmale Tradition</string>
-          </property>
-         </item>
-        </widget>
+        <widget class="QComboBox" name="comboTyp"/>
        </item>
       </layout>
      </item>

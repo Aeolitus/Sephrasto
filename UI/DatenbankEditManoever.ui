@@ -158,7 +158,10 @@
  </widget>
  <tabstops>
   <tabstop>nameEdit</tabstop>
+  <tabstop>probeEdit</tabstop>
   <tabstop>gegenEdit</tabstop>
+  <tabstop>comboTyp</tabstop>
+  <tabstop>voraussetzungenEdit</tabstop>
   <tabstop>textEdit</tabstop>
  </tabstops>
  <resources/>

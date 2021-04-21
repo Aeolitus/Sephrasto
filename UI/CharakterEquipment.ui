@@ -2043,6 +2043,7 @@
   <tabstop>spinW1plus</tabstop>
   <tabstop>spinW1rw</tabstop>
   <tabstop>spinW1wm</tabstop>
+  <tabstop>spinW1lz</tabstop>
   <tabstop>spinW1h</tabstop>
   <tabstop>editW1eig</tabstop>
   <tabstop>comboStil1</tabstop>
@@ -2053,6 +2054,7 @@
   <tabstop>spinW2plus</tabstop>
   <tabstop>spinW2rw</tabstop>
   <tabstop>spinW2wm</tabstop>
+  <tabstop>spinW2lz</tabstop>
   <tabstop>spinW2h</tabstop>
   <tabstop>editW2eig</tabstop>
   <tabstop>comboStil2</tabstop>
@@ -2063,6 +2065,7 @@
   <tabstop>spinW3plus</tabstop>
   <tabstop>spinW3rw</tabstop>
   <tabstop>spinW3wm</tabstop>
+  <tabstop>spinW3lz</tabstop>
   <tabstop>spinW3h</tabstop>
   <tabstop>editW3eig</tabstop>
   <tabstop>comboStil3</tabstop>
@@ -2073,6 +2076,7 @@
   <tabstop>spinW4plus</tabstop>
   <tabstop>spinW4rw</tabstop>
   <tabstop>spinW4wm</tabstop>
+  <tabstop>spinW4lz</tabstop>
   <tabstop>spinW4h</tabstop>
   <tabstop>editW4eig</tabstop>
   <tabstop>comboStil4</tabstop>
@@ -2083,6 +2087,7 @@
   <tabstop>spinW5plus</tabstop>
   <tabstop>spinW5rw</tabstop>
   <tabstop>spinW5wm</tabstop>
+  <tabstop>spinW5lz</tabstop>
   <tabstop>spinW5h</tabstop>
   <tabstop>editW5eig</tabstop>
   <tabstop>comboStil5</tabstop>
@@ -2093,6 +2098,7 @@
   <tabstop>spinW6plus</tabstop>
   <tabstop>spinW6rw</tabstop>
   <tabstop>spinW6wm</tabstop>
+  <tabstop>spinW6lz</tabstop>
   <tabstop>spinW6h</tabstop>
   <tabstop>editW6eig</tabstop>
   <tabstop>comboStil6</tabstop>
@@ -2103,6 +2109,7 @@
   <tabstop>spinW7plus</tabstop>
   <tabstop>spinW7rw</tabstop>
   <tabstop>spinW7wm</tabstop>
+  <tabstop>spinW7lz</tabstop>
   <tabstop>spinW7h</tabstop>
   <tabstop>editW7eig</tabstop>
   <tabstop>comboStil7</tabstop>
@@ -2113,6 +2120,7 @@
   <tabstop>spinW8plus</tabstop>
   <tabstop>spinW8rw</tabstop>
   <tabstop>spinW8wm</tabstop>
+  <tabstop>spinW8lz</tabstop>
   <tabstop>spinW8h</tabstop>
   <tabstop>editW8eig</tabstop>
   <tabstop>comboStil8</tabstop>

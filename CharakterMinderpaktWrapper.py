@@ -43,7 +43,9 @@ class CharakterMinderpaktWrapper():
           
     def initVorteile(self):
         self.uiVor.treeWidget.blockSignals(True)
-        vortList = [[],[],[],[],[],[],[],[]]
+        vortList = []
+        for vortTyp in VorteilTypen:
+            vortList.append([])
         for el in Wolke.DB.vorteile:
             if Wolke.DB.vorteile[el].kosten > 20 and Wolke.DB.vorteile[el].variable != 1:
                 continue
