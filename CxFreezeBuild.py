@@ -61,10 +61,11 @@ removeFiles = [
 for filename in removeFiles:
     print(filename)
     filepath = os.path.join(build_path, filename)
-    try:
-        shutil.rmtree(filepath)
-    except OSError:
-        os.remove(filepath)
+    if os.path.isdir(filepath) or os.path.isfile(filepath):
+        try:
+            shutil.rmtree(filepath)
+        except OSError:
+            os.remove(filepath)
 
 
 print("Copying additional files to build folder")
