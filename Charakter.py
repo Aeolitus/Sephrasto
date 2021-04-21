@@ -1180,6 +1180,12 @@ class Char():
                 waff.eigenschaften = list(map(str.strip, waf.attrib['eigenschaften'].split(",")))
             waff.haerte = int(waf.attrib['haerte'])
             waff.kampfstil = waf.attrib['kampfstil']
+            if waff.name in Wolke.DB.waffen:
+                dbWaffe = Wolke.DB.waffen[waff.name]
+                waff.fertigkeit = dbWaffe.fertigkeit
+                waff.talent = dbWaffe.talent
+                waff.kampfstile = dbWaffe.kampfstile.copy()
+
             self.waffen.append(waff)
         Wolke.Fehlercode = -50
         for aus in objekte.findall('Ausrüstung/Ausrüstungsstück'):

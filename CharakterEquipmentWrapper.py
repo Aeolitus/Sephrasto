@@ -124,6 +124,11 @@ class EquipWrapper(QtCore.QObject):
                     W.anzeigename = eval("self.uiEq.edit" + el + "name.text()")
                     if not W.name and W.anzeigename and W.anzeigename in Wolke.DB.waffen:
                         W.name = W.anzeigename
+                    if W.name in Wolke.DB.waffen:
+                        dbWaffe = Wolke.DB.waffen[W.name]
+                        W.fertigkeit = dbWaffe.fertigkeit
+                        W.talent = dbWaffe.talent
+                        W.kampfstile = dbWaffe.kampfstile.copy()
 
                     W.rw = eval("self.uiEq.spin" + el + "rw.value()")
                     if W.name == "Unbewaffnet":
