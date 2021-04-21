@@ -55,8 +55,10 @@ class WaffenPicker(object):
         for kind in kampfferts:
             wafs = []
             for waf in Wolke.DB.waffen:
-                if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in Wolke.DB.waffen[waf].anzeigename.lower():
-                    continue
+                if self.ui.nameFilterEdit.text():
+                    filterText = self.ui.nameFilterEdit.text().lower()
+                    if (not filterText in Wolke.DB.waffen[waf].anzeigename.lower()) and (not filterText in Wolke.DB.waffen[waf].fertigkeit.lower()) and (not filterText in Wolke.DB.waffen[waf].talent.lower()):
+                        continue
                 if Wolke.DB.waffen[waf].fertigkeit == kind.name:
                     wafs.append(waf)
             wafs.sort()
