@@ -45,8 +45,9 @@ Die folgenden Funktionen stehen neben Python-Builtins wie 'round' zur Verfügung
 
 #### Sonstiges
     addWaffeneigenschaft <Parameter: TalentName, Eigenschaft>
-        Beispiel: addWaffeneigenschaft('Waffenlos', 'Kopflastig')
-    
+        Beispiel: addWaffeneigenschaft('Unbewaffnet', 'Kopflastig')
+    removeWaffeneigenschaft <Parameter: TalentName, Eigenschaft>
+        Beispiel: removeWaffeneigenschaft('Unbewaffnet', 'Zerbrechlich')
 #### Waffeneigenschaften (WE)
 Diese Funktionen stehen nur innerhalb von Waffeneigenschaft-Scripts zur Verfügung.
 

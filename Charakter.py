@@ -256,7 +256,8 @@ class Char():
             'getAttribut' : lambda attribut: self.attribute[attribut].wert,
 
             #Misc
-            'addWaffeneigenschaft' : self.API_addWaffeneigenschaft
+            'addWaffeneigenschaft' : self.API_addWaffeneigenschaft,
+            'removeWaffeneigenschaft' : self.API_removeWaffeneigenschaft
         }
 
         #Add Attribute to API (readonly)
@@ -314,20 +315,33 @@ class Char():
         self.API_setKampfstil(kampfstil, k.AT + at, k.VT + vt, k.TP + tp, k.RW + rw, k.BE + be)
 
     def API_addWaffeneigenschaft(self, talentName, eigenschaft):
+        self.modifyWaffeneigenschaft(talentName, eigenschaft, False)
+
+    def API_removeWaffeneigenschaft(self, talentName, eigenschaft):
+        self.modifyWaffeneigenschaft(talentName, eigenschaft, True)
+
+    def modifyWaffeneigenschaft(self, talentName, eigenschaft, remove):
         for waffe in self.waffen:
             talent = None
             eigenschaftExists = False
             if waffe.name in Wolke.DB.waffen:
                 dbWaffe = Wolke.DB.waffen[waffe.name]
                 talent = dbWaffe.talent
-                if eigenschaft in dbWaffe.eigenschaften:
+                if (not remove) and (eigenschaft in dbWaffe.eigenschaften):
+                    continue
+                if remove and not (eigenschaft in dbWaffe.eigenschaften):
                     continue
             if talent != talentName:
                 continue
-            self.waffenEigenschaftenUndo.append([waffe.name, eigenschaft])
-            if eigenschaft in waffe.eigenschaften:
-                continue
-            waffe.eigenschaften.append(eigenschaft)
+            self.waffenEigenschaftenUndo.append([waffe, eigenschaft, remove])
+            if remove:
+                if not (eigenschaft in waffe.eigenschaften):
+                    continue
+                waffe.eigenschaften.remove(eigenschaft)
+            else:
+                if eigenschaft in waffe.eigenschaften:
+                    continue
+                waffe.eigenschaften.append(eigenschaft)
 
     def API_getWaffeneigenschaftParam(self, paramNb):
         match = re.search(r"\((.*?)\)", self.currentEigenschaft)
@@ -403,15 +417,13 @@ class Char():
 
         #Undo previous changes by Vorteil scripts before executing them again
         for value in self.waffenEigenschaftenUndo:
-            waffe = None
-            for w in self.waffen:
-                if w.name == value[0]:
-                    waffe = w
-                    break
-            if not waffe:
-                continue
-            if value[1] in waffe.eigenschaften:
-                waffe.eigenschaften.remove(value[1])
+            waffe = value[0]
+            wEigenschaft = value[1]
+            remove = value[2]
+            if (not remove) and (wEigenschaft in waffe.eigenschaften):
+                waffe.eigenschaften.remove(wEigenschaft)
+            elif remove and (not (wEigenschaft in waffe.eigenschaften)):
+                waffe.eigenschaften.append(wEigenschaft)
         self.waffenEigenschaftenUndo = []
 
         for fert in self.fertigkeiten:
