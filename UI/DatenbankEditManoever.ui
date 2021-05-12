@@ -103,12 +103,27 @@
        </item>
        <item>
         <property name="text">
-         <string>Sonstiges</string>
+         <string>Weitere Magieregeln</string>
         </property>
        </item>
-	   <item>
+       <item>
         <property name="text">
          <string>Aktion</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Dämonische Modifikation</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Weitere Karmaregeln</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Weitere Kampfregeln</string>
         </property>
        </item>
       </widget>

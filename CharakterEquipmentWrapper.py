@@ -142,7 +142,7 @@ class EquipWrapper(QtCore.QObject):
                     if tmp in kampfstile:
                         W.kampfstil = tmp
 
-                    if EventBus.applyFilter("waffe_haerte_wsstern", W.name == "Unbewaffnet", { "waffe" : W }):
+                    if EventBus.applyFilter("waffe_haerte_wsstern", W.name == "Hand" or W.name == "Fuß", { "waffe" : W }):
                         W.haerte = Wolke.Char.wsStern
                     else:
                         W.haerte = eval("self.uiEq.spin" + el + "h.value()")

@@ -80,6 +80,7 @@ includeFiles = {
     "icon_large.png" : build_path,
     "icon_multi.ico" : build_path,
     "ScriptAPI.md" : build_path,
+    "PluginAPI.md" : build_path,
     os.path.join(env_styles_path, "qwindowsvistastyle.dll"): styles_path,
     os.path.join(env_bin_path, "libEGL.dll"): build_path,
     #os.path.join(env_platforms_path, "qminimal.dll"): platforms_path,

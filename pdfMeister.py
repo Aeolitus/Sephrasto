@@ -40,7 +40,7 @@ class pdfMeister(object):
         self.RulesPage = "Regeln.pdf"
         self.Rules = []
         self.RuleWeights = []
-        self.RuleCategories = ['ALLGEMEINE VORTEILE', 'PROFANE VORTEILE', 'KAMPFVORTEILE', 'AKTIONEN', 'WAFFENEIGENSCHAFTEN', 'NAHKAMPFMANÖVER', 'FERNKAMPFMANÖVER', 'ÜBERNATÜRLICHE VORTEILE', 'SPONTANE MODIFIKATIONEN (ZAUBER)', 'SPONTANE MODIFIKATIONEN (LITURGIEN)', 'ÜBERNATÜRLICHE TALENTE', 'SONSTIGES']
+        self.RuleCategories = ['ALLGEMEINE VORTEILE', 'PROFANE VORTEILE', 'KAMPFVORTEILE', 'AKTIONEN', 'WAFFENEIGENSCHAFTEN', 'WEITERE KAMPFREGELN', 'NAHKAMPFMANÖVER', 'FERNKAMPFMANÖVER', 'MAGISCHE VORTEILE', 'SPONTANE MODIFIKATIONEN (ZAUBER)', 'WEITERE MAGIEREGELN', 'ZAUBER', 'KARMALE VORTEILE', 'SPONTANE MODIFIKATIONEN (LITURGIEN)', 'WEITERE KARMAREGELN', 'LITURGIEN', 'DÄMONISCHE VORTEILE', 'SPONTANE MODIFIKATIONEN (ANRUFUNGEN)', 'ANRUFUNGEN']
         self.Talents = []
         self.Energie = ""
     
@@ -162,6 +162,8 @@ class pdfMeister(object):
         Wolke.Fehlercode = -95
         for page in allPages:
             os.remove(page)
+
+        EventBus.doAction("pdf_geschrieben", { "filename" : filename })
 
         Wolke.Fehlercode = -98
         #Open PDF with default application:
@@ -292,7 +294,7 @@ class pdfMeister(object):
                 vname = basename + " " + fullenum[1:]
                 typeDict[vname] = Wolke.DB.vorteile[vort].typ
                 assembled.append(vname)
-                if "Zauberer" in vname or "Geweiht" in vname:
+                if "Zauberer" in vname or "Geweiht" in vname or "Paktierer" in vname:
                     typeDict[vname] = 4
             else:
                 typeDict[vort] = Wolke.DB.vorteile[vort].typ
@@ -558,8 +560,6 @@ class pdfMeister(object):
 
         fertsList = []
         for f in Wolke.Char.übernatürlicheFertigkeiten:
-            if not Wolke.Char.übernatürlicheFertigkeiten[f].addToPDF:
-                continue
             fertsList.append(f)
         fertsList.sort(key = lambda x: (Wolke.DB.übernatürlicheFertigkeiten[x].printclass, x))
 
@@ -568,24 +568,25 @@ class pdfMeister(object):
         for f in fertsList:
             fe = Wolke.Char.übernatürlicheFertigkeiten[f]
 
-            if countF < 13:
-                # Fill Fertigkeitsslots
-                base = 'Ueberfer' + str(countF)
-                fields[base + 'NA'] = fe.name
-                fields[base + 'FA'] = fe.steigerungsfaktor
-                fields[base + 'AT'] = fe.attribute[0] + '/' + \
-                    fe.attribute[1] + '/' + fe.attribute[2]
-                fields[base + 'FW'] = fe.wert
-                fields[base + 'PW'] = fe.probenwertTalent
+            if fe.addToPDF:
+                if countF < 13:
+                    # Fill Fertigkeitsslots
+                    base = 'Ueberfer' + str(countF)
+                    fields[base + 'NA'] = fe.name
+                    fields[base + 'FA'] = fe.steigerungsfaktor
+                    fields[base + 'AT'] = fe.attribute[0] + '/' + \
+                        fe.attribute[1] + '/' + fe.attribute[2]
+                    fields[base + 'FW'] = fe.wert
+                    fields[base + 'PW'] = fe.probenwertTalent
 
-                if fe.basiswertMod == 0:
-                    fields[base + 'BA'] = fe.basiswert
+                    if fe.basiswertMod == 0:
+                        fields[base + 'BA'] = fe.basiswert
+                    else:
+                        fields[base + 'BA'] = str(fe.basiswert) + "*"
                 else:
-                    fields[base + 'BA'] = str(fe.basiswert) + "*"
-            else:
-                self.UseExtraPage = True
-                self.ExtraUeber.append(fe)
-            countF += 1
+                    self.UseExtraPage = True
+                    self.ExtraUeber.append(fe)
+                countF += 1
             
             # Fill Talente
             tals = sorted(fe.gekaufteTalente, key=lambda s: s.lower())
@@ -733,6 +734,8 @@ class pdfMeister(object):
             return '\n' + category + '\n\n'
 
     def appendWaffeneigenschaften(strList, weights, category, eigenschaften):
+        if not eigenschaften or (len(eigenschaften) == 0):
+            return
         strList.append(pdfMeister.formatRuleCategory(category))
         weights.append(pdfMeister.getWeight(strList[-1]))
         for weName, waffen in sorted(eigenschaften.items()):
@@ -751,6 +754,8 @@ class pdfMeister(object):
             weights.append(pdfMeister.getWeight(strList[-1]))
 
     def appendVorteile(strList, weights, category, vorteile):
+        if not vorteile or (len(vorteile) == 0):
+            return
         strList.append(pdfMeister.formatRuleCategory(category))
         weights.append(pdfMeister.getWeight(strList[-1]))
         for vor in vorteile:
@@ -770,6 +775,8 @@ class pdfMeister(object):
             weights.append(pdfMeister.getWeight(strList[-1]))
     
     def appendManöver(strList, weights, category, manöverList):
+        if not manöverList or (len(manöverList) == 0):
+            return
         strList.append(pdfMeister.formatRuleCategory(category))
         weights.append(pdfMeister.getWeight(strList[-1]))
         count = 0
@@ -779,8 +786,10 @@ class pdfMeister(object):
                 continue
             count += 1
             str = ['-']
-            if manöver.name.endswith(" (M)") or manöver.name.endswith(" (L)"):
+            if manöver.name.endswith(" (M)") or manöver.name.endswith(" (L)") or manöver.name.endswith(" (D)"):
                 str.append(manöver.name[:-4])
+            elif manöver.name.endswith(" (FK)"):
+                str.append(manöver.name[:-5])
             else:
                 str.append(manöver.name)
             if manöver.probe:
@@ -806,6 +815,8 @@ class pdfMeister(object):
             weights.pop()
 
     def appendTalente(strList, weights, category, talente):
+        if not talente or (len(talente) == 0):
+            return
         strList.append(pdfMeister.formatRuleCategory(category))
         weights.append(pdfMeister.getWeight(strList[-1]))
         for tal in talente:
@@ -869,7 +880,9 @@ class pdfMeister(object):
         kampf = [el for el in sortV if (Wolke.DB.vorteile[el].typ < 4 and
                                            Wolke.DB.vorteile[el].typ >= 2)]
 
-        ueber = [el for el in sortV if Wolke.DB.vorteile[el].typ >= 4]
+        magisch = [el for el in sortV if Wolke.DB.vorteile[el].typ >= 4 and Wolke.DB.vorteile[el].typ <= 5]
+        karmal = [el for el in sortV if Wolke.DB.vorteile[el].typ >= 6 and Wolke.DB.vorteile[el].typ <= 7]
+        dämonisch = [el for el in sortV if Wolke.DB.vorteile[el].typ >= 8]
 
         sortM = list(Wolke.DB.manöver.keys())
         sortM = sorted(sortM, key=str.lower)
@@ -895,46 +908,57 @@ class pdfMeister(object):
             if type(waffe) is Objekte.Fernkampfwaffe:
                 manöverfern = [el for el in sortM if (Wolke.DB.manöver[el].typ == 1)]
                 break
-        manövermagisch = []
-        if "Zauberer I" in Wolke.Char.vorteile or "Borbaradianische Repräsentation I" in Wolke.Char.vorteile:
-            manövermagisch = [el for el in sortM if (Wolke.DB.manöver[el].typ == 2)]
-        manöverkarmal = []
-        if "Geweiht I" in Wolke.Char.vorteile:
-            manöverkarmal = [el for el in sortM if (Wolke.DB.manöver[el].typ == 3)]
-        manöversonstiges = [el for el in sortM if (Wolke.DB.manöver[el].typ == 4)]
-            
-        ueberTalente = set()
+        spomodsmagie = [el for el in sortM if (Wolke.DB.manöver[el].typ == 2)]
+        spomodskarma = [el for el in sortM if (Wolke.DB.manöver[el].typ == 3)]
+        weiteresmagie = [el for el in sortM if (Wolke.DB.manöver[el].typ == 4)]
+        spomodsdämonisch = [el for el in sortM if (Wolke.DB.manöver[el].typ == 6)]
+        weitereskarma = [el for el in sortM if (Wolke.DB.manöver[el].typ == 7)]
+        weitereskampf = [el for el in sortM if (Wolke.DB.manöver[el].typ == 8)]
+
+        zauber = set()
+        liturgien = set()
+        anrufungen = set()
         for fer in Wolke.Char.übernatürlicheFertigkeiten:
             for tal in Wolke.Char.übernatürlicheFertigkeiten[fer].gekaufteTalente:
-                ueberTalente.add(tal)
-        ueberTalente = sorted(ueberTalente, key=str.lower)
+                res = re.findall('Kosten:(.*?)\n', Wolke.DB.talente[tal].text, re.UNICODE)
+                if len(res) >= 1 and " KaP" in res[0]:
+                    liturgien.add(tal)
+                elif len(res) >= 1 and " GuP" in res[0]:
+                    anrufungen.add(tal)
+                else:
+                    zauber.add(tal)
+
+        zauber = sorted(zauber, key=str.lower)
+        liturgien = sorted(liturgien, key=str.lower)
+        anrufungen = sorted(anrufungen, key=str.lower)
+
         self.Rules = []
         self.RuleWeights = []
 
-        if allgemein:
-            pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[0], allgemein)
-        if profan:
-            pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[1], profan)
-        if kampf:
-            pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[2], kampf)
-        if aktionen:
-            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[3], aktionen)
-        if waffeneigenschaften:
-            pdfMeister.appendWaffeneigenschaften(self.Rules, self.RuleWeights, self.RuleCategories[4], waffeneigenschaften)
-        if manövernah:
-            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[5], manövernah)
-        if manöverfern:
-            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[6], manöverfern)
-        if ueber:
-            pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[7], ueber)
-        if manövermagisch:
-            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[8], manövermagisch)
-        if manöverkarmal:
-            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[9], manöverkarmal)
-        if ueberTalente:
-            pdfMeister.appendTalente(self.Rules, self.RuleWeights, self.RuleCategories[10], ueberTalente)
-        if manöversonstiges:
-            pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[11], manöversonstiges)
+        pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[0], allgemein)
+        pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[1], profan)
+
+        pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[2], kampf)
+        pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[3], aktionen)
+        pdfMeister.appendWaffeneigenschaften(self.Rules, self.RuleWeights, self.RuleCategories[4], waffeneigenschaften)
+        pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[5], weitereskampf)
+        pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[6], manövernah)
+        pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[7], manöverfern)
+
+        pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[8], magisch)
+        pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[9], spomodsmagie)
+        pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[10], weiteresmagie)
+        pdfMeister.appendTalente(self.Rules, self.RuleWeights, self.RuleCategories[11], zauber)
+
+        pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[12], karmal)
+        pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[13], spomodskarma)
+        pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[14], weitereskarma)
+        pdfMeister.appendTalente(self.Rules, self.RuleWeights, self.RuleCategories[15], liturgien)
+
+        pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[16], dämonisch)
+        pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[17], spomodsdämonisch)
+        pdfMeister.appendTalente(self.Rules, self.RuleWeights, self.RuleCategories[18], anrufungen)
+        
 
     def writeRules(self, fields, start, roughLineCount):
         weights = 0

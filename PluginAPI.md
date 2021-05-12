@@ -52,6 +52,8 @@ Zweck: Beliebige Aktion durchführen, nachdem die Charakterwerte in irgendeiner 
 Zweck: Aktionen durchführen, die nicht mit der Vorteil-Script-API möglich sind. Der Parameter enthält den Namen des Vorteils.
 - "vorteil_gekauft"  (Parameter: { "name" : string })
 Zweck: Aktionen durchführen, die nicht mit der Vorteil-Script-API möglich sind. Der Parameter enthält den Namen des Vorteils.
+- "pdf_geschrieben" (Parameter: { "filename" : string })
+Zweck: Aktion durchführen, nachdem die Charakter-PDF geschrieben wurde, z.B. eine weitere PDF schreiben. Der Parameter enthält den Dateinamen der Charakter-PDF mit absolutem Pfad.
 
 ## Vorhandene Filter
 - "pdf_export" (Filter: pdfFields : dict)

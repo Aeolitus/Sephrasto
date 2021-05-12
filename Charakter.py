@@ -511,7 +511,7 @@ class Char():
             waffenwerte.AT += el.wm
             waffenwerte.VT += el.wm
 
-            schadensbonusWirkt = type(el) == Objekte.Nahkampfwaffe
+            schadensbonusWirkt = type(el) == Objekte.Nahkampfwaffe or fertig == "Wurfwaffen"
             schadensbonusWirkt = EventBus.applyFilter("waffe_schadensbonus_wirkt", schadensbonusWirkt, { "waffe" : el })
             if schadensbonusWirkt:
                 waffenwerte.TPPlus += self.schadensbonus
@@ -550,11 +550,16 @@ class Char():
             self.currentEigenschaft = None
 
     def getDefaultTalentCost(self, talent, steigerungsfaktor):
+        cost = 0
         if Wolke.DB.talente[talent].kosten != -1:
-            return Wolke.DB.talente[talent].kosten
-        if Wolke.DB.talente[talent].verbilligt:
-            return 10*steigerungsfaktor
-        return 20*steigerungsfaktor
+            cost = Wolke.DB.talente[talent].kosten
+        elif Wolke.DB.talente[talent].verbilligt:
+            cost = 10*steigerungsfaktor
+        else:
+            cost = 20*steigerungsfaktor
+
+        cost = EventBus.applyFilter("talent_kosten", cost, { "talent": talent })
+        return cost
 
     def getTalentCost(self, talent, steigerungsfaktor):
         if talent in self.talenteVariable:
@@ -608,7 +613,6 @@ class Char():
                     continue
                 paidTalents.append(tal)
                 val = self.getTalentCost(tal, self.fertigkeiten[fer].steigerungsfaktor)
-                val = EventBus.applyFilter("talent_kosten", val, { "talent": tal })
                 spent += val
                 self.EP_Fertigkeiten_Talente += val
 
@@ -637,7 +641,6 @@ class Char():
                     continue
                 paidTalents.append(tal)
                 val = self.getTalentCost(tal, self.übernatürlicheFertigkeiten[fer].steigerungsfaktor)
-                val = EventBus.applyFilter("talent_kosten", val, { "talent": tal })
                 spent += val
                 self.EP_Uebernatuerlich_Talente += val
         #Siebter Block ist gratis

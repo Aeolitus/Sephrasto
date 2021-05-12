@@ -230,16 +230,12 @@ class UebernatuerlichWrapper(QtCore.QObject):
     def updateTalents(self):
         if self.currentFertName != "":
             self.model.clear()
-            for el in Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].gekaufteTalente:
+            fert = Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName]
+            for el in fert.gekaufteTalente:
                 talStr = el.replace(self.currentFertName + ": ", "")
-
+                costStr = ""
                 if el in Wolke.DB.talente:
-                    if el in Wolke.Char.talenteVariable:
-                        costStr = " (" + str(Wolke.Char.talenteVariable[el].kosten) + " EP)"    
-                    else:
-                        costStr = " (" + str(Wolke.DB.talente[el].kosten) + " EP)"
-                else:
-                    costStr = ""
+                    costStr = " (" + str(Wolke.Char.getTalentCost(el, fert.steigerungsfaktor)) + " EP)"
                 item = QtGui.QStandardItem(talStr + costStr)
                 item.setEditable(False)
                 self.model.appendRow(item)
