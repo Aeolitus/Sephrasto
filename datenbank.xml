@@ -3384,12 +3384,12 @@ Wirkungsdauer: 1 Stunde
 Kosten: 4 AsP
 Fertigkeiten: Umwelt
 Erlernen: Elf 12; Dru, Geo 18; Hex 20; 20 EP</Talent>
-  <Talent name="Zappenduster" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Umwelt" variable="-1" printclass="0">Um deinen Körper herum entsteht eine Zone der Dunkelheit, die Helligkeit sinkt um eine Stufe (etwa von normal auf Dämmerung, von Sternenlicht auf absolute Dunkelheit, S. 38). Der Zauber gilt als Konterprobe (16) gegen alle Lichtzauber im Bereich, bei deren Gelingen die Lichtzauber aufgehoben werden. Alle profanen Lichtquellen im Bereich werden erstickt. Du selbst bist von dem Zauber nicht betroffen.
+  <Talent name="Zappenduster" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Umwelt" variable="-1" printclass="0">Um deinen Körper herum entsteht eine Zone der Dunkelheit von 4 Schritt Radius. Die Helligkeit sinkt um eine Stufe (etwa von normal auf Dämmerung, von Sternenlicht auf absolute Dunkelheit, S. 38). Der Zauber gilt als Konterprobe (16) gegen alle Lichtzauber im Bereich, bei deren Gelingen die Lichtzauber aufgehoben werden. Alle profanen Lichtquellen im Bereich werden erstickt. Du selbst bist von dem Zauber nicht betroffen.
 Mächtige Magie: Senkt die Helligkeit um eine weitere Stufe.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 8 Aktionen
 Ziel: Zone
-Reichweite: 4 Schritt (Radius)
+Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 8 AsP
 Fertigkeiten: Umwelt
@@ -4073,7 +4073,7 @@ Mächtige Magie: Falls zutreffend, geschieht das Folgende: Probenerleichterungen
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: Zone
-Reichweite: Berührung
+Reichweite: selbst
 Wirkungsdauer: 1 Stunde
 Kosten: 8 AsP
 Fertigkeiten: Verwandlung, Gaben des Odun
@@ -4187,7 +4187,7 @@ Wirkungsdauer: 4 Stunden
 Kosten: 16 AsP
 Fertigkeiten: Eigenschaften, Geister der Stärkung
 Erlernen: Smn 16; 40 EP</Talent>
-  <Talent name="Regentanz" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Luft, Umwelt, Geister der Stärkung, Wasser" variable="-1" printclass="5">Innerhalb des nächsten Tages regnet es auf die Felder im Radius von einer Meile und das Saatgut kann wachsen.
+  <Talent name="Regentanz" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Luft, Umwelt, Geister der Stärkung, Wasser" variable="-1" printclass="5">Innerhalb des nächsten Tages regnet es auf die Felder im Radius von 1 Meile und das Saatgut kann wachsen.
 Mächtige Magie: Verdoppelt den Radius.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Stunde
@@ -5277,7 +5277,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Stunde
 Ziel: Zone
 Reichweite: Berührung
-Wirkungsdauer: 1 Tag
+Wirkungsdauer: augenblicklich
 Kosten: 16 AsP
 Fertigkeiten: Humus, Trommelrituale
 Erlernen: Der 14; 40 EP</Talent>
@@ -5462,6 +5462,7 @@ Kosten: 4 AsP
 Fertigkeiten: Antimagie, Einfluss, Zaubermelodien
 Erlernen: Bard 18; 40 EP</Talent>
   <Talent name="Lied der Feen" kosten="20" voraussetzungen="Vorteil Tradition der Zauberbarden I" verbilligt="0" fertigkeiten="Verständigung, Zaubermelodien" variable="-1" printclass="18">Du rufst ein Feenwesen zur Hilfe. Befinden sich Feenwesen in einem Radius von 1 Meile, eilt eines von ihnen herbei. Du kannst das Feenwesen um einen Gefallen bitten, aber es entscheidet selbst, ob es den Gefallen erfüllt.
+Mächtige Magie: Verdoppelt den Radius.
 Probenschwierigkeit: 12
 Modifikationen: Namensruf (–4; du rufst ein dir bereits bekanntes Feenwesen in einem Radius von 8 Meilen herbei.)
 Vorbereitungszeit: 4 Minuten
