@@ -157,9 +157,9 @@ Mit einer Aktion Konflikt und einer Konterprobe (MU, 16) kannst du einen auf dir
   <Vorteil name="Defensiver Kampfstil" kosten="40" voraussetzungen="Attribut IN 6" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Volle Defensive (S. 36) ist für dich eine einfache Aktion. Dadurch könntest du beispielsweise zusätzlich die Aktion Konflikt wählen, um eine AT –4 ausführen.</Vorteil>
   <Vorteil name="Aufmerksamkeit" kosten="60" voraussetzungen="Attribut IN 8" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Misslingt deinem Gegner eine Verteidigung gegen dich, die mit einem Manöver verstärkt wurde, darfst du sofort einen Passierschlag gegen ihn ausführen. Pro Runde kannst du die erste Verteidigung gegen einen Passierschlag als Freie Reaktion ausführen.</Vorteil>
   <Vorteil name="Klingentanz" kosten="80" voraussetzungen="Attribut IN 10" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Erlaubt das Manöver Klingentanz.</Vorteil>
-  <Vorteil name="Zäher Hund" kosten="20" voraussetzungen="Attribut KO 4" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Blutungen drohen nur alle 2xWS Initiativephasen eine Wunde anzurichten.</Vorteil>
+  <Vorteil name="Durchatmen" kosten="20" voraussetzungen="Attribut KO 4" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Einmal zwischen zwei Ruhephasen kannst du eine Aktion Konzentration aufwenden und eine Zähigkeits-Probe (16) ablegen. Gelingt die Probe, regenerierst du sofort 1 Wunde oder 2 Erschöpfung, die du im laufenden Kampf erlitten hast.</Vorteil>
   <Vorteil name="Rüstungsgewöhnung" kosten="40" voraussetzungen="Attribut KO 6" nachkauf="häufig" typ="2" variable="-1" printclass="-1" script="modifyBEMod(1)">Die BE aller Rüstungen ist um 1 gesenkt.</Vorteil>
-  <Vorteil name="Eisern" kosten="60" voraussetzungen="Attribut KO 8" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Wundschmerzeffekte treten bei dir erst ab drei Wunden auf einen Schlag auf.</Vorteil>
+  <Vorteil name="Atemtechnik" kosten="60" voraussetzungen="Attribut KO 8" nachkauf="häufig" typ="2" variable="-1" printclass="-1">Du fügst +1W6 Trefferpunkte zu. Du aktivierst den Effekt in einer Freien Aktion. Der Effekt endet, wenn du auf einen Schlag zwei Wunden erleidest oder nach KO Initiativephasen. Dann erleidest du einen Punkt Erschöpfung.</Vorteil>
   <Vorteil name="Verbesserte Rüstungsgewöhnung" kosten="80" voraussetzungen="Attribut KO 10" nachkauf="häufig" typ="2" variable="-1" printclass="-1" script="modifyBEMod(2)">Die BE aller Rüstungen ist um 2 gesenkt.</Vorteil>
   <Vorteil name="Beidhändiger Kampf I" kosten="20" voraussetzungen="Attribut GE 4" nachkauf="häufig" typ="3" variable="-1" printclass="-1" script="modifyKampfstil('Beidhändiger Kampf', 1, 0, 0, 0)">Du erhältst AT +1.
 
@@ -255,7 +255,7 @@ Bedingungen:
 - nicht beritten</Vorteil>
   <Vorteil name="Parierwaffenkampf II" kosten="40" voraussetzungen="Attribut GE 6, Vorteil Parierwaffenkampf I" nachkauf="häufig" typ="3" variable="-1" printclass="-1">Du kannst gegen humanoide Gegner –1 Erschwernis aus Manövern ignorieren.
 
-Deine Parierwaffe ignoriert die üblichen Erschwernisse für Nebenwaffen (S. 39). Wenn ideale Kampfbedingungen herrschen – du also keine Erschwernisse durch Position, Untergrund und Licht erleidest – befindest du dich in vorteilhafter Position (S. 38).
+Deine Parierwaffe ignoriert die üblichen Erschwernisse für Nebenwaffen (S. 39). Wenn ideale Kampfbedingungen herrschen – du also keine Erschwernisse durch Position, Untergrund und Licht erleidest – verbessert sich deine Position um eine Stufe (S. 38).
 
 Bedingungen:
 - Parierwaffe
@@ -2709,7 +2709,7 @@ Wirkungsdauer: 16 Initiativphasen
 Kosten: 8 AsP
 Fertigkeiten: Illusion
 Erlernen: Srl 16; Ach, Mag 20; 20 EP</Talent>
-  <Talent name="Reflectimago Spiegelschein" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Illusion, Verwandlung" variable="-1" printclass="0">Durch eine Illusion (Sicht) kannst während der Wirkungsdauer bis zu 4 Objekten in deinem Sichtbereich eine verspiegelte Oberfläche geben, die eine Stunde hält. Das Objekt kann maximal so groß wie eine Tür sein.
+  <Talent name="Reflectimago Spiegelschein" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Illusion, Verwandlung" variable="-1" printclass="0">Durch eine Illusion (Sicht) kannst du während der Wirkungsdauer bis zu 4 Objekten in deinem Sichtbereich eine verspiegelte Oberfläche geben, die eine Stunde hält. Das Objekt kann maximal so groß wie eine Tür sein.
 Mächtige Magie: Die Zahl der Objekte steigt um 2.
 Probenschwierigkeit: 12
 Modifikationen: Handspiegel (–4, 1 AsP; ein Teil deines Körpers wird verspiegelt.)
@@ -5131,7 +5131,7 @@ Fertigkeiten: Schalenzauber, Verwandlung
 Erlernen: Alch 12; Hex 16; Mag 18; 60 EP</Talent>
   <Talent name="Chymische Hochzeit (passiv)" kosten="60" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Schalenzauber" variable="-1" printclass="14">Du lässt 2 gAsP in die Schale fließen. Fortan sinken die Abzüge durch improvisiertes Werkzeug für je 4 volle Punkte PW Schale des Alchemisten um 1. Dieser Bonus ist kumulativ zum Vorteil Improvisation (S. 58).
 Erlernen: Alch 16; Hex 18; 60 EP</Talent>
-  <Talent name="Essenzkonzentration" kosten="40" voraussetzungen="Vorteil Tradition der Alchemisten I" verbilligt="0" fertigkeiten="Schalenzauber, Verwandlung" variable="-1" printclass="14">Du konzentrierst zwei alchemistische Produkte der gleichen Art zu einem. Das entstehende Produkt verfügt über die spontanen Modifikationen beider Ausgangsprodukte, höchstens aber 4 Modifikationen. Darüber hinausgehende Modifikationen verfallen - du entscheidest welche.
+  <Talent name="Essenzkonzentration" kosten="40" voraussetzungen="Vorteil Tradition der Alchemisten I" verbilligt="0" fertigkeiten="Schalenzauber, Verwandlung" variable="-1" printclass="14">Du konzentrierst zwei alchemistische Produkte der gleichen Art zu einem. Das entstehende Produkt verfügt über die freiwilligen Modifikationen beider Ausgangsprodukte, höchstens aber 4 Modifikationen. Darüber hinausgehende Modifikationen verfallen - du entscheidest welche.
 Mächtige Magie: Verzehnfacht die (verbesserte) Haltbarkeit und erlaubt eine weitere Modifikation.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Stunden
@@ -6607,7 +6607,7 @@ Fertigkeiten: Magie
 Erlernen: Hes 18; 40 EP</Talent>
   <Talent name="Purgation" kosten="40" voraussetzungen="Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition der Angroschgeweihten I ODER Vorteil Tradition der Praiosgeweihten I ODER Vorteil Tradition der Rondrageweihten I" verbilligt="0" fertigkeiten="Heiliges Handwerk, Magie, Magiebann, Schutz der Gläubigen" variable="-1" printclass="30">Du bannst einen Zauber, in den gAsP geflossen sind (wie ein Artefakt oder ein permanenter Fluch), oder ein Wesen, in das gAsP geflossen sind (wie eine Chimäre oder einen gebundenen Dämon).
 Probenschwierigkeit: Probenschwierigkeit –4 bzw. Beschwörungsschwierigkeit –4
-Modifikationen: Praios Gnade (32 KaP; du brennst einem Magiebegabten die astrale Kraft aus, wenn ihm eine Konterprobe (KO, 16) misslingt. Er verliert den Vorteil Zauberer und seine komplette Astralenergie.)
+Modifikationen: Praios Gnade (Probenschwierigkeit 12, 32 KaP; du brennst einem Magiebegabten die astrale Kraft aus, wenn ihm eine Konterprobe (KO, 16) misslingt. Er verliert den Vorteil Zauberer und seine komplette Astralenergie.)
 Vorbereitungszeit: 1 Stunde
 Ziel: Zauber oder Einzelwesen
 Reichweite: 2 Schritt
@@ -9040,7 +9040,7 @@ Fast alle Geweihten der Zwölf beherrschen die zwölf Segnungen: Eid-, Feuer-, G
   <Manöver name="Niederwerfen" typ="0" voraussetzungen="Vorteil Niederwerfen" probe="AT -4" gegenprobe="KK">Dein Ziel stürzt und liegt am Boden.</Manöver>
   <Manöver name="Riposte" typ="0" voraussetzungen="Vorteil Parierwaffenkampf III" probe="VT -4" gegenprobe="">Du fügst dem Angreifer den Waffenschaden deiner Waffe zu. Die Riposte ist kombinierbar mit Attackemanövern, die in diesem Fall die Verteidigung zusätzlich erschweren. Zum Beispiel wäre eine Kombination aus Riposte und Hammerschlag um –12 erschwert, würde aber doppelten Schaden anrichten. Voraussetzung: Kampf im Parrierwaffen-Stil; keine Riposte seit letztem Beginn einer eigenen Initiativephase</Manöver>
   <Manöver name="Schildwall" typ="0" voraussetzungen="Vorteil Schildkampf III" probe="VT -4" gegenprobe="">Du kannst einen Angriff auf einen benachbarten Verbündeten abwehren. Das Manöver erfolgt vor der Verteidigung des Verbündeten. Voraussetzungen: Kampf im Schildkampf-Stil; kein Schildwall seit letztem Beginn einer eigenen Initiativephase</Manöver>
-  <Manöver name="Sturmangriff" typ="0" voraussetzungen="Vorteil Sturmangriff ODER Vorteil Reiterkampf I" probe="Bewegung und AT" gegenprobe="">Die Kombination der Aktionen Bewegung und Konflikt ist nicht erschwert. Außerdem richtet die Attacke GS Trefferpunkte zusätzlich an. Voraussetzungen: Vorteil Sturmangriff oder Reiterkampf I und Kampf in diesem Stil; die Bewegung muss vor dem Angriff ausgeführt werden. Anmerkung: Sturzflugangriffe von fliegenden Gegnern folgen denselben Regeln. Bei besonders kleinen Gegnern oder kurzem Anlauf sollte der Spielleiter den Schaden verringern.</Manöver>
+  <Manöver name="Sturmangriff" typ="0" voraussetzungen="Vorteil Sturmangriff ODER Vorteil Reiterkampf I" probe="Bewegung und AT" gegenprobe="">Die Kombination der Aktionen Bewegung und Konflikt ist nicht erschwert. Außerdem richtet die nächste Attacke GS Trefferpunkte zusätzlich an. Voraussetzungen: Vorteil Sturmangriff oder Reiterkampf I und Kampf in diesem Stil; die Bewegung muss vor dem Angriff ausgeführt werden. Anmerkung: Sturzflugangriffe von fliegenden Gegnern folgen denselben Regeln. Bei besonders kleinen Gegnern oder kurzem Anlauf sollte der Spielleiter den Schaden verringern.</Manöver>
   <Manöver name="Todesstoß" typ="0" voraussetzungen="Vorteil Todesstoß" probe="AT -8" gegenprobe="">Der Angriff richtet zwei zusätzliche Wunden an, auch wenn der Schaden zu gering ist, um Wunden anzurichten.</Manöver>
   <Manöver name="Überrennen" typ="0" voraussetzungen="Vorteil Reiterkampf III" probe="Bewegung und AT" gegenprobe="">Das Reittier stürmt in die gegnerische Formation. Seine Attacke trifft (samt anderen Manövern) alle Gegner in seiner Bahn, bis es durch mindestens 2 erfolgreiche Verteidigungen gestoppt wird. Außerdem richtet die Attacke GS Trefferpunkte zusätzlich an. Die Kombination der Aktionen Bewegung und Konflikt ist nicht erschwert. Voraussetzungen: Kampf im Reiterkampfstil; GS Schritt Anlauf; Ziele sind in einer kleineren Größenklasse als das Reittier</Manöver>
   <Manöver name="Unterlaufen" typ="0" voraussetzungen="Vorteil Schneller Kampf III" probe="VT -4" gegenprobe="">Wenn die Verteidigung gelingt, darfst du in der nächsten eigenen Initiativephase eine Freie Aktion nutzen, um deinen Gegner (ein weiteres Mal) anzugreifen. Voraussetzungen: Kampf im Schnellen Stil; kein Unterlaufen seit letztem Beginn einer eigenen Initiativephase</Manöver>
