@@ -83,9 +83,17 @@ class Editor(object):
         tabs.append(Tab(100, self.EPWrapper, self.EPWrapper.formEP, "EP-Verteilung"))
 
         for plugin in plugins:
-            if hasattr(plugin, "getCharakterTabs"):
+            if hasattr(plugin, "getCharakterTabs"): #deprecated
                 for tab in plugin.getCharakterTabs():
                    tabs.append(tab)
+
+            if hasattr(plugin, "createCharakterTabs"):
+                for tab in plugin.createCharakterTabs():
+                   tabs.append(tab)
+
+            if hasattr(plugin, "createCharakterButtons"):
+                for button in plugin.createCharakterButtons():
+                    self.ui.horizontalLayout_3.addWidget(button)
         
         tabs = sorted(tabs, key=lambda tab: tab.order)
         tabPadding = "    "

@@ -109,7 +109,7 @@ class Plugin:
 ```
 
 ## Charaktereditor Tab hinzufügen
-Implementiere in deiner Plugin-Klasse eine Funktion mit dem Namen `getCharakterTabs` und returne eine Liste von Tabs. Importiere hierzu die Tab-Klasse aus dem Charaktereditor. Der erste Konstruktor-Parameter der Tabklasse legt die relative Reihenfolge fest, in welcher der Tab eingefügt wird - die Sephrasto Tabs haben Reihenfolge-Werte in 10er-Schritten, beginnend bei 10. Der zweite Parameter ist deine UI-Wrapper-Klasse, die optional ein `modified` Signal definieren. Mit dem Signal kann Sephrasto darüber in Kenntnis gesetzt werden, dass sich etwas am Charakter verändert hat, um bei Bedarf das Warn-Popup zu öffnen, wenn der Charakter geschlossen wird oder um das EP-Widget zu aktualisieren. Der dritte Parameter ist die vom QtCreator generierte UI Form. Der vierte Parameter ist der Titel des Tabs.
+Implementiere in deiner Plugin-Klasse eine Funktion mit dem Namen `createCharakterTabs` und returne eine Liste von Tabs. Importiere hierzu die Tab-Klasse aus dem Charaktereditor. Der erste Konstruktor-Parameter der Tabklasse legt die relative Reihenfolge fest, in welcher der Tab eingefügt wird - die Sephrasto Tabs haben Reihenfolge-Werte in 10er-Schritten, beginnend bei 10. Der zweite Parameter ist deine UI-Wrapper-Klasse, die optional ein `modified` Signal definieren. Mit dem Signal kann Sephrasto darüber in Kenntnis gesetzt werden, dass sich etwas am Charakter verändert hat, um bei Bedarf das Warn-Popup zu öffnen, wenn der Charakter geschlossen wird oder um das EP-Widget zu aktualisieren. Der dritte Parameter ist die vom QtCreator generierte UI Form. Der vierte Parameter ist der Titel des Tabs.
 
 ```python
 from EventBus import EventBus
@@ -123,7 +123,7 @@ class Plugin:
     def charakterEditorOeffnet(self, params):
         self.meinTab = MeinTabWrapper.MeinTabWrapper()
 
-    def getCharakterTabs(self):
+    def createCharakterTabs(self):
         #Füge einen Tab mit Titel "Mein Tab" an zweiter Stelle ein.
         tab = Tab(15, self.meinTab, self.meinTab.form, "Mein Tab")
         return [tab]
@@ -146,8 +146,8 @@ class MeinTabWrapper(QtCore.QObject):
         self.modified.emit()
 ```
 
-## Hauptfenster Button hinzufügen
-Implementiere in deiner Plugin-Klasse eine Funktion mit dem Namen `createMainWindowButtons` und returne eine Liste von (Button) Widgets. Im `clicked` Event der widgets kannst du einen Handler registrieren, der dann beispielsweise ein neues Fenster zeigt.
+## Hauptfenster oder Charaktereditor Button hinzufügen
+Implementiere in deiner Plugin-Klasse eine Funktion mit dem Namen `createMainWindowButtons` oder `createCharakterButtons` und returne eine Liste von (Button) Widgets. Im `clicked` Event der widgets kannst du einen Handler registrieren, der dann beispielsweise ein neues Fenster zeigt.
 
 ```python
 from PyQt5 import QtWidgets, QtCore, QtGui
