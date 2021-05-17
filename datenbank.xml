@@ -8996,7 +8996,7 @@ Fast alle Geweihten der Zwölf beherrschen die zwölf Segnungen: Eid-, Feuer-, G
   <Waffe name="Kettenkugel" W6="2" plus="2" haerte="7" fertigkeit="Wurfwaffen" talent="Schleudern" kampfstile="" rw="4" lz="0" fk="1">Niederwerfen</Waffe>
   <Waffe name="Lasso" W6="0" plus="0" haerte="2" fertigkeit="Wurfwaffen" talent="Schleudern" kampfstile="" rw="4" lz="0" fk="1">Umklammern (-2; 12)</Waffe>
   <Waffe name="Schleuder" W6="1" plus="2" haerte="3" fertigkeit="Wurfwaffen" talent="Schleudern" kampfstile="" rw="16" lz="0" fk="1"></Waffe>
-  <Waffe name="Stabschleuder" W6="2" plus="0" haerte="4" fertigkeit="Wurfwaffen" talent="Schleudern" kampfstile="" rw="16" lz="1" fk="1">Nicht für Reiter</Waffe>
+  <Waffe name="Stabschleuder" W6="2" plus="0" haerte="4" fertigkeit="Wurfwaffen" talent="Schleudern" kampfstile="" rw="32" lz="1" fk="1">Nicht für Reiter</Waffe>
   <Waffe name="Wurfnetz" W6="0" plus="0" haerte="5" fertigkeit="Wurfwaffen" talent="Schleudern" kampfstile="" rw="2" lz="0" fk="1">Umklammern (-4; 16)</Waffe>
   <Waffe name="Schweres Wurfnetz" W6="0" plus="0" haerte="6" fertigkeit="Wurfwaffen" talent="Schleudern" kampfstile="" rw="2" lz="0" fk="1">Umklammern (-8; 16), Zweihändig</Waffe>
   <Waffe name="Arbalette" W6="3" plus="2" haerte="5" fertigkeit="Schusswaffen" talent="Armbrüste" kampfstile="" rw="32" lz="8" fk="1">Niederwerfen (-4), Zweihändig</Waffe>
@@ -9114,7 +9114,7 @@ Voraussetzung: Tradition der Durro-dûn III und Verwendung dieser Tradition</Man
   <Manöver name="Opferung (Paktierer)" typ="6" voraussetzungen="Vorteil Tradition der Paktierer III" probe="Anrufung +4" gegenprobe="">Das rituelle Opfer eines intelligenten Wesens erleichtert die Anrufung um +4, ein Geweihter der Gegengottheit verdoppelt den Bonus sogar.
 Voraussetzung: Tradition der Paktierer III und Verwendung dieser Tradition</Manöver>
   <Manöver name="Antimagie - Gegenzauber" typ="4" voraussetzungen="Übernatürliche-Fertigkeit 'Antimagie' -1" probe="Antimagie-Zauber" gegenprobe="">Der Gegenzauber stört einen anderen Zauberer während dessen Zaubervorbereitung. Er wirkt als Konterprobe (12), bei deren Gelingen der Zielzauber sofort scheitert.
-Schwierigkeit: 12
+Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
 Ziel: Zauber in Vorbereitung
 Reichweite: 16 Schritt
@@ -9122,21 +9122,21 @@ Wirkungsdauer: augenblicklich
 Kosten: 4 AsP</Manöver>
   <Manöver name="Antimagie - Magie unterdrücken" typ="4" voraussetzungen="Übernatürliche-Fertigkeit 'Antimagie' -1" probe="Antimagie-Zauber" gegenprobe="">Diese Variante unterdrückt zukünftige Zauber. In einer Zone von 16 Schritt Radius sind alle Zauber der Fertigkeit um –8 erschwert.
 Mächtige Magie: Der Malus steigt um –4.
-Schwierigkeit: 12
+Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
 Ziel: Zone
 Reichweite: 8 Schritt
 Wirkungsdauer: 1 Stunde
 Kosten: 8 AsP</Manöver>
   <Manöver name="Antimagie - Zauber aufheben" typ="4" voraussetzungen="Übernatürliche-Fertigkeit 'Antimagie' -1" probe="Antimagie-Zauber" gegenprobe="">Hiermit hebst du einen bereits gewirkten Zauber auf, in den keine gAsP geflossen sind. Zauber aufheben gilt als Konterprobe (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
-Schwierigkeit: 12
+Probenschwierigkeit: 12
 Vorbereitungszeit: 8 Aktionen
 Ziel: Zauber
 Reichweite: 8 Schritt
 Wirkungsdauer: augenblicklich
 Kosten: halbe Basiskosten des Zaubers</Manöver>
   <Manöver name="Antimagie - Wesenheit bannen" typ="4" voraussetzungen="Übernatürliche-Fertigkeit 'Antimagie' -1" probe="Antimagie-Zauber" gegenprobe="">Hiermit bannst du beschworene Wesenheiten, in die keine gAsP geflossen sind (wie nicht gebundene Elementare und Dämonen).
-Schwierigkeit: Beschwörungsschwierigkeit des zu bannenden Wesens
+Probenschwierigkeit: Beschwörungsschwierigkeit des zu bannenden Wesens
 Vorbereitungszeit: 8 Aktionen
 Ziel: beschworenes Wesen
 Reichweite: 8 Schritt
