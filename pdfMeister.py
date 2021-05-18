@@ -138,19 +138,25 @@ class pdfMeister(object):
             startIndex = 0
             pageCount = 0
 
-            fontSize = Wolke.Settings["Cheatsheet-Fontsize"]
             lineCount = 0
+            fontSize = Wolke.Settings["Cheatsheet-Fontsize"]
             if fontSize == 0:
-                lineCount = 80
+                lineCount = 100
             elif fontSize == 1:
-                lineCount = 60
+                lineCount = 80
             elif fontSize == 2:
-                lineCount = 40
+                lineCount = 60
 
             while startIndex != -1:
                 pageCount += 1
                 rulesFields["Seite"] = pageCount
-                startIndex = self.writeRules(rulesFields, startIndex, lineCount)
+                str, startIndex = self.writeRules(rulesFields, startIndex, lineCount)
+                rulesFields["Regeln1"] = str
+                rulesFields["Regeln2"] = ""
+                if startIndex != -1:
+                    str, startIndex = self.writeRules(rulesFields, startIndex, lineCount)
+                    rulesFields["Regeln2"] = str
+
                 handle, out_file = tempfile.mkstemp()
                 os.close(handle)
                 pdf.write_pdf(self.RulesPage, rulesFields, out_file, False)
@@ -721,63 +727,60 @@ class pdfMeister(object):
         fields['EN2'] = self.Energie
         return fields
 
-    #The idea to divide by 100 is that one line is on average 100 characters.
-    #This weighs lines with 140 characters same as much as those with 200 characters because they take up same as much vertical space.
-    #Since every entry also creates a new paragraph (two \n), add one to the weight
+    #the weight is defined as the estimated amount of lines needed
     def getWeight(str):
-        return max(int(math.ceil(len(str)/100)), 1) + 1
+        charCount = 0
+        fontSize = Wolke.Settings["Cheatsheet-Fontsize"]
+        if fontSize == 0:
+            charCount = 80
+        elif fontSize == 1:
+            charCount = 55
+        elif fontSize == 2:
+            charCount = 45
 
-    def formatRuleCategory(category, firstLine = False):
-        if firstLine:
-            return category + '\n\n'
-        else:
-            return '\n' + category + '\n\n'
+        lines = str.split("\n")
+        weight = 0
+        for line in lines:
+            weight += max(int(math.ceil(len(line) / charCount)), 1)
+        weight = weight - 1 #every str ends with two newlines, the second doesnt count, subtract 1
+
+        #the largest fontsize tends to more lines beause of missing hyphenation
+        if Wolke.Settings["Cheatsheet-Fontsize"] > 1:
+            weight += int(weight * 0.2)
+
+        return weight
 
     def appendWaffeneigenschaften(strList, weights, category, eigenschaften):
         if not eigenschaften or (len(eigenschaften) == 0):
             return
-        strList.append(pdfMeister.formatRuleCategory(category))
+        strList.append(category + "\n\n")
         weights.append(pdfMeister.getWeight(strList[-1]))
         for weName, waffen in sorted(eigenschaften.items()):
-            str = ['-']
             we = Wolke.DB.waffeneigenschaften[weName]
             if not we.text:
                 continue
-            str.append(we.name)
-            str.append(" (")
-            str.append(", ".join(waffen))
-            str.append("): ")
-            #Replace all line endings by space
-            str.append(we.text.replace('\n', ' '))
-            str.append('\n\n')
-            strList.append("".join(str))
+            strList.append(we.name + " (" + ", ".join(waffen) + ")\n" + we.text + "\n\n")
             weights.append(pdfMeister.getWeight(strList[-1]))
 
     def appendVorteile(strList, weights, category, vorteile):
         if not vorteile or (len(vorteile) == 0):
             return
-        strList.append(pdfMeister.formatRuleCategory(category))
+        strList.append(category + "\n\n")
         weights.append(pdfMeister.getWeight(strList[-1]))
         for vor in vorteile:
             if vor in Wolke.DB.manöver:
                 continue
 
-            str = ['-']
             vorteil = Wolke.DB.vorteile[vor]
             if not vorteil.text:
                 continue
-            str.append(vorteil.name)
-            str.append(": ")
-            #Replace all line endings by space
-            str.append(vorteil.text.replace('\n', ' '))
-            str.append('\n\n')
-            strList.append("".join(str))
+            strList.append(vorteil.name + "\n" + vorteil.text + "\n\n")
             weights.append(pdfMeister.getWeight(strList[-1]))
     
     def appendManöver(strList, weights, category, manöverList):
         if not manöverList or (len(manöverList) == 0):
             return
-        strList.append(pdfMeister.formatRuleCategory(category))
+        strList.append(category + "\n\n")
         weights.append(pdfMeister.getWeight(strList[-1]))
         count = 0
         for man in manöverList:
@@ -785,7 +788,7 @@ class pdfMeister(object):
             if not Wolke.Char.voraussetzungenPrüfen(manöver.voraussetzungen):
                 continue
             count += 1
-            str = ['-']
+            str = []
             if manöver.name.endswith(" (M)") or manöver.name.endswith(" (L)") or manöver.name.endswith(" (D)"):
                 str.append(manöver.name[:-4])
             elif manöver.name.endswith(" (FK)"):
@@ -793,21 +796,12 @@ class pdfMeister(object):
             else:
                 str.append(manöver.name)
             if manöver.probe:
-                str.append(" (")
-                str.append(manöver.probe)
-                str.append(")")
-            str.append(": ")
+                str.append(" (" + manöver.probe + ")")
+            str.append("\n")
             if manöver.gegenprobe:
-                str.append("Gegenprobe: ")
-                str.append(manöver.gegenprobe)
-                str.append(". ")
+                str.append("Gegenprobe: " + manöver.gegenprobe + "\n")
 
-            #Replace line endings without a full stop, colon or another line ending before by just a full stop
-            text = re.sub('(?<![\.\n\:])\n', '. ', manöver.text)
-            #Replace all the remaining line endings by space
-            str.append(text.replace('\n', ' '))
-
-            str.append('\n\n')
+            str.append(manöver.text + "\n\n")
             strList.append("".join(str))
             weights.append(pdfMeister.getWeight(strList[-1]))
         if count == 0:
@@ -817,15 +811,14 @@ class pdfMeister(object):
     def appendTalente(strList, weights, category, talente):
         if not talente or (len(talente) == 0):
             return
-        strList.append(pdfMeister.formatRuleCategory(category))
+        strList.append(category + "\n\n")
         weights.append(pdfMeister.getWeight(strList[-1]))
         for tal in talente:
-            str = ['-']
+            str = []
             talent = Wolke.DB.talente[tal]
             if not talent.text:
                 continue
-            str.append(talent.name)
-            str.append(': ')
+            str.append(talent.name + "\n")
 
             text = talent.text
             
@@ -839,13 +832,8 @@ class pdfMeister(object):
             if index != -1:
                 text = text[:index]
 
-            #Replace line endings without a full stop, colon or another line ending before by just a full stop
-            text = re.sub('(?<![\.\n\:])\n', '. ', text)
-
-            #Replace all the remaining line endings by space
-            str.append(text.replace('\n', ' '))
-
-            str.append('\n\n')
+            str.append(text)
+            str.append("\n\n")
             strList.append("".join(str))
             weights.append(pdfMeister.getWeight(strList[-1]))
 
@@ -960,36 +948,38 @@ class pdfMeister(object):
         pdfMeister.appendTalente(self.Rules, self.RuleWeights, self.RuleCategories[18], anrufungen)
         
 
-    def writeRules(self, fields, start, roughLineCount):
-        weights = 0
+    def writeRules(self, fields, start, targetLineCount):
+        lineCount = 0
         endIndex = start
-        while weights < roughLineCount and endIndex < len(self.RuleWeights):
-            weights = weights + self.RuleWeights[endIndex]
+
+        while lineCount < targetLineCount and endIndex < len(self.RuleWeights):
+            nextLineCount = self.RuleWeights[endIndex] - 1 #subtract one because every entry ends with a newline
+            leeway = int(nextLineCount * 0.3) #give big texts some leeway on the target line count to avoid big empty spaces
+            if lineCount + nextLineCount > targetLineCount + leeway:
+                break
+            lineCount = lineCount + self.RuleWeights[endIndex]
             endIndex = endIndex + 1
 
         if endIndex <= start:
-            return -1
+            return "", -1
 
-        #Make sure to remove the leading new line from a category if its at the start of the page
-        #Also make sure a category is never the last line on the page
-        for category in self.RuleCategories:
-            formatted = pdfMeister.formatRuleCategory(category)
-            if self.Rules[start] == formatted:
-                self.Rules[start] = pdfMeister.formatRuleCategory(category, firstLine=True)
-            if self.Rules[endIndex-1] == formatted:
-                endIndex = endIndex - 1
+        #Make sure a category is never the last line on the page
+        category = self.Rules[endIndex-1][:-2]
+        if category in self.RuleCategories:
+            lineCount -= self.RuleWeights[endIndex-1]
+            endIndex = endIndex - 1
 
-        #Remove the two trailing new lines from the last entry
+        #Remove the trailing new line from the last entry
         self.Rules[endIndex-1] = self.Rules[endIndex-1][:-2]
+        lineCount -= 1
 
-        fields['Regeln'] = ''.join(self.Rules[start:endIndex])
+        result = ''.join(self.Rules[start:endIndex])
+
+        # Append newlines to make the auto-fontsize about same as large as the other pages
+        if targetLineCount - lineCount > 0:
+            result += '\n' * (targetLineCount - lineCount)
 
         if len(self.Rules) == endIndex:
-            #append newlines to make the auto-fontsize about same as large as the other pages (kinda hack-ish...)
-            #give it a tendency to be bigger than average by subtracting 10% of the line count
-            lastPageMissingNewlines = roughLineCount - weights - int(0.1*roughLineCount)
-            if lastPageMissingNewlines > 0:
-                fields['Regeln'] += lastPageMissingNewlines*'\n'
             #return -1 to signal that we are done
-            return -1
-        return endIndex
+            return result, -1
+        return result, endIndex
