@@ -38,11 +38,19 @@ class pdfMeister(object):
         self.ExtraTalents = []
         self.PrintRules = True
         self.RulesPage = "Regeln.pdf"
-        self.Rules = []
-        self.RuleWeights = []
         self.RuleCategories = ['ALLGEMEINE VORTEILE', 'PROFANE VORTEILE', 'KAMPFVORTEILE', 'AKTIONEN', 'WAFFENEIGENSCHAFTEN', 'WEITERE KAMPFREGELN', 'NAHKAMPFMANÖVER', 'FERNKAMPFMANÖVER', 'MAGISCHE VORTEILE', 'SPONTANE MODIFIKATIONEN (ZAUBER)', 'WEITERE MAGIEREGELN', 'ZAUBER', 'KARMALE VORTEILE', 'SPONTANE MODIFIKATIONEN (LITURGIEN)', 'WEITERE KARMAREGELN', 'LITURGIEN', 'DÄMONISCHE VORTEILE', 'SPONTANE MODIFIKATIONEN (ANRUFUNGEN)', 'ANRUFUNGEN']
         self.Talents = []
         self.Energie = ""
+
+        self.RulesLineCount = 100
+        self.RulesCharCount = 80
+        fontSize = Wolke.Settings["Cheatsheet-Fontsize"]
+        if fontSize == 1:
+            self.RulesLineCount = 80
+            self.RulesCharCount = 55
+        elif fontSize == 2:
+            self.RulesLineCount = 60
+            self.RulesCharCount = 45
     
     def setCharakterbogen(self, charakterBogenInfo):
         self.CharakterBogen = charakterBogenInfo
@@ -133,28 +141,19 @@ class pdfMeister(object):
         
         Wolke.Fehlercode = -97
         if printRules:
-            rulesFields = pdf.get_fields(self.RulesPage)
-            self.prepareRules()
+            rules, ruleLineCounts = self.prepareRules()
             startIndex = 0
             pageCount = 0
 
-            lineCount = 0
-            fontSize = Wolke.Settings["Cheatsheet-Fontsize"]
-            if fontSize == 0:
-                lineCount = 100
-            elif fontSize == 1:
-                lineCount = 80
-            elif fontSize == 2:
-                lineCount = 60
-
+            rulesFields = {}
             while startIndex != -1:
                 pageCount += 1
                 rulesFields["Seite"] = pageCount
-                str, startIndex = self.writeRules(rulesFields, startIndex, lineCount)
+                str, startIndex = self.writeRules(rules, ruleLineCounts, startIndex)
                 rulesFields["Regeln1"] = str
                 rulesFields["Regeln2"] = ""
                 if startIndex != -1:
-                    str, startIndex = self.writeRules(rulesFields, startIndex, lineCount)
+                    str, startIndex = self.writeRules(rules, ruleLineCounts, startIndex)
                     rulesFields["Regeln2"] = str
 
                 handle, out_file = tempfile.mkstemp()
@@ -727,46 +726,36 @@ class pdfMeister(object):
         fields['EN2'] = self.Energie
         return fields
 
-    #the weight is defined as the estimated amount of lines needed
-    def getWeight(str):
-        charCount = 0
-        fontSize = Wolke.Settings["Cheatsheet-Fontsize"]
-        if fontSize == 0:
-            charCount = 80
-        elif fontSize == 1:
-            charCount = 55
-        elif fontSize == 2:
-            charCount = 45
-
+    def getLineCount(self, str):
         lines = str.split("\n")
-        weight = 0
+        lineCount = 0
         for line in lines:
-            weight += max(int(math.ceil(len(line) / charCount)), 1)
-        weight = weight - 1 #every str ends with two newlines, the second doesnt count, subtract 1
+            lineCount += max(int(math.ceil(len(line) / self.RulesCharCount)), 1)
+        lineCount = lineCount - 1 #every str ends with two newlines, the second doesnt count, subtract 1
 
         #the largest fontsize tends to more lines beause of missing hyphenation
         if Wolke.Settings["Cheatsheet-Fontsize"] > 1:
-            weight += int(weight * 0.2)
+            lineCount += int(lineCount * 0.2)
 
-        return weight
+        return lineCount
 
-    def appendWaffeneigenschaften(strList, weights, category, eigenschaften):
+    def appendWaffeneigenschaften(self, strList, lineCounts, category, eigenschaften):
         if not eigenschaften or (len(eigenschaften) == 0):
             return
         strList.append(category + "\n\n")
-        weights.append(pdfMeister.getWeight(strList[-1]))
+        lineCounts.append(self.getLineCount(strList[-1]))
         for weName, waffen in sorted(eigenschaften.items()):
             we = Wolke.DB.waffeneigenschaften[weName]
             if not we.text:
                 continue
             strList.append(we.name + " (" + ", ".join(waffen) + ")\n" + we.text + "\n\n")
-            weights.append(pdfMeister.getWeight(strList[-1]))
+            lineCounts.append(self.getLineCount(strList[-1]))
 
-    def appendVorteile(strList, weights, category, vorteile):
+    def appendVorteile(self, strList, lineCounts, category, vorteile):
         if not vorteile or (len(vorteile) == 0):
             return
         strList.append(category + "\n\n")
-        weights.append(pdfMeister.getWeight(strList[-1]))
+        lineCounts.append(self.getLineCount(strList[-1]))
         for vor in vorteile:
             if vor in Wolke.DB.manöver:
                 continue
@@ -775,13 +764,13 @@ class pdfMeister(object):
             if not vorteil.text:
                 continue
             strList.append(vorteil.name + "\n" + vorteil.text + "\n\n")
-            weights.append(pdfMeister.getWeight(strList[-1]))
+            lineCounts.append(self.getLineCount(strList[-1]))
     
-    def appendManöver(strList, weights, category, manöverList):
+    def appendManöver(self, strList, lineCounts, category, manöverList):
         if not manöverList or (len(manöverList) == 0):
             return
         strList.append(category + "\n\n")
-        weights.append(pdfMeister.getWeight(strList[-1]))
+        lineCounts.append(self.getLineCount(strList[-1]))
         count = 0
         for man in manöverList:
             manöver = Wolke.DB.manöver[man]
@@ -803,16 +792,16 @@ class pdfMeister(object):
 
             str.append(manöver.text + "\n\n")
             strList.append("".join(str))
-            weights.append(pdfMeister.getWeight(strList[-1]))
+            lineCounts.append(self.getLineCount(strList[-1]))
         if count == 0:
             strList.pop()
-            weights.pop()
+            lineCounts.pop()
 
-    def appendTalente(strList, weights, category, talente):
+    def appendTalente(self, strList, lineCounts, category, talente):
         if not talente or (len(talente) == 0):
             return
         strList.append(category + "\n\n")
-        weights.append(pdfMeister.getWeight(strList[-1]))
+        lineCounts.append(self.getLineCount(strList[-1]))
         for tal in talente:
             str = []
             talent = Wolke.DB.talente[tal]
@@ -835,7 +824,7 @@ class pdfMeister(object):
             str.append(text)
             str.append("\n\n")
             strList.append("".join(str))
-            weights.append(pdfMeister.getWeight(strList[-1]))
+            lineCounts.append(self.getLineCount(strList[-1]))
 
     def prepareRules(self):
         sortV = Wolke.Char.vorteile.copy()
@@ -920,66 +909,68 @@ class pdfMeister(object):
         liturgien = sorted(liturgien, key=str.lower)
         anrufungen = sorted(anrufungen, key=str.lower)
 
-        self.Rules = []
-        self.RuleWeights = []
+        rules = []
+        ruleLineCounts = []
 
-        pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[0], allgemein)
-        pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[1], profan)
+        self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[0], allgemein)
+        self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[1], profan)
 
-        pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[2], kampf)
-        pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[3], aktionen)
-        pdfMeister.appendWaffeneigenschaften(self.Rules, self.RuleWeights, self.RuleCategories[4], waffeneigenschaften)
-        pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[5], weitereskampf)
-        pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[6], manövernah)
-        pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[7], manöverfern)
+        self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[2], kampf)
+        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[3], aktionen)
+        self.appendWaffeneigenschaften(rules, ruleLineCounts, self.RuleCategories[4], waffeneigenschaften)
+        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[5], weitereskampf)
+        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[6], manövernah)
+        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[7], manöverfern)
 
-        pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[8], magisch)
-        pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[9], spomodsmagie)
-        pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[10], weiteresmagie)
-        pdfMeister.appendTalente(self.Rules, self.RuleWeights, self.RuleCategories[11], zauber)
+        self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[8], magisch)
+        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[9], spomodsmagie)
+        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[10], weiteresmagie)
+        self.appendTalente(rules, ruleLineCounts, self.RuleCategories[11], zauber)
 
-        pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[12], karmal)
-        pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[13], spomodskarma)
-        pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[14], weitereskarma)
-        pdfMeister.appendTalente(self.Rules, self.RuleWeights, self.RuleCategories[15], liturgien)
+        self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[12], karmal)
+        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[13], spomodskarma)
+        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[14], weitereskarma)
+        self.appendTalente(rules, ruleLineCounts, self.RuleCategories[15], liturgien)
 
-        pdfMeister.appendVorteile(self.Rules, self.RuleWeights, self.RuleCategories[16], dämonisch)
-        pdfMeister.appendManöver(self.Rules, self.RuleWeights, self.RuleCategories[17], spomodsdämonisch)
-        pdfMeister.appendTalente(self.Rules, self.RuleWeights, self.RuleCategories[18], anrufungen)
+        self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[16], dämonisch)
+        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[17], spomodsdämonisch)
+        self.appendTalente(rules, ruleLineCounts, self.RuleCategories[18], anrufungen)
+
+        return rules, ruleLineCounts
         
 
-    def writeRules(self, fields, start, targetLineCount):
+    def writeRules(self, rules, ruleLineCounts, start):
         lineCount = 0
         endIndex = start
 
-        while lineCount < targetLineCount and endIndex < len(self.RuleWeights):
-            nextLineCount = self.RuleWeights[endIndex] - 1 #subtract one because every entry ends with a newline
+        while lineCount < self.RulesLineCount and endIndex < len(ruleLineCounts):
+            nextLineCount = ruleLineCounts[endIndex] - 1 #subtract one because every entry ends with a newline
             leeway = int(nextLineCount * 0.3) #give big texts some leeway on the target line count to avoid big empty spaces
-            if lineCount + nextLineCount > targetLineCount + leeway:
+            if lineCount + nextLineCount > self.RulesLineCount + leeway:
                 break
-            lineCount = lineCount + self.RuleWeights[endIndex]
+            lineCount = lineCount + ruleLineCounts[endIndex]
             endIndex = endIndex + 1
 
         if endIndex <= start:
             return "", -1
 
         #Make sure a category is never the last line on the page
-        category = self.Rules[endIndex-1][:-2]
+        category = rules[endIndex-1][:-2]
         if category in self.RuleCategories:
-            lineCount -= self.RuleWeights[endIndex-1]
+            lineCount -= ruleLineCounts[endIndex-1]
             endIndex = endIndex - 1
 
         #Remove the trailing new line from the last entry
-        self.Rules[endIndex-1] = self.Rules[endIndex-1][:-2]
+        rules[endIndex-1] = rules[endIndex-1][:-2]
         lineCount -= 1
 
-        result = ''.join(self.Rules[start:endIndex])
+        result = ''.join(rules[start:endIndex])
 
         # Append newlines to make the auto-fontsize about same as large as the other pages
-        if targetLineCount - lineCount > 0:
-            result += '\n' * (targetLineCount - lineCount)
+        if self.RulesLineCount - lineCount > 0:
+            result += '\n' * (self.RulesLineCount - lineCount)
 
-        if len(self.Rules) == endIndex:
+        if len(rules) == endIndex:
             #return -1 to signal that we are done
             return result, -1
         return result, endIndex

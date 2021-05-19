@@ -32,7 +32,7 @@ Anleitung für die Nutzung von Visual Studio als IDE:
     * Um mit build.bat einen Build erstellen zu können: cx_freeze, pywin32
 * Erstelle die IntelliSense Datenbank: Solution Explorer -> Rechtsclick auf Python Environments -> View all Python environments -> IntelliSense im Dropdown auswahlen und aktivieren/refreshen
 * Stelle das Tab-Verhalten auf "Insert Spaces": Tools -> Options -> Text Editor -> Python -> Tabs
-* Öffne das Exception Settings Fenster (Debug -> Windows -> Exception Settings) und selektiere alle Python Exceptions
+* Öffne das Exception Settings Fenster (Debug -> Windows -> Exception Settings) und selektiere alle Python Exceptions, dann deaktiviere <All Python Exceptions not in this list>, BaseException und Exception - damit breaken die custom exceptions nicht, die Sephrasto intern nutzt.
 
 Anleitung für die UI:
 * Modifiziere niemals Dateien, die am Anfang "Created by: PyQt5 UI code generator" stehen haben von Hand!
