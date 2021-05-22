@@ -539,8 +539,17 @@ class pdfMeister(object):
 
         # Fill 20 Cells of Ausrüstung
         count = 1
+        countl = 1
+        countr = 11
         for el in Wolke.Char.ausrüstung:
-            fields['Ausruestung' + str(count)] = el
+            if count % 2 != 0:
+                index = countl
+                countl += 1
+            else:
+                index = countr
+                countr += 1
+
+            fields['Ausruestung' + str(index)] = el
             if count >= 20:
                 break
             count += 1
