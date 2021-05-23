@@ -117,8 +117,14 @@ class MainWindowWrapper(object):
 
         EventBus.doAction("plugins_geladen")
 
+        EventBus.addAction("charaktereditor_reload", self.charakterEditorReloadHook)
+
         self.Form.show()
         sys.exit(self.app.exec_())
+
+    def charakterEditorReloadHook(self, params):
+        if self.ed and not self.ed.formMain.isHidden():
+            self.ed.reloadAll()
         
     def createNew(self):
         '''
