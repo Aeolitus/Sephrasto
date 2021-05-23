@@ -735,12 +735,12 @@ class pdfMeister(object):
         fields['EN2'] = self.Energie
         return fields
 
-    def getLineCount(self, str):
-        lines = str.split("\n")
+    def getLineCount(self, text):
+        lines = text.split("\n")
         lineCount = 0
         for line in lines:
             lineCount += max(int(math.ceil(len(line) / self.RulesCharCount)), 1)
-        lineCount = lineCount - 1 #every str ends with two newlines, the second doesnt count, subtract 1
+        lineCount = lineCount - 1 #every text ends with two newlines, the second doesnt count, subtract 1
 
         #the largest fontsize tends to more lines beause of missing hyphenation
         if Wolke.Settings["Cheatsheet-Fontsize"] > 1:
@@ -786,21 +786,21 @@ class pdfMeister(object):
             if not Wolke.Char.voraussetzungenPrüfen(manöver.voraussetzungen):
                 continue
             count += 1
-            str = []
+            result = []
             if manöver.name.endswith(" (M)") or manöver.name.endswith(" (L)") or manöver.name.endswith(" (D)"):
-                str.append(manöver.name[:-4])
+                result.append(manöver.name[:-4])
             elif manöver.name.endswith(" (FK)"):
-                str.append(manöver.name[:-5])
+                result.append(manöver.name[:-5])
             else:
-                str.append(manöver.name)
+                result.append(manöver.name)
             if manöver.probe:
-                str.append(" (" + manöver.probe + ")")
-            str.append("\n")
+                result.append(" (" + manöver.probe + ")")
+            result.append("\n")
             if manöver.gegenprobe:
-                str.append("Gegenprobe: " + manöver.gegenprobe + "\n")
+                result.append("Gegenprobe: " + manöver.gegenprobe + "\n")
 
-            str.append(manöver.text + "\n\n")
-            strList.append("".join(str))
+            result.append(manöver.text + "\n\n")
+            strList.append("".join(result))
             lineCounts.append(self.getLineCount(strList[-1]))
         if count == 0:
             strList.pop()
@@ -812,12 +812,17 @@ class pdfMeister(object):
         strList.append(category + "\n\n")
         lineCounts.append(self.getLineCount(strList[-1]))
         for tal in talente:
-            str = []
+            result = []
             talent = Wolke.DB.talente[tal]
             if not talent.text:
                 continue
-            str.append(talent.name + "\n")
 
+            result.append(talent.name)
+            for i in range(len(self.Talents)):
+                if self.Talents[i].na == talent.name:
+                    result.append(" (PW " + str(self.Talents[i].pw) + ")")
+                    break
+            result.append("\n")
             text = talent.text
             
             #Remove everything from Fertigkeiten on
@@ -830,9 +835,9 @@ class pdfMeister(object):
             if index != -1:
                 text = text[:index]
 
-            str.append(text)
-            str.append("\n\n")
-            strList.append("".join(str))
+            result.append(text)
+            result.append("\n\n")
+            strList.append("".join(result))
             lineCounts.append(self.getLineCount(strList[-1]))
 
     def prepareRules(self):
