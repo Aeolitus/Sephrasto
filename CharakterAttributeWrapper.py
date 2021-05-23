@@ -37,6 +37,7 @@ class AttrWrapper(QtCore.QObject):
         self.uiAttr.spinFF.valueChanged.connect(self.refresh)
         self.uiAttr.spinKL.valueChanged.connect(self.refresh)
         self.uiAttr.spinCH.valueChanged.connect(self.refresh)
+        self.currentlyLoading = False
         
     def refresh(self):
         ''' The calculation of values is done by the Attribut objects, so we 
@@ -74,6 +75,9 @@ class AttrWrapper(QtCore.QObject):
         return changed
 
     def updateAttribute(self):
+        if self.currentlyLoading:
+            return
+
         ''' Set and refresh all Attributes '''
         changed = False
 
@@ -107,6 +111,8 @@ class AttrWrapper(QtCore.QObject):
             self.modified.emit()
         
     def loadAttribute(self):
+        self.currentlyLoading = True
+
         ''' Load all values and derived values '''
         self.uiAttr.spinKO.setValue(Wolke.Char.attribute['KO'].wert)
         self.uiAttr.pwKO.setValue(Wolke.Char.attribute['KO'].wert*2)
@@ -149,3 +155,5 @@ class AttrWrapper(QtCore.QObject):
         else:
             self.uiAttr.spinKaP.setValue(0)
             self.uiAttr.spinKaP.setEnabled(False)
+
+        self.currentlyLoading = False

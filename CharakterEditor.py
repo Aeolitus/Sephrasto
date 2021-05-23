@@ -177,6 +177,7 @@ class Editor(object):
         self.VortWrapper.loadVorteile()
         self.ItmWrapper.loadItems()
         self.EPWrapper.loadEP()
+        self.updateEP()
         
     def updateAll(self):
         self.ignoreModified = True
