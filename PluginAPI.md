@@ -38,10 +38,10 @@ def talentKostenFilter(self, val, params):
 ```
 
 ## Vorhandene Actions
-- "charakter_geladen"
-Zweck: Beliebige Aktion durchführen, nachdem eine Charakterdatei vollständig geladen wurde.
-- "charaktereditor_oeffnet" (Parameter: { "neu" : bool })
-Zweck: Form und Wrapper für eigene Charakter-Editor Tabs initialisieren. Der Parameter enthält die Information, ob es sich um einen neuen Charakter handelt.
+- "charakter_geladen" (Parameter: { "neu" : bool, "filepath" : string })
+Zweck: Beliebige Aktion durchführen, nachdem der Charakter vollständig initialisiert wurde. Der neu Parameter enthält die Information, ob es sich um einen neuen Charakter handelt. Der filepath Parameter enthält den Pfad der Charakterdatei oder einen leeren string, falls ein neuer Charakter erstellt wurde.
+- "charaktereditor_oeffnet" (Parameter: { "neu" : bool, "filepath" : string })
+Zweck: Form und Wrapper für eigene Charakter-Editor Tabs initialisieren. Der neu Parameter enthält die Information, ob es sich um einen neuen Charakter handelt. Der filepath Parameter enthält den Pfad der Charakterdatei oder einen leeren string, falls ein neuer Charakter erstellt wird.
 - "plugins_geladen"
 Zweck: Nach dieser Action sind alle Plugins initialisiert. Kann verwendet werden um mit anderen Plugins zu kommunizieren, um z.B. mit einer Action andere Plugins darüber in Kenntnis zu setzen, dass dieses Plugin vorhanden ist.
 - "pre_charakter_aktualisieren"

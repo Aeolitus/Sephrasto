@@ -55,7 +55,7 @@ class Editor(object):
             Wolke.Char.xmlLesen(self.savepath)
         Wolke.Char.aktualisieren() # A bit later because it needs access to itself
         
-        EventBus.doAction("charakter_geladen")
+        EventBus.doAction("charakter_geladen", { "neu" : self.savepath == "", "filepath" : self.savepath })
         self.ignoreModified = False
         
     def setupMainForm(self, plugins):      

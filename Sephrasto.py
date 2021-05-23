@@ -124,7 +124,7 @@ class MainWindowWrapper(object):
         '''
         Creates a new CharakterEditor which is empty and shows it.
         '''
-        EventBus.doAction("charaktereditor_oeffnet", { "neu" : True })
+        EventBus.doAction("charaktereditor_oeffnet", { "neu" : True, "filepath" : "" })
         self.ed = CharakterEditor.Editor(self.savePathUpdated)
         if self.ed.noDatabase:
             raise Exception("Konnte datenbank.xml nicht finden")
@@ -151,7 +151,7 @@ class MainWindowWrapper(object):
         if not spath.endswith(".xml"):
             spath = spath + ".xml"
         try:
-            EventBus.doAction("charaktereditor_oeffnet", { "neu" : False })
+            EventBus.doAction("charaktereditor_oeffnet", { "neu" : False, "filepath" : spath })
             self.ed = CharakterEditor.Editor(self.savePathUpdated, spath)
         except Exception as e:
             logging.error("Sephrasto Fehlercode " + str(Wolke.Fehlercode) + ". Exception: " + str(e))
