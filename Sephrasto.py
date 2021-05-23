@@ -136,6 +136,7 @@ class MainWindowWrapper(object):
         self.ed.setupMainForm(self._plugins)
         self.savePathUpdated()
         self.ed.formMain.show()
+        EventBus.doAction("charaktereditor_geoeffnet", { "neu" : True, "filepath" : "" })
         
     def editExisting(self):
         '''
@@ -182,6 +183,7 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n")
             self.ed.setupMainForm(self._plugins)
             self.savePathUpdated()
             self.ed.formMain.show()
+            EventBus.doAction("charaktereditor_geoeffnet", { "neu" : False, "filepath" : spath })
         
     def editRuleset(self):
         '''
