@@ -417,7 +417,7 @@ Bedingungen: Sichtkontakt, Geste, laut gesprochene Zauberformel</Vorteil>
   <Vorteil name="Tradition der Scharlatane IV" kosten="80" voraussetzungen="Attribut CH 10, Vorteil Tradition der Scharlatane III" nachkauf="häufig" typ="5" variable="-1" printclass="-1">8 Punkte können zur Verbesserung der Tradition verwendet werden.
 
 Bedingung: 2 weitere Attribute auf insgesamt 16</Vorteil>
-  <Vorteil name="Magiedilettant" kosten="20" voraussetzungen="Attribut KL 4 ODER Attribut MU 4 ODER Attribut IN 4 ODER Attribut CH 4 ODER Attribut KK 4 ODER Attribut KO 4 ODER Attribut GE 4 ODER Attribut FF 4, Vorteil Zauberer I" nachkauf="häufig" typ="5" variable="-1" printclass="-1">Du kannst alle allgemeinen Zauber erlernen, die weniger als 60 EP kosten.
+  <Vorteil name="Magiedilettant" kosten="20" voraussetzungen="Vorteil Zauberer I" nachkauf="häufig" typ="5" variable="-1" printclass="-1">Du kannst alle allgemeinen Zauber erlernen und benutzen, die weniger als 60 EP kosten.
 
 Du kannst pro Zauber maximal zwei spontane Modifikationen (oder eine Modifikation zweimal) einsetzen.
 
