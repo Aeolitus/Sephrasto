@@ -113,6 +113,9 @@ class CharakterVorteileWrapper(QtCore.QObject):
                 txt = chi.text(0)
                 if txt in Wolke.Char.vorteile or txt == Wolke.Char.minderpakt:    
                     chi.setCheckState(0, QtCore.Qt.Checked)
+                    if txt in Wolke.Char.vorteileVariable:
+                        self.itemWidgets[txt].setValue(Wolke.Char.vorteileVariable[txt].kosten)
+                        self.handleAddKommentarWidget(txt, chi)
                 else:
                     chi.setCheckState(0, QtCore.Qt.Unchecked) 
                 if txt not in vortList[i] and txt != Wolke.Char.minderpakt:
