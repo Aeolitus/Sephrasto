@@ -69,7 +69,7 @@ Die Kosten eines Privilegs legt der Spielleiter fest, wobei er sich an der Spiel
   <Vorteil name="Immunität gegen Krankheiten" kosten="20" voraussetzungen="Vorteil Resistenz gegen Krankheiten" nachkauf="extrem selten" typ="0" variable="-1" printclass="-1">Du bist immun gegen Krankheiten (S.35).</Vorteil>
   <Vorteil name="Resistenz gegen Hitze" kosten="40" voraussetzungen="" nachkauf="selten" typ="0" variable="-1" printclass="-1">Verschiebt die Temperaturstufe bei hohen Temperaturen um eine Stufe in Richtung normal.</Vorteil>
   <Vorteil name="Resistenz gegen Kälte" kosten="40" voraussetzungen="" nachkauf="selten" typ="0" variable="-1" printclass="-1">Verschiebt die Temperaturstufe bei niedrigen Temperaturen um eine Stufe in Richtung normal.</Vorteil>
-  <Vorteil name="Tieremphatie" kosten="60" voraussetzungen="" nachkauf="extrem selten" typ="0" variable="1" printclass="-1">Mit der Gabe der Tierempathie kannst du das Talent Überleben verwenden, um die Gedanken von Tieren zu verstehen. Zusätzlich kannst du ihnen sogar einfache Botschaften zukommen lassen. Nach dem aktiven Einsatz der Gabe erleidest du 1 Punkt Erschöpfung.
+  <Vorteil name="Tierempathie" kosten="60" voraussetzungen="" nachkauf="extrem selten" typ="0" variable="1" printclass="-1">Mit der Gabe der Tierempathie kannst du das Talent Überleben verwenden, um die Gedanken von Tieren zu verstehen. Zusätzlich kannst du ihnen sogar einfache Botschaften zukommen lassen. Nach dem aktiven Einsatz der Gabe erleidest du 1 Punkt Erschöpfung.
 
 Die Kosten dieses Vorteils hängen von der Größe der Gruppe von Tieren ab, mit denen du kommunizieren kannst, und dem möglichen Spielnutzen dieser Fähigkeit. Beispiele wären:
 - Fische: Du kannst mit allen Fischen kommunizieren (20 EP).
