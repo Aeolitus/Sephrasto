@@ -49,13 +49,13 @@ class FertigkeitenWrapper(QtCore.QObject):
         except StopIteration:
             self.currentFertName = ''
         self.currentlyLoading = False
-        self.loadFertigkeiten()
+        self.load()
             
-    def updateFertigkeiten(self):
+    def update(self):
         #Already implemented for the individual events
         pass
         
-    def loadFertigkeiten(self):
+    def load(self):
         self.currentlyLoading = True
         temp = [el for el in Wolke.DB.fertigkeiten 
                 if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.fertigkeiten[el].voraussetzungen)]

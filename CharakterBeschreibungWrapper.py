@@ -25,18 +25,18 @@ class BeschrWrapper(QtCore.QObject):
         self.formBeschr = QtWidgets.QWidget()
         self.uiBeschr = CharakterBeschreibung.Ui_formBeschreibung()
         self.uiBeschr.setupUi(self.formBeschr)
-        self.loadBeschreibung()
-        self.uiBeschr.editName.editingFinished.connect(self.updateBeschreibung)
+        self.load()
+        self.uiBeschr.editName.editingFinished.connect(self.update)
         self.uiBeschr.editRasse.editingFinished.connect(
-                self.updateBeschreibung)
+                self.update)
         self.uiBeschr.editKurzbeschreibung.editingFinished.connect(
-            self.updateBeschreibung)
+            self.update)
         for i in range(8):
             eval("self.uiBeschr.editEig" + str(i+1) +
-                 ".editingFinished.connect(self.updateBeschreibung)")
-        self.uiBeschr.comboFinanzen.activated.connect(self.updateBeschreibung)
-        self.uiBeschr.comboStatus.activated.connect(self.updateBeschreibung)
-        self.uiBeschr.comboHeimat.activated.connect(self.updateBeschreibung)
+                 ".editingFinished.connect(self.update)")
+        self.uiBeschr.comboFinanzen.activated.connect(self.update)
+        self.uiBeschr.comboStatus.activated.connect(self.update)
+        self.uiBeschr.comboHeimat.activated.connect(self.update)
         self.currentGebraeuche = Wolke.Char.heimat
         if "Gebräuche" in Wolke.Char.fertigkeiten:
             if "Gebräuche: " + self.currentGebraeuche not in \
@@ -44,7 +44,7 @@ class BeschrWrapper(QtCore.QObject):
                 Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.append(
                         "Gebräuche: " + self.currentGebraeuche)
 
-    def updateBeschreibung(self):
+    def update(self):
         ''' Transfer current values to Char object '''
         changed = False
 
@@ -105,7 +105,7 @@ class BeschrWrapper(QtCore.QObject):
         if changed:
             self.modified.emit()
 
-    def loadBeschreibung(self):
+    def load(self):
         ''' Load values from Char object '''
         self.uiBeschr.editName.setText(Wolke.Char.name)
         self.uiBeschr.editRasse.setText(Wolke.Char.rasse)

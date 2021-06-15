@@ -95,11 +95,11 @@ class Editor(object):
                 for button in plugin.createCharakterButtons():
                     self.ui.horizontalLayout_3.addWidget(button)
         
-        tabs = sorted(tabs, key=lambda tab: tab.order)
+        self.tabs = sorted(tabs, key=lambda tab: tab.order)
         tabPadding = "    "
-        if len(tabs) > 9:
+        if len(self.tabs) > 9:
             tabPadding = ""
-        for tab in tabs:
+        for tab in self.tabs:
             self.ui.tabs.addTab(tab.form, tabPadding + tab.name + tabPadding)
             if hasattr(tab.wrapper, "modified"):
                 tab.wrapper.modified.connect(self.onModified)
@@ -168,28 +168,18 @@ class Editor(object):
         self.onModified()
     
     def reloadAll(self):
-        self.BeschrWrapper.loadBeschreibung()
-        self.AttrWrapper.loadAttribute()
-        self.EquipWrapper.loadEquipment()
-        self.FertWrapper.loadFertigkeiten()
-        self.FreiWrapper.loadFreie()
-        self.UebernatuerlichWrapper.loadFertigkeiten()
-        self.VortWrapper.loadVorteile()
-        self.ItmWrapper.loadItems()
-        self.EPWrapper.loadEP()
+        for tab in self.tabs:
+            if hasattr(tab.wrapper, "load"):
+                tab.wrapper.load()
+
         self.updateEP()
         
     def updateAll(self):
         self.ignoreModified = True
-        self.BeschrWrapper.updateBeschreibung()
-        self.AttrWrapper.updateAttribute()
-        self.EquipWrapper.updateEquipment()
-        self.FertWrapper.updateFertigkeiten()
-        self.FreiWrapper.updateFreie()
-        self.UebernatuerlichWrapper.updateFertigkeiten()
-        self.VortWrapper.updateVorteile()
-        self.ItmWrapper.updateItems()
-        self.EPWrapper.updateEP()
+        for tab in self.tabs:
+            if hasattr(tab.wrapper, "update"):
+                tab.wrapper.update()
+
         self.updateEP()
         self.ignoreModified = False
         

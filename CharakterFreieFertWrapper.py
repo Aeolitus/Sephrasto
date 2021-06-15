@@ -27,23 +27,23 @@ class CharakterFreieFertWrapper(QtCore.QObject):
                 self.ffCount +=1
                 ffLayout = QtWidgets.QHBoxLayout()
                 ffEdit = QtWidgets.QLineEdit()
-                ffEdit.editingFinished.connect(self.updateFreie)
+                ffEdit.editingFinished.connect(self.update)
                 setattr(self.uiFert, "editFF" + str(self.ffCount), ffEdit)
                 ffLayout.addWidget(ffEdit)
                 ffCombo = QtWidgets.QComboBox()
                 ffCombo.addItem("I")
                 ffCombo.addItem("II")
                 ffCombo.addItem("III")
-                ffCombo.currentIndexChanged.connect(self.updateFreie)
+                ffCombo.currentIndexChanged.connect(self.update)
                 if self.ffCount <= Wolke.Char.freieFertigkeitenNumKostenlos:
                     ffCombo.setEnabled(False)
                 setattr(self.uiFert, "comboFF" + str(self.ffCount), ffCombo)
                 ffLayout.addWidget(ffCombo)
                 self.uiFert.freieFertsGrid.addLayout(ffLayout, row, column)
         
-        self.loadFreie()
+        self.load()
         
-    def loadFreie(self):
+    def load(self):
         count = 1
         for el in Wolke.Char.freieFertigkeiten:
             #if el.name == "Muttersprache":
@@ -75,7 +75,7 @@ class CharakterFreieFertWrapper(QtCore.QObject):
             eval("self.uiFert.comboFF" + str(count) + ".blockSignals(False)")
             count += 1
     
-    def updateFreie(self):
+    def update(self):
         freieNeu = []
         for count in range(1,self.ffCount + 1):
             tmp = eval("self.uiFert.editFF" + str(count) + ".text()")

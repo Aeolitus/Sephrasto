@@ -24,12 +24,12 @@ class EPWrapper(QtCore.QObject):
         self.formEP = QtWidgets.QWidget()
         self.uiEP = CharakterEP.Ui_Form()
         self.uiEP.setupUi(self.formEP)
-        self.loadEP()
+        self.load()
 
-    def updateEP(self):
+    def update(self):
         pass
 
-    def loadEP(self):
+    def load(self):
         ''' Load all values and derived values '''
         totalVal = 0
         if Wolke.Char.EPtotal > 0:

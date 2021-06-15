@@ -48,13 +48,13 @@ class UebernatuerlichWrapper(QtCore.QObject):
         #If there is an ability already, then we take it to display already
         self.currentFertName = next(iter(Wolke.Char.übernatürlicheFertigkeiten), "")
         self.currentlyLoading = False
-        self.loadFertigkeiten()
+        self.load()
             
-    def updateFertigkeiten(self):
+    def update(self):
         #Already implemented for the individual events
         pass
         
-    def loadFertigkeiten(self):
+    def load(self):
         self.currentlyLoading = True
         temp = [el for el in Wolke.DB.übernatürlicheFertigkeiten 
                 if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.übernatürlicheFertigkeiten[el].voraussetzungen)]

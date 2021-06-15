@@ -90,7 +90,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
         self.updateInfo()
         self.uiVor.treeWidget.blockSignals(False)
         
-    def loadVorteile(self):
+    def load(self):
         self.uiVor.treeWidget.blockSignals(True)
         vortList = []
         for vortTyp in VorteilTypen:
@@ -130,7 +130,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
         self.updateInfo()
         self.uiVor.treeWidget.blockSignals(False)
         
-    def updateVorteile(self):
+    def update(self):
         pass
 
     def setVariableKosten(self, name, kosten, kommentar):
@@ -245,7 +245,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
             EventBus.doAction("vorteil_entfernt", { "name" : name})
 
         self.modified.emit()
-        self.loadVorteile() 
+        self.load() 
         self.uiVor.treeWidget.blockSignals(False)
 
         if manualUpdate:

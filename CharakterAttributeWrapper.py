@@ -25,10 +25,10 @@ class AttrWrapper(QtCore.QObject):
         self.formAttr = QtWidgets.QWidget()
         self.uiAttr = CharakterAttribute.Ui_formAttribute()
         self.uiAttr.setupUi(self.formAttr)
-        self.loadAttribute()
+        self.load()
         #Signals
-        self.uiAttr.spinAsP.valueChanged.connect(self.updateAttribute)
-        self.uiAttr.spinKaP.valueChanged.connect(self.updateAttribute)
+        self.uiAttr.spinAsP.valueChanged.connect(self.update)
+        self.uiAttr.spinKaP.valueChanged.connect(self.update)
         self.uiAttr.spinKO.valueChanged.connect(self.refresh)
         self.uiAttr.spinMU.valueChanged.connect(self.refresh)
         self.uiAttr.spinIN.valueChanged.connect(self.refresh)
@@ -42,8 +42,8 @@ class AttrWrapper(QtCore.QObject):
     def refresh(self):
         ''' The calculation of values is done by the Attribut objects, so we 
         first update them with the current value, and then set the PW's. '''
-        self.updateAttribute()
-        self.loadAttribute()
+        self.update()
+        self.load()
      
     def checkConsequences(self, attribut, wert):
         attribute = copy.deepcopy(Wolke.Char.attribute)
@@ -74,7 +74,7 @@ class AttrWrapper(QtCore.QObject):
                 uiElement.setValue(Wolke.Char.attribute[attribut].wert)
         return changed
 
-    def updateAttribute(self):
+    def update(self):
         if self.currentlyLoading:
             return
 
@@ -110,7 +110,7 @@ class AttrWrapper(QtCore.QObject):
             Wolke.Char.aktualisieren()
             self.modified.emit()
         
-    def loadAttribute(self):
+    def load(self):
         self.currentlyLoading = True
 
         ''' Load all values and derived values '''

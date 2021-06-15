@@ -29,10 +29,10 @@ class EquipWrapper(QtCore.QObject):
         # Connect all Spins and Edit boxes - hacky, sorry
         fields = [el for el in self.uiEq.__dir__() if el[0:4] == "spin"]
         for el in fields:
-            eval("self.uiEq." + el + ".valueChanged.connect(self.updateEquipment)")
+            eval("self.uiEq." + el + ".valueChanged.connect(self.update)")
         fields = [el for el in self.uiEq.__dir__() if el[0:4] == "edit"]
         for el in fields:
-            eval("self.uiEq." + el + ".editingFinished.connect(self.updateEquipment)")
+            eval("self.uiEq." + el + ".editingFinished.connect(self.update)")
         logging.debug("Signals Set...")
 
         kampfstile = [Definitionen.KeinKampfstil] + Wolke.DB.findKampfstile()
@@ -69,7 +69,7 @@ class EquipWrapper(QtCore.QObject):
         
         self.checkToggleEquip()
         
-    def updateEquipment(self):
+    def update(self):
         if not self.currentlyLoading:
             changed = False
             ruestungNeu = []
@@ -155,9 +155,9 @@ class EquipWrapper(QtCore.QObject):
             if changed:
                 Wolke.Char.aktualisieren()
                 self.modified.emit()
-            self.loadEquipment()
+            self.load()
         
-    def loadEquipment(self):
+    def load(self):
         self.currentlyLoading = True
         Rarr = ["R1", "R2", "R3"]
         count = 0
@@ -297,7 +297,7 @@ class EquipWrapper(QtCore.QObject):
             self.currentlyLoading = True
             self.loadWeaponIntoFields(picker.waffe, index)
             self.currentlyLoading = False
-            self.updateEquipment()
+            self.update()
         
     def checkToggleEquip(self):
         if not self.currentlyLoading:
