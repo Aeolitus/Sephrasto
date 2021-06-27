@@ -4307,11 +4307,12 @@ Kosten: 4 AsP
 Fertigkeiten: Eigenschaften, Hellsicht, Geister der Stärkung, Geister rufen
 Erlernen: Smn 12; 0 EP</Talent>
   <Talent name="Wild Finden" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Eigenschaften, Hellsicht, Geister der Stärkung, Geister rufen" variable="-1" printclass="5">Du erfährst, ob und wo sich im Radius von 1 Meile jagdbares Wild befindet und um welche Tiere es sich handelt. Sind jagdbare Tiere in der Nähe, können Jäger gezielt in die richtige Richtung losziehen. Das senkt die Schwierigkeit der Jagd (S. 68) auf 12, so als ob sie sich in wildreichem Gebiet befänden.
+Mächtige Magie: Verdoppelt den Radius.
 Probenschwierigkeit: 12
 Modifikationen: Gaben der Erde (die Wirkung bezieht sich auf nahrhafte Pflanzen und verringert die Schwierigkeit von Überleben-Proben)
 Vorbereitungszeit: 1 Stunde
 Ziel: Zone
-Reichweite: 1 Meile
+Reichweite: Berührung
 Wirkungsdauer: augenblicklich
 Kosten: 8 AsP
 Fertigkeiten: Eigenschaften, Hellsicht, Geister der Stärkung, Geister rufen
