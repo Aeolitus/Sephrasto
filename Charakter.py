@@ -142,10 +142,11 @@ class Char():
         #WICHTIG: Bei Vorteilen/(ÜB-)Fertigkeiten/Talenten nur solche migrieren, bei denen in der aktuell geladenen Datenbasis userAdded == False ist, außer das schema hat sich geändert.
         #Die Migrationsfunktion sollte einen string zurückgeben, der erklärt was geändert wurde - dies wird dem Nutzer in einer Messagebox angezeigt.
         #Die Funktionen werden inkrementell ausgeführt, bspw. bei Charakter-DB-Version '0' und Code-DB-Version '2' wird zuerst die Funktion für 1, dann die Funktion für 2 aufgerufen
-        self.datenbankCodeVersion = 1
+        self.datenbankCodeVersion = 2
         self.migrationen = [
             lambda xmlRoot: None, #nichts zu tun, initiale db version
-            self.migriere0zu1,     
+            self.migriere0zu1,
+            self.migriere1zu2
         ]
 
         if not self.migrationen[self.datenbankCodeVersion]:
@@ -363,6 +364,16 @@ class Char():
         return "Datenbank Schema-Änderung (der selektierte Kampfstil bei Waffen wurde von indexbasiert zu stringbasiert geändert)"
 
     def migriere1zu2(self, xmlRoot):
+        VorteileAlt = ["Angepasst I (Wasser)", "Angepasst I (Wald)", "Angepasst I (Dunkelheit)", "Angepasst I (Schnee)", "Angepasst II (Wasser)", "Angepasst II (Wald)", "Angepasst II (Dunkelheit)", "Angepasst II (Schnee)", "Tieremphatie"]
+        VorteileNeu = ["Angepasst (Wasser) I", "Angepasst (Wald) I", "Angepasst (Dunkelheit) I", "Angepasst (Schnee) I", "Angepasst (Wasser) II", "Angepasst (Wald) II", "Angepasst(Dunkelheit) II ", "Angepasst (Schnee) II", "Tierempathie"]
+
+        for vort in xmlRoot.findall('Vorteile/Vorteil'):
+            if vort.text in VorteileAlt:
+                vort.text = VorteileNeu[VorteileAlt.index(vort.text)]
+
+        return "Angepasst I (Dunkelheit) etc. wurde in Angepasst (Dunkelheit) I etc. umbenannt"
+
+    def migriere2zu3(self, xmlRoot):
         #Dies würde aufgerufen werden, wenn datenbankCodeVersion 2 oder höher und Charakter-DatenbankVersion geringer als 2 wäre
         #WICHTIG: bei Vorteilen/(ÜB-)Fertigkeiten/Talenten nur solche migrieren, bei denen in der aktuell geladenen Datenbasis userAdded == False ist, außer das Schema hat sich geändert.
         #Beispiel:
