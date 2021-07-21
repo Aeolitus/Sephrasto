@@ -284,11 +284,10 @@ class pdfMeister(object):
                 continue
             flag = False
             fullset = [" I", " II", " III", " IV", " V", " VI", " VII"]
-            if not vort in Wolke.Char.vorteileVariable:
-                for el in fullset:
-                    if vort.endswith(el):
-                        basename = vort[:-len(el)]
-                        flag = True
+            for el in fullset:
+                if vort.endswith(el):
+                    basename = vort[:-len(el)]
+                    flag = True
 
             if flag:
                 fullenum = ""
@@ -296,6 +295,14 @@ class pdfMeister(object):
                     if basename+el in sortV:
                         removed.append(basename+el)
                         fullenum += ", " + el[1:]
+                        if basename+el in Wolke.Char.vorteileVariable:
+                            vk = Wolke.Char.vorteileVariable[basename+el]
+                            fullenum += " (" + vk.kommentar
+                            if Wolke.DB.vorteile[basename+el].variableKosten:
+                                fullenum += "; " + str(vk.kosten) + " EP)"
+                            else:
+                                fullenum += ")"
+
                 vname = basename + " " + fullenum[1:]
                 typeDict[vname] = Wolke.DB.vorteile[vort].typ
                 assembled.append(vname)
@@ -318,7 +325,11 @@ class pdfMeister(object):
             if el in Wolke.Char.vorteileVariable:
                 removed.append(el)
                 vk = Wolke.Char.vorteileVariable[el]
-                nname = el + " (" + vk.kommentar + "; " + str(vk.kosten) + " EP)"
+                nname = el + " (" + vk.kommentar
+                if Wolke.DB.vorteile[el].variableKosten:
+                    nname += "; " + str(vk.kosten) + " EP)"
+                else:
+                    nname += ")"
                 added.append(nname)
                 typeDict[nname] = typeDict[el]
         for el in removed:
@@ -772,7 +783,13 @@ class pdfMeister(object):
             vorteil = Wolke.DB.vorteile[vor]
             if not vorteil.text:
                 continue
-            strList.append(vorteil.name + "\n" + vorteil.text + "\n\n")
+
+            kommentar = ""
+            if vor in Wolke.Char.vorteileVariable:
+                kommentar = " (" + Wolke.Char.vorteileVariable[vor].kommentar + ")"
+
+            strList.append(vorteil.name + kommentar + "\n" + vorteil.text + "\n\n")
+
             lineCounts.append(self.getLineCount(strList[-1]))
     
     def appendManöver(self, strList, lineCounts, category, manöverList):
@@ -817,9 +834,12 @@ class pdfMeister(object):
             if not talent.text:
                 continue
 
-            result.append(talent.name)
+            name = talent.name
+            if talent.name in Wolke.Char.talenteVariable:
+                name += " (" + Wolke.Char.talenteVariable[talent.name].kommentar + ")"
+            result.append(name)
             for i in range(len(self.Talents)):
-                if self.Talents[i].na == talent.name:
+                if self.Talents[i].na == name:
                     result.append(" (PW " + str(self.Talents[i].pw) + ")")
                     break
             result.append("\n")

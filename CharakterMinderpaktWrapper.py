@@ -47,7 +47,7 @@ class CharakterMinderpaktWrapper():
         for vortTyp in VorteilTypen:
             vortList.append([])
         for el in Wolke.DB.vorteile:
-            if Wolke.DB.vorteile[el].kosten > 20 and Wolke.DB.vorteile[el].variable != 1:
+            if Wolke.DB.vorteile[el].kosten > 20 and not Wolke.DB.vorteile[el].variableKosten:
                 continue
             if Wolke.DB.vorteile[el].kosten < 0:
                 continue
@@ -67,7 +67,7 @@ class CharakterMinderpaktWrapper():
             for el in vortList[i]:
                 child = QtWidgets.QTreeWidgetItem(parent)
                 child.setText(0, Wolke.DB.vorteile[el].name)
-                if Wolke.DB.vorteile[el].variable == 1:
+                if Wolke.DB.vorteile[el].variableKosten:
                     child.setText(1, "20 EP")
                 else:
                     child.setText(1, str(Wolke.DB.vorteile[el].kosten) + " EP")
@@ -88,7 +88,7 @@ class CharakterMinderpaktWrapper():
             self.uiVor.labelTyp.setText(VorteilTypen[Wolke.DB.vorteile[self.currentVort].typ])
             self.uiVor.labelNachkauf.setText(Wolke.DB.vorteile[self.currentVort].nachkauf)
             self.uiVor.plainText.setPlainText(Wolke.DB.vorteile[self.currentVort].text)
-            if Wolke.DB.vorteile[self.currentVort].variable == 1:
+            if Wolke.DB.vorteile[self.currentVort].variableKosten:
                 self.uiVor.spinKosten.setValue(20)
             else:
                 self.uiVor.spinKosten.setValue(Wolke.DB.vorteile[self.currentVort].kosten)      

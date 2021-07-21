@@ -48,7 +48,10 @@ class DatenbankEditVorteilWrapper(object):
         self.ui.voraussetzungenEdit.textChanged.connect(self.voraussetzungenTextChanged)
 
         self.ui.textEdit.setPlainText(vorteil.text)
-        self.ui.checkVariable.setChecked(vorteil.variable!=-1)
+        self.ui.checkVariable.setChecked(vorteil.variableKosten)
+        self.ui.checkKommentar.setChecked(vorteil.kommentarErlauben)
+        self.ui.checkVariable.clicked.connect(self.variableKostenChanged)
+        self.variableKostenChanged()
 
         self.ui.scriptPrioEdit.setValue(vorteil.scriptPrio)
 
@@ -73,10 +76,8 @@ class DatenbankEditVorteilWrapper(object):
             self.vorteil.nachkauf = self.ui.comboNachkauf.currentText()
             self.vorteil.voraussetzungen = Hilfsmethoden.VorStr2Array(self.ui.voraussetzungenEdit.toPlainText(), datenbank)
             self.vorteil.typ = self.ui.comboTyp.currentIndex()
-            if self.ui.checkVariable.isChecked():
-                self.vorteil.variable = 1
-            else:
-                self.vorteil.variable = -1
+            self.vorteil.variableKosten = self.ui.checkVariable.isChecked()
+            self.vorteil.kommentarErlauben = self.ui.checkKommentar.isChecked()
             self.vorteil.text = self.ui.textEdit.toPlainText()
             
             self.vorteil.scriptPrio = self.ui.scriptPrioEdit.value()
@@ -90,6 +91,11 @@ class DatenbankEditVorteilWrapper(object):
         else:
             self.vorteil = None
            
+    def variableKostenChanged(self):
+        if self.ui.checkVariable.isChecked():
+            self.ui.checkKommentar.setChecked(self.ui.checkVariable.isChecked())
+        self.ui.checkKommentar.setEnabled(not self.ui.checkVariable.isChecked())
+
     def nameChanged(self):
         name = self.ui.nameEdit.text()
         if name == "":

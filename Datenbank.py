@@ -63,7 +63,8 @@ class Datenbank():
             v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(vorteil.voraussetzungen, None))
             v.set('nachkauf',vorteil.nachkauf)
             v.set('typ', str(vorteil.typ))
-            v.set('variable', str(vorteil.variable))
+            v.set('variable', str(1 if vorteil.variableKosten else -1))
+            v.set('kommentar', str(1 if vorteil.kommentarErlauben else -1))
             v.text = vorteil.text
             if vorteil.script:
                 v.set('script', vorteil.script)
@@ -81,7 +82,8 @@ class Datenbank():
             v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(talent.voraussetzungen, None))
             v.set('verbilligt',str(talent.verbilligt))
             v.set('fertigkeiten',Hilfsmethoden.FertArray2Str(talent.fertigkeiten, None))
-            v.set('variable',str(talent.variable))
+            v.set('variable', str(1 if talent.variableKosten else -1))
+            v.set('kommentar', str(1 if talent.kommentarErlauben else -1))
             v.set('printclass',str(talent.printclass))
             v.text = talent.text
             
@@ -293,10 +295,16 @@ class Datenbank():
                 V.scriptPrio = int(prio)
 
             V.isUserAdded = not refDB
-            try:
-                V.variable = int(vort.get('variable'))
-            except:
-                V.variable = -1
+            if vort.get('variable'):
+                V.variableKosten = int(vort.get('variable')) == 1
+            else:
+                V.variableKosten = False
+
+            if vort.get('kommentar'):
+                V.kommentarErlauben = V.variableKosten or int(vort.get('kommentar')) == 1
+            else:
+                V.kommentarErlauben = V.variableKosten
+
             self.vorteile.update({V.name: V})
             
         #Talente
@@ -310,7 +318,12 @@ class Datenbank():
             T.verbilligt = int(tal.get('verbilligt'))
             T.text = tal.text or ''
             T.fertigkeiten = Hilfsmethoden.FertStr2Array(tal.get('fertigkeiten'), None)
-            T.variable = int(tal.get('variable'))
+            T.variableKosten = int(tal.get('variable')) == 1
+            if tal.get('kommentar'):
+                T.kommentarErlauben = T.variableKosten or int(tal.get('kommentar')) == 1
+            else:
+                T.kommentarErlauben = T.variableKosten
+
             T.isUserAdded = not refDB
 
             printClass = tal.get('printclass')

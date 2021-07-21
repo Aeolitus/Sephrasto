@@ -42,8 +42,8 @@ class TalentPicker(object):
             if (ueber and not talent.isSpezialTalent()) or (not ueber and talent.isSpezialTalent()):
                 continue
             if fert in talent.fertigkeiten and Wolke.Char.voraussetzungenPrüfen(talent.voraussetzungen):
-                if talent.variable > 0.5 and not el in self.talenteVariable:
-                    self.setVariableKosten(el, Wolke.Char.getTalentCost(el, self.refD[self.fert].steigerungsfaktor), None)
+                if (talent.variableKosten or talent.kommentarErlauben) and not el in self.talenteVariable:
+                    self.setVariableKosten(el, Wolke.Char.getTalentCost(el, self.refD[self.fert].steigerungsfaktor), "")
                 talente.append(el)
         talente.sort()
 
@@ -92,7 +92,7 @@ class TalentPicker(object):
             self.gekaufteTalente = None
      
     def setVariableKosten(self, talent, kosten, kommentar):
-        if Wolke.DB.talente[talent].variable < 0.5:
+        if not Wolke.DB.talente[talent].variableKosten and not Wolke.DB.talente[talent].kommentarErlauben:
             return
 
         if not talent in self.talenteVariable:
@@ -133,15 +133,18 @@ class TalentPicker(object):
                 self.ui.labelInfo.setText("Spezialtalent")
 
             if talent in self.talenteVariable:
-                self.ui.spinKosten.setReadOnly(False)
-                self.ui.spinKosten.setButtonSymbols(0)
-                step = Wolke.Char.getDefaultTalentCost(talent, self.refD[self.fert].steigerungsfaktor)
-                self.ui.spinKosten.setSingleStep(step)
-                self.ui.spinKosten.setMinimum(step)
+                if Wolke.DB.talente[talent].variableKosten:
+                    self.ui.spinKosten.setReadOnly(False)
+                    self.ui.spinKosten.setButtonSymbols(0)
+                    step = Wolke.Char.getDefaultTalentCost(talent, self.refD[self.fert].steigerungsfaktor)
+                    self.ui.spinKosten.setSingleStep(step)
+                    self.ui.spinKosten.setMinimum(step)
+                    self.ui.spinKosten.setValue(self.talenteVariable[talent].kosten)
+                else:
+                    self.ui.spinKosten.setValue(Wolke.Char.getDefaultTalentCost(talent, self.refD[self.fert].steigerungsfaktor))
                 self.ui.textKommentar.show()
                 self.ui.labelKommentar.show()
                 self.ui.textKommentar.setText(self.talenteVariable[talent].kommentar)
-                self.ui.spinKosten.setValue(self.talenteVariable[talent].kosten)
             else:
                 self.ui.spinKosten.setValue(Wolke.Char.getDefaultTalentCost(talent, self.refD[self.fert].steigerungsfaktor))
             if self.fert == "Gebräuche":

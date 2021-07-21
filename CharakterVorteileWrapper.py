@@ -61,7 +61,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
                     child.setCheckState(0, QtCore.Qt.Checked)
                 else:
                     child.setCheckState(0, QtCore.Qt.Unchecked)
-                if Wolke.DB.vorteile[el].variable!=-1:
+                if Wolke.DB.vorteile[el].variableKosten:
                     spin = QtWidgets.QSpinBox()
                     spin.setMinimum(-9999)
                     spin.setSuffix(" EP")
@@ -79,6 +79,9 @@ class CharakterVorteileWrapper(QtCore.QObject):
                     self.itemWidgets[el] = spin
                     spin.valueChanged.connect(lambda state, name=el: self.spinnerChanged(name,state))
                     self.uiVor.treeWidget.setItemWidget(child,1,spin)
+                else:
+                    child.setText(1, "20 EP" if el == Wolke.Char.minderpakt else str(Wolke.DB.vorteile[el].kosten) + " EP")
+                if Wolke.DB.vorteile[el].kommentarErlauben:
                     if child.checkState(0) == QtCore.Qt.Checked:
                         self.handleAddKommentarWidget(el, child)
                 else:
@@ -114,8 +117,10 @@ class CharakterVorteileWrapper(QtCore.QObject):
                 if txt in Wolke.Char.vorteile or txt == Wolke.Char.minderpakt:    
                     chi.setCheckState(0, QtCore.Qt.Checked)
                     if txt in Wolke.Char.vorteileVariable:
-                        self.itemWidgets[txt].setValue(Wolke.Char.vorteileVariable[txt].kosten)
-                        self.handleAddKommentarWidget(txt, chi)
+                        if Wolke.DB.vorteile[txt].variableKosten:
+                            self.itemWidgets[txt].setValue(Wolke.Char.vorteileVariable[txt].kosten)
+                        if Wolke.DB.vorteile[txt].kommentarErlauben:
+                            self.handleAddKommentarWidget(txt, chi)
                 else:
                     chi.setCheckState(0, QtCore.Qt.Unchecked) 
                 if txt not in vortList[i] and txt != Wolke.Char.minderpakt:
@@ -125,8 +130,11 @@ class CharakterVorteileWrapper(QtCore.QObject):
                         Wolke.Char.vorteile.remove(txt)
                 else:
                     chi.setHidden(False)
-                if Wolke.DB.vorteile[txt].variable!=-1 and not txt in Wolke.Char.vorteileVariable:
-                    self.setVariableKosten(txt, self.itemWidgets[txt].value(), "")
+                if (Wolke.DB.vorteile[txt].variableKosten or Wolke.DB.vorteile[txt].kommentarErlauben) and not txt in Wolke.Char.vorteileVariable:
+                    if txt in self.itemWidgets:
+                        self.setVariableKosten(txt, self.itemWidgets[txt].value(), "")
+                    else:
+                        self.setVariableKosten(txt, Wolke.DB.vorteile[txt].kosten, "")
         self.updateInfo()
         self.uiVor.treeWidget.blockSignals(False)
         
@@ -156,7 +164,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
         self.updateInfo()
 
     def handleAddKommentarWidget(self, name, parent):
-        if Wolke.DB.vorteile[name].variable == -1 or parent.childCount() > 0:
+        if not Wolke.DB.vorteile[name].kommentarErlauben or parent.childCount() > 0:
             return
         kommentar = ""
         if name in Wolke.Char.vorteileVariable:
@@ -265,7 +273,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
             self.uiVor.labelTyp.setText(VorteilTypen[Wolke.DB.vorteile[self.currentVort].typ])
             self.uiVor.labelNachkauf.setText(Wolke.DB.vorteile[self.currentVort].nachkauf)
             self.uiVor.plainText.setPlainText(Wolke.DB.vorteile[self.currentVort].text)
-            if Wolke.DB.vorteile[self.currentVort].variable!=-1 and self.currentVort in Wolke.Char.vorteileVariable:
+            if Wolke.DB.vorteile[self.currentVort].variableKosten and self.currentVort in Wolke.Char.vorteileVariable:
                 self.uiVor.spinKosten.setValue(Wolke.Char.vorteileVariable[self.currentVort].kosten)
             else:
                 self.uiVor.spinKosten.setValue(Wolke.DB.vorteile[self.currentVort].kosten)      

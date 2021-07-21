@@ -45,10 +45,24 @@ class DatenbankEditTalentWrapper(object):
             self.ui.spinKosten.setValue(talent.kosten)
         else:
             self.ui.buttonRegulaer.setChecked(True)
-        if talent.variable != -1:
+        if talent.variableKosten:
             self.ui.checkVariable.setChecked(True)
         else:
             self.ui.checkVariable.setChecked(False)
+
+        if talent.kommentarErlauben:
+            self.ui.checkKommentar.setChecked(True)
+        else:
+            self.ui.checkKommentar.setChecked(False)
+
+        self.ui.buttonRegulaer.clicked.connect(self.kostenChanged)
+        self.ui.buttonVerbilligt.clicked.connect(self.kostenChanged)
+        self.ui.buttonSpezial.clicked.connect(self.kostenChanged)
+        self.kostenChanged()
+
+        self.ui.checkVariable.clicked.connect(self.variableKostenCheckChanged)
+        self.variableKostenCheckChanged()
+
         self.ui.fertigkeitenEdit.setText(Hilfsmethoden.FertArray2Str(talent.fertigkeiten, None))
         self.ui.fertigkeitenEdit.textChanged.connect(self.fertigkeitenTextChanged)
         
@@ -69,10 +83,10 @@ class DatenbankEditTalentWrapper(object):
             self.talent.voraussetzungen = Hilfsmethoden.VorStr2Array(self.ui.voraussetzungenEdit.toPlainText(), datenbank)
             self.talent.text = self.ui.textEdit.toPlainText()
             self.talent.kosten = -1
-            if self.ui.checkVariable.isChecked():
-                self.talent.variable = 1
-            else:
-                self.talent.variable = -1
+
+            self.talent.kommentarErlauben = self.ui.checkKommentar.isChecked()
+            self.talent.variableKosten = self.ui.checkVariable.isChecked()
+
             if self.ui.buttonSpezial.isChecked():
                 self.talent.kosten = self.ui.spinKosten.value()
             elif self.ui.buttonVerbilligt.isChecked():
@@ -86,6 +100,14 @@ class DatenbankEditTalentWrapper(object):
                 self.talent.isUserAdded = True
         else:
             self.talent = None
+
+    def kostenChanged(self):
+        self.ui.spinKosten.setEnabled(self.ui.buttonSpezial.isChecked())
+
+    def variableKostenCheckChanged(self):
+        if self.ui.checkVariable.isChecked():
+            self.ui.checkKommentar.setChecked(self.ui.checkVariable.isChecked())
+        self.ui.checkKommentar.setEnabled(not self.ui.checkVariable.isChecked())
 
     def nameChanged(self):
         name = self.ui.nameEdit.text()

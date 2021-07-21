@@ -1122,6 +1122,8 @@ class Char():
             self.vorteile.append(vor.text)
             var = parseVariableKosten(vor.get('variable'))
             if var:
+                if not Wolke.DB.vorteile[vor.text].variableKosten:
+                    var.kosten = Wolke.DB.vorteile[vor.text].kosten
                 self.vorteileVariable[vor.text] = var
 
         #Vierter Block
@@ -1143,8 +1145,11 @@ class Char():
                 var = parseVariableKosten(tal.attrib['variable'])
                 if var:
                     #round down to nearest multiple in case of a db cost change
-                    defaultKosten = self.getDefaultTalentCost(nam, fert.steigerungsfaktor)
-                    var.kosten = max(var.kosten - (var.kosten%defaultKosten), defaultKosten)
+                    if Wolke.DB.talente[nam].variableKosten:
+                        defaultKosten = self.getDefaultTalentCost(nam, fert.steigerungsfaktor)
+                        var.kosten = max(var.kosten - (var.kosten%defaultKosten), defaultKosten)
+                    else:
+                        var.kosten = self.getDefaultTalentCost(nam, fert.steigerungsfaktor)
                     self.talenteVariable[nam] = var
             fert.aktualisieren()
             self.fertigkeiten.update({fert.name: fert})
