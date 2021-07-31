@@ -830,7 +830,8 @@ class Char():
                     erfüllt = Char.voraussetzungenPrüfenInternal(vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, voraus,True)
                 else: 
                     #Split am Separator
-                    arr = re.split(':',voraus)
+                    delim = "~"
+                    arr = re.split(delim,voraus)
                     #Vorteile:
                     if arr[0] is 'V':
                         if len(arr) > 2:

@@ -86,6 +86,8 @@ class Hilfsmethoden:
             Waffeneigenschaft Rüstungsbrechend"
         Groß- und Kleinschreibung sind wichtig! Kein geht nicht für Attribute.
         '''
+        delim = "~"
+
         retArr = []
         for itm in VoraussetzungenString.split(","):
             if len(itm) == 0:
@@ -101,21 +103,21 @@ class Hilfsmethoden:
                 if strpItm.startswith("Vorteil "):
                     if not (strpItm[8:] in Datenbank.vorteile):
                         raise VoraussetzungException("Kann Vorteil '" + strpItm + "' in der Datenbank nicht finden.")
-                    arrItm = "V:" + strpItm[8:] + ":1"
+                    arrItm = "V" + delim + strpItm[8:] + delim + "1"
                 elif strpItm.startswith("Kein Vorteil "):
                     if not (strpItm[13:] in Datenbank.vorteile):
                         raise VoraussetzungException("Kann Vorteil '" + strpItm + "' in der Datenbank nicht finden.")
-                    arrItm = "V:" + strpItm[13:] + ":0"
+                    arrItm = "V" + delim + strpItm[13:] + delim + "0"
                 elif strpItm.startswith("Waffeneigenschaft "):
                     if not (strpItm[18:] in Datenbank.waffeneigenschaften):
                         raise VoraussetzungException("Kann keine Waffeneigenschaft '" + strpItm + "' in der Datenbank finden.")
-                    arrItm = "W:" + strpItm[18:] + ":1"
+                    arrItm = "W" + delim + strpItm[18:] + delim + "1"
                 elif strpItm.startswith("Attribut "):
                     attribut = strpItm[9:11]
                     if attribut in Definitionen.Attribute:
                         try:
                             wert = int(strpItm[12:])
-                            arrItm = "A:" + attribut + ":" + str(wert)
+                            arrItm = "A" + delim + attribut + delim + str(wert)
                         except ValueError:
                             raise VoraussetzungException("Der angegebene Attribut-Wert '" + strpItm[12:] + "' ist keine gültige Zahl.")
                     else:
@@ -133,7 +135,7 @@ class Hilfsmethoden:
                         raise VoraussetzungException("Kann Übernatürliche Fertigkeit '" + fertigkeit + "' in der Datenbank nicht finden.")
                     try:
                         wert = int(strpItm[index+2:])
-                        arrItm = "U:" + fertigkeit + ":" + str(wert)
+                        arrItm = "U" + delim + fertigkeit + delim + str(wert)
                     except ValueError:
                         raise VoraussetzungException("Der angegebene Fertigkeitswert '" + strpItm[index+2:] + "' ist keine gültige Zahl")
                 elif strpItm.startswith("Fertigkeit "):
@@ -150,7 +152,7 @@ class Hilfsmethoden:
 
                     try:
                         wert = int(strpItm[index+2:])
-                        arrItm = "F:" + fertigkeit + ":" + str(wert)
+                        arrItm = "F" + delim + fertigkeit + delim + str(wert)
                     except ValueError:
                         raise VoraussetzungException("Der angegebene Fertigkeitswert '" + strpItm[index+2:] + "' ist keine gültige Zahl")
                 else:
@@ -160,6 +162,8 @@ class Hilfsmethoden:
     
     @staticmethod
     def VorArray2Str(VoraussetzungenArray, Datenbank = None):
+        delim = "~"
+
         retArr = []
         retStr = ""
         for itm in VoraussetzungenArray:
@@ -176,7 +180,7 @@ class Hilfsmethoden:
                 if orStr != "":
                     retArr.append(orStr)
             else:
-                arr = itm.split(":")
+                arr = itm.split(delim)
                 enStr = ""
                 if arr[0] == "V":
                     if arr[2] == "1":
