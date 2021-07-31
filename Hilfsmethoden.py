@@ -108,6 +108,10 @@ class Hilfsmethoden:
                     if not (strpItm[13:] in Datenbank.vorteile):
                         raise VoraussetzungException("Kann Vorteil '" + strpItm + "' in der Datenbank nicht finden.")
                     arrItm = "V" + delim + strpItm[13:] + delim + "0"
+                elif strpItm.startswith("Talent "):
+                    if not (strpItm[7:] in Datenbank.talente):
+                        raise VoraussetzungException("Kann Talent '" + strpItm + "' in der Datenbank nicht finden.")
+                    arrItm = "T" + delim + strpItm[7:] + delim + "1"
                 elif strpItm.startswith("Waffeneigenschaft "):
                     if not (strpItm[18:] in Datenbank.waffeneigenschaften):
                         raise VoraussetzungException("Kann keine Waffeneigenschaft '" + strpItm + "' in der Datenbank finden.")
@@ -187,6 +191,9 @@ class Hilfsmethoden:
                         enStr += "Vorteil "
                     else:
                         enStr += "Kein Vorteil "
+                    enStr += arr[1]
+                elif arr[0] == "T":
+                    enStr += "Talent "
                     enStr += arr[1]
                 elif arr[0] == "W":
                     enStr += "Waffeneigenschaft "

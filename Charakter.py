@@ -811,6 +811,7 @@ class Char():
         Dabei ist L:
             V für Vorteil - prüft, ob ein Vorteil vorhanden ist. W = 1 bedeutet, der
                 Vorteil muss vorhanden sein. W=0 bedeutet, der Vorteil darf nicht vorhanden sein.
+            T für Talent - prüft, ob der Charakter ein Talent mit dem angegebenen Namen besitzt. W ist immer 1.
             W für Waffeneigenschaft - prüft, ob der Charakter eine Waffe mit der angegebenen Eigenschaft besitzt. W ist immer 1.
             A für Attribut - prüft, ob das Attribut mit Key Str mindestens auf Wert W ist
             U für Übernatürliche Fertigkeit - prüft, ob für die Übernatürliche Fertigkeit mit Key Str die Voraussetzungen erfüllt sind \
@@ -845,6 +846,17 @@ class Char():
                             erfüllt = True
                         elif found == 0 and cond == 0:
                             erfüllt = True
+                    #Talente:
+                    elif arr[0] is 'T':
+                        for fert in fertigkeiten.values():
+                            if arr[1] in fert.gekaufteTalente:
+                                erfüllt = True
+                                break
+                        if not erfüllt:
+                            for fert in übernatürlicheFertigkeiten.values():
+                                if arr[1] in fert.gekaufteTalente:
+                                    erfüllt = True
+                                    break
                     #Waffeneigenschaften:
                     elif arr[0] is 'W':
                         for waffe in waffen:
