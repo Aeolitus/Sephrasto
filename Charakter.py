@@ -129,7 +129,10 @@ class Char():
         self.EP_Uebernatuerlich = 0
         self.EP_Uebernatuerlich_Talente = 0
 
-        #Achter Block: Flags etc
+        #Achter Block: Notiz
+        self.notiz = ""
+
+        #Neunter Block: Flags etc
         self.höchsteKampfF = -1
 
         # Diagnostics
@@ -1027,6 +1030,10 @@ class Char():
         epn = etree.SubElement(root,'Erfahrung')
         etree.SubElement(epn,'EPtotal').text = str(self.EPtotal)
         etree.SubElement(epn,'EPspent').text = str(self.EPspent)
+        
+        #Achter Block
+        notiz =  etree.SubElement(root,'Notiz')
+        notiz.text = self.notiz
 
         #Plugins
         root = EventBus.applyFilter("charakter_xml_schreiben", root)
@@ -1254,6 +1261,11 @@ class Char():
         Wolke.Fehlercode = -52
         self.EPtotal = int(root.find('Erfahrung/EPtotal').text)
         self.EPspent = int(root.find('Erfahrung/EPspent').text)   
+
+        #Achter Block
+        notiz = root.find('Notiz')
+        if notiz is not None:
+            self.notiz = notiz.text
 
         #Plugins
         root = EventBus.applyFilter("charakter_xml_laden", root)

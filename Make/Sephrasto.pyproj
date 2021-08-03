@@ -43,6 +43,8 @@
     <Compile Include="..\CharakterMain.py" />
     <Compile Include="..\CharakterMinderpakt.py" />
     <Compile Include="..\CharakterMinderpaktWrapper.py" />
+    <Compile Include="..\CharakterNotiz.py" />
+    <Compile Include="..\CharakterNotizWrapper.py" />
     <Compile Include="..\CharakterTalente.py" />
     <Compile Include="..\CharakterUebernatuerlich.py" />
     <Compile Include="..\CharakterUebernatuerlichWrapper.py" />

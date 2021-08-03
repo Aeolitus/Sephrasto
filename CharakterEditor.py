@@ -15,6 +15,7 @@ import CharakterFreieFertWrapper
 import CharakterVorteileWrapper
 import CharakterItemsWrapper
 import CharakterEPWrapper
+import CharakterNotizWrapper
 import Charakter
 import Datenbank
 from Wolke import Wolke
@@ -70,6 +71,7 @@ class Editor(object):
         self.VortWrapper = EventBus.applyFilter("class_vorteile_wrapper", CharakterVorteileWrapper.CharakterVorteileWrapper)()
         self.ItmWrapper = EventBus.applyFilter("class_items_wrapper", CharakterItemsWrapper.CharakterItemsWrapper)()
         self.EPWrapper = EventBus.applyFilter("class_ep_wrapper", CharakterEPWrapper.EPWrapper)()
+        self.NotizWrapper = EventBus.applyFilter("class_notiz_wrapper", CharakterNotizWrapper.CharakterNotizWrapper)()
         
         tabs = []
         tabs.append(Tab(10, self.BeschrWrapper, self.BeschrWrapper.formBeschr, "Beschreibung"))
@@ -81,6 +83,7 @@ class Editor(object):
         tabs.append(Tab(80, self.EquipWrapper, self.EquipWrapper.formEq, "Ausrüstung"))   
         tabs.append(Tab(90, self.ItmWrapper, self.ItmWrapper.formIt, "Inventar"))
         tabs.append(Tab(100, self.EPWrapper, self.EPWrapper.formEP, "EP-Verteilung"))
+        tabs.append(Tab(110, self.NotizWrapper, self.NotizWrapper.form, "Notiz"))
 
         for plugin in plugins:
             if hasattr(plugin, "getCharakterTabs"): #deprecated
@@ -96,11 +99,8 @@ class Editor(object):
                     self.ui.horizontalLayout_3.addWidget(button)
         
         self.tabs = sorted(tabs, key=lambda tab: tab.order)
-        tabPadding = "    "
-        if len(self.tabs) > 9:
-            tabPadding = ""
         for tab in self.tabs:
-            self.ui.tabs.addTab(tab.form, tabPadding + tab.name + tabPadding)
+            self.ui.tabs.addTab(tab.form, tab.name)
             if hasattr(tab.wrapper, "modified"):
                 tab.wrapper.modified.connect(self.onModified)
         
