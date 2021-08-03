@@ -88,6 +88,9 @@
     <Compile Include="..\EventBus.py" />
     <Compile Include="..\PluginLoader.py" />
     <Compile Include="..\CheatsheetGenerator.py" />
+    <Compile Include="..\Plugins\LangerBogenBeschreibung\__init__.py" />
+    <Compile Include="..\Plugins\LangerBogenBeschreibung\CharakterBeschreibungExt.py" />
+    <Compile Include="..\Plugins\LangerBogenBeschreibung\CharakterBeschreibungExtWrapper.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>

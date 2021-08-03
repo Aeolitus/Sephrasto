@@ -101,23 +101,27 @@ class MainWindowWrapper(object):
         logging.getLogger().setLevel(loglevels[Wolke.Settings['Logging']])
 
         self._plugins = []
-        pluginNames = PluginLoader.getPlugins(Wolke.Settings['Pfad-Plugins'])
+        pluginPaths = ["Plugins", Wolke.Settings['Pfad-Plugins']]
 
-        for pluginName in pluginNames:
-            if pluginName in Wolke.Settings['Deaktivierte-Plugins']:
-                continue
-            plugin = PluginLoader.loadPlugin(Wolke.Settings['Pfad-Plugins'], pluginName)
-            self._plugins.append(plugin)
-            logging.info("Plugin: loaded " + pluginName)
-            if hasattr(plugin, "createMainWindowButtons"):
-                for button in plugin.createMainWindowButtons():
-                    button.setParent(self.Form)
-                    button.setMinimumSize(QtCore.QSize(0, 25))
-                    self.ui.vlPluginButtons.addWidget(button)
+        for pluginPath in pluginPaths:
+            pluginNames = PluginLoader.getPlugins(pluginPath)
+
+            for pluginName in pluginNames:
+                if pluginName in Wolke.Settings['Deaktivierte-Plugins']:
+                    continue
+                plugin = PluginLoader.loadPlugin(pluginPath, pluginName)
+                self._plugins.append(plugin)
+                logging.info("Plugin: loaded " + pluginName)
+                if hasattr(plugin, "createMainWindowButtons"):
+                    for button in plugin.createMainWindowButtons():
+                        button.setParent(self.Form)
+                        button.setMinimumSize(QtCore.QSize(0, 25))
+                        self.ui.vlPluginButtons.addWidget(button)
 
         EventBus.doAction("plugins_geladen")
 
         EventBus.addAction("charaktereditor_reload", self.charakterEditorReloadHook)
+        EventBus.addAction("charaktereditor_modified", self.charakterEditorModifiedHook)
 
         self.Form.show()
         sys.exit(self.app.exec_())
@@ -125,6 +129,10 @@ class MainWindowWrapper(object):
     def charakterEditorReloadHook(self, params):
         if self.ed and not self.ed.formMain.isHidden():
             self.ed.reloadAll()
+            
+    def charakterEditorModifiedHook(self, params):
+        if self.ed and not self.ed.formMain.isHidden():
+            self.ed.onModified()
         
     def createNew(self):
         '''

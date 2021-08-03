@@ -82,6 +82,20 @@ includeFiles = {
     os.path.join(env_bin_path, "libEGL.dll"): build_path,
 }
 
+#beware, subfolders are not included
+def includePlugin(name):
+    path = os.path.join(dir_path, "Plugins", name)
+    if not os.path.isdir(path):
+        return
+
+    files = os.listdir(path)
+    for i in files:
+        file = os.path.join(path, i)
+        if os.path.isfile(file):
+            includeFiles[file] = os.path.join(build_path, "Plugins", name)
+
+includePlugin("LangerBogenBeschreibung")
+
 for file,targetDir in includeFiles.items():
     print(file)
     if not os.path.exists(targetDir):

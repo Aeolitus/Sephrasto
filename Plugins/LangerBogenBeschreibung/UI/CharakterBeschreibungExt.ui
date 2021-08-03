@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>formBeschreibung</class>
+ <widget class="QWidget" name="formBeschreibung">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>872</width>
+    <height>460</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Beschreibung</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_3">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="gridLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
+     <item row="1" column="0">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="2" column="1">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Expanding</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="1" column="1">
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="5" column="1">
+        <widget class="QLineEdit" name="leGewicht"/>
+       </item>
+       <item row="7" column="3" colspan="2">
+        <widget class="QLineEdit" name="leHintergrund2"/>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>Gewicht</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLineEdit" name="leGroesse"/>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="label_9">
+         <property name="text">
+          <string>Aussehen</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1" colspan="4">
+        <widget class="QLineEdit" name="leProfession"/>
+       </item>
+       <item row="9" column="3" colspan="2">
+        <widget class="QLineEdit" name="leHintergrund4"/>
+       </item>
+       <item row="6" column="1">
+        <widget class="QLineEdit" name="leHaarfarbe"/>
+       </item>
+       <item row="9" column="0" colspan="2">
+        <widget class="QLineEdit" name="leAussehen2"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Profession</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="4">
+        <widget class="QLineEdit" name="leTitel">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="3" colspan="2">
+        <widget class="QLabel" name="label_10">
+         <property name="text">
+          <string>Familie/Hintergrund/Herkunft</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QLineEdit" name="leAugenfarbe"/>
+       </item>
+       <item row="3" column="2">
+        <spacer name="horizontalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>80</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="11" column="3" colspan="2">
+        <widget class="QLineEdit" name="leHintergrund6"/>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string>Haarfarbe</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="0" colspan="2">
+        <widget class="QLineEdit" name="leAussehen3"/>
+       </item>
+       <item row="8" column="1">
+        <widget class="QLineEdit" name="leAussehen1"/>
+       </item>
+       <item row="13" column="3" colspan="2">
+        <widget class="QLineEdit" name="leHintergrund8"/>
+       </item>
+       <item row="12" column="3" colspan="2">
+        <widget class="QLineEdit" name="leHintergrund7"/>
+       </item>
+       <item row="12" column="0" colspan="2">
+        <widget class="QLineEdit" name="leAussehen5"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Geschlecht</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="3">
+        <widget class="QLabel" name="label_2">
+         <property name="minimumSize">
+          <size>
+           <width>68</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Titel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="leGeburtsdatum"/>
+       </item>
+       <item row="11" column="0" colspan="2">
+        <widget class="QLineEdit" name="leAussehen4"/>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="leGeschlecht"/>
+       </item>
+       <item row="6" column="3" colspan="2">
+        <widget class="QLineEdit" name="leHintergrund1"/>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Geburtsdatum</string>
+         </property>
+        </widget>
+       </item>
+       <item row="13" column="0" colspan="2">
+        <widget class="QLineEdit" name="leAussehen6"/>
+       </item>
+       <item row="8" column="3" colspan="2">
+        <widget class="QLineEdit" name="leHintergrund3"/>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="label_8">
+         <property name="text">
+          <string>Augenfarbe</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>Größe</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="3" colspan="2">
+        <widget class="QLineEdit" name="leHintergrund0"/>
+       </item>
+       <item row="10" column="3" colspan="2">
+        <widget class="QLineEdit" name="leHintergrund5"/>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_11">
+         <property name="text">
+          <string>Kultur</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1" colspan="3">
+        <widget class="QLineEdit" name="leKultur">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="4">
+        <widget class="QCheckBox" name="chkKultur">
+         <property name="text">
+          <string>Heimat überschreiben</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="0" column="1">
+      <spacer name="verticalSpacer_7">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="1" column="3">
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>leProfession</tabstop>
+  <tabstop>leGeschlecht</tabstop>
+  <tabstop>leGeburtsdatum</tabstop>
+  <tabstop>leTitel</tabstop>
+  <tabstop>leGroesse</tabstop>
+  <tabstop>leGewicht</tabstop>
+  <tabstop>leHaarfarbe</tabstop>
+  <tabstop>leAugenfarbe</tabstop>
+  <tabstop>leAussehen1</tabstop>
+  <tabstop>leAussehen2</tabstop>
+  <tabstop>leAussehen3</tabstop>
+  <tabstop>leAussehen4</tabstop>
+  <tabstop>leAussehen5</tabstop>
+  <tabstop>leAussehen6</tabstop>
+  <tabstop>leHintergrund0</tabstop>
+  <tabstop>leHintergrund1</tabstop>
+  <tabstop>leHintergrund2</tabstop>
+  <tabstop>leHintergrund3</tabstop>
+  <tabstop>leHintergrund4</tabstop>
+  <tabstop>leHintergrund5</tabstop>
+  <tabstop>leHintergrund6</tabstop>
+  <tabstop>leHintergrund7</tabstop>
+  <tabstop>leHintergrund8</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

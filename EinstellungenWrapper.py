@@ -125,6 +125,14 @@ class EinstellungenWrapper():
                 tmpSet = yaml.safe_load(infile)
                 for el in tmpSet:
                     Wolke.Settings[el] = tmpSet[el]
+                if not 'Version' in tmpSet:
+                    Wolke.Settings['Version'] = 0
+
+                #Settings migration code goes here, dont forget to increment the base version in Wolke.py too
+                if Wolke.Settings['Version'] == 0:
+                    if not 'CharakterBeschreibungExt' in Wolke.Settings['Deaktivierte-Plugins']:
+                        Wolke.Settings['Deaktivierte-Plugins'].append('CharakterBeschreibungExt')
+                    Wolke.Settings['Version'] += 1
         
         #Init defaults
         if not Wolke.Settings['Pfad-Chars']:
@@ -147,15 +155,27 @@ class EinstellungenWrapper():
         self.pluginCheckboxes = []
         for i in reversed(range(self.ui.vlPlugins.count())): 
             self.ui.vlPlugins.itemAt(i).widget().setParent(None)
-        pluginNames = PluginLoader.getPlugins(self.ui.editPlugins.text())
+
+        pluginNames = PluginLoader.getPlugins("Plugins")
         if len(pluginNames) > 0:
-            self.ui.vlPlugins.addWidget(QtWidgets.QLabel("Plugins:"))
+            self.ui.vlPlugins.addWidget(QtWidgets.QLabel("Offizielle Plugins:"))
         for pluginName in pluginNames:
             check = QtWidgets.QCheckBox(pluginName)
             if not (pluginName in Wolke.Settings['Deaktivierte-Plugins']):
                 check.setChecked(True)
             self.ui.vlPlugins.addWidget(check)
             self.pluginCheckboxes.append(check)
+
+        pluginNames = PluginLoader.getPlugins(self.ui.editPlugins.text())
+        if len(pluginNames) > 0:
+            self.ui.vlPlugins.addWidget(QtWidgets.QLabel("Nutzer-Plugins:"))
+        for pluginName in pluginNames:
+            check = QtWidgets.QCheckBox(pluginName)
+            if not (pluginName in Wolke.Settings['Deaktivierte-Plugins']):
+                check.setChecked(True)
+            self.ui.vlPlugins.addWidget(check)
+            self.pluginCheckboxes.append(check)
+
         if len(pluginNames) > 0:
             self.ui.vlPlugins.addWidget(QtWidgets.QLabel("(De-)Aktivieren erfordert einen Neustart!"))
 

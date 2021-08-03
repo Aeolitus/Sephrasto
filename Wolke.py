@@ -10,6 +10,7 @@ class Wolke:
     Reqs = True
     Fehlercode = 0
     Settings = {
+        'Version' : 1,
         'Bogen': 'Frag immer nach', 
         'Datenbank': None, 
         'Cheatsheet': False, 
@@ -17,7 +18,7 @@ class Wolke:
         'Pfad-Chars': '',
         'Pfad-Regeln': '',
         'Pfad-Plugins': '',
-        'Deaktivierte-Plugins': [],
+        'Deaktivierte-Plugins': ['CharakterBeschreibungExt'],
         'Logging': 1,
         'PDF-Open': False
     }
