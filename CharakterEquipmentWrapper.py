@@ -13,6 +13,7 @@ from WaffenPicker import WaffenPicker
 import logging
 from Hilfsmethoden import Hilfsmethoden
 from EventBus import EventBus
+import re
 
 class EquipWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
@@ -136,7 +137,8 @@ class EquipWrapper(QtCore.QObject):
                     W.plus = eval("self.uiEq.spin" + el + "plus.value()")
                     eigenschaftStr = eval("self.uiEq.edit" + el + "eig.text()")
                     if eigenschaftStr:
-                        W.eigenschaften = list(map(str.strip, eigenschaftStr.split(","))) 
+                        W.eigenschaften = list(map(str.strip, eigenschaftStr.split(",")))
+
                     self.refreshKampfstile(int(el[-1])-1)
                     tmp = eval("self.uiEq.comboStil" + el[-1] + ".currentText()")
                     if tmp in kampfstile:
@@ -204,6 +206,7 @@ class EquipWrapper(QtCore.QObject):
             eval("self.uiEq.label" + Warr[count] + "typ.setText(\"\")")
             eval("self.uiEq.comboStil" + str(count+1) + ".clear()")
             eval("self.uiEq.edit" + Warr[count] + "eig.setText(\"\")")
+            eval("self.uiEq.edit" + Warr[count] + "eig.setToolTip(\"\")")
             eval("self.uiEq.spin" + Warr[count] + "w6.setValue(0)")
             eval("self.uiEq.spin" + Warr[count] + "plus.setValue(0)")
             eval("self.uiEq.spin" + Warr[count] + "h.setValue(6)")
@@ -262,10 +265,24 @@ class EquipWrapper(QtCore.QObject):
         eval("self.uiEq.label" + Warr[count] + "typ.setText(getName())")
         self.refreshKampfstile(count)
         getEigenschaften = lambda : ", ".join(W.eigenschaften)
+        def getWaffeneigenschaftenTooltip():
+            result = ""
+            for we in W.eigenschaften:
+                name = re.sub(r"\((.*?)\)", "", we, re.UNICODE).strip()
+                if name in Wolke.DB.waffeneigenschaften:
+                    waffeneigenschaft = Wolke.DB.waffeneigenschaften[name]
+                    if waffeneigenschaft.text:
+                        result += "<b>" + we + ":</b> " + waffeneigenschaft.text + "\n"
+                else:
+                    result += "<b>" + we + ":</b> Unbekannte Eigenschaft\n"
+
+            return "<html><head/><body><div>" + result[:-1].replace("\n", "<br>") + "</div></body></html>"
+
         eval("self.uiEq.edit" + Warr[count] + "eig.setText(getEigenschaften())")
+        eval("self.uiEq.edit" + Warr[count] + "eig.setToolTip(getWaffeneigenschaftenTooltip())")
         eval("self.uiEq.spin" + Warr[count] + "w6.setValue("+ str(W.W6) +")")
         eval("self.uiEq.spin" + Warr[count] + "plus.setValue("+ str(W.plus) +")")
-        if EventBus.applyFilter("waffe_haerte_wsstern", W.name == "Unbewaffnet", { "waffe" : W }):
+        if EventBus.applyFilter("waffe_haerte_wsstern", W.name == "Hand" or W.name == "Fuß", { "waffe" : W }):
             eval("self.uiEq.spin" + Warr[count] + "h.setValue("+ str(Wolke.Char.wsStern) +")")
         else:
             eval("self.uiEq.spin" + Warr[count] + "h.setValue("+ str(W.haerte) +")")
