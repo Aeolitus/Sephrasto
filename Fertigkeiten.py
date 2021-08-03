@@ -110,12 +110,37 @@ class Talent():
         self.kommentarErlauben = False
         self.text = ''
         self.printclass = -1
+        self.cheatsheetAuflisten = True
         self.isUserAdded = True
+    
     def __eq__(self, other) : 
         if self.__class__ != other.__class__: return False
         return self.__dict__ == other.__dict__  
+    
     def isSpezialTalent(self):
         return self.kosten != -1
+    
+    def getFullName(self, char):
+        variable = "" 
+        if self.name in char.talenteVariable:
+            addKommentar = char.talenteVariable[self.name].kommentar != ""
+            addEP = self.variableKosten
+
+            if addKommentar or addEP:
+                variable += "("
+            if addKommentar:
+                variable += char.talenteVariable[self.name].kommentar
+            if addKommentar and addEP:
+                variable += "; "
+            if addEP:
+                variable += str(char.talenteVariable[self.name].kosten) + " EP"
+            if addKommentar or addEP:
+                variable += ")"
+
+        if variable:
+            return self.name + " " + variable
+        else:
+            return self.name
 
 class Vorteil():
     def __init__(self):
@@ -127,12 +152,39 @@ class Vorteil():
         self.voraussetzungen = []
         self.nachkauf = ''
         self.text = ''
+        self.cheatsheetAuflisten = True
+        self.cheatsheetBeschreibung = ''
+        self.linkKategorie = 0
+        self.linkElement = ''
         self.script = None
         self.scriptPrio = 0
         self.isUserAdded = True
+
     def __eq__(self, other) : 
         if self.__class__ != other.__class__: return False
         if self.__dict__ == other.__dict__: return True
+
+    def getFullName(self, char, forceKommentar = False):
+        variable = "" 
+        if self.name in char.vorteileVariable:
+            addKommentar = char.vorteileVariable[self.name].kommentar != "" and (forceKommentar or not ("$kommentar$" in self.cheatsheetBeschreibung))
+            addEP = self.variableKosten
+
+            if addKommentar or addEP:
+                variable += "("
+            if addKommentar:
+                variable += char.vorteileVariable[self.name].kommentar
+            if addKommentar and addEP:
+                variable += "; "
+            if addEP:
+                variable += str(char.vorteileVariable[self.name].kosten) + " EP"
+            if addKommentar or addEP:
+                variable += ")"
+
+        if variable:
+            return self.name + " " + variable
+        else:
+            return self.name
 
 class Manoever():
     def __init__(self):

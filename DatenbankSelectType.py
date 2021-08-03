@@ -13,7 +13,7 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.setWindowModality(QtCore.Qt.ApplicationModal)
-        Dialog.resize(443, 167)
+        Dialog.resize(443, 210)
         self.gridLayout_2 = QtWidgets.QGridLayout(Dialog)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.verticalLayout = QtWidgets.QVBoxLayout()
@@ -95,9 +95,7 @@ class Ui_Dialog(object):
         self.buttonVorteil.setText(_translate("Dialog", "Vorteil"))
         self.buttonWaffeneigenschaft.setText(_translate("Dialog", "Waffeneigenschaft"))
         self.buttonWaffe.setText(_translate("Dialog", "Waffe"))
-        self.buttonManoever.setText(_translate("Dialog", "Manöver / Modifikation"))
-
-
+        self.buttonManoever.setText(_translate("Dialog", "Manöver / Modifikation / Regeln"))
 
 
 if __name__ == "__main__":

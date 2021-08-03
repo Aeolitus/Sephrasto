@@ -43,6 +43,7 @@ class DatenbankEditTalentWrapper(object):
         elif talent.kosten is not -1:
             self.ui.buttonSpezial.setChecked(True)
             self.ui.spinKosten.setValue(talent.kosten)
+            self.ui.checkCheatsheet.setChecked(talent.cheatsheetAuflisten)
         else:
             self.ui.buttonRegulaer.setChecked(True)
         if talent.variableKosten:
@@ -91,6 +92,8 @@ class DatenbankEditTalentWrapper(object):
                 self.talent.kosten = self.ui.spinKosten.value()
             elif self.ui.buttonVerbilligt.isChecked():
                 self.talent.verbilligt = 1
+            self.talent.cheatsheetAuflisten = self.ui.checkCheatsheet.isChecked()
+
             self.talent.printclass = self.ui.sortierungEdit.value()
 
             self.talent.isUserAdded = False
@@ -103,6 +106,7 @@ class DatenbankEditTalentWrapper(object):
 
     def kostenChanged(self):
         self.ui.spinKosten.setEnabled(self.ui.buttonSpezial.isChecked())
+        self.ui.checkCheatsheet.setEnabled(self.ui.buttonSpezial.isChecked())
 
     def variableKostenCheckChanged(self):
         if self.ui.checkVariable.isChecked():

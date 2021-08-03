@@ -63,13 +63,22 @@ class Datenbank():
             v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(vorteil.voraussetzungen, None))
             v.set('nachkauf',vorteil.nachkauf)
             v.set('typ', str(vorteil.typ))
-            v.set('variable', str(1 if vorteil.variableKosten else -1))
-            v.set('kommentar', str(1 if vorteil.kommentarErlauben else -1))
+            v.set('variable', str(1 if vorteil.variableKosten else 0))
+            v.set('kommentar', str(1 if vorteil.kommentarErlauben else 0))
             v.text = vorteil.text
             if vorteil.script:
                 v.set('script', vorteil.script)
             if vorteil.scriptPrio != 0:
                 v.set('scriptPrio', str(vorteil.scriptPrio))
+
+            if not vorteil.cheatsheetAuflisten:
+                v.set('csAuflisten', "0")
+            if vorteil.cheatsheetBeschreibung:
+                v.set('csBeschreibung', vorteil.cheatsheetBeschreibung)
+            if vorteil.linkKategorie > 0:
+                v.set('linkKategorie', str(vorteil.linkKategorie))
+            if vorteil.linkElement:
+                v.set('linkElement', vorteil.linkElement)
 
         #Talente
         Wolke.Fehlercode = -28
@@ -82,10 +91,13 @@ class Datenbank():
             v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(talent.voraussetzungen, None))
             v.set('verbilligt',str(talent.verbilligt))
             v.set('fertigkeiten',Hilfsmethoden.FertArray2Str(talent.fertigkeiten, None))
-            v.set('variable', str(1 if talent.variableKosten else -1))
-            v.set('kommentar', str(1 if talent.kommentarErlauben else -1))
+            v.set('variable', str(1 if talent.variableKosten else 0))
+            v.set('kommentar', str(1 if talent.kommentarErlauben else 0))
             v.set('printclass',str(talent.printclass))
             v.text = talent.text
+
+            if not talent.cheatsheetAuflisten:
+                v.set('csAuflisten', "0")
             
         #Fertigkeiten
         Wolke.Fehlercode = -29
@@ -305,6 +317,15 @@ class Datenbank():
             else:
                 V.kommentarErlauben = V.variableKosten
 
+            if vort.get('csAuflisten'):
+                V.cheatsheetAuflisten = int(vort.get('csAuflisten')) == 1
+            if vort.get('csBeschreibung'):
+                V.cheatsheetBeschreibung = vort.get('csBeschreibung')
+            if vort.get('linkKategorie'):
+                V.linkKategorie = int(vort.get('linkKategorie'))
+            if vort.get('linkElement'):
+                V.linkElement = vort.get('linkElement')
+
             self.vorteile.update({V.name: V})
             
         #Talente
@@ -323,6 +344,9 @@ class Datenbank():
                 T.kommentarErlauben = T.variableKosten or int(tal.get('kommentar')) == 1
             else:
                 T.kommentarErlauben = T.variableKosten
+
+            if tal.get('csAuflisten'):
+                T.cheatsheetAuflisten = int(tal.get('csAuflisten')) == 1
 
             T.isUserAdded = not refDB
 

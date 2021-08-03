@@ -205,7 +205,7 @@ class FertigkeitenWrapper(QtCore.QObject):
         if self.currentFertName != "":
             self.model.clear()
             for el in Wolke.Char.fertigkeiten[self.currentFertName].gekaufteTalente:
-                talStr = el.replace(self.currentFertName + ": ", "")
+                talStr = Wolke.DB.talente[el].getFullName(Wolke.Char).replace(self.currentFertName + ": ", "")
                 item = QtGui.QStandardItem(talStr)
                 item.setEditable(False)
                 self.model.appendRow(item)

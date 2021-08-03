@@ -62,6 +62,7 @@ class Ui_manDialog(object):
         self.comboTyp.addItem("")
         self.comboTyp.addItem("")
         self.comboTyp.addItem("")
+        self.comboTyp.addItem("")
         self.gridLayout.addWidget(self.comboTyp, 4, 1, 1, 1)
         self.label_6 = QtWidgets.QLabel(manDialog)
         self.label_6.setObjectName("label_6")
@@ -70,9 +71,9 @@ class Ui_manDialog(object):
         self.gegenEdit.setObjectName("gegenEdit")
         self.gridLayout.addWidget(self.gegenEdit, 3, 1, 1, 1)
         self.warning = QtWidgets.QLabel(manDialog)
+        self.warning.setVisible(False)
         self.warning.setStyleSheet("background-color: rgb(255, 255, 0);")
         self.warning.setWordWrap(True)
-        self.warning.setVisible(False)
         self.warning.setObjectName("warning")
         self.gridLayout.addWidget(self.warning, 0, 0, 1, 2)
         self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 1, 1)
@@ -110,10 +111,9 @@ class Ui_manDialog(object):
         self.comboTyp.setItemText(6, _translate("manDialog", "Dämonische Modifikation"))
         self.comboTyp.setItemText(7, _translate("manDialog", "Weitere Karmaregeln"))
         self.comboTyp.setItemText(8, _translate("manDialog", "Weitere Kampfregeln"))
+        self.comboTyp.setItemText(9, _translate("manDialog", "Profane Regeln"))
         self.label_6.setText(_translate("manDialog", "Typ"))
         self.warning.setText(_translate("manDialog", "Dies ist ein Ilaris-Standardmanöver / eine Ilaris-Standardmodifikation. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für dieses Manöver / diese Modifikation keine automatischen Updates mehr mit neuen Sephrasto-Versionen."))
-
-
 
 
 if __name__ == "__main__":

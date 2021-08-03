@@ -23,6 +23,7 @@ from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
 import sys
 import traceback
 from EventBus import EventBus
+from CheatsheetGenerator import CheatsheetGenerator
 
 CharakterbogenInfo = namedtuple('CharakterbogenInfo', 'filePath maxVorteile maxFreie maxFertigkeiten seitenProfan kurzbogenHack')
 
@@ -38,20 +39,10 @@ class pdfMeister(object):
         self.ExtraTalents = []
         self.PrintRules = True
         self.RulesPage = "Regeln.pdf"
-        self.RuleCategories = ['ALLGEMEINE VORTEILE', 'PROFANE VORTEILE', 'KAMPFVORTEILE', 'AKTIONEN', 'WAFFENEIGENSCHAFTEN', 'WEITERE KAMPFREGELN', 'NAHKAMPFMANÖVER', 'FERNKAMPFMANÖVER', 'MAGISCHE VORTEILE', 'SPONTANE MODIFIKATIONEN (ZAUBER)', 'WEITERE MAGIEREGELN', 'ZAUBER', 'KARMALE VORTEILE', 'SPONTANE MODIFIKATIONEN (LITURGIEN)', 'WEITERE KARMAREGELN', 'LITURGIEN', 'DÄMONISCHE VORTEILE', 'SPONTANE MODIFIKATIONEN (ANRUFUNGEN)', 'ANRUFUNGEN']
         self.Talents = []
         self.Energie = ""
+        self.CheatsheetGenerator = CheatsheetGenerator()
 
-        self.RulesLineCount = 100
-        self.RulesCharCount = 80
-        fontSize = Wolke.Settings["Cheatsheet-Fontsize"]
-        if fontSize == 1:
-            self.RulesLineCount = 80
-            self.RulesCharCount = 55
-        elif fontSize == 2:
-            self.RulesLineCount = 60
-            self.RulesCharCount = 45
-    
     def setCharakterbogen(self, charakterBogenInfo):
         self.CharakterBogen = charakterBogenInfo
 
@@ -69,17 +60,7 @@ class pdfMeister(object):
         self.Talents = []
         self.UseExtraPage = False
         Wolke.Fehlercode = -81
-        fields = pdf.get_fields(self.CharakterBogen.filePath)
-        if self.CharakterBogen.filePath.endswith("Charakterbogen_lang.pdf") and os.path.isfile(filename):
-            oldFields = pdf.get_fields(filename)
-            keep = ["Kultur", "Profession", "Geschlecht", "Geburtsdatum", "Groesse", "Gewicht", "Haarfarbe", "Augenfarbe",
-                    "Aussehen1", "Aussehen2", "Aussehen3", "Aussehen4", "Aussehen5", "Aussehen6", "Titel", "Hintergrund0",
-                    "Hintergrund1", "Hintergrund2", "Hintergrund3", "Hintergrund4", "Hintergrund5", "Hintergrund6", "Hintergrund7",
-                    "Hintergrund8", "Notiz1", "Notiz2", "Notiz3", "Notiz4", "Notiz5"]
-            for key in keep:
-                if key in oldFields:
-                    fields[key] = oldFields[key]
-
+        fields = {}
         Wolke.Fehlercode = -82
         fields = self.pdfErsterBlock(fields)
         Wolke.Fehlercode = -83
@@ -141,7 +122,7 @@ class pdfMeister(object):
         
         Wolke.Fehlercode = -97
         if printRules:
-            rules, ruleLineCounts = self.prepareRules()
+            rules, ruleLineCounts = self.CheatsheetGenerator.prepareRules(self.Talents)
             startIndex = 0
             pageCount = 0
 
@@ -149,11 +130,11 @@ class pdfMeister(object):
             while startIndex != -1:
                 pageCount += 1
                 rulesFields["Seite"] = pageCount
-                str, startIndex = self.writeRules(rules, ruleLineCounts, startIndex)
+                str, startIndex = self.CheatsheetGenerator.writeRules(rules, ruleLineCounts, startIndex)
                 rulesFields["Regeln1"] = str
                 rulesFields["Regeln2"] = ""
                 if startIndex != -1:
-                    str, startIndex = self.writeRules(rules, ruleLineCounts, startIndex)
+                    str, startIndex = self.CheatsheetGenerator.writeRules(rules, ruleLineCounts, startIndex)
                     rulesFields["Regeln2"] = str
 
                 handle, out_file = tempfile.mkstemp()
@@ -265,11 +246,20 @@ class pdfMeister(object):
 
         return fields
 
+    def isLinkedToVorteil(self, vorteil):
+        if vorteil.linkKategorie == 3:
+            if vorteil.linkElement in Wolke.Char.vorteile:
+                return True
+            return self.isVorteilLinked(Wolke.DB.vorteile[vorteil.linkElement])          
+
+        return False
+
     def pdfDritterBlock(self, fields):
         logging.debug("PDF Block 3")
         sortV = Wolke.Char.vorteile.copy()
+        sortV = [v for v in sortV if not self.isLinkedToVorteil(Wolke.DB.vorteile[v])]
         typeDict = {}
-        assembled = []
+        added = []
         removed = []
         # Collect a list of Vorteils, where different levels of the same are
         # combined into one entry and the type of Vorteil is preserved
@@ -279,61 +269,22 @@ class pdfMeister(object):
             if vort == "Minderpakt" and Wolke.Char.minderpakt is not None:
                 removed.append(vort)
                 mindername = "Minderpakt (" + Wolke.Char.minderpakt + ")"
-                assembled.append(mindername)
+                added.append(mindername)
                 typeDict[mindername] = 0
                 continue
-            flag = False
-            fullset = [" I", " II", " III", " IV", " V", " VI", " VII"]
-            for el in fullset:
-                if vort.endswith(el):
-                    basename = vort[:-len(el)]
-                    flag = True
 
-            if flag:
-                fullenum = ""
-                for el in fullset:
-                    if basename+el in sortV:
-                        removed.append(basename+el)
-                        fullenum += ", " + el[1:]
-                        if basename+el in Wolke.Char.vorteileVariable:
-                            vk = Wolke.Char.vorteileVariable[basename+el]
-                            fullenum += " (" + vk.kommentar
-                            if Wolke.DB.vorteile[basename+el].variableKosten:
-                                fullenum += "; " + str(vk.kosten) + " EP)"
-                            else:
-                                fullenum += ")"
+            name = self.CheatsheetGenerator.getLinkedName(Wolke.DB.vorteile[vort], forceKommentar=True)
+            removed.append(vort)
+            added.append(name)
 
-                vname = basename + " " + fullenum[1:]
-                typeDict[vname] = Wolke.DB.vorteile[vort].typ
-                assembled.append(vname)
-                if "Zauberer" in vname or "Geweiht" in vname or "Paktierer" in vname:
-                    typeDict[vname] = 4
+            if "Zauberer" in name or "Geweiht" in name or "Paktierer" in name:
+                typeDict[name] = 4
             else:
-                typeDict[vort] = Wolke.DB.vorteile[vort].typ
+                typeDict[name] = Wolke.DB.vorteile[vort].typ
+            
         for el in removed:
             if el in sortV:
                 sortV.remove(el)
-        for el in assembled:
-            sortV.append(el)
-        removed = []
-        added = []
-
-        # Add the cost for Vorteils with variable costs
-        for el in sortV:
-            # This is only going to be general Vorteile anyways,
-            # so type doesnt matter
-            if el in Wolke.Char.vorteileVariable:
-                removed.append(el)
-                vk = Wolke.Char.vorteileVariable[el]
-                nname = el + " (" + vk.kommentar
-                if Wolke.DB.vorteile[el].variableKosten:
-                    nname += "; " + str(vk.kosten) + " EP)"
-                else:
-                    nname += ")"
-                added.append(nname)
-                typeDict[nname] = typeDict[el]
-        for el in removed:
-            sortV.remove(el)
         for el in added:
             sortV.append(el)
 
@@ -458,15 +409,12 @@ class pdfMeister(object):
             talente = sorted(fertigkeit.gekaufteTalente)
             for el2 in talente:
                 talStr += ", "
-                talStr += el2.replace(fertigkeit.name + ": ", "")
+                talent = Wolke.DB.talente[el2]
+                talStr += talent.getFullName(Wolke.Char).replace(fertigkeit.name + ": ", "")
 
                 if el2 in fertigkeit.talentMods:
                     for condition,mod in sorted(fertigkeit.talentMods[el2].items()):
                         talStr += " " + (condition + " " if condition else "") + ("+" if mod >= 0 else "") + str(mod)
-
-                if el2 in Wolke.Char.talenteVariable:
-                    vk = Wolke.Char.talenteVariable[el2]
-                    talStr += " (" + vk.kommentar + ")"
 
             #Append any talent mods of talents the character doesn't own in parentheses
             for talentName, talentMods in sorted(fertigkeit.talentMods.items()):
@@ -616,58 +564,40 @@ class pdfMeister(object):
             # Fill Talente
             tals = sorted(fe.gekaufteTalente, key=lambda s: s.lower())
             for t in tals:
-                #base = 'Uebertal' + str(countT)
+                talent = Wolke.DB.talente[t]
                 tt = Talentbox.Talentbox()
-                mod = ""
-                if t in Wolke.Char.talenteVariable:
-                    vk = Wolke.Char.talenteVariable[t]
-                    mod += " (" + vk.kommentar + ")"
 
-                #if t+mod in self.Talents:
-                #    if fe.probenwertTalent > self.Talents[t+mod].pw:
-                #        self.Talents[t+mod].pw = fe.probenwertTalent
-                        #fields[self.addedTals[t+mod][1] + 'PW'] = \
-                              #fe.probenwertTalent
-                        #self.addedTals[t+mod] = (fe.probenwertTalent,
-                        #                    self.addedTals[t+mod][1])
-                #else:
-                #self.addedTals[t+mod] = (fe.probenwertTalent, base)
-                if t in Wolke.DB.talente and len(Wolke.DB.talente[t].fertigkeiten) == 1:
-                    tt.na = t.replace(f + ": ", "") + mod
-                else:
-                    tt.na = t + mod
-                #fields[base + 'NA'] = t + mod
+                tt.na = talent.getFullName(Wolke.Char)
+                if len(talent.fertigkeiten) == 1:
+                    tt.na = tt.na.replace(f + ": ", "")
                 tt.pw = fe.probenwertTalent
-                #fields[base + 'PW'] = fe.probenwertTalent
-                # Get Spellinfo from text
-                if t in Wolke.DB.talente:
-                    txt = Wolke.DB.talente[t].text
-                    res = re.findall('Vorbereitungszeit:(.*?)\n',
-                                     txt,
-                                     re.UNICODE)
-                    if len(res) == 1:
-                        tt.vo = res[0].strip()
-                        #fields[base + 'VO'] = res[0].strip()
-                    res = re.findall('Reichweite:(.*?)\n',
-                                     txt,
-                                     re.UNICODE)
-                    if len(res) == 1:
-                        tt.re = res[0].strip()
-                        #fields[base + 'RE'] = res[0].strip()
-                    res = re.findall('Wirkungsdauer:(.*?)\n',
-                                     txt,
-                                     re.UNICODE)
-                    if len(res) == 1:
-                        tt.wd = res[0].strip()
-                        #fields[base + 'WD'] = res[0].strip()
-                    res = re.findall('Kosten:(.*?)\n',
-                                     txt,
-                                     re.UNICODE)
-                    if len(res) == 1:
-                        tt.ko = res[0].strip()
-                        #fields[base + 'KO'] = res[0].strip()
 
-                    tt.pc = Wolke.DB.talente[t].printclass
+                res = re.findall('Vorbereitungszeit:(.*?)\n',
+                                    talent.text,
+                                    re.UNICODE)
+                if len(res) == 1:
+                    tt.vo = res[0].strip()
+                    #fields[base + 'VO'] = res[0].strip()
+                res = re.findall('Reichweite:(.*?)\n',
+                                    talent.text,
+                                    re.UNICODE)
+                if len(res) == 1:
+                    tt.re = res[0].strip()
+                    #fields[base + 'RE'] = res[0].strip()
+                res = re.findall('Wirkungsdauer:(.*?)\n',
+                                    talent.text,
+                                    re.UNICODE)
+                if len(res) == 1:
+                    tt.wd = res[0].strip()
+                    #fields[base + 'WD'] = res[0].strip()
+                res = re.findall('Kosten:(.*?)\n',
+                                    talent.text,
+                                    re.UNICODE)
+                if len(res) == 1:
+                    tt.ko = res[0].strip()
+                    #fields[base + 'KO'] = res[0].strip()
+
+                tt.pc = talent.printclass
 
                 idx = -1
                 for i in range(len(self.Talents)):
@@ -680,12 +610,6 @@ class pdfMeister(object):
                         self.Talents.append(tt)
                 else:
                     self.Talents.append(tt)
-                # if tt.na in self.Talents:
-                #     if tt.pw > self.Talents[tt.na].pw:
-                #         self.Talents.pop(tt.na,None)
-                #         self.Talents[tt.na] = tt
-                # else:
-                #     self.Talents[tt.na] = tt
 
         # Sort by printclass. Old sorting stays for same printclass, so this should not mess stuff up.
         self.Talents.sort(key = lambda x: (x.pc, x.na))
@@ -745,266 +669,3 @@ class pdfMeister(object):
                 fields[base + 'RE' + '2'] = tt.re
         fields['EN2'] = self.Energie
         return fields
-
-    def getLineCount(self, text):
-        lines = text.split("\n")
-        lineCount = 0
-        for line in lines:
-            lineCount += max(int(math.ceil(len(line) / self.RulesCharCount)), 1)
-        lineCount = lineCount - 1 #every text ends with two newlines, the second doesnt count, subtract 1
-
-        #the largest fontsize tends to more lines beause of missing hyphenation
-        if Wolke.Settings["Cheatsheet-Fontsize"] > 1:
-            lineCount += int(lineCount * 0.2)
-
-        return lineCount
-
-    def appendWaffeneigenschaften(self, strList, lineCounts, category, eigenschaften):
-        if not eigenschaften or (len(eigenschaften) == 0):
-            return
-        strList.append(category + "\n\n")
-        lineCounts.append(self.getLineCount(strList[-1]))
-        for weName, waffen in sorted(eigenschaften.items()):
-            we = Wolke.DB.waffeneigenschaften[weName]
-            if not we.text:
-                continue
-            strList.append(we.name + " (" + ", ".join(waffen) + ")\n" + we.text + "\n\n")
-            lineCounts.append(self.getLineCount(strList[-1]))
-
-    def appendVorteile(self, strList, lineCounts, category, vorteile):
-        if not vorteile or (len(vorteile) == 0):
-            return
-        strList.append(category + "\n\n")
-        lineCounts.append(self.getLineCount(strList[-1]))
-        for vor in vorteile:
-            if vor in Wolke.DB.manöver:
-                continue
-
-            vorteil = Wolke.DB.vorteile[vor]
-            if not vorteil.text:
-                continue
-
-            kommentar = ""
-            if vor in Wolke.Char.vorteileVariable:
-                kommentar = " (" + Wolke.Char.vorteileVariable[vor].kommentar + ")"
-
-            strList.append(vorteil.name + kommentar + "\n" + vorteil.text + "\n\n")
-
-            lineCounts.append(self.getLineCount(strList[-1]))
-    
-    def appendManöver(self, strList, lineCounts, category, manöverList):
-        if not manöverList or (len(manöverList) == 0):
-            return
-        strList.append(category + "\n\n")
-        lineCounts.append(self.getLineCount(strList[-1]))
-        count = 0
-        for man in manöverList:
-            manöver = Wolke.DB.manöver[man]
-            if not Wolke.Char.voraussetzungenPrüfen(manöver.voraussetzungen):
-                continue
-            count += 1
-            result = []
-            if manöver.name.endswith(" (M)") or manöver.name.endswith(" (L)") or manöver.name.endswith(" (D)"):
-                result.append(manöver.name[:-4])
-            elif manöver.name.endswith(" (FK)"):
-                result.append(manöver.name[:-5])
-            else:
-                result.append(manöver.name)
-            if manöver.probe:
-                result.append(" (" + manöver.probe + ")")
-            result.append("\n")
-            if manöver.gegenprobe:
-                result.append("Gegenprobe: " + manöver.gegenprobe + "\n")
-
-            result.append(manöver.text + "\n\n")
-            strList.append("".join(result))
-            lineCounts.append(self.getLineCount(strList[-1]))
-        if count == 0:
-            strList.pop()
-            lineCounts.pop()
-
-    def appendTalente(self, strList, lineCounts, category, talente):
-        if not talente or (len(talente) == 0):
-            return
-        strList.append(category + "\n\n")
-        lineCounts.append(self.getLineCount(strList[-1]))
-        for tal in talente:
-            result = []
-            talent = Wolke.DB.talente[tal]
-            if not talent.text:
-                continue
-
-            name = talent.name
-            if talent.name in Wolke.Char.talenteVariable:
-                name += " (" + Wolke.Char.talenteVariable[talent.name].kommentar + ")"
-            result.append(name)
-            for i in range(len(self.Talents)):
-                if self.Talents[i].na == name:
-                    result.append(" (PW " + str(self.Talents[i].pw) + ")")
-                    break
-            result.append("\n")
-            text = talent.text
-            
-            #Remove everything from Fertigkeiten on
-            index = text.find('\nFertigkeiten')
-            if index != -1:
-                text = text[:index]
-
-            #Remove everything from Erlernen on (some talents don't have a Fertigkeiten list)
-            index = text.find('\nErlernen')
-            if index != -1:
-                text = text[:index]
-
-            result.append(text)
-            result.append("\n\n")
-            strList.append("".join(result))
-            lineCounts.append(self.getLineCount(strList[-1]))
-
-    def prepareRules(self):
-        sortV = Wolke.Char.vorteile.copy()
-        sortV = sorted(sortV, key=str.lower)
-
-        allgemein = [el for el in sortV if Wolke.DB.vorteile[el].typ == 0]
-
-        #Allgemein Vorteile with different levels contain the lower levels in the description, so remove them
-        remove = set()
-        for vort in allgemein:
-            if vort.endswith(" II"):
-                remove.add(vort[:-1])    
-            elif vort.endswith(" III"):
-                remove.add(vort[:-1])
-            elif vort.endswith(" IV"):
-                remove.add(vort[:-1] + "II")
-            elif vort.endswith(" V"):
-                remove.add(vort[:-1] + "IV")
-            elif vort.endswith(" VI"):
-                remove.add(vort[:-1])
-            elif vort.endswith(" VII"):
-                remove.add(vort[:-1])
-
-        for vort in remove:
-            if vort in allgemein:
-                allgemein.remove(vort)
-        
-        profan = [el for el in sortV if Wolke.DB.vorteile[el].typ == 1]
-
-        kampf = [el for el in sortV if (Wolke.DB.vorteile[el].typ < 4 and
-                                           Wolke.DB.vorteile[el].typ >= 2)]
-
-        magisch = [el for el in sortV if Wolke.DB.vorteile[el].typ >= 4 and Wolke.DB.vorteile[el].typ <= 5]
-        karmal = [el for el in sortV if Wolke.DB.vorteile[el].typ >= 6 and Wolke.DB.vorteile[el].typ <= 7]
-        dämonisch = [el for el in sortV if Wolke.DB.vorteile[el].typ >= 8]
-
-        sortM = list(Wolke.DB.manöver.keys())
-        sortM = sorted(sortM, key=str.lower)
-
-        aktionen = [el for el in sortM if (Wolke.DB.manöver[el].typ == 5)]
-
-        manövernah = [el for el in sortM if (Wolke.DB.manöver[el].typ == 0)]
-
-        waffeneigenschaften = {}
-        for waffe in Wolke.Char.waffen:
-            for el in waffe.eigenschaften:
-                try:
-                    we = Hilfsmethoden.GetWaffeneigenschaft(el, Wolke.DB)
-                    if not we.name in waffeneigenschaften:
-                        waffeneigenschaften[we.name] = [waffe.anzeigename]
-                    else:
-                        waffeneigenschaften[we.name].append(waffe.anzeigename)
-                except WaffeneigenschaftException:
-                    pass
-
-        manöverfern = []
-        for waffe in Wolke.Char.waffen:
-            if type(waffe) is Objekte.Fernkampfwaffe:
-                manöverfern = [el for el in sortM if (Wolke.DB.manöver[el].typ == 1)]
-                break
-        spomodsmagie = [el for el in sortM if (Wolke.DB.manöver[el].typ == 2)]
-        spomodskarma = [el for el in sortM if (Wolke.DB.manöver[el].typ == 3)]
-        weiteresmagie = [el for el in sortM if (Wolke.DB.manöver[el].typ == 4)]
-        spomodsdämonisch = [el for el in sortM if (Wolke.DB.manöver[el].typ == 6)]
-        weitereskarma = [el for el in sortM if (Wolke.DB.manöver[el].typ == 7)]
-        weitereskampf = [el for el in sortM if (Wolke.DB.manöver[el].typ == 8)]
-
-        zauber = set()
-        liturgien = set()
-        anrufungen = set()
-        for fer in Wolke.Char.übernatürlicheFertigkeiten:
-            for tal in Wolke.Char.übernatürlicheFertigkeiten[fer].gekaufteTalente:
-                res = re.findall('Kosten:(.*?)\n', Wolke.DB.talente[tal].text, re.UNICODE)
-                if len(res) >= 1 and " KaP" in res[0]:
-                    liturgien.add(tal)
-                elif len(res) >= 1 and " GuP" in res[0]:
-                    anrufungen.add(tal)
-                else:
-                    zauber.add(tal)
-
-        zauber = sorted(zauber, key=str.lower)
-        liturgien = sorted(liturgien, key=str.lower)
-        anrufungen = sorted(anrufungen, key=str.lower)
-
-        rules = []
-        ruleLineCounts = []
-
-        self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[0], allgemein)
-        self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[1], profan)
-
-        self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[2], kampf)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[3], aktionen)
-        self.appendWaffeneigenschaften(rules, ruleLineCounts, self.RuleCategories[4], waffeneigenschaften)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[5], weitereskampf)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[6], manövernah)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[7], manöverfern)
-
-        self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[8], magisch)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[9], spomodsmagie)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[10], weiteresmagie)
-        self.appendTalente(rules, ruleLineCounts, self.RuleCategories[11], zauber)
-
-        self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[12], karmal)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[13], spomodskarma)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[14], weitereskarma)
-        self.appendTalente(rules, ruleLineCounts, self.RuleCategories[15], liturgien)
-
-        self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[16], dämonisch)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[17], spomodsdämonisch)
-        self.appendTalente(rules, ruleLineCounts, self.RuleCategories[18], anrufungen)
-
-        return rules, ruleLineCounts
-        
-
-    def writeRules(self, rules, ruleLineCounts, start):
-        lineCount = 0
-        endIndex = start
-
-        while lineCount < self.RulesLineCount and endIndex < len(ruleLineCounts):
-            nextLineCount = ruleLineCounts[endIndex] - 1 #subtract one because every entry ends with a newline
-            leeway = int(nextLineCount * 0.3) #give big texts some leeway on the target line count to avoid big empty spaces
-            if lineCount + nextLineCount > self.RulesLineCount + leeway:
-                break
-            lineCount = lineCount + ruleLineCounts[endIndex]
-            endIndex = endIndex + 1
-
-        if endIndex <= start:
-            return "", -1
-
-        #Make sure a category is never the last line on the page
-        category = rules[endIndex-1][:-2]
-        if category in self.RuleCategories:
-            lineCount -= ruleLineCounts[endIndex-1]
-            endIndex = endIndex - 1
-
-        #Remove the trailing new line from the last entry
-        rules[endIndex-1] = rules[endIndex-1][:-2]
-        lineCount -= 1
-
-        result = ''.join(rules[start:endIndex])
-
-        # Append newlines to make the auto-fontsize about same as large as the other pages
-        if self.RulesLineCount - lineCount > 0:
-            result += '\n' * (self.RulesLineCount - lineCount)
-
-        if len(rules) == endIndex:
-            #return -1 to signal that we are done
-            return result, -1
-        return result, endIndex
