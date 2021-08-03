@@ -345,7 +345,7 @@ class Char():
                 waffe.eigenschaften.append(eigenschaft)
 
     def API_getWaffeneigenschaftParam(self, paramNb):
-        match = re.search(r"\((.*?)\)", self.currentEigenschaft)
+        match = re.search(r"\((.*?)\)", self.currentEigenschaft, re.UNICODE)
         if not match:
             raise Exception("Die Waffeneigenschaft '" + self.currentEigenschaft + "' erfordert einen Parameter, aber es wurde keiner gefunden")
         parameters = list(map(str.strip, match.group(1).split(";")))
@@ -832,7 +832,7 @@ class Char():
                 else: 
                     #Split am Separator
                     delim = "~"
-                    arr = re.split(delim,voraus)
+                    arr = re.split(delim, voraus, re.UNICODE)
                     #Vorteile:
                     if arr[0] is 'V':
                         if len(arr) > 2:
