@@ -46,7 +46,6 @@
     <Compile Include="..\CharakterTalente.py" />
     <Compile Include="..\CharakterUebernatuerlich.py" />
     <Compile Include="..\CharakterUebernatuerlichWrapper.py" />
-    <Compile Include="..\CharakterUeberWrapper.py" />
     <Compile Include="..\CharakterVorteile.py" />
     <Compile Include="..\CharakterVorteileWrapper.py" />
     <Compile Include="..\CharakterWaffen.py" />
