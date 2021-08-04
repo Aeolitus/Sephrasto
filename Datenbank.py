@@ -19,6 +19,7 @@ class Datenbank():
         self.waffen = {}
         self.manöver = {}
         self.waffeneigenschaften = {}
+        self.freieFertigkeiten = {}
         self.removeList = []
         
         self.datei = None
@@ -171,6 +172,15 @@ class Datenbank():
             m.set('probe', manöver.probe)
             m.set('gegenprobe', manöver.gegenprobe)
             m.text = manöver.text
+            
+        #Freie Fertigkeiten
+        for ff in self.freieFertigkeiten:
+            fert = self.freieFertigkeiten[ff]
+            if not fert.isUserAdded: continue
+            f = etree.SubElement(root, 'FreieFertigkeit')
+            f.set('kategorie', fert.kategorie)
+            f.set('voraussetzungen', Hilfsmethoden.VorArray2Str(fert.voraussetzungen, None))
+            f.text = fert.name
 
         #Remove list
         for rm in self.removeList:
@@ -197,6 +207,8 @@ class Datenbank():
         self.übernatürlicheFertigkeiten = {}
         self.waffen = {}
         self.manöver = {}
+        self.waffeneigenschaften = {}
+        self.freieFertigkeiten = {}
         self.removeList = []
 
         if os.path.isfile('datenbank.xml'):
@@ -287,6 +299,8 @@ class Datenbank():
                 removed = self.waffen.pop(name)
             elif typ == 'Manöver / Modifikation' and name in self.manöver:
                 removed = self.manöver.pop(name)
+            elif typ == 'Freie Fertigkeit' and name in self.freieFertigkeiten:
+                removed = self.freieFertigkeiten.pop(name)
             if removed:
                 self.removeList.append((name, typ, removed))
 
@@ -451,6 +465,16 @@ class Datenbank():
             m.isUserAdded = not refDB
             self.manöver.update({m.name: m})
 
+        #Freie Fertigkeiten
+        ffNodes = root.findall('FreieFertigkeit')
+        for ffNode in ffNodes:
+            numLoaded += 1
+            ff = Fertigkeiten.FreieFertigkeitDB()
+            ff.name = ffNode.text
+            ff.kategorie = ffNode.get('kategorie')
+            ff.isUserAdded = not refDB
+            self.freieFertigkeiten.update({ff.name: ff})
+
         # Step 2: Voraussetzungen - requires everything else to be loaded for cross validation
         notifyError = False # For testing of manual db changes
 
@@ -521,6 +545,18 @@ class Datenbank():
                 m.voraussetzungen = Hilfsmethoden.VorStr2Array(ma.get('voraussetzungen'), self)
             except VoraussetzungException as e:
                 errorStr = "Error in Voraussetzungen of Manöver " + m.name + ": " + str(e)
+                if notifyError:
+                    assert False, errorStr
+                logging.warning(errorStr)
+               
+        #Freie Fertigkeiten
+        for ffNode in ffNodes:
+            ff = self.freieFertigkeiten[ffNode.text]
+            try:
+                if ffNode.get('voraussetzungen'):
+                    ff.voraussetzungen = Hilfsmethoden.VorStr2Array(ffNode.get('voraussetzungen'), self)
+            except VoraussetzungException as e:
+                errorStr = "Error in Voraussetzungen of FreieFertigkeit " + ff.name + ": " + str(e)
                 if notifyError:
                     assert False, errorStr
                 logging.warning(errorStr)

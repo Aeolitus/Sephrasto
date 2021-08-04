@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
+    <width>637</width>
     <height>500</height>
    </rect>
   </property>
@@ -21,23 +21,23 @@
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
-	   <item>
-	    <widget class="QLabel" name="labelParameter">
-	     <property name="text">
-		  <string>Filter nach Name:</string>
-	     </property>
-	    </widget>
-	   </item>
-	   <item>
-	    <widget class="QLineEdit" name="nameFilterEdit"/>
-	   </item>
-	   <item>
-	    <widget class="QLabel" name="labelParameter">
-	     <property name="text">
-		  <string>Filter nach Typ:</string>
-	     </property>
-	    </widget>
-	   </item>
+       <item>
+        <widget class="QLabel" name="labelParameter">
+         <property name="text">
+          <string>Filter nach Name:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="nameFilterEdit"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelParameter">
+         <property name="text">
+          <string>Filter nach Typ:</string>
+         </property>
+        </widget>
+       </item>
        <item>
         <widget class="QCheckBox" name="showTalente">
          <property name="text">
@@ -87,7 +87,17 @@
          </property>
         </widget>
        </item>
-	   <item>
+       <item>
+        <widget class="QCheckBox" name="showFreieFertigkeiten">
+         <property name="text">
+          <string>Freie Fertigkeiten</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QCheckBox" name="showWaffeneigenschaften">
          <property name="text">
           <string>Waffeneigenschaften</string>
@@ -117,14 +127,14 @@
          </property>
         </widget>
        </item>
-	   <item>
-	    <widget class="QLabel" name="labelParameter">
-	     <property name="text">
-		  <string>Filter nach Status:</string>
-	     </property>
-	    </widget>
-	   </item>
-	   <item>
+       <item>
+        <widget class="QLabel" name="labelParameter">
+         <property name="text">
+          <string>Filter nach Status:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QCheckBox" name="showDeleted">
          <property name="text">
           <string>Gelöschte Standardelemente</string>
@@ -283,7 +293,7 @@
            </property>
           </widget>
          </item>
-		 <item>
+         <item>
           <widget class="QPushButton" name="buttonWiederherstellen">
            <property name="minimumSize">
             <size>
@@ -291,11 +301,11 @@
              <height>25</height>
             </size>
            </property>
+           <property name="visible">
+            <bool>false</bool>
+           </property>
            <property name="text">
             <string>Wiederherstellen</string>
-           </property>
-		   <property name="visible">
-            <bool>False</bool>
            </property>
           </widget>
          </item>

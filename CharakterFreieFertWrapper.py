@@ -10,6 +10,7 @@ import CharakterFreieFert
 from PyQt5 import QtWidgets, QtCore
 import logging
 from Hilfsmethoden import Hilfsmethoden
+import CharakterFreieFertigkeitenPickerWrapper
 
 class CharakterFreieFertWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
@@ -39,9 +40,23 @@ class CharakterFreieFertWrapper(QtCore.QObject):
                     ffCombo.setEnabled(False)
                 setattr(self.uiFert, "comboFF" + str(self.ffCount), ffCombo)
                 ffLayout.addWidget(ffCombo)
+
+                ffButton = QtWidgets.QPushButton()
+                setattr(self.uiFert, "buttonFF" + str(self.ffCount), ffButton)
+                ffButton.setText("+")
+                ffButton.setMaximumSize(QtCore.QSize(25, 20))
+                ffButton.clicked.connect(lambda state, edit=ffEdit: self.ffButtonClicked(edit))
+                ffLayout.addWidget(ffButton)
+
                 self.uiFert.freieFertsGrid.addLayout(ffLayout, row, column)
         
         self.load()
+
+    def ffButtonClicked(self, edit):
+        picker = CharakterFreieFertigkeitenPickerWrapper.CharakterFreieFertigkeitenPickerWrapper(edit.text())
+        if picker.fertigkeit != None:
+            edit.setText(picker.fertigkeit)
+            self.update()
         
     def load(self):
         count = 1

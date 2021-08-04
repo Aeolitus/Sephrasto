@@ -38,6 +38,8 @@
     <Compile Include="..\CharakterFertigkeitenWrapper.py" />
     <Compile Include="..\CharakterFreieFert.py" />
     <Compile Include="..\CharakterFreieFertWrapper.py" />
+    <Compile Include="..\CharakterFreieFertigkeitenPicker.py" />
+    <Compile Include="..\CharakterFreieFertigkeitenPickerWrapper.py" />
     <Compile Include="..\CharakterItems.py" />
     <Compile Include="..\CharakterItemsWrapper.py" />
     <Compile Include="..\CharakterMain.py" />
@@ -55,6 +57,8 @@
     <Compile Include="..\DatenbankEdit.py" />
     <Compile Include="..\DatenbankEditFertigkeit.py" />
     <Compile Include="..\DatenbankEditFertigkeitWrapper.py" />
+    <Compile Include="..\DatenbankEditFreieFertigkeit.py" />
+    <Compile Include="..\DatenbankEditFreieFertigkeitWrapper.py" />
     <Compile Include="..\DatenbankEditTalent.py" />
     <Compile Include="..\DatenbankEditTalentWrapper.py" />
     <Compile Include="..\DatenbankEditVorteil.py" />

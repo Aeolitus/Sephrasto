@@ -10,6 +10,7 @@ import Fertigkeiten
 import Datenbank
 import DatenbankMain
 import DatenbankEditFertigkeitWrapper
+import DatenbankEditFreieFertigkeitWrapper
 import DatenbankEditTalentWrapper
 import DatenbankEditVorteilWrapper
 import DatenbankSelectTypeWrapper
@@ -22,9 +23,18 @@ from EinstellungenWrapper import EinstellungenWrapper
 from Wolke import Wolke
 from copy import copy
 
+class DatabaseType(object):
+    def __init__(self, databaseDict, addFunc, editFunc, showCheckbox):
+        super().__init__()
+        self.databaseDict = databaseDict
+        self.addFunc = addFunc
+        self.editFunc = editFunc
+        self.showCheckbox = showCheckbox
+
 class DatenbankEdit(object):
     def __init__(self):
         super().__init__()
+        self.databaseTypes = {}
         self.datenbank = Datenbank.Datenbank()
         self.savepath = self.datenbank.datei
         self.changed = False
@@ -44,6 +54,7 @@ class DatenbankEdit(object):
         self.ui.showWaffeneigenschaften.stateChanged.connect(self.updateGUI)
         self.ui.showWaffen.stateChanged.connect(self.updateGUI)
         self.ui.showManoever.stateChanged.connect(self.updateGUI)
+        self.ui.showFreieFertigkeiten.stateChanged.connect(self.updateGUI)
         self.ui.showUserAdded.stateChanged.connect(self.updateGUI)
         self.ui.showDeleted.stateChanged.connect(self.updateGUI)
         self.ui.nameFilterEdit.textChanged.connect(self.updateGUI)
@@ -63,6 +74,7 @@ class DatenbankEdit(object):
 
         self.Form.closeEvent = self.closeEvent
         self.windowTitleDefault = self.Form.windowTitle()
+        self.initDatabaseTypes()
         self.updateGUI()
         self.updateWindowTitleAndCloseButton()
     
@@ -87,6 +99,17 @@ class DatenbankEdit(object):
             self.ui.buttonLoeschen.setEnabled(True)
             self.ui.buttonLoeschen.setVisible(True)
             self.ui.buttonWiederherstellen.setVisible(False)
+
+    def initDatabaseTypes(self):
+        self.databaseTypes = {}
+        self.databaseTypes["Talent"] = DatabaseType(self.datenbank.talente, self.addTalent, self.editTalent, self.ui.showTalente)
+        self.databaseTypes["Vorteil"] = DatabaseType(self.datenbank.vorteile, self.addVorteil, self.editVorteil, self.ui.showVorteile)
+        self.databaseTypes["Fertigkeit"] = DatabaseType(self.datenbank.fertigkeiten, self.addFertigkeit, self.editFertigkeit, self.ui.showFertigkeiten)
+        self.databaseTypes["Übernatürliche Fertigkeit"] = DatabaseType(self.datenbank.übernatürlicheFertigkeiten, self.addUebernatuerlich, self.editUebernatuerlich, self.ui.showUebernatuerlicheFertigkeiten)
+        self.databaseTypes["Freie Fertigkeit"] = DatabaseType(self.datenbank.freieFertigkeiten, self.addFreieFertigkeit, self.editFreieFertigkeit, self.ui.showFreieFertigkeiten)
+        self.databaseTypes["Waffeneigenschaft"] = DatabaseType(self.datenbank.waffeneigenschaften, self.addWaffeneigenschaft, self.editWaffeneigenschaft, self.ui.showWaffeneigenschaften)
+        self.databaseTypes["Waffe"] = DatabaseType(self.datenbank.waffen, self.addWaffe, self.editWaffe, self.ui.showWaffen)
+        self.databaseTypes["Manöver / Modifikation"] = DatabaseType(self.datenbank.manöver, self.addManoever, self.editManoever, self.ui.showManoever)
 
 
     def cancelDueToPendingChanges(self, action):
@@ -123,98 +146,33 @@ class DatenbankEdit(object):
 
         self.model.clear()
         showUserAdded = self.ui.showUserAdded.isChecked()
-        if self.ui.showTalente.isChecked():
-            for itm, value in sorted(self.datenbank.talente.items()):
-                if not value.isUserAdded and showUserAdded:
-                    continue
-                if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
-                    continue
-                item = QtGui.QStandardItem(itm + " : Talent")
-                item.setEditable(False)
-                if value.isUserAdded:
-                    item.setBackground(QtGui.QBrush(QtCore.Qt.green))
-                self.model.appendRow(item)
-        if self.ui.showVorteile.isChecked():
-            for itm, value in sorted(self.datenbank.vorteile.items()):
-                if not value.isUserAdded and showUserAdded:
-                    continue
-                if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
-                    continue
-                item = QtGui.QStandardItem(itm + " : Vorteil")
-                item.setEditable(False)
-                if value.isUserAdded:
-                    item.setBackground(QtGui.QBrush(QtCore.Qt.green))
-                self.model.appendRow(item) 
-        if self.ui.showFertigkeiten.isChecked():
-            for itm, value in sorted(self.datenbank.fertigkeiten.items()):
-                if not value.isUserAdded and showUserAdded:
-                    continue
-                if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
-                    continue
-                item = QtGui.QStandardItem(itm + " : Fertigkeit")
-                item.setEditable(False)
-                if value.isUserAdded:
-                    item.setBackground(QtGui.QBrush(QtCore.Qt.green))
-                self.model.appendRow(item) 
-        if self.ui.showUebernatuerlicheFertigkeiten.isChecked():
-            for itm, value in sorted(self.datenbank.übernatürlicheFertigkeiten.items()):
-                if not value.isUserAdded and showUserAdded:
-                    continue
-                if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
-                    continue
-                item = QtGui.QStandardItem(itm + " : Übernatürliche Fertigkeit")
-                item.setEditable(False)
-                if value.isUserAdded:
-                    item.setBackground(QtGui.QBrush(QtCore.Qt.green))
-                self.model.appendRow(item) 
-        if self.ui.showWaffeneigenschaften.isChecked():
-            for itm, value in sorted(self.datenbank.waffeneigenschaften.items()):
-                if not value.isUserAdded and showUserAdded:
-                    continue
-                if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
-                    continue
-                item = QtGui.QStandardItem(itm + " : Waffeneigenschaft")
-                item.setEditable(False)
-                if value.isUserAdded:
-                    item.setBackground(QtGui.QBrush(QtCore.Qt.green))
-                self.model.appendRow(item) 
-        if self.ui.showWaffen.isChecked():
-            for itm, value in sorted(self.datenbank.waffen.items()):
-                if not value.isUserAdded and showUserAdded:
-                    continue
-                if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
-                    continue
-                item = QtGui.QStandardItem(itm + " : Waffe")
-                item.setEditable(False)
-                if value.isUserAdded:
-                    item.setBackground(QtGui.QBrush(QtCore.Qt.green))
-                self.model.appendRow(item) 
-        if self.ui.showManoever.isChecked():
-            for itm, value in sorted(self.datenbank.manöver.items()):
-                if not value.isUserAdded and showUserAdded:
-                    continue
-                if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
-                    continue
-                item = QtGui.QStandardItem(itm + " : Manöver / Modifikation")
-                item.setEditable(False)
-                if value.isUserAdded:
-                    item.setBackground(QtGui.QBrush(QtCore.Qt.green))
-                self.model.appendRow(item)
+
+        for dbTypeName,dbType in self.databaseTypes.items():
+            if dbType.showCheckbox.isChecked():
+                for itm, value in sorted(dbType.databaseDict.items()):
+                    if not value.isUserAdded and showUserAdded:
+                        continue
+                    if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
+                        continue
+                    item = QtGui.QStandardItem(itm + " : " + dbTypeName)
+                    item.setEditable(False)
+                    if value.isUserAdded:
+                        item.setBackground(QtGui.QBrush(QtCore.Qt.green))
+                    self.model.appendRow(item)
+
         if self.ui.showDeleted.isChecked():
             for itm in sorted(self.datenbank.removeList):
                 if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm[0].lower():
                     continue
-                if itm[1] == "Talent" and self.ui.showTalente.isChecked() or\
-                   itm[1] == "Vorteil" and self.ui.showVorteile.isChecked() or\
-                   itm[1] == "Fertigkeit" and self.ui.showFertigkeiten.isChecked() or\
-                   itm[1] == "Übernatürliche Fertigkeit" and self.ui.showUebernatuerlicheFertigkeiten.isChecked() or\
-                   itm[1] == "Waffeneigenschaft" and self.ui.showWaffeneigenschaften.isChecked() or\
-                   itm[1] == "Waffe" and self.ui.showWaffen.isChecked() or\
-                   itm[1] == "Manöver / Modifikation" and self.ui.showManoever.isChecked():
-                    item = QtGui.QStandardItem(itm[0] + " : "  + itm[1] + " (gelöscht)")
-                    item.setEditable(False)
-                    item.setBackground(QtGui.QBrush(QtCore.Qt.red))
-                    self.model.appendRow(item)
+
+                if itm[1] in self.databaseTypes:
+                    databaseType = self.databaseTypes[itm[1]]
+                    if databaseType.showCheckbox.isChecked():
+                        item = QtGui.QStandardItem(itm[0] + " : "  + itm[1] + " (gelöscht)")
+                        item.setEditable(False)
+                        item.setBackground(QtGui.QBrush(QtCore.Qt.red))
+                        self.model.appendRow(item)
+
         self.ui.listDatenbank.setModel(self.model)
                
     def wiederherstellen(self):
@@ -230,41 +188,13 @@ class DatenbankEdit(object):
                 raise Exception('State corrupted.')
 
             exists = False
-            if tmp[1] == "Talent":
-                if tmp[0] in self.datenbank.talente:
+
+            if tmp[1] in self.databaseTypes:
+                databaseType = self.databaseTypes[tmp[1]]
+                if tmp[0] in databaseType.databaseDict:
                     exists = True
                 else:
-                    self.datenbank.talente.update({tmp[0]: removed[2]})
-            elif tmp[1] == "Vorteil":
-                if tmp[0] in self.datenbank.vorteile:
-                    exists = True
-                else:
-                    self.datenbank.vorteile.update({tmp[0]: removed[2]})
-            elif tmp[1] == "Fertigkeit":
-                if tmp[0] in self.datenbank.fertigkeiten:
-                    exists = True
-                else:
-                    self.datenbank.fertigkeiten.update({tmp[0]: removed[2]})
-            elif tmp[1] == "Übernatürliche Fertigkeit":
-                if tmp[0] in self.datenbank.übernatürlicheFertigkeiten:
-                    exists = True
-                else:
-                    self.datenbank.übernatürlicheFertigkeiten.update({tmp[0]: removed[2]})
-            elif tmp[1] == "Waffeneigenschaft":
-                if tmp[0] in self.datenbank.waffeneigenschaften:
-                    exists = True
-                else:
-                    self.datenbank.waffeneigenschaften.update({tmp[0]: removed[2]})
-            elif tmp[1] == "Waffe":
-                if tmp[0] in self.datenbank.waffen:
-                    exists = True
-                else:
-                    self.datenbank.waffen.update({tmp[0]: removed[2]})
-            elif tmp[1] == "Manöver / Modifikation":
-                if tmp[0] in self.datenbank.manöver:
-                    exists = True
-                else:
-                    self.datenbank.manöver.update({tmp[0]: removed[2]})
+                    databaseType.databaseDict.update({tmp[0]: removed[2]})
             else:
                 raise Exception('Unknown category.')
 
@@ -290,22 +220,10 @@ class DatenbankEdit(object):
         Erstellen des Eintrages geöffnet.
         '''
         dbS = DatenbankSelectTypeWrapper.DatenbankSelectTypeWrapper()
-        if dbS.entryType is not None:
-            if dbS.entryType is "Talent":
-                self.addTalent()
-            elif dbS.entryType is "Vorteil":
-                self.addVorteil()
-            elif dbS.entryType is "Fertigkeit":
-                self.addFertigkeit()
-            elif dbS.entryType is "Uebernatuerlich":
-                self.addUebernatuerlich()
-            elif dbS.entryType is "Manoever":
-                self.addManoever()
-            elif dbS.entryType is "Waffeneigenschaft":
-                self.addWaffeneigenschaft()
-            else:
-                self.addWaffe()
-        
+        if dbS.entryType is not None and dbS.entryType in self.databaseTypes:
+            databaseType = self.databaseTypes[dbS.entryType]
+            databaseType.addFunc()
+
     def addTalent(self):
         tal = Fertigkeiten.Talent()
         ret = self.editTalent(tal)
@@ -332,6 +250,13 @@ class DatenbankEdit(object):
         ret = self.editUebernatuerlich(fer)
         if ret is not None:
             self.datenbank.übernatürlicheFertigkeiten.update({ret.name: ret})
+            self.onDatabaseChange()
+            
+    def addFreieFertigkeit(self):
+        fer = Fertigkeiten.FreieFertigkeitDB()
+        ret = self.editFreieFertigkeit(fer)
+        if ret is not None:
+            self.datenbank.freieFertigkeiten.update({ret.name: ret})
             self.onDatabaseChange()
                       
     def addWaffeneigenschaft(self):
@@ -371,6 +296,10 @@ class DatenbankEdit(object):
         dbU = DatenbankEditFertigkeitWrapper.DatenbankEditFertigkeitWrapper(self.datenbank, inp, True, readonly)
         return dbU.fertigkeit
     
+    def editFreieFertigkeit(self, inp, readonly = False):
+        dbU = DatenbankEditFreieFertigkeitWrapper.DatenbankEditFreieFertigkeitWrapper(self.datenbank, inp, readonly)
+        return dbU.freieFertigkeit
+    
     def editWaffeneigenschaft(self, inp, readonly = False):
         dbW = DatenbankEditWaffeneigenschaftWrapper.DatenbankEditWaffeneigenschaftWrapper(self.datenbank, inp, readonly)
         return dbW.waffeneigenschaft
@@ -392,91 +321,22 @@ class DatenbankEdit(object):
                 deletedItem = [item for item in self.datenbank.removeList if item[0] == tmp[0] and item[1] == tmp[1]][0]
                 if not deletedItem:
                     raise Exception('State corrupted.')
-                if deletedItem[1] == "Talent":
-                    self.editTalent(deletedItem[2], True)
-                elif deletedItem[1] == "Vorteil":
-                    self.editVorteil(deletedItem[2], True)
-                elif deletedItem[1] == "Fertigkeit":
-                    self.editFertigkeit(deletedItem[2], True)
-                elif deletedItem[1] == "Übernatürliche Fertigkeit":
-                    self.editUebernatuerlich(deletedItem[2], True)
-                elif deletedItem[1] == "Waffeneigenschaft":
-                    self.editWaffeneigenschaft(deletedItem[2], True)
-                elif deletedItem[1] == "Waffe":
-                    self.editWaffe(deletedItem[2], True)
-                elif deletedItem[1] == "Manöver / Modifikation":
-                    self.editManoever(deletedItem[2], True)
+
+                if deletedItem[1] in self.databaseTypes:
+                    databaseType = self.databaseTypes[deletedItem[1]]
+                    databaseType.editFunc(deletedItem[2], True)
                 continue
 
-            if tmp[1] == "Talent":
-                tal = self.datenbank.talente[tmp[0]]
-                if tal is not None:
-                    ret = self.editTalent(tal)
+            if tmp[1] in self.databaseTypes:
+                databaseType = self.databaseTypes[tmp[1]]
+                element = databaseType.databaseDict[tmp[0]]
+                if element is not None:
+                    ret = databaseType.editFunc(element)
                     if ret is not None:
-                        if not tal.isUserAdded:
-                            self.datenbank.removeList.append((tmp[0], tmp[1], tal))
-                        self.datenbank.talente.pop(tmp[0],None)
-                        self.datenbank.talente.update({ret.name: ret})
-                        databaseChanged = True
-            elif tmp[1] == "Vorteil":
-                tal = self.datenbank.vorteile[tmp[0]]
-                if tal is not None:
-                    ret = self.editVorteil(tal)
-                    if ret is not None:
-                        if not tal.isUserAdded:
-                            self.datenbank.removeList.append((tmp[0], tmp[1], tal))
-                        self.datenbank.vorteile.pop(tmp[0],None)
-                        self.datenbank.vorteile.update({ret.name: ret})
-                        databaseChanged = True
-            elif tmp[1] == "Fertigkeit":
-                tal = self.datenbank.fertigkeiten[tmp[0]]
-                if tal is not None:
-                    ret = self.editFertigkeit(tal)
-                    if ret is not None:
-                        if not tal.isUserAdded:
-                            self.datenbank.removeList.append((tmp[0], tmp[1], tal))
-                        self.datenbank.fertigkeiten.pop(tmp[0],None)
-                        self.datenbank.fertigkeiten.update({ret.name: ret})
-                        databaseChanged = True
-            elif tmp[1] == "Übernatürliche Fertigkeit":
-                tal = self.datenbank.übernatürlicheFertigkeiten[tmp[0]]
-                if tal is not None:
-                    ret = self.editUebernatuerlich(tal)
-                    if ret is not None:
-                        if not tal.isUserAdded:
-                            self.datenbank.removeList.append((tmp[0], tmp[1], tal))
-                        self.datenbank.übernatürlicheFertigkeiten.pop(tmp[0],None)
-                        self.datenbank.übernatürlicheFertigkeiten.update({ret.name: ret})
-                        databaseChanged = True
-            elif tmp[1] == "Waffeneigenschaft":
-                tal = self.datenbank.waffeneigenschaften[tmp[0]]
-                if tal is not None:
-                    ret = self.editWaffeneigenschaft(tal)
-                    if ret is not None:
-                        if not tal.isUserAdded:
-                            self.datenbank.removeList.append((tmp[0], tmp[1], tal))
-                        self.datenbank.waffeneigenschaften.pop(tmp[0],None)
-                        self.datenbank.waffeneigenschaften.update({ret.name: ret})
-                        databaseChanged = True
-            elif tmp[1] == "Waffe":
-                tal = self.datenbank.waffen[tmp[0]]
-                if tal is not None:
-                    ret = self.editWaffe(tal)
-                    if ret is not None:
-                        if not tal.isUserAdded:
-                            self.datenbank.removeList.append((tmp[0], tmp[1], tal))
-                        self.datenbank.waffen.pop(tmp[0],None)
-                        self.datenbank.waffen.update({ret.name: ret})
-                        databaseChanged = True
-            elif tmp[1] == "Manöver / Modifikation":
-                tal = self.datenbank.manöver[tmp[0]]
-                if tal is not None:
-                    ret = self.editManoever(tal)
-                    if ret is not None:
-                        if not tal.isUserAdded:
-                            self.datenbank.removeList.append((tmp[0], tmp[1], tal))
-                        self.datenbank.manöver.pop(tmp[0],None)
-                        self.datenbank.manöver.update({ret.name: ret})
+                        if not element.isUserAdded:
+                            self.datenbank.removeList.append((tmp[0], tmp[1], element))
+                        databaseType.databaseDict.pop(tmp[0],None)
+                        databaseType.databaseDict.update({ret.name: ret})
                         databaseChanged = True
 
         if databaseChanged:
@@ -494,26 +354,10 @@ class DatenbankEdit(object):
         databaseChanged = False
         for itm in self.ui.listDatenbank.selectedIndexes():
             tmp = self.model.itemData(itm)[0].split(" : ")
-            if tmp[1] == "Talent":
-                self.duplicate(self.datenbank.talente, tmp[0])
-                databaseChanged = True
-            elif tmp[1] == "Vorteil":
-                self.duplicate(self.datenbank.vorteile, tmp[0])
-                databaseChanged = True
-            elif tmp[1] == "Fertigkeit":
-                self.duplicate(self.datenbank.fertigkeiten, tmp[0])
-                databaseChanged = True
-            elif tmp[1] == "Übernatürliche Fertigkeit":
-                self.duplicate(self.datenbank.übernatürlicheFertigkeiten, tmp[0])
-                databaseChanged = True
-            elif tmp[1] == "Waffeneigenschaft":
-                self.duplicate(self.datenbank.waffeneigenschaften, tmp[0])
-                databaseChanged = True
-            elif tmp[1] == "Waffe":
-                self.duplicate(self.datenbank.waffen, tmp[0])
-                databaseChanged = True
-            elif tmp[1] == "Manöver / Modifikation":
-                self.duplicate(self.datenbank.manöver, tmp[0])
+
+            if tmp[1] in self.databaseTypes:
+                databaseType = self.databaseTypes[tmp[1]]
+                self.duplicate(databaseType.databaseDict, tmp[0])
                 databaseChanged = True
 
         if databaseChanged:
@@ -523,47 +367,13 @@ class DatenbankEdit(object):
         databaseChanged = False
         for itm in self.ui.listDatenbank.selectedIndexes():
             tmp = self.model.itemData(itm)[0].split(" : ")
-            if tmp[1] == "Talent":
-                t = self.datenbank.talente[tmp[0]]
-                if not t.isUserAdded:
-                    self.datenbank.removeList.append((tmp[0], tmp[1], t))
-                self.datenbank.talente.pop(tmp[0],None)
-                databaseChanged = True
-            elif tmp[1] == "Vorteil":
-                v = self.datenbank.vorteile[tmp[0]]
-                if not v.isUserAdded:
-                    self.datenbank.removeList.append((tmp[0], tmp[1], v))
-                self.datenbank.vorteile.pop(tmp[0],None)
-                databaseChanged = True
-            elif tmp[1] == "Fertigkeit":
-                f = self.datenbank.fertigkeiten[tmp[0]]
-                if not f.isUserAdded:
-                    self.datenbank.removeList.append((tmp[0], tmp[1], f))
-                self.datenbank.fertigkeiten.pop(tmp[0],None)
-                databaseChanged = True
-            elif tmp[1] == "Übernatürliche Fertigkeit":
-                f = self.datenbank.übernatürlicheFertigkeiten[tmp[0]]
-                if not f.isUserAdded:
-                    self.datenbank.removeList.append((tmp[0], tmp[1], f))
-                self.datenbank.übernatürlicheFertigkeiten.pop(tmp[0],None)
-                databaseChanged = True
-            elif tmp[1] == "Waffeneigenschaft":
-                w = self.datenbank.waffeneigenschaften[tmp[0]]
-                if not w.isUserAdded:
-                    self.datenbank.removeList.append((tmp[0], tmp[1], w))
-                self.datenbank.waffeneigenschaften.pop(tmp[0],None)
-                databaseChanged = True
-            elif tmp[1] == "Waffe":
-                w = self.datenbank.waffen[tmp[0]]
-                if not w.isUserAdded:
-                    self.datenbank.removeList.append((tmp[0], tmp[1], w))
-                self.datenbank.waffen.pop(tmp[0],None)
-                databaseChanged = True
-            elif tmp[1] == "Manöver / Modifikation":
-                m = self.datenbank.manöver[tmp[0]]
-                if not m.isUserAdded:
-                    self.datenbank.removeList.append((tmp[0], tmp[1], m))
-                self.datenbank.manöver.pop(tmp[0],None)
+
+            if tmp[1] in self.databaseTypes:
+                databaseType = self.databaseTypes[tmp[1]]
+                element  = databaseType.databaseDict[tmp[0]]
+                if not element.isUserAdded:
+                    self.datenbank.removeList.append((tmp[0], tmp[1], element))
+                databaseType.databaseDict.pop(tmp[0],None)
                 databaseChanged = True
 
         if databaseChanged:
@@ -660,6 +470,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         self.datenbank.datei = None
         self.savepath = None
         self.datenbank.xmlLaden()
+        self.initDatabaseTypes()
         self.updateGUI()
         self.updateWindowTitleAndCloseButton()
         self.changed = False
@@ -689,6 +500,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         self.savepath = spath
         self.datenbank.datei = spath
         self.datenbank.xmlLaden()
+        self.initDatabaseTypes()
         self.updateGUI()
         self.updateWindowTitleAndCloseButton()
         self.changed = False

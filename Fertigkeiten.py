@@ -48,6 +48,24 @@ class FreieFertigkeit(Steigerbar):
         F.wert = self.wert
         return F
 
+# Implementation für freie Fertigkeiten in der Datenbank und für den Freie Fertigkeiten Picker
+# Es werden komplett andere Attribute benötigt, daher separat
+class FreieFertigkeitDB(object):
+    def __init__(self):
+        super().__init__()
+        self.name = ""
+        self.kategorie = ""
+        self.voraussetzungen = []
+        self.isUserAdded = True
+
+    def __deepcopy__(self, memo=""):
+        F = FreieFertigkeitDB()
+        F.name = self.name
+        F.kategorie = self.kategorie
+        F.voraussetzungen = self.voraussetzungen.copy()
+        F.isUserAdded = self.isUserAdded
+        return F
+
 # Implementation für Fertigkeiten im Allgemeinen
 class Fertigkeit(Steigerbar):
     def __init__(self):
