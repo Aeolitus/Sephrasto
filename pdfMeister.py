@@ -110,9 +110,9 @@ class pdfMeister(object):
                 del self.ExtraTalents[0:30]
         
         #Entferne Seite 3, falls keine übernatürlichen Fertigkeiten
-        if fields['Uebervorteil1'] == '' and \
-           fields['Ueberfer1NA'] == '' and \
-           fields['Uebertal1NA'] == '' and not extraPageAdded:
+        if not ('Uebervorteil1' in fields) and \
+           not ('Ueberfer1NA' in fields) and \
+           not ('Uebertal1NA' in fields) and not extraPageAdded:
             Wolke.Fehlercode = -96
             handle, out_file = tempfile.mkstemp()
             os.close(handle)
@@ -353,7 +353,7 @@ class pdfMeister(object):
             for i in range(el.wert):
                 resp += "I"
 
-            if fields['Frei' + str(count)]:
+            if ('Frei' + str(count)) in fields:
                 fields['Frei' + str(count)] += ", " + resp
             else:
                 fields['Frei' + str(count)] = resp
