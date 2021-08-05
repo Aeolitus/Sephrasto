@@ -285,6 +285,7 @@ class Datenbank():
             typ = rem.get('typ')
             name = rem.get('name')
             removed = None
+            #typ should correspond with the names in DatenbankEdit::initDatabaseTypes
             if typ == 'Vorteil' and name in self.vorteile:
                 removed = self.vorteile.pop(name)
             elif typ == 'Fertigkeit' and name in self.fertigkeiten:
@@ -340,6 +341,9 @@ class Datenbank():
             if vort.get('linkElement'):
                 V.linkElement = vort.get('linkElement')
 
+            if V.name in self.vorteile:
+                logging.warn("Vorteil " + V.name + " exists already in the database, probably a \"Remove\" entry is missing. " +
+                    "To fix this warning, delete your change, restore the original and redo your change")
             self.vorteile.update({V.name: V})
             
         #Talente
@@ -369,6 +373,10 @@ class Datenbank():
                 T.printclass = int(printClass)
             else:
                 T.printclass = -1
+
+            if T.name in self.talente:
+                logging.warn("Talent " + T.name + " exists already in the database, probably a \"Remove\" entry is missing. " +
+                    "To fix this warning, delete your change, restore the original and redo your change")
             self.talente.update({T.name: T})
             
         #Fertigkeiten
@@ -389,6 +397,10 @@ class Datenbank():
                 F.printclass = int(printClass)
             else:
                 F.printclass = -1
+
+            if F.name in self.fertigkeiten:
+                logging.warn("Fertigkeit " + F.name + " exists already in the database, probably a \"Remove\" entry is missing. " +
+                    "To fix this warning, delete your change, restore the original and redo your change")
             self.fertigkeiten.update({F.name: F})
 
         Wolke.Fehlercode = -24
@@ -407,6 +419,10 @@ class Datenbank():
                 F.printclass = int(printClass)
             else:
                 F.printclass = -1
+
+            if F.name in self.übernatürlicheFertigkeiten:
+                logging.warn("Fertigkeit " + F.name + " exists already in the database, probably a \"Remove\" entry is missing. " +
+                    "To fix this warning, delete your change, restore the original and redo your change")
             self.übernatürlicheFertigkeiten.update({F.name: F})
           
         #Waffeneigenschaften
@@ -422,6 +438,10 @@ class Datenbank():
                 W.scriptPrio = int(prio)
 
             W.isUserAdded = not refDB
+
+            if W.name in self.waffeneigenschaften:
+                logging.warn("Waffeneigenschaft " + W.name + " exists already in the database, probably a \"Remove\" entry is missing. " +
+                    "To fix this warning, delete your change, restore the original and redo your change")
             self.waffeneigenschaften.update({W.name: W})
 
         #Waffen
@@ -449,6 +469,10 @@ class Datenbank():
             if kampfstile:
                 w.kampfstile = list(map(str.strip, kampfstile.split(",")))
             w.isUserAdded = not refDB
+
+            if w.name in self.waffen:
+                logging.warn("Waffe " + w.name + " exists already in the database, probably a \"Remove\" entry is missing. " +
+                    "To fix this warning, delete your change, restore the original and redo your change")
             self.waffen.update({w.name: w})
         
         #Manöver
@@ -463,6 +487,11 @@ class Datenbank():
             m.typ = int(ma.get('typ'))
             m.text = ma.text or ''
             m.isUserAdded = not refDB
+
+            if m.name in self.manöver:
+                logging.warn("Manöver " + m.name + " exists already in the database, probably a \"Remove\" entry is missing. " +
+                    "To fix this warning, delete your change, restore the original and redo your change")
+
             self.manöver.update({m.name: m})
 
         #Freie Fertigkeiten
@@ -473,6 +502,10 @@ class Datenbank():
             ff.name = ffNode.text
             ff.kategorie = ffNode.get('kategorie')
             ff.isUserAdded = not refDB
+
+            if ff.name in self.freieFertigkeiten:
+                logging.warn("Freie Fertigkeit " + ff.name + " exists already in the database, probably a \"Remove\" entry is missing. " +
+                    "To fix this warning, delete your change, restore the original and redo your change")
             self.freieFertigkeiten.update({ff.name: ff})
 
         # Step 2: Voraussetzungen - requires everything else to be loaded for cross validation

@@ -23,6 +23,7 @@ class DatenbankSelectTypeWrapper(object):
         Dialog.show()
         ret = Dialog.exec_()
         if ret == QtWidgets.QDialog.Accepted:
+            #entryType should correspond with the names in DatenbankEdit::initDatabaseTypes
             if ui.buttonTalent.isChecked():
                 self.entryType = "Talent"
             elif ui.buttonVorteil.isChecked():
