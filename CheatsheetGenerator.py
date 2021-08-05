@@ -42,6 +42,19 @@ class CheatsheetGenerator(object):
             self.RulesLineCount = 60
             self.RulesCharCount = 45
 
+    #used to abbreviate names when merged
+    abbreviations = {
+        "astrale Regeneration" : "a. R.",
+        "Rüstungsgewöhnung" : "Rgw.",
+    }
+
+    textToFraction = {
+        "ein Achtel" : "1/8",
+        "ein Viertel" : "1/4",
+        "die Hälfte" : "1/2",
+        "drei Viertel" : "3/4",
+    }
+
     def formatCategory(self, category):
         return "===== " + category + " ====="
 
@@ -57,13 +70,6 @@ class CheatsheetGenerator(object):
             lineCount += int(lineCount * 0.2)
 
         return lineCount
-
-    textToFraction = {
-        'ein Achtel' : "1/8",
-        'ein Viertel' : "1/4",
-        "die Hälfte" : "1/2",
-        'drei Viertel' : "3/4",
-    }
 
     def prepareDescription(self, description):
         #convert text to fractions
@@ -204,14 +210,20 @@ class CheatsheetGenerator(object):
                     fullset = [" I", " II", " III", " IV", " V", " VI", " VII"]
                     basename = ""
                     for el in fullset:
-                        if name.endswith(el):
-                            basename = name[:-len(el)]
+                        if vorteil.name.endswith(el): #use name without comment/ep cost to find basename
+                            basename = vorteil.name[:-len(el)]
                             break
                     if basename and name2.startswith(basename):
                         name += "," + name2[len(basename):]
                     else:
                         name += ", " + name2
 
+        if "," in name:
+            nameStart = name[:name.index(",")]
+            nameAbbreviate = name[name.index(","):]
+            for k,v in CheatsheetGenerator.abbreviations.items():
+                nameAbbreviate = nameAbbreviate.replace(k, v)
+            name = nameStart + nameAbbreviate
         return name
 
     def getLinkedDescription(self, vorteil):
