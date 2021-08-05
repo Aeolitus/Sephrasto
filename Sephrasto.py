@@ -131,7 +131,7 @@ class MainWindowWrapper(object):
             self.ed.reloadAll()
             
     def charakterEditorModifiedHook(self, params):
-        if self.ed and not self.ed.formMain.isHidden():
+        if hasattr(self, "ed") and self.ed and not self.ed.formMain.isHidden():
             self.ed.onModified()
         
     def createNew(self):
