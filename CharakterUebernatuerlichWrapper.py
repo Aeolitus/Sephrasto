@@ -11,6 +11,7 @@ import MousewheelProtector
 from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtWidgets import QHeaderView
 import logging
+from CharakterFertigkeitenWrapper import FertigkeitItemDelegate
 
 class UebernatuerlichWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
@@ -64,8 +65,19 @@ class UebernatuerlichWrapper(QtCore.QObject):
             # sort by printclass, then by name
             self.availableFerts.sort(key = lambda x: (Wolke.DB.übernatürlicheFertigkeiten[x].printclass, x)) 
 
+            rowIndicesWithLinePaint = []
+            count = 0
+            if len(self.availableFerts) > 0:
+                lastPrintclass = Wolke.DB.übernatürlicheFertigkeiten[self.availableFerts[0]].printclass
+                for el in self.availableFerts:
+                    if Wolke.DB.übernatürlicheFertigkeiten[el].printclass != lastPrintclass:
+                        rowIndicesWithLinePaint.append(count-1)
+                        lastPrintclass = Wolke.DB.übernatürlicheFertigkeiten[el].printclass
+                    count += 1
+
             self.uiFert.tableWidget.clear()
-            
+            self.uiFert.tableWidget.setItemDelegate(FertigkeitItemDelegate(rowIndicesWithLinePaint))
+
             self.uiFert.tableWidget.setRowCount(len(self.availableFerts))
             self.uiFert.tableWidget.setColumnCount(4)
             header = self.uiFert.tableWidget.horizontalHeader()

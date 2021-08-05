@@ -11,6 +11,18 @@ import MousewheelProtector
 from PyQt5 import QtWidgets, QtCore, QtGui
 import logging
 
+# This item delegate is used to draw a seperator line between different fertigkeit categories ('printclasses')
+class FertigkeitItemDelegate(QtWidgets.QItemDelegate):
+    def __init__(self, rowIndicesWithLinePaint):
+        super().__init__()
+        self.rowIndicesWithLinePaint = rowIndicesWithLinePaint
+
+    def paint (self, painter, option, index):
+        if index.row() in self.rowIndicesWithLinePaint:
+            painter.setPen(QtCore.Qt.gray)
+            painter.drawLine( option.rect.bottomLeft(), option.rect.bottomRight() );
+        super().paint(painter, option, index)
+
 class FertigkeitenWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
     
@@ -64,8 +76,19 @@ class FertigkeitenWrapper(QtCore.QObject):
 
             # sort by printclass, then by name
             self.availableFerts.sort(key = lambda x: (Wolke.DB.fertigkeiten[x].printclass, x)) 
+            
+            rowIndicesWithLinePaint = []
+            count = 0
+            if len(self.availableFerts) > 0:
+                lastPrintclass = Wolke.DB.fertigkeiten[self.availableFerts[0]].printclass
+                for el in self.availableFerts:
+                    if Wolke.DB.fertigkeiten[el].printclass != lastPrintclass:
+                        rowIndicesWithLinePaint.append(count-1)
+                        lastPrintclass = Wolke.DB.fertigkeiten[el].printclass
+                    count += 1
 
             self.uiFert.tableWidget.clear()
+            self.uiFert.tableWidget.setItemDelegate(FertigkeitItemDelegate(rowIndicesWithLinePaint))
             
             self.uiFert.tableWidget.setRowCount(len(self.availableFerts))
             self.uiFert.tableWidget.setColumnCount(3)
@@ -95,8 +118,9 @@ class FertigkeitenWrapper(QtCore.QObject):
                     Wolke.Char.fertigkeiten.update({el: Wolke.DB.fertigkeiten[el].__deepcopy__()})
                     Wolke.Char.fertigkeiten[el].wert = 0
                 Wolke.Char.fertigkeiten[el].aktualisieren()
-                self.uiFert.tableWidget.setItem(count, 0, QtWidgets.QTableWidgetItem(Wolke.Char.fertigkeiten[el].name))
-                
+                tableWidget = QtWidgets.QTableWidgetItem(Wolke.Char.fertigkeiten[el].name)
+                self.uiFert.tableWidget.setItem(count, 0, tableWidget)
+
                 # Add Spinner for FW
                 #self.uiFert.tableWidget.setItem(count,1,QtWidgets.QTableWidgetItem(str(Wolke.Char.fertigkeiten[el].wert)))
                 self.spinRef[Wolke.Char.fertigkeiten[el].name] = QtWidgets.QSpinBox()
