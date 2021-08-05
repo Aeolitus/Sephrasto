@@ -49,13 +49,11 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
         self.ui.treeFerts.clear();
         kategorien = self.findKategorien()
         for kategorie in kategorien:
-            kategorieDisplayName = EventBus.applyFilter("format_freiefertigkeitpicker_kategorie", kategorie)
-
             ferts = []
             for fert in Wolke.DB.freieFertigkeiten:
                 if Wolke.DB.freieFertigkeiten[fert].kategorie != kategorie:
                     continue
-                if self.ui.nameFilterEdit.text() and (not self.ui.nameFilterEdit.text().lower() in fert.lower()) and (not self.ui.nameFilterEdit.text().lower() in kategorieDisplayName.lower()):
+                if self.ui.nameFilterEdit.text() and (not self.ui.nameFilterEdit.text().lower() in fert.lower()) and (not self.ui.nameFilterEdit.text().lower() in kategorie.lower()):
                     continue
                 if fert != self.current and self.formatName(Wolke.DB.freieFertigkeiten[fert]) in [fert.name for fert in Wolke.Char.freieFertigkeiten]:
                     continue
@@ -66,7 +64,7 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
                 continue
 
             parent = QtWidgets.QTreeWidgetItem(self.ui.treeFerts)
-            parent.setText(0,kategorieDisplayName)
+            parent.setText(0,kategorie)
             parent.setExpanded(True)
             for el in ferts:
                 if not currSet:

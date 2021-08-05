@@ -88,6 +88,8 @@ Zweck: Bei bestimmten Waffen die Härte auf WS* setzen oder dies verhindern. Def
 Zweck: Bei bestimmten Waffen die VT erlauben oder nicht erlauben (= in der PDF auf "-" setzen). Default: wird bei Fernkampfwaffen und Lanzenreiten nicht erlaubt. Der Parameter enthält das Waffe-Objekt (siehe Objekte.py), um das es geht.
 - "waffe_schadensbonus_wirkt" (Filter: wirkt: bool, Parameter: { "waffe" : Waffe })
 Zweck: Bei bestimmten Waffen den Schadensbonus applizieren oder entfernen. Default: wirkt bei Nahkampfwaffen. Der Parameter enthält das Waffe-Objekt (siehe Objekte.py), um das es geht.
+- "format_freiefertigkeit_name" (Filter: name: string)
+Zweck: Die Namen der Freie Fertigkeiten-Auswahlliste anpassen, bevor sie in ein Freie Fertigkeiten-Feld eingtragen werden.
 - Die folgenden Filter haben alle eine Gemeinsamkeit:  Der Filterwert ist eine Wrapperklasse eines der UI-Tabs. Im Filter kann der Wrapper komplett ersetzt oder beerbt werden, um die Sephrasto-UI anzupassen.
 -- "class_beschreibung_wrapper" (Filter: BeschrWrapper : class)
 -- "class_attribute_wrapper" (Filter: AttrWrapper : class)
@@ -98,6 +100,7 @@ Zweck: Bei bestimmten Waffen den Schadensbonus applizieren oder entfernen. Defau
 -- "class_vorteile_wrapper" (Filter: CharakterVorteileWrapper : class)
 -- "class_items_wrapper" (Filter: CharakterItemsWrapper : class)
 -- "class_ep_wrapper" (Filter: EPWrapper : class)
+-- "class_notiz_wrapper" (Filter: CharakterNotizWrapper : class)
 
 ## Neues Plugin erstellen
 - Gehe in deinen `Dokumente/Sephrasto/Plugins` Ordner
