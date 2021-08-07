@@ -1,0 +1,153 @@
+<Charakter>
+  <Version>
+    <DatenbankVersion>1</DatenbankVersion>
+    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
+    <NutzerDatenbankName/>
+  </Version>
+  <AllgemeineInfos>
+    <name>Orsox Sohn des Engerim</name>
+    <rasse>Zwerg</rasse>
+    <status>2</status>
+    <kurzbeschreibung>Zwergischer Prospektor und Fallensteller</kurzbeschreibung>
+    <schips>4</schips>
+    <finanzen>2</finanzen>
+    <heimat>Zwerge</heimat>
+    <eigenheiten>
+      <Eigenheit>Über Weg und Steg</Eigenheit>
+      <Eigenheit>Expertenmeinung</Eigenheit>
+      <Eigenheit>Ein Bier in Ehren...</Eigenheit>
+    </eigenheiten>
+  </AllgemeineInfos>
+  <Attribute>
+    <KO>5</KO>
+    <MU>4</MU>
+    <GE>4</GE>
+    <KK>6</KK>
+    <IN>4</IN>
+    <KL>3</KL>
+    <CH>3</CH>
+    <FF>8</FF>
+  </Attribute>
+  <Energien>
+    <AsP wert="0"/>
+    <KaP wert="0"/>
+  </Energien>
+  <Vorteile minderpakt="">
+    <Vorteil variable="-1">Magieabweisend</Vorteil>
+    <Vorteil variable="-1">Resistenz gegen Gifte</Vorteil>
+    <Vorteil variable="-1">Ruhige Hand</Vorteil>
+    <Vorteil variable="-1">Kraftvoller Kampf I</Vorteil>
+    <Vorteil variable="-1">Kraftvoller Kampf II</Vorteil>
+    <Vorteil variable="-1">Schnellziehen</Vorteil>
+    <Vorteil variable="-1">Reflexschuss</Vorteil>
+    <Vorteil variable="-1">Angepasst (Dunkelheit) I</Vorteil>
+  </Vorteile>
+  <Fertigkeiten>
+    <Fertigkeit name="Handgemenge" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Hiebwaffen" wert="7">
+      <Talente>
+        <Talent name="Zweihandhiebwaffen" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Klingenwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Stangenwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Schusswaffen" wert="8">
+      <Talente>
+        <Talent name="Armbrüste" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Wurfwaffen" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Athletik" wert="5">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heimlichkeit" wert="6">
+      <Talente>
+        <Talent name="Pirschen" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Selbstbeherrschung" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wahrnehmung" wert="6">
+      <Talente>
+        <Talent name="Wachsamkeit" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Autorität" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Beeinflussung" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Gebräuche" wert="2">
+      <Talente>
+        <Talent name="Gebräuche: Zwerge" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Derekunde" wert="5">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Mythenkunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Magiekunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Überleben" wert="8">
+      <Talente>
+        <Talent name="Überleben: Mittelaventurien" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Verschlagenheit" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Alchemie" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heilkunde" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Handwerk" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Freie-Fertigkeit name="Rogolan" wert="3"/>
+    <Freie-Fertigkeit name="Kusliker Zeichen" wert="1"/>
+    <Freie-Fertigkeit name="Angram" wert="1"/>
+    <Freie-Fertigkeit name="Garethi" wert="2"/>
+  </Fertigkeiten>
+  <Objekte>
+    <Zonensystem>False</Zonensystem>
+    <Rüstungen>
+      <Rüstung name="Kurzes Kettenemd, Ledermantel, Eisenkappe unterm Schlapphut" be="2" rs="2/2/2/2/2/2"/>
+    </Rüstungen>
+    <Waffen>
+      <Waffe name="Leichte Armbrust" id="Leichte Armbrust" W6="3" plus="1" eigenschaften="Zweihändig" haerte="4" rw="32" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="4"/>
+      <Waffe name="Orknase" id="Orknase" W6="3" plus="0" eigenschaften="Kopflastig, Schwer (4), Zweihändig" haerte="8" rw="1" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
+      <Waffe name="Lindwurmschläger" id="Lindwurmschläger" W6="2" plus="2" eigenschaften="" haerte="10" rw="1" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
+      <Waffe name="Dolch (Handgemengewaffen)" id="Dolch (Handgemengewaffen)" W6="1" plus="1" eigenschaften="" haerte="9" rw="0" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
+      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="7" rw="0" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
+    </Waffen>
+    <Ausrüstung>
+      <Ausrüstungsstück>Rucksack, Bolzenköcher</Ausrüstungsstück>
+      <Ausrüstungsstück>Topf, Wasserschlauch mit Schnaps/Wassergemisch</Ausrüstungsstück>
+      <Ausrüstungsstück>15 Jagdbolzen</Ausrüstungsstück>
+      <Ausrüstungsstück>Decke, Ersatzkleidung, Nähzeug</Ausrüstungsstück>
+      <Ausrüstungsstück>Feuerstein, Stahl, Zunder</Ausrüstungsstück>
+      <Ausrüstungsstück>Waffenpflegeset</Ausrüstungsstück>
+      <Ausrüstungsstück>Geldbeutel, 4 Dukaten, 10 Silbertaler</Ausrüstungsstück>
+    </Ausrüstung>
+  </Objekte>
+  <Übernatürliche-Fertigkeiten/>
+  <Erfahrung>
+    <EPtotal>3000</EPtotal>
+    <EPspent>2976</EPspent>
+  </Erfahrung>
+</Charakter>

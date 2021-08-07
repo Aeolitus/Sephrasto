@@ -1,0 +1,270 @@
+<Charakter>
+  <Version>
+    <DatenbankVersion>1</DatenbankVersion>
+    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
+    <NutzerDatenbankName/>
+  </Version>
+  <AllgemeineInfos>
+    <name>Maline Dorster</name>
+    <rasse>Halbelfe</rasse>
+    <status>2</status>
+    <kurzbeschreibung>Naive Alchimistin vom Bund des Roten Salamanders</kurzbeschreibung>
+    <schips>4</schips>
+    <finanzen>2</finanzen>
+    <heimat>Bornland</heimat>
+    <eigenheiten>
+      <Eigenheit>Zerstreutes Genie</Eigenheit>
+      <Eigenheit>Zu gut für diese Welt</Eigenheit>
+      <Eigenheit>Heilendes Händchen</Eigenheit>
+      <Eigenheit>Elfisches Erbe</Eigenheit>
+    </eigenheiten>
+  </AllgemeineInfos>
+  <Attribute>
+    <KO>4</KO>
+    <MU>1</MU>
+    <GE>4</GE>
+    <KK>1</KK>
+    <IN>4</IN>
+    <KL>6</KL>
+    <CH>4</CH>
+    <FF>6</FF>
+  </Attribute>
+  <Energien>
+    <AsP wert="8"/>
+    <KaP wert="0"/>
+  </Energien>
+  <Vorteile minderpakt="">
+    <Vorteil variable="-1">Zauberer I</Vorteil>
+    <Vorteil variable="-1">Zauberer II</Vorteil>
+    <Vorteil variable="-1">Routiniert I</Vorteil>
+    <Vorteil variable="-1">Routiniert II</Vorteil>
+    <Vorteil variable="-1">Scharfsinnig II</Vorteil>
+    <Vorteil variable="-1">Scharfsinnig I</Vorteil>
+    <Vorteil variable="-1">Abgehärtet I</Vorteil>
+    <Vorteil variable="20,Bund des Roten Salamanders">Verbindungen</Vorteil>
+    <Vorteil variable="-1">Tradition der Alchemisten I</Vorteil>
+    <Vorteil variable="-1">Reaktivierung</Vorteil>
+    <Vorteil variable="-1">Matrixverständnis</Vorteil>
+  </Vorteile>
+  <Fertigkeiten>
+    <Fertigkeit name="Handgemenge" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Hiebwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Klingenwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Stangenwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Schusswaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wurfwaffen" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Athletik" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heimlichkeit" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Selbstbeherrschung" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wahrnehmung" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Autorität" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Beeinflussung" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Gebräuche" wert="1">
+      <Talente>
+        <Talent name="Gebräuche: Bornland" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Derekunde" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Mythenkunde" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Magiekunde" wert="5">
+      <Talente>
+        <Talent name="Magietheorie" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Überleben" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Verschlagenheit" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Alchemie" wert="8">
+      <Talente>
+        <Talent name="Alchemistische Analyse" variable="-1"/>
+        <Talent name="Magische Elixiere" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Heilkunde" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Handwerk" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Freie-Fertigkeit name="Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Nanduria" wert="3"/>
+    <Freie-Fertigkeit name="" wert="1"/>
+    <Freie-Fertigkeit name="" wert="1"/>
+    <Freie-Fertigkeit name="Bosparano" wert="2"/>
+    <Freie-Fertigkeit name="Meisterin der Al'Gebra" wert="1"/>
+    <Freie-Fertigkeit name="" wert="1"/>
+    <Freie-Fertigkeit name="" wert="1"/>
+    <Freie-Fertigkeit name="Kusliker Zeichen" wert="2"/>
+  </Fertigkeiten>
+  <Objekte>
+    <Zonensystem>False</Zonensystem>
+    <Rüstungen>
+      <Rüstung name="Lederne Schutzkleidung" be="1" rs="1/1/1/1/1/1"/>
+    </Rüstungen>
+    <Waffen>
+      <Waffe name="Borndorn" id="Borndorn (Handgemengewaffen)" W6="1" plus="2" eigenschaften="" haerte="10" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="Borndorn (als Wurfwaffe)" id="Borndorn (Kurze Wurfwaffen)" W6="1" plus="2" eigenschaften="" haerte="9" rw="4" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
+      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="6" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+    </Waffen>
+    <Ausrüstung>
+      <Ausrüstungsstück>Lederschutzkleidung (Handschuhe, Schürze, Stiefel, K</Ausrüstungsstück>
+      <Ausrüstungsstück></Ausrüstungsstück>
+      <Ausrüstungsstück>Kleidung (Rock, Bluse, Sandalen, Unterwäsche)</Ausrüstungsstück>
+      <Ausrüstungsstück></Ausrüstungsstück>
+      <Ausrüstungsstück>Analysekoffer (gilt als archaisches Labor)</Ausrüstungsstück>
+      <Ausrüstungsstück></Ausrüstungsstück>
+      <Ausrüstungsstück>Borndorn</Ausrüstungsstück>
+      <Ausrüstungsstück></Ausrüstungsstück>
+      <Ausrüstungsstück>Verbandszeug und Wundsalbe</Ausrüstungsstück>
+    </Ausrüstung>
+  </Objekte>
+  <Übernatürliche-Fertigkeiten>
+    <Übernatürliche-Fertigkeit name="Antimagie" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Dämonisch" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Eigenschaften" wert="4" addToPDF="True">
+      <Talente>
+        <Talent name="Attributo" variable="-1"/>
+        <Talent name="Armatrutz" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Einfluss" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Eis" wert="0" addToPDF="True">
+      <Talente>
+        <Talent name="Transmutation der Elemente" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Erz" wert="0" addToPDF="True">
+      <Talente>
+        <Talent name="Transmutation der Elemente" variable="-1"/>
+        <Talent name="Armatrutz" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Feuer" wert="0" addToPDF="True">
+      <Talente>
+        <Talent name="Transmutation der Elemente" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Hellsicht" wert="0" addToPDF="True">
+      <Talente>
+        <Talent name="Analys Arcanstruktur" variable="-1"/>
+        <Talent name="Odem Arcanum" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Humus" wert="3" addToPDF="True">
+      <Talente>
+        <Talent name="Transmutation der Elemente" variable="-1"/>
+        <Talent name="Balsam Salabunde" variable="-1"/>
+        <Talent name="Klarum Purum" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Illusion" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Kraft" wert="3" addToPDF="True">
+      <Talente>
+        <Talent name="Bindung der Schale" variable="-1"/>
+        <Talent name="Analys Arcanstruktur" variable="-1"/>
+        <Talent name="Arcanovi Artefakt" variable="-1"/>
+        <Talent name="Odem Arcanum" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Luft" wert="0" addToPDF="True">
+      <Talente>
+        <Talent name="Transmutation der Elemente" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Temporal" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Umwelt" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Verständigung" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Verwandlung" wert="0" addToPDF="True">
+      <Talente>
+        <Talent name="Balsam Salabunde" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Wasser" wert="0" addToPDF="True">
+      <Talente>
+        <Talent name="Transmutation der Elemente" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Schalenzauber" wert="5" addToPDF="True">
+      <Talente>
+        <Talent name="Allegorische Analyse (passiv)" variable="-1"/>
+        <Talent name="Bindung der Schale" variable="-1"/>
+        <Talent name="Transmutation der Elemente" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+  </Übernatürliche-Fertigkeiten>
+  <Erfahrung>
+    <EPtotal>2500</EPtotal>
+    <EPspent>2499</EPspent>
+  </Erfahrung>
+  <AllgemeineInfosExt>
+    <profession></profession>
+    <geschlecht></geschlecht>
+    <geburtsdatum></geburtsdatum>
+    <groesse></groesse>
+    <gewicht></gewicht>
+    <haarfarbe></haarfarbe>
+    <augenfarbe></augenfarbe>
+    <titel></titel>
+    <aussehen1></aussehen1>
+    <aussehen2></aussehen2>
+    <aussehen3></aussehen3>
+    <aussehen4></aussehen4>
+    <aussehen5></aussehen5>
+    <aussehen6></aussehen6>
+    <hintergrund0></hintergrund0>
+    <hintergrund1></hintergrund1>
+    <hintergrund2></hintergrund2>
+    <hintergrund3></hintergrund3>
+    <hintergrund4></hintergrund4>
+    <hintergrund5></hintergrund5>
+    <hintergrund6></hintergrund6>
+    <hintergrund7></hintergrund7>
+    <hintergrund8></hintergrund8>
+    <ansehen>0</ansehen>
+  </AllgemeineInfosExt>
+</Charakter>

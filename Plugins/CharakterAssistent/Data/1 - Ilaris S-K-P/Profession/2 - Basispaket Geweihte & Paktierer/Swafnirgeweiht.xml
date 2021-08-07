@@ -1,0 +1,133 @@
+<Charakter>
+  <Version>
+    <DatenbankVersion>1</DatenbankVersion>
+    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
+    <NutzerDatenbankName/>
+  </Version>
+  <AllgemeineInfos>
+    <name></name>
+    <rasse></rasse>
+    <status>2</status>
+    <kurzbeschreibung></kurzbeschreibung>
+    <schips>4</schips>
+    <finanzen>2</finanzen>
+    <heimat>Mittelreich</heimat>
+    <eigenheiten/>
+  </AllgemeineInfos>
+  <Attribute>
+    <KO>0</KO>
+    <MU>4</MU>
+    <GE>0</GE>
+    <KK>0</KK>
+    <IN>0</IN>
+    <KL>0</KL>
+    <CH>0</CH>
+    <FF>0</FF>
+  </Attribute>
+  <Energien>
+    <AsP wert="0"/>
+    <KaP wert="0"/>
+  </Energien>
+  <Vorteile minderpakt="">
+    <Vorteil variable="-1">Geweiht I</Vorteil>
+    <Vorteil variable="-1">Geweiht II</Vorteil>
+    <Vorteil variable="-1">Tradition der Swafnirgeweihten I</Vorteil>
+  </Vorteile>
+  <Fertigkeiten>
+    <Fertigkeit name="Handgemenge" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Hiebwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Klingenwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Stangenwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Schusswaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wurfwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Athletik" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heimlichkeit" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Selbstbeherrschung" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wahrnehmung" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Autorität" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Beeinflussung" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Gebräuche" wert="0">
+      <Talente>
+        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Derekunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Mythenkunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Magiekunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Überleben" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Verschlagenheit" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Alchemie" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heilkunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Handwerk" wert="0">
+      <Talente/>
+    </Fertigkeit>
+  </Fertigkeiten>
+  <Objekte>
+    <Zonensystem>False</Zonensystem>
+    <Rüstungen/>
+    <Waffen/>
+    <Ausrüstung/>
+  </Objekte>
+  <Übernatürliche-Fertigkeiten>
+    <Übernatürliche-Fertigkeit name="Zwölfgöttlicher Ritus" wert="0" addToPDF="2">
+      <Talente>
+        <Talent name="Eidsegen" variable="-1"/>
+        <Talent name="Grabsegen" variable="-1"/>
+        <Talent name="Heilungssegen" variable="-1"/>
+        <Talent name="Märtyrersegen" variable="-1"/>
+        <Talent name="Speisesegen" variable="-1"/>
+        <Talent name="Tranksegen" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Seefahrt" wert="0" addToPDF="True">
+      <Talente>
+        <Talent name="Tranksegen" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Wind und Wogen" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+  </Übernatürliche-Fertigkeiten>
+  <Erfahrung>
+    <EPtotal>0</EPtotal>
+    <EPspent>320</EPspent>
+  </Erfahrung>
+</Charakter>

@@ -1,0 +1,178 @@
+<Charakter>
+  <Version>
+    <DatenbankVersion>1</DatenbankVersion>
+    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
+    <NutzerDatenbankName/>
+  </Version>
+  <AllgemeineInfos>
+    <name>Deinomache von Tyrakos</name>
+    <rasse>Mittelländerin</rasse>
+    <status>2</status>
+    <kurzbeschreibung>Zyklopäische Drakoniterin auf der Suche nach Wissen</kurzbeschreibung>
+    <schips>4</schips>
+    <finanzen>2</finanzen>
+    <heimat>Horasreich</heimat>
+    <eigenheiten>
+      <Eigenheit>Wissen ist Macht, Hütet es gut</Eigenheit>
+      <Eigenheit>Interessant, lasst uns darüber reden</Eigenheit>
+      <Eigenheit>"Es muss hier ein Muster geben"</Eigenheit>
+    </eigenheiten>
+  </AllgemeineInfos>
+  <Attribute>
+    <KO>3</KO>
+    <MU>5</MU>
+    <GE>5</GE>
+    <KK>3</KK>
+    <IN>5</IN>
+    <KL>6</KL>
+    <CH>4</CH>
+    <FF>3</FF>
+  </Attribute>
+  <Energien>
+    <AsP wert="0"/>
+    <KaP wert="0"/>
+  </Energien>
+  <Vorteile minderpakt="">
+    <Vorteil variable="-1">Geweiht I</Vorteil>
+    <Vorteil variable="-1">Geweiht II</Vorteil>
+    <Vorteil variable="-1">Geweiht III</Vorteil>
+    <Vorteil variable="-1">Tradition der Hesindegeweihten I</Vorteil>
+    <Vorteil variable="-1">Tradition der Hesindegeweihten I</Vorteil>
+    <Vorteil variable="-1">Schneller Kampf I</Vorteil>
+    <Vorteil variable="-1">Ausfall</Vorteil>
+    <Vorteil variable="-1">Scharfsinnig I</Vorteil>
+    <Vorteil variable="20,">Privilegien</Vorteil>
+    <Vorteil variable="-1">Willensstark I</Vorteil>
+    <Vorteil variable="40,">Verbindungen</Vorteil>
+  </Vorteile>
+  <Fertigkeiten>
+    <Fertigkeit name="Handgemenge" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Hiebwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Klingenwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Stangenwaffen" wert="6">
+      <Talente>
+        <Talent name="Infanteriewaffen und Speere" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Schusswaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wurfwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Athletik" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heimlichkeit" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Selbstbeherrschung" wert="5">
+      <Talente>
+        <Talent name="Willenskraft" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Wahrnehmung" wert="5">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Autorität" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Beeinflussung" wert="5">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Gebräuche" wert="5">
+      <Talente>
+        <Talent name="Gebräuche: Horasreich" variable="-1"/>
+        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Derekunde" wert="6">
+      <Talente>
+        <Talent name="Geographie" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Mythenkunde" wert="5">
+      <Talente>
+        <Talent name="Götter und Kulte" variable="-1"/>
+        <Talent name="Geschichten und Legenden" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Magiekunde" wert="6">
+      <Talente>
+        <Talent name="Magietheorie" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Überleben" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Verschlagenheit" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Alchemie" wert="2">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heilkunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Handwerk" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Freie-Fertigkeit name="Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Kusliker Zeichen" wert="3"/>
+    <Freie-Fertigkeit name="Philosophie" wert="2"/>
+    <Freie-Fertigkeit name="Altgüldenländisch" wert="2"/>
+    <Freie-Fertigkeit name="Tulamydia" wert="1"/>
+    <Freie-Fertigkeit name="Bosparano" wert="2"/>
+  </Fertigkeiten>
+  <Objekte>
+    <Zonensystem>False</Zonensystem>
+    <Rüstungen>
+      <Rüstung name="Gambeson und Priesterroben, Lederkappe" be="1" rs="1/1/1/1/1/1"/>
+    </Rüstungen>
+    <Waffen>
+      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="5" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="Zweililien" id="Zweililien" W6="2" plus="2" eigenschaften="Wendig, Zweihändig" haerte="5" rw="1" kampfstil="Schneller Kampf" wm="1" typ="Nah"/>
+    </Waffen>
+    <Ausrüstung>
+      <Ausrüstungsstück>Wechselkleidung, Ledertasche</Ausrüstungsstück>
+      <Ausrüstungsstück>Ölzeug, Lampenöl, Öllampe</Ausrüstungsstück>
+      <Ausrüstungsstück>Schreibzeug, Diarium, Buch der Schlange</Ausrüstungsstück>
+      <Ausrüstungsstück>Feuerstein, Stahl, Zunder</Ausrüstungsstück>
+      <Ausrüstungsstück>Geldbeutel 15 Dukaten, 50 Silbertaler</Ausrüstungsstück>
+      <Ausrüstungsstück>Kamm, Seife, Bürste</Ausrüstungsstück>
+    </Ausrüstung>
+  </Objekte>
+  <Übernatürliche-Fertigkeiten>
+    <Übernatürliche-Fertigkeit name="Zwölfgöttlicher Ritus" wert="3" addToPDF="True">
+      <Talente>
+        <Talent name="Eidsegen" variable="-1"/>
+        <Talent name="Göttliche Verständigung" variable="-1"/>
+        <Talent name="Grabsegen" variable="-1"/>
+        <Talent name="Schutzsegen" variable="-1"/>
+        <Talent name="Seelenprüfung" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Magie" wert="6" addToPDF="True">
+      <Talente>
+        <Talent name="Exorzismus" variable="-1"/>
+        <Talent name="Argelions bannende Hand" variable="-1"/>
+        <Talent name="Blick der Weberin" variable="-1"/>
+        <Talent name="Sicht auf Madas Welt" variable="-1"/>
+        <Talent name="Unverstellter Blick" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Wissen" wert="0" addToPDF="0">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+  </Übernatürliche-Fertigkeiten>
+  <Erfahrung>
+    <EPtotal>3000</EPtotal>
+    <EPspent>2984</EPspent>
+  </Erfahrung>
+</Charakter>

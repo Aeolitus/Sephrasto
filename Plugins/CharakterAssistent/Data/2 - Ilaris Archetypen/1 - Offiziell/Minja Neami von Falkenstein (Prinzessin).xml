@@ -1,0 +1,188 @@
+<Charakter>
+  <Version>
+    <DatenbankVersion>1</DatenbankVersion>
+    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
+    <NutzerDatenbankName/>
+  </Version>
+  <AllgemeineInfos>
+    <name>Minja Neami von Falkenstein</name>
+    <rasse>Mensch</rasse>
+    <status>4</status>
+    <kurzbeschreibung>Junge ‚Prinzessin‘ mit einer fantastischen Vergangenheit und einem Gespür für Pferde.</kurzbeschreibung>
+    <schips>2</schips>
+    <finanzen>1</finanzen>
+    <heimat>Mittelreich</heimat>
+    <eigenheiten>
+      <Eigenheit>Ungebildet</Eigenheit>
+      <Eigenheit>Prunksucht</Eigenheit>
+      <Eigenheit>Pferdeflüstererin</Eigenheit>
+      <Eigenheit>Vagabundin</Eigenheit>
+    </eigenheiten>
+  </AllgemeineInfos>
+  <Attribute>
+    <KO>4</KO>
+    <MU>4</MU>
+    <GE>6</GE>
+    <KK>1</KK>
+    <IN>6</IN>
+    <KL>1</KL>
+    <CH>6</CH>
+    <FF>4</FF>
+  </Attribute>
+  <Energien>
+    <AsP wert="0"/>
+    <KaP wert="0"/>
+  </Energien>
+  <Vorteile minderpakt="">
+    <Vorteil variable="-1">Eindrucksvoll I</Vorteil>
+    <Vorteil variable="-1">Eindrucksvoll II</Vorteil>
+    <Vorteil variable="-1">Vorausschauend I</Vorteil>
+    <Vorteil variable="-1">Vorausschauend II</Vorteil>
+    <Vorteil variable="-1">Flink II</Vorteil>
+    <Vorteil variable="20,Pferde">Tierempathie</Vorteil>
+  </Vorteile>
+  <Fertigkeiten>
+    <Fertigkeit name="Handgemenge" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Hiebwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Klingenwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Stangenwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Schusswaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wurfwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Athletik" wert="8">
+      <Talente>
+        <Talent name="Reiten" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Heimlichkeit" wert="5">
+      <Talente>
+        <Talent name="Untertauchen" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Selbstbeherrschung" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wahrnehmung" wert="5">
+      <Talente>
+        <Talent name="Menschenkenntnis" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Autorität" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Beeinflussung" wert="8">
+      <Talente>
+        <Talent name="Betören" variable="-1"/>
+        <Talent name="Überreden" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Gebräuche" wert="8">
+      <Talente>
+        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Derekunde" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Mythenkunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Magiekunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Überleben" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Verschlagenheit" wert="5">
+      <Talente>
+        <Talent name="Stehlen" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Alchemie" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heilkunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Handwerk" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Freie-Fertigkeit name="Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Haarkünstlerin" wert="3"/>
+    <Freie-Fertigkeit name="" wert="1"/>
+    <Freie-Fertigkeit name="" wert="1"/>
+    <Freie-Fertigkeit name="Tulamidya" wert="1"/>
+    <Freie-Fertigkeit name="Pferdezüchterin" wert="1"/>
+    <Freie-Fertigkeit name="" wert="1"/>
+    <Freie-Fertigkeit name="" wert="1"/>
+    <Freie-Fertigkeit name="" wert="1"/>
+    <Freie-Fertigkeit name="Pferdezüchterin" wert="1"/>
+  </Fertigkeiten>
+  <Objekte>
+    <Zonensystem>False</Zonensystem>
+    <Rüstungen/>
+    <Waffen>
+      <Waffe name="Reitpferd" id="Reitpferd" W6="2" plus="0" eigenschaften="Niederwerfen, Reittier" haerte="13" rw="1" kampfstil="Kein Kampfstil" wm="-1" typ="Nah"/>
+      <Waffe name="Dolch" id="Dolch (Handgemengewaffen)" W6="1" plus="1" eigenschaften="" haerte="9" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="5" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+    </Waffen>
+    <Ausrüstung>
+      <Ausrüstungsstück>Reich besticktes Kleid, Schnallenschuhe, Silberschmu</Ausrüstungsstück>
+      <Ausrüstungsstück>Reitpferd</Ausrüstungsstück>
+      <Ausrüstungsstück>Kosmetik (Schminke, Puder, Kamm, Harnadeln,...)</Ausrüstungsstück>
+      <Ausrüstungsstück>WS 13, MR 6, GS 12, INI 1</Ausrüstungsstück>
+      <Ausrüstungsstück>Dolch</Ausrüstungsstück>
+      <Ausrüstungsstück>Tritt: RW 1, VT 5, AT 12, TP 2W6+2, Niederwerfen</Ausrüstungsstück>
+      <Ausrüstungsstück>Zaumzeug, Sattel mit Satteltaschen</Ausrüstungsstück>
+      <Ausrüstungsstück>Biss: RW 0, VT 4, AT 12, TP 1W6+1, Zerbrechlich</Ausrüstungsstück>
+      <Ausrüstungsstück>Edle Reisekleidung</Ausrüstungsstück>
+      <Ausrüstungsstück>Standfest</Ausrüstungsstück>
+      <Ausrüstungsstück></Ausrüstungsstück>
+      <Ausrüstungsstück>GE 8, KO 28, KK 28, MU 12</Ausrüstungsstück>
+      <Ausrüstungsstück></Ausrüstungsstück>
+      <Ausrüstungsstück>Wachsamkeit 10, Zähigkeit 10</Ausrüstungsstück>
+    </Ausrüstung>
+  </Objekte>
+  <Übernatürliche-Fertigkeiten/>
+  <Erfahrung>
+    <EPtotal>2500</EPtotal>
+    <EPspent>2498</EPspent>
+  </Erfahrung>
+  <AllgemeineInfosExt>
+    <profession></profession>
+    <geschlecht></geschlecht>
+    <geburtsdatum></geburtsdatum>
+    <groesse></groesse>
+    <gewicht></gewicht>
+    <haarfarbe></haarfarbe>
+    <augenfarbe></augenfarbe>
+    <titel></titel>
+    <aussehen1></aussehen1>
+    <aussehen2></aussehen2>
+    <aussehen3></aussehen3>
+    <aussehen4></aussehen4>
+    <aussehen5></aussehen5>
+    <aussehen6></aussehen6>
+    <hintergrund0></hintergrund0>
+    <hintergrund1></hintergrund1>
+    <hintergrund2></hintergrund2>
+    <hintergrund3></hintergrund3>
+    <hintergrund4></hintergrund4>
+    <hintergrund5></hintergrund5>
+    <hintergrund6></hintergrund6>
+    <hintergrund7></hintergrund7>
+    <hintergrund8></hintergrund8>
+    <ansehen>0</ansehen>
+  </AllgemeineInfosExt>
+</Charakter>

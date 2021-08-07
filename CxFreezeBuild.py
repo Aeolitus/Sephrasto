@@ -91,19 +91,26 @@ def includePlugin(name):
     files = os.listdir(path)
     for i in files:
         file = os.path.join(path, i)
-        if os.path.isfile(file):
+
+        if not os.path.basename(file) == "__pycache__" and not os.path.basename(file) == "UI":
             includeFiles[file] = os.path.join(build_path, "Plugins", name)
 
-includePlugin("LangerBogenBeschreibung")
+for dirName in os.listdir(os.path.join(dir_path, "Plugins")):
+    if os.path.isdir(os.path.join(dir_path, "Plugins", dirName)):
+        includePlugin(dirName)
 
 for file,targetDir in includeFiles.items():
     print(file)
     if not os.path.exists(targetDir):
         os.makedirs(targetDir)
-    if not os.path.isfile(file):
+    if not os.path.isfile(file) and not os.path.isdir(file):
         print("Error, file not found: " + file)
         cleanBuildFolder()
         sys.exit()
-    shutil.copy2(file, targetDir)
+
+    if os.path.isfile(file):
+        shutil.copy2(file, targetDir)
+    else:
+        shutil.copytree(file, os.path.join(targetDir, os.path.basename(file)))
 
 print("Build completed")

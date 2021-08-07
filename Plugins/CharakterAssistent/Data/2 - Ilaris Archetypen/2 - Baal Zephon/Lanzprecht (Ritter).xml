@@ -1,0 +1,167 @@
+<Charakter>
+  <Version>
+    <DatenbankVersion>1</DatenbankVersion>
+    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
+    <NutzerDatenbankName/>
+  </Version>
+  <AllgemeineInfos>
+    <name>Lanzprecht Parinor von Eslamsgrund-Steynebruck</name>
+    <rasse>Mittelländer</rasse>
+    <status>1</status>
+    <kurzbeschreibung>Rechtschaffener Ritter vom Stand</kurzbeschreibung>
+    <schips>2</schips>
+    <finanzen>1</finanzen>
+    <heimat>Mittelreich</heimat>
+    <eigenheiten>
+      <Eigenheit>Für das Licht!</Eigenheit>
+      <Eigenheit>Ehrlich währt am Längsten</Eigenheit>
+      <Eigenheit>Jeder hat seinen Platz</Eigenheit>
+    </eigenheiten>
+  </AllgemeineInfos>
+  <Attribute>
+    <KO>5</KO>
+    <MU>5</MU>
+    <GE>6</GE>
+    <KK>6</KK>
+    <IN>4</IN>
+    <KL>3</KL>
+    <CH>4</CH>
+    <FF>2</FF>
+  </Attribute>
+  <Energien>
+    <AsP wert="0"/>
+    <KaP wert="0"/>
+  </Energien>
+  <Vorteile minderpakt="">
+    <Vorteil variable="40,">Besonderer Besitz</Vorteil>
+    <Vorteil variable="40,">Verbindungen</Vorteil>
+    <Vorteil variable="-1">Eindrucksvoll I</Vorteil>
+    <Vorteil variable="-1">Willensstark I</Vorteil>
+    <Vorteil variable="-1">Kommando: Haltet Stand!</Vorteil>
+    <Vorteil variable="-1">Niederwerfen</Vorteil>
+    <Vorteil variable="-1">Sturmangriff</Vorteil>
+    <Vorteil variable="-1">Kampfreflexe</Vorteil>
+    <Vorteil variable="-1">Kraftvoller Kampf I</Vorteil>
+    <Vorteil variable="-1">Schneller Kampf I</Vorteil>
+    <Vorteil variable="-1">Kraftvoller Kampf II</Vorteil>
+    <Vorteil variable="-1">Schneller Kampf II</Vorteil>
+    <Vorteil variable="-1">Reiterkampf I</Vorteil>
+    <Vorteil variable="-1">Reiterkampf II</Vorteil>
+  </Vorteile>
+  <Fertigkeiten>
+    <Fertigkeit name="Handgemenge" wert="5">
+      <Talente>
+        <Talent name="Unbewaffnet" variable="-1"/>
+        <Talent name="Handgemengewaffen" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Hiebwaffen" wert="4">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Klingenwaffen" wert="8">
+      <Talente>
+        <Talent name="Einhandklingenwaffen" variable="-1"/>
+        <Talent name="Zweihandklingenwaffen" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Stangenwaffen" wert="7">
+      <Talente>
+        <Talent name="Lanzenreiten" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Schusswaffen" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wurfwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Athletik" wert="5">
+      <Talente>
+        <Talent name="Reiten" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Heimlichkeit" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Selbstbeherrschung" wert="5">
+      <Talente>
+        <Talent name="Zähigkeit" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Wahrnehmung" wert="5">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Autorität" wert="5">
+      <Talente>
+        <Talent name="Anführen" variable="-1"/>
+        <Talent name="Einschüchtern" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Beeinflussung" wert="2">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Gebräuche" wert="3">
+      <Talente>
+        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Derekunde" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Mythenkunde" wert="2">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Magiekunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Überleben" wert="4">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Verschlagenheit" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Alchemie" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heilkunde" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Handwerk" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Freie-Fertigkeit name="Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Minnesang" wert="1"/>
+    <Freie-Fertigkeit name="Heraldik" wert="1"/>
+    <Freie-Fertigkeit name="Kusliker Zeichen" wert="1"/>
+  </Fertigkeiten>
+  <Objekte>
+    <Zonensystem>False</Zonensystem>
+    <Rüstungen>
+      <Rüstung name="Leichte Platte, Schaller, Bart,Panzerhandschuhe, Beinschienen" be="3" rs="3/3/3/3/3/3"/>
+      <Rüstung name="Gepolsteter Wappenrock, Gepolsterte Kappe" be="1" rs="1/1/1/1/1/1"/>
+    </Rüstungen>
+    <Waffen>
+      <Waffe name="Anderthalbhänder" id="Anderthalbhänder" W6="2" plus="2" eigenschaften="Zweihändig" haerte="10" rw="2" kampfstil="Kraftvoller Kampf" wm="1" typ="Nah"/>
+      <Waffe name="Anderthalbhänder" id="Anderthalbhänder" W6="2" plus="2" eigenschaften="Zweihändig" haerte="10" rw="2" kampfstil="Schneller Kampf" wm="1" typ="Nah"/>
+      <Waffe name="Tralloper Riese (RK)" id="Tralloper Riese" W6="2" plus="4" eigenschaften="Niederwerfen, Reittier" haerte="16" rw="1" kampfstil="Reiterkampf" wm="0" typ="Nah"/>
+      <Waffe name="Kriegslanze" id="Kriegslanze" W6="3" plus="1" eigenschaften="" haerte="5" rw="2" kampfstil="Reiterkampf" wm="-1" typ="Nah"/>
+      <Waffe name="Scheibendolch (SNK)" id="Scheibendolch" W6="1" plus="1" eigenschaften="Rüstungsbrechend" haerte="9" rw="0" kampfstil="Schneller Kampf" wm="0" typ="Nah"/>
+      <Waffe name="Hand (KVK)" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="8" rw="0" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
+      <Waffe name="Hand (SNK)" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="8" rw="0" kampfstil="Schneller Kampf" wm="0" typ="Nah"/>
+    </Waffen>
+    <Ausrüstung>
+      <Ausrüstungsstück>Sattel mit Satteltaschen, Zaumzeug, Pferdedecke</Ausrüstungsstück>
+      <Ausrüstungsstück>Waffenpflegeset, Feuerstein, Stahl, Zunder</Ausrüstungsstück>
+      <Ausrüstungsstück>Wechselkeidung, Adelsgewand</Ausrüstungsstück>
+      <Ausrüstungsstück>Gebetsbuch</Ausrüstungsstück>
+      <Ausrüstungsstück>Brotbeutel, Weinschlauch</Ausrüstungsstück>
+      <Ausrüstungsstück>Geldbeutel, 20 Dukaten, 30 Silbertaler</Ausrüstungsstück>
+      <Ausrüstungsstück>Schlafrolle</Ausrüstungsstück>
+    </Ausrüstung>
+  </Objekte>
+  <Übernatürliche-Fertigkeiten/>
+  <Erfahrung>
+    <EPtotal>3000</EPtotal>
+    <EPspent>2973</EPspent>
+  </Erfahrung>
+</Charakter>

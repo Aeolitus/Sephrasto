@@ -1,0 +1,206 @@
+<Charakter>
+  <Version>
+    <DatenbankVersion>1</DatenbankVersion>
+    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
+    <NutzerDatenbankName/>
+  </Version>
+  <AllgemeineInfos>
+    <name>Bartolomeo Karinor</name>
+    <rasse>Mensch</rasse>
+    <status>1</status>
+    <kurzbeschreibung>Athletischer Rondrageweihter aus Al'Anfa, der zu den Tugenden Rondras finden möchte.</kurzbeschreibung>
+    <schips>4</schips>
+    <finanzen>2</finanzen>
+    <heimat>Südaventurien</heimat>
+    <eigenheiten>
+      <Eigenheit>Sucher nach dem Weg Rondras</Eigenheit>
+      <Eigenheit>Loyalität über den Tod hinaus</Eigenheit>
+      <Eigenheit>Aha, aus Al'Anfa also...</Eigenheit>
+    </eigenheiten>
+  </AllgemeineInfos>
+  <Attribute>
+    <KO>4</KO>
+    <MU>5</MU>
+    <GE>3</GE>
+    <KK>6</KK>
+    <IN>4</IN>
+    <KL>2</KL>
+    <CH>3</CH>
+    <FF>2</FF>
+  </Attribute>
+  <Energien>
+    <AsP wert="0"/>
+    <KaP wert="0"/>
+  </Energien>
+  <Vorteile minderpakt="">
+    <Vorteil variable="-1">Zerstörerisch I</Vorteil>
+    <Vorteil variable="-1">Ausfall</Vorteil>
+    <Vorteil variable="-1">Kraftvoller Kampf I</Vorteil>
+    <Vorteil variable="-1">Kraftvoller Kampf II</Vorteil>
+    <Vorteil variable="-1">Niederwerfen</Vorteil>
+    <Vorteil variable="-1">Geweiht I</Vorteil>
+    <Vorteil variable="-1">Geweiht II</Vorteil>
+    <Vorteil variable="-1">Tradition der Rondrageweihten I</Vorteil>
+    <Vorteil variable="-1">Privilegien (Krieger)</Vorteil>
+  </Vorteile>
+  <Fertigkeiten>
+    <Fertigkeit name="Handgemenge" wert="5">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Hiebwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Klingenwaffen" wert="8">
+      <Talente>
+        <Talent name="Zweihandklingenwaffen" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Stangenwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Schusswaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wurfwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Athletik" wert="7">
+      <Talente>
+        <Talent name="Schwimmen" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Heimlichkeit" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Selbstbeherrschung" wert="7">
+      <Talente>
+        <Talent name="Zähigkeit" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Wahrnehmung" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Autorität" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Beeinflussung" wert="5">
+      <Talente>
+        <Talent name="Überreden" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Gebräuche" wert="5">
+      <Talente>
+        <Talent name="Gebräuche: Südaventurien" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Derekunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Mythenkunde" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Magiekunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Überleben" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Verschlagenheit" wert="5">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Alchemie" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heilkunde" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Handwerk" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Freie-Fertigkeit name="Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Tulamydia (Schrift) " wert="3"/>
+    <Freie-Fertigkeit name="Kusliker Zeichen" wert="3"/>
+    <Freie-Fertigkeit name="Weinkenner " wert="2"/>
+    <Freie-Fertigkeit name="Tulamydia " wert="2"/>
+    <Freie-Fertigkeit name="Tänzer " wert="2"/>
+  </Fertigkeiten>
+  <Objekte>
+    <Zonensystem>False</Zonensystem>
+    <Rüstungen>
+      <Rüstung name="Kurzes Kettenhemd" be="2" rs="2/2/2/2/2/2"/>
+    </Rüstungen>
+    <Waffen>
+      <Waffe name="Andergaster" id="Andergaster" W6="3" plus="3" eigenschaften="Kopflastig, Schwer (4), Zweihändig" haerte="9" rw="2" kampfstil="Kraftvoller Kampf" wm="-2" typ="Nah"/>
+      <Waffe name="Dolch" id="Dolch (Handgemengewaffen)" W6="1" plus="1" eigenschaften="" haerte="9" rw="0" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
+      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="7" rw="0" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
+    </Waffen>
+    <Ausrüstung>
+      <Ausrüstungsstück>Wappenrock</Ausrüstungsstück>
+      <Ausrüstungsstück>Reisekleidung</Ausrüstungsstück>
+      <Ausrüstungsstück>Wasserschlauch</Ausrüstungsstück>
+      <Ausrüstungsstück>Rucksack</Ausrüstungsstück>
+      <Ausrüstungsstück>Waffenpflegeutensilien</Ausrüstungsstück>
+      <Ausrüstungsstück>Wechselkleidung</Ausrüstungsstück>
+    </Ausrüstung>
+  </Objekte>
+  <Übernatürliche-Fertigkeiten>
+    <Übernatürliche-Fertigkeit name="Zwölfgöttlicher Ritus" wert="1" addToPDF="True">
+      <Talente>
+        <Talent name="Eidsegen" variable="-1"/>
+        <Talent name="Feuersegen" variable="-1"/>
+        <Talent name="Geburtssegen" variable="-1"/>
+        <Talent name="Grabsegen" variable="-1"/>
+        <Talent name="Schutzsegen" variable="-1"/>
+        <Talent name="Speisesegen" variable="-1"/>
+        <Talent name="Tranksegen" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Ehre" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Heerführung" wert="5" addToPDF="True">
+      <Talente>
+        <Talent name="Segen des Heiligen Hlûthar" variable="-1"/>
+        <Talent name="Ritus der Schlachthilfe" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Schutz der Gläubigen" wert="5" addToPDF="True">
+      <Talente>
+        <Talent name="Schutzsegen" variable="-1"/>
+        <Talent name="Mirakel: KK" variable="-1"/>
+        <Talent name="Mirakel: Klingenwaffen" variable="-1"/>
+        <Talent name="Wundersames Teilen des Martyriums" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+  </Übernatürliche-Fertigkeiten>
+  <Erfahrung>
+    <EPtotal>2500</EPtotal>
+    <EPspent>2496</EPspent>
+  </Erfahrung>
+  <AllgemeineInfosExt>
+    <profession></profession>
+    <geschlecht></geschlecht>
+    <geburtsdatum></geburtsdatum>
+    <groesse></groesse>
+    <gewicht></gewicht>
+    <haarfarbe></haarfarbe>
+    <augenfarbe></augenfarbe>
+    <titel></titel>
+    <aussehen1></aussehen1>
+    <aussehen2></aussehen2>
+    <aussehen3></aussehen3>
+    <aussehen4></aussehen4>
+    <aussehen5></aussehen5>
+    <aussehen6></aussehen6>
+    <hintergrund0></hintergrund0>
+    <hintergrund1></hintergrund1>
+    <hintergrund2></hintergrund2>
+    <hintergrund3></hintergrund3>
+    <hintergrund4></hintergrund4>
+    <hintergrund5></hintergrund5>
+    <hintergrund6></hintergrund6>
+    <hintergrund7></hintergrund7>
+    <hintergrund8></hintergrund8>
+    <ansehen>0</ansehen>
+  </AllgemeineInfosExt>
+</Charakter>

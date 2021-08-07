@@ -1,0 +1,162 @@
+<Charakter>
+  <Version>
+    <DatenbankVersion>1</DatenbankVersion>
+    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
+    <NutzerDatenbankName/>
+  </Version>
+  <AllgemeineInfos>
+    <name>Domnal Arbedan</name>
+    <rasse>Mittelländer</rasse>
+    <status>3</status>
+    <kurzbeschreibung>Beinharter Leibwächter von niederem Stand</kurzbeschreibung>
+    <schips>4</schips>
+    <finanzen>2</finanzen>
+    <heimat>Mittelreich</heimat>
+    <eigenheiten>
+      <Eigenheit>Ein Vertrag ist ein Vertrag</Eigenheit>
+      <Eigenheit>Was tot ist sollte ruhen!</Eigenheit>
+      <Eigenheit>Das ist nur ein Kratzer</Eigenheit>
+    </eigenheiten>
+  </AllgemeineInfos>
+  <Attribute>
+    <KO>6</KO>
+    <MU>4</MU>
+    <GE>6</GE>
+    <KK>6</KK>
+    <IN>4</IN>
+    <KL>2</KL>
+    <CH>3</CH>
+    <FF>4</FF>
+  </Attribute>
+  <Energien>
+    <AsP wert="0"/>
+    <KaP wert="0"/>
+  </Energien>
+  <Vorteile minderpakt="">
+    <Vorteil variable="-1">Gefahreninstinkt</Vorteil>
+    <Vorteil variable="-1">Abgehärtet I</Vorteil>
+    <Vorteil variable="-1">Willensstark I</Vorteil>
+    <Vorteil variable="-1">Schildkampf I</Vorteil>
+    <Vorteil variable="-1">Parierwaffenkampf I</Vorteil>
+    <Vorteil variable="-1">Parierwaffenkampf II</Vorteil>
+    <Vorteil variable="-1">Waffenloser Kampf</Vorteil>
+    <Vorteil variable="-1">Kampfreflexe</Vorteil>
+    <Vorteil variable="-1">Ausfall</Vorteil>
+    <Vorteil variable="-1">Schildkampf II</Vorteil>
+    <Vorteil variable="-1">Niederwerfen</Vorteil>
+    <Vorteil variable="-1">Rüstungsgewöhnung</Vorteil>
+    <Vorteil variable="-1">Durchatmen</Vorteil>
+    <Vorteil variable="-1">Vorausschauend I</Vorteil>
+  </Vorteile>
+  <Fertigkeiten>
+    <Fertigkeit name="Handgemenge" wert="6">
+      <Talente>
+        <Talent name="Unbewaffnet" variable="-1"/>
+        <Talent name="Handgemengewaffen" variable="-1"/>
+        <Talent name="Schilde" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Hiebwaffen" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Klingenwaffen" wert="8">
+      <Talente>
+        <Talent name="Einhandklingenwaffen" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Stangenwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Schusswaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wurfwaffen" wert="5">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Athletik" wert="4">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heimlichkeit" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Selbstbeherrschung" wert="6">
+      <Talente>
+        <Talent name="Zähigkeit" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Wahrnehmung" wert="5">
+      <Talente>
+        <Talent name="Menschenkenntnis" variable="-1"/>
+        <Talent name="Wachsamkeit" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Autorität" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Beeinflussung" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Gebräuche" wert="3">
+      <Talente>
+        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Derekunde" wert="2">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Mythenkunde" wert="2">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Magiekunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Überleben" wert="4">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Verschlagenheit" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Alchemie" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heilkunde" wert="4">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Handwerk" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Freie-Fertigkeit name="Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Imman" wert="1"/>
+    <Freie-Fertigkeit name="Thorwalsch" wert="1"/>
+    <Freie-Fertigkeit name="Kusliker Zeichen" wert="1"/>
+  </Fertigkeiten>
+  <Objekte>
+    <Zonensystem>False</Zonensystem>
+    <Rüstungen>
+      <Rüstung name="Kettenhaube, Genietete Lederrüstung, Lederhandschuhe, Hohe Stiefel" be="2" rs="2/2/2/2/2/2"/>
+    </Rüstungen>
+    <Waffen>
+      <Waffe name="Buckler (PW)" id="Buckler (Handgemengewaffen)" W6="1" plus="1" eigenschaften="Parierwaffe, Schild, Stumpf" haerte="11" rw="0" kampfstil="Parierwaffenkampf" wm="0" typ="Nah"/>
+      <Waffe name="Schwert (PW)" id="Schwert" W6="2" plus="2" eigenschaften="" haerte="10" rw="1" kampfstil="Parierwaffenkampf" wm="0" typ="Nah"/>
+      <Waffe name="Buckler (SK)" id="Buckler (Schilde)" W6="1" plus="1" eigenschaften="Parierwaffe, Schild, Stumpf" haerte="11" rw="0" kampfstil="Schildkampf" wm="0" typ="Nah"/>
+      <Waffe name="Schwert (SK)" id="Schwert" W6="2" plus="2" eigenschaften="" haerte="10" rw="1" kampfstil="Schildkampf" wm="0" typ="Nah"/>
+      <Waffe name="Langdolch (PW)" id="Langdolch" W6="1" plus="2" eigenschaften="Parierwaffe" haerte="10" rw="0" kampfstil="Parierwaffenkampf" wm="0" typ="Nah"/>
+      <Waffe name="Wurfmesser" id="Wurfmesser" W6="1" plus="0" eigenschaften="" haerte="8" rw="4" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
+      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe, Kopflastig, Wendig" haerte="7" rw="0" kampfstil="Parierwaffenkampf" wm="0" typ="Nah"/>
+    </Waffen>
+    <Ausrüstung>
+      <Ausrüstungsstück>Wollhosen, Ledergürtel, Wollumhang mit Kaputze</Ausrüstungsstück>
+      <Ausrüstungsstück>Gürteltasche, Rucksack</Ausrüstungsstück>
+      <Ausrüstungsstück>Feuerstein, Stahl, Zunder</Ausrüstungsstück>
+      <Ausrüstungsstück>Wasserschlauch, Weinflasche</Ausrüstungsstück>
+      <Ausrüstungsstück>Kautabak, Geldbeutel</Ausrüstungsstück>
+      <Ausrüstungsstück>6 Dukaten, 20 Silbertaler</Ausrüstungsstück>
+      <Ausrüstungsstück>5 Wurfmesser</Ausrüstungsstück>
+    </Ausrüstung>
+  </Objekte>
+  <Übernatürliche-Fertigkeiten/>
+  <Erfahrung>
+    <EPtotal>3000</EPtotal>
+    <EPspent>2971</EPspent>
+  </Erfahrung>
+</Charakter>

@@ -1,0 +1,134 @@
+<Charakter>
+  <Version>
+    <DatenbankVersion>1</DatenbankVersion>
+    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
+    <NutzerDatenbankName/>
+  </Version>
+  <AllgemeineInfos>
+    <name></name>
+    <rasse>Mensch</rasse>
+    <status>3</status>
+    <kurzbeschreibung></kurzbeschreibung>
+    <schips>4</schips>
+    <finanzen>2</finanzen>
+    <heimat>Mittelreich</heimat>
+    <eigenheiten/>
+  </AllgemeineInfos>
+  <Attribute>
+    <KO>6</KO>
+    <MU>1</MU>
+    <GE>3</GE>
+    <KK>1</KK>
+    <IN>4</IN>
+    <KL>2</KL>
+    <CH>4</CH>
+    <FF>6</FF>
+  </Attribute>
+  <Energien>
+    <AsP wert="0"/>
+    <KaP wert="0"/>
+  </Energien>
+  <Vorteile minderpakt="">
+    <Vorteil variable="-1">Einkommen I</Vorteil>
+    <Vorteil variable="-1">Resistenz gegen Krankheiten</Vorteil>
+    <Vorteil variable="-1">Abgehärtet I</Vorteil>
+    <Vorteil variable="-1">Abgehärtet II</Vorteil>
+    <Vorteil variable="-1">Routiniert I</Vorteil>
+    <Vorteil variable="-1">Routiniert II</Vorteil>
+  </Vorteile>
+  <Fertigkeiten>
+    <Fertigkeit name="Handgemenge" wert="5">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Hiebwaffen" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Klingenwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Stangenwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Schusswaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wurfwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Athletik" wert="2">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heimlichkeit" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Selbstbeherrschung" wert="5">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wahrnehmung" wert="4">
+      <Talente>
+        <Talent name="Menschenkenntnis" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Autorität" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Beeinflussung" wert="2">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Gebräuche" wert="3">
+      <Talente>
+        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Derekunde" wert="5">
+      <Talente>
+        <Talent name="Pflanzenkunde" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Mythenkunde" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Magiekunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Überleben" wert="2">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Verschlagenheit" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Alchemie" wert="4">
+      <Talente>
+        <Talent name="Profane Alchemika" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Heilkunde" wert="8">
+      <Talente>
+        <Talent name="Wundheilung" variable="-1"/>
+        <Talent name="Gifte und Krankheiten" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Handwerk" wert="0">
+      <Talente/>
+    </Fertigkeit>
+  </Fertigkeiten>
+  <Objekte>
+    <Zonensystem>False</Zonensystem>
+    <Rüstungen>
+      <Rüstung name="Kleidung" be="0" rs="0/0/0/0/0/0"/>
+    </Rüstungen>
+    <Waffen>
+      <Waffe name="Messer" id="Messer" W6="1" plus="1" eigenschaften="" haerte="6" rw="0" kampfstil="Kein Kampfstil" wm="-1" typ="Nah"/>
+      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="5" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+    </Waffen>
+    <Ausrüstung>
+      <Ausrüstungsstück>einfache Heilkräuter</Ausrüstungsstück>
+      <Ausrüstungsstück>Heilerausrüstung (Verbände, Nadel+Faden, Salben...)</Ausrüstungsstück>
+    </Ausrüstung>
+  </Objekte>
+  <Übernatürliche-Fertigkeiten/>
+  <Erfahrung>
+    <EPtotal>2000</EPtotal>
+    <EPspent>1999</EPspent>
+  </Erfahrung>
+</Charakter>

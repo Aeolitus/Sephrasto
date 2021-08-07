@@ -1,0 +1,231 @@
+<Charakter>
+  <Version>
+    <DatenbankVersion>1</DatenbankVersion>
+    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
+    <NutzerDatenbankName/>
+  </Version>
+  <AllgemeineInfos>
+    <name>Coruna Timerlan</name>
+    <rasse>Mittelländerin</rasse>
+    <status>2</status>
+    <kurzbeschreibung>Ehrgeizige Reichstreue Magistra</kurzbeschreibung>
+    <schips>4</schips>
+    <finanzen>2</finanzen>
+    <heimat>Mittelreich</heimat>
+    <eigenheiten>
+      <Eigenheit>Der Zweck heiligt die Mittel</Eigenheit>
+      <Eigenheit>Niederes Gewürm</Eigenheit>
+      <Eigenheit>Kurzathmig</Eigenheit>
+    </eigenheiten>
+  </AllgemeineInfos>
+  <Attribute>
+    <KO>2</KO>
+    <MU>6</MU>
+    <GE>3</GE>
+    <KK>2</KK>
+    <IN>5</IN>
+    <KL>8</KL>
+    <CH>4</CH>
+    <FF>2</FF>
+  </Attribute>
+  <Energien>
+    <AsP wert="0"/>
+    <KaP wert="0"/>
+  </Energien>
+  <Vorteile minderpakt="">
+    <Vorteil variable="-1">Scharfsinnig II</Vorteil>
+    <Vorteil variable="-1">Scharfsinnig I</Vorteil>
+    <Vorteil variable="-1">Willensstark I</Vorteil>
+    <Vorteil variable="-1">Willensstark II</Vorteil>
+    <Vorteil variable="-1">Zauberer I</Vorteil>
+    <Vorteil variable="-1">Zauberer II</Vorteil>
+    <Vorteil variable="-1">Zauberer III</Vorteil>
+    <Vorteil variable="-1">Zauberer IV</Vorteil>
+    <Vorteil variable="-1">Tradition der Gildenmagier I</Vorteil>
+    <Vorteil variable="-1">Tradition der Gildenmagier II</Vorteil>
+    <Vorteil variable="-1">Kontrolliertes Zaubern</Vorteil>
+    <Vorteil variable="-1">Effizientes Zaubern</Vorteil>
+    <Vorteil variable="-1">Privilegien (Gildenmagier)</Vorteil>
+  </Vorteile>
+  <Fertigkeiten>
+    <Fertigkeit name="Handgemenge" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Hiebwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Klingenwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Stangenwaffen" wert="3">
+      <Talente>
+        <Talent name="Infanteriewaffen und Speere" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Schusswaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wurfwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Athletik" wert="2">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heimlichkeit" wert="4">
+      <Talente>
+        <Talent name="Untertauchen" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Selbstbeherrschung" wert="5">
+      <Talente>
+        <Talent name="Willenskraft" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Wahrnehmung" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Autorität" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Beeinflussung" wert="4">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Gebräuche" wert="3">
+      <Talente>
+        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Derekunde" wert="2">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Mythenkunde" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Magiekunde" wert="5">
+      <Talente>
+        <Talent name="Magietheorie" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Überleben" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Verschlagenheit" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Alchemie" wert="2">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heilkunde" wert="2">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Handwerk" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Freie-Fertigkeit name="Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Kusliker Zeichen" wert="2"/>
+    <Freie-Fertigkeit name="Bosparano" wert="2"/>
+  </Fertigkeiten>
+  <Objekte>
+    <Zonensystem>False</Zonensystem>
+    <Rüstungen>
+      <Rüstung name="Magierrobe und Kappe" be="0" rs="0/0/0/0/0/0"/>
+    </Rüstungen>
+    <Waffen>
+      <Waffe name="Magierstab" id="Magierstab" W6="1" plus="1" eigenschaften="Stumpf, Unzerstörbar, Zweihändig" haerte="1" rw="2" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="4" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+    </Waffen>
+    <Ausrüstung>
+      <Ausrüstungsstück>Lederne Umhängetasche</Ausrüstungsstück>
+      <Ausrüstungsstück>Diarium</Ausrüstungsstück>
+      <Ausrüstungsstück>Schreibzeug</Ausrüstungsstück>
+      <Ausrüstungsstück>Reisekleidung</Ausrüstungsstück>
+      <Ausrüstungsstück>Seife, Bürste, Kamm</Ausrüstungsstück>
+      <Ausrüstungsstück>Feuerstein, Stahl, Zunder</Ausrüstungsstück>
+      <Ausrüstungsstück>Geldbeutel, 5 Dukaten, 20 Silbertlaer</Ausrüstungsstück>
+    </Ausrüstung>
+  </Objekte>
+  <Übernatürliche-Fertigkeiten>
+    <Übernatürliche-Fertigkeit name="Antimagie" wert="0" addToPDF="True">
+      <Talente>
+        <Talent name="Einfluss bannen" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Dämonisch" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Eigenschaften" wert="0" addToPDF="True">
+      <Talente>
+        <Talent name="Memorans Gedächtniskraft" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Einfluss" wert="7" addToPDF="True">
+      <Talente>
+        <Talent name="Einfluss bannen" variable="-1"/>
+        <Talent name="Bannbaladin" variable="-1"/>
+        <Talent name="Blitz dich find" variable="-1"/>
+        <Talent name="Horriphobus Schreckgestalt" variable="-1"/>
+        <Talent name="Imperavi Handlungszwang" variable="-1"/>
+        <Talent name="Respondami Wahrheitszwang" variable="-1"/>
+        <Talent name="Somnigravis" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Eis" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Erz" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Feuer" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Hellsicht" wert="4" addToPDF="True">
+      <Talente>
+        <Talent name="Memorans Gedächtniskraft" variable="-1"/>
+        <Talent name="Blick in die Gedanken" variable="-1"/>
+        <Talent name="Odem Arcanum" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Humus" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Illusion" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Kraft" wert="0" addToPDF="True">
+      <Talente>
+        <Talent name="Odem Arcanum" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Luft" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Temporal" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Umwelt" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Verständigung" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Verwandlung" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Wasser" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Kugelzauber" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Schalenzauber" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Stabzauber" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+  </Übernatürliche-Fertigkeiten>
+  <Erfahrung>
+    <EPtotal>3000</EPtotal>
+    <EPspent>2954</EPspent>
+  </Erfahrung>
+</Charakter>

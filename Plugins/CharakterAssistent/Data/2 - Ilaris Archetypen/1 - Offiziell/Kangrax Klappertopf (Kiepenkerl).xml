@@ -1,0 +1,188 @@
+<Charakter>
+  <Version>
+    <DatenbankVersion>1</DatenbankVersion>
+    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
+    <NutzerDatenbankName/>
+  </Version>
+  <AllgemeineInfos>
+    <name>Kangrax Klappertopf</name>
+    <rasse>Hügelzwerg</rasse>
+    <status>4</status>
+    <kurzbeschreibung>Hügelzwergischer Kiepenkerl mit einem offenen Ohr und einer schier unerschöpflichen Kiepe.</kurzbeschreibung>
+    <schips>4</schips>
+    <finanzen>2</finanzen>
+    <heimat>Zwerge</heimat>
+    <eigenheiten>
+      <Eigenheit>Über Stock und Stein</Eigenheit>
+      <Eigenheit>"Da hab' ich doch noch was in meiner Kiepe..."</Eigenheit>
+      <Eigenheit>"Hast du das auch schon gehört?"</Eigenheit>
+      <Eigenheit>Wahrer Freund</Eigenheit>
+    </eigenheiten>
+  </AllgemeineInfos>
+  <Attribute>
+    <KO>6</KO>
+    <MU>4</MU>
+    <GE>1</GE>
+    <KK>4</KK>
+    <IN>6</IN>
+    <KL>4</KL>
+    <CH>4</CH>
+    <FF>4</FF>
+  </Attribute>
+  <Energien>
+    <AsP wert="0"/>
+    <KaP wert="0"/>
+  </Energien>
+  <Vorteile minderpakt="">
+    <Vorteil variable="-1">Resistenz gegen Krankheiten</Vorteil>
+    <Vorteil variable="-1">Zwergennase</Vorteil>
+    <Vorteil variable="-1">Eindrucksvoll I</Vorteil>
+    <Vorteil variable="-1">Vorausschauend I</Vorteil>
+    <Vorteil variable="-1">Vorausschauend II</Vorteil>
+    <Vorteil variable="-1">Abgehärtet II</Vorteil>
+    <Vorteil variable="-1">Magieabweisend</Vorteil>
+    <Vorteil variable="-1">Angepasst (Dunkelheit) I</Vorteil>
+  </Vorteile>
+  <Fertigkeiten>
+    <Fertigkeit name="Handgemenge" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Hiebwaffen" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Klingenwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Stangenwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Schusswaffen" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wurfwaffen" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Athletik" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heimlichkeit" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Selbstbeherrschung" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wahrnehmung" wert="5">
+      <Talente>
+        <Talent name="Wachsamkeit" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Autorität" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Beeinflussung" wert="8">
+      <Talente>
+        <Talent name="Überreden" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Gebräuche" wert="5">
+      <Talente>
+        <Talent name="Gebräuche: Zwerge" variable="-1"/>
+        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Derekunde" wert="5">
+      <Talente>
+        <Talent name="Geographie" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Mythenkunde" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Magiekunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Überleben" wert="8">
+      <Talente>
+        <Talent name="Überleben: Mittelaventurien" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Verschlagenheit" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Alchemie" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heilkunde" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Handwerk" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Freie-Fertigkeit name="Rogolan" wert="3"/>
+    <Freie-Fertigkeit name="Händler" wert="3"/>
+    <Freie-Fertigkeit name="" wert="1"/>
+    <Freie-Fertigkeit name="" wert="1"/>
+    <Freie-Fertigkeit name="Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Koch" wert="1"/>
+    <Freie-Fertigkeit name="" wert="1"/>
+    <Freie-Fertigkeit name="" wert="1"/>
+    <Freie-Fertigkeit name="Füchsisch" wert="1"/>
+  </Fertigkeiten>
+  <Objekte>
+    <Zonensystem>False</Zonensystem>
+    <Rüstungen>
+      <Rüstung name="Lederkleidung und Kiepe" be="1" rs="1/1/1/1/1/1"/>
+    </Rüstungen>
+    <Waffen>
+      <Waffe name="Haumesser" id="Haumesser" W6="2" plus="1" eigenschaften="" haerte="9" rw="1" kampfstil="Kein Kampfstil" wm="-1" typ="Nah"/>
+      <Waffe name="Dolch" id="Dolch (Handgemengewaffen)" W6="1" plus="1" eigenschaften="" haerte="9" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="6" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+    </Waffen>
+    <Ausrüstung>
+      <Ausrüstungsstück>Haumesser</Ausrüstungsstück>
+      <Ausrüstungsstück></Ausrüstungsstück>
+      <Ausrüstungsstück>Dolch</Ausrüstungsstück>
+      <Ausrüstungsstück></Ausrüstungsstück>
+      <Ausrüstungsstück>Reisekleidung (Lederweste, -hose, Stiefel)</Ausrüstungsstück>
+      <Ausrüstungsstück></Ausrüstungsstück>
+      <Ausrüstungsstück>Kiepe</Ausrüstungsstück>
+      <Ausrüstungsstück></Ausrüstungsstück>
+      <Ausrüstungsstück>Feuerzeug und Zunder</Ausrüstungsstück>
+      <Ausrüstungsstück></Ausrüstungsstück>
+      <Ausrüstungsstück>5 Schritt Seil</Ausrüstungsstück>
+      <Ausrüstungsstück></Ausrüstungsstück>
+      <Ausrüstungsstück>Handelswaren im Wert von 20 Dukaten</Ausrüstungsstück>
+    </Ausrüstung>
+  </Objekte>
+  <Übernatürliche-Fertigkeiten/>
+  <Erfahrung>
+    <EPtotal>2500</EPtotal>
+    <EPspent>2472</EPspent>
+  </Erfahrung>
+  <AllgemeineInfosExt>
+    <profession></profession>
+    <geschlecht></geschlecht>
+    <geburtsdatum></geburtsdatum>
+    <groesse></groesse>
+    <gewicht></gewicht>
+    <haarfarbe></haarfarbe>
+    <augenfarbe></augenfarbe>
+    <titel></titel>
+    <aussehen1></aussehen1>
+    <aussehen2></aussehen2>
+    <aussehen3></aussehen3>
+    <aussehen4></aussehen4>
+    <aussehen5></aussehen5>
+    <aussehen6></aussehen6>
+    <hintergrund0></hintergrund0>
+    <hintergrund1></hintergrund1>
+    <hintergrund2></hintergrund2>
+    <hintergrund3></hintergrund3>
+    <hintergrund4></hintergrund4>
+    <hintergrund5></hintergrund5>
+    <hintergrund6></hintergrund6>
+    <hintergrund7></hintergrund7>
+    <hintergrund8></hintergrund8>
+    <ansehen>0</ansehen>
+  </AllgemeineInfosExt>
+</Charakter>

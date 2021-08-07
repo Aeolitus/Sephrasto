@@ -1,0 +1,160 @@
+<Charakter>
+  <Version>
+    <DatenbankVersion>1</DatenbankVersion>
+    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
+    <NutzerDatenbankName/>
+  </Version>
+  <AllgemeineInfos>
+    <name>Yezabella Dulcinea Gharbistani</name>
+    <rasse>Tulamidin</rasse>
+    <status>3</status>
+    <kurzbeschreibung>Almadanische Troubaroura mit einem Auge für Profit</kurzbeschreibung>
+    <schips>6</schips>
+    <finanzen>3</finanzen>
+    <heimat>Mittelreich</heimat>
+    <eigenheiten>
+      <Eigenheit>Ich hab da eine Geschichte gehört</Eigenheit>
+      <Eigenheit>Was glänzt denn da?</Eigenheit>
+      <Eigenheit>Fahrendes Volk</Eigenheit>
+    </eigenheiten>
+  </AllgemeineInfos>
+  <Attribute>
+    <KO>3</KO>
+    <MU>3</MU>
+    <GE>5</GE>
+    <KK>3</KK>
+    <IN>6</IN>
+    <KL>4</KL>
+    <CH>7</CH>
+    <FF>6</FF>
+  </Attribute>
+  <Energien>
+    <AsP wert="0"/>
+    <KaP wert="0"/>
+  </Energien>
+  <Vorteile minderpakt="">
+    <Vorteil variable="-1">Flink I</Vorteil>
+    <Vorteil variable="-1">Eindrucksvoll II</Vorteil>
+    <Vorteil variable="-1">Eindrucksvoll I</Vorteil>
+    <Vorteil variable="-1">Standfest</Vorteil>
+    <Vorteil variable="-1">Reflexschuss</Vorteil>
+    <Vorteil variable="-1">Zwergennase</Vorteil>
+    <Vorteil variable="-1">Glück I</Vorteil>
+    <Vorteil variable="-1">Vorausschauend I</Vorteil>
+    <Vorteil variable="-1">Vorausschauend II</Vorteil>
+  </Vorteile>
+  <Fertigkeiten>
+    <Fertigkeit name="Handgemenge" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Hiebwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Klingenwaffen" wert="2">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Stangenwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Schusswaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wurfwaffen" wert="4">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Athletik" wert="4">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heimlichkeit" wert="6">
+      <Talente>
+        <Talent name="Untertauchen" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Selbstbeherrschung" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wahrnehmung" wert="6">
+      <Talente>
+        <Talent name="Menschenkenntnis" variable="-1"/>
+        <Talent name="Wachsamkeit" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Autorität" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Beeinflussung" wert="5">
+      <Talente>
+        <Talent name="Betören" variable="-1"/>
+        <Talent name="Überreden" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Gebräuche" wert="6">
+      <Talente>
+        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
+        <Talent name="Gebräuche: Tulamidenlande" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Derekunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Mythenkunde" wert="7">
+      <Talente>
+        <Talent name="Geschichten und Legenden" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Magiekunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Überleben" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Verschlagenheit" wert="6">
+      <Talente>
+        <Talent name="Stehlen" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Alchemie" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heilkunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Handwerk" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Freie-Fertigkeit name="Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Musizieren" wert="2"/>
+    <Freie-Fertigkeit name="Singen" wert="2"/>
+    <Freie-Fertigkeit name="Tulamydia" wert="1"/>
+    <Freie-Fertigkeit name="Kusliker Zeichen" wert="1"/>
+    <Freie-Fertigkeit name="Gaunerzinken" wert="1"/>
+    <Freie-Fertigkeit name="Dichtkunst" wert="2"/>
+  </Fertigkeiten>
+  <Objekte>
+    <Zonensystem>False</Zonensystem>
+    <Rüstungen>
+      <Rüstung name="Bunte Reisekleidung Mit Hut und Feder" be="0" rs="0/0/0/0/0/0"/>
+    </Rüstungen>
+    <Waffen>
+      <Waffe name="Langdolch" id="Langdolch" W6="1" plus="2" eigenschaften="Parierwaffe" haerte="10" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="Wurfmesser" id="Wurfmesser" W6="1" plus="0" eigenschaften="" haerte="8" rw="4" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
+      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="4" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+    </Waffen>
+    <Ausrüstung>
+      <Ausrüstungsstück>Rucksack, Ersatzkleidung</Ausrüstungsstück>
+      <Ausrüstungsstück>Haarklammern und Schminkkästchen</Ausrüstungsstück>
+      <Ausrüstungsstück>Laute, Ersatzsehnen</Ausrüstungsstück>
+      <Ausrüstungsstück>Diarium, Schreibzeug, Kreide</Ausrüstungsstück>
+      <Ausrüstungsstück>Weinschlauch, Brotbeutel</Ausrüstungsstück>
+      <Ausrüstungsstück>Feuerstein, Stahl, Zunder</Ausrüstungsstück>
+      <Ausrüstungsstück>Geldbeutel, 10 Silbertaler</Ausrüstungsstück>
+      <Ausrüstungsstück>Schlüsselfeile</Ausrüstungsstück>
+      <Ausrüstungsstück>Bürste, Kamm, Seife</Ausrüstungsstück>
+    </Ausrüstung>
+  </Objekte>
+  <Übernatürliche-Fertigkeiten/>
+  <Erfahrung>
+    <EPtotal>3000</EPtotal>
+    <EPspent>2987</EPspent>
+  </Erfahrung>
+</Charakter>

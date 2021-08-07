@@ -1,0 +1,148 @@
+<Charakter>
+  <Version>
+    <DatenbankVersion>1</DatenbankVersion>
+    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
+    <NutzerDatenbankName/>
+  </Version>
+  <AllgemeineInfos>
+    <name></name>
+    <rasse>Mensch</rasse>
+    <status>2</status>
+    <kurzbeschreibung>Kriegerin des Instituts der hohen Schule der Reiterei zu Gareth</kurzbeschreibung>
+    <schips>0</schips>
+    <finanzen>0</finanzen>
+    <heimat>Mittelreich</heimat>
+    <eigenheiten/>
+  </AllgemeineInfos>
+  <Attribute>
+    <KO>4</KO>
+    <MU>4</MU>
+    <GE>4</GE>
+    <KK>6</KK>
+    <IN>2</IN>
+    <KL>2</KL>
+    <CH>2</CH>
+    <FF>1</FF>
+  </Attribute>
+  <Energien>
+    <AsP wert="0"/>
+    <KaP wert="0"/>
+  </Energien>
+  <Vorteile minderpakt="">
+    <Vorteil variable="-1">Einkommen I</Vorteil>
+    <Vorteil variable="-1">Einkommen II</Vorteil>
+    <Vorteil variable="-1">Standfest</Vorteil>
+    <Vorteil variable="-1">Ausfall</Vorteil>
+    <Vorteil variable="-1">Niederwerfen</Vorteil>
+    <Vorteil variable="-1">Waffenloser Kampf</Vorteil>
+    <Vorteil variable="-1">Reiterkampf I</Vorteil>
+    <Vorteil variable="-1">Reiterkampf II</Vorteil>
+    <Vorteil variable="-1">Schildkampf I</Vorteil>
+    <Vorteil variable="-1">Privilegien (Krieger)</Vorteil>
+  </Vorteile>
+  <Fertigkeiten>
+    <Fertigkeit name="Handgemenge" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Hiebwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Klingenwaffen" wert="6">
+      <Talente>
+        <Talent name="Einhandklingenwaffen" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Stangenwaffen" wert="8">
+      <Talente>
+        <Talent name="Lanzenreiten" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Schusswaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wurfwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Athletik" wert="8">
+      <Talente>
+        <Talent name="Reiten" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Heimlichkeit" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Selbstbeherrschung" wert="4">
+      <Talente>
+        <Talent name="Zähigkeit" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Wahrnehmung" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Autorität" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Beeinflussung" wert="2">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Gebräuche" wert="3">
+      <Talente>
+        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Derekunde" wert="2">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Mythenkunde" wert="2">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Magiekunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Überleben" wert="4">
+      <Talente>
+        <Talent name="Überleben: Mittelaventurien" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Verschlagenheit" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Alchemie" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heilkunde" wert="4">
+      <Talente>
+        <Talent name="Wundheilung" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Handwerk" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Freie-Fertigkeit name="" wert="3"/>
+    <Freie-Fertigkeit name="Sprache: Garethi" wert="2"/>
+    <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="2"/>
+  </Fertigkeiten>
+  <Objekte>
+    <Zonensystem>False</Zonensystem>
+    <Rüstungen>
+      <Rüstung name="leichte Platte" be="3" rs="3/3/3/3/3/3"/>
+    </Rüstungen>
+    <Waffen>
+      <Waffe name="Kriegslanze" id="Kriegslanze" W6="3" plus="1" eigenschaften="" haerte="5" rw="2" kampfstil="Reiterkampf" wm="-1" typ="Nah"/>
+      <Waffe name="Säbel" id="Säbel" W6="2" plus="2" eigenschaften="" haerte="10" rw="1" kampfstil="Reiterkampf" wm="0" typ="Nah"/>
+      <Waffe name="Großschild" id="Großschild" W6="1" plus="-1" eigenschaften="Schild, Stumpf" haerte="7" rw="0" kampfstil="Reiterkampf" wm="2" typ="Nah"/>
+      <Waffe name="Kriegspferd" id="Kriegspferd" W6="2" plus="2" eigenschaften="Niederwerfen, Reittier" haerte="14" rw="1" kampfstil="Reiterkampf" wm="1" typ="Nah"/>
+      <Waffe name="Säbel (zu Fuß)" id="Säbel" W6="2" plus="2" eigenschaften="" haerte="10" rw="1" kampfstil="Schildkampf" wm="0" typ="Nah"/>
+      <Waffe name="Großschild (zu Fuß)" id="Großschild" W6="1" plus="-1" eigenschaften="Schild, Stumpf" haerte="7" rw="0" kampfstil="Schildkampf" wm="2" typ="Nah"/>
+      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe, Kopflastig, Wendig" haerte="8" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+    </Waffen>
+    <Ausrüstung>
+      <Ausrüstungsstück>einfache Reiseausrüstung</Ausrüstungsstück>
+    </Ausrüstung>
+  </Objekte>
+  <Übernatürliche-Fertigkeiten/>
+  <Erfahrung>
+    <EPtotal>2000</EPtotal>
+    <EPspent>2011</EPspent>
+  </Erfahrung>
+</Charakter>

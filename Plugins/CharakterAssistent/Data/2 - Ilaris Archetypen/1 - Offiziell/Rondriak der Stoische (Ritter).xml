@@ -1,0 +1,194 @@
+<Charakter>
+  <Version>
+    <DatenbankVersion>1</DatenbankVersion>
+    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
+    <NutzerDatenbankName/>
+  </Version>
+  <AllgemeineInfos>
+    <name>Rondriak der Stoische</name>
+    <rasse>Mensch</rasse>
+    <status>1</status>
+    <kurzbeschreibung>Kampfstarker, aber einfach gestrickter Ritter mit einem großen Herz.</kurzbeschreibung>
+    <schips>4</schips>
+    <finanzen>2</finanzen>
+    <heimat>Mittelreich</heimat>
+    <eigenheiten>
+      <Eigenheit>Tugendhafter Ritter</Eigenheit>
+      <Eigenheit>Grenzenlose Zuversicht</Eigenheit>
+      <Eigenheit>Im wahrsten Sinne des Wortes</Eigenheit>
+      <Eigenheit>Im Zweifel den Adel fragen</Eigenheit>
+    </eigenheiten>
+  </AllgemeineInfos>
+  <Attribute>
+    <KO>3</KO>
+    <MU>6</MU>
+    <GE>3</GE>
+    <KK>6</KK>
+    <IN>4</IN>
+    <KL>2</KL>
+    <CH>4</CH>
+    <FF>2</FF>
+  </Attribute>
+  <Energien>
+    <AsP wert="0"/>
+    <KaP wert="0"/>
+  </Energien>
+  <Vorteile minderpakt="">
+    <Vorteil variable="20,Kriegspferd">Besonderer Besitz</Vorteil>
+    <Vorteil variable="-1">Eindrucksvoll I</Vorteil>
+    <Vorteil variable="-1">Willensstark II</Vorteil>
+    <Vorteil variable="-1">Ausfall</Vorteil>
+    <Vorteil variable="-1">Kommando: Haltet Stand!</Vorteil>
+    <Vorteil variable="-1">Niederwerfen</Vorteil>
+    <Vorteil variable="-1">Offensiver Kampfstil</Vorteil>
+    <Vorteil variable="-1">Waffenloser Kampf</Vorteil>
+    <Vorteil variable="-1">Reiterkampf I</Vorteil>
+    <Vorteil variable="-1">Reiterkampf II</Vorteil>
+    <Vorteil variable="-1">Schildkampf I</Vorteil>
+    <Vorteil variable="-1">Schildkampf II</Vorteil>
+    <Vorteil variable="-1">Willensstark I</Vorteil>
+    <Vorteil variable="-1">Privilegien (Adel)</Vorteil>
+  </Vorteile>
+  <Fertigkeiten>
+    <Fertigkeit name="Handgemenge" wert="6">
+      <Talente>
+        <Talent name="Schilde" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Hiebwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Klingenwaffen" wert="8">
+      <Talente>
+        <Talent name="Einhandklingenwaffen" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Stangenwaffen" wert="6">
+      <Talente>
+        <Talent name="Lanzenreiten" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Schusswaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wurfwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Athletik" wert="6">
+      <Talente>
+        <Talent name="Reiten" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Heimlichkeit" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Selbstbeherrschung" wert="6">
+      <Talente>
+        <Talent name="Zähigkeit" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Wahrnehmung" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Autorität" wert="5">
+      <Talente>
+        <Talent name="Anführen" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Beeinflussung" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Gebräuche" wert="5">
+      <Talente>
+        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Derekunde" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Mythenkunde" wert="5">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Magiekunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Überleben" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Verschlagenheit" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Alchemie" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heilkunde" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Handwerk" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Freie-Fertigkeit name="Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Kusliker Zeichen" wert="3"/>
+    <Freie-Fertigkeit name="Minnesang" wert="2"/>
+    <Freie-Fertigkeit name="Abrichten" wert="1"/>
+    <Freie-Fertigkeit name="Orkisch" wert="1"/>
+  </Fertigkeiten>
+  <Objekte>
+    <Zonensystem>False</Zonensystem>
+    <Rüstungen>
+      <Rüstung name="Kettenhemd" be="2" rs="2/2/2/2/2/2"/>
+    </Rüstungen>
+    <Waffen>
+      <Waffe name="Schwert (SK)" id="Schwert" W6="2" plus="2" eigenschaften="" haerte="10" rw="1" kampfstil="Schildkampf" wm="0" typ="Nah"/>
+      <Waffe name="Schwert (RK)" id="Schwert" W6="2" plus="2" eigenschaften="" haerte="10" rw="1" kampfstil="Reiterkampf" wm="0" typ="Nah"/>
+      <Waffe name="Schwert" id="Schwert" W6="2" plus="2" eigenschaften="" haerte="10" rw="1" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="Holzschild (SK)" id="Holzschild" W6="1" plus="0" eigenschaften="Schild, Stumpf" haerte="8" rw="0" kampfstil="Schildkampf" wm="1" typ="Nah"/>
+      <Waffe name="Holzschild (RK)" id="Holzschild" W6="1" plus="0" eigenschaften="Schild, Stumpf" haerte="8" rw="0" kampfstil="Reiterkampf" wm="1" typ="Nah"/>
+      <Waffe name="Kriegslanze (RK)" id="Kriegslanze" W6="3" plus="1" eigenschaften="" haerte="5" rw="2" kampfstil="Reiterkampf" wm="-1" typ="Nah"/>
+      <Waffe name="Reitpferd (RK)" id="Reitpferd" W6="2" plus="0" eigenschaften="Niederwerfen, Reittier" haerte="13" rw="1" kampfstil="Reiterkampf" wm="-1" typ="Nah"/>
+      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe, Kopflastig, Wendig" haerte="6" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+    </Waffen>
+    <Ausrüstung>
+      <Ausrüstungsstück>Wappenrock</Ausrüstungsstück>
+      <Ausrüstungsstück></Ausrüstungsstück>
+      <Ausrüstungsstück>Wasserschlauch</Ausrüstungsstück>
+      <Ausrüstungsstück></Ausrüstungsstück>
+      <Ausrüstungsstück>2 Garnituren Reisekleidung</Ausrüstungsstück>
+      <Ausrüstungsstück></Ausrüstungsstück>
+      <Ausrüstungsstück>Waffenpflegeset</Ausrüstungsstück>
+      <Ausrüstungsstück></Ausrüstungsstück>
+      <Ausrüstungsstück>Kriegspferd mit leichter Rüstung und Satteltaschen</Ausrüstungsstück>
+    </Ausrüstung>
+  </Objekte>
+  <Übernatürliche-Fertigkeiten/>
+  <Erfahrung>
+    <EPtotal>2500</EPtotal>
+    <EPspent>2488</EPspent>
+  </Erfahrung>
+  <AllgemeineInfosExt>
+    <profession></profession>
+    <geschlecht></geschlecht>
+    <geburtsdatum></geburtsdatum>
+    <groesse></groesse>
+    <gewicht></gewicht>
+    <haarfarbe></haarfarbe>
+    <augenfarbe></augenfarbe>
+    <titel></titel>
+    <aussehen1></aussehen1>
+    <aussehen2></aussehen2>
+    <aussehen3></aussehen3>
+    <aussehen4></aussehen4>
+    <aussehen5></aussehen5>
+    <aussehen6></aussehen6>
+    <hintergrund0></hintergrund0>
+    <hintergrund1></hintergrund1>
+    <hintergrund2></hintergrund2>
+    <hintergrund3></hintergrund3>
+    <hintergrund4></hintergrund4>
+    <hintergrund5></hintergrund5>
+    <hintergrund6></hintergrund6>
+    <hintergrund7></hintergrund7>
+    <hintergrund8></hintergrund8>
+    <ansehen>0</ansehen>
+  </AllgemeineInfosExt>
+</Charakter>

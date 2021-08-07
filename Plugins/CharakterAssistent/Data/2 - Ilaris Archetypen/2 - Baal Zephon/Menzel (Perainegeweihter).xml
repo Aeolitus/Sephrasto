@@ -1,0 +1,182 @@
+<Charakter>
+  <Version>
+    <DatenbankVersion>1</DatenbankVersion>
+    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
+    <NutzerDatenbankName/>
+  </Version>
+  <AllgemeineInfos>
+    <name>Menzel Ölschläger</name>
+    <rasse>Mittelländer</rasse>
+    <status>2</status>
+    <kurzbeschreibung>Peraine Geweihter mit Tragischer Vergangenheit</kurzbeschreibung>
+    <schips>4</schips>
+    <finanzen>2</finanzen>
+    <heimat>Mittelreich</heimat>
+    <eigenheiten>
+      <Eigenheit>Unvergessener Schrecken</Eigenheit>
+      <Eigenheit>Alte Wunden</Eigenheit>
+      <Eigenheit>Mann des Volkes</Eigenheit>
+    </eigenheiten>
+  </AllgemeineInfos>
+  <Attribute>
+    <KO>4</KO>
+    <MU>4</MU>
+    <GE>4</GE>
+    <KK>6</KK>
+    <IN>4</IN>
+    <KL>3</KL>
+    <CH>6</CH>
+    <FF>3</FF>
+  </Attribute>
+  <Energien>
+    <AsP wert="0"/>
+    <KaP wert="0"/>
+  </Energien>
+  <Vorteile minderpakt="">
+    <Vorteil variable="-1">Geweiht I</Vorteil>
+    <Vorteil variable="-1">Geweiht II</Vorteil>
+    <Vorteil variable="-1">Geweiht III</Vorteil>
+    <Vorteil variable="20,">Privilegien</Vorteil>
+    <Vorteil variable="20,">Verbindungen</Vorteil>
+    <Vorteil variable="-1">Waffenloser Kampf</Vorteil>
+    <Vorteil variable="-1">Abgehärtet I</Vorteil>
+    <Vorteil variable="-1">Kraftvoller Kampf I</Vorteil>
+    <Vorteil variable="-1">Kraftvoller Kampf II</Vorteil>
+    <Vorteil variable="-1">Gemeinschaft der Gläubigen</Vorteil>
+    <Vorteil variable="-1">Tradition der Perainegeweihten I</Vorteil>
+    <Vorteil variable="-1">Tradition der Perainegeweihten II</Vorteil>
+    <Vorteil variable="-1">Resistenz gegen Krankheiten</Vorteil>
+    <Vorteil variable="-1">Kampfreflexe</Vorteil>
+    <Vorteil variable="-1">Niederwerfen</Vorteil>
+  </Vorteile>
+  <Fertigkeiten>
+    <Fertigkeit name="Handgemenge" wert="4">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Hiebwaffen" wert="6">
+      <Talente>
+        <Talent name="Zweihandhiebwaffen" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Klingenwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Stangenwaffen" wert="5">
+      <Talente>
+        <Talent name="Infanteriewaffen und Speere" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Schusswaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wurfwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Athletik" wert="4">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heimlichkeit" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Selbstbeherrschung" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wahrnehmung" wert="4">
+      <Talente>
+        <Talent name="Wachsamkeit" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Autorität" wert="2">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Beeinflussung" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Gebräuche" wert="1">
+      <Talente>
+        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Derekunde" wert="4">
+      <Talente>
+        <Talent name="Pflanzenkunde" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Mythenkunde" wert="5">
+      <Talente>
+        <Talent name="Götter und Kulte" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Magiekunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Überleben" wert="2">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Verschlagenheit" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Alchemie" wert="5">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heilkunde" wert="8">
+      <Talente>
+        <Talent name="Gifte und Krankheiten" variable="-1"/>
+        <Talent name="Wundheilung" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Handwerk" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Freie-Fertigkeit name="Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Heldenlegenden" wert="1"/>
+    <Freie-Fertigkeit name="Kusliker Zeichen" wert="1"/>
+  </Fertigkeiten>
+  <Objekte>
+    <Zonensystem>False</Zonensystem>
+    <Rüstungen>
+      <Rüstung name="Kurzes Kettenhemd, Priesterroben, Lederkappe" be="2" rs="2/2/2/2/2/2"/>
+    </Rüstungen>
+    <Waffen>
+      <Waffe name="Dolch (Handgemengewaffen)" id="Dolch (Handgemengewaffen)" W6="1" plus="1" eigenschaften="" haerte="9" rw="0" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
+      <Waffe name="Keule" id="Keule" W6="2" plus="0" eigenschaften="Stumpf, Kopflastig" haerte="8" rw="1" kampfstil="Kraftvoller Kampf" wm="-1" typ="Nah"/>
+      <Waffe name="Kampfstab" id="Kampfstab" W6="1" plus="1" eigenschaften="Wendig, Stumpf, Zweihändig" haerte="4" rw="2" kampfstil="Kraftvoller Kampf" wm="1" typ="Nah"/>
+      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe, Kopflastig, Wendig" haerte="7" rw="0" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
+    </Waffen>
+    <Ausrüstung>
+      <Ausrüstungsstück>Lederrucksack</Ausrüstungsstück>
+      <Ausrüstungsstück>Feuerstein, Stahl, Zunder</Ausrüstungsstück>
+      <Ausrüstungsstück>Brevier des Reisenden Geweihten, Buch des Hl.Têrbun</Ausrüstungsstück>
+      <Ausrüstungsstück>Verbandszeug, Schere, Heilsalbe &amp; Kräuter</Ausrüstungsstück>
+      <Ausrüstungsstück>Geldbeutel, 5 Silbertaler, 10 Heller</Ausrüstungsstück>
+      <Ausrüstungsstück>Wasserschlauch</Ausrüstungsstück>
+    </Ausrüstung>
+  </Objekte>
+  <Übernatürliche-Fertigkeiten>
+    <Übernatürliche-Fertigkeit name="Zwölfgöttlicher Ritus" wert="4" addToPDF="True">
+      <Talente>
+        <Talent name="Feuersegen" variable="-1"/>
+        <Talent name="Speisesegen" variable="-1"/>
+        <Talent name="Tranksegen" variable="-1"/>
+        <Talent name="Heilungssegen" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Heilung" wert="5" addToPDF="True">
+      <Talente>
+        <Talent name="Fürbitten des Heiligen Therbûn" variable="-1"/>
+        <Talent name="Kleiner Giftbann" variable="-1"/>
+        <Talent name="Wundsegen" variable="-1"/>
+        <Talent name="Mirakel: Heilkunde" variable="-1"/>
+        <Talent name="Heilungssegen" variable="-1"/>
+        <Talent name="Schlaf des Gesegneten" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Wachstum" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+  </Übernatürliche-Fertigkeiten>
+  <Erfahrung>
+    <EPtotal>3000</EPtotal>
+    <EPspent>2989</EPspent>
+  </Erfahrung>
+</Charakter>

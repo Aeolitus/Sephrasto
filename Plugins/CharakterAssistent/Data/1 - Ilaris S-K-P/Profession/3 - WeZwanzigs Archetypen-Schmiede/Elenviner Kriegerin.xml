@@ -1,0 +1,142 @@
+<Charakter>
+  <Version>
+    <DatenbankVersion>1</DatenbankVersion>
+    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
+    <NutzerDatenbankName/>
+  </Version>
+  <AllgemeineInfos>
+    <name></name>
+    <rasse>Mensch</rasse>
+    <status>2</status>
+    <kurzbeschreibung>Kriegerin der Herzoglichen Kriegerakademie zu Elenvia</kurzbeschreibung>
+    <schips>2</schips>
+    <finanzen>1</finanzen>
+    <heimat>Mittelreich</heimat>
+    <eigenheiten/>
+  </AllgemeineInfos>
+  <Attribute>
+    <KO>3</KO>
+    <MU>6</MU>
+    <GE>3</GE>
+    <KK>4</KK>
+    <IN>4</IN>
+    <KL>1</KL>
+    <CH>4</CH>
+    <FF>1</FF>
+  </Attribute>
+  <Energien>
+    <AsP wert="0"/>
+    <KaP wert="0"/>
+  </Energien>
+  <Vorteile minderpakt="">
+    <Vorteil variable="-1">Einkommen I</Vorteil>
+    <Vorteil variable="-1">Einkommen II</Vorteil>
+    <Vorteil variable="-1">Willensstark II</Vorteil>
+    <Vorteil variable="-1">Kommando: Haltet Stand!</Vorteil>
+    <Vorteil variable="-1">Reiterkampf I</Vorteil>
+    <Vorteil variable="-1">Schildkampf I</Vorteil>
+    <Vorteil variable="-1">Ausfall</Vorteil>
+    <Vorteil variable="-1">Kampfreflexe</Vorteil>
+    <Vorteil variable="-1">Offensiver Kampfstil</Vorteil>
+    <Vorteil variable="-1">Privilegien (Krieger)</Vorteil>
+  </Vorteile>
+  <Fertigkeiten>
+    <Fertigkeit name="Handgemenge" wert="6">
+      <Talente>
+        <Talent name="Schilde" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Hiebwaffen" wert="4">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Klingenwaffen" wert="8">
+      <Talente>
+        <Talent name="Einhandklingenwaffen" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Stangenwaffen" wert="4">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Schusswaffen" wert="2">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wurfwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Athletik" wert="6">
+      <Talente>
+        <Talent name="Reiten" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Heimlichkeit" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Selbstbeherrschung" wert="5">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wahrnehmung" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Autorität" wert="6">
+      <Talente>
+        <Talent name="Anführen" variable="-1"/>
+        <Talent name="Einschüchtern" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Beeinflussung" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Gebräuche" wert="2">
+      <Talente>
+        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Derekunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Mythenkunde" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Magiekunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Überleben" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Verschlagenheit" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Alchemie" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heilkunde" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Handwerk" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Freie-Fertigkeit name="" wert="3"/>
+    <Freie-Fertigkeit name="Sprache: Garethi" wert="2"/>
+    <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="1"/>
+    <Freie-Fertigkeit name="Minnegesang" wert="2"/>
+  </Fertigkeiten>
+  <Objekte>
+    <Zonensystem>False</Zonensystem>
+    <Rüstungen>
+      <Rüstung name="kurzes Kettenhemd" be="2" rs="2/2/2/2/2/2"/>
+    </Rüstungen>
+    <Waffen>
+      <Waffe name="Schwert" id="Schwert" W6="2" plus="2" eigenschaften="" haerte="10" rw="1" kampfstil="Schildkampf" wm="0" typ="Nah"/>
+      <Waffe name="Holzschild" id="Holzschild" W6="1" plus="0" eigenschaften="Schild, Stumpf" haerte="8" rw="0" kampfstil="Schildkampf" wm="1" typ="Nah"/>
+      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="6" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+    </Waffen>
+    <Ausrüstung>
+      <Ausrüstungsstück>einfache Reiseausrüstung</Ausrüstungsstück>
+    </Ausrüstung>
+  </Objekte>
+  <Übernatürliche-Fertigkeiten/>
+  <Erfahrung>
+    <EPtotal>2000</EPtotal>
+    <EPspent>2012</EPspent>
+  </Erfahrung>
+</Charakter>

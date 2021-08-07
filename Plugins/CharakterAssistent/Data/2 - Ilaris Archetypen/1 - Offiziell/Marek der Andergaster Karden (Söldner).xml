@@ -1,0 +1,188 @@
+<Charakter>
+  <Version>
+    <DatenbankVersion>1</DatenbankVersion>
+    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
+    <NutzerDatenbankName/>
+  </Version>
+  <AllgemeineInfos>
+    <name>Marek "der Andergaster" Karden</name>
+    <rasse>Mensch</rasse>
+    <status>2</status>
+    <kurzbeschreibung>Unglücklich verliebter Söldner auf der Suche nach Ruhm</kurzbeschreibung>
+    <schips>4</schips>
+    <finanzen>2</finanzen>
+    <heimat>Mittelreich</heimat>
+    <eigenheiten>
+      <Eigenheit>Ehrbarer Söldner</Eigenheit>
+      <Eigenheit>Romantischer Träumer</Eigenheit>
+      <Eigenheit>Ich kenne meinen Platz</Eigenheit>
+      <Eigenheit>Provinzler</Eigenheit>
+    </eigenheiten>
+  </AllgemeineInfos>
+  <Attribute>
+    <KO>6</KO>
+    <MU>4</MU>
+    <GE>2</GE>
+    <KK>6</KK>
+    <IN>2</IN>
+    <KL>2</KL>
+    <CH>4</CH>
+    <FF>4</FF>
+  </Attribute>
+  <Energien>
+    <AsP wert="0"/>
+    <KaP wert="0"/>
+  </Energien>
+  <Vorteile minderpakt="">
+    <Vorteil variable="-1">Zerstörerisch I</Vorteil>
+    <Vorteil variable="-1">Ausfall</Vorteil>
+    <Vorteil variable="-1">Niederwerfen</Vorteil>
+    <Vorteil variable="-1">Ruhige Hand</Vorteil>
+    <Vorteil variable="-1">Rüstungsgewöhnung</Vorteil>
+    <Vorteil variable="-1">Schildkampf I</Vorteil>
+    <Vorteil variable="-1">Schildkampf II</Vorteil>
+    <Vorteil variable="-1">Waffenloser Kampf</Vorteil>
+  </Vorteile>
+  <Fertigkeiten>
+    <Fertigkeit name="Handgemenge" wert="8">
+      <Talente>
+        <Talent name="Schilde" variable="-1"/>
+        <Talent name="Unbewaffnet" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Hiebwaffen" wert="8">
+      <Talente>
+        <Talent name="Einhandhiebwaffen" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Klingenwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Stangenwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Schusswaffen" wert="6">
+      <Talente>
+        <Talent name="Armbrüste" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Wurfwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Athletik" wert="5">
+      <Talente>
+        <Talent name="Laufen" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Heimlichkeit" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Selbstbeherrschung" wert="5">
+      <Talente>
+        <Talent name="Zähigkeit" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Wahrnehmung" wert="4">
+      <Talente>
+        <Talent name="Wachsamkeit" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Autorität" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Beeinflussung" wert="5">
+      <Talente>
+        <Talent name="Überreden" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Gebräuche" wert="5">
+      <Talente>
+        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Derekunde" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Mythenkunde" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Magiekunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Überleben" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Verschlagenheit" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Alchemie" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heilkunde" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Handwerk" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Freie-Fertigkeit name="Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Kusliker Zeichen" wert="3"/>
+    <Freie-Fertigkeit name=" Tanzen " wert="1"/>
+  </Fertigkeiten>
+  <Objekte>
+    <Zonensystem>False</Zonensystem>
+    <Rüstungen>
+      <Rüstung name="Kettenhemd mit Lederteilen" be="2" rs="2/2/2/2/2/2"/>
+    </Rüstungen>
+    <Waffen>
+      <Waffe name="Streitaxt" id="Streitaxt" W6="2" plus="1" eigenschaften="Kopflastig" haerte="8" rw="1" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="Streitaxt (SK)" id="Streitaxt" W6="2" plus="1" eigenschaften="Kopflastig" haerte="8" rw="1" kampfstil="Schildkampf" wm="0" typ="Nah"/>
+      <Waffe name="Holzschild (SK)" id="Holzschild" W6="1" plus="0" eigenschaften="Schild, Stumpf" haerte="8" rw="0" kampfstil="Schildkampf" wm="1" typ="Nah"/>
+      <Waffe name="Dolch" id="Dolch (Handgemengewaffen)" W6="1" plus="1" eigenschaften="" haerte="9" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="Dolch (SK)" id="Dolch (Handgemengewaffen)" W6="1" plus="1" eigenschaften="" haerte="9" rw="0" kampfstil="Schildkampf" wm="0" typ="Nah"/>
+      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe, Kopflastig, Wendig" haerte="7" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="Leichte Armbrust" id="Leichte Armbrust" W6="3" plus="1" eigenschaften="Zweihändig" haerte="4" rw="32" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="4"/>
+    </Waffen>
+    <Ausrüstung>
+      <Ausrüstungsstück>10 Bolzen im Köcher</Ausrüstungsstück>
+      <Ausrüstungsstück></Ausrüstungsstück>
+      <Ausrüstungsstück>Rucksack, Mantel, Wolldecke</Ausrüstungsstück>
+      <Ausrüstungsstück></Ausrüstungsstück>
+      <Ausrüstungsstück>Ersatzkleidung und gute Wanderstiefel</Ausrüstungsstück>
+      <Ausrüstungsstück></Ausrüstungsstück>
+      <Ausrüstungsstück>3 Tage Proviant, Wasserschlauch</Ausrüstungsstück>
+      <Ausrüstungsstück></Ausrüstungsstück>
+      <Ausrüstungsstück>Einfaches Essgeschirr</Ausrüstungsstück>
+    </Ausrüstung>
+  </Objekte>
+  <Übernatürliche-Fertigkeiten/>
+  <Erfahrung>
+    <EPtotal>2500</EPtotal>
+    <EPspent>2499</EPspent>
+  </Erfahrung>
+  <AllgemeineInfosExt>
+    <profession></profession>
+    <geschlecht></geschlecht>
+    <geburtsdatum></geburtsdatum>
+    <groesse></groesse>
+    <gewicht></gewicht>
+    <haarfarbe></haarfarbe>
+    <augenfarbe></augenfarbe>
+    <titel></titel>
+    <aussehen1></aussehen1>
+    <aussehen2></aussehen2>
+    <aussehen3></aussehen3>
+    <aussehen4></aussehen4>
+    <aussehen5></aussehen5>
+    <aussehen6></aussehen6>
+    <hintergrund0></hintergrund0>
+    <hintergrund1></hintergrund1>
+    <hintergrund2></hintergrund2>
+    <hintergrund3></hintergrund3>
+    <hintergrund4></hintergrund4>
+    <hintergrund5></hintergrund5>
+    <hintergrund6></hintergrund6>
+    <hintergrund7></hintergrund7>
+    <hintergrund8></hintergrund8>
+    <ansehen>0</ansehen>
+  </AllgemeineInfosExt>
+</Charakter>

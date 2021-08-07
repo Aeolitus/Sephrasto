@@ -1,0 +1,230 @@
+<Charakter>
+  <Version>
+    <DatenbankVersion>1</DatenbankVersion>
+    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
+    <NutzerDatenbankName/>
+  </Version>
+  <AllgemeineInfos>
+    <name></name>
+    <rasse></rasse>
+    <status>2</status>
+    <kurzbeschreibung>Magierin der Halle des Quecksilbers zu Festum</kurzbeschreibung>
+    <schips>4</schips>
+    <finanzen>2</finanzen>
+    <heimat>Mittelreich</heimat>
+    <eigenheiten/>
+  </AllgemeineInfos>
+  <Attribute>
+    <KO>2</KO>
+    <MU>3</MU>
+    <GE>2</GE>
+    <KK>2</KK>
+    <IN>4</IN>
+    <KL>6</KL>
+    <CH>2</CH>
+    <FF>3</FF>
+  </Attribute>
+  <Energien>
+    <AsP wert="4"/>
+    <KaP wert="0"/>
+  </Energien>
+  <Vorteile minderpakt="">
+    <Vorteil variable="-1">Zauberer I</Vorteil>
+    <Vorteil variable="-1">Zauberer II</Vorteil>
+    <Vorteil variable="-1">Zauberer III</Vorteil>
+    <Vorteil variable="-1">Kontrolliertes Zaubern</Vorteil>
+    <Vorteil variable="-1">Tradition der Gildenmagier I</Vorteil>
+    <Vorteil variable="-1">Privilegien (Gildenmagier)</Vorteil>
+  </Vorteile>
+  <Fertigkeiten>
+    <Fertigkeit name="Handgemenge" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Hiebwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Klingenwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Stangenwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Schusswaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wurfwaffen" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Athletik" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heimlichkeit" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Selbstbeherrschung" wert="1">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Wahrnehmung" wert="5">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Autorität" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Beeinflussung" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Gebräuche" wert="3">
+      <Talente>
+        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
+      </Talente>
+    </Fertigkeit>
+    <Fertigkeit name="Derekunde" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Mythenkunde" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Magiekunde" wert="5">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Überleben" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Verschlagenheit" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Alchemie" wert="3">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Heilkunde" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Fertigkeit name="Handwerk" wert="0">
+      <Talente/>
+    </Fertigkeit>
+    <Freie-Fertigkeit name="" wert="3"/>
+    <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Sprache: Tulamidya" wert="2"/>
+    <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="2"/>
+    <Freie-Fertigkeit name="Sprache: Bosparano" wert="2"/>
+    <Freie-Fertigkeit name="Schrift: Tulamidya-Zeichen" wert="2"/>
+  </Fertigkeiten>
+  <Objekte>
+    <Zonensystem>False</Zonensystem>
+    <Rüstungen/>
+    <Waffen>
+      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="4" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="Magierstab" id="Magierstab" W6="1" plus="1" eigenschaften="Stumpf, Unzerstörbar, Zweihändig" haerte="1" rw="2" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+    </Waffen>
+    <Ausrüstung/>
+  </Objekte>
+  <Übernatürliche-Fertigkeiten>
+    <Übernatürliche-Fertigkeit name="Antimagie" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Dämonisch" wert="0" addToPDF="True">
+      <Talente>
+        <Talent name="Hartes schmelze!" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Eigenschaften" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Einfluss" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Eis" wert="0" addToPDF="True">
+      <Talente>
+        <Talent name="Caldofrigo heiß und kalt" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Erz" wert="0" addToPDF="True">
+      <Talente>
+        <Talent name="Adamantium Erzstruktur" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Feuer" wert="0" addToPDF="True">
+      <Talente>
+        <Talent name="Ewige Flamme" variable="-1"/>
+        <Talent name="Caldofrigo heiß und kalt" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Hellsicht" wert="3" addToPDF="True">
+      <Talente>
+        <Talent name="Analys Arcanstruktur" variable="-1"/>
+        <Talent name="Odem Arcanum" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Humus" wert="0" addToPDF="True">
+      <Talente>
+        <Talent name="Balsam Salabunde" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Illusion" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Kraft" wert="0" addToPDF="True">
+      <Talente>
+        <Talent name="Bindung des Stabs" variable="-1"/>
+        <Talent name="Analys Arcanstruktur" variable="-1"/>
+        <Talent name="Odem Arcanum" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Luft" wert="0" addToPDF="True">
+      <Talente>
+        <Talent name="Nebelwand und Morgendunst" variable="-1"/>
+        <Talent name="Sapefacta Zauberschwamm" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Temporal" wert="0" addToPDF="True">
+      <Talente>
+        <Talent name="Objectofixo" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Umwelt" wert="6" addToPDF="True">
+      <Talente>
+        <Talent name="Flim Flam Funkel" variable="-1"/>
+        <Talent name="Foramen Foraminor" variable="-1"/>
+        <Talent name="Nebelwand und Morgendunst" variable="-1"/>
+        <Talent name="Silentium Schweigekreis" variable="-1"/>
+        <Talent name="Sapefacta Zauberschwamm" variable="-1"/>
+        <Talent name="Caldofrigo heiß und kalt" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Verständigung" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Verwandlung" wert="6" addToPDF="True">
+      <Talente>
+        <Talent name="Adamantium Erzstruktur" variable="-1"/>
+        <Talent name="Balsam Salabunde" variable="-1"/>
+        <Talent name="Caldofrigo heiß und kalt" variable="-1"/>
+        <Talent name="Hartes schmelze!" variable="-1"/>
+        <Talent name="Objectofixo" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Wasser" wert="0" addToPDF="True">
+      <Talente>
+        <Talent name="Nebelwand und Morgendunst" variable="-1"/>
+        <Talent name="Hartes schmelze!" variable="-1"/>
+        <Talent name="Sapefacta Zauberschwamm" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Kugelzauber" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Schalenzauber" wert="0" addToPDF="True">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Stabzauber" wert="3" addToPDF="True">
+      <Talente>
+        <Talent name="Bindung des Stabs" variable="-1"/>
+        <Talent name="Ewige Flamme" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
+  </Übernatürliche-Fertigkeiten>
+  <Erfahrung>
+    <EPtotal>2000</EPtotal>
+    <EPspent>2010</EPspent>
+  </Erfahrung>
+</Charakter>
