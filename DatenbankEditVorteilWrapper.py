@@ -61,7 +61,7 @@ class DatenbankEditVorteilWrapper(object):
         self.linkKategorieChanged()
         if vorteil.linkKategorie > 0:
             self.ui.comboLinkElement.setCurrentText(vorteil.linkElement)
-        self.ui.teCheatsheet.setText(vorteil.cheatsheetBeschreibung)
+        self.ui.teCheatsheet.setPlainText(vorteil.cheatsheetBeschreibung)
 
         self.ui.scriptPrioEdit.setValue(vorteil.scriptPrio)
 
