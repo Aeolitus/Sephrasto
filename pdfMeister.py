@@ -250,7 +250,7 @@ class pdfMeister(object):
         if vorteil.linkKategorie == 3:
             if vorteil.linkElement in Wolke.Char.vorteile:
                 return True
-            return self.isVorteilLinked(Wolke.DB.vorteile[vorteil.linkElement])          
+            return self.isLinkedToVorteil(Wolke.DB.vorteile[vorteil.linkElement])          
 
         return False
 

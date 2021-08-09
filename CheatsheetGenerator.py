@@ -190,7 +190,7 @@ class CheatsheetGenerator(object):
                 return True
             if vorteil.linkElement in Wolke.Char.vorteile:
                 return False
-            return Wolke.DB.vorteile[vorteil.linkElement].isCheatsheetLinkedTo(vorteil, kategorie, element)            
+            return self.isCheatsheetLinkedTo(Wolke.DB.vorteile[vorteil.linkElement], kategorie, element)            
 
         return False
 
