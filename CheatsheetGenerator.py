@@ -465,10 +465,10 @@ class CheatsheetGenerator(object):
             if isGeweiht:
                 weitereskarma.extend(weiteresmagie)
                 weitereskarma = sorted(weitereskarma)
-                weiteresmagie.clear()
+                weiteresmagie = []
             elif isPaktierer:
                 weiteresdämonisch = weiteresmagie
-                weiteresmagie.clear()
+                weiteresmagie = []
 
         zauber = set()
         liturgien = set()

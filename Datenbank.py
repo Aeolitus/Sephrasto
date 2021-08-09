@@ -304,6 +304,8 @@ class Datenbank():
                 removed = self.freieFertigkeiten.pop(name)
             if removed:
                 self.removeList.append((name, typ, removed))
+            else:
+                logging.warn("Found remove entry for non-existant element: " + typ + " " + name)
 
         #Vorteile
         Wolke.Fehlercode = -21
@@ -604,6 +606,14 @@ class Datenbank():
                     if notifyError:
                         assert False, errorStr
                     logging.warning(errorStr)
+
+        if not refDB:
+            for dbType in [self.vorteile, self.talente, self.fertigkeiten, self.übernatürlicheFertigkeiten, self.manöver, self.freieFertigkeiten]:
+                for elem in dbType.values():
+                    try:
+                        Hilfsmethoden.VorStr2Array(Hilfsmethoden.VorArray2Str(elem.voraussetzungen), self)
+                    except VoraussetzungException as e:
+                        logging.warning("Error in Voraussetzungen of " + elem.name + ": " + str(e)) 
 
         if numLoaded <1 and refDB:
             Wolke.Fehlercode = -33
