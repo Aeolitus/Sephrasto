@@ -499,11 +499,11 @@ Die Bedingung Trommelspiel kann nicht ignoriert werden.</Vorteil>
   <Vorteil name="Tradition der Derwische IV" kosten="80" voraussetzungen="Attribut FF 10, Vorteil Tradition der Derwische III" nachkauf="häufig" typ="5" variable="0" kommentar="1" csBeschreibung="Meisterschaft: $kommentar$." linkKategorie="3" linkElement="Tradition der Derwische III">Bedingung: 2 weitere Attribute auf insgesamt 16.
 
 8 Punkte können zur Verbesserung der Tradition verwendet werden. Sephrasto: Trage die Verbesserungen in das Kommentarfeld ein.</Vorteil>
-  <Vorteil name="Tradition der Durro-dun I" kosten="20" voraussetzungen="Attribut MU 4, Vorteil Zauberer I" nachkauf="häufig" typ="5" variable="0" kommentar="0" csBeschreibung="Bedingungen: Sichtkontakt, Geste.&#10;&#10;Du kannst Zauber in der Tradition der Durro-dûn erlernen und benutzen. Solche Zauber findest du unter Gaben des Odun (S. 159).&#10;&#10;Du musst dich beim Erlernen für ein Tier entscheiden (siehe S. 158). Alle deine Zauber beziehen sich auf dieses Tier.">Bedingungen: Sichtkontakt, Geste.
+  <Vorteil name="Tradition der Durro-dun I" kosten="20" voraussetzungen="Attribut MU 4, Vorteil Zauberer I" nachkauf="häufig" typ="5" variable="0" kommentar="0" csBeschreibung="Bedingungen: Sichtkontakt, Geste.&#10;&#10;Du kannst Zauber in der Tradition der Durro-dûn erlernen und benutzen. Solche Zauber findest du unter Gaben des Odun (S. 159).&#10;&#10;Du musst dich beim Erlernen für ein Tier entscheiden (siehe S. 160). Alle deine Zauber beziehen sich auf dieses Tier.">Bedingungen: Sichtkontakt, Geste.
 
 Du kannst Zauber in der Tradition der Durro-dûn erlernen und benutzen. Solche Zauber findest du unter Gaben des Odun (S. 159).
 
-Du musst dich beim Erlernen für ein Tier entscheiden (siehe S. 158). Alle deine Zauber beziehen sich auf dieses Tier.
+Du musst dich beim Erlernen für ein Tier entscheiden (siehe S. 160). Alle deine Zauber beziehen sich auf dieses Tier.
 
 Sephrasto: Die Tiertabelle ist in Sephrasto über die kostenlosen Tiergeist-Vorteile abgebildet, wähle einen davon aus. Dies schaltet alle Zauber des Tiergeists über die Fertigkeit Gaben des Odun frei.</Vorteil>
   <Vorteil name="Tradition der Durro-dun II" kosten="40" voraussetzungen="Attribut MU 6, Vorteil Tradition der Durro-dun I" nachkauf="häufig" typ="5" variable="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Durro-dun I">Erfahrene Durro-dûn rufen die Tiergeister scheinbar mühelos in ihren Körper. Die Kosten aller Zauber, die du auf dich selbst wirkst, sinken um ein Viertel der Basiskosten.</Vorteil>
@@ -526,7 +526,7 @@ Verärgert der Nutznießer eines positiven schamanischen Zaubers den entsprechen
 Du kannst Zauber in der Tradition der Zauberbarden erlernen und benutzen. Solche Zauber findest du unter Zaubermelodien (S. 174).
 
 Die Bedingung Instrumentenspiel kann nicht ignoriert werden.</Vorteil>
-  <Vorteil name="Tradition der Zauberbarden II" kosten="40" voraussetzungen="Attribut CH 6, Vorteil Tradition der Zauberbarden I" nachkauf="häufig" typ="5" variable="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Zauberbarden I">Zauberbarden können ihre Melodie flexibel verändern. Während du einen Zauber mit der Eigenschaft Konzentration (S. 123) aufrechterhältst, kannst du weitere Zauber vorbereiten. (Die Aktion Konflikt ist dennoch nötig und beendet den vorherigen Zauber.)</Vorteil>
+  <Vorteil name="Tradition der Zauberbarden II" kosten="40" voraussetzungen="Attribut CH 6, Vorteil Tradition der Zauberbarden I" nachkauf="häufig" typ="5" variable="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Zauberbarden I">Zauberbarden können ihre Melodie flexibel verändern. Während du einen Zauber mit der Eigenschaft Konzentration (S. 124) aufrechterhältst, kannst du weitere Zauber vorbereiten. (Die Aktion Konflikt ist dennoch nötig und beendet den vorherigen Zauber.)</Vorteil>
   <Vorteil name="Tradition der Zauberbarden III" kosten="60" voraussetzungen="Attribut CH 8, Vorteil Tradition der Zauberbarden II" nachkauf="häufig" typ="5" variable="0" kommentar="0" csBeschreibung="Erlaubt die spontane Modifikation Zeit lassen." linkKategorie="3" linkElement="Tradition der Zauberbarden II">Erlaubt die spontane Modifikation Zeit lassen (Zauber +2): Verdoppelt die Vorbereitungszeit, aber erleichtert den Zauber um +2. Eine Vorbereitungszeit von 0 Aktionen wird zu 1 Aktion. Kann einmal pro Zauber eingesetzt werden und wirkt nicht auf Zauber mit frei wählbarer Vorbereitungszeit.</Vorteil>
   <Vorteil name="Tradition der Zauberbarden IV" kosten="80" voraussetzungen="Attribut CH 10, Vorteil Tradition der Zauberbarden III" nachkauf="häufig" typ="5" variable="0" kommentar="1" csBeschreibung="Meisterschaft: $kommentar$." linkKategorie="3" linkElement="Tradition der Zauberbarden III">Bedingung: 2 weitere Attribute auf insgesamt 16.
 
@@ -1082,7 +1082,7 @@ Wirkungsdauer: augenblicklich
 Kosten: nach Dämon
 Fertigkeiten: Dämonisch
 Erlernen: Mag 14; Bor, Hex 16; Ach, Alch, Dru 18; 120 EP</Talent>
-  <Talent name="Karnifilo Raserei" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Dämonisch, Eigenschaften, Einfluss" variable="0" printclass="0">Dein Ziel verfällt in einen Kampfrausch. Es erhält die Vorteile Kalte Wut und Offensiver Kampfstil (S. 42) und nutzt in jeder Aktion volle Offensive. Sind keine Gegner mehr da, greift es auch Verbündete an.
+  <Talent name="Karnifilo Raserei" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Dämonisch, Eigenschaften, Einfluss" variable="0" printclass="0">Dein Ziel verfällt in einen Kampfrausch. Es erhält die Vorteile Kalte Wut und Offensiver Kampfstil (S. 43) und nutzt in jeder Aktion volle Offensive. Sind keine Gegner mehr da, greift es auch Verbündete an.
 Mächtige Magie: Die AT steigt um +1.
 Probenschwierigkeit: Magieresistenz
 Vorbereitungszeit: 1 Aktion
@@ -1122,7 +1122,7 @@ Wirkungsdauer: 1 Stunde
 Kosten: 16 AsP
 Fertigkeiten: Dämonisch
 Erlernen: Bor 16; Hex 18; Mag 20; 40 EP</Talent>
-  <Talent name="Panik überkomme euch!" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I" verbilligt="0" fertigkeiten="Dämonisch, Einfluss" variable="0" printclass="0">Du erscheinst jedem, der dich sehen kann und der keine Konterprobe (Magieresistenz, 12) besteht, als ein Wesen mit Schreckgestalt II.
+  <Talent name="Panik überkomme euch!" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I" verbilligt="0" fertigkeiten="Dämonisch, Einfluss" variable="0" printclass="0">Du erscheinst jedem, der dich sehen kann und der keine Konterprobe (Magieresistenz, 12) besteht, als ein Wesen mit Schreckgestalt II (S. 98).
 Probenschwierigkeit: 12
 Modifikationen: Objekt (–4, Einzelobjekt)
 Vorbereitungszeit: 2 Aktionen
@@ -1365,7 +1365,7 @@ Wirkungsdauer: 1 Stunde
 Kosten: 4 AsP
 Fertigkeiten: Eigenschaften
 Erlernen: Hex 16; Elf 18; 20 EP</Talent>
-  <Talent name="Krötensprung" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Eigenschaften" variable="0" printclass="0">Der nächste Sprung deines Zieles ist gewaltig. Er kann bis zu 8 Schritt Weite und 4 Schritt Höhe überwinden und die effektive Sturzhöhe (S. 35) sinkt um 4 Schritt.
+  <Talent name="Krötensprung" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Eigenschaften" variable="0" printclass="0">Der nächste Sprung deines Zieles ist gewaltig. Er kann bis zu 8 Schritt Weite und 4 Schritt Höhe überwinden und die effektive Sturzhöhe (S. 34) sinkt um 4 Schritt.
 Mächtige Magie: Die Weite steigt um +4 Schritt,  die (Sturz-)Höhe um +2 Schritt.
 Probenschwierigkeit: 12
 Modifikationen: Krötengang (–4, Wirkungsdauer 16 Initiativphasen, 8 AsP; dein Ziel kann beliebig oft springen.)
@@ -2522,7 +2522,7 @@ Erlernen: Ach, Mag 18; Geo, Dru 20; 60 EP</Talent>
   <Talent name="Klarum Purum" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Humus" variable="0" printclass="0">Du stoppst die Wirkung eines Giftes bis Stufe 16 sofort.
 Mächtige Magie: Die maximal aufgehobene Giftstufe steigt um 4.
 Probenschwierigkeit: 12
-Modifikationen: Schutz (Wirkungsdauer 8 Stunden; die verzauberte Person ist resistent gegen Gifte bis zur entsprechenden Giftstufe (S. 34). War sie bereits resistent, ist sie immun.)
+Modifikationen: Schutz (Wirkungsdauer 8 Stunden; die verzauberte Person ist resistent gegen Gifte bis zur entsprechenden Giftstufe (S. 35). War sie bereits resistent, ist sie immun.)
 Vorbereitungszeit: 2 Aktionen
 Ziel: Einzelwesen
 Reichweite: Berührung
@@ -4510,7 +4510,7 @@ Ziel: Einzelobjekt
 Reichweite: 8 Schritt
 Wirkungsdauer: 4 Minuten
 Kosten: 4 AsP</Talent>
-  <Talent name="Blut des (Tieres)" kosten="40" voraussetzungen="Vorteil Tradition der Durro-dun I" verbilligt="0" fertigkeiten="Verwandlung, Gaben des Odun" variable="0" printclass="4">Du wirst von der animalischen Essenz deines Tiergeistes erfüllt. Jedem, der keine Konterprobe (MU, 16) besteht, erscheinst du als ein Wesen mit Schreckgestalt II.
+  <Talent name="Blut des (Tieres)" kosten="40" voraussetzungen="Vorteil Tradition der Durro-dun I" verbilligt="0" fertigkeiten="Verwandlung, Gaben des Odun" variable="0" printclass="4">Du wirst von der animalischen Essenz deines Tiergeistes erfüllt. Jedem, der keine Konterprobe (MU, 16) besteht, erscheinst du als ein Wesen mit Schreckgestalt II (S. 98).
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
 Ziel: selbst
@@ -5972,7 +5972,7 @@ Wirkungsdauer: permanent
 Kosten: 16 AsP
 Fertigkeiten: Kraft, Schalenzauber
 Erlernen: Alch 8; Hex 14; Mag 16; 20 EP</Talent>
-  <Talent name="Allegorische Analyse (passiv)" kosten="20" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Schalenzauber" variable="0" printclass="14">Du lässt einen 1 gAsP in die Schale fließen. Fortan leuchten bei der Analyse einer Astralstruktur in deiner Schale arkane Symbole auf der Schale auf. Dadurch erhältst du bei Intensitätsanalysen +1 Analysegrad (S. 80). .
+  <Talent name="Allegorische Analyse (passiv)" kosten="20" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Schalenzauber" variable="0" printclass="14">Du lässt einen 1 gAsP in die Schale fließen. Fortan leuchten bei der Analyse einer Astralstruktur in deiner Schale arkane Symbole auf der Schale auf. Dadurch steigt dein Analysegrad bei Intensitätsanalysen um 1 (S. 80).
 Erlernen: Alch 12; Hex, Mag 16; 20 EP</Talent>
   <Talent name="Apport der Schale" kosten="20" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Schalenzauber, Umwelt" variable="0" printclass="14">Der Ritualgegenstand kehrt fliegend mit einer Geschwindigkeit von 10 Meilen pro Stunde zu dir zurück. Er weicht Hindernissen aus oder durchbricht sie notfalls, wenn die KK von PW Schalenzauber/2 oder Umwelt/2 dafür ausreicht.
 Probenschwierigkeit: 12
@@ -7577,7 +7577,7 @@ Wirkungsdauer: bis zur Fertigstellung
 Kosten: 32 KaP
 Fertigkeiten: Heiliges Handwerk, Wissen
 Erlernen: Ang, Hes, Ing 16; 60 EP</Talent>
-  <Talent name="Schlangenstab" kosten="40" voraussetzungen="Vorteil Tradition der Hesindegeweihten I" verbilligt="0" fertigkeiten="Wissen" variable="0" printclass="31">Dein Stab verwandelt sich in eine Smaragdnatter, die dich verteidigt. Die Natter verfügt über die Werte einer Schlange (S. 123) und die Vorteile Resistenz (profan) III und Schreckgestalt II. Ihre Angriffe richten geweihten Schaden an.
+  <Talent name="Schlangenstab" kosten="40" voraussetzungen="Vorteil Tradition der Hesindegeweihten I" verbilligt="0" fertigkeiten="Wissen" variable="0" printclass="31">Dein Stab verwandelt sich in eine Smaragdnatter, die dich verteidigt. Die Natter verfügt über die Werte einer Schlange (S. 123) und die Vorteile Resistenz (profan) III und Schreckgestalt II (S. 98). Ihre Angriffe richten geweihten Schaden an.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Aktionen
 Ziel: Einzelobjekt
@@ -7778,7 +7778,7 @@ Wirkungsdauer: 1 Stunde
 Kosten: 8 KaP
 Fertigkeiten: Heiliges Feuer, Heim und Herd
 Erlernen: Ang, Ing 12; Tra 18; 40 EP</Talent>
-  <Talent name="Waliburias Wehr" kosten="40" voraussetzungen="Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition der Angroschgeweihten I ODER Vorteil Tradition der Korgeweihten I" verbilligt="0" fertigkeiten="Guter Kampf, Heiliges Feuer" variable="0" printclass="33">Bei jeder deiner Bewegungen stieben Funken und Rauch steigt auf. Für feindlich gesinnte Humanoide, Tiere, Feenwesen oder Mythenwesen giltst du als Schreckgestalt Stufe 2 (S. 38).
+  <Talent name="Waliburias Wehr" kosten="40" voraussetzungen="Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition der Angroschgeweihten I ODER Vorteil Tradition der Korgeweihten I" verbilligt="0" fertigkeiten="Guter Kampf, Heiliges Feuer" variable="0" printclass="33">Bei jeder deiner Bewegungen stieben Funken und Rauch steigt auf. Für feindlich gesinnte Humanoide, Tiere, Feenwesen oder Mythenwesen giltst du als Schreckgestalt Stufe 2 (S. 98).
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: selbst
@@ -8361,7 +8361,7 @@ Wirkungsdauer: 16 Initiativphasen
 Kosten: 8 KaP
 Fertigkeiten: Ehre, Heerführung
 Erlernen: Ron 8; 40 EP</Talent>
-  <Talent name="Für die Göttin, für Rondra!" kosten="40" voraussetzungen="Vorteil Tradition der Rondrageweihten I" verbilligt="0" fertigkeiten="Ehre" variable="0" printclass="45">Die Macht der Göttin erfüllt dich, während du einen Sturmangriff durchführst (S. 40). Der erste Sturmangriff während der Wirkungsdauer trifft alle Gegner in deiner Bahn, bis du durch mindestens 2 erfolgreiche Verteidigungen gestoppt wirst. Alle AT gelten als Angriffe zum Niederwerfen.
+  <Talent name="Für die Göttin, für Rondra!" kosten="40" voraussetzungen="Vorteil Tradition der Rondrageweihten I" verbilligt="0" fertigkeiten="Ehre" variable="0" printclass="45">Die Macht der Göttin erfüllt dich, während du einen Sturmangriff durchführst (S. 41). Der erste Sturmangriff während der Wirkungsdauer trifft alle Gegner in deiner Bahn, bis du durch mindestens 2 erfolgreiche Verteidigungen gestoppt wirst. Alle AT gelten als Angriffe zum Niederwerfen.
 Mächtige Liturgie: Die AT ist um +1 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9491,7 +9491,7 @@ Wirkungsdauer: 16 Initiativephasen
 Kosten: halbe Basiskosten der Beschwörung in GuP
 Fertigkeiten: Dämonische Hilfe (Cpt)
 Erlernen: Cpt 16; 40 EP</Talent>
-  <Talent name="Jäger aus der Tiefe" kosten="20" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="0" printclass="200">Verleiht unter Wasser die Kreatureneigenschaft Tarnung (S. 98) und Pirschen-Proben sind um +4 erleichtert.
+  <Talent name="Jäger aus der Tiefe" kosten="20" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="0" printclass="200">Verleiht unter Wasser den Vorteil Tarnung (S. 98) und Pirschen-Proben sind um +4 erleichtert.
 Mächtige Anrufung: Erleichtert Pirschen-Proben unter Wasser um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Aktion
@@ -9525,7 +9525,7 @@ Wirkungsdauer: bis die Bindung gelöst wird
 Kosten: 8 GuP, davon 2 gGuP
 Fertigkeiten: Dämonische Hilfe (Cpt)
 Erlernen: Cpt 18; 60 EP</Talent>
-  <Talent name="Irrlichtertanz" kosten="40" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="0" printclass="200">Bei jeder deiner Bewegungen stieben Funken und Rauch steigt auf. Für feindlich gesinnte Humanoide, Tiere, Feenwesen oder Mythenwesen giltst du als Schreckgestalt Stufe 2 (S. 38).
+  <Talent name="Irrlichtertanz" kosten="40" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="0" printclass="200">Bei jeder deiner Bewegungen stieben Funken und Rauch steigt auf. Für feindlich gesinnte Humanoide, Tiere, Feenwesen oder Mythenwesen giltst du als Schreckgestalt Stufe 2 (S. 98).
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: selbst
@@ -9696,13 +9696,13 @@ Eine dieser vier Modifikationen kombinierst du mit einem antimagischen Zauber. Z
   <Übernatürliche-Fertigkeit name="Geister des Zorns" steigerungsfaktor="3" voraussetzungen="Vorteil Tradition der Schamanen I" attribute="MU|IN|KO" printclass="0">Manche Schamanen sind finstere Gesellen, die zornige Geister auf ihre Feinde hetzen. Solche Schamanen sind oft bei Freund und Feind gefürchtet.</Übernatürliche-Fertigkeit>
   <Übernatürliche-Fertigkeit name="Geister rufen" steigerungsfaktor="4" voraussetzungen="Vorteil Tradition der Schamanen I" attribute="CH|IN|KL" printclass="0">Einige Schamanen sehen sich hauptsächlich als Vermittler zwischen der Welt der Menschen und dem Geisterreich. Sie können dessen Bewohner herbeirufen und sie um Hilfe bitten.</Übernatürliche-Fertigkeit>
   <Übernatürliche-Fertigkeit name="Geister vertreiben" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Schamanen I" attribute="CH|IN|MU" printclass="0">Wann immer der Stamm von finsteren Geistern - also übernatürlichen Wesen, Wunden oder Krankheiten - bedroht ist, schreitet der Schamane ein, um die Geister wieder zu vertreiben.</Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Hexenflüche" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Hexen I" attribute="CH|IN|MU" printclass="0">Als Hexe hast du zwei Möglichkeiten, deine Flüche zu überbringen. Entweder du schleuderst sie direkt lautstark auf das Opfer, wodurch du häufig vom Bonus der Hexischen Repräsentation II profitieren kannst, oder du lässt den Fluch unauffällig von deinem Vertrauten überbringen. Dafür benötigst du allerdings ein Körperteil (z.B. Haar) deines Opfers. In beiden Fällen legst du danach die Probe auf eine passende übernatürliche Fertigkeit ab. Jeder Hexenfluch kann auch permanent gesprochen werden. Das verdoppelt die Kosten und ein Achtel der AsP halten als gAsP den Fluch aufrecht. Neben Antimagie oder göttlichem Wirken kann ein permanenter Fluch immer auch durch das Erfüllen einer Bedingung beendet werden. Diese Bedingung muss realistisch erfüllbar sein und du musst sie dem Verfluchten mitteilen (direkter Fluch) oder er erfährt sie in seinen Träumen (überbrachter Fluch).
+  <Übernatürliche-Fertigkeit name="Hexenflüche" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Hexen I" attribute="CH|IN|MU" printclass="0">Als Hexe hast du zwei Möglichkeiten, deine Flüche zu überbringen. Entweder du schleuderst sie direkt lautstark auf das Opfer, wodurch du häufig vom Bonus der Hexischen Tradition II profitieren kannst, oder du lässt den Fluch unauffällig von deinem Vertrauten überbringen. Dafür benötigst du allerdings ein Körperteil (z.B. Haar) deines Opfers. In beiden Fällen legst du danach die Probe auf eine passende übernatürliche Fertigkeit ab. Jeder Hexenfluch kann auch permanent gesprochen werden. Dann halten ein Viertel der AsP als gAsP den Fluch aufrecht. Neben Antimagie oder göttlichem Wirken kann ein permanenter Fluch immer auch durch das Erfüllen einer Bedingung beendet werden. Diese Bedingung muss realistisch erfüllbar sein und du musst sie dem Verfluchten mitteilen (direkter Fluch) oder er erfährt sie in seinen Träumen (überbrachter Fluch).
 
   Neben den als Talente aufgelisteten Beispielen sollen die Töchter Satuarias zahlreiche weitere Flüche kennen, die Unfruchtbarkeit und Krankheit über Mensch und Tier bringen und Ernten zerstören können. Sogar von einem Todesfluch wird gemunkelt, der sein Opfer langsam, aber unaufhaltsam auszehrt.
 
   Jede Hexe kann auf einem Besen oder einem anderen Holzgegenstand reiten. Dazu erhält sie bei der halbjährlichen Hexennacht die Hexensalbe, mit der das bestrichene Objekt flugfähig ist. Die Aktivierung des Besens vor jedem Flug kostet 1 AsP. Tollkühne Flugmanöver erfordern Proben auf das Talent Akrobatik. Misslungene Proben bedeuten, dass die Hexe die Kontrolle über den Besen verliert und schlimmstenfalls unsanft notlanden muss. Bei einem Patzer kann der Hexe der Absturz drohen, sie könnte aber auch den Zorn eines Drachen geweckt haben.</Übernatürliche-Fertigkeit>
   <Übernatürliche-Fertigkeit name="Keulenrituale" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Schamanen I" attribute="IN|KK|KL" printclass="0">Die Knochenkeule kann von Geistern beseelt sein oder ihnen schaden. Knochenkeulen werden unter Schamanen vom Lehrer an den Schüler weitergegeben. Alle Keulenrituale gelten als Objektritual.</Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="Kristallmagie" steigerungsfaktor="3" voraussetzungen="Vorteil Tradition der Kristallomanten I" attribute="FF|IN|KL" printclass="0">Die Magie eines Kristallomanten steht und fällt mit seinen gebundenen Kristallen, da ohne den passenden Kristall eine wichtige Bedingung der kristallomantischen Repräsentation nicht erfüllt ist. Jeder Kristall ist dabei einer Fertigkeit zugeordnet, die der Kristallomant fortan ohne Einschränkungen oder sogar mit bedeutenden Vorteilen nutzen kann. Nur die Kristallmagie selbst benötigt keinen Kristall. Die Kristalle und andere nützliche Gegenstände kann der Kristallomant in seinem magischen Schuppenbeutel transportieren, der etwa 4 Liter fasst. Alle Talente gelten als Objektrituale, die passiven Effekte des Schuppenbeutels erfordern aber keine ständige Berührung.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="Kristallmagie" steigerungsfaktor="3" voraussetzungen="Vorteil Tradition der Kristallomanten I" attribute="FF|IN|KL" printclass="0">Die Magie eines Kristallomanten steht und fällt mit seinen gebundenen Kristallen, da ohne den passenden Kristall eine wichtige Bedingung der kristallomantischen Tradition nicht erfüllt ist (S. 76). Jeder Kristall ist dabei einer Fertigkeit zugeordnet, die der Kristallomant fortan ohne Einschränkungen oder sogar mit bedeutenden Vorteilen nutzen kann. Nur die Kristallmagie selbst benötigt keinen Kristall. Die Kristalle und andere nützliche Gegenstände kann der Kristallomant in seinem magischen Schuppenbeutel transportieren, der etwa 4 Liter fasst. Alle Talente gelten als Objektrituale, die passiven Effekte des Schuppenbeutels erfordern aber keine ständige Berührung.</Übernatürliche-Fertigkeit>
   <Übernatürliche-Fertigkeit name="Kugelzauber" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Gildenmagier I" attribute="CH|FF|IN" printclass="0">Die Kristallkugel eines Scharlatans oder Gildenmagiers dient als Fokus für Illusionen, aber auch als Spionagewerkzeug. Alle Talente gelten als Objektrituale.</Übernatürliche-Fertigkeit>
   <Übernatürliche-Fertigkeit name="Ringrituale" steigerungsfaktor="3" voraussetzungen="Vorteil Tradition der Geoden I" attribute="IN|KO|MU" printclass="0">Die Geoden sprechen ihre Rituale in einen Schlagenhalsreif aus Gold. Gleichzeitig ist der Schlangenreif ein besonders einladender Ort für Geister, wodurch es zu erwünschten und unerwünschten Besessenheiten kommen kann. Alle Talente gelten als Objektrituale.
 
@@ -9714,7 +9714,7 @@ Eine dieser vier Modifikationen kombinierst du mit einem antimagischen Zauber. Z
 
 Doch auch wenn das Vertrautentier diese Fähigkeiten einsetzt - der Einfachheit halber behandeln wir die Vertrautenmagie so, als würdest du den Zauber wirken. Du entscheidest, wann ein Zauber eingesetzt wird, legst die Probe auf deinen PW in Vertrautenmagie ab und bezahlst die Kosten – nur Reichweite und Ziel gehen vom Vertrautentier aus.
 
-Die Spielwerte typischer Vertrautentiere findest du im Bestiarium. Da Vertrautentiere aber besonders prächtige Vertreter ihrer Gattung sind, erhältst du 4 Vertrautenpunkte pro Stufe der Geodischen oder Hexischen Repräsentation. Pro Punkt darfst du einen Spielwert des Vertrautentiers (ausgenommen WS, WS* und RW) um 1 Punkt erhöhen, solange das Ergebnis dem gesunden Menschenverstand nicht widerspricht.</Übernatürliche-Fertigkeit>
+Die Spielwerte typischer Vertrautentiere findest du im Bestiarium. Da Vertrautentiere aber besonders prächtige Vertreter ihrer Gattung sind, erhältst du 4 Vertrautenpunkte pro Stufe der Geodischen oder Hexischen Tradition. Pro Punkt darfst du einen Spielwert des Vertrautentiers (ausgenommen WS, WS* und RW) um 1 Punkt erhöhen, solange das Ergebnis dem gesunden Menschenverstand nicht widerspricht.</Übernatürliche-Fertigkeit>
   <Übernatürliche-Fertigkeit name="Zaubermelodien" steigerungsfaktor="3" voraussetzungen="Vorteil Tradition der Zauberbarden I" attribute="CH|FF|KO" printclass="0">Der Zauberbarde webt mit seinen Melodien ein subtiles Netz der Magie, das für Außenstehende oft gar nicht als Zauber erkennbar ist.</Übernatürliche-Fertigkeit>
   <Übernatürliche-Fertigkeit name="Zaubertänze" steigerungsfaktor="3" voraussetzungen="Vorteil Tradition der Zaubertänzer I" attribute="CH|GE|KO" printclass="0">Die Zaubertänze der Tulamiden werden nur selten als Magie wahrgenommen und gehören doch zu einer der ältesten menschlichen Zaubertraditionen Aventuriens.</Übernatürliche-Fertigkeit>
   <Übernatürliche-Fertigkeit name="Zwölfgöttlicher Ritus" steigerungsfaktor="2" voraussetzungen="Vorteil Geweiht I" attribute="CH|IN|MU" printclass="1">Durch die Zusammenarbeit der Kirchen hat sich ein Grundstock allgemein bekannter Liturgien ergeben, die aus dem Leben des Geweihten nicht mehr wegzudenken sind.
@@ -9885,7 +9885,7 @@ Fast alle Geweihten der Zwölf beherrschen die zwölf Segnungen: Eid-, Feuer-, G
   <Waffe name="Tralloper Riese" W6="2" plus="4" haerte="16" fertigkeit="Athletik" talent="Reiten" kampfstile="Reiterkampf, Schildkampf" rw="1" wm="0" fk="0">Niederwerfen, Reittier</Waffe>
   <Waffe name="Wildschwein" W6="2" plus="4" haerte="11" fertigkeit="Athletik" talent="Reiten" kampfstile="Reiterkampf, Schildkampf" rw="0" wm="0" fk="0">Niederwerfen, Reittier</Waffe>
   <Waffe name="Kriegswildschwein" W6="2" plus="6" haerte="13" fertigkeit="Athletik" talent="Reiten" kampfstile="Reiterkampf, Schildkampf" rw="0" wm="1" fk="0">Niederwerfen, Reittier</Waffe>
-  <Manöver name="Ausweichen" typ="0" voraussetzungen="" probe="VT -2-BE" gegenprobe="">Der Verteidiger entgeht dem Angriff und seinen Auswirkungen vollständig. Ausweichen ist die sinnvollste waffenlose Abwehr gegen Bewaffnete (Siehe Waffeneigenschaft Zerbrechlich auf S. 47).</Manöver>
+  <Manöver name="Ausweichen" typ="0" voraussetzungen="" probe="VT -2-BE" gegenprobe="">Der Verteidiger entgeht dem Angriff und seinen Auswirkungen vollständig. Ausweichen ist die sinnvollste waffenlose Abwehr gegen Bewaffnete (siehe Waffeneigenschaft Zerbrechlich auf S. 47).</Manöver>
   <Manöver name="Binden" typ="0" voraussetzungen="" probe="VT -X" gegenprobe="">Bis zum Ende der nächsten eigenen Initiativephase sind alle Verteidigungen des Gegners um -X (maximal 8) erschwert.</Manöver>
   <Manöver name="Entfernung verändern" typ="0" voraussetzungen="" probe="AT -BE" gegenprobe="">Du kannst dich aus dem Nahkampf lösen, ohne Passierschläge zu riskieren.
 Besonderheiten: Beim Spiel mit Bodenplänen erhält das Ziel in dieser Runde keine Passierschläge durch deine Bewegung.</Manöver>
@@ -9944,7 +9944,7 @@ Voraussetzung: Pfeile mit Waffeneigenschaft Rüstungsbrechend.</Manöver>
 Voraussetzungen: Tradition der Anach-nûrim, Borbaradianer, Druiden, Hexen oder Schelme (jeweils) III und Verwendung dieser Tradition</Manöver>
   <Manöver name="Kosten sparen (M)" typ="2" voraussetzungen="Vorteil Effizientes Zaubern" probe="Zauber -4" gegenprobe="">Die AsP-Kosten des Zaubers sinken um ein Viertel der Basiskosten. Die Kosten können dadurch nicht unter die Hälfte der Basiskosten sinken.</Manöver>
   <Manöver name="Zeit lassen" typ="2" voraussetzungen="Vorteil Tradition der Alchemisten III ODER Vorteil Tradition der Elfen III ODER Vorteil Tradition der Geoden III ODER Vorteil Tradition der Gildenmagier III ODER Vorteil Tradition der Kristallomanten III ODER Vorteil Tradition der Scharlatane III ODER Vorteil Tradition der Zauberbarden III" probe="Zauber +2" gegenprobe="">Verdoppelt die Vorbereitungszeit, aber erleichtert den Zauber um +2. Eine Vorbereitungszeit von 0 Aktionen wird zu 1 Aktion. Kann einmal pro Zauber eingesetzt werden und wirkt nicht auf Zauber mit frei wählbarer Vorbereitungszeit.
-Voraussetzung: Verwendung der Alchemistischen, Elfischen, Geodischen, Gildenmagischen, Kristallomantischen, Zauberbardischen oder Scharlatanischen Repräsentation (III).</Manöver>
+Voraussetzung: Tradition der Alchemisten, Elfen, Geoden, Gildenmagier, Kristallomanten, Scharlatane oder Zauberbarden (jeweils) III und Verwendung dieser Tradition.</Manöver>
   <Manöver name="Opferung (Aves)" typ="3" voraussetzungen="Vorteil Tradition der Avesgeweihten III" probe="Liturgie +4" gegenprobe="">Ein rituelles Opfer erleichtert die Liturgie um +4. Der Opfergegenstand wird dabei verbraucht, zerstört oder verschwindet. Avesgeweihte opfern die Feder eines Zugvogels, dessen Weg der Geweihte auf seinen Reisen kreuzt.
 Anmerkung: Opfergegenstände sollten nicht so häufig sein, dass jede zweite Liturgie mit dieser Modifikation gewirkt wird. Umgekehrt sollten sie nicht so selten sein, dass die Modifikation nie eingesetzt werden kann. Als Richtwert gilt eine Opferung alle zwei Spielabende.</Manöver>
   <Manöver name="Opferung (Efferd)" typ="3" voraussetzungen="Vorteil Tradition der Efferdgeweihten III" probe="Liturgie +4" gegenprobe="">Ein rituelles Opfer erleichtert die Liturgie um +4. Der Opfergegenstand wird dabei verbraucht, zerstört oder verschwindet. Efferdgeweihte opfern Perlen, Aquamarine oder Gwen-Petryl-Steine. Solche Opfergaben werden von Tempeln in begrenzten Mengen weitergegeben.
@@ -9981,7 +9981,7 @@ Voraussetzung: Verwendung der Tradition der Schamanen.</Manöver>
   <Manöver name="Wirkungsdauer verlängern (L)" typ="3" voraussetzungen="Vorteil Geweiht I" probe="Liturgie -4" gegenprobe="">Die Wirkungsdauer der Liturgie verdoppelt sich.</Manöver>
   <Manöver name="Kosten sparen (L)" typ="3" voraussetzungen="Vorteil Liturgische Disziplin" probe="Liturgie -4" gegenprobe="">Die Kosten der Liturgie sinken um ein Viertel der Basiskosten. Die Kosten können dadurch nicht unter die Hälfte der Basiskosten sinken.</Manöver>
   <Manöver name="Zeremonie (L)" typ="3" voraussetzungen="Vorteil Tradition der Borongeweihten III ODER Vorteil Tradition der Hesindegeweihten III ODER Vorteil Tradition der Ifirngeweihten III ODER Vorteil Tradition der Perainegeweihten III ODER Vorteil Tradition der Praiosgeweihten III ODER Vorteil Tradition der Traviageweihten III ODER Vorteil Tradition der Tsageweihten III" probe="Liturgie +X" gegenprobe="">Du kannst die Vorbereitungszeit freiwillig um 1 Minute/Stunde/Tag/Woche/Monat/Jahr erhöhen, wodurch die Liturgie um +4/6/8/10/12/14 erleichtert ist. Die Vorbereitungszeit muss dadurch mindestens verdoppelt werden.</Manöver>
-  <Manöver name="Mächtige Anrufung" typ="6" voraussetzungen="Vorteil Paktierer I" probe="Anrufung -4" gegenprobe="">Verstärkt die Wirkung der Anrufung. Zusätzlich steigt die Schwierigkeit von Konterproben (S. 122) gegen die Anrufung um +4 Punkte.</Manöver>
+  <Manöver name="Mächtige Anrufung" typ="6" voraussetzungen="Vorteil Paktierer I" probe="Anrufung -4" gegenprobe="">Verstärkt die Wirkung der Anrufung. Zusätzlich steigt die Schwierigkeit von Konterproben (S. 124) gegen die Anrufung um +4 Punkte.</Manöver>
   <Manöver name="Mehrere Ziele (D)" typ="6" voraussetzungen="Vorteil Paktierer I" probe="Anrufung -4" gegenprobe="">Die Anrufung wirkt auf mehrere Ziele in Reichweite. Die Kosten werden für jedes Ziel einzeln bezahlt.</Manöver>
   <Manöver name="Anrufungstechnik ignorieren" typ="6" voraussetzungen="Vorteil Paktierer I" probe="Anrufung -4" gegenprobe="">Du ignorierst eine der bei der Tradition angeführten Bedingungen. Ignorierst du die Bedingung Sicht, musst du das Ziel auf eine andere Art und Weise wahrnehmen.</Manöver>
   <Manöver name="Reichweite erhöhen (D)" typ="6" voraussetzungen="Vorteil Paktierer I" probe="Anrufung -4" gegenprobe="">Die Reichweite der Anrufung verdoppelt sich. Die Reichweite Berührung wird zu 2 Schritt.</Manöver>
@@ -10153,10 +10153,10 @@ Anmerkung: Mit dem Totes handle! können nur permanente Untote erschaffen werden
   <Waffeneigenschaft name="Reittier">Ein Reittier ist Voraussetzung für den Reiterkampfstil. Im Reiterkampf bewegst du dich mit der GS des Reittiers und verwendest Reiten als Gegenprobe gegen Niederwerfen und Umreißen-Attacken (S. 40), bei deren Misslingen du aus dem Sattel geworfen wirst und 2W6 SP erleidest.
     Im Kampf bilden Kavallerist und Reittier eine Einheit. Letzteres wird deswegen wie eine Waffe behandelt, die mit dem Talent Reiten eingesetzt wird. Du kannst dich daher bei jeder Attacke und jeder Verteidigung entscheiden, ob du das Pferd oder eine andere Waffe nutzt. Reiten-Attacken sind um +4 erleichtert, wenn das Reittier in einer höheren Größenklasse als das Ziel ist – wie zum Beispiel ein Pferd gegenüber einem Infanteristen. Bei einer Reiten-Verteidigung nimmt das Tier keinen Schaden.
     Lanzenreiten-Attacken sind nur für berittene Kämpfer aus der Bewegung heraus möglich. Sie verursachen Niederwerfen und sind gegen Infanteristen um +4 erleichtert. Allerdings kannst du dich mit dem Talent Lanzenreiten nicht verteidigen.</Waffeneigenschaft>
-  <Waffeneigenschaft name="Rüstungsbrechend">Ein schmaler Stoßdorn oder andere Waffenteile können Rüstungen durchschlagen. Ermöglicht das Manöver Rüstungsbrecher (S. 49).</Waffeneigenschaft>
+  <Waffeneigenschaft name="Rüstungsbrechend">Ein schmaler Stoßdorn oder andere Waffenteile können Rüstungen durchschlagen. Ermöglicht das Manöver Rüstungsbrecher (S. 40).</Waffeneigenschaft>
   <Waffeneigenschaft name="Schild">Ermöglicht den Kampf im Schildkampfstil. Verteidigungen mit einem Schild sind um +4 erleichtert, wenn der Angreifer in einer höheren Größenklasse ist.</Waffeneigenschaft>
   <Waffeneigenschaft name="Schwer" script="if getKK() &lt; int(getEigenschaftParam(1)): modifyWaffeAT(-2); modifyWaffeVT(-2)">Du brauchst mindestens die angegebene Körperkraft, um die Waffe ohne Einschränkungen führen zu können. Darunter erleidest du einen Malus von -2.</Waffeneigenschaft>
-  <Waffeneigenschaft name="Stumpf">Stumpfe Waffen können den Gegner mit dem Manöver Stumpfer Schlag (S. 49) bewusstlos schlagen.</Waffeneigenschaft>
+  <Waffeneigenschaft name="Stumpf">Stumpfe Waffen können den Gegner mit dem Manöver Stumpfer Schlag (S. 40) bewusstlos schlagen.</Waffeneigenschaft>
   <Waffeneigenschaft name="Unberechenbar">Die Waffe verursacht auch bei einer 2 einen Patzer. Dafür kann sie auch um Schilde herumschlagen, was Angriffe gegen Schildträger um +4 erleichtert.</Waffeneigenschaft>
   <Waffeneigenschaft name="Wendig">Die Waffe ist ungewöhnlich wendig, du kannst den ersten Passierschlag zwischen zwei Initiativephasen als freie Reaktion ausführen.</Waffeneigenschaft>
   <Waffeneigenschaft name="Zerbrechlich">Die Waffe erleidet den vollen Waffenschaden, wenn sie eine nicht-zerbrechliche Waffe erfolgreich verteidigt oder von einer solchen erfolgreich verteidigt wird. Ausweichen vermeidet diesen Schaden.</Waffeneigenschaft>

@@ -12,7 +12,9 @@
     <schips>4</schips>
     <finanzen>2</finanzen>
     <heimat>Mittelreich</heimat>
-    <eigenheiten/>
+    <eigenheiten>
+      <Eigenheit>Magnet für Geister (Schlangenreif)</Eigenheit>
+    </eigenheiten>
   </AllgemeineInfos>
   <Attribute>
     <KO>0</KO>
