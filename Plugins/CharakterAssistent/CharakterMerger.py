@@ -284,7 +284,7 @@ class CharakterMerger(object):
             char.übernatürlicheFertigkeiten[choice.name].wert = max(char.übernatürlicheFertigkeiten[choice.name].wert + choice.wert, 0)
             char.übernatürlicheFertigkeiten[choice.name].aktualisieren()
         elif choice.typ == "Vorteil":
-            if Wolke.DB.vorteile[choice.name].variable != -1:
+            if Wolke.DB.vorteile[choice.name].variableKosten:
                 var = VariableKosten()
                 var.kosten = choice.wert
                 var.kommentar = choice.kommentar
