@@ -20,7 +20,7 @@ class FertigkeitItemDelegate(QtWidgets.QItemDelegate):
     def paint (self, painter, option, index):
         if index.row() in self.rowIndicesWithLinePaint:
             painter.setPen(QtCore.Qt.gray)
-            painter.drawLine( option.rect.bottomLeft(), option.rect.bottomRight() );
+            painter.drawLine(option.rect.bottomLeft() + QtCore.QPoint(0, 1), option.rect.bottomRight() + QtCore.QPoint(0, 1));
         super().paint(painter, option, index)
 
 class FertigkeitenWrapper(QtCore.QObject):
