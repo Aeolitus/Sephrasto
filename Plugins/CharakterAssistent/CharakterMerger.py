@@ -292,6 +292,7 @@ class CharakterMerger(object):
             if choice.name in char.vorteile:
                 return
             char.vorteile.append(choice.name)
+            EventBus.doAction("vorteil_gekauft", { "name" : choice.name})
         elif choice.typ == "Talent":
             found = False
             for name, fert in char.fertigkeiten.items():
@@ -369,6 +370,7 @@ class CharakterMerger(object):
         for vor in root.findall('Vorteile'):
             if "minderpakt" in vor.attrib:
                 char.minderpakt = vor.get('minderpakt')
+                EventBus.doAction("vorteil_gekauft", { "name" : char.minderpakt})
             else:
                 char.minderpakt = None
 
@@ -382,6 +384,7 @@ class CharakterMerger(object):
             if vor.text in char.vorteile:
                 continue
             char.vorteile.append(vor.text)
+            EventBus.doAction("vorteil_gekauft", { "name" : vor.text})
 
         for fer in root.findall('Fertigkeiten/Fertigkeit'):
             nam = fer.attrib['name']
