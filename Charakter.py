@@ -11,6 +11,7 @@ from EventBus import EventBus
 from Wolke import Wolke
 from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
 from PyQt5 import QtWidgets, QtCore
+import os.path
 
 class KampfstilMod():
     def __init__(self):
@@ -916,7 +917,7 @@ class Char():
             str(binascii.crc32(etree.tostring(Wolke.DB.userDbXml))) if \
             Wolke.DB.userDbXml is not None else "0"
         etree.SubElement(versionXml, 'NutzerDatenbankName').text = \
-            Wolke.DB.datei
+            os.path.basename(Wolke.DB.datei)
 
         #Erster Block
         Wolke.Fehlercode = -54
@@ -1101,6 +1102,9 @@ class Char():
         logging.debug("Starting Character Migration")
         self.charakterMigrieren(root, charDBVersion, self.datenbankCodeVersion)
 
+        #Plugins
+        root = EventBus.applyFilter("charakter_xml_laden", root)
+
         alg = root.find('AllgemeineInfos')
         self.name = alg.find('name').text or ''
         self.rasse = alg.find('rasse').text or ''
@@ -1266,9 +1270,6 @@ class Char():
         notiz = root.find('Notiz')
         if notiz is not None:
             self.notiz = notiz.text
-
-        #Plugins
-        root = EventBus.applyFilter("charakter_xml_laden", root)
         
         if userDBChanged or vIgnored or fIgnored or tIgnored or übIgnored:
             messageBox = QtWidgets.QMessageBox()
