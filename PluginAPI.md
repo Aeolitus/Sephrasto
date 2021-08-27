@@ -2,7 +2,7 @@
 # Plugin API
 
 ## Was kann ich mit Plugins machen?
-Plugins haben vollen Zugriff auf alle Sephrasto und können Objekt-Zustände auslesen oder verändern. Für Nutzer-Interaktion können dem Hauptfenster Buttons und dem Charaktereditor Tabs hinzugefügt werden, die mittels Qt eigene UIs darstellen können. Um über künftige Sephrasto-Versionen hinweg und mit anderen Plugins kompatibel zu bleiben, sollten Plugins nach Möglichkeit nur über soganannte Actions und Filter mit Sephrasto interagieren und sonst nur lesend auf die Sephrasto-Objekte zugreifen.
+Plugins haben vollen Zugriff auf alle Sephrasto-Dateien und können Objekt-Zustände auslesen oder verändern. Für Nutzer-Interaktion können dem Hauptfenster Buttons und dem Charaktereditor Tabs hinzugefügt werden, die mittels Qt eigene UIs darstellen können. Um über künftige Sephrasto-Versionen hinweg und mit anderen Plugins kompatibel zu bleiben, sollten Plugins nach Möglichkeit nur über soganannte Actions und Filter mit Sephrasto interagieren und sonst nur lesend auf die Sephrasto-Objekte zugreifen.
 
 ## Vorbereitung
 Theoretisch brauchst du nicht mehr als Notepad um loslegen zu können. Kleine Dinge wie die EP-Kosten für AsP oder die Anzahl der kostenlosen freien Fertigkeiten anzupassen geht so ohne Probleme. Sobald du aber etwas aufwändigere Dinge tun möchtest, insbesondere eigene Tabs/Fenster einbauen, solltest du Qt Creator, Python und eine Entwicklungsumgebung installieren und das Sephrasto-Repository klonen, siehe hier: https://github.com/Aeolitus/Sephrasto/blob/master/README.md
@@ -106,7 +106,7 @@ Zweck: Die Namen der Freie Fertigkeiten-Auswahlliste anpassen, bevor sie in ein 
 - Gehe in deinen `Dokumente/Sephrasto/Plugins` Ordner
 - Lege einen neuen Ordner mit deinem Pluginnamen an (keine Leerzeichen)
 - Erstelle in diesem Ordner eine Datei mit dem Namen `__init__.py`
-- Erstelle in dieser Datei eine Klasse mit dem Namen `Plugin` und importiere den `EventBus`:
+- Erstelle in dieser Datei eine Klasse mit dem Namen `Plugin` und importiere den `EventBus`
 - Falls du Action oder Filter Handler registrieren möchtest, stelle sicher, dass sie über die gesamte Programm-Dauer bestehen bleiben. Vermeide es also beispielsweise Handler in einem UI Wrapper zu registrieren, den du jedes mal neu erstellst, wenn ein neuer Charakter geladen wird oder ein Hauptfenster-Button geclickt wird. Stattdessen kannst du den Handler in deiner `__init__.py` registrieren und dann eine Funktion auf dem aktuellen Wrapper aufrufen.
 
 ```python
@@ -114,7 +114,7 @@ from EventBus import EventBus
 
 class Plugin:
     def __init__(self):
-        pass
+        EventBus.addAction(...
 ```
 
 ## Charaktereditor Tab hinzufügen
