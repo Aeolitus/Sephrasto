@@ -298,25 +298,32 @@ class pdfMeister(object):
         tmpUeberflow = []
         
         # Fill up categories that are not full with the overflow
-        if len(tmpVorts) > self.CharakterBogen.maxVorteile:
-            tmpOverflow.extend(tmpVorts[self.CharakterBogen.maxVorteile:])
-            tmpVorts = tmpVorts[:self.CharakterBogen.maxVorteile]
-        if len(tmpKampf) > 16:
-            tmpOverflow.extend(tmpKampf[16:])
-            tmpKampf = tmpKampf[:16]
-        if len(tmpUeber) > 12:
-            tmpUeberflow.extend(tmpUeber[12:])
-            tmpUeber = tmpUeber[:12]
+        # We merge up to 3 vorteile of together before we overflow to additional pages
+        mergePerLineCount = 3
+
+        if len(tmpVorts) > self.CharakterBogen.maxVorteile * mergePerLineCount:
+            tmpOverflow.extend(tmpVorts[self.CharakterBogen.maxVorteile * mergePerLineCount:])
+            tmpVorts = tmpVorts[:self.CharakterBogen.maxVorteile * mergePerLineCount]
+
+        maxKampfvorteile = 16
+        if len(tmpKampf) > maxKampfvorteile * mergePerLineCount:
+            tmpOverflow.extend(tmpKampf[maxKampfvorteile * mergePerLineCount:])
+            tmpKampf = tmpKampf[:maxKampfvorteile * mergePerLineCount]
+
+        maxUebervorteile = 12
+        if len(tmpUeber) > maxUebervorteile * mergePerLineCount:
+            tmpUeberflow.extend(tmpUeber[maxUebervorteile * mergePerLineCount:])
+            tmpUeber = tmpUeber[:maxUebervorteile * mergePerLineCount]
         counter = 0
-        for i in range(len(tmpVorts), self.CharakterBogen.maxVorteile):
+        for i in range(len(tmpVorts), self.CharakterBogen.maxVorteile * mergePerLineCount):
             if len(tmpOverflow) > counter:
                 tmpVorts.append(tmpOverflow[counter])
                 counter += 1
-        for i in range(len(tmpKampf), 16):
+        for i in range(len(tmpKampf), maxKampfvorteile * mergePerLineCount):
             if len(tmpOverflow) > counter:
                 tmpKampf.append(tmpOverflow[counter])
                 counter += 1
-        for i in range(len(tmpUeber), 12):
+        for i in range(len(tmpUeber), maxUebervorteile * mergePerLineCount):
             if len(tmpOverflow) > counter:
                 tmpUeber.append(tmpOverflow[counter])
                 counter += 1
@@ -324,15 +331,26 @@ class pdfMeister(object):
         for el in tmptmp:
             tmpUeberflow.append(el)
         # Fill fields
-        for i in range(1, self.CharakterBogen.maxVorteile+1):
-            if i <= len(tmpVorts):
-                fields['Vorteil' + str(i)] = tmpVorts[i-1]
-        for i in range(1, 17):
-            if i <= len(tmpKampf):
-                fields['Kampfvorteil' + str(i)] = tmpKampf[i-1]
-        for i in range(1, 13):
-            if i <= len(tmpUeber):
-                fields['Uebervorteil' + str(i)] = tmpUeber[i-1]
+
+        for i in range(0, min(self.CharakterBogen.maxVorteile * mergePerLineCount, len(tmpVorts))):
+            field = 'Vorteil' + str((i % self.CharakterBogen.maxVorteile)+1)
+            if not field in fields:
+                fields[field] = tmpVorts[i]
+            else:
+                fields[field] += " | " + tmpVorts[i]
+        for i in range(0, min(maxKampfvorteile * mergePerLineCount, len(tmpKampf))):
+            field = 'Kampfvorteil' + str((i % maxKampfvorteile)+1)
+            if not field in fields:
+                fields[field] = tmpKampf[i]
+            else:
+                fields[field] += " | " + tmpKampf[i]
+        for i in range(0, min(maxUebervorteile * mergePerLineCount, len(tmpUeber))):
+            field = 'Uebervorteil' + str((i % maxUebervorteile)+1)
+            if not field in fields:
+                fields[field] = tmpUeber[i]
+            else:
+                fields[field] += " | " + tmpUeber[i]
+
         if len(tmpUeberflow) > 0:
             self.UseExtraPage = True
             for el in tmpUeberflow:
