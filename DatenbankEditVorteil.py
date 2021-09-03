@@ -184,10 +184,17 @@ class Ui_talentDialog(object):
         QtCore.QMetaObject.connectSlotsByName(talentDialog)
         talentDialog.setTabOrder(self.nameEdit, self.checkVariable)
         talentDialog.setTabOrder(self.checkVariable, self.kostenEdit)
-        talentDialog.setTabOrder(self.kostenEdit, self.comboNachkauf)
+        talentDialog.setTabOrder(self.kostenEdit, self.checkKommentar)
+        talentDialog.setTabOrder(self.checkKommentar, self.comboNachkauf)
         talentDialog.setTabOrder(self.comboNachkauf, self.voraussetzungenEdit)
         talentDialog.setTabOrder(self.voraussetzungenEdit, self.comboTyp)
         talentDialog.setTabOrder(self.comboTyp, self.textEdit)
+        talentDialog.setTabOrder(self.textEdit, self.scriptEdit)
+        talentDialog.setTabOrder(self.scriptEdit, self.scriptPrioEdit)
+        talentDialog.setTabOrder(self.scriptPrioEdit, self.comboLinkKategorie)
+        talentDialog.setTabOrder(self.comboLinkKategorie, self.comboLinkElement)
+        talentDialog.setTabOrder(self.comboLinkElement, self.checkCheatsheet)
+        talentDialog.setTabOrder(self.checkCheatsheet, self.teCheatsheet)
 
     def retranslateUi(self, talentDialog):
         _translate = QtCore.QCoreApplication.translate

@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>440</width>
-    <height>581</height>
+    <width>442</width>
+    <height>604</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -284,9 +284,13 @@
   <tabstop>buttonVerbilligt</tabstop>
   <tabstop>buttonSpezial</tabstop>
   <tabstop>spinKosten</tabstop>
+  <tabstop>checkVariable</tabstop>
+  <tabstop>checkKommentar</tabstop>
+  <tabstop>checkCheatsheet</tabstop>
   <tabstop>fertigkeitenEdit</tabstop>
   <tabstop>voraussetzungenEdit</tabstop>
   <tabstop>textEdit</tabstop>
+  <tabstop>sortierungEdit</tabstop>
  </tabstops>
  <resources/>
  <connections>

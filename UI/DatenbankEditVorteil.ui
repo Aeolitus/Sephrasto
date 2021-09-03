@@ -384,10 +384,17 @@
   <tabstop>nameEdit</tabstop>
   <tabstop>checkVariable</tabstop>
   <tabstop>kostenEdit</tabstop>
+  <tabstop>checkKommentar</tabstop>
   <tabstop>comboNachkauf</tabstop>
   <tabstop>voraussetzungenEdit</tabstop>
   <tabstop>comboTyp</tabstop>
   <tabstop>textEdit</tabstop>
+  <tabstop>scriptEdit</tabstop>
+  <tabstop>scriptPrioEdit</tabstop>
+  <tabstop>comboLinkKategorie</tabstop>
+  <tabstop>comboLinkElement</tabstop>
+  <tabstop>checkCheatsheet</tabstop>
+  <tabstop>teCheatsheet</tabstop>
  </tabstops>
  <resources/>
  <connections>

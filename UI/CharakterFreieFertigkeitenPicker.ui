@@ -108,6 +108,7 @@
   </layout>
  </widget>
  <tabstops>
+  <tabstop>nameFilterEdit</tabstop>
   <tabstop>treeFerts</tabstop>
  </tabstops>
  <resources/>

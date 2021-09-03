@@ -15,7 +15,7 @@ class Ui_talentDialog(object):
     def setupUi(self, talentDialog):
         talentDialog.setObjectName("talentDialog")
         talentDialog.setWindowModality(QtCore.Qt.ApplicationModal)
-        talentDialog.resize(440, 581)
+        talentDialog.resize(442, 604)
         self.gridLayout_2 = QtWidgets.QGridLayout(talentDialog)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.buttonBox = QtWidgets.QDialogButtonBox(talentDialog)
@@ -147,9 +147,13 @@ class Ui_talentDialog(object):
         talentDialog.setTabOrder(self.buttonRegulaer, self.buttonVerbilligt)
         talentDialog.setTabOrder(self.buttonVerbilligt, self.buttonSpezial)
         talentDialog.setTabOrder(self.buttonSpezial, self.spinKosten)
-        talentDialog.setTabOrder(self.spinKosten, self.fertigkeitenEdit)
+        talentDialog.setTabOrder(self.spinKosten, self.checkVariable)
+        talentDialog.setTabOrder(self.checkVariable, self.checkKommentar)
+        talentDialog.setTabOrder(self.checkKommentar, self.checkCheatsheet)
+        talentDialog.setTabOrder(self.checkCheatsheet, self.fertigkeitenEdit)
         talentDialog.setTabOrder(self.fertigkeitenEdit, self.voraussetzungenEdit)
         talentDialog.setTabOrder(self.voraussetzungenEdit, self.textEdit)
+        talentDialog.setTabOrder(self.textEdit, self.sortierungEdit)
 
     def retranslateUi(self, talentDialog):
         _translate = QtCore.QCoreApplication.translate
