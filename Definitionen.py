@@ -32,3 +32,5 @@ VorteilTypen = ["Allgemeine Vorteile", "Profane Vorteile", "Kampfvorteile",
 "Karmale Traditionen", "Dämonische Traditionen"]
 
 KeinKampfstil = "Kein Kampfstil"
+
+RuestungsTypen = ["Stoffrüstung", "Lederrüstung", "Holz- oder Knochenrüstung", "Ketten- oder Schuppenrüstung", "Plattenrüstung"]

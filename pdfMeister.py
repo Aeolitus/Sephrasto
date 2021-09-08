@@ -456,10 +456,9 @@ class pdfMeister(object):
         for el in Wolke.Char.rüstung:
             base = 'Ruest' + str(count)
             fields[base + 'NA'] = el.name
-            fields[base + 'RS'] = int(sum(el.rs)/6+0.5+0.0001)+Wolke.Char.rsmod
+            fields[base + 'RS'] = el.getRSGesamtInt() + Wolke.Char.rsmod
             fields[base + 'BE'] = max(el.be - Wolke.Char.rüstungsgewöhnung, 0)
-            fields[base + 'WS'] = int(sum(el.rs) / 6 + Wolke.Char.ws +
-                                      0.5 + Wolke.Char.rsmod + 0.0001)
+            fields[base + 'WS'] = int(el.getRSGesamtInt() + Wolke.Char.rsmod + Wolke.Char.ws)
             base += 'RS'
             fields[base + 'Bein'] = el.rs[0]+Wolke.Char.rsmod+Wolke.Char.ws
             fields[base + 'lArm'] = el.rs[1]+Wolke.Char.rsmod+Wolke.Char.ws

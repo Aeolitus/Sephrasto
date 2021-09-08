@@ -9756,6 +9756,94 @@ Fast alle Geweihten der Zwölf beherrschen die zwölf Segnungen: Eid-, Feuer-, G
   <Übernatürliche-Fertigkeit name="Guter Kampf" steigerungsfaktor="3" voraussetzungen="Vorteil Tradition der Korgeweihten I" attribute="KK|KO|MU" printclass="1">Die Mystiker der Korkirche suchen den Willen ihres Gottes im Kampf. Ihr Weg führt sie dorthin, wo die Schlacht am heftigsten tobt und wo sie ihr Blut für den Geifernden Schnitter vergießen.</Übernatürliche-Fertigkeit>
   <Übernatürliche-Fertigkeit name="Gutes Gold" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Korgeweihten I" attribute="CH|IN|MU" printclass="1">Die Pragmatiker unter den Korgeweihten stehen Gladiatoren zur Seite oder führen Söldnerbanner an. Sie sorgen für vertragsgetreue Bezahlung und die Einhaltung der Söldnerehre.</Übernatürliche-Fertigkeit>
   <Übernatürliche-Fertigkeit name="Dämonische Hilfe (Cpt)" steigerungsfaktor="3" voraussetzungen="Vorteil Tradition der Paktierer I" attribute="IN|KO|MU" printclass="1">Charyptoroth ist die Herrin der nachtblauen Tiefen, aus denen verseuchtes Wasser und Meeresungeheuer strömen.</Übernatürliche-Fertigkeit>
+  <Rüstung name="Eisenmantel" typ="3" system="0" rsBeine="2" rsLArm="2" rsRArm="2" rsBauch="3" rsBrust="3" rsKopf="0">Stoff- oder Lederrüstung, in die - von außen nicht sichtbar - Metallplättchen genäht wurden.</Rüstung>
+  <Rüstung name="Fünflagenharnisch" typ="3" system="0" rsBeine="1" rsLArm="0" rsRArm="0" rsBauch="3" rsBrust="3" rsKopf="0">Lederweste, in die - von außen nicht sichtbar - Metallplättchen genäht wurden.</Rüstung>
+  <Rüstung name="Gestechrüstung" typ="4" system="0" rsBeine="5" rsLArm="5" rsRArm="5" rsBauch="5" rsBrust="5" rsKopf="5">Sehr schwere Komplettrüstung, kann nicht ergänzt werden.</Rüstung>
+  <Rüstung name="Gladiatorenschulter" typ="4" system="0" rsBeine="0" rsLArm="0" rsRArm="2" rsBauch="0" rsBrust="2" rsKopf="0">Kann nicht zweimal getragen werden.</Rüstung>
+  <Rüstung name="Hartholzharnisch" typ="2" system="0" rsBeine="1" rsLArm="1" rsRArm="1" rsBauch="3" rsBrust="3" rsKopf="0">Die Rüstung besteht aus maraskanischem Hartholz und ist feuchtigkeitsempfindlich. Benötigt wattierte Unterkleidung.</Rüstung>
+  <Rüstung name="Horasischer Reiterharnisch" typ="4" system="0" rsBeine="3" rsLArm="4" rsRArm="4" rsBauch="5" rsBrust="5" rsKopf="3">Komplettrüstung, kann nicht ergänzt werden.</Rüstung>
+  <Rüstung name="Iryanrüstung" typ="1" system="0" rsBeine="1" rsLArm="0" rsRArm="0" rsBauch="2" rsBrust="2" rsKopf="0">Die Rüstung ist feuerresistent.</Rüstung>
+  <Rüstung name="Kettenmantel" typ="3" system="0" rsBeine="3" rsLArm="3" rsRArm="3" rsBauch="3" rsBrust="3" rsKopf="0"/>
+  <Rüstung name="Kettenweste" typ="3" system="0" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="3" rsBrust="3" rsKopf="0"/>
+  <Rüstung name="Kürass" typ="4" system="0" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="2" rsBrust="3" rsKopf="0">Benötigt keine wattierte Unterkleidung.</Rüstung>
+  <Rüstung name="Lederharnisch" typ="1" system="0" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="2" rsBrust="2" rsKopf="0"/>
+  <Rüstung name="Mammutonpanzer" typ="2" system="0" rsBeine="2" rsLArm="2" rsRArm="2" rsBauch="3" rsBrust="3" rsKopf="0">Lederrüstung mit Scheiben von Mammutstoßzähnen.</Rüstung>
+  <Rüstung name="Ringelpanzer" typ="3" system="0" rsBeine="1" rsLArm="3" rsRArm="3" rsBauch="3" rsBrust="3" rsKopf="0">Benötigt keine wattierte Unterkleidung.</Rüstung>
+  <Rüstung name="Spiegelpanzer" typ="3" system="0" rsBeine="2" rsLArm="3" rsRArm="3" rsBauch="4" rsBrust="4" rsKopf="0"/>
+  <Rüstung name="Tuchrüstung" typ="0" system="0" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="2" rsBrust="2" rsKopf="0"/>
+  <Rüstung name="Amazonenrüstung" typ="4" system="0" rsBeine="3" rsLArm="2" rsRArm="2" rsBauch="4" rsBrust="4" rsKopf="3">Komplettrüstung aus Bronzekürass, Arm- und Beinschienen, Streifenschurz und visierlosem Helm. Kann nicht ergänzt werden.</Rüstung>
+  <Rüstung name="Armschienen (Bronze)" typ="4" system="2" rsBeine="0" rsLArm="2" rsRArm="2" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Arme.</Rüstung>
+  <Rüstung name="Armschienen (Leder)" typ="1" system="2" rsBeine="0" rsLArm="1" rsRArm="1" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Arme.</Rüstung>
+  <Rüstung name="Armschienen (Stahl)" typ="4" system="2" rsBeine="0" rsLArm="3" rsRArm="3" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Arme.</Rüstung>
+  <Rüstung name="Beinschienen (Bronze)" typ="4" system="2" rsBeine="2" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Beine.</Rüstung>
+  <Rüstung name="Beinschienen (Leder)" typ="1" system="2" rsBeine="1" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Beine.</Rüstung>
+  <Rüstung name="Beinschienen (Stahl)" typ="4" system="2" rsBeine="3" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Beine.</Rüstung>
+  <Rüstung name="Beintaschen" typ="4" system="2" rsBeine="2" rsLArm="0" rsRArm="0" rsBauch="1" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Beine.</Rüstung>
+  <Rüstung name="Hohe Stiefel" typ="1" system="2" rsBeine="1" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Füße.</Rüstung>
+  <Rüstung name="Kettenbeinlinge" typ="3" system="2" rsBeine="2" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Beine.</Rüstung>
+  <Rüstung name="Kettenhandschuhe" typ="3" system="2" rsBeine="0" rsLArm="1" rsRArm="1" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Hände.</Rüstung>
+  <Rüstung name="Kettenkragen" typ="3" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="1">Rüstungsergänzung für den Hals.</Rüstung>
+  <Rüstung name="Lederhose" typ="1" system="2" rsBeine="1" rsLArm="0" rsRArm="0" rsBauch="1" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Beine.</Rüstung>
+  <Rüstung name="Lederweste" typ="1" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="1" rsBrust="1" rsKopf="0"/>
+  <Rüstung name="Löwenmähne" typ="3" system="2" rsBeine="0" rsLArm="1" rsRArm="1" rsBauch="0" rsBrust="1" rsKopf="1">Rüstungsergänzung für den Hals.</Rüstung>
+  <Rüstung name="Mattenrücken" typ="0" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="1" rsKopf="1">Rüstungsergänzung der Achaz für den Rücken. Wird üblicherweise ergänzt mit einer Brustplatte (Leder).</Rüstung>
+  <Rüstung name="Panzerbeine" typ="4" system="2" rsBeine="3" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Beine.</Rüstung>
+  <Rüstung name="Panzerhandschuhe" typ="4" system="2" rsBeine="0" rsLArm="2" rsRArm="2" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Hände.</Rüstung>
+  <Rüstung name="Panzerschuh" typ="4" system="2" rsBeine="1" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Füße.</Rüstung>
+  <Rüstung name="Pelzweste" typ="1" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="1" rsBrust="1" rsKopf="0"/>
+  <Rüstung name="Plattenarme" typ="4" system="2" rsBeine="0" rsLArm="3" rsRArm="3" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Arme.</Rüstung>
+  <Rüstung name="Plattenschultern" typ="4" system="2" rsBeine="0" rsLArm="1" rsRArm="1" rsBauch="0" rsBrust="1" rsKopf="0">Rüstungsergänzung für die Schultern.</Rüstung>
+  <Rüstung name="Schürze" typ="4" system="2" rsBeine="2" rsLArm="0" rsRArm="0" rsBauch="1" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Beine.</Rüstung>
+  <Rüstung name="Wattiertes Unterzeug (Kettenteile)" typ="0" system="2" rsBeine="1" rsLArm="2" rsRArm="2" rsBauch="1" rsBrust="2" rsKopf="0">Wird üblicherweise unter Metallrüstungen gegen Abschürfungen getragen.</Rüstung>
+  <Rüstung name="Brustplatte (ZRS)" typ="4" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="1" rsBrust="1" rsKopf="0"/>
+  <Rüstung name="Brustplatte" typ="4" system="1" rsBeine="1" rsLArm="1" rsRArm="1" rsBauch="1" rsBrust="1" rsKopf="1"/>
+  <Rüstung name="Brustschalen (ZRS)" typ="4" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="1" rsKopf="0">Kann nicht mit anderen Torsorüstungen kombiniert werden.</Rüstung>
+  <Rüstung name="Garether Platte (ZRS)" typ="4" system="2" rsBeine="3" rsLArm="4" rsRArm="4" rsBauch="5" rsBrust="5" rsKopf="0">Komplettrüstung, kann bis auf Hals, Kopf und Füße nicht ergänzt werden. Wird üblicherweise mit Schaller und Bart ergänzt.</Rüstung>
+  <Rüstung name="Baburiner Hut" typ="4" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="4">Helm. Üblicherweise gepolstert.</Rüstung>
+  <Rüstung name="Bart" typ="4" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="1">Rüstungsergänzung für den Hals. Wird üblicherweise mit der Schaller kombiniert.</Rüstung>
+  <Rüstung name="Drachenhelm" typ="4" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="3">Helm. Üblicherweise gepolstert.</Rüstung>
+  <Rüstung name="Halsberge" typ="4" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="1">Rüstungsergänzung für den Hals. Wird üblicherweise mit der Schaller kombiniert. Variante des Barts.</Rüstung>
+  <Rüstung name="Kettenhaube mit Gesichtsschutz" typ="3" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="3">Helm.</Rüstung>
+  <Rüstung name="Lederhelm (verstärkt)" typ="1" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="3">Helm.</Rüstung>
+  <Rüstung name="Morion" typ="4" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="3">Helm.</Rüstung>
+  <Rüstung name="Schaller" typ="4" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="3">Helm. Wird üblicherweise mit einem Bart ergänzt.</Rüstung>
+  <Rüstung name="Stechhelm" typ="4" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="5">Helm (Teil der Gestechrüstung).</Rüstung>
+  <Rüstung name="Sturmhaube" typ="4" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="3">Helm.</Rüstung>
+  <Rüstung name="Topfhelm" typ="4" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="4">Helm. Wird üblicherweise mit einer Kettenhaube ergänzt.</Rüstung>
+  <Rüstung name="Visierhelm" typ="4" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="5">Helm. Variante des Stechhelms für Fußkämpfer.</Rüstung>
+  <Rüstung name="Wattierte Kappe" typ="0" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="1">Helm. Wird üblicherweise unter ungefütterten Metallhelmen getragen.</Rüstung>
+  <Rüstung name="Kettenhaube" typ="3" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="2">Helm. Wird üblicherweise unter einem Topfhelm oder Tellerhelm getragen.</Rüstung>
+  <Rüstung name="Lederhelm" typ="1" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="2">Helm.</Rüstung>
+  <Rüstung name="Tellerhelm" typ="4" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="2">Helm.</Rüstung>
+  <Rüstung name="Streifenschurz" typ="1" system="2" rsBeine="1" rsLArm="0" rsRArm="0" rsBauch="1" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Leistengegend. Wird insbesondere kombiniert mit Kettenwesten, Bronzeharnischen oder Lederrüstungen.</Rüstung>
+  <Rüstung name="Kettenzeug" typ="3" system="1" rsBeine="1" rsLArm="1" rsRArm="1" rsBauch="1" rsBrust="1" rsKopf="1">Rüstungsergänzung, bestehend aus Kettenbeinlingen, Kettenkragen, Kettenhandschuhen und einem Ketten- oder Stahlhelm.</Rüstung>
+  <Rüstung name="Plattenzeug" typ="4" system="1" rsBeine="2" rsLArm="2" rsRArm="2" rsBauch="2" rsBrust="2" rsKopf="2">Rüstungsergänzung, bestehend aus Plattenschultern, Plattenarmen, Beintaschen, Panzerhandschuhen und einem Stahlhelm.</Rüstung>
+  <Rüstung name="Lederzeug" typ="1" system="1" rsBeine="1" rsLArm="1" rsRArm="1" rsBauch="1" rsBrust="1" rsKopf="1">Rüstungsergänzung, bestehend aus ledernen Arm- und Beinschienen, Streifenschurz und einem Lederhelm.</Rüstung>
+  <Rüstung name="Bronzezeug" typ="4" system="1" rsBeine="1" rsLArm="1" rsRArm="1" rsBauch="1" rsBrust="1" rsKopf="1">Rüstungsergänzung, bestehend aus bronzenen Arm- und Beinschienen, Streifenschurz und einem Bronzehelm.</Rüstung>
+  <Rüstung name="Brustschalen" typ="4" system="1" rsBeine="1" rsLArm="1" rsRArm="1" rsBauch="1" rsBrust="1" rsKopf="1"/>
+  <Rüstung name="Bronzeharnisch" typ="4" system="1" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="2" rsBrust="3" rsKopf="0">Wird üblicherweise mit Bronzezeug ergänzt.</Rüstung>
+  <Rüstung name="Bronzeharnisch (ZRS)" typ="4" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="2" rsBrust="3" rsKopf="0">Wird üblicherweise mit Streifenschurz ergänzt.</Rüstung>
+  <Rüstung name="Kusliker Lamellar" typ="4" system="1" rsBeine="1" rsLArm="1" rsRArm="1" rsBauch="3" rsBrust="3" rsKopf="0">Wird üblicherweise mit Bronzezeug ergänzt.</Rüstung>
+  <Rüstung name="Kusliker Lamellar (ZRS)" typ="4" system="2" rsBeine="1" rsLArm="1" rsRArm="1" rsBauch="3" rsBrust="3" rsKopf="0">Wird üblicherweise mit Bronzehelm, -Arm und -Beinschienen ergänzt.</Rüstung>
+  <Rüstung name="Leichte Platte" typ="4" system="0" rsBeine="2" rsLArm="0" rsRArm="0" rsBauch="4" rsBrust="4" rsKopf="0">Wird üblicherweise mit Kettenzeug oder Plattenzeug ergänzt.</Rüstung>
+  <Rüstung name="Krötenhaut" typ="1" system="0" rsBeine="0" rsLArm="1" rsRArm="1" rsBauch="1" rsBrust="2" rsKopf="0">Wird üblicherweise mit Lederzeug ergänzt.</Rüstung>
+  <Rüstung name="Wattiertes Unterzeug (ZRS)" typ="0" system="2" rsBeine="1" rsLArm="1" rsRArm="1" rsBauch="1" rsBrust="1" rsKopf="0">Wird üblicherweise unter Metallrüstungen gegen Abschürfungen getragen.</Rüstung>
+  <Rüstung name="Gambeson (ZRS)" typ="0" system="2" rsBeine="1" rsLArm="1" rsRArm="1" rsBauch="2" rsBrust="2" rsKopf="0">Kann unter vielen Torsorüstungen anstelle von wattierter Unterkleidung getragen werden, wenn diese entsprechend größer ausfallen.</Rüstung>
+  <Rüstung name="Fellumhang" typ="1" system="2" rsBeine="1" rsLArm="1" rsRArm="1" rsBauch="0" rsBrust="1" rsKopf="0">Rüstungsergänzung.</Rüstung>
+  <Rüstung name="Fuhrmannsmantel" typ="1" system="2" rsBeine="1" rsLArm="1" rsRArm="1" rsBauch="0" rsBrust="1" rsKopf="0">Rüstungsergänzung.</Rüstung>
+  <Rüstung name="Wattiertes Unterzeug" typ="0" system="1" rsBeine="1" rsLArm="1" rsRArm="1" rsBauch="1" rsBrust="1" rsKopf="0">Wird üblicherweise unter Metallrüstungen gegen Abschürfungen getragen. Wirkt dann allerdings mit RS/BE 0.</Rüstung>
+  <Rüstung name="Gambeson" typ="0" system="1" rsBeine="1" rsLArm="1" rsRArm="1" rsBauch="2" rsBrust="2" rsKopf="0">Kann unter vielen Torsorüstungen anstelle von wattierter Unterkleidung getragen werden, wenn diese entsprechend größer ausfallen. Wirkt dann allerdings mit RS/BE 0.</Rüstung>
+  <Rüstung name="Garether Platte" typ="4" system="1" rsBeine="3" rsLArm="3" rsRArm="3" rsBauch="3" rsBrust="3" rsKopf="3">Wird üblicherweise mit Plattenzeug ergänzt. Da dieses bereits teilweise in der Rüstung integriert ist, gibt es allerdings nur RS/BE 1.</Rüstung>
+  <Rüstung name="Kettenhemd (lang) (ZRS)" typ="3" system="2" rsBeine="2" rsLArm="3" rsRArm="3" rsBauch="3" rsBrust="3" rsKopf="0"/>
+  <Rüstung name="Kettenhemd (kurz) (ZRS)" typ="3" system="2" rsBeine="1" rsLArm="2" rsRArm="2" rsBauch="3" rsBrust="3" rsKopf="0"/>
+  <Rüstung name="Kettenhemd (kurz)" typ="3" system="1" rsBeine="1" rsLArm="1" rsRArm="1" rsBauch="1" rsBrust="1" rsKopf="1">Wird üblicherweise mit Leder- oder Kettenzeug ergänzt.</Rüstung>
+  <Rüstung name="Kettenhemd (lang)" typ="3" system="1" rsBeine="2" rsLArm="2" rsRArm="2" rsBauch="2" rsBrust="2" rsKopf="0">Wird üblicherweise mit Leder- oder Kettenzeug ergänzt.</Rüstung>
+  <Rüstung name="Schuppenpanzer (lang)" typ="3" system="2" rsBeine="4" rsLArm="3" rsRArm="3" rsBauch="4" rsBrust="4" rsKopf="0">Benötigt keine wattierte Unterkleidung.</Rüstung>
+  <Rüstung name="Brustplatte (Leder)" typ="1" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="1" rsBrust="1" rsKopf="0"/>
+  <Rüstung name="Schuppenpanzer" typ="3" system="2" rsBeine="3" rsLArm="3" rsRArm="3" rsBauch="4" rsBrust="4" rsKopf="0">Benötigt keine wattierte Unterkleidung.</Rüstung>
+  <Rüstung name="Brigantina" typ="3" system="0" rsBeine="0" rsLArm="1" rsRArm="1" rsBauch="3" rsBrust="3" rsKopf="0">Stoff- oder Lederrüstung, in die - von außen nicht sichtbar - Metallplättchen genäht wurden.</Rüstung>
+  <Rüstung name="Brabaker Ringmantel" typ="3" system="0" rsBeine="2" rsLArm="2" rsRArm="2" rsBauch="2" rsBrust="2" rsKopf="0">Benötigt keine wattierte Unterkleidung.</Rüstung>
+  <Rüstung name="Anaurak" typ="1" system="0" rsBeine="1" rsLArm="1" rsRArm="1" rsBauch="1" rsBrust="1" rsKopf="1">Bringt einen Kälteschutz von +2 (S. 35). Kann nicht ergänzt werden.</Rüstung>
   <Waffe name="Brabakbengel" W6="2" plus="2" haerte="8" fertigkeit="Hiebwaffen" talent="Einhandhiebwaffen" kampfstile="Beidhändiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller Kampf, Schneller Kampf" rw="1" wm="-1" fk="0">Kopflastig, Rüstungsbrechend</Waffe>
   <Waffe name="Haumesser" W6="2" plus="1" haerte="9" fertigkeit="Hiebwaffen" talent="Einhandhiebwaffen" kampfstile="Beidhändiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller Kampf, Schneller Kampf" rw="1" wm="-1" fk="0"></Waffe>
   <Waffe name="Keule" W6="2" plus="0" haerte="8" fertigkeit="Hiebwaffen" talent="Einhandhiebwaffen" kampfstile="Beidhändiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller Kampf, Schneller Kampf" rw="1" wm="-1" fk="0">Stumpf, Kopflastig</Waffe>

@@ -36,6 +36,12 @@
        </item>
        <item>
         <widget class="QSpinBox" name="spinHaerte">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
          </property>
@@ -110,6 +116,12 @@
        </item>
        <item>
         <widget class="QSpinBox" name="spinRW1">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
          </property>
@@ -183,6 +195,12 @@
          </item>
          <item>
           <widget class="QSpinBox" name="spinWMLZ">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
            </property>
@@ -193,7 +211,7 @@
             <number>-9</number>
            </property>
            <property name="maximum">
-            <number>999</number>
+            <number>9</number>
            </property>
           </widget>
          </item>
@@ -264,6 +282,12 @@
        </item>
        <item>
         <widget class="QSpinBox" name="spinPlus">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
          </property>

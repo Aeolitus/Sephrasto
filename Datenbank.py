@@ -17,6 +17,7 @@ class Datenbank():
         self.talente = {}
         self.übernatürlicheFertigkeiten = {}
         self.waffen = {}
+        self.rüstungen = {}
         self.manöver = {}
         self.waffeneigenschaften = {}
         self.freieFertigkeiten = {}
@@ -160,6 +161,22 @@ class Datenbank():
                 w.set('wm', str(waffe.wm))
                 w.set('fk', '0')
 
+        #Rüstungen
+        for rue in self.rüstungen:
+            ruestung = self.rüstungen[rue]
+            if not ruestung.isUserAdded: continue
+            r = etree.SubElement(root, 'Rüstung')
+            r.set('name', ruestung.name)
+            r.set('typ', str(ruestung.typ))
+            r.set('system', str(ruestung.system))
+            r.set('rsBeine', str(ruestung.rs[0]))
+            r.set('rsLArm', str(ruestung.rs[1]))
+            r.set('rsRArm', str(ruestung.rs[2]))
+            r.set('rsBauch', str(ruestung.rs[3]))
+            r.set('rsBrust', str(ruestung.rs[4]))
+            r.set('rsKopf', str(ruestung.rs[5]))
+            r.text = ruestung.text
+
         #Manöver
         Wolke.Fehlercode = -34
         for ma in self.manöver:
@@ -206,6 +223,7 @@ class Datenbank():
         self.talente = {}
         self.übernatürlicheFertigkeiten = {}
         self.waffen = {}
+        self.rüstungen = {}
         self.manöver = {}
         self.waffeneigenschaften = {}
         self.freieFertigkeiten = {}
@@ -298,6 +316,8 @@ class Datenbank():
                 removed = self.waffeneigenschaften.pop(name)
             elif typ == 'Waffe' and name in self.waffen:
                 removed = self.waffen.pop(name)
+            elif typ == 'Rüstung' and name in self.rüstungen:
+                removed = self.rüstungen.pop(name)
             elif typ == 'Manöver / Modifikation' and name in self.manöver:
                 removed = self.manöver.pop(name)
             elif typ == 'Freie Fertigkeit' and name in self.freieFertigkeiten:
@@ -476,6 +496,27 @@ class Datenbank():
                 logging.warn("Waffe " + w.name + " exists already in the database, probably a \"Remove\" entry is missing. " +
                     "To fix this warning, delete your change, restore the original and redo your change")
             self.waffen.update({w.name: w})
+
+        #Rüstungen
+        for rue in root.findall('Rüstung'):
+            numLoaded += 1
+            r = Objekte.Ruestung()
+            r.name = rue.get('name')
+            r.typ = int(rue.get('typ'))
+            r.system = int(rue.get('system'))
+            r.rs[0] = int(rue.get('rsBeine'))
+            r.rs[1] = int(rue.get('rsLArm'))
+            r.rs[2] = int(rue.get('rsRArm'))
+            r.rs[3] = int(rue.get('rsBauch'))
+            r.rs[4] = int(rue.get('rsBrust'))
+            r.rs[5] = int(rue.get('rsKopf'))
+            r.text = rue.text
+            r.isUserAdded = not refDB
+
+            if r.name in self.rüstungen:
+                logging.warn("Rüstung " + r.name + " exists already in the database, probably a \"Remove\" entry is missing. " +
+                    "To fix this warning, delete your change, restore the original and redo your change")
+            self.rüstungen.update({r.name : r})
         
         #Manöver
         Wolke.Fehlercode = -26

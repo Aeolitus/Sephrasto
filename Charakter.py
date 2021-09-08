@@ -469,7 +469,7 @@ class Char():
 
         self.wsStern = self.rsmod + self.ws
         if len(self.rüstung) > 0:
-            self.wsStern += int(sum(self.rüstung[0].rs)/6+0.5+0.0001)
+            self.wsStern += self.rüstung[0].getRSGesamtInt()
 
         self.schips = self.schipsMax
         if self.finanzen >= 2: 

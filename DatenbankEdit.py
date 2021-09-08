@@ -16,6 +16,7 @@ import DatenbankEditVorteilWrapper
 import DatenbankSelectTypeWrapper
 import DatenbankEditWaffeneigenschaftWrapper
 import DatenbankEditWaffeWrapper
+import DatenbankEditRuestungWrapper
 import DatenbankEditManoeverWrapper
 import Objekte
 import os
@@ -47,12 +48,14 @@ class DatenbankEdit(object):
         self.ui.listDatenbank.doubleClicked["QModelIndex"].connect(self.editSelected)
         self.ui.listDatenbank.setSelectionMode(QtWidgets.QAbstractItemView.ExtendedSelection)
         self.ui.listDatenbank.selectionModel().selectionChanged.connect(self.listSelectionChanged)
+        self.ui.checkFilterTyp.stateChanged.connect(self.filterTypChanged)
         self.ui.showTalente.stateChanged.connect(self.updateGUI)
         self.ui.showVorteile.stateChanged.connect(self.updateGUI)
         self.ui.showFertigkeiten.stateChanged.connect(self.updateGUI)
         self.ui.showUebernatuerlicheFertigkeiten.stateChanged.connect(self.updateGUI)
         self.ui.showWaffeneigenschaften.stateChanged.connect(self.updateGUI)
         self.ui.showWaffen.stateChanged.connect(self.updateGUI)
+        self.ui.showRuestungen.stateChanged.connect(self.updateGUI)
         self.ui.showManoever.stateChanged.connect(self.updateGUI)
         self.ui.showFreieFertigkeiten.stateChanged.connect(self.updateGUI)
         self.ui.showUserAdded.stateChanged.connect(self.updateGUI)
@@ -78,6 +81,14 @@ class DatenbankEdit(object):
         self.updateGUI()
         self.updateWindowTitleAndCloseButton()
     
+    def filterTypChanged(self):
+        if self.ui.checkFilterTyp.checkState() == 0:
+            for dbType in self.databaseTypes.values():
+                dbType.showCheckbox.setChecked(False)
+        elif self.ui.checkFilterTyp.checkState() == 1 or self.ui.checkFilterTyp.checkState() == 2:
+            for dbType in self.databaseTypes.values():
+                dbType.showCheckbox.setChecked(True)
+
     def listSelectionChanged(self):
         indexes = self.ui.listDatenbank.selectedIndexes()
         if not indexes:
@@ -109,6 +120,7 @@ class DatenbankEdit(object):
         self.databaseTypes["Freie Fertigkeit"] = DatabaseType(self.datenbank.freieFertigkeiten, self.addFreieFertigkeit, self.editFreieFertigkeit, self.ui.showFreieFertigkeiten)
         self.databaseTypes["Waffeneigenschaft"] = DatabaseType(self.datenbank.waffeneigenschaften, self.addWaffeneigenschaft, self.editWaffeneigenschaft, self.ui.showWaffeneigenschaften)
         self.databaseTypes["Waffe"] = DatabaseType(self.datenbank.waffen, self.addWaffe, self.editWaffe, self.ui.showWaffen)
+        self.databaseTypes["Rüstung"] = DatabaseType(self.datenbank.rüstungen, self.addRuestung, self.editRuestung, self.ui.showRuestungen)
         self.databaseTypes["Manöver / Modifikation"] = DatabaseType(self.datenbank.manöver, self.addManoever, self.editManoever, self.ui.showManoever)
 
 
@@ -146,6 +158,21 @@ class DatenbankEdit(object):
 
         self.model.clear()
         showUserAdded = self.ui.showUserAdded.isChecked()
+
+        allChecked = True
+        anyChecked = False
+        for dbType in self.databaseTypes.values():
+            anyChecked = anyChecked or dbType.showCheckbox.isChecked()
+            allChecked = allChecked and dbType.showCheckbox.isChecked()
+
+        self.ui.checkFilterTyp.blockSignals(True)
+        if allChecked:
+            self.ui.checkFilterTyp.setCheckState(2)
+        elif anyChecked:
+            self.ui.checkFilterTyp.setCheckState(1)
+        else:
+            self.ui.checkFilterTyp.setCheckState(0)
+        self.ui.checkFilterTyp.blockSignals(False)
 
         for dbTypeName,dbType in self.databaseTypes.items():
             if dbType.showCheckbox.isChecked():
@@ -272,6 +299,13 @@ class DatenbankEdit(object):
         if ret is not None:
             self.datenbank.waffen.update({ret.name: ret})
             self.onDatabaseChange()
+            
+    def addRuestung(self):
+        rüs = Objekte.Ruestung()
+        ret = self.editRuestung(rüs)
+        if ret is not None:
+            self.datenbank.rüstungen.update({ret.name: ret})
+            self.onDatabaseChange()
     
     def addManoever(self):
         man = Fertigkeiten.Manoever()
@@ -307,6 +341,10 @@ class DatenbankEdit(object):
     def editWaffe(self, inp, readonly = False):
         dbW = DatenbankEditWaffeWrapper.DatenbankEditWaffeWrapper(self.datenbank, inp, readonly)
         return dbW.waffe
+    
+    def editRuestung(self, inp, readonly = False):
+        dbW = DatenbankEditRuestungWrapper.DatenbankEditRuestungWrapper(self.datenbank, inp, readonly)
+        return dbW.ruestung
         
     def editManoever(self, inp, readonly = False):
         dbM = DatenbankEditManoeverWrapper.DatenbankEditManoeverWrapper(self.datenbank, inp, readonly)

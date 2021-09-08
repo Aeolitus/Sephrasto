@@ -38,8 +38,10 @@ class DatenbankSelectTypeWrapper(object):
                 self.entryType = "Manöver / Modifikation"
             elif ui.buttonWaffeneigenschaft.isChecked():
                 self.entryType = "Waffeneigenschaft"
-            else:
+            elif ui.buttonWaffe.isChecked():
                 self.entryType = "Waffe"
+            else:
+                self.entryType = "Rüstung"
         else: 
             self.entryType = None
         

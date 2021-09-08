@@ -10,10 +10,12 @@ from PyQt5 import QtWidgets, QtCore
 import Objekte
 import Definitionen
 from WaffenPicker import WaffenPicker
+from RuestungPicker import RuestungPicker
 import logging
 from Hilfsmethoden import Hilfsmethoden
 from EventBus import EventBus
 import re
+from EventBus import EventBus
 
 class EquipWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
@@ -44,6 +46,9 @@ class EquipWrapper(QtCore.QObject):
                 getName = lambda : el2
                 eval("self.uiEq.comboStil"+str(el)+".addItem(getName())")
         logging.debug("Kampfstile added...")
+        self.uiEq.addR1.clicked.connect(lambda state, idx=1: self.selectArmor(idx))   
+        self.uiEq.addR2.clicked.connect(lambda state, idx=2: self.selectArmor(idx))   
+        self.uiEq.addR3.clicked.connect(lambda state, idx=3: self.selectArmor(idx))
         self.uiEq.addW1.clicked.connect(lambda state, idx=1: self.selectWeapon(idx))   
         self.uiEq.addW2.clicked.connect(lambda state, idx=2: self.selectWeapon(idx))   
         self.uiEq.addW3.clicked.connect(lambda state, idx=3: self.selectWeapon(idx))   
@@ -53,19 +58,10 @@ class EquipWrapper(QtCore.QObject):
         self.uiEq.addW7.clicked.connect(lambda state, idx=7: self.selectWeapon(idx))   
         self.uiEq.addW8.clicked.connect(lambda state, idx=8: self.selectWeapon(idx))   
 
-        self.uiEq.checkW1FK.stateChanged.connect(lambda state: self.uiEq.spinW1lz.setEnabled(state))
-        self.uiEq.checkW2FK.stateChanged.connect(lambda state: self.uiEq.spinW2lz.setEnabled(state))
-        self.uiEq.checkW3FK.stateChanged.connect(lambda state: self.uiEq.spinW3lz.setEnabled(state))
-        self.uiEq.checkW4FK.stateChanged.connect(lambda state: self.uiEq.spinW4lz.setEnabled(state))
-        self.uiEq.checkW5FK.stateChanged.connect(lambda state: self.uiEq.spinW5lz.setEnabled(state))
-        self.uiEq.checkW6FK.stateChanged.connect(lambda state: self.uiEq.spinW6lz.setEnabled(state))
-        self.uiEq.checkW7FK.stateChanged.connect(lambda state: self.uiEq.spinW7lz.setEnabled(state))
-        self.uiEq.checkW8FK.stateChanged.connect(lambda state: self.uiEq.spinW8lz.setEnabled(state))
-
         logging.debug("Check Toggle...")
         self.uiEq.checkZonen.setChecked(Wolke.Char.zonenSystemNutzen)
         self.uiEq.checkZonen.stateChanged.connect(self.checkToggleEquip)
-        self.defaultStyle = self.uiEq.spinW1h.styleSheet()
+
         self.currentlyLoading = False
         
         self.checkToggleEquip()
@@ -75,33 +71,43 @@ class EquipWrapper(QtCore.QObject):
             changed = False
             ruestungNeu = []
 
-            if self.uiEq.editR1name.text() != "":
+            for el in ["R1", "R2", "R3"]:
+                editName = getattr(self.uiEq, "edit" + el + "name")
+                spinBE = getattr(self.uiEq, "spin" + el + "be")
+                spinRS = getattr(self.uiEq, "spin" + el + "RS")
+                spinZRS = [getattr(self.uiEq, "spin" + el + "bein"),
+                           getattr(self.uiEq, "spin" + el + "larm"),
+                           getattr(self.uiEq, "spin" + el + "rarm"),
+                           getattr(self.uiEq, "spin" + el + "bauch"),
+                           getattr(self.uiEq, "spin" + el + "brust"),
+                           getattr(self.uiEq, "spin" + el + "kopf")]
+                spinPunkte = getattr(self.uiEq, "spin" + el + "punkte")
+
+                if editName.text() == "":
+                    spinPunkte.setStyleSheet("")
+                    spinPunkte.setToolTip("")
+                    continue
+
                 R = Objekte.Ruestung() 
-                R.name = self.uiEq.editR1name.text()
-                R.be = int(self.uiEq.spinR1be.value())
+                R.name = editName.text()
+                R.be = int(spinBE.value())
                 if self.uiEq.checkZonen.isChecked():
-                    R.rs = [self.uiEq.spinR1bein.value(), self.uiEq.spinR1larm.value(), self.uiEq.spinR1rarm.value(), self.uiEq.spinR1bauch.value(), self.uiEq.spinR1brust.value(), self.uiEq.spinR1kopf.value()]
+                    for i in range(0, 6):
+                        R.rs[i] = spinZRS[i].value()
                 else:
-                    R.rs = 6*[self.uiEq.spinR1RS.value()]
+                    R.rs = 6*[spinRS.value()]
                 ruestungNeu.append(R)
-            if self.uiEq.editR2name.text() != "":
-                R = Objekte.Ruestung() 
-                R.name = self.uiEq.editR2name.text()
-                R.be = self.uiEq.spinR2be.value()
-                if self.uiEq.checkZonen.isChecked():
-                    R.rs = [self.uiEq.spinR2bein.value(), self.uiEq.spinR2larm.value(), self.uiEq.spinR2rarm.value(), self.uiEq.spinR2bauch.value(), self.uiEq.spinR2brust.value(), self.uiEq.spinR2kopf.value()]
+
+                if sum(R.rs) % 6 != 0:
+                    spinPunkte.setStyleSheet("border: 1px solid orange;")
+                    missingPoints = 6 - sum(R.rs) % 6
+                    if missingPoints == 1:
+                        spinPunkte.setToolTip("Der Rüstung fehlt " + str(6 - sum(R.rs) % 6) + " Punkt ZRS.")
+                    else:
+                        spinPunkte.setToolTip("Der Rüstung fehlen " + str(6 - sum(R.rs) % 6) + " Punkte ZRS.")
                 else:
-                    R.rs = 6*[self.uiEq.spinR2RS.value()]
-                ruestungNeu.append(R)
-            if self.uiEq.editR3name.text() != "":
-                R = Objekte.Ruestung() 
-                R.name = self.uiEq.editR3name.text()
-                R.be = self.uiEq.spinR3be.value()
-                if self.uiEq.checkZonen.isChecked():
-                    R.rs = [self.uiEq.spinR3bein.value(), self.uiEq.spinR3larm.value(), self.uiEq.spinR3rarm.value(), self.uiEq.spinR3bauch.value(), self.uiEq.spinR3brust.value(), self.uiEq.spinR3kopf.value()]
-                else:
-                    R.rs = 6*[self.uiEq.spinR3RS.value()]
-                ruestungNeu.append(R)
+                    spinPunkte.setStyleSheet("")
+                    spinPunkte.setToolTip("")
 
             if not Hilfsmethoden.ArrayEqual(ruestungNeu, Wolke.Char.rüstung):
                 changed = True
@@ -116,11 +122,15 @@ class EquipWrapper(QtCore.QObject):
 
             for el in ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8']:
                 if (eval("self.uiEq.edit" + el + "name.text()") != ""):
-                    if eval("self.uiEq.check" + el + "FK.isChecked()"):
+                    name = eval("self.uiEq.label" + el + "typ.text()")
+                    if not name in Wolke.DB.waffen:
+                        W = Objekte.Nahkampfwaffe()
+                    elif type(Wolke.DB.waffen[name]) == Objekte.Fernkampfwaffe:
                         W = Objekte.Fernkampfwaffe()
                         W.lz = eval("self.uiEq.spin" + el + "lz.value()")
                     else:
                         W = Objekte.Nahkampfwaffe()
+
                     W.wm = eval("self.uiEq.spin" + el + "wm.value()")
                     W.name = eval("self.uiEq.label" + el + "typ.text()")
                     W.anzeigename = eval("self.uiEq.edit" + el + "name.text()")
@@ -176,7 +186,8 @@ class EquipWrapper(QtCore.QObject):
                 eval("self.uiEq.spin" + Rarr[count] + "bauch.setValue(" + str(R.rs[3]) +")")
                 eval("self.uiEq.spin" + Rarr[count] + "brust.setValue(" + str(R.rs[4]) +")")
                 eval("self.uiEq.spin" + Rarr[count] + "kopf.setValue(" + str(R.rs[5]) +")")
-                eval("self.uiEq.spin" + Rarr[count] + "RS.setValue(" + str(int(sum(R.rs)/6+0.5+0.0001)) +")")
+                eval("self.uiEq.spin" + Rarr[count] + "RS.setValue(" + str(R.getRSGesamtInt()) +")")
+                eval("self.uiEq.spin" + Rarr[count] + "punkte.setValue(" + str(sum(R.rs)) +")")
                 count += 1
         
         # Empty all other cells
@@ -190,6 +201,7 @@ class EquipWrapper(QtCore.QObject):
             eval("self.uiEq.spin" + Rarr[count] + "brust.setValue(0)")
             eval("self.uiEq.spin" + Rarr[count] + "kopf.setValue(0)")
             eval("self.uiEq.spin" + Rarr[count] + "RS.setValue(0)")
+            eval("self.uiEq.spin" + Rarr[count] + "punkte.setValue(0)")
             count += 1
         
         count = 0
@@ -214,12 +226,52 @@ class EquipWrapper(QtCore.QObject):
             eval("self.uiEq.spin" + Warr[count] + "wm.setValue(0)")
             eval("self.uiEq.spin" + Warr[count] + "lz.setValue(0)")
             eval("self.uiEq.spin" + Warr[count] + "lz.setEnabled(False)")
-            eval("self.uiEq.check" + Warr[count] + "FK.setChecked(False)")  
             count += 1
         
         self.initialLoad = False
         self.currentlyLoading = False
-        
+
+    def loadArmorIntoFields(self, R, index, replace):
+        Rarr = ["R1","R2","R3"]
+        count = index - 1
+        editName = getattr(self.uiEq, "edit" + Rarr[count] + "name")
+        spinBE = getattr(self.uiEq, "spin" + Rarr[count] + "be")
+        spinRS = getattr(self.uiEq, "spin" + Rarr[count] + "RS")
+        spinZRS = [getattr(self.uiEq, "spin" + Rarr[count] + "bein"),
+               getattr(self.uiEq, "spin" + Rarr[count] + "larm"),
+               getattr(self.uiEq, "spin" + Rarr[count] + "rarm"),
+               getattr(self.uiEq, "spin" + Rarr[count] + "bauch"),
+               getattr(self.uiEq, "spin" + Rarr[count] + "brust"),
+               getattr(self.uiEq, "spin" + Rarr[count] + "kopf")]
+        spinPunkte = getattr(self.uiEq, "spin" + Rarr[count] + "punkte")
+
+        if replace or editName.text() == "":
+            editName.setText(R.name)
+        else:
+            editName.setText(editName.text() + ", " + R.name)
+
+        if not replace:
+            for i in range(0, 6):
+                R.rs[i] += spinZRS[i].value()
+
+        for i in range(0, 6):
+            spinZRS[i].setValue(R.rs[i])
+
+
+        spinBE.setValue(EventBus.applyFilter("ruestung_be", R.getRSGesamtInt(), { "name" : R.name }))
+        spinRS.setValue(R.getRSGesamtInt())
+        spinPunkte.setValue(sum(R.rs))
+
+    def selectArmor(self, index):
+        logging.debug("Starting RuestungPicker")
+        picker = RuestungPicker(eval("self.uiEq.editR" + str(index) + "name.text()"), 2 if self.uiEq.checkZonen.isChecked() else 1)
+        logging.debug("RuestungPicker created")
+        if picker.ruestung is not None:
+            self.currentlyLoading = True
+            self.loadArmorIntoFields(picker.ruestung, index, picker.ruestungErsetzen)
+            self.currentlyLoading = False
+            self.update()
+
     def refreshKampfstile(self, index):
         logging.debug("Starting refreshKampfstile for index " + str(index))
         name = eval("self.uiEq.labelW" + str(index+1) + "typ.text()")
@@ -255,7 +307,7 @@ class EquipWrapper(QtCore.QObject):
                 eval("self.uiEq.comboStil" + str(index+1) + ".clear()")
                 eval("self.uiEq.comboStil" + str(index+1) + ".addItem('Waffe unbekannt')")
                 eval("self.uiEq.comboStil" + str(index+1) + ".setToolTip('Der Name der Waffe ist unbekannt, daher kann kein Kampfstil ausgewählt werden. Die Kampfwerte müssen in der PDF manuell ausgefüllt werden.')")
-                    
+
     def loadWeaponIntoFields(self, W, index):
         Warr = ["W1","W2","W3","W4","W5","W6","W7","W8"]
         count = index - 1
@@ -290,12 +342,10 @@ class EquipWrapper(QtCore.QObject):
         eval("self.uiEq.spin" + Warr[count] + "wm.setValue("+ str(W.wm) +")")
         if type(W) == Objekte.Fernkampfwaffe:
             eval("self.uiEq.spin" + Warr[count] + "lz.setValue("+ str(W.lz) +")")
-            eval("self.uiEq.check" + Warr[count] + "FK.setChecked(True)")
             eval("self.uiEq.spin" + Warr[count] + "lz.setEnabled(True)")
         elif type(W) == Objekte.Nahkampfwaffe:
-            eval("self.uiEq.check" + Warr[count] + "FK.setChecked(False)")
             eval("self.uiEq.spin" + Warr[count] + "lz.setEnabled(False)")
-        
+
     def selectWeapon(self, index):
         W = None
         try:
@@ -338,16 +388,19 @@ class EquipWrapper(QtCore.QObject):
                 self.uiEq.spinR3rarm.show()
                 self.uiEq.spinR3kopf.show()
                 self.uiEq.spinR3bein.show()
-                self.uiEq.spinR1RS.hide()
-                self.uiEq.spinR2RS.hide()
-                self.uiEq.spinR3RS.hide()
-                self.uiEq.labelRS.hide()
+                self.uiEq.spinR1RS.setEnabled(False)
+                self.uiEq.spinR2RS.setEnabled(False)
+                self.uiEq.spinR3RS.setEnabled(False)
                 self.uiEq.labelBein.show()
                 self.uiEq.labelBauch.show()
                 self.uiEq.labelBrust.show()
                 self.uiEq.labelLarm.show()
                 self.uiEq.labelRarm.show()
                 self.uiEq.labelKopf.show()
+                self.uiEq.labelPunkte.show()
+                self.uiEq.spinR1punkte.show()
+                self.uiEq.spinR2punkte.show()
+                self.uiEq.spinR3punkte.show()
             else:
                 self.uiEq.spinR1bauch.hide()
                 self.uiEq.spinR1brust.hide()
@@ -367,14 +420,17 @@ class EquipWrapper(QtCore.QObject):
                 self.uiEq.spinR3rarm.hide()
                 self.uiEq.spinR3kopf.hide()
                 self.uiEq.spinR3bein.hide()
-                self.uiEq.spinR1RS.show()
-                self.uiEq.spinR2RS.show()
-                self.uiEq.spinR3RS.show()
-                self.uiEq.labelRS.show()
+                self.uiEq.spinR1RS.setEnabled(True)
+                self.uiEq.spinR2RS.setEnabled(True)
+                self.uiEq.spinR3RS.setEnabled(True)
                 self.uiEq.labelBein.hide()
                 self.uiEq.labelBauch.hide()
                 self.uiEq.labelBrust.hide()
                 self.uiEq.labelLarm.hide()
                 self.uiEq.labelRarm.hide()
                 self.uiEq.labelKopf.hide()
+                self.uiEq.labelPunkte.hide()
+                self.uiEq.spinR1punkte.hide()
+                self.uiEq.spinR2punkte.hide()
+                self.uiEq.spinR3punkte.hide()
             self.currentlyLoading = False

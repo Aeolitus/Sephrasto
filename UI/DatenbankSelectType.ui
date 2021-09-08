@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>443</width>
-    <height>210</height>
+    <height>237</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -72,7 +72,7 @@
      </item>
      <item>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="1" column="1">
+       <item row="2" column="1">
         <widget class="QRadioButton" name="buttonUebernatuerlich">
          <property name="minimumSize">
           <size>
@@ -85,62 +85,7 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="0">
-        <widget class="QRadioButton" name="buttonFertigkeit">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Profane Fertigkeit</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QRadioButton" name="buttonTalent">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Talent</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QRadioButton" name="buttonVorteil">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Vorteil</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
-        <widget class="QRadioButton" name="buttonManoever">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Manöver / Modifikation / Regel</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
+       <item row="4" column="0">
         <widget class="QRadioButton" name="buttonWaffe">
          <property name="minimumSize">
           <size>
@@ -153,7 +98,79 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="1">
+       <item row="1" column="0">
+        <widget class="QRadioButton" name="buttonVorteil">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Vorteil</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QRadioButton" name="buttonFertigkeit">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Profane Fertigkeit</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QRadioButton" name="buttonFreieFertigkeit">
+         <property name="text">
+          <string>Freie Fertigkeit</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QRadioButton" name="buttonTalent">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Talent</string>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QRadioButton" name="buttonRuestung">
+         <property name="text">
+          <string>Rüstung</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QRadioButton" name="buttonManoever">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Manöver / Modifikation / Regel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
         <widget class="QRadioButton" name="buttonWaffeneigenschaft">
          <property name="minimumSize">
           <size>
@@ -163,13 +180,6 @@
          </property>
          <property name="text">
           <string>Waffeneigenschaft</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QRadioButton" name="buttonFreieFertigkeit">
-         <property name="text">
-          <string>Freie Fertigkeit</string>
          </property>
         </widget>
        </item>
@@ -206,10 +216,15 @@
   </layout>
  </widget>
  <tabstops>
-  <tabstop>buttonTalent</tabstop>
   <tabstop>buttonVorteil</tabstop>
   <tabstop>buttonFertigkeit</tabstop>
+  <tabstop>buttonFreieFertigkeit</tabstop>
   <tabstop>buttonUebernatuerlich</tabstop>
+  <tabstop>buttonTalent</tabstop>
+  <tabstop>buttonRuestung</tabstop>
+  <tabstop>buttonWaffe</tabstop>
+  <tabstop>buttonWaffeneigenschaft</tabstop>
+  <tabstop>buttonManoever</tabstop>
  </tabstops>
  <resources/>
  <connections>

@@ -49,6 +49,7 @@
     <Compile Include="CharakterMinderpaktWrapper.py" />
     <Compile Include="CharakterNotiz.py" />
     <Compile Include="CharakterNotizWrapper.py" />
+    <Compile Include="CharakterRuestungen.py" />
     <Compile Include="CharakterTalente.py" />
     <Compile Include="CharakterUebernatuerlich.py" />
     <Compile Include="CharakterUebernatuerlichWrapper.py" />
@@ -61,6 +62,8 @@
     <Compile Include="DatenbankEditFertigkeitWrapper.py" />
     <Compile Include="DatenbankEditFreieFertigkeit.py" />
     <Compile Include="DatenbankEditFreieFertigkeitWrapper.py" />
+    <Compile Include="DatenbankEditRuestung.py" />
+    <Compile Include="DatenbankEditRuestungWrapper.py" />
     <Compile Include="DatenbankEditTalent.py" />
     <Compile Include="DatenbankEditTalentWrapper.py" />
     <Compile Include="DatenbankEditVorteil.py" />
@@ -78,6 +81,7 @@
     <Compile Include="Objekte.py" />
     <Compile Include="pdf.py" />
     <Compile Include="pdfMeister.py" />
+    <Compile Include="RuestungPicker.py" />
     <Compile Include="Sephrasto.py" />
     <Compile Include="Talentbox.py" />
     <Compile Include="TalentPicker.py" />

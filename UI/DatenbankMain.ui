@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>637</width>
-    <height>500</height>
+    <width>661</width>
+    <height>555</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -32,100 +32,123 @@
         <widget class="QLineEdit" name="nameFilterEdit"/>
        </item>
        <item>
-        <widget class="QLabel" name="labelParameter">
+        <widget class="QCheckBox" name="checkFilterTyp">
          <property name="text">
           <string>Filter nach Typ:</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="showTalente">
-         <property name="text">
-          <string>Talente</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="showVorteile">
-         <property name="text">
-          <string>Vorteile</string>
          </property>
          <property name="checked">
           <bool>true</bool>
          </property>
          <property name="tristate">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="showFertigkeiten">
-         <property name="text">
-          <string>Profane Fertigkeiten</string>
-         </property>
-         <property name="checked">
           <bool>true</bool>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="showUebernatuerlicheFertigkeiten">
-         <property name="minimumSize">
-          <size>
-           <width>200</width>
-           <height>0</height>
-          </size>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <property name="leftMargin">
+          <number>10</number>
          </property>
-         <property name="text">
-          <string>Übernatürliche Fertigkeiten</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="showFreieFertigkeiten">
-         <property name="text">
-          <string>Freie Fertigkeiten</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="showWaffeneigenschaften">
-         <property name="text">
-          <string>Waffeneigenschaften</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="showWaffen">
-         <property name="text">
-          <string>Waffen</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="showManoever">
-         <property name="text">
-          <string>Manöver / Modifikationen</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
+         <item>
+          <widget class="QCheckBox" name="showVorteile">
+           <property name="text">
+            <string>Vorteile</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+           <property name="tristate">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="showFertigkeiten">
+           <property name="text">
+            <string>Profane Fertigkeiten</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="showFreieFertigkeiten">
+           <property name="text">
+            <string>Freie Fertigkeiten</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="showUebernatuerlicheFertigkeiten">
+           <property name="minimumSize">
+            <size>
+             <width>200</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Übernatürliche Fertigkeiten</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="showTalente">
+           <property name="text">
+            <string>Talente</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="showRuestungen">
+           <property name="text">
+            <string>Rüstungen</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="showWaffen">
+           <property name="text">
+            <string>Waffen</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="showWaffeneigenschaften">
+           <property name="text">
+            <string>Waffeneigenschaften</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="showManoever">
+           <property name="text">
+            <string>Manöver / Modifikationen</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
         <widget class="QLabel" name="labelParameter">
@@ -319,24 +342,27 @@
  </widget>
  <tabstops>
   <tabstop>nameFilterEdit</tabstop>
-  <tabstop>listDatenbank</tabstop>
-  <tabstop>showTalente</tabstop>
+  <tabstop>checkFilterTyp</tabstop>
   <tabstop>showVorteile</tabstop>
   <tabstop>showFertigkeiten</tabstop>
+  <tabstop>showFreieFertigkeiten</tabstop>
   <tabstop>showUebernatuerlicheFertigkeiten</tabstop>
-  <tabstop>showWaffeneigenschaften</tabstop>
+  <tabstop>showTalente</tabstop>
+  <tabstop>showRuestungen</tabstop>
   <tabstop>showWaffen</tabstop>
+  <tabstop>showWaffeneigenschaften</tabstop>
   <tabstop>showManoever</tabstop>
   <tabstop>showDeleted</tabstop>
   <tabstop>showUserAdded</tabstop>
-  <tabstop>buttonHinzufuegen</tabstop>
-  <tabstop>buttonEditieren</tabstop>
-  <tabstop>buttonDuplizieren</tabstop>
-  <tabstop>buttonLoeschen</tabstop>
   <tabstop>buttonCloseDB</tabstop>
   <tabstop>buttonLoadDB</tabstop>
   <tabstop>buttonSaveDB</tabstop>
   <tabstop>buttonQuicksave</tabstop>
+  <tabstop>listDatenbank</tabstop>
+  <tabstop>buttonHinzufuegen</tabstop>
+  <tabstop>buttonEditieren</tabstop>
+  <tabstop>buttonDuplizieren</tabstop>
+  <tabstop>buttonLoeschen</tabstop>
  </tabstops>
  <resources/>
  <connections/>
