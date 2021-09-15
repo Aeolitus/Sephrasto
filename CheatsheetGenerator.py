@@ -365,6 +365,18 @@ class CheatsheetGenerator(object):
             result.append("\n")
             text = talent.text
             
+            #Remove everything from Sephrasto on
+            index = text.find('\nSephrasto')
+            if index != -1:
+                text = text[:index]
+
+            #Remove everything from Anmerkung on but keep the text and append it later
+            index = text.find('\nAnmerkung')
+            anmerkung = ""
+            if index != -1:
+                anmerkung = text[index:]
+                text = text[:index]
+
             #Remove everything from Fertigkeiten on
             index = text.find('\nFertigkeiten')
             if index != -1:
@@ -376,6 +388,8 @@ class CheatsheetGenerator(object):
                 text = text[:index]
 
             result.append(text)
+            if anmerkung:
+                result.append(anmerkung)
 
             for vor in Wolke.Char.vorteile:
                 vorteil = Wolke.DB.vorteile[vor]
