@@ -2974,7 +2974,7 @@ Erlernen: Ach, Mag 18; Elf, Hex, Geo, Dru 20; 40 EP</Talent>
   <Talent name="Aeolitus Windgebraus" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Luft" variable="0" printclass="0">Ein kräftiger Windstoß breitet sich von deinem Mund kegelförmig (45°) 16 Schritt weit aus und verursacht Niederschmettern, wenn eine Konterprobe (KK, 16) misslingt. Ballistischer Zauber.
 Probenschwierigkeit: 12
 Modifikationen: Langer Atem (–8, 8 AsP; der Windstoß hält KO Initiativphasen lang an. Erfordert Konzentration.)
-Sturm (–4; bei misslungener Konterprobe verursacht der Zauber auch Zurückstoßen (S. 98).
+Sturm (–4; bei misslungener Konterprobe verursacht der Zauber auch Zurückstoßen (S. 98).)
 Winde der anderen Art (–4; der Wind bringt lieblichen Duft oder widerlichen Gestank.)
 Vorbereitungszeit: 0 Aktionen
 Ziel: Zone
@@ -3377,8 +3377,8 @@ Erlernen: Dru 18; Geo, Mag 20; 40 EP</Talent>
   <Talent name="Motoricus Geisterhand" kosten="60" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Umwelt" variable="0" printclass="0">Du kannst einen Gegenstand mit einer KK von 2 anheben und mit maximal 4 Schritt pro Initiativephase durch die Luft fliegen lassen. Besonders komplizierte und feine Bewegungen sind um bis zu 8 Punkte erschwert. Erfordert Konzentration.
 Mächtige Magie: Erhöht KK und die Schritte pro Initiativephase um +2.
 Probenschwierigkeit: 12
-Modifikationen: Unsichtbarer Hieb (Wirkungsdauer augenblicklich, 4 AsP; der Zauber fügt einem Objekt 2W6 SP zu. Mächtige Magie erhöht den Schaden um +4.)
-Magische Abwehr (–4, wird in einer Reaktion gewirkt, Wirkungsdauer augenblicklich, 4 AsP; die Zauberprobe gilt als VT gegen einen Nahkampfangriff in Reichweite.)
+Modifikationen: Unsichtbarer Hieb (Wirkungsdauer augenblicklich; der Zauber fügt einem Objekt 2W6 SP zu. Mächtige Magie erhöht den Schaden um +4.)
+Magische Abwehr (–4, wird in einer Reaktion gewirkt, Wirkungsdauer augenblicklich; die Zauberprobe gilt als VT gegen einen Nahkampfangriff in Reichweite.)
 Fesselfeld (–8, 32 AsP; in einer Zone von 4 Schritt Radius wird die Bewegung jedes unbelebten Objekts mit einer KK von 2 behindert, was Kampfhandlungen mit Waffen fast unmöglich macht.)
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelobjekt
@@ -4502,8 +4502,8 @@ Kosten: 8 AsP</Talent>
   <Talent name="Motoricus Geisterhand (Blutgeist)" kosten="0" voraussetzungen="Vorteil Tiergeist (Affe)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variable="0" kommentar="0" printclass="0">Du kannst einen Gegenstand mit einer KK von 2 anheben und mit maximal 4 Schritt pro Initiativephase durch die Luft fliegen lassen. Besonders komplizierte und feine Bewegungen sind um bis zu 8 Punkte erschwert. Erfordert Konzentration.
 Mächtige Magie: Erhöht KK und die Schritte pro Initiativephase um +2.
 Probenschwierigkeit: 12
-Modifikationen: Unsichtbarer Hieb (Wirkungsdauer augenblicklich, 4 AsP; der Zauber fügt einem Objekt 2W6 SP zu. Mächtige Magie erhöht den Schaden um +4.)
-Magische Abwehr (–4, wird in einer Reaktion gewirkt, Wirkungsdauer augenblicklich, 4 AsP; die Zauberprobe gilt als VT gegen einen Nahkampfangriff in Reichweite.)
+Modifikationen: Unsichtbarer Hieb (Wirkungsdauer augenblicklich; der Zauber fügt einem Objekt 2W6 SP zu. Mächtige Magie erhöht den Schaden um +4.)
+Magische Abwehr (–4, wird in einer Reaktion gewirkt, Wirkungsdauer augenblicklich; die Zauberprobe gilt als VT gegen einen Nahkampfangriff in Reichweite.)
 Fesselfeld (–8, 32 AsP; in einer Zone von 4 Schritt Radius wird die Bewegung jedes unbelebten Objekts mit einer KK von 2 behindert, was Kampfhandlungen mit Waffen fast unmöglich macht.)
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelobjekt
@@ -4772,8 +4772,8 @@ Kosten: 8 AsP</Talent>
   <Talent name="Motoricus Geisterhand (Tiergeist)" kosten="60" voraussetzungen="Vorteil Tiergeist (Affe)" verbilligt="0" fertigkeiten="Gaben des Odun" variable="0" kommentar="0" printclass="0">Du kannst einen Gegenstand mit einer KK von 2 anheben und mit maximal 4 Schritt pro Initiativephase durch die Luft fliegen lassen. Besonders komplizierte und feine Bewegungen sind um bis zu 8 Punkte erschwert. Erfordert Konzentration.
 Mächtige Magie: Erhöht KK und die Schritte pro Initiativephase um +2.
 Probenschwierigkeit: 12
-Modifikationen: Unsichtbarer Hieb (Wirkungsdauer augenblicklich, 4 AsP; der Zauber fügt einem Objekt 2W6 SP zu. Mächtige Magie erhöht den Schaden um +4.)
-Magische Abwehr (–4, wird in einer Reaktion gewirkt, Wirkungsdauer augenblicklich, 4 AsP; die Zauberprobe gilt als VT gegen einen Nahkampfangriff in Reichweite.)
+Modifikationen: Unsichtbarer Hieb (Wirkungsdauer augenblicklich; der Zauber fügt einem Objekt 2W6 SP zu. Mächtige Magie erhöht den Schaden um +4.)
+Magische Abwehr (–4, wird in einer Reaktion gewirkt, Wirkungsdauer augenblicklich; die Zauberprobe gilt als VT gegen einen Nahkampfangriff in Reichweite.)
 Fesselfeld (–8, 32 AsP; in einer Zone von 4 Schritt Radius wird die Bewegung jedes unbelebten Objekts mit einer KK von 2 behindert, was Kampfhandlungen mit Waffen fast unmöglich macht.)
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelobjekt
@@ -5149,7 +5149,7 @@ Erlernen: Smn 16; 20 EP</Talent>
   <Talent name="Wegzeichen" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Hellsicht, Geister der Stärkung, Geister rufen, Verständigung" variable="0" printclass="5">Du vergräbst einen Talisman. Während der Wirkungsdauer kannst unter Aufwendung von 1 AsP erfahren, wo deine Wegzeichen liegen und diese intuitiv unterscheiden.
 Probenschwierigkeit: 12
 Modifikationen: Permanenz (–4, Wirkungsdauer bis die Bindung gelöst wird, Kosten 8 AsP, davon 1 gAsP)
- Sprechendes Zeichen (–4; das Zeichen kann einen kurzen Satz als Botschaft enthalten, der mit einem AG von 2 (S. 80) gelesen werden kann)
+Sprechendes Zeichen (–4; das Zeichen kann einen kurzen Satz als Botschaft enthalten, der mit einem AG von 2 (S. 80) gelesen werden kann)
 Vorbereitungszeit: 16 Aktionen
 Ziel: Einzelobjekt
 Reichweite: Berührung
@@ -5325,7 +5325,7 @@ Wirkungsdauer: 16 Minuten
 Kosten: 8 AsP
 Fertigkeiten: Hellsicht, Geister rufen, Kraft
 Erlernen: Smn 8; 60 EP</Talent>
-  <Talent name="Geisterbote" kosten="60" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Geister rufen, Verständigung" variable="0" printclass="7">Durch das Geisterreich schließt du eine Verbindung mit dem Ziel, von dem du einen Körperteil (z.B: ein Haar oder einen Blutstropfen) besitzt. Der Körperteil wird dabei verbraucht. Während der Wirkungsdauer kannst einmal am Tag einen beliebigen Zauber auf das Ziel sprechen, als könntest du es berühren. Die Zauber müssen wie üblich die Magieresistenz überwinden.
+  <Talent name="Geisterbote" kosten="60" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Geister rufen, Verständigung" variable="0" printclass="7">Durch das Geisterreich schließt du eine Verbindung mit dem Ziel, von dem du einen Körperteil (z.B. ein Haar oder einen Blutstropfen) besitzt. Der Körperteil wird dabei verbraucht. Während der Wirkungsdauer kannst einmal am Tag einen beliebigen Zauber auf das Ziel sprechen, als könntest du es berühren. Die Zauber müssen wie üblich die Magieresistenz überwinden.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Stunde
 Ziel: Einzelperson
@@ -7242,7 +7242,7 @@ Wirkungsdauer: 4 Stunden
 Kosten: 8 KaP
 Fertigkeiten: Jagd
 Erlernen: Fir, Ifi 12; 20 EP</Talent>
-  <Talent name="Seelengefährte" kosten="20" voraussetzungen="Vorteil Tradition der Firungeweihten I" verbilligt="0" fertigkeiten="Jagd" variable="0" printclass="27">Du bittest Firuns Wilde Jagd um einen Gefallen. Das Tier der Wilden Jagd, das diesen Gefallen am ehesten erfüllen kann und sich einem Radius von 4 Meilen befindet, macht sich sofort auf den Weg zu dir und erfüllt den Gefallen. (Ist diese Tierart in der Region nicht heimisch, erreicht der Ruf ein verwandtes Tier.) Ist kein Tier in Reichweite, passiert nichts.
+  <Talent name="Seelengefährte" kosten="20" voraussetzungen="Vorteil Tradition der Firungeweihten I" verbilligt="0" fertigkeiten="Jagd" variable="0" printclass="27">Du bittest Firuns Wilde Jagd um einen Gefallen. Das Tier der Wilden Jagd, das diesen Gefallen am ehesten erfüllen kann und sich in einem Radius von 4 Meilen befindet, macht sich sofort auf den Weg zu dir und erfüllt den Gefallen. Ist diese Tierart in der Region nicht heimisch, erreicht der Ruf ein verwandtes Tier. Ist kein Tier in Reichweite, passiert nichts.
 Mächtige Liturgie: Du rufst 2/4/8/16 Tiere.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 8 Aktionen
@@ -8562,7 +8562,7 @@ Wirkungsdauer: bis die Unterkunft deutlich umgebaut wird
 Kosten: 16 KaP
 Fertigkeiten: Heim und Herd
 Erlernen: Tra 8; 0 EP</Talent>
-  <Talent name="Freundliche Aufnahme" kosten="20" voraussetzungen="Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der Traviageweihten I" verbilligt="0" fertigkeiten="Fröhlicher Wanderer, Sichere Heimkehr" variable="0" printclass="49">Du findet den direktesten Weg zum nächsten bewohnten Heim im Radius von 16 Meilen, dessen Bewohner dir mindestens Neutral gesonnen sind. Dieser Weg ist passierbar, aber nicht zwingend ungefährlich.
+  <Talent name="Freundliche Aufnahme" kosten="20" voraussetzungen="Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der Traviageweihten I" verbilligt="0" fertigkeiten="Fröhlicher Wanderer, Sichere Heimkehr" variable="0" printclass="49">Du findest den direktesten Weg zum nächsten bewohnten Heim im Radius von 16 Meilen, dessen Bewohner dir mindestens Neutral gesonnen sind. Dieser Weg ist passierbar, aber nicht zwingend ungefährlich.
 Mächtige Liturgie: Verdoppelt den Radius.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Minuten
@@ -8602,7 +8602,7 @@ Wirkungsdauer: 16 Initiativphasen
 Kosten: 4 KaP
 Fertigkeiten: Sichere Heimkehr
 Erlernen: Tra 16; 20 EP</Talent>
-  <Talent name="Reisesegen" kosten="40" voraussetzungen="Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der Traviageweihten I" verbilligt="0" fertigkeiten="Sichere Heimkehr, Stiller Wanderer" variable="0" printclass="49">Der Segen Travias begleitet den Reisenden und warnt ihn vor Arglist und Tücke. Du kannst Gefahren der Zivilisation (Überfälle, Diebe, betrügerische Führer) wie mit der Gabe Gefahreninstinkt erkennen. Besitzt er die Gabe bereits, sind damit verbundene Proben um +4 erleichtert. Wirkt nicht in dämonisch pervertiertem Gebiet.
+  <Talent name="Reisesegen" kosten="40" voraussetzungen="Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der Traviageweihten I" verbilligt="0" fertigkeiten="Sichere Heimkehr, Stiller Wanderer" variable="0" printclass="49">Der Segen Travias begleitet den Reisenden und warnt ihn vor Arglist und Tücke. Er kann Gefahren der Zivilisation (Überfälle, Diebe, betrügerische Führer) wie mit der Gabe Gefahreninstinkt erkennen. Besitzt er die Gabe bereits, sind damit verbundene Proben um +4 erleichtert. Wirkt nicht in dämonisch pervertiertem Gebiet.
 Mächtige Liturgie: Gebräuche-Proben sind um +2 erleichtert.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Minuten
@@ -8733,7 +8733,7 @@ Wirkungsdauer: 1 Woche
 Kosten: 1 KaP
 Fertigkeiten: Neubeginn
 Erlernen: Tsa 12; 0 EP</Talent>
-  <Talent name="Unschuldiger Geist" kosten="40" voraussetzungen="Vorteil Tradition der Tsageweihten I" verbilligt="0" fertigkeiten="Neubeginn" variable="0" printclass="51">Du ermöglichst dem Gesegneten einen unvoreingenommenen Blick auf eine Entscheidung oder eine Person. Der Gesegnete verliert während der Wirkungsdauer alle früheren Erinnerungen, aber auch alle negativen Eigenheiten wie Vorurteile oder andere Charakterschwächen. Solche Entscheidungen erweisen sich meist als richtig – regeltechnisch kannst er den Spielleiter diesbezüglich um einen Tipp bitten (wie mit dem Vorteil Eingebung, S. 59).
+  <Talent name="Unschuldiger Geist" kosten="40" voraussetzungen="Vorteil Tradition der Tsageweihten I" verbilligt="0" fertigkeiten="Neubeginn" variable="0" printclass="51">Du ermöglichst dem Gesegneten einen unvoreingenommenen Blick auf eine Entscheidung oder eine Person. Der Gesegnete verliert während der Wirkungsdauer alle früheren Erinnerungen, aber auch alle negativen Eigenheiten wie Vorurteile oder andere Charakterschwächen. Solche Entscheidungen erweisen sich meist als richtig – regeltechnisch kann er den Spielleiter diesbezüglich um einen Tipp bitten (wie mit dem Vorteil Eingebung, S. 59).
 Mächtige Liturgie: Je zwei Stufen ermöglichen einen zusätzlichen Tipp.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Stunde
@@ -8805,7 +8805,7 @@ Wirkungsdauer: 8 Initiativphasen
 Kosten: 8 KaP
 Fertigkeiten: Guter Kampf
 Erlernen: Kor 12; 60 EP</Talent>
-  <Talent name="Blutiger Schnitter" kosten="60" voraussetzungen="Vorteil Tradition der Korgeweihten I" verbilligt="0" fertigkeiten="Guter Kampf" variable="0" printclass="54">Du rufst den Kors Kampfrausch auf dich herab und erleidest keine Wundabzüge. Kannst du Wundabzüge ohnehin ignorieren, sind AT und VT um den halben Wundabzug erleichtert. Für je zwei erlittene Wunden richten deine Angriffe +1 TP an. Erlaubt Aufrechterhalten.
+  <Talent name="Blutiger Schnitter" kosten="60" voraussetzungen="Vorteil Tradition der Korgeweihten I" verbilligt="0" fertigkeiten="Guter Kampf" variable="0" printclass="54">Du rufst den Kampfrausch Kors auf dich herab und erleidest keine Wundabzüge. Kannst du Wundabzüge ohnehin ignorieren, sind AT und VT um den halben Wundabzug erleichtert. Für je zwei erlittene Wunden richten deine Angriffe +1 TP an. Erlaubt Aufrechterhalten.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: selbst
@@ -8844,7 +8844,7 @@ Wirkungsdauer: augenblicklich
 Kosten: 8 KaP
 Fertigkeiten: Guter Kampf
 Erlernen: Kor 18; 40 EP</Talent>
-  <Talent name="Fluch des Verräters" kosten="20" voraussetzungen="Vorteil Tradition der Korgeweihten I" verbilligt="0" fertigkeiten="Gutes Gold" variable="0" printclass="55">Du rufst Kors Strafe auf einen reuelosen Sünder oder Deserteur herab. Wenn ihm eine Konterprobe (Willenskraft, 20) misslingt, erleidet es in jedem Kampf einen Furcht-Effekt Stufe 1.
+  <Talent name="Fluch des Verräters" kosten="20" voraussetzungen="Vorteil Tradition der Korgeweihten I" verbilligt="0" fertigkeiten="Gutes Gold" variable="0" printclass="55">Du rufst Kors Strafe auf einen reuelosen Sünder oder Deserteur herab. Wenn ihm eine Konterprobe (Willenskraft, 20) misslingt, erleidet er in jedem Kampf einen Furcht-Effekt Stufe 1.
 Mächtige Liturgie: Je zwei Stufen erhöhen den Furcht-Effekt um eine Stufe.
 Probenschwierigkeit: 12
 Modifikationen: Permanenz (–4, Wirkungsdauer bis die Bindung gelöst wird, 8 KaP, davon 2 gKaP)
@@ -9737,7 +9737,7 @@ Fast alle Geweihten der Zwölf beherrschen die zwölf Segnungen: Eid-, Feuer-, G
   <Übernatürliche-Fertigkeit name="Heilung" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Perainegeweihten I" attribute="CH|FF|IN" printclass="1">Perainegeweihte gelten als hervorragende Ärzte, die sich in den Städten oder auf Schlachtfeldern unermüdlich um Kranke und Verwundete kümmern. </Übernatürliche-Fertigkeit>
   <Übernatürliche-Fertigkeit name="Wachstum" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Perainegeweihten I" attribute="CH|FF|KL" printclass="1">Viele ländliche Perainegeweihte beteiligen sich an der bäuerlichen Arbeit und segnen Felder und Jungtiere. </Übernatürliche-Fertigkeit>
   <Übernatürliche-Fertigkeit name="Abu al'Mada" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Phexgeweihten I" attribute="IN|KO|MU" printclass="1">In den Tulamidenlanden gehört zum Glauben an Feqz seit jeher auch sein Beiname als Herr der Magie und Vertreiber der Echsen.</Übernatürliche-Fertigkeit>
-  <Übernatürliche-Fertigkeit name="List" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Phexgeweihten I ODER Vorteil Tradition der Nandusgeweihten I" attribute="CH|IN|KL" printclass="1">Phex ist ein Gott der Opportunisten, Betrüger und listenreichen Händler. Seine Diener sind darauf angewiesen, schnell zu denken - und am besten um drei Ecken mehr als das Gegenüber.</Übernatürliche-Fertigkeit>
+  <Übernatürliche-Fertigkeit name="List" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Phexgeweihten I" attribute="CH|IN|KL" printclass="1">Phex ist ein Gott der Opportunisten, Betrüger und listenreichen Händler. Seine Diener sind darauf angewiesen, schnell zu denken - und am besten um drei Ecken mehr als das Gegenüber.</Übernatürliche-Fertigkeit>
   <Übernatürliche-Fertigkeit name="Nächtlicher Schatten" steigerungsfaktor="3" voraussetzungen="Vorteil Tradition der Phexgeweihten I" attribute="FF|GE|MU" printclass="1">Phex ist der Herrscher der Nacht und viele seiner Diener handeln unter dem Mantel der Dunkelheit wenig gesetzestreu. Doch die sternenerfüllte Nacht zieht auch viele phexgeweihte Mystiker an. </Übernatürliche-Fertigkeit>
   <Übernatürliche-Fertigkeit name="Licht" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Praiosgeweihten I" attribute="CH|CH|MU" printclass="1">Das Licht Praios' ist vor allem von den Mystikern in der Kirche hoch verehrt. </Übernatürliche-Fertigkeit>
   <Übernatürliche-Fertigkeit name="Magiebann" steigerungsfaktor="3" voraussetzungen="Vorteil Tradition der Praiosgeweihten I" attribute="CH|MU|KO" printclass="1">Die Antimagie und der Kampf gegen Dämonen haben gerade in den letzten Jahren einen erhöhten Stellenwert innerhalb der Praioskirche erhalten.</Übernatürliche-Fertigkeit>
@@ -10023,7 +10023,7 @@ Voraussetzungen: Kampf im Schnellen Stil; kein Unterlaufen seit letztem Beginn e
 Voraussetzung: Pfeile mit Waffeneigenschaft Rüstungsbrechend.</Manöver>
   <Manöver name="Schnellschuss" typ="1" voraussetzungen="Vorteil Schnellziehen" probe="FK -4" gegenprobe="">Verkürzt die Vorbereitungszeit um die Hälfte. Eine Vorbereitungszeit von 1 Aktion wird zu 0 Aktionen. Die Aktion Konflikt ist von dieser Modifikation nicht betroffen. Kann bis zu zweimal pro FK eingesetzt werden.</Manöver>
   <Manöver name="Mächtige Magie" typ="2" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I" probe="Zauber -4" gegenprobe="">Verstärkt die Wirkung des Zaubers (siehe Zauber). Zusätzlich steigt die Schwierigkeit von Konterproben (S. 124) gegen den Zauber um +4 Punkte.</Manöver>
-  <Manöver name="Mehrere Ziele (M)" typ="2" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I" probe="Zauber -4" gegenprobe="">Der Zauber wirkt auf mehrere Ziele in Reichweite. Die Kosten werden für jedes Ziel einzeln bezahlt, Modifikationen wie Kosten Sparen für jedes Ziel einzeln abgerechnet. Richtet sich der Zauber gegen die MR, steht jedem unfreiwilligen Ziel eine eigene MR-Probe zu, um dem Zauber zu widerstehen.</Manöver>
+  <Manöver name="Mehrere Ziele (M)" typ="2" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I" probe="Zauber -4" gegenprobe="">Der Zauber wirkt auf mehrere Ziele in Reichweite. Die Kosten werden für jedes Ziel einzeln bezahlt, Modifikationen wie Kosten sparen für jedes Ziel einzeln abgerechnet. Richtet sich der Zauber gegen die MR, steht jedem unfreiwilligen Ziel eine eigene MR-Probe zu, um dem Zauber zu widerstehen.</Manöver>
   <Manöver name="Reichweite erhöhen (M)" typ="2" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I" probe="Zauber -4" gegenprobe="">Die Reichweite des Zaubers verdoppelt sich. Die Reichweite Berührung wird zu 2 Schritt.</Manöver>
   <Manöver name="Vorbereitung verkürzen (M)" typ="2" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I" probe="Zauber -4" gegenprobe="">Die Vorbereitungszeit des Zaubers halbiert sich. Eine Vorbereitungszeit von 1 Aktion wird zu 0 Aktionen. Die Aktion Konflikt ist von dieser Modifikation nicht betroffen.</Manöver>
   <Manöver name="Wirkungsdauer verlängern (M)" typ="2" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I" probe="Zauber -4" gegenprobe="">Die Wirkungsdauer des Zaubers verdoppelt sich.</Manöver>
@@ -10062,7 +10062,7 @@ Voraussetzung: Verwendung der Tradition der Durro-dûn</Manöver>
   <Manöver name="Zeremonie (M)" typ="2" voraussetzungen="Vorteil Tradition der Schamanen III" probe="Zauber +X" gegenprobe="">Du kannst die Vorbereitungszeit freiwillig um 1 Minute/Stunde/Tag/Woche/Monat/Jahr erhöhen, wodurch der Zauber um +4/6/8/10/12/14 erleichtert ist. Die Vorbereitungszeit muss dadurch mindestens verdoppelt werden.
 Voraussetzung: Verwendung der Tradition der Schamanen.</Manöver>
   <Manöver name="Mächtige Liturgie" typ="3" voraussetzungen="Vorteil Geweiht I" probe="Liturgie -4" gegenprobe="">Verstärkt die Wirkung der Liturgie (siehe Liturgie). Zusätzlich steigt die Schwierigkeit von Konterproben (S. 124) gegen die Liturgie um +4 Punkte.</Manöver>
-  <Manöver name="Mehrere Ziele (L)" typ="3" voraussetzungen="Vorteil Geweiht I" probe="Liturgie -4" gegenprobe="">Die Liturgie wirkt auf mehrere Ziele in Reichweite. Die Kosten werden für jedes Ziel einzeln bezahlt, Modifikationen wie Kosten Sparen für jedes Ziel einzeln abgerechnet.</Manöver>
+  <Manöver name="Mehrere Ziele (L)" typ="3" voraussetzungen="Vorteil Geweiht I" probe="Liturgie -4" gegenprobe="">Die Liturgie wirkt auf mehrere Ziele in Reichweite. Die Kosten werden für jedes Ziel einzeln bezahlt, Modifikationen wie Kosten sparen für jedes Ziel einzeln abgerechnet.</Manöver>
   <Manöver name="Liturgische Technik ignorieren" typ="3" voraussetzungen="Vorteil Geweiht I" probe="Liturgie -4" gegenprobe="">Du ignorierst eine der bei der Tradition angeführten Bedingungen. Ignorierst du die Bedingung Sicht, musst du das Ziel auf eine andere Art und Weise wahrnehmen.</Manöver>
   <Manöver name="Reichweite erhöhen (L)" typ="3" voraussetzungen="Vorteil Geweiht I" probe="Liturgie -4" gegenprobe="">Die Reichweite der Liturgie verdoppelt sich. Die Reichweite Berührung wird zu 2 Schritt.</Manöver>
   <Manöver name="Vorbereitung verkürzen (L)" typ="3" voraussetzungen="Vorteil Geweiht I" probe="Liturgie -4" gegenprobe="">Die Vorbereitungszeit der Liturgie halbiert sich. Eine Vorbereitungszeit von 1 Aktion wird zu 0 Aktionen. Die Aktion Konflikt ist von dieser Modifikation nicht betroffen.</Manöver>
