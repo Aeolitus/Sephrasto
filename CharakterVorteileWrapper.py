@@ -253,7 +253,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
             EventBus.doAction("vorteil_entfernt", { "name" : name})
 
         self.modified.emit()
-        self.load() 
+        EventBus.doAction("charaktereditor_reload")
         self.uiVor.treeWidget.blockSignals(False)
 
         if manualUpdate:
