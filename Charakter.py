@@ -917,7 +917,7 @@ class Char():
             str(binascii.crc32(etree.tostring(Wolke.DB.userDbXml))) if \
             Wolke.DB.userDbXml is not None else "0"
         etree.SubElement(versionXml, 'NutzerDatenbankName').text = \
-            os.path.basename(Wolke.DB.datei)
+            os.path.basename(Wolke.DB.datei) if Wolke.DB.datei else ""
 
         #Erster Block
         Wolke.Fehlercode = -54
