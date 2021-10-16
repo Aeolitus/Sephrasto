@@ -445,8 +445,7 @@ class DatenbankEdit(object):
             elif result == 2:
                 return
 
-        refDatabaseFile = os.getcwd() + os.path.normpath("/datenbank.xml")
-        if spath == refDatabaseFile:
+        if spath == Datenbank.ZENTRALE_DATENBANK:
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Information)
             infoBox.setText("Überschreiben der zentralen Datenbank verhindert!")
@@ -483,8 +482,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             self.saveDatenbank()
             return
 
-        refDatabaseFile = os.getcwd() + os.path.normpath("/datenbank.xml")
-        if self.savepath == refDatabaseFile:
+        if self.savepath == Datenbank.ZENTRALE_DATENBANK:
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Information)
             infoBox.setText("Überschreiben der zentralen Datenbank verhindert!")
@@ -524,8 +522,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         if not spath:
             return
         spath = os.path.realpath(spath)
-        databaseFile = os.getcwd() + os.path.normpath("/datenbank.xml")
-        if spath == databaseFile:
+        if spath == Datenbank.ZENTRALE_DATENBANK:
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Warning)
             infoBox.setText("Diese Funktion dient dem Laden einer Nutzer-Datenbank wie der 'database_user.xml'. Die zentrale Sephrasto-Datenbank 'database.xml' wird sowieso immer geladen!")

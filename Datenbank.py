@@ -7,6 +7,8 @@ from PyQt5 import QtWidgets
 from Wolke import Wolke
 import logging
 
+ZENTRALE_DATENBANK = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'datenbank.xml')
+
 class DatabaseException(Exception):
     pass
 
@@ -229,8 +231,8 @@ class Datenbank():
         self.freieFertigkeiten = {}
         self.removeList = []
 
-        if os.path.isfile('datenbank.xml'):
-            self.xmlLadenInternal('datenbank.xml', refDB=True)
+        if os.path.isfile(ZENTRALE_DATENBANK):
+            self.xmlLadenInternal(ZENTRALE_DATENBANK, refDB=True)
             self.loaded = True
 
         try:   
