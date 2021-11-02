@@ -1,12 +1,14 @@
-fertigkeiten: Kristallmagie
-kosten: '40'
+fertigkeiten:
+- Kristallmagie
+kosten: 40
 name: Kristallkraft buendeln (passiv)
-printclass: '11'
+printclass: 11
 text: 'Du kannst einen Zauber mit der Essenz eines gebundenen Kristalls staerken.
   Der Zauber ist um +4 erleichtert und seine Kosten sinken um die gAsP des Kristalls.
   Nach dem Zauber zerfaellt der Kristall zu Staub.
 
   Erlernen: Ach 12; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Kristallomanten I

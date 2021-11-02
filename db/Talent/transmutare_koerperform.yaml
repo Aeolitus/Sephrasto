@@ -1,14 +1,17 @@
-fertigkeiten: Verwandlung
-kosten: '40'
+fertigkeiten:
+- Verwandlung
+kosten: 40
 name: Transmutare Koerperform
-printclass: '0'
+printclass: 0
 text: "Du kannst das Aussehen deines Zieles nach Belieben aendern, musst dabei aber\
   \ dabei Groesse und Gewicht deines Zieles beibehalten.\nProbenschwierigkeit: Magieresistenz\n\
   Modifikationen: Neues Leben (\u20138, Wirkungsdauer bis die Bindung geloest wird,\
   \ 32 AsP, davon 8 gAsP)\nVorbereitungszeit: 1 Tag\nZiel: Einzelwesen\nReichweite:\
   \ Beruehrung\nWirkungsdauer: 1 Monat\nKosten: 16 AsP\nFertigkeiten: Verwandlung\n\
   Erlernen: Alch, Mag 20; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Gildenmagier I

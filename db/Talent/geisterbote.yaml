@@ -1,7 +1,9 @@
-fertigkeiten: Geister rufen, Verstaendigung
-kosten: '60'
+fertigkeiten:
+- Geister rufen
+- Verstaendigung
+kosten: 60
 name: Geisterbote
-printclass: '7'
+printclass: 7
 text: 'Durch das Geisterreich schliesst du eine Verbindung mit dem Ziel, von dem du
   einen Koerperteil (z.B. ein Haar oder einen Blutstropfen) besitzt. Der Koerperteil
   wird dabei verbraucht. Waehrend der Wirkungsdauer kannst einmal am Tag einen beliebigen
@@ -23,6 +25,7 @@ text: 'Durch das Geisterreich schliesst du eine Verbindung mit dem Ziel, von dem
   Fertigkeiten: Geister rufen, Verstaendigung
 
   Erlernen: Smn 14; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

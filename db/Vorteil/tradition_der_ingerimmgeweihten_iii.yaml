@@ -1,13 +1,14 @@
 csBeschreibung: Erlaubt die spontane Modifikation Opferung.
-kommentar: '0'
-kosten: '60'
+kommentar: 0
+kosten: 60
 linkElement: Tradition der Ingerimmgeweihten II
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Tradition der Ingerimmgeweihten III
 text: 'Erlaubt die spontane Modifikation Opferung (Liturgie +4): Ein rituelles Opfer
   erleichtert die Liturgie um +4. Der Opfergegenstand wird dabei verbraucht, zerstoert
   oder verschwindet. Ingerimmgeweihte opfern Handwerksgegenstaende.'
-typ: '7'
-variable: '0'
-voraussetzungen: Attribut FF 8, Vorteil Tradition der Ingerimmgeweihten II
+typ: 7
+variable: 0
+voraussetzungen:
+- Attribut FF 8, Vorteil Tradition der Ingerimmgeweihten II

@@ -3,5 +3,6 @@ name: Kosten sparen (M)
 probe: Zauber -4
 text: Die AsP-Kosten des Zaubers sinken um ein Viertel der Basiskosten. Die Kosten
   koennen dadurch nicht unter die Haelfte der Basiskosten sinken.
-typ: '2'
-voraussetzungen: Vorteil Effizientes Zaubern
+typ: 2
+voraussetzungen:
+- Vorteil Effizientes Zaubern

@@ -1,0 +1,12 @@
+attribute:
+- CH
+- FF
+- IN
+name: Geister der Staerkung
+printclass: 0
+steigerungsfaktor: 3
+text: Geschickte Schamanen lassen wohlgesonnene Geister in Gegenstaende und Personen
+  einfahren und staerken sie so. Solche Schamanen sind oft ein Segen fuer den ganzen
+  Stamm, den sie in vielerlei Situationen unterstuetzen koennen.
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

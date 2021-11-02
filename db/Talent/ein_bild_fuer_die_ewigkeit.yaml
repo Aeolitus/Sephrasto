@@ -1,7 +1,9 @@
-fertigkeiten: Rausch, Wissen
-kosten: '40'
+fertigkeiten:
+- Rausch
+- Wissen
+kosten: 40
 name: Ein Bild fuer die Ewigkeit
-printclass: '31'
+printclass: 31
 text: 'Du praegst dir die waehrend der Wirkungsdauer erfahrenen Sinneseindruecke fuer
   immer ein.
 
@@ -20,7 +22,8 @@ text: 'Du praegst dir die waehrend der Wirkungsdauer erfahrenen Sinneseindruecke
   Fertigkeiten: Rausch, Wissen
 
   Erlernen: Nan, Rah 14; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Nandusgeweihten I ODER Vorteil Tradition der
-  Rahjageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Nandusgeweihten I
+- Vorteil Tradition der Rahjageweihten I

@@ -1,8 +1,9 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 nachkauf: haeufig
 name: Liturgische Sorgfalt
 text: Misslungene Liturgien kosten nur 1/4 der Basiskosten.
-typ: '6'
-variable: '0'
-voraussetzungen: Attribut KL 6, Vorteil Geweiht I
+typ: 6
+variable: 0
+voraussetzungen:
+- Attribut KL 6, Vorteil Geweiht I

@@ -1,7 +1,8 @@
-fertigkeiten: Froehlicher Wanderer
-kosten: '60'
+fertigkeiten:
+- Froehlicher Wanderer
+kosten: 60
 name: Aller Welt Freund
-printclass: '52'
+printclass: 52
 text: 'Du rufst die Lapislazulifloete. Solange du sie spielst, koennen dich Humanoide
   nur mit einer gelungenen Konterprobe (Willenskraft, 20) angreifen und Tiere gar
   nicht. Das Gebiet in 16 Schritt Radius gilt als geweihter Boden. Benoetigt Konzentration,
@@ -24,6 +25,7 @@ text: 'Du rufst die Lapislazulifloete. Solange du sie spielst, koennen dich Huma
   Fertigkeiten: Froehlicher Wanderer
 
   Erlernen: Aves 14; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Avesgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Avesgeweihten I

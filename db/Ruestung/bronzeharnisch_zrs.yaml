@@ -1,10 +1,10 @@
 name: Bronzeharnisch (ZRS)
-rsBauch: '2'
-rsBeine: '0'
-rsBrust: '3'
-rsKopf: '0'
-rsLArm: '0'
-rsRArm: '0'
-system: '2'
+rsBauch: 2
+rsBeine: 0
+rsBrust: 3
+rsKopf: 0
+rsLArm: 0
+rsRArm: 0
+system: 2
 text: Wird ueblicherweise mit Streifenschurz ergaenzt.
-typ: '4'
+typ: 4

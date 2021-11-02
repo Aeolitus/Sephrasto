@@ -1,9 +1,11 @@
-fertigkeiten: Alchemie
-kosten: '-1'
+fertigkeiten:
+- Alchemie
+kosten: -1
 name: Magische Elixiere
-printclass: '-1'
+printclass: -1
 text: Magische Elixiere beinhaltet Heiltraenke, Staerkungsmittel und Verwandlungselixiere,
   kurz die hohe Kunst der Alchemie. Rezepte findest du auf S. 64.
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

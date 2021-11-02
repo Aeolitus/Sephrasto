@@ -1,7 +1,10 @@
-fertigkeiten: Abu al'Mada, Magie, Magiebann
-kosten: '20'
+fertigkeiten:
+- Abu al'Mada
+- Magie
+- Magiebann
+kosten: 20
 name: Sicht auf Madas Welt
-printclass: '30'
+printclass: 30
 text: 'Du nimmst magische Kraft in deiner Umgebung als silbernen Schimmer wahr. Das
   entspricht einem Analysegrad von 1 fuer die Intensitaetsanalyse.
 
@@ -22,7 +25,9 @@ text: 'Du nimmst magische Kraft in deiner Umgebung als silbernen Schimmer wahr. 
   Fertigkeiten: Abu al''Mada, Magie, Magiebann
 
   Erlernen: Hes 8; Pra 12; Phe 18; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der
-  Phexgeweihten I ODER Vorteil Tradition der Praiosgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Hesindegeweihten I
+- Vorteil Tradition der Phexgeweihten I
+- Vorteil Tradition der Praiosgeweihten I

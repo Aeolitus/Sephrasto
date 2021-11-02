@@ -1,7 +1,10 @@
-fertigkeiten: Antimagie, Eigenschaften, Zaubertaenze
-kosten: '40'
+fertigkeiten:
+- Antimagie
+- Eigenschaften
+- Zaubertaenze
+kosten: 40
 name: Tanz des Ungehorsams
-printclass: '19'
+printclass: 19
 text: 'MR-Proben des Ziels sind um +4 erleichtert.
 
   Maechtige Magie: Erhoeht den Bonus um +2
@@ -21,6 +24,7 @@ text: 'MR-Proben des Ziels sind um +4 erleichtert.
   Fertigkeiten: Antimagie, Eigenschaften, Zaubertaenze
 
   Erlernen: Ztz 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Zaubertaenzer I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Zaubertaenzer I

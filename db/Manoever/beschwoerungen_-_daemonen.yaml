@@ -13,5 +13,7 @@ text: "Probenschwierigkeiten und Kosten:\n- 16 (mindere D. z.B. Gotongi), 16 AsP
   \ Daemon versteckt zusaetzliche Faehigkeiten verleihen entsprechend der Zufallstabelle\
   \ auf S. 98.\nAnmerkung: Bei misslungenen Daemonenbeschwoerungen kann es zu gefaehrlichen\
   \ chaotischen Nebeneffekten kommen. "
-typ: '4'
-voraussetzungen: Talent Invocatio ODER Talent Macht der Ungeformten
+typ: 4
+voraussetzungen:
+- Talent Invocatio
+- Talent Macht der Ungeformten

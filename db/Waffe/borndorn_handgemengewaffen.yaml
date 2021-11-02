@@ -1,12 +1,17 @@
-W6: '1'
+W6: 1
 fertigkeit: Handgemenge
-fk: '0'
-haerte: '10'
-kampfstile: Beidhaendiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller
-  Kampf, Schneller Kampf
+fk: 0
+haerte: 10
+kampfstile:
+- Beidhaendiger Kampf
+- Parierwaffenkampf
+- Reiterkampf
+- Schildkampf
+- Kraftvoller Kampf
+- Schneller Kampf
 name: Borndorn (Handgemengewaffen)
-plus: '2'
-rw: '0'
+plus: 2
+rw: 0
 talent: Handgemengewaffen
 text: null
-wm: '0'
+wm: 0

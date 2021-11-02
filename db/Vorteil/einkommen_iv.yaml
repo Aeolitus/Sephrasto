@@ -1,7 +1,7 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 linkElement: Einkommen III
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Einkommen IV
 text: Deine Familie, Organisation oder ein persoenlicher Maezen stellt dir ein monatliches
@@ -9,6 +9,7 @@ text: Deine Familie, Organisation oder ein persoenlicher Maezen stellt dir ein m
   der Nordlandbank oder ein Ordenshaus beziehen kannst. Fern der Zivilisation kannst
   du nicht auf dein Einkommen zugreifen. Das Einkommen reicht aus, um die Lebenserhaltungskosten
   eines Angehoerigen der Elite zu decken.
-typ: '0'
-variable: '0'
-voraussetzungen: Vorteil Einkommen III
+typ: 0
+variable: 0
+voraussetzungen:
+- Vorteil Einkommen III

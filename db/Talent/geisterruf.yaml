@@ -1,7 +1,8 @@
-fertigkeiten: Verstaendigung
-kosten: '40'
+fertigkeiten:
+- Verstaendigung
+kosten: 40
 name: Geisterruf
-printclass: '0'
+printclass: 0
 text: "Du rufst einen Geist herbei. Befinden sich Geister in einem Radius von 1 Meile,\
   \ erscheint einer von ihnen in deiner Naehe. Du kannst den Geist um einen Gefallen\
   \ bitten, doch er entscheidet, ob er den Gefallen erfuellt und welche Gegenleistung\
@@ -10,8 +11,11 @@ text: "Du rufst einen Geist herbei. Befinden sich Geister in einem Radius von 1 
   \ einen dir bereits bekannten Geist herbei.)\nVorbereitungszeit: 4 Minuten\nZiel:\
   \ Zone\nReichweite: Beruehrung\nWirkungsdauer: augenblicklich\nKosten: 8 AsP\nFertigkeiten:\
   \ Verstaendigung\nErlernen: Dru 12; Geo, Hex, Mag 18; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil
-  Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I

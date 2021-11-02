@@ -1,12 +1,17 @@
-W6: '2'
+W6: 2
 fertigkeit: Stangenwaffen
-fk: '0'
-haerte: '4'
-kampfstile: Beidhaendiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller
-  Kampf, Schneller Kampf
+fk: 0
+haerte: 4
+kampfstile:
+- Beidhaendiger Kampf
+- Parierwaffenkampf
+- Reiterkampf
+- Schildkampf
+- Kraftvoller Kampf
+- Schneller Kampf
 name: Holzspeer (Infanteriewaffen)
-plus: '-1'
-rw: '2'
+plus: -1
+rw: 2
 talent: Infanteriewaffen und Speere
 text: Wendig
-wm: '-1'
+wm: -1

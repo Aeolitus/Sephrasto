@@ -1,11 +1,12 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 linkElement: Regeneration
-linkKategorie: '1'
+linkKategorie: 1
 nachkauf: haeufig
 name: Astrale Regeneration
 text: Du regenerierst 1 zusaetzlichen AsP pro Nacht.
-typ: '4'
-variable: '0'
-voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut
-  KO 4
+typ: 4
+variable: 0
+voraussetzungen:
+- Vorteil Zauberer I
+- Vorteil Tradition der Borbaradianer I, Attribut KO 4

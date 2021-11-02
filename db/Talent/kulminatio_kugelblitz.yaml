@@ -1,7 +1,8 @@
-fertigkeiten: Umwelt
-kosten: '40'
+fertigkeiten:
+- Umwelt
+kosten: 40
 name: Kulminatio Kugelblitz
-printclass: '0'
+printclass: 0
 text: "Du schiesst einen erratischen Kugelblitz auf dein Ziel. Der Kugelblitz naehert\
   \ sich dem Ziel 4 Initiativephasen lang mit 3W6 Schritt pro Initiativephase (einmal\
   \ auswuerfeln). Wenn er das Ziel erreicht, richtet er 1W20 SP an.\nMaechtige Magie:\
@@ -14,7 +15,9 @@ text: "Du schiesst einen erratischen Kugelblitz auf dein Ziel. Der Kugelblitz na
   \ 2W6 Kugelblitze aus ihr.)\nVorbereitungszeit: 2 Aktionen\nZiel: Einzelwesen\n\
   Reichweite: 32 Schritt\nWirkungsdauer: augenblicklich\nKosten: 8 AsP\nFertigkeiten:\
   \ Umwelt\nErlernen: Ach, Mag 20; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I
-  ODER Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Kristallomanten I

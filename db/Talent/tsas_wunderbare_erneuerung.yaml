@@ -1,7 +1,8 @@
-fertigkeiten: Neubeginn
-kosten: '0'
+fertigkeiten:
+- Neubeginn
+kosten: 0
 name: Tsas wunderbare Erneuerung
-printclass: '51'
+printclass: 51
 text: 'Ein verlorenes Koerperteil waechst innerhalb einer Woche nach (waehrenddessen
   Einschraenkungen nach Spielleiterentscheid). Der Verlust des Koerperteils darf maximal
   1 Stunde zurueck liegen.
@@ -23,6 +24,7 @@ text: 'Ein verlorenes Koerperteil waechst innerhalb einer Woche nach (waehrendde
   Fertigkeiten: Neubeginn
 
   Erlernen: Tsa 16; 0 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Tsageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Tsageweihten I

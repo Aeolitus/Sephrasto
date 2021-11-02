@@ -1,7 +1,8 @@
-fertigkeiten: Guter Kampf
-kosten: '40'
+fertigkeiten:
+- Guter Kampf
+kosten: 40
 name: Das schwarze Fell durch das rote Blut
-printclass: '54'
+printclass: 54
 text: 'Dein vergossenes Blut legt sich wie eine schuetzende Haut um deinen Koerper.
   Dein RS steigt um 1 und fuer je zwei insgesamt erlittene Wunden steigt der RS um
   einen weiteren Punkt.
@@ -24,6 +25,7 @@ text: 'Dein vergossenes Blut legt sich wie eine schuetzende Haut um deinen Koerp
   Fertigkeiten: Guter Kampf
 
   Erlernen: Kor 14; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Korgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Korgeweihten I

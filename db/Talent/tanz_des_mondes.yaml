@@ -1,7 +1,9 @@
-fertigkeiten: Verstaendigung, Zaubertaenze
-kosten: '40'
+fertigkeiten:
+- Verstaendigung
+- Zaubertaenze
+kosten: 40
 name: Tanz des Mondes
-printclass: '19'
+printclass: 19
 text: 'Mit diesem Tanz kannst du in die Traeume eines schlafenden Zieles eindringen
   und ihm dort Botschaften ueberbringen. Woran sich das Ziel erinnern kann, ist Spielleiterentscheid.
   Du musst eine emotionale Beziehung zum Ziel haben.
@@ -21,6 +23,7 @@ text: 'Mit diesem Tanz kannst du in die Traeume eines schlafenden Zieles eindrin
   Fertigkeiten: Verstaendigung, Zaubertaenze
 
   Erlernen: Ztz 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Zaubertaenzer I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Zaubertaenzer I

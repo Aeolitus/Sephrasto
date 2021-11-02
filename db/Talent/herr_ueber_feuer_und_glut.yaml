@@ -1,7 +1,8 @@
-fertigkeiten: Heiliges Feuer
-kosten: '40'
+fertigkeiten:
+- Heiliges Feuer
+kosten: 40
 name: Herr ueber Feuer und Glut
-printclass: '33'
+printclass: 33
 text: "Du kannst ein bestehendes Feuer bis zur Groesse eines grossen Lagerfeuers formen.\
   \ Die Verformung geschieht mit einer Geschwindigkeit von 4 Schritt pro Initiativephase\
   \ und benoetigt Konzentration.\nMaechtige Liturgie: Du kannst Feuer bis zu einer\
@@ -14,7 +15,8 @@ text: "Du kannst ein bestehendes Feuer bis zur Groesse eines grossen Lagerfeuers
   \ wie Antimagie gegen Feuerzauber wirken (S. 126). Die Randbedingungen entsprechen\
   \ den dort angegebenen, ausser dass die Kosten mit KaP bezahlt werden und die Liturgie\
   \ um +4 erleichtert ist."
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition
-  der Angroschgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Ingerimmgeweihten I
+- Vorteil Tradition der Angroschgeweihten I

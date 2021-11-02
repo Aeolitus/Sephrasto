@@ -1,7 +1,9 @@
-fertigkeiten: Eigenschaften, Eis
-kosten: '20'
+fertigkeiten:
+- Eigenschaften
+- Eis
+kosten: 20
 name: Firnlauf
-printclass: '0'
+printclass: 0
 text: "Jede noch so duenne Eis- oder Schneeschicht traegt dich wie trockener Boden.\
   \ Unter diesen Bedingungen erleidest du keinerlei Erschwernisse oder Geschwindigkeitsabzuege.\n\
   Probenschwierigkeit: 12\nModifikationen: Verankerung (\u20134, 2 AsP; du verankerst\
@@ -9,8 +11,11 @@ text: "Jede noch so duenne Eis- oder Schneeschicht traegt dich wie trockener Bod
   \ Schieflage oder schnelle Bewegung geraet.)\nVorbereitungszeit: 2 Aktionen\nZiel:\
   \ selbst\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 8 AsP\nFertigkeiten:\
   \ Eigenschaften, Eis\nErlernen: Dru, Elf 16; Alch, Mag 20; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Gildenmagier I

@@ -1,7 +1,9 @@
-fertigkeiten: Harmonie, Rausch
-kosten: '40'
+fertigkeiten:
+- Harmonie
+- Rausch
+kosten: 40
 name: 'Harmonischer Rausch '
-printclass: '43'
+printclass: 43
 text: 'Du geniesst mit dem Gesegneten gemeinsam den Rausch (egal ob mit Alkohol, Drogen,
   Sex, Tanz, einem Ausritt oder einem reinen Adrenalinrausch). Danach erfuellt euch
   die Harmonie Rahjas, durch die Furcht-Effekte um eine Stufe verringert sind.
@@ -21,6 +23,7 @@ text: 'Du geniesst mit dem Gesegneten gemeinsam den Rausch (egal ob mit Alkohol,
   Fertigkeiten: Harmonie, Rausch
 
   Erlernen: Rah 12; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Rahjageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Rahjageweihten I

@@ -1,7 +1,9 @@
-fertigkeiten: Eigenschaften, Elfenlieder
-kosten: '60'
+fertigkeiten:
+- Eigenschaften
+- Elfenlieder
+kosten: 60
 name: Melodie der Kunstfertigkeit
-printclass: '2'
+printclass: 2
 text: 'Die Melodie erleichtert alle Proben zur Herstellung eines bestimmten Handwerksstueckes
   um +2.
 
@@ -22,6 +24,7 @@ text: 'Die Melodie erleichtert alle Proben zur Herstellung eines bestimmten Hand
   Fertigkeiten: Eigenschaften, Elfenlieder
 
   Erlernen: Elf 18; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Elfen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Elfen I

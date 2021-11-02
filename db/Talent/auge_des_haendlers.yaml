@@ -1,7 +1,9 @@
-fertigkeiten: List, Wissen
-kosten: '20'
+fertigkeiten:
+- List
+- Wissen
+kosten: 20
 name: Auge des Haendlers
-printclass: '31'
+printclass: 31
 text: 'Mit untrueglicher Sicherheit findest du ein besonderes Stueck auf einem Markt,
   in einem Geschaeft oder einer Ansammlung von Gegenstaenden. Meistens handelt es
   sich um ein Schnaeppchen, es kann aber auch ein Gegenstand mit einer besonderen
@@ -22,7 +24,8 @@ text: 'Mit untrueglicher Sicherheit findest du ein besonderes Stueck auf einem M
   Fertigkeiten: List, Wissen
 
   Erlernen: Phe 14; Nan 18; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Nandusgeweihten I ODER Vorteil Tradition der
-  Phexgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Nandusgeweihten I
+- Vorteil Tradition der Phexgeweihten I

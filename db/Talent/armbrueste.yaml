@@ -1,8 +1,10 @@
-fertigkeiten: Schusswaffen
-kosten: '-1'
+fertigkeiten:
+- Schusswaffen
+kosten: -1
 name: Armbrueste
-printclass: '-1'
+printclass: -1
 text: Verbessert den Einsatz von Armbruesten und Torsionswaffen.
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

@@ -1,7 +1,8 @@
-fertigkeiten: Illusion
-kosten: '20'
+fertigkeiten:
+- Illusion
+kosten: 20
 name: Vocolimbo hohler Klang
-printclass: '0'
+printclass: 0
 text: "Von einem Ort deiner Wahl aus erklingt eine Illusion (Gehoer) als hohle Stimme,\
   \ die eine von dir gewaehlte, bis zu 16 Worte lange Botschaft spricht.\nMaechtige\
   \ Magie: Verdoppelt die Laenge der Botschaft.\nProbenschwierigkeit: 12\nModifikationen:\
@@ -11,7 +12,10 @@ text: "Von einem Ort deiner Wahl aus erklingt eine Illusion (Gehoer) als hohle S
   \ bestimmtes Ereignis eintritt.)\nVorbereitungszeit: 2 Aktionen\nZiel: Zone\nReichweite:\
   \ 32 Schritt\nWirkungsdauer: 16 Initiativphasen\nKosten: 2 AsP\nFertigkeiten: Illusion\n\
   Erlernen: Srl 12; Mag 14; Sch 20; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I
-  ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Scharlatane I
+- Vorteil Tradition der Schelme I

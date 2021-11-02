@@ -1,7 +1,9 @@
-fertigkeiten: Eis, Verwandlung
-kosten: '40'
+fertigkeiten:
+- Eis
+- Verwandlung
+kosten: 40
 name: Warmes gefriere!
-printclass: '0'
+printclass: 0
 text: 'Das verzauberte Material von maximal 2 Kubikmetern Volumen kuehlt schlagartig
   auf die Temperaturstufe Grimmfrost ab (S. 35) und bleibt fuer die Wirkungsdauer
   gefroren. Waehrend der Wirkungsdauer ist die Haerte des Materials halbiert, nach
@@ -24,7 +26,9 @@ text: 'Das verzauberte Material von maximal 2 Kubikmetern Volumen kuehlt schlaga
   Fertigkeiten: Eis, Verwandlung
 
   Erlernen: Bor, Mag 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I
-  ODER Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Gildenmagier I

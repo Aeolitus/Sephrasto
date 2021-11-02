@@ -1,8 +1,9 @@
-fertigkeiten: Gaben des Odun
-kommentar: '0'
-kosten: '20'
+fertigkeiten:
+- Gaben des Odun
+kommentar: 0
+kosten: 20
 name: Exposami Lebenskraft (Tiergeist)
-printclass: '0'
+printclass: 0
 text: "Du nimmst Lebewesen als gruen leuchtende Flecken wahr. Der Zauber kann alle\
   \ Elemente bis auf Erz und Eis durchdringen.\nMaechtige Magie: Du kannst Angehoerige\
   \ verschiedener Spezies/verschiedene Individuen unterscheiden und wiedererkennen.\n\
@@ -10,6 +11,7 @@ text: "Du nimmst Lebewesen als gruen leuchtende Flecken wahr. Der Zauber kann al
   \ zeigt den Gesundheitszustand des Ziels, daemonische Verseuchungen usw.)\nVorbereitungszeit:\
   \ 1 Aktion\nZiel: Einzelperson\nReichweite: 16 Schritt\nWirkungsdauer: 8 Initiativphasen\n\
   Kosten: 4 AsP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Eule)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Eule)

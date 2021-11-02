@@ -1,11 +1,12 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 nachkauf: extrem selten
 name: Zauberer I
 script: modifyAsPBasis(8)
 text: Du verfuegst ueber 8 Astralpunkte und kannst magische Traditionen erlernen.
   Daemonen, Elementare oder Hellsichtsmagier koennen dich magisch wahrnehmen. Zauberer
   I entspricht einem einfachen Magiedilettanten.
-typ: '0'
-variable: '0'
-voraussetzungen: ''
+typ: 0
+variable: 0
+voraussetzungen:
+- ''

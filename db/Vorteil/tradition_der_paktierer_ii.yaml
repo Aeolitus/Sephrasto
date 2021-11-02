@@ -1,11 +1,12 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Tradition der Paktierer I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Tradition der Paktierer II
 text: Wird eine Anrufung mit der Modifikation Maechtige Anrufung gewirkt, ist sie
   zusaetzlich um +2 erleichtert.
-typ: '8'
-variable: '0'
-voraussetzungen: Attribut MU 6, Vorteil Tradition der Paktierer I
+typ: 8
+variable: 0
+voraussetzungen:
+- Attribut MU 6, Vorteil Tradition der Paktierer I

@@ -1,10 +1,12 @@
-fertigkeiten: Alchemie
-kosten: '-1'
+fertigkeiten:
+- Alchemie
+kosten: -1
 name: Alchemistische Analyse
-printclass: '-1'
+printclass: -1
 text: Mit einer alchemistischen Analyse kannst du feststellen, ob eine verstaubte
   Phiole einen Heiltrank oder ein toedliches Gift enthaelt und ob es sich bei dem
   schwarzen Erz tatsaechlich um Endurium handelt.
-variable: '0'
-verbilligt: '1'
-voraussetzungen: ''
+variable: 0
+verbilligt: 1
+voraussetzungen:
+- ''

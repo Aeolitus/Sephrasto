@@ -10,5 +10,7 @@ text: 'Die Kombination der Aktionen Bewegung und Konflikt ist nicht erschwert. A
   Anmerkung: Sturzflugangriffe von fliegenden Gegnern folgen denselben Regeln. Bei
   besonders kleinen Gegnern oder kurzem Anlauf sollte der Spielleiter den Schaden
   verringern.'
-typ: '0'
-voraussetzungen: Vorteil Sturmangriff ODER Vorteil Reiterkampf I
+typ: 0
+voraussetzungen:
+- Vorteil Sturmangriff
+- Vorteil Reiterkampf I

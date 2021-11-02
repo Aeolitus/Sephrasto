@@ -1,5 +1,5 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Tradition der Derwische I
 text: 'Bedingungen: Sichtkontakt, Trommelspiel, nur Rashtullahglaeubige profitieren
@@ -11,6 +11,7 @@ text: 'Bedingungen: Sichtkontakt, Trommelspiel, nur Rashtullahglaeubige profitie
 
 
   Die Bedingung Trommelspiel kann nicht ignoriert werden.'
-typ: '5'
-variable: '0'
-voraussetzungen: Attribut FF 4, Vorteil Zauberer I
+typ: 5
+variable: 0
+voraussetzungen:
+- Attribut FF 4, Vorteil Zauberer I

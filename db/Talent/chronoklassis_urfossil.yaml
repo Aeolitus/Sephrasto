@@ -1,7 +1,8 @@
-fertigkeiten: Temporal
-kosten: '40'
+fertigkeiten:
+- Temporal
+kosten: 40
 name: Chronoklassis Urfossil
-printclass: '0'
+printclass: 0
 text: "Du rufst ein Objekt oder Lebewesen aus der Vergangenheit in die Gegenwart.\
   \ Dabei kannst du maximal einen Zeitabstand von 1 Jahr ueberwinden und musst den\
   \ Ort und die Zeit des Zieles kennen. Nach dem Ende des Zaubers faellt das Ziel\
@@ -12,7 +13,8 @@ text: "Du rufst ein Objekt oder Lebewesen aus der Vergangenheit in die Gegenwart
   \ keine Spuren seiner Zeit in der Gegenwart zurueck)\nVorbereitungszeit: 8 Stunden\n\
   Ziel: Einzelobjekt oder Einzelwesen\nReichweite: dereweit\nWirkungsdauer: 1 Stunde\n\
   Kosten: 16 AsP\nFertigkeiten: Temporal\nErlernen: Ach 20; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Kristallomanten
-  I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Kristallomanten I

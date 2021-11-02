@@ -1,7 +1,10 @@
-fertigkeiten: Antimagie, Elfenlieder, Umwelt
-kosten: '20'
+fertigkeiten:
+- Antimagie
+- Elfenlieder
+- Umwelt
+kosten: 20
 name: Lied der Reinheit
-printclass: '2'
+printclass: 2
 text: "Dein Lied schwaecht daemonische Einfluesse in deiner Umgebung, natuerliches\
   \ Leben kehrt zurueck. Auf der Skala normal/leicht verseucht/deutlich verseucht/stark\
   \ verseucht/kleines Unheiligtum/mittleres Unheiligtum/maechtiges Unheiligtum sinkt\
@@ -11,6 +14,7 @@ text: "Dein Lied schwaecht daemonische Einfluesse in deiner Umgebung, natuerlich
   Erlernen: Elf 18; 20 EP\nAnmerkung: Verschiebst du die Skala auf normal, kehren\
   \ die daemonischen Einfluesse nicht von selbst zurueck \u2013 ausser die Ursache\
   \ der Verseuchung existiert weiterhin. "
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Elfen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Elfen I

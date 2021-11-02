@@ -1,7 +1,9 @@
-fertigkeiten: Ehre, Heerfuehrung
-kosten: '40'
+fertigkeiten:
+- Ehre
+- Heerfuehrung
+kosten: 40
 name: Ehrenhafter Kampf
-printclass: '45'
+printclass: 45
 text: 'Dein Gegner muss sich an die Gebote des ehrenhaften Zweikampfs halten und niemand
   kann in den Kampf eingreifen. Mit einer Konterprobe (Willenskraft, 20) kann die
   Wirkung ignoriert werden.
@@ -25,6 +27,7 @@ text: 'Dein Gegner muss sich an die Gebote des ehrenhaften Zweikampfs halten und
   Fertigkeiten: Ehre, Heerfuehrung
 
   Erlernen: Ron 8; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Rondrageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Rondrageweihten I

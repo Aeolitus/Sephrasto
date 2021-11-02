@@ -1,7 +1,8 @@
-fertigkeiten: Einfluss
-kosten: '60'
+fertigkeiten:
+- Einfluss
+kosten: 60
 name: Memorabia Falsifir
-printclass: '0'
+printclass: 0
 text: "Dein Opfer verdraengt saemtliche Erinnerungen an einen von dir bestimmten Zeitraum\
   \ von maximal 1 Stunde. Seitdem darf maximal 1 Stunde vergangen sein.\nMaechtige\
   \ Magie: Der Zeitraum und die maximal vergangene Zeit erhoehen sich auf 1 Tag/1\
@@ -13,8 +14,11 @@ text: "Dein Opfer verdraengt saemtliche Erinnerungen an einen von dir bestimmten
   Vorbereitungszeit: 4 Minuten\nZiel: Einzelperson\nReichweite: Beruehrung\nWirkungsdauer:\
   \ 1 Woche\nKosten: 16 AsP\nFertigkeiten: Einfluss\nErlernen: Elf, Mag 18; Ach, Dru,\
   \ Hex 20; 60 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen
-  I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER
-  Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I

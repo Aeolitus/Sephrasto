@@ -1,7 +1,9 @@
-fertigkeiten: Einfluss, Illusion
-kosten: '40'
+fertigkeiten:
+- Einfluss
+- Illusion
+kosten: 40
 name: Harmlose Gestalt
-printclass: '0'
+printclass: 0
 text: 'Mit dieser Illusion (Sicht, Gehoer, Geruch) erscheinst du den Umstehenden als
   kleines Kind, alter Krueppel, Orkfrau oder als eine andere harmlose Gestalt. Deine
   Kleidung ist von der Illusion betroffen, zusaetzliche Gegenstaende wie ein Wanderstab
@@ -22,10 +24,15 @@ text: 'Mit dieser Illusion (Sicht, Gehoer, Geruch) erscheinst du den Umstehenden
   Fertigkeiten: Einfluss, Illusion
 
   Erlernen: Hex 8; Srl 14; Ach, Bor, Dru, Mag, Sch 16; Elf 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I
-  ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition
-  der Kristallomanten I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition
-  der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I
+- Vorteil Tradition der Scharlatane I
+- Vorteil Tradition der Schelme I

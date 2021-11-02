@@ -1,7 +1,9 @@
-fertigkeiten: Verstaendigung, Vertrautenmagie
-kosten: '40'
+fertigkeiten:
+- Verstaendigung
+- Vertrautenmagie
+kosten: 40
 name: Ungesehener Beobachter
-printclass: '17'
+printclass: 17
 text: 'Du blickst in Trance durch die Augen deines Vertrautentiers, das ein Ziel ausspioniert.
   Der Zauber endet mit der Rueckkehr des Vertrautentiers und benoetigt Konzentration.
 
@@ -22,6 +24,7 @@ text: 'Du blickst in Trance durch die Augen deines Vertrautentiers, das ein Ziel
   Fertigkeiten: Verstaendigung, Vertrautenmagie
 
   Erlernen: Hex 12; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Hexen I

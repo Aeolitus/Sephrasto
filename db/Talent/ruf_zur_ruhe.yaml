@@ -1,7 +1,8 @@
-fertigkeiten: Vergessen
-kosten: '40'
+fertigkeiten:
+- Vergessen
+kosten: 40
 name: Ruf zur Ruhe
-printclass: '23'
+printclass: 23
 text: 'Dein Ziel verliert das Beduerfnis zu sprechen, solange du nicht sprichst, ausser
   es gelingt ihm eine Konterprobe (Willenskraft, 20).
 
@@ -20,6 +21,7 @@ text: 'Dein Ziel verliert das Beduerfnis zu sprechen, solange du nicht sprichst,
   Fertigkeiten: Vergessen
 
   Erlernen: Brn 12; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Borongeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Borongeweihten I

@@ -1,9 +1,11 @@
-fertigkeiten: Magiekunde
-kosten: '-1'
+fertigkeiten:
+- Magiekunde
+kosten: -1
 name: Elementarkunde
-printclass: '-1'
+printclass: -1
 text: Elementarkunde befasst sich mit den sechs Elementen, der Elementarbeschwoerung
   und den elementaren Zaubern.
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

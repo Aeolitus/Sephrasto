@@ -1,7 +1,8 @@
-fertigkeiten: Schutz der Glaeubigen
-kosten: '40'
+fertigkeiten:
+- Schutz der Glaeubigen
+kosten: 40
 name: Rondragabunds Fuehrung
-printclass: '47'
+printclass: 47
 text: 'Die Heilige Rondragabund fuehrt die Hand des Gesegneten. Bei Verteidigungen
   kann er statt seines eigentlichen PW einen PW von 8 verwenden.
 
@@ -22,6 +23,7 @@ text: 'Die Heilige Rondragabund fuehrt die Hand des Gesegneten. Bei Verteidigung
   Fertigkeiten: Schutz der Glaeubigen
 
   Erlernen: Ron 16; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Rondrageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Rondrageweihten I

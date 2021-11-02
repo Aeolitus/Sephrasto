@@ -3,5 +3,6 @@ name: Maechtige Liturgie
 probe: Liturgie -4
 text: Verstaerkt die Wirkung der Liturgie (siehe Liturgie). Zusaetzlich steigt die
   Schwierigkeit von Konterproben (S. 124) gegen die Liturgie um +4 Punkte.
-typ: '3'
-voraussetzungen: Vorteil Geweiht I
+typ: 3
+voraussetzungen:
+- Vorteil Geweiht I

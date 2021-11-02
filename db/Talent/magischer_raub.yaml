@@ -1,7 +1,9 @@
-fertigkeiten: Kraft, Verstaendigung
-kosten: '40'
+fertigkeiten:
+- Kraft
+- Verstaendigung
+kosten: 40
 name: Magischer Raub
-printclass: '0'
+printclass: 0
 text: 'Du kannst bei deinem naechsten Zauber teilweise oder ganz auf die AsP des Ziels
   zugreifen. Der naechste Zauber kann nicht auf das Ziel des magischen Raubs gewirkt
   werden.
@@ -21,9 +23,13 @@ text: 'Du kannst bei deinem naechsten Zauber teilweise oder ganz auf die AsP des
   Fertigkeiten: Kraft, Verstaendigung
 
   Erlernen: Dru 12; Geo 14; Mag 18; Ach, Bor, Hex 20; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I
-  ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil
-  Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition
-  der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I

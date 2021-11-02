@@ -1,12 +1,16 @@
-fertigkeiten: Heiliges Feuer, Heim und Herd
-kosten: '40'
+fertigkeiten:
+- Heiliges Feuer
+- Heim und Herd
+kosten: 40
 name: Vertrauter der Flamme
-printclass: '33'
+printclass: 33
 text: "Du bist immun gegen Feuerschaden und Hitze.\nModifikationen: Erweiterter Schutz\
   \ (\u20134; der Schutz betrifft auch deine Ausruestung.)\nVorbereitungszeit: 4 Aktionen\n\
   Ziel: selbst\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 8 KaP\nFertigkeiten:\
   \ Heiliges Feuer, Heim und Herd\nErlernen: Ang, Ing 12; Tra 18; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition
-  der Angroschgeweihten I ODER Vorteil Tradition der Traviageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Ingerimmgeweihten I
+- Vorteil Tradition der Angroschgeweihten I
+- Vorteil Tradition der Traviageweihten I

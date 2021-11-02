@@ -1,12 +1,15 @@
-fertigkeiten: Gaben des Odun
-kommentar: '0'
-kosten: '40'
+fertigkeiten:
+- Gaben des Odun
+kommentar: 0
+kosten: 40
 name: Armatrutz (Tiergeist)
-printclass: '0'
+printclass: 0
 text: "Der RS deines Zieles steigt um 1.\nMaechtige Magie: Je zwei Stufen verleihen\
   \ +1 RS.\nProbenschwierigkeit: 12\nModifikationen: Koerperschild (\u20134, 1 AsP;\
   \ der Armatrutz schuetzt nur eine Trefferzone.)\nVorbereitungszeit: 1 Aktion\nZiel:\
   \ Einzelperson\nReichweite: Beruehrung\nWirkungsdauer: 4 Minuten\nKosten: 4 AsP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Loewe) ODER Vorteil Tiergeist (Mammut)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Loewe)
+- Vorteil Tiergeist (Mammut)

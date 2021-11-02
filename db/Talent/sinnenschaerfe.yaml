@@ -1,10 +1,12 @@
-fertigkeiten: Wahrnehmung
-kosten: '-1'
+fertigkeiten:
+- Wahrnehmung
+kosten: -1
 name: Sinnenschaerfe
-printclass: '-1'
+printclass: -1
 text: Sinnenschaerfe ist die aktive Verwendung deiner Sinne, um einen Kollaborateur
   in einem geschaeftigen Wirtshaus zu belauschen, die Flagge eines nahenden Schiffes
   zu erkennen oder die Nadel im Heuhaufen zu finden.
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

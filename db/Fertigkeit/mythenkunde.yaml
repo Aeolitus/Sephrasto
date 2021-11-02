@@ -1,10 +1,14 @@
-attribute: KL|KL|IN
-kampffertigkeit: '0'
+attribute:
+- KL
+- KL
+- IN
+kampffertigkeit: 0
 name: Mythenkunde
-printclass: '4'
-steigerungsfaktor: '2'
+printclass: 4
+steigerungsfaktor: 2
 text: "Mythenkunde ist das Wissen ueber die Goetter und ihre Diener, sowohl die eigene\
   \ Religion, als auch \u2013 weniger genau \u2013 fremde Religionen betreffend. Zusaetzlich\
   \ gehoert dazu die Kenntnis der Geschichte sowie bekannter Sagen und Legenden, was\
   \ meist schwer voneinander zu trennen ist."
-voraussetzungen: ''
+voraussetzungen:
+- ''

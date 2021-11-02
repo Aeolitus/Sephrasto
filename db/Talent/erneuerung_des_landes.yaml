@@ -1,7 +1,8 @@
-fertigkeiten: Wachstum
-kosten: '40'
+fertigkeiten:
+- Wachstum
+kosten: 40
 name: Erneuerung des Landes
-printclass: '36'
+printclass: 36
 text: "Dein Gebet schwaecht daemonische Verseuchung in deiner Umgebung. Auf der Skala\
   \ normal/leicht verseucht/deutlich verseucht/stark verseucht/kleines Unheiligtum/mittleres\
   \ Unheiligtum/maechtiges Unheiligtum sinkt das Gebiet um eine Stufe.\nMaechtige\
@@ -10,6 +11,7 @@ text: "Dein Gebet schwaecht daemonische Verseuchung in deiner Umgebung. Auf der 
   \ 1 Jahr\nKosten: 16 KaP\nFertigkeiten: Wachstum\nErlernen: Per 18; 40 EP\nAnmerkung:\
   \ Verschiebst du die Skala auf normal, kehren die daemonischen Einfluesse nicht\
   \ von selbst zurueck \u2013 ausser die Ursache der Verseuchung existiert weiterhin."
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Perainegeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Perainegeweihten I

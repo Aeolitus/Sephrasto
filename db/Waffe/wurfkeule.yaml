@@ -1,11 +1,12 @@
-W6: '1'
+W6: 1
 fertigkeit: Wurfwaffen
-fk: '1'
-haerte: '7'
-kampfstile: ''
-lz: '0'
+fk: 1
+haerte: 7
+kampfstile:
+- ''
+lz: 0
 name: Wurfkeule
-plus: '2'
-rw: '8'
+plus: 2
+rw: 8
 talent: Kurze Wurfwaffen
 text: Stumpf

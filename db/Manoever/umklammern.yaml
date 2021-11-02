@@ -10,5 +10,6 @@ text: "Handlungen des Umklammerten sind um \u2013X erschwert und seine GS sinkt 
   \ der Angriff ohnehin keinen Schaden anrichten, ist das Manoever nicht moeglich.\n\
   Voraussetzungen: Angriff mit beiden Haenden im waffenlosen Kampf; Ziel darf nicht\
   \ einer hoeheren Groessenklasse angehoeren"
-typ: '0'
-voraussetzungen: ''
+typ: 0
+voraussetzungen:
+- ''

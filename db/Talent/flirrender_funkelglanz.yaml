@@ -1,7 +1,8 @@
-fertigkeiten: Illusion
-kosten: '40'
+fertigkeiten:
+- Illusion
+kosten: 40
 name: Flirrender Funkelglanz
-printclass: '0'
+printclass: 0
 text: 'Du erzeugst eine illusionaere Explosion aus Farben und Formen vor den Augen
   deines Ziels. Gelingt ihm keine Konterprobe (IN, 16), so ist es in seiner naechsten
   Initiativphase zu keiner Aktion faehig.
@@ -21,7 +22,9 @@ text: 'Du erzeugst eine illusionaere Explosion aus Farben und Formen vor den Aug
   Fertigkeiten: Illusion
 
   Erlernen: Srl 16; Sch 20; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Scharlatane I ODER
-  Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Scharlatane I
+- Vorteil Tradition der Schelme I

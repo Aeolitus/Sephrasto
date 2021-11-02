@@ -1,12 +1,13 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Tradition der Druiden I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Tradition der Druiden II
 text: "Druiden wissen um Orte von besonderer Kraft. Auf Kraftlinien und -knoten, die\
   \ sich auch in vielen Staedten finden, sind alle druidische Zauber und Rituale um\
   \ 2\u20134 Punkte erleichtert."
-typ: '5'
-variable: '0'
-voraussetzungen: Attribut KL 6, Vorteil Tradition der Druiden I
+typ: 5
+variable: 0
+voraussetzungen:
+- Attribut KL 6, Vorteil Tradition der Druiden I

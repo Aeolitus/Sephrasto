@@ -1,15 +1,19 @@
-fertigkeiten: Erz
-kosten: '40'
+fertigkeiten:
+- Erz
+kosten: 40
 name: Archofaxius
-printclass: '0'
+printclass: 0
 text: "Eine Strahl aus elementarem Erz fuegt dem Ziel 4W6 TP zu und verursacht Niederschmettern\
   \ (S. 98). Ballistischer Zauber.\nMaechtige Magie: Die TP steigen um 2W6.\nProbenschwierigkeit:\
   \ 12\nModifikationen: Gezielter Strahl (\u20134; du kannst die Trefferzone bestimmen.)\n\
   Vorbereitungszeit: 1 Aktion\nZiel: Einzelwesen, Einzelobjekt\nReichweite: 16 Schritt\n\
   Wirkungsdauer: augenblicklich\nKosten: 16 AsP\nFertigkeiten: Erz\nErlernen: Ach,\
   \ Dru, Geo, Mag 18; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil
-  Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Kristallomanten I

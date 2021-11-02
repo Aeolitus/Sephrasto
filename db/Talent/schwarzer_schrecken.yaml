@@ -1,7 +1,8 @@
-fertigkeiten: Einfluss
-kosten: '20'
+fertigkeiten:
+- Einfluss
+kosten: 20
 name: Schwarzer Schrecken
-printclass: '0'
+printclass: 0
 text: 'Das Opfer leidet an einer Angst vor einer Farbe oder Form deiner Wahl, meist
   wird die Farbe Schwarz gewaehlt. Wird die Angst ausgeloest, steht es unter einem
   Furcht-Effekt Stufe 1.
@@ -23,7 +24,9 @@ text: 'Das Opfer leidet an einer Angst vor einer Farbe oder Form deiner Wahl, me
   Fertigkeiten: Einfluss
 
   Erlernen: Bor 12; Mag 18; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I
-  ODER Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Gildenmagier I

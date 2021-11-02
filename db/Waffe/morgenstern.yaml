@@ -1,12 +1,17 @@
-W6: '3'
+W6: 3
 fertigkeit: Hiebwaffen
-fk: '0'
-haerte: '9'
-kampfstile: Beidhaendiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller
-  Kampf, Schneller Kampf
+fk: 0
+haerte: 9
+kampfstile:
+- Beidhaendiger Kampf
+- Parierwaffenkampf
+- Reiterkampf
+- Schildkampf
+- Kraftvoller Kampf
+- Schneller Kampf
 name: Morgenstern
-plus: '0'
-rw: '1'
+plus: 0
+rw: 1
 talent: Einhandhiebwaffen
 text: Kopflastig, Unberechenbar
-wm: '-1'
+wm: -1

@@ -1,12 +1,17 @@
-W6: '1'
+W6: 1
 fertigkeit: Handgemenge
-fk: '0'
-haerte: '1'
-kampfstile: Beidhaendiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller
-  Kampf, Schneller Kampf
+fk: 0
+haerte: 1
+kampfstile:
+- Beidhaendiger Kampf
+- Parierwaffenkampf
+- Reiterkampf
+- Schildkampf
+- Kraftvoller Kampf
+- Schneller Kampf
 name: Hand
-plus: '0'
-rw: '0'
+plus: 0
+rw: 0
 talent: Unbewaffnet
 text: Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe
-wm: '0'
+wm: 0

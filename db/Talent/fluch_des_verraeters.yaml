@@ -1,7 +1,8 @@
-fertigkeiten: Gutes Gold
-kosten: '20'
+fertigkeiten:
+- Gutes Gold
+kosten: 20
 name: Fluch des Verraeters
-printclass: '55'
+printclass: 55
 text: "Du rufst Kors Strafe auf einen reuelosen Suender oder Deserteur herab. Wenn\
   \ ihm eine Konterprobe (Willenskraft, 20) misslingt, erleidet er in jedem Kampf\
   \ einen Furcht-Effekt Stufe 1.\nMaechtige Liturgie: Je zwei Stufen erhoehen den\
@@ -9,6 +10,7 @@ text: "Du rufst Kors Strafe auf einen reuelosen Suender oder Deserteur herab. We
   \ (\u20134, Wirkungsdauer bis die Bindung geloest wird, 8 KaP, davon 2 gKaP)\nVorbereitungszeit:\
   \ 4 Minuten\nZiel: Einzelperson\nReichweite: 16 Schritt\nWirkungsdauer: 1 Woche\n\
   Kosten: 8 KaP\nFertigkeiten: Gutes Gold\nErlernen: Kor 14; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Korgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Korgeweihten I

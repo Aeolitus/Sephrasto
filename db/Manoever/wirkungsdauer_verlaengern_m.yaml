@@ -2,5 +2,7 @@ gegenprobe: ''
 name: Wirkungsdauer verlaengern (M)
 probe: Zauber -4
 text: Die Wirkungsdauer des Zaubers verdoppelt sich.
-typ: '2'
-voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I
+typ: 2
+voraussetzungen:
+- Vorteil Zauberer I
+- Vorteil Tradition der Borbaradianer I

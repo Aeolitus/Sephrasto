@@ -4,5 +4,6 @@ probe: ''
 text: Du fuehrst einen tollkuehnen Angriff aus. Alle Nahkampfangriffe in deiner Aktion
   sind um +4 erleichtert, alle Verteidigungen bis zu deiner naechsten Initiativephase
   um -8 erschwert.
-typ: '5'
-voraussetzungen: ''
+typ: 5
+voraussetzungen:
+- ''

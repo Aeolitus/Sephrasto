@@ -1,7 +1,10 @@
-fertigkeiten: Froehlicher Wanderer, List, Wissen
-kosten: '40'
+fertigkeiten:
+- Froehlicher Wanderer
+- List
+- Wissen
+kosten: 40
 name: Wundersame Verstaendigung
-printclass: '31'
+printclass: 31
 text: 'Du bist unerfahren in einer beliebigen Sprache.
 
   Maechtige Liturgie: Je zwei Stufen steigern deine Sprachkenntnis auf erfahren/meisterlich.
@@ -24,8 +27,10 @@ text: 'Du bist unerfahren in einer beliebigen Sprache.
   Fertigkeiten: Froehlicher Wanderer, List, Wissen
 
   Erlernen: Phe 12; Aves, Nan 14; Hes 16; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
-  Hesindegeweihten I ODER Vorteil Tradition der Nandusgeweihten I ODER Vorteil Tradition
-  der Phexgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Avesgeweihten I
+- Vorteil Tradition der Hesindegeweihten I
+- Vorteil Tradition der Nandusgeweihten I
+- Vorteil Tradition der Phexgeweihten I

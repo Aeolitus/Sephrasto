@@ -1,13 +1,16 @@
-fertigkeiten: Eigenschaften, Zaubertaenze
-kosten: '40'
+fertigkeiten:
+- Eigenschaften
+- Zaubertaenze
+kosten: 40
 name: Tanz der Jagd
-printclass: '19'
+printclass: 19
 text: "Der Tanz schaerft die Jagdinstinkte der Zuhoerer. Alle Zuhoerer in einem Radius\
   \ von 4\_Schritt erhalten eine Erleichterung +2 auf Pirschen, Ueberleben, Tierkunde\
   \ und GE-Proben.\nMaechtige Magie: Der Bonus steigt um +1.\nProbenschwierigkeit:\
   \ 12\nVorbereitungszeit: 1 Stunde\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer:\
   \ 1 Tag\nKosten: 16 AsP\nFertigkeiten: Eigenschaften, Zaubertaenze\nErlernen: Ztz\
   \ 16; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Zaubertaenzer I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Zaubertaenzer I

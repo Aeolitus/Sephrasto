@@ -1,11 +1,12 @@
-kommentar: '0'
-kosten: '100'
+kommentar: 0
+kosten: 100
 nachkauf: extrem selten
 name: Gefahreninstinkt
 text: Mit der Gabe Gefahreninstinkt kannst du mit dem Talent Wachsamkeit auch Gefahren
   erfassen, die mit gewoehnlichen Sinnen nicht wahrzunehmen sind. Dazu gehoeren etwa
   magische Fallen oder eine bald losbrechende Lawine. Ist die Gefahr auch mit gewoehnlichen
   Sinnen wahrnehmbar erhaeltst du eine Erleichterung von +4.
-typ: '0'
-variable: '0'
-voraussetzungen: ''
+typ: 0
+variable: 0
+voraussetzungen:
+- ''

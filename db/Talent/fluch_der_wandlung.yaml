@@ -1,7 +1,9 @@
-fertigkeiten: Verwandlung, Geister des Zorns
-kosten: '40'
+fertigkeiten:
+- Verwandlung
+- Geister des Zorns
+kosten: 40
 name: Fluch der Wandlung
-printclass: '6'
+printclass: 6
 text: "Das Ziel verwandelt sich im Laufe einer Woche in ein Tier, typischerweise in\
   \ eine Schlange (bei manchen Voelkern sind auch andere Tiere verbreitet). Mit Abschluss\
   \ der Verwandlung verliert es die Erinnerung an sein frueheres Leben. In der letzten\
@@ -11,6 +13,7 @@ text: "Das Ziel verwandelt sich im Laufe einer Woche in ein Tier, typischerweise
   \ geloest wird, 16 AsP, davon 2 gAsP)\nVorbereitungszeit: 1 Stunde\nZiel: Einzelperson\n\
   Reichweite: 4 Meilen\nWirkungsdauer: 1 Monat\nKosten: 16 AsP\nFertigkeiten: Verwandlung,\
   \ Geister des Zorns\nErlernen: Smn 16; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

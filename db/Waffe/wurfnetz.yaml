@@ -1,11 +1,12 @@
-W6: '0'
+W6: 0
 fertigkeit: Wurfwaffen
-fk: '1'
-haerte: '5'
-kampfstile: ''
-lz: '0'
+fk: 1
+haerte: 5
+kampfstile:
+- ''
+lz: 0
 name: Wurfnetz
-plus: '0'
-rw: '2'
+plus: 0
+rw: 2
 talent: Schleudern
 text: Umklammern (-4; 16)

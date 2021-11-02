@@ -1,0 +1,14 @@
+Vorteil:
+  kommentar: -1
+  kosten: -1
+  nachkauf: ""
+  name: ""
+  typ: -1
+  variable: -1
+  voraussetzungen: [""]
+  text: ""
+  csBeschreibung: ""
+  linkElement: ""
+  linkKategorie: -1
+  script: ""
+  csAuflisten: ""

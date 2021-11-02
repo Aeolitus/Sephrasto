@@ -1,7 +1,9 @@
-fertigkeiten: Eigenschaften, Zaubertaenze
-kosten: '40'
+fertigkeiten:
+- Eigenschaften
+- Zaubertaenze
+kosten: 40
 name: Tanz der Unantastbarkeit
-printclass: '19'
+printclass: 19
 text: 'Der Tanz verbessert deinen Gleichgewichtssinn und deine Koerperbeherrschung.
   Du erhaeltst den Vorteil Koerperbeherrschung (S. 58). Besitzt du den Vorteil bereits,
   erleidest du beim Einsatz des Vorteils keine Erschoepfung.
@@ -21,6 +23,7 @@ text: 'Der Tanz verbessert deinen Gleichgewichtssinn und deine Koerperbeherrschu
   Fertigkeiten: Eigenschaften, Zaubertaenze
 
   Erlernen: Ztz 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Zaubertaenzer I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Zaubertaenzer I

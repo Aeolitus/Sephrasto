@@ -1,7 +1,9 @@
-fertigkeiten: Antimagie, Kraft
-kosten: '40'
+fertigkeiten:
+- Antimagie
+- Kraft
+kosten: 40
 name: Gardianum Zauberschild
-printclass: '0'
+printclass: 0
 text: "Du erschaffst eine unsichtbare und immaterielle Schutzkuppel mit dir als Zentrum\
   \ und 2 Schritt Radius. Schadenszauber werden von der Kuppel abgefangen, die nach\
   \ 8 Beschaedigungen zusammenbricht (Haerte 2).\nMaechtige Magie: Die Haerte steigt\
@@ -15,9 +17,13 @@ text: "Du erschaffst eine unsichtbare und immaterielle Schutzkuppel mit dir als 
   \ zweite Haut um den Zauberer.)\nVorbereitungszeit: 0 Aktionen\nZiel: Zone\nReichweite:\
   \ Beruehrung\nWirkungsdauer: 4 Minuten\nKosten: 8 AsP\nFertigkeiten: Antimagie,\
   \ Kraft\nErlernen: Elf, Mag 12; Ach 14; Dru, Geo, Hex 16; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition
-  der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der
-  Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I

@@ -10,5 +10,6 @@ text: "Reaktionen kannst du aufwenden, um auf Ereignisse ausserhalb deiner Initi
   \ Freie Reaktionen.\n    Die Reihenfolge, in der du deine Reaktionen ausfuehrst,\
   \ kann eine Rolle spielen. Deswegen kannst du auch freiwillig Reaktionen mit einer\
   \ hoeheren Erschwernis ausfuehren, um dir die nicht erschwerte Reaktion freizuhalten."
-typ: '5'
-voraussetzungen: ''
+typ: 5
+voraussetzungen:
+- ''

@@ -1,7 +1,8 @@
-fertigkeiten: Daemonische Hilfe (Cpt)
-kosten: '20'
+fertigkeiten:
+- Daemonische Hilfe (Cpt)
+kosten: 20
 name: Fischgift
-printclass: '200'
+printclass: 200
 text: 'Vergiftet das Wasser in einem Radius von 16 Schritt, sodass kleinere Fische
   und Meeresfruechte sterben und sogar Wale eine Vergiftung erleiden.
 
@@ -22,6 +23,7 @@ text: 'Vergiftet das Wasser in einem Radius von 16 Schritt, sodass kleinere Fisc
   Fertigkeiten: Daemonische Hilfe (Cpt)
 
   Erlernen: Cpt 8; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Paktierer I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Paktierer I

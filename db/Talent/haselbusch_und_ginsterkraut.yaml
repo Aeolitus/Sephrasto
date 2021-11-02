@@ -1,7 +1,9 @@
-fertigkeiten: Humus, Verwandlung
-kosten: '60'
+fertigkeiten:
+- Humus
+- Verwandlung
+kosten: 60
 name: Haselbusch und Ginsterkraut
-printclass: '0'
+printclass: 0
 text: "Du leitest das Wachstum einer Pflanze, kannst es beschleunigen und formen.\
   \ Die Kosten, Zauberdauer und Modifikationen Maechtige Magie sind Meisterentscheid.\
   \ Beispiele:\n4 AsP, keine Maechtige Magie, 1 Minute: Aus einem Samen waechst eine\
@@ -12,8 +14,12 @@ text: "Du leitest das Wachstum einer Pflanze, kannst es beschleunigen und formen
   \ 12\nVorbereitungszeit: nach Projekt\nZiel: Pflanze\nReichweite: Beruehrung\nWirkungsdauer:\
   \ augenblicklich\nKosten: nach Projekt\nFertigkeiten: Humus, Verwandlung\nErlernen:\
   \ Elf 14; Geo 18; Alch, Dru, Hex, Mag\_20; 60 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden
-  I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil
-  Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I

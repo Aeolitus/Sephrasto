@@ -7,5 +7,6 @@ text: "Manchmal moechtest du vor einem Lichtblitz die Augen schliessen, einem Za
   \ Freie Reaktionen koennen beliebig oft durchgefuehrt werden; sie sind niemals durch\
   \ vorherige Reaktionen erschwert (wenn sie eine Probe erfordern) und erschweren\
   \ auch keine Folgereaktionen."
-typ: '5'
-voraussetzungen: ''
+typ: 5
+voraussetzungen:
+- ''

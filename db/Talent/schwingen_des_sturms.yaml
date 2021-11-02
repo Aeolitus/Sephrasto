@@ -1,7 +1,8 @@
-fertigkeiten: Schutz der Glaeubigen
-kosten: '60'
+fertigkeiten:
+- Schutz der Glaeubigen
+kosten: 60
 name: Schwingen des Sturms
-printclass: '47'
+printclass: 47
 text: 'Du reitest auf den aufkommenden Sturmboeen. Waehrend der Wirkungsdauer kannst
   du zwei mal die Freie Aktion Sturmritt ausfuehren, in der du dich bis zu 8 Schritt
   bewegst und eine Attacke (als Teil der freien Aktion) ausfuehrst. Falls diese Attacke
@@ -26,6 +27,7 @@ text: 'Du reitest auf den aufkommenden Sturmboeen. Waehrend der Wirkungsdauer ka
   Fertigkeiten: Schutz der Glaeubigen
 
   Erlernen: Ron 16; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Rondrageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Rondrageweihten I

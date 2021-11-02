@@ -1,7 +1,8 @@
-fertigkeiten: Verstaendigung
-kosten: '20'
+fertigkeiten:
+- Verstaendigung
+kosten: 20
 name: Meister minderer Geister
-printclass: '0'
+printclass: 0
 text: 'Du rufst Mindergeister herbei. Befinden sich Mindergeister in einem Radius
   von 1 Meile, eilt bis zu einem Dutzend von ihnen herbei. Sie verhalten sich ihrem
   Naturell gemaess.
@@ -23,7 +24,10 @@ text: 'Du rufst Mindergeister herbei. Befinden sich Mindergeister in einem Radiu
   Fertigkeiten: Verstaendigung
 
   Erlernen: Sch 8; Geo 14; Dru 20; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Geoden I ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Schelme I

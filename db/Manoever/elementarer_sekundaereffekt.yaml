@@ -1,19 +1,30 @@
 gegenprobe: ''
 name: Elementarer Sekundaereffekt
 probe: ''
-text: "Sekundaereffekte treten sein, sobald ein Angriff auf einen Schlag mindestens\
-  \ 2 Wunden verursacht. Dann muss das Ziel eine Attributsprobe (20, I) ablegen, +4\
-  \ fuer jede zusaetzliche Wunde. Entsteht der Effekt ohne, dass Schaden angerichtet\
-  \ wird, dann wird statt der Attributsprobe eine Konterprobe (S. 124) abgelegt.\n\
-  - Erfrieren: Misslingt dem Opfer eine KO-Probe (20, I), erleidet es einen Punkt\
-  \ Erschoepfung. \n- Ertraenken: Misslingt dem Opfer eine GE-Probe (20, I), ist es\
-  \ bis zu seiner uebernaechsten Initiativephase handlungsunfaehig.\n- Fesseln: Misslingt\
-  \ dem Opfer eine GE-Probe (20, I), kann es sich fuer 4 Initiativephasen nicht von\
-  \ Ort und Stelle bewegen.\n- Nachbrennen: Misslingt dem Opfer eine KO-Probe (20,\
-  \ I), geht es in Flammen auf und erleidet nach 4 Initiativephasen einmalig eine\
-  \ Wunde, wenn es nicht geloescht wird.\n- Niederschmettern: Das Opfer muss eine\
-  \ KK-Probe (20, I) ablegen, um nicht zu stuerzen.\n- Zurueckstossen: Misslingt dem\
-  \ Opfer eine KK-Probe (20, I), wird es 4 Schritt zurueckgeworfen."
-typ: '4'
-voraussetzungen: Vorteil Geweiht I ODER Vorteil Zauberer I ODER Vorteil Paktierer
-  I ODER Vorteil Tradition der Borbaradianer I
+text: 'Sekundaereffekte treten sein, sobald ein Angriff auf einen Schlag mindestens
+  2 Wunden verursacht. Dann muss das Ziel eine Attributsprobe (20, I) ablegen, +4
+  fuer jede zusaetzliche Wunde. Entsteht der Effekt ohne, dass Schaden angerichtet
+  wird, dann wird statt der Attributsprobe eine Konterprobe (S. 124) abgelegt.
+
+  - Erfrieren: Misslingt dem Opfer eine KO-Probe (20, I), erleidet es einen Punkt
+  Erschoepfung.
+
+  - Ertraenken: Misslingt dem Opfer eine GE-Probe (20, I), ist es bis zu seiner uebernaechsten
+  Initiativephase handlungsunfaehig.
+
+  - Fesseln: Misslingt dem Opfer eine GE-Probe (20, I), kann es sich fuer 4 Initiativephasen
+  nicht von Ort und Stelle bewegen.
+
+  - Nachbrennen: Misslingt dem Opfer eine KO-Probe (20, I), geht es in Flammen auf
+  und erleidet nach 4 Initiativephasen einmalig eine Wunde, wenn es nicht geloescht
+  wird.
+
+  - Niederschmettern: Das Opfer muss eine KK-Probe (20, I) ablegen, um nicht zu stuerzen.
+
+  - Zurueckstossen: Misslingt dem Opfer eine KK-Probe (20, I), wird es 4 Schritt zurueckgeworfen.'
+typ: 4
+voraussetzungen:
+- Vorteil Geweiht I
+- Vorteil Zauberer I
+- Vorteil Paktierer I
+- Vorteil Tradition der Borbaradianer I

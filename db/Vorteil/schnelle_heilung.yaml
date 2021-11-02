@@ -1,11 +1,12 @@
-kommentar: '0'
-kosten: '60'
+kommentar: 0
+kosten: 60
 linkElement: Regeneration
-linkKategorie: '1'
+linkKategorie: 1
 nachkauf: haeufig
 name: Schnelle Heilung
 text: Du regenerierst 2 Wunden pro durchschlafener Nacht und immer noch 1 Wunde, wenn
   die Schlafphase unterbrochen wurde.
-typ: '1'
-variable: '0'
-voraussetzungen: Attribut KO 8
+typ: 1
+variable: 0
+voraussetzungen:
+- Attribut KO 8

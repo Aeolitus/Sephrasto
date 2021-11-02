@@ -1,7 +1,11 @@
-fertigkeiten: Feuer, Stabzauber, Verwandlung, Umwelt
-kosten: '40'
+fertigkeiten:
+- Feuer
+- Stabzauber
+- Verwandlung
+- Umwelt
+kosten: 40
 name: Flammenschwert
-printclass: '15'
+printclass: 15
 text: 'Dein Stab verwandelt sich in eine feurige Klinge. Die Kampfwerte entsprechen
   einem gewoehnlichen Schwert, aber es verursacht Feuerschaden und Nachbrennen (S.
   98). Der Zauber endet vorzeitig, wenn du den Stab nicht mehr beruehrst.
@@ -28,6 +32,7 @@ text: 'Dein Stab verwandelt sich in eine feurige Klinge. Die Kampfwerte entsprec
   Fertigkeiten: Feuer, Stabzauber, Verwandlung, Umwelt (schwebendes Schwert)
 
   Erlernen: Mag 16; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Gildenmagier I

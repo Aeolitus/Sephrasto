@@ -1,7 +1,8 @@
-fertigkeiten: Wildnis
-kosten: '40'
+fertigkeiten:
+- Wildnis
+kosten: 40
 name: Pfeil des Heiligen Isegrein
-printclass: '28'
+printclass: 28
 text: "Du rufst den Heiligen Isegrein an, um einen Pfeil zu segnen. Der Pfeil gilt\
   \ als geweiht und seine Reichweite ist verdoppelt.\nMaechtige Liturgie: Der Schaden\
   \ des Pfeils erhoeht sich um 1W6 TP.\nProbenschwierigkeit: 12\nModifikationen: Permanenz\
@@ -9,6 +10,7 @@ text: "Du rufst den Heiligen Isegrein an, um einen Pfeil zu segnen. Der Pfeil gi
   \ Kosten 8 KaP, davon 1 gKaP)\nVorbereitungszeit: 1 Aktion\nZiel: Einzelobjekt\n\
   Reichweite: Beruehrung\nWirkungsdauer: 8 Initiativphasen\nKosten: 8 KaP\nFertigkeiten:\
   \ Wildnis\nErlernen: Fir 16; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Firungeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Firungeweihten I

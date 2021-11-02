@@ -1,10 +1,11 @@
-kommentar: '0'
-kosten: '60'
+kommentar: 0
+kosten: 60
 nachkauf: haeufig
 name: Atemtechnik
 text: Du fuegst +1W6 Trefferpunkte zu. Du aktivierst den Effekt in einer Freien Aktion.
   Der Effekt endet, wenn du auf einen Schlag zwei Wunden erleidest oder nach KO Initiativephasen.
   Dann erleidest du einen Punkt Erschoepfung.
-typ: '2'
-variable: '0'
-voraussetzungen: Attribut KO 8
+typ: 2
+variable: 0
+voraussetzungen:
+- Attribut KO 8

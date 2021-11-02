@@ -1,13 +1,16 @@
-fertigkeiten: Eigenschaften, Hexenflueche
-kosten: '20'
+fertigkeiten:
+- Eigenschaften
+- Hexenflueche
+kosten: 20
 name: Beute!
-printclass: '9'
+printclass: 9
 text: "Tiere reagieren aggressiv auf dein Opfer. Proben zum Umgang mit Nutztieren\
   \ sind um \u20134 erschwert und Raubtiere greifen stets das Opfer an, wobei sie\
   \ +1 TP anrichten.\nMaechtige Magie: Der Malus steigt um \u20132, die TP um +1.\n\
   Probenschwierigkeit: Magieresistenz\nVorbereitungszeit: 4 Aktionen\nZiel: Einzelperson\n\
   Reichweite: 8 Schritt\nWirkungsdauer: 1 Woche\nKosten: 8 AsP\nFertigkeiten: Eigenschaften,\
   \ Hexenflueche\nErlernen: Hex 16; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Hexen I

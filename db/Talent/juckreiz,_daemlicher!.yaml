@@ -1,7 +1,8 @@
-fertigkeiten: Einfluss
-kosten: '20'
+fertigkeiten:
+- Einfluss
+kosten: 20
 name: Juckreiz, daemlicher!
-printclass: '0'
+printclass: 0
 text: 'Die Person mit der niedrigsten KL im Radius von 8 Schritt wird von einem heftigen
   Juckreiz befallen, insbesondere dort, wo es sich nicht kratzen kann. Erschwernisse
   sind Spielleiterentscheid.
@@ -21,6 +22,8 @@ text: 'Die Person mit der niedrigsten KL im Radius von 8 Schritt wird von einem 
   Fertigkeiten: Einfluss
 
   Erlernen: Sch 18; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Schelme I

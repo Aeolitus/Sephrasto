@@ -1,7 +1,8 @@
-fertigkeiten: Licht
-kosten: '60'
+fertigkeiten:
+- Licht
+kosten: 60
 name: Garafans gleissende Schwingen
-printclass: '40'
+printclass: 40
 text: 'Du rufst einen Greifen (S. 101) herbei, der dir zur Seite steht. Was der Greif
   zu tun bereit ist und wie lange er bis zum Eintreffen benoetigt, ist Spielleiterentscheid.
 
@@ -20,6 +21,7 @@ text: 'Du rufst einen Greifen (S. 101) herbei, der dir zur Seite steht. Was der 
   Fertigkeiten: Licht
 
   Erlernen: Pra 18; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Praiosgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Praiosgeweihten I

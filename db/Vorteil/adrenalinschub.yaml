@@ -1,10 +1,11 @@
-kommentar: '0'
-kosten: '80'
+kommentar: 0
+kosten: 80
 nachkauf: haeufig
 name: Adrenalinschub
 text: Du kannst dir eine Probe bei einer koerperlichen Taetigkeit (z.B. Schmieden,
   Laufen, Nahkampfangriff) um +4 erleichtern. Anschliessend erleidest du einen Punkt
   Erschoepfung.
-typ: '1'
-variable: '0'
-voraussetzungen: Attribut KK 10
+typ: 1
+variable: 0
+voraussetzungen:
+- Attribut KK 10

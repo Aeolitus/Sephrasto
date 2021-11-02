@@ -1,7 +1,8 @@
-fertigkeiten: Tod
-kosten: '20'
+fertigkeiten:
+- Tod
+kosten: 20
 name: 'Nemekaths Geisterblick '
-printclass: '22'
+printclass: 22
 text: 'Du siehst unsichtbare Geister, Daemonen oder Elementarwesen.
 
   Maechtige Liturgie: Du kannst die Geister hoeren/mit Geistern sprechen/Geister um
@@ -22,6 +23,7 @@ text: 'Du siehst unsichtbare Geister, Daemonen oder Elementarwesen.
   Fertigkeiten: Tod
 
   Erlernen: Brn 16; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Borongeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Borongeweihten I

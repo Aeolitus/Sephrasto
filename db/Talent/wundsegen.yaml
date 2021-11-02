@@ -1,7 +1,9 @@
-fertigkeiten: Friede, Heilung
-kosten: '60'
+fertigkeiten:
+- Friede
+- Heilung
+kosten: 60
 name: Wundsegen
-printclass: '35'
+printclass: 35
 text: 'Der Gesegnete erhaelt sofort 2W6+4 Heilpunkte, fuer jede Ueberschreitung der
   WS wird eine Wunde geheilt.
 
@@ -24,7 +26,8 @@ text: 'Der Gesegnete erhaelt sofort 2W6+4 Heilpunkte, fuer jede Ueberschreitung 
   Fertigkeiten: Friede, Heilung
 
   Erlernen: Per 14; Tsa 16; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Perainegeweihten I ODER Vorteil Tradition der
-  Tsageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Perainegeweihten I
+- Vorteil Tradition der Tsageweihten I

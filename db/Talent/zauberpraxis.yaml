@@ -1,9 +1,11 @@
-fertigkeiten: Magiekunde
-kosten: '-1'
+fertigkeiten:
+- Magiekunde
+kosten: -1
 name: Zauberpraxis
-printclass: '-1'
+printclass: -1
 text: Zauberpraxis umfasst die Kenntnis verbreiteter Zauber und Rituale, ihrer Wirkung
   und moeglicher Gegenmassnahmen.
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

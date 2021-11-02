@@ -1,7 +1,7 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Kraftvoller Kampf I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Kraftvoller Kampf II
 script: modifyKampfstil('Kraftvoller Kampf', 0, 0, 1, 0)
@@ -11,6 +11,7 @@ text: 'Dein Waffenschaden steigt um +1.
   Du kannst in eine Halbschwertstellung wechseln, um deine Waffe in einer um eins
   kleineren Reichweite zu fuehren. Der Wechsel in die Stellung oder zurueck geschieht
   in einer Freien Aktion.'
-typ: '3'
-variable: '0'
-voraussetzungen: Attribut KK 6, Vorteil Kraftvoller Kampf I
+typ: 3
+variable: 0
+voraussetzungen:
+- Attribut KK 6, Vorteil Kraftvoller Kampf I

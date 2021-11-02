@@ -1,7 +1,9 @@
-fertigkeiten: Einfluss, Illusion
-kosten: '40'
+fertigkeiten:
+- Einfluss
+- Illusion
+kosten: 40
 name: Widerwille Ungemach
-printclass: '0'
+printclass: 0
 text: "Das verzauberte Objekt wird von Umstehenden gemieden. Der Spielleiter erwaehnt\
   \ es nur, wenn die Spieler danach suchen und ihnen eine Konterprobe (Magieresistenz\
   \ oder Wachsamkeit, 16) gelingt.\nProbenschwierigkeit: 12\nModifikationen: Raeumlicher\
@@ -10,7 +12,10 @@ text: "Das verzauberte Objekt wird von Umstehenden gemieden. Der Spielleiter erw
   \ 4 Minuten\nZiel: Einzelobjekt\nReichweite: Beruehrung\nWirkungsdauer: 1 Monat\n\
   Kosten: 8 AsP\nFertigkeiten: Einfluss, Illusion\nErlernen: Alch, Mag, Srl 18; 40\
   \ EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Scharlatane I

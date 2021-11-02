@@ -1,8 +1,9 @@
-fertigkeiten: Gaben des Odun
-kommentar: '0'
-kosten: '20'
+fertigkeiten:
+- Gaben des Odun
+kommentar: 0
+kosten: 20
 name: Warmes Blut (Tiergeist)
-printclass: '0'
+printclass: 0
 text: 'Durch diesen Zauber siehst du die Waermestrahlung deiner Umgebung. Kaltes erscheint
   schwarz bis gruenblau, Warmblueter sind gelb und Feuer ist orange bis tiefrot.
 
@@ -17,6 +18,7 @@ text: 'Durch diesen Zauber siehst du die Waermestrahlung deiner Umgebung. Kaltes
   Wirkungsdauer: 1 Stunde
 
   Kosten: 4 AsP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Schlange)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Schlange)

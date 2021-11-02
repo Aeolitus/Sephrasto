@@ -1,7 +1,8 @@
-fertigkeiten: Hellsicht
-kosten: '40'
+fertigkeiten:
+- Hellsicht
+kosten: 40
 name: Xenographus Schriftenkunde
-printclass: '0'
+printclass: 0
 text: 'Du kannst den Sinn eines geschriebenen Satzes verstehen, auch wenn du Schrift
   und Sprache nicht kennst.
 
@@ -22,7 +23,9 @@ text: 'Du kannst den Sinn eines geschriebenen Satzes verstehen, auch wenn du Sch
   Fertigkeiten: Hellsicht
 
   Erlernen: Alch 18; Mag 20; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Gildenmagier I

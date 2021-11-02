@@ -1,7 +1,10 @@
-fertigkeiten: Elfenlieder, Hellsicht, Luft
-kosten: '20'
+fertigkeiten:
+- Elfenlieder
+- Hellsicht
+- Luft
+kosten: 20
 name: Melodie des Windes
-printclass: '2'
+printclass: 2
 text: 'Du oeffnest deine Sinne fuer Eindruecke aus der Windrichtung, die von der Harmonie
   des Ortes, seinen Pflanzen und Bewohnern kuenden. Die Stimmungen, Visionen oder
   Geraeusche bleiben dabei stets vage. Erfordert Konzentration.
@@ -21,6 +24,7 @@ text: 'Du oeffnest deine Sinne fuer Eindruecke aus der Windrichtung, die von der
   Fertigkeiten: Elfenlieder, Hellsicht, Luft
 
   Erlernen: Elf 12; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Elfen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Elfen I

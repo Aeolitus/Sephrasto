@@ -1,7 +1,8 @@
-fertigkeiten: Einfluss
-kosten: '20'
+fertigkeiten:
+- Einfluss
+kosten: 20
 name: Dichter und Denker
-printclass: '0'
+printclass: 0
 text: 'Dein Opfer kann sich nur noch in Reimen ausdruecken. Zauber koennen nur noch
   gewirkt werden, wenn ihm ein passender Reim auf den Zaubernamen einfaellt.
 
@@ -20,6 +21,8 @@ text: 'Dein Opfer kann sich nur noch in Reimen ausdruecken. Zauber koennen nur n
   Fertigkeiten: Einfluss
 
   Erlernen: Sch 20; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Schelme I

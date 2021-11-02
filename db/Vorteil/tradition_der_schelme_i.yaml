@@ -1,5 +1,5 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Tradition der Schelme I
 text: 'Bedingungen: Sichtkontakt, Geste, Harmlosigkeit.
@@ -10,6 +10,7 @@ text: 'Bedingungen: Sichtkontakt, Geste, Harmlosigkeit.
 
 
   Schelmische Zauber koennen nicht schriftlich weitergegeben werden.'
-typ: '5'
-variable: '0'
-voraussetzungen: Attribut IN 4, Vorteil Zauberer I
+typ: 5
+variable: 0
+voraussetzungen:
+- Attribut IN 4, Vorteil Zauberer I

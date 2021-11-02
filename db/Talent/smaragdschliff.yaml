@@ -1,7 +1,10 @@
-fertigkeiten: Erz, Kristallmagie, Kraft
-kosten: '40'
+fertigkeiten:
+- Erz
+- Kristallmagie
+- Kraft
+kosten: 40
 name: Smaragdschliff
-printclass: '11'
+printclass: 11
 text: 'Der Zauber gleicht weitgehend dem Rundschliff, aber du kannst die spontane
   Modifikation Kosten sparen einmal ohne Erschwernis ausfuehren. Du musst die Modifikation
   auch ohne den Schliff beherrschen. Nicht mit anderen Schliffen kombinierbar.
@@ -11,6 +14,7 @@ text: 'Der Zauber gleicht weitgehend dem Rundschliff, aber du kannst die spontan
   Fertigkeiten: Erz, Kristallmagie, Kraft
 
   Erlernen: Ach 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Kristallomanten I

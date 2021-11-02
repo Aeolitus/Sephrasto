@@ -1,5 +1,5 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Tradition der Zauberbarden I
 text: 'Bedingungen: Sichtkontakt, Instrumentenspiel, Ziel kann dich hoeren.
@@ -10,6 +10,7 @@ text: 'Bedingungen: Sichtkontakt, Instrumentenspiel, Ziel kann dich hoeren.
 
 
   Die Bedingung Instrumentenspiel kann nicht ignoriert werden.'
-typ: '5'
-variable: '0'
-voraussetzungen: Attribut CH 4, Vorteil Zauberer I
+typ: 5
+variable: 0
+voraussetzungen:
+- Attribut CH 4, Vorteil Zauberer I

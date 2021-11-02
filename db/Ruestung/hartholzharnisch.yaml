@@ -1,11 +1,11 @@
 name: Hartholzharnisch
-rsBauch: '3'
-rsBeine: '1'
-rsBrust: '3'
-rsKopf: '0'
-rsLArm: '1'
-rsRArm: '1'
-system: '0'
+rsBauch: 3
+rsBeine: 1
+rsBrust: 3
+rsKopf: 0
+rsLArm: 1
+rsRArm: 1
+system: 0
 text: Die Ruestung besteht aus maraskanischem Hartholz und ist feuchtigkeitsempfindlich.
   Benoetigt wattierte Unterkleidung.
-typ: '2'
+typ: 2

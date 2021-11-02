@@ -1,8 +1,9 @@
-fertigkeiten: Gaben des Blutgeists
-kommentar: '0'
-kosten: '0'
+fertigkeiten:
+- Gaben des Blutgeists
+kommentar: 0
+kosten: 0
 name: Eins mit der Natur (Blutgeist)
-printclass: '0'
+printclass: 0
 text: 'Das Ziel kann in der Wildnis kann es natuerliche Gefahren wie mit der Gabe
   Gefahreninstinkt erahnen. Beherrscht es die Gabe bereits, sind damit verbundene
   Proben um +4 erleichtert. Wirkt nicht unter der Erde, auf dem Meer oder in daemonisch
@@ -21,8 +22,11 @@ text: 'Das Ziel kann in der Wildnis kann es natuerliche Gefahren wie mit der Gab
   Wirkungsdauer: 1 Tag
 
   Kosten: 8 AsP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Fischotter) ODER Vorteil Tiergeist (Gebirgsbock)
-  ODER Vorteil Tiergeist (Wildkatze/Panther) ODER Vorteil Tiergeist (Wildschwein)
-  ODER Vorteil Tiergeist (Wolf/Khoramsbestie)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Fischotter)
+- Vorteil Tiergeist (Gebirgsbock)
+- Vorteil Tiergeist (Wildkatze/Panther)
+- Vorteil Tiergeist (Wildschwein)
+- Vorteil Tiergeist (Wolf/Khoramsbestie)

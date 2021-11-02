@@ -1,17 +1,25 @@
-fertigkeiten: Antimagie, Einfluss
-kosten: '40'
+fertigkeiten:
+- Antimagie
+- Einfluss
+kosten: 40
 name: Einfluss bannen
-printclass: '0'
+printclass: 0
 text: 'Wirkt gegen Zauber der Fertigkeit Einfluss, spezielle Antimagie-Modifikationen
   siehe S. 126.
 
   Fertigkeiten: Antimagie, Einfluss
 
   Erlernen: Dru 8; Geo, Hex 12; Ach, Elf, Mag 14; Alch, Sch, Srl 16; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition
-  der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition
-  der Scharlatane I ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I
+- Vorteil Tradition der Scharlatane I
+- Vorteil Tradition der Schelme I

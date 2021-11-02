@@ -3,5 +3,6 @@ name: Gezielter Schlag
 probe: AT -2
 text: Du bestimmst, an welcher Trefferzone (S. 33) du den Gegner triffst. Nur beim
   Spiel mit Trefferzonen.
-typ: '0'
-voraussetzungen: ''
+typ: 0
+voraussetzungen:
+- ''

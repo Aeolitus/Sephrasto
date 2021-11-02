@@ -1,7 +1,9 @@
-fertigkeiten: Antimagie, Dolchzauber
-kosten: '40'
+fertigkeiten:
+- Antimagie
+- Dolchzauber
+kosten: 40
 name: Daemonenbann des Dolches
-printclass: '1'
+printclass: 1
 text: 'Du ziehst mit deinem Ritualgegenstand einen Kreis von maximal 8 Schritt Radius.
   Daemonen koennen diese Linie nicht uebertreten, wenn ihre Beschwoerungsschwierigkeit
   maximal 20 betraegt.
@@ -23,6 +25,7 @@ text: 'Du ziehst mit deinem Ritualgegenstand einen Kreis von maximal 8 Schritt R
   Fertigkeiten: Antimagie, Dolchzauber
 
   Erlernen: Dru 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Druiden I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Druiden I

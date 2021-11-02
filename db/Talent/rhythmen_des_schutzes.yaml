@@ -1,7 +1,9 @@
-fertigkeiten: Eigenschaften, Trommelrituale
-kosten: '40'
+fertigkeiten:
+- Eigenschaften
+- Trommelrituale
+kosten: 40
 name: Rhythmen des Schutzes
-printclass: '16'
+printclass: 16
 text: 'Die sanften Rhythmen erhoehen die Magieresistenz. Alle Zuhoerer im Radius von
   4 Schritt erhalten eine Erleichterung von +4 auf die MR.
 
@@ -22,6 +24,7 @@ text: 'Die sanften Rhythmen erhoehen die Magieresistenz. Alle Zuhoerer im Radius
   Fertigkeiten: Eigenschaften, Trommelrituale
 
   Erlernen: Der 16; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Derwische I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Derwische I

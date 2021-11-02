@@ -1,7 +1,7 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Routiniert I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Routiniert II
 text: 'Die Basiszeit zur Herstellung handwerklicher Produkte, zur Wundversorgung und
@@ -10,6 +10,7 @@ text: 'Die Basiszeit zur Herstellung handwerklicher Produkte, zur Wundversorgung
 
   Bei Proben auf Alchemie, Handwerk, Heilkunde und Verschlagenheit gelten Patzer als
   gewoehnlich misslungen.'
-typ: '1'
-variable: '0'
-voraussetzungen: Attribut FF 6
+typ: 1
+variable: 0
+voraussetzungen:
+- Attribut FF 6

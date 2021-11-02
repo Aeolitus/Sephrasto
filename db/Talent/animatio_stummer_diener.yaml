@@ -1,7 +1,8 @@
-fertigkeiten: Umwelt
-kosten: '60'
+fertigkeiten:
+- Umwelt
+kosten: 60
 name: Animatio stummer Diener
-printclass: '0'
+printclass: 0
 text: "Du verzauberst ein Objekt von maximal 4\_Stein, sodass es eine einfache Bewegung\
   \ wiederholt. Du musst die Bewegung waehrend der Vorbereitungszeit sieben Mal eigenhaendig\
   \ ausfuehren und ein Signal bestimmen (z.B. ein Fingerschnippen oder ein Wort).\
@@ -16,6 +17,7 @@ text: "Du verzauberst ein Objekt von maximal 4\_Stein, sodass es eine einfache B
   \ wiederholt die Bewegung immer wieder, bis du das Signal wiederholst.)\nVorbereitungszeit:\
   \ 4 Minuten\nZiel: Einzelobjekt\nReichweite: Beruehrung\nWirkungsdauer: 1 Jahr\n\
   Kosten: 16 AsP\nFertigkeiten: Umwelt\nErlernen: Mag 18; 60 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Gildenmagier I

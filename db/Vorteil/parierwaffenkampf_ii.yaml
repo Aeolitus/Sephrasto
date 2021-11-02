@@ -1,7 +1,7 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Parierwaffenkampf I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Parierwaffenkampf II
 text: "Du kannst gegen humanoide Gegner \u20131 Erschwernis aus Manoevern ignorieren.\n\
@@ -9,6 +9,7 @@ text: "Du kannst gegen humanoide Gegner \u20131 Erschwernis aus Manoevern ignori
   \ Wenn ideale Kampfbedingungen herrschen \u2013 du also keine Erschwernisse durch\
   \ Position, Untergrund und Licht erleidest \u2013 verbessert sich deine Position\
   \ um eine Stufe (S. 38)."
-typ: '3'
-variable: '0'
-voraussetzungen: Attribut GE 6, Vorteil Parierwaffenkampf I
+typ: 3
+variable: 0
+voraussetzungen:
+- Attribut GE 6, Vorteil Parierwaffenkampf I

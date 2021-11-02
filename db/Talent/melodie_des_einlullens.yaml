@@ -1,7 +1,9 @@
-fertigkeiten: Einfluss, Zaubermelodien
-kosten: '40'
+fertigkeiten:
+- Einfluss
+- Zaubermelodien
+kosten: 40
 name: Melodie des Einlullens
-printclass: '18'
+printclass: 18
 text: "Alle Humanoide in Hoerreichweite sind von deiner immer berauschenderen Musik\
   \ voellig gefesselt. Nur mit einer Konterprobe (Willenskraft, 16) kann sich ein\
   \ Zuhoerer fuer 16\_Initiativphasen dem Zauber des Liedes entziehen. Ansonsten erwacht\
@@ -9,6 +11,7 @@ text: "Alle Humanoide in Hoerreichweite sind von deiner immer berauschenderen Mu
   \ erlaubt Aufrechterhalten.\nProbenschwierigkeit: 12\nVorbereitungszeit: 16 Aktionen\n\
   Ziel: Zone\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 8 AsP\nFertigkeiten:\
   \ Einfluss, Zaubermelodien\nErlernen: Bard 16; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Zauberbarden I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Zauberbarden I

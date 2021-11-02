@@ -1,5 +1,5 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Tradition der Hexen I
 text: 'Bedingungen: Sichtkontakt, Geste, Bodenkontakt.
@@ -12,6 +12,7 @@ text: 'Bedingungen: Sichtkontakt, Geste, Bodenkontakt.
 
   Die Komponente Bodenkontakt kann nur ignoriert werden, wenn du zumindest ueber indirekten
   Bodenkontakt verfuegst (z.B. in einem mehrstoeckigen Haus).'
-typ: '5'
-variable: '0'
-voraussetzungen: Attribut IN 4, Vorteil Zauberer I
+typ: 5
+variable: 0
+voraussetzungen:
+- Attribut IN 4, Vorteil Zauberer I

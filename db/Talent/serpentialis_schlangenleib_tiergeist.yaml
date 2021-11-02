@@ -1,8 +1,9 @@
-fertigkeiten: Gaben des Odun
-kommentar: '0'
-kosten: '40'
+fertigkeiten:
+- Gaben des Odun
+kommentar: 0
+kosten: 40
 name: Serpentialis Schlangenleib (Tiergeist)
-printclass: '0'
+printclass: 0
 text: 'Deine Arme verwandeln sich in gruene, 2 Schritt lange Giftschlangen, deren
   hinteres Ende noch mit deinem Rumpf verbunden ist. Die Schlangen koennen beide in
   einer Aktion Konflikt angreifen (WS 3, VT 10, RW 2, AT 10, TP 2W6) und ein Waffengift
@@ -25,6 +26,7 @@ text: 'Deine Arme verwandeln sich in gruene, 2 Schritt lange Giftschlangen, dere
   Wirkungsdauer: 16 Initiativphasen
 
   Kosten: 16 AsP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Schlange)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Schlange)

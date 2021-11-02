@@ -1,7 +1,8 @@
-fertigkeiten: Heerfuehrung
-kosten: '40'
+fertigkeiten:
+- Heerfuehrung
+kosten: 40
 name: Zorn der Sturmherrin
-printclass: '46'
+printclass: 46
 text: 'In einen passenden Ort deiner Naehe (ein Baum, eine Felsspitze) schlaegt ein
   Blitz ein und ein gewaltiger Donnerknall ertoent. Ein Furcht-Effekt Stufe 2 befaellt
   alle Feinde im Radius von 64 Schritt, denen eine Konterprobe (MU, 20) misslingt
@@ -27,6 +28,7 @@ text: 'In einen passenden Ort deiner Naehe (ein Baum, eine Felsspitze) schlaegt 
   Fertigkeiten: Heerfuehrung
 
   Erlernen: Ron 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Rondrageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Rondrageweihten I

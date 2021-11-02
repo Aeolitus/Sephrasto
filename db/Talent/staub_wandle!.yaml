@@ -1,7 +1,8 @@
-fertigkeiten: Erz
-kosten: '60'
+fertigkeiten:
+- Erz
+kosten: 60
 name: Staub wandle!
-printclass: '0'
+printclass: 0
 text: 'Du erschaffst einen Golem aus Sand (mehr zu Beschwoerungen siehe S. 81). Der
   Golem hat sich nach 1 Stunde an seine Existenz gewoehnt und ist einsatzfaehig.
 
@@ -18,6 +19,7 @@ text: 'Du erschaffst einen Golem aus Sand (mehr zu Beschwoerungen siehe S. 81). 
   Fertigkeiten: Erz
 
   Erlernen: Mag 18; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Gildenmagier I

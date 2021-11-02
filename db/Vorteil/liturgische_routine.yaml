@@ -1,8 +1,9 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Liturgische Routine
 text: Bei Liturgien gewuerfelte Patzer gelten nur als gewoehnlich misslungen.
-typ: '6'
-variable: '0'
-voraussetzungen: Attribut KL 4, Vorteil Geweiht I
+typ: 6
+variable: 0
+voraussetzungen:
+- Attribut KL 4, Vorteil Geweiht I

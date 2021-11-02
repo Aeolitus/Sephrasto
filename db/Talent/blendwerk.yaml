@@ -1,7 +1,8 @@
-fertigkeiten: Illusion
-kosten: '40'
+fertigkeiten:
+- Illusion
+kosten: 40
 name: Blendwerk
-printclass: '0'
+printclass: 0
 text: 'Eine Illusion (Sicht) deiner Wahl erscheint, die Bewegungen nach deinen Vorstellungen
   ausfuehrt. Ihre maximale Groesse betraegt PW Illusion x4 Raumschritt. Erfordert
   Konzentration.
@@ -21,7 +22,10 @@ text: 'Eine Illusion (Sicht) deiner Wahl erscheint, die Bewegungen nach deinen V
   Fertigkeiten: Illusion
 
   Erlernen: Sch 8; Mag, Srl 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I
-  ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Scharlatane I
+- Vorteil Tradition der Schelme I

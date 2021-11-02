@@ -2,14 +2,15 @@ csBeschreibung: Du kannst semipermanente Artefakte erschaffen, die nicht aufgela
   werden muessen; sie koennen den wirkenden Zauber in bestimmten Zeitintervallen ausloesen.
   Abhaengig vom Zeitintervall Monat/Woche/Tag betraegt die Probenschwierigkeit 20/24/28
   und die Anzahl wirkender Sprueche 1/2/4.
-kommentar: '0'
-kosten: '60'
+kommentar: 0
+kosten: 60
 linkElement: Artefaktherstellung
-linkKategorie: '1'
+linkKategorie: 1
 nachkauf: haeufig
 name: Semipermanenz
 text: Du kannst semipermanente Artefakte erschaffen (S. 78).
-typ: '4'
-variable: '0'
-voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut
-  FF 8
+typ: 4
+variable: 0
+voraussetzungen:
+- Vorteil Zauberer I
+- Vorteil Tradition der Borbaradianer I, Attribut FF 8

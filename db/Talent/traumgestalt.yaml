@@ -1,7 +1,8 @@
-fertigkeiten: Verstaendigung
-kosten: '40'
+fertigkeiten:
+- Verstaendigung
+kosten: 40
 name: Traumgestalt
-printclass: '0'
+printclass: 0
 text: "Du kannst in die Traeume eines schlafenden Zieles eindringen und ihm dort Botschaften\
   \ ueberbringen. Woran sich das Ziel erinnern kann, ist Spielleiterentscheid. Du\
   \ benoetigst ein Koerperteil des Opfers, um den Zauber zu wirken.\nProbenschwierigkeit:\
@@ -11,8 +12,12 @@ text: "Du kannst in die Traeume eines schlafenden Zieles eindringen und ihm dort
   \ 4 Minuten\nZiel: Einzelperson\nReichweite: 100 Meilen\nWirkungsdauer: 4 Minuten\n\
   Kosten: 8 AsP\nFertigkeiten: Verstaendigung\nErlernen: Hex 14; Dru, Elf, Sch 18;\
   \ Mag 20; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil
-  Tradition der Hexen I ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Schelme I

@@ -1,7 +1,8 @@
-fertigkeiten: Neubeginn
-kosten: '40'
+fertigkeiten:
+- Neubeginn
+kosten: 40
 name: Haut des Chamaeleons
-printclass: '51'
+printclass: 51
 text: "Nach dem Willen Tsas aendern sich deine Haare, Gesichtszuege und Koerperbau\
   \ soweit, dass du nicht mehr als du selbst zu erkennen bist (Details sind Spielleiterentscheid).\
   \ Du behaeltst dabei dein Geschlecht und bist immer noch demselben Kulturkreis zuzuordnen.\n\
@@ -10,6 +11,7 @@ text: "Nach dem Willen Tsas aendern sich deine Haare, Gesichtszuege und Koerperb
   4, Einzelperson; verwandelt ein freiwilliges Ziel)\nVorbereitungszeit: 4 Aktionen\n\
   Ziel: selbst\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 8 KaP\nFertigkeiten:\
   \ Neubeginn\nErlernen: Tsa 18; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Tsageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Tsageweihten I

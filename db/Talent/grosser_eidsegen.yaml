@@ -1,7 +1,11 @@
-fertigkeiten: Ehre, Heim und Herd, Ordnung, Zwoelfgoettlicher Ritus
-kosten: '0'
+fertigkeiten:
+- Ehre
+- Heim und Herd
+- Ordnung
+- Zwoelfgoettlicher Ritus
+kosten: 0
 name: Grosser Eidsegen
-printclass: '20'
+printclass: 20
 text: "Du segnest einen freiwillig geschworenen Eid, wie einen Traviabund oder einen\
   \ Lehens\xADeid. Alle Versuche, einen Schwoerenden zum Eidbruch zu bewegen (etwa\
   \ ueber Betoeren, Ueberreden oder einen Imperavi), sind um \u20134 erschwert. Bricht\
@@ -11,11 +15,17 @@ text: "Du segnest einen freiwillig geschworenen Eid, wie einen Traviabund oder e
   Reichweite: Beruehrung\nWirkungsdauer: permanent\nKosten: 8 KaP\nFertigkeiten: Ehre,\
   \ Heim und Herd, Ordnung, Zwoelfgoettlicher Ritus\nErlernen: Tra 8; Ang, Hes, Per,\
   \ Pra, Rah, Swa, Tsa 14; Aves, Kor, Ron 18; 0 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
-  Hesindegeweihten I ODER Vorteil Tradition der Angroschgeweihten I ODER Vorteil Tradition
-  der Korgeweihten I ODER Vorteil Tradition der Perainegeweihten I ODER Vorteil Tradition
-  der Praiosgeweihten I ODER Vorteil Tradition der Rahjageweihten I ODER Vorteil Tradition
-  der Rondrageweihten I ODER Vorteil Tradition der Swafnirgeweihten I ODER Vorteil
-  Tradition der Traviageweihten I ODER Vorteil Tradition der Tsageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Avesgeweihten I
+- Vorteil Tradition der Hesindegeweihten I
+- Vorteil Tradition der Angroschgeweihten I
+- Vorteil Tradition der Korgeweihten I
+- Vorteil Tradition der Perainegeweihten I
+- Vorteil Tradition der Praiosgeweihten I
+- Vorteil Tradition der Rahjageweihten I
+- Vorteil Tradition der Rondrageweihten I
+- Vorteil Tradition der Swafnirgeweihten I
+- Vorteil Tradition der Traviageweihten I
+- Vorteil Tradition der Tsageweihten I

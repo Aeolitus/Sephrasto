@@ -1,7 +1,9 @@
-fertigkeiten: Daemonisch, Einfluss
-kosten: '60'
+fertigkeiten:
+- Daemonisch
+- Einfluss
+kosten: 60
 name: Hoellenpein zerreisse dich!
-printclass: '0'
+printclass: 0
 text: 'Dein Opfer windet sich in schrecklichen Schmerzen und ist bis zum Ende der
   Wirkungsdauer handlungsunfaehig. Am Ende der Wirkungsdauer erleidet es 2 Punkte
   Erschoepfung. Die Wirkung endet vorzeitig, wenn das Opfer Schaden nimmt.
@@ -23,7 +25,9 @@ text: 'Dein Opfer windet sich in schrecklichen Schmerzen und ist bis zum Ende de
   Fertigkeiten: Daemonisch, Einfluss
 
   Erlernen: Bor 8; Alch, Mag 18; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer
-  I ODER Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Gildenmagier I

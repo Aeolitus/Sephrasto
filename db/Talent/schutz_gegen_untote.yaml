@@ -1,7 +1,9 @@
-fertigkeiten: Antimagie, Kugelzauber
-kosten: '40'
+fertigkeiten:
+- Antimagie
+- Kugelzauber
+kosten: 40
 name: Schutz gegen Untote
-printclass: '12'
+printclass: 12
 text: 'Eine silbrige Kuppel mit 2 Schritt Radius umgibt dich und bewegt sich mit dir.
   Untote mit einer Beschwoerungsschwierigkeit von maximal 16 koennen sie nicht durchschreiten.
   Du kannst Untote mit der Kugel zurueckdraengen, wenn dir eine vergleichende KK-Probe
@@ -24,7 +26,8 @@ text: 'Eine silbrige Kuppel mit 2 Schritt Radius umgibt dich und bewegt sich mit
   Fertigkeiten: Antimagie, Kugelzauber
 
   Erlernen: Mag 18; Srl 20; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane
-  I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Scharlatane I

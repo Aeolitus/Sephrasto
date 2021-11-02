@@ -1,13 +1,16 @@
-fertigkeiten: Gutes Gold, Heerfuehrung
-kosten: '40'
+fertigkeiten:
+- Gutes Gold
+- Heerfuehrung
+kosten: 40
 name: Weihesegen der Waffe
-printclass: '46'
+printclass: 46
 text: "Du kannst vier Nahkampfwaffen weihen.\nMaechtige Liturgie: Du weihst zwei weitere\
   \ Waffen.\nProbenschwierigkeit: 12\nModifikationen: Heeressegen (\u20138, 32 KaP;\
   \ du segnest alle Waffen in einem Radius von 64 Schritt.)\nVorbereitungszeit: 16\
   \ Aktionen\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer: 1 Tag\nKosten: 8\
   \ KaP\nFertigkeiten: Gutes Gold, Heerfuehrung\nErlernen: Ron 12; Kor 14; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Rondrageweihten I ODER Vorteil Tradition der
-  Korgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Rondrageweihten I
+- Vorteil Tradition der Korgeweihten I

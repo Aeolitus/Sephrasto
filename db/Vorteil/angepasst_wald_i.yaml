@@ -1,10 +1,11 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 nachkauf: haeufig
 name: Angepasst (Wald) I
 text: Durch deine Spezies oder langjaehrige Erfahrung hast du dich an den Wald gewoehnt.
   Abzuege durch Wurzeln, Gestruepp und dichtes Unterholz, insbesondere im Kampf, sinken
   fuer dich um 1 Stufe.
-typ: '0'
-variable: '0'
-voraussetzungen: ''
+typ: 0
+variable: 0
+voraussetzungen:
+- ''

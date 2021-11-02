@@ -1,13 +1,15 @@
-fertigkeiten: Schalenzauber
-kosten: '60'
+fertigkeiten:
+- Schalenzauber
+kosten: 60
 name: Chymische Hochzeit (passiv)
-printclass: '14'
+printclass: 14
 text: 'Du laesst 2 gAsP in die Schale fliessen. Fortan sinken die Abzuege durch improvisiertes
   Werkzeug fuer je 4 volle Punkte PW Schale des Alchemisten um 1. Dieser Bonus ist
   kumulativ zum Vorteil Improvisation (S. 58).
 
   Erlernen: Alch 16; Hex 18; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Hexen
-  I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Hexen I

@@ -1,11 +1,14 @@
-W6: '3'
+W6: 3
 fertigkeit: Stangenwaffen
-fk: '0'
-haerte: '7'
-kampfstile: Reiterkampf, Kraftvoller Kampf, Schneller Kampf
+fk: 0
+haerte: 7
+kampfstile:
+- Reiterkampf
+- Kraftvoller Kampf
+- Schneller Kampf
 name: Jagdspiess
-plus: '0'
-rw: '2'
+plus: 0
+rw: 2
 talent: Infanteriewaffen und Speere
 text: Wendig, Zweihaendig
-wm: '0'
+wm: 0

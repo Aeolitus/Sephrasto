@@ -1,0 +1,22 @@
+attribute:
+- CH
+- KO
+- MU
+name: Eis
+printclass: 0
+steigerungsfaktor: 2
+text: Neben der Kaelte wird Eis auch mit Stillstand, Tod, Gefuehlskaelte und Vernunft
+  assoziiert. Diese Charakterzuege treffen auch auf die elementaren Wesenheiten des
+  Eises zu.
+voraussetzungen:
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I
+- Vorteil Tradition der Schelme I
+- Vorteil Tradition der Scharlatane I
+- Vorteil Magiedilettant

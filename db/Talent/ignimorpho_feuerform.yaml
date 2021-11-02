@@ -1,7 +1,8 @@
-fertigkeiten: Feuer
-kosten: '20'
+fertigkeiten:
+- Feuer
+kosten: 20
 name: Ignimorpho Feuerform
-printclass: '0'
+printclass: 0
 text: 'Du kannst ein bestehendes Feuer bis zur Groesse einer Fackel formen oder verloeschen
   lassen. Die Verformung geschieht mit einer GS von 8 Schritt pro Initiativephase
   und benoetigt Konzentration.
@@ -24,7 +25,9 @@ text: 'Du kannst ein bestehendes Feuer bis zur Groesse einer Fackel formen oder 
   Fertigkeiten: Feuer
 
   Erlernen: Elf, Srl 18; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Scharlatane I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Scharlatane I

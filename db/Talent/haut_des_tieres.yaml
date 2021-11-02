@@ -1,7 +1,9 @@
-fertigkeiten: Verwandlung, Gaben des Odun
-kosten: '60'
+fertigkeiten:
+- Verwandlung
+- Gaben des Odun
+kosten: 60
 name: Haut des (Tieres)
-printclass: '4'
+printclass: 4
 text: 'Du setzt eine der bei deinem Tier angegebenen Verwandlungen (S. 160) ein. Du
   kannst auch beide Verwandlungen gleichzeitig nutzen, dafuer musst du den Zauber
   zwei Mal wirken.
@@ -25,6 +27,7 @@ text: 'Du setzt eine der bei deinem Tier angegebenen Verwandlungen (S. 160) ein.
   Fertigkeiten: Verwandlung, Gaben des Odun
 
   Erlernen: Dur 12; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Durro-dun I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Durro-dun I

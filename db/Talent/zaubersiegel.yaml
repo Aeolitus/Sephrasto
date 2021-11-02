@@ -1,13 +1,16 @@
-fertigkeiten: Illusion, Stabzauber
-kosten: '20'
+fertigkeiten:
+- Illusion
+- Stabzauber
+kosten: 20
 name: Zaubersiegel
-printclass: '15'
+printclass: 15
 text: "Auf dem mit dem Stab beruehrten Objekt entsteht ein handtellergrosses Siegel.\
   \ Diese Illusion (Sicht) leuchtet bei jeder weiteren Beruehrung mit deinem Stab\
   \ auf.\nProbenschwierigkeit: 12\nModifikationen: Permanenz (\u20134, Wirkungsdauer\
   \ bis die Bindung geloest wird, Kosten 1 AsP, davon 1 gAsP)\nVorbereitungszeit:\
   \ 0 Aktionen\nZiel: Einzelobjekt\nReichweite: Beruehrung\nWirkungsdauer: 1 Monat\n\
   Kosten: 1 AsP\nFertigkeiten: Illusion, Stabzauber\nErlernen: Mag 18; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Gildenmagier I

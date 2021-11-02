@@ -1,7 +1,12 @@
-fertigkeiten: Ehre, Gutes Gold, Ordnung, Rausch, Vergessen
-kosten: '60'
+fertigkeiten:
+- Ehre
+- Gutes Gold
+- Ordnung
+- Rausch
+- Vergessen
+kosten: 60
 name: Heiliger Befehl
-printclass: '23'
+printclass: 23
 text: 'Das Ziel befolgt einen gottgefaelligen Befehl, wenn ihm keine Konterprobe (Willenskraft,
   20) gelingt.
 
@@ -20,8 +25,11 @@ text: 'Das Ziel befolgt einen gottgefaelligen Befehl, wenn ihm keine Konterprobe
   Fertigkeiten: Ehre, Gutes Gold, Ordnung, Rausch, Vergessen
 
   Erlernen: Pra 8; Brn, Ron 12; Kor, Rah 14; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der
-  Praiosgeweihten I ODER Vorteil Tradition der Rahjageweihten I ODER Vorteil Tradition
-  der Rondrageweihten I ODER Vorteil Tradition der Korgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Borongeweihten I
+- Vorteil Tradition der Praiosgeweihten I
+- Vorteil Tradition der Rahjageweihten I
+- Vorteil Tradition der Rondrageweihten I
+- Vorteil Tradition der Korgeweihten I

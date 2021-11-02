@@ -1,0 +1,12 @@
+attribute:
+- FF
+- FF
+- KK
+name: Heiliges Handwerk
+printclass: 1
+steigerungsfaktor: 2
+text: 'Die meisten menschlichen Ingerimm-Geweihten und die zwergischen Hueter der
+  Esse verstehen sich als Handwerker, die dem vollkommenen Handwerksstueck nacheifern. '
+voraussetzungen:
+- Vorteil Tradition der Angroschgeweihten I
+- Vorteil Tradition der Ingerimmgeweihten I

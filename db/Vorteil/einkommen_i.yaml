@@ -1,5 +1,5 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Einkommen I
 text: Deine Familie, Organisation oder ein persoenlicher Maezen stellt dir ein monatliches
@@ -7,6 +7,7 @@ text: Deine Familie, Organisation oder ein persoenlicher Maezen stellt dir ein m
   der Nordlandbank oder ein Ordenshaus beziehen kannst. Fern der Zivilisation kannst
   du nicht auf dein Einkommen zugreifen. Das Einkommen reicht aus, um die Lebenserhaltungskosten
   eines Angehoerigen der Unterschicht zu decken.
-typ: '0'
-variable: '0'
-voraussetzungen: ''
+typ: 0
+variable: 0
+voraussetzungen:
+- ''

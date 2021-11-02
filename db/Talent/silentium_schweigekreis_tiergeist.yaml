@@ -1,14 +1,16 @@
-fertigkeiten: Gaben des Odun
-kommentar: '0'
-kosten: '40'
+fertigkeiten:
+- Gaben des Odun
+kommentar: 0
+kosten: 40
 name: Silentium Schweigekreis (Tiergeist)
-printclass: '0'
+printclass: 0
 text: "Der Zauber daempft alle Geraeusche in einer Kugel mit 2 Schritt Radius. Entsprechende\
   \ Wahrnehmungs-Proben sind um \u20134 erschwert.\nMaechtige Magie: Der Malus steigt\
   \ um \u20132.\nProbenschwierigkeit: 12\nModifikationen: Begleiter (\u20134; die\
   \ Kugel bewegt sich mit dir.)\nFremdbegleiter (\u20138; die Kugel bewegt sich mit\
   \ einem Einzelwesen.)\nVorbereitungszeit: 2 Aktionen\nZiel: Zone\nReichweite: 2\
   \ Schritt\nWirkungsdauer: 4 Minuten\nKosten: 4 AsP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Eule)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Eule)

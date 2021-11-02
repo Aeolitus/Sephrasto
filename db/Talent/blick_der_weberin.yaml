@@ -1,7 +1,8 @@
-fertigkeiten: Magie
-kosten: '40'
+fertigkeiten:
+- Magie
+kosten: 40
 name: Blick der Weberin
-printclass: '30'
+printclass: 30
 text: 'Du analysierst die Kraftfaeden eines arkanen Artefakts oder eines magischen
   Wesens. Das entspricht einem AG von 2 fuer die Strukturanalyse (mehr dazu siehe
   S. 80).
@@ -23,6 +24,7 @@ text: 'Du analysierst die Kraftfaeden eines arkanen Artefakts oder eines magisch
   Fertigkeiten: Magie
 
   Erlernen: Hes 12; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Hesindegeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Hesindegeweihten I

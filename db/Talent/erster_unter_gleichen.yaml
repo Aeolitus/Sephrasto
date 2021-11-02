@@ -1,7 +1,9 @@
-fertigkeiten: Einfluss, Vertrautenmagie
-kosten: '20'
+fertigkeiten:
+- Einfluss
+- Vertrautenmagie
+kosten: 20
 name: Erster unter gleichen
-printclass: '17'
+printclass: 17
 text: 'Dein Vertrautentier schuechtert Tiere aus seiner Gattung ein. Sie erleiden
   einen Furcht-Effekt Stufe 2.
 
@@ -20,6 +22,8 @@ text: 'Dein Vertrautentier schuechtert Tiere aus seiner Gattung ein. Sie erleide
   Fertigkeiten: Einfluss, Vertrautenmagie
 
   Erlernen: Geo, Hex 16; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Hexen I

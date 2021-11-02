@@ -1,10 +1,11 @@
-kommentar: '0'
-kosten: '60'
+kommentar: 0
+kosten: 60
 linkElement: Rededuell
-linkKategorie: '1'
+linkKategorie: 1
 nachkauf: haeufig
 name: Bedaechtig
 text: Wenn du in einem Rededuell abwartest, ist deine Probe um +4 erleichtert.
-typ: '1'
-variable: '0'
-voraussetzungen: Attribut IN 8
+typ: 1
+variable: 0
+voraussetzungen:
+- Attribut IN 8

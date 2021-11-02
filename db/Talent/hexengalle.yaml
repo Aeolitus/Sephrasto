@@ -1,7 +1,8 @@
-fertigkeiten: Eigenschaften
-kosten: '40'
+fertigkeiten:
+- Eigenschaften
+kosten: 40
 name: Hexengalle
-printclass: '0'
+printclass: 0
 text: "Du spuckst auf deinen Gegner. Dein Speichel verwandelt sich in aetzende Saeure\
   \ und das getroffene Opfer erleidet 2W6 SP und wird bei misslungener Konterprobe\
   \ (Zaehigkeit, 16) bis zu seiner uebernaechsten Initiativephase handlungsunfaehig.\
@@ -10,7 +11,9 @@ text: "Du spuckst auf deinen Gegner. Dein Speichel verwandelt sich in aetzende S
   \ Ziele.)\nVorbereitungszeit: 0 Aktionen\nZiel: selbst\nReichweite: 4 Schritt\n\
   Wirkungsdauer: augenblicklich\nKosten: 8 AsP\nFertigkeiten: Eigenschaften\nErlernen:\
   \ Ach, Hex 16; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Hexen I ODER Vorteil
-  Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I

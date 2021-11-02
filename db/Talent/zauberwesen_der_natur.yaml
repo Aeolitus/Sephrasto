@@ -1,7 +1,8 @@
-fertigkeiten: Verstaendigung
-kosten: '20'
+fertigkeiten:
+- Verstaendigung
+kosten: 20
 name: Zauberwesen der Natur
-printclass: '0'
+printclass: 0
 text: "Du rufst ein Feenwesen zur Hilfe. Befinden sich Feenwesen in einem Radius von\
   \ 1 Meile, eilt eines von ihnen herbei. Du kannst das Feenwesen um einen Gefallen\
   \ bitten, aber es entscheidet selbst, ob es den Gefallen erfuellt.\nMaechtige Magie:\
@@ -10,8 +11,11 @@ text: "Du rufst ein Feenwesen zur Hilfe. Befinden sich Feenwesen in einem Radius
   Vorbereitungszeit: 4 Minuten\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer:\
   \ augenblicklich\nKosten: 8 AsP\nFertigkeiten: Verstaendigung\nErlernen: Dru, Hex,\
   \ Sch 18; Elf 20; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition
-  der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Schelme I

@@ -1,7 +1,9 @@
-fertigkeiten: Geister rufen, Verstaendigung
-kosten: '20'
+fertigkeiten:
+- Geister rufen
+- Verstaendigung
+kosten: 20
 name: Gesang der Woelfe
-printclass: '7'
+printclass: 7
 text: "Du stoesst ein lautes Wolfsgeheul aus, das im Radius von 16 Meilen zu hoeren\
   \ ist und von allen Kennern der Wolfssprache (z.B. Woelfe, Wolfskinder oder Schamanen)\
   \ verstanden werden kann.\nMaechtige Magie: Verdoppelt den Radius.\nProbenschwierigkeit:\
@@ -11,6 +13,7 @@ text: "Du stoesst ein lautes Wolfsgeheul aus, das im Radius von 16 Meilen zu hoe
   \ 16 Initiativphasen\nKosten: 2 AsP\nFertigkeiten: Geister rufen, Verstaendigung\n\
   Erlernen: Smn 18; 20 EP\nAnmerkung: Vereinzelt soll dieser Zauber auch in anderen\
   \ Tiervarianten verbreitet sein."
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

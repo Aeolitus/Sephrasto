@@ -1,7 +1,9 @@
-fertigkeiten: Stabzauber, Umwelt
-kosten: '20'
+fertigkeiten:
+- Stabzauber
+- Umwelt
+kosten: 20
 name: Hammer des Magus
-printclass: '15'
+printclass: 15
 text: 'Das mit dem Stab beruehrte Objekt erleidet 4W6 SP. An Lebewesen richtet der
   Hammer keinen Schaden an.
 
@@ -22,6 +24,7 @@ text: 'Das mit dem Stab beruehrte Objekt erleidet 4W6 SP. An Lebewesen richtet d
   Fertigkeiten: Stabzauber, Umwelt
 
   Erlernen: Mag 18; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Gildenmagier I

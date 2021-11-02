@@ -1,0 +1,8 @@
+Fertigkeit:
+  attribute: [""]
+  kampffertigkeit: -1
+  name: ""
+  printclass: -1
+  steigerungsfaktor: -1
+  voraussetzungen: [""]
+  text: ""

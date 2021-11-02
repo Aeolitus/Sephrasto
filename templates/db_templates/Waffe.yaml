@@ -1,0 +1,13 @@
+Waffe:
+  W6: -1
+  fertigkeit: ""
+  fk: -1
+  haerte: -1
+  kampfstile: [""]
+  name: ""
+  plus: -1
+  rw: -1
+  talent: ""
+  wm: -1
+  text: ""
+  lz: -1

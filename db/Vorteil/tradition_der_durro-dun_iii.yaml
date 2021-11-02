@@ -1,13 +1,14 @@
 csBeschreibung: Erlaubt die spontane Modifikation Opferung.
-kommentar: '0'
-kosten: '60'
+kommentar: 0
+kosten: 60
 linkElement: Tradition der Durro-dun II
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Tradition der Durro-dun III
 text: 'Erlaubt die spontane Modifikation Opferung (Zauber +4): Ein Opfer erleichtert
   den Zauber um +4. Die Tierkrieger opfern den Geistern ihr Blut und fuegen sich dabei
   eine Wunde zu, deren Auswirkungen bei der Probe fuer den Zauber ignoriert werden.'
-typ: '5'
-variable: '0'
-voraussetzungen: Attribut MU 8, Vorteil Tradition der Durro-dun II
+typ: 5
+variable: 0
+voraussetzungen:
+- Attribut MU 8, Vorteil Tradition der Durro-dun II

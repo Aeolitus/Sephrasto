@@ -1,7 +1,11 @@
-fertigkeiten: Harmonie, Heilung, Schlaf, Stiller Wanderer
-kosten: '40'
+fertigkeiten:
+- Harmonie
+- Heilung
+- Schlaf
+- Stiller Wanderer
+kosten: 40
 name: Schlaf des Gesegneten
-printclass: '21'
+printclass: 21
 text: 'Dein Ziel sinkt in einen tiefen Schlaf, waehrend dem es 2 zusaetzliche Wunden
   regeneriert.
 
@@ -22,8 +26,10 @@ text: 'Dein Ziel sinkt in einen tiefen Schlaf, waehrend dem es 2 zusaetzliche Wu
   Fertigkeiten: Harmonie, Heilung, Schlaf, Stiller Wanderer
 
   Erlernen: Brn, Per 12; Aves, Rah 16; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
-  Borongeweihten I ODER Vorteil Tradition der Perainegeweihten I ODER Vorteil Tradition
-  der Rahjageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Avesgeweihten I
+- Vorteil Tradition der Borongeweihten I
+- Vorteil Tradition der Perainegeweihten I
+- Vorteil Tradition der Rahjageweihten I

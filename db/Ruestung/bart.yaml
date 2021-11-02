@@ -1,10 +1,10 @@
 name: Bart
-rsBauch: '0'
-rsBeine: '0'
-rsBrust: '0'
-rsKopf: '1'
-rsLArm: '0'
-rsRArm: '0'
-system: '2'
+rsBauch: 0
+rsBeine: 0
+rsBrust: 0
+rsKopf: 1
+rsLArm: 0
+rsRArm: 0
+system: 2
 text: Ruestungsergaenzung fuer den Hals. Wird ueblicherweise mit der Schaller kombiniert.
-typ: '4'
+typ: 4

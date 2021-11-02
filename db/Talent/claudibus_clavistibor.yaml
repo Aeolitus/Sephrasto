@@ -1,7 +1,8 @@
-fertigkeiten: Verwandlung
-kosten: '20'
+fertigkeiten:
+- Verwandlung
+kosten: 20
 name: Claudibus Clavistibor
-printclass: '0'
+printclass: 0
 text: "Du verriegelst und staerkst eine Tuer. Sie kann nicht normal geoeffnet werden\
   \ und Versuche, das Schloss zu oeffnen, sind um \u20134 erschwert. Die Haerte der\
   \ Tuer steigt um 8 Punkte.\nMaechtige Magie: Der Malus steigt um \u20132, die Haerte\
@@ -14,9 +15,14 @@ text: "Du verriegelst und staerkst eine Tuer. Sie kann nicht normal geoeffnet we
   \ 1 Aktion\nZiel: Einzelobjekt\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\n\
   Kosten: 4 AsP\nFertigkeiten: Verwandlung\nErlernen: Mag 12; Hex, Srl 14; Alch 16;\
   \ Dru, Elf, Sch 20; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition
-  der Scharlatane I ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Scharlatane I
+- Vorteil Tradition der Schelme I

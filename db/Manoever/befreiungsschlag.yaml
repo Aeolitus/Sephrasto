@@ -5,5 +5,6 @@ text: "Du fuehrst eine Attacke aus, die sich (samt anderen Manoevern) gegen alle
   \ in einem Winkel von 180\xB0 vor dir richtet. Jedem Ziel steht eine eigene Verteidigung\
   \ zu.\nVoraussetzungen: Kampf im Kraftvollen Stil; kein Befreiungsschlag seit letztem\
   \ Beginn einer eigenen Initiativephase"
-typ: '0'
-voraussetzungen: Vorteil Kraftvoller Kampf III
+typ: 0
+voraussetzungen:
+- Vorteil Kraftvoller Kampf III

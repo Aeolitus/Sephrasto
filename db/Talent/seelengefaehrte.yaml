@@ -1,7 +1,8 @@
-fertigkeiten: Jagd
-kosten: '20'
+fertigkeiten:
+- Jagd
+kosten: 20
 name: Seelengefaehrte
-printclass: '27'
+printclass: 27
 text: 'Du bittest Firuns Wilde Jagd um einen Gefallen. Das Tier der Wilden Jagd, das
   diesen Gefallen am ehesten erfuellen kann und sich in einem Radius von 4 Meilen
   befindet, macht sich sofort auf den Weg zu dir und erfuellt den Gefallen. Ist diese
@@ -25,6 +26,7 @@ text: 'Du bittest Firuns Wilde Jagd um einen Gefallen. Das Tier der Wilden Jagd,
   Fertigkeiten: Jagd
 
   Erlernen: Fir 16; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Firungeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Firungeweihten I

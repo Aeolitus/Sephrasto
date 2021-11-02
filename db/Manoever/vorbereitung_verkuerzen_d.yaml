@@ -4,5 +4,6 @@ probe: Anrufung -4
 text: Die Vorbereitungszeit der Anrufung halbiert sich. Eine Vorbereitungszeit von
   1 Aktion wird zu 0 Aktionen. Die Aktion Konflikt ist von dieser Modifikation nicht
   betroffen.
-typ: '6'
-voraussetzungen: Vorteil Paktierer I
+typ: 6
+voraussetzungen:
+- Vorteil Paktierer I

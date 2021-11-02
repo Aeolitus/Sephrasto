@@ -1,7 +1,9 @@
-fertigkeiten: Feuer, Ringrituale
-kosten: '20'
+fertigkeiten:
+- Feuer
+- Ringrituale
+kosten: 20
 name: Herr der Flammen
-printclass: '13'
+printclass: 13
 text: 'Du kannst ein bestehendes Feuer bis zur Groesse einer Fackel formen oder verloeschen
   lassen. Die Verformung geschieht mit einer GS von 8 Schritt pro Initiativephase
   und benoetigt Konzentration.
@@ -24,6 +26,7 @@ text: 'Du kannst ein bestehendes Feuer bis zur Groesse einer Fackel formen oder 
   Fertigkeiten: Feuer, Ringrituale
 
   Erlernen: Geo 14; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Geoden I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Geoden I

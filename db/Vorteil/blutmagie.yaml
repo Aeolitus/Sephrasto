@@ -1,5 +1,5 @@
-kommentar: '0'
-kosten: '60'
+kommentar: 0
+kosten: 60
 nachkauf: haeufig
 name: Blutmagie
 text: "Mit finsterer und streng verbotener Blutmagie nutzt du fremde Lebenskraft fuer\
@@ -9,7 +9,8 @@ text: "Mit finsterer und streng verbotener Blutmagie nutzt du fremde Lebenskraft
   \ +4, aber erschwert die Kontrollprobe von Daemonen und Elementaren um \u20134.\
   \ Blutmagie kann uebrigens keine gAsP zur Verfuegung stellen \u2013 gAsP muessen\
   \ immer vom Zaubernden selbst stammen."
-typ: '4'
-variable: '0'
-voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut
-  MU 8
+typ: 4
+variable: 0
+voraussetzungen:
+- Vorteil Zauberer I
+- Vorteil Tradition der Borbaradianer I, Attribut MU 8

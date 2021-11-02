@@ -3,5 +3,6 @@ name: Hammerschlag
 probe: AT -8
 text: Der Angriff richtet doppelten Waffenschaden an. Zusaetzliche TP aus Kommandos,
   anderen Manoevern usw. werden nicht verdoppelt.
-typ: '0'
-voraussetzungen: Vorteil Hammerschlag
+typ: 0
+voraussetzungen:
+- Vorteil Hammerschlag

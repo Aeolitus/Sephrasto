@@ -8,5 +8,6 @@ text: 'Du Regenerierst eine Wunde pro durchgeschlafener Nacht von min. 6 Stunden
 
   Voraussetzungen: Du musst ruhen oder besser noch schlafen und es duerfen keine schaedlichen
   Effekte wie Gifte, Krankheiten oder Durst auf dir wirken.'
-typ: '9'
-voraussetzungen: ''
+typ: 9
+voraussetzungen:
+- ''

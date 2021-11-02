@@ -1,8 +1,9 @@
-fertigkeiten: Gaben des Blutgeists
-kommentar: '0'
-kosten: '0'
+fertigkeiten:
+- Gaben des Blutgeists
+kommentar: 0
+kosten: 0
 name: Wasseratem (Blutgeist)
-printclass: '0'
+printclass: 0
 text: 'Du kannst unter Wasser atmen, jedoch nicht mehr an Land. Erlaubt Aufrechterhalten.
 
   Probenschwierigkeit: 12
@@ -16,6 +17,7 @@ text: 'Du kannst unter Wasser atmen, jedoch nicht mehr an Land. Erlaubt Aufrecht
   Wirkungsdauer: 1 Stunde
 
   Kosten: 8 AsP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Fischotter)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Fischotter)

@@ -8,6 +8,9 @@ text: "Probenschwierigkeiten und Kosten:\n- 12 (schwache U., z.B. Skelett), 8 As
   \ Mod.: +Bonus durch Vorbereitung, +4 bis \u20138 je nach Dienst\nAnmerkung: Mit\
   \ dem Totes handle! koennen nur permanente Untote erschaffen werden, bei den Kosten\
   \ sind hier 1/4 der Basiskosten gAsp"
-typ: '4'
-voraussetzungen: Talent Skelettarius Totenherr ODER Talent Tairachs Krieger ODER Talent
-  Wasserleiche erheben ODER Talent Totes handle!
+typ: 4
+voraussetzungen:
+- Talent Skelettarius Totenherr
+- Talent Tairachs Krieger
+- Talent Wasserleiche erheben
+- Talent Totes handle!

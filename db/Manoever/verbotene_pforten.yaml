@@ -9,6 +9,7 @@ text: "Mit dem Vorteil Verbotene Pforten (S. 73) oder der Tradition der Borbarad
   \ WS+8 AsP pro Wunde nutzen. Die eigene Lebenskraft kann jedoch niemals genutzt\
   \ werden, um sich selbst zu heilen. Die Verbotenen Pforten koennen uebrigens keine\
   \ gAsP zur Verfuegung stellen \u2013 gAsP muessen immer vom Zaubernden selbst stammen."
-typ: '4'
-voraussetzungen: Kein Vorteil Verbotene Pforten, Vorteil Tradition der Borbaradianer
-  I ODER Talent Blut des Dolches (passiv)
+typ: 4
+voraussetzungen:
+- Kein Vorteil Verbotene Pforten, Vorteil Tradition der Borbaradianer I
+- Talent Blut des Dolches (passiv)

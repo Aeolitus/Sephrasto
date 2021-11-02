@@ -1,14 +1,16 @@
-fertigkeiten: Wind und Wogen
-kosten: '40'
+fertigkeiten:
+- Wind und Wogen
+kosten: 40
 name: Anrufung Nuiannas
-printclass: '26'
+printclass: 26
 text: "In einem Bereich von 100 Schritt Radius entsteht eine dichte Nebelfront und\
   \ breitet sich in die von dir bestimmte Richtung aus.\nMaechtige Liturgie: Verdoppelt\
   \ den Radius.\nProbenschwierigkeit: 12\nModifikationen: Begleiter (\u20134; die\
   \ Nebelfront bewegt sich mit dir.)\nVorbereitungszeit: 4 Minuten\nZiel: Zone\nReichweite:\
   \ Beruehrung\nWirkungsdauer: 8 Stunden\nKosten: 8 KaP\nFertigkeiten: Wind und Wogen\n\
   Erlernen: Eff 14; Swa 18; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der
-  Swafnirgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Efferdgeweihten I
+- Vorteil Tradition der Swafnirgeweihten I

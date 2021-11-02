@@ -1,7 +1,10 @@
-fertigkeiten: Hellsicht, Geister rufen, Verstaendigung
-kosten: '40'
+fertigkeiten:
+- Hellsicht
+- Geister rufen
+- Verstaendigung
+kosten: 40
 name: Stimme des Nipakau
-printclass: '7'
+printclass: 7
 text: 'Du erforschst die Erinnerung eines Gegenstandes, einer Pflanze oder eines Tieres.
   Dabei beantwortet dir das Ziel 4 Ja/Nein-Fragen. Beachte, dass die meisten Gegenstaende
   und Pflanzen nicht gerade intelligent sind und meist nur Dinge wahrnehmen, mit denen
@@ -25,6 +28,7 @@ text: 'Du erforschst die Erinnerung eines Gegenstandes, einer Pflanze oder eines
   Fertigkeiten: Hellsicht, Geister rufen, Verstaendigung
 
   Erlernen: Smn 16; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

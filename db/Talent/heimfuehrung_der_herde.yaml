@@ -1,13 +1,17 @@
-fertigkeiten: Geister der Staerkung, Geister rufen, Verstaendigung
-kosten: '20'
+fertigkeiten:
+- Geister der Staerkung
+- Geister rufen
+- Verstaendigung
+kosten: 20
 name: Heimfuehrung der Herde
-printclass: '5'
+printclass: 5
 text: "Alle Tiere in einem Radius von 4 Meilen, die dir gehoeren, kommen zu dir.\n\
   Maechtige Magie: Verdoppelt den Radius.\nProbenschwierigkeit: 12\nModifikationen:\
   \ Namensruf (\u20134; der Ruf betrifft nur ein bestimmtes Tier in 8 Meilen Radius)\n\
   Vorbereitungszeit: 16 Aktionen\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer:\
   \ augenblicklich\nKosten: 8 AsP\nFertigkeiten: Geister der Staerkung, Geister rufen,\
   \ Verstaendigung\nErlernen: Smn 14; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

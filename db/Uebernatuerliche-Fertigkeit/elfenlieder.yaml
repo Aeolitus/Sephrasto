@@ -1,9 +1,0 @@
-attribute: CH|FF|IN
-name: Elfenlieder
-printclass: '0'
-steigerungsfaktor: '2'
-text: 'Die auf einem Iama vorgetragenen Elfenlieder gehoeren zu den aeltesten Spielarten
-  der Zauberei, der du begegnen kannst. Da viele Lieder zweistimmig gesungen werden,
-  steht die Fertigkeit nur Elfen und manchen Halbelfen zur Verfuegung. Elfenlieder
-  gelten als Objektrituale. '
-voraussetzungen: Vorteil Tradition der Elfen I

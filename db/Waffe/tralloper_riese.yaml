@@ -1,11 +1,13 @@
-W6: '2'
+W6: 2
 fertigkeit: Athletik
-fk: '0'
-haerte: '16'
-kampfstile: Reiterkampf, Schildkampf
+fk: 0
+haerte: 16
+kampfstile:
+- Reiterkampf
+- Schildkampf
 name: Tralloper Riese
-plus: '4'
-rw: '1'
+plus: 4
+rw: 1
 talent: Reiten
 text: Niederwerfen, Reittier
-wm: '0'
+wm: 0

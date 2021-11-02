@@ -1,7 +1,8 @@
-fertigkeiten: Heilung
-kosten: '20'
+fertigkeiten:
+- Heilung
+kosten: 20
 name: Grosser Giftbann
-printclass: '35'
+printclass: 35
 text: 'Du segnest eine Mahlzeit samt Getraenken fuer bis zu 32 Personen. Die Mahlzeit
   wird von Giften und Krankheitsuebertraegern gesaeubert und sogar giftige Pflanzen
   koennen gegessen werden.
@@ -23,6 +24,7 @@ text: 'Du segnest eine Mahlzeit samt Getraenken fuer bis zu 32 Personen. Die Mah
   Fertigkeiten: Heilung
 
   Erlernen: Per 14; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Perainegeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Perainegeweihten I

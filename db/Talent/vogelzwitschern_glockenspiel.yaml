@@ -1,7 +1,8 @@
-fertigkeiten: Illusion
-kosten: '20'
+fertigkeiten:
+- Illusion
+kosten: 20
 name: Vogelzwitschern Glockenspiel
-printclass: '0'
+printclass: 0
 text: "Ein bestimmtes Geraeusch, welches das Ziel erzeugt, klingt wie ein anderes\
   \ Geraeusch aehnlicher Lautstaerke. Illusion (Gehoer).\nProbenschwierigkeit: 12\n\
   Modifikationen: Orchester (\u20134; du kannst ein weiteres Geraeusch des gleichen\
@@ -10,8 +11,11 @@ text: "Ein bestimmtes Geraeusch, welches das Ziel erzeugt, klingt wie ein andere
   \ 2 Aktionen\nZiel: Einzelperson\nReichweite: 2 Schritt\nWirkungsdauer: 8 Stunden\n\
   Kosten: 4 AsP\nFertigkeiten: Illusion\nErlernen: Srl 12; Mag 14; Sch 18; Alch 20;\
   \ 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane I ODER
-  Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Scharlatane I
+- Vorteil Tradition der Schelme I

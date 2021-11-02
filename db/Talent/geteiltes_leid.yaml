@@ -1,7 +1,9 @@
-fertigkeiten: Heim und Herd, Wildnis
-kosten: '20'
+fertigkeiten:
+- Heim und Herd
+- Wildnis
+kosten: 20
 name: Geteiltes Leid
-printclass: '28'
+printclass: 28
 text: 'Du rufst den Mantel der Heiligen Matscha und schneidest fuer den Gesegneten
   ein Stueck ab. Der Mantel verleiht ihm Immunitaet gegen Kaelteschaden, bis er an
   angemessene Kleidung gelangen kann.
@@ -21,7 +23,8 @@ text: 'Du rufst den Mantel der Heiligen Matscha und schneidest fuer den Gesegnet
   Fertigkeiten: Heim und Herd, Wildnis
 
   Erlernen: Ifi 12; Tra 14; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Ifirngeweihten I ODER Vorteil Tradition der
-  Traviageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Ifirngeweihten I
+- Vorteil Tradition der Traviageweihten I

@@ -1,7 +1,9 @@
-fertigkeiten: Antimagie, Geister vertreiben
-kosten: '60'
+fertigkeiten:
+- Antimagie
+- Geister vertreiben
+kosten: 60
 name: Geisterbann
-printclass: '8'
+printclass: 8
 text: 'Der Zauber gilt als Konterprobe (12) gegen einen Zauber. Gelingt sie, wird
   der Zauber aufgehoben.
 
@@ -20,6 +22,7 @@ text: 'Der Zauber gilt als Konterprobe (12) gegen einen Zauber. Gelingt sie, wir
   Fertigkeiten: Antimagie, Geister vertreiben
 
   Erlernen: Smn 14; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

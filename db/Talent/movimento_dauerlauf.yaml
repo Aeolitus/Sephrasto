@@ -1,7 +1,8 @@
-fertigkeiten: Eigenschaften
-kosten: '20'
+fertigkeiten:
+- Eigenschaften
+kosten: 20
 name: Movimento Dauerlauf
-printclass: '0'
+printclass: 0
 text: 'Verdoppelt das DH* (S. 34) des Ziels und das Intervall, in dem koerperliche
   Anstrengung Erschoepfung verursacht.
 
@@ -22,9 +23,13 @@ text: 'Verdoppelt das DH* (S. 34) des Ziels und das Intervall, in dem koerperlic
   Fertigkeiten: Eigenschaften
 
   Erlernen: Elf 8; Alch, Dru, Hex, Mag, Sch 18; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition
-  der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Schelme I

@@ -1,13 +1,15 @@
-fertigkeiten: Keulenrituale
-kosten: '40'
+fertigkeiten:
+- Keulenrituale
+kosten: 40
 name: Bann der Keule (passiv)
-printclass: '10'
+printclass: 10
 text: 'Du laesst 2/4/6/8 gAsP in die Keule fliessen. Fortan sind alle Beherrschungsproben
   fuer Elementare oder fuer Untote und Daemonen um +1/2/3/4 erleichtert. Du kannst
   die gAsP und gewaehlte Kreaturenklasse in einem einwoechigen Ritual, das 16 AsP
   kostet, veraendern.
 
   Erlernen: Smn 14; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

@@ -1,7 +1,8 @@
-fertigkeiten: Winter
-kosten: '20'
+fertigkeiten:
+- Winter
+kosten: 20
 name: Winterschlaf
-printclass: '29'
+printclass: 29
 text: 'Das gesegnete Ziel faellt in einen tiefen Winterschlaf, in dem sie weder Nahrung
   noch Atemluft benoetigt und jeglichen Schaden durch natuerliche Hitze oder Kaelte
   ignoriert. Die Effekte von Giften und Krankheiten werden gestoppt, allerdings regeneriert
@@ -22,6 +23,7 @@ text: 'Das gesegnete Ziel faellt in einen tiefen Winterschlaf, in dem sie weder 
   Fertigkeiten: Winter
 
   Erlernen: Fir 14; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Firungeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Firungeweihten I

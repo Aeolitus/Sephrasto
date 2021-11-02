@@ -1,13 +1,15 @@
-fertigkeiten: Vergessen
-kosten: '40'
+fertigkeiten:
+- Vergessen
+kosten: 40
 name: Segen der Heiligen Velvenya
-printclass: '23'
+printclass: 23
 text: "Mit dem Segen Borons ist dein Ziel frei von Schlafstoerungen, Albtraeumen,\
   \ Todesaengsten und quaelenden Erinnerungen. Alle Furcht-Effekte gelten um eine\
   \ Stufe niedriger.\nProbenschwierigkeit: 12\nModifikationen: Permanenz (\u20134,\
   \ Wirkungsdauer bis die Bindung geloest wird, 8 KaP, davon 2 gKaP)\nVorbereitungszeit:\
   \ 1 Stunde\nZiel: Einzelperson\nReichweite: Beruehrung\nWirkungsdauer: 1 Monat\n\
   Kosten: 8 KaP\nFertigkeiten: Vergessen\nErlernen: Brn 14; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Borongeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Borongeweihten I

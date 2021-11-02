@@ -1,9 +1,13 @@
-attribute: CH|FF|KL
-kampffertigkeit: '0'
+attribute:
+- CH
+- FF
+- KL
+kampffertigkeit: 0
 name: Heilkunde
-printclass: '6'
-steigerungsfaktor: '3'
+printclass: 6
+steigerungsfaktor: 3
 text: 'Ein Heilkundiger bekaempft toedliche Blutungen, heimtueckische Gifte sowie
   langwierige Krankheiten und hilft seinen Gefaehrten so, wieder auf die Beine zu
   kommen. '
-voraussetzungen: ''
+voraussetzungen:
+- ''

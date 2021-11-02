@@ -1,7 +1,8 @@
-fertigkeiten: Hellsicht
-kosten: '20'
+fertigkeiten:
+- Hellsicht
+kosten: 20
 name: Exposami Lebenskraft
-printclass: '0'
+printclass: 0
 text: "Du nimmst Lebewesen als gruen leuchtende Flecken wahr. Der Zauber kann alle\
   \ Elemente bis auf Erz und Eis durchdringen.\nMaechtige Magie: Du kannst Angehoerige\
   \ verschiedener Spezies/verschiedene Individuen unterscheiden und wiedererkennen.\n\
@@ -10,9 +11,14 @@ text: "Du nimmst Lebewesen als gruen leuchtende Flecken wahr. Der Zauber kann al
   \ 1 Aktion\nZiel: Einzelperson\nReichweite: 16 Schritt\nWirkungsdauer: 8 Initiativphasen\n\
   Kosten: 4 AsP\nFertigkeiten: Hellsicht\nErlernen: Elf 12; Ach, Alch, Dru, Geo 16;\
   \ Hex, Mag 18; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition
-  der Hexen I ODER Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I

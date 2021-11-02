@@ -1,7 +1,9 @@
-fertigkeiten: Hellsicht, Verstaendigung
-kosten: '40'
+fertigkeiten:
+- Hellsicht
+- Verstaendigung
+kosten: 40
 name: Blick durch fremde Augen
-printclass: '0'
+printclass: 0
 text: "Du blickst waehrend der Wirkungsdauer durch die Augen deines Opfers, das davon\
   \ nichts ahnt. Du kannst nur Opfer verzaubern, die du sehr gut kennst oder von denen\
   \ du ein Koerperteil besitzt.\nMaechtige Magie: Es reicht, wenn dir das Ziel persoenlich\
@@ -12,7 +14,10 @@ text: "Du blickst waehrend der Wirkungsdauer durch die Augen deines Opfers, das 
   \ auf Gesten und Formeln verzichten.)\nVorbereitungszeit: 4 Minuten\nZiel: Einzelwesen\n\
   Reichweite: 16 Meilen\nWirkungsdauer: 1 Stunde\nKosten: 8 AsP\nFertigkeiten: Hellsicht,\
   \ Verstaendigung\nErlernen: Dru, Sch 18; Mag 20; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Schelme I

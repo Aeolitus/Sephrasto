@@ -1,12 +1,12 @@
 name: Gambeson
-rsBauch: '2'
-rsBeine: '1'
-rsBrust: '2'
-rsKopf: '0'
-rsLArm: '1'
-rsRArm: '1'
-system: '1'
+rsBauch: 2
+rsBeine: 1
+rsBrust: 2
+rsKopf: 0
+rsLArm: 1
+rsRArm: 1
+system: 1
 text: Kann unter vielen Torsoruestungen anstelle von wattierter Unterkleidung getragen
   werden, wenn diese entsprechend groesser ausfallen. Wirkt dann allerdings mit RS/BE
   0.
-typ: '0'
+typ: 0

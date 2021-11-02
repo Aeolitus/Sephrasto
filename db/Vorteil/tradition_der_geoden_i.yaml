@@ -1,5 +1,5 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Tradition der Geoden I
 text: 'Bedingungen: Sichtkontakt, Geste, kein Kontakt mit verhuettetem Material.
@@ -12,6 +12,7 @@ text: 'Bedingungen: Sichtkontakt, Geste, kein Kontakt mit verhuettetem Material.
 
   Du musst dich beim Erlernen fuer ein bevorzugtes Element entscheiden. Geodische
   Zauber koennen nicht schriftlich weitergegeben werden.'
-typ: '5'
-variable: '0'
-voraussetzungen: Attribut IN 4, Vorteil Zauberer I
+typ: 5
+variable: 0
+voraussetzungen:
+- Attribut IN 4, Vorteil Zauberer I

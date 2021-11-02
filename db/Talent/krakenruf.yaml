@@ -1,7 +1,8 @@
-fertigkeiten: Daemonische Hilfe (Cpt)
-kosten: '60'
+fertigkeiten:
+- Daemonische Hilfe (Cpt)
+kosten: 60
 name: Krakenruf
-printclass: '200'
+printclass: 200
 text: 'Du rufst ein Seeungeheuer wie eine Krake oder eine Seeschlage aus der Umgebung
   herbei, das sich so schnell wie moeglich naehert, und kannst es um einen Gefallen
   bitten. Ist kein Ungeheuer in Reichweite, passiert nichts.
@@ -23,6 +24,7 @@ text: 'Du rufst ein Seeungeheuer wie eine Krake oder eine Seeschlage aus der Umg
   Fertigkeiten: Daemonische Hilfe (Cpt)
 
   Erlernen: Cpt 16; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Paktierer I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Paktierer I

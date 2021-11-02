@@ -1,15 +1,19 @@
-fertigkeiten: Umwelt
-kosten: '20'
+fertigkeiten:
+- Umwelt
+kosten: 20
 name: Spurlos Trittlos
-printclass: '0'
+printclass: 0
 text: "Du tarnst deine Faehrte mit Magie. Alle Proben zur Verfolgung deiner Faehrte\
   \ sind um \u20134 erschwert.\nMaechtige Magie: Der Malus steigt um \u20132.\nProbenschwierigkeit:\
   \ 12\nModifikationen: Andere Person (\u20134, Ziel Einzelperson)\nZone (\u20134,\
   \ Zone, 16 AsP; der Zauber betrifft alle in einem Radius von 4 Schritt.)\nVorbereitungszeit:\
   \ 4 Aktionen\nZiel: selbst\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten:\
   \ 4 AsP\nFertigkeiten: Umwelt\nErlernen: Elf 12; Dru, Geo 18; Hex 20; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition
-  der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Hexen I

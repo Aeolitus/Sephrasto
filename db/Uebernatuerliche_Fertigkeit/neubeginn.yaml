@@ -1,0 +1,13 @@
+attribute:
+- FF
+- IN
+- MU
+name: Neubeginn
+printclass: 1
+steigerungsfaktor: 2
+text: 'Tsageweihte begruessen Veraenderung und Freiheit, egal ob bei der Geburt eines
+  Kindes oder beim Ausueben immer neuer Steckenpferde. Manche Geweihte richten sich
+  dabei sogar gegen althergebrachte Traditionen: sie gelten als gefaehrliche Freidenker
+  und Rebellen. '
+voraussetzungen:
+- Vorteil Tradition der Tsageweihten I

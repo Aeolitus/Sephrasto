@@ -1,11 +1,12 @@
-W6: '2'
+W6: 2
 fertigkeit: Schusswaffen
-fk: '1'
-haerte: '3'
-kampfstile: ''
-lz: '1'
+fk: 1
+haerte: 3
+kampfstile:
+- ''
+lz: 1
 name: Elfenbogen
-plus: '3'
-rw: '64'
+plus: 3
+rw: 64
 talent: Boegen
 text: Zweihaendig

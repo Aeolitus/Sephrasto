@@ -1,8 +1,9 @@
-fertigkeiten: Gaben des Blutgeists
-kommentar: '0'
-kosten: '0'
+fertigkeiten:
+- Gaben des Blutgeists
+kommentar: 0
+kosten: 0
 name: Motoricus Geisterhand (Blutgeist)
-printclass: '0'
+printclass: 0
 text: "Du kannst einen Gegenstand mit einer KK von 2 anheben und mit maximal 4 Schritt\
   \ pro Initiativephase durch die Luft fliegen lassen. Besonders komplizierte und\
   \ feine Bewegungen sind um bis zu 8 Punkte erschwert. Erfordert Konzentration.\n\
@@ -15,6 +16,7 @@ text: "Du kannst einen Gegenstand mit einer KK von 2 anheben und mit maximal 4 S
   \ Objekts mit einer KK von 2 behindert, was Kampfhandlungen mit Waffen fast unmoeglich\
   \ macht.)\nVorbereitungszeit: 1 Aktion\nZiel: Einzelobjekt\nReichweite: 8 Schritt\n\
   Wirkungsdauer: 4 Minuten\nKosten: 4 AsP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Affe)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Affe)

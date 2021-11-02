@@ -1,12 +1,13 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Tradition der Korgeweihten I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Tradition der Korgeweihten II
 text: Korgeweihte werden durch erlittene Wunden eher noch gefaehrlicher. Der Wundmalus
   schraenkt dich beim Wirken von Liturgien nicht ein. Kannst du den Wundmalus ohnehin
   ignorieren, sind Liturgien um den halben Wundmalus erleichtert.
-typ: '7'
-variable: '0'
-voraussetzungen: Attribut MU 6, Vorteil Tradition der Korgeweihten I
+typ: 7
+variable: 0
+voraussetzungen:
+- Attribut MU 6, Vorteil Tradition der Korgeweihten I

@@ -1,8 +1,9 @@
-fertigkeiten: Gaben des Blutgeists
-kommentar: '0'
-kosten: '0'
+fertigkeiten:
+- Gaben des Blutgeists
+kommentar: 0
+kosten: 0
 name: Blick aufs Wesen (Blutgeist)
-printclass: '0'
+printclass: 0
 text: "Der Zauber offenbart dir die Fertigkeiten deines Ziels. Du erhaeltst einen\
   \ groben Eindruck von seinen koerperlichen, geistigen, handwerklichen, kaempferischen\
   \ und zauberischen Faehigkeiten.\nMaechtige Magie: Du erfaehrst auch besonders hohe\
@@ -13,6 +14,7 @@ text: "Der Zauber offenbart dir die Fertigkeiten deines Ziels. Du erhaeltst eine
   \ die Personen vor der Entdeckung schuetzen.)\nVorbereitungszeit: 16 Aktionen\n\
   Ziel: Einzelwesen\nReichweite: 8 Schritt\nWirkungsdauer: augenblicklich\nKosten:\
   \ 8 AsP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Eule)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Eule)

@@ -1,7 +1,10 @@
-fertigkeiten: Eis, Feuer, Schalenzauber
-kosten: '20'
+fertigkeiten:
+- Eis
+- Feuer
+- Schalenzauber
+kosten: 20
 name: Feuer und Eis
-printclass: '14'
+printclass: 14
 text: 'Du kannst die Schale auf eine Temperatur zwischen niederhoellische Kaelte und
   der Hitze einer Eisenschmelze einstellen.
 
@@ -20,7 +23,8 @@ text: 'Du kannst die Schale auf eine Temperatur zwischen niederhoellische Kaelte
   Fertigkeiten: Eis, Feuer, Schalenzauber
 
   Erlernen: Alch 16; Mag 18; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Gildenmagier
-  I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Gildenmagier I

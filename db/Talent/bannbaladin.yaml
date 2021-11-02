@@ -1,7 +1,8 @@
-fertigkeiten: Einfluss
-kosten: '40'
+fertigkeiten:
+- Einfluss
+kosten: 40
 name: Bannbaladin
-printclass: '0'
+printclass: 0
 text: "In Rededuellen mit dem Ziel bist du immun gegen die Auswirkungen von ungewohnter\
   \ Umgebung (S. 55).\nProbenschwierigkeit: Magieresistenz\nMaechtige Magie: Fuer\
   \ je zwei Stufen gilt dein Vorhaben in einem Rededuell als um eine Stufe ungefaehrlicher\
@@ -9,9 +10,13 @@ text: "In Rededuellen mit dem Ziel bist du immun gegen die Auswirkungen von unge
   \ bestimmte positive Erinnerung mit dem Ziel.)\nVorbereitungszeit: 2 Aktionen\n\
   Ziel: Einzelperson\nReichweite: 4 Schritt\nWirkungsdauer: 1 Stunde\nKosten: 8 AsP\n\
   Fertigkeiten: Einfluss\nErlernen: Elf 8; Mag 12; Alch, Dru, Hex, Srl 18; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition
-  der Scharlatane I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Scharlatane I

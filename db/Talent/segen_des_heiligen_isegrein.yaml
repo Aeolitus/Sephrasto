@@ -1,7 +1,9 @@
-fertigkeiten: Stiller Wanderer, Wildnis
-kosten: '40'
+fertigkeiten:
+- Stiller Wanderer
+- Wildnis
+kosten: 40
 name: Segen des Heiligen Isegrein
-printclass: '28'
+printclass: 28
 text: 'Der Gesegnete wird eins mit seiner Umgebung. In der Wildnis wird er wie mit
   der Gabe Gefahreninstinkt vor natuerlichen Gefahren gewarnt. Besitzt er die Gabe
   bereits, sind damit verbundene Proben um +4 erleichtert. Wirkt nicht unter der Erde,
@@ -24,7 +26,9 @@ text: 'Der Gesegnete wird eins mit seiner Umgebung. In der Wildnis wird er wie m
   Fertigkeiten: Stiller Wanderer, Wildnis
 
   Erlernen: Fir, Ifi 14; Aves 16; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
-  Firungeweihten I ODER Vorteil Tradition der Ifirngeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Avesgeweihten I
+- Vorteil Tradition der Firungeweihten I
+- Vorteil Tradition der Ifirngeweihten I

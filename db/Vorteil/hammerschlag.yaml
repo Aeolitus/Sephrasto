@@ -1,10 +1,11 @@
 csAuflisten: '0'
-kommentar: '0'
-kosten: '60'
+kommentar: 0
+kosten: 60
 nachkauf: haeufig
 name: Hammerschlag
 text: 'Erlaubt das Manoever Hammerschlag (AT -8): Der Angriff richtet doppelten Waffenschaden
   an. Zusaetzliche TP aus Kommandos, anderen Manoevern usw. werden nicht verdoppelt.'
-typ: '2'
-variable: '0'
-voraussetzungen: Attribut KK 8
+typ: 2
+variable: 0
+voraussetzungen:
+- Attribut KK 8

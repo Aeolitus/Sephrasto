@@ -1,0 +1,12 @@
+attribute:
+- KL
+- KK
+- MU
+name: Ehre
+printclass: 1
+steigerungsfaktor: 2
+text: Ehre ist der traditionellste und bekannteste Aspekt der Rondra. Neben den Geboten
+  der Ritterlichkeit umfasst sie auch sehr spezielle Regeln, wann und wie gekaempft
+  werden darf.
+voraussetzungen:
+- Vorteil Tradition der Rondrageweihten I

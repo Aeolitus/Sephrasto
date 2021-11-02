@@ -1,5 +1,5 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Beidhaendiger Kampf I
 script: modifyKampfstil('Beidhaendiger Kampf', 1, 0, 0, 0)
@@ -7,6 +7,7 @@ text: 'Bedingungen: zwei einhaendige Waffen, kein Schild, nicht beritten.
 
 
   Du erhaeltst AT +1.'
-typ: '3'
-variable: '0'
-voraussetzungen: Attribut GE 4
+typ: 3
+variable: 0
+voraussetzungen:
+- Attribut GE 4

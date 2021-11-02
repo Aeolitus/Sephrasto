@@ -2,10 +2,10 @@ csBeschreibung: 'Deine MR steigt um 4 Punkte (bereits eingerechnet).
 
 
   Auf dich wirkende Furcht-Effekte (S. 46) zaehlen als eine Stufe niedriger.'
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Willensstark I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Willensstark II
 script: modifyMR(4)
@@ -13,6 +13,7 @@ text: 'Deine MR steigt um 4 Punkte.
 
 
   Auf dich wirkende Furcht-Effekte (S. 46) zaehlen als eine Stufe niedriger.'
-typ: '1'
-variable: '0'
-voraussetzungen: Attribut MU 6
+typ: 1
+variable: 0
+voraussetzungen:
+- Attribut MU 6

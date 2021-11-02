@@ -1,7 +1,8 @@
-fertigkeiten: Illusion
-kosten: '40'
+fertigkeiten:
+- Illusion
+kosten: 40
 name: Duplicatus
-printclass: '0'
+printclass: 0
 text: 'Ein mit dir verschwimmender Doppelgaenger erscheint und verwirrt deine Gegner.
   Bei Nah- und Fernkampfangriffen wird ausgewuerfelt, ob der Angriff dich oder einen
   Doppelgaenger trifft. Der Doppelgaenger ist eine Illusion (Sicht).
@@ -23,7 +24,9 @@ text: 'Ein mit dir verschwimmender Doppelgaenger erscheint und verwirrt deine Ge
   Fertigkeiten: Illusion
 
   Erlernen: Mag, Srl 14; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I
-  ODER Vorteil Tradition der Scharlatane I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Scharlatane I

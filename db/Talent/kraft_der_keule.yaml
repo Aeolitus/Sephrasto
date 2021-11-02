@@ -1,13 +1,16 @@
-fertigkeiten: Keulenrituale, Kraft
-kosten: '40'
+fertigkeiten:
+- Keulenrituale
+- Kraft
+kosten: 40
 name: Kraft der Keule
-printclass: '10'
+printclass: 10
 text: "Gegen \"Geister\" \u2013 also Wesen der Kategorie Daemon, Elementar, Untoter,\
   \ Feenwesen \u2013 steigt der Waffenschaden der Keule um +2.\nMaechtige Magie: Der\
   \ Bonus steigt um +1.\nProbenschwierigkeit: 12\nModifikationen: Permanenz (Wirkungsdauer\
   \ bis die Bindung geloest wird, Kosten 8 AsP, davon 1 gAsP)\nVorbereitungszeit:\
   \ 16 Aktionen\nZiel: Knochenkeule\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\n\
   Kosten: 8 AsP\nFertigkeiten: Keulenrituale, Kraft\nErlernen: Smn 14; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

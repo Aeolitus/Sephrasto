@@ -1,7 +1,10 @@
-fertigkeiten: Luft, Umwelt, Verwandlung
-kosten: '40'
+fertigkeiten:
+- Luft
+- Umwelt
+- Verwandlung
+kosten: 40
 name: Aufgeblasen abgehoben
-printclass: '0'
+printclass: 0
 text: "Dein Opfer wirkt aufgeblasen und schwebt langsam immer hoeher. Dabei ist es\
   \ wie ein Ballon dem Wind ausgeliefert. Wenn der Zauber endet, sinkt es wieder langsam\
   \ zu Boden.\nProbenschwierigkeit: Magieresistenz\nModifikationen: Hoehe begrenzen\
@@ -11,6 +14,8 @@ text: "Dein Opfer wirkt aufgeblasen und schwebt langsam immer hoeher. Dabei ist 
   \ die du mit deinen Armen vorgibst. Erfordert Konzentration.)\nVorbereitungszeit:\
   \ 4 Aktionen\nZiel: Einzelperson\nReichweite: 8 Schritt\nWirkungsdauer: 1 Stunde\n\
   Kosten: 8 AsP\nFertigkeiten: Luft, Umwelt, Verwandlung\nErlernen: Sch 14; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Schelme I

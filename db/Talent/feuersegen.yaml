@@ -1,7 +1,9 @@
-fertigkeiten: Heiliges Feuer, Zwoelfgoettlicher Ritus
-kosten: '0'
+fertigkeiten:
+- Heiliges Feuer
+- Zwoelfgoettlicher Ritus
+kosten: 0
 name: Feuersegen
-printclass: '20'
+printclass: 20
 text: 'Eine kleine Flamme entsteht in deiner Hand. Die Flamme und ein mit ihr entzuendetes
   Feuer wird durch Wind oder Regen nicht geloescht.
 
@@ -21,15 +23,24 @@ text: 'Eine kleine Flamme entsteht in deiner Hand. Die Flamme und ein mit ihr en
 
   Erlernen: Ang, Ing 4; Aves, Brn, Fir, Hes, Ifi, Kor, Nan, Per, Phe, Pra, Rah, Ron,
   Swa, Tra, Tsa 8; Eff 12; 0 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
-  Borongeweihten I ODER Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition
-  der Firungeweihten I ODER Vorteil Tradition der Hesindegeweihten I ODER Vorteil
-  Tradition der Ifirngeweihten I ODER Vorteil Tradition der Ingerimmgeweihten I ODER
-  Vorteil Tradition der Angroschgeweihten I ODER Vorteil Tradition der Korgeweihten
-  I ODER Vorteil Tradition der Nandusgeweihten I ODER Vorteil Tradition der Perainegeweihten
-  I ODER Vorteil Tradition der Phexgeweihten I ODER Vorteil Tradition der Praiosgeweihten
-  I ODER Vorteil Tradition der Rahjageweihten I ODER Vorteil Tradition der Rondrageweihten
-  I ODER Vorteil Tradition der Swafnirgeweihten I ODER Vorteil Tradition der Traviageweihten
-  I ODER Vorteil Tradition der Tsageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Avesgeweihten I
+- Vorteil Tradition der Borongeweihten I
+- Vorteil Tradition der Efferdgeweihten I
+- Vorteil Tradition der Firungeweihten I
+- Vorteil Tradition der Hesindegeweihten I
+- Vorteil Tradition der Ifirngeweihten I
+- Vorteil Tradition der Ingerimmgeweihten I
+- Vorteil Tradition der Angroschgeweihten I
+- Vorteil Tradition der Korgeweihten I
+- Vorteil Tradition der Nandusgeweihten I
+- Vorteil Tradition der Perainegeweihten I
+- Vorteil Tradition der Phexgeweihten I
+- Vorteil Tradition der Praiosgeweihten I
+- Vorteil Tradition der Rahjageweihten I
+- Vorteil Tradition der Rondrageweihten I
+- Vorteil Tradition der Swafnirgeweihten I
+- Vorteil Tradition der Traviageweihten I
+- Vorteil Tradition der Tsageweihten I

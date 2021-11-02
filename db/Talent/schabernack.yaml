@@ -1,12 +1,15 @@
-fertigkeiten: Einfluss
-kosten: '20'
+fertigkeiten:
+- Einfluss
+kosten: 20
 name: Schabernack
-printclass: '0'
+printclass: 0
 text: "Deinem Opfer geschieht ein kleines Missgeschick \u2013 es stolpert, bekommt\
   \ im Gespraech ploetzlich Blaehungen, oder ihm rutscht eine unanstaendige Bemerkung\
   \ heraus.\nProbenschwierigkeit: Magieresistenz\nVorbereitungszeit: 2 Aktionen\n\
   Ziel: Einzelperson\nReichweite: 8 Schritt\nWirkungsdauer: augenblicklich\nKosten:\
   \ 4 AsP\nFertigkeiten: Einfluss\nErlernen: Sch 8; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Schelme I

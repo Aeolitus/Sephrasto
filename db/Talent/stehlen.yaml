@@ -1,10 +1,12 @@
-fertigkeiten: Verschlagenheit
-kosten: '-1'
+fertigkeiten:
+- Verschlagenheit
+kosten: -1
 name: Stehlen
-printclass: '-1'
+printclass: -1
 text: Mit Stehlen kannst du zur richtigen Zeit am richtigen Ort sein, um die richtige
   Person unauffaellig um ihren Besitz zu erleichtern. Ausserdem koennen Diebe den
   Wert ihrer Beute einschaetzen und Kontakt zu einem Hehler aufnehmen.
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

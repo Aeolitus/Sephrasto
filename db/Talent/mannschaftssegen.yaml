@@ -1,7 +1,8 @@
-fertigkeiten: Seefahrt
-kosten: '20'
+fertigkeiten:
+- Seefahrt
+kosten: 20
 name: Mannschaftssegen
-printclass: '25'
+printclass: 25
 text: 'Die gesamte Schiffsmannschaft erhaelt eine Erleichterung von +2 auf MU-Proben
   und ignoriert eine Stufe jedes Furchteffekts, solange sie sich an Bord eines Schiffes
   aufhaelt.
@@ -21,7 +22,8 @@ text: 'Die gesamte Schiffsmannschaft erhaelt eine Erleichterung von +2 auf MU-Pr
   Fertigkeiten: Seefahrt
 
   Erlernen: Swa 8; Eff 12; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der
-  Swafnirgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Efferdgeweihten I
+- Vorteil Tradition der Swafnirgeweihten I

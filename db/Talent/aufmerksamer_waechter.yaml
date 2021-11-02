@@ -1,7 +1,10 @@
-fertigkeiten: Hellsicht, Illusion, Geister der Staerkung
-kosten: '20'
+fertigkeiten:
+- Hellsicht
+- Illusion
+- Geister der Staerkung
+kosten: 20
 name: Aufmerksamer Waechter
-printclass: '5'
+printclass: 5
 text: "Du malst, schnitzt oder formst das Abbild eines Tieres. Dieses Tier wird mit\
   \ seinen ueblichen Sinnen Wache halten. Wenn es eine Gefahr entdeckt, stoesst es\
   \ einen Warnruf aus (eine Illusion (Gehoer)). Was das Tier als Gefahr betrachtet,\
@@ -10,6 +13,7 @@ text: "Du malst, schnitzt oder formst das Abbild eines Tieres. Dieses Tier wird 
   Probenschwierigkeit: 12\nVorbereitungszeit: 4 Minuten\nZiel: Einzelobjekt\nReichweite:\
   \ Beruehrung\nWirkungsdauer: 1 Tag\nKosten: 4 AsP\nFertigkeiten: Hellsicht, Illusion,\
   \ Geister der Staerkung\nErlernen: Smn 18; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

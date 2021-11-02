@@ -1,13 +1,14 @@
 csBeschreibung: Erlaubt die spontane Modifikation Opferung.
-kommentar: '0'
-kosten: '60'
+kommentar: 0
+kosten: 60
 linkElement: Tradition der Derwische II
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Tradition der Derwische III
 text: 'Erlaubt die spontane Modifikation Opferung (Zauber +4): Ein Opfer erleichtert
   den Zauber um +4. Derwische legen ihre ganze Kraft in den Zauber und erleiden danach
   2 Punkte Erschoepfung.'
-typ: '5'
-variable: '0'
-voraussetzungen: Attribut FF 8, Vorteil Tradition der Derwische II
+typ: 5
+variable: 0
+voraussetzungen:
+- Attribut FF 8, Vorteil Tradition der Derwische II

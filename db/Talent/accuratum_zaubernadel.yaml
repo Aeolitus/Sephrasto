@@ -1,14 +1,18 @@
-fertigkeiten: Verwandlung
-kosten: '20'
+fertigkeiten:
+- Verwandlung
+kosten: 20
 name: Accuratum Zaubernadel
-printclass: '0'
+printclass: 0
 text: "Du veraenderst die Farbe und den Schnitt eines Kleidungsstueckes nach deinen\
   \ Wuenschen.\nProbenschwierigkeit: 12\nModifikationen: Haltbarkeit (\u20134, Wirkungsdauer\
   \ 1 Jahr, 8 AsP)\nVorbereitungszeit: 16 Aktionen\nZiel: Einzelobjekt\nReichweite:\
   \ Beruehrung\nWirkungsdauer: 1 Woche\nKosten: 4 AsP\nFertigkeiten: Verwandlung\n\
   Erlernen: Alch, Mag, Srl 16; Hex 20; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil
-  Tradition der Scharlatane I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Scharlatane I

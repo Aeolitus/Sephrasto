@@ -1,7 +1,8 @@
-fertigkeiten: Guter Kampf
-kosten: '40'
+fertigkeiten:
+- Guter Kampf
+kosten: 40
 name: Neun Streiche in einem
-printclass: '54'
+printclass: 54
 text: 'Du wirfst die Kraft des Gnadenlosen in deinen naechsten Angriff. Trifft dieser
   Angriff, richtest du fuer jeden bisherigen Treffer gegen das Ziel in diesem Kampf
   1W6 TP zusaetzlich an. Das Maximum liegt bei 8W6 TP.
@@ -23,6 +24,7 @@ text: 'Du wirfst die Kraft des Gnadenlosen in deinen naechsten Angriff. Trifft d
   Fertigkeiten: Guter Kampf
 
   Erlernen: Kor 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Korgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Korgeweihten I

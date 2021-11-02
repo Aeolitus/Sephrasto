@@ -1,10 +1,12 @@
-fertigkeiten: Mythenkunde
-kosten: '-1'
+fertigkeiten:
+- Mythenkunde
+kosten: -1
 name: Geschichten und Legenden
-printclass: '-1'
+printclass: -1
 text: Geschichten und Legenden ist das Wissen um alte Ueberlieferungen. Damit kannst
   du das Alter von Grabmaelern und Artefakten bestimmen oder aus einer Sage die Vorlieben
   und Schwachpunkte eines Riesen ableiten.
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

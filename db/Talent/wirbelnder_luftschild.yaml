@@ -1,13 +1,16 @@
-fertigkeiten: Luft, Ringrituale
-kosten: '40'
+fertigkeiten:
+- Luft
+- Ringrituale
+kosten: 40
 name: Wirbelnder Luftschild
-printclass: '13'
+printclass: 13
 text: "Unberechenbare Winde lenken alle auf dich gerichteten Geschosse bis zur Groesse\
   \ eines Wurfspeers ab. Ungezielte Geschosse (wie in einem Pfeilhagel) treffen dich\
   \ nicht, Fernkampfangriffe auf dich sind um \u20134 erschwert.\nMaechtige Magie:\
   \ Der Malus steigt um \u20132.\nProbenschwierigkeit: 12\nVorbereitungszeit: 2 Aktionen\n\
   Ziel: selbst\nReichweite: Beruehrung\nWirkungsdauer: 16 Initiativphasen\nKosten:\
   \ 8 AsP\nFertigkeiten: Luft, Ringrituale\nErlernen: Geo 14; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Geoden I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Geoden I

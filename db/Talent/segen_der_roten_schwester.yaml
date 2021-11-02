@@ -1,7 +1,8 @@
-fertigkeiten: Rausch
-kosten: '40'
+fertigkeiten:
+- Rausch
+kosten: 40
 name: Segen der Roten Schwester
-printclass: '44'
+printclass: 44
 text: 'Der Gesegnete wird von einem gluecklichen Rausch ergriffen, wenn ihm keine
   Konterprobe (Zaehigkeit, 20) gelingt. Er erwacht nur, wenn er eine Wunde erleidet.
 
@@ -20,6 +21,7 @@ text: 'Der Gesegnete wird von einem gluecklichen Rausch ergriffen, wenn ihm kein
   Fertigkeiten: Rausch
 
   Erlernen: Rah 16; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Rahjageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Rahjageweihten I

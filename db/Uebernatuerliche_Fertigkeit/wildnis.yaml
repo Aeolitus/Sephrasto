@@ -1,0 +1,12 @@
+attribute:
+- FF
+- IN
+- MU
+name: Wildnis
+printclass: 1
+steigerungsfaktor: 2
+text: Die Waldlaeufer des Nordens streifen oft monatelang abseits aller Wege durch
+  die Wildnis, ohne ihr Ziel aus den Augen zu verlieren.
+voraussetzungen:
+- Vorteil Tradition der Ifirngeweihten I
+- Vorteil Tradition der Firungeweihten I

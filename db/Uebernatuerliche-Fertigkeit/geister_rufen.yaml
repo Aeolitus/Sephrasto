@@ -1,8 +1,0 @@
-attribute: CH|IN|KL
-name: Geister rufen
-printclass: '0'
-steigerungsfaktor: '4'
-text: Einige Schamanen sehen sich hauptsaechlich als Vermittler zwischen der Welt
-  der Menschen und dem Geisterreich. Sie koennen dessen Bewohner herbeirufen und sie
-  um Hilfe bitten.
-voraussetzungen: Vorteil Tradition der Schamanen I

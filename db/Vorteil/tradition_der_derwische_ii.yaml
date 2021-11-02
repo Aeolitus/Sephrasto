@@ -1,11 +1,12 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Tradition der Derwische I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Tradition der Derwische II
 text: Deine Rhythmen sind auf groessere Entfernung hoerbar. Alle deine Zauber mit
   dem Ziel Zone wirken auf alle Ziele im Umkreis von 8 Schritt (statt 4 Schritt).
-typ: '5'
-variable: '0'
-voraussetzungen: Attribut FF 6, Vorteil Tradition der Derwische I
+typ: 5
+variable: 0
+voraussetzungen:
+- Attribut FF 6, Vorteil Tradition der Derwische I

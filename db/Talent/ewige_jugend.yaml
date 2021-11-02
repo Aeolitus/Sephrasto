@@ -1,7 +1,9 @@
-fertigkeiten: Harmonie, Neubeginn
-kosten: '20'
+fertigkeiten:
+- Harmonie
+- Neubeginn
+kosten: 20
 name: Ewige Jugend
-printclass: '43'
+printclass: 43
 text: "Der Gesegnete behaelt Zeit seines Lebens ein jugendliches Aussehen. Frevelt\
   \ der Gesegnete gegen die segenspendende Gottheit, setzt die natuerliche Alterung\
   \ wieder ein.\nProbenschwierigkeit: 12\nModifikationen: Ewige Schoenheit (\u2013\
@@ -11,7 +13,8 @@ text: "Der Gesegnete behaelt Zeit seines Lebens ein jugendliches Aussehen. Freve
   \ Tag\nZiel: Einzelperson\nReichweite: Beruehrung\nWirkungsdauer: bis die Bindung\
   \ geloest wird\nKosten: 16 KaP, davon 4 gKaP\nFertigkeiten: Harmonie, Neubeginn\n\
   Erlernen: Rah, Tsa 16; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Rahjageweihten I ODER Vorteil Tradition der
-  Tsageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Rahjageweihten I
+- Vorteil Tradition der Tsageweihten I

@@ -1,7 +1,9 @@
-fertigkeiten: Hellsicht, Kugelzauber
-kosten: '20'
+fertigkeiten:
+- Hellsicht
+- Kugelzauber
+kosten: 20
 name: Kugel des Astrologen
-printclass: '12'
+printclass: 12
 text: 'Ueber der Kugel entsteht ein Abbild des aktuellen Sternenhimmels, von dem du
   einzelne Teile hervortreten lassen kannst. Das Abbild leuchtet nur schwach und ist
   im Sonnenlicht nicht zu sehen.
@@ -21,7 +23,8 @@ text: 'Ueber der Kugel entsteht ein Abbild des aktuellen Sternenhimmels, von dem
   Fertigkeiten: Hellsicht, Kugelzauber
 
   Erlernen: Srl 14; Mag 16; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane
-  I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Scharlatane I

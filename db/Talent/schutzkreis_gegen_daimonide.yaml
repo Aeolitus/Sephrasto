@@ -1,7 +1,10 @@
-fertigkeiten: Antimagie, Daemonisch, Verwandlung
-kosten: '20'
+fertigkeiten:
+- Antimagie
+- Daemonisch
+- Verwandlung
+kosten: 20
 name: Schutzkreis gegen Daimonide
-printclass: '0'
+printclass: 0
 text: 'Du ziehst einen Kreis von maximal 4 Schritt Radius. Liegt die Beschwoerungsschwierigkeit
   eines Daimoniden bei maximal 20, kann er die Zone nicht betreten.
 
@@ -28,7 +31,9 @@ text: 'Du ziehst einen Kreis von maximal 4 Schritt Radius. Liegt die Beschwoerun
   Fertigkeiten: Antimagie, Daemonisch, Verwandlung
 
   Erlernen: Ach, Mag 18; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I
-  ODER Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Kristallomanten I

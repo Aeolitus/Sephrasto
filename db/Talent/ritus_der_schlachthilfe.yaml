@@ -1,7 +1,8 @@
-fertigkeiten: Heerfuehrung
-kosten: '40'
+fertigkeiten:
+- Heerfuehrung
+kosten: 40
 name: Ritus der Schlachthilfe
-printclass: '46'
+printclass: 46
 text: 'Waehrend du meditierst, kann deine Schwertseele einem Gefaehrten im Kampf beistehen.
   Sie erscheint als geisterhafte Walkuere und kann 8 Angriffe oder Paraden fuehren.
   Die Schwertseele verwendet deine Kampfwerte und -faehigkeiten, ohne Abzuege durch
@@ -27,6 +28,7 @@ text: 'Waehrend du meditierst, kann deine Schwertseele einem Gefaehrten im Kampf
 
   Anmerkung: Wenn ihr den Bund der Schwerter geschlossen habt, steigt die Reichweite
   auf aventurienweit.'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Rondrageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Rondrageweihten I

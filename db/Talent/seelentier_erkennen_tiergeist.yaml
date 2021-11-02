@@ -1,8 +1,9 @@
-fertigkeiten: Gaben des Odun
-kommentar: '0'
-kosten: '40'
+fertigkeiten:
+- Gaben des Odun
+kommentar: 0
+kosten: 40
 name: Seelentier erkennen (Tiergeist)
-printclass: '0'
+printclass: 0
 text: 'Du erkennst das Seelentier deines Zieles. Wenn dir das Tier und seine assoziierten
   Eigenschaften bekannt sind, erleichtert dir das alle kuenftigen gesellschaftlichen
   Proben dem Ziel gegenueber um +2.
@@ -18,6 +19,7 @@ text: 'Du erkennst das Seelentier deines Zieles. Wenn dir das Tier und seine ass
   Wirkungsdauer: augenblicklich
 
   Kosten: 4 AsP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Elefant)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Elefant)

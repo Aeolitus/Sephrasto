@@ -1,7 +1,11 @@
-fertigkeiten: Heiliges Handwerk, Magie, Magiebann, Schutz der Glaeubigen
-kosten: '40'
+fertigkeiten:
+- Heiliges Handwerk
+- Magie
+- Magiebann
+- Schutz der Glaeubigen
+kosten: 40
 name: Purgation
-printclass: '30'
+printclass: 30
 text: "Du bannst einen Zauber, in den gAsP geflossen sind (wie ein Artefakt oder ein\
   \ permanenter Fluch), oder ein Wesen, in das gAsP geflossen sind (wie eine Chimaere\
   \ oder einen gebundenen Daemon).\nProbenschwierigkeit: Probenschwierigkeit \u2013\
@@ -13,8 +17,11 @@ text: "Du bannst einen Zauber, in den gAsP geflossen sind (wie ein Artefakt oder
   \ des Zaubers oder der Beschwoerung in KaP\nFertigkeiten: Heiliges Handwerk, Magie,\
   \ Magiebann, Schutz der Glaeubigen\nErlernen: Pra, Hes 14; Ing 16; Ang, Ron 18;\
   \ 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der
-  Ingerimmgeweihten I ODER Vorteil Tradition der Angroschgeweihten I ODER Vorteil
-  Tradition der Praiosgeweihten I ODER Vorteil Tradition der Rondrageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Hesindegeweihten I
+- Vorteil Tradition der Ingerimmgeweihten I
+- Vorteil Tradition der Angroschgeweihten I
+- Vorteil Tradition der Praiosgeweihten I
+- Vorteil Tradition der Rondrageweihten I

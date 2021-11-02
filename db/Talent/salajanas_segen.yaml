@@ -1,12 +1,14 @@
-fertigkeiten: Neubeginn
-kosten: '0'
+fertigkeiten:
+- Neubeginn
+kosten: 0
 name: Salajanas Segen
-printclass: '51'
+printclass: 51
 text: "Du milderst den Wehenschmerz der Gesegneten.\nProbenschwierigkeit: 12\nModifikationen:\
   \ Salajanas Schutz (\u20138, Wirkungsdauer 1 Jahr, 8 KaP; die Gesegnete bleibt waehrend\
   \ der Schwangerschaft vor Krankheiten verschont)\nVorbereitungszeit: 16 Aktionen\n\
   Ziel: Einzelperson\nReichweite: Beruehrung\nWirkungsdauer: 1 Tag\nKosten: 4 KaP\n\
   Fertigkeiten: Neubeginn\nErlernen: Tsa 8; 0 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Tsageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Tsageweihten I

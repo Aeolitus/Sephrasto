@@ -1,7 +1,9 @@
-fertigkeiten: Froehlicher Wanderer, Sichere Heimkehr
-kosten: '20'
+fertigkeiten:
+- Froehlicher Wanderer
+- Sichere Heimkehr
+kosten: 20
 name: Freundliche Aufnahme
-printclass: '49'
+printclass: 49
 text: 'Du findest den direktesten Weg zum naechsten bewohnten Heim im Radius von 16
   Meilen, dessen Bewohner dir mindestens Neutral gesonnen sind. Dieser Weg ist passierbar,
   aber nicht zwingend ungefaehrlich.
@@ -23,7 +25,8 @@ text: 'Du findest den direktesten Weg zum naechsten bewohnten Heim im Radius von
   Fertigkeiten: Froehlicher Wanderer, Sichere Heimkehr
 
   Erlernen: Tra 12, Aves 14; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
-  Traviageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Avesgeweihten I
+- Vorteil Tradition der Traviageweihten I

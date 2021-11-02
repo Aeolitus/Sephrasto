@@ -1,14 +1,17 @@
-fertigkeiten: Wildnis, Winter
-kosten: '20'
+fertigkeiten:
+- Wildnis
+- Winter
+kosten: 20
 name: Sichere Wanderung im Schnee
-printclass: '28'
+printclass: 28
 text: "Der Gesegnete kann in tiefstem Schnee und auf Eis laufen, als wuerde er ueber\
   \ festen Boden gehen. Erlaubt Aufrechterhalten.\nProbenschwierigkeit: 12\nModifikationen:\
   \ Eiskletterer (\u20134; der Gesegnete kann an Eiswaenden wie auf Fels klettern.)\n\
   Vorbereitungszeit: 16 Aktionen\nZiel: Einzelperson\nReichweite: Beruehrung\nWirkungsdauer:\
   \ 4 Stunden\nKosten: 4 KaP\nFertigkeiten: Wildnis, Winter\nErlernen: Fir, Ifi 12;\
   \ 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition der
-  Ifirngeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Firungeweihten I
+- Vorteil Tradition der Ifirngeweihten I

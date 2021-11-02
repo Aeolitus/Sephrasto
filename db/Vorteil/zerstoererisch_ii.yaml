@@ -1,7 +1,7 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Zerstoererisch I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Zerstoererisch II
 text: 'Proben zum Zerstoeren oder Durchbrechen von Gegenstaenden sind um +4 erleichtert.
@@ -9,6 +9,7 @@ text: 'Proben zum Zerstoeren oder Durchbrechen von Gegenstaenden sind um +4 erle
 
   Erlaubt das Manoever Hammerschlag gegen Gegenstaende. Bei waffenlosen Angriffen
   gegen Gegenstaende verletzt du dich normalerweise nicht.'
-typ: '1'
-variable: '0'
-voraussetzungen: Attribut KK 6
+typ: 1
+variable: 0
+voraussetzungen:
+- Attribut KK 6

@@ -1,7 +1,9 @@
-fertigkeiten: Einfluss, Verstaendigung
-kosten: '20'
+fertigkeiten:
+- Einfluss
+- Verstaendigung
+kosten: 20
 name: Hilfreiche Tatze, rettende Schwinge
-printclass: '0'
+printclass: 0
 text: 'Du waehlst eine Tierart. Befindet sich ein Tier dieser Art in einem Radius
   von 1 Meile, eilt es herbei. Du kannst das Tier um einen Gefallen bitten, den dieses
   wenn moeglich erfuellen wird. Dann trollt sich das Tier.
@@ -23,8 +25,11 @@ text: 'Du waehlst eine Tierart. Befindet sich ein Tier dieser Art in einem Radiu
   Fertigkeiten: Einfluss, Verstaendigung
 
   Erlernen: Geo 14; Elf 16; Ach, Dru 18; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition
-  der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Kristallomanten I

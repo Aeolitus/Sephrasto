@@ -1,13 +1,17 @@
-fertigkeiten: Kraft, Vertrautenmagie
-kosten: '40'
+fertigkeiten:
+- Kraft
+- Vertrautenmagie
+kosten: 40
 name: Letzter Ausweg
-printclass: '17'
+printclass: 17
 text: "Dein Vertrautentier mobilisiert alle Kraefte, um dich oder sich zu retten.\
   \ Alle Feinde in 4\_Schritt Radius erleiden 2W6 SP. Das Vertrautentier erleidet\
   \ sofort 4 Wunden.\nMaechtige Magie: Die SP steigen um +4.\nProbenschwierigkeit:\
   \ 12\nVorbereitungszeit: 0 Aktionen\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer:\
   \ augenblicklich\nKosten: 1 AsP\nFertigkeiten: Kraft, Vertrautenmagie\nErlernen:\
   \ Geo 14, Hex 16; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Hexen I

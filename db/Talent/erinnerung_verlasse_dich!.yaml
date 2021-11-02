@@ -1,7 +1,9 @@
-fertigkeiten: Daemonisch, Einfluss
-kosten: '40'
+fertigkeiten:
+- Daemonisch
+- Einfluss
+kosten: 40
 name: Erinnerung verlasse dich!
-printclass: '0'
+printclass: 0
 text: 'Dein Ziel verliert saemtliche Erinnerung an sein voriges Leben und kann sich
   spaeter nicht an Ereignisse waehrend der Wirkungsdauer erinnern.
 
@@ -20,7 +22,9 @@ text: 'Dein Ziel verliert saemtliche Erinnerung an sein voriges Leben und kann s
   Fertigkeiten: Daemonisch, Einfluss
 
   Erlernen: Bor 16; Mag 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I
-  ODER Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Gildenmagier I

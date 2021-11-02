@@ -1,8 +1,9 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: selten
 name: Resistenz gegen Krankheiten
 text: Resistenz mildert die Auswirkungen von Krankheiten (S. 35).
-typ: '0'
-variable: '0'
-voraussetzungen: ''
+typ: 0
+variable: 0
+voraussetzungen:
+- ''

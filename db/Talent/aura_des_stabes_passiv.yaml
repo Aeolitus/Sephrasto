@@ -1,12 +1,14 @@
-fertigkeiten: Stabzauber
-kosten: '20'
+fertigkeiten:
+- Stabzauber
+kosten: 20
 name: Aura des Stabes (passiv)
-printclass: '15'
+printclass: 15
 text: 'Wenn du bei einer Verwandlung deines Koerpers (egal ob freiwillig oder unfreiwillig)
   deinen Stab bei dir traegst, hast du ihn auch nach der Rueckverwandlung wieder bei
   dir.
 
   Erlernen: Mag 18; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Gildenmagier I

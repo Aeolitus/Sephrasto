@@ -4,5 +4,6 @@ probe: FK -4
 text: 'Der Angriff ignoriert die gegnerische Ruestung und richtet SP statt TP an.
 
   Voraussetzung: Pfeile mit Waffeneigenschaft Ruestungsbrechend.'
-typ: '1'
-voraussetzungen: ''
+typ: 1
+voraussetzungen:
+- ''

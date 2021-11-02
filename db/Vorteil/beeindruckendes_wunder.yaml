@@ -1,12 +1,13 @@
 csBeschreibung: Maechtige Liturgie verleiht einen Bonus von +4 statt +2.
-kommentar: '0'
-kosten: '60'
+kommentar: 0
+kosten: 60
 linkElement: Mirakel [Fertigkeit oder Attribut]
-linkKategorie: '1'
+linkKategorie: 1
 nachkauf: haeufig
 name: Beeindruckendes Wunder
 text: Bei Mirakeln verleiht die Modifikation Maechtige Liturgie einen Bonus von +4
   statt +2.
-typ: '6'
-variable: '0'
-voraussetzungen: Attribut IN 8, Vorteil Geweiht I
+typ: 6
+variable: 0
+voraussetzungen:
+- Attribut IN 8, Vorteil Geweiht I

@@ -1,7 +1,8 @@
-fertigkeiten: Heiliges Erz
-kosten: '20'
+fertigkeiten:
+- Heiliges Erz
+kosten: 20
 name: Goldener Blick
-printclass: '32'
+printclass: 32
 text: 'Du erspuerst die Gegenwart und die genaue Lage von Bodenschaetzen in einem
   Radius von 32 Schritt.
 
@@ -22,7 +23,8 @@ text: 'Du erspuerst die Gegenwart und die genaue Lage von Bodenschaetzen in eine
   Fertigkeiten: Heiliges Erz
 
   Erlernen: Ang 16; Ing 18; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition
-  der Angroschgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Ingerimmgeweihten I
+- Vorteil Tradition der Angroschgeweihten I

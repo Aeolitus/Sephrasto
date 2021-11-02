@@ -1,7 +1,9 @@
-fertigkeiten: Antimagie, Verstaendigung
-kosten: '20'
+fertigkeiten:
+- Antimagie
+- Verstaendigung
+kosten: 20
 name: Geister austreiben
-printclass: '0'
+printclass: 0
 text: 'Du zeichnest ein Pentagramm, durch das ein Geist deiner Wahl verschwindet.
   Er kann 1 Woche lang nicht mehr umherspuken.
 
@@ -22,8 +24,11 @@ text: 'Du zeichnest ein Pentagramm, durch das ein Geist deiner Wahl verschwindet
   Fertigkeiten: Antimagie, Verstaendigung
 
   Erlernen: Dru 8; Mag 14; Geo, Hex 16; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil
-  Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I

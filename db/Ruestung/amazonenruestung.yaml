@@ -1,11 +1,11 @@
 name: Amazonenruestung
-rsBauch: '4'
-rsBeine: '3'
-rsBrust: '4'
-rsKopf: '3'
-rsLArm: '2'
-rsRArm: '2'
-system: '0'
+rsBauch: 4
+rsBeine: 3
+rsBrust: 4
+rsKopf: 3
+rsLArm: 2
+rsRArm: 2
+system: 0
 text: Komplettruestung aus Bronzekuerass, Arm- und Beinschienen, Streifenschurz und
   visierlosem Helm. Kann nicht ergaenzt werden.
-typ: '4'
+typ: 4

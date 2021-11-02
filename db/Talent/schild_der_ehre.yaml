@@ -1,12 +1,14 @@
-fertigkeiten: Ehre
-kosten: '40'
+fertigkeiten:
+- Ehre
+kosten: 40
 name: Schild der Ehre
-printclass: '45'
+printclass: 45
 text: "Ungezielte Geschosse (wie in einem Pfeilhagel) treffen dich nicht, Fernkampfangriffe\
   \ und Zauber auf dich sind um \u20134 erschwert.\nMaechtige Magie: Erhoeht den Malus\
   \ um \u20132.\nProbenschwierigkeit: 12\nVorbereitungszeit: 1 Aktion\nZiel: selbst\n\
   Reichweite: Beruehrung\nWirkungsdauer: 16 Initiativphasen\nKosten: 8 KaP\nFertigkeiten:\
   \ Ehre\nErlernen: Ron 14; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Rondrageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Rondrageweihten I

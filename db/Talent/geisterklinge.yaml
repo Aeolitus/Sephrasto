@@ -1,7 +1,10 @@
-fertigkeiten: Kraft, Geister der Staerkung, Verwandlung
-kosten: '40'
+fertigkeiten:
+- Kraft
+- Geister der Staerkung
+- Verwandlung
+kosten: 40
 name: Geisterklinge
-printclass: '5'
+printclass: 5
 text: "Die verzauberte Waffe gilt waehrend der Wirkungsdauer als magisch.\nProbenschwierigkeit:\
   \ 12\nModifikationen: Personalisierung (\u20134; der Zauber wirkt nur, solange der\
   \ beim Zaubern gewaehlte Traeger die Waffe fuehrt.)\nNamenssigille (\u20138; erfordert\
@@ -10,6 +13,7 @@ text: "Die verzauberte Waffe gilt waehrend der Wirkungsdauer als magisch.\nProbe
   \ bis die Bindung geloest wird, 16 AsP, davon 2 gAsP)\nVorbereitungszeit: 16 Aktionen\n\
   Ziel: Einzelobjekt\nReichweite: Beruehrung\nWirkungsdauer: 1 Woche\nKosten: 8 AsP\n\
   Fertigkeiten: Kraft, Geister der Staerkung, Verwandlung\nErlernen: Smn 18; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

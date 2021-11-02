@@ -1,11 +1,14 @@
-W6: '2'
+W6: 2
 fertigkeit: Stangenwaffen
-fk: '0'
-haerte: '6'
-kampfstile: Reiterkampf, Kraftvoller Kampf, Schneller Kampf
+fk: 0
+haerte: 6
+kampfstile:
+- Reiterkampf
+- Kraftvoller Kampf
+- Schneller Kampf
 name: Sturmsense
-plus: '3'
-rw: '2'
+plus: 3
+rw: 2
 talent: Infanteriewaffen und Speere
 text: Zweihaendig
-wm: '-2'
+wm: -2

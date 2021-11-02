@@ -1,11 +1,13 @@
-W6: '2'
+W6: 2
 fertigkeit: Athletik
-fk: '0'
-haerte: '13'
-kampfstile: Reiterkampf, Schildkampf
+fk: 0
+haerte: 13
+kampfstile:
+- Reiterkampf
+- Schildkampf
 name: Kriegswildschwein
-plus: '6'
-rw: '0'
+plus: 6
+rw: 0
 talent: Reiten
 text: Niederwerfen, Reittier
-wm: '1'
+wm: 1

@@ -1,7 +1,9 @@
-fertigkeiten: Eigenschaften, Illusion
-kosten: '20'
+fertigkeiten:
+- Eigenschaften
+- Illusion
+kosten: 20
 name: Satuarias Herrlichkeit
-printclass: '0'
+printclass: 0
 text: 'Dein Aussehen weckt Begehren in allen an deinem Geschlecht und deiner Spezies
   interessierten Individuen. Ihnen gegenueber sind Betoeren-Proben um +4 erleichtert.
 
@@ -22,6 +24,8 @@ text: 'Dein Aussehen weckt Begehren in allen an deinem Geschlecht und deiner Spe
   Fertigkeiten: Eigenschaften, Illusion
 
   Erlernen: Hex 12; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Hexen I

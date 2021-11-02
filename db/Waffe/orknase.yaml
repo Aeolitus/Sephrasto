@@ -1,11 +1,14 @@
-W6: '3'
+W6: 3
 fertigkeit: Hiebwaffen
-fk: '0'
-haerte: '8'
-kampfstile: Reiterkampf, Kraftvoller Kampf, Schneller Kampf
+fk: 0
+haerte: 8
+kampfstile:
+- Reiterkampf
+- Kraftvoller Kampf
+- Schneller Kampf
 name: Orknase
-plus: '0'
-rw: '1'
+plus: 0
+rw: 1
 talent: Zweihandhiebwaffen
 text: Kopflastig, Schwer (4), Zweihaendig
-wm: '0'
+wm: 0

@@ -1,7 +1,8 @@
-fertigkeiten: Magie
-kosten: '40'
+fertigkeiten:
+- Magie
+kosten: 40
 name: Ingalfs Alchemie
-printclass: '30'
+printclass: 30
 text: 'Du rufst den Heiligen Trichter Hesindes herbei, der jede alchemistische Substanz
   in ihre Bestandteile zerlegen kann. Bei der alchemistischen Analyse erhaeltst du
   +2 AG. Ausserdem koennen so seltene Zutaten gewonnen werden.
@@ -23,6 +24,7 @@ text: 'Du rufst den Heiligen Trichter Hesindes herbei, der jede alchemistische S
   Fertigkeiten: Magie
 
   Erlernen: Hes 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Hesindegeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Hesindegeweihten I

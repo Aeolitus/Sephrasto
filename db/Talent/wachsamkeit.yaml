@@ -1,10 +1,12 @@
-fertigkeiten: Wahrnehmung
-kosten: '-1'
+fertigkeiten:
+- Wahrnehmung
+kosten: -1
 name: Wachsamkeit
-printclass: '-1'
+printclass: -1
 text: Wachsamkeit fasst den passiven Einsatz deiner Sinne zusammen. Mit ihr entdeckst
   du Hinterhalte, bemerkst eine Unstimmigkeit an einem Tatort oder eine verborgene
   Notiz am Wegesrand.
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

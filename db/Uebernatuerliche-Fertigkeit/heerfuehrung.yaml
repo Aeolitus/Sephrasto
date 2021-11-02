@@ -1,8 +1,0 @@
-attribute: CH|KO|MU
-name: Heerfuehrung
-printclass: '1'
-steigerungsfaktor: '2'
-text: 'Fast jedes groessere Heer wird von einem rondrageweihten Feldkaplan begleitet,
-  der ueber die Einhaltung des Kriegsrechts wacht und die Kaempfer gegen finstere
-  Maechte staerkt. '
-voraussetzungen: Vorteil Tradition der Rondrageweihten I

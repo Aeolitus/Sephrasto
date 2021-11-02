@@ -1,7 +1,8 @@
-fertigkeiten: Schutz der Glaeubigen
-kosten: '40'
+fertigkeiten:
+- Schutz der Glaeubigen
+kosten: 40
 name: Rondras wundersame Ruestung
-printclass: '47'
+printclass: 47
 text: 'Du rufst die wundersame Ruestung, durch die dein RS um 2 steigt.
 
   Maechtige Liturgie: Je zwei Stufen erhoehen den RS um +1.
@@ -21,6 +22,7 @@ text: 'Du rufst die wundersame Ruestung, durch die dein RS um 2 steigt.
   Fertigkeiten: Schutz der Glaeubigen
 
   Erlernen: Ron 16; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Rondrageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Rondrageweihten I

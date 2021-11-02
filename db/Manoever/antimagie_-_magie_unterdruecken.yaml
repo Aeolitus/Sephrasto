@@ -5,5 +5,6 @@ text: "Diese Variante unterdrueckt zukuenftige Zauber. In einer Zone von 16 Schr
   \ Radius sind alle Zauber der Fertigkeit um \u20138 erschwert.\nMaechtige Magie:\
   \ Der Malus steigt um \u20134.\nProbenschwierigkeit: 12\nVorbereitungszeit: 16 Aktionen\n\
   Ziel: Zone\nReichweite: 8 Schritt\nWirkungsdauer: 1 Stunde\nKosten: 8 AsP"
-typ: '4'
-voraussetzungen: Uebernatuerliche-Fertigkeit 'Antimagie' -1
+typ: 4
+voraussetzungen:
+- Uebernatuerliche-Fertigkeit 'Antimagie' -1

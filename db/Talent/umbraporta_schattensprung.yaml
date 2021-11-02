@@ -1,7 +1,9 @@
-fertigkeiten: Daemonisch, Kraft
-kosten: '60'
+fertigkeiten:
+- Daemonisch
+- Kraft
+kosten: 60
 name: Umbraporta Schattensprung
-printclass: '0'
+printclass: 0
 text: "Du trittst in einen Schatten hinein und wirst sofort durch den Limbus zu einem\
   \ anderen Schatten transportiert.\nProbenschwierigkeit: 12\nModifikationen: Schattenportal\
   \ (\u20138, 16 AsP; Du kannst eine Person mitnehmen. Maechtige Magie erlaubt zwei/drei/vier/fuenf\
@@ -11,7 +13,8 @@ text: "Du trittst in einen Schatten hinein und wirst sofort durch den Limbus zu 
   \ von \u20134 zaubern. Ermoeglicht Aufrechterhalten.)\nVorbereitungszeit: 1 Aktion\n\
   Ziel: Zone\nReichweite: 8 Schritt\nWirkungsdauer: augenblicklich\nKosten: 8 AsP\n\
   Fertigkeiten: Daemonisch, Kraft\nErlernen: Bor 18; Mag 20; 60 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der
-  Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Gildenmagier I

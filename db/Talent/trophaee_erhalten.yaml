@@ -1,7 +1,8 @@
-fertigkeiten: Jagd
-kosten: '20'
+fertigkeiten:
+- Jagd
+kosten: 20
 name: Trophaee erhalten
-printclass: '27'
+printclass: 27
 text: 'Die gesegnete Jagdbeute verdirbt waehrend der Wirkungsdauer nicht und kann
   so verarbeitet werden, als waere das Beutetier frisch erlegt worden.
 
@@ -20,7 +21,8 @@ text: 'Die gesegnete Jagdbeute verdirbt waehrend der Wirkungsdauer nicht und kan
   Fertigkeiten: Jagd
 
   Erlernen: Fir 12, Ifi 16; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition der
-  Ifirngeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Firungeweihten I
+- Vorteil Tradition der Ifirngeweihten I

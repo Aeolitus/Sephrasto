@@ -1,7 +1,8 @@
-fertigkeiten: Seefahrt
-kosten: '20'
+fertigkeiten:
+- Seefahrt
+kosten: 20
 name: Conagas Ruf
-printclass: '25'
+printclass: 25
 text: 'Alle Meeresungeheuer im Radius von 100 Schritt erleiden einen Furcht-Effekt
   Stufe 2.
 
@@ -23,7 +24,8 @@ text: 'Alle Meeresungeheuer im Radius von 100 Schritt erleiden einen Furcht-Effe
   Fertigkeiten: Seefahrt
 
   Erlernen: Swa 12; Eff 18; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der
-  Swafnirgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Efferdgeweihten I
+- Vorteil Tradition der Swafnirgeweihten I

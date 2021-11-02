@@ -1,7 +1,8 @@
-fertigkeiten: Einfluss
-kosten: '20'
+fertigkeiten:
+- Einfluss
+kosten: 20
 name: Sanftmut
-printclass: '0'
+printclass: 0
 text: 'Das verzauberte Tier verliert seine Angriffslust, solange es nicht angegriffen
   oder gereizt wird.
 
@@ -23,8 +24,12 @@ text: 'Das verzauberte Tier verliert seine Angriffslust, solange es nicht angegr
   Fertigkeiten: Einfluss
 
   Erlernen: Geo, Hex 12; Dru, Elf 16; Ach 18; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition
-  der Hexen I ODER Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I

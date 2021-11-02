@@ -1,7 +1,8 @@
-fertigkeiten: Einfluss
-kosten: '20'
+fertigkeiten:
+- Einfluss
+kosten: 20
 name: Schelmenlaune
-printclass: '0'
+printclass: 0
 text: 'Deine Stimmung uebertraegt sich auf jede Person in einem Umreis von 8 Schritt,
   der keine Konterprobe (Magieresistenz, 12) gelingt. Da Schelme grundsaetzlich positiv
   gestimmt sind, sorgt dies meist fuer Massenhysterien.
@@ -21,6 +22,8 @@ text: 'Deine Stimmung uebertraegt sich auf jede Person in einem Umreis von 8 Sch
   Fertigkeiten: Einfluss
 
   Erlernen: Sch 20; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Schelme I

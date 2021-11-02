@@ -1,7 +1,8 @@
-fertigkeiten: Einfluss
-kosten: '40'
+fertigkeiten:
+- Einfluss
+kosten: 40
 name: Vipernblick
-printclass: '0'
+printclass: 0
 text: "Du erscheinst deinem Opfer als grauenvolle Gestalt aus den Niederhoellen. Es\
   \ kann nicht wegsehen und ist vor Angst handlungsunfaehig. Wird der Sichtkontakt\
   \ unterbrochen, endet der Zauber.\nProbenschwierigkeit: Magieresistenz\nModifikationen:\
@@ -9,7 +10,9 @@ text: "Du erscheinst deinem Opfer als grauenvolle Gestalt aus den Niederhoellen.
   \ erscheint.)\nVorbereitungszeit: 4 Aktionen\nZiel: Einzelwesen\nReichweite: 8 Schritt\n\
   Wirkungsdauer: 4 Minuten\nKosten: 16 AsP\nFertigkeiten: Einfluss\nErlernen: Hex,\
   \ Ach 18; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Hexen I ODER Vorteil
-  Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I

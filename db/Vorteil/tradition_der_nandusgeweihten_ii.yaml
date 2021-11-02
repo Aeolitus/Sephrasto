@@ -1,12 +1,13 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Tradition der Nandusgeweihten I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Tradition der Nandusgeweihten II
 text: Nandugeweihte wissen, dass Gesten und Worte nur menschliches Beiwerk einer Liturgie
   sind. Wird eine Liturgie mit der Modifikation Liturgische Technik ignorieren gewirkt,
   ist sie zusaetzlich um +2 erleichtert.
-typ: '7'
-variable: '0'
-voraussetzungen: Attribut KL 6, Vorteil Tradition der Nandusgeweihten I
+typ: 7
+variable: 0
+voraussetzungen:
+- Attribut KL 6, Vorteil Tradition der Nandusgeweihten I

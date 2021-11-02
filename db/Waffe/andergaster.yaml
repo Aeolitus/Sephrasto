@@ -1,11 +1,14 @@
-W6: '3'
+W6: 3
 fertigkeit: Klingenwaffen
-fk: '0'
-haerte: '9'
-kampfstile: Reiterkampf, Kraftvoller Kampf, Schneller Kampf
+fk: 0
+haerte: 9
+kampfstile:
+- Reiterkampf
+- Kraftvoller Kampf
+- Schneller Kampf
 name: Andergaster
-plus: '3'
-rw: '2'
+plus: 3
+rw: 2
 talent: Zweihandklingenwaffen
 text: Kopflastig, Schwer (4), Zweihaendig
-wm: '-2'
+wm: -2

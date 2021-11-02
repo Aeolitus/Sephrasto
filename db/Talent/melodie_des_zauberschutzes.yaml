@@ -1,7 +1,10 @@
-fertigkeiten: Antimagie, Eigenschaften, Zaubermelodien
-kosten: '40'
+fertigkeiten:
+- Antimagie
+- Eigenschaften
+- Zaubermelodien
+kosten: 40
 name: Melodie des Zauberschutzes
-printclass: '18'
+printclass: 18
 text: 'Magieresistenz-Proben aller Zuhoerer im Radius von 4 Schritt sind um +2 erleichtert.
   Erfordert Konzentration, erlaubt Aufrechterhalten.
 
@@ -22,6 +25,7 @@ text: 'Magieresistenz-Proben aller Zuhoerer im Radius von 4 Schritt sind um +2 e
   Fertigkeiten: Antimagie, Eigenschaften, Zaubermelodien
 
   Erlernen: Bard 16; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Zauberbarden I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Zauberbarden I

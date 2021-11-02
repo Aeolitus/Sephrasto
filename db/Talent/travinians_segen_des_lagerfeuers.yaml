@@ -1,7 +1,8 @@
-fertigkeiten: Sichere Heimkehr
-kosten: '40'
+fertigkeiten:
+- Sichere Heimkehr
+kosten: 40
 name: Travinians Segen des Lagerfeuers
-printclass: '49'
+printclass: 49
 text: 'Du segnest ein Lagerfeuer. Unheilige Wesenheiten in seinem Schein erleiden
   einen Furcht-Effekt der Stufe 2, wenn ihre Beschwoerungsschwierigkeit maximal 20
   betraegt.
@@ -27,6 +28,7 @@ text: 'Du segnest ein Lagerfeuer. Unheilige Wesenheiten in seinem Schein erleide
   Fertigkeiten: Sichere Heimkehr
 
   Erlernen: Tra 14; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Traviageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Traviageweihten I

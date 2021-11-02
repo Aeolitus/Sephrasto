@@ -1,9 +1,10 @@
-kommentar: '0'
-kosten: '80'
+kommentar: 0
+kosten: 80
 nachkauf: haeufig
 name: Streiter der Schoepfung
 text: Alle Proben im Kampf gegen unheilige Wesen (S. 98) sind um +2 erleichtert, Liturgien
   sogar um +4.
-typ: '6'
-variable: '0'
-voraussetzungen: Attribut MU 10, Vorteil Geweiht I
+typ: 6
+variable: 0
+voraussetzungen:
+- Attribut MU 10, Vorteil Geweiht I

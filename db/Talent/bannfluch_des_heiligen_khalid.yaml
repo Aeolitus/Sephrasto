@@ -1,7 +1,8 @@
-fertigkeiten: Tod
-kosten: '40'
+fertigkeiten:
+- Tod
+kosten: 40
 name: Bannfluch des Heiligen Khalid
-printclass: '22'
+printclass: 22
 text: 'Waehrend der Wirkungsdauer zerfallen die ersten 4 Untoten, die du mit einem
   geweihten Gegenstand (wie Graberde, Weihrauch oder deiner Hand) beruehrst, zu Staub.
   Geister werden gebannt. Wirkt nur auf Wesen, deren Beschwoerungsschwierigkeit bei
@@ -25,6 +26,7 @@ text: 'Waehrend der Wirkungsdauer zerfallen die ersten 4 Untoten, die du mit ein
   Fertigkeiten: Tod
 
   Erlernen: Brn 14; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Borongeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Borongeweihten I

@@ -1,10 +1,11 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 linkElement: Rededuell
-linkKategorie: '1'
+linkKategorie: 1
 nachkauf: haeufig
 name: Vorausschauend I
 text: In Rededuellen sind Proben auf Rhetorik und Ueberreden um +2 erleichtert.
-typ: '1'
-variable: '0'
-voraussetzungen: Attribut IN 4
+typ: 1
+variable: 0
+voraussetzungen:
+- Attribut IN 4

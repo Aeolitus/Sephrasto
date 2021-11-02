@@ -7,5 +7,6 @@ text: "Probenschwierigkeiten und Kosten (1/4 der Basis als gAsP):\n- 12 (schwach
   \ 32 AsP\nBeschwoerungsprobe Mod.: +Bonus durch Vorbereitung, \u2013Kosten fuer\
   \ Zusatzfaehigkeiten\nKontrollprobe Mod.: +Bonus durch Vorbereitung, +4 bis \u2013\
   8 je nach Dienst"
-typ: '4'
-voraussetzungen: Talent Chimaeroform Hybridgestalt
+typ: 4
+voraussetzungen:
+- Talent Chimaeroform Hybridgestalt

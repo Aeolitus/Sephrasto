@@ -1,11 +1,12 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Tradition der Ingerimmgeweihten I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Tradition der Ingerimmgeweihten II
 text: "Ingerimmgeweihte dienen dem Herren des Feuers und des Erzes. In Gebaeuden sind\
   \ alle Liturgien um 2\u20134 Punkte erleichtert."
-typ: '7'
-variable: '0'
-voraussetzungen: Attribut FF 6, Vorteil Tradition der Ingerimmgeweihten I
+typ: 7
+variable: 0
+voraussetzungen:
+- Attribut FF 6, Vorteil Tradition der Ingerimmgeweihten I

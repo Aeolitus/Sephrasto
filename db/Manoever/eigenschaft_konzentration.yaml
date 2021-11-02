@@ -4,6 +4,9 @@ probe: ''
 text: "Der Zauber fordert deine volle Aufmerksamkeit. Du musst waehrend der gesamten\
   \ Wirkungsdauer die Aktion Konzentration (S.\_37) waehlen. Kannst oder willst du\
   \ das nicht, endet der Zauber."
-typ: '4'
-voraussetzungen: Vorteil Geweiht I ODER Vorteil Zauberer I ODER Vorteil Paktierer
-  I ODER Vorteil Tradition der Borbaradianer I
+typ: 4
+voraussetzungen:
+- Vorteil Geweiht I
+- Vorteil Zauberer I
+- Vorteil Paktierer I
+- Vorteil Tradition der Borbaradianer I

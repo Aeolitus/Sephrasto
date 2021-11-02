@@ -1,0 +1,21 @@
+attribute:
+- KK
+- KL
+- MU
+name: Umwelt
+printclass: 0
+steigerungsfaktor: 3
+text: 'Mit Umweltzaubern kannst du deine direkte Umgebung - also Wetter, Helligkeit
+  oder Schwerkraft - veraendern oder mittels Telekinese Gegenstaende bewegen. '
+voraussetzungen:
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I
+- Vorteil Tradition der Schelme I
+- Vorteil Tradition der Scharlatane I
+- Vorteil Magiedilettant

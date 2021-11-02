@@ -1,7 +1,9 @@
-fertigkeiten: Guter Kampf, Heiliges Feuer
-kosten: '40'
+fertigkeiten:
+- Guter Kampf
+- Heiliges Feuer
+kosten: 40
 name: Waliburias Wehr
-printclass: '33'
+printclass: 33
 text: 'Bei jeder deiner Bewegungen stieben Funken und Rauch steigt auf. Fuer feindlich
   gesinnte Humanoide, Tiere, Feenwesen oder Mythenwesen giltst du als Schreckgestalt
   Stufe 2 (S. 98).
@@ -21,7 +23,9 @@ text: 'Bei jeder deiner Bewegungen stieben Funken und Rauch steigt auf. Fuer fei
   Fertigkeiten: Guter Kampf, Heiliges Feuer
 
   Erlernen: Ang 14; Ing 16; Kor 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition
-  der Angroschgeweihten I ODER Vorteil Tradition der Korgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Ingerimmgeweihten I
+- Vorteil Tradition der Angroschgeweihten I
+- Vorteil Tradition der Korgeweihten I

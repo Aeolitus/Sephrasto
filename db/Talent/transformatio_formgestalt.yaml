@@ -1,7 +1,8 @@
-fertigkeiten: Verwandlung
-kosten: '60'
+fertigkeiten:
+- Verwandlung
+kosten: 60
 name: Transformatio Formgestalt
-printclass: '0'
+printclass: 0
 text: "Du verwandelst dein Ziel. Die Kosten, Zauberdauer und Modifikationen Maechtige\
   \ Magie sind Spielleiterentscheid. Beispiele:\n4 AsP, keine Maechtige Magie, 4 Aktionen:\
   \ Du verwandelst ein Glas Wasser in Wein.\n8 AsP, 1x Maechtige Magie, 16 Aktionen:\
@@ -13,6 +14,7 @@ text: "Du verwandelst dein Ziel. Die Kosten, Zauberdauer und Modifikationen Maec
   \ Basiskosten als gAsP)\nVorbereitungszeit: nach Vorhaben\nZiel: Einzelobjekt\n\
   Reichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: nach Vorhaben\nFertigkeiten:\
   \ Verwandlung\nErlernen: Ach 18; 60 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Kristallomanten I

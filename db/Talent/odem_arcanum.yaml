@@ -1,7 +1,9 @@
-fertigkeiten: Hellsicht, Kraft
-kosten: '40'
+fertigkeiten:
+- Hellsicht
+- Kraft
+kosten: 40
 name: Odem Arcanum
-printclass: '0'
+printclass: 0
 text: "Du nimmst magische Kraft um das Ziel kurz als roten Schimmer wahr. Das entspricht\
   \ einem Analysegrad von 1 fuer die Intensitaetsanalyse (mehr dazu S. 80).\nMaechtige\
   \ Magie: Der Analysegrad steigt um 1.\nProbenschwierigkeit: 12\nModifikationen:\
@@ -9,11 +11,17 @@ text: "Du nimmst magische Kraft um das Ziel kurz als roten Schimmer wahr. Das en
   \ 1 Aktion\nZiel: Einzelwesen, Einzelobjekt\nReichweite: 8 Schritt\nWirkungsdauer:\
   \ 2 Initiativphasen\nKosten: 4 AsP\nFertigkeiten: Hellsicht, Kraft\nErlernen: Ach,\
   \ Alch, Elf, Mag 8; Dru, Geo, Hex 12; Bor, Sch, Srl 14; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition
-  der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der
-  Kristallomanten I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition
-  der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I
+- Vorteil Tradition der Scharlatane I
+- Vorteil Tradition der Schelme I

@@ -1,11 +1,11 @@
 name: Plattenzeug
-rsBauch: '2'
-rsBeine: '2'
-rsBrust: '2'
-rsKopf: '2'
-rsLArm: '2'
-rsRArm: '2'
-system: '1'
+rsBauch: 2
+rsBeine: 2
+rsBrust: 2
+rsKopf: 2
+rsLArm: 2
+rsRArm: 2
+system: 1
 text: Ruestungsergaenzung, bestehend aus Plattenschultern, Plattenarmen, Beintaschen,
   Panzerhandschuhen und einem Stahlhelm.
-typ: '4'
+typ: 4

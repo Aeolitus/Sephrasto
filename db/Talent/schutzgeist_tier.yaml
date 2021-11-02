@@ -1,8 +1,10 @@
-fertigkeiten: Eigenschaften, Geister der Staerkung
-kommentar: '1'
-kosten: '40'
+fertigkeiten:
+- Eigenschaften
+- Geister der Staerkung
+kommentar: 1
+kosten: 40
 name: Schutzgeist (Tier)
-printclass: '5'
+printclass: 5
 text: 'Du bittest den Geist eines Tieres, ueber eine Gruppe von bis zu 8 Gefaehrten
   zu wachen. Sie erhalten einen Bonus von +1 auf alle beim entsprechenden Tier angegebenen
   Werte, solange sie sich nicht weiter als 1 Meile von dir entfernen. Es kann nur
@@ -33,6 +35,7 @@ text: 'Du bittest den Geist eines Tieres, ueber eine Gruppe von bis zu 8 Gefaehr
   Tiere waehlst, dann erhoehe die EP-Kosten entsprechend. Die Tiertabelle ist in Sephrasto
   ausserdem ueber die kostenlosen Tiergeist-Vorteile abgebildet; wenn du diese auswaehlst,
   erhaeltst du die Werte des Tiergeists im Regelanhang.'
-variable: '1'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 1
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

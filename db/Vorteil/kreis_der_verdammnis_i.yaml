@@ -2,8 +2,8 @@ csBeschreibung: Du hast ein Daemonenmal und kannst ueber die Liturgie Seelenprue
   als Paktierer erkannt werden. Auf geweihtem/heiligen Boden musst du jede Minute
   eine Willenskraft-Probe (20/28) ablegen, um nicht durch starke Schmerzen aufzufallen
   und eine Wunde zu erleiden.
-kommentar: '0'
-kosten: '-400'
+kommentar: 0
+kosten: -400
 nachkauf: ueblich
 name: Kreis der Verdammnis I
 text: Der Vorteil hat vier Auswirkungen. Erstens erhaeltst du beim Erwerb der ersten
@@ -13,6 +13,7 @@ text: Der Vorteil hat vier Auswirkungen. Erstens erhaeltst du beim Erwerb der er
   als Paktierer erkannt werden. Auf geweihtem/heiligen Boden musst du jede Minute
   eine Willenskraft-Probe (20/28) ablegen, um nicht durch starke Schmerzen aufzufallen
   und eine Wunde zu erleiden.
-typ: '0'
-variable: '0'
-voraussetzungen: ''
+typ: 0
+variable: 0
+voraussetzungen:
+- ''

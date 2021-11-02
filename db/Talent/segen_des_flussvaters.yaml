@@ -1,7 +1,8 @@
-fertigkeiten: Fluesse und Quellen
-kosten: '40'
+fertigkeiten:
+- Fluesse und Quellen
+kosten: 40
 name: Segen des Flussvaters
-printclass: '24'
+printclass: 24
 text: 'Du wirst eins mit einem Fluss. Du kannst dich durch den Fluss bewegen, ohne
   zu ertrinken, erschoepfen oder abgetrieben zu werden. Mit dem Strom bewegst du dich
   mit einer Geschwindigkeit von 8 Meilen pro Stunde, gegen den Strom mit einer Geschwindigkeit
@@ -25,6 +26,7 @@ text: 'Du wirst eins mit einem Fluss. Du kannst dich durch den Fluss bewegen, oh
   Fertigkeiten: Fluesse und Quellen
 
   Erlernen: Eff 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Efferdgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Efferdgeweihten I

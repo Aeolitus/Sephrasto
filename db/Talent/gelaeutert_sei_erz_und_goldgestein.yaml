@@ -1,7 +1,8 @@
-fertigkeiten: Heiliges Erz
-kosten: '20'
+fertigkeiten:
+- Heiliges Erz
+kosten: 20
 name: Gelaeutert sei Erz und Goldgestein
-printclass: '32'
+printclass: 32
 text: 'Aus einem Erzklumpen mit bis zu 8 Stein Gewicht werden alle nutzbaren Metalle
   in reiner Form herausgepresst.
 
@@ -22,6 +23,7 @@ text: 'Aus einem Erzklumpen mit bis zu 8 Stein Gewicht werden alle nutzbaren Met
   Fertigkeiten: Heiliges Erz
 
   Erlernen: Ang 16; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Angroschgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Angroschgeweihten I

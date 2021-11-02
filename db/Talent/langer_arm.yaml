@@ -1,7 +1,9 @@
-fertigkeiten: Stabzauber, Umwelt
-kosten: '20'
+fertigkeiten:
+- Stabzauber
+- Umwelt
+kosten: 20
 name: Langer Arm
-printclass: '15'
+printclass: 15
 text: 'An der Spitze des Stabs entsteht eine astrale Hand, die du steuern kannst.
   Mit ihr kannst du gefaehrliche Versuche durchfuehren und Zauber mit der Reichweite
   Beruehrung wirken. Der Zauber endet vorzeitig, wenn du den Stab nicht mehr beruehrst.
@@ -21,6 +23,7 @@ text: 'An der Spitze des Stabs entsteht eine astrale Hand, die du steuern kannst
   Fertigkeiten: Stabzauber, Umwelt
 
   Erlernen: Mag 14; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Gildenmagier I

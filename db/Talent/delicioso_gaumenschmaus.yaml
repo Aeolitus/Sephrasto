@@ -1,7 +1,8 @@
-fertigkeiten: Illusion
-kosten: '20'
+fertigkeiten:
+- Illusion
+kosten: 20
 name: Delicioso Gaumenschmaus
-printclass: '0'
+printclass: 0
 text: "Du kannst Geruch und Geschmack eines Gegenstandes \u2013 meist einer Speise\
   \ \u2013 bestimmen. Dabei handelt es sich um eine Illusion (Geschmack und Geruch).\
   \ Der Gegenstand kann maximal 1 Stein wiegen.\nMaechtige Magie: Verdoppelt das maximale\
@@ -11,7 +12,10 @@ text: "Du kannst Geruch und Geschmack eines Gegenstandes \u2013 meist einer Spei
   Vorbereitungszeit: 4 Aktionen\nZiel: Einzelobjekt\nReichweite: Beruehrung\nWirkungsdauer:\
   \ 1 Stunde\nKosten: 2 AsP\nFertigkeiten: Illusion\nErlernen: Srl 14; Mag 16; Sch\
   \ 18; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I
-  ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Scharlatane I
+- Vorteil Tradition der Schelme I

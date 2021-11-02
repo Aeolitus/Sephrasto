@@ -6,5 +6,6 @@ text: 'Du kannst die Vorbereitungszeit freiwillig um 1 Minute/Stunde/Tag/Woche/M
   muss dadurch mindestens verdoppelt werden.
 
   Voraussetzung: Verwendung der Tradition der Schamanen.'
-typ: '2'
-voraussetzungen: Vorteil Tradition der Schamanen III
+typ: 2
+voraussetzungen:
+- Vorteil Tradition der Schamanen III

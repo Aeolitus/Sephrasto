@@ -1,5 +1,5 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 nachkauf: selten
 name: Privilegien (Adel)
 text: "Du darfst ein \u201Evon\u201C im Namen tragen, an Turnieren teilnehmen und\
@@ -8,6 +8,7 @@ text: "Du darfst ein \u201Evon\u201C im Namen tragen, an Turnieren teilnehmen un
   \ ueber Leibeigene richten, solange dabei kein Blut fliesst. Diese Privilegien gelten\
   \ in aehnlicher Art und Weise im Mittel- und Horasreich, dem Bornland und anderen\
   \ feudalen Gesellschaften."
-typ: '0'
-variable: '0'
-voraussetzungen: ''
+typ: 0
+variable: 0
+voraussetzungen:
+- ''

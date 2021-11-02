@@ -21,12 +21,25 @@ text: 'Du kannst dir die Beschwoerungsprobe freiwillig erschweren, um dem beschw
 
   - Spezialfaehigkeit (siehe S. 97) (-X; Den Modifikator fuer aetzende Waffen, Feuerauren
   o.ae. bestimmt der Spielleiter.)'
-typ: '4'
-voraussetzungen: Talent Invocatio ODER Talent Macht der Ungeformten ODER Talent Herbeirufung
-  des Feuers ODER Talent Herbeirufung des Eises ODER Talent Herbeirufung der Luft
-  ODER Talent Herbeirufung des Wassers ODER Talent Herbeirufung des Humus ODER Talent
-  Herbeirufung des Erzes ODER Talent Macht des Erzes ODER Talent Macht des Feuers
-  ODER Talent Macht des Humus ODER Talent Macht der Luft ODER Talent Macht des Wassers
-  ODER Talent Skelettarius Totenherr ODER Talent Tairachs Krieger ODER Talent Wasserleiche
-  erheben ODER Talent Chimaeroform Hybridgestalt ODER Talent Stein wandle! ODER Talent
-  Staub wandle! ODER Talent Totes handle!
+typ: 4
+voraussetzungen:
+- Talent Invocatio
+- Talent Macht der Ungeformten
+- Talent Herbeirufung des Feuers
+- Talent Herbeirufung des Eises
+- Talent Herbeirufung der Luft
+- Talent Herbeirufung des Wassers
+- Talent Herbeirufung des Humus
+- Talent Herbeirufung des Erzes
+- Talent Macht des Erzes
+- Talent Macht des Feuers
+- Talent Macht des Humus
+- Talent Macht der Luft
+- Talent Macht des Wassers
+- Talent Skelettarius Totenherr
+- Talent Tairachs Krieger
+- Talent Wasserleiche erheben
+- Talent Chimaeroform Hybridgestalt
+- Talent Stein wandle!
+- Talent Staub wandle!
+- Talent Totes handle!

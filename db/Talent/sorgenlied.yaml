@@ -1,7 +1,10 @@
-fertigkeiten: Elfenlieder, Hellsicht, Verstaendigung
-kosten: '20'
+fertigkeiten:
+- Elfenlieder
+- Hellsicht
+- Verstaendigung
+kosten: 20
 name: Sorgenlied
-printclass: '2'
+printclass: 2
 text: 'Das Lied vermittelt dir einen vagen Eindruck vom Wohlergehen des Zieles, mit
   dem du befreundet sein musst. Ist es gesund, krank oder befindet sich in Gefahr?
   Ist es zufrieden mit seinem Leben?
@@ -21,6 +24,7 @@ text: 'Das Lied vermittelt dir einen vagen Eindruck vom Wohlergehen des Zieles, 
   Fertigkeiten: Elfenlieder, Hellsicht, Verstaendigung
 
   Erlernen: Elf 8; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Elfen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Elfen I

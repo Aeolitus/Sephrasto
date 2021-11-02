@@ -1,7 +1,8 @@
-fertigkeiten: Froehlicher Wanderer
-kosten: '60'
+fertigkeiten:
+- Froehlicher Wanderer
+kosten: 60
 name: Ueber die Wolken
-printclass: '52'
+printclass: 52
 text: 'An deinem Ruecken wachsen gewaltige Schwingen, mit denen du fliegen kannst.
   Dafuer sind keine weiteren Proben noetig, nur besonders tollkuehne Manoever erfordern
   eine GE- oder Akrobatik-Probe. Du bewegst dich in der Luft etwa so schnell wie am
@@ -25,6 +26,7 @@ text: 'An deinem Ruecken wachsen gewaltige Schwingen, mit denen du fliegen kanns
   Fertigkeiten: Froehlicher Wanderer
 
   Erlernen: Aves 18; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Avesgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Avesgeweihten I

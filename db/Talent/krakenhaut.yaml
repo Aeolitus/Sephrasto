@@ -1,8 +1,9 @@
-fertigkeiten: Daemonische Hilfe (Cpt)
-kommentar: '1'
-kosten: '40'
+fertigkeiten:
+- Daemonische Hilfe (Cpt)
+kommentar: 1
+kosten: 40
 name: Krakenhaut
-printclass: '200'
+printclass: 200
 text: "Du verwandelst dich in einen Krakenmolch, Hai oder Rochen (beim Erlernen waehlen),\
   \ wobei du deine geistigen Faehigkeiten behaeltst. Deine koerperlichen Faehigkeiten\
   \ entsprechen denen des Tiers und du kannst in Tiergestalt keine Anrufungen wirken.\
@@ -16,6 +17,7 @@ text: "Du verwandelst dich in einen Krakenmolch, Hai oder Rochen (beim Erlernen 
   \ Lernkosten des Zaubers orientieren sich an der Tierart, wobei fliegende, giftige,\
   \ sehr starke usw. Tiere teurer sind.\nSephrasto: Trage das entsprechende Tier in\
   \ das Kommentarfeld ein."
-variable: '1'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Paktierer I
+variable: 1
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Paktierer I

@@ -1,10 +1,11 @@
 csAuflisten: '0'
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Niederwerfen
 text: 'Erlaubt das Manoever Niederwerfen (AT -4): Gegenprobe: KK. Dein Ziel stuerzt
   und liegt am Boden.'
-typ: '2'
-variable: '0'
-voraussetzungen: Attribut KK 4
+typ: 2
+variable: 0
+voraussetzungen:
+- Attribut KK 4

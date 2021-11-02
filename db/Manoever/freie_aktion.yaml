@@ -7,5 +7,6 @@ text: Zusaetzlich kannst du in deiner Initiativephase beliebig viele verschieden
   fallen lassen. Es ist voellig egal, ob du Freie Aktionen vor-, nach oder zwischen
   zwei Aktionen nutzt. Allerdings darf niemals eine andere (Freie) Aktion unterbrochen
   werden und du darfst dieselbe Freie Aktion nicht zweimal ausfuehren.
-typ: '5'
-voraussetzungen: ''
+typ: 5
+voraussetzungen:
+- ''

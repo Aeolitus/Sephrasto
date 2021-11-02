@@ -1,7 +1,13 @@
-fertigkeiten: Eis, Erz, Feuer, Humus, Luft, Wasser
-kosten: '20'
+fertigkeiten:
+- Eis
+- Erz
+- Feuer
+- Humus
+- Luft
+- Wasser
+kosten: 20
 name: Manifesto Element
-printclass: '0'
+printclass: 0
 text: "Du beschwoerst eine etwa faustgrosse Menge oder kleine Manifestation des Elements\
   \ herbei, mit dem du den Zauber wirkst. Sie verschwindet nach dem Ende der Wirkungsdauer.\n\
   Fertigkeit Eis: Du kannst zum Beispiel einen Schneeball oder einen Eiszapfen erscheinen\
@@ -21,10 +27,15 @@ text: "Du beschwoerst eine etwa faustgrosse Menge oder kleine Manifestation des 
   \ lassen.)\nVorbereitungszeit: 4 Aktionen\nZiel: Zone\nReichweite: Beruehrung\n\
   Wirkungsdauer: 1 Stunde\nKosten: 2 AsP\nFertigkeiten: Eis, Erz, Feuer, Humus, Luft,\
   \ Wasser\nErlernen: Ach, Alch 8; Dru, Geo, Mag 14; Hex, Srl 18; Elf 20; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition
-  der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition
-  der Scharlatane I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I
+- Vorteil Tradition der Scharlatane I

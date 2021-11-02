@@ -1,7 +1,8 @@
-fertigkeiten: Seefahrt
-kosten: '20'
+fertigkeiten:
+- Seefahrt
+kosten: 20
 name: Segen des Plaettlings
-printclass: '25'
+printclass: 25
 text: 'Du verwandelst 100 Liter Salzwasser in Trinkwasser.
 
   Maechtige Liturgie: Du verwandelst 200/300/400/500 Liter.
@@ -21,7 +22,8 @@ text: 'Du verwandelst 100 Liter Salzwasser in Trinkwasser.
   Fertigkeiten: Seefahrt
 
   Erlernen: Eff, Swa 14; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der
-  Swafnirgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Efferdgeweihten I
+- Vorteil Tradition der Swafnirgeweihten I

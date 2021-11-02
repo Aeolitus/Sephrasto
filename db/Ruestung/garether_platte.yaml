@@ -1,11 +1,11 @@
 name: Garether Platte
-rsBauch: '3'
-rsBeine: '3'
-rsBrust: '3'
-rsKopf: '3'
-rsLArm: '3'
-rsRArm: '3'
-system: '1'
+rsBauch: 3
+rsBeine: 3
+rsBrust: 3
+rsKopf: 3
+rsLArm: 3
+rsRArm: 3
+system: 1
 text: Wird ueblicherweise mit Plattenzeug ergaenzt. Da dieses bereits teilweise in
   der Ruestung integriert ist, gibt es allerdings nur RS/BE 1.
-typ: '4'
+typ: 4

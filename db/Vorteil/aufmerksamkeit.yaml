@@ -1,11 +1,12 @@
-kommentar: '0'
-kosten: '60'
+kommentar: 0
+kosten: 60
 nachkauf: haeufig
 name: Aufmerksamkeit
 text: Misslingt deinem Gegner eine Verteidigung gegen dich, die mit einem Manoever
   verstaerkt wurde, darfst du sofort einen Passierschlag gegen ihn ausfuehren. Pro
   Runde kannst du die erste Verteidigung gegen einen Passierschlag als Freie Reaktion
   ausfuehren.
-typ: '2'
-variable: '0'
-voraussetzungen: Attribut IN 8
+typ: 2
+variable: 0
+voraussetzungen:
+- Attribut IN 8

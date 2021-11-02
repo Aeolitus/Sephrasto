@@ -1,12 +1,14 @@
-fertigkeiten: Dolchzauber
-kosten: '20'
+fertigkeiten:
+- Dolchzauber
+kosten: 20
 name: Leib des Dolches (passiv)
-printclass: '1'
+printclass: 1
 text: 'Wenn du bei einer Verwandlung deines Koerpers (egal ob freiwillig oder unfreiwillig)
   deinen Ritualgegenstand bei dir traegst, hast du ihn auch nach der Rueckverwandlung
   wieder bei dir.
 
   Erlernen: Dru 16; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Druiden I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Druiden I

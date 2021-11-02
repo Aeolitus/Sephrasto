@@ -1,7 +1,8 @@
-fertigkeiten: Naechtlicher Schatten
-kosten: '40'
+fertigkeiten:
+- Naechtlicher Schatten
+kosten: 40
 name: Phexens Nebelleib
-printclass: '39'
+printclass: 39
 text: 'Du verwandelst dich mitsamt Ausruestung in Nebel, dem weder Waffen noch Magie
   etwas anhaben koennen. Du kannst dich mit GS 4 fortbewegen und sogar durch schmalste
   Oeffnungen dringen.
@@ -23,6 +24,7 @@ text: 'Du verwandelst dich mitsamt Ausruestung in Nebel, dem weder Waffen noch M
   Fertigkeiten: Naechtlicher Schatten
 
   Erlernen: Phe 14; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Phexgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Phexgeweihten I

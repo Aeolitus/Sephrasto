@@ -1,7 +1,8 @@
-fertigkeiten: Illusion
-kosten: '20'
+fertigkeiten:
+- Illusion
+kosten: 20
 name: Menetekel Flammenschrift
-printclass: '0'
+printclass: 0
 text: 'Du laesst bis zu 64 Schriftzeichen mit einer Laenge von bis zu 8 Schritt Gesamtgroesse
   erscheinen. Die Zeichen sehen wie Flammenlinien, verschmiertes Blut oder astrales
   Gluehen oder Aehnliches aus und sind eine Illusion (Sicht).
@@ -24,7 +25,9 @@ text: 'Du laesst bis zu 64 Schriftzeichen mit einer Laenge von bis zu 8 Schritt 
   Fertigkeiten: Illusion
 
   Erlernen: Mag, Srl 14; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I
-  ODER Vorteil Tradition der Scharlatane I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Scharlatane I

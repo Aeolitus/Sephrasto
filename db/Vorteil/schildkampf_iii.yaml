@@ -2,10 +2,10 @@ csBeschreibung: 'Du erhaeltst VT +1.
 
 
   Erlaubt das Manoever Schildwall.'
-kommentar: '0'
-kosten: '60'
+kommentar: 0
+kosten: 60
 linkElement: Schildkampf II
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Schildkampf III
 script: modifyKampfstil('Schildkampf', 0, 1, 0, 0)
@@ -14,6 +14,7 @@ text: 'Du erhaeltst VT +1.
 
   Erlaubt das Manoever Schildwall (VT -4): Du kannst einen Angriff auf einen benachbarten
   Verbuendeten abwehren. Das Manoever erfolgt vor der Verteidigung des Verbuendeten.'
-typ: '3'
-variable: '0'
-voraussetzungen: Attribut KK 8, Vorteil Schildkampf II
+typ: 3
+variable: 0
+voraussetzungen:
+- Attribut KK 8, Vorteil Schildkampf II

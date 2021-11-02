@@ -1,7 +1,9 @@
-fertigkeiten: Kraft, Kristallmagie
-kosten: '20'
+fertigkeiten:
+- Kraft
+- Kristallmagie
+kosten: 20
 name: Bindung des Schuppenbeutels
-printclass: '11'
+printclass: 11
 text: 'Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her, welche
   die Voraussetzung fuer alle weiteren Talente dieser Fertigkeit ist. Ausserdem wird
   der Ritualgegenstand unzerbrechlich.
@@ -21,6 +23,7 @@ text: 'Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her, wel
   Fertigkeiten: Kraft, Kristallmagie
 
   Erlernen: Ach 8; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Kristallomanten I

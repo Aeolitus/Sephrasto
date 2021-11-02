@@ -1,0 +1,12 @@
+attribute:
+- CH
+- IN
+- MU
+name: Froehlicher Wanderer
+printclass: 1
+steigerungsfaktor: 3
+text: 'Viele Avesgeweihte fuehlen sich der lebenslustigen Rahja nahe und ziehen in
+  bunten Gewaendern in die Welt hinaus, um Farbe in das Leben der Menschen - und natuerlich
+  ihrer Reisegefaehrten - zu bringen. '
+voraussetzungen:
+- Vorteil Tradition der Avesgeweihten I

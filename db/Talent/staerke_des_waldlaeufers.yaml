@@ -1,7 +1,9 @@
-fertigkeiten: Stiller Wanderer, Wildnis
-kosten: '20'
+fertigkeiten:
+- Stiller Wanderer
+- Wildnis
+kosten: 20
 name: Staerke des Waldlaeufers
-printclass: '28'
+printclass: 28
 text: 'Verdoppelt dein DH* (S. 34) und das Intervall, in dem koerperliche Anstrengung
   Erschoepfung verursacht.
 
@@ -23,7 +25,8 @@ text: 'Verdoppelt dein DH* (S. 34) und das Intervall, in dem koerperliche Anstre
   Fertigkeiten: Stiller Wanderer, Wildnis
 
   Erlernen: Fir 12; Aves 16; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
-  Firungeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Avesgeweihten I
+- Vorteil Tradition der Firungeweihten I

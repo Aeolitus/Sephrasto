@@ -1,7 +1,9 @@
-fertigkeiten: Dolchzauber, Umwelt
-kosten: '40'
+fertigkeiten:
+- Dolchzauber
+- Umwelt
+kosten: 40
 name: 'Schutz des Dolches '
-printclass: '1'
+printclass: 1
 text: 'Dir steht die Natur schuetzend zur Seite. Du schwimmst leichter auf Wasser,
   Schnee bildet waermende Hoehlen und du findest ueberall Verstecke. Verbergen, Schwimmen,
 
@@ -24,7 +26,8 @@ text: 'Dir steht die Natur schuetzend zur Seite. Du schwimmst leichter auf Wasse
   Fertigkeiten: Dolchzauber, Umwelt
 
   Erlernen: Geo 14; Dru 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden
-  I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I

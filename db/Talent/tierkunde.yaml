@@ -1,10 +1,12 @@
-fertigkeiten: Derekunde
-kosten: '-1'
+fertigkeiten:
+- Derekunde
+kosten: -1
 name: Tierkunde
-printclass: '-1'
+printclass: -1
 text: Tierkunde bedeutet die Kenntnis der aventurischen Fauna. Dein Charakter kann
   einen Schleimfleck als Spur einer Riesenamoebe erkennen, einen gereizten Baeren
   beruhigen und kennt die Schwachstelle eines Tatzelwurms.
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

@@ -1,7 +1,9 @@
-fertigkeiten: Kristallmagie, Verwandlung
-kosten: '20'
+fertigkeiten:
+- Kristallmagie
+- Verwandlung
+kosten: 20
 name: Optikstein
-printclass: '11'
+printclass: 11
 text: 'Der Kristall kann seine Brennweite nach Belieben veraendern und so als Vergroesserungsglas
   oder Prisma verwendet werden.
 
@@ -20,6 +22,7 @@ text: 'Der Kristall kann seine Brennweite nach Belieben veraendern und so als Ve
   Fertigkeiten: Kristallmagie, Verwandlung
 
   Erlernen: Ach 12; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Kristallomanten I

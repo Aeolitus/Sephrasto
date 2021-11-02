@@ -1,8 +1,10 @@
-fertigkeiten: Ueberleben
-kosten: '-1'
+fertigkeiten:
+- Ueberleben
+kosten: -1
 name: 'Ueberleben: Tiefer Sueden'
-printclass: '-1'
+printclass: -1
 text: "Gilt fuer alle Regionen suedlich von Dr\xF4l und Thalusien."
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

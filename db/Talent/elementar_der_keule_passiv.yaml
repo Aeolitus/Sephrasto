@@ -1,7 +1,8 @@
-fertigkeiten: Keulenrituale
-kosten: '20'
+fertigkeiten:
+- Keulenrituale
+kosten: 20
 name: Elementar der Keule (passiv)
-printclass: '10'
+printclass: 10
 text: 'Du laesst 2 gAsP in die Keule fliessen. Fortan koennen in deiner Keule gebundene
   Elementare (siehe S. 99) unbegrenzt lange gebunden bleiben. Das Binden in die Keule
   gilt immer als gewoehnlicher Dienst. Es kann immer nur ein Wesen in der Keule gebunden
@@ -11,6 +12,7 @@ text: 'Du laesst 2 gAsP in die Keule fliessen. Fortan koennen in deiner Keule ge
 
   Anmerkung: Zusammen mit dem Vorteil Meister der Wuensche eine permanente Besessenheit
   moeglich, wenn du das Elementar nach jedem Dienst sofort wieder bindest.'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

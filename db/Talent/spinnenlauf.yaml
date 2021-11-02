@@ -1,7 +1,8 @@
-fertigkeiten: Eigenschaften
-kosten: '20'
+fertigkeiten:
+- Eigenschaften
+kosten: 20
 name: Spinnenlauf
-printclass: '0'
+printclass: 0
 text: 'Deine Haende und Fuesse haften an Oberflaechen, sodass du mit GS 1 an glatten
   Waenden und sogar Decken ohne Griffen klettern kannst. Erlaubt Aufrechterhalten.
 
@@ -22,7 +23,10 @@ text: 'Deine Haende und Fuesse haften an Oberflaechen, sodass du mit GS 1 an gla
   Fertigkeiten: Eigenschaften
 
   Erlernen: Hex 16; Ach, Elf 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I

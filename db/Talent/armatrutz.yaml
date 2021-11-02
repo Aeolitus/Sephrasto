@@ -1,15 +1,21 @@
-fertigkeiten: Eigenschaften, Erz
-kosten: '40'
+fertigkeiten:
+- Eigenschaften
+- Erz
+kosten: 40
 name: Armatrutz
-printclass: '0'
+printclass: 0
 text: "Der RS deines Zieles steigt um 1.\nMaechtige Magie: Je zwei Stufen verleihen\
   \ +1 RS.\nProbenschwierigkeit: 12\nModifikationen: Koerperschild (\u20134, 1 AsP;\
   \ der Armatrutz schuetzt nur eine Trefferzone.)\nVorbereitungszeit: 1 Aktion\nZiel:\
   \ Einzelperson\nReichweite: Beruehrung\nWirkungsdauer: 4 Minuten\nKosten: 4 AsP\n\
   Fertigkeiten: Eigenschaften, Erz\nErlernen: Elf, Mag 12; Alch 16; Dru, Hex 18; 40\
   \ EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I

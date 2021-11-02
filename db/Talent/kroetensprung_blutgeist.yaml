@@ -1,8 +1,9 @@
-fertigkeiten: Gaben des Blutgeists
-kommentar: '0'
-kosten: '0'
+fertigkeiten:
+- Gaben des Blutgeists
+kommentar: 0
+kosten: 0
 name: Kroetensprung (Blutgeist)
-printclass: '0'
+printclass: 0
 text: "Der naechste Sprung deines Zieles ist gewaltig. Er kann bis zu 8 Schritt Weite\
   \ und 4 Schritt Hoehe ueberwinden und die effektive Sturzhoehe (S. 35) sinkt um\
   \ 4 Schritt.\nMaechtige Magie: Die Weite steigt um +4 Schritt,  die (Sturz-)Hoehe\
@@ -10,6 +11,7 @@ text: "Der naechste Sprung deines Zieles ist gewaltig. Er kann bis zu 8 Schritt 
   \ Wirkungsdauer 16 Initiativphasen, 8 AsP; dein Ziel kann beliebig oft springen.)\n\
   Vorbereitungszeit: 2 Aktionen\nZiel: Einzelperson\nReichweite: Beruehrung\nWirkungsdauer:\
   \ 16 Initiativphasen\nKosten: 4 AsP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Wildkatze/Panther)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Wildkatze/Panther)

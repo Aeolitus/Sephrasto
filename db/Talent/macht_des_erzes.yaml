@@ -1,7 +1,9 @@
-fertigkeiten: Erz, Geister rufen
-kosten: '60'
+fertigkeiten:
+- Erz
+- Geister rufen
+kosten: 60
 name: Macht des Erzes
-printclass: '7'
+printclass: 7
 text: 'Ruft ein Elementarwesen des jeweiligen Elements herbei (mehr zu Herbeirufungen
   S. 81), das in deiner unmittelbaren Naehe erscheint.
 
@@ -18,6 +20,7 @@ text: 'Ruft ein Elementarwesen des jeweiligen Elements herbei (mehr zu Herbeiruf
   Fertigkeiten: Erz, Geister rufen
 
   Erlernen: Smn 18; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

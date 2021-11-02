@@ -1,7 +1,8 @@
-fertigkeiten: Daemonisch
-kosten: '40'
+fertigkeiten:
+- Daemonisch
+kosten: 40
 name: Tlalucs Odem Pestgestank
-printclass: '0'
+printclass: 0
 text: "Eine giftige Wolke breitet sich aus deinem Mund 8 Schritt weit kegelfoermig\
   \ aus (45\xB0). Jedes Wesen in der Wolke nimmt 2W6 SP und muss eine Konterprobe\
   \ (Zaehigkeit, 16) bestehen, um nicht einen Malus von \u20134 auf alle Proben zu\
@@ -10,8 +11,11 @@ text: "Eine giftige Wolke breitet sich aus deinem Mund 8 Schritt weit kegelfoerm
   Miasmafaxius (\u20134, Einzelperson, 8 AsP)\nVorbereitungszeit: 2 Aktionen\nZiel:\
   \ Zone\nReichweite: Beruehrung\nWirkungsdauer: 8 Initiativphasen\nKosten: 16 AsP\n\
   Fertigkeiten: Daemonisch\nErlernen: Mag 18; Bor, Dru, Hex 20; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I
-  ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Gildenmagier I ODER
-  Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I

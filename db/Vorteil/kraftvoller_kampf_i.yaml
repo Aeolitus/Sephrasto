@@ -1,5 +1,5 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Kraftvoller Kampf I
 script: modifyKampfstil('Kraftvoller Kampf', 0, 0, 1, 0)
@@ -7,6 +7,7 @@ text: 'Bedingungen: einzelne Nahkampfwaffe, nicht beritten.
 
 
   Dein Waffenschaden steigt um +1.'
-typ: '3'
-variable: '0'
-voraussetzungen: Attribut KK 4
+typ: 3
+variable: 0
+voraussetzungen:
+- Attribut KK 4

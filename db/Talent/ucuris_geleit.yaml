@@ -1,7 +1,8 @@
-fertigkeiten: Licht
-kosten: '20'
+fertigkeiten:
+- Licht
+kosten: 20
 name: Ucuris Geleit
-printclass: '40'
+printclass: 40
 text: 'Ein Licht weist dir den Weg zum naechsten zwoelfgoettlichen Geweihten oder
   Tempel.
 
@@ -20,6 +21,7 @@ text: 'Ein Licht weist dir den Weg zum naechsten zwoelfgoettlichen Geweihten ode
   Fertigkeiten: Licht
 
   Erlernen: Pra 14; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Praiosgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Praiosgeweihten I

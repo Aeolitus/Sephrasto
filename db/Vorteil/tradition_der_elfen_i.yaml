@@ -1,5 +1,5 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Tradition der Elfen I
 text: "Bedingungen: Sichtkontakt, Geste, Gesungene oder gespielte Formel.\n\nDu kannst\
@@ -7,6 +7,7 @@ text: "Bedingungen: Sichtkontakt, Geste, Gesungene oder gespielte Formel.\n\nDu 
   \ du unter den allgemeinen Zaubern und unter Elfenlieder (S. 158).\n\nIn Umgebungen\
   \ mit gestoerter Harmonie (z.B. daemonische Verseuchung, Geisterscheinungen) sind\
   \ Zauber um 2\u20134 Punkte erschwert."
-typ: '5'
-variable: '0'
-voraussetzungen: Attribut IN 4, Vorteil Zauberer I
+typ: 5
+variable: 0
+voraussetzungen:
+- Attribut IN 4, Vorteil Zauberer I

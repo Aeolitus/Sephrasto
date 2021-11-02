@@ -1,7 +1,10 @@
-fertigkeiten: Eigenschaften, Elfenlieder, Kraft
-kosten: '40'
+fertigkeiten:
+- Eigenschaften
+- Elfenlieder
+- Kraft
+kosten: 40
 name: Zaubermelodie
-printclass: '2'
+printclass: 2
 text: 'Die Melodie erleichtert alle allgemeinen Zauber um +2.
 
   Maechtige Magie: Der Bonus steigt um +1.
@@ -21,6 +24,7 @@ text: 'Die Melodie erleichtert alle allgemeinen Zauber um +2.
   Fertigkeiten: Eigenschaften, Elfenlieder, Kraft
 
   Erlernen: Elf 16; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Elfen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Elfen I

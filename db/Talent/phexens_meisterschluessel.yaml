@@ -1,7 +1,8 @@
-fertigkeiten: Naechtlicher Schatten
-kosten: '40'
+fertigkeiten:
+- Naechtlicher Schatten
+kosten: 40
 name: Phexens Meisterschluessel
-printclass: '39'
+printclass: 39
 text: 'Du rufst Phexens Meisterschluessel herbei, der fast jedes Schloss oeffnet.
   Bei magisch gesicherten Schloessern wirkt die Liturgie als Konterprobe (8), bei
   deren Gelingen der Zauber aufgehoben wird.
@@ -21,6 +22,7 @@ text: 'Du rufst Phexens Meisterschluessel herbei, der fast jedes Schloss oeffnet
   Fertigkeiten: Naechtlicher Schatten
 
   Erlernen: Phe 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Phexgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Phexgeweihten I

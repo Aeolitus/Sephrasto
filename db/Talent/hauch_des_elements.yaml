@@ -1,7 +1,14 @@
-fertigkeiten: Eis, Erz, Feuer, Humus, Luft, Wasser, Geister der Staerkung
-kosten: '40'
+fertigkeiten:
+- Eis
+- Erz
+- Feuer
+- Humus
+- Luft
+- Wasser
+- Geister der Staerkung
+kosten: 40
 name: Hauch des Elements
-printclass: '5'
+printclass: 5
 text: 'Du bindest einen elementaren Effekt in ein maximal truhengrosses Objekt. Der
   Effekt bemisst sich nach dem gewaehlten Element.
 
@@ -35,6 +42,7 @@ text: 'Du bindest einen elementaren Effekt in ein maximal truhengrosses Objekt. 
 
   Anmerkung: Manche elementaren Wirkungen sind fuer manche Schamanen aeusserst ungewoehnlich
   (zum Beispiel Eis fuer Achaz oder Erz fuer Gjalsker)'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

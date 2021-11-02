@@ -1,7 +1,8 @@
-fertigkeiten: Heim und Herd
-kosten: '20'
+fertigkeiten:
+- Heim und Herd
+kosten: 20
 name: Hausfrieden
-printclass: '48'
+printclass: 48
 text: 'Alle Lebewesen im gesegneten Zuhause verfallen in eine friedfertige Stimmung.
   Aggressive Handlungen erfordern eine Konterprobe (Willenskraft, 20).
 
@@ -20,6 +21,7 @@ text: 'Alle Lebewesen im gesegneten Zuhause verfallen in eine friedfertige Stimm
   Fertigkeiten: Heim und Herd
 
   Erlernen: Tra 8; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Traviageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Traviageweihten I

@@ -19,5 +19,6 @@ text: "Es werden Argumente ausgetauscht und die Aktionen des eigenen Charakters 
   \ dir realistische Ziele: Der Spielleiter kann bei Vorhaben, die den moralischen\
   \ Vorstellungen des Gegenuebers widersprechen oder die gefaehrlich sind um +8 erleichtern,\
   \ bei Lebensgefahr sogar um +16."
-typ: '9'
-voraussetzungen: ''
+typ: 9
+voraussetzungen:
+- ''

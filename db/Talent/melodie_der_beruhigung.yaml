@@ -1,7 +1,9 @@
-fertigkeiten: Einfluss, Zaubermelodien
-kosten: '60'
+fertigkeiten:
+- Einfluss
+- Zaubermelodien
+kosten: 60
 name: Melodie der Beruhigung
-printclass: '18'
+printclass: 18
 text: 'Deine Melodie nimmt Zuhoerern im Radius von 4 Schritt die Angst. Auf ihnen
   lastende Furcht-Effekte sinken um eine Stufe. Erfordert Konzentration, erlaubt Aufrechterhalten.
 
@@ -20,6 +22,7 @@ text: 'Deine Melodie nimmt Zuhoerern im Radius von 4 Schritt die Angst. Auf ihne
   Fertigkeiten: Einfluss, Zaubermelodien
 
   Erlernen: Bard 14; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Zauberbarden I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Zauberbarden I

@@ -3,5 +3,7 @@ name: Reichweite erhoehen (M)
 probe: Zauber -4
 text: Die Reichweite des Zaubers verdoppelt sich. Die Reichweite Beruehrung wird zu
   2 Schritt.
-typ: '2'
-voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I
+typ: 2
+voraussetzungen:
+- Vorteil Zauberer I
+- Vorteil Tradition der Borbaradianer I

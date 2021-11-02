@@ -1,7 +1,8 @@
-fertigkeiten: Eigenschaften
-kosten: '40'
+fertigkeiten:
+- Eigenschaften
+kosten: 40
 name: Standfest Katzengleich
-printclass: '0'
+printclass: 0
 text: 'Deine Geschicklichkeit erhoeht sich. Alle Proben, um auf den Beinen zu bleiben,
   sind um +4 erleichtert und deine Patzerchance im Kampf sinkt um 1 auf dem W20.
 
@@ -22,7 +23,9 @@ text: 'Deine Geschicklichkeit erhoeht sich. Alle Proben, um auf den Beinen zu bl
   Fertigkeiten: Eigenschaften
 
   Erlernen: Elf 14; Ach 20; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Kristallomanten I

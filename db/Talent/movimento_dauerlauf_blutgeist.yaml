@@ -1,8 +1,9 @@
-fertigkeiten: Gaben des Blutgeists
-kommentar: '0'
-kosten: '0'
+fertigkeiten:
+- Gaben des Blutgeists
+kommentar: 0
+kosten: 0
 name: Movimento Dauerlauf (Blutgeist)
-printclass: '0'
+printclass: 0
 text: 'Verdoppelt das DH* (S. 34) des Ziels und das Intervall, in dem koerperliche
   Anstrengung Erschoepfung verursacht.
 
@@ -19,6 +20,7 @@ text: 'Verdoppelt das DH* (S. 34) des Ziels und das Intervall, in dem koerperlic
   Wirkungsdauer: 8 Stunden
 
   Kosten: 8 AsP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Wolf/Khoramsbestie)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Wolf/Khoramsbestie)

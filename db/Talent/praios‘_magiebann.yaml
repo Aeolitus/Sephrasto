@@ -1,7 +1,8 @@
-fertigkeiten: Magiebann
-kosten: '60'
+fertigkeiten:
+- Magiebann
+kosten: 60
 name: "Praios\u2018 Magiebann"
-printclass: '41'
+printclass: 41
 text: 'In deiner Hand erscheint das Auge des Praios. Die Liturgie wirkt als Konterprobe
   (12) gegen alle Zauber im Radius von 16 Schritt, die bei gelungener Probe aufgehoben
   werden (permanente Zauber werden unterdrueckt). Ausserdem koennen keine neuen Zauber
@@ -22,6 +23,7 @@ text: 'In deiner Hand erscheint das Auge des Praios. Die Liturgie wirkt als Kont
   Fertigkeiten: Magiebann
 
   Erlernen: Pra 18; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Praiosgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Praiosgeweihten I

@@ -1,7 +1,9 @@
-fertigkeiten: Eigenschaften, Zaubertaenze
-kosten: '40'
+fertigkeiten:
+- Eigenschaften
+- Zaubertaenze
+kosten: 40
 name: Tanz der Weisheit
-printclass: '19'
+printclass: 19
 text: 'Der Tanz schaerft den Geist der Zuseher. Alle Zuseher in einem Radius von 4
   Schritt erhalten eine Erleichterung +2 auf Derekunde, Heilkunde, Mythenkunde und
   KL.
@@ -23,6 +25,7 @@ text: 'Der Tanz schaerft den Geist der Zuseher. Alle Zuseher in einem Radius von
   Fertigkeiten: Eigenschaften, Zaubertaenze
 
   Erlernen: Ztz 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Zaubertaenzer I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Zaubertaenzer I

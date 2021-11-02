@@ -1,9 +1,11 @@
-fertigkeiten: Handwerk
-kosten: '-1'
+fertigkeiten:
+- Handwerk
+kosten: -1
 name: Mechanik
-printclass: '-1'
+printclass: -1
 text: Mit Mechanik stellst du Apparaturen wie Armbrueste, Flaschenzuege oder Suedweiser
   her und wartest sie.
-variable: '0'
-verbilligt: '1'
-voraussetzungen: ''
+variable: 0
+verbilligt: 1
+voraussetzungen:
+- ''

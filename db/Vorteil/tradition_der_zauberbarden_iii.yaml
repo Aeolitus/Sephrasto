@@ -1,14 +1,15 @@
 csBeschreibung: Erlaubt die spontane Modifikation Zeit lassen.
-kommentar: '0'
-kosten: '60'
+kommentar: 0
+kosten: 60
 linkElement: Tradition der Zauberbarden II
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Tradition der Zauberbarden III
 text: 'Erlaubt die spontane Modifikation Zeit lassen (Zauber +2): Verdoppelt die Vorbereitungszeit,
   aber erleichtert den Zauber um +2. Eine Vorbereitungszeit von 0 Aktionen wird zu
   1 Aktion. Kann einmal pro Zauber eingesetzt werden und wirkt nicht auf Zauber mit
   frei waehlbarer Vorbereitungszeit.'
-typ: '5'
-variable: '0'
-voraussetzungen: Attribut CH 8, Vorteil Tradition der Zauberbarden II
+typ: 5
+variable: 0
+voraussetzungen:
+- Attribut CH 8, Vorteil Tradition der Zauberbarden II

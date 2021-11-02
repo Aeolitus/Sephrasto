@@ -1,7 +1,9 @@
-fertigkeiten: Kraft, Ringrituale
-kosten: '20'
+fertigkeiten:
+- Kraft
+- Ringrituale
+kosten: 20
 name: Bindung des Ringes
-printclass: '13'
+printclass: 13
 text: 'Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her, welche
   die Voraussetzung fuer alle weiteren Talente dieser Fertigkeit ist. Ausserdem wird
   der Ritualgegenstand unzerbrechlich.
@@ -21,6 +23,7 @@ text: 'Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her, wel
   Fertigkeiten: Kraft, Ringrituale
 
   Erlernen: Geo 4; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Geoden I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Geoden I

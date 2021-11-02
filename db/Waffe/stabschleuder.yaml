@@ -1,11 +1,12 @@
-W6: '2'
+W6: 2
 fertigkeit: Wurfwaffen
-fk: '1'
-haerte: '4'
-kampfstile: ''
-lz: '1'
+fk: 1
+haerte: 4
+kampfstile:
+- ''
+lz: 1
 name: Stabschleuder
-plus: '0'
-rw: '32'
+plus: 0
+rw: 32
 talent: Schleudern
 text: Nicht fuer Reiter

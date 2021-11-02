@@ -1,7 +1,10 @@
-fertigkeiten: Hellsicht, Geister rufen, Verstaendigung
-kosten: '40'
+fertigkeiten:
+- Hellsicht
+- Geister rufen
+- Verstaendigung
+kosten: 40
 name: Tierischer Helfer
-printclass: '7'
+printclass: 7
 text: 'Du siehst die Gedanken des Tiers als verschwommene Bilder.
 
   Maechtige Magie: Zusaetzlich kannst du das Tier um einen kleineren/groesseren/gefaehrlichen
@@ -22,6 +25,7 @@ text: 'Du siehst die Gedanken des Tiers als verschwommene Bilder.
   Fertigkeiten: Hellsicht, Geister rufen, Verstaendigung
 
   Erlernen: Smn 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

@@ -6,9 +6,16 @@ text: "Probenschwierigkeiten und Kosten:\n- 16 (Diener, z.B. Kraeuterkopf), 16 A
   Beschwoerungsprobe Mod.: +Bonus durch Vorbereitung, \u2013Kosten fuer Zusatzfaehigkeiten\n\
   Kontrollprobe Mod.: +Bonus durch Vorbereitung, +4 bis \u20138 je nach Dienst, \u2013\
   4 beim Einsatz von Blutmagie"
-typ: '4'
-voraussetzungen: Talent Herbeirufung des Feuers ODER Talent Herbeirufung des Eises
-  ODER Talent Herbeirufung der Luft ODER Talent Herbeirufung des Wassers ODER Talent
-  Herbeirufung des Humus ODER Talent Herbeirufung des Erzes ODER Talent Macht des
-  Erzes ODER Talent Macht des Feuers ODER Talent Macht des Humus ODER Talent Macht
-  der Luft ODER Talent Macht des Wassers
+typ: 4
+voraussetzungen:
+- Talent Herbeirufung des Feuers
+- Talent Herbeirufung des Eises
+- Talent Herbeirufung der Luft
+- Talent Herbeirufung des Wassers
+- Talent Herbeirufung des Humus
+- Talent Herbeirufung des Erzes
+- Talent Macht des Erzes
+- Talent Macht des Feuers
+- Talent Macht des Humus
+- Talent Macht der Luft
+- Talent Macht des Wassers

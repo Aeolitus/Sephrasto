@@ -1,5 +1,5 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Tradition der Nandusgeweihten I
 text: 'Bedingungen: Sichtkontakt, Geste, gesprochenes oder gesungenes Gebet.
@@ -12,10 +12,11 @@ text: 'Bedingungen: Sichtkontakt, Geste, gesprochenes oder gesungenes Gebet.
 
   Liturgien sind um 2-8 Punkte erschwert, wenn ihr Einsatz gegen die Prinzipien des
   Geweihten verstoesst.'
-typ: '7'
-variable: '0'
-voraussetzungen: Attribut KL 4, Vorteil Geweiht I, Kein Vorteil Tradition der Praiosgeweihten
-  I, Kein Vorteil Tradition der Rondrageweihten I, Kein Vorteil Tradition der Borongeweihten
+typ: 7
+variable: 0
+voraussetzungen:
+- Attribut KL 4, Vorteil Geweiht I, Kein Vorteil Tradition der Praiosgeweihten I,
+  Kein Vorteil Tradition der Rondrageweihten I, Kein Vorteil Tradition der Borongeweihten
   I, Kein Vorteil Tradition der Phexgeweihten I, Kein Vorteil Tradition der Efferdgeweihten
   I, Kein Vorteil Tradition der Hesindegeweihten I, Kein Vorteil Tradition der Ingerimmgeweihten
   I, Kein Vorteil Tradition der Angroschgeweihten I, Kein Vorteil Tradition der Perainegeweihten

@@ -1,7 +1,10 @@
-fertigkeiten: Geister rufen, Kraft, Verstaendigung
-kosten: '40'
+fertigkeiten:
+- Geister rufen
+- Kraft
+- Verstaendigung
+kosten: 40
 name: Raub der Geisterkraft
-printclass: '7'
+printclass: 7
 text: 'Du kannst bei deinem naechsten Zauber teilweise oder ganz auf die AsP des Ziels
   zugreifen. Der naechste Zauber kann nicht auf das Ziel des Raubs der Geisterkraft
   gewirkt werden.
@@ -21,6 +24,7 @@ text: 'Du kannst bei deinem naechsten Zauber teilweise oder ganz auf die AsP des
   Fertigkeiten: Geister rufen, Kraft, Verstaendigung
 
   Erlernen: Smn 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

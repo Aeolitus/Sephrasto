@@ -6,5 +6,6 @@ text: "Du fuegst dem Angreifer den Waffenschaden deiner Waffe zu. Die Riposte is
   \ erschweren. Zum Beispiel waere eine Kombination aus Riposte und Hammerschlag um\
   \ \u201312 erschwert, wuerde aber doppelten Schaden anrichten.\nVoraussetzung: Kampf\
   \ im Parrierwaffen-Stil; keine Riposte seit letztem Beginn einer eigenen Initiativephase"
-typ: '0'
-voraussetzungen: Vorteil Parierwaffenkampf III
+typ: 0
+voraussetzungen:
+- Vorteil Parierwaffenkampf III

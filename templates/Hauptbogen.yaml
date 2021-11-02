@@ -1,0 +1,14 @@
+Beschreibung: Beschreibung.yaml
+"Erfahrung und Schicksalspunkte": Schicksal.yaml
+Attribute: Attribute.yaml
+Abgeleitete Werte: Abgeleitete_Werte.yaml
+"Profane Vorteile":
+  - Vorteil.yaml
+"Fertigkeiten und Talente":
+  - Fertigkeit.yaml
+"Freie Fertigkeiten":
+  - FreieFertigkeit.yaml
+Erfahrung:
+  Gesamt: 0
+  Eingesetzt: 0
+  Verfuegbar: 0

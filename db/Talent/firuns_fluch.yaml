@@ -1,7 +1,8 @@
-fertigkeiten: Jagd
-kosten: '40'
+fertigkeiten:
+- Jagd
+kosten: 40
 name: Firuns Fluch
-printclass: '27'
+printclass: 27
 text: "Du schlaegst dein Ziel mit Firuns Fluch. Alle Fernkampfangriffe auf dieses\
   \ Ziel sind um +2 erleichtert und die Chance auf einen Triumph steigt um 1 auf dem\
   \ W20 (zum Beispiel von 20 auf 19\u201320).\nMaechtige Liturgie: Der Bonus steigt\
@@ -9,6 +10,7 @@ text: "Du schlaegst dein Ziel mit Firuns Fluch. Alle Fernkampfangriffe auf diese
   \ bis die Bindung geloest wird)\nProbenschwierigkeit: 12\nVorbereitungszeit: 1 Aktion\n\
   Ziel: Einzelwesen\nReichweite: 32 Schritt\nWirkungsdauer: 1 Woche\nKosten: 8 KaP\n\
   Fertigkeiten: Jagd\nErlernen: Fir 16; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Firungeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Firungeweihten I

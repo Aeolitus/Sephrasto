@@ -1,3 +1,4 @@
 kategorie: Sprache
 text: Neckergesang
-voraussetzungen: Vorteil Zauberer I
+voraussetzungen:
+- Vorteil Zauberer I

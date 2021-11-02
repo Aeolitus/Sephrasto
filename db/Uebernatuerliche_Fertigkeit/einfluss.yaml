@@ -1,0 +1,24 @@
+attribute:
+- CH
+- CH
+- IN
+name: Einfluss
+printclass: 0
+steigerungsfaktor: 3
+text: Als Einflusszauberer kannst du die Gedanken, Sinne und Gefuehle deiner Mitmenschen
+  manipulieren. Manche Einflusszauber (z.B. Bannbaladin) wirken aeusserst subtil und
+  sind waehrend der Wirkung nicht zu bemerken. Im Zweifelsfall kann das Ziel nach
+  dem Ende der Wirkung eine Konterprobe (KL, 16) ablegen, um sich die Verzauberung
+  bewusst zu machen.
+voraussetzungen:
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I
+- Vorteil Tradition der Schelme I
+- Vorteil Tradition der Scharlatane I
+- Vorteil Magiedilettant

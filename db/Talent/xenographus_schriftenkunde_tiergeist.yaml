@@ -1,8 +1,9 @@
-fertigkeiten: Gaben des Odun
-kommentar: '0'
-kosten: '40'
+fertigkeiten:
+- Gaben des Odun
+kommentar: 0
+kosten: 40
 name: Xenographus Schriftenkunde (Tiergeist)
-printclass: '0'
+printclass: 0
 text: 'Du kannst den Sinn eines geschriebenen Satzes verstehen, auch wenn du Schrift
   und Sprache nicht kennst.
 
@@ -19,6 +20,7 @@ text: 'Du kannst den Sinn eines geschriebenen Satzes verstehen, auch wenn du Sch
   Wirkungsdauer: augenblicklich
 
   Kosten: 4 AsP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Elefant)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Elefant)

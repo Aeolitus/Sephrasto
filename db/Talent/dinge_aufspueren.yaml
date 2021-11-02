@@ -1,7 +1,9 @@
-fertigkeiten: Hellsicht, Vertrautenmagie
-kosten: '20'
+fertigkeiten:
+- Hellsicht
+- Vertrautenmagie
+kosten: 20
 name: Dinge aufspueren
-printclass: '17'
+printclass: 17
 text: 'Dein Vertrautentier teilt dir mit, in welcher Richtung sich ein Gegenstand
   aus deinem Besitz befindet.
 
@@ -20,6 +22,8 @@ text: 'Dein Vertrautentier teilt dir mit, in welcher Richtung sich ein Gegenstan
   Fertigkeiten: Hellsicht, Vertrautenmagie
 
   Erlernen: Geo, Hex 12; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Hexen I

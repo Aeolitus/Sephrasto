@@ -1,7 +1,8 @@
-fertigkeiten: Licht
-kosten: '20'
+fertigkeiten:
+- Licht
+kosten: 20
 name: 'Daradors Bann der Schatten '
-printclass: '40'
+printclass: 40
 text: 'Im Radius von 8 Schritt werden saemtliche Schatten, Dunkelheit und entsprechende
   Zauber aufgehoben. Wesenheiten mit dem Nachteil Lichtscheu erleiden einen Furcht-Effekt
   der Stufe 2, wenn ihre Beschwoerungsschwierigkeit maximal 20 betraegt (beschworene
@@ -24,6 +25,7 @@ text: 'Im Radius von 8 Schritt werden saemtliche Schatten, Dunkelheit und entspr
   Fertigkeiten: Licht
 
   Erlernen: Pra 12; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Praiosgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Praiosgeweihten I

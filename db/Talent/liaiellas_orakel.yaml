@@ -1,7 +1,8 @@
-fertigkeiten: Seefahrt
-kosten: '0'
+fertigkeiten:
+- Seefahrt
+kosten: 0
 name: Liaiellas Orakel
-printclass: '25'
+printclass: 25
 text: 'Du erfaehrst, ob die Seele eines Verschollenen von Liaiella in Borons Hallen
   (oder an Swafnirs Tafel) getragen wurde oder nicht. Letzteres ist auch der Fall,
   wenn der Verschollene lebt oder an Land, oder daemonisch verseuchtem Gewaesser,
@@ -22,7 +23,8 @@ text: 'Du erfaehrst, ob die Seele eines Verschollenen von Liaiella in Borons Hal
   Fertigkeiten: Seefahrt
 
   Erlernen: Eff, Swa 12; 0 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der
-  Swafnirgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Efferdgeweihten I
+- Vorteil Tradition der Swafnirgeweihten I

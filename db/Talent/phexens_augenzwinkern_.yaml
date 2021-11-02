@@ -1,14 +1,17 @@
-fertigkeiten: List, Stiller Wanderer
-kosten: '20'
+fertigkeiten:
+- List
+- Stiller Wanderer
+kosten: 20
 name: 'Phexens Augenzwinkern '
-printclass: '38'
+printclass: 38
 text: "Das Ziel kann sich kaum an dein Gesicht erinnern. Selbst wenn er darauf angesprochen\
   \ oder verhoert wird, sind alle KL-Proben zur Erinnerung um \u20134 erschwert. Die\
   \ Liturgie wirkt nur, wenn deine wahre Identitaet unbekannt ist.\nMaechtige Liturgie:\
   \ Der Malus steigt um \u20132.\nProbenschwierigkeit: 12\nVorbereitungszeit: 1 Aktion\n\
   Ziel: Einzelperson\nReichweite: 2 Schritt\nWirkungsdauer: augenblicklich\nKosten:\
   \ 8 KaP\nFertigkeiten: List , Stiller Wanderer\nErlernen: Phe 12; Aves 16; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
-  Phexgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Avesgeweihten I
+- Vorteil Tradition der Phexgeweihten I

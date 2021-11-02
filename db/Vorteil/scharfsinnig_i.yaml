@@ -1,8 +1,9 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Scharfsinnig I
 text: Proben bei einer Ermittlung oder Recherche sind um +2 erleichtert.
-typ: '1'
-variable: '0'
-voraussetzungen: Attribut KL 4
+typ: 1
+variable: 0
+voraussetzungen:
+- Attribut KL 4

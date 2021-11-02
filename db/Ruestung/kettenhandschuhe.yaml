@@ -1,10 +1,10 @@
 name: Kettenhandschuhe
-rsBauch: '0'
-rsBeine: '0'
-rsBrust: '0'
-rsKopf: '0'
-rsLArm: '1'
-rsRArm: '1'
-system: '2'
+rsBauch: 0
+rsBeine: 0
+rsBrust: 0
+rsKopf: 0
+rsLArm: 1
+rsRArm: 1
+system: 2
 text: Ruestungsergaenzung fuer die Haende.
-typ: '3'
+typ: 3

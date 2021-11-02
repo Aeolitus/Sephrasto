@@ -1,7 +1,9 @@
-fertigkeiten: Eigenschaften, Geister der Staerkung
-kosten: '20'
+fertigkeiten:
+- Eigenschaften
+- Geister der Staerkung
+kosten: 20
 name: Weg des Windes
-printclass: '5'
+printclass: 5
 text: 'Verdoppelt das DH* (S. 34) deines Ziels und das Intervall, in dem koerperliche
   Anstrengung Erschoepfung verursacht. Proben, um natuerliche Hindernisse zu ueberwinden,
   sind um +4 erleichtert.
@@ -24,6 +26,7 @@ text: 'Verdoppelt das DH* (S. 34) deines Ziels und das Intervall, in dem koerper
   Fertigkeiten: Eigenschaften, Geister der Staerkung
 
   Erlernen: Smn 16; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

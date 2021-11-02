@@ -2,10 +2,10 @@ csBeschreibung: Du hast ein Daemonenmal und kannst ueber die Liturgie Seelenprue
   als Paktierer erkannt werden. Auf geweihtem/heiligen Boden musst du jede Minute
   eine Willenskraft-Probe (20/28) ablegen, um nicht durch starke Schmerzen aufzufallen
   und eine Wunde zu erleiden.
-kommentar: '0'
-kosten: '-200'
+kommentar: 0
+kosten: -200
 linkElement: Kreis der Verdammnis III
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: ueblich
 name: Kreis der Verdammnis IV
 text: Der Vorteil hat vier Auswirkungen. Erstens erhaeltst du beim Erwerb der ersten
@@ -14,6 +14,7 @@ text: Der Vorteil hat vier Auswirkungen. Erstens erhaeltst du beim Erwerb der er
   du ein Daemonenmal und kannst ueber die Liturgie Seelenpruefung als Paktierer erkannt
   werden. Auf geweihtem/heiligen Boden musst du jede Minute eine Willenskraft-Probe
   (20/28) ablegen, um nicht durch starke Schmerzen aufzufallen und eine Wunde zu erleiden.
-typ: '0'
-variable: '0'
-voraussetzungen: Vorteil Kreis der Verdammnis III
+typ: 0
+variable: 0
+voraussetzungen:
+- Vorteil Kreis der Verdammnis III

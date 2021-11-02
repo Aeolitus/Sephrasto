@@ -1,7 +1,8 @@
-fertigkeiten: Wind und Wogen
-kosten: '20'
+fertigkeiten:
+- Wind und Wogen
+kosten: 20
 name: Gesang der Delphine
-printclass: '26'
+printclass: 26
 text: 'Die von dir gesegnete Person erhaelt den Vorteil Tierempathie (Delphine fuer
   Eff oder Pottwale fuer Swa) und erleidet keine Erschoepfung durch den Einsatz dieser
   Gabe. Beherrscht sie die Gabe bereits, sind damit verbundene Proben um +4 erleichtert.
@@ -25,7 +26,8 @@ text: 'Die von dir gesegnete Person erhaelt den Vorteil Tierempathie (Delphine f
   Fertigkeiten: Wind und Wogen
 
   Erlernen: Eff, Swa 16; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der
-  Swafnirgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Efferdgeweihten I
+- Vorteil Tradition der Swafnirgeweihten I

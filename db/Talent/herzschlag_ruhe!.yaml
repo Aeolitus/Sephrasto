@@ -1,7 +1,10 @@
-fertigkeiten: Daemonisch, Eigenschaften, Einfluss
-kosten: '40'
+fertigkeiten:
+- Daemonisch
+- Eigenschaften
+- Einfluss
+kosten: 40
 name: Herzschlag ruhe!
-printclass: '0'
+printclass: 0
 text: 'Das Herz deines Opfers bleibt schlagartig stehen. Nach 4 und 8 Initiativephasen
   erleidet es eine Wunde.
 
@@ -23,6 +26,8 @@ text: 'Das Herz deines Opfers bleibt schlagartig stehen. Nach 4 und 8 Initiative
   Fertigkeiten: Daemonisch, Eigenschaften, Einfluss
 
   Erlernen: Bor 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Borbaradianer I

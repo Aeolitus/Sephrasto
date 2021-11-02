@@ -1,7 +1,9 @@
-fertigkeiten: Keulenrituale, Kraft
-kosten: '20'
+fertigkeiten:
+- Keulenrituale
+- Kraft
+kosten: 20
 name: Weihe der Keule
-printclass: '10'
+printclass: 10
 text: 'Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her, welche
   die Voraussetzung fuer alle weiteren Talente dieser Fertigkeit ist. Ausserdem wird
   der Ritualgegenstand unzerbrechlich und zaehlt als magische Waffe.
@@ -25,6 +27,7 @@ text: 'Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her, wel
   Fertigkeiten: Keulenrituale, Kraft
 
   Erlernen: Smn 8; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

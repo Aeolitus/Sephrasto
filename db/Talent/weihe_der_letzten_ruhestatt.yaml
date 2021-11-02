@@ -1,12 +1,14 @@
-fertigkeiten: Tod
-kosten: '20'
+fertigkeiten:
+- Tod
+kosten: 20
 name: Weihe der letzten Ruhestatt
-printclass: '22'
+printclass: 22
 text: "Du segnest einen Boronsanger, der fortan als geweihter Boden gilt und Platz\
   \ fuer etwa 32 Graeber bietet. Beschwoerungen von unheiligen Wesenheiten sind um\
   \ \u20138 erschwert.\nMaechtige Liturgie: Verdoppelt die Groesse.\nVorbereitungszeit:\
   \ 1 Stunde\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer: permanent\nKosten:\
   \ 16 KaP\nFertigkeiten: Tod\nErlernen: Brn 12; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Borongeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Borongeweihten I

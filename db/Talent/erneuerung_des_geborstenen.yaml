@@ -1,7 +1,9 @@
-fertigkeiten: Heiliges Handwerk, Neubeginn
-kosten: '40'
+fertigkeiten:
+- Heiliges Handwerk
+- Neubeginn
+kosten: 40
 name: Erneuerung des Geborstenen
-printclass: '34'
+printclass: 34
 text: "Ein einfacher Gegenstand wie eine Nahkampfwaffe oder ein Kutschenrad erhaelt\
   \ sofort 8W6 Reparaturpunkte. Fuer jede Ueberschreitung der Haerte wird eine Beschaedigung\
   \ repariert. Wirkt nicht auf voellig zerstoerte Gegenstaende.\nMaechtige Liturgie:\
@@ -12,7 +14,9 @@ text: "Ein einfacher Gegenstand wie eine Nahkampfwaffe oder ein Kutschenrad erha
   \ Gegenstaende.)\nVorbereitungszeit: 16 Aktionen\nZiel: Einzelobjekt\nReichweite:\
   \ Beruehrung\nWirkungsdauer: augenblicklich\nKosten: 8 KaP\nFertigkeiten: Heiliges\
   \ Handwerk, Neubeginn\nErlernen: Ing 12; Ang 14; Tsa 16; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition
-  der Angroschgeweihten I ODER Vorteil Tradition der Tsageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Ingerimmgeweihten I
+- Vorteil Tradition der Angroschgeweihten I
+- Vorteil Tradition der Tsageweihten I

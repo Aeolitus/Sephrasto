@@ -1,7 +1,8 @@
-fertigkeiten: Wind und Wogen
-kosten: '40'
+fertigkeiten:
+- Wind und Wogen
+kosten: 40
 name: Efferdanes Reinigung
-printclass: '26'
+printclass: 26
 text: "Dein Gebet schwaecht charyptide Einfluesse in der Umgebung. Auf der Skala normal/leicht\
   \ verseucht/deutlich verseucht/stark verseucht/kleines Unheiligtum/mittleres Unheiligtum/maechtiges\
   \ Unheiligtum verschiebt sich das Gebiet um eine Stufe nach vorne.\nMaechtige Liturgie:\
@@ -13,7 +14,8 @@ text: "Dein Gebet schwaecht charyptide Einfluesse in der Umgebung. Auf der Skala
   \ die Liturgie wie Antimagie gegen charyptide Magie wirken (S. 126). Die Randbedingungen\
   \ entsprechen den dort angegebenen, ausser dass die Kosten mit KaP bezahlt werden\
   \ und die Liturgie um +4 erleichtert ist."
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der
-  Swafnirgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Efferdgeweihten I
+- Vorteil Tradition der Swafnirgeweihten I

@@ -1,9 +1,0 @@
-attribute: CH|KO|MU
-name: Sichere Heimkehr
-printclass: '1'
-steigerungsfaktor: '2'
-text: 'Manche Geweihte der Travia begeben sich als Wildgaense selbst auf Wanderschaft,
-  um auch den Heimatlosen die Vorzuege eines geregelten Lebens nahe zu bringen. Auch
-  Thorwaler Traviageweihte segnen Reisende auf der grossen Fahrt, sodass sie wohlbehalten
-  zurueckkehren moegen. '
-voraussetzungen: Vorteil Tradition der Traviageweihten I

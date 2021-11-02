@@ -1,0 +1,22 @@
+attribute:
+- IN
+- KL
+- KL
+name: Hellsicht
+printclass: 0
+steigerungsfaktor: 3
+text: 'Die Hellsicht kann deine Sinne verstaerken oder erweitern, sodass du magische
+  Kraefte, Waerme oder Gefuehle wahrnehmen kannst. Hellseher sind auch Experten fuer
+  die Analyse von Zaubern und Artefakten. '
+voraussetzungen:
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I
+- Vorteil Tradition der Schelme I
+- Vorteil Tradition der Scharlatane I
+- Vorteil Magiedilettant

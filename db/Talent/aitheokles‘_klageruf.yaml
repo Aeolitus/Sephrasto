@@ -1,7 +1,8 @@
-fertigkeiten: Seefahrt
-kosten: '40'
+fertigkeiten:
+- Seefahrt
+kosten: 40
 name: "Aitheokles\u2018 Klageruf"
-printclass: '25'
+printclass: 25
 text: 'Du loeschst ein Feuer bis zur Groesse eines grossen Lagerfeuers.
 
   Maechtige Liturgie: Du kannst ein Feuer bis zur Groesse eines Scheiterhaufens/brennenden
@@ -31,6 +32,7 @@ text: 'Du loeschst ein Feuer bis zur Groesse eines grossen Lagerfeuers.
   Anmerkung: Alternativ wirkt die Liturgie wie Antimagie gegen Feuerzauber (S. 126).
   Die Randbedingungen entsprechen den dort angegebenen, ausser dass die Kosten mit
   KaP bezahlt werden und die Liturgie um +4 erleichtert ist.'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Efferdgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Efferdgeweihten I

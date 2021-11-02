@@ -7,8 +7,12 @@ text: 'Verdoppelt die Vorbereitungszeit, aber erleichtert den Zauber um +2. Eine
 
   Voraussetzung: Tradition der Alchemisten, Elfen, Geoden, Gildenmagier, Kristallomanten,
   Scharlatane oder Zauberbarden (jeweils) III und Verwendung dieser Tradition.'
-typ: '2'
-voraussetzungen: Vorteil Tradition der Alchemisten III ODER Vorteil Tradition der
-  Elfen III ODER Vorteil Tradition der Geoden III ODER Vorteil Tradition der Gildenmagier
-  III ODER Vorteil Tradition der Kristallomanten III ODER Vorteil Tradition der Scharlatane
-  III ODER Vorteil Tradition der Zauberbarden III
+typ: 2
+voraussetzungen:
+- Vorteil Tradition der Alchemisten III
+- Vorteil Tradition der Elfen III
+- Vorteil Tradition der Geoden III
+- Vorteil Tradition der Gildenmagier III
+- Vorteil Tradition der Kristallomanten III
+- Vorteil Tradition der Scharlatane III
+- Vorteil Tradition der Zauberbarden III

@@ -1,7 +1,10 @@
-fertigkeiten: Daemonisch, Feuer, Verwandlung
-kosten: '40'
+fertigkeiten:
+- Daemonisch
+- Feuer
+- Verwandlung
+kosten: 40
 name: Brenne toter Stoff!
-printclass: '0'
+printclass: 0
 text: "Du entzuendest ein magisches Feuer, das 2W6 SP pro Initiativephase auf einem\
   \ unbelebten Ziel anrichtet. Das Feuer brennt auf brennbaren Materialien auch nach\
   \ dem Ende der Wirkungsdauer weiter.\nMaechtige Magie: Je zwei Stufen erhoehen die\
@@ -10,9 +13,13 @@ text: "Du entzuendest ein magisches Feuer, das 2W6 SP pro Initiativephase auf ei
   \ 1 Aktion\nZiel: Einzelobjekt\nReichweite: Beruehrung\nWirkungsdauer: 8 Initiativphasen\n\
   Kosten: 8 AsP\nFertigkeiten: Daemonisch (nicht in Geo, Mag, Srl), Feuer, Verwandlung\n\
   Erlernen: Bor 12; Alch, Geo 14; Ach, Mag 18; Srl 20; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Geoden I ODER Vorteil
-  Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil
-  Tradition der Scharlatane I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Kristallomanten I
+- Vorteil Tradition der Scharlatane I

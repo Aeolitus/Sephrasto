@@ -1,5 +1,5 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 nachkauf: haeufig
 name: Verbotene Pforten
 text: "Mit diesem Vorteil kannst du deine Zauber mit deiner Lebenskraft speisen. Wenn\
@@ -10,7 +10,8 @@ text: "Mit diesem Vorteil kannst du deine Zauber mit deiner Lebenskraft speisen.
   \ niemals genutzt werden, um sich selbst zu heilen. Die Verbotenen Pforten koennen\
   \ uebrigens keine gAsP zur Verfuegung stellen \u2013 gAsP muessen immer vom Zaubernden\
   \ selbst stammen."
-typ: '4'
-variable: '0'
-voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut
-  KO 6
+typ: 4
+variable: 0
+voraussetzungen:
+- Vorteil Zauberer I
+- Vorteil Tradition der Borbaradianer I, Attribut KO 6

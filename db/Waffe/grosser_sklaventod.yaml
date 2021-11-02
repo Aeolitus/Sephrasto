@@ -1,11 +1,14 @@
-W6: '3'
+W6: 3
 fertigkeit: Klingenwaffen
-fk: '0'
-haerte: '8'
-kampfstile: Reiterkampf, Kraftvoller Kampf, Schneller Kampf
+fk: 0
+haerte: 8
+kampfstile:
+- Reiterkampf
+- Kraftvoller Kampf
+- Schneller Kampf
 name: Grosser Sklaventod
-plus: '1'
-rw: '2'
+plus: 1
+rw: 2
 talent: Zweihandklingenwaffen
 text: Kopflastig, Schwer (4), Zweihaendig
-wm: '-1'
+wm: -1

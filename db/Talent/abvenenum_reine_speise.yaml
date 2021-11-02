@@ -1,7 +1,8 @@
-fertigkeiten: Verwandlung
-kosten: '40'
+fertigkeiten:
+- Verwandlung
+kosten: 40
 name: Abvenenum reine Speise
-printclass: '0'
+printclass: 0
 text: "Du reinigst eine Mahlzeit fuer 10 Personen von Verfallserscheinungen, Giften\
   \ und Krankheitserregern, bis zu einer Gift-/Krankheitsstufe von 20. Der Geschmack\
   \ aendert sich nicht.\nMaechtige Magie: Die maximal aufgehobene Gift-/Krankheitsstufe\
@@ -11,10 +12,15 @@ text: "Du reinigst eine Mahlzeit fuer 10 Personen von Verfallserscheinungen, Gif
   \ was dem Essen hinzugefuegt wird.)\nVorbereitungszeit: 8 Aktionen\nZiel: Einzelobjekte\n\
   Reichweite: 2 Schritt\nWirkungsdauer: augenblicklich\nKosten: 4 AsP\nFertigkeiten:\
   \ Verwandlung\nErlernen: Dru, Elf, Hex, Mag 12; Alch, Geo 14; Ach, Sch 16; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition
-  der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition
-  der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I
+- Vorteil Tradition der Schelme I

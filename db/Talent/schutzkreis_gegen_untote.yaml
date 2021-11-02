@@ -1,7 +1,9 @@
-fertigkeiten: Antimagie, Daemonisch
-kosten: '20'
+fertigkeiten:
+- Antimagie
+- Daemonisch
+kosten: 20
 name: Schutzkreis gegen Untote
-printclass: '0'
+printclass: 0
 text: 'Du ziehst einen Kreis von maximal 4 Schritt Radius. Liegt die Beschwoerungsschwierigkeit
   eines Untoten bei maximal 20, kann er die Zone nicht betreten. Wirkt auch gegen
   Geister, wobei der Spielleiter entscheidet, ob die Staerke des Kreises ausreicht.
@@ -29,8 +31,11 @@ text: 'Du ziehst einen Kreis von maximal 4 Schritt Radius. Liegt die Beschwoerun
   Fertigkeiten: Antimagie, Daemonisch
 
   Erlernen: Ach 18; Alch, Bor, Mag 20; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I
-  ODER Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Kristallomanten I

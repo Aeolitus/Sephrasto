@@ -1,7 +1,8 @@
-fertigkeiten: Einfluss
-kosten: '40'
+fertigkeiten:
+- Einfluss
+kosten: 40
 name: Respondami Wahrheitszwang
-printclass: '0'
+printclass: 0
 text: 'Das Ziel muss eine Ja/Nein-Frage wahrheitsgemaess beantworten. Ist die Frage
   nicht mit Ja oder Nein zu beantworten, erleidet es 1W6 SP.
 
@@ -22,9 +23,13 @@ text: 'Das Ziel muss eine Ja/Nein-Frage wahrheitsgemaess beantworten. Ist die Fr
   Fertigkeiten: Einfluss
 
   Erlernen: Dru, Geo, Mag 14; Elf, Hex 16; Alch 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition
-  der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I

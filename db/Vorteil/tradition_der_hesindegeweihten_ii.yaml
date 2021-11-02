@@ -1,12 +1,13 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Tradition der Hesindegeweihten I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Tradition der Hesindegeweihten II
 text: Hesindegeweihte koennen auch mit mehrfach veraenderten Liturgien gut umgehen.
   Wird eine Liturgie mit mindestens zwei unterschiedlichen Basismodifikationen gewirkt,
   ist sie zusaetzlich um +2 erleichtert.
-typ: '7'
-variable: '0'
-voraussetzungen: Attribut KL 6, Vorteil Tradition der Hesindegeweihten I
+typ: 7
+variable: 0
+voraussetzungen:
+- Attribut KL 6, Vorteil Tradition der Hesindegeweihten I

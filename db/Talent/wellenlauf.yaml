@@ -1,7 +1,9 @@
-fertigkeiten: Eigenschaften, Wasser
-kosten: '20'
+fertigkeiten:
+- Eigenschaften
+- Wasser
+kosten: 20
 name: Wellenlauf
-printclass: '0'
+printclass: 0
 text: "Wasser ist fuer dich ein fester Untergrund. Du erleidest keine Abzuege durch\
   \ unguenstige Position und wirst nicht durch Wellen und Stroemungen beeinflusst.\
   \ Erlaubt Aufrechterhalten.\nProbenschwierigkeit: 12\nModifikationen: Sinken (\u2013\
@@ -11,8 +13,12 @@ text: "Wasser ist fuer dich ein fester Untergrund. Du erleidest keine Abzuege du
   \ Klettern-Proben anfallen.)\nVorbereitungszeit: 2 Aktionen\nZiel: selbst\nReichweite:\
   \ Beruehrung\nWirkungsdauer: 4 Minuten\nKosten: 4 AsP\nFertigkeiten: Eigenschaften,\
   \ Wasser\nErlernen: Dru, Geo 12; Elf 14; Ach, Mag 20; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition
-  der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Kristallomanten I

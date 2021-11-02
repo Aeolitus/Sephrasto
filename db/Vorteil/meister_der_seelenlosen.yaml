@@ -1,13 +1,14 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Beschwoerungen
-linkKategorie: '1'
+linkKategorie: 1
 nachkauf: haeufig
 name: Meister der Seelenlosen
 text: Wann immer ein gebundenes unheiliges Wesen (S. 81) seinen Dienst erfuellt hat,
   kannst du fuer die Haelfte der Basisbeschwoerungskosten einen zusaetzlichen Dienst
   erbitten.
-typ: '4'
-variable: '0'
-voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut
-  MU 6
+typ: 4
+variable: 0
+voraussetzungen:
+- Vorteil Zauberer I
+- Vorteil Tradition der Borbaradianer I, Attribut MU 6

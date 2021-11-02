@@ -1,8 +1,9 @@
-fertigkeiten: Gaben des Odun
-kommentar: '0'
-kosten: '40'
+fertigkeiten:
+- Gaben des Odun
+kommentar: 0
+kosten: 40
 name: Standfest Katzengleich (Tiergeist)
-printclass: '0'
+printclass: 0
 text: 'Deine Geschicklichkeit erhoeht sich. Alle Proben, um auf den Beinen zu bleiben,
   sind um +4 erleichtert und deine Patzerchance im Kampf sinkt um 1 auf dem W20.
 
@@ -19,8 +20,12 @@ text: 'Deine Geschicklichkeit erhoeht sich. Alle Proben, um auf den Beinen zu bl
   Wirkungsdauer: 16 Initiativphasen
 
   Kosten: 4 AsP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Baer) ODER Vorteil Tiergeist (Gebirgsbock) ODER
-  Vorteil Tiergeist (Loewe) ODER Vorteil Tiergeist (Stier) ODER Vorteil Tiergeist
-  (Wildkatze/Panther) ODER Vorteil Tiergeist (Wildschwein)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Baer)
+- Vorteil Tiergeist (Gebirgsbock)
+- Vorteil Tiergeist (Loewe)
+- Vorteil Tiergeist (Stier)
+- Vorteil Tiergeist (Wildkatze/Panther)
+- Vorteil Tiergeist (Wildschwein)

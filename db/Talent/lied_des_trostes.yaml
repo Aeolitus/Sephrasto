@@ -1,7 +1,10 @@
-fertigkeiten: Eigenschaften, Einfluss, Elfenlieder
-kosten: '20'
+fertigkeiten:
+- Eigenschaften
+- Einfluss
+- Elfenlieder
+kosten: 20
 name: Lied des Trostes
-printclass: '2'
+printclass: 2
 text: 'Dein Lied hilft dem Ziel, erlebte Schicksalsschlaege zu verkraften und neuen
   Lebensmut zu fassen.
 
@@ -22,6 +25,7 @@ text: 'Dein Lied hilft dem Ziel, erlebte Schicksalsschlaege zu verkraften und ne
   Erlernen: Elf 8; 20 EP
 
   Anmerkung: Wiederholte Anwendung kann helfen, eine entsprechende Eigenheit zu veraendern.'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Elfen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Elfen I

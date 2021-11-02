@@ -1,8 +1,10 @@
-fertigkeiten: Verwandlung, Gaben des Blutgeists
-kommentar: '0'
-kosten: '60'
+fertigkeiten:
+- Verwandlung
+- Gaben des Blutgeists
+kommentar: 0
+kosten: 60
 name: Blutgeist aufnehmen
-printclass: '3'
+printclass: 3
 text: "Du verzehrst das frische Herz eines Tieres, um den Blutgeist des Tieres aufzunehmen.\
   \ Damit beginnt die Besessenheit, die drei Effekte hat: Erstens kannst du die Zauber\
   \ Staerke des Blutgeists und Koerper des Blutgeists nutzen. Diese Zauber beziehen\
@@ -21,6 +23,7 @@ text: "Du verzehrst das frische Herz eines Tieres, um den Blutgeist des Tieres a
   \ Tiergeist-Vorteile abgebildet, waehle einen davon aus. Dies schaltet alle Zauber\
   \ des Tiergeists kostenlos ueber die Fertigkeit Gaben des Blutgeists frei - setze\
   \ bei allen einen Haken."
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Anach-Nurim I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Anach-Nurim I

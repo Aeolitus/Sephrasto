@@ -1,7 +1,8 @@
-fertigkeiten: Eis
-kosten: '60'
+fertigkeiten:
+- Eis
+kosten: 60
 name: Herbeirufung des Eises
-printclass: '0'
+printclass: 0
 text: 'Ruft ein Elementarwesen des jeweiligen Elements herbei (mehr zu Herbeirufungen
   S. 81), das in deiner unmittelbaren Naehe erscheint.
 
@@ -21,8 +22,10 @@ text: 'Ruft ein Elementarwesen des jeweiligen Elements herbei (mehr zu Herbeiruf
 
   Anmerkung: Nicht ueberall sind die Wahren Namen und damit die Beschwoerung von elementaren
   Dienern und vor allem Meistern bekannt. '
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden
-  I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten
-  I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Kristallomanten I

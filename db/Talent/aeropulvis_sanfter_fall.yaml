@@ -1,7 +1,8 @@
-fertigkeiten: Luft
-kosten: '40'
+fertigkeiten:
+- Luft
+kosten: 40
 name: Aeropulvis sanfter Fall
-printclass: '0'
+printclass: 0
 text: 'Halbiert die effektive Hoehe eines Sturzes oder Sprunges (kumulativ zur Akrobatik-Probe).
 
   Probenschwierigkeit: 12
@@ -19,7 +20,10 @@ text: 'Halbiert die effektive Hoehe eines Sturzes oder Sprunges (kumulativ zur A
   Fertigkeiten: Luft
 
   Erlernen: Geo 16; Elf 18; Mag 20; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I

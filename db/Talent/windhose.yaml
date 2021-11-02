@@ -1,7 +1,9 @@
-fertigkeiten: Luft, Umwelt
-kosten: '40'
+fertigkeiten:
+- Luft
+- Umwelt
+kosten: 40
 name: Windhose
-printclass: '0'
+printclass: 0
 text: "Du erzeugst einen Wirbelsturm, den du mit einer Geschwindigkeit von 4 Schritt\
   \ pro Initiativephase bewegen kannst. Der Wirbelsturm hat einen Radius von 2 Schritt.\
   \ Wer immer ihn beruehrt, erleidet pro Initiativephase 1W6 TP durch umherfliegende\
@@ -14,7 +16,10 @@ text: "Du erzeugst einen Wirbelsturm, den du mit einer Geschwindigkeit von 4 Sch
   \ um 4 Schritt pro Initiativephase. Mehrfach waehlbar.)\nVorbereitungszeit: 8 Aktionen\n\
   Ziel: Zone\nReichweite: 64 Schritt\nWirkungsdauer: 16 Initiativphasen\nKosten: 16\
   \ AsP\nFertigkeiten: Luft, Umwelt\nErlernen: Dru 14; Geo 16; Mag 20; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I

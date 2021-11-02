@@ -1,7 +1,9 @@
-fertigkeiten: Froehlicher Wanderer, Harmonie
-kosten: '20'
+fertigkeiten:
+- Froehlicher Wanderer
+- Harmonie
+kosten: 20
 name: Tharvuns Schwingen
-printclass: '43'
+printclass: 43
 text: "Das gesegnete Pferd ist unaufhaltsam wie der goettliche Hengst. Seine GS erhoeht\
   \ sich um +4 und es verfuegt ueber ein unendliches DH (S. 34). Alle Versuche, es\
   \ in seiner Bewegung einzuschraenken (etwa ueber Reiten, KK oder einen Corpofrigo)\
@@ -9,7 +11,8 @@ text: "Das gesegnete Pferd ist unaufhaltsam wie der goettliche Hengst. Seine GS 
   \ um \u20132.\nProbenschwierigkeit: 12\nVorbereitungszeit: 1 Aktion\nZiel: Tier\n\
   Reichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 4 KaP\nFertigkeiten: Froehlicher\
   \ Wanderer, Harmonie\nErlernen: Aves, Rah 16; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
-  Rahjageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Avesgeweihten I
+- Vorteil Tradition der Rahjageweihten I

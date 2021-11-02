@@ -1,12 +1,13 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Konzentration (voll)
-linkKategorie: '1'
+linkKategorie: 1
 nachkauf: haeufig
 name: Flexible Magie
 text: Waehrend du einen Zauber vorbereitest, kannst du dich mit einer Erschwernis
   von -4 verteidigen.
-typ: '4'
-variable: '0'
-voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut
-  IN 6
+typ: 4
+variable: 0
+voraussetzungen:
+- Vorteil Zauberer I
+- Vorteil Tradition der Borbaradianer I, Attribut IN 6

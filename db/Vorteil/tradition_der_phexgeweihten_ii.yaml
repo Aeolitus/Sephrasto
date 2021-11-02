@@ -1,12 +1,13 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Tradition der Phexgeweihten I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Tradition der Phexgeweihten II
 text: Phexgeweihte vertrauen auf ihr Koennen, aber manchmal auch auf ihr Glueck. Statt
   mit 3W20 kannst du Proben beim Wirken von Liturgien auch mit 1W20 ablegen. Dadurch
   verbessern sich deine Chancen bei besonders gewagten Liturgien.
-typ: '7'
-variable: '0'
-voraussetzungen: Attribut IN 6, Vorteil Tradition der Phexgeweihten I
+typ: 7
+variable: 0
+voraussetzungen:
+- Attribut IN 6, Vorteil Tradition der Phexgeweihten I

@@ -31,5 +31,6 @@ text: 'Fernkampfangriffe (FK) fuehrst du in drei Schritten aus:
   aufwenden und eine Schild-VT (28, I) oder eine Akrobatik-Probe (28, I) ablegen.
   Befindest du dich im Kontrollbereich deines Ziels, genuegt ihm eine Freie Reaktion,
   um deine Waffe beiseite zu schlagen.'
-typ: '1'
-voraussetzungen: ''
+typ: 1
+voraussetzungen:
+- ''

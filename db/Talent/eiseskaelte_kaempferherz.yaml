@@ -1,7 +1,8 @@
-fertigkeiten: Eigenschaften
-kosten: '40'
+fertigkeiten:
+- Eigenschaften
+kosten: 40
 name: Eiseskaelte Kaempferherz
-printclass: '0'
+printclass: 0
 text: 'Das Ziel empfindet keinerlei Schmerzen mehr. Es erhaelt den Vorteil Kalte Wut
   (S. 43). Proben zum Ignorieren von Wundschmerz sind um +4 erleichtert.
 
@@ -22,7 +23,9 @@ text: 'Das Ziel empfindet keinerlei Schmerzen mehr. Es erhaelt den Vorteil Kalte
   Fertigkeiten: Eigenschaften
 
   Erlernen: Ach, Elf 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Kristallomanten I

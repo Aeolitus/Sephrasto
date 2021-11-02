@@ -1,7 +1,8 @@
-fertigkeiten: Hellsicht
-kosten: '40'
+fertigkeiten:
+- Hellsicht
+kosten: 40
 name: Seelentier erkennen
-printclass: '0'
+printclass: 0
 text: 'Du erkennst das Seelentier deines Zieles. Wenn dir das Tier und seine assoziierten
   Eigenschaften bekannt sind, erleichtert dir das alle kuenftigen gesellschaftlichen
   Proben dem Ziel gegenueber um +2.
@@ -21,7 +22,9 @@ text: 'Du erkennst das Seelentier deines Zieles. Wenn dir das Tier und seine ass
   Fertigkeiten: Hellsicht
 
   Erlernen: Hex, Sch 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Hexen I ODER Vorteil
-  Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Schelme I

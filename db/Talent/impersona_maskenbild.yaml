@@ -1,7 +1,8 @@
-fertigkeiten: Illusion
-kosten: '40'
+fertigkeiten:
+- Illusion
+kosten: 40
 name: Impersona Maskenbild
-printclass: '0'
+printclass: 0
 text: "Durch eine Illusion (Sicht) erscheint dein Gesicht und dein Haar wie das einer\
   \ anderen Person. Du kannst nur Ziele kopieren, die du sehr gut kennst.\nMaechtige\
   \ Magie: Es reicht, wenn dir das Ziel persoenlich bekannt ist/du es eine Weile beobachtet\
@@ -12,7 +13,9 @@ text: "Durch eine Illusion (Sicht) erscheint dein Gesicht und dein Haar wie das 
   \ als Karikatur erkennbar.)\nVorbereitungszeit: 4 Minuten\nZiel: selbst\nReichweite:\
   \ Beruehrung\nWirkungsdauer: 4 Stunden\nKosten: 8 AsP\nFertigkeiten: Illusion\n\
   Erlernen: Mag, Srl 16; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I
-  ODER Vorteil Tradition der Scharlatane I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Scharlatane I

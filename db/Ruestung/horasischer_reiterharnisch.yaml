@@ -1,10 +1,10 @@
 name: Horasischer Reiterharnisch
-rsBauch: '5'
-rsBeine: '3'
-rsBrust: '5'
-rsKopf: '3'
-rsLArm: '4'
-rsRArm: '4'
-system: '0'
+rsBauch: 5
+rsBeine: 3
+rsBrust: 5
+rsKopf: 3
+rsLArm: 4
+rsRArm: 4
+system: 0
 text: Komplettruestung, kann nicht ergaenzt werden.
-typ: '4'
+typ: 4

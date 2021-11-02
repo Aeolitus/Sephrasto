@@ -1,9 +1,10 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Parierwaffenkampf I
 text: "Bedingungen: Parierwaffe, nicht beritten.\n\nDu kannst gegen humanoide Gegner\
   \ \u20131 Erschwernis aus Manoevern ignorieren."
-typ: '3'
-variable: '0'
-voraussetzungen: Attribut GE 4
+typ: 3
+variable: 0
+voraussetzungen:
+- Attribut GE 4

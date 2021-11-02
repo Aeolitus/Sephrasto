@@ -1,5 +1,5 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Tradition der Schamanen I
 text: 'Bedingungen: Sichtkontakt, Geste oder Tanz, gesprochene oder gesungene Formel.
@@ -12,6 +12,7 @@ text: 'Bedingungen: Sichtkontakt, Geste oder Tanz, gesprochene oder gesungene Fo
 
   Veraergert der Nutzniesser eines positiven schamanischen Zaubers den entsprechenden
   Geist, endet der Zauber sofort (Spielleiterentscheid).'
-typ: '5'
-variable: '0'
-voraussetzungen: Attribut IN 4, Vorteil Zauberer I
+typ: 5
+variable: 0
+voraussetzungen:
+- Attribut IN 4, Vorteil Zauberer I

@@ -1,7 +1,8 @@
-fertigkeiten: Heilung
-kosten: '40'
+fertigkeiten:
+- Heilung
+kosten: 40
 name: Kleiner Giftbann
-printclass: '35'
+printclass: 35
 text: 'Beendet die Wirkung eines Giftes bis maximal Stufe 20.
 
   Maechtige Liturgie: Die maximal aufgehobene Giftstufe steigt um 4.
@@ -21,6 +22,7 @@ text: 'Beendet die Wirkung eines Giftes bis maximal Stufe 20.
   Fertigkeiten: Heilung
 
   Erlernen: Per 16; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Perainegeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Perainegeweihten I

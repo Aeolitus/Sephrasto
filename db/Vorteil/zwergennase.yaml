@@ -1,11 +1,12 @@
-kommentar: '0'
-kosten: '60'
+kommentar: 0
+kosten: 60
 nachkauf: extrem selten
 name: Zwergennase
 text: Mit der Gabe der Zwergennase besitzt du einen uebernatuerlichen Riecher fuer
   Verstecke, Geheimgaenge und mechanische Fallen. Du kannst sie mit dem Talent Wachsamkeit
   wahrnehmen, auch wenn das mit gewoehnlichen Sinnen unmoeglich waere. Ist das Objekt
   auch mit gewoehnlichen Sinnen wahrnehmbar, erhaeltst du eine Erleichterung von +4.
-typ: '0'
-variable: '0'
-voraussetzungen: ''
+typ: 0
+variable: 0
+voraussetzungen:
+- ''

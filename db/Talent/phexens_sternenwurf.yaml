@@ -1,7 +1,8 @@
-fertigkeiten: Abu al'Mada
-kosten: '60'
+fertigkeiten:
+- Abu al'Mada
+kosten: 60
 name: Phexens Sternenwurf
-printclass: '37'
+printclass: 37
 text: 'Du rufst einen der Wurfsterne des Phex herbei. Dieser erleichtert die Fernkampfprobe
   um +4, richtet 2W20 TP an und verschwindet nach dem Wurf.
 
@@ -22,6 +23,7 @@ text: 'Du rufst einen der Wurfsterne des Phex herbei. Dieser erleichtert die Fer
   Fertigkeiten: Abu al''Mada
 
   Erlernen: Phe 18; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Phexgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Phexgeweihten I

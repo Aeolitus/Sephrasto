@@ -1,7 +1,9 @@
-fertigkeiten: Stiller Wanderer, Fluesse und Quellen
-kosten: '20'
+fertigkeiten:
+- Stiller Wanderer
+- Fluesse und Quellen
+kosten: 20
 name: Hashnabiths Flehen
-printclass: '24'
+printclass: 24
 text: "Du findest den kuerzesten begehbaren Weg zur naechsten Wasserquelle.\nProbenschwierigkeit:\
   \ 12\nModifikationen: Quellsegen (\u20134, Zone; verdoppelt die Wassermenge einer\
   \ Quelle.)\nAzilas Quellgesang (\u20138, 16 KaP, Zone; aus dem Boden stroemt ausreichend\
@@ -9,7 +11,8 @@ text: "Du findest den kuerzesten begehbaren Weg zur naechsten Wasserquelle.\nPro
   \ 4 Minuten\nZiel: selbst\nReichweite: Beruehrung\nWirkungsdauer: 8 Stunden\nKosten:\
   \ 4 KaP\nFertigkeiten: Stiller Wanderer, Fluesse und Quellen\nErlernen: Eff 16;\
   \ Aves 18; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
-  Efferdgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Avesgeweihten I
+- Vorteil Tradition der Efferdgeweihten I

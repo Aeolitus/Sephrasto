@@ -6,5 +6,6 @@ text: "Du fuehrst mit beiden Haenden je eine Attacke \u20134 aus. Beide Angriffe
   \ verschiedene Ziele richten und mit unterschiedlichen Manoevern versehen werden.\n\
   Voraussetzungen: Kampf im Beidhaendigen Stil; kein Doppelangriff seit letztem Beginn\
   \ einer eigenen Initiativephase"
-typ: '0'
-voraussetzungen: Vorteil Beidhaendiger Kampf III
+typ: 0
+voraussetzungen:
+- Vorteil Beidhaendiger Kampf III

@@ -1,7 +1,10 @@
-fertigkeiten: Luft, Umwelt, Wasser
-kosten: '40'
+fertigkeiten:
+- Luft
+- Umwelt
+- Wasser
+kosten: 40
 name: Nebelwand und Morgendunst
-printclass: '0'
+printclass: 0
 text: "Du erzeugst eine nahezu undurchsichtige Nebelwolke mit etwa 8 Schritt Radius\
   \ und beliebiger, auch komplizierter, Form. Wind beeinflusst die Wolke nicht.\n\
   Maechtige Magie: Verdoppelt den Radius.\nProbenschwierigkeit: 12\nModifikationen:\
@@ -12,9 +15,14 @@ text: "Du erzeugst eine nahezu undurchsichtige Nebelwolke mit etwa 8 Schritt Rad
   \ bewegt sich mit dir.)\nVorbereitungszeit: 2 Aktionen\nZiel: Zone\nReichweite:\
   \ 8 Schritt\nWirkungsdauer: 2 Stunden\nKosten: 8 AsP\nFertigkeiten: Luft, Umwelt,\
   \ Wasser\nErlernen: Elf 12; Ach, Dru, Geo, Srl16; Mag, Hex 20; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition
-  der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der
-  Kristallomanten I ODER Vorteil Tradition der Scharlatane I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I
+- Vorteil Tradition der Scharlatane I

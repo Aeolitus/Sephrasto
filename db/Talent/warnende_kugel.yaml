@@ -1,7 +1,9 @@
-fertigkeiten: Hellsicht, Kugelzauber
-kosten: '40'
+fertigkeiten:
+- Hellsicht
+- Kugelzauber
+kosten: 40
 name: Warnende Kugel
-printclass: '12'
+printclass: 12
 text: 'Die Kugel leuchtet auf, falls sich eine feindlich gesinnte Person in weniger
   als 16 Schritt Entfernung befindet und ihr eine Konterprobe (MR, 12) misslingt.
 
@@ -20,7 +22,8 @@ text: 'Die Kugel leuchtet auf, falls sich eine feindlich gesinnte Person in weni
   Fertigkeiten: Hellsicht, Kugelzauber
 
   Erlernen: Srl 14; Mag 20; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane
-  I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Scharlatane I

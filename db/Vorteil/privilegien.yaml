@@ -1,18 +1,23 @@
 csBeschreibung: Dein Privileg kann spielrelevante Vorteile je nach EP-Wert bringen.
-kommentar: '1'
-kosten: '20'
+kommentar: 1
+kosten: 20
 nachkauf: selten
 name: Privilegien
-text: "Unzaehlige Privilegien koennen die Leben ihrer Traeger erleichtern, weswegen\
-  \ wir auch nicht jedes einzelne Privileg in Werte kleiden moechten.\n\nDie Kosten\
-  \ eines Privilegs legt der Spielleiter fest, wobei er sich an der Spielrelevanz\
-  \ und dem Geltungsbereich der Privilegien orientieren sollte. Zum Beispiel bringt\
-  \ ein eigenes Wappen keine spielrelevanten Vorteile - ganz im Gegensatz zu der Erlaubnis,\
-  \ in Staedten Waffen zu tragen. Doch auch diese Erlaubnis verliert an Wert, wenn\
-  \ sie nur in Albenhus oder  am Markttag gilt. \n\nSephrasto: Waehle am besten direkt\
-  \ den separaten Vorteil Privilegien (Adel, Krieger oder Gildenmagier). Falls du\
-  \ andere Privilegien moechtest, dann waehle diesen Vorteil und trage diese in das\
-  \ Kommentarfeld ein."
-typ: '0'
-variable: '1'
-voraussetzungen: ''
+text: 'Unzaehlige Privilegien koennen die Leben ihrer Traeger erleichtern, weswegen
+  wir auch nicht jedes einzelne Privileg in Werte kleiden moechten.
+
+
+  Die Kosten eines Privilegs legt der Spielleiter fest, wobei er sich an der Spielrelevanz
+  und dem Geltungsbereich der Privilegien orientieren sollte. Zum Beispiel bringt
+  ein eigenes Wappen keine spielrelevanten Vorteile - ganz im Gegensatz zu der Erlaubnis,
+  in Staedten Waffen zu tragen. Doch auch diese Erlaubnis verliert an Wert, wenn sie
+  nur in Albenhus oder  am Markttag gilt.
+
+
+  Sephrasto: Waehle am besten direkt den separaten Vorteil Privilegien (Adel, Krieger
+  oder Gildenmagier). Falls du andere Privilegien moechtest, dann waehle diesen Vorteil
+  und trage diese in das Kommentarfeld ein.'
+typ: 0
+variable: 1
+voraussetzungen:
+- ''

@@ -1,12 +1,14 @@
-fertigkeiten: Licht
-kosten: '40'
+fertigkeiten:
+- Licht
+kosten: 40
 name: Goldene Ruestung
-printclass: '40'
+printclass: 40
 text: "Du huellst dich in eine Aureole gleissenden Lichts, das deine Gegner blendet.\
   \ Saemtliche Nah- und Fernkampfangriffe und alle Zauber auf dich sind um \u2013\
   2 erschwert.\nMaechtige Liturgie: Erhoeht den Malus um \u20131.\nProbenschwierigkeit:\
   \ 12\nZiel: selbst\nReichweite: Beruehrung\nVorbereitungszeit: 2 Aktionen\nWirkungsdauer:\
   \ 4 Minuten\nKosten: 8 KaP\nFertigkeiten: Licht\nErlernen: Pra 12; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Praiosgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Praiosgeweihten I

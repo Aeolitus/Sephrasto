@@ -1,7 +1,9 @@
-fertigkeiten: Humus, Verwandlung
-kosten: '20'
+fertigkeiten:
+- Humus
+- Verwandlung
+kosten: 20
 name: Tiere besprechen
-printclass: '0'
+printclass: 0
 text: 'Dein Ziel erhaelt 4W6+8 Heilpunkte, fuer jede Ueberschreitung der WS wird eine
   Wunde geheilt.
 
@@ -28,7 +30,10 @@ text: 'Dein Ziel erhaelt 4W6+8 Heilpunkte, fuer jede Ueberschreitung der WS wird
   Fertigkeiten: Humus, Verwandlung
 
   Erlernen: Hex 12; Dru, Geo 20; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Hexen I

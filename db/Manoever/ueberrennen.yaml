@@ -8,5 +8,6 @@ text: 'Das Reittier stuermt in die gegnerische Formation. Seine Attacke trifft (
 
   Voraussetzungen: Kampf im Reiterkampfstil; GS Schritt Anlauf; Ziele sind in einer
   kleineren Groessenklasse als das Reittier'
-typ: '0'
-voraussetzungen: Vorteil Reiterkampf III
+typ: 0
+voraussetzungen:
+- Vorteil Reiterkampf III

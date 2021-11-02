@@ -1,8 +1,9 @@
-fertigkeiten: Gaben des Odun
-kommentar: '0'
-kosten: '40'
+fertigkeiten:
+- Gaben des Odun
+kommentar: 0
+kosten: 40
 name: Nekropathia Seelenreise (Tiergeist)
-printclass: '0'
+printclass: 0
 text: 'Du nimmst Kontakt mit einer Seele in Borons Hallen auf. Du kannst mit ihr sprechen,
   doch es bleibt ihr ueberlassen, ob und wie sie antwortet. Der Tod der Person darf
   maximal 1 Jahr zurueckliegen und du benoetigst einen persoenlichen Gegenstand.
@@ -20,6 +21,7 @@ text: 'Du nimmst Kontakt mit einer Seele in Borons Hallen auf. Du kannst mit ihr
   Wirkungsdauer: 1 Stunde
 
   Kosten: 8 AsP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Rabe)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Rabe)

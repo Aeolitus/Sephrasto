@@ -10,9 +10,14 @@ text: "Objektrituale sind Talente, die sich immer auf ein bestimmtes Objekt \u20
   \ durch maechtigste Antimagie oder liturgisches Wirken moeglich ist. Zuletzt gilt,\
   \ dass du niemals zwei Objekte der gleichen Kategorie (zwei Zauberstaebe, Vertrautentiere)\
   \ an dich binden kannst."
-typ: '4'
-voraussetzungen: Talent Bannschwert ODER Uebernatuerliche-Fertigkeit 'Dolchzauber'
-  -1 ODER Uebernatuerliche-Fertigkeit 'Elfenlieder' -1 ODER Uebernatuerliche-Fertigkeit
-  'Keulenrituale' -1 ODER Uebernatuerliche-Fertigkeit 'Kristallmagie' -1 ODER Uebernatuerliche-Fertigkeit
-  'Kugelzauber' -1 ODER Uebernatuerliche-Fertigkeit 'Ringrituale' -1 ODER Uebernatuerliche-Fertigkeit
-  'Schalenzauber' -1 ODER Uebernatuerliche-Fertigkeit 'Stabzauber' -1
+typ: 4
+voraussetzungen:
+- Talent Bannschwert
+- Uebernatuerliche-Fertigkeit 'Dolchzauber' -1
+- Uebernatuerliche-Fertigkeit 'Elfenlieder' -1
+- Uebernatuerliche-Fertigkeit 'Keulenrituale' -1
+- Uebernatuerliche-Fertigkeit 'Kristallmagie' -1
+- Uebernatuerliche-Fertigkeit 'Kugelzauber' -1
+- Uebernatuerliche-Fertigkeit 'Ringrituale' -1
+- Uebernatuerliche-Fertigkeit 'Schalenzauber' -1
+- Uebernatuerliche-Fertigkeit 'Stabzauber' -1

@@ -1,5 +1,5 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: selten
 name: Privilegien (Gildenmagier)
 text: "Du darfst Geld fuer magische Dienstleistungen verlangen und hast erleichterten\
@@ -10,6 +10,7 @@ text: "Du darfst Geld fuer magische Dienstleistungen verlangen und hast erleicht
   \ alle Ruestungen mit einem RS von mehr als 1 sind verboten. Diese Privilegien gelten\
   \ im Einflussgebiet des Codex Albyricus, wie im Mittel\xAD und Horasreich, dem Bornland,\
   \ im Kalifat und in Aranien, sowie eingeschraenkt in Suedaventurien."
-typ: '0'
-variable: '0'
-voraussetzungen: Vorteil Zauberer I, Vorteil Tradition der Gildenmagier I
+typ: 0
+variable: 0
+voraussetzungen:
+- Vorteil Zauberer I, Vorteil Tradition der Gildenmagier I

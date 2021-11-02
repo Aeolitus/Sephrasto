@@ -1,14 +1,17 @@
-fertigkeiten: Gaben des Blutgeists
-kommentar: '0'
-kosten: '0'
+fertigkeiten:
+- Gaben des Blutgeists
+kommentar: 0
+kosten: 0
 name: Wipfellauf (Blutgeist)
-printclass: '0'
+printclass: 0
 text: "Du kannst dich durch Baumkronen und Unterholz bewegen, als waeren sie eine\
   \ normale Strasse. Unter diesen Bedingungen erleidest du keinerlei Erschwernisse\
   \ oder Geschwindigkeitsabzuege.\nProbenschwierigkeit: 12\nModifikationen: Kopfueber\
   \ (\u20138; du kannst selbst kopfueber an Baeumen laufen.)\nVorbereitungszeit: 2\
   \ Aktionen\nZiel: selbst\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten:\
   \ 16 AsP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Affe) ODER Vorteil Tiergeist (Wildkatze/Panther)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Affe)
+- Vorteil Tiergeist (Wildkatze/Panther)

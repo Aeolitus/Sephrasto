@@ -1,7 +1,9 @@
-fertigkeiten: Eigenschaften, Verwandlung
-kosten: '20'
+fertigkeiten:
+- Eigenschaften
+- Verwandlung
+kosten: 20
 name: Hexenkrallen
-printclass: '0'
+printclass: 0
 text: 'Deine Fingernaegel werden lang, scharf und hart wie Raubtierklauen. Deine Haende
   richten 2W6 Waffenschaden an und verlieren die Eigenschaft Zerbrechlich.
 
@@ -22,6 +24,8 @@ text: 'Deine Fingernaegel werden lang, scharf und hart wie Raubtierklauen. Deine
   Fertigkeiten: Eigenschaften, Verwandlung
 
   Erlernen: Hex 18; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Hexen I

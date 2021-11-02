@@ -1,7 +1,8 @@
-fertigkeiten: Umwelt
-kosten: '20'
+fertigkeiten:
+- Umwelt
+kosten: 20
 name: Flim Flam Funkel
-printclass: '0'
+printclass: 0
 text: "Ein blaeuliches Licht erscheint und steigert die Helligkeit in einem Radius\
   \ von 4 Schritt um eine Stufe (etwa von Mondlicht auf Daemmerung S. 38). Erlaubt\
   \ Aufrechterhalten.\nMaechtige Magie: Steigert die Helligkeit um eine weitere Stufe.\
@@ -15,10 +16,16 @@ text: "Ein blaeuliches Licht erscheint und steigert die Helligkeit in einem Radi
   Vorbereitungszeit: 0 Aktionen\nZiel: Zone\nReichweite: 8 Schritt\nWirkungsdauer:\
   \ 4 Minuten\nKosten: 1 AsP\nFertigkeiten: Umwelt\nErlernen: Ach, Alch, Elf, Mag\
   \ 8; Dru, Hex 12;  Geo 14; Sch, Srl 16; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition
-  der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition
-  der Scharlatane I ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I
+- Vorteil Tradition der Scharlatane I
+- Vorteil Tradition der Schelme I

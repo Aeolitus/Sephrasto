@@ -1,7 +1,8 @@
-fertigkeiten: Kraft
-kosten: '20'
+fertigkeiten:
+- Kraft
+kosten: 20
 name: Limbus versiegeln
-printclass: '0'
+printclass: 0
 text: 'Du verhinderst in einem kreisfoermigen Bereich von 16 Schritt Radius saemtliche
   Wechsel zwischen dem Limbus und der dritten Sphaere.
 
@@ -22,6 +23,8 @@ text: 'Du verhinderst in einem kreisfoermigen Bereich von 16 Schritt Radius saem
   Fertigkeiten: Kraft
 
   Erlernen: Mag 20; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Gildenmagier I

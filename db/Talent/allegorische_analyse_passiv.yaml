@@ -1,13 +1,16 @@
-fertigkeiten: Schalenzauber
-kosten: '20'
+fertigkeiten:
+- Schalenzauber
+kosten: 20
 name: Allegorische Analyse (passiv)
-printclass: '14'
+printclass: 14
 text: 'Du laesst einen 1 gAsP in die Schale fliessen. Fortan leuchten bei der Analyse
   einer Astralstruktur in deiner Schale arkane Symbole auf der Schale auf. Dadurch
   steigt dein Analysegrad bei Intensitaetsanalysen um 1 (S. 80).
 
   Erlernen: Alch 12; Hex, Mag 16; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Gildenmagier
-  I ODER Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I

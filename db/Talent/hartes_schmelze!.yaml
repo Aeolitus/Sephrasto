@@ -1,7 +1,10 @@
-fertigkeiten: Daemonisch, Verwandlung, Wasser
-kosten: '60'
+fertigkeiten:
+- Daemonisch
+- Verwandlung
+- Wasser
+kosten: 60
 name: Hartes schmelze!
-printclass: '0'
+printclass: 0
 text: 'Du verzauberst eine kopfgrosse Menge an hartem Material, sodass es formbar
   wie Wachs wird. Nach dem Ende der Wirkungsdauer erstarrt das Material in seiner
   aktuellen Form.
@@ -23,9 +26,12 @@ text: 'Du verzauberst eine kopfgrosse Menge an hartem Material, sodass es formba
   Fertigkeiten: Daemonisch (nicht Geo, Mag), Verwandlung, Wasser
 
   Erlernen: Bor 14; Ach, Dru, Geo 16; Alch, Mag 18; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer
-  I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER
-  Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten
-  I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Kristallomanten I

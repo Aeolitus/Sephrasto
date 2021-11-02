@@ -1,7 +1,8 @@
-fertigkeiten: Harmonie
-kosten: '20'
+fertigkeiten:
+- Harmonie
+kosten: 20
 name: Fest der Freude
-printclass: '43'
+printclass: 43
 text: 'Du erbittest Rahjas Segen fuer ein Fest. Essen, Getraenke und Unterhaltung
   uebertreffen die Erwartungen und negative Eigenheiten (und nicht verregelte Charakterschwaechen)
   koennen ignoriert werden. Aggressive Handlungen erfordern eine Konterprobe (Willenskraft,
@@ -22,6 +23,7 @@ text: 'Du erbittest Rahjas Segen fuer ein Fest. Essen, Getraenke und Unterhaltun
   Fertigkeiten: Harmonie
 
   Erlernen: Rah 12; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Rahjageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Rahjageweihten I

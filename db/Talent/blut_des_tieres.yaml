@@ -1,7 +1,9 @@
-fertigkeiten: Verwandlung, Gaben des Odun
-kosten: '40'
+fertigkeiten:
+- Verwandlung
+- Gaben des Odun
+kosten: 40
 name: Blut des (Tieres)
-printclass: '4'
+printclass: 4
 text: 'Du wirst von der animalischen Essenz deines Tiergeistes erfuellt. Jedem, der
   keine Konterprobe (MU, 16) besteht, erscheinst du als ein Wesen mit Schreckgestalt
   II (S. 98).
@@ -21,6 +23,7 @@ text: 'Du wirst von der animalischen Essenz deines Tiergeistes erfuellt. Jedem, 
   Fertigkeiten: Verwandlung, Gaben des Odun
 
   Erlernen: Dur 8; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Durro-dun I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Durro-dun I

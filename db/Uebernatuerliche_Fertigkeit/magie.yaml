@@ -1,0 +1,11 @@
+attribute:
+- IN
+- KL
+- MU
+name: Magie
+printclass: 1
+steigerungsfaktor: 3
+text: Hesinde gilt als Schutzpatronin der Magie und nicht wenige Geweihte, gerade
+  unter den Draconitern, gelten als Experten in diesem Gebiet.
+voraussetzungen:
+- Vorteil Tradition der Hesindegeweihten I

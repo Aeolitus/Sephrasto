@@ -1,7 +1,8 @@
-fertigkeiten: Winter
-kosten: '40'
+fertigkeiten:
+- Winter
+kosten: 40
 name: Zorn des Heiligen Firungald
-printclass: '29'
+printclass: 29
 text: 'Du segnest eine Nahkampfwaffe. Diese gilt als geweiht und verursacht Erfrieren
   (S. 98).
 
@@ -22,6 +23,7 @@ text: 'Du segnest eine Nahkampfwaffe. Diese gilt als geweiht und verursacht Erfr
   Fertigkeiten: Winter
 
   Erlernen: Fir 14; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Firungeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Firungeweihten I

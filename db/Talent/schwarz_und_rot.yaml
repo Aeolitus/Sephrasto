@@ -1,7 +1,9 @@
-fertigkeiten: Daemonisch, Eigenschaften
-kosten: '40'
+fertigkeiten:
+- Daemonisch
+- Eigenschaften
+kosten: 40
 name: Schwarz und Rot
-printclass: '0'
+printclass: 0
 text: 'In der Herzgegend deines Opfers entsteht ein schmerzhaftes rotes Mal, das sich
   langsam ausbreitet. Nach 2 und 4 Stunden erleidet das Opfer 1 Wunde. Solange das
   Opfer Schaden nimmt, sind Wundmalusse verdoppelt.
@@ -23,7 +25,10 @@ text: 'In der Herzgegend deines Opfers entsteht ein schmerzhaftes rotes Mal, das
   Fertigkeiten: Daemonisch, Eigenschaften
 
   Erlernen: Bor 16; Mag 18; Hex 20; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I
-  ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I

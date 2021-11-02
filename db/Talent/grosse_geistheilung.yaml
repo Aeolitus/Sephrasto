@@ -1,7 +1,9 @@
-fertigkeiten: Geister vertreiben, Humus
-kosten: '40'
+fertigkeiten:
+- Geister vertreiben
+- Humus
+kosten: 40
 name: Grosse Geistheilung
-printclass: '8'
+printclass: 8
 text: "Du erfuellst ein grosses humusaffines Objekt wie einen Baum mit elementarer\
   \ Lebenskraft. Wer im Radius von 8 Schritt eine Ruhepause verbringt, regeneriert\
   \ eine zusaetzliche Wunde.\nProbenschwierigkeit: 12\nModifikationen: Heiliger Hain\
@@ -9,6 +11,7 @@ text: "Du erfuellst ein grosses humusaffines Objekt wie einen Baum mit elementar
   Vorbereitungszeit: 1 Stunde\nZiel: Einzelwesen\nReichweite: Beruehrung\nWirkungsdauer:\
   \ 1 Tag\nKosten: 16 AsP\nFertigkeiten: Geister vertreiben, Humus\nErlernen: Smn\
   \ 18; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

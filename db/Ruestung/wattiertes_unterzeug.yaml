@@ -1,11 +1,11 @@
 name: Wattiertes Unterzeug
-rsBauch: '1'
-rsBeine: '1'
-rsBrust: '1'
-rsKopf: '0'
-rsLArm: '1'
-rsRArm: '1'
-system: '1'
+rsBauch: 1
+rsBeine: 1
+rsBrust: 1
+rsKopf: 0
+rsLArm: 1
+rsRArm: 1
+system: 1
 text: Wird ueblicherweise unter Metallruestungen gegen Abschuerfungen getragen. Wirkt
   dann allerdings mit RS/BE 0.
-typ: '0'
+typ: 0

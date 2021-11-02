@@ -1,7 +1,9 @@
-fertigkeiten: Eigenschaften, Hellsicht
-kosten: '40'
+fertigkeiten:
+- Eigenschaften
+- Hellsicht
+kosten: 40
 name: Memorans Gedaechtniskraft
-printclass: '0'
+printclass: 0
 text: "Du kannst dir saemtliche Bilder, Schriftstuecke, Inschriften und aehnliches\
   \ fuer immer einpraegen. Eine Seite eines Buches kostet dich etwa eine Minute.\n\
   Probenschwierigkeit: 12\nModifikationen: Drachengedaechtnis (\u20138, Wirkungsdauer\
@@ -9,7 +11,10 @@ text: "Du kannst dir saemtliche Bilder, Schriftstuecke, Inschriften und aehnlich
   \ immer ins Gedaechtnis gebrannt.)\nVorbereitungszeit: 4 Minuten\nZiel: selbst\n\
   Reichweite: 4 Schritt\nWirkungsdauer: 4 Minuten\nKosten: 8 AsP\nFertigkeiten: Eigenschaften,\
   \ Hellsicht\nErlernen: Alch, Mag 16; Dru 20; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Gildenmagier I

@@ -1,11 +1,12 @@
-W6: '2'
+W6: 2
 fertigkeit: Wurfwaffen
-fk: '1'
-haerte: '5'
-kampfstile: ''
-lz: '0'
+fk: 1
+haerte: 5
+kampfstile:
+- ''
+lz: 0
 name: Efferdbart (Wurfspeere)
-plus: '0'
-rw: '8'
+plus: 0
+rw: 8
 talent: Wurfspeere
 text: Niederwerfen

@@ -1,7 +1,10 @@
-fertigkeiten: Einfluss, Kraft, Verstaendigung
-kosten: '40'
+fertigkeiten:
+- Einfluss
+- Kraft
+- Verstaendigung
+kosten: 40
 name: 'Kraehenruf '
-printclass: '0'
+printclass: 0
 text: "Du rufst einen Kraehenschwarm aus bis zu 100 Meilen Entfernung zur Hilfe, der\
   \ sofort erscheint und an deiner Seite kaempft (WS 3, Koloss I, INI 6, GS 8, VT\
   \ 3, RW 2, AT 10, TP 2W6\u20132, Zusaetzliche AT I).\nMaechtige Magie: WS, AT und\
@@ -9,6 +12,8 @@ text: "Du rufst einen Kraehenschwarm aus bis zu 100 Meilen Entfernung zur Hilfe,
   \ 2 Aktionen\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer: 16 Initiativphasen\n\
   Kosten: 8 AsP\nFertigkeiten: Einfluss, Kraft, Verstaendigung\nErlernen: Hex 12;\
   \ 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Hexen I

@@ -12,7 +12,7 @@ text: "Ladungsbasierte Artefakte loesen den Spruch ein- oder mehrmals aus, bis a
   \ wie Hitze, Kaelte oder einem bestimmten Zeitpunkt ist der Arcanovi um \u20134\
   \ erschwert. Der Ausloeser kann sich nur auf Umstaende beziehen, die das Artefakt\
   \ oder den Traeger selbst betreffen. \u201EWenn mich jemand beluegt\u201C ist beispielsweise\
-  \ nicht moeglich. \n    Bei ladungsbasierten Artefakten muessen die wirkenden Sprueche\
+  \ nicht moeglich.\n    Bei ladungsbasierten Artefakten muessen die wirkenden Sprueche\
   \ so oft gezaubert werden, wie sie spaeter ausgeloest werden sollen. Misslingt dir\
   \ einer dieser Zauber, ist das Artefakt missglueckt. Du musst alle Zauber mit denselben\
   \ spontanen Modifikationen wirken \u2013 ueber genau diese Modifikationen verfuegt\
@@ -25,5 +25,7 @@ text: "Ladungsbasierte Artefakte loesen den Spruch ein- oder mehrmals aus, bis a
   \ ist zum Ausloesen des Artefakts eine Aktion Bereit machen erforderlich. Der Zauber\
   \ kommt dann nach seiner halben Vorbereitungszeit mit dem beim Einspeisen erzielten\
   \ Erfolgswert zur Wirkung, wobei dem Opfer eventuell noch eine MR-Probe zusteht."
-typ: '4'
-voraussetzungen: Talent Arcanovi Artefakt ODER Talent Liturgische Bindung
+typ: 4
+voraussetzungen:
+- Talent Arcanovi Artefakt
+- Talent Liturgische Bindung

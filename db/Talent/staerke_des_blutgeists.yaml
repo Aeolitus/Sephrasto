@@ -1,7 +1,9 @@
-fertigkeiten: Eigenschaften, Gaben des Blutgeists
-kosten: '40'
+fertigkeiten:
+- Eigenschaften
+- Gaben des Blutgeists
+kosten: 40
 name: Staerke des Blutgeists
-printclass: '3'
+printclass: 3
 text: 'Der Blutgeist staerkt dich. Du erhaeltst einen Bonus von +2 auf alle bei dem
   Tier des Blutgeists angegebenen Werte (S. 160).
 
@@ -22,6 +24,7 @@ text: 'Der Blutgeist staerkt dich. Du erhaeltst einen Bonus von +2 auf alle bei 
   Fertigkeiten: Eigenschaften, Gaben des Blutgeists
 
   Erlernen: Ana 8; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Anach-Nurim I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Anach-Nurim I

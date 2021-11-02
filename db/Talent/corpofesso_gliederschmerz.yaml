@@ -1,7 +1,8 @@
-fertigkeiten: Eigenschaften
-kosten: '40'
+fertigkeiten:
+- Eigenschaften
+kosten: 40
 name: Corpofesso Gliederschmerz
-printclass: '0'
+printclass: 0
 text: 'Dein Ziel erleidet eine ploetzliche Muskelschwaeche. Wenn es anstrengende Bewegungen
   unternimmt (Laufen, Kaempfen), erleidet es alle DH* Initiativephasen 1 Punkt Erschoepfung.
 
@@ -20,8 +21,11 @@ text: 'Dein Ziel erleidet eine ploetzliche Muskelschwaeche. Wenn es anstrengende
   Fertigkeiten: Eigenschaften
 
   Erlernen: Alch, Mag 16; Elf, Hex 20; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil
-  Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I

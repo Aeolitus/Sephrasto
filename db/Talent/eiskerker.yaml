@@ -1,7 +1,8 @@
-fertigkeiten: Winter
-kosten: '60'
+fertigkeiten:
+- Winter
+kosten: 60
 name: Eiskerker
-printclass: '29'
+printclass: 29
 text: "Das Ziel wird von einem Eiskerker mit einer Haerte von 16 eingeschlossen, wenn\
   \ ihm keine Konterprobe (KK, 20) gelingt.\nMaechtige Liturgie: Die Haerte steigt\
   \ um +8.\nProbenschwierigkeit: 12\nModifikationen: Eisgrab (\u20138, Wirkungsdauer\
@@ -10,6 +11,7 @@ text: "Das Ziel wird von einem Eiskerker mit einer Haerte von 16 eingeschlossen,
   Reichweite: 16 Schritt\nWirkungsdauer: 1 Stunde\nKosten: 8 KaP\nFertigkeiten: Winter\n\
   Erlernen: Fir 16; 60 EP\nAnmerkung: Wenige Hochgeweihte kennen eine Variante, die\
   \ ganze Gebaeude unter Eis begraebt. "
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Firungeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Firungeweihten I

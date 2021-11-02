@@ -1,8 +1,9 @@
-fertigkeiten: Gaben des Odun
-kommentar: '0'
-kosten: '20'
+fertigkeiten:
+- Gaben des Odun
+kommentar: 0
+kosten: 20
 name: Ruhe Koerper, Ruhe Geist (Tiergeist)
-printclass: '0'
+printclass: 0
 text: 'Dein Ziel sinkt in einen tiefen Schlaf, aus dem es nur mit Gewalt geweckt werden
   kann. Wird es nicht vorzeitig geweckt, regeneriert es zwei zusaetzliche Wunden.
 
@@ -19,6 +20,7 @@ text: 'Dein Ziel sinkt in einen tiefen Schlaf, aus dem es nur mit Gewalt geweckt
   Wirkungsdauer: 8 Stunden
 
   Kosten: 8 AsP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Baer)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Baer)

@@ -1,7 +1,9 @@
-fertigkeiten: Schalenzauber, Verwandlung
-kosten: '40'
+fertigkeiten:
+- Schalenzauber
+- Verwandlung
+kosten: 40
 name: Essenzkonzentration
-printclass: '14'
+printclass: 14
 text: 'Du konzentrierst zwei alchemistische Produkte der gleichen Art zu einem. Das
   entstehende Produkt verfuegt ueber die freiwilligen Modifikationen beider Ausgangsprodukte,
   hoechstens aber 4 Modifikationen. Darueber hinausgehende Modifikationen verfallen
@@ -28,6 +30,7 @@ text: 'Du konzentrierst zwei alchemistische Produkte der gleichen Art zu einem. 
 
   Anmerkung: Die Essenzkonzentration erklaert, warum in uralten Gemaeuern immer noch
   wirksame Alchemika zu finden sind.'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Alchemisten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Alchemisten I

@@ -1,12 +1,14 @@
-fertigkeiten: Kristallmagie
-kosten: '20'
+fertigkeiten:
+- Kristallmagie
+kosten: 20
 name: "H\u2018Szints Auge (passiv)"
-printclass: '11'
+printclass: 11
 text: 'Du kannst einen gebundenen Kristall als Hilfsmittel fuer eine magische Analyse
   (S. 80) verwenden. Gehoert der Kristall zur selben Fertigkeit wie die wirkende Magie
   (bei Artefakten nur wirkende Sprueche), steigt der AG um +1.
 
   Erlernen: Ach 16; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Kristallomanten I

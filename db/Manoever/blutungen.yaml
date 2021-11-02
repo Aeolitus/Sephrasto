@@ -9,5 +9,6 @@ text: 'Blutungen drohen dir, wenn du durch Waffengewalt oder aehnliche akute Ver
   Eine Blutung endet bei erfolgreicher erster Hilfe (S. 33). Bei acht Einschraenkungen
   ist auch fuer den zaehesten Charakter die Grenze erreicht. Eine weitere Einschraenkung
   bedeutet unweigerlich den Tod'
-typ: '8'
-voraussetzungen: ''
+typ: 8
+voraussetzungen:
+- ''

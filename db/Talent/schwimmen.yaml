@@ -1,8 +1,10 @@
-fertigkeiten: Athletik
-kosten: '-1'
+fertigkeiten:
+- Athletik
+kosten: -1
 name: Schwimmen
-printclass: '-1'
+printclass: -1
 text: Schwimmen erlaubt eine schnellere Fortbewegung im Wasser und laengere Tauchgaenge.
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

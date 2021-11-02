@@ -1,7 +1,9 @@
-fertigkeiten: Fluesse und Quellen, Seefahrt
-kosten: '20'
+fertigkeiten:
+- Fluesse und Quellen
+- Seefahrt
+kosten: 20
 name: Gesegneter Fang
-printclass: '24'
+printclass: 24
 text: 'Die Ausbeute der gesegneten Netze oder Reusen ist verdoppelt.
 
   Maechtige Liturgie: Die Ausbeute steigt auf das Drei-/Vier-/Fuenf-/Sechsfache.
@@ -21,7 +23,8 @@ text: 'Die Ausbeute der gesegneten Netze oder Reusen ist verdoppelt.
   Fertigkeiten: Fluesse und Quellen, Seefahrt
 
   Erlernen: Eff 8; Swa 12; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der
-  Swafnirgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Efferdgeweihten I
+- Vorteil Tradition der Swafnirgeweihten I

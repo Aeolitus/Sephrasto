@@ -1,11 +1,12 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Tradition der Kristallomanten I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Tradition der Kristallomanten II
 text: Durch das Studium der Edelsteine gelten Kristallomanten als herausragende Artefaktmagier.
   Zauber zur Artefakterschaffung und zur magischen Analyse sind um +2 erleichtert.
-typ: '5'
-variable: '0'
-voraussetzungen: Attribut KL 6, Vorteil Tradition der Kristallomanten I
+typ: 5
+variable: 0
+voraussetzungen:
+- Attribut KL 6, Vorteil Tradition der Kristallomanten I

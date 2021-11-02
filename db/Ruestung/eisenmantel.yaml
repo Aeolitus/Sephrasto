@@ -1,11 +1,11 @@
 name: Eisenmantel
-rsBauch: '3'
-rsBeine: '2'
-rsBrust: '3'
-rsKopf: '0'
-rsLArm: '2'
-rsRArm: '2'
-system: '0'
+rsBauch: 3
+rsBeine: 2
+rsBrust: 3
+rsKopf: 0
+rsLArm: 2
+rsRArm: 2
+system: 0
 text: Stoff- oder Lederruestung, in die - von aussen nicht sichtbar - Metallplaettchen
   genaeht wurden.
-typ: '3'
+typ: 3

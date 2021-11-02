@@ -1,7 +1,8 @@
-fertigkeiten: Naechtlicher Schatten
-kosten: '40'
+fertigkeiten:
+- Naechtlicher Schatten
+kosten: 40
 name: Phexens Elsterflug
-printclass: '39'
+printclass: 39
 text: 'Das mit dieser Liturgie belegte Objekt von maximal 0,5 Stein Gewicht wird an
   Phexens Sternenhimmel entrueckt. Es kehrt nach spaetestens einem Jahr als Sternschnuppe
   zurueck oder verbleibt am Sternenhimmel.
@@ -23,6 +24,7 @@ text: 'Das mit dieser Liturgie belegte Objekt von maximal 0,5 Stein Gewicht wird
   Fertigkeiten: Naechtlicher Schatten
 
   Erlernen: Phe 14; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Phexgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Phexgeweihten I

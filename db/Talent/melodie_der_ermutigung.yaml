@@ -1,7 +1,10 @@
-fertigkeiten: Eigenschaften, Einfluss, Zaubermelodien
-kosten: '40'
+fertigkeiten:
+- Eigenschaften
+- Einfluss
+- Zaubermelodien
+kosten: 40
 name: Melodie der Ermutigung
-printclass: '18'
+printclass: 18
 text: 'Die Melodie schenkt den Menschen Zuversicht. Alle Zuhoerer in einem Radius
   von 4 Schritt erhalten eine Erleichterung +2 auf Anfuehren und MU. Erfordert Konzentration,
   erlaubt Aufrechterhalten.
@@ -23,6 +26,7 @@ text: 'Die Melodie schenkt den Menschen Zuversicht. Alle Zuhoerer in einem Radiu
   Fertigkeiten: Eigenschaften, Einfluss, Zaubermelodien
 
   Erlernen: Bard 12; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Zauberbarden I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Zauberbarden I

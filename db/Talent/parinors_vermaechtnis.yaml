@@ -1,13 +1,15 @@
-fertigkeiten: Wachstum
-kosten: '20'
+fertigkeiten:
+- Wachstum
+kosten: 20
 name: Parinors Vermaechtnis
-printclass: '36'
+printclass: 36
 text: "Die gesegnete Pflanze waechst doppelt so schnell, bis sie zu einem praechtigen\
   \ Exemplar ihrer Art geworden ist.\nMaechtige Liturgie: Die Pflanze waechst dreimal/viermal/fuenfmal/sechsmal\
   \ so schnell.\nProbenschwierigkeit: 12\nModifikationen: Heilkraut (\u20134, 4 KaP;\
   \ innerhalb einer Stunde waechst aus einem Samen eine durchschnittliche Heilpflanze.)\n\
   Vorbereitungszeit: 4 Minuten\nZiel: Pflanze\nReichweite: Beruehrung\nWirkungsdauer:\
   \ permanent\nKosten: 8 KaP\nFertigkeiten: Wachstum\nErlernen: Per 16; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Perainegeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Perainegeweihten I

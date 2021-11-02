@@ -1,7 +1,8 @@
-fertigkeiten: Einfluss
-kosten: '40'
+fertigkeiten:
+- Einfluss
+kosten: 40
 name: Seidenzunge Elfenwort
-printclass: '0'
+printclass: 0
 text: 'Das Ziel denkt nicht zu genau ueber deine Worte nach und findet dich ueberzeugend.
   Alle Ueberreden-Proben gegen dein Ziel sind um +4 erleichtert.
 
@@ -22,7 +23,9 @@ text: 'Das Ziel denkt nicht zu genau ueber deine Worte nach und findet dich uebe
   Fertigkeiten: Einfluss
 
   Erlernen: Elf 18; Sch 20; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Schelme I

@@ -1,7 +1,8 @@
-fertigkeiten: Wildnis
-kosten: '40'
+fertigkeiten:
+- Wildnis
+kosten: 40
 name: Firuns Einsicht
-printclass: '28'
+printclass: 28
 text: 'Du rufst Firuns Ring herbei, der dir den Aufenthaltsort von Lebewesen im Radius
   von 16 Meilen offenbart. Du kannst ausserdem Tiere von Humanoiden unterscheiden.
 
@@ -20,6 +21,7 @@ text: 'Du rufst Firuns Ring herbei, der dir den Aufenthaltsort von Lebewesen im 
   Fertigkeiten: Wildnis
 
   Erlernen: Fir 16; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Firungeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Firungeweihten I

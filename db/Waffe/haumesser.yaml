@@ -1,12 +1,17 @@
-W6: '2'
+W6: 2
 fertigkeit: Hiebwaffen
-fk: '0'
-haerte: '9'
-kampfstile: Beidhaendiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller
-  Kampf, Schneller Kampf
+fk: 0
+haerte: 9
+kampfstile:
+- Beidhaendiger Kampf
+- Parierwaffenkampf
+- Reiterkampf
+- Schildkampf
+- Kraftvoller Kampf
+- Schneller Kampf
 name: Haumesser
-plus: '1'
-rw: '1'
+plus: 1
+rw: 1
 talent: Einhandhiebwaffen
 text: null
-wm: '-1'
+wm: -1

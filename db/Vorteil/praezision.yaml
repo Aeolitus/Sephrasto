@@ -1,9 +1,10 @@
-kommentar: '0'
-kosten: '80'
+kommentar: 0
+kosten: 80
 nachkauf: haeufig
 name: Praezision
 text: Zeigt der gewertete Wuerfel bei einem Nahkampfangriff eine 16 oder hoeher, richtet
   der Angriff GE TP zusaetzlich an.
-typ: '2'
-variable: '0'
-voraussetzungen: Attribut GE 10
+typ: 2
+variable: 0
+voraussetzungen:
+- Attribut GE 10

@@ -1,7 +1,8 @@
-fertigkeiten: Neubeginn
-kosten: '0'
+fertigkeiten:
+- Neubeginn
+kosten: 0
 name: Tsas Fruchtbarkeit
-printclass: '51'
+printclass: 51
 text: 'Das gesegnete Lebewesen ist fuer die Wirkungsdauer deutlich fruchtbarer.
 
   Probenschwierigkeit: 12
@@ -19,6 +20,7 @@ text: 'Das gesegnete Lebewesen ist fuer die Wirkungsdauer deutlich fruchtbarer.
   Fertigkeiten: Neubeginn
 
   Erlernen: Tsa 12; 0 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Tsageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Tsageweihten I

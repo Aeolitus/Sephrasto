@@ -1,8 +1,10 @@
-fertigkeiten: Ueberleben
-kosten: '-1'
+fertigkeiten:
+- Ueberleben
+kosten: -1
 name: 'Ueberleben: Meer'
-printclass: '-1'
+printclass: -1
 text: Gilt fuer den Einsatz auf grossen Gewaessern wie zum Beispiel dem Perlenmeer.
-variable: '0'
-verbilligt: '1'
-voraussetzungen: ''
+variable: 0
+verbilligt: 1
+voraussetzungen:
+- ''

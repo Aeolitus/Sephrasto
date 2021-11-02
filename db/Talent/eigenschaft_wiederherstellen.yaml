@@ -1,16 +1,23 @@
-fertigkeiten: Antimagie, Eigenschaften
-kosten: '40'
+fertigkeiten:
+- Antimagie
+- Eigenschaften
+kosten: 40
 name: Eigenschaft wiederherstellen
-printclass: '0'
+printclass: 0
 text: 'Wirkt gegen Zauber der Fertigkeit Eigenschaften, spezielle Antimagie-Modifikationen
   siehe S. 126.
 
   Fertigkeiten: Antimagie, Eigenschaften
 
   Erlernen: Alch, Hex 12; Ach, Dru, Geo, Mag, Elf 14; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition
-  der Hexen I ODER Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I

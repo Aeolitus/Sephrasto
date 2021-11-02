@@ -1,10 +1,11 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Verseuchung erspueren
 text: Bei Verwendung spuerst du die Anwesenheit und die grobe Staerke - nicht aber
   den genauen Ort - von daemonischen Praesenzen oder Verseuchung in unmittelbarer
   Naehe. Kostet 1 KaP/Minute.
-typ: '6'
-variable: '0'
-voraussetzungen: Attribut MU 4, Vorteil Geweiht I
+typ: 6
+variable: 0
+voraussetzungen:
+- Attribut MU 4, Vorteil Geweiht I

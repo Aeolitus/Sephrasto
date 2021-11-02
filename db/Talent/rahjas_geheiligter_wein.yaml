@@ -1,7 +1,8 @@
-fertigkeiten: Rausch
-kosten: '20'
+fertigkeiten:
+- Rausch
+kosten: 20
 name: Rahjas geheiligter Wein
-printclass: '44'
+printclass: 44
 text: 'Du rufst den Kelch der Rahja. In den Kelch gegossene Fluessigkeiten verwandeln
   sich in Wein, Wein erhaelt hingegen ein einzigartiges Aroma. Am Ende der Wirkungsdauer
   verschwindet der Kelch, die Verwandlung ist permanent.
@@ -25,6 +26,7 @@ text: 'Du rufst den Kelch der Rahja. In den Kelch gegossene Fluessigkeiten verwa
   Anmerkung: Erfahrene Rahjageweihte (oft Tempelvorsteher) koennen mit einer Variante
   dieser Liturgie den geweihten Tharf erschaffen, den Rahjageweihte der Goettin opfern
   (S. 84).'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Rahjageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Rahjageweihten I

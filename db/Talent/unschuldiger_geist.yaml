@@ -1,7 +1,8 @@
-fertigkeiten: Neubeginn
-kosten: '40'
+fertigkeiten:
+- Neubeginn
+kosten: 40
 name: Unschuldiger Geist
-printclass: '51'
+printclass: 51
 text: "Du ermoeglichst dem Gesegneten einen unvoreingenommenen Blick auf eine Entscheidung\
   \ oder eine Person. Der Gesegnete verliert waehrend der Wirkungsdauer alle frueheren\
   \ Erinnerungen, aber auch alle negativen Eigenheiten wie Vorurteile oder andere\
@@ -11,6 +12,7 @@ text: "Du ermoeglichst dem Gesegneten einen unvoreingenommenen Blick auf eine En
   \ einen zusaetzlichen Tipp.\nProbenschwierigkeit: 12\nVorbereitungszeit: 1 Stunde\n\
   Ziel: Einzelperson\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 8 KaP\n\
   Fertigkeiten: Neubeginn\nErlernen: Tsa 16; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Tsageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Tsageweihten I

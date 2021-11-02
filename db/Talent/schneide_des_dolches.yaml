@@ -1,7 +1,9 @@
-fertigkeiten: Dolchzauber, Erz
-kosten: '20'
+fertigkeiten:
+- Dolchzauber
+- Erz
+kosten: 20
 name: Schneide des Dolches
-printclass: '1'
+printclass: 1
 text: 'Du kannst mit dem Dolch natuerliches Gestein schneiden wie Wachs.
 
   Probenschwierigkeit: 12
@@ -19,7 +21,8 @@ text: 'Du kannst mit dem Dolch natuerliches Gestein schneiden wie Wachs.
   Fertigkeiten: Dolchzauber, Erz
 
   Erlernen: Geo 16; Dru 18; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden
-  I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I

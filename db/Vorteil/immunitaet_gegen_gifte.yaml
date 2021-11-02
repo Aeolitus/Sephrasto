@@ -1,10 +1,11 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Resistenz gegen Gifte
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: extrem selten
 name: Immunitaet gegen Gifte
 text: Du bist immun gegen Gifte (S. 35).
-typ: '0'
-variable: '0'
-voraussetzungen: Vorteil Resistenz gegen Gifte
+typ: 0
+variable: 0
+voraussetzungen:
+- Vorteil Resistenz gegen Gifte

@@ -1,13 +1,17 @@
-fertigkeiten: Daemonisch, Verstaendigung, Geister des Zorns
-kosten: '40'
+fertigkeiten:
+- Daemonisch
+- Verstaendigung
+- Geister des Zorns
+kosten: 40
 name: Fluch des Gewuerms
-printclass: '6'
+printclass: 6
 text: "Dein Opfer wird von einer Myriade Insekten und Kleintieren bedeckt. Misslingt\
   \ eine Konterprobe (Willenskraft, 16), ist es handlungsunfaehig. Gelingt die Konterprobe,\
   \ sind alle Proben um \u20134 erschwert.\nProbenschwierigkeit: 12\nVorbereitungszeit:\
   \ 8 Aktionen\nZiel: Einzelperson\nReichweite: 16 Schritt\nWirkungsdauer: 16 Initiativphasen\n\
   Kosten: 16 AsP\nFertigkeiten: Daemonisch, Verstaendigung, Geister des Zorns\nErlernen:\
   \ Smn 18; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

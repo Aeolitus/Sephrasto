@@ -1,7 +1,7 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Scharfsinnig I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Scharfsinnig II
 text: 'Proben bei einer Ermittlung oder Recherche sind um +2 erleichtert.
@@ -9,6 +9,7 @@ text: 'Proben bei einer Ermittlung oder Recherche sind um +2 erleichtert.
 
   Bei Recherchen erhaeltst du einen zusaetzlichen Informationsgrad, wenn der gewertete
   Wuerfel eine 12 oder hoeher zeigt.'
-typ: '1'
-variable: '0'
-voraussetzungen: Attribut KL 6
+typ: 1
+variable: 0
+voraussetzungen:
+- Attribut KL 6

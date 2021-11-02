@@ -1,7 +1,8 @@
-fertigkeiten: Licht
-kosten: '40'
+fertigkeiten:
+- Licht
+kosten: 40
 name: 'Licht des Herrn '
-printclass: '40'
+printclass: 40
 text: 'Strahlendes Sonnenlicht erleuchtet deine Umgebung in einem Radius von 16 Schritt.
   Das Gebiet gilt als geweihter Boden. Die Liturgie gilt ausserdem als Konterprobe
   (12) gegen Dunkelheitszauber, die bei Gelingen aufgehoben werden.
@@ -23,6 +24,7 @@ text: 'Strahlendes Sonnenlicht erleuchtet deine Umgebung in einem Radius von 16 
   Fertigkeiten: Licht
 
   Erlernen: Pra 14; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Praiosgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Praiosgeweihten I

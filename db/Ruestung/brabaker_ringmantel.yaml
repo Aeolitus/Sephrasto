@@ -1,10 +1,10 @@
 name: Brabaker Ringmantel
-rsBauch: '2'
-rsBeine: '2'
-rsBrust: '2'
-rsKopf: '0'
-rsLArm: '2'
-rsRArm: '2'
-system: '0'
+rsBauch: 2
+rsBeine: 2
+rsBrust: 2
+rsKopf: 0
+rsLArm: 2
+rsRArm: 2
+system: 0
 text: Benoetigt keine wattierte Unterkleidung.
-typ: '3'
+typ: 3

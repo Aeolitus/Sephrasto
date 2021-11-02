@@ -1,7 +1,10 @@
-fertigkeiten: Daemonisch, Geister rufen, Geister des Zorns
-kosten: '120'
+fertigkeiten:
+- Daemonisch
+- Geister rufen
+- Geister des Zorns
+kosten: 120
 name: Macht der Ungeformten
-printclass: '6'
+printclass: 6
 text: 'Ruft einen Daemon herbei (mehr zur Daemonenbeschwoerung siehe S. 81), der in
   deiner unmittelbaren Naehe erscheint.
 
@@ -18,6 +21,7 @@ text: 'Ruft einen Daemon herbei (mehr zur Daemonenbeschwoerung siehe S. 81), der
   Fertigkeiten: Daemonisch, Geister rufen, Geister des Zorns
 
   Erlernen: Smn 18; 120 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

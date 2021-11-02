@@ -1,13 +1,17 @@
-fertigkeiten: Antimagie, Kraft
-kosten: '20'
+fertigkeiten:
+- Antimagie
+- Kraft
+kosten: 20
 name: Kraftmagie neutralisieren
-printclass: '0'
+printclass: 0
 text: 'Wirkt gegen Zauber der Fertigkeit Kraft, spezielle Antimagie-Modifikationen
   siehe S. 126.
 
   Fertigkeiten: Antimagie, Kraft
 
   Erlernen: Mag 18; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Gildenmagier I

@@ -1,7 +1,9 @@
-fertigkeiten: Einfluss, Humus
-kosten: '40'
+fertigkeiten:
+- Einfluss
+- Humus
+kosten: 40
 name: Lach dich gesund
-printclass: '0'
+printclass: 0
 text: "Du erzaehlst deinem Ziel einen hervorragenden Witz, der es in einen kichernden\
   \ Rauschzustand versetzt. Waehrenddessen erhaelt es 2W6+4 Heilpunkte. Fuer jede\
   \ Ueberschreitung der WS wird eine Wunde geheilt. Das Ziel muss dir vertrauen und\
@@ -11,6 +13,8 @@ text: "Du erzaehlst deinem Ziel einen hervorragenden Witz, der es in einen kiche
   \ Erschoepfung regeneriert.)\nVorbereitungszeit: 8 Aktionen\nZiel: Einzelperson\n\
   Reichweite: Beruehrung\nWirkungsdauer: 4 Minuten\nKosten: 8 AsP\nFertigkeiten: Einfluss,\
   \ Humus\nErlernen: Sch 14; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Schelme I

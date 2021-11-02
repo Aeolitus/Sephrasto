@@ -1,7 +1,8 @@
-fertigkeiten: Einfluss
-kosten: '40'
+fertigkeiten:
+- Einfluss
+kosten: 40
 name: Herr ueber das Tierreich
-printclass: '0'
+printclass: 0
 text: "Du zwingst ein Tier unter deinen Bann. Es verhaelt sich, als waere es gut dressiert\
   \ und dir bedingungslos loyal und erfuellt deine Befehle. Nur Befehle, die seinen\
   \ Instinkten klar widersprechen, kann es mit einer Konterprobe (MU, 16) widerstehen.\n\
@@ -9,9 +10,13 @@ text: "Du zwingst ein Tier unter deinen Bann. Es verhaelt sich, als waere es gut
   \ du beherrschst einen Schwarm Kleintiere.)\nVorbereitungszeit: 2 Aktionen\nZiel:\
   \ Tier\nReichweite: 4 Schritt\nWirkungsdauer: 1 Stunde\nKosten: 8 AsP\nFertigkeiten:\
   \ Einfluss\nErlernen: Dru 8; Geo 12; Elf, Hex 18; Ach, Mag 20; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition
-  der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der
-  Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I

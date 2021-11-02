@@ -1,7 +1,10 @@
-fertigkeiten: Daemonisch, Erz, Verwandlung
-kosten: '60'
+fertigkeiten:
+- Daemonisch
+- Erz
+- Verwandlung
+kosten: 60
 name: Weiches Erstarre!
-printclass: '0'
+printclass: 0
 text: "Du laesst bis zu 8 Raumschritt Luft, Wasser oder ein anderes \u201Eweiches\u201C\
   \ Material zu einer festen, harten Masse mit einer Haerte von 8 erstarren. Lebende\
   \ Materie, oder Material, das ein Wesen beruehrt, kann nicht beeinflusst werden.\n\
@@ -9,9 +12,12 @@ text: "Du laesst bis zu 8 Raumschritt Luft, Wasser oder ein anderes \u201Eweiche
   \ 2 Aktionen\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten:\
   \ 8 AsP\nFertigkeiten: Daemonisch (nicht in Geo oder Mag), Erz, Verwandlung\nErlernen:\
   \ Bor 14; Dru, Geo 16; Ach, Alch, Mag 18; 60 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer
-  I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER
-  Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten
-  I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Kristallomanten I

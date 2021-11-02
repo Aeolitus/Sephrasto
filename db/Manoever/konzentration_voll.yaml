@@ -7,5 +7,6 @@ text: Du fuehrst eine Handlung aus, die volle Konzentration erfordert. Dazu geho
   Reaktionen ausfuehren und musst bei Stoerungen eine Willenskraft-Probe (16, I) ablegen.
   Erleidest du Schaden, steigt die Schwierigkeit der Probe um +4 Punkte pro soeben
   erlittener Wunde. Bei Misslingen verfallen alle bereits aufgewendeten Aktionen Konzentration.
-typ: '5'
-voraussetzungen: ''
+typ: 5
+voraussetzungen:
+- ''

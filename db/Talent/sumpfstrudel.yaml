@@ -1,7 +1,9 @@
-fertigkeiten: Humus, Umwelt
-kosten: '60'
+fertigkeiten:
+- Humus
+- Umwelt
+kosten: 60
 name: Sumpfstrudel
-printclass: '0'
+printclass: 0
 text: "Im Humusboden bildet sich ein morastiger Strudel. Wesen in der Umgebung muessen\
   \ jede Initiativephase eine Konterprobe (KK, 16) ablegen, die um die Distanz zum\
   \ Zentrum in Schritt erleichtert ist. Beim Misslingen wird es 2 Schritt in Richtung\
@@ -10,7 +12,8 @@ text: "Im Humusboden bildet sich ein morastiger Strudel. Wesen in der Umgebung m
   \ Dornenranken (\u20138; jede misslungene Konterprobe verursacht 2W6 TP.)\nVorbereitungszeit:\
   \ 8 Aktionen\nZiel: Zone\nReichweite: 64 Schritt\nWirkungsdauer: 8 Initiativphasen\n\
   Kosten: 32 AsP\nFertigkeiten: Humus, Umwelt\nErlernen: Geo 18; Dru 20; 60 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden
-  I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I

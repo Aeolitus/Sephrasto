@@ -5,5 +5,7 @@ text: Der Zauber wirkt auf mehrere Ziele in Reichweite. Die Kosten werden fuer j
   Ziel einzeln bezahlt, Modifikationen wie Kosten sparen fuer jedes Ziel einzeln abgerechnet.
   Richtet sich der Zauber gegen die MR, steht jedem unfreiwilligen Ziel eine eigene
   MR-Probe zu, um dem Zauber zu widerstehen.
-typ: '2'
-voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I
+typ: 2
+voraussetzungen:
+- Vorteil Zauberer I
+- Vorteil Tradition der Borbaradianer I

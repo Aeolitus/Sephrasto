@@ -1,10 +1,10 @@
 name: Mammutonpanzer
-rsBauch: '3'
-rsBeine: '2'
-rsBrust: '3'
-rsKopf: '0'
-rsLArm: '2'
-rsRArm: '2'
-system: '0'
+rsBauch: 3
+rsBeine: 2
+rsBrust: 3
+rsKopf: 0
+rsLArm: 2
+rsRArm: 2
+system: 0
 text: Lederruestung mit Scheiben von Mammutstosszaehnen.
-typ: '2'
+typ: 2

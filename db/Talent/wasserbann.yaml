@@ -1,7 +1,10 @@
-fertigkeiten: Luft, Ringrituale, Wasser
-kosten: '40'
+fertigkeiten:
+- Luft
+- Ringrituale
+- Wasser
+kosten: 40
 name: Wasserbann
-printclass: '13'
+printclass: 13
 text: 'Eine Luftschicht schuetzt dich vor jeglichem Wasser. Du kannst unter Wasser
   atmen und haeltst Druck und Stroemungen stand, dafuer sinkst du zu Boden und bewegst
   dich gehend fort. Erlaubt Aufrechterhalten.
@@ -24,6 +27,7 @@ text: 'Eine Luftschicht schuetzt dich vor jeglichem Wasser. Du kannst unter Wass
   Fertigkeiten: Luft, Ringrituale, Wasser
 
   Erlernen: Geo 12; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Geoden I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Geoden I

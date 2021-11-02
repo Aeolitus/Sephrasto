@@ -4,9 +4,12 @@ probe: Liturgie +X
 text: Du kannst die Vorbereitungszeit freiwillig um 1 Minute/Stunde/Tag/Woche/Monat/Jahr
   erhoehen, wodurch die Liturgie um +4/6/8/10/12/14 erleichtert ist. Die Vorbereitungszeit
   muss dadurch mindestens verdoppelt werden.
-typ: '3'
-voraussetzungen: Vorteil Tradition der Borongeweihten III ODER Vorteil Tradition der
-  Hesindegeweihten III ODER Vorteil Tradition der Ifirngeweihten III ODER Vorteil
-  Tradition der Perainegeweihten III ODER Vorteil Tradition der Praiosgeweihten III
-  ODER Vorteil Tradition der Traviageweihten III ODER Vorteil Tradition der Tsageweihten
-  III
+typ: 3
+voraussetzungen:
+- Vorteil Tradition der Borongeweihten III
+- Vorteil Tradition der Hesindegeweihten III
+- Vorteil Tradition der Ifirngeweihten III
+- Vorteil Tradition der Perainegeweihten III
+- Vorteil Tradition der Praiosgeweihten III
+- Vorteil Tradition der Traviageweihten III
+- Vorteil Tradition der Tsageweihten III

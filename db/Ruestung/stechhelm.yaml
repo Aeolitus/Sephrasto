@@ -1,10 +1,10 @@
 name: Stechhelm
-rsBauch: '0'
-rsBeine: '0'
-rsBrust: '0'
-rsKopf: '5'
-rsLArm: '0'
-rsRArm: '0'
-system: '2'
+rsBauch: 0
+rsBeine: 0
+rsBrust: 0
+rsKopf: 5
+rsLArm: 0
+rsRArm: 0
+system: 2
 text: Helm (Teil der Gestechruestung).
-typ: '4'
+typ: 4

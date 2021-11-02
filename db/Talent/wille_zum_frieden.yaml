@@ -1,12 +1,14 @@
-fertigkeiten: Friede
-kosten: '40'
+fertigkeiten:
+- Friede
+kosten: 40
 name: Wille zum Frieden
-printclass: '50'
+printclass: 50
 text: "Alle Zuhoerer halten sich ans Gebot der Friedfertigkeit. Alle Versuche, Zwietracht\
   \ zu saehen oder die Zuhoerer aufzuwiegeln, sind um \u20134 erschwert.\nMaechtige\
   \ Liturgie: Der Malus steigt um \u20132.\nProbenschwierigkeit: 12\nVorbereitungszeit:\
   \ 4 Minuten\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten:\
   \ 16 KaP\nFertigkeiten: Friede\nErlernen: Tsa 16; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Tsageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Tsageweihten I

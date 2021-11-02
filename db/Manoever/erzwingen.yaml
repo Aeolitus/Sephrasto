@@ -5,7 +5,10 @@ text: "Die Kosten des Zaubers steigen um die Haelfte der Basiskosten, dafuer ist
   \ Zauber um 4 Punkte erleichtert. Kann nur einmal pro Zauber eingesetzt werden.\n\
   Voraussetzungen: Tradition der Anach-n\xFBrim, Borbaradianer, Druiden, Hexen oder\
   \ Schelme (jeweils) III und Verwendung dieser Tradition"
-typ: '2'
-voraussetzungen: Vorteil Tradition der Borbaradianer III ODER Vorteil Tradition der
-  Druiden III ODER Vorteil Tradition der Hexen III ODER Vorteil Tradition der Schelme
-  III ODER Vorteil Tradition der Anach-Nurim III
+typ: 2
+voraussetzungen:
+- Vorteil Tradition der Borbaradianer III
+- Vorteil Tradition der Druiden III
+- Vorteil Tradition der Hexen III
+- Vorteil Tradition der Schelme III
+- Vorteil Tradition der Anach-Nurim III

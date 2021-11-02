@@ -1,7 +1,9 @@
-fertigkeiten: Einfluss, Vertrautenmagie
-kosten: '20'
+fertigkeiten:
+- Einfluss
+- Vertrautenmagie
+kosten: 20
 name: Bindungspartner finden
-printclass: '17'
+printclass: 17
 text: 'Das Vertrautentier erspuert deinen ungefaehren Aufenthaltsort.
 
   Probenschwierigkeit: 12
@@ -19,6 +21,8 @@ text: 'Das Vertrautentier erspuert deinen ungefaehren Aufenthaltsort.
   Fertigkeiten: Einfluss, Vertrautenmagie
 
   Erlernen: Geo, Hex 8; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Hexen I

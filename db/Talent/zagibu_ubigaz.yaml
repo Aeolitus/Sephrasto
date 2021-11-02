@@ -1,7 +1,9 @@
-fertigkeiten: Erz, Verwandlung
-kosten: '20'
+fertigkeiten:
+- Erz
+- Verwandlung
+kosten: 20
 name: Zagibu Ubigaz
-printclass: '0'
+printclass: 0
 text: 'Du laesst einen Schatz von maximal 1 Stein Gewicht unwiederbringlich zu Staub
   zerfallen. Magische oder karmale Gegenstaende sind hiervon nicht betroffen.
 
@@ -20,7 +22,9 @@ text: 'Du laesst einen Schatz von maximal 1 Stein Gewicht unwiederbringlich zu S
   Fertigkeiten: Erz, Verwandlung
 
   Erlernen: Sch 8; Mag 20; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I
-  ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Schelme I

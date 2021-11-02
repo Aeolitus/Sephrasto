@@ -1,9 +1,11 @@
-fertigkeiten: Stangenwaffen
-kosten: '-1'
+fertigkeiten:
+- Stangenwaffen
+kosten: -1
 name: Infanteriewaffen und Speere
-printclass: '-1'
+printclass: -1
 text: Verbessert den Einsatz von langen Infanteriewaffen wie Speeren, Hellebarden
   und Kampfstaeben.
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

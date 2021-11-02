@@ -12,5 +12,6 @@ text: "Mit erster Hilfe kann eine Blutung gestoppt werden oder die Auswirkung vo
   \ eine halbe Stunde. Ausserdem benoetigst du heilende Salben oder aehnliche Hilfsmittel,\
   \ Verbands material und sauberes Wasser. Die Schwierigkeit der Probe betraegt 16\
   \ + den Betrag der aktuellen Wundabzuege des Patienten."
-typ: '9'
-voraussetzungen: Fertigkeit 'Heilkunde' 1
+typ: 9
+voraussetzungen:
+- Fertigkeit 'Heilkunde' 1

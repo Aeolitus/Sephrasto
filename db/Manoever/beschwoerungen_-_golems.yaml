@@ -6,5 +6,7 @@ text: "Probenschwierigkeiten und Kosten (1/4 der Basis als gAsP):\n- 16 (schwach
   \ (starke G., z.B. Homunculus), 24 AsP\n- 28 (maechtige G., z.B. Ogerstatue), 32\
   \ AsP\nBeschwoerungsprobe Mod.: +Bonus durch Vorbereitung, \u2013Kosten fuer Zusatzfaehigkeiten\n\
   Kontrollprobe Mod.: +Bonus durch Vorbereitung, +4 bis \u20138 je nach Dienst"
-typ: '4'
-voraussetzungen: Talent Stein wandle! ODER Talent Staub wandle!
+typ: 4
+voraussetzungen:
+- Talent Stein wandle!
+- Talent Staub wandle!

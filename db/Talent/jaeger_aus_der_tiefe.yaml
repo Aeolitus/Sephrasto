@@ -1,7 +1,8 @@
-fertigkeiten: Daemonische Hilfe (Cpt)
-kosten: '20'
+fertigkeiten:
+- Daemonische Hilfe (Cpt)
+kosten: 20
 name: Jaeger aus der Tiefe
-printclass: '200'
+printclass: 200
 text: 'Verleiht unter Wasser den Vorteil Tarnung (S. 98) und Pirschen-Proben sind
   um +4 erleichtert.
 
@@ -22,6 +23,7 @@ text: 'Verleiht unter Wasser den Vorteil Tarnung (S. 98) und Pirschen-Proben sin
   Fertigkeiten: Daemonische Hilfe (Cpt)
 
   Erlernen: Cpt 12; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Paktierer I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Paktierer I

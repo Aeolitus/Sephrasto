@@ -6,5 +6,6 @@ text: 'Wenn die Verteidigung gelingt, darfst du in der naechsten eigenen Initiat
 
   Voraussetzungen: Kampf im Schnellen Stil; kein Unterlaufen seit letztem Beginn einer
   eigenen Initiativephase'
-typ: '0'
-voraussetzungen: Vorteil Schneller Kampf III
+typ: 0
+voraussetzungen:
+- Vorteil Schneller Kampf III

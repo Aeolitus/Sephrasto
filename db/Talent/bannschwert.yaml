@@ -1,7 +1,9 @@
-fertigkeiten: Antimagie, Daemonisch
-kosten: '40'
+fertigkeiten:
+- Antimagie
+- Daemonisch
+kosten: 40
 name: Bannschwert
-printclass: '0'
+printclass: 0
 text: 'Du legst bannende Zauber auf eine Waffe mit Reichweite 0. Die Waffe gilt als
   magisch und erleichtert die Bannung von beschworenen Wesenheiten um +2. Gilt als
   Objektritual.
@@ -23,9 +25,14 @@ text: 'Du legst bannende Zauber auf eine Waffe mit Reichweite 0. Die Waffe gilt 
   Fertigkeiten: Antimagie, Daemonisch
 
   Erlernen: Bor, Mag 18; Ach, Alch, Dru, Geo, Elf 20; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition
-  der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Kristallomanten I

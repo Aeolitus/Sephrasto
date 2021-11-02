@@ -1,11 +1,14 @@
-W6: '2'
+W6: 2
 fertigkeit: Klingenwaffen
-fk: '0'
-haerte: '10'
-kampfstile: Reiterkampf, Kraftvoller Kampf, Schneller Kampf
+fk: 0
+haerte: 10
+kampfstile:
+- Reiterkampf
+- Kraftvoller Kampf
+- Schneller Kampf
 name: Tuzakmesser
-plus: '3'
-rw: '2'
+plus: 3
+rw: 2
 talent: Zweihandklingenwaffen
 text: Wendig, Zweihaendig
-wm: '0'
+wm: 0

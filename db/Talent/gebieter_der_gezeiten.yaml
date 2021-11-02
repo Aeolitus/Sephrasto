@@ -1,7 +1,8 @@
-fertigkeiten: Daemonische Hilfe (Cpt)
-kosten: '20'
+fertigkeiten:
+- Daemonische Hilfe (Cpt)
+kosten: 20
 name: Gebieter der Gezeiten
-printclass: '200'
+printclass: 200
 text: 'Ebbe oder Flut koennen in einem Radius von 2 Meilen zurueckgehalten, beschleunigt
   oder verstaerkt werden.
 
@@ -22,6 +23,7 @@ text: 'Ebbe oder Flut koennen in einem Radius von 2 Meilen zurueckgehalten, besc
   Fertigkeiten: Daemonische Hilfe (Cpt)
 
   Erlernen: Cpt 16; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Paktierer I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Paktierer I

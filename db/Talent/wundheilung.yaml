@@ -1,10 +1,12 @@
-fertigkeiten: Heilkunde
-kosten: '-1'
+fertigkeiten:
+- Heilkunde
+kosten: -1
 name: Wundheilung
-printclass: '-1'
+printclass: -1
 text: Wundheilung ermoeglicht es dir, im Kampf entstandene Blutungen zu stoppen und
   die Heilung von Verletzungen zu foerdern. Zusaetzlich kannst du von Wunden Rueckschluesse
   auf die Tatwaffe und den Tathergang ziehen.
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

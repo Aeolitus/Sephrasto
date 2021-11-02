@@ -3,5 +3,6 @@ name: Todesstoss
 probe: AT -8
 text: Der Angriff richtet zwei zusaetzliche Wunden an, auch wenn der Schaden zu gering
   ist, um Wunden anzurichten.
-typ: '0'
-voraussetzungen: Vorteil Todesstoss
+typ: 0
+voraussetzungen:
+- Vorteil Todesstoss

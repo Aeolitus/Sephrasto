@@ -1,7 +1,9 @@
-fertigkeiten: Kraft, Umwelt
-kosten: '20'
+fertigkeiten:
+- Kraft
+- Umwelt
+kosten: 20
 name: Tauschrausch
-printclass: '0'
+printclass: 0
 text: "Zwei Gegenstaende deiner Wahl, die jeweils maximal 2 Stein schwer sind und\
   \ maximal 4\_Schritt voneinander entfernt stehen, tauschen auf der Stelle ihren\
   \ Platz. Die Gegenstaende duerfen nicht magisch, geweiht, befestigt oder mit einem\
@@ -11,7 +13,9 @@ text: "Zwei Gegenstaende deiner Wahl, die jeweils maximal 2 Stein schwer sind un
   Vorbereitungszeit: 1 Aktion\nZiel: zwei Objekte\nReichweite: 8 Schritt\nWirkungsdauer:\
   \ augenblicklich\nKosten: 8 AsP\nFertigkeiten: Kraft, Umwelt\nErlernen: Sch, Srl\
   \ 20; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Scharlatane I ODER
-  Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Scharlatane I
+- Vorteil Tradition der Schelme I

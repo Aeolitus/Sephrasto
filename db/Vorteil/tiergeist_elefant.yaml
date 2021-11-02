@@ -6,8 +6,8 @@ csBeschreibung: 'Archetyp: Weiser
   nicht zerbrechlich, RW 1)
 
   Zauber: Memorans, Psychostabilis, Seelentier erkennen, Xenographus'
-kommentar: '0'
-kosten: '0'
+kommentar: 0
+kosten: 0
 nachkauf: haeufig
 name: Tiergeist (Elefant)
 text: "Archetyp: Weiser\nWertebonus: Heilkunde, Geographie, Mythenkunde, KL\nVerwandlung:\
@@ -22,20 +22,24 @@ text: "Archetyp: Weiser\nWertebonus: Heilkunde, Geographie, Mythenkunde, KL\nVer
   \ das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen. Sie beherrschen\
   \ dann automatisch alle Zauber des Tiergeists: setze einen Haken bei allen kostenlosen\
   \ Talenten der Fertigkeit Gaben des Blutgeists."
-typ: '4'
-variable: '0'
-voraussetzungen: Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun
-  I ODER Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist (Affe) ODER Vorteil
-  Tradition der Schamanen I, Kein Vorteil Tiergeist (Baer) ODER Vorteil Tradition
-  der Schamanen I, Kein Vorteil Tiergeist (Eule) ODER Vorteil Tradition der Schamanen
-  I, Kein Vorteil Tiergeist (Falke) ODER Vorteil Tradition der Schamanen I, Kein Vorteil
-  Tiergeist (Fischotter) ODER Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist
-  (Fuchs/Mungo) ODER Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist (Gebirgsbock)
-  ODER Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist (Loewe) ODER Vorteil
-  Tradition der Schamanen I, Kein Vorteil Tiergeist (Mammut) ODER Vorteil Tradition
-  der Schamanen I, Kein Vorteil Tiergeist (Rabe) ODER Vorteil Tradition der Schamanen
-  I, Kein Vorteil Tiergeist (Schlange) ODER Vorteil Tradition der Schamanen I, Kein
-  Vorteil Tiergeist (Stier) ODER Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist
-  (Wildkatze/Panther) ODER Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist
-  (Wildschwein) ODER Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist (Wolf/Khoramsbestie)
-  ODER Vorteil Tradition der Schamanen I
+typ: 4
+variable: 0
+voraussetzungen:
+- Vorteil Tradition der Anach-Nurim I
+- Vorteil Tradition der Durro-dun I
+- Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist (Affe)
+- Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist (Baer)
+- Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist (Eule)
+- Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist (Falke)
+- Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist (Fischotter)
+- Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist (Fuchs/Mungo)
+- Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist (Gebirgsbock)
+- Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist (Loewe)
+- Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist (Mammut)
+- Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist (Rabe)
+- Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist (Schlange)
+- Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist (Stier)
+- Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist (Wildkatze/Panther)
+- Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist (Wildschwein)
+- Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist (Wolf/Khoramsbestie)
+- Vorteil Tradition der Schamanen I

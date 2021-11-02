@@ -1,7 +1,8 @@
-fertigkeiten: Eigenschaften
-kosten: '40'
+fertigkeiten:
+- Eigenschaften
+kosten: 40
 name: Atemnot
-printclass: '0'
+printclass: 0
 text: 'Du entziehst dem Opfer einen Teil seiner Kraft. Es erleidet 2 Punkte Erschoepfung.
   Du regenerierst die Haelfte der angerichteten Erschoepfung.
 
@@ -22,7 +23,9 @@ text: 'Du entziehst dem Opfer einen Teil seiner Kraft. Es erleidet 2 Punkte Ersc
   Fertigkeiten: Eigenschaften
 
   Erlernen: Dru 14; Ach 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Kristallomanten I

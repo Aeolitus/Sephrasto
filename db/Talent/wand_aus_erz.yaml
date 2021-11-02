@@ -1,7 +1,8 @@
-fertigkeiten: Erz
-kosten: '40'
+fertigkeiten:
+- Erz
+kosten: 40
 name: Wand aus Erz
-printclass: '0'
+printclass: 0
 text: 'Eine 3 Schritt hohe und bis zu 4 Schritt lange Wand aus massivem Erz waechst
   entlang einer von dir bestimmten Linie aus dem Boden. Sie verfuegt ueber eine Haerte
   von 32. Sie kann mit einer Konterprobe (Klettern, 20) in 8 Aktionen ueberwunden
@@ -25,7 +26,10 @@ text: 'Eine 3 Schritt hohe und bis zu 4 Schritt lange Wand aus massivem Erz waec
   Fertigkeiten: Erz
 
   Erlernen: Geo14; Mag 18; Dru 20; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I

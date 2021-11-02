@@ -1,10 +1,11 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Volle Offensive (voll)
-linkKategorie: '1'
+linkKategorie: 1
 nachkauf: haeufig
 name: Offensiver Kampfstil
 text: Der Verteidigungs-Malus durch volle Offensive sinkt auf -4.
-typ: '2'
-variable: '0'
-voraussetzungen: Attribut MU 6
+typ: 2
+variable: 0
+voraussetzungen:
+- Attribut MU 6

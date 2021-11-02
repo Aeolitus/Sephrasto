@@ -1,12 +1,13 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 linkElement: Beschwoerungen - Zusaetzliche Faehigkeiten
-linkKategorie: '1'
+linkKategorie: 1
 nachkauf: haeufig
 name: Baendiger der Kreaturen
 text: Du kannst von dir beschworenen unheiligen Wesenheiten (S. 81) zusaetzliche Faehigkeiten
   im Wert von 4 Punkten verleihen.
-typ: '4'
-variable: '0'
-voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut
-  MU 4
+typ: 4
+variable: 0
+voraussetzungen:
+- Vorteil Zauberer I
+- Vorteil Tradition der Borbaradianer I, Attribut MU 4

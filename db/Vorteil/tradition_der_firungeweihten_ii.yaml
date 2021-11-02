@@ -1,11 +1,12 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Tradition der Firungeweihten I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Tradition der Firungeweihten II
 text: Firungeweihte sind Einzelgaenger. Liturgien, von denen nur sie profitieren,
   sind um +2 erleichtert.
-typ: '7'
-variable: '0'
-voraussetzungen: Attribut MU 6, Vorteil Tradition der Firungeweihten I
+typ: 7
+variable: 0
+voraussetzungen:
+- Attribut MU 6, Vorteil Tradition der Firungeweihten I

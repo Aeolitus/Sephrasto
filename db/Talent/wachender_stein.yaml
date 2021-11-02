@@ -1,7 +1,9 @@
-fertigkeiten: Hellsicht, Kristallmagie
-kosten: '40'
+fertigkeiten:
+- Hellsicht
+- Kristallmagie
+kosten: 40
 name: Wachender Stein
-printclass: '11'
+printclass: 11
 text: 'Du kannst einen Blick durch einen gebundenen Kristall werfen. Dem Kristall
   ist dabei nichts anzumerken.
 
@@ -20,6 +22,7 @@ text: 'Du kannst einen Blick durch einen gebundenen Kristall werfen. Dem Kristal
   Fertigkeiten: Hellsicht, Kristallmagie
 
   Erlernen: Ach 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Kristallomanten I

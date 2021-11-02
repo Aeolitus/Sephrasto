@@ -1,7 +1,9 @@
-fertigkeiten: Einfluss, Geister der Staerkung
-kosten: '20'
+fertigkeiten:
+- Einfluss
+- Geister der Staerkung
+kosten: 20
 name: Tauschplatz
-printclass: '5'
+printclass: 5
 text: "In einer Zone von 16 Schritt Radius sind Proben auf Einschuechtern oder Ueberreden\
   \ um \u20134 erschwert. Davon sind all jene ausgenommen, die waehrend der gesamten\
   \ Vorbereitungszeit in der Zone waren.\nMaechtige Magie: Verdoppelt den Radius und\
@@ -9,6 +11,7 @@ text: "In einer Zone von 16 Schritt Radius sind Proben auf Einschuechtern oder U
   \ 1 Tag\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer: bis die Bindung geloest\
   \ wird\nKosten: 16 AsP, davon 1 gAsP\nFertigkeiten: Einfluss, Geister der Staerkung\n\
   Erlernen: Smn 18; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

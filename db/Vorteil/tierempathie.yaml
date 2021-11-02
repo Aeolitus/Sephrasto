@@ -2,8 +2,8 @@ csBeschreibung: Mit der Gabe der Tierempathie kannst du das Talent Ueberleben ve
   um die Gedanken von Tieren zu verstehen. Zusaetzlich kannst du ihnen sogar einfache
   Botschaften zukommen lassen. Nach dem aktiven Einsatz der Gabe erleidest du 1 Punkt
   Erschoepfung.
-kommentar: '1'
-kosten: '60'
+kommentar: 1
+kosten: 60
 nachkauf: extrem selten
 name: Tierempathie
 text: 'Mit der Gabe der Tierempathie kannst du das Talent Ueberleben verwenden, um
@@ -24,6 +24,7 @@ text: 'Mit der Gabe der Tierempathie kannst du das Talent Ueberleben verwenden, 
 
 
   Sephrasto: Trage die gewaehlte Gruppe von Tieren in das Kommentarfeld ein.'
-typ: '0'
-variable: '1'
-voraussetzungen: ''
+typ: 0
+variable: 1
+voraussetzungen:
+- ''

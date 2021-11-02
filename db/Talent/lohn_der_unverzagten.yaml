@@ -1,7 +1,9 @@
-fertigkeiten: Heilung, Heim und Herd
-kosten: '20'
+fertigkeiten:
+- Heilung
+- Heim und Herd
+kosten: 20
 name: Lohn der Unverzagten
-printclass: '35'
+printclass: 35
 text: 'Du staerkst die Widerstandskraft des Gesegneten. Proben zur Abwehr von Krankheiten
   sind um +4 erleichtert.
 
@@ -22,7 +24,8 @@ text: 'Du staerkst die Widerstandskraft des Gesegneten. Proben zur Abwehr von Kr
   Fertigkeiten: Heilung, Heim und Herd
 
   Erlernen: Per 12; Tra 16; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Perainegeweihten I ODER Vorteil Tradition der
-  Traviageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Perainegeweihten I
+- Vorteil Tradition der Traviageweihten I

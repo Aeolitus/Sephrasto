@@ -1,14 +1,15 @@
 csBeschreibung: Deine maximale Astralenergie steigt um 4 + CH Punkte (bereits eingerechnet).
   Solltest du nach dem Erwerb dieses Vorteils dein CH erhoehen, erhoeht das auch deine
   Astralenergie.
-kommentar: '0'
-kosten: '60'
+kommentar: 0
+kosten: 60
 nachkauf: haeufig
 name: Gefaess der Sterne
 script: modifyAsPMod(getCH() + 4)
 text: Deine maximale Astralenergie steigt um 4 + CH Punkte. Solltest du nach dem Erwerb
   dieses Vorteils dein CH erhoehen, erhoeht das auch deine Astralenergie.
-typ: '4'
-variable: '0'
-voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut
-  CH 8
+typ: 4
+variable: 0
+voraussetzungen:
+- Vorteil Zauberer I
+- Vorteil Tradition der Borbaradianer I, Attribut CH 8

@@ -1,12 +1,14 @@
-fertigkeiten: Schalenzauber
-kosten: '20'
+fertigkeiten:
+- Schalenzauber
+kosten: 20
 name: Sichere Aufbewahrung (passiv)
-printclass: '14'
+printclass: 14
 text: 'In der Schale aufbewahrte Substanzen verderben oder zersetzen sich nicht. Du
   kannst so auch explosive Materialien sicher transportieren.
 
   Erlernen: Alch 14; Hex 16; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Hexen
-  I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Hexen I

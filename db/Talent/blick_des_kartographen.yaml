@@ -1,7 +1,8 @@
-fertigkeiten: Stiller Wanderer
-kosten: '20'
+fertigkeiten:
+- Stiller Wanderer
+kosten: 20
 name: Blick des Kartographen
-printclass: '53'
+printclass: 53
 text: 'Du kannst dir alle Landmarken, denen du waehrend der Wirkungsdauer auf deiner
   Reise begegnest, perfekt einpraegen. Reist du noch einmal durch die eingepraegte
   Region, sind Proben zur Orientierung um +4 erleichtert. Die Erinnerung verschwindet,
@@ -27,6 +28,7 @@ text: 'Du kannst dir alle Landmarken, denen du waehrend der Wirkungsdauer auf de
   Anmerkung: Eine mit diesem Wissen angefertigte Karte bringt einen Bonus von +2 (entsprechende
   Freie Fertigkeit auf erfahren) oder sogar +4 (Freie Fertigkeit auf meisterlich)
   auf Orientierungs-Proben in der Region.'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Avesgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Avesgeweihten I

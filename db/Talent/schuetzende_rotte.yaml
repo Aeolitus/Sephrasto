@@ -1,7 +1,11 @@
-fertigkeiten: Antimagie, Geister der Staerkung, Geister vertreiben, Kraft
-kosten: '20'
+fertigkeiten:
+- Antimagie
+- Geister der Staerkung
+- Geister vertreiben
+- Kraft
+kosten: 20
 name: Schuetzende Rotte
-printclass: '5'
+printclass: 5
 text: 'Du bemalst einen Schild mit Tieren. Proben zur Abwehr von ballistischen Zaubern
   (siehe S. 124) sind mit diesem Schild um +4 erleichtert. Der Schild erleidet dabei
   keinen Schaden.
@@ -23,6 +27,7 @@ text: 'Du bemalst einen Schild mit Tieren. Proben zur Abwehr von ballistischen Z
   Fertigkeiten: Antimagie, Geister der Staerkung, Geister vertreiben, Kraft
 
   Erlernen: Smn 18; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

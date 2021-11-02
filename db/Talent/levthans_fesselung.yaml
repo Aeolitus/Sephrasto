@@ -1,7 +1,8 @@
-fertigkeiten: Harmonie
-kosten: '60'
+fertigkeiten:
+- Harmonie
+kosten: 60
 name: Levthans Fesselung
-printclass: '43'
+printclass: 43
 text: 'Du rufst das heilige Levthansband herbei, das sich um das Ziel legt und es
   bindet. Das Ziel muss ein Daimonid, Daemon, Elementar, Feenwesen oder Untoter sein
   und die Beschwoerungsschwierigkeit von maximal 24 aufweisen. Waehrend der Fesselung
@@ -28,6 +29,7 @@ text: 'Du rufst das heilige Levthansband herbei, das sich um das Ziel legt und e
 
   Anmerkung: Legenden zufolge soll es eine Variante der Liturgie geben, die sogar
   halbgoettliche Wesen binden kann. '
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Rahjageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Rahjageweihten I

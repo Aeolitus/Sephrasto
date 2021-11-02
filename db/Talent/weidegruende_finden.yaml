@@ -1,7 +1,11 @@
-fertigkeiten: Eigenschaften, Hellsicht, Geister der Staerkung, Geister rufen
-kosten: '0'
+fertigkeiten:
+- Eigenschaften
+- Hellsicht
+- Geister der Staerkung
+- Geister rufen
+kosten: 0
 name: Weidegruende Finden
-printclass: '5'
+printclass: 5
 text: 'Die Geister helfen dir auf dem Weg zu den naechsten Weidegruenden. Entsprechende
   Ueberleben-Proben sind um +4 erleichtert.
 
@@ -22,6 +26,7 @@ text: 'Die Geister helfen dir auf dem Weg zu den naechsten Weidegruenden. Entspr
   Fertigkeiten: Eigenschaften, Hellsicht, Geister der Staerkung, Geister rufen
 
   Erlernen: Smn 12; 0 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

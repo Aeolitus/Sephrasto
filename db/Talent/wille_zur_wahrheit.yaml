@@ -1,12 +1,14 @@
-fertigkeiten: Ordnung
-kosten: '40'
+fertigkeiten:
+- Ordnung
+kosten: 40
 name: Wille zur Wahrheit
-printclass: '42'
+printclass: 42
 text: "Alle Zuhoerer im Radius von 16 Schritt halten sich an die Wahrheit, Versuche\
   \ zu Luegen sind um \u20134 erschwert.\nMaechtige Liturgie: Der Malus steigt um\
   \ \u20132.\nProbenschwierigkeit: 12\nVorbereitungszeit: 4 Minuten\nZiel: Zone\n\
   Reichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 16 KaP\nFertigkeiten: Ordnung\n\
   Erlernen: Pra 16; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Praiosgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Praiosgeweihten I

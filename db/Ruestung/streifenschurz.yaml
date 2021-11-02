@@ -1,11 +1,11 @@
 name: Streifenschurz
-rsBauch: '1'
-rsBeine: '1'
-rsBrust: '0'
-rsKopf: '0'
-rsLArm: '0'
-rsRArm: '0'
-system: '2'
+rsBauch: 1
+rsBeine: 1
+rsBrust: 0
+rsKopf: 0
+rsLArm: 0
+rsRArm: 0
+system: 2
 text: Ruestungsergaenzung fuer die Leistengegend. Wird insbesondere kombiniert mit
   Kettenwesten, Bronzeharnischen oder Lederruestungen.
-typ: '1'
+typ: 1

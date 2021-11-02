@@ -1,7 +1,10 @@
-fertigkeiten: Heiliges Handwerk, Harmonie, Neubeginn
-kosten: '40'
+fertigkeiten:
+- Heiliges Handwerk
+- Harmonie
+- Neubeginn
+kosten: 40
 name: Goettliche Inspiration
-printclass: '34'
+printclass: 34
 text: 'Waehle eine goettergefaellige Freie Fertigkeit. Die Stufe dieser Freien Fertigkeit
   steigt um eins, oder du erhaeltst diese Fertigkeit auf unerfahren.
 
@@ -28,8 +31,10 @@ text: 'Waehle eine goettergefaellige Freie Fertigkeit. Die Stufe dieser Freien F
   Fertigkeiten: Heiliges Handwerk, Harmonie, Neubeginn
 
   Erlernen: Tsa 12; Rah, Ing 16; Ang 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition
-  der Angroschgeweihten I ODER Vorteil Tradition der Rahjageweihten I ODER Vorteil
-  Tradition der Tsageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Ingerimmgeweihten I
+- Vorteil Tradition der Angroschgeweihten I
+- Vorteil Tradition der Rahjageweihten I
+- Vorteil Tradition der Tsageweihten I

@@ -1,7 +1,10 @@
-fertigkeiten: Harmonie, Heim und Herd, Stiller Wanderer
-kosten: '40'
+fertigkeiten:
+- Harmonie
+- Heim und Herd
+- Stiller Wanderer
+kosten: 40
 name: Schicksalsgemeinschaft
-printclass: '43'
+printclass: 43
 text: "Du staerkst das gegenseitige Vertrauen zwischen bis zu 8 treuen Gefaehrten.\
   \ Haeufig wird dieser Segen auf eine Familie (Tra), ein Liebespaar (Rah) oder eine\
   \ Reisegruppe (Aves) gewirkt. Einmal pro Woche kann einer der Gesegneten einen Schicksalspunkt\
@@ -11,7 +14,9 @@ text: "Du staerkst das gegenseitige Vertrauen zwischen bis zu 8 treuen Gefaehrte
   \ wird, Kosten 8 KaP, davon 2 gKaP)\nVorbereitungszeit: 16 Aktionen\nZiel: Zone\n\
   Reichweite: Beruehrung\nWirkungsdauer: 1 Woche\nKosten: 8 KaP\nFertigkeiten: Harmonie,\
   \ Heim und Herd, Stiller Wanderer\nErlernen: Rah 14; Aves, Tra 16; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
-  Rahjageweihten I ODER Vorteil Tradition der Traviageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Avesgeweihten I
+- Vorteil Tradition der Rahjageweihten I
+- Vorteil Tradition der Traviageweihten I

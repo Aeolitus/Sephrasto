@@ -1,8 +1,9 @@
-fertigkeiten: Gaben des Blutgeists
-kommentar: '0'
-kosten: '0'
+fertigkeiten:
+- Gaben des Blutgeists
+kommentar: 0
+kosten: 0
 name: Sensibar Empathicus (Blutgeist)
-printclass: '0'
+printclass: 0
 text: 'Du kannst die Gefuehle deines Gegenuebers erahnen, wodurch deine Menschenkenntnis
   gegen das Ziel um +4 steigt.
 
@@ -19,7 +20,9 @@ text: 'Du kannst die Gefuehle deines Gegenuebers erahnen, wodurch deine Menschen
   Wirkungsdauer: 1 Stunde
 
   Kosten: 8 AsP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Eule) ODER Vorteil Tiergeist (Fuchs/Mungo) ODER
-  Vorteil Tiergeist (Rabe)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Eule)
+- Vorteil Tiergeist (Fuchs/Mungo)
+- Vorteil Tiergeist (Rabe)

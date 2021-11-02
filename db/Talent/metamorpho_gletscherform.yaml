@@ -1,7 +1,9 @@
-fertigkeiten: Eis, Verwandlung
-kosten: '60'
+fertigkeiten:
+- Eis
+- Verwandlung
+kosten: 60
 name: Metamorpho Gletscherform
-printclass: '0'
+printclass: 0
 text: "Du formst Eis mit blossen Haenden in die wundersamsten Formen. Die Kosten,\
   \ Zauberdauer und Modifikationen Maechtige Magie sind Meisterentscheid. Beispiele:\n\
   4 AsP, 1x Maechtige Magie, 4 Aktionen: Du formst einen Eiszapfen um zu einer einfachen\
@@ -16,7 +18,9 @@ text: "Du formst Eis mit blossen Haenden in die wundersamsten Formen. Die Kosten
   \ nicht mehr.)\nVorbereitungszeit: nach Vorhaben\nZiel: Einzelobjekt\nReichweite:\
   \ Beruehrung\nWirkungsdauer: bis die Bindung geloest wird\nKosten: nach Vorhaben\n\
   Fertigkeiten: Eis, Verwandlung\nErlernen: Elf 16; Dru, Mag 20; 60 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen
-  I ODER Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Gildenmagier I

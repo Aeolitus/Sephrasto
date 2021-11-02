@@ -1,7 +1,10 @@
-fertigkeiten: Luft, Verwandlung, Wasser
-kosten: '40'
+fertigkeiten:
+- Luft
+- Verwandlung
+- Wasser
+kosten: 40
 name: Nebelleib
-printclass: '0'
+printclass: 0
 text: 'Du verwandelst dich in Nebel, waehrend deine Ausruestung zurueckbleibt. In
   deiner Nebelgestalt bist du immun gegen profanen Schaden, kannst durch schmalste
   Oeffnungen dringen und mit deiner gewoehnlichen GS bis zu 8 Schritt ueber dem Boden
@@ -25,7 +28,9 @@ text: 'Du verwandelst dich in Nebel, waehrend deine Ausruestung zurueckbleibt. I
   Fertigkeiten: Luft, Verwandlung, Wasser
 
   Erlernen: Dru, Geo 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Geoden I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I

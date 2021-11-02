@@ -1,7 +1,10 @@
-fertigkeiten: Froehlicher Wanderer, Neubeginn, Rausch
-kosten: '40'
+fertigkeiten:
+- Froehlicher Wanderer
+- Neubeginn
+- Rausch
+kosten: 40
 name: Goettliche Freiheit
-printclass: '44'
+printclass: 44
 text: 'Der Gesegnete wird von einer Fessel befreit, zum Beispiel von einer Eisenkette,
   von einer Sucht oder einem Einflusszauber. Koerperliche Fesseln verschwinden dabei,
   geistige Fesseln werden waehrend der Wirkungsdauer unterdrueckt. Handelt sich es
@@ -23,7 +26,9 @@ text: 'Der Gesegnete wird von einer Fessel befreit, zum Beispiel von einer Eisen
   Fertigkeiten: Froehlicher Wanderer, Neubeginn, Rausch
 
   Erlernen: Aves, Rah, Tsa 12; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
-  Rahjageweihten I ODER Vorteil Tradition der Tsageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Avesgeweihten I
+- Vorteil Tradition der Rahjageweihten I
+- Vorteil Tradition der Tsageweihten I

@@ -1,7 +1,9 @@
-fertigkeiten: Eis, Verwandlung
-kosten: '60'
+fertigkeiten:
+- Eis
+- Verwandlung
+kosten: 60
 name: Leib des Eises
-printclass: '0'
+printclass: 0
 text: "Du harmonierst mit dem Element Eis. Du bist immun gegen Kaelte und Eisschaden.\n\
   Probenschwierigkeit: 12\nModifikationen: Reise ins Eis (\u20134; du kannst dich\
   \ mit 1 Schritt pro Initiativephase in Eis und Schnee bewegen, als wuerdest du darin\
@@ -12,7 +14,9 @@ text: "Du harmonierst mit dem Element Eis. Du bist immun gegen Kaelte und Eissch
   Vorbereitungszeit: 8 Aktionen\nZiel: selbst\nReichweite: Beruehrung\nWirkungsdauer:\
   \ 1 Stunde\nKosten: 16 AsP\nFertigkeiten: Eis, Verwandlung\nErlernen: Ach, Elf 18;\
   \ Dru 20; 60 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen
-  I ODER Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Kristallomanten I

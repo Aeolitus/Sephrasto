@@ -1,11 +1,13 @@
-fertigkeiten: Autoritaet
-kosten: '-1'
+fertigkeiten:
+- Autoritaet
+kosten: -1
 name: Anfuehren
-printclass: '-1'
+printclass: -1
 text: Mit Anfuehren leitest und motivierst du Untergebene. Du kannst mit Anfuehren
   Loescharbeiten oder eine Truppe von Kaempfern koordinieren, um ihnen so Vorteile
   zu verschaffen (S. 46). Gerade in grossen Schlachten entscheidet der Heerfuehrer
   ueber Sieg oder Niederlage.
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

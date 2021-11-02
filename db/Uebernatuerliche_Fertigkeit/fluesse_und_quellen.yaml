@@ -1,0 +1,11 @@
+attribute:
+- IN
+- KL
+- KO
+name: Fluesse und Quellen
+printclass: 1
+steigerungsfaktor: 2
+text: Der Legende nach sind die Fluesse die suessen Traenen Efferds, dementsprechend
+  sind auch viele Geweihte des Efferd im Binnenland taetig.
+voraussetzungen:
+- Vorteil Tradition der Efferdgeweihten I

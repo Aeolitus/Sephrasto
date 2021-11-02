@@ -1,8 +1,8 @@
 csBeschreibung: Du hast einen guten Draht zu einer bestimmten Organisation oder Person,
   die dir ueblicherweise freundlich gegenuebersteht. Ausserdem gelten passende Verbindungen
   als Werkzeug fuer Recherchen und viele andere Taetigkeiten.
-kommentar: '1'
-kosten: '20'
+kommentar: 1
+kosten: 20
 nachkauf: ueblich
 name: Verbindungen
 text: 'Du hast einen guten Draht zu einer bestimmten Organisation oder Person, die
@@ -29,6 +29,7 @@ text: 'Du hast einen guten Draht zu einer bestimmten Organisation oder Person, d
 
   Sephrasto: Trage die gewaehlten Verbindungen in das Kommentarfeld ein. Wenn du mehrere
   Verbindungen hast, dann erhoehe die EP-Kosten entsprechend.'
-typ: '0'
-variable: '1'
-voraussetzungen: ''
+typ: 0
+variable: 1
+voraussetzungen:
+- ''

@@ -1,14 +1,15 @@
 csBeschreibung: Erlaubt die spontane Modifikation Zeremonie.
-kommentar: '0'
-kosten: '60'
+kommentar: 0
+kosten: 60
 linkElement: Tradition der Hesindegeweihten II
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Tradition der Hesindegeweihten III
 text: 'Erlaubt die spontane Modifikation Zeremonie (Liturgie +X): Du kannst die Vorbereitungszeit
   freiwillig um 1 Minute/Stunde/Tag/Woche/Monat/Jahr erhoehen, wodurch die Liturgie
   um +4/6/8/10/12/14 erleichtert ist. Die Vorbereitungszeit muss dadurch mindestens
   verdoppelt werden.'
-typ: '7'
-variable: '0'
-voraussetzungen: Attribut KL 8, Vorteil Tradition der Hesindegeweihten II
+typ: 7
+variable: 0
+voraussetzungen:
+- Attribut KL 8, Vorteil Tradition der Hesindegeweihten II

@@ -7,5 +7,6 @@ text: 'Der Angriff ignoriert die gegnerische Ruestung und richtet SP statt TP an
 
   Anmerkung: Das Manoever lohnt sich, wenn der Gegner schwere Ruestung traegt oder
   du mehrere Wunden anrichten kannst.'
-typ: '0'
-voraussetzungen: Waffeneigenschaft Ruestungsbrechend
+typ: 0
+voraussetzungen:
+- Waffeneigenschaft Ruestungsbrechend

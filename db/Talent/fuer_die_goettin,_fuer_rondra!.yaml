@@ -1,7 +1,8 @@
-fertigkeiten: Ehre
-kosten: '40'
+fertigkeiten:
+- Ehre
+kosten: 40
 name: Fuer die Goettin, fuer Rondra!
-printclass: '45'
+printclass: 45
 text: 'Die Macht der Goettin erfuellt dich, waehrend du einen Sturmangriff durchfuehrst
   (S. 41). Der erste Sturmangriff waehrend der Wirkungsdauer trifft alle Gegner in
   deiner Bahn, bis du durch mindestens 2 erfolgreiche Verteidigungen gestoppt wirst.
@@ -24,6 +25,7 @@ text: 'Die Macht der Goettin erfuellt dich, waehrend du einen Sturmangriff durch
   Fertigkeiten: Ehre
 
   Erlernen: Ron 14; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Rondrageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Rondrageweihten I

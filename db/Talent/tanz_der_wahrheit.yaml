@@ -1,7 +1,9 @@
-fertigkeiten: Hellsicht, Zaubertaenze
-kosten: '40'
+fertigkeiten:
+- Hellsicht
+- Zaubertaenze
+kosten: 40
 name: Tanz der Wahrheit
-printclass: '19'
+printclass: 19
 text: "Du siehst die Gedanken deines Ziels als verschwommene Bilder vor dir. Weiss\
   \ das Ziel, dass seine Gedanken gelesen werden, kann es dich mit einer Konterprobe\
   \ (Willenskraft, 16) in die Irre fuehren. Die Wirkung endet, wenn du aufhoerst zu\
@@ -12,6 +14,7 @@ text: "Du siehst die Gedanken deines Ziels als verschwommene Bilder vor dir. Wei
   \ (MR, 12) misslingt.)\nVorbereitungszeit: 16 Aktionen\nZiel: Einzelperson\nReichweite:\
   \ 4 Schritt\nWirkungsdauer: 16 Initiativphasen\nKosten: 8 AsP\nFertigkeiten: Hellsicht,\
   \ Zaubertaenze\nErlernen: Ztz 16; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Zaubertaenzer I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Zaubertaenzer I

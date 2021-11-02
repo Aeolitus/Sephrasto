@@ -1,11 +1,14 @@
-W6: '3'
+W6: 3
 fertigkeit: Hiebwaffen
-fk: '0'
-haerte: '6'
-kampfstile: Reiterkampf, Kraftvoller Kampf, Schneller Kampf
+fk: 0
+haerte: 6
+kampfstile:
+- Reiterkampf
+- Kraftvoller Kampf
+- Schneller Kampf
 name: Kriegsflegel
-plus: '0'
-rw: '2'
+plus: 0
+rw: 2
 talent: Zweihandhiebwaffen
 text: Kopflastig, Zweihaendig
-wm: '-1'
+wm: -1

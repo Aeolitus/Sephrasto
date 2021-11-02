@@ -1,10 +1,11 @@
 csBeschreibung: Deine maximalen Schicksalspunkte steigen auf 5 (bereits eingerechnet).
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 nachkauf: haeufig
 name: Glueck I
 script: modifySchiPMax(1)
 text: Deine maximalen Schicksalspunkte steigen auf 5.
-typ: '0'
-variable: '0'
-voraussetzungen: ''
+typ: 0
+variable: 0
+voraussetzungen:
+- ''

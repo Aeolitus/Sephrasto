@@ -1,7 +1,8 @@
-fertigkeiten: Hellsicht
-kosten: '40'
+fertigkeiten:
+- Hellsicht
+kosten: 40
 name: Blick aufs Wesen
-printclass: '0'
+printclass: 0
 text: "Der Zauber offenbart dir die Fertigkeiten deines Ziels. Du erhaeltst einen\
   \ groben Eindruck von seinen koerperlichen, geistigen, handwerklichen, kaempferischen\
   \ und zauberischen Faehigkeiten.\nMaechtige Magie: Du erfaehrst auch besonders hohe\
@@ -13,10 +14,15 @@ text: "Der Zauber offenbart dir die Fertigkeiten deines Ziels. Du erhaeltst eine
   Ziel: Einzelwesen\nReichweite: 8 Schritt\nWirkungsdauer: augenblicklich\nKosten:\
   \ 8 AsP\nFertigkeiten: Hellsicht\nErlernen: Elf 12; Geo, Mag 14; Ach, Alch, Dru,\
   \ Hex, Sch 16; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition
-  der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition
-  der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I
+- Vorteil Tradition der Schelme I

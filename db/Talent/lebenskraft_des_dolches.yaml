@@ -1,7 +1,9 @@
-fertigkeiten: Dolchzauber, Humus
-kosten: '40'
+fertigkeiten:
+- Dolchzauber
+- Humus
+kosten: 40
 name: Lebenskraft des Dolches
-printclass: '1'
+printclass: 1
 text: 'Du entziehst dem Boden Lebenskraft und regenerierst in der naechsten Ruhephase
   eine zusaetzliche Wunde (nicht kumulativ).
 
@@ -20,7 +22,8 @@ text: 'Du entziehst dem Boden Lebenskraft und regenerierst in der naechsten Ruhe
   Fertigkeiten: Dolchzauber, Humus
 
   Erlernen: Geo 12; Dru 14; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden
-  I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I

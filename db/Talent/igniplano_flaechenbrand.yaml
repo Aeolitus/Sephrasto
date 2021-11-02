@@ -1,7 +1,8 @@
-fertigkeiten: Feuer
-kosten: '60'
+fertigkeiten:
+- Feuer
+kosten: 60
 name: Igniplano Flaechenbrand
-printclass: '0'
+printclass: 0
 text: 'Du beschwoerst flammende Urgewalten aus der Erde hervor. In einem Kreis mit
   4 Schritt Radius fuegen Flammensaeulen jedem Wesen 4W6 TP zu, die Nachbrennen (S.
   98) verursachen. Alles Brennbare in der Zone geht augenblicklich in Flammen auf.
@@ -23,6 +24,7 @@ text: 'Du beschwoerst flammende Urgewalten aus der Erde hervor. In einem Kreis m
   Fertigkeiten: Feuer
 
   Erlernen: -; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

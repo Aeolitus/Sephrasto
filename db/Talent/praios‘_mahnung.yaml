@@ -1,13 +1,15 @@
-fertigkeiten: Ordnung
-kosten: '20'
+fertigkeiten:
+- Ordnung
+kosten: 20
 name: "Praios\u2018 Mahnung"
-printclass: '42'
+printclass: 42
 text: "Du nimmst dem Ziel eine von Praios\u2018 Gaben: Fuer den Rest der Wirkungsdauer\
   \ ist das Ziel entweder unfaehig zu sehen, sich zu orientieren oder Wahrheit von\
   \ Luegen zu unterscheiden. Entsprechende Proben sind um \u20134 erschwert.\nMaechtige\
   \ Liturgie: Der Malus steigt um \u20132.\nProbenschwierigkeit: 12\nVorbereitungszeit:\
   \ 4 Minuten\nZiel: Einzelperson\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\n\
   Kosten: 8 KaP\nFertigkeiten: Ordnung\nErlernen: Pra 14; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Praiosgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Praiosgeweihten I

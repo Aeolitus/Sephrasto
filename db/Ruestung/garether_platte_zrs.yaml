@@ -1,11 +1,11 @@
 name: Garether Platte (ZRS)
-rsBauch: '5'
-rsBeine: '3'
-rsBrust: '5'
-rsKopf: '0'
-rsLArm: '4'
-rsRArm: '4'
-system: '2'
+rsBauch: 5
+rsBeine: 3
+rsBrust: 5
+rsKopf: 0
+rsLArm: 4
+rsRArm: 4
+system: 2
 text: Komplettruestung, kann bis auf Hals, Kopf und Fuesse nicht ergaenzt werden.
   Wird ueblicherweise mit Schaller und Bart ergaenzt.
-typ: '4'
+typ: 4

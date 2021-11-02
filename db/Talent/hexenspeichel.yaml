@@ -1,7 +1,9 @@
-fertigkeiten: Humus, Verwandlung
-kosten: '60'
+fertigkeiten:
+- Humus
+- Verwandlung
+kosten: 60
 name: Hexenspeichel
-printclass: '0'
+printclass: 0
 text: "Dein Ziel erhaelt 2W6+4 Heilpunkte, fuer jede Ueberschreitung der WS heilst\
   \ du eine Wunde.\nMaechtige Magie: Erhoeht die Heilpunkte um 4.\nProbenschwierigkeit:\
   \ 12+Wund-Mod. des Ziels\nModifikationen: Blutung stoppen (Probenschwierigkeit 16,\
@@ -9,6 +11,7 @@ text: "Dein Ziel erhaelt 2W6+4 Heilpunkte, fuer jede Ueberschreitung der WS heil
   \ 1 Stunde; der Zauber heilt den Esser des verzauberten Gerichts.)\nVorbereitungszeit:\
   \ 16 Minuten\nZiel: Einzelwesen\nReichweite: Beruehrung\nWirkungsdauer: augenblicklich\n\
   Kosten: 8 AsP\nFertigkeiten: Humus, Verwandlung\nErlernen: Hex 8; 60 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Hexen I

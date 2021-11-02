@@ -1,7 +1,8 @@
-fertigkeiten: Heim und Herd
-kosten: '20'
+fertigkeiten:
+- Heim und Herd
+kosten: 20
 name: Travinians Segen der Schwelle
-printclass: '48'
+printclass: 48
 text: 'Du segnest die Schwelle. Der dahinter liegende Raum gilt als geweihter Boden
   und kann von unheiligen Wesenheiten mit einer Beschwoerungsschwierigkeit von maximal
   24 nicht betreten werden.
@@ -23,6 +24,7 @@ text: 'Du segnest die Schwelle. Der dahinter liegende Raum gilt als geweihter Bo
   Fertigkeiten: Heim und Herd
 
   Erlernen: Tra 18; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Traviageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Traviageweihten I

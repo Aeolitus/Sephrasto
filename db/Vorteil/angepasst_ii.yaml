@@ -1,10 +1,10 @@
 csBeschreibung: Durch deine Spezies oder langjaehrige Erfahrung hast du dich an eine
   bestimmte Umgebung oder Umweltbedingung gewoehnt. Abzuege durch diese Umgebung,
   insbesondere im Kampf, sinken fuer dich um 2 Stufen.
-kommentar: '1'
-kosten: '20'
+kommentar: 1
+kosten: 20
 linkElement: Angepasst I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: selten
 name: Angepasst II
 text: 'Durch deine Spezies oder langjaehrige Erfahrung hast du dich an eine bestimmte
@@ -19,6 +19,7 @@ text: 'Durch deine Spezies oder langjaehrige Erfahrung hast du dich an eine best
   Sephrasto: Trage die gewaehlte Umgebung in das Kommentarfeld ein. Entferne diese
   Umgebung aus dem Kommentar von Angepasst I, damit der Regelanhang korrekt ausgegeben
   wird.'
-typ: '0'
-variable: '1'
-voraussetzungen: Vorteil Angepasst I
+typ: 0
+variable: 1
+voraussetzungen:
+- Vorteil Angepasst I

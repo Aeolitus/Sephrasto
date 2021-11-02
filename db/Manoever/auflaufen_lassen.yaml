@@ -6,5 +6,6 @@ text: 'Der Verteidiger fuegt dem Angreifer seinen Waffenschaden plus die GS des 
 
   Voraussetzungen: groessere Reichweite; Gegner kombiniert die Aktionen Bewegung und
   Konflikt; die Bewegung muss vor dem Angriff ausgefuehrt werden.'
-typ: '0'
-voraussetzungen: ''
+typ: 0
+voraussetzungen:
+- ''

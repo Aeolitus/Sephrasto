@@ -1,7 +1,9 @@
-fertigkeiten: Verwandlung, Gaben des Odun
-kosten: '40'
+fertigkeiten:
+- Verwandlung
+- Gaben des Odun
+kosten: 40
 name: Seele des (Tieres)
-printclass: '4'
+printclass: 4
 text: 'Du verwandelst dich in das Tier, wobei du deine geistigen Faehigkeiten behaeltst.
   Die koerperlichen Faehigkeiten entsprechen denen des Tiers. Du kannst in Tiergestalt
   nicht zaubern. Erlaubt Aufrechterhalten.
@@ -30,6 +32,7 @@ text: 'Du verwandelst dich in das Tier, wobei du deine geistigen Faehigkeiten be
 
   Anmerkung: Die Lernkosten des Zaubers orientieren sich an der Tierart, wobei fliegende,
   giftige, sehr starke usw. Tiere teurer sind.'
-variable: '1'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Durro-dun I
+variable: 1
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Durro-dun I

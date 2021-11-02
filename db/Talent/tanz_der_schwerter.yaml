@@ -1,13 +1,15 @@
-fertigkeiten: Rausch
-kosten: '40'
+fertigkeiten:
+- Rausch
+kosten: 40
 name: Tanz der Schwerter
-printclass: '44'
+printclass: 44
 text: "Dein Kampfstil gleicht einem hypnotischen Tanz. Deine GS erhoeht sich um +4\
   \ und alle AT und VT sind um +2 erleichtert.\nMaechtige Liturgie: Die GS steigt\
   \ um weitere +2.\nProbenschwierigkeit: 12\nModifikationen: Fliegender Tanz (\u2013\
   8; du wirst nicht mehr zum Ziel von Passierschlaegen.)\nVorbereitungszeit: 0 Aktionen\n\
   Ziel: selbst\nReichweite: Beruehrung\nWirkungsdauer: 16 Initiativphasen\nKosten:\
   \ 4 KaP\nFertigkeiten: Rausch\nErlernen: Rah 18; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Rahjageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Rahjageweihten I

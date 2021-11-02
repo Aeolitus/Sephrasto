@@ -9,7 +9,11 @@ text: Der Zauber erzeugt ein Trugbild, das die angegebenen Sinne taeuscht. Die I
   dienen. Fast alle Illusionen haben Fehler. Diese Fehler koennen mit einer Konterprobe
   (Wachsamkeit, 16) entdeckt werden, womit die Illusion durchschaut wird und keine
   Wirkung mehr hat.
-typ: '4'
-voraussetzungen: Talent Sinesigill Unerkannt ODER Talent Harmlose Gestalt ODER Uebernatuerliche-Fertigkeit
-  'Illusion' -1 ODER Talent Aufmerksamer Waechter ODER Uebernatuerliche-Fertigkeit
-  'Kugelzauber' -1 ODER Talent Zaubersiegel
+typ: 4
+voraussetzungen:
+- Talent Sinesigill Unerkannt
+- Talent Harmlose Gestalt
+- Uebernatuerliche-Fertigkeit 'Illusion' -1
+- Talent Aufmerksamer Waechter
+- Uebernatuerliche-Fertigkeit 'Kugelzauber' -1
+- Talent Zaubersiegel

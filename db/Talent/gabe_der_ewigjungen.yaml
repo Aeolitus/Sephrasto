@@ -1,7 +1,8 @@
-fertigkeiten: Friede
-kosten: '40'
+fertigkeiten:
+- Friede
+kosten: 40
 name: Gabe der Ewigjungen
-printclass: '50'
+printclass: 50
 text: 'In deiner Hand erscheint eine Fruehlingsblume. Solange die Blume blueht, erhaelt
   ihr Traeger einen Bonus von +1 auf Menschenkenntnis. Die Blume verblueht, wenn der
   Traeger einer Person begegnet, die ihm feindlich gesonnen ist, er sich gegen Tsa
@@ -22,6 +23,7 @@ text: 'In deiner Hand erscheint eine Fruehlingsblume. Solange die Blume blueht, 
   Fertigkeiten: Friede
 
   Erlernen: Tsa 14; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Tsageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Tsageweihten I

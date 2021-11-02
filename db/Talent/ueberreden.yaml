@@ -1,10 +1,12 @@
-fertigkeiten: Beeinflussung
-kosten: '-1'
+fertigkeiten:
+- Beeinflussung
+kosten: -1
 name: Ueberreden
-printclass: '-1'
+printclass: -1
 text: Ueberreden bedeutet den geschickten Einsatz von Uebertreibungen, Unwahrheiten
   oder Luegen, um das Gegenueber zumindest kurzfristig zu beeinflussen. Mit Ueberreden
   feilschst du am Marktplatz, bestichst eine Stadtwache oder infiltrierst ein Borbaradianerkloster.
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

@@ -1,7 +1,9 @@
-fertigkeiten: Eigenschaften, Zaubermelodien
-kosten: '20'
+fertigkeiten:
+- Eigenschaften
+- Zaubermelodien
+kosten: 20
 name: Schriller Klang
-printclass: '18'
+printclass: 18
 text: "Du entlockst deinem Instrument einen schrillen Klang, der fuer dein Ziel hundertfach\
   \ verstaerkt ist. Bis zu deiner naechsten Intitiativephase sind alle Proben des\
   \ Ziels um \u20134 erschwert. Der schrille Klang wirkt nicht auf unheilige Wesen\
@@ -9,6 +11,7 @@ text: "Du entlockst deinem Instrument einen schrillen Klang, der fuer dein Ziel 
   \ Magieresistenz\nVorbereitungszeit: 0 Aktionen\nZiel: Einzelwesen\nReichweite:\
   \ 8 Schritt\nWirkungsdauer: augenblicklich\nKosten: 2 AsP\nFertigkeiten: Einfluss,\
   \ Zaubermelodien\nErlernen: Bard 14; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Zauberbarden I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Zauberbarden I

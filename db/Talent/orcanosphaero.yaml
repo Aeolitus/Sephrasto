@@ -1,7 +1,8 @@
-fertigkeiten: Luft
-kosten: '60'
+fertigkeiten:
+- Luft
+kosten: 60
 name: Orcanosphaero
-printclass: '0'
+printclass: 0
 text: "Du erschaffst eine elementare Kugel, die du mit Konzentration und Blickkontakt\
   \ 16 Schritt pro Initiativephase bewegen kannst. Die Kugel explodiert, wenn du die\
   \ Konzentration oder den Blickkontakt verlierst, du sie absichtlich zuendest oder\
@@ -12,8 +13,10 @@ text: "Du erschaffst eine elementare Kugel, die du mit Konzentration und Blickko
   \ und Blickkontakt zur Kugel sind nicht noetig.)\nVorbereitungszeit: 2 Aktionen\n\
   Ziel: Zone\nReichweite: 2 Schritt\nWirkungsdauer: 2 Initiativphasen\nKosten: 16\
   \ AsP\nFertigkeiten: Luft\nErlernen: Ach, Mag 18; Geo, Dru 20; 60 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden
-  I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten
-  I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Kristallomanten I

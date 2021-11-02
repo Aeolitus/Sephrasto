@@ -1,9 +1,13 @@
-attribute: FF|FF|KL
-kampffertigkeit: '0'
+attribute:
+- FF
+- FF
+- KL
+kampffertigkeit: 0
 name: Alchemie
-printclass: '6'
-steigerungsfaktor: '3'
+printclass: 6
+steigerungsfaktor: 3
 text: Alchemie ist die Wissenschaft von der Umwandlung der Stoffe. Mit ihr kannst
   du nuetzliche Traenke herstellen oder unbekannte Gebraeue analysieren; fuer beides
   ist aber zumindest ein einfacher Analysekoffer notwendig.
-voraussetzungen: ''
+voraussetzungen:
+- ''

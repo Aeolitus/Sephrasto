@@ -9,5 +9,6 @@ text: 'Ein rituelles Opfer erleichtert die Liturgie um +4. Der Opfergegenstand w
   mit dieser Modifikation gewirkt wird. Umgekehrt sollten sie nicht so selten sein,
   dass die Modifikation nie eingesetzt werden kann. Als Richtwert gilt eine Opferung
   alle zwei Spielabende.'
-typ: '3'
-voraussetzungen: Vorteil Tradition der Nandusgeweihten III
+typ: 3
+voraussetzungen:
+- Vorteil Tradition der Nandusgeweihten III

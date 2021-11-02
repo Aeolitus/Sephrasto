@@ -1,14 +1,17 @@
-fertigkeiten: Gutes Gold, Heerfuehrung
-kosten: '40'
+fertigkeiten:
+- Gutes Gold
+- Heerfuehrung
+kosten: 40
 name: "Segen des Heiligen Hl\xFBthar"
-printclass: '46'
+printclass: 46
 text: "Du waehlst bis zu 8 Mitstreiter. Auf ihnen lastende Furcht-Effekte gelten als\
   \ eine Stufe niedriger.\nProbenschwierigkeit: 12\nModifikationen: Mut der Schlacht\
   \ (\u20138, 16 KaP, Wirkungsdauer 4 Stunden; die Wirkung betrifft alle Mitglieder\
   \ des Heeres, dem du angehoerst.)\nVorbereitungszeit: 16 Aktionen\nZiel: Zone\n\
   Reichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 8 KaP\nFertigkeiten: Gutes\
   \ Gold, Heerfuehrung\nErlernen: Ron 14; Kor 16; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Rondrageweihten I ODER Vorteil Tradition der
-  Korgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Rondrageweihten I
+- Vorteil Tradition der Korgeweihten I

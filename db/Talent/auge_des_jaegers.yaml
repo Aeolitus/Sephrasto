@@ -1,7 +1,8 @@
-fertigkeiten: Jagd
-kosten: '40'
+fertigkeiten:
+- Jagd
+kosten: 40
 name: Auge des Jaegers
-printclass: '27'
+printclass: 27
 text: 'Du benennst eine Beute. Sinnenschaerfe-, Ueberleben- und andere Proben, um
   die Beute zu finden sind um +2 erleichtert.
 
@@ -22,7 +23,8 @@ text: 'Du benennst eine Beute. Sinnenschaerfe-, Ueberleben- und andere Proben, u
   Fertigkeiten: Jagd
 
   Erlernen: Fir 16; Ifi 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition der
-  Ifirngeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Firungeweihten I
+- Vorteil Tradition der Ifirngeweihten I

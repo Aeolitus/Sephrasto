@@ -1,8 +1,10 @@
-fertigkeiten: Einfluss, Geister des Zorns
-kommentar: '1'
-kosten: '20'
+fertigkeiten:
+- Einfluss
+- Geister des Zorns
+kommentar: 1
+kosten: 20
 name: Fluch des (Tieres)
-printclass: '6'
+printclass: 6
 text: "Ein zorniger Tiergeist straft das Ziel. Es erleidet einen Malus von \u2013\
   2 auf alle Werte, die dem Tier zugeordnet sind (S. 160).\nMaechtige Magie: Der Malus\
   \ steigt um \u20131.\nProbenschwierigkeit: Magieresistenz\nModifikationen: Permanenz\
@@ -14,6 +16,7 @@ text: "Ein zorniger Tiergeist straft das Ziel. Es erleidet einen Malus von \u201
   \ Tiere waehlst, dann erhoehe die EP-Kosten entsprechend. Die Tiertabelle ist in\
   \ Sephrasto ausserdem ueber die kostenlosen Tiergeist-Vorteile abgebildet; wenn\
   \ du diese auswaehlst, erhaeltst du die Werte des Tiergeists im Regelanhang."
-variable: '1'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 1
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

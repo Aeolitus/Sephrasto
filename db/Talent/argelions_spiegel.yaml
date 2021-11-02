@@ -1,7 +1,8 @@
-fertigkeiten: Magie
-kosten: '60'
+fertigkeiten:
+- Magie
+kosten: 60
 name: Argelions Spiegel
-printclass: '30'
+printclass: 30
 text: 'Der naechste auf dich gewirkte Zauber wird auf den Zauberer zurueckgeworfen.
 
   Maechtige Liturgie: Ein weiterer Zauber wird zurueckgeworfen.
@@ -21,6 +22,7 @@ text: 'Der naechste auf dich gewirkte Zauber wird auf den Zauberer zurueckgeworf
   Fertigkeiten: Magie
 
   Erlernen: Hes 18; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Hesindegeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Hesindegeweihten I

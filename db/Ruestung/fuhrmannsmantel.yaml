@@ -1,10 +1,10 @@
 name: Fuhrmannsmantel
-rsBauch: '0'
-rsBeine: '1'
-rsBrust: '1'
-rsKopf: '0'
-rsLArm: '1'
-rsRArm: '1'
-system: '2'
+rsBauch: 0
+rsBeine: 1
+rsBrust: 1
+rsKopf: 0
+rsLArm: 1
+rsRArm: 1
+system: 2
 text: Ruestungsergaenzung. Erhoeht die Temperaturstufe um +1 (S. 35).
-typ: '1'
+typ: 1

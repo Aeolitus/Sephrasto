@@ -1,7 +1,8 @@
-fertigkeiten: Wachstum
-kosten: '40'
+fertigkeiten:
+- Wachstum
+kosten: 40
 name: Kraft des Lebens
-printclass: '36'
+printclass: 36
 text: 'Du segnest bis zu 4 Personen. Proben auf KO und KK sind um +2 erleichtert,
   Fertigkeitsproben mit einem dieser Attribute (ausser Kampffertigkeiten) um +1.
 
@@ -22,6 +23,7 @@ text: 'Du segnest bis zu 4 Personen. Proben auf KO und KK sind um +2 erleichtert
   Fertigkeiten: Wachstum
 
   Erlernen: Per 16; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Perainegeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Perainegeweihten I

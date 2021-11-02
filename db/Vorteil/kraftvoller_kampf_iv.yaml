@@ -1,8 +1,8 @@
 csBeschreibung: 'Waffenmeister: $kommentar$.'
-kommentar: '1'
-kosten: '80'
+kommentar: 1
+kosten: 80
 linkElement: Kraftvoller Kampf III
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Kraftvoller Kampf IV
 text: 'Bedingung: zwei weitere Attribute auf insgesamt 16.
@@ -10,6 +10,7 @@ text: 'Bedingung: zwei weitere Attribute auf insgesamt 16.
 
   8 Punkte koennen zur Verbesserung des Kampfstils verwendet werden. Sephrasto: Trage
   die Verbesserungen in das Kommentarfeld ein.'
-typ: '3'
-variable: '0'
-voraussetzungen: Attribut KK 10, Vorteil Kraftvoller Kampf III
+typ: 3
+variable: 0
+voraussetzungen:
+- Attribut KK 10, Vorteil Kraftvoller Kampf III

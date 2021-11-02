@@ -1,0 +1,21 @@
+attribute:
+- CH
+- CH
+- IN
+name: Humus
+printclass: 0
+steigerungsfaktor: 3
+text: 'Mit Humusmagie kannst du die Kraft der lebenden Natur nutzen, um Wunden zu
+  heilen, Pflanzen wachsen zu lassen oder Humuselementare herbeizurufen. '
+voraussetzungen:
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I
+- Vorteil Tradition der Schelme I
+- Vorteil Tradition der Scharlatane I
+- Vorteil Magiedilettant

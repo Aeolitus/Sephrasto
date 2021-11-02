@@ -1,12 +1,15 @@
-fertigkeiten: Einfluss
-kosten: '20'
+fertigkeiten:
+- Einfluss
+kosten: 20
 name: Kusch!
-printclass: '0'
+printclass: 0
 text: "Das verzauberte Tier flieht vor dir.\nProbenschwierigkeit: Magieresistenz\n\
   Modifikationen: Schrecken des Schwarms (\u20134; du verscheuchst einen Schwarm Kleintiere.)\n\
   Vorbereitungszeit: 0 Aktionen\nZiel: einzelnes Tier\nReichweite: 8 Schritt\nWirkungsdauer:\
   \ 1 Stunde\nKosten: 8 AsP\nFertigkeiten: Einfluss\nErlernen: Geo, Sch 16; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Geoden I ODER Vorteil
-  Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Schelme I

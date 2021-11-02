@@ -1,7 +1,9 @@
-fertigkeiten: Antimagie, Kraft
-kosten: '20'
+fertigkeiten:
+- Antimagie
+- Kraft
+kosten: 20
 name: Schleier der Unwissenheit
-printclass: '0'
+printclass: 0
 text: 'Du schuetzt die magische Aura des Ziels vor der Entdeckung. Der Analysegrad
   jeder Analyse auf das Ziel sinkt um eins.
 
@@ -22,7 +24,10 @@ text: 'Du schuetzt die magische Aura des Ziels vor der Entdeckung. Der Analysegr
   Fertigkeiten: Antimagie, Kraft
 
   Erlernen: Hex 12; Mag 16; Dru 18; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I

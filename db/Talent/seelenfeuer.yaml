@@ -1,13 +1,16 @@
-fertigkeiten: Kraft, Ringrituale
-kosten: '60'
+fertigkeiten:
+- Kraft
+- Ringrituale
+kosten: 60
 name: Seelenfeuer
-printclass: '13'
+printclass: 13
 text: "Kalt leuchtendes Licht schiesst in einem Radius von 4 Schritt aus dem Boden.\
   \ Es erstarrt in der von dir gewuenschten Form und verbrennt alle Humanoiden, die\
   \ es beruehren, mit 2W6 SP pro Initiativephase.\nMaechtige Magie: Erhoeht den Schaden\
   \ um +4\_SP und den Radius um 2 Schritt.\nProbenschwierigkeit: 12\nVorbereitungszeit:\
   \ 1 Aktion\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer: 4 Initiativphasen\n\
   Kosten: 16 AsP\nFertigkeiten: Kraft, Ringrituale\nErlernen: Geo 16; 60 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Geoden I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Geoden I

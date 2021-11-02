@@ -9,5 +9,6 @@ text: Jede Hexe kann auf einem Besen oder einem anderen Holzgegenstand reiten. D
   notlanden muss - schwere Verletzungen nicht ausgeschlossen. Bei einem Patzer kann
   der Hexe der Absturz drohen, sie koennte aber auch den Zorn eines Drachen geweckt
   haben.
-typ: '4'
-voraussetzungen: Vorteil Tradition der Hexen I
+typ: 4
+voraussetzungen:
+- Vorteil Tradition der Hexen I

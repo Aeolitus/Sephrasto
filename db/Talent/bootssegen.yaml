@@ -1,7 +1,8 @@
-fertigkeiten: Seefahrt
-kosten: '20'
+fertigkeiten:
+- Seefahrt
+kosten: 20
 name: Bootssegen
-printclass: '25'
+printclass: 25
 text: 'Die Besatzung des gesegneten Schiffes geht  dem Glauben nach bei einem Unglueck
   in Efferds Wasserreich ein. Nach Spielleiterentscheid sind Proben, um widernatuerlichen
   Gefahren zu entgehen, um +2 erleichtert.
@@ -21,7 +22,8 @@ text: 'Die Besatzung des gesegneten Schiffes geht  dem Glauben nach bei einem Un
   Fertigkeiten: Seefahrt
 
   Erlernen: Eff, Swa 8; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der
-  Swafnirgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Efferdgeweihten I
+- Vorteil Tradition der Swafnirgeweihten I

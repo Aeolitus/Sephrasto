@@ -1,7 +1,9 @@
-fertigkeiten: Hellsicht, Kugelzauber
-kosten: '40'
+fertigkeiten:
+- Hellsicht
+- Kugelzauber
+kosten: 40
 name: Wachende Kugel
-printclass: '12'
+printclass: 12
 text: 'Du kannst einen Blick durch eine gebundene Kugel werfen. Der Kugel ist dabei
   nichts anzumerken.
 
@@ -20,6 +22,7 @@ text: 'Du kannst einen Blick durch eine gebundene Kugel werfen. Der Kugel ist da
   Fertigkeiten: Hellsicht, Kugelzauber
 
   Erlernen: Srl 16; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Scharlatane I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Scharlatane I

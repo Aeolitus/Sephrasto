@@ -6,5 +6,6 @@ text: 'Du kannst einen Angriff auf einen benachbarten Verbuendeten abwehren. Das
 
   Voraussetzungen: Kampf im Schildkampf-Stil; kein Schildwall seit letztem Beginn
   einer eigenen Initiativephase'
-typ: '0'
-voraussetzungen: Vorteil Schildkampf III
+typ: 0
+voraussetzungen:
+- Vorteil Schildkampf III

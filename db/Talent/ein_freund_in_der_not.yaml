@@ -1,7 +1,8 @@
-fertigkeiten: Froehlicher Wanderer
-kosten: '40'
+fertigkeiten:
+- Froehlicher Wanderer
+kosten: 40
 name: Ein Freund in der Not
-printclass: '52'
+printclass: 52
 text: "Durch Aves\u2018 Hilfe findest du den Weg zu einer hilfsbereiten Person im\
   \ Radius von 1 Meile, die dich aus einer Notlage zu befreien versucht. Kommen mehrere\
   \ Personen in Frage, fuehrt der Weg zu der Person, die du schnell genug erreichen\
@@ -15,6 +16,7 @@ text: "Durch Aves\u2018 Hilfe findest du den Weg zu einer hilfsbereiten Person i
   \ im Spiel. Wenn also eine geringe Chance auf Hilfe besteht, sollte der Spielleiter\
   \ sie gewaehren. An voellig menschenleeren Orten wie dem ewigen Eis des Nordens\
   \ ist die Liturgie hingegen nutzlos. "
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Avesgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Avesgeweihten I

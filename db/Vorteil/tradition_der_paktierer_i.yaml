@@ -1,9 +1,10 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Tradition der Paktierer I
 text: Die Fertigkeit Daemonische Hilfe (Erzdaemon) kann erlernt und benutzt werden.
   Proben auf Daemonische Hilfe (Erzdaemon) werden mit 1W20 gewuerfelt.
-typ: '8'
-variable: '0'
-voraussetzungen: Attribut MU 4, Vorteil Paktierer I
+typ: 8
+variable: 0
+voraussetzungen:
+- Attribut MU 4, Vorteil Paktierer I

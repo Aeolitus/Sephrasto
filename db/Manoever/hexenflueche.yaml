@@ -12,5 +12,6 @@ text: Als Hexe hast du zwei Moeglichkeiten, deine Flueche zu ueberbringen. Entwe
   einer Bedingung beendet werden. Diese Bedingung muss realistisch erfuellbar sein
   und du musst sie dem Verfluchten mitteilen (direkter Fluch) oder er erfaehrt sie
   in seinen Traeumen (ueberbrachter Fluch).
-typ: '4'
-voraussetzungen: Uebernatuerliche-Fertigkeit 'Hexenflueche' -1
+typ: 4
+voraussetzungen:
+- Uebernatuerliche-Fertigkeit 'Hexenflueche' -1

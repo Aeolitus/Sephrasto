@@ -1,7 +1,8 @@
-fertigkeiten: Heilung
-kosten: '20'
+fertigkeiten:
+- Heilung
+kosten: 20
 name: "Fuerbitten des Heiligen Therb\xFBn"
-printclass: '35'
+printclass: 35
 text: 'Du heilst einen Gesegneten von allen Krankheiten bis maximal Stufe 20.
 
   Maechtige Liturgie: Die maximal aufgehobene Krankheitsstufe steigt um 4.
@@ -26,6 +27,7 @@ text: 'Du heilst einen Gesegneten von allen Krankheiten bis maximal Stufe 20.
   Krankheitsdaemonen wirken (S. 126). Die Randbedingungen entsprechen den dort angegebenen,
   ausser dass die Kosten mit KaP bezahlt werden und die Liturgie um +4 erleichtert
   ist.'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Perainegeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Perainegeweihten I

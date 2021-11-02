@@ -1,7 +1,9 @@
-fertigkeiten: Hellsicht, Kraft
-kosten: '20'
+fertigkeiten:
+- Hellsicht
+- Kraft
+kosten: 20
 name: Koboldvision
-printclass: '0'
+printclass: 0
 text: 'Du bist in der Lage, waehrend der Wirkungsdauer in die Feenwelt zu blicken,
   sofern sich ein Uebergang in der Naehe befindet. Achaz blicken mit diesem Zauber
   in entrueckte Globulen.
@@ -21,7 +23,9 @@ text: 'Du bist in der Lage, waehrend der Wirkungsdauer in die Feenwelt zu blicke
   Fertigkeiten: Hellsicht, Kraft
 
   Erlernen: Sch 14; Ach 20; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Kristallomanten
-  I ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Kristallomanten I
+- Vorteil Tradition der Schelme I

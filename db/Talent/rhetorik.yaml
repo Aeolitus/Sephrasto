@@ -1,11 +1,13 @@
-fertigkeiten: Autoritaet
-kosten: '-1'
+fertigkeiten:
+- Autoritaet
+kosten: -1
 name: Rhetorik
-printclass: '-1'
+printclass: -1
 text: Rhetorik beinhaltet zahlreiche Faehigkeiten und Kniffe, um die eigenen Argumente
   wirkungsvoll einzusetzen und die des Gegenueber zu entkraeften. Du kannst Rhetorik
   nur einsetzen, wenn dein Charakter von seinem Standpunkt ueberzeugt ist - dreiste
   Luegen fallen unter Ueberreden.
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

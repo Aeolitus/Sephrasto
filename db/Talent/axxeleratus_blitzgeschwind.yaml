@@ -1,7 +1,8 @@
-fertigkeiten: Eigenschaften
-kosten: '40'
+fertigkeiten:
+- Eigenschaften
+kosten: 40
 name: Axxeleratus Blitzgeschwind
-printclass: '0'
+printclass: 0
 text: 'Die GS deines Zieles erhoeht sich um +4 und alle AT und VT sind um +2 erleichtert,
   Ausweichen um weitere +2.
 
@@ -22,8 +23,11 @@ text: 'Die GS deines Zieles erhoeht sich um +4 und alle AT und VT sind um +2 erl
   Fertigkeiten: Eigenschaften
 
   Erlernen: Elf 12; Ach, Sch 14; Mag 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil
-  Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Kristallomanten I
+- Vorteil Tradition der Schelme I

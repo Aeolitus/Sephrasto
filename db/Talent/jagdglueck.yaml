@@ -1,7 +1,8 @@
-fertigkeiten: Jagd
-kosten: '20'
+fertigkeiten:
+- Jagd
+kosten: 20
 name: Jagdglueck
-printclass: '27'
+printclass: 27
 text: 'Im Laufe der Wirkungsdauer findest du das naechste Tier, das firungefaellig
   erjagt werden kann. Dadurch sinkt die Schwierigkeit einer Jagd auf 12 (entsprechend
   eines wildreichen Gebiets, S. 68).
@@ -23,7 +24,8 @@ text: 'Im Laufe der Wirkungsdauer findest du das naechste Tier, das firungefaell
   Fertigkeiten: Jagd
 
   Erlernen: Fir, Ifi 12; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition der
-  Ifirngeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Firungeweihten I
+- Vorteil Tradition der Ifirngeweihten I

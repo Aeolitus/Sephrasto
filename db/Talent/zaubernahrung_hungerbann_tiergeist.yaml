@@ -1,15 +1,18 @@
-fertigkeiten: Gaben des Odun
-kommentar: '0'
-kosten: '20'
+fertigkeiten:
+- Gaben des Odun
+kommentar: 0
+kosten: 20
 name: Zaubernahrung Hungerbann (Tiergeist)
-printclass: '0'
+printclass: 0
 text: "Fuer einen Tag spuerst du keinerlei Hunger und die Kraft des Zaubers ernaehrt\
   \ dich. Du musst spaetestens vor vier Tagen echtes Essen zu dir genommen haben.\n\
   Maechtige Magie: Die letzte echte Mahlzeit kann bis zu zwei Tage laenger her sein.\n\
   Probenschwierigkeit: 12\nModifikationen: Durstbann (\u20134, 8 AsP; auch jeglicher\
   \ Durst wird vom Zauber gestillt.)\nVorbereitungszeit: 4 Minuten\nZiel: selbst\n\
   Reichweite: Beruehrung\nWirkungsdauer: 1 Tag\nKosten: 4 AsP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Baer) ODER Vorteil Tiergeist (Mammut) ODER Vorteil
-  Tiergeist (Wildschwein)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Baer)
+- Vorteil Tiergeist (Mammut)
+- Vorteil Tiergeist (Wildschwein)

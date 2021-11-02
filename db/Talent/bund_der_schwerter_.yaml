@@ -1,7 +1,8 @@
-fertigkeiten: Heerfuehrung
-kosten: '20'
+fertigkeiten:
+- Heerfuehrung
+kosten: 20
 name: 'Bund der Schwerter '
-printclass: '46'
+printclass: 46
 text: "Du waehlst bis zu 8 Mitstreiter. Bis zum Ende der Schlacht spuerst du, in welcher\
   \ Richtung und ungefaehrer Entfernung sie sich befinden. Du fuehlst auch ihren Tod.\n\
   Maechtige Liturgie: Du spuerst, wenn die Mitstreiter kampfunfaehig werden/eine Wunde\
@@ -10,6 +11,7 @@ text: "Du waehlst bis zu 8 Mitstreiter. Bis zum Ende der Schlacht spuerst du, in
   \ geloest wird; der Bund wirkt immer, wenn einer der Mitglieder in einem Kampf geraet.)\n\
   Vorbereitungszeit: 16 Aktionen\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer:\
   \ 8 Stunden\nKosten: 4 KaP\nFertigkeiten: Heerfuehrung\nErlernen: Ron 14; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Rondrageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Rondrageweihten I

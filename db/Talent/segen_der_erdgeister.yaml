@@ -1,7 +1,10 @@
-fertigkeiten: Humus, Geister der Staerkung, Verwandlung
-kosten: '60'
+fertigkeiten:
+- Humus
+- Geister der Staerkung
+- Verwandlung
+kosten: 60
 name: Segen der Erdgeister
-printclass: '5'
+printclass: 5
 text: 'Du leitest das Wachstum einer Pflanze, kannst es beschleunigen und formen.
   Die Kosten, Zauberdauer und Modifikationen Maechtige Magie sind Meisterentscheid.
   Beispiele:
@@ -31,6 +34,7 @@ text: 'Du leitest das Wachstum einer Pflanze, kannst es beschleunigen und formen
   Fertigkeiten: Humus, Geister der Staerkung, Verwandlung
 
   Erlernen: Smn 16; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

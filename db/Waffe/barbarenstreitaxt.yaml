@@ -1,11 +1,14 @@
-W6: '4'
+W6: 4
 fertigkeit: Hiebwaffen
-fk: '0'
-haerte: '7'
-kampfstile: Reiterkampf, Kraftvoller Kampf, Schneller Kampf
+fk: 0
+haerte: 7
+kampfstile:
+- Reiterkampf
+- Kraftvoller Kampf
+- Schneller Kampf
 name: Barbarenstreitaxt
-plus: '1'
-rw: '1'
+plus: 1
+rw: 1
 talent: Zweihandhiebwaffen
 text: Kopflastig, Schwer (4), Zweihaendig
-wm: '-2'
+wm: -2

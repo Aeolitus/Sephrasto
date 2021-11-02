@@ -1,13 +1,15 @@
-fertigkeiten: Tod
-kosten: '20'
+fertigkeiten:
+- Tod
+kosten: 20
 name: Etilias Gnade
-printclass: '22'
+printclass: 22
 text: "Ein Sterbender leidet keine Schmerzen mehr.\nProbenschwierigkeit: 12\nModifikationen:\
   \ Marbos Aufschub (\u20138, 1 Stunde, 16 KaP; ein langsamer Tod durch Siechtum oder\
   \ Schwaeche verzoegert sich zusaetzlich um 1 Woche. Der Gesegnete ist jedoch nicht\
   \ immun gegen einen gewaltsamen Tod.)\nVorbereitungszeit: 16 Aktionen\nZiel: Einzelperson\n\
   Reichweite: Beruehrung\nWirkungsdauer: 1 Woche\nKosten: 4 KaP\nFertigkeiten: Tod\n\
   Erlernen: Brn 8; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Borongeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Borongeweihten I

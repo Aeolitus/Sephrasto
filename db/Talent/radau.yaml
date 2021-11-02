@@ -1,7 +1,9 @@
-fertigkeiten: Luft, Umwelt
-kosten: '40'
+fertigkeiten:
+- Luft
+- Umwelt
+kosten: 40
 name: Radau
-printclass: '0'
+printclass: 0
 text: "Du verzauberst deinen Besen, sodass er ein zufaelliges Ziel in einem Radius\
   \ von 8 Schritt angreift (INI 8, RW 1, AT 8, TP 2W6). Faellt bei einer AT eine 1\u2013\
   4 (wird fuer den Besen passiv gewuerfelt: bei einer VT eine 17\u201320), sucht sich\
@@ -11,6 +13,8 @@ text: "Du verzauberst deinen Besen, sodass er ein zufaelliges Ziel in einem Radi
   \ von dir vorbestimmtes Ziel an.)\nVorbereitungszeit: 1 Aktion\nZiel: Einzelobjekt\
   \ (Hexenbesen)\nReichweite: 16 Schritt\nWirkungsdauer: 16 Initiativphasen\nKosten:\
   \ 8 AsP\nFertigkeiten: Luft, Umwelt\nErlernen: Hex 12; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Hexen I

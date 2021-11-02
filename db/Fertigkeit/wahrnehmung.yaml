@@ -1,8 +1,12 @@
-attribute: IN|IN|KL
-kampffertigkeit: '0'
+attribute:
+- IN
+- IN
+- KL
+kampffertigkeit: 0
 name: Wahrnehmung
-printclass: '2'
-steigerungsfaktor: '4'
+printclass: 2
+steigerungsfaktor: 4
 text: Wahrnehmung ist die Faehigkeit, selbst kleinste Sinneseindruecke wahrzunehmen
   und richtig zu interpretieren.
-voraussetzungen: ''
+voraussetzungen:
+- ''

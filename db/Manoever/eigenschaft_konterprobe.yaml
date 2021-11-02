@@ -8,6 +8,9 @@ text: Manchen Zaubern kannst du auch mit profanen Fertigkeiten widerstehen, zum 
   steigt aber in jedem Fall um +4 pro Maechtige Magie/Liturgie. Das gilt auch, wenn
   Maechtige Magie keine anderen Auswirkungen hat und deswegen beim Zauber gar nicht
   angefuehrt ist.
-typ: '4'
-voraussetzungen: Vorteil Geweiht I ODER Vorteil Zauberer I ODER Vorteil Paktierer
-  I ODER Vorteil Tradition der Borbaradianer I
+typ: 4
+voraussetzungen:
+- Vorteil Geweiht I
+- Vorteil Zauberer I
+- Vorteil Paktierer I
+- Vorteil Tradition der Borbaradianer I

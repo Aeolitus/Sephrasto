@@ -3,8 +3,8 @@ csBeschreibung: 'Bedingungen: Sichtkontakt, Geste, Laut gesprochene Zauberformel
 
   Du kannst Zauber in der Tradition der Borbaradianer erlernen und benutzen. Solche
   Zauber findest du unter den allgemeinen Zaubern.'
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Tradition der Borbaradianer I
 text: 'Bedingungen: Sichtkontakt, Geste, Laut gesprochene Zauberformel.
@@ -16,6 +16,7 @@ text: 'Bedingungen: Sichtkontakt, Geste, Laut gesprochene Zauberformel.
 
   Du kannst den Vorteil auch mit einem Minderpakt (S. 92) erwerben, ohne Zauberer
   zu sein.'
-typ: '5'
-variable: '0'
-voraussetzungen: Attribut MU 4, Vorteil Zauberer I
+typ: 5
+variable: 0
+voraussetzungen:
+- Attribut MU 4, Vorteil Zauberer I

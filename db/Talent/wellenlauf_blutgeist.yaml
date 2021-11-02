@@ -1,8 +1,9 @@
-fertigkeiten: Gaben des Blutgeists
-kommentar: '0'
-kosten: '0'
+fertigkeiten:
+- Gaben des Blutgeists
+kommentar: 0
+kosten: 0
 name: Wellenlauf (Blutgeist)
-printclass: '0'
+printclass: 0
 text: "Wasser ist fuer dich ein fester Untergrund. Du erleidest keine Abzuege durch\
   \ unguenstige Position und wirst nicht durch Wellen und Stroemungen beeinflusst.\
   \ Erlaubt Aufrechterhalten.\nProbenschwierigkeit: 12\nModifikationen: Sinken (\u2013\
@@ -11,6 +12,7 @@ text: "Wasser ist fuer dich ein fester Untergrund. Du erleidest keine Abzuege du
   Wasserwand (\u20138; du kannst selbst an Wasserfaellen hochklettern, wofuer einfache\
   \ Klettern-Proben anfallen.)\nVorbereitungszeit: 2 Aktionen\nZiel: selbst\nReichweite:\
   \ Beruehrung\nWirkungsdauer: 4 Minuten\nKosten: 4 AsP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Fischotter)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Fischotter)

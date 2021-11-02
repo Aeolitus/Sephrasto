@@ -1,5 +1,5 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Tradition der Alchemisten I
 text: "Bedingungen: Sichtkontakt, Geste, Laut gesprochene Zauberformel.\n\nDu kannst\
@@ -7,6 +7,7 @@ text: "Bedingungen: Sichtkontakt, Geste, Laut gesprochene Zauberformel.\n\nDu ka
   \ du unter den allgemeinen Zaubern und unter Schalenzauber (S. 171).\n\nZauber der\
   \ Fertigkeiten Einfluss, Verwandlung und Eigenschaften koennen nur in Form von Artefakten\
   \ oder als \u201EZutat\u201C fuer Traenke verwendet werden.."
-typ: '5'
-variable: '0'
-voraussetzungen: Attribut FF 4, Vorteil Zauberer I
+typ: 5
+variable: 0
+voraussetzungen:
+- Attribut FF 4, Vorteil Zauberer I

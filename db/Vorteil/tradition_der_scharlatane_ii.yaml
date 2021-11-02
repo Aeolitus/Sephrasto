@@ -1,12 +1,13 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Tradition der Scharlatane I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Tradition der Scharlatane II
 text: Scharlatane sind Meister der Illusionsmagie. Wenn du einen Zauber mit der Fertigkeit
   Illusion wirkst, kannst du eine Basismodifikation (z.B. 1x Maechtige Magie) ohne
   Erschwernis ausfuehren.
-typ: '5'
-variable: '0'
-voraussetzungen: Attribut CH 6, Vorteil Tradition der Scharlatane I
+typ: 5
+variable: 0
+voraussetzungen:
+- Attribut CH 6, Vorteil Tradition der Scharlatane I

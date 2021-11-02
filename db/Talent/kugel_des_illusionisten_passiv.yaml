@@ -1,12 +1,15 @@
-fertigkeiten: Illusion, Kugelzauber
-kosten: '20'
+fertigkeiten:
+- Illusion
+- Kugelzauber
+kosten: 20
 name: Kugel des Illusionisten (passiv)
-printclass: '12'
+printclass: 12
 text: "Du laesst 2 gAsP in die Kugel fliessen. Fortan sind Illusionszauber um +1 erleichtert\n\
   Modifikationen: Maechtige Kugel (Illusionszauber sind um +2 erleichtert, du musst\
   \ 4\_gAsP in die Kugel fliessen lassen.)\nFertigkeiten: Illusion, Kugelzauber\n\
   Erlernen: Srl 12; Mag 18; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane
-  I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Scharlatane I

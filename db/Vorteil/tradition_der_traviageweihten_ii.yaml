@@ -1,11 +1,12 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Tradition der Traviageweihten I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Tradition der Traviageweihten II
 text: Traviageweihte schaetzen Treue und Bestaendigkeit. Wird eine Liturgie mit der
   Modifikation Wirkungsdauer verlaengern gewirkt, ist sie zusaetzlich um +2 erleichtert.
-typ: '7'
-variable: '0'
-voraussetzungen: Attribut CH 6, Vorteil Tradition der Traviageweihten I
+typ: 7
+variable: 0
+voraussetzungen:
+- Attribut CH 6, Vorteil Tradition der Traviageweihten I

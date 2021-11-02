@@ -1,7 +1,9 @@
-fertigkeiten: Eigenschaften, Zaubermelodien
-kosten: '40'
+fertigkeiten:
+- Eigenschaften
+- Zaubermelodien
+kosten: 40
 name: Aufpeitschender Klang
-printclass: '18'
+printclass: 18
 text: 'Du entlockst deinem Instrument einen elektrisierenden Ton. Wenn das Ziel die
   naechste Probe auf eine koerperliche Aktivitaet (z.B. Laufen, Nahkampfangriff) ablegt,
   ist diese um +2 erleichtert.
@@ -23,6 +25,7 @@ text: 'Du entlockst deinem Instrument einen elektrisierenden Ton. Wenn das Ziel 
   Fertigkeiten: Eigenschaften, Zaubermelodien
 
   Erlernen: Bard 12; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Zauberbarden I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Zauberbarden I

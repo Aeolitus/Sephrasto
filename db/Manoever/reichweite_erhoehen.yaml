@@ -3,5 +3,6 @@ name: Reichweite erhoehen
 probe: FK -4
 text: Die Reichweite deines Fernkampfangriffes verdoppelt sich. Kann bis zu zweimal
   pro Angriff eingesetzt werden.
-typ: '1'
-voraussetzungen: ''
+typ: 1
+voraussetzungen:
+- ''

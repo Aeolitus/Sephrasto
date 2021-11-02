@@ -1,8 +1,9 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Standfest
 text: Nach einem Sturz befindest du dich in kniender statt liegender Position.
-typ: '2'
-variable: '0'
-voraussetzungen: Attribut GE 4
+typ: 2
+variable: 0
+voraussetzungen:
+- Attribut GE 4

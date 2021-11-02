@@ -1,7 +1,9 @@
-fertigkeiten: Kraft, Kristallmagie
-kosten: '20'
+fertigkeiten:
+- Kraft
+- Kristallmagie
+kosten: 20
 name: Kristallbindung
-printclass: '11'
+printclass: 11
 text: "Du bindest einen mindestens daumennagelgrossen Kristall an dich und bestimmst\
   \ eine Fertigkeit. Der Kristall gilt als passender gebundener Kristall fuer diese\
   \ Fertigkeit und erfuellt damit die Bedingung der Kristallomantischen Tradition.\
@@ -15,6 +17,7 @@ text: "Du bindest einen mindestens daumennagelgrossen Kristall an dich und besti
   \ du beispielsweise im Wege der Zauberei, S. 325. Ihr koennt aber auch einfach darauf\
   \ verzichten, penibel die Art jedes einzelnen Kristalls festzulegen \u2013 entscheidend\
   \ ist, dass der Kristall fuer die richtige Fertigkeit gebunden wurde."
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Kristallomanten I

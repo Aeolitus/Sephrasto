@@ -1,7 +1,9 @@
-fertigkeiten: Verstaendigung, Vertrautenmagie
-kosten: '20'
+fertigkeiten:
+- Verstaendigung
+- Vertrautenmagie
+kosten: 20
 name: Wachsame Augen
-printclass: '17'
+printclass: 17
 text: 'Dein Vertrautentier ruft Tiere seiner Gattung  aus bis zu 1 Meile herbei, die
   ueber deinen Schlaf wachen und dich vor Gefahren warnen.
 
@@ -20,6 +22,8 @@ text: 'Dein Vertrautentier ruft Tiere seiner Gattung  aus bis zu 1 Meile herbei,
   Fertigkeiten: Verstaendigung, Vertrautenmagie
 
   Erlernen: Geo 14; Hex 18; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Hexen I

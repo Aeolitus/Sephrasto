@@ -1,10 +1,11 @@
-kommentar: '0'
-kosten: '80'
+kommentar: 0
+kosten: 80
 nachkauf: haeufig
 name: Eingebung
 text: 'Pro Abenteuer kannst du den Spielleiter W3 mal um einen Tipp bitten. Diese
   Tipps sollen nicht das Abenteuer loesen, koennen dich aber auf Fehler in deinem
   Plan oder bisher uebersehene Aspekte oder Zusammenhaenge aufmerksam machen. '
-typ: '1'
-variable: '0'
-voraussetzungen: Attribut KL 10
+typ: 1
+variable: 0
+voraussetzungen:
+- Attribut KL 10

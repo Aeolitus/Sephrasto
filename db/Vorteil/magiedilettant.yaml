@@ -1,5 +1,5 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Magiedilettant
 text: 'Bedingungen: Sichtkontakt, Geste.
@@ -10,6 +10,7 @@ text: 'Bedingungen: Sichtkontakt, Geste.
 
   Du kannst pro Zauber maximal zwei spontane Modifikationen (oder eine Modifikation
   zweimal) einsetzen.'
-typ: '5'
-variable: '0'
-voraussetzungen: Vorteil Zauberer I
+typ: 5
+variable: 0
+voraussetzungen:
+- Vorteil Zauberer I

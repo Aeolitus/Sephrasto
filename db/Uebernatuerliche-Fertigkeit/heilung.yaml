@@ -1,7 +1,0 @@
-attribute: CH|FF|IN
-name: Heilung
-printclass: '1'
-steigerungsfaktor: '2'
-text: 'Perainegeweihte gelten als hervorragende Aerzte, die sich in den Staedten oder
-  auf Schlachtfeldern unermuedlich um Kranke und Verwundete kuemmern. '
-voraussetzungen: Vorteil Tradition der Perainegeweihten I

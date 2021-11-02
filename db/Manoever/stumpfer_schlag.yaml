@@ -5,5 +5,6 @@ text: 'Der Angriff verursacht Erschoepfung statt Wunden. Wird das Ziel kampfunfa
   erleidet es keine Blutung.
 
   Voraussetzung: Waffeneigenschaft Stumpf.'
-typ: '0'
-voraussetzungen: Waffeneigenschaft Stumpf
+typ: 0
+voraussetzungen:
+- Waffeneigenschaft Stumpf

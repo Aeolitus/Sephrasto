@@ -1,7 +1,8 @@
-fertigkeiten: Schutz der Glaeubigen
-kosten: '60'
+fertigkeiten:
+- Schutz der Glaeubigen
+kosten: 60
 name: Thalionmels Schlachtgesang
-printclass: '47'
+printclass: 47
 text: 'Du rufst Thalionmels Segen auf dich herab und erleidest keine Wundabzuege.
   Kannst du Wundabzuege ohnehin ignorieren, sind Proben gegen Wundschmerz um deine
   Wundabzuege erleichtert. Ausserdem kannst du eine (weitere) VT zwischen zwei Initiativephasen
@@ -26,6 +27,7 @@ text: 'Du rufst Thalionmels Segen auf dich herab und erleidest keine Wundabzuege
   Fertigkeiten: Schutz der Glaeubigen
 
   Erlernen: Ron 16; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Rondrageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Rondrageweihten I

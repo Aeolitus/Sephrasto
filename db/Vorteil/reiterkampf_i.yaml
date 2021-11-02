@@ -5,8 +5,8 @@ csBeschreibung: 'Bedingung: beritten.
 
 
   Erlaubt das Manoever Sturmangriff mit dem Pferd.'
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Reiterkampf I
 script: modifyKampfstil('Reiterkampf', 1, 1, 1, 0)
@@ -19,6 +19,8 @@ text: 'Bedingung: beritten.
   Erlaubt das Manoever Sturmangriff (Bewegung und AT) mit dem Pferd: Die Kombination
   der Aktionen Bewegung und Konflikt ist nicht erschwert. Ausserdem richtet die naechste
   Attacke GS Trefferpunkte zusaetzlich an.'
-typ: '3'
-variable: '0'
-voraussetzungen: Attribut GE 4 ODER Attribut KK 4
+typ: 3
+variable: 0
+voraussetzungen:
+- Attribut GE 4
+- Attribut KK 4

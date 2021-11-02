@@ -1,7 +1,9 @@
-fertigkeiten: Temporal, Verwandlung
-kosten: '20'
+fertigkeiten:
+- Temporal
+- Verwandlung
+kosten: 20
 name: Last des Alters
-printclass: '0'
+printclass: 0
 text: "Dein Opfer altert schlagartig um 8 Jahre, Auswirkungen davon sind Spielleiterentscheid.\n\
   Maechtige Magie: Das Opfer altert um weitere 4 Jahre.\nProbenschwierigkeit: Magieresistenz\n\
   Modifikationen: Verschrumpelte Glieder (\u20134, 8 AsP, davon 1 gAsP; der Zauber\
@@ -9,6 +11,8 @@ text: "Dein Opfer altert schlagartig um 8 Jahre, Auswirkungen davon sind Spielle
   Ziel: Einzelperson\nReichweite: Beruehrung\nWirkungsdauer: bis die Bindung geloest\
   \ wird\nKosten: 16 AsP, davon 2 gAsP\nFertigkeiten: Temporal, Verwandlung\nErlernen:\
   \ Bor 20; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Borbaradianer I

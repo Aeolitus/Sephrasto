@@ -1,9 +1,11 @@
-fertigkeiten: Handwerk
-kosten: '-1'
+fertigkeiten:
+- Handwerk
+kosten: -1
 name: Holzbearbeitung
-printclass: '-1'
+printclass: -1
 text: Mit Holzbearbeitung fertigst du Schilde, Boegen oder ein improvisiertes Floss
   an, reparierst eine Zugbruecke oder flickst ein Leck in einem Schiff.
-variable: '0'
-verbilligt: '1'
-voraussetzungen: ''
+variable: 0
+verbilligt: 1
+voraussetzungen:
+- ''

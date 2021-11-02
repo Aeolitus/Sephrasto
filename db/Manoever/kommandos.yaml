@@ -7,6 +7,9 @@ text: "Du kannst bis zu 4 Mitstreitern in Hoerweite den Bonus eines Kommandovort
   \ profitieren.\n    Der Effekt endet am Ende des Kampfes, bei Kampfunfaehigkeit\
   \ des Anfuehrers oder wenn dieser neue Befehle ruft. Der Anfuehrer selbst profitiert\
   \ nicht von Kommandos."
-typ: '8'
-voraussetzungen: 'Vorteil Kommando: Formiert Euch! ODER Vorteil Kommando: Haltet Stand!
-  ODER Vorteil Kommando: Keine Gefangenen! ODER Vorteil Kommando: Kennt Keinen Schmerz!'
+typ: 8
+voraussetzungen:
+- 'Vorteil Kommando: Formiert Euch!'
+- 'Vorteil Kommando: Haltet Stand!'
+- 'Vorteil Kommando: Keine Gefangenen!'
+- 'Vorteil Kommando: Kennt Keinen Schmerz!'

@@ -1,7 +1,9 @@
-fertigkeiten: Eigenschaften, Elfenlieder
-kosten: '20'
+fertigkeiten:
+- Eigenschaften
+- Elfenlieder
+kosten: 20
 name: Erinnerungsmelodie
-printclass: '2'
+printclass: 2
 text: 'Du stimmst dich auf eine vergangene Situation ein, um dich an ein Detail zu
   erinnern. Die dafuer notwendige KL-Probe ist um +4 erleichtert.
 
@@ -22,6 +24,7 @@ text: 'Du stimmst dich auf eine vergangene Situation ein, um dich an ein Detail 
   Fertigkeiten: Eigenschaften, Elfenlieder
 
   Erlernen: Elf 12; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Elfen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Elfen I

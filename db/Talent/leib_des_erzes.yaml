@@ -1,7 +1,9 @@
-fertigkeiten: Erz, Verwandlung
-kosten: '60'
+fertigkeiten:
+- Erz
+- Verwandlung
+kosten: 60
 name: Leib des Erzes
-printclass: '0'
+printclass: 0
 text: "Du harmonierst mit dem Element Erz. Du bist immun gegen Erzschaden und dein\
   \ RS gegen Metallwaffen steigt um 1.\nProbenschwierigkeit: 12\nModifikationen: Reise\
   \ ins Element (\u20134; du kannst dich mit 1 Schritt pro Initiativephase durch Stein\
@@ -12,7 +14,9 @@ text: "Du harmonierst mit dem Element Erz. Du bist immun gegen Erzschaden und de
   \ der Wirkungsdauer keine Zauber wirken.)\nVorbereitungszeit: 8 Aktionen\nZiel:\
   \ selbst\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 16 AsP\nFertigkeiten:\
   \ Erz, Verwandlung\nErlernen: Elf 18; Geo, Dru 20; 60 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen
-  I ODER Vorteil Tradition der Geoden I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I

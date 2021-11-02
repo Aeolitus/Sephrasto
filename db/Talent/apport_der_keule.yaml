@@ -1,7 +1,9 @@
-fertigkeiten: Keulenrituale, Umwelt
-kosten: '20'
+fertigkeiten:
+- Keulenrituale
+- Umwelt
+kosten: 20
 name: Apport der Keule
-printclass: '10'
+printclass: 10
 text: 'Der Ritualgegenstand kehrt fliegend mit einer Geschwindigkeit von 10 Meilen
   pro Stunde zu dir zurueck. Er weicht Hindernissen aus oder durchbricht sie notfalls,
   wenn die KK von PW Keulenrituale/2 oder Umwelt/2 dafuer ausreicht.
@@ -21,6 +23,7 @@ text: 'Der Ritualgegenstand kehrt fliegend mit einer Geschwindigkeit von 10 Meil
   Fertigkeiten: Keulenrituale, Umwelt
 
   Erlernen: Smn 18; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

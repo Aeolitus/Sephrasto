@@ -1,8 +1,9 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Abgehaertet I
 text: Proben zur Abwehr von Giften und Krankheiten sind um +4 erleichtert.
-typ: '1'
-variable: '0'
-voraussetzungen: Attribut KO 4
+typ: 1
+variable: 0
+voraussetzungen:
+- Attribut KO 4

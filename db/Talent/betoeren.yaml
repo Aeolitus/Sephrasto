@@ -1,10 +1,12 @@
-fertigkeiten: Beeinflussung
-kosten: '-1'
+fertigkeiten:
+- Beeinflussung
+kosten: -1
 name: Betoeren
-printclass: '-1'
+printclass: -1
 text: Beim Betoeren nutzt du deine persoenliche Ausstrahlung, um zu bekommen, was
   du willst. Das reicht von Kleinigkeiten wie einem Freibier bis zum Verrat geheimer
   Staatsinformationen.
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

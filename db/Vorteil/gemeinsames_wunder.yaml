@@ -1,5 +1,5 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Gemeinsames Wunder
 text: 'Der Vorteil ermoeglicht es dir, mit anderen Kennern dieses Vorteils einen Liturgiezirkel
@@ -15,6 +15,7 @@ text: 'Der Vorteil ermoeglicht es dir, mit anderen Kennern dieses Vorteils einen
   Zirkel aufgeteilt. Sollte ein Teilungsrest uebrigbleiben oder ein Teilnehmer ueber
   zu wenige KaP verfuegen, muss der Wirkende diese Kosten tragen. Nur gKaP muss der
   Wirkende stets selbst tragen.'
-typ: '6'
-variable: '0'
-voraussetzungen: Attribut IN 4, Vorteil Geweiht I
+typ: 6
+variable: 0
+voraussetzungen:
+- Attribut IN 4, Vorteil Geweiht I

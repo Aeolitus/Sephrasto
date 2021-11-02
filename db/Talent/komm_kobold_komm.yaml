@@ -1,7 +1,8 @@
-fertigkeiten: Verstaendigung
-kosten: '20'
+fertigkeiten:
+- Verstaendigung
+kosten: 20
 name: Komm Kobold komm
-printclass: '0'
+printclass: 0
 text: "Du rufst einen Kobold zur Hilfe. Befinden sich Kobolde in einem Radius von\
   \ 1 Meile, eilt einer von ihnen herbei. Du kannst den Kobold um einen Gefallen bitten,\
   \ aber er entscheidet selbst, ob er den Gefallen erfuellt.\nMaechtige Magie: Verdoppelt\
@@ -9,6 +10,8 @@ text: "Du rufst einen Kobold zur Hilfe. Befinden sich Kobolde in einem Radius vo
   \ einen dir bereits bekannten Kobold in einem Radius von 8 Meilen herbei.)\nVorbereitungszeit:\
   \ 2 Aktionen\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer: augenblicklich\n\
   Kosten: 8 AsP\nFertigkeiten: Verstaendigung\nErlernen: Sch 8; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Schelme I

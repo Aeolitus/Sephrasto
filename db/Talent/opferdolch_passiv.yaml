@@ -1,7 +1,8 @@
-fertigkeiten: Dolchzauber
-kosten: '20'
+fertigkeiten:
+- Dolchzauber
+kosten: 20
 name: Opferdolch (passiv)
-printclass: '1'
+printclass: 1
 text: 'Du kannst Tierblut blutmagisch nutzen. Verfuegst du zusaetzlich ueber den Vorteil
   Blutmagie, kannst du aus Tieren insgesamt 2xWS AsP gewinnen.
 
@@ -9,6 +10,7 @@ text: 'Du kannst Tierblut blutmagisch nutzen. Verfuegst du zusaetzlich ueber den
 
   Anmerkung: Finstere Druiden hueten Varianten dieses Rituals, deren Wirkung nicht
   auf Tiere beschraenkt ist.'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Druiden I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Druiden I

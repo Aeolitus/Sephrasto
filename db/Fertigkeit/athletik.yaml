@@ -1,8 +1,12 @@
-attribute: GE|KK|KO
-kampffertigkeit: '2'
+attribute:
+- GE
+- KK
+- KO
+kampffertigkeit: 2
 name: Athletik
-printclass: '2'
-steigerungsfaktor: '3'
+printclass: 2
+steigerungsfaktor: 3
 text: Athletik umfasst alle Aktivitaeten, bei denen der Charakter seinen gesamten
   Koerper kurz- oder laengerfristig koordiniert einsetzen muss.
-voraussetzungen: ''
+voraussetzungen:
+- ''

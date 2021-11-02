@@ -1,11 +1,12 @@
-kommentar: '0'
-kosten: '60'
+kommentar: 0
+kosten: 60
 nachkauf: haeufig
 name: Muehelose Magie
 text: Zeigt der gewertete Wuerfel bei einem Zauber eine 16 oder hoeher, sinken die
   Kosten um die Haelfte der Basiskosten und der Zauber erhaelt zusaetzlich 1 Stufe
   Maechtige Magie.
-typ: '4'
-variable: '0'
-voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut
-  IN 8
+typ: 4
+variable: 0
+voraussetzungen:
+- Vorteil Zauberer I
+- Vorteil Tradition der Borbaradianer I, Attribut IN 8

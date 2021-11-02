@@ -2,10 +2,10 @@ csBeschreibung: 'Du erhaeltst AT +1.
 
 
   Erlaubt das Manoever Unterlaufen.'
-kommentar: '0'
-kosten: '60'
+kommentar: 0
+kosten: 60
 linkElement: Schneller Kampf II
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Schneller Kampf III
 script: modifyKampfstil('Schneller Kampf', 1, 0, 0, 0)
@@ -15,6 +15,7 @@ text: 'Du erhaeltst AT +1.
   Erlaubt das Manoever Unterlaufen (VT -4): Wenn die Verteidigung gelingt, darfst
   du in der naechsten eigenen Initiativephase eine Freie Aktion nutzen, um deinen
   Gegner (ein weiteres Mal) anzugreifen.'
-typ: '3'
-variable: '0'
-voraussetzungen: Attribut GE 8, Vorteil Schneller Kampf II
+typ: 3
+variable: 0
+voraussetzungen:
+- Attribut GE 8, Vorteil Schneller Kampf II

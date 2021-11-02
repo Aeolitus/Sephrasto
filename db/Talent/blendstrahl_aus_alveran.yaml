@@ -1,12 +1,14 @@
-fertigkeiten: Licht
-kosten: '20'
+fertigkeiten:
+- Licht
+kosten: 20
 name: Blendstrahl aus Alveran
-printclass: '40'
+printclass: 40
 text: "Ein gleissender Lichtblitz aus deiner Hand blendet dein Ziel. Er erleidet eine\
   \ Erschwernis von \u20132 auf Proben und von \u20134 auf Zauber.\nMaechtige Liturgie:\
   \ Die Malusse steigen um \u20131/\u20132.\nProbenschwierigkeit: 12\nVorbereitungszeit:\
   \ 0 Aktionen\nZiel: Einzelperson\nReichweite: 16 Schritt\nWirkungsdauer: 8 Initiativphasen\n\
   Kosten: 4 KaP\nFertigkeiten: Licht\nErlernen: Pra 14; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Praiosgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Praiosgeweihten I

@@ -1,7 +1,8 @@
-fertigkeiten: Schlaf
-kosten: '20'
+fertigkeiten:
+- Schlaf
+kosten: 20
 name: Bishdariels Auge
-printclass: '21'
+printclass: 21
 text: "Du erhaeltst einen kurzen Einblick in den Traum deines Ziels. Ueber den Inhalt\
   \ musst du anderen gegenueber schweigen.\nProbenschwierigkeit: 12\nModifikationen:\
   \ Traumreise (\u20134, 8 KaP; du kannst in den Traum des Schlafenden reisen.)\n\
@@ -9,6 +10,7 @@ text: "Du erhaeltst einen kurzen Einblick in den Traum deines Ziels. Ueber den I
   \ reisen.)\nVorbereitungszeit: 16 Aktionen\nZiel: Einzelperson\nReichweite: Beruehrung\n\
   Wirkungsdauer: 1 Stunde\nKosten: 4 KaP\nFertigkeiten: Schlaf\nErlernen: Brn 12;\
   \ 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Borongeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Borongeweihten I

@@ -1,0 +1,36 @@
+Attribute: # auto-fill
+  _MU: 0
+  _KL: 0
+  _IN: 0
+  _CH: 0
+  _FF: 0
+  _GE: 0
+  _KK: 0
+  _KO: 0
+Gesundheit:
+  _WS: 0
+  _WS*: 0
+  Status:
+    Aktuell: # List von Status-Typen
+      - ""
+    # Wunden + Erschoepfung ist gleich mit dem listenindex
+    _Modifikator:
+      - 0
+      - 0
+      - -2
+      - -4
+      - -6
+      - -8
+      - -10
+      - -12
+    _GS*: 0
+    _DH*: 0
+    _INI: 0
+  Ruestung:
+    - Ruestung.yaml
+  Waffen:
+    - Waffe.yaml
+  Kampfvorteile:
+    - Vorteil.yaml
+  Ausruestung:
+    - ""

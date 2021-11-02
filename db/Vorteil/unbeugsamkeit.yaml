@@ -3,8 +3,8 @@ csBeschreibung: 'Deine MR steigt um MU/2 Punkte (bereits eingerechnet).
 
   Mit einer Aktion Konflikt und einer Konterprobe (MU, 16) kannst du einen auf dir
   liegenden Zauber abschuetteln. Anschliessend erleidest du einen Punkt Erschoepfung.'
-kommentar: '0'
-kosten: '80'
+kommentar: 0
+kosten: 80
 nachkauf: haeufig
 name: Unbeugsamkeit
 script: modifyMR(round(getMU()/2+0.0001))
@@ -13,6 +13,7 @@ text: 'Deine MR steigt um MU/2 Punkte.
 
   Mit einer Aktion Konflikt und einer Konterprobe (MU, 16) kannst du einen auf dir
   liegenden Zauber abschuetteln. Anschliessend erleidest du einen Punkt Erschoepfung.'
-typ: '1'
-variable: '0'
-voraussetzungen: Attribut MU 10
+typ: 1
+variable: 0
+voraussetzungen:
+- Attribut MU 10

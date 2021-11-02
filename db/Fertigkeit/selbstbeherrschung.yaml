@@ -1,8 +1,12 @@
-attribute: MU|MU|KO
-kampffertigkeit: '0'
+attribute:
+- MU
+- MU
+- KO
+kampffertigkeit: 0
 name: Selbstbeherrschung
-printclass: '2'
-steigerungsfaktor: '3'
+printclass: 2
+steigerungsfaktor: 3
 text: Selbstbeherrschung erlaubt es dir, widrige Umstaende, koerperliche Schmerzen
   oder andere Ablenkungen zu ignorieren und dich auf das einzig Wichtige zu konzentrieren.
-voraussetzungen: ''
+voraussetzungen:
+- ''

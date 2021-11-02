@@ -1,7 +1,10 @@
-fertigkeiten: Erz, Kristallmagie, Kraft
-kosten: '40'
+fertigkeiten:
+- Erz
+- Kristallmagie
+- Kraft
+kosten: 40
 name: Rundschliff
-printclass: '11'
+printclass: 11
 text: 'Du versiehst einen gebundenen Kristall mit einem Rundschliff. Wann immer du
   mit Hilfe dieses Kristalls einen Zauber wirkst, kannst du die spontane Modifikation
   Mehrere Ziele ohne Erschwernis ausfuehren. Nicht mit anderen Schliffen kombinierbar.
@@ -21,6 +24,7 @@ text: 'Du versiehst einen gebundenen Kristall mit einem Rundschliff. Wann immer 
   Fertigkeiten: Erz, Kristallmagie, Kraft
 
   Erlernen: Ach 14; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Kristallomanten I

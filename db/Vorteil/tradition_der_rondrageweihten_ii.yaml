@@ -1,12 +1,13 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Tradition der Rondrageweihten I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Tradition der Rondrageweihten II
 text: Rondrageweihte geben auch in der duestersten Stunde nicht auf. Der Wundmalus
   schraenkt dich beim Wirken von Liturgien nicht ein. Kannst du den Wundmalus ohnehin
   ignorieren, sind Liturgien um den halben Wundmalus erleichtert.
-typ: '7'
-variable: '0'
-voraussetzungen: Attribut MU 6, Vorteil Tradition der Rondrageweihten I
+typ: 7
+variable: 0
+voraussetzungen:
+- Attribut MU 6, Vorteil Tradition der Rondrageweihten I

@@ -1,0 +1,11 @@
+Talent:
+  fertigkeiten: [""]
+  kosten: -1
+  name: ""
+  printclass: -1
+  variable: -1
+  verbilligt: -1
+  voraussetzungen: [""]
+  text: ""
+  kommentar: -1
+  csAuflisten: ""

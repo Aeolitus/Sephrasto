@@ -1,7 +1,9 @@
-fertigkeiten: Eigenschaften, Humus
-kosten: '40'
+fertigkeiten:
+- Eigenschaften
+- Humus
+kosten: 40
 name: Eins mit der Natur
-printclass: '0'
+printclass: 0
 text: 'Das Ziel kann in der Wildnis kann es natuerliche Gefahren wie mit der Gabe
   Gefahreninstinkt erahnen. Beherrscht es die Gabe bereits, sind damit verbundene
   Proben um +4 erleichtert. Wirkt nicht unter der Erde, auf dem Meer oder in daemonisch
@@ -24,8 +26,12 @@ text: 'Das Ziel kann in der Wildnis kann es natuerliche Gefahren wie mit der Gab
   Fertigkeiten: Eigenschaften, Humus
 
   Erlernen: Geo 8; Dru 14; Elf, Hex, Mag 20; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition
-  der Gildenmagier I ODER Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I

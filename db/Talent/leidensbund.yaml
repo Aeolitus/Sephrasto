@@ -1,7 +1,9 @@
-fertigkeiten: Humus, Verstaendigung
-kosten: '40'
+fertigkeiten:
+- Humus
+- Verstaendigung
+kosten: 40
 name: Leidensbund
-printclass: '0'
+printclass: 0
 text: "Du uebernimmst 2 Wunden von deinem Ziel.\nMaechtige Magie: Du uebernimmst 1\
   \ weitere Wunde.\nProbenschwierigkeit: 12\nModifikationen: Krankheitsbund (Probenschwierigkeit\
   \ Krankheitsstufe; du uebernimmst die Krankheit deines Ziels.)\nGiftbund (Probenschwierigkeit\
@@ -10,7 +12,9 @@ text: "Du uebernimmst 2 Wunden von deinem Ziel.\nMaechtige Magie: Du uebernimmst
   \ anderes.)\nVorbereitungszeit: 4 Minuten\nZiel: Einzelperson\nReichweite: Beruehrung\n\
   Wirkungsdauer: augenblicklich\nKosten: 4 AsP\nFertigkeiten: Humus, Verstaendigung\n\
   Erlernen: Ach 18; Hex 20; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Hexen I ODER Vorteil
-  Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I

@@ -1,8 +1,11 @@
-fertigkeiten: Einfluss, Geister rufen, Verstaendigung
-kommentar: '1'
-kosten: '20'
+fertigkeiten:
+- Einfluss
+- Geister rufen
+- Verstaendigung
+kommentar: 1
+kosten: 20
 name: Lockruf (Wesen)
-printclass: '7'
+printclass: 7
 text: 'Du rufst das beim Erlernen gewaehlte Wesen, meist ein Tier, herbei. Befindet
   sich ein Wesen dieser Art in einem Radius von 4 Meilen, eilt es herbei. Du kannst
   dieses Wesen um einen Gefallen bitten, das dieses wenn moeglich erfuellen wird.
@@ -32,6 +35,7 @@ text: 'Du rufst das beim Erlernen gewaehlte Wesen, meist ein Tier, herbei. Befin
 
   Sephrasto: Trage die gewaehlten Wesen in das Kommentarfeld ein. Wenn du mehrere
   Wesen waehlst, dann erhoehe die EP-Kosten entsprechend.'
-variable: '1'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 1
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

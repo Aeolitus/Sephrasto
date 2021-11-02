@@ -1,7 +1,8 @@
-fertigkeiten: Umwelt
-kosten: '20'
+fertigkeiten:
+- Umwelt
+kosten: 20
 name: Klickeradomms
-printclass: '0'
+printclass: 0
 text: 'Du zerbrichst einen Gegenstand, den du auch mit einem Fausthieb zertruemmern
   koenntest. Der Gegenstand darf maximal 1 Stein wiegen.
 
@@ -22,8 +23,11 @@ text: 'Du zerbrichst einen Gegenstand, den du auch mit einem Fausthieb zertruemm
   Fertigkeiten: Umwelt
 
   Erlernen: Sch 8; Hex, Mag, Srl 18; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I
-  ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Scharlatane I ODER
-  Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Scharlatane I
+- Vorteil Tradition der Schelme I

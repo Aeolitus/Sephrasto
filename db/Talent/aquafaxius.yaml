@@ -1,15 +1,19 @@
-fertigkeiten: Wasser
-kosten: '40'
+fertigkeiten:
+- Wasser
+kosten: 40
 name: Aquafaxius
-printclass: '0'
+printclass: 0
 text: "Eine Strahl aus elementarem Wasser fuegt dem Ziel 4W6 TP zu und verursacht\
   \ Ertraenken (S. 98). Ballistischer Zauber.\nMaechtige Magie: Die TP steigen um\
   \ 2W6.\nProbenschwierigkeit: 12\nModifikationen: Gezielter Strahl (\u20134; du kannst\
   \ die Trefferzone bestimmen.)\nVorbereitungszeit: 1 Aktion\nZiel: Einzelwesen, Einzelobjekt\n\
   Reichweite: 16 Schritt\nWirkungsdauer: augenblicklich\nKosten: 16 AsP\nFertigkeiten:\
   \ Wasser\nErlernen: Ach, Dru, Geo, Mag 18; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil
-  Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Kristallomanten I

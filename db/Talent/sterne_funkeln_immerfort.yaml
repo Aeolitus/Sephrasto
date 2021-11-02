@@ -1,7 +1,13 @@
-fertigkeiten: Licht, Naechtlicher Schatten, Seefahrt, Stiller Wanderer, Wildnis, Wissen
-kosten: '20'
+fertigkeiten:
+- Licht
+- Naechtlicher Schatten
+- Seefahrt
+- Stiller Wanderer
+- Wildnis
+- Wissen
+kosten: 20
 name: Sterne funkeln immerfort
-printclass: '25'
+printclass: 25
 text: 'Dein Ziel kann selbst durch Wolken und Nebel die Sterne erkennen. Proben zur
   Orientierung sind um +4 erleichtert.
 
@@ -21,11 +27,15 @@ text: 'Dein Ziel kann selbst durch Wolken und Nebel die Sterne erkennen. Proben 
   Wissen
 
   Erlernen: Aves, Fir, Ifi, Pra 8; Phe 12; Eff, Hes, Nan, Swa 14; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
-  Efferdgeweihten I ODER Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition
-  der Hesindegeweihten I ODER Vorteil Tradition der Ifirngeweihten I ODER Vorteil
-  Tradition der Nandusgeweihten I ODER Vorteil Tradition der Phexgeweihten I ODER
-  Vorteil Tradition der Praiosgeweihten I ODER Vorteil Tradition der Swafnirgeweihten
-  I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Avesgeweihten I
+- Vorteil Tradition der Efferdgeweihten I
+- Vorteil Tradition der Firungeweihten I
+- Vorteil Tradition der Hesindegeweihten I
+- Vorteil Tradition der Ifirngeweihten I
+- Vorteil Tradition der Nandusgeweihten I
+- Vorteil Tradition der Phexgeweihten I
+- Vorteil Tradition der Praiosgeweihten I
+- Vorteil Tradition der Swafnirgeweihten I

@@ -1,7 +1,9 @@
-fertigkeiten: Eigenschaften, Gaben des Odun
-kosten: '40'
+fertigkeiten:
+- Eigenschaften
+- Gaben des Odun
+kosten: 40
 name: Hauch des (Tieres)
-printclass: '4'
+printclass: 4
 text: 'Der Tiergeist staerkt und unterstuetzt dich. Du erhaeltst einen Bonus von +2
   auf alle bei deinem Tier angegebenen Werte (S. 160).
 
@@ -22,6 +24,7 @@ text: 'Der Tiergeist staerkt und unterstuetzt dich. Du erhaeltst einen Bonus von
   Fertigkeiten: Eigenschaften, Gaben des Odun
 
   Erlernen: Dur 4; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Durro-dun I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Durro-dun I

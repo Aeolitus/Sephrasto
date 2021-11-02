@@ -1,7 +1,9 @@
-fertigkeiten: Friede, Harmonie
-kosten: '40'
+fertigkeiten:
+- Friede
+- Harmonie
+kosten: 40
 name: Verbruederung der Feinde
-printclass: '43'
+printclass: 43
 text: "Alle Lebewesen in einer Zone von 4 Schritt Radius verfallen in eine friedfertige\
   \ Stimmung. Aggressive Handlungen erfordern eine Konterprobe (Willenskraft, 20).\
   \ Erfordert Konzentration, erlaubt Aufrechterhalten.\nMaechtige Liturgie: Verdoppelt\
@@ -13,7 +15,8 @@ text: "Alle Lebewesen in einer Zone von 4 Schritt Radius verfallen in eine fried
   \ von daemonischen Kraeften getrieben wird.)\nVorbereitungszeit: 4 Aktionen\nZiel:\
   \ Zone\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 8 KaP\nFertigkeiten:\
   \ Friede, Harmonie\nErlernen: Tsa 12, Rah 14; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Rahjageweihten I ODER Vorteil Tradition der
-  Tsageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Rahjageweihten I
+- Vorteil Tradition der Tsageweihten I

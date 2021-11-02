@@ -1,8 +1,9 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Gemeinschaft der Glaeubigen
 text: Fuer mindestens 4/8/16/32 Mitbetende ist die Liturgieprobe um +1/2/3/4 erleichtert.
-typ: '6'
-variable: '0'
-voraussetzungen: Attribut CH 4, Vorteil Geweiht I
+typ: 6
+variable: 0
+voraussetzungen:
+- Attribut CH 4, Vorteil Geweiht I

@@ -1,7 +1,8 @@
-fertigkeiten: Verstaendigung
-kosten: '20'
+fertigkeiten:
+- Verstaendigung
+kosten: 20
 name: Hexenblick
-printclass: '0'
+printclass: 0
 text: 'Du erfaehrst, ob dein Ziel die gleiche Tradition beherrscht wie du.
 
   Probenschwierigkeit: 12
@@ -22,7 +23,9 @@ text: 'Du erfaehrst, ob dein Ziel die gleiche Tradition beherrscht wie du.
 
   Anmerkung: Ein Ziel kann verhindern, dass der Zauber anschlaegt, wenn ihm eine Konterprobe
   (MR, 16) gelingt.'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I
-  ODER Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Hexen I

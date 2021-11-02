@@ -1,7 +1,8 @@
-fertigkeiten: Daemonische Hilfe (Cpt)
-kosten: '40'
+fertigkeiten:
+- Daemonische Hilfe (Cpt)
+kosten: 40
 name: Herrschaft ueber Wasserelementare
-printclass: '200'
+printclass: 200
 text: 'Waehrend der Wirkungsdauer kannst du einmal einen Dienst von einem Wasserelementar
   fordern. Wenn die Beherrschungsprobe (S. 81), die auf MU gewuerfelt wird, gelingt,
   erfuellt das Elementar den Dienst des Paktierers anstatt des urspruenglichen Dienstes.
@@ -21,6 +22,7 @@ text: 'Waehrend der Wirkungsdauer kannst du einmal einen Dienst von einem Wasser
   Fertigkeiten: Daemonische Hilfe (Cpt)
 
   Erlernen: Cpt 16; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Paktierer I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Paktierer I

@@ -1,10 +1,12 @@
-fertigkeiten: Alchemie
-kosten: '-1'
+fertigkeiten:
+- Alchemie
+kosten: -1
 name: Profane Alchemika
-printclass: '-1'
+printclass: -1
 text: Profane Alchemika ist das weit bodenstaendigere Handwerk der Meuchler, Waldlaeufer
   und Kraeuterfrauen, mit dem du Gifte, Heilsalben oder Rauchbomben herstellen kannst,
   siehe auch S. 64.
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

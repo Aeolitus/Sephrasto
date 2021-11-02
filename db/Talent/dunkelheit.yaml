@@ -1,7 +1,8 @@
-fertigkeiten: Umwelt
-kosten: '40'
+fertigkeiten:
+- Umwelt
+kosten: 40
 name: Dunkelheit
-printclass: '0'
+printclass: 0
 text: "Um deinen Koerper herum entsteht eine Zone der Dunkelheit von 4 Schritt Radius.\
   \ Die Helligkeit sinkt um eine Stufe (etwa von normal auf Daemmerung, von Sternenlicht\
   \ auf absolute Dunkelheit, S. 38). Du selbst bist von dem Zauber nicht betroffen.\n\
@@ -10,10 +11,15 @@ text: "Um deinen Koerper herum entsteht eine Zone der Dunkelheit von 4 Schritt R
   Vorbereitungszeit: 8 Aktionen\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer:\
   \ 4 Minuten\nKosten: 8 AsP\nFertigkeiten: Umwelt\nErlernen: Dru 8; Alch, Geo, Mag\
   \ 16; Ach, Hex, Srl 18; Elf 20; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition
-  der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition
-  der Scharlatane I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I
+- Vorteil Tradition der Scharlatane I

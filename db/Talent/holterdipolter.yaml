@@ -1,7 +1,8 @@
-fertigkeiten: Umwelt
-kosten: '40'
+fertigkeiten:
+- Umwelt
+kosten: 40
 name: Holterdipolter
-printclass: '0'
+printclass: 0
 text: 'In einem Radius von 8 Schritt um dich herum geht alles schief: Menschen stolpern,
   Knoten oeffnen sich und Vasen fallen um. Dabei kommt niemand ernsthaft zu Schaden.
 
@@ -20,6 +21,8 @@ text: 'In einem Radius von 8 Schritt um dich herum geht alles schief: Menschen s
   Fertigkeiten: Umwelt
 
   Erlernen: Sch 20; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Schelme I

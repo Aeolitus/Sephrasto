@@ -1,7 +1,9 @@
-fertigkeiten: Rausch, Schlaf
-kosten: '20'
+fertigkeiten:
+- Rausch
+- Schlaf
+kosten: 20
 name: Rauschsegen
-printclass: '21'
+printclass: 21
 text: 'Die gesegneten Rauschmittel entfalten staerkere Wirkung bei geringeren Nebenwirkungen
   und machen nicht mehr abhaengig.
 
@@ -20,7 +22,8 @@ text: 'Die gesegneten Rauschmittel entfalten staerkere Wirkung bei geringeren Ne
   Fertigkeiten: Rausch, Schlaf
 
   Erlernen: Brn, Rah 12; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der
-  Rahjageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Borongeweihten I
+- Vorteil Tradition der Rahjageweihten I

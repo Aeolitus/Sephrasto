@@ -1,7 +1,9 @@
-fertigkeiten: Dolchzauber, Verstaendigung
-kosten: '40'
+fertigkeiten:
+- Dolchzauber
+- Verstaendigung
+kosten: 40
 name: Verletzung der Miniatur
-printclass: '1'
+printclass: 1
 text: 'Du fuegst dir mit dem Dolch selbst eine oder mehrere Wunden zu. Das Opfer deiner
   Minitatur der Herrschaft (s.o.) erleidet genau so viele Wunden. Sollte das Opfer
   durch diese Wunden sterben, kann es eine Konterprobe (KO, 16) ablegen, um die Wunden
@@ -22,6 +24,7 @@ text: 'Du fuegst dir mit dem Dolch selbst eine oder mehrere Wunden zu. Das Opfer
   Fertigkeiten: Dolchzauber, Verstaendigung
 
   Erlernen: Dru 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Druiden I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Druiden I

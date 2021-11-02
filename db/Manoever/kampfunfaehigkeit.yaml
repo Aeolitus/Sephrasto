@@ -13,5 +13,6 @@ text: "Sobald dein Charakter vier Einschraenkungen erlitten hat, droht er nach j
   \ endet nach einer Stunde oder sobald eine Einschraenkung geheilt wurde \u2013 allerdings\
   \ nur, wenn keine schaedlichen Effekte wie Gifte, Krankheiten oder Durst auf deinen\
   \ Charakter wirken."
-typ: '8'
-voraussetzungen: ''
+typ: 8
+voraussetzungen:
+- ''

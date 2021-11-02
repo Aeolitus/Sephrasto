@@ -1,0 +1,21 @@
+attribute:
+- FF
+- KL
+- KO
+name: Kraft
+printclass: 0
+steigerungsfaktor: 3
+text: Mit dieser Zauberei kannst die Zauberkraft selbst beherrschen, sie veraendern
+  und mit ihr Artefakte und magische Waffen erschaffen oder durch den Limbus reisen.
+voraussetzungen:
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I
+- Vorteil Tradition der Schelme I
+- Vorteil Tradition der Scharlatane I
+- Vorteil Magiedilettant

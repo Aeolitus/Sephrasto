@@ -1,0 +1,40 @@
+MU:
+  __long: "Mut"
+  Wert: 0
+  _PW: 0
+  Beschreibung: "Mut (MU): Ein mutiger Charakter bewahrt in kritischen Situationen einen kuehlen Kopf und schreckt nicht vor Gefahren zurueck, was gerade im Nahkampf unerlaesslich ist. Zusaetzlich staerkt Mut den Widerstand gegen magische Beeinflussungen, indem er deine Magieresistenz erhoeht. Auch Daemonologen benoetigen einen hohen Mut."
+KL:
+  __long: "Klugheit"
+  Wert: 0
+  _PW: 0
+  Beschreibung: "Klugheit (KL) ist das logische Denkvermoegen deines Charakters und seine Faehigkeit, komplizierte Zusammenhaenge zu erkennen und zu analysieren. Kluge Charaktere verfuegen auch ueber ein gutes Allgemeinwissen. Eine hohe Klugheit ist bei vielen gesellschaftlichen und allen Wissensfertigkeiten unverzichtbar."
+IN:
+  __long: "Intuition"
+  Wert: 0
+  _PW: 0
+  Beschreibung: "Intuition (IN) ermoeglicht es deinem Charakter, Personen und Sachverhalte schnell richtig einzuschaetzen. Sie steht auch fuer Wahrnehmung und Einfuehlungsvermoegen deines Charakters. Intuition beeinflusst eine breite Palette an Fertigkeiten und bestimmt deine Initiative im Kampf."
+CH:
+  __long: "Charisma"
+  Wert: 0
+  _PW: 0
+  Beschreibung: "Charisma (CH) ist die natuerliche Ausstrahlung deines Charakters auf seine Umgebung. Es steht fuer Fuehrungsqualitaeten, Selbstbewusstsein, Ueberzeugungskraft und ein gewinnendes Wesen. Alle gesellschaftlichen Fertigkeiten haengen von deinem Charisma ab und auch Elementaristen benoetigen ein hohes Charisma."
+FF:
+  __long: "Fingerfertigkeit"
+  Wert: 0
+  _PW: 0
+  Beschreibung: "Fingerfertigkeit (FF) ist die manuelle Geschicklichkeit deines Charakters. Er verfuegt ueber eine gute Hand-Augen-Koordination und kann feine Bewegungen schnell und fehlerfrei ausfuehren. Handwerker, Fernkaempfer und Hersteller von Artefakten sollten deswegen nicht auf eine hohe Fingerfertigkeit verzichten."
+GE:
+  __long: "Gewandheit"
+  Wert: 0
+  _PW: 0
+  Beschreibung: "Gewandtheit (GE) ist die Beweglichkeit und Gelenkigkeit deines Charakters. Gewandte Charaktere bewegen sich geschmeidig und koennen ihre Bewegungen gut abschaetzen. Das foerdert deine koerperlichen und kaempferischen Fertigkeiten und erhoeht deine Geschwindigkeit."
+KO:
+  __long: "Konstitution"
+  Wert: 0
+  _PW: 0
+  Beschreibung: "Konstitution (KO) beschreibt die Widerstandsfaehigkeit deines Charakters gegen aeussere Einfluesse wie Strapazen, Gifte, Krankheiten und Verwundungen. Die Konstitution beeinflusst nur wenige Fertigkeiten, bestimmt aber deine Wundschwelle, den wohl wichtigsten Basiswert."
+KK:
+  __long: "Koerperkraft"
+  Wert: 0
+  _PW: 0
+  Beschreibung: "Koerperkraft (KK) ist ein Mass fuer die Staerke deines Charakters. Kraeftige Charaktere koennen schwere Lasten heben und ihre Angriffe richten durch den hoeheren Schadensbonus mehr Schaden an. Dadurch ist eine hohe Koerperkraft gerade fuer kaempferische Charaktere hilfreich."

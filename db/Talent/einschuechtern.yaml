@@ -1,10 +1,12 @@
-fertigkeiten: Autoritaet
-kosten: '-1'
+fertigkeiten:
+- Autoritaet
+kosten: -1
 name: Einschuechtern
-printclass: '-1'
+printclass: -1
 text: Einschuechtern jagt dem Gegenueber Angst ein und bringt ihn so zu einer gewuenschten
   Handlung. Die Probe wird oft vergleichend gegen den MU oder die Menschenkenntnis
   des Gegenuebers abgelegt.
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

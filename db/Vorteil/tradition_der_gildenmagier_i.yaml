@@ -1,5 +1,5 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Tradition der Gildenmagier I
 text: "Bedingungen: Sichtkontakt, Geste, laut gesprochene Zauberformel.\n\nDu kannst\
@@ -7,6 +7,7 @@ text: "Bedingungen: Sichtkontakt, Geste, laut gesprochene Zauberformel.\n\nDu ka
   \ findest du unter den allgemeinen Zaubern, unter Kugelzauber (S. 169), Schalenzauber\
   \ (S. 171) und Stabzauber (S. 172).\n\nWenn du beim Vorbereiten eines Zaubers gestoert\
   \ wirst, sind entsprechende Willenskraftproben um zusaetzliche \u20134 erschwert."
-typ: '5'
-variable: '0'
-voraussetzungen: Attribut KL 4, Vorteil Zauberer I
+typ: 5
+variable: 0
+voraussetzungen:
+- Attribut KL 4, Vorteil Zauberer I

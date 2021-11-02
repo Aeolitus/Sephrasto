@@ -1,9 +1,0 @@
-attribute: IN|KK|MU
-name: Seefahrt
-printclass: '1'
-steigerungsfaktor: '2'
-text: 'Pragmatische Efferdgeweihte sind aus der aventurischen Seefahrt nicht wegzudenken.
-  Sie dienen als Bordgeweihte und schuetzen Schiffe vor den Gefahren der blutigen
-  See. '
-voraussetzungen: Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der
-  Swafnirgeweihten I

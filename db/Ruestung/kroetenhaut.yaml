@@ -1,10 +1,10 @@
 name: Kroetenhaut
-rsBauch: '1'
-rsBeine: '0'
-rsBrust: '2'
-rsKopf: '0'
-rsLArm: '1'
-rsRArm: '1'
-system: '0'
+rsBauch: 1
+rsBeine: 0
+rsBrust: 2
+rsKopf: 0
+rsLArm: 1
+rsRArm: 1
+system: 0
 text: Wird ueblicherweise mit Lederzeug ergaenzt.
-typ: '1'
+typ: 1

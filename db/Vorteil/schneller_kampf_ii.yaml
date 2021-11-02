@@ -1,7 +1,7 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Schneller Kampf I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Schneller Kampf II
 script: modifyKampfstil('Schneller Kampf', 1, 0, 0, 0)
@@ -11,6 +11,7 @@ text: 'Du erhaeltst AT +1.
   Du kannst in eine Halbschwertstellung wechseln, um deine Waffe in einer um 1 kleineren
   Reichweite zu fuehren. Der Wechsel in die Stellung oder zurueck geschieht in einer
   Freien Aktion.'
-typ: '3'
-variable: '0'
-voraussetzungen: Attribut GE 6, Vorteil Schneller Kampf I
+typ: 3
+variable: 0
+voraussetzungen:
+- Attribut GE 6, Vorteil Schneller Kampf I

@@ -1,13 +1,15 @@
-fertigkeiten: Gaben des Odun
-kommentar: '0'
-kosten: '40'
+fertigkeiten:
+- Gaben des Odun
+kommentar: 0
+kosten: 40
 name: Foramen Foraminor (Tiergeist)
-printclass: '0'
+printclass: 0
 text: "Du oeffnest ein Schloss beliebiger Bauart.\nProbenschwierigkeit: Herstellungsschwierigkeit\
   \ des Schlosses\nModifikationen: Riegel (\u20134, 8 AsP; auch ein schwerer Riegel\
   \ wie an einem Stadttor kann hiermit geoeffnet werden.)\nVorbereitungszeit: 2 Aktionen\n\
   Ziel: Einzelobjekt\nReichweite: Beruehrung\nWirkungsdauer: augenblicklich\nKosten:\
   \ 4 AsP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Fischotter)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Fischotter)

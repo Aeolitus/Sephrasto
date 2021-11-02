@@ -1,12 +1,17 @@
-W6: '1'
+W6: 1
 fertigkeit: Hiebwaffen
-fk: '0'
-haerte: '5'
-kampfstile: Beidhaendiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller
-  Kampf, Schneller Kampf
+fk: 0
+haerte: 5
+kampfstile:
+- Beidhaendiger Kampf
+- Parierwaffenkampf
+- Reiterkampf
+- Schildkampf
+- Kraftvoller Kampf
+- Schneller Kampf
 name: Knueppel
-plus: '2'
-rw: '1'
+plus: 2
+rw: 1
 talent: Einhandhiebwaffen
 text: Stumpf, Kopflastig
-wm: '-1'
+wm: -1

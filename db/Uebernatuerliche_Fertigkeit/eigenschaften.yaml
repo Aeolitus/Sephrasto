@@ -1,0 +1,21 @@
+attribute:
+- GE
+- IN
+- KO
+name: Eigenschaften
+printclass: 0
+steigerungsfaktor: 3
+text: 'Mit Eigenschaftsmagie kannst du deine Faehigkeiten und die deiner Gefaehrten
+  verbessern oder Feinde behindern. '
+voraussetzungen:
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I
+- Vorteil Tradition der Schelme I
+- Vorteil Tradition der Scharlatane I
+- Vorteil Magiedilettant

@@ -1,7 +1,8 @@
-fertigkeiten: Rausch
-kosten: '20'
+fertigkeiten:
+- Rausch
+kosten: 20
 name: Rahjalinas Kuss
-printclass: '44'
+printclass: 44
 text: "Du erhaeltst einen kurzen Einblick in den Traum deines Ziels. Ueber den Inhalt\
   \ musst du anderen gegenueber schweigen.\nProbenschwierigkeit: 12\nModifikationen:\
   \ Traumreise (\u20134, 8 KaP; du kannst in den Traum des Schlafenden reisen.)\n\
@@ -9,6 +10,7 @@ text: "Du erhaeltst einen kurzen Einblick in den Traum deines Ziels. Ueber den I
   \ reisen.)\nVorbereitungszeit: 16 Aktionen\nZiel: Einzelperson\nReichweite: Beruehrung\n\
   Wirkungsdauer: 1 Stunde\nKosten: 4 KaP\nFertigkeiten: Rausch\nErlernen: Rah 16;\
   \ 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Rahjageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Rahjageweihten I

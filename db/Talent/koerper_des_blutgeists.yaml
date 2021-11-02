@@ -1,7 +1,9 @@
-fertigkeiten: Verwandlung, Gaben des Blutgeists
-kosten: '60'
+fertigkeiten:
+- Verwandlung
+- Gaben des Blutgeists
+kosten: 60
 name: Koerper des Blutgeists
-printclass: '3'
+printclass: 3
 text: 'Du setzt eine der beim Tier deines Blutgeists angegebenen Verwandlungen (S.
   160) ein. Du kannst auch beide Verwandlungen gleichzeitig nutzen, dafuer musst du
   den Zauber zwei Mal wirken.
@@ -25,6 +27,7 @@ text: 'Du setzt eine der beim Tier deines Blutgeists angegebenen Verwandlungen (
   Fertigkeiten: Verwandlung, Gaben des Blutgeists
 
   Erlernen: Ana 12; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Anach-Nurim I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Anach-Nurim I

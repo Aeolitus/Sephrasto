@@ -15,5 +15,6 @@ text: 'Der Gegenzauber stoert einen anderen Zauberer waehrend dessen Zaubervorbe
   Wirkungsdauer: augenblicklich
 
   Kosten: 4 AsP'
-typ: '4'
-voraussetzungen: Uebernatuerliche-Fertigkeit 'Antimagie' -1
+typ: 4
+voraussetzungen:
+- Uebernatuerliche-Fertigkeit 'Antimagie' -1

@@ -1,7 +1,9 @@
-fertigkeiten: Eigenschaften, Zaubermelodien
-kosten: '20'
+fertigkeiten:
+- Eigenschaften
+- Zaubermelodien
+kosten: 20
 name: Warnender Klang
-printclass: '18'
+printclass: 18
 text: 'Du entlockst deinem Instrument einen alarmierenden Klang. Alle Zuhoerer in
   8 Meter Radius schrecken sofort auf und sind hellwach. Gegen folgende Angriffe gelten
   sie nicht als ueberrascht.
@@ -21,6 +23,7 @@ text: 'Du entlockst deinem Instrument einen alarmierenden Klang. Alle Zuhoerer i
   Fertigkeiten: Eigenschaften, Zaubermelodien
 
   Erlernen: Bard 14; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Zauberbarden I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Zauberbarden I

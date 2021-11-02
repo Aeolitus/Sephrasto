@@ -1,9 +1,11 @@
-fertigkeiten: Hiebwaffen
-kosten: '-1'
+fertigkeiten:
+- Hiebwaffen
+kosten: -1
 name: Zweihandhiebwaffen
-printclass: '-1'
+printclass: -1
 text: Verbessert den Einsatz beidhaendig gefuehrter Hiebwaffen wie grosser Aexte und
   Haemmern.
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

@@ -17,5 +17,6 @@ text: 'Hiermit bannst du beschworene Wesenheiten, in die keine gAsP geflossen si
   Kosten: halbe Basiskosten der Beschwoerung
 
   Anmerkung: Wesenheiten und Zauber mit gAsP werden mit dem Destructibo gebannt.'
-typ: '4'
-voraussetzungen: Uebernatuerliche-Fertigkeit 'Antimagie' -1
+typ: 4
+voraussetzungen:
+- Uebernatuerliche-Fertigkeit 'Antimagie' -1

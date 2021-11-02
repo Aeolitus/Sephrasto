@@ -1,8 +1,9 @@
-fertigkeiten: Gaben des Odun
-kommentar: '0'
-kosten: '40'
+fertigkeiten:
+- Gaben des Odun
+kommentar: 0
+kosten: 40
 name: Axxeleratus Blitzgeschwind (Tiergeist)
-printclass: '0'
+printclass: 0
 text: 'Die GS deines Zieles erhoeht sich um +4 und alle AT und VT sind um +2 erleichtert,
   Ausweichen um weitere +2.
 
@@ -19,7 +20,10 @@ text: 'Die GS deines Zieles erhoeht sich um +4 und alle AT und VT sind um +2 erl
   Wirkungsdauer: 16 Initiativphasen
 
   Kosten: 8 AsP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Affe) ODER Vorteil Tiergeist (Falke) ODER Vorteil
-  Tiergeist (Gebirgsbock) ODER Vorteil Tiergeist (Wolf/Khoramsbestie)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Affe)
+- Vorteil Tiergeist (Falke)
+- Vorteil Tiergeist (Gebirgsbock)
+- Vorteil Tiergeist (Wolf/Khoramsbestie)

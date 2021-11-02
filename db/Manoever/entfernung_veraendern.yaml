@@ -5,5 +5,6 @@ text: 'Du kannst dich aus dem Nahkampf loesen, ohne Passierschlaege zu riskieren
 
   Besonderheiten: Beim Spiel mit Bodenplaenen erhaelt das Ziel in dieser Runde keine
   Passierschlaege durch deine Bewegung.'
-typ: '0'
-voraussetzungen: ''
+typ: 0
+voraussetzungen:
+- ''

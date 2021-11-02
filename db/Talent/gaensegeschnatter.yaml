@@ -1,7 +1,9 @@
-fertigkeiten: Froehlicher Wanderer, Sichere Heimkehr
-kosten: '40'
+fertigkeiten:
+- Froehlicher Wanderer
+- Sichere Heimkehr
+kosten: 40
 name: Gaensegeschnatter
-printclass: '49'
+printclass: 49
 text: "Im Laufe des Tages fliegt dir eine Wildgans (Tra) oder ein Zugvogel (Aves)\
   \ zu, die dich fortan begleitet. Das Tier hat aeusserst scharfe Sinne (Wachsamkeit\
   \ 12) und schlaegt lautstark Alarm, sobald sich jemand deinem Nachtlager in boeser\
@@ -12,7 +14,8 @@ text: "Im Laufe des Tages fliegt dir eine Wildgans (Tra) oder ein Zugvogel (Aves
   \ gKaP)\nVorbereitungszeit: 4 Minuten\nZiel: selbst\nReichweite: Beruehrung\nWirkungsdauer:\
   \ 1 Woche\nKosten: 8 KaP\nFertigkeiten: Froehlicher Wanderer, Sichere Heimkehr\n\
   Erlernen: Aves 14; Tra 16; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
-  Traviageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Avesgeweihten I
+- Vorteil Tradition der Traviageweihten I

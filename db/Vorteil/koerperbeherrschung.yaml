@@ -1,5 +1,5 @@
-kommentar: '0'
-kosten: '80'
+kommentar: 0
+kosten: 80
 nachkauf: haeufig
 name: Koerperbeherrschung
 text: Du kannst Nah- oder Fernkampfangriffen, elementaren Schadenszaubern oder aehnlichen
@@ -7,6 +7,7 @@ text: Du kannst Nah- oder Fernkampfangriffen, elementaren Schadenszaubern oder a
   wird angesagt, nachdem uebliche Verteidigungsmoeglichkeiten (wie eine Verteidigung)
   versagt haben, aber bevor der Schaden bestimmt wird. Anschliessend erleidest du
   einen Punkt Erschoepfung.
-typ: '1'
-variable: '0'
-voraussetzungen: Attribut GE 10
+typ: 1
+variable: 0
+voraussetzungen:
+- Attribut GE 10

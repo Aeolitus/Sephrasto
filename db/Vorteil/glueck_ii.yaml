@@ -1,12 +1,13 @@
 csBeschreibung: Deine maximalen Schicksalspunkte steigen auf 6 (bereits eingerechnet).
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Glueck I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Glueck II
 script: modifySchiPMax(1)
 text: Deine maximalen Schicksalspunkte steigen auf 6.
-typ: '0'
-variable: '0'
-voraussetzungen: Vorteil Glueck I
+typ: 0
+variable: 0
+voraussetzungen:
+- Vorteil Glueck I

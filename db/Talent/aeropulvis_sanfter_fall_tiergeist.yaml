@@ -1,8 +1,9 @@
-fertigkeiten: Gaben des Odun
-kommentar: '0'
-kosten: '40'
+fertigkeiten:
+- Gaben des Odun
+kommentar: 0
+kosten: 40
 name: Aeropulvis sanfter Fall (Tiergeist)
-printclass: '0'
+printclass: 0
 text: 'Halbiert die effektive Hoehe eines Sturzes oder Sprunges (kumulativ zur Akrobatik-Probe).
 
   Probenschwierigkeit: 12
@@ -16,6 +17,7 @@ text: 'Halbiert die effektive Hoehe eines Sturzes oder Sprunges (kumulativ zur A
   Wirkungsdauer: 16 Initiativphasen
 
   Kosten: 8 AsP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Falke)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Falke)

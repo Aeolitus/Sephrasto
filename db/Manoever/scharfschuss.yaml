@@ -2,5 +2,6 @@ gegenprobe: ''
 name: Scharfschuss
 probe: FK -X
 text: Der Angriff richtet X (maximal 8) Trefferpunkte mehr an.
-typ: '1'
-voraussetzungen: ''
+typ: 1
+voraussetzungen:
+- ''

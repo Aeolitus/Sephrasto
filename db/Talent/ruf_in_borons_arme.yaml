@@ -1,13 +1,15 @@
-fertigkeiten: Schlaf
-kosten: '20'
+fertigkeiten:
+- Schlaf
+kosten: 20
 name: Ruf in Borons Arme
-printclass: '21'
+printclass: 21
 text: "Das Ziel faellt in einen tiefen Schlaf, waehrend dem Gifte und Krankheiten\
   \ nicht wirken und es nicht von Albtraeumen geplagt wird. Alle Versuche, in den\
   \ Traum des Ziels einzudringen oder sie zu manipulieren, sind um \u20134 erschwert.\n\
   Maechtige Liturgie: Der Malus steigt um \u20132.\nProbenschwierigkeit: 12\nVorbereitungszeit:\
   \ 8 Aktionen\nZiel: Einzelperson\nReichweite: Beruehrung\nWirkungsdauer: 8 Stunden\n\
   Kosten: 2 KaP\nFertigkeiten: Schlaf\nErlernen: Brn 4; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Borongeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Borongeweihten I

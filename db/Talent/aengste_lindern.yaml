@@ -1,7 +1,8 @@
-fertigkeiten: Einfluss
-kosten: '40'
+fertigkeiten:
+- Einfluss
+kosten: 40
 name: Aengste lindern
-printclass: '0'
+printclass: 0
 text: 'Auf dem Ziel lastende Furcht-Effekte sinken um eine Stufe.
 
   Probenschwierigkeit: 12
@@ -19,8 +20,12 @@ text: 'Auf dem Ziel lastende Furcht-Effekte sinken um eine Stufe.
   Fertigkeiten: Einfluss
 
   Erlernen: Hex 8; Geo 14; Dru, Mag 16; Alch 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil
-  Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I

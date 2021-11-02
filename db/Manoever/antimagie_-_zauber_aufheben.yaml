@@ -16,5 +16,6 @@ text: 'Hiermit hebst du einen bereits gewirkten Zauber auf, in den keine gAsP ge
   Wirkungsdauer: augenblicklich
 
   Kosten: halbe Basiskosten des Zaubers'
-typ: '4'
-voraussetzungen: Uebernatuerliche-Fertigkeit 'Antimagie' -1
+typ: 4
+voraussetzungen:
+- Uebernatuerliche-Fertigkeit 'Antimagie' -1

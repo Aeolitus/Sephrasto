@@ -8,5 +8,6 @@ text: 'Wenn der Angriff gelingt, darfst du sofort noch einmal angreifen. Dieser 
   Ziel getroffen werden, damit der Klingentanz gelingt.
 
   Voraussetzung: Kein Klingentanz seit letztem Beginn einer eigenen Initiativephase'
-typ: '0'
-voraussetzungen: Vorteil Klingentanz
+typ: 0
+voraussetzungen:
+- Vorteil Klingentanz

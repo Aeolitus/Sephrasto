@@ -1,7 +1,8 @@
-fertigkeiten: Guter Kampf
-kosten: '80'
+fertigkeiten:
+- Guter Kampf
+kosten: 80
 name: Immerwaehrender Kampf
-printclass: '54'
+printclass: 54
 text: 'Die Lebenskraft deiner Feinde staerkt dich. Wenn du seit dem Beginn deiner
   letzten Initiativephase einen mindestens normal grossen Gegner besiegt hast, regenerierst
   du eine Wunde, bei grossen oder sehr grossen Gegnern sogar zwei Wunden.
@@ -25,6 +26,7 @@ text: 'Die Lebenskraft deiner Feinde staerkt dich. Wenn du seit dem Beginn deine
   Fertigkeiten: Guter Kampf
 
   Erlernen: Kor 16; 80 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Korgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Korgeweihten I

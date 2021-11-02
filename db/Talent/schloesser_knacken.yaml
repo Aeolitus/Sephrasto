@@ -1,9 +1,11 @@
-fertigkeiten: Verschlagenheit
-kosten: '-1'
+fertigkeiten:
+- Verschlagenheit
+kosten: -1
 name: Schloesser knacken
-printclass: '-1'
+printclass: -1
 text: Schloesser knacken oeffnet mit Hilfe eines Dietrichs oder einer Haarnadel Schatzkisten
   und Tresorraeume. Ausserdem kann dein Charakter Fallen entschaerfen.
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

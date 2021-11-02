@@ -1,12 +1,17 @@
-W6: '3'
+W6: 3
 fertigkeit: Hiebwaffen
-fk: '0'
-haerte: '9'
-kampfstile: Beidhaendiger Kampf, Parierwaffenkampf, Reiterkampf, Schildkampf, Kraftvoller
-  Kampf, Schneller Kampf
+fk: 0
+haerte: 9
+kampfstile:
+- Beidhaendiger Kampf
+- Parierwaffenkampf
+- Reiterkampf
+- Schildkampf
+- Kraftvoller Kampf
+- Schneller Kampf
 name: Ogerschelle
-plus: '2'
-rw: '1'
+plus: 2
+rw: 1
 talent: Einhandhiebwaffen
 text: Kopflastig, Schwer (4), Unberechenbar
-wm: '-2'
+wm: -2

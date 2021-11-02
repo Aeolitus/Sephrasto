@@ -1,13 +1,15 @@
-fertigkeiten: Verwandlung
-kosten: '60'
+fertigkeiten:
+- Verwandlung
+kosten: 60
 name: Unsichtbarer Jaeger
-printclass: '0'
+printclass: 0
 text: "Du wirst samt deiner am Koerper getragenen Ausruestung unsichtbar. Der Zauber\
   \ endet, sobald du eine Aktion Konflikt oder Volle Offensive ausfuehrst.\nProbenschwierigkeit:\
   \ 12\nModifikationen: Unhoerbar Geruchlos (\u20138; der Zauber betrifft auch Gehoer\
   \ und Geruch.)\nVorbereitungszeit: 4 Aktionen\nZiel: selbst\nReichweite: Beruehrung\n\
   Wirkungsdauer: 1 Stunde\nKosten: 16 AsP\nFertigkeiten: Verwandlung\nErlernen: Elf\
   \ 20; 60 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Elfen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Elfen I

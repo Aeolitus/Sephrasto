@@ -1,11 +1,12 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Tradition der Tsageweihten I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Tradition der Tsageweihten II
 text: Tsageweihte sind schnell entschlossen und spontan. Wird eine Liturgie mit der
   Modifikation Vorbereitungszeit verkuerzen gewirkt, ist sie zusaetzlich um +2 erleichtert.
-typ: '7'
-variable: '0'
-voraussetzungen: Attribut IN 6, Vorteil Tradition der Tsageweihten I
+typ: 7
+variable: 0
+voraussetzungen:
+- Attribut IN 6, Vorteil Tradition der Tsageweihten I

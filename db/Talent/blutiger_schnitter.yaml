@@ -1,7 +1,8 @@
-fertigkeiten: Guter Kampf
-kosten: '60'
+fertigkeiten:
+- Guter Kampf
+kosten: 60
 name: Blutiger Schnitter
-printclass: '54'
+printclass: 54
 text: 'Du rufst den Kampfrausch Kors auf dich herab und erleidest keine Wundabzuege.
   Kannst du Wundabzuege ohnehin ignorieren, sind AT und VT um den halben Wundabzug
   erleichtert. Fuer je zwei erlittene Wunden richten deine Angriffe +1 TP an. Erlaubt
@@ -22,6 +23,7 @@ text: 'Du rufst den Kampfrausch Kors auf dich herab und erleidest keine Wundabzu
   Fertigkeiten: Guter Kampf
 
   Erlernen: Kor 14; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Korgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Korgeweihten I

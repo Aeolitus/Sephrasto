@@ -1,0 +1,11 @@
+attribute:
+- CH
+- MU
+- KO
+name: Magiebann
+printclass: 1
+steigerungsfaktor: 3
+text: Die Antimagie und der Kampf gegen Daemonen haben gerade in den letzten Jahren
+  einen erhoehten Stellenwert innerhalb der Praioskirche erhalten.
+voraussetzungen:
+- Vorteil Tradition der Praiosgeweihten I

@@ -1,5 +1,5 @@
-kommentar: '0'
-kosten: '20'
+kommentar: 0
+kosten: 20
 nachkauf: haeufig
 name: Tradition der Kristallomanten I
 text: "Bedingungen: Sichtkontakt, Geste, passender gebundender Kristall.\n\nDu kannst\
@@ -7,6 +7,7 @@ text: "Bedingungen: Sichtkontakt, Geste, passender gebundender Kristall.\n\nDu k
   \ findest du unter den allgemeinen Zaubern und unter Kristallmagie (S. 168).\n\n\
   Wenn du einen Zauber mit der Modifikation Vorbereitung verkuerzen wirkst, ist er\
   \ zusaetzlich um \u20132 erschwert."
-typ: '5'
-variable: '0'
-voraussetzungen: Attribut KL 4, Vorteil Zauberer I
+typ: 5
+variable: 0
+voraussetzungen:
+- Attribut KL 4, Vorteil Zauberer I

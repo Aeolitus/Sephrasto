@@ -1,11 +1,12 @@
-kommentar: '0'
-kosten: '60'
+kommentar: 0
+kosten: 60
 nachkauf: extrem selten
 name: Magiegespuer
 text: In der Naehe astraler Kraefte ueberfaellt dich ein Froesteln, du hoerst sphaerische
   Klaenge oder ein Farbschleier legt sich ueber die Umgebung. Mit dem Talent Sinnenschaerfe
   kannst du Intensitaetsanalysen (S. 80) von magischen Gegenstaenden durchfuehren.
   Nach dem aktiven Einsatz der Gabe erleidest du 1 Punkt Erschoepfung.
-typ: '0'
-variable: '0'
-voraussetzungen: ''
+typ: 0
+variable: 0
+voraussetzungen:
+- ''

@@ -1,14 +1,18 @@
-fertigkeiten: Luft, Umwelt
-kosten: '20'
+fertigkeiten:
+- Luft
+- Umwelt
+kosten: 20
 name: Windstille
-printclass: '0'
+printclass: 0
 text: "In einem Radius von 32 Schritt senkst du die Windstaerke auf einer Skala von\
   \ windstill/leichte Brise/steife Brise/Sturm/Orkan um zwei Stufen.\nMaechtige Magie:\
   \ Du senkst die Windstaerke um eine weitere Stufe.\nProbenschwierigkeit: 12\nModifikationen:\
   \ Anderes Zentrum (\u20134, Zone, 16 Schritt)\nVorbereitungszeit: 16 Aktionen\n\
   Ziel: selbst\nReichweite: Beruehrung\nWirkungsdauer: 4 Minuten\nKosten: 8 AsP\n\
   Fertigkeiten: Luft, Umwelt\nErlernen: Elf 12; Mag 20; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Gildenmagier I

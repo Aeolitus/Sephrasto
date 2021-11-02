@@ -1,10 +1,11 @@
-kommentar: '0'
-kosten: '60'
+kommentar: 0
+kosten: 60
 linkElement: Rededuell
-linkKategorie: '1'
+linkKategorie: 1
 nachkauf: haeufig
 name: Soziale Anpassungsfaehigkeit
 text: Du bist immun gegen alle Auswirkungen durch ungewohnte Umgebung (S. 55).
-typ: '1'
-variable: '0'
-voraussetzungen: Attribut CH 8
+typ: 1
+variable: 0
+voraussetzungen:
+- Attribut CH 8

@@ -1,7 +1,10 @@
-fertigkeiten: Dolchzauber, Einfluss, Verstaendigung
-kosten: '40'
+fertigkeiten:
+- Dolchzauber
+- Einfluss
+- Verstaendigung
+kosten: 40
 name: Miniatur der Herrschaft
-printclass: '1'
+printclass: 1
 text: 'Aus Lehm und einem Koerperteil des Opfers (z.B. ein Haar oder einen Blutstropfen)
   fertigst du eine Miniatur der Herrschaft. Waehrend der Wirkungsdauer kannst du einmal
   pro Tag einen Einflusszauber oder einen Fluch der Pestilenz auf die Miniatur sprechen.
@@ -26,6 +29,7 @@ text: 'Aus Lehm und einem Koerperteil des Opfers (z.B. ein Haar oder einen Bluts
   Fertigkeiten: Dolchzauber, Einfluss, Verstaendigung
 
   Erlernen: Dru 12; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Druiden I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Druiden I

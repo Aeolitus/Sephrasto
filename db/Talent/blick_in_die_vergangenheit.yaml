@@ -1,14 +1,19 @@
-fertigkeiten: Hellsicht, Temporal
-kosten: '20'
+fertigkeiten:
+- Hellsicht
+- Temporal
+kosten: 20
 name: Blick in die Vergangenheit
-printclass: '0'
+printclass: 0
 text: "Die Geschichte des Ortes rauscht vor deinen Augen vorbei. Waehrend der Wirkungsdauer\
   \ erkennst du die wichtigsten Ereignisse des letzten Monats.\nMaechtige Magie: Du\
   \ blickst 1 Jahr/10 Jahre/100 Jahre/1000 Jahre zurueck.\nProbenschwierigkeit: 12\n\
   Modifikationen: Objekt (\u20134, Einzelobjekt)\nVorbereitungszeit: 16 Aktionen\n\
   Ziel: Zone\nReichweite: Beruehrung\nWirkungsdauer: 16 Initiativphasen\nKosten: 16\
   \ AsP\nFertigkeiten: Hellsicht, Temporal\nErlernen: Dru, Geo 18; Mag 20; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I

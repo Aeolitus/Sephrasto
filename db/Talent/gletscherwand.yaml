@@ -1,7 +1,8 @@
-fertigkeiten: Eis
-kosten: '40'
+fertigkeiten:
+- Eis
+kosten: 40
 name: Gletscherwand
-printclass: '0'
+printclass: 0
 text: 'Eine 3 Schritt hohe und bis zu 4 Schritt lange Wand aus blankem Eis waechst
   entlang einer von dir bestimmten Linie aus dem Boden. Sie verfuegt ueber eine Haerte
   von 16. Wer sich der Wand naehert, erleidet bei misslungener Konterprobe (KO, 12)
@@ -25,7 +26,9 @@ text: 'Eine 3 Schritt hohe und bis zu 4 Schritt lange Wand aus blankem Eis waech
   Fertigkeiten: Eis
 
   Erlernen: Dru 16; Mag 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Gildenmagier I

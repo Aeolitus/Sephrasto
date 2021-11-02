@@ -1,7 +1,9 @@
-fertigkeiten: Hellsicht, Vertrautenmagie
-kosten: '40'
+fertigkeiten:
+- Hellsicht
+- Vertrautenmagie
+kosten: 40
 name: Stimmungssinn
-printclass: '17'
+printclass: 17
 text: 'Dein Vertrautentier starrt das Ziel an und gibt dir seine Eindruecke weiter.
   Menschenkenntnis-Proben gegen das Ziel sind um +4 erleichtert.
 
@@ -22,6 +24,8 @@ text: 'Dein Vertrautentier starrt das Ziel an und gibt dir seine Eindruecke weit
   Fertigkeiten: Hellsicht, Vertrautenmagie
 
   Erlernen: Hex 12, Geo 16; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Hexen I

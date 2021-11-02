@@ -1,7 +1,11 @@
-fertigkeiten: Friede, Gutes Gold, List, Stiller Wanderer
-kosten: '40'
+fertigkeiten:
+- Friede
+- Gutes Gold
+- List
+- Stiller Wanderer
+kosten: 40
 name: Mondsilberzunge
-printclass: '38'
+printclass: 38
 text: 'Deine Zunge ist flink und die Worte fliessen dir nur so von den Lippen. Ueberreden-Proben
   sind um +4 erleichtert.
 
@@ -22,8 +26,10 @@ text: 'Deine Zunge ist flink und die Worte fliessen dir nur so von den Lippen. U
   Fertigkeiten: Friede, Gutes Gold, List, Stiller Wanderer
 
   Erlernen: Phe 12; Aves, Kor 16; Tsa 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
-  Phexgeweihten I ODER Vorteil Tradition der Tsageweihten I ODER Vorteil Tradition
-  der Korgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Avesgeweihten I
+- Vorteil Tradition der Phexgeweihten I
+- Vorteil Tradition der Tsageweihten I
+- Vorteil Tradition der Korgeweihten I

@@ -1,7 +1,9 @@
-fertigkeiten: Eigenschaften, Verstaendigung
-kosten: '60'
+fertigkeiten:
+- Eigenschaften
+- Verstaendigung
+kosten: 60
 name: Seelenwanderung
-printclass: '0'
+printclass: 0
 text: "Wenn du ein Koerperteil (z.B. Haare oder Blut) deines Opfers besitzt, kannst\
   \ du mit ihm den Koerper tauschen. Geistige Attribute, Fertigkeiten und Vorteile\
   \ bleiben erhalten, koerperliche werden getauscht. Wird einer der Koerper waehrend\
@@ -12,8 +14,10 @@ text: "Wenn du ein Koerperteil (z.B. Haare oder Blut) deines Opfers besitzt, kan
   \ 4 Minuten\nKosten: 16 AsP\nFertigkeiten: Eigenschaften, Verstaendigung\nErlernen:\
   \ Ach, Dru, Geo, Hex 20; 60 EP\nAnmerkungen: Geruechten zufolge gibt es eine Moeglichkeit,\
   \ mit der der Zaubernde den Koerper seines Zieles permanent uebernehmen kann."
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden
-  I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten
-  I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I

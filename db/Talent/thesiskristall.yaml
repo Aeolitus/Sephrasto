@@ -1,7 +1,9 @@
-fertigkeiten: Kraft, Kristallmagie
-kosten: '20'
+fertigkeiten:
+- Kraft
+- Kristallmagie
+kosten: 20
 name: Thesiskristall
-printclass: '11'
+printclass: 11
 text: 'Du speicherst die Struktur eines Zaubers fuer 20 EP in einen Kristall. Andere
   Zauberer koennen den Zauber aus dieser Struktur erlernen, sofern sie ueber die Kristallomantische
   Tradition I verfuegen.
@@ -26,6 +28,7 @@ text: 'Du speicherst die Struktur eines Zaubers fuer 20 EP in einen Kristall. An
   Fertigkeiten: Kraft, Kristallmagie
 
   Erlernen: Ach 16; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Kristallomanten I

@@ -1,7 +1,9 @@
-fertigkeiten: Antimagie, Eigenschaften
-kosten: '40'
+fertigkeiten:
+- Antimagie
+- Eigenschaften
+kosten: 40
 name: Psychostabilis
-printclass: '0'
+printclass: 0
 text: "Magieresistenz-Proben des Ziels sind um +4 erleichtert.\nMaechtige Magie: Erhoeht\
   \ den Bonus um +2.\nProbenschwierigkeit: 12\nModifikationen: Schnellsteigerung (\u2013\
   4; Wirkungsdauer 16 Initiativphasen; verdoppelt die Erleichterung.)\nStabilisierung\
@@ -10,10 +12,15 @@ text: "Magieresistenz-Proben des Ziels sind um +4 erleichtert.\nMaechtige Magie:
   \ unterdrueckt.)\nVorbereitungszeit: 2 Aktionen\nZiel: Einzelperson\nReichweite:\
   \ Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 8 AsP\nFertigkeiten: Antimagie, Eigenschaften\n\
   Erlernen: Alch, Mag 12; Dru, Geo, Hex 14; Ach, Srl, Elf 18; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition
-  der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition
-  der Scharlatane I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I
+- Vorteil Tradition der Scharlatane I

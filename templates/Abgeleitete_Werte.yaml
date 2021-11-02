@@ -1,0 +1,39 @@
+Wundschwelle:
+  Basis: 0
+  Mod: 0
+  Aktuell: 0 # steht hier immer fuer die modifizierten werte, e.g. Wundschwelle*
+  Beschreibung: "Die Wundschwelle (WS) bestimmt, wie gut dein Charakter Schaden widerstehen kann. Schaden bis zu deiner Wundschwelle ist zwar schmerzhaft, aber noch nicht wirklich gefaehrlich. Erst Schadensmengen ueber deiner Wundschwelle koennen deinen Charakter beeintraechtigen oder sogar toeten. Die Wundschwelle betraegt 4 + 1 fuer je 4 volle Punkte KO. Mit dem Vorteil Unverwuestlich (S. 59) kannst du die WS um +1 erhoehen."
+  Details: "Deine Wundschwelle (WS) betraegt 4 + 1 je 4 volle Punkte KO und entscheidet, wie gut dein Charakter solchen Schaeden widerstehen kann. Die Summe aus Ruestungsschutz (RS) und WS ergibt die modifizierte Wundschwelle (WS*).      Axthiebe, Pfeile, elementare Schadenszauber und andere Schadensquellen, die von deiner Ruestung abgehalten werden, richten Trefferpunkte (TP) an und werden mit der WS* verglichen. Gifte, Krankheiten, ruestungsbrechende Angriffe oder ein Fulminictus ignorieren hingegen deine Panzerung. Sie verursachen Schadenspunkte (SP) und wirken gegen die WS."
+Magieresistenz:
+  Basis: 0
+  Mod: 0
+  Aktuell: 0
+  Beschreibung: "Die Magieresistenz (MR) ist die Widerstandsfaehigkeit gegen Zauberei. Viele Zauber wirken nur auf deinen Charakter, wenn sie seine Magieresistenz in einer vergleichenden Probe ueberwinden. Die Magieresistenz betraegt 4 + 1 fuer je 4 volle Punkte MU. Die Vorteile Willensstark I und II (S. 59) und Unbeugsam (S. 59) steigern die MR weiter."
+Geschwindigkeit:
+  Basis: 0
+  Mod: 0
+  Aktuell: 0
+  Beschreibung: "Die Geschwindigkeit (GS) stellt die Schnelligkeit und Beweglichkeit deines Charakters dar. Sie bestimmt, wie weit er sich im Kampf bewegen kann und hilft auch bei Verfolgungsjagden zu Fuss. Die Geschwindigkeit betraegt 4 + 1 fuer je 4 volle Punkte GE. Eine noch hoehere GS verleihen ihm Flink I und II (S. 58)."
+Schadensbonus:
+  Basis: 0
+  Mod: 0
+  Aktuell: 0
+  Beschreibung: "Hohe Koerperkraft erhoeht den Waffenschaden bei allen Angriffen mit Nahkampf- und Wurfwaffen. Kopflastige Waffen profitieren sogar doppelt vom Schadensbonus. Fuer je 4 volle Punkte KK erhaeltst du +1 Schadensbonus."
+Initiative:
+  Basis: 0
+  Mod: 0
+  Aktuell: 0
+  Beschreibung: "Die Initiative (INI) steht fuer Reaktionsgeschwindigkeit und Uebersicht im Kampf. Kaempfer mit hoher Initiative koennen zu Beginn eines Kampfes schneller handeln und so den Erstschlag fuehren. Die Initiative entspricht der IN. Der Vorteil Kampfreflexe (S. 42) erhoeht die INI zusaetzlich."
+Durchhaltevermoegen:
+  Basis: 0
+  Mod: 0
+  Aktuell: 0
+  Beschreibung: Wie lange dein Charakter eine anstrengende Taetigkeit durchhaelt, haengt von deiner Konstitution und deiner Behinderung – kurz deinem Durchhaltevermoegen (DH) ab. Das Durchhaltevermoegen ergibt sich aus KO – 2 x BE, aber betraegt wenigstens 1. Es ist auf deinem Charakterbogen vermerkt.
+Astralpunkte:
+  Basis: 0
+  Mod: 0
+  Aktuell: 0
+Karmapunkte:
+  Basis: 0
+  Mod: 0
+  Aktuell: 0

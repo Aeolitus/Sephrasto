@@ -1,7 +1,9 @@
-fertigkeiten: Sichere Heimkehr, Wildnis
-kosten: '20'
+fertigkeiten:
+- Sichere Heimkehr
+- Wildnis
+kosten: 20
 name: Zuflucht finden
-printclass: '28'
+printclass: 28
 text: 'Du findest intuitiv den Weg zur naechsten sicheren Lagerstaette. Entsprechende
   Ueberleben-Proben sind um +4 erleichtert.
 
@@ -22,7 +24,9 @@ text: 'Du findest intuitiv den Weg zur naechsten sicheren Lagerstaette. Entsprec
   Fertigkeiten: Sichere Heimkehr, Wildnis
 
   Erlernen: Fir, Ifi 12; Tra 14; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition der
-  Ifirngeweihten I ODER Vorteil Tradition der Traviageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Firungeweihten I
+- Vorteil Tradition der Ifirngeweihten I
+- Vorteil Tradition der Traviageweihten I

@@ -1,7 +1,8 @@
-fertigkeiten: Wasser
-kosten: '40'
+fertigkeiten:
+- Wasser
+kosten: 40
 name: Wasserwand
-printclass: '0'
+printclass: 0
 text: 'Eine 3 Schritt hohe und bis zu 4 Schritt lange Wand aus rauschenden Wogen quillt
   entlang einer von dir bestimmten Linie aus dem Boden. Um die Wand zu durchqueren,
   musst du sie mit einer Konterprobe (KO, 16) betreten. Dann kannst du alle 2 Initiativphasen
@@ -25,7 +26,10 @@ text: 'Eine 3 Schritt hohe und bis zu 4 Schritt lange Wand aus rauschenden Wogen
   Fertigkeiten: Wasser
 
   Erlernen: Geo 16; Mag 18; Dru 20; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I

@@ -1,7 +1,8 @@
-fertigkeiten: Einfluss
-kosten: '40'
+fertigkeiten:
+- Einfluss
+kosten: 40
 name: Papperlapapp
-printclass: '0'
+printclass: 0
 text: 'Jeder, der sich dir auf 4 Schritt naehert, muss eine Konterprobe (Magieresistenz,
   12) ablegen. Misslingt sie, spricht er fuer den Rest der Wirkungsdauer nur noch
   in einer Phantasiesprache. Er wuerfelt 1W20 und kann sich nur noch mit jenen unterhalten,
@@ -22,6 +23,8 @@ text: 'Jeder, der sich dir auf 4 Schritt naehert, muss eine Konterprobe (Magiere
   Fertigkeiten: Einfluss
 
   Erlernen: Sch 20; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Schelme I

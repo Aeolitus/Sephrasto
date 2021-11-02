@@ -1,7 +1,9 @@
-fertigkeiten: Hellsicht, Kraft
-kosten: '60'
+fertigkeiten:
+- Hellsicht
+- Kraft
+kosten: 60
 name: Oculus Astralis
-printclass: '0'
+printclass: 0
 text: 'Du wirfst einen Blick in die Welt der Magie. Waehrend nichtmagische Gegenstaende
   nur schwer zu erkennen sind, erscheint Magie als Ansammlung pulsierender Kraftfaeden
   (Analysegrad 1 der Intensitaetsanalyse, S. 80). Waehrend der Wirkungsdauer kannst
@@ -25,6 +27,7 @@ text: 'Du wirfst einen Blick in die Welt der Magie. Waehrend nichtmagische Gegen
   Fertigkeiten: Hellsicht, Kraft
 
   Erlernen: Mag 18; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Gildenmagier I

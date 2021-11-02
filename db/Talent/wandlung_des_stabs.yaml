@@ -1,7 +1,10 @@
-fertigkeiten: Stabzauber, Umwelt, Verwandlung
-kosten: '20'
+fertigkeiten:
+- Stabzauber
+- Umwelt
+- Verwandlung
+kosten: 20
 name: Wandlung des Stabs
-printclass: '15'
+printclass: 15
 text: "Du kannst den Stab auf die doppelte Laenge ausdehnen oder auf die halbe Laenge\
   \ stauchen. Der Zauber endet vorzeitig, wenn du den Stab (oder seine verwandelte\
   \ Form) nicht mehr beruehrst.\nProbenschwierigkeit: 12\nModifikationen: Seil des\
@@ -9,6 +12,7 @@ text: "Du kannst den Stab auf die doppelte Laenge ausdehnen oder auf die halbe L
   \ das sich selbststaendig verknoten und loesen kann.)\nVorbereitungszeit: 0 Aktionen\n\
   Ziel: Zauberstab\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 1 AsP\n\
   Fertigkeiten: Stabzauber, Umwelt, Verwandlung\nErlernen: Mag 12; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Gildenmagier I

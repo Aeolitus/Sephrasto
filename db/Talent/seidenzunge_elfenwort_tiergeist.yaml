@@ -1,8 +1,9 @@
-fertigkeiten: Gaben des Odun
-kommentar: '0'
-kosten: '40'
+fertigkeiten:
+- Gaben des Odun
+kommentar: 0
+kosten: 40
 name: Seidenzunge Elfenwort (Tiergeist)
-printclass: '0'
+printclass: 0
 text: 'Das Ziel denkt nicht zu genau ueber deine Worte nach und findet dich ueberzeugend.
   Alle Ueberreden-Proben gegen dein Ziel sind um +4 erleichtert.
 
@@ -19,6 +20,7 @@ text: 'Das Ziel denkt nicht zu genau ueber deine Worte nach und findet dich uebe
   Wirkungsdauer: 16 Initiativphasen
 
   Kosten: 8 AsP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Fuchs/Mungo)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Fuchs/Mungo)

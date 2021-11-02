@@ -1,0 +1,13 @@
+attribute:
+- FF
+- KL
+- MU
+name: Dolchzauber
+printclass: 0
+steigerungsfaktor: 3
+text: Die geheimen Rituale der Druiden beruhen auf ihrem verzauberten Dolch aus Obsidian,
+  waehrend Geoden eine goldene Sichel als Ritualinstrument bevorzugen. Alle Talente
+  gelten als Objektrituale.
+voraussetzungen:
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I

@@ -1,7 +1,9 @@
-fertigkeiten: Geister rufen, Verstaendigung
-kosten: '40'
+fertigkeiten:
+- Geister rufen
+- Verstaendigung
+kosten: 40
 name: Ruf des Schamanen
-printclass: '7'
+printclass: 7
 text: "Du sendest ein geistiges Signal an alle Stammesmitglieder im Radius von 4 Meilen,\
   \ dass sie zu dir kommen sollen. Sie wissen, in welcher Richtung du dich befindest.\n\
   Maechtige Magie: Verdoppelt den Radius\nProbenschwierigkeit: 12\nModifikationen:\
@@ -9,6 +11,7 @@ text: "Du sendest ein geistiges Signal an alle Stammesmitglieder im Radius von 4
   \ 16 Aktionen\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer: augenblicklich\n\
   Kosten: 4 AsP\nFertigkeiten: Geister rufen, Verstaendigung\nErlernen: Smn 14; 40\
   \ EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

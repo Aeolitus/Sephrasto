@@ -1,7 +1,8 @@
-fertigkeiten: Kraft
-kosten: '40'
+fertigkeiten:
+- Kraft
+kosten: 40
 name: Applicatus Zauberspeicher
-printclass: '0'
+printclass: 0
 text: "Der naechste Zauber, den du waehrend der Wirkungsdauer sprichst, wird fuer\
   \ einen Tag im Ziel gespeichert. Der Zauber wird ausgeloest, sobald das Objekt bewegt\
   \ wird oder ein einfacher, von dir bestimmter Ausloeser eintritt. Er trifft denjenigen,\
@@ -11,8 +12,11 @@ text: "Der naechste Zauber, den du waehrend der Wirkungsdauer sprichst, wird fue
   Vorbereitungszeit: 16 Aktionen\nZiel: Einzelobjekt\nReichweite: Beruehrung\nWirkungsdauer:\
   \ 4 Minuten\nKosten: 8 AsP\nFertigkeiten: Kraft\nErlernen: Alch 14; Ach, Mag, Srl\
   \ 18; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten
-  I ODER Vorteil Tradition der Scharlatane I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Kristallomanten I
+- Vorteil Tradition der Scharlatane I

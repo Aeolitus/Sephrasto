@@ -1,7 +1,9 @@
-fertigkeiten: Froehlicher Wanderer, Harmonie
-kosten: '40'
+fertigkeiten:
+- Froehlicher Wanderer
+- Harmonie
+kosten: 40
 name: Rahjas Wohlgefallen
-printclass: '43'
+printclass: 43
 text: 'Du rufst die Gunst der Goettin auf dich herab. Menschenkenntnis- und Betoeren-Proben
   sind um +4 erleichtert.
 
@@ -22,7 +24,8 @@ text: 'Du rufst die Gunst der Goettin auf dich herab. Menschenkenntnis- und Beto
   Fertigkeiten: Froehlicher Wanderer, Harmonie
 
   Erlernen: Rah 12; Aves 16; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
-  Rahjageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Avesgeweihten I
+- Vorteil Tradition der Rahjageweihten I

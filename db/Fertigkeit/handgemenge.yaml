@@ -1,9 +1,13 @@
-attribute: GE|KK|MU
-kampffertigkeit: '1'
+attribute:
+- GE
+- KK
+- MU
+kampffertigkeit: 1
 name: Handgemenge
-printclass: '0'
-steigerungsfaktor: '2'
+printclass: 0
+steigerungsfaktor: 2
 text: Auf Handgemenge wuerfelst du bei allen waffenlosen Nahkampftechniken, im Umgang
   mit Handgemengewaffen wie Messern, Dolchen, Schlagstoecken und bei der Verwendung
   von Schilden.
-voraussetzungen: ''
+voraussetzungen:
+- ''

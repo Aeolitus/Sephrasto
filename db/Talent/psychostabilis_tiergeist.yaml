@@ -1,8 +1,9 @@
-fertigkeiten: Gaben des Odun
-kommentar: '0'
-kosten: '40'
+fertigkeiten:
+- Gaben des Odun
+kommentar: 0
+kosten: 40
 name: Psychostabilis (Tiergeist)
-printclass: '0'
+printclass: 0
 text: "Magieresistenz-Proben des Ziels sind um +4 erleichtert.\nMaechtige Magie: Erhoeht\
   \ den Bonus um +2.\nProbenschwierigkeit: 12\nModifikationen: Schnellsteigerung (\u2013\
   4; Wirkungsdauer 16 Initiativphasen; verdoppelt die Erleichterung.)\nStabilisierung\
@@ -10,7 +11,9 @@ text: "Magieresistenz-Proben des Ziels sind um +4 erleichtert.\nMaechtige Magie:
   \ wiederholen. Gelingt sie, wird dieser Zauber fuer die Wirkungsdauer des Psychostabilis\
   \ unterdrueckt.)\nVorbereitungszeit: 2 Aktionen\nZiel: Einzelperson\nReichweite:\
   \ Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 8 AsP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Elefant) ODER Vorteil Tiergeist (Mammut) ODER
-  Vorteil Tiergeist (Schlange)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Elefant)
+- Vorteil Tiergeist (Mammut)
+- Vorteil Tiergeist (Schlange)

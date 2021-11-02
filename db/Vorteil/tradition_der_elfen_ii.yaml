@@ -1,11 +1,12 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Tradition der Elfen I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Tradition der Elfen II
 text: Elfen begreifen Magie als alltaegliche Unterstuetzung ihrer Faehigkeiten. Die
   Wirkungsdauer deiner Zauber, die auf dich selbst wirken, ist verdoppelt.
-typ: '5'
-variable: '0'
-voraussetzungen: Attribut IN 6, Vorteil Tradition der Elfen I
+typ: 5
+variable: 0
+voraussetzungen:
+- Attribut IN 6, Vorteil Tradition der Elfen I

@@ -1,10 +1,10 @@
 name: Panzerhandschuhe
-rsBauch: '0'
-rsBeine: '0'
-rsBrust: '0'
-rsKopf: '0'
-rsLArm: '2'
-rsRArm: '2'
-system: '2'
+rsBauch: 0
+rsBeine: 0
+rsBrust: 0
+rsKopf: 0
+rsLArm: 2
+rsRArm: 2
+system: 2
 text: Ruestungsergaenzung fuer die Haende.
-typ: '4'
+typ: 4

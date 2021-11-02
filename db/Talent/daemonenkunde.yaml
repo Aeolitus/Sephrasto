@@ -1,9 +1,11 @@
-fertigkeiten: Magiekunde
-kosten: '-1'
+fertigkeiten:
+- Magiekunde
+kosten: -1
 name: Daemonenkunde
-printclass: '-1'
+printclass: -1
 text: Daemonenkunde beschaeftigt sich mit den Erzdaemonen, ihren Dienern und daemonischen
   Zaubern. Du kannst Daemonen bennenen und kennst ihre Schwachstellen.
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

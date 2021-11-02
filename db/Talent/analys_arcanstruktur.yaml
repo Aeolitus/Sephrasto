@@ -1,7 +1,9 @@
-fertigkeiten: Hellsicht, Kraft
-kosten: '40'
+fertigkeiten:
+- Hellsicht
+- Kraft
+kosten: 40
 name: Analys Arcanstruktur
-printclass: '0'
+printclass: 0
 text: 'Du analysierst die magische Struktur eines arkanen Artefakts oder eines magischen
   Wesens. Das entspricht einem Analysegrad von 1 fuer die Strukturanalyse (mehr dazu
   siehe S. 80).
@@ -23,9 +25,14 @@ text: 'Du analysierst die magische Struktur eines arkanen Artefakts oder eines m
   Fertigkeiten: Hellsicht, Kraft
 
   Erlernen: Mag 12; Ach 14; Alch, Dru, Elf, Geo, Hex 16; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition
-  der Hexen I ODER Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I

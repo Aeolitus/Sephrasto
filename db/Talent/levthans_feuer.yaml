@@ -1,7 +1,9 @@
-fertigkeiten: Einfluss, Verstaendigung
-kosten: '20'
+fertigkeiten:
+- Einfluss
+- Verstaendigung
+kosten: 20
 name: Levthans Feuer
-printclass: '0'
+printclass: 0
 text: 'Das Ziel entbrennt in heisser Leidenschaft fuer dich. Auf einer Skala von abstossend/uninteressant/neutral/begehrenswert/unwiderstehlich
   steigt seine Einstellung dir gegenueber um eine Stufe. In einem folgenden Liebesspiel
   kannst du deine gesamte Wund- und AsP-Regeneration auf das Ziel uebertragen oder
@@ -24,6 +26,8 @@ text: 'Das Ziel entbrennt in heisser Leidenschaft fuer dich. Auf einer Skala von
   Fertigkeiten: Einfluss, Verstaendigung
 
   Erlernen: Hex 16; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Hexen I

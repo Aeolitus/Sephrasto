@@ -1,7 +1,10 @@
-fertigkeiten: Eigenschaften, Verstaendigung, Vertrautenmagie
-kosten: '40'
+fertigkeiten:
+- Eigenschaften
+- Verstaendigung
+- Vertrautenmagie
+kosten: 40
 name: Tiersinne
-printclass: '17'
+printclass: 17
 text: 'Dein Vertrautentier schliesst seine Augen und leiht dir seine Sinne. Deine
   Wahrnehmung steigt um +4, zusaetzlich erhaeltst du einen Bonus je nach Tier (Katze
   und Eule  Angepasst II (Dunkelheit), Rabe und Falke Sehsinn +4, Hund und Schlange
@@ -25,6 +28,8 @@ text: 'Dein Vertrautentier schliesst seine Augen und leiht dir seine Sinne. Dein
   Fertigkeiten: Eigenschaften, Verstaendigung, Vertrautenmagie
 
   Erlernen: Geo, Hex 16; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Hexen I

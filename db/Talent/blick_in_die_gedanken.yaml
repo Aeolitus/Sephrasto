@@ -1,7 +1,8 @@
-fertigkeiten: Hellsicht
-kosten: '40'
+fertigkeiten:
+- Hellsicht
+kosten: 40
 name: Blick in die Gedanken
-printclass: '0'
+printclass: 0
 text: "Du siehst die Gedanken deines Ziels als verschwommene Bilder vor dir. Weiss\
   \ das Ziel, dass seine Gedanken gelesen werden, kann es dich mit einer Konterprobe\
   \ (Willenskraft, 20) in die Irre fuehren.\nMaechtige Liturgie: Du erhaeltst einen\
@@ -14,8 +15,12 @@ text: "Du siehst die Gedanken deines Ziels als verschwommene Bilder vor dir. Wei
   Vorbereitungszeit: 4 Aktionen\nZiel: Einzelperson\nReichweite: 4 Schritt\nWirkungsdauer:\
   \ 16 Initiativphasen\nKosten: 8 AsP\nFertigkeiten: Hellsicht\nErlernen: Elf, Mag\
   \ 14; Dru, Hex 16; Geo 18; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition
-  der Gildenmagier I ODER Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I

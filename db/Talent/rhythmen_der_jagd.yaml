@@ -1,13 +1,16 @@
-fertigkeiten: Eigenschaften, Trommelrituale
-kosten: '40'
+fertigkeiten:
+- Eigenschaften
+- Trommelrituale
+kosten: 40
 name: Rhythmen der Jagd
-printclass: '16'
+printclass: 16
 text: "Die Rhythmen schaerfen die Jagdinstinkte der Zuhoerer. Alle Zuhoerer in einem\
   \ Radius von 4\_Schritt erhalten eine Erleichterung +2 auf Pirschen, Ueberleben,\
   \ Tierkunde und GE-Proben.\nMaechtige Magie: Der Bonus steigt um +1.\nProbenschwierigkeit:\
   \ 12\nVorbereitungszeit: 1 Stunde\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer:\
   \ 1 Tag\nKosten: 16 AsP\nFertigkeiten: Eigenschaften, Trommelrituale\nErlernen:\
   \ Der 12; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Derwische I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Derwische I

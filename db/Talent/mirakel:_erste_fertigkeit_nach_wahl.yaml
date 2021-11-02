@@ -1,9 +1,10 @@
 csAuflisten: '0'
-fertigkeiten: Neubeginn
-kommentar: '0'
-kosten: '20'
+fertigkeiten:
+- Neubeginn
+kommentar: 0
+kosten: 20
 name: 'Mirakel: Erste Fertigkeit nach Wahl'
-printclass: '99'
+printclass: 99
 text: 'Dein naechster Wurf auf die erste Fertigkeit nach Wahl ist um +4 Punkte erleichtert.
 
   Maechtige Liturgie: Erhoeht die Erleichterung um +2.
@@ -21,6 +22,7 @@ text: 'Dein naechster Wurf auf die erste Fertigkeit nach Wahl ist um +4 Punkte e
   Kosten: 4 KaP
 
   Erlernen: 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

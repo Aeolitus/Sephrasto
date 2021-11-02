@@ -1,13 +1,15 @@
-fertigkeiten: Rausch
-kosten: '60'
+fertigkeiten:
+- Rausch
+kosten: 60
 name: Rahjas Sinnlichkeit
-printclass: '44'
+printclass: 44
 text: "Durch den Segen der Goettin erhaeltst du Resistenz\_I (profan, magisch, geweiht,\
   \ siehe S. 98). Gleichzeitig sind aber alle Sinneseindruecke verstaerkt, weswegen\
   \ du schon beim Erleiden von einer Wunde eine Wundschmerz-Probe ablegen musst.\n\
   Maechtige Liturgie: Je zwei Stufen erhoehen die Resistenz um eine Stufe.\nProbenschwierigkeit:\
   \ 12\nVorbereitungszeit: 16 Aktionen\nZiel: selbst\nReichweite: Beruehrung\nWirkungsdauer:\
   \ 1 Stunde\nKosten: 16 KaP\nFertigkeiten: Rausch\nErlernen: Rah 18; 60 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Rahjageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Rahjageweihten I

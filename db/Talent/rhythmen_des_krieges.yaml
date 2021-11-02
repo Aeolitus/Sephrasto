@@ -1,7 +1,9 @@
-fertigkeiten: Eigenschaften, Trommelrituale
-kosten: '60'
+fertigkeiten:
+- Eigenschaften
+- Trommelrituale
+kosten: 60
 name: Rhythmen des Krieges
-printclass: '16'
+printclass: 16
 text: 'Die aufpeitschenden Rhythmen staerken den Kampfesmut der Zuhoerer. Alle Zuhoerer
   in einem Radius von 4 Schritt erhalten eine Erleichterung +1 auf alle Nahkampffertigkeiten,
   Zaehigkeit und KK.
@@ -23,6 +25,7 @@ text: 'Die aufpeitschenden Rhythmen staerken den Kampfesmut der Zuhoerer. Alle Z
   Fertigkeiten: Eigenschaften, Trommelrituale
 
   Erlernen: Der 14; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Derwische I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Derwische I

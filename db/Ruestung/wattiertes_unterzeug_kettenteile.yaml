@@ -1,10 +1,10 @@
 name: Wattiertes Unterzeug (Kettenteile)
-rsBauch: '1'
-rsBeine: '1'
-rsBrust: '2'
-rsKopf: '0'
-rsLArm: '2'
-rsRArm: '2'
-system: '2'
+rsBauch: 1
+rsBeine: 1
+rsBrust: 2
+rsKopf: 0
+rsLArm: 2
+rsRArm: 2
+system: 2
 text: Wird ueblicherweise unter Metallruestungen gegen Abschuerfungen getragen.
-typ: '0'
+typ: 0

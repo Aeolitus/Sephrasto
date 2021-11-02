@@ -1,7 +1,8 @@
-fertigkeiten: Daemonisch
-kosten: '40'
+fertigkeiten:
+- Daemonisch
+kosten: 40
 name: Nuntiovolo Botenvogel
-printclass: '0'
+printclass: 0
 text: "Du formst eine Rauchgestalt, die einen kleinen Gegenstand (wie einen Brief)\
   \ mit etwa 50 Meilen pro Stunde an den gewuenschten Zielort bringt. Der Zauber kann\
   \ nur in der Nacht gewirkt werden und ist unzuverlaessig: Wenn dem Spielleiter eine\
@@ -10,8 +11,11 @@ text: "Du formst eine Rauchgestalt, die einen kleinen Gegenstand (wie einen Brie
   \ 8 Aktionen\nZiel: Zone\nReichweite: 100 Meilen\nWirkungsdauer: augenblicklich\n\
   Kosten: 8 AsP\nFertigkeiten: Daemonisch\nErlernen: Mag 18; Ach, Bor, Hex 20; 40\
   \ EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I
-  ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER
-  Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I

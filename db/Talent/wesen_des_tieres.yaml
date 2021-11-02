@@ -1,7 +1,10 @@
-fertigkeiten: Hellsicht, Verstaendigung, Gaben des Odun
-kosten: '20'
+fertigkeiten:
+- Hellsicht
+- Verstaendigung
+- Gaben des Odun
+kosten: 20
 name: Wesen des (Tieres)
-printclass: '4'
+printclass: 4
 text: 'Du siehst die Gedanken des Tiers als verschwommene Bilder.
 
   Maechtige Magie: Zusaetzlich kannst du das Tier um einen kleineren/groesseren/gefaehrlichen
@@ -22,6 +25,7 @@ text: 'Du siehst die Gedanken des Tiers als verschwommene Bilder.
   Fertigkeiten: Hellsicht, Verstaendigung, Gaben des Odun
 
   Erlernen: Dur 14; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Durro-dun I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Durro-dun I

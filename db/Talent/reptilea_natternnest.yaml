@@ -1,7 +1,9 @@
-fertigkeiten: Daemonisch, Verstaendigung
-kosten: '40'
+fertigkeiten:
+- Daemonisch
+- Verstaendigung
+kosten: 40
 name: Reptilea Natternnest
-printclass: '0'
+printclass: 0
 text: "Alle Geschuppten in einem Radius von 64 Schritt streben auf dein Ziel zu und\
   \ fallen dort ueber alles her, was in ihr Fressschema passt.\nMaechtige Magie: Verdoppelt\
   \ den Radius.\nProbenschwierigkeit: 12\nModifikationen: Selemer Verhaeltnisse (\u2013\
@@ -10,8 +12,10 @@ text: "Alle Geschuppten in einem Radius von 64 Schritt streben auf dein Ziel zu 
   \ 16 Aktionen\nZiel: Zone\nReichweite: 16 Schritt\nWirkungsdauer: 8 Stunden\nKosten:\
   \ 16 AsP\nFertigkeiten: Daemonisch, Verstaendigung\nErlernen: Ach 16; Bor 18; Mag\
   \ 20; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I
-  ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten
-  I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Kristallomanten I

@@ -1,11 +1,14 @@
-W6: '3'
+W6: 3
 fertigkeit: Hiebwaffen
-fk: '0'
-haerte: '9'
-kampfstile: Reiterkampf, Kraftvoller Kampf, Schneller Kampf
+fk: 0
+haerte: 9
+kampfstile:
+- Reiterkampf
+- Kraftvoller Kampf
+- Schneller Kampf
 name: Kriegshammer
-plus: '1'
-rw: '1'
+plus: 1
+rw: 1
 talent: Zweihandhiebwaffen
 text: Kopflastig, Schwer (4), Ruestungsbrechend, Stumpf, Zweihaendig
-wm: '-1'
+wm: -1

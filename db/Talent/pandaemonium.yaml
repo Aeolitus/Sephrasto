@@ -1,7 +1,8 @@
-fertigkeiten: Daemonisch
-kosten: '40'
+fertigkeiten:
+- Daemonisch
+kosten: 40
 name: Pandaemonium
-printclass: '0'
+printclass: 0
 text: 'In einem Radius von 2 Schritt um das Ziel brechen Klauen, Maeuler und Tentakel
   hervor. Jedes Wesen ohne den Vorteil Unheilig erleidet 2W6 TP pro Initiativephase
   und kann sich nur mit einer Konterprobe (GE, 16) fortbewegen.
@@ -23,7 +24,10 @@ text: 'In einem Radius von 2 Schritt um das Ziel brechen Klauen, Maeuler und Ten
   Fertigkeiten: Daemonisch
 
   Erlernen: Bor 16; Hex 18; Mag 20; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I
-  ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Borbaradianer I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I

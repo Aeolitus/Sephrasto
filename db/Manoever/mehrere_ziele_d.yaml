@@ -3,5 +3,6 @@ name: Mehrere Ziele (D)
 probe: Anrufung -4
 text: Die Anrufung wirkt auf mehrere Ziele in Reichweite. Die Kosten werden fuer jedes
   Ziel einzeln bezahlt.
-typ: '6'
-voraussetzungen: Vorteil Paktierer I
+typ: 6
+voraussetzungen:
+- Vorteil Paktierer I

@@ -1,13 +1,16 @@
-fertigkeiten: Illusion
-kosten: '20'
+fertigkeiten:
+- Illusion
+kosten: 20
 name: Seidenweich Schuppengleich
-printclass: '0'
+printclass: 0
 text: "Du gibst durch eine Illusion (Tastsinn) dem verzauberten Gegenstand eine Textur\
   \ deiner Wahl.\nProbenschwierigkeit: 12\nModifikationen: Zaehneknirschen (\u2013\
   4; die Illusion betrifft nur Gaumen und Zunge.)\nVorbereitungszeit: 4 Aktionen\n\
   Ziel: Einzelobjekt\nReichweite: Beruehrung\nWirkungsdauer: 8 Stunden\nKosten: 4\
   \ AsP\nFertigkeiten: Illusion\nErlernen: Sch 12; Srl 20; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Scharlatane I ODER
-  Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Scharlatane I
+- Vorteil Tradition der Schelme I

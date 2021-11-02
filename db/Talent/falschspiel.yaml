@@ -1,10 +1,12 @@
-fertigkeiten: Verschlagenheit
-kosten: '-1'
+fertigkeiten:
+- Verschlagenheit
+kosten: -1
 name: Falschspiel
-printclass: '-1'
+printclass: -1
 text: Falschsspieler helfen dem Glueck etwas nach, zum Beispiel beim Huetchenspiel
   oder Boltan. Proben auf Falschspielen werden oft vergleichend gegen die Wachsamkeit
   der Mitspieler abgelegt.
-variable: '0'
-verbilligt: '1'
-voraussetzungen: ''
+variable: 0
+verbilligt: 1
+voraussetzungen:
+- ''

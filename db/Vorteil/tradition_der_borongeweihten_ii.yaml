@@ -1,11 +1,12 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Tradition der Borongeweihten I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Tradition der Borongeweihten II
 text: "Borongeweihte wuerdigen die Ruhe und das Schweigen. In der Stille sind Liturgien\
   \ um 2\u20134 Punkte erleichtert."
-typ: '7'
-variable: '0'
-voraussetzungen: Attribut KL 6, Vorteil Tradition der Borongeweihten I
+typ: 7
+variable: 0
+voraussetzungen:
+- Attribut KL 6, Vorteil Tradition der Borongeweihten I

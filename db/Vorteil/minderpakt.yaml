@@ -1,8 +1,8 @@
 csBeschreibung: "Du hast die Eigenheit \u201EVon (Erzdaemon) beruehrt\u201C. Mit dieser\
   \ Eigenheit kann der Erzdaemon versuchen, dich in passenden Situationen zu einem\
   \ Seelenpakt zu verfuehren."
-kommentar: '0'
-kosten: '0'
+kommentar: 0
+kosten: 0
 nachkauf: ueblich
 name: Minderpakt
 text: "Minderpakte werden deutlich leichter als regulaere Pakte geschlossen - und\
@@ -13,6 +13,7 @@ text: "Minderpakte werden deutlich leichter als regulaere Pakte geschlossen - un
   \ erhaelt ein Minderpaktierer die Eigenheit \u201EVon (Erzdaemon) beruehrt\u201C\
   . Mit dieser Eigenheit kann der Erzdaemon versuchen, den Minderpaktierer in passenden\
   \ Situationen zu einem Seelenpakt zu verfuehren."
-typ: '0'
-variable: '0'
-voraussetzungen: ''
+typ: 0
+variable: 0
+voraussetzungen:
+- ''

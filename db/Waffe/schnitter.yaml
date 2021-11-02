@@ -1,11 +1,14 @@
-W6: '2'
+W6: 2
 fertigkeit: Stangenwaffen
-fk: '0'
-haerte: '8'
-kampfstile: Reiterkampf, Kraftvoller Kampf, Schneller Kampf
+fk: 0
+haerte: 8
+kampfstile:
+- Reiterkampf
+- Kraftvoller Kampf
+- Schneller Kampf
 name: Schnitter
-plus: '3'
-rw: '2'
+plus: 3
+rw: 2
 talent: Infanteriewaffen und Speere
 text: Wendig, Zweihaendig
-wm: '0'
+wm: 0

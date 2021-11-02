@@ -1,11 +1,13 @@
-W6: '2'
+W6: 2
 fertigkeit: Athletik
-fk: '0'
-haerte: '11'
-kampfstile: Reiterkampf, Schildkampf
+fk: 0
+haerte: 11
+kampfstile:
+- Reiterkampf
+- Schildkampf
 name: Reitpony
-plus: '0'
-rw: '1'
+plus: 0
+rw: 1
 talent: Reiten
 text: Niederwerfen, Reittier
-wm: '0'
+wm: 0

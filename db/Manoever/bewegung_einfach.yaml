@@ -7,5 +7,6 @@ text: 'Du laeufst, reitest oder schwingst an einem Seil. In einer normalen Kampf
   Bedingungen kannst du dich aber auch weiter bewegen: Geradeaus vorwaerts doppelt
   so weit; geradeaus vorwaerts und zusaetzlich ohne Gepaeck, Ruestung und sperrige
   Waffen viermal so weit.'
-typ: '5'
-voraussetzungen: ''
+typ: 5
+voraussetzungen:
+- ''

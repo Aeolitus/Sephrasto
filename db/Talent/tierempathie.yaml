@@ -1,7 +1,9 @@
-fertigkeiten: Friede, Jagd
-kosten: '40'
+fertigkeiten:
+- Friede
+- Jagd
+kosten: 40
 name: Tierempathie
-printclass: '27'
+printclass: 27
 text: 'Du erhaeltst den Vorteil Tierempathie und erleidest keine Erschoepfung durch
   den Einsatz dieser Gabe. Ausserdem kannst du notwendige Proben auf Jagd (Ifi) oder
   Friede (Tsa) statt Ueberleben ablegen. Beherrschst du die Gabe bereits, sind damit
@@ -22,7 +24,8 @@ text: 'Du erhaeltst den Vorteil Tierempathie und erleidest keine Erschoepfung du
   Fertigkeiten: Friede, Jagd
 
   Erlernen: Ifi 16; Tsa 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Ifirngeweihten I ODER Vorteil Tradition der
-  Tsageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Ifirngeweihten I
+- Vorteil Tradition der Tsageweihten I

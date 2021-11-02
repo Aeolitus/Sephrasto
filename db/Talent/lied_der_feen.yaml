@@ -1,7 +1,9 @@
-fertigkeiten: Verstaendigung, Zaubermelodien
-kosten: '20'
+fertigkeiten:
+- Verstaendigung
+- Zaubermelodien
+kosten: 20
 name: Lied der Feen
-printclass: '18'
+printclass: 18
 text: "Du rufst ein Feenwesen zur Hilfe. Befinden sich Feenwesen in einem Radius von\
   \ 1 Meile, eilt eines von ihnen herbei. Du kannst das Feenwesen um einen Gefallen\
   \ bitten, aber es entscheidet selbst, ob es den Gefallen erfuellt.\nMaechtige Magie:\
@@ -10,6 +12,7 @@ text: "Du rufst ein Feenwesen zur Hilfe. Befinden sich Feenwesen in einem Radius
   Vorbereitungszeit: 4 Minuten\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer:\
   \ augenblicklich\nKosten: 8 AsP\nFertigkeiten: Verstaendigung, Zaubermelodien\n\
   Erlernen: Bard 16; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Zauberbarden I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Zauberbarden I

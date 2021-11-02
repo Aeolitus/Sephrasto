@@ -1,8 +1,8 @@
 csBeschreibung: 'Meisterschaft: $kommentar$.'
-kommentar: '1'
-kosten: '80'
+kommentar: 1
+kosten: 80
 linkElement: Tradition der Schamanen III
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Tradition der Schamanen IV
 text: 'Bedingung: 2 weitere Attribute auf insgesamt 16.
@@ -13,6 +13,7 @@ text: 'Bedingung: 2 weitere Attribute auf insgesamt 16.
   erlangen, mittels freier Seelenfahrt ins Geisterreich zu reisen und dort verschiedenste
   Zauberwirkungen hervorzurufen. Solche Reisen sind jedoch stets gefaehrlich, Details
   sind Spielleiterentscheid.'
-typ: '5'
-variable: '0'
-voraussetzungen: Attribut IN 10, Vorteil Tradition der Schamanen III
+typ: 5
+variable: 0
+voraussetzungen:
+- Attribut IN 10, Vorteil Tradition der Schamanen III

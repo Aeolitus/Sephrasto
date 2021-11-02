@@ -1,0 +1,13 @@
+attribute:
+- FF
+- KL
+- KO
+name: Heiliges Erz
+printclass: 1
+steigerungsfaktor: 2
+text: 'Ingerimm ist der Herr der Erzes und der unterirdischen Schaetze. Er bewahrt
+  die Glaeubigen unter der Erde, waehrend Frevler seinen alles erschuetternden Zorn
+  spueren. '
+voraussetzungen:
+- Vorteil Tradition der Angroschgeweihten I
+- Vorteil Tradition der Ingerimmgeweihten I

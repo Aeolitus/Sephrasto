@@ -1,7 +1,11 @@
-fertigkeiten: Luft, Umwelt, Geister der Staerkung, Wasser
-kosten: '20'
+fertigkeiten:
+- Luft
+- Umwelt
+- Geister der Staerkung
+- Wasser
+kosten: 20
 name: Regentanz
-printclass: '5'
+printclass: 5
 text: 'Innerhalb des naechsten Tages regnet es auf die Felder im Radius von 1 Meile
   und das Saatgut kann wachsen.
 
@@ -22,6 +26,7 @@ text: 'Innerhalb des naechsten Tages regnet es auf die Felder im Radius von 1 Me
   Fertigkeiten: Luft, Umwelt, Geister der Staerkung, Wasser
 
   Erlernen: Smn 14; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

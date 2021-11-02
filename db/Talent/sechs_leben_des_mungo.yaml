@@ -1,7 +1,8 @@
-fertigkeiten: Naechtlicher Schatten
-kosten: '40'
+fertigkeiten:
+- Naechtlicher Schatten
+kosten: 40
 name: Sechs Leben des Mungo
-printclass: '39'
+printclass: 39
 text: 'Halbiert die effektive Hoehe eines Sturzes oder Sprunges (kumulativ zur Akrobatik-Probe).
 
   Probenschwierigkeit: 12
@@ -19,6 +20,7 @@ text: 'Halbiert die effektive Hoehe eines Sturzes oder Sprunges (kumulativ zur A
   Fertigkeiten: Naechtlicher Schatten
 
   Erlernen: Phe 12; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Phexgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Phexgeweihten I

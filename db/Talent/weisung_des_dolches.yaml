@@ -1,7 +1,10 @@
-fertigkeiten: Dolchzauber, Hellsicht, Kraft
-kosten: '20'
+fertigkeiten:
+- Dolchzauber
+- Hellsicht
+- Kraft
+kosten: 20
 name: Weisung des Dolches
-printclass: '1'
+printclass: 1
 text: 'Dein Dolch leuchtet rot auf, wenn er in Richtung einer Kraftlinie gehalten
   wird. Die Leuchtstaerke haengt von Entfernung und Staerke der Kraftlinie ab.
 
@@ -20,7 +23,8 @@ text: 'Dein Dolch leuchtet rot auf, wenn er in Richtung einer Kraftlinie gehalte
   Fertigkeiten: Dolchzauber, Hellsicht, Kraft
 
   Erlernen: Dru 12; Geo 14; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden
-  I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I

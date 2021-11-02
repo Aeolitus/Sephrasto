@@ -4,5 +4,6 @@ probe: VT -2-BE
 text: Der Verteidiger entgeht dem Angriff und seinen Auswirkungen vollstaendig. Ausweichen
   ist die sinnvollste waffenlose Abwehr gegen Bewaffnete (siehe Waffeneigenschaft
   Zerbrechlich auf S. 47).
-typ: '0'
-voraussetzungen: ''
+typ: 0
+voraussetzungen:
+- ''

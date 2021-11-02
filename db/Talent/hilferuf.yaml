@@ -1,7 +1,9 @@
-fertigkeiten: Geister rufen, Verstaendigung
-kosten: '60'
+fertigkeiten:
+- Geister rufen
+- Verstaendigung
+kosten: 60
 name: Hilferuf
-printclass: '7'
+printclass: 7
 text: "Du rufst ein Feenwesen, einen Totengeist oder einige Mindergeister aus einem\
   \ Radius von 1\_Meile herbei. Das Wesen eilt zu dir und du kannst es um Hilfe bei\
   \ einem unmittelbaren Problem bitten. Meistens hilft das Wesen, es kann aber auch\
@@ -12,6 +14,7 @@ text: "Du rufst ein Feenwesen, einen Totengeist oder einige Mindergeister aus ei
   \ 4 Aktionen\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer: augenblicklich;\
   \ der Geist erscheint nach 2W6 Initiativphasen\nKosten: 8 AsP\nFertigkeiten: Geister\
   \ rufen, Verstaendigung\nErlernen: Smn 14; 60 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

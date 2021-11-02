@@ -1,11 +1,12 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Tradition der Perainegeweihten I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Tradition der Perainegeweihten II
 text: Perainegeweihte sind oft das Herz der Gemeinschaft. Wird eine Liturgie mit der
   Modifikation Mehrere Ziele gesprochen, ist sie zusaetzlich um +2 erleichtert.
-typ: '7'
-variable: '0'
-voraussetzungen: Attribut CH 6, Vorteil Tradition der Perainegeweihten I
+typ: 7
+variable: 0
+voraussetzungen:
+- Attribut CH 6, Vorteil Tradition der Perainegeweihten I

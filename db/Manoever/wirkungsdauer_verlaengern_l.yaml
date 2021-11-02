@@ -2,5 +2,6 @@ gegenprobe: ''
 name: Wirkungsdauer verlaengern (L)
 probe: Liturgie -4
 text: Die Wirkungsdauer der Liturgie verdoppelt sich.
-typ: '3'
-voraussetzungen: Vorteil Geweiht I
+typ: 3
+voraussetzungen:
+- Vorteil Geweiht I

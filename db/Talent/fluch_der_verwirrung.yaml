@@ -1,13 +1,17 @@
-fertigkeiten: Daemonisch, Einfluss, Geister des Zorns
-kosten: '40'
+fertigkeiten:
+- Daemonisch
+- Einfluss
+- Geister des Zorns
+kosten: 40
 name: Fluch der Verwirrung
-printclass: '6'
+printclass: 6
 text: "Der Fluch verwirrt alle Humanoide in einem Radius von 2 Schritt, denen keine\
   \ MR-Gegenprobe (16) gelingt. Sie erleiden eine Erschwernis von \u20132 auf Proben.\n\
   Maechtige Magie: Erhoeht den Malus um \u20131 und verdoppelt den Radius.\nProbenschwierigkeit:\
   \ 12\nVorbereitungszeit: 4 Aktionen\nZiel: Zone\nReichweite: 16 Schritt\nWirkungsdauer:\
   \ 8 Initiativphasen\nKosten: 16 AsP\nFertigkeiten: Daemonisch, Einfluss, Geister\
   \ des Zorns\nErlernen: Smn 18; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

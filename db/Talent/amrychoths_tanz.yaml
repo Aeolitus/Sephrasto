@@ -1,7 +1,8 @@
-fertigkeiten: Daemonische Hilfe (Cpt)
-kosten: '40'
+fertigkeiten:
+- Daemonische Hilfe (Cpt)
+kosten: 40
 name: Amrychoths Tanz
-printclass: '200'
+printclass: 200
 text: 'Im Radius von einer Meile kannst du den Wind auf einer Skala von windstill/leichte
   Brise/steife Brise/Sturm/Orkan um zwei Stufen veraendern und seine Richtung lenken.
 
@@ -26,6 +27,7 @@ text: 'Im Radius von einer Meile kannst du den Wind auf einer Skala von windstil
   Fertigkeiten: Daemonische Hilfe (Cpt)
 
   Erlernen: Cpt 12; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Paktierer I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Paktierer I

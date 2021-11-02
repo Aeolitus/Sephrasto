@@ -1,7 +1,9 @@
-fertigkeiten: List, Wissen
-kosten: '40'
+fertigkeiten:
+- List
+- Wissen
+kosten: 40
 name: Aura der Form
-printclass: '31'
+printclass: 31
 text: 'Du erhaeltst einen groben Eindruck in die Vorgeschichte eines Gegenstandes.
 
   Maechtige Liturgie: Du erhaeltst einen ungefaehren/guten/praezisen/vollstaendigen
@@ -22,7 +24,8 @@ text: 'Du erhaeltst einen groben Eindruck in die Vorgeschichte eines Gegenstande
   Fertigkeiten: List, Wissen
 
   Erlernen: Phe, Hes 14; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der
-  Phexgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Hesindegeweihten I
+- Vorteil Tradition der Phexgeweihten I

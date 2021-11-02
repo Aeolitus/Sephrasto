@@ -1,7 +1,9 @@
-fertigkeiten: Gebraeuche
-kosten: '-1'
+fertigkeiten:
+- Gebraeuche
+kosten: -1
 name: 'Gebraeuche: Horasreich'
 text: null
-variable: '0'
-verbilligt: '0'
-voraussetzungen: ''
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- ''

@@ -1,13 +1,15 @@
-fertigkeiten: Wind und Wogen
-kosten: '20'
+fertigkeiten:
+- Wind und Wogen
+kosten: 20
 name: Neckeratem
-printclass: '26'
+printclass: 26
 text: "Das Ziel kann im Wasser atmen und sieht durch Wasser wie durch Luft. Erlaubt\
   \ Aufrechterhalten.\nProbenschwierigkeit: 12\nModifikationen: Gruss des Versunkenen\
   \ (\u20138, Zone, 16 KaP; der Zauber betrifft alle im Radius von 4 Schritt.)\nVorbereitungszeit:\
   \ 8 Aktionen\nZiel: Einzelperson\nReichweite: Beruehrung\nWirkungsdauer: 2 Stunden\n\
   Kosten: 8 KaP\nFertigkeiten: Wind und Wogen\nErlernen: Eff 12; Swa 16; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der
-  Swafnirgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Efferdgeweihten I
+- Vorteil Tradition der Swafnirgeweihten I

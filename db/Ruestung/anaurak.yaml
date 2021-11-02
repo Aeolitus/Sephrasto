@@ -1,10 +1,10 @@
 name: Anaurak
-rsBauch: '2'
-rsBeine: '2'
-rsBrust: '2'
-rsKopf: '1'
-rsLArm: '2'
-rsRArm: '2'
-system: '0'
+rsBauch: 2
+rsBeine: 2
+rsBrust: 2
+rsKopf: 1
+rsLArm: 2
+rsRArm: 2
+system: 0
 text: Erhoeht die Temperaturstufe um +2 (S. 35). Kann nicht ergaenzt werden.
-typ: '1'
+typ: 1

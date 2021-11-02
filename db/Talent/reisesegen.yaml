@@ -1,7 +1,9 @@
-fertigkeiten: Sichere Heimkehr, Stiller Wanderer
-kosten: '40'
+fertigkeiten:
+- Sichere Heimkehr
+- Stiller Wanderer
+kosten: 40
 name: Reisesegen
-printclass: '49'
+printclass: 49
 text: 'Der Segen Travias begleitet den Reisenden und warnt ihn vor Arglist und Tuecke.
   Er kann Gefahren der Zivilisation (Ueberfaelle, Diebe, betruegerische Fuehrer) wie
   mit der Gabe Gefahreninstinkt erkennen. Besitzt er die Gabe bereits, sind damit
@@ -24,7 +26,8 @@ text: 'Der Segen Travias begleitet den Reisenden und warnt ihn vor Arglist und T
   Fertigkeiten: Sichere Heimkehr, Stiller Wanderer
 
   Erlernen: Aves, Tra 14; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
-  Traviageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Avesgeweihten I
+- Vorteil Tradition der Traviageweihten I

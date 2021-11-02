@@ -1,7 +1,10 @@
-fertigkeiten: Hellsicht, Geister rufen, Kraft
-kosten: '60'
+fertigkeiten:
+- Hellsicht
+- Geister rufen
+- Kraft
+kosten: 60
 name: Blick ins Geisterreich
-printclass: '7'
+printclass: 7
 text: 'Du wirfst einen Blick in die Welt der Magie. Waehrend nichtmagische Gegenstaende
   nur schwer zu erkennen sind, erscheint Magie als Ansammlung pulsierender Kraftfaeden
   (Analysegrad 1 der Intensitaetsanalyse, S. 80). Waehrend der Wirkungsdauer kannst
@@ -25,6 +28,7 @@ text: 'Du wirfst einen Blick in die Welt der Magie. Waehrend nichtmagische Gegen
   Fertigkeiten: Hellsicht, Geister rufen, Kraft
 
   Erlernen: Smn 8; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Schamanen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Schamanen I

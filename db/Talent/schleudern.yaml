@@ -1,8 +1,10 @@
-fertigkeiten: Wurfwaffen
-kosten: '-1'
+fertigkeiten:
+- Wurfwaffen
+kosten: -1
 name: Schleudern
-printclass: '-1'
+printclass: -1
 text: Verbessert den Einsatz von Schleudern.
-variable: '0'
-verbilligt: '1'
-voraussetzungen: ''
+variable: 0
+verbilligt: 1
+voraussetzungen:
+- ''

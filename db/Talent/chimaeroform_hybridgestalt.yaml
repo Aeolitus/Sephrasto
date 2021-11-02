@@ -1,7 +1,9 @@
-fertigkeiten: Daemonisch, Verwandlung
-kosten: '60'
+fertigkeiten:
+- Daemonisch
+- Verwandlung
+kosten: 60
 name: Chimaeroform Hybridgestalt
-printclass: '0'
+printclass: 0
 text: 'Du erschaffst eine Chimaere aus zwei oder mehr Lebewesen (mehr zu Beschwoerungen
   siehe S. 81). Eines dieser Lebewesen kann durch einen Daemon ersetzt werden. Die
   Chimaere hat sich nach 1 Stunde an ihre Existenz gewoehnt und ist einsatzfaehig.
@@ -17,7 +19,8 @@ text: 'Du erschaffst eine Chimaere aus zwei oder mehr Lebewesen (mehr zu Beschwo
   Fertigkeiten: Daemonisch, Verwandlung
 
   Erlernen: Mag 18; Hex 20; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen
-  I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I

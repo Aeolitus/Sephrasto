@@ -1,7 +1,9 @@
-fertigkeiten: Humus, Ringrituale
-kosten: '40'
+fertigkeiten:
+- Humus
+- Ringrituale
+kosten: 40
 name: Kraefte der Natur
-printclass: '13'
+printclass: 13
 text: 'Die Heilkraft Sumus beendet ein Gift oder eine Krankheit bis maximal Stufe
   16.
 
@@ -22,6 +24,7 @@ text: 'Die Heilkraft Sumus beendet ein Gift oder eine Krankheit bis maximal Stuf
   Fertigkeiten: Humus, Ringrituale
 
   Erlernen: Geo 12; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Geoden I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Geoden I

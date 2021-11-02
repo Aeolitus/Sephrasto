@@ -1,12 +1,15 @@
-fertigkeiten: Einfluss
-kosten: '40'
+fertigkeiten:
+- Einfluss
+kosten: 40
 name: Schelmenrausch
-printclass: '0'
+printclass: 0
 text: "Du versetzt dein Ziel in einen friedvoll-gluecklichen Rauschzustand. Alle seine\
   \ Proben sind um \u20134 erschwert. Das Ziel erwacht aus der Trance, wenn es in\
   \ direkter Lebensgefahr schwebt.\nProbenschwierigkeit: Magieresistenz\nVorbereitungszeit:\
   \ 2 Aktionen\nZiel: Einzelperson\nReichweite: 4 Schritt\nWirkungsdauer: 4 Minuten\n\
   Kosten: 8 AsP\nFertigkeiten: Einfluss\nErlernen: Sch 14; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Schelme I

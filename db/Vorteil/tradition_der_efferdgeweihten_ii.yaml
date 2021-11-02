@@ -1,11 +1,12 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 linkElement: Tradition der Efferdgeweihten I
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Tradition der Efferdgeweihten II
 text: "Efferdgeweihte sind so wechselhaft wie das Meer. Im Zustand besonders starker\
   \ Emotionen sind Liturgien um 2\u20134 Punkte erleichtert."
-typ: '7'
-variable: '0'
-voraussetzungen: Attribut IN 6, Vorteil Tradition der Efferdgeweihten I
+typ: 7
+variable: 0
+voraussetzungen:
+- Attribut IN 6, Vorteil Tradition der Efferdgeweihten I

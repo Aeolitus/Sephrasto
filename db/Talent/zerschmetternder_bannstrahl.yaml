@@ -1,7 +1,9 @@
-fertigkeiten: Licht, Magiebann
-kosten: '60'
+fertigkeiten:
+- Licht
+- Magiebann
+kosten: 60
 name: Zerschmetternder Bannstrahl
-printclass: '40'
+printclass: 40
 text: 'Ein gleissender Bannstrahl faehrt aus dem Himmel herab und richtet an einem
   unheiligen Wesen oder Feenwesen 16W6 SP an und verbrennt ebenso viel Astralenergie.
 
@@ -22,6 +24,7 @@ text: 'Ein gleissender Bannstrahl faehrt aus dem Himmel herab und richtet an ein
   Fertigkeiten: Licht, Magiebann
 
   Erlernen: Pra 18; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Praiosgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Praiosgeweihten I

@@ -1,7 +1,8 @@
-fertigkeiten: Wind und Wogen
-kosten: '20'
+fertigkeiten:
+- Wind und Wogen
+kosten: 20
 name: Swafnirs Ruhelied
-printclass: '26'
+printclass: 26
 text: 'Du staerkst die Selbstbeherrschung deines Zieles. Willenskraft-Proben, um sich
   zu beruhigen oder Zorn zu unterdruecken, sind um +4 erleichtert.
 
@@ -26,6 +27,7 @@ text: 'Du staerkst die Selbstbeherrschung deines Zieles. Willenskraft-Proben, um
   Anmerkung: Alternativ kann die Liturgie wie Antimagie gegen Berserkerzauber wirken
   (S. 126). Die Randbedingungen entsprechen den dort angegebenen, ausser dass die
   Kosten mit KaP bezahlt werden und die Liturgie um +4 erleichtert ist.'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Swafnirgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Swafnirgeweihten I

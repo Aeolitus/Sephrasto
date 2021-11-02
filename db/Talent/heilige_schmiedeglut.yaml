@@ -1,7 +1,8 @@
-fertigkeiten: Heiliges Feuer
-kosten: '40'
+fertigkeiten:
+- Heiliges Feuer
+kosten: 40
 name: Heilige Schmiedeglut
-printclass: '33'
+printclass: 33
 text: "Ein Feuer wird so heiss, dass es zum Schmieden genutzt werden kann (Temperaturstufe\
   \ Lava, S. 35). Mit dieser Liturgie und einigen transportablen Werkzeugen kannst\
   \ du Bedingungen schaffen, die einer archaischen Schmiede entsprechen (S. 62).\n\
@@ -10,7 +11,8 @@ text: "Ein Feuer wird so heiss, dass es zum Schmieden genutzt werden kann (Tempe
   Vorbereitungszeit: 4 Minuten\nZiel: Zone\nReichweite: 2 Schritt\nWirkungsdauer:\
   \ 4 Stunden\nKosten: 4 KaP\nFertigkeiten: Heiliges Feuer\nErlernen: Ing 12; Ang\
   \ 14; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition
-  der Angroschgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Ingerimmgeweihten I
+- Vorteil Tradition der Angroschgeweihten I

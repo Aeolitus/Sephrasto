@@ -1,7 +1,9 @@
-fertigkeiten: Antimagie, Kraft
-kosten: '40'
+fertigkeiten:
+- Antimagie
+- Kraft
+kosten: 40
 name: Destructibo Arcanitas
-printclass: '0'
+printclass: 0
 text: 'Du bannst einen Zauber, in den gAsP geflossen sind (wie ein Artefakt oder ein
   permanenter Fluch), oder ein Wesen, in das gAsP geflossen sind (wie eine Chimaere
   oder einen gebundenen Daemon).
@@ -24,8 +26,11 @@ text: 'Du bannst einen Zauber, in den gAsP geflossen sind (wie ein Artefakt oder
   Fertigkeiten: Antimagie, Kraft
 
   Erlernen: Mag 18; Ach, Elf, Dru 20; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil
-  Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Kristallomanten I

@@ -1,7 +1,8 @@
-fertigkeiten: Kraft
-kosten: '60'
+fertigkeiten:
+- Kraft
+kosten: 60
 name: Transversalis Teleport
-printclass: '0'
+printclass: 0
 text: "Du teleportierst dich an einen beliebigen Ort. Der Ort darf maximal 4 Meilen\
   \ entfernt sein und du musst schon einmal dort gewesen sein.\nMaechtige Magie: Vervierfacht\
   \ die Distanz.\nProbenschwierigkeit: 12\nModifikationen: Anhalter (\u20134; du kannst\
@@ -9,6 +10,7 @@ text: "Du teleportierst dich an einen beliebigen Ort. Der Ort darf maximal 4 Mei
   \ du kannst eine Last von maximal 32 Stein teleportieren.)\nVorbereitungszeit: 1\
   \ Aktion\nZiel: selbst\nReichweite: Beruehrung\nWirkungsdauer: augenblicklich\n\
   Kosten: 16 AsP\nFertigkeiten: Kraft\nErlernen: Mag 18; 60 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Gildenmagier I

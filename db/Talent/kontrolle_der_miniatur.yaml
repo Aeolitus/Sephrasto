@@ -1,7 +1,11 @@
-fertigkeiten: Dolchzauber, Einfluss, Hellsicht, Verstaendigung
-kosten: '40'
+fertigkeiten:
+- Dolchzauber
+- Einfluss
+- Hellsicht
+- Verstaendigung
+kosten: 40
 name: Kontrolle der Miniatur
-printclass: '1'
+printclass: 1
 text: 'Einmal pro Tag kannst du alle Sinne des Opfers der Miniatur der Herrschaft
   (s.u.) uebernehmen und alle seine Handlungen bestimmen. Widersprechen die Handlungen
   den moralischen Prinzipien oder dem Selbsterhaltungstrieb des Opfers, kann es mit
@@ -22,6 +26,7 @@ text: 'Einmal pro Tag kannst du alle Sinne des Opfers der Miniatur der Herrschaf
   Fertigkeiten: Dolchzauber, Einfluss, Hellsicht, Verstaendigung
 
   Erlernen: Dru 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Druiden I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Druiden I

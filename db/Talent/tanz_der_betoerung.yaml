@@ -1,7 +1,10 @@
-fertigkeiten: Einfluss, Verstaendigung, Zaubertaenze
-kosten: '20'
+fertigkeiten:
+- Einfluss
+- Verstaendigung
+- Zaubertaenze
+kosten: 20
 name: Tanz der Betoerung
-printclass: '19'
+printclass: 19
 text: "Das Ziel entbrennt in heisser Leidenschaft zu dir. Auf einer Skala von abstossend/uninteressant/neutral/begehrenswert/unwiderstehlich\
   \ steigt seine Einstellung dir gegenueber um eine Stufe.\nProbenschwierigkeit: Magieresistenz\n\
   Modifikationen: Tanz des Begehrens (\u20138, Zone, Wirkungsdauer 1 Stunde, alle\
@@ -9,6 +12,7 @@ text: "Das Ziel entbrennt in heisser Leidenschaft zu dir. Auf einer Skala von ab
   \ in Leidenschaft zu dir)\nVorbereitungszeit: 1 Stunde\nZiel: Einzelperson\nReichweite:\
   \ 4 Schritt\nWirkungsdauer: 1 Tag\nKosten: 8 AsP\nFertigkeiten: Einfluss, Verstaendigung,\
   \ Zaubertaenze\nErlernen: Ztz 14; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Zaubertaenzer I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Zaubertaenzer I

@@ -1,8 +1,8 @@
 csBeschreibung: Durch deine Spezies oder langjaehrige Erfahrung hast du dich an eine
   bestimmte Umgebung oder Umweltbedingung gewoehnt. Abzuege durch diese Umgebung,
   insbesondere im Kampf, sinken fuer dich um 1 Stufe.
-kommentar: '1'
-kosten: '20'
+kommentar: 1
+kosten: 20
 nachkauf: haeufig
 name: Angepasst I
 text: "Durch deine Spezies oder langjaehrige Erfahrung hast du dich an eine bestimmte\
@@ -14,6 +14,7 @@ text: "Durch deine Spezies oder langjaehrige Erfahrung hast du dich an eine best
   \ den separaten Vorteil Angepasst (Dunkelheit, Schnee, Wasser oder Wald) I. Falls\
   \ du eine andere Umgebung moechtest, dann waehle diesen Vorteil und trage diese\
   \ in das Kommentarfeld ein."
-typ: '0'
-variable: '1'
-voraussetzungen: ''
+typ: 0
+variable: 1
+voraussetzungen:
+- ''

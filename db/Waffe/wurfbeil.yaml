@@ -1,11 +1,12 @@
-W6: '2'
+W6: 2
 fertigkeit: Wurfwaffen
-fk: '1'
-haerte: '8'
-kampfstile: ''
-lz: '0'
+fk: 1
+haerte: 8
+kampfstile:
+- ''
+lz: 0
 name: Wurfbeil
-plus: '0'
-rw: '8'
+plus: 0
+rw: 8
 talent: Kurze Wurfwaffen
 text: null

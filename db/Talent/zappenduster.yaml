@@ -1,7 +1,8 @@
-fertigkeiten: Umwelt
-kosten: '40'
+fertigkeiten:
+- Umwelt
+kosten: 40
 name: Zappenduster
-printclass: '0'
+printclass: 0
 text: 'Um deinen Koerper herum entsteht eine Zone der Dunkelheit von 4 Schritt Radius.
   Die Helligkeit sinkt um eine Stufe (etwa von normal auf Daemmerung, von Sternenlicht
   auf absolute Dunkelheit, S. 38). Der Zauber gilt als Konterprobe (16) gegen alle
@@ -26,6 +27,8 @@ text: 'Um deinen Koerper herum entsteht eine Zone der Dunkelheit von 4 Schritt R
   Fertigkeiten: Umwelt
 
   Erlernen: Sch 16; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Schelme I

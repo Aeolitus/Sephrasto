@@ -1,13 +1,15 @@
-fertigkeiten: Wachstum
-kosten: '20'
+fertigkeiten:
+- Wachstum
+kosten: 20
 name: Peraines Pflanzengespuer
-printclass: '36'
+printclass: 36
 text: "Du erhaeltst einen groben Eindruck von der Wirkung der beruehrten Pflanze \u2013\
   \ etwa ob sie heilsam, essbar oder giftig ist.\nMaechtige Liturgie: Du kannst eine\
   \ weitere Pflanze untersuchen und erhaeltst einen ungefaehren/guten/genauen/detaillierten\
   \ Eindruck.\nProbenschwierigkeit: 12\nVorbereitungszeit: 4 Minuten\nZiel: Pflanze\n\
   Reichweite: Beruehrung\nWirkungsdauer: augenblicklich\nKosten: 2 KaP\nFertigkeiten:\
   \ Wachstum\nErlernen: Per 12; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Perainegeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Perainegeweihten I

@@ -1,7 +1,9 @@
-fertigkeiten: Einfluss, Illusion
-kosten: '40'
+fertigkeiten:
+- Einfluss
+- Illusion
+kosten: 40
 name: Hexenknoten
-printclass: '0'
+printclass: 0
 text: 'Wenn den Umstehenden keine Konterprobe (MR, 16) gelingt, erscheint ihnen der
   Zauber als eine bis zu 4 Schritt lange, furchteinfloessende Barriere, die sie keinesfalls
   durchschreiten wollen. Das Aussehen der Barriere bestimmt die Hexe.
@@ -23,8 +25,11 @@ text: 'Wenn den Umstehenden keine Konterprobe (MR, 16) gelingt, erscheint ihnen 
   Fertigkeiten: Einfluss, Illusion
 
   Erlernen: Hex 8; Dru, Mag, Srl 20; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil
-  Tradition der Scharlatane I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Scharlatane I

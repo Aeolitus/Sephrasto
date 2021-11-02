@@ -1,12 +1,16 @@
-fertigkeiten: Dolchzauber, Temporal, Verwandlung
-kosten: '20'
+fertigkeiten:
+- Dolchzauber
+- Temporal
+- Verwandlung
+kosten: 20
 name: Ernte des Dolches
-printclass: '1'
+printclass: 1
 text: "Die naechste mit dem Ritualgegenstand geerntete Pflanze ist viermal so lange\
   \ haltbar.\n  Probenschwierigkeit: 12\nVorbereitungszeit: 0 Aktionen\nZiel: Ritualgegenstand\n\
   Reichweite: Beruehrung\nWirkungsdauer: 16 Initiativphasen\nKosten: 1 AsP\nFertigkeiten:\
   \ Dolchzauber, Temporal, Verwandlung\nErlernen: Dru, Geo 12; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden
-  I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I

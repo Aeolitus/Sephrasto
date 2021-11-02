@@ -1,7 +1,8 @@
-fertigkeiten: Hellsicht
-kosten: '20'
+fertigkeiten:
+- Hellsicht
+kosten: 20
 name: Penetrizzel Tiefenblick
-printclass: '0'
+printclass: 0
 text: 'Du kannst durch eine Wand von bis zu 1/2 Schritt Dicke sehen, solange die Wand
   nicht aus einem magischen oder magieabweisenden Material besteht.
 
@@ -22,8 +23,11 @@ text: 'Du kannst durch eine Wand von bis zu 1/2 Schritt Dicke sehen, solange die
   Fertigkeiten: Hellsicht
 
   Erlernen: Mag 14; Elf, Sch, Srl 16; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane I ODER Vorteil
-  Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Scharlatane I
+- Vorteil Tradition der Schelme I

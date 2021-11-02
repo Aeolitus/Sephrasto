@@ -1,9 +1,10 @@
-kommentar: '0'
-kosten: '80'
+kommentar: 0
+kosten: 80
 nachkauf: haeufig
 name: Liebling der Gottheit
 text: Zeigt der gewertete Wuerfel bei einer Liturgie eine 16 oder hoeher, kostet diese
   keine KaP und erhaelt eine zusaetzliche Stufe Maechtige Liturgie.
-typ: '6'
-variable: '0'
-voraussetzungen: Attribut KL 10, Vorteil Geweiht I
+typ: 6
+variable: 0
+voraussetzungen:
+- Attribut KL 10, Vorteil Geweiht I

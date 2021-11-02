@@ -2,8 +2,8 @@ csBeschreibung: Der Spielleiter sollte diesem Gegenstand einen gewissen Schutz g
   er wird nicht zufaellig von einem Taschendieb gestohlen oder geht durch Pech verloren,
   ohne dass du ihn wieder zurueckerlangen kannst. Umgekehrt darf der Charakter den
   Gegenstand auch nicht verkaufen.
-kommentar: '1'
-kosten: '40'
+kommentar: 1
+kosten: 40
 nachkauf: nicht moeglich
 name: Besonderer Besitz
 text: 'Ein besonderer Gegenstand wie die 33-fach geflaemmte Klinge deines ruhmreichen
@@ -37,6 +37,7 @@ text: 'Ein besonderer Gegenstand wie die 33-fach geflaemmte Klinge deines ruhmre
 
 
   Sephrasto: Trage den gewaehlten Besitz in das Kommentarfeld ein.'
-typ: '0'
-variable: '1'
-voraussetzungen: ''
+typ: 0
+variable: 1
+voraussetzungen:
+- ''

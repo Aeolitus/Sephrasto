@@ -1,7 +1,8 @@
-fertigkeiten: Harmonie
-kosten: '0'
+fertigkeiten:
+- Harmonie
+kosten: 0
 name: Auge fuer die Schoenheit
-printclass: '43'
+printclass: 43
 text: 'Der Gesegnete kann die Schoenheit in sich selbst oder jemand anderem sehen.
   Dabei wird er nicht durch schlechte Eigenheiten oder andere Charakterschwaechen
   und Vorurteile abgelenkt.
@@ -21,6 +22,7 @@ text: 'Der Gesegnete kann die Schoenheit in sich selbst oder jemand anderem sehe
   Fertigkeiten: Harmonie
 
   Erlernen: Rah 8; 0 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Rahjageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Rahjageweihten I

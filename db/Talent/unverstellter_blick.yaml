@@ -1,7 +1,10 @@
-fertigkeiten: Abu al'Mada, Magie, Magiebann
-kosten: '20'
+fertigkeiten:
+- Abu al'Mada
+- Magie
+- Magiebann
+kosten: 20
 name: Unverstellter Blick
-printclass: '30'
+printclass: 30
 text: 'Du nimmst alle Illusionen als golden (Pra), silbern (Phe) oder gruen (Hes)
   schillernd wahr.
 
@@ -20,7 +23,9 @@ text: 'Du nimmst alle Illusionen als golden (Pra), silbern (Phe) oder gruen (Hes
   Fertigkeiten: Abu al''Mada, Magie, Magiebann
 
   Erlernen: Hes 12; Phe, Pra 16; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der
-  Phexgeweihten I ODER Vorteil Tradition der Praiosgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Hesindegeweihten I
+- Vorteil Tradition der Phexgeweihten I
+- Vorteil Tradition der Praiosgeweihten I

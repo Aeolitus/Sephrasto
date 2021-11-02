@@ -1,7 +1,9 @@
-fertigkeiten: Humus, Zaubertaenze
-kosten: '20'
+fertigkeiten:
+- Humus
+- Zaubertaenze
+kosten: 20
 name: Tanz der Freude
-printclass: '19'
+printclass: 19
 text: 'Der Tanz staerkt die Lebenskraefte und beendet ein Gift oder eine Krankheit
   bis maximal Stufe 16.
 
@@ -22,6 +24,7 @@ text: 'Der Tanz staerkt die Lebenskraefte und beendet ein Gift oder eine Krankhe
   Fertigkeiten: Humus, Zaubertaenze
 
   Erlernen: Ztz 14; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Zaubertaenzer I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Zaubertaenzer I

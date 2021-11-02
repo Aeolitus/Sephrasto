@@ -1,7 +1,9 @@
-fertigkeiten: Hellsicht, Kristallmagie
-kosten: '20'
+fertigkeiten:
+- Hellsicht
+- Kristallmagie
+kosten: 20
 name: Orbitarium
-printclass: '11'
+printclass: 11
 text: 'Ueber dem Kristall entsteht ein Abbild des aktuellen Sternenhimmels, von dem
   du einzelne Teile hervortreten lassen kannst. Das Abbild leuchtet nur schwach und
   ist im Sonnenlicht nicht zu sehen.
@@ -21,6 +23,7 @@ text: 'Ueber dem Kristall entsteht ein Abbild des aktuellen Sternenhimmels, von 
   Fertigkeiten: Hellsicht, Kristallmagie
 
   Erlernen: Ach 14; 20 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Kristallomanten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Kristallomanten I

@@ -1,14 +1,16 @@
-fertigkeiten: Gaben des Odun
-kommentar: '0'
-kosten: '40'
+fertigkeiten:
+- Gaben des Odun
+kommentar: 0
+kosten: 40
 name: Kraehenruf  (Tiergeist)
-printclass: '0'
+printclass: 0
 text: "Du rufst einen Kraehenschwarm aus bis zu 100 Meilen Entfernung zur Hilfe, der\
   \ sofort erscheint und an deiner Seite kaempft (WS 3, Koloss I, INI 6, GS 8, VT\
   \ 3, RW 2, AT 10, TP 2W6\u20132, Zusaetzliche AT I).\nMaechtige Magie: WS, AT und\
   \ TP des Schwarms steigen um je +1.\nProbenschwierigkeit: 12\nVorbereitungszeit:\
   \ 2 Aktionen\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer: 16 Initiativphasen\n\
   Kosten: 8 AsP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Rabe)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Rabe)

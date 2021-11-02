@@ -1,8 +1,9 @@
-fertigkeiten: Gaben des Odun
-kommentar: '0'
-kosten: '20'
+fertigkeiten:
+- Gaben des Odun
+kommentar: 0
+kosten: 20
 name: Spinnenlauf (Tiergeist)
-printclass: '0'
+printclass: 0
 text: 'Deine Haende und Fuesse haften an Oberflaechen, sodass du mit GS 1 an glatten
   Waenden und sogar Decken ohne Griffen klettern kannst. Erlaubt Aufrechterhalten.
 
@@ -19,6 +20,7 @@ text: 'Deine Haende und Fuesse haften an Oberflaechen, sodass du mit GS 1 an gla
   Wirkungsdauer: 4 Minuten
 
   Kosten: 8 AsP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tiergeist (Gebirgsbock)
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tiergeist (Gebirgsbock)

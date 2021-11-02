@@ -1,8 +1,9 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 nachkauf: selten
 name: Eisenaffine Aura
 text: Erschwernisse durch den Bann des Eisens (S. 78) sinken um 8 Punkte.
-typ: '0'
-variable: '0'
-voraussetzungen: Vorteil Zauberer I
+typ: 0
+variable: 0
+voraussetzungen:
+- Vorteil Zauberer I

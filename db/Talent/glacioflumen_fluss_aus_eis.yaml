@@ -1,13 +1,16 @@
-fertigkeiten: Eis
-kosten: '20'
+fertigkeiten:
+- Eis
+kosten: 20
 name: Glacioflumen Fluss aus Eis
-printclass: '0'
+printclass: 0
 text: "Du erzeugst eine duenne Schicht aus Eis auf dem Boden. Die Schicht gilt als\
   \ eisiger Untergrund, was alle Proben im Kampf und zum Stehenbleiben um \u20134\
   \ erschwert. Ihre Flaeche betraegt 16 Rechtschritt, ihre Form kannst du bestimmen.\n\
   Maechtige Magie: Verdoppelt die Flaeche.\nProbenschwierigkeit: 12\nVorbereitungszeit:\
   \ 2 Aktionen\nZiel: Zone\nReichweite: 16 Schritt\nWirkungsdauer: 4 Minuten\nKosten:\
   \ 8 AsP\nFertigkeiten: Eis\nErlernen: Elf 20; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Elfen I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Elfen I

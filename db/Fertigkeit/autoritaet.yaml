@@ -1,8 +1,12 @@
-attribute: CH|KL|MU
-kampffertigkeit: '0'
+attribute:
+- CH
+- KL
+- MU
+kampffertigkeit: 0
 name: Autoritaet
-printclass: '3'
-steigerungsfaktor: '3'
+printclass: 3
+steigerungsfaktor: 3
 text: Autoritaet erlaubt es deinem Charakter, sich Respekt zu verschaffen und seinen
   Willen durchzusetzen.
-voraussetzungen: ''
+voraussetzungen:
+- ''

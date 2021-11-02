@@ -2,10 +2,10 @@ csBeschreibung: 'Dein Waffenschaden steigt um +1.
 
 
   Erlaubt das Manoever Befreiungsschlag.'
-kommentar: '0'
-kosten: '60'
+kommentar: 0
+kosten: 60
 linkElement: Kraftvoller Kampf II
-linkKategorie: '3'
+linkKategorie: 3
 nachkauf: haeufig
 name: Kraftvoller Kampf III
 script: modifyKampfstil('Kraftvoller Kampf', 0, 0, 1, 0)
@@ -13,6 +13,7 @@ text: "Dein Waffenschaden steigt um +1.\n\nErlaubt das Manoever Befreiungsschlag
   \ -4): Du fuehrst eine Attacke aus, die sich (samt anderen Manoevern) gegen alle\
   \ Ziele in einem Winkel von 180\xB0 vor dir richtet. Jedem Ziel steht eine eigene\
   \ Verteidigung zu."
-typ: '3'
-variable: '0'
-voraussetzungen: Attribut KK 8, Vorteil Kraftvoller Kampf II
+typ: 3
+variable: 0
+voraussetzungen:
+- Attribut KK 8, Vorteil Kraftvoller Kampf II

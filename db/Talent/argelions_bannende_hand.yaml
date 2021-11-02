@@ -1,7 +1,9 @@
-fertigkeiten: Magie, Magiebann
-kosten: '60'
+fertigkeiten:
+- Magie
+- Magiebann
+kosten: 60
 name: Argelions bannende Hand
-printclass: '30'
+printclass: 30
 text: 'Die Liturgie wirkt als Konterprobe (12) gegen einen Zauber, in den keine gAsP
   geflossen sind. Gelingt sie, wird der Zauber aufgehoben.
 
@@ -20,7 +22,8 @@ text: 'Die Liturgie wirkt als Konterprobe (12) gegen einen Zauber, in den keine 
   Fertigkeiten: Magie, Magiebann
 
   Erlernen: Hes, Pra 12; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der
-  Praiosgeweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Hesindegeweihten I
+- Vorteil Tradition der Praiosgeweihten I

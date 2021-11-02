@@ -1,7 +1,8 @@
-fertigkeiten: Umwelt
-kosten: '60'
+fertigkeiten:
+- Umwelt
+kosten: 60
 name: Motoricus Geisterhand
-printclass: '0'
+printclass: 0
 text: "Du kannst einen Gegenstand mit einer KK von 2 anheben und mit maximal 4 Schritt\
   \ pro Initiativephase durch die Luft fliegen lassen. Besonders komplizierte und\
   \ feine Bewegungen sind um bis zu 8 Punkte erschwert. Erfordert Konzentration.\n\
@@ -15,9 +16,13 @@ text: "Du kannst einen Gegenstand mit einer KK von 2 anheben und mit maximal 4 S
   \ macht.)\nVorbereitungszeit: 1 Aktion\nZiel: Einzelobjekt\nReichweite: 8 Schritt\n\
   Wirkungsdauer: 4 Minuten\nKosten: 4 AsP\nFertigkeiten: Umwelt\nErlernen: Mag 12;\
   \ Alch, Sch 14; Ach, Elf, Hex, Srl; 16; 60 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Elfen
-  I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER
-  Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I
-  ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I
+- Vorteil Tradition der Scharlatane I
+- Vorteil Tradition der Schelme I

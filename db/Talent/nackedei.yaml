@@ -1,7 +1,8 @@
-fertigkeiten: Umwelt
-kosten: '40'
+fertigkeiten:
+- Umwelt
+kosten: 40
 name: Nackedei
-printclass: '0'
+printclass: 0
 text: "Saemtliche Stoffkleidung des Opfers faellt ploetzlich zu Boden. Metallische\
   \ Ruestung ist nicht betroffen.\nProbenschwierigkeit: 12\nModifikationen: Blechdose\
   \ (\u20138; der Zauber betrifft auch Ruestungsteile aus Metall.)\nAbsatteln (\u2013\
@@ -9,6 +10,8 @@ text: "Saemtliche Stoffkleidung des Opfers faellt ploetzlich zu Boden. Metallisc
   \ ist.)\nVorbereitungszeit: 0 Aktionen\nZiel: Einzelperson\nReichweite: 8 Schritt\n\
   Wirkungsdauer: augenblicklich\nKosten: 8 AsP\nFertigkeiten: Umwelt\nErlernen: Sch\
   \ 12; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Schelme I

@@ -1,7 +1,8 @@
-fertigkeiten: Daemonische Hilfe (Cpt)
-kosten: '40'
+fertigkeiten:
+- Daemonische Hilfe (Cpt)
+kosten: 40
 name: Ertraenken
-printclass: '200'
+printclass: 200
 text: 'Brackwasser fuellt die Lunge des Opfers und verursacht 2W6 SP und Ertraenken
   (S. 98), aber keine Wundschmerzeffekte.
 
@@ -22,6 +23,7 @@ text: 'Brackwasser fuellt die Lunge des Opfers und verursacht 2W6 SP und Ertraen
   Fertigkeiten: Daemonische Hilfe (Cpt)
 
   Erlernen: Cpt 12; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Paktierer I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Paktierer I

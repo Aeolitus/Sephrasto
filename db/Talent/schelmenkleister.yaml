@@ -1,7 +1,8 @@
-fertigkeiten: Umwelt
-kosten: '40'
+fertigkeiten:
+- Umwelt
+kosten: 40
 name: Schelmenkleister
-printclass: '0'
+printclass: 0
 text: "Der Untergrund in einem Kreis von 4 Schritt Radius wird zaeh und klebrig. Die\
   \ GS aller Wesen darauf sinkt um 2 Punkte. Faellt sie auf 0, bleibt das betroffene\
   \ Wesen am Boden kleben.\nMaechtige Magie: Die GS sinkt um 1 weiteren Punkt und\
@@ -10,6 +11,8 @@ text: "Der Untergrund in einem Kreis von 4 Schritt Radius wird zaeh und klebrig.
   \ um auf den Beinen zu bleiben, sind um +4 erschwert.)\nVorbereitungszeit: 2 Aktionen\n\
   Ziel: Zone\nReichweite: 4 Schritt\nWirkungsdauer: 16 Initiativphasen\nKosten: 8\
   \ AsP\nFertigkeiten: Umwelt\nErlernen: Sch 14; 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Schelme I

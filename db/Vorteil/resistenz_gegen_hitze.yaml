@@ -1,9 +1,10 @@
-kommentar: '0'
-kosten: '40'
+kommentar: 0
+kosten: 40
 nachkauf: selten
 name: Resistenz gegen Hitze
 text: Verschiebt die Temperaturstufe bei hohen Temperaturen um eine Stufe in Richtung
   normal.
-typ: '0'
-variable: '0'
-voraussetzungen: ''
+typ: 0
+variable: 0
+voraussetzungen:
+- ''

@@ -1,7 +1,8 @@
-fertigkeiten: Feuer
-kosten: '40'
+fertigkeiten:
+- Feuer
+kosten: 40
 name: Wand aus Flammen
-printclass: '0'
+printclass: 0
 text: 'Eine 3 Schritt hohe und bis zu 4 Schritt lange Wand aus lodernden Flammen waechst
   entlang einer von dir bestimmten Linie aus dem Boden. Wer sich der Wand naehert,
   erleidet bei misslungener Konterprobe (KO, 12) Nachbrennen (S. 98). Die Durchquerung
@@ -25,7 +26,10 @@ text: 'Eine 3 Schritt hohe und bis zu 4 Schritt lange Wand aus lodernden Flammen
   Fertigkeiten: Feuer
 
   Erlernen: Dru, Geo 16; Mag 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I
+- Vorteil Tradition der Gildenmagier I

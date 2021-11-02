@@ -1,7 +1,8 @@
-fertigkeiten: Einfluss
-kosten: '40'
+fertigkeiten:
+- Einfluss
+kosten: 40
 name: Zwingtanz
-printclass: '0'
+printclass: 0
 text: 'Dein Opfer verliert die Kontrolle ueber seinen Koerper. Es beginnt wie wild
   zu tanzen und erleidet nach dem Ende der Wirkungsdauer 2 Punkte Erschoepfung. Angriffe
   auf das Opfer haben eine Schwierigkeit von 16.
@@ -23,7 +24,9 @@ text: 'Dein Opfer verliert die Kontrolle ueber seinen Koerper. Es beginnt wie wi
   Fertigkeiten: Einfluss
 
   Erlernen: Dru 8; Geo 12; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
-  Vorteil Tradition der Geoden I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Geoden I

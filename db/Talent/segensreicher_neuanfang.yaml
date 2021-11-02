@@ -1,7 +1,8 @@
-fertigkeiten: Neubeginn
-kosten: '40'
+fertigkeiten:
+- Neubeginn
+kosten: 40
 name: Segensreicher Neuanfang
-printclass: '51'
+printclass: 51
 text: "Du segnest ein neues Unternehmen. Der Gesegnete erhaelt waehrend der Wirkungsdauer\
   \ die Eigenheit \u201EEuphorisch fuer [Unternehmen]: Du widmest dich mit Elan der\
   \ bevorstehenden Aufgabe und vergisst dabei alles um dich herum.\u201C Fuer den\
@@ -11,6 +12,7 @@ text: "Du segnest ein neues Unternehmen. Der Gesegnete erhaelt waehrend der Wirk
   \ 12\nVorbereitungszeit: 16 Aktionen\nZiel: Einzelperson\nReichweite: Beruehrung\n\
   Wirkungsdauer: 1 Woche\nKosten: 8 KaP\nFertigkeiten: Neubeginn\nErlernen: Tsa 14;\
   \ 40 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Tsageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Tsageweihten I

@@ -1,7 +1,8 @@
-fertigkeiten: Sichere Heimkehr
-kosten: '60'
+fertigkeiten:
+- Sichere Heimkehr
+kosten: 60
 name: Gebet der verborgenen Halle
-printclass: '49'
+printclass: 49
 text: 'Durch dein Gebet erscheint eine Tuer in einen verborgenen Raum, in dem eine
   angenehme Temperatur herrscht und ausreichend Nahrung und Getraenke fuer alle Schutzsuchenden
   bereit haelt. Sobald die Tuer geschlossen ist, kann der Raum von aussen weder gefunden
@@ -24,6 +25,7 @@ text: 'Durch dein Gebet erscheint eine Tuer in einen verborgenen Raum, in dem ei
   Fertigkeiten: Sichere Heimkehr
 
   Erlernen: Tra 18; 60 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Traviageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Traviageweihten I

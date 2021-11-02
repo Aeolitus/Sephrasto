@@ -9,5 +9,6 @@ text: 'Um deinen Gegner einzuschuechtern, musst du eine Aktion Konflikt aufwende
   flieht, fliehen alle. Der Effekt endet am Ende des Kampfes, bei Kampf unfaehigkeit
   des Einschuechternden oder wenn der eingeschuechterte Gegner weit genug geflohen
   ist.'
-typ: '8'
-voraussetzungen: Fertigkeit 'Autoritaet' 1
+typ: 8
+voraussetzungen:
+- Fertigkeit 'Autoritaet' 1

@@ -7,5 +7,6 @@ text: "Dem Ziel wird eine Waffe deiner Wahl entrissen, die danach zwischen den K
   \ vergleichende GE-Probe (I) notwendig. Das Manoever senkt den Schaden des Angriffes\
   \ auf 0. Sollte der Angriff ohnehin keinen Schaden anrichten \u2013 etwa durch andere\
   \ Manoever \u2013 ist das Manoever nicht moeglich."
-typ: '0'
-voraussetzungen: ''
+typ: 0
+voraussetzungen:
+- ''

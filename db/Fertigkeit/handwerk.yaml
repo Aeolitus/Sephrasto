@@ -1,8 +1,12 @@
-attribute: FF|FF|KK
-kampffertigkeit: '0'
+attribute:
+- FF
+- FF
+- KK
+kampffertigkeit: 0
 name: Handwerk
-printclass: '6'
-steigerungsfaktor: '3'
+printclass: 6
+steigerungsfaktor: 3
 text: Mit Handwerk schmiedest du Waffen und Ruestungen, fertigst filigrane Mechaniken
   und stabile Truhen.
-voraussetzungen: ''
+voraussetzungen:
+- ''

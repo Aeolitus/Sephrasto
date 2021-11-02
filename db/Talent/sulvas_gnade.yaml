@@ -1,7 +1,8 @@
-fertigkeiten: Harmonie
-kosten: '40'
+fertigkeiten:
+- Harmonie
+kosten: 40
 name: Sulvas Gnade
-printclass: '43'
+printclass: 43
 text: 'Die Gnade der goettlichen Stute staerkt deine Beziehung zu einem Pferd. Erstens
   sind Proben im Umgang mit dem Pferd sind um +4 erleichtert, Freie Fertigkeiten (wie
   Abrichter) zaehlen als eine Stufe hoeher. Zweitens erhaeltst du den Vorteil Tierempathie
@@ -26,6 +27,7 @@ text: 'Die Gnade der goettlichen Stute staerkt deine Beziehung zu einem Pferd. E
   Fertigkeiten: Harmonie
 
   Erlernen: Rah 14; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Rahjageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Rahjageweihten I

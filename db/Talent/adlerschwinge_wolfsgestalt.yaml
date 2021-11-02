@@ -1,8 +1,9 @@
-fertigkeiten: Verwandlung
-kommentar: '1'
-kosten: '40'
+fertigkeiten:
+- Verwandlung
+kommentar: 1
+kosten: 40
 name: Adlerschwinge Wolfsgestalt
-printclass: '0'
+printclass: 0
 text: "Du verwandelst dich in das beim Erlernen gewaehlte Tier, wobei du deine geistigen\
   \ Faehigkeiten behaeltst. Die koerperlichen Faehigkeiten entsprechen denen des Tiers.\
   \ Du kannst in Tiergestalt nicht zaubern. Erlaubt Aufrechterhalten.\nMaechtige Magie:\
@@ -20,9 +21,14 @@ text: "Du verwandelst dich in das beim Erlernen gewaehlte Tier, wobei du deine g
   \ sehr starke usw. Tiere teurer sind.\nSephrasto: Trage die gewaehlten Tiere in\
   \ das Kommentarfeld ein. Wenn du mehrere Tiere waehlst, dann erhoehe die EP-Kosten\
   \ entsprechend."
-variable: '1'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
-  Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition
-  der Kristallomanten I ODER Vorteil Tradition der Scharlatane I
+variable: 1
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Druiden I
+- Vorteil Tradition der Elfen I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I
+- Vorteil Tradition der Scharlatane I

@@ -1,7 +1,8 @@
-fertigkeiten: Friede
-kosten: '40'
+fertigkeiten:
+- Friede
+kosten: 40
 name: Aura des Regenbogens
-printclass: '50'
+printclass: 50
 text: 'Das Licht des Regenbogens erleuchtet deine Umgebung im Radius von 8 Schritt.
   Das Gebiet gilt als geweihter Boden. Zusaetzlich erleiden alle Chimaeren innerhalb
   der Zone einen Furcht-Effekt Stufe 2.
@@ -23,6 +24,7 @@ text: 'Das Licht des Regenbogens erleuchtet deine Umgebung im Radius von 8 Schri
   Fertigkeiten: Friede
 
   Erlernen: Tsa 18; 40 EP'
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Tsageweihten I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Tsageweihten I

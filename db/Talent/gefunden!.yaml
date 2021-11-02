@@ -1,7 +1,8 @@
-fertigkeiten: Hellsicht
-kosten: '20'
+fertigkeiten:
+- Hellsicht
+kosten: 20
 name: Gefunden!
-printclass: '0'
+printclass: 0
 text: "Du erspuerst die Richtung, in der sich ein mindestens rucksackgrosser Gegenstand\
   \ aus deinem Besitz befindet.\nMaechtige Magie: Der Gegenstand kann kopf-/faust-/muenzgross\
   \ sein.\nProbenschwierigkeit: 12\nModifikationen: Fremdbesitz (\u20134; du musst\
@@ -9,9 +10,13 @@ text: "Du erspuerst die Richtung, in der sich ein mindestens rucksackgrosser Geg
   \ dir nur ausfuehrlich beschrieben worden sein.)\nVorbereitungszeit: 16 Aktionen\n\
   Ziel: selbst\nReichweite: 4 Meilen\nWirkungsdauer: 1 Stunde\nKosten: 8 AsP\nFertigkeiten:\
   \ Hellsicht\nErlernen: Sch 14; Ach, Alch, Hex, Mag, Srl 18; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
-  Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil
-  Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I ODER Vorteil
-  Tradition der Schelme I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Magiedilettant
+- Vorteil Tradition der Alchemisten I
+- Vorteil Tradition der Gildenmagier I
+- Vorteil Tradition der Hexen I
+- Vorteil Tradition der Kristallomanten I
+- Vorteil Tradition der Scharlatane I
+- Vorteil Tradition der Schelme I

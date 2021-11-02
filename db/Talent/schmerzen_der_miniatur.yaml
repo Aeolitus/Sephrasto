@@ -1,13 +1,17 @@
-fertigkeiten: Dolchzauber, Einfluss, Verstaendigung
-kosten: '20'
+fertigkeiten:
+- Dolchzauber
+- Einfluss
+- Verstaendigung
+kosten: 20
 name: Schmerzen der Miniatur
-printclass: '1'
+printclass: 1
 text: "Mit Dolchstichen in eine Miniatur der Herrschaft (s.o.) kannst du dem Opfer\
   \ Schmerzen zufuegen. Dadurch sind geistige oder koerperliche Taetigkeiten um \u2013\
   2 erschwert.\nProbenschwierigkeit: Magieresistenz\nVorbereitungszeit: 0 Aktionen\n\
   Ziel: Miniatur der Herrschaft\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\n\
   Kosten: 1 AsP\nFertigkeiten: Dolchzauber, Einfluss, Verstaendigung\nErlernen: Dru\
   \ 14; 20 EP"
-variable: '0'
-verbilligt: '0'
-voraussetzungen: Vorteil Tradition der Druiden I
+variable: 0
+verbilligt: 0
+voraussetzungen:
+- Vorteil Tradition der Druiden I
