@@ -28,23 +28,23 @@ class XmlVerifier(object):
 
     def validateXmlChoices(node):
         for child in node.getchildren():
-            if not child.tag in XmlVerifier.allowedChoicesAttributes.keys():
+            if child.tag not in XmlVerifier.allowedChoicesAttributes.keys():
                 logging.warn("CharakterAssistent: Unbekanntes XML element " + child.tag)
 
             for attrib in child.attrib:
-                if not attrib in XmlVerifier.allowedChoicesAttributes[child.tag]:
+                if attrib not in XmlVerifier.allowedChoicesAttributes[child.tag]:
                     logging.warn(
                         "CharakterAssistent: Unbekanntes XML attribut " + attrib
                     )
 
     def validateXml(node):
         for child in node.getchildren():
-            if child.tag != "Auswahl" and child.tag != "Varianten":
+            if child.tag not in ["Auswahl", "Varianten"]:
                 logging.warn("CharakterAssistent: Unbekanntes XML element " + child.tag)
 
             if child.tag == "Auswahl":
                 for attrib in child.attrib:
-                    if not attrib in XmlVerifier.allowedAttributesAuswahl:
+                    if attrib not in XmlVerifier.allowedAttributesAuswahl:
                         logging.warn(
                             "CharakterAssistent: Unbekanntes XML attribut " + attrib
                         )
@@ -52,7 +52,7 @@ class XmlVerifier(object):
                 XmlVerifier.validateXmlChoices(child)
             elif child.tag == "Varianten":
                 for attrib in child.attrib:
-                    if not attrib in XmlVerifier.allowedAttributesVarianten:
+                    if attrib not in XmlVerifier.allowedAttributesVarianten:
                         logging.warn(
                             "CharakterAssistent: Unbekanntes XML attribut " + attrib
                         )
@@ -64,7 +64,7 @@ class XmlVerifier(object):
                         )
 
                     for attrib in child2.attrib:
-                        if not attrib in XmlVerifier.allowedAttributesVariante:
+                        if attrib not in XmlVerifier.allowedAttributesVariante:
                             logging.warn(
                                 "CharakterAssistent: Unbekanntes XML attribut " + attrib
                             )

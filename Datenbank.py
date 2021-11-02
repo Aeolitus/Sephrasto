@@ -679,8 +679,8 @@ class Datenbank:
                 logging.debug("Talent " + T.name + " has no Fertigkeiten.")
             for fert in T.fertigkeiten:
                 if (
-                    not fert in self.fertigkeiten
-                    and not fert in self.übernatürlicheFertigkeiten
+                    fert not in self.fertigkeiten
+                    and fert not in self.übernatürlicheFertigkeiten
                 ):
                     errorStr = (
                         "Talent is referencing non-existing Fertigkeit "

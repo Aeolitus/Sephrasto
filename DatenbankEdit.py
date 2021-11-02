@@ -93,10 +93,7 @@ class DatenbankEdit(object):
         if self.ui.checkFilterTyp.checkState() == 0:
             for dbType in self.databaseTypes.values():
                 dbType.showCheckbox.setChecked(False)
-        elif (
-            self.ui.checkFilterTyp.checkState() == 1
-            or self.ui.checkFilterTyp.checkState() == 2
-        ):
+        elif self.ui.checkFilterTyp.checkState() in [1, 2]:
             for dbType in self.databaseTypes.values():
                 dbType.showCheckbox.setChecked(True)
 
@@ -240,7 +237,7 @@ class DatenbankEdit(object):
                         continue
                     if (
                         self.ui.nameFilterEdit.text()
-                        and not self.ui.nameFilterEdit.text().lower() in itm.lower()
+                        and self.ui.nameFilterEdit.text().lower() not in itm.lower()
                     ):
                         continue
                     item = QtGui.QStandardItem(itm + " : " + dbTypeName)
@@ -253,7 +250,7 @@ class DatenbankEdit(object):
             for itm in sorted(self.datenbank.removeList):
                 if (
                     self.ui.nameFilterEdit.text()
-                    and not self.ui.nameFilterEdit.text().lower() in itm[0].lower()
+                    and self.ui.nameFilterEdit.text().lower() not in itm[0].lower()
                 ):
                     continue
 
@@ -287,15 +284,14 @@ class DatenbankEdit(object):
 
             exists = False
 
-            if tmp[1] in self.databaseTypes:
-                databaseType = self.databaseTypes[tmp[1]]
-                if tmp[0] in databaseType.databaseDict:
-                    exists = True
-                else:
-                    databaseType.databaseDict.update({tmp[0]: removed[2]})
-            else:
+            if tmp[1] not in self.databaseTypes:
                 raise Exception("Unknown category.")
 
+            databaseType = self.databaseTypes[tmp[1]]
+            if tmp[0] in databaseType.databaseDict:
+                exists = True
+            else:
+                databaseType.databaseDict.update({tmp[0]: removed[2]})
             if exists:
                 messageBox = QtWidgets.QMessageBox()
                 messageBox.setIcon(QtWidgets.QMessageBox.Information)

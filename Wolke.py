@@ -27,7 +27,7 @@ class Wolke:
     ErrorCode = {
         0: "No Error. You really shouldnt be seeing this.",
         -1: "General, unspecified Error. Contact Aeolitus.",
-        ### Database Errors
+        # Database Errors
         -20: "Cannot parse database. Is the database file intact?",
         -21: "Error loading Vorteile. Is the database file empty?",
         -22: "Error loading Talente. Please check the database file!",
@@ -46,7 +46,7 @@ any content.""",
         -31: "Error writing Waffen. Please check your input!",
         -32: "Error writing database to file systems. Do you have writing permissions?",
         -34: "Error writing Manöver. Please check your input!",
-        ### Character Errors
+        # Character Errors
         -41: "Error clearing character. Please restart Sephrasto.",
         -42: "Error parsing character. Is the file intact, readable and valid?",
         -43: """The file you have selected does not seem to be a valid character \
@@ -73,7 +73,7 @@ and not damaged or empty?""",
         -62: "Error writing Übernatürliches. Are your inputs valid?",
         -63: "Error writing EP. Are your inputs valid?",
         -64: "Error writing character to file system. Do you have writing permissions?",
-        ### PDF writing errors
+        # PDF writing errors
         -80: "General Error when trying to write to pdf. Please contact Aeolitus.",
         -81: """PDFtk-Error: The empty Charactersheet could not be loaded. Is \
 PDFtk installed and working; have you restarted Sephrasto; and is the selected \
@@ -105,6 +105,6 @@ Please check the created PDFs to see which one is your character!",
         -97: "Error merging the rules page!",
         -98: "Could not automatically open the PDF! Everything else works though.",
         -99: "Error when trying to execute export plugin",
-        ### Other Errors
+        # Other Errors
         -200: "General Error you shouldnt see. Please contact Aeolitus.",
     }

@@ -174,8 +174,8 @@ class DatenbankEditTalentWrapper(object):
         self.fertigkeitenValid = True
         for fertigkeit in fertigkeiten:
             if (
-                not fertigkeit in self.datenbank.fertigkeiten
-                and not fertigkeit in self.datenbank.übernatürlicheFertigkeiten
+                fertigkeit not in self.datenbank.fertigkeiten
+                and fertigkeit not in self.datenbank.übernatürlicheFertigkeiten
             ):
                 self.ui.fertigkeitenEdit.setStyleSheet("border: 1px solid red;")
                 self.ui.fertigkeitenEdit.setToolTip(

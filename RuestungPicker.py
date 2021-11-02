@@ -7,11 +7,10 @@ Created on Sun Mar  5 16:45:34 2017
 import copy
 import logging
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 
 import CharakterRuestungen
 import Definitionen
-import Objekte
 from EventBus import EventBus
 from Wolke import Wolke
 
@@ -110,22 +109,19 @@ class RuestungPicker(object):
         for typ in Definitionen.RuestungsTypen:
             ruestungen = []
             for rues in Wolke.DB.rüstungen:
-                if (
-                    Wolke.DB.rüstungen[rues].system != 0
-                    and Wolke.DB.rüstungen[rues].system != self.system
-                ):
+                if Wolke.DB.rüstungen[rues].system not in [0, self.system]:
                     continue
 
                 if self.ui.nameFilterEdit.text():
                     filterText = self.ui.nameFilterEdit.text().lower()
-                    if not filterText in Wolke.DB.rüstungen[rues].name.lower():
+                    if filterText not in Wolke.DB.rüstungen[rues].name.lower():
                         continue
 
                 if Definitionen.RuestungsTypen[Wolke.DB.rüstungen[rues].typ] == typ:
                     ruestungen.append(rues)
 
             ruestungen.sort()
-            if len(ruestungen) == 0:
+            if not ruestungen:
                 continue
 
             parent = QtWidgets.QTreeWidgetItem(self.ui.treeArmors)

@@ -10,7 +10,6 @@ import os
 import os.path
 import sys
 
-import yaml
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 import CharakterEditor
@@ -262,9 +261,7 @@ Fehlercode: "
         file = " - Neuer Charakter"
         if self.ed.savepath:
             file = " - " + os.path.basename(self.ed.savepath)
-        rules = ""
-        if Wolke.DB.datei:
-            rules = " (" + os.path.basename(Wolke.DB.datei) + ")"
+        rules = " (" + os.path.basename(Wolke.DB.datei) + ")" if Wolke.DB.datei else ""
         self.ed.formMain.setWindowTitle("Sephrasto" + file + rules)
 
 
