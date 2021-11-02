@@ -1,0 +1,6 @@
+# .flake8
+[flake8]
+select = BLK,C,E,F,W
+max-complexity = 10
+ignore = E203,W503,E501,C901
+max-line-length = 88

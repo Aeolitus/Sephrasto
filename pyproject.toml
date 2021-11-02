@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "sephrasto"
+version = "1.5.1"
+description = ""
+authors = ["brzGatsu", "Aeolitus", "malexmave", "Caelagor", "klnrdknt"]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.10"
+fdfgen = "^0.16.1"
+lxml = "^4.6.3"
+PyYAML = "^6.0"
+PyQt5 = "^5.15.6"
+cx-Freeze = "^6.8.1"
+
+[tool.poetry.dev-dependencies]
+black = "^21.10b0"
+isort = "^5.9.3"
+flake8 = "^4.0.1"
+flake8-bugbear = "^21.9.2"
+pre-commit = "^2.15.0"
+pytest = "^6.2.5"
+pytest-cov = "^3.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
