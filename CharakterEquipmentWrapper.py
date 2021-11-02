@@ -45,7 +45,10 @@ class EquipWrapper(QtCore.QObject):
             eval("self.uiEq.comboStil" + str(el) + ".setCurrentIndex(0)")
             eval("self.uiEq.comboStil" + str(el) + ".clear()")
             for el2 in kampfstile:
-                getName = lambda: el2
+
+                def getName():
+                    return el2
+
                 eval("self.uiEq.comboStil" + str(el) + ".addItem(getName())")
         logging.debug("Kampfstile added...")
         self.uiEq.addR1.clicked.connect(lambda state, idx=1: self.selectArmor(idx))
@@ -69,127 +72,117 @@ class EquipWrapper(QtCore.QObject):
         self.checkToggleEquip()
 
     def update(self):
-        if not self.currentlyLoading:
-            changed = False
-            ruestungNeu = []
+        if self.currentlyLoading:
+            return
 
-            for el in ["R1", "R2", "R3"]:
-                editName = getattr(self.uiEq, "edit" + el + "name")
-                spinBE = getattr(self.uiEq, "spin" + el + "be")
-                spinRS = getattr(self.uiEq, "spin" + el + "RS")
-                spinZRS = [
-                    getattr(self.uiEq, "spin" + el + "bein"),
-                    getattr(self.uiEq, "spin" + el + "larm"),
-                    getattr(self.uiEq, "spin" + el + "rarm"),
-                    getattr(self.uiEq, "spin" + el + "bauch"),
-                    getattr(self.uiEq, "spin" + el + "brust"),
-                    getattr(self.uiEq, "spin" + el + "kopf"),
-                ]
-                spinPunkte = getattr(self.uiEq, "spin" + el + "punkte")
+        changed = False
+        ruestungNeu = []
 
-                if editName.text() == "":
-                    spinPunkte.setStyleSheet("")
-                    spinPunkte.setToolTip("")
-                    continue
+        for el in ["R1", "R2", "R3"]:
+            editName = getattr(self.uiEq, "edit" + el + "name")
+            spinBE = getattr(self.uiEq, "spin" + el + "be")
+            spinRS = getattr(self.uiEq, "spin" + el + "RS")
+            spinZRS = [
+                getattr(self.uiEq, "spin" + el + "bein"),
+                getattr(self.uiEq, "spin" + el + "larm"),
+                getattr(self.uiEq, "spin" + el + "rarm"),
+                getattr(self.uiEq, "spin" + el + "bauch"),
+                getattr(self.uiEq, "spin" + el + "brust"),
+                getattr(self.uiEq, "spin" + el + "kopf"),
+            ]
+            spinPunkte = getattr(self.uiEq, "spin" + el + "punkte")
 
-                R = Objekte.Ruestung()
-                R.name = editName.text()
-                R.be = int(spinBE.value())
-                if self.uiEq.checkZonen.isChecked():
-                    for i in range(0, 6):
-                        R.rs[i] = spinZRS[i].value()
+            if editName.text() == "":
+                spinPunkte.setStyleSheet("")
+                spinPunkte.setToolTip("")
+                continue
+
+            R = Objekte.Ruestung()
+            R.name = editName.text()
+            R.be = int(spinBE.value())
+            if self.uiEq.checkZonen.isChecked():
+                for i in range(6):
+                    R.rs[i] = spinZRS[i].value()
+            else:
+                R.rs = 6 * [spinRS.value()]
+            ruestungNeu.append(R)
+
+            if sum(R.rs) % 6 != 0:
+                spinPunkte.setStyleSheet("border: 1px solid orange;")
+                missingPoints = 6 - sum(R.rs) % 6
+                if missingPoints == 1:
+                    spinPunkte.setToolTip(
+                        "Der Rüstung fehlt " + str(6 - sum(R.rs) % 6) + " Punkt ZRS."
+                    )
                 else:
-                    R.rs = 6 * [spinRS.value()]
-                ruestungNeu.append(R)
+                    spinPunkte.setToolTip(
+                        "Der Rüstung fehlen " + str(6 - sum(R.rs) % 6) + " Punkte ZRS."
+                    )
+            else:
+                spinPunkte.setStyleSheet("")
+                spinPunkte.setToolTip("")
 
-                if sum(R.rs) % 6 != 0:
-                    spinPunkte.setStyleSheet("border: 1px solid orange;")
-                    missingPoints = 6 - sum(R.rs) % 6
-                    if missingPoints == 1:
-                        spinPunkte.setToolTip(
-                            "Der Rüstung fehlt "
-                            + str(6 - sum(R.rs) % 6)
-                            + " Punkt ZRS."
-                        )
-                    else:
-                        spinPunkte.setToolTip(
-                            "Der Rüstung fehlen "
-                            + str(6 - sum(R.rs) % 6)
-                            + " Punkte ZRS."
-                        )
+        if not Hilfsmethoden.ArrayEqual(ruestungNeu, Wolke.Char.rüstung):
+            changed = True
+            Wolke.Char.rüstung = ruestungNeu
+
+        if Wolke.Char.zonenSystemNutzen != self.uiEq.checkZonen.isChecked():
+            Wolke.Char.zonenSystemNutzen = self.uiEq.checkZonen.isChecked()
+            changed = True
+
+        waffenNeu = []
+        kampfstile = [Definitionen.KeinKampfstil] + Wolke.DB.findKampfstile()
+
+        for el in ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8"]:
+            if eval("self.uiEq.edit" + el + "name.text()") != "":
+                name = eval("self.uiEq.label" + el + "typ.text()")
+                if name not in Wolke.DB.waffen:
+                    W = Objekte.Nahkampfwaffe()
+                elif type(Wolke.DB.waffen[name]) == Objekte.Fernkampfwaffe:
+                    W = Objekte.Fernkampfwaffe()
+                    W.lz = eval("self.uiEq.spin" + el + "lz.value()")
                 else:
-                    spinPunkte.setStyleSheet("")
-                    spinPunkte.setToolTip("")
+                    W = Objekte.Nahkampfwaffe()
 
-            if not Hilfsmethoden.ArrayEqual(ruestungNeu, Wolke.Char.rüstung):
-                changed = True
-                Wolke.Char.rüstung = ruestungNeu
+                W.wm = eval("self.uiEq.spin" + el + "wm.value()")
+                W.name = eval("self.uiEq.label" + el + "typ.text()")
+                W.anzeigename = eval("self.uiEq.edit" + el + "name.text()")
+                if not W.name and W.anzeigename and W.anzeigename in Wolke.DB.waffen:
+                    W.name = W.anzeigename
+                if W.name in Wolke.DB.waffen:
+                    dbWaffe = Wolke.DB.waffen[W.name]
+                    W.fertigkeit = dbWaffe.fertigkeit
+                    W.talent = dbWaffe.talent
+                    W.kampfstile = dbWaffe.kampfstile.copy()
 
-            if Wolke.Char.zonenSystemNutzen != self.uiEq.checkZonen.isChecked():
-                Wolke.Char.zonenSystemNutzen = self.uiEq.checkZonen.isChecked()
-                changed = True
+                W.rw = eval("self.uiEq.spin" + el + "rw.value()")
+                W.W6 = eval("self.uiEq.spin" + el + "w6.value()")
+                W.plus = eval("self.uiEq.spin" + el + "plus.value()")
+                eigenschaftStr = eval("self.uiEq.edit" + el + "eig.text()")
+                if eigenschaftStr:
+                    W.eigenschaften = list(map(str.strip, eigenschaftStr.split(",")))
 
-            waffenNeu = []
-            kampfstile = [Definitionen.KeinKampfstil] + Wolke.DB.findKampfstile()
+                self.refreshKampfstile(int(el[-1]) - 1)
+                tmp = eval("self.uiEq.comboStil" + el[-1] + ".currentText()")
+                if tmp in kampfstile:
+                    W.kampfstil = tmp
 
-            for el in ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8"]:
-                if eval("self.uiEq.edit" + el + "name.text()") != "":
-                    name = eval("self.uiEq.label" + el + "typ.text()")
-                    if not name in Wolke.DB.waffen:
-                        W = Objekte.Nahkampfwaffe()
-                    elif type(Wolke.DB.waffen[name]) == Objekte.Fernkampfwaffe:
-                        W = Objekte.Fernkampfwaffe()
-                        W.lz = eval("self.uiEq.spin" + el + "lz.value()")
-                    else:
-                        W = Objekte.Nahkampfwaffe()
+                if EventBus.applyFilter(
+                    "waffe_haerte_wsstern", W.name in ["Hand", "Fuß"], {"waffe": W}
+                ):
+                    W.haerte = Wolke.Char.wsStern
+                else:
+                    W.haerte = eval("self.uiEq.spin" + el + "h.value()")
+                waffenNeu.append(W)
 
-                    W.wm = eval("self.uiEq.spin" + el + "wm.value()")
-                    W.name = eval("self.uiEq.label" + el + "typ.text()")
-                    W.anzeigename = eval("self.uiEq.edit" + el + "name.text()")
-                    if (
-                        not W.name
-                        and W.anzeigename
-                        and W.anzeigename in Wolke.DB.waffen
-                    ):
-                        W.name = W.anzeigename
-                    if W.name in Wolke.DB.waffen:
-                        dbWaffe = Wolke.DB.waffen[W.name]
-                        W.fertigkeit = dbWaffe.fertigkeit
-                        W.talent = dbWaffe.talent
-                        W.kampfstile = dbWaffe.kampfstile.copy()
+        if not Hilfsmethoden.ArrayEqual(waffenNeu, Wolke.Char.waffen):
+            Wolke.Char.waffen = waffenNeu
+            changed = True
 
-                    W.rw = eval("self.uiEq.spin" + el + "rw.value()")
-                    W.W6 = eval("self.uiEq.spin" + el + "w6.value()")
-                    W.plus = eval("self.uiEq.spin" + el + "plus.value()")
-                    eigenschaftStr = eval("self.uiEq.edit" + el + "eig.text()")
-                    if eigenschaftStr:
-                        W.eigenschaften = list(
-                            map(str.strip, eigenschaftStr.split(","))
-                        )
-
-                    self.refreshKampfstile(int(el[-1]) - 1)
-                    tmp = eval("self.uiEq.comboStil" + el[-1] + ".currentText()")
-                    if tmp in kampfstile:
-                        W.kampfstil = tmp
-
-                    if EventBus.applyFilter(
-                        "waffe_haerte_wsstern",
-                        W.name == "Hand" or W.name == "Fuß",
-                        {"waffe": W},
-                    ):
-                        W.haerte = Wolke.Char.wsStern
-                    else:
-                        W.haerte = eval("self.uiEq.spin" + el + "h.value()")
-                    waffenNeu.append(W)
-
-            if not Hilfsmethoden.ArrayEqual(waffenNeu, Wolke.Char.waffen):
-                Wolke.Char.waffen = waffenNeu
-                changed = True
-
-            if changed:
-                Wolke.Char.aktualisieren()
-                self.modified.emit()
-            self.load()
+        if changed:
+            Wolke.Char.aktualisieren()
+            self.modified.emit()
+        self.load()
 
     def load(self):
         self.currentlyLoading = True
@@ -197,9 +190,12 @@ class EquipWrapper(QtCore.QObject):
         count = 0
         # Add in Armor
         while count < len(Wolke.Char.rüstung):
-            R = Wolke.Char.rüstung[count]
             if count < len(Rarr):
-                getName = lambda: R.name
+                R = Wolke.Char.rüstung[count]
+
+                def getName():
+                    return R.name
+
                 eval("self.uiEq.edit" + Rarr[count] + "name.setText(getName())")
                 eval("self.uiEq.spin" + Rarr[count] + "be.setValue(" + str(R.be) + ")")
                 eval(
@@ -281,9 +277,9 @@ class EquipWrapper(QtCore.QObject):
             self.loadWeaponIntoFields(W, count + 1)
             count += 1
 
+        Warr = ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8"]
         # Empty all other fields
         while count < 8:
-            Warr = ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8"]
             eval("self.uiEq.edit" + Warr[count] + 'name.setText("")')
             eval("self.uiEq.label" + Warr[count] + 'typ.setText("")')
             eval("self.uiEq.comboStil" + str(count + 1) + ".clear()")
@@ -323,10 +319,10 @@ class EquipWrapper(QtCore.QObject):
             editName.setText(editName.text() + ", " + R.name)
 
         if not replace:
-            for i in range(0, 6):
+            for i in range(6):
                 R.rs[i] += spinZRS[i].value()
 
-        for i in range(0, 6):
+        for i in range(6):
             spinZRS[i].setValue(R.rs[i])
 
         spinBE.setValue(
@@ -371,7 +367,10 @@ class EquipWrapper(QtCore.QObject):
                 eval("self.uiEq.comboStil" + str(index + 1) + ".setToolTip(None)")
 
                 for el in entries:
-                    getName = lambda: el
+
+                    def getName():
+                        return el
+
                     eval("self.uiEq.comboStil" + str(index + 1) + ".addItem(getName())")
                 if self.initialLoad:
                     stil = Wolke.Char.waffen[index].kampfstil
@@ -414,7 +413,10 @@ class EquipWrapper(QtCore.QObject):
     def loadWeaponIntoFields(self, W, index):
         Warr = ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8"]
         count = index - 1
-        getName = lambda: W.name
+
+        def getName():
+            return W.name
+
         getAnzeigename = lambda: W.anzeigename or W.name
         eval("self.uiEq.edit" + Warr[count] + "name.setText(getAnzeigename())")
         eval("self.uiEq.label" + Warr[count] + "typ.setText(getName())")
@@ -487,70 +489,72 @@ class EquipWrapper(QtCore.QObject):
             self.update()
 
     def checkToggleEquip(self):
-        if not self.currentlyLoading:
-            self.currentlyLoading = True
-            if self.uiEq.checkZonen.isChecked():
-                self.uiEq.spinR1bauch.show()
-                self.uiEq.spinR1brust.show()
-                self.uiEq.spinR1larm.show()
-                self.uiEq.spinR1rarm.show()
-                self.uiEq.spinR1kopf.show()
-                self.uiEq.spinR1bein.show()
-                self.uiEq.spinR2bauch.show()
-                self.uiEq.spinR2brust.show()
-                self.uiEq.spinR2larm.show()
-                self.uiEq.spinR2rarm.show()
-                self.uiEq.spinR2kopf.show()
-                self.uiEq.spinR2bein.show()
-                self.uiEq.spinR3bauch.show()
-                self.uiEq.spinR3brust.show()
-                self.uiEq.spinR3larm.show()
-                self.uiEq.spinR3rarm.show()
-                self.uiEq.spinR3kopf.show()
-                self.uiEq.spinR3bein.show()
-                self.uiEq.spinR1RS.setEnabled(False)
-                self.uiEq.spinR2RS.setEnabled(False)
-                self.uiEq.spinR3RS.setEnabled(False)
-                self.uiEq.labelBein.show()
-                self.uiEq.labelBauch.show()
-                self.uiEq.labelBrust.show()
-                self.uiEq.labelLarm.show()
-                self.uiEq.labelRarm.show()
-                self.uiEq.labelKopf.show()
-                self.uiEq.labelPunkte.show()
-                self.uiEq.spinR1punkte.show()
-                self.uiEq.spinR2punkte.show()
-                self.uiEq.spinR3punkte.show()
-            else:
-                self.uiEq.spinR1bauch.hide()
-                self.uiEq.spinR1brust.hide()
-                self.uiEq.spinR1larm.hide()
-                self.uiEq.spinR1rarm.hide()
-                self.uiEq.spinR1kopf.hide()
-                self.uiEq.spinR1bein.hide()
-                self.uiEq.spinR2bauch.hide()
-                self.uiEq.spinR2brust.hide()
-                self.uiEq.spinR2larm.hide()
-                self.uiEq.spinR2rarm.hide()
-                self.uiEq.spinR2kopf.hide()
-                self.uiEq.spinR2bein.hide()
-                self.uiEq.spinR3bauch.hide()
-                self.uiEq.spinR3brust.hide()
-                self.uiEq.spinR3larm.hide()
-                self.uiEq.spinR3rarm.hide()
-                self.uiEq.spinR3kopf.hide()
-                self.uiEq.spinR3bein.hide()
-                self.uiEq.spinR1RS.setEnabled(True)
-                self.uiEq.spinR2RS.setEnabled(True)
-                self.uiEq.spinR3RS.setEnabled(True)
-                self.uiEq.labelBein.hide()
-                self.uiEq.labelBauch.hide()
-                self.uiEq.labelBrust.hide()
-                self.uiEq.labelLarm.hide()
-                self.uiEq.labelRarm.hide()
-                self.uiEq.labelKopf.hide()
-                self.uiEq.labelPunkte.hide()
-                self.uiEq.spinR1punkte.hide()
-                self.uiEq.spinR2punkte.hide()
-                self.uiEq.spinR3punkte.hide()
-            self.currentlyLoading = False
+        if self.currentlyLoading:
+            return
+
+        self.currentlyLoading = True
+        if self.uiEq.checkZonen.isChecked():
+            self.uiEq.spinR1bauch.show()
+            self.uiEq.spinR1brust.show()
+            self.uiEq.spinR1larm.show()
+            self.uiEq.spinR1rarm.show()
+            self.uiEq.spinR1kopf.show()
+            self.uiEq.spinR1bein.show()
+            self.uiEq.spinR2bauch.show()
+            self.uiEq.spinR2brust.show()
+            self.uiEq.spinR2larm.show()
+            self.uiEq.spinR2rarm.show()
+            self.uiEq.spinR2kopf.show()
+            self.uiEq.spinR2bein.show()
+            self.uiEq.spinR3bauch.show()
+            self.uiEq.spinR3brust.show()
+            self.uiEq.spinR3larm.show()
+            self.uiEq.spinR3rarm.show()
+            self.uiEq.spinR3kopf.show()
+            self.uiEq.spinR3bein.show()
+            self.uiEq.spinR1RS.setEnabled(False)
+            self.uiEq.spinR2RS.setEnabled(False)
+            self.uiEq.spinR3RS.setEnabled(False)
+            self.uiEq.labelBein.show()
+            self.uiEq.labelBauch.show()
+            self.uiEq.labelBrust.show()
+            self.uiEq.labelLarm.show()
+            self.uiEq.labelRarm.show()
+            self.uiEq.labelKopf.show()
+            self.uiEq.labelPunkte.show()
+            self.uiEq.spinR1punkte.show()
+            self.uiEq.spinR2punkte.show()
+            self.uiEq.spinR3punkte.show()
+        else:
+            self.uiEq.spinR1bauch.hide()
+            self.uiEq.spinR1brust.hide()
+            self.uiEq.spinR1larm.hide()
+            self.uiEq.spinR1rarm.hide()
+            self.uiEq.spinR1kopf.hide()
+            self.uiEq.spinR1bein.hide()
+            self.uiEq.spinR2bauch.hide()
+            self.uiEq.spinR2brust.hide()
+            self.uiEq.spinR2larm.hide()
+            self.uiEq.spinR2rarm.hide()
+            self.uiEq.spinR2kopf.hide()
+            self.uiEq.spinR2bein.hide()
+            self.uiEq.spinR3bauch.hide()
+            self.uiEq.spinR3brust.hide()
+            self.uiEq.spinR3larm.hide()
+            self.uiEq.spinR3rarm.hide()
+            self.uiEq.spinR3kopf.hide()
+            self.uiEq.spinR3bein.hide()
+            self.uiEq.spinR1RS.setEnabled(True)
+            self.uiEq.spinR2RS.setEnabled(True)
+            self.uiEq.spinR3RS.setEnabled(True)
+            self.uiEq.labelBein.hide()
+            self.uiEq.labelBauch.hide()
+            self.uiEq.labelBrust.hide()
+            self.uiEq.labelLarm.hide()
+            self.uiEq.labelRarm.hide()
+            self.uiEq.labelKopf.hide()
+            self.uiEq.labelPunkte.hide()
+            self.uiEq.spinR1punkte.hide()
+            self.uiEq.spinR2punkte.hide()
+            self.uiEq.spinR3punkte.hide()
+        self.currentlyLoading = False

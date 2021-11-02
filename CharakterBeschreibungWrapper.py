@@ -43,15 +43,14 @@ class BeschrWrapper(QtCore.QObject):
         self.uiBeschr.comboStatus.activated.connect(self.update)
         self.uiBeschr.comboHeimat.activated.connect(self.update)
         self.currentGebraeuche = Wolke.Char.heimat
-        if "Gebräuche" in Wolke.Char.fertigkeiten:
-            if (
+        if "Gebräuche" in Wolke.Char.fertigkeiten and (
+            "Gebräuche: " + self.currentGebraeuche
+            not in Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente
+            and "Gebräuche: " + self.currentGebraeuche in Wolke.DB.talente
+        ):
+            Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.append(
                 "Gebräuche: " + self.currentGebraeuche
-                not in Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente
-                and "Gebräuche: " + self.currentGebraeuche in Wolke.DB.talente
-            ):
-                Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.append(
-                    "Gebräuche: " + self.currentGebraeuche
-                )
+            )
 
     def update(self):
         """Transfer current values to Char object"""
@@ -79,24 +78,26 @@ class BeschrWrapper(QtCore.QObject):
             Wolke.Char.finanzen = self.uiBeschr.comboFinanzen.currentIndex()
             changed = True
 
-        if "Gebräuche" in Wolke.Char.fertigkeiten:
-            if self.uiBeschr.comboHeimat.currentText() != self.currentGebraeuche:
-                if (
+        if (
+            "Gebräuche" in Wolke.Char.fertigkeiten
+            and self.uiBeschr.comboHeimat.currentText() != self.currentGebraeuche
+        ):
+            if (
+                "Gebräuche: " + self.currentGebraeuche
+                in Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente
+            ):
+                Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.remove(
                     "Gebräuche: " + self.currentGebraeuche
-                    in Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente
-                ):
-                    Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.remove(
-                        "Gebräuche: " + self.currentGebraeuche
-                    )
-                self.currentGebraeuche = self.uiBeschr.comboHeimat.currentText()
-                if (
+                )
+            self.currentGebraeuche = self.uiBeschr.comboHeimat.currentText()
+            if (
+                "Gebräuche: " + self.currentGebraeuche
+                not in Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente
+            ):
+                Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.append(
                     "Gebräuche: " + self.currentGebraeuche
-                    not in Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente
-                ):
-                    Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.append(
-                        "Gebräuche: " + self.currentGebraeuche
-                    )
-                changed = True
+                )
+            changed = True
 
         if Wolke.Char.heimat != self.uiBeschr.comboHeimat.currentText():
             Wolke.Char.heimat = self.uiBeschr.comboHeimat.currentText()
@@ -134,10 +135,8 @@ class BeschrWrapper(QtCore.QObject):
         self.uiBeschr.comboFinanzen.setCurrentIndex(Wolke.Char.finanzen)
         self.uiBeschr.editKurzbeschreibung.setText(Wolke.Char.kurzbeschreibung)
         arr = ["", "", "", "", "", "", "", ""]
-        count = 0
-        for el in Wolke.Char.eigenheiten:
+        for count, el in enumerate(Wolke.Char.eigenheiten):
             arr[count] = el
-            count += 1
         self.uiBeschr.editEig1.setText(arr[0])
         self.uiBeschr.editEig2.setText(arr[1])
         self.uiBeschr.editEig3.setText(arr[2])
@@ -149,12 +148,12 @@ class BeschrWrapper(QtCore.QObject):
 
         """ Fill and set Heimat """
         self.uiBeschr.comboHeimat.clear()
-        heimatList = []
-        for tal in Wolke.DB.talente:
-            if tal.startswith("Gebräuche: "):
-                heimatList.append(tal[11:])
+        heimatList = [
+            tal[11:] for tal in Wolke.DB.talente if tal.startswith("Gebräuche: ")
+        ]
+
         heimatList.sort()
-        if len(heimatList) == 0:
+        if not heimatList:
             self.uiBeschr.comboHeimat.setToolTip(
                 "Diese Liste wird anhand der Talente befüllt, die mit 'Gebräuche: ' im Namen starten.\nBitte diese Talente in der Regelbasis beibehalten, die Fertigkeit 'Gebräuche' kann jedoch gelöscht werden."
             )

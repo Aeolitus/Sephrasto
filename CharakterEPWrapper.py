@@ -36,10 +36,7 @@ class EPWrapper(QtCore.QObject):
     def load(self):
         """Load all values and derived values"""
         totalVal = 0
-        if Wolke.Char.EPtotal > 0:
-            totalVal = Wolke.Char.EPtotal
-        else:
-            totalVal = Wolke.Char.EPspent
+        totalVal = Wolke.Char.EPtotal if Wolke.Char.EPtotal > 0 else Wolke.Char.EPspent
         if totalVal == 0:
             totalVal = 1
 
