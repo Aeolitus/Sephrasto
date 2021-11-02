@@ -1,0 +1,7 @@
+gegenprobe: ''
+name: Opferung (Paktierer)
+probe: Anrufung +4
+text: Das rituelle Opfer eines intelligenten Wesens erleichtert die Anrufung um +4,
+  ein Geweihter der Gegengottheit verdoppelt den Bonus sogar.
+typ: '6'
+voraussetzungen: Vorteil Tradition der Paktierer III

@@ -1,0 +1,18 @@
+fertigkeiten: Illusion, Verwandlung
+kosten: '20'
+name: Reflectimago Spiegelschein
+printclass: '0'
+text: "Durch eine Illusion (Sicht) kannst du waehrend der Wirkungsdauer bis zu 4 Objekten\
+  \ in deinem Sichtbereich eine verspiegelte Oberflaeche geben, die eine Stunde haelt.\
+  \ Das Objekt kann maximal so gross wie eine Tuer sein.\nMaechtige Magie: Die Zahl\
+  \ der Objekte steigt um 2.\nProbenschwierigkeit: 12\nModifikationen: Handspiegel\
+  \ (\u20134, 1 AsP; ein Teil deines Koerpers wird verspiegelt.)\nSpiegelsaal (\u2013\
+  4; du kannst die Spiegel in der Luft entstehen lassen.)\nOptik-Trick (\u20134; du\
+  \ kannst die Formen und Brennweiten der Spiegel veraendern.)\nVorbereitungszeit:\
+  \ 4 Aktionen\nZiel: selbst\nReichweite: Beruehrung\nWirkungsdauer: 16 Initiativephasen\n\
+  Kosten: 8 AsP\nFertigkeiten: Illusion, Verwandlung\nErlernen: Mag 14; Srl 16; 20\
+  \ EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I
+  ODER Vorteil Tradition der Scharlatane I

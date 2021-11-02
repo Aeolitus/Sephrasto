@@ -1,0 +1,13 @@
+fertigkeiten: Gaben des Odun
+kommentar: '0'
+kosten: '20'
+name: Kusch! (Tiergeist)
+printclass: '0'
+text: "Das verzauberte Tier flieht vor dir.\nProbenschwierigkeit: Magieresistenz\n\
+  Modifikationen: Schrecken des Schwarms (\u20134; du verscheuchst einen Schwarm Kleintiere.)\n\
+  Vorbereitungszeit: 0 Aktionen\nZiel: einzelnes Tier\nReichweite: 8 Schritt\nWirkungsdauer:\
+  \ 1 Stunde\nKosten: 8 AsP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Loewe) ODER Vorteil Tiergeist (Mammut) ODER Vorteil
+  Tiergeist (Wildschwein) ODER Vorteil Tiergeist (Wolf/Khoramsbestie)

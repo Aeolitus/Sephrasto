@@ -1,0 +1,28 @@
+fertigkeiten: Hellsicht
+kosten: '40'
+name: Xenographus Schriftenkunde
+printclass: '0'
+text: 'Du kannst den Sinn eines geschriebenen Satzes verstehen, auch wenn du Schrift
+  und Sprache nicht kennst.
+
+  Maechtige Magie: Verdoppelt die Anzahl der Saetze.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: Einzelobjekt
+
+  Reichweite: 4 Schritt
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 4 AsP
+
+  Fertigkeiten: Hellsicht
+
+  Erlernen: Alch 18; Mag 20; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Gildenmagier I

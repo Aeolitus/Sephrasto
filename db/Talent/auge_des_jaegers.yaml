@@ -1,0 +1,28 @@
+fertigkeiten: Jagd
+kosten: '40'
+name: Auge des Jaegers
+printclass: '27'
+text: 'Du benennst eine Beute. Sinnenschaerfe-, Ueberleben- und andere Proben, um
+  die Beute zu finden sind um +2 erleichtert.
+
+  Maechtige Liturgie: Der Bonus steigt um +1.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 8 Stunden
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Jagd
+
+  Erlernen: Fir 16; Ifi 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition der
+  Ifirngeweihten I

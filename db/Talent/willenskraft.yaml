@@ -1,0 +1,10 @@
+fertigkeiten: Selbstbeherrschung
+kosten: '-1'
+name: Willenskraft
+printclass: '-1'
+text: Willenskraft erlaubt dir, Beeinflussungen und Versuchungen zu widerstehen und
+  dich nicht ablenken zu lassen. Du kannst dich im Chaos eines Gefechts auf einen
+  Zauber konzentrieren oder einem Heiligen Befehl widerstehen.
+variable: '0'
+verbilligt: '0'
+voraussetzungen: ''

@@ -1,0 +1,9 @@
+fertigkeiten: Hiebwaffen
+kosten: '-1'
+name: Einhandhiebwaffen
+printclass: '-1'
+text: Verbessert den Einsatz einhaendig gefuehrter Hiebwaffen wie Keulen, Aexten,
+  Beilen und kleineren Haemmern.
+variable: '0'
+verbilligt: '0'
+voraussetzungen: ''

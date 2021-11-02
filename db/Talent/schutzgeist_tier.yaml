@@ -1,0 +1,38 @@
+fertigkeiten: Eigenschaften, Geister der Staerkung
+kommentar: '1'
+kosten: '40'
+name: Schutzgeist (Tier)
+printclass: '5'
+text: 'Du bittest den Geist eines Tieres, ueber eine Gruppe von bis zu 8 Gefaehrten
+  zu wachen. Sie erhalten einen Bonus von +1 auf alle beim entsprechenden Tier angegebenen
+  Werte, solange sie sich nicht weiter als 1 Meile von dir entfernen. Es kann nur
+  ein Schutzgeist gleichzeitig aktiv sein.
+
+  Maechtige Magie: Verdoppelt die Zahl der Ziele, je zwei Stufen erhoehen den Bonus
+  um +1.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: bis die Bindung geloest wird
+
+  Kosten: 16 AsP, davon 4 gAsP
+
+  Fertigkeiten: Eigenschaften, Geister der Staerkung
+
+  Erlernen: Smn 14; 40 EP
+
+  Anmerkung: Der Zauber muss fuer jedes Tier extra erlernt werden.
+
+  Sephrasto: Trage die gewaehlten Tiere in das Kommentarfeld ein. Wenn du mehrere
+  Tiere waehlst, dann erhoehe die EP-Kosten entsprechend. Die Tiertabelle ist in Sephrasto
+  ausserdem ueber die kostenlosen Tiergeist-Vorteile abgebildet; wenn du diese auswaehlst,
+  erhaeltst du die Werte des Tiergeists im Regelanhang.'
+variable: '1'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

@@ -1,0 +1,15 @@
+gegenprobe: ''
+name: Eigenschaft Illusion (Sinn)
+probe: ''
+text: Der Zauber erzeugt ein Trugbild, das die angegebenen Sinne taeuscht. Die Illusion
+  kann nicht mit stofflicher Materie interagieren. Ein illusorisches Goldstueck kann
+  nicht beruehrt werden, die Illusion einer Wand laesst keine Gegenstaende abprallen
+  und der Hieb eines illusionaeren Schwertes verursacht keinen Schaden. Illusionen
+  wechselwirken aber mit Licht. Sie werfen Schatten und koennen selbst als Lichtquelle
+  dienen. Fast alle Illusionen haben Fehler. Diese Fehler koennen mit einer Konterprobe
+  (Wachsamkeit, 16) entdeckt werden, womit die Illusion durchschaut wird und keine
+  Wirkung mehr hat.
+typ: '4'
+voraussetzungen: Talent Sinesigill Unerkannt ODER Talent Harmlose Gestalt ODER Uebernatuerliche-Fertigkeit
+  'Illusion' -1 ODER Talent Aufmerksamer Waechter ODER Uebernatuerliche-Fertigkeit
+  'Kugelzauber' -1 ODER Talent Zaubersiegel

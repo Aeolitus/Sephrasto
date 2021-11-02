@@ -1,0 +1,31 @@
+fertigkeiten: Froehlicher Wanderer, List, Wissen
+kosten: '40'
+name: Wundersame Verstaendigung
+printclass: '31'
+text: 'Du bist unerfahren in einer beliebigen Sprache.
+
+  Maechtige Liturgie: Je zwei Stufen steigern deine Sprachkenntnis auf erfahren/meisterlich.
+
+  Probenschwierigkeit: 12
+
+  Modifikationen: Hoftag der Sprachen (Zone, Wirkungsdauer 4 Stunden, 16 KaP; die
+  Liturgie wirkt auf alle Ziele in einem Radius von 8 Schritt)
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Froehlicher Wanderer, List, Wissen
+
+  Erlernen: Phe 12; Aves, Nan 14; Hes 16; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
+  Hesindegeweihten I ODER Vorteil Tradition der Nandusgeweihten I ODER Vorteil Tradition
+  der Phexgeweihten I

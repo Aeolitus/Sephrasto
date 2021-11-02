@@ -1,0 +1,15 @@
+fertigkeiten: Eigenschaften, Geister der Staerkung, Verstaendigung
+kosten: '0'
+name: Blutsbund
+printclass: '5'
+text: "Du segnest einen Blutsbund wie etwa eine Hochzeit oder Blutsbruederschaft.\
+  \ Alle Versuche, einen Teilnehmer des Blutsbunds gegen den anderen handeln zu lassen\
+  \ (etwa durch Ueberreden oder einen Imperavi), sind um \u20134 erschwert. Stirbt\
+  \ einer der Partner, so nimmt der andere dies intuitiv wahr. Der Blutsbund selbst\
+  \ fuegt jedem Teilnehmer eine Wunde zu.\nProbenschwierigkeit: 12\nVorbereitungszeit:\
+  \ 1 Stunde\nZiel: zwei Personen\nReichweite: Beruehrung\nWirkungsdauer: permanent\n\
+  Kosten: 16 AsP\nFertigkeiten: Eigenschaften, Geister der Staerkung, Verstaendigung\n\
+  Erlernen: Smn 8; 0 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

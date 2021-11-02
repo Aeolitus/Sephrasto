@@ -1,0 +1,13 @@
+fertigkeiten: Gaben des Odun
+kommentar: '0'
+kosten: '20'
+name: Adlerauge Luchsenohr (Tiergeist)
+printclass: '0'
+text: "Du schaerfst deine Sinne auf magische Weise. Alle Proben auf Sinnenschaerfe\
+  \ und Wachsamkeit sind um +4 erleichtert.\nMaechtige Magie: Der Bonus steigt um\
+  \ +2.\nProbenschwierigkeit: 12\nModifikationen: Einzelsinn (\u20134, Wirkungsdauer\
+  \ 1 Stunde; nur ein Sinn ist betroffen.)\nVorbereitungszeit: 2 Aktionen\nZiel: selbst\n\
+  Reichweite: Beruehrung\nWirkungsdauer: 4 Minuten\nKosten: 8 AsP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Falke) ODER Vorteil Tiergeist (Wolf/Khoramsbestie)

@@ -1,0 +1,30 @@
+fertigkeiten: Hellsicht, Kraft
+kosten: '60'
+name: Oculus Astralis
+printclass: '0'
+text: 'Du wirfst einen Blick in die Welt der Magie. Waehrend nichtmagische Gegenstaende
+  nur schwer zu erkennen sind, erscheint Magie als Ansammlung pulsierender Kraftfaeden
+  (Analysegrad 1 der Intensitaetsanalyse, S. 80). Waehrend der Wirkungsdauer kannst
+  du deine Sinnenschaerfe zur Strukturanalyse (S. 80) verwenden, wodurch du 1 Punkt
+  Erschoepfung erleidest. Ausserdem kannst du dich im Limbus orientieren.
+
+  Maechtige Magie: Der Analysegrad der Intensitaetsanalyse steigt um +1.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 16 Minuten
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Hellsicht, Kraft
+
+  Erlernen: Mag 18; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Gildenmagier I

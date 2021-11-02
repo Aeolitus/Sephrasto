@@ -1,0 +1,28 @@
+fertigkeiten: Gaben des Odun
+kommentar: '0'
+kosten: '40'
+name: Eins mit der Natur (Tiergeist)
+printclass: '0'
+text: 'Das Ziel kann in der Wildnis kann es natuerliche Gefahren wie mit der Gabe
+  Gefahreninstinkt erahnen. Beherrscht es die Gabe bereits, sind damit verbundene
+  Proben um +4 erleichtert. Wirkt nicht unter der Erde, auf dem Meer oder in daemonisch
+  pervertiertem Gebiet.
+
+  Maechtige Magie: Ueberleben-Proben sind um +2 erleichtert.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Tag
+
+  Kosten: 8 AsP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Fischotter) ODER Vorteil Tiergeist (Gebirgsbock)
+  ODER Vorteil Tiergeist (Wildkatze/Panther) ODER Vorteil Tiergeist (Wildschwein)
+  ODER Vorteil Tiergeist (Wolf/Khoramsbestie)

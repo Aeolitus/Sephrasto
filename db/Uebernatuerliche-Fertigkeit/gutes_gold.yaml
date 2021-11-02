@@ -1,0 +1,8 @@
+attribute: CH|IN|MU
+name: Gutes Gold
+printclass: '1'
+steigerungsfaktor: '2'
+text: Die Pragmatiker unter den Korgeweihten stehen Gladiatoren zur Seite oder fuehren
+  Soeldnerbanner an. Sie sorgen fuer vertragsgetreue Bezahlung und die Einhaltung
+  der Soeldnerehre.
+voraussetzungen: Vorteil Tradition der Korgeweihten I

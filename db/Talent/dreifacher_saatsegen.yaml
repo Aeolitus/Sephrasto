@@ -1,0 +1,12 @@
+fertigkeiten: Wachstum
+kosten: '0'
+name: Dreifacher Saatsegen
+printclass: '36'
+text: "Das gesegnete Feld ist vor Ernteschaeden durch schlechte Witterung geschuetzt.\
+  \ Jeder Versuch, die Ernte magisch zu zerstoeren, ist um \u20134 erschwert.\nMaechtige\
+  \ Liturgie: Der Malus steigt um \u20132.\nProbenschwierigkeit: 12\nVorbereitungszeit:\
+  \ 1 Stunde\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer: 1 Monat\nKosten:\
+  \ 4 KaP\nFertigkeiten: Wachstum\nErlernen: Per 8; 0 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Perainegeweihten I

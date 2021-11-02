@@ -1,0 +1,9 @@
+attribute: IN|FF|MU
+name: Heiliges Feuer
+printclass: '1'
+steigerungsfaktor: '3'
+text: Nordaventurische Feueranbeter und zwergische Hueter der Wacht nutzen die lebensspendende
+  und erstoererische Kraft des Feuers, um gegen eisige Kaelte oder unheiliges Drachenfeuer
+  zu bestehen.
+voraussetzungen: Vorteil Tradition der Angroschgeweihten I ODER Vorteil Tradition
+  der Ingerimmgeweihten I

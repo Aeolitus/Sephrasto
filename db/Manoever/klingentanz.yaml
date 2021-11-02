@@ -1,0 +1,12 @@
+gegenprobe: ''
+name: Klingentanz
+probe: AT -4
+text: 'Wenn der Angriff gelingt, darfst du sofort noch einmal angreifen. Dieser Folgeangriff
+  ist nicht erschwert.
+
+  Besonderheit: Bei einer Kombination von Klingentanz und Befreiungsschlag muss jedes
+  Ziel getroffen werden, damit der Klingentanz gelingt.
+
+  Voraussetzung: Kein Klingentanz seit letztem Beginn einer eigenen Initiativephase'
+typ: '0'
+voraussetzungen: Vorteil Klingentanz

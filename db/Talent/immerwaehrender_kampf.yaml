@@ -1,0 +1,30 @@
+fertigkeiten: Guter Kampf
+kosten: '80'
+name: Immerwaehrender Kampf
+printclass: '54'
+text: 'Die Lebenskraft deiner Feinde staerkt dich. Wenn du seit dem Beginn deiner
+  letzten Initiativephase einen mindestens normal grossen Gegner besiegt hast, regenerierst
+  du eine Wunde, bei grossen oder sehr grossen Gegnern sogar zwei Wunden.
+
+  Maechtige Liturgie: Du kannst den Gegner seit der vor-/dritt-/viert-/fuenftletzten
+  Initiativephase besiegt haben. Allerdings kannst du die Liturgie pro besiegtem Gegner
+  nur einmal nutzen.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 4 KaP
+
+  Fertigkeiten: Guter Kampf
+
+  Erlernen: Kor 16; 80 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Korgeweihten I

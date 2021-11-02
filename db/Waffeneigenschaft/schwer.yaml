@@ -1,0 +1,4 @@
+name: Schwer
+script: 'if getKK() < int(getEigenschaftParam(1)): modifyWaffeAT(-2); modifyWaffeVT(-2)'
+text: Du brauchst mindestens die angegebene Koerperkraft, um die Waffe ohne Einschraenkungen
+  fuehren zu koennen. Darunter erleidest du einen Malus von -2.

@@ -1,0 +1,28 @@
+fertigkeiten: Eigenschaften, Trommelrituale
+kosten: '60'
+name: Rhythmen des Krieges
+printclass: '16'
+text: 'Die aufpeitschenden Rhythmen staerken den Kampfesmut der Zuhoerer. Alle Zuhoerer
+  in einem Radius von 4 Schritt erhalten eine Erleichterung +1 auf alle Nahkampffertigkeiten,
+  Zaehigkeit und KK.
+
+  Maechtige Magie: Je zwei Stufen erhoehen den Bonus um +1.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Tag
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Eigenschaften, Trommelrituale
+
+  Erlernen: Der 14; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Derwische I

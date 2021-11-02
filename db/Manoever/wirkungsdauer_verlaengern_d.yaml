@@ -1,0 +1,6 @@
+gegenprobe: ''
+name: Wirkungsdauer verlaengern (D)
+probe: Anrufung -4
+text: Die Wirkungsdauer der Anrufung verdoppelt sich.
+typ: '6'
+voraussetzungen: Vorteil Paktierer I

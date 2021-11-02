@@ -1,0 +1,25 @@
+fertigkeiten: Gaben des Blutgeists
+kommentar: '0'
+kosten: '0'
+name: Sanftmut (Blutgeist)
+printclass: '0'
+text: 'Das verzauberte Tier verliert seine Angriffslust, solange es nicht angegriffen
+  oder gereizt wird.
+
+  Maechtige Magie: Die Lethargie haelt sogar dann, wenn das Tier gereizt/leicht verletzt/schwer
+  verletzt wird.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: Tier
+
+  Reichweite: 8 Schritt
+
+  Wirkungsdauer: 4 Minuten
+
+  Kosten: 8 AsP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Baer)

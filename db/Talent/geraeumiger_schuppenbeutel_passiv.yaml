@@ -1,0 +1,10 @@
+fertigkeiten: Kristallmagie
+kosten: '20'
+name: Geraeumiger Schuppenbeutel (passiv)
+printclass: '11'
+text: "Pro 4 volle Punkte PW Kristallmagie steigt das Volumen des Schuppenbeutels\
+  \ um 2\_Liter. Von aussen betrachtet bleibt die Groesse des Beutels jedoch gleich.\n\
+  Erlernen: Ach 18; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Kristallomanten I

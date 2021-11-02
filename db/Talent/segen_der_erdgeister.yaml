@@ -1,0 +1,36 @@
+fertigkeiten: Humus, Geister der Staerkung, Verwandlung
+kosten: '60'
+name: Segen der Erdgeister
+printclass: '5'
+text: 'Du leitest das Wachstum einer Pflanze, kannst es beschleunigen und formen.
+  Die Kosten, Zauberdauer und Modifikationen Maechtige Magie sind Meisterentscheid.
+  Beispiele:
+
+  4 AsP, keine Maechtige Magie, 1 Minute: Aus einem Samen waechst eine kleine Heilpflanze.
+
+  8 AsP, 1x Maechtige Magie, eine halbe Stunde: Ein Baum traegt drei Monate zu frueh
+  Fruechte.
+
+  4 AsP, 2x Maechtige Magie, 4 Minuten: Die Rinde eines Baumes zeigt eine Botschaft;
+
+  128 AsP, 4x Maechtige Magie, 4 Tage: Eine Baumkrone wird zu einem Baumhaus mit Moebeln,
+  Dach und Fenstern
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: nach Projekt
+
+  Ziel: Pflanze
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: nach Projekt
+
+  Fertigkeiten: Humus, Geister der Staerkung, Verwandlung
+
+  Erlernen: Smn 16; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

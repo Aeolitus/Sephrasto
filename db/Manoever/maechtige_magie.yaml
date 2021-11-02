@@ -1,0 +1,7 @@
+gegenprobe: ''
+name: Maechtige Magie
+probe: Zauber -4
+text: Verstaerkt die Wirkung des Zaubers (siehe Zauber). Zusaetzlich steigt die Schwierigkeit
+  von Konterproben (S. 124) gegen den Zauber um +4 Punkte.
+typ: '2'
+voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I

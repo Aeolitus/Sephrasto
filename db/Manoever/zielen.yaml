@@ -1,0 +1,6 @@
+gegenprobe: ''
+name: Zielen
+probe: FK +2
+text: Erhoeht die Vorbereitungszeit um 1 Aktion.
+typ: '1'
+voraussetzungen: ''

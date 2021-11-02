@@ -1,0 +1,15 @@
+fertigkeiten: Illusion, Umwelt
+kosten: '20'
+name: Lockruf und Feenfuesse
+printclass: '0'
+text: "Einem kleinen, maximal 1 Stein schweren Objekt wachsen Feenfuesse und es laeuft\
+  \ zu dir. Die Feenfuesse sind eine Illusion (Sicht).\nMaechtige Magie: Verdoppelt\
+  \ das Gewicht.\nProbenschwierigkeit: 12\nModifikationen: Da lang! (\u20134; du kannst\
+  \ ein anderes Ziel als dich selbst angeben.)\nErbsenparade (\u20134; der Zauber\
+  \ betrifft eine Gruppe von Gegenstaenden, die zusammen nicht mehr wiegen als das\
+  \ Maximalgewicht.)\nFeenfluegel (\u20138; das Objekt fliegt zu dir.)\nVorbereitungszeit:\
+  \ 0 Aktionen\nZiel: Einzelobjekt\nReichweite: 8 Schritt\nWirkungsdauer: augenblicklich\n\
+  Kosten: 4 AsP\nFertigkeiten: Illusion, Umwelt\nErlernen: Sch 12; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Schelme I

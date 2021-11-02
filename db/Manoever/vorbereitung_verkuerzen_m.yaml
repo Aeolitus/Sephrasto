@@ -1,0 +1,8 @@
+gegenprobe: ''
+name: Vorbereitung verkuerzen (M)
+probe: Zauber -4
+text: Die Vorbereitungszeit des Zaubers halbiert sich. Eine Vorbereitungszeit von
+  1 Aktion wird zu 0 Aktionen. Die Aktion Konflikt ist von dieser Modifikation nicht
+  betroffen.
+typ: '2'
+voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I

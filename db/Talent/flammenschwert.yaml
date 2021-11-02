@@ -1,0 +1,33 @@
+fertigkeiten: Feuer, Stabzauber, Verwandlung, Umwelt
+kosten: '40'
+name: Flammenschwert
+printclass: '15'
+text: 'Dein Stab verwandelt sich in eine feurige Klinge. Die Kampfwerte entsprechen
+  einem gewoehnlichen Schwert, aber es verursacht Feuerschaden und Nachbrennen (S.
+  98). Der Zauber endet vorzeitig, wenn du den Stab nicht mehr beruehrst.
+
+  Maechtige Magie: Erhoeht die TP um +2.
+
+  Probenschwierigkeit: 12
+
+  Modifikationen: Schwebendes Schwert (16 Schritt, 16 AsP; du kannst das Schwert mit
+  4 Schritt pro Initiativephase fernsteuern. Der Angriffswert entspricht dem PW der
+  benutzten Fertigkeit. Das Schwert kann nur Aktionen Konflikt und nur Basismanoever
+  ausfuehren. Du musst das Schwert nicht beruehren, aber der Zauber benoetigt Konzentration.)
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: Zauberstab
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Feuer, Stabzauber, Verwandlung, Umwelt (schwebendes Schwert)
+
+  Erlernen: Mag 16; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Gildenmagier I

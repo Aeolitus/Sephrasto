@@ -1,0 +1,29 @@
+fertigkeiten: Guter Kampf
+kosten: '40'
+name: Das schwarze Fell durch das rote Blut
+printclass: '54'
+text: 'Dein vergossenes Blut legt sich wie eine schuetzende Haut um deinen Koerper.
+  Dein RS steigt um 1 und fuer je zwei insgesamt erlittene Wunden steigt der RS um
+  einen weiteren Punkt.
+
+  Maechtige Liturgie: Je zwei Stufen erhoehen den RS um +1. Dieser Bonus ist unabhaengig
+  von den erlittenen Wunden.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Guter Kampf
+
+  Erlernen: Kor 14; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Korgeweihten I

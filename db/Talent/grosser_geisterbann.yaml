@@ -1,0 +1,17 @@
+fertigkeiten: Antimagie, Geister vertreiben
+kosten: '80'
+name: Grosser Geisterbann
+printclass: '8'
+text: "Hiermit bannst du beschworene Wesenheiten, in die keine gAsP geflossen sind\
+  \ (wie nicht gebundene Elementare und Daemonen).\nProbenschwierigkeit: Beschwoerungsschwierigkeit\
+  \ des zu bannenden Wesens\nModifikationen: Geisterkerker (+4; das Wesen wird nicht\
+  \ verbannt, sondern permanent in ein Gefaess gesperrt. Wird das Gefaess geoeffnet\
+  \ oder zerstoert, ist das Wesen frei und meist sehr wuetend auf den Schamanen und/oder\
+  \ den Befreier.)\nGebundene Geister (Entspricht dem allgemeinen Zauber Destructibo\
+  \ (S.\_126))\nGeister vertreiben (Entspricht dem allgemeinen Zauber Geister austreiben\
+  \ (S.\_127))\nVorbereitungszeit: 8 Aktionen\nZiel: Beschworenes Wesen\nReichweite:\
+  \ 4 Schritt\nWirkungsdauer: augenblicklich\nKosten: halbe Basiskosten der Beschwoerung\n\
+  Fertigkeiten: Antimagie, Geister vertreiben\nErlernen: Smn 16; 80 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

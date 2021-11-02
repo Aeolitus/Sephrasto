@@ -1,0 +1,9 @@
+kommentar: '0'
+kosten: '60'
+nachkauf: haeufig
+name: Gegenhalten
+text: Wenn du eine Attacke abwehrst, die mit einem Manoever verstaerkt wurde, darfst
+  du sofort einen Passierschlag gegen den Angreifer ausfuehren.
+typ: '2'
+variable: '0'
+voraussetzungen: Attribut MU 8

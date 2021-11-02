@@ -1,0 +1,16 @@
+gegenprobe: ''
+name: Hexenflueche
+probe: ''
+text: Als Hexe hast du zwei Moeglichkeiten, deine Flueche zu ueberbringen. Entweder
+  du schleuderst sie direkt lautstark auf das Opfer, wodurch du haeufig vom Bonus
+  der Hexischen Tradition II profitieren kannst, oder du laesst den Fluch unauffaellig
+  von deinem Vertrauten ueberbringen. Dafuer benoetigst du allerdings ein Koerperteil
+  (z.B. Haar) deines Opfers. In beiden Faellen legst du danach die Probe auf eine
+  passende uebernatuerliche Fertigkeit ab. Jeder Hexenfluch kann auch permanent gesprochen
+  werden. Dann halten ein Viertel der AsP als gAsP den Fluch aufrecht. Neben Antimagie
+  oder goettlichem Wirken kann ein permanenter Fluch immer auch durch das Erfuellen
+  einer Bedingung beendet werden. Diese Bedingung muss realistisch erfuellbar sein
+  und du musst sie dem Verfluchten mitteilen (direkter Fluch) oder er erfaehrt sie
+  in seinen Traeumen (ueberbrachter Fluch).
+typ: '4'
+voraussetzungen: Uebernatuerliche-Fertigkeit 'Hexenflueche' -1

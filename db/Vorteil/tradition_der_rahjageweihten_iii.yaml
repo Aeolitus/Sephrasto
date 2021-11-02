@@ -1,0 +1,13 @@
+csBeschreibung: Erlaubt die spontane Modifikation Opferung.
+kommentar: '0'
+kosten: '60'
+linkElement: Tradition der Rahjageweihten II
+linkKategorie: '3'
+nachkauf: haeufig
+name: Tradition der Rahjageweihten III
+text: 'Erlaubt die spontane Modifikation Opferung (Liturgie +4): Ein rituelles Opfer
+  erleichtert die Liturgie um +4. Der Opfergegenstand wird dabei verbraucht, zerstoert
+  oder verschwindet. Rahjgeweihte opfern den heiligen Wein Tharf.'
+typ: '7'
+variable: '0'
+voraussetzungen: Attribut CH 8, Vorteil Tradition der Rahjageweihten II

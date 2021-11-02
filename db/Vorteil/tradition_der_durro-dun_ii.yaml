@@ -1,0 +1,12 @@
+kommentar: '0'
+kosten: '40'
+linkElement: Tradition der Durro-dun I
+linkKategorie: '3'
+nachkauf: haeufig
+name: Tradition der Durro-dun II
+text: "Erfahrene Durro-d\xFBn rufen die Tiergeister scheinbar muehelos in ihren Koerper.\
+  \ Die Kosten aller Zauber, die du auf dich selbst wirkst, sinken um ein Viertel\
+  \ der Basiskosten."
+typ: '5'
+variable: '0'
+voraussetzungen: Attribut MU 6, Vorteil Tradition der Durro-dun I

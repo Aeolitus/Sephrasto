@@ -1,0 +1,35 @@
+fertigkeiten: Verwandlung, Gaben des Odun
+kosten: '40'
+name: Seele des (Tieres)
+printclass: '4'
+text: 'Du verwandelst dich in das Tier, wobei du deine geistigen Faehigkeiten behaeltst.
+  Die koerperlichen Faehigkeiten entsprechen denen des Tiers. Du kannst in Tiergestalt
+  nicht zaubern. Erlaubt Aufrechterhalten.
+
+  Maechtige Magie: Das Tier ist ein ueberdurchschnittlicher/aussergewoehnlicher/herausragender/einzigartiger
+  Vertreter seiner Art, was die Werte des Tieres nach Spielleiterentscheid erhoeht.
+
+  Probenschwierigkeit: 12
+
+  Modifikationen: Tierseele (Wirkungsdauer 1 Tag; Die Instinkte des Tieres koennen
+  ueberhand nehmen.)
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Verwandlung, Gaben des Odun
+
+  Erlernen: Dur 16; normalerweise 40 EP
+
+  Anmerkung: Die Lernkosten des Zaubers orientieren sich an der Tierart, wobei fliegende,
+  giftige, sehr starke usw. Tiere teurer sind.'
+variable: '1'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Durro-dun I

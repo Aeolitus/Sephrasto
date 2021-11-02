@@ -1,0 +1,28 @@
+fertigkeiten: Heilung, Heim und Herd
+kosten: '20'
+name: Lohn der Unverzagten
+printclass: '35'
+text: 'Du staerkst die Widerstandskraft des Gesegneten. Proben zur Abwehr von Krankheiten
+  sind um +4 erleichtert.
+
+  Maechtige Liturgie: Der Bonus steigt um +2.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Woche
+
+  Kosten: 4 KaP
+
+  Fertigkeiten: Heilung, Heim und Herd
+
+  Erlernen: Per 12; Tra 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Perainegeweihten I ODER Vorteil Tradition der
+  Traviageweihten I

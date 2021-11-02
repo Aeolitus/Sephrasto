@@ -1,0 +1,9 @@
+kommentar: '0'
+kosten: '20'
+nachkauf: haeufig
+name: Routiniert I
+text: Die Basiszeit zur Herstellung handwerklicher Produkte, zur Wundversorgung und
+  zum Schloesser knacken verkuerzt sich um ein Viertel des unmodifizierten Werts.
+typ: '1'
+variable: '0'
+voraussetzungen: Attribut FF 4

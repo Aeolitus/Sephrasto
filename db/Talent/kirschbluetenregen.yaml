@@ -1,0 +1,12 @@
+fertigkeiten: Friede
+kosten: '40'
+name: Kirschbluetenregen
+printclass: '50'
+text: "Kirschblueten regnen aus dem Himmel herab. Nah- und Fernkampfangriffe auf dich\
+  \ sind um \u20134 erschwert, solange du selbst nicht angreifst.\nMaechtige Liturgie:\
+  \ Der Malus steigt um \u20131.\nProbenschwierigkeit: 12\nVorbereitungszeit: 2 Aktionen\n\
+  Ziel: selbst\nReichweite: Beruehrung\nWirkungsdauer: 4 Minuten\nKosten: 8 KaP\n\
+  Fertigkeiten: Friede\nErlernen: Tsa 14; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Tsageweihten I

@@ -1,0 +1,29 @@
+fertigkeiten: Humus, Zaubermelodien
+kosten: '40'
+name: Lied der Heilung
+printclass: '18'
+text: 'Das Lied staerkt die Lebenskraft der Verwundeten. Der am schwersten verletze
+  Zuhoerer in 4 Schritt Radius regeneriert in der naechsten Ruhephase zwei zusaetzliche
+  Wunden. Bei Gleichstand entscheidet der Spieler.
+
+  Maechtige Magie: Mit zwei/vier Stufen erstreckt sich die Wirkung auch auf den am
+  zweit-/drittstaerksten Verletzten.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Humus, Zaubermelodien
+
+  Erlernen: Bard 14; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Zauberbarden I

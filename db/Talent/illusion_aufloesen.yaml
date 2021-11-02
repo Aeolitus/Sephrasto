@@ -1,0 +1,15 @@
+fertigkeiten: Antimagie, Illusion
+kosten: '20'
+name: Illusion aufloesen
+printclass: '0'
+text: 'Wirkt gegen Zauber der Fertigkeit Illusion, spezielle Antimagie-Modifikationen
+  siehe S. 126.
+
+  Fertigkeiten: Antimagie, Illusion
+
+  Erlernen: Mag, Srl 14; Hex, Sch 18; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I
+  ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Scharlatane I ODER
+  Vorteil Tradition der Schelme I

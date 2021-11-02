@@ -1,0 +1,27 @@
+fertigkeiten: Winter
+kosten: '20'
+name: Winterschlaf
+printclass: '29'
+text: 'Das gesegnete Ziel faellt in einen tiefen Winterschlaf, in dem sie weder Nahrung
+  noch Atemluft benoetigt und jeglichen Schaden durch natuerliche Hitze oder Kaelte
+  ignoriert. Die Effekte von Giften und Krankheiten werden gestoppt, allerdings regeneriert
+  sie auch nur einmal pro Woche. Die Gesegnete erwacht, wenn sie eine Wunde erleidet.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Monat
+
+  Kosten: 16 KaP
+
+  Fertigkeiten: Winter
+
+  Erlernen: Fir 14; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Firungeweihten I

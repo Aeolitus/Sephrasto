@@ -1,0 +1,25 @@
+fertigkeiten: Gaben des Blutgeists
+kommentar: '0'
+kosten: '0'
+name: Hilfreiche Tatze, rettende Schwinge (Blutgeist)
+printclass: '0'
+text: 'Du waehlst eine Tierart. Befindet sich ein Tier dieser Art in einem Radius
+  von 1 Meile, eilt es herbei. Du kannst das Tier um einen Gefallen bitten, den dieses
+  wenn moeglich erfuellen wird. Dann trollt sich das Tier.
+
+  Maechtige Magie: Verdoppelt den Radius.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 AsP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Fischotter)

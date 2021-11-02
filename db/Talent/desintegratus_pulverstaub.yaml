@@ -1,0 +1,19 @@
+fertigkeiten: Verwandlung
+kosten: '40'
+name: Desintegratus Pulverstaub
+printclass: '0'
+text: "Von deiner Hand geht 8 Schritt weit eine kegelfoermige (15\xB0) Welle astraler\
+  \ Kraft aus, die Gegenstaende beschaedigt. Der Kegel ist am Ende 2 Schritt breit.\
+  \ Der Schaden reicht aus, um alle Gegenstaende bis zur Stabilitaet einer stabilen\
+  \ Holztuer zu zerstoeren. Lebewesen, magische und geweihte Gegenstaende sind gegen\
+  \ den Zauber immun und schuetzen andere Gegenstaende hinter ihnen.\nMaechtige Magie:\
+  \ Gegenstaende bis zu einer Metallwaffe/Ruestung/dicke Stahlstangen/Hauswand werden\
+  \ zerstoert.\nProbenschwierigkeit: 12\nModifikationen: Hand der Vernichtung (\u2013\
+  4, Einzelobjekt, 4 AsP; nur ein maximal apfelgrosser Gegenstand ist betroffen.)\n\
+  Vorbereitungszeit: 2 Aktionen\nZiel: Zone\nReichweite: 8 Schritt\nWirkungsdauer:\
+  \ augenblicklich\nKosten: 16 AsP\nFertigkeiten: Verwandlung\nErlernen: Mag 18; Alch\
+  \ 20; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Gildenmagier I

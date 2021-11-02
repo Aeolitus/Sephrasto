@@ -1,0 +1,25 @@
+fertigkeiten: Schutz der Glaeubigen
+kosten: '20'
+name: Wundersames Teilen des Martyriums
+printclass: '47'
+text: 'Jede zweite Wunde, die dein Ziel erleidet, wird auf dich uebertragen (beginnend
+  mit der ersten).
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: 16 Schritt
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Schutz der Glaeubigen
+
+  Erlernen: Ron 14; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Rondrageweihten I

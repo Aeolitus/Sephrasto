@@ -1,0 +1,10 @@
+gegenprobe: ''
+name: Unterlaufen
+probe: VT -4
+text: 'Wenn die Verteidigung gelingt, darfst du in der naechsten eigenen Initiativephase
+  eine Freie Aktion nutzen, um deinen Gegner (ein weiteres Mal) anzugreifen.
+
+  Voraussetzungen: Kampf im Schnellen Stil; kein Unterlaufen seit letztem Beginn einer
+  eigenen Initiativephase'
+typ: '0'
+voraussetzungen: Vorteil Schneller Kampf III

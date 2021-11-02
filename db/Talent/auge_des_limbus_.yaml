@@ -1,0 +1,17 @@
+fertigkeiten: Kraft
+kosten: '60'
+name: 'Auge des Limbus '
+printclass: '0'
+text: "Du reisst eine Oeffnung in die Barriere zwischen der Welt und dem Limbus. Ein\
+  \ Sog entsteht, in dessen Umgebung alle Wesen jede Initiativephase eine Konterprobe\
+  \ (KK, 16) ablegen, die um die Distanz zur Oeffnung in Schritt erleichtert ist.\
+  \ Beim Misslingen wird es 1W6 Schritt in Richtung der Oeffnung gezerrt. Wird ein\
+  \ Ziel durch die Oeffnung gerissen, erleidet es 4W6 SP und findet sich im Limbus\
+  \ wieder.\nProbenschwierigkeit: 12\nModifikationen: Tor in die Niederhoellen (\u2013\
+  16; der Strudel fuehrt direkt in die siebte Sphaere.)\nVorbereitungszeit: 8 Aktionen\n\
+  Ziel: Zone\nReichweite: 16 Schritt\nWirkungsdauer: 8 Initiativphasen\nKosten: 32\
+  \ AsP\nFertigkeiten: Kraft\nErlernen: Ach, Bor, Mag 20; 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der
+  Gildenmagier I ODER Vorteil Tradition der Kristallomanten I

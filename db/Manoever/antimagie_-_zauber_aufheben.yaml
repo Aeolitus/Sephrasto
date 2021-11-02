@@ -1,0 +1,20 @@
+gegenprobe: ''
+name: Antimagie - Zauber aufheben
+probe: Antimagie-Zauber
+text: 'Hiermit hebst du einen bereits gewirkten Zauber auf, in den keine gAsP geflossen
+  sind. Zauber aufheben gilt als Konterprobe (12), bei deren Gelingen der Zielzauber
+  sofort aufgehoben wird.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: Zauber
+
+  Reichweite: 8 Schritt
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: halbe Basiskosten des Zaubers'
+typ: '4'
+voraussetzungen: Uebernatuerliche-Fertigkeit 'Antimagie' -1

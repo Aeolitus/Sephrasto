@@ -1,0 +1,11 @@
+gegenprobe: ''
+name: Freie Reaktion
+probe: ''
+text: "Manchmal moechtest du vor einem Lichtblitz die Augen schliessen, einem Zauber\
+  \ deine Magieresistenz entgegenstellen oder dich fallen lassen \u2013 solche Handlungen\
+  \ koennen \u201Enebenbei\u201C ausgefuehrt werden und gelten als Freie Reaktionen.\
+  \ Freie Reaktionen koennen beliebig oft durchgefuehrt werden; sie sind niemals durch\
+  \ vorherige Reaktionen erschwert (wenn sie eine Probe erfordern) und erschweren\
+  \ auch keine Folgereaktionen."
+typ: '5'
+voraussetzungen: ''

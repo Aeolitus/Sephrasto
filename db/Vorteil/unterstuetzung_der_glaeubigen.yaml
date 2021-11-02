@@ -1,0 +1,11 @@
+kommentar: '0'
+kosten: '40'
+linkElement: Mirakel [Fertigkeit oder Attribut]
+linkKategorie: '1'
+nachkauf: haeufig
+name: Unterstuetzung der Glaeubigen
+text: Mirakel koennen auch auf andere Glaeubige gewirkt werden. Die Wirkung solcher
+  Mirakel ist halbiert.
+typ: '6'
+variable: '0'
+voraussetzungen: Attribut CH 6, Vorteil Geweiht I

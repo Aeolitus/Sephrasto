@@ -1,0 +1,29 @@
+fertigkeiten: Sichere Heimkehr
+kosten: '20'
+name: Gespuer des Heimsteins
+printclass: '49'
+text: 'Du erspuerst die Richtung, in der sich ein von dir geweihter Heimstein befindet
+  (siehe S. 199). Eine Ueberleben-Probe zur Orientierung ist um +4 erleichtert. Der
+  Bonus erhoeht sich auf +8, wenn sich ein Heimstein innerhalb eines Radius von 8
+  Meilen befindet.
+
+  Maechtige Liturgie: Verdoppelt den Radius fuer den hoeheren Bonus.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: dereweit
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 4 KaP
+
+  Fertigkeiten: Sichere Heimkehr
+
+  Erlernen: Tra 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Traviageweihten I

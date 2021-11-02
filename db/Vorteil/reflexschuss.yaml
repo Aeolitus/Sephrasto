@@ -1,0 +1,10 @@
+kommentar: '0'
+kosten: '40'
+linkElement: Allgemeine Fernkampfregeln
+linkKategorie: '1'
+nachkauf: haeufig
+name: Reflexschuss
+text: Im Fernkampf sinken Abzuege durch Bewegung oder Wind um 1 Stufe.
+typ: '2'
+variable: '0'
+voraussetzungen: Attribut FF 6

@@ -1,0 +1,13 @@
+csBeschreibung: Erlaubt die spontane Modifikation Opferung.
+kommentar: '0'
+kosten: '60'
+linkElement: Tradition der Swafnirgeweihten II
+linkKategorie: '3'
+nachkauf: haeufig
+name: Tradition der Swafnirgeweihten III
+text: 'Erlaubt die spontane Modifikation Opferung (Liturgie +4): Ein rituelles Opfer
+  erleichtert die Liturgie um +4. Der Opfergegenstand wird dabei verbraucht, zerstoert
+  oder verschwindet. Swafnirgeweihte opfern ihr Blut (verursacht 1 Wunde).'
+typ: '7'
+variable: '0'
+voraussetzungen: Attribut MU 8, Vorteil Tradition der Swafnirgeweihten II

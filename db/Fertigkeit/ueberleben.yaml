@@ -1,0 +1,13 @@
+attribute: FF|GE|KO
+kampffertigkeit: '0'
+name: Ueberleben
+printclass: '5'
+steigerungsfaktor: '3'
+text: 'Hierunter fallen alle Faehigkeiten, die zum Ueberleben in der Wildnis erforderlich
+  sind. Du kannst dich orientieren oder einen Lagerplatz, Nahrung und Wasser finden.
+  Ausserdem bist du mit typischen Gefahren der Wildnis vertraut und kannst tierische
+  und menschliche Faehrten deuten und ihnen folgen.
+
+  Dieses Wissen ist rein praktisch; exotische Tiere, Monster oder seltene Heilpflanzen
+  fallen nicht in diesen Bereich.'
+voraussetzungen: ''

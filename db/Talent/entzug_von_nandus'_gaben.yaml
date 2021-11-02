@@ -1,0 +1,13 @@
+fertigkeiten: List, Wissen
+kosten: '20'
+name: Entzug von Nandus' Gaben
+printclass: '31'
+text: "Du strafst dein Ziel mit Dummheit. Alle Proben auf KL und IN sind um \u2013\
+  4 erschwert, Proben auf Fertigkeiten mit KL oder IN um \u20132.\nMaechtige Liturgie:\
+  \ Der Malus steigt um \u20132/\u20131.\nProbenschwierigkeit: 12\nVorbereitungszeit:\
+  \ 8 Aktionen\nZiel: Einzelperson\nReichweite: 8 Schritt\nWirkungsdauer: 8 Stunden\n\
+  Kosten: 4 KaP\nFertigkeiten: List, Wissen\nErlernen: Hes, Nan 12; Phe 16; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der
+  Nandusgeweihten I ODER Vorteil Tradition der Phexgeweihten I

@@ -1,0 +1,41 @@
+fertigkeiten: Eis, Erz, Feuer, Humus, Luft, Wasser
+kosten: '40'
+name: Zorn der Elemente
+printclass: '0'
+text: 'Du schleuderst eine Handvoll des Elements, mit dem du den Zauber wirkst, auf
+  deinen Gegner. Die Menge vervielfacht sich im Flug und richtet 2W6 TP an. Ballistischer
+  Zauber.
+
+  Fertigkeit Eis: Erfrieren (S. 98)
+
+  Fertigkeit Erz: Niederschmettern (S. 98)
+
+  Fertigkeit Feuer: Nachbrennen (S. 98)
+
+  Fertigkeit Humus: Fesseln (S. 98)
+
+  Fertigkeit Luft: Zurueckstossen (S. 98)
+
+  Fertigkeit Wasser: Ertraenken (S. 98)
+
+  Maechtige Magie: Erhoeht die TP um +4.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: Einzelwesen
+
+  Reichweite: 16 Schritt
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Eis, Erz, Feuer, Humus, Luft, Wasser
+
+  Erlernen: Geo, Dru, Ach 12; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Geoden I ODER Vorteil Tradition der Kristallomanten I

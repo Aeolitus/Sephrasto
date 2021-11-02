@@ -1,0 +1,33 @@
+fertigkeiten: Luft, Ringrituale, Umwelt, Wasser
+kosten: '40'
+name: Macht ueber den Regen
+printclass: '13'
+text: 'Das Wetter in einer Zone von bis zu 1 Meile Radius veraendert sich nach deinem
+  Willen. Du kannst folgende Skalen um insgesamt zwei Stufen veraendern:
+
+  Niederschlag: trocken/Nieselregen/Regen/starker Regen/Wolkenbruch
+
+  Wind: windstill/leichte Brise/steife Brise/Sturm/Orkan
+
+  Temperatur: heiss/warm/mittel/kuehl/kalt.
+
+  Maechtige Magie: Du kannst die Skalen um eine weitere Stufe veraendern.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: Zone
+
+  Reichweite: 1 Meile
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 32 AsP
+
+  Fertigkeiten: Luft, Ringrituale, Umwelt, Wasser
+
+  Erlernen: Geo 14; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Geoden I

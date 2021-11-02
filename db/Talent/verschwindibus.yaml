@@ -1,0 +1,15 @@
+fertigkeiten: Kraft, Umwelt
+kosten: '20'
+name: Verschwindibus
+printclass: '0'
+text: "Dein bis zu 2 Stein schweres Ziel verschwindet fuer die Wirkungsdauer im naeheren\
+  \ Limbus. Der Gegenstand darf nicht magisch, geweiht, befestigt oder mit einem Lebewesen\
+  \ in Kontakt sein.\nMaechtige Magie: Verdoppelt das maximale Gewicht.\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Einmischen (\u20138; auch magische und geweihte Gegenstaende\
+  \ koennen gewaehlt werden.)\nVorbereitungszeit: 0 Aktionen\nZiel: Einzelobjekt\n\
+  Reichweite: 16 Schritt\nWirkungsdauer: 4 Minuten\nKosten: 8 AsP\nFertigkeiten: Kraft,\
+  \ Umwelt\nErlernen: Sch 8; Srl 16; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Scharlatane I ODER
+  Vorteil Tradition der Schelme I

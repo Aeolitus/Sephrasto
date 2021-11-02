@@ -1,0 +1,20 @@
+fertigkeiten: Luft, Umwelt
+kosten: '40'
+name: Windhose
+printclass: '0'
+text: "Du erzeugst einen Wirbelsturm, den du mit einer Geschwindigkeit von 4 Schritt\
+  \ pro Initiativephase bewegen kannst. Der Wirbelsturm hat einen Radius von 2 Schritt.\
+  \ Wer immer ihn beruehrt, erleidet pro Initiativephase 1W6 TP durch umherfliegende\
+  \ Kleinteile und muss eine Konterprobe (KK, 16) ablegen, um nicht in eine zufaellige\
+  \ Richtung zurueckgestossen (S. 98) zu werden. Erfordert Konzentration.\nMaechtige\
+  \ Magie: Gegenstaende und Tiere bis zur Groesse eines Kopfes/Rucksacks/Menschen/\
+  \ Pferdes wirbeln durch die Luft und verursachen zusaetzliche 1W6 TP pro Initiativphase.\
+  \ Der Radius des Wirbelsturms steigt um je 1\_Schritt.\nProbenschwierigkeit: 12\n\
+  Modifikationen: Beweglich (\u20134; erhoeht die Geschwindigkeit des Wirbelsturms\
+  \ um 4 Schritt pro Initiativephase. Mehrfach waehlbar.)\nVorbereitungszeit: 8 Aktionen\n\
+  Ziel: Zone\nReichweite: 64 Schritt\nWirkungsdauer: 16 Initiativphasen\nKosten: 16\
+  \ AsP\nFertigkeiten: Luft, Umwelt\nErlernen: Dru 14; Geo 16; Mag 20; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I

@@ -1,0 +1,12 @@
+kommentar: '0'
+kosten: '40'
+linkElement: Tradition der Geoden I
+linkKategorie: '3'
+nachkauf: haeufig
+name: Tradition der Geoden II
+text: Geoden gelten als die faehigsten Elementaristen Aventuriens. Wenn du einen Zauber
+  mit deinem bevorzugten Element wirkst, kannst du eine Basismodifikation (z.B. 1x
+  Maechtige Magie) ohne Erschwernis ausfuehren.
+typ: '5'
+variable: '0'
+voraussetzungen: Attribut IN 6, Vorteil Tradition der Geoden I

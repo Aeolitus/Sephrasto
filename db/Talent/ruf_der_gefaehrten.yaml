@@ -1,0 +1,29 @@
+fertigkeiten: Wind und Wogen
+kosten: '20'
+name: Ruf der Gefaehrten
+printclass: '26'
+text: 'Du rufst einen Delphin aus einem Radius von 4 Meilen herbei, der sich so schnell
+  wie moeglich naehert, und kannst ihn um einen Gefallen bitten. Ist kein Tier in
+  Reichweite, passiert nichts.
+
+  Maechtige Liturgie: Du rufst 2/4/8/16 Tiere.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 2 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Wind und Wogen
+
+  Erlernen: Eff, Swa 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der
+  Swafnirgeweihten I

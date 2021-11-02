@@ -1,0 +1,10 @@
+name: Brustschalen (ZRS)
+rsBauch: '0'
+rsBeine: '0'
+rsBrust: '1'
+rsKopf: '0'
+rsLArm: '0'
+rsRArm: '0'
+system: '2'
+text: Kann nicht mit anderen Torsoruestungen kombiniert werden.
+typ: '4'

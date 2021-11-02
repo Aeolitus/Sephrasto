@@ -1,0 +1,10 @@
+kommentar: '0'
+kosten: '80'
+linkElement: Regeneration
+linkKategorie: '1'
+nachkauf: haeufig
+name: Goettliche Naehe
+text: Du regenerierst 1 zusaetzlichen KaP pro Nacht.
+typ: '6'
+variable: '0'
+voraussetzungen: Attribut IN 10, Vorteil Geweiht I

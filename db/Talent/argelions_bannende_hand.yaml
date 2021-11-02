@@ -1,0 +1,26 @@
+fertigkeiten: Magie, Magiebann
+kosten: '60'
+name: Argelions bannende Hand
+printclass: '30'
+text: 'Die Liturgie wirkt als Konterprobe (12) gegen einen Zauber, in den keine gAsP
+  geflossen sind. Gelingt sie, wird der Zauber aufgehoben.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: wirkender Zauber
+
+  Reichweite: 8 Schritt
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: halbe Basiskosten des Zaubers in KaP
+
+  Fertigkeiten: Magie, Magiebann
+
+  Erlernen: Hes, Pra 12; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der
+  Praiosgeweihten I

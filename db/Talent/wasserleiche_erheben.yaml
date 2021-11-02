@@ -1,0 +1,13 @@
+fertigkeiten: Daemonische Hilfe (Cpt)
+kosten: '40'
+name: Wasserleiche erheben
+printclass: '200'
+text: "Du erhebst eine Leiche als Wasserleiche (mehr zu Beschwoerungen siehe S. 81),\
+  \ die in zwei INI-Phasen einsatzfaehig ist.\nProbenschwierigkeit: 12\nModifikationen:\
+  \ Schnelle Erhebung (\u20134; die Wasserleiche ist sofort bereit.)\nVorbereitungszeit:\
+  \ frei waehlbar\nZiel: Material fuer eine einzelne Wasserleiche\nWirkungsdauer:\
+  \ augenblicklich\nKosten: 4 GuP\nFertigkeiten: Daemonische Hilfe (Cpt)\nErlernen:\
+  \ Cpt 14; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Paktierer I

@@ -1,0 +1,14 @@
+gegenprobe: ''
+name: Umklammern
+probe: AT -X
+text: "Handlungen des Umklammerten sind um \u2013X erschwert und seine GS sinkt auf\
+  \ 0, solange die Umklammerung anhaelt. Bei mehrfachen Umklammerungen summieren sich\
+  \ die Malusse. Du kannst dein Ziel in einer Freien Aktion loslassen. Der Umklammerte\
+  \ kann eine Aktion Konflikt aufwenden und eine vergleichenden GE-oder KK-Probe (I)\
+  \ gegen die GE oder KK des Umklammernden ablegen. Gelingt die Probe, laesst der\
+  \ Umklammernde sofort los. Das Manoever senkt den Schaden des Angriffes auf 0. Sollte\
+  \ der Angriff ohnehin keinen Schaden anrichten, ist das Manoever nicht moeglich.\n\
+  Voraussetzungen: Angriff mit beiden Haenden im waffenlosen Kampf; Ziel darf nicht\
+  \ einer hoeheren Groessenklasse angehoeren"
+typ: '0'
+voraussetzungen: ''

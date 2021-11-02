@@ -1,0 +1,7 @@
+gegenprobe: ''
+name: Meisterschuss
+probe: FK -8
+text: Der Angriff richtet zwei zusaetzliche Wunden an - auch wenn der Schaden zu gering
+  ist, um eine Wunde anzurichten.
+typ: '1'
+voraussetzungen: Vorteil Meisterschuss

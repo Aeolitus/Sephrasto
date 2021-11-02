@@ -1,0 +1,17 @@
+csBeschreibung: "Du kannst gegen humanoide Gegner \u20131 Erschwernis aus Manoevern\
+  \ ignorieren.\n\nErlaubt das Manoever Riposte."
+kommentar: '0'
+kosten: '60'
+linkElement: Parierwaffenkampf II
+linkKategorie: '3'
+nachkauf: haeufig
+name: Parierwaffenkampf III
+text: "Du kannst gegen humanoide Gegner \u20131 Erschwernis aus Manoevern ignorieren.\n\
+  \nErlaubt das Manoever Riposte (VT -4): Du fuegst dem Angreifer den Waffenschaden\
+  \ deiner Waffe zu. Die Riposte ist kombinierbar mit Attackemanoevern, die in diesem\
+  \ Fall die Verteidigung zusaetzlich erschweren. Zum Beispiel waere eine Kombination\
+  \ aus Riposte und Hammerschlag um \u201312 erschwert, wuerde aber doppelten Schaden\
+  \ anrichten."
+typ: '3'
+variable: '0'
+voraussetzungen: Attribut GE 8, Vorteil Parierwaffenkampf II

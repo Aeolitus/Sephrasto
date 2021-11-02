@@ -1,0 +1,18 @@
+fertigkeiten: Verwandlung
+kosten: '20'
+name: Pectetondo Zauberhaar
+printclass: '0'
+text: "Du kannst den Schnitt und die Farbe deiner Haare und deines Bartes veraendern.\
+  \ Dein Haar waechst waehrend der Wirkungsdauer nicht.\nProbenschwierigkeit: 12\n\
+  Modifikationen: Farbtopf (\u20134; auch unnatuerliche Farben sind waehlbar.)\nOhne\
+  \ Kamm (0 Aktionen, 1 AsP; eine bereits mit diesem Zauber geformte Frisur kann mit\
+  \ dieser Modifikation wieder in den vorgesehenen Zustand gebracht werden.)\nWinterpelz\
+  \ und Katzenfell (\u20134; saemtliches Koerperhaar kann veraendert werden.)\nVorbereitungszeit:\
+  \ 2 Aktionen\nZiel: selbst\nReichweite: Beruehrung\nWirkungsdauer: 1 Woche\nKosten:\
+  \ 4 AsP\nFertigkeiten: Verwandlung\nErlernen: Alch, Mag, Srl 14; Hex 18; Sch 20;\
+  \ 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil
+  Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I

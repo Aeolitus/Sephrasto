@@ -1,0 +1,16 @@
+kommentar: '0'
+kosten: '40'
+linkElement: Reiterkampf I
+linkKategorie: '3'
+nachkauf: haeufig
+name: Reiterkampf II
+script: modifyKampfstil('Reiterkampf', 1, 1, 1, 0, -1)
+text: 'Du erhaeltst Waffenschaden +1, AT +1 und VT +1.
+
+
+  Dein Reittier ignoriert die ueblichen Erschwernisse fuer Nebenwaffen (S. 39) und
+  im Reiterkampf ist die BE durch Ruestungen um 1 gesenkt. Ausserdem ignorierst du
+  im Fernkampf du den Malus fuer berittene Schuetzen (S. 46).'
+typ: '3'
+variable: '0'
+voraussetzungen: Attribut GE 6 ODER Attribut KK 6, Vorteil Reiterkampf I

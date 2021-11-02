@@ -1,0 +1,29 @@
+fertigkeiten: Eigenschaften
+kosten: '40'
+name: Axxeleratus Blitzgeschwind
+printclass: '0'
+text: 'Die GS deines Zieles erhoeht sich um +4 und alle AT und VT sind um +2 erleichtert,
+  Ausweichen um weitere +2.
+
+  Maechtige Magie: Die GS steigt um weitere +2.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: 4 Schritt
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Eigenschaften
+
+  Erlernen: Elf 12; Ach, Sch 14; Mag 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Elfen I ODER Vorteil
+  Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil
+  Tradition der Schelme I

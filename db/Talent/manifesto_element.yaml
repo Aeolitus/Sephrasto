@@ -1,0 +1,30 @@
+fertigkeiten: Eis, Erz, Feuer, Humus, Luft, Wasser
+kosten: '20'
+name: Manifesto Element
+printclass: '0'
+text: "Du beschwoerst eine etwa faustgrosse Menge oder kleine Manifestation des Elements\
+  \ herbei, mit dem du den Zauber wirkst. Sie verschwindet nach dem Ende der Wirkungsdauer.\n\
+  Fertigkeit Eis: Du kannst zum Beispiel einen Schneeball oder einen Eiszapfen erscheinen\
+  \ lassen, ein Getraenk kuehlen, oder deine Koerpertemperatur etwas senken.\nFertigkeit\
+  \ Erz: Du kannst zum Beispiel eine Hand voll Sand oder einen Stein erscheinen lassen\
+  \ oder das Gewicht eines Gegenstandes kurzzeitig etwas erhoehen.\nFertigkeit Feuer:\
+  \ Du kannst zum Beispiel eine kleine Flamme ueber deiner Hand tanzen lassen, deine\
+  \ Koerpertemperatur etwas erhoehen, eine Pfeife anzuenden  oder einen Funkenschwarm\
+  \ erzeugen.\nFertigkeit Humus: Du kannst zum Beispiel eine Knospe erbluehen lassen,\
+  \ eine Hand voll Kuhmist herbeizaubern, ein Gaensebluemchen erscheinen lassen, oder\
+  \ einen kleinen Kratzer schliessen.\nFertigkeit Luft: Du kannst zum Beispiel einen\
+  \ frischen Windhauch rufen, einen Wohlgeruch erzeugen, oder einen kleinen Luftwirbel\
+  \ erschaffen.\nFertigkeit Wasser: Du kannst zum Beispiel einen Becher mit Wasser\
+  \ fuellen, deine Haende abspuelen, eine Pfuetze bilden oder tagsueber einen kleinen\
+  \ Regenbogen glitzern lassen.\nProbenschwierigkeit: 12\nModifikationen: Demanifesto\
+  \ (\u20134; du kannst die Manifestation nach Belieben verschwinden und wieder auftauchen\
+  \ lassen.)\nVorbereitungszeit: 4 Aktionen\nZiel: Zone\nReichweite: Beruehrung\n\
+  Wirkungsdauer: 1 Stunde\nKosten: 2 AsP\nFertigkeiten: Eis, Erz, Feuer, Humus, Luft,\
+  \ Wasser\nErlernen: Ach, Alch 8; Dru, Geo, Mag 14; Hex, Srl 18; Elf 20; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
+  Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition
+  der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition
+  der Scharlatane I

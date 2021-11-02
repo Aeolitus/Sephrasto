@@ -1,0 +1,17 @@
+kommentar: '0'
+kosten: '20'
+nachkauf: haeufig
+name: Tradition der Schamanen I
+text: 'Bedingungen: Sichtkontakt, Geste oder Tanz, gesprochene oder gesungene Formel.
+
+
+  Du kannst Zauber in der Tradition der Schamanen erlernen und benutzen. Solche Zauber
+  findest du unter Geister d. Staerkung (S. 162), Geister d. Zorns, Geister rufen,
+  Geister vertreiben und Keulenrituale (S. 167).
+
+
+  Veraergert der Nutzniesser eines positiven schamanischen Zaubers den entsprechenden
+  Geist, endet der Zauber sofort (Spielleiterentscheid).'
+typ: '5'
+variable: '0'
+voraussetzungen: Attribut IN 4, Vorteil Zauberer I

@@ -1,0 +1,16 @@
+fertigkeiten: Daemonisch, Verstaendigung
+kosten: '40'
+name: Krabbelnder Schrecken
+printclass: '0'
+text: "Dein Opfer wird von einer Myriade Insekten und Kleintieren bedeckt. Misslingt\
+  \ eine Konterprobe (Willenskraft, 16), ist es handlungsunfaehig. Gelingt die Konterprobe,\
+  \ sind alle Proben um \u20134 erschwert.\nProbenschwierigkeit: 12\nModifikationen:\
+  \ Objekt verfluchen (\u20134, Einzelobjekt, 8 AsP; um das Objekt zu beruehren, muss\
+  \ eine Konterprobe (MU, 16) bestanden werden.)\nVorbereitungszeit: 8 Aktionen\n\
+  Ziel: Einzelperson\nReichweite: 16 Schritt\nWirkungsdauer: 16 Initiativphasen\n\
+  Kosten: 16 AsP\nFertigkeiten: Daemonisch, Verstaendigung\nErlernen: Hex 18; Bor,\
+  \ Mag 20; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I
+  ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I

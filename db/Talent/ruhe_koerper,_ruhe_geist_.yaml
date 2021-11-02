@@ -1,0 +1,30 @@
+fertigkeiten: Humus
+kosten: '20'
+name: 'Ruhe Koerper, Ruhe Geist '
+printclass: '0'
+text: 'Dein Ziel sinkt in einen tiefen Schlaf, aus dem es nur mit Gewalt geweckt werden
+  kann. Wird es nicht vorzeitig geweckt, regeneriert es zwei zusaetzliche Wunden.
+
+  Maechtige Magie: Regeneriert eine weitere Wunde.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 8 Stunden
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Humus
+
+  Erlernen: Elf 14; Ach, Alch, Dru, Hex, Mag 18; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
+  Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition
+  der Kristallomanten I

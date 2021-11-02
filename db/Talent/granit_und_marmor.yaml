@@ -1,0 +1,16 @@
+fertigkeiten: Daemonisch, Erz, Verwandlung
+kosten: '40'
+name: Granit und Marmor
+printclass: '0'
+text: "Dein Opfer verwandelt sich im Verlauf einer Stunde in eine Statue aus natuerlichem\
+  \ Gestein. Es gilt nicht mehr als Lebewesen und nimmt die Zeit als Statue nicht\
+  \ wahr. Schaeden an der Statue werden direkt in Wunden und Verstuemmelungen am Opfer\
+  \ uebersetzt.\nProbenschwierigkeit: Magieresistenz\nModifikationen: Statuentraeume\
+  \ (\u20134; das Opfer behaelt sein Bewusstsein.)\nPermanenz (\u20134, Wirkungsdauer\
+  \ bis die Bindung geloest wird, 16 AsP, davon 2 gAsP)\nVorbereitungszeit: 4 Aktionen\n\
+  Ziel: Einzelwesen\nReichweite: 4 Schritt\nWirkungsdauer: 1 Monat\nKosten: 16 AsP\n\
+  Fertigkeiten: Daemonisch, Erz, Verwandlung\nErlernen: Bor, Mag 20; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I
+  ODER Vorteil Tradition der Gildenmagier I

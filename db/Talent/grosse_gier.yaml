@@ -1,0 +1,32 @@
+fertigkeiten: Einfluss
+kosten: '40'
+name: Grosse Gier
+printclass: '0'
+text: 'Du erweckst im Ziel ein dringendes Beduerfnis nach einem Gegenstand, einer
+  Handlung oder einem Ort. Das Opfer wird aber keine grossen Risiken eingehen, um
+  das Beduerfnis zu erfuellen. Der Zauber ist um 2 bis 4 Punkte erleichtert, wenn
+  er eine Charakterschwaeche des Ziels besonders anspricht.
+
+  Maechtige Magie: Das Ziel nimmt Schmerzen oder eine peinliche Situation/kleinere
+  Verletzungen oder einen momentanen Gesichtsverlust/schwere Verletzungen oder dauerhaften
+  Verlust seines Rufes/jedes Risiko auf sich.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Einfluss
+
+  Erlernen: Hex 8; Geo 16; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Geoden I ODER Vorteil
+  Tradition der Hexen I

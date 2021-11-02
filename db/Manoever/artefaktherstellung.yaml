@@ -1,0 +1,29 @@
+gegenprobe: ''
+name: Artefaktherstellung
+probe: Arcanovi (12)
+text: "Ladungsbasierte Artefakte loesen den Spruch ein- oder mehrmals aus, bis alle\
+  \ Ladungen verbraucht sind. Bei einfachen ladungsbasierten Artefakten verfliegt\
+  \ dann die astrale Kraftt.\n    Der Probenmodifikator richtet sich nach der Funktionsweise\
+  \ des Artefakts, durch Material und Sympathetik modifiziert von +4 (eine Halskette\
+  \ aus Amulettmetall und sympathetischen Edelsteinen fuer ein Bannbaladin-Artefakt)\
+  \ bis \u20134 (ein Schild aus Stahl zum selben Zweck). Hierbei musst du auch den\
+  \ Ausloeser festlegen. Simple Ausloeser wie eine Beruehrung, einfache Gesten oder\
+  \ Schluesselwoerter modifizieren die Arcanovi-Probe nicht. Bei komplexen Ausloesern\
+  \ wie Hitze, Kaelte oder einem bestimmten Zeitpunkt ist der Arcanovi um \u20134\
+  \ erschwert. Der Ausloeser kann sich nur auf Umstaende beziehen, die das Artefakt\
+  \ oder den Traeger selbst betreffen. \u201EWenn mich jemand beluegt\u201C ist beispielsweise\
+  \ nicht moeglich. \n    Bei ladungsbasierten Artefakten muessen die wirkenden Sprueche\
+  \ so oft gezaubert werden, wie sie spaeter ausgeloest werden sollen. Misslingt dir\
+  \ einer dieser Zauber, ist das Artefakt missglueckt. Du musst alle Zauber mit denselben\
+  \ spontanen Modifikationen wirken \u2013 ueber genau diese Modifikationen verfuegt\
+  \ der Zauber auch beim Ausloesen. Vergiss also nicht, dir die spontanen Modifikationen\
+  \ und bei Zaubern gegen die MR auch den durchschnittlichen Erfolgswert zu notieren!\n\
+  \    Ein Viertel der Basiskosten der wirkenden Sprueche, aber mindestens 1 AsP,\
+  \ stroemen als gAsP in das Artefakt, bis das Artefakt seine Ladungen verbraucht\
+  \ hat, zerstoert wurde oder du die Bindung loest (S. 70). Der Arcanovi kostet dich\
+  \ so viele AsP, wie die Basiskosten der wirkenden Sprueche betragen.\n    Normalerweise\
+  \ ist zum Ausloesen des Artefakts eine Aktion Bereit machen erforderlich. Der Zauber\
+  \ kommt dann nach seiner halben Vorbereitungszeit mit dem beim Einspeisen erzielten\
+  \ Erfolgswert zur Wirkung, wobei dem Opfer eventuell noch eine MR-Probe zusteht."
+typ: '4'
+voraussetzungen: Talent Arcanovi Artefakt ODER Talent Liturgische Bindung

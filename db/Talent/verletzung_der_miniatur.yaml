@@ -1,0 +1,27 @@
+fertigkeiten: Dolchzauber, Verstaendigung
+kosten: '40'
+name: Verletzung der Miniatur
+printclass: '1'
+text: 'Du fuegst dir mit dem Dolch selbst eine oder mehrere Wunden zu. Das Opfer deiner
+  Minitatur der Herrschaft (s.o.) erleidet genau so viele Wunden. Sollte das Opfer
+  durch diese Wunden sterben, kann es eine Konterprobe (KO, 16) ablegen, um die Wunden
+  abzuwehren.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: Miniatur der Herrschaft
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Dolchzauber, Verstaendigung
+
+  Erlernen: Dru 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Druiden I

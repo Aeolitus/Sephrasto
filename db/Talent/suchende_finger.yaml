@@ -1,0 +1,24 @@
+fertigkeiten: Hellsicht, Kristallmagie, Umwelt
+kosten: '20'
+name: Suchende Finger
+printclass: '11'
+text: 'Du haeltst einen im Schuppenbeutel aufbewahrten Gegenstand sofort in der Hand.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 1 AsP
+
+  Fertigkeiten: Hellsicht, Kristallmagie, Umwelt
+
+  Erlernen: Ach 12; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Kristallomanten I

@@ -1,0 +1,17 @@
+fertigkeiten: Temporal, Verwandlung
+kosten: '40'
+name: Objectofixo
+printclass: '0'
+text: "Du fixierst einen Gegenstand von maximal 2\_Stein auf einer waagrechten Flaeche.\
+  \ Er kann nicht bewegt werden.\nMaechtige Magie: Das maximale Gewicht verdoppelt\
+  \ sich.\nProbenschwierigkeit: 12\nModifikationen: Bilderhaken (\u20134; du fixierst\
+  \ einen Gegenstand an einer senkrechten Flaeche)\nSpinnenfest (\u20138; du fixierst\
+  \ einen Gegenstand unter einer waagrechten Flaeche.)\nLufthaken (\u201312; du fixierst\
+  \ einen Gegenstand in der Luft.)\nVorbereitungszeit: 4 Aktionen\nZiel: Einzelobjekt\n\
+  Reichweite: Beruehrung\nWirkungsdauer: 4 Stunden\nKosten: 4 AsP\nFertigkeiten: Temporal,\
+  \ Verwandlung\nErlernen: Ach 14; Mag 16; Alch 18; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten
+  I

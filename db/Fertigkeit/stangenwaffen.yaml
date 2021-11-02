@@ -1,0 +1,9 @@
+attribute: GE|KK|MU
+kampffertigkeit: '1'
+name: Stangenwaffen
+printclass: '0'
+steigerungsfaktor: '2'
+text: Alle Waffen mit einem langen Schaft gelten als Stangenwaffen. Zu den klassischen
+  Stangenwaffen zaehlen Speere, Hellebarden und der Schnitter. Zusaetzlich werden
+  Kampfstaebe und die Lanzen berittener Kaempfer werden mit diesem Talent genutzt.
+voraussetzungen: ''

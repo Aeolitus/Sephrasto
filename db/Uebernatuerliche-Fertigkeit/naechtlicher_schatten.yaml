@@ -1,0 +1,8 @@
+attribute: FF|GE|MU
+name: Naechtlicher Schatten
+printclass: '1'
+steigerungsfaktor: '3'
+text: 'Phex ist der Herrscher der Nacht und viele seiner Diener handeln unter dem
+  Mantel der Dunkelheit wenig gesetzestreu. Doch die sternenerfuellte Nacht zieht
+  auch viele phexgeweihte Mystiker an. '
+voraussetzungen: Vorteil Tradition der Phexgeweihten I

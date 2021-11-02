@@ -1,0 +1,19 @@
+fertigkeiten: Verwandlung
+kosten: '60'
+name: Salander Mutander
+printclass: '0'
+text: "Du verwandelst dein Ziel in ein beliebiges anderes, kleineres und leichteres\
+  \ Tier oder eine solche Pflanze. Du musst das Zielwesen schon einmal gesehen haben,\
+  \ es kann nicht uebernatuerlich sein. Dein Ziel hat in seiner neuen Form nur noch\
+  \ nebuloese Erinnerungen an sein vorheriges Selbst, behaelt aber seine alte WS und\
+  \ MR.\nProbenschwierigkeit: Magieresistenz\nModifikationen: Lange Verwandlung (\u2013\
+  4, Wirkungsdauer 1 Woche)\nPermanenz (\u20134, Wirkungsdauer bis die Bindung geloest\
+  \ wird, 16 AsP, davon 2 gAsP), Baerenfell und Froschschenkel (\u20138; du kannst\
+  \ einzelne Gliedmassen verwandeln.)\nVorbereitungszeit: 4 Aktionen\nZiel: Einzelperson\n\
+  Reichweite: Beruehrung\nWirkungsdauer: 8 Stunden\nKosten: 16 AsP\nFertigkeiten:\
+  \ Verwandlung\nErlernen: Ach, Mag 14; Alch, Hex 18; Dru 20; 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden
+  I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER
+  Vorteil Tradition der Kristallomanten I

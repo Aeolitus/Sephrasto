@@ -1,0 +1,13 @@
+csBeschreibung: Erlaubt die spontane Modifikation Opferung.
+kommentar: '0'
+kosten: '60'
+linkElement: Tradition der Rondrageweihten II
+linkKategorie: '3'
+nachkauf: haeufig
+name: Tradition der Rondrageweihten III
+text: 'Erlaubt die spontane Modifikation Opferung (Liturgie +4): Ein rituelles Opfer
+  erleichtert die Liturgie um +4. Der Opfergegenstand wird dabei verbraucht, zerstoert
+  oder verschwindet. Rondrageweihte opfern ihr Blut (verursacht 1 Wunde).'
+typ: '7'
+variable: '0'
+voraussetzungen: Attribut MU 8, Vorteil Tradition der Rondrageweihten II

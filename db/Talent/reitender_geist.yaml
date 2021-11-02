@@ -1,0 +1,16 @@
+fertigkeiten: Einfluss, Geister der Staerkung
+kosten: '40'
+name: Reitender Geist
+printclass: '5'
+text: "Das bezauberte Tier wird dir gegenueber brav und anhaenglich. Proben im Umgang\
+  \ mit dem Tier sind um +4 erleichtert, Freie Fertigkeiten (wie Abrichter) gelten\
+  \ als eine Stufe hoeher.\nMaechtige Magie: Erhoeht den Bonus um +2, je zwei Stufen\
+  \ erhoehen Freie Fertigkeiten um eine weitere Stufe.\nProbenschwierigkeit: 12\n\
+  Modifikationen: Anderer Reiter (\u20134; die Wirkung bezieht sich auf eine andere\
+  \ Person als dich)\nVorbereitungszeit: 1 Stunde\nZiel: Tier\nReichweite: Beruehrung\n\
+  Wirkungsdauer: bis die Bindung geloest wird\nKosten: 8 AsP, davon 2 gAsP\nFertigkeiten:\
+  \ Einfluss, Geister der Staerkung\nErlernen: Smn 14; 40 EP\nAnmerkung: Besonders\
+  \ grosse und starke Tierarten erhoehen die gAsP auf 4 oder sogar 8."
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

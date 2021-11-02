@@ -1,0 +1,27 @@
+fertigkeiten: Stabzauber, Umwelt
+kosten: '20'
+name: Hammer des Magus
+printclass: '15'
+text: 'Das mit dem Stab beruehrte Objekt erleidet 4W6 SP. An Lebewesen richtet der
+  Hammer keinen Schaden an.
+
+  Maechtige Magie: Erhoeht die SP um +4.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 4 AsP
+
+  Fertigkeiten: Stabzauber, Umwelt
+
+  Erlernen: Mag 18; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Gildenmagier I

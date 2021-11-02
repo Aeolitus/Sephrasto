@@ -1,0 +1,27 @@
+fertigkeiten: Humus, Ringrituale
+kosten: '40'
+name: Kraefte der Natur
+printclass: '13'
+text: 'Die Heilkraft Sumus beendet ein Gift oder eine Krankheit bis maximal Stufe
+  16.
+
+  Maechtige Magie: Die maximal aufgehobene Gift-/Krankheitsstufe steigt um 4.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Humus, Ringrituale
+
+  Erlernen: Geo 12; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Geoden I

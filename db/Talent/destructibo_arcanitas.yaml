@@ -1,0 +1,31 @@
+fertigkeiten: Antimagie, Kraft
+kosten: '40'
+name: Destructibo Arcanitas
+printclass: '0'
+text: 'Du bannst einen Zauber, in den gAsP geflossen sind (wie ein Artefakt oder ein
+  permanenter Fluch), oder ein Wesen, in das gAsP geflossen sind (wie eine Chimaere
+  oder einen gebundenen Daemon).
+
+  Probenschwierigkeit: Probenschwierigkeit bzw. Beschwoerungsschwierigkeit
+
+  Modifikationen: Astralkoerper abbauen (Probenschwierigkeit MR, Einzelperson, 8 AsP;
+  das Ziel verliert 16 AsP.)
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Zauber oder Einzelwesen
+
+  Reichweite: 2 Schritt
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: halbe Basiskosten des Zaubers oder der Beschwoerung
+
+  Fertigkeiten: Antimagie, Kraft
+
+  Erlernen: Mag 18; Ach, Elf, Dru 20; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil
+  Tradition der Kristallomanten I

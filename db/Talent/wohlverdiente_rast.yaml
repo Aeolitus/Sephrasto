@@ -1,0 +1,27 @@
+fertigkeiten: Sichere Heimkehr, Wachstum
+kosten: '40'
+name: Wohlverdiente Rast
+printclass: '36'
+text: 'Du segnest bis zu 4 Personen. Die Gesegneten regenerieren 2 Punkte Erschoepfung.
+
+  Maechtige Magie: Regeneriert einen weiteren Punkt Erschoepfung.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Sichere Heimkehr, Wachstum
+
+  Erlernen: Per 12; Tra 14; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Perainegeweihten I ODER Vorteil Tradition der
+  Traviageweihten I

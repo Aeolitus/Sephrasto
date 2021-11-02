@@ -1,0 +1,11 @@
+csAuflisten: '0'
+kommentar: '0'
+kosten: '40'
+nachkauf: haeufig
+name: Sturmangriff
+text: 'Erlaubt das Manoever Sturmangriff (Bewegung und AT): Die Kombination der Aktionen
+  Bewegung und Konflikt ist nicht erschwert. Ausserdem richtet die naechste Attacke
+  GS Trefferpunkte zusaetzlich an.'
+typ: '2'
+variable: '0'
+voraussetzungen: Attribut GE 6

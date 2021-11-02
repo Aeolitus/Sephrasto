@@ -1,0 +1,14 @@
+fertigkeiten: Daemonisch
+kosten: '40'
+name: Skelettarius Totenherr
+printclass: '0'
+text: "Du erhebst eine Leiche als Untoten (mehr zu Beschwoerungen siehe S. 81), der\
+  \ in zwei INI-Phasen einsatzfaehig ist.\nProbenschwierigkeit: nach Untotem\nModifikationen:\
+  \ Schnelle Erhebung (\u20134; der Untote ist sofort bereit.)\nVorbereitungszeit:\
+  \ frei waehlbar\nZiel: Material fuer einen einzelnen Untoten\nWirkungsdauer: augenblicklich\n\
+  Kosten: nach Untotem\nFertigkeiten: Daemonisch\nErlernen: Bor, Mag 16; Alch 20;\
+  \ 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I

@@ -1,0 +1,14 @@
+fertigkeiten: Illusion, Zaubertaenze
+kosten: '0'
+name: Tanz der Bilder
+printclass: '19'
+text: "Alle humanoiden Zuseher im Radius von 4\_Schritt werden von einer raschen Abfolge\
+  \ von Bildern mit einer beruhigenden, heiteren oder alptraumhaften Grundstimmung\
+  \ (nach deiner Wahl) gefesselt. Die Wirkung endet, wenn du aufhoerst zu tanzen.\
+  \ Erlaubt Aufrechterhalten, erfordert Konzentration.\nProbenschwierigkeit: 12\n\
+  Vorbereitungszeit: 16 Aktionen\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer:\
+  \ 1 Stunde\nKosten: 4 AsP\nFertigkeiten: Illusion, Zaubertaenze\nErlernen: Ztz 8;\
+  \ 0 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Zaubertaenzer I

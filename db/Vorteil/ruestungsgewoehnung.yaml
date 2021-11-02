@@ -1,0 +1,10 @@
+csBeschreibung: Die BE aller Ruestungen ist um 1 gesenkt (bereits eingerechnet).
+kommentar: '0'
+kosten: '40'
+nachkauf: haeufig
+name: Ruestungsgewoehnung
+script: modifyBEMod(1)
+text: Die BE aller Ruestungen ist um 1 gesenkt.
+typ: '2'
+variable: '0'
+voraussetzungen: Attribut KO 6

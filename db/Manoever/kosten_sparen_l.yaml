@@ -1,0 +1,7 @@
+gegenprobe: ''
+name: Kosten sparen (L)
+probe: Liturgie -4
+text: Die Kosten der Liturgie sinken um ein Viertel der Basiskosten. Die Kosten koennen
+  dadurch nicht unter die Haelfte der Basiskosten sinken.
+typ: '3'
+voraussetzungen: Vorteil Liturgische Disziplin

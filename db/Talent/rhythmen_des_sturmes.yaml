@@ -1,0 +1,28 @@
+fertigkeiten: Eigenschaften, Trommelrituale
+kosten: '40'
+name: Rhythmen des Sturmes
+printclass: '16'
+text: 'Die sanften Rhythmen erhoehen die Reitkuenste. Alle Zuhoerer im Radius von
+  4 Schritt erhalten eine Erleichterung von +2 auf Lanzenreiten, Reiten und andere
+  Proben im Umgang mit Pferden.
+
+  Maechtige Magie: Der Bonus steigt um +1.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Tag
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Eigenschaften, Trommelrituale
+
+  Erlernen: Der 8; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Derwische I

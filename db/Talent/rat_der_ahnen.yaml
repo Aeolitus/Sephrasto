@@ -1,0 +1,16 @@
+fertigkeiten: Geister rufen, Verstaendigung
+kosten: '20'
+name: Rat der Ahnen
+printclass: '7'
+text: "Du rufst einen Totengeist in den Koerper eines seiner Nachfahren herab. Dort\
+  \ verhaelt er sich seinem Charakter gemaess; er kann Rat geben oder die Stammeskrieger\
+  \ anfuehren. Es ist nicht moeglich, die Bindung zu loesen. Der Totengeist entscheidet\
+  \ selbst, wann er den Koerper verlaesst \u2013 notfalls ist ein Grosser Geisterbann\
+  \ (S.\_166) noetig. Der Tote muss im letzten Jahr verstorben sein.\nMaechtige Magie:\
+  \ Der Tote kann seit 10 Jahren/100 Jahren/1000 Jahren/seit Menschengedenken verstorben\
+  \ sein.\nProbenschwierigkeit: 12\nVorbereitungszeit: 1 Stunde\nZiel: Einzelperson\n\
+  Reichweite: Beruehrung\nWirkungsdauer: augenblicklich\nKosten: 4 AsP, davon 2 gAsP\n\
+  Fertigkeiten: Geister rufen, Verstaendigung\nErlernen: Smn 12; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

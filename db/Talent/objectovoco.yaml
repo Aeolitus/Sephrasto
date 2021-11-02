@@ -1,0 +1,31 @@
+fertigkeiten: Verstaendigung
+kosten: '20'
+name: Objectovoco
+printclass: '0'
+text: 'Du verzauberst einen Gegenstand, sodass er dir 4 Ja/Nein-Fragen beantwortet.
+  Beachte, dass die meisten Gegenstaende nicht gerade intelligent sind und nur Dinge
+  wahrnehmen, mit denen sie direkt in Kontakt stehen.
+
+  Maechtige Magie: Dir werden 2 weitere Fragen beantwortet.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 4 Minuten
+
+  Kosten: 4 AsP
+
+  Fertigkeiten: Verstaendigung
+
+  Erlernen: Mag 14; Dru, Elf 16; Geo 18; Hex, Sch 20; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition
+  der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der
+  Schelme I

@@ -1,0 +1,7 @@
+gegenprobe: ''
+name: Liturgische Technik ignorieren
+probe: Liturgie -4
+text: Du ignorierst eine der bei der Tradition angefuehrten Bedingungen. Ignorierst
+  du die Bedingung Sicht, musst du das Ziel auf eine andere Art und Weise wahrnehmen.
+typ: '3'
+voraussetzungen: Vorteil Geweiht I

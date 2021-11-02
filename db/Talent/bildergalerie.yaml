@@ -1,0 +1,27 @@
+fertigkeiten: Illusion, Kraft, Kugelzauber
+kosten: '20'
+name: Bildergalerie
+printclass: '12'
+text: 'Du speicherst einen soeben gewirkten Illusionszauber in die Kugel. Maximal
+  kannst du PW Kugelzauber Illusionen speichern. Wenn du die Illusion abspielen moechtest,
+  musst du eine Probe auf Kugelzauber (12) ablegen, 1 Aktion Konflikt und 1 AsP aufwenden.
+  Beim Abspielen befindet sich die Kugel im Zentrum der Illusion.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Kristallkugel
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: bis die Bindung geloest wird
+
+  Kosten: 4 AsP, davon 1 gAsP
+
+  Fertigkeiten: Illusion, Kraft, Kugelzauber
+
+  Erlernen: Srl 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Scharlatane I

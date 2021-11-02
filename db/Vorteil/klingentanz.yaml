@@ -1,0 +1,10 @@
+csAuflisten: '0'
+kommentar: '0'
+kosten: '80'
+nachkauf: haeufig
+name: Klingentanz
+text: 'Erlaubt das Manoever Klingentanz (AT -4): Wenn der Angriff gelingt, darfst
+  du sofort noch einmal angreifen. Dieser Folgeangriff ist nicht erschwert.'
+typ: '2'
+variable: '0'
+voraussetzungen: Attribut IN 10

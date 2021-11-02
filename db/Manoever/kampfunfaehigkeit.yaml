@@ -1,0 +1,17 @@
+gegenprobe: ''
+name: Kampfunfaehigkeit
+probe: ''
+text: "Sobald dein Charakter vier Einschraenkungen erlitten hat, droht er nach jeder\
+  \ weiteren Einschraenkung kampfunfaehig zu werden. Ein kampfunfaehiger Charakter\
+  \ stuerzt, kann nicht mehr aufstehen und keine Aktionen oder Reaktionen ausfuehren.\
+  \ Der Spielleiter entscheidet, ob der Charakter bei Bewusstsein ist.\n    Du kannst\
+  \ eine Zaehigkeits-Probe (12, I) ablegen, um weiter handlungsfaehig zu bleiben.\
+  \ Der Wundabzug gilt natuerlich auch bei dieser Probe. Misslingt sie, erleidet dein\
+  \ Charakter durch diese Anstrengung noch einen zusaetzlichen Punkt Erschoepfung\
+  \ und wird dennoch kampfunfaehig. Der Einfachheit halber kann der Spielleiter davon\
+  \ ausgehen, dass die meisten NSC dieses Risiko nicht eingehen. Die Kampfunfaehigkeit\
+  \ endet nach einer Stunde oder sobald eine Einschraenkung geheilt wurde \u2013 allerdings\
+  \ nur, wenn keine schaedlichen Effekte wie Gifte, Krankheiten oder Durst auf deinen\
+  \ Charakter wirken."
+typ: '8'
+voraussetzungen: ''

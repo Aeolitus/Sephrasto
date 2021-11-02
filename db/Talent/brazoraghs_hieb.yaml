@@ -1,0 +1,26 @@
+fertigkeiten: Eigenschaften, Geister des Zorns
+kosten: '40'
+name: Brazoraghs Hieb
+printclass: '6'
+text: 'Die so verzauberte Nahkampfwaffe gilt als magisch und verursacht Niederwerfen.
+
+  Maechtige Magie: Waffenschaden +1.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: bis die Bindung geloest wird
+
+  Kosten: 16 AsP, davon 4 gAsP
+
+  Fertigkeiten: Eigenschaften, Geister des Zorns
+
+  Erlernen: Smn 20; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

@@ -1,0 +1,14 @@
+csBeschreibung: Erlaubt die spontane Modifikation Zeit lassen.
+kommentar: '0'
+kosten: '60'
+linkElement: Tradition der Geoden II
+linkKategorie: '3'
+nachkauf: haeufig
+name: Tradition der Geoden III
+text: 'Erlaubt die spontane Modifikation Zeit lassen (Zauber +2): Verdoppelt die Vorbereitungszeit,
+  aber erleichtert den Zauber um +2. Eine Vorbereitungszeit von 0 Aktionen wird zu
+  1 Aktion. Kann einmal pro Zauber eingesetzt werden und wirkt nicht auf Zauber mit
+  frei waehlbarer Vorbereitungszeit.'
+typ: '5'
+variable: '0'
+voraussetzungen: Attribut IN 8, Vorteil Tradition der Geoden II

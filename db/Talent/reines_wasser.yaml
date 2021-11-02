@@ -1,0 +1,26 @@
+fertigkeiten: Geister der Staerkung, Geister vertreiben, Verwandlung, Wasser
+kosten: '20'
+name: Reines Wasser
+printclass: '5'
+text: 'Du verwandelst 100 Liter Salzwasser in Trinkwasser.
+
+  Maechtige Magie: Du verwandelst 200/300/400/500 Liter.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Geister der Staerkung, Geister vertreiben, Verwandlung, Wasser
+
+  Erlernen: Smn 18; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

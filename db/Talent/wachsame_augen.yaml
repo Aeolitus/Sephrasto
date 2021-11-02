@@ -1,0 +1,25 @@
+fertigkeiten: Verstaendigung, Vertrautenmagie
+kosten: '20'
+name: Wachsame Augen
+printclass: '17'
+text: 'Dein Vertrautentier ruft Tiere seiner Gattung  aus bis zu 1 Meile herbei, die
+  ueber deinen Schlaf wachen und dich vor Gefahren warnen.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 8 Stunden
+
+  Kosten: 1 AsP
+
+  Fertigkeiten: Verstaendigung, Vertrautenmagie
+
+  Erlernen: Geo 14; Hex 18; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I

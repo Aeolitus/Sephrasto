@@ -1,0 +1,28 @@
+fertigkeiten: Illusion
+kosten: '20'
+name: Projektimago Ebenbild
+printclass: '0'
+text: 'Du laesst eine Illusion (Sicht und Gehoer) deiner selbst an einem Ort erscheinen,
+  den du schon einmal gesehen haben musst. Die Illusion bewegt sich waehrend der Wirkungsdauer
+  genau wie du.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: 4 Meilen
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Illusion
+
+  Erlernen: Srl 16; Ach, Mag 20; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I
+  ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane
+  I

@@ -1,0 +1,28 @@
+fertigkeiten: Heim und Herd
+kosten: '20'
+name: Travinians Segen der Schwelle
+printclass: '48'
+text: 'Du segnest die Schwelle. Der dahinter liegende Raum gilt als geweihter Boden
+  und kann von unheiligen Wesenheiten mit einer Beschwoerungsschwierigkeit von maximal
+  24 nicht betreten werden.
+
+  Maechtige Liturgie: Erhoeht die Beschwoerungsschwierigkeit um 4.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 4 KaP
+
+  Fertigkeiten: Heim und Herd
+
+  Erlernen: Tra 18; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Traviageweihten I

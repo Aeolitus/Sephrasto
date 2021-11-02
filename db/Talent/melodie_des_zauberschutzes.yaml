@@ -1,0 +1,27 @@
+fertigkeiten: Antimagie, Eigenschaften, Zaubermelodien
+kosten: '40'
+name: Melodie des Zauberschutzes
+printclass: '18'
+text: 'Magieresistenz-Proben aller Zuhoerer im Radius von 4 Schritt sind um +2 erleichtert.
+  Erfordert Konzentration, erlaubt Aufrechterhalten.
+
+  Maechtige Magie: Erhoeht den Bonus um +1.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: Zone
+
+  Reichweite: 4 Schritt
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 4 AsP
+
+  Fertigkeiten: Antimagie, Eigenschaften, Zaubermelodien
+
+  Erlernen: Bard 16; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Zauberbarden I

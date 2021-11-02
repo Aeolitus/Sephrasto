@@ -1,0 +1,26 @@
+fertigkeiten: Gutes Gold
+kosten: '0'
+name: Orakel des Mantikors
+printclass: '55'
+text: 'Du erfaehrst, ob ein Verschollener im Kampf gefallen ist. Sollte der Verschollene
+  auf eine andere Art und Weise ums Leben gekommen sein, schlaegt das Orakel nicht
+  an.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 4 KaP
+
+  Fertigkeiten: Gutes Gold
+
+  Erlernen: Kor 12; 0 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Korgeweihten I

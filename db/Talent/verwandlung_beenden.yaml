@@ -1,0 +1,16 @@
+fertigkeiten: Antimagie, Verwandlung
+kosten: '40'
+name: Verwandlung beenden
+printclass: '0'
+text: 'Wirkt gegen Zauber der Fertigkeit Verwandlung und Chimaeren, spezielle Antimagie-Modifikationen
+  siehe S. 126.
+
+  Fertigkeiten: Antimagie, Verwandlung
+
+  Erlernen: Ach, Dru, Hex, Mag 14; Elf, Geo, Srl 16; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition
+  der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der
+  Kristallomanten I ODER Vorteil Tradition der Scharlatane I

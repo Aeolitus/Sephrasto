@@ -1,0 +1,17 @@
+fertigkeiten: Froehlicher Wanderer, Heim und Herd
+kosten: '40'
+name: Hilfe der Gemeinschaft
+printclass: '48'
+text: "Du staerkst den Zusammenhalt in einer Familie, zwischen treuen Gefaehrten oder\
+  \ einer Pilgergruppe. Muss eine Gruppenprobe abgelegt werden, bei der ein einziger\
+  \ Misserfolg zum Scheitern fuehrt, ist diese Probe um +4 erleichtert. Ausserdem\
+  \ erleidet die Gruppe keinen Malus, wenn ein Versuch der Zusammenarbeit scheitert.\n\
+  Maechtige Liturgie: Erhoeht den Bonus um +2.\nProbenschwierigkeit: 12\nModifikationen:\
+  \ Permanenz (\u20134, Wirkungsdauer bis die Bindung geloest wird, Kosten 8 KaP,\
+  \ davon 2 gKaP)\nVorbereitungszeit: 16 Aktionen\nZiel: Zone\nReichweite: Beruehrung\n\
+  Wirkungsdauer: 1 Woche\nKosten: 8 KaP\nFertigkeiten: Froehlicher Wanderer, Heim\
+  \ und Herd\nErlernen: Aves, Tra 14; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
+  Traviageweihten I

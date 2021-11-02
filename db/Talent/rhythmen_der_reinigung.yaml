@@ -1,0 +1,25 @@
+fertigkeiten: Antimagie, Trommelrituale
+kosten: '40'
+name: Rhythmen der Reinigung
+printclass: '16'
+text: 'Die Rhythmen gelten als Konterprobe (12) gegen saemtliche Einflusszauber, Hexenflueche
+  und Druidenrituale auf dem Ziel. Bei gelungener Probe werden die Zauber aufgehoben.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Stunden
+
+  Ziel: Einzelperson
+
+  Reichweite: 4 Schritt
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Antimagie, Trommelrituale
+
+  Erlernen: Der 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Derwische I

@@ -1,0 +1,11 @@
+gegenprobe: ''
+name: Konzentration (voll)
+probe: ''
+text: Du fuehrst eine Handlung aus, die volle Konzentration erfordert. Dazu gehoert
+  das Vorbereiten eines Zaubers oder Fernkampfangriffes sowie das Entschaerfen einer
+  Falle. Du kannst bis zu deiner naechsten Initiativephase keine freien Aktionen oder
+  Reaktionen ausfuehren und musst bei Stoerungen eine Willenskraft-Probe (16, I) ablegen.
+  Erleidest du Schaden, steigt die Schwierigkeit der Probe um +4 Punkte pro soeben
+  erlittener Wunde. Bei Misslingen verfallen alle bereits aufgewendeten Aktionen Konzentration.
+typ: '5'
+voraussetzungen: ''

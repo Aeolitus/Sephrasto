@@ -1,0 +1,10 @@
+gegenprobe: ''
+name: Verzoegern (voll)
+probe: ''
+text: "Du wartest ab und handelst erst, wenn ein bestimmtes Ereignis eintritt. Dazu\
+  \ bestimmst du das Ereignis und die genaue Handlung, die du ausfuehren moechtest.\
+  \ Diese Handlung kann unmittelbar vor oder nach dem Ereignis stattfinden, muss aber\
+  \ eine einfache Aktion sein (Proben in dieser Aktion sind um \u20134 erschwert,\
+  \ weil auch hier zwei Aktionen genutzt werden)."
+typ: '5'
+voraussetzungen: ''

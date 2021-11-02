@@ -1,0 +1,10 @@
+name: Ringelpanzer
+rsBauch: '3'
+rsBeine: '1'
+rsBrust: '3'
+rsKopf: '0'
+rsLArm: '3'
+rsRArm: '3'
+system: '0'
+text: Benoetigt keine wattierte Unterkleidung.
+typ: '3'

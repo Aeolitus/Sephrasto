@@ -1,0 +1,17 @@
+fertigkeiten: Wasser
+kosten: '20'
+name: Pfeil des Wassers
+printclass: '0'
+text: "Du verzauberst einen Pfeil (oder Bolzen oder Wurfwaffe), sodass er im Flug\
+  \ die Macht des Elements freisetzt. Der Pfeil verursacht Wasserschaden und Ertraenken\
+  \ (S. 98). Der Pfeil wird durch Regen nicht beeinflusst und kann auch unter Wasser\
+  \ ohne Einschraenkungen verwendet werden.\nProbenschwierigkeit: 12\nModifikationen:\
+  \ Geschuetz (\u20134; du verzauberst ein groesseres Geschoss wie das einer Balliste.)\n\
+  Permanenz (\u20134, 4 AsP, davon 1 gAsP, Wirkungsdauer bis die Bindung geloest wird\
+  \ oder der Pfeil verschossen wurde)\nVorbereitungszeit: 1 Aktion\nZiel: Einzelobjekt\n\
+  Reichweite: Beruehrung\nWirkungsdauer: 8 Initiativphasen\nKosten: 4 AsP\nFertigkeiten:\
+  \ Wasser\nErlernen: Ach 18; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Kristallomanten
+  I

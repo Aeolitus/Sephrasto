@@ -1,0 +1,10 @@
+gegenprobe: ''
+name: Riposte
+probe: VT -4
+text: "Du fuegst dem Angreifer den Waffenschaden deiner Waffe zu. Die Riposte ist\
+  \ kombinierbar mit Attackemanoevern, die in diesem Fall die Verteidigung zusaetzlich\
+  \ erschweren. Zum Beispiel waere eine Kombination aus Riposte und Hammerschlag um\
+  \ \u201312 erschwert, wuerde aber doppelten Schaden anrichten.\nVoraussetzung: Kampf\
+  \ im Parrierwaffen-Stil; keine Riposte seit letztem Beginn einer eigenen Initiativephase"
+typ: '0'
+voraussetzungen: Vorteil Parierwaffenkampf III

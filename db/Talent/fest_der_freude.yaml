@@ -1,0 +1,27 @@
+fertigkeiten: Harmonie
+kosten: '20'
+name: Fest der Freude
+printclass: '43'
+text: 'Du erbittest Rahjas Segen fuer ein Fest. Essen, Getraenke und Unterhaltung
+  uebertreffen die Erwartungen und negative Eigenheiten (und nicht verregelte Charakterschwaechen)
+  koennen ignoriert werden. Aggressive Handlungen erfordern eine Konterprobe (Willenskraft,
+  20). Die Wirkung endet gemeinsam mit dem Fest.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Tag
+
+  Kosten: 16 KaP
+
+  Fertigkeiten: Harmonie
+
+  Erlernen: Rah 12; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Rahjageweihten I

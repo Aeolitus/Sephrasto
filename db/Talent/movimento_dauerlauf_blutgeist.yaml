@@ -1,0 +1,24 @@
+fertigkeiten: Gaben des Blutgeists
+kommentar: '0'
+kosten: '0'
+name: Movimento Dauerlauf (Blutgeist)
+printclass: '0'
+text: 'Verdoppelt das DH* (S. 34) des Ziels und das Intervall, in dem koerperliche
+  Anstrengung Erschoepfung verursacht.
+
+  Maechtige Magie: Je zwei Stufen verdreifachen/vervierfachen das DH* und das Intervall.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: Einzelwesen
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 8 Stunden
+
+  Kosten: 8 AsP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Wolf/Khoramsbestie)

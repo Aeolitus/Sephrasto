@@ -1,0 +1,15 @@
+fertigkeiten: Illusion
+kosten: '20'
+name: Aureolus Gueldenglanz
+printclass: '0'
+text: "Eine feste Oberflaeche von bis zu einem Rechtschritt sieht so aus, als waere\
+  \ sie aus purem Gold. Dabei handelt es sich um eine Illusion (Sicht).\nMaechtige\
+  \ Magie: Verdoppelt die Flaeche.\nProbenschwierigkeit: 12\nModifikationen: Farbenspiel\
+  \ (\u20134; du kannst auch eine andere Farbe oder ein Muster waehlen.)\nWasserflaeche\
+  \ (\u20134; du kannst auch andere Oberflaechen wie deine Haut verzaubern.)\nVorbereitungszeit:\
+  \ 2 Aktionen\nZiel: Einzelobjekt\nReichweite: Beruehrung\nWirkungsdauer: 1 Tag\n\
+  Kosten: 2 AsP\nFertigkeiten: Illusion\nErlernen: Srl 12; Mag 16; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I
+  ODER Vorteil Tradition der Scharlatane I

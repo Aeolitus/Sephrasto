@@ -1,0 +1,24 @@
+fertigkeiten: Gaben des Blutgeists
+kommentar: '0'
+kosten: '0'
+name: Hexenkrallen (Blutgeist)
+printclass: '0'
+text: 'Deine Fingernaegel werden lang, scharf und hart wie Raubtierklauen. Deine Haende
+  richten 2W6 Waffenschaden an und verlieren die Eigenschaft Zerbrechlich.
+
+  Maechtige Magie: Erhoeht den Schaden um +2.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 8 AsP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Eule)

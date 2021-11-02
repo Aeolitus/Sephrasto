@@ -1,0 +1,31 @@
+fertigkeiten: Wind und Wogen
+kosten: '20'
+name: Gesang der Delphine
+printclass: '26'
+text: 'Die von dir gesegnete Person erhaelt den Vorteil Tierempathie (Delphine fuer
+  Eff oder Pottwale fuer Swa) und erleidet keine Erschoepfung durch den Einsatz dieser
+  Gabe. Beherrscht sie die Gabe bereits, sind damit verbundene Proben um +4 erleichtert.
+  Segnest du dich selbst, kannst du notwendige Proben auf Wind und Wogen statt auf
+  Ueberleben ablegen.
+
+  Maechtige Liturgie: Der Vorteil gilt fuer alle Walartigen/Fische/Meeresbewohner.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 4 KaP
+
+  Fertigkeiten: Wind und Wogen
+
+  Erlernen: Eff, Swa 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der
+  Swafnirgeweihten I

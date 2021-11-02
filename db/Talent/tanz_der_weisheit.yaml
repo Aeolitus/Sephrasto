@@ -1,0 +1,28 @@
+fertigkeiten: Eigenschaften, Zaubertaenze
+kosten: '40'
+name: Tanz der Weisheit
+printclass: '19'
+text: 'Der Tanz schaerft den Geist der Zuseher. Alle Zuseher in einem Radius von 4
+  Schritt erhalten eine Erleichterung +2 auf Derekunde, Heilkunde, Mythenkunde und
+  KL.
+
+  Maechtige Magie: Der Bonus steigt um +1.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Tag
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Eigenschaften, Zaubertaenze
+
+  Erlernen: Ztz 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Zaubertaenzer I

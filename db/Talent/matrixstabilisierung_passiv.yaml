@@ -1,0 +1,12 @@
+fertigkeiten: Stabzauber
+kosten: '40'
+name: Matrixstabilisierung (passiv)
+printclass: '15'
+text: "Der Zauberstab stabilisiert die Zauberei bestimmter Fertigkeiten. In einem\
+  \ einstuendigen Ritual, das 16 AsP kostet, kannst du eine Fertigkeit pro 4 volle\
+  \ Punkte PW Stabzauber waehlen. Bei Proben auf diese Fertigkeiten patzt du nur,\
+  \ wenn der gewertete Wuerfel eine 1 zeigt und der naechsthoehere Wuerfel eine 1\u2013\
+  8.\nErlernen: Mag 14; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Gildenmagier I

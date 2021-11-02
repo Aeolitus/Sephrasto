@@ -1,0 +1,19 @@
+fertigkeiten: Feuer, Verwandlung
+kosten: '60'
+name: Leib des Feuers
+printclass: '0'
+text: "Du harmonierst mit dem Element Feuer. Du bist immun gegen Hitze und Feuerschaden.\n\
+  Probenschwierigkeit: 12\nModifikationen: Reise ins Feuer (\u20134; du kannst dich\
+  \ mit 1 Schritt pro Initiativephase durch Feuer und Lava bewegen, als wuerdest du\
+  \ darin tauchen. Im Feuer brauchst du nicht zu atmen.)\nBegleiter (\u20134; der\
+  \ Zauber betrifft auch eine weitere Person, mit der du permanent Hautkontakt halten\
+  \ musst.)\nLeib aus Feuer (\u20138; Deine Kreaturenklasse wird zu \"Elementar\"\
+  \ mit allen entsprechenden Eigenschaften (S.\_99). Du kannst waehrend der Wirkungsdauer\
+  \ keine Zauber wirken.)\nVorbereitungszeit: 8 Aktionen\nZiel: selbst\nReichweite:\
+  \ Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 16 AsP\nFertigkeiten: Feuer, Verwandlung\n\
+  Erlernen: Geo, Hex 16; Alch, Elf, Dru, Mag 20; 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden
+  I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil
+  Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I

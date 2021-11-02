@@ -1,0 +1,15 @@
+fertigkeiten: Heilung, Heim und Herd
+kosten: '20'
+name: Speisung der Beduerftigen
+printclass: '35'
+text: "Du rufst einfaches und saettigendes Essen fuer 4 Menschen herbei.\nMaechtige\
+  \ Liturgie: Das Essen saettigt 2 weitere Menschen.\nProbenschwierigkeit: 12\nModifikationen:\
+  \ Heiliger Kessel (\u20138, Reichweite dereweit, 16 KaP; du rufst den Heiligen Kessel\
+  \ herbei. Die Nahrung in ihm reicht aus, eine grosse Menge von Beduerftigen zu speisen.\
+  \ Dann verschwindet der Kessel.)\nVorbereitungszeit: 4 Minuten\nZiel: Zone\nReichweite:\
+  \ Beruehrung\nWirkungsdauer: augenblicklich\nKosten: 4 KaP\nFertigkeiten: Heilung,\
+  \ Heim und Herd\nErlernen: Per, Tra 12; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Perainegeweihten I ODER Vorteil Tradition der
+  Traviageweihten I

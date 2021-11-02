@@ -1,0 +1,27 @@
+fertigkeiten: Abu al'Mada
+kosten: '60'
+name: Phexens Sternenwurf
+printclass: '37'
+text: 'Du rufst einen der Wurfsterne des Phex herbei. Dieser erleichtert die Fernkampfprobe
+  um +4, richtet 2W20 TP an und verschwindet nach dem Wurf.
+
+  Maechtige Liturgie: Erhoeht die TP um 1W20.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: Einzelobjekt
+
+  Reichweite: dereweit
+
+  Wirkungsdauer: 4 Minuten
+
+  Kosten: 16 KaP
+
+  Fertigkeiten: Abu al''Mada
+
+  Erlernen: Phe 18; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Phexgeweihten I

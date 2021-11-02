@@ -1,0 +1,20 @@
+fertigkeiten: Froehlicher Wanderer
+kosten: '40'
+name: Ein Freund in der Not
+printclass: '52'
+text: "Durch Aves\u2018 Hilfe findest du den Weg zu einer hilfsbereiten Person im\
+  \ Radius von 1 Meile, die dich aus einer Notlage zu befreien versucht. Kommen mehrere\
+  \ Personen in Frage, fuehrt der Weg zu der Person, die du schnell genug erreichen\
+  \ kannst und die dir am besten helfen kann.\nMaechtige Magie: Verdoppelt den Radius.\n\
+  Modifikationen: Aktiver Helfer (\u20134; der Helfer bewegt sich zusaetzlich unbewusst\
+  \ in deine Richtung, sofern ihm daraus kein bedeutender Nachteil erwaechst.)\nProbenschwierigkeit:\
+  \ 12\nVorbereitungszeit: 4 Aktionen\nZiel: selbst\nReichweite: Beruehrung\nWirkungsdauer:\
+  \ 1 Tag\nKosten: 8 KaP\nFertigkeiten: Froehlicher Wanderer\nErlernen: Aves 16; 40\
+  \ EP\nAnmerkung: Mit dieser Liturgie fanden schon viele Avesgeweihte Hilfe an den\
+  \ seltsamsten Orten \u2013 als haette der Weber des Schicksals selbst seine Haende\
+  \ im Spiel. Wenn also eine geringe Chance auf Hilfe besteht, sollte der Spielleiter\
+  \ sie gewaehren. An voellig menschenleeren Orten wie dem ewigen Eis des Nordens\
+  \ ist die Liturgie hingegen nutzlos. "
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Avesgeweihten I

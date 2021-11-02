@@ -1,0 +1,29 @@
+fertigkeiten: Heerfuehrung
+kosten: '40'
+name: Rondras Hochzeit
+printclass: '46'
+text: 'Im Radius von 1 Meile kannst du den Wind auf einer Skala von windstill/leichte
+  Brise/steife Brise/Gewittersturm/gewittriger Orkan um zwei Stufen veraendern und
+  seine Richtung lenken.
+
+  Maechtige Liturgie: Du kannst den Wind um eine weitere Stufe veraendern und den
+  Radius verdoppeln.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 8 Stunden
+
+  Kosten: 16 KaP
+
+  Fertigkeiten: Heerfuehrung
+
+  Erlernen: Ron 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Rondrageweihten I

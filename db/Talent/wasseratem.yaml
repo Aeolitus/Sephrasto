@@ -1,0 +1,26 @@
+fertigkeiten: Verwandlung
+kosten: '20'
+name: Wasseratem
+printclass: '0'
+text: 'Du kannst unter Wasser atmen, jedoch nicht mehr an Land. Erlaubt Aufrechterhalten.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Verwandlung
+
+  Erlernen: Elf 12; Alch, Dru, Geo, Mag 20; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
+  Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I

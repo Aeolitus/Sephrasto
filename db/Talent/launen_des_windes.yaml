@@ -1,0 +1,26 @@
+fertigkeiten: Eigenschaften, Luft, Ringrituale
+kosten: '40'
+name: Launen des Windes
+printclass: '13'
+text: 'Dein Koerper wird leicht wie eine Feder, die emporschwebt und vom Wind fortgetragen
+  wird. Du kannst die Flugrichtung nur durch das Abstossen von Gegenstaenden beeinflussen.
+  Gegen Ende der Wirkungsdauer nimmt dein Gewicht langsam wieder zu.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 4 Minuten
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Eigenschaften, Luft, Ringrituale
+
+  Erlernen: Geo 16; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Geoden I

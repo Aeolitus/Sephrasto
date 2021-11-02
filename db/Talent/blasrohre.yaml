@@ -1,0 +1,8 @@
+fertigkeiten: Schusswaffen
+kosten: '-1'
+name: Blasrohre
+printclass: '-1'
+text: Verbessert den Einsatz von Blasrohren.
+variable: '0'
+verbilligt: '1'
+voraussetzungen: ''

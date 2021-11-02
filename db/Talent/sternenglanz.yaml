@@ -1,0 +1,26 @@
+fertigkeiten: List
+kosten: '40'
+name: Sternenglanz
+printclass: '38'
+text: 'Du streust Mondstaub ueber das Objekt, das dadurch neu und wertvoll erscheint.
+  Der Betrug laesst sich mit einer Konterprobe (Wachsamkeit oder passendes Handwerkstalent,
+  16) durchschauen.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: List
+
+  Erlernen: Phe 14; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Phexgeweihten I

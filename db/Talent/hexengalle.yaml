@@ -1,0 +1,16 @@
+fertigkeiten: Eigenschaften
+kosten: '40'
+name: Hexengalle
+printclass: '0'
+text: "Du spuckst auf deinen Gegner. Dein Speichel verwandelt sich in aetzende Saeure\
+  \ und das getroffene Opfer erleidet 2W6 SP und wird bei misslungener Konterprobe\
+  \ (Zaehigkeit, 16) bis zu seiner uebernaechsten Initiativephase handlungsunfaehig.\
+  \ Ballistischer Zauber.\nMaechtige Magie: Die SP steigen um 1W6.\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Drachenspeichel (\u20134; der Zauber wirkt auch gegen unbelebte\
+  \ Ziele.)\nVorbereitungszeit: 0 Aktionen\nZiel: selbst\nReichweite: 4 Schritt\n\
+  Wirkungsdauer: augenblicklich\nKosten: 8 AsP\nFertigkeiten: Eigenschaften\nErlernen:\
+  \ Ach, Hex 16; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Hexen I ODER Vorteil
+  Tradition der Kristallomanten I

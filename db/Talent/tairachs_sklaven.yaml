@@ -1,0 +1,27 @@
+fertigkeiten: Verstaendigung, Geister des Zorns
+kosten: '40'
+name: Tairachs Sklaven
+printclass: '6'
+text: 'Dein Geist faehrt in den frischen Leichnam eines Lebewesens ein, der sich als
+  von dir gesteuerter Untoter erhebt. Dabei sind keine Beschwoerungs- oder Beherrschungsproben
+  notwendig. Dein Koerper bleibt waehrenddessen reglos zurueck; sollte er vernichtet
+  werden, endet der Zauber und du bist tot.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Verstaendigung, Geister des Zorns
+
+  Erlernen: Smn 20; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

@@ -1,0 +1,29 @@
+fertigkeiten: Jagd
+kosten: '20'
+name: Jagdglueck
+printclass: '27'
+text: 'Im Laufe der Wirkungsdauer findest du das naechste Tier, das firungefaellig
+  erjagt werden kann. Dadurch sinkt die Schwierigkeit einer Jagd auf 12 (entsprechend
+  eines wildreichen Gebiets, S. 68).
+
+  Maechtige Liturgie: Verdoppelt die Zahl der gefundenen Tiere.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 4 Stunden
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Jagd
+
+  Erlernen: Fir, Ifi 12; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition der
+  Ifirngeweihten I

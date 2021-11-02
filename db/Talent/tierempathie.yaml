@@ -1,0 +1,28 @@
+fertigkeiten: Friede, Jagd
+kosten: '40'
+name: Tierempathie
+printclass: '27'
+text: 'Du erhaeltst den Vorteil Tierempathie und erleidest keine Erschoepfung durch
+  den Einsatz dieser Gabe. Ausserdem kannst du notwendige Proben auf Jagd (Ifi) oder
+  Friede (Tsa) statt Ueberleben ablegen. Beherrschst du die Gabe bereits, sind damit
+  verbundene Proben um +4 erleichtert.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Friede, Jagd
+
+  Erlernen: Ifi 16; Tsa 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Ifirngeweihten I ODER Vorteil Tradition der
+  Tsageweihten I

@@ -1,0 +1,10 @@
+kommentar: '0'
+kosten: '60'
+nachkauf: haeufig
+name: Vorbereitung
+text: Du kannst Proben auf profane Fertigkeiten besonders sorgfaeltig vorbereiten
+  (sofern Vorbereitung sinnvoll ist). Wenn du die doppelte notwendige Zeit aufwendest,
+  erhaeltst du +4 Punkte Erleichterung.
+typ: '1'
+variable: '0'
+voraussetzungen: Attribut KL 8

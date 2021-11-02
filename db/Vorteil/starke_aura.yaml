@@ -1,0 +1,12 @@
+kommentar: '0'
+kosten: '80'
+linkElement: Rededuell
+linkKategorie: '1'
+nachkauf: haeufig
+name: Starke Aura
+text: Waehrend eines Rededuells kannst du eine CH-Probe gegen die Willenskraft deines
+  Gegenuebers ablegen. Wenn die Probe gelingt, kannst du eine Probe in diesem Rededuell
+  wiederholen.
+typ: '1'
+variable: '0'
+voraussetzungen: Attribut CH 10

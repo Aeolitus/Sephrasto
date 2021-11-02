@@ -1,0 +1,21 @@
+fertigkeiten: Gaben des Odun
+kommentar: '0'
+kosten: '40'
+name: Aengste lindern (Tiergeist)
+printclass: '0'
+text: 'Auf dem Ziel lastende Furcht-Effekte sinken um eine Stufe.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 4 AsP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Loewe) ODER Vorteil Tiergeist (Mammut)

@@ -1,0 +1,27 @@
+fertigkeiten: Daemonische Hilfe (Cpt)
+kosten: '20'
+name: Jaeger aus der Tiefe
+printclass: '200'
+text: 'Verleiht unter Wasser den Vorteil Tarnung (S. 98) und Pirschen-Proben sind
+  um +4 erleichtert.
+
+  Maechtige Anrufung: Erleichtert Pirschen-Proben unter Wasser um +2.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 4 GuP
+
+  Fertigkeiten: Daemonische Hilfe (Cpt)
+
+  Erlernen: Cpt 12; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Paktierer I

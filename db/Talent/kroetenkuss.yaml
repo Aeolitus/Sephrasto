@@ -1,0 +1,13 @@
+fertigkeiten: Einfluss, Hexenflueche, Illusion
+kosten: '40'
+name: Kroetenkuss
+printclass: '9'
+text: "Dein Ziel wird von seiner Umgebung furchtsam gemieden. Proben auf Ueberreden\
+  \ und Rhetorik sind um \u20134 erschwert, Proben auf Betoeren sogar um \u20138.\n\
+  Maechtige Magie: Der Malus steigt um \u20132/\u20134.\nProbenschwierigkeit: Magieresistenz\n\
+  Vorbereitungszeit: 4 Aktionen\nZiel: Einzelperson\nReichweite: 8 Schritt\nWirkungsdauer:\
+  \ 1 Tag\nKosten: 8 AsP\nFertigkeiten: Einfluss, Hexenflueche, Illusion\nErlernen:\
+  \ Hex 16; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Hexen I

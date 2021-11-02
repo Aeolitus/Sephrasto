@@ -1,0 +1,17 @@
+fertigkeiten: Friede, Neubeginn
+kosten: '60'
+name: Tsas Lebensschutz
+printclass: '50'
+text: "Verstirbt der Gesegnete waehrend der Wirkung der Liturgie, erscheint ein ueberraschend\
+  \ stabiles  Ei an einem sicheren Ort in der Naehe. Nach einer Stunde schluepft der\
+  \ Gesegnete aus dem Ei und erreicht innerhalb einer Woche seine urspruengliche Groesse\
+  \ (waehrenddessen Einschraenkungen nach Spielleiterentscheid). Das Aussehen aehnelt\
+  \ seinem frueheren Aussehen, kleinere Veraenderungen wie eine bunte Haarstraehne\
+  \ sind aber wahrscheinlich. Die Wirkung der Liturgie kann nur einmal ausgeloest\
+  \ werden, dann endet ihre Wirkung.\nProbenschwierigkeit: 12\nModifikationen: Permanenz\
+  \ (\u20138, Wirkungsdauer bis die Bindung geloest wird, Kosten 16 KaP, davon 8 gKaP)\n\
+  Vorbereitungszeit: 16 Aktionen\nZiel: Einzelperson\nReichweite: Beruehrung\nWirkungsdauer:\
+  \ 1 Tag\nKosten: 16 KaP\nFertigkeiten: Friede, Neubeginn\nErlernen: Tsa 16; 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Tsageweihten I

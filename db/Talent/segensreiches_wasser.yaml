@@ -1,0 +1,31 @@
+fertigkeiten: Fluesse und Quellen, Wachstum
+kosten: '60'
+name: Segensreiches Wasser
+printclass: '24'
+text: 'Efferdgeweihte rufen Efferds Wasserkrug, Perainegeweihte den Krug der Heiligen
+  Lindegard. Der Krug ist mit 8 Schlucken heiligen Wassers gefuellt. Jeder Schluck
+  heilt 1 Wunde oder stillt den Durst fuer einen Tag (Efferd) oder staerkt das Wachstum
+  einer Nutzpflanze, die dann innerhalb eines Tages eine Anwendung Fruechte/Blueten/Blaetter
+  hervorbringt (Peraine).
+
+  Maechtige Liturgie: Der Krug enthaelt 4 zusaetzliche Schlucke.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: Einzelobjekt
+
+  Reichweite: dereweit
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 32 KaP
+
+  Fertigkeiten: Fluesse und Quellen, Wachstum
+
+  Erlernen: Eff, Per 18; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der
+  Perainegeweihten I

@@ -1,0 +1,24 @@
+fertigkeiten: Gaben des Blutgeists
+kommentar: '0'
+kosten: '0'
+name: Harmlose Gestalt (Blutgeist)
+printclass: '0'
+text: 'Mit dieser Illusion (Sicht, Gehoer, Geruch) erscheinst du den Umstehenden als
+  kleines Kind, alter Krueppel, Orkfrau oder als eine andere harmlose Gestalt. Deine
+  Kleidung ist von der Illusion betroffen, zusaetzliche Gegenstaende wie ein Wanderstab
+  oder ein Rucksack nicht. Erlaubt Aufrechterhalten.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 4 Minuten
+
+  Kosten: 4 AsP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Fuchs/Mungo)

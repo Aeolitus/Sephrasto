@@ -1,0 +1,25 @@
+fertigkeiten: Licht
+kosten: '20'
+name: Ucuris Geleit
+printclass: '40'
+text: 'Ein Licht weist dir den Weg zum naechsten zwoelfgoettlichen Geweihten oder
+  Tempel.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 4 KaP
+
+  Fertigkeiten: Licht
+
+  Erlernen: Pra 14; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Praiosgeweihten I

@@ -1,0 +1,16 @@
+fertigkeiten: Eigenschaften, Eis
+kosten: '40'
+name: Corpofrigo Kaelteschock
+printclass: '0'
+text: "Du entziehst deinem Opfer die Koerperwaerme, bis sich sein Koerper mit Raureif\
+  \ ueberzieht. Seine GS sinkt auf die Haelfte und alle Athletik-Proben zur Bewegung\
+  \ sind um \u20134 erschwert.\nMaechtige Magie: Die GS sinkt auf ein Viertel/Achtel/Sechzehntel/Zweiunddreissigstel\
+  \ und der Malus steigt um \u20132.\nProbenschwierigkeit: Magieresistenz\nVorbereitungszeit:\
+  \ 1 Aktion\nZiel: Einzelwesen\nReichweite: 32 Schritt\nWirkungsdauer: 8 Initiativphasen\n\
+  Kosten: 4 AsP\nFertigkeiten: Eigenschaften, Eis\nErlernen: Ach, Dru 12; Mag 16;\
+  \ Alch 18; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil
+  Tradition der Kristallomanten I

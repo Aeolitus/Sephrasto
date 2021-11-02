@@ -1,0 +1,20 @@
+fertigkeiten: Umwelt
+kosten: '60'
+name: Hexenholz
+printclass: '0'
+text: "Du kannst einen Gegenstand mit einer KK von 2 anheben und mit maximal 4 Schritt\
+  \ pro Initiativephase durch die Luft fliegen lassen. Besonders komplizierte und\
+  \ feine Bewegungen sind um bis zu 8 Punkte erschwert. Erfordert Konzentration.\n\
+  Maechtige Magie: Erhoeht KK und die Schritte pro Initiativephase um +2.\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Unsichtbarer Hieb (Wirkungsdauer augenblicklich, 4 AsP; der\
+  \ Zauber fuegt einem Objekt 2W6 SP zu. Maechtige Magie erhoeht den Schaden um +4.)\n\
+  Magische Abwehr (\u20134, wird in einer Reaktion gewirkt, Wirkungsdauer augenblicklich,\
+  \ 4\_AsP; die Zauberprobe gilt als VT gegen einen Nahkampfangriff in Reichweite.)\n\
+  Fesselfeld (\u20138, 32 AsP; in einer Zone von 4 Schritt Radius wird die Bewegung\
+  \ jedes unbelebten Objekts mit einer KK von 2 behindert, was Kampfhandlungen mit\
+  \ Waffen fast unmoeglich macht.)\nVorbereitungszeit: 1 Aktion\nZiel: Einzelobjekt\n\
+  Reichweite: 8 Schritt\nWirkungsdauer: 4 Minuten\nKosten: 4 AsP\nErlernen: Hex 8;\
+  \ 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Hexen I

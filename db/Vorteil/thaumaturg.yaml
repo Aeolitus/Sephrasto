@@ -1,0 +1,17 @@
+kommentar: '0'
+kosten: '80'
+linkElement: Artefaktherstellung
+linkKategorie: '1'
+nachkauf: haeufig
+name: Thaumaturg
+text: 'Artefakte kosten nur die halben gAsP. Ausserdem koennen Thaumaturgen weitere
+  Vorteile zur Artefaktherstellung nutzen: Mit Kraftlinienmagie kannst du ortsgebundene
+  Artefakte erschaffen, ohne gAsP aufzuwenden. Mit Meister der Wuensche/Meister der
+  Seelenlosen kannst du Elementare/Daemonen in Artefakte binden. Beim Ausloesen solcher
+  Artefakte ist keine Beherrschungsprobe noetig, solange diese nicht schwieriger waere
+  als die vom Erschaffer abgelegte Beherrschungsprobe (z.B. durch einen schwierigeren
+  Dienst). '
+typ: '4'
+variable: '0'
+voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut
+  FF 10

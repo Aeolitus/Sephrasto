@@ -1,0 +1,6 @@
+gegenprobe: ''
+name: Wuchtschlag
+probe: AT -X
+text: Der Angriff richtet X (maximal 8) Trefferpunkte mehr an.
+typ: '0'
+voraussetzungen: ''

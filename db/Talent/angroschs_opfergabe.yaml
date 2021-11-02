@@ -1,0 +1,26 @@
+fertigkeiten: Heiliges Erz
+kosten: '20'
+name: Angroschs Opfergabe
+printclass: '32'
+text: 'Du kannst einen Gegenstand aus verarbeitetem Metall und Edelsteinen mit bis
+  zu 8 Stein wieder mit dem Fels verschmelzen. Solche Gegenstaende koennen nicht mehr
+  herausgeloest werden.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 2 KaP
+
+  Fertigkeiten: Heiliges Erz
+
+  Erlernen: Ang 12; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Angroschgeweihten I

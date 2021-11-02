@@ -1,0 +1,12 @@
+kommentar: '0'
+kosten: '40'
+linkElement: Paktierer I
+linkKategorie: '3'
+nachkauf: ueblich
+name: Paktierer II
+script: modifyKaPBasis(8)
+text: Du verfuegst ueber 16 Gunstpunkte und kannst die daemonische Tradition deines
+  Erzdaemons erlernen.
+typ: '0'
+variable: '0'
+voraussetzungen: Vorteil Paktierer I

@@ -1,0 +1,29 @@
+fertigkeiten: Eigenschaften, Geister der Staerkung
+kosten: '20'
+name: Weg des Windes
+printclass: '5'
+text: 'Verdoppelt das DH* (S. 34) deines Ziels und das Intervall, in dem koerperliche
+  Anstrengung Erschoepfung verursacht. Proben, um natuerliche Hindernisse zu ueberwinden,
+  sind um +4 erleichtert.
+
+  Maechtige Magie: Der Bonus steigt um +2 und je zwei Stufen verdreifachen/vervierfachen
+  das DH* und das Intervall.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Tag
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Eigenschaften, Geister der Staerkung
+
+  Erlernen: Smn 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

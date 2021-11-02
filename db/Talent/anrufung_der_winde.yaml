@@ -1,0 +1,32 @@
+fertigkeiten: Seefahrt, Wind und Wogen
+kosten: '40'
+name: Anrufung der Winde
+printclass: '25'
+text: 'Im Radius von 1 Meile kannst du den Wind auf einer Skala von windstill/leichte
+  Brise/steife Brise/Sturm/Orkan um zwei Stufen veraendern und seine Richtung lenken.
+
+  Maechtige Liturgie: Veraendert den Wind um eine weitere Stufe und verdoppelt den
+  Radius.
+
+  Probenschwierigkeit: 12
+
+  Modifikationen: Windhauch (0 Aktionen, Wirkungsdauer augenblicklich, 1 KaP; ein
+  kurzer Windstoss weht giftige Daempfe fort oder loescht ein kleines Feuer.)
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 8 Stunden
+
+  Kosten: 16 KaP
+
+  Fertigkeiten: Seefahrt, Wind und Wogen
+
+  Erlernen: Eff, Swa 14; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der
+  Swafnirgeweihten I

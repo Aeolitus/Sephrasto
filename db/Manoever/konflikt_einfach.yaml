@@ -1,0 +1,12 @@
+gegenprobe: ''
+name: Konflikt (einfach)
+probe: ''
+text: "Du kannst deinen Gegner angreifen, maechtige Zauber weben oder dein Gegenueber\
+  \ einschuechtern. Fast jede Aktion, die eine vergleichende Probe beinhaltet, ist\
+  \ ein Konflikt - insbesondere das Aufstehen: Ein Kontrahent kann versuchen, das\
+  \ mit einer Reaktion zu verhindern, dann muss dir zusaetzlich eine vergleichende\
+  \ GE-Probe (I) gelingen. Um nur von der liegenden in eine kniende oder von der knienden\
+  \ in eine stehende Position zu kommen, ist keine Probe noetig \u2013 wohl aber die\
+  \ Aktion Konflikt."
+typ: '5'
+voraussetzungen: ''

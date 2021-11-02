@@ -1,0 +1,15 @@
+csBeschreibung: 'Meisterschaft: $kommentar$.'
+kommentar: '1'
+kosten: '80'
+linkElement: Tradition der Hexen III
+linkKategorie: '3'
+nachkauf: haeufig
+name: Tradition der Hexen IV
+text: 'Bedingung: 2 weitere Attribute auf insgesamt 16.
+
+
+  8 Punkte koennen zur Verbesserung der Tradition verwendet werden. Sephrasto: Trage
+  die Verbesserungen in das Kommentarfeld ein.'
+typ: '5'
+variable: '0'
+voraussetzungen: Attribut IN 10, Vorteil Tradition der Hexen III

@@ -1,0 +1,13 @@
+gegenprobe: ''
+name: Eigenschaft Konterprobe
+probe: Talent oder Attribut
+text: Manchen Zaubern kannst du auch mit profanen Fertigkeiten widerstehen, zum Beispiel
+  wenn du dich mit deiner Willenskraft gegen die Wirkung des Friedenslieds stemmst.
+  In diesem Fall kannst du eine Konterprobe ablegen. Die Auswirkungen und die Schwierigkeit
+  einer Konterprobe findest du beim jeweiligen Zauber, die Schwierigkeit einer Konterprobe
+  steigt aber in jedem Fall um +4 pro Maechtige Magie/Liturgie. Das gilt auch, wenn
+  Maechtige Magie keine anderen Auswirkungen hat und deswegen beim Zauber gar nicht
+  angefuehrt ist.
+typ: '4'
+voraussetzungen: Vorteil Geweiht I ODER Vorteil Zauberer I ODER Vorteil Paktierer
+  I ODER Vorteil Tradition der Borbaradianer I

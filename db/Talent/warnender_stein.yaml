@@ -1,0 +1,12 @@
+fertigkeiten: Hellsicht, Kristallmagie
+kosten: '40'
+name: Warnender Stein
+printclass: '11'
+text: "Der Kristall leuchtet auf, falls sich eine feindlich gesinnte Person in weniger\
+  \ als 16 Schritt Entfernung befindet und ihr eine Konterprobe (MR, 12) misslingt.\n\
+  Probenschwierigkeit: 12\nVorbereitungszeit: 4 Aktionen\nZiel: gebundener Kristall\n\
+  \ Reichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 4 AsP\nFertigkeiten:\
+  \ Hellsicht, Kristallmagie\nErlernen: Ach 16; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Kristallomanten I

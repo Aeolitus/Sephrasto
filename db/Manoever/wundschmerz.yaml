@@ -1,0 +1,10 @@
+gegenprobe: ''
+name: Wundschmerz
+probe: ''
+text: Wenn dein Charakter auf einen Schlag zwei Einschraenkungen erleidet, muss er
+  sofort eine KO-Probe (20, I) ablegen. Fuer jede zusaetzliche Einschraenkung steigt
+  die Schwierigkeit um weitere +4. Misslingt die Probe, wird er vom Schmerz ueberwaeltigt
+  und ist betaeubt. Er kann erst in seiner uebernaechsten Initiativephase wieder Aktionen
+  und Reaktionen ausfuehren.
+typ: '8'
+voraussetzungen: ''

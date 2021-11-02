@@ -1,0 +1,29 @@
+fertigkeiten: Daemonisch, Geister des Zorns, Umwelt
+kosten: '20'
+name: Rikais Fluch
+printclass: '6'
+text: 'Der Zauber schwaecht Pflanzen und Gegenstaende aus dem Element Humus in einem
+  Radius von 2 Schritt. Pflanzen und verderbliches Material verrotten, die Haerte
+  hoelzerner oder lederner Objekte sinkt um ein Viertel der Basishaerte. Die Auswirkungen
+  auf Lebewesen sind zu gering, um sie zu bemerken.
+
+  Maechtige Magie: Verdoppelt den Radius.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: 16 Schritt
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Daemonisch, Geister des Zorns, Umwelt
+
+  Erlernen: Smn 18; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

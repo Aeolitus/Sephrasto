@@ -1,0 +1,12 @@
+fertigkeiten: Daemonisch, Einfluss
+kosten: '40'
+name: Panik ueberkomme euch!
+printclass: '0'
+text: "Du erscheinst jedem, der dich sehen kann und der keine Konterprobe (Magieresistenz,\
+  \ 12) besteht, als ein Wesen mit Schreckgestalt II (S. 98).\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Objekt (\u20134, Einzelobjekt)\nVorbereitungszeit: 2 Aktionen\n\
+  Ziel: selbst\nReichweite: Beruehrung\nWirkungsdauer: 16 Initiativphasen\nKosten:\
+  \ 8 AsP\nFertigkeiten: Daemonisch, Einfluss\nErlernen: Bor 18; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I

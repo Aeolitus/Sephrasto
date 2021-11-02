@@ -1,0 +1,28 @@
+fertigkeiten: Einfluss
+kosten: '40'
+name: Seidenzunge Elfenwort
+printclass: '0'
+text: 'Das Ziel denkt nicht zu genau ueber deine Worte nach und findet dich ueberzeugend.
+  Alle Ueberreden-Proben gegen dein Ziel sind um +4 erleichtert.
+
+  Maechtige Magie: Der Bonus steigt um +2.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: Einzelperson
+
+  Reichweite: 4 Schritt
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Einfluss
+
+  Erlernen: Elf 18; Sch 20; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Elfen I ODER Vorteil
+  Tradition der Schelme I

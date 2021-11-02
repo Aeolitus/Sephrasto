@@ -1,0 +1,27 @@
+fertigkeiten: Hellsicht, Vertrautenmagie
+kosten: '40'
+name: Stimmungssinn
+printclass: '17'
+text: 'Dein Vertrautentier starrt das Ziel an und gibt dir seine Eindruecke weiter.
+  Menschenkenntnis-Proben gegen das Ziel sind um +4 erleichtert.
+
+  Maechtige Magie: Der Bonus steigt um +2.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: 2 Schritt
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Hellsicht, Vertrautenmagie
+
+  Erlernen: Hex 12, Geo 16; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I

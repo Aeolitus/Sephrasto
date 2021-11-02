@@ -1,0 +1,10 @@
+fertigkeiten: Heimlichkeit
+kosten: '-1'
+name: Pirschen
+printclass: '-1'
+text: Pirschen ermoeglicht das Schleichen, Verstecken und Lauern in der freien Natur.
+  Du pirschst dich auf der Jagd an einen wilden Hirsch heran, legst einen Hinterhalt
+  an einer Reichsstrasse oder beobachtest ungesehen das Lager einer Orkbande.
+variable: '0'
+verbilligt: '0'
+voraussetzungen: ''

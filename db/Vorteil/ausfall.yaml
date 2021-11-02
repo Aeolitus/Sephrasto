@@ -1,0 +1,12 @@
+csAuflisten: '0'
+kommentar: '0'
+kosten: '20'
+nachkauf: haeufig
+name: Ausfall
+text: 'Erlaubt das Manoever Ausfall (AT -2 -BE): Das Ziel muss in einer Freien Reaktion
+  bis zu 2 Schritt zurueckweichen, du folgst in einer Freien Aktion. Moechte es in
+  seiner naechsten Initiativephase einen anderen Gegner als dich angreifen, darfst
+  du einen Passierschlag ausfuehren.'
+typ: '2'
+variable: '0'
+voraussetzungen: Attribut MU 4

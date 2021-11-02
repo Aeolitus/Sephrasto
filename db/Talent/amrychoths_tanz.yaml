@@ -1,0 +1,31 @@
+fertigkeiten: Daemonische Hilfe (Cpt)
+kosten: '40'
+name: Amrychoths Tanz
+printclass: '200'
+text: 'Im Radius von einer Meile kannst du den Wind auf einer Skala von windstill/leichte
+  Brise/steife Brise/Sturm/Orkan um zwei Stufen veraendern und seine Richtung lenken.
+
+  Maechtige Anrufung: Veraendert den Wind um eine weitere Stufe und verdoppelt den
+  Radius.
+
+  Probenschwierigkeit: 12
+
+  Modifikationen: Windhauch (0 Aktionen, Wirkungsdauer augenblicklich, 1 GuP; ein
+  kurzer Windstoss weht giftige Daempfe fort oder loescht ein kleines Feuer.)
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 8 Stunden
+
+  Kosten: 16 GuP
+
+  Fertigkeiten: Daemonische Hilfe (Cpt)
+
+  Erlernen: Cpt 12; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Paktierer I

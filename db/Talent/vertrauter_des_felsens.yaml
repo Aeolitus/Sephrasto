@@ -1,0 +1,13 @@
+fertigkeiten: Heiliges Erz
+kosten: '20'
+name: Vertrauter des Felsens
+printclass: '32'
+text: "Du bist immun gegen Erzschaden und Schaden aus Steinschlag und Steinwaffen.\n\
+  Probenschwierigkeit: 12\nModifikationen: Erweiterter Schutz (\u20134; der Schutz\
+  \ betrifft auch deine Ausruestung.)\nVorbereitungszeit: 4 Aktionen\nZiel: selbst\n\
+  Reichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 8 KaP\nFertigkeiten: Heiliges\
+  \ Erz\nErlernen: Ang 14; Ing 16; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition
+  der Angroschgeweihten I

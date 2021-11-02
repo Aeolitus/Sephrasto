@@ -1,0 +1,28 @@
+fertigkeiten: Eigenschaften, Geister der Staerkung
+kosten: '40'
+name: Mut der Ahnen
+printclass: '5'
+text: 'Die Ahnengeister staerken den Mut von bis zu 8 Gefaehrten. Sie erhalten eine
+  Erleichterung von +2 auf alle MU-Proben und auf ihnen lastende Furcht-Effekte gelten
+  als eine Stufe niedriger.
+
+  Maechtige Magie: Verdoppelt die Zahl der Ziele.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 4 Stunden
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Eigenschaften, Geister der Staerkung
+
+  Erlernen: Smn 16; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

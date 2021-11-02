@@ -1,0 +1,31 @@
+fertigkeiten: Daemonisch, Verwandlung
+kosten: '40'
+name: Ecliptifactus Schattenkraft
+printclass: '0'
+text: 'Dein Schatten kaempft an deiner Seite (WS 5, INI 6, GS 6, RW 1, VT 6, AT 6,
+  TP 2W6). Zusaetzlich verfuegt der Schatten ueber die Vorteile Schreckgestalt II,
+  Koerperlosigkeit, Paraphysikalitaet und Schmerzimmun II (S. 98). Stirbt der Schatten,
+  verlierst du deine komplette Astralenergie und regenerierst keine AsP, bis der Schatten
+  nach 7 Wochen nachgewachsen ist.
+
+  Maechtige Magie: AT, VT, TP steigen um +2.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Daemonisch, Verwandlung
+
+  Erlernen: Mag 18; Bor 20; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I
+  ODER Vorteil Tradition der Gildenmagier I

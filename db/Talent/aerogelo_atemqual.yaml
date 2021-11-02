@@ -1,0 +1,12 @@
+fertigkeiten: Luft, Umwelt
+kosten: '40'
+name: Aerogelo Atemqual
+printclass: '0'
+text: "Die Luft in einem Quader von 4 Schritt Kantenlaenge wird so dicht wie Wasser.\
+  \ In der Zone kann man sich nur schwimmend fortbewegen und Kaempfer gelten als unter\
+  \ Wasser (\u20138).\nMaechtige Magie: Die Kantenlaenge steigt um 2 Schritt.\nProbenschwierigkeit:\
+  \ 12\nVorbereitungszeit: 4 Aktionen\nZiel: Zone\nReichweite: 16 Schritt\nWirkungsdauer:\
+  \ 1 Stunde\nKosten: 8 AsP\nFertigkeiten: Luft, Umwelt\nErlernen: Mag 20; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I

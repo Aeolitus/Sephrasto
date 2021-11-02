@@ -1,0 +1,31 @@
+fertigkeiten: Antimagie, Daemonisch
+kosten: '40'
+name: Bannschwert
+printclass: '0'
+text: 'Du legst bannende Zauber auf eine Waffe mit Reichweite 0. Die Waffe gilt als
+  magisch und erleichtert die Bannung von beschworenen Wesenheiten um +2. Gilt als
+  Objektritual.
+
+  Maechtige Magie: Fuer 2/4 Stufen kannst du eine Waffe mit Reichweite 1/2 verzaubern.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: bis die Bindung geloest wird
+
+  Kosten: 16 AsP, davon 4 gAsP
+
+  Fertigkeiten: Antimagie, Daemonisch
+
+  Erlernen: Bor, Mag 18; Ach, Alch, Dru, Geo, Elf 20; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition
+  der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I

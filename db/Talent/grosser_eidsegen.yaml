@@ -1,0 +1,21 @@
+fertigkeiten: Ehre, Heim und Herd, Ordnung, Zwoelfgoettlicher Ritus
+kosten: '0'
+name: Grosser Eidsegen
+printclass: '20'
+text: "Du segnest einen freiwillig geschworenen Eid, wie einen Traviabund oder einen\
+  \ Lehens\xADeid. Alle Versuche, einen Schwoerenden zum Eidbruch zu bewegen (etwa\
+  \ ueber Betoeren, Ueberreden oder einen Imperavi), sind um \u20134 erschwert. Bricht\
+  \ ein Schwoerender den Eid im Vollbesitz seiner geistigen Kraefte, ruht die Wirkung\
+  \ des Segens, bis er Busse geuebt hat.\nMaechtige Liturgie: Erhoeht den Malus um\
+  \ \u20132.\nProbenschwierigkeit: 12\nVorbereitungszeit: 1 Stunde\nZiel: zwei Personen\n\
+  Reichweite: Beruehrung\nWirkungsdauer: permanent\nKosten: 8 KaP\nFertigkeiten: Ehre,\
+  \ Heim und Herd, Ordnung, Zwoelfgoettlicher Ritus\nErlernen: Tra 8; Ang, Hes, Per,\
+  \ Pra, Rah, Swa, Tsa 14; Aves, Kor, Ron 18; 0 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
+  Hesindegeweihten I ODER Vorteil Tradition der Angroschgeweihten I ODER Vorteil Tradition
+  der Korgeweihten I ODER Vorteil Tradition der Perainegeweihten I ODER Vorteil Tradition
+  der Praiosgeweihten I ODER Vorteil Tradition der Rahjageweihten I ODER Vorteil Tradition
+  der Rondrageweihten I ODER Vorteil Tradition der Swafnirgeweihten I ODER Vorteil
+  Tradition der Traviageweihten I ODER Vorteil Tradition der Tsageweihten I

@@ -1,0 +1,29 @@
+fertigkeiten: Sichere Heimkehr
+kosten: '60'
+name: Gebet der verborgenen Halle
+printclass: '49'
+text: 'Durch dein Gebet erscheint eine Tuer in einen verborgenen Raum, in dem eine
+  angenehme Temperatur herrscht und ausreichend Nahrung und Getraenke fuer alle Schutzsuchenden
+  bereit haelt. Sobald die Tuer geschlossen ist, kann der Raum von aussen weder gefunden
+  noch betreten werden. Bricht einer der Schutzsuchenden Travias Gebote, endet die
+  Wirkung sofort. Wer sich am Ende der Wirkungsdauer im Raum befindet oder den Raum
+  freiwillig verlaesst, befindet sich am Ursprungsort.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Woche
+
+  Kosten: 16 KaP
+
+  Fertigkeiten: Sichere Heimkehr
+
+  Erlernen: Tra 18; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Traviageweihten I

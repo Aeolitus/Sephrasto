@@ -1,0 +1,9 @@
+kommentar: '0'
+kosten: '60'
+nachkauf: haeufig
+name: Geisterpanzer
+text: Gegen direkten Schaden aus Zaubern wie Fulminictus, Ignisphaero oder Hexengalle
+  kannst du deinen MU als WS verwenden.
+typ: '1'
+variable: '0'
+voraussetzungen: Attribut MU 8

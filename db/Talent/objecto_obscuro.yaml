@@ -1,0 +1,27 @@
+fertigkeiten: Verwandlung
+kosten: '40'
+name: Objecto Obscuro
+printclass: '0'
+text: 'Du machst einen Gegenstand vollkommen unsichtbar. Wird er mit mehr als 1 Schritt
+  pro Initiativephase bewegt, endet der Zauber.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Verwandlung
+
+  Erlernen: Alch, Mag, Srl 18; Ach 20; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten
+  I ODER Vorteil Tradition der Scharlatane I

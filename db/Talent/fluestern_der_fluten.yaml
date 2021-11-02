@@ -1,0 +1,26 @@
+fertigkeiten: Fluesse und Quellen, Wind und Wogen
+kosten: '20'
+name: Fluestern der Fluten
+printclass: '24'
+text: 'Du nimmst vage Eindruecke von Fischen und Meereslebewesen, schwimmenden und
+  versunkenen Gegenstaenden oder Verschmutzungen im Radius von 4 Meilen (bei Fluessen
+  halb so weit mit- und doppelt so weit gegen die Stroemung) wahr. Erfordert Konzentration.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 1 KaP
+
+  Fertigkeiten: Fluesse und Quellen, Wind und Wogen
+
+  Erlernen: Eff 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Efferdgeweihten I

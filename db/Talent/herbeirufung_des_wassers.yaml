@@ -1,0 +1,28 @@
+fertigkeiten: Wasser
+kosten: '60'
+name: Herbeirufung des Wassers
+printclass: '0'
+text: 'Ruft ein Elementarwesen des jeweiligen Elements herbei (mehr zu Herbeirufungen
+  S. 81), das in deiner unmittelbaren Naehe erscheint.
+
+  Probenschwierigkeit: 16/24/32 (Diener/Dschinn/Meister)
+
+  Vorbereitungszeit: frei waehlbar
+
+  Ziel: einzelnes Elementar
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 16/32/64 AsP (Diener/Dschinn/Meister)
+
+  Fertigkeiten: Wasser
+
+  Erlernen: Geo 14; Ach, Dru, Mag 16; Alch 18; 60 EP
+
+  Anmerkung: Nicht ueberall sind die Wahren Namen und damit die Beschwoerung von elementaren
+  Dienern und vor allem Meistern bekannt. '
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden
+  I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I
+  ODER Vorteil Tradition der Kristallomanten I

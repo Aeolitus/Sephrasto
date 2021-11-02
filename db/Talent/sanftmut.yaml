@@ -1,0 +1,30 @@
+fertigkeiten: Einfluss
+kosten: '20'
+name: Sanftmut
+printclass: '0'
+text: 'Das verzauberte Tier verliert seine Angriffslust, solange es nicht angegriffen
+  oder gereizt wird.
+
+  Maechtige Magie: Die Lethargie haelt sogar dann, wenn das Tier gereizt/leicht verletzt/schwer
+  verletzt wird.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: Tier
+
+  Reichweite: 8 Schritt
+
+  Wirkungsdauer: 4 Minuten
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Einfluss
+
+  Erlernen: Geo, Hex 12; Dru, Elf 16; Ach 18; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition
+  der Hexen I ODER Vorteil Tradition der Kristallomanten I

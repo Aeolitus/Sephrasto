@@ -1,0 +1,25 @@
+fertigkeiten: Hellsicht, Kristallmagie
+kosten: '40'
+name: Wachender Stein
+printclass: '11'
+text: 'Du kannst einen Blick durch einen gebundenen Kristall werfen. Dem Kristall
+  ist dabei nichts anzumerken.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: gebundener Kristall
+
+  Reichweite: 1 Meile
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Hellsicht, Kristallmagie
+
+  Erlernen: Ach 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Kristallomanten I

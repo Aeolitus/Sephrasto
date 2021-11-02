@@ -1,0 +1,24 @@
+fertigkeiten: Ordnung, Zwoelfgoettlicher Ritus
+kosten: '0'
+name: Eidsegen
+printclass: '20'
+text: "Ein freiwilliges und aufrichtiges Geluebde der Zielperson wird gesegnet. Alle\
+  \ Versuche, den Schwoerenden zum Eidbruch zu bewegen (etwa ueber Betoeren, Ueberreden\
+  \ oder einen Imperavi), sind um \u20134 erschwert. Bricht der Schwoerende den Eid\
+  \ im Vollbesitz seiner geistigen Kraefte, endet der Segen.\nProbenschwierigkeit:\
+  \ 12\nVorbereitungszeit: 16 Aktionen\nZiel: Einzelperson\nReichweite: Beruehrung\n\
+  Wirkungsdauer: 1 Jahr\nKosten: 8 KaP\nFertigkeiten: Ordnung, Zwoelfgoettlicher Ritus\n\
+  Erlernen: Pra 4; Ang, Aves, Eff, Brn, Fir, Hes, Ifi, Ing, Kor, Nan, Per, Phe, Rah,\
+  \ Ron, Swa, Tra, Tsa 8; 0 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
+  Borongeweihten I ODER Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition
+  der Firungeweihten I ODER Vorteil Tradition der Hesindegeweihten I ODER Vorteil
+  Tradition der Ifirngeweihten I ODER Vorteil Tradition der Ingerimmgeweihten I ODER
+  Vorteil Tradition der Angroschgeweihten I ODER Vorteil Tradition der Korgeweihten
+  I ODER Vorteil Tradition der Nandusgeweihten I ODER Vorteil Tradition der Perainegeweihten
+  I ODER Vorteil Tradition der Phexgeweihten I ODER Vorteil Tradition der Praiosgeweihten
+  I ODER Vorteil Tradition der Rahjageweihten I ODER Vorteil Tradition der Rondrageweihten
+  I ODER Vorteil Tradition der Swafnirgeweihten I ODER Vorteil Tradition der Traviageweihten
+  I ODER Vorteil Tradition der Tsageweihten I

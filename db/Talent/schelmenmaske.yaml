@@ -1,0 +1,15 @@
+fertigkeiten: Illusion
+kosten: '40'
+name: Schelmenmaske
+printclass: '0'
+text: "Durch eine Illusion (Sicht) gleicht dein Koerper dem eines Anderen. Du kannst\
+  \ nur Personen kopieren, die du sehr gut kennst.\nMaechtige Magie: Es reicht, wenn\
+  \ dir das Ziel persoenlich bekannt ist/du es eine Weile beobachtet hast/du es vom\
+  \ Hoerensagen kennst.\nProbenschwierigkeit: 12\nModifikationen: Tier (\u20134; auch\
+  \ etwa menschengrosse Tiere koennen gewaehlt werden.)\nVorbereitungszeit: 2 Aktionen\n\
+  Ziel: selbst\nReichweite: Beruehrung\nWirkungsdauer: 4 Minuten\nKosten: 8 AsP\n\
+  Fertigkeiten: Illusion\nErlernen: Sch 12; Mag, Srl 20; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I
+  ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I

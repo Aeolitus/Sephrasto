@@ -1,0 +1,27 @@
+fertigkeiten: Illusion
+kosten: '40'
+name: Blendwerk
+printclass: '0'
+text: 'Eine Illusion (Sicht) deiner Wahl erscheint, die Bewegungen nach deinen Vorstellungen
+  ausfuehrt. Ihre maximale Groesse betraegt PW Illusion x4 Raumschritt. Erfordert
+  Konzentration.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 2 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: 32 Schritt
+
+  Wirkungsdauer: 16 Minuten
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Illusion
+
+  Erlernen: Sch 8; Mag, Srl 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I
+  ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I

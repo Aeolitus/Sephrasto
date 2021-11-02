@@ -1,0 +1,16 @@
+fertigkeiten: Wissen
+kosten: '40'
+name: Gift der Erkenntnis
+printclass: '31'
+text: "Du laesst dich von einer Schlange beissen. Solange das Gift wirkt, erhaeltst\
+  \ einen ungefaehren Eindruck von den Gedanken deines Gegenuebers. Weiss das Ziel,\
+  \ dass seine Gedanken gelesen werden, kann es dich mit einer Konterprobe (Willenskraft,\
+  \ 20) in die Irre fuehren.\nMaechtige Liturgie: Du erhaeltst einen deutlichen/klaren/vollstaendigen\
+  \ Eindruck in die Gedanken deines Ziels.\nProbenschwierigkeit: 12\nModifikationen:\
+  \ Tiefentelepathie (\u201316, 8 KaP; du erhaeltst einen Einblick in innerste Vorgaenge.)\n\
+  Vorbereitungszeit: 16 Aktionen\nZiel: selbst\nReichweite: Beruehrung\nWirkungsdauer:\
+  \ solange das Gift wirkt\nKosten: 4 KaP\nFertigkeiten: Wissen\nErlernen: Hes 18;\
+  \ 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Hesindegeweihten I

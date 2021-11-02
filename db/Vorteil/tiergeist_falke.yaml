@@ -1,0 +1,43 @@
+csBeschreibung: 'Archetyp: Fernkaempfer
+
+  Wertebonus: TP im Fernkampf, Sinnenschaerfe, Wachsamkeit, FF
+
+  Verwandlung: Fluegel (bis zu 8 Schritt weite und 4 Schritt hohe Spruenge, Gleitfluege
+  von bis zu 4xHoehe Schritt), Kopf (Sinnenschaerfe +8 und Wachsamkeit +4, wenn Sicht
+  gefragt ist)
+
+  Zauber: Adlerauge, Axxeleratus, Falkenauge, Pfeil der Luft, Aeropulvis'
+kommentar: '0'
+kosten: '0'
+nachkauf: haeufig
+name: Tiergeist (Falke)
+text: "Archetyp: Fernkaempfer\nWertebonus: TP im Fernkampf, Sinnenschaerfe, Wachsamkeit,\
+  \ FF\nVerwandlung: Fluegel (bis zu 8 Schritt weite und 4 Schritt hohe Spruenge,\
+  \ Gleitfluege von bis zu 4xHoehe Schritt), Kopf (Sinnenschaerfe +8 und Wachsamkeit\
+  \ +4, wenn Sicht gefragt ist)\nZauber: Adlerauge, Axxeleratus, Falkenauge, Pfeil\
+  \ der Luft, Aeropulvis\n\nSephrasto: Die Rituale der Anach-n\xFBrim und der Durro-d\xFB\
+  n, sowie die Schutzgeister und Flueche der Schamanen beziehen sich immer auf eine\
+  \ bestimmte Tierart. Die Verbindung mit einem solchen Tiergeist wird als kostenloser\
+  \ Vorteil abgebildet. Dabei ist zu beachten, dass nur Schamanen mehrere Tiergeister\
+  \ waehlen koennen. Durro-d\xFBn muessen sich fuer ein Tier entscheiden und koennen\
+  \ dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-n\xFB\
+  rim koennen das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen. Sie beherrschen\
+  \ dann automatisch alle Zauber des Tiergeists: setze einen Haken bei allen kostenlosen\
+  \ Talenten der Fertigkeit Gaben des Blutgeists."
+typ: '4'
+variable: '0'
+voraussetzungen: Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun
+  I ODER Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist (Affe) ODER Vorteil
+  Tradition der Schamanen I, Kein Vorteil Tiergeist (Baer) ODER Vorteil Tradition
+  der Schamanen I, Kein Vorteil Tiergeist (Elefant) ODER Vorteil Tradition der Schamanen
+  I, Kein Vorteil Tiergeist (Eule) ODER Vorteil Tradition der Schamanen I, Kein Vorteil
+  Tiergeist (Fischotter) ODER Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist
+  (Fuchs/Mungo) ODER Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist (Gebirgsbock)
+  ODER Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist (Loewe) ODER Vorteil
+  Tradition der Schamanen I, Kein Vorteil Tiergeist (Mammut) ODER Vorteil Tradition
+  der Schamanen I, Kein Vorteil Tiergeist (Rabe) ODER Vorteil Tradition der Schamanen
+  I, Kein Vorteil Tiergeist (Schlange) ODER Vorteil Tradition der Schamanen I, Kein
+  Vorteil Tiergeist (Stier) ODER Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist
+  (Wildkatze/Panther) ODER Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist
+  (Wildschwein) ODER Vorteil Tradition der Schamanen I, Kein Vorteil Tiergeist (Wolf/Khoramsbestie)
+  ODER Vorteil Tradition der Schamanen I

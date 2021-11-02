@@ -1,0 +1,27 @@
+fertigkeiten: Hellsicht, Kugelzauber
+kosten: '20'
+name: Kugel des Astrologen
+printclass: '12'
+text: 'Ueber der Kugel entsteht ein Abbild des aktuellen Sternenhimmels, von dem du
+  einzelne Teile hervortreten lassen kannst. Das Abbild leuchtet nur schwach und ist
+  im Sonnenlicht nicht zu sehen.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: Kristallkugel
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 4 AsP
+
+  Fertigkeiten: Hellsicht, Kugelzauber
+
+  Erlernen: Srl 14; Mag 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane
+  I

@@ -1,0 +1,14 @@
+fertigkeiten: Umwelt
+kosten: '40'
+name: Nackedei
+printclass: '0'
+text: "Saemtliche Stoffkleidung des Opfers faellt ploetzlich zu Boden. Metallische\
+  \ Ruestung ist nicht betroffen.\nProbenschwierigkeit: 12\nModifikationen: Blechdose\
+  \ (\u20138; der Zauber betrifft auch Ruestungsteile aus Metall.)\nAbsatteln (\u2013\
+  8; der Zauber betrifft auch Pferdegeschirr und Sattelgurte, wenn dein Ziel ein Reiter\
+  \ ist.)\nVorbereitungszeit: 0 Aktionen\nZiel: Einzelperson\nReichweite: 8 Schritt\n\
+  Wirkungsdauer: augenblicklich\nKosten: 8 AsP\nFertigkeiten: Umwelt\nErlernen: Sch\
+  \ 12; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Schelme I

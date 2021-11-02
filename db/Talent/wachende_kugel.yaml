@@ -1,0 +1,25 @@
+fertigkeiten: Hellsicht, Kugelzauber
+kosten: '40'
+name: Wachende Kugel
+printclass: '12'
+text: 'Du kannst einen Blick durch eine gebundene Kugel werfen. Der Kugel ist dabei
+  nichts anzumerken.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: Kristallkugel
+
+  Reichweite: 1 Meile
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Hellsicht, Kugelzauber
+
+  Erlernen: Srl 16; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Scharlatane I

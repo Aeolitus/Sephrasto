@@ -1,0 +1,35 @@
+fertigkeiten: Luft, Umwelt
+kosten: '40'
+name: Wettermeisterschaft
+printclass: '0'
+text: 'Das Wetter in einer Zone von bis zu 1 Meile Radius veraendert sich nach deinem
+  Willen. Du kannst folgende Skalen um insgesamt zwei Stufen veraendern:
+
+  Niederschlag: trocken/Nieselregen/Regen/starker Regen/Wolkenbruch
+
+  Wind: windstill/leichte Brise/steife Brise/Sturm/Orkan
+
+  Temperatur: heiss/warm/mittel/kuehl/kalt.
+
+  Maechtige Magie: Du kannst die Skalen um eine weitere Stufe veraendern.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: Zone
+
+  Reichweite: 1 Meile
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 32 AsP
+
+  Fertigkeiten: Luft, Umwelt
+
+  Erlernen: Dru 14; Geo 16; Ach 18; Hex, Mag 20; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil
+  Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I

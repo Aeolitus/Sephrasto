@@ -1,0 +1,26 @@
+fertigkeiten: Einfluss, Geister des Zorns
+kosten: '40'
+name: Macht des Blutes
+printclass: '6'
+text: 'Dein Ziel muss eine koerperliche Handlung deiner Wahl ausfuehren. Widerspricht
+  der Befehl dem Selbsterhaltungstrieb des Zieles, kann es mit einer Konterprobe (Willenskraft,
+  16) widerstehen. Du fuegst dir beim Wirken dieses Rituals eine Wunde zu.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: 8 Schritt
+
+  Wirkungsdauer: 8 Initiativphasen
+
+  Kosten: 4 AsP
+
+  Fertigkeiten: Einfluss, Geister des Zorns
+
+  Erlernen: Smn 20; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

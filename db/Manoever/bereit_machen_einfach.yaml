@@ -1,0 +1,8 @@
+gegenprobe: ''
+name: Bereit machen (einfach)
+probe: ''
+text: Du ziehst eine Waffe (1 Aktion), kramst einen Heiltrank hervor (je nach Aufbewahrungsort
+  2-4 Aktionen) oder fuehrst andere Handlungen aus, die nicht deine volle Aufmerksamkeit
+  benoetigen.
+typ: '5'
+voraussetzungen: ''

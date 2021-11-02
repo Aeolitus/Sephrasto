@@ -1,0 +1,29 @@
+fertigkeiten: Schalenzauber, Verwandlung
+kosten: '60'
+name: Astrale Aufladung
+printclass: '14'
+text: 'Bei der Herstellung eines Elixiers laesst du durch die Schale zusaetzliche
+  Astralenergie einfliessen. Alle Proben zur Herstellung dieses Elixiers sind um +4
+  erleichtert.
+
+  Maechtige Magie: Der Bonus steigt um +2.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: Elixier
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: bis zur Fertigstellung
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Schalenzauber, Verwandlung
+
+  Erlernen: Alch 12; Hex 16; Mag 18; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Gildenmagier
+  I ODER Vorteil Tradition der Hexen I

@@ -1,0 +1,15 @@
+fertigkeiten: Keulenrituale, Verstaendigung
+kosten: '40'
+name: Geist der Keule
+printclass: '10'
+text: "Du bindest einen Totengeist in die Keule. Solange der Geist an die Keule gebunden\
+  \ ist, erfuellt er dir eine Bitte, wenn dir eine CH-Probe (16) gelingt. Die erste\
+  \ Bitte seit dem letzten Neumond ist nicht erschwert, aber bei jeder zusaetzlichen\
+  \ Bitte erleidest du einen kumulativen Malus von \u20134. Es kann immer nur ein\
+  \ Wesen in der Keule gebunden sein.\nProbenschwierigkeit: 12\nVorbereitungszeit:\
+  \ 1 Stunde\nZiel: Knochenkeule\nReichweite: Beruehrung\nWirkungsdauer: bis die Bindung\
+  \ geloest wird\nKosten: 4 AsP, davon 2 gAsP\nFertigkeiten: Keulenrituale, Verstaendigung\n\
+  Erlernen: Smn 12; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

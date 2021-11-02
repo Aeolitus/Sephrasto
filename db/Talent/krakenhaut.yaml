@@ -1,0 +1,21 @@
+fertigkeiten: Daemonische Hilfe (Cpt)
+kommentar: '1'
+kosten: '40'
+name: Krakenhaut
+printclass: '200'
+text: "Du verwandelst dich in einen Krakenmolch, Hai oder Rochen (beim Erlernen waehlen),\
+  \ wobei du deine geistigen Faehigkeiten behaeltst. Deine koerperlichen Faehigkeiten\
+  \ entsprechen denen des Tiers und du kannst in Tiergestalt keine Anrufungen wirken.\
+  \ Erlaubt Aufrechterhalten.\nMaechtige Anrufung: Das Tier ist ein ueberdurchschnittlicher/aussergewoehnlicher/herausragender/einzigartiger\
+  \ Vertreter seiner Art. Die Werte des Tieres sind nach Spielleiterentscheid erhoeht.\n\
+  Probenschwierigkeit: 12\nVorbereitungszeit: 16 Aktionen\nZiel: selbst\nReichweite:\
+  \ Beruehrung\nWirkungsdauer: 4 Stunden\nKosten: 8 GuP\nFertigkeiten: Daemonische\
+  \ Hilfe (Cpt)\nErlernen: Cpt 16; 40 EP\nAnmerkungen: Nur herausragende Paktierere\
+  \ koennen sich in Tiere verwandeln, die nicht zu den Groessenklassen klein oder\
+  \ mittel gehoeren. Solche Verwandlungen sind prinzipiell um \u20138 erschwert. Die\
+  \ Lernkosten des Zaubers orientieren sich an der Tierart, wobei fliegende, giftige,\
+  \ sehr starke usw. Tiere teurer sind.\nSephrasto: Trage das entsprechende Tier in\
+  \ das Kommentarfeld ein."
+variable: '1'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Paktierer I

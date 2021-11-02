@@ -1,0 +1,8 @@
+kommentar: '0'
+kosten: '20'
+nachkauf: haeufig
+name: Zerstoererisch I
+text: Proben zum Zerstoeren oder Durchbrechen von Gegenstaenden sind um +4 erleichtert.
+typ: '1'
+variable: '0'
+voraussetzungen: Attribut KK 4

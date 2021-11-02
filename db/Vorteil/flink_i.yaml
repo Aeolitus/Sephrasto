@@ -1,0 +1,10 @@
+csBeschreibung: Deine GS steigt um 1 (bereits eingerechnet).
+kommentar: '0'
+kosten: '20'
+nachkauf: haeufig
+name: Flink I
+script: modifyGS(1)
+text: Deine GS steigt um einen Punkt.
+typ: '1'
+variable: '0'
+voraussetzungen: Attribut GE 4

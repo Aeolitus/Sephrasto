@@ -1,0 +1,19 @@
+fertigkeiten: Feuer, Umwelt
+kosten: '40'
+name: Ignifugo Feuerbann
+printclass: '0'
+text: "Du loeschst ein Feuer bis zur Groesse eines Kaminfeuers.\nMaechtige Magie:\
+  \ Du kannst ein Feuer bis zur Groesse eines grossen Lagerfeuers/eines Scheiterhaufens/eines\
+  \ brennenden Schiffes/einer brennenden Haeusergruppe loeschen.\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Feuerdiebstahl (\u20134, Wirkungsdauer 1 Stunde, 1 AsP; du\
+  \ kannst ein maximal fackelgrosses Feuer von seiner alten Quelle nehmen und in deiner\
+  \ Hand mit dir tragen.)\nSelbstloeschung (\u20134, 0 Aktionen, 4 AsP; du loeschst\
+  \ dich selbst.)\nVorbereitungszeit: 2 Aktionen\nZiel: Zone\nReichweite: 32 Schritt\n\
+  Wirkungsdauer: augenblicklich\nKosten: 8 AsP\nFertigkeiten: Feuer, Umwelt\nErlernen:\
+  \ Dru 14; Alch, Geo, Sch, Srl 16; Mag 18; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil
+  Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane I ODER Vorteil
+  Tradition der Schelme I

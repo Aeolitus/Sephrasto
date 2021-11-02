@@ -1,0 +1,14 @@
+gegenprobe: ''
+name: Reaktion
+probe: ''
+text: "Reaktionen kannst du aufwenden, um auf Ereignisse ausserhalb deiner Initiativephase\
+  \ zu reagieren. Typische Reaktionen sind Passierschlaege (S. 39), vor allem aber\
+  \ Verteidigungen (VT) als Antwort auf einen Nahkampfangriff. Jede Reaktion nach\
+  \ der ersten erleidet einen kumulativen Malus von \u20134. Dieser Malus verschwindet\
+  \ am Beginn deiner naechsten Initiativephase. Ausgenommen von diesem Malus sind\
+  \ Verteidigungen gegen Gegner in einer kleineren Groessenklasse; sie gelten als\
+  \ Freie Reaktionen.\n    Die Reihenfolge, in der du deine Reaktionen ausfuehrst,\
+  \ kann eine Rolle spielen. Deswegen kannst du auch freiwillig Reaktionen mit einer\
+  \ hoeheren Erschwernis ausfuehren, um dir die nicht erschwerte Reaktion freizuhalten."
+typ: '5'
+voraussetzungen: ''

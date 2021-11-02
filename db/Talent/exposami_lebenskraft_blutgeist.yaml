@@ -1,0 +1,15 @@
+fertigkeiten: Gaben des Blutgeists
+kommentar: '0'
+kosten: '0'
+name: Exposami Lebenskraft (Blutgeist)
+printclass: '0'
+text: "Du nimmst Lebewesen als gruen leuchtende Flecken wahr. Der Zauber kann alle\
+  \ Elemente bis auf Erz und Eis durchdringen.\nMaechtige Magie: Du kannst Angehoerige\
+  \ verschiedener Spezies/verschiedene Individuen unterscheiden und wiedererkennen.\n\
+  Probenschwierigkeit: 12\nModifikationen: Reinheit der Aura (\u20138; der Zauber\
+  \ zeigt den Gesundheitszustand des Ziels, daemonische Verseuchungen usw.)\nVorbereitungszeit:\
+  \ 1 Aktion\nZiel: Einzelperson\nReichweite: 16 Schritt\nWirkungsdauer: 8 Initiativphasen\n\
+  Kosten: 4 AsP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Eule)

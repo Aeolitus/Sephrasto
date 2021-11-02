@@ -1,0 +1,31 @@
+fertigkeiten: Luft
+kosten: '40'
+name: Orkanwand
+printclass: '0'
+text: 'Eine 8 Schritt hohe und bis zu 4 Schritt lange Wand aus rasenden Windhosen
+  waechst entlang einer von dir bestimmten Linie aus dem Boden. Um sich ihr zu naehern,
+  muss dir eine Konterprobe (KK, 16)  gelingen, sonst wirst du zurueckgestossen (S.
+  98). Das Durchqueren verursacht 2 Punkte Erschoepfung.
+
+  Maechtige Magie: Die Hoehe steigt um 4 Schritt, die Laenge steigt um bis zu 2 Schritt
+  und das Durchqueren verursacht 1 weiteren Punkt Erschoepfung.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: 8 Schritt
+
+  Wirkungsdauer: 16 Minuten
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Luft
+
+  Erlernen: Geo, Mag 18; Dru 20; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I

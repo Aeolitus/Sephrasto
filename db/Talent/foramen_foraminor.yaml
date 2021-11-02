@@ -1,0 +1,14 @@
+fertigkeiten: Umwelt
+kosten: '40'
+name: Foramen Foraminor
+printclass: '0'
+text: "Du oeffnest ein Schloss beliebiger Bauart.\nProbenschwierigkeit: Herstellungsschwierigkeit\
+  \ des Schlosses\nModifikationen: Riegel (\u20134, 8 AsP; auch ein schwerer Riegel\
+  \ wie an einem Stadttor kann hiermit geoeffnet werden.)\nVorbereitungszeit: 2 Aktionen\n\
+  Ziel: Einzelobjekt\nReichweite: Beruehrung\nWirkungsdauer: augenblicklich\nKosten:\
+  \ 4 AsP\nFertigkeiten: Umwelt\nErlernen: Alch, Mag 14; Srl 16; Sch 18; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane I ODER
+  Vorteil Tradition der Schelme I

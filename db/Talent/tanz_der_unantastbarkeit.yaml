@@ -1,0 +1,26 @@
+fertigkeiten: Eigenschaften, Zaubertaenze
+kosten: '40'
+name: Tanz der Unantastbarkeit
+printclass: '19'
+text: 'Der Tanz verbessert deinen Gleichgewichtssinn und deine Koerperbeherrschung.
+  Du erhaeltst den Vorteil Koerperbeherrschung (S. 58). Besitzt du den Vorteil bereits,
+  erleidest du beim Einsatz des Vorteils keine Erschoepfung.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Eigenschaften, Zaubertaenze
+
+  Erlernen: Ztz 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Zaubertaenzer I

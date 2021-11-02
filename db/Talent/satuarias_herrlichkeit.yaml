@@ -1,0 +1,27 @@
+fertigkeiten: Eigenschaften, Illusion
+kosten: '20'
+name: Satuarias Herrlichkeit
+printclass: '0'
+text: 'Dein Aussehen weckt Begehren in allen an deinem Geschlecht und deiner Spezies
+  interessierten Individuen. Ihnen gegenueber sind Betoeren-Proben um +4 erleichtert.
+
+  Maechtige Magie: Der Bonus steigt um +2.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Eigenschaften, Illusion
+
+  Erlernen: Hex 12; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Hexen I

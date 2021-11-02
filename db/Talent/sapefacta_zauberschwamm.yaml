@@ -1,0 +1,14 @@
+fertigkeiten: Luft, Umwelt, Wasser
+kosten: '20'
+name: Sapefacta Zauberschwamm
+printclass: '0'
+text: "Deine Kleidung ist so sauber, als waere sie frisch gewaschen.\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Laeusekamm (\u20134; du wirst auch von Kleintieren und Ungeziefer\
+  \ befreit.)\nVorbereitungszeit: 4 Aktionen\nZiel: selbst\nReichweite: Beruehrung\n\
+  Wirkungsdauer: augenblicklich\nKosten: 1 AsP\nFertigkeiten: Luft, Umwelt, Wasser\n\
+  Erlernen: Alch 12; Mag 14; Dru, Srl 16; Hex 20; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil
+  Tradition der Hexen I ODER Vorteil Tradition der Scharlatane I

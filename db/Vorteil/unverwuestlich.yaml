@@ -1,0 +1,20 @@
+csBeschreibung: 'Deine WS steigt um 1 Punkt (bereits eingerechnet).
+
+
+  Wenn Zaehigkeitsproben zum Ignorieren von Kampfunfaehigkeit misslingen, erleidest
+  du keine Erschoepfung.'
+kommentar: '0'
+kosten: '80'
+linkElement: Kampfunfaehigkeit
+linkKategorie: '1'
+nachkauf: haeufig
+name: Unverwuestlich
+script: modifyWS(1)
+text: 'Deine WS steigt um 1 Punkt.
+
+
+  Wenn Zaehigkeitsproben zum Ignorieren von Kampfunfaehigkeit misslingen, erleidest
+  du keine Erschoepfung.'
+typ: '1'
+variable: '0'
+voraussetzungen: Attribut KO 10

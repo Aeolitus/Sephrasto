@@ -1,0 +1,8 @@
+fertigkeiten: Wurfwaffen
+kosten: '-1'
+name: Diskusse
+printclass: '-1'
+text: Verbessert den Einsatz von Diskussen.
+variable: '0'
+verbilligt: '0'
+voraussetzungen: ''

@@ -1,0 +1,15 @@
+fertigkeiten: Feuer
+kosten: '40'
+name: Ignifaxius Flammenstrahl
+printclass: '0'
+text: "Eine Flammenlanze fuegt dem Ziel 4W6 TP zu und verursacht Nachbrennen (S. 98).\
+  \ Ballistischer Zauber.\nMaechtige Magie: Die TP steigen um 2W6.\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Gezielter Strahl (\u20134; du kannst die Trefferzone bestimmen.)\n\
+  Vorbereitungszeit: 1 Aktion\nZiel: Einzelwesen, Einzelobjekt\nReichweite: 16 Schritt\n\
+  Wirkungsdauer: augenblicklich\nKosten: 16 AsP\nFertigkeiten: Feuer\nErlernen: Mag\
+  \ 14; Ach 18; Dru, Srl 20; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten
+  I ODER Vorteil Tradition der Scharlatane I

@@ -1,0 +1,11 @@
+kommentar: '0'
+kosten: '20'
+nachkauf: haeufig
+name: Tradition der Scharlatane I
+text: "Bedingungen: Sichtkontakt, Geste, laut gesprochene Zauberformel.\n\nDu kannst\
+  \ Zauber in der Tradition der Scharlatane erlernen und benutzen. Solche Zauber findest\
+  \ du unter den allgemeinen Zaubern und unter Kugelzauber (S. 169).\n\nZauber mit\
+  \ Basiskosten von 16 AsP oder mehr sind um \u20132 erschwert."
+typ: '5'
+variable: '0'
+voraussetzungen: Attribut CH 4, Vorteil Zauberer I

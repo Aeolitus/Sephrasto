@@ -1,0 +1,29 @@
+fertigkeiten: Wildnis
+kosten: '20'
+name: Fluestern der Wildnis
+printclass: '28'
+text: 'Die von dir gesegnete Person erhaelt den Vorteil Tierempathie (Eisbaeren) und
+  erleidet keine Erschoepfung durch den Einsatz dieser Gabe. Beherrscht sie die Gabe
+  bereits, sind damit verbundene Proben um +4 erleichtert. Segnest du dich selbst,
+  kannst du notwendige Proben auf Wildnis statt auf Ueberleben ablegen.
+
+  Maechtige Liturgie: Der Vorteil gilt fuer alle Baeren/Hundeartigen/Raubtiere.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 4 KaP
+
+  Fertigkeiten: Wildnis
+
+  Erlernen: Fir 14; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Firungeweihten I

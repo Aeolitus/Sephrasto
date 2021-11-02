@@ -1,0 +1,9 @@
+fertigkeiten: Athletik
+kosten: '-1'
+name: Akrobatik
+printclass: '-1'
+text: Akrobatik wird fuer gewagte Kunststuecke und Balanceakte verwendet und kann
+  auch den Fallschaden reduzieren.
+variable: '0'
+verbilligt: '0'
+voraussetzungen: ''

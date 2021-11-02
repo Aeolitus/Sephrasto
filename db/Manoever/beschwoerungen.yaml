@@ -1,0 +1,34 @@
+gegenprobe: ''
+name: Beschwoerungen
+probe: ''
+text: "Das Wesen wird mit einer Beschwoerungsprobe gerufen und anschliessend mit einer\
+  \ Beherrschungsprobe zu einem Dienst bewegt. Fuer 1 Minute/Stunde/Tag/Woche/Monat/Jahr,\
+  \ die du in Vorbereitung investierst, sind alle diese Proben um +2/4/6/8/10/12 erleichtert.\n\
+  \    Zauber, Kosten und Schwierigkeit der Beschwoerungsprobe haengen vom Wesen ab\
+  \ (s. u.). Nach erfolgreicher Beschwoerung kannst du in einer Aktion Konzentration\
+  \ mit einer Kontrollprobe (Attribut nach Wesen) einen Dienst verlangen. Die Basisschwierigkeit\
+  \ entspricht der Beschwoerungsprobe, dazu kommt der Bonus durch gute Vorbereitung\
+  \ und ein Modifikator nach Schwierigkeit des Dienstes. Wir unterscheiden einfache\
+  \ (+4), gewoehnliche (0), schwierige (\u20134) und anmassende Dienste (\u20138).\n\
+  \    Misslingt die Beherrschungsprobe knapp, erfuellt das Wesen den Dienst nur teilweise\
+  \ oder interpretiert ihn um. Deutlich misslungene Beherrschungsproben bedeuten,\
+  \ dass das Wesen frei ist und sich seinem Naturell entsprechend verhaelt. Kurzfristig\
+  \ herbeigerufene Wesen verschwinden anschliessend, waehrend du bei permanent erschaffenen\
+  \ Wesen nach 1 Stunde eine weitere Beherrschungsprobe ablegen kannst.\n    Gelingt\
+  \ die Beherrschungsprobe, fuehrt das Wesen den Dienst sofort aus. Anschliessend\
+  \ verschwinden herbeigerufene Wesen, waehrend du erschaffenen Wesen mit weiteren\
+  \ Beherrschungsproben weitere Dienste abringen kannst.\n    Ein besonderer Dienst\
+  \ ist die Bindung, mit der du ein herbeigerufenes Wesen in/an einen Gegenstand binden\
+  \ kannst, sodass es dir waehrend dieser Zeit einen zusaetzlichen Dienst erfuellen\
+  \ kann. Als Faustregel gilt eine Bindung fuer 1 Woche als gewoehnlicher Dienst.\
+  \ In jedem Fall fliesst jedoch ein Viertel der Basiskosten der Beschwoerung als\
+  \ gAsP in die Bindung, um diese aufrecht zu erhalten."
+typ: '4'
+voraussetzungen: Talent Invocatio ODER Talent Macht der Ungeformten ODER Talent Herbeirufung
+  des Feuers ODER Talent Herbeirufung des Eises ODER Talent Herbeirufung der Luft
+  ODER Talent Herbeirufung des Wassers ODER Talent Herbeirufung des Humus ODER Talent
+  Herbeirufung des Erzes ODER Talent Macht des Erzes ODER Talent Macht des Feuers
+  ODER Talent Macht des Humus ODER Talent Macht der Luft ODER Talent Macht des Wassers
+  ODER Talent Skelettarius Totenherr ODER Talent Tairachs Krieger ODER Talent Wasserleiche
+  erheben ODER Talent Chimaeroform Hybridgestalt ODER Talent Stein wandle! ODER Talent
+  Staub wandle! ODER Talent Totes handle!

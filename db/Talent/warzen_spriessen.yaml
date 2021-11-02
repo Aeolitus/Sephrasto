@@ -1,0 +1,13 @@
+fertigkeiten: Hexenflueche, Verwandlung
+kosten: '20'
+name: Warzen spriessen
+printclass: '9'
+text: "Eklige Warzen entstellen das Gesicht deines Ziels. Die Vorteile Eindrucksvoll\
+  \ I und II werden aufgehoben und alle Proben auf Autoritaet, Beeinflussung  und\
+  \ Gebraeuche sind um \u20132 erschwert.\nMaechtige Magie: Der Malus steigt um \u2013\
+  1.\nProbenschwierigkeit: Magieresistenz\nVorbereitungszeit: 4 Aktionen\nZiel: Einzelperson\n\
+  Reichweite: 8 Schritt\nWirkungsdauer: 1 Tag\nKosten: 8 AsP\nFertigkeiten: Hexenflueche,\
+  \ Verwandlung\nErlernen: Hex 8; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Hexen I

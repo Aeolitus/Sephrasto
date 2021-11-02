@@ -1,0 +1,24 @@
+fertigkeiten: Daemonische Hilfe (Cpt)
+kosten: '60'
+name: Daemonische Waffe
+printclass: '200'
+text: 'Du segnest eine Waffe. Diese gilt als daemonisch.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: bis die Bindung geloest wird
+
+  Kosten: 8 GuP, davon 2 gGuP
+
+  Fertigkeiten: Daemonische Hilfe (Cpt)
+
+  Erlernen: Cpt 18; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Paktierer I

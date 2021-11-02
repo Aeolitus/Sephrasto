@@ -1,0 +1,15 @@
+kommentar: '0'
+kosten: '60'
+nachkauf: haeufig
+name: Blutmagie
+text: "Mit finsterer und streng verbotener Blutmagie nutzt du fremde Lebenskraft fuer\
+  \ deine Zauber. Das Opfer wird dabei voellig ausgezehrt und stirbt. Ein zauberkundiges\
+  \ Opfer stellt 8 x WS AsP, ein humanoides Opfer 4 x WS AsP und ein profanes Tier\
+  \ WS AsP zur Verfuegung. Blutmagie erleichtert die Beschwoerung von Daemonen um\
+  \ +4, aber erschwert die Kontrollprobe von Daemonen und Elementaren um \u20134.\
+  \ Blutmagie kann uebrigens keine gAsP zur Verfuegung stellen \u2013 gAsP muessen\
+  \ immer vom Zaubernden selbst stammen."
+typ: '4'
+variable: '0'
+voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut
+  MU 8

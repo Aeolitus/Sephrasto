@@ -1,0 +1,11 @@
+gegenprobe: KK
+name: Entwaffnen
+probe: AT -4; VT -4
+text: "Dem Ziel wird eine Waffe deiner Wahl entrissen, die danach zwischen den Kaempfern\
+  \ am Boden liegt. Das Aufheben der Waffe benoetigt eine Aktion Konflikt; falls ein\
+  \ anderer Kaempfer das in einer Reaktion verhindern moechte, ist zusaetzlich eine\
+  \ vergleichende GE-Probe (I) notwendig. Das Manoever senkt den Schaden des Angriffes\
+  \ auf 0. Sollte der Angriff ohnehin keinen Schaden anrichten \u2013 etwa durch andere\
+  \ Manoever \u2013 ist das Manoever nicht moeglich."
+typ: '0'
+voraussetzungen: ''

@@ -1,0 +1,19 @@
+fertigkeiten: Temporal, Verwandlung
+kosten: '40'
+name: Eisenrost und Patina
+printclass: '0'
+text: "Du laesst einen sehr kleinen (S. 46), metallischen Gegenstand altern. Innerhalb\
+  \ der naechsten 16 Initiativphasen verschiebt sich sein Zustand auf der Skala neu/benutzt/verschlissen/alt/unbrauchbar/zerstoert\
+  \ um zwei Stufen. Magische und geweihte Gegenstaende sind gegen den Zauber immun.\n\
+  Maechtige Magie: Du kannst den Zustand des Gegenstandes um eine weitere Stufe verschieben.\n\
+  Probenschwierigkeit: 12\nModifikationen: Groesseres Ziel (\u20134; das Ziel kann\
+  \ eine Kategorie groesser sein. Mehrfach waehlbar.)\nRosttraeger (\u20134; du kannst\
+  \ das Objekt auch mit einem beliebigen Gegenstand wie deiner Waffe beruehren.)\n\
+  Vorbereitungszeit: 0 Aktionen\nZiel: Einzelobjekt\nReichweite: Beruehrung\nWirkungsdauer:\
+  \ augenblicklich\nKosten: 4 AsP\nFertigkeiten: Temporal, Verwandlung\nErlernen:\
+  \ Mag 12; Ach, Alch, Dru 14; Sch 16; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil
+  Tradition der Kristallomanten I ODER Vorteil Tradition der Schelme I

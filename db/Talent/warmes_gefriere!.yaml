@@ -1,0 +1,30 @@
+fertigkeiten: Eis, Verwandlung
+kosten: '40'
+name: Warmes gefriere!
+printclass: '0'
+text: 'Das verzauberte Material von maximal 2 Kubikmetern Volumen kuehlt schlagartig
+  auf die Temperaturstufe Grimmfrost ab (S. 35) und bleibt fuer die Wirkungsdauer
+  gefroren. Waehrend der Wirkungsdauer ist die Haerte des Materials halbiert, nach
+  dem Ende der Wirkungsdauer immer noch um 2 verringert.
+
+  Maechtige Magie: Du kannst 1 weiteren Kubikmeter einfrieren.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Eis, Verwandlung
+
+  Erlernen: Bor, Mag 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I
+  ODER Vorteil Tradition der Gildenmagier I

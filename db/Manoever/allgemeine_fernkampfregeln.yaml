@@ -1,0 +1,35 @@
+gegenprobe: ''
+name: Allgemeine Fernkampfregeln
+probe: ''
+text: 'Fernkampfangriffe (FK) fuehrst du in drei Schritten aus:
+
+  - Du waehlst deine Manoever und ein Ziel in Sicht- und Reichweite (RW).
+
+  - Du wendest so viele Aktionen Konzentration auf, wie bei deiner Fernkampfwaffe
+  unter Ladezeit (LZ) angegeben (S. 53).
+
+  - In einer Aktion Konflikt wuerfelst du eine Probe (12, I) auf den passenden Fertigkeitswert.
+
+  Modifikatoren:
+
+  - Groessenklasse: sehr gross (Elefant) +8, gross (Pferd, Oger) +4, mittel (Mensch,
+  Zwerg) +0, klein (Wolf, Reh) -4, sehr klein (Fasan, Hase) -8, winzig (Maus) -12
+
+  - Umgebung: Daemmerung -4, Mondlicht -8, Sternenlicht -16 | Wind -4, Sturm -8
+
+  - Bewegung: schnell (laufender Mensch) -4, sehr schnell (Pferd) -8, extrem schnell
+  (Vogel) -12
+
+  - Sonstiges: halbe Deckung -4, Dreivierteldeckung -8, berittener Schuetze -4
+
+  Schuesse ins Kampfgetuemmel: die Patzerchance steigt auf 2/4 auf dem W20, wenn in
+  offenem Feld/auf beengtem Raum gekaempft wird. Diese Wuerfe lassen die Probe auf
+  jeden Fall misslingen und bedeuten, dass du ein verbuendetes Ziel vor dir triffst.
+
+  Verteidigung gegen Fernkampfangriffe: Wenn dein Ziel dich beim Zielen beobachtet,
+  kann es versuchen, dem Fernkampfangriff zu entgehen. Dazu muss es eine Reaktion
+  aufwenden und eine Schild-VT (28, I) oder eine Akrobatik-Probe (28, I) ablegen.
+  Befindest du dich im Kontrollbereich deines Ziels, genuegt ihm eine Freie Reaktion,
+  um deine Waffe beiseite zu schlagen.'
+typ: '1'
+voraussetzungen: ''

@@ -1,0 +1,12 @@
+kommentar: '0'
+kosten: '40'
+linkElement: Tradition der Hexen I
+linkKategorie: '3'
+nachkauf: haeufig
+name: Tradition der Hexen II
+text: "Fuer Hexen gehoeren Gefuehle und Magie untrennbar zusammen. Im Zustand besonders\
+  \ starker, zum Zauber passender Emotionen sind Zauber und Rituale um 2\u20134 Punkte\
+  \ erleichtert."
+typ: '5'
+variable: '0'
+voraussetzungen: Attribut IN 6, Vorteil Tradition der Hexen I

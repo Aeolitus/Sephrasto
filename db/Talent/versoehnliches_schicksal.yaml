@@ -1,0 +1,15 @@
+fertigkeiten: Stiller Wanderer
+kosten: '40'
+name: Versoehnliches Schicksal
+printclass: '53'
+text: "Wenn eine mit gluecklicher Fuegung verbesserte Probe misslingt, erhaeltst du\
+  \ bei 1\u20132 auf dem W6 den Schicksalspunkt zurueck.\nProbenschwierigkeit: 12\n\
+  Maechtige Liturgie: Erhoeht die Chance um 1 auf dem W6.\nModifikationen: Zweite\
+  \ Chance (\u20138; die Liturgie wirkt auch, wenn eine mit einem Schicksalspunkt\
+  \ wiederholte Probe misslingt. Das gilt nur fuer die erste solche Wiederholung.)\n\
+  Vorbereitungszeit: 1 Stunde\nZiel: selbst\nReichweite: Beruehrung\nWirkungsdauer:\
+  \ bis die Bindung geloest wird\nKosten: 8 KaP, davon 2 gKaP\nFertigkeiten: Stiller\
+  \ Wanderer\nErlernen: Aves 16; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Avesgeweihten I

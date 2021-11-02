@@ -1,0 +1,12 @@
+gegenprobe: ''
+name: Kommandos
+probe: Anfuehren (16, I)
+text: "Du kannst bis zu 4 Mitstreitern in Hoerweite den Bonus eines Kommandovorteils\
+  \ (s.u.) fuer diesen Kampf verleihen. Hohe Qualitaet (S. 7) vervierfacht die Zahl\
+  \ der Mitstreiter. Jeder Kaempfer kann nur von einem Anfuehren-Effekt gleichzeitig\
+  \ profitieren.\n    Der Effekt endet am Ende des Kampfes, bei Kampfunfaehigkeit\
+  \ des Anfuehrers oder wenn dieser neue Befehle ruft. Der Anfuehrer selbst profitiert\
+  \ nicht von Kommandos."
+typ: '8'
+voraussetzungen: 'Vorteil Kommando: Formiert Euch! ODER Vorteil Kommando: Haltet Stand!
+  ODER Vorteil Kommando: Keine Gefangenen! ODER Vorteil Kommando: Kennt Keinen Schmerz!'

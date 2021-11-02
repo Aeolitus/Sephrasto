@@ -1,0 +1,20 @@
+fertigkeiten: Heiliges Feuer
+kosten: '40'
+name: Herr ueber Feuer und Glut
+printclass: '33'
+text: "Du kannst ein bestehendes Feuer bis zur Groesse eines grossen Lagerfeuers formen.\
+  \ Die Verformung geschieht mit einer Geschwindigkeit von 4 Schritt pro Initiativephase\
+  \ und benoetigt Konzentration.\nMaechtige Liturgie: Du kannst Feuer bis zu einer\
+  \ Groesse eines Scheiterhaufens/brennenden Hauses/einer brennenden Haeusergruppe/eines\
+  \ brennenden Stadtviertels formen.\nProbenschwierigkeit: 12\nModifikationen: Gebieter\
+  \ der Lava (\u20134; du kannst die Richtung von Lavastroemen bestimmen, solange\
+  \ die Lava dadurch nicht bergauf fliesst.)\nVorbereitungszeit: 8 Aktionen\nZiel:\
+  \ Zone\nReichweite: 32 Schritt\nWirkungsdauer: 1 Stunde\nKosten: 8 KaP\nFertigkeiten:\
+  \ Heiliges Feuer\nErlernen: Ang, Ing 18; 40 EP\nAnmerkung: Alternativ kann die Liturgie\
+  \ wie Antimagie gegen Feuerzauber wirken (S. 126). Die Randbedingungen entsprechen\
+  \ den dort angegebenen, ausser dass die Kosten mit KaP bezahlt werden und die Liturgie\
+  \ um +4 erleichtert ist."
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition
+  der Angroschgeweihten I

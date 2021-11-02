@@ -1,0 +1,12 @@
+kommentar: '0'
+kosten: '40'
+linkElement: Tradition der Ifirngeweihten I
+linkKategorie: '3'
+nachkauf: haeufig
+name: Tradition der Ifirngeweihten II
+text: Ifirngeweihte durchstreifen die Lande und helfen denen, die in Not geraten sind.
+  Liturgien, von denen nur andere (aber sie selbst nicht) profitieren, sind um +2
+  erleichtert.
+typ: '7'
+variable: '0'
+voraussetzungen: Attribut IN 6, Vorteil Tradition der Ifirngeweihten I

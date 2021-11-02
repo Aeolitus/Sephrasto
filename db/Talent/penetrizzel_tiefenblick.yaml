@@ -1,0 +1,29 @@
+fertigkeiten: Hellsicht
+kosten: '20'
+name: Penetrizzel Tiefenblick
+printclass: '0'
+text: 'Du kannst durch eine Wand von bis zu 1/2 Schritt Dicke sehen, solange die Wand
+  nicht aus einem magischen oder magieabweisenden Material besteht.
+
+  Maechtige Magie: Die moegliche Dicke steigt um 1/2 Schritt.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 2 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 8 Initiativphasen
+
+  Kosten: 4 AsP
+
+  Fertigkeiten: Hellsicht
+
+  Erlernen: Mag 14; Elf, Sch, Srl 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Elfen I ODER Vorteil
+  Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane I ODER Vorteil
+  Tradition der Schelme I

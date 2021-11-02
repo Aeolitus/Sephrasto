@@ -1,0 +1,30 @@
+fertigkeiten: Keulenrituale, Kraft
+kosten: '20'
+name: Weihe der Keule
+printclass: '10'
+text: 'Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her, welche
+  die Voraussetzung fuer alle weiteren Talente dieser Fertigkeit ist. Ausserdem wird
+  der Ritualgegenstand unzerbrechlich und zaehlt als magische Waffe.
+
+  Probenschwierigkeit: 12
+
+  Modifikationen: Geerbte Keule (Du bindest die Keule deines Lehrmeisters. Von ihm
+  auf die Keule gewirkte Rituale verfliegen, aber die Keule gilt als Lehrmeister fuer
+  diese Rituale.)
+
+  Vorbereitungszeit: 8 Stunden
+
+  Ziel: Ritualgegenstand
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: permanent
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Keulenrituale, Kraft
+
+  Erlernen: Smn 8; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

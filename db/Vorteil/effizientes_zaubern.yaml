@@ -1,0 +1,12 @@
+csAuflisten: '0'
+kommentar: '0'
+kosten: '60'
+nachkauf: haeufig
+name: Effizientes Zaubern
+text: 'Ermoeglicht die spontane Modifikation Kosten sparen (Zauber -4): Die AsP-Kosten
+  des Zaubers sinken um ein Viertel der Basiskosten. Die Kosten koennen dadurch nicht
+  unter die Haelfte der Basiskosten sinken.'
+typ: '4'
+variable: '0'
+voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut
+  KL 8

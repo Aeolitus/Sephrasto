@@ -1,0 +1,10 @@
+kommentar: '0'
+kosten: '40'
+nachkauf: extrem selten
+name: Magieabweisend
+text: Zauber wirken auf dich deutlich schwaecher. Du ignorierst bei allen Zaubern
+  eine Stufe der spontanen Modifikation Maechtige Magie. Zauber ohne Maechtige Magie
+  haben auf dich keine Wirkung.
+typ: '0'
+variable: '0'
+voraussetzungen: ''

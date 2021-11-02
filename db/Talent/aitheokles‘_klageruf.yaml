@@ -1,0 +1,36 @@
+fertigkeiten: Seefahrt
+kosten: '40'
+name: "Aitheokles\u2018 Klageruf"
+printclass: '25'
+text: 'Du loeschst ein Feuer bis zur Groesse eines grossen Lagerfeuers.
+
+  Maechtige Liturgie: Du kannst ein Feuer bis zur Groesse eines Scheiterhaufens/brennenden
+  Schiffes/einer brennenden Haeusergruppe/eines brennenden Stadtviertels loeschen.
+
+  Probenschwierigkeit: 12
+
+  Modifikationen: Kleiner Feuerbann (0 Aktionen, 1 KaP; ein Feuer bis zur Groesse
+  einer Fackel erlischt.)
+
+  Selbstloeschung (0 Aktionen, 2 KaP; du loeschst dich selbst.)
+
+  Vorbereitungszeit: 2 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: 32 Schritt
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Seefahrt
+
+  Erlernen: Eff 16; 40 EP
+
+  Anmerkung: Alternativ wirkt die Liturgie wie Antimagie gegen Feuerzauber (S. 126).
+  Die Randbedingungen entsprechen den dort angegebenen, ausser dass die Kosten mit
+  KaP bezahlt werden und die Liturgie um +4 erleichtert ist.'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Efferdgeweihten I

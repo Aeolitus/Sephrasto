@@ -1,0 +1,25 @@
+fertigkeiten: Wildnis
+kosten: '40'
+name: Firuns Einsicht
+printclass: '28'
+text: 'Du rufst Firuns Ring herbei, der dir den Aufenthaltsort von Lebewesen im Radius
+  von 16 Meilen offenbart. Du kannst ausserdem Tiere von Humanoiden unterscheiden.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Einzelobjekt
+
+  Reichweite: dereweit
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Wildnis
+
+  Erlernen: Fir 16; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Firungeweihten I

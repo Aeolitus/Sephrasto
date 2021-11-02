@@ -1,0 +1,10 @@
+fertigkeiten: Selbstbeherrschung
+kosten: '-1'
+name: Zaehigkeit
+printclass: '-1'
+text: Zaehigkeit hilft dir, Schmerzen und Strapazen zu widerstehen. So kannst du trotz
+  zahlreicher Wunden noch handlungsfaehig bleiben und einen Kampf zu euren Gunsten
+  wenden oder eine ganze Nacht hindurch wachen.
+variable: '0'
+verbilligt: '0'
+voraussetzungen: ''

@@ -1,0 +1,14 @@
+gegenprobe: ''
+name: Opferung (Efferd)
+probe: Liturgie +4
+text: 'Ein rituelles Opfer erleichtert die Liturgie um +4. Der Opfergegenstand wird
+  dabei verbraucht, zerstoert oder verschwindet. Efferdgeweihte opfern Perlen, Aquamarine
+  oder Gwen-Petryl-Steine. Solche Opfergaben werden von Tempeln in begrenzten Mengen
+  weitergegeben.
+
+  Anmerkung: Opfergegenstaende sollten nicht so haeufig sein, dass jede zweite Liturgie
+  mit dieser Modifikation gewirkt wird. Umgekehrt sollten sie nicht so selten sein,
+  dass die Modifikation nie eingesetzt werden kann. Als Richtwert gilt eine Opferung
+  alle zwei Spielabende.'
+typ: '3'
+voraussetzungen: Vorteil Tradition der Efferdgeweihten III

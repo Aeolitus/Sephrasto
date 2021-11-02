@@ -1,0 +1,11 @@
+gegenprobe: ''
+name: Beschwoerungen - Chimaeren
+probe: Chimaeroform, Kontrollprobe MU
+text: "Probenschwierigkeiten und Kosten (1/4 der Basis als gAsP):\n- 12 (schwache\
+  \ Ch., z.B. Hundeblume), 8 AsP\n- 16 (nuetzliche Ch., z.B. Widderhyaene), 16 AsP\n\
+  - 20 (starke Ch., z.B. Mantikor), 24 AsP\n- 24 (maechtige Ch., z.B. Drachenchim.),\
+  \ 32 AsP\nBeschwoerungsprobe Mod.: +Bonus durch Vorbereitung, \u2013Kosten fuer\
+  \ Zusatzfaehigkeiten\nKontrollprobe Mod.: +Bonus durch Vorbereitung, +4 bis \u2013\
+  8 je nach Dienst"
+typ: '4'
+voraussetzungen: Talent Chimaeroform Hybridgestalt

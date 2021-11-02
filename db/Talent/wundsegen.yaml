@@ -1,0 +1,30 @@
+fertigkeiten: Friede, Heilung
+kosten: '60'
+name: Wundsegen
+printclass: '35'
+text: 'Der Gesegnete erhaelt sofort 2W6+4 Heilpunkte, fuer jede Ueberschreitung der
+  WS wird eine Wunde geheilt.
+
+  Maechtige Liturgie: Erhoeht die Heilpunkte um 8.
+
+  Probenschwierigkeit: 12
+
+  Modifikationen: Blutung stoppen (4 Aktionen, 4 KaP; hebt Blutungen auf.)
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Friede, Heilung
+
+  Erlernen: Per 14; Tsa 16; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Perainegeweihten I ODER Vorteil Tradition der
+  Tsageweihten I

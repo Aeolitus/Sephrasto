@@ -1,0 +1,26 @@
+fertigkeiten: Daemonische Hilfe (Cpt)
+kosten: '20'
+name: Wasserbruecke
+printclass: '200'
+text: 'Du kannst auf der Wasseroberflaeche gehen, als wuerdest du von einer Welle
+  getragen. Du erleidest keine Abzuege durch unguenstige Position und wirst nicht
+  durch Wellen und Stroemungen beeinflusst. Erlaubt Aufrechterhalten.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 4 GuP
+
+  Fertigkeiten: Daemonische Hilfe (Cpt)
+
+  Erlernen: Cpt 14; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Paktierer I

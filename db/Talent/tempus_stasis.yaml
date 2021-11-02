@@ -1,0 +1,16 @@
+fertigkeiten: Temporal
+kosten: '60'
+name: Tempus Stasis
+printclass: '0'
+text: "Du haeltst in einem Radius von 8 Schritt die Zeit an \u2013 fuer alles ausser\
+  \ dich. Alle betroffenen Wesen und Gegenstaende sind unbeweglich und voellig unzerstoerbar.\
+  \ Blutungen, Gifte und Krankheiten werden angehalten und Geschosse und ballistische\
+  \ Zauber bleiben im Flug stehen und bewegen sich erst nach dem Ende der Wirkungsdauer\
+  \ weiter.\nMaechtige Magie: Du kannst eine weitere Person von der Wirkung ausnehmen.\n\
+  Probenschwierigkeit: 12\nVorbereitungszeit: 1 Aktion\nZiel: Zone\nReichweite: Beruehrung\n\
+  Wirkungsdauer: 4 Initiativphasen\nKosten: 16 AsP\nFertigkeiten: Temporal\nErlernen:\
+  \ Ach, Mag 20; 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten
+  I

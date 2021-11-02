@@ -1,0 +1,32 @@
+fertigkeiten: Heiliges Feuer
+kosten: '60'
+name: Lodernder Zorn
+printclass: '33'
+text: 'Stichflammen schiessen aus einem mindestens fackelgrossen Feuer empor. Die
+  Flammen richten 4W6 TP an und verursachen Nachbrennen (S. 98). Pro Schritt Entfernung
+  faellt der niedrigste Wuerfel weg. Du selbst bist gegen den Schaden immun.
+
+  Maechtige Liturgie: Die TP steigen um 2W6.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: 32 Schritt
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 16 KaP
+
+  Fertigkeiten: Heiliges Feuer
+
+  Erlernen: Ang 16; Ing 18; 60 EP
+
+  Anmerkung: Wenige Hochgeweihte kennen angeblich eine noch maechtigere Variante mit
+  einem deutlich hoeheren Wirkungsbereich.'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition
+  der Angroschgeweihten I

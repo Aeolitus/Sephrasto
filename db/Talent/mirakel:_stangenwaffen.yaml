@@ -1,0 +1,26 @@
+csAuflisten: '0'
+fertigkeiten: Schutz der Glaeubigen, Guter Kampf
+kommentar: '0'
+kosten: '20'
+name: 'Mirakel: Stangenwaffen'
+printclass: '99'
+text: 'Dein naechster Wurf auf Stangenwaffen ist um +4 Punkte erleichtert.
+
+  Maechtige Liturgie: Erhoeht die Erleichterung um +2.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 4 Minuten
+
+  Kosten: 4 KaP
+
+  Erlernen: 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: ''

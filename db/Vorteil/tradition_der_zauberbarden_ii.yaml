@@ -1,0 +1,13 @@
+kommentar: '0'
+kosten: '40'
+linkElement: Tradition der Zauberbarden I
+linkKategorie: '3'
+nachkauf: haeufig
+name: Tradition der Zauberbarden II
+text: Zauberbarden koennen ihre Melodie flexibel veraendern. Waehrend du einen Zauber
+  mit der Eigenschaft Konzentration (S. 124) aufrechterhaeltst, kannst du weitere
+  Zauber vorbereiten. (Die Aktion Konflikt ist dennoch noetig und beendet den vorherigen
+  Zauber.)
+typ: '5'
+variable: '0'
+voraussetzungen: Attribut CH 6, Vorteil Tradition der Zauberbarden I

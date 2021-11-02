@@ -1,0 +1,28 @@
+fertigkeiten: Eigenschaften, Einfluss, Zaubermelodien
+kosten: '40'
+name: Melodie der Ermutigung
+printclass: '18'
+text: 'Die Melodie schenkt den Menschen Zuversicht. Alle Zuhoerer in einem Radius
+  von 4 Schritt erhalten eine Erleichterung +2 auf Anfuehren und MU. Erfordert Konzentration,
+  erlaubt Aufrechterhalten.
+
+  Maechtige Magie: Der Bonus steigt um +1
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Eigenschaften, Einfluss, Zaubermelodien
+
+  Erlernen: Bard 12; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Zauberbarden I

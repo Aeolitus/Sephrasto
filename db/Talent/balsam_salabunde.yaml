@@ -1,0 +1,18 @@
+fertigkeiten: Humus, Verwandlung
+kosten: '60'
+name: Balsam Salabunde
+printclass: '0'
+text: "Dein Ziel erhaelt 2W6+4 Heilpunkte, fuer jede Ueberschreitung der WS heilst\
+  \ du eine Wunde.\nMaechtige Magie: Erhoeht die Heilpunkte um 4.\nProbenschwierigkeit:\
+  \ 12+Wund-Mod. des Ziels\nModifikationen: Blutung stoppen (Probenschwierigkeit 16,\
+  \ 8 Aktionen; stoppt eine Blutung)\nSofortige Regeneration (\u201316, 4 Aktionen,\
+  \ 32 AsP; das Ziel erhaelt fuer 32 Initiativephasen den Vorteil Regeneration I (S.\
+  \ 97).)\nVorbereitungszeit: 16 Minuten\nZiel: Einzelwesen\nReichweite: Beruehrung\n\
+  Wirkungsdauer: augenblicklich\nKosten: 8 AsP\nFertigkeiten: Humus, Verwandlung\n\
+  Erlernen: Elf, Mag 8; Ach, Geo 12; Alch, Dru\_14; Srl 16; 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden
+  I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil
+  Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil
+  Tradition der Scharlatane I

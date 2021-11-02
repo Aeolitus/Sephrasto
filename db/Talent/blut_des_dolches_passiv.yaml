@@ -1,0 +1,12 @@
+fertigkeiten: Dolchzauber
+kosten: '40'
+name: Blut des Dolches (passiv)
+printclass: '1'
+text: 'Du kannst wie mit dem Vorteil Verbotene Pforten Lebenskraft fuer deine Zauber
+  nutzen (S. 73). Verfuegst du bereits ueber Verbotene Pforten, stellt jede selbst
+  zugefuegt Wunde WS+8 AsP zur Verfuegung. Ueberschuessige AsP verfallen.
+
+  Erlernen: Dru 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Druiden I

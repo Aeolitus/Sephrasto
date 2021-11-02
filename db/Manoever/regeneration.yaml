@@ -1,0 +1,12 @@
+gegenprobe: ''
+name: Regeneration
+probe: ''
+text: 'Du Regenerierst eine Wunde pro durchgeschlafener Nacht von min. 6 Stunden oder
+  einen Punkt Erschoepfung pro Stunde. Wenn sich dadurch Luecken in der Statusleiste
+  ergeben, wandern die Einschraenkungen dahinter nach links. Zauberer regenerieren
+  ausserdem 4 AsP, Geweihte 1 KaP.
+
+  Voraussetzungen: Du musst ruhen oder besser noch schlafen und es duerfen keine schaedlichen
+  Effekte wie Gifte, Krankheiten oder Durst auf dir wirken.'
+typ: '9'
+voraussetzungen: ''

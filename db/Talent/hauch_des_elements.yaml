@@ -1,0 +1,40 @@
+fertigkeiten: Eis, Erz, Feuer, Humus, Luft, Wasser, Geister der Staerkung
+kosten: '40'
+name: Hauch des Elements
+printclass: '5'
+text: 'Du bindest einen elementaren Effekt in ein maximal truhengrosses Objekt. Der
+  Effekt bemisst sich nach dem gewaehlten Element.
+
+  Eis: Senkt die Temperatur des Objekts und in seinem Inneren um 1 Stufe.
+
+  Erz: Verdoppelt das Gewicht des Objekts und seines Inhaltes.
+
+  Feuer: Erhoeht die Temperatur des Objekts und in seinem Inneren um 1 Stufe.
+
+  Humus: Vervierfacht die Wachstumsgeschwindigkeit von Pflanzen.
+
+  Luft: Verringert das Gewicht des Objekts und seines Inhalts um ein Viertel.
+
+  Wasser: Macht einen faustgrossen Teil biegsam wie Wachs.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: bis die Bindung geloest wird
+
+  Kosten: 1 AsP, davon 1 gAsP
+
+  Fertigkeiten: Eis, Erz, Feuer, Humus, Luft, Wasser, Geister der Staerkung
+
+  Erlernen: Smn 12; 40 EP
+
+  Anmerkung: Manche elementaren Wirkungen sind fuer manche Schamanen aeusserst ungewoehnlich
+  (zum Beispiel Eis fuer Achaz oder Erz fuer Gjalsker)'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

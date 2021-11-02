@@ -1,0 +1,27 @@
+fertigkeiten: Kraft, Kugelzauber
+kosten: '20'
+name: Bindung der Kugel
+printclass: '12'
+text: 'Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her, welche
+  die Voraussetzung fuer alle weiteren Talente dieser Fertigkeit ist. Ausserdem wird
+  der Ritualgegenstand unzerbrechlich.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Stunden
+
+  Ziel: Ritualgegenstand
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: permanent
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Kraft, Kugelzauber
+
+  Erlernen: Srl 8; Mag 14; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane
+  I

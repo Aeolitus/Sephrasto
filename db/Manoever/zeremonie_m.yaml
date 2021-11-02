@@ -1,0 +1,10 @@
+gegenprobe: ''
+name: Zeremonie (M)
+probe: Zauber +X
+text: 'Du kannst die Vorbereitungszeit freiwillig um 1 Minute/Stunde/Tag/Woche/Monat/Jahr
+  erhoehen, wodurch der Zauber um +4/6/8/10/12/14 erleichtert ist. Die Vorbereitungszeit
+  muss dadurch mindestens verdoppelt werden.
+
+  Voraussetzung: Verwendung der Tradition der Schamanen.'
+typ: '2'
+voraussetzungen: Vorteil Tradition der Schamanen III

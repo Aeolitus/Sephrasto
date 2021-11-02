@@ -1,0 +1,12 @@
+gegenprobe: ''
+name: Ueberrennen
+probe: Bewegung und AT
+text: 'Das Reittier stuermt in die gegnerische Formation. Seine Attacke trifft (samt
+  anderen Manoevern) alle Gegner in seiner Bahn, bis es durch mindestens 2 erfolgreiche
+  Verteidigungen gestoppt wird. Ausserdem richtet die Attacke GS Trefferpunkte zusaetzlich
+  an. Die Kombination der Aktionen Bewegung und Konflikt ist nicht erschwert.
+
+  Voraussetzungen: Kampf im Reiterkampfstil; GS Schritt Anlauf; Ziele sind in einer
+  kleineren Groessenklasse als das Reittier'
+typ: '0'
+voraussetzungen: Vorteil Reiterkampf III

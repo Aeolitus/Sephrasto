@@ -1,0 +1,27 @@
+fertigkeiten: Schutz der Glaeubigen
+kosten: '40'
+name: Segnung der staehlernen Stirn
+printclass: '47'
+text: 'Der Gesegnete fasst Mut. Auf ihm lastende Furcht-Effekte gelten als zwei Stufen
+  niedriger.
+
+  Maechtige Liturgie: Je zwei Stufen senken Furcht-Effekte um eine weitere Stufe.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 8 Stunden
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Schutz der Glaeubigen
+
+  Erlernen: Ron 8; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Rondrageweihten I

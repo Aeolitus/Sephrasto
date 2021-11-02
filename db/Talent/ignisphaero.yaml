@@ -1,0 +1,18 @@
+fertigkeiten: Feuer
+kosten: '60'
+name: Ignisphaero
+printclass: '0'
+text: "Du erschaffst eine elementare Kugel, die du mit Konzentration und Blickkontakt\
+  \ 16 Schritt pro Initiativephase bewegen kannst. Die Kugel explodiert, wenn du die\
+  \ Konzentration oder den Blickkontakt verlierst, du sie absichtlich zuendest oder\
+  \ die Wirkungsdauer endet. Die Explosion richtet 4W6 TP an und verursacht Nachbrennen\
+  \ (S. 98). Pro Schritt Entfernung faellt der niedrigste Wuerfel weg.\nMaechtige\
+  \ Magie: Die TP steigen um 1W6.\nProbenschwierigkeit: 12\nModifikationen: Vorgegebene\
+  \ Bewegung (\u20134; du gibst der Kugel die Bewegung bis zur Explosion vor, Konzentration\
+  \ und Blickkontakt zur Kugel sind nicht noetig.)\nVorbereitungszeit: 2 Aktionen\n\
+  Ziel: Zone\nReichweite: 2 Schritt\nWirkungsdauer: 2 Initiativphasen\nKosten: 16\
+  \ AsP\nFertigkeiten: Feuer\nErlernen: Mag 18; Ach, Geo 20; 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier
+  I ODER Vorteil Tradition der Kristallomanten I

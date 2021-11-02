@@ -1,0 +1,13 @@
+csBeschreibung: Deine unbewaffneten Angriffe erhalten die Waffeneigenschaften Kopflastig
+  und Wendig (S. 47) (bereits eingerechnet).
+kommentar: '0'
+kosten: '40'
+nachkauf: haeufig
+name: Waffenloser Kampf
+script: addWaffeneigenschaft('Unbewaffnet', 'Kopflastig');addWaffeneigenschaft('Unbewaffnet',
+  'Wendig')
+text: Deine unbewaffneten Angriffe erhalten die Waffeneigenschaften Kopflastig und
+  Wendig (S. 47).
+typ: '2'
+variable: '0'
+voraussetzungen: Attribut KK 6

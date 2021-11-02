@@ -1,0 +1,26 @@
+fertigkeiten: Eigenschaften, Hexenflueche
+kosten: '20'
+name: Zungenschwellung
+printclass: '9'
+text: 'Es faellt dem Ziel schwer, artikuliert zu sprechen. Die Zuhoerer muessen eine
+  Konterprobe (Sinnenschaerfe, 16) ablegen, um den Sprecher zu verstehen. Laut gesprochene
+  oder gesungene Zauberformeln sind dadurch unmoeglich.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: 8 Schritt
+
+  Wirkungsdauer: 1 Tag
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Eigenschaften, Hexenflueche
+
+  Erlernen: Hex 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Hexen I

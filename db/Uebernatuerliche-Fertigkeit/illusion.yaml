@@ -1,0 +1,11 @@
+attribute: CH|FF|IN
+name: Illusion
+printclass: '0'
+steigerungsfaktor: '2'
+text: 'Illusionen sind Trugbilder, mit denen Scharlatane ihr Publikum in den Bann
+  ziehen. Aber auch manche Daemonen erschaffen Illusionen, um ihre Opfer zu taeuschen. '
+voraussetzungen: Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der
+  Alchemisten I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier
+  I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
+  Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil
+  Tradition der Schelme I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Magiedilettant

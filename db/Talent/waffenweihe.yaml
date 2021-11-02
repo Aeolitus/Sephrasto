@@ -1,0 +1,30 @@
+fertigkeiten: Magiebann, Heiliges Feuer, Heerfuehrung, Tod, Gutes Gold
+kosten: '60'
+name: Waffenweihe
+printclass: '22'
+text: 'Du segnest eine Waffe. Diese gilt als geweiht.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: bis die Bindung geloest wird
+
+  Kosten: 8 KaP, davon 2 gKaP
+
+  Fertigkeiten: Gutes Gold, Magiebann, Heiliges Feuer, Heerfuehrung, Tod
+
+  Erlernen: Ron 12; Ang, Ing, Kor 14; Brn, Pra 18; 60 EP
+
+  Anmerkung: Geweihte Waffen werden nur in seltenen Ausnahmefaellen und nach sorgfaeltiger
+  Ueberpruefung an Nicht-Geweihte ausgegeben. '
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der
+  Ingerimmgeweihten I ODER Vorteil Tradition der Angroschgeweihten I ODER Vorteil
+  Tradition der Praiosgeweihten I ODER Vorteil Tradition der Rondrageweihten I ODER
+  Vorteil Tradition der Korgeweihten I

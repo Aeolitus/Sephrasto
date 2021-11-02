@@ -1,0 +1,25 @@
+fertigkeiten: Kristallmagie, Verwandlung
+kosten: '20'
+name: Optikstein
+printclass: '11'
+text: 'Der Kristall kann seine Brennweite nach Belieben veraendern und so als Vergroesserungsglas
+  oder Prisma verwendet werden.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: gebundener Kristall
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 1 AsP
+
+  Fertigkeiten: Kristallmagie, Verwandlung
+
+  Erlernen: Ach 12; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Kristallomanten I

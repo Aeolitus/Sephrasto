@@ -1,0 +1,29 @@
+fertigkeiten: Antimagie, Verstaendigung
+kosten: '20'
+name: Geister austreiben
+printclass: '0'
+text: 'Du zeichnest ein Pentagramm, durch das ein Geist deiner Wahl verschwindet.
+  Er kann 1 Woche lang nicht mehr umherspuken.
+
+  Maechtige Magie: Der Geist kann 1 Monat/1 Jahr/10 Jahre/100 Jahre nicht mehr umherspuken.
+
+  Probenschwierigkeit: 16 bis 28 (nach Maechtigkeit des Geistes)
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: einzelner Geist
+
+  Reichweite: 32 Schritt
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Antimagie, Verstaendigung
+
+  Erlernen: Dru 8; Mag 14; Geo, Hex 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil
+  Tradition der Hexen I

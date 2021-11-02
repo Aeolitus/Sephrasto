@@ -1,0 +1,26 @@
+fertigkeiten: Stabzauber, Umwelt
+kosten: '20'
+name: Apport des Stabs
+printclass: '15'
+text: 'Der Ritualgegenstand kehrt fliegend mit einer Geschwindigkeit von 10 Meilen
+  pro Stunde zu dir zurueck. Er weicht Hindernissen aus oder durchbricht sie notfalls,
+  wenn die KK von PW Stabzauber/2 oder Umwelt/2 dafuer ausreicht.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: 1 Meile
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 1 AsP
+
+  Fertigkeiten: Stabzauber, Umwelt
+
+  Erlernen: Mag 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Gildenmagier I

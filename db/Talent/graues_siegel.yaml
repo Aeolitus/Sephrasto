@@ -1,0 +1,16 @@
+fertigkeiten: Naechtlicher Schatten, Wissen
+kosten: '20'
+name: Graues Siegel
+printclass: '31'
+text: "Du verschluesselst eine Nachricht, sodass sie nur noch von der von dir genannten\
+  \ Person gelesen werden kann. Die Verschluesselung kann nur mit einer Freien Fertigkeit\
+  \ (z.B. Kryptograph) auf meisterlich oder mit einer Konterprobe (KL, 20) und 4 Stunden\
+  \ Zeitaufwand entschluesselt werden.\nProbenschwierigkeit: 12\nModifikationen: Personengruppe\
+  \ (\u20134; du kannst eine Personengruppe nennen.)\nVorbereitungszeit: 4 Minuten\n\
+  Ziel: Einzelobjekt\nReichweite: Beruehrung\nWirkungsdauer: augenblicklich\nKosten:\
+  \ 4 KaP\nFertigkeiten: Naechtlicher Schatten, Wissen\nErlernen: Nan, Phe 14; Hes\
+  \ 18; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der
+  Nandusgeweihten I ODER Vorteil Tradition der Phexgeweihten I

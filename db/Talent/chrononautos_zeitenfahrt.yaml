@@ -1,0 +1,14 @@
+fertigkeiten: Temporal
+kosten: '80'
+name: Chrononautos Zeitenfahrt
+printclass: '0'
+text: "Du erschaffst ein Tor durch die Zeiten. Wer es durchschreitet, gelangt an einen\
+  \ von dir bestimmten Zeitpunkt, der maximal 1 Jahr zurueck liegen darf. Das Tor\
+  \ existiert nur in eine Richtung \u2013 Zeitreisende werden am Ende der Wirkungsdauer\
+  \ automatisch in ihre Zeit zurueck gerissen.\nMaechtige Magie: Verzehnfacht den\
+  \ Zeitabstand.\nProbenschwierigkeit: 12\nVorbereitungszeit: 8 Stunden\nZiel: Zone\n\
+  Reichweite: 2 Schritt\nWirkungsdauer: 8 Stunden\nKosten: 64 AsP\nFertigkeiten: Temporal\n\
+  Erlernen: Ach 20; 80 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Kristallomanten I

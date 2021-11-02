@@ -1,0 +1,29 @@
+csBeschreibung: Mit der Gabe der Tierempathie kannst du das Talent Ueberleben verwenden,
+  um die Gedanken von Tieren zu verstehen. Zusaetzlich kannst du ihnen sogar einfache
+  Botschaften zukommen lassen. Nach dem aktiven Einsatz der Gabe erleidest du 1 Punkt
+  Erschoepfung.
+kommentar: '1'
+kosten: '60'
+nachkauf: extrem selten
+name: Tierempathie
+text: 'Mit der Gabe der Tierempathie kannst du das Talent Ueberleben verwenden, um
+  die Gedanken von Tieren zu verstehen. Zusaetzlich kannst du ihnen sogar einfache
+  Botschaften zukommen lassen. Nach dem aktiven Einsatz der Gabe erleidest du 1 Punkt
+  Erschoepfung.
+
+
+  Die Kosten dieses Vorteils haengen von der Groesse der Gruppe von Tieren ab, mit
+  denen du kommunizieren kannst, und dem moeglichen Spielnutzen dieser Faehigkeit.
+  Beispiele waeren:
+
+  - Fische: Du kannst mit allen Fischen kommunizieren (20 EP).
+
+  - Voegel: Du kannst mit allen Voegeln kommunizieren (40 EP).
+
+  - Alle Tiere: Du kannst mit allen Tieren kommunizieren (60 EP).
+
+
+  Sephrasto: Trage die gewaehlte Gruppe von Tieren in das Kommentarfeld ein.'
+typ: '0'
+variable: '1'
+voraussetzungen: ''

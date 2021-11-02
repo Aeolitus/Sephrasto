@@ -1,0 +1,31 @@
+fertigkeiten: Geister vertreiben, Humus
+kosten: '60'
+name: Geistheilung
+printclass: '8'
+text: 'Dein Ziel erhaelt 2W6+4 Heilpunkte, fuer jede Ueberschreitung der WS wird eine
+  Wunde geheilt.
+
+  Maechtige Magie: Erhoeht die Heilpunkte um 4.
+
+  Probenschwierigkeit: 12+Wund-Mod. des Ziels
+
+  Modifikationen: Siechtum heilen (Du stoppst die Wirkung eines Giftes oder einer
+  Krankheit bis Stufe 16 sofort. Maechtige Magie erhoeht die maximal aufgehobene Stufe
+  um +4.)
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Geister vertreiben, Humus
+
+  Erlernen: Smn 12; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

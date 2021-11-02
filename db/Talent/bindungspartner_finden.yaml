@@ -1,0 +1,24 @@
+fertigkeiten: Einfluss, Vertrautenmagie
+kosten: '20'
+name: Bindungspartner finden
+printclass: '17'
+text: 'Das Vertrautentier erspuert deinen ungefaehren Aufenthaltsort.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: Bindungspartner
+
+  Reichweite: 16 Meilen
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 1 AsP
+
+  Fertigkeiten: Einfluss, Vertrautenmagie
+
+  Erlernen: Geo, Hex 8; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I

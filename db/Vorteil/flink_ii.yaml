@@ -1,0 +1,18 @@
+csBeschreibung: 'Deine GS steigt um 1 (bereits eingerechnet).
+
+
+  Bei Athletikproben gelten Patzer als gewoehnlich misslungen.'
+kommentar: '0'
+kosten: '40'
+linkElement: Flink I
+linkKategorie: '3'
+nachkauf: haeufig
+name: Flink II
+script: modifyGS(1)
+text: 'Deine GS steigt um einen Punkt.
+
+
+  Bei Athletikproben gelten Patzer als gewoehnlich misslungen.'
+typ: '1'
+variable: '0'
+voraussetzungen: Attribut GE 6

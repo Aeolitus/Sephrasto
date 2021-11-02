@@ -1,0 +1,31 @@
+fertigkeiten: Schutz der Glaeubigen
+kosten: '60'
+name: Schwingen des Sturms
+printclass: '47'
+text: 'Du reitest auf den aufkommenden Sturmboeen. Waehrend der Wirkungsdauer kannst
+  du zwei mal die Freie Aktion Sturmritt ausfuehren, in der du dich bis zu 8 Schritt
+  bewegst und eine Attacke (als Teil der freien Aktion) ausfuehrst. Falls diese Attacke
+  ein Ausfall ist, ist das Manoever nicht erschwert. Die Bewegung mit dem Sturmritt
+  loest keine Passierschlaege aus und kann beim Spiel mit Bodenplaenen auch durch
+  Felder mit anderen Kaempfern fuehren.
+
+  Maechtige Liturgie: Du kannst die Freie Aktion ein zusaetzliches Mal ausfuehren.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Schutz der Glaeubigen
+
+  Erlernen: Ron 16; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Rondrageweihten I

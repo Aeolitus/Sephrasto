@@ -1,0 +1,28 @@
+fertigkeiten: Seefahrt
+kosten: '0'
+name: Liaiellas Orakel
+printclass: '25'
+text: 'Du erfaehrst, ob die Seele eines Verschollenen von Liaiella in Borons Hallen
+  (oder an Swafnirs Tafel) getragen wurde oder nicht. Letzteres ist auch der Fall,
+  wenn der Verschollene lebt oder an Land, oder daemonisch verseuchtem Gewaesser,
+  starb.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 4 KaP
+
+  Fertigkeiten: Seefahrt
+
+  Erlernen: Eff, Swa 12; 0 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der
+  Swafnirgeweihten I

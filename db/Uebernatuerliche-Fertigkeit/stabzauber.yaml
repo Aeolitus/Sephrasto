@@ -1,0 +1,8 @@
+attribute: IN|KL|KL
+name: Stabzauber
+printclass: '0'
+steigerungsfaktor: '2'
+text: 'Der Zauberstab eines Gildenmagiers ist sicherlich das bekannteste Ritualinstrument.
+  Er unterstuetzt den Magier als Fackel, Seil oder magischer Rammbock, kann aber auch
+  Astralenergie speichern. Alle Talente gelten als Objektrituale. '
+voraussetzungen: Vorteil Tradition der Gildenmagier I

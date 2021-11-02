@@ -1,0 +1,25 @@
+fertigkeiten: Ehre
+kosten: '60'
+name: Segen der Heiligen Ardare
+printclass: '45'
+text: 'Du rufst das heilige Schwert Armalion herbei. Die Waffe richtet 2W20+10 SP
+  an, hat einen WM von +2 und ist wendig.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Einzelobjekt
+
+  Reichweite: dereweit
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 32 KaP
+
+  Fertigkeiten: Ehre
+
+  Erlernen: Ron 20; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Rondrageweihten I

@@ -1,0 +1,13 @@
+fertigkeiten: Daemonische Hilfe (Cpt)
+kosten: '40'
+name: Sicherer Tritt (passiv)
+printclass: '200'
+text: 'An Bord eines Schiffes sinken die Abzuege durch schwierigen Untergrund um eine
+  Stufe.
+
+  Fertigkeiten: Daemonische Hilfe (Cpt)
+
+  Erlernen: Cpt 14; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Paktierer I

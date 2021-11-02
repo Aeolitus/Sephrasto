@@ -1,0 +1,11 @@
+csAuflisten: '0'
+kommentar: '0'
+kosten: '80'
+nachkauf: haeufig
+name: Meisterschuss
+text: 'Erlaubt das Manoever Meisterschuss (FK -8) im Fernkampf: Der Angriff richtet
+  zwei zusaetzliche Wunden an - auch wenn der Schaden zu gering ist, um eine Wunde
+  anzurichten.'
+typ: '2'
+variable: '0'
+voraussetzungen: Attribut FF 10

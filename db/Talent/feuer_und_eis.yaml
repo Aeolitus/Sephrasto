@@ -1,0 +1,26 @@
+fertigkeiten: Eis, Feuer, Schalenzauber
+kosten: '20'
+name: Feuer und Eis
+printclass: '14'
+text: 'Du kannst die Schale auf eine Temperatur zwischen niederhoellische Kaelte und
+  der Hitze einer Eisenschmelze einstellen.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Schale der Alchemie
+
+  Reichweite: 2 Schritt
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 1 AsP
+
+  Fertigkeiten: Eis, Feuer, Schalenzauber
+
+  Erlernen: Alch 16; Mag 18; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Gildenmagier
+  I

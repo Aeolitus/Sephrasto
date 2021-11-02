@@ -1,0 +1,13 @@
+gegenprobe: ''
+name: Opferung (Rahja)
+probe: Liturgie +4
+text: 'Ein rituelles Opfer erleichtert die Liturgie um +4. Der Opfergegenstand wird
+  dabei verbraucht, zerstoert oder verschwindet. Rahjageweihte opfern ihrer Goettin
+  den heiligen Wein Tharf. Tharf wird von Tempeln in begrenzten Mengen weitergegeben.
+
+  Anmerkung: Opfergegenstaende sollten nicht so haeufig sein, dass jede zweite Liturgie
+  mit dieser Modifikation gewirkt wird. Umgekehrt sollten sie nicht so selten sein,
+  dass die Modifikation nie eingesetzt werden kann. Als Richtwert gilt eine Opferung
+  alle zwei Spielabende.'
+typ: '3'
+voraussetzungen: Vorteil Tradition der Rahjageweihten III

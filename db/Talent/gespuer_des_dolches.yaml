@@ -1,0 +1,28 @@
+fertigkeiten: Dolchzauber, Hellsicht
+kosten: '20'
+name: Gespuer des Dolches
+printclass: '1'
+text: 'Dein Ritualgegenstand kuehlt ab, wenn er daemonisch verseuchten Boden beruehrt.
+  So erfaehrst du, ob die Umgebung normal/leicht verseucht/deutlich verseucht/stark
+  verseucht/ein kleines Unheiligtum/ein mittleres Unheiligtum/ein maechtiges Unheiligtum
+  ist.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: Ritualgegenstand
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 1 AsP
+
+  Fertigkeiten: Dolchzauber, Hellsicht
+
+  Erlernen: Dru, Geo 18; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden
+  I

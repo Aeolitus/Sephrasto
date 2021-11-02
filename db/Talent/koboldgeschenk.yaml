@@ -1,0 +1,13 @@
+fertigkeiten: Einfluss
+kosten: '20'
+name: Koboldgeschenk
+printclass: '0'
+text: "Du ueberreichst deinem Opfer einen maximal faustgrossen Gegenstand, der fuer\
+  \ ihn als aehnlich grosser Gegenstand deiner Wahl erscheint. Das Opfer sucht selbst\
+  \ Erklaerungen fuer das Verhalten des Gegenstandes \u2013 so wird zum Beispiel ein\
+  \ wegspringender Frosch zu einem wegrollenden Edelstein.\nProbenschwierigkeit: Magieresistenz\n\
+  Vorbereitungszeit: 2 Aktionen\nZiel: Einzelperson\nReichweite: Beruehrung\nWirkungsdauer:\
+  \ 16 Minuten\nKosten: 8 AsP\nFertigkeiten: Einfluss\nErlernen: Sch 8; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Schelme I

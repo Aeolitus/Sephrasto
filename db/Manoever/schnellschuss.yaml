@@ -1,0 +1,8 @@
+gegenprobe: ''
+name: Schnellschuss
+probe: FK -4
+text: Verkuerzt die Vorbereitungszeit um die Haelfte. Eine Vorbereitungszeit von 1
+  Aktion wird zu 0 Aktionen. Die Aktion Konflikt ist von dieser Modifikation nicht
+  betroffen. Kann bis zu zweimal pro FK eingesetzt werden.
+typ: '1'
+voraussetzungen: Vorteil Schnellziehen

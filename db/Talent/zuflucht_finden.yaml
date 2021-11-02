@@ -1,0 +1,28 @@
+fertigkeiten: Sichere Heimkehr, Wildnis
+kosten: '20'
+name: Zuflucht finden
+printclass: '28'
+text: 'Du findest intuitiv den Weg zur naechsten sicheren Lagerstaette. Entsprechende
+  Ueberleben-Proben sind um +4 erleichtert.
+
+  Maechtige Liturgie: Der Bonus steigt um +2
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 4 KaP
+
+  Fertigkeiten: Sichere Heimkehr, Wildnis
+
+  Erlernen: Fir, Ifi 12; Tra 14; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition der
+  Ifirngeweihten I ODER Vorteil Tradition der Traviageweihten I

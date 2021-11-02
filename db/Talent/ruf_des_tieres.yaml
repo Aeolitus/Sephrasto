@@ -1,0 +1,28 @@
+fertigkeiten: Einfluss, Verstaendigung, Gaben des Odun
+kosten: '20'
+name: Ruf des (Tieres)
+printclass: '4'
+text: 'Du rufst ein Exemplar deines Tiers herbei. Befindet sich ein Wesen dieser Art
+  in einem Radius von 4 Meilen, eilt es herbei. Du kannst dieses Wesen um einen Gefallen
+  bitten, das dieses wenn moeglich erfuellen wird. Dann trollt sich das Wesen.
+
+  Maechtige Magie: Verdoppelt den Radius und die Zahl der herbeieilenden Wesen.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Einfluss, Verstaendigung, Gaben des Odun
+
+  Erlernen: Dur 14; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Durro-dun I

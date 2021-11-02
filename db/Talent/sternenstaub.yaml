@@ -1,0 +1,12 @@
+fertigkeiten: Abu al'Mada
+kosten: '40'
+name: Sternenstaub
+printclass: '37'
+text: "Du wirfst Mondstaub in die Luft, der deine Gegner verwirrt. Alle Nah- und Fernkampfangriffe\
+  \ auf dich sind um \u20132 erschwert und Abzuege durch Dunkelheit sinken fuer dich\
+  \ um eine Stufe.\nMaechtige Liturgie: Der Malus steigt um \u20131.\nProbenschwierigkeit:\
+  \ 12\nVorbereitungszeit: 2 Aktionen\nZiel: selbst\nReichweite: Beruehrung\nWirkungsdauer:\
+  \ 4 Minuten\nKosten: 8 KaP\nFertigkeiten: Abu al'Mada\nErlernen: Phe 12; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Phexgeweihten I

@@ -1,0 +1,16 @@
+fertigkeiten: Gaben des Blutgeists
+kommentar: '0'
+kosten: '0'
+name: Psychostabilis (Blutgeist)
+printclass: '0'
+text: "Magieresistenz-Proben des Ziels sind um +4 erleichtert.\nMaechtige Magie: Erhoeht\
+  \ den Bonus um +2.\nProbenschwierigkeit: 12\nModifikationen: Schnellsteigerung (\u2013\
+  4; Wirkungsdauer 16 Initiativphasen; verdoppelt die Erleichterung.)\nStabilisierung\
+  \ (\u20138; das Ziel darf sofort eine MR-Probe gegen einen auf es wirkenden Zauber\
+  \ wiederholen. Gelingt sie, wird dieser Zauber fuer die Wirkungsdauer des Psychostabilis\
+  \ unterdrueckt.)\nVorbereitungszeit: 2 Aktionen\nZiel: Einzelperson\nReichweite:\
+  \ Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 8 AsP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Elefant) ODER Vorteil Tiergeist (Mammut) ODER
+  Vorteil Tiergeist (Schlange)

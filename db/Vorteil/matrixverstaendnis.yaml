@@ -1,0 +1,16 @@
+kommentar: '0'
+kosten: '40'
+linkElement: Artefaktherstellung
+linkKategorie: '1'
+nachkauf: haeufig
+name: Matrixverstaendnis
+text: 'Der erste wirkende Zauber, der bei der Artefakterschaffung misslingt, darf
+  einmal wiederholt werden.
+
+
+  Bei Strukturanalysen (S. 80) erhaeltst du einen zusaetzlichen Analysegrad, wenn
+  der gewertete Wuerfel eine 12 oder hoeher zeigt.'
+typ: '4'
+variable: '0'
+voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut
+  FF 6

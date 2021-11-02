@@ -1,0 +1,16 @@
+fertigkeiten: Gaben des Odun
+kommentar: '0'
+kosten: '20'
+name: Wellenlauf (Tiergeist)
+printclass: '0'
+text: "Wasser ist fuer dich ein fester Untergrund. Du erleidest keine Abzuege durch\
+  \ unguenstige Position und wirst nicht durch Wellen und Stroemungen beeinflusst.\
+  \ Erlaubt Aufrechterhalten.\nProbenschwierigkeit: 12\nModifikationen: Sinken (\u2013\
+  4; du kannst die Zauberwirkung nach Belieben unterdruecken und wieder aktiv werden\
+  \ lassen. Bei Aktivierung unter Wasser wirst du an die Wasseroberflaeche gehoben.)\n\
+  Wasserwand (\u20138; du kannst selbst an Wasserfaellen hochklettern, wofuer einfache\
+  \ Klettern-Proben anfallen.)\nVorbereitungszeit: 2 Aktionen\nZiel: selbst\nReichweite:\
+  \ Beruehrung\nWirkungsdauer: 4 Minuten\nKosten: 4 AsP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Fischotter)

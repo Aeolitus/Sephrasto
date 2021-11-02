@@ -1,0 +1,7 @@
+attribute: CH|GE|KO
+name: Zaubertaenze
+printclass: '0'
+steigerungsfaktor: '3'
+text: Die Zaubertaenze der Tulamiden werden nur selten als Magie wahrgenommen und
+  gehoeren doch zu einer der aeltesten menschlichen Zaubertraditionen Aventuriens.
+voraussetzungen: Vorteil Tradition der Zaubertaenzer I

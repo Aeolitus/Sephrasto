@@ -1,0 +1,24 @@
+fertigkeiten: Gaben des Odun
+kommentar: '0'
+kosten: '40'
+name: Eiseskaelte Kaempferherz (Tiergeist)
+printclass: '0'
+text: 'Das Ziel empfindet keinerlei Schmerzen mehr. Es erhaelt den Vorteil Kalte Wut
+  (S. 43). Proben zum Ignorieren von Wundschmerz sind um +4 erleichtert.
+
+  Maechtige Magie: Der Bonus steigt um +2.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 8 AsP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Baer)

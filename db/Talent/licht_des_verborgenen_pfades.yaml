@@ -1,0 +1,26 @@
+fertigkeiten: Heiliges Erz
+kosten: '20'
+name: Licht des verborgenen Pfades
+printclass: '32'
+text: 'An einer unterirdischen Weggabelung findest du die richtige Abzweigung zu deinem
+  Ziel.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 2 KaP
+
+  Fertigkeiten: Heiliges Erz
+
+  Erlernen: Ang 12; Ing 14; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition
+  der Angroschgeweihten I

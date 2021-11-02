@@ -1,0 +1,10 @@
+csBeschreibung: Deine MR steigt um 4 Punkte (bereits eingerechnet).
+kommentar: '0'
+kosten: '20'
+nachkauf: haeufig
+name: Willensstark I
+script: modifyMR(4)
+text: Deine MR steigt um 4 Punkte.
+typ: '1'
+variable: '0'
+voraussetzungen: Attribut MU 4

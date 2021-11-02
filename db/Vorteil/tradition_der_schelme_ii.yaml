@@ -1,0 +1,11 @@
+kommentar: '0'
+kosten: '40'
+linkElement: Tradition der Schelme I
+linkKategorie: '3'
+nachkauf: haeufig
+name: Tradition der Schelme II
+text: Schelmenmagie umgeht den geistigen Widerstand ihrer Ziele. Wenn ein Zauber gegen
+  die Magieresistenz wirkt, ist er um +2 erleichtert.
+typ: '5'
+variable: '0'
+voraussetzungen: Attribut IN 6, Vorteil Tradition der Schelme I

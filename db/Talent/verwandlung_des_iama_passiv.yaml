@@ -1,0 +1,12 @@
+fertigkeiten: Elfenlieder
+kosten: '20'
+name: Verwandlung des Iama (passiv)
+printclass: '2'
+text: 'Wenn du bei einer Verwandlung deines Koerpers (egal ob freiwillig oder unfreiwillig)
+  dein Iama bei dir traegst, hast du es auch nach der Rueckverwandlung wieder bei
+  dir.
+
+  Erlernen: Elf 12; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Elfen I

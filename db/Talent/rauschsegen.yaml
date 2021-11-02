@@ -1,0 +1,26 @@
+fertigkeiten: Rausch, Schlaf
+kosten: '20'
+name: Rauschsegen
+printclass: '21'
+text: 'Die gesegneten Rauschmittel entfalten staerkere Wirkung bei geringeren Nebenwirkungen
+  und machen nicht mehr abhaengig.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Tag
+
+  Kosten: 1 KaP
+
+  Fertigkeiten: Rausch, Schlaf
+
+  Erlernen: Brn, Rah 12; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der
+  Rahjageweihten I

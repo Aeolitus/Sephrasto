@@ -1,0 +1,15 @@
+fertigkeiten: Stabzauber
+kosten: '80'
+name: Astralspeicher (passiv)
+printclass: '15'
+text: 'Du laesst 8 gAsP in den Stab fliessen. Fortan wird der Zauberstab zu einem
+  Speicher fuer Astralenergie. In einem einstuendigen Ritual kannst du eigene Astralenergie
+  in den Stab einspeichern, wobei 2 zusaetzliche AsP verloren gehen. Zusaetzlich waehlst
+  du einen Zauber pro 4 volle Punkte PW Stabzauber. Bis zum naechsten Aufladen kannst
+  du die Kosten fuer diese Zauber teilweise oder ganz aus dem Astralspeicher bezahlen.
+  Der Astralspeicher kann maximal 32 AsP fassen.
+
+  Erlernen: Mag 18; 80 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Gildenmagier I

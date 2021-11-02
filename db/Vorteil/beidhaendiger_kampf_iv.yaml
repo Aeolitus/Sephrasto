@@ -1,0 +1,15 @@
+csBeschreibung: 'Waffenmeister: $kommentar$.'
+kommentar: '1'
+kosten: '80'
+linkElement: Beidhaendiger Kampf III
+linkKategorie: '3'
+nachkauf: haeufig
+name: Beidhaendiger Kampf IV
+text: 'Bedingung: zwei weitere Attribute auf insgesamt 16.
+
+
+  8 Punkte koennen zur Verbesserung des Kampfstils verwendet werden. Sephrasto: Trage
+  die Verbesserungen in das Kommentarfeld ein.'
+typ: '3'
+variable: '0'
+voraussetzungen: Attribut GE 10, Vorteil Beidhaendiger Kampf III

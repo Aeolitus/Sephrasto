@@ -1,0 +1,27 @@
+csAuflisten: '0'
+fertigkeiten: Tod, Wind und Wogen, Jagd, Heilung, Ordnung, Rausch, Sichere Heimkehr
+kommentar: '0'
+kosten: '20'
+name: 'Mirakel: Wahrnehmung'
+printclass: '99'
+text: 'Dein naechster Wurf auf Wahrnehmung ist um +4 Punkte erleichtert.
+
+  Maechtige Liturgie: Erhoeht die Erleichterung um +2.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 4 Minuten
+
+  Kosten: 4 KaP
+
+  Erlernen: 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Kein Vorteil Tradition der Firungeweihten I, Kein Vorteil Tradition
+  der Swafnirgeweihten I

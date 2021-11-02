@@ -1,0 +1,10 @@
+attribute: FF|IN|KL
+name: Schalenzauber
+printclass: '0'
+steigerungsfaktor: '2'
+text: Dieses Ritualinstrument aus Silber oder Mondsilber wird von Alchemisten und
+  einigen Gildenmagiern benutzt. Hexen verwenden stattdessen einen Kessel. Die Talente
+  gelten als Objektrituale, die passiven Effekte der Schale erfordern jedoch keine
+  staendige Beruehrung.
+voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Hexen
+  I ODER Vorteil Tradition der Gildenmagier I

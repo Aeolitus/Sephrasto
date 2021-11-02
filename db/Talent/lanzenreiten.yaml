@@ -1,0 +1,8 @@
+fertigkeiten: Stangenwaffen
+kosten: '-1'
+name: Lanzenreiten
+printclass: '-1'
+text: Verbessert den Einsatz von Lanzen im berittenen Kampf.
+variable: '0'
+verbilligt: '1'
+voraussetzungen: ''

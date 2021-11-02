@@ -1,0 +1,28 @@
+fertigkeiten: Einfluss
+kosten: '40'
+name: Horriphobus Schreckgestalt
+printclass: '0'
+text: 'Dein Opfer hat schreckliche Angst vor dir und erleidet einen Furcht-Effekt
+  Stufe 2.
+
+  Maechtige Magie: Der Furcht-Effekt steigt um eine Stufe.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: Einzelwesen
+
+  Reichweite: 8 Schritt
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Einfluss
+
+  Erlernen: Mag 12; Bor 16; Alch 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I

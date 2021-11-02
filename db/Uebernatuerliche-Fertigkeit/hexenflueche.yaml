@@ -1,0 +1,27 @@
+attribute: CH|IN|MU
+name: Hexenflueche
+printclass: '0'
+steigerungsfaktor: '2'
+text: "Als Hexe hast du zwei Moeglichkeiten, deine Flueche zu ueberbringen. Entweder\
+  \ du schleuderst sie direkt lautstark auf das Opfer, wodurch du haeufig vom Bonus\
+  \ der Hexischen Tradition II profitieren kannst, oder du laesst den Fluch unauffaellig\
+  \ von deinem Vertrauten ueberbringen. Dafuer benoetigst du allerdings ein Koerperteil\
+  \ (z.B. Haar) deines Opfers. In beiden Faellen legst du danach die Probe auf eine\
+  \ passende uebernatuerliche Fertigkeit ab. Jeder Hexenfluch kann auch permanent\
+  \ gesprochen werden. Dann halten ein Viertel der AsP als gAsP den Fluch aufrecht.\
+  \ Neben Antimagie oder goettlichem Wirken kann ein permanenter Fluch immer auch\
+  \ durch das Erfuellen einer Bedingung beendet werden. Diese Bedingung muss realistisch\
+  \ erfuellbar sein und du musst sie dem Verfluchten mitteilen (direkter Fluch) oder\
+  \ er erfaehrt sie in seinen Traeumen (ueberbrachter Fluch).\n\n  Neben den als Talente\
+  \ aufgelisteten Beispielen sollen die Toechter Satuarias zahlreiche weitere Flueche\
+  \ kennen, die Unfruchtbarkeit und Krankheit ueber Mensch und Tier bringen und Ernten\
+  \ zerstoeren koennen. Sogar von einem Todesfluch wird gemunkelt, der sein Opfer\
+  \ langsam, aber unaufhaltsam auszehrt.\n\n  Jede Hexe kann auf einem Besen oder\
+  \ einem anderen Holzgegenstand reiten. Dazu erhaelt sie bei der halbjaehrlichen\
+  \ Hexennacht die Hexensalbe, mit der das bestrichene Objekt flugfaehig ist. Die\
+  \ Aktivierung des Besens vor jedem Flug kostet 1 AsP. Tollkuehne Flugmanoever erfordern\
+  \ Proben auf das Talent Akrobatik. Misslungene Proben bedeuten, dass die Hexe die\
+  \ Kontrolle ueber den Besen verliert und schlimmstenfalls unsanft notlanden muss.\
+  \ Bei einem Patzer kann der Hexe der Absturz drohen, sie koennte aber auch den Zorn\
+  \ eines Drachen geweckt haben."
+voraussetzungen: Vorteil Tradition der Hexen I

@@ -1,0 +1,10 @@
+kommentar: '0'
+kosten: '80'
+nachkauf: haeufig
+name: Flinke Magie
+text: Einmal pro Initiativphase kannst du eine Zauberprobe in einer freien Aktion
+  statt einer Aktion Konflikt durchfuehren.
+typ: '4'
+variable: '0'
+voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut
+  IN 10

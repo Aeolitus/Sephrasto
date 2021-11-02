@@ -1,0 +1,18 @@
+fertigkeiten: Verwandlung
+kosten: '40'
+name: Serpentialis Schlangenleib
+printclass: '0'
+text: "Deine Arme verwandeln sich in gruene, 2 Schritt lange Giftschlangen, deren\
+  \ hinteres Ende noch mit deinem Rumpf verbunden ist. Die Schlangen koennen beide\
+  \ in einer Aktion Konflikt angreifen (WS 3, VT 10, RW 2, AT\_10, TP 2W6) und ein\
+  \ Waffengift uebertragen (Stufe 20, keine Verzoegerung, Intervall 2 INI-Phasen,\
+  \ Wirkungsdauer 2 INI-Phasen, 2W6 SP).\nMaechtige Magie: Die WS der Schlangen steigt\
+  \ um +1, AT, VT und TP um +2.\nProbenschwierigkeit: 12\nModifikationen: Schlangengriff\
+  \ (Wirkungsdauer 4 Minuten, 4 AsP; die Arme verwandeln sich in kampfunfaehige, aber\
+  \ geschickte Nattern, deren FF gleich deiner ist.)\nVorbereitungszeit: 2 Aktionen\n\
+  Ziel: selbst\nReichweite: Beruehrung\nWirkungsdauer: 16 Initiativphasen\nKosten:\
+  \ 16 AsP\nFertigkeiten: Verwandlung\nErlernen: Ach 16; Hex, Mag 20; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I
+  ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I

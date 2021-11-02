@@ -1,0 +1,13 @@
+gegenprobe: ''
+name: Blutungen
+probe: ''
+text: 'Blutungen drohen dir, wenn du durch Waffengewalt oder aehnliche akute Verletzungen
+  kampfunfaehig wirst, oder wenn du bereits kampfunfaehig bist und eine weitere solche
+  Verletzung erleidest. Dann muss dir eine KO-Probe (12, I) gelingen. Misslingt die
+  Probe, beginnt dein Charakter zu bluten: Du musst nach jeweils WS Initiativephasen
+  eine KO-Probe (12, I) ablegen, bei deren Misslingen du eine weitere Wunde erleidest.
+  Eine Blutung endet bei erfolgreicher erster Hilfe (S. 33). Bei acht Einschraenkungen
+  ist auch fuer den zaehesten Charakter die Grenze erreicht. Eine weitere Einschraenkung
+  bedeutet unweigerlich den Tod'
+typ: '8'
+voraussetzungen: ''

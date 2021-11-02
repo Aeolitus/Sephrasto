@@ -1,0 +1,10 @@
+fertigkeiten: Kristallmagie
+kosten: '20'
+name: Ewige Wegzehrung (passiv)
+printclass: '11'
+text: 'Im Schuppenbeutel aufbewahrte Gegenstaende altern nicht.
+
+  Erlernen: Ach 12; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Kristallomanten I

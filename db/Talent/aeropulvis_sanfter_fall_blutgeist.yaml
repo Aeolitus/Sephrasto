@@ -1,0 +1,21 @@
+fertigkeiten: Gaben des Blutgeists
+kommentar: '0'
+kosten: '0'
+name: Aeropulvis sanfter Fall (Blutgeist)
+printclass: '0'
+text: 'Halbiert die effektive Hoehe eines Sturzes oder Sprunges (kumulativ zur Akrobatik-Probe).
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 8 AsP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Falke)

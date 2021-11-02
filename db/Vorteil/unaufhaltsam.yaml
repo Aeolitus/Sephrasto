@@ -1,0 +1,10 @@
+kommentar: '0'
+kosten: '80'
+nachkauf: haeufig
+name: Unaufhaltsam
+text: Selbst bei einer gelungenen gegnerischen Verteidigung richtest du halben Schaden
+  an. Ausweichen vermeidet diesen Schaden. Manoevereffekte wirken weiterhin nur bei
+  gelungenen Attacken.
+typ: '2'
+variable: '0'
+voraussetzungen: Attribut KK 10

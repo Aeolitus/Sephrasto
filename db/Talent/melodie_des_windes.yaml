@@ -1,0 +1,26 @@
+fertigkeiten: Elfenlieder, Hellsicht, Luft
+kosten: '20'
+name: Melodie des Windes
+printclass: '2'
+text: 'Du oeffnest deine Sinne fuer Eindruecke aus der Windrichtung, die von der Harmonie
+  des Ortes, seinen Pflanzen und Bewohnern kuenden. Die Stimmungen, Visionen oder
+  Geraeusche bleiben dabei stets vage. Erfordert Konzentration.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 4 AsP
+
+  Fertigkeiten: Elfenlieder, Hellsicht, Luft
+
+  Erlernen: Elf 12; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Elfen I

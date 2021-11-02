@@ -1,0 +1,16 @@
+fertigkeiten: Erz
+kosten: '20'
+name: Pfeil des Erzes
+printclass: '0'
+text: "Du verzauberst einen Pfeil (oder Bolzen oder Wurfwaffe), sodass er im Flug\
+  \ die Macht des Elements freisetzt. Der Pfeil verursacht Erzschaden und Niederschmettern\
+  \ (S. 98). Unbelebte Gegenstaende erleiden bei einem Treffer doppelten Schaden.\n\
+  Probenschwierigkeit: 12\nModifikationen: Geschuetz (\u20134; du verzauberst ein\
+  \ groesseres Geschoss wie das einer Balliste.)\nPermanenz (\u20134, 4 AsP, davon\
+  \ 1 gAsP, Wirkungsdauer bis die Bindung geloest wird oder der Pfeil verschossen\
+  \ wurde)\nVorbereitungszeit: 1 Aktion\nZiel: Einzelobjekt\nReichweite: Beruehrung\n\
+  Wirkungsdauer: 8 Initiativphasen\nKosten: 4 AsP\nFertigkeiten: Erz\nErlernen: Mag\
+  \ 18; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I

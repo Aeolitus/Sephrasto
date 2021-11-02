@@ -1,0 +1,19 @@
+fertigkeiten: Friede, Harmonie
+kosten: '40'
+name: Verbruederung der Feinde
+printclass: '43'
+text: "Alle Lebewesen in einer Zone von 4 Schritt Radius verfallen in eine friedfertige\
+  \ Stimmung. Aggressive Handlungen erfordern eine Konterprobe (Willenskraft, 20).\
+  \ Erfordert Konzentration, erlaubt Aufrechterhalten.\nMaechtige Liturgie: Verdoppelt\
+  \ den Radius.\nProbenschwierigkeit: 12\nModifikationen: Heiliger Friedensschluss\
+  \ (\u201316, 1 Stunde, Wirkungsdauer 1 Woche, 32 KaP; du rufst das Joborner Friedenslicht\
+  \ (Rah) oder das Eidechsenauge (Tsa) herbei, das ganze Armeen in eine friedliche\
+  \ Stimmung versetzt und meist in einem grosses Fest (Rah) oder eifrige Diskussionen\
+  \ ueber die Zukunft (Tsa) enden. Die Liturgie wirkt nicht, wenn eine der Seiten\
+  \ von daemonischen Kraeften getrieben wird.)\nVorbereitungszeit: 4 Aktionen\nZiel:\
+  \ Zone\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 8 KaP\nFertigkeiten:\
+  \ Friede, Harmonie\nErlernen: Tsa 12, Rah 14; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Rahjageweihten I ODER Vorteil Tradition der
+  Tsageweihten I

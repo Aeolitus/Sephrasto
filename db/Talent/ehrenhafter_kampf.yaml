@@ -1,0 +1,30 @@
+fertigkeiten: Ehre, Heerfuehrung
+kosten: '40'
+name: Ehrenhafter Kampf
+printclass: '45'
+text: 'Dein Gegner muss sich an die Gebote des ehrenhaften Zweikampfs halten und niemand
+  kann in den Kampf eingreifen. Mit einer Konterprobe (Willenskraft, 20) kann die
+  Wirkung ignoriert werden.
+
+  Probenschwierigkeit: 12
+
+  Modifikationen: Ehre der Schlacht (Zone, Wirkungsdauer 1 Stunde, Kosten 16 KaP;
+  alle Kaempfer im Radius von 8 Schritt, denen die Konterprobe misslingt, verhalten
+  sich rondragefaellig. Maechtige Liturgie verdoppelt den Radius.)
+
+  Vorbereitungszeit: 2 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: 32 Schritt
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Ehre, Heerfuehrung
+
+  Erlernen: Ron 8; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Rondrageweihten I

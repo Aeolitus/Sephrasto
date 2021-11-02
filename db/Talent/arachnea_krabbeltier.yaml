@@ -1,0 +1,15 @@
+fertigkeiten: Verstaendigung
+kosten: '40'
+name: Arachnea Krabbeltier
+printclass: '0'
+text: "Alle Insekten, Spinnen, Maden und anderen wirbellosen Tiere in einem Radius\
+  \ von 64 Schritt streben auf dein Ziel zu und fallen dort ueber alles her, was in\
+  \ ihr Fressschema passt.\nMaechtige Magie: Verdoppelt den Radius.\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Maraskaner Verhaeltnisse (\u20138, Wirkungsdauer 1 Woche,\
+  \ 32 AsP)\nArtenkunde (\u20134; du kannst den Zauber auf eine bestimmte Art von\
+  \ Wesen beschraenken oder eine Art ausnehmen)\nVorbereitungszeit: 16 Aktionen\n\
+  Ziel: Zone\nReichweite: 16 Schritt\nWirkungsdauer: 8 Stunden\nKosten: 16 AsP\nFertigkeiten:\
+  \ Verstaendigung\nErlernen: Mag 20; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I

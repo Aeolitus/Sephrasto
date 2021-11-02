@@ -1,0 +1,10 @@
+name: Schuppenpanzer
+rsBauch: '4'
+rsBeine: '3'
+rsBrust: '4'
+rsKopf: '0'
+rsLArm: '3'
+rsRArm: '3'
+system: '2'
+text: Benoetigt keine wattierte Unterkleidung.
+typ: '3'

@@ -1,0 +1,18 @@
+fertigkeiten: Einfluss
+kosten: '40'
+name: Band und Fessel
+printclass: '0'
+text: "Dein Opfer kann einen kreisfoermigen Bereich von 4 Schritt Radius nicht verlassen.\
+  \ Alle zwei Stunden darf es versuchen, sich mit einer Konterprobe (MU, 16) vom Zauber\
+  \ zu befreien. Dabei handelt es sich um eine mentale Barriere. Wird das Ziel mit\
+  \ Gewalt ueber die Barriere getragen \u2013 wogegen es sich wehren wird \u2013 endet\
+  \ der Effekt.\nProbenschwierigkeit: Magieresistenz\nVorbereitungszeit: 4 Aktionen\n\
+  Ziel: Einzelwesen\nReichweite: 8 Schritt\nWirkungsdauer: 8 Stunden\nKosten: 8 AsP\n\
+  Fertigkeiten: Einfluss\nErlernen: Elf 14; Hex 16; Dru, Mag 18; Ach, Bor, Geo 20;\
+  \ 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I
+  ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
+  Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition
+  der Hexen I ODER Vorteil Tradition der Kristallomanten I

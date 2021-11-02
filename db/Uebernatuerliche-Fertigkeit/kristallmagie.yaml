@@ -1,0 +1,13 @@
+attribute: FF|IN|KL
+name: Kristallmagie
+printclass: '0'
+steigerungsfaktor: '3'
+text: Die Magie eines Kristallomanten steht und faellt mit seinen gebundenen Kristallen,
+  da ohne den passenden Kristall eine wichtige Bedingung der kristallomantischen Tradition
+  nicht erfuellt ist (S. 76). Jeder Kristall ist dabei einer Fertigkeit zugeordnet,
+  die der Kristallomant fortan ohne Einschraenkungen oder sogar mit bedeutenden Vorteilen
+  nutzen kann. Nur die Kristallmagie selbst benoetigt keinen Kristall. Die Kristalle
+  und andere nuetzliche Gegenstaende kann der Kristallomant in seinem magischen Schuppenbeutel
+  transportieren, der etwa 4 Liter fasst. Alle Talente gelten als Objektrituale, die
+  passiven Effekte des Schuppenbeutels erfordern aber keine staendige Beruehrung.
+voraussetzungen: Vorteil Tradition der Kristallomanten I

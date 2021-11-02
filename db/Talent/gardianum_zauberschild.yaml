@@ -1,0 +1,23 @@
+fertigkeiten: Antimagie, Kraft
+kosten: '40'
+name: Gardianum Zauberschild
+printclass: '0'
+text: "Du erschaffst eine unsichtbare und immaterielle Schutzkuppel mit dir als Zentrum\
+  \ und 2 Schritt Radius. Schadenszauber werden von der Kuppel abgefangen, die nach\
+  \ 8 Beschaedigungen zusammenbricht (Haerte 2).\nMaechtige Magie: Die Haerte steigt\
+  \ um +1.\nProbenschwierigkeit: 12\nModifikationen: Schild gegen Daemonen (\u2013\
+  4; Daemonen mit einer Beschwoerungsschwierigkeit von maximal 20 koennen die Kuppel\
+  \ nicht durchschreiten. Maechtige Magie erhoeht die maximale Beschwoerungsschwierigkeit\
+  \ um 4. Angriffe des Daemonen werden vom Gardianum abgefangen, der dabei als Koloss\
+  \ II gilt (S. 96). Du kannst einen Daemon mit dem Gardianum zurueckdraengen, wenn\
+  \ dir eine vergleichende KK-Probe gelingt. Umgekehrt ist das nicht moeglich.),\n\
+  Persoenlicher Schild (\u20134, Wirkungsdauer 1 Stunde; der Zauber legt sich als\
+  \ zweite Haut um den Zauberer.)\nVorbereitungszeit: 0 Aktionen\nZiel: Zone\nReichweite:\
+  \ Beruehrung\nWirkungsdauer: 4 Minuten\nKosten: 8 AsP\nFertigkeiten: Antimagie,\
+  \ Kraft\nErlernen: Elf, Mag 12; Ach 14; Dru, Geo, Hex 16; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition
+  der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der
+  Kristallomanten I

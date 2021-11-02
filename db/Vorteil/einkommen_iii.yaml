@@ -1,0 +1,14 @@
+kommentar: '0'
+kosten: '20'
+linkElement: Einkommen II
+linkKategorie: '3'
+nachkauf: haeufig
+name: Einkommen III
+text: Deine Familie, Organisation oder ein persoenlicher Maezen stellt dir ein monatliches
+  Einkommen von 64 Dukaten zur Verfuegung, die du beispielsweise ueber eine Filiale
+  der Nordlandbank oder ein Ordenshaus beziehen kannst. Fern der Zivilisation kannst
+  du nicht auf dein Einkommen zugreifen. Das Einkommen reicht aus, um die Lebenserhaltungskosten
+  eines Angehoerigen der Oberschicht zu decken.
+typ: '0'
+variable: '0'
+voraussetzungen: Vorteil Einkommen II

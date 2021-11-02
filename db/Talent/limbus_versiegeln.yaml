@@ -1,0 +1,27 @@
+fertigkeiten: Kraft
+kosten: '20'
+name: Limbus versiegeln
+printclass: '0'
+text: 'Du verhinderst in einem kreisfoermigen Bereich von 16 Schritt Radius saemtliche
+  Wechsel zwischen dem Limbus und der dritten Sphaere.
+
+  Maechtige Magie: Der Radius erhoeht sich um 8 Schritt.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: 16 Schritt
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Kraft
+
+  Erlernen: Mag 20; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I

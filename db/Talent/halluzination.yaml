@@ -1,0 +1,18 @@
+fertigkeiten: Einfluss
+kosten: '40'
+name: Halluzination
+printclass: '0'
+text: "Deinem Opfer erscheint eine Halluzination deiner Wahl (\u201Eein Oger\u201C\
+  , \u201Ekoestlicher Tharf\u201C), die es mit allen fuenf Sinnen wahrzunehmen glaubt.\
+  \ Wird das Opfer von der Halluzination \u201Egetoetet\u201C, faellt es fuer 16 Initiativphasen\
+  \ in Ohnmacht. Nach dem Erwachen sind alle durch die Halluzination verursachten\
+  \ Wunden verschwunden.\nProbenschwierigkeit: Magieresistenz\nModifikationen: Traumbilder\
+  \ (\u20138; die Halluzination erscheint im Traum eines Schlafenden.)\nVorbereitungszeit:\
+  \ 2 Aktionen\nZiel: Einzelperson\nReichweite: Beruehrung\nWirkungsdauer: 4 Minuten\n\
+  Kosten: 8 AsP\nFertigkeiten: Einfluss\nErlernen: Dru 14; Geo 12; Hex, Mag, Srl 20;\
+  \ 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil
+  Tradition der Hexen I ODER Vorteil Tradition der Scharlatane I

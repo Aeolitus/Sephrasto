@@ -1,0 +1,27 @@
+fertigkeiten: Feuer, Geister der Staerkung, Umwelt
+kosten: '20'
+name: Arngrimms Hoehle
+printclass: '5'
+text: 'In einem abgeschlossenen Raum wie einer Jurte oder einer kleinen Hoehle steigt
+  die Temperaturstufe (S. 35) um +1, bis maximal auf normal.
+
+  Maechtige Magie: Fuer je zwei Stufen steigt die Temperaturstufe um weitere +1.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Tag
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Feuer, Geister der Staerkung, Umwelt
+
+  Erlernen: Smn 14; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

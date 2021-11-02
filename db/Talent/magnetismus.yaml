@@ -1,0 +1,14 @@
+fertigkeiten: Erz, Ringrituale, Umwelt
+kosten: '60'
+name: Magnetismus
+printclass: '13'
+text: "Der Erdboden im Radius von 8 Schritt wirkt wie ein starker Magnet. Wenn eine\
+  \ Konterprobe (KK, 16) misslingt, werden Metallwaffen aus der Hand gerissen und\
+  \ kleben am Boden fest, waehrend Kaempfer in Metallruestungen zu Boden gehen und\
+  \ nicht mehr aufstehen koennen. Selbst bei einer gelungenen Konterprobe sind Kampfaktionen\
+  \ mit Metallwaffen um \u20134 erschwert.\nProbenschwierigkeit: 12\nVorbereitungszeit:\
+  \ 2 Aktionen\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer: 16 Initiativphasen\n\
+  Kosten: 16 AsP\nFertigkeiten: Erz, Ringrituale, Umwelt\nErlernen: Geo 16; 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Geoden I

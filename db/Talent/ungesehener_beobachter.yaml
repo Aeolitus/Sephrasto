@@ -1,0 +1,27 @@
+fertigkeiten: Verstaendigung, Vertrautenmagie
+kosten: '40'
+name: Ungesehener Beobachter
+printclass: '17'
+text: 'Du blickst in Trance durch die Augen deines Vertrautentiers, das ein Ziel ausspioniert.
+  Der Zauber endet mit der Rueckkehr des Vertrautentiers und benoetigt Konzentration.
+
+  Maechtige Magie: Du teilst einen zusaetzlichen Sinn mit dem Vertrauten.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 2 Aktionen
+
+  Ziel: Bindungspartner
+
+  Reichweite: 8 Meilen
+
+  Wirkungsdauer: 8 Stunden
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Verstaendigung, Vertrautenmagie
+
+  Erlernen: Hex 12; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Hexen I

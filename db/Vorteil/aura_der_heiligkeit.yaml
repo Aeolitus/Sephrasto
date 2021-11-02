@@ -1,0 +1,10 @@
+kommentar: '0'
+kosten: '60'
+nachkauf: haeufig
+name: Aura der Heiligkeit
+text: Glaeubige Mitstreiter in einem Radius von 16 Schritt erhalten eine Erleichterung
+  von +1 auf alle Mirakel-Fertigkeiten deiner Gottheit, sowie alle Liturgien. Du selbst
+  profitierst nicht von diesem Bonus.
+typ: '6'
+variable: '0'
+voraussetzungen: Attribut CH 8, Vorteil Geweiht I

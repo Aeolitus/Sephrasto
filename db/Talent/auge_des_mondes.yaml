@@ -1,0 +1,27 @@
+fertigkeiten: Naechtlicher Schatten, Schlaf
+kosten: '40'
+name: Auge des Mondes
+printclass: '21'
+text: 'Das Ziel ignoriert eine Stufe Dunkelheit.
+
+  Maechtige Liturgie: Das Ziel ignoriert 2 Stufen/3 Stufen/absolute Dunkelheit.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 4 KaP
+
+  Fertigkeiten: Naechtlicher Schatten, Schlaf
+
+  Erlernen: Phe 12, Brn 14; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der
+  Phexgeweihten I

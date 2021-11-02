@@ -1,0 +1,11 @@
+kommentar: '0'
+kosten: '40'
+linkElement: Tradition der Zaubertaenzer I
+linkKategorie: '3'
+nachkauf: haeufig
+name: Tradition der Zaubertaenzer II
+text: Die Darbietung eines erfahrenen Zaubertaenzers hinterlaesst einen bleibenden
+  Eindruck. Die Wirkungsdauer aller deiner Zauber ist verdoppelt.
+typ: '5'
+variable: '0'
+voraussetzungen: Attribut GE 6, Vorteil Tradition der Zaubertaenzer I

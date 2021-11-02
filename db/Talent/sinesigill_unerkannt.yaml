@@ -1,0 +1,12 @@
+fertigkeiten: Antimagie, Illusion
+kosten: '20'
+name: Sinesigill Unerkannt
+printclass: '0'
+text: "Waehrend der Wirkungsdauer ist dein Gildensiegel von einer Illusion (Sicht)\
+  \ verdeckt und auch vor ungezielter Hellsicht verborgen.\nProbenschwierigkeit: 12\n\
+  Modifikationen: Fremde Hand (\u20134, Einzelperson)\nVorbereitungszeit: 16 Aktionen\n\
+  Ziel: selbst\nReichweite: Beruehrung\nWirkungsdauer: 8 Stunden\nKosten: 4 AsP\n\
+  Fertigkeiten: Antimagie, Illusion\nErlernen: Mag 20; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I

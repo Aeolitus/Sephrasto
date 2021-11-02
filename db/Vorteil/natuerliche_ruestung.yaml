@@ -1,0 +1,16 @@
+csBeschreibung: Du verfuegst ueber ein dichtes Fell oder zaehe Schuppenhaut, wodurch
+  dein RS um 1 steigt (bereits eingerechnet). Die BE veraendert sich dadurch nicht.
+kommentar: '0'
+kosten: '80'
+nachkauf: extrem selten
+name: Natuerliche Ruestung
+script: modifyRSMod(1)
+text: 'Du verfuegst ueber ein dichtes Fell oder zaehe Schuppenhaut, wodurch dein RS
+  um 1 steigt. Die BE veraendert sich dadurch nicht.
+
+
+  Dieser Vorteil kann ueblicherweise nur von Achaz, Orks und aehnlichen Rassen gewaehlt
+  werden.'
+typ: '0'
+variable: '0'
+voraussetzungen: ''

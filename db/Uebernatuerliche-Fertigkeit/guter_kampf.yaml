@@ -1,0 +1,8 @@
+attribute: KK|KO|MU
+name: Guter Kampf
+printclass: '1'
+steigerungsfaktor: '3'
+text: Die Mystiker der Korkirche suchen den Willen ihres Gottes im Kampf. Ihr Weg
+  fuehrt sie dorthin, wo die Schlacht am heftigsten tobt und wo sie ihr Blut fuer
+  den Geifernden Schnitter vergiessen.
+voraussetzungen: Vorteil Tradition der Korgeweihten I

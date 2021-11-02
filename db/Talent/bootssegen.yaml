@@ -1,0 +1,27 @@
+fertigkeiten: Seefahrt
+kosten: '20'
+name: Bootssegen
+printclass: '25'
+text: 'Die Besatzung des gesegneten Schiffes geht  dem Glauben nach bei einem Unglueck
+  in Efferds Wasserreich ein. Nach Spielleiterentscheid sind Proben, um widernatuerlichen
+  Gefahren zu entgehen, um +2 erleichtert.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: bis das Schiff deutlich umgebaut wird
+
+  Kosten: 16 KaP
+
+  Fertigkeiten: Seefahrt
+
+  Erlernen: Eff, Swa 8; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der
+  Swafnirgeweihten I

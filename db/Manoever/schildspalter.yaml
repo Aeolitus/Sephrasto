@@ -1,0 +1,8 @@
+gegenprobe: ''
+name: Schildspalter
+probe: AT +2
+text: 'Du fuegst dem Schild deines Gegners deinen Waffenschaden zu.
+
+  Voraussetzung: Gegner fuehrt Schild.'
+typ: '0'
+voraussetzungen: ''

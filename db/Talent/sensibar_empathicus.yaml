@@ -1,0 +1,31 @@
+fertigkeiten: Hellsicht
+kosten: '40'
+name: Sensibar Empathicus
+printclass: '0'
+text: 'Du kannst die Gefuehle deines Gegenuebers erahnen, wodurch deine Menschenkenntnis
+  gegen das Ziel um +4 steigt.
+
+  Maechtige Magie: Der Bonus steigt um +2.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: 4 Schritt
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Hellsicht
+
+  Erlernen: Elf 8; Hex, Mag 12; Ach, Dru, Geo, Sch, Srl 14; Alch 16; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
+  Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition
+  der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition
+  der Scharlatane I ODER Vorteil Tradition der Schelme I

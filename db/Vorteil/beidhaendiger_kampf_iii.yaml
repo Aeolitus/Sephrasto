@@ -1,0 +1,18 @@
+csBeschreibung: 'Du erhaeltst AT +1.
+
+
+  Erlaubt das Manoever Doppelangriff.'
+kommentar: '0'
+kosten: '60'
+linkElement: Beidhaendiger Kampf II
+linkKategorie: '3'
+nachkauf: haeufig
+name: Beidhaendiger Kampf III
+script: modifyKampfstil('Beidhaendiger Kampf', 1, 0, 0, 0)
+text: "Du erhaeltst AT +1.\n\nErlaubt das Manoever Doppelangriff (2x AT -4): Du fuehrst\
+  \ mit beiden Haenden je eine Attacke \u20134 aus. Beide Angriffe sind unabhaengig\
+  \ voneinander; sie werden separat ausgewuerfelt, koennen sich gegen verschiedene\
+  \ Ziele richten und mit unterschiedlichen Manoevern versehen werden."
+typ: '3'
+variable: '0'
+voraussetzungen: Attribut GE 8, Vorteil Beidhaendiger Kampf II

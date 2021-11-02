@@ -1,0 +1,18 @@
+fertigkeiten: Wasser, Verwandlung
+kosten: '60'
+name: Leib der Wogen
+printclass: '0'
+text: "Du harmonierst mit dem Element Wasser. Du bist immun gegen Wasserschaden. Stroemungen\
+  \ und der Druck unter Wasser beeinflussen dich nicht.\nProbenschwierigkeit: 12\n\
+  Modifikationen: Reise ins Wasser (\u20134; du kannst dich mit GS Schritt pro Initiativephase\
+  \ durchs Wasser bewegen. Du musst im Wasser nicht atmen.)\nBegleiter (\u20134; der\
+  \ Zauber betrifft auch eine weitere Person, mit der du permanent Hautkontakt halten\
+  \ musst.)\nLeib aus Wasser (\u20138; Deine Kreaturenklasse wird zu \"Elementar\"\
+  \ mit allen entsprechenden Eigenschaften (S.\_99). Du kannst waehrend der Wirkungsdauer\
+  \ keine Zauber wirken.)\nVorbereitungszeit: 8 Aktionen\nZiel: selbst\nReichweite:\
+  \ Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 16 AsP\nFertigkeiten: Wasser, Verwandlung\n\
+  Erlernen: Ach 18; Elf, Geo 20; 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I
+  ODER Vorteil Tradition der Kristallomanten I

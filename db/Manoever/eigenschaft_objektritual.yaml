@@ -1,0 +1,18 @@
+gegenprobe: ''
+name: Eigenschaft Objektritual
+probe: ''
+text: "Objektrituale sind Talente, die sich immer auf ein bestimmtes Objekt \u2013\
+  \ oder das Vertrautentier \u2013 beziehen, das mit einem Bindungsritual an dich\
+  \ gebunden wird. Danach kannst du (und nur du) die besonderen Faehigkeiten des Ritualobjekts\
+  \ nutzen. Manche Objektrituale erlauben auch passive Wirkungen, wobei du das Objekt\
+  \ meist beruehren musst. Die Bindung erlischt, wenn du sie in einer zeitraubenden\
+  \ Zeremonie freiwillig loest oder wenn das Objekt entzaubert wird, was aber nur\
+  \ durch maechtigste Antimagie oder liturgisches Wirken moeglich ist. Zuletzt gilt,\
+  \ dass du niemals zwei Objekte der gleichen Kategorie (zwei Zauberstaebe, Vertrautentiere)\
+  \ an dich binden kannst."
+typ: '4'
+voraussetzungen: Talent Bannschwert ODER Uebernatuerliche-Fertigkeit 'Dolchzauber'
+  -1 ODER Uebernatuerliche-Fertigkeit 'Elfenlieder' -1 ODER Uebernatuerliche-Fertigkeit
+  'Keulenrituale' -1 ODER Uebernatuerliche-Fertigkeit 'Kristallmagie' -1 ODER Uebernatuerliche-Fertigkeit
+  'Kugelzauber' -1 ODER Uebernatuerliche-Fertigkeit 'Ringrituale' -1 ODER Uebernatuerliche-Fertigkeit
+  'Schalenzauber' -1 ODER Uebernatuerliche-Fertigkeit 'Stabzauber' -1

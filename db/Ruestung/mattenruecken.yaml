@@ -1,0 +1,11 @@
+name: Mattenruecken
+rsBauch: '0'
+rsBeine: '0'
+rsBrust: '1'
+rsKopf: '1'
+rsLArm: '0'
+rsRArm: '0'
+system: '2'
+text: Ruestungsergaenzung der Achaz fuer den Ruecken. Wird ueblicherweise ergaenzt
+  mit einer Brustplatte (Leder).
+typ: '0'

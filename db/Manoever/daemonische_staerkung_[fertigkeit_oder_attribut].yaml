@@ -1,0 +1,41 @@
+gegenprobe: ''
+name: Daemonische Staerkung [Fertigkeit oder Attribut]
+probe: ''
+text: 'Dein naechster Wurf auf [Fertigkeit oder Attribut] ist um +4 Punkte erleichtert.
+  Diese Probe muss sich auf eine kurze Handlung von maximal einigen Minuten beziehen.
+
+  Maechtige Liturgie: Erhoeht die Erleichterung um +2.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 4 Minuten
+
+  Kosten: 4 GuP
+
+  Anmerkung: Jede Daemonische Staerkung fuer eine bestimmte Fertigkeit oder ein Attribut
+  gilt als einzelne Anrufung und muss separat erlernt werden.'
+typ: '6'
+voraussetzungen: 'Talent Daemonische Staerkung: Alchemie ODER Talent Daemonische Staerkung:
+  Athletik ODER Talent Daemonische Staerkung: Autoritaet ODER Talent Daemonische Staerkung:
+  Beeinflussung ODER Talent Daemonische Staerkung: CH ODER Talent Daemonische Staerkung:
+  Derekunde ODER Talent Daemonische Staerkung: Erste Fertigkeit nach Wahl ODER Talent
+  Daemonische Staerkung: FF ODER Talent Daemonische Staerkung: GE ODER Talent Daemonische
+  Staerkung: Gebraeuche ODER Talent Daemonische Staerkung: Handgemenge ODER Talent
+  Daemonische Staerkung: Handwerk ODER Talent Daemonische Staerkung: Heilkunde ODER
+  Talent Daemonische Staerkung: Heimlichkeit ODER Talent Daemonische Staerkung: Hiebwaffen
+  ODER Talent Daemonische Staerkung: IN ODER Talent Daemonische Staerkung: KK ODER
+  Talent Daemonische Staerkung: KL ODER Talent Daemonische Staerkung: KO ODER Talent
+  Daemonische Staerkung: Klingenwaffen ODER Talent Daemonische Staerkung: MR ODER
+  Talent Daemonische Staerkung: MU ODER Talent Daemonische Staerkung: Magiekunde ODER
+  Talent Daemonische Staerkung: Mythenkunde ODER Talent Daemonische Staerkung: Schusswaffen
+  ODER Talent Daemonische Staerkung: Selbstbeherrschung ODER Talent Daemonische Staerkung:
+  Stangenwaffen ODER Talent Daemonische Staerkung: Verschlagenheit ODER Talent Daemonische
+  Staerkung: Wahrnehmung ODER Talent Daemonische Staerkung: Wurfwaffen ODER Talent
+  Daemonische Staerkung: Zweite Fertigkeit nach Wahl ODER Talent Daemonische Staerkung:
+  Ueberleben'

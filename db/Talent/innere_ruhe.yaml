@@ -1,0 +1,26 @@
+fertigkeiten: Ordnung, Vergessen
+kosten: '40'
+name: Innere Ruhe
+printclass: '23'
+text: 'Du besinnst dich auf deine innere Kraft. Proben auf Selbstbeherrschung sind
+  um +4 erleichtert.
+
+  Maechtige Liturgie: Der Bonus steigt um +2. Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 8 Stunden
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Ordnung, Vergessen
+
+  Erlernen: Brn, Pra 12; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der
+  Praiosgeweihten I

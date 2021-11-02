@@ -1,0 +1,10 @@
+kommentar: '0'
+kosten: '80'
+linkElement: Kommandos
+linkKategorie: '1'
+nachkauf: haeufig
+name: 'Kommando: Kennt Keinen Schmerz!'
+text: Alle Mitstreiter erhalten WS +1.
+typ: '2'
+variable: '0'
+voraussetzungen: Attribut CH 10

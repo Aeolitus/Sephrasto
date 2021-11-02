@@ -1,0 +1,26 @@
+fertigkeiten: Daemonische Hilfe (Cpt)
+kosten: '40'
+name: Irrlichtertanz
+printclass: '200'
+text: 'Bei jeder deiner Bewegungen stieben Funken und Rauch steigt auf. Fuer feindlich
+  gesinnte Humanoide, Tiere, Feenwesen oder Mythenwesen giltst du als Schreckgestalt
+  Stufe 2 (S. 98).
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 8 GuP
+
+  Fertigkeiten: Daemonische Hilfe (Cpt)
+
+  Erlernen: Cpt 14; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Paktierer I

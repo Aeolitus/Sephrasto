@@ -1,0 +1,36 @@
+fertigkeiten: Antimagie, Daemonisch
+kosten: '20'
+name: Schutzkreis gegen Untote
+printclass: '0'
+text: 'Du ziehst einen Kreis von maximal 4 Schritt Radius. Liegt die Beschwoerungsschwierigkeit
+  eines Untoten bei maximal 20, kann er die Zone nicht betreten. Wirkt auch gegen
+  Geister, wobei der Spielleiter entscheidet, ob die Staerke des Kreises ausreicht.
+
+  Maechtige Magie: Erhoeht die Beschwoerungsschwierigkeit um 4.
+
+  Probenschwierigkeit: 12
+
+  Modifikationen: Bannkreis (8 AsP; statt der Basiswirkung wird ein Untoter mit einer
+  Beschwoerungsschwierigkeit von maximal 20 aus einer Entfernung von bis zu 8 Schritt
+  in den Bannkreis gezogen. Alle zwei Stunden darf er versuchen, sich mit einer Konterprobe
+  (MR, 16) zu befreien. Danach ist er immun gegen den Bannkreis. Es kann stets nur
+  ein Wesen im Bannkreis gefangen sein.)
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Woche
+
+  Kosten: 4 AsP
+
+  Fertigkeiten: Antimagie, Daemonisch
+
+  Erlernen: Ach 18; Alch, Bor, Mag 20; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I
+  ODER Vorteil Tradition der Kristallomanten I

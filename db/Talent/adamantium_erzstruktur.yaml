@@ -1,0 +1,20 @@
+fertigkeiten: Erz, Verwandlung
+kosten: '40'
+name: Adamantium Erzstruktur
+printclass: '0'
+text: "Du staerkst die Struktur eines Gegenstandes von maximal 16 Stein Gewicht. Seine\
+  \ Haerte wird verdoppelt. Bei Waffen steigen der Waffenschaden um 2 Punkte, bei\
+  \ Ruestungen der RS um 1.\nMaechtige Magie: Waffenschaden einer Waffe +1, fuer je\
+  \ 2 Stufen RS einer Ruestung +1.\nProbenschwierigkeit: 12\nModifikationen: Adamantenquader\
+  \ (\u20134; das maximale Gewicht wird verdoppelt. Mehrfach waehlbar.)\nKristallglanz\
+  \ (\u20134; waehrend der Wirkungsdauer erscheint die Oberflaeche des Materials wie\
+  \ die eines beliebigen anderen erzenen Materials.)\nZauberklinge (\u20134; waehrend\
+  \ der Wirkungsdauer gilt die Waffe als magisch.)\nVorbereitungszeit: 16 Aktionen\n\
+  Ziel: Einzelobjekt\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 8 AsP\n\
+  Fertigkeiten: Erz, Verwandlung\nErlernen: Ach 12; Geo, Mag 14; Dru 16; Alch\_20;\
+  \ 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil
+  Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I

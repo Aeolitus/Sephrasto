@@ -1,0 +1,12 @@
+kommentar: '0'
+kosten: '40'
+linkElement: Tradition der Schamanen I
+linkKategorie: '3'
+nachkauf: haeufig
+name: Tradition der Schamanen II
+text: Schamanen binden oft einen betraechtlichen Teil ihrer Astralenergie in ihre
+  Zauber. Wenn du mindestens 2/4/8/16 gAsP gebunden hast, sind deine Zauber um +1/+2/+3/+4
+  erleichtert.
+typ: '5'
+variable: '0'
+voraussetzungen: Attribut IN 6, Vorteil Tradition der Schamanen I

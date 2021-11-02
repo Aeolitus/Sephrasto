@@ -1,0 +1,9 @@
+fertigkeiten: Klingenwaffen
+kosten: '-1'
+name: Einhandklingenwaffen
+printclass: '-1'
+text: Verbessert den Einsatz einhaendig gefuehrter Klingenwaffen wie Schwertern, Saebeln
+  und Fechtwaffen.
+variable: '0'
+verbilligt: '0'
+voraussetzungen: ''

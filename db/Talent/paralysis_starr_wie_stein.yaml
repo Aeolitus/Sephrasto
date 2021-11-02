@@ -1,0 +1,27 @@
+fertigkeiten: Erz, Verwandlung
+kosten: '60'
+name: Paralysis starr wie Stein
+printclass: '0'
+text: 'Dein Ziel erstarrt zu einer unzerstoerbaren Statue, der auch Gifte oder Krankheiten
+  nichts anhaben koennen. Die Statue fuehlt und hoert nichts, kann aber sehen und
+  riechen.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 2 Aktionen
+
+  Ziel: Einzelwesen
+
+  Reichweite: 8 Schritt
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Erz, Verwandlung
+
+  Erlernen: Mag 12; Geo 16; Alch, Dru 18; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden
+  I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I

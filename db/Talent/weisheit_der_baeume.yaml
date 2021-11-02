@@ -1,0 +1,15 @@
+fertigkeiten: Humus, Verwandlung
+kosten: '20'
+name: Weisheit der Baeume
+printclass: '0'
+text: "Du verwandelst dich in einen praechtigen Baum. Waehrend deiner Zeit als Baum\
+  \ verlierst du das Bewusstsein, dafuer fuegen dir Gifte und Krankheiten keinen Schaden\
+  \ zu. Erleidest du mehr als 4 Wunden, verwandelst du dich zurueck.\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Bewusst (\u20138; du bleibst bei Bewusstsein und kannst dich\
+  \ jederzeit zurueckverwandeln.)\nVorbereitungszeit: 1 Stunde\nZiel: selbst\nReichweite:\
+  \ Beruehrung\nWirkungsdauer: 1 Jahr\nKosten: 8 AsP\nFertigkeiten: Humus, Verwandlung\n\
+  Erlernen: Geo, Dru 16; Elf 20; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I

@@ -1,0 +1,10 @@
+csBeschreibung: Deine INI steigt um 4 Punkte (bereits eingerechnet).
+kommentar: '0'
+kosten: '20'
+nachkauf: haeufig
+name: Kampfreflexe
+script: modifyINI(4)
+text: Deine INI steigt um 4 Punkte.
+typ: '2'
+variable: '0'
+voraussetzungen: Attribut IN 4

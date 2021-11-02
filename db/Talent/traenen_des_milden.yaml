@@ -1,0 +1,15 @@
+fertigkeiten: Fluesse und Quellen
+kosten: '20'
+name: Traenen des Milden
+printclass: '24'
+text: "Innerhalb des naechsten Tages regnet es auf die Felder im Radius von 1 Meile\
+  \ und das Saatgut kann wachsen.\nMaechtige Liturgie: Verdoppelt den Radius.\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Traenen des Zuernenden (\u20138, 8 Aktionen, Wirkungsdauer\
+  \ 1 Stunde, 16 KaP; statt einem sanften Regen bricht nach 1\_Minute ein heftiger\
+  \ Platzregen los, der Wege in Schlammpisten verwandelt und Fernkampfangriffe um\
+  \ \u20138 erschwert.)\nVorbereitungszeit: 1 Stunde\nZiel: Zone\nReichweite: Beruehrung\n\
+  Wirkungsdauer: 1 Tag\nKosten: 8 KaP\nFertigkeiten: Fluesse und Quellen\nErlernen:\
+  \ Eff 12; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Efferdgeweihten I

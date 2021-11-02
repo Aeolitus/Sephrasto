@@ -1,0 +1,13 @@
+fertigkeiten: Daemonisch, Geister rufen, Geister des Zorns
+kosten: '40'
+name: Tairachs Krieger
+printclass: '6'
+text: "Du erhebst eine Leiche als Untoten (mehr zu Beschwoerungen siehe S. 81), der\
+  \ in zwei INI-Phasen einsatzfaehig ist. Entspricht dem Skelettarius.\nProbenschwierigkeit:\
+  \ nach Untotem\nModifikationen: Schnelle Erhebung (\u20134; der Untote ist sofort\
+  \ bereit.)\nVorbereitungszeit: frei waehlbar\nZiel: Material fuer einen einzelnen\
+  \ Untoten\nWirkungsdauer: augenblicklich\nKosten: nach Untotem\nFertigkeiten: Daemonisch,\
+  \ Geister rufen, Geister des Zorns\nErlernen: Smn 18; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

@@ -1,0 +1,29 @@
+fertigkeiten: Ehre
+kosten: '40'
+name: Fuer die Goettin, fuer Rondra!
+printclass: '45'
+text: 'Die Macht der Goettin erfuellt dich, waehrend du einen Sturmangriff durchfuehrst
+  (S. 41). Der erste Sturmangriff waehrend der Wirkungsdauer trifft alle Gegner in
+  deiner Bahn, bis du durch mindestens 2 erfolgreiche Verteidigungen gestoppt wirst.
+  Alle AT gelten als Angriffe zum Niederwerfen.
+
+  Maechtige Liturgie: Die AT ist um +1 erleichtert.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Ehre
+
+  Erlernen: Ron 14; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Rondrageweihten I

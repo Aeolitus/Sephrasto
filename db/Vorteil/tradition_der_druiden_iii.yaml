@@ -1,0 +1,13 @@
+csBeschreibung: Erlaubt die spontane Modifikation Erzwingen.
+kommentar: '0'
+kosten: '60'
+linkElement: Tradition der Druiden II
+linkKategorie: '3'
+nachkauf: haeufig
+name: Tradition der Druiden III
+text: 'Erlaubt die spontane Modifikation Erzwingen (Zauber +4): Die Kosten des Zaubers
+  steigen um die Haelfte der Basiskosten, dafuer ist der Zauber um 4 Punkte erleichtert.
+  Kann nur einmal pro Zauber eingesetzt werden.'
+typ: '5'
+variable: '0'
+voraussetzungen: Attribut KL 8, Vorteil Tradition der Druiden II

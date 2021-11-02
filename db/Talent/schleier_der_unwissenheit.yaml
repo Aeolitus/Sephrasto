@@ -1,0 +1,28 @@
+fertigkeiten: Antimagie, Kraft
+kosten: '20'
+name: Schleier der Unwissenheit
+printclass: '0'
+text: 'Du schuetzt die magische Aura des Ziels vor der Entdeckung. Der Analysegrad
+  jeder Analyse auf das Ziel sinkt um eins.
+
+  Maechtige Magie: Der Analysegrad sinkt um einen weiteren Punkt.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Einzelwesen, Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 4 Stunden
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Antimagie, Kraft
+
+  Erlernen: Hex 12; Mag 16; Dru 18; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I

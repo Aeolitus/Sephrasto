@@ -1,0 +1,21 @@
+gegenprobe: ''
+name: Antimagie - Wesenheit bannen
+probe: Antimagie-Zauber
+text: 'Hiermit bannst du beschworene Wesenheiten, in die keine gAsP geflossen sind
+  (wie nicht gebundene Elementare und Daemonen).
+
+  Probenschwierigkeit: Beschwoerungsschwierigkeit des zu bannenden Wesens
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: beschworenes Wesen
+
+  Reichweite: 8 Schritt
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: halbe Basiskosten der Beschwoerung
+
+  Anmerkung: Wesenheiten und Zauber mit gAsP werden mit dem Destructibo gebannt.'
+typ: '4'
+voraussetzungen: Uebernatuerliche-Fertigkeit 'Antimagie' -1

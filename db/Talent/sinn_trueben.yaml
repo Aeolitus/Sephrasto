@@ -1,0 +1,13 @@
+fertigkeiten: Eigenschaften, Hexenflueche
+kosten: '20'
+name: Sinn trueben
+printclass: '9'
+text: "Bei deinem Opfer truebt sich ein Sinn deiner Wahl. Alle Taetigkeiten, die den\
+  \ Einsatz dieses Sinnes benoetigen, sind um \u20134 erschwert.\nMaechtige Magie:\
+  \ Der Malus steigt um \u20134.\nProbenschwierigkeit: Magieresistenz\nVorbereitungszeit:\
+  \ 4 Aktionen\nZiel: Einzelperson\nReichweite: 8 Schritt\nWirkungsdauer: 1 Tag\n\
+  Kosten: 16 AsP\nFertigkeiten: Eigenschaften, Hexenflueche\nErlernen: Hex 12; 20\
+  \ EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Hexen I

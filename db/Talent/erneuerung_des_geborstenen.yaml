@@ -1,0 +1,18 @@
+fertigkeiten: Heiliges Handwerk, Neubeginn
+kosten: '40'
+name: Erneuerung des Geborstenen
+printclass: '34'
+text: "Ein einfacher Gegenstand wie eine Nahkampfwaffe oder ein Kutschenrad erhaelt\
+  \ sofort 8W6 Reparaturpunkte. Fuer jede Ueberschreitung der Haerte wird eine Beschaedigung\
+  \ repariert. Wirkt nicht auf voellig zerstoerte Gegenstaende.\nMaechtige Liturgie:\
+  \ Erhoeht die Reparaturpunkte um 16.\nProbenschwierigkeit: 12\nModifikationen: Komplexer\
+  \ Gegenstand (\u20134; repariert einen komplexen Gegenstand wie eine Armbrust.)\n\
+  Hochkomplexer Gegenstand (\u20138; repariert mechanische Meisterwerke wie ein Vinsalter\
+  \ Ei.)\nZerstoert (\u201316, 16 KaP; wirkt nach Spielleiterentscheid auch auf zerstoerte\
+  \ Gegenstaende.)\nVorbereitungszeit: 16 Aktionen\nZiel: Einzelobjekt\nReichweite:\
+  \ Beruehrung\nWirkungsdauer: augenblicklich\nKosten: 8 KaP\nFertigkeiten: Heiliges\
+  \ Handwerk, Neubeginn\nErlernen: Ing 12; Ang 14; Tsa 16; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition
+  der Angroschgeweihten I ODER Vorteil Tradition der Tsageweihten I

@@ -1,0 +1,9 @@
+gegenprobe: ''
+name: Eigenschaft Ballistisch
+probe: ''
+text: Genau wie ein Fernkampfangriff benoetigen ballistische Zauber eine direkte Sichtlinie
+  zu ihrem Ziel und sie koennen wie ein Fernkampfangriff abgewehrt werden (S. 47).
+typ: '4'
+voraussetzungen: Talent Hexengalle ODER Talent Zorn der Elemente ODER Talent Aeolitus
+  Windgebraus ODER Talent Ignifaxius Flammenstrahl ODER Talent Orcanofaxius ODER Talent
+  Archofaxius ODER Talent Aquafaxius ODER Talent Humofaxius ODER Talent Frigifaxius

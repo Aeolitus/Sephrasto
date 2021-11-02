@@ -1,0 +1,28 @@
+fertigkeiten: Geister rufen, Verstaendigung
+kosten: '60'
+name: Geisterbote
+printclass: '7'
+text: 'Durch das Geisterreich schliesst du eine Verbindung mit dem Ziel, von dem du
+  einen Koerperteil (z.B. ein Haar oder einen Blutstropfen) besitzt. Der Koerperteil
+  wird dabei verbraucht. Waehrend der Wirkungsdauer kannst einmal am Tag einen beliebigen
+  Zauber auf das Ziel sprechen, als koenntest du es beruehren. Die Zauber muessen
+  wie ueblich die Magieresistenz ueberwinden.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Einzelperson
+
+  Reichweite: aventurienweit
+
+  Wirkungsdauer: 1 Woche
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Geister rufen, Verstaendigung
+
+  Erlernen: Smn 14; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

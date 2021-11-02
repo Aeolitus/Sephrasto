@@ -1,0 +1,28 @@
+fertigkeiten: Abu al'Mada, Magie, Magiebann
+kosten: '60'
+name: Argelions Mantel
+printclass: '30'
+text: 'Du ignorierst bei allen auf dich gewirkten, schaedlichen Zaubern zwei Stufen
+  Maechtige Magie. Schaedliche Zauber ohne Maechtige Magie haben auf dich keine Wirkung.
+
+  Maechtige Liturgie: Du ignorierst eine weitere Stufe Maechtige Magie.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Abu al''Mada, Magie, Magiebann
+
+  Erlernen: Pra 14; Hes 16; Phe 18; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der
+  Phexgeweihten I ODER Vorteil Tradition der Praiosgeweihten I

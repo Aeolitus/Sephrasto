@@ -1,0 +1,26 @@
+fertigkeiten: Eigenschaften, Elfenlieder, Kraft
+kosten: '40'
+name: Zaubermelodie
+printclass: '2'
+text: 'Die Melodie erleichtert alle allgemeinen Zauber um +2.
+
+  Maechtige Magie: Der Bonus steigt um +1.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Eigenschaften, Elfenlieder, Kraft
+
+  Erlernen: Elf 16; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Elfen I

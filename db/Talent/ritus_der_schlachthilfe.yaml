@@ -1,0 +1,32 @@
+fertigkeiten: Heerfuehrung
+kosten: '40'
+name: Ritus der Schlachthilfe
+printclass: '46'
+text: 'Waehrend du meditierst, kann deine Schwertseele einem Gefaehrten im Kampf beistehen.
+  Sie erscheint als geisterhafte Walkuere und kann 8 Angriffe oder Paraden fuehren.
+  Die Schwertseele verwendet deine Kampfwerte und -faehigkeiten, ohne Abzuege durch
+  Einschraenkungen oder andere negative Effekte. Erfordert Konzentration.
+
+  Maechtige Liturgie: 4 weitere Angriffe oder Paraden sind moeglich.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: Einzelperson
+
+  Reichweite: 1 Meile
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Heerfuehrung
+
+  Erlernen: Ron 18; 40 EP
+
+  Anmerkung: Wenn ihr den Bund der Schwerter geschlossen habt, steigt die Reichweite
+  auf aventurienweit.'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Rondrageweihten I

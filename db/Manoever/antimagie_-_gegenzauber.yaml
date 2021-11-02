@@ -1,0 +1,19 @@
+gegenprobe: ''
+name: Antimagie - Gegenzauber
+probe: Antimagie-Zauber
+text: 'Der Gegenzauber stoert einen anderen Zauberer waehrend dessen Zaubervorbereitung.
+  Er wirkt als Konterprobe (12), bei deren Gelingen der Zielzauber sofort scheitert.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: Zauber in Vorbereitung
+
+  Reichweite: 16 Schritt
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 4 AsP'
+typ: '4'
+voraussetzungen: Uebernatuerliche-Fertigkeit 'Antimagie' -1

@@ -1,0 +1,30 @@
+fertigkeiten: Ordnung, Wissen
+kosten: '20'
+name: Urischars ordnender Blick
+printclass: '31'
+text: 'Du siehst die verborgene Ordnung im Chaos: Du findest Buecher der gleichen
+  Fachrichtung in einer Bibliothek, Gegenstaende des gleichen Vorbesitzers beim Hehler,
+  und das Muster in der Einbruchsliste der Stadtgarde. Entsprechende Proben sind um
+  +4 erleichtert.
+
+  Maechtige Liturgie: Der Bonus steigt um +2.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: selbst
+
+  Reichweite: 8 Schritt
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Ordnung, Wissen
+
+  Erlernen: Pra 12, Nan 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Nandusgeweihten I ODER Vorteil Tradition der
+  Praiosgeweihten I

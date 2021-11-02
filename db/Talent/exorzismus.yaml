@@ -1,0 +1,30 @@
+fertigkeiten: Abu al'Mada, Heiliges Feuer, Magie, Magiebann, Schutz der Glaeubigen,
+  Tod, Wind und Wogen
+kosten: '60'
+name: Exorzismus
+printclass: '22'
+text: 'Du verbannst einen Daemon.
+
+  Probenschwierigkeit: Beschwoerungsschwierigkeit des Daemons -4
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: Einzelwesen
+
+  Reichweite: 32 Schritt
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: halbe Basiskosten d. Beschwoerung in KaP
+
+  Fertigkeiten: Abu al''Mada, Heiliges Feuer, Magie, Magiebann, Schutz der Glaeubigen,
+  Tod, Wind und Wogen
+
+  Erlernen: Hes, Pra, Ron 8; Eff 12; Brn, Phe 14; Ang, Ing 16; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der
+  Efferdgeweihten I ODER Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition
+  der Ingerimmgeweihten I ODER Vorteil Tradition der Angroschgeweihten I ODER Vorteil
+  Tradition der Phexgeweihten I ODER Vorteil Tradition der Praiosgeweihten I ODER
+  Vorteil Tradition der Rondrageweihten I

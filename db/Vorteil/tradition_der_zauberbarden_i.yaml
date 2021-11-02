@@ -1,0 +1,15 @@
+kommentar: '0'
+kosten: '20'
+nachkauf: haeufig
+name: Tradition der Zauberbarden I
+text: 'Bedingungen: Sichtkontakt, Instrumentenspiel, Ziel kann dich hoeren.
+
+
+  Du kannst Zauber in der Tradition der Zauberbarden erlernen und benutzen. Solche
+  Zauber findest du unter Zaubermelodien (S. 174).
+
+
+  Die Bedingung Instrumentenspiel kann nicht ignoriert werden.'
+typ: '5'
+variable: '0'
+voraussetzungen: Attribut CH 4, Vorteil Zauberer I

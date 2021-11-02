@@ -1,0 +1,31 @@
+fertigkeiten: Eigenschaften
+kosten: '40'
+name: Attributo
+printclass: '0'
+text: 'Waehle ein Attribut aus. Proben auf dieses Attribut sind um +2, Fertigkeitsproben
+  mit diesem Attribut um +1 erleichtert.
+
+  Maechtige Magie: Der Bonus steigt um +2/+1.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Eigenschaften
+
+  Erlernen: Alch 8; Ach, Dru, Elf, Geo, Hex, Mag, Sch 14; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
+  Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition
+  der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition
+  der Schelme I

@@ -1,0 +1,29 @@
+fertigkeiten: Einfluss
+kosten: '60'
+name: Zauberzwang
+printclass: '0'
+text: 'Du erlegst dem Opfer eine Aufgabe auf, die nicht toedlich sein darf. Stehen
+  die moralischen Vorstellungen des Opfers der Aufgabe entgegen, kann es mit einer
+  Konterprobe (Willenskraft, 16) widerstehen. Ignoriert das Opfer die Aufgabe oder
+  laesst sie absichtlich scheitern, erleidet es pro Woche 1 Wunde, die waehrend der
+  Wirkungsdauer nicht geheilt oder regeneriert werden kann.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: Bis die Aufgabe geloest wurde, maximal 1 Monat
+
+  Kosten: 32 AsP
+
+  Fertigkeiten: Einfluss
+
+  Erlernen: Hex 14; Dru 18; Mag 20; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Druiden I ODER Vorteil Tradition der Gildenmagier
+  I ODER Vorteil Tradition der Hexen I

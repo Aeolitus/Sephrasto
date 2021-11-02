@@ -1,0 +1,16 @@
+fertigkeiten: Heiliges Erz
+kosten: '40'
+name: Eherne Kraft
+printclass: '32'
+text: "Die Erde bebt. Alle Ziele in einem Radius von 4 Schritt werden niedergeschmettert,\
+  \ wenn eine Konterprobe (KK, 16) misslingt.\nMaechtige Liturgie: Verdoppelt jeweils\
+  \ den Radius und richtet Schaeden an loser Keramik/Moebeln/Holzbauten/Steinbauten\
+  \ an.\nProbenschwierigkeit: 12\nModifikationen: Erdbeben (\u20138, 1 Stunde, 1 Meile,\
+  \ Wirkungsdauer 8 Initiativphasen, 32 KaP; Ingerimms Zorn fuegt Gebaeuden in einem\
+  \ Radius von 128 Schritt schwerste Schaeden zu.)\nVorbereitungszeit: 4 Aktionen\n\
+  Ziel: Zone\nReichweite: 4 Schritt\nWirkungsdauer: augenblicklich\nKosten: 8 KaP\n\
+  Fertigkeiten: Heiliges Erz\nErlernen: Ang, Ing 18; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition
+  der Angroschgeweihten I

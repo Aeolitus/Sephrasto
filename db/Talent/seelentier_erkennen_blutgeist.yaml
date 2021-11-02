@@ -1,0 +1,23 @@
+fertigkeiten: Gaben des Blutgeists
+kommentar: '0'
+kosten: '0'
+name: Seelentier erkennen (Blutgeist)
+printclass: '0'
+text: 'Du erkennst das Seelentier deines Zieles. Wenn dir das Tier und seine assoziierten
+  Eigenschaften bekannt sind, erleichtert dir das alle kuenftigen gesellschaftlichen
+  Proben dem Ziel gegenueber um +2.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: 4 Schritt
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 4 AsP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Elefant)

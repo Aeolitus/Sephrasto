@@ -1,0 +1,31 @@
+fertigkeiten: Licht, Naechtlicher Schatten, Seefahrt, Stiller Wanderer, Wildnis, Wissen
+kosten: '20'
+name: Sterne funkeln immerfort
+printclass: '25'
+text: 'Dein Ziel kann selbst durch Wolken und Nebel die Sterne erkennen. Proben zur
+  Orientierung sind um +4 erleichtert.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 4 Stunden
+
+  Kosten: 4 KaP
+
+  Fertigkeiten: Licht, Naechtlicher Schatten, Seefahrt, Stiller Wanderer, Wildnis,
+  Wissen
+
+  Erlernen: Aves, Fir, Ifi, Pra 8; Phe 12; Eff, Hes, Nan, Swa 14; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
+  Efferdgeweihten I ODER Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition
+  der Hesindegeweihten I ODER Vorteil Tradition der Ifirngeweihten I ODER Vorteil
+  Tradition der Nandusgeweihten I ODER Vorteil Tradition der Phexgeweihten I ODER
+  Vorteil Tradition der Praiosgeweihten I ODER Vorteil Tradition der Swafnirgeweihten
+  I

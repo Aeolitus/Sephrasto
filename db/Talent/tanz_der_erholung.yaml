@@ -1,0 +1,25 @@
+fertigkeiten: Humus, Zaubertaenze
+kosten: '40'
+name: Tanz der Erholung
+printclass: '19'
+text: 'Dein Tanz verschafft allen Humanoiden im Radius von 4 Schritt einen erholsamen
+  Schlaf. In ihrer naechsten Ruhepause regenerieren sie eine zusaetzliche Wunde.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Humus, Zaubertaenze
+
+  Erlernen: Ztz 12; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Zaubertaenzer I

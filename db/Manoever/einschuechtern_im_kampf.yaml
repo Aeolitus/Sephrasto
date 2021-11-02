@@ -1,0 +1,13 @@
+gegenprobe: MU
+name: Einschuechtern im Kampf
+probe: ''
+text: 'Um deinen Gegner einzuschuechtern, musst du eine Aktion Konflikt aufwenden.
+  Eine misslungene Probe kann nicht wiederholt werden. Gelingt die Probe, ist dein
+  Gegner von einem Furcht-Effekt Stufe 1 betroffen. Hohe Qualitaet (S. 7) erhoeht
+  den Furcht-Effekt um eine Stufe oder verdoppelt die Zahl der eingeschuechterten
+  Gegner. Dann legen die Gegner ihre MU-Probe als Gruppenprobe ab: Wenn die Mutigste
+  flieht, fliehen alle. Der Effekt endet am Ende des Kampfes, bei Kampf unfaehigkeit
+  des Einschuechternden oder wenn der eingeschuechterte Gegner weit genug geflohen
+  ist.'
+typ: '8'
+voraussetzungen: Fertigkeit 'Autoritaet' 1

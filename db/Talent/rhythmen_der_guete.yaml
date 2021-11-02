@@ -1,0 +1,25 @@
+fertigkeiten: Humus, Trommelrituale
+kosten: '40'
+name: Rhythmen der Guete
+printclass: '16'
+text: 'Deine Rhythmen verschaffen allen Humanoiden im Radius von 4 Schritt einen erholsamen
+  Schlaf. In ihrer naechsten Ruhepause regenerieren sie eine zusaetzliche Wunde.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Humus, Trommelrituale
+
+  Erlernen: Der 14; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Derwische I

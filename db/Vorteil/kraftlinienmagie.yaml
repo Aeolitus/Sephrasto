@@ -1,0 +1,10 @@
+kommentar: '0'
+kosten: '40'
+nachkauf: haeufig
+name: Kraftlinienmagie
+text: An Kraftlinien oder -knoten sind Zauber mit passenden Fertigkeiten je nach Linienstaerke
+  um +2 bis +4 erleichtert und die Regeneration ist um 2-4 AsP erhoeht.
+typ: '4'
+variable: '0'
+voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut
+  KL 6

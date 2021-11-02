@@ -1,0 +1,26 @@
+fertigkeiten: Abu al'Mada, Magie, Magiebann
+kosten: '20'
+name: Unverstellter Blick
+printclass: '30'
+text: 'Du nimmst alle Illusionen als golden (Pra), silbern (Phe) oder gruen (Hes)
+  schillernd wahr.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 4 Minuten
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Abu al''Mada, Magie, Magiebann
+
+  Erlernen: Hes 12; Phe, Pra 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der
+  Phexgeweihten I ODER Vorteil Tradition der Praiosgeweihten I

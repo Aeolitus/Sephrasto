@@ -1,0 +1,16 @@
+fertigkeiten: Neubeginn
+kosten: '40'
+name: Segensreicher Neuanfang
+printclass: '51'
+text: "Du segnest ein neues Unternehmen. Der Gesegnete erhaelt waehrend der Wirkungsdauer\
+  \ die Eigenheit \u201EEuphorisch fuer [Unternehmen]: Du widmest dich mit Elan der\
+  \ bevorstehenden Aufgabe und vergisst dabei alles um dich herum.\u201C Fuer den\
+  \ ersten Einsatz der Eigenheit bezahlt er keinen Schicksalspunkt. Fuer gesegnete\
+  \ NSC gelten die Vorschlaege von S. 16.\nMaechtige Liturgie: Fuer je zwei Stufen\
+  \ kostet ein weiterer Einsatz der Eigenheit keinen Schicksalspunkt.\nProbenschwierigkeit:\
+  \ 12\nVorbereitungszeit: 16 Aktionen\nZiel: Einzelperson\nReichweite: Beruehrung\n\
+  Wirkungsdauer: 1 Woche\nKosten: 8 KaP\nFertigkeiten: Neubeginn\nErlernen: Tsa 14;\
+  \ 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Tsageweihten I

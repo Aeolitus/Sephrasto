@@ -1,0 +1,12 @@
+kommentar: '0'
+kosten: '80'
+nachkauf: haeufig
+name: Meisterwerk
+text: 'Mit hervorragenden Materialien und dem doppelten Zeitaufwand kannst du ein
+  Meisterwerk schaffen. Dieses erhaelt zusaetzlich 2x die Modifikation hohe Qualitaet
+  und kann verbesserte Eigenschaften nach Meisterentscheid haben. Solche Werke sind
+  extrem selten und Gegenstand von Sagen und Legenden. Der Vorteil kann nur mit Fertigkeiten
+  mit einem unmodifizierten Probenwert von mindestens 16 angewandt werden. '
+typ: '1'
+variable: '0'
+voraussetzungen: Attribut FF 10

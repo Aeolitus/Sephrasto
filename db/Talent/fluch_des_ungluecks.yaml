@@ -1,0 +1,14 @@
+fertigkeiten: Eigenschaften, Geister des Zorns
+kosten: '20'
+name: Fluch des Ungluecks
+printclass: '6'
+text: "Das Opfer wird vom Unglueck verfolgt. Seine Chance auf einen Patzer steigt\
+  \ um 1 auf dem W20 (zum Beispiel von 1 auf 1\u20132).\nMaechtige Magie: Je zwei\
+  \ Stufen steigern die Chance auf einen Patzer um einen weiteren Punkt.\nProbenschwierigkeit:\
+  \ Magieresistenz\nModifikationen: Permanenz (\u20134, Wirkungsdauer bis die Bindung\
+  \ geloest wird, 16 AsP, davon 2 gAsP)\nVorbereitungszeit: 16 Aktionen\nZiel: Einzelperson\n\
+  Reichweite: 32 Schritt\nWirkungsdauer: 1 Tag\nKosten: 8 AsP\nFertigkeiten: Eigenschaften,\
+  \ Geister des Zorns\nErlernen: Smn 16; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

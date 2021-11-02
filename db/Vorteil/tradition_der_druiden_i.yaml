@@ -1,0 +1,15 @@
+kommentar: '0'
+kosten: '20'
+nachkauf: haeufig
+name: Tradition der Druiden I
+text: 'Bedingungen: Sichtkontakt, Geste, kein Kontakt mit verhuettetem Material.
+
+
+  Du kannst Zauber in der Tradition der Druiden erlernen und benutzen. Solche Zauber
+  findest du unter den allgemeinen Zaubern und unter Dolchzauber (S. 156).
+
+
+  Druidische Zauber koennen nicht schriftlich weitergegeben werden.'
+typ: '5'
+variable: '0'
+voraussetzungen: Attribut KL 4, Vorteil Zauberer I

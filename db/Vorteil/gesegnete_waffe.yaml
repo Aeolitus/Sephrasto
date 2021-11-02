@@ -1,0 +1,9 @@
+kommentar: '0'
+kosten: '40'
+nachkauf: haeufig
+name: Gesegnete Waffe
+text: Von dir genutzte Waffen gelten immer als geweiht. Bereits geweihte Waffen verursachen
+  +1W6 TP gegen unheilige Wesen (S. 98).
+typ: '6'
+variable: '0'
+voraussetzungen: Attribut MU 6, Vorteil Geweiht I

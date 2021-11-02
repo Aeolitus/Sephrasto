@@ -1,0 +1,30 @@
+fertigkeiten: Daemonisch, Eigenschaften, Einfluss
+kosten: '60'
+name: Eigene Aengste quaelen dich!
+printclass: '0'
+text: 'Du raubst deinem Ziel einen Sinn deiner Wahl und lieferst es voellig seinen
+  inneren Aengsten aus. Es erleidet einen Furcht-Effekt Stufe 1. Nach Meisterentscheid
+  sind auch langfristige Nachwirkungen moeglich.
+
+  Maechtige Magie: Du raubst deinem Opfer einen weiteren Sinn und der Furcht-Effekt
+  steigt um eine Stufe.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Daemonisch, Eigenschaften, Einfluss
+
+  Erlernen: Bor 12; Mag 20; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der
+  Gildenmagier I

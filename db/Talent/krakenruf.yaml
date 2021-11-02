@@ -1,0 +1,28 @@
+fertigkeiten: Daemonische Hilfe (Cpt)
+kosten: '60'
+name: Krakenruf
+printclass: '200'
+text: 'Du rufst ein Seeungeheuer wie eine Krake oder eine Seeschlage aus der Umgebung
+  herbei, das sich so schnell wie moeglich naehert, und kannst es um einen Gefallen
+  bitten. Ist kein Ungeheuer in Reichweite, passiert nichts.
+
+  Maechtige Anrufung: Du rufst 2/4/8/16 Tiere.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 2 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: 4 Meilen
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 16 GuP
+
+  Fertigkeiten: Daemonische Hilfe (Cpt)
+
+  Erlernen: Cpt 16; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Paktierer I

@@ -1,0 +1,27 @@
+fertigkeiten: List, Wissen
+kosten: '20'
+name: Buchpruefung
+printclass: '31'
+text: 'Du findest sofort die interessante Stelle in einem Buch.
+
+  Maechtige Liturgie: Du findest die fuer dich interessanten Stellen aus 2/4/8 Buechern.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 4 KaP
+
+  Fertigkeiten: List, Wissen
+
+  Erlernen: Hes, Phe 12; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der
+  Phexgeweihten I

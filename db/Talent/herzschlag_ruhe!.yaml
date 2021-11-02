@@ -1,0 +1,28 @@
+fertigkeiten: Daemonisch, Eigenschaften, Einfluss
+kosten: '40'
+name: Herzschlag ruhe!
+printclass: '0'
+text: 'Das Herz deines Opfers bleibt schlagartig stehen. Nach 4 und 8 Initiativephasen
+  erleidet es eine Wunde.
+
+  Maechtige Magie: Das Ziel erleidet nach 4 weiteren Initiativephasen eine weitere
+  Wunde.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: Einzelwesen
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Daemonisch, Eigenschaften, Einfluss
+
+  Erlernen: Bor 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I

@@ -1,0 +1,9 @@
+gegenprobe: ''
+name: Mehrere Ziele (M)
+probe: Zauber -4
+text: Der Zauber wirkt auf mehrere Ziele in Reichweite. Die Kosten werden fuer jedes
+  Ziel einzeln bezahlt, Modifikationen wie Kosten sparen fuer jedes Ziel einzeln abgerechnet.
+  Richtet sich der Zauber gegen die MR, steht jedem unfreiwilligen Ziel eine eigene
+  MR-Probe zu, um dem Zauber zu widerstehen.
+typ: '2'
+voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I

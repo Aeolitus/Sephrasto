@@ -1,0 +1,16 @@
+fertigkeiten: Illusion
+kosten: '20'
+name: Weihrauchwolke Wohlgeruch
+printclass: '0'
+text: "Du verleihst deinem Ziel einen angenehmen Geruch deiner Wahl. Illusion (Geruch).\n\
+  Probenschwierigkeit: 12\nModifikationen: Geruchsspender (\u20134, Ziel Einzelobjekt)\n\
+  Gestank (\u20134, kombinierbar mit Geruchsspender; auch ueble Gerueche sind moeglich.)\n\
+  Ausgedehnte Wirkung (\u20134, Wirkungsdauer 1 Woche, 8 AsP)\nKuenstlicher Geruch\
+  \ (\u20138; du kannst beliebige Gerueche erzeugen \u2013 auch solche, die eventuell\
+  \ noch nicht existieren.)\nVorbereitungszeit: 2 Aktionen\nZiel: Einzelperson\nReichweite:\
+  \ Beruehrung\nWirkungsdauer: 8 Stunden\nKosten: 4 AsP\nFertigkeiten: Illusion\n\
+  Erlernen: Mag, Srl 14; Sch 20; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I
+  ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I

@@ -1,0 +1,11 @@
+kommentar: '0'
+kosten: '20'
+nachkauf: haeufig
+name: Tradition der Anach-Nurim I
+text: "Bedingungen: Sichtkontakt, Geste.\n\nDu kannst Zauber in der Tradition der\
+  \ Anach-n\xFBrim erlernen und benutzen. Solche Zauber findest du unter Gaben des\
+  \ Blutgeists (S. 159).\n\nWenn du einen Zauber ohne Verbotene Pforten oder Blutmagie\
+  \ wirkst, ist er um -2 erschwert."
+typ: '5'
+variable: '0'
+voraussetzungen: Attribut KO 4, Vorteil Zauberer I

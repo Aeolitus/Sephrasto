@@ -1,0 +1,27 @@
+fertigkeiten: Daemonische Hilfe (Cpt)
+kosten: '20'
+name: Fischgift
+printclass: '200'
+text: 'Vergiftet das Wasser in einem Radius von 16 Schritt, sodass kleinere Fische
+  und Meeresfruechte sterben und sogar Wale eine Vergiftung erleiden.
+
+  Maechtige Anrufung: Verdoppelt den Radius.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 2 GuP
+
+  Fertigkeiten: Daemonische Hilfe (Cpt)
+
+  Erlernen: Cpt 8; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Paktierer I

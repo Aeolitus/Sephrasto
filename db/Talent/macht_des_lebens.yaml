@@ -1,0 +1,28 @@
+fertigkeiten: Antimagie, Ringrituale
+kosten: '40'
+name: Macht des Lebens
+printclass: '13'
+text: 'Die strahlende Macht des Lebens schreckt Untote und Daimoniden ab. Liegt die
+  Beschwoerungsschwierigkeit eines dieser Wesen bei maximal 16, kann es dir nicht
+  naeher als 4 Schritt kommen.
+
+  Maechtige Magie: Erhoeht die Beschwoerungsschwierigkeit um 4.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 4 Minuten
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Antimagie, Ringrituale
+
+  Erlernen: Geo 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Geoden I

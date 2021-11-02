@@ -1,0 +1,27 @@
+fertigkeiten: Seefahrt
+kosten: '20'
+name: Segen des Plaettlings
+printclass: '25'
+text: 'Du verwandelst 100 Liter Salzwasser in Trinkwasser.
+
+  Maechtige Liturgie: Du verwandelst 200/300/400/500 Liter.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Seefahrt
+
+  Erlernen: Eff, Swa 14; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der
+  Swafnirgeweihten I

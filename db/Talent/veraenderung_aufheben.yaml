@@ -1,0 +1,16 @@
+fertigkeiten: Antimagie, Umwelt
+kosten: '20'
+name: Veraenderung aufheben
+printclass: '0'
+text: 'Wirkt gegen Zauber der Fertigkeit Umwelt, spezielle Antimagie-Modifikationen
+  siehe S. 126.
+
+  Fertigkeiten: Antimagie, Umwelt
+
+  Erlernen: Ach, Geo, Mag 14; Dru, Elf, Sch 16; Alch 18; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
+  Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition
+  der Kristallomanten I ODER Vorteil Tradition der Schelme I

@@ -1,0 +1,28 @@
+fertigkeiten: Verwandlung
+kommentar: '1'
+kosten: '40'
+name: Adlerschwinge Wolfsgestalt
+printclass: '0'
+text: "Du verwandelst dich in das beim Erlernen gewaehlte Tier, wobei du deine geistigen\
+  \ Faehigkeiten behaeltst. Die koerperlichen Faehigkeiten entsprechen denen des Tiers.\
+  \ Du kannst in Tiergestalt nicht zaubern. Erlaubt Aufrechterhalten.\nMaechtige Magie:\
+  \ Das Tier ist ein ueberdurchschnittlicher/aussergewoehnlicher/herausragender/einzigartiger\
+  \ Vertreter seiner Art, was die Werte des Tieres nach Spielleiterentscheid erhoeht.\n\
+  Probenschwierigkeit: 12\nModifikationen: Seelentier (Wirkungsdauer 1 Tag, nur Elf;\
+  \ du kannst dich in dein Seelentier verwandeln. Dabei koennen die Instinkte des\
+  \ Tieres ueberhand nehmen.)\nVorbereitungszeit: 8 Aktionen\nZiel: selbst\nReichweite:\
+  \ Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 16 AsP\nFertigkeiten: Verwandlung\n\
+  Erlernen: Elf 8; Ach, Alch, Mag 18; Dru, Hex, Srl 20; normalerweise 40 EP\nAnmerkung:\
+  \ Der Zauber muss fuer jedes Tier extra gelernt werden. Nur herausragende Verwandler\
+  \ koennen sich in Tiere verwandeln, die nicht zu den Groessenklassen klein oder\
+  \ mittel gehoeren. Solche Verwandlungen sind prinzipiell um \u20138 erschwert. Die\
+  \ Lernkosten des Zaubers orientieren sich an der Tierart, wobei fliegende, giftige,\
+  \ sehr starke usw. Tiere teurer sind.\nSephrasto: Trage die gewaehlten Tiere in\
+  \ das Kommentarfeld ein. Wenn du mehrere Tiere waehlst, dann erhoehe die EP-Kosten\
+  \ entsprechend."
+variable: '1'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
+  Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition
+  der Kristallomanten I ODER Vorteil Tradition der Scharlatane I

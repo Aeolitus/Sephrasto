@@ -1,0 +1,28 @@
+fertigkeiten: Heiliges Handwerk
+kosten: '60'
+name: Handwerkssegen
+printclass: '34'
+text: 'Der Segen erleichtert alle Proben zur Herstellung eines Handwerksstueckes um
+  +2.
+
+  Maechtige Liturgie: Der Bonus steigt um +1.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: bis zur Fertigstellung
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Heiliges Handwerk
+
+  Erlernen: Ang, Ing 12; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition
+  der Angroschgeweihten I

@@ -1,0 +1,12 @@
+fertigkeiten: Hellsicht, Kugelzauber
+kosten: '20'
+name: Kugel des Hellsehers (passiv)
+printclass: '12'
+text: "Du laesst 2 gAsP in die Kugel fliessen. Fortan sind Hellsichtszauber um +1\
+  \ erleichtert.\nModifikationen: Maechtige Kugel (Hellsichtszauber sind um +2 erleichtert,\
+  \ du musst 4\_gAsP in die Kugel fliessen lassen.)\nFertigkeiten: Hellsicht, Kugelzauber\n\
+  Erlernen: Mag, Srl 16; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane
+  I

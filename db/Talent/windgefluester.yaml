@@ -1,0 +1,17 @@
+fertigkeiten: Luft, Verstaendigung
+kosten: '20'
+name: Windgefluester
+printclass: '0'
+text: "Eine Botschaft von maximal 16 Worten wird von Luftelementaren binnen weniger\
+  \ Minuten zu deinem Empfaenger weitergefluestert. Ist dieser unaufmerksam oder befindet\
+  \ er sich an einem von anderen Elementen umschlossenen Ort, verhallt die Botschaft\
+  \ ungehoert.\nMaechtige Magie: Du kannst weitere 8 Worte uebertragen.\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Sturmgebruell (\u20134; die Botschaft wird laut wie Sturmboeen\
+  \ und Donnerhall wiedergegeben. Sie ist kaum zu ueberhoeren, aber auch alles andere\
+  \ als privat.)\nVorbereitungszeit: 2 Aktionen\nZiel: Einzelperson\nReichweite: 8\
+  \ Meilen\nWirkungsdauer: augenblicklich\nKosten: 4 AsP\nFertigkeiten: Luft, Verstaendigung\n\
+  Erlernen: Dru 12; Geo 14; Elf 16; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I

@@ -1,0 +1,17 @@
+fertigkeiten: Kraft
+kosten: '40'
+name: Fulminictus Donnerkeil
+printclass: '0'
+text: "Eine unsichtbare Welle magischer Kraft fuegt deinem Ziel 2W6 SP zu. Ein Fulminictus\
+  \ verursacht keine Wundschmerzeffekte.\nMaechtige Magie: Erhoeht die SP um 4.\n\
+  Probenschwierigkeit: 12\nModifikationen: Welle des Schmerzes (\u20134, 16 AsP; der\
+  \ Zauber trifft alle Ziele in bis zu 4 Schritt Entfernung.)\nWelle der Reinigung\
+  \ (1 AsP; der Zauber toetet alle Schaedlinge und andere winzige Wesen in bis zu\
+  \ 8 Schritt Entfernung.)\nVorbereitungszeit: 0 Aktionen\nZiel: Einzelwesen\nReichweite:\
+  \ 8 Schritt\nWirkungsdauer: augenblicklich\nKosten: 8 AsP\nFertigkeiten: Kraft\n\
+  Erlernen: Elf 8; Mag 14; Bor, Hex 18; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I
+  ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Gildenmagier I ODER
+  Vorteil Tradition der Hexen I

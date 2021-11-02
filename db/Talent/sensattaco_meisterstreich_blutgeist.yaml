@@ -1,0 +1,13 @@
+fertigkeiten: Gaben des Blutgeists
+kommentar: '0'
+kosten: '0'
+name: Sensattaco Meisterstreich (Blutgeist)
+printclass: '0'
+text: "Dein Ziel erkennt intuitiv die Luecken in der Verteidigung des Gegners. Seine\
+  \ AT sind um +2 erleichtert und seine Chance auf einen Triumph bei einer AT steigt\
+  \ um 1 auf dem W20 (zum Beispiel von 20 auf 19\u201320).\nMaechtige Magie: Der Bonus\
+  \ steigt um +1.\nProbenschwierigkeit: 12\nVorbereitungszeit: 1 Aktion\nZiel: Einzelperson\n\
+  Reichweite: Beruehrung\nWirkungsdauer: 16 Initiativphasen\nKosten: 8 AsP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Stier)

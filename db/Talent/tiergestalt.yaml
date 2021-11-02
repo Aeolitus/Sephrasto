@@ -1,0 +1,26 @@
+fertigkeiten: Ehre, Guter Kampf, Jagd, List, Magie, Tod, Wind und Wogen
+kommentar: '1'
+kosten: '40'
+name: Tiergestalt
+printclass: '22'
+text: "Du verwandelst dich in das heilige Tier deiner Gottheit, wobei du deine geistigen\
+  \ Faehigkeiten behaeltst. Deine koerperlichen Faehigkeiten entsprechen denen des\
+  \ Tiers und du kannst in Tiergestalt keine Liturgien wirken. Erlaubt Aufrechterhalten.\n\
+  Maechtige Liturgie: Das Tier ist ein ueberdurchschnittlicher/aussergewoehnlicher/herausragender/einzigartiger\
+  \ Vertreter seiner Art. Die Werte des Tieres sind nach Spielleiterentscheid erhoeht.\n\
+  Probenschwierigkeit: 12\nVorbereitungszeit: 16 Aktionen\nZiel: selbst\nReichweite:\
+  \ Beruehrung\nWirkungsdauer: 4 Stunden\nKosten: 8 KaP\nFertigkeiten: Ehre, Guter\
+  \ Kampf, Jagd, List, Magie, Tod, Wind und Wogen\nErlernen: Fir, Ifi 14; Eff, Ron\
+  \ 16; Bor, Hes, Kor, Phe 18; normalerweise 40 EP\nAnmerkungen: Nur herausragende\
+  \ Geweihte koennen sich in Tiere verwandeln, die nicht zu den Groessenklassen klein\
+  \ oder mittel gehoeren. Solche Verwandlungen sind prinzipiell um \u20138 erschwert.\
+  \ Die Lernkosten des Zaubers orientieren sich an der Tierart, wobei fliegende, giftige,\
+  \ sehr starke usw. Tiere teurer sind.\nSephrasto: Trage das entsprechende Tier in\
+  \ das Kommentarfeld ein."
+variable: '1'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der
+  Efferdgeweihten I ODER Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition
+  der Hesindegeweihten I ODER Vorteil Tradition der Ifirngeweihten I ODER Vorteil
+  Tradition der Korgeweihten I ODER Vorteil Tradition der Phexgeweihten I ODER Vorteil
+  Tradition der Rondrageweihten I

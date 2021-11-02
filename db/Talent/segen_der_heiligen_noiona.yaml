@@ -1,0 +1,26 @@
+fertigkeiten: Heilung, Heim und Herd, Vergessen
+kosten: '20'
+name: Segen der Heiligen Noiona
+printclass: '23'
+text: 'Du erhaeltst waehrend der Wirkungsdauer die Moeglichkeit, mit deinem Probenwert
+  in Heilkunde Gifte/Krankheiten auch Sucht- und Geisteskrankheiten zu heilen.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Woche
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Heilung, Heim und Herd, Vergessen
+
+  Erlernen: Brn 14; Per, Tra 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der
+  Perainegeweihten I ODER Vorteil Tradition der Traviageweihten I

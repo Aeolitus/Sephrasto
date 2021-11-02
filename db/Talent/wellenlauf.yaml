@@ -1,0 +1,18 @@
+fertigkeiten: Eigenschaften, Wasser
+kosten: '20'
+name: Wellenlauf
+printclass: '0'
+text: "Wasser ist fuer dich ein fester Untergrund. Du erleidest keine Abzuege durch\
+  \ unguenstige Position und wirst nicht durch Wellen und Stroemungen beeinflusst.\
+  \ Erlaubt Aufrechterhalten.\nProbenschwierigkeit: 12\nModifikationen: Sinken (\u2013\
+  4; du kannst die Zauberwirkung nach Belieben unterdruecken und wieder aktiv werden\
+  \ lassen. Bei Aktivierung unter Wasser wirst du an die Wasseroberflaeche gehoben.)\n\
+  Wasserwand (\u20138; du kannst selbst an Wasserfaellen hochklettern, wofuer einfache\
+  \ Klettern-Proben anfallen.)\nVorbereitungszeit: 2 Aktionen\nZiel: selbst\nReichweite:\
+  \ Beruehrung\nWirkungsdauer: 4 Minuten\nKosten: 4 AsP\nFertigkeiten: Eigenschaften,\
+  \ Wasser\nErlernen: Dru, Geo 12; Elf 14; Ach, Mag 20; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition
+  der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I

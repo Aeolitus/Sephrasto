@@ -1,0 +1,10 @@
+kommentar: '0'
+kosten: '60'
+linkElement: Kommandos
+linkKategorie: '1'
+nachkauf: haeufig
+name: 'Kommando: Keine Gefangenen!'
+text: Alle Mitstreiter erhalten TP +2.
+typ: '2'
+variable: '0'
+voraussetzungen: Attribut CH 8

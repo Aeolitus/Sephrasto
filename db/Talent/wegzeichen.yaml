@@ -1,0 +1,15 @@
+fertigkeiten: Hellsicht, Geister der Staerkung, Geister rufen, Verstaendigung
+kosten: '20'
+name: Wegzeichen
+printclass: '5'
+text: "Du vergraebst einen Talisman. Waehrend der Wirkungsdauer kannst unter Aufwendung\
+  \ von 1\_AsP erfahren, wo deine Wegzeichen liegen und diese intuitiv unterscheiden.\n\
+  Probenschwierigkeit: 12\nModifikationen: Permanenz (\u20134, Wirkungsdauer bis die\
+  \ Bindung geloest wird, Kosten 8 AsP, davon 1 gAsP)\nSprechendes Zeichen (\u2013\
+  4; das Zeichen kann einen kurzen Satz als Botschaft enthalten, der mit einem AG\
+  \ von 2 (S. 80) gelesen werden kann)\nVorbereitungszeit: 16 Aktionen\nZiel: Einzelobjekt\n\
+  Reichweite: Beruehrung\nWirkungsdauer: 1 Tag\nKosten: 4 AsP\nFertigkeiten: Hellsicht,\
+  \ Geister der Staerkung, Geister rufen, Verstaendigung\nErlernen: Smn 14; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

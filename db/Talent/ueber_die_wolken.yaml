@@ -1,0 +1,30 @@
+fertigkeiten: Froehlicher Wanderer
+kosten: '60'
+name: Ueber die Wolken
+printclass: '52'
+text: 'An deinem Ruecken wachsen gewaltige Schwingen, mit denen du fliegen kannst.
+  Dafuer sind keine weiteren Proben noetig, nur besonders tollkuehne Manoever erfordern
+  eine GE- oder Akrobatik-Probe. Du bewegst dich in der Luft etwa so schnell wie am
+  Boden und kannst etwa ein Viertel so viel tragen. Erlaubt Aufrechterhalten.
+
+  Maechtige Liturgie: Du bewegst dich zwei/drei/vier/fuenfmal schneller als am Boden
+  und kannst zwei/drei/vier/fuenf Viertel so viel tragen.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 16 KaP
+
+  Fertigkeiten: Froehlicher Wanderer
+
+  Erlernen: Aves 18; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Avesgeweihten I

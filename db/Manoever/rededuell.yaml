@@ -1,0 +1,23 @@
+gegenprobe: ''
+name: Rededuell
+probe: Betoeren, Ueberreden, Einschuechtern oder Rhetorik
+text: "Es werden Argumente ausgetauscht und die Aktionen des eigenen Charakters beschrieben.\
+  \ Sobald das Argument abgeschlossen ist (oder umgekehrt), werfen beide Seiten eine\
+  \ Probe (I).\n    Abwarten: Manchmal passt keines der Talente zur eigenen Aktion,\
+  \ etwa wenn du abwartest, waehrend dein Gegenueber seine Argumente vortraegt oder\
+  \ dir droht. Dann koennen die Proben stattdessen auch auf ein anderes Talent/Attribut\
+  \ abgelegt werden: Willenskraft gegen Betoeren, Menschenkenntnis gegen Ueberreden,\
+  \ MU gegen Einschuechtern oder KL gegen Rhetorik.\n    Ungewohnte Umgebung: bei\
+  \ Statusunterschieden, mangelnden Sprachkenntnissen oder fremden Umgengsformen steigt\
+  \ die Patzerchance steigt auf 2 oder sogar 3 auf dem W20 und solche Wuerfe gelten\
+  \ immer als misslungen.\n    Kenne deinen Feind: Zu Beginn legt der Spielleiter\
+  \ fest, welche der Talente angemessen, unpassend oder sogar unsinnig sind, ohne\
+  \ dies mitzuteilen. Verwenden die Spieler ein unpassendes/unsinniges Talent, erhaelt\
+  \ das Gegenueber eine Erleichterung von +8/+16. Wenn du in einem Rededuell direkt\
+  \ auf eine Schwaeche des Gegenuebers eingehst, ist dessen Probe um \u20138 erschwert.\
+  \ Du kannst eine bestimmte Schwaeche nur einmal pro Rededuell ausnutzen.\n    Setze\
+  \ dir realistische Ziele: Der Spielleiter kann bei Vorhaben, die den moralischen\
+  \ Vorstellungen des Gegenuebers widersprechen oder die gefaehrlich sind um +8 erleichtern,\
+  \ bei Lebensgefahr sogar um +16."
+typ: '9'
+voraussetzungen: ''

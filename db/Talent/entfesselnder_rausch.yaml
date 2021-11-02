@@ -1,0 +1,28 @@
+fertigkeiten: Rausch
+kosten: '20'
+name: Entfesselnder Rausch
+printclass: '44'
+text: 'Du geniesst mit dem Gesegneten gemeinsam den Rausch (egal ob mit Alkohol, Drogen,
+  Sex, Tanz, einem Ausritt oder einem reinen Adrenalinrausch). Dabei bekommt ihr einem
+  tiefen Einblick in die Seele des Gegenuebers: Ihr erfahrt von den Eigenheiten des
+  jeweils anderen und Menschenkenntnis-Proben zwischen euch sind um +8 erleichtert,
+  alle anderen Menschenkenntnis-Proben um +2.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Woche
+
+  Kosten: 4 KaP
+
+  Fertigkeiten: Rausch
+
+  Erlernen: Rah 12; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Rahjageweihten I

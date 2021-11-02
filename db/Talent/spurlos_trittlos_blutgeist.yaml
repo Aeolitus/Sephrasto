@@ -1,0 +1,14 @@
+fertigkeiten: Gaben des Blutgeists
+kommentar: '0'
+kosten: '0'
+name: Spurlos Trittlos (Blutgeist)
+printclass: '0'
+text: "Du tarnst deine Faehrte mit Magie. Alle Proben zur Verfolgung deiner Faehrte\
+  \ sind um \u20134 erschwert.\nMaechtige Magie: Der Malus steigt um \u20132.\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Andere Person (\u20134, Ziel Einzelperson)\nZone (\u20134,\
+  \ Zone, 16 AsP; der Zauber betrifft alle in einem Radius von 4 Schritt.)\nVorbereitungszeit:\
+  \ 4 Aktionen\nZiel: selbst\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten:\
+  \ 4 AsP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Wildkatze/Panther) ODER Vorteil Tiergeist (Wolf/Khoramsbestie)

@@ -1,0 +1,28 @@
+fertigkeiten: List, Wissen
+kosten: '40'
+name: Aura der Form
+printclass: '31'
+text: 'Du erhaeltst einen groben Eindruck in die Vorgeschichte eines Gegenstandes.
+
+  Maechtige Liturgie: Du erhaeltst einen ungefaehren/guten/praezisen/vollstaendigen
+  Eindruck.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: List, Wissen
+
+  Erlernen: Phe, Hes 14; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der
+  Phexgeweihten I

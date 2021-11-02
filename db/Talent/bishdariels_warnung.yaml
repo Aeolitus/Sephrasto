@@ -1,0 +1,13 @@
+fertigkeiten: Schlaf
+kosten: '40'
+name: Bishdariels Warnung
+printclass: '21'
+text: "Dein Ziel wird Nacht fuer Nacht von der Albtraumgestalt Bishdariels heimgesucht,\
+  \ die Warnungen und Mahnungen ueberbringt. Es regeneriert in dieser Zeit nicht.\n\
+  Maechtige Liturgie: Ab dem folgenden Tag sind alle Proben des Ziels sind um \u2013\
+  1/\u20132/ \u20133/\u20134 erschwert.\nProbenschwierigkeit: 12\nVorbereitungszeit:\
+  \ 1 Stunde\nZiel: Einzelperson\nReichweite: dereweit\nWirkungsdauer: 1 Woche\nKosten:\
+  \ 16 KaP\nFertigkeiten: Schlaf\nErlernen: Brn 14; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Borongeweihten I

@@ -1,0 +1,31 @@
+fertigkeiten: Heilung
+kosten: '20'
+name: "Fuerbitten des Heiligen Therb\xFBn"
+printclass: '35'
+text: 'Du heilst einen Gesegneten von allen Krankheiten bis maximal Stufe 20.
+
+  Maechtige Liturgie: Die maximal aufgehobene Krankheitsstufe steigt um 4.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Stunden
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Heilung
+
+  Erlernen: Per 12; 20 EP
+
+  Anmerkung: Alternativ kann die Liturgie wie Antimagie gegen Krankheitszauber oder
+  Krankheitsdaemonen wirken (S. 126). Die Randbedingungen entsprechen den dort angegebenen,
+  ausser dass die Kosten mit KaP bezahlt werden und die Liturgie um +4 erleichtert
+  ist.'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Perainegeweihten I

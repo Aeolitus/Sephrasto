@@ -1,0 +1,26 @@
+fertigkeiten: Verwandlung, Gaben des Odun
+kosten: '40'
+name: Blut des (Tieres)
+printclass: '4'
+text: 'Du wirst von der animalischen Essenz deines Tiergeistes erfuellt. Jedem, der
+  keine Konterprobe (MU, 16) besteht, erscheinst du als ein Wesen mit Schreckgestalt
+  II (S. 98).
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Verwandlung, Gaben des Odun
+
+  Erlernen: Dur 8; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Durro-dun I

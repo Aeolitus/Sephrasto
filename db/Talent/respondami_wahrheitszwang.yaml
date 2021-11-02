@@ -1,0 +1,30 @@
+fertigkeiten: Einfluss
+kosten: '40'
+name: Respondami Wahrheitszwang
+printclass: '0'
+text: 'Das Ziel muss eine Ja/Nein-Frage wahrheitsgemaess beantworten. Ist die Frage
+  nicht mit Ja oder Nein zu beantworten, erleidet es 1W6 SP.
+
+  Maechtige Magie: Erlaubt eine weitere Frage.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: Einzelperson
+
+  Reichweite: 2 Schritt
+
+  Wirkungsdauer: 4 Minuten
+
+  Kosten: 4 AsP
+
+  Fertigkeiten: Einfluss
+
+  Erlernen: Dru, Geo, Mag 14; Elf, Hex 16; Alch 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
+  Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition
+  der Hexen I

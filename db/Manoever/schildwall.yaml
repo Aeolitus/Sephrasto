@@ -1,0 +1,10 @@
+gegenprobe: ''
+name: Schildwall
+probe: VT -4
+text: 'Du kannst einen Angriff auf einen benachbarten Verbuendeten abwehren. Das Manoever
+  erfolgt vor der Verteidigung des Verbuendeten.
+
+  Voraussetzungen: Kampf im Schildkampf-Stil; kein Schildwall seit letztem Beginn
+  einer eigenen Initiativephase'
+typ: '0'
+voraussetzungen: Vorteil Schildkampf III

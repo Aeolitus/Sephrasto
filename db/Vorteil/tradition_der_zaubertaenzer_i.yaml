@@ -1,0 +1,15 @@
+kommentar: '0'
+kosten: '20'
+nachkauf: haeufig
+name: Tradition der Zaubertaenzer I
+text: 'Bedingungen: Sichtkontakt, Tanz, Ziele koennen dich sehen.
+
+
+  Du kannst Zauber in der Tradition der Zaubertaenzer erlernen und benutzen. Solche
+  Zauber findest du unter Zaubertaenze (S. 176).
+
+
+  Die Bedingung Tanz kann nicht ignoriert werden.'
+typ: '5'
+variable: '0'
+voraussetzungen: Attribut GE 4, Vorteil Zauberer I

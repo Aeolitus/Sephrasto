@@ -1,0 +1,12 @@
+fertigkeiten: Luft, Stabzauber, Umwelt, Wasser
+kosten: '20'
+name: Reinigung
+printclass: '15'
+text: "Deine Kleidung ist so sauber, als waere sie frisch gewaschen.\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Laeusekamm (\u20134; du wirst auch von Kleintieren und Ungeziefer\
+  \ befreit.)\nVorbereitungszeit: 0 Aktionen\nZiel: selbst\nReichweite: Beruehrung\n\
+  Wirkungsdauer: augenblicklich\nKosten: 1 AsP\nFertigkeiten: Luft, Stabzauber, Umwelt,\
+  \ Wasser\nErlernen: Mag 12; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Gildenmagier I

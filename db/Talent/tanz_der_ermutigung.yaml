@@ -1,0 +1,27 @@
+fertigkeiten: Eigenschaften, Einfluss, Zaubertaenze
+kosten: '40'
+name: Tanz der Ermutigung
+printclass: '19'
+text: 'Der Tanz schenkt Zuversicht. Alle Zuhoerer in einem Radius von 4 Schritt erhalten
+  eine Erleichterung +2 auf Anfuehren und MU.
+
+  Maechtige Magie: Der Bonus steigt um +1.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Tag
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Eigenschaften, Einfluss, Zaubertaenze
+
+  Erlernen: Ztz 10; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Zaubertaenzer I

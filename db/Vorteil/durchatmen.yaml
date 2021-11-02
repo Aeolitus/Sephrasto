@@ -1,0 +1,10 @@
+kommentar: '0'
+kosten: '20'
+nachkauf: haeufig
+name: Durchatmen
+text: Einmal zwischen zwei Ruhephasen kannst du eine Aktion Konzentration aufwenden
+  und eine Zaehigkeits-Probe (16) ablegen. Gelingt die Probe, regenerierst du sofort
+  1 Wunde oder 2 Erschoepfung, die du im laufenden Kampf erlitten hast.
+typ: '2'
+variable: '0'
+voraussetzungen: Attribut KO 4

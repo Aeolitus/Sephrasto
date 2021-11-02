@@ -1,0 +1,26 @@
+fertigkeiten: Dolchzauber, Hellsicht, Umwelt
+kosten: '20'
+name: Weg des Dolches
+printclass: '1'
+text: 'Dein Dolch zeigt in die Richtung des Ortes, an dem er geweiht wurde.  Eine
+  Ueberleben-Proben zur Orientierung ist um +4 Punkte erleichtert.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: dereweit
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 4 AsP
+
+  Fertigkeiten: Dolchzauber, Hellsicht, Umwelt
+
+  Erlernen: Dru 12; Geo 14; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden
+  I

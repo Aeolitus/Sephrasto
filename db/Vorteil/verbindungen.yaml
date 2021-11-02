@@ -1,0 +1,34 @@
+csBeschreibung: Du hast einen guten Draht zu einer bestimmten Organisation oder Person,
+  die dir ueblicherweise freundlich gegenuebersteht. Ausserdem gelten passende Verbindungen
+  als Werkzeug fuer Recherchen und viele andere Taetigkeiten.
+kommentar: '1'
+kosten: '20'
+nachkauf: ueblich
+name: Verbindungen
+text: 'Du hast einen guten Draht zu einer bestimmten Organisation oder Person, die
+  dir ueblicherweise freundlich gegenuebersteht. Ausserdem gelten passende Verbindungen
+  als Werkzeug fuer Recherchen und viele andere Taetigkeiten. Du kannst Verbindungen
+  zu mehreren Organisationen und Personen haben. Die Kosten deiner Verbindungen legt
+  der Spielleiter fest, wobei er sich an der Macht und dem Einflussbereich der Verbindungen
+  orientieren sollte.
+
+
+  Beispiele fuer Verbindungen sind:
+
+  - Oertlicher Baron: Starker lokaler Einfluss mit geringem Einflussbereich (20 EP).
+
+  - Badilakaner: Geringer Einfluss in weiten Teilen des zwoelfgoetterglaeubigen Aventuriens
+  (20 EP).
+
+  - Efferdbrueder: Ansehnlicher Einfluss in Hafenstaedten des zwoelfgoetterglaeubigen
+  Aventuriens (40 EP).
+
+  - Haus Gareth: Immenser Einfluss im Mittelreich, weitreichende Beziehungen in ganz
+  Aventurien (80 EP).
+
+
+  Sephrasto: Trage die gewaehlten Verbindungen in das Kommentarfeld ein. Wenn du mehrere
+  Verbindungen hast, dann erhoehe die EP-Kosten entsprechend.'
+typ: '0'
+variable: '1'
+voraussetzungen: ''

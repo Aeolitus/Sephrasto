@@ -1,0 +1,11 @@
+kommentar: '0'
+kosten: '60'
+linkElement: Einschuechtern im Kampf
+linkKategorie: '1'
+nachkauf: haeufig
+name: Muskelprotz
+text: Einschuechtern-Proben im Kampf sind um +4 erleichtert und du kannst ohne zusaetzliche
+  Erschwernis bis zu 4 Gegner einschuechtern.
+typ: '1'
+variable: '0'
+voraussetzungen: Attribut KK 8

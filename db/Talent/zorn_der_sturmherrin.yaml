@@ -1,0 +1,32 @@
+fertigkeiten: Heerfuehrung
+kosten: '40'
+name: Zorn der Sturmherrin
+printclass: '46'
+text: 'In einen passenden Ort deiner Naehe (ein Baum, eine Felsspitze) schlaegt ein
+  Blitz ein und ein gewaltiger Donnerknall ertoent. Ein Furcht-Effekt Stufe 2 befaellt
+  alle Feinde im Radius von 64 Schritt, denen eine Konterprobe (MU, 20) misslingt
+  (natuerliche Wesen) oder deren Beschwoerungsschwierigkeit maximal 20 betraegt (beschworene
+  Wesen). Die Liturgie kann auch bei heiterem Himmel oder unter der Erde eingesetzt
+  werden, der Blitz schiesst dann aus der Decke.
+
+  Maechtige Liturgie: Erhoeht die maximale Beschwoerungsschwierigkeit um 4. Je zwei
+  Stufen erhoehen den Furcht-Effekt um eine Stufe.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: 32 Schritt
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 16 KaP
+
+  Fertigkeiten: Heerfuehrung
+
+  Erlernen: Ron 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Rondrageweihten I

@@ -1,0 +1,19 @@
+fertigkeiten: Einfluss
+kosten: '60'
+name: Imperavi Handlungszwang
+printclass: '0'
+text: "Dein Ziel muss einen einzigen Befehl von dir ausfuehren und darf waehrenddessen\
+  \ nicht gegen dich vorgehen. Widerspricht der Befehl den tiefsten Ueberzeugungen\
+  \ oder dem Selbsterhaltungstrieb des Zieles, kann es mit einer Konterprobe (Willenskraft,\
+  \ 16) widerstehen. Eine Verschachtelung von Befehlen (\u201EFolge allen weiteren\
+  \ Befehlen!\u201C) ist nicht moeglich.\nProbenschwierigkeit: Magieresistenz\nModifikationen:\
+  \ Sofort (\u20134, 0 Aktionen, 8 AsP; das Ziel muss einen kurzen Befehl sofort ausfuehren.)\n\
+  Spaeter (\u20134; der Zauber wirkt erst, sobald ein einfacher Ausloeser eintritt.)\n\
+  Dauerhafter Diener (\u20134, 4 Minuten, Beruehrung, Wirkungsdauer 16 Tage, 32 AsP;\
+  \ du kannst bis zu 16 Befehle aeussern.)\nVorbereitungszeit: 4 Aktionen\nZiel: Einzelperson\n\
+  Reichweite: 2 Schritt\nWirkungsdauer: 8 Stunden oder bis der Befehl erfuellt ist\n\
+  Kosten: 16 AsP\nFertigkeiten: Einfluss\nErlernen: Mag, Dru 16; Bor 18; 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der
+  Druiden I ODER Vorteil Tradition der Gildenmagier I

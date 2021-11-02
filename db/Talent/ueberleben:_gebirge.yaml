@@ -1,0 +1,8 @@
+fertigkeiten: Ueberleben
+kosten: '-1'
+name: 'Ueberleben: Gebirge'
+printclass: '-1'
+text: Gilt fuer den Einsatz im Gebirge, egal ob Raschtulswall oder ehernes Schwert.
+variable: '0'
+verbilligt: '1'
+voraussetzungen: ''

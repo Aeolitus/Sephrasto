@@ -1,0 +1,11 @@
+csAuflisten: '0'
+kommentar: '0'
+kosten: '60'
+nachkauf: haeufig
+name: Liturgische Disziplin
+text: 'Ermoeglicht die spontane Modifikation Kosten sparen (Liturgie -4): Die Kosten
+  der Liturgie sinken um ein Viertel der Basiskosten. Die Kosten koennen dadurch nicht
+  unter die Haelfte der Basiskosten sinken.'
+typ: '6'
+variable: '0'
+voraussetzungen: Attribut KL 8, Vorteil Geweiht I

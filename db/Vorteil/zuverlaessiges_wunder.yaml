@@ -1,0 +1,12 @@
+kommentar: '0'
+kosten: '40'
+linkElement: Mirakel [Fertigkeit oder Attribut]
+linkKategorie: '1'
+nachkauf: haeufig
+name: Zuverlaessiges Wunder
+text: Schlaegt eine durch ein Mirakel unterstuetzte Probe fehl, bleibt die Wirkung
+  des Mirakels aufrecht (1x pro Mirakel). Patzer bei solchen Proben gelten nur als
+  gewoehnlich misslungen.
+typ: '6'
+variable: '0'
+voraussetzungen: Attribut IN 6, Vorteil Geweiht I

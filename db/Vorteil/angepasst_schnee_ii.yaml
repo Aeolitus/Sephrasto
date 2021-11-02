@@ -1,0 +1,12 @@
+kommentar: '0'
+kosten: '20'
+linkElement: Angepasst (Schnee) I
+linkKategorie: '3'
+nachkauf: haeufig
+name: Angepasst (Schnee) II
+text: Durch deine Spezies oder langjaehrige Erfahrung hast du dich an Schnee gewoehnt.
+  Abzuege durch unsicheren oder eisigen Untergrund, insbesondere im Kampf, sinken
+  fuer dich um 2 Stufen.
+typ: '0'
+variable: '0'
+voraussetzungen: Vorteil Angepasst (Schnee) I

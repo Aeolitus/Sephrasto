@@ -1,0 +1,16 @@
+fertigkeiten: Einfluss, Illusion
+kosten: '40'
+name: Widerwille Ungemach
+printclass: '0'
+text: "Das verzauberte Objekt wird von Umstehenden gemieden. Der Spielleiter erwaehnt\
+  \ es nur, wenn die Spieler danach suchen und ihnen eine Konterprobe (Magieresistenz\
+  \ oder Wachsamkeit, 16) gelingt.\nProbenschwierigkeit: 12\nModifikationen: Raeumlicher\
+  \ Widerwille (\u20138, Zone; der Zauber betrifft einen ganzen Raum)\nPermanenz (\u2013\
+  4, Wirkungsdauer bis die Bindung geloest wird, 16 AsP, davon 2 gAsP)\nVorbereitungszeit:\
+  \ 4 Minuten\nZiel: Einzelobjekt\nReichweite: Beruehrung\nWirkungsdauer: 1 Monat\n\
+  Kosten: 8 AsP\nFertigkeiten: Einfluss, Illusion\nErlernen: Alch, Mag, Srl 18; 40\
+  \ EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane I

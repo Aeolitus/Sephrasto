@@ -1,0 +1,18 @@
+fertigkeiten: Froehlicher Wanderer, Sichere Heimkehr
+kosten: '40'
+name: Gaensegeschnatter
+printclass: '49'
+text: "Im Laufe des Tages fliegt dir eine Wildgans (Tra) oder ein Zugvogel (Aves)\
+  \ zu, die dich fortan begleitet. Das Tier hat aeusserst scharfe Sinne (Wachsamkeit\
+  \ 12) und schlaegt lautstark Alarm, sobald sich jemand deinem Nachtlager in boeser\
+  \ Absicht naehert. Es verlaesst dich, wenn du es schlecht behandelst, oder die Wirkungsdauer\
+  \ endet. Die Wirkung endet auch, wenn das Tier stirbt (WS 2).\nMaechtige Liturgie:\
+  \ Die Wachsamkeit des Tiers steigt um +4.\nProbenschwierigkeit: 12\nModifikationen:\
+  \ Permanenz (\u20134, Wirkungsdauer bis die Bindung geloest wird, 8 KaP, davon 2\
+  \ gKaP)\nVorbereitungszeit: 4 Minuten\nZiel: selbst\nReichweite: Beruehrung\nWirkungsdauer:\
+  \ 1 Woche\nKosten: 8 KaP\nFertigkeiten: Froehlicher Wanderer, Sichere Heimkehr\n\
+  Erlernen: Aves 14; Tra 16; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
+  Traviageweihten I

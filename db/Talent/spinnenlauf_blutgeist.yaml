@@ -1,0 +1,24 @@
+fertigkeiten: Gaben des Blutgeists
+kommentar: '0'
+kosten: '0'
+name: Spinnenlauf (Blutgeist)
+printclass: '0'
+text: 'Deine Haende und Fuesse haften an Oberflaechen, sodass du mit GS 1 an glatten
+  Waenden und sogar Decken ohne Griffen klettern kannst. Erlaubt Aufrechterhalten.
+
+  Maechtige Magie: Erhoeht die GS um +1.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 4 Minuten
+
+  Kosten: 8 AsP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Gebirgsbock)

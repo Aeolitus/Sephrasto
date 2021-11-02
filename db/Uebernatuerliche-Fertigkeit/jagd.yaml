@@ -1,0 +1,8 @@
+attribute: IN|GE|MU
+name: Jagd
+printclass: '1'
+steigerungsfaktor: '2'
+text: Die Hueter der Jagd begleiten Jagdgesellschaften und achten ueber die Einhaltung
+  der waidmaennischen Regeln.
+voraussetzungen: Vorteil Tradition der Ifirngeweihten I ODER Vorteil Tradition der
+  Firungeweihten I

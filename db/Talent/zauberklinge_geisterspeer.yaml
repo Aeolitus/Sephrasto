@@ -1,0 +1,20 @@
+fertigkeiten: Kraft, Verwandlung
+kosten: '40'
+name: Zauberklinge Geisterspeer
+printclass: '0'
+text: "Die verzauberte Waffe gilt waehrend der Wirkungsdauer als magisch.\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Schnellverzauberung (\u20134, 2 Aktionen, Wirkungsdauer 1\
+  \ Stunde)\nPersonalisierung (\u20134; der Zauber wirkt nur, solange der beim Zaubern\
+  \ gewaehlte Traeger die Waffe fuehrt.)\nNamenssigille (\u20138; erfordert den wahren\
+  \ Namen eines Daemons. Wann immer der Daemon Wunden durch diese Waffe erleidet,\
+  \ erleidet er eine zusaetzliche Wunde.)\nPermanenz (\u20134, Wirkungsdauer bis die\
+  \ Bindung geloest wird, 16 AsP, davon 2 gAsP)\nVorbereitungszeit: 16 Aktionen\n\
+  Ziel: Einzelobjekt\nReichweite: Beruehrung\nWirkungsdauer: 1 Woche\nKosten: 8 AsP\n\
+  Fertigkeiten: Kraft, Verwandlung\nErlernen: Ach, Mag 18; Elf, Hex, Geo, Dru 20;\
+  \ 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition
+  der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der
+  Kristallomanten I

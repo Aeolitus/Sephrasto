@@ -1,0 +1,27 @@
+fertigkeiten: Eigenschaften, Gaben des Blutgeists
+kosten: '40'
+name: Staerke des Blutgeists
+printclass: '3'
+text: 'Der Blutgeist staerkt dich. Du erhaeltst einen Bonus von +2 auf alle bei dem
+  Tier des Blutgeists angegebenen Werte (S. 160).
+
+  Maechtige Magie: Der Bonus steigt um +1.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 4 AsP
+
+  Fertigkeiten: Eigenschaften, Gaben des Blutgeists
+
+  Erlernen: Ana 8; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Anach-Nurim I

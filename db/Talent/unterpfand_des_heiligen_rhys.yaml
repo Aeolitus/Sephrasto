@@ -1,0 +1,14 @@
+fertigkeiten: Heiliges Handwerk
+kosten: '20'
+name: Unterpfand des Heiligen Rhys
+printclass: '34'
+text: "Jeder Betrachter erkennt den gerechten Verkaufswert des gesegneten Gegenstandes.\
+  \ Um es zu einem anderen Wert zu erwerben oder zu kaufen, ist eine Konterprobe (Ueberreden,\
+  \ 16) noetig. Jeder Versuch, das Objekt magisch zu veraendern oder zu zerstoeren,\
+  \ ist um \u20134 erschwert.\nMaechtige Liturgie: Der Malus steigt um \u20132.\n\
+  Probenschwierigkeit: 12\nVorbereitungszeit: 4 Minuten\nZiel: Einzelobjekt\nReichweite:\
+  \ Beruehrung\nWirkungsdauer: 1 Monat\nKosten: 8 KaP\nFertigkeiten: Heiliges Handwerk\n\
+  Erlernen: Ing 18; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Ingerimmgeweihten I

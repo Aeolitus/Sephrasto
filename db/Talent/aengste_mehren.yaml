@@ -1,0 +1,28 @@
+fertigkeiten: Einfluss, Hexenflueche
+kosten: '20'
+name: Aengste mehren
+printclass: '9'
+text: 'Das Opfer leidet an einer Angst deiner Wahl. Wird die Angst ausgeloest, steht
+  es unter einem Furcht-Effekt Stufe 1. Litt das Opfer bereits zuvor an dieser Angst,
+  steigt die Stufe des Furcht-Effekts um 1.
+
+  Maechtige Magie: Der Furcht-Effekt steigt um eine Stufe.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: 8 Schritt
+
+  Wirkungsdauer: 1 Woche
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Einfluss, Hexenflueche
+
+  Erlernen: Hex 12; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Hexen I

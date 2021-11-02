@@ -1,0 +1,10 @@
+gegenprobe: ''
+name: Auflaufen lassen
+probe: VT -4
+text: 'Der Verteidiger fuegt dem Angreifer seinen Waffenschaden plus die GS des Angreifers
+  zu.
+
+  Voraussetzungen: groessere Reichweite; Gegner kombiniert die Aktionen Bewegung und
+  Konflikt; die Bewegung muss vor dem Angriff ausgefuehrt werden.'
+typ: '0'
+voraussetzungen: ''

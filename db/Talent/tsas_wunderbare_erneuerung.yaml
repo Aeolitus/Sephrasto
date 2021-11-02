@@ -1,0 +1,28 @@
+fertigkeiten: Neubeginn
+kosten: '0'
+name: Tsas wunderbare Erneuerung
+printclass: '51'
+text: 'Ein verlorenes Koerperteil waechst innerhalb einer Woche nach (waehrenddessen
+  Einschraenkungen nach Spielleiterentscheid). Der Verlust des Koerperteils darf maximal
+  1 Stunde zurueck liegen.
+
+  Maechtige Liturgie: Der Verlust darf maximal 1 Tag/1 Woche/1 Monat/1 Jahr zurueckliegen.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 16 KaP
+
+  Fertigkeiten: Neubeginn
+
+  Erlernen: Tsa 16; 0 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Tsageweihten I

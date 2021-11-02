@@ -1,0 +1,25 @@
+fertigkeiten: Neubeginn, Wachstum
+kosten: '0'
+name: Kaelbchensegen
+printclass: '36'
+text: 'Das neugeborene Tier ist immun gegen Krankheiten.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: Tier
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Monat
+
+  Kosten: 1 KaP
+
+  Fertigkeiten: Neubeginn, Wachstum
+
+  Erlernen: Per 12, Tsa 14; 0 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Perainegeweihten I ODER Vorteil Tradition der
+  Tsageweihten I

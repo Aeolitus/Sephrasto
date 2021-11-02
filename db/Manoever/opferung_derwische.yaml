@@ -1,0 +1,9 @@
+gegenprobe: ''
+name: Opferung (Derwische)
+probe: Zauber +4
+text: 'Ein Opfer erleichtert den Zauber um +4. Derwische legen ihre ganze Kraft in
+  den Zauber und erleiden danach 2 Punkte Erschoepfung.
+
+  Voraussetzung: Verwendung der Tradition der Derwische'
+typ: '2'
+voraussetzungen: Vorteil Tradition der Derwische III

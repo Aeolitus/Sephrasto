@@ -1,0 +1,26 @@
+fertigkeiten: Daemonische Hilfe (Cpt)
+kosten: '40'
+name: Schiffssymbiose
+printclass: '200'
+text: 'Der Paktierer uebt besondere Macht ueber ein Schiff aus und kann Gegenstaende
+  wie mit einem Motoricus (S. 151) bewegen, das Deck mit rutschigem Brackwasser ueberziehen
+  und aehnliche Effekte hervorrufen.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: bis die Bindung geloest wird
+
+  Kosten: 16 GuP, davon 4 gGuP
+
+  Fertigkeiten: Daemonische Hilfe (Cpt)
+
+  Erlernen: Cpt 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Paktierer I

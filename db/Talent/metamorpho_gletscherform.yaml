@@ -1,0 +1,22 @@
+fertigkeiten: Eis, Verwandlung
+kosten: '60'
+name: Metamorpho Gletscherform
+printclass: '0'
+text: "Du formst Eis mit blossen Haenden in die wundersamsten Formen. Die Kosten,\
+  \ Zauberdauer und Modifikationen Maechtige Magie sind Meisterentscheid. Beispiele:\n\
+  4 AsP, 1x Maechtige Magie, 4 Aktionen: Du formst einen Eiszapfen um zu einer einfachen\
+  \ Waffe aus Eis (identische Werte, aber zerbrechlich).\n8 AsP, keine Maechtige Magie,\
+  \ eine halbe Stunde: Ein Eisblock wird zu einem Iglu.\n16 AsP, 2x Maechtige Magie,\
+  \ 1 Stunde: Du ziehst eine einfache Bruecke ueber eine Eisspalte.\n128+ AsP, 4x\
+  \ Maechtige Magie, 1 Woche: Du errichtest einen Eispalast, wie ihn die Firnelfen\
+  \ bewohnen.\nProbenschwierigkeit: 12\nModifikationen: Schnee (\u20134; du kannst\
+  \ auch mit Schnee arbeiten, der dabei zu Eis wird.)\nWasser (\u20138; du kannst\
+  \ auch mit Wasser arbeiten, das dabei gefriert.)\nPermanenz (\u20134, ein Viertel\
+  \ der Basiskosten als gAsP; das so geformte Eis schmilzt auch bei hohen Temperaturen\
+  \ nicht mehr.)\nVorbereitungszeit: nach Vorhaben\nZiel: Einzelobjekt\nReichweite:\
+  \ Beruehrung\nWirkungsdauer: bis die Bindung geloest wird\nKosten: nach Vorhaben\n\
+  Fertigkeiten: Eis, Verwandlung\nErlernen: Elf 16; Dru, Mag 20; 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen
+  I ODER Vorteil Tradition der Gildenmagier I

@@ -1,0 +1,14 @@
+fertigkeiten: Gaben des Blutgeists
+kommentar: '0'
+kosten: '0'
+name: Baerenruhe Winterschlaf (Blutgeist)
+printclass: '0'
+text: "Du versetzt dein Ziel in einen tiefen Winterschlaf. Waehrend des Schlafes benoetigt\
+  \ es keine Nahrung, und kein Wasser. Gifte, Krankheiten und Kaelte fuegen ihm keinen\
+  \ Schaden zu. Dafuer regeneriert es auch nicht.\nProbenschwierigkeit: 12\nModifikationen:\
+  \ Der lange Schlaf (\u20134, Wirkungsdauer 1 Monat, 16 AsP)\nVorbereitungszeit:\
+  \ 4 Minuten\nZiel: Einzelwesen\nReichweite: Beruehrung\nWirkungsdauer: 1 Tag\nKosten:\
+  \ 8 AsP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Baer)

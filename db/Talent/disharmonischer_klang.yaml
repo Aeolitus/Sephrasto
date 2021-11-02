@@ -1,0 +1,25 @@
+fertigkeiten: Antimagie, Einfluss, Zaubermelodien
+kosten: '40'
+name: Disharmonischer Klang
+printclass: '18'
+text: 'Der Klang stoert einen anderen Zauberer waehrend dessen Zaubervorbereitung.
+  Das Ziel muss eine Konterprobe (Willenskraft, 16) ablegen, um den Zauber fortzusetzen.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: 8 Schritt
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 4 AsP
+
+  Fertigkeiten: Antimagie, Einfluss, Zaubermelodien
+
+  Erlernen: Bard 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Zauberbarden I

@@ -1,0 +1,18 @@
+attribute: CH|IN|IN
+name: Vertrautenmagie
+printclass: '0'
+steigerungsfaktor: '2'
+text: "Hexen und Geoden (wir nennen sie der Einfachheit halber Bindungspartner) schaffen\
+  \ mit der Bindung des Vertrauten ein magisches Band zwischen sich und dem Vertrautentier.\
+  \ Dabei erlangt das Vertrautentier magische Faehigkeiten, die es fortan einsetzen\
+  \ kann.\n\nDoch auch wenn das Vertrautentier diese Faehigkeiten einsetzt - der Einfachheit\
+  \ halber behandeln wir die Vertrautenmagie so, als wuerdest du den Zauber wirken.\
+  \ Du entscheidest, wann ein Zauber eingesetzt wird, legst die Probe auf deinen PW\
+  \ in Vertrautenmagie ab und bezahlst die Kosten \u2013 nur Reichweite und Ziel gehen\
+  \ vom Vertrautentier aus.\n\nDie Spielwerte typischer Vertrautentiere findest du\
+  \ im Bestiarium. Da Vertrautentiere aber besonders praechtige Vertreter ihrer Gattung\
+  \ sind, erhaeltst du 4 Vertrautenpunkte pro Stufe der Geodischen oder Hexischen\
+  \ Tradition. Pro Punkt darfst du einen Spielwert des Vertrautentiers (ausgenommen\
+  \ WS, WS* und RW) um 1 Punkt erhoehen, solange das Ergebnis dem gesunden Menschenverstand\
+  \ nicht widerspricht."
+voraussetzungen: Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I

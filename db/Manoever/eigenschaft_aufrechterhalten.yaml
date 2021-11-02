@@ -1,0 +1,9 @@
+gegenprobe: ''
+name: Eigenschaft Aufrechterhalten
+probe: ''
+text: Bevor die Wirkung eines Zaubers oder einer Liturgie endet, kannst du sie um
+  die Basiswirkungsdauer verlaengern. Dazu musst du nur die Haelfte der Basiskosten
+  bezahlen.
+typ: '4'
+voraussetzungen: Vorteil Geweiht I ODER Vorteil Zauberer I ODER Vorteil Paktierer
+  I ODER Vorteil Tradition der Borbaradianer I

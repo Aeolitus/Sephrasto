@@ -1,0 +1,31 @@
+fertigkeiten: Daemonisch, Verwandlung, Wasser
+kosten: '60'
+name: Hartes schmelze!
+printclass: '0'
+text: 'Du verzauberst eine kopfgrosse Menge an hartem Material, sodass es formbar
+  wie Wachs wird. Nach dem Ende der Wirkungsdauer erstarrt das Material in seiner
+  aktuellen Form.
+
+  Maechtige Magie: Verdoppelt die Menge.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: Einzelobjekt oder Teilobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 16 Minuten
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Daemonisch (nicht Geo, Mag), Verwandlung, Wasser
+
+  Erlernen: Bor 14; Ach, Dru, Geo 16; Alch, Mag 18; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer
+  I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER
+  Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten
+  I

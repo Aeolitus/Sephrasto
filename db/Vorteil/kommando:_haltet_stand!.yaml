@@ -1,0 +1,10 @@
+kommentar: '0'
+kosten: '20'
+linkElement: Kommandos
+linkKategorie: '1'
+nachkauf: haeufig
+name: 'Kommando: Haltet Stand!'
+text: Furcht-Effekte fuer Mitstreiter zaehlen als eine Stufe niedriger.
+typ: '2'
+variable: '0'
+voraussetzungen: Attribut CH 4

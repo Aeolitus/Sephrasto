@@ -1,0 +1,34 @@
+fertigkeiten: Winter
+kosten: '40'
+name: Schneesturm
+printclass: '29'
+text: 'Im Radius von 1 Meile entsteht ein Schneesturm. Der Wind steigt auf einer Skala
+  von windstill/leichte Brise/steife Brise/Sturm/Orkan um eine Stufe. Die Temperatur
+  sinkt auf einer Skala von kuehl/kalt/eiskalt/Firunsfrost (S. 35) um eine Stufe,
+  aber mindestens auf kalt. Es herrscht starker Schneefall. Eine Verfolgung durch
+  den Schneesturm ist nur mit einer Konterprobe (Ueberleben, 16) moeglich.
+
+  Maechtige Liturgie: Du kannst den Wind um eine weitere Stufe erhoehen und den Radius
+  verdoppeln.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: Zone
+
+  Reichweite: 1 Meile
+
+  Wirkungsdauer: 8 Stunden
+
+  Kosten: 16 KaP
+
+  Fertigkeiten: Winter
+
+  Erlernen: Fir 16; 40 EP
+
+  Anmerkung: Hohe Temperaturen koennen die Wirkungsdauer nach Spielleiterentscheid
+  auf bis zu 1 Stunde senken. '
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Firungeweihten I

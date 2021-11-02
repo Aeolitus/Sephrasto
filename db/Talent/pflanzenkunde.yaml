@@ -1,0 +1,10 @@
+fertigkeiten: Derekunde
+kosten: '-1'
+name: Pflanzenkunde
+printclass: '-1'
+text: Pflanzenkundige erforschen die vielen nuetzlichen, gefaehrlichen oder wundersamen
+  Pflanzen Aventuriens. Sie sammeln die Kraeuter fuer eine Heilsalbe, kennen die Gefahr
+  von Jagdgras und finden essbare Fruechte oder Wurzeln.
+variable: '0'
+verbilligt: '0'
+voraussetzungen: ''

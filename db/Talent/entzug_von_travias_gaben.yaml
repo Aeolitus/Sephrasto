@@ -1,0 +1,15 @@
+fertigkeiten: Heim und Herd
+kosten: '20'
+name: Entzug von Travias Gaben
+printclass: '48'
+text: "Du rufst Travias Strafe auf einen reuelosen Suender herab. Wenn ihm eine Konterprobe\
+  \ (Willenskraft, 20) misslingt, sind Proben auf Beeinflussung, Gebraeuche und Autoritaet\
+  \ um \u20134 erschwert und moegliche Gastgeber versagen ihm die Aufnahme.\nMaechtige\
+  \ Liturgie: Der Malus steigt um \u20132.\nProbenschwierigkeit: 12\nModifikationen:\
+  \ Permanenz (\u20134, Wirkungsdauer bis die Bindung geloest wird, 8 KaP, davon 2\
+  \ gKaP)\nVorbereitungszeit: 4 Minuten\nZiel: Einzelperson\nReichweite: 16 Schritt\n\
+  Wirkungsdauer: 1 Woche\nKosten: 8 KaP\nFertigkeiten: Heim und Herd\nErlernen: Tra\
+  \ 12; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Traviageweihten I

@@ -1,0 +1,29 @@
+fertigkeiten: Heiliges Erz
+kosten: '20'
+name: Sicherer Weg durch den Fels
+printclass: '32'
+text: 'Unter der Erde wird dein Ziel wie mit der Gabe Gefahreninstinkt vor natuerlichen
+  Gefahren gewarnt. Besitzt es die Gabe bereits, sind damit verbundene Proben um +4
+  erleichtert. Ueberleben-Proben sind um +4 erleichtert.
+
+  Maechtige Liturgie: Der Bonus steigt um +2.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Tag
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Heiliges Erz
+
+  Erlernen: Ang, Ing 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition
+  der Angroschgeweihten I

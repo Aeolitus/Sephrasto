@@ -1,0 +1,14 @@
+fertigkeiten: Einfluss, Zaubertaenze
+kosten: '40'
+name: Tanz ohne Ende
+printclass: '19'
+text: "Alle Humanoide in Hoerreichweite sind von deinem immer berauschenderen Tanz\
+  \ voellig gefesselt. Nur mit einer Konterprobe (Willenskraft, 16) kann sich ein\
+  \ Zuhoerer fuer 16\_Initiativphasen dem Zauber entziehen. Ansonsten erwacht er,\
+  \ wenn du aufhoerst zu spielen oder er eine Wunde erleidet. Erfordert Konzentration,\
+  \ erlaubt Aufrechterhalten.\nProbenschwierigkeit: 12\nVorbereitungszeit: 16 Aktionen\n\
+  Ziel: Zone\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 8 AsP\nFertigkeiten:\
+  \ Einfluss, Zaubertaenze\nErlernen: Ztz 14; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Zaubertaenzer I

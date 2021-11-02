@@ -1,0 +1,17 @@
+kommentar: '0'
+kosten: '20'
+nachkauf: haeufig
+name: Tradition der Hexen I
+text: 'Bedingungen: Sichtkontakt, Geste, Bodenkontakt.
+
+
+  Du kannst Zauber in der Tradition der Hexen erlernen und benutzen. Solche Zauber
+  findest du unter den allgemeinen Zaubern, unter Hexenflueche (S. 166), Schalenzauber
+  (S. 171) und Vertrautenmagie (S. 173).
+
+
+  Die Komponente Bodenkontakt kann nur ignoriert werden, wenn du zumindest ueber indirekten
+  Bodenkontakt verfuegst (z.B. in einem mehrstoeckigen Haus).'
+typ: '5'
+variable: '0'
+voraussetzungen: Attribut IN 4, Vorteil Zauberer I

@@ -1,0 +1,9 @@
+fertigkeiten: Heilkunde
+kosten: '-1'
+name: Gifte und Krankheiten
+printclass: '-1'
+text: Mit dem Talent Gifte und Krankheiten stoppst du eine Tulmadron-Vergiftung, erkennst
+  die ersten Anzeichen fuer Zorganpocken und kannst einen Ghulbiss behandeln.
+variable: '0'
+verbilligt: '0'
+voraussetzungen: ''

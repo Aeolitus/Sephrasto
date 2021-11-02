@@ -1,0 +1,11 @@
+fertigkeiten: Mythenkunde
+kosten: '-1'
+name: Goetter und Kulte
+printclass: '-1'
+text: Goetter und Kulte befasst sich mit dem Wesen der Goetter, ihrer Schoepfung und
+  ihren sterblichen Dienern. Dein Charakter kennt den Aufbau und die Ziele der Kirchen
+  und weiss, wie man ihren Angehoerigen gegenuebertritt. Genauso kann er eine alte
+  Kultstaette einer Gottheit oder vielleicht einem Erzdaemonen zuordnen.
+variable: '0'
+verbilligt: '0'
+voraussetzungen: ''

@@ -1,0 +1,11 @@
+fertigkeiten: Winter
+kosten: '20'
+name: Ruf des Asainyf
+printclass: '29'
+text: "Du bist immun gegen Eis- und Kaelteschaden.\nModifikationen: Erweiterter Schutz\
+  \ (\u20134; der Schutz betrifft auch deine Ausruestung.)\nVorbereitungszeit: 16\
+  \ Aktionen\nZiel: selbst\nReichweite: Beruehrung\nWirkungsdauer: 8 Stunden\nKosten:\
+  \ 8 KaP\nFertigkeiten: Winter\nErlernen: Fir 12; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Firungeweihten I

@@ -1,0 +1,24 @@
+fertigkeiten: Illusion, Vertrautenmagie
+kosten: '20'
+name: Tarnung
+printclass: '17'
+text: 'Dein Vertrautentier erhaelt die Eigenschaft Tarnung (S. 98).
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 1 AsP
+
+  Fertigkeiten: Illusion, Vertrautenmagie
+
+  Erlernen: Hex 14, Geo 18; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I

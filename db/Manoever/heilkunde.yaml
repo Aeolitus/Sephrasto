@@ -1,0 +1,16 @@
+gegenprobe: ''
+name: Heilkunde
+probe: ''
+text: "Mit erster Hilfe kann eine Blutung gestoppt werden oder die Auswirkung von\
+  \ Giften und Krankheiten gemildert werden (siehe S. 35). Dafuer benoetigst du so\
+  \ viele Aktionen Konzentration (S. 37), wie die Patientin vor Beginn der Heilung\
+  \ Wunden erlitten hat, mindestens aber 4 Initiativephasen. Ausserdem musst du ueber\
+  \ Verbandsmaterial (Wunden) oder passende Heilkraeuter (Gifte und Krankheiten) verfuegen.\
+  \ Die Schwierigkeit betraegt 16 bzw. die Gift- oder Krankheitsstufe.\n    Darauf\
+  \ folgen heilungsfoerdernde Massnahmen, wodurch der Patient sofort eine Wunde regeneriert.\
+  \ Pro Patient und Tag darf nur eine Probe abgelegt werden. Eine solche Probe dauert\
+  \ eine halbe Stunde. Ausserdem benoetigst du heilende Salben oder aehnliche Hilfsmittel,\
+  \ Verbands material und sauberes Wasser. Die Schwierigkeit der Probe betraegt 16\
+  \ + den Betrag der aktuellen Wundabzuege des Patienten."
+typ: '9'
+voraussetzungen: Fertigkeit 'Heilkunde' 1

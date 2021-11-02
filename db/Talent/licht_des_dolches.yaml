@@ -1,0 +1,14 @@
+fertigkeiten: Dolchzauber, Eigenschaften
+kosten: '40'
+name: Licht des Dolches
+printclass: '1'
+text: "Du ignorierst eine Stufe Dunkelheit, aber grelles Licht erschwert alle Proben\
+  \ um \u20132. Bei absoluter Dunkelheit ist der Zauber wirkungslos.\nMaechtige Magie:\
+  \ Du ignorierst 2/3 Stufen Dunkelheit.\nProbenschwierigkeit: 12\nVorbereitungszeit:\
+  \ 4 Aktionen\nZiel: Einzelperson\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\n\
+  Kosten: 4 AsP\nFertigkeiten: Dolchzauber, Eigenschaften\nErlernen: Dru, Geo 14;\
+  \ 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden
+  I

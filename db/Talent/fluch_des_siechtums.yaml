@@ -1,0 +1,14 @@
+fertigkeiten: Daemonisch, Geister des Zorns
+kosten: '40'
+name: Fluch des Siechtums
+printclass: '6'
+text: "Du infizierst dein Opfer mit einer dir bekannten Krankheit deiner Wahl, die\
+  \ dann ihren natuerlichen Krankheitsverlauf nimmt. Die maximale Krankheitsstufe\
+  \ ist 16.\nMaechtige Magie: Erhoeht die maximale Krankheitsstufe um +4.\nProbenschwierigkeit:\
+  \ Magieresistenz\nModifikationen: Einzelfall (\u20134; die Krankheit ist nicht ansteckend.)\n\
+  Vorbereitungszeit: 4 Aktionen\nZiel: Einzelperson\nReichweite: 4 Schritt\nWirkungsdauer:\
+  \ augenblicklich\nKosten: 16 AsP\nFertigkeiten: Daemonisch, Geister des Zorns\n\
+  Erlernen: Smn 18; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

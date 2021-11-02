@@ -1,0 +1,15 @@
+fertigkeiten: Heiliges Erz, Heiliges Handwerk
+kosten: '60'
+name: "Largorax\u2018 Hammer"
+printclass: '32'
+text: "Du rufst Lagorax\u2018 Hammer herbei. Der Hammer erleichtert alle Schmieden-Proben\
+  \ an einem bestimmten Handwerksstueck um +2. Der Hammer kann auch als Waffe gegen\
+  \ einen Drachen oder einen Gegenstand aus Erz oder Fels gerichtet werden und richtet\
+  \ 2W20+10 TP an. Er verschwindet nach einem Angriff.\nMaechtige Liturgie: Erhoeht\
+  \ die Erleichterung um +1 und den Schaden um +10.\nProbenschwierigkeit: 12\nVorbereitungszeit:\
+  \ 4 Minuten\nZiel: Einzelobjekt\nReichweite: dereweit\nWirkungsdauer: 1 Woche\n\
+  Kosten: 16 KaP\nFertigkeiten: Heiliges Erz, Heiliges Handwerk\nErlernen: Ang 18;\
+  \ 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Angroschgeweihten I

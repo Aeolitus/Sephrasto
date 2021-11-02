@@ -1,0 +1,14 @@
+fertigkeiten: Einfluss, Elfenlieder
+kosten: '40'
+name: 'Lied der Lieder '
+printclass: '2'
+text: "Alle Humanoide in Hoerreichweite sind von deiner immer berauschenderen Musik\
+  \ voellig gefesselt. Nur mit einer Konterprobe (Willenskraft, 16) kann sich ein\
+  \ Zuhoerer fuer 16\_Initiativphasen dem Zauber des Liedes entziehen. Ansonsten erwacht\
+  \ er, wenn du aufhoerst zu spielen oder er eine Wunde erleidet. Erfordert Konzentration,\
+  \ erlaubt Aufrechterhalten.\nProbenschwierigkeit: 12\nVorbereitungszeit: 16 Aktionen\n\
+  Ziel: Zone\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 8 AsP\nFertigkeiten:\
+  \ Einfluss, Elfenlieder\nErlernen: Elf 16; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Elfen I

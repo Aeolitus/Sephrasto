@@ -1,0 +1,9 @@
+gegenprobe: ''
+name: Stumpfer Schlag
+probe: AT
+text: 'Der Angriff verursacht Erschoepfung statt Wunden. Wird das Ziel kampfunfaehig,
+  erleidet es keine Blutung.
+
+  Voraussetzung: Waffeneigenschaft Stumpf.'
+typ: '0'
+voraussetzungen: Waffeneigenschaft Stumpf

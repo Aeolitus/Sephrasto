@@ -1,0 +1,16 @@
+fertigkeiten: Gaben des Blutgeists
+kommentar: '0'
+kosten: '0'
+name: Pfeil der Luft (Blutgeist)
+printclass: '0'
+text: "Du verzauberst einen Pfeil (oder Bolzen oder Wurfwaffe), sodass er im Flug\
+  \ die Macht des Elements freisetzt. Der Pfeil verursacht Luftschaden und Zurueckstossen\
+  \ (S. 98). Die Reichweite fuer diesen Schuss ist verdoppelt.\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Geschuetz (\u20134; du verzauberst ein groesseres Geschoss\
+  \ wie das einer Balliste.)\nPermanenz (\u20134, 4 AsP, davon 1 gAsP, Wirkungsdauer\
+  \ bis die Bindung geloest wird oder der Pfeil verschossen wurde)\nVorbereitungszeit:\
+  \ 1 Aktion\nZiel: Einzelobjekt\nReichweite: Beruehrung\nWirkungsdauer: 8 Initiativphasen\n\
+  Kosten: 4 AsP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Falke)

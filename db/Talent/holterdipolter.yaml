@@ -1,0 +1,25 @@
+fertigkeiten: Umwelt
+kosten: '40'
+name: Holterdipolter
+printclass: '0'
+text: 'In einem Radius von 8 Schritt um dich herum geht alles schief: Menschen stolpern,
+  Knoten oeffnen sich und Vasen fallen um. Dabei kommt niemand ernsthaft zu Schaden.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 4 Minuten
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Umwelt
+
+  Erlernen: Sch 20; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Schelme I

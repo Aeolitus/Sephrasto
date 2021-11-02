@@ -1,0 +1,32 @@
+fertigkeiten: Sichere Heimkehr
+kosten: '40'
+name: Travinians Segen des Lagerfeuers
+printclass: '49'
+text: 'Du segnest ein Lagerfeuer. Unheilige Wesenheiten in seinem Schein erleiden
+  einen Furcht-Effekt der Stufe 2, wenn ihre Beschwoerungsschwierigkeit maximal 20
+  betraegt.
+
+  Maechtige Liturgie: Erhoeht die maximale Beschwoerungsschwierigkeit um 4.
+
+  Probenschwierigkeit: 12
+
+  Modifikationen: Waermendes Feuer (Wirkungsdauer 8 Stunden, 4 KaP; statt der gewoehnlichen
+  Wirkung steigt die Temperatur um das Feuer zusaetzlich um eine Stufe, bis maximal
+  auf normal (siehe S. 35))
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: 2 Schritt
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Sichere Heimkehr
+
+  Erlernen: Tra 14; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Traviageweihten I

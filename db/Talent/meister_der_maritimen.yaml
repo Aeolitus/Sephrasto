@@ -1,0 +1,25 @@
+fertigkeiten: Daemonische Hilfe (Cpt)
+kosten: '40'
+name: Meister der Maritimen
+printclass: '200'
+text: 'Das  Ziel befolgt einen Charyptorothgefaelligen Befehl, wenn ihm keine Konterprobe
+  (Willenskraft, 20) gelingt.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Einzelperson (nur maritime Humanoide)
+
+  Reichweite: 32 Schritt
+
+  Wirkungsdauer: 1 Tag
+
+  Kosten: 8 GuP
+
+  Fertigkeiten: Daemonische Hilfe (Cpt)
+
+  Erlernen: Cpt 16; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Paktierer I

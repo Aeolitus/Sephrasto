@@ -1,0 +1,27 @@
+fertigkeiten: Eigenschaften, Elfenlieder
+kosten: '20'
+name: Erinnerungsmelodie
+printclass: '2'
+text: 'Du stimmst dich auf eine vergangene Situation ein, um dich an ein Detail zu
+  erinnern. Die dafuer notwendige KL-Probe ist um +4 erleichtert.
+
+  Maechtige Magie: Der Bonus steigt um +2.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 1 AsP
+
+  Fertigkeiten: Eigenschaften, Elfenlieder
+
+  Erlernen: Elf 12; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Elfen I

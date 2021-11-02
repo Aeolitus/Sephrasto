@@ -1,0 +1,31 @@
+fertigkeiten: Umwelt
+kosten: '40'
+name: Zappenduster
+printclass: '0'
+text: 'Um deinen Koerper herum entsteht eine Zone der Dunkelheit von 4 Schritt Radius.
+  Die Helligkeit sinkt um eine Stufe (etwa von normal auf Daemmerung, von Sternenlicht
+  auf absolute Dunkelheit, S. 38). Der Zauber gilt als Konterprobe (16) gegen alle
+  Lichtzauber im Bereich, bei deren Gelingen die Lichtzauber aufgehoben werden. Alle
+  profanen Lichtquellen im Bereich werden erstickt. Du selbst bist von dem Zauber
+  nicht betroffen.
+
+  Maechtige Magie: Senkt die Helligkeit um eine weitere Stufe.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 4 Minuten
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Umwelt
+
+  Erlernen: Sch 16; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Schelme I

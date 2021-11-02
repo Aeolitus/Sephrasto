@@ -1,0 +1,19 @@
+fertigkeiten: Humus, Verwandlung
+kosten: '60'
+name: Haselbusch und Ginsterkraut
+printclass: '0'
+text: "Du leitest das Wachstum einer Pflanze, kannst es beschleunigen und formen.\
+  \ Die Kosten, Zauberdauer und Modifikationen Maechtige Magie sind Meisterentscheid.\
+  \ Beispiele:\n4 AsP, keine Maechtige Magie, 1 Minute: Aus einem Samen waechst eine\
+  \ kleine Heilpflanze.\n8 AsP, 1x Maechtige Magie, eine halbe Stunde: Ein Baum traegt\
+  \ drei Monate zu frueh Fruechte.\n4 AsP, 2x Maechtige Magie, 4 Minuten: Die Rinde\
+  \ eines Baumes zeigt eine Botschaft;\n128 AsP, 4x Maechtige Magie, 4 Tage: Eine\
+  \ Baumkrone wird zu einem Baumhaus mit Moebeln, Dach und Fenstern\nProbenschwierigkeit:\
+  \ 12\nVorbereitungszeit: nach Projekt\nZiel: Pflanze\nReichweite: Beruehrung\nWirkungsdauer:\
+  \ augenblicklich\nKosten: nach Projekt\nFertigkeiten: Humus, Verwandlung\nErlernen:\
+  \ Elf 14; Geo 18; Alch, Dru, Hex, Mag\_20; 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden
+  I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil
+  Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I

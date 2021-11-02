@@ -1,0 +1,28 @@
+fertigkeiten: Heim und Herd
+kosten: '0'
+name: Weihe des Heimsteins
+printclass: '48'
+text: 'Du segnest einen Heimstein, der in die Unterkunft eingebaut wird. Solange sich
+  die Bewohner in der Unterkunft befinden und an die Gesetze Travias halten, koennen
+  sie die Auswirkung negativer sozialer Eigenheiten ignorieren. Ausserdem bleibt die
+  Unterkunft vor den Naturgewalten verschont. Letzteres gilt nicht, wenn die Unterkunft
+  in einem besonders gefaehrdeten Gebiet errichtet wurde.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Stunden
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: bis die Unterkunft deutlich umgebaut wird
+
+  Kosten: 16 KaP
+
+  Fertigkeiten: Heim und Herd
+
+  Erlernen: Tra 8; 0 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Traviageweihten I

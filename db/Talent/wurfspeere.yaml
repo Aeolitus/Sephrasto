@@ -1,0 +1,8 @@
+fertigkeiten: Wurfwaffen
+kosten: '-1'
+name: Wurfspeere
+printclass: '-1'
+text: Verbessert den Einsatz von Wurfspeeren.
+variable: '0'
+verbilligt: '0'
+voraussetzungen: ''

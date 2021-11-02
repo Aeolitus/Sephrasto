@@ -1,0 +1,14 @@
+fertigkeiten: Einfluss, Zaubermelodien
+kosten: '40'
+name: Melodie der Versoehnung
+printclass: '18'
+text: "Die Melodie schafft in 4 Schritt Radius eine versoehnliche Atmosphaere, wenn\
+  \ den Zuhoerern keine Konterprobe (Magieresistenz, 16) gelingt. Proben auf Betoeren\
+  \ und Rhetorik sind um +4 erleichtert, Proben auf Ueberreden und Einschuechtern\
+  \ um \u20134 erschwert. Erfordert Konzentration, erlaubt Aufrechterhalten.\nProbenschwierigkeit:\
+  \ 12\nVorbereitungszeit: 4 Aktionen\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer:\
+  \ 1 Stunde\nKosten: 8 AsP\nFertigkeiten: Einfluss, Zaubermelodien\nErlernen: Bard\
+  \ 12; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Zauberbarden I

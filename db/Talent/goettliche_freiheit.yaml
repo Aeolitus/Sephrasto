@@ -1,0 +1,29 @@
+fertigkeiten: Froehlicher Wanderer, Neubeginn, Rausch
+kosten: '40'
+name: Goettliche Freiheit
+printclass: '44'
+text: 'Der Gesegnete wird von einer Fessel befreit, zum Beispiel von einer Eisenkette,
+  von einer Sucht oder einem Einflusszauber. Koerperliche Fesseln verschwinden dabei,
+  geistige Fesseln werden waehrend der Wirkungsdauer unterdrueckt. Handelt sich es
+  bei der Fessel um einen Zauber, wirkt die Liturgie als Konterprobe (8) gegen diesen
+  Zauber. Bei einer gelungenen Probe wird der Zauber aufgehoben.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Einzelwesen
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Tag
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Froehlicher Wanderer, Neubeginn, Rausch
+
+  Erlernen: Aves, Rah, Tsa 12; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
+  Rahjageweihten I ODER Vorteil Tradition der Tsageweihten I

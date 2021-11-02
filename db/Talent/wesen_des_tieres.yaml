@@ -1,0 +1,27 @@
+fertigkeiten: Hellsicht, Verstaendigung, Gaben des Odun
+kosten: '20'
+name: Wesen des (Tieres)
+printclass: '4'
+text: 'Du siehst die Gedanken des Tiers als verschwommene Bilder.
+
+  Maechtige Magie: Zusaetzlich kannst du das Tier um einen kleineren/groesseren/gefaehrlichen
+  Gefallen bitten. Ob das Tier den Gefallen ausfuehren kann und will, ist Spielleiterentscheid.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Tier
+
+  Reichweite: 8 Schritt
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Hellsicht, Verstaendigung, Gaben des Odun
+
+  Erlernen: Dur 14; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Durro-dun I

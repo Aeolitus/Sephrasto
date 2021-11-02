@@ -1,0 +1,30 @@
+fertigkeiten: Sichere Heimkehr, Stiller Wanderer
+kosten: '40'
+name: Reisesegen
+printclass: '49'
+text: 'Der Segen Travias begleitet den Reisenden und warnt ihn vor Arglist und Tuecke.
+  Er kann Gefahren der Zivilisation (Ueberfaelle, Diebe, betruegerische Fuehrer) wie
+  mit der Gabe Gefahreninstinkt erkennen. Besitzt er die Gabe bereits, sind damit
+  verbundene Proben um +4 erleichtert. Wirkt nicht in daemonisch pervertiertem Gebiet.
+
+  Maechtige Liturgie: Gebraeuche-Proben sind um +2 erleichtert.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 2 Tage
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Sichere Heimkehr, Stiller Wanderer
+
+  Erlernen: Aves, Tra 14; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
+  Traviageweihten I

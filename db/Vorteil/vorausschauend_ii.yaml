@@ -1,0 +1,14 @@
+kommentar: '0'
+kosten: '40'
+linkElement: Vorausschauend I
+linkKategorie: '3'
+nachkauf: haeufig
+name: Vorausschauend II
+text: 'In Rededuellen sind Proben auf Rhetorik und Ueberreden um +2 erleichtert.
+
+
+  Bei Proben auf Ueberreden, Rhetorik und Menschenkenntnis gelten Patzer als gewoehnlich
+  misslungen, ausser sie entstehen durch eine ungewohnte Umgebung (S. 55).'
+typ: '1'
+variable: '0'
+voraussetzungen: Attribut IN 6

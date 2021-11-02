@@ -1,0 +1,11 @@
+gegenprobe: ''
+name: Bewegung (einfach)
+probe: ''
+text: 'Du laeufst, reitest oder schwingst an einem Seil. In einer normalen Kampfsituation
+  kannst du so GS Schritt zuruecklegen. Auf unsicherem Untergrund sinkt dieser Wert
+  auf die Haelfte, in liegender oder kniender Position auf ein Viertel. Unter folgenden
+  Bedingungen kannst du dich aber auch weiter bewegen: Geradeaus vorwaerts doppelt
+  so weit; geradeaus vorwaerts und zusaetzlich ohne Gepaeck, Ruestung und sperrige
+  Waffen viermal so weit.'
+typ: '5'
+voraussetzungen: ''

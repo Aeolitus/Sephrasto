@@ -1,0 +1,11 @@
+fertigkeiten: Kraft, Trommelrituale
+kosten: '60'
+name: Rhythmen des gottgefaelligen Zornes
+printclass: '16'
+text: "Die Waffen der Zuhoerer im Radius von 4\_Schritt gelten waehrend der Wirkungsdauer\
+  \ als magisch.\nProbenschwierigkeit: 12\nVorbereitungszeit: 1 Stunde\nZiel: Zone\n\
+  Reichweite: Beruehrung\nWirkungsdauer: 1 Tag\nKosten: 16 AsP\nFertigkeiten: Kraft,\
+  \ Trommelrituale\nErlernen: Der 18; 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Derwische I

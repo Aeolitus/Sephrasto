@@ -1,0 +1,25 @@
+fertigkeiten: Daemonisch
+kosten: '120'
+name: Invocatio
+printclass: '0'
+text: 'Ruft einen Daemon herbei (mehr zur Daemonenbeschwoerung siehe S. 81), der in
+  deiner unmittelbaren Naehe erscheint.
+
+  Probenschwierigkeit: nach Daemon
+
+  Vorbereitungszeit: frei waehlbar
+
+  Ziel: einzelner Daemon
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: nach Daemon
+
+  Fertigkeiten: Daemonisch
+
+  Erlernen: Mag 14; Bor, Hex 16; Ach, Alch, Dru 18; 120 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer
+  I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Gildenmagier I
+  ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I

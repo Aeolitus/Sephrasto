@@ -1,0 +1,16 @@
+fertigkeiten: Illusion
+kosten: '60'
+name: Auris Nasus Oculus
+printclass: '0'
+text: "Eine statische Illusion (Sicht, Gehoer oder Geruch) deiner Wahl erscheint.\
+  \ Ihre maximale Groesse betraegt PW Illusionx4 Raumschritt.\nMaechtige Magie: Die\
+  \ Illusion betrifft einen weiteren, oben genannten Sinn.\nProbenschwierigkeit: 12\n\
+  Modifikationen: Bewegte Illusion (-4; die Illusion fuehrt eine beim Zaubern bestimmte\
+  \ Bewegung aus.)\nKontrollierte Illusion (\u20134; du kannst die Illusion aktiv\
+  \ steuern, was Konzentration erfordert.)\nVorbereitungszeit: 2 Aktionen\nZiel: Zone\n\
+  Reichweite: 32 Schritt\nWirkungsdauer: 16 Minuten\nKosten: 8 AsP\nFertigkeiten:\
+  \ Illusion\nErlernen: Srl 12; Mag 14; 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane
+  I

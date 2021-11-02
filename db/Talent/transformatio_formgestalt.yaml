@@ -1,0 +1,18 @@
+fertigkeiten: Verwandlung
+kosten: '60'
+name: Transformatio Formgestalt
+printclass: '0'
+text: "Du verwandelst dein Ziel. Die Kosten, Zauberdauer und Modifikationen Maechtige\
+  \ Magie sind Spielleiterentscheid. Beispiele:\n4 AsP, keine Maechtige Magie, 4 Aktionen:\
+  \ Du verwandelst ein Glas Wasser in Wein.\n8 AsP, 1x Maechtige Magie, 16 Aktionen:\
+  \ Ein Stein wird zu einem Kurzschwert.\n8 AsP, 3x Maechtige Magie, 4 Minuten: Aus\
+  \ einem Knaeuel Kamelhaar wird ein feiner mhanadischer Teppich.\n32 AsP, 4x Maechtige\
+  \ Magie, 1 Stunde: Aus einem Baumstamm wird eine lebensechte Marmorstatue.\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Dauernde Form (\u20134, Wirkungsdauer 1 Woche)\nPermanenz\
+  \ (\u20134, Wirkungsdauer bis die Bindung geloest wird, zusaetzlich ein Achtel der\
+  \ Basiskosten als gAsP)\nVorbereitungszeit: nach Vorhaben\nZiel: Einzelobjekt\n\
+  Reichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: nach Vorhaben\nFertigkeiten:\
+  \ Verwandlung\nErlernen: Ach 18; 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Kristallomanten I

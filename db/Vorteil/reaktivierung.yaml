@@ -1,0 +1,15 @@
+csBeschreibung: Du kannst wieder aufladbare Artefakte erschaffen und reaktivieren.
+  Die Probenschwierigkeit betraegt 16, sowohl fuer die Herstellung als auch die Aufladung
+  von Artefakten. Beim Aufladen kostet dich der Arcanovi so viele AsP, wie die Basiskosten
+  der wirkenden Sprueche betragen.
+kommentar: '0'
+kosten: '20'
+linkElement: Artefaktherstellung
+linkKategorie: '1'
+nachkauf: haeufig
+name: Reaktivierung
+text: Du kannst wieder aufladbare Artefakte erschaffen und reaktivieren (S. 78).
+typ: '4'
+variable: '0'
+voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut
+  FF 4

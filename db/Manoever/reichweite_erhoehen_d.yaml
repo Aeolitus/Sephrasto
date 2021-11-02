@@ -1,0 +1,7 @@
+gegenprobe: ''
+name: Reichweite erhoehen (D)
+probe: Anrufung -4
+text: Die Reichweite der Anrufung verdoppelt sich. Die Reichweite Beruehrung wird
+  zu 2 Schritt.
+typ: '6'
+voraussetzungen: Vorteil Paktierer I

@@ -1,0 +1,11 @@
+kommentar: '0'
+kosten: '40'
+linkElement: Tradition der Avesgeweihten I
+linkKategorie: '3'
+nachkauf: haeufig
+name: Tradition der Avesgeweihten II
+text: Avesgeweihte sind staendig in Bewegung. Wenn du eine Liturgie vorbereitest,
+  kannst du zusaetzlich zur Aktion Konzentration die Aktion Bewegung nutzen.
+typ: '7'
+variable: '0'
+voraussetzungen: Attribut MU 6, Vorteil Tradition der Avesgeweihten I

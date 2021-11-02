@@ -1,0 +1,28 @@
+fertigkeiten: Antimagie, Geister der Staerkung, Geister vertreiben, Kraft
+kosten: '20'
+name: Schuetzende Rotte
+printclass: '5'
+text: 'Du bemalst einen Schild mit Tieren. Proben zur Abwehr von ballistischen Zaubern
+  (siehe S. 124) sind mit diesem Schild um +4 erleichtert. Der Schild erleidet dabei
+  keinen Schaden.
+
+  Maechtige Magie: Der Bonus steigt um +2.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: bis die Bindung geloest wird
+
+  Kosten: 4 AsP, davon 1 gAsP
+
+  Fertigkeiten: Antimagie, Geister der Staerkung, Geister vertreiben, Kraft
+
+  Erlernen: Smn 18; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

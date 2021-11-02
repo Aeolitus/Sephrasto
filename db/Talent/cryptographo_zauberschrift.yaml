@@ -1,0 +1,17 @@
+fertigkeiten: Verstaendigung
+kosten: '20'
+name: Cryptographo Zauberschrift
+printclass: '0'
+text: "Du verschluesselst eine Nachricht, sodass sie nur noch mit einem Loesungswort\
+  \ gelesen werden kann. Die Verschluesselung kann nur mit einer Freien Fertigkeit\
+  \ (z.B. Kryptographie) auf Stufe II oder mit einer Konterprobe (KL oder Strukturanalyse,\
+  \ 16) und 4 Stunden Zeitaufwand geknackt werden.\nProbenschwierigkeit: 12\nModifikationen:\
+  \ Unlesbares Buch (\u20134, 16 AsP; ein ganzes Buch ist betroffen. Der Zeitaufwand\
+  \ zur kompletten Entzifferung betraegt mehrere Monate.)\nVorbereitungszeit: 4 Minuten\n\
+  Ziel: Einzelobjekt\nReichweite: Beruehrung\nWirkungsdauer: 1 Jahr\nKosten: 4 AsP\n\
+  Fertigkeiten: Verstaendigung\nErlernen: Mag 12; Alch 16; Ach, Hex 20; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil
+  Tradition der Kristallomanten I

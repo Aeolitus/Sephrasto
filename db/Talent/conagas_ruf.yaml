@@ -1,0 +1,29 @@
+fertigkeiten: Seefahrt
+kosten: '20'
+name: Conagas Ruf
+printclass: '25'
+text: 'Alle Meeresungeheuer im Radius von 100 Schritt erleiden einen Furcht-Effekt
+  Stufe 2.
+
+  Maechtige Liturgie: Verdoppelt den Radius und je zwei Stufen erhoehen den Furcht-Effekt
+  um eine Stufe.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 16 KaP
+
+  Fertigkeiten: Seefahrt
+
+  Erlernen: Swa 12; Eff 18; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der
+  Swafnirgeweihten I

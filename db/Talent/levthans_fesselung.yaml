@@ -1,0 +1,33 @@
+fertigkeiten: Harmonie
+kosten: '60'
+name: Levthans Fesselung
+printclass: '43'
+text: 'Du rufst das heilige Levthansband herbei, das sich um das Ziel legt und es
+  bindet. Das Ziel muss ein Daimonid, Daemon, Elementar, Feenwesen oder Untoter sein
+  und die Beschwoerungsschwierigkeit von maximal 24 aufweisen. Waehrend der Fesselung
+  ist das Ziel entrueckt und zu keiner Handlung faehig, kann aber auch nicht zum Ziel
+  von AT, Zaubern oder Liturgien werden.
+
+  Maechtige Liturgie: Erhoeht die Beschwoerungsschwierigkeit um 4.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Einzelwesen
+
+  Reichweite: 4 Schritt
+
+  Wirkungsdauer: 1 Tag
+
+  Kosten: 16 KaP
+
+  Fertigkeiten: Harmonie
+
+  Erlernen: Rah 18; 60 EP
+
+  Anmerkung: Legenden zufolge soll es eine Variante der Liturgie geben, die sogar
+  halbgoettliche Wesen binden kann. '
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Rahjageweihten I

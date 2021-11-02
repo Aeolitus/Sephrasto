@@ -1,0 +1,27 @@
+fertigkeiten: Heim und Herd, Wildnis
+kosten: '20'
+name: Geteiltes Leid
+printclass: '28'
+text: 'Du rufst den Mantel der Heiligen Matscha und schneidest fuer den Gesegneten
+  ein Stueck ab. Der Mantel verleiht ihm Immunitaet gegen Kaelteschaden, bis er an
+  angemessene Kleidung gelangen kann.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Monat
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Heim und Herd, Wildnis
+
+  Erlernen: Ifi 12; Tra 14; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Ifirngeweihten I ODER Vorteil Tradition der
+  Traviageweihten I

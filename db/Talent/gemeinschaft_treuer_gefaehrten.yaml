@@ -1,0 +1,33 @@
+fertigkeiten: Froehlicher Wanderer, Jagd, Sichere Heimkehr
+kosten: '40'
+name: Gemeinschaft treuer Gefaehrten
+printclass: '27'
+text: 'Du staerkst die Bindung zwischen einem Tier und seinem Besitzer. Proben im
+  Umgang mit dem Tier sind um +4 erleichtert, Freie Fertigkeiten (wie Abrichter) zaehlen
+  als eine Stufe hoeher.
+
+  Maechtige Liturgie: Der Bonus steigt um +2, je zwei Stufen erhoehen Freie Fertigkeiten
+  um eine weitere Stufe.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Woche
+
+  Ziel: Tier und Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: bis die Bindung geloest wird
+
+  Kosten: 8 KaP, davon 2 gKaP
+
+  Fertigkeiten: Froehlicher Wanderer, Jagd, Sichere Heimkehr
+
+  Erlernen: Ifi 14, Aves, Tra 16; 40 EP
+
+  Anmerkung: Besonders grosse und starke Tiere erhoehen die gKaP-Kosten auf 4 oder
+  sogar 8.'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
+  Ifirngeweihten I ODER Vorteil Tradition der Traviageweihten I

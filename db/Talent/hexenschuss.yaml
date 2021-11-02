@@ -1,0 +1,12 @@
+fertigkeiten: Eigenschaften, Hexenflueche
+kosten: '40'
+name: Hexenschuss
+printclass: '9'
+text: "Das Opfer wird vom Hexenschuss geplagt, der entweder alle koerperlichen oder\
+  \ alle geistigen Taetigkeiten um \u20132 erschwert.\nMaechtige Magie: Der Malus\
+  \ steigt um \u20131.\nProbenschwierigkeit: Magieresistenz\nVorbereitungszeit: 2\
+  \ Aktionen\nZiel: Einzelperson\nReichweite: 8 Schritt\nWirkungsdauer: 4 Stunden\n\
+  Kosten: 8 AsP\nFertigkeiten: Eigenschaften, Hexenflueche\nErlernen: Hex 8; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Hexen I

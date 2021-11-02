@@ -1,0 +1,16 @@
+fertigkeiten: Kraft
+kosten: '60'
+name: Invercano Spiegeltrick
+printclass: '0'
+text: "Du verwandelst deine Haende in silbern glaenzende Spiegel. Du kannst den naechsten,\
+  \ waehrend der Wirkungsdauer auf dich gewirkten Zauber auf den Zauberer zurueckwerfen,\
+  \ wenn dir eine Konterprobe (IN, 12) gelingt.\nMaechtige Magie: Ein weiterer Zauber\
+  \ wird zurueckgeworfen.\nProbenschwierigkeit: 12\nModifikationen: Silberschild (\u2013\
+  8, Einzelobjekt, Wirkungsdauer 1 Stunde; du verzauberst einen Schild, dessen Traeger\
+  \ die Zauberwirkung nutzen kann.)\nVorbereitungszeit: 0 Aktionen\nZiel: selbst\n\
+  Reichweite: Beruehrung\nWirkungsdauer: 16 Initiativphasen\nKosten: 16 AsP\nFertigkeiten:\
+  \ Kraft\nErlernen: Elf, Mag 18; 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Elfen
+  I

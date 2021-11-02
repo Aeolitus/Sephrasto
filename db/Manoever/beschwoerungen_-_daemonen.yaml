@@ -1,0 +1,17 @@
+gegenprobe: ''
+name: Beschwoerungen - Daemonen
+probe: Invocatio, Kontrollprobe MU
+text: "Probenschwierigkeiten und Kosten:\n- 16 (mindere D. z.B. Gotongi), 16 AsP\n\
+  - 20 (niedere D. z.B. Zant), 24 AsP\n- 24 (weniggehoernte D., z.B. Ulchuchu), 32\
+  \ AsP\n- 28 (gehoernte D., z.B. Shruuf), 48 AsP\n- 32 (vielgehoernte D., z.B. Duglum),\
+  \ 64 AsP\n- 36 (maechtige D., z.B. Yo\u2019Na\u2018Hoh), 80 AsP\nBeschwoerungsprobe\
+  \ Mod.: +Bonus durch Vorbereitung, \u2013Kosten fuer Zusatzfaehigkeiten, +4 beim\
+  \ Einsatz von Blutmagie\nKontrollprobe Mod.: +Bonus durch Vorbereitung, +4 bis \u2013\
+  8 je nach Dienst, \u20134 beim Einsatz von Blutmagie\nChaotische Daemonen (optional):\
+  \ Daemonen sind Wesen des Chaos und oft weiss nicht einmal der Beschwoerer, welche\
+  \ Eigenschaften das von ihm gerufene Wesen haben wird. Der Spielleiter kann dem\
+  \ Daemon versteckt zusaetzliche Faehigkeiten verleihen entsprechend der Zufallstabelle\
+  \ auf S. 98.\nAnmerkung: Bei misslungenen Daemonenbeschwoerungen kann es zu gefaehrlichen\
+  \ chaotischen Nebeneffekten kommen. "
+typ: '4'
+voraussetzungen: Talent Invocatio ODER Talent Macht der Ungeformten

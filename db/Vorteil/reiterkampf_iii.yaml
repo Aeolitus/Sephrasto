@@ -1,0 +1,22 @@
+csBeschreibung: 'Du erhaeltst Waffenschaden +1, AT +1 und VT +1.
+
+
+  Erlaubt das Manoever Ueberrennen mit dem Pferd.'
+kommentar: '0'
+kosten: '60'
+linkElement: Reiterkampf II
+linkKategorie: '3'
+nachkauf: haeufig
+name: Reiterkampf III
+script: modifyKampfstil('Reiterkampf', 1, 1, 1, 0)
+text: 'Du erhaeltst Waffenschaden +1, AT +1 und VT +1.
+
+
+  Erlaubt das Manoever Ueberrennen (Bewegung und AT) mit dem Pferd: Das Reittier stuermt
+  in die gegnerische Formation. Seine Attacke trifft (samt anderen Manoevern) alle
+  Gegner in seiner Bahn, bis es durch mindestens 2 erfolgreiche Verteidigungen gestoppt
+  wird. Ausserdem richtet die Attacke GS Trefferpunkte zusaetzlich an. Die Kombination
+  der Aktionen Bewegung und Konflikt ist nicht erschwert.'
+typ: '3'
+variable: '0'
+voraussetzungen: Attribut GE 8 ODER Attribut KK 8, Vorteil Reiterkampf II

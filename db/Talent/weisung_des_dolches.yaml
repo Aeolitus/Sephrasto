@@ -1,0 +1,26 @@
+fertigkeiten: Dolchzauber, Hellsicht, Kraft
+kosten: '20'
+name: Weisung des Dolches
+printclass: '1'
+text: 'Dein Dolch leuchtet rot auf, wenn er in Richtung einer Kraftlinie gehalten
+  wird. Die Leuchtstaerke haengt von Entfernung und Staerke der Kraftlinie ab.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: 8 Meilen
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 1 AsP
+
+  Fertigkeiten: Dolchzauber, Hellsicht, Kraft
+
+  Erlernen: Dru 12; Geo 14; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden
+  I

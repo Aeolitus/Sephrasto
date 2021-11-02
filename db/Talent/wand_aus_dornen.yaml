@@ -1,0 +1,32 @@
+fertigkeiten: Humus
+kosten: '40'
+name: Wand aus Dornen
+printclass: '0'
+text: 'Eine 3 Schritt hohe und bis zu 4 Schritt lange Wand aus spitzen Dornen waechst
+  entlang einer von dir bestimmten Linie aus dem Boden. Sie hat eine Haerte von 16
+  und verfuegt ueber Regeneration I (S. 97). Um sie zu durchqueren, musst du sie mit
+  einer Konterprobe (GE, 16) betreten. Nach je 4 Initiativephasen kannst du eine Konterprobe
+  (GE, 16) ablegen, um die Wand zu verlassen. Durch den Versuch erleidest du 2W6 TP.
+
+  Maechtige Magie: Die Hoehe der Wand steigt um 1 Schritt, die Laenge um bis zu 2
+  Schritt, und die Haerte um 8.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: 8 Schritt
+
+  Wirkungsdauer: 16 Minuten
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Humus
+
+  Erlernen: Geo, Mag 18; Dru 20; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I

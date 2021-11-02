@@ -1,0 +1,18 @@
+csBeschreibung: "Bedingungen: Sichtkontakt, Geste.\n\nDu kannst Zauber in der Tradition\
+  \ der Durro-d\xFBn erlernen und benutzen. Solche Zauber findest du unter Gaben des\
+  \ Odun (S. 159).\n\nDu musst dich beim Erlernen fuer ein Tier entscheiden (siehe\
+  \ S. 160). Alle deine Zauber beziehen sich auf dieses Tier."
+kommentar: '0'
+kosten: '20'
+nachkauf: haeufig
+name: Tradition der Durro-dun I
+text: "Bedingungen: Sichtkontakt, Geste.\n\nDu kannst Zauber in der Tradition der\
+  \ Durro-d\xFBn erlernen und benutzen. Solche Zauber findest du unter Gaben des Odun\
+  \ (S. 159).\n\nDu musst dich beim Erlernen fuer ein Tier entscheiden (siehe S. 160).\
+  \ Alle deine Zauber beziehen sich auf dieses Tier.\n\nSephrasto: Die Tiertabelle\
+  \ ist in Sephrasto ueber die kostenlosen Tiergeist-Vorteile abgebildet, waehle einen\
+  \ davon aus. Dies schaltet alle Zauber des Tiergeists ueber die Fertigkeit Gaben\
+  \ des Odun frei."
+typ: '5'
+variable: '0'
+voraussetzungen: Attribut MU 4, Vorteil Zauberer I

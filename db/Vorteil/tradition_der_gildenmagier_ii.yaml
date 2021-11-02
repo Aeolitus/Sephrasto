@@ -1,0 +1,12 @@
+kommentar: '0'
+kosten: '40'
+linkElement: Tradition der Gildenmagier I
+linkKategorie: '3'
+nachkauf: haeufig
+name: Tradition der Gildenmagier II
+text: Gildenmagier verstehen die Matrix eines Zaubers und koennen ihn leichter veraendern.
+  Wenn du einen Zauber mit mindestens zwei unterschiedlichen Basismodifikationen wirkst,
+  ist er zusaetzlich um +2 erleichtert.
+typ: '5'
+variable: '0'
+voraussetzungen: Attribut KL 6, Vorteil Tradition der Gildenmagier I

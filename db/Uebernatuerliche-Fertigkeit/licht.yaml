@@ -1,0 +1,6 @@
+attribute: CH|CH|MU
+name: Licht
+printclass: '1'
+steigerungsfaktor: '2'
+text: 'Das Licht Praios'' ist vor allem von den Mystikern in der Kirche hoch verehrt. '
+voraussetzungen: Vorteil Tradition der Praiosgeweihten I

@@ -1,0 +1,9 @@
+kommentar: '0'
+kosten: '60'
+nachkauf: haeufig
+name: Katzenhaft
+text: Erschwernisse durch unsicheren Untergrund sinken um eine Stufe und gegen den
+  Schaden aus Stuerzen, Zusammenstoessen usw. kannst du deine GE als WS verwenden.
+typ: '1'
+variable: '0'
+voraussetzungen: Attribut GE 8

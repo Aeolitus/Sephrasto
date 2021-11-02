@@ -1,0 +1,31 @@
+fertigkeiten: Harmonie
+kosten: '40'
+name: Sulvas Gnade
+printclass: '43'
+text: 'Die Gnade der goettlichen Stute staerkt deine Beziehung zu einem Pferd. Erstens
+  sind Proben im Umgang mit dem Pferd sind um +4 erleichtert, Freie Fertigkeiten (wie
+  Abrichter) zaehlen als eine Stufe hoeher. Zweitens erhaeltst du den Vorteil Tierempathie
+  (S. 30) fuer dieses Pferd und erleidest keine Erschoepfung durch den Einsatz dieser
+  Gabe. Besitzt du die Gabe bereits, sind damit verbundene Proben um +4 erleichtert.
+  Die dafuer noetigen Proben kannst du auch auf Harmonie statt auf Ueberleben ablegen.
+
+  Maechtige Liturgie: Erhoeht den Bonus um +2.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Tier
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: bis die Bindung geloest wird
+
+  Kosten: 8 KaP, davon 2 gKaP
+
+  Fertigkeiten: Harmonie
+
+  Erlernen: Rah 14; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Rahjageweihten I

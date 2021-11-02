@@ -1,0 +1,16 @@
+fertigkeiten: Wind und Wogen
+kosten: '40'
+name: Anrufung Kaucas
+printclass: '26'
+text: "Tosende Winde umgeben dich und wehren Fernkampfangriffe bis zur Groesse eines\
+  \ Wurfspeeres ab. Ungezielte Geschosse (wie in einem Pfeilhagel) treffen dich nicht,\
+  \ Fernkampfangriffe auf dich sind um \u20134 erschwert.\nMaechtige Liturgie: Der\
+  \ Malus steigt um \u20132.\nProbenschwierigkeit: 12\nModifikationen: Im Auge des\
+  \ Sturms (\u20138, Zone, 16 KaP; die Winde umgeben ein ganzes Schiff und wehren\
+  \ Geschosse bis zur Groesse einer Rotzenkugel ab.)\nVorbereitungszeit: 2 Aktionen\n\
+  Ziel: selbst\nReichweite: Beruehrung\nWirkungsdauer: 4 Minuten\nKosten: 8 KaP\n\
+  Fertigkeiten: Wind und Wogen\nErlernen: Swa 14; Eff 16; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der
+  Swafnirgeweihten I

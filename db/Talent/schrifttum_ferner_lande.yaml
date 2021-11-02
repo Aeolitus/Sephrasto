@@ -1,0 +1,27 @@
+fertigkeiten: List, Wissen
+kosten: '40'
+name: Schrifttum ferner Lande
+printclass: '31'
+text: 'Du bist unerfahren in einer beliebigen Schrift.
+
+  Maechtige Liturgie: Je zwei Stufen steigern deine Schriftkenntnis auf erfahren/meisterlich.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 4 Minuten
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: List, Wissen
+
+  Erlernen: Hes 14; Phe 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der
+  Phexgeweihten I

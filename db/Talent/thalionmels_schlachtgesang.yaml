@@ -1,0 +1,31 @@
+fertigkeiten: Schutz der Glaeubigen
+kosten: '60'
+name: Thalionmels Schlachtgesang
+printclass: '47'
+text: 'Du rufst Thalionmels Segen auf dich herab und erleidest keine Wundabzuege.
+  Kannst du Wundabzuege ohnehin ignorieren, sind Proben gegen Wundschmerz um deine
+  Wundabzuege erleichtert. Ausserdem kannst du eine (weitere) VT zwischen zwei Initiativephasen
+  als freie Reaktion ausfuehren. Erlaubt Aufrechterhalten.
+
+  Probenschwierigkeit: 12
+
+  Modifikationen: Thalionmels Opfer (Wirkungsdauer 1 Stunde; du bis zusaetzlich immun
+  gegen Entwaffnen-, Niederwerfen- oder Betaeubungseffekte und bleibst kampffaehig,
+  bis du 16 Wunden erlitten hast. Am Ende der Wirkungsdauer ruft dich Rondra zu sich.)
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Schutz der Glaeubigen
+
+  Erlernen: Ron 16; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Rondrageweihten I

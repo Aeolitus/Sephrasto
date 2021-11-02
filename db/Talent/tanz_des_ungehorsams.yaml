@@ -1,0 +1,26 @@
+fertigkeiten: Antimagie, Eigenschaften, Zaubertaenze
+kosten: '40'
+name: Tanz des Ungehorsams
+printclass: '19'
+text: 'MR-Proben des Ziels sind um +4 erleichtert.
+
+  Maechtige Magie: Erhoeht den Bonus um +2
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Einzelperson
+
+  Reichweite: 4 Schritt
+
+  Wirkungsdauer: 1 Tag
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Antimagie, Eigenschaften, Zaubertaenze
+
+  Erlernen: Ztz 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Zaubertaenzer I

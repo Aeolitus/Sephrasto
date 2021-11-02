@@ -1,0 +1,8 @@
+gegenprobe: GE oder (nur fuer grosse und sehr grosse Gegner) KO
+name: Umreissen
+probe: AT
+text: Dein Ziel stuerzt und liegt am Boden. Das Manoever senkt den Schaden des Angriffes
+  auf 0. Sollte der Angriff ohnehin keinen Schaden anrichten, ist das Manoever nicht
+  moeglich.
+typ: '0'
+voraussetzungen: ''

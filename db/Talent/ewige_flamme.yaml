@@ -1,0 +1,26 @@
+fertigkeiten: Feuer, Stabzauber
+kosten: '20'
+name: Ewige Flamme
+printclass: '15'
+text: 'Die Spitze des Stabes bricht in Flammen aus, die in Leuchtkraft und Eigenschaften
+  einer gewoehnlichen Fackel entsprechen. Der Zauber endet vorzeitig, wenn du den
+  Stab nicht mehr beruehrst.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: Zauberstab
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 8 Stunden
+
+  Kosten: 1 AsP
+
+  Fertigkeiten: Feuer, Stabzauber
+
+  Erlernen: Mag 12; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Gildenmagier I

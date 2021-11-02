@@ -1,0 +1,9 @@
+kommentar: '0'
+kosten: '80'
+nachkauf: haeufig
+name: Segnung der Glaeubigen
+text: Liturgien, die ausschliesslich glaeubige Mitstreiter (und nicht dich selbst)
+  verstaerken, kosten nur die halben Basiskosten.
+typ: '6'
+variable: '0'
+voraussetzungen: Attribut CH 10, Vorteil Geweiht I

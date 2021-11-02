@@ -1,0 +1,14 @@
+fertigkeiten: Gaben des Odun
+kommentar: '0'
+kosten: '20'
+name: Firnlauf (Tiergeist)
+printclass: '0'
+text: "Jede noch so duenne Eis- oder Schneeschicht traegt dich wie trockener Boden.\
+  \ Unter diesen Bedingungen erleidest du keinerlei Erschwernisse oder Geschwindigkeitsabzuege.\n\
+  Probenschwierigkeit: 12\nModifikationen: Verankerung (\u20134, 2 AsP; du verankerst\
+  \ dich so auf einer Eisflaeche, dass du selbst dann nicht stuerzt, wenn sie in bedrohliche\
+  \ Schieflage oder schnelle Bewegung geraet.)\nVorbereitungszeit: 2 Aktionen\nZiel:\
+  \ selbst\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 8 AsP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Gebirgsbock)

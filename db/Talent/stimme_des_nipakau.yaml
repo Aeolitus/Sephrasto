@@ -1,0 +1,30 @@
+fertigkeiten: Hellsicht, Geister rufen, Verstaendigung
+kosten: '40'
+name: Stimme des Nipakau
+printclass: '7'
+text: 'Du erforschst die Erinnerung eines Gegenstandes, einer Pflanze oder eines Tieres.
+  Dabei beantwortet dir das Ziel 4 Ja/Nein-Fragen. Beachte, dass die meisten Gegenstaende
+  und Pflanzen nicht gerade intelligent sind und meist nur Dinge wahrnehmen, mit denen
+  sie direkt in Kontakt stehen. Sollte das Ziel tatsaechlich durch eine intelligente
+  Wesenheit beseelt sein, beantwortet diese Wesenheit die Fragen.
+
+  Maechtige Magie: Beantwortet 2 weitere Fragen.
+
+  Probenschwierigkeit: 12/Magieresistenz (bei Tieren)
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Einzelobjekt/Tier
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 4 Minuten
+
+  Kosten: 4 AsP
+
+  Fertigkeiten: Hellsicht, Geister rufen, Verstaendigung
+
+  Erlernen: Smn 16; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

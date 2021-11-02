@@ -1,0 +1,14 @@
+fertigkeiten: Einfluss
+kosten: '40'
+name: Alpgestalt
+printclass: '0'
+text: "Du erscheinst deinem Opfer als grauenvolle Gestalt aus den Niederhoellen. Es\
+  \ kann nicht wegsehen und ist vor Angst handlungsunfaehig. Wird der Sichtkontakt\
+  \ unterbrochen, endet der Zauber.\nProbenschwierigkeit: Magieresistenz\nModifikationen:\
+  \ Fremdgestalt (\u20134; du kannst eine andere Person waehlen, die als Alpgestalt\
+  \ erscheint.)\nVorbereitungszeit: 4 Aktionen\nZiel: Einzelwesen\nReichweite: 8 Schritt\n\
+  Wirkungsdauer: 4 Minuten\nKosten: 16 AsP\nFertigkeiten: Einfluss\nErlernen: Dru\
+  \ 18; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I

@@ -1,0 +1,25 @@
+fertigkeiten: Gaben des Blutgeists
+kommentar: '0'
+kosten: '0'
+name: Attributo (Blutgeist)
+printclass: '0'
+text: 'Waehle ein Attribut aus. Proben auf dieses Attribut sind um +2, Fertigkeitsproben
+  mit diesem Attribut um +1 erleichtert.
+
+  Maechtige Magie: Der Bonus steigt um +2/+1.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 AsP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Affe) ODER Vorteil Tiergeist (Fuchs/Mungo) ODER
+  Vorteil Tiergeist (Stier)

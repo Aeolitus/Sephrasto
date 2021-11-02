@@ -1,0 +1,27 @@
+fertigkeiten: Verwandlung
+kosten: '40'
+name: Visibili Vanitar
+printclass: '0'
+text: 'Dein Ziel wird unsichtbar. Kleidung und andere Gegenstaende sind nicht betroffen.
+  Erlaubt Aufrechterhalten.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 2 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 4 Minuten
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Verwandlung
+
+  Erlernen: Elf 12; Alch, Mag, Sch, Srl 16; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil
+  Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I

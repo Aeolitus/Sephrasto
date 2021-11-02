@@ -1,0 +1,13 @@
+fertigkeiten: Daemonische Hilfe (Cpt)
+kosten: '60'
+name: Wasseratmung (passiv)
+printclass: '200'
+text: 'Der Paktierer kann unter Wasser atmen, sieht unter Wasser wie durch Luft und
+  wird vom Druck der Tiefe nicht beeinflusst.
+
+  Fertigkeiten: Daemonische Hilfe (Cpt)
+
+  Erlernen: Cpt 14; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Paktierer I

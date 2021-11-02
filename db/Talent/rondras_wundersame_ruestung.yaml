@@ -1,0 +1,26 @@
+fertigkeiten: Schutz der Glaeubigen
+kosten: '40'
+name: Rondras wundersame Ruestung
+printclass: '47'
+text: 'Du rufst die wundersame Ruestung, durch die dein RS um 2 steigt.
+
+  Maechtige Liturgie: Je zwei Stufen erhoehen den RS um +1.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Schutz der Glaeubigen
+
+  Erlernen: Ron 16; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Rondrageweihten I

@@ -1,0 +1,26 @@
+fertigkeiten: Schutz der Glaeubigen, Zwoelfgoettlicher Ritus
+kosten: '40'
+name: Schutzsegen
+printclass: '20'
+text: "Du ziehst einen Kreis von maximal 8 Schritt Radius und nennst eine Kreaturenklasse\
+  \ (Daemon, Daimonoid oder Untoter). Liegt die Beschwoerungsschwierigkeit eines dieser\
+  \ Wesen bei maximal 20, kann es die Zone nicht betreten. Der Boden innerhalb des\
+  \ Schutzkreises gilt als geweihter Boden.\nMaechtige Liturgie: Erhoeht die Beschwoerungsschwierigkeit\
+  \ um 4.\nProbenschwierigkeit: 12\nModifikationen: Universeller Schutz (\u20134;\
+  \ der Segen wirkt gegen alle unheiligen Wesen.)\nVorbereitungszeit: 4 Aktionen\n\
+  Ziel: Zone\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 4 KaP\nFertigkeiten:\
+  \ Schutz der Glaeubigen, Zwoelfgoettlicher Ritus\nErlernen: Ron 4; Ang, Brn, Eff,\
+  \ Fir, Ifi, Kor, Pra, Swa 8; Aves, Hes, Ing, Nan, Per, Phe, Rah, Tsa, Tra 12; 40\
+  \ EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
+  Borongeweihten I ODER Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition
+  der Firungeweihten I ODER Vorteil Tradition der Hesindegeweihten I ODER Vorteil
+  Tradition der Ifirngeweihten I ODER Vorteil Tradition der Ingerimmgeweihten I ODER
+  Vorteil Tradition der Angroschgeweihten I ODER Vorteil Tradition der Korgeweihten
+  I ODER Vorteil Tradition der Nandusgeweihten I ODER Vorteil Tradition der Perainegeweihten
+  I ODER Vorteil Tradition der Phexgeweihten I ODER Vorteil Tradition der Praiosgeweihten
+  I ODER Vorteil Tradition der Rahjageweihten I ODER Vorteil Tradition der Rondrageweihten
+  I ODER Vorteil Tradition der Swafnirgeweihten I ODER Vorteil Tradition der Traviageweihten
+  I ODER Vorteil Tradition der Tsageweihten I

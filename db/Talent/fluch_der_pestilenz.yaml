@@ -1,0 +1,16 @@
+fertigkeiten: Daemonisch
+kosten: '40'
+name: Fluch der Pestilenz
+printclass: '0'
+text: "Du infizierst dein Opfer mit einer dir bekannten Krankheit deiner Wahl, die\
+  \ dann ihren natuerlichen Krankheitsverlauf nimmt. Die maximale Krankheitsstufe\
+  \ ist 16.\nMaechtige Magie: Erhoeht die maximale Krankheitsstufe um +4.\nProbenschwierigkeit:\
+  \ Magieresistenz\nModifikationen: Einzelfall (\u20134; die Krankheit ist nicht ansteckend.)\n\
+  Vorbereitungszeit: 4 Aktionen\nZiel: Einzelperson\nReichweite: 4 Schritt\nWirkungsdauer:\
+  \ augenblicklich\nKosten: 16 AsP\nFertigkeiten: Daemonisch\nErlernen: Dru 14; Bor,\
+  \ Hex, Mag 20; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I
+  ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Gildenmagier I ODER
+  Vorteil Tradition der Hexen I

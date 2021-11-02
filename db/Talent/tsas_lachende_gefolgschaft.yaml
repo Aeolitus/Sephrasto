@@ -1,0 +1,14 @@
+fertigkeiten: Neubeginn
+kosten: '20'
+name: Tsas lachende Gefolgschaft
+printclass: '51'
+text: "Du rufst einen Kobold zur Hilfe. Befinden sich Kobolde in einem Radius von\
+  \ 1 Meile, eilt einer von ihnen herbei. Du kannst den Kobold um einen Gefallen bitten,\
+  \ aber er entscheidet selbst, ob er den Gefallen erfuellt.\nMaechtige Liturgie:\
+  \ Verdoppelt den Radius.\nProbenschwierigkeit: 12\nModifikationen: Namensruf (\u2013\
+  4; du rufst einen dir bereits bekannten Kobold in einem Radius von 8 Meilen herbei.)\n\
+  Vorbereitungszeit: 2 Aktionen\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer:\
+  \ augenblicklich\nKosten: 4 KaP\nFertigkeiten: Neubeginn\nErlernen: Tsa 18; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Tsageweihten I

@@ -1,0 +1,25 @@
+fertigkeiten: Antimagie, Zaubertaenze
+kosten: '20'
+name: Tanz der Erloesung
+printclass: '19'
+text: 'Der Tanz gilt als Konterprobe (12) gegen saemtliche Einflusszauber, Hexenflueche
+  und Druidenrituale auf dem Ziel. Bei gelungener Probe werden die Zauber aufgehoben.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Stunden
+
+  Ziel: Einzelperson
+
+  Reichweite: 4 Schritt
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Antimagie, Zaubertaenze
+
+  Erlernen: Ztz 12; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Zaubertaenzer I

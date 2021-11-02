@@ -1,0 +1,42 @@
+csBeschreibung: Der Spielleiter sollte diesem Gegenstand einen gewissen Schutz gewaehren;
+  er wird nicht zufaellig von einem Taschendieb gestohlen oder geht durch Pech verloren,
+  ohne dass du ihn wieder zurueckerlangen kannst. Umgekehrt darf der Charakter den
+  Gegenstand auch nicht verkaufen.
+kommentar: '1'
+kosten: '40'
+nachkauf: nicht moeglich
+name: Besonderer Besitz
+text: 'Ein besonderer Gegenstand wie die 33-fach geflaemmte Klinge deines ruhmreichen
+  Grossvaters oder ein heilendes Diadem befindet sich in deinem Besitz. Der Spielleiter
+  sollte diesem Gegenstand einen gewissen Schutz gewaehren; er wird nicht zufaellig
+  von einem Taschendieb gestohlen oder geht durch Pech verloren, ohne dass du ihn
+  wieder zurueckerlangen kannst. Umgekehrt darf der Charakter den Gegenstand auch
+  nicht verkaufen.
+
+
+  Die Kosten fuer einen Besonderen Besitz legt der Spielleiter fest, wobei er sich
+  am Spielnutzen des Gegenstandes orientieren sollte. Ein Besonderer Besitz fuer 40
+  EP bringt einen willkommenen Bonus in manchen Situationen, waehrend ein Besonderer
+  Besitz fuer 160 EP in vielen Situationen entscheidend ist. Der Wert des Gegenstandes
+  spielt hierbei keine Rolle.
+
+
+  Beispiele fuer besonderen Besitz sind:
+
+  - Schlachtross/verbesserte Waffe (+2 TP)/verbesserte Ruestung (-1 BE), Ferrara Kutsche
+  mit Pferden (40 EP).
+
+  - Verbesserte und magische Waffe, aufladbares Schutzartefakt mit einfachem Ausloeser
+  (80 EP).
+
+  - Verbessertes Enduriumschwert, verbesserter Toschkrilpanzer, Reithippogriff (120
+  EP).
+
+  - Bewaffnetes Handelsschiff, semipermanentes Universalschutzamulett mit intelligentem
+  Ausloeser (160 EP).
+
+
+  Sephrasto: Trage den gewaehlten Besitz in das Kommentarfeld ein.'
+typ: '0'
+variable: '1'
+voraussetzungen: ''

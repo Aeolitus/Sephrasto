@@ -1,0 +1,26 @@
+fertigkeiten: Wind und Wogen
+kosten: '20'
+name: Begehen der heiligen Wasser
+printclass: '26'
+text: 'Du kannst auf der Wasseroberflaeche gehen, als wuerdest du von einer Welle
+  getragen. Du erleidest keine Abzuege durch unguenstige Position und wirst nicht
+  durch Wellen und Stroemungen beeinflusst. Erlaubt Aufrechterhalten.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 4 KaP
+
+  Fertigkeiten: Wind und Wogen
+
+  Erlernen: Eff 12; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Efferdgeweihten I

@@ -1,0 +1,28 @@
+fertigkeiten: Naechtlicher Schatten
+kosten: '40'
+name: Phexens Nebelleib
+printclass: '39'
+text: 'Du verwandelst dich mitsamt Ausruestung in Nebel, dem weder Waffen noch Magie
+  etwas anhaben koennen. Du kannst dich mit GS 4 fortbewegen und sogar durch schmalste
+  Oeffnungen dringen.
+
+  Probenschwierigkeit: 12
+
+  Maechtige Liturgie: Erhoeht die GS um +2.
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 8 Stunden
+
+  Kosten: 16 KaP
+
+  Fertigkeiten: Naechtlicher Schatten
+
+  Erlernen: Phe 14; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Phexgeweihten I

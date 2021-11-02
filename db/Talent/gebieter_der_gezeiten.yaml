@@ -1,0 +1,27 @@
+fertigkeiten: Daemonische Hilfe (Cpt)
+kosten: '20'
+name: Gebieter der Gezeiten
+printclass: '200'
+text: 'Ebbe oder Flut koennen in einem Radius von 2 Meilen zurueckgehalten, beschleunigt
+  oder verstaerkt werden.
+
+  Maechtige Anrufung: Verdoppelt den Radius
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: Zone
+
+  Reichweite: 4 Meilen
+
+  Wirkungsdauer: 4 Stunden
+
+  Kosten: 8 GuP
+
+  Fertigkeiten: Daemonische Hilfe (Cpt)
+
+  Erlernen: Cpt 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Paktierer I

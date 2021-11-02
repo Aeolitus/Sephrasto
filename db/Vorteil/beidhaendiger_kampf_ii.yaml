@@ -1,0 +1,17 @@
+kommentar: '0'
+kosten: '40'
+linkElement: Beidhaendiger Kampf I
+linkKategorie: '3'
+nachkauf: haeufig
+name: Beidhaendiger Kampf II
+script: modifyKampfstil('Beidhaendiger Kampf', 1, 0, 0, 0)
+text: 'Du erhaeltst AT +1.
+
+
+  Deine zweite Waffe ignoriert die uebliche Erschwernis fuer Nebenwaffen. Dadurch
+  kannst du den vollen Nutzen aus zwei unterschiedlichen Waffen ziehen. Falls du dennoch
+  zwei identische Waffen nutzt, kannst du den ersten (bzw. mit Wendigen Waffen zweiten)
+  Passierschlag zwischen zwei INI-Phasen als Freie Reaktion ausfuehren.'
+typ: '3'
+variable: '0'
+voraussetzungen: Attribut GE 6, Vorteil Beidhaendiger Kampf I

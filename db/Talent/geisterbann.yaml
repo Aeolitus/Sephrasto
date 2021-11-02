@@ -1,0 +1,25 @@
+fertigkeiten: Antimagie, Geister vertreiben
+kosten: '60'
+name: Geisterbann
+printclass: '8'
+text: 'Der Zauber gilt als Konterprobe (12) gegen einen Zauber. Gelingt sie, wird
+  der Zauber aufgehoben.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: halbe Basiskosten des Zaubers
+
+  Fertigkeiten: Antimagie, Geister vertreiben
+
+  Erlernen: Smn 14; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

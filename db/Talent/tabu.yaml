@@ -1,0 +1,26 @@
+fertigkeiten: Einfluss, Geister vertreiben, Geister des Zorns
+kosten: '20'
+name: Tabu
+printclass: '6'
+text: 'Um die verzauberte Zone von 16 Schritt Radius zu betreten, ist eine Konterprobe
+  (Willenskraft, 12) noetig. Davon sind all jene ausgenommen, die waehrend der gesamten
+  Vorbereitungszeit in der Zone waren.
+
+  Maechtige Magie: Verdoppelt dens Radius.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: bis die Bindung geloest wirdKosten: 16 AsP, davon 1 gAsP
+
+  Fertigkeiten: Einfluss, Geister vertreiben, Geister des Zorns
+
+  Erlernen: Smn 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

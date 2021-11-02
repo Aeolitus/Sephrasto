@@ -1,0 +1,8 @@
+attribute: IN|KO|MU
+name: Gaben des Odun
+printclass: '0'
+steigerungsfaktor: '2'
+text: "Durro-d\xFBn spueren eine intensive Verbindung zu einem Tiergeist, dem Odun.\
+  \ Mit der Kraft des Odun staerken sie sich im Kampf oder kommen ihrer animalischen\
+  \ Seite naeher.\n  Die Tiere findest du auf Seite 160f."
+voraussetzungen: Vorteil Tradition der Durro-dun I

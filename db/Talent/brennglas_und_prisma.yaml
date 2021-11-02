@@ -1,0 +1,26 @@
+fertigkeiten: Kugelzauber, Verwandlung
+kosten: '20'
+name: Brennglas und Prisma
+printclass: '12'
+text: 'Die Kugel kann ihre Brennweite nach Belieben veraendern und so als Vergroesserungsglas
+  oder Prisma verwendet werden.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: Kristallkugel
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 1 AsP
+
+  Fertigkeiten: Kugelzauber, Verwandlung
+
+  Erlernen: Srl 12; Mag 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane
+  I

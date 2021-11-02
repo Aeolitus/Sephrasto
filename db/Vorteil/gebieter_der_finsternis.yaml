@@ -1,0 +1,13 @@
+kommentar: '0'
+kosten: '80'
+linkElement: Beschwoerungen
+linkKategorie: '1'
+nachkauf: haeufig
+name: Gebieter der Finsternis
+text: Gebundene unheilige Wesenheiten kosten nur noch die halben gAsP und eine misslungene
+  Beschwoerungsprobe kann einmalig fuer die Haelfte der Beschwoerungskosten wiederholt
+  werden.
+typ: '4'
+variable: '0'
+voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut
+  MU 10

@@ -1,0 +1,30 @@
+fertigkeiten: Daemonisch, Eigenschaften, Einfluss
+kosten: '40'
+name: Karnifilo Raserei
+printclass: '0'
+text: 'Dein Ziel verfaellt in einen Kampfrausch. Es erhaelt die Vorteile Kalte Wut
+  und Offensiver Kampfstil (S. 43) und nutzt in jeder Aktion volle Offensive. Sind
+  keine Gegner mehr da, greift es auch Verbuendete an.
+
+  Maechtige Magie: Die AT steigt um +1.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Daemonisch, Eigenschaften, Einfluss
+
+  Erlernen: Alch, Mag 16; Ach, Bor 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I
+  ODER Vorteil Tradition der Kristallomanten I

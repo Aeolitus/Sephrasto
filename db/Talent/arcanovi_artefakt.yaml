@@ -1,0 +1,28 @@
+fertigkeiten: Kraft
+kosten: '60'
+name: Arcanovi Artefakt
+printclass: '0'
+text: 'Der Arcanovi ist der bindende Spruch eines Artefaktes, in das du weitere Zauber
+  sprechen kannst (mehr zu Artefakten siehe S. 78).
+
+  Probenschwierigkeit: nach Artefakt
+
+  Vorbereitungszeit: 8 Stunden
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: nach Artefakt
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Kraft
+
+  Erlernen: Alch 12; Ach, Mag, Srl 16; Geo, Hex 18; Dru, Elf 20; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden
+  I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil
+  Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition
+  der Kristallomanten I ODER Vorteil Tradition der Scharlatane I

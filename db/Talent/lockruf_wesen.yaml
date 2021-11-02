@@ -1,0 +1,37 @@
+fertigkeiten: Einfluss, Geister rufen, Verstaendigung
+kommentar: '1'
+kosten: '20'
+name: Lockruf (Wesen)
+printclass: '7'
+text: 'Du rufst das beim Erlernen gewaehlte Wesen, meist ein Tier, herbei. Befindet
+  sich ein Wesen dieser Art in einem Radius von 4 Meilen, eilt es herbei. Du kannst
+  dieses Wesen um einen Gefallen bitten, das dieses wenn moeglich erfuellen wird.
+  Dann trollt sich das Wesen.
+
+  Maechtige Magie: Verdoppelt den Radius und die Zahl der herbeieilenden Wesen.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Einfluss, Geister rufen, Verstaendigung
+
+  Erlernen: Smn 14; 20 EP
+
+  Anmerkung: Der Zauber muss fuer jedes Wesen extra gelernt werden. Uebliche Wesen
+  sind Woelfe (Nivesen), Wildschweine (Goblins), Rinder (Ferkinas), Schlinger (Achaz),
+  Seeschlangen (Achaz), Haie (Tocamujac), Oger (Ork), Mammuts (Gjalsker).
+
+  Sephrasto: Trage die gewaehlten Wesen in das Kommentarfeld ein. Wenn du mehrere
+  Wesen waehlst, dann erhoehe die EP-Kosten entsprechend.'
+variable: '1'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

@@ -1,0 +1,32 @@
+gegenprobe: ''
+name: Beschwoerungen - Zusaetzliche Faehigkeiten
+probe: ''
+text: 'Du kannst dir die Beschwoerungsprobe freiwillig erschweren, um dem beschworenen
+  Wesen zusaetzliche Faehigkeiten (Auswirkungen siehe S. 97) zu verleihen:
+
+  - Starke Offensive (-2; +2 AT, +1 TP)
+
+  - Starke Defensive (-2; +2 VT, +1 WS)
+
+  - Zaubermacht (-2; +2 MR, +2 auf uebernat. Fertigkeiten)
+
+  - Resistenz (-4; Erhoeht die Resistenz gegen profane, magische oder geweihte Waffen
+  um +1 Stufe.)
+
+  - Regeneration (-4; Erhoeht Regeneration um +1 Stufe.)
+
+  - Schreckgestalt (-4; Erhoeht die Schreckgestalt um +1 Stufe.)
+
+  - Zusatzangriff (-4; Erhoeht Zusaetzliche Attacke um +1 Stufe.)
+
+  - Spezialfaehigkeit (siehe S. 97) (-X; Den Modifikator fuer aetzende Waffen, Feuerauren
+  o.ae. bestimmt der Spielleiter.)'
+typ: '4'
+voraussetzungen: Talent Invocatio ODER Talent Macht der Ungeformten ODER Talent Herbeirufung
+  des Feuers ODER Talent Herbeirufung des Eises ODER Talent Herbeirufung der Luft
+  ODER Talent Herbeirufung des Wassers ODER Talent Herbeirufung des Humus ODER Talent
+  Herbeirufung des Erzes ODER Talent Macht des Erzes ODER Talent Macht des Feuers
+  ODER Talent Macht des Humus ODER Talent Macht der Luft ODER Talent Macht des Wassers
+  ODER Talent Skelettarius Totenherr ODER Talent Tairachs Krieger ODER Talent Wasserleiche
+  erheben ODER Talent Chimaeroform Hybridgestalt ODER Talent Stein wandle! ODER Talent
+  Staub wandle! ODER Talent Totes handle!

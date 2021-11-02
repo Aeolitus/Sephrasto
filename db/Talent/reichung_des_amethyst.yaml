@@ -1,0 +1,28 @@
+fertigkeiten: Rausch
+kosten: '40'
+name: Reichung des Amethyst
+printclass: '44'
+text: 'Beendet die Wirkung eines Giftes bis maximal Stufe 20.
+
+  Maechtige Liturgie: Die maximal aufgehobene Giftstufe steigt um 4.
+
+  Probenschwierigkeit: 12
+
+  Modifikationen: Rausch beenden (1 KaP; du beendest einen Rauschzustand.)
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Rausch
+
+  Erlernen: Rah 12; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Rahjageweihten I

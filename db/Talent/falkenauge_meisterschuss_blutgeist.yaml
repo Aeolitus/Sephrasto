@@ -1,0 +1,13 @@
+fertigkeiten: Gaben des Blutgeists
+kommentar: '0'
+kosten: '0'
+name: Falkenauge Meisterschuss (Blutgeist)
+printclass: '0'
+text: "Dein naechster Fernkampfangriff ist um +4 erleichtert.\nMaechtige Magie: Der\
+  \ Bonus steigt um +2.\nProbenschwierigkeit: 12\nModifikationen: Dauerndes Band (\u2013\
+  8, 8 AsP; der Zauber wirkt auf alle Fernkampfangriffe waehrend der Wirkungsdauer.)\n\
+  Vorbereitungszeit: 1 Aktion\nZiel: Einzelperson\nReichweite: Beruehrung\nWirkungsdauer:\
+  \ 8 Initiativphasen\nKosten: 4 AsP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Falke)

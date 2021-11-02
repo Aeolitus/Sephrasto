@@ -1,0 +1,29 @@
+fertigkeiten: Froehlicher Wanderer
+kosten: '60'
+name: Aller Welt Freund
+printclass: '52'
+text: 'Du rufst die Lapislazulifloete. Solange du sie spielst, koennen dich Humanoide
+  nur mit einer gelungenen Konterprobe (Willenskraft, 20) angreifen und Tiere gar
+  nicht. Das Gebiet in 16 Schritt Radius gilt als geweihter Boden. Benoetigt Konzentration,
+  ermoeglicht Aufrechterhalten.
+
+  Maechtige Liturgie: Mit zwei Stufen gilt der Boden als heilig.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Einzelobjekt
+
+  Reichweite: dereweit
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 16 KaP
+
+  Fertigkeiten: Froehlicher Wanderer
+
+  Erlernen: Aves 14; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Avesgeweihten I

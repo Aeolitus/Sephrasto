@@ -1,0 +1,30 @@
+fertigkeiten: Dolchzauber, Kraft
+kosten: '20'
+name: Bindung des Dolches
+printclass: '1'
+text: '
+
+  Du stellst eine enge magische Bindung zu deinem Ritualgegenstand (ein Dolch fuer
+  Druiden, eine Sichel fuer Geoden) her, welche die Voraussetzung fuer alle weiteren
+  Talente dieser Fertigkeit ist. Ausserdem wird der Ritualgegenstand unzerbrechlich
+  und gilt als magische Waffe.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Stunden
+
+  Ziel: Ritualgegenstand
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: permanent
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Dolchzauber, Kraft
+
+  Erlernen: Dru 4; Geo 12; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden
+  I

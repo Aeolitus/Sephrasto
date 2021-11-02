@@ -1,0 +1,13 @@
+fertigkeiten: Feuer, Verwandlung, Zaubermelodien
+kosten: '20'
+name: Lied der Flammen
+printclass: '18'
+text: "Flammen im Radius von 4 Schritt lodern heller und spenden mehr Waerme. In ihrer\
+  \ Umgebung steigt die Temperaturstufe um eins (siehe S. 35).\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Innere Waerme (\u20138; auch ohne Feuer steigt die Temperaturstufe\
+  \ fuer alle Zuhoerer um eins.)\nVorbereitungszeit: 16 Aktionen\nZiel: Zone\nReichweite:\
+  \ Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 8 AsP\nFertigkeiten: Feuer, Verwandlung,\
+  \ Zaubermelodien\nErlernen: Bard 16; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Zauberbarden I

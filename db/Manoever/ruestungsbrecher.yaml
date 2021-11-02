@@ -1,0 +1,11 @@
+gegenprobe: ''
+name: Ruestungsbrecher
+probe: AT -4
+text: 'Der Angriff ignoriert die gegnerische Ruestung und richtet SP statt TP an.
+
+  Voraussetzung: Waffeneigenschaft Ruestungsbrechend
+
+  Anmerkung: Das Manoever lohnt sich, wenn der Gegner schwere Ruestung traegt oder
+  du mehrere Wunden anrichten kannst.'
+typ: '0'
+voraussetzungen: Waffeneigenschaft Ruestungsbrechend

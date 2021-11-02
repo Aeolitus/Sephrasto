@@ -1,0 +1,9 @@
+gegenprobe: ''
+name: "Opferung (Durro-d\xFBn)"
+probe: Zauber +4
+text: "Ein Opfer erleichtert den Zauber um +4. Die Tierkrieger opfern den Geistern\
+  \ ihr Blut und fuegen sich dabei eine Wunde zu, deren Auswirkungen bei der Probe\
+  \ fuer den Zauber ignoriert werden.\nVoraussetzung: Verwendung der Tradition der\
+  \ Durro-d\xFBn"
+typ: '2'
+voraussetzungen: Vorteil Tradition der Durro-dun III

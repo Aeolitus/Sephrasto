@@ -1,0 +1,13 @@
+csBeschreibung: Erlaubt die spontane Modifikation Opferung.
+kommentar: '0'
+kosten: '60'
+linkElement: Tradition der Paktierer II
+linkKategorie: '3'
+nachkauf: haeufig
+name: Tradition der Paktierer III
+text: 'Erlaubt die spontane Modifikation Opferung (Anrufung +4): Das rituelle Opfer
+  eines intelligenten Wesens erleichtert die Anrufung um +4, ein Geweihter der Gegengottheit
+  verdoppelt den Bonus sogar.'
+typ: '8'
+variable: '0'
+voraussetzungen: Attribut MU 8, Vorteil Tradition der Paktierer II

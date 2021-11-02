@@ -1,0 +1,9 @@
+attribute: FF|IN|KK
+kampffertigkeit: '2'
+name: Wurfwaffen
+printclass: '1'
+steigerungsfaktor: '2'
+text: Als Wurfwaffen gelten saemtliche geworfenen Geschosse wie Diskusse oder Wurfspeere.
+  Zusaetzlich umfassen sie kurze Wurfwaffen, zu denen Dolche, Wurfsterne und improvisierte
+  Geschosse wie einen Stein oder eine Flasche gehoeren.
+voraussetzungen: ''

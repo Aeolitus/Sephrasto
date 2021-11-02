@@ -1,0 +1,17 @@
+csBeschreibung: Nahkampf- und Wurfwaffen koennen in einer freien Aktion gezogen werden.
+kommentar: '0'
+kosten: '60'
+linkElement: Bereit machen (einfach)
+linkKategorie: '1'
+nachkauf: haeufig
+name: Schnellziehen
+text: 'Erlaubt das Manoever Schnellschuss (FK -4) im Fernkampf: Verkuerzt die Vorbereitungszeit
+  um die Haelfte. Eine Vorbereitungszeit von 1 Aktion wird zu 0 Aktionen. Die Aktion
+  Konflikt ist von dieser Modifikation nicht betroffen. Kann bis zu zweimal pro FK
+  eingesetzt werden.
+
+
+  Nahkampf- und Wurfwaffen koennen in einer freien Aktion gezogen werden.'
+typ: '2'
+variable: '0'
+voraussetzungen: Attribut FF 8

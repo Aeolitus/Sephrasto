@@ -1,0 +1,26 @@
+fertigkeiten: Wissen
+kosten: '40'
+name: Schlangenstab
+printclass: '31'
+text: 'Dein Stab verwandelt sich in eine Smaragdnatter, die dich verteidigt. Die Natter
+  verfuegt ueber die Werte einer Schlange (S. 123) und die Vorteile Resistenz (profan)
+  III und Schreckgestalt II (S. 98). Ihre Angriffe richten geweihten Schaden an.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Aktionen
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Wissen
+
+  Erlernen: Hes 12; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Hesindegeweihten I

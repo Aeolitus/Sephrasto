@@ -1,0 +1,18 @@
+fertigkeiten: Illusion, Verwandlung
+kosten: '40'
+name: Chamaelioni Mimikry
+printclass: '0'
+text: "Du verschmilzt vollkommen mit der Umgebung und erhaeltst den Vorteil Tarnung\
+  \ (S. 98), solange du dich nicht bewegst. Proben auf Heimlichkeit sind um +4 erleichtert.\
+  \ Erlaubt Aufrechterhalten.\nMaechtige Magie: Der Bonus steigt um +2.\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Tarnung (\u20134; du kannst dich mit 1 Schritt pro Aktion\
+  \ bewegen.)\nDinge Tarnen (\u20134, Einzelobjekt; du kannst einen maximal menschengrossen\
+  \ Gegenstand tarnen.)\nAndere Tarnen (\u20134; der Zauber betrifft auch einen Begleiter,\
+  \ mit dem du permanent Hautkontakt haben musst. Mehrfach waehlbar.)\nVorbereitungszeit:\
+  \ 0 Aktionen\nZiel: selbst\nReichweite: Beruehrung\nWirkungsdauer: 4 Minuten\nKosten:\
+  \ 8 AsP\nFertigkeiten: Illusion, Verwandlung\nErlernen: Elf 14; Hex, Mag 18; 40\
+  \ EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Elfen I ODER Vorteil
+  Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I

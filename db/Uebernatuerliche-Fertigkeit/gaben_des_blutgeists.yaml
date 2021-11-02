@@ -1,0 +1,10 @@
+attribute: KO|MU|MU
+name: Gaben des Blutgeists
+printclass: '0'
+steigerungsfaktor: '2'
+text: "Ein Anach-N\xFBr isst das Herz eines frisch erlegten Tieres, um dessen Blutgeist\
+  \ in sich aufzunehmen und sich durch dessen Kraefte zur staerken oder sogar zu verwandeln.\
+  \ Doch ein unaufmerksamer Moment und der Blutgeist gewinnt die Oberhand. Dann wird\
+  \ der Anach-N\xFBr zu einer rasenden Bestie...\n  Die Tiere findest du auf Seite\
+  \ 160f."
+voraussetzungen: Vorteil Tradition der Anach-Nurim I

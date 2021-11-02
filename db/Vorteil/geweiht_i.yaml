@@ -1,0 +1,9 @@
+kommentar: '0'
+kosten: '40'
+nachkauf: ueblich
+name: Geweiht I
+script: modifyKaPBasis(8)
+text: Du verfuegst ueber 8 Karmapunkte und kannst kirchliche Traditionen erlernen.
+typ: '0'
+variable: '0'
+voraussetzungen: Kein Vorteil Paktierer I

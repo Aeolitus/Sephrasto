@@ -1,0 +1,26 @@
+fertigkeiten: Kraft, Stabzauber
+kosten: '20'
+name: Bindung des Stabs
+printclass: '15'
+text: 'Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her, welche
+  die Voraussetzung fuer alle weiteren Talente dieser Fertigkeit ist. Ausserdem wird
+  der Ritualgegenstand unzerbrechlich und gilt als magische Waffe.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Stunden
+
+  Ziel: Ritualgegenstand
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: permanent
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Kraft, Stabzauber
+
+  Erlernen: Mag 8; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Gildenmagier I

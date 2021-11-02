@@ -1,0 +1,26 @@
+fertigkeiten: Magie
+kosten: '60'
+name: Argelions Spiegel
+printclass: '30'
+text: 'Der naechste auf dich gewirkte Zauber wird auf den Zauberer zurueckgeworfen.
+
+  Maechtige Liturgie: Ein weiterer Zauber wird zurueckgeworfen.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 16 KaP
+
+  Fertigkeiten: Magie
+
+  Erlernen: Hes 18; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Hesindegeweihten I

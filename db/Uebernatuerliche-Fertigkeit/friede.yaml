@@ -1,0 +1,9 @@
+attribute: CH|IN|KO
+name: Friede
+printclass: '1'
+steigerungsfaktor: '3'
+text: 'Tsageweihte bewahren die Schoepfung und das Leben. Besonders die Friedensfreunde
+  und die Anhaenger des Dreischwesternordens suchen stets nach friedlichen Loesungen
+  fuer Konflikte und anstatt Waffen zu tragen, heilen sie die von ihnen geschlagenen
+  Wunden. '
+voraussetzungen: Vorteil Tradition der Tsageweihten I

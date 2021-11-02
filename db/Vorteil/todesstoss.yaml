@@ -1,0 +1,10 @@
+csAuflisten: '0'
+kommentar: '0'
+kosten: '60'
+nachkauf: haeufig
+name: Todesstoss
+text: 'Erlaubt das Manoever Todesstoss (AT -8): Der Angriff richtet zwei zusaetzliche
+  Wunden an, auch wenn der Schaden zu gering ist, um Wunden anzurichten.'
+typ: '2'
+variable: '0'
+voraussetzungen: Attribut GE 8

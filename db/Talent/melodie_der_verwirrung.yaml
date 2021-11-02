@@ -1,0 +1,14 @@
+fertigkeiten: Eigenschaften, Zaubermelodien
+kosten: '20'
+name: Melodie der Verwirrung
+printclass: '18'
+text: "Die Melodie verwirrt die Zuhoerer in 4 Schritt Radius. Wenn ihnen eine Gegenprobe\
+  \ (Magieresistenz, 16) misslingt, sind alle Proben auf KL und IN um \u20132 erschwert,\
+  \ Proben auf Fertigkeiten mit KL und IN um \u20131. Erfordert Konzentration, erlaubt\
+  \ Aufrechterhalten.\nMaechtige Magie: Der Malus steigt um \u20132/\u20131.\nProbenschwierigkeit:\
+  \ Magieresistenz\nVorbereitungszeit: 4 Aktionen\nZiel: Zone\nReichweite: 4 Schritt\n\
+  Wirkungsdauer: 16 Initiativphasen\nKosten: 4 AsP\nFertigkeiten: Eigenschaften, Zaubermelodien\n\
+  Erlernen: Bard 16; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Zauberbarden I

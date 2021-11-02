@@ -1,0 +1,15 @@
+fertigkeiten: Schlaf
+kosten: '40'
+name: Hauch Borons
+printclass: '21'
+text: "Deine Umgebung wird im Radius von 8 Schritt von absoluter Dunkelheit erfuellt,\
+  \ die dich selbst nicht einschraenkt. Das Gebiet gilt als geweihter Boden. Die Liturgie\
+  \ gilt zusaetzlich als Konterprobe (12) gegen Lichtzauber, die bei Gelingen aufgehoben\
+  \ werden.\nMaechtige Liturgie: Mit zwei Stufen gilt der Boden als heilig.\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Begleiter (\u20134, Wirkungsdauer 4 Minuten; die Dunkelheit\
+  \ bewegt sich mit dir.)\nVorbereitungszeit: 16 Aktionen\nZiel: Zone\nReichweite:\
+  \ Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 8 KaP\nFertigkeiten: Schlaf\nErlernen:\
+  \ Brn 14; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Borongeweihten I

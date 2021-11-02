@@ -1,0 +1,9 @@
+fertigkeiten: Handwerk
+kosten: '-1'
+name: Schmieden
+printclass: '-1'
+text: Schmieden ist die Herstellung und Reparatur von Schwertern und Hufeisen bis
+  hin zu Plattenpanzern.
+variable: '0'
+verbilligt: '0'
+voraussetzungen: ''

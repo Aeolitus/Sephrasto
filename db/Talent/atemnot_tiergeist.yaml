@@ -1,0 +1,24 @@
+fertigkeiten: Gaben des Odun
+kommentar: '0'
+kosten: '40'
+name: Atemnot (Tiergeist)
+printclass: '0'
+text: 'Du entziehst dem Opfer einen Teil seiner Kraft. Es erleidet 2 Punkte Erschoepfung.
+  Du regenerierst die Haelfte der angerichteten Erschoepfung.
+
+  Maechtige Magie: Verursacht 1 weiteren Punkt Erschoepfung.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 2 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: 4 Schritt
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 8 AsP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Schlange)

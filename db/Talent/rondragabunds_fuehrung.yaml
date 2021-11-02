@@ -1,0 +1,27 @@
+fertigkeiten: Schutz der Glaeubigen
+kosten: '40'
+name: Rondragabunds Fuehrung
+printclass: '47'
+text: 'Die Heilige Rondragabund fuehrt die Hand des Gesegneten. Bei Verteidigungen
+  kann er statt seines eigentlichen PW einen PW von 8 verwenden.
+
+  Maechtige Liturgie: Der Gesegnete kann einen PW von 10/12/14/16 verwenden.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: Einzelperson
+
+  Reichweite: 4 Schritt
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Schutz der Glaeubigen
+
+  Erlernen: Ron 16; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Rondrageweihten I

@@ -1,0 +1,4 @@
+name: Kopflastig
+script: modifyWaffeTPPlus(getSchadensbonus())
+text: Die Waffe kann zusaetzliche Kraft besonders effizient in Schaden umwandeln.
+  Der Schadensbonus durch hohe KK zaehlt fuer sie doppelt.

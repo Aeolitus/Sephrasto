@@ -1,0 +1,24 @@
+fertigkeiten: Umwelt
+kosten: '20'
+name: Flim Flam Funkel
+printclass: '0'
+text: "Ein blaeuliches Licht erscheint und steigert die Helligkeit in einem Radius\
+  \ von 4 Schritt um eine Stufe (etwa von Mondlicht auf Daemmerung S. 38). Erlaubt\
+  \ Aufrechterhalten.\nMaechtige Magie: Steigert die Helligkeit um eine weitere Stufe.\
+  \ Nach je 4 Schritt Radius nimmt die Helligkeit um eine Stufe weniger zu.\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Variable Helligkeit (\u20134; du kannst die Helligkeit beliebig\
+  \ reduzieren und wieder auf das urspruengliche Mass erhoehen.)\nBegleiter (\u2013\
+  4; die Lichtkugel bewegt sich mit dir.)\nLeuchtturm (\u20134; Die Lichtkugel erscheint\
+  \ in 10 Schritt Hoehe.)\nLichtblitz (\u20138, 8 AsP; du kannst die Kugel in einer\
+  \ Aktion Bereit machen explodieren lassen. Alle Beobachter sind 2 Initiativphasen\
+  \ lang geblendet, ihre Proben sind um die doppelte Helligkeitsstufe erschwert.)\n\
+  Vorbereitungszeit: 0 Aktionen\nZiel: Zone\nReichweite: 8 Schritt\nWirkungsdauer:\
+  \ 4 Minuten\nKosten: 1 AsP\nFertigkeiten: Umwelt\nErlernen: Ach, Alch, Elf, Mag\
+  \ 8; Dru, Hex 12;  Geo 14; Sch, Srl 16; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
+  Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition
+  der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition
+  der Scharlatane I ODER Vorteil Tradition der Schelme I

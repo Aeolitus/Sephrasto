@@ -1,0 +1,11 @@
+fertigkeiten: Kristallmagie
+kosten: '20'
+name: Federleichter Beutel (passiv)
+printclass: '11'
+text: 'Pro 4 volle Punkte PW Kristallmagie halbiert sich das Gewicht der Gegenstaende
+  im Schuppenbeutel (z.B. bei einem PW von 9 auf ein Viertel).
+
+  Erlernen: Ach 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Kristallomanten I

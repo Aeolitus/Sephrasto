@@ -1,0 +1,15 @@
+fertigkeiten: Jagd
+kosten: '20'
+name: Segnung des Heiligen Mikail
+printclass: '27'
+text: "Du bittest den Heiligen Mikail um Treffsicherheit fuer den Schuetzen. Der naechste\
+  \ Fernkampfangriff ist um +4 erleichtert und ignoriert eine Stufe Deckung des Ziels\
+  \ (S. 46).\nMaechtige Liturgie: Der Bonus steigt um +2.\nProbenschwierigkeit: 12\n\
+  Modifikationen: Langer Segen (\u20138, 8 KaP; die Liturgie wirkt auf alle Fernkampfangriffe\
+  \ waehrend der Wirkungsdauer.)\nVorbereitungszeit: 0 Aktionen\nZiel: Einzelperson\n\
+  Reichweite: Beruehrung\nWirkungsdauer: 8 Initiativphasen\nKosten: 4 KaP\nFertigkeiten:\
+  \ Jagd\nErlernen: Fir 12, Ifi 14; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition der
+  Ifirngeweihten I

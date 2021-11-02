@@ -1,0 +1,16 @@
+fertigkeiten: Gaben des Blutgeists
+kommentar: '0'
+kosten: '0'
+name: Abvenenum reine Speise (Blutgeist)
+printclass: '0'
+text: "Du reinigst eine Mahlzeit fuer 10 Personen von Verfallserscheinungen, Giften\
+  \ und Krankheitserregern, bis zu einer Gift-/Krankheitsstufe von 20. Der Geschmack\
+  \ aendert sich nicht.\nMaechtige Magie: Die maximal aufgehobene Gift-/Krankheitsstufe\
+  \ steigt um 4.\nProbenschwierigkeit: 12\nModifikationen: Schutz vor Uebelkeit (\u2013\
+  4; auch ungefaehrliche, aber unangenehme Inhalte wie Salz im Meerwasser werden entfernt.)\n\
+  Schutz vor Vergiftung (\u20134, Wirkungsdauer 8 Stunden; du reinigst auch alles,\
+  \ was dem Essen hinzugefuegt wird.)\nVorbereitungszeit: 8 Aktionen\nZiel: Einzelobjekte\n\
+  Reichweite: 2 Schritt\nWirkungsdauer: augenblicklich\nKosten: 4 AsP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Wildschwein)

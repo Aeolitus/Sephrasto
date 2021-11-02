@@ -1,0 +1,25 @@
+fertigkeiten: Rausch
+kosten: '40'
+name: Segen der Roten Schwester
+printclass: '44'
+text: 'Der Gesegnete wird von einem gluecklichen Rausch ergriffen, wenn ihm keine
+  Konterprobe (Zaehigkeit, 20) gelingt. Er erwacht nur, wenn er eine Wunde erleidet.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Rausch
+
+  Erlernen: Rah 16; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Rahjageweihten I

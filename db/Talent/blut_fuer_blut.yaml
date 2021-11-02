@@ -1,0 +1,26 @@
+fertigkeiten: Guter Kampf
+kosten: '60'
+name: Blut fuer Blut
+printclass: '54'
+text: 'Wenn du im Nahkampf eine Wunde erleidest, kannst du sofort einen Passierschlag
+  gegen den Angreifer durchfuehren. Fuer je zwei (insgesamt) erlittene Wunden ist
+  der Passierschlag um +1 erleichtert.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 8 Initiativphasen
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Guter Kampf
+
+  Erlernen: Kor 12; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Korgeweihten I

@@ -1,0 +1,14 @@
+fertigkeiten: Verwandlung
+kosten: '20'
+name: Langer Lulatsch
+printclass: '0'
+text: "Dein Opfer dehnt sich entweder auf seine dreifache Groesse aus oder schrumpft\
+  \ auf ein Drittel. Das Gewicht des Opfers bleibt gleich. Alle seine koerperlichen\
+  \ Taetigkeiten sind um \u20134 erschwert.\nProbenschwierigkeit: Magieresistenz\n\
+  Modifikationen: Langfinger/Wurstfinger (\u20134 pro Gliedmass; der Zauber betrifft\
+  \ nur einzelne Gliedmassen.)\nVorbereitungszeit: 1 Aktion\nZiel: Einzelperson\n\
+  Reichweite: Beruehrung\nWirkungsdauer: 4 Minuten\nKosten: 8 AsP\nFertigkeiten: Verwandlung\n\
+  Erlernen: Sch 12; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Schelme I

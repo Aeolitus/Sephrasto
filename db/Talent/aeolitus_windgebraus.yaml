@@ -1,0 +1,20 @@
+fertigkeiten: Luft
+kosten: '40'
+name: Aeolitus Windgebraus
+printclass: '0'
+text: "Ein kraeftiger Windstoss breitet sich von deinem Mund kegelfoermig (45\xB0\
+  ) 16 Schritt weit aus und verursacht Niederschmettern, wenn eine Konterprobe (KK,\
+  \ 16) misslingt. Ballistischer Zauber.\nProbenschwierigkeit: 12\nModifikationen:\
+  \ Langer Atem (\u20138, 8 AsP; der Windstoss haelt KO Initiativphasen lang an. Erfordert\
+  \ Konzentration.)\nSturm (\u20134; bei misslungener Konterprobe verursacht der Zauber\
+  \ auch Zurueckstossen (S. 98).)\nWinde der anderen Art (\u20134; der Wind bringt\
+  \ lieblichen Duft oder widerlichen Gestank.)\nVorbereitungszeit: 0 Aktionen\nZiel:\
+  \ Zone\nReichweite: Beruehrung\nWirkungsdauer: augenblicklich\nKosten: 4 AsP\nFertigkeiten:\
+  \ Luft\nErlernen: Elf 8; Geo 12; Ach, Alch, Dru, Mag 14; Sch, Srl 18; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
+  Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition
+  der Kristallomanten I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition
+  der Schelme I

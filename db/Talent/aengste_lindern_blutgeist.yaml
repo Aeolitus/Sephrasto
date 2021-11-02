@@ -1,0 +1,21 @@
+fertigkeiten: Gaben des Blutgeists
+kommentar: '0'
+kosten: '0'
+name: Aengste lindern (Blutgeist)
+printclass: '0'
+text: 'Auf dem Ziel lastende Furcht-Effekte sinken um eine Stufe.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 4 AsP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Loewe) ODER Vorteil Tiergeist (Mammut)

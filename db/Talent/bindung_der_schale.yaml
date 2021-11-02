@@ -1,0 +1,27 @@
+fertigkeiten: Kraft, Schalenzauber
+kosten: '20'
+name: Bindung der Schale
+printclass: '14'
+text: 'Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her, welche
+  die Voraussetzung fuer alle weiteren Talente dieser Fertigkeit ist. Ausserdem wird
+  der Ritualgegenstand unzerbrechlich.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Stunden
+
+  Ziel: Ritualgegenstand
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: permanent
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Kraft, Schalenzauber
+
+  Erlernen: Alch 8; Hex 14; Mag 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Gildenmagier
+  I ODER Vorteil Tradition der Hexen I

@@ -1,0 +1,28 @@
+fertigkeiten: Verstaendigung
+kosten: '20'
+name: Hexenblick
+printclass: '0'
+text: 'Du erfaehrst, ob dein Ziel die gleiche Tradition beherrscht wie du.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: Einzelperson
+
+  Reichweite: 2 Schritt
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 1 AsP
+
+  Fertigkeiten: Verstaendigung
+
+  Erlernen: Hex 8; Bor 18; 20 EP
+
+  Anmerkung: Ein Ziel kann verhindern, dass der Zauber anschlaegt, wenn ihm eine Konterprobe
+  (MR, 16) gelingt.'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I
+  ODER Vorteil Tradition der Hexen I

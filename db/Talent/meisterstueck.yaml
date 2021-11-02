@@ -1,0 +1,27 @@
+fertigkeiten: Heiliges Handwerk, Wissen
+kosten: '60'
+name: Meisterstueck
+printclass: '31'
+text: 'Waehrend du dich in deine Handwerkskunst versenkst, wirst du mit Inspiration
+  erfuellt. Du kannst ein Kunstwerk wie mit dem Vorteil Meisterwerk (S. 58) erschaffen.
+  Besitzt du den Vorteil bereits, steigt die Qualitaet um eine weitere Stufe.
+
+  Probenschwierigkeit: Herstellungsschwierigkeit des Handwerksstuecks
+
+  Vorbereitungszeit: 1 Tag
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: bis zur Fertigstellung
+
+  Kosten: 32 KaP
+
+  Fertigkeiten: Heiliges Handwerk, Wissen
+
+  Erlernen: Ang, Hes, Ing 16; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der
+  Ingerimmgeweihten I ODER Vorteil Tradition der Angroschgeweihten I

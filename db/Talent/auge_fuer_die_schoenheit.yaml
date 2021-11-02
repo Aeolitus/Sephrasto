@@ -1,0 +1,26 @@
+fertigkeiten: Harmonie
+kosten: '0'
+name: Auge fuer die Schoenheit
+printclass: '43'
+text: 'Der Gesegnete kann die Schoenheit in sich selbst oder jemand anderem sehen.
+  Dabei wird er nicht durch schlechte Eigenheiten oder andere Charakterschwaechen
+  und Vorurteile abgelenkt.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 1 KaP
+
+  Fertigkeiten: Harmonie
+
+  Erlernen: Rah 8; 0 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Rahjageweihten I

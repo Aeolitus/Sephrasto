@@ -1,0 +1,8 @@
+fertigkeiten: Wurfwaffen
+kosten: '-1'
+name: Kurze Wurfwaffen
+printclass: '-1'
+text: Verbessert den Einsatz von Wurfaexten, Wurfbeilen, Wurfmessern und Wurfsternen.
+variable: '0'
+verbilligt: '0'
+voraussetzungen: ''

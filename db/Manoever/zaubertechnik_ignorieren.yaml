@@ -1,0 +1,7 @@
+gegenprobe: ''
+name: Zaubertechnik ignorieren
+probe: Zauber -4
+text: Du ignorierst eine der bei der Tradition angefuehrten Bedingungen. Ignorierst
+  du die Bedingung Sicht, musst du das Ziel auf eine andere Art und Weise wahrnehmen.
+typ: '2'
+voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I

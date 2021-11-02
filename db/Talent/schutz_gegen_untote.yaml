@@ -1,0 +1,30 @@
+fertigkeiten: Antimagie, Kugelzauber
+kosten: '40'
+name: Schutz gegen Untote
+printclass: '12'
+text: 'Eine silbrige Kuppel mit 2 Schritt Radius umgibt dich und bewegt sich mit dir.
+  Untote mit einer Beschwoerungsschwierigkeit von maximal 16 koennen sie nicht durchschreiten.
+  Du kannst Untote mit der Kugel zurueckdraengen, wenn dir eine vergleichende KK-Probe
+  gelingt. Umgekehrt ist das nicht moeglich.
+
+  Maechtige Magie: Erhoeht die Beschwoerungsschwierigkeit um 4.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Antimagie, Kugelzauber
+
+  Erlernen: Mag 18; Srl 20; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane
+  I

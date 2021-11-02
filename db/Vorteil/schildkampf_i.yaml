@@ -1,0 +1,12 @@
+kommentar: '0'
+kosten: '20'
+nachkauf: haeufig
+name: Schildkampf I
+script: modifyKampfstil('Schildkampf', 0, 1, 0, 0)
+text: 'Bedingung: Schild.
+
+
+  Du erhaeltst VT +1.'
+typ: '3'
+variable: '0'
+voraussetzungen: Attribut KK 4

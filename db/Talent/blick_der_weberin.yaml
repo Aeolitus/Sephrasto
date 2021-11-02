@@ -1,0 +1,28 @@
+fertigkeiten: Magie
+kosten: '40'
+name: Blick der Weberin
+printclass: '30'
+text: 'Du analysierst die Kraftfaeden eines arkanen Artefakts oder eines magischen
+  Wesens. Das entspricht einem AG von 2 fuer die Strukturanalyse (mehr dazu siehe
+  S. 80).
+
+  Maechtige Liturgie: Der AG steigt um 1.
+
+  Probenschwierigkeit: 16
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Einzelobjekt, Einzelwesen
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Magie
+
+  Erlernen: Hes 12; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Hesindegeweihten I

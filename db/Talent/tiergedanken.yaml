@@ -1,0 +1,30 @@
+fertigkeiten: Hellsicht, Verstaendigung
+kosten: '20'
+name: Tiergedanken
+printclass: '0'
+text: 'Du siehst die Gedanken des Tiers als verschwommene Bilder.
+
+  Maechtige Magie: Zusaetzlich kannst du das Tier um einen kleineren/groesseren/gefaehrlichen
+  Gefallen bitten. Ob das Tier den Gefallen ausfuehren kann und will, ist Spielleiterentscheid.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Tier
+
+  Reichweite: 8 Schritt
+
+  Wirkungsdauer: 4 Minuten
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Hellsicht, Verstaendigung
+
+  Erlernen: Elf, Geo 14; Ach, Dru, Hex 16; Sch 18; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition
+  der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition
+  der Schelme I

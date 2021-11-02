@@ -1,0 +1,23 @@
+fertigkeiten: Umwelt
+kosten: '60'
+name: Motoricus Geisterhand
+printclass: '0'
+text: "Du kannst einen Gegenstand mit einer KK von 2 anheben und mit maximal 4 Schritt\
+  \ pro Initiativephase durch die Luft fliegen lassen. Besonders komplizierte und\
+  \ feine Bewegungen sind um bis zu 8 Punkte erschwert. Erfordert Konzentration.\n\
+  Maechtige Magie: Erhoeht KK und die Schritte pro Initiativephase um +2.\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Unsichtbarer Hieb (Wirkungsdauer augenblicklich; der Zauber\
+  \ fuegt einem Objekt 2W6 SP zu. Maechtige Magie erhoeht den Schaden um +4.)\nMagische\
+  \ Abwehr (\u20134, wird in einer Reaktion gewirkt, Wirkungsdauer augenblicklich;\
+  \ die Zauberprobe gilt als VT gegen einen Nahkampfangriff in Reichweite.)\nFesselfeld\
+  \ (\u20138, 32 AsP; in einer Zone von 4 Schritt Radius wird die Bewegung jedes unbelebten\
+  \ Objekts mit einer KK von 2 behindert, was Kampfhandlungen mit Waffen fast unmoeglich\
+  \ macht.)\nVorbereitungszeit: 1 Aktion\nZiel: Einzelobjekt\nReichweite: 8 Schritt\n\
+  Wirkungsdauer: 4 Minuten\nKosten: 4 AsP\nFertigkeiten: Umwelt\nErlernen: Mag 12;\
+  \ Alch, Sch 14; Ach, Elf, Hex, Srl; 16; 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Elfen
+  I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER
+  Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I
+  ODER Vorteil Tradition der Schelme I

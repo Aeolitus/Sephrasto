@@ -1,0 +1,9 @@
+fertigkeiten: Klingenwaffen
+kosten: '-1'
+name: Zweihandklingenwaffen
+printclass: '-1'
+text: Verbessert den Einsatz von zweihaendig gefuehrten Klingenwaffen wie Anderthalbhaendern,
+  Bastardschwertern und Zweihandschwertern.
+variable: '0'
+verbilligt: '0'
+voraussetzungen: ''

@@ -1,0 +1,27 @@
+fertigkeiten: Eigenschaften, Elfenlieder
+kosten: '60'
+name: Melodie der Kunstfertigkeit
+printclass: '2'
+text: 'Die Melodie erleichtert alle Proben zur Herstellung eines bestimmten Handwerksstueckes
+  um +2.
+
+  Maechtige Magie: Der Bonus steigt um +1.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: bis zur Fertigstellung.
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Eigenschaften, Elfenlieder
+
+  Erlernen: Elf 18; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Elfen I

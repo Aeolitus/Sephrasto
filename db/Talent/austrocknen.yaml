@@ -1,0 +1,25 @@
+fertigkeiten: Daemonische Hilfe (Cpt)
+kosten: '60'
+name: Austrocknen
+printclass: '200'
+text: 'Das Opfer trocknet langsam aus. Jede Stunde erleidet es 1 Wunde. Stirbt es
+  waehrend der Wirkungsdauer, erhebt es sich als Wasserleiche.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: 8 Schritt
+
+  Wirkungsdauer: 8 Stunden
+
+  Kosten: 16 GuP
+
+  Fertigkeiten: Daemonische Hilfe (Cpt)
+
+  Erlernen: Cpt 16; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Paktierer I

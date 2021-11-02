@@ -1,0 +1,39 @@
+fertigkeiten: Zwoelfgoettlicher Ritus
+kosten: '60'
+name: Liturgische Bindung
+printclass: '20'
+text: 'Mit dieser Liturgie kannst du Liturgien in einem Gegenstand speichern. Die
+  Regeln entsprechen jenen zur Erschaffung magischer Artefakte (S. 78), allerdings
+  koennen nur ladungsbasierte Artefakte erschaffen werden.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Stunden
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: nach Artefakt
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Zwoelfgoettlicher Ritus
+
+  Erlernen: Ang, Ing 18; Aves, Brn, Eff, Fir, Hes, Ifi, Kor, Nan, Per, Phe, Pra, Rah,
+  Ron, Tsa, Tra, Swa 20; 60 EP
+
+  Anmerkung: Geweihte Artefakte werden nur sehr selten an Laien vergeben. Am ehesten
+  kommen Glaeubige auf einer gottgefaelligen Queste in Frage.'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
+  Borongeweihten I ODER Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition
+  der Firungeweihten I ODER Vorteil Tradition der Hesindegeweihten I ODER Vorteil
+  Tradition der Ifirngeweihten I ODER Vorteil Tradition der Ingerimmgeweihten I ODER
+  Vorteil Tradition der Angroschgeweihten I ODER Vorteil Tradition der Korgeweihten
+  I ODER Vorteil Tradition der Nandusgeweihten I ODER Vorteil Tradition der Perainegeweihten
+  I ODER Vorteil Tradition der Phexgeweihten I ODER Vorteil Tradition der Praiosgeweihten
+  I ODER Vorteil Tradition der Rahjageweihten I ODER Vorteil Tradition der Rondrageweihten
+  I ODER Vorteil Tradition der Swafnirgeweihten I ODER Vorteil Tradition der Traviageweihten
+  I ODER Vorteil Tradition der Tsageweihten I

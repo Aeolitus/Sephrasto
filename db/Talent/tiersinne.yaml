@@ -1,0 +1,30 @@
+fertigkeiten: Eigenschaften, Verstaendigung, Vertrautenmagie
+kosten: '40'
+name: Tiersinne
+printclass: '17'
+text: 'Dein Vertrautentier schliesst seine Augen und leiht dir seine Sinne. Deine
+  Wahrnehmung steigt um +4, zusaetzlich erhaeltst du einen Bonus je nach Tier (Katze
+  und Eule  Angepasst II (Dunkelheit), Rabe und Falke Sehsinn +4, Hund und Schlange
+  Geruchssinn +4, Kroete Magiegespuer, Affe Gehoer +4, Spinne Tastsinn +4). Der Zauber
+  endet, wenn der Vertraute seine Augen oeffnet.
+
+  Maechtige Magie: Der Bonus steigt um +2.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 2 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Eigenschaften, Verstaendigung, Vertrautenmagie
+
+  Erlernen: Geo, Hex 16; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I

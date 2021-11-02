@@ -1,0 +1,16 @@
+fertigkeiten: Illusion
+kosten: '20'
+name: Favilludo Funkentanz
+printclass: '0'
+text: "Du erzeugst einen kunterbunten Funkenschwarm in einfachen geometrischen Formen\
+  \ deiner Wahl, der eine Person umgibt. Er ist offensichtlich als Illusion (Sicht)\
+  \ erkennbar.\nProbenschwierigkeit: 12\nModifikationen: Subtiles Leuchten (\u2013\
+  4, 4 AsP; alle Proben des Ziels auf Beeinflussung sind um +2 erleichtert.)\nLeuchtender\
+  \ Panzer (\u20134, 4 AsP; AT auf das Ziel sind um \u20132 erschwert, gezielte Schlaege\
+  \ unmoeglich.)\nVorbereitungszeit: 0 Aktionen\nZiel: Einzelperson\nReichweite: 2\
+  \ Schritt\nWirkungsdauer: 4 Minuten\nKosten: 1 AsP\nFertigkeiten: Illusion\nErlernen:\
+  \ Srl 12; Mag 14; Sch 18; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I
+  ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I

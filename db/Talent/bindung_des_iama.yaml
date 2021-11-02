@@ -1,0 +1,26 @@
+fertigkeiten: Elfenlieder, Kraft
+kosten: '20'
+name: Bindung des Iama
+printclass: '2'
+text: 'Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her, welche
+  die Voraussetzung fuer alle weiteren Talente dieser Fertigkeit ist. Ausserdem wird
+  der Ritualgegenstand unzerbrechlich.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Stunden
+
+  Ziel: Ritualgegenstand
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: permanent
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Elfenlieder, Kraft
+
+  Erlernen: Elf 4; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Elfen I

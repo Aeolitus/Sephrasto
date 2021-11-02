@@ -1,0 +1,27 @@
+fertigkeiten: Eigenschaften
+kosten: '40'
+name: Corpofesso Gliederschmerz
+printclass: '0'
+text: 'Dein Ziel erleidet eine ploetzliche Muskelschwaeche. Wenn es anstrengende Bewegungen
+  unternimmt (Laufen, Kaempfen), erleidet es alle DH* Initiativephasen 1 Punkt Erschoepfung.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 2 Aktionen
+
+  Ziel: Einzelwesen
+
+  Reichweite: 16 Schritt
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Eigenschaften
+
+  Erlernen: Alch, Mag 16; Elf, Hex 20; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil
+  Tradition der Hexen I

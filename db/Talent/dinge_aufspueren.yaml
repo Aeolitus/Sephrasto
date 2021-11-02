@@ -1,0 +1,25 @@
+fertigkeiten: Hellsicht, Vertrautenmagie
+kosten: '20'
+name: Dinge aufspueren
+printclass: '17'
+text: 'Dein Vertrautentier teilt dir mit, in welcher Richtung sich ein Gegenstand
+  aus deinem Besitz befindet.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: Einzelobjekt
+
+  Reichweite: 16 Meilen
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 1 AsP
+
+  Fertigkeiten: Hellsicht, Vertrautenmagie
+
+  Erlernen: Geo, Hex 12; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I

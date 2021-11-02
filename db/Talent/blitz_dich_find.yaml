@@ -1,0 +1,16 @@
+fertigkeiten: Einfluss
+kosten: '40'
+name: Blitz dich find
+printclass: '0'
+text: "Dein Ziel ist geblendet und erleidet eine Erschwernis von \u20132 auf Proben.\n\
+  Maechtige Magie: Erhoeht den Malus um \u20131.\nProbenschwierigkeit: Magieresistenz\n\
+  Vorbereitungszeit: 0 Aktionen\nZiel: Einzelwesen\nReichweite: 8 Schritt\nWirkungsdauer:\
+  \ 4 Initiativphasen\nKosten: 4 AsP\nFertigkeiten: Einfluss\nErlernen: Elf 8; Mag\
+  \ 12; Dru, Hex 14; Ach, Geo, Sch, Srl 16; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition
+  der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der
+  Kristallomanten I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition
+  der Schelme I

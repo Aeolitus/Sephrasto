@@ -1,0 +1,27 @@
+fertigkeiten: Humus, Zaubertaenze
+kosten: '20'
+name: Tanz der Freude
+printclass: '19'
+text: 'Der Tanz staerkt die Lebenskraefte und beendet ein Gift oder eine Krankheit
+  bis maximal Stufe 16.
+
+  Maechtige Magie: Die maximal aufgehobene Gift-/Krankheitsstufe steigt um 4.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Einzelperson
+
+  Reichweite: 4 Schritt
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Humus, Zaubertaenze
+
+  Erlernen: Ztz 14; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Zaubertaenzer I

@@ -1,0 +1,11 @@
+kommentar: '0'
+kosten: '40'
+linkElement: Tradition der Angroschgeweihten I
+linkKategorie: '3'
+nachkauf: haeufig
+name: Tradition der Angroschgeweihten II
+text: "Angroschgeweihte dienen dem Herren des Feuers und des Erzes. Unterirdisch sind\
+  \ alle Liturgien um 2\u20134 Punkte erleichtert."
+typ: '7'
+variable: '0'
+voraussetzungen: Attribut FF 6, Vorteil Tradition der Angroschgeweihten I

@@ -1,0 +1,27 @@
+fertigkeiten: Heiliges Handwerk, List
+kosten: '20'
+name: Kunstverstand
+printclass: '34'
+text: 'Du erhaeltst einen groben Eindruck vom Verkaufswert des Gegenstandes.
+
+  Probenschwierigkeit: 12
+
+  Maechtige Liturgie: Du erhaeltst einen ungefaehren/guten/genauen/detaillierten Eindruck.
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 4 KaP
+
+  Fertigkeiten: Heiliges Handwerk, List
+
+  Erlernen: Ang 12; Ing, Phe 14; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition
+  der Angroschgeweihten I ODER Vorteil Tradition der Phexgeweihten I

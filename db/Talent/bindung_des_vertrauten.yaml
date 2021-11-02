@@ -1,0 +1,26 @@
+fertigkeiten: Kraft, Verstaendigung, Vertrautenmagie
+kosten: '20'
+name: Bindung des Vertrauten
+printclass: '17'
+text: 'Du stellst eine enge magische Bindung zu deinem Vertrautentier her. Das Tier
+  kann andere Vertrautenzauber wirken, versteht deine Muttersprache und kann sich
+  mit dir auf telepathischem Wege unterhalten.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Stunden
+
+  Ziel: Vertrautentier
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: permanent
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Kraft, Verstaendigung, Vertrautenmagie
+
+  Erlernen: Hex 4, Geo 8; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I

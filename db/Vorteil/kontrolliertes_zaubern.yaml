@@ -1,0 +1,9 @@
+kommentar: '0'
+kosten: '20'
+nachkauf: haeufig
+name: Kontrolliertes Zaubern
+text: Du kannst Zauber waehrend ihrer Wirkungsdauer jederzeit beenden.
+typ: '4'
+variable: '0'
+voraussetzungen: Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut
+  KL 4

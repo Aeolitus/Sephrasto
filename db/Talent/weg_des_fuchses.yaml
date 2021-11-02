@@ -1,0 +1,30 @@
+fertigkeiten: Naechtlicher Schatten, Stiller Wanderer, Wildnis
+kosten: '40'
+name: Weg des Fuchses
+printclass: '28'
+text: 'Du kannst dich auch auf schlechten Pfaden, durch natuerliche Hindernisse oder
+  Menschenmassen wie auf einer normalen Strasse bewegen. Proben in Verfolgungsjagden
+  und unter schwierigen Bedingungen sind um +4 erleichtert.
+
+  Maechtige Liturgie: Der Bonus steigt um +2.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 2 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Naechtlicher Schatten, Stiller Wanderer, Wildnis
+
+  Erlernen: Fir, Phe 14; Aves, Ifi 16; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der
+  Firungeweihten I ODER Vorteil Tradition der Ifirngeweihten I ODER Vorteil Tradition
+  der Phexgeweihten I

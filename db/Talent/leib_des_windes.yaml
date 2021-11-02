@@ -1,0 +1,19 @@
+fertigkeiten: Luft, Verwandlung
+kosten: '60'
+name: Leib des Windes
+printclass: '0'
+text: "Du harmonierst mit dem Element Luft. Du bist immun gegen Luftschaden, wiegst\
+  \ nur noch die Haelfte und Winde beeinflussen dich nicht.\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Reise im Wind (\u20134; du kannst dich mit GS Schritt pro\
+  \ Initiativephase durch die Luft bewegen, als wuerdest du darin tauchen.)\nBegleiter\
+  \ (\u20134; der Zauber betrifft auch eine weitere Person, mit der du permanent Hautkontakt\
+  \ halten musst.)\nLeib aus Luft (\u20138; Deine Kreaturenklasse wird zu \"Elementar\"\
+  \ mit allen entsprechenden Eigenschaften (S.\_99). Du kannst waehrend der Wirkungsdauer\
+  \ keine Zauber wirken.)\nVorbereitungszeit: 8 Aktionen\nZiel: selbst\nReichweite:\
+  \ Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 16 AsP\nFertigkeiten: Luft, Verwandlung\n\
+  Erlernen: Elf 16; Hex 18; Ach, Dru, Geo, Mag 20; 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden
+  I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER
+  Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Elfen I

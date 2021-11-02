@@ -1,0 +1,25 @@
+fertigkeiten: Einfluss, Vertrautenmagie
+kosten: '20'
+name: Erster unter gleichen
+printclass: '17'
+text: 'Dein Vertrautentier schuechtert Tiere aus seiner Gattung ein. Sie erleiden
+  einen Furcht-Effekt Stufe 2.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: 16 Schritt
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 1 AsP
+
+  Fertigkeiten: Einfluss, Vertrautenmagie
+
+  Erlernen: Geo, Hex 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I

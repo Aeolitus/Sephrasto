@@ -1,0 +1,17 @@
+fertigkeiten: Luft, Umwelt
+kosten: '40'
+name: Solidirid Weg aus Licht
+printclass: '0'
+text: "Vor dir entsteht eine Bruecke aus Licht, die in allen Regenbogenfarben schillert.\
+  \ Die Bruecke ist maximal 8 Schritt lang, 1 Schritt breit und kann einen Hoehenunterschied\
+  \ von bis zu 1 Schritt pro 4 Schritt Laenge ueberwinden. Von oben ist die Bruecke\
+  \ undurchdringlich, aber von unten kann sie problemlos durchdrungen werden.\nMaechtige\
+  \ Magie: Die Laenge der Bruecke steigt um bis zu 4 Schritt, die Breite um bis zu\
+  \ 1 Schritt.\nProbenschwierigkeit: 12\nModifikationen: Bogentreppe (\u20134; der\
+  \ maximale Hoehenunterschied ist verdoppelt. Mehrfach waehlbar.)\nVorbereitungszeit:\
+  \ 8 Aktionen\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer: 4 Minuten\nKosten:\
+  \ 8 AsP\nFertigkeiten: Luft, Umwelt\nErlernen: Elf 16; Mag 20, 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Elfen I ODER Vorteil
+  Tradition der Gildenmagier I

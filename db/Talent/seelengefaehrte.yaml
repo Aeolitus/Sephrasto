@@ -1,0 +1,30 @@
+fertigkeiten: Jagd
+kosten: '20'
+name: Seelengefaehrte
+printclass: '27'
+text: 'Du bittest Firuns Wilde Jagd um einen Gefallen. Das Tier der Wilden Jagd, das
+  diesen Gefallen am ehesten erfuellen kann und sich in einem Radius von 4 Meilen
+  befindet, macht sich sofort auf den Weg zu dir und erfuellt den Gefallen. Ist diese
+  Tierart in der Region nicht heimisch, erreicht der Ruf ein verwandtes Tier. Ist
+  kein Tier in Reichweite, passiert nichts.
+
+  Maechtige Liturgie: Du rufst 2/4/8/16 Tiere.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Jagd
+
+  Erlernen: Fir 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Firungeweihten I

@@ -1,0 +1,28 @@
+fertigkeiten: Magie
+kosten: '40'
+name: Ingalfs Alchemie
+printclass: '30'
+text: 'Du rufst den Heiligen Trichter Hesindes herbei, der jede alchemistische Substanz
+  in ihre Bestandteile zerlegen kann. Bei der alchemistischen Analyse erhaeltst du
+  +2 AG. Ausserdem koennen so seltene Zutaten gewonnen werden.
+
+  Maechtige Liturgie: Der AG steigt um 1.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Einzelobjekt
+
+  Reichweite: dereweit
+
+  Wirkungsdauer: 8 Stunden
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Magie
+
+  Erlernen: Hes 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Hesindegeweihten I

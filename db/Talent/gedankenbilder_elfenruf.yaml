@@ -1,0 +1,23 @@
+fertigkeiten: Verstaendigung
+kosten: '20'
+name: Gedankenbilder Elfenruf
+printclass: '0'
+text: "Du sendest eine Gedankenbotschaft an jeden im Radius von 1 Meile, der sie empfangen\
+  \ moechte und den Zauber ebenfalls beherrscht. Die Botschaft ist nicht auf Sprache\
+  \ angewiesen.\nMaechtige Magie: Verdoppelt den Radius.\nProbenschwierigkeit: 12\n\
+  Modifikationen: Bestimmter Empfaenger (\u20134; nur ein von dir gewaehlter Empfaenger\
+  \ erhaelt die Botschaft.)\nKreis der Eingeweihten (\u20134; nur deine engsten Vertrauten\
+  \ erhalten die Botschaft, die Reichweite ist verhundertfacht.)\nSinneseindruecke\
+  \ (\u20134 pro Sinn; du uebertraegst deine aktuellen Sinneseindruecke.)\nIllusionen\
+  \ (\u20134 pro Sinn; wie Sinneseindruecke, aber du kannst beliebige, scheinbar aktuelle\
+  \ und reale Sinneseindruecke uebertragen.)\nKontakt (\u20134, Beruehrung; dein Ziel\
+  \ muss den Zauber nicht beherrschen.)\nErzwungene Botschaft (\u20134; der Empfang\
+  \ der Botschaft kann nur durch eine Konterprobe (MR, 12) verhindert werden.)\nVorbereitungszeit:\
+  \ 2 Aktionen\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer: 16 Initiativphasen\n\
+  Kosten: 4 AsP\nFertigkeiten: Verstaendigung\nErlernen: Elf 8; Sch 16; Alch, Mag\
+  \ 18; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil
+  Tradition der Schelme I

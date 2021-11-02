@@ -1,0 +1,13 @@
+fertigkeiten: Einfluss, Elfenlieder
+kosten: '40'
+name: Friedenslied
+printclass: '2'
+text: "Alle Humanoide und Tiere in Hoerreichweite verfallen in eine friedfertige Stimmung,\
+  \ auch wenn sie deine Musik nicht verstehen koennen. Aggressive Handlungen erfordern\
+  \ eine Konterprobe (Willenskraft, 16). Erfordert Konzen\xADtration, erlaubt Aufrechterhalten.\n\
+  Probenschwierigkeit: 12\nVorbereitungszeit: 4 Aktionen\nZiel: Zone\nReichweite:\
+  \ Beruehrung\nWirkungsdauer: 1 Stunde\nKosten: 8 AsP\nFertigkeiten: Einfluss, Elfenlieder\n\
+  Erlernen: Elf 16; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Elfen I

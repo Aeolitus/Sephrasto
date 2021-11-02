@@ -1,0 +1,26 @@
+fertigkeiten: Rausch, Wissen
+kosten: '40'
+name: Ein Bild fuer die Ewigkeit
+printclass: '31'
+text: 'Du praegst dir die waehrend der Wirkungsdauer erfahrenen Sinneseindruecke fuer
+  immer ein.
+
+  Probenschwierigkeit:12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 4 Minuten
+
+  Kosten: 4 KaP
+
+  Fertigkeiten: Rausch, Wissen
+
+  Erlernen: Nan, Rah 14; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Nandusgeweihten I ODER Vorteil Tradition der
+  Rahjageweihten I

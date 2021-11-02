@@ -1,0 +1,14 @@
+fertigkeiten: Vergessen
+kosten: '40'
+name: Siegel Borons
+printclass: '23'
+text: "Dein Ziel kann ueber ein bestimmtes Wissen oder Ereignis nicht sprechen oder\
+  \ es auf irgendeine andere Art mitteilen, ausser es gelingt ihm eine Konterprobe\
+  \ (Willenskraft, 20).\nProbenschwierigkeit: 12\nModifikationen: Umfassendes Siegel\
+  \ (\u20138, 16 KaP; das Ziel darf ueber einen grossen Bereich seines Lebens nicht\
+  \ sprechen.)\nVorbereitungszeit: 16 Aktionen\nZiel: Einzelperson\nReichweite: Beruehrung\n\
+  Wirkungsdauer: permanent\nKosten: 8 KaP\nFertigkeiten: Vergessen\nErlernen: Brn\
+  \ 18; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Borongeweihten I

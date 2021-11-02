@@ -1,0 +1,19 @@
+fertigkeiten: Wind und Wogen
+kosten: '40'
+name: Efferdanes Reinigung
+printclass: '26'
+text: "Dein Gebet schwaecht charyptide Einfluesse in der Umgebung. Auf der Skala normal/leicht\
+  \ verseucht/deutlich verseucht/stark verseucht/kleines Unheiligtum/mittleres Unheiligtum/maechtiges\
+  \ Unheiligtum verschiebt sich das Gebiet um eine Stufe nach vorne.\nMaechtige Liturgie:\
+  \ Das Gebiet sinkt um eine weitere Stufe.\nProbenschwierigkeit: 12\nVorbereitungszeit:\
+  \ 1 Stunde\nZiel: Zone\nReichweite: 32 Schritt\nWirkungsdauer: 1 Jahr\nKosten: 8\
+  \ KaP\nFertigkeiten: Wind und Wogen\nErlernen: Eff, Swa 16; 40 EP\nAnmerkung: Verschiebst\
+  \ du die Skala auf normal, kehren die daemonischen Einfluesse nicht von selbst zurueck\
+  \ \u2013 ausser die Ursache der Verseuchung existiert weiterhin. Alternativ kann\
+  \ die Liturgie wie Antimagie gegen charyptide Magie wirken (S. 126). Die Randbedingungen\
+  \ entsprechen den dort angegebenen, ausser dass die Kosten mit KaP bezahlt werden\
+  \ und die Liturgie um +4 erleichtert ist."
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der
+  Swafnirgeweihten I

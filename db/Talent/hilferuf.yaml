@@ -1,0 +1,17 @@
+fertigkeiten: Geister rufen, Verstaendigung
+kosten: '60'
+name: Hilferuf
+printclass: '7'
+text: "Du rufst ein Feenwesen, einen Totengeist oder einige Mindergeister aus einem\
+  \ Radius von 1\_Meile herbei. Das Wesen eilt zu dir und du kannst es um Hilfe bei\
+  \ einem unmittelbaren Problem bitten. Meistens hilft das Wesen, es kann aber auch\
+  \ einen Gegengefallen fordern oder (selten) die Hilfe ablehnen.\nMaechtige Magie:\
+  \ Verdoppelt den Radius.\nProbenschwierigkeit: 12\nModifikationen: Art (\u20134,\
+  \ du kannst dir die Art des helfenden Geists aussuchen)\nWesen (\u20134; du rufst\
+  \ ein dir bereits bekanntes Wesen aus bis zu 8 Meilen Radius herbei)\nVorbereitungszeit:\
+  \ 4 Aktionen\nZiel: Zone\nReichweite: Beruehrung\nWirkungsdauer: augenblicklich;\
+  \ der Geist erscheint nach 2W6 Initiativphasen\nKosten: 8 AsP\nFertigkeiten: Geister\
+  \ rufen, Verstaendigung\nErlernen: Smn 14; 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

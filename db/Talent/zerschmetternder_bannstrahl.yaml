@@ -1,0 +1,27 @@
+fertigkeiten: Licht, Magiebann
+kosten: '60'
+name: Zerschmetternder Bannstrahl
+printclass: '40'
+text: 'Ein gleissender Bannstrahl faehrt aus dem Himmel herab und richtet an einem
+  unheiligen Wesen oder Feenwesen 16W6 SP an und verbrennt ebenso viel Astralenergie.
+
+  Maechtige Liturgie: Richtet 16 SP zusaetzlich an.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Einzelwesen
+
+  Reichweite: 32 Schritt
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 32 KaP
+
+  Fertigkeiten: Licht, Magiebann
+
+  Erlernen: Pra 18; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Praiosgeweihten I

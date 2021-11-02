@@ -1,0 +1,29 @@
+fertigkeiten: Luft, Ringrituale, Wasser
+kosten: '40'
+name: Wasserbann
+printclass: '13'
+text: 'Eine Luftschicht schuetzt dich vor jeglichem Wasser. Du kannst unter Wasser
+  atmen und haeltst Druck und Stroemungen stand, dafuer sinkst du zu Boden und bewegst
+  dich gehend fort. Erlaubt Aufrechterhalten.
+
+  Maechtige Magie: Du kannst den Schutz auf eine Person oder einen aehnlich grossen
+  Gegenstand ausdehnen.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 4 Minuten
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Luft, Ringrituale, Wasser
+
+  Erlernen: Geo 12; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Geoden I

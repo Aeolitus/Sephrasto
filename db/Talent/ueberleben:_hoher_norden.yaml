@@ -1,0 +1,8 @@
+fertigkeiten: Ueberleben
+kosten: '-1'
+name: 'Ueberleben: Hoher Norden'
+printclass: '-1'
+text: Gilt fuer alle Regionen noerdlich der Salamandersteine.
+variable: '0'
+verbilligt: '0'
+voraussetzungen: ''

@@ -1,0 +1,31 @@
+fertigkeiten: Dolchzauber, Einfluss, Verstaendigung
+kosten: '40'
+name: Miniatur der Herrschaft
+printclass: '1'
+text: 'Aus Lehm und einem Koerperteil des Opfers (z.B. ein Haar oder einen Blutstropfen)
+  fertigst du eine Miniatur der Herrschaft. Waehrend der Wirkungsdauer kannst du einmal
+  pro Tag einen Einflusszauber oder einen Fluch der Pestilenz auf die Miniatur sprechen.
+  Dieser Zauber wird direkt auf das Opfer uebertragen, solange es nicht weiter als
+  1 Meile entfernt ist. Das Opfer kann wie gewoehnlich eine MR-Probe ablegen, um dem
+  Zauber zu widerstehen.
+
+  Maechtige Magie: Verdoppelt die Entfernung.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Einzelobjekt
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Woche
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Dolchzauber, Einfluss, Verstaendigung
+
+  Erlernen: Dru 12; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Druiden I

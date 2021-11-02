@@ -1,0 +1,16 @@
+fertigkeiten: Antimagie, Eis, Erz, Feuer, Humus, Luft, Wasser
+kosten: '40'
+name: Elementarbann
+printclass: '0'
+text: 'Wirkt gegen Zauber der Fertigkeiten Eis, Erz, Feuer, Humus, Luft und Wasser,
+  sowie gegen Elementare, in die keine gAsP geflossen sind. Spezielle Antimagie-Modifikationen
+  siehe S. 126.
+
+  Fertigkeiten: Antimagie, Eis, Erz, Feuer, Humus, Luft, Wasser
+
+  Erlernen: Dru, Elf, Geo, Mag 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition
+  der Gildenmagier I

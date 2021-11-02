@@ -1,0 +1,11 @@
+kommentar: '0'
+kosten: '40'
+linkElement: Tradition der Alchemisten I
+linkKategorie: '3'
+nachkauf: haeufig
+name: Tradition der Alchemisten II
+text: Alchemistische Zauber sind fest in der stofflichen Welt verankert. Die Wirkungsdauer
+  aller Zauber ist verdoppelt.
+typ: '5'
+variable: '0'
+voraussetzungen: Attribut FF 6, Vorteil Tradition der Alchemisten I

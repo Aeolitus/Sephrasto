@@ -1,0 +1,9 @@
+attribute: GE|KK|MU
+kampffertigkeit: '1'
+name: Klingenwaffen
+printclass: '0'
+steigerungsfaktor: '2'
+text: Im Kampf mit allen Varianten von Schwertern, Saebeln und Fechtwaffen werden
+  Proben auf die Fertigkeit Klingenwaffen abgelegt. Dolche gehoeren nicht zu den Klingenwaffen
+  - sie werden mit der Fertigkeit Handgemenge genutzt.
+voraussetzungen: ''

@@ -1,0 +1,27 @@
+fertigkeiten: Hellsicht, Geister rufen, Verstaendigung
+kosten: '40'
+name: Tierischer Helfer
+printclass: '7'
+text: 'Du siehst die Gedanken des Tiers als verschwommene Bilder.
+
+  Maechtige Magie: Zusaetzlich kannst du das Tier um einen kleineren/groesseren/gefaehrlichen
+  Gefallen bitten. Ob das Tier den Gefallen ausfuehren kann und will, ist Spielleiterentscheid.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Tier
+
+  Reichweite: 8 Schritt
+
+  Wirkungsdauer: 4 Minuten
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Hellsicht, Geister rufen, Verstaendigung
+
+  Erlernen: Smn 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

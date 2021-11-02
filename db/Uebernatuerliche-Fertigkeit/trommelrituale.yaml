@@ -1,0 +1,7 @@
+attribute: IN|FF|KO
+name: Trommelrituale
+printclass: '0'
+steigerungsfaktor: '2'
+text: Die Derwische rufen mit ihren Trommelritualen ihren Gott Rashtullah an und staerken
+  so ihre rechtglaeubigen Mitstreiter.
+voraussetzungen: Vorteil Tradition der Derwische I

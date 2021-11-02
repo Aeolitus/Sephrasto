@@ -1,0 +1,14 @@
+fertigkeiten: Erz, Humus, Ringrituale
+kosten: '40'
+name: Weg durch Sumus Leib
+printclass: '13'
+text: "Du bewegst dich innerhalb 1 Minute durch Erde und Stein an einen Ort, der maximal\
+  \ 4 Meilen entfernt sein darf. Alle Metallgegenstaende, die nicht kaltgeschmiedet\
+  \ sind (wie der Schlangenreif), verbleiben in der Erde.\nMaechtige Magie: Vervierfacht\
+  \ die Distanz\nModifikationen: Anhalter (\u20138; du kannst eine Person mitnehmen.\
+  \ Mehrfach waehlbar.)\nProbenschwierigkeit: 12\nVorbereitungszeit: 4 Aktionen\n\
+  Ziel: selbst\nReichweite: Beruehrung\nWirkungsdauer: augenblicklich\nKosten: 16\
+  \ AsP\nFertigkeiten: Erz, Humus, Ringrituale\nErlernen: Geo 18; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Geoden I

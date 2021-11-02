@@ -1,0 +1,20 @@
+fertigkeiten: Kraft, Kristallmagie
+kosten: '20'
+name: Kristallbindung
+printclass: '11'
+text: "Du bindest einen mindestens daumennagelgrossen Kristall an dich und bestimmst\
+  \ eine Fertigkeit. Der Kristall gilt als passender gebundener Kristall fuer diese\
+  \ Fertigkeit und erfuellt damit die Bedingung der Kristallomantischen Tradition.\
+  \ Ausserdem ist der Kristall unzerstoerbar. Du kannst mehrere solche Kristalle besitzen.\n\
+  Probenschwierigkeit: 12\nModifikationen: Maechtiger Kristall (16 AsP, davon 2/4/6/8\
+  \ gAsP; Zauber mit dem entsprechenden Merkmal sind um +1/2/3/4 erleichtert.)\nVorbereitungszeit:\
+  \ 1 Stunde\nZiel: Einzelobjekt\nReichweite: Beruehrung\nWirkungsdauer: bis die Bindung\
+  \ geloest wird\nKosten: 8 AsP, davon 1 gAsP\nFertigkeiten: Kraft, Kristallmagie\n\
+  Erlernen: Ach 4; 20 EP\nAnmerkung: Die meisten Kristallomanten verwenden Kristalle,\
+  \ die affin zu der entsprechenden Fertigkeit sind. Eine entsprechende Tabelle findest\
+  \ du beispielsweise im Wege der Zauberei, S. 325. Ihr koennt aber auch einfach darauf\
+  \ verzichten, penibel die Art jedes einzelnen Kristalls festzulegen \u2013 entscheidend\
+  \ ist, dass der Kristall fuer die richtige Fertigkeit gebunden wurde."
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Kristallomanten I

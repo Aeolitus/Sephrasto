@@ -1,0 +1,26 @@
+fertigkeiten: Einfluss, Vertrautenmagie
+kosten: '20'
+name: Schlaf rauben
+printclass: '17'
+text: 'Das von deinem Vertrautentier beobachtete Opfer regeneriert in dieser Nacht
+  keine AsP oder Wunden. Stattdessen erscheint ihm das Vertrautentier in fuerchterlichen
+  Albtraeumen.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: 16 Schritt
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 1 AsP
+
+  Fertigkeiten: Einfluss, Vertrautenmagie
+
+  Erlernen: Hex 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Hexen I

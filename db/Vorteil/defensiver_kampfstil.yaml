@@ -1,0 +1,15 @@
+csBeschreibung: "Volle Defensive ist fuer dich eine einfache Aktion. Dadurch koenntest\
+  \ du beispielsweise zusaetzlich die Aktion Konflikt waehlen, um eine AT \u20134\
+  \ ausfuehren."
+kommentar: '0'
+kosten: '40'
+linkElement: Volle Defensive (voll)
+linkKategorie: '1'
+nachkauf: haeufig
+name: Defensiver Kampfstil
+text: "Volle Defensive (S. 36) ist fuer dich eine einfache Aktion. Dadurch koenntest\
+  \ du beispielsweise zusaetzlich die Aktion Konflikt waehlen, um eine AT \u20134\
+  \ ausfuehren."
+typ: '2'
+variable: '0'
+voraussetzungen: Attribut IN 6

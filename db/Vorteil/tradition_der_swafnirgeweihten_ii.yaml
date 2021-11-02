@@ -1,0 +1,11 @@
+kommentar: '0'
+kosten: '40'
+linkElement: Tradition der Swafnirgeweihten I
+linkKategorie: '3'
+nachkauf: haeufig
+name: Tradition der Swafnirgeweihten II
+text: "Swafnirgeweihte begleiten und unterstuetzen ihre Gefaehrten auf ihren Fahrten.\
+  \ Auf See sind Liturgien um 2\u20134 Punkte erleichtert."
+typ: '7'
+variable: '0'
+voraussetzungen: Attribut MU 6, Vorteil Tradition der Swafnirgeweihten I

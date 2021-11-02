@@ -1,0 +1,13 @@
+fertigkeiten: Eigenschaften, Hexenflueche
+kosten: '40'
+name: Pech an den Hals wuenschen
+printclass: '9'
+text: "Dein Opfer wird vom Unglueck verfolgt. Seine Chance auf einen Patzer steigt\
+  \ um 1 auf dem W20 (zum Beispiel von 1 auf 1\u20132).\nMaechtige Magie: Je zwei\
+  \ Stufen steigern die Chance auf einen Patzer um einen weiteren Punkt.\nProbenschwierigkeit:\
+  \ Magieresistenz\nVorbereitungszeit: 4 Aktionen\nZiel: Einzelperson\nReichweite:\
+  \ 8 Schritt\nWirkungsdauer: 1 Tag\nKosten: 8 AsP\nFertigkeiten: Eigenschaften, Hexenflueche\n\
+  Erlernen: Hex 18; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Hexen I

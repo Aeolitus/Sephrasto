@@ -1,0 +1,34 @@
+fertigkeiten: Humus, Verwandlung
+kosten: '20'
+name: Tiere besprechen
+printclass: '0'
+text: 'Dein Ziel erhaelt 4W6+8 Heilpunkte, fuer jede Ueberschreitung der WS wird eine
+  Wunde geheilt.
+
+  Maechtige Magie: Erhoeht die Heilpunkte um 8.
+
+  Probenschwierigkeit: 12+Wund-Mod des Ziels
+
+  Modifikationen: Blutung stoppen (Probenschwierigkeit 16, 8 Aktionen; du stoppst
+  eine Blutung.)
+
+  Bann des Siechtums (Du beendest ein Gift oder eine Krankheit bis maximal Stufe 16.
+  Maechtige Magie erhoeht die maximal aufgehobene Gift-/Krankheitsstufe um 4.)
+
+  Vorbereitungszeit: 4 Minuten
+
+  Ziel: Tier
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Humus, Verwandlung
+
+  Erlernen: Hex 12; Dru, Geo 20; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I

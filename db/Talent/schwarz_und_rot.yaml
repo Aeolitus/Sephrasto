@@ -1,0 +1,29 @@
+fertigkeiten: Daemonisch, Eigenschaften
+kosten: '40'
+name: Schwarz und Rot
+printclass: '0'
+text: 'In der Herzgegend deines Opfers entsteht ein schmerzhaftes rotes Mal, das sich
+  langsam ausbreitet. Nach 2 und 4 Stunden erleidet das Opfer 1 Wunde. Solange das
+  Opfer Schaden nimmt, sind Wundmalusse verdoppelt.
+
+  Maechtige Magie: Das Ziel erleidet nach 2 weiteren Stunden eine weitere Wunde.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Daemonisch, Eigenschaften
+
+  Erlernen: Bor 16; Mag 18; Hex 20; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I
+  ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I

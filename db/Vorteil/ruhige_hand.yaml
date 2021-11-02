@@ -1,0 +1,10 @@
+kommentar: '0'
+kosten: '20'
+linkElement: Zielen
+linkKategorie: '1'
+nachkauf: haeufig
+name: Ruhige Hand
+text: Verdoppelt im Fernkampf den Bonus durch Zielen.
+typ: '2'
+variable: '0'
+voraussetzungen: Attribut FF 4

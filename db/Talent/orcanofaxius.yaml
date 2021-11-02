@@ -1,0 +1,15 @@
+fertigkeiten: Luft
+kosten: '40'
+name: Orcanofaxius
+printclass: '0'
+text: "Eine Strahl aus elementarer Luft fuegt dem Ziel 4W6 TP zu und verursacht Zurueckstossen\
+  \ (S. 98). Ballistischer Zauber.\nMaechtige Magie: Die TP steigen um 2W6.\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Gezielter Strahl (\u20134; du kannst die Trefferzone bestimmen.)\n\
+  Vorbereitungszeit: 1 Aktion\nZiel: Einzelwesen, Einzelobjekt\nReichweite: 16 Schritt\n\
+  Wirkungsdauer: augenblicklich\nKosten: 16 AsP\nFertigkeiten: Luft\nErlernen: Ach,\
+  \ Dru, Geo, Mag 18; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil
+  Tradition der Kristallomanten I

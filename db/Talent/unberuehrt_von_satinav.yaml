@@ -1,0 +1,15 @@
+fertigkeiten: Temporal, Verwandlung
+kosten: '20'
+name: Unberuehrt von Satinav
+printclass: '0'
+text: "Du stoppst den natuerlichen Verfall eines Gegenstandes von bis zu 16 Stein\
+  \ Gewicht. Der Gegenstand wird weder verrotten, noch von Parasiten befallen \u2013\
+  \ er bleibt genau wie zum Zeitpunkt der Verzauberung.\nMaechtige Magie: Das maximale\
+  \ Gewicht steigt um 8 Stein.\nProbenschwierigkeit: 12\nVorbereitungszeit: 4 Minuten\n\
+  Ziel: Einzelobjekt\nReichweite: Beruehrung\nWirkungsdauer: 1 Woche\nKosten: 4 AsP\n\
+  Fertigkeiten: Temporal, Verwandlung\nErlernen: Ach 12; Alch 14; Mag 16; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten
+  I

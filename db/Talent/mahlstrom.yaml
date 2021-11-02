@@ -1,0 +1,18 @@
+fertigkeiten: Umwelt, Wasser
+kosten: '40'
+name: Mahlstrom
+printclass: '0'
+text: "Du erzeugst einen Strudel im Wasser. Wesen in der Umgebung muessen jede Initiativephase\
+  \ eine Konterprobe (Schwimmen, 16) ablegen, die um die Distanz zum Zentrum in Schritt\
+  \ erleichtert ist. Beim Misslingen wird es 4\_Schritt naeher ins Zentrum des Mahlstroms\
+  \ gezogen. Im Zentrum erleidet jedes Ziel 4W6 SP und wird in die Tiefe gezogen.\n\
+  Probenschwierigkeit: 12\nModifikationen: Schiffverschlinger (\u20134, 4 Minuten,\
+  \ Wirkungsdauer 1 Stunde, 64 AsP; der Strudel ist so gross, dass er sogar Schiffe\
+  \ verschlingen kann. Die Konterprobe ist nur um 1 pro 8 Schritt Distanz erleichtert.)\n\
+  Vorbereitungszeit: 8 Aktionen\nZiel: Zone\nReichweite: 64 Schritt\nWirkungsdauer:\
+  \ 16 Initiativphasen\nKosten: 16 AsP\nFertigkeiten: Umwelt, Wasser\nErlernen: Dru\
+  \ 18; Geo, Mag 20; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I

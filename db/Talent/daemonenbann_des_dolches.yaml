@@ -1,0 +1,28 @@
+fertigkeiten: Antimagie, Dolchzauber
+kosten: '40'
+name: Daemonenbann des Dolches
+printclass: '1'
+text: 'Du ziehst mit deinem Ritualgegenstand einen Kreis von maximal 8 Schritt Radius.
+  Daemonen koennen diese Linie nicht uebertreten, wenn ihre Beschwoerungsschwierigkeit
+  maximal 20 betraegt.
+
+  Maechtige Magie: Erhoeht die Beschwoerungsschwierigkeit um 4.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Antimagie, Dolchzauber
+
+  Erlernen: Dru 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Druiden I

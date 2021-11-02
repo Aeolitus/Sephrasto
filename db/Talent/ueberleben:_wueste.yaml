@@ -1,0 +1,8 @@
+fertigkeiten: Ueberleben
+kosten: '-1'
+name: 'Ueberleben: Wueste'
+printclass: '-1'
+text: Gilt fuer Wuestenregionen wie die Khomwueste und die Wueste Gor.
+variable: '0'
+verbilligt: '1'
+voraussetzungen: ''

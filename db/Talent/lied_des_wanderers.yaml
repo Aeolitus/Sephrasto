@@ -1,0 +1,27 @@
+fertigkeiten: Eigenschaften, Zaubermelodien
+kosten: '20'
+name: Lied des Wanderers
+printclass: '18'
+text: 'Das Lied staerkt das Durchhaltevermoegen eines mueden Wanderers. Der Zuhoerer
+  mit dem geringsten DH (siehe S. 34) in 4 Schritt Radius erhaelt ein verdoppeltes
+  DH* und der Intervall, in dem er durch koerperliche Anstrengung Erschoepfung verursacht,
+  verdoppelt sich.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: 4 Schritt
+
+  Wirkungsdauer: 8 Stunden
+
+  Kosten: 4 AsP
+
+  Fertigkeiten: Eigenschaften, Zaubermelodien
+
+  Erlernen: Bard 12; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Zauberbarden I

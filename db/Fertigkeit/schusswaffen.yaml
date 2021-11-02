@@ -1,0 +1,9 @@
+attribute: FF|IN|KK
+kampffertigkeit: '2'
+name: Schusswaffen
+printclass: '1'
+steigerungsfaktor: '3'
+text: Mit der Fertigkeit Schusswaffen bedienst du alle Waffen, mit denen Geschosse
+  auf den Gegner abgefeuert werden. Dazu gehoeren so verbreitete Schusswaffen wie
+  der Bogen oder die Armbrust, aber auch das Blasrohr.
+voraussetzungen: ''

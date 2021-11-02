@@ -1,0 +1,11 @@
+kommentar: '0'
+kosten: '40'
+linkElement: Geweiht I
+linkKategorie: '3'
+nachkauf: ueblich
+name: Geweiht II
+script: modifyKaPBasis(8)
+text: Du verfuegst ueber 16 Karmapunkte und kannst kirchliche Traditionen erlernen.
+typ: '0'
+variable: '0'
+voraussetzungen: Vorteil Geweiht I

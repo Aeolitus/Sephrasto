@@ -1,0 +1,14 @@
+csBeschreibung: Proben zur Abwehr von Giften und Krankheiten sind um +4 erleichtert.
+  Das Durchhaltevermoegen (S. 19) steigt um 2 (bereits eingerechnet).
+kommentar: '0'
+kosten: '40'
+linkElement: Abgehaertet I
+linkKategorie: '3'
+nachkauf: haeufig
+name: Abgehaertet II
+script: modifyDH(2)
+text: Proben zur Abwehr von Giften und Krankheiten sind um +4 erleichtert und das
+  Durchhaltevermoegen (S. 19) steigt um 2.
+typ: '1'
+variable: '0'
+voraussetzungen: Attribut KO 6

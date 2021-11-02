@@ -1,0 +1,26 @@
+fertigkeiten: Verstaendigung, Zaubertaenze
+kosten: '40'
+name: Tanz des Mondes
+printclass: '19'
+text: 'Mit diesem Tanz kannst du in die Traeume eines schlafenden Zieles eindringen
+  und ihm dort Botschaften ueberbringen. Woran sich das Ziel erinnern kann, ist Spielleiterentscheid.
+  Du musst eine emotionale Beziehung zum Ziel haben.
+
+  Probenschwierigkeit: Magieresistenz
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Einzelperson
+
+  Reichweite: 100 Meilen
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Verstaendigung, Zaubertaenze
+
+  Erlernen: Ztz 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Zaubertaenzer I

@@ -1,0 +1,27 @@
+fertigkeiten: Hellsicht, Geister rufen
+kosten: '20'
+name: Blick in Liskas Augen
+printclass: '7'
+text: 'Du erhaeltst den Vorteil Prophezeien (S. 30) und erleidest keine Erschoepfung
+  durch den Einsatz dieser Gabe. Besitzt du die Gabe bereits, sind entsprechende Proben
+  um +4 erleichtert. Notwendige Proben kannst du auf Geister rufen statt auf Willenskraft
+  ablegen.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Hellsicht, Geister rufen
+
+  Erlernen: Smn 12; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

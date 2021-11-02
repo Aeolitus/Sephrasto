@@ -1,0 +1,13 @@
+kommentar: '0'
+kosten: '40'
+linkElement: Zauberer I
+linkKategorie: '3'
+nachkauf: ueblich
+name: Zauberer II
+script: modifyAsPBasis(8)
+text: 'Du verfuegst ueber 16 Astralpunkte und kannst magische Traditionen erlernen.
+  Daemonen, Elementare oder Hellsichtsmagier koennen dich magisch wahrnehmen. Zauberer
+  II entspricht einem wenig begabten Alchemisten. '
+typ: '0'
+variable: '0'
+voraussetzungen: Vorteil Zauberer I

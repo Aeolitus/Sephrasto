@@ -1,0 +1,16 @@
+fertigkeiten: Eigenschaften, Humus
+kosten: '40'
+name: Wipfellauf
+printclass: '0'
+text: "Du kannst dich durch Baumkronen und Unterholz bewegen, als waeren sie eine\
+  \ normale Strasse. Unter diesen Bedingungen erleidest du keinerlei Erschwernisse\
+  \ oder Geschwindigkeitsabzuege.\nProbenschwierigkeit: 12\nModifikationen: Kopfueber\
+  \ (\u20138; du kannst selbst kopfueber an Baeumen laufen.)\nVorbereitungszeit: 2\
+  \ Aktionen\nZiel: selbst\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\nKosten:\
+  \ 16 AsP\nFertigkeiten: Eigenschaften, Humus\nErlernen: Elf 16; Ach, Dru, Geo, Mag\
+  \ 20; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition
+  der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I

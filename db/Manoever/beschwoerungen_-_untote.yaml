@@ -1,0 +1,13 @@
+gegenprobe: ''
+name: Beschwoerungen - Untote
+probe: Skelettarius / Totes handle!, Kontrollprobe MU
+text: "Probenschwierigkeiten und Kosten:\n- 12 (schwache U., z.B. Skelett), 8 AsP\n\
+  - 16 (nuetzliche U., z.B. Knochenritter), 16 AsP\n- 20 (starke U., z.B. Kriegermumie),\
+  \ 24 AsP\n- 24 (maechtige U., z.B. Kriegsherr), 32 AsP\nBeschwoerungsprobe Mod.:\
+  \ +Bonus durch Vorbereitung, \u2013Kosten fuer Zusatzfaehigkeiten\nKontrollprobe\
+  \ Mod.: +Bonus durch Vorbereitung, +4 bis \u20138 je nach Dienst\nAnmerkung: Mit\
+  \ dem Totes handle! koennen nur permanente Untote erschaffen werden, bei den Kosten\
+  \ sind hier 1/4 der Basiskosten gAsp"
+typ: '4'
+voraussetzungen: Talent Skelettarius Totenherr ODER Talent Tairachs Krieger ODER Talent
+  Wasserleiche erheben ODER Talent Totes handle!

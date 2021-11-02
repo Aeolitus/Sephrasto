@@ -1,0 +1,17 @@
+fertigkeiten: Feuer
+kosten: '20'
+name: Custodosigil Diebesbann
+printclass: '0'
+text: "Du sicherst ein Gefaess von maximal 4 Stein mit einem magischen Siegel. Oeffnet\
+  \ jemand ausser dir das Gefaess, muss ihm eine Konterprobe (Schloesser knacken,\
+  \ 16) gelingen, sonst geht der Inhalt in Flammen auf.\nMaechtige Magie: Verdoppelt\
+  \ das Gewicht.\nProbenschwierigkeit: 12\nModifikationen: Personalisierung (\u2013\
+  2; eine weitere Person kann das Gefaess oeffnen. Mehrfach waehlbar.)\nPermanenz\
+  \ (\u20134, 4 AsP, davon 1 gAsP, Wirkungsdauer bis die Bindung geloest wird)\nVorbereitungszeit:\
+  \ 1 Stunde\nZiel: Einzelobjekt\nReichweite: Beruehrung\nWirkungsdauer: 1 Jahr\n\
+  Kosten: 4 AsP\nFertigkeiten: Feuer\nErlernen: Ach, Mag 12; Alch, Srl 16; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten
+  I ODER Vorteil Tradition der Scharlatane I

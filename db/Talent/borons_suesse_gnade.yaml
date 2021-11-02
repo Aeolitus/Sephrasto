@@ -1,0 +1,28 @@
+fertigkeiten: Vergessen
+kosten: '40'
+name: Borons suesse Gnade
+printclass: '23'
+text: 'Du stellst verlorene Erinnerungen wieder her oder nimmst deinem Ziel die Erinnerung
+  an bestimmte Ereignisse, wenn ihm eine Konterprobe (KL, 20) misslingt. Du kannst
+  Erinnerungen an maximal einen Zeitraum von einer Woche beeinflussen.
+
+  Maechtige Liturgie: Der Zeitraum betraegt maximal 1 Monat/Jahr/Jahrzehnt/unbegrenzt.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: permanent
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Vergessen
+
+  Erlernen: Bor 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Borongeweihten I

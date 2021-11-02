@@ -1,0 +1,24 @@
+fertigkeiten: Kraft
+kosten: '60'
+name: Koerperlose Reise
+printclass: '0'
+text: "Du trennst deinen Geist vom Koerper. Dein Koerper bleibt totengleich zurueck,\
+  \ waehrend sich dein Geist mit der Geschwindigkeit eines Pferdes bewegen kann. Er\
+  \ kann jederzeit den Limbus betreten oder verlassen. Im Limbus bewegt er sich mit\
+  \ einer Geschwindigkeit von 100 Meilen pro Stunde. Um massive Hindernisse zu durchqueren,\
+  \ sind nach Spielleiterentscheid Willenskraft-Proben notwendig, antimagische Materialien\
+  \ oder Orte bleiben dir verwehrt. Der Zauber endet erst, wenn Geist und Koerper\
+  \ wieder vereint sind \u2013 nach dem Ende der Wirkungsdauer erleidest du allerdings\
+  \ alle 4 Minuten 1 Punkt Erschoepfung, bis Koerper und Geist vereint sind.\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Manifestation (\u20134; du kannst Umstehenden waehrend der\
+  \ Wirkungsdauer als geisterhafte Gestalt erscheinen.)\nFernzauber (\u20138; du kannst\
+  \ weiterhin Zauber wirken. Dabei musst du auf Geste und gesprochene Formel verzichten.)\n\
+  Vorbereitungszeit: 1 Stunde\nZiel: selbst\nReichweite: Beruehrung\nWirkungsdauer:\
+  \ 1 Stunde\nKosten: 16 AsP\nFertigkeiten: Kraft\nErlernen: Dru 18; Ach, Bor, Geo,\
+  \ Hex, Mag 20; 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der
+  Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier
+  I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten
+  I

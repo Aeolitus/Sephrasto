@@ -1,0 +1,7 @@
+gegenprobe: ''
+name: Binden
+probe: VT -X
+text: Bis zum Ende der naechsten eigenen Initiativephase sind alle Verteidigungen
+  des Gegners um -X (maximal 8) erschwert.
+typ: '0'
+voraussetzungen: ''

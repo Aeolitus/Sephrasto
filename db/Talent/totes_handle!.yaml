@@ -1,0 +1,25 @@
+fertigkeiten: Daemonisch
+kosten: '60'
+name: Totes handle!
+printclass: '0'
+text: 'Du erschaffst aus einer Leiche einen untoten Diener (mehr zu Beschwoerungen
+  siehe S. 81). Der Untote hat sich nach 1 Stunde an seine Existenz gewoehnt und ist
+  einsatzfaehig.
+
+  Probenschwierigkeit: nach Untotem
+
+  Vorbereitungszeit: frei waehlbar
+
+  Ziel: Material fuer einen einzelnen Untoten
+
+  Wirkungsdauer: bis die Bindung geloest wird
+
+  Kosten: nach Untotem, ein Viertel der Basiskosten als gAsP
+
+  Fertigkeiten: Daemonisch
+
+  Erlernen: Bor, Mag 18; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der
+  Gildenmagier I

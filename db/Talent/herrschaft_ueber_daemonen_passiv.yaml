@@ -1,0 +1,13 @@
+fertigkeiten: Daemonische Hilfe (Cpt)
+kosten: '60'
+name: Herrschaft ueber Daemonen (passiv)
+printclass: '200'
+text: 'Erleichtert die Beschwoerungsproben fuer Daemonen aus der Domaene Charyptoroths
+  um +2, Kontrollproben um +4.
+
+  Fertigkeiten: Daemonische Hilfe (Cpt)
+
+  Erlernen: Cpt 18; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Paktierer I

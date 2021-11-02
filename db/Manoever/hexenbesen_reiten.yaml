@@ -1,0 +1,13 @@
+gegenprobe: ''
+name: Hexenbesen reiten
+probe: ''
+text: Jede Hexe kann auf einem Besen oder einem anderen Holzgegenstand reiten. Dazu
+  erhaelt sie bei der halbjaehrlichen Hexennacht die Hexensalbe, mit der das bestrichene
+  Objekt flugfaehig ist. Die Aktivierung des Besens vor jedem Flug kostet 1 AsP. Tollkuehne
+  Flugmanoever erfordern Proben auf das Talent Akrobatik. Misslungene Proben bedeuten,
+  dass die Hexe die Kontrolle ueber den Besen verliert und schlimmstenfalls unsanft
+  notlanden muss - schwere Verletzungen nicht ausgeschlossen. Bei einem Patzer kann
+  der Hexe der Absturz drohen, sie koennte aber auch den Zorn eines Drachen geweckt
+  haben.
+typ: '4'
+voraussetzungen: Vorteil Tradition der Hexen I

@@ -1,0 +1,26 @@
+fertigkeiten: Friede, Harmonie, Heilung, Wind und Wogen
+kosten: '20'
+name: Gleichklang des Geistes
+printclass: '26'
+text: 'Du erhaeltst einen Einblick in die Gefuehle deines Gegenuebers.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 1 KaP
+
+  Fertigkeiten: Friede, Harmonie, Heilung, Wind und Wogen
+
+  Erlernen: Swa 8; Eff, Rah, Tsa 12, Per 14; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der
+  Perainegeweihten I ODER Vorteil Tradition der Rahjageweihten I ODER Vorteil Tradition
+  der Swafnirgeweihten I ODER Vorteil Tradition der Tsageweihten I

@@ -1,0 +1,27 @@
+fertigkeiten: Ehre, Gutes Gold, Ordnung, Rausch, Vergessen
+kosten: '60'
+name: Heiliger Befehl
+printclass: '23'
+text: 'Das Ziel befolgt einen gottgefaelligen Befehl, wenn ihm keine Konterprobe (Willenskraft,
+  20) gelingt.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: 32 Schritt
+
+  Wirkungsdauer: 1 Tag
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Ehre, Gutes Gold, Ordnung, Rausch, Vergessen
+
+  Erlernen: Pra 8; Brn, Ron 12; Kor, Rah 14; 60 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der
+  Praiosgeweihten I ODER Vorteil Tradition der Rahjageweihten I ODER Vorteil Tradition
+  der Rondrageweihten I ODER Vorteil Tradition der Korgeweihten I

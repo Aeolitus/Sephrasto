@@ -1,0 +1,8 @@
+kommentar: '0'
+kosten: '80'
+nachkauf: haeufig
+name: Kalte Wut
+text: Der Held kann sich im Kampf in kalte Wut versetzen und Wundabzuege ignorieren.
+typ: '2'
+variable: '0'
+voraussetzungen: Attribut MU 10

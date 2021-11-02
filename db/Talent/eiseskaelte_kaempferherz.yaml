@@ -1,0 +1,28 @@
+fertigkeiten: Eigenschaften
+kosten: '40'
+name: Eiseskaelte Kaempferherz
+printclass: '0'
+text: 'Das Ziel empfindet keinerlei Schmerzen mehr. Es erhaelt den Vorteil Kalte Wut
+  (S. 43). Proben zum Ignorieren von Wundschmerz sind um +4 erleichtert.
+
+  Maechtige Magie: Der Bonus steigt um +2.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 0 Aktionen
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Eigenschaften
+
+  Erlernen: Ach, Elf 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Elfen I ODER Vorteil
+  Tradition der Kristallomanten I

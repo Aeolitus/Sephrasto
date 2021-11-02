@@ -1,0 +1,19 @@
+fertigkeiten: Erz, Verwandlung
+kosten: '40'
+name: Kraft des Erzes
+printclass: '0'
+text: "Der schwerste Metallgegenstand in Reichweite wird stark magnetisch. Im Radius\
+  \ von 8\_Schritt um den Magneten muessen alle Traeger von Metallgegenstaenden eine\
+  \ Konterprobe (KK, 16) ablegen. Misslingt sie, werden ihnen Metallgegenstaende aus\
+  \ den Haenden gerissen und schlittern in Richtung des Magneten \u2013 bei einer\
+  \ Ruestung mit ihrem Traeger. Selbst wenn die Konterprobe gelingt, sind alle Proben\
+  \ im Umgang mit Metallgegenstaenden um \u20134 erschwert.\nMaechtige Magie: Der\
+  \ Malus steigt um \u20132.\nProbenschwierigkeit: 12\nVorbereitungszeit: 16 Aktionen\n\
+  Ziel: Einzelobjekt\nReichweite: 8 Schritt\nWirkungsdauer: 1 Stunde\nKosten: 8 AsP\n\
+  Fertigkeiten: Erz, Verwandlung\nErlernen: Geo 12; Dru 16; Ach 18; Alch, Mag\_20;\
+  \ 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil
+  Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I

@@ -1,0 +1,15 @@
+fertigkeiten: Antimagie, Kraft
+kosten: '20'
+name: Protectionis Kontrabann
+printclass: '0'
+text: "Du schuetzt deinen naechsten, waehrend der Wirkungsdauer begonnenen Zauber\
+  \ vor Antimagie. Jede Antimagie gegen diesen Zauber ist um \u20134 erschwert.\n\
+  Maechtige Magie: Der Malus steigt um \u20132.\nProbenschwierigkeit: 12\nModifikationen:\
+  \ Austreibung verhindern (\u20138; erschwert Antimagie gegen das naechste beschworene\
+  \ Wesen fuer 1 Tag)\nVorbereitungszeit: 4 Aktionen\nZiel: selbst\nReichweite: Beruehrung\n\
+  Wirkungsdauer: 16 Initiativphasen\nKosten: 8 AsP\nFertigkeiten: Antimagie, Kraft\n\
+  Erlernen: Bor, Mag 18; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I
+  ODER Vorteil Tradition der Gildenmagier I

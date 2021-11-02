@@ -1,0 +1,28 @@
+fertigkeiten: Geister rufen, Keulenrituale, Kraft
+kosten: '40'
+name: Gespuer der Keule
+printclass: '10'
+text: 'Die Keule zeigt dir die Gegenwart von Magie in einem Radius von 1 Schritt an.
+  Das entspricht einem Analysegrad von 1 fuer die Intensitaetsanalyse (mehr dazu S.
+  80).
+
+  Maechtige Magie: Der Analysegrad steigt um 1.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 16 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: augenblicklich
+
+  Kosten: 1 AsP
+
+  Fertigkeiten: Geister rufen, Keulenrituale, Kraft
+
+  Erlernen: Smn 12; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

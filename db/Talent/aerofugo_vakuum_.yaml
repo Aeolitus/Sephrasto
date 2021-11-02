@@ -1,0 +1,30 @@
+fertigkeiten: Luft, Umwelt
+kosten: '40'
+name: 'Aerofugo Vakuum '
+printclass: '0'
+text: 'Du entfernst saemtliche Luft aus einem Bereich mit bis zu 4 Schritt Radius.
+  Flammen erloeschen, Lebewesen erleiden alle DH* Initiativephasen 1 Punkt Erschoepfung
+  und Luftelementare erleiden 1 Wunde pro Initiativephase.
+
+  Maechtige Magie: Der Radius steigt um 2 Schritt.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: 8 Schritt
+
+  Wirkungsdauer: 4 Initiativphasen
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Luft, Umwelt
+
+  Erlernen: Ach, Alch, Mag 20; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten
+  I

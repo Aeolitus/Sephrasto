@@ -1,0 +1,11 @@
+kommentar: '0'
+kosten: '80'
+nachkauf: haeufig
+name: Empathie
+text: Du kannst eine IN-Probe gegen die Willenskraft deines Gegenuebers ablegen. Wenn
+  die Probe gelingt, erfaehrst du eine seiner Schwaechen (S. 16). Eine einmal abgelegte
+  Probe, egal ob ge- oder misslungen, kannst du nur wiederholen, wenn du das Gegenueber
+  besser kennengelernt hast.
+typ: '1'
+variable: '0'
+voraussetzungen: Attribut IN 10

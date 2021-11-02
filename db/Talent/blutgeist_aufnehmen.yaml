@@ -1,0 +1,26 @@
+fertigkeiten: Verwandlung, Gaben des Blutgeists
+kommentar: '0'
+kosten: '60'
+name: Blutgeist aufnehmen
+printclass: '3'
+text: "Du verzehrst das frische Herz eines Tieres, um den Blutgeist des Tieres aufzunehmen.\
+  \ Damit beginnt die Besessenheit, die drei Effekte hat: Erstens kannst du die Zauber\
+  \ Staerke des Blutgeists und Koerper des Blutgeists nutzen. Diese Zauber beziehen\
+  \ sich immer auf das aufgenommene Tier (siehe S. 160). Zweitens kannst du alle dem\
+  \ Tier zugeordneten allgemeinen Zauber wirken, ohne dass du sie erlernen musst.\
+  \ Die Probe wird dabei auf die Fertigkeit Gaben des Blutgeists abgelegt. Drittens\
+  \ erhaeltst du die Eigenheit \u201EGefahr des Blutes\u201C: Wann immer du in Kontakt\
+  \ mit fremdem Blut kommst, kann der Blutgeist die Oberhand gewinnen. Meist geraetst\
+  \ du in einen moerderischen Blutrausch, aber auch teilweise oder ganze Verwandlungen\
+  \ oder andere, zum Tier passende Effekte sind denkbar. Positive und negative Effekte\
+  \ verschwinden mit dem Ende der Besessenheit. Du kannst niemals zwei Blutgeister\
+  \ gleichzeitig aufnehmen.\nProbenschwierigkeit: 12\nVorbereitungszeit: 1 Stunde\n\
+  Ziel: selbst\nReichweite: Beruehrung\nWirkungsdauer: bis die Bindung geloest wird\n\
+  Kosten: 8 AsP, davon 8 gAsP\nFertigkeiten: Verwandlung, Gaben des Blutgeists\nErlernen:\
+  \ Ana 4; 60 EP\nSephrasto: Die Tiertabelle ist in Sephrasto ueber die kostenlosen\
+  \ Tiergeist-Vorteile abgebildet, waehle einen davon aus. Dies schaltet alle Zauber\
+  \ des Tiergeists kostenlos ueber die Fertigkeit Gaben des Blutgeists frei - setze\
+  \ bei allen einen Haken."
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Anach-Nurim I

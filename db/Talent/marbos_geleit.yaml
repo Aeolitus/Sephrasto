@@ -1,0 +1,25 @@
+fertigkeiten: Tod
+kosten: '0'
+name: Marbos Geleit
+printclass: '22'
+text: 'Deine Seele verlaesst kurzzeitig deinen Koerper und begleitet und beschuetzt
+  die des Verstorbenen auf dem Weg ueber das Nirgendmeer.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Stunde
+
+  Ziel: Einzelperson
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: bis zu 1 Tag
+
+  Kosten: 16 KaP
+
+  Fertigkeiten: Tod
+
+  Erlernen: Brn 18; 0 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Borongeweihten I

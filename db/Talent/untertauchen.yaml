@@ -1,0 +1,10 @@
+fertigkeiten: Heimlichkeit
+kosten: '-1'
+name: Untertauchen
+printclass: '-1'
+text: Untertauchen erlaubt dir das Schleichen, Verstecken und Beschatten in der Zivilisation.
+  Du verschwindest in der Menschenmenge am Marktplatz, steigst ungehoert in eine Villa
+  eines Ratsherren ein oder beschattest unauffaellig einen Hehler.
+variable: '0'
+verbilligt: '0'
+voraussetzungen: ''

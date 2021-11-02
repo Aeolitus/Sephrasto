@@ -1,0 +1,14 @@
+fertigkeiten: Eis, Umwelt
+kosten: '60'
+name: Stillstand
+printclass: '0'
+text: "Du erschaffst eine Zone mit 8 Schritt Radius, die alle Bewegungen ausser deiner\
+  \ verlangsamt. Andere Ziele verlieren ihre naechste Aktion, wenn sie eine andere\
+  \ Aktion als Konzentration nutzen. Trifft eine Waffe ein Wesen in der Zone, richtet\
+  \ sie nur halben Schaden an.\nProbenschwierigkeit: 12\nModifikationen: Begleiter\
+  \ (\u20134; die Zone bewegt sich mit dir.)\nVorbereitungszeit: 4 Aktionen\nZiel:\
+  \ Zone\nReichweite: Beruehrung\nWirkungsdauer: 16 Initiativphasen\nKosten: 16 AsP\n\
+  Fertigkeiten: Eis, Umwelt\nErlernen: Ach 16; 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Kristallomanten I

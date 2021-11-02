@@ -1,0 +1,18 @@
+fertigkeiten: Antimagie, Geister der Staerkung
+kosten: '40'
+name: Schutz der Jurte
+printclass: '5'
+text: "Du schuetzt einen abgeschlossenen Raum, wie eine Jurte oder einer Hoehle, mit\
+  \ bis zu 16 Schritt Radius vor uebernatuerlichen Wesen. Daemonen, Daimonoiden und\
+  \ Untote koennen den Raum nicht betreten, wenn ihre Beschwoerungsschwierigkeit bei\
+  \ maximal 20 liegt, bei Geistern und Feenwesen entscheidet der Spielleiter. Innerhalb\
+  \ des Raumes erleiden alle genannten Wesenheiten 1 Wunde pro Initiativephase. Wenn\
+  \ ein beweglicher Raum wie eine Jurte verzaubert wird, wirkt der Zauber unabhaengig\
+  \ vom Ort, an dem die Jurte steht.\nMaechtige Magie: Die maximale Beschwoerungsschwierigkeit\
+  \ steigt um +4.\nProbenschwierigkeit: 12\nModifikationen: Permanenz (\u20134, Wirkungsdauer\
+  \ bis die Bindung geloest wird, 16 AsP, davon 2 gAsP)\nVorbereitungszeit: 1 Stunde\n\
+  Ziel: Zone\nReichweite: Beruehrung\nWirkungsdauer: 1 Woche\nKosten: 16 AsP\nFertigkeiten:\
+  \ Antimagie, Geister der Staerkung\nGeister vertreiben\nErlernen: Smn 14; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Schamanen I

@@ -1,0 +1,15 @@
+fertigkeiten: Einfluss
+kosten: '20'
+name: Lachkrampf
+printclass: '0'
+text: "Dein Opfer bekommt einen schweren Lachkrampf, der es von jeglicher Beteiligung\
+  \ in Rededuellen abhaelt. Nach 1 Minute darf es mit einer Konterprobe (Willenskraft,\
+  \ 16) versuchen, den Zauber zu beenden.\nProbenschwierigkeit: Magieresistenz\nModifikationen:\
+  \ Schluckauf (2 AsP; dein Opfer erhaelt einen kraeftigen Schluckauf. Auswirkungen\
+  \ sind Spielleiterentscheid.)\nBlaehungen (\u20134; alle Proben zur gesellschaftlichen\
+  \ Interaktion sind um \u20134 erschwert.)\nVorbereitungszeit: 0 Aktionen\nZiel:\
+  \ Einzelperson\nReichweite: 4 Schritt\nWirkungsdauer: 16 Minuten\nKosten: 8 AsP\n\
+  Fertigkeiten: Einfluss\nErlernen: Sch 8; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Schelme I

@@ -1,0 +1,15 @@
+fertigkeiten: Humus
+kosten: '20'
+name: Fesselranken
+printclass: '0'
+text: "Aus dem Boden unter deinem Opfer wachsen Ranken hervor, die es mit einem Umklammern-Manoever\
+  \ (\u20134) festhalten, aus der es sich mit einer Aktion Konflikt und einer Konterprobe\
+  \ (GE oder KK, 16) befreien kann. Beachte, dass diese Probe ebenfalls durch das\
+  \ Umklammern erschwert ist.\nProbenschwierigkeit: 12\nModifikationen: Dornenfessel\
+  \ (\u20138; misslungene Konterproben fuegen dem Opfer 2W6 TP zu.)\nVorbereitungszeit:\
+  \ 1 Aktion\nZiel: Einzelperson\nReichweite: 8 Schritt\nWirkungsdauer: 4 Initiativphasen\n\
+  Kosten: 4 AsP\nFertigkeiten: Humus\nErlernen: Dru, Geo 12; Hex 16; 20 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I

@@ -1,0 +1,27 @@
+fertigkeiten: Naechtlicher Schatten
+kosten: '40'
+name: Verborgen wie der Neumond
+printclass: '39'
+text: 'Du passt dich deiner Umgebung an. Du erhaeltst den Vorteil Tarnung (S. 98)
+  und deine Heimlichkeits-Proben sind um +4 erleichtert.
+
+  Maechtige Liturgie: Der Bonus steigt um +2.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 2 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Naechtlicher Schatten
+
+  Erlernen: Phe 14; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Phexgeweihten I

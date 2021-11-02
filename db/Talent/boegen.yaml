@@ -1,0 +1,8 @@
+fertigkeiten: Schusswaffen
+kosten: '-1'
+name: Boegen
+printclass: '-1'
+text: Verbessert den Einsatz von Boegen.
+variable: '0'
+verbilligt: '0'
+voraussetzungen: ''

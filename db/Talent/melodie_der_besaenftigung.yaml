@@ -1,0 +1,26 @@
+fertigkeiten: Einfluss, Zaubermelodien
+kosten: '20'
+name: Melodie der Besaenftigung
+printclass: '18'
+text: 'Die Melodie besaenftigt Tiere im Radius von 32 Schritt. Wenn ihnen eine Konterprobe
+  (Magieresistenz, 16) misslingt, verlieren sie ihre Angriffslust, solange sie nicht
+  angegriffen oder gereizt werden. Erfordert Konzentration, erlaubt Aufrechterhalten.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 1 Aktion
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 4 Minuten
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Einfluss, Zaubermelodien
+
+  Erlernen: Bard 16; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Zauberbarden I

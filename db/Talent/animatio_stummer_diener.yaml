@@ -1,0 +1,21 @@
+fertigkeiten: Umwelt
+kosten: '60'
+name: Animatio stummer Diener
+printclass: '0'
+text: "Du verzauberst ein Objekt von maximal 4\_Stein, sodass es eine einfache Bewegung\
+  \ wiederholt. Du musst die Bewegung waehrend der Vorbereitungszeit sieben Mal eigenhaendig\
+  \ ausfuehren und ein Signal bestimmen (z.B. ein Fingerschnippen oder ein Wort).\
+  \ Gibst du das Signal, fuehrt der Gegenstand die Bewegung aus. Seine KK entspricht\
+  \ deiner KK waehrend der Vorbereitungszeit.\nMaechtige Magie: Das maximale Gewicht\
+  \ verdoppelt sich.\nProbenschwierigkeit: 12\nModifikationen:  Mehrere Objekte (\u2013\
+  4; du kannst bis zu FF Objekte gleichzeitig verzaubern, solange ihre Bewegungen\
+  \ zusammengehoeren.)\nMehrere Ausloesende (\u20132; eine zusaetzliche Person kann\
+  \ das Signal geben. Mehrfach waehlbar.)\nGeworfen (\u20134; du musst das Objekt\
+  \ waehrend der Vorbereitungszeit nicht permanent in der Hand halten.)\nTageloehner\
+  \ (4 AsP, Wirkungsdauer 8 Stunden)\nAd Infinitum Ad Nauseam (\u20138; das Objekt\
+  \ wiederholt die Bewegung immer wieder, bis du das Signal wiederholst.)\nVorbereitungszeit:\
+  \ 4 Minuten\nZiel: Einzelobjekt\nReichweite: Beruehrung\nWirkungsdauer: 1 Jahr\n\
+  Kosten: 16 AsP\nFertigkeiten: Umwelt\nErlernen: Mag 18; 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Gildenmagier I

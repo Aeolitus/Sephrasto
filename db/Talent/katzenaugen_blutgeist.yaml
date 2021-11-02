@@ -1,0 +1,14 @@
+fertigkeiten: Gaben des Blutgeists
+kommentar: '0'
+kosten: '0'
+name: Katzenaugen (Blutgeist)
+printclass: '0'
+text: "Du ignorierst eine Stufe Dunkelheit, aber grelles Licht erschwert alle Proben\
+  \ um \u20132. Bei absoluter Dunkelheit ist der Zauber wirkungslos.\nMaechtige Magie:\
+  \ Du ignorierst 2/3 Stufen Dunkelheit.\nProbenschwierigkeit: 12\nVorbereitungszeit:\
+  \ 4 Aktionen\nZiel: Einzelperson\nReichweite: Beruehrung\nWirkungsdauer: 1 Stunde\n\
+  Kosten: 4 AsP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tiergeist (Fischotter) ODER Vorteil Tiergeist (Loewe) ODER
+  Vorteil Tiergeist (Wildkatze/Panther)

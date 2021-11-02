@@ -1,0 +1,25 @@
+fertigkeiten: Illusion, Kugelzauber
+kosten: '20'
+name: Bilderspiel
+printclass: '12'
+text: 'Du kannst in der Kugel eine beliebige Illusion (Sicht) erscheinen lassen. Die
+  Illusion kann sich auch bewegen, was Konzentration erfordert.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Kristallkugel
+
+  Reichweite: 2 Schritt
+
+  Wirkungsdauer: 16 Initiativphasen
+
+  Kosten: 4 AsP
+
+  Fertigkeiten: Illusion, Kugelzauber
+
+  Erlernen: Srl 12; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Scharlatane I

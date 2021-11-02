@@ -1,0 +1,9 @@
+fertigkeiten: Ueberleben
+kosten: '-1'
+name: 'Ueberleben: Suedaventurien'
+printclass: '-1'
+text: "Gilt fuer die Region zwischen Eisenwald, Phecanowald und Raschtulswall im Norden\
+  \ und Dr\xF4l und Thalusien im Sueden."
+variable: '0'
+verbilligt: '0'
+voraussetzungen: ''

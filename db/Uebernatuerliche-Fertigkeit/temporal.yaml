@@ -1,0 +1,12 @@
+attribute: CH|KL|KO
+name: Temporal
+printclass: '0'
+steigerungsfaktor: '2'
+text: Die mysterioese Temporalmagie greift in den Lauf der Zeit ein und ermoeglicht
+  Legenden zufolge immerwaehrende Zauber oder sogar die Unsterblichkeit. Doch wer
+  die Zeitmagie missbraucht, zieht den Zorn Satinavs auf sich.
+voraussetzungen: Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der
+  Alchemisten I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier
+  I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
+  Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil
+  Tradition der Schelme I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Magiedilettant

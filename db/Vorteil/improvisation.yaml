@@ -1,0 +1,9 @@
+kommentar: '0'
+kosten: '60'
+nachkauf: haeufig
+name: Improvisation
+text: Unzureichendes Werkzeug oder minderwertige Verbrauchsmaterialien gelten um eine
+  Stufe hoeher.
+typ: '1'
+variable: '0'
+voraussetzungen: Attribut FF 8

@@ -1,0 +1,6 @@
+gegenprobe: KK
+name: Niederwerfen
+probe: AT -4
+text: Dein Ziel stuerzt und liegt am Boden.
+typ: '0'
+voraussetzungen: Vorteil Niederwerfen

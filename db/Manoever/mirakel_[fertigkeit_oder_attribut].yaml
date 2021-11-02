@@ -1,0 +1,25 @@
+gegenprobe: ''
+name: Mirakel [Fertigkeit oder Attribut]
+probe: ''
+text: "Dein naechster Wurf auf [Fertigkeit oder Attribut] ist um +4 Punkte erleichtert.\
+  \ Diese Probe muss sich auf eine kurze Handlung von maximal einigen Minuten beziehen\
+  \ \u2013 du kannst also nicht mit einem Mirakel auf Autoritaet einen Feldzug in\
+  \ die schwarzen Lande planen.\nMaechtige Liturgie: Erhoeht die Erleichterung um\
+  \ +2.\nProbenschwierigkeit: 12\nVorbereitungszeit: 0 Aktionen\nZiel: selbst\nReichweite:\
+  \ Beruehrung\nWirkungsdauer: 4 Minuten\nKosten: 4 KaP\nAnmerkung: Jedes Mirakel\
+  \ fuer eine bestimmte Fertigkeit oder ein Attribut gilt als einzelne Liturgie und\
+  \ muss separat erlernt werden."
+typ: '7'
+voraussetzungen: 'Talent Mirakel: Alchemie ODER Talent Mirakel: Athletik ODER Talent
+  Mirakel: Autoritaet ODER Talent Mirakel: Beeinflussung ODER Talent Mirakel: CH ODER
+  Talent Mirakel: Derekunde ODER Talent Mirakel: Erste Fertigkeit nach Wahl ODER Talent
+  Mirakel: FF ODER Talent Mirakel: GE ODER Talent Mirakel: Gebraeuche ODER Talent
+  Mirakel: Handgemenge ODER Talent Mirakel: Handwerk ODER Talent Mirakel: Heilkunde
+  ODER Talent Mirakel: Heimlichkeit ODER Talent Mirakel: Hiebwaffen ODER Talent Mirakel:
+  IN ODER Talent Mirakel: KK ODER Talent Mirakel: KL ODER Talent Mirakel: KO ODER
+  Talent Mirakel: Klingenwaffen ODER Talent Mirakel: MR ODER Talent Mirakel: MU ODER
+  Talent Mirakel: Magiekunde ODER Talent Mirakel: Mythenkunde ODER Talent Mirakel:
+  Schusswaffen ODER Talent Mirakel: Selbstbeherrschung ODER Talent Mirakel: Stangenwaffen
+  ODER Talent Mirakel: Verschlagenheit ODER Talent Mirakel: Wahrnehmung ODER Talent
+  Mirakel: Wurfwaffen ODER Talent Mirakel: Zweite Fertigkeit nach Wahl ODER Talent
+  Mirakel: Ueberleben'

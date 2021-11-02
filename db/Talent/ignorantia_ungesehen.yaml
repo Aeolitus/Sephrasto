@@ -1,0 +1,27 @@
+fertigkeiten: Einfluss, Illusion
+kosten: '40'
+name: Ignorantia Ungesehen
+printclass: '0'
+text: 'Zufaellige Beobachter bemerken dich nicht und Umstehende verlieren das Interesse.
+  Wenn jemand allein mit dir ist oder sich konzentriert, muss ihm eine Konterprobe
+  (Wachsamkeit, 16) gelingen, um dich bewusst wahrzunehmen. Erlaubt Aufrechterhalten.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 16 Minuten
+
+  Kosten: 8 AsP
+
+  Fertigkeiten: Einfluss, Illusion
+
+  Erlernen: Srl 16; Mag 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I
+  ODER Vorteil Tradition der Scharlatane I

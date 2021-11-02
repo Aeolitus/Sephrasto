@@ -1,0 +1,19 @@
+fertigkeiten: Einfluss
+kosten: '40'
+name: Somnigravis
+printclass: '0'
+text: "Ein Ziel in einer ruhenden Position sinkt langsam in einen Tiefschlaf, aus\
+  \ dem es durch lauten Laerm oder Schmerzen geweckt werden kann.\nProbenschwierigkeit:\
+  \ Magieresistenz\nModifikationen: Beliebiges Wesen (\u20134; der Zauber wirkt auf\
+  \ alle Wesen, die Schlaf kennen.)\nOhnmacht (\u20138, 1 Aktion, Wirkungsdauer 16\
+  \ Initiativphasen; das Opfer wird schlagartig ohnmaechtig und ist nicht zu wecken.)\n\
+  Vorbereitungszeit: 2 Aktionen\nZiel: Einzelperson\nReichweite: 4 Schritt\nWirkungsdauer:\
+  \ 4 Stunden\nKosten: 8 AsP\nFertigkeiten: Einfluss\nErlernen: Elf 12; Mag 14; Alch\
+  \ 16; Ach, Dru, Geo, Hex, Sch, Srl 18; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil
+  Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition
+  der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition
+  der Scharlatane I ODER Vorteil Tradition der Schelme I

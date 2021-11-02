@@ -1,0 +1,29 @@
+fertigkeiten: Licht
+kosten: '20'
+name: 'Daradors Bann der Schatten '
+printclass: '40'
+text: 'Im Radius von 8 Schritt werden saemtliche Schatten, Dunkelheit und entsprechende
+  Zauber aufgehoben. Wesenheiten mit dem Nachteil Lichtscheu erleiden einen Furcht-Effekt
+  der Stufe 2, wenn ihre Beschwoerungsschwierigkeit maximal 20 betraegt (beschworene
+  Wesen) oder ihnen eine Konterprobe (MU, 16) misslingt (natuerliche Wesen).
+
+  Maechtige Liturgie: Erhoeht die maximale Beschwoerungsschwierigkeit um 4.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: Zone
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 4 Minuten
+
+  Kosten: 8 KaP
+
+  Fertigkeiten: Licht
+
+  Erlernen: Pra 12; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Praiosgeweihten I

@@ -1,0 +1,8 @@
+fertigkeiten: Handgemenge
+kosten: '-1'
+name: Unbewaffnet
+printclass: '-1'
+text: Verbessert den waffenlosen Nahkampf.
+variable: '0'
+verbilligt: '0'
+voraussetzungen: ''

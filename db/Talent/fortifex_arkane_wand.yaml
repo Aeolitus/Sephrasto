@@ -1,0 +1,19 @@
+fertigkeiten: Erz, Umwelt
+kosten: '40'
+name: Fortifex arkane Wand
+printclass: '0'
+text: "Es entsteht eine maximal 2x2 Schritt grosse, 5\_Finger dicke, unsichtbare Wand.\
+  \ Die Wand ist undurchdringlich fuer Gegenstaende bis zum Gewicht einer Rotzenkugel,\
+  \ schwerere Gegenstaende werden nur leicht verlangsamt.\nMaechtige Magie: Die Wand\
+  \ ist bis zum Gewicht eines schweren Menschen/Pferdes mit Reiter/einer Kutsche/eines\
+  \ Schiffes undurchdringlich.\nProbenschwierigkeit: 12\nModifikationen: Begleiter\
+  \ (\u20134; die Wand bewegt sich mit dir.)\nSchimmernder Schild (\u20138; erschafft\
+  \ einen unsichtbaren und unzerstoerbaren Schild. Die uebrigen Werte gleichen einem\
+  \ Holzschild.)\nVorbereitungszeit: 4 Aktionen\nZiel: Zone\nReichweite: 4 Schritt\n\
+  Wirkungsdauer: 4 Minuten\nKosten: 8 AsP\nFertigkeiten: Erz, Umwelt\nErlernen: Mag\
+  \ 16; Ach 18; Alch 20; 40 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten
+  I

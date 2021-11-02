@@ -1,0 +1,31 @@
+fertigkeiten: Luft, Verwandlung, Wasser
+kosten: '40'
+name: Nebelleib
+printclass: '0'
+text: 'Du verwandelst dich in Nebel, waehrend deine Ausruestung zurueckbleibt. In
+  deiner Nebelgestalt bist du immun gegen profanen Schaden, kannst durch schmalste
+  Oeffnungen dringen und mit deiner gewoehnlichen GS bis zu 8 Schritt ueber dem Boden
+  fliegen. Dafuer kannst du nicht mit anderen Wesen kommunizieren, keine Zauber wirken
+  und musst bei starkem Wind Willenskraft-Proben ablegen, um nicht weggeweht zu werden.
+
+  Maechtige Magie: Deine GS steigt um +4.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 8 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 16 AsP
+
+  Fertigkeiten: Luft, Verwandlung, Wasser
+
+  Erlernen: Dru, Geo 18; 40 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER
+  Vorteil Tradition der Geoden I

@@ -1,0 +1,26 @@
+fertigkeiten: Eigenschaften, Feuer, Hellsicht
+kosten: '20'
+name: Warmes Blut
+printclass: '0'
+text: 'Durch diesen Zauber siehst du die Waermestrahlung deiner Umgebung. Kaltes erscheint
+  schwarz bis gruenblau, Warmblueter sind gelb und Feuer ist orange bis tiefrot.
+
+  Probenschwierigkeit: 12
+
+  Vorbereitungszeit: 4 Aktionen
+
+  Ziel: selbst
+
+  Reichweite: Beruehrung
+
+  Wirkungsdauer: 1 Stunde
+
+  Kosten: 4 AsP
+
+  Fertigkeiten: Eigenschaften, Feuer, Hellsicht
+
+  Erlernen: Ach 8; Alch 20; 20 EP'
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER
+  Vorteil Tradition der Kristallomanten I

@@ -1,0 +1,17 @@
+fertigkeiten: Eis, Feuer, Umwelt, Verwandlung
+kosten: '60'
+name: Caldofrigo heiss und kalt
+printclass: '0'
+text: "Du veraenderst die Temperaturstufe (S. 35) eines Objektes um zwei Stufen.\n\
+  Maechtige Magie: Du veraenderst die Temperatur um eine weitere Stufe.\nProbenschwierigkeit:\
+  \ 12\nModifikationen: Zone (\u20134, selbst, 32 AsP; der Zauber betrifft einen Radius\
+  \ von 8 Schritt um dich herum.)\nFerne Zone (\u20138, Zone, 8 Schritt, 32 AsP)\n\
+  Vorbereitungszeit: 16 Aktionen\nZiel: Einzelobjekt\nReichweite: Beruehrung\nWirkungsdauer:\
+  \ 16 Minuten\nKosten: 8 AsP\nFertigkeiten: Eis, Feuer, Umwelt (Zone), Verwandlung\n\
+  Erlernen: Ach, Dru, Mag 16; Alch, Geo, Srl 18; 60 EP"
+variable: '0'
+verbilligt: '0'
+voraussetzungen: Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden
+  I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I
+  ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane
+  I
