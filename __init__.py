@@ -1,16 +1,7 @@
-import math
-import os
-import re
-import tempfile
-
 from CharakterAssistent import Wizard, WizardWrapper
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtWidgets
 
-import Objekte
-import pdf
 from EventBus import EventBus
-from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
-from Wolke import Wolke
 
 
 class Plugin:

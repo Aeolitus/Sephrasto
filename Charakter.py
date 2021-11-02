@@ -6,7 +6,7 @@ import os.path
 import re
 
 import lxml.etree as etree
-from PyQt5 import QtCore, QtWidgets
+from PyQt5 import QtWidgets
 
 import Definitionen
 import Fertigkeiten
@@ -340,16 +340,16 @@ class Char:
 
     def API_modifyTalent(self, fertigkeit, talent, condition, mod):
         fert = self.fertigkeiten[fertigkeit]
-        if not talent in fert.talentMods:
+        if talent not in fert.talentMods:
             fert.talentMods[talent] = {}
 
-        if not condition in fert.talentMods[talent]:
+        if condition not in fert.talentMods[talent]:
             fert.talentMods[talent][condition] = mod
         else:
             fert.talentMods[talent][condition] += mod
 
     def API_modifyÜbernatürlicheFertigkeitBasiswert(self, name, mod):
-        if not name in self.übernatürlicheFertigkeiten:
+        if name not in self.übernatürlicheFertigkeiten:
             return
 
         self.übernatürlicheFertigkeiten[name].basiswertMod += mod
@@ -377,24 +377,23 @@ class Char:
     def modifyWaffeneigenschaft(self, talentName, eigenschaft, remove):
         for waffe in self.waffen:
             talent = None
-            eigenschaftExists = False
             if waffe.name in Wolke.DB.waffen:
                 dbWaffe = Wolke.DB.waffen[waffe.name]
                 talent = dbWaffe.talent
                 if (not remove) and (eigenschaft in dbWaffe.eigenschaften):
                     continue
-                if remove and not (eigenschaft in dbWaffe.eigenschaften):
+                if remove and eigenschaft not in dbWaffe.eigenschaften:
                     continue
             if talent != talentName:
                 continue
             self.waffenEigenschaftenUndo.append([waffe, eigenschaft, remove])
             if remove:
-                if not (eigenschaft in waffe.eigenschaften):
+                if eigenschaft not in waffe.eigenschaften:
                     continue
                 waffe.eigenschaften.remove(eigenschaft)
+            elif eigenschaft in waffe.eigenschaften:
+                continue
             else:
-                if eigenschaft in waffe.eigenschaften:
-                    continue
                 waffe.eigenschaften.append(eigenschaft)
 
     def API_getWaffeneigenschaftParam(self, paramNb):
@@ -406,7 +405,7 @@ class Char:
                 + "' erfordert einen Parameter, aber es wurde keiner gefunden"
             )
         parameters = list(map(str.strip, match.group(1).split(";")))
-        if not len(parameters) >= paramNb:
+        if len(parameters) < paramNb:
             raise Exception(
                 "Die Waffeneigenschaft '"
                 + self.currentEigenschaft
@@ -525,7 +524,7 @@ class Char:
             remove = value[2]
             if (not remove) and (wEigenschaft in waffe.eigenschaften):
                 waffe.eigenschaften.remove(wEigenschaft)
-            elif remove and (not (wEigenschaft in waffe.eigenschaften)):
+            elif remove and wEigenschaft not in waffe.eigenschaften:
                 waffe.eigenschaften.append(wEigenschaft)
         self.waffenEigenschaftenUndo = []
 
@@ -540,7 +539,7 @@ class Char:
         # Execute Vorteil scripts to modify character stats
         vorteileByPrio = collections.defaultdict(list)
         for vortName in self.vorteile:
-            if not vortName in Wolke.DB.vorteile:
+            if vortName not in Wolke.DB.vorteile:
                 continue
             vort = Wolke.DB.vorteile[vortName]
             if not vort.script:
@@ -591,7 +590,7 @@ class Char:
             else:
                 fertig = ""
                 tale = ""
-            if not fertig in self.fertigkeiten:
+            if fertig not in self.fertigkeiten:
                 continue
 
             if tale in self.fertigkeiten[fertig].gekaufteTalente:
@@ -628,11 +627,11 @@ class Char:
             if schadensbonusWirkt:
                 waffenwerte.TPPlus += self.schadensbonus
 
-            ignoreBE = False
-            for values in kampfstilMods.BEIgnore:
-                if values[0] == fertig and values[1] == tale:
-                    ignoreBE = True
-                    break
+            ignoreBE = any(
+                values[0] == fertig and values[1] == tale
+                for values in kampfstilMods.BEIgnore
+            )
+
             if not ignoreBE:
                 be = max(self.be + kampfstilMods.BE, 0)
                 waffenwerte.AT -= be
@@ -837,9 +836,8 @@ class Char:
                 if vor == minderpakt:
                     if "Minderpakt" in vorteile:
                         continue
-                    else:
-                        allRemoved.append(minderpakt)
-                        minderpakt = None
+                    allRemoved.append(minderpakt)
+                    minderpakt = None
                 if not Char.voraussetzungenPrüfenInternal(
                     vorteile,
                     waffen,
@@ -919,9 +917,11 @@ class Char:
                 else:
                     for el in self.fertigkeiten[fert].gekaufteTalente:
                         for f in Wolke.DB.talente[el].fertigkeiten:
-                            if f in self.fertigkeiten:
-                                if el not in self.fertigkeiten[f].gekaufteTalente:
-                                    self.fertigkeiten[f].gekaufteTalente.append(el)
+                            if (
+                                f in self.fertigkeiten
+                                and el not in self.fertigkeiten[f].gekaufteTalente
+                            ):
+                                self.fertigkeiten[f].gekaufteTalente.append(el)
         for fert in self.übernatürlicheFertigkeiten:
             self.übernatürlicheFertigkeiten[fert].aktualisieren()
             if (
@@ -940,16 +940,15 @@ class Char:
                 else:
                     for el in self.übernatürlicheFertigkeiten[fert].gekaufteTalente:
                         for f in Wolke.DB.talente[el].fertigkeiten:
-                            if f in self.übernatürlicheFertigkeiten:
-                                if (
-                                    el
-                                    not in self.übernatürlicheFertigkeiten[
-                                        f
-                                    ].gekaufteTalente
-                                ):
-                                    self.übernatürlicheFertigkeiten[
-                                        f
-                                    ].gekaufteTalente.append(el)
+                            if f in self.übernatürlicheFertigkeiten and (
+                                el
+                                not in self.übernatürlicheFertigkeiten[
+                                    f
+                                ].gekaufteTalente
+                            ):
+                                self.übernatürlicheFertigkeiten[
+                                    f
+                                ].gekaufteTalente.append(el)
 
     def voraussetzungenPrüfen(self, Vor, Or=False):
         return Char.voraussetzungenPrüfenInternal(
@@ -987,90 +986,77 @@ class Char:
         Aus diesen Arrays muss nur ein Eintrag erfüllt sein.
         Wenn Wolke.Reqs nicht gesetzt ist, gibt die Methode immer True zurück.
         """
-        if Wolke.Reqs:
-            # Gehe über alle Elemente in der Liste
-            retNor = True
-            retOr = False
-            for voraus in Vor:
-                erfüllt = False
-                if type(voraus) is list:
-                    erfüllt = Char.voraussetzungenPrüfenInternal(
-                        vorteile,
-                        waffen,
-                        attribute,
-                        übernatürlicheFertigkeiten,
-                        fertigkeiten,
-                        voraus,
-                        True,
-                    )
-                else:
-                    # Split am Separator
-                    delim = "~"
-                    arr = re.split(delim, voraus, re.UNICODE)
-                    # Vorteile:
-                    if arr[0] is "V":
-                        if len(arr) > 2:
-                            cond = int(arr[2])
-                        else:
-                            cond = 1
-                        found = 0
-                        if arr[1] in vorteile:
-                            found = 1
-                        if found == 1 and cond == 1:
+        if not Wolke.Reqs:
+            return True
+        # Gehe über alle Elemente in der Liste
+        retNor = True
+        retOr = False
+        for voraus in Vor:
+            erfüllt = False
+            if type(voraus) is list:
+                erfüllt = Char.voraussetzungenPrüfenInternal(
+                    vorteile,
+                    waffen,
+                    attribute,
+                    übernatürlicheFertigkeiten,
+                    fertigkeiten,
+                    voraus,
+                    True,
+                )
+            else:
+                # Split am Separator
+                delim = "~"
+                arr = re.split(delim, voraus, re.UNICODE)
+                # Vorteile:
+                if arr[0] == "V":
+                    cond = int(arr[2]) if len(arr) > 2 else 1
+                    found = 1 if arr[1] in vorteile else 0
+                    if found == 1 and cond == 1 or found == 0 and cond == 0:
+                        erfüllt = True
+                elif arr[0] == "T":
+                    for fert in fertigkeiten.values():
+                        if arr[1] in fert.gekaufteTalente:
                             erfüllt = True
-                        elif found == 0 and cond == 0:
-                            erfüllt = True
-                    # Talente:
-                    elif arr[0] is "T":
-                        for fert in fertigkeiten.values():
+                            break
+                    if not erfüllt:
+                        for fert in übernatürlicheFertigkeiten.values():
                             if arr[1] in fert.gekaufteTalente:
                                 erfüllt = True
                                 break
-                        if not erfüllt:
-                            for fert in übernatürlicheFertigkeiten.values():
-                                if arr[1] in fert.gekaufteTalente:
-                                    erfüllt = True
-                                    break
-                    # Waffeneigenschaften:
-                    elif arr[0] is "W":
-                        for waffe in waffen:
-                            if arr[1] in waffe.eigenschaften:
-                                erfüllt = True
-                                break
-                    # Attribute:
-                    elif arr[0] is "A":
-                        # Wir greifen direkt auf den Eintrag zu und vergleichen.
-                        if attribute[arr[1]].wert >= int(arr[2]):
+                elif arr[0] == "W":
+                    for waffe in waffen:
+                        if arr[1] in waffe.eigenschaften:
                             erfüllt = True
-                    # Übernatürliche Fertigkeiten:
-                    elif arr[0] is "U":
-                        if arr[1] in übernatürlicheFertigkeiten:
-                            fertigkeit = übernatürlicheFertigkeiten[arr[1]]
-                            wert = int(arr[2])
-                            if wert == -1:
-                                erfüllt = len(fertigkeit.gekaufteTalente) > 0
-                            else:
-                                erfüllt = fertigkeit.wert >= wert
+                            break
+                elif arr[0] == "A":
+                    # Wir greifen direkt auf den Eintrag zu und vergleichen.
+                    if attribute[arr[1]].wert >= int(arr[2]):
+                        erfüllt = True
+                elif arr[0] == "U":
+                    if arr[1] in übernatürlicheFertigkeiten:
+                        fertigkeit = übernatürlicheFertigkeiten[arr[1]]
+                        wert = int(arr[2])
+                        if wert == -1:
+                            erfüllt = len(fertigkeit.gekaufteTalente) > 0
                         else:
-                            erfüllt = False
-                    # Fertigkeiten:
-                    elif arr[0] is "F":
-                        if arr[1] in fertigkeiten:
-                            fertigkeit = fertigkeiten[arr[1]]
-                            erfüllt = fertigkeit.wert >= int(arr[2])
-                        else:
-                            erfüllt = False
-                if not erfüllt:
-                    retNor = False
-                else:
-                    retOr = True
-            # Alle Voraussetzungen sind gecheckt und wir sind nirgendwo gefailt.
-            if Or and (retNor or retOr):
-                return retOr
+                            erfüllt = fertigkeit.wert >= wert
+                    else:
+                        erfüllt = False
+                elif arr[0] == "F":
+                    if arr[1] in fertigkeiten:
+                        fertigkeit = fertigkeiten[arr[1]]
+                        erfüllt = fertigkeit.wert >= int(arr[2])
+                    else:
+                        erfüllt = False
+            if not erfüllt:
+                retNor = False
             else:
-                return retNor
+                retOr = True
+        # Alle Voraussetzungen sind gecheckt und wir sind nirgendwo gefailt.
+        if Or and (retNor or retOr):
+            return retOr
         else:
-            return True
+            return retNor
 
     def xmlSchreiben(self, filename):
         """Speichert dieses Charakter-Objekt in einer XML Datei, deren
@@ -1313,7 +1299,7 @@ class Char:
         self.schips = int(alg.find("schips").text)
         self.finanzen = int(alg.find("finanzen").text)
         tmp = alg.find("heimat")
-        if not tmp is None:
+        if tmp is not None:
             self.heimat = tmp.text
         for eig in alg.findall("eigenheiten/*"):
             self.eigenheiten.append(eig.text or "")
@@ -1351,7 +1337,7 @@ class Char:
             return None
 
         for vor in root.findall("Vorteile/*"):
-            if not vor.text in Wolke.DB.vorteile:
+            if vor.text not in Wolke.DB.vorteile:
                 vIgnored.append(vor.text)
                 continue
             self.vorteile.append(vor.text)
@@ -1365,7 +1351,7 @@ class Char:
         Wolke.Fehlercode = -46
         for fer in root.findall("Fertigkeiten/Fertigkeit"):
             nam = fer.attrib["name"]
-            if not nam in Wolke.DB.fertigkeiten:
+            if nam not in Wolke.DB.fertigkeiten:
                 fIgnored.append(nam)
                 continue
 
@@ -1373,7 +1359,7 @@ class Char:
             fert.wert = int(fer.attrib["wert"])
             for tal in fer.findall("Talente/Talent"):
                 nam = tal.attrib["name"]
-                if not nam in Wolke.DB.talente:
+                if nam not in Wolke.DB.talente:
                     tIgnored.add(nam)
                     continue
                 fert.gekaufteTalente.append(nam)
@@ -1405,7 +1391,7 @@ class Char:
 
         objekte = root.find("Objekte")
         zonenSystem = objekte.find("Zonensystem")
-        if zonenSystem != None:
+        if zonenSystem is not None:
             self.zonenSystemNutzen = zonenSystem.text == "True"
 
         for rüs in objekte.findall("Rüstungen/Rüstung"):
@@ -1449,7 +1435,7 @@ class Char:
             "Übernatürliche-Fertigkeiten/Übernatürliche-Fertigkeit"
         ):
             nam = fer.attrib["name"]
-            if not nam in Wolke.DB.übernatürlicheFertigkeiten:
+            if nam not in Wolke.DB.übernatürlicheFertigkeiten:
                 übIgnored.append(nam)
                 continue
 
@@ -1459,7 +1445,7 @@ class Char:
                 fert.addToPDF = fer.attrib["addToPDF"] == "True"
             for tal in fer.findall("Talente/Talent"):
                 nam = tal.attrib["name"]
-                if not nam in Wolke.DB.talente:
+                if nam not in Wolke.DB.talente:
                     tIgnored.add(nam)
                     continue
                 fert.gekaufteTalente.append(nam)
