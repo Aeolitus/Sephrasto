@@ -4,28 +4,31 @@ Created on Sat Mar 18 18:09:33 2017
 
 @author: Aeolitus
 """
-import Fertigkeiten
-from Wolke import Wolke
-import CharakterFreieFert
-from PyQt5 import QtWidgets, QtCore
 import logging
-from Hilfsmethoden import Hilfsmethoden
+
+from PyQt5 import QtCore, QtWidgets
+
+import CharakterFreieFert
 import CharakterFreieFertigkeitenPickerWrapper
+import Fertigkeiten
+from Hilfsmethoden import Hilfsmethoden
+from Wolke import Wolke
+
 
 class CharakterFreieFertWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
-    
+
     def __init__(self):
         super().__init__()
         logging.debug("Initializing FreieFertWrapper...")
         self.formFert = QtWidgets.QWidget()
         self.uiFert = CharakterFreieFert.Ui_Form()
         self.uiFert.setupUi(self.formFert)
-        
+
         self.ffCount = 0
-        for row in range(1,8):
-            for column in range(1,5):
-                self.ffCount +=1
+        for row in range(1, 8):
+            for column in range(1, 5):
+                self.ffCount += 1
                 ffLayout = QtWidgets.QHBoxLayout()
                 ffEdit = QtWidgets.QLineEdit()
                 ffEdit.editingFinished.connect(self.update)
@@ -45,33 +48,43 @@ class CharakterFreieFertWrapper(QtCore.QObject):
                 setattr(self.uiFert, "buttonFF" + str(self.ffCount), ffButton)
                 ffButton.setText("+")
                 ffButton.setMaximumSize(QtCore.QSize(25, 20))
-                ffButton.clicked.connect(lambda state, edit=ffEdit: self.ffButtonClicked(edit))
+                ffButton.clicked.connect(
+                    lambda state, edit=ffEdit: self.ffButtonClicked(edit)
+                )
                 ffLayout.addWidget(ffButton)
 
                 self.uiFert.freieFertsGrid.addLayout(ffLayout, row, column)
-        
+
         self.load()
 
     def ffButtonClicked(self, edit):
-        picker = CharakterFreieFertigkeitenPickerWrapper.CharakterFreieFertigkeitenPickerWrapper(edit.text())
+        picker = CharakterFreieFertigkeitenPickerWrapper.CharakterFreieFertigkeitenPickerWrapper(
+            edit.text()
+        )
         if picker.fertigkeit != None:
             edit.setText(picker.fertigkeit)
             self.update()
-        
+
     def load(self):
         count = 1
         for el in Wolke.Char.freieFertigkeiten:
-            #if el.name == "Muttersprache":
+            # if el.name == "Muttersprache":
             #    continue
             eval("self.uiFert.editFF" + str(count) + ".blockSignals(True)")
             eval("self.uiFert.comboFF" + str(count) + ".blockSignals(True)")
-            getName = lambda : el.name
+            getName = lambda: el.name
             eval("self.uiFert.editFF" + str(count) + ".setText(getName())")
 
-            index = el.wert-1
+            index = el.wert - 1
             if count <= Wolke.Char.freieFertigkeitenNumKostenlos:
                 index = 2
-            eval("self.uiFert.comboFF" + str(count) + ".setCurrentIndex(" + str(index) + ")")
+            eval(
+                "self.uiFert.comboFF"
+                + str(count)
+                + ".setCurrentIndex("
+                + str(index)
+                + ")"
+            )
             eval("self.uiFert.editFF" + str(count) + ".blockSignals(False)")
             eval("self.uiFert.comboFF" + str(count) + ".blockSignals(False)")
 
@@ -81,27 +94,33 @@ class CharakterFreieFertWrapper(QtCore.QObject):
         while count < self.ffCount + 1:
             eval("self.uiFert.editFF" + str(count) + ".blockSignals(True)")
             eval("self.uiFert.comboFF" + str(count) + ".blockSignals(True)")
-            eval("self.uiFert.editFF" + str(count) + ".setText(\"\")")
+            eval("self.uiFert.editFF" + str(count) + '.setText("")')
             index = 0
             if count <= Wolke.Char.freieFertigkeitenNumKostenlos:
                 index = 2
-            eval("self.uiFert.comboFF" + str(count) + ".setCurrentIndex(" + str(index) + ")")
+            eval(
+                "self.uiFert.comboFF"
+                + str(count)
+                + ".setCurrentIndex("
+                + str(index)
+                + ")"
+            )
             eval("self.uiFert.editFF" + str(count) + ".blockSignals(False)")
             eval("self.uiFert.comboFF" + str(count) + ".blockSignals(False)")
             count += 1
-    
+
     def update(self):
         freieNeu = []
-        for count in range(1,self.ffCount + 1):
+        for count in range(1, self.ffCount + 1):
             tmp = eval("self.uiFert.editFF" + str(count) + ".text()")
-            val = eval("self.uiFert.comboFF" + str(count) + ".currentIndex()")+1
+            val = eval("self.uiFert.comboFF" + str(count) + ".currentIndex()") + 1
             fert = Fertigkeiten.FreieFertigkeit()
             fert.name = tmp
             fert.wert = val
             freieNeu.append(fert)
 
-        #Preserve the position of actual elements but remove any trailing empty elements
-        #This is needed for ArrayEqual later to work as intended
+        # Preserve the position of actual elements but remove any trailing empty elements
+        # This is needed for ArrayEqual later to work as intended
         for frei in reversed(freieNeu):
             if frei.name == "":
                 freieNeu.pop()

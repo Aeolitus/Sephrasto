@@ -115,12 +115,16 @@ class Ui_talentDialog(object):
         self.cbSystem.addItem("")
         self.cbSystem.addItem("")
         self.gridLayout.addWidget(self.cbSystem, 4, 1, 1, 2)
-        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         self.gridLayout.addItem(spacerItem, 5, 1, 1, 1)
         self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 1, 1)
         self.buttonBox = QtWidgets.QDialogButtonBox(talentDialog)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Save)
+        self.buttonBox.setStandardButtons(
+            QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Save
+        )
         self.buttonBox.setCenterButtons(True)
         self.buttonBox.setObjectName("buttonBox")
         self.gridLayout_2.addWidget(self.buttonBox, 3, 0, 1, 1)
@@ -141,8 +145,15 @@ class Ui_talentDialog(object):
 
     def retranslateUi(self, talentDialog):
         _translate = QtCore.QCoreApplication.translate
-        talentDialog.setWindowTitle(_translate("talentDialog", "Sephrasto - Rüstung bearbeiten..."))
-        self.warning.setText(_translate("talentDialog", "Dies ist eine Ilaris-Standardrüstung. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für diese Rüstung keine automatischen Updates mehr mit neuen Sephrasto-Versionen."))
+        talentDialog.setWindowTitle(
+            _translate("talentDialog", "Sephrasto - Rüstung bearbeiten...")
+        )
+        self.warning.setText(
+            _translate(
+                "talentDialog",
+                "Dies ist eine Ilaris-Standardrüstung. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für diese Rüstung keine automatischen Updates mehr mit neuen Sephrasto-Versionen.",
+            )
+        )
         self.label_7.setText(_translate("talentDialog", "Kopf"))
         self.label_3.setText(_translate("talentDialog", "Schildarm"))
         self.label.setText(_translate("talentDialog", "Name"))
@@ -155,13 +166,18 @@ class Ui_talentDialog(object):
         self.label_6.setText(_translate("talentDialog", "Brust"))
         self.label_10.setText(_translate("talentDialog", "Beschreibung"))
         self.label_11.setText(_translate("talentDialog", "Verfügbarkeit"))
-        self.cbSystem.setItemText(0, _translate("talentDialog", "Beide Rüstungssysteme"))
-        self.cbSystem.setItemText(1, _translate("talentDialog", "Einfaches Rüstungssystem"))
+        self.cbSystem.setItemText(
+            0, _translate("talentDialog", "Beide Rüstungssysteme")
+        )
+        self.cbSystem.setItemText(
+            1, _translate("talentDialog", "Einfaches Rüstungssystem")
+        )
         self.cbSystem.setItemText(2, _translate("talentDialog", "Zonenrüstungssystem"))
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     talentDialog = QtWidgets.QDialog()
     ui = Ui_talentDialog()

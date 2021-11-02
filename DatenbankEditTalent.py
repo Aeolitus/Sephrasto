@@ -20,7 +20,9 @@ class Ui_talentDialog(object):
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.buttonBox = QtWidgets.QDialogButtonBox(talentDialog)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Save)
+        self.buttonBox.setStandardButtons(
+            QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Save
+        )
         self.buttonBox.setCenterButtons(True)
         self.buttonBox.setObjectName("buttonBox")
         self.gridLayout_2.addWidget(self.buttonBox, 1, 0, 1, 1)
@@ -65,7 +67,9 @@ class Ui_talentDialog(object):
         self.label_3.setObjectName("label_3")
         self.gridLayout.addWidget(self.label_3, 6, 0, 1, 1)
         self.textEdit = QtWidgets.QPlainTextEdit(talentDialog)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.MinimumExpanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.MinimumExpanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.textEdit.sizePolicy().hasHeightForWidth())
@@ -74,7 +78,9 @@ class Ui_talentDialog(object):
         self.gridLayout.addWidget(self.textEdit, 8, 1, 1, 1)
         self.horizontalLayout_12 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_12.setObjectName("horizontalLayout_12")
-        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         self.horizontalLayout_12.addItem(spacerItem)
         self.sortierungEdit = QtWidgets.QSpinBox(talentDialog)
         self.sortierungEdit.setSuffix("")
@@ -100,15 +106,21 @@ class Ui_talentDialog(object):
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.buttonSpezial = QtWidgets.QRadioButton(talentDialog)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.buttonSpezial.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.buttonSpezial.sizePolicy().hasHeightForWidth()
+        )
         self.buttonSpezial.setSizePolicy(sizePolicy)
         self.buttonSpezial.setObjectName("buttonSpezial")
         self.horizontalLayout.addWidget(self.buttonSpezial)
         self.spinKosten = QtWidgets.QSpinBox(talentDialog)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.spinKosten.sizePolicy().hasHeightForWidth())
@@ -157,19 +169,34 @@ class Ui_talentDialog(object):
 
     def retranslateUi(self, talentDialog):
         _translate = QtCore.QCoreApplication.translate
-        talentDialog.setWindowTitle(_translate("talentDialog", "Sephrasto - Talent bearbeiten..."))
+        talentDialog.setWindowTitle(
+            _translate("talentDialog", "Sephrasto - Talent bearbeiten...")
+        )
         self.label_12.setText(_translate("talentDialog", "Sortierung"))
         self.label_2.setText(_translate("talentDialog", "Lernkosten"))
         self.label_5.setText(_translate("talentDialog", "Beschreibung"))
         self.label_4.setText(_translate("talentDialog", "Voraussetzungen"))
-        self.checkKommentar.setText(_translate("talentDialog", "Nutzern erlauben einen Kommentar einzutragen"))
-        self.warning.setText(_translate("talentDialog", "Dies ist ein Ilaris-Standardtalent. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für dieses Talent keine automatischen Updates mehr mit neuen Sephrasto-Versionen."))
+        self.checkKommentar.setText(
+            _translate("talentDialog", "Nutzern erlauben einen Kommentar einzutragen")
+        )
+        self.warning.setText(
+            _translate(
+                "talentDialog",
+                "Dies ist ein Ilaris-Standardtalent. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für dieses Talent keine automatischen Updates mehr mit neuen Sephrasto-Versionen.",
+            )
+        )
         self.label_6.setText(_translate("talentDialog", "Kommentar"))
         self.label_3.setText(_translate("talentDialog", "Fertigkeiten"))
         self.label.setText(_translate("talentDialog", "Talentname"))
-        self.buttonRegulaer.setText(_translate("talentDialog", "Reguläres Talent (Kosten nach Fertigkeit)"))
-        self.buttonVerbilligt.setText(_translate("talentDialog", "Verbilligtes Talent (Kosten nach Fertigkeit)"))
-        self.buttonSpezial.setText(_translate("talentDialog", "Spezialtalent (Kosten frei wählbar)"))
+        self.buttonRegulaer.setText(
+            _translate("talentDialog", "Reguläres Talent (Kosten nach Fertigkeit)")
+        )
+        self.buttonVerbilligt.setText(
+            _translate("talentDialog", "Verbilligtes Talent (Kosten nach Fertigkeit)")
+        )
+        self.buttonSpezial.setText(
+            _translate("talentDialog", "Spezialtalent (Kosten frei wählbar)")
+        )
         self.spinKosten.setSuffix(_translate("talentDialog", " EP"))
         self.checkVariable.setText(_translate("talentDialog", "Kosten sind variabel"))
         self.label_7.setText(_translate("talentDialog", "Cheatsheet"))
@@ -178,6 +205,7 @@ class Ui_talentDialog(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     talentDialog = QtWidgets.QDialog()
     ui = Ui_talentDialog()

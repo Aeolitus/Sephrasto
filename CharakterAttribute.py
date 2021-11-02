@@ -142,7 +142,9 @@ class Ui_formAttribute(object):
         self.label_21.setAlignment(QtCore.Qt.AlignCenter)
         self.label_21.setObjectName("label_21")
         self.gridLayout.addWidget(self.label_21, 5, 2, 1, 1)
-        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         self.gridLayout.addItem(spacerItem, 4, 0, 1, 1)
         self.label_3 = QtWidgets.QLabel(formAttribute)
         self.label_3.setObjectName("label_3")
@@ -223,7 +225,9 @@ class Ui_formAttribute(object):
         self.label_4 = QtWidgets.QLabel(formAttribute)
         self.label_4.setObjectName("label_4")
         self.gridLayout.addWidget(self.label_4, 5, 1, 1, 1)
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem1 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         self.gridLayout.addItem(spacerItem1, 4, 9, 1, 1)
         self.label_13 = QtWidgets.QLabel(formAttribute)
         self.label_13.setObjectName("label_13")
@@ -301,13 +305,17 @@ class Ui_formAttribute(object):
         self.pwFF.setProperty("showGroupSeparator", False)
         self.pwFF.setObjectName("pwFF")
         self.gridLayout.addWidget(self.pwFF, 9, 4, 1, 1)
-        spacerItem2 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem2 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
         self.gridLayout.addItem(spacerItem2, 10, 6, 1, 1)
         self.label_8 = QtWidgets.QLabel(formAttribute)
         self.label_8.setMinimumSize(QtCore.QSize(100, 0))
         self.label_8.setObjectName("label_8")
         self.gridLayout.addWidget(self.label_8, 9, 1, 1, 1)
-        spacerItem3 = QtWidgets.QSpacerItem(50, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        spacerItem3 = QtWidgets.QSpacerItem(
+            50, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum
+        )
         self.gridLayout.addItem(spacerItem3, 5, 5, 1, 1)
         self.spinKaP = QtWidgets.QSpinBox(formAttribute)
         self.spinKaP.setAlignment(QtCore.Qt.AlignCenter)
@@ -336,7 +344,9 @@ class Ui_formAttribute(object):
         self.label_14 = QtWidgets.QLabel(formAttribute)
         self.label_14.setObjectName("label_14")
         self.gridLayout.addWidget(self.label_14, 8, 6, 1, 1)
-        spacerItem4 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem4 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
         self.gridLayout.addItem(spacerItem4, 0, 3, 1, 1)
         self.label_26 = QtWidgets.QLabel(formAttribute)
         self.label_26.setMinimumSize(QtCore.QSize(25, 0))
@@ -464,7 +474,9 @@ class Ui_formAttribute(object):
         self.label_7.setText(_translate("formAttribute", "Charisma"))
         self.label_9.setText(_translate("formAttribute", "Wundschwelle"))
         self.label_8.setText(_translate("formAttribute", "Fingerfertigkeit"))
-        self.lblKapZugekauft.setText(_translate("formAttribute", "Zugekaufte Karmaenergie"))
+        self.lblKapZugekauft.setText(
+            _translate("formAttribute", "Zugekaufte Karmaenergie")
+        )
         self.label_10.setText(_translate("formAttribute", "Magieresistenz"))
         self.label_18.setText(_translate("formAttribute", "KO"))
         self.label_11.setText(_translate("formAttribute", "Geschwindigkeit"))
@@ -485,6 +497,7 @@ class Ui_formAttribute(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     formAttribute = QtWidgets.QWidget()
     ui = Ui_formAttribute()

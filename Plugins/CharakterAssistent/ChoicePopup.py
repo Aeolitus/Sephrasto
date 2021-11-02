@@ -16,7 +16,9 @@ class Ui_formMain(object):
         formMain.setObjectName("formMain")
         formMain.setWindowModality(QtCore.Qt.ApplicationModal)
         formMain.resize(335, 238)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(formMain.sizePolicy().hasHeightForWidth())
@@ -26,7 +28,9 @@ class Ui_formMain(object):
         self.gridLayout.setObjectName("gridLayout")
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         self.horizontalLayout_3.addItem(spacerItem)
         self.buttonBox = QtWidgets.QDialogButtonBox(formMain)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
@@ -34,7 +38,9 @@ class Ui_formMain(object):
         self.buttonBox.setObjectName("buttonBox")
         self.horizontalLayout_3.addWidget(self.buttonBox)
         self.gridLayout.addLayout(self.horizontalLayout_3, 5, 0, 1, 1)
-        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem1 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
         self.gridLayout.addItem(spacerItem1, 1, 0, 1, 1)
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
@@ -51,6 +57,7 @@ class Ui_formMain(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     formMain = QtWidgets.QDialog()
     ui = Ui_formMain()

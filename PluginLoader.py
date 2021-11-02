@@ -1,8 +1,9 @@
 import importlib.util
+import logging
 import os
 import os.path
-import logging
 import sys
+
 
 class PluginLoader:
     @staticmethod
@@ -27,6 +28,8 @@ class PluginLoader:
         try:
             plugin = module.Plugin()
         except:
-            logging.critical("Couldn't load plugin because class Plugin is missing: " + pluginName)
+            logging.critical(
+                "Couldn't load plugin because class Plugin is missing: " + pluginName
+            )
             return
         return plugin

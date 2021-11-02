@@ -4,11 +4,13 @@ Created on Sat Mar 18 10:52:34 2017
 
 @author: Aeolitus
 """
-import Fertigkeiten
+from PyQt5 import QtCore, QtWidgets
+
 import DatenbankEditVorteil
-from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
-from PyQt5 import QtWidgets, QtCore
+import Fertigkeiten
 from Definitionen import VorteilTypen
+from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
+
 
 class DatenbankEditVorteilWrapper(object):
     def __init__(self, datenbank, vorteil=None, readonly=False):
@@ -23,18 +25,21 @@ class DatenbankEditVorteilWrapper(object):
         vorteilDialog = QtWidgets.QDialog()
         self.ui = DatenbankEditVorteil.Ui_talentDialog()
         self.ui.setupUi(vorteilDialog)
-        
+
         if not vorteil.isUserAdded:
             if readonly:
-                self.ui.warning.setText("Gelöschte Elemente können nicht verändert werden.")
+                self.ui.warning.setText(
+                    "Gelöschte Elemente können nicht verändert werden."
+                )
             self.ui.warning.setVisible(True)
 
         vorteilDialog.setWindowFlags(
-                QtCore.Qt.Window |
-                QtCore.Qt.CustomizeWindowHint |
-                QtCore.Qt.WindowTitleHint |
-                QtCore.Qt.WindowCloseButtonHint)
-        
+            QtCore.Qt.Window
+            | QtCore.Qt.CustomizeWindowHint
+            | QtCore.Qt.WindowTitleHint
+            | QtCore.Qt.WindowCloseButtonHint
+        )
+
         self.ui.nameEdit.setText(vorteil.name)
         self.ui.nameEdit.textChanged.connect(self.nameChanged)
         self.nameChanged()
@@ -44,7 +49,9 @@ class DatenbankEditVorteilWrapper(object):
         self.ui.comboTyp.addItems(VorteilTypen)
         self.ui.comboTyp.setCurrentIndex(vorteil.typ)
 
-        self.ui.voraussetzungenEdit.setPlainText(Hilfsmethoden.VorArray2Str(vorteil.voraussetzungen, None))
+        self.ui.voraussetzungenEdit.setPlainText(
+            Hilfsmethoden.VorArray2Str(vorteil.voraussetzungen, None)
+        )
         self.ui.voraussetzungenEdit.textChanged.connect(self.voraussetzungenTextChanged)
 
         self.ui.textEdit.setPlainText(vorteil.text)
@@ -57,7 +64,9 @@ class DatenbankEditVorteilWrapper(object):
         self.ui.checkCheatsheet.clicked.connect(self.cheatsheetChanged)
         self.cheatsheetChanged()
         self.ui.comboLinkKategorie.setCurrentIndex(vorteil.linkKategorie)
-        self.ui.comboLinkKategorie.currentIndexChanged.connect(self.linkKategorieChanged)
+        self.ui.comboLinkKategorie.currentIndexChanged.connect(
+            self.linkKategorieChanged
+        )
         self.linkKategorieChanged()
         if vorteil.linkKategorie > 0:
             self.ui.comboLinkElement.setCurrentText(vorteil.linkElement)
@@ -68,14 +77,16 @@ class DatenbankEditVorteilWrapper(object):
         scriptPrioDoc = [
             "Die Skript-Priorität legt die Reihenfolge der Auswertung fest. 0 ist Standard, negative Werte werden davor,",
             "positive Werte danach ausgewertet. Dies ist relevant, falls bspw. die INI verdoppelt werden soll nachdem",
-            "Kampfreflexe eingerechnet wurde. In diesem Fall sollte die Skript-Priorität höher als die von Kampfreflexe sein."
+            "Kampfreflexe eingerechnet wurde. In diesem Fall sollte die Skript-Priorität höher als die von Kampfreflexe sein.",
         ]
 
         self.ui.scriptPrioEdit.setToolTip("\n".join(scriptPrioDoc))
 
         self.ui.scriptEdit.setText(vorteil.script)
 
-        self.ui.scriptEdit.setToolTip("Siehe ScriptAPI.md im Installationsordner für verfügbare Funktionen und Beispiele.")
+        self.ui.scriptEdit.setToolTip(
+            "Siehe ScriptAPI.md im Installationsordner für verfügbare Funktionen und Beispiele."
+        )
 
         vorteilDialog.show()
         ret = vorteilDialog.exec_()
@@ -84,13 +95,15 @@ class DatenbankEditVorteilWrapper(object):
             self.vorteil.name = self.ui.nameEdit.text()
             self.vorteil.kosten = self.ui.kostenEdit.value()
             self.vorteil.nachkauf = self.ui.comboNachkauf.currentText()
-            self.vorteil.voraussetzungen = Hilfsmethoden.VorStr2Array(self.ui.voraussetzungenEdit.toPlainText(), datenbank)
+            self.vorteil.voraussetzungen = Hilfsmethoden.VorStr2Array(
+                self.ui.voraussetzungenEdit.toPlainText(), datenbank
+            )
             self.vorteil.typ = self.ui.comboTyp.currentIndex()
             self.vorteil.variableKosten = self.ui.checkVariable.isChecked()
             self.vorteil.kommentarErlauben = self.ui.checkKommentar.isChecked()
 
             self.vorteil.text = self.ui.textEdit.toPlainText()
-            
+
             self.vorteil.scriptPrio = self.ui.scriptPrioEdit.value()
             self.vorteil.script = str.strip(self.ui.scriptEdit.text())
 
@@ -106,7 +119,7 @@ class DatenbankEditVorteilWrapper(object):
                 self.vorteil.isUserAdded = True
         else:
             self.vorteil = None
-           
+
     def cheatsheetChanged(self):
         self.ui.teCheatsheet.setEnabled(self.ui.checkCheatsheet.isChecked())
 
@@ -115,9 +128,25 @@ class DatenbankEditVorteilWrapper(object):
         if self.ui.comboLinkKategorie.currentIndex() == 1:
             self.ui.comboLinkElement.addItems(sorted(self.datenbank.manöver.keys()))
         elif self.ui.comboLinkKategorie.currentIndex() == 2:
-            self.ui.comboLinkElement.addItems(sorted([el for el in self.datenbank.talente if self.datenbank.talente[el].isSpezialTalent()]))
+            self.ui.comboLinkElement.addItems(
+                sorted(
+                    [
+                        el
+                        for el in self.datenbank.talente
+                        if self.datenbank.talente[el].isSpezialTalent()
+                    ]
+                )
+            )
         elif self.ui.comboLinkKategorie.currentIndex() == 3:
-            self.ui.comboLinkElement.addItems(sorted([el for el in self.datenbank.vorteile if el != self.ui.nameEdit.text()]))
+            self.ui.comboLinkElement.addItems(
+                sorted(
+                    [
+                        el
+                        for el in self.datenbank.vorteile
+                        if el != self.ui.nameEdit.text()
+                    ]
+                )
+            )
 
     def variableKostenChanged(self):
         if self.ui.checkVariable.isChecked():
@@ -142,7 +171,9 @@ class DatenbankEditVorteilWrapper(object):
 
     def voraussetzungenTextChanged(self):
         try:
-            Hilfsmethoden.VorStr2Array(self.ui.voraussetzungenEdit.toPlainText(), self.datenbank)
+            Hilfsmethoden.VorStr2Array(
+                self.ui.voraussetzungenEdit.toPlainText(), self.datenbank
+            )
             self.ui.voraussetzungenEdit.setStyleSheet("")
             self.ui.voraussetzungenEdit.setToolTip("")
             self.voraussetzungenValid = True
@@ -153,4 +184,6 @@ class DatenbankEditVorteilWrapper(object):
         self.updateSaveButtonState()
 
     def updateSaveButtonState(self):
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(not self.readonly and self.nameValid and self.voraussetzungenValid)
+        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(
+            not self.readonly and self.nameValid and self.voraussetzungenValid
+        )

@@ -20,7 +20,9 @@ class Ui_Dialog(object):
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
-        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
         self.verticalLayout.addItem(spacerItem)
         self.label = QtWidgets.QLabel(Dialog)
         self.label.setMinimumSize(QtCore.QSize(0, 20))
@@ -32,7 +34,9 @@ class Ui_Dialog(object):
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.verticalLayout.addWidget(self.label)
-        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem1 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
         self.verticalLayout.addItem(spacerItem1)
         self.gridLayout = QtWidgets.QGridLayout()
         self.gridLayout.setObjectName("gridLayout")
@@ -73,11 +77,15 @@ class Ui_Dialog(object):
         self.buttonWaffeneigenschaft.setObjectName("buttonWaffeneigenschaft")
         self.gridLayout.addWidget(self.buttonWaffeneigenschaft, 4, 1, 1, 1)
         self.verticalLayout.addLayout(self.gridLayout)
-        spacerItem2 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem2 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
         self.verticalLayout.addItem(spacerItem2)
         self.buttonBox = QtWidgets.QDialogButtonBox(Dialog)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
+        self.buttonBox.setStandardButtons(
+            QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Ok
+        )
         self.buttonBox.setCenterButtons(True)
         self.buttonBox.setObjectName("buttonBox")
         self.verticalLayout.addWidget(self.buttonBox)
@@ -98,21 +106,28 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Sephrasto - Datenbankeintrag anlegen..."))
+        Dialog.setWindowTitle(
+            _translate("Dialog", "Sephrasto - Datenbankeintrag anlegen...")
+        )
         self.label.setText(_translate("Dialog", "Was möchtest du anlegen?"))
-        self.buttonUebernatuerlich.setText(_translate("Dialog", "Übernatürliche Fertigkeit"))
+        self.buttonUebernatuerlich.setText(
+            _translate("Dialog", "Übernatürliche Fertigkeit")
+        )
         self.buttonWaffe.setText(_translate("Dialog", "Waffe"))
         self.buttonVorteil.setText(_translate("Dialog", "Vorteil"))
         self.buttonFertigkeit.setText(_translate("Dialog", "Profane Fertigkeit"))
         self.buttonFreieFertigkeit.setText(_translate("Dialog", "Freie Fertigkeit"))
         self.buttonTalent.setText(_translate("Dialog", "Talent"))
         self.buttonRuestung.setText(_translate("Dialog", "Rüstung"))
-        self.buttonManoever.setText(_translate("Dialog", "Manöver / Modifikation / Regel"))
+        self.buttonManoever.setText(
+            _translate("Dialog", "Manöver / Modifikation / Regel")
+        )
         self.buttonWaffeneigenschaft.setText(_translate("Dialog", "Waffeneigenschaft"))
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
     ui = Ui_Dialog()

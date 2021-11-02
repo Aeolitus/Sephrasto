@@ -28,7 +28,9 @@ class Ui_waffeneigenschaftDialog(object):
         self.nameEdit.setObjectName("nameEdit")
         self.gridLayout.addWidget(self.nameEdit, 1, 1, 1, 1)
         self.textEdit = QtWidgets.QPlainTextEdit(waffeneigenschaftDialog)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.MinimumExpanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.MinimumExpanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.textEdit.sizePolicy().hasHeightForWidth())
@@ -63,7 +65,9 @@ class Ui_waffeneigenschaftDialog(object):
         self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 1, 1)
         self.buttonBox = QtWidgets.QDialogButtonBox(waffeneigenschaftDialog)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Save)
+        self.buttonBox.setStandardButtons(
+            QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Save
+        )
         self.buttonBox.setCenterButtons(True)
         self.buttonBox.setObjectName("buttonBox")
         self.gridLayout_2.addWidget(self.buttonBox, 1, 0, 1, 1)
@@ -76,15 +80,27 @@ class Ui_waffeneigenschaftDialog(object):
 
     def retranslateUi(self, waffeneigenschaftDialog):
         _translate = QtCore.QCoreApplication.translate
-        waffeneigenschaftDialog.setWindowTitle(_translate("waffeneigenschaftDialog", "Sephrasto - Waffeneigenschaft bearbeiten..."))
-        self.label_3.setText(_translate("waffeneigenschaftDialog", "Script / Priorität"))
+        waffeneigenschaftDialog.setWindowTitle(
+            _translate(
+                "waffeneigenschaftDialog", "Sephrasto - Waffeneigenschaft bearbeiten..."
+            )
+        )
+        self.label_3.setText(
+            _translate("waffeneigenschaftDialog", "Script / Priorität")
+        )
         self.label_5.setText(_translate("waffeneigenschaftDialog", "Beschreibung"))
-        self.warning.setText(_translate("waffeneigenschaftDialog", "Dies ist eine Ilaris-Standardwaffeneigenschaft. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für diese Waffeneigenschaft keine automatischen Updates mehr mit neuen Sephrasto-Versionen."))
+        self.warning.setText(
+            _translate(
+                "waffeneigenschaftDialog",
+                "Dies ist eine Ilaris-Standardwaffeneigenschaft. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für diese Waffeneigenschaft keine automatischen Updates mehr mit neuen Sephrasto-Versionen.",
+            )
+        )
         self.label.setText(_translate("waffeneigenschaftDialog", "Name"))
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     waffeneigenschaftDialog = QtWidgets.QDialog()
     ui = Ui_waffeneigenschaftDialog()

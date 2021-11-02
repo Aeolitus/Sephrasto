@@ -39,7 +39,9 @@ class Ui_Form(object):
         self.lineEdit_20 = QtWidgets.QLineEdit(Form)
         self.lineEdit_20.setObjectName("lineEdit_20")
         self.gridLayout_2.addWidget(self.lineEdit_20, 13, 2, 1, 1)
-        spacerItem = QtWidgets.QSpacerItem(20, 19, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem = QtWidgets.QSpacerItem(
+            20, 19, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
         self.gridLayout_2.addItem(spacerItem, 14, 0, 1, 1)
         self.lineEdit_4 = QtWidgets.QLineEdit(Form)
         self.lineEdit_4.setObjectName("lineEdit_4")
@@ -50,7 +52,9 @@ class Ui_Form(object):
         self.lineEdit_18 = QtWidgets.QLineEdit(Form)
         self.lineEdit_18.setObjectName("lineEdit_18")
         self.gridLayout_2.addWidget(self.lineEdit_18, 12, 2, 1, 1)
-        spacerItem1 = QtWidgets.QSpacerItem(20, 19, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem1 = QtWidgets.QSpacerItem(
+            20, 19, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
         self.gridLayout_2.addItem(spacerItem1, 0, 0, 1, 1)
         self.lineEdit_2 = QtWidgets.QLineEdit(Form)
         self.lineEdit_2.setMinimumSize(QtCore.QSize(320, 0))
@@ -119,6 +123,7 @@ class Ui_Form(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
     ui = Ui_Form()

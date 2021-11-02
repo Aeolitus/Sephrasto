@@ -4,22 +4,26 @@ Created on Fri Mar 10 17:11:39 2017
 
 @author: Lennart
 """
-from Wolke import Wolke
-import CharakterBeschreibung
-from PyQt5 import QtWidgets, QtCore
 import logging
+
+from PyQt5 import QtCore, QtWidgets
+
+import CharakterBeschreibung
 from Hilfsmethoden import Hilfsmethoden
+from Wolke import Wolke
+
 
 class BeschrWrapper(QtCore.QObject):
-    '''
+    """
     Wrapper class for the Beschreibung GUI. Contains methods for updating
     the GUI elements to the current values and for changing the current values
     to the values set by the user.
-    '''
+    """
+
     modified = QtCore.pyqtSignal()
 
     def __init__(self):
-        ''' Initialize and connect signals '''
+        """Initialize and connect signals"""
         super().__init__()
         logging.debug("Initializing BeschrWrapper...")
         self.formBeschr = QtWidgets.QWidget()
@@ -27,32 +31,43 @@ class BeschrWrapper(QtCore.QObject):
         self.uiBeschr.setupUi(self.formBeschr)
         self.load()
         self.uiBeschr.editName.editingFinished.connect(self.update)
-        self.uiBeschr.editRasse.editingFinished.connect(
-                self.update)
-        self.uiBeschr.editKurzbeschreibung.editingFinished.connect(
-            self.update)
+        self.uiBeschr.editRasse.editingFinished.connect(self.update)
+        self.uiBeschr.editKurzbeschreibung.editingFinished.connect(self.update)
         for i in range(8):
-            eval("self.uiBeschr.editEig" + str(i+1) +
-                 ".editingFinished.connect(self.update)")
+            eval(
+                "self.uiBeschr.editEig"
+                + str(i + 1)
+                + ".editingFinished.connect(self.update)"
+            )
         self.uiBeschr.comboFinanzen.activated.connect(self.update)
         self.uiBeschr.comboStatus.activated.connect(self.update)
         self.uiBeschr.comboHeimat.activated.connect(self.update)
         self.currentGebraeuche = Wolke.Char.heimat
         if "Gebräuche" in Wolke.Char.fertigkeiten:
-            if "Gebräuche: " + self.currentGebraeuche not in \
-                    Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente and "Gebräuche: " + self.currentGebraeuche in Wolke.DB.talente:
+            if (
+                "Gebräuche: " + self.currentGebraeuche
+                not in Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente
+                and "Gebräuche: " + self.currentGebraeuche in Wolke.DB.talente
+            ):
                 Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.append(
-                        "Gebräuche: " + self.currentGebraeuche)
+                    "Gebräuche: " + self.currentGebraeuche
+                )
 
     def update(self):
-        ''' Transfer current values to Char object '''
+        """Transfer current values to Char object"""
         changed = False
 
-        if self.uiBeschr.editName.text() != "" and Wolke.Char.name != self.uiBeschr.editName.text():
+        if (
+            self.uiBeschr.editName.text() != ""
+            and Wolke.Char.name != self.uiBeschr.editName.text()
+        ):
             Wolke.Char.name = self.uiBeschr.editName.text()
             changed = True
 
-        if self.uiBeschr.editRasse.text() != "" and Wolke.Char.rasse != self.uiBeschr.editRasse.text():
+        if (
+            self.uiBeschr.editRasse.text() != ""
+            and Wolke.Char.rasse != self.uiBeschr.editRasse.text()
+        ):
             Wolke.Char.rasse = self.uiBeschr.editRasse.text()
             changed = True
 
@@ -66,15 +81,21 @@ class BeschrWrapper(QtCore.QObject):
 
         if "Gebräuche" in Wolke.Char.fertigkeiten:
             if self.uiBeschr.comboHeimat.currentText() != self.currentGebraeuche:
-                if "Gebräuche: " + self.currentGebraeuche in \
-                        Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente:
+                if (
+                    "Gebräuche: " + self.currentGebraeuche
+                    in Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente
+                ):
                     Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.remove(
-                            "Gebräuche: " + self.currentGebraeuche)
+                        "Gebräuche: " + self.currentGebraeuche
+                    )
                 self.currentGebraeuche = self.uiBeschr.comboHeimat.currentText()
-                if "Gebräuche: " + self.currentGebraeuche not in \
-                        Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente:
+                if (
+                    "Gebräuche: " + self.currentGebraeuche
+                    not in Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente
+                ):
                     Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.append(
-                        "Gebräuche: " + self.currentGebraeuche)
+                        "Gebräuche: " + self.currentGebraeuche
+                    )
                 changed = True
 
         if Wolke.Char.heimat != self.uiBeschr.comboHeimat.currentText():
@@ -87,11 +108,11 @@ class BeschrWrapper(QtCore.QObject):
 
         eigenheitenNeu = []
         for i in range(8):
-            text = eval("self.uiBeschr.editEig" + str(i+1) + ".text()")
+            text = eval("self.uiBeschr.editEig" + str(i + 1) + ".text()")
             eigenheitenNeu.append(text)
 
-        #Preserve the position of actual elements but remove any trailing empty elements
-        #This is needed for ArrayEqual later to work as intended
+        # Preserve the position of actual elements but remove any trailing empty elements
+        # This is needed for ArrayEqual later to work as intended
         for eig in reversed(eigenheitenNeu):
             if eig == "":
                 eigenheitenNeu.pop()
@@ -106,7 +127,7 @@ class BeschrWrapper(QtCore.QObject):
             self.modified.emit()
 
     def load(self):
-        ''' Load values from Char object '''
+        """Load values from Char object"""
         self.uiBeschr.editName.setText(Wolke.Char.name)
         self.uiBeschr.editRasse.setText(Wolke.Char.rasse)
         self.uiBeschr.comboStatus.setCurrentIndex(Wolke.Char.status)
@@ -126,7 +147,7 @@ class BeschrWrapper(QtCore.QObject):
         self.uiBeschr.editEig7.setText(arr[6])
         self.uiBeschr.editEig8.setText(arr[7])
 
-        ''' Fill and set Heimat '''
+        """ Fill and set Heimat """
         self.uiBeschr.comboHeimat.clear()
         heimatList = []
         for tal in Wolke.DB.talente:
@@ -134,7 +155,9 @@ class BeschrWrapper(QtCore.QObject):
                 heimatList.append(tal[11:])
         heimatList.sort()
         if len(heimatList) == 0:
-            self.uiBeschr.comboHeimat.setToolTip("Diese Liste wird anhand der Talente befüllt, die mit 'Gebräuche: ' im Namen starten.\nBitte diese Talente in der Regelbasis beibehalten, die Fertigkeit 'Gebräuche' kann jedoch gelöscht werden.")
+            self.uiBeschr.comboHeimat.setToolTip(
+                "Diese Liste wird anhand der Talente befüllt, die mit 'Gebräuche: ' im Namen starten.\nBitte diese Talente in der Regelbasis beibehalten, die Fertigkeit 'Gebräuche' kann jedoch gelöscht werden."
+            )
         else:
             self.uiBeschr.comboHeimat.addItems(heimatList)
             if Wolke.Char.heimat in heimatList:
@@ -146,4 +169,3 @@ class BeschrWrapper(QtCore.QObject):
                         Wolke.Char.heimat = heimat
                         self.uiBeschr.comboHeimat.setCurrentText(heimat)
                         break
-        

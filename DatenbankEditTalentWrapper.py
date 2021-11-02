@@ -4,10 +4,12 @@ Created on Sat Mar 18 11:04:21 2017
 
 @author: Aeolitus
 """
+from PyQt5 import QtCore, QtWidgets
+
+import DatenbankEditTalent
 import Fertigkeiten
 from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
-import DatenbankEditTalent
-from PyQt5 import QtWidgets, QtCore
+
 
 class DatenbankEditTalentWrapper(object):
     def __init__(self, datenbank, talent=None, readonly=False):
@@ -26,15 +28,18 @@ class DatenbankEditTalentWrapper(object):
 
         if not talent.isUserAdded:
             if readonly:
-                self.ui.warning.setText("Gelöschte Elemente können nicht verändert werden.")
+                self.ui.warning.setText(
+                    "Gelöschte Elemente können nicht verändert werden."
+                )
             self.ui.warning.setVisible(True)
 
         talentDialog.setWindowFlags(
-                QtCore.Qt.Window |
-                QtCore.Qt.CustomizeWindowHint |
-                QtCore.Qt.WindowTitleHint |
-                QtCore.Qt.WindowCloseButtonHint)
-        
+            QtCore.Qt.Window
+            | QtCore.Qt.CustomizeWindowHint
+            | QtCore.Qt.WindowTitleHint
+            | QtCore.Qt.WindowCloseButtonHint
+        )
+
         self.ui.nameEdit.setText(talent.name)
         self.ui.nameEdit.textChanged.connect(self.nameChanged)
         self.nameChanged()
@@ -64,24 +69,34 @@ class DatenbankEditTalentWrapper(object):
         self.ui.checkVariable.clicked.connect(self.variableKostenCheckChanged)
         self.variableKostenCheckChanged()
 
-        self.ui.fertigkeitenEdit.setText(Hilfsmethoden.FertArray2Str(talent.fertigkeiten, None))
+        self.ui.fertigkeitenEdit.setText(
+            Hilfsmethoden.FertArray2Str(talent.fertigkeiten, None)
+        )
         self.ui.fertigkeitenEdit.textChanged.connect(self.fertigkeitenTextChanged)
-        
-        self.ui.voraussetzungenEdit.setPlainText(Hilfsmethoden.VorArray2Str(talent.voraussetzungen, None))
+
+        self.ui.voraussetzungenEdit.setPlainText(
+            Hilfsmethoden.VorArray2Str(talent.voraussetzungen, None)
+        )
         self.ui.voraussetzungenEdit.textChanged.connect(self.voraussetzungenTextChanged)
 
         self.ui.textEdit.setPlainText(talent.text)
 
         self.ui.sortierungEdit.setValue(talent.printclass)
-        self.ui.sortierungEdit.setToolTip("Talente werden nach dieser Zahl gruppiert und dann alphabetisch sortiert")
+        self.ui.sortierungEdit.setToolTip(
+            "Talente werden nach dieser Zahl gruppiert und dann alphabetisch sortiert"
+        )
 
         talentDialog.show()
         ret = talentDialog.exec_()
         if ret == QtWidgets.QDialog.Accepted:
             self.talent = Fertigkeiten.Talent()
             self.talent.name = self.ui.nameEdit.text()
-            self.talent.fertigkeiten = Hilfsmethoden.FertStr2Array(self.ui.fertigkeitenEdit.text(),None)
-            self.talent.voraussetzungen = Hilfsmethoden.VorStr2Array(self.ui.voraussetzungenEdit.toPlainText(), datenbank)
+            self.talent.fertigkeiten = Hilfsmethoden.FertStr2Array(
+                self.ui.fertigkeitenEdit.text(), None
+            )
+            self.talent.voraussetzungen = Hilfsmethoden.VorStr2Array(
+                self.ui.voraussetzungenEdit.toPlainText(), datenbank
+            )
             self.talent.text = self.ui.textEdit.toPlainText()
             self.talent.kosten = -1
 
@@ -115,7 +130,9 @@ class DatenbankEditTalentWrapper(object):
 
     def nameChanged(self):
         name = self.ui.nameEdit.text()
-        fertigkeiten = Hilfsmethoden.FertStr2Array(self.ui.fertigkeitenEdit.text(),None)
+        fertigkeiten = Hilfsmethoden.FertStr2Array(
+            self.ui.fertigkeitenEdit.text(), None
+        )
         if name == "":
             self.ui.nameEdit.setToolTip("Name darf nicht leer sein.")
             self.ui.nameEdit.setStyleSheet("border: 1px solid red;")
@@ -125,7 +142,9 @@ class DatenbankEditTalentWrapper(object):
             self.ui.nameEdit.setStyleSheet("border: 1px solid red;")
             self.nameValid = False
         elif "Gebräuche" in fertigkeiten and not name.startswith("Gebräuche: "):
-            self.ui.nameEdit.setToolTip("Talentnamen für die Fertigkeit Gebräuche müssen mit 'Gebräuche: ' anfangen.")
+            self.ui.nameEdit.setToolTip(
+                "Talentnamen für die Fertigkeit Gebräuche müssen mit 'Gebräuche: ' anfangen."
+            )
             self.ui.nameEdit.setStyleSheet("border: 1px solid red;")
             self.nameValid = False
         else:
@@ -136,7 +155,9 @@ class DatenbankEditTalentWrapper(object):
 
     def voraussetzungenTextChanged(self):
         try:
-            Hilfsmethoden.VorStr2Array(self.ui.voraussetzungenEdit.toPlainText(), self.datenbank)
+            Hilfsmethoden.VorStr2Array(
+                self.ui.voraussetzungenEdit.toPlainText(), self.datenbank
+            )
             self.ui.voraussetzungenEdit.setStyleSheet("")
             self.ui.voraussetzungenEdit.setToolTip("")
             self.voraussetzungenValid = True
@@ -147,12 +168,19 @@ class DatenbankEditTalentWrapper(object):
         self.updateSaveButtonState()
 
     def fertigkeitenTextChanged(self):
-        fertigkeiten = Hilfsmethoden.FertStr2Array(self.ui.fertigkeitenEdit.text(),None)
+        fertigkeiten = Hilfsmethoden.FertStr2Array(
+            self.ui.fertigkeitenEdit.text(), None
+        )
         self.fertigkeitenValid = True
         for fertigkeit in fertigkeiten:
-            if not fertigkeit in self.datenbank.fertigkeiten and not fertigkeit in self.datenbank.übernatürlicheFertigkeiten:
+            if (
+                not fertigkeit in self.datenbank.fertigkeiten
+                and not fertigkeit in self.datenbank.übernatürlicheFertigkeiten
+            ):
                 self.ui.fertigkeitenEdit.setStyleSheet("border: 1px solid red;")
-                self.ui.fertigkeitenEdit.setToolTip("Unbekannte Fertigkeit '" + fertigkeit + "'")
+                self.ui.fertigkeitenEdit.setToolTip(
+                    "Unbekannte Fertigkeit '" + fertigkeit + "'"
+                )
                 self.fertigkeitenValid = False
                 break
         if self.fertigkeitenValid:
@@ -161,4 +189,9 @@ class DatenbankEditTalentWrapper(object):
         self.nameChanged()
 
     def updateSaveButtonState(self):
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(not self.readonly and self.nameValid and self.voraussetzungenValid and self.fertigkeitenValid)
+        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(
+            not self.readonly
+            and self.nameValid
+            and self.voraussetzungenValid
+            and self.fertigkeitenValid
+        )

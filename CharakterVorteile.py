@@ -21,7 +21,9 @@ class Ui_Form(object):
         self.splitter.setOrientation(QtCore.Qt.Horizontal)
         self.splitter.setObjectName("splitter")
         self.treeWidget = QtWidgets.QTreeWidget(self.splitter)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(1)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.treeWidget.sizePolicy().hasHeightForWidth())
@@ -35,7 +37,9 @@ class Ui_Form(object):
         self.treeWidget.setAllColumnsShowFocus(True)
         self.treeWidget.setHeaderHidden(False)
         self.treeWidget.setObjectName("treeWidget")
-        self.treeWidget.headerItem().setTextAlignment(0, QtCore.Qt.AlignLeading|QtCore.Qt.AlignVCenter)
+        self.treeWidget.headerItem().setTextAlignment(
+            0, QtCore.Qt.AlignLeading | QtCore.Qt.AlignVCenter
+        )
         self.treeWidget.header().setVisible(True)
         self.treeWidget.header().setCascadingSectionResizes(False)
         self.treeWidget.header().setDefaultSectionSize(100)
@@ -43,7 +47,9 @@ class Ui_Form(object):
         self.treeWidget.header().setMinimumSectionSize(80)
         self.treeWidget.header().setStretchLastSection(False)
         self.scrollArea = QtWidgets.QScrollArea(self.splitter)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.scrollArea.sizePolicy().hasHeightForWidth())
@@ -53,7 +59,9 @@ class Ui_Form(object):
         self.scrollArea.setFrameShape(QtWidgets.QFrame.Box)
         self.scrollArea.setMidLineWidth(0)
         self.scrollArea.setWidgetResizable(True)
-        self.scrollArea.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.scrollArea.setAlignment(
+            QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
+        )
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 256, 434))
@@ -61,7 +69,9 @@ class Ui_Form(object):
         self.gridLayout_2 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.spinKosten = QtWidgets.QSpinBox(self.scrollAreaWidgetContents)
-        self.spinKosten.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.spinKosten.setAlignment(
+            QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
+        )
         self.spinKosten.setReadOnly(True)
         self.spinKosten.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
         self.spinKosten.setMinimum(-1000)
@@ -129,6 +139,7 @@ class Ui_Form(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
     ui = Ui_Form()

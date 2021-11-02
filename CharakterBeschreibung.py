@@ -20,7 +20,9 @@ class Ui_formBeschreibung(object):
         self.gridLayout = QtWidgets.QGridLayout()
         self.gridLayout.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
         self.gridLayout.setObjectName("gridLayout")
-        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         self.gridLayout.addItem(spacerItem, 3, 3, 1, 1)
         self.label_4 = QtWidgets.QLabel(formBeschreibung)
         self.label_4.setMinimumSize(QtCore.QSize(120, 0))
@@ -30,10 +32,14 @@ class Ui_formBeschreibung(object):
         self.editKurzbeschreibung.setObjectName("editKurzbeschreibung")
         self.gridLayout.addWidget(self.editKurzbeschreibung, 6, 2, 1, 1)
         self.label_6 = QtWidgets.QLabel(formBeschreibung)
-        self.label_6.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
+        self.label_6.setAlignment(
+            QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignTop
+        )
         self.label_6.setObjectName("label_6")
         self.gridLayout.addWidget(self.label_6, 7, 1, 1, 1)
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem1 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         self.gridLayout.addItem(spacerItem1, 3, 0, 1, 1)
         self.label = QtWidgets.QLabel(formBeschreibung)
         self.label.setObjectName("label")
@@ -107,9 +113,13 @@ class Ui_formBeschreibung(object):
         self.label_5 = QtWidgets.QLabel(formBeschreibung)
         self.label_5.setObjectName("label_5")
         self.gridLayout.addWidget(self.label_5, 4, 1, 1, 1)
-        spacerItem2 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem2 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
         self.gridLayout.addItem(spacerItem2, 8, 1, 1, 1)
-        spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem3 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
         self.gridLayout.addItem(spacerItem3, 0, 1, 1, 1)
         self.label_7 = QtWidgets.QLabel(formBeschreibung)
         self.label_7.setObjectName("label_7")
@@ -161,6 +171,7 @@ class Ui_formBeschreibung(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     formBeschreibung = QtWidgets.QWidget()
     ui = Ui_formBeschreibung()

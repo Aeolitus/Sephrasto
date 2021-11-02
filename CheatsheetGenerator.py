@@ -1,36 +1,43 @@
-from Wolke import Wolke
-import re
 import math
+import re
 from difflib import SequenceMatcher
 from fractions import Fraction
-from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
+
 import Objekte
+from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
+from Wolke import Wolke
+
 
 class CheatsheetGenerator(object):
-
     def __init__(self):
         self.RuleCategories = []
-        self.RuleCategories.append(self.formatCategory('ALLGEMEINE VORTEILE'))
-        self.RuleCategories.append(self.formatCategory('PROFANE VORTEILE'))
-        self.RuleCategories.append(self.formatCategory('PROFANE REGELN'))
-        self.RuleCategories.append(self.formatCategory('KAMPFVORTEILE'))
-        self.RuleCategories.append(self.formatCategory('AKTIONEN'))
-        self.RuleCategories.append(self.formatCategory('WAFFENEIGENSCHAFTEN'))
-        self.RuleCategories.append(self.formatCategory('WEITERE KAMPFREGELN'))
-        self.RuleCategories.append(self.formatCategory('NAHKAMPFMANÖVER'))
-        self.RuleCategories.append(self.formatCategory('FERNKAMPFMANÖVER'))
-        self.RuleCategories.append(self.formatCategory('MAGISCHE VORTEILE'))
-        self.RuleCategories.append(self.formatCategory('SPONTANE MODIFIKATIONEN (ZAUBER)'))
-        self.RuleCategories.append(self.formatCategory('WEITERE MAGIEREGELN'))
-        self.RuleCategories.append(self.formatCategory('ZAUBER'))
-        self.RuleCategories.append(self.formatCategory('KARMALE VORTEILE'))
-        self.RuleCategories.append(self.formatCategory('SPONTANE MODIFIKATIONEN (LITURGIEN)'))
-        self.RuleCategories.append(self.formatCategory('WEITERE KARMAREGELN'))
-        self.RuleCategories.append(self.formatCategory('LITURGIEN'))
-        self.RuleCategories.append(self.formatCategory('DÄMONISCHE VORTEILE'))
-        self.RuleCategories.append(self.formatCategory('SPONTANE MODIFIKATIONEN (ANRUFUNGEN)'))
-        self.RuleCategories.append(self.formatCategory('WEITERE ANRUFUNGSREGELN'))
-        self.RuleCategories.append(self.formatCategory('ANRUFUNGEN'))
+        self.RuleCategories.append(self.formatCategory("ALLGEMEINE VORTEILE"))
+        self.RuleCategories.append(self.formatCategory("PROFANE VORTEILE"))
+        self.RuleCategories.append(self.formatCategory("PROFANE REGELN"))
+        self.RuleCategories.append(self.formatCategory("KAMPFVORTEILE"))
+        self.RuleCategories.append(self.formatCategory("AKTIONEN"))
+        self.RuleCategories.append(self.formatCategory("WAFFENEIGENSCHAFTEN"))
+        self.RuleCategories.append(self.formatCategory("WEITERE KAMPFREGELN"))
+        self.RuleCategories.append(self.formatCategory("NAHKAMPFMANÖVER"))
+        self.RuleCategories.append(self.formatCategory("FERNKAMPFMANÖVER"))
+        self.RuleCategories.append(self.formatCategory("MAGISCHE VORTEILE"))
+        self.RuleCategories.append(
+            self.formatCategory("SPONTANE MODIFIKATIONEN (ZAUBER)")
+        )
+        self.RuleCategories.append(self.formatCategory("WEITERE MAGIEREGELN"))
+        self.RuleCategories.append(self.formatCategory("ZAUBER"))
+        self.RuleCategories.append(self.formatCategory("KARMALE VORTEILE"))
+        self.RuleCategories.append(
+            self.formatCategory("SPONTANE MODIFIKATIONEN (LITURGIEN)")
+        )
+        self.RuleCategories.append(self.formatCategory("WEITERE KARMAREGELN"))
+        self.RuleCategories.append(self.formatCategory("LITURGIEN"))
+        self.RuleCategories.append(self.formatCategory("DÄMONISCHE VORTEILE"))
+        self.RuleCategories.append(
+            self.formatCategory("SPONTANE MODIFIKATIONEN (ANRUFUNGEN)")
+        )
+        self.RuleCategories.append(self.formatCategory("WEITERE ANRUFUNGSREGELN"))
+        self.RuleCategories.append(self.formatCategory("ANRUFUNGEN"))
 
         self.RulesLineCount = 100
         self.RulesCharCount = 80
@@ -42,17 +49,17 @@ class CheatsheetGenerator(object):
             self.RulesLineCount = 60
             self.RulesCharCount = 45
 
-    #used to abbreviate names when merged
+    # used to abbreviate names when merged
     abbreviations = {
-        "astrale Regeneration" : "a. R.",
-        "Rüstungsgewöhnung" : "Rgw.",
+        "astrale Regeneration": "a. R.",
+        "Rüstungsgewöhnung": "Rgw.",
     }
 
     textToFraction = {
-        "ein Achtel" : "1/8",
-        "ein Viertel" : "1/4",
-        "die Hälfte" : "1/2",
-        "drei Viertel" : "3/4",
+        "ein Achtel": "1/8",
+        "ein Viertel": "1/4",
+        "die Hälfte": "1/2",
+        "drei Viertel": "3/4",
     }
 
     def formatCategory(self, category):
@@ -63,28 +70,30 @@ class CheatsheetGenerator(object):
         lineCount = 0
         for line in lines:
             lineCount += max(int(math.ceil(len(line) / self.RulesCharCount)), 1)
-        lineCount = lineCount - 1 #every text ends with two newlines, the second doesnt count, subtract 1
+        lineCount = (
+            lineCount - 1
+        )  # every text ends with two newlines, the second doesnt count, subtract 1
 
-        #the largest fontsize tends to more lines beause of missing hyphenation
+        # the largest fontsize tends to more lines beause of missing hyphenation
         if Wolke.Settings["Cheatsheet-Fontsize"] > 1:
             lineCount += int(lineCount * 0.2)
 
         return lineCount
 
     def prepareDescription(self, description):
-        #convert text to fractions
-        for k,v in CheatsheetGenerator.textToFraction.items():
+        # convert text to fractions
+        for k, v in CheatsheetGenerator.textToFraction.items():
             description = description.replace(k, v)
 
-        #Split by "." or "\n". Match '.' only if not prefixed by S or bzw, alternatively match newline
-        strList = re.split(r'(?<!S)(?<!bzw)\.|\n', description, re.UNICODE)
+        # Split by "." or "\n". Match '.' only if not prefixed by S or bzw, alternatively match newline
+        strList = re.split(r"(?<!S)(?<!bzw)\.|\n", description, re.UNICODE)
         if strList[-1] == "":
             strList.pop()
 
         for i in range(len(strList)):
             strList[i] = strList[i].strip()
             if strList[i] == "":
-                strList[i] = "\n" #restore newlines
+                strList[i] = "\n"  # restore newlines
             else:
                 strList[i] += ". "
 
@@ -98,15 +107,15 @@ class CheatsheetGenerator(object):
             else:
                 result += text
 
-        #convert fractions back to text
-        for k,v in CheatsheetGenerator.textToFraction.items():
+        # convert fractions back to text
+        for k, v in CheatsheetGenerator.textToFraction.items():
             result = result.replace(v, k)
 
         return result.strip()
 
     def mergeDescriptions(self, str1, str2):
-        #match numbers or fractions, + is ignored, nums with prefix S. are skipped
-        reNumbers = re.compile(r'-?\d+/\d+|-?\d+', re.UNICODE)
+        # match numbers or fractions, + is ignored, nums with prefix S. are skipped
+        reNumbers = re.compile(r"-?\d+/\d+|-?\d+", re.UNICODE)
 
         lines1 = self.prepareDescription(str1)
         lines2 = self.prepareDescription(str2)
@@ -117,25 +126,31 @@ class CheatsheetGenerator(object):
 
             res = reNumbers.findall(lines1[i])
 
-            #case 1: no number contained, just merge duplicate lines
+            # case 1: no number contained, just merge duplicate lines
             if len(res) == 0:
                 for j in range(len(lines2)):
                     if lines1[i] == lines2[j]:
-                        lines2[j] = "" #will be removed later
+                        lines2[j] = ""  # will be removed later
                 continue
 
-            #case 2: number(s) contained, merge similar lines by adding numbers
+            # case 2: number(s) contained, merge similar lines by adding numbers
             values = []
             for val in res:
                 values.append(Fraction(val))
 
-            tmpLine1 = reNumbers.sub("", lines1[i]) #remove the number before comparing with other lines
+            tmpLine1 = reNumbers.sub(
+                "", lines1[i]
+            )  # remove the number before comparing with other lines
             for j in range(len(lines2)):
                 if lines2[j] == "\n":
                     continue
-                tmpLine2 = reNumbers.sub("", lines2[j]) #remove the number before comparing with other lines
+                tmpLine2 = reNumbers.sub(
+                    "", lines2[j]
+                )  # remove the number before comparing with other lines
 
-                if SequenceMatcher(None, tmpLine1, tmpLine2).ratio() > 0.95: #fuzzy compare, 1 in 20 characters may be different
+                if (
+                    SequenceMatcher(None, tmpLine1, tmpLine2).ratio() > 0.95
+                ):  # fuzzy compare, 1 in 20 characters may be different
                     res = reNumbers.findall(lines2[j])
                     if len(res) != len(values):
                         continue
@@ -143,13 +158,14 @@ class CheatsheetGenerator(object):
                     for k in range(len(res)):
                         values[k] += Fraction(res[k])
 
-                    #Prefer text from str2 in case of ratio < 1, because higher vorteil levels
-                    #tend to have higher values which leads to plural forms in the text
+                    # Prefer text from str2 in case of ratio < 1, because higher vorteil levels
+                    # tend to have higher values which leads to plural forms in the text
                     lines1[i] = lines2[j]
-                    lines2[j] = "" #will be removed later
+                    lines2[j] = ""  # will be removed later
 
-            #now replace the added numbers
+            # now replace the added numbers
             subCount = -1
+
             def count_repl(mobj):
                 nonlocal subCount
                 subCount += 1
@@ -168,7 +184,10 @@ class CheatsheetGenerator(object):
             return True
         elif vorteil.linkKategorie == 2:
             for fer in Wolke.Char.übernatürlicheFertigkeiten:
-                if vorteil.linkElement in Wolke.Char.übernatürlicheFertigkeiten[fer].gekaufteTalente:
+                if (
+                    vorteil.linkElement
+                    in Wolke.Char.übernatürlicheFertigkeiten[fer].gekaufteTalente
+                ):
                     return True
         elif vorteil.linkKategorie == 3:
             if vorteil.linkElement in Wolke.Char.vorteile:
@@ -176,25 +195,34 @@ class CheatsheetGenerator(object):
             return self.isCheatsheetLinkedToAny(Wolke.DB.vorteile[vorteil.linkElement])
 
         return False
-    
+
     def isCheatsheetLinkedTo(self, vorteil, kategorie, element):
         if kategorie == 1 and vorteil.linkKategorie == 1:
             return vorteil.linkElement == element
         elif kategorie == 2 and vorteil.linkKategorie == 2:
             if vorteil.linkElement == element:
                 for fer in Wolke.Char.übernatürlicheFertigkeiten:
-                    if vorteil.linkElement in Wolke.Char.übernatürlicheFertigkeiten[fer].gekaufteTalente:
+                    if (
+                        vorteil.linkElement
+                        in Wolke.Char.übernatürlicheFertigkeiten[fer].gekaufteTalente
+                    ):
                         return True
         elif vorteil.linkKategorie == 3:
-            if kategorie == 3 and vorteil.linkElement == element and (vorteil.linkElement in Wolke.Char.vorteile):
+            if (
+                kategorie == 3
+                and vorteil.linkElement == element
+                and (vorteil.linkElement in Wolke.Char.vorteile)
+            ):
                 return True
             if vorteil.linkElement in Wolke.Char.vorteile:
                 return False
-            return self.isCheatsheetLinkedTo(Wolke.DB.vorteile[vorteil.linkElement], kategorie, element)            
+            return self.isCheatsheetLinkedTo(
+                Wolke.DB.vorteile[vorteil.linkElement], kategorie, element
+            )
 
         return False
 
-    def getLinkedName(self, vorteil, forceKommentar = False):
+    def getLinkedName(self, vorteil, forceKommentar=False):
         name = vorteil.getFullName(Wolke.Char, forceKommentar)
 
         for vor2 in Wolke.Char.vorteile:
@@ -202,26 +230,36 @@ class CheatsheetGenerator(object):
             if self.isCheatsheetLinkedTo(vorteil2, 3, vorteil.name):
                 name2 = self.getLinkedName(vorteil2, forceKommentar)
 
-                #allgemeine vorteile, kampfstile and traditionen only keep the last name (except vorteil is variable with a comment)
-                if (not (vorteil.name in Wolke.Char.vorteileVariable) or not Wolke.Char.vorteileVariable[vorteil.name].kommentar)\
-                   and (vorteil2.typ == 0 or vorteil2.typ == 3 or vorteil2.typ == 5 or vorteil2.typ == 7 or vorteil2.typ == 8):
+                # allgemeine vorteile, kampfstile and traditionen only keep the last name (except vorteil is variable with a comment)
+                if (
+                    not (vorteil.name in Wolke.Char.vorteileVariable)
+                    or not Wolke.Char.vorteileVariable[vorteil.name].kommentar
+                ) and (
+                    vorteil2.typ == 0
+                    or vorteil2.typ == 3
+                    or vorteil2.typ == 5
+                    or vorteil2.typ == 7
+                    or vorteil2.typ == 8
+                ):
                     name = name2
                 else:
                     fullset = [" I", " II", " III", " IV", " V", " VI", " VII"]
                     basename = ""
                     for el in fullset:
-                        if vorteil.name.endswith(el): #use name without comment/ep cost to find basename
-                            basename = vorteil.name[:-len(el)]
+                        if vorteil.name.endswith(
+                            el
+                        ):  # use name without comment/ep cost to find basename
+                            basename = vorteil.name[: -len(el)]
                             break
                     if basename and name2.startswith(basename):
-                        name += "," + name2[len(basename):]
+                        name += "," + name2[len(basename) :]
                     else:
                         name += ", " + name2
 
         if "," in name:
-            nameStart = name[:name.index(",")]
-            nameAbbreviate = name[name.index(","):]
-            for k,v in CheatsheetGenerator.abbreviations.items():
+            nameStart = name[: name.index(",")]
+            nameAbbreviate = name[name.index(",") :]
+            for k, v in CheatsheetGenerator.abbreviations.items():
                 nameAbbreviate = nameAbbreviate.replace(k, v)
             name = nameStart + nameAbbreviate
         return name
@@ -231,7 +269,10 @@ class CheatsheetGenerator(object):
         if beschreibung:
             if vorteil.name in Wolke.Char.vorteileVariable:
                 if "$kommentar$" in beschreibung:
-                    beschreibung = beschreibung.replace("$kommentar$", Wolke.Char.vorteileVariable[vorteil.name].kommentar)
+                    beschreibung = beschreibung.replace(
+                        "$kommentar$",
+                        Wolke.Char.vorteileVariable[vorteil.name].kommentar,
+                    )
         else:
             beschreibung = vorteil.text.replace("\n\n", "\n")
 
@@ -241,8 +282,11 @@ class CheatsheetGenerator(object):
                 beschreibung2 = self.getLinkedDescription(vorteil2)
 
                 if vorteil2.typ == 0:
-                    #allgemeine vorteile replace the description of what they link to (except vorteil is variable with a comment)
-                    if not (vorteil.name in Wolke.Char.vorteileVariable) or not Wolke.Char.vorteileVariable[vorteil.name].kommentar:
+                    # allgemeine vorteile replace the description of what they link to (except vorteil is variable with a comment)
+                    if (
+                        not (vorteil.name in Wolke.Char.vorteileVariable)
+                        or not Wolke.Char.vorteileVariable[vorteil.name].kommentar
+                    ):
                         beschreibung = beschreibung2
                     else:
                         beschreibung += "\n" + beschreibung2
@@ -262,7 +306,9 @@ class CheatsheetGenerator(object):
             if not we.text:
                 continue
             count += 1
-            strList.append(we.name + " (" + ", ".join(waffen) + ")\n" + we.text + "\n\n")
+            strList.append(
+                we.name + " (" + ", ".join(waffen) + ")\n" + we.text + "\n\n"
+            )
             lineCounts.append(self.getLineCount(strList[-1]))
 
         if count == 0:
@@ -294,11 +340,11 @@ class CheatsheetGenerator(object):
             result.append("\n\n")
             strList.append("".join(result))
             lineCounts.append(self.getLineCount(strList[-1]))
-        
+
         if count == 0:
             strList.pop()
             lineCounts.pop()
-    
+
     def appendManöver(self, strList, lineCounts, category, manöverList):
         if not manöverList or (len(manöverList) == 0):
             return
@@ -311,7 +357,11 @@ class CheatsheetGenerator(object):
                 continue
             count += 1
             result = []
-            if manöver.name.endswith(" (M)") or manöver.name.endswith(" (L)") or manöver.name.endswith(" (D)"):
+            if (
+                manöver.name.endswith(" (M)")
+                or manöver.name.endswith(" (L)")
+                or manöver.name.endswith(" (D)")
+            ):
                 result.append(manöver.name[:-4])
             elif manöver.name.endswith(" (FK)"):
                 result.append(manöver.name[:-5])
@@ -324,7 +374,7 @@ class CheatsheetGenerator(object):
                 result.append("Gegenprobe: " + manöver.gegenprobe + "\n")
 
             result.append(manöver.text)
-           
+
             for vor in Wolke.Char.vorteile:
                 vorteil = Wolke.DB.vorteile[vor]
                 if self.isCheatsheetLinkedTo(vorteil, 1, man):
@@ -364,26 +414,26 @@ class CheatsheetGenerator(object):
                     break
             result.append("\n")
             text = talent.text
-            
-            #Remove everything from Sephrasto on
-            index = text.find('\nSephrasto')
+
+            # Remove everything from Sephrasto on
+            index = text.find("\nSephrasto")
             if index != -1:
                 text = text[:index]
 
-            #Remove everything from Anmerkung on but keep the text and append it later
-            index = text.find('\nAnmerkung')
+            # Remove everything from Anmerkung on but keep the text and append it later
+            index = text.find("\nAnmerkung")
             anmerkung = ""
             if index != -1:
                 anmerkung = text[index:]
                 text = text[:index]
 
-            #Remove everything from Fertigkeiten on
-            index = text.find('\nFertigkeiten')
+            # Remove everything from Fertigkeiten on
+            index = text.find("\nFertigkeiten")
             if index != -1:
                 text = text[:index]
 
-            #Remove everything from Erlernen on (some talents don't have a Fertigkeiten list)
-            index = text.find('\nErlernen')
+            # Remove everything from Erlernen on (some talents don't have a Fertigkeiten list)
+            index = text.find("\nErlernen")
             if index != -1:
                 text = text[:index]
 
@@ -415,7 +465,7 @@ class CheatsheetGenerator(object):
         sortV = sorted(sortV, key=str.lower)
 
         allgemein = [el for el in sortV if Wolke.DB.vorteile[el].typ == 0]
-        
+
         profan = [el for el in sortV if Wolke.DB.vorteile[el].typ == 1]
 
         kampf = [el for el in sortV if (Wolke.DB.vorteile[el].typ == 2)]
@@ -456,21 +506,22 @@ class CheatsheetGenerator(object):
             if type(waffe) is Objekte.Fernkampfwaffe:
                 manöverfern = [el for el in sortM if (Wolke.DB.manöver[el].typ == 1)]
                 break
-        
+
         weiteresprofan = [el for el in sortM if (Wolke.DB.manöver[el].typ == 9)]
         weitereskampf = [el for el in sortM if (Wolke.DB.manöver[el].typ == 8)]
-            
+
         spomodsmagie = [el for el in sortM if (Wolke.DB.manöver[el].typ == 2)]
         weiteresmagie = [el for el in sortM if (Wolke.DB.manöver[el].typ == 4)]
-        
+
         spomodskarma = [el for el in sortM if (Wolke.DB.manöver[el].typ == 3)]
         weitereskarma = [el for el in sortM if (Wolke.DB.manöver[el].typ == 7)]
 
         spomodsdämonisch = [el for el in sortM if (Wolke.DB.manöver[el].typ == 6)]
         weiteresdämonisch = []
-        
-        
-        isZauberer = ("Zauberer I" in Wolke.Char.vorteile) or ("Tradition der Borbaradianer I" in Wolke.Char.vorteile)
+
+        isZauberer = ("Zauberer I" in Wolke.Char.vorteile) or (
+            "Tradition der Borbaradianer I" in Wolke.Char.vorteile
+        )
         isGeweiht = "Geweiht I" in Wolke.Char.vorteile
         isPaktierer = "Paktierer I" in Wolke.Char.vorteile
 
@@ -489,7 +540,9 @@ class CheatsheetGenerator(object):
         anrufungen = set()
         for fer in Wolke.Char.übernatürlicheFertigkeiten:
             for tal in Wolke.Char.übernatürlicheFertigkeiten[fer].gekaufteTalente:
-                res = re.findall('Kosten:(.*?)\n', Wolke.DB.talente[tal].text, re.UNICODE)
+                res = re.findall(
+                    "Kosten:(.*?)\n", Wolke.DB.talente[tal].text, re.UNICODE
+                )
                 if len(res) >= 1 and " KaP" in res[0]:
                     liturgien.add(tal)
                 elif len(res) >= 1 and " GuP" in res[0]:
@@ -513,40 +566,61 @@ class CheatsheetGenerator(object):
 
         self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[0], allgemein)
         self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[1], profan)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[2], weiteresprofan)
+        self.appendManöver(
+            rules, ruleLineCounts, self.RuleCategories[2], weiteresprofan
+        )
 
         self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[3], kampf)
         self.appendManöver(rules, ruleLineCounts, self.RuleCategories[4], aktionen)
-        self.appendWaffeneigenschaften(rules, ruleLineCounts, self.RuleCategories[5], waffeneigenschaften)
+        self.appendWaffeneigenschaften(
+            rules, ruleLineCounts, self.RuleCategories[5], waffeneigenschaften
+        )
         self.appendManöver(rules, ruleLineCounts, self.RuleCategories[6], weitereskampf)
         self.appendManöver(rules, ruleLineCounts, self.RuleCategories[7], manövernah)
         self.appendManöver(rules, ruleLineCounts, self.RuleCategories[8], manöverfern)
 
         self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[9], magisch)
         self.appendManöver(rules, ruleLineCounts, self.RuleCategories[10], spomodsmagie)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[11], weiteresmagie)
-        self.appendTalente(rules, ruleLineCounts, self.RuleCategories[12], zauber, talentboxList)
+        self.appendManöver(
+            rules, ruleLineCounts, self.RuleCategories[11], weiteresmagie
+        )
+        self.appendTalente(
+            rules, ruleLineCounts, self.RuleCategories[12], zauber, talentboxList
+        )
 
         self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[13], karmal)
         self.appendManöver(rules, ruleLineCounts, self.RuleCategories[14], spomodskarma)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[15], weitereskarma)
-        self.appendTalente(rules, ruleLineCounts, self.RuleCategories[16], liturgien, talentboxList)
+        self.appendManöver(
+            rules, ruleLineCounts, self.RuleCategories[15], weitereskarma
+        )
+        self.appendTalente(
+            rules, ruleLineCounts, self.RuleCategories[16], liturgien, talentboxList
+        )
 
         self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[17], dämonisch)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[18], spomodsdämonisch)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[19], weiteresdämonisch)
-        self.appendTalente(rules, ruleLineCounts, self.RuleCategories[20], anrufungen, talentboxList)
+        self.appendManöver(
+            rules, ruleLineCounts, self.RuleCategories[18], spomodsdämonisch
+        )
+        self.appendManöver(
+            rules, ruleLineCounts, self.RuleCategories[19], weiteresdämonisch
+        )
+        self.appendTalente(
+            rules, ruleLineCounts, self.RuleCategories[20], anrufungen, talentboxList
+        )
 
         return rules, ruleLineCounts
-        
 
     def writeRules(self, rules, ruleLineCounts, start):
         lineCount = 0
         endIndex = start
 
         while lineCount < self.RulesLineCount and endIndex < len(ruleLineCounts):
-            nextLineCount = ruleLineCounts[endIndex] - 1 #subtract one because every entry ends with a newline
-            leeway = int(nextLineCount * 0.3) #give big texts some leeway on the target line count to avoid big empty spaces
+            nextLineCount = (
+                ruleLineCounts[endIndex] - 1
+            )  # subtract one because every entry ends with a newline
+            leeway = int(
+                nextLineCount * 0.3
+            )  # give big texts some leeway on the target line count to avoid big empty spaces
             if lineCount + nextLineCount > self.RulesLineCount + leeway:
                 break
             lineCount = lineCount + ruleLineCounts[endIndex]
@@ -555,23 +629,23 @@ class CheatsheetGenerator(object):
         if endIndex <= start:
             return "", -1
 
-        #Make sure a category is never the last line on the page
-        category = rules[endIndex-1][:-2]
+        # Make sure a category is never the last line on the page
+        category = rules[endIndex - 1][:-2]
         if category in self.RuleCategories:
-            lineCount -= ruleLineCounts[endIndex-1]
+            lineCount -= ruleLineCounts[endIndex - 1]
             endIndex = endIndex - 1
 
-        #Remove the trailing new line from the last entry
-        rules[endIndex-1] = rules[endIndex-1][:-2]
+        # Remove the trailing new line from the last entry
+        rules[endIndex - 1] = rules[endIndex - 1][:-2]
         lineCount -= 1
 
-        result = ''.join(rules[start:endIndex])
+        result = "".join(rules[start:endIndex])
 
         # Append newlines to make the auto-fontsize about same as large as the other pages
         if self.RulesLineCount - lineCount > 0:
-            result += '\n' * (self.RulesLineCount - lineCount)
+            result += "\n" * (self.RulesLineCount - lineCount)
 
         if len(rules) == endIndex:
-            #return -1 to signal that we are done
+            # return -1 to signal that we are done
             return result, -1
         return result, endIndex

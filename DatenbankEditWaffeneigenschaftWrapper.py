@@ -4,12 +4,14 @@ Created on Sat Mar 18 10:52:34 2017
 
 @author: Aeolitus
 """
-import Objekte
+from PyQt5 import QtCore, QtWidgets
+
 import DatenbankEditWaffeneigenschaft
-from PyQt5 import QtWidgets, QtCore
+import Objekte
+
 
 class DatenbankEditWaffeneigenschaftWrapper(object):
-    def __init__(self, datenbank, waffeneigenschaft=None, readonly = False):
+    def __init__(self, datenbank, waffeneigenschaft=None, readonly=False):
         super().__init__()
         self.datenbank = datenbank
         if waffeneigenschaft is None:
@@ -20,18 +22,21 @@ class DatenbankEditWaffeneigenschaftWrapper(object):
         waffeneigenschaftDialog = QtWidgets.QDialog()
         self.ui = DatenbankEditWaffeneigenschaft.Ui_waffeneigenschaftDialog()
         self.ui.setupUi(waffeneigenschaftDialog)
-        
+
         if not waffeneigenschaft.isUserAdded:
             if readonly:
-                self.ui.warning.setText("Gelöschte Elemente können nicht verändert werden.")
+                self.ui.warning.setText(
+                    "Gelöschte Elemente können nicht verändert werden."
+                )
             self.ui.warning.setVisible(True)
 
         waffeneigenschaftDialog.setWindowFlags(
-                QtCore.Qt.Window |
-                QtCore.Qt.CustomizeWindowHint |
-                QtCore.Qt.WindowTitleHint |
-                QtCore.Qt.WindowCloseButtonHint)
-        
+            QtCore.Qt.Window
+            | QtCore.Qt.CustomizeWindowHint
+            | QtCore.Qt.WindowTitleHint
+            | QtCore.Qt.WindowCloseButtonHint
+        )
+
         self.ui.nameEdit.setText(waffeneigenschaft.name)
         self.ui.nameEdit.textChanged.connect(self.nameChanged)
         self.nameChanged()
@@ -42,14 +47,16 @@ class DatenbankEditWaffeneigenschaftWrapper(object):
         scriptPrioDoc = [
             "Die Skript-Priorität legt die Reihenfolge der Auswertung fest. 0 ist Standard, negative Werte werden davor,",
             "positive Werte danach ausgewertet. Dies ist relevant, falls bspw. die INI verdoppelt werden soll nachdem",
-            "Kampfreflexe eingerechnet wurde. In diesem Fall sollte die Skript-Priorität höher als die von Kampfreflexe sein."
+            "Kampfreflexe eingerechnet wurde. In diesem Fall sollte die Skript-Priorität höher als die von Kampfreflexe sein.",
         ]
 
         self.ui.scriptPrioEdit.setToolTip("\n".join(scriptPrioDoc))
 
         self.ui.scriptEdit.setText(waffeneigenschaft.script)
 
-        self.ui.scriptEdit.setToolTip("Siehe ScriptAPI.md im Installationsordner für verfügbare Funktionen und Beispiele.")
+        self.ui.scriptEdit.setToolTip(
+            "Siehe ScriptAPI.md im Installationsordner für verfügbare Funktionen und Beispiele."
+        )
 
         waffeneigenschaftDialog.show()
         ret = waffeneigenschaftDialog.exec_()
@@ -68,14 +75,17 @@ class DatenbankEditWaffeneigenschaftWrapper(object):
                 self.waffeneigenschaft.isUserAdded = True
         else:
             self.waffeneigenschaft = None
-           
+
     def nameChanged(self):
         name = self.ui.nameEdit.text()
         if name == "":
             self.ui.nameEdit.setToolTip("Name darf nicht leer sein.")
             self.ui.nameEdit.setStyleSheet("border: 1px solid red;")
             self.nameValid = False
-        elif name != self.waffeneigenschaftPicked.name and name in self.datenbank.waffeneigenschaften:
+        elif (
+            name != self.waffeneigenschaftPicked.name
+            and name in self.datenbank.waffeneigenschaften
+        ):
             self.ui.nameEdit.setToolTip("Name existiert bereits.")
             self.ui.nameEdit.setStyleSheet("border: 1px solid red;")
             self.nameValid = False
@@ -86,4 +96,6 @@ class DatenbankEditWaffeneigenschaftWrapper(object):
         self.updateSaveButtonState()
 
     def updateSaveButtonState(self):
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(not self.readonly and self.nameValid)
+        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(
+            not self.readonly and self.nameValid
+        )

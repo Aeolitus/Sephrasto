@@ -39,19 +39,27 @@ class Ui_Form(object):
         self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
         self.gridLayout.addWidget(self.label_4, 6, 1, 1, 1)
-        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
         self.gridLayout.addItem(spacerItem, 0, 3, 1, 1)
         self.spinUeberFertigkeitenSpent = QtWidgets.QSpinBox(Form)
         self.spinUeberFertigkeitenSpent.setFocusPolicy(QtCore.Qt.NoFocus)
         self.spinUeberFertigkeitenSpent.setAlignment(QtCore.Qt.AlignCenter)
         self.spinUeberFertigkeitenSpent.setReadOnly(True)
-        self.spinUeberFertigkeitenSpent.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
+        self.spinUeberFertigkeitenSpent.setButtonSymbols(
+            QtWidgets.QAbstractSpinBox.NoButtons
+        )
         self.spinUeberFertigkeitenSpent.setMaximum(999999)
         self.spinUeberFertigkeitenSpent.setObjectName("spinUeberFertigkeitenSpent")
         self.gridLayout.addWidget(self.spinUeberFertigkeitenSpent, 9, 3, 1, 1)
-        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem1 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
         self.gridLayout.addItem(spacerItem1, 11, 3, 1, 1)
-        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem2 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         self.gridLayout.addItem(spacerItem2, 3, 5, 1, 1)
         self.spinTalentePercent = QtWidgets.QSpinBox(Form)
         self.spinTalentePercent.setFocusPolicy(QtCore.Qt.NoFocus)
@@ -71,7 +79,9 @@ class Ui_Form(object):
         self.spinUeberTalenteSpent.setFocusPolicy(QtCore.Qt.NoFocus)
         self.spinUeberTalenteSpent.setAlignment(QtCore.Qt.AlignCenter)
         self.spinUeberTalenteSpent.setReadOnly(True)
-        self.spinUeberTalenteSpent.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
+        self.spinUeberTalenteSpent.setButtonSymbols(
+            QtWidgets.QAbstractSpinBox.NoButtons
+        )
         self.spinUeberTalenteSpent.setMaximum(999999)
         self.spinUeberTalenteSpent.setObjectName("spinUeberTalenteSpent")
         self.gridLayout.addWidget(self.spinUeberTalenteSpent, 10, 3, 1, 1)
@@ -103,7 +113,9 @@ class Ui_Form(object):
         self.spinUebernatuerlichSpent.setFocusPolicy(QtCore.Qt.NoFocus)
         self.spinUebernatuerlichSpent.setAlignment(QtCore.Qt.AlignCenter)
         self.spinUebernatuerlichSpent.setReadOnly(True)
-        self.spinUebernatuerlichSpent.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
+        self.spinUebernatuerlichSpent.setButtonSymbols(
+            QtWidgets.QAbstractSpinBox.NoButtons
+        )
         self.spinUebernatuerlichSpent.setMaximum(999999)
         self.spinUebernatuerlichSpent.setObjectName("spinUebernatuerlichSpent")
         self.gridLayout.addWidget(self.spinUebernatuerlichSpent, 7, 3, 1, 1)
@@ -125,7 +137,9 @@ class Ui_Form(object):
         self.spinUeberTalentePercent.setFocusPolicy(QtCore.Qt.NoFocus)
         self.spinUeberTalentePercent.setAlignment(QtCore.Qt.AlignCenter)
         self.spinUeberTalentePercent.setReadOnly(True)
-        self.spinUeberTalentePercent.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
+        self.spinUeberTalentePercent.setButtonSymbols(
+            QtWidgets.QAbstractSpinBox.NoButtons
+        )
         self.spinUeberTalentePercent.setMaximum(100)
         self.spinUeberTalentePercent.setObjectName("spinUeberTalentePercent")
         self.gridLayout.addWidget(self.spinUeberTalentePercent, 10, 4, 1, 1)
@@ -143,7 +157,9 @@ class Ui_Form(object):
         self.spinProfanPercent.setMaximum(100)
         self.spinProfanPercent.setObjectName("spinProfanPercent")
         self.gridLayout.addWidget(self.spinProfanPercent, 3, 4, 1, 1)
-        spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem3 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         self.gridLayout.addItem(spacerItem3, 1, 0, 1, 1)
         self.label = QtWidgets.QLabel(Form)
         self.label.setObjectName("label")
@@ -160,7 +176,9 @@ class Ui_Form(object):
         self.spinUebernatuerlichPercent.setFocusPolicy(QtCore.Qt.NoFocus)
         self.spinUebernatuerlichPercent.setAlignment(QtCore.Qt.AlignCenter)
         self.spinUebernatuerlichPercent.setReadOnly(True)
-        self.spinUebernatuerlichPercent.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
+        self.spinUebernatuerlichPercent.setButtonSymbols(
+            QtWidgets.QAbstractSpinBox.NoButtons
+        )
         self.spinUebernatuerlichPercent.setMaximum(100)
         self.spinUebernatuerlichPercent.setObjectName("spinUebernatuerlichPercent")
         self.gridLayout.addWidget(self.spinUebernatuerlichPercent, 7, 4, 1, 1)
@@ -168,7 +186,9 @@ class Ui_Form(object):
         self.spinUeberFertigkeitenPercent.setFocusPolicy(QtCore.Qt.NoFocus)
         self.spinUeberFertigkeitenPercent.setAlignment(QtCore.Qt.AlignCenter)
         self.spinUeberFertigkeitenPercent.setReadOnly(True)
-        self.spinUeberFertigkeitenPercent.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
+        self.spinUeberFertigkeitenPercent.setButtonSymbols(
+            QtWidgets.QAbstractSpinBox.NoButtons
+        )
         self.spinUeberFertigkeitenPercent.setMaximum(100)
         self.spinUeberFertigkeitenPercent.setObjectName("spinUeberFertigkeitenPercent")
         self.gridLayout.addWidget(self.spinUeberFertigkeitenPercent, 9, 4, 1, 1)
@@ -188,7 +208,9 @@ class Ui_Form(object):
         self.spinFertigkeitenSpent.setFocusPolicy(QtCore.Qt.NoFocus)
         self.spinFertigkeitenSpent.setAlignment(QtCore.Qt.AlignCenter)
         self.spinFertigkeitenSpent.setReadOnly(True)
-        self.spinFertigkeitenSpent.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
+        self.spinFertigkeitenSpent.setButtonSymbols(
+            QtWidgets.QAbstractSpinBox.NoButtons
+        )
         self.spinFertigkeitenSpent.setMaximum(999999)
         self.spinFertigkeitenSpent.setObjectName("spinFertigkeitenSpent")
         self.gridLayout.addWidget(self.spinFertigkeitenSpent, 4, 3, 1, 1)
@@ -207,7 +229,9 @@ class Ui_Form(object):
         self.spinFertigkeitenPercent.setFocusPolicy(QtCore.Qt.NoFocus)
         self.spinFertigkeitenPercent.setAlignment(QtCore.Qt.AlignCenter)
         self.spinFertigkeitenPercent.setReadOnly(True)
-        self.spinFertigkeitenPercent.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
+        self.spinFertigkeitenPercent.setButtonSymbols(
+            QtWidgets.QAbstractSpinBox.NoButtons
+        )
         self.spinFertigkeitenPercent.setMaximum(100)
         self.spinFertigkeitenPercent.setObjectName("spinFertigkeitenPercent")
         self.gridLayout.addWidget(self.spinFertigkeitenPercent, 4, 4, 1, 1)
@@ -227,8 +251,12 @@ class Ui_Form(object):
         Form.setTabOrder(self.spinFreieSpent, self.spinFreiePercent)
         Form.setTabOrder(self.spinFreiePercent, self.spinUebernatuerlichSpent)
         Form.setTabOrder(self.spinUebernatuerlichSpent, self.spinUebernatuerlichPercent)
-        Form.setTabOrder(self.spinUebernatuerlichPercent, self.spinUeberFertigkeitenSpent)
-        Form.setTabOrder(self.spinUeberFertigkeitenSpent, self.spinUeberFertigkeitenPercent)
+        Form.setTabOrder(
+            self.spinUebernatuerlichPercent, self.spinUeberFertigkeitenSpent
+        )
+        Form.setTabOrder(
+            self.spinUeberFertigkeitenSpent, self.spinUeberFertigkeitenPercent
+        )
         Form.setTabOrder(self.spinUeberFertigkeitenPercent, self.spinUeberTalenteSpent)
         Form.setTabOrder(self.spinUeberTalenteSpent, self.spinUeberTalentePercent)
 
@@ -264,13 +292,16 @@ class Ui_Form(object):
         self.label_9.setText(_translate("Form", "    --> Talente"))
         self.spinFertigkeitenSpent.setSuffix(_translate("Form", " EP"))
         self.spinTalenteSpent.setSuffix(_translate("Form", " EP"))
-        self.labelUeber1.setText(_translate("Form", "Übernatürliche Fertigkeiten und Talente"))
+        self.labelUeber1.setText(
+            _translate("Form", "Übernatürliche Fertigkeiten und Talente")
+        )
         self.spinFertigkeitenPercent.setSuffix(_translate("Form", " %)"))
         self.spinFertigkeitenPercent.setPrefix(_translate("Form", "("))
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
     ui = Ui_Form()

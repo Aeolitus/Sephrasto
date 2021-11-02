@@ -69,7 +69,9 @@ class Ui_talentDialog(object):
         self.comboAttribut3.addItem("")
         self.comboAttribut3.addItem("")
         self.horizontalLayout.addWidget(self.comboAttribut3)
-        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         self.horizontalLayout.addItem(spacerItem)
         self.gridLayout.addLayout(self.horizontalLayout, 3, 2, 1, 1)
         self.label = QtWidgets.QLabel(talentDialog)
@@ -98,7 +100,9 @@ class Ui_talentDialog(object):
         self.label_3.setObjectName("label_3")
         self.gridLayout.addWidget(self.label_3, 3, 0, 1, 1)
         self.textEdit = QtWidgets.QPlainTextEdit(talentDialog)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.MinimumExpanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.MinimumExpanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.textEdit.sizePolicy().hasHeightForWidth())
@@ -110,7 +114,9 @@ class Ui_talentDialog(object):
         self.gridLayout.addWidget(self.label_5, 5, 0, 1, 1)
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem1 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         self.horizontalLayout_2.addItem(spacerItem1)
         self.steigerungsfaktorEdit = QtWidgets.QSpinBox(talentDialog)
         self.steigerungsfaktorEdit.setSuffix("")
@@ -127,7 +133,9 @@ class Ui_talentDialog(object):
         self.gridLayout.addWidget(self.label_12, 6, 0, 1, 1)
         self.horizontalLayout_12 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_12.setObjectName("horizontalLayout_12")
-        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem2 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         self.horizontalLayout_12.addItem(spacerItem2)
         self.sortierungEdit = QtWidgets.QSpinBox(talentDialog)
         self.sortierungEdit.setSuffix("")
@@ -147,7 +155,9 @@ class Ui_talentDialog(object):
         self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 1, 1)
         self.buttonBox = QtWidgets.QDialogButtonBox(talentDialog)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Save)
+        self.buttonBox.setStandardButtons(
+            QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Save
+        )
         self.buttonBox.setCenterButtons(True)
         self.buttonBox.setObjectName("buttonBox")
         self.gridLayout_2.addWidget(self.buttonBox, 1, 0, 1, 1)
@@ -166,7 +176,9 @@ class Ui_talentDialog(object):
 
     def retranslateUi(self, talentDialog):
         _translate = QtCore.QCoreApplication.translate
-        talentDialog.setWindowTitle(_translate("talentDialog", "Sephrasto - Fertigkeit bearbeiten..."))
+        talentDialog.setWindowTitle(
+            _translate("talentDialog", "Sephrasto - Fertigkeit bearbeiten...")
+        )
         self.comboAttribut1.setItemText(0, _translate("talentDialog", "KO"))
         self.comboAttribut1.setItemText(1, _translate("talentDialog", "MU"))
         self.comboAttribut1.setItemText(2, _translate("talentDialog", "GE"))
@@ -195,19 +207,31 @@ class Ui_talentDialog(object):
         self.comboAttribut3.setItemText(7, _translate("talentDialog", "FF"))
         self.label.setText(_translate("talentDialog", "Fertigkeitsname"))
         self.labelKampffertigkeit.setText(_translate("talentDialog", "Fertigkeitstyp"))
-        self.comboKampffertigkeit.setItemText(0, _translate("talentDialog", "Keine Kampffertigkeit"))
-        self.comboKampffertigkeit.setItemText(1, _translate("talentDialog", "Nahkampffertigkeit"))
-        self.comboKampffertigkeit.setItemText(2, _translate("talentDialog", "Sonstige Kampffertigkeit"))
+        self.comboKampffertigkeit.setItemText(
+            0, _translate("talentDialog", "Keine Kampffertigkeit")
+        )
+        self.comboKampffertigkeit.setItemText(
+            1, _translate("talentDialog", "Nahkampffertigkeit")
+        )
+        self.comboKampffertigkeit.setItemText(
+            2, _translate("talentDialog", "Sonstige Kampffertigkeit")
+        )
         self.labelVoraussetzungen.setText(_translate("talentDialog", "Voraussetzungen"))
         self.label_2.setText(_translate("talentDialog", "Steigerungsfaktor"))
         self.label_3.setText(_translate("talentDialog", "Attribute"))
         self.label_5.setText(_translate("talentDialog", "Beschreibung"))
         self.label_12.setText(_translate("talentDialog", "Sortierung"))
-        self.warning.setText(_translate("talentDialog", "Dies ist eine Ilaris-Standardfertigkeit. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für diese Fertigkeit keine automatischen Updates mehr mit neuen Sephrasto-Versionen."))
+        self.warning.setText(
+            _translate(
+                "talentDialog",
+                "Dies ist eine Ilaris-Standardfertigkeit. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für diese Fertigkeit keine automatischen Updates mehr mit neuen Sephrasto-Versionen.",
+            )
+        )
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     talentDialog = QtWidgets.QDialog()
     ui = Ui_talentDialog()

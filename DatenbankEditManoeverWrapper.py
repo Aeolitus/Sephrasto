@@ -4,10 +4,12 @@ Created on Thu Apr 19 22:33:21 2018
 
 @author: Aeolitus
 """
+from PyQt5 import QtCore, QtWidgets
+
+import DatenbankEditManoever
 import Fertigkeiten
 from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
-import DatenbankEditManoever
-from PyQt5 import QtWidgets, QtCore
+
 
 class DatenbankEditManoeverWrapper(object):
     def __init__(self, datenbank, man=None, readonly=False):
@@ -25,23 +27,28 @@ class DatenbankEditManoeverWrapper(object):
 
         if not man.isUserAdded:
             if readonly:
-                self.ui.warning.setText("Gelöschte Elemente können nicht verändert werden.")
+                self.ui.warning.setText(
+                    "Gelöschte Elemente können nicht verändert werden."
+                )
             self.ui.warning.setVisible(True)
 
         manDialog.setWindowFlags(
-                QtCore.Qt.Window |
-                QtCore.Qt.CustomizeWindowHint |
-                QtCore.Qt.WindowTitleHint |
-                QtCore.Qt.WindowCloseButtonHint)
-        
+            QtCore.Qt.Window
+            | QtCore.Qt.CustomizeWindowHint
+            | QtCore.Qt.WindowTitleHint
+            | QtCore.Qt.WindowCloseButtonHint
+        )
+
         self.ui.nameEdit.setText(man.name)
         self.ui.nameEdit.textChanged.connect(self.nameChanged)
         self.nameChanged()
         self.ui.probeEdit.setText(man.probe)
         self.ui.gegenEdit.setText(man.gegenprobe)
         self.ui.comboTyp.setCurrentIndex(man.typ)
-        
-        self.ui.voraussetzungenEdit.setPlainText(Hilfsmethoden.VorArray2Str(man.voraussetzungen, None))
+
+        self.ui.voraussetzungenEdit.setPlainText(
+            Hilfsmethoden.VorArray2Str(man.voraussetzungen, None)
+        )
         self.ui.voraussetzungenEdit.textChanged.connect(self.voraussetzungenTextChanged)
 
         self.ui.textEdit.setPlainText(man.text)
@@ -53,7 +60,9 @@ class DatenbankEditManoeverWrapper(object):
             self.man.probe = self.ui.probeEdit.text()
             self.man.gegenprobe = self.ui.gegenEdit.text()
             self.man.typ = self.ui.comboTyp.currentIndex()
-            self.man.voraussetzungen = Hilfsmethoden.VorStr2Array(self.ui.voraussetzungenEdit.toPlainText(), datenbank)
+            self.man.voraussetzungen = Hilfsmethoden.VorStr2Array(
+                self.ui.voraussetzungenEdit.toPlainText(), datenbank
+            )
             self.man.text = self.ui.textEdit.toPlainText()
 
             self.man.isUserAdded = False
@@ -82,7 +91,9 @@ class DatenbankEditManoeverWrapper(object):
 
     def voraussetzungenTextChanged(self):
         try:
-            Hilfsmethoden.VorStr2Array(self.ui.voraussetzungenEdit.toPlainText(), self.datenbank)
+            Hilfsmethoden.VorStr2Array(
+                self.ui.voraussetzungenEdit.toPlainText(), self.datenbank
+            )
             self.ui.voraussetzungenEdit.setStyleSheet("")
             self.ui.voraussetzungenEdit.setToolTip("")
             self.voraussetzungenValid = True
@@ -93,4 +104,6 @@ class DatenbankEditManoeverWrapper(object):
         self.updateSaveButtonState()
 
     def updateSaveButtonState(self):
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(not self.readonly and self.nameValid and self.voraussetzungenValid)
+        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(
+            not self.readonly and self.nameValid and self.voraussetzungenValid
+        )

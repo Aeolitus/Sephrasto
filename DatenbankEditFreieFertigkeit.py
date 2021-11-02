@@ -48,7 +48,9 @@ class Ui_ffDialog(object):
         self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 1, 1)
         self.buttonBox = QtWidgets.QDialogButtonBox(ffDialog)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Save)
+        self.buttonBox.setStandardButtons(
+            QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Save
+        )
         self.buttonBox.setCenterButtons(True)
         self.buttonBox.setObjectName("buttonBox")
         self.gridLayout_2.addWidget(self.buttonBox, 1, 0, 1, 1)
@@ -62,15 +64,23 @@ class Ui_ffDialog(object):
 
     def retranslateUi(self, ffDialog):
         _translate = QtCore.QCoreApplication.translate
-        ffDialog.setWindowTitle(_translate("ffDialog", "Sephrasto - Freie Fertigkeit bearbeiten..."))
+        ffDialog.setWindowTitle(
+            _translate("ffDialog", "Sephrasto - Freie Fertigkeit bearbeiten...")
+        )
         self.label_4.setText(_translate("ffDialog", "Voraussetzungen"))
-        self.warning.setText(_translate("ffDialog", "Dies ist eine Ilaris Standard-Freie-Fertigkeit. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für diese Freie Fertigkeit keine automatischen Updates mehr mit neuen Sephrasto-Versionen."))
+        self.warning.setText(
+            _translate(
+                "ffDialog",
+                "Dies ist eine Ilaris Standard-Freie-Fertigkeit. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für diese Freie Fertigkeit keine automatischen Updates mehr mit neuen Sephrasto-Versionen.",
+            )
+        )
         self.label.setText(_translate("ffDialog", "Name"))
         self.label_2.setText(_translate("ffDialog", "Kategorie"))
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     ffDialog = QtWidgets.QDialog()
     ui = Ui_ffDialog()

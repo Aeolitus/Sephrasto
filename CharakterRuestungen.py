@@ -22,10 +22,14 @@ class Ui_Dialog(object):
         self.splitter.setOrientation(QtCore.Qt.Horizontal)
         self.splitter.setObjectName("splitter")
         self.verticalLayout_2 = QtWidgets.QWidget(self.splitter)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred
+        )
         sizePolicy.setHorizontalStretch(1)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.verticalLayout_2.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.verticalLayout_2.sizePolicy().hasHeightForWidth()
+        )
         self.verticalLayout_2.setSizePolicy(sizePolicy)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.verticalLayout2 = QtWidgets.QVBoxLayout(self.verticalLayout_2)
@@ -44,7 +48,9 @@ class Ui_Dialog(object):
         self.filterLayout.addWidget(self.nameFilterEdit)
         self.verticalLayout2.addLayout(self.filterLayout)
         self.treeArmors = QtWidgets.QTreeWidget(self.verticalLayout_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.treeArmors.sizePolicy().hasHeightForWidth())
@@ -81,23 +87,31 @@ class Ui_Dialog(object):
         self.gridLayout = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout.setObjectName("gridLayout")
         self.lblKopf = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        self.lblKopf.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.lblKopf.setAlignment(
+            QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter
+        )
         self.lblKopf.setObjectName("lblKopf")
         self.gridLayout.addWidget(self.lblKopf, 12, 1, 1, 1)
         self.lblBrustL = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         self.lblBrustL.setObjectName("lblBrustL")
         self.gridLayout.addWidget(self.lblBrustL, 11, 0, 1, 1)
         self.lblBeine = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        self.lblBeine.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.lblBeine.setAlignment(
+            QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter
+        )
         self.lblBeine.setObjectName("lblBeine")
         self.gridLayout.addWidget(self.lblBeine, 7, 1, 1, 1)
         self.lblBauchL = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         self.lblBauchL.setObjectName("lblBauchL")
         self.gridLayout.addWidget(self.lblBauchL, 10, 0, 1, 1)
-        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
         self.gridLayout.addItem(spacerItem, 16, 1, 1, 1)
         self.lblSchild = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        self.lblSchild.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.lblSchild.setAlignment(
+            QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter
+        )
         self.lblSchild.setObjectName("lblSchild")
         self.gridLayout.addWidget(self.lblSchild, 9, 1, 1, 1)
         self.lblName = QtWidgets.QLabel(self.scrollAreaWidgetContents)
@@ -111,7 +125,9 @@ class Ui_Dialog(object):
         self.lblTyp.setObjectName("lblTyp")
         self.gridLayout.addWidget(self.lblTyp, 1, 0, 1, 2)
         self.lblBauch = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        self.lblBauch.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.lblBauch.setAlignment(
+            QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter
+        )
         self.lblBauch.setObjectName("lblBauch")
         self.gridLayout.addWidget(self.lblBauch, 10, 1, 1, 1)
         self.lblKopfL = QtWidgets.QLabel(self.scrollAreaWidgetContents)
@@ -123,14 +139,18 @@ class Ui_Dialog(object):
         self.line.setObjectName("line")
         self.gridLayout.addWidget(self.line, 5, 0, 1, 2)
         self.lblZRS = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        self.lblZRS.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.lblZRS.setAlignment(
+            QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter
+        )
         self.lblZRS.setObjectName("lblZRS")
         self.gridLayout.addWidget(self.lblZRS, 14, 1, 1, 1)
         self.label_5 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         self.label_5.setObjectName("label_5")
         self.gridLayout.addWidget(self.label_5, 3, 0, 1, 1)
         self.lblBrust = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        self.lblBrust.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.lblBrust.setAlignment(
+            QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter
+        )
         self.lblBrust.setObjectName("lblBrust")
         self.gridLayout.addWidget(self.lblBrust, 11, 1, 1, 1)
         self.lblSchildL = QtWidgets.QLabel(self.scrollAreaWidgetContents)
@@ -144,14 +164,18 @@ class Ui_Dialog(object):
         self.lblBeineL.setObjectName("lblBeineL")
         self.gridLayout.addWidget(self.lblBeineL, 7, 0, 1, 1)
         self.lblSchwert = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        self.lblSchwert.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.lblSchwert.setAlignment(
+            QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter
+        )
         self.lblSchwert.setObjectName("lblSchwert")
         self.gridLayout.addWidget(self.lblSchwert, 8, 1, 1, 1)
         self.lblSchwertL = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         self.lblSchwertL.setObjectName("lblSchwertL")
         self.gridLayout.addWidget(self.lblSchwertL, 8, 0, 1, 1)
         self.lblRS = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        self.lblRS.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.lblRS.setAlignment(
+            QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter
+        )
         self.lblRS.setObjectName("lblRS")
         self.gridLayout.addWidget(self.lblRS, 3, 1, 1, 1)
         self.teBeschreibung = QtWidgets.QPlainTextEdit(self.scrollAreaWidgetContents)
@@ -162,7 +186,9 @@ class Ui_Dialog(object):
         self.verticalLayout.addWidget(self.scrollArea)
         self.buttonBox = QtWidgets.QDialogButtonBox(self.layoutWidget)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
+        self.buttonBox.setStandardButtons(
+            QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Ok
+        )
         self.buttonBox.setCenterButtons(True)
         self.buttonBox.setObjectName("buttonBox")
         self.verticalLayout.addWidget(self.buttonBox)
@@ -178,7 +204,12 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Sephrasto - Rüstung wählen..."))
-        self.label.setText(_translate("Dialog", "Inoffiziell: Die hier aufgelisteten Rüstungen sind Beispiele, die nicht im Regelwerk stehen."))
+        self.label.setText(
+            _translate(
+                "Dialog",
+                "Inoffiziell: Die hier aufgelisteten Rüstungen sind Beispiele, die nicht im Regelwerk stehen.",
+            )
+        )
         self.labelFilter.setText(_translate("Dialog", "Suchen:"))
         self.treeArmors.setSortingEnabled(False)
         self.treeArmors.headerItem().setText(0, _translate("Dialog", "Name"))
@@ -203,6 +234,7 @@ class Ui_Dialog(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
     ui = Ui_Dialog()

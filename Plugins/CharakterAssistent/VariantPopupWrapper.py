@@ -1,18 +1,22 @@
-from PyQt5 import QtCore, QtWidgets, QtGui
 from CharakterAssistent import ChoicePopup
+from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class VariantPopupWrapper(object):
     def __init__(self, variantListCollection, windowTitle):
         super().__init__()
         self.formMain = QtWidgets.QDialog()
         self.formMain.setWindowFlags(
-            QtCore.Qt.Window |
-            QtCore.Qt.CustomizeWindowHint |
-            QtCore.Qt.WindowTitleHint |
-            QtCore.Qt.WindowCloseButtonHint)
+            QtCore.Qt.Window
+            | QtCore.Qt.CustomizeWindowHint
+            | QtCore.Qt.WindowTitleHint
+            | QtCore.Qt.WindowCloseButtonHint
+        )
         self.ui = ChoicePopup.Ui_formMain()
         self.ui.setupUi(self.formMain)
-        self.formMain.setWindowTitle(self.formMain.windowTitle() + " (" + windowTitle + ")")
+        self.formMain.setWindowTitle(
+            self.formMain.windowTitle() + " (" + windowTitle + ")"
+        )
         self.setupMainForm(variantListCollection)
         self.formMain.show()
 
@@ -40,13 +44,13 @@ class VariantPopupWrapper(object):
             self.buttons.append(button)
             self.ui.verticalLayout.addWidget(button)
 
-            #labelText = ""
-            #for choice in variantList.choices:
+            # labelText = ""
+            # for choice in variantList.choices:
             #    choiceStr = choice.toString()
             #    if not choiceStr:
             #        continue
             #    labelText += choiceStr + ", "
-            #labelText = labelText[:-2]
-            #label = QtWidgets.QLabel(labelText)
-            #self.labels.append(label)
-            #self.ui.verticalLayout.addWidget(label)
+            # labelText = labelText[:-2]
+            # label = QtWidgets.QLabel(labelText)
+            # self.labels.append(label)
+            # self.ui.verticalLayout.addWidget(label)

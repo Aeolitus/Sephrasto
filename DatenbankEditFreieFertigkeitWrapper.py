@@ -4,10 +4,12 @@ Created on Thu Apr 19 22:33:21 2018
 
 @author: Aeolitus
 """
+from PyQt5 import QtCore, QtWidgets
+
+import DatenbankEditFreieFertigkeit
 import Fertigkeiten
 from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
-import DatenbankEditFreieFertigkeit
-from PyQt5 import QtWidgets, QtCore
+
 
 class DatenbankEditFreieFertigkeitWrapper(object):
     def __init__(self, datenbank, fert=None, readonly=False):
@@ -25,20 +27,25 @@ class DatenbankEditFreieFertigkeitWrapper(object):
 
         if not fert.isUserAdded:
             if readonly:
-                self.ui.warning.setText("Gelöschte Elemente können nicht verändert werden.")
+                self.ui.warning.setText(
+                    "Gelöschte Elemente können nicht verändert werden."
+                )
             self.ui.warning.setVisible(True)
 
         ffDialog.setWindowFlags(
-                QtCore.Qt.Window |
-                QtCore.Qt.CustomizeWindowHint |
-                QtCore.Qt.WindowTitleHint |
-                QtCore.Qt.WindowCloseButtonHint)
-        
+            QtCore.Qt.Window
+            | QtCore.Qt.CustomizeWindowHint
+            | QtCore.Qt.WindowTitleHint
+            | QtCore.Qt.WindowCloseButtonHint
+        )
+
         self.ui.leName.setText(fert.name)
         self.ui.leName.textChanged.connect(self.nameChanged)
         self.nameChanged()
-        self.ui.leKategorie.setText(fert.kategorie)       
-        self.ui.teVoraussetzungen.setPlainText(Hilfsmethoden.VorArray2Str(fert.voraussetzungen, None))
+        self.ui.leKategorie.setText(fert.kategorie)
+        self.ui.teVoraussetzungen.setPlainText(
+            Hilfsmethoden.VorArray2Str(fert.voraussetzungen, None)
+        )
         self.ui.teVoraussetzungen.textChanged.connect(self.voraussetzungenTextChanged)
 
         ffDialog.show()
@@ -47,7 +54,9 @@ class DatenbankEditFreieFertigkeitWrapper(object):
             self.freieFertigkeit = Fertigkeiten.FreieFertigkeitDB()
             self.freieFertigkeit.name = self.ui.leName.text()
             self.freieFertigkeit.kategorie = self.ui.leKategorie.text()
-            self.freieFertigkeit.voraussetzungen = Hilfsmethoden.VorStr2Array(self.ui.teVoraussetzungen.toPlainText(), datenbank)
+            self.freieFertigkeit.voraussetzungen = Hilfsmethoden.VorStr2Array(
+                self.ui.teVoraussetzungen.toPlainText(), datenbank
+            )
 
             self.freieFertigkeit.isUserAdded = False
             if self.freieFertigkeit == self.freieFertigkeitPicked:
@@ -63,7 +72,10 @@ class DatenbankEditFreieFertigkeitWrapper(object):
             self.ui.leName.setToolTip("Name darf nicht leer sein.")
             self.ui.leName.setStyleSheet("border: 1px solid red;")
             self.nameValid = False
-        elif name != self.freieFertigkeitPicked.name and name in self.datenbank.freieFertigkeiten:
+        elif (
+            name != self.freieFertigkeitPicked.name
+            and name in self.datenbank.freieFertigkeiten
+        ):
             self.ui.leName.setToolTip("Name existiert bereits.")
             self.ui.leName.setStyleSheet("border: 1px solid red;")
             self.nameValid = False
@@ -75,7 +87,9 @@ class DatenbankEditFreieFertigkeitWrapper(object):
 
     def voraussetzungenTextChanged(self):
         try:
-            Hilfsmethoden.VorStr2Array(self.ui.teVoraussetzungen.toPlainText(), self.datenbank)
+            Hilfsmethoden.VorStr2Array(
+                self.ui.teVoraussetzungen.toPlainText(), self.datenbank
+            )
             self.ui.teVoraussetzungen.setStyleSheet("")
             self.ui.teVoraussetzungen.setToolTip("")
             self.voraussetzungenValid = True
@@ -86,4 +100,6 @@ class DatenbankEditFreieFertigkeitWrapper(object):
         self.updateSaveButtonState()
 
     def updateSaveButtonState(self):
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(not self.readonly and self.nameValid and self.voraussetzungenValid)
+        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(
+            not self.readonly and self.nameValid and self.voraussetzungenValid
+        )

@@ -4,8 +4,10 @@ Created on Sat Mar 18 10:33:39 2017
 
 @author: Aeolitus
 """
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtCore, QtWidgets
+
 import DatenbankSelectType
+
 
 class DatenbankSelectTypeWrapper(object):
     def __init__(self):
@@ -13,17 +15,18 @@ class DatenbankSelectTypeWrapper(object):
         Dialog = QtWidgets.QDialog()
         ui = DatenbankSelectType.Ui_Dialog()
         ui.setupUi(Dialog)
-        
+
         Dialog.setWindowFlags(
-                QtCore.Qt.Window |
-                QtCore.Qt.CustomizeWindowHint |
-                QtCore.Qt.WindowTitleHint |
-                QtCore.Qt.WindowCloseButtonHint)
-        
+            QtCore.Qt.Window
+            | QtCore.Qt.CustomizeWindowHint
+            | QtCore.Qt.WindowTitleHint
+            | QtCore.Qt.WindowCloseButtonHint
+        )
+
         Dialog.show()
         ret = Dialog.exec_()
         if ret == QtWidgets.QDialog.Accepted:
-            #entryType should correspond with the names in DatenbankEdit::initDatabaseTypes
+            # entryType should correspond with the names in DatenbankEdit::initDatabaseTypes
             if ui.buttonTalent.isChecked():
                 self.entryType = "Talent"
             elif ui.buttonVorteil.isChecked():
@@ -42,7 +45,5 @@ class DatenbankSelectTypeWrapper(object):
                 self.entryType = "Waffe"
             else:
                 self.entryType = "Rüstung"
-        else: 
+        else:
             self.entryType = None
-        
-        

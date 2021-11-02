@@ -21,15 +21,21 @@ class Ui_Form(object):
         self.gridLayout.setObjectName("gridLayout")
         self.groupBox = QtWidgets.QGroupBox(Form)
         self.groupBox.setTitle("")
-        self.groupBox.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.groupBox.setAlignment(
+            QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
+        )
         self.groupBox.setFlat(False)
         self.groupBox.setObjectName("groupBox")
         self.freieFertsGrid = QtWidgets.QGridLayout(self.groupBox)
         self.freieFertsGrid.setObjectName("freieFertsGrid")
         self.gridLayout.addWidget(self.groupBox, 1, 0, 1, 1)
-        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
         self.gridLayout.addItem(spacerItem, 3, 0, 1, 1)
-        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem1 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
         self.gridLayout.addItem(spacerItem1, 0, 0, 1, 1)
         self.label = QtWidgets.QLabel(Form)
         self.label.setMinimumSize(QtCore.QSize(0, 18))
@@ -44,12 +50,18 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.label.setText(_translate("Form", "Der erste Eintrag ist die Muttersprache des Charakters.\n"
-"Jeder Charakter beherrscht seine Muttersprache meisterlich, ohne dafür zu bezahlen."))
+        self.label.setText(
+            _translate(
+                "Form",
+                "Der erste Eintrag ist die Muttersprache des Charakters.\n"
+                "Jeder Charakter beherrscht seine Muttersprache meisterlich, ohne dafür zu bezahlen.",
+            )
+        )
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
     ui = Ui_Form()

@@ -1,11 +1,14 @@
-from PyQt5 import QtWidgets, QtCore
-import os.path
 import logging
-from Wolke import Wolke
+import os.path
+
 import lxml.etree as etree
+from CharakterAssistent.CharakterMerger import CharakterMerger
+from PyQt5 import QtCore, QtWidgets
+
 from EinstellungenWrapper import EinstellungenWrapper
 from EventBus import EventBus
-from CharakterAssistent.CharakterMerger import CharakterMerger
+from Wolke import Wolke
+
 
 class Regeln(object):
     def __init__(self):
@@ -20,11 +23,15 @@ class Regeln(object):
     def setHasArchetypen(self):
         self.archetypen = True
 
+
 class WizardWrapper(object):
     def __init__(self):
         self.regelList = {}
         rootdir = os.path.dirname(os.path.abspath(__file__))
-        datadirs = [os.path.join(rootdir, "Data"), os.path.join(Wolke.Settings['Pfad-Plugins'], "CharakterAssistent", "Data")]
+        datadirs = [
+            os.path.join(rootdir, "Data"),
+            os.path.join(Wolke.Settings["Pfad-Plugins"], "CharakterAssistent", "Data"),
+        ]
 
         for datadir in datadirs:
             if not os.path.isdir(datadir):
@@ -39,27 +46,42 @@ class WizardWrapper(object):
                 regeln = self.regelList[regelnName]
 
                 speziesFolder = os.path.join(datadir, regelnFolder, "Spezies")
-                regeln.spezies = {**regeln.spezies, **self.mapContainedFileNamesToPaths(speziesFolder)} #syntax = merge dict b into a
+                regeln.spezies = {
+                    **regeln.spezies,
+                    **self.mapContainedFileNamesToPaths(speziesFolder),
+                }  # syntax = merge dict b into a
 
                 kulturenFolder = os.path.join(datadir, regelnFolder, "Kultur")
-                regeln.kulturen = {**regeln.kulturen, **self.mapContainedFileNamesToPaths(kulturenFolder)}
+                regeln.kulturen = {
+                    **regeln.kulturen,
+                    **self.mapContainedFileNamesToPaths(kulturenFolder),
+                }
 
                 if regelnName.endswith("Archetypen"):
                     regeln.setHasArchetypen()
                     professionenFolder = os.path.join(datadir, regelnFolder)
                 else:
-                    professionenFolder = os.path.join(datadir, regelnFolder, "Profession")
+                    professionenFolder = os.path.join(
+                        datadir, regelnFolder, "Profession"
+                    )
 
                 if os.path.isdir(professionenFolder):
                     for professionKategorieFolder in os.listdir(professionenFolder):
-                        professionKategorieFolder = os.path.join(professionenFolder, professionKategorieFolder)
+                        professionKategorieFolder = os.path.join(
+                            professionenFolder, professionKategorieFolder
+                        )
                         if os.path.isdir(professionKategorieFolder):
                             kategorie = os.path.basename(professionKategorieFolder)
                             if not kategorie in regeln.professionen:
                                 regeln.professionen[kategorie] = {}
-                            regeln.professionen[kategorie] = {**regeln.professionen[kategorie], **self.mapContainedFileNamesToPaths(professionKategorieFolder, regeln.hasArchetypen())}
+                            regeln.professionen[kategorie] = {
+                                **regeln.professionen[kategorie],
+                                **self.mapContainedFileNamesToPaths(
+                                    professionKategorieFolder, regeln.hasArchetypen()
+                                ),
+                            }
 
-    def mapContainedFileNamesToPaths(self, folderPath, appendEP = False):
+    def mapContainedFileNamesToPaths(self, folderPath, appendEP=False):
         result = {}
         if os.path.isdir(folderPath):
             for path in os.listdir(folderPath):
@@ -76,10 +98,12 @@ class WizardWrapper(object):
                         fileName = fileName[:-4]
 
                         logging.debug("CharakterAssistent: Verifiziere " + path)
-                        CharakterMerger.readChoices(path) #uncomment to print log warnings for entire data folder on char creation
+                        CharakterMerger.readChoices(
+                            path
+                        )  # uncomment to print log warnings for entire data folder on char creation
                     elif appendEP:
                         root = etree.parse(path).getroot()
-                        fileName += " | " + root.find('Erfahrung/EPspent').text + " EP"
+                        fileName += " | " + root.find("Erfahrung/EPspent").text + " EP"
 
                     if fileName in result:
                         result[fileName].insert(index, path)
@@ -97,7 +121,9 @@ class WizardWrapper(object):
                 self.ui.cbRegeln.setCurrentIndex(rl.index(regeln))
 
         self.ui.cbRegeln.currentIndexChanged.connect(self.regelnChanged)
-        self.ui.cbProfessionKategorie.currentIndexChanged.connect(self.professionKategorieChanged)
+        self.ui.cbProfessionKategorie.currentIndexChanged.connect(
+            self.professionKategorieChanged
+        )
 
         self.regelnChanged()
         self.ui.btnAccept.clicked.connect(self.acceptClickedHandler)
@@ -128,8 +154,12 @@ class WizardWrapper(object):
         self.ui.btnWeiblich.setVisible(not regeln.hasArchetypen())
         self.ui.lblKultur.setVisible(not regeln.hasArchetypen())
         self.ui.cbKultur.setVisible(not regeln.hasArchetypen())
-        self.ui.lblProfessionKategorie.setText(regeln.hasArchetypen() and "Archetypkategorie" or "Professionskategorie")
-        self.ui.lblProfession.setText(regeln.hasArchetypen() and "Archetyp" or "Profession")
+        self.ui.lblProfessionKategorie.setText(
+            regeln.hasArchetypen() and "Archetypkategorie" or "Professionskategorie"
+        )
+        self.ui.lblProfession.setText(
+            regeln.hasArchetypen() and "Archetyp" or "Profession"
+        )
 
         self.ui.cbSpezies.clear()
         self.ui.cbKultur.clear()
@@ -162,20 +192,38 @@ class WizardWrapper(object):
 
         if not regeln.hasArchetypen():
             Wolke.Char.kurzbeschreibung = "Geschlecht: " + geschlecht
-            EventBus.doAction("cbext_update", { 'name' : "geschlecht", 'value' : geschlecht })
+            EventBus.doAction(
+                "cbext_update", {"name": "geschlecht", "value": geschlecht}
+            )
 
             if self.ui.cbSpezies.currentText() != "Überspringen":
                 spezies = regeln.spezies[self.ui.cbSpezies.currentText()]
                 CharakterMerger.xmlLesen(spezies[0], True, False)
-                CharakterMerger.handleChoices(spezies, self.ui.cbSpezies.currentText(), geschlecht, True, False, False)
+                CharakterMerger.handleChoices(
+                    spezies,
+                    self.ui.cbSpezies.currentText(),
+                    geschlecht,
+                    True,
+                    False,
+                    False,
+                )
 
             if self.ui.cbKultur.currentText() != "Überspringen":
                 kultur = regeln.kulturen[self.ui.cbKultur.currentText()]
                 CharakterMerger.xmlLesen(kultur[0], False, True)
-                CharakterMerger.handleChoices(kultur, self.ui.cbKultur.currentText(), geschlecht, False, True, False)
+                CharakterMerger.handleChoices(
+                    kultur,
+                    self.ui.cbKultur.currentText(),
+                    geschlecht,
+                    False,
+                    True,
+                    False,
+                )
 
         if self.ui.cbProfessionKategorie.currentText() != "Überspringen":
-            professionKategorie = regeln.professionen[self.ui.cbProfessionKategorie.currentText()]
+            professionKategorie = regeln.professionen[
+                self.ui.cbProfessionKategorie.currentText()
+            ]
 
             if self.ui.cbProfession.currentText() != "Überspringen":
                 profession = professionKategorie[self.ui.cbProfession.currentText()]
@@ -184,7 +232,14 @@ class WizardWrapper(object):
                     CharakterMerger.xmlLesen(profession[0], True, True)
                 else:
                     CharakterMerger.xmlLesen(profession[0], False, False)
-                    CharakterMerger.handleChoices(profession, self.ui.cbProfession.currentText(), geschlecht, False, False, True)
+                    CharakterMerger.handleChoices(
+                        profession,
+                        self.ui.cbProfession.currentText(),
+                        geschlecht,
+                        False,
+                        False,
+                        True,
+                    )
 
         Wolke.Char.aktualisieren()
 

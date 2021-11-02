@@ -20,9 +20,13 @@ class Ui_formBeschreibung(object):
         self.gridLayout = QtWidgets.QGridLayout()
         self.gridLayout.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
         self.gridLayout.setObjectName("gridLayout")
-        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         self.gridLayout.addItem(spacerItem, 1, 0, 1, 1)
-        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem1 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
         self.gridLayout.addItem(spacerItem1, 2, 1, 1, 1)
         self.gridLayout_2 = QtWidgets.QGridLayout()
         self.gridLayout_2.setObjectName("gridLayout_2")
@@ -66,7 +70,9 @@ class Ui_formBeschreibung(object):
         self.leAugenfarbe = QtWidgets.QLineEdit(formBeschreibung)
         self.leAugenfarbe.setObjectName("leAugenfarbe")
         self.gridLayout_2.addWidget(self.leAugenfarbe, 7, 1, 1, 1)
-        spacerItem2 = QtWidgets.QSpacerItem(80, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem2 = QtWidgets.QSpacerItem(
+            80, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         self.gridLayout_2.addItem(spacerItem2, 3, 2, 1, 1)
         self.leHintergrund6 = QtWidgets.QLineEdit(formBeschreibung)
         self.leHintergrund6.setObjectName("leHintergrund6")
@@ -140,9 +146,13 @@ class Ui_formBeschreibung(object):
         self.chkKultur.setObjectName("chkKultur")
         self.gridLayout_2.addWidget(self.chkKultur, 0, 4, 1, 1)
         self.gridLayout.addLayout(self.gridLayout_2, 1, 1, 1, 1)
-        spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem3 = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
         self.gridLayout.addItem(spacerItem3, 0, 1, 1, 1)
-        spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem4 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         self.gridLayout.addItem(spacerItem4, 1, 3, 1, 1)
         self.gridLayout_3.addLayout(self.gridLayout, 0, 0, 1, 1)
 
@@ -177,7 +187,9 @@ class Ui_formBeschreibung(object):
         self.label_6.setText(_translate("formBeschreibung", "Gewicht"))
         self.label_9.setText(_translate("formBeschreibung", "Aussehen"))
         self.label.setText(_translate("formBeschreibung", "Profession"))
-        self.label_10.setText(_translate("formBeschreibung", "Familie/Hintergrund/Herkunft"))
+        self.label_10.setText(
+            _translate("formBeschreibung", "Familie/Hintergrund/Herkunft")
+        )
         self.label_7.setText(_translate("formBeschreibung", "Haarfarbe"))
         self.label_3.setText(_translate("formBeschreibung", "Geschlecht"))
         self.label_2.setText(_translate("formBeschreibung", "Titel"))
@@ -190,6 +202,7 @@ class Ui_formBeschreibung(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     formBeschreibung = QtWidgets.QWidget()
     ui = Ui_formBeschreibung()

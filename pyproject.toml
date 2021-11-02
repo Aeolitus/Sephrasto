@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "sephrasto"
 version = "1.5.1"
-description = ""
+description = "Sephrasto with some development tools."
 authors = ["brzGatsu", "Aeolitus", "malexmave", "Caelagor", "klnrdknt"]
 
 [tool.poetry.dependencies]

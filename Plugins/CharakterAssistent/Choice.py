@@ -1,5 +1,6 @@
 from Wolke import Wolke
 
+
 class Choice(object):
     def __init__(self):
         super().__init__()
@@ -45,6 +46,7 @@ class Choice(object):
             prefix = self.typ + " "
         return prefix + self.name + valueStr
 
+
 class ChoiceList(object):
     def __init__(self):
         super().__init__()
@@ -84,7 +86,12 @@ class ChoiceList(object):
         return False
 
     def filter(self, choice):
-        self.choices = [c for c in self.choices if not (c.name == choice.name and c.typ == choice.typ)]
+        self.choices = [
+            c
+            for c in self.choices
+            if not (c.name == choice.name and c.typ == choice.typ)
+        ]
+
 
 class ChoiceListCollection(object):
     def __init__(self):
@@ -93,11 +100,13 @@ class ChoiceListCollection(object):
         self.choiceLists = []
 
     def filter(self, startIndex, choice):
-        #Remove choice further down the choices list
+        # Remove choice further down the choices list
         choiceList = self.choiceLists[startIndex]
         if startIndex + 1 == len(self.choiceLists):
             return
         for i in range(startIndex + 1, len(self.choiceLists)):
             cl = self.choiceLists[i]
-            if (not choiceList.hasVarianten() and not cl.hasVarianten()) or choiceList.doVariantenIntersect(cl):
+            if (
+                not choiceList.hasVarianten() and not cl.hasVarianten()
+            ) or choiceList.doVariantenIntersect(cl):
                 cl.filter(choice)

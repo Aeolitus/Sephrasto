@@ -21,7 +21,9 @@ class Ui_Dialog(object):
         self.splitter.setOrientation(QtCore.Qt.Horizontal)
         self.splitter.setObjectName("splitter")
         self.listTalente = QtWidgets.QListView(self.splitter)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(1)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.listTalente.sizePolicy().hasHeightForWidth())
@@ -48,7 +50,9 @@ class Ui_Dialog(object):
         self.label_2.setObjectName("label_2")
         self.gridLayout_2.addWidget(self.label_2, 1, 0, 1, 1)
         self.spinKosten = QtWidgets.QSpinBox(self.scrollAreaWidgetContents)
-        self.spinKosten.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.spinKosten.setAlignment(
+            QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter
+        )
         self.spinKosten.setReadOnly(True)
         self.spinKosten.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
         self.spinKosten.setMinimum(0)
@@ -87,7 +91,9 @@ class Ui_Dialog(object):
         self.buttonBox = QtWidgets.QDialogButtonBox(self.verticalLayoutWidget)
         self.buttonBox.setMaximumSize(QtCore.QSize(16777215, 16777215))
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
+        self.buttonBox.setStandardButtons(
+            QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Ok
+        )
         self.buttonBox.setCenterButtons(True)
         self.buttonBox.setObjectName("buttonBox")
         self.verticalLayout.addWidget(self.buttonBox)
@@ -113,6 +119,7 @@ class Ui_Dialog(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
     ui = Ui_Dialog()

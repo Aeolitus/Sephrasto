@@ -19,10 +19,14 @@ class Ui_Dialog(object):
         self.gridLayout = QtWidgets.QGridLayout(Dialog)
         self.gridLayout.setObjectName("gridLayout")
         self.verticalLayout_2 = QtWidgets.QWidget(Dialog)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred
+        )
         sizePolicy.setHorizontalStretch(1)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.verticalLayout_2.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.verticalLayout_2.sizePolicy().hasHeightForWidth()
+        )
         self.verticalLayout_2.setSizePolicy(sizePolicy)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.verticalLayout2 = QtWidgets.QVBoxLayout(self.verticalLayout_2)
@@ -40,7 +44,9 @@ class Ui_Dialog(object):
         self.horizontalLayout.addWidget(self.nameFilterEdit)
         self.verticalLayout2.addLayout(self.horizontalLayout)
         self.treeFerts = QtWidgets.QTreeWidget(self.verticalLayout_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.treeFerts.sizePolicy().hasHeightForWidth())
@@ -57,7 +63,9 @@ class Ui_Dialog(object):
         self.verticalLayout2.addWidget(self.treeFerts)
         self.buttonBox = QtWidgets.QDialogButtonBox(self.verticalLayout_2)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
+        self.buttonBox.setStandardButtons(
+            QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Ok
+        )
         self.buttonBox.setCenterButtons(True)
         self.buttonBox.setObjectName("buttonBox")
         self.verticalLayout2.addWidget(self.buttonBox)
@@ -71,8 +79,15 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Sephrasto - Freie Fertigkeit wählen..."))
-        self.label.setText(_translate("Dialog", "Inoffiziell: Das Ilaris Regelwerk hat keine Auflistung für Sprachen und Schriften."))
+        Dialog.setWindowTitle(
+            _translate("Dialog", "Sephrasto - Freie Fertigkeit wählen...")
+        )
+        self.label.setText(
+            _translate(
+                "Dialog",
+                "Inoffiziell: Das Ilaris Regelwerk hat keine Auflistung für Sprachen und Schriften.",
+            )
+        )
         self.labelFilter.setText(_translate("Dialog", "Suchen:"))
         self.treeFerts.setSortingEnabled(False)
         self.treeFerts.headerItem().setText(0, _translate("Dialog", "Freie Fertigkeit"))
@@ -80,6 +95,7 @@ class Ui_Dialog(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
     ui = Ui_Dialog()

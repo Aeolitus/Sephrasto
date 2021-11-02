@@ -5,20 +5,24 @@ Created on Sun Sep 24 15:58:13 2017
 @author: Lennart
 """
 
-from Wolke import Wolke
-import CharakterEP
-from PyQt5 import QtWidgets, QtCore
 import logging
 
+from PyQt5 import QtCore, QtWidgets
+
+import CharakterEP
+from Wolke import Wolke
+
+
 class EPWrapper(QtCore.QObject):
-    '''
+    """
     Wrapper class for the EP Reference GUI. Contains methods for updating
     the GUI elements to the current values.
-    '''
+    """
+
     modified = QtCore.pyqtSignal()
 
     def __init__(self):
-        ''' Initialize the GUI and set signals for the spinners'''
+        """Initialize the GUI and set signals for the spinners"""
         super().__init__()
         logging.debug("Initializing EPWrapper...")
         self.formEP = QtWidgets.QWidget()
@@ -30,7 +34,7 @@ class EPWrapper(QtCore.QObject):
         pass
 
     def load(self):
-        ''' Load all values and derived values '''
+        """Load all values and derived values"""
         totalVal = 0
         if Wolke.Char.EPtotal > 0:
             totalVal = Wolke.Char.EPtotal
@@ -40,34 +44,40 @@ class EPWrapper(QtCore.QObject):
             totalVal = 1
 
         self.uiEP.spinAttributeSpent.setValue(Wolke.Char.EP_Attribute)
-        self.uiEP.spinAttributePercent.setValue(round(
-                Wolke.Char.EP_Attribute / totalVal * 100))
+        self.uiEP.spinAttributePercent.setValue(
+            round(Wolke.Char.EP_Attribute / totalVal * 100)
+        )
 
         self.uiEP.spinVorteileSpent.setValue(Wolke.Char.EP_Vorteile)
-        self.uiEP.spinVorteilePercent.setValue(round(
-                Wolke.Char.EP_Vorteile / totalVal * 100))
+        self.uiEP.spinVorteilePercent.setValue(
+            round(Wolke.Char.EP_Vorteile / totalVal * 100)
+        )
 
-        total = (Wolke.Char.EP_Fertigkeiten +
-                 Wolke.Char.EP_Fertigkeiten_Talente +
-                 Wolke.Char.EP_FreieFertigkeiten)
+        total = (
+            Wolke.Char.EP_Fertigkeiten
+            + Wolke.Char.EP_Fertigkeiten_Talente
+            + Wolke.Char.EP_FreieFertigkeiten
+        )
 
         self.uiEP.spinProfanSpent.setValue(total)
         self.uiEP.spinProfanPercent.setValue(round(total / totalVal * 100))
 
         self.uiEP.spinFertigkeitenSpent.setValue(Wolke.Char.EP_Fertigkeiten)
-        self.uiEP.spinFertigkeitenPercent.setValue(round(
-                Wolke.Char.EP_Fertigkeiten / max(total, 1) * 100))
+        self.uiEP.spinFertigkeitenPercent.setValue(
+            round(Wolke.Char.EP_Fertigkeiten / max(total, 1) * 100)
+        )
 
         self.uiEP.spinTalenteSpent.setValue(Wolke.Char.EP_Fertigkeiten_Talente)
-        self.uiEP.spinTalentePercent.setValue(round(
-                Wolke.Char.EP_Fertigkeiten_Talente / max(total, 1) * 100))
+        self.uiEP.spinTalentePercent.setValue(
+            round(Wolke.Char.EP_Fertigkeiten_Talente / max(total, 1) * 100)
+        )
 
         self.uiEP.spinFreieSpent.setValue(Wolke.Char.EP_FreieFertigkeiten)
-        self.uiEP.spinFreiePercent.setValue(round(
-                Wolke.Char.EP_FreieFertigkeiten / max(total, 1) * 100))
+        self.uiEP.spinFreiePercent.setValue(
+            round(Wolke.Char.EP_FreieFertigkeiten / max(total, 1) * 100)
+        )
 
-        if Wolke.Char.EP_Uebernatuerlich + \
-                Wolke.Char.EP_Uebernatuerlich_Talente > 0:
+        if Wolke.Char.EP_Uebernatuerlich + Wolke.Char.EP_Uebernatuerlich_Talente > 0:
 
             self.uiEP.spinUebernatuerlichSpent.show()
             self.uiEP.spinUebernatuerlichPercent.show()
@@ -79,22 +89,24 @@ class EPWrapper(QtCore.QObject):
             self.uiEP.labelUeber2.show()
             self.uiEP.labelUeber3.show()
 
-            total = (Wolke.Char.EP_Uebernatuerlich +
-                     Wolke.Char.EP_Uebernatuerlich_Talente)
+            total = (
+                Wolke.Char.EP_Uebernatuerlich + Wolke.Char.EP_Uebernatuerlich_Talente
+            )
 
             self.uiEP.spinUebernatuerlichSpent.setValue(total)
-            self.uiEP.spinUebernatuerlichPercent.setValue(round(
-                    total / totalVal * 100))
+            self.uiEP.spinUebernatuerlichPercent.setValue(round(total / totalVal * 100))
 
-            self.uiEP.spinUeberFertigkeitenSpent.setValue(
-                    Wolke.Char.EP_Uebernatuerlich)
-            self.uiEP.spinUeberFertigkeitenPercent.setValue(round(
-                Wolke.Char.EP_Uebernatuerlich / max(total, 1) * 100))
+            self.uiEP.spinUeberFertigkeitenSpent.setValue(Wolke.Char.EP_Uebernatuerlich)
+            self.uiEP.spinUeberFertigkeitenPercent.setValue(
+                round(Wolke.Char.EP_Uebernatuerlich / max(total, 1) * 100)
+            )
 
             self.uiEP.spinUeberTalenteSpent.setValue(
-                    Wolke.Char.EP_Uebernatuerlich_Talente)
-            self.uiEP.spinUeberTalentePercent.setValue(round(
-                Wolke.Char.EP_Uebernatuerlich_Talente / max(total, 1) * 100))
+                Wolke.Char.EP_Uebernatuerlich_Talente
+            )
+            self.uiEP.spinUeberTalentePercent.setValue(
+                round(Wolke.Char.EP_Uebernatuerlich_Talente / max(total, 1) * 100)
+            )
 
         else:
 

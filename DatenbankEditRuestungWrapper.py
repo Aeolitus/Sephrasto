@@ -4,11 +4,13 @@ Created on Sat Mar 18 10:52:34 2017
 
 @author: Aeolitus
 """
-import Objekte
+from PyQt5 import QtCore, QtWidgets
+
 import DatenbankEditRuestung
-from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
-from PyQt5 import QtWidgets, QtCore
 import Definitionen
+import Objekte
+from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
+
 
 class DatenbankEditRuestungWrapper(object):
     def __init__(self, datenbank, ruestung=None, readonly=False):
@@ -21,18 +23,21 @@ class DatenbankEditRuestungWrapper(object):
         ruestungDialog = QtWidgets.QDialog()
         self.ui = DatenbankEditRuestung.Ui_talentDialog()
         self.ui.setupUi(ruestungDialog)
-        
+
         if not ruestung.isUserAdded:
             if readonly:
-                self.ui.warning.setText("Gelöschte Elemente können nicht verändert werden.")
+                self.ui.warning.setText(
+                    "Gelöschte Elemente können nicht verändert werden."
+                )
             self.ui.warning.setVisible(True)
 
         ruestungDialog.setWindowFlags(
-                QtCore.Qt.Window |
-                QtCore.Qt.CustomizeWindowHint |
-                QtCore.Qt.WindowTitleHint |
-                QtCore.Qt.WindowCloseButtonHint)
-        
+            QtCore.Qt.Window
+            | QtCore.Qt.CustomizeWindowHint
+            | QtCore.Qt.WindowTitleHint
+            | QtCore.Qt.WindowCloseButtonHint
+        )
+
         self.nameValid = True
         self.ui.leName.setText(ruestung.name)
         self.ui.leName.textChanged.connect(self.nameChanged)
@@ -55,7 +60,7 @@ class DatenbankEditRuestungWrapper(object):
         self.ui.sbBrust.setValue(ruestung.rs[4])
         self.ui.sbKopf.setValue(ruestung.rs[5])
         self.ui.teBeschreibung.setPlainText(ruestung.text)
-        
+
         ruestungDialog.adjustSize()
         ruestungDialog.show()
         ret = ruestungDialog.exec_()
@@ -81,7 +86,22 @@ class DatenbankEditRuestungWrapper(object):
             self.ruestung = None
 
     def rsChanged(self):
-        self.ui.lblRS.setText(str(round((self.ui.sbBeine.value() + self.ui.sbSchwert.value() + self.ui.sbSchild.value() + self.ui.sbBauch.value() + self.ui.sbBrust.value() + self.ui.sbKopf.value()) / 6, 2)))
+        self.ui.lblRS.setText(
+            str(
+                round(
+                    (
+                        self.ui.sbBeine.value()
+                        + self.ui.sbSchwert.value()
+                        + self.ui.sbSchild.value()
+                        + self.ui.sbBauch.value()
+                        + self.ui.sbBrust.value()
+                        + self.ui.sbKopf.value()
+                    )
+                    / 6,
+                    2,
+                )
+            )
+        )
 
     def nameChanged(self):
         name = self.ui.leName.text()
@@ -99,4 +119,6 @@ class DatenbankEditRuestungWrapper(object):
         self.updateSaveButtonState()
 
     def updateSaveButtonState(self):
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(not self.readonly and self.nameValid)
+        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(
+            not self.readonly and self.nameValid
+        )

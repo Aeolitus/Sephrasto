@@ -21,7 +21,9 @@ class Ui_formMain(object):
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.checkReq = QtWidgets.QCheckBox(formMain)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.checkReq.sizePolicy().hasHeightForWidth())
@@ -97,7 +99,9 @@ class Ui_formMain(object):
         self.spinRemaining.setMaximum(100000)
         self.spinRemaining.setObjectName("spinRemaining")
         self.horizontalLayout_2.addWidget(self.spinRemaining)
-        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         self.horizontalLayout_2.addItem(spacerItem)
         self.verticalLayout.addLayout(self.horizontalLayout_2)
         self.gridLayout.addLayout(self.verticalLayout, 0, 0, 1, 1)
@@ -115,13 +119,19 @@ class Ui_formMain(object):
 
     def retranslateUi(self, formMain):
         _translate = QtCore.QCoreApplication.translate
-        formMain.setWindowTitle(_translate("formMain", "Sephrasto - Charakter erstellen"))
+        formMain.setWindowTitle(
+            _translate("formMain", "Sephrasto - Charakter erstellen")
+        )
         self.checkReq.setText(_translate("formMain", "Voraussetzungen überprüfen"))
         self.buttonQuicksave.setText(_translate("formMain", "Speichern"))
         self.buttonSave.setText(_translate("formMain", "Speichern als..."))
         self.buttonSavePDF.setText(_translate("formMain", "PDF erstellen"))
-        self.tabs.setTabText(self.tabs.indexOf(self.tab), _translate("formMain", "Tab 1"))
-        self.tabs.setTabText(self.tabs.indexOf(self.tab_2), _translate("formMain", "Tab 2"))
+        self.tabs.setTabText(
+            self.tabs.indexOf(self.tab), _translate("formMain", "Tab 1")
+        )
+        self.tabs.setTabText(
+            self.tabs.indexOf(self.tab_2), _translate("formMain", "Tab 2")
+        )
         self.label.setText(_translate("formMain", "    Total:    "))
         self.spinEP.setSuffix(_translate("formMain", " EP"))
         self.label_3.setText(_translate("formMain", "    Ausgegeben:    "))
@@ -132,6 +142,7 @@ class Ui_formMain(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     formMain = QtWidgets.QWidget()
     ui = Ui_formMain()

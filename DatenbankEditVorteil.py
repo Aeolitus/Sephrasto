@@ -20,14 +20,18 @@ class Ui_talentDialog(object):
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.buttonBox = QtWidgets.QDialogButtonBox(talentDialog)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Save)
+        self.buttonBox.setStandardButtons(
+            QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Save
+        )
         self.buttonBox.setCenterButtons(True)
         self.buttonBox.setObjectName("buttonBox")
         self.gridLayout_2.addWidget(self.buttonBox, 1, 0, 1, 1)
         self.gridLayout = QtWidgets.QGridLayout()
         self.gridLayout.setObjectName("gridLayout")
         self.textEdit = QtWidgets.QPlainTextEdit(talentDialog)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.MinimumExpanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.MinimumExpanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.textEdit.sizePolicy().hasHeightForWidth())
@@ -42,7 +46,9 @@ class Ui_talentDialog(object):
         self.checkVariable = QtWidgets.QCheckBox(talentDialog)
         self.checkVariable.setObjectName("checkVariable")
         self.horizontalLayout_2.addWidget(self.checkVariable)
-        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         self.horizontalLayout_2.addItem(spacerItem)
         self.kostenEdit = QtWidgets.QSpinBox(talentDialog)
         self.kostenEdit.setAlignment(QtCore.Qt.AlignCenter)
@@ -70,7 +76,9 @@ class Ui_talentDialog(object):
         self.horizontalLayout_4.addWidget(self.scriptPrioEdit)
         self.gridLayout.addLayout(self.horizontalLayout_4, 10, 1, 1, 1)
         self.label_8 = QtWidgets.QLabel(talentDialog)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.label_8.sizePolicy().hasHeightForWidth())
@@ -90,7 +98,9 @@ class Ui_talentDialog(object):
         self.gridLayout.addWidget(self.label_2, 3, 0, 1, 1)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem1 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         self.horizontalLayout.addItem(spacerItem1)
         self.comboNachkauf = QtWidgets.QComboBox(talentDialog)
         self.comboNachkauf.setObjectName("comboNachkauf")
@@ -169,7 +179,9 @@ class Ui_talentDialog(object):
         self.label_9.setObjectName("label_9")
         self.gridLayout.addWidget(self.label_9, 11, 0, 1, 1)
         self.teCheatsheet = QtWidgets.QPlainTextEdit(talentDialog)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.MinimumExpanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.MinimumExpanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.teCheatsheet.sizePolicy().hasHeightForWidth())
@@ -198,11 +210,15 @@ class Ui_talentDialog(object):
 
     def retranslateUi(self, talentDialog):
         _translate = QtCore.QCoreApplication.translate
-        talentDialog.setWindowTitle(_translate("talentDialog", "Sephrasto - Vorteil bearbeiten..."))
+        talentDialog.setWindowTitle(
+            _translate("talentDialog", "Sephrasto - Vorteil bearbeiten...")
+        )
         self.label_10.setText(_translate("talentDialog", "Cheatsheet"))
         self.checkVariable.setText(_translate("talentDialog", "Kosten sind Variabel"))
         self.kostenEdit.setSuffix(_translate("talentDialog", " EP"))
-        self.label_8.setText(_translate("talentDialog", "Alternative Beschreibung (optional)"))
+        self.label_8.setText(
+            _translate("talentDialog", "Alternative Beschreibung (optional)")
+        )
         self.label_4.setText(_translate("talentDialog", "Voraussetzungen"))
         self.label_2.setText(_translate("talentDialog", "Lernkosten"))
         self.comboNachkauf.setItemText(0, _translate("talentDialog", "häufig"))
@@ -212,22 +228,36 @@ class Ui_talentDialog(object):
         self.comboNachkauf.setItemText(4, _translate("talentDialog", "nicht möglich"))
         self.label_41.setText(_translate("talentDialog", "Script / Priorität"))
         self.label_3.setText(_translate("talentDialog", "Nachkauf"))
-        self.checkKommentar.setText(_translate("talentDialog", "Nutzern erlauben einen Kommentar einzutragen"))
+        self.checkKommentar.setText(
+            _translate("talentDialog", "Nutzern erlauben einen Kommentar einzutragen")
+        )
         self.label_7.setText(_translate("talentDialog", "Kommentar"))
         self.label_6.setText(_translate("talentDialog", "Typ"))
         self.label.setText(_translate("talentDialog", "Vorteilsname"))
-        self.warning.setText(_translate("talentDialog", "Dies ist ein Ilaris-Standardvorteil. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für diesen Vorteil keine automatischen Updates mehr mit neuen Sephrasto-Versionen."))
+        self.warning.setText(
+            _translate(
+                "talentDialog",
+                "Dies ist ein Ilaris-Standardvorteil. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für diesen Vorteil keine automatischen Updates mehr mit neuen Sephrasto-Versionen.",
+            )
+        )
         self.checkCheatsheet.setText(_translate("talentDialog", "Auflisten"))
         self.label_5.setText(_translate("talentDialog", "Beschreibung"))
-        self.comboLinkKategorie.setItemText(0, _translate("talentDialog", "Nicht verknüpfen"))
-        self.comboLinkKategorie.setItemText(1, _translate("talentDialog", "Manöver / Mod."))
-        self.comboLinkKategorie.setItemText(2, _translate("talentDialog", "Übernat. Talent"))
+        self.comboLinkKategorie.setItemText(
+            0, _translate("talentDialog", "Nicht verknüpfen")
+        )
+        self.comboLinkKategorie.setItemText(
+            1, _translate("talentDialog", "Manöver / Mod.")
+        )
+        self.comboLinkKategorie.setItemText(
+            2, _translate("talentDialog", "Übernat. Talent")
+        )
         self.comboLinkKategorie.setItemText(3, _translate("talentDialog", "Vorteil"))
         self.label_9.setText(_translate("talentDialog", "Verknüpfung"))
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     talentDialog = QtWidgets.QDialog()
     ui = Ui_talentDialog()

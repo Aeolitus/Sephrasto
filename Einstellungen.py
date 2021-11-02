@@ -136,7 +136,9 @@ class Ui_SettingsWindow(object):
         self.label_5.setObjectName("label_5")
         self.verticalLayout_6.addWidget(self.label_5)
         self.comboLogging = QtWidgets.QComboBox(self.groupBox_4)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.comboLogging.sizePolicy().hasHeightForWidth())
@@ -152,7 +154,9 @@ class Ui_SettingsWindow(object):
         self.verticalLayout.addLayout(self.horizontalLayout)
         self.buttonBox = QtWidgets.QDialogButtonBox(SettingsWindow)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
+        self.buttonBox.setStandardButtons(
+            QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Ok
+        )
         self.buttonBox.setCenterButtons(True)
         self.buttonBox.setObjectName("buttonBox")
         self.verticalLayout.addWidget(self.buttonBox)
@@ -179,23 +183,41 @@ class Ui_SettingsWindow(object):
 
     def retranslateUi(self, SettingsWindow):
         _translate = QtCore.QCoreApplication.translate
-        SettingsWindow.setWindowTitle(_translate("SettingsWindow", "Sephrasto - Einstellungen"))
+        SettingsWindow.setWindowTitle(
+            _translate("SettingsWindow", "Sephrasto - Einstellungen")
+        )
         self.groupBox_3.setTitle(_translate("SettingsWindow", "Regelbasis"))
-        self.label_4.setText(_translate("SettingsWindow", "Aktuelle Nutzer-Regelbasis:"))
+        self.label_4.setText(
+            _translate("SettingsWindow", "Aktuelle Nutzer-Regelbasis:")
+        )
         self.comboRegelbasis.setItemText(0, _translate("SettingsWindow", "Keine"))
         self.groupBox.setTitle(_translate("SettingsWindow", "Charakterbogen"))
-        self.label.setText(_translate("SettingsWindow", "Welcher Charakterbogen soll verwendet werden?"))
+        self.label.setText(
+            _translate(
+                "SettingsWindow", "Welcher Charakterbogen soll verwendet werden?"
+            )
+        )
         self.comboBogen.setItemText(0, _translate("SettingsWindow", "Frag immer nach"))
-        self.comboBogen.setItemText(1, _translate("SettingsWindow", "Standard Ilaris-Charakterbogen"))
-        self.comboBogen.setItemText(2, _translate("SettingsWindow", "Die lange Version von Gatsu"))
-        self.checkCheatsheet.setText(_translate("SettingsWindow", "Cheatsheet mit den Regeln anhängen"))
+        self.comboBogen.setItemText(
+            1, _translate("SettingsWindow", "Standard Ilaris-Charakterbogen")
+        )
+        self.comboBogen.setItemText(
+            2, _translate("SettingsWindow", "Die lange Version von Gatsu")
+        )
+        self.checkCheatsheet.setText(
+            _translate("SettingsWindow", "Cheatsheet mit den Regeln anhängen")
+        )
         self.label_6.setText(_translate("SettingsWindow", "Cheatsheet Schriftgröße:"))
         self.comboFontSize.setItemText(0, _translate("SettingsWindow", "Klein"))
         self.comboFontSize.setItemText(1, _translate("SettingsWindow", "Mittel"))
         self.comboFontSize.setItemText(2, _translate("SettingsWindow", "Groß"))
-        self.checkPDFOpen.setText(_translate("SettingsWindow", "PDF nach dem Erstellen öffnen"))
+        self.checkPDFOpen.setText(
+            _translate("SettingsWindow", "PDF nach dem Erstellen öffnen")
+        )
         self.groupBox_2.setTitle(_translate("SettingsWindow", "Speicherpfade"))
-        self.label_2.setText(_translate("SettingsWindow", "Speicherpfad für Charaktere:"))
+        self.label_2.setText(
+            _translate("SettingsWindow", "Speicherpfad für Charaktere:")
+        )
         self.buttonChar.setText(_translate("SettingsWindow", "Durchsuchen"))
         self.resetChar.setText(_translate("SettingsWindow", "Zurücksetzen"))
         self.label_3.setText(_translate("SettingsWindow", "Speicherpfad für Regeln:"))
@@ -206,13 +228,21 @@ class Ui_SettingsWindow(object):
         self.resetPlugins.setText(_translate("SettingsWindow", "Zurücksetzen"))
         self.groupBox_4.setTitle(_translate("SettingsWindow", "Sonstiges"))
         self.label_5.setText(_translate("SettingsWindow", "Logging-Level:"))
-        self.comboLogging.setItemText(0, _translate("SettingsWindow", "Protokolliere nur Fehler"))
-        self.comboLogging.setItemText(1, _translate("SettingsWindow", "Protokolliere Warnungen und Fehler"))
-        self.comboLogging.setItemText(2, _translate("SettingsWindow", "Protokolliere auch Debugging-Informationen"))
+        self.comboLogging.setItemText(
+            0, _translate("SettingsWindow", "Protokolliere nur Fehler")
+        )
+        self.comboLogging.setItemText(
+            1, _translate("SettingsWindow", "Protokolliere Warnungen und Fehler")
+        )
+        self.comboLogging.setItemText(
+            2,
+            _translate("SettingsWindow", "Protokolliere auch Debugging-Informationen"),
+        )
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     SettingsWindow = QtWidgets.QDialog()
     ui = Ui_SettingsWindow()

@@ -79,7 +79,9 @@ class Ui_formAusruestung(object):
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.spinW1w6 = QtWidgets.QSpinBox(self.groupBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.spinW1w6.sizePolicy().hasHeightForWidth())
@@ -94,7 +96,9 @@ class Ui_formAusruestung(object):
         self.label_22.setObjectName("label_22")
         self.horizontalLayout_3.addWidget(self.label_22)
         self.spinW1plus = QtWidgets.QSpinBox(self.groupBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.spinW1plus.sizePolicy().hasHeightForWidth())
@@ -163,7 +167,9 @@ class Ui_formAusruestung(object):
         self.horizontalLayout_11 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_11.setObjectName("horizontalLayout_11")
         self.spinW2w6 = QtWidgets.QSpinBox(self.groupBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.spinW2w6.sizePolicy().hasHeightForWidth())
@@ -178,7 +184,9 @@ class Ui_formAusruestung(object):
         self.label_39.setObjectName("label_39")
         self.horizontalLayout_11.addWidget(self.label_39)
         self.spinW2plus = QtWidgets.QSpinBox(self.groupBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.spinW2plus.sizePolicy().hasHeightForWidth())
@@ -240,7 +248,9 @@ class Ui_formAusruestung(object):
         self.horizontalLayout_7 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_7.setObjectName("horizontalLayout_7")
         self.spinW3w6 = QtWidgets.QSpinBox(self.groupBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.spinW3w6.sizePolicy().hasHeightForWidth())
@@ -255,7 +265,9 @@ class Ui_formAusruestung(object):
         self.label_35.setObjectName("label_35")
         self.horizontalLayout_7.addWidget(self.label_35)
         self.spinW3plus = QtWidgets.QSpinBox(self.groupBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.spinW3plus.sizePolicy().hasHeightForWidth())
@@ -317,7 +329,9 @@ class Ui_formAusruestung(object):
         self.horizontalLayout_8 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_8.setObjectName("horizontalLayout_8")
         self.spinW4w6 = QtWidgets.QSpinBox(self.groupBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.spinW4w6.sizePolicy().hasHeightForWidth())
@@ -332,7 +346,9 @@ class Ui_formAusruestung(object):
         self.label_36.setObjectName("label_36")
         self.horizontalLayout_8.addWidget(self.label_36)
         self.spinW4plus = QtWidgets.QSpinBox(self.groupBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.spinW4plus.sizePolicy().hasHeightForWidth())
@@ -394,7 +410,9 @@ class Ui_formAusruestung(object):
         self.horizontalLayout_9 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_9.setObjectName("horizontalLayout_9")
         self.spinW5w6 = QtWidgets.QSpinBox(self.groupBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.spinW5w6.sizePolicy().hasHeightForWidth())
@@ -409,7 +427,9 @@ class Ui_formAusruestung(object):
         self.label_37.setObjectName("label_37")
         self.horizontalLayout_9.addWidget(self.label_37)
         self.spinW5plus = QtWidgets.QSpinBox(self.groupBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.spinW5plus.sizePolicy().hasHeightForWidth())
@@ -471,7 +491,9 @@ class Ui_formAusruestung(object):
         self.horizontalLayout_10 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_10.setObjectName("horizontalLayout_10")
         self.spinW6w6 = QtWidgets.QSpinBox(self.groupBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.spinW6w6.sizePolicy().hasHeightForWidth())
@@ -486,7 +508,9 @@ class Ui_formAusruestung(object):
         self.label_38.setObjectName("label_38")
         self.horizontalLayout_10.addWidget(self.label_38)
         self.spinW6plus = QtWidgets.QSpinBox(self.groupBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.spinW6plus.sizePolicy().hasHeightForWidth())
@@ -548,7 +572,9 @@ class Ui_formAusruestung(object):
         self.horizontalLayout_12 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_12.setObjectName("horizontalLayout_12")
         self.spinW7w6 = QtWidgets.QSpinBox(self.groupBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.spinW7w6.sizePolicy().hasHeightForWidth())
@@ -563,7 +589,9 @@ class Ui_formAusruestung(object):
         self.label_40.setObjectName("label_40")
         self.horizontalLayout_12.addWidget(self.label_40)
         self.spinW7plus = QtWidgets.QSpinBox(self.groupBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.spinW7plus.sizePolicy().hasHeightForWidth())
@@ -624,7 +652,9 @@ class Ui_formAusruestung(object):
         self.horizontalLayout_13 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_13.setObjectName("horizontalLayout_13")
         self.spinW8w6 = QtWidgets.QSpinBox(self.groupBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.spinW8w6.sizePolicy().hasHeightForWidth())
@@ -641,7 +671,9 @@ class Ui_formAusruestung(object):
         self.label_41.setObjectName("label_41")
         self.horizontalLayout_13.addWidget(self.label_41)
         self.spinW8plus = QtWidgets.QSpinBox(self.groupBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.spinW8plus.sizePolicy().hasHeightForWidth())
@@ -753,7 +785,9 @@ class Ui_formAusruestung(object):
         self.spinR3brust.setObjectName("spinR3brust")
         self.gridLayout_2.addWidget(self.spinR3brust, 3, 7, 1, 1)
         self.labelBauch = QtWidgets.QLabel(self.groupBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.labelBauch.sizePolicy().hasHeightForWidth())
@@ -767,7 +801,9 @@ class Ui_formAusruestung(object):
         self.addR3.setObjectName("addR3")
         self.gridLayout_2.addWidget(self.addR3, 3, 10, 1, 1)
         self.labelRarm = QtWidgets.QLabel(self.groupBox)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.labelRarm.sizePolicy().hasHeightForWidth())
@@ -1142,11 +1178,17 @@ class Ui_formAusruestung(object):
         self.label_18.setText(_translate("formAusruestung", "Eigenschaften"))
         self.label_4.setText(_translate("formAusruestung", "Kampfstil"))
         self.label_22.setText(_translate("formAusruestung", "W6 +"))
-        self.comboStil1.setItemText(0, _translate("formAusruestung", "Beidhändiger Kampf"))
-        self.comboStil1.setItemText(1, _translate("formAusruestung", "Parierwaffenkampf"))
+        self.comboStil1.setItemText(
+            0, _translate("formAusruestung", "Beidhändiger Kampf")
+        )
+        self.comboStil1.setItemText(
+            1, _translate("formAusruestung", "Parierwaffenkampf")
+        )
         self.comboStil1.setItemText(2, _translate("formAusruestung", "Reiterkampf"))
         self.comboStil1.setItemText(3, _translate("formAusruestung", "Schildkampf"))
-        self.comboStil1.setItemText(4, _translate("formAusruestung", "Kraftvoller Kampf"))
+        self.comboStil1.setItemText(
+            4, _translate("formAusruestung", "Kraftvoller Kampf")
+        )
         self.comboStil1.setItemText(5, _translate("formAusruestung", "Schneller Kampf"))
         self.addW1.setText(_translate("formAusruestung", "+"))
         self.label_39.setText(_translate("formAusruestung", "W6 +"))
@@ -1163,7 +1205,11 @@ class Ui_formAusruestung(object):
         self.addW7.setText(_translate("formAusruestung", "+"))
         self.labelW8typ.setText(_translate("formAusruestung", "Unbewaffnet"))
         self.label_41.setText(_translate("formAusruestung", "W6 +"))
-        self.editW8eig.setText(_translate("formAusruestung", "Stumpf, Zerbrechlich, kein Malus als Nebenwaffe"))
+        self.editW8eig.setText(
+            _translate(
+                "formAusruestung", "Stumpf, Zerbrechlich, kein Malus als Nebenwaffe"
+            )
+        )
         self.addW8.setText(_translate("formAusruestung", "+"))
         self.addR1.setText(_translate("formAusruestung", "+"))
         self.labelBauch.setText(_translate("formAusruestung", "Bauch"))
@@ -1171,23 +1217,41 @@ class Ui_formAusruestung(object):
         self.labelRarm.setText(_translate("formAusruestung", "R. Arm"))
         self.labelBrust.setText(_translate("formAusruestung", "Brust"))
         self.labelBein.setText(_translate("formAusruestung", "Bein"))
-        self.editR2name.setToolTip(_translate("formAusruestung", "Nur die erste Rüstung wird zur Berechnung der WS* usw. verwendet."))
+        self.editR2name.setToolTip(
+            _translate(
+                "formAusruestung",
+                "Nur die erste Rüstung wird zur Berechnung der WS* usw. verwendet.",
+            )
+        )
         self.labelLarm.setText(_translate("formAusruestung", "L. Arm"))
         self.addR2.setText(_translate("formAusruestung", "+"))
         self.label_7.setText(_translate("formAusruestung", "BE*"))
-        self.editR3name.setToolTip(_translate("formAusruestung", "Nur die erste Rüstung wird zur Berechnung der WS* usw. verwendet."))
+        self.editR3name.setToolTip(
+            _translate(
+                "formAusruestung",
+                "Nur die erste Rüstung wird zur Berechnung der WS* usw. verwendet.",
+            )
+        )
         self.labelKopf.setText(_translate("formAusruestung", "Kopf"))
         self.label.setText(_translate("formAusruestung", "Name"))
-        self.editR1name.setToolTip(_translate("formAusruestung", "Nur die erste Rüstung wird zur Berechnung der WS* usw. verwendet."))
+        self.editR1name.setToolTip(
+            _translate(
+                "formAusruestung",
+                "Nur die erste Rüstung wird zur Berechnung der WS* usw. verwendet.",
+            )
+        )
         self.labelRS.setText(_translate("formAusruestung", "RS"))
         self.labelPunkte.setText(_translate("formAusruestung", "Punkte"))
         self.editW8name.setText(_translate("formAusruestung", "Unbewaffnet"))
         self.label_13.setText(_translate("formAusruestung", "Name"))
-        self.checkZonen.setText(_translate("formAusruestung", "Zonenrüstungssystem benutzen"))
+        self.checkZonen.setText(
+            _translate("formAusruestung", "Zonenrüstungssystem benutzen")
+        )
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     formAusruestung = QtWidgets.QWidget()
     ui = Ui_formAusruestung()

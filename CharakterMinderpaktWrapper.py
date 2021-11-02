@@ -4,13 +4,16 @@ Created on Sat Mar 18 12:21:03 2017
 
 @author: Aeolitus
 """
-from Wolke import Wolke
-import CharakterMinderpakt
-from PyQt5 import QtWidgets, QtCore
-from Definitionen import VorteilTypen
 import logging
 
-class CharakterMinderpaktWrapper():    
+from PyQt5 import QtCore, QtWidgets
+
+import CharakterMinderpakt
+from Definitionen import VorteilTypen
+from Wolke import Wolke
+
+
+class CharakterMinderpaktWrapper:
     def __init__(self):
         super().__init__()
         logging.debug("Initializing Minderpakt...")
@@ -18,13 +21,14 @@ class CharakterMinderpaktWrapper():
         self.uiVor = CharakterMinderpakt.Ui_Dialog()
         self.uiVor.setupUi(self.formVor)
         self.formVor.setWindowFlags(
-                QtCore.Qt.Window |
-                QtCore.Qt.CustomizeWindowHint |
-                QtCore.Qt.WindowTitleHint |
-                QtCore.Qt.WindowCloseButtonHint)
-        
+            QtCore.Qt.Window
+            | QtCore.Qt.CustomizeWindowHint
+            | QtCore.Qt.WindowTitleHint
+            | QtCore.Qt.WindowCloseButtonHint
+        )
+
         self.uiVor.treeWidget.itemSelectionChanged.connect(self.vortClicked)
-        self.uiVor.treeWidget.header().setSectionResizeMode(0,1)
+        self.uiVor.treeWidget.header().setSectionResizeMode(0, 1)
         if len(Wolke.Char.vorteile) > 0:
             self.currentVort = Wolke.Char.vorteile[0]
         else:
@@ -40,14 +44,17 @@ class CharakterMinderpaktWrapper():
                 self.minderpakt = self.currentVort
         else:
             self.minderpakt = None
-          
+
     def initVorteile(self):
         self.uiVor.treeWidget.blockSignals(True)
         vortList = []
         for vortTyp in VorteilTypen:
             vortList.append([])
         for el in Wolke.DB.vorteile:
-            if Wolke.DB.vorteile[el].kosten > 20 and not Wolke.DB.vorteile[el].variableKosten:
+            if (
+                Wolke.DB.vorteile[el].kosten > 20
+                and not Wolke.DB.vorteile[el].variableKosten
+            ):
                 continue
             if Wolke.DB.vorteile[el].kosten < 0:
                 continue
@@ -62,7 +69,7 @@ class CharakterMinderpaktWrapper():
         for i in range(len(vortList)):
             parent = QtWidgets.QTreeWidgetItem(self.uiVor.treeWidget)
             parent.setText(0, VorteilTypen[i])
-            parent.setText(1,"")
+            parent.setText(1, "")
             parent.setExpanded(True)
             for el in vortList[i]:
                 child = QtWidgets.QTreeWidgetItem(parent)
@@ -73,22 +80,28 @@ class CharakterMinderpaktWrapper():
                     child.setText(1, str(Wolke.DB.vorteile[el].kosten) + " EP")
         self.updateInfo()
         self.uiVor.treeWidget.blockSignals(False)
-    
+
     def vortClicked(self):
         for el in self.uiVor.treeWidget.selectedItems():
             if el.text(0) in VorteilTypen:
                 continue
             self.currentVort = el.text(0)
-            break #First one should be all of them
+            break  # First one should be all of them
         self.updateInfo()
- 
+
     def updateInfo(self):
         if self.currentVort != "":
             self.uiVor.labelVorteil.setText(Wolke.DB.vorteile[self.currentVort].name)
-            self.uiVor.labelTyp.setText(VorteilTypen[Wolke.DB.vorteile[self.currentVort].typ])
-            self.uiVor.labelNachkauf.setText(Wolke.DB.vorteile[self.currentVort].nachkauf)
+            self.uiVor.labelTyp.setText(
+                VorteilTypen[Wolke.DB.vorteile[self.currentVort].typ]
+            )
+            self.uiVor.labelNachkauf.setText(
+                Wolke.DB.vorteile[self.currentVort].nachkauf
+            )
             self.uiVor.plainText.setPlainText(Wolke.DB.vorteile[self.currentVort].text)
             if Wolke.DB.vorteile[self.currentVort].variableKosten:
                 self.uiVor.spinKosten.setValue(20)
             else:
-                self.uiVor.spinKosten.setValue(Wolke.DB.vorteile[self.currentVort].kosten)      
+                self.uiVor.spinKosten.setValue(
+                    Wolke.DB.vorteile[self.currentVort].kosten
+                )

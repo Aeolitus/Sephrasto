@@ -52,7 +52,9 @@ class Ui_Form(object):
         self.showUebernatuerlicheFertigkeiten = QtWidgets.QCheckBox(Form)
         self.showUebernatuerlicheFertigkeiten.setMinimumSize(QtCore.QSize(200, 0))
         self.showUebernatuerlicheFertigkeiten.setChecked(True)
-        self.showUebernatuerlicheFertigkeiten.setObjectName("showUebernatuerlicheFertigkeiten")
+        self.showUebernatuerlicheFertigkeiten.setObjectName(
+            "showUebernatuerlicheFertigkeiten"
+        )
         self.verticalLayout_3.addWidget(self.showUebernatuerlicheFertigkeiten)
         self.showTalente = QtWidgets.QCheckBox(Form)
         self.showTalente.setChecked(True)
@@ -86,7 +88,9 @@ class Ui_Form(object):
         self.showUserAdded.setChecked(False)
         self.showUserAdded.setObjectName("showUserAdded")
         self.verticalLayout.addWidget(self.showUserAdded)
-        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
         self.verticalLayout.addItem(spacerItem)
         self.buttonCloseDB = QtWidgets.QPushButton(Form)
         self.buttonCloseDB.setMinimumSize(QtCore.QSize(0, 25))
@@ -112,7 +116,9 @@ class Ui_Form(object):
         self.verticalLayout_2.addWidget(self.listDatenbank)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem1 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         self.horizontalLayout.addItem(spacerItem1)
         self.buttonHinzufuegen = QtWidgets.QPushButton(Form)
         self.buttonHinzufuegen.setMinimumSize(QtCore.QSize(0, 25))
@@ -145,7 +151,9 @@ class Ui_Form(object):
         Form.setTabOrder(self.checkFilterTyp, self.showVorteile)
         Form.setTabOrder(self.showVorteile, self.showFertigkeiten)
         Form.setTabOrder(self.showFertigkeiten, self.showFreieFertigkeiten)
-        Form.setTabOrder(self.showFreieFertigkeiten, self.showUebernatuerlicheFertigkeiten)
+        Form.setTabOrder(
+            self.showFreieFertigkeiten, self.showUebernatuerlicheFertigkeiten
+        )
         Form.setTabOrder(self.showUebernatuerlicheFertigkeiten, self.showTalente)
         Form.setTabOrder(self.showTalente, self.showRuestungen)
         Form.setTabOrder(self.showRuestungen, self.showWaffen)
@@ -171,7 +179,9 @@ class Ui_Form(object):
         self.showVorteile.setText(_translate("Form", "Vorteile"))
         self.showFertigkeiten.setText(_translate("Form", "Profane Fertigkeiten"))
         self.showFreieFertigkeiten.setText(_translate("Form", "Freie Fertigkeiten"))
-        self.showUebernatuerlicheFertigkeiten.setText(_translate("Form", "Übernatürliche Fertigkeiten"))
+        self.showUebernatuerlicheFertigkeiten.setText(
+            _translate("Form", "Übernatürliche Fertigkeiten")
+        )
         self.showTalente.setText(_translate("Form", "Talente"))
         self.showRuestungen.setText(_translate("Form", "Rüstungen"))
         self.showWaffen.setText(_translate("Form", "Waffen"))
@@ -193,6 +203,7 @@ class Ui_Form(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
     ui = Ui_Form()

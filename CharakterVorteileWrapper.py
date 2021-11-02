@@ -4,36 +4,39 @@ Created on Sat Mar 18 12:21:03 2017
 
 @author: Aeolitus
 """
-from Wolke import Wolke
-import CharakterVorteile
-import CharakterMinderpaktWrapper
-from Charakter import VariableKosten
-from PyQt5 import QtWidgets, QtCore
-from Definitionen import VorteilTypen
 import logging
+
+from PyQt5 import QtCore, QtWidgets
+
+import CharakterMinderpaktWrapper
+import CharakterVorteile
+from Charakter import VariableKosten
+from Definitionen import VorteilTypen
 from EventBus import EventBus
+from Wolke import Wolke
+
 
 class CharakterVorteileWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
-    
+
     def __init__(self):
         super().__init__()
         logging.debug("Initializing VorteileWrapper...")
         self.formVor = QtWidgets.QWidget()
         self.uiVor = CharakterVorteile.Ui_Form()
         self.uiVor.setupUi(self.formVor)
-        
+
         self.uiVor.treeWidget.itemSelectionChanged.connect(self.vortClicked)
         self.uiVor.treeWidget.itemChanged.connect(self.itemChangeHandler)
-        self.uiVor.treeWidget.header().setSectionResizeMode(0,1)
-        
+        self.uiVor.treeWidget.header().setSectionResizeMode(0, 1)
+
         if len(Wolke.Char.vorteile) > 0:
             self.currentVort = Wolke.Char.vorteile[0]
         else:
             self.currentVort = ""
-            
+
         self.itemWidgets = {}
-        
+
         self.initVorteile()
 
     def initVorteile(self):
@@ -45,19 +48,19 @@ class CharakterVorteileWrapper(QtCore.QObject):
         for el in Wolke.DB.vorteile:
             idx = Wolke.DB.vorteile[el].typ
             vortList[idx].append(el)
-        
+
         for vorteile in vortList:
             vorteile.sort()
 
         for i in range(len(vortList)):
             parent = QtWidgets.QTreeWidgetItem(self.uiVor.treeWidget)
             parent.setText(0, VorteilTypen[i])
-            parent.setText(1,"")
+            parent.setText(1, "")
             parent.setExpanded(True)
             for el in vortList[i]:
                 child = QtWidgets.QTreeWidgetItem(parent)
                 child.setText(0, Wolke.DB.vorteile[el].name)
-                if el in Wolke.Char.vorteile:    
+                if el in Wolke.Char.vorteile:
                     child.setCheckState(0, QtCore.Qt.Checked)
                 else:
                     child.setCheckState(0, QtCore.Qt.Unchecked)
@@ -77,22 +80,36 @@ class CharakterVorteileWrapper(QtCore.QObject):
                             spin.setValue(Wolke.DB.vorteile[el].kosten)
                     spin.setSingleStep(20)
                     self.itemWidgets[el] = spin
-                    spin.valueChanged.connect(lambda state, name=el: self.spinnerChanged(name,state))
-                    self.uiVor.treeWidget.setItemWidget(child,1,spin)
+                    spin.valueChanged.connect(
+                        lambda state, name=el: self.spinnerChanged(name, state)
+                    )
+                    self.uiVor.treeWidget.setItemWidget(child, 1, spin)
                 else:
-                    child.setText(1, "20 EP" if el == Wolke.Char.minderpakt else str(Wolke.DB.vorteile[el].kosten) + " EP")
+                    child.setText(
+                        1,
+                        "20 EP"
+                        if el == Wolke.Char.minderpakt
+                        else str(Wolke.DB.vorteile[el].kosten) + " EP",
+                    )
                 if Wolke.DB.vorteile[el].kommentarErlauben:
                     if child.checkState(0) == QtCore.Qt.Checked:
                         self.handleAddKommentarWidget(el, child)
                 else:
-                    child.setText(1, "20 EP" if el == Wolke.Char.minderpakt else str(Wolke.DB.vorteile[el].kosten) + " EP")
-                if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.vorteile[el].voraussetzungen):
+                    child.setText(
+                        1,
+                        "20 EP"
+                        if el == Wolke.Char.minderpakt
+                        else str(Wolke.DB.vorteile[el].kosten) + " EP",
+                    )
+                if Wolke.Char.voraussetzungenPrüfen(
+                    Wolke.DB.vorteile[el].voraussetzungen
+                ):
                     child.setHidden(False)
                 else:
                     child.setHidden(True)
         self.updateInfo()
         self.uiVor.treeWidget.blockSignals(False)
-        
+
     def load(self):
         self.uiVor.treeWidget.blockSignals(True)
         vortList = []
@@ -106,38 +123,43 @@ class CharakterVorteileWrapper(QtCore.QObject):
         for i in range(len(vortList)):
             itm = self.uiVor.treeWidget.topLevelItem(i)
             if type(itm) != QtWidgets.QTreeWidgetItem:
-                    continue
-            if itm == 0: 
+                continue
+            if itm == 0:
                 continue
             for j in range(itm.childCount()):
                 chi = itm.child(j)
                 if type(chi) != QtWidgets.QTreeWidgetItem:
                     continue
                 txt = chi.text(0)
-                if txt in Wolke.Char.vorteile or txt == Wolke.Char.minderpakt:    
+                if txt in Wolke.Char.vorteile or txt == Wolke.Char.minderpakt:
                     chi.setCheckState(0, QtCore.Qt.Checked)
                     if txt in Wolke.Char.vorteileVariable:
                         if Wolke.DB.vorteile[txt].variableKosten:
-                            self.itemWidgets[txt].setValue(Wolke.Char.vorteileVariable[txt].kosten)
+                            self.itemWidgets[txt].setValue(
+                                Wolke.Char.vorteileVariable[txt].kosten
+                            )
                         if Wolke.DB.vorteile[txt].kommentarErlauben:
                             self.handleAddKommentarWidget(txt, chi)
                 else:
-                    chi.setCheckState(0, QtCore.Qt.Unchecked) 
+                    chi.setCheckState(0, QtCore.Qt.Unchecked)
                 if txt not in vortList[i] and txt != Wolke.Char.minderpakt:
                     chi.setHidden(True)
                     if txt in Wolke.Char.vorteile:
-                        chi.setCheckState(0,QtCore.Qt.Unchecked)
+                        chi.setCheckState(0, QtCore.Qt.Unchecked)
                         Wolke.Char.vorteile.remove(txt)
                 else:
                     chi.setHidden(False)
-                if (Wolke.DB.vorteile[txt].variableKosten or Wolke.DB.vorteile[txt].kommentarErlauben) and not txt in Wolke.Char.vorteileVariable:
+                if (
+                    Wolke.DB.vorteile[txt].variableKosten
+                    or Wolke.DB.vorteile[txt].kommentarErlauben
+                ) and not txt in Wolke.Char.vorteileVariable:
                     if txt in self.itemWidgets:
                         self.setVariableKosten(txt, self.itemWidgets[txt].value(), "")
                     else:
                         self.setVariableKosten(txt, Wolke.DB.vorteile[txt].kosten, "")
         self.updateInfo()
         self.uiVor.treeWidget.blockSignals(False)
-        
+
     def update(self):
         pass
 
@@ -151,7 +173,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
         if kommentar != None:
             Wolke.Char.vorteileVariable[name].kommentar = kommentar
 
-    def spinnerChanged(self,name,state):
+    def spinnerChanged(self, name, state):
         self.setVariableKosten(name, state, None)
         self.currentVort = name
         self.modified.emit()
@@ -177,14 +199,16 @@ class CharakterVorteileWrapper(QtCore.QObject):
         layout.addWidget(label)
         layout.addWidget(text)
         w.setLayout(layout)
-        text.textChanged.connect(lambda text, name=name: self.kommentarChanged(name, text))
+        text.textChanged.connect(
+            lambda text, name=name: self.kommentarChanged(name, text)
+        )
 
         child = QtWidgets.QTreeWidgetItem(parent)
-        self.uiVor.treeWidget.setItemWidget(child,0,w)
+        self.uiVor.treeWidget.setItemWidget(child, 0, w)
         parent.setExpanded(True)
 
     def handleRemoveKommentarWidget(self, parent):
-        parent.takeChild(0) #doesnt do anything if it doesnt exist
+        parent.takeChild(0)  # doesnt do anything if it doesnt exist
 
     def handleAddMinderpakt(self, name, item):
         if name != "Minderpakt":
@@ -193,11 +217,16 @@ class CharakterVorteileWrapper(QtCore.QObject):
         if minderp.minderpakt is None:
             Wolke.Char.vorteile.remove(name)
             return None
-        if minderp.minderpakt in Wolke.DB.vorteile and minderp.minderpakt not in Wolke.Char.vorteile:
+        if (
+            minderp.minderpakt in Wolke.DB.vorteile
+            and minderp.minderpakt not in Wolke.Char.vorteile
+        ):
             Wolke.Char.minderpakt = minderp.minderpakt
             Wolke.Char.vorteile.append(minderp.minderpakt)
-            EventBus.doAction("vorteil_gekauft", { "name" : minderp.minderpakt})
-            minderpaktWidget = self.uiVor.treeWidget.findItems(Wolke.Char.minderpakt, QtCore.Qt.MatchRecursive)[0]
+            EventBus.doAction("vorteil_gekauft", {"name": minderp.minderpakt})
+            minderpaktWidget = self.uiVor.treeWidget.findItems(
+                Wolke.Char.minderpakt, QtCore.Qt.MatchRecursive
+            )[0]
 
             if Wolke.Char.minderpakt in self.itemWidgets:
                 self.itemWidgets[Wolke.Char.minderpakt].setReadOnly(True)
@@ -208,18 +237,20 @@ class CharakterVorteileWrapper(QtCore.QObject):
         return None
 
     def restoreMinderpaktWidgets(self, name, item):
-            if name in self.itemWidgets:
-                self.itemWidgets[name].setReadOnly(False)
-                self.itemWidgets[name].setValue(Wolke.DB.vorteile[name].kosten)
-            else:
-                item.setText(1, str(Wolke.DB.vorteile[name].kosten) + " EP")
+        if name in self.itemWidgets:
+            self.itemWidgets[name].setReadOnly(False)
+            self.itemWidgets[name].setValue(Wolke.DB.vorteile[name].kosten)
+        else:
+            item.setText(1, str(Wolke.DB.vorteile[name].kosten) + " EP")
 
     def handleRemoveMinderpakt(self, name, item):
         if name == "Minderpakt":
             if Wolke.Char.minderpakt in Wolke.Char.vorteile:
                 Wolke.Char.vorteile.remove(Wolke.Char.minderpakt)
-                EventBus.doAction("vorteil_entfernt", { "name" : Wolke.Char.minderpakt})
-            minderpaktWidget = self.uiVor.treeWidget.findItems(Wolke.Char.minderpakt, QtCore.Qt.MatchRecursive)[0]
+                EventBus.doAction("vorteil_entfernt", {"name": Wolke.Char.minderpakt})
+            minderpaktWidget = self.uiVor.treeWidget.findItems(
+                Wolke.Char.minderpakt, QtCore.Qt.MatchRecursive
+            )[0]
             self.restoreMinderpaktWidgets(Wolke.Char.minderpakt, minderpaktWidget)
             Wolke.Char.minderpakt = None
             return minderpaktWidget
@@ -227,11 +258,11 @@ class CharakterVorteileWrapper(QtCore.QObject):
         if Wolke.Char.minderpakt is not None and name == Wolke.Char.minderpakt:
             if "Minderpakt" in Wolke.Char.vorteile:
                 Wolke.Char.vorteile.remove("Minderpakt")
-                EventBus.doAction("vorteil_entfernt", { "name" : "Minderpakt"})
+                EventBus.doAction("vorteil_entfernt", {"name": "Minderpakt"})
             self.restoreMinderpaktWidgets(Wolke.Char.minderpakt, item)
             Wolke.Char.minderpakt = None
         return None
-    
+
     def itemChangeHandler(self, item, column):
         # Block Signals to make sure we dont repeat infinitely
         self.uiVor.treeWidget.blockSignals(True)
@@ -245,12 +276,12 @@ class CharakterVorteileWrapper(QtCore.QObject):
             Wolke.Char.vorteile.append(name)
             self.handleAddKommentarWidget(name, item)
             manualUpdate = self.handleAddMinderpakt(name, item)
-            EventBus.doAction("vorteil_gekauft", { "name" : name})
+            EventBus.doAction("vorteil_gekauft", {"name": name})
         elif cs != QtCore.Qt.Checked and name in Wolke.Char.vorteile:
             Wolke.Char.vorteile.remove(name)
             self.handleRemoveKommentarWidget(item)
             manualUpdate = self.handleRemoveMinderpakt(name, item)
-            EventBus.doAction("vorteil_entfernt", { "name" : name})
+            EventBus.doAction("vorteil_entfernt", {"name": name})
 
         self.modified.emit()
         EventBus.doAction("charaktereditor_reload")
@@ -258,23 +289,33 @@ class CharakterVorteileWrapper(QtCore.QObject):
 
         if manualUpdate:
             self.itemChangeHandler(manualUpdate, 0)
-    
+
     def vortClicked(self):
         for el in self.uiVor.treeWidget.selectedItems():
             if el.text(0) in VorteilTypen:
                 continue
             self.currentVort = el.text(0)
-            break #First one should be all of them
+            break  # First one should be all of them
         self.updateInfo()
-        
+
     def updateInfo(self):
         if self.currentVort != "":
             self.uiVor.labelVorteil.setText(Wolke.DB.vorteile[self.currentVort].name)
-            self.uiVor.labelTyp.setText(VorteilTypen[Wolke.DB.vorteile[self.currentVort].typ])
-            self.uiVor.labelNachkauf.setText(Wolke.DB.vorteile[self.currentVort].nachkauf)
+            self.uiVor.labelTyp.setText(
+                VorteilTypen[Wolke.DB.vorteile[self.currentVort].typ]
+            )
+            self.uiVor.labelNachkauf.setText(
+                Wolke.DB.vorteile[self.currentVort].nachkauf
+            )
             self.uiVor.plainText.setPlainText(Wolke.DB.vorteile[self.currentVort].text)
-            if Wolke.DB.vorteile[self.currentVort].variableKosten and self.currentVort in Wolke.Char.vorteileVariable:
-                self.uiVor.spinKosten.setValue(Wolke.Char.vorteileVariable[self.currentVort].kosten)
+            if (
+                Wolke.DB.vorteile[self.currentVort].variableKosten
+                and self.currentVort in Wolke.Char.vorteileVariable
+            ):
+                self.uiVor.spinKosten.setValue(
+                    Wolke.Char.vorteileVariable[self.currentVort].kosten
+                )
             else:
-                self.uiVor.spinKosten.setValue(Wolke.DB.vorteile[self.currentVort].kosten)      
-            
+                self.uiVor.spinKosten.setValue(
+                    Wolke.DB.vorteile[self.currentVort].kosten
+                )

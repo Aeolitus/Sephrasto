@@ -9,79 +9,83 @@ Port of the PHP forge_fdf library by Sid Steward
 Anders Pearson <anders@columbia.edu> at Columbia Center For New Media Teaching
 and Learning <http://ccnmtl.columbia.edu/>
 
-    # SECOND # 
+    # SECOND #
 PDFFields - found at:
     https://github.com/evfredericksen/pdffields
 """
 
 import codecs
-import sys
-import shutil
 import platform
+import shutil
+import sys
 
 if sys.version_info[0] < 3:
     bytes = str
-    
-from os import remove
+
 import os
+import subprocess
 import tempfile
+from os import remove
 from re import match
 from tempfile import NamedTemporaryFile
-import subprocess
+
 
 def check_output_silent(call):
-    if platform.system() == 'Windows':
+    if platform.system() == "Windows":
         startupinfo = subprocess.STARTUPINFO()
         startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
         return subprocess.check_output(call, startupinfo=startupinfo)
     else:
-        #TODO
+        # TODO
         return subprocess.check_output(call)
 
+
 def get_fields(pdf_file):
-    '''
+    """
     Use pdftk to get a pdf's fields as a string, parse the string
     and return the fields as a dictionary, with field names as keys
     and field values as values.
-    '''
+    """
     fields = {}
-    call = ['pdftk', pdf_file, 'dump_data_fields_utf8']
+    call = ["pdftk", pdf_file, "dump_data_fields_utf8"]
     try:
-        data_string = check_output_silent(call).decode('utf8')
+        data_string = check_output_silent(call).decode("utf8")
     except FileNotFoundError:
-        raise PdftkNotInstalledError('Could not locate PDFtk installation')
-    data_list = data_string.split('\r\n')
+        raise PdftkNotInstalledError("Could not locate PDFtk installation")
+    data_list = data_string.split("\r\n")
     if len(data_list) == 1:
-        data_list = data_string.split('\n')
+        data_list = data_string.split("\n")
     for line in data_list:
         if line:
-            re_object = match(r'(\w+): (.+)', line)
+            re_object = match(r"(\w+): (.+)", line)
             if re_object is not None:
-                if re_object.group(1) == 'FieldName':
+                if re_object.group(1) == "FieldName":
                     key = re_object.group(2)
-                    fields[key] = ''
-                elif re_object.group(1) == 'FieldValue':
+                    fields[key] = ""
+                elif re_object.group(1) == "FieldValue":
                     fields[key] = re_object.group(2)
     return fields
 
+
 def write_pdf(source, fields, output, flatten=False):
-    '''
+    """
     Take a source file path, list or dictionary of fdf fields, and
     output path, and create a filled-out pdf.
-    '''
+    """
     fdf = forge_fdf(fdf_data_strings=fields)
     with NamedTemporaryFile(delete=False) as file:
         file.write(fdf)
-    call = ['pdftk', source, 'fill_form', file.name, 'output', output]
-    call.append('need_appearances')
+    call = ["pdftk", source, "fill_form", file.name, "output", output]
+    call.append("need_appearances")
     if flatten:
-        call.append('flatten')
+        call.append("flatten")
     try:
         check_output_silent(call)
     except FileNotFoundError:
-        raise PdftkNotInstalledError('Could not locate PDFtk installation')
+        raise PdftkNotInstalledError("Could not locate PDFtk installation")
     remove(file.name)
-    
+
+
 class PdftkNotInstalledError(Exception):
     pass
 
@@ -89,11 +93,11 @@ class PdftkNotInstalledError(Exception):
 def smart_encode_str(s):
     """Create a UTF-16 encoded PDF string literal for `s`."""
     if isinstance(s, str):
-        utf16 = s.encode('utf_16_be')
-    else: #ints and floats
-        utf16 = str(s).encode('utf_16_be')
-    safe = utf16.replace(b'\x00)', b'\x00\\)').replace(b'\x00(', b'\x00\\(')
-    return b''.join((codecs.BOM_UTF16_BE, safe))
+        utf16 = s.encode("utf_16_be")
+    else:  # ints and floats
+        utf16 = str(s).encode("utf_16_be")
+    safe = utf16.replace(b"\x00)", b"\x00\\)").replace(b"\x00(", b"\x00\\(")
+    return b"".join((codecs.BOM_UTF16_BE, safe))
 
 
 def handle_hidden(key, fields_hidden):
@@ -114,25 +118,27 @@ class FDFIdentifier(object):
     """A PDF value, such as /Yes or /Off that should be passed through with the / and without parenthesis (which would indicate it was a value, not an identifier)
     This allows for different checkbox checked/unchecked names per checkbox!
     """
+
     def __init__(self, value):
-        if value.startswith('/'):
+        if value.startswith("/"):
             value = value[1:]
 
         if isinstance(value, bytes):
-            value = value.decode('utf-8')
+            value = value.decode("utf-8")
 
-        value = u'/%s' % value
-        value = value.encode('utf-8')
+        value = u"/%s" % value
+        value = value.encode("utf-8")
 
         self._value = value
 
     @property
     def value(self):
         return self._value
-        
 
-def handle_data_strings(fdf_data_strings, fields_hidden, fields_readonly,
-                        checkbox_checked_name):
+
+def handle_data_strings(
+    fdf_data_strings, fields_hidden, fields_readonly, checkbox_checked_name
+):
     if isinstance(fdf_data_strings, dict):
         fdf_data_strings = fdf_data_strings.items()
 
@@ -140,24 +146,26 @@ def handle_data_strings(fdf_data_strings, fields_hidden, fields_readonly,
         if value is True:
             value = FDFIdentifier(checkbox_checked_name).value
         elif value is False:
-            value = FDFIdentifier('Off').value
+            value = FDFIdentifier("Off").value
         elif isinstance(value, FDFIdentifier):
             value = value.value
         else:
-            value = b''.join([b'(', smart_encode_str(value), b')'])
+            value = b"".join([b"(", smart_encode_str(value), b")"])
 
-        yield b''.join([
-            b'<<',
-            b'/T(',
-            smart_encode_str(key),
-            b')',
-            b'/V',
-            value,
-            handle_hidden(key, fields_hidden),
-            b'',
-            handle_readonly(key, fields_readonly),
-            b'>>',
-        ])
+        yield b"".join(
+            [
+                b"<<",
+                b"/T(",
+                smart_encode_str(key),
+                b")",
+                b"/V",
+                value,
+                handle_hidden(key, fields_hidden),
+                b"",
+                handle_readonly(key, fields_readonly),
+                b">>",
+            ]
+        )
 
 
 def handle_data_names(fdf_data_names, fields_hidden, fields_readonly):
@@ -165,15 +173,29 @@ def handle_data_names(fdf_data_names, fields_hidden, fields_readonly):
         fdf_data_names = fdf_data_names.items()
 
     for (key, value) in fdf_data_names:
-        yield b''.join([b'<<\x0a/V /', smart_encode_str(value), b'\x0a/T (',
-                        smart_encode_str(key), b')\x0a',
-                        handle_hidden(key, fields_hidden), b'\x0a',
-                        handle_readonly(key, fields_readonly), b'\x0a>>\x0a'])
+        yield b"".join(
+            [
+                b"<<\x0a/V /",
+                smart_encode_str(value),
+                b"\x0a/T (",
+                smart_encode_str(key),
+                b")\x0a",
+                handle_hidden(key, fields_hidden),
+                b"\x0a",
+                handle_readonly(key, fields_readonly),
+                b"\x0a>>\x0a",
+            ]
+        )
 
 
-def forge_fdf(pdf_form_url=None, fdf_data_strings=[], fdf_data_names=[],
-              fields_hidden=[], fields_readonly=[],
-              checkbox_checked_name=b"Yes"):
+def forge_fdf(
+    pdf_form_url=None,
+    fdf_data_strings=[],
+    fdf_data_names=[],
+    fields_hidden=[],
+    fields_readonly=[],
+    checkbox_checked_name=b"Yes",
+):
     """Generates fdf string from fields specified
 
     * pdf_form_url (default: None): just the url for the form.
@@ -194,30 +216,35 @@ def forge_fdf(pdf_form_url=None, fdf_data_strings=[], fdf_data_names=[],
     The result is a string suitable for writing to a .fdf file.
 
     """
-    fdf = [b'%FDF-1.2\x0a%\xe2\xe3\xcf\xd3\x0d\x0a']
-    fdf.append(b'1 0 obj\x0a<</FDF')
-    fdf.append(b'<</Fields[')
-    fdf.append(b''.join(handle_data_strings(fdf_data_strings,
-                                            fields_hidden, fields_readonly,
-                                            checkbox_checked_name)))
-    fdf.append(b''.join(handle_data_names(fdf_data_names,
-                                          fields_hidden, fields_readonly)))
+    fdf = [b"%FDF-1.2\x0a%\xe2\xe3\xcf\xd3\x0d\x0a"]
+    fdf.append(b"1 0 obj\x0a<</FDF")
+    fdf.append(b"<</Fields[")
+    fdf.append(
+        b"".join(
+            handle_data_strings(
+                fdf_data_strings, fields_hidden, fields_readonly, checkbox_checked_name
+            )
+        )
+    )
+    fdf.append(
+        b"".join(handle_data_names(fdf_data_names, fields_hidden, fields_readonly))
+    )
     if pdf_form_url:
-        fdf.append(b''.join(b'/F (', smart_encode_str(pdf_form_url), b')\x0a'))
-    fdf.append(b']\x0a')
-    fdf.append(b'>>\x0a')
-    fdf.append(b'>>\x0aendobj\x0a')
-    fdf.append(b'trailer\x0a\x0a<<\x0a/Root 1 0 R\x0a>>\x0a')
-    fdf.append(b'%%EOF\x0a\x0a')
-    return b''.join(fdf)
+        fdf.append(b"".join(b"/F (", smart_encode_str(pdf_form_url), b")\x0a"))
+    fdf.append(b"]\x0a")
+    fdf.append(b">>\x0a")
+    fdf.append(b">>\x0aendobj\x0a")
+    fdf.append(b"trailer\x0a\x0a<<\x0a/Root 1 0 R\x0a>>\x0a")
+    fdf.append(b"%%EOF\x0a\x0a")
+    return b"".join(fdf)
 
 
-#==============================================================================
+# ==============================================================================
 # if __name__ == "__main__":
 #     # a simple example of using fdfgen
 #     # this will create an FDF file suitable to fill in
 #     # the vacation request forms we use at work.
-# 
+#
 #     from datetime import datetime
 #     fields = [('Name', 'Anders Pearson'),
 #               ('Date', datetime.now().strftime("%x")),
@@ -230,7 +257,7 @@ def forge_fdf(pdf_form_url=None, fdf_data_strings=[], fdf_data_names=[],
 #     fdf_file = open("vacation.fdf", "wb")
 #     fdf_file.write(fdf)
 #     fdf_file.close()
-# 
+#
 #     # Parse command-line arguments
 #     import argparse
 #     parser = argparse.ArgumentParser()
@@ -251,14 +278,15 @@ def forge_fdf(pdf_form_url=None, fdf_data_strings=[], fdf_data_names=[],
 #     fdf = forge_fdf(fdf_data_strings=args.fields)
 #     args.output.write(fdf)
 #     args.output.close()
-# 
-#==============================================================================
+#
+# ==============================================================================
+
 
 def concat(files, out_file=None):
-    '''
-        Merge multiples PDF files.
-        Return temp file if no out_file provided.
-    '''
+    """
+    Merge multiples PDF files.
+    Return temp file if no out_file provided.
+    """
     cleanOnFail = False
     if not out_file:
         cleanOnFail = True
@@ -266,9 +294,9 @@ def concat(files, out_file=None):
         os.close(handle)
     if len(files) == 1:
         shutil.copyfile(files[0], out_file)
-    args = ['pdftk']
+    args = ["pdftk"]
     args += files
-    args += ['cat', 'output', out_file]
+    args += ["cat", "output", out_file]
     try:
         check_output_silent(args)
     except:
@@ -277,6 +305,14 @@ def concat(files, out_file=None):
         raise
     return out_file
 
+
 def shrink(file, fromPageNumber, toPageNumber, out_file):
-    call = ['pdftk', file, 'cat', str(fromPageNumber) + "-" + str(toPageNumber), 'output', out_file]
+    call = [
+        "pdftk",
+        file,
+        "cat",
+        str(fromPageNumber) + "-" + str(toPageNumber),
+        "output",
+        out_file,
+    ]
     check_output_silent(call)

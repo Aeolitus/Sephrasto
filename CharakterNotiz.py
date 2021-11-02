@@ -36,6 +36,7 @@ class Ui_formNotiz(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     formBeschreibung = QtWidgets.QWidget()
     ui = Ui_formNotiz()

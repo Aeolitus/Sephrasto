@@ -21,7 +21,9 @@ class Ui_Dialog(object):
         self.splitter.setOrientation(QtCore.Qt.Horizontal)
         self.splitter.setObjectName("splitter")
         self.treeWidget = QtWidgets.QTreeWidget(self.splitter)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(1)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.treeWidget.sizePolicy().hasHeightForWidth())
@@ -35,7 +37,9 @@ class Ui_Dialog(object):
         self.treeWidget.setAllColumnsShowFocus(True)
         self.treeWidget.setHeaderHidden(False)
         self.treeWidget.setObjectName("treeWidget")
-        self.treeWidget.headerItem().setTextAlignment(0, QtCore.Qt.AlignLeading|QtCore.Qt.AlignVCenter)
+        self.treeWidget.headerItem().setTextAlignment(
+            0, QtCore.Qt.AlignLeading | QtCore.Qt.AlignVCenter
+        )
         self.treeWidget.header().setVisible(True)
         self.treeWidget.header().setCascadingSectionResizes(False)
         self.treeWidget.header().setDefaultSectionSize(100)
@@ -53,7 +57,9 @@ class Ui_Dialog(object):
         self.scrollArea.setFrameShape(QtWidgets.QFrame.Box)
         self.scrollArea.setMidLineWidth(0)
         self.scrollArea.setWidgetResizable(True)
-        self.scrollArea.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.scrollArea.setAlignment(
+            QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
+        )
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 246, 290))
@@ -61,7 +67,9 @@ class Ui_Dialog(object):
         self.gridLayout = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout.setObjectName("gridLayout")
         self.spinKosten = QtWidgets.QSpinBox(self.scrollAreaWidgetContents)
-        self.spinKosten.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.spinKosten.setAlignment(
+            QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
+        )
         self.spinKosten.setReadOnly(True)
         self.spinKosten.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
         self.spinKosten.setMinimum(-1000)
@@ -110,7 +118,9 @@ class Ui_Dialog(object):
         self.verticalLayout.addWidget(self.scrollArea)
         self.buttonBox = QtWidgets.QDialogButtonBox(self.widget)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
+        self.buttonBox.setStandardButtons(
+            QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Ok
+        )
         self.buttonBox.setCenterButtons(True)
         self.buttonBox.setObjectName("buttonBox")
         self.verticalLayout.addWidget(self.buttonBox)
@@ -126,7 +136,9 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Sephrasto - Minderpakt-Vorteil wählen"))
+        Dialog.setWindowTitle(
+            _translate("Dialog", "Sephrasto - Minderpakt-Vorteil wählen")
+        )
         self.treeWidget.headerItem().setText(0, _translate("Dialog", "Vorteil"))
         self.treeWidget.headerItem().setText(1, _translate("Dialog", "Kosten"))
         self.spinKosten.setSuffix(_translate("Dialog", " EP"))
@@ -138,6 +150,7 @@ class Ui_Dialog(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
     ui = Ui_Dialog()

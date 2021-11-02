@@ -4,25 +4,28 @@ Created on Sat Mar 18 11:29:39 2017
 
 @author: Aeolitus
 """
+import os
 import sys
-from PyQt5 import QtCore, QtWidgets, QtGui
-import Fertigkeiten
+from copy import copy
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
 import Datenbank
-import DatenbankMain
 import DatenbankEditFertigkeitWrapper
 import DatenbankEditFreieFertigkeitWrapper
+import DatenbankEditManoeverWrapper
+import DatenbankEditRuestungWrapper
 import DatenbankEditTalentWrapper
 import DatenbankEditVorteilWrapper
-import DatenbankSelectTypeWrapper
 import DatenbankEditWaffeneigenschaftWrapper
 import DatenbankEditWaffeWrapper
-import DatenbankEditRuestungWrapper
-import DatenbankEditManoeverWrapper
+import DatenbankMain
+import DatenbankSelectTypeWrapper
+import Fertigkeiten
 import Objekte
-import os
 from EinstellungenWrapper import EinstellungenWrapper
 from Wolke import Wolke
-from copy import copy
+
 
 class DatabaseType(object):
     def __init__(self, databaseDict, addFunc, editFunc, showCheckbox):
@@ -32,6 +35,7 @@ class DatabaseType(object):
         self.editFunc = editFunc
         self.showCheckbox = showCheckbox
 
+
 class DatenbankEdit(object):
     def __init__(self):
         super().__init__()
@@ -40,14 +44,18 @@ class DatenbankEdit(object):
         self.savepath = self.datenbank.datei
         self.changed = False
         self.windowTitleDefault = ""
-    
+
     def setupGUI(self):
         # GUI Mods
         self.model = QtGui.QStandardItemModel(self.ui.listDatenbank)
         self.ui.listDatenbank.setModel(self.model)
         self.ui.listDatenbank.doubleClicked["QModelIndex"].connect(self.editSelected)
-        self.ui.listDatenbank.setSelectionMode(QtWidgets.QAbstractItemView.ExtendedSelection)
-        self.ui.listDatenbank.selectionModel().selectionChanged.connect(self.listSelectionChanged)
+        self.ui.listDatenbank.setSelectionMode(
+            QtWidgets.QAbstractItemView.ExtendedSelection
+        )
+        self.ui.listDatenbank.selectionModel().selectionChanged.connect(
+            self.listSelectionChanged
+        )
         self.ui.checkFilterTyp.stateChanged.connect(self.filterTypChanged)
         self.ui.showTalente.stateChanged.connect(self.updateGUI)
         self.ui.showVorteile.stateChanged.connect(self.updateGUI)
@@ -80,12 +88,15 @@ class DatenbankEdit(object):
         self.initDatabaseTypes()
         self.updateGUI()
         self.updateWindowTitleAndCloseButton()
-    
+
     def filterTypChanged(self):
         if self.ui.checkFilterTyp.checkState() == 0:
             for dbType in self.databaseTypes.values():
                 dbType.showCheckbox.setChecked(False)
-        elif self.ui.checkFilterTyp.checkState() == 1 or self.ui.checkFilterTyp.checkState() == 2:
+        elif (
+            self.ui.checkFilterTyp.checkState() == 1
+            or self.ui.checkFilterTyp.checkState() == 2
+        ):
             for dbType in self.databaseTypes.values():
                 dbType.showCheckbox.setChecked(True)
 
@@ -113,16 +124,54 @@ class DatenbankEdit(object):
 
     def initDatabaseTypes(self):
         self.databaseTypes = {}
-        self.databaseTypes["Talent"] = DatabaseType(self.datenbank.talente, self.addTalent, self.editTalent, self.ui.showTalente)
-        self.databaseTypes["Vorteil"] = DatabaseType(self.datenbank.vorteile, self.addVorteil, self.editVorteil, self.ui.showVorteile)
-        self.databaseTypes["Fertigkeit"] = DatabaseType(self.datenbank.fertigkeiten, self.addFertigkeit, self.editFertigkeit, self.ui.showFertigkeiten)
-        self.databaseTypes["Übernatürliche Fertigkeit"] = DatabaseType(self.datenbank.übernatürlicheFertigkeiten, self.addUebernatuerlich, self.editUebernatuerlich, self.ui.showUebernatuerlicheFertigkeiten)
-        self.databaseTypes["Freie Fertigkeit"] = DatabaseType(self.datenbank.freieFertigkeiten, self.addFreieFertigkeit, self.editFreieFertigkeit, self.ui.showFreieFertigkeiten)
-        self.databaseTypes["Waffeneigenschaft"] = DatabaseType(self.datenbank.waffeneigenschaften, self.addWaffeneigenschaft, self.editWaffeneigenschaft, self.ui.showWaffeneigenschaften)
-        self.databaseTypes["Waffe"] = DatabaseType(self.datenbank.waffen, self.addWaffe, self.editWaffe, self.ui.showWaffen)
-        self.databaseTypes["Rüstung"] = DatabaseType(self.datenbank.rüstungen, self.addRuestung, self.editRuestung, self.ui.showRuestungen)
-        self.databaseTypes["Manöver / Modifikation"] = DatabaseType(self.datenbank.manöver, self.addManoever, self.editManoever, self.ui.showManoever)
-
+        self.databaseTypes["Talent"] = DatabaseType(
+            self.datenbank.talente, self.addTalent, self.editTalent, self.ui.showTalente
+        )
+        self.databaseTypes["Vorteil"] = DatabaseType(
+            self.datenbank.vorteile,
+            self.addVorteil,
+            self.editVorteil,
+            self.ui.showVorteile,
+        )
+        self.databaseTypes["Fertigkeit"] = DatabaseType(
+            self.datenbank.fertigkeiten,
+            self.addFertigkeit,
+            self.editFertigkeit,
+            self.ui.showFertigkeiten,
+        )
+        self.databaseTypes["Übernatürliche Fertigkeit"] = DatabaseType(
+            self.datenbank.übernatürlicheFertigkeiten,
+            self.addUebernatuerlich,
+            self.editUebernatuerlich,
+            self.ui.showUebernatuerlicheFertigkeiten,
+        )
+        self.databaseTypes["Freie Fertigkeit"] = DatabaseType(
+            self.datenbank.freieFertigkeiten,
+            self.addFreieFertigkeit,
+            self.editFreieFertigkeit,
+            self.ui.showFreieFertigkeiten,
+        )
+        self.databaseTypes["Waffeneigenschaft"] = DatabaseType(
+            self.datenbank.waffeneigenschaften,
+            self.addWaffeneigenschaft,
+            self.editWaffeneigenschaft,
+            self.ui.showWaffeneigenschaften,
+        )
+        self.databaseTypes["Waffe"] = DatabaseType(
+            self.datenbank.waffen, self.addWaffe, self.editWaffe, self.ui.showWaffen
+        )
+        self.databaseTypes["Rüstung"] = DatabaseType(
+            self.datenbank.rüstungen,
+            self.addRuestung,
+            self.editRuestung,
+            self.ui.showRuestungen,
+        )
+        self.databaseTypes["Manöver / Modifikation"] = DatabaseType(
+            self.datenbank.manöver,
+            self.addManoever,
+            self.editManoever,
+            self.ui.showManoever,
+        )
 
     def cancelDueToPendingChanges(self, action):
         if self.changed:
@@ -130,9 +179,15 @@ class DatenbankEdit(object):
             messagebox.setWindowTitle(action)
             messagebox.setText("Sollen die ausstehenden Änderungen gespeichert werden?")
             messagebox.setIcon(QtWidgets.QMessageBox.Question)
-            messagebox.addButton(QtWidgets.QPushButton("Ja"), QtWidgets.QMessageBox.YesRole)
-            messagebox.addButton(QtWidgets.QPushButton("Nein"), QtWidgets.QMessageBox.NoRole)
-            messagebox.addButton(QtWidgets.QPushButton("Abbrechen"), QtWidgets.QMessageBox.RejectRole)
+            messagebox.addButton(
+                QtWidgets.QPushButton("Ja"), QtWidgets.QMessageBox.YesRole
+            )
+            messagebox.addButton(
+                QtWidgets.QPushButton("Nein"), QtWidgets.QMessageBox.NoRole
+            )
+            messagebox.addButton(
+                QtWidgets.QPushButton("Abbrechen"), QtWidgets.QMessageBox.RejectRole
+            )
             result = messagebox.exec_()
             if result == 0:
                 self.quicksaveDatenbank()
@@ -140,7 +195,7 @@ class DatenbankEdit(object):
                 return True
         return False
 
-    def closeEvent(self,event):
+    def closeEvent(self, event):
         if self.cancelDueToPendingChanges("Beenden"):
             event.ignore()
 
@@ -148,9 +203,13 @@ class DatenbankEdit(object):
         self.changed = True
         self.updateGUI()
         self.listSelectionChanged()
-    
+
     def updateWindowTitleAndCloseButton(self):
-        splitpath = self.savepath and os.path.split(self.savepath) or ["keine Nutzer-DB geladen"]
+        splitpath = (
+            self.savepath
+            and os.path.split(self.savepath)
+            or ["keine Nutzer-DB geladen"]
+        )
         self.Form.setWindowTitle(self.windowTitleDefault + " (" + splitpath[-1] + ")")
         self.ui.buttonCloseDB.setEnabled(self.savepath and True or False)
 
@@ -174,12 +233,15 @@ class DatenbankEdit(object):
             self.ui.checkFilterTyp.setCheckState(0)
         self.ui.checkFilterTyp.blockSignals(False)
 
-        for dbTypeName,dbType in self.databaseTypes.items():
+        for dbTypeName, dbType in self.databaseTypes.items():
             if dbType.showCheckbox.isChecked():
                 for itm, value in sorted(dbType.databaseDict.items()):
                     if not value.isUserAdded and showUserAdded:
                         continue
-                    if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
+                    if (
+                        self.ui.nameFilterEdit.text()
+                        and not self.ui.nameFilterEdit.text().lower() in itm.lower()
+                    ):
                         continue
                     item = QtGui.QStandardItem(itm + " : " + dbTypeName)
                     item.setEditable(False)
@@ -189,19 +251,24 @@ class DatenbankEdit(object):
 
         if self.ui.showDeleted.isChecked():
             for itm in sorted(self.datenbank.removeList):
-                if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm[0].lower():
+                if (
+                    self.ui.nameFilterEdit.text()
+                    and not self.ui.nameFilterEdit.text().lower() in itm[0].lower()
+                ):
                     continue
 
                 if itm[1] in self.databaseTypes:
                     databaseType = self.databaseTypes[itm[1]]
                     if databaseType.showCheckbox.isChecked():
-                        item = QtGui.QStandardItem(itm[0] + " : "  + itm[1] + " (gelöscht)")
+                        item = QtGui.QStandardItem(
+                            itm[0] + " : " + itm[1] + " (gelöscht)"
+                        )
                         item.setEditable(False)
                         item.setBackground(QtGui.QBrush(QtCore.Qt.red))
                         self.model.appendRow(item)
 
         self.ui.listDatenbank.setModel(self.model)
-               
+
     def wiederherstellen(self):
         for itm in self.ui.listDatenbank.selectedIndexes():
             item = self.model.itemData(itm)[0]
@@ -210,9 +277,13 @@ class DatenbankEdit(object):
             item = item[:-11]
             tmp = item.split(" : ")
 
-            removed = [item for item in self.datenbank.removeList if item[0] == tmp[0] and item[1] == tmp[1]][0]
+            removed = [
+                item
+                for item in self.datenbank.removeList
+                if item[0] == tmp[0] and item[1] == tmp[1]
+            ][0]
             if not removed:
-                raise Exception('State corrupted.')
+                raise Exception("State corrupted.")
 
             exists = False
 
@@ -223,29 +294,35 @@ class DatenbankEdit(object):
                 else:
                     databaseType.databaseDict.update({tmp[0]: removed[2]})
             else:
-                raise Exception('Unknown category.')
+                raise Exception("Unknown category.")
 
             if exists:
                 messageBox = QtWidgets.QMessageBox()
                 messageBox.setIcon(QtWidgets.QMessageBox.Information)
-                messageBox.setWindowTitle('Wiederherstellen nicht möglich!')
-                messageBox.setText('Es existiert bereits ein(e) ' + tmp[1] + ' mit dem Namen "' + tmp[0] + '"')            
+                messageBox.setWindowTitle("Wiederherstellen nicht möglich!")
+                messageBox.setText(
+                    "Es existiert bereits ein(e) "
+                    + tmp[1]
+                    + ' mit dem Namen "'
+                    + tmp[0]
+                    + '"'
+                )
                 messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-                messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
+                messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)
                 messageBox.exec_()
                 return
             self.datenbank.removeList.remove(removed)
 
-        self.onDatabaseChange();
-    
+        self.onDatabaseChange()
+
     def hinzufuegen(self):
-        '''
+        """
         Lässt den Nutzer einen neuen Eintrag in die Datenbank einfügen.
-        Öffnet zunächst den DatenbankSelectType-Dialog, welcher den 
-        Nutzer fragt, was für ein Eintrag angelegt werden soll. 
+        Öffnet zunächst den DatenbankSelectType-Dialog, welcher den
+        Nutzer fragt, was für ein Eintrag angelegt werden soll.
         Akzeptiert der Nutzer, wird seiner Auswahl nach ein Dialog zum
         Erstellen des Eintrages geöffnet.
-        '''
+        """
         dbS = DatenbankSelectTypeWrapper.DatenbankSelectTypeWrapper()
         if dbS.entryType is not None and dbS.entryType in self.databaseTypes:
             databaseType = self.databaseTypes[dbS.entryType]
@@ -257,35 +334,35 @@ class DatenbankEdit(object):
         if ret is not None:
             self.datenbank.talente.update({ret.name: ret})
             self.onDatabaseChange()
-                          
+
     def addVorteil(self):
         vor = Fertigkeiten.Vorteil()
         ret = self.editVorteil(vor)
         if ret is not None:
             self.datenbank.vorteile.update({ret.name: ret})
             self.onDatabaseChange()
-                          
+
     def addFertigkeit(self):
         fer = Fertigkeiten.Fertigkeit()
         ret = self.editFertigkeit(fer)
         if ret is not None:
             self.datenbank.fertigkeiten.update({ret.name: ret})
             self.onDatabaseChange()
-                          
+
     def addUebernatuerlich(self):
         fer = Fertigkeiten.Fertigkeit()
         ret = self.editUebernatuerlich(fer)
         if ret is not None:
             self.datenbank.übernatürlicheFertigkeiten.update({ret.name: ret})
             self.onDatabaseChange()
-            
+
     def addFreieFertigkeit(self):
         fer = Fertigkeiten.FreieFertigkeitDB()
         ret = self.editFreieFertigkeit(fer)
         if ret is not None:
             self.datenbank.freieFertigkeiten.update({ret.name: ret})
             self.onDatabaseChange()
-                      
+
     def addWaffeneigenschaft(self):
         we = Objekte.Waffeneigenschaft()
         ret = self.editWaffeneigenschaft(we)
@@ -299,55 +376,75 @@ class DatenbankEdit(object):
         if ret is not None:
             self.datenbank.waffen.update({ret.name: ret})
             self.onDatabaseChange()
-            
+
     def addRuestung(self):
         rüs = Objekte.Ruestung()
         ret = self.editRuestung(rüs)
         if ret is not None:
             self.datenbank.rüstungen.update({ret.name: ret})
             self.onDatabaseChange()
-    
+
     def addManoever(self):
         man = Fertigkeiten.Manoever()
         ret = self.editManoever(man)
         if ret is not None:
             self.datenbank.manöver.update({ret.name: ret})
             self.onDatabaseChange()
-    
-    def editTalent(self, inp, readonly = False):
-        dbT = DatenbankEditTalentWrapper.DatenbankEditTalentWrapper(self.datenbank, inp, readonly)
+
+    def editTalent(self, inp, readonly=False):
+        dbT = DatenbankEditTalentWrapper.DatenbankEditTalentWrapper(
+            self.datenbank, inp, readonly
+        )
         return dbT.talent
 
-    def editVorteil(self, inp, readonly = False):
-        dbV = DatenbankEditVorteilWrapper.DatenbankEditVorteilWrapper(self.datenbank, inp, readonly)
+    def editVorteil(self, inp, readonly=False):
+        dbV = DatenbankEditVorteilWrapper.DatenbankEditVorteilWrapper(
+            self.datenbank, inp, readonly
+        )
         return dbV.vorteil
 
-    def editFertigkeit(self, inp, readonly = False):
-        dbF = DatenbankEditFertigkeitWrapper.DatenbankEditFertigkeitWrapper(self.datenbank, inp, False, readonly)
+    def editFertigkeit(self, inp, readonly=False):
+        dbF = DatenbankEditFertigkeitWrapper.DatenbankEditFertigkeitWrapper(
+            self.datenbank, inp, False, readonly
+        )
         return dbF.fertigkeit
 
-    def editUebernatuerlich(self, inp, readonly = False):
-        dbU = DatenbankEditFertigkeitWrapper.DatenbankEditFertigkeitWrapper(self.datenbank, inp, True, readonly)
+    def editUebernatuerlich(self, inp, readonly=False):
+        dbU = DatenbankEditFertigkeitWrapper.DatenbankEditFertigkeitWrapper(
+            self.datenbank, inp, True, readonly
+        )
         return dbU.fertigkeit
-    
-    def editFreieFertigkeit(self, inp, readonly = False):
-        dbU = DatenbankEditFreieFertigkeitWrapper.DatenbankEditFreieFertigkeitWrapper(self.datenbank, inp, readonly)
+
+    def editFreieFertigkeit(self, inp, readonly=False):
+        dbU = DatenbankEditFreieFertigkeitWrapper.DatenbankEditFreieFertigkeitWrapper(
+            self.datenbank, inp, readonly
+        )
         return dbU.freieFertigkeit
-    
-    def editWaffeneigenschaft(self, inp, readonly = False):
-        dbW = DatenbankEditWaffeneigenschaftWrapper.DatenbankEditWaffeneigenschaftWrapper(self.datenbank, inp, readonly)
+
+    def editWaffeneigenschaft(self, inp, readonly=False):
+        dbW = (
+            DatenbankEditWaffeneigenschaftWrapper.DatenbankEditWaffeneigenschaftWrapper(
+                self.datenbank, inp, readonly
+            )
+        )
         return dbW.waffeneigenschaft
 
-    def editWaffe(self, inp, readonly = False):
-        dbW = DatenbankEditWaffeWrapper.DatenbankEditWaffeWrapper(self.datenbank, inp, readonly)
+    def editWaffe(self, inp, readonly=False):
+        dbW = DatenbankEditWaffeWrapper.DatenbankEditWaffeWrapper(
+            self.datenbank, inp, readonly
+        )
         return dbW.waffe
-    
-    def editRuestung(self, inp, readonly = False):
-        dbW = DatenbankEditRuestungWrapper.DatenbankEditRuestungWrapper(self.datenbank, inp, readonly)
+
+    def editRuestung(self, inp, readonly=False):
+        dbW = DatenbankEditRuestungWrapper.DatenbankEditRuestungWrapper(
+            self.datenbank, inp, readonly
+        )
         return dbW.ruestung
-        
-    def editManoever(self, inp, readonly = False):
-        dbM = DatenbankEditManoeverWrapper.DatenbankEditManoeverWrapper(self.datenbank, inp, readonly)
+
+    def editManoever(self, inp, readonly=False):
+        dbM = DatenbankEditManoeverWrapper.DatenbankEditManoeverWrapper(
+            self.datenbank, inp, readonly
+        )
         return dbM.man
 
     def editSelected(self):
@@ -356,9 +453,13 @@ class DatenbankEdit(object):
             tmp = self.model.itemData(itm)[0].split(" : ")
             if tmp[1].endswith(" (gelöscht)"):
                 tmp[1] = tmp[1][:-11]
-                deletedItem = [item for item in self.datenbank.removeList if item[0] == tmp[0] and item[1] == tmp[1]][0]
+                deletedItem = [
+                    item
+                    for item in self.datenbank.removeList
+                    if item[0] == tmp[0] and item[1] == tmp[1]
+                ][0]
                 if not deletedItem:
-                    raise Exception('State corrupted.')
+                    raise Exception("State corrupted.")
 
                 if deletedItem[1] in self.databaseTypes:
                     databaseType = self.databaseTypes[deletedItem[1]]
@@ -373,7 +474,7 @@ class DatenbankEdit(object):
                     if ret is not None:
                         if not element.isUserAdded:
                             self.datenbank.removeList.append((tmp[0], tmp[1], element))
-                        databaseType.databaseDict.pop(tmp[0],None)
+                        databaseType.databaseDict.pop(tmp[0], None)
                         databaseType.databaseDict.update({ret.name: ret})
                         databaseChanged = True
 
@@ -400,7 +501,7 @@ class DatenbankEdit(object):
 
         if databaseChanged:
             self.onDatabaseChange()
-                                
+
     def deleteSelected(self):
         databaseChanged = False
         for itm in self.ui.listDatenbank.selectedIndexes():
@@ -408,36 +509,46 @@ class DatenbankEdit(object):
 
             if tmp[1] in self.databaseTypes:
                 databaseType = self.databaseTypes[tmp[1]]
-                element  = databaseType.databaseDict[tmp[0]]
+                element = databaseType.databaseDict[tmp[0]]
                 if not element.isUserAdded:
                     self.datenbank.removeList.append((tmp[0], tmp[1], element))
-                databaseType.databaseDict.pop(tmp[0],None)
+                databaseType.databaseDict.pop(tmp[0], None)
                 databaseChanged = True
 
         if databaseChanged:
             self.onDatabaseChange()
-                              
+
     def saveDatenbank(self):
-        if os.path.isdir(Wolke.Settings['Pfad-Regeln']):
-            startDir = Wolke.Settings['Pfad-Regeln']
+        if os.path.isdir(Wolke.Settings["Pfad-Regeln"]):
+            startDir = Wolke.Settings["Pfad-Regeln"]
         else:
             startDir = ""
-        spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"User Datenbank speichern...",startDir,"XML-Datei (*.xml)")
+        spath, _ = QtWidgets.QFileDialog.getSaveFileName(
+            None, "User Datenbank speichern...", startDir, "XML-Datei (*.xml)"
+        )
         if spath == "":
             return
         spath = os.path.realpath(spath)
         if not spath.endswith(".xml"):
             spath = spath + ".xml"
 
-        isInRulesPath = os.path.dirname(spath) == Wolke.Settings['Pfad-Regeln']
+        isInRulesPath = os.path.dirname(spath) == Wolke.Settings["Pfad-Regeln"]
         if not isInRulesPath:
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Question)
-            infoBox.setText("Der Charakter-Editor kann nur Datenbanken aus dem in den Einstellungen gesetzten Pfad laden, sicher dass du die Datenbank hierhin speichern möchtest?")
+            infoBox.setText(
+                "Der Charakter-Editor kann nur Datenbanken aus dem in den Einstellungen gesetzten Pfad laden, sicher dass du die Datenbank hierhin speichern möchtest?"
+            )
             infoBox.setWindowTitle("User Datenbank speichern")
-            infoBox.addButton(QtWidgets.QPushButton("Ja"), QtWidgets.QMessageBox.YesRole)
-            infoBox.addButton(QtWidgets.QPushButton("Anderer Pfad"), QtWidgets.QMessageBox.NoRole)
-            infoBox.addButton(QtWidgets.QPushButton("Abbrechen"), QtWidgets.QMessageBox.RejectRole)
+            infoBox.addButton(
+                QtWidgets.QPushButton("Ja"), QtWidgets.QMessageBox.YesRole
+            )
+            infoBox.addButton(
+                QtWidgets.QPushButton("Anderer Pfad"), QtWidgets.QMessageBox.NoRole
+            )
+            infoBox.addButton(
+                QtWidgets.QPushButton("Abbrechen"), QtWidgets.QMessageBox.RejectRole
+            )
             result = infoBox.exec_()
             if result == 1:
                 self.saveDatenbank()
@@ -450,14 +561,16 @@ class DatenbankEdit(object):
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Information)
             infoBox.setText("Überschreiben der zentralen Datenbank verhindert!")
-            infoBox.setInformativeText("Bitte schreibe deine eigenen Regeln nicht mit in die zentrale datenbank.xml - \
+            infoBox.setInformativeText(
+                "Bitte schreibe deine eigenen Regeln nicht mit in die zentrale datenbank.xml - \
 diese wird bei vielen Updates von Sephrasto verändert, wodurch du deine Regeln \
 verlieren würdest. Stattdessen kannst du sie als separate Datei abspeichern und in den Einstellungen selektieren. \
 Sie wird dann automatisch beim Programmstart mit geladen. Änderungen darin überschreiben \
-die datenbank.xml, aber bleiben bei Updates erhalten!")
+die datenbank.xml, aber bleiben bei Updates erhalten!"
+            )
             infoBox.setWindowTitle("Ungültige Datei!")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-            infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
+            infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)
             infoBox.exec_()
             self.saveDatenbank()
             return
@@ -466,18 +579,24 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         self.quicksaveDatenbank()
         self.updateWindowTitleAndCloseButton()
 
-        if isInRulesPath and Wolke.Settings['Datenbank'] != os.path.basename(spath):
+        if isInRulesPath and Wolke.Settings["Datenbank"] != os.path.basename(spath):
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Question)
-            infoBox.setText("Soll die neue Nutzer-Datenbank in den Einstellungen aktiv gesetzt werden?")
+            infoBox.setText(
+                "Soll die neue Nutzer-Datenbank in den Einstellungen aktiv gesetzt werden?"
+            )
             infoBox.setWindowTitle("Nutzer-Datenbank aktiv setzen")
-            infoBox.addButton(QtWidgets.QPushButton("Ja"), QtWidgets.QMessageBox.YesRole)
-            infoBox.addButton(QtWidgets.QPushButton("Nein"), QtWidgets.QMessageBox.NoRole)
+            infoBox.addButton(
+                QtWidgets.QPushButton("Ja"), QtWidgets.QMessageBox.YesRole
+            )
+            infoBox.addButton(
+                QtWidgets.QPushButton("Nein"), QtWidgets.QMessageBox.NoRole
+            )
             result = infoBox.exec_()
             if result == 0:
-                Wolke.Settings['Datenbank'] = os.path.basename(spath)
+                Wolke.Settings["Datenbank"] = os.path.basename(spath)
                 EinstellungenWrapper.save()
-        
+
     def quicksaveDatenbank(self):
         if not self.savepath:
             self.saveDatenbank()
@@ -488,20 +607,22 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Information)
             infoBox.setText("Überschreiben der zentralen Datenbank verhindert!")
-            infoBox.setInformativeText("Bitte schreibe deine eigenen Regeln nicht mit in die zentrale datenbank.xml - \
+            infoBox.setInformativeText(
+                "Bitte schreibe deine eigenen Regeln nicht mit in die zentrale datenbank.xml - \
 diese wird bei vielen Updates von Sephrasto verändert, wodurch du deine Regeln \
 verlieren würdest. Stattdessen kannst du sie als separate Datei abspeichern und in den Einstellungen selektieren. \
 Sie wird dann automatisch beim Programmstart mit geladen. Änderungen darin überschreiben \
-die datenbank.xml, aber bleiben bei Updates erhalten!")
+die datenbank.xml, aber bleiben bei Updates erhalten!"
+            )
             infoBox.setWindowTitle("Ungültige Datei!")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-            infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
+            infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)
             infoBox.exec_()
         else:
             self.datenbank.datei = self.savepath
             self.datenbank.xmlSchreiben()
             self.changed = False
-    
+
     def closeDatenbank(self):
         if self.cancelDueToPendingChanges("Datenbank schließen"):
             return
@@ -516,11 +637,13 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
     def loadDatenbank(self):
         if self.cancelDueToPendingChanges("Andere Datenbank laden"):
             return
-        if os.path.isdir(Wolke.Settings['Pfad-Regeln']):
-            startDir = Wolke.Settings['Pfad-Regeln']
+        if os.path.isdir(Wolke.Settings["Pfad-Regeln"]):
+            startDir = Wolke.Settings["Pfad-Regeln"]
         else:
             startDir = ""
-        spath, _ = QtWidgets.QFileDialog.getOpenFileName(None,"User Datenbank laden...",startDir,"XML-Datei (*.xml)")
+        spath, _ = QtWidgets.QFileDialog.getOpenFileName(
+            None, "User Datenbank laden...", startDir, "XML-Datei (*.xml)"
+        )
         if not spath:
             return
         spath = os.path.realpath(spath)
@@ -528,10 +651,12 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         if spath == databaseFile:
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Warning)
-            infoBox.setText("Diese Funktion dient dem Laden einer Nutzer-Datenbank wie der 'database_user.xml'. Die zentrale Sephrasto-Datenbank 'database.xml' wird sowieso immer geladen!")
+            infoBox.setText(
+                "Diese Funktion dient dem Laden einer Nutzer-Datenbank wie der 'database_user.xml'. Die zentrale Sephrasto-Datenbank 'database.xml' wird sowieso immer geladen!"
+            )
             infoBox.setWindowTitle("Ungültige Datei!")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-            infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
+            infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)
             infoBox.exec_()
             self.loadDatenbank()
             return
@@ -542,7 +667,8 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         self.updateGUI()
         self.updateWindowTitleAndCloseButton()
         self.changed = False
-        
+
+
 if __name__ == "__main__":
     D = DatenbankEdit()
     app = QtCore.QCoreApplication.instance()

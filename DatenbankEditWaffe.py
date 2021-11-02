@@ -22,7 +22,9 @@ class Ui_talentDialog(object):
         self.gridLayout.setObjectName("gridLayout")
         self.horizontalLayout_6 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
-        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         self.horizontalLayout_6.addItem(spacerItem)
         self.spinHaerte = QtWidgets.QSpinBox(talentDialog)
         self.spinHaerte.setMinimumSize(QtCore.QSize(50, 0))
@@ -51,7 +53,9 @@ class Ui_talentDialog(object):
         self.gridLayout.addLayout(self.horizontalLayout_2, 2, 1, 1, 1)
         self.horizontalLayout_4 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem1 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         self.horizontalLayout_4.addItem(spacerItem1)
         self.spinRW1 = QtWidgets.QSpinBox(talentDialog)
         self.spinRW1.setMinimumSize(QtCore.QSize(50, 0))
@@ -84,7 +88,9 @@ class Ui_talentDialog(object):
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
-        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem2 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         self.horizontalLayout_5.addItem(spacerItem2)
         self.spinWMLZ = QtWidgets.QSpinBox(talentDialog)
         self.spinWMLZ.setMinimumSize(QtCore.QSize(50, 0))
@@ -97,10 +103,14 @@ class Ui_talentDialog(object):
         self.horizontalLayout_3.addLayout(self.horizontalLayout_5)
         self.gridLayout.addLayout(self.horizontalLayout_3, 5, 1, 1, 1)
         self.textEigenschaften = QtWidgets.QPlainTextEdit(talentDialog)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.textEigenschaften.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.textEigenschaften.sizePolicy().hasHeightForWidth()
+        )
         self.textEigenschaften.setSizePolicy(sizePolicy)
         self.textEigenschaften.setObjectName("textEigenschaften")
         self.gridLayout.addWidget(self.textEigenschaften, 10, 1, 1, 1)
@@ -109,7 +119,9 @@ class Ui_talentDialog(object):
         self.gridLayout.addWidget(self.label_6, 7, 0, 1, 1)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
-        spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem3 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         self.horizontalLayout.addItem(spacerItem3)
         self.spinW6 = QtWidgets.QSpinBox(talentDialog)
         self.spinW6.setAlignment(QtCore.Qt.AlignCenter)
@@ -155,7 +167,9 @@ class Ui_talentDialog(object):
         self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 1, 1)
         self.buttonBox = QtWidgets.QDialogButtonBox(talentDialog)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Save)
+        self.buttonBox.setStandardButtons(
+            QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Save
+        )
         self.buttonBox.setCenterButtons(True)
         self.buttonBox.setObjectName("buttonBox")
         self.gridLayout_2.addWidget(self.buttonBox, 1, 0, 1, 1)
@@ -176,7 +190,9 @@ class Ui_talentDialog(object):
 
     def retranslateUi(self, talentDialog):
         _translate = QtCore.QCoreApplication.translate
-        talentDialog.setWindowTitle(_translate("talentDialog", "Sephrasto - Waffe bearbeiten..."))
+        talentDialog.setWindowTitle(
+            _translate("talentDialog", "Sephrasto - Waffe bearbeiten...")
+        )
         self.label_9.setText(_translate("talentDialog", "Härte"))
         self.label_4.setText(_translate("talentDialog", "Reichweite"))
         self.comboTyp.setItemText(0, _translate("talentDialog", "Nahkampfwaffe"))
@@ -191,11 +207,17 @@ class Ui_talentDialog(object):
         self.label_7.setText(_translate("talentDialog", "+"))
         self.label_8.setText(_translate("talentDialog", "Talent"))
         self.label_10.setText(_translate("talentDialog", "Kampfstil"))
-        self.warning.setText(_translate("talentDialog", "Dies ist eine Ilaris-Standardwaffe. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für diese Waffe keine automatischen Updates mehr mit neuen Sephrasto-Versionen."))
+        self.warning.setText(
+            _translate(
+                "talentDialog",
+                "Dies ist eine Ilaris-Standardwaffe. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für diese Waffe keine automatischen Updates mehr mit neuen Sephrasto-Versionen.",
+            )
+        )
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     talentDialog = QtWidgets.QDialog()
     ui = Ui_talentDialog()

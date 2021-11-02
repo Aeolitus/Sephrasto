@@ -16,14 +16,18 @@ class Ui_formMain(object):
         formMain.setObjectName("formMain")
         formMain.setWindowModality(QtCore.Qt.ApplicationModal)
         formMain.resize(447, 300)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(formMain.sizePolicy().hasHeightForWidth())
         formMain.setSizePolicy(sizePolicy)
         self.gridLayout = QtWidgets.QGridLayout(formMain)
         self.gridLayout.setObjectName("gridLayout")
-        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        spacerItem = QtWidgets.QSpacerItem(
+            20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding
+        )
         self.gridLayout.addItem(spacerItem, 10, 0, 1, 1)
         self.cbProfession = QtWidgets.QComboBox(formMain)
         self.cbProfession.setObjectName("cbProfession")
@@ -45,7 +49,9 @@ class Ui_formMain(object):
         self.gridLayout.addWidget(self.lblGeschlecht, 3, 0, 1, 1)
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem1 = QtWidgets.QSpacerItem(
+            40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum
+        )
         self.horizontalLayout_3.addItem(spacerItem1)
         self.btnAccept = QtWidgets.QPushButton(formMain)
         self.btnAccept.setEnabled(True)
@@ -55,7 +61,9 @@ class Ui_formMain(object):
         self.horizontalLayout_3.addWidget(self.btnAccept)
         self.gridLayout.addLayout(self.horizontalLayout_3, 14, 0, 1, 2)
         self.lblRegeln = QtWidgets.QLabel(formMain)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.lblRegeln.sizePolicy().hasHeightForWidth())
@@ -111,18 +119,31 @@ class Ui_formMain(object):
         self.lblGeschlecht.setText(_translate("formMain", "Geschlecht"))
         self.btnAccept.setText(_translate("formMain", "Übernehmen"))
         self.lblRegeln.setText(_translate("formMain", "Baukasten"))
-        self.lblProfessionKategorie.setText(_translate("formMain", "Professionskategorie"))
+        self.lblProfessionKategorie.setText(
+            _translate("formMain", "Professionskategorie")
+        )
         self.btnWeiblich.setText(_translate("formMain", "Weiblich"))
         self.btnMaennlich.setText(_translate("formMain", "Männlich"))
         self.lblKultur.setText(_translate("formMain", "Kultur"))
-        self.label.setToolTip(_translate("formMain", "Der Charakterassistent lebt von Communitybeiträgen. Eigene Spezies/Kulturen/Professionen/Archetypen lassen sich spielend leicht erstellen.\n"
-"Finde hier heraus wie: Charakterassistent auf dsaforum.de\n"
-"Lege eigene Vorlagen in den Plugins-Ordner den du in den Einstellungen festgelegt hast um diese bei neuen Sephrastoversionen nicht zu verlieren. Sie gehören in den \"Plugins/Charakterassistent/Data\" Ordner"))
-        self.label.setText(_translate("formMain", "<html><head/><body><p><span style=\" font-size:6pt;\">Der Charakterassistent lebt von Communitybeiträgen. Eigene Spezies/Kulturen/Professionen/Archetypen lassen sich spielend leicht erstellen. Finde hier heraus wie und teile deine Kreationen: </span><a href=\"https://dsaforum.de/viewtopic.php?f=180&amp;t=56703\"><span style=\" font-size:6pt; text-decoration: underline; color:#0000ff;\">Charakterassistent auf dsaforum.de</span></a></p></body></html>"))
+        self.label.setToolTip(
+            _translate(
+                "formMain",
+                "Der Charakterassistent lebt von Communitybeiträgen. Eigene Spezies/Kulturen/Professionen/Archetypen lassen sich spielend leicht erstellen.\n"
+                "Finde hier heraus wie: Charakterassistent auf dsaforum.de\n"
+                'Lege eigene Vorlagen in den Plugins-Ordner den du in den Einstellungen festgelegt hast um diese bei neuen Sephrastoversionen nicht zu verlieren. Sie gehören in den "Plugins/Charakterassistent/Data" Ordner',
+            )
+        )
+        self.label.setText(
+            _translate(
+                "formMain",
+                '<html><head/><body><p><span style=" font-size:6pt;">Der Charakterassistent lebt von Communitybeiträgen. Eigene Spezies/Kulturen/Professionen/Archetypen lassen sich spielend leicht erstellen. Finde hier heraus wie und teile deine Kreationen: </span><a href="https://dsaforum.de/viewtopic.php?f=180&amp;t=56703"><span style=" font-size:6pt; text-decoration: underline; color:#0000ff;">Charakterassistent auf dsaforum.de</span></a></p></body></html>',
+            )
+        )
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     formMain = QtWidgets.QWidget()
     ui = Ui_formMain()

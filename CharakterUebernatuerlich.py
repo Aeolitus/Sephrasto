@@ -21,7 +21,9 @@ class Ui_Form(object):
         self.splitter.setOrientation(QtCore.Qt.Horizontal)
         self.splitter.setObjectName("splitter")
         self.tableWidget = QtWidgets.QTableWidget(self.splitter)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(1)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.tableWidget.sizePolicy().hasHeightForWidth())
@@ -30,7 +32,9 @@ class Ui_Form(object):
         self.tableWidget.setAlternatingRowColors(True)
         self.tableWidget.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
         self.tableWidget.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
-        self.tableWidget.setHorizontalScrollMode(QtWidgets.QAbstractItemView.ScrollPerPixel)
+        self.tableWidget.setHorizontalScrollMode(
+            QtWidgets.QAbstractItemView.ScrollPerPixel
+        )
         self.tableWidget.setShowGrid(True)
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(3)
@@ -61,11 +65,15 @@ class Ui_Form(object):
         self.gridLayout_2 = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.label_5 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
-        self.label_5.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_5.setAlignment(
+            QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter
+        )
         self.label_5.setObjectName("label_5")
         self.gridLayout_2.addWidget(self.label_5, 2, 0, 1, 1)
         self.spinSF = QtWidgets.QSpinBox(self.scrollAreaWidgetContents)
-        self.spinSF.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.spinSF.setAlignment(
+            QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter
+        )
         self.spinSF.setReadOnly(True)
         self.spinSF.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
         self.spinSF.setObjectName("spinSF")
@@ -88,7 +96,9 @@ class Ui_Form(object):
         self.label_6.setObjectName("label_6")
         self.gridLayout_2.addWidget(self.label_6, 3, 0, 1, 1)
         self.spinBasis = QtWidgets.QSpinBox(self.scrollAreaWidgetContents)
-        self.spinBasis.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.spinBasis.setAlignment(
+            QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter
+        )
         self.spinBasis.setReadOnly(True)
         self.spinBasis.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
         self.spinBasis.setObjectName("spinBasis")
@@ -97,7 +107,9 @@ class Ui_Form(object):
         self.label_8.setObjectName("label_8")
         self.gridLayout_2.addWidget(self.label_8, 3, 3, 1, 1)
         self.spinPW = QtWidgets.QSpinBox(self.scrollAreaWidgetContents)
-        self.spinPW.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.spinPW.setAlignment(
+            QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter
+        )
         self.spinPW.setReadOnly(True)
         self.spinPW.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
         self.spinPW.setObjectName("spinPW")
@@ -112,7 +124,9 @@ class Ui_Form(object):
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.listTalente = QtWidgets.QListView(self.scrollAreaWidgetContents)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.listTalente.sizePolicy().hasHeightForWidth())
@@ -179,6 +193,7 @@ class Ui_Form(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
     ui = Ui_Form()

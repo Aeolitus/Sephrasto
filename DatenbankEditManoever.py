@@ -21,7 +21,9 @@ class Ui_manDialog(object):
         self.gridLayout = QtWidgets.QGridLayout()
         self.gridLayout.setObjectName("gridLayout")
         self.textEdit = QtWidgets.QPlainTextEdit(manDialog)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.MinimumExpanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.MinimumExpanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.textEdit.sizePolicy().hasHeightForWidth())
@@ -81,7 +83,9 @@ class Ui_manDialog(object):
         self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 1, 1)
         self.buttonBox = QtWidgets.QDialogButtonBox(manDialog)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Save)
+        self.buttonBox.setStandardButtons(
+            QtWidgets.QDialogButtonBox.Cancel | QtWidgets.QDialogButtonBox.Save
+        )
         self.buttonBox.setCenterButtons(True)
         self.buttonBox.setObjectName("buttonBox")
         self.gridLayout_2.addWidget(self.buttonBox, 1, 0, 1, 1)
@@ -98,7 +102,9 @@ class Ui_manDialog(object):
 
     def retranslateUi(self, manDialog):
         _translate = QtCore.QCoreApplication.translate
-        manDialog.setWindowTitle(_translate("manDialog", "Sephrasto - Manöver / Modifikation bearbeiten..."))
+        manDialog.setWindowTitle(
+            _translate("manDialog", "Sephrasto - Manöver / Modifikation bearbeiten...")
+        )
         self.label_3.setText(_translate("manDialog", "Gegenprobe"))
         self.label_4.setText(_translate("manDialog", "Voraussetzungen"))
         self.label_5.setText(_translate("manDialog", "Beschreibung"))
@@ -115,11 +121,17 @@ class Ui_manDialog(object):
         self.comboTyp.setItemText(8, _translate("manDialog", "Weitere Kampfregeln"))
         self.comboTyp.setItemText(9, _translate("manDialog", "Profane Regeln"))
         self.label_6.setText(_translate("manDialog", "Typ"))
-        self.warning.setText(_translate("manDialog", "Dies ist ein Ilaris-Standardmanöver / eine Ilaris-Standardmodifikation. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für dieses Manöver / diese Modifikation keine automatischen Updates mehr mit neuen Sephrasto-Versionen."))
+        self.warning.setText(
+            _translate(
+                "manDialog",
+                "Dies ist ein Ilaris-Standardmanöver / eine Ilaris-Standardmodifikation. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für dieses Manöver / diese Modifikation keine automatischen Updates mehr mit neuen Sephrasto-Versionen.",
+            )
+        )
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     manDialog = QtWidgets.QDialog()
     ui = Ui_manDialog()
