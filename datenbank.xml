@@ -6584,6 +6584,15 @@ Wirkungsdauer: 1 Jahr
 Kosten: 8 KaP
 Fertigkeiten: Ordnung, Zwölfgöttlicher Ritus
 Erlernen: Pra 4; Ang, Aves, Eff, Brn, Fir, Hes, Ifi, Ing, Kor, Nan, Per, Phe, Rah, Ron, Swa, Tra, Tsa 8; 0 EP</Talent>
+  <Talent name="Großer Eidsegen" kosten="0" voraussetzungen="Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der Ifirngeweihten I ODER Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition der Angroschgeweihten I ODER Vorteil Tradition der Korgeweihten I ODER Vorteil Tradition der Nandusgeweihten I ODER Vorteil Tradition der Perainegeweihten I ODER Vorteil Tradition der Phexgeweihten I ODER Vorteil Tradition der Praiosgeweihten I ODER Vorteil Tradition der Rahjageweihten I ODER Vorteil Tradition der Rondrageweihten I ODER Vorteil Tradition der Swafnirgeweihten I ODER Vorteil Tradition der Traviageweihten I ODER Vorteil Tradition der Tsageweihten I" verbilligt="0" fertigkeiten="Ehre, Heim und Herd, Ordnung, Zwölfgöttlicher Ritus" variable="0" printclass="20">Du segnest einen freiwillig geschworenen Eid, wie einen Traviabund oder einen Lehenseid. Alle Versuche, einen Schwörenden zum Eidbruch zu bewegen (etwa über Betören, Überreden oder einen Imperavi), sind um –4 erschwert. Bricht ein Schwörender den Eid im Vollbesitz seiner geistigen Kräfte, ruht die Wirkung des Segens, bis er Buße geübt hat.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Stunde
+Ziel: zwei Personen
+Reichweite: Berührung
+Wirkungsdauer: permanent
+Kosten: 8 KaP
+Fertigkeiten: Ehre, Heim und Herd, Ordnung, Zwölfgöttlicher Ritus
+Erlernen: Tra 8; Ang, Hes, Per, Pra, Rah, Swa, Tsa 14; Aves, Kor, Ron 18; 0 EP</Talent>
   <Talent name="Feuersegen" kosten="0" voraussetzungen="Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der Ifirngeweihten I ODER Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition der Angroschgeweihten I ODER Vorteil Tradition der Korgeweihten I ODER Vorteil Tradition der Nandusgeweihten I ODER Vorteil Tradition der Perainegeweihten I ODER Vorteil Tradition der Phexgeweihten I ODER Vorteil Tradition der Praiosgeweihten I ODER Vorteil Tradition der Rahjageweihten I ODER Vorteil Tradition der Rondrageweihten I ODER Vorteil Tradition der Swafnirgeweihten I ODER Vorteil Tradition der Traviageweihten I ODER Vorteil Tradition der Tsageweihten I" verbilligt="0" fertigkeiten="Heiliges Feuer, Zwölfgöttlicher Ritus" variable="0" printclass="20">Eine kleine Flamme entsteht in deiner Hand. Die Flamme und ein mit ihr entzündetes Feuer wird durch Wind oder Regen nicht gelöscht.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 2 Aktionen
