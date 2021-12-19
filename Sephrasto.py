@@ -63,6 +63,8 @@ class MainWindowWrapper(object):
         logging.critical("Starte Sephrasto " + self._version_) #critical so it's always printed, independent of the debug level setting
 
         super().__init__()
+
+        os.chdir(os.path.dirname(os.path.abspath(__file__)))
         
         #Make sure the application scales properly, i.e. in Win10 users can change the UI scale in the display settings
         if hasattr(QtCore.Qt, 'AA_EnableHighDpiScaling'):
