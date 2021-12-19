@@ -32,8 +32,14 @@
       <layout class="QVBoxLayout" name="verticalLayout2">
        <item>
         <widget class="QLabel" name="label">
+         <property name="inputMethodHints">
+          <set>Qt::ImhNone</set>
+         </property>
          <property name="text">
-          <string>Inoffiziell: Die hier aufgelisteten Rüstungen sind Beispiele, die nicht im Regelwerk stehen.</string>
+          <string>Inoffiziell: Bei den hier aufgelisteten Rüstungen handelt es sich um an WdS orientierte Vorschläge. Die Festlegung des RS einer Rüstung obliegt am Ende dem Spielleiter.</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
          </property>
         </widget>
        </item>

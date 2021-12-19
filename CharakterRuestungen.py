@@ -32,6 +32,8 @@ class Ui_Dialog(object):
         self.verticalLayout2.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout2.setObjectName("verticalLayout2")
         self.label = QtWidgets.QLabel(self.verticalLayout_2)
+        self.label.setInputMethodHints(QtCore.Qt.ImhNone)
+        self.label.setWordWrap(True)
         self.label.setObjectName("label")
         self.verticalLayout2.addWidget(self.label)
         self.filterLayout = QtWidgets.QHBoxLayout()
@@ -178,7 +180,7 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Sephrasto - Rüstung wählen..."))
-        self.label.setText(_translate("Dialog", "Inoffiziell: Die hier aufgelisteten Rüstungen sind Beispiele, die nicht im Regelwerk stehen."))
+        self.label.setText(_translate("Dialog", "Inoffiziell: Bei den hier aufgelisteten Rüstungen handelt es sich um an WdS orientierte Vorschläge. Die Festlegung des RS einer Rüstung obliegt am Ende dem Spielleiter."))
         self.labelFilter.setText(_translate("Dialog", "Suchen:"))
         self.treeArmors.setSortingEnabled(False)
         self.treeArmors.headerItem().setText(0, _translate("Dialog", "Name"))

@@ -15,7 +15,7 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.setWindowModality(QtCore.Qt.ApplicationModal)
-        Dialog.resize(423, 526)
+        Dialog.resize(499, 526)
         self.gridLayout = QtWidgets.QGridLayout(Dialog)
         self.gridLayout.setObjectName("gridLayout")
         self.verticalLayout_2 = QtWidgets.QWidget(Dialog)
@@ -28,6 +28,7 @@ class Ui_Dialog(object):
         self.verticalLayout2 = QtWidgets.QVBoxLayout(self.verticalLayout_2)
         self.verticalLayout2.setObjectName("verticalLayout2")
         self.label = QtWidgets.QLabel(self.verticalLayout_2)
+        self.label.setWordWrap(True)
         self.label.setObjectName("label")
         self.verticalLayout2.addWidget(self.label)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
@@ -72,7 +73,7 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Sephrasto - Freie Fertigkeit wählen..."))
-        self.label.setText(_translate("Dialog", "Inoffiziell: Das Ilaris Regelwerk hat keine Auflistung für Sprachen und Schriften."))
+        self.label.setText(_translate("Dialog", "Inoffiziell: Bei den aufgeführten Sprachen und Schriften handelt es sich um an WdS orientierte Vorschläge."))
         self.labelFilter.setText(_translate("Dialog", "Suchen:"))
         self.treeFerts.setSortingEnabled(False)
         self.treeFerts.headerItem().setText(0, _translate("Dialog", "Freie Fertigkeit"))

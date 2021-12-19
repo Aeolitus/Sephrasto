@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>423</width>
+    <width>499</width>
     <height>526</height>
    </rect>
   </property>
@@ -29,7 +29,10 @@
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Inoffiziell: Das Ilaris Regelwerk hat keine Auflistung für Sprachen und Schriften.</string>
+         <string>Inoffiziell: Bei den aufgeführten Sprachen und Schriften handelt es sich um an WdS orientierte Vorschläge.</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
