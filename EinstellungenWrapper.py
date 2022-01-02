@@ -108,13 +108,21 @@ class EinstellungenWrapper():
     @staticmethod
     def createUserFolders(basePath):
         if not os.path.isdir(basePath):
-            os.mkdir(basePath)
-            if not os.path.isdir(os.path.join(basePath, 'Charaktere')):
-                os.mkdir(os.path.join(basePath, 'Charaktere'))
-            if not os.path.isdir(os.path.join(basePath, 'Regeln')):
-                os.mkdir(os.path.join(basePath, 'Regeln'))
-            if not os.path.isdir(os.path.join(basePath, 'Plugins')):
-                os.mkdir(os.path.join(basePath, 'Plugins'))
+            try:
+                os.mkdir(basePath)
+                if not os.path.isdir(os.path.join(basePath, 'Charaktere')):
+                    os.mkdir(os.path.join(basePath, 'Charaktere'))
+                if not os.path.isdir(os.path.join(basePath, 'Regeln')):
+                    os.mkdir(os.path.join(basePath, 'Regeln'))
+                if not os.path.isdir(os.path.join(basePath, 'Plugins')):
+                    os.mkdir(os.path.join(basePath, 'Plugins'))
+            except:
+                messagebox = QtWidgets.QMessageBox()
+                messagebox.setWindowTitle("Fehler!")
+                messagebox.setText("Konnte den Sephrasto Ordner in deinem Nutzerverzeichnis nicht erstellen (" + basePath + "). Bitte stelle sicher, dass Sephrasto die nötigen Schreibrechte hat und dein Antivirus Programm den Zugriff nicht blockiert. Sephrasto wird sonst nicht richtig funktionieren.")
+                messagebox.setIcon(QtWidgets.QMessageBox.Critical)
+                messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+                messagebox.exec_()
 
     @staticmethod
     def load():
