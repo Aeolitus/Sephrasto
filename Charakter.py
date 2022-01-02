@@ -369,7 +369,7 @@ class Char():
 
     def migriere1zu2(self, xmlRoot):
         VorteileAlt = ["Angepasst I (Wasser)", "Angepasst I (Wald)", "Angepasst I (Dunkelheit)", "Angepasst I (Schnee)", "Angepasst II (Wasser)", "Angepasst II (Wald)", "Angepasst II (Dunkelheit)", "Angepasst II (Schnee)", "Tieremphatie"]
-        VorteileNeu = ["Angepasst (Wasser) I", "Angepasst (Wald) I", "Angepasst (Dunkelheit) I", "Angepasst (Schnee) I", "Angepasst (Wasser) II", "Angepasst (Wald) II", "Angepasst(Dunkelheit) II ", "Angepasst (Schnee) II", "Tierempathie"]
+        VorteileNeu = ["Angepasst (Wasser) I", "Angepasst (Wald) I", "Angepasst (Dunkelheit) I", "Angepasst (Schnee) I", "Angepasst (Wasser) II", "Angepasst (Wald) II", "Angepasst (Dunkelheit) II", "Angepasst (Schnee) II", "Tierempathie"]
 
         for vort in xmlRoot.findall('Vorteile/Vorteil'):
             if vort.text in VorteileAlt:
