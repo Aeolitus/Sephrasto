@@ -3,6 +3,7 @@ import os
 import os.path
 import logging
 import sys
+from Hilfsmethoden import Hilfsmethoden
 
 class PluginLoader:
     @staticmethod
@@ -10,10 +11,10 @@ class PluginLoader:
         plugins = []
         if not os.path.isdir(path):
             return plugins
-        possibleplugins = os.listdir(path)
-        for i in possibleplugins:
+
+        for i in Hilfsmethoden.listdir(path):
             location = os.path.join(path, i)
-            if not os.path.isdir(location) or not "__init__.py" in os.listdir(location):
+            if not os.path.isdir(location) or not "__init__.py" in Hilfsmethoden.listdir(location):
                 continue
             plugins.append(i)
         return plugins

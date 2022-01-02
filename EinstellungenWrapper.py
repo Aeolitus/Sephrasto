@@ -12,6 +12,7 @@ import yaml
 import logging
 import sys
 from PluginLoader import PluginLoader
+from Hilfsmethoden import Hilfsmethoden
 
 class EinstellungenWrapper():    
     def __init__(self):
@@ -187,7 +188,7 @@ class EinstellungenWrapper():
     def updateComboRegelbasis(self):
         optionsList = ['Keine']            
         if os.path.isdir(self.ui.editRegeln.text()):
-            for file in os.listdir(self.ui.editRegeln.text()):
+            for file in Hilfsmethoden.listdir(self.ui.editRegeln.text()):
                 if file.lower().endswith('.xml'):
                     optionsList.append(file)
         self.ui.comboRegelbasis.clear()

@@ -6,6 +6,7 @@ import lxml.etree as etree
 from EinstellungenWrapper import EinstellungenWrapper
 from EventBus import EventBus
 from CharakterAssistent.CharakterMerger import CharakterMerger
+from Hilfsmethoden import Hilfsmethoden
 
 class Regeln(object):
     def __init__(self):
@@ -30,7 +31,7 @@ class WizardWrapper(object):
             if not os.path.isdir(datadir):
                 continue
 
-            for regelnFolder in os.listdir(datadir):
+            for regelnFolder in Hilfsmethoden.listdir(datadir):
                 if not os.path.isdir(os.path.join(datadir, regelnFolder)):
                     continue
                 regelnName = os.path.splitext(os.path.basename(regelnFolder))[0]
@@ -51,7 +52,7 @@ class WizardWrapper(object):
                     professionenFolder = os.path.join(datadir, regelnFolder, "Profession")
 
                 if os.path.isdir(professionenFolder):
-                    for professionKategorieFolder in os.listdir(professionenFolder):
+                    for professionKategorieFolder in Hilfsmethoden.listdir(professionenFolder):
                         professionKategorieFolder = os.path.join(professionenFolder, professionKategorieFolder)
                         if os.path.isdir(professionKategorieFolder):
                             kategorie = os.path.basename(professionKategorieFolder)
@@ -62,7 +63,7 @@ class WizardWrapper(object):
     def mapContainedFileNamesToPaths(self, folderPath, appendEP = False):
         result = {}
         if os.path.isdir(folderPath):
-            for path in os.listdir(folderPath):
+            for path in Hilfsmethoden.listdir(folderPath):
                 path = os.path.join(folderPath, path)
                 if os.path.isfile(path):
                     fileNameSplit = os.path.splitext(os.path.basename(path))
