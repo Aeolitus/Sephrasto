@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>431</width>
-    <height>618</height>
+    <height>692</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -246,6 +246,16 @@
              <string>Sonstiges</string>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_6">
+             <item>
+              <widget class="QCheckBox" name="checkUpdate">
+               <property name="text">
+                <string>Beim Start von Sephrasto nach Updates suchen</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
              <item>
               <widget class="QLabel" name="label_5">
                <property name="text">

@@ -21,6 +21,7 @@ from EinstellungenWrapper import EinstellungenWrapper
 import Version
 from EventBus import EventBus
 from PluginLoader import PluginLoader
+from UpdateChecker import UpdateChecker
 
 loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
 logging.basicConfig(filename="sephrasto.log", \
@@ -101,6 +102,8 @@ class MainWindowWrapper(object):
         # Get the Settings loaded
         EinstellungenWrapper.load()
         logging.getLogger().setLevel(loglevels[Wolke.Settings['Logging']])
+
+        UpdateChecker.checkForUpdate()
 
         self._plugins = []
         pluginPaths = ["Plugins", Wolke.Settings['Pfad-Plugins']]

@@ -6,7 +6,8 @@ import shutil
 
 print("Cleaning build folder")
 dir_path = os.path.dirname(os.path.realpath(__file__))
-build_path = os.path.join(dir_path, "Build")
+build_path_root = os.path.join(dir_path, "Build")
+build_path = os.path.join(build_path_root, "Sephrasto")
 platforms_path = os.path.join(build_path, "platforms")
 styles_path = os.path.join(build_path, "styles")
 env_python_path = os.path.dirname(sys.executable)
@@ -16,15 +17,15 @@ env_platforms_path = os.path.join(env_plugins_path, "platforms")
 env_bin_path = os.path.join(env_python_path, "Lib", "site-packages", "PyQt5", "Qt5", "bin")
 
 def cleanBuildFolder():
-    for filename in os.listdir(build_path):
-        filepath = os.path.join(build_path, filename)
+    for filename in os.listdir(build_path_root):
+        filepath = os.path.join(build_path_root, filename)
         try:
             shutil.rmtree(filepath)
         except OSError:
             os.remove(filepath)
 
 
-if os.path.exists(build_path):
+if os.path.exists(build_path_root):
     cleanBuildFolder()
 else:
     os.makedirs(build_path)
@@ -32,10 +33,11 @@ else:
 print("Running cxfreeze")
 build_exe_options = {
     "build_exe" : build_path,
-    "excludes" : ["distutils", "html", "http", "email", "unittest", "pydoc", "socket", "bz2", "select", "pyexpat", "lzma"],
+    "includes" : ["multiprocessing"],
+    "excludes" : ["distutils", "html", "unittest", "pydoc", "bz2", "pyexpat", "lzma"],
     "optimize" : 2,
     "zip_include_packages" : "*",
-    "zip_exclude_packages" : "",
+    "zip_exclude_packages" : ""
 }
 
 base = None
@@ -112,5 +114,11 @@ for file,targetDir in includeFiles.items():
         shutil.copy2(file, targetDir)
     else:
         shutil.copytree(file, os.path.join(targetDir, os.path.basename(file)))
+
+archiveName = "Sephrasto_v" + str(Version._sephrasto_version_major) + "." + str(Version._sephrasto_version_minor) + "." + str(Version._sephrasto_version_build)
+print("Creating archive " + archiveName + ".zip")
+
+shutil.make_archive(os.path.join(dir_path, archiveName), 'zip', build_path_root)
+shutil.move(os.path.join(dir_path, archiveName) + ".zip", os.path.join(build_path_root, archiveName) + ".zip")
 
 print("Build completed")

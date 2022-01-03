@@ -42,6 +42,7 @@ class EinstellungenWrapper():
             
         self.ui.checkPDFOpen.setChecked(Wolke.Settings['PDF-Open'])
         
+        self.ui.checkUpdate.setChecked(not Wolke.Settings['UpdateCheck_Disable'])
         self.ui.comboLogging.setCurrentIndex(Wolke.Settings['Logging'])
             
         self.ui.buttonChar.clicked.connect(self.setCharPath)
@@ -84,7 +85,8 @@ class EinstellungenWrapper():
                     Wolke.Settings['Deaktivierte-Plugins'].remove(checkbox.text())
                 elif not checkbox.isChecked() and not (checkbox.text() in Wolke.Settings['Deaktivierte-Plugins']):
                     Wolke.Settings['Deaktivierte-Plugins'].append(checkbox.text())
-                
+              
+            Wolke.Settings['UpdateCheck_Disable'] = not self.ui.checkUpdate.isChecked()
             Wolke.Settings['Logging'] = self.ui.comboLogging.currentIndex()
             loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
             logging.getLogger().setLevel(loglevels[Wolke.Settings['Logging']])

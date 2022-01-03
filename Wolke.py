@@ -20,7 +20,9 @@ class Wolke:
         'Pfad-Plugins': '',
         'Deaktivierte-Plugins': ['CharakterBeschreibungExt'],
         'Logging': 1,
-        'PDF-Open': False
+        'PDF-Open': False,
+        'UpdateCheck_Disable' : False,
+        'UpdateCheck_DisableFor' : ''
     }
     ErrorCode = {
          0: 'No Error. You really shouldnt be seeing this.',

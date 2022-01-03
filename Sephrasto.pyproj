@@ -85,6 +85,7 @@
     <Compile Include="Sephrasto.py" />
     <Compile Include="Talentbox.py" />
     <Compile Include="TalentPicker.py" />
+    <Compile Include="UpdateChecker.py" />
     <Compile Include="WaffenPicker.py" />
     <Compile Include="Wolke.py" />
     <Compile Include="DatenbankEditManoever.py" />
