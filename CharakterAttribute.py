@@ -466,19 +466,8 @@ class Ui_formAttribute(object):
         formAttribute.setTabOrder(self.spinIN, self.spinKL)
         formAttribute.setTabOrder(self.spinKL, self.spinCH)
         formAttribute.setTabOrder(self.spinCH, self.spinFF)
-        formAttribute.setTabOrder(self.spinFF, self.pwKO)
-        formAttribute.setTabOrder(self.pwKO, self.pwMU)
-        formAttribute.setTabOrder(self.pwMU, self.pwGE)
-        formAttribute.setTabOrder(self.pwGE, self.pwKK)
-        formAttribute.setTabOrder(self.pwKK, self.pwIN)
-        formAttribute.setTabOrder(self.pwIN, self.pwKL)
-        formAttribute.setTabOrder(self.pwKL, self.pwCH)
-        formAttribute.setTabOrder(self.pwCH, self.pwFF)
-        formAttribute.setTabOrder(self.pwFF, self.abWS)
-        formAttribute.setTabOrder(self.abWS, self.abMR)
-        formAttribute.setTabOrder(self.abMR, self.abGS)
-        formAttribute.setTabOrder(self.abGS, self.abSB)
-        formAttribute.setTabOrder(self.abSB, self.abIN)
+        formAttribute.setTabOrder(self.spinFF, self.spinAsP)
+        formAttribute.setTabOrder(self.spinAsP, self.spinKaP)
 
     def retranslateUi(self, formAttribute):
         _translate = QtCore.QCoreApplication.translate
