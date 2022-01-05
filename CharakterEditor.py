@@ -173,6 +173,7 @@ class Editor(object):
                 tab.wrapper.load()
 
         self.updateEP()
+        self.ui.tabs.setTabVisible(self.ui.tabs.indexOf(self.UebernatuerlichWrapper.formFert), len(Wolke.Char.übernatürlicheFertigkeiten) > 0)
         
     def updateAll(self):
         self.ignoreModified = True
