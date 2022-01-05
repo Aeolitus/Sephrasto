@@ -975,7 +975,18 @@ Erlernen: Ach, Dru, Hex, Mag 14; Elf, Geo, Srl 16; 40 EP</Talent>
   <Talent name="Verständigung stören" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Antimagie, Verständigung" variable="0" printclass="0">Wirkt gegen Zauber der Fertigkeit Verständigung, spezielle Antimagie-Modifikationen siehe S. 126.
 Fertigkeiten: Antimagie, Verständigung
 Erlernen: Elf 12; Ach, Dru, Mag 14; Geo 16; Hex 18; 20 EP</Talent>
-  <Talent name="Brenne toter Stoff!" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Dämonisch, Feuer, Verwandlung" variable="0" printclass="0">Du entzündest ein magisches Feuer, das 2W6 SP pro Initiativephase auf einem unbelebten Ziel anrichtet. Das Feuer brennt auf brennbaren Materialien auch nach dem Ende der Wirkungsdauer weiter.
+  <Talent name="Brenne toter Stoff!" kosten="40" voraussetzungen="Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Feuer, Verwandlung" variable="0" kommentar="0" printclass="0">Du entzündest ein magisches Feuer, das 2W6 SP pro Initiativephase auf einem unbelebten Ziel anrichtet. Das Feuer brennt auf brennbaren Materialien auch nach dem Ende der Wirkungsdauer weiter.
+Mächtige Magie: Je zwei Stufen erhöhen die SP um 1W6.
+Probenschwierigkeit: 12
+Modifikationen: Flammeninferno (–8, 32 AsP; das Feuer breitet sich mit etwa 1 Schritt pro Initiativphase aus.)
+Vorbereitungszeit: 1 Aktion
+Ziel: Einzelobjekt
+Reichweite: Berührung
+Wirkungsdauer: 8 Initiativphasen
+Kosten: 8 AsP
+Fertigkeiten: Feuer, Verwandlung
+Erlernen: Bor 12; Alch, Geo 14; Ach, Mag 18; Srl 20; 40 EP</Talent>
+  <Talent name="Brenne toter Stoff! (Dämonisch)" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Dämonisch, Feuer, Verwandlung" variable="0" kommentar="0" printclass="0">Du entzündest ein magisches Feuer, das 2W6 SP pro Initiativephase auf einem unbelebten Ziel anrichtet. Das Feuer brennt auf brennbaren Materialien auch nach dem Ende der Wirkungsdauer weiter.
 Mächtige Magie: Je zwei Stufen erhöhen die SP um 1W6.
 Probenschwierigkeit: 12
 Modifikationen: Flammeninferno (–8, 32 AsP; das Feuer breitet sich mit etwa 1 Schritt pro Initiativphase aus.)
@@ -1044,7 +1055,17 @@ Wirkungsdauer: 1 Monat
 Kosten: 16 AsP
 Fertigkeiten: Dämonisch, Erz, Verwandlung
 Erlernen: Bor, Mag 20; 40 EP</Talent>
-  <Talent name="Hartes schmelze!" kosten="60" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Dämonisch, Verwandlung, Wasser" variable="0" printclass="0">Du verzauberst eine kopfgroße Menge an hartem Material, sodass es formbar wie Wachs wird. Nach dem Ende der Wirkungsdauer erstarrt das Material in seiner aktuellen Form.
+  <Talent name="Hartes schmelze!" kosten="60" voraussetzungen="Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Verwandlung, Wasser" variable="0" kommentar="0" printclass="0">Du verzauberst eine kopfgroße Menge an hartem Material, sodass es formbar wie Wachs wird. Nach dem Ende der Wirkungsdauer erstarrt das Material in seiner aktuellen Form.
+Mächtige Magie: Verdoppelt die Menge.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 1 Aktion
+Ziel: Einzelobjekt oder Teilobjekt
+Reichweite: Berührung
+Wirkungsdauer: 16 Minuten
+Kosten: 8 AsP
+Fertigkeiten: Verwandlung, Wasser
+Erlernen: Bor 14; Ach, Dru, Geo 16; Alch, Mag 18; 60 EP</Talent>
+  <Talent name="Hartes schmelze! (Dämonisch)" kosten="60" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Dämonisch, Verwandlung, Wasser" variable="0" kommentar="0" printclass="0">Du verzauberst eine kopfgroße Menge an hartem Material, sodass es formbar wie Wachs wird. Nach dem Ende der Wirkungsdauer erstarrt das Material in seiner aktuellen Form.
 Mächtige Magie: Verdoppelt die Menge.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Aktion
@@ -1202,7 +1223,17 @@ Wirkungsdauer: augenblicklich
 Kosten: 8 AsP
 Fertigkeiten: Dämonisch, Kraft
 Erlernen: Bor 18; Mag 20; 60 EP</Talent>
-  <Talent name="Weiches Erstarre!" kosten="60" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Dämonisch, Erz, Verwandlung" variable="0" printclass="0">Du lässt bis zu 8 Raumschritt Luft, Wasser oder ein anderes „weiches“ Material zu einer festen, harten Masse mit einer Härte von 8 erstarren. Lebende Materie, oder Material, das ein Wesen berührt, kann nicht beeinflusst werden.
+  <Talent name="Weiches Erstarre!" kosten="60" voraussetzungen="Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Erz, Verwandlung" variable="0" kommentar="0" printclass="0">Du lässt bis zu 8 Raumschritt Luft, Wasser oder ein anderes „weiches“ Material zu einer festen, harten Masse mit einer Härte von 8 erstarren. Lebende Materie, oder Material, das ein Wesen berührt, kann nicht beeinflusst werden.
+Mächtige Magie: Die Härte steigt um +4.
+Probenschwierigkeit: 12
+Vorbereitungszeit: 2 Aktionen
+Ziel: Zone
+Reichweite: Berührung
+Wirkungsdauer: 1 Stunde
+Kosten: 8 AsP
+Fertigkeiten: Erz, Verwandlung
+Erlernen: Bor 14; Dru, Geo 16; Ach, Alch, Mag 18; 60 EP</Talent>
+  <Talent name="Weiches Erstarre! (Dämonisch)" kosten="60" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Dämonisch, Erz, Verwandlung" variable="0" kommentar="0" printclass="0">Du lässt bis zu 8 Raumschritt Luft, Wasser oder ein anderes „weiches“ Material zu einer festen, harten Masse mit einer Härte von 8 erstarren. Lebende Materie, oder Material, das ein Wesen berührt, kann nicht beeinflusst werden.
 Mächtige Magie: Die Härte steigt um +4.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 2 Aktionen
