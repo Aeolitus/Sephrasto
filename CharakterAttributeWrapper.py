@@ -135,6 +135,8 @@ class AttrWrapper(QtCore.QObject):
         self.uiAttr.abIN.setValue(Wolke.Char.ini)
         self.uiAttr.abMR.setValue(Wolke.Char.mr)
         self.uiAttr.abSB.setValue(Wolke.Char.schadensbonus)
+        self.uiAttr.abAsP.setValue(Wolke.Char.aspBasis)
+        self.uiAttr.abKaP.setValue(Wolke.Char.kapBasis)
         if "Zauberer I" in Wolke.Char.vorteile:
             self.uiAttr.spinAsP.setEnabled(True)
             self.uiAttr.spinAsP.setValue(Wolke.Char.asp.wert)
@@ -143,7 +145,7 @@ class AttrWrapper(QtCore.QObject):
             self.uiAttr.spinAsP.setEnabled(False)
 
         self.uiAttr.lblKap.setText("KaP")
-        self.uiAttr.lblKapZugekauft.setText("Zugekaufte Karmaenergie")
+        self.uiAttr.lblKapZugekauft.setText("Karmaenergie")
         if "Geweiht I" in Wolke.Char.vorteile:
             self.uiAttr.spinKaP.setEnabled(True)
             self.uiAttr.spinKaP.setValue(Wolke.Char.kap.wert)
@@ -151,7 +153,7 @@ class AttrWrapper(QtCore.QObject):
             self.uiAttr.spinKaP.setEnabled(True)
             self.uiAttr.spinKaP.setValue(Wolke.Char.kap.wert)
             self.uiAttr.lblKap.setText("GuP")
-            self.uiAttr.lblKapZugekauft.setText("Zugekaufte Gunstpunkte")
+            self.uiAttr.lblKapZugekauft.setText("Gunstpunkte")
         else:
             self.uiAttr.spinKaP.setValue(0)
             self.uiAttr.spinKaP.setEnabled(False)
