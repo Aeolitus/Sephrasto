@@ -128,6 +128,16 @@ class Hilfsmethoden:
                             raise VoraussetzungException("Der angegebene Attribut-Wert '" + strpItm[12:] + "' ist keine gültige Zahl.")
                     else:
                         raise VoraussetzungException("Das angegebene Attribut '" + attribut + "' ist ungültig. Unterstützt werden 'KO', 'MU', 'GE', 'KK', 'IN', 'KL', 'CH' und 'FF'")
+                elif strpItm.startswith("MeisterAttribut "):
+                    attribut = strpItm[16:18]
+                    if attribut in Definitionen.Attribute:
+                        try:
+                            wert = int(strpItm[19:])
+                            arrItm = "M" + delim + attribut + delim + str(wert)
+                        except ValueError:
+                            raise VoraussetzungException("Der angegebene Attribut-Wert '" + strpItm[19:] + "' ist keine gültige Zahl.")
+                    else:
+                        raise VoraussetzungException("Das angegebene Attribut '" + attribut + "' ist ungültig. Unterstützt werden 'KO', 'MU', 'GE', 'KK', 'IN', 'KL', 'CH' und 'FF'")
                 elif strpItm.startswith("Übernatürliche-Fertigkeit "):
                     if not strpItm[26] == "'":
                         raise VoraussetzungException("Der Name einer Übernatürlichen Fertigkeit muss in Apostrophen gefasst werden. (" + strpItm + ")")
@@ -162,7 +172,7 @@ class Hilfsmethoden:
                     except ValueError:
                         raise VoraussetzungException("Der angegebene Fertigkeitswert '" + strpItm[index+2:] + "' ist keine gültige Zahl")
                 else:
-                    raise VoraussetzungException("Unbekanntes Schlüsselwort '" + strpItm + "'. Unterstützt werden 'Vorteil', 'Kein Vorteil', 'Waffeneigenschaft', 'Attribut', 'Übernatürliche-Fertigkeit' und 'Fertigkeit'.")
+                    raise VoraussetzungException("Unbekanntes Schlüsselwort '" + strpItm + "'. Unterstützt werden 'Vorteil', 'Kein Vorteil', 'Waffeneigenschaft', 'Attribut', 'MeisterAttribut', 'Übernatürliche-Fertigkeit' und 'Fertigkeit'.")
             retArr.append(arrItm)
         return retArr
     
@@ -202,6 +212,11 @@ class Hilfsmethoden:
                     enStr += arr[1]
                 elif arr[0] == "A":
                     enStr += "Attribut "
+                    enStr += arr[1]
+                    enStr += " "
+                    enStr += str(arr[2])
+                elif arr[0] == "M":
+                    enStr += "MeisterAttribut "
                     enStr += arr[1]
                     enStr += " "
                     enStr += str(arr[2])

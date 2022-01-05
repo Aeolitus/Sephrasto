@@ -818,6 +818,7 @@ class Char():
             T für Talent - prüft, ob der Charakter ein Talent mit dem angegebenen Namen besitzt. W ist immer 1.
             W für Waffeneigenschaft - prüft, ob der Charakter eine Waffe mit der angegebenen Eigenschaft besitzt. W ist immer 1.
             A für Attribut - prüft, ob das Attribut mit Key Str mindestens auf Wert W ist
+            M für MeisterAttribut - wie Attribut, prüft außerdem ob zwei weitere Attribute auf insg. mindestens 16 sind
             U für Übernatürliche Fertigkeit - prüft, ob für die Übernatürliche Fertigkeit mit Key Str die Voraussetzungen erfüllt sind \
                 und sie mindestens auf Wert W ist. W=-1 hat ein spezielle Bedeutung, hier wird an Stelle des Fertigkeitswerts überprüft ob mindestens ein Talent aktiviert ist.
             F für Fertigkeit - prüft, ob für die Übernatürliche Fertigkeit mit Key Str die Voraussetzungen erfüllt sind und sie mindestens auf Wert W ist.
@@ -871,7 +872,16 @@ class Char():
                     elif arr[0] is 'A':
                         #Wir greifen direkt auf den Eintrag zu und vergleichen. 
                         if attribute[arr[1]].wert >= int(arr[2]):
-                            erfüllt = True     
+                            erfüllt = True
+                    #MeisterAttribute:
+                    elif arr[0] is 'M':
+                        #Wir greifen direkt auf den Eintrag zu und vergleichen. 
+                        if attribute[arr[1]].wert >= int(arr[2]):
+                            attrSorted = [a.wert for a in attribute.values() if a.key != arr[1]]
+                            attr1 = max(attrSorted)
+                            attrSorted.remove(attr1)
+                            attr2 = max(attrSorted)
+                            erfüllt = attr1 + attr2 >= 16  
                     #Übernatürliche Fertigkeiten:
                     elif arr[0] is 'U':
                         if arr[1] in übernatürlicheFertigkeiten:
@@ -881,15 +891,11 @@ class Char():
                                 erfüllt = len(fertigkeit.gekaufteTalente) > 0
                             else:
                                 erfüllt = fertigkeit.wert >= wert
-                        else:
-                            erfüllt = False
                     #Fertigkeiten:
                     elif arr[0] is 'F':
                         if arr[1] in fertigkeiten:
                             fertigkeit = fertigkeiten[arr[1]]
                             erfüllt = fertigkeit.wert >= int(arr[2])
-                        else:
-                            erfüllt = False
                 if not erfüllt:
                     retNor = False
                 else:
