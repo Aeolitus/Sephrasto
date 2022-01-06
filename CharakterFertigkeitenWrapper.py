@@ -10,6 +10,7 @@ import TalentPicker
 import MousewheelProtector
 from PyQt5 import QtWidgets, QtCore, QtGui
 import logging
+from PyQt5.QtWidgets import QHeaderView
 
 # This item delegate is used to draw a seperator line between different fertigkeit categories ('printclasses')
 class FertigkeitItemDelegate(QtWidgets.QItemDelegate):
@@ -19,7 +20,7 @@ class FertigkeitItemDelegate(QtWidgets.QItemDelegate):
 
     def paint (self, painter, option, index):
         if index.row() in self.rowIndicesWithLinePaint:
-            painter.setPen(QtCore.Qt.gray)
+            painter.setPen(QtGui.QPen(QtCore.Qt.gray, 2))
             painter.drawLine(option.rect.bottomLeft() + QtCore.QPoint(0, 1), option.rect.bottomRight() + QtCore.QPoint(0, 1));
         super().paint(painter, option, index)
 
@@ -54,7 +55,7 @@ class FertigkeitenWrapper(QtCore.QObject):
         self.layoutRef = {}
         self.buttonRef = {}
         self.widgetRef = {}
-        
+
         #If there is an ability already, then we take it to display already
         try:
             self.currentFertName = Wolke.Char.fertigkeiten.__iter__().__next__()
@@ -91,19 +92,47 @@ class FertigkeitenWrapper(QtCore.QObject):
             self.uiFert.tableWidget.setItemDelegate(FertigkeitItemDelegate(rowIndicesWithLinePaint))
             
             self.uiFert.tableWidget.setRowCount(len(self.availableFerts))
-            self.uiFert.tableWidget.setColumnCount(3)
+            self.uiFert.tableWidget.setColumnCount(5)
             self.uiFert.tableWidget.verticalHeader().setVisible(False)
+
+            header = self.uiFert.tableWidget.horizontalHeader()
+            header.setMinimumSectionSize(0)
+            header.setSectionResizeMode(0, QHeaderView.Stretch)
+            header.setSectionResizeMode(1, QHeaderView.Fixed)
+            self.uiFert.tableWidget.setColumnWidth(1, 80)
+            header.setSectionResizeMode(2, QHeaderView.Fixed)
+            self.uiFert.tableWidget.setColumnWidth(2, 80)
+            header.setSectionResizeMode(3, QHeaderView.Fixed)
+            self.uiFert.tableWidget.setColumnWidth(3, 40)
+            header.setSectionResizeMode(4, QHeaderView.Fixed)
+            self.uiFert.tableWidget.setColumnWidth(4, 40)
+
             item = QtWidgets.QTableWidgetItem()
             item.setText("Name")
             self.uiFert.tableWidget.setHorizontalHeaderItem(0, item)
             item = QtWidgets.QTableWidgetItem()
             item.setTextAlignment(QtCore.Qt.AlignCenter)
             item.setText("FW")
+            item.setToolTip("Fertigkeitswert")
             self.uiFert.tableWidget.setHorizontalHeaderItem(1, item)
             item = QtWidgets.QTableWidgetItem()
             item.setTextAlignment(QtCore.Qt.AlignCenter)
             item.setText("Talente")
             self.uiFert.tableWidget.setHorizontalHeaderItem(2, item)
+            item = QtWidgets.QTableWidgetItem()
+            item.setTextAlignment(QtCore.Qt.AlignCenter)
+            item.setText("PW")
+            item.setToolTip("Probenwert")
+            self.uiFert.tableWidget.setHorizontalHeaderItem(3, item)
+            item = QtWidgets.QTableWidgetItem()
+            item.setTextAlignment(QtCore.Qt.AlignCenter)
+            item.setText("PW(T)")
+            item.setToolTip("Probenwert mit Talent")
+            font = QtGui.QFont()
+            font.setPointSize(9)
+            font.setStretch(87)
+            item.setFont(font)
+            self.uiFert.tableWidget.setHorizontalHeaderItem(4, item)
     
             count = 0
             
@@ -149,6 +178,19 @@ class FertigkeitenWrapper(QtCore.QObject):
                 self.widgetRef[Wolke.Char.fertigkeiten[el].name].setLayout(self.layoutRef[Wolke.Char.fertigkeiten[el].name])
                 self.uiFert.tableWidget.setCellWidget(count,2,self.widgetRef[Wolke.Char.fertigkeiten[el].name])
                 #self.uiFert.tableWidget.setItem(count,2,QtWidgets.QTableWidgetItem(str(len(Wolke.Char.fertigkeiten[el].gekaufteTalente))))
+
+                # Add PW
+                self.labelRef[Wolke.Char.fertigkeiten[el].name + "PW"] = QtWidgets.QLabel()
+                self.labelRef[Wolke.Char.fertigkeiten[el].name + "PW"].setText(str(Wolke.Char.fertigkeiten[el].probenwert))
+                self.labelRef[Wolke.Char.fertigkeiten[el].name + "PW"].setAlignment(QtCore.Qt.AlignCenter)
+                self.uiFert.tableWidget.setCellWidget(count,3,self.labelRef[Wolke.Char.fertigkeiten[el].name + "PW"])
+
+                # Add PW (T)
+                self.labelRef[Wolke.Char.fertigkeiten[el].name + "PWT"] = QtWidgets.QLabel()
+                self.labelRef[Wolke.Char.fertigkeiten[el].name + "PWT"].setText(str(Wolke.Char.fertigkeiten[el].probenwertTalent))
+                self.labelRef[Wolke.Char.fertigkeiten[el].name + "PWT"].setAlignment(QtCore.Qt.AlignCenter)
+                self.uiFert.tableWidget.setCellWidget(count,4,self.labelRef[Wolke.Char.fertigkeiten[el].name + "PWT"])
+
                 self.rowRef.update({Wolke.Char.fertigkeiten[el].name: count})
                 count += 1
             self.uiFert.tableWidget.cellClicked.connect(self.tableClicked) 
@@ -174,12 +216,16 @@ class FertigkeitenWrapper(QtCore.QObject):
                 Wolke.Char.fertigkeiten[self.currentFertName].aktualisieren()
                 self.uiFert.spinPW.setValue(Wolke.Char.fertigkeiten[self.currentFertName].probenwert)
                 self.uiFert.spinPWT.setValue(Wolke.Char.fertigkeiten[self.currentFertName].probenwertTalent)
-                self.modified.emit()
                 #self.uiFert.tableWidget.setItem(self.rowRef[self.currentFertName],1,QtWidgets.QTableWidgetItem(str(Wolke.Char.fertigkeiten[self.currentFertName].wert)))
                 if flag:
                     self.uiFert.spinFW.setValue(val)
                 else:
                     self.spinRef[self.currentFertName].setValue(val)
+
+                self.labelRef[self.currentFertName + "PW"].setText(str(Wolke.Char.fertigkeiten[self.currentFertName].probenwert))
+                self.labelRef[self.currentFertName + "PWT"].setText(str(Wolke.Char.fertigkeiten[self.currentFertName].probenwertTalent))
+
+                self.modified.emit()
     
     def spinnerClicked(self, fert):
         if not self.currentlyLoading:
