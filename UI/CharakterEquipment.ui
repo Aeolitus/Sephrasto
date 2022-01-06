@@ -79,6 +79,9 @@
       </item>
       <item row="4" column="3">
        <widget class="QLabel" name="label_14">
+        <property name="toolTip">
+         <string>Trefferpunkte</string>
+        </property>
         <property name="text">
          <string>TP</string>
         </property>
@@ -89,6 +92,9 @@
       </item>
       <item row="4" column="4">
        <widget class="QLabel" name="labelRW1">
+        <property name="toolTip">
+         <string>Reichweite</string>
+        </property>
         <property name="text">
          <string>RW</string>
         </property>
@@ -105,6 +111,9 @@
           <height>0</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>Waffenmodifikator</string>
+        </property>
         <property name="text">
          <string>WM</string>
         </property>
@@ -120,6 +129,9 @@
           <width>45</width>
           <height>0</height>
          </size>
+        </property>
+        <property name="toolTip">
+         <string>Ladezeit</string>
         </property>
         <property name="text">
          <string>LZ</string>
@@ -2159,8 +2171,11 @@
             <height>0</height>
            </size>
           </property>
+          <property name="toolTip">
+           <string>Behinderung</string>
+          </property>
           <property name="text">
-           <string>BE*</string>
+           <string>BE</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -2320,6 +2335,9 @@
         </item>
         <item row="0" column="2">
          <widget class="QLabel" name="labelRS">
+          <property name="toolTip">
+           <string>Rüstungsschutz</string>
+          </property>
           <property name="text">
            <string>RS</string>
           </property>

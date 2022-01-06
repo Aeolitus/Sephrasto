@@ -472,6 +472,7 @@ class Ui_formAttribute(object):
     def retranslateUi(self, formAttribute):
         _translate = QtCore.QCoreApplication.translate
         formAttribute.setWindowTitle(_translate("formAttribute", "Attribute"))
+        self.label_17.setToolTip(_translate("formAttribute", "Probenwert"))
         self.label_17.setText(_translate("formAttribute", "PW"))
         self.label.setText(_translate("formAttribute", "Konstitution"))
         self.label_24.setText(_translate("formAttribute", "CH"))

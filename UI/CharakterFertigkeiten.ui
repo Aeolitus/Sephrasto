@@ -128,7 +128,7 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>258</width>
+           <width>280</width>
            <height>432</height>
           </rect>
          </property>
@@ -142,6 +142,9 @@
           </item>
           <item row="1" column="3">
            <widget class="QLabel" name="label_5">
+            <property name="toolTip">
+             <string>Steigerungsfaktor</string>
+            </property>
             <property name="text">
              <string>SF:</string>
             </property>
@@ -191,6 +194,9 @@
           </item>
           <item row="2" column="3">
            <widget class="QLabel" name="label_7">
+            <property name="toolTip">
+             <string>Fertigkeitswert</string>
+            </property>
             <property name="text">
              <string>FW:</string>
             </property>
@@ -211,6 +217,9 @@
           </item>
           <item row="3" column="0">
            <widget class="QLabel" name="label_8">
+            <property name="toolTip">
+             <string>Probenwert</string>
+            </property>
             <property name="text">
              <string>PW:</string>
             </property>
@@ -234,6 +243,9 @@
           </item>
           <item row="3" column="3">
            <widget class="QLabel" name="label">
+            <property name="toolTip">
+             <string>Probenwert mit Talent</string>
+            </property>
             <property name="text">
              <string>PW(T):</string>
             </property>

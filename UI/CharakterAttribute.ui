@@ -18,6 +18,9 @@
     <layout class="QGridLayout" name="gridLayout">
      <item row="1" column="4">
       <widget class="QLabel" name="label_17">
+       <property name="toolTip">
+        <string>Probenwert</string>
+       </property>
        <property name="text">
         <string>PW</string>
        </property>
