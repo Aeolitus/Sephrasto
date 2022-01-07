@@ -185,6 +185,7 @@ class DatenbankEdit(object):
                     item.setEditable(False)
                     if value.isUserAdded:
                         item.setBackground(QtGui.QBrush(QtCore.Qt.green))
+                        item.setForeground(QtGui.QBrush(QtCore.Qt.black))
                     self.model.appendRow(item)
 
         if self.ui.showDeleted.isChecked():
@@ -198,6 +199,7 @@ class DatenbankEdit(object):
                         item = QtGui.QStandardItem(itm[0] + " : "  + itm[1] + " (gelöscht)")
                         item.setEditable(False)
                         item.setBackground(QtGui.QBrush(QtCore.Qt.red))
+                        item.setForeground(QtGui.QBrush(QtCore.Qt.white))
                         self.model.appendRow(item)
 
         self.ui.listDatenbank.setModel(self.model)
