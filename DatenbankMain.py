@@ -21,6 +21,7 @@ class Ui_Form(object):
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.verticalLayout = QtWidgets.QVBoxLayout()
+        self.verticalLayout.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
         self.verticalLayout.setObjectName("verticalLayout")
         self.labelParameter = QtWidgets.QLabel(Form)
         self.labelParameter.setObjectName("labelParameter")
@@ -137,6 +138,7 @@ class Ui_Form(object):
         self.horizontalLayout.addWidget(self.buttonWiederherstellen)
         self.verticalLayout_2.addLayout(self.horizontalLayout)
         self.horizontalLayout_2.addLayout(self.verticalLayout_2)
+        self.horizontalLayout_2.setStretch(1, 1)
         self.gridLayout.addLayout(self.horizontalLayout_2, 0, 0, 1, 1)
 
         self.retranslateUi(Form)
