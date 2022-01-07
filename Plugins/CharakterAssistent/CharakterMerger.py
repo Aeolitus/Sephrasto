@@ -329,7 +329,8 @@ class CharakterMerger(object):
 
         kurzbeschreibung = alg.find('kurzbeschreibung').text or ''
         if kurzbeschreibung:
-            char.kurzbeschreibung += ", "
+            if char.kurzbeschreibung:
+                char.kurzbeschreibung += ", "
             char.kurzbeschreibung += kurzbeschreibung
         char.finanzen = int(alg.find('finanzen').text)
 
