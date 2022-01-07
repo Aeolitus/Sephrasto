@@ -29,7 +29,7 @@ class Ui_ffDialog(object):
         self.gridLayout.addWidget(self.teVoraussetzungen, 3, 1, 1, 1)
         self.warning = QtWidgets.QLabel(ffDialog)
         self.warning.setVisible(False)
-        self.warning.setStyleSheet("background-color: rgb(255, 255, 0);")
+        self.warning.setStyleSheet("background-color: rgb(255, 255, 0); color: black;")
         self.warning.setWordWrap(True)
         self.warning.setObjectName("warning")
         self.gridLayout.addWidget(self.warning, 0, 0, 1, 2)
@@ -64,7 +64,7 @@ class Ui_ffDialog(object):
         _translate = QtCore.QCoreApplication.translate
         ffDialog.setWindowTitle(_translate("ffDialog", "Sephrasto - Freie Fertigkeit bearbeiten..."))
         self.label_4.setText(_translate("ffDialog", "Voraussetzungen"))
-        self.warning.setText(_translate("ffDialog", "Dies ist eine Ilaris Standard-Freie-Fertigkeit. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für diese Freie Fertigkeit keine automatischen Updates mehr mit neuen Sephrasto-Versionen."))
+        self.warning.setText(_translate("ffDialog", "<html><head/><body><p>Dies ist eine Ilaris Standard-Freie-Fertigkeit. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in den Hausregeln gelöscht. Damit erhältst du für diese Freie Fertigkeit keine automatischen Updates mehr mit neuen Sephrasto-Versionen.</p></body></html>"))
         self.label.setText(_translate("ffDialog", "Name"))
         self.label_2.setText(_translate("ffDialog", "Kategorie"))
 

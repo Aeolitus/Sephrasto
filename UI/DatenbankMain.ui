@@ -199,7 +199,7 @@
           </size>
          </property>
          <property name="text">
-          <string>Regelbasis schließen</string>
+          <string>Hausregeln schließen</string>
          </property>
         </widget>
        </item>
@@ -212,7 +212,7 @@
           </size>
          </property>
          <property name="text">
-          <string>Regelbasis laden</string>
+          <string>Hausregeln laden</string>
          </property>
         </widget>
        </item>
@@ -225,7 +225,7 @@
           </size>
          </property>
          <property name="text">
-          <string>Regelbasis speichern als...</string>
+          <string>Hausregeln speichern als...</string>
          </property>
         </widget>
        </item>
@@ -238,7 +238,7 @@
           </size>
          </property>
          <property name="text">
-          <string>Regelbasis speichern</string>
+          <string>Hausregeln speichern</string>
          </property>
         </widget>
        </item>

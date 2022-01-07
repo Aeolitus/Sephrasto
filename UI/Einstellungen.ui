@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>431</width>
-    <height>692</height>
+    <width>486</width>
+    <height>644</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -28,20 +28,24 @@
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_5">
           <item>
-           <widget class="QLabel" name="label_4">
-            <property name="text">
-             <string>Aktuelle Nutzer-Regelbasis:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QComboBox" name="comboRegelbasis">
+           <layout class="QHBoxLayout" name="horizontalLayout_7">
             <item>
-             <property name="text">
-              <string>Keine</string>
-             </property>
+             <widget class="QLabel" name="label_4">
+              <property name="text">
+               <string>Hausregeln</string>
+              </property>
+             </widget>
             </item>
-           </widget>
+            <item>
+             <widget class="QComboBox" name="comboRegelbasis">
+              <item>
+               <property name="text">
+                <string>Keine</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
           </item>
          </layout>
         </widget>
@@ -62,80 +66,88 @@
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
-           <widget class="QLabel" name="label">
-            <property name="font">
-             <font>
-              <italic>false</italic>
-             </font>
-            </property>
-            <property name="text">
-             <string>Welcher Charakterbogen soll verwendet werden?</string>
-            </property>
-           </widget>
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="font">
+               <font>
+                <italic>false</italic>
+               </font>
+              </property>
+              <property name="text">
+               <string>Verwendeter Charakterbogen:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboBogen">
+              <item>
+               <property name="text">
+                <string>Frag immer nach</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Standard Ilaris-Charakterbogen</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Die lange Version von Gatsu</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item>
-           <widget class="QComboBox" name="comboBogen">
-            <item>
-             <property name="text">
-              <string>Frag immer nach</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Standard Ilaris-Charakterbogen</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Die lange Version von Gatsu</string>
-             </property>
-            </item>
+           <widget class="QCheckBox" name="checkPDFOpen">
+            <property name="text">
+             <string>Charakterbogen nach dem Erstellen automatisch öffnen</string>
+            </property>
            </widget>
           </item>
           <item>
            <widget class="QCheckBox" name="checkCheatsheet">
             <property name="text">
-             <string>Cheatsheet mit den Regeln anhängen</string>
+             <string>Dem Charakterbogen relevante Ilaris Regeln anhängen</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_6">
-            <property name="font">
-             <font>
-              <italic>false</italic>
-             </font>
-            </property>
-            <property name="text">
-             <string>Cheatsheet Schriftgröße:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QComboBox" name="comboFontSize">
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
             <item>
-             <property name="text">
-              <string>Klein</string>
-             </property>
+             <widget class="QLabel" name="label_6">
+              <property name="font">
+               <font>
+                <italic>false</italic>
+               </font>
+              </property>
+              <property name="text">
+               <string>Regeln Schriftgröße:</string>
+              </property>
+             </widget>
             </item>
             <item>
-             <property name="text">
-              <string>Mittel</string>
-             </property>
+             <widget class="QComboBox" name="comboFontSize">
+              <item>
+               <property name="text">
+                <string>Klein</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Mittel</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Groß</string>
+               </property>
+              </item>
+             </widget>
             </item>
-            <item>
-             <property name="text">
-              <string>Groß</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="checkPDFOpen">
-            <property name="text">
-             <string>PDF nach dem Erstellen öffnen</string>
-            </property>
-           </widget>
+           </layout>
           </item>
          </layout>
         </widget>
@@ -147,14 +159,20 @@
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
-           <widget class="QLabel" name="label_2">
-            <property name="text">
-             <string>Speicherpfad für Charaktere:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
            <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <widget class="QLabel" name="label_2">
+              <property name="minimumSize">
+               <size>
+                <width>70</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Charaktere:</string>
+              </property>
+             </widget>
+            </item>
             <item>
              <widget class="QLineEdit" name="editChar">
               <property name="readOnly">
@@ -167,6 +185,12 @@
             </item>
             <item>
              <widget class="QPushButton" name="buttonChar">
+              <property name="maximumSize">
+               <size>
+                <width>80</width>
+                <height>16777215</height>
+               </size>
+              </property>
               <property name="text">
                <string>Durchsuchen</string>
               </property>
@@ -174,6 +198,12 @@
             </item>
             <item>
              <widget class="QPushButton" name="resetChar">
+              <property name="maximumSize">
+               <size>
+                <width>80</width>
+                <height>16777215</height>
+               </size>
+              </property>
               <property name="text">
                <string>Zurücksetzen</string>
               </property>
@@ -182,19 +212,31 @@
            </layout>
           </item>
           <item>
-           <widget class="QLabel" name="label_3">
-            <property name="text">
-             <string>Speicherpfad für Regeln:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
            <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="minimumSize">
+               <size>
+                <width>70</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Regeln:</string>
+              </property>
+             </widget>
+            </item>
             <item>
              <widget class="QLineEdit" name="editRegeln"/>
             </item>
             <item>
              <widget class="QPushButton" name="buttonRegeln">
+              <property name="maximumSize">
+               <size>
+                <width>80</width>
+                <height>16777215</height>
+               </size>
+              </property>
               <property name="text">
                <string>Durchsuchen</string>
               </property>
@@ -202,6 +244,12 @@
             </item>
             <item>
              <widget class="QPushButton" name="resetRegeln">
+              <property name="maximumSize">
+               <size>
+                <width>80</width>
+                <height>16777215</height>
+               </size>
+              </property>
               <property name="text">
                <string>Zurücksetzen</string>
               </property>
@@ -210,19 +258,31 @@
            </layout>
           </item>
           <item>
-           <widget class="QLabel" name="label_7">
-            <property name="text">
-             <string>Speicherpfad für Plugins:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
            <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="QLabel" name="label_7">
+              <property name="minimumSize">
+               <size>
+                <width>70</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Plugins:</string>
+              </property>
+             </widget>
+            </item>
             <item>
              <widget class="QLineEdit" name="editPlugins"/>
             </item>
             <item>
              <widget class="QPushButton" name="buttonPlugins">
+              <property name="maximumSize">
+               <size>
+                <width>80</width>
+                <height>16777215</height>
+               </size>
+              </property>
               <property name="text">
                <string>Durchsuchen</string>
               </property>
@@ -230,6 +290,12 @@
             </item>
             <item>
              <widget class="QPushButton" name="resetPlugins">
+              <property name="maximumSize">
+               <size>
+                <width>80</width>
+                <height>16777215</height>
+               </size>
+              </property>
               <property name="text">
                <string>Zurücksetzen</string>
               </property>
@@ -237,61 +303,92 @@
             </item>
            </layout>
           </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="gbPlugins">
+         <property name="title">
+          <string>Plugins</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_7"/>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_4">
+         <property name="title">
+          <string>Sonstiges</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
           <item>
-           <layout class="QVBoxLayout" name="vlPlugins"/>
+           <widget class="QCheckBox" name="checkUpdate">
+            <property name="text">
+             <string>Beim Start von Sephrasto nach Updates suchen</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
           </item>
           <item>
-           <widget class="QGroupBox" name="groupBox_4">
-            <property name="title">
-             <string>Sonstiges</string>
+           <widget class="QLabel" name="label_8">
+            <property name="text">
+             <string>Theme:</string>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout_6">
-             <item>
-              <widget class="QCheckBox" name="checkUpdate">
-               <property name="text">
-                <string>Beim Start von Sephrasto nach Updates suchen</string>
-               </property>
-               <property name="checked">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_5">
-               <property name="text">
-                <string>Logging-Level:</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QComboBox" name="comboLogging">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="currentIndex">
-                <number>1</number>
-               </property>
-               <item>
-                <property name="text">
-                 <string>Protokolliere nur Fehler</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Protokolliere Warnungen und Fehler</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Protokolliere auch Debugging-Informationen</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboTheme">
+            <item>
+             <property name="text">
+              <string>Standard</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Fusion Light</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Fusion Dark</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>Logging-Level:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboLogging">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="currentIndex">
+             <number>1</number>
+            </property>
+            <item>
+             <property name="text">
+              <string>Protokolliere nur Fehler</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Protokolliere Warnungen und Fehler</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Protokolliere auch Debugging-Informationen</string>
+             </property>
+            </item>
            </widget>
           </item>
          </layout>
@@ -317,11 +414,7 @@
   </layout>
  </widget>
  <tabstops>
-  <tabstop>comboRegelbasis</tabstop>
-  <tabstop>comboBogen</tabstop>
   <tabstop>checkCheatsheet</tabstop>
-  <tabstop>comboFontSize</tabstop>
-  <tabstop>checkPDFOpen</tabstop>
   <tabstop>editChar</tabstop>
   <tabstop>buttonChar</tabstop>
   <tabstop>resetChar</tabstop>
@@ -331,6 +424,8 @@
   <tabstop>editPlugins</tabstop>
   <tabstop>buttonPlugins</tabstop>
   <tabstop>resetPlugins</tabstop>
+  <tabstop>checkUpdate</tabstop>
+  <tabstop>comboTheme</tabstop>
   <tabstop>comboLogging</tabstop>
  </tabstops>
  <resources/>

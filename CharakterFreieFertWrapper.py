@@ -35,6 +35,7 @@ class CharakterFreieFertWrapper(QtCore.QObject):
                 ffCombo.addItem("I")
                 ffCombo.addItem("II")
                 ffCombo.addItem("III")
+                ffCombo.setFont(QtWidgets.QApplication.instance().font()) #hack to refresh font in fusion style
                 ffCombo.currentIndexChanged.connect(self.update)
                 if self.ffCount <= Wolke.Char.freieFertigkeitenNumKostenlos:
                     ffCombo.setEnabled(False)

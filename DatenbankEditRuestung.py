@@ -34,7 +34,7 @@ class Ui_talentDialog(object):
         self.gridLayout.addWidget(self.sbBeine, 6, 2, 1, 1)
         self.warning = QtWidgets.QLabel(talentDialog)
         self.warning.setVisible(False)
-        self.warning.setStyleSheet("background-color: rgb(255, 255, 0);")
+        self.warning.setStyleSheet("background-color: rgb(255, 255, 0); color: black;")
         self.warning.setWordWrap(True)
         self.warning.setObjectName("warning")
         self.gridLayout.addWidget(self.warning, 0, 0, 1, 3)
@@ -142,7 +142,7 @@ class Ui_talentDialog(object):
     def retranslateUi(self, talentDialog):
         _translate = QtCore.QCoreApplication.translate
         talentDialog.setWindowTitle(_translate("talentDialog", "Sephrasto - Rüstung bearbeiten..."))
-        self.warning.setText(_translate("talentDialog", "Dies ist eine Ilaris-Standardrüstung. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für diese Rüstung keine automatischen Updates mehr mit neuen Sephrasto-Versionen."))
+        self.warning.setText(_translate("talentDialog", "<html><head/><body><p>Dies ist eine Ilaris-Standardrüstung. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in den Hausregeln gelöscht. Damit erhältst du für diese Rüstung keine automatischen Updates mehr mit neuen Sephrasto-Versionen.</p></body></html>"))
         self.label_7.setText(_translate("talentDialog", "Kopf"))
         self.label_3.setText(_translate("talentDialog", "Schildarm"))
         self.label.setText(_translate("talentDialog", "Name"))

@@ -140,7 +140,7 @@ class Ui_talentDialog(object):
         self.gridLayout.addLayout(self.horizontalLayout_12, 6, 2, 1, 1)
         self.warning = QtWidgets.QLabel(talentDialog)
         self.warning.setVisible(False)
-        self.warning.setStyleSheet("background-color: rgb(255, 255, 0);")
+        self.warning.setStyleSheet("background-color: rgb(255, 255, 0); color: black;")
         self.warning.setWordWrap(True)
         self.warning.setObjectName("warning")
         self.gridLayout.addWidget(self.warning, 0, 0, 1, 3)
@@ -203,7 +203,7 @@ class Ui_talentDialog(object):
         self.label_3.setText(_translate("talentDialog", "Attribute"))
         self.label_5.setText(_translate("talentDialog", "Beschreibung"))
         self.label_12.setText(_translate("talentDialog", "Sortierung"))
-        self.warning.setText(_translate("talentDialog", "Dies ist eine Ilaris-Standardfertigkeit. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für diese Fertigkeit keine automatischen Updates mehr mit neuen Sephrasto-Versionen."))
+        self.warning.setText(_translate("talentDialog", "<html><head/><body><p>Dies ist eine Ilaris-Standardfertigkeit. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in den Hausregeln gelöscht. Damit erhältst du für diese Fertigkeit keine automatischen Updates mehr mit neuen Sephrasto-Versionen.</p></body></html>"))
 
 
 if __name__ == "__main__":

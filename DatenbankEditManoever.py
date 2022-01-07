@@ -74,7 +74,7 @@ class Ui_manDialog(object):
         self.gridLayout.addWidget(self.gegenEdit, 3, 1, 1, 1)
         self.warning = QtWidgets.QLabel(manDialog)
         self.warning.setVisible(False)
-        self.warning.setStyleSheet("background-color: rgb(255, 255, 0);")
+        self.warning.setStyleSheet("background-color: rgb(255, 255, 0); color: black;")
         self.warning.setWordWrap(True)
         self.warning.setObjectName("warning")
         self.gridLayout.addWidget(self.warning, 0, 0, 1, 2)
@@ -115,7 +115,7 @@ class Ui_manDialog(object):
         self.comboTyp.setItemText(8, _translate("manDialog", "Weitere Kampfregeln"))
         self.comboTyp.setItemText(9, _translate("manDialog", "Profane Regeln"))
         self.label_6.setText(_translate("manDialog", "Typ"))
-        self.warning.setText(_translate("manDialog", "Dies ist ein Ilaris-Standardmanöver / eine Ilaris-Standardmodifikation. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für dieses Manöver / diese Modifikation keine automatischen Updates mehr mit neuen Sephrasto-Versionen."))
+        self.warning.setText(_translate("manDialog", "<html><head/><body><p>Dies ist ein Ilaris-Standardmanöver / eine Ilaris-Standardmodifikation. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in den Hausregeln gelöscht. Damit erhältst du für dieses Manöver / diese Modifikation keine automatischen Updates mehr mit neuen Sephrasto-Versionen.</p></body></html>"))
 
 
 if __name__ == "__main__":

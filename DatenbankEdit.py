@@ -150,7 +150,7 @@ class DatenbankEdit(object):
         self.listSelectionChanged()
     
     def updateWindowTitleAndCloseButton(self):
-        splitpath = self.savepath and os.path.split(self.savepath) or ["keine Nutzer-DB geladen"]
+        splitpath = self.savepath and os.path.split(self.savepath) or ["keine Hausregeln geladen"]
         self.Form.setWindowTitle(self.windowTitleDefault + " (" + splitpath[-1] + ")")
         self.ui.buttonCloseDB.setEnabled(self.savepath and True or False)
 

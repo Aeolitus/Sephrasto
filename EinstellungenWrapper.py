@@ -44,6 +44,7 @@ class EinstellungenWrapper():
         
         self.ui.checkUpdate.setChecked(not Wolke.Settings['UpdateCheck_Disable'])
         self.ui.comboLogging.setCurrentIndex(Wolke.Settings['Logging'])
+        self.ui.comboTheme.setCurrentText(Wolke.Settings['Theme'])
             
         self.ui.buttonChar.clicked.connect(self.setCharPath)
         self.ui.buttonRegeln.clicked.connect(self.setRulePath)
@@ -57,6 +58,8 @@ class EinstellungenWrapper():
         self.form.show()
         self.ret = self.form.exec_()
         if self.ret == QtWidgets.QDialog.Accepted:
+            needRestart = False
+
             Wolke.Settings['Bogen'] = self.ui.comboBogen.currentText()
             db = self.ui.comboRegelbasis.currentText()
             if db == 'Keine':
@@ -83,8 +86,10 @@ class EinstellungenWrapper():
             for checkbox in self.pluginCheckboxes:
                 if checkbox.isChecked() and (checkbox.text() in Wolke.Settings['Deaktivierte-Plugins']):
                     Wolke.Settings['Deaktivierte-Plugins'].remove(checkbox.text())
+                    needRestart = True
                 elif not checkbox.isChecked() and not (checkbox.text() in Wolke.Settings['Deaktivierte-Plugins']):
                     Wolke.Settings['Deaktivierte-Plugins'].append(checkbox.text())
+                    needRestart = True
               
             Wolke.Settings['UpdateCheck_Disable'] = not self.ui.checkUpdate.isChecked()
             Wolke.Settings['Logging'] = self.ui.comboLogging.currentIndex()
@@ -92,8 +97,24 @@ class EinstellungenWrapper():
             logging.getLogger().setLevel(loglevels[Wolke.Settings['Logging']])
             
             Wolke.Settings['PDF-Open'] = self.ui.checkPDFOpen.isChecked()
-            
+
+            if Wolke.Settings['Theme'] != self.ui.comboTheme.currentText():
+                Wolke.Settings['Theme'] = self.ui.comboTheme.currentText()
+                needRestart = True
+
             EinstellungenWrapper.save()
+
+            if needRestart:
+                messageBox = QtWidgets.QMessageBox()
+                messageBox.setIcon(QtWidgets.QMessageBox.Information)
+                messageBox.setWindowTitle("Sephrasto neustarten?")
+                messageBox.setText("Sephrasto muss bei Änderungen an Plugin- oder Theme-Einstellungen neugestartet werden.")
+                messageBox.addButton(QtWidgets.QPushButton("Neustarten"), QtWidgets.QMessageBox.YesRole)
+                messageBox.addButton(QtWidgets.QPushButton("Später"), QtWidgets.QMessageBox.RejectRole)
+                messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
+                result = messageBox.exec_()
+                if result == 0:
+                    os.execl(sys.executable, os.path.abspath(__file__), *sys.argv) 
 
     @staticmethod
     def getSettingsFolder():
@@ -164,31 +185,28 @@ class EinstellungenWrapper():
 
     def updatePluginCheckboxes(self):
         self.pluginCheckboxes = []
-        for i in reversed(range(self.ui.vlPlugins.count())): 
-            self.ui.vlPlugins.itemAt(i).widget().setParent(None)
+        for i in reversed(range(self.ui.gbPlugins.layout().count())): 
+            self.ui.gbPlugins.layout().itemAt(i).widget().setParent(None)
 
         pluginNames = PluginLoader.getPlugins("Plugins")
         if len(pluginNames) > 0:
-            self.ui.vlPlugins.addWidget(QtWidgets.QLabel("Offizielle Plugins:"))
+            self.ui.gbPlugins.layout().addWidget(QtWidgets.QLabel("Offizielle Plugins:"))
         for pluginName in pluginNames:
             check = QtWidgets.QCheckBox(pluginName)
             if not (pluginName in Wolke.Settings['Deaktivierte-Plugins']):
                 check.setChecked(True)
-            self.ui.vlPlugins.addWidget(check)
+            self.ui.gbPlugins.layout().addWidget(check)
             self.pluginCheckboxes.append(check)
 
         pluginNames = PluginLoader.getPlugins(self.ui.editPlugins.text())
         if len(pluginNames) > 0:
-            self.ui.vlPlugins.addWidget(QtWidgets.QLabel("Nutzer-Plugins:"))
+            self.ui.gbPlugins.layout().addWidget(QtWidgets.QLabel("Nutzer-Plugins:"))
         for pluginName in pluginNames:
             check = QtWidgets.QCheckBox(pluginName)
             if not (pluginName in Wolke.Settings['Deaktivierte-Plugins']):
                 check.setChecked(True)
-            self.ui.vlPlugins.addWidget(check)
+            self.ui.gbPlugins.layout().addWidget(check)
             self.pluginCheckboxes.append(check)
-
-        if len(pluginNames) > 0:
-            self.ui.vlPlugins.addWidget(QtWidgets.QLabel("(De-)Aktivieren erfordert einen Neustart!"))
 
     def comboBogenIndexChanged(self):
         self.ui.checkCheatsheet.setEnabled(self.ui.comboBogen.currentIndex() != 0)

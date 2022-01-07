@@ -22,6 +22,8 @@ import Version
 from EventBus import EventBus
 from PluginLoader import PluginLoader
 from UpdateChecker import UpdateChecker
+from PyQt5.QtGui import QPalette, QColor
+from PyQt5.QtWidgets import QToolTip
 
 loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
 logging.basicConfig(filename="sephrasto.log", \
@@ -76,18 +78,7 @@ class MainWindowWrapper(object):
         self.app = QtCore.QCoreApplication.instance()
         if self.app is None:
             self.app = QtWidgets.QApplication(sys.argv)
-        #self.app.setStyleSheet("*[readOnly=\"true\"] { background-color: #F5F5F5 } QAbstractScrollArea #scrollAreaWidgetContents { background-color: #FFFFFF }")
-        self.app.setStyleSheet("""
-        *[readOnly=\"true\"] 
-        { 
-            background-color: #FFFFFF;
-            border: none
-        } 
-        QAbstractScrollArea #scrollAreaWidgetContents 
-        { 
-            background-color: #FFFFFF 
-        }
-        """)
+
         self.Form = QtWidgets.QWidget()
         self.ui = MainWindow.Ui_Form()
         self.ui.setupUi(self.Form)
@@ -102,6 +93,8 @@ class MainWindowWrapper(object):
         # Get the Settings loaded
         EinstellungenWrapper.load()
         logging.getLogger().setLevel(loglevels[Wolke.Settings['Logging']])
+
+        self.updateTheme()
 
         UpdateChecker.checkForUpdate()
 
@@ -224,8 +217,78 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n")
             file = " - " + os.path.basename(self.ed.savepath)
         rules = ""
         if Wolke.DB.datei:
-           rules = " (" + os.path.basename(Wolke.DB.datei) + ")"
+           rules = " (" + os.path.splitext(os.path.basename(Wolke.DB.datei))[0] + ")"
         self.ed.formMain.setWindowTitle("Sephrasto" + file + rules)
+
+    def updateTheme(self):
+        style = Wolke.Settings['Theme']
+        if style == "Standard":
+            self.app.setStyle("windowsvista")
+            self.app.setStyleSheet("""
+            *[readOnly=\"true\"] 
+            { 
+                background-color: #FFFFFF;
+                border: none
+            } 
+            QAbstractScrollArea #scrollAreaWidgetContents 
+            { 
+                background-color: #FFFFFF 
+            }
+            """)
+            self.app.setPalette(self.app.style().standardPalette())
+            QToolTip.setPalette(self.app.style().standardPalette())
+        elif style == "Fusion Light":
+            self.app.setStyle('fusion')
+            self.app.setStyleSheet("""
+            *[readOnly=\"true\"] 
+            { 
+                background-color: #FFFFFF;
+                border: none
+            } 
+            QAbstractScrollArea #scrollAreaWidgetContents 
+            { 
+                background-color: #FFFFFF 
+            }
+            """)
+            palette = self.app.style().standardPalette()
+            palette.setColor(QPalette.ToolTipBase, QtCore.Qt.white)
+            palette.setColor(QPalette.ToolTipText, QtCore.Qt.black)
+            self.app.setPalette(palette)
+            QToolTip.setPalette(palette)
+        elif style == "Fusion Dark":
+            self.app.setStyle('fusion')
+            self.app.setStyleSheet("""
+            *[readOnly=\"true\"] 
+            { 
+                background-color: #434343;
+                border: none
+            } 
+            QAbstractScrollArea
+            { 
+                background-color: #434343;
+            }
+            """)
+            palette = QPalette()
+            palette.setColor(QPalette.Window, QColor(53, 53, 53))
+            palette.setColor(QPalette.WindowText, QtCore.Qt.white)
+            palette.setColor(QPalette.Base, QColor(25, 25, 25))
+            palette.setColor(QPalette.AlternateBase, QColor(53, 53, 53))
+            palette.setColor(QPalette.ToolTipBase, QtCore.Qt.black)
+            palette.setColor(QPalette.ToolTipText, QtCore.Qt.white)
+            palette.setColor(QPalette.Text, QtCore.Qt.white)
+            palette.setColor(QPalette.Button, QColor(53, 53, 53))
+            palette.setColor(QPalette.ButtonText, QtCore.Qt.white)
+            palette.setColor(QPalette.BrightText, QtCore.Qt.red)
+            palette.setColor(QPalette.Link, QColor(42, 130, 218))
+            palette.setColor(QPalette.Highlight, QColor(42, 130, 218))
+            palette.setColor(QPalette.HighlightedText, QtCore.Qt.black)
+            palette.setColor(QPalette.Active, QPalette.Button, QColor(53, 53, 53))
+            palette.setColor(QPalette.Disabled, QPalette.ButtonText, QtCore.Qt.darkGray)
+            palette.setColor(QPalette.Disabled, QPalette.WindowText, QtCore.Qt.darkGray)
+            palette.setColor(QPalette.Disabled, QPalette.Text, QtCore.Qt.darkGray)
+            palette.setColor(QPalette.Disabled, QPalette.HighlightedText, QtCore.Qt.darkGray)
+            self.app.setPalette(palette)
+            QToolTip.setPalette(palette)
         
 if __name__ == "__main__":
     itm = MainWindowWrapper()

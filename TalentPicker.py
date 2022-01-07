@@ -63,7 +63,6 @@ class TalentPicker(object):
             self.updateFields(self.model.item(0).data(QtCore.Qt.UserRole))
         self.ui.textKommentar.textChanged.connect(self.kommentarChanged)
         self.ui.spinKosten.valueChanged.connect(self.spinChanged)
-        self.ui.spinKosten.setStyleSheet("QSpinBox {background-color: #FFFFFF}")
         self.ui.listTalente.setModel(self.model)
         self.ui.listTalente.setFocus()
         self.ui.listTalente.setCurrentIndex(self.model.index(0, 0))

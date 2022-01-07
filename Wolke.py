@@ -22,7 +22,8 @@ class Wolke:
         'Logging': 1,
         'PDF-Open': False,
         'UpdateCheck_Disable' : False,
-        'UpdateCheck_DisableFor' : ''
+        'UpdateCheck_DisableFor' : '',
+        'Theme' : "Standard"
     }
     ErrorCode = {
          0: 'No Error. You really shouldnt be seeing this.',

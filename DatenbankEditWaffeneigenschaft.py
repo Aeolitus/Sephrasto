@@ -53,7 +53,7 @@ class Ui_waffeneigenschaftDialog(object):
         self.gridLayout.addLayout(self.horizontalLayout, 3, 1, 1, 1)
         self.warning = QtWidgets.QLabel(waffeneigenschaftDialog)
         self.warning.setVisible(False)
-        self.warning.setStyleSheet("background-color: rgb(255, 255, 0);")
+        self.warning.setStyleSheet("background-color: rgb(255, 255, 0); color: black;")
         self.warning.setWordWrap(True)
         self.warning.setObjectName("warning")
         self.gridLayout.addWidget(self.warning, 0, 0, 1, 2)
@@ -79,7 +79,7 @@ class Ui_waffeneigenschaftDialog(object):
         waffeneigenschaftDialog.setWindowTitle(_translate("waffeneigenschaftDialog", "Sephrasto - Waffeneigenschaft bearbeiten..."))
         self.label_3.setText(_translate("waffeneigenschaftDialog", "Script / Priorität"))
         self.label_5.setText(_translate("waffeneigenschaftDialog", "Beschreibung"))
-        self.warning.setText(_translate("waffeneigenschaftDialog", "Dies ist eine Ilaris-Standardwaffeneigenschaft. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in der aktuellen User-Regelbasis gelöscht. Damit erhältst du für diese Waffeneigenschaft keine automatischen Updates mehr mit neuen Sephrasto-Versionen."))
+        self.warning.setText(_translate("waffeneigenschaftDialog", "<html><head/><body><p>Dies ist eine Ilaris-Standardwaffeneigenschaft. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in den Hausregeln gelöscht. Damit erhältst du für diese Waffeneigenschaft keine automatischen Updates mehr mit neuen Sephrasto-Versionen.</p></body></html>"))
         self.label.setText(_translate("waffeneigenschaftDialog", "Name"))
 
 
