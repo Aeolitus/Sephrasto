@@ -477,37 +477,47 @@ class pdfMeister(object):
 
             base = 'Waffe' + str(count)
             fields[base + 'NA'] = el.anzeigename
-            sg = ""
-            if el.plus >= 0:
-                sg = "+"
 
-            keinSchaden = el.W6 == 0 and el.plus == 0
-            
-            fields[base + 'TP'] = "-" if keinSchaden else str(el.W6) + "W6" + sg + str(el.plus)
-            fields[base + 'HA'] = str(waffenwerte.Haerte)
-            fields[base + 'EI'] = ", ".join(el.eigenschaften)
-
-            fields[base + 'ATm'] = str(waffenwerte.AT)
-
-            vtErlaubt = not (type(el) == Objekte.Fernkampfwaffe or (el.name in Wolke.DB.waffen and Wolke.DB.waffen[el.name].talent == 'Lanzenreiten'))
-            vtErlaubt = EventBus.applyFilter("waffe_vt_erlaubt", vtErlaubt, { "waffe" : el })
-            if vtErlaubt:
-                fields[base + 'VTm'] = str(waffenwerte.VT)
+            if not el.name and not el.anzeigename:
+                fields[base + 'TP'] = ""
+                fields[base + 'HA'] = ""
+                fields[base + 'EI'] = ""
+                fields[base + 'ATm'] = ""
+                fields[base + 'VTm'] = ""
+                fields[base + 'RW'] = ""
+                fields[base + 'WM'] = ""
+                fields[base + 'TPm'] = ""
             else:
-                fields[base + 'VTm'] = "-"
+                sg = ""
+                if el.plus >= 0:
+                    sg = "+"
 
-            fields[base + 'RW'] = str(waffenwerte.RW)
+                keinSchaden = el.W6 == 0 and el.plus == 0
+                fields[base + 'TP'] = "-" if keinSchaden else str(el.W6) + "W6" + sg + str(el.plus)
+                fields[base + 'HA'] = str(waffenwerte.Haerte)
+                fields[base + 'EI'] = ", ".join(el.eigenschaften)
 
-            wm = str(el.wm)
-            if type(el) == Objekte.Fernkampfwaffe:
-                wm = wm + " / " + str(el.lz)
+                fields[base + 'ATm'] = str(waffenwerte.AT)
 
-            fields[base + 'WM'] = wm
+                vtErlaubt = not (type(el) == Objekte.Fernkampfwaffe or (el.name in Wolke.DB.waffen and Wolke.DB.waffen[el.name].talent == 'Lanzenreiten'))
+                vtErlaubt = EventBus.applyFilter("waffe_vt_erlaubt", vtErlaubt, { "waffe" : el })
+                if vtErlaubt:
+                    fields[base + 'VTm'] = str(waffenwerte.VT)
+                else:
+                    fields[base + 'VTm'] = "-"
 
-            sg = ""
-            if waffenwerte.TPPlus >= 0:
-                sg = "+"
-            fields[base + 'TPm'] = "-" if keinSchaden else str(waffenwerte.TPW6) + "W6" + sg + str(waffenwerte.TPPlus)
+                fields[base + 'RW'] = str(waffenwerte.RW)
+
+                wm = str(el.wm)
+                if type(el) == Objekte.Fernkampfwaffe:
+                    wm = wm + " / " + str(el.lz)
+
+                fields[base + 'WM'] = wm
+
+                sg = ""
+                if waffenwerte.TPPlus >= 0:
+                    sg = "+"
+                fields[base + 'TPm'] = "-" if keinSchaden else str(waffenwerte.TPW6) + "W6" + sg + str(waffenwerte.TPPlus)
 
             if count >= 8:
                 break

@@ -345,38 +345,8 @@
          </size>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>-1</number>
         </property>
-        <item>
-         <property name="text">
-          <string>Beidhändiger Kampf</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Parierwaffenkampf</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Reiterkampf</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Schildkampf</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Kraftvoller Kampf</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Schneller Kampf</string>
-         </property>
-        </item>
        </widget>
       </item>
       <item row="5" column="10">
@@ -1517,7 +1487,7 @@
       <item row="12" column="2">
        <widget class="QLabel" name="labelW8typ">
         <property name="text">
-         <string>Unbewaffnet</string>
+         <string/>
         </property>
         <property name="margin">
          <number>2</number>
@@ -1556,7 +1526,7 @@
            <enum>QAbstractSpinBox::NoButtons</enum>
           </property>
           <property name="value">
-           <number>1</number>
+           <number>0</number>
           </property>
          </widget>
         </item>
@@ -1706,7 +1676,7 @@
       <item row="12" column="8">
        <widget class="QLineEdit" name="editW8eig">
         <property name="text">
-         <string>Stumpf, Zerbrechlich, kein Malus als Nebenwaffe</string>
+         <string/>
         </property>
         <property name="readOnly">
          <bool>false</bool>
@@ -2490,7 +2460,7 @@
       <item row="12" column="0" colspan="2">
        <widget class="QLineEdit" name="editW8name">
         <property name="text">
-         <string>Unbewaffnet</string>
+         <string/>
         </property>
         <property name="readOnly">
          <bool>false</bool>
