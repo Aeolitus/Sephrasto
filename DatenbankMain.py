@@ -178,7 +178,7 @@ class Ui_Form(object):
         self.showRuestungen.setText(_translate("Form", "Rüstungen"))
         self.showWaffen.setText(_translate("Form", "Waffen"))
         self.showWaffeneigenschaften.setText(_translate("Form", "Waffeneigenschaften"))
-        self.showManoever.setText(_translate("Form", "Manöver / Modifikationen"))
+        self.showManoever.setText(_translate("Form", "Manöver / Modifikation / Regel"))
         self.labelParameter1.setText(_translate("Form", "Filter nach Status:"))
         self.showDeleted.setText(_translate("Form", "Gelöschte Standardelemente"))
         self.showUserAdded.setText(_translate("Form", "Nur eigene Änderungen"))

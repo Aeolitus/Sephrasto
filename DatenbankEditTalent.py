@@ -172,7 +172,7 @@ class Ui_talentDialog(object):
         self.buttonSpezial.setText(_translate("talentDialog", "Spezialtalent (Kosten frei wählbar)"))
         self.spinKosten.setSuffix(_translate("talentDialog", " EP"))
         self.checkVariable.setText(_translate("talentDialog", "Kosten sind variabel"))
-        self.label_7.setText(_translate("talentDialog", "Cheatsheet"))
+        self.label_7.setText(_translate("talentDialog", "Regelanhang"))
         self.checkCheatsheet.setText(_translate("talentDialog", "Auflisten"))
 
 

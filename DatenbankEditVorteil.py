@@ -199,7 +199,7 @@ class Ui_talentDialog(object):
     def retranslateUi(self, talentDialog):
         _translate = QtCore.QCoreApplication.translate
         talentDialog.setWindowTitle(_translate("talentDialog", "Sephrasto - Vorteil bearbeiten..."))
-        self.label_10.setText(_translate("talentDialog", "Cheatsheet"))
+        self.label_10.setText(_translate("talentDialog", "Regelanhang"))
         self.checkVariable.setText(_translate("talentDialog", "Kosten sind Variabel"))
         self.kostenEdit.setSuffix(_translate("talentDialog", " EP"))
         self.label_8.setText(_translate("talentDialog", "Alternative Beschreibung (optional)"))
