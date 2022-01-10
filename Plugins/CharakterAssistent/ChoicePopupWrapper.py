@@ -15,8 +15,6 @@ class ChoicePopupWrapper(object):
         self.ui.setupUi(self.formMain)
         self.formMain.setWindowTitle(self.formMain.windowTitle() + " (" + windowTitle + ")")
         self.setupMainForm(choiceList)
-        self.formMain.show()
-
         self.formMain.setWindowModality(QtCore.Qt.ApplicationModal)
         self.formMain.show()
         self.ret = self.formMain.exec_()

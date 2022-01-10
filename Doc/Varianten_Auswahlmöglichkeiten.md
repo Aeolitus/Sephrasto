@@ -1,7 +1,7 @@
 [Hilfe](Help.md) > Charakter Assistent - Varianten und Auswahlmöglichkeiten
 
 # Charakter Assistent - Varianten und Auswahlmöglichkeiten
-Es ist möglich, dem Nutzer Auswahlmöglichkeiten via Popup anzubieten. Dies ist eine zweite XML-Datei, die gleich benannt ist, wie die jeweilige S/K/P, enthält aber zusätzlich "_var" am Ende, z.B. "Halbelf_var.xml". Diese Datei muss leider von Hand geschrieben werden. Es folgen einige Beispiele, weitere können im Ilaris Advanced Baukasten gefunden werden.
+Es ist möglich, dem Nutzer Auswahlmöglichkeiten via Popup anzubieten. Dies ist eine zweite XML-Datei, die gleich benannt ist, wie die jeweilige S/K/P, enthält aber zusätzlich "_var" am Ende, z.B. "Halbelf_var.xml". Diese Datei muss leider von Hand geschrieben werden. Die Dateien können auf Korrektheit überprüft werden, indem das Logging-Level in den Sephrasto-Einstellungen auf Debugging-Informationen gestellt wird - Fehler werden dann in sephrasto.log ausgegeben. Es folgen einige Beispiele, weitere können im Ilaris Advanced Baukasten gefunden werden.
 <br />
 <br />
 **Beispiel 1:**

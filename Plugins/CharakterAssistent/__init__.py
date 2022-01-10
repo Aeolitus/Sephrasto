@@ -20,8 +20,17 @@ class Plugin:
         if not params["neu"]:
             return
         self.ed = WizardWrapper.WizardWrapper()
-        self.ed.formMain = QtWidgets.QWidget()
+
+        self.ed.formMain = QtWidgets.QDialog()
+        self.ed.formMain .setWindowFlags(
+                QtCore.Qt.Window |
+                QtCore.Qt.CustomizeWindowHint |
+                QtCore.Qt.WindowTitleHint |
+                QtCore.Qt.WindowCloseButtonHint)
+
         self.ed.ui = Wizard.Ui_formMain()
         self.ed.ui.setupUi(self.ed.formMain)
         self.ed.setupMainForm()
+        self.ed.formMain.setWindowModality(QtCore.Qt.ApplicationModal)
         self.ed.formMain.show()
+        self.ed.formMain.exec_()

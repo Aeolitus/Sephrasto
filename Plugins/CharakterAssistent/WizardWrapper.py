@@ -76,8 +76,9 @@ class WizardWrapper(object):
                         index = 1
                         fileName = fileName[:-4]
 
-                        logging.debug("CharakterAssistent: Verifiziere " + path)
-                        CharakterMerger.readChoices(path) #uncomment to print log warnings for entire data folder on char creation
+                        if logging.root.level == logging.DEBUG:
+                            logging.debug("CharakterAssistent: Verifiziere " + path)
+                            CharakterMerger.readChoices(path) # print log warnings for entire data folder on char creation
                     elif appendEP:
                         root = etree.parse(path).getroot()
                         fileName += " | " + root.find('Erfahrung/EPspent').text + " EP"
