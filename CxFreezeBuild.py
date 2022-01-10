@@ -10,12 +10,14 @@ build_path_root = os.path.join(dir_path, "Build")
 build_path = os.path.join(build_path_root, "Sephrasto")
 platforms_path = os.path.join(build_path, "platforms")
 styles_path = os.path.join(build_path, "styles")
+doc_path = os.path.join(build_path, "Doc")
 env_python_path = os.path.dirname(sys.executable)
 env_plugins_path = os.path.join(env_python_path, "Lib", "site-packages", "PyQt5", "Qt5", "plugins")
 env_styles_path = os.path.join(env_plugins_path, "styles")
 env_platforms_path = os.path.join(env_plugins_path, "platforms")
 env_bin_path = os.path.join(env_python_path, "Lib", "site-packages", "PyQt5", "Qt5", "bin")
 
+# Clean buildfolder and create build root folder
 def cleanBuildFolder():
     for filename in os.listdir(build_path_root):
         filepath = os.path.join(build_path_root, filename)
@@ -30,6 +32,7 @@ if os.path.exists(build_path_root):
 else:
     os.makedirs(build_path)
 
+# Run cxfreeze to create the executable
 print("Running cxfreeze")
 build_exe_options = {
     "build_exe" : build_path,
@@ -50,8 +53,7 @@ setup(  name = 'Sephrasto',
         options = {"build_exe" : build_exe_options },
         executables = [Executable("Sephrasto.py", base=base, icon="icon_multi.ico")])
         
-
-
+# Remove unneeded files
 print("Removing unneeded files")
 removeFiles = [
     "imageFormats"
@@ -66,7 +68,7 @@ for filename in removeFiles:
         except OSError:
             os.remove(filepath)
 
-
+# Copy additional files to build folder
 print("Copying additional files to build folder")
 
 includeFiles = {
@@ -78,13 +80,17 @@ includeFiles = {
     "ExtraSpells.pdf" : build_path,
     "icon_large.png" : build_path,
     "icon_multi.ico" : build_path,
-    "ScriptAPI.md" : build_path,
-    "PluginAPI.md" : build_path,
     os.path.join(env_styles_path, "qwindowsvistastyle.dll"): styles_path,
     os.path.join(env_bin_path, "libEGL.dll"): build_path,
 }
 
-#beware, subfolders are not included
+# Include documentation
+for file in os.listdir(os.path.join(dir_path, "Doc")):
+    fullPath = os.path.join(dir_path, "Doc", file)
+    if os.path.isfile(fullPath):
+        includeFiles[fullPath] = os.path.join(build_path, "Doc")
+
+# Include plugins (beware, subfolders are not included)
 def includePlugin(name):
     path = os.path.join(dir_path, "Plugins", name)
     if not os.path.isdir(path):
@@ -101,6 +107,7 @@ for dirName in os.listdir(os.path.join(dir_path, "Plugins")):
     if os.path.isdir(os.path.join(dir_path, "Plugins", dirName)):
         includePlugin(dirName)
 
+# Now do the actual copying
 for file,targetDir in includeFiles.items():
     print(file)
     if not os.path.exists(targetDir):
@@ -115,6 +122,7 @@ for file,targetDir in includeFiles.items():
     else:
         shutil.copytree(file, os.path.join(targetDir, os.path.basename(file)))
 
+# Zip the build
 archiveName = "Sephrasto_v" + str(Version._sephrasto_version_major) + "." + str(Version._sephrasto_version_minor) + "." + str(Version._sephrasto_version_build)
 print("Creating archive " + archiveName + ".zip")
 

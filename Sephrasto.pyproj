@@ -75,6 +75,8 @@
     <Compile Include="DatenbankSelectTypeWrapper.py" />
     <Compile Include="Definitionen.py" />
     <Compile Include="Fertigkeiten.py" />
+    <Compile Include="Hilfe.py" />
+    <Compile Include="HilfeWrapper.py" />
     <Compile Include="Hilfsmethoden.py" />
     <Compile Include="MainWindow.py" />
     <Compile Include="MousewheelProtector.py" />

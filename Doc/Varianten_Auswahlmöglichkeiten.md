@@ -1,8 +1,9 @@
+[Hilfe](Help.md) > Charakter Assistent - Varianten und Auswahlmöglichkeiten
 
-# Varianten und Auswahlmöglichkeiten
-
+# Charakter Assistent - Varianten und Auswahlmöglichkeiten
 Es ist möglich, dem Nutzer Auswahlmöglichkeiten via Popup anzubieten. Dies ist eine zweite XML-Datei, die gleich benannt ist, wie die jeweilige S/K/P, enthält aber zusätzlich "_var" am Ende, z.B. "Halbelf_var.xml". Diese Datei muss leider von Hand geschrieben werden. Es folgen einige Beispiele, weitere können im Ilaris Advanced Baukasten gefunden werden.
-
+<br />
+<br />
 **Beispiel 1:**
 
 ```
@@ -27,7 +28,8 @@ Es ist möglich, dem Nutzer Auswahlmöglichkeiten via Popup anzubieten. Dies ist
 
 Es erscheint ein Popup, bei dem der Nutzer sich zwischen KK +3, Schusswaffen +2, etc. entscheiden muss. Die Attribute "wert" und "kommentar" werden nur bei Talenten und Vorteilen mit variablen Kosten benötigt.
 Danach erscheint ein weiteres Popup, bei dem er sich zwischen Schusswaffen +1 und Athletik +2 entscheiden muss. Hat er bei der ersten Auswahl bereits Schusswaffen gewählt, so wird diese Fertigkeit aus Folge-Auswahlen entfernt. Da in diesem Fall die zweite Auswhal nur noch Athletik +2 enthält, wird dies automatisch appliziert und es erscheint kein zweites Popup.
-
+<br />
+<br />
 **Beispiel 2, Spezies Halbelf:**
 
 ```
@@ -59,7 +61,8 @@ Danach erscheint ein weiteres Popup, bei dem er sich zwischen Schusswaffen +1 un
 Eine Variante kann nur in einem Varianten-Element existieren. Sie verhält sich gleich wie eine Auswahl, nur werden alle Child-Elemente appliziert. Es erscheint ein Popup, bei dem der Nutzer die drei Varianten Firnelfische, Nivesische und Thorwalsche Abstammung zur Auswahl erhält, hierbei kann er auch keine oder mehrere auswählen.
 Die erste Auswahl hat nur ein Element, zeigt also niemals ein Popup. Durch das Attribut "keine-varianten" wird Gut Aussehend allerdings nur appliziert, wenn nicht die Variante an Index 0 (Firnelfische Abstammung) oder 1 (Nivesische Abstammung) ausgewählt wurde. Es wird auch dann appliziert, wenn garkeine Variante ausgewählt wurde.
 Die zweite Auswahl ist nur aktiv, wenn die Variante an Index 2 (Thorwalsche Abstammung) gewählt wurde - nur dann erscheint ein Popup, bei dem der Nutzer sich zwischen Selbstbeherrschung und Athletik entscheiden muss. Innerhalb von "Variante" ist keine Auswahl möglich (Variante appliziert immer alle Elemente) - mit dieser Methode können auch Varianten Auswahlmöglichkeiten bieten.
-
+<br />
+<br />
 **Beispiel 3, Spezies Orks:**
 ```
 <Charakter>

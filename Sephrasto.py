@@ -18,6 +18,7 @@ import DatenbankMain
 from Wolke import Wolke
 import yaml
 from EinstellungenWrapper import EinstellungenWrapper
+from HilfeWrapper import HilfeWrapper
 import Version
 from EventBus import EventBus
 from PluginLoader import PluginLoader
@@ -86,6 +87,7 @@ class MainWindowWrapper(object):
         self.ui.buttonEdit.clicked.connect(self.editExisting)
         self.ui.buttonRules.clicked.connect(self.editRuleset)
         self.ui.buttonSettings.clicked.connect(self.editSettings)
+        self.ui.buttonHelp.clicked.connect(self.help)
         self.ui.labelVersion.setText(self._version_ + " - by Aeolitus ")
 
         self.app.setWindowIcon(QtGui.QIcon('icon_large.png'))
@@ -136,10 +138,10 @@ class MainWindowWrapper(object):
         '''
         Creates a new CharakterEditor which is empty and shows it.
         '''
-        EventBus.doAction("charaktereditor_oeffnet", { "neu" : True, "filepath" : "" })
         self.ed = CharakterEditor.Editor(self.savePathUpdated)
         if self.ed.noDatabase:
             raise Exception("Konnte datenbank.xml nicht finden")
+        EventBus.doAction("charaktereditor_oeffnet", { "neu" : True, "filepath" : "" })
         self.ed.formMain = QtWidgets.QWidget()
         self.ed.ui = CharakterMain.Ui_formMain()
         self.ed.ui.setupUi(self.ed.formMain)
@@ -210,6 +212,13 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n")
         
     def editSettings(self):
         EinstellungenWrapper()
+
+    def help(self):
+        if not hasattr(self, "hilfe"):
+            self.hilfe = HilfeWrapper()
+        else:
+            self.hilfe.form.show()
+            self.hilfe.form.activateWindow()
 
     def savePathUpdated(self):
         file = " - Neuer Charakter"

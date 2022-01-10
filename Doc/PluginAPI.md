@@ -1,17 +1,18 @@
+[Hilfe](Help.md) > Eigene Plugins schreiben
 
-# Plugin API
-
-## Was kann ich mit Plugins machen?
-Plugins haben vollen Zugriff auf alle Sephrasto-Dateien und können Objekt-Zustände auslesen oder verändern. Für Nutzer-Interaktion können dem Hauptfenster Buttons und dem Charaktereditor Tabs hinzugefügt werden, die mittels Qt eigene UIs darstellen können. Um über künftige Sephrasto-Versionen hinweg und mit anderen Plugins kompatibel zu bleiben, sollten Plugins nach Möglichkeit nur über soganannte Actions und Filter mit Sephrasto interagieren und sonst nur lesend auf die Sephrasto-Objekte zugreifen.
-
+# Eigene Plugins schreiben
+Durch die Plugin-Unterstützung kannst du tiefgehende Veränderungen an Sephrasto vornehmen, z.B. den Charaktereditor anpassen oder Berechnungen verändern. Plugins haben vollen Zugriff auf alle Sephrasto-Dateien und können Objekt-Zustände auslesen oder verändern. Für Nutzer-Interaktion können dem Hauptfenster Buttons und dem Charaktereditor Tabs hinzugefügt werden, die mittels Qt eigene UIs darstellen können. Um über künftige Sephrasto-Versionen hinweg und mit anderen Plugins kompatibel zu bleiben, sollten Plugins nach Möglichkeit nur über soganannte Actions und Filter mit Sephrasto interagieren und sonst nur lesend auf die Sephrasto-Objekte zugreifen.
+<br />
 ## Vorbereitung
 Theoretisch brauchst du nicht mehr als Notepad um loslegen zu können. Kleine Dinge wie die EP-Kosten für AsP oder die Anzahl der kostenlosen freien Fertigkeiten anzupassen geht so ohne Probleme. Sobald du aber etwas aufwändigere Dinge tun möchtest, insbesondere eigene Tabs/Fenster einbauen, solltest du Qt Creator, Python und eine Entwicklungsumgebung installieren und das Sephrasto-Repository klonen, siehe hier: https://github.com/Aeolitus/Sephrasto/blob/master/README.md
-
+<br />
 ## Actions und Filter
 Actions und Filter können verwendet werden auf Vorgänge zu reagieren oder Daten zu manipulieren. Das System funktioniert über die statische EventBus-Klasse. Actions und Filter haben beide als ersten Parameter immer den Namen, der natürlich einzigartig sein sollte. Um Actions oder Filter zu "abonnieren" muss neben dem Namen als zweiter Parameter immer ein Handler/Callback mitgereicht werden.
-
+<br />
+<br />
 __Actions__ sind einfache Nachrichten, die optional mit einem Parameter-Dictionary versendet werden können.
-
+<br />
+<br />
 __Action absenden:__
 ```python
 EventBus.doAction("charaktereditor_oeffnet", { "neu" : False })
@@ -24,7 +25,8 @@ def charakterEditorOeffnet(self, params):
 ```
 
 __Filter__ haben beim Absender als zweiten Parameter immer einen Wert, der durch den Handler modifiziert werden kann und returned werden muss. Optional kann als dritter Parameter ein Parameter-Dictionary mitgesendet werden. Da der zu filternde Wert durch mehrere Handler laufen kann, spielt die Reihenfolge der Filter eine Rolle. Daher kann beim Abonnieren zusätzlich eine Priorität hinzugefügt werden - je niedriger die Zahl, desto früher wird der Filter aufgerufen (default: 0).
-
+<br />
+<br />
 __Filter absenden:__
 ```python
 val = EventBus.applyFilter("talent_kosten", val, { "talent": tal })
@@ -38,71 +40,71 @@ def talentKostenFilter(self, val, params):
 ```
 
 ## Vorhandene Actions
-- "charakter_geladen" (Parameter: { "neu" : bool, "filepath" : string })
+- "charakter_geladen" (Parameter: { "neu" : bool, "filepath" : string })<br />
 Zweck: Beliebige Aktion durchführen, nachdem der Charakter vollständig initialisiert wurde. Der neu Parameter enthält die Information, ob es sich um einen neuen Charakter handelt. Der filepath Parameter enthält den Pfad der Charakterdatei oder einen leeren string, falls ein neuer Charakter erstellt wurde.
-- "charaktereditor_oeffnet" (Parameter: { "neu" : bool, "filepath" : string })
+- "charaktereditor_oeffnet" (Parameter: { "neu" : bool, "filepath" : string })<br />
 Zweck: Form und Wrapper für eigene Charakter-Editor Tabs initialisieren. Der neu Parameter enthält die Information, ob es sich um einen neuen Charakter handelt. Der filepath Parameter enthält den Pfad der Charakterdatei oder einen leeren string, falls ein neuer Charakter erstellt wird.
-- "charaktereditor_geoeffnet" (Parameter: { "neu" : bool, "filepath" : string })
+- "charaktereditor_geoeffnet" (Parameter: { "neu" : bool, "filepath" : string })<br />
 Zweck: Beliebige Aktion durchführen, nachdem der CharakterEditor vollständig initialisiert wurde. Der neu Parameter enthält die Information, ob es sich um einen neuen Charakter handelt. Der filepath Parameter enthält den Pfad der Charakterdatei oder einen leeren string, falls ein neuer Charakter erstellt wurde.
-- "charaktereditor_reload"
+- "charaktereditor_reload"<br />
 Zweck: Alle tabs des Charaktereditors neu initialisieren.
-- "charaktereditor_modified"
+- "charaktereditor_modified"<br />
 Zweck: Der Charaktereditor wird beim Schließen ggf. ein Popup anzeigen, das über ungespeicherte Änderungen mitteilt
-- "plugins_geladen"
+- "plugins_geladen"<br />
 Zweck: Nach dieser Action sind alle Plugins initialisiert. Kann verwendet werden um mit anderen Plugins zu kommunizieren, um z.B. mit einer Action andere Plugins darüber in Kenntnis zu setzen, dass dieses Plugin vorhanden ist.
-- "pre_charakter_aktualisieren"
+- "pre_charakter_aktualisieren"<br />
 Zweck: Beliebige Aktion durchführen, nachdem die Charakterwerte in irgendeiner Form modifiziert wurden, aber bevor die Veränderungen berechnet werden.
-- "post_charakter_aktualisieren"
+- "post_charakter_aktualisieren"<br />
 Zweck: Beliebige Aktion durchführen, nachdem die Charakterwerte in irgendeiner Form modifiziert und berechnet wurden.
-- "vorteil_entfernt"  (Parameter:  { "name" : string })
+- "vorteil_entfernt"  (Parameter:  { "name" : string })<br />
 Zweck: Aktionen durchführen, die nicht mit der Vorteil-Script-API möglich sind. Der Parameter enthält den Namen des Vorteils.
-- "vorteil_gekauft"  (Parameter: { "name" : string })
+- "vorteil_gekauft"  (Parameter: { "name" : string })<br />
 Zweck: Aktionen durchführen, die nicht mit der Vorteil-Script-API möglich sind. Der Parameter enthält den Namen des Vorteils.
-- "pdf_geschrieben" (Parameter: { "filename" : string })
+- "pdf_geschrieben" (Parameter: { "filename" : string })<br />
 Zweck: Aktion durchführen, nachdem die Charakter-PDF geschrieben wurde, z.B. eine weitere PDF schreiben. Der Parameter enthält den Dateinamen der Charakter-PDF mit absolutem Pfad.
-
+<br />
 ## Vorhandene Filter
-- "pdf_export" (Filter: pdfFields : dict)
+- "pdf_export" (Filter: pdfFields : dict)<br />
 Zweck: von Sephrasto generierte PDF-Felder vor dem Exportieren der PDF modifizieren
-- "charakter_xml_laden" (Filter: xmlRoot : etree.Element)
+- "charakter_xml_laden" (Filter: xmlRoot : etree.Element)<br />
 Zweck: Daten aus der Charakterdatei auslesen oder modifizieren, bevor Sephrasto sie liest.
-- "charakter_xml_schreiben" (Filter: xmlRoot : etree.Element)
+- "charakter_xml_schreiben" (Filter: xmlRoot : etree.Element)<br />
 Zweck: Der Charakterdatei Daten hinzufügen oder Daten modifizieren, bevor Sephrasto die Datei schreibt.
-- "freiefertigkeit_num_kostenlos" (Filter: num : int)
+- "freiefertigkeit_num_kostenlos" (Filter: num : int)<br />
 Zweck: Die Anzahl der kostenlosen Freien Fertigkeiten modifizieren
-- "set_charakterbogen" (Filter: charakterBogen : CharakterBogenInfo)
+- "set_charakterbogen" (Filter: charakterBogen : CharakterBogenInfo)<br />
 Zweck: Den vom Nutzer gewählten Charakterbogen modifizieren, z.B. den Pfad der Datei anpassen um einen Charakterbogen aus dem Plugin zu verwenden.
-- "asp_kosten" (Filter: kosten: int, Parameter: { "wert" : int }).
+- "asp_kosten" (Filter: kosten: int, Parameter: { "wert" : int })<br />
 Zweck: Die Kosten für AsP-Steigerungen anpassen. Der Parameter enthält die Anzahl zugekaufter AsP.
-- "kap_kosten" (Filter: kosten: int, Parameter: { "wert" : int })
+- "kap_kosten" (Filter: kosten: int, Parameter: { "wert" : int })<br />
 Zweck: Die Kosten für KaP-Steigerungen anpassen. Der Parameter enthält die Anzahl zugekaufter KaP.
-- "attribut_kosten" (Filter: kosten: int, Parameter: { "attribut" : string, "wert" : int })
+- "attribut_kosten" (Filter: kosten: int, Parameter: { "attribut" : string, "wert" : int })<br />
 Zweck: Die Kosten für Attributs-Steigerungen anpassen. Die Parameter enthalten den Namen des Attributs und dessen Wert.
-- "freiefertigkeit_kosten" (Filter: kosten: int, Parameter: { "name" : string, "wert" : int })
+- "freiefertigkeit_kosten" (Filter: kosten: int, Parameter: { "name" : string, "wert" : int })<br />
 Zweck: Die Kosten für freie Fertigkeiten anpassen. Die Parameter enthalten den Namen der freien Fertigkeit und die Stufe.
-- "talent_kosten" (Filter: kosten: int, Parameter: { "talent" : string })
+- "talent_kosten" (Filter: kosten: int, Parameter: { "talent" : string })<br />
 Zweck: Die Kosten für Talente anpassen. Der Parameter enthält den Namen des Talents.
-- "waffe_haerte_wsstern" (Filter: applizieren: bool, Parameter: { "waffe" : Waffe })
+- "waffe_haerte_wsstern" (Filter: applizieren: bool, Parameter: { "waffe" : Waffe })<br />
 Zweck: Bei bestimmten Waffen die Härte auf WS* setzen oder dies verhindern. Default: wird bei der Waffe Unbewaffnet appliziert. Der Parameter enthält das Waffe-Objekt (siehe Objekte.py), um das es geht.
-- "waffe_vt_erlaubt" (Filter: vtErlaubt: bool, Parameter: { "waffe" : Waffe })
+- "waffe_vt_erlaubt" (Filter: vtErlaubt: bool, Parameter: { "waffe" : Waffe })<br />
 Zweck: Bei bestimmten Waffen die VT erlauben oder nicht erlauben (= in der PDF auf "-" setzen). Default: wird bei Fernkampfwaffen und Lanzenreiten nicht erlaubt. Der Parameter enthält das Waffe-Objekt (siehe Objekte.py), um das es geht.
-- "waffe_schadensbonus_wirkt" (Filter: wirkt: bool, Parameter: { "waffe" : Waffe })
+- "waffe_schadensbonus_wirkt" (Filter: wirkt: bool, Parameter: { "waffe" : Waffe })<br />
 Zweck: Bei bestimmten Waffen den Schadensbonus applizieren oder entfernen. Default: wirkt bei Nahkampfwaffen. Der Parameter enthält das Waffe-Objekt (siehe Objekte.py), um das es geht.
-- "ruestung_be" (Filter: be: int, Parameter: { "name" : string })
+- "ruestung_be" (Filter: be: int, Parameter: { "name" : string })<br />
 Zweck: Die BE einer Rüstung des Rüstungauswahlfensters anpassen. Achtung: Da Rüstungen ergänzt werden können und die Namen dann konkateniert werden, sollte der name via "in" abgefragt werden (bspw. if "Leichte Platte" in name).
-- "format_freiefertigkeit_name" (Filter: name: string)
+- "format_freiefertigkeit_name" (Filter: name: string)<br />
 Zweck: Die Namen der Freie Fertigkeiten-Auswahlliste anpassen, bevor sie in ein Freie Fertigkeiten-Feld eingtragen werden.
 - Die folgenden Filter haben alle eine Gemeinsamkeit:  Der Filterwert ist eine Wrapperklasse eines der UI-Tabs. Im Filter kann der Wrapper komplett ersetzt oder beerbt werden, um die Sephrasto-UI anzupassen.
--- "class_beschreibung_wrapper" (Filter: BeschrWrapper : class)
--- "class_attribute_wrapper" (Filter: AttrWrapper : class)
--- "class_fertigkeiten_wrapper" (Filter: FertigkeitenWrapper : class)
--- "class_freiefertigkeiten_wrapper" (Filter: CharakterFreieFertWrapper : class)
--- "class_uebernatuerlichefertigkeiten_wrapper" (Filter: UebernatuerlichWrapper : class)
--- "class_ausruestung_wrapper" (Filter: EquipWrapper : class)
--- "class_vorteile_wrapper" (Filter: CharakterVorteileWrapper : class)
--- "class_items_wrapper" (Filter: CharakterItemsWrapper : class)
--- "class_ep_wrapper" (Filter: EPWrapper : class)
--- "class_notiz_wrapper" (Filter: CharakterNotizWrapper : class)
+	* "class_beschreibung_wrapper" (Filter: BeschrWrapper : class)
+	* "class_attribute_wrapper" (Filter: AttrWrapper : class)
+	* "class_fertigkeiten_wrapper" (Filter: FertigkeitenWrapper : class)
+	* "class_freiefertigkeiten_wrapper" (Filter: CharakterFreieFertWrapper : class)
+	* "class_uebernatuerlichefertigkeiten_wrapper" (Filter: UebernatuerlichWrapper : class)
+	* "class_ausruestung_wrapper" (Filter: EquipWrapper : class)
+	* "class_vorteile_wrapper" (Filter: CharakterVorteileWrapper : class)
+	* "class_items_wrapper" (Filter: CharakterItemsWrapper : class)
+	* "class_ep_wrapper" (Filter: EPWrapper : class)
+	* "class_notiz_wrapper" (Filter: CharakterNotizWrapper : class)
 
 ## Neues Plugin erstellen
 - Gehe in deinen `Dokumente/Sephrasto/Plugins` Ordner
@@ -110,7 +112,7 @@ Zweck: Die Namen der Freie Fertigkeiten-Auswahlliste anpassen, bevor sie in ein 
 - Erstelle in diesem Ordner eine Datei mit dem Namen `__init__.py`
 - Erstelle in dieser Datei eine Klasse mit dem Namen `Plugin` und importiere den `EventBus`
 - Falls du Action oder Filter Handler registrieren möchtest, stelle sicher, dass sie über die gesamte Programm-Dauer bestehen bleiben. Vermeide es also beispielsweise Handler in einem UI Wrapper zu registrieren, den du jedes mal neu erstellst, wenn ein neuer Charakter geladen wird oder ein Hauptfenster-Button geclickt wird. Stattdessen kannst du den Handler in deiner `__init__.py` registrieren und dann eine Funktion auf dem aktuellen Wrapper aufrufen.
-
+<br />
 ```python
 from EventBus import EventBus
 
@@ -125,7 +127,7 @@ Implementiere in deiner Plugin-Klasse eine Funktion mit dem Namen `createCharakt
 - Der zweite Parameter ist deine UI-Wrapper-Klasse, die optional ein `modified` Signal definieren kann. Mit dem Signal kann Sephrasto darüber in Kenntnis gesetzt werden, dass sich etwas am Charakter verändert hat, um bei Bedarf das Warn-Popup zu öffnen, wenn der Charakter geschlossen wird oder um das EP-Widget zu aktualisieren. Zudem kann sie optional die Funktionen load und update implementieren. Beide werden von Sephrasto zu passenden Zeitpunkten aufgerufen und sollten genutzt werden, um die UI Widgets zu befüllen (load) oder den Charakter mit den UI Widget-Werten zu aktualisieren (update).
 - Der dritte Parameter ist die vom QtCreator generierte UI Form.
 - Der vierte Parameter ist der Titel des Tabs.
-
+<br />
 ```python
 from EventBus import EventBus
 from MeinPlugin import MeinTabWrapper
@@ -169,7 +171,7 @@ class MeinTabWrapper(QtCore.QObject):
 
 ## Hauptfenster oder Charaktereditor Button hinzufügen
 Implementiere in deiner Plugin-Klasse eine Funktion mit dem Namen `createMainWindowButtons` oder `createCharakterButtons` und returne eine Liste von (Button) Widgets. Im `clicked` Event der widgets kannst du einen Handler registrieren, der dann beispielsweise ein neues Fenster zeigt.
-
+<br />
 ```python
 from PyQt5 import QtWidgets, QtCore, QtGui
 from EventBus import EventBus
@@ -204,7 +206,7 @@ class MeinFensterWrapper(QtCore.QObject):
 ```
 ## Existierende UI anpassen
 Implementiere einen der "class_xx_wrapper" Filter, die UI-Wrapper-Klasse wird als Parameter gereicht. Du kannst diesen Parameter im Handler beerben und diese oder eine ganz neue Klasse returnen. Im folgenden Beispiel wird bei den freien Fertigkeiten die dritte Stufe entfernt.
-
+<br />
 ```python
 from PyQt5 import QtWidgets, QtCore, QtGui
 from EventBus import EventBus
