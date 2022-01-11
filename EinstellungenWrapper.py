@@ -11,11 +11,10 @@ import os.path
 import yaml
 import logging
 import sys
-from PluginLoader import PluginLoader
 from Hilfsmethoden import Hilfsmethoden
 
 class EinstellungenWrapper():    
-    def __init__(self):
+    def __init__(self, plugins):
         super().__init__()
         self.form = QtWidgets.QDialog()
         self.ui = Einstellungen.Ui_SettingsWindow()
@@ -37,7 +36,7 @@ class EinstellungenWrapper():
         self.ui.editPlugins.setText(Wolke.Settings['Pfad-Plugins'])
 
         self.pluginCheckboxes = []
-        self.updatePluginCheckboxes()
+        self.updatePluginCheckboxes(plugins)
         self.updateComboRegelbasis()
             
         self.ui.checkPDFOpen.setChecked(Wolke.Settings['PDF-Open'])
@@ -183,27 +182,33 @@ class EinstellungenWrapper():
         with open(settingsPath, 'w') as outfile:
             yaml.dump(Wolke.Settings, outfile)
 
-    def updatePluginCheckboxes(self):
+    def updatePluginCheckboxes(self, plugins):
         self.pluginCheckboxes = []
         for i in reversed(range(self.ui.gbPlugins.layout().count())): 
             self.ui.gbPlugins.layout().itemAt(i).widget().setParent(None)
 
-        pluginNames = PluginLoader.getPlugins("Plugins")
-        if len(pluginNames) > 0:
+        officialPlugins = [p for p in plugins if p.isOfficial]
+        if len(officialPlugins) > 0:
             self.ui.gbPlugins.layout().addWidget(QtWidgets.QLabel("Offizielle Plugins:"))
-        for pluginName in pluginNames:
-            check = QtWidgets.QCheckBox(pluginName)
-            if not (pluginName in Wolke.Settings['Deaktivierte-Plugins']):
+        for pluginData in officialPlugins:
+            check = QtWidgets.QCheckBox(pluginData.name)
+            if hasattr(pluginData.plugin, "getDescription"):
+                check.setToolTip(pluginData.plugin.getDescription())
+
+            if not (pluginData.name in Wolke.Settings['Deaktivierte-Plugins']):
                 check.setChecked(True)
             self.ui.gbPlugins.layout().addWidget(check)
             self.pluginCheckboxes.append(check)
 
-        pluginNames = PluginLoader.getPlugins(self.ui.editPlugins.text())
-        if len(pluginNames) > 0:
+        userPlugins = [p for p in plugins if not p.isOfficial]
+        if len(userPlugins) > 0:
             self.ui.gbPlugins.layout().addWidget(QtWidgets.QLabel("Nutzer-Plugins:"))
-        for pluginName in pluginNames:
-            check = QtWidgets.QCheckBox(pluginName)
-            if not (pluginName in Wolke.Settings['Deaktivierte-Plugins']):
+        for pluginData in userPlugins:
+            check = QtWidgets.QCheckBox(pluginData.name)
+            if hasattr(pluginData.plugin, "getDescription"):
+                check.setToolTip(pluginData.plugin.getDescription())
+
+            if not (pluginData.name in Wolke.Settings['Deaktivierte-Plugins']):
                 check.setChecked(True)
             self.ui.gbPlugins.layout().addWidget(check)
             self.pluginCheckboxes.append(check)

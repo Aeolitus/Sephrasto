@@ -86,11 +86,7 @@ class Editor(object):
         tabs.append(Tab(100, self.EPWrapper, self.EPWrapper.formEP, "EP-Verteilung"))
         tabs.append(Tab(110, self.NotizWrapper, self.NotizWrapper.form, "Notiz"))
 
-        for plugin in plugins:
-            if hasattr(plugin, "getCharakterTabs"): #deprecated
-                for tab in plugin.getCharakterTabs():
-                   tabs.append(tab)
-
+        for plugin in [p.plugin for p in plugins]:
             if hasattr(plugin, "createCharakterTabs"):
                 for tab in plugin.createCharakterTabs():
                    tabs.append(tab)

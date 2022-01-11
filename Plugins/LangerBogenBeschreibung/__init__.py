@@ -15,6 +15,9 @@ class Plugin:
         EventBus.addFilter("cbext_get", self.cbextGetHook)
         EventBus.addAction("cbext_add_widget", self.cbextAddWidgetHandler)
 
+    def getDescription(self):
+        return "Fügt dem Charaktereditor einen zweiten Beschreibungs-Tab hinzu, in welchem die zusätzlichen Felder des langen Charakterbogens befüllt werden können."
+
     def getCharakterTabs(self):
         beschreibungExtTab = Tab(15, self.charakterBeschreibungExtTab, self.charakterBeschreibungExtTab.form, "Beschreibung 2")
         return [beschreibungExtTab]

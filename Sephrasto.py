@@ -52,6 +52,13 @@ def sephrasto_excepthook(exc_type, exc_value, tb):
     messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
     messagebox.exec_()
 
+class PluginData(object):
+    def __init__(self, name, isOfficial, plugin):
+        super().__init__()
+        self.name = name
+        self.isOfficial = isOfficial
+        self.plugin = plugin
+
 class MainWindowWrapper(object):
     '''
     Main Class responsible for running the entire application. 
@@ -110,7 +117,7 @@ class MainWindowWrapper(object):
                 if pluginName in Wolke.Settings['Deaktivierte-Plugins']:
                     continue
                 plugin = PluginLoader.loadPlugin(pluginPath, pluginName)
-                self._plugins.append(plugin)
+                self._plugins.append(PluginData(pluginName, pluginPath == "Plugins", plugin))
                 logging.info("Plugin: loaded " + pluginName)
                 if hasattr(plugin, "createMainWindowButtons"):
                     for button in plugin.createMainWindowButtons():
@@ -211,7 +218,7 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n")
         self.D.Form.show()
         
     def editSettings(self):
-        EinstellungenWrapper()
+        EinstellungenWrapper(self._plugins)
 
     def help(self):
         if not hasattr(self, "hilfe"):
