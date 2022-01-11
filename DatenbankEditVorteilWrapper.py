@@ -75,7 +75,7 @@ class DatenbankEditVorteilWrapper(object):
 
         self.ui.scriptEdit.setText(vorteil.script)
 
-        self.ui.scriptEdit.setToolTip("Siehe ScriptAPI.md im Installationsordner für verfügbare Funktionen und Beispiele.")
+        self.ui.scriptEdit.setToolTip("Siehe \"Skripte für Vorteile und Waffeneigenschaften\" in der Sephrasto-Hilfe für verfügbare Funktionen und Beispiele.")
 
         vorteilDialog.show()
         ret = vorteilDialog.exec_()

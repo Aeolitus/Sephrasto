@@ -49,7 +49,7 @@ class DatenbankEditWaffeneigenschaftWrapper(object):
 
         self.ui.scriptEdit.setText(waffeneigenschaft.script)
 
-        self.ui.scriptEdit.setToolTip("Siehe ScriptAPI.md im Installationsordner für verfügbare Funktionen und Beispiele.")
+        self.ui.scriptEdit.setToolTip("Siehe \"Skripte für Vorteile und Waffeneigenschaften\" in der Sephrasto-Hilfe für verfügbare Funktionen und Beispiele.")
 
         waffeneigenschaftDialog.show()
         ret = waffeneigenschaftDialog.exec_()
