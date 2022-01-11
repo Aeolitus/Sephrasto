@@ -60,6 +60,7 @@ class Editor(object):
         self.ignoreModified = False
         
     def setupMainForm(self, plugins):      
+        self.ui.progressBar.setVisible(False)
         self.updateEP()
 
         self.BeschrWrapper = EventBus.applyFilter("class_beschreibung_wrapper", CharakterBeschreibungWrapper.BeschrWrapper)()
@@ -232,7 +233,21 @@ Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
                 infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
                 infoBox.exec_()
         self.changed = False
-            
+
+    def showProgressBar(self, show):
+        self.ui.tabs.setEnabled(not show)
+        self.ui.spinEP.setEnabled(not show)
+        self.ui.spinRemaining.setEnabled(not show)
+        self.ui.spinSpent.setEnabled(not show)
+        self.ui.checkReq.setEnabled(not show)
+        self.ui.buttonQuicksave.setVisible(not show)
+        self.ui.buttonSave.setVisible(not show)
+        self.ui.buttonSavePDF.setVisible(not show)
+        self.ui.progressBar.setVisible(show)
+      
+    def pdfMeisterProgressCallback(self, progress):
+        self.ui.progressBar.setValue(progress)
+
     def pdfButton(self):
         self.updateAll()
         
@@ -293,9 +308,17 @@ Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
                 printRules = True
             else:
                 printRules = False
-            self.pdfMeister.pdfErstellen(spath, printRules)
+
+            self.showProgressBar(True)
+            self.pdfMeister.pdfErstellen(spath, printRules, self.pdfMeisterProgressCallback)
+            self.showProgressBar(False)
         except Exception as e:
             logging.error("Sephrasto Fehlercode " + str(Wolke.Fehlercode) + ". Exception: " + str(e))
+            self.showProgressBar(False)
+            self.ui.tabs.setEnabled(True)
+            self.ui.buttonQuicksave.setVisible(True)
+            self.ui.buttonSave.setVisible(True)
+            self.ui.buttonSavePDF.setVisible(True)
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Information)
             infoBox.setText("PDF-Erstellung fehlgeschlagen!")

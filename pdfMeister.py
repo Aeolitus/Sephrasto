@@ -46,7 +46,8 @@ class pdfMeister(object):
     def setCharakterbogen(self, charakterBogenInfo):
         self.CharakterBogen = charakterBogenInfo
 
-    def pdfErstellen(self, filename, printRules):
+    def pdfErstellen(self, filename, printRules, progressCallback):
+        progressCallback(0)
         '''
         This entire subblock is responsible for filling all the fields of the
         Charakterbogen. It has been broken down into seven subroutines for
@@ -80,6 +81,7 @@ class pdfMeister(object):
 
         # Plugins die felder filtern lassen
         fields = EventBus.applyFilter("pdf_export", fields)
+        progressCallback(10)
 
         # PDF erstellen - Felder bleiben bearbeitbar
         Wolke.Fehlercode = -89
@@ -87,12 +89,16 @@ class pdfMeister(object):
         os.close(handle)
         allPages = [out_file]
         pdf.write_pdf(self.CharakterBogen.filePath, fields, out_file, False)
+        progressCallback(20)
+
         Wolke.Fehlercode = -90
         extraPageAdded = False
         if self.UseExtraPage:
+            pageCount = 0
             while len(self.ExtraVorts) > 0 or \
                      len(self.ExtraTalents) > 0 or \
                         len(self.ExtraUeber) > 0:
+                pageCount += 1
                 fieldsNew = None
                 extraPageAdded = True
                 Wolke.Fehlercode = -91
@@ -108,7 +114,8 @@ class pdfMeister(object):
                 del self.ExtraVorts[0:12]
                 del self.ExtraUeber[0:12]
                 del self.ExtraTalents[0:30]
-        
+                progressCallback(20 + min(35, 20 + 3*pageCount))
+        progressCallback(35)
         #Entferne Seite 3, falls keine übernatürlichen Fertigkeiten
         if not ('Uebervorteil1' in fields) and \
            not ('Ueberfer1NA' in fields) and \
@@ -119,7 +126,8 @@ class pdfMeister(object):
             pdf.shrink(allPages[0], 1, self.CharakterBogen.seitenProfan, out_file)
             os.remove(allPages[0])
             allPages[0] = out_file
-        
+        progressCallback(40)
+
         Wolke.Fehlercode = -97
         if printRules:
             rules, ruleLineCounts = self.CheatsheetGenerator.prepareRules(self.Talents)
@@ -141,13 +149,15 @@ class pdfMeister(object):
                 os.close(handle)
                 pdf.write_pdf(self.RulesPage, rulesFields, out_file, False)
                 allPages.append(out_file)
-
+                progressCallback(min(70, 40 + 3*pageCount))
+        progressCallback(70)
         Wolke.Fehlercode = -94
         pdf.concat(allPages, filename)
-
+        progressCallback(90)
         Wolke.Fehlercode = -95
         for page in allPages:
             os.remove(page)
+        progressCallback(100)
 
         EventBus.doAction("pdf_geschrieben", { "filename" : filename })
 
