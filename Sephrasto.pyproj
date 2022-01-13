@@ -78,7 +78,6 @@
     <Compile Include="Hilfe.py" />
     <Compile Include="HilfeWrapper.py" />
     <Compile Include="Hilfsmethoden.py" />
-    <Compile Include="LineEditTagCompleter.py" />
     <Compile Include="MainWindow.py" />
     <Compile Include="MousewheelProtector.py" />
     <Compile Include="Objekte.py" />
@@ -88,6 +87,7 @@
     <Compile Include="Sephrasto.py" />
     <Compile Include="Talentbox.py" />
     <Compile Include="TalentPicker.py" />
+    <Compile Include="TextTagCompleter.py" />
     <Compile Include="UpdateChecker.py" />
     <Compile Include="WaffenPicker.py" />
     <Compile Include="Wolke.py" />

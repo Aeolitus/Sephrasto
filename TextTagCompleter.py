@@ -25,7 +25,7 @@ from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtCore import QStringListModel
 from PyQt5.QtWidgets import QCompleter
 
-class LineEditTagCompleter(QCompleter):
+class TextTagCompleter(QCompleter):
     def __init__(self, parent, tags):
         QCompleter.__init__(self, tags, parent)
         self.setTags(tags)
@@ -39,15 +39,41 @@ class LineEditTagCompleter(QCompleter):
         self.setCompletionMode(QtWidgets.QCompleter.PopupCompletion)
         self.setFilterMode(QtCore.Qt.MatchContains)
 
+    def __cursorPos(self):
+        if hasattr(self.widget(), "cursorPosition"):
+            return self.widget().cursorPosition()
+        else:
+            return self.widget().textCursor().position()
+
+    def __setCursorPos(self, pos):
+        if hasattr(self.widget(), "setCursorPosition"):
+            self.widget().setCursorPosition(pos)
+        else:
+            cursor = self.widget().textCursor()
+            cursor.setPosition(pos)
+            self.widget().setTextCursor(cursor)
+
+    def __setText(self, text):
+        if hasattr(self.widget(), "setText"):
+            self.widget().setText(text)
+        else:
+            self.widget().setPlainText(text)
+
+    def __text(self):
+        if hasattr(self.widget(), "text"):
+            return self.widget().text()
+        else:
+            return self.widget().toPlainText()
+
     def setTags(self, tags):
         self.tags = set(tags)
 
     def handleLineEditTextChanged(self):
-        text = self.widget().text()[:self.widget().cursorPosition()]
+        text = self.__text()[:self.__cursorPos()]
         prefix = text.split(',')[-1].strip()
 
         textTags = []
-        for t in self.widget().text().split(','):
+        for t in self.__text().split(','):
             t1 = t.strip()
             if t1 != '':
                 textTags.append(t1)
@@ -62,10 +88,9 @@ class LineEditTagCompleter(QCompleter):
             self.complete()
 
     def handleSelfActivated(self, text):
-        le = self.widget()
-        cursor_pos = le.cursorPosition()
-        before_text = le.text()[:cursor_pos]
-        after_text = le.text()[cursor_pos:]
+        cursor_pos = self.__cursorPos()
+        before_text = self.__text()[:cursor_pos]
+        after_text = self.__text()[cursor_pos:]
         prefix_len = len(before_text.split(',')[-1].strip())
-        le.setText('%s%s, %s' % (before_text[:cursor_pos - prefix_len], text, after_text))
-        le.setCursorPosition(cursor_pos - prefix_len + len(text) + 2)
+        self.__setText('%s%s, %s' % (before_text[:cursor_pos - prefix_len], text, after_text))
+        self.__setCursorPos(cursor_pos - prefix_len + len(text) + 2)

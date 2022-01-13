@@ -8,6 +8,7 @@ import Objekte
 import DatenbankEditWaffe
 from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
 from PyQt5 import QtWidgets, QtCore
+from TextTagCompleter import TextTagCompleter
 
 class DatenbankEditWaffeWrapper(object):
     def __init__(self, datenbank, waffe=None, readonly=False):
@@ -43,8 +44,11 @@ class DatenbankEditWaffeWrapper(object):
         else:
             self.ui.comboTyp.setCurrentIndex(0)
         self.ui.comboTyp.currentIndexChanged[int].connect(self.switchType)
+
+        self.eigenschaftenCompleter = TextTagCompleter(self.ui.textEigenschaften, self.db.waffeneigenschaften.keys())
         self.ui.textEigenschaften.setPlainText(", ".join(waffe.eigenschaften))
         self.ui.textEigenschaften.textChanged.connect(self.eigenschaftenChanged)
+
         self.ui.spinHaerte.setValue(waffe.haerte)
         self.ui.spinW6.setValue(waffe.W6)
         self.ui.spinPlus.setValue(waffe.plus)
@@ -109,7 +113,7 @@ class DatenbankEditWaffeWrapper(object):
             self.waffe.haerte = int(self.ui.spinHaerte.value())
             eigenschaftStr = self.ui.textEigenschaften.toPlainText()
             if eigenschaftStr:
-                self.waffe.eigenschaften = list(map(str.strip, eigenschaftStr.split(",")))
+                self.waffe.eigenschaften = list(map(str.strip, eigenschaftStr.strip().rstrip(',').split(",")))
             self.waffe.name = self.ui.nameEdit.text()
             self.waffe.fertigkeit = self.ui.comboFert.currentText()
             self.waffe.talent = self.ui.comboTalent.currentText()
@@ -162,7 +166,8 @@ class DatenbankEditWaffeWrapper(object):
     def eigenschaftenChanged(self):
         eigenschaftStr = self.ui.textEigenschaften.toPlainText()
         if eigenschaftStr:
-            eigenschaften = list(map(str.strip, eigenschaftStr.split(",")))
+            eigenschaften = list(map(str.strip, eigenschaftStr.strip().rstrip(',').split(",")))
+
             for el in eigenschaften:
                 try:
                     Hilfsmethoden.VerifyWaffeneigenschaft(el, self.db)

@@ -8,7 +8,7 @@ import Fertigkeiten
 from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
 import DatenbankEditTalent
 from PyQt5 import QtWidgets, QtCore
-from LineEditTagCompleter import LineEditTagCompleter
+from TextTagCompleter import TextTagCompleter
 
 class DatenbankEditTalentWrapper(object):
     def __init__(self, datenbank, talent=None, readonly=False):
@@ -57,7 +57,7 @@ class DatenbankEditTalentWrapper(object):
         else:
             self.ui.checkKommentar.setChecked(False)
 
-        self.fertigkeitenCompleter = LineEditTagCompleter(self.ui.fertigkeitenEdit, [])
+        self.fertigkeitenCompleter = TextTagCompleter(self.ui.fertigkeitenEdit, [])
         self.ui.fertigkeitenEdit.setText(Hilfsmethoden.FertArray2Str(talent.fertigkeiten, None))
         self.ui.fertigkeitenEdit.textChanged.connect(self.fertigkeitenTextChanged)
         
