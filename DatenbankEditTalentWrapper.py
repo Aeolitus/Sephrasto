@@ -8,6 +8,7 @@ import Fertigkeiten
 from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
 import DatenbankEditTalent
 from PyQt5 import QtWidgets, QtCore
+from LineEditTagCompleter import LineEditTagCompleter
 
 class DatenbankEditTalentWrapper(object):
     def __init__(self, datenbank, talent=None, readonly=False):
@@ -56,6 +57,10 @@ class DatenbankEditTalentWrapper(object):
         else:
             self.ui.checkKommentar.setChecked(False)
 
+        self.fertigkeitenCompleter = LineEditTagCompleter(self.ui.fertigkeitenEdit, [])
+        self.ui.fertigkeitenEdit.setText(Hilfsmethoden.FertArray2Str(talent.fertigkeiten, None))
+        self.ui.fertigkeitenEdit.textChanged.connect(self.fertigkeitenTextChanged)
+        
         self.ui.buttonRegulaer.clicked.connect(self.kostenChanged)
         self.ui.buttonVerbilligt.clicked.connect(self.kostenChanged)
         self.ui.buttonSpezial.clicked.connect(self.kostenChanged)
@@ -64,9 +69,6 @@ class DatenbankEditTalentWrapper(object):
         self.ui.checkVariable.clicked.connect(self.variableKostenCheckChanged)
         self.variableKostenCheckChanged()
 
-        self.ui.fertigkeitenEdit.setText(Hilfsmethoden.FertArray2Str(talent.fertigkeiten, None))
-        self.ui.fertigkeitenEdit.textChanged.connect(self.fertigkeitenTextChanged)
-        
         self.ui.voraussetzungenEdit.setPlainText(Hilfsmethoden.VorArray2Str(talent.voraussetzungen, None))
         self.ui.voraussetzungenEdit.textChanged.connect(self.voraussetzungenTextChanged)
 
@@ -107,6 +109,12 @@ class DatenbankEditTalentWrapper(object):
     def kostenChanged(self):
         self.ui.spinKosten.setEnabled(self.ui.buttonSpezial.isChecked())
         self.ui.checkCheatsheet.setEnabled(self.ui.buttonSpezial.isChecked())
+
+        if self.ui.buttonSpezial.isChecked():
+            self.fertigkeitenCompleter.setTags([f for f in self.datenbank.übernatürlicheFertigkeiten.keys()])
+        else:
+            self.fertigkeitenCompleter.setTags([f for f in self.datenbank.fertigkeiten.keys()])
+        self.fertigkeitenTextChanged()
 
     def variableKostenCheckChanged(self):
         if self.ui.checkVariable.isChecked():
@@ -150,11 +158,19 @@ class DatenbankEditTalentWrapper(object):
         fertigkeiten = Hilfsmethoden.FertStr2Array(self.ui.fertigkeitenEdit.text(),None)
         self.fertigkeitenValid = True
         for fertigkeit in fertigkeiten:
-            if not fertigkeit in self.datenbank.fertigkeiten and not fertigkeit in self.datenbank.übernatürlicheFertigkeiten:
-                self.ui.fertigkeitenEdit.setStyleSheet("border: 1px solid red;")
-                self.ui.fertigkeitenEdit.setToolTip("Unbekannte Fertigkeit '" + fertigkeit + "'")
-                self.fertigkeitenValid = False
-                break
+            if self.ui.buttonSpezial.isChecked():
+                if not fertigkeit in self.datenbank.übernatürlicheFertigkeiten:
+                    self.ui.fertigkeitenEdit.setStyleSheet("border: 1px solid red;")
+                    self.ui.fertigkeitenEdit.setToolTip("Unbekannte übernatürliche Fertigkeit '" + fertigkeit + "'. Spezialtalente müssen übernatürlichen Fertigkeiten zugewiesen werden.")
+                    self.fertigkeitenValid = False
+                    break
+            else:
+                if not fertigkeit in self.datenbank.fertigkeiten:
+                    self.ui.fertigkeitenEdit.setStyleSheet("border: 1px solid red;")
+                    self.ui.fertigkeitenEdit.setToolTip("Unbekannte profane Fertigkeit '" + fertigkeit + "'. Reguläre Talente müssen profanen Fertigkeiten zugewiesen werden.")
+                    self.fertigkeitenValid = False
+                    break
+
         if self.fertigkeitenValid:
             self.ui.fertigkeitenEdit.setStyleSheet("")
             self.ui.fertigkeitenEdit.setToolTip("")
