@@ -3,23 +3,39 @@ Ein Charaktergenerator für das DSA-Hausregelsystem Ilaris, erstellt von Aeolitu
 
 In der Gebrauchsanleitung.pdf finden sich Erklärungen und Warnhinweise.
 
-Features:
-* Automatisches Befüllen des Ilaris Charakterbogens (Benötigt pdftk : Gratis-Download für Windows @ https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/, unter Linux das Paket `pdftk` installieren)
+## Features
+* Automatisches Befüllen des Ilaris Charakterbogens (Benötigt pdftk : Gratis-Download für Windows @ https://www.pdflabs.com/tools/pdftk-server/, Linux-Installation siehe unten)
 * Einfaches Einarbeiten von Hausregeln wie neuen Fertigkeiten, Vorteilen etc. durch frei editierbare Regelbasis
 * Fast alle relevanten Regeln sind im Tool enthalten
 
 Bei Fragen / Änderungswünschen / Feedback einfach Bescheid sagen - im dsaforum oder hier!
 
-Dieses Tool verwendet 
+## Dieses Tool verwendet 
 * fdfgen (https://github.com/ccnmtl/fdfgen) zum Editieren des Charakterbogens 
 * pdffields (https://github.com/evfredericksen/pdffields) für einfachere Bedienung von fdfgen ;)
 * PyQt5 (https://www.riverbankcomputing.com/software/pyqt/download5) für die Grafische Oberfläche
 * lxml (http://lxml.de/) als xml-parser (unter Linux: `libxml2-dev` und `libxmlsec1-dev` global installieren, wenn lxml via pip installiert werden soll)
 * PyYAML (https://pyyaml.org/) als yaml-parser
+* requests (https://github.com/psf/requests) für den update checker
 
-Um Sephrasto mit Python zu verwenden, ist Version 3.6+ empfehlenswert, aber nicht dringend notwendig. Weiterhin müssen PyQt5 und lxml installiert werden. Starte einfach die Sephrasto.py und los gehts.
+Um Sephrasto mit Python zu verwenden, ist Version 3.7+ empfehlenswert, aber nicht dringend notwendig. 
 
-Anleitung für die Nutzung von Visual Studio als IDE:
+## Installation Linux (Ubuntu/Debian)
+```
+sudo apt install python3-pip
+sudo apt install openjdk-11-jdk
+sudo apt install pdftk
+git clone https://github.com/Aeolitus/Sephrasto.git
+pip install -r Sephrasto/requirements.txt
+```
+OpenJDK wird für pdftk benötigt, ohne diese beiden Pakete können keine Charakterbogen-PDFs erzeugt werden. Statt das Sephrasto Repository mit git zu klonen, kannst du es natürlich auch manuell herunterladen und entpacken (unter "Code" den Punkt "Download zip" auswählen).
+
+Gestartet wird Sephrasto dann folgendermaßen:
+```
+python Sephrasto/Sephrasto.py
+```
+
+## Einrichtung von Visual Studio als IDE:
 * Installiere VS 2019 Community Edition mit dem Python Workload (kann auch nachträglich über den Installer installiert werden)
 * Setze den Pfad der Python-Umgebung in der Umgebungsvariable PATH (in der Regel C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64)
 * Starte Make/Sephrasto.sln
@@ -34,13 +50,14 @@ Anleitung für die Nutzung von Visual Studio als IDE:
 * Stelle das Tab-Verhalten auf "Insert Spaces": Tools -> Options -> Text Editor -> Python -> Tabs
 * Öffne das Exception Settings Fenster (Debug -> Windows -> Exception Settings) und selektiere alle Python Exceptions, dann deaktiviere <All Python Exceptions not in this list>, BaseException und Exception - damit breaken die custom exceptions nicht, die Sephrasto intern nutzt.
 
-Anleitung für die UI:
+## UI design mit Qt
 * Modifiziere niemals Dateien, die am Anfang "Created by: PyQt5 UI code generator" stehen haben von Hand!
-* Stattdessen wird die UI durch ".ui"-XML-Dateien im "Sephrasto/UI" Ordner definiert. Optionalerweise können diese mit dem Qt Creator visuell designed werden (enthalten im Qt-Installer unter https://www.qt.io/).
+* Stattdessen wird das UI durch ".ui"-XML-Dateien im "Sephrasto/UI" Ordner definiert. Optionalerweise können diese mit dem Qt Creator visuell designed werden (enthalten im Qt-Installer unter https://www.qt.io/).
 * Aus diesen Dateien wird dann der Python-Code mit Hilfe von "Sephrasto/UI/convert.bat" erzeugt.
 * Erstelle in deinem "Python/Scripts" Ordner "pyuic5.bat" mit dem Inhalt "CALL pyuic5.exe %*"
 * Bei Problemen mit convert.bat, stelle sicher, dass:
     * ... der Python Install-Ordner und der Unterordner "Scripts" in deiner PATH-Umgebungsvariable enthalten sind. Dies wird normalerweise vom Python installer automatisch gemacht. (Windows 10: System -> Advanced System Settings -> Environment Variables -> Path - in User oder System)
     * ... "Python/Scripts" die Datei "pyuic5.exe" enthält. Diese wird normalerweise durch das Installieren von PyQt5 dort angelegt.
 
+## Abschlussbemerkung
 Dieses Tool ist das Projekt, an dem ich Python / Qt gelernt habe. Deutliche Schwankungen im Coding-Stil und in der Codequalität sind demnach zu erwarten. Ich werde über die Zeit versuchen, das zu beheben; einige Spuren davon (wie das furchtbare denglisch) werden vermutlich bleiben. 
