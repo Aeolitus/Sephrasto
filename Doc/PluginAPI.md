@@ -121,7 +121,8 @@ class Plugin:
     def __init__(self):
         EventBus.addAction(...
 		
-	def getDescription(self):
+	@staticmethod
+	def getDescription():
 		return "Mein erstes Plugin"
 ```
 

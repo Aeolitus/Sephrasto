@@ -192,8 +192,8 @@ class EinstellungenWrapper():
             self.ui.gbPlugins.layout().addWidget(QtWidgets.QLabel("Offizielle Plugins:"))
         for pluginData in officialPlugins:
             check = QtWidgets.QCheckBox(pluginData.name)
-            if hasattr(pluginData.plugin, "getDescription"):
-                check.setToolTip(pluginData.plugin.getDescription())
+            if pluginData.description:
+                check.setToolTip(pluginData.description)
 
             if not (pluginData.name in Wolke.Settings['Deaktivierte-Plugins']):
                 check.setChecked(True)
@@ -205,8 +205,8 @@ class EinstellungenWrapper():
             self.ui.gbPlugins.layout().addWidget(QtWidgets.QLabel("Nutzer-Plugins:"))
         for pluginData in userPlugins:
             check = QtWidgets.QCheckBox(pluginData.name)
-            if hasattr(pluginData.plugin, "getDescription"):
-                check.setToolTip(pluginData.plugin.getDescription())
+            if pluginData.description:
+                check.setToolTip(pluginData.description)
 
             if not (pluginData.name in Wolke.Settings['Deaktivierte-Plugins']):
                 check.setChecked(True)

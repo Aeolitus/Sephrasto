@@ -16,7 +16,8 @@ class Plugin:
     def __init__(self):
         EventBus.addAction("charaktereditor_geoeffnet", self.charakterGeladenHook)
 
-    def getDescription(self):
+    @staticmethod
+    def getDescription():
         return "Wenn du einen neuen Charakter erstellst, erscheint ein Popup mit du auf Basis von Vorlagen mit wenigen Clicks ein solides Grundgerüst erhältst."
 
     def charakterGeladenHook(self, params):

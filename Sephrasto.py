@@ -53,9 +53,10 @@ def sephrasto_excepthook(exc_type, exc_value, tb):
     messagebox.exec_()
 
 class PluginData(object):
-    def __init__(self, name, isOfficial, plugin):
+    def __init__(self, name, description, isOfficial, plugin):
         super().__init__()
         self.name = name
+        self.description = description
         self.isOfficial = isOfficial
         self.plugin = plugin
 
@@ -114,10 +115,13 @@ class MainWindowWrapper(object):
             pluginNames = PluginLoader.getPlugins(pluginPath)
 
             for pluginName in pluginNames:
+                description = PluginLoader.getPluginDescription(pluginPath, pluginName)
                 if pluginName in Wolke.Settings['Deaktivierte-Plugins']:
+                    self._plugins.append(PluginData(pluginName, description, pluginPath == "Plugins", None))
                     continue
+
                 plugin = PluginLoader.loadPlugin(pluginPath, pluginName)
-                self._plugins.append(PluginData(pluginName, pluginPath == "Plugins", plugin))
+                self._plugins.append(PluginData(pluginName, description, pluginPath == "Plugins", plugin))
                 logging.info("Plugin: loaded " + pluginName)
                 if hasattr(plugin, "createMainWindowButtons"):
                     for button in plugin.createMainWindowButtons():

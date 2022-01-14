@@ -31,3 +31,17 @@ class PluginLoader:
             logging.critical("Couldn't load plugin because class Plugin is missing: " + pluginName)
             return
         return plugin
+
+    @staticmethod
+    def getPluginDescription(basePath, pluginName):
+        if not basePath in sys.path:
+            sys.path.append(basePath)
+        module = importlib.import_module(pluginName, basePath)
+
+        try:
+            return module.Plugin.getDescription()
+        except AttributeError:
+            return ""
+        except:
+            logging.critical("Couldn't load plugin because class Plugin is missing: " + pluginName)
+            return ""
