@@ -16,6 +16,7 @@ from Hilfsmethoden import Hilfsmethoden
 from EventBus import EventBus
 import re
 from EventBus import EventBus
+from TextTagCompleter import TextTagCompleter
 
 class EquipWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
@@ -69,7 +70,9 @@ class EquipWrapper(QtCore.QObject):
         self.spinLZ = []
         self.spinHaerte = []
         self.editEig = []
+        self.eigenschaftenCompleter = []
         self.comboStil = []
+        
         for el in ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8']:
             editWName = getattr(self.uiEq, "edit" + el + "name")
             editWName.editingFinished.connect(self.update)
@@ -104,6 +107,8 @@ class EquipWrapper(QtCore.QObject):
             editEig = getattr(self.uiEq, "edit" + el + "eig")
             editEig.editingFinished.connect(self.update)
             self.editEig.append(editEig)
+            eigenschaftenCompleter = TextTagCompleter(editEig, Wolke.DB.waffeneigenschaften.keys())
+            self.eigenschaftenCompleter.append(eigenschaftenCompleter)
 
             comboStil = getattr(self.uiEq, "comboStil" + el[-1])
             comboStil.currentIndexChanged.connect(self.update)
@@ -237,8 +242,10 @@ class EquipWrapper(QtCore.QObject):
             W.rw = self.spinRW[index].value()
             W.W6 = self.spinW6[index].value()
             W.plus = self.spinPlus[index].value()
+
+            self.editEig[index].setText(self.editEig[index].text().strip().rstrip(","))
             if self.editEig[index].text().strip():
-                W.eigenschaften = list(map(str.strip, self.editEig[index].text().split(",")))
+                W.eigenschaften = list(map(str.strip, self.editEig[index].text().strip().rstrip(",").split(",")))
             W.kampfstil = self.comboStil[index].currentText()
 
             if EventBus.applyFilter("waffe_haerte_wsstern", W.name == "Hand" or W.name == "Fuß", { "waffe" : W }):
