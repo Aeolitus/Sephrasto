@@ -424,7 +424,7 @@ class DatenbankEdit(object):
             startDir = Wolke.Settings['Pfad-Regeln']
         else:
             startDir = ""
-        spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"User Datenbank speichern...",startDir,"XML-Datei (*.xml)")
+        spath, _ = QtWidgets.QFileDialog.getSaveFileName(None,"Hausregeln speichern...",startDir,"XML-Datei (*.xml)")
         if spath == "":
             return
         spath = os.path.realpath(spath)
@@ -436,7 +436,7 @@ class DatenbankEdit(object):
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Question)
             infoBox.setText("Der Charakter-Editor kann nur Datenbanken aus dem in den Einstellungen gesetzten Pfad laden, sicher dass du die Datenbank hierhin speichern möchtest?")
-            infoBox.setWindowTitle("User Datenbank speichern")
+            infoBox.setWindowTitle("Hausregeln speichern")
             infoBox.addButton(QtWidgets.QPushButton("Ja"), QtWidgets.QMessageBox.YesRole)
             infoBox.addButton(QtWidgets.QPushButton("Anderer Pfad"), QtWidgets.QMessageBox.NoRole)
             infoBox.addButton(QtWidgets.QPushButton("Abbrechen"), QtWidgets.QMessageBox.RejectRole)
@@ -471,8 +471,8 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         if isInRulesPath and Wolke.Settings['Datenbank'] != os.path.basename(spath):
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Question)
-            infoBox.setText("Soll die neue Nutzer-Datenbank in den Einstellungen aktiv gesetzt werden?")
-            infoBox.setWindowTitle("Nutzer-Datenbank aktiv setzen")
+            infoBox.setText("Sollen die neuen Hausregeln in den Einstellungen aktiv gesetzt werden?")
+            infoBox.setWindowTitle("Hausregeln aktiv setzen")
             infoBox.addButton(QtWidgets.QPushButton("Ja"), QtWidgets.QMessageBox.YesRole)
             infoBox.addButton(QtWidgets.QPushButton("Nein"), QtWidgets.QMessageBox.NoRole)
             result = infoBox.exec_()
@@ -522,7 +522,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             startDir = Wolke.Settings['Pfad-Regeln']
         else:
             startDir = ""
-        spath, _ = QtWidgets.QFileDialog.getOpenFileName(None,"User Datenbank laden...",startDir,"XML-Datei (*.xml)")
+        spath, _ = QtWidgets.QFileDialog.getOpenFileName(None,"Hausregeln laden...",startDir,"XML-Datei (*.xml)")
         if not spath:
             return
         spath = os.path.realpath(spath)
@@ -530,7 +530,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         if spath == databaseFile:
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Warning)
-            infoBox.setText("Diese Funktion dient dem Laden einer Nutzer-Datenbank wie der 'database_user.xml'. Die zentrale Sephrasto-Datenbank 'database.xml' wird sowieso immer geladen!")
+            infoBox.setText("Diese Funktion dient dem Laden einer Hausregel-Datenbank. Die zentrale Sephrasto-Datenbank 'database.xml' wird sowieso immer geladen!")
             infoBox.setWindowTitle("Ungültige Datei!")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  

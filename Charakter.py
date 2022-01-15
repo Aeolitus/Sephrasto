@@ -376,7 +376,7 @@ class Char():
             if vort.text in VorteileAlt:
                 vort.text = VorteileNeu[VorteileAlt.index(vort.text)]
 
-        return "Angepasst I (Dunkelheit) etc. wurde in Angepasst (Dunkelheit) I etc. umbenannt"
+        return "Angepasst I (<Umgebung>) wurde in Angepasst (<Umgebung>) I umbenannt"
 
     def migriere2zu3(self, xmlRoot):
         #Dies würde aufgerufen werden, wenn datenbankCodeVersion 2 oder höher und Charakter-DatenbankVersion geringer als 2 wäre
@@ -1073,7 +1073,7 @@ class Char():
             messageBox.setWindowTitle("Charakter laden - Datenbank wurde aktualisiert.")
             messageBox.setText("Seit du diesen Charakter das letzte mal bearbeitet hast wurde die offizielle Sephrasto-Datenbank aktualisiert. " \
                               "Dein Charakter ist jetzt auf dem neuesten Stand. " \
-                              "Ausnahmen: Waffen werden nicht automatisch angepasst und behalten ihren (eventuell alten) Stand, ebenso alles was in der Nutzer-Datenbank geändert wurde.")
+                              "Ausnahmen: Waffen werden nicht automatisch angepasst und behalten ihren (eventuell alten) Stand, ebenso alles was in Hausregeln geändert wurde.")
             if len(strArr) > 1:
                 messageBox.setInformativeText("\n".join(strArr))
             messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
@@ -1285,19 +1285,19 @@ class Char():
         if userDBChanged or vIgnored or fIgnored or tIgnored or übIgnored:
             messageBox = QtWidgets.QMessageBox()
             messageBox.setIcon(QtWidgets.QMessageBox.Warning)
-            messageBox.setWindowTitle("Charakter laden - Nutzer-Datenbank wurde geändert.")
+            messageBox.setWindowTitle("Charakter laden - Hausregeln wurden geändert.")
 
-            strArr = ["Seit du diesen Charakter das letzte mal bearbeitet hast wurde die Nutzer-Datenbank aktualisiert. "]
+            strArr = ["Seit du diesen Charakter das letzte mal bearbeitet hast wurden die Hausregeln aktualisiert. "]
             if not userDBName == Wolke.DB.datei:
-                strArr.append("Auch der Pfad der aktuell geladenen Nutzer-Datenbank ist ein anderer:\n- Vorher: '")
+                strArr.append("Auch der Pfad der aktuell geladenen Hausregeln ist ein anderer:\n- Vorher: '")
                 strArr.append(userDBName)
                 strArr.append("'\n- Jetzt: '")
                 strArr.append(Wolke.DB.datei or "Keine Datenbank")
                 strArr.append("'")
 
             strArr.append("\n\nEventuell hat der Charakter Vorteile/Fertigkeiten/Talente verloren und sein EP-Stand könnte sich verändert haben! ")
-            strArr.append("Neu zur Datenbank hinzugefügte Dinge sind unproblematisch. Waffen werden nicht automatisch angepasst und behalten ihren (eventuell alten) Stand. ")
-            strArr.append("Dein Charakter ist jetzt an die aktuelle Nutzer-Datenbank angepasst, überspeichere den Charakter nur wenn du dir sicher bist.")
+            strArr.append("Neu hinzugefügte Dinge sind unproblematisch. Waffen werden nicht automatisch angepasst und behalten ihren (eventuell alten) Stand. ")
+            strArr.append("Dein Charakter ist jetzt an die aktuellen Hausregeln angepasst, überspeichere den Charakter nur wenn du dir sicher bist.")
             text = "".join(strArr)
             logging.warning(text)
             messageBox.setText(text)
@@ -1323,7 +1323,7 @@ class Char():
 
             text = "".join(strArr)
             logging.warning(text)
-            messageBox.setInformativeText(text + "\n\nDu kannst diese Nachricht sephrasto.log nochmal nachlesen.")
+            messageBox.setInformativeText(text + "\n\nDu kannst diese Nachricht in sephrasto.log nochmal nachlesen.")
             messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
             messageBox.exec_()
