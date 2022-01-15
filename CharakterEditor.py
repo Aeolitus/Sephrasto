@@ -266,7 +266,7 @@ Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
         self.ui.progressBar.setValue(progress)
 
     def pdfButton(self):
-        if which("pdftk") is not None:
+        if which("pdftk") is None:
             messagebox = QtWidgets.QMessageBox()
             messagebox.setWindowTitle("PDFtk ist nicht installiert!")
             messagebox.setText("Sephrasto benötigt PDFtk für den PDF-Export. Hier kannst du es kostenlos herunterladen:\nhttps://www.pdflabs.com/tools/pdftk-server/")
