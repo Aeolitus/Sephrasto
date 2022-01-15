@@ -55,6 +55,7 @@ class Char():
     def __init__(self):
         '''Initialisiert alle Variablen und füllt die Listen'''
         #Erster Block: Allgemeine Infos
+        self.enabledPlugins = []
         self.name = ''
         self.rasse = ''
         self.status = 2
@@ -924,6 +925,7 @@ class Char():
             Wolke.DB.userDbXml is not None else "0"
         etree.SubElement(versionXml, 'NutzerDatenbankName').text = \
             os.path.basename(Wolke.DB.datei) if Wolke.DB.datei else ""
+        etree.SubElement(versionXml, 'Plugins').text = ",".join(self.enabledPlugins)
 
         #Erster Block
         Wolke.Fehlercode = -54
@@ -1104,6 +1106,9 @@ class Char():
                     userDBChanged = True
             elif userDBCRC != 0:
                 userDBChanged = True
+
+            if versionXml.find('Plugins') is not None:
+                self.enabledPlugins = versionXml.find('Plugins').text.split(",")
 
         logging.debug("Starting Character Migration")
         self.charakterMigrieren(root, charDBVersion, self.datenbankCodeVersion)

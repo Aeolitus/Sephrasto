@@ -115,6 +115,7 @@ Zweck: Die Namen der Freie Fertigkeiten-Auswahlliste anpassen, bevor sie in ein 
 - Erstelle in dieser Datei eine Klasse mit dem Namen `Plugin` und importiere den `EventBus`
 - Falls du Action oder Filter Handler registrieren möchtest, stelle sicher, dass sie über die gesamte Programm-Dauer bestehen bleiben. Vermeide es also beispielsweise Handler in einem UI Wrapper zu registrieren, den du jedes mal neu erstellst, wenn ein neuer Charakter geladen wird oder ein Hauptfenster-Button geclickt wird. Stattdessen kannst du den Handler in deiner `__init__.py` registrieren und dann eine Funktion auf dem aktuellen Wrapper aufrufen.
 - Optional: Füge die Funktion getDescription ein und gib einen Beschreibungs-String zurück - dieser wird in den Sephrasto-Einstellungen als Tooltip angezeigt.
+- Optional: Füge die Funktion changesCharacter ein und gib True zurück, falls dein Plugin die Charakterdaten ändert. Falls ein Charakter mit diesem Plugin erstellt wurde und dann ohne Plugin geöffnet wird, erscheint dann ein Warndialog.
 <br />
 ```python
 from EventBus import EventBus
@@ -126,6 +127,9 @@ class Plugin:
 	@staticmethod
 	def getDescription():
 		return "Mein erstes Plugin"
+		
+	def changesCharacter(self):
+        return True
 ```
 
 ## Charaktereditor Tab hinzufügen

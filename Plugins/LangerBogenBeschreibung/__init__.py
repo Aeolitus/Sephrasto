@@ -20,6 +20,9 @@ class Plugin:
     def getDescription():
         return "Fügt dem Charaktereditor einen zweiten Beschreibungs-Tab hinzu, in welchem die zusätzlichen Felder des langen Charakterbogens befüllt werden können."
 
+    def changesCharacter(self):
+        return True
+
     def createCharakterTabs(self):
         beschreibungExtTab = Tab(15, self.charakterBeschreibungExtTab, self.charakterBeschreibungExtTab.form, "Beschreibung 2")
         return [beschreibungExtTab]

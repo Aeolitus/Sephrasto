@@ -149,7 +149,7 @@ class MainWindowWrapper(object):
         '''
         Creates a new CharakterEditor which is empty and shows it.
         '''
-        self.ed = CharakterEditor.Editor(self.savePathUpdated)
+        self.ed = CharakterEditor.Editor(self._plugins, self.savePathUpdated)
         if self.ed.noDatabase:
             raise Exception("Konnte datenbank.xml nicht finden")
         EventBus.doAction("charaktereditor_oeffnet", { "neu" : True, "filepath" : "" })
@@ -158,7 +158,7 @@ class MainWindowWrapper(object):
         self.ed.ui.setupUi(self.ed.formMain)
         self.ed.ui.tabs.removeTab(0)
         self.ed.ui.tabs.removeTab(0)
-        self.ed.setupMainForm(self._plugins)
+        self.ed.setupMainForm()
         self.savePathUpdated()
         self.ed.formMain.show()
         EventBus.doAction("charaktereditor_geoeffnet", { "neu" : True, "filepath" : "" })
@@ -178,7 +178,7 @@ class MainWindowWrapper(object):
             spath = spath + ".xml"
         try:
             EventBus.doAction("charaktereditor_oeffnet", { "neu" : False, "filepath" : spath })
-            self.ed = CharakterEditor.Editor(self.savePathUpdated, spath)
+            self.ed = CharakterEditor.Editor(self._plugins, self.savePathUpdated, spath)
         except Exception as e:
             logging.error("Sephrasto Fehlercode " + str(Wolke.Fehlercode) + ". Exception: " + str(e))
             infoBox = QtWidgets.QMessageBox()
@@ -205,7 +205,7 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n")
             self.ed.ui.setupUi(self.ed.formMain)
             self.ed.ui.tabs.removeTab(0)
             self.ed.ui.tabs.removeTab(0)
-            self.ed.setupMainForm(self._plugins)
+            self.ed.setupMainForm()
             self.savePathUpdated()
             self.ed.formMain.show()
             EventBus.doAction("charaktereditor_geoeffnet", { "neu" : False, "filepath" : spath })

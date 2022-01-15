@@ -37,8 +37,9 @@ class Editor(object):
     Main class for the character editing window. Mostly puts together the
     different parts of the GUI and handles the communication inbetween.
     '''
-    def __init__(self, savePathUpdatedCallback, CharacterName=""):
+    def __init__(self, plugins, savePathUpdatedCallback, CharacterName=""):
         super().__init__()
+        self.plugins = plugins
         Wolke.DB = Datenbank.Datenbank()
         self.pdfMeister = pdfM.pdfMeister()
         self.savepath = CharacterName
@@ -54,12 +55,31 @@ class Editor(object):
         Wolke.Char = Charakter.Char() 
         if self.savepath != "":
             Wolke.Char.xmlLesen(self.savepath)
+
+        enabledPlugins = []
+        for pluginData in self.plugins:
+            if pluginData.plugin is not None and hasattr(pluginData.plugin, "changesCharacter") and pluginData.plugin.changesCharacter():
+                enabledPlugins.append(pluginData.name)
+        
+        missingPlugins = set(Wolke.Char.enabledPlugins) - set(enabledPlugins)
+        if len(missingPlugins) > 0:
+            infoBox = QtWidgets.QMessageBox()
+            infoBox.setIcon(QtWidgets.QMessageBox.Warning)
+            infoBox.setWindowTitle("Plugin fehlt!")
+            infoBox.setText("Der Charakter wurde mit einem oder mehreren Plugins erstellt, die seine Werte beeinflussen. "\
+            "Nicht alle davon sind aktiv, daher können beim Speichern Daten dieser Plugins verloren gehen:\n\n" + ", ".join(missingPlugins))
+            infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
+            infoBox.exec_()
+
+        Wolke.Char.enabledPlugins = enabledPlugins
+
         Wolke.Char.aktualisieren() # A bit later because it needs access to itself
         
         EventBus.doAction("charakter_geladen", { "neu" : self.savepath == "", "filepath" : self.savepath })
         self.ignoreModified = False
         
-    def setupMainForm(self, plugins):      
+    def setupMainForm(self):      
         self.ui.progressBar.setVisible(False)
         self.updateEP()
 
@@ -86,7 +106,7 @@ class Editor(object):
         tabs.append(Tab(100, self.EPWrapper, self.EPWrapper.formEP, "EP-Verteilung"))
         tabs.append(Tab(110, self.NotizWrapper, self.NotizWrapper.form, "Notiz"))
 
-        for plugin in [p.plugin for p in plugins]:
+        for plugin in [p.plugin for p in self.plugins]:
             if hasattr(plugin, "createCharakterTabs"):
                 for tab in plugin.createCharakterTabs():
                    tabs.append(tab)
