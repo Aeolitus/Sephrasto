@@ -11,6 +11,7 @@ class Plugin:
         EventBus.addFilter("charakter_xml_laden", self.charakterXmlLadenHook)
         EventBus.addFilter("charakter_xml_schreiben", self.charakterXmlSchreibenHook)
         EventBus.addFilter("pdf_export", self.pdfExportHook)
+        EventBus.addFilter("pdf_concat", self.pdfConcatHook)
         EventBus.addAction("cbext_update", self.cbextUpdateHandler)
         EventBus.addFilter("cbext_get", self.cbextGetHook)
         EventBus.addAction("cbext_add_widget", self.cbextAddWidgetHandler)
@@ -34,6 +35,9 @@ class Plugin:
 
     def pdfExportHook(self, fields, params):
         return self.charakterBeschreibungExtTab.pdfExportHook(fields)
+
+    def pdfConcatHook(self, pages, params):
+        return self.charakterBeschreibungExtTab.pdfConcatHook(pages)
 
     def vorteilGekauftHandler(self, params):
         self.charakterBeschreibungExtTab.vorteilGekauftHandler(params["name"])

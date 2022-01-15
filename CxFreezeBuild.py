@@ -11,6 +11,7 @@ build_path = os.path.join(build_path_root, "Sephrasto")
 platforms_path = os.path.join(build_path, "platforms")
 styles_path = os.path.join(build_path, "styles")
 doc_path = os.path.join(build_path, "Doc")
+bin_path = os.path.join(build_path, "Bin")
 env_python_path = os.path.dirname(sys.executable)
 env_plugins_path = os.path.join(env_python_path, "Lib", "site-packages", "PyQt5", "Qt5", "plugins")
 env_styles_path = os.path.join(env_plugins_path, "styles")
@@ -82,6 +83,8 @@ includeFiles = {
     "icon_multi.ico" : build_path,
     os.path.join(env_styles_path, "qwindowsvistastyle.dll"): styles_path,
     os.path.join(env_bin_path, "libEGL.dll"): build_path,
+    "Bin/ImageMagick/convert.exe" : os.path.join(bin_path, "ImageMagick"),
+    "Bin/ImageMagick/LICENSE.txt" : os.path.join(bin_path, "LICENSE.txt")
 }
 
 # Include documentation

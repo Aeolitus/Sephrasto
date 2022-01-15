@@ -116,6 +116,7 @@ class pdfMeister(object):
                 del self.ExtraTalents[0:30]
                 progressCallback(20 + min(35, 20 + 3*pageCount))
         progressCallback(35)
+
         #Entferne Seite 3, falls keine übernatürlichen Fertigkeiten
         if not ('Uebervorteil1' in fields) and \
            not ('Ueberfer1NA' in fields) and \
@@ -151,15 +152,21 @@ class pdfMeister(object):
                 allPages.append(out_file)
                 progressCallback(min(70, 40 + 3*pageCount))
         progressCallback(70)
+
         Wolke.Fehlercode = -94
+        allPages = EventBus.applyFilter("pdf_concat", allPages)
+        progressCallback(75)
+
         pdf.concat(allPages, filename)
         progressCallback(90)
+
         Wolke.Fehlercode = -95
         for page in allPages:
             os.remove(page)
-        progressCallback(100)
+        progressCallback(95)
 
         EventBus.doAction("pdf_geschrieben", { "filename" : filename })
+        progressCallback(100)
 
         Wolke.Fehlercode = -98
         #Open PDF with default application:

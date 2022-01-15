@@ -64,6 +64,8 @@ Zweck: Aktionen durchführen, die nicht mit der Vorteil-Script-API möglich sind
 Zweck: Aktion durchführen, nachdem die Charakter-PDF geschrieben wurde, z.B. eine weitere PDF schreiben. Der Parameter enthält den Dateinamen der Charakter-PDF mit absolutem Pfad.
 <br />
 ## Vorhandene Filter
+- "pdf_concat" (Filter: filePaths : array)<br />
+Zweck: Sephrasto fügt zum Schluss alle generierten Einzelseiten zusammen. Diese Liste von Einzelseiten kann hiermit manipuliert werden, z.B. um weitere Seiten einzufügen.
 - "pdf_export" (Filter: pdfFields : dict)<br />
 Zweck: von Sephrasto generierte PDF-Felder vor dem Exportieren der PDF modifizieren
 - "charakter_xml_laden" (Filter: xmlRoot : etree.Element)<br />

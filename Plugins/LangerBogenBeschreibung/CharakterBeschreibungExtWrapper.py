@@ -1,8 +1,15 @@
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtWidgets, QtCore, QtGui
 from LangerBogenBeschreibung import CharakterBeschreibungExt
 import lxml.etree as etree
 from Wolke import Wolke
 import logging
+from PyQt5.QtGui import QPixmap
+import base64
+import pdf
+import tempfile
+import os
+from shutil import which
+import platform
 
 class CharakterBeschreibungExtWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
@@ -41,6 +48,27 @@ class CharakterBeschreibungExtWrapper(QtCore.QObject):
         self.ui.leHintergrund7.textChanged.connect(self.valueChanged)
         self.ui.leHintergrund8.textChanged.connect(self.valueChanged)
 
+        self.characterImage = None
+        self.labelImageText = self.ui.labelImage.text()
+        self.ui.buttonLoadImage.clicked.connect(self.buttonLoadImageClicked)
+        self.ui.buttonDeleteImage.clicked.connect(self.buttonDeleteImageClicked)
+
+    def setImage(self, pixmap):
+        self.ui.labelImage.setPixmap(pixmap.scaled(self.ui.labelImage.size(), QtCore.Qt.KeepAspectRatio, QtCore.Qt.SmoothTransformation))
+
+    def buttonLoadImageClicked(self):
+        spath, _ = QtWidgets.QFileDialog.getOpenFileName(None,"Bild laden...", "", "Bild Dateien (*.png *.jpg *.bmp)")
+        if spath == "":
+            return
+        
+        self.characterImage = QPixmap(spath).scaled(QtCore.QSize(260, 340), QtCore.Qt.KeepAspectRatio, QtCore.Qt.SmoothTransformation)
+        self.setImage(self.characterImage)
+
+    def buttonDeleteImageClicked(self):
+        self.characterImage = None
+        self.ui.labelImage.setPixmap(QPixmap())
+        self.ui.labelImage.setText(self.labelImageText)
+
     def valueChanged(self):
         self.modified.emit()
 
@@ -75,6 +103,62 @@ class CharakterBeschreibungExtWrapper(QtCore.QObject):
         fields['Hintergrund8'] = self.ui.leHintergrund8.text()
         return fields
 
+    def pdfConcatHook(self, pages):
+        if not self.ui.labelImage.pixmap():
+            return pages
+
+        if platform.system() != 'Windows' and which("convert") is None:
+            messagebox = QtWidgets.QMessageBox()
+            messagebox.setWindowTitle("Kann Charakterbild nicht einfügen")
+            messagebox.setText("Das Einfügen des Charakterbilds benötigt das Programm 'convert' im Systempfad. Installationsdetails gibt es unter https://imagemagick.org.")
+            messagebox.setIcon(QtWidgets.QMessageBox.Warning)
+            messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            messagebox.exec_()
+            return pages
+
+        # The approach is to convert the image to pdf and stamp it over the char sheet with pdftk
+
+        handle, image_file = tempfile.mkstemp()
+        os.close(handle)
+        self.ui.labelImage.pixmap().save(image_file, "JPG")
+
+        handle, image_pdf = tempfile.mkstemp()
+        os.close(handle)
+        image_pdf += ".pdf"
+
+        handle, page1_pdf = tempfile.mkstemp()
+        os.close(handle)
+
+        handle, page1stamped_pdf = tempfile.mkstemp()
+        os.close(handle)
+
+        handle, pageRest_pdf = tempfile.mkstemp()
+        os.close(handle)
+
+        # pdftk stamps over every single page. We only want to stamp the first, so we need to split the char sheet first
+        pdf.check_output_silent(['pdftk', pages[0], "cat", "1", "output", page1_pdf])
+        pdf.check_output_silent(['pdftk', pages[0], "cat", "2-end", "output", pageRest_pdf])
+
+        # Setting page size to a2 so stamping has to reduce size - this way we can use a higher image resolution.
+        # The numbers after the page size are offsets from bottom and right to fit the image in the right spot
+        # Density (dpi) has to be fixed, otherwise page offsets break
+        # gravity + extent adds letterboxes to the image if needed, this keeps the image centered and allows to use fixed page offsets
+        convertPath = "convert"
+        if platform.system() == 'Windows':
+            convertPath = "Bin\\ImageMagick\\convert"
+
+        pdf.check_output_silent(convertPath + " \"" + image_file + "\" -resize 260x340 -gravity Center -extent 260x340 -density 96 -page a2+115.55+89.55 \"" + image_pdf + "\"")
+        pdf.check_output_silent(['pdftk', page1_pdf, 'stamp', image_pdf, 'output', page1stamped_pdf, 'need_appearances'])
+
+        os.remove(pages[0])
+        os.remove(image_file)
+        os.remove(image_pdf)
+        os.remove(page1_pdf)
+
+        pages[0] = page1stamped_pdf
+        pages.insert(1, pageRest_pdf)
+        return pages
+
     def charakterXmlSchreibenHook(self, root):
         sub =  etree.SubElement(root,'AllgemeineInfosExt')
 
@@ -106,6 +190,12 @@ class CharakterBeschreibungExtWrapper(QtCore.QObject):
         etree.SubElement(sub,'hintergrund6').text = self.ui.leHintergrund6.text()
         etree.SubElement(sub,'hintergrund7').text = self.ui.leHintergrund7.text()
         etree.SubElement(sub,'hintergrund8').text = self.ui.leHintergrund8.text()
+
+        if self.ui.labelImage.pixmap():
+            buffer = QtCore.QBuffer()
+            buffer.open(QtCore.QIODevice.WriteOnly);
+            self.characterImage.save(buffer, "JPG")
+            etree.SubElement(sub,'bild').text = base64.b64encode(buffer.data())
 
         return root
 
@@ -143,6 +233,12 @@ class CharakterBeschreibungExtWrapper(QtCore.QObject):
         self.ui.leHintergrund6.setText(alg.find('hintergrund6').text or '')
         self.ui.leHintergrund7.setText(alg.find('hintergrund7').text or '')
         self.ui.leHintergrund8.setText(alg.find('hintergrund8').text or '')
+
+        if alg.find('bild') is not None:
+            self.characterImage = QtGui.QPixmap()
+            byteArray = bytes(alg.find('bild').text, 'utf-8')
+            self.characterImage.loadFromData(base64.b64decode(byteArray))
+            self.setImage(self.characterImage)
 
         return root
 
