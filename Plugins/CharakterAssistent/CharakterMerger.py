@@ -279,10 +279,10 @@ class CharakterMerger(object):
             CharakterMerger.addFreieFertigkeit(choice.name, choice.wert, True)
         elif choice.typ == "Fertigkeit":
             char.fertigkeiten[choice.name].wert = max(char.fertigkeiten[choice.name].wert + choice.wert, 0)
-            char.fertigkeiten[choice.name].aktualisieren()
+            char.fertigkeiten[choice.name].aktualisieren(char.attribute)
         elif choice.typ == "Übernatürliche-Fertigkeit":
             char.übernatürlicheFertigkeiten[choice.name].wert = max(char.übernatürlicheFertigkeiten[choice.name].wert + choice.wert, 0)
-            char.übernatürlicheFertigkeiten[choice.name].aktualisieren()
+            char.übernatürlicheFertigkeiten[choice.name].aktualisieren(char.attribute)
         elif choice.typ == "Vorteil":
             if Wolke.DB.vorteile[choice.name].variableKosten:
                 var = VariableKosten()
@@ -411,7 +411,7 @@ class CharakterMerger(object):
                 if var:
                     CharakterMerger.setVariableTalentKosten(nam, var)
 
-            fert.aktualisieren()
+            fert.aktualisieren(char.attribute)
             char.fertigkeiten.update({fert.name: fert})
 
         for fer in root.findall('Fertigkeiten/Freie-Fertigkeit'):
@@ -501,5 +501,5 @@ class CharakterMerger(object):
                 if var:
                     CharakterMerger.setVariableTalentKosten(nam, var)
 
-            fert.aktualisieren()
+            fert.aktualisieren(char.attribute)
             char.übernatürlicheFertigkeiten.update({fert.name: fert})

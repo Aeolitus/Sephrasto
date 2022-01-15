@@ -85,10 +85,10 @@ class Fertigkeit(Steigerbar):
         self.isUserAdded = True
         self.addToPDF = True
 
-    def aktualisieren(self):
-        self.attributswerte = [Wolke.Char.attribute[self.attribute[0]].wert, 
-                               Wolke.Char.attribute[self.attribute[1]].wert,
-                               Wolke.Char.attribute[self.attribute[2]].wert]
+    def aktualisieren(self, attribute):
+        self.attributswerte = [attribute[self.attribute[0]].wert, 
+                               attribute[self.attribute[1]].wert,
+                               attribute[self.attribute[2]].wert]
         self.maxWert = max(self.attributswerte)+2
         # Python Round does mess up sometimes
         self.basiswert = round(sum(self.attributswerte)/3+0.0001) + self.basiswertMod

@@ -126,7 +126,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
                     Wolke.Char.übernatürlicheFertigkeiten.update({el: Wolke.DB.übernatürlicheFertigkeiten[el].__deepcopy__()})
                     Wolke.Char.übernatürlicheFertigkeiten[el].wert = 0
                     Wolke.Char.übernatürlicheFertigkeiten[el].addToPDF = False
-                Wolke.Char.übernatürlicheFertigkeiten[el].aktualisieren()
+                Wolke.Char.übernatürlicheFertigkeiten[el].aktualisieren(Wolke.Char.attribute)
 
                 self.pdfRef[Wolke.Char.übernatürlicheFertigkeiten[el].name] = QtWidgets.QCheckBox()
                 self.pdfRef[Wolke.Char.übernatürlicheFertigkeiten[el].name].setStyleSheet("margin-left:10; margin-right:10;");
@@ -193,7 +193,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 else:
                     val = self.uiFert.spinFW.value()
                 Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].wert = val
-                Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].aktualisieren()
+                Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].aktualisieren(Wolke.Char.attribute)
                 self.uiFert.spinPW.setValue(Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].probenwertTalent)
                 #self.uiFert.spinPWT.setValue(Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].probenwertTalent)
                 #self.uiFert.tableWidget.setItem(self.rowRef[self.currentFertName],1,QtWidgets.QTableWidgetItem(str(Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName].wert)))
@@ -239,7 +239,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 return
             self.currentlyLoading = True
             fert = Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName]
-            fert.aktualisieren()
+            fert.aktualisieren(Wolke.Char.attribute)
             self.uiFert.labelFertigkeit.setText(self.currentFertName)
             self.uiFert.labelAttribute.setText(fert.attribute[0] + "/" 
                                                + fert.attribute[1] + "/" 

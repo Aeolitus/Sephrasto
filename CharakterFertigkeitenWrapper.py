@@ -146,7 +146,7 @@ class FertigkeitenWrapper(QtCore.QObject):
                 if el not in Wolke.Char.fertigkeiten:
                     Wolke.Char.fertigkeiten.update({el: Wolke.DB.fertigkeiten[el].__deepcopy__()})
                     Wolke.Char.fertigkeiten[el].wert = 0
-                Wolke.Char.fertigkeiten[el].aktualisieren()
+                Wolke.Char.fertigkeiten[el].aktualisieren(Wolke.Char.attribute)
                 tableWidget = QtWidgets.QTableWidgetItem(Wolke.Char.fertigkeiten[el].name)
                 self.uiFert.tableWidget.setItem(count, 0, tableWidget)
 
@@ -213,7 +213,7 @@ class FertigkeitenWrapper(QtCore.QObject):
                 else:
                     val = self.uiFert.spinFW.value()
                 Wolke.Char.fertigkeiten[self.currentFertName].wert = val
-                Wolke.Char.fertigkeiten[self.currentFertName].aktualisieren()
+                Wolke.Char.fertigkeiten[self.currentFertName].aktualisieren(Wolke.Char.attribute)
                 self.uiFert.spinPW.setValue(Wolke.Char.fertigkeiten[self.currentFertName].probenwert)
                 self.uiFert.spinPWT.setValue(Wolke.Char.fertigkeiten[self.currentFertName].probenwertTalent)
                 #self.uiFert.tableWidget.setItem(self.rowRef[self.currentFertName],1,QtWidgets.QTableWidgetItem(str(Wolke.Char.fertigkeiten[self.currentFertName].wert)))
@@ -255,7 +255,7 @@ class FertigkeitenWrapper(QtCore.QObject):
                 return
             self.currentlyLoading = True
             fert = Wolke.Char.fertigkeiten[self.currentFertName]
-            fert.aktualisieren()
+            fert.aktualisieren(Wolke.Char.attribute)
             self.uiFert.labelFertigkeit.setText(self.currentFertName)
             self.uiFert.labelAttribute.setText(fert.attribute[0] + "/" 
                                                + fert.attribute[1] + "/" 

@@ -391,7 +391,7 @@ class Char():
         raise Exception('Not implemented')
 
     def aktualisieren(self):
-        EventBus.doAction("pre_charakter_aktualisieren")
+        EventBus.doAction("pre_charakter_aktualisieren", {"charakter" : self })
 
         '''Berechnet alle abgeleiteten Werte neu'''
         for key in Definitionen.Attribute:
@@ -482,7 +482,7 @@ class Char():
         self.updateFerts()
         self.updateWaffenwerte()
 
-        EventBus.doAction("post_charakter_aktualisieren")
+        EventBus.doAction("post_charakter_aktualisieren", {"charakter" : self })
         self.epZaehlen()
 
     def updateWaffenwerte(self):
@@ -574,7 +574,7 @@ class Char():
         else:
             cost = 20*steigerungsfaktor
 
-        cost = EventBus.applyFilter("talent_kosten", cost, { "talent": talent })
+        cost = EventBus.applyFilter("talent_kosten", cost, { "charakter" : self, "talent": talent })
         return cost
 
     def getTalentCost(self, talent, steigerungsfaktor):
@@ -590,12 +590,12 @@ class Char():
         for key in Definitionen.Attribute:
             val = sum(range(self.attribute[key].wert+1)) *\
                         self.attribute[key].steigerungsfaktor
-            spent += EventBus.applyFilter("attribut_kosten", val, { "attribut" : key, "wert" : self.attribute[key].wert })
+            spent += EventBus.applyFilter("attribut_kosten", val, { "charakter" : self, "attribut" : key, "wert" : self.attribute[key].wert })
 
         val = sum(range(self.asp.wert+1))*self.asp.steigerungsfaktor
-        spent += EventBus.applyFilter("asp_kosten", val, { "wert" : self.asp.wert })
+        spent += EventBus.applyFilter("asp_kosten", val, { "charakter" : self, "wert" : self.asp.wert })
         val = sum(range(self.kap.wert+1))*self.kap.steigerungsfaktor   
-        spent += EventBus.applyFilter("kap_kosten", val, { "wert" : self.kap.wert })
+        spent += EventBus.applyFilter("kap_kosten", val, { "charakter" : self, "wert" : self.kap.wert })
 
         self.EP_Attribute = spent
         #Dritter Block: Vorteile
@@ -640,7 +640,7 @@ class Char():
                 continue
             if not fer.name:
                 continue
-            val = EventBus.applyFilter("freiefertigkeit_kosten", Definitionen.FreieFertigkeitKosten[fer.wert-1], { "name" : fer.name, "wert" : fer.wert })
+            val = EventBus.applyFilter("freiefertigkeit_kosten", Definitionen.FreieFertigkeitKosten[fer.wert-1], { "charakter" : self, "name" : fer.name, "wert" : fer.wert })
             spent += val
             self.EP_FreieFertigkeiten += val
         #Fünfter Block ist gratis
@@ -688,7 +688,7 @@ class Char():
                     contFlag = False
             for el in remove:
                 self.vorteile.remove(el)
-                EventBus.doAction("vorteil_entfernt", { "name" : el})
+                EventBus.doAction("vorteil_entfernt", { "charakter" : self, "name" : el})
             if contFlag:
                 break
 
@@ -748,7 +748,7 @@ class Char():
                                                   .voraussetzungen):
                     remove.append(fert)
                     contFlag = False
-                self.fertigkeiten[fert].aktualisieren()
+                self.fertigkeiten[fert].aktualisieren(self.attribute)
             for el in remove:
                 self.fertigkeiten.pop(el,None)
             if contFlag:
@@ -761,7 +761,7 @@ class Char():
                         self.übernatürlicheFertigkeiten[fert].voraussetzungen):
                     remove.append(fert)
                     contFlag = False
-                self.übernatürlicheFertigkeiten[fert].aktualisieren()
+                self.übernatürlicheFertigkeiten[fert].aktualisieren(self.attribute)
             for el in remove:
                 self.übernatürlicheFertigkeiten.pop(el,None)
             if contFlag:
@@ -770,10 +770,10 @@ class Char():
                 
         self.höchsteKampfF = -1
         for fert in self.fertigkeiten:
-            self.fertigkeiten[fert].aktualisieren()
+            self.fertigkeiten[fert].aktualisieren(self.attribute)
             if self.fertigkeiten[fert].wert > self.fertigkeiten[fert].maxWert:
                 self.fertigkeiten[fert].wert = self.fertigkeiten[fert].maxWert
-                self.fertigkeiten[fert].aktualisieren()
+                self.fertigkeiten[fert].aktualisieren(self.attribute)
             if self.fertigkeiten[fert].kampffertigkeit == 1 and \
                             self.fertigkeiten[fert].wert > self.höchsteKampfF:
                 self.höchsteKampfF = self.fertigkeiten[fert].wert
@@ -790,12 +790,12 @@ class Char():
                                     self.fertigkeiten[f].gekaufteTalente\
                                                      .append(el)
         for fert in self.übernatürlicheFertigkeiten:
-            self.übernatürlicheFertigkeiten[fert].aktualisieren()
+            self.übernatürlicheFertigkeiten[fert].aktualisieren(self.attribute)
             if self.übernatürlicheFertigkeiten[fert].wert > \
                                 self.übernatürlicheFertigkeiten[fert].maxWert:
                 self.übernatürlicheFertigkeiten[fert].wert = \
                                 self.übernatürlicheFertigkeiten[fert].maxWert
-                self.übernatürlicheFertigkeiten[fert].aktualisieren()
+                self.übernatürlicheFertigkeiten[fert].aktualisieren(self.attribute)
             for tal in self.übernatürlicheFertigkeiten[fert].gekaufteTalente:
                 if not self.voraussetzungenPrüfen(Wolke.DB.talente[tal].voraussetzungen):
                     self.übernatürlicheFertigkeiten[fert].gekaufteTalente.remove(tal) 
@@ -1045,7 +1045,7 @@ class Char():
         notiz.text = self.notiz
 
         #Plugins
-        root = EventBus.applyFilter("charakter_xml_schreiben", root)
+        root = EventBus.applyFilter("charakter_xml_schreiben", root, {"charakter" : self })
 
         #Write XML to file
         Wolke.Fehlercode = -64
@@ -1114,7 +1114,7 @@ class Char():
         self.charakterMigrieren(root, charDBVersion, self.datenbankCodeVersion)
 
         #Plugins
-        root = EventBus.applyFilter("charakter_xml_laden", root)
+        root = EventBus.applyFilter("charakter_xml_laden", root, {"charakter" : self })
 
         alg = root.find('AllgemeineInfos')
         self.name = alg.find('name').text or ''
@@ -1197,7 +1197,7 @@ class Char():
                     else:
                         var.kosten = self.getDefaultTalentCost(nam, fert.steigerungsfaktor)
                     self.talenteVariable[nam] = var
-            fert.aktualisieren()
+            fert.aktualisieren(self.attribute)
             self.fertigkeiten.update({fert.name: fert})
         Wolke.Fehlercode = -47
         for fer in root.findall('Fertigkeiten/Freie-Fertigkeit'):
@@ -1270,7 +1270,7 @@ class Char():
                     defaultKosten = self.getDefaultTalentCost(nam, fert.steigerungsfaktor)
                     var.kosten = max(var.kosten - (var.kosten%defaultKosten), defaultKosten)
                     self.talenteVariable[nam] = var
-            fert.aktualisieren()
+            fert.aktualisieren(self.attribute)
             self.übernatürlicheFertigkeiten.update({fert.name: fert})
         #Siebter Block
         Wolke.Fehlercode = -52
