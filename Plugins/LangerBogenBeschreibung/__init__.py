@@ -31,28 +31,46 @@ class Plugin:
         self.charakterBeschreibungExtTab = CharakterBeschreibungExtWrapper.CharakterBeschreibungExtWrapper()
 
     def charakterXmlLadenHook(self, root, params):
+        if self.charakterBeschreibungExtTab is None:
+            return root
         return self.charakterBeschreibungExtTab.charakterXmlLadenHook(root)
 
     def charakterXmlSchreibenHook(self, root, params):
+        if self.charakterBeschreibungExtTab is None:
+            return root
         return self.charakterBeschreibungExtTab.charakterXmlSchreibenHook(root)
 
     def pdfExportHook(self, fields, params):
+        if self.charakterBeschreibungExtTab is None:
+            return fields
         return self.charakterBeschreibungExtTab.pdfExportHook(fields)
 
     def pdfConcatHook(self, pages, params):
+        if self.charakterBeschreibungExtTab is None:
+            return pages
         return self.charakterBeschreibungExtTab.pdfConcatHook(pages)
 
     def vorteilGekauftHandler(self, params):
+        if self.charakterBeschreibungExtTab is None:
+            return
         self.charakterBeschreibungExtTab.vorteilGekauftHandler(params["name"])
 
     def vorteilEntferntHandler(self, params):
+        if self.charakterBeschreibungExtTab is None:
+            return
         self.charakterBeschreibungExtTab.vorteilEntferntHandler(params["name"])
         
     def cbextUpdateHandler(self, params):
+        if self.charakterBeschreibungExtTab is None:
+            return
         self.charakterBeschreibungExtTab.cbextUpdateHandler(params["name"], params["value"])
         
     def cbextGetHook(self, value, params):
+        if self.charakterBeschreibungExtTab is None:
+            return value
         return self.charakterBeschreibungExtTab.cbextGetHook(params["name"])
 
     def cbextAddWidgetHandler(self, params):
+        if self.charakterBeschreibungExtTab is None:
+            return
         self.charakterBeschreibungExtTab.addWidgetHandler(params["widget"], params["row"], params["column"])
