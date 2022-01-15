@@ -307,6 +307,7 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n")
             palette.setColor(QPalette.Disabled, QPalette.WindowText, QtCore.Qt.darkGray)
             palette.setColor(QPalette.Disabled, QPalette.Text, QtCore.Qt.darkGray)
             palette.setColor(QPalette.Disabled, QPalette.HighlightedText, QtCore.Qt.darkGray)
+            palette.setColor(QPalette.Disabled, QPalette.Base, QColor(53, 53, 53))
             self.app.setPalette(palette)
             QToolTip.setPalette(palette)
         
