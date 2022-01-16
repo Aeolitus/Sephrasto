@@ -125,9 +125,8 @@ class CharakterVorteileWrapper(QtCore.QObject):
                     chi.setCheckState(0, QtCore.Qt.Unchecked) 
                 if txt not in vortList[i] and txt != Wolke.Char.minderpakt:
                     chi.setHidden(True)
-                    if txt in Wolke.Char.vorteile:
-                        chi.setCheckState(0,QtCore.Qt.Unchecked)
-                        Wolke.Char.vorteile.remove(txt)
+                    chi.setCheckState(0,QtCore.Qt.Unchecked)
+                    Wolke.Char.removeVorteil(txt)
                 else:
                     chi.setHidden(False)
                 if (Wolke.DB.vorteile[txt].variableKosten or Wolke.DB.vorteile[txt].kommentarErlauben) and not txt in Wolke.Char.vorteileVariable:
@@ -191,12 +190,11 @@ class CharakterVorteileWrapper(QtCore.QObject):
             return None
         minderp = CharakterMinderpaktWrapper.CharakterMinderpaktWrapper()
         if minderp.minderpakt is None:
-            Wolke.Char.vorteile.remove(name)
+            Wolke.Char.removeVorteil(name)
             return None
         if minderp.minderpakt in Wolke.DB.vorteile and minderp.minderpakt not in Wolke.Char.vorteile:
             Wolke.Char.minderpakt = minderp.minderpakt
-            Wolke.Char.vorteile.append(minderp.minderpakt)
-            EventBus.doAction("vorteil_gekauft", { "name" : minderp.minderpakt})
+            Wolke.Char.addVorteil(minderp.minderpakt)
             minderpaktWidget = self.uiVor.treeWidget.findItems(Wolke.Char.minderpakt, QtCore.Qt.MatchRecursive)[0]
 
             if Wolke.Char.minderpakt in self.itemWidgets:
@@ -216,18 +214,14 @@ class CharakterVorteileWrapper(QtCore.QObject):
 
     def handleRemoveMinderpakt(self, name, item):
         if name == "Minderpakt":
-            if Wolke.Char.minderpakt in Wolke.Char.vorteile:
-                Wolke.Char.vorteile.remove(Wolke.Char.minderpakt)
-                EventBus.doAction("vorteil_entfernt", { "name" : Wolke.Char.minderpakt})
+            Wolke.Char.removeVorteil(Wolke.Char.minderpakt)
             minderpaktWidget = self.uiVor.treeWidget.findItems(Wolke.Char.minderpakt, QtCore.Qt.MatchRecursive)[0]
             self.restoreMinderpaktWidgets(Wolke.Char.minderpakt, minderpaktWidget)
             Wolke.Char.minderpakt = None
             return minderpaktWidget
 
         if Wolke.Char.minderpakt is not None and name == Wolke.Char.minderpakt:
-            if "Minderpakt" in Wolke.Char.vorteile:
-                Wolke.Char.vorteile.remove("Minderpakt")
-                EventBus.doAction("vorteil_entfernt", { "name" : "Minderpakt"})
+            Wolke.Char.removeVorteil("Minderpakt")
             self.restoreMinderpaktWidgets(Wolke.Char.minderpakt, item)
             Wolke.Char.minderpakt = None
         return None
@@ -242,15 +236,13 @@ class CharakterVorteileWrapper(QtCore.QObject):
         manualUpdate = None
 
         if cs == QtCore.Qt.Checked and name not in Wolke.Char.vorteile and name != "":
-            Wolke.Char.vorteile.append(name)
+            Wolke.Char.addVorteil(name)
             self.handleAddKommentarWidget(name, item)
             manualUpdate = self.handleAddMinderpakt(name, item)
-            EventBus.doAction("vorteil_gekauft", { "name" : name})
         elif cs != QtCore.Qt.Checked and name in Wolke.Char.vorteile:
-            Wolke.Char.vorteile.remove(name)
+            Wolke.Char.removeVorteil(name)
             self.handleRemoveKommentarWidget(item)
             manualUpdate = self.handleRemoveMinderpakt(name, item)
-            EventBus.doAction("vorteil_entfernt", { "name" : name})
 
         self.modified.emit()
         EventBus.doAction("charaktereditor_reload")

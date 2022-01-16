@@ -91,7 +91,7 @@ class Char():
         self.kapMod = 0
         
         #Dritter Block: Vorteile, gespeichert als String
-        self.vorteile = []
+        self.vorteile = [] #Important: use addVorteil and addRemove functions for modification
         self.vorteileVariable = {} #Contains Name: VariableKosten
         self.minderpakt = None
         self.kampfstilMods = {}
@@ -390,8 +390,20 @@ class Char():
         #return None
         raise Exception('Not implemented')
 
+    def addVorteil(self, vorteil):
+        if not vorteil or vorteil in self.vorteile:
+            return
+        self.vorteile.append(vorteil)
+        EventBus.doAction("vorteil_gekauft", { "charakter" : self, "name" : vorteil })
+
+    def removeVorteil(self, vorteil):
+        if not vorteil in self.vorteile:
+            return
+        self.vorteile.remove(vorteil)
+        EventBus.doAction("vorteil_entfernt", { "charakter" : self, "name" : vorteil })
+
     def aktualisieren(self):
-        EventBus.doAction("pre_charakter_aktualisieren", {"charakter" : self })
+        EventBus.doAction("pre_charakter_aktualisieren", { "charakter" : self })
 
         '''Berechnet alle abgeleiteten Werte neu'''
         for key in Definitionen.Attribute:
@@ -482,7 +494,7 @@ class Char():
         self.updateFerts()
         self.updateWaffenwerte()
 
-        EventBus.doAction("post_charakter_aktualisieren", {"charakter" : self })
+        EventBus.doAction("post_charakter_aktualisieren", { "charakter" : self })
         self.epZaehlen()
 
     def updateWaffenwerte(self):
@@ -687,8 +699,7 @@ class Char():
                     remove.append(vor)
                     contFlag = False
             for el in remove:
-                self.vorteile.remove(el)
-                EventBus.doAction("vorteil_entfernt", { "charakter" : self, "name" : el})
+                self.removeVorteil(el)
             if contFlag:
                 break
 
@@ -945,7 +956,7 @@ class Char():
         notiz.text = self.notiz
 
         #Plugins
-        root = EventBus.applyFilter("charakter_xml_schreiben", root, {"charakter" : self })
+        root = EventBus.applyFilter("charakter_xml_schreiben", root, { "charakter" : self })
 
         #Write XML to file
         Wolke.Fehlercode = -64
@@ -1014,7 +1025,7 @@ class Char():
         self.charakterMigrieren(root, charDBVersion, self.datenbankCodeVersion)
 
         #Plugins
-        root = EventBus.applyFilter("charakter_xml_laden", root, {"charakter" : self })
+        root = EventBus.applyFilter("charakter_xml_laden", root, { "charakter" : self })
 
         alg = root.find('AllgemeineInfos')
         self.name = alg.find('name').text or ''

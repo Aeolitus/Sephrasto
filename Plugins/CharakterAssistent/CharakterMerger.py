@@ -289,10 +289,7 @@ class CharakterMerger(object):
                 var.kosten = choice.wert
                 var.kommentar = choice.kommentar
                 CharakterMerger.setVariableVorteilKosten(choice.name, var)
-            if choice.name in char.vorteile:
-                return
-            char.vorteile.append(choice.name)
-            EventBus.doAction("vorteil_gekauft", { "name" : choice.name})
+            char.addVorteil(choice.name)
         elif choice.typ == "Talent":
             found = False
             for name, fert in char.fertigkeiten.items():
@@ -371,7 +368,7 @@ class CharakterMerger(object):
         for vor in root.findall('Vorteile'):
             if "minderpakt" in vor.attrib:
                 char.minderpakt = vor.get('minderpakt')
-                EventBus.doAction("vorteil_gekauft", { "name" : char.minderpakt})
+                char.addVorteil(char.minderpakt)
             else:
                 char.minderpakt = None
 
@@ -382,10 +379,7 @@ class CharakterMerger(object):
             if var:
                 CharakterMerger.setVariableVorteilKosten(vor.text, var)
 
-            if vor.text in char.vorteile:
-                continue
-            char.vorteile.append(vor.text)
-            EventBus.doAction("vorteil_gekauft", { "name" : vor.text})
+            char.addVorteil(vor.text)
 
         for fer in root.findall('Fertigkeiten/Fertigkeit'):
             nam = fer.attrib['name']
