@@ -8,6 +8,8 @@ import Definitionen
 import logging
 import unicodedata
 import os
+import re
+from Wolke import Wolke
 
 class VoraussetzungException(Exception):
     pass
@@ -238,6 +240,111 @@ class Hilfsmethoden:
                     retStr += ", " + itm
         return retStr
     
+    @staticmethod
+    def voraussetzungenPrüfen(vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, voraussetzungen):
+        return Hilfsmethoden.__voraussetzungenPrüfen(vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, voraussetzungen, False)
+
+    @staticmethod
+    def __voraussetzungenPrüfen(vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, voraussetzungen, Or):
+        '''
+        Prüft, ob ein Array von Voraussetzungen erfüllt ist.
+        Format: ['L:Str:W', 'L:Str:W']
+        Dabei ist L:
+            V für Vorteil - prüft, ob ein Vorteil vorhanden ist. W = 1 bedeutet, der
+                Vorteil muss vorhanden sein. W=0 bedeutet, der Vorteil darf nicht vorhanden sein.
+            T für Talent - prüft, ob der Charakter ein Talent mit dem angegebenen Namen besitzt. W ist immer 1.
+            W für Waffeneigenschaft - prüft, ob der Charakter eine Waffe mit der angegebenen Eigenschaft besitzt. W ist immer 1.
+            A für Attribut - prüft, ob das Attribut mit Key Str mindestens auf Wert W ist
+            M für MeisterAttribut - wie Attribut, prüft außerdem ob zwei weitere Attribute auf insg. mindestens 16 sind
+            U für Übernatürliche Fertigkeit - prüft, ob für die Übernatürliche Fertigkeit mit Key Str die Voraussetzungen erfüllt sind \
+                und sie mindestens auf Wert W ist. W=-1 hat ein spezielle Bedeutung, hier wird an Stelle des Fertigkeitswerts überprüft ob mindestens ein Talent aktiviert ist.
+            F für Fertigkeit - prüft, ob für die Übernatürliche Fertigkeit mit Key Str die Voraussetzungen erfüllt sind und sie mindestens auf Wert W ist.
+        Einträge im Array können auch weitere Arrays and Voraussetzungen sein.
+        Aus diesen Arrays muss nur ein Eintrag erfüllt sein.
+        Wenn Wolke.Reqs nicht gesetzt ist, gibt die Methode immer True zurück.
+        '''
+        if not Wolke.Reqs:
+            return True
+
+        #Gehe über alle Elemente in der Liste
+        retNor = True
+        retOr = False
+        for voraus in voraussetzungen:
+            erfüllt = False
+            if type(voraus) is list:
+                erfüllt = Hilfsmethoden.__voraussetzungenPrüfen(vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, voraus,True)
+            else: 
+                #Split am Separator
+                delim = "~"
+                arr = re.split(delim, voraus, re.UNICODE)
+                #Vorteile:
+                if arr[0] is 'V':
+                    if len(arr) > 2:
+                        cond = int(arr[2])
+                    else: 
+                        cond = 1
+                    found = 0
+                    if arr[1] in vorteile:
+                        found = 1
+                    if found == 1 and cond == 1:
+                        erfüllt = True
+                    elif found == 0 and cond == 0:
+                        erfüllt = True
+                #Talente:
+                elif arr[0] is 'T':
+                    for fert in fertigkeiten.values():
+                        if arr[1] in fert.gekaufteTalente:
+                            erfüllt = True
+                            break
+                    if not erfüllt:
+                        for fert in übernatürlicheFertigkeiten.values():
+                            if arr[1] in fert.gekaufteTalente:
+                                erfüllt = True
+                                break
+                #Waffeneigenschaften:
+                elif arr[0] is 'W':
+                    for waffe in waffen:
+                        if arr[1] in waffe.eigenschaften:
+                            erfüllt = True
+                            break
+                #Attribute:
+                elif arr[0] is 'A':
+                    #Wir greifen direkt auf den Eintrag zu und vergleichen. 
+                    if attribute[arr[1]].wert >= int(arr[2]):
+                        erfüllt = True
+                #MeisterAttribute:
+                elif arr[0] is 'M':
+                    #Wir greifen direkt auf den Eintrag zu und vergleichen. 
+                    if attribute[arr[1]].wert >= int(arr[2]):
+                        attrSorted = [a.wert for a in attribute.values() if a.key != arr[1]]
+                        attr1 = max(attrSorted)
+                        attrSorted.remove(attr1)
+                        attr2 = max(attrSorted)
+                        erfüllt = attr1 + attr2 >= 16  
+                #Übernatürliche Fertigkeiten:
+                elif arr[0] is 'U':
+                    if arr[1] in übernatürlicheFertigkeiten:
+                        fertigkeit = übernatürlicheFertigkeiten[arr[1]]
+                        wert = int(arr[2])
+                        if wert == -1:
+                            erfüllt = len(fertigkeit.gekaufteTalente) > 0
+                        else:
+                            erfüllt = fertigkeit.wert >= wert
+                #Fertigkeiten:
+                elif arr[0] is 'F':
+                    if arr[1] in fertigkeiten:
+                        fertigkeit = fertigkeiten[arr[1]]
+                        erfüllt = fertigkeit.wert >= int(arr[2])
+            if not erfüllt:
+                retNor = False
+            else:
+                retOr = True
+        # Alle Voraussetzungen sind gecheckt und wir sind nirgendwo gefailt.
+        if Or and (retNor or retOr):
+            return retOr
+        else:
+            return retNor
+
     @staticmethod
     def AttrArray2Str(AttrArray, Datenbank = None):
         if len(AttrArray) != 3:
