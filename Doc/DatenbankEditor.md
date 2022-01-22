@@ -41,7 +41,7 @@ Beispiel: Übernatürliche-Fertigkeit 'Antimagie' -1
 Beispiel: Talent Arcanovi Artefakt
 
 - ```Waffeneigenschaft <Waffeneigenschaftsname>```<br />
-Überprüft, ob der Charakter eine Waffe mit der angegebenen Waffeneigenschaft besitzt. Dies wird in erster Linie für das Datenbankelement Manöver/Modifikation/Regel verwendet.<br />
+Überprüft, ob der Charakter eine Waffe mit der angegebenen Waffeneigenschaft besitzt. Statt einer Waffeneigenschaft kann auch "Nahkampfwaffe" oder "Fernkampfwaffe" spezifiziert werden. Dies wird in erster Linie für das Datenbankelement Manöver/Modifikation/Regel verwendet.<br />
 Beispiel: Waffeneigenschaft Stumpf.
 
 Falls mehrere Voraussetzungen erfüllt sein müssen, können diese komma-separiert angegeben werden, z.B. wie beim Vorteil Gesegnete Waffe: Attribut MU 6, Vorteil Geweiht I.<br />

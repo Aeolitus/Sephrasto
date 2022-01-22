@@ -10,6 +10,7 @@ import unicodedata
 import os
 import re
 from Wolke import Wolke
+import Objekte
 
 class VoraussetzungException(Exception):
     pass
@@ -117,7 +118,7 @@ class Hilfsmethoden:
                         raise VoraussetzungException("Kann Talent '" + strpItm + "' in der Datenbank nicht finden.")
                     arrItm = "T" + delim + strpItm[7:] + delim + "1"
                 elif strpItm.startswith("Waffeneigenschaft "):
-                    if not (strpItm[18:] in Datenbank.waffeneigenschaften):
+                    if (not (strpItm[18:] in Datenbank.waffeneigenschaften)) and strpItm[18:] != "Nahkampfwaffe" and strpItm[18:] != "Fernkampfwaffe":
                         raise VoraussetzungException("Kann keine Waffeneigenschaft '" + strpItm + "' in der Datenbank finden.")
                     arrItm = "W" + delim + strpItm[18:] + delim + "1"
                 elif strpItm.startswith("Attribut "):
@@ -304,7 +305,13 @@ class Hilfsmethoden:
                 #Waffeneigenschaften:
                 elif arr[0] is 'W':
                     for waffe in waffen:
-                        if arr[1] in waffe.eigenschaften:
+                        if arr[1] == "Nahkampfwaffe" and type(waffe) == Objekte.Nahkampfwaffe:
+                            erfüllt = True
+                            break
+                        elif arr[1] == "Fernkampfwaffe" and type(waffe) == Objekte.Fernkampfwaffe:
+                            erfüllt = True
+                            break
+                        elif arr[1] in waffe.eigenschaften:
                             erfüllt = True
                             break
                 #Attribute:
