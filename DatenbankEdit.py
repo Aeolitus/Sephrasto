@@ -18,11 +18,13 @@ import DatenbankEditWaffeneigenschaftWrapper
 import DatenbankEditWaffeWrapper
 import DatenbankEditRuestungWrapper
 import DatenbankEditManoeverWrapper
+import DatenbankEditEinstellungWrapper
 import Objekte
 import os
 from EinstellungenWrapper import EinstellungenWrapper
 from Wolke import Wolke
 from copy import copy
+import logging
 
 class DatabaseType(object):
     def __init__(self, databaseDict, addFunc, editFunc, showCheckbox):
@@ -57,6 +59,7 @@ class DatenbankEdit(object):
         self.ui.showWaffen.stateChanged.connect(self.updateGUI)
         self.ui.showRuestungen.stateChanged.connect(self.updateGUI)
         self.ui.showManoever.stateChanged.connect(self.updateGUI)
+        self.ui.showEinstellung.stateChanged.connect(self.updateGUI)
         self.ui.showFreieFertigkeiten.stateChanged.connect(self.updateGUI)
         self.ui.showUserAdded.stateChanged.connect(self.updateGUI)
         self.ui.showDeleted.stateChanged.connect(self.updateGUI)
@@ -110,6 +113,11 @@ class DatenbankEdit(object):
             self.ui.buttonLoeschen.setEnabled(True)
             self.ui.buttonLoeschen.setVisible(True)
             self.ui.buttonWiederherstellen.setVisible(False)
+            tmp = item.split(" : ")
+            if tmp[1] == "Einstellung":
+                databaseType = self.databaseTypes["Einstellung"]
+                if tmp[0] in databaseType.databaseDict and not databaseType.databaseDict[tmp[0]].isUserAdded:
+                    self.ui.buttonLoeschen.setEnabled(False)
 
     def initDatabaseTypes(self):
         self.databaseTypes = {}
@@ -122,6 +130,7 @@ class DatenbankEdit(object):
         self.databaseTypes["Waffe"] = DatabaseType(self.datenbank.waffen, self.addWaffe, self.editWaffe, self.ui.showWaffen)
         self.databaseTypes["Rüstung"] = DatabaseType(self.datenbank.rüstungen, self.addRuestung, self.editRuestung, self.ui.showRuestungen)
         self.databaseTypes["Manöver / Modifikation"] = DatabaseType(self.datenbank.manöver, self.addManoever, self.editManoever, self.ui.showManoever)
+        self.databaseTypes["Einstellung"] = DatabaseType(self.datenbank.einstellungen, self.addEinstellung, self.editEinstellung, self.ui.showEinstellung)
 
 
     def cancelDueToPendingChanges(self, action):
@@ -315,6 +324,13 @@ class DatenbankEdit(object):
         if ret is not None:
             self.datenbank.manöver.update({ret.name: ret})
             self.onDatabaseChange()
+            
+    def addEinstellung(self):
+        de = Datenbank.DatenbankEinstellung()
+        ret = self.editEinstellung(de)
+        if ret is not None:
+            self.datenbank.einstellungen.update({ret.name: ret})
+            self.onDatabaseChange()
     
     def editTalent(self, inp, readonly = False):
         dbT = DatenbankEditTalentWrapper.DatenbankEditTalentWrapper(self.datenbank, inp, readonly)
@@ -351,6 +367,10 @@ class DatenbankEdit(object):
     def editManoever(self, inp, readonly = False):
         dbM = DatenbankEditManoeverWrapper.DatenbankEditManoeverWrapper(self.datenbank, inp, readonly)
         return dbM.man
+
+    def editEinstellung(self, inp, readonly = False):
+        dbE = DatenbankEditEinstellungWrapper.DatenbankEditEinstellungWrapper(self.datenbank, inp, readonly)
+        return dbE.einstellung
 
     def editSelected(self):
         databaseChanged = False
@@ -407,13 +427,24 @@ class DatenbankEdit(object):
         databaseChanged = False
         for itm in self.ui.listDatenbank.selectedIndexes():
             tmp = self.model.itemData(itm)[0].split(" : ")
-
             if tmp[1] in self.databaseTypes:
                 databaseType = self.databaseTypes[tmp[1]]
                 element  = databaseType.databaseDict[tmp[0]]
                 if not element.isUserAdded:
+                    if tmp[1] == "Einstellung":
+                        continue
                     self.datenbank.removeList.append((tmp[0], tmp[1], element))
                 databaseType.databaseDict.pop(tmp[0],None)
+
+                if tmp[1] == "Einstellung":
+                    # Auto restore
+                    removed = [item for item in self.datenbank.removeList if item[0] == tmp[0] and item[1] == tmp[1]]
+                    if len(removed) > 0:
+                        databaseType.databaseDict.update({tmp[0]: removed[0][2]})
+                        self.datenbank.removeList.remove(removed[0])
+                    else:
+                        logging.warn("Tried to auto restore " + tmp[0] + " but didn't find it in the database.")
+
                 databaseChanged = True
 
         if databaseChanged:

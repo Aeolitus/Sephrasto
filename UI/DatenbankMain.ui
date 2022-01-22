@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>661</width>
-    <height>555</height>
+    <height>582</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -145,6 +145,16 @@
           <widget class="QCheckBox" name="showManoever">
            <property name="text">
             <string>Manöver / Modifikation / Regel</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="showEinstellung">
+           <property name="text">
+            <string>Einstellung</string>
            </property>
            <property name="checked">
             <bool>true</bool>

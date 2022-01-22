@@ -58,6 +58,8 @@
     <Compile Include="CharakterWaffen.py" />
     <Compile Include="Datenbank.py" />
     <Compile Include="DatenbankEdit.py" />
+    <Compile Include="DatenbankEditEinstellung.py" />
+    <Compile Include="DatenbankEditEinstellungWrapper.py" />
     <Compile Include="DatenbankEditFertigkeit.py" />
     <Compile Include="DatenbankEditFertigkeitWrapper.py" />
     <Compile Include="DatenbankEditFreieFertigkeit.py" />

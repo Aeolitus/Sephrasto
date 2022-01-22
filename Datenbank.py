@@ -10,6 +10,37 @@ import logging
 class DatabaseException(Exception):
     pass
 
+class DatenbankEinstellung(object):
+    def __init__(self):
+        self.name = ''
+        self.beschreibung = ''
+        self.wert = ''
+        self.typ = 'Text' #Text, Float, Int oder Bool
+        self.isUserAdded = True
+
+    def __eq__(self, other) : 
+        if self.__class__ != other.__class__: return False
+        return self.__dict__ == other.__dict__
+
+    def toFloat(self):
+        assert self.typ == 'Float'
+        return float(self.wert)
+
+    def toInt(self):
+        assert self.typ == 'Int'
+        return int(self.wert)
+
+    def toBool(self):
+        assert self.typ == 'Bool'
+        return self.wert.lower() == 'true' or self.wert == '1'
+
+    def toText(self):
+        assert self.typ == 'Text'
+        return self.wert
+
+    def toTextList(self):
+        return [t.strip() for t in self.toText().split(",")]
+
 class Datenbank():
     def __init__(self):
         self.vorteile = {}
@@ -21,6 +52,7 @@ class Datenbank():
         self.manöver = {}
         self.waffeneigenschaften = {}
         self.freieFertigkeiten = {}
+        self.einstellungen = {}
         self.removeList = []
         
         self.datei = None
@@ -199,6 +231,16 @@ class Datenbank():
             f.set('voraussetzungen', Hilfsmethoden.VorArray2Str(fert.voraussetzungen, None))
             f.text = fert.name
 
+        #Einstellungen
+        for de in self.einstellungen:
+            einstellung = self.einstellungen[de]
+            if not einstellung.isUserAdded: continue
+            e = etree.SubElement(root, 'Einstellung')
+            e.set('name', einstellung.name)
+            e.set('typ', einstellung.typ)
+            e.set('beschreibung', einstellung.beschreibung or '')
+            e.text = einstellung.wert
+
         #Remove list
         for rm in self.removeList:
             r = etree.SubElement(root,'Remove')
@@ -227,6 +269,7 @@ class Datenbank():
         self.manöver = {}
         self.waffeneigenschaften = {}
         self.freieFertigkeiten = {}
+        self.einstellungen = {}
         self.removeList = []
 
         if os.path.isfile('datenbank.xml'):
@@ -322,6 +365,8 @@ class Datenbank():
                 removed = self.manöver.pop(name)
             elif typ == 'Freie Fertigkeit' and name in self.freieFertigkeiten:
                 removed = self.freieFertigkeiten.pop(name)
+            elif typ == 'Einstellung' and name in self.einstellungen:
+                removed = self.einstellungen.pop(name)
             if removed:
                 self.removeList.append((name, typ, removed))
             else:
@@ -550,6 +595,18 @@ class Datenbank():
                 logging.warn("Freie Fertigkeit " + ff.name + " exists already in the database, probably a \"Remove\" entry is missing. " +
                     "To fix this warning, delete your change, restore the original and redo your change")
             self.freieFertigkeiten.update({ff.name: ff})
+
+        #Einstellungen
+        eNodes = root.findall('Einstellung')
+        for eNode in eNodes:
+            numLoaded += 1
+            de = DatenbankEinstellung()
+            de.name = eNode.get('name')
+            de.typ = eNode.get('typ')
+            de.beschreibung = eNode.get('beschreibung')
+            de.wert = eNode.text or ''
+            de.isUserAdded = not refDB
+            self.einstellungen.update({de.name: de})
 
         # Step 2: Voraussetzungen - requires everything else to be loaded for cross validation
         notifyError = False # For testing of manual db changes
