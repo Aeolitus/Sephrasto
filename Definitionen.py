@@ -27,10 +27,4 @@ StandardFerts = ["Handgemenge", "Hiebwaffen", "Klingenwaffen", "Stangenwaffen",
                  "Mythenkunde", "Überleben", "Alchemie", "Handwerk", 
                  "Heilkunde", "Verschlagenheit"]
 
-VorteilTypen = ["Allgemeine Vorteile", "Profane Vorteile", "Kampfvorteile", 
-"Kampfstile", "Magische Vorteile", "Magische Traditionen", "Karmale Vorteile", 
-"Karmale Traditionen", "Dämonische Traditionen"]
-
 KeinKampfstil = "Kein Kampfstil"
-
-RuestungsTypen = ["Stoffrüstung", "Lederrüstung", "Holz- oder Knochenrüstung", "Ketten- oder Schuppenrüstung", "Plattenrüstung"]

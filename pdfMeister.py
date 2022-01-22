@@ -516,12 +516,12 @@ class pdfMeister(object):
 
                 fields[base + 'ATm'] = str(waffenwerte.AT)
 
-                vtErlaubt = not (type(el) == Objekte.Fernkampfwaffe or (el.name in Wolke.DB.waffen and Wolke.DB.waffen[el.name].talent == 'Lanzenreiten'))
-                vtErlaubt = EventBus.applyFilter("waffe_vt_erlaubt", vtErlaubt, { "waffe" : el })
-                if vtErlaubt:
-                    fields[base + 'VTm'] = str(waffenwerte.VT)
-                else:
-                    fields[base + 'VTm'] = "-"
+                fields[base + 'VTm'] = str(waffenwerte.VT)
+                vtVerboten = Wolke.DB.einstellungen["TalenteVTVerboten"].toTextList()
+                if el.name in Wolke.DB.waffen:
+                    waffe = Wolke.DB.waffen[el.name]
+                    if waffe.talent in vtVerboten or waffe.name in vtVerboten:
+                        fields[base + 'VTm'] = "-"
 
                 fields[base + 'RW'] = str(waffenwerte.RW)
 

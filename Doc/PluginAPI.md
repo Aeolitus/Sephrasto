@@ -72,8 +72,6 @@ Zweck: von Sephrasto generierte PDF-Felder vor dem Exportieren der PDF modifizie
 Zweck: Daten aus der Charakterdatei auslesen oder modifizieren, bevor Sephrasto sie liest. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
 - "charakter_xml_schreiben" (Filter: xmlRoot : etree.Element, Parameter: { "charakter" : Char })<br />
 Zweck: Der Charakterdatei Daten hinzufügen oder Daten modifizieren, bevor Sephrasto die Datei schreibt. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "freiefertigkeit_num_kostenlos" (Filter: num : int)<br />
-Zweck: Die Anzahl der kostenlosen Freien Fertigkeiten modifizieren
 - "set_charakterbogen" (Filter: charakterBogen : CharakterBogenInfo)<br />
 Zweck: Den vom Nutzer gewählten Charakterbogen modifizieren, z.B. den Pfad der Datei anpassen um einen Charakterbogen aus dem Plugin zu verwenden.
 - "asp_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "wert" : int })<br />
@@ -86,16 +84,8 @@ Zweck: Die Kosten für Attributs-Steigerungen anpassen. Die Parameter enthalten 
 Zweck: Die Kosten für freie Fertigkeiten anpassen. Die Parameter enthalten den Namen der freien Fertigkeit und die Stufe. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
 - "talent_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "talent" : string })<br />
 Zweck: Die Kosten für Talente anpassen. Der "talent" Parameter enthält den Namen des Talents. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "waffe_haerte_wsstern" (Filter: applizieren: bool, Parameter: { "waffe" : Waffe })<br />
-Zweck: Bei bestimmten Waffen die Härte auf WS* setzen oder dies verhindern. Default: wird bei der Waffe Unbewaffnet appliziert. Der Parameter enthält das Waffe-Objekt (siehe Objekte.py), um das es geht.
-- "waffe_vt_erlaubt" (Filter: vtErlaubt: bool, Parameter: { "waffe" : Waffe })<br />
-Zweck: Bei bestimmten Waffen die VT erlauben oder nicht erlauben (= in der PDF auf "-" setzen). Default: wird bei Fernkampfwaffen und Lanzenreiten nicht erlaubt. Der Parameter enthält das Waffe-Objekt (siehe Objekte.py), um das es geht.
-- "waffe_schadensbonus_wirkt" (Filter: wirkt: bool, Parameter: { "waffe" : Waffe })<br />
-Zweck: Bei bestimmten Waffen den Schadensbonus applizieren oder entfernen. Default: wirkt bei Nahkampfwaffen. Der Parameter enthält das Waffe-Objekt (siehe Objekte.py), um das es geht.
 - "ruestung_be" (Filter: be: int, Parameter: { "name" : string })<br />
 Zweck: Die BE einer Rüstung des Rüstungauswahlfensters anpassen. Achtung: Da Rüstungen ergänzt werden können und die Namen dann konkateniert werden, sollte der name via "in" abgefragt werden (bspw. if "Leichte Platte" in name).
-- "format_freiefertigkeit_name" (Filter: name: string)<br />
-Zweck: Die Namen der Freie Fertigkeiten-Auswahlliste anpassen, bevor sie in ein Freie Fertigkeiten-Feld eingtragen werden.
 - Die folgenden Filter haben alle eine Gemeinsamkeit:  Der Filterwert ist eine Wrapperklasse eines der UI-Tabs. Im Filter kann der Wrapper komplett ersetzt oder beerbt werden, um die Sephrasto-UI anzupassen.
 	* "class_beschreibung_wrapper" (Filter: BeschrWrapper : class)
 	* "class_attribute_wrapper" (Filter: AttrWrapper : class)

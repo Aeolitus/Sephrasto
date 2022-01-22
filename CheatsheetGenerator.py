@@ -10,27 +10,6 @@ class CheatsheetGenerator(object):
 
     def __init__(self):
         self.RuleCategories = []
-        self.RuleCategories.append(self.formatCategory('ALLGEMEINE VORTEILE'))
-        self.RuleCategories.append(self.formatCategory('PROFANE VORTEILE'))
-        self.RuleCategories.append(self.formatCategory('PROFANE REGELN'))
-        self.RuleCategories.append(self.formatCategory('KAMPFVORTEILE'))
-        self.RuleCategories.append(self.formatCategory('AKTIONEN'))
-        self.RuleCategories.append(self.formatCategory('WAFFENEIGENSCHAFTEN'))
-        self.RuleCategories.append(self.formatCategory('WEITERE KAMPFREGELN'))
-        self.RuleCategories.append(self.formatCategory('NAHKAMPFMANÖVER'))
-        self.RuleCategories.append(self.formatCategory('FERNKAMPFMANÖVER'))
-        self.RuleCategories.append(self.formatCategory('MAGISCHE VORTEILE'))
-        self.RuleCategories.append(self.formatCategory('SPONTANE MODIFIKATIONEN (ZAUBER)'))
-        self.RuleCategories.append(self.formatCategory('WEITERE MAGIEREGELN'))
-        self.RuleCategories.append(self.formatCategory('ZAUBER'))
-        self.RuleCategories.append(self.formatCategory('KARMALE VORTEILE'))
-        self.RuleCategories.append(self.formatCategory('SPONTANE MODIFIKATIONEN (LITURGIEN)'))
-        self.RuleCategories.append(self.formatCategory('WEITERE KARMAREGELN'))
-        self.RuleCategories.append(self.formatCategory('LITURGIEN'))
-        self.RuleCategories.append(self.formatCategory('DÄMONISCHE VORTEILE'))
-        self.RuleCategories.append(self.formatCategory('SPONTANE MODIFIKATIONEN (ANRUFUNGEN)'))
-        self.RuleCategories.append(self.formatCategory('WEITERE ANRUFUNGSREGELN'))
-        self.RuleCategories.append(self.formatCategory('ANRUFUNGEN'))
 
         self.RulesLineCount = 100
         self.RulesCharCount = 80
@@ -42,11 +21,14 @@ class CheatsheetGenerator(object):
             self.RulesLineCount = 60
             self.RulesCharCount = 45
 
-    #used to abbreviate names when merged
-    abbreviations = {
-        "astrale Regeneration" : "a. R.",
-        "Rüstungsgewöhnung" : "Rgw.",
-    }
+        #used to abbreviate names when merged
+        ab = Wolke.DB.einstellungen["VerknüpfungsAbkürzungen"].toTextList()
+        if ab:
+            for abbreviation in ab:
+                tmp = abbreviation.split("=")
+                CheatsheetGenerator.abbreviations[tmp[0].strip()] = tmp[1].strip()
+
+    abbreviations = {}
 
     textToFraction = {
         "ein Achtel" : "1/8",
@@ -56,7 +38,7 @@ class CheatsheetGenerator(object):
     }
 
     def formatCategory(self, category):
-        return "===== " + category + " ====="
+        return "===== " + category.upper() + " ====="
 
     def getLineCount(self, text):
         lines = text.split("\n")
@@ -411,33 +393,12 @@ class CheatsheetGenerator(object):
             lineCounts.pop()
 
     def prepareRules(self, talentboxList):
+        self.RuleCategories = []
         sortV = Wolke.Char.vorteile.copy()
         sortV = sorted(sortV, key=str.lower)
 
-        allgemein = [el for el in sortV if Wolke.DB.vorteile[el].typ == 0]
-        
-        profan = [el for el in sortV if Wolke.DB.vorteile[el].typ == 1]
-
-        kampf = [el for el in sortV if (Wolke.DB.vorteile[el].typ == 2)]
-        kampfstile = [el for el in sortV if (Wolke.DB.vorteile[el].typ == 3)]
-        kampf.extend(kampfstile)
-
-        magisch = [el for el in sortV if Wolke.DB.vorteile[el].typ == 4]
-        magischTraditionen = [el for el in sortV if Wolke.DB.vorteile[el].typ == 5]
-        magisch.extend(magischTraditionen)
-
-        karmal = [el for el in sortV if Wolke.DB.vorteile[el].typ == 6]
-        karmalTraditionen = [el for el in sortV if Wolke.DB.vorteile[el].typ == 7]
-        karmal.extend(karmalTraditionen)
-
-        dämonisch = [el for el in sortV if Wolke.DB.vorteile[el].typ == 8]
-
         sortM = list(Wolke.DB.manöver.keys())
         sortM = sorted(sortM, key=str.lower)
-
-        aktionen = [el for el in sortM if (Wolke.DB.manöver[el].typ == 5)]
-
-        manövernah = [el for el in sortM if (Wolke.DB.manöver[el].typ == 0)]
 
         waffeneigenschaften = {}
         for waffe in Wolke.Char.waffen:
@@ -449,41 +410,8 @@ class CheatsheetGenerator(object):
                     else:
                         waffeneigenschaften[we.name].append(waffe.anzeigename)
                 except WaffeneigenschaftException:
-                    pass
-
-        manöverfern = []
-        for waffe in Wolke.Char.waffen:
-            if type(waffe) is Objekte.Fernkampfwaffe:
-                manöverfern = [el for el in sortM if (Wolke.DB.manöver[el].typ == 1)]
-                break
+                    pass      
         
-        weiteresprofan = [el for el in sortM if (Wolke.DB.manöver[el].typ == 9)]
-        weitereskampf = [el for el in sortM if (Wolke.DB.manöver[el].typ == 8)]
-            
-        spomodsmagie = [el for el in sortM if (Wolke.DB.manöver[el].typ == 2)]
-        weiteresmagie = [el for el in sortM if (Wolke.DB.manöver[el].typ == 4)]
-        
-        spomodskarma = [el for el in sortM if (Wolke.DB.manöver[el].typ == 3)]
-        weitereskarma = [el for el in sortM if (Wolke.DB.manöver[el].typ == 7)]
-
-        spomodsdämonisch = [el for el in sortM if (Wolke.DB.manöver[el].typ == 6)]
-        weiteresdämonisch = []
-        
-        
-        isZauberer = ("Zauberer I" in Wolke.Char.vorteile) or ("Tradition der Borbaradianer I" in Wolke.Char.vorteile)
-        isGeweiht = "Geweiht I" in Wolke.Char.vorteile
-        isPaktierer = "Paktierer I" in Wolke.Char.vorteile
-
-        if len(weiteresmagie) > 0 and not isZauberer:
-            # There a quite a few of shared rules, move them to the appropriate list if char isnt a magic user
-            if isGeweiht:
-                weitereskarma.extend(weiteresmagie)
-                weitereskarma = sorted(weitereskarma)
-                weiteresmagie = []
-            elif isPaktierer:
-                weiteresdämonisch = weiteresmagie
-                weiteresmagie = []
-
         zauber = set()
         liturgien = set()
         anrufungen = set()
@@ -495,11 +423,11 @@ class CheatsheetGenerator(object):
                 elif len(res) >= 1 and " GuP" in res[0]:
                     anrufungen.add(tal)
                 else:
-                    if isZauberer:
+                    if  ("Zauberer I" in Wolke.Char.vorteile) or ("Tradition der Borbaradianer I" in Wolke.Char.vorteile):
                         zauber.add(tal)
-                    elif isGeweiht:
+                    elif "Geweiht I" in Wolke.Char.vorteile:
                         liturgien.add(tal)
-                    elif isPaktierer:
+                    elif "Paktierer I" in Wolke.Char.vorteile:
                         anrufungen.add(tal)
                     else:
                         zauber.add(tal)
@@ -511,31 +439,71 @@ class CheatsheetGenerator(object):
         rules = []
         ruleLineCounts = []
 
-        self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[0], allgemein)
-        self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[1], profan)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[2], weiteresprofan)
+        reihenfolge = Wolke.DB.einstellungen["RegelanhangReihenfolge"].toTextList()
+        vorteileMergeScript = Wolke.DB.einstellungen["RegelanhangVorteileMergeScript"].toText()
+        manöverMergeScript = Wolke.DB.einstellungen["RegelanhangManöverMergeScript"].toText()
+        vorteilTypen = Wolke.DB.einstellungen["VorteilsTypen"].toTextList()
+        manöverTypen = Wolke.DB.einstellungen["ManöverTypen"].toTextList()
 
-        self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[3], kampf)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[4], aktionen)
-        self.appendWaffeneigenschaften(rules, ruleLineCounts, self.RuleCategories[5], waffeneigenschaften)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[6], weitereskampf)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[7], manövernah)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[8], manöverfern)
+        vorteileGruppiert = []
+        for i in range(len(vorteilTypen)):
+            vorteileGruppiert.append([])
+        for i in range(len(vorteilTypen)):
+            scriptVariables = { "char" : Wolke.Char, "typ" : i, "mergeTo" : i }
+            exec(vorteileMergeScript, scriptVariables)
+            mergeTo = scriptVariables["mergeTo"]
+            if mergeTo >= len(vorteilTypen):
+                mergeTo = i
+            empty = len(vorteileGruppiert[mergeTo]) == 0
+            vorteileGruppiert[mergeTo].extend([el for el in sortV if Wolke.DB.vorteile[el].typ == i])
+            if not empty:
+                vorteileGruppiert[mergeTo] = sorted(vorteileGruppiert[mergeTo])
 
-        self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[9], magisch)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[10], spomodsmagie)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[11], weiteresmagie)
-        self.appendTalente(rules, ruleLineCounts, self.RuleCategories[12], zauber, talentboxList)
+        manöverGruppiert = []
+        for i in range(len(manöverTypen)):
+            manöverGruppiert.append([])
+        for i in range(len(manöverTypen)):
+            scriptVariables = { "char" : Wolke.Char, "typ" : i, "mergeTo" : i }
+            exec(manöverMergeScript, scriptVariables)
+            mergeTo = scriptVariables["mergeTo"]
+            if mergeTo >= len(manöverTypen):
+                mergeTo = i
+            empty = len(manöverGruppiert[mergeTo]) == 0
+            manöverGruppiert[mergeTo].extend([el for el in sortM if (Wolke.DB.manöver[el].typ == i)])
+            if not empty:
+                manöverGruppiert[mergeTo] = sorted(manöverGruppiert[mergeTo])
 
-        self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[13], karmal)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[14], spomodskarma)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[15], weitereskarma)
-        self.appendTalente(rules, ruleLineCounts, self.RuleCategories[16], liturgien, talentboxList)
-
-        self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[17], dämonisch)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[18], spomodsdämonisch)
-        self.appendManöver(rules, ruleLineCounts, self.RuleCategories[19], weiteresdämonisch)
-        self.appendTalente(rules, ruleLineCounts, self.RuleCategories[20], anrufungen, talentboxList)
+        for r in reihenfolge:
+            if r[0] == "V":
+                typ = int(r[1:])
+                if typ >= len(vorteileGruppiert):
+                    continue
+                self.RuleCategories.append(self.formatCategory(vorteilTypen[typ]))
+                self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[-1], vorteileGruppiert[typ])
+                pass
+            elif r[0] == "M":
+                typ = int(r[1:])
+                if typ >= len(manöverGruppiert):
+                    continue
+                self.RuleCategories.append(self.formatCategory(manöverTypen[typ]))
+                self.appendManöver(rules, ruleLineCounts, self.RuleCategories[-1], manöverGruppiert[typ])
+                pass
+            elif r[0] == "W":
+                self.RuleCategories.append(self.formatCategory("Waffeneigenschaften"))
+                self.appendWaffeneigenschaften(rules, ruleLineCounts, self.RuleCategories[-1], waffeneigenschaften)
+                pass
+            elif r[0] == "Z":
+                self.RuleCategories.append(self.formatCategory("Zauber"))
+                self.appendTalente(rules, ruleLineCounts, self.RuleCategories[-1], zauber, talentboxList)
+                pass
+            elif r[0] == "L":
+                self.RuleCategories.append(self.formatCategory("Liturgien"))
+                self.appendTalente(rules, ruleLineCounts, self.RuleCategories[-1], liturgien, talentboxList)
+                pass
+            elif r[0] == "A":
+                self.RuleCategories.append(self.formatCategory("Anrufungen"))
+                self.appendTalente(rules, ruleLineCounts, self.RuleCategories[-1], anrufungen, talentboxList)
+                pass
 
         return rules, ruleLineCounts
         

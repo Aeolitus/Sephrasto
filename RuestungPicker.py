@@ -37,6 +37,8 @@ class RuestungPicker(object):
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
         
+        self.ruestungsTypen = Wolke.DB.einstellungen["RüstungsTypen"].toTextList()
+
         if ruestung is not None and ruestung != "":
             self.replaceButton = QtWidgets.QPushButton("Rüstung ersetzen")
             self.replaceButton.clicked.connect(self.replaceClicked)
@@ -100,7 +102,7 @@ class RuestungPicker(object):
         currSet = self.current != ""
         self.ui.treeArmors.clear()
 
-        for typ in Definitionen.RuestungsTypen:
+        for typ in self.ruestungsTypen:
             ruestungen = []
             for rues in Wolke.DB.rüstungen:
                 if Wolke.DB.rüstungen[rues].system != 0 and Wolke.DB.rüstungen[rues].system != self.system:
@@ -110,8 +112,8 @@ class RuestungPicker(object):
                     filterText = self.ui.nameFilterEdit.text().lower()
                     if (not filterText in Wolke.DB.rüstungen[rues].name.lower()):
                         continue
-
-                if Definitionen.RuestungsTypen[Wolke.DB.rüstungen[rues].typ] == typ:
+                typ2 = min(Wolke.DB.rüstungen[rues].typ, len(self.ruestungsTypen)-1)
+                if self.ruestungsTypen[typ2] == typ:
                     ruestungen.append(rues)
 
             ruestungen.sort()
@@ -145,7 +147,7 @@ class RuestungPicker(object):
     def changeHandler(self):
         self.current = ""
         for el in self.ui.treeArmors.selectedItems():
-            if el.text(0)[:-2] in Definitionen.RuestungsTypen:
+            if el.text(0)[:-2] in self.ruestungsTypen:
                 continue
             self.current = el.data(0, QtCore.Qt.UserRole) # contains key of armor
             break
@@ -172,7 +174,8 @@ class RuestungPicker(object):
             if name.endswith(" (ZRS)"):
                     name = name[:-6]
             self.ui.lblName.setText(name)
-            self.ui.lblTyp.setText(Definitionen.RuestungsTypen[r.typ])
+            typ = min(r.typ, len(self.ruestungsTypen)-1)
+            self.ui.lblTyp.setText(self.ruestungsTypen[typ])
 
             if self.system == 1:
                 be = EventBus.applyFilter("ruestung_be", r.getRSGesamtInt(), { "name" : r.name })

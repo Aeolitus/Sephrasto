@@ -9,7 +9,6 @@ import CharakterVorteile
 import CharakterMinderpaktWrapper
 from Charakter import VariableKosten
 from PyQt5 import QtWidgets, QtCore
-from Definitionen import VorteilTypen
 import logging
 from EventBus import EventBus
 
@@ -23,6 +22,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
         self.uiVor = CharakterVorteile.Ui_Form()
         self.uiVor.setupUi(self.formVor)
         
+        self.vorteilTypen = Wolke.DB.einstellungen["VorteilsTypen"].toTextList()
         self.uiVor.treeWidget.itemSelectionChanged.connect(self.vortClicked)
         self.uiVor.treeWidget.itemChanged.connect(self.itemChangeHandler)
         self.uiVor.treeWidget.header().setSectionResizeMode(0,1)
@@ -39,11 +39,11 @@ class CharakterVorteileWrapper(QtCore.QObject):
     def initVorteile(self):
         self.uiVor.treeWidget.blockSignals(True)
         vortList = []
-        for vortTyp in VorteilTypen:
+        for vortTyp in self.vorteilTypen:
             vortList.append([])
 
         for el in Wolke.DB.vorteile:
-            idx = Wolke.DB.vorteile[el].typ
+            idx = min(Wolke.DB.vorteile[el].typ, len(vortList) - 1)
             vortList[idx].append(el)
         
         for vorteile in vortList:
@@ -51,7 +51,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
 
         for i in range(len(vortList)):
             parent = QtWidgets.QTreeWidgetItem(self.uiVor.treeWidget)
-            parent.setText(0, VorteilTypen[i])
+            parent.setText(0, self.vorteilTypen[i])
             parent.setText(1,"")
             parent.setExpanded(True)
             for el in vortList[i]:
@@ -96,12 +96,12 @@ class CharakterVorteileWrapper(QtCore.QObject):
     def load(self):
         self.uiVor.treeWidget.blockSignals(True)
         vortList = []
-        for vortTyp in VorteilTypen:
+        for vortTyp in self.vorteilTypen:
             vortList.append([])
 
         for el in Wolke.DB.vorteile:
             if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.vorteile[el].voraussetzungen):
-                idx = Wolke.DB.vorteile[el].typ
+                idx = min(Wolke.DB.vorteile[el].typ, len(vortList) -1)
                 vortList[idx].append(el)
         for i in range(len(vortList)):
             itm = self.uiVor.treeWidget.topLevelItem(i)
@@ -253,7 +253,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
     
     def vortClicked(self):
         for el in self.uiVor.treeWidget.selectedItems():
-            if el.text(0) in VorteilTypen:
+            if el.text(0) in self.vorteilTypen:
                 continue
             self.currentVort = el.text(0)
             break #First one should be all of them
@@ -262,7 +262,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
     def updateInfo(self):
         if self.currentVort != "":
             self.uiVor.labelVorteil.setText(Wolke.DB.vorteile[self.currentVort].name)
-            self.uiVor.labelTyp.setText(VorteilTypen[Wolke.DB.vorteile[self.currentVort].typ])
+            self.uiVor.labelTyp.setText(self.vorteilTypen[Wolke.DB.vorteile[self.currentVort].typ])
             self.uiVor.labelNachkauf.setText(Wolke.DB.vorteile[self.currentVort].nachkauf)
             self.uiVor.plainText.setPlainText(Wolke.DB.vorteile[self.currentVort].text)
             if Wolke.DB.vorteile[self.currentVort].variableKosten and self.currentVort in Wolke.Char.vorteileVariable:

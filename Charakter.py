@@ -20,12 +20,10 @@ class KampfstilMod():
         self.TP = 0
         self.RW = 0
         self.BE = 0
-        self.BEIgnore = [] #Tupel aus Kampffertigkeit und Talent für welche die BE ignoriert wird
 
     def __deepcopy__(self):
       clone = type(self)()
       clone.__dict__.update(self.__dict__)
-      clone.beIgnore = copy.deepcopy(self.beIgnore)
       return clone
 
 class Waffenwerte():
@@ -99,7 +97,7 @@ class Char():
         #Vierter Block: Fertigkeiten und Freie Fertigkeiten
         self.fertigkeiten = copy.deepcopy(Wolke.DB.fertigkeiten)
         self.freieFertigkeiten = []
-        self.freieFertigkeitenNumKostenlos = EventBus.applyFilter("freiefertigkeit_num_kostenlos", 1)
+        self.freieFertigkeitenNumKostenlos = Wolke.DB.einstellungen["AnzahlKostenloseFreieFertigkeiten"].toInt()
         self.talenteVariable = {} #Contains Name: VariableKosten
 
         #Fünfter Block: Ausrüstung etc
@@ -156,8 +154,6 @@ class Char():
 
         if not self.migrationen[self.datenbankCodeVersion]:
             raise Exception("Migrations-Code vergessen.")
-
-
 
         #Bei Änderungen nicht vergessen die script docs in ScriptAPI.md anzupassen
         self.charakterScriptAPI = {
@@ -256,7 +252,6 @@ class Char():
              'getKampfstil' : lambda kampfstil: copy.copy(self.kampfstilMods[kampfstil]),
              'setKampfstil' : self.API_setKampfstil,
              'modifyKampfstil' : self.API_modifyKampfstil,
-             'setKampfstilBEIgnore' : lambda kampfstil, fertigkeit, talent: self.kampfstilMods[kampfstil].BEIgnore.append([fertigkeit, talent]),
 
             #Attribute
             'getAttribut' : lambda attribut: self.attribute[attribut].wert,
@@ -539,20 +534,14 @@ class Char():
             waffenwerte.AT += el.wm
             waffenwerte.VT += el.wm
 
-            schadensbonusWirkt = type(el) == Objekte.Nahkampfwaffe or fertig == "Wurfwaffen"
-            schadensbonusWirkt = EventBus.applyFilter("waffe_schadensbonus_wirkt", schadensbonusWirkt, { "waffe" : el })
-            if schadensbonusWirkt:
-                waffenwerte.TPPlus += self.schadensbonus
-
-            ignoreBE = False
-            for values in kampfstilMods.BEIgnore:
-                if values[0] == fertig and values[1] == tale:
-                    ignoreBE = True
+            for f in Wolke.DB.einstellungen["FertigkeitenSchadensbonus"].toTextList():
+                if (f == "Nahkampfwaffen" and type(el) == Objekte.Nahkampfwaffe) or fertig == f:
+                    waffenwerte.TPPlus += self.schadensbonus
                     break
-            if not ignoreBE:
-                be = max(self.be + kampfstilMods.BE, 0)
-                waffenwerte.AT -= be
-                waffenwerte.VT -= be
+
+            be = max(self.be + kampfstilMods.BE, 0)
+            waffenwerte.AT -= be
+            waffenwerte.VT -= be
 
             self.currentWaffenwerte = waffenwerte
 

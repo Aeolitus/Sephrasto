@@ -10277,4 +10277,26 @@ Anmerkung: Mit dem Totes handle! können nur permanente Untote erschaffen werden
   <FreieFertigkeit kategorie="Sprache">Riesen-Sprache</FreieFertigkeit>
   <FreieFertigkeit kategorie="Sprache">Zhayad</FreieFertigkeit>
   <FreieFertigkeit kategorie="Sprache">Zyklopisch</FreieFertigkeit>
+  <Einstellung name="AnzahlKostenloseFreieFertigkeiten" typ="Int" beschreibung="Legt die Anzahl kostenloser Freier Fertigkeiten auf Stufe III fest.">1</Einstellung>
+  <Einstellung name="VorteilsTypen" typ="Text" beschreibung="Definiert die verfügbaren Typen von Vorteilen im Datenbank-Editor und deren Reihenfolge in der Vorteilsliste des Charaktereditors. Achtung: Das Ändern der Reihenfolge erfordert in der Regel ein Überarbeiten aller Vorteile. Ein Umbenennen existierender oder Anfügen weiterer Typen ist dagegen unproblematisch. Beachte bei einer Änderung auch die Regelanhang-Einstellungen.">Allgemeine Vorteile, Profane Vorteile, Kampfvorteile, Kampfstile, Magische Vorteile, Magische Traditionen, Karmale Vorteile, Karmale Traditionen, Dämonische Traditionen</Einstellung>
+  <Einstellung name="ManöverTypen" typ="Text" beschreibung="Definiert die verfügbaren Typen von Manövern/Modifikationen/Regeln im Datenbank-Editor. Diese werden zur Sortierung des Regelanhangs verwendet. Achtung: Das Ändern der Reihenfolge erfordert in der Regel ein Überarbeiten aller Manöver/Modifikationen/Regeln. Ein Umbenennen existierender oder Anfügen weiterer Typen ist dagegen unproblematisch. Beachte bei einer Änderung auch die Regelanhang-Einstellungen.">Nahkampfmanöver, Fernkampfmanöver, Magische Modifikation, Karmale Modifikation, Weitere Magieregeln, Aktion, Dämonische Modifikation, Weitere Karmaregeln, Weitere Kampfregeln, Profane Regeln, Weitere Paktiererregeln</Einstellung>
+  <Einstellung name="RüstungsTypen" typ="Text" beschreibung="Definiert die verfügbaren Typen von Rüstungen im Datenbank-Editor und deren Reihenfolge im Rüstungsauswahlfenster des Charaktereditors. Achtung: Das Ändern der Reihenfolge erfordert in der Regel ein Überarbeiten aller Rüstungen. Ein Umbenennen existierender oder Anfügen weiterer Typen ist dagegen unproblematisch.">Stoffrüstung, Lederrüstung, Holz- oder Knochenrüstung, Ketten- oder Schuppenrüstung, Plattenrüstung</Einstellung>
+  <Einstellung name="RegelanhangReihenfolge" typ="Text" beschreibung="Definiert, ob und welche Vorteile (V), Manöver/Modifikationen/Regeln (M), Waffeneigenschaften (W), Zauber (Z), Liturgien (L) und Anrufungen (A) im Regelanhang aufgeführt werden und deren Reihenfolge. V und M werden noch gefolgt vom Typ-Index der VorteilsTypen und ManöverTypen Einstellung. Beispiel: V3 bedeutet in der Standardeinstellung Vorteile vom Typ Kampfstile.">V0,V1,M9,V2,V3,M5,W,M8,M0,M1,V4,V5,M2,M4,Z,V6,V7,M3,M7,L,V8,M6,A,M10</Einstellung>
+  <Einstellung name="RegelanhangManöverMergeScript" typ="Text" beschreibung="Das Pythonscript kann dem Regelgenerator mitteilen, dass die Manöver eines bestimmten Typs einem anderen Typ hinzugefügt werden sollen. Es stehen hierfür die Variablen char (Charakter.Char), typ (Manövertyp-Index) und mergeTo (Manövertyp-Index) zur Verfügung.">if typ == 4 and not (("Zauberer I" in char.vorteile) or ("Tradition der Borbaradianer I" in char.vorteile)):
+    if "Geweiht I" in char.vorteile:
+        mergeTo = 7
+    elif "Paktierer I" in char.vorteile:
+        mergeTo = 10
+  </Einstellung>
+  <Einstellung name="RegelanhangVorteileMergeScript" typ="Text" beschreibung="Das Pythonscript kann dem Regelgenerator mitteilen, dass die Vorteile eines bestimmten Typs einem anderen Typ hinzugefügt werden sollen. Es stehen hierfür die Variablen char (Charakter.Char), typ (Vorteilstyp-Index) und mergeTo (Vorteilstyp-Index) zur Verfügung.">if typ == 3:
+    mergeTo = 2
+elif typ == 5:
+    mergeTo = 4
+elif typ == 7:
+    mergeTo = 6</Einstellung>
+  <Einstellung name="VerknüpfungsAbkürzungen" typ="Text" beschreibung="Die Namen verknüpfter Vorteile etc. können eventuell zu lang für den Charakterbogen und den Regelanhang werden. Hier können nach folgendem Format Abkürzungen definiert werden: (Teil-)Name=Abkürzung, (Teil-)Name=...">astrale Regeneration=a. R., Rüstungsgewöhnung=Rgw.</Einstellung>
+  <Einstellung name="TalenteVTVerboten" typ="Text" beschreibung="Bei Waffen der hier aufgeführten Talente wird bei der VT ein '-' eingetragen. Es können statt dem Talent auch die Namen einzelner Waffen angegeben werden.">Lanzenreiten, Armbrüste, Blasrohre, Bögen, Diskusse, Kurze Wurfwaffen, Schleudern, Wurfspeere</Einstellung>
+  <Einstellung name="WaffenHärteWSStern" typ="Text" beschreibung="Bei den hier aufgeführten Waffen wird die Härte auf die WS* des Charakters gesetzt.">Hand, Fuß</Einstellung>
+  <Einstellung name="FertigkeitenSchadensbonus" typ="Text" beschreibung="Waffen der hier aufgeführten Fertigkeiten erhalten den Schadensbonus. Statt einer Fertigkeit kann auch allgemein 'Nahkampfwaffen' angegeben werden.">Nahkampfwaffen, Wurfwaffen</Einstellung>
+  <Einstellung name="FreieFertigkeitenKategorieAbkürzungen" typ="Text" beschreibung="Die Kategorie-Namen von Freien Fertigkeiten können eventuell zu lang für den Charakterbogen werden. Hier können nach folgendem Format Abkürzungen definiert werden: (Teil-)Name=Abkürzung, (Teil-)Name=..."></Einstellung>
 </Datenbank>

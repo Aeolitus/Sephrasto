@@ -41,7 +41,6 @@ Beispiel: modifyTalent('Beeinflussung', 'Überreden', 'Rededuell', 2)
 ### Vorteile
 - Vorteile allgemein: ```getVorteile <Return: { name, wert, steigerungsfaktor, text, kosten, typ, voraussetzungen[], nachkauf, text }[]>```
 - Kampfstile: ```getKampfstil <Parameter: Kampfstil-Name. Return: { AT, VT, TP, RW, BE }>, setKampfstil/modifyKampfstil <Parameter: Kampfstil-Name, AT, VT, TP, RW, BE>```
-- Mit genanntem Kampfstil und Talent BE ignorieren: ```setKampfstilBEIgnore <Parameter: Kampfstil-Name, Fertigkeit-Name, Talent-Name>```
 <br />
 ### Ausrüstung
 - Inventar: ```getAusrüstung <Return: string[]>```

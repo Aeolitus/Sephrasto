@@ -8,7 +8,6 @@ import Fertigkeiten
 import DatenbankEditVorteil
 from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
 from PyQt5 import QtWidgets, QtCore
-from Definitionen import VorteilTypen
 
 class DatenbankEditVorteilWrapper(object):
     def __init__(self, datenbank, vorteil=None, readonly=False):
@@ -41,7 +40,7 @@ class DatenbankEditVorteilWrapper(object):
         self.ui.kostenEdit.setValue(vorteil.kosten)
         self.ui.comboNachkauf.setCurrentText(vorteil.nachkauf)
 
-        self.ui.comboTyp.addItems(VorteilTypen)
+        self.ui.comboTyp.addItems(datenbank.einstellungen["VorteilsTypen"].toTextList())
         self.ui.comboTyp.setCurrentIndex(vorteil.typ)
 
         self.ui.voraussetzungenEdit.setPlainText(Hilfsmethoden.VorArray2Str(vorteil.voraussetzungen, None))

@@ -25,6 +25,13 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
         
+        self.abbreviations = {}
+        ab = Wolke.DB.einstellungen["FreieFertigkeitenKategorieAbkürzungen"].toTextList()
+        if ab:
+            for abbreviation in ab:
+                tmp = abbreviation.split("=")
+                self.abbreviations[tmp[0].strip()] = tmp[1].strip()
+
         self.populateTree()
 
         self.ui.treeFerts.itemSelectionChanged.connect(self.changeHandler)
@@ -42,7 +49,14 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
             self.fertigkeit = None
 
     def formatName(self, freieFertigkeit):
-        return EventBus.applyFilter("format_freiefertigkeit_name", freieFertigkeit.kategorie + ": " + freieFertigkeit.name, { "fertigkeit" : freieFertigkeit } )
+        kategorie = freieFertigkeit.kategorie
+        for abbreviation in self.abbreviations:
+            kategorie = kategorie.replace(abbreviation, self.abbreviations[abbreviation])
+
+        if kategorie.strip():
+            return kategorie + ": " + freieFertigkeit.name
+        else:
+            return freieFertigkeit.name
 
     def populateTree(self):
         currSet = self.current != ""

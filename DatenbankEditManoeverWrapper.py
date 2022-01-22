@@ -39,6 +39,8 @@ class DatenbankEditManoeverWrapper(object):
         self.nameChanged()
         self.ui.probeEdit.setText(man.probe)
         self.ui.gegenEdit.setText(man.gegenprobe)
+        self.ui.comboTyp.clear()
+        self.ui.comboTyp.addItems(datenbank.einstellungen["ManöverTypen"].toTextList())
         self.ui.comboTyp.setCurrentIndex(man.typ)
         
         self.ui.voraussetzungenEdit.setPlainText(Hilfsmethoden.VorArray2Str(man.voraussetzungen, None))
