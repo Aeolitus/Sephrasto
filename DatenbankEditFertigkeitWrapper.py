@@ -61,7 +61,6 @@ class DatenbankEditFertigkeitWrapper(object):
             fertigkeitsTypen = datenbank.einstellungen["FertigkeitsTypenProfan"].toTextList()
         self.ui.comboTyp.addItems(fertigkeitsTypen)
         self.ui.comboTyp.setCurrentIndex(fertigkeit.printclass)
-        self.ui.comboTyp.setToolTip("Fertigkeiten werden nach diesem Typ gruppiert und dann alphabetisch sortiert")
 
         fertDialog.show()
         ret = fertDialog.exec_()
