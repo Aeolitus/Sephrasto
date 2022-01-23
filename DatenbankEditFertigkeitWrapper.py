@@ -76,8 +76,7 @@ class DatenbankEditFertigkeitWrapper(object):
                              self.ui.comboAttribut2.currentText(),
                              self.ui.comboAttribut3.currentText()]
             self.fertigkeit.text = self.ui.textEdit.toPlainText()
-            self.fertigkeit.printclass = self.ui.sortierungEdit.value()
-
+            self.fertigkeit.printclass = self.ui.comboTyp.currentIndex()
             self.fertigkeit.isUserAdded = False
             if self.fertigkeit == self.fertigkeitPicked:
                 self.fertigkeit = None
