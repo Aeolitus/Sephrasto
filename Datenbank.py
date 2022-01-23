@@ -39,6 +39,8 @@ class DatenbankEinstellung(object):
         return self.wert
 
     def toTextList(self):
+        if not self.toText().strip():
+            return []
         return [t.strip() for t in self.toText().split(",")]
 
 class Datenbank():

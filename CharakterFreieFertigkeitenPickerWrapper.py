@@ -27,10 +27,9 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
         
         self.abbreviations = {}
         ab = Wolke.DB.einstellungen["FreieFertigkeitenKategorieAbkürzungen"].toTextList()
-        if ab:
-            for abbreviation in ab:
-                tmp = abbreviation.split("=")
-                self.abbreviations[tmp[0].strip()] = tmp[1].strip()
+        for abbreviation in ab:
+            tmp = abbreviation.split("=")
+            self.abbreviations[tmp[0].strip()] = tmp[1].strip()
 
         self.populateTree()
 
