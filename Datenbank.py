@@ -129,7 +129,6 @@ class Datenbank():
             v.set('fertigkeiten',Hilfsmethoden.FertArray2Str(talent.fertigkeiten, None))
             v.set('variable', str(1 if talent.variableKosten else 0))
             v.set('kommentar', str(1 if talent.kommentarErlauben else 0))
-            v.set('printclass',str(talent.printclass))
             v.text = talent.text
 
             if not talent.cheatsheetAuflisten:
@@ -159,6 +158,7 @@ class Datenbank():
             v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(fertigkeit.voraussetzungen, None))
             v.set('attribute',Hilfsmethoden.AttrArray2Str(fertigkeit.attribute))
             v.set('printclass',str(fertigkeit.printclass))
+            v.set('talentegruppieren',str(1 if fertigkeit.talenteGruppieren else 0))
             v.text = fertigkeit.text
               
         #Waffeneigenschaften
@@ -437,12 +437,6 @@ class Datenbank():
 
             T.isUserAdded = not refDB
 
-            printClass = tal.get('printclass')
-            if printClass:
-                T.printclass = int(printClass)
-            else:
-                T.printclass = -1
-
             if T.name in self.talente:
                 logging.warn("Talent " + T.name + " exists already in the database, probably a \"Remove\" entry is missing. " +
                     "To fix this warning, delete your change, restore the original and redo your change")
@@ -488,6 +482,9 @@ class Datenbank():
                 F.printclass = int(printClass)
             else:
                 F.printclass = -1
+
+            if fer.get('talentegruppieren'):
+                F.talenteGruppieren = int(fer.get('talentegruppieren')) == 1
 
             if F.name in self.übernatürlicheFertigkeiten:
                 logging.warn("Fertigkeit " + F.name + " exists already in the database, probably a \"Remove\" entry is missing. " +

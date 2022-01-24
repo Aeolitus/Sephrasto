@@ -48,9 +48,12 @@ class DatenbankEditFertigkeitWrapper(object):
             self.ui.comboKampffertigkeit.setVisible(False)
             self.ui.voraussetzungenEdit.setPlainText(Hilfsmethoden.VorArray2Str(fertigkeit.voraussetzungen, None))
             self.ui.voraussetzungenEdit.textChanged.connect(self.voraussetzungenTextChanged)
+            self.ui.checkGruppieren.setChecked(fertigkeit.talenteGruppieren)
         else:
             self.ui.voraussetzungenEdit.setVisible(False)
             self.ui.labelVoraussetzungen.setVisible(False)
+            self.ui.labelGruppieren.setVisible(False)
+            self.ui.checkGruppieren.setVisible(False)
             self.ui.comboKampffertigkeit.setCurrentIndex(fertigkeit.kampffertigkeit)
 
         self.ui.textEdit.setPlainText(fertigkeit.text)
@@ -76,6 +79,7 @@ class DatenbankEditFertigkeitWrapper(object):
                              self.ui.comboAttribut2.currentText(),
                              self.ui.comboAttribut3.currentText()]
             self.fertigkeit.text = self.ui.textEdit.toPlainText()
+            self.fertigkeit.talenteGruppieren = self.ui.checkGruppieren.isChecked()
             self.fertigkeit.printclass = self.ui.comboTyp.currentIndex()
             self.fertigkeit.isUserAdded = False
             if self.fertigkeit == self.fertigkeitPicked:

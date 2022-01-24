@@ -315,7 +315,7 @@ class pdfMeister(object):
         tmpUeberflow = []
         
         # Fill up categories that are not full with the overflow
-        # We merge up to 3 vorteile of together before we overflow to additional pages
+        # We merge up to 3 vorteile together before we overflow to additional pages
         mergePerLineCount = 3
 
         if len(tmpVorts) > self.CharakterBogen.maxVorteile * mergePerLineCount:
@@ -347,8 +347,8 @@ class pdfMeister(object):
         tmptmp = tmpOverflow[counter:]
         for el in tmptmp:
             tmpUeberflow.append(el)
-        # Fill fields
 
+        # Fill fields
         for i in range(0, min(self.CharakterBogen.maxVorteile * mergePerLineCount, len(tmpVorts))):
             field = 'Vorteil' + str((i % self.CharakterBogen.maxVorteile)+1)
             if not field in fields:
@@ -604,59 +604,59 @@ class pdfMeister(object):
                     self.UseExtraPage = True
                     self.ExtraUeber.append(fe)
                 countF += 1
-            
+
+        talente = set()
+        for fert in fertsList:
+            for talent in Wolke.Char.übernatürlicheFertigkeiten[fert].gekaufteTalente:
+                talente.add(talent)
+
+        for t in talente:
             # Fill Talente
-            tals = sorted(fe.gekaufteTalente, key=lambda s: s.lower())
-            for t in tals:
-                talent = Wolke.DB.talente[t]
-                tt = Talentbox.Talentbox()
+            talent = Wolke.DB.talente[t]
+            tt = Talentbox.Talentbox()
 
-                tt.na = talent.getFullName(Wolke.Char)
-                if len(talent.fertigkeiten) == 1:
-                    tt.na = tt.na.replace(f + ": ", "")
-                tt.pw = fe.probenwertTalent
+            tt.na = talent.getFullName(Wolke.Char)
+            if len(talent.fertigkeiten) == 1:
+                tt.na = tt.na.replace(talent.fertigkeiten[0] + ": ", "")
+            for el in talent.fertigkeiten:
+                if not el in Wolke.Char.übernatürlicheFertigkeiten:
+                    continue
+                fert = Wolke.Char.übernatürlicheFertigkeiten[el]
+                tt.pw = max(tt.pw, fert.probenwertTalent)
 
-                res = re.findall('Vorbereitungszeit:(.*?)\n',
-                                    talent.text,
-                                    re.UNICODE)
-                if len(res) == 1:
-                    tt.vo = res[0].strip()
-                    #fields[base + 'VO'] = res[0].strip()
-                res = re.findall('Reichweite:(.*?)\n',
-                                    talent.text,
-                                    re.UNICODE)
-                if len(res) == 1:
-                    tt.re = res[0].strip()
-                    #fields[base + 'RE'] = res[0].strip()
-                res = re.findall('Wirkungsdauer:(.*?)\n',
-                                    talent.text,
-                                    re.UNICODE)
-                if len(res) == 1:
-                    tt.wd = res[0].strip()
-                    #fields[base + 'WD'] = res[0].strip()
-                res = re.findall('Kosten:(.*?)\n',
-                                    talent.text,
-                                    re.UNICODE)
-                if len(res) == 1:
-                    tt.ko = res[0].strip()
-                    #fields[base + 'KO'] = res[0].strip()
+                if tt.groupFert is None:
+                    tt.groupFert = fert
+                elif not tt.groupFert.talenteGruppieren and fert.talenteGruppieren:
+                    tt.groupFert = fert
+                elif tt.groupFert.talenteGruppieren and fert.talenteGruppieren:
+                    if tt.groupFert.probenwertTalent < fert.probenwertTalent:
+                        tt.groupFert = fert
 
-                tt.pc = talent.printclass
+            res = re.findall('Vorbereitungszeit:(.*?)\n', talent.text, re.UNICODE)
+            if len(res) == 1:
+                tt.vo = res[0].strip()
+            res = re.findall('Reichweite:(.*?)\n', talent.text, re.UNICODE)
+            if len(res) == 1:
+                tt.re = res[0].strip()
+            res = re.findall('Wirkungsdauer:(.*?)\n', talent.text, re.UNICODE)
+            if len(res) == 1:
+                tt.wd = res[0].strip()
+            res = re.findall('Kosten:(.*?)\n', talent.text, re.UNICODE)
+            if len(res) == 1:
+                tt.ko = res[0].strip()
 
-                idx = -1
-                for i in range(len(self.Talents)):
-                    if self.Talents[i].na == tt.na:
-                        idx = i
-                        break
-                if idx >= 0:
-                    if self.Talents[idx].pw < tt.pw:
-                        self.Talents.pop(idx)
-                        self.Talents.append(tt)
-                else:
-                    self.Talents.append(tt)
+            self.Talents.append(tt)
 
-        # Sort by printclass. Old sorting stays for same printclass, so this should not mess stuff up.
-        self.Talents.sort(key = lambda x: (x.pc, x.na))
+        def sortTalents(tt):
+            if tt.groupFert is None:
+                return (0, "", tt.na)
+            elif tt.groupFert.talenteGruppieren:
+               return (tt.groupFert.printclass, tt.groupFert.name, tt.na)
+            else:
+               return (tt.groupFert.printclass, "", tt.na)
+
+        self.Talents.sort(key = lambda tt: sortTalents(tt))
+
         i = 0
         while i < len(self.Talents):
             if i < 30:

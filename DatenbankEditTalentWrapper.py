@@ -74,9 +74,6 @@ class DatenbankEditTalentWrapper(object):
 
         self.ui.textEdit.setPlainText(talent.text)
 
-        self.ui.sortierungEdit.setValue(talent.printclass)
-        self.ui.sortierungEdit.setToolTip("Talente werden nach dieser Zahl gruppiert und dann alphabetisch sortiert")
-
         talentDialog.show()
         ret = talentDialog.exec_()
         if ret == QtWidgets.QDialog.Accepted:
@@ -95,8 +92,6 @@ class DatenbankEditTalentWrapper(object):
             elif self.ui.buttonVerbilligt.isChecked():
                 self.talent.verbilligt = 1
             self.talent.cheatsheetAuflisten = self.ui.checkCheatsheet.isChecked()
-
-            self.talent.printclass = self.ui.sortierungEdit.value()
 
             self.talent.isUserAdded = False
             if self.talent == self.talentPicked:

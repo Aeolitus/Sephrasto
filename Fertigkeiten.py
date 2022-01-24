@@ -86,6 +86,7 @@ class Fertigkeit(Steigerbar):
         self.voraussetzungen = []
         self.maxWert = -1
         self.printclass = -1
+        self.talenteGruppieren = False
         self.isUserAdded = True
         self.addToPDF = True
 
@@ -117,6 +118,7 @@ class Fertigkeit(Steigerbar):
         F.probenwertTalent = -self.probenwertTalent
         F.maxWert = self.maxWert
         F.printclass = self.printclass
+        F.talenteGruppieren = self.talenteGruppieren
         F.isUserAdded = self.isUserAdded
         F.addToPDF = self.addToPDF
         return F
@@ -131,7 +133,7 @@ class Talent():
         self.variableKosten = False
         self.kommentarErlauben = False
         self.text = ''
-        self.printclass = -1
+        self.printclass = -1 #deprecated
         self.cheatsheetAuflisten = True
         self.isUserAdded = True
     
