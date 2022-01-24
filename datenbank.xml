@@ -10279,6 +10279,16 @@ Anmerkung: Mit dem Totes handle! können nur permanente Untote erschaffen werden
   <FreieFertigkeit kategorie="Sprache">Zyklopisch</FreieFertigkeit>
   <Einstellung name="AnzahlKostenloseFreieFertigkeiten" typ="Int" beschreibung="Legt die Anzahl kostenloser Freier Fertigkeiten auf Stufe III fest.">1</Einstellung>
   <Einstellung name="VorteilsTypen" typ="Text" beschreibung="Definiert die verfügbaren Typen von Vorteilen im Datenbank-Editor und deren Reihenfolge in der Vorteilsliste des Charaktereditors. Achtung: Das Ändern der Reihenfolge erfordert in der Regel ein Überarbeiten aller Vorteile. Ein Umbenennen existierender oder Anfügen weiterer Typen ist dagegen unproblematisch. Beachte bei einer Änderung auch die Regelanhang-Einstellungen.">Allgemeine Vorteile, Profane Vorteile, Kampfvorteile, Kampfstile, Magische Vorteile, Magische Traditionen, Karmale Vorteile, Karmale Traditionen, Dämonische Traditionen</Einstellung>
+  <Einstellung name="CharsheetVorteileMergeScript" typ="Text" beschreibung="Das Heldendokument hat drei Vorteilslisten: Allgemein, Kampf und Übernatürlich. Das Pythonscript teilt dem PDF-Generator mit, wie die Vorteile auf diese drei Listen verteilt werden. Es stehen hierfür die Variablen char (Charakter.Char), name (Vorteilsname), typ (Vorteilstyp-Index) und mergeTo (0 = Allgemein, 1 = Kampf, 2 = Übernatürlich) zur Verfügung.">if typ &lt; 2:
+    if "Zauberer" in name or "Geweiht" in name or "Paktierer" in name:
+        mergeTo = 2
+    else:
+        mergeTo = 0
+elif typ &gt;= 2 and typ &lt; 4:
+    mergeTo = 1
+elif typ &gt;= 4:
+    mergeTo = 2</Einstellung>
+  <Einstellung name="CharsheetVorteilsnamenErsetzen" typ="Text" beschreibung="Falls Vorteile der folgenden Kategorien verknüpft sind, so werden die Vorteilsnamen komplett ersetzt statt zusammengefügt.">0, 3, 5, 7, 8</Einstellung>
   <Einstellung name="ManöverTypen" typ="Text" beschreibung="Definiert die verfügbaren Typen von Manövern/Modifikationen/Regeln im Datenbank-Editor. Diese werden zur Sortierung des Regelanhangs verwendet. Achtung: Das Ändern der Reihenfolge erfordert in der Regel ein Überarbeiten aller Manöver/Modifikationen/Regeln. Ein Umbenennen existierender oder Anfügen weiterer Typen ist dagegen unproblematisch. Beachte bei einer Änderung auch die Regelanhang-Einstellungen.">Nahkampfmanöver, Fernkampfmanöver, Magische Modifikation, Karmale Modifikation, Weitere Magieregeln, Aktion, Dämonische Modifikation, Weitere Karmaregeln, Weitere Kampfregeln, Profane Regeln, Weitere Paktiererregeln</Einstellung>
   <Einstellung name="RüstungsTypen" typ="Text" beschreibung="Definiert die verfügbaren Typen von Rüstungen im Datenbank-Editor und deren Reihenfolge im Rüstungsauswahlfenster des Charaktereditors. Achtung: Das Ändern der Reihenfolge erfordert in der Regel ein Überarbeiten aller Rüstungen. Ein Umbenennen existierender oder Anfügen weiterer Typen ist dagegen unproblematisch.">Stoffrüstung, Lederrüstung, Holz- oder Knochenrüstung, Ketten- oder Schuppenrüstung, Plattenrüstung</Einstellung>
   <Einstellung name="RegelanhangReihenfolge" typ="Text" beschreibung="Definiert, ob und welche Vorteile (V), Manöver/Modifikationen/Regeln (M), Waffeneigenschaften (W), Zauber (Z), Liturgien (L) und Anrufungen (A) im Regelanhang aufgeführt werden und deren Reihenfolge. V und M werden noch gefolgt vom Typ-Index der VorteilsTypen und ManöverTypen Einstellung. Beispiel: V3 bedeutet in der Standardeinstellung Vorteile vom Typ Kampfstile.">V0,V1,M9,V2,V3,M5,W,M8,M0,M1,V4,V5,M2,M4,Z,V6,V7,M3,M7,L,V8,M6,A,M10</Einstellung>
@@ -10286,8 +10296,7 @@ Anmerkung: Mit dem Totes handle! können nur permanente Untote erschaffen werden
     if "Geweiht I" in char.vorteile:
         mergeTo = 7
     elif "Paktierer I" in char.vorteile:
-        mergeTo = 10
-  </Einstellung>
+        mergeTo = 10</Einstellung>
   <Einstellung name="RegelanhangVorteileMergeScript" typ="Text" beschreibung="Das Pythonscript kann dem Regelgenerator mitteilen, dass die Vorteile eines bestimmten Typs einem anderen Typ hinzugefügt werden sollen. Es stehen hierfür die Variablen char (Charakter.Char), typ (Vorteilstyp-Index) und mergeTo (Vorteilstyp-Index) zur Verfügung.">if typ == 3:
     mergeTo = 2
 elif typ == 5:

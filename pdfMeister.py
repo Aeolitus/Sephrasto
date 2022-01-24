@@ -273,44 +273,31 @@ class pdfMeister(object):
 
     def pdfDritterBlock(self, fields):
         logging.debug("PDF Block 3")
-        sortV = Wolke.Char.vorteile.copy()
-        sortV = [v for v in sortV if not self.isLinkedToVorteil(Wolke.DB.vorteile[v])]
+        vorteile = [v for v in Wolke.Char.vorteile if not self.isLinkedToVorteil(Wolke.DB.vorteile[v])]
+        vorteileAllgemein = []
+        vorteileKampf = []
+        vorteileUeber = []
         typeDict = {}
-        added = []
-        removed = []
+
+        vorteileMergeScript = Wolke.DB.einstellungen["CharsheetVorteileMergeScript"].toText()
+
         # Collect a list of Vorteils, where different levels of the same are
-        # combined into one entry and the type of Vorteil is preserved
-        for vort in sortV:
-            if vort in removed:
-                continue
-            if vort == "Minderpakt" and Wolke.Char.minderpakt is not None:
-                removed.append(vort)
-                mindername = "Minderpakt (" + Wolke.Char.minderpakt + ")"
-                added.append(mindername)
-                typeDict[mindername] = 0
-                continue
-
+        # combined into one entry and split them into the three categories
+        for vort in vorteile:
             name = self.CheatsheetGenerator.getLinkedName(Wolke.DB.vorteile[vort], forceKommentar=True)
-            removed.append(vort)
-            added.append(name)
-
-            if "Zauberer" in name or "Geweiht" in name or "Paktierer" in name:
-                typeDict[name] = 4
+            scriptVariables = { "char" : Wolke.Char, "name" : vort, "typ" : Wolke.DB.vorteile[vort].typ, "mergeTo" : 0 }
+            exec(vorteileMergeScript, scriptVariables)
+            if scriptVariables["mergeTo"] == 0:
+                vorteileAllgemein.append(name)
+            elif scriptVariables["mergeTo"] == 1:
+                vorteileKampf.append(name)
             else:
-                typeDict[name] = Wolke.DB.vorteile[vort].typ
-            
-        for el in removed:
-            if el in sortV:
-                sortV.remove(el)
-        for el in added:
-            sortV.append(el)
+                vorteileUeber.append(name)
+            typeDict[name] = Wolke.DB.vorteile[vort].typ
 
-        # Sort and split the Vorteile into the three categories
-        sortV = sorted(sortV, key=str.lower)
-        tmpVorts = [el for el in sortV if typeDict[el] < 2]
-        tmpKampf = [el for el in sortV if (typeDict[el] < 4 and
-                                           typeDict[el] >= 2)]
-        tmpUeber = [el for el in sortV if typeDict[el] >= 4]
+        vorteileAllgemein = sorted(vorteileAllgemein, key = lambda v: (typeDict[v], name))
+        vorteileKampf = sorted(vorteileKampf, key = lambda v: (typeDict[v], name))
+        vorteileUeber = sorted(vorteileUeber, key = lambda v: (typeDict[v], name))
         tmpOverflow = []
         tmpUeberflow = []
         
@@ -318,55 +305,55 @@ class pdfMeister(object):
         # We merge up to 3 vorteile together before we overflow to additional pages
         mergePerLineCount = 3
 
-        if len(tmpVorts) > self.CharakterBogen.maxVorteile * mergePerLineCount:
-            tmpOverflow.extend(tmpVorts[self.CharakterBogen.maxVorteile * mergePerLineCount:])
-            tmpVorts = tmpVorts[:self.CharakterBogen.maxVorteile * mergePerLineCount]
+        if len(vorteileAllgemein) > self.CharakterBogen.maxVorteile * mergePerLineCount:
+            tmpOverflow.extend(vorteileAllgemein[self.CharakterBogen.maxVorteile * mergePerLineCount:])
+            vorteileAllgemein = vorteileAllgemein[:self.CharakterBogen.maxVorteile * mergePerLineCount]
 
         maxKampfvorteile = 16
-        if len(tmpKampf) > maxKampfvorteile * mergePerLineCount:
-            tmpOverflow.extend(tmpKampf[maxKampfvorteile * mergePerLineCount:])
-            tmpKampf = tmpKampf[:maxKampfvorteile * mergePerLineCount]
+        if len(vorteileKampf) > maxKampfvorteile * mergePerLineCount:
+            tmpOverflow.extend(vorteileKampf[maxKampfvorteile * mergePerLineCount:])
+            vorteileKampf = vorteileKampf[:maxKampfvorteile * mergePerLineCount]
 
         maxUebervorteile = 12
-        if len(tmpUeber) > maxUebervorteile * mergePerLineCount:
-            tmpUeberflow.extend(tmpUeber[maxUebervorteile * mergePerLineCount:])
-            tmpUeber = tmpUeber[:maxUebervorteile * mergePerLineCount]
+        if len(vorteileUeber) > maxUebervorteile * mergePerLineCount:
+            tmpUeberflow.extend(vorteileUeber[maxUebervorteile * mergePerLineCount:])
+            vorteileUeber = vorteileUeber[:maxUebervorteile * mergePerLineCount]
         counter = 0
-        for i in range(len(tmpVorts), self.CharakterBogen.maxVorteile * mergePerLineCount):
+        for i in range(len(vorteileAllgemein), self.CharakterBogen.maxVorteile * mergePerLineCount):
             if len(tmpOverflow) > counter:
-                tmpVorts.append(tmpOverflow[counter])
+                vorteileAllgemein.append(tmpOverflow[counter])
                 counter += 1
-        for i in range(len(tmpKampf), maxKampfvorteile * mergePerLineCount):
+        for i in range(len(vorteileKampf), maxKampfvorteile * mergePerLineCount):
             if len(tmpOverflow) > counter:
-                tmpKampf.append(tmpOverflow[counter])
+                vorteileKampf.append(tmpOverflow[counter])
                 counter += 1
-        for i in range(len(tmpUeber), maxUebervorteile * mergePerLineCount):
+        for i in range(len(vorteileUeber), maxUebervorteile * mergePerLineCount):
             if len(tmpOverflow) > counter:
-                tmpUeber.append(tmpOverflow[counter])
+                vorteileUeber.append(tmpOverflow[counter])
                 counter += 1
         tmptmp = tmpOverflow[counter:]
         for el in tmptmp:
             tmpUeberflow.append(el)
 
         # Fill fields
-        for i in range(0, min(self.CharakterBogen.maxVorteile * mergePerLineCount, len(tmpVorts))):
+        for i in range(0, min(self.CharakterBogen.maxVorteile * mergePerLineCount, len(vorteileAllgemein))):
             field = 'Vorteil' + str((i % self.CharakterBogen.maxVorteile)+1)
             if not field in fields:
-                fields[field] = tmpVorts[i]
+                fields[field] = vorteileAllgemein[i]
             else:
-                fields[field] += " | " + tmpVorts[i]
-        for i in range(0, min(maxKampfvorteile * mergePerLineCount, len(tmpKampf))):
+                fields[field] += " | " + vorteileAllgemein[i]
+        for i in range(0, min(maxKampfvorteile * mergePerLineCount, len(vorteileKampf))):
             field = 'Kampfvorteil' + str((i % maxKampfvorteile)+1)
             if not field in fields:
-                fields[field] = tmpKampf[i]
+                fields[field] = vorteileKampf[i]
             else:
-                fields[field] += " | " + tmpKampf[i]
-        for i in range(0, min(maxUebervorteile * mergePerLineCount, len(tmpUeber))):
+                fields[field] += " | " + vorteileKampf[i]
+        for i in range(0, min(maxUebervorteile * mergePerLineCount, len(vorteileUeber))):
             field = 'Uebervorteil' + str((i % maxUebervorteile)+1)
             if not field in fields:
-                fields[field] = tmpUeber[i]
+                fields[field] = vorteileUeber[i]
             else:
-                fields[field] += " | " + tmpUeber[i]
+                fields[field] += " | " + vorteileUeber[i]
 
         if len(tmpUeberflow) > 0:
             self.UseExtraPage = True

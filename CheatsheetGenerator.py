@@ -5,6 +5,7 @@ from difflib import SequenceMatcher
 from fractions import Fraction
 from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
 import Objekte
+from Fertigkeiten import VorteilLinkKategorie
 
 class CheatsheetGenerator(object):
 
@@ -145,13 +146,13 @@ class CheatsheetGenerator(object):
         return self.finalizeDescription(lines1)
 
     def isCheatsheetLinkedToAny(self, vorteil):
-        if vorteil.linkKategorie == 1:
+        if vorteil.linkKategorie == VorteilLinkKategorie.ManöverMod:
             return True
-        elif vorteil.linkKategorie == 2:
+        elif vorteil.linkKategorie == VorteilLinkKategorie.ÜberTalent:
             for fer in Wolke.Char.übernatürlicheFertigkeiten:
                 if vorteil.linkElement in Wolke.Char.übernatürlicheFertigkeiten[fer].gekaufteTalente:
                     return True
-        elif vorteil.linkKategorie == 3:
+        elif vorteil.linkKategorie == VorteilLinkKategorie.Vorteil:
             if vorteil.linkElement in Wolke.Char.vorteile:
                 return True
             return self.isCheatsheetLinkedToAny(Wolke.DB.vorteile[vorteil.linkElement])
@@ -159,15 +160,15 @@ class CheatsheetGenerator(object):
         return False
     
     def isCheatsheetLinkedTo(self, vorteil, kategorie, element):
-        if kategorie == 1 and vorteil.linkKategorie == 1:
+        if kategorie == VorteilLinkKategorie.ManöverMod and vorteil.linkKategorie == VorteilLinkKategorie.ManöverMod:
             return vorteil.linkElement == element
-        elif kategorie == 2 and vorteil.linkKategorie == 2:
+        elif kategorie == VorteilLinkKategorie.ÜberTalent and vorteil.linkKategorie == VorteilLinkKategorie.ÜberTalent:
             if vorteil.linkElement == element:
                 for fer in Wolke.Char.übernatürlicheFertigkeiten:
                     if vorteil.linkElement in Wolke.Char.übernatürlicheFertigkeiten[fer].gekaufteTalente:
                         return True
-        elif vorteil.linkKategorie == 3:
-            if kategorie == 3 and vorteil.linkElement == element and (vorteil.linkElement in Wolke.Char.vorteile):
+        elif vorteil.linkKategorie == VorteilLinkKategorie.Vorteil:
+            if kategorie == VorteilLinkKategorie.Vorteil and vorteil.linkElement == element and (vorteil.linkElement in Wolke.Char.vorteile):
                 return True
             if vorteil.linkElement in Wolke.Char.vorteile:
                 return False
@@ -177,15 +178,16 @@ class CheatsheetGenerator(object):
 
     def getLinkedName(self, vorteil, forceKommentar = False):
         name = vorteil.getFullName(Wolke.Char, forceKommentar)
+        vorteilsnamenErsetzen = [int(typ) for typ in Wolke.DB.einstellungen["CharsheetVorteilsnamenErsetzen"].toTextList()]
 
         for vor2 in Wolke.Char.vorteile:
             vorteil2 = Wolke.DB.vorteile[vor2]
-            if self.isCheatsheetLinkedTo(vorteil2, 3, vorteil.name):
+            if self.isCheatsheetLinkedTo(vorteil2, VorteilLinkKategorie.Vorteil, vorteil.name):
                 name2 = self.getLinkedName(vorteil2, forceKommentar)
 
                 #allgemeine vorteile, kampfstile and traditionen only keep the last name (except vorteil is variable with a comment)
                 if (not (vorteil.name in Wolke.Char.vorteileVariable) or not Wolke.Char.vorteileVariable[vorteil.name].kommentar)\
-                   and (vorteil2.typ == 0 or vorteil2.typ == 3 or vorteil2.typ == 5 or vorteil2.typ == 7 or vorteil2.typ == 8):
+                   and (vorteil2.typ in vorteilsnamenErsetzen):
                     name = name2
                 else:
                     fullset = [" I", " II", " III", " IV", " V", " VI", " VII"]
@@ -218,7 +220,7 @@ class CheatsheetGenerator(object):
 
         for vor2 in Wolke.Char.vorteile:
             vorteil2 = Wolke.DB.vorteile[vor2]
-            if self.isCheatsheetLinkedTo(vorteil2, 3, vorteil.name):
+            if self.isCheatsheetLinkedTo(vorteil2, VorteilLinkKategorie.Vorteil, vorteil.name):
                 beschreibung2 = self.getLinkedDescription(vorteil2)
 
                 if vorteil2.typ == 0:
@@ -308,7 +310,7 @@ class CheatsheetGenerator(object):
            
             for vor in Wolke.Char.vorteile:
                 vorteil = Wolke.DB.vorteile[vor]
-                if self.isCheatsheetLinkedTo(vorteil, 1, man):
+                if self.isCheatsheetLinkedTo(vorteil, VorteilLinkKategorie.ManöverMod, man):
                     beschreibung = self.getLinkedDescription(vorteil)
                     if not beschreibung:
                         continue
@@ -374,7 +376,7 @@ class CheatsheetGenerator(object):
 
             for vor in Wolke.Char.vorteile:
                 vorteil = Wolke.DB.vorteile[vor]
-                if self.isCheatsheetLinkedTo(vorteil, 2, talent.name):
+                if self.isCheatsheetLinkedTo(vorteil, VorteilLinkKategorie.ÜberTalent, talent.name):
                     beschreibung = self.getLinkedDescription(vorteil)
                     if not beschreibung:
                         continue

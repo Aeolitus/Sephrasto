@@ -166,6 +166,12 @@ class Talent():
         else:
             return self.name
 
+class VorteilLinkKategorie():
+   NichtVerknüpfen = 0
+   ManöverMod = 1
+   ÜberTalent = 2
+   Vorteil = 3
+
 class Vorteil():
     def __init__(self):
         self.name = ''
@@ -178,7 +184,7 @@ class Vorteil():
         self.text = ''
         self.cheatsheetAuflisten = True
         self.cheatsheetBeschreibung = ''
-        self.linkKategorie = 0
+        self.linkKategorie = VorteilLinkKategorie.NichtVerknüpfen
         self.linkElement = ''
         self.script = None
         self.scriptPrio = 0
@@ -190,6 +196,10 @@ class Vorteil():
 
     def getFullName(self, char, forceKommentar = False):
         variable = "" 
+
+        if self.name == "Minderpakt" and char.minderpakt is not None:
+            return self.name + " (" + Wolke.Char.minderpakt + ")"
+
         if self.name in char.vorteileVariable:
             addKommentar = char.vorteileVariable[self.name].kommentar != "" and (forceKommentar or not ("$kommentar$" in self.cheatsheetBeschreibung))
             addEP = self.variableKosten
