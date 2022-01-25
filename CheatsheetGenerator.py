@@ -26,7 +26,7 @@ class CheatsheetGenerator(object):
         ab = Wolke.DB.einstellungen["VerknüpfungsAbkürzungen"].toTextList()
         for abbreviation in ab:
             tmp = abbreviation.split("=")
-            CheatsheetGenerator.abbreviations[tmp[0].strip()] = tmp[1].strip()
+            CheatsheetGenerator.abbreviations[tmp[0]] = tmp[1]
 
     abbreviations = {}
 
