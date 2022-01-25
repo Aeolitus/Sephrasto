@@ -9083,7 +9083,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Erste Fertigkeit nach Wahl" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Neubeginn" variable="0" kommentar="0">Dein nächster Wurf auf die erste Fertigkeit nach Wahl ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Erste Fertigkeit nach Wahl" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Neubeginn" variable="0" kommentar="1">Dein nächster Wurf auf die erste Fertigkeit nach Wahl ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9092,7 +9092,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Zweite Fertigkeit nach Wahl" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Neubeginn" variable="0" kommentar="0">Dein nächster Wurf auf die zweite Fertigkeit nach Wahl ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Zweite Fertigkeit nach Wahl" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Neubeginn" variable="0" kommentar="1">Dein nächster Wurf auf die zweite Fertigkeit nach Wahl ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9371,7 +9371,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Erste Fertigkeit nach Wahl" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0">Dein nächster Wurf auf die erste Fertigkeit nach Wahl ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Erste Fertigkeit nach Wahl" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="1">Dein nächster Wurf auf die erste Fertigkeit nach Wahl ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9380,7 +9380,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Zweite Fertigkeit nach Wahl" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0">Dein nächster Wurf auf die zweite Fertigkeit nach Wahl ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Zweite Fertigkeit nach Wahl" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="1">Dein nächster Wurf auf die zweite Fertigkeit nach Wahl ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
