@@ -143,7 +143,7 @@ class CheatsheetGenerator(object):
 
     def isCheatsheetLinkedToAny(self, vorteil):
         if vorteil.linkKategorie == VorteilLinkKategorie.ManöverMod:
-            return True
+            return vorteil.linkElement in Wolke.DB.manöver
         elif vorteil.linkKategorie == VorteilLinkKategorie.ÜberTalent:
             for fer in Wolke.Char.übernatürlicheFertigkeiten:
                 if vorteil.linkElement in Wolke.Char.übernatürlicheFertigkeiten[fer].gekaufteTalente:
