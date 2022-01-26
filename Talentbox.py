@@ -8,6 +8,7 @@ Created on Sun Nov 19 18:14:28 2017
 class Talentbox(object):
     def __init__(self):
         self.na = ''
+        self.se = ''
         self.pw = 0
         self.vo = ''
         self.re = ''

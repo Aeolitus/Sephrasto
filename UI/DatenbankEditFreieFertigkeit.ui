@@ -64,12 +64,12 @@
      <item row="2" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>Kategorie</string>
+        <string>Typ</string>
        </property>
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QLineEdit" name="leKategorie"/>
+      <widget class="QComboBox" name="comboTyp"/>
      </item>
     </layout>
    </item>
@@ -90,7 +90,6 @@
  </widget>
  <tabstops>
   <tabstop>leName</tabstop>
-  <tabstop>leKategorie</tabstop>
   <tabstop>teVoraussetzungen</tabstop>
  </tabstops>
  <resources/>

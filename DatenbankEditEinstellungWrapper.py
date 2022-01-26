@@ -1,5 +1,6 @@
 import DatenbankEditEinstellung
 import Datenbank
+from DatenbankEinstellung import DatenbankEinstellung
 from PyQt5 import QtWidgets, QtCore
 
 class DatenbankEditEinstellungWrapper(object):
@@ -7,7 +8,7 @@ class DatenbankEditEinstellungWrapper(object):
         super().__init__()
         self.datenbank = datenbank
         if einstellung is None:
-            einstellung = Datenbank.DatenbankEinstellung()
+            einstellung = DatenbankEinstellung()
         self.einstellungPicked = einstellung
         self.readonly = readonly
         deDialog = QtWidgets.QDialog()

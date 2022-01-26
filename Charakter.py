@@ -97,7 +97,7 @@ class Char():
         #Vierter Block: Fertigkeiten und Freie Fertigkeiten
         self.fertigkeiten = copy.deepcopy(Wolke.DB.fertigkeiten)
         self.freieFertigkeiten = []
-        self.freieFertigkeitenNumKostenlos = Wolke.DB.einstellungen["AnzahlKostenloseFreieFertigkeiten"].toInt()
+        self.freieFertigkeitenNumKostenlos = Wolke.DB.einstellungen["FreieFertigkeitenAnzahlKostenlos"].toInt()
         self.talenteVariable = {} #Contains Name: VariableKosten
 
         #Fünfter Block: Ausrüstung etc

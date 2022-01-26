@@ -217,14 +217,22 @@ class EquipWrapper(QtCore.QObject):
 
         waffenNeu = []
         for index in range(8):
-            # Create
+            # Remove weapon if display name is deleted
             anzeigename = self.editWName[index].text()
+            if self.labelTyp[index].text() and not anzeigename:
+                self.currentlyLoading = True
+                self.loadWeaponIntoFields(Objekte.Nahkampfwaffe(), index)
+                self.currentlyLoading = False
+
+            # Load weapon if an existing weapons name is entered into displayname of an empty row
             name = self.labelTyp[index].text()
             if not name and anzeigename in Wolke.DB.waffen:
                 self.currentlyLoading = True
                 self.loadWeaponIntoFields(Wolke.DB.waffen[anzeigename], index)
                 self.currentlyLoading = False
                 name = anzeigename
+
+            # Create
             if (not name in Wolke.DB.waffen) or type(Wolke.DB.waffen[name]) != Objekte.Fernkampfwaffe:
                 W = Objekte.Nahkampfwaffe()
             else:

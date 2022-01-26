@@ -6,6 +6,7 @@ from fractions import Fraction
 from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
 import Objekte
 from Fertigkeiten import VorteilLinkKategorie
+from CharakterPrintUtility import CharakterPrintUtility
 
 class CheatsheetGenerator(object):
 
@@ -23,12 +24,7 @@ class CheatsheetGenerator(object):
             self.RulesCharCount = 45
 
         #used to abbreviate names when merged
-        ab = Wolke.DB.einstellungen["VerknüpfungsAbkürzungen"].toTextList()
-        for abbreviation in ab:
-            tmp = abbreviation.split("=")
-            CheatsheetGenerator.abbreviations[tmp[0]] = tmp[1]
-
-    abbreviations = {}
+        self.abbreviations = Wolke.DB.einstellungen["CharsheetVerknüpfungsAbkürzungen"].toTextDict('\n', False)
 
     textToFraction = {
         "ein Achtel" : "1/8",
@@ -204,7 +200,7 @@ class CheatsheetGenerator(object):
         if "," in name:
             nameStart = name[:name.index(",")]
             nameAbbreviate = name[name.index(","):]
-            for k,v in CheatsheetGenerator.abbreviations.items():
+            for k,v in self.abbreviations.items():
                 nameAbbreviate = nameAbbreviate.replace(k, v)
             name = nameStart + nameAbbreviate
         return name
@@ -327,7 +323,7 @@ class CheatsheetGenerator(object):
             strList.pop()
             lineCounts.pop()
 
-    def appendTalente(self, strList, lineCounts, category, talente, talentboxList):
+    def appendTalente(self, strList, lineCounts, category, talente):
         if not talente or (len(talente) == 0):
             return
         strList.append(category + "\n\n")
@@ -335,16 +331,13 @@ class CheatsheetGenerator(object):
         count = 0
         for tal in talente:
             result = []
-            talent = Wolke.DB.talente[tal]
+            talent = Wolke.DB.talente[tal.na]
             if not talent.cheatsheetAuflisten or not talent.text:
                 continue
             count += 1
             name = talent.getFullName(Wolke.Char)
             result.append(name)
-            for i in range(len(talentboxList)):
-                if talentboxList[i].na == name:
-                    result.append(" (PW " + str(talentboxList[i].pw) + ")")
-                    break
+            result.append(" (PW " + str(tal.pw) + ")")
             result.append("\n")
             text = talent.text
             
@@ -393,7 +386,7 @@ class CheatsheetGenerator(object):
             strList.pop()
             lineCounts.pop()
 
-    def prepareRules(self, talentboxList):
+    def prepareRules(self):
         self.RuleCategories = []
         sortV = Wolke.Char.vorteile.copy()
         sortV = sorted(sortV, key=str.lower)
@@ -413,29 +406,35 @@ class CheatsheetGenerator(object):
                 except WaffeneigenschaftException:
                     pass      
         
-        zauber = set()
-        liturgien = set()
-        anrufungen = set()
-        for fer in Wolke.Char.übernatürlicheFertigkeiten:
-            for tal in Wolke.Char.übernatürlicheFertigkeiten[fer].gekaufteTalente:
-                res = re.findall('Kosten:(.*?)\n', Wolke.DB.talente[tal].text, re.UNICODE)
-                if len(res) >= 1 and " KaP" in res[0]:
-                    liturgien.add(tal)
-                elif len(res) >= 1 and " GuP" in res[0]:
-                    anrufungen.add(tal)
+        fertigkeitsTypen = Wolke.DB.einstellungen["FertigkeitsTypenÜbernatürlich"].toTextList()
+        talentboxList = CharakterPrintUtility.getÜberTalente(Wolke.Char)
+        zauber = []
+        liturgien = []
+        anrufungen = []
+        # We don't know which of the above types a talent is, so have have to guess... should work 99.99%
+        for tal in talentboxList:
+            if " AsP" in tal.ko:
+                anrufungen.append(tal)
+            elif " KaP" in tal.ko:
+                liturgien.append(tal)
+            elif " GuP" in tal.ko:
+                anrufungen.append(tal)
+            else:
+                fertTyp = fertigkeitsTypen[tal.groupFert.printclass]
+                if "Zauber" in fertTyp or "zauber" in fertTyp:
+                    zauber.append(tal)
+                elif "Liturgie" in fertTyp or "liturgie" in fertTyp:
+                    liturgien.append(tal)
+                elif "Anrufung" in fertTyp or "anrufung" in fertTyp:
+                    anrufungen.append(tal)
+                elif  ("Zauberer I" in Wolke.Char.vorteile) or ("Tradition der Borbaradianer I" in Wolke.Char.vorteile):
+                    zauber.append(tal)
+                elif "Geweiht I" in Wolke.Char.vorteile:
+                    liturgien.append(tal)
+                elif "Paktierer I" in Wolke.Char.vorteile:
+                    anrufungen.append(tal)
                 else:
-                    if  ("Zauberer I" in Wolke.Char.vorteile) or ("Tradition der Borbaradianer I" in Wolke.Char.vorteile):
-                        zauber.add(tal)
-                    elif "Geweiht I" in Wolke.Char.vorteile:
-                        liturgien.add(tal)
-                    elif "Paktierer I" in Wolke.Char.vorteile:
-                        anrufungen.add(tal)
-                    else:
-                        zauber.add(tal)
-
-        zauber = sorted(zauber, key=str.lower)
-        liturgien = sorted(liturgien, key=str.lower)
-        anrufungen = sorted(anrufungen, key=str.lower)
+                    zauber.append(tal)
 
         rules = []
         ruleLineCounts = []
@@ -495,15 +494,15 @@ class CheatsheetGenerator(object):
                 pass
             elif r[0] == "Z":
                 self.RuleCategories.append(self.formatCategory("Zauber"))
-                self.appendTalente(rules, ruleLineCounts, self.RuleCategories[-1], zauber, talentboxList)
+                self.appendTalente(rules, ruleLineCounts, self.RuleCategories[-1], zauber)
                 pass
             elif r[0] == "L":
                 self.RuleCategories.append(self.formatCategory("Liturgien"))
-                self.appendTalente(rules, ruleLineCounts, self.RuleCategories[-1], liturgien, talentboxList)
+                self.appendTalente(rules, ruleLineCounts, self.RuleCategories[-1], liturgien)
                 pass
             elif r[0] == "A":
                 self.RuleCategories.append(self.formatCategory("Anrufungen"))
-                self.appendTalente(rules, ruleLineCounts, self.RuleCategories[-1], anrufungen, talentboxList)
+                self.appendTalente(rules, ruleLineCounts, self.RuleCategories[-1], anrufungen)
                 pass
 
         return rules, ruleLineCounts

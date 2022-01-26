@@ -49,6 +49,7 @@
     <Compile Include="CharakterMinderpaktWrapper.py" />
     <Compile Include="CharakterNotiz.py" />
     <Compile Include="CharakterNotizWrapper.py" />
+    <Compile Include="CharakterPrintUtility.py" />
     <Compile Include="CharakterRuestungen.py" />
     <Compile Include="CharakterTalente.py" />
     <Compile Include="CharakterUebernatuerlich.py" />
@@ -72,6 +73,7 @@
     <Compile Include="DatenbankEditVorteilWrapper.py" />
     <Compile Include="DatenbankEditWaffe.py" />
     <Compile Include="DatenbankEditWaffeWrapper.py" />
+    <Compile Include="DatenbankEinstellung.py" />
     <Compile Include="DatenbankMain.py" />
     <Compile Include="DatenbankSelectType.py" />
     <Compile Include="DatenbankSelectTypeWrapper.py" />

@@ -5,6 +5,7 @@ Created on Sat Mar 18 10:52:34 2017
 @author: Aeolitus
 """
 import Fertigkeiten
+from Fertigkeiten import VorteilLinkKategorie
 import DatenbankEditVorteil
 from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
 from PyQt5 import QtWidgets, QtCore
@@ -58,7 +59,7 @@ class DatenbankEditVorteilWrapper(object):
         self.ui.comboLinkKategorie.setCurrentIndex(vorteil.linkKategorie)
         self.ui.comboLinkKategorie.currentIndexChanged.connect(self.linkKategorieChanged)
         self.linkKategorieChanged()
-        if vorteil.linkKategorie > 0:
+        if vorteil.linkKategorie != VorteilLinkKategorie.NichtVerknüpfen:
             self.ui.comboLinkElement.setCurrentText(vorteil.linkElement)
         self.ui.teCheatsheet.setPlainText(vorteil.cheatsheetBeschreibung)
 
@@ -111,11 +112,11 @@ class DatenbankEditVorteilWrapper(object):
 
     def linkKategorieChanged(self):
         self.ui.comboLinkElement.clear()
-        if self.ui.comboLinkKategorie.currentIndex() == 1:
+        if self.ui.comboLinkKategorie.currentIndex() == VorteilLinkKategorie.ManöverMod:
             self.ui.comboLinkElement.addItems(sorted(self.datenbank.manöver.keys()))
-        elif self.ui.comboLinkKategorie.currentIndex() == 2:
+        elif self.ui.comboLinkKategorie.currentIndex() == VorteilLinkKategorie.ÜberTalent:
             self.ui.comboLinkElement.addItems(sorted([el for el in self.datenbank.talente if self.datenbank.talente[el].isSpezialTalent()]))
-        elif self.ui.comboLinkKategorie.currentIndex() == 3:
+        elif self.ui.comboLinkKategorie.currentIndex() == VorteilLinkKategorie.Vorteil:
             self.ui.comboLinkElement.addItems(sorted([el for el in self.datenbank.vorteile if el != self.ui.nameEdit.text()]))
 
     def variableKostenChanged(self):

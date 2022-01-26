@@ -8,7 +8,6 @@ import Fertigkeiten
 from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
 import DatenbankEditFreieFertigkeit
 from PyQt5 import QtWidgets, QtCore
-from PyQt5.QtWidgets import QCompleter
 
 class DatenbankEditFreieFertigkeitWrapper(object):
     def __init__(self, datenbank, fert=None, readonly=False):
@@ -38,13 +37,10 @@ class DatenbankEditFreieFertigkeitWrapper(object):
         self.ui.leName.setText(fert.name)
         self.ui.leName.textChanged.connect(self.nameChanged)
         self.nameChanged()
-        self.kategorieCompleter = QCompleter(set([ff.kategorie for ff in datenbank.freieFertigkeiten.values()]))
-        self.kategorieCompleter.setCaseSensitivity(QtCore.Qt.CaseInsensitive)
-        self.kategorieCompleter.setCompletionMode(QtWidgets.QCompleter.PopupCompletion)
-        self.kategorieCompleter.setFilterMode(QtCore.Qt.MatchContains)
 
-        self.ui.leKategorie.setCompleter(self.kategorieCompleter)
-        self.ui.leKategorie.setText(fert.kategorie)       
+        ffTypen = datenbank.einstellungen["FreieFertigkeitsTypen"].toTextList()
+        self.ui.comboTyp.addItems(ffTypen)
+        self.ui.comboTyp.setCurrentText(fert.kategorie)       
         self.ui.teVoraussetzungen.setPlainText(Hilfsmethoden.VorArray2Str(fert.voraussetzungen, None))
         self.ui.teVoraussetzungen.textChanged.connect(self.voraussetzungenTextChanged)
 
@@ -53,7 +49,7 @@ class DatenbankEditFreieFertigkeitWrapper(object):
         if ret == QtWidgets.QDialog.Accepted:
             self.freieFertigkeit = Fertigkeiten.FreieFertigkeitDB()
             self.freieFertigkeit.name = self.ui.leName.text()
-            self.freieFertigkeit.kategorie = self.ui.leKategorie.text()
+            self.freieFertigkeit.kategorie = self.ui.comboTyp.currentText()
             self.freieFertigkeit.voraussetzungen = Hilfsmethoden.VorStr2Array(self.ui.teVoraussetzungen.toPlainText(), datenbank)
 
             self.freieFertigkeit.isUserAdded = False

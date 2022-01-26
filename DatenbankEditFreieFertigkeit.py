@@ -42,9 +42,9 @@ class Ui_ffDialog(object):
         self.label_2 = QtWidgets.QLabel(ffDialog)
         self.label_2.setObjectName("label_2")
         self.gridLayout.addWidget(self.label_2, 2, 0, 1, 1)
-        self.leKategorie = QtWidgets.QLineEdit(ffDialog)
-        self.leKategorie.setObjectName("leKategorie")
-        self.gridLayout.addWidget(self.leKategorie, 2, 1, 1, 1)
+        self.comboTyp = QtWidgets.QComboBox(ffDialog)
+        self.comboTyp.setObjectName("comboTyp")
+        self.gridLayout.addWidget(self.comboTyp, 2, 1, 1, 1)
         self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 1, 1)
         self.buttonBox = QtWidgets.QDialogButtonBox(ffDialog)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
@@ -57,8 +57,7 @@ class Ui_ffDialog(object):
         self.buttonBox.accepted.connect(ffDialog.accept) # type: ignore
         self.buttonBox.rejected.connect(ffDialog.reject) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(ffDialog)
-        ffDialog.setTabOrder(self.leName, self.leKategorie)
-        ffDialog.setTabOrder(self.leKategorie, self.teVoraussetzungen)
+        ffDialog.setTabOrder(self.leName, self.teVoraussetzungen)
 
     def retranslateUi(self, ffDialog):
         _translate = QtCore.QCoreApplication.translate
@@ -66,7 +65,7 @@ class Ui_ffDialog(object):
         self.label_4.setText(_translate("ffDialog", "Voraussetzungen"))
         self.warning.setText(_translate("ffDialog", "<html><head/><body><p>Dies ist eine Ilaris Standard-Freie-Fertigkeit. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in den Hausregeln gelöscht. Damit erhältst du für diese Freie Fertigkeit keine automatischen Updates mehr mit neuen Sephrasto-Versionen.</p></body></html>"))
         self.label.setText(_translate("ffDialog", "Name"))
-        self.label_2.setText(_translate("ffDialog", "Kategorie"))
+        self.label_2.setText(_translate("ffDialog", "Typ"))
 
 
 if __name__ == "__main__":

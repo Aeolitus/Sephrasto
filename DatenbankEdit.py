@@ -19,6 +19,7 @@ import DatenbankEditWaffeWrapper
 import DatenbankEditRuestungWrapper
 import DatenbankEditManoeverWrapper
 import DatenbankEditEinstellungWrapper
+from DatenbankEinstellung import DatenbankEinstellung
 import Objekte
 import os
 from EinstellungenWrapper import EinstellungenWrapper
@@ -326,7 +327,7 @@ class DatenbankEdit(object):
             self.onDatabaseChange()
             
     def addEinstellung(self):
-        de = Datenbank.DatenbankEinstellung()
+        de = DatenbankEinstellung()
         ret = self.editEinstellung(de)
         if ret is not None:
             self.datenbank.einstellungen.update({ret.name: ret})

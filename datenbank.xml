@@ -201,7 +201,7 @@ Erlaubt das Manöver Befreiungsschlag (AT -4): Du führst eine Attacke aus, die 
 Du erhältst VT +1.</Vorteil>
   <Vorteil name="Schildkampf II" kosten="40" voraussetzungen="Attribut KK 6, Vorteil Schildkampf I" nachkauf="häufig" typ="3" variable="0" kommentar="0" script="modifyKampfstil('Schildkampf', 0, 1, 0, 0)" linkKategorie="3" linkElement="Schildkampf I">Du erhältst VT +1.
 
-Dein Schild ignoriert die übliche Erschwernis für Nebenwaffen (S. 39). Außerdem kannst du die erste VT zwischen zwei Initiativphasen als Freie Reaktion ausführen.</Vorteil>
+Dein Schild ignoriert die übliche Erschwernis für Nebenwaffen (S. 39). Außerdem kannst du die erste VT zwischen zwei Initiativephasen als Freie Reaktion ausführen.</Vorteil>
   <Vorteil name="Schildkampf III" kosten="60" voraussetzungen="Attribut KK 8, Vorteil Schildkampf II" nachkauf="häufig" typ="3" variable="0" kommentar="0" script="modifyKampfstil('Schildkampf', 0, 1, 0, 0)" csBeschreibung="Du erhältst VT +1.&#10;&#10;Erlaubt das Manöver Schildwall." linkKategorie="3" linkElement="Schildkampf II">Du erhältst VT +1.
 
 Erlaubt das Manöver Schildwall (VT -4): Du kannst einen Angriff auf einen benachbarten Verbündeten abwehren. Das Manöver erfolgt vor der Verteidigung des Verbündeten.</Vorteil>
@@ -261,7 +261,7 @@ Solange der Zirkel besteht, können die Teilnehmer die Regeln zur Zusammenarbeit
 Zusätzlich werden die Zauberkosten aller Teilnehmer gleichmäßig auf den gesamten Zirkel aufgeteilt. Sollte ein Teilungsrest übrigbleiben oder ein Teilnehmer über zu wenige AsP verfügen, muss der Zaubernde diese Kosten tragen. Nur gAsP muss der Zaubernde stets selbst tragen.</Vorteil>
   <Vorteil name="Flexible Magie" kosten="40" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut IN 6" nachkauf="häufig" typ="4" variable="0" kommentar="0" linkKategorie="1" linkElement="Konzentration (voll)">Während du einen Zauber vorbereitest, kannst du dich mit einer Erschwernis von -4 verteidigen.</Vorteil>
   <Vorteil name="Mühelose Magie" kosten="60" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut IN 8" nachkauf="häufig" typ="4" variable="0" kommentar="0">Zeigt der gewertete Würfel bei einem Zauber eine 16 oder höher, sinken die Kosten um die Hälfte der Basiskosten und der Zauber erhält zusätzlich 1 Stufe Mächtige Magie.</Vorteil>
-  <Vorteil name="Flinke Magie" kosten="80" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut IN 10" nachkauf="häufig" typ="4" variable="0" kommentar="0">Einmal pro Initiativphase kannst du eine Zauberprobe in einer freien Aktion statt einer Aktion Konflikt durchführen.</Vorteil>
+  <Vorteil name="Flinke Magie" kosten="80" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut IN 10" nachkauf="häufig" typ="4" variable="0" kommentar="0">Einmal pro Initiativephase kannst du eine Zauberprobe in einer freien Aktion statt einer Aktion Konflikt durchführen.</Vorteil>
   <Vorteil name="Kontrolliertes Zaubern" kosten="20" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut KL 4" nachkauf="häufig" typ="4" variable="0" kommentar="0">Du kannst Zauber während ihrer Wirkungsdauer jederzeit beenden.</Vorteil>
   <Vorteil name="Kraftlinienmagie" kosten="40" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut KL 6" nachkauf="häufig" typ="4" variable="0" kommentar="0">An Kraftlinien oder -knoten sind Zauber mit passenden Fertigkeiten je nach Linienstärke um +2 bis +4 erleichtert und die Regeneration ist um 2-4 AsP erhöht.</Vorteil>
   <Vorteil name="Effizientes Zaubern" kosten="60" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut KL 8" nachkauf="häufig" typ="4" variable="0" kommentar="0" csAuflisten="0">Ermöglicht die spontane Modifikation Kosten sparen (Zauber -4): Die AsP-Kosten des Zaubers sinken um ein Viertel der Basiskosten. Die Kosten können dadurch nicht unter die Hälfte der Basiskosten sinken.</Vorteil>
@@ -804,14 +804,14 @@ Modifikationen: Austreibung verhindern (–8; erschwert Antimagie gegen das näc
 Vorbereitungszeit: 4 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Antimagie, Kraft
 Erlernen: Bor, Mag 18; 20 EP</Talent>
   <Talent name="Psychostabilis" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Antimagie, Eigenschaften" variable="0">Magieresistenz-Proben des Ziels sind um +4 erleichtert.
 Mächtige Magie: Erhöht den Bonus um +2.
 Probenschwierigkeit: 12
-Modifikationen: Schnellsteigerung (–4; Wirkungsdauer 16 Initiativphasen; verdoppelt die Erleichterung.)
+Modifikationen: Schnellsteigerung (–4; Wirkungsdauer 16 Initiativephasen; verdoppelt die Erleichterung.)
 Stabilisierung (–8; das Ziel darf sofort eine MR-Probe gegen einen auf es wirkenden Zauber wiederholen. Gelingt sie, wird dieser Zauber für die Wirkungsdauer des Psychostabilis unterdrückt.)
 Vorbereitungszeit: 2 Aktionen
 Ziel: Einzelperson
@@ -896,22 +896,22 @@ Erlernen: Elf 12; Ach, Dru, Mag 14; Geo 16; Hex 18; 20 EP</Talent>
   <Talent name="Brenne toter Stoff!" kosten="40" voraussetzungen="Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Feuer, Verwandlung" variable="0" kommentar="0">Du entzündest ein magisches Feuer, das 2W6 SP pro Initiativephase auf einem unbelebten Ziel anrichtet. Das Feuer brennt auf brennbaren Materialien auch nach dem Ende der Wirkungsdauer weiter.
 Mächtige Magie: Je zwei Stufen erhöhen die SP um 1W6.
 Probenschwierigkeit: 12
-Modifikationen: Flammeninferno (–8, 32 AsP; das Feuer breitet sich mit etwa 1 Schritt pro Initiativphase aus.)
+Modifikationen: Flammeninferno (–8, 32 AsP; das Feuer breitet sich mit etwa 1 Schritt pro Initiativephase aus.)
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelobjekt
 Reichweite: Berührung
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Feuer, Verwandlung
 Erlernen: Bor 12; Alch, Geo 14; Ach, Mag 18; Srl 20; 40 EP</Talent>
   <Talent name="Brenne toter Stoff! (Dämonisch)" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Dämonisch, Feuer, Verwandlung" variable="0" kommentar="0">Du entzündest ein magisches Feuer, das 2W6 SP pro Initiativephase auf einem unbelebten Ziel anrichtet. Das Feuer brennt auf brennbaren Materialien auch nach dem Ende der Wirkungsdauer weiter.
 Mächtige Magie: Je zwei Stufen erhöhen die SP um 1W6.
 Probenschwierigkeit: 12
-Modifikationen: Flammeninferno (–8, 32 AsP; das Feuer breitet sich mit etwa 1 Schritt pro Initiativphase aus.)
+Modifikationen: Flammeninferno (–8, 32 AsP; das Feuer breitet sich mit etwa 1 Schritt pro Initiativephase aus.)
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelobjekt
 Reichweite: Berührung
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Dämonisch (nicht in Geo, Mag, Srl), Feuer, Verwandlung
 Erlernen: Bor 12; Alch, Geo 14; Ach, Mag 18; Srl 20; 40 EP</Talent>
@@ -928,7 +928,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Aktion
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Dämonisch, Verwandlung
 Erlernen: Mag 18; Bor 20; 40 EP</Talent>
@@ -1009,7 +1009,7 @@ Probenschwierigkeit: Magieresistenz
 Vorbereitungszeit: 2 Aktionen
 Ziel: Einzelwesen
 Reichweite: 8 Schritt
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Dämonisch, Einfluss
 Erlernen: Bor 8; Alch, Mag 18; 60 EP</Talent>
@@ -1027,7 +1027,7 @@ Probenschwierigkeit: Magieresistenz
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelperson
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Dämonisch, Eigenschaften, Einfluss
 Erlernen: Alch, Mag 16; Ach, Bor 18; 40 EP</Talent>
@@ -1037,7 +1037,7 @@ Modifikationen: Objekt verfluchen (–4, Einzelobjekt, 8 AsP; um das Objekt zu b
 Vorbereitungszeit: 8 Aktionen
 Ziel: Einzelperson
 Reichweite: 16 Schritt
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 16 AsP
 Fertigkeiten: Dämonisch, Verständigung
 Erlernen: Hex 18; Bor, Mag 20; 40 EP</Talent>
@@ -1067,7 +1067,7 @@ Modifikationen: Objekt (–4, Einzelobjekt)
 Vorbereitungszeit: 2 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Dämonisch, Einfluss
 Erlernen: Bor 18; 40 EP</Talent>
@@ -1118,7 +1118,7 @@ Miasmafaxius (–4, Einzelperson, 8 AsP)
 Vorbereitungszeit: 2 Aktionen
 Ziel: Zone
 Reichweite: Berührung
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 16 AsP
 Fertigkeiten: Dämonisch
 Erlernen: Mag 18; Bor, Dru, Hex 20; 40 EP</Talent>
@@ -1133,7 +1133,7 @@ Erlernen: Bor, Mag 18; 60 EP</Talent>
   <Talent name="Umbraporta Schattensprung" kosten="60" voraussetzungen="Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Dämonisch, Kraft" variable="0">Du trittst in einen Schatten hinein und wirst sofort durch den Limbus zu einem anderen Schatten transportiert.
 Probenschwierigkeit: 12
 Modifikationen: Schattenportal (–8, 16 AsP; Du kannst eine Person mitnehmen. Mächtige Magie erlaubt zwei/drei/vier/fünf Personen.)
-Schattensprung (–8, 4 Aktionen, Wirkungsdauer 16 Initiativphasen, 16 AsP; du verschmilzt mit den Schatten und kannst dich in ihnen mit GS 12 bewegen. Du kannst nicht körperlich mit deiner Umwelt interagieren, aber mit einer Erschwernis von –4 zaubern. Ermöglicht Aufrechterhalten.)
+Schattensprung (–8, 4 Aktionen, Wirkungsdauer 16 Initiativephasen, 16 AsP; du verschmilzt mit den Schatten und kannst dich in ihnen mit GS 12 bewegen. Du kannst nicht körperlich mit deiner Umwelt interagieren, aber mit einer Erschwernis von –4 zaubern. Ermöglicht Aufrechterhalten.)
 Vorbereitungszeit: 1 Aktion
 Ziel: Zone
 Reichweite: 8 Schritt
@@ -1209,7 +1209,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
 Ziel: Einzelperson
 Reichweite: 4 Schritt
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Eigenschaften
 Erlernen: Elf 12; Ach, Sch 14; Mag 18; 40 EP</Talent>
@@ -1218,7 +1218,7 @@ Probenschwierigkeit: Magieresistenz
 Vorbereitungszeit: 2 Aktionen
 Ziel: Einzelwesen
 Reichweite: 16 Schritt
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Eigenschaften
 Erlernen: Alch, Mag 16; Elf, Hex 20; 40 EP</Talent>
@@ -1228,7 +1228,7 @@ Probenschwierigkeit: Magieresistenz
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelwesen
 Reichweite: 32 Schritt
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 4 AsP
 Fertigkeiten: Eigenschaften, Eis
 Erlernen: Ach, Dru 12; Mag 16; Alch 18; 40 EP</Talent>
@@ -1248,7 +1248,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
 Ziel: Einzelperson
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Eigenschaften
 Erlernen: Ach, Elf 18; 40 EP</Talent>
@@ -1259,7 +1259,7 @@ Modifikationen: Dauerndes Band (–8, 8 AsP; der Zauber wirkt auf alle Fernkampf
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelperson
 Reichweite: Berührung
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 4 AsP
 Fertigkeiten: Eigenschaften
 Erlernen: Elf 12; 20 EP</Talent>
@@ -1300,7 +1300,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Eigenschaften, Verwandlung
 Erlernen: Hex 18; 20 EP</Talent>
@@ -1317,17 +1317,17 @@ Erlernen: Hex 16; Elf 18; 20 EP</Talent>
   <Talent name="Krötensprung" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Eigenschaften" variable="0">Der nächste Sprung deines Zieles ist gewaltig. Er kann bis zu 8 Schritt Weite und 4 Schritt Höhe überwinden und die effektive Sturzhöhe (S. 34) sinkt um 4 Schritt.
 Mächtige Magie: Die Weite steigt um +4 Schritt,  die (Sturz-)Höhe um +2 Schritt.
 Probenschwierigkeit: 12
-Modifikationen: Krötengang (–4, Wirkungsdauer 16 Initiativphasen, 8 AsP; dein Ziel kann beliebig oft springen.)
+Modifikationen: Krötengang (–4, Wirkungsdauer 16 Initiativephasen, 8 AsP; dein Ziel kann beliebig oft springen.)
 Vorbereitungszeit: 2 Aktionen
 Ziel: Einzelperson
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 4 AsP
 Fertigkeiten: Eigenschaften
 Erlernen: Hex 16; Ach, Elf 18; 20 EP</Talent>
   <Talent name="Memorans Gedächtniskraft" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Eigenschaften, Hellsicht" variable="0">Du kannst dir sämtliche Bilder, Schriftstücke, Inschriften und ähnliches für immer einprägen. Eine Seite eines Buches kostet dich etwa eine Minute.
 Probenschwierigkeit: 12
-Modifikationen: Drachengedächtnis (–8, Wirkungsdauer 16 Initiativphasen; alles, was du während der Wirkungsdauer siehst, ist dir für immer ins Gedächtnis gebrannt.)
+Modifikationen: Drachengedächtnis (–8, Wirkungsdauer 16 Initiativephasen; alles, was du während der Wirkungsdauer siehst, ist dir für immer ins Gedächtnis gebrannt.)
 Vorbereitungszeit: 4 Minuten
 Ziel: selbst
 Reichweite: 4 Schritt
@@ -1352,7 +1352,7 @@ Modifikationen: Demotivation (–8; die Erschwernis wirkt auch auf Zauberproben.
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelwesen
 Reichweite: 8 Schritt
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 4 AsP
 Fertigkeiten: Eigenschaften
 Erlernen: Mag, Dru, Geo, Hex 12; Ach, Alch, Elf, Sch 16; 20 EP</Talent>
@@ -1383,7 +1383,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelperson
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Eigenschaften, Hellsicht
 Erlernen: Mag 18; 40 EP</Talent>
@@ -1403,7 +1403,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 2 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 4 AsP
 Fertigkeiten: Eigenschaften
 Erlernen: Elf 14; Ach 20; 40 EP</Talent>
@@ -1502,7 +1502,7 @@ Probenschwierigkeit: Magieresistenz
 Vorbereitungszeit: 0 Aktionen
 Ziel: Einzelwesen
 Reichweite: 8 Schritt
-Wirkungsdauer: 4 Initiativphasen
+Wirkungsdauer: 4 Initiativephasen
 Kosten: 4 AsP
 Fertigkeiten: Einfluss
 Erlernen: Elf 8; Mag 12; Dru, Hex 14; Ach, Geo, Sch, Srl 16; 40 EP</Talent>
@@ -1535,7 +1535,7 @@ Wirkungsdauer: 1 Stunde
 Kosten: 8 AsP
 Fertigkeiten: Einfluss
 Erlernen: Hex 8; Geo 16; 40 EP</Talent>
-  <Talent name="Halluzination" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Einfluss" variable="0">Deinem Opfer erscheint eine Halluzination deiner Wahl („ein Oger“, „köstlicher Tharf“), die es mit allen fünf Sinnen wahrzunehmen glaubt. Wird das Opfer von der Halluzination „getötet“, fällt es für 16 Initiativphasen in Ohnmacht. Nach dem Erwachen sind alle durch die Halluzination verursachten Wunden verschwunden.
+  <Talent name="Halluzination" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Einfluss" variable="0">Deinem Opfer erscheint eine Halluzination deiner Wahl („ein Oger“, „köstlicher Tharf“), die es mit allen fünf Sinnen wahrzunehmen glaubt. Wird das Opfer von der Halluzination „getötet“, fällt es für 16 Initiativephasen in Ohnmacht. Nach dem Erwachen sind alle durch die Halluzination verursachten Wunden verschwunden.
 Probenschwierigkeit: Magieresistenz
 Modifikationen: Traumbilder (–8; die Halluzination erscheint im Traum eines Schlafenden.)
 Vorbereitungszeit: 2 Aktionen
@@ -1639,7 +1639,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 2 Aktionen
 Ziel: Zone
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Einfluss, Kraft, Verständigung
 Erlernen: Hex 12; 40 EP</Talent>
@@ -1770,14 +1770,14 @@ Probenschwierigkeit: Magieresistenz
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelperson
 Reichweite: 4 Schritt
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Einfluss
 Erlernen: Elf 18; Sch 20; 40 EP</Talent>
   <Talent name="Somnigravis" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Einfluss" variable="0">Ein Ziel in einer ruhenden Position sinkt langsam in einen Tiefschlaf, aus dem es durch lauten Lärm oder Schmerzen geweckt werden kann.
 Probenschwierigkeit: Magieresistenz
 Modifikationen: Beliebiges Wesen (–4; der Zauber wirkt auf alle Wesen, die Schlaf kennen.)
-Ohnmacht (–8, 1 Aktion, Wirkungsdauer 16 Initiativphasen; das Opfer wird schlagartig ohnmächtig und ist nicht zu wecken.)
+Ohnmacht (–8, 1 Aktion, Wirkungsdauer 16 Initiativephasen; das Opfer wird schlagartig ohnmächtig und ist nicht zu wecken.)
 Vorbereitungszeit: 2 Aktionen
 Ziel: Einzelperson
 Reichweite: 4 Schritt
@@ -1864,7 +1864,7 @@ Modifikationen: Vorgegebene Bewegung (–4; du gibst der Kugel die Bewegung bis 
 Vorbereitungszeit: 2 Aktionen
 Ziel: Zone
 Reichweite: 2 Schritt
-Wirkungsdauer: 2 Initiativphasen
+Wirkungsdauer: 2 Initiativephasen
 Kosten: 16 AsP
 Fertigkeiten: Eis
 Erlernen: Ach, Mag 18; Dru 20; 60 EP</Talent>
@@ -1939,7 +1939,7 @@ Permanenz (–4, 4 AsP, davon 1 gAsP, Wirkungsdauer bis die Bindung gelöst wird
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelobjekt
 Reichweite: Berührung
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 4 AsP
 Fertigkeiten: Eis
 Erlernen: Elf 18; 40 EP</Talent>
@@ -1949,7 +1949,7 @@ Modifikationen: Begleiter (–4; die Zone bewegt sich mit dir.)
 Vorbereitungszeit: 4 Aktionen
 Ziel: Zone
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 16 AsP
 Fertigkeiten: Eis, Umwelt
 Erlernen: Ach 16; 60 EP</Talent>
@@ -2010,7 +2010,7 @@ Modifikationen: Vorgegebene Bewegung (–4; du gibst der Kugel die Bewegung bis 
 Vorbereitungszeit: 2 Aktionen
 Ziel: Zone
 Reichweite: 2 Schritt
-Wirkungsdauer: 2 Initiativphasen
+Wirkungsdauer: 2 Initiativephasen
 Kosten: 16 AsP
 Fertigkeiten: Erz
 Erlernen: Ach, Mag 18; Geo, Dru 20; 60 EP</Talent>
@@ -2073,7 +2073,7 @@ Permanenz (–4, 4 AsP, davon 1 gAsP, Wirkungsdauer bis die Bindung gelöst wird
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelobjekt
 Reichweite: Berührung
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 4 AsP
 Fertigkeiten: Erz
 Erlernen: Mag 18; 20 EP</Talent>
@@ -2154,7 +2154,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: Einzelobjekt
 Reichweite: 16 Schritt
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Feuer
 Erlernen: Elf, Srl 18; 20 EP</Talent>
@@ -2175,7 +2175,7 @@ Modifikationen: Vorgegebene Bewegung (–4; du gibst der Kugel die Bewegung bis 
 Vorbereitungszeit: 2 Aktionen
 Ziel: Zone
 Reichweite: 2 Schritt
-Wirkungsdauer: 2 Initiativphasen
+Wirkungsdauer: 2 Initiativephasen
 Kosten: 16 AsP
 Fertigkeiten: Feuer
 Erlernen: Mag 18; Ach, Geo 20; 60 EP</Talent>
@@ -2198,7 +2198,7 @@ Permanenz (–4, 4 AsP, davon 1 gAsP, Wirkungsdauer bis die Bindung gelöst wird
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelobjekt
 Reichweite: Berührung
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 4 AsP
 Fertigkeiten: Feuer
 Erlernen: Mag 20; 40 EP</Talent>
@@ -2254,7 +2254,7 @@ Verhandlungssinn (nicht Elf, –4, Wirkungsdauer 1 Stunde; du kannst die Argumen
 Vorbereitungszeit: 4 Aktionen
 Ziel: Einzelperson
 Reichweite: 4 Schritt
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Hellsicht
 Erlernen: Elf, Mag 14; Dru, Hex 16; Geo 18; 40 EP</Talent>
@@ -2265,7 +2265,7 @@ Modifikationen: Objekt (–4, Einzelobjekt)
 Vorbereitungszeit: 16 Aktionen
 Ziel: Zone
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 16 AsP
 Fertigkeiten: Hellsicht, Temporal
 Erlernen: Dru, Geo 18; Mag 20; 20 EP</Talent>
@@ -2276,7 +2276,7 @@ Modifikationen: Reinheit der Aura (–8; der Zauber zeigt den Gesundheitszustand
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelperson
 Reichweite: 16 Schritt
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 4 AsP
 Fertigkeiten: Hellsicht
 Erlernen: Elf 12; Ach, Alch, Dru, Geo 16; Hex, Mag 18; 20 EP</Talent>
@@ -2306,7 +2306,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Minuten
 Ziel: Einzelperson
 Reichweite: dereweit
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Hellsicht, Verständigung
 Erlernen: Hex 18; Dru, Srl 20; 20 EP</Talent>
@@ -2327,7 +2327,7 @@ Modifikationen: Sichtbereich (–4, Zone; wirkt auf alle Objekte im Sichtfeld.)
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelwesen, Einzelobjekt
 Reichweite: 8 Schritt
-Wirkungsdauer: 2 Initiativphasen
+Wirkungsdauer: 2 Initiativephasen
 Kosten: 4 AsP
 Fertigkeiten: Hellsicht, Kraft
 Erlernen: Ach, Alch, Elf, Mag 8; Dru, Geo, Hex 12; Bor, Sch, Srl 14; 40 EP</Talent>
@@ -2337,7 +2337,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 2 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 4 AsP
 Fertigkeiten: Hellsicht
 Erlernen: Mag 14; Elf, Sch, Srl 16; 20 EP</Talent>
@@ -2418,7 +2418,7 @@ Modifikationen: Dornenfessel (–8; misslungene Konterproben fügen dem Opfer 2W
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelperson
 Reichweite: 8 Schritt
-Wirkungsdauer: 4 Initiativphasen
+Wirkungsdauer: 4 Initiativephasen
 Kosten: 4 AsP
 Fertigkeiten: Humus
 Erlernen: Dru, Geo 12; Hex 16; 20 EP</Talent>
@@ -2464,7 +2464,7 @@ Modifikationen: Vorgegebene Bewegung (–4; du gibst der Kugel die Bewegung bis 
 Vorbereitungszeit: 2 Aktionen
 Ziel: Zone
 Reichweite: 2 Schritt
-Wirkungsdauer: 2 Initiativphasen
+Wirkungsdauer: 2 Initiativephasen
 Kosten: 16 AsP
 Fertigkeiten: Humus
 Erlernen: Ach, Mag 18; Geo, Dru 20; 60 EP</Talent>
@@ -2521,7 +2521,7 @@ Permanenz (–4, 4 AsP, davon 1 gAsP, Wirkungsdauer bis die Bindung gelöst wird
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelobjekt
 Reichweite: Berührung
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 4 AsP
 Fertigkeiten: Humus
 Erlernen: Elf 16; Ach 18; 40 EP</Talent>
@@ -2541,7 +2541,7 @@ Modifikationen: Dornenranken (–8; jede misslungene Konterprobe verursacht 2W6 
 Vorbereitungszeit: 8 Aktionen
 Ziel: Zone
 Reichweite: 64 Schritt
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 32 AsP
 Fertigkeiten: Humus, Umwelt
 Erlernen: Geo 18; Dru 20; 60 EP</Talent>
@@ -2651,7 +2651,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelperson
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Illusion
 Erlernen: Mag, Srl 14; 40 EP</Talent>
@@ -2666,7 +2666,7 @@ Wirkungsdauer: 4 Minuten
 Kosten: 1 AsP
 Fertigkeiten: Illusion
 Erlernen: Srl 12; Mag 14; Sch 18; 20 EP</Talent>
-  <Talent name="Flirrender Funkelglanz" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Illusion" variable="0">Du erzeugst eine illusionäre Explosion aus Farben und Formen vor den Augen deines Ziels. Gelingt ihm keine Konterprobe (IN, 16), so ist es in seiner nächsten Initiativphase zu keiner Aktion fähig.
+  <Talent name="Flirrender Funkelglanz" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Illusion" variable="0">Du erzeugst eine illusionäre Explosion aus Farben und Formen vor den Augen deines Ziels. Gelingt ihm keine Konterprobe (IN, 16), so ist es in seiner nächsten Initiativephase zu keiner Aktion fähig.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
 Ziel: Einzelperson
@@ -2715,7 +2715,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: Zone
 Reichweite: 4 Meilen
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Illusion
 Erlernen: Srl 16; Ach, Mag 20; 20 EP</Talent>
@@ -2756,12 +2756,12 @@ Erlernen: Sch 12; Srl 20; 20 EP</Talent>
   <Talent name="Vocolimbo hohler Klang" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Illusion" variable="0">Von einem Ort deiner Wahl aus erklingt eine Illusion (Gehör) als hohle Stimme, die eine von dir gewählte, bis zu 16 Worte lange Botschaft spricht.
 Mächtige Magie: Verdoppelt die Länge der Botschaft.
 Probenschwierigkeit: 12
-Modifikationen: Zeitversetzt (–2; die Botschaft ertönt erst nach einem Zeitraum von bis zu 4 Initiativphasen. Mehrfach wählbar.)
+Modifikationen: Zeitversetzt (–2; die Botschaft ertönt erst nach einem Zeitraum von bis zu 4 Initiativephasen. Mehrfach wählbar.)
 Vox Memoriae (–4, Wirkungsdauer bis zur Sommersonnenwende, 8 AsP; die Botschaft ertönt erst, wenn ein beim Zaubern bestimmtes Ereignis eintritt.)
 Vorbereitungszeit: 2 Aktionen
 Ziel: Zone
 Reichweite: 32 Schritt
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 2 AsP
 Fertigkeiten: Illusion
 Erlernen: Srl 12; Mag 14; Sch 20; 20 EP</Talent>
@@ -2816,7 +2816,7 @@ Modifikationen: Tor in die Niederhöllen (–16; der Strudel führt direkt in di
 Vorbereitungszeit: 8 Aktionen
 Ziel: Zone
 Reichweite: 16 Schritt
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 32 AsP
 Fertigkeiten: Kraft
 Erlernen: Ach, Bor, Mag 20; 60 EP</Talent>
@@ -2839,7 +2839,7 @@ Modifikationen: Silberschild (–8, Einzelobjekt, Wirkungsdauer 1 Stunde; du ver
 Vorbereitungszeit: 0 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 16 AsP
 Fertigkeiten: Kraft
 Erlernen: Elf, Mag 18; 60 EP</Talent>
@@ -2922,7 +2922,7 @@ Fertigkeiten: Kraft, Verwandlung
 Erlernen: Ach, Mag 18; Elf, Hex, Geo, Dru 20; 40 EP</Talent>
   <Talent name="Aeolitus Windgebraus" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Luft" variable="0">Ein kräftiger Windstoß breitet sich von deinem Mund kegelförmig (45°) 16 Schritt weit aus und verursacht Niederschmettern, wenn eine Konterprobe (KK, 16) misslingt. Ballistischer Zauber.
 Probenschwierigkeit: 12
-Modifikationen: Langer Atem (–8, 8 AsP; der Windstoß hält KO Initiativphasen lang an. Erfordert Konzentration.)
+Modifikationen: Langer Atem (–8, 8 AsP; der Windstoß hält KO Initiativephasen lang an. Erfordert Konzentration.)
 Sturm (–4; bei misslungener Konterprobe verursacht der Zauber auch Zurückstoßen (S. 98).)
 Winde der anderen Art (–4; der Wind bringt lieblichen Duft oder widerlichen Gestank.)
 Vorbereitungszeit: 0 Aktionen
@@ -2938,7 +2938,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: Zone
 Reichweite: 8 Schritt
-Wirkungsdauer: 4 Initiativphasen
+Wirkungsdauer: 4 Initiativephasen
 Kosten: 16 AsP
 Fertigkeiten: Luft, Umwelt
 Erlernen: Ach, Alch, Mag 20; 40 EP</Talent>
@@ -2957,7 +2957,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Luft
 Erlernen: Geo 16; Elf 18; Mag 20; 40 EP</Talent>
@@ -3037,7 +3037,7 @@ Modifikationen: Vorgegebene Bewegung (–4; du gibst der Kugel die Bewegung bis 
 Vorbereitungszeit: 2 Aktionen
 Ziel: Zone
 Reichweite: 2 Schritt
-Wirkungsdauer: 2 Initiativphasen
+Wirkungsdauer: 2 Initiativephasen
 Kosten: 16 AsP
 Fertigkeiten: Luft
 Erlernen: Ach, Mag 18; Geo, Dru 20; 60 EP</Talent>
@@ -3058,7 +3058,7 @@ Permanenz (–4, 4 AsP, davon 1 gAsP, Wirkungsdauer bis die Bindung gelöst wird
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelobjekt
 Reichweite: Berührung
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 4 AsP
 Fertigkeiten: Luft
 Erlernen: Elf 14; Mag 18; 40 EP</Talent>
@@ -3069,7 +3069,7 @@ Modifikationen: Gezielte Wut (–4, Einzelwesen; der Besen greift nur ein von di
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelobjekt (Hexenbesen)
 Reichweite: 16 Schritt
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Luft, Umwelt
 Erlernen: Hex 12; 40 EP</Talent>
@@ -3119,13 +3119,13 @@ Kosten: 4 AsP
 Fertigkeiten: Luft, Verständigung
 Erlernen: Dru 12; Geo 14; Elf 16; 20 EP</Talent>
   <Talent name="Windhose" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Luft, Umwelt" variable="0">Du erzeugst einen Wirbelsturm, den du mit einer Geschwindigkeit von 4 Schritt pro Initiativephase bewegen kannst. Der Wirbelsturm hat einen Radius von 2 Schritt. Wer immer ihn berührt, erleidet pro Initiativephase 1W6 TP durch umherfliegende Kleinteile und muss eine Konterprobe (KK, 16) ablegen, um nicht in eine zufällige Richtung zurückgestoßen (S. 98) zu werden. Erfordert Konzentration.
-Mächtige Magie: Gegenstände und Tiere bis zur Größe eines Kopfes/Rucksacks/Menschen/ Pferdes wirbeln durch die Luft und verursachen zusätzliche 1W6 TP pro Initiativphase. Der Radius des Wirbelsturms steigt um je 1 Schritt.
+Mächtige Magie: Gegenstände und Tiere bis zur Größe eines Kopfes/Rucksacks/Menschen/ Pferdes wirbeln durch die Luft und verursachen zusätzliche 1W6 TP pro Initiativephase. Der Radius des Wirbelsturms steigt um je 1 Schritt.
 Probenschwierigkeit: 12
 Modifikationen: Beweglich (–4; erhöht die Geschwindigkeit des Wirbelsturms um 4 Schritt pro Initiativephase. Mehrfach wählbar.)
 Vorbereitungszeit: 8 Aktionen
 Ziel: Zone
 Reichweite: 64 Schritt
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 16 AsP
 Fertigkeiten: Luft, Umwelt
 Erlernen: Dru 14; Geo 16; Mag 20; 40 EP</Talent>
@@ -3163,7 +3163,7 @@ Wirkungsdauer: 8 Stunden
 Kosten: 64 AsP
 Fertigkeiten: Temporal
 Erlernen: Ach 20; 80 EP</Talent>
-  <Talent name="Eisenrost und Patina" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Temporal, Verwandlung" variable="0">Du lässt einen sehr kleinen (S. 46), metallischen Gegenstand altern. Innerhalb der nächsten 16 Initiativphasen verschiebt sich sein Zustand auf der Skala neu/benutzt/verschlissen/alt/unbrauchbar/zerstört um zwei Stufen. Magische und geweihte Gegenstände sind gegen den Zauber immun.
+  <Talent name="Eisenrost und Patina" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Temporal, Verwandlung" variable="0">Du lässt einen sehr kleinen (S. 46), metallischen Gegenstand altern. Innerhalb der nächsten 16 Initiativephasen verschiebt sich sein Zustand auf der Skala neu/benutzt/verschlissen/alt/unbrauchbar/zerstört um zwei Stufen. Magische und geweihte Gegenstände sind gegen den Zauber immun.
 Mächtige Magie: Du kannst den Zustand des Gegenstandes um eine weitere Stufe verschieben.
 Probenschwierigkeit: 12
 Modifikationen: Größeres Ziel (–4; das Ziel kann eine Kategorie größer sein. Mehrfach wählbar.)
@@ -3205,7 +3205,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Aktion
 Ziel: Zone
 Reichweite: Berührung
-Wirkungsdauer: 4 Initiativphasen
+Wirkungsdauer: 4 Initiativephasen
 Kosten: 16 AsP
 Fertigkeiten: Temporal
 Erlernen: Ach, Mag 20; 60 EP</Talent>
@@ -3251,7 +3251,7 @@ Probenschwierigkeit: 12
 Modifikationen: Variable Helligkeit (–4; du kannst die Helligkeit beliebig reduzieren und wieder auf das ursprüngliche Maß erhöhen.)
 Begleiter (–4; die Lichtkugel bewegt sich mit dir.)
 Leuchtturm (–4; Die Lichtkugel erscheint in 10 Schritt Höhe.)
-Lichtblitz (–8, 8 AsP; du kannst die Kugel in einer Aktion Bereit machen explodieren lassen. Alle Beobachter sind 2 Initiativphasen lang geblendet, ihre Proben sind um die doppelte Helligkeitsstufe erschwert.)
+Lichtblitz (–8, 8 AsP; du kannst die Kugel in einer Aktion Bereit machen explodieren lassen. Alle Beobachter sind 2 Initiativephasen lang geblendet, ihre Proben sind um die doppelte Helligkeitsstufe erschwert.)
 Vorbereitungszeit: 0 Aktionen
 Ziel: Zone
 Reichweite: 8 Schritt
@@ -3319,7 +3319,7 @@ Modifikationen: Schiffverschlinger (–4, 4 Minuten, Wirkungsdauer 1 Stunde, 64 
 Vorbereitungszeit: 8 Aktionen
 Ziel: Zone
 Reichweite: 64 Schritt
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 16 AsP
 Fertigkeiten: Umwelt, Wasser
 Erlernen: Dru 18; Geo, Mag 20; 40 EP</Talent>
@@ -3366,7 +3366,7 @@ Modifikationen: Schelmenschleim (–4; der Untergrund wird stattdessen glitschig
 Vorbereitungszeit: 2 Aktionen
 Ziel: Zone
 Reichweite: 4 Schritt
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Umwelt
 Erlernen: Sch 14; 40 EP</Talent>
@@ -3438,7 +3438,7 @@ Erzwungene Botschaft (–4; der Empfang der Botschaft kann nur durch eine Konter
 Vorbereitungszeit: 2 Aktionen
 Ziel: Zone
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 4 AsP
 Fertigkeiten: Verständigung
 Erlernen: Elf 8; Sch 16; Alch, Mag 18; 20 EP</Talent>
@@ -3577,7 +3577,7 @@ Probenschwierigkeit: 12
 Modifikationen: Permanenz (–4, Wirkungsdauer bis die Bindung gelöst wird, 8 AsP, davon 2 gAsP)
 Aktive Versiegelung (–4; der Zauber endet nicht, wenn die Tür auf- und zugeschlossen wird.)
 Schlüsselmeister (–4; du kannst bis zu 8 Personen oder Schlüssel nennen, für die der Zauber nicht wirkt.)
-Die Priesterkaiser kommen! (–8, 8 AsP; der Zauber betrifft alle Türen, die du in den nächsten 16 Initiativphasen berührst.)
+Die Priesterkaiser kommen! (–8, 8 AsP; der Zauber betrifft alle Türen, die du in den nächsten 16 Initiativephasen berührst.)
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelobjekt
 Reichweite: Berührung
@@ -3657,7 +3657,7 @@ Modifikationen: Schlangengriff (Wirkungsdauer 4 Minuten, 4 AsP; die Arme verwand
 Vorbereitungszeit: 2 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 16 AsP
 Fertigkeiten: Verwandlung
 Erlernen: Ach 16; Hex, Mag 20; 40 EP</Talent>
@@ -3732,7 +3732,7 @@ Modifikationen: Vorgegebene Bewegung (–4; du gibst der Kugel die Bewegung bis 
 Vorbereitungszeit: 2 Aktionen
 Ziel: Zone
 Reichweite: 2 Schritt
-Wirkungsdauer: 2 Initiativphasen
+Wirkungsdauer: 2 Initiativephasen
 Kosten: 16 AsP
 Fertigkeiten: Wasser
 Erlernen: Ach, Mag 18; Geo, Dru 20; 60 EP</Talent>
@@ -3752,11 +3752,11 @@ Permanenz (–4, 4 AsP, davon 1 gAsP, Wirkungsdauer bis die Bindung gelöst wird
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelobjekt
 Reichweite: Berührung
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 4 AsP
 Fertigkeiten: Wasser
 Erlernen: Ach 18; 20 EP</Talent>
-  <Talent name="Wasserwand" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Wasser" variable="0">Eine 3 Schritt hohe und bis zu 4 Schritt lange Wand aus rauschenden Wogen quillt entlang einer von dir bestimmten Linie aus dem Boden. Um die Wand zu durchqueren, musst du sie mit einer Konterprobe (KO, 16) betreten. Dann kannst du alle 2 Initiativphasen eine Konterprobe (KO, 16) zum Verlassen der Wand ablegen und erleidest dabei 1 Punkt Erschöpfung (egal ob die Probe gelingt).
+  <Talent name="Wasserwand" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Wasser" variable="0">Eine 3 Schritt hohe und bis zu 4 Schritt lange Wand aus rauschenden Wogen quillt entlang einer von dir bestimmten Linie aus dem Boden. Um die Wand zu durchqueren, musst du sie mit einer Konterprobe (KO, 16) betreten. Dann kannst du alle 2 Initiativephasen eine Konterprobe (KO, 16) zum Verlassen der Wand ablegen und erleidest dabei 1 Punkt Erschöpfung (egal ob die Probe gelingt).
 Mächtige Magie: Die Höhe steigt um 1 Schritt und die Länge um bis zu 2 Schritt.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
@@ -3802,7 +3802,7 @@ Erlernen: Dru 18; 40 EP</Talent>
 Vorbereitungszeit: 0 Aktionen
 Ziel: Ritualgegenstand
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 1 AsP
 Fertigkeiten: Dolchzauber, Temporal, Verwandlung
 Erlernen: Dru, Geo 12; 20 EP</Talent>
@@ -3910,7 +3910,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
 Ziel: Zone
 Reichweite: dereweit
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 4 AsP
 Fertigkeiten: Dolchzauber, Hellsicht, Umwelt
 Erlernen: Dru 12; Geo 14; 20 EP</Talent>
@@ -3960,7 +3960,7 @@ Wirkungsdauer: 1 Stunde
 Kosten: 8 AsP
 Fertigkeiten: Einfluss, Elfenlieder
 Erlernen: Elf 16; 40 EP</Talent>
-  <Talent name="Lied der Lieder " kosten="40" voraussetzungen="Vorteil Tradition der Elfen I" verbilligt="0" fertigkeiten="Einfluss, Elfenlieder" variable="0">Alle Humanoide in Hörreichweite sind von deiner immer berauschenderen Musik völlig gefesselt. Nur mit einer Konterprobe (Willenskraft, 16) kann sich ein Zuhörer für 16 Initiativphasen dem Zauber des Liedes entziehen. Ansonsten erwacht er, wenn du aufhörst zu spielen oder er eine Wunde erleidet. Erfordert Konzentration, erlaubt Aufrechterhalten.
+  <Talent name="Lied der Lieder " kosten="40" voraussetzungen="Vorteil Tradition der Elfen I" verbilligt="0" fertigkeiten="Einfluss, Elfenlieder" variable="0">Alle Humanoide in Hörreichweite sind von deiner immer berauschenderen Musik völlig gefesselt. Nur mit einer Konterprobe (Willenskraft, 16) kann sich ein Zuhörer für 16 Initiativephasen dem Zauber des Liedes entziehen. Ansonsten erwacht er, wenn du aufhörst zu spielen oder er eine Wunde erleidet. Erfordert Konzentration, erlaubt Aufrechterhalten.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
 Ziel: Zone
@@ -4074,7 +4074,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
 Ziel: Einzelperson
 Reichweite: 4 Schritt
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP</Talent>
   <Talent name="Wipfellauf (Blutgeist)" kosten="0" voraussetzungen="Vorteil Tiergeist (Affe) ODER Vorteil Tiergeist (Wildkatze/Panther)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variable="0" kommentar="0">Du kannst dich durch Baumkronen und Unterholz bewegen, als wären sie eine normale Straße. Unter diesen Bedingungen erleidest du keinerlei Erschwernisse oder Geschwindigkeitsabzüge.
 Probenschwierigkeit: 12
@@ -4090,7 +4090,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
 Ziel: Einzelperson
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP</Talent>
   <Talent name="Ruhe Körper, Ruhe Geist (Blutgeist)" kosten="0" voraussetzungen="Vorteil Tiergeist (Bär)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variable="0" kommentar="0">Dein Ziel sinkt in einen tiefen Schlaf, aus dem es nur mit Gewalt geweckt werden kann. Wird es nicht vorzeitig geweckt, regeneriert es zwei zusätzliche Wunden.
 Mächtige Magie: Regeneriert eine weitere Wunde.
@@ -4114,7 +4114,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 2 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 4 AsP</Talent>
   <Talent name="Zaubernahrung Hungerbann (Blutgeist)" kosten="0" voraussetzungen="Vorteil Tiergeist (Bär) ODER Vorteil Tiergeist (Mammut) ODER Vorteil Tiergeist (Wildschwein)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variable="0" kommentar="0">Für einen Tag spürst du keinerlei Hunger und die Kraft des Zaubers ernährt dich. Du musst spätestens vor vier Tagen echtes Essen zu dir genommen haben.
 Mächtige Magie: Die letzte echte Mahlzeit kann bis zu zwei Tage länger her sein.
@@ -4127,7 +4127,7 @@ Wirkungsdauer: 1 Tag
 Kosten: 4 AsP</Talent>
   <Talent name="Memorans Gedächtniskraft (Blutgeist)" kosten="0" voraussetzungen="Vorteil Tiergeist (Elefant) ODER Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variable="0" kommentar="0">Du kannst dir sämtliche Bilder, Schriftstücke, Inschriften und ähnliches für immer einprägen. Eine Seite eines Buches kostet dich etwa eine Minute.
 Probenschwierigkeit: 12
-Modifikationen: Drachengedächtnis (–8, Wirkungsdauer 16 Initiativphasen; alles, was du während der Wirkungsdauer siehst, ist dir für immer ins Gedächtnis gebrannt.)
+Modifikationen: Drachengedächtnis (–8, Wirkungsdauer 16 Initiativephasen; alles, was du während der Wirkungsdauer siehst, ist dir für immer ins Gedächtnis gebrannt.)
 Vorbereitungszeit: 4 Minuten
 Ziel: selbst
 Reichweite: 4 Schritt
@@ -4136,7 +4136,7 @@ Kosten: 8 AsP</Talent>
   <Talent name="Psychostabilis (Blutgeist)" kosten="0" voraussetzungen="Vorteil Tiergeist (Elefant) ODER Vorteil Tiergeist (Mammut) ODER Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variable="0" kommentar="0">Magieresistenz-Proben des Ziels sind um +4 erleichtert.
 Mächtige Magie: Erhöht den Bonus um +2.
 Probenschwierigkeit: 12
-Modifikationen: Schnellsteigerung (–4; Wirkungsdauer 16 Initiativphasen; verdoppelt die Erleichterung.)
+Modifikationen: Schnellsteigerung (–4; Wirkungsdauer 16 Initiativephasen; verdoppelt die Erleichterung.)
 Stabilisierung (–8; das Ziel darf sofort eine MR-Probe gegen einen auf es wirkenden Zauber wiederholen. Gelingt sie, wird dieser Zauber für die Wirkungsdauer des Psychostabilis unterdrückt.)
 Vorbereitungszeit: 2 Aktionen
 Ziel: Einzelperson
@@ -4174,7 +4174,7 @@ Modifikationen: Reinheit der Aura (–8; der Zauber zeigt den Gesundheitszustand
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelperson
 Reichweite: 16 Schritt
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 4 AsP</Talent>
   <Talent name="Hexenkrallen (Blutgeist)" kosten="0" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variable="0" kommentar="0">Deine Fingernägel werden lang, scharf und hart wie Raubtierklauen. Deine Hände richten 2W6 Waffenschaden an und verlieren die Eigenschaft Zerbrechlich.
 Mächtige Magie: Erhöht den Schaden um +2.
@@ -4182,7 +4182,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP</Talent>
   <Talent name="Silentium Schweigekreis (Blutgeist)" kosten="0" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variable="0" kommentar="0">Der Zauber dämpft alle Geräusche in einer Kugel mit 2 Schritt Radius. Entsprechende Wahrnehmungs-Proben sind um –4 erschwert.
 Mächtige Magie: Der Malus steigt um –2.
@@ -4210,7 +4210,7 @@ Modifikationen: Dauerndes Band (–8, 8 AsP; der Zauber wirkt auf alle Fernkampf
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelperson
 Reichweite: Berührung
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 4 AsP</Talent>
   <Talent name="Pfeil der Luft (Blutgeist)" kosten="0" voraussetzungen="Vorteil Tiergeist (Falke)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variable="0" kommentar="0">Du verzauberst einen Pfeil (oder Bolzen oder Wurfwaffe), sodass er im Flug die Macht des Elements freisetzt. Der Pfeil verursacht Luftschaden und Zurückstoßen (S. 98). Die Reichweite für diesen Schuss ist verdoppelt.
 Probenschwierigkeit: 12
@@ -4219,14 +4219,14 @@ Permanenz (–4, 4 AsP, davon 1 gAsP, Wirkungsdauer bis die Bindung gelöst wird
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelobjekt
 Reichweite: Berührung
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 4 AsP</Talent>
   <Talent name="Aeropulvis sanfter Fall (Blutgeist)" kosten="0" voraussetzungen="Vorteil Tiergeist (Falke)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variable="0" kommentar="0">Halbiert die effektive Höhe eines Sturzes oder Sprunges (kumulativ zur Akrobatik-Probe).
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP</Talent>
   <Talent name="Eins mit der Natur (Blutgeist)" kosten="0" voraussetzungen="Vorteil Tiergeist (Fischotter) ODER Vorteil Tiergeist (Gebirgsbock) ODER Vorteil Tiergeist (Wildkatze/Panther) ODER Vorteil Tiergeist (Wildschwein) ODER Vorteil Tiergeist (Wolf/Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variable="0" kommentar="0">Das Ziel kann in der Wildnis kann es natürliche Gefahren wie mit der Gabe Gefahreninstinkt erahnen. Beherrscht es die Gabe bereits, sind damit verbundene Proben um +4 erleichtert. Wirkt nicht unter der Erde, auf dem Meer oder in dämonisch pervertiertem Gebiet.
 Mächtige Magie: Überleben-Proben sind um +2 erleichtert.
@@ -4297,7 +4297,7 @@ Probenschwierigkeit: Magieresistenz
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelperson
 Reichweite: 4 Schritt
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP</Talent>
   <Talent name="Firnlauf (Blutgeist)" kosten="0" voraussetzungen="Vorteil Tiergeist (Gebirgsbock)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variable="0" kommentar="0">Jede noch so dünne Eis- oder Schneeschicht trägt dich wie trockener Boden. Unter diesen Bedingungen erleidest du keinerlei Erschwernisse oder Geschwindigkeitsabzüge.
 Probenschwierigkeit: 12
@@ -4345,7 +4345,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 2 Aktionen
 Ziel: Zone
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP</Talent>
   <Talent name="Nekropathia Seelenreise (Blutgeist)" kosten="0" voraussetzungen="Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variable="0" kommentar="0">Du nimmst Kontakt mit einer Seele in Borons Hallen auf. Du kannst mit ihr sprechen, doch es bleibt ihr überlassen, ob und wie sie antwortet. Der Tod der Person darf maximal 1 Jahr zurückliegen und du benötigst einen persönlichen Gegenstand.
 Mächtige Magie: Verzehnfacht den Abstand zum Todeszeitpunkt.
@@ -4370,7 +4370,7 @@ Modifikationen: Schlangengriff (Wirkungsdauer 4 Minuten, 4 AsP; die Arme verwand
 Vorbereitungszeit: 2 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 16 AsP</Talent>
   <Talent name="Vipernblick (Blutgeist)" kosten="0" voraussetzungen="Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variable="0" kommentar="0">Du erscheinst deinem Opfer als grauenvolle Gestalt aus den Niederhöllen. Es kann nicht wegsehen und ist vor Angst handlungsunfähig. Wird der Sichtkontakt unterbrochen, endet der Zauber.
 Probenschwierigkeit: Magieresistenz
@@ -4401,16 +4401,16 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelperson
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP</Talent>
   <Talent name="Krötensprung (Blutgeist)" kosten="0" voraussetzungen="Vorteil Tiergeist (Wildkatze/Panther)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variable="0" kommentar="0">Der nächste Sprung deines Zieles ist gewaltig. Er kann bis zu 8 Schritt Weite und 4 Schritt Höhe überwinden und die effektive Sturzhöhe (S. 35) sinkt um 4 Schritt.
 Mächtige Magie: Die Weite steigt um +4 Schritt,  die (Sturz-)Höhe um +2 Schritt.
 Probenschwierigkeit: 12
-Modifikationen: Krötengang (–4, Wirkungsdauer 16 Initiativphasen, 8 AsP; dein Ziel kann beliebig oft springen.)
+Modifikationen: Krötengang (–4, Wirkungsdauer 16 Initiativephasen, 8 AsP; dein Ziel kann beliebig oft springen.)
 Vorbereitungszeit: 2 Aktionen
 Ziel: Einzelperson
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 4 AsP</Talent>
   <Talent name="Spurlos Trittlos (Blutgeist)" kosten="0" voraussetzungen="Vorteil Tiergeist (Wildkatze/Panther) ODER Vorteil Tiergeist (Wolf/Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variable="0" kommentar="0">Du tarnst deine Fährte mit Magie. Alle Proben zur Verfolgung deiner Fährte sind um –4 erschwert.
 Mächtige Magie: Der Malus steigt um –2.
@@ -4464,7 +4464,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Verwandlung, Gaben des Odun
 Erlernen: Dur 8; 40 EP</Talent>
@@ -4544,7 +4544,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP</Talent>
   <Talent name="Armatrutz (Tiergeist)" kosten="40" voraussetzungen="Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Mammut)" verbilligt="0" fertigkeiten="Gaben des Odun" variable="0" kommentar="0">Der RS deines Zieles steigt um 1.
 Mächtige Magie: Je zwei Stufen verleihen +1 RS.
@@ -4577,7 +4577,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
 Ziel: Einzelperson
 Reichweite: 4 Schritt
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP</Talent>
   <Talent name="Blick aufs Wesen (Tiergeist)" kosten="40" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Odun" variable="0" kommentar="0">Der Zauber offenbart dir die Fertigkeiten deines Ziels. Du erhältst einen groben Eindruck von seinen körperlichen, geistigen, handwerklichen, kämpferischen und zauberischen Fähigkeiten.
 Mächtige Magie: Du erfährst auch besonders hohe Fertigkeiten/markante Vorteile/Eigenheiten/Vorlieben und Vorgehen.
@@ -4610,7 +4610,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
 Ziel: Einzelperson
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP</Talent>
   <Talent name="Exposami Lebenskraft (Tiergeist)" kosten="20" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Odun" variable="0" kommentar="0">Du nimmst Lebewesen als grün leuchtende Flecken wahr. Der Zauber kann alle Elemente bis auf Erz und Eis durchdringen.
 Mächtige Magie: Du kannst Angehörige verschiedener Spezies/verschiedene Individuen unterscheiden und wiedererkennen.
@@ -4619,7 +4619,7 @@ Modifikationen: Reinheit der Aura (–8; der Zauber zeigt den Gesundheitszustand
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelperson
 Reichweite: 16 Schritt
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 4 AsP</Talent>
   <Talent name="Falkenauge Meisterschuss (Tiergeist)" kosten="20" voraussetzungen="Vorteil Tiergeist (Falke)" verbilligt="0" fertigkeiten="Gaben des Odun" variable="0" kommentar="0">Dein nächster Fernkampfangriff ist um +4 erleichtert.
 Mächtige Magie: Der Bonus steigt um +2.
@@ -4628,7 +4628,7 @@ Modifikationen: Dauerndes Band (–8, 8 AsP; der Zauber wirkt auf alle Fernkampf
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelperson
 Reichweite: Berührung
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 4 AsP</Talent>
   <Talent name="Firnlauf (Tiergeist)" kosten="20" voraussetzungen="Vorteil Tiergeist (Gebirgsbock)" verbilligt="0" fertigkeiten="Gaben des Odun" variable="0" kommentar="0">Jede noch so dünne Eis- oder Schneeschicht trägt dich wie trockener Boden. Unter diesen Bedingungen erleidest du keinerlei Erschwernisse oder Geschwindigkeitsabzüge.
 Probenschwierigkeit: 12
@@ -4659,7 +4659,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP</Talent>
   <Talent name="Hilfreiche Tatze, rettende Schwinge (Tiergeist)" kosten="20" voraussetzungen="Vorteil Tiergeist (Fischotter)" verbilligt="0" fertigkeiten="Gaben des Odun" variable="0" kommentar="0">Du wählst eine Tierart. Befindet sich ein Tier dieser Art in einem Radius von 1 Meile, eilt es herbei. Du kannst das Tier um einen Gefallen bitten, den dieses wenn möglich erfüllen wird. Dann trollt sich das Tier.
 Mächtige Magie: Verdoppelt den Radius.
@@ -4691,16 +4691,16 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 2 Aktionen
 Ziel: Zone
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP</Talent>
   <Talent name="Krötensprung (Tiergeist)" kosten="20" voraussetzungen="Vorteil Tiergeist (Wildkatze/Panther)" verbilligt="0" fertigkeiten="Gaben des Odun" variable="0" kommentar="0">Der nächste Sprung deines Zieles ist gewaltig. Er kann bis zu 8 Schritt Weite und 4 Schritt Höhe überwinden und die effektive Sturzhöhe (S. 35) sinkt um 4 Schritt.
 Mächtige Magie: Die Weite steigt um +4 Schritt,  die (Sturz-)Höhe um +2 Schritt.
 Probenschwierigkeit: 12
-Modifikationen: Krötengang (–4, Wirkungsdauer 16 Initiativphasen, 8 AsP; dein Ziel kann beliebig oft springen.)
+Modifikationen: Krötengang (–4, Wirkungsdauer 16 Initiativephasen, 8 AsP; dein Ziel kann beliebig oft springen.)
 Vorbereitungszeit: 2 Aktionen
 Ziel: Einzelperson
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 4 AsP</Talent>
   <Talent name="Kusch! (Tiergeist)" kosten="20" voraussetzungen="Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Mammut) ODER Vorteil Tiergeist (Wildschwein) ODER Vorteil Tiergeist (Wolf/Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun" variable="0" kommentar="0">Das verzauberte Tier flieht vor dir.
 Probenschwierigkeit: Magieresistenz
@@ -4712,7 +4712,7 @@ Wirkungsdauer: 1 Stunde
 Kosten: 8 AsP</Talent>
   <Talent name="Memorans Gedächtniskraft (Tiergeist)" kosten="40" voraussetzungen="Vorteil Tiergeist (Elefant) ODER Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Odun" variable="0" kommentar="0">Du kannst dir sämtliche Bilder, Schriftstücke, Inschriften und ähnliches für immer einprägen. Eine Seite eines Buches kostet dich etwa eine Minute.
 Probenschwierigkeit: 12
-Modifikationen: Drachengedächtnis (–8, Wirkungsdauer 16 Initiativphasen; alles, was du während der Wirkungsdauer siehst, ist dir für immer ins Gedächtnis gebrannt.)
+Modifikationen: Drachengedächtnis (–8, Wirkungsdauer 16 Initiativephasen; alles, was du während der Wirkungsdauer siehst, ist dir für immer ins Gedächtnis gebrannt.)
 Vorbereitungszeit: 4 Minuten
 Ziel: selbst
 Reichweite: 4 Schritt
@@ -4752,12 +4752,12 @@ Permanenz (–4, 4 AsP, davon 1 gAsP, Wirkungsdauer bis die Bindung gelöst wird
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelobjekt
 Reichweite: Berührung
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 4 AsP</Talent>
   <Talent name="Psychostabilis (Tiergeist)" kosten="40" voraussetzungen="Vorteil Tiergeist (Elefant) ODER Vorteil Tiergeist (Mammut) ODER Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Odun" variable="0" kommentar="0">Magieresistenz-Proben des Ziels sind um +4 erleichtert.
 Mächtige Magie: Erhöht den Bonus um +2.
 Probenschwierigkeit: 12
-Modifikationen: Schnellsteigerung (–4; Wirkungsdauer 16 Initiativphasen; verdoppelt die Erleichterung.)
+Modifikationen: Schnellsteigerung (–4; Wirkungsdauer 16 Initiativephasen; verdoppelt die Erleichterung.)
 Stabilisierung (–8; das Ziel darf sofort eine MR-Probe gegen einen auf es wirkenden Zauber wiederholen. Gelingt sie, wird dieser Zauber für die Wirkungsdauer des Psychostabilis unterdrückt.)
 Vorbereitungszeit: 2 Aktionen
 Ziel: Einzelperson
@@ -4793,7 +4793,7 @@ Probenschwierigkeit: Magieresistenz
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelperson
 Reichweite: 4 Schritt
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP</Talent>
   <Talent name="Sensattaco Meisterstreich (Tiergeist)" kosten="40" voraussetzungen="Vorteil Tiergeist (Stier)" verbilligt="0" fertigkeiten="Gaben des Odun" variable="0" kommentar="0">Dein Ziel erkennt intuitiv die Lücken in der Verteidigung des Gegners. Seine AT sind um +2 erleichtert und seine Chance auf einen Triumph bei einer AT steigt um 1 auf dem W20 (zum Beispiel von 20 auf 19–20).
 Mächtige Magie: Der Bonus steigt um +1.
@@ -4801,7 +4801,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelperson
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP</Talent>
   <Talent name="Sensibar Empathicus (Tiergeist)" kosten="40" voraussetzungen="Vorteil Tiergeist (Eule) ODER Vorteil Tiergeist (Fuchs/Mungo) ODER Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Odun" variable="0" kommentar="0">Du kannst die Gefühle deines Gegenübers erahnen, wodurch deine Menschenkenntnis gegen das Ziel um +4 steigt.
 Mächtige Magie: Der Bonus steigt um +2.
@@ -4818,7 +4818,7 @@ Modifikationen: Schlangengriff (Wirkungsdauer 4 Minuten, 4 AsP; die Arme verwand
 Vorbereitungszeit: 2 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 16 AsP</Talent>
   <Talent name="Silentium Schweigekreis (Tiergeist)" kosten="40" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Odun" variable="0" kommentar="0">Der Zauber dämpft alle Geräusche in einer Kugel mit 2 Schritt Radius. Entsprechende Wahrnehmungs-Proben sind um –4 erschwert.
 Mächtige Magie: Der Malus steigt um –2.
@@ -4854,7 +4854,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 2 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 4 AsP</Talent>
   <Talent name="Vipernblick (Tiergeist)" kosten="40" voraussetzungen="Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Odun" variable="0" kommentar="0">Du erscheinst deinem Opfer als grauenvolle Gestalt aus den Niederhöllen. Es kann nicht wegsehen und ist vor Angst handlungsunfähig. Wird der Sichtkontakt unterbrochen, endet der Zauber.
 Probenschwierigkeit: Magieresistenz
@@ -5143,7 +5143,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: Zone
 Reichweite: 16 Schritt
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 16 AsP
 Fertigkeiten: Dämonisch, Einfluss, Geister des Zorns
 Erlernen: Smn 18; 40 EP</Talent>
@@ -5175,7 +5175,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 8 Aktionen
 Ziel: Einzelperson
 Reichweite: 16 Schritt
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 16 AsP
 Fertigkeiten: Dämonisch, Verständigung, Geister des Zorns
 Erlernen: Smn 18; 40 EP</Talent>
@@ -5206,7 +5206,7 @@ Probenschwierigkeit: Magieresistenz
 Vorbereitungszeit: 4 Aktionen
 Ziel: Einzelperson
 Reichweite: 8 Schritt
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 4 AsP
 Fertigkeiten: Einfluss, Geister des Zorns
 Erlernen: Smn 20; 40 EP</Talent>
@@ -5331,7 +5331,7 @@ Wesen (–4; du rufst ein dir bereits bekanntes Wesen aus bis zu 8 Meilen Radius
 Vorbereitungszeit: 4 Aktionen
 Ziel: Zone
 Reichweite: Berührung
-Wirkungsdauer: augenblicklich; der Geist erscheint nach 2W6 Initiativphasen
+Wirkungsdauer: augenblicklich; der Geist erscheint nach 2W6 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Geister rufen, Verständigung
 Erlernen: Smn 14; 60 EP</Talent>
@@ -5352,7 +5352,7 @@ Modifikationen: Gespräch der Wölfe (–4, 8 AsP, Wirkungsdauer 1 Stunde; Du ka
 Vorbereitungszeit: 4 Aktionen
 Ziel: Zone
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 2 AsP
 Fertigkeiten: Geister rufen, Verständigung
 Erlernen: Smn 18; 20 EP
@@ -5743,7 +5743,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: Kristallkugel
 Reichweite: 2 Schritt
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 4 AsP
 Fertigkeiten: Illusion, Kugelzauber
 Erlernen: Srl 12; 20 EP</Talent>
@@ -5816,7 +5816,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: Einzelobjekt
 Reichweite: 16 Schritt
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Feuer, Ringrituale
 Erlernen: Geo 14; 20 EP</Talent>
@@ -5867,7 +5867,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 2 Aktionen
 Ziel: Zone
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 16 AsP
 Fertigkeiten: Erz, Ringrituale, Umwelt
 Erlernen: Geo 16; 60 EP</Talent>
@@ -5877,7 +5877,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Aktion
 Ziel: Zone
 Reichweite: Berührung
-Wirkungsdauer: 4 Initiativphasen
+Wirkungsdauer: 4 Initiativephasen
 Kosten: 16 AsP
 Fertigkeiten: Kraft, Ringrituale
 Erlernen: Geo 16; 60 EP</Talent>
@@ -5908,7 +5908,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 2 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Luft, Ringrituale
 Erlernen: Geo 14; 40 EP</Talent>
@@ -6020,7 +6020,7 @@ Modifikationen: Schwebendes Schwert (16 Schritt, 16 AsP; du kannst das Schwert m
 Vorbereitungszeit: 1 Aktion
 Ziel: Zauberstab
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Feuer, Stabzauber, Verwandlung, Umwelt (schwebendes Schwert)
 Erlernen: Mag 16; 40 EP</Talent>
@@ -6261,7 +6261,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
 Ziel: Einzelperson
 Reichweite: 8 Schritt
-Wirkungsdauer: 4 Initiativphasen
+Wirkungsdauer: 4 Initiativephasen
 Kosten: 4 AsP
 Fertigkeiten: Eigenschaften, Zaubermelodien
 Erlernen: Bard 12; 40 EP</Talent>
@@ -6319,7 +6319,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Aktion
 Ziel: Zone
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 16 AsP
 Fertigkeiten: Einfluss, Zaubermelodien
 Erlernen: Bard 14; 60 EP</Talent>
@@ -6338,7 +6338,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: Zone
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Eigenschaften, Einfluss, Zaubermelodien
 Erlernen: Bard 12; 40 EP</Talent>
@@ -6357,11 +6357,11 @@ Probenschwierigkeit: Magieresistenz
 Vorbereitungszeit: 4 Aktionen
 Ziel: Zone
 Reichweite: 4 Schritt
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 4 AsP
 Fertigkeiten: Eigenschaften, Zaubermelodien
 Erlernen: Bard 16; 20 EP</Talent>
-  <Talent name="Melodie des Einlullens" kosten="40" voraussetzungen="Vorteil Tradition der Zauberbarden I" verbilligt="0" fertigkeiten="Einfluss, Zaubermelodien" variable="0">Alle Humanoide in Hörreichweite sind von deiner immer berauschenderen Musik völlig gefesselt. Nur mit einer Konterprobe (Willenskraft, 16) kann sich ein Zuhörer für 16 Initiativphasen dem Zauber des Liedes entziehen. Ansonsten erwacht er, wenn du aufhörst zu spielen oder er eine Wunde erleidet. Erfordert Konzentration, erlaubt Aufrechterhalten.
+  <Talent name="Melodie des Einlullens" kosten="40" voraussetzungen="Vorteil Tradition der Zauberbarden I" verbilligt="0" fertigkeiten="Einfluss, Zaubermelodien" variable="0">Alle Humanoide in Hörreichweite sind von deiner immer berauschenderen Musik völlig gefesselt. Nur mit einer Konterprobe (Willenskraft, 16) kann sich ein Zuhörer für 16 Initiativephasen dem Zauber des Liedes entziehen. Ansonsten erwacht er, wenn du aufhörst zu spielen oder er eine Wunde erleidet. Erfordert Konzentration, erlaubt Aufrechterhalten.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
 Ziel: Zone
@@ -6376,7 +6376,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Aktion
 Ziel: Zone
 Reichweite: 4 Schritt
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 4 AsP
 Fertigkeiten: Antimagie, Eigenschaften, Zaubermelodien
 Erlernen: Bard 16; 40 EP</Talent>
@@ -6482,7 +6482,7 @@ Modifikationen: Tanz des Wahrheitssinns (–8, Zone, 16 AsP; du liest die Gedank
 Vorbereitungszeit: 16 Aktionen
 Ziel: Einzelperson
 Reichweite: 4 Schritt
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Hellsicht, Zaubertänze
 Erlernen: Ztz 16; 40 EP</Talent>
@@ -6515,7 +6515,7 @@ Wirkungsdauer: 1 Tag
 Kosten: 8 AsP
 Fertigkeiten: Antimagie, Eigenschaften, Zaubertänze
 Erlernen: Ztz 18; 40 EP</Talent>
-  <Talent name="Tanz ohne Ende" kosten="40" voraussetzungen="Vorteil Tradition der Zaubertänzer I" verbilligt="0" fertigkeiten="Einfluss, Zaubertänze" variable="0">Alle Humanoide in Hörreichweite sind von deinem immer berauschenderen Tanz völlig gefesselt. Nur mit einer Konterprobe (Willenskraft, 16) kann sich ein Zuhörer für 16 Initiativphasen dem Zauber entziehen. Ansonsten erwacht er, wenn du aufhörst zu spielen oder er eine Wunde erleidet. Erfordert Konzentration, erlaubt Aufrechterhalten.
+  <Talent name="Tanz ohne Ende" kosten="40" voraussetzungen="Vorteil Tradition der Zaubertänzer I" verbilligt="0" fertigkeiten="Einfluss, Zaubertänze" variable="0">Alle Humanoide in Hörreichweite sind von deinem immer berauschenderen Tanz völlig gefesselt. Nur mit einer Konterprobe (Willenskraft, 16) kann sich ein Zuhörer für 16 Initiativephasen dem Zauber entziehen. Ansonsten erwacht er, wenn du aufhörst zu spielen oder er eine Wunde erleidet. Erfordert Konzentration, erlaubt Aufrechterhalten.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
 Ziel: Zone
@@ -6766,7 +6766,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 8 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 16 KaP
 Fertigkeiten: Tod
 Erlernen: Brn 14; 40 EP</Talent>
@@ -7208,7 +7208,7 @@ Modifikationen: Langer Segen (–8, 8 KaP; die Liturgie wirkt auf alle Fernkampf
 Vorbereitungszeit: 0 Aktionen
 Ziel: Einzelperson
 Reichweite: Berührung
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 4 KaP
 Fertigkeiten: Jagd
 Erlernen: Fir 12, Ifi 14; 20 EP</Talent>
@@ -7265,7 +7265,7 @@ Modifikationen: Permanenz (–4, Wirkungsdauer bis die Bindung gelöst oder der 
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelobjekt
 Reichweite: Berührung
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 8 KaP
 Fertigkeiten: Wildnis
 Erlernen: Fir 16; 40 EP</Talent>
@@ -7435,7 +7435,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Aktion
 Ziel: selbst
 Reichweite: 16 Schritt
-Wirkungsdauer: 4 Initiativphasen
+Wirkungsdauer: 4 Initiativephasen
 Kosten: 4 KaP
 Fertigkeiten: Abu al'Mada, Magie, Magiebann
 Erlernen: Hes 8; Pra 12; Phe 18; 20 EP</Talent>
@@ -7598,7 +7598,7 @@ Erlernen: Ang 12; 20 EP</Talent>
   <Talent name="Eherne Kraft" kosten="40" voraussetzungen="Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition der Angroschgeweihten I" verbilligt="0" fertigkeiten="Heiliges Erz" variable="0">Die Erde bebt. Alle Ziele in einem Radius von 4 Schritt werden niedergeschmettert, wenn eine Konterprobe (KK, 16) misslingt.
 Mächtige Liturgie: Verdoppelt jeweils den Radius und richtet Schäden an loser Keramik/Möbeln/Holzbauten/Steinbauten an.
 Probenschwierigkeit: 12
-Modifikationen: Erdbeben (–8, 1 Stunde, 1 Meile, Wirkungsdauer 8 Initiativphasen, 32 KaP; Ingerimms Zorn fügt Gebäuden in einem Radius von 128 Schritt schwerste Schäden zu.)
+Modifikationen: Erdbeben (–8, 1 Stunde, 1 Meile, Wirkungsdauer 8 Initiativephasen, 32 KaP; Ingerimms Zorn fügt Gebäuden in einem Radius von 128 Schritt schwerste Schäden zu.)
 Vorbereitungszeit: 4 Aktionen
 Ziel: Zone
 Reichweite: 4 Schritt
@@ -7732,7 +7732,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 KaP
 Fertigkeiten: Guter Kampf, Heiliges Feuer
 Erlernen: Ang 14; Ing 16; Kor 18; 40 EP</Talent>
@@ -7990,7 +7990,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Minuten
 Ziel: Einzelobjekt
 Reichweite: dereweit
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 KaP
 Fertigkeiten: Nächtlicher Schatten
 Erlernen: Phe 18; 40 EP</Talent>
@@ -8009,7 +8009,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 KaP
 Fertigkeiten: Nächtlicher Schatten
 Erlernen: Phe 12; 40 EP</Talent>
@@ -8029,7 +8029,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
 Ziel: Einzelperson
 Reichweite: 16 Schritt
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 4 KaP
 Fertigkeiten: Licht
 Erlernen: Pra 14; 20 EP</Talent>
@@ -8296,7 +8296,7 @@ Modifikationen: Fliegender Tanz (–8; du wirst nicht mehr zum Ziel von Passiers
 Vorbereitungszeit: 0 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 4 KaP
 Fertigkeiten: Rausch
 Erlernen: Rah 18; 40 EP</Talent>
@@ -8306,7 +8306,7 @@ Modifikationen: Ehre der Schlacht (Zone, Wirkungsdauer 1 Stunde, Kosten 16 KaP; 
 Vorbereitungszeit: 2 Aktionen
 Ziel: Einzelperson
 Reichweite: 32 Schritt
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 KaP
 Fertigkeiten: Ehre, Heerführung
 Erlernen: Ron 8; 40 EP</Talent>
@@ -8316,7 +8316,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 KaP
 Fertigkeiten: Ehre
 Erlernen: Ron 14; 40 EP</Talent>
@@ -8326,7 +8326,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Aktion
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 KaP
 Fertigkeiten: Ehre
 Erlernen: Ron 14; 40 EP</Talent>
@@ -8335,7 +8335,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: Einzelobjekt
 Reichweite: dereweit
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 32 KaP
 Fertigkeiten: Ehre
 Erlernen: Ron 20; 60 EP</Talent>
@@ -8356,7 +8356,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelperson
 Reichweite: 1 Meile
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 KaP
 Fertigkeiten: Heerführung
 Erlernen: Ron 18; 40 EP
@@ -8398,7 +8398,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: Zone
 Reichweite: 32 Schritt
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 16 KaP
 Fertigkeiten: Heerführung
 Erlernen: Ron 18; 40 EP</Talent>
@@ -8418,7 +8418,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelperson
 Reichweite: 4 Schritt
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 KaP
 Fertigkeiten: Schutz der Gläubigen
 Erlernen: Ron 16; 40 EP</Talent>
@@ -8428,7 +8428,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Aktion
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 KaP
 Fertigkeiten: Schutz der Gläubigen
 Erlernen: Ron 16; 60 EP</Talent>
@@ -8448,7 +8448,7 @@ Modifikationen: Thalionmels Opfer (Wirkungsdauer 1 Stunde; du bis zusätzlich im
 Vorbereitungszeit: 4 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 KaP
 Fertigkeiten: Schutz der Gläubigen
 Erlernen: Ron 16; 60 EP</Talent>
@@ -8547,7 +8547,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: Zone
 Reichweite: dereweit
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 4 KaP
 Fertigkeiten: Sichere Heimkehr
 Erlernen: Tra 16; 20 EP</Talent>
@@ -8750,7 +8750,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 8 Initiativphasen
+Wirkungsdauer: 8 Initiativephasen
 Kosten: 8 KaP
 Fertigkeiten: Guter Kampf
 Erlernen: Kor 12; 60 EP</Talent>
@@ -8759,7 +8759,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 KaP
 Fertigkeiten: Guter Kampf
 Erlernen: Kor 14; 60 EP</Talent>
@@ -9479,7 +9479,7 @@ Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
 Ziel: selbst
 Reichweite: Berührung
-Wirkungsdauer: 16 Initiativphasen
+Wirkungsdauer: 16 Initiativephasen
 Kosten: 8 GuP
 Fertigkeiten: Dämonische Hilfe (Cpt)
 Erlernen: Cpt 14; 40 EP</Talent>
@@ -10277,9 +10277,9 @@ Anmerkung: Mit dem Totes handle! können nur permanente Untote erschaffen werden
   <FreieFertigkeit kategorie="Sprache">Riesen-Sprache</FreieFertigkeit>
   <FreieFertigkeit kategorie="Sprache">Zhayad</FreieFertigkeit>
   <FreieFertigkeit kategorie="Sprache">Zyklopisch</FreieFertigkeit>
-  <Einstellung name="AnzahlKostenloseFreieFertigkeiten" typ="Int" beschreibung="Legt die Anzahl kostenloser Freier Fertigkeiten auf Stufe III fest.">1</Einstellung>
+  <Einstellung name="FreieFertigkeitenAnzahlKostenlos" typ="Int" beschreibung="Legt die Anzahl kostenloser Freier Fertigkeiten auf Stufe III fest.">1</Einstellung>
   <Einstellung name="VorteilsTypen" typ="Text" beschreibung="Definiert die verfügbaren Typen von Vorteilen im Datenbank-Editor und deren Reihenfolge in der Vorteilsliste des Charaktereditors. Achtung: Das Ändern der Reihenfolge erfordert in der Regel ein Überarbeiten aller Vorteile. Ein Umbenennen existierender oder Anfügen weiterer Typen ist dagegen unproblematisch. Beachte bei einer Änderung auch die Regelanhang-Einstellungen.">Allgemeine Vorteile, Profane Vorteile, Kampfvorteile, Kampfstile, Magische Vorteile, Magische Traditionen, Karmale Vorteile, Karmale Traditionen, Dämonische Traditionen</Einstellung>
-  <Einstellung name="CharsheetVorteileMergeScript" typ="Text" beschreibung="Das Heldendokument hat drei Vorteilslisten: Allgemein, Kampf und Übernatürlich. Das Pythonscript teilt dem PDF-Generator mit, wie die Vorteile auf diese drei Listen verteilt werden. Es stehen hierfür die Variablen char (Charakter.Char), name (Vorteilsname), typ (Vorteilstyp-Index) und mergeTo (0 = Allgemein, 1 = Kampf, 2 = Übernatürlich) zur Verfügung.">if typ &lt; 2:
+  <Einstellung name="CharsheetVorteileMergeScript" typ="Text" beschreibung="Das Heldendokument hat drei Vorteilslisten: Allgemein, Kampf und Übernatürlich. Das Pythonscript teilt dem PDF-Generator mit, wie die Vorteile auf diese drei Listen verteilt werden. In der Standardkonfiguration werden Allgemeine und Profane Vorteile 'Allgemein' zugewiesen, Kampfvorteile und Kampfstile 'Kampf' und der Rest 'Übernatürlich'; eine Ausnahme sind die Vorteile Zauberer, Geweiht und Paktierer, die auch 'Übernatürlich' zugewiesen werden. Es stehen hierfür die Variablen char (Charakter.Char), name (Vorteilsname), typ (Vorteilstyp-Index) und mergeTo (0 = Allgemein, 1 = Kampf, 2 = Übernatürlich) zur Verfügung.">if typ &lt; 2:
     if "Zauberer" in name or "Geweiht" in name or "Paktierer" in name:
         mergeTo = 2
     else:
@@ -10288,26 +10288,46 @@ elif typ &gt;= 2 and typ &lt; 4:
     mergeTo = 1
 elif typ &gt;= 4:
     mergeTo = 2</Einstellung>
-  <Einstellung name="CharsheetVorteilsnamenErsetzen" typ="Text" beschreibung="Falls Vorteile der folgenden Kategorien verknüpft sind, so werden die Vorteilsnamen komplett ersetzt statt zusammengefügt.">0, 3, 5, 7, 8</Einstellung>
+  <Einstellung name="CharsheetVorteilsnamenErsetzen" typ="Text" beschreibung="Falls Vorteile der folgenden Kategorien verknüpft sind, so werden die Vorteilsnamen komplett ersetzt statt zusammengefügt. In der Standardkonfiguration wird bei allen allgemeinen Vorteilen, Kampfstilen und Traditionen nur die höchste Stufe von aufeinander aufbauenden Vorteilen ausgegeben.">0, 3, 5, 7, 8</Einstellung>
   <Einstellung name="ManöverTypen" typ="Text" beschreibung="Definiert die verfügbaren Typen von Manövern/Modifikationen/Regeln im Datenbank-Editor. Diese werden zur Sortierung des Regelanhangs verwendet. Achtung: Das Ändern der Reihenfolge erfordert in der Regel ein Überarbeiten aller Manöver/Modifikationen/Regeln. Ein Umbenennen existierender oder Anfügen weiterer Typen ist dagegen unproblematisch. Beachte bei einer Änderung auch die Regelanhang-Einstellungen.">Nahkampfmanöver, Fernkampfmanöver, Magische Modifikation, Karmale Modifikation, Weitere Magieregeln, Aktion, Dämonische Modifikation, Weitere Karmaregeln, Weitere Kampfregeln, Profane Regeln, Weitere Paktiererregeln</Einstellung>
   <Einstellung name="RüstungsTypen" typ="Text" beschreibung="Definiert die verfügbaren Typen von Rüstungen im Datenbank-Editor und deren Reihenfolge im Rüstungsauswahlfenster des Charaktereditors. Achtung: Das Ändern der Reihenfolge erfordert in der Regel ein Überarbeiten aller Rüstungen. Ein Umbenennen existierender oder Anfügen weiterer Typen ist dagegen unproblematisch.">Stoffrüstung, Lederrüstung, Holz- oder Knochenrüstung, Ketten- oder Schuppenrüstung, Plattenrüstung</Einstellung>
   <Einstellung name="RegelanhangReihenfolge" typ="Text" beschreibung="Definiert, ob und welche Vorteile (V), Manöver/Modifikationen/Regeln (M), Waffeneigenschaften (W), Zauber (Z), Liturgien (L) und Anrufungen (A) im Regelanhang aufgeführt werden und deren Reihenfolge. V und M werden noch gefolgt vom Typ-Index der VorteilsTypen und ManöverTypen Einstellung. Beispiel: V3 bedeutet in der Standardeinstellung Vorteile vom Typ Kampfstile.">V0,V1,M9,V2,V3,M5,W,M8,M0,M1,V4,V5,M2,M4,Z,V6,V7,M3,M7,L,V8,M6,A,M10</Einstellung>
-  <Einstellung name="RegelanhangManöverMergeScript" typ="Text" beschreibung="Das Pythonscript kann dem Regelgenerator mitteilen, dass die Manöver eines bestimmten Typs einem anderen Typ hinzugefügt werden sollen. Es stehen hierfür die Variablen char (Charakter.Char), typ (Manövertyp-Index) und mergeTo (Manövertyp-Index) zur Verfügung.">if typ == 4 and not (("Zauberer I" in char.vorteile) or ("Tradition der Borbaradianer I" in char.vorteile)):
+  <Einstellung name="RegelanhangManöverMergeScript" typ="Text" beschreibung="Das Pythonscript kann dem Regelgenerator mitteilen, dass die Manöver eines bestimmten Typs einem anderen Typ hinzugefügt werden sollen. In der Standardkonfiguration werden Manöver des Typs 'Weitere Magieregeln' entweder den Karma- oder Paktiererregeln hinzugefügt, wenn der Charakter kein Zauberer ist (beispielsweise die Beschwörungsregeln). Es stehen hierfür die Variablen char (Charakter.Char), typ (Manövertyp-Index) und mergeTo (Manövertyp-Index) zur Verfügung.">if typ == 4 and not (("Zauberer I" in char.vorteile) or ("Tradition der Borbaradianer I" in char.vorteile)):
     if "Geweiht I" in char.vorteile:
         mergeTo = 7
     elif "Paktierer I" in char.vorteile:
         mergeTo = 10</Einstellung>
-  <Einstellung name="RegelanhangVorteileMergeScript" typ="Text" beschreibung="Das Pythonscript kann dem Regelgenerator mitteilen, dass die Vorteile eines bestimmten Typs einem anderen Typ hinzugefügt werden sollen. Es stehen hierfür die Variablen char (Charakter.Char), typ (Vorteilstyp-Index) und mergeTo (Vorteilstyp-Index) zur Verfügung.">if typ == 3:
+  <Einstellung name="RegelanhangVorteileMergeScript" typ="Text" beschreibung="Das Pythonscript kann dem Regelgenerator mitteilen, dass die Vorteile eines bestimmten Typs einem anderen Typ hinzugefügt werden sollen, sodass für sie keine eigene Überschrift erstellt wird. In der Standardkonfiguration werden Kampfstile und Traditionen ihren jeweiligen Vorteil-Überkategorien zugewiesen. Es stehen hierfür die Variablen char (Charakter.Char), typ (Vorteilstyp-Index) und mergeTo (Vorteilstyp-Index) zur Verfügung.">if typ == 3:
     mergeTo = 2
 elif typ == 5:
     mergeTo = 4
 elif typ == 7:
     mergeTo = 6</Einstellung>
-  <Einstellung name="VerknüpfungsAbkürzungen" typ="Text" beschreibung="Die Namen verknüpfter Vorteile etc. können eventuell zu lang für den Charakterbogen und den Regelanhang werden. Hier können nach folgendem Format Abkürzungen definiert werden: (Teil-)Name=Abkürzung,(Teil-)Name=...">astrale Regeneration=a. R.,Rüstungsgewöhnung=Rgw.</Einstellung>
-  <Einstellung name="TalenteVTVerboten" typ="Text" beschreibung="Bei Waffen der hier aufgeführten Talente wird bei der VT ein '-' eingetragen. Es können statt dem Talent auch die Namen einzelner Waffen angegeben werden.">Lanzenreiten, Armbrüste, Blasrohre, Bögen, Diskusse, Kurze Wurfwaffen, Schleudern, Wurfspeere</Einstellung>
+  <Einstellung name="CharsheetVerknüpfungsAbkürzungen" typ="Text" beschreibung="Die Namen verknüpfter Vorteile etc. können eventuell zu lang für den Charakterbogen werden. Hier kann pro Zeile nach folgendem Format (ohne Anführungszeichen) eine Abkürzung definiert werden: 'Name=Abkürzung'. Name kann auch nur ein Teil des Namens sein. Wird auch im Regelanhang angewandt.">astrale Regeneration=a. R.
+Rüstungsgewöhnung=Rgw.</Einstellung>
+  <Einstellung name="WaffenTalenteVTVerboten" typ="Text" beschreibung="Bei Waffen der hier aufgeführten Talente wird bei der VT ein '-' eingetragen. Es können statt dem Talent auch die Namen einzelner Waffen angegeben werden.">Lanzenreiten, Armbrüste, Blasrohre, Bögen, Diskusse, Kurze Wurfwaffen, Schleudern, Wurfspeere</Einstellung>
   <Einstellung name="WaffenHärteWSStern" typ="Text" beschreibung="Bei den hier aufgeführten Waffen wird die Härte auf die WS* des Charakters gesetzt.">Hand, Fuß</Einstellung>
   <Einstellung name="FertigkeitenSchadensbonus" typ="Text" beschreibung="Waffen der hier aufgeführten Fertigkeiten erhalten den Schadensbonus. Statt einer Fertigkeit kann auch allgemein 'Nahkampfwaffen' angegeben werden.">Nahkampfwaffen, Wurfwaffen</Einstellung>
-  <Einstellung name="FreieFertigkeitenKategorieAbkürzungen" typ="Text" beschreibung="Die Kategorie-Namen von Freien Fertigkeiten können eventuell zu lang für den Charakterbogen werden. Hier können nach folgendem Format Abkürzungen definiert werden: (Teil-)Name=Abkürzung,(Teil-)Name=..."></Einstellung>
+  <Einstellung name="FreieFertigkeitenTypAbkürzungen" typ="Text" beschreibung="Die Typ-Namen von Freien Fertigkeiten können eventuell zu lang für den Charakterbogen werden. Hier kann pro Zeile nach folgendem Format (ohne Anführungszeichen) eine Abkürzung definiert werden: 'Name=Abkürzung'. Name kann auch nur ein Teil des Namens sein."></Einstellung>
   <Einstellung name="FertigkeitsTypenProfan" typ="Text" beschreibung="Definiert die verfügbaren Typen von profanen Fertigkeiten im Datenbank-Editor und deren Reihenfolge in der Fertigkeitenliste des Charaktereditors. Achtung: Das Ändern der Reihenfolge erfordert in der Regel ein Überarbeiten aller Fertigkeiten. Ein Umbenennen existierender oder Anfügen weiterer Typen ist dagegen unproblematisch.">Nahkampf, Fernkampf, Körper, Gesellschaft, Wissen, Natur, Handwerk</Einstellung>
   <Einstellung name="FertigkeitsTypenÜbernatürlich" typ="Text" beschreibung="Definiert die verfügbaren Typen von übernatürlichen Fertigkeiten im Datenbank-Editor und deren Reihenfolge in der Fertigkeitenliste des Charaktereditors. Achtung: Das Ändern der Reihenfolge erfordert in der Regel ein Überarbeiten aller Fertigkeiten. Ein Umbenennen existierender oder Anfügen weiterer Typen ist dagegen unproblematisch.">Allgemeine Zauber, Traditionszauber, Allgemeine Liturgien, Traditionsliturgien, Anrufungen</Einstellung>
+  <Einstellung name="CharsheetTalentAbkürzungenKosten" typ="Text" beschreibung="Die Kosten von übernatürlichen Talenten können eventuell zu lang für den Charakterbogen werden. Hier kann pro Zeile nach folgendem Format (ohne Anführungszeichen) eine Abkürzung definiert werden: 'Text=Abkürzung'. Text kann auch nur ein Teil des Kosten-Texts sein.">davon =
+ (Diener/Dschinn/Meister)=
+halbe Basiskosten=Basiskosten/2
+ des Zaubers oder der Beschwörung=
+ des Zaubers=
+ der Beschwörung=
+ in KaP=
+ in GuP=
+nach Golem, ein Viertel der Basiskosten als gAsP=nach Golem, 1/4 gAsP
+nach Untotem, ein Viertel der Basiskosten als gAsP=nach Untotem, 1/4 gAsP
+nach Chimäre, 1/4 der Basiskosten als gAsP=nach Chimäre, 1/4 gAsP</Einstellung>
+  <Einstellung name="CharsheetTalentAbkürzungenWirkungsdauer" typ="Text" beschreibung="Die Wirkungsdauer von übernatürlichen Talenten kann eventuell zu lang für den Charakterbogen werden. Hier kann pro Zeile nach folgendem Format (ohne Anführungszeichen) eine Abkürzung definiert werden: 'Text=Abkürzung'. Text kann auch nur ein Teil des Wirkungsdauer-Texts sein.">bis die Bindung gelöst wird=bis Bindung gelöst
+oder bis der Befehl erfüllt ist=/ bis Befehl erfüllt
+Bis die Aufgabe gelöst wurde, maximal=Bis Aufgabe gelöst / max.
+der Geist erscheint nach 2W6 Initiativephasen=erscheint nach 2W6 Ini-Ph.
+oder bis der Fang eingeholt wird=/ bis Fang eingeholt
+bis das Schiff deutlich umgebaut wird=bis Schiff deutlich umgebaut
+bis die Unterkunft deutlich umgebaut wird=bis Unterkunft deutlich umgebaut</Einstellung>
+  <Einstellung name="FreieFertigkeitsTypen" typ="Text" beschreibung="Definiert die verfügbaren Typen von Freien Fertigkeiten im Datenbank-Editor und deren Reihenfolge im Freie Fertigkeiten-Auswahlfenster des Charaktereditors. Achtung: Das Umbenennen der Typen erfordert ein Überarbeiten aller entsprechenden Freien Fertigkeiten. Ein Verschieben oder Einfügen weiterer Typen ist dagegen unproblematisch.">Schrift, Sprache</Einstellung>
 </Datenbank>

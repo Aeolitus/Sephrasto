@@ -25,11 +25,8 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
         
-        self.abbreviations = {}
-        ab = Wolke.DB.einstellungen["FreieFertigkeitenKategorieAbkürzungen"].toTextList()
-        for abbreviation in ab:
-            tmp = abbreviation.split("=")
-            self.abbreviations[tmp[0]] = tmp[1]
+        self.kategorien = Wolke.DB.einstellungen["FreieFertigkeitsTypen"].toTextList()
+        self.abbreviations = Wolke.DB.einstellungen["FreieFertigkeitenTypAbkürzungen"].toTextDict('\n', False)
 
         self.populateTree()
 
@@ -60,8 +57,7 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
     def populateTree(self):
         currSet = self.current != ""
         self.ui.treeFerts.clear();
-        kategorien = self.findKategorien()
-        for kategorie in kategorien:
+        for kategorie in self.kategorien:
             ferts = []
             for fert in Wolke.DB.freieFertigkeiten:
                 if Wolke.DB.freieFertigkeiten[fert].kategorie != kategorie:
@@ -98,18 +94,10 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
             self.ui.treeFerts.setCurrentItem(self.ui.treeFerts.topLevelItem(0).child(0), 0, QtCore.QItemSelectionModel.Select)
         self.changeHandler()
 
-
-    def findKategorien(self):
-        kategorien = {}
-        for tal in Wolke.DB.freieFertigkeiten:
-            kategorien[Wolke.DB.freieFertigkeiten[tal].kategorie] = True
-        return sorted(kategorien.keys())
-
     def changeHandler(self):
-        kategorien = self.findKategorien()
         self.current = ""
         for el in self.ui.treeFerts.selectedItems():
-            if el.text(0) in kategorien:
+            if el.text(0) in self.kategorien:
                 continue
             self.current = el.data(0, QtCore.Qt.UserRole) # contains key of fert
             break

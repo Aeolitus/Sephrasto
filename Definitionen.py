@@ -18,13 +18,4 @@ Statusse = ['Elite','Oberschicht','Mittelschicht','Unterschicht','Abschaum']
 
 Finanzen = ['Sehr Reich', 'Reich', 'Normal', 'Arm', 'Sehr Arm']
 
-#Nachkauf = ['üblich', 'häufig', 'selten', 'extrem selten', 'nicht möglich']
-
-StandardFerts = ["Handgemenge", "Hiebwaffen", "Klingenwaffen", "Stangenwaffen",
-                 "Schusswaffen", "Wurfwaffen", "Athletik", "Heimlichkeit", 
-                 "Selbstbeherrschung", "Wahrnehmung", "Autorität", 
-                 "Beeinflussung", "Gebräuche", "Derekunde", "Magiekunde", 
-                 "Mythenkunde", "Überleben", "Alchemie", "Handwerk", 
-                 "Heilkunde", "Verschlagenheit"]
-
 KeinKampfstil = "Kein Kampfstil"

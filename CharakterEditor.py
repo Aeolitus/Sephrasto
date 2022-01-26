@@ -21,7 +21,6 @@ import Datenbank
 from Wolke import Wolke
 import os.path
 import pdfMeister as pdfM
-from pdfMeister import CharakterbogenInfo
 import logging
 from EventBus import EventBus
 from shutil import which
@@ -295,9 +294,9 @@ Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
 
         charakterBogen = None
         if result == 0 or Wolke.Settings['Bogen'] == 'Standard Ilaris-Charakterbogen':
-            charakterBogen = CharakterbogenInfo(filePath="Charakterbogen.pdf", maxVorteile = 8, maxFreie = 12, maxFertigkeiten = 2, seitenProfan = 2, kurzbogenHack=True)
+            charakterBogen = pdfM.pdfMeister.CharakterBogen
         elif result == 1 or Wolke.Settings['Bogen'] == 'Die lange Version von Gatsu':
-            charakterBogen = CharakterbogenInfo(filePath="Charakterbogen_lang.pdf", maxVorteile = 24, maxFreie = 28, maxFertigkeiten = 28, seitenProfan = 3, kurzbogenHack=False)
+            charakterBogen = pdfM.pdfMeister.CharakterBogenLang
         else:
             return
 
