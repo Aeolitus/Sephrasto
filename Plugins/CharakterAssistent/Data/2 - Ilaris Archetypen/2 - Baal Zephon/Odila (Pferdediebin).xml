@@ -63,7 +63,6 @@
     <Fertigkeit name="Schusswaffen" wert="8">
       <Talente>
         <Talent name="Bögen" variable="-1"/>
-        <Talent name="Schleudern" variable="-1"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Wurfwaffen" wert="0">
