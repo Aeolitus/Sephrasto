@@ -65,7 +65,7 @@
         <Talent name="Bögen" variable="-1"/>
       </Talente>
     </Fertigkeit>
-    <Fertigkeit name="Wurfwaffen" wert="0">
+    <Fertigkeit name="Wurfwaffen" wert="5">
       <Talente>
         <Talent name="Schleudern" variable="-1"/>
       </Talente>
@@ -159,6 +159,6 @@
   <Übernatürliche-Fertigkeiten/>
   <Erfahrung>
     <EPtotal>3000</EPtotal>
-    <EPspent>2971</EPspent>
+    <EPspent>2991</EPspent>
   </Erfahrung>
 </Charakter>
