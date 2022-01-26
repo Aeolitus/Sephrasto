@@ -1188,11 +1188,12 @@ class Char():
             messageBox.setWindowTitle("Charakter laden - Hausregeln wurden geändert.")
 
             strArr = ["Seit du diesen Charakter das letzte mal bearbeitet hast wurden die Hausregeln aktualisiert. "]
-            if not userDBName == Wolke.DB.datei:
+            currentDBName = os.path.basename(Wolke.DB.datei)
+            if userDBName != currentDBName:
                 strArr.append("Auch der Pfad der aktuell geladenen Hausregeln ist ein anderer:\n- Vorher: '")
                 strArr.append(userDBName)
                 strArr.append("'\n- Jetzt: '")
-                strArr.append(Wolke.DB.datei or "Keine Datenbank")
+                strArr.append(currentDBName or "Keine Datenbank")
                 strArr.append("'")
 
             strArr.append("\n\nEventuell hat der Charakter Vorteile/Fertigkeiten/Talente verloren und sein EP-Stand könnte sich verändert haben! ")
