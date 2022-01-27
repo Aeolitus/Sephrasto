@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "sephrasto"
+version = "1.5.2"
+description = "Ein Charaktergenerator für das DSA-Hausregelsystem Ilaris."
+authors = ["Aeolitus", "brzGatsu"]
+license = "MIT License"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+lxml = "^4.7.1"
+PyQt5 = "^5.15.6"
+PyYAML = "^6.0"
+requests = "^2.26"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
