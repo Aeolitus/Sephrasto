@@ -23,6 +23,10 @@ class CheatsheetGenerator(object):
             self.RulesLineCount = 60
             self.RulesCharCount = 45
 
+        self.reihenfolge = Wolke.DB.einstellungen["RegelanhangReihenfolge"].toTextList()
+        self.aktiveManöverTypen = [int(m[1:]) for m in self.reihenfolge if m[0] == "M"]
+        self.aktiveVorteilTypen = [int(v[1:]) for v in self.reihenfolge if v[0] == "V"]
+
         #used to abbreviate names when merged
         self.abbreviations = Wolke.DB.einstellungen["CharsheetVerknüpfungsAbkürzungen"].toTextDict('\n', False)
 
@@ -143,13 +147,13 @@ class CheatsheetGenerator(object):
 
     def isCheatsheetLinkedToAny(self, vorteil):
         if vorteil.linkKategorie == VorteilLinkKategorie.ManöverMod:
-            return vorteil.linkElement in Wolke.DB.manöver
+            return vorteil.linkElement in Wolke.DB.manöver and Wolke.DB.manöver[vorteil.linkElement].typ in self.aktiveManöverTypen
         elif vorteil.linkKategorie == VorteilLinkKategorie.ÜberTalent:
             for fer in Wolke.Char.übernatürlicheFertigkeiten:
                 if vorteil.linkElement in Wolke.Char.übernatürlicheFertigkeiten[fer].gekaufteTalente:
                     return True
         elif vorteil.linkKategorie == VorteilLinkKategorie.Vorteil:
-            if vorteil.linkElement in Wolke.Char.vorteile:
+            if vorteil.linkElement in Wolke.Char.vorteile and Wolke.DB.vorteile[vorteil.linkElement].typ in self.aktiveVorteilTypen:
                 return True
             return self.isCheatsheetLinkedToAny(Wolke.DB.vorteile[vorteil.linkElement])
 
@@ -439,7 +443,6 @@ class CheatsheetGenerator(object):
         rules = []
         ruleLineCounts = []
 
-        reihenfolge = Wolke.DB.einstellungen["RegelanhangReihenfolge"].toTextList()
         vorteileMergeScript = Wolke.DB.einstellungen["RegelanhangVorteileMergeScript"].toText()
         manöverMergeScript = Wolke.DB.einstellungen["RegelanhangManöverMergeScript"].toText()
         vorteilTypen = Wolke.DB.einstellungen["VorteilsTypen"].toTextList()
@@ -473,7 +476,7 @@ class CheatsheetGenerator(object):
             if not empty:
                 manöverGruppiert[mergeTo] = sorted(manöverGruppiert[mergeTo])
 
-        for r in reihenfolge:
+        for r in self.reihenfolge:
             if r[0] == "V":
                 typ = int(r[1:])
                 if typ >= len(vorteileGruppiert):

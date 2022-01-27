@@ -11,6 +11,7 @@ import MousewheelProtector
 from PyQt5 import QtWidgets, QtCore, QtGui
 import logging
 from PyQt5.QtWidgets import QHeaderView
+from Fertigkeiten import KampffertigkeitTyp
 
 # This item delegate is used to draw a seperator line between different fertigkeit categories ('printclasses')
 class FertigkeitItemDelegate(QtWidgets.QItemDelegate):
@@ -146,52 +147,50 @@ class FertigkeitenWrapper(QtCore.QObject):
                 if el not in Wolke.Char.fertigkeiten:
                     Wolke.Char.fertigkeiten.update({el: Wolke.DB.fertigkeiten[el].__deepcopy__()})
                     Wolke.Char.fertigkeiten[el].wert = 0
-                Wolke.Char.fertigkeiten[el].aktualisieren(Wolke.Char.attribute)
-                tableWidget = QtWidgets.QTableWidgetItem(Wolke.Char.fertigkeiten[el].name)
+                fert = Wolke.Char.fertigkeiten[el]
+                fert.aktualisieren(Wolke.Char.attribute)
+                tableWidget = QtWidgets.QTableWidgetItem(el)
                 self.uiFert.tableWidget.setItem(count, 0, tableWidget)
 
                 # Add Spinner for FW
-                #self.uiFert.tableWidget.setItem(count,1,QtWidgets.QTableWidgetItem(str(Wolke.Char.fertigkeiten[el].wert)))
-                self.spinRef[Wolke.Char.fertigkeiten[el].name] = QtWidgets.QSpinBox()
-                self.spinRef[Wolke.Char.fertigkeiten[el].name].setFocusPolicy(QtCore.Qt.StrongFocus)
-                self.spinRef[Wolke.Char.fertigkeiten[el].name].installEventFilter(self.mwp)
-                self.spinRef[Wolke.Char.fertigkeiten[el].name].setMinimum(0)
-                self.spinRef[Wolke.Char.fertigkeiten[el].name].setMaximum(Wolke.Char.fertigkeiten[el].maxWert)
-                self.spinRef[Wolke.Char.fertigkeiten[el].name].setValue(Wolke.Char.fertigkeiten[el].wert)
-                self.spinRef[Wolke.Char.fertigkeiten[el].name].setAlignment(QtCore.Qt.AlignCenter)
-                self.spinRef[Wolke.Char.fertigkeiten[el].name].valueChanged.connect(lambda state, name=Wolke.Char.fertigkeiten[el].name: self.spinnerClicked(name))
-                self.uiFert.tableWidget.setCellWidget(count,1,self.spinRef[Wolke.Char.fertigkeiten[el].name])
+                self.spinRef[el] = QtWidgets.QSpinBox()
+                self.spinRef[el].setFocusPolicy(QtCore.Qt.StrongFocus)
+                self.spinRef[el].installEventFilter(self.mwp)
+                self.spinRef[el].setMinimum(0)
+                self.spinRef[el].setMaximum(fert.maxWert)
+                self.spinRef[el].setValue(fert.wert)
+                self.spinRef[el].setAlignment(QtCore.Qt.AlignCenter)
+                self.spinRef[el].valueChanged.connect(lambda state, name=el: self.spinnerClicked(name))
+                self.uiFert.tableWidget.setCellWidget(count,1,self.spinRef[el])
                 
                 # Add Talents Count and Add Button
-                self.layoutRef[Wolke.Char.fertigkeiten[el].name] = QtWidgets.QHBoxLayout()
-                self.labelRef[Wolke.Char.fertigkeiten[el].name] = QtWidgets.QLabel()
-                self.labelRef[Wolke.Char.fertigkeiten[el].name].setText(str(len(Wolke.Char.fertigkeiten[el].gekaufteTalente)))
-                self.labelRef[Wolke.Char.fertigkeiten[el].name].setAlignment(QtCore.Qt.AlignCenter)
-                #self.labelRef.update({Wolke.Char.fertigkeiten[el].name: lab})
-                self.layoutRef[Wolke.Char.fertigkeiten[el].name].addWidget(self.labelRef[Wolke.Char.fertigkeiten[el].name])
-                self.buttonRef[Wolke.Char.fertigkeiten[el].name] = QtWidgets.QPushButton()
-                self.buttonRef[Wolke.Char.fertigkeiten[el].name].setText("+")
-                self.buttonRef[Wolke.Char.fertigkeiten[el].name].setMaximumSize(QtCore.QSize(25, 20))
-                self.buttonRef[Wolke.Char.fertigkeiten[el].name].clicked.connect(lambda state, name=Wolke.Char.fertigkeiten[el].name: self.addClicked(name))
-                self.layoutRef[Wolke.Char.fertigkeiten[el].name].addWidget(self.buttonRef[Wolke.Char.fertigkeiten[el].name])
-                self.widgetRef[Wolke.Char.fertigkeiten[el].name] = QtWidgets.QWidget()
-                self.widgetRef[Wolke.Char.fertigkeiten[el].name].setLayout(self.layoutRef[Wolke.Char.fertigkeiten[el].name])
-                self.uiFert.tableWidget.setCellWidget(count,2,self.widgetRef[Wolke.Char.fertigkeiten[el].name])
-                #self.uiFert.tableWidget.setItem(count,2,QtWidgets.QTableWidgetItem(str(len(Wolke.Char.fertigkeiten[el].gekaufteTalente))))
+                self.layoutRef[el] = QtWidgets.QHBoxLayout()
+                self.labelRef[el] = QtWidgets.QLabel()
+                self.labelRef[el].setText(str(len(fert.gekaufteTalente)))
+                self.labelRef[el].setAlignment(QtCore.Qt.AlignCenter)
+                self.layoutRef[el].addWidget(self.labelRef[el])
+                self.buttonRef[el] = QtWidgets.QPushButton()
+                self.buttonRef[el].setText("+")
+                self.buttonRef[el].setMaximumSize(QtCore.QSize(25, 20))
+                self.buttonRef[el].clicked.connect(lambda state, name=el: self.addClicked(name))
+                self.layoutRef[el].addWidget(self.buttonRef[el])
+                self.widgetRef[el] = QtWidgets.QWidget()
+                self.widgetRef[el].setLayout(self.layoutRef[el])
+                self.uiFert.tableWidget.setCellWidget(count,2,self.widgetRef[el])
 
                 # Add PW
-                self.labelRef[Wolke.Char.fertigkeiten[el].name + "PW"] = QtWidgets.QLabel()
-                self.labelRef[Wolke.Char.fertigkeiten[el].name + "PW"].setText(str(Wolke.Char.fertigkeiten[el].probenwert))
-                self.labelRef[Wolke.Char.fertigkeiten[el].name + "PW"].setAlignment(QtCore.Qt.AlignCenter)
-                self.uiFert.tableWidget.setCellWidget(count,3,self.labelRef[Wolke.Char.fertigkeiten[el].name + "PW"])
+                self.labelRef[el + "PW"] = QtWidgets.QLabel()
+                self.labelRef[el + "PW"].setText(str(fert.probenwert))
+                self.labelRef[el + "PW"].setAlignment(QtCore.Qt.AlignCenter)
+                self.uiFert.tableWidget.setCellWidget(count,3,self.labelRef[el + "PW"])
 
                 # Add PW (T)
-                self.labelRef[Wolke.Char.fertigkeiten[el].name + "PWT"] = QtWidgets.QLabel()
-                self.labelRef[Wolke.Char.fertigkeiten[el].name + "PWT"].setText(str(Wolke.Char.fertigkeiten[el].probenwertTalent))
-                self.labelRef[Wolke.Char.fertigkeiten[el].name + "PWT"].setAlignment(QtCore.Qt.AlignCenter)
-                self.uiFert.tableWidget.setCellWidget(count,4,self.labelRef[Wolke.Char.fertigkeiten[el].name + "PWT"])
+                self.labelRef[el + "PWT"] = QtWidgets.QLabel()
+                self.labelRef[el + "PWT"].setText(str(fert.probenwertTalent))
+                self.labelRef[el + "PWT"].setAlignment(QtCore.Qt.AlignCenter)
+                self.uiFert.tableWidget.setCellWidget(count,4,self.labelRef[el + "PWT"])
 
-                self.rowRef.update({Wolke.Char.fertigkeiten[el].name: count})
+                self.rowRef.update({fert.name: count})
                 count += 1
             self.uiFert.tableWidget.cellClicked.connect(self.tableClicked) 
         self.updateInfo()
@@ -212,18 +211,23 @@ class FertigkeitenWrapper(QtCore.QObject):
                     val = self.spinRef[self.currentFertName].value()
                 else:
                     val = self.uiFert.spinFW.value()
-                Wolke.Char.fertigkeiten[self.currentFertName].wert = val
+                fert = Wolke.Char.fertigkeiten[self.currentFertName]
+                fert.wert = val
                 Wolke.Char.fertigkeiten[self.currentFertName].aktualisieren(Wolke.Char.attribute)
-                self.uiFert.spinPW.setValue(Wolke.Char.fertigkeiten[self.currentFertName].probenwert)
-                self.uiFert.spinPWT.setValue(Wolke.Char.fertigkeiten[self.currentFertName].probenwertTalent)
-                #self.uiFert.tableWidget.setItem(self.rowRef[self.currentFertName],1,QtWidgets.QTableWidgetItem(str(Wolke.Char.fertigkeiten[self.currentFertName].wert)))
+                self.uiFert.spinPW.setValue(fert.probenwert)
+                self.uiFert.spinPWT.setValue(fert.probenwertTalent)
+                if fert == Wolke.Char.getHöchsteKampffertigkeit():
+                    self.uiFert.spinSF.setValue(4)
+                else:
+                    self.uiFert.spinSF.setValue(fert.steigerungsfaktor)
+
                 if flag:
                     self.uiFert.spinFW.setValue(val)
                 else:
                     self.spinRef[self.currentFertName].setValue(val)
 
-                self.labelRef[self.currentFertName + "PW"].setText(str(Wolke.Char.fertigkeiten[self.currentFertName].probenwert))
-                self.labelRef[self.currentFertName + "PWT"].setText(str(Wolke.Char.fertigkeiten[self.currentFertName].probenwertTalent))
+                self.labelRef[self.currentFertName + "PW"].setText(str(fert.probenwert))
+                self.labelRef[self.currentFertName + "PWT"].setText(str(fert.probenwertTalent))
 
                 self.modified.emit()
     
@@ -260,7 +264,10 @@ class FertigkeitenWrapper(QtCore.QObject):
             self.uiFert.labelAttribute.setText(fert.attribute[0] + "/" 
                                                + fert.attribute[1] + "/" 
                                                + fert.attribute[2])
-            self.uiFert.spinSF.setValue(fert.steigerungsfaktor)
+            if fert == Wolke.Char.getHöchsteKampffertigkeit():
+                self.uiFert.spinSF.setValue(4)
+            else:
+                self.uiFert.spinSF.setValue(fert.steigerungsfaktor)
             self.uiFert.spinBasis.setValue(fert.basiswert)
             self.uiFert.spinFW.setMaximum(fert.maxWert)
             self.spinRef[self.currentFertName].setMaximum(fert.maxWert)
@@ -291,6 +298,5 @@ class FertigkeitenWrapper(QtCore.QObject):
     def updateTalentRow(self):
         for i in range(self.uiFert.tableWidget.rowCount()):
             fert = self.uiFert.tableWidget.item(i,0).text()
-            #self.uiFert.tableWidget.setItem(i,2,QtWidgets.QTableWidgetItem(str(len(Wolke.Char.fertigkeiten[fert].gekaufteTalente))))
             self.labelRef[fert].setText(str(len(Wolke.Char.fertigkeiten[fert].gekaufteTalente)))
             

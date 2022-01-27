@@ -36,10 +36,10 @@ class Ui_Form(object):
         self.freieFertsGrid = QtWidgets.QGridLayout(self.groupBox)
         self.freieFertsGrid.setObjectName("freieFertsGrid")
         self.gridLayout.addWidget(self.groupBox, 2, 0, 1, 1)
-        self.label_2 = QtWidgets.QLabel(Form)
-        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_2.setObjectName("label_2")
-        self.gridLayout.addWidget(self.label_2, 3, 0, 1, 1)
+        self.labelRegeln = QtWidgets.QLabel(Form)
+        self.labelRegeln.setAlignment(QtCore.Qt.AlignCenter)
+        self.labelRegeln.setObjectName("labelRegeln")
+        self.gridLayout.addWidget(self.labelRegeln, 3, 0, 1, 1)
         self.gridLayout_3.addLayout(self.gridLayout, 0, 0, 1, 1)
 
         self.retranslateUi(Form)
@@ -50,7 +50,7 @@ class Ui_Form(object):
         Form.setWindowTitle(_translate("Form", "Form"))
         self.label.setText(_translate("Form", "Der erste Eintrag ist die Muttersprache des Charakters.\n"
 "Jeder Charakter beherrscht seine Muttersprache meisterlich, ohne dafür zu bezahlen."))
-        self.label_2.setText(_translate("Form", "Freie Fertigkeiten sind in drei Stufen geteilt: Unerfahren (I), erfahren (II) und meisterlich (III). Sie kosten jeweils 4/8/16 EP."))
+        self.labelRegeln.setText(_translate("Form", "Freie Fertigkeiten sind in drei Stufen geteilt: Unerfahren (I), erfahren (II) und meisterlich (III)."))
 
 
 if __name__ == "__main__":

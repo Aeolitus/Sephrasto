@@ -71,12 +71,17 @@ class FreieFertigkeitDB(object):
         return F
 
 # Implementation für Fertigkeiten im Allgemeinen
+class KampffertigkeitTyp():
+   Keine = 0
+   Nahkampf = 1 #sf 4/2
+   Sonstige = 2 #fernkampf, athletik
+
 class Fertigkeit(Steigerbar):
     def __init__(self):
         super().__init__()
         self.gekaufteTalente = []
         self.talentMods = {} #for vorteil scripts, { talentnname1 : { condition1 : mod1, condition2 : mod2, ... }, talentname2 : {}, ... }
-        self.kampffertigkeit = 0; #0 = nein, 1 = nahkampffertigkeit, 2 = sonstige kampffertigkeit
+        self.kampffertigkeit = KampffertigkeitTyp.Keine
         self.attribute = ['KO','KO','KO']
         self.attributswerte = [-1,-1,-1]
         self.basiswert = -1

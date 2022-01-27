@@ -306,16 +306,6 @@ class CharakterMerger(object):
                     char.übernatürlicheFertigkeiten[fert].gekaufteTalente.append(choice.name)
 
     def xmlLesen(path, spezies, kultur):
-        def parseVariableKosten(variable):
-            var = list(map(str.strip, variable.split(",", 1)))
-            if int(var[0]) != -1:
-                vk = VariableKosten()
-                vk.kosten = int(var[0])
-                if len(var) > 1:
-                    vk.kommentar = var[1]
-                return vk
-            return None
-
         char = Wolke.Char
         root = etree.parse(path).getroot()
 
@@ -375,7 +365,7 @@ class CharakterMerger(object):
         for vor in root.findall('Vorteile/*'):
             if not vor.text in Wolke.DB.vorteile:
                 continue
-            var = parseVariableKosten(vor.get('variable'))
+            var = VariableKosten.parse(vor.get('variable'))
             if var:
                 CharakterMerger.setVariableVorteilKosten(vor.text, var)
 
@@ -401,7 +391,7 @@ class CharakterMerger(object):
                 if nam == skipTal:
                     continue
                 fert.gekaufteTalente.append(nam)
-                var = parseVariableKosten(tal.attrib['variable'])
+                var = VariableKosten.parse(tal.attrib['variable'])
                 if var:
                     CharakterMerger.setVariableTalentKosten(nam, var)
 
@@ -491,7 +481,7 @@ class CharakterMerger(object):
                 if nam in fert.gekaufteTalente:
                     continue
                 fert.gekaufteTalente.append(nam)
-                var = parseVariableKosten(tal.attrib['variable'])
+                var = VariableKosten.parse(tal.attrib['variable'])
                 if var:
                     CharakterMerger.setVariableTalentKosten(nam, var)
 

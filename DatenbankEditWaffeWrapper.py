@@ -9,6 +9,7 @@ import DatenbankEditWaffe
 from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
 from PyQt5 import QtWidgets, QtCore
 from TextTagCompleter import TextTagCompleter
+from Fertigkeiten import KampffertigkeitTyp
 
 class DatenbankEditWaffeWrapper(object):
     def __init__(self, datenbank, waffe=None, readonly=False):
@@ -61,7 +62,7 @@ class DatenbankEditWaffeWrapper(object):
             self.ui.spinWMLZ.setValue(waffe.wm)
 
         for fert in datenbank.fertigkeiten.values():
-            if fert.kampffertigkeit == 0:
+            if fert.kampffertigkeit == KampffertigkeitTyp.Keine:
                 continue
             self.ui.comboFert.addItem(fert.name)
 

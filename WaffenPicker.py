@@ -10,6 +10,7 @@ from Wolke import Wolke
 import Objekte
 import Definitionen
 import logging
+from Fertigkeiten import KampffertigkeitTyp
 
 class WaffenPicker(object):
     def __init__(self,waffe=None):
@@ -90,7 +91,7 @@ class WaffenPicker(object):
 
 
     def findKampfFertigkeiten(self):
-        return [el for el in Wolke.DB.fertigkeiten.values() if el.kampffertigkeit > 0]
+        return [el for el in Wolke.DB.fertigkeiten.values() if el.kampffertigkeit != KampffertigkeitTyp.Keine]
 
     def changeHandler(self):
         kampfferts = []

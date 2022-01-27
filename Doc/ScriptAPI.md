@@ -21,10 +21,10 @@ Die folgenden Funktionen stehen neben Python-Builtins wie 'round' zur Verfügung
 - AsP: ```getAsPBasis, setAsPBasis, modifyAsPBasis, getAsPMod, setAsPMod, modifyAsPMod```
 - KaP: ```getKaPBasis, setKaPBasis, modifyKaPBasis, getKaPMod, setKaPMod, modifyKaPMod```
 - SchiP: ```getSchiPMax, setSchiPMax, modifySchiPMax```
-- WS: ```getWSBasis, getWS, setWS, modifyWS, getWSStern```
+- WS: ```getWSBasis, getWS (ohne RS!), setWS, modifyWS```
 - MR: ```getMRBasis, getMR, setMR, modifyMR```
-- GS: ```getGSBasis, getGS, setGS, modifyGS```
-- DH: ```getDH, setDH, modifyDH```
+- GS: ```getGSBasis, getGS (ohne BE!), setGS, modifyGS```
+- DH: ```getDHBasis, getDH (ohne BE!), setDH, modifyDH```
 - Schadensbonus: ```getSchadensbonusBasis, getSchadensbonus, setSchadensbonus, modifySchadensbonus```
 - INI: ```getINIBasis, getINI, setINI, modifyINI```
 - RS: ```getRSMod, setRSMod, modifyRSMod```

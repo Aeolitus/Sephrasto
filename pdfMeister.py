@@ -262,9 +262,8 @@ class pdfMeister(object):
             self.Energie += str(Wolke.Char.kap.wert + Wolke.Char.kapBasis + Wolke.Char.kapMod)
         fields['EN'] = self.Energie
 
-        trueBE = max(Wolke.Char.be, 0)
-        fields['DHm'] = max(Wolke.Char.dh - 2*trueBE, 1)
-        fields['GSm'] = max(Wolke.Char.gs-trueBE, 1)
+        fields['DHm'] = Wolke.Char.dhStern
+        fields['GSm'] = Wolke.Char.gsStern
         fields['WSm'] = Wolke.Char.wsStern
 
     def groupVorteile(self, vorteile):

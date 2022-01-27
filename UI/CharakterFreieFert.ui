@@ -74,9 +74,9 @@ Jeder Charakter beherrscht seine Muttersprache meisterlich, ohne dafür zu bezah
       </widget>
      </item>
      <item row="3" column="0">
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="labelRegeln">
        <property name="text">
-        <string>Freie Fertigkeiten sind in drei Stufen geteilt: Unerfahren (I), erfahren (II) und meisterlich (III). Sie kosten jeweils 4/8/16 EP.</string>
+        <string>Freie Fertigkeiten sind in drei Stufen geteilt: Unerfahren (I), erfahren (II) und meisterlich (III).</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>

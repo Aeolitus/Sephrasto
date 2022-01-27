@@ -12,6 +12,7 @@ from Wolke import Wolke
 from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
 from PyQt5 import QtWidgets, QtCore
 import os.path
+from Fertigkeiten import KampffertigkeitTyp
 
 class KampfstilMod():
     def __init__(self):
@@ -41,6 +42,17 @@ class VariableKosten():
         self.kosten = 0
         self.kommentar = ""
 
+    @staticmethod
+    def parse(variable):
+        var = list(map(str.strip, variable.split(",", 1)))
+        if int(var[0]) == -1:
+            return None
+        vk = VariableKosten()
+        vk.kosten = int(var[0])
+        if len(var) > 1:
+            vk.kommentar = var[1]
+        return vk
+
 class Char():
     ''' 
     Main Workhorse Class. Contains all information about a charakter, performs
@@ -69,6 +81,7 @@ class Char():
         self.attribute = {}
         for key in Definitionen.Attribute.keys():
             self.attribute[key] = Fertigkeiten.Attribut(key)
+            self.attribute[key].steigerungsfaktor = Wolke.DB.einstellungen["AttributeSteigerungsfaktor"].toInt()
         self.wsBasis = -1
         self.ws = -1
         self.wsStern = -1
@@ -76,15 +89,20 @@ class Char():
         self.mr = -1
         self.gsBasis = -1
         self.gs = -1
+        self.gsStern = -1
+        self.dhBasis = -1
         self.dh = -1
+        self.dhStern = -1
         self.schadensbonusBasis = -1
         self.schadensbonus = -1
         self.iniBasis = -1
         self.ini = -1
         self.asp = Fertigkeiten.Energie()
+        self.asp.steigerungsfaktor = Wolke.DB.einstellungen["EnergienSteigerungsfaktor"].toInt()
         self.aspBasis = 0
         self.aspMod = 0
         self.kap = Fertigkeiten.Energie()
+        self.kap.steigerungsfaktor = Wolke.DB.einstellungen["EnergienSteigerungsfaktor"].toInt()
         self.kapBasis = 0
         self.kapMod = 0
         
@@ -98,6 +116,11 @@ class Char():
         self.fertigkeiten = copy.deepcopy(Wolke.DB.fertigkeiten)
         self.freieFertigkeiten = []
         self.freieFertigkeitenNumKostenlos = Wolke.DB.einstellungen["FreieFertigkeitenAnzahlKostenlos"].toInt()
+        self.freieFertigkeitKosten = [Wolke.DB.einstellungen["FreieFertigkeitenKostenStufe1"].toInt(),
+                                      Wolke.DB.einstellungen["FreieFertigkeitenKostenStufe2"].toInt(),
+                                      Wolke.DB.einstellungen["FreieFertigkeitenKostenStufe3"].toInt()]
+        self.freieFertigkeitKosten[1] += self.freieFertigkeitKosten[0]
+        self.freieFertigkeitKosten[2] += self.freieFertigkeitKosten[1]
         self.talenteVariable = {} #Contains Name: VariableKosten
 
         #Fünfter Block: Ausrüstung etc
@@ -131,9 +154,6 @@ class Char():
 
         #Achter Block: Notiz
         self.notiz = ""
-
-        #Neunter Block: Flags etc
-        self.höchsteKampfF = -1
 
         # Diagnostics
         self.fehlercode = 0
@@ -206,11 +226,10 @@ class Char():
             'getWS' : lambda: self.ws,
             'setWS' : lambda ws: setattr(self, 'ws', ws),
             'modifyWS' : lambda ws: setattr(self, 'ws', self.ws + ws),
-            'getWSStern' : lambda: self.wsStern,
 
             #MR
             'getMRBasis' : lambda: self.mrBasis,
-            'getMR' : lambda: self.ws,
+            'getMR' : lambda: self.mr,
             'setMR' : lambda mr: setattr(self, 'mr', mr),
             'modifyMR' : lambda mr: setattr(self, 'mr', self.mr + mr),
 
@@ -221,6 +240,7 @@ class Char():
             'modifyGS' : lambda gs: setattr(self, 'gs', self.gs + gs),
 
             #DH
+            'getDHBasis' : lambda: self.dhBasis,
             'getDH' : lambda: self.dh,
             'setDH' : lambda dh: setattr(self, 'dh', dh),
             'modifyDH' : lambda dh: setattr(self, 'dh', self.dh + dh),
@@ -404,26 +424,29 @@ class Char():
         for key in Definitionen.Attribute:
             self.attribute[key].aktualisieren()
 
-        self.aspBasis = 0
+        scriptAPI = { 'getAttribut' : lambda attribut: self.attribute[attribut].wert }
+        self.aspBasis = eval(Wolke.DB.einstellungen["BasisAsPScript"].toText(), scriptAPI)
         self.aspMod = 0
-        self.kapBasis = 0
+
+        self.kapBasis = eval(Wolke.DB.einstellungen["BasisKaPScript"].toText(), scriptAPI)
         self.kapMod = 0
 
-        self.wsBasis = 4 + int(self.attribute['KO'].wert/4)
+        self.wsBasis = eval(Wolke.DB.einstellungen["BasisWSScript"].toText(), scriptAPI)
         self.ws = self.wsBasis
 
-        self.mrBasis = 4 + int(self.attribute['MU'].wert/4)
+        self.mrBasis = eval(Wolke.DB.einstellungen["BasisMRScript"].toText(), scriptAPI)
         self.mr = self.mrBasis
 
-        self.gsBasis = 4 + int(self.attribute['GE'].wert/4+0.0001)
+        self.gsBasis = eval(Wolke.DB.einstellungen["BasisGSScript"].toText(), scriptAPI)
         self.gs = self.gsBasis
 
-        self.iniBasis = self.attribute['IN'].wert
+        self.iniBasis = eval(Wolke.DB.einstellungen["BasisINIScript"].toText(), scriptAPI)
         self.ini = self.iniBasis     
         
-        self.dh = self.attribute['KO'].wert
+        self.dhBasis = eval(Wolke.DB.einstellungen["BasisDHScript"].toText(), scriptAPI)
+        self.dh = self.dhBasis
 
-        self.schadensbonusBasis = int(self.attribute['KK'].wert/4)
+        self.schadensbonusBasis = eval(Wolke.DB.einstellungen["BasisSchadensbonusScript"].toText(), scriptAPI)
         self.schadensbonus = self.schadensbonusBasis
 
         self.schipsMax = 4
@@ -479,6 +502,9 @@ class Char():
         if len(self.rüstung) > 0:
             self.wsStern += self.rüstung[0].getRSGesamtInt()
 
+        self.dhStern = max(self.dh - 2 * self.be, 1)
+        self.gsStern = max(self.gs - self.be, 1)
+
         self.schips = self.schipsMax
         if self.finanzen >= 2: 
             self.schips += self.finanzen - 2
@@ -486,7 +512,8 @@ class Char():
             self.schips -= (2-self.finanzen)*2
 
         self.updateVorts()
-        self.updateFerts()
+        self.updateFertigkeiten(self.fertigkeiten)
+        self.updateFertigkeiten(self.übernatürlicheFertigkeiten)
         self.updateWaffenwerte()
 
         EventBus.doAction("post_charakter_aktualisieren", { "charakter" : self })
@@ -495,6 +522,7 @@ class Char():
     def updateWaffenwerte(self):
         self.waffenwerte = []
 
+        fertsSB = Wolke.DB.einstellungen["FertigkeitenSchadensbonus"].toTextList()
         for el in self.waffen:
             waffenwerte = Waffenwerte()
             self.waffenwerte.append(waffenwerte)
@@ -534,7 +562,7 @@ class Char():
             waffenwerte.AT += el.wm
             waffenwerte.VT += el.wm
 
-            for f in Wolke.DB.einstellungen["FertigkeitenSchadensbonus"].toTextList():
+            for f in fertsSB:
                 if (f == "Nahkampfwaffen" and type(el) == Objekte.Nahkampfwaffe) or fertig == f:
                     waffenwerte.TPPlus += self.schadensbonus
                     break
@@ -571,9 +599,9 @@ class Char():
         if Wolke.DB.talente[talent].kosten != -1:
             cost = Wolke.DB.talente[talent].kosten
         elif Wolke.DB.talente[talent].verbilligt:
-            cost = 10*steigerungsfaktor
+            cost = Wolke.DB.einstellungen["TalenteVerbilligtSteigerungsfaktorMulti"].toInt()*steigerungsfaktor
         else:
-            cost = 20*steigerungsfaktor
+            cost = Wolke.DB.einstellungen["TalenteSteigerungsfaktorMulti"].toInt()*steigerungsfaktor
 
         cost = EventBus.applyFilter("talent_kosten", cost, { "charakter" : self, "talent": talent })
         return cost
@@ -641,7 +669,7 @@ class Char():
                 continue
             if not fer.name:
                 continue
-            val = EventBus.applyFilter("freiefertigkeit_kosten", Definitionen.FreieFertigkeitKosten[fer.wert-1], { "charakter" : self, "name" : fer.name, "wert" : fer.wert })
+            val = EventBus.applyFilter("freiefertigkeit_kosten", self.freieFertigkeitKosten[fer.wert-1], { "charakter" : self, "name" : fer.name, "wert" : fer.wert })
             spent += val
             self.EP_FreieFertigkeiten += val
         #Fünfter Block ist gratis
@@ -662,7 +690,9 @@ class Char():
                 self.EP_Uebernatuerlich_Talente += val
         #Siebter Block ist gratis
         #Achter Block: Fix für höchste Kampffertigkeit
-        val = max(0,2*sum(range(self.höchsteKampfF+1)))
+        höchsteKampffert = self.getHöchsteKampffertigkeit()
+        if höchsteKampffert is not None:
+            val = max(0, 2*sum(range(höchsteKampffert.wert+1)))
         spent += val
         self.EP_Fertigkeiten += val
         #Store
@@ -727,7 +757,14 @@ class Char():
 
         return allRemoved
 
-    def updateFerts(self):
+    def getHöchsteKampffertigkeit(self):
+        höchste = None
+        for fert in self.fertigkeiten.values():
+            if fert.kampffertigkeit == KampffertigkeitTyp.Nahkampf and (höchste is None or fert.wert > höchste.wert):
+                höchste = fert
+        return höchste
+
+    def updateFertigkeiten(self, fertigkeiten):
         '''
         Similar to updateVorts, this removes all Fertigkeiten for which the
         requirements are no longer met until all are removed. Furthermore, all
@@ -737,74 +774,42 @@ class Char():
         Last, all Talente are iterated through, their requirements are checked, 
         and it is made sure that they appear at all Fertigkeiten where they are
         available. 
-        All this is done both for Fertigkeiten and for Übernatürliche.
         '''
-        # Remover 
         while True:
             remove = []
             contFlag = True
-            for fert in self.fertigkeiten:
-                if not self.voraussetzungenPrüfen(self.fertigkeiten[fert]\
-                                                  .voraussetzungen):
+            for fert in fertigkeiten:
+                if not self.voraussetzungenPrüfen(fertigkeiten[fert].voraussetzungen):
                     remove.append(fert)
                     contFlag = False
-                self.fertigkeiten[fert].aktualisieren(self.attribute)
+                fertigkeiten[fert].aktualisieren(self.attribute)
             for el in remove:
-                self.fertigkeiten.pop(el,None)
+                fertigkeiten.pop(el,None)
             if contFlag:
                 break
-        while True:
-            remove = []
-            contFlag = True
-            for fert in self.übernatürlicheFertigkeiten:
-                if not self.voraussetzungenPrüfen(\
-                        self.übernatürlicheFertigkeiten[fert].voraussetzungen):
-                    remove.append(fert)
-                    contFlag = False
-                self.übernatürlicheFertigkeiten[fert].aktualisieren(self.attribute)
-            for el in remove:
-                self.übernatürlicheFertigkeiten.pop(el,None)
-            if contFlag:
-                break
-                
-                
-        self.höchsteKampfF = -1
-        for fert in self.fertigkeiten:
-            self.fertigkeiten[fert].aktualisieren(self.attribute)
-            if self.fertigkeiten[fert].wert > self.fertigkeiten[fert].maxWert:
-                self.fertigkeiten[fert].wert = self.fertigkeiten[fert].maxWert
-                self.fertigkeiten[fert].aktualisieren(self.attribute)
-            if self.fertigkeiten[fert].kampffertigkeit == 1 and \
-                            self.fertigkeiten[fert].wert > self.höchsteKampfF:
-                self.höchsteKampfF = self.fertigkeiten[fert].wert
-            for tal in self.fertigkeiten[fert].gekaufteTalente:
-                if not self.voraussetzungenPrüfen(
-                        Wolke.DB.talente[tal].voraussetzungen):
-                    self.fertigkeiten[fert].gekaufteTalente.remove(tal)
-                else:
-                    for el in self.fertigkeiten[fert].gekaufteTalente:
-                        for f in Wolke.DB.talente[el].fertigkeiten:
-                            if f in self.fertigkeiten:
-                                if el not in self.fertigkeiten[f]\
-                                                              .gekaufteTalente:
-                                    self.fertigkeiten[f].gekaufteTalente\
-                                                     .append(el)
-        for fert in self.übernatürlicheFertigkeiten:
-            self.übernatürlicheFertigkeiten[fert].aktualisieren(self.attribute)
-            if self.übernatürlicheFertigkeiten[fert].wert > \
-                                self.übernatürlicheFertigkeiten[fert].maxWert:
-                self.übernatürlicheFertigkeiten[fert].wert = \
-                                self.übernatürlicheFertigkeiten[fert].maxWert
-                self.übernatürlicheFertigkeiten[fert].aktualisieren(self.attribute)
-            for tal in self.übernatürlicheFertigkeiten[fert].gekaufteTalente:
-                if not self.voraussetzungenPrüfen(Wolke.DB.talente[tal].voraussetzungen):
-                    self.übernatürlicheFertigkeiten[fert].gekaufteTalente.remove(tal) 
-                else:
-                    for el in self.übernatürlicheFertigkeiten[fert].gekaufteTalente:
-                        for f in Wolke.DB.talente[el].fertigkeiten:
-                            if f in self.übernatürlicheFertigkeiten:
-                                if el not in self.übernatürlicheFertigkeiten[f].gekaufteTalente:
-                                    self.übernatürlicheFertigkeiten[f].gekaufteTalente.append(el)
+
+        talente = set()
+        for fert in fertigkeiten.values():
+            fert.aktualisieren(self.attribute)
+
+            if fert.wert > fert.maxWert:
+                fert.wert = fert.maxWert
+                fert.aktualisieren(self.attribute)
+
+            for tal in fert.gekaufteTalente:
+                talente.add(tal)
+
+        for tal in talente:
+            remove = not self.voraussetzungenPrüfen(Wolke.DB.talente[tal].voraussetzungen)
+            for fName in Wolke.DB.talente[tal].fertigkeiten:
+                if not fName in fertigkeiten:
+                    continue
+                fert = fertigkeiten[fName]
+                if remove:
+                    if tal in fert.gekaufteTalente:
+                        fertigkeiten[fName].gekaufteTalente.remove(tal) 
+                elif tal not in fert.gekaufteTalente:
+                    fertigkeiten[fName].gekaufteTalente.append(tal)
 
     def voraussetzungenPrüfen(self,voraussetzungen):
         return Hilfsmethoden.voraussetzungenPrüfen(self.vorteile, self.waffen, self.attribute, self.übernatürlicheFertigkeiten, self.fertigkeiten, voraussetzungen)
@@ -1051,22 +1056,12 @@ class Char():
             else:
                 self.minderpakt = None
 
-        def parseVariableKosten(variable):
-            var = list(map(str.strip, variable.split(",", 1)))
-            if int(var[0]) != -1:
-                vk = VariableKosten()
-                vk.kosten = int(var[0])
-                if len(var) > 1:
-                    vk.kommentar = var[1]
-                return vk
-            return None
-
         for vor in root.findall('Vorteile/*'):
             if not vor.text in Wolke.DB.vorteile:
                 vIgnored.append(vor.text)
                 continue
             self.vorteile.append(vor.text)
-            var = parseVariableKosten(vor.get('variable'))
+            var = VariableKosten.parse(vor.get('variable'))
             if var:
                 if not Wolke.DB.vorteile[vor.text].variableKosten:
                     var.kosten = Wolke.DB.vorteile[vor.text].kosten
@@ -1088,7 +1083,7 @@ class Char():
                     tIgnored.add(nam)
                     continue
                 fert.gekaufteTalente.append(nam)
-                var = parseVariableKosten(tal.attrib['variable'])
+                var = VariableKosten.parse(tal.attrib['variable'])
                 if var:
                     #round down to nearest multiple in case of a db cost change
                     if Wolke.DB.talente[nam].variableKosten:
@@ -1164,7 +1159,7 @@ class Char():
                     tIgnored.add(nam)
                     continue
                 fert.gekaufteTalente.append(nam)
-                var = parseVariableKosten(tal.attrib['variable'])
+                var = VariableKosten.parse(tal.attrib['variable'])
                 if var:
                     #round down to nearest multiple in case of a db cost change
                     defaultKosten = self.getDefaultTalentCost(nam, fert.steigerungsfaktor)
