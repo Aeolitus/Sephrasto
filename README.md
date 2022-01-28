@@ -28,7 +28,7 @@ sudo apt install pdftk
 git clone https://github.com/Aeolitus/Sephrasto.git
 pip install -r Sephrasto/requirements.txt
 ```
-OpenJDK wird für pdftk benötigt, ohne diese beiden Pakete können keine Charakterbogen-PDFs erzeugt werden. Statt das Sephrasto Repository mit git zu klonen, kannst du es natürlich auch manuell herunterladen und entpacken (unter "Code" den Punkt "Download zip" auswählen).
+Alternativ zu pip stehen auch Poetry files zur Verfügung. OpenJDK wird für pdftk benötigt, ohne diese beiden Pakete können keine Charakterbogen-PDFs erzeugt werden. Statt das Sephrasto Repository mit git zu klonen, kannst du es natürlich auch manuell herunterladen und entpacken (unter "Code" den Punkt "Download zip" auswählen).
 
 Gestartet wird Sephrasto dann folgendermaßen:
 ```
