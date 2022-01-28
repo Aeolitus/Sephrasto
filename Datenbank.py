@@ -97,6 +97,8 @@ class Datenbank():
             v.set('fertigkeiten',Hilfsmethoden.FertArray2Str(talent.fertigkeiten, None))
             v.set('variable', str(1 if talent.variableKosten else 0))
             v.set('kommentar', str(1 if talent.kommentarErlauben else 0))
+            v.set('referenzbuch', str(talent.referenzBuch))
+            v.set('referenzseite', str(talent.referenzSeite))
             v.text = talent.text
 
             if not talent.cheatsheetAuflisten:
@@ -400,6 +402,10 @@ class Datenbank():
 
             if tal.get('csAuflisten'):
                 T.cheatsheetAuflisten = int(tal.get('csAuflisten')) == 1
+            if tal.get('referenzbuch'):
+                T.referenzBuch = int(tal.get('referenzbuch'))
+            if tal.get('referenzseite'):
+                T.referenzSeite = int(tal.get('referenzseite'))
 
             T.isUserAdded = not refDB
 

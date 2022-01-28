@@ -72,6 +72,7 @@ class CharakterPrintUtility:
             for talent in char.übernatürlicheFertigkeiten[fert].gekaufteTalente:
                 talente.add(talent)
         talentBoxes = []
+        referenzBücher = Wolke.DB.einstellungen["Referenzbücher"].toTextList()
         for t in talente:
             # Fill Talente
             talent = Wolke.DB.talente[t]
@@ -110,6 +111,12 @@ class CharakterPrintUtility:
             res = re.findall('Kosten:(.*?)\n', talent.text, re.UNICODE)
             if len(res) == 1:
                 tt.ko = res[0].strip()
+
+            if talent.referenzSeite > 0:
+                if talent.referenzBuch >= len(referenzBücher) or referenzBücher[talent.referenzBuch] == "Ilaris":
+                    tt.se = "S. " + str(talent.referenzSeite)
+                else:
+                    tt.se = referenzBücher[talent.referenzBuch] + " S. " + str(talent.referenzSeite)
 
             talentBoxes.append(tt)
 

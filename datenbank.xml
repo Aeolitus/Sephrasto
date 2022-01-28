@@ -10345,4 +10345,5 @@ oder bis der Fang eingeholt wird=/ bis Fang eingeholt
 bis das Schiff deutlich umgebaut wird=bis Schiff deutlich umgebaut
 bis die Unterkunft deutlich umgebaut wird=bis Unterkunft deutlich umgebaut</Einstellung>
   <Einstellung name="FreieFertigkeitsTypen" typ="Text" beschreibung="Definiert die verfügbaren Typen von Freien Fertigkeiten im Datenbank-Editor und deren Reihenfolge im Freie Fertigkeiten-Auswahlfenster des Charaktereditors. Achtung: Das Umbenennen der Typen erfordert ein Überarbeiten aller entsprechenden Freien Fertigkeiten. Ein Verschieben oder Einfügen weiterer Typen ist dagegen unproblematisch.">Schrift, Sprache</Einstellung>
+  <Einstellung name="Referenzbücher" typ="Text" beschreibung="Definiert die verfügbaren Referenzwerke bei Seitenangaben im Datenbank-Editor.">Ilaris</Einstellung>
 </Datenbank>

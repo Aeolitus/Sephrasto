@@ -140,6 +140,8 @@ class Talent():
         self.text = ''
         self.printclass = -1 #deprecated
         self.cheatsheetAuflisten = True
+        self.referenzBuch = 0
+        self.referenzSeite = 0
         self.isUserAdded = True
     
     def __eq__(self, other) : 

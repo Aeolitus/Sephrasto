@@ -74,6 +74,12 @@ class DatenbankEditTalentWrapper(object):
 
         self.ui.textEdit.setPlainText(talent.text)
 
+        bücher = datenbank.einstellungen["Referenzbücher"].toTextList()
+        if (len(bücher) > 0):
+            self.ui.comboSeite.addItems(bücher)
+            self.ui.comboSeite.setCurrentIndex(self.talentPicked.referenzBuch)
+        self.ui.spinSeite.setValue(self.talentPicked.referenzSeite)
+
         talentDialog.show()
         ret = talentDialog.exec_()
         if ret == QtWidgets.QDialog.Accepted:
@@ -93,6 +99,9 @@ class DatenbankEditTalentWrapper(object):
                 self.talent.verbilligt = 1
             self.talent.cheatsheetAuflisten = self.ui.checkCheatsheet.isChecked()
 
+            self.talent.referenzBuch = self.ui.comboSeite.currentIndex()
+            self.talent.referenzSeite = self.ui.spinSeite.value()
+
             self.talent.isUserAdded = False
             if self.talent == self.talentPicked:
                 self.talent = None
@@ -104,6 +113,8 @@ class DatenbankEditTalentWrapper(object):
     def kostenChanged(self):
         self.ui.spinKosten.setEnabled(self.ui.buttonSpezial.isChecked())
         self.ui.checkCheatsheet.setEnabled(self.ui.buttonSpezial.isChecked())
+        self.ui.comboSeite.setEnabled(self.ui.buttonSpezial.isChecked())
+        self.ui.spinSeite.setEnabled(self.ui.buttonSpezial.isChecked())
 
         if self.ui.buttonSpezial.isChecked():
             self.fertigkeitenCompleter.setTags([f for f in self.datenbank.übernatürlicheFertigkeiten.keys()])
