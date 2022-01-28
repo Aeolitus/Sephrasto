@@ -335,15 +335,13 @@ class CheatsheetGenerator(object):
         count = 0
         for tal in talente:
             result = []
-            talent = Wolke.DB.talente[tal.na]
-            if not talent.cheatsheetAuflisten or not talent.text:
+            if not tal.cheatsheetAuflisten or not tal.text:
                 continue
             count += 1
-            name = talent.getFullName(Wolke.Char)
-            result.append(name)
+            result.append(tal.anzeigeName)
             result.append(" (PW " + str(tal.pw) + ")")
             result.append("\n")
-            text = talent.text
+            text = tal.text
             
             #Remove everything from Sephrasto on
             index = text.find('\nSephrasto')
@@ -373,7 +371,7 @@ class CheatsheetGenerator(object):
 
             for vor in Wolke.Char.vorteile:
                 vorteil = Wolke.DB.vorteile[vor]
-                if self.isCheatsheetLinkedTo(vorteil, VorteilLinkKategorie.ÜberTalent, talent.name):
+                if self.isCheatsheetLinkedTo(vorteil, VorteilLinkKategorie.ÜberTalent, tal.na):
                     beschreibung = self.getLinkedDescription(vorteil)
                     if not beschreibung:
                         continue
@@ -418,7 +416,7 @@ class CheatsheetGenerator(object):
         # We don't know which of the above types a talent is, so have have to guess... should work 99.99%
         for tal in talentboxList:
             if " AsP" in tal.ko:
-                anrufungen.append(tal)
+                zauber.append(tal)
             elif " KaP" in tal.ko:
                 liturgien.append(tal)
             elif " GuP" in tal.ko:

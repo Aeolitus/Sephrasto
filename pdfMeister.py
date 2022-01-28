@@ -532,7 +532,7 @@ class pdfMeister(object):
         for i in range(0, min(self.CharakterBogen.maxÜberTalente, len(überTalente))):
             base = 'Uebertal' + str(i+1)
             base2 = 'Ubertal' + str(i+1)
-            fields[base + 'NA'] = überTalente[i].na
+            fields[base + 'NA'] = überTalente[i].anzeigeName
             fields[base2 + 'SE'] = überTalente[i].se
             fields[base + 'PW'] = überTalente[i].pw
             fields[base + 'VO'] = überTalente[i].vo
@@ -568,9 +568,9 @@ class pdfMeister(object):
                     
                     tb = Talentbox.Talentbox()
                     tb.pw = ''
-                    tb.na = talent.groupFert.name.upper()
+                    tb.anzeigeName = talent.groupFert.name.upper()
                     if not talent.groupFert.talenteGruppieren and talent.groupFert.printclass < len(fertigkeitsTypen):
-                        tb.na = fertigkeitsTypen[talent.groupFert.printclass].upper()
+                        tb.anzeigeName = fertigkeitsTypen[talent.groupFert.printclass].upper()
                     überTalente.append(tb)
                 lastGroup = talent.groupFert
 

@@ -15,4 +15,7 @@ class Talentbox(object):
         self.wd = ''
         self.ko = ''
         self.groupFert = None
+        self.anzeigeName = ''
+        self.text = ''
+        self.cheatsheetAuflisten = True
         

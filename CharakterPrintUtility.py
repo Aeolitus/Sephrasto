@@ -77,7 +77,11 @@ class CharakterPrintUtility:
             talent = Wolke.DB.talente[t]
             tt = Talentbox.Talentbox()
 
-            tt.na = talent.getFullName(char)
+            tt.na = talent.name
+            tt.anzeigeName = talent.getFullName(char)
+            tt.cheatsheetAuflisten = talent.cheatsheetAuflisten
+            tt.text = talent.text
+
             if len(talent.fertigkeiten) == 1:
                 tt.na = tt.na.replace(talent.fertigkeiten[0] + ": ", "")
             for el in talent.fertigkeiten:
