@@ -10,15 +10,19 @@ In der Gebrauchsanleitung.pdf finden sich Erklärungen und Warnhinweise.
 
 Bei Fragen / Änderungswünschen / Feedback einfach Bescheid sagen - im dsaforum oder hier!
 
-## Dieses Tool verwendet 
-* fdfgen (https://github.com/ccnmtl/fdfgen) zum Editieren des Charakterbogens 
-* pdffields (https://github.com/evfredericksen/pdffields) für einfachere Bedienung von fdfgen ;)
+## Dieses Tool verwendet
+
+Um Sephrasto mit Python zu verwenden, ist Version 3.7+ empfehlenswert, aber nicht dringend notwendig. 
+
+### Pakete
 * PyQt5 (https://www.riverbankcomputing.com/software/pyqt/download5) für die Grafische Oberfläche
 * lxml (http://lxml.de/) als xml-parser (unter Linux: `libxml2-dev` und `libxmlsec1-dev` global installieren, wenn lxml via pip installiert werden soll)
 * PyYAML (https://pyyaml.org/) als yaml-parser
 * requests (https://github.com/psf/requests) für den update checker
 
-Um Sephrasto mit Python zu verwenden, ist Version 3.7+ empfehlenswert, aber nicht dringend notwendig. 
+### Integriert
+* fdfgen (https://github.com/ccnmtl/fdfgen) zum Editieren des Charakterbogens 
+* pdffields (https://github.com/evfredericksen/pdffields) für einfachere Bedienung von fdfgen ;)
 
 ## Installation Linux (Ubuntu/Debian)
 ```
@@ -38,14 +42,12 @@ python Sephrasto/Sephrasto.py
 ## Einrichtung von Visual Studio als IDE:
 * Installiere VS 2019 Community Edition mit dem Python Workload (kann auch nachträglich über den Installer installiert werden)
 * Setze den Pfad der Python-Umgebung in der Umgebungsvariable PATH (in der Regel C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64)
-* Starte Make/Sephrasto.sln
+* Öffne Sephrasto.sln
 * Installiere die dependencies: Solution Explorer -> Python Environments -> Rechtsclick auf Python 3.x -> Install Python Package.
 * Stelle zuerst sicher, dass deine pip Version aktuell ist, aktualisiere diese gegebenenfalls und starte Visual Studio neu
-* Installiere nun die folgenden Pakete im gleichen Menu:
-    * lxml
-    * PyQt5
-	* PyYAML
-    * Um mit build.bat einen Build erstellen zu können: cx_freeze, pywin32
+* Installiere nun die oben genannten Pakete im gleichen Menu. Um mit build.bat einen Build erstellen zu können wird zusätzlich folgendes benötigt:
+    * cx_freeze (https://github.com/marcelotduarte/cx_Freeze)
+    * pywin32 (https://github.com/mhammond/pywin32)
 * Erstelle die IntelliSense Datenbank: Solution Explorer -> Rechtsclick auf Python Environments -> View all Python environments -> IntelliSense im Dropdown auswahlen und aktivieren/refreshen
 * Stelle das Tab-Verhalten auf "Insert Spaces": Tools -> Options -> Text Editor -> Python -> Tabs
 * Öffne das Exception Settings Fenster (Debug -> Windows -> Exception Settings) und selektiere alle Python Exceptions, dann deaktiviere <All Python Exceptions not in this list>, BaseException und Exception - damit breaken die custom exceptions nicht, die Sephrasto intern nutzt.
