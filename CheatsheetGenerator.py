@@ -415,21 +415,21 @@ class CheatsheetGenerator(object):
         anrufungen = []
         # We don't know which of the above types a talent is, so have have to guess... should work 99.99%
         for tal in talentboxList:
-            if " AsP" in tal.ko:
+            if " asp" in tal.ko.lower():
                 zauber.append(tal)
-            elif " KaP" in tal.ko:
+            elif " kap" in tal.ko.lower():
                 liturgien.append(tal)
-            elif " GuP" in tal.ko:
+            elif " gup" in tal.ko.lower():
                 anrufungen.append(tal)
             else:
                 fertTyp = fertigkeitsTypen[tal.groupFert.printclass]
-                if "Zauber" in fertTyp or "zauber" in fertTyp:
+                if "zauber" in fertTyp.lower():
                     zauber.append(tal)
-                elif "Liturgie" in fertTyp or "liturgie" in fertTyp:
+                elif "liturgie" in fertTyp.lower():
                     liturgien.append(tal)
-                elif "Anrufung" in fertTyp or "anrufung" in fertTyp:
+                elif "anrufung" in fertTyp.lower():
                     anrufungen.append(tal)
-                elif  ("Zauberer I" in Wolke.Char.vorteile) or ("Tradition der Borbaradianer I" in Wolke.Char.vorteile):
+                elif ("Zauberer I" in Wolke.Char.vorteile) or ("Tradition der Borbaradianer I" in Wolke.Char.vorteile):
                     zauber.append(tal)
                 elif "Geweiht I" in Wolke.Char.vorteile:
                     liturgien.append(tal)

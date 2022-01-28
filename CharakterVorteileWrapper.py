@@ -261,12 +261,13 @@ class CharakterVorteileWrapper(QtCore.QObject):
         
     def updateInfo(self):
         if self.currentVort != "":
-            self.uiVor.labelVorteil.setText(Wolke.DB.vorteile[self.currentVort].name)
-            self.uiVor.labelTyp.setText(self.vorteilTypen[Wolke.DB.vorteile[self.currentVort].typ])
-            self.uiVor.labelNachkauf.setText(Wolke.DB.vorteile[self.currentVort].nachkauf)
-            self.uiVor.plainText.setPlainText(Wolke.DB.vorteile[self.currentVort].text)
-            if Wolke.DB.vorteile[self.currentVort].variableKosten and self.currentVort in Wolke.Char.vorteileVariable:
+            vorteil = Wolke.DB.vorteile[self.currentVort]
+            self.uiVor.labelVorteil.setText(vorteil.name)
+            self.uiVor.labelTyp.setText(self.vorteilTypen[vorteil.typ])
+            self.uiVor.labelNachkauf.setText(vorteil.nachkauf)
+            self.uiVor.plainText.setPlainText(vorteil.text)
+            if vorteil.variableKosten and self.currentVort in Wolke.Char.vorteileVariable:
                 self.uiVor.spinKosten.setValue(Wolke.Char.vorteileVariable[self.currentVort].kosten)
             else:
-                self.uiVor.spinKosten.setValue(Wolke.DB.vorteile[self.currentVort].kosten)      
+                self.uiVor.spinKosten.setValue(vorteil.kosten)      
             

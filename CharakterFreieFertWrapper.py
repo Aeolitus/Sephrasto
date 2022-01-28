@@ -29,13 +29,17 @@ class CharakterFreieFertWrapper(QtCore.QObject):
                                         " Sie kosten jeweils " + kosten[0] + "/" + kosten[1] + "/" + kosten[2] + " EP.")
 
         self.ffCount = 0
-        for row in range(1,8):
-            for column in range(1,5):
+
+        self.editFF = []
+        self.comboFF = []
+        self.buttonFF = []
+        for row in range(0,7):
+            for column in range(0,4):
                 self.ffCount +=1
                 ffLayout = QtWidgets.QHBoxLayout()
                 ffEdit = QtWidgets.QLineEdit()
                 ffEdit.editingFinished.connect(self.update)
-                setattr(self.uiFert, "editFF" + str(self.ffCount), ffEdit)
+                self.editFF.append(ffEdit)
                 ffLayout.addWidget(ffEdit)
                 ffCombo = QtWidgets.QComboBox()
                 ffCombo.addItem("I")
@@ -45,11 +49,11 @@ class CharakterFreieFertWrapper(QtCore.QObject):
                 ffCombo.currentIndexChanged.connect(self.update)
                 if self.ffCount <= Wolke.Char.freieFertigkeitenNumKostenlos:
                     ffCombo.setEnabled(False)
-                setattr(self.uiFert, "comboFF" + str(self.ffCount), ffCombo)
+                self.comboFF.append(ffCombo)
                 ffLayout.addWidget(ffCombo)
 
                 ffButton = QtWidgets.QPushButton()
-                setattr(self.uiFert, "buttonFF" + str(self.ffCount), ffButton)
+                self.buttonFF.append(ffButton)
                 ffButton.setText("+")
                 ffButton.setMaximumSize(QtCore.QSize(25, 20))
                 ffButton.clicked.connect(lambda state, edit=ffEdit: self.ffButtonClicked(edit))
@@ -66,45 +70,40 @@ class CharakterFreieFertWrapper(QtCore.QObject):
             self.update()
         
     def load(self):
-        count = 1
+        count = 0
         for el in Wolke.Char.freieFertigkeiten:
-            #if el.name == "Muttersprache":
-            #    continue
-            eval("self.uiFert.editFF" + str(count) + ".blockSignals(True)")
-            eval("self.uiFert.comboFF" + str(count) + ".blockSignals(True)")
-            getName = lambda : el.name
-            eval("self.uiFert.editFF" + str(count) + ".setText(getName())")
+            self.editFF[count].blockSignals(True)
+            self.comboFF[count].blockSignals(True)
+            self.editFF[count].setText(el.name)
 
             index = el.wert-1
             if count <= Wolke.Char.freieFertigkeitenNumKostenlos:
                 index = 2
-            eval("self.uiFert.comboFF" + str(count) + ".setCurrentIndex(" + str(index) + ")")
-            eval("self.uiFert.editFF" + str(count) + ".blockSignals(False)")
-            eval("self.uiFert.comboFF" + str(count) + ".blockSignals(False)")
+            self.comboFF[count].setCurrentIndex(index)
+            self.editFF[count].blockSignals(False)
+            self.comboFF[count].blockSignals(False)
 
             count += 1
-            if count > self.ffCount:
+            if count >= self.ffCount:
                 break
-        while count < self.ffCount + 1:
-            eval("self.uiFert.editFF" + str(count) + ".blockSignals(True)")
-            eval("self.uiFert.comboFF" + str(count) + ".blockSignals(True)")
-            eval("self.uiFert.editFF" + str(count) + ".setText(\"\")")
+        while count < self.ffCount:
+            self.editFF[count].blockSignals(True)
+            self.comboFF[count].blockSignals(True)
+            self.editFF[count].setText("")
             index = 0
             if count <= Wolke.Char.freieFertigkeitenNumKostenlos:
                 index = 2
-            eval("self.uiFert.comboFF" + str(count) + ".setCurrentIndex(" + str(index) + ")")
-            eval("self.uiFert.editFF" + str(count) + ".blockSignals(False)")
-            eval("self.uiFert.comboFF" + str(count) + ".blockSignals(False)")
+            self.comboFF[count].setCurrentIndex(index)
+            self.editFF[count].blockSignals(False)
+            self.comboFF[count].blockSignals(False)
             count += 1
     
     def update(self):
         freieNeu = []
-        for count in range(1,self.ffCount + 1):
-            tmp = eval("self.uiFert.editFF" + str(count) + ".text()")
-            val = eval("self.uiFert.comboFF" + str(count) + ".currentIndex()")+1
+        for count in range(0,self.ffCount):
             fert = Fertigkeiten.FreieFertigkeit()
-            fert.name = tmp
-            fert.wert = val
+            fert.name = self.editFF[count].text()
+            fert.wert = self.comboFF[count].currentIndex()+1
             freieNeu.append(fert)
 
         #Preserve the position of actual elements but remove any trailing empty elements
