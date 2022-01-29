@@ -77,7 +77,6 @@ includeFiles = {
     "Charakterbogen.pdf" : build_path,
     "Charakterbogen_lang.pdf" : build_path,
     "Regeln.pdf" : build_path,
-    "Gebrauchsanleitung.pdf" : build_path,
     "ExtraSpells.pdf" : build_path,
     "icon_large.png" : build_path,
     "icon_multi.ico" : build_path,
@@ -92,6 +91,11 @@ for file in os.listdir(os.path.join(dir_path, "Doc")):
     fullPath = os.path.join(dir_path, "Doc", file)
     if os.path.isfile(fullPath):
         includeFiles[fullPath] = os.path.join(build_path, "Doc")
+
+for file in os.listdir(os.path.join(dir_path, "Doc", "Images")):
+    fullPath = os.path.join(dir_path, "Doc", "Images", file)
+    if os.path.isfile(fullPath):
+        includeFiles[fullPath] = os.path.join(build_path, "Doc", "Images")
 
 # Include plugins (beware, subfolders are not included)
 def includePlugin(name):
