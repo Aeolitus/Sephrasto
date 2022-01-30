@@ -13,6 +13,7 @@ PyYAML = "^6.0"
 requests = "^2.26"
 
 [tool.poetry.dev-dependencies]
+cx-Freeze = "^6.10"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

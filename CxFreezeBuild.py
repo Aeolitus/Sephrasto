@@ -80,11 +80,14 @@ includeFiles = {
     "ExtraSpells.pdf" : build_path,
     "icon_large.png" : build_path,
     "icon_multi.ico" : build_path,
-    os.path.join(env_styles_path, "qwindowsvistastyle.dll"): styles_path,
-    os.path.join(env_bin_path, "libEGL.dll"): build_path,
-    "Bin/ImageMagick/convert.exe" : os.path.join(bin_path, "ImageMagick"),
-    "Bin/ImageMagick/LICENSE.txt" : os.path.join(bin_path, "LICENSE.txt")
 }
+if sys.platform == "win32":
+    includeFiles.update({
+        os.path.join(env_styles_path, "qwindowsvistastyle.dll"): styles_path,
+        os.path.join(env_bin_path, "libEGL.dll"): build_path,
+        "Bin/ImageMagick/convert.exe" : os.path.join(bin_path, "ImageMagick"),
+        "Bin/ImageMagick/LICENSE.txt" : os.path.join(bin_path, "LICENSE.txt")
+    })
 
 # Include documentation
 for file in os.listdir(os.path.join(dir_path, "Doc")):
