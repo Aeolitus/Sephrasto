@@ -174,7 +174,7 @@ class Editor(object):
             Wolke.Char.aktualisieren()
             self.ui.spinRemaining.setValue(Wolke.Char.EPtotal-Wolke.Char.EPspent)
             if Wolke.Char.EPtotal < Wolke.Char.EPspent:
-                self.ui.spinRemaining.setStyleSheet("QSpinBox { background-color: rgb(200,50,50) }")
+                self.ui.spinRemaining.setStyleSheet("QSpinBox { color: white; background-color: rgb(200,50,50) }")
             else:
                 self.ui.spinRemaining.setStyleSheet("")
             self.ui.spinSpent.setStyleSheet("")

@@ -320,64 +320,39 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n")
             } 
             QAbstractScrollArea
             { 
-                background-color: #FFFFFF;
-            }
-            QPushButton
-            {
-                border: 1px solid black;
-                color: #000;
-                min-height: 16px;
-                padding: 3px;
-                background-color: #dcc484;
-            }
-            QPushButton:hover{
-                background-color: #f6efe2;
-            }
-            QComboBox {
-                border: 1px solid #7a561c;
-                padding: 2px;
-                min-width: 6em;
-                background-color: #f6efe2;
-            }
-            QLineEdit {
-                border: 1px solid #7a561c;
-                padding: 2px;
-                min-width: 6em;
-                background-color: #f6efe2;
-
+                background-color: #f1e2c3;
             }
             """)
             palette = QPalette()
-            palette = self.app.palette()
             # DSA-Forum colors (picked from screenshot)
             colors = {
-                "bg_light": "#f6efe2",
-                "bg": "#f1e2c3",
-                "bg_dark": "#cdad74",  # bg braun (hover tabs) 
-                "button": "#dcc484",  # tabs buttons rahmen
-                "text": "#7a561c",
-                "text_dark": "#000000",
-                "alert": "#ae0007",  # text rot
+                "bg_light": QColor("#f6efe2"),
+                "bg": QColor("#f1e2c3"),
+                "bg_dark": QColor("#cdad74"),  # bg braun (hover tabs) 
+                "button": QColor("#dcc484"),  # tabs buttons rahmen
+                "text": QColor("#000000"),
+                "text_dark": QColor("#7a561c"),
+                "alert": QColor("#ae0007"),  # text rot
             }
-            palette.setColor(QPalette.Text, QColor(colors["text"]))
-            palette.setColor(QPalette.Window, QColor(colors["bg"]))
-            palette.setColor(QPalette.Background, QColor(colors["bg_light"]))
-            palette.setColor(QPalette.Base, QColor(colors["bg"]))
-            palette.setColor(QPalette.AlternateBase, QColor(colors["bg_light"]))
-            palette.setColor(QPalette.ToolTipBase, QColor(colors["bg"]))
-            palette.setColor(QPalette.ToolTipText, QColor(colors["text"]))
-            palette.setColor(QPalette.Button, QColor(colors["button"]))
-            palette.setColor(QPalette.ButtonText, QColor(colors["text_dark"]))
-            palette.setColor(QPalette.Highlight, QColor(colors["bg_dark"]))
-            palette.setColor(QPalette.HighlightedText, QColor(colors["text_dark"]))
-            palette.setColor(QPalette.BrightText, QColor(colors["alert"]))
-            # palette.setColor(QPalette.Active, QPalette.Button, QColor(colors["alert"]))
-            palette.setColor(QPalette.Disabled, QPalette.ButtonText, QtCore.Qt.darkGray)
-            palette.setColor(QPalette.Disabled, QPalette.WindowText, QtCore.Qt.darkGray)
-            palette.setColor(QPalette.Disabled, QPalette.Text, QtCore.Qt.darkGray)
-            palette.setColor(QPalette.Disabled, QPalette.HighlightedText, QtCore.Qt.darkGray)
-            palette.setColor(QPalette.Link, QColor(colors["alert"]))
-
+            palette.setColor(QPalette.Window, colors["bg"])
+            palette.setColor(QPalette.WindowText, colors["text"])
+            palette.setColor(QPalette.Base, colors["bg"])
+            palette.setColor(QPalette.AlternateBase, colors["bg_light"])
+            palette.setColor(QPalette.ToolTipBase, colors["bg"])
+            palette.setColor(QPalette.ToolTipText, colors["text"])
+            palette.setColor(QPalette.Text, colors["text"])
+            palette.setColor(QPalette.Button, colors["button"])
+            palette.setColor(QPalette.ButtonText, colors["text"])
+            palette.setColor(QPalette.BrightText, colors["alert"])
+            palette.setColor(QPalette.Link, colors["text_dark"])
+            palette.setColor(QPalette.Highlight, colors["bg_dark"])
+            palette.setColor(QPalette.HighlightedText, colors["text"])
+            #palette.setColor(QPalette.Active, QPalette.Button, colors["alert"])
+            palette.setColor(QPalette.Disabled, QPalette.ButtonText, colors["text_dark"])
+            palette.setColor(QPalette.Disabled, QPalette.WindowText, colors["text_dark"])
+            palette.setColor(QPalette.Disabled, QPalette.Text, colors["text_dark"])
+            palette.setColor(QPalette.Disabled, QPalette.HighlightedText, colors["text_dark"])
+            palette.setColor(QPalette.Disabled, QPalette.Base, colors["bg_dark"])
             self.app.setPalette(palette)
             QToolTip.setPalette(palette)
         

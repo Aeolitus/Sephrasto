@@ -188,16 +188,16 @@
        <height>0</height>
       </size>
      </property>
-     <property name="toolTip">
-      <string>Der Charakterassistent lebt von Communitybeiträgen. Eigene Spezies/Kulturen/Professionen/Archetypen lassen sich spielend leicht erstellen.
-Finde hier heraus wie: Charakterassistent auf dsaforum.de
-Lege eigene Vorlagen in den Plugins-Ordner den du in den Einstellungen festgelegt hast um diese bei neuen Sephrastoversionen nicht zu verlieren. Sie gehören in den &quot;Plugins/Charakterassistent/Data&quot; Ordner</string>
+     <property name="font">
+      <font>
+       <pointsize>6</pointsize>
+      </font>
      </property>
      <property name="inputMethodHints">
       <set>Qt::ImhNone</set>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:6pt;&quot;&gt;Der Charakterassistent lebt von Communitybeiträgen. Eigene Spezies/Kulturen/Professionen/Archetypen lassen sich spielend leicht erstellen. Finde hier heraus wie und teile deine Kreationen: &lt;/span&gt;&lt;a href=&quot;https://dsaforum.de/viewtopic.php?f=180&amp;amp;t=56703&quot;&gt;&lt;span style=&quot; font-size:6pt; text-decoration: underline; color:#0000ff;&quot;&gt;Charakterassistent auf dsaforum.de&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Der Charakterassistent lebt von Communitybeiträgen. Eigene Spezies/Kulturen/Professionen/Archetypen lassen sich spielend leicht erstellen. Finde hier heraus wie und teile deine Kreationen: &lt;a href=&quot;https://dsaforum.de/viewtopic.php?f=180&amp;amp;t=56703&quot;&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;Charakterassistent auf dsaforum.de&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="textFormat">
       <enum>Qt::RichText</enum>
