@@ -16,6 +16,8 @@ from Hilfsmethoden import Hilfsmethoden
 class EinstellungenWrapper():    
     def __init__(self, plugins):
         super().__init__()
+
+        self.plugins = plugins
         self.form = QtWidgets.QDialog()
         self.ui = Einstellungen.Ui_SettingsWindow()
         self.ui.setupUi(self.form)
@@ -36,7 +38,7 @@ class EinstellungenWrapper():
         self.ui.editPlugins.setText(Wolke.Settings['Pfad-Plugins'])
 
         self.pluginCheckboxes = []
-        self.updatePluginCheckboxes(plugins)
+        self.updatePluginCheckboxes(self.plugins)
         self.updateComboRegelbasis()
             
         self.ui.checkPDFOpen.setChecked(Wolke.Settings['PDF-Open'])
@@ -77,10 +79,12 @@ class EinstellungenWrapper():
             else:
                 Wolke.Settings['Pfad-Regeln'] = ''
 
-            if os.path.isdir(self.ui.editPlugins.text()):
-                Wolke.Settings['Pfad-Plugins'] = self.ui.editPlugins.text()
-            else:
-                Wolke.Settings['Pfad-Plugins'] = ''
+            if self.ui.editPlugins.text() != Wolke.Settings['Pfad-Plugins']:
+                if os.path.isdir(self.ui.editPlugins.text()):
+                    Wolke.Settings['Pfad-Plugins'] = self.ui.editPlugins.text()
+                else:
+                    Wolke.Settings['Pfad-Plugins'] = ''
+                needRestart = True
 
             for checkbox in self.pluginCheckboxes:
                 if checkbox.isChecked() and (checkbox.text() in Wolke.Settings['Deaktivierte-Plugins']):
@@ -256,8 +260,8 @@ class EinstellungenWrapper():
         path = os.path.realpath(path)
         if os.path.isdir(path):
             self.ui.editPlugins.setText(path)
-            self.updatePluginCheckboxes()
-            
+            self.updatePluginCheckboxes([p for p in self.plugins if p.isOfficial])
+
     def resetCharPath(self):
         p = os.path.join(self.settingsFolder, 'Charaktere')
         self.ui.editChar.setText(p)
@@ -270,5 +274,4 @@ class EinstellungenWrapper():
     def resetPluginsPath(self):
         p = os.path.join(self.settingsFolder, 'Plugins')
         self.ui.editPlugins.setText(p)
-        self.updatePluginCheckboxes()
-        
+        self.updatePluginCheckboxes([p for p in self.plugins if p.isOfficial])
