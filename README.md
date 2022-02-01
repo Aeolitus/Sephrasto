@@ -36,7 +36,7 @@ Alternativ zu pip stehen auch Poetry files zur Verfügung. OpenJDK wird für pdf
 
 Gestartet wird Sephrasto dann folgendermaßen:
 ```
-python Sephrasto/Sephrasto.py
+python Sephrasto/src/Sephrasto/Sephrasto.py
 ```
 
 ## Einrichtung von Visual Studio als IDE:
