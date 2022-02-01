@@ -6,12 +6,13 @@ import shutil
 
 print("Cleaning build folder")
 dir_path = os.path.dirname(os.path.realpath(__file__))
-build_path_root = os.path.join(dir_path, "Build")
+build_path_root = os.path.join(dir_path, "..", "..", "build")
 build_path = os.path.join(build_path_root, "Sephrasto")
 platforms_path = os.path.join(build_path, "platforms")
 styles_path = os.path.join(build_path, "styles")
 doc_path = os.path.join(build_path, "Doc")
 bin_path = os.path.join(build_path, "Bin")
+data_path = os.path.join(build_path, "Data")
 env_python_path = os.path.dirname(sys.executable)
 env_plugins_path = os.path.join(env_python_path, "Lib", "site-packages", "PyQt5", "Qt5", "plugins")
 env_styles_path = os.path.join(env_plugins_path, "styles")
@@ -73,11 +74,11 @@ for filename in removeFiles:
 print("Copying additional files to build folder")
 
 includeFiles = {
-    "datenbank.xml" : build_path,
-    "Charakterbogen.pdf" : build_path,
-    "Charakterbogen_lang.pdf" : build_path,
-    "Regeln.pdf" : build_path,
-    "ExtraSpells.pdf" : build_path,
+    os.path.join("Data", "datenbank.xml") : data_path,
+    os.path.join("Data", "Charakterbogen.pdf") : data_path,
+    os.path.join("Data", "Charakterbogen_lang.pdf") : data_path,
+    os.path.join("Data", "Regeln.pdf") : data_path,
+    os.path.join("Data", "ExtraSpells.pdf") : data_path,
     "icon_large.png" : build_path,
     "icon_multi.ico" : build_path,
 }
@@ -86,7 +87,7 @@ if sys.platform == "win32":
         os.path.join(env_styles_path, "qwindowsvistastyle.dll"): styles_path,
         os.path.join(env_bin_path, "libEGL.dll"): build_path,
         "Bin/ImageMagick/convert.exe" : os.path.join(bin_path, "ImageMagick"),
-        "Bin/ImageMagick/LICENSE.txt" : os.path.join(bin_path, "LICENSE.txt")
+        "Bin/ImageMagick/LICENSE.txt" : os.path.join(bin_path, "ImageMagick")
     })
 
 # Include documentation
