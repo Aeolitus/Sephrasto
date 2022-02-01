@@ -29,7 +29,7 @@ CharakterbogenInfo = namedtuple('CharakterbogenInfo', 'filePath maxVorteile maxK
 
 class pdfMeister(object):
 
-    CharakterBogen = CharakterbogenInfo(filePath="Charakterbogen.pdf",
+    CharakterBogen = CharakterbogenInfo(filePath = os.path.join("Data", "Charakterbogen.pdf"),
                                         maxVorteile = 8,
                                         maxKampfVorteile = 16,
                                         maxÜberVorteile = 12,
@@ -40,7 +40,7 @@ class pdfMeister(object):
                                         seitenProfan = 2,
                                         kurzbogenHack=True)
 
-    CharakterBogenLang = CharakterbogenInfo(filePath="Charakterbogen_lang.pdf",
+    CharakterBogenLang = CharakterbogenInfo(filePath = os.path.join("Data", "Charakterbogen_lang.pdf"),
                                         maxVorteile = 24,
                                         maxKampfVorteile = 16,
                                         maxÜberVorteile = 12,
@@ -54,9 +54,9 @@ class pdfMeister(object):
     def __init__(self):
         # Name des Charakterbogens, der verwendet wird (im gleichen Ordner)
         self.CharakterBogen = pdfMeister.CharakterBogen
-        self.ExtraPage = "ExtraSpells.pdf"
+        self.ExtraPage = os.path.join("Data", "ExtraSpells.pdf")
         self.PrintRules = True
-        self.RulesPage = "Regeln.pdf"
+        self.RulesPage = os.path.join("Data", "Regeln.pdf")
         self.Energie = ""
         self.CheatsheetGenerator = CheatsheetGenerator()
         self.MergePerLineCount = 3
@@ -266,44 +266,6 @@ class pdfMeister(object):
         fields['GSm'] = Wolke.Char.gsStern
         fields['WSm'] = Wolke.Char.wsStern
 
-    def groupVorteile(self, vorteile):
-        # Collect a list of Vorteile, where different levels of the same are
-        # combined into one entry and then split them into the three categories
-        vorteileAllgemein = []
-        vorteileKampf = []
-        vorteileUeber = []
-
-        vorteileMergeScript = Wolke.DB.einstellungen["CharsheetVorteileMergeScript"].toText()
-
-        for vort in vorteile:
-            name = self.CheatsheetGenerator.getLinkedName(Wolke.DB.vorteile[vort], forceKommentar=True)
-            scriptVariables = { "char" : Wolke.Char, "name" : vort, "typ" : Wolke.DB.vorteile[vort].typ, "mergeTo" : 0 }
-            exec(vorteileMergeScript, scriptVariables)
-            if scriptVariables["mergeTo"] == 0:
-                vorteileAllgemein.append(name)
-            elif scriptVariables["mergeTo"] == 1:
-                vorteileKampf.append(name)
-            else:
-                vorteileUeber.append(name)
-
-        # Sort them, non-alphabetical sorting due to grouping might confuse
-        vorteileAllgemein.sort(key = str.lower)
-        vorteileKampf.sort(key = str.lower)
-        vorteileUeber.sort(key = str.lower)
-
-        # Move vorteile to the next category if there is overflow
-        maxVort = self.CharakterBogen.maxVorteile * self.MergePerLineCount
-        if len(vorteileAllgemein) > maxVort:
-            vorteileKampf.extend(vorteileAllgemein[maxVort:])
-            del vorteileAllgemein[maxVort:]
-
-        maxVort = self.CharakterBogen.maxKampfVorteile * self.MergePerLineCount
-        if len(vorteileKampf) > maxVort:
-            vorteileUeber.extend(vorteileKampf[maxVort:])
-            del vorteileKampf[maxVort:]
-
-        return (vorteileAllgemein, vorteileKampf, vorteileUeber)
-        
     @staticmethod
     def getCellIndex(numElements, maxCells):
         # This method maps elements to cell indices. It is used to keep alphabetical order in case of overflow
@@ -356,11 +318,22 @@ class pdfMeister(object):
 
     def pdfDritterBlock(self, fields):
         logging.debug("PDF Block 3")
-        vorteile = CharakterPrintUtility.getVorteile(Wolke.Char)
-        grouped = self.groupVorteile(vorteile)
-        self.printVorteile(fields, grouped[0], grouped[1], grouped[2])
+        (vorteileAllgemein, vorteileKampf, vorteileUeber) = CharakterPrintUtility.getVorteile(Wolke.Char)
+
+        # Move vorteile to the next category if there is overflow
+        maxVort = self.CharakterBogen.maxVorteile * self.MergePerLineCount
+        if len(vorteileAllgemein) > maxVort:
+            vorteileKampf.extend(vorteileAllgemein[maxVort:])
+            del vorteileAllgemein[maxVort:]
+
+        maxVort = self.CharakterBogen.maxKampfVorteile * self.MergePerLineCount
+        if len(vorteileKampf) > maxVort:
+            vorteileUeber.extend(vorteileKampf[maxVort:])
+            del vorteileKampf[maxVort:]
+
+        self.printVorteile(fields, vorteileAllgemein, vorteileKampf, vorteileUeber)
         # return uebervorteile - they need to go on extra page if any are left
-        return grouped[2]
+        return vorteileUeber
 
     def printFertigkeiten(self, fields, baseStr, fertigkeitenNames):
         count = 1
@@ -391,7 +364,7 @@ class pdfMeister(object):
                 fields[base + "BA"] = str(fertigkeit.basiswert) + "*"
 
             fields[base + "FW"] = fertigkeit.wert
-            fields[base + "TA"] = CharakterPrintUtility.getTalente(Wolke.Char, fertigkeit)
+            fields[base + "TA"] = ", ".join([t.anzeigeName for t in CharakterPrintUtility.getTalente(Wolke.Char, fertigkeit)])
             fields[base + "PW"] = fertigkeit.probenwert
             fields[base + "PWT"] = fertigkeit.probenwertTalent
             count += 1
@@ -531,9 +504,13 @@ class pdfMeister(object):
 
         for i in range(0, min(self.CharakterBogen.maxÜberTalente, len(überTalente))):
             base = 'Uebertal' + str(i+1)
-            base2 = 'Ubertal' + str(i+1)
+
+            # need to fix both charsheets and extraspells to get rid of this hack...
+            fieldSeite = 'Ubertal' + str(i+1) + 'SE'
+            if i > 24:
+                fieldSeite = "Ueberfer" + str(i+1) + 'FA'
             fields[base + 'NA'] = überTalente[i].anzeigeName
-            fields[base2 + 'SE'] = überTalente[i].se
+            fields[fieldSeite] = überTalente[i].se
             fields[base + 'PW'] = überTalente[i].pw
             fields[base + 'VO'] = überTalente[i].vo
             fields[base + 'WD'] = überTalente[i].wd

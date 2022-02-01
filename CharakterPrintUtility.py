@@ -2,22 +2,44 @@ from Wolke import Wolke
 from Fertigkeiten import VorteilLinkKategorie
 import Talentbox
 import re
+from difflib import SequenceMatcher
+from fractions import Fraction
 
 class CharakterPrintUtility:
     @staticmethod
-    def isLinkedToVorteil(vorteil):
-        if vorteil.linkKategorie == VorteilLinkKategorie.Vorteil:
-            if vorteil.linkElement in Wolke.Char.vorteile:
-                return True
-            return CharakterPrintUtility.isLinkedToVorteil(Wolke.DB.vorteile[vorteil.linkElement])          
+    def getVorteile(char, link = True):
+        # Collect a list of Vorteile, where different levels of the same are
+        # combined into one entry and then split them into the three categories
+        if link:
+            vorteile = [v for v in char.vorteile if not CharakterPrintUtility.__isLinkedToVorteil(char, Wolke.DB.vorteile[v])]
+        else:
+            vorteile = char.vorteile
+        vorteileAllgemein = []
+        vorteileKampf = []
+        vorteileUeber = []
 
-        return False
+        vorteileMergeScript = Wolke.DB.einstellungen["CharsheetVorteileMergeScript"].toText()
+        for vort in vorteile:
+            vorteil = Wolke.DB.vorteile[vort]
+            if link:
+                name = CharakterPrintUtility.getLinkedName(char, vorteil, forceKommentar=True)
+            else:
+                name = vorteil.getFullName(char, forceKommentar)
+            scriptVariables = { "char" : char, "name" : vort, "typ" : vorteil.typ, "mergeTo" : 0 }
+            exec(vorteileMergeScript, scriptVariables)
+            if scriptVariables["mergeTo"] == 0:
+                vorteileAllgemein.append(name)
+            elif scriptVariables["mergeTo"] == 1:
+                vorteileKampf.append(name)
+            else:
+                vorteileUeber.append(name)
 
-    @staticmethod
-    def getVorteile(char):
-        vorteile = [v for v in char.vorteile if not CharakterPrintUtility.isLinkedToVorteil(Wolke.DB.vorteile[v])]
-        vorteile = sorted(vorteile, key = lambda v: (Wolke.DB.vorteile[v].typ, v))
-        return vorteile
+        # Sort them, non-alphabetical sorting due to grouping might confuse
+        vorteileAllgemein.sort(key = str.lower)
+        vorteileKampf.sort(key = str.lower)
+        vorteileUeber.sort(key = str.lower)
+
+        return (vorteileAllgemein, vorteileKampf, vorteileUeber)
 
     @staticmethod
     def getFreieFertigkeiten(char):
@@ -37,27 +59,30 @@ class CharakterPrintUtility:
 
     @staticmethod
     def getTalente(char, fertigkeit):
-        talStr = ""
-        talente = sorted(fertigkeit.gekaufteTalente)
-        for el in talente:
-            talStr += ", "
-            talent = Wolke.DB.talente[el]
-            talStr += talent.getFullName(char).replace(fertigkeit.name + ": ", "")
+        talentBoxes = []
+        talente = fertigkeit.gekaufteTalente.copy()
+        talente.extend([t for t in fertigkeit.talentMods if not t in talente])
+        talente = sorted(talente)
 
+        for el in talente:
+            talent = Wolke.DB.talente[el]
+            tt = Talentbox.Talentbox()
+            tt.na = el
+            tt.pw = fertigkeit.probenwertTalent
+            tt.groupFert = fertigkeit
+            tt.text = talent.text
+
+            tt.anzeigeName = talent.getFullName(char) if el in fertigkeit.gekaufteTalente else el
+            tt.anzeigeName = tt.anzeigeName.replace(fertigkeit.name + ": ", "")
             if el in fertigkeit.talentMods:
                 for condition,mod in sorted(fertigkeit.talentMods[el].items()):
-                    talStr += " " + (condition + " " if condition else "") + ("+" if mod >= 0 else "") + str(mod)
+                    tt.anzeigeName += " " + (condition + " " if condition else "") + ("+" if mod >= 0 else "") + str(mod)        
+            if not el in fertigkeit.gekaufteTalente:
+                tt.anzeigeName = "(" + tt.anzeigeName + ")"
 
-        #Append any talent mods of talents the character doesn't own in parentheses
-        for talentName, talentMods in sorted(fertigkeit.talentMods.items()):
-            if not talentName in talente:
-                talStr += ", (" + talentName
-                for condition,mod in sorted(talentMods.items()):
-                    talStr += " " + (condition + " " if condition else "") + ("+" if mod >= 0 else "") + str(mod)
-                talStr += ")"
+            talentBoxes.append(tt)
 
-        talStr = talStr[2:]
-        return talStr
+        return talentBoxes
 
     @staticmethod
     def getÜberFertigkeiten(char):
@@ -130,3 +155,193 @@ class CharakterPrintUtility:
 
         talentBoxes.sort(key = lambda tt: sortTalents(tt))
         return talentBoxes
+
+    textToFraction = {
+        "ein Achtel" : "1/8",
+        "ein Viertel" : "1/4",
+        "die Hälfte" : "1/2",
+        "drei Viertel" : "3/4",
+    }
+
+    @staticmethod
+    def __prepareDescription(description):
+        #convert text to fractions
+        for k,v in CharakterPrintUtility.textToFraction.items():
+            description = description.replace(k, v)
+
+        #Split by "." or "\n". Match '.' only if not prefixed by S or bzw, alternatively match newline
+        strList = re.split(r'(?<!S)(?<!bzw)\.|\n', description, re.UNICODE)
+        if strList[-1] == "":
+            strList.pop()
+
+        for i in range(len(strList)):
+            strList[i] = strList[i].strip()
+            if strList[i] == "":
+                strList[i] = "\n" #restore newlines
+            else:
+                strList[i] += ". "
+
+        return strList
+
+    @staticmethod
+    def __finalizeDescription(strList):
+        result = ""
+        for text in strList:
+            if text == "\n":
+                result = result.strip() + "\n"
+            else:
+                result += text
+
+        #convert fractions back to text
+        for k,v in CharakterPrintUtility.textToFraction.items():
+            result = result.replace(v, k)
+
+        return result.strip()
+
+    @staticmethod
+    def __mergeDescriptions(str1, str2):
+        #match numbers or fractions, + is ignored, nums with prefix S. are skipped
+        reNumbers = re.compile(r'-?\d+/\d+|-?\d+', re.UNICODE)
+
+        lines1 = CharakterPrintUtility.__prepareDescription(str1)
+        lines2 = CharakterPrintUtility.__prepareDescription(str2)
+
+        for i in range(len(lines1)):
+            if lines1[i] == "\n":
+                continue
+
+            res = reNumbers.findall(lines1[i])
+
+            #case 1: no number contained, just merge duplicate lines
+            if len(res) == 0:
+                for j in range(len(lines2)):
+                    if lines1[i] == lines2[j]:
+                        lines2[j] = "" #will be removed later
+                continue
+
+            #case 2: number(s) contained, merge similar lines by adding numbers
+            values = []
+            for val in res:
+                values.append(Fraction(val))
+
+            tmpLine1 = reNumbers.sub("", lines1[i]) #remove the number before comparing with other lines
+            for j in range(len(lines2)):
+                if lines2[j] == "\n":
+                    continue
+                tmpLine2 = reNumbers.sub("", lines2[j]) #remove the number before comparing with other lines
+
+                if SequenceMatcher(None, tmpLine1, tmpLine2).ratio() > 0.95: #fuzzy compare, 1 in 20 characters may be different
+                    res = reNumbers.findall(lines2[j])
+                    if len(res) != len(values):
+                        continue
+
+                    for k in range(len(res)):
+                        values[k] += Fraction(res[k])
+
+                    #Prefer text from str2 in case of ratio < 1, because higher vorteil levels
+                    #tend to have higher values which leads to plural forms in the text
+                    lines1[i] = lines2[j]
+                    lines2[j] = "" #will be removed later
+
+            #now replace the added numbers
+            subCount = -1
+            def count_repl(mobj):
+                nonlocal subCount
+                subCount += 1
+                return str(values[subCount])
+
+            lines1[i] = reNumbers.sub(count_repl, lines1[i])
+
+        lines2 = [x for x in lines2 if x != ""]
+        if len(lines2) > 0:
+            lines1.append("\n")
+            lines1.extend(lines2)
+        return CharakterPrintUtility.__finalizeDescription(lines1)
+
+    @staticmethod
+    def __isLinkedToVorteil(char, vorteil):
+        if vorteil.linkKategorie == VorteilLinkKategorie.Vorteil:
+            if vorteil.linkElement in char.vorteile:
+                return True
+            return CharakterPrintUtility.__isLinkedToVorteil(char, Wolke.DB.vorteile[vorteil.linkElement])          
+
+        return False
+
+    @staticmethod
+    def isLinkedTo(char, vorteil, kategorie, element):
+        if kategorie == VorteilLinkKategorie.ManöverMod and vorteil.linkKategorie == VorteilLinkKategorie.ManöverMod:
+            return vorteil.linkElement == element
+        elif kategorie == VorteilLinkKategorie.ÜberTalent and vorteil.linkKategorie == VorteilLinkKategorie.ÜberTalent:
+            if vorteil.linkElement == element:
+                for fer in char.übernatürlicheFertigkeiten:
+                    if vorteil.linkElement in char.übernatürlicheFertigkeiten[fer].gekaufteTalente:
+                        return True
+        elif vorteil.linkKategorie == VorteilLinkKategorie.Vorteil:
+            if kategorie == VorteilLinkKategorie.Vorteil and vorteil.linkElement == element and (vorteil.linkElement in char.vorteile):
+                return True
+            if vorteil.linkElement in char.vorteile:
+                return False
+            return CharakterPrintUtility.isLinkedTo(char, Wolke.DB.vorteile[vorteil.linkElement], kategorie, element)            
+
+        return False
+
+    @staticmethod
+    def getLinkedName(char, vorteil, forceKommentar = False):
+        name = vorteil.getFullName(char, forceKommentar)
+        vorteilsnamenErsetzen = [int(typ) for typ in Wolke.DB.einstellungen["CharsheetVorteilsnamenErsetzen"].toTextList()]
+
+        for vor2 in char.vorteile:
+            vorteil2 = Wolke.DB.vorteile[vor2]
+            if CharakterPrintUtility.isLinkedTo(char, vorteil2, VorteilLinkKategorie.Vorteil, vorteil.name):
+                name2 = CharakterPrintUtility.getLinkedName(char, vorteil2, forceKommentar)
+
+                #allgemeine vorteile, kampfstile and traditionen only keep the last name (except vorteil is variable with a comment)
+                if (not (vorteil.name in char.vorteileVariable) or not char.vorteileVariable[vorteil.name].kommentar)\
+                   and (vorteil2.typ in vorteilsnamenErsetzen):
+                    name = name2
+                else:
+                    fullset = [" I", " II", " III", " IV", " V", " VI", " VII"]
+                    basename = ""
+                    for el in fullset:
+                        if vorteil.name.endswith(el): #use name without comment/ep cost to find basename
+                            basename = vorteil.name[:-len(el)]
+                            break
+                    if basename and name2.startswith(basename):
+                        name += "," + name2[len(basename):]
+                    else:
+                        name += ", " + name2
+
+        if "," in name:
+            abbreviations = Wolke.DB.einstellungen["CharsheetVerknüpfungsAbkürzungen"].toTextDict('\n', False)
+            nameStart = name[:name.index(",")]
+            nameAbbreviate = name[name.index(","):]
+            for k,v in abbreviations.items():
+                nameAbbreviate = nameAbbreviate.replace(k, v)
+            name = nameStart + nameAbbreviate
+        return name
+
+    @staticmethod
+    def getLinkedDescription(char, vorteil):
+        beschreibung = vorteil.cheatsheetBeschreibung.replace("\n\n", "\n")
+        if beschreibung:
+            if vorteil.name in char.vorteileVariable:
+                if "$kommentar$" in beschreibung:
+                    beschreibung = beschreibung.replace("$kommentar$", char.vorteileVariable[vorteil.name].kommentar)
+        else:
+            beschreibung = vorteil.text.replace("\n\n", "\n")
+
+        for vor2 in char.vorteile:
+            vorteil2 = Wolke.DB.vorteile[vor2]
+            if CharakterPrintUtility.isLinkedTo(char, vorteil2, VorteilLinkKategorie.Vorteil, vorteil.name):
+                beschreibung2 = CharakterPrintUtility.getLinkedDescription(char, vorteil2)
+
+                if vorteil2.typ == 0:
+                    #allgemeine vorteile replace the description of what they link to (except vorteil is variable with a comment)
+                    if not (vorteil.name in char.vorteileVariable) or not char.vorteileVariable[vorteil.name].kommentar:
+                        beschreibung = beschreibung2
+                    else:
+                        beschreibung += "\n" + beschreibung2
+                else:
+                    beschreibung = CharakterPrintUtility.__mergeDescriptions(beschreibung, beschreibung2)
+
+        return beschreibung
