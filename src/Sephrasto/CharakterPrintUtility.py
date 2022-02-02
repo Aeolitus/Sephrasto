@@ -11,7 +11,7 @@ class CharakterPrintUtility:
         # Collect a list of Vorteile, where different levels of the same are
         # combined into one entry and then split them into the three categories
         if link:
-            vorteile = [v for v in char.vorteile if not CharakterPrintUtility.__isLinkedToVorteil(char, Wolke.DB.vorteile[v])]
+            vorteile = [v for v in char.vorteile if not CharakterPrintUtility.isLinkedToVorteil(char, Wolke.DB.vorteile[v])]
         else:
             vorteile = char.vorteile
         vorteileAllgemein = []
@@ -24,7 +24,7 @@ class CharakterPrintUtility:
             if link:
                 name = CharakterPrintUtility.getLinkedName(char, vorteil, forceKommentar=True)
             else:
-                name = vorteil.getFullName(char, forceKommentar)
+                name = vorteil.getFullName(char)
             scriptVariables = { "char" : char, "name" : vort, "typ" : vorteil.typ, "mergeTo" : 0 }
             exec(vorteileMergeScript, scriptVariables)
             if scriptVariables["mergeTo"] == 0:
@@ -259,11 +259,11 @@ class CharakterPrintUtility:
         return CharakterPrintUtility.__finalizeDescription(lines1)
 
     @staticmethod
-    def __isLinkedToVorteil(char, vorteil):
+    def isLinkedToVorteil(char, vorteil):
         if vorteil.linkKategorie == VorteilLinkKategorie.Vorteil:
             if vorteil.linkElement in char.vorteile:
                 return True
-            return CharakterPrintUtility.__isLinkedToVorteil(char, Wolke.DB.vorteile[vorteil.linkElement])          
+            return CharakterPrintUtility.isLinkedToVorteil(char, Wolke.DB.vorteile[vorteil.linkElement])          
 
         return False
 

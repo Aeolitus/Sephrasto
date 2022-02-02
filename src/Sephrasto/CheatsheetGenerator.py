@@ -302,30 +302,24 @@ class CheatsheetGenerator(object):
                     continue
                 self.RuleCategories.append(self.formatCategory(vorteilTypen[typ]))
                 self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[-1], vorteileGruppiert[typ])
-                pass
             elif r[0] == "M":
                 typ = int(r[1:])
                 if typ >= len(manöverGruppiert):
                     continue
                 self.RuleCategories.append(self.formatCategory(manöverTypen[typ]))
                 self.appendManöver(rules, ruleLineCounts, self.RuleCategories[-1], manöverGruppiert[typ])
-                pass
             elif r[0] == "W":
                 self.RuleCategories.append(self.formatCategory("Waffeneigenschaften"))
                 self.appendWaffeneigenschaften(rules, ruleLineCounts, self.RuleCategories[-1], waffeneigenschaften)
-                pass
             elif r[0] == "Z":
                 self.RuleCategories.append(self.formatCategory("Zauber"))
                 self.appendTalente(rules, ruleLineCounts, self.RuleCategories[-1], zauber)
-                pass
             elif r[0] == "L":
                 self.RuleCategories.append(self.formatCategory("Liturgien"))
                 self.appendTalente(rules, ruleLineCounts, self.RuleCategories[-1], liturgien)
-                pass
             elif r[0] == "A":
                 self.RuleCategories.append(self.formatCategory("Anrufungen"))
                 self.appendTalente(rules, ruleLineCounts, self.RuleCategories[-1], anrufungen)
-                pass
 
         return rules, ruleLineCounts
         
