@@ -214,7 +214,7 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n")
         '''
         Creates the DatenbankEdit Form and shows the contents of datenbank.xml.
         '''
-        self.D = DatenbankEdit.DatenbankEdit()
+        self.D = DatenbankEdit.DatenbankEdit(self._plugins)
         self.D.Form = QtWidgets.QWidget()
         self.D.ui = UI.DatenbankMain.Ui_Form()
         self.D.ui.setupUi(self.D.Form)

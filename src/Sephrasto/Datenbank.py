@@ -7,6 +7,7 @@ from PyQt5 import QtWidgets
 from Wolke import Wolke
 import logging
 from DatenbankEinstellung import DatenbankEinstellung
+from EventBus import EventBus
 
 class DatabaseException(Exception):
     pass
@@ -246,10 +247,12 @@ class Datenbank():
         if os.path.isfile(databasePath):
             self.xmlLadenInternal(databasePath, refDB=True)
             self.loaded = True
+            EventBus.doAction("basisdatenbank_geladen", { "datenbank" : self })
 
         try:   
             if self.datei and os.path.isfile(self.datei):
                 self.xmlLadenInternal(self.datei, refDB=False) 
+                EventBus.doAction("datenbank_geladen", { "datenbank" : self })
         except DatabaseException:
             messagebox = QtWidgets.QMessageBox()
             messagebox.setWindowTitle("Fehler!")

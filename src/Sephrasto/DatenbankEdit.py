@@ -36,8 +36,9 @@ class DatabaseType(object):
         self.showCheckbox = showCheckbox
 
 class DatenbankEdit(object):
-    def __init__(self):
+    def __init__(self, plugins):
         super().__init__()
+        self.plugins = plugins
         self.databaseTypes = {}
         self.datenbank = Datenbank.Datenbank()
         self.savepath = self.datenbank.datei
@@ -45,6 +46,11 @@ class DatenbankEdit(object):
         self.windowTitleDefault = ""
     
     def setupGUI(self):
+        for plugin in [p.plugin for p in self.plugins]:
+            if hasattr(plugin, "createDatabaseButtons"):
+                for button in plugin.createDatabaseButtons():
+                    self.ui.verticalLayout.addWidget(button)
+
         # GUI Mods
         self.model = QtGui.QStandardItemModel(self.ui.listDatenbank)
         self.ui.listDatenbank.setModel(self.model)

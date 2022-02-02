@@ -62,6 +62,10 @@ Zweck: Aktionen durchführen, die nicht mit der Vorteil-Script-API möglich sind
 Zweck: Aktionen durchführen, die nicht mit der Vorteil-Script-API möglich sind. Der "name" Parameter enthält den Namen des Vorteils. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
 - "pdf_geschrieben" (Parameter: { "filename" : string })<br />
 Zweck: Aktion durchführen, nachdem die Charakter-PDF geschrieben wurde, z.B. eine weitere PDF schreiben. Der Parameter enthält den Dateinamen der Charakter-PDF mit absolutem Pfad.
+- "basisdatenbank_geladen" (Parameter: { "datenbank" : Datenbank })<br />
+Zweck: Elemente der Basisdatenbank anpassen/hinzufügen/löschen, bevor die Hausregel-Datenbank geladen wird. Ein übliches Beispiel ist das Hinzufügen von DatenbankEinstellung-Elementen, mit welchen das Plugin konfiguriert werden kann.
+- "datenbank_geladen" (Parameter: { "datenbank" : Datenbank })<br />
+Zweck: Aktion durchführen, nachdem die Datenbank inkl. Hausregeldatenbank komplett geladen wurde. Eine Referenz auf das Datenbank-Objekt erhalten.
 <br />
 ## Vorhandene Filter
 - "pdf_concat" (Filter: filePaths : array)<br />
@@ -170,8 +174,8 @@ class MeinTabWrapper(QtCore.QObject):
 	    pass
 ```
 
-## Hauptfenster oder Charaktereditor Button hinzufügen
-Implementiere in deiner Plugin-Klasse eine Funktion mit dem Namen `createMainWindowButtons` oder `createCharakterButtons` und returne eine Liste von (Button) Widgets. Im `clicked` Event der widgets kannst du einen Handler registrieren, der dann beispielsweise ein neues Fenster zeigt.
+## Hauptfenster, Charaktereditor oder Datenbankeditor Button hinzufügen
+Implementiere in deiner Plugin-Klasse eine Funktion mit dem Namen `createMainWindowButtons`, `createCharakterButtons` oder `createDatabaseButtons` und returne eine Liste von (Button) Widgets. Im `clicked` Event der widgets kannst du einen Handler registrieren, der dann beispielsweise ein neues Fenster zeigt.
 <br />
 ```python
 from PyQt5 import QtWidgets, QtCore, QtGui
