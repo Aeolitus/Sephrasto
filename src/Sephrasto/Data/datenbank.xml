@@ -8813,7 +8813,7 @@ Wirkungsdauer: augenblicklich
 Kosten: 4 KaP
 Fertigkeiten: Gutes Gold
 Erlernen: Kor 12; 0 EP</Talent>
-  <Talent name="Mirakel: Alchemie" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schlaf, Magie" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Alchemie ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Alchemie" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schlaf, Magie" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Alchemie ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8822,7 +8822,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: IN" kosten="20" voraussetzungen="Kein Vorteil Tradition der Firungeweihten I" verbilligt="0" fertigkeiten="Schlaf, Flüsse und Quellen, Jagd, Magie, Wissen, Heilung, List, Ordnung, Harmonie, Sichere Heimkehr, Friede, Stiller Wanderer" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf IN ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: IN" kosten="20" voraussetzungen="Kein Vorteil Tradition der Firungeweihten I" verbilligt="0" fertigkeiten="Schlaf, Flüsse und Quellen, Jagd, Magie, Wissen, Heilung, List, Ordnung, Harmonie, Sichere Heimkehr, Friede, Stiller Wanderer" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf IN ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8831,7 +8831,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Mythenkunde" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schlaf, Wissen, Licht, Heiliges Feuer" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Mythenkunde ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Mythenkunde" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schlaf, Wissen, Licht, Heiliges Feuer" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Mythenkunde ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8840,7 +8840,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: MU" kosten="20" voraussetzungen="Kein Vorteil Tradition der Efferdgeweihten I" verbilligt="0" fertigkeiten="Tod, Wind und Wogen, Wildnis, Heiliges Feuer, Abu al'Mada, Magiebann, Rausch, Ehre, Sichere Heimkehr, Gutes Gold" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf MU ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: MU" kosten="20" voraussetzungen="Kein Vorteil Tradition der Efferdgeweihten I" verbilligt="0" fertigkeiten="Tod, Wind und Wogen, Wildnis, Heiliges Feuer, Abu al'Mada, Magiebann, Rausch, Ehre, Sichere Heimkehr, Gutes Gold" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf MU ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8849,7 +8849,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Wahrnehmung" kosten="20" voraussetzungen="Kein Vorteil Tradition der Firungeweihten I, Kein Vorteil Tradition der Swafnirgeweihten I" verbilligt="0" fertigkeiten="Tod, Wind und Wogen, Jagd, Heilung, Ordnung, Rausch, Sichere Heimkehr" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Wahrnehmung ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Wahrnehmung" kosten="20" voraussetzungen="Kein Vorteil Tradition der Firungeweihten I, Kein Vorteil Tradition der Swafnirgeweihten I" verbilligt="0" fertigkeiten="Tod, Wind und Wogen, Jagd, Heilung, Ordnung, Rausch, Sichere Heimkehr" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Wahrnehmung ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8858,7 +8858,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: CH" kosten="20" voraussetzungen="Kein Vorteil Tradition der Firungeweihten I" verbilligt="0" fertigkeiten="Vergessen, Wildnis, Wissen, Wachstum, Licht, Harmonie, Heim und Herd, Friede, Fröhlicher Wanderer" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf CH ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: CH" kosten="20" voraussetzungen="Kein Vorteil Tradition der Firungeweihten I" verbilligt="0" fertigkeiten="Vergessen, Wildnis, Wissen, Wachstum, Licht, Harmonie, Heim und Herd, Friede, Fröhlicher Wanderer" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf CH ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8867,7 +8867,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Heilkunde" kosten="20" voraussetzungen="Kein Vorteil Tradition der Firungeweihten I" verbilligt="0" fertigkeiten="Vergessen, Wildnis, Heilung, Heim und Herd, Friede" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Heilkunde ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Heilkunde" kosten="20" voraussetzungen="Kein Vorteil Tradition der Firungeweihten I" verbilligt="0" fertigkeiten="Vergessen, Wildnis, Heilung, Heim und Herd, Friede" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Heilkunde ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8876,7 +8876,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: KL" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Vergessen, Wissen, Wachstum" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf KL ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: KL" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Vergessen, Wissen, Wachstum" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf KL ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8885,7 +8885,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: GE" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Seefahrt, Jagd, Nächtlicher Schatten, Rausch, Schutz der Gläubigen, Neubeginn, Fröhlicher Wanderer, Guter Kampf" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf GE ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: GE" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Seefahrt, Jagd, Nächtlicher Schatten, Rausch, Schutz der Gläubigen, Neubeginn, Fröhlicher Wanderer, Guter Kampf" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf GE ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8894,7 +8894,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: KK" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Seefahrt, Winter, Heiliges Feuer, Schutz der Gläubigen, Guter Kampf" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf KK ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: KK" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Seefahrt, Winter, Heiliges Feuer, Schutz der Gläubigen, Guter Kampf" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf KK ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8903,7 +8903,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Athletik" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Seefahrt, Nächtlicher Schatten, Harmonie" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Athletik ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Athletik" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Seefahrt, Nächtlicher Schatten, Harmonie" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Athletik ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8912,7 +8912,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: KO" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Wind und Wogen, Winter, Heiliges Erz, Heerführung, Stiller Wanderer, Guter Kampf" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf KO ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: KO" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Wind und Wogen, Winter, Heiliges Erz, Heerführung, Stiller Wanderer, Guter Kampf" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf KO ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8921,7 +8921,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Selbstbeherrschung" kosten="20" voraussetzungen="Kein Vorteil Tradition der Efferdgeweihten I" verbilligt="0" fertigkeiten="Wind und Wogen, Heiliges Erz, Ehre, Gutes Gold" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Selbstbeherrschung ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Selbstbeherrschung" kosten="20" voraussetzungen="Kein Vorteil Tradition der Efferdgeweihten I" verbilligt="0" fertigkeiten="Wind und Wogen, Heiliges Erz, Ehre, Gutes Gold" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Selbstbeherrschung ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8930,7 +8930,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Überleben" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Wind und Wogen, Wildnis, Stiller Wanderer" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Überleben ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Überleben" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Wind und Wogen, Wildnis, Stiller Wanderer" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Überleben ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8939,7 +8939,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Heimlichkeit" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Jagd, Nächtlicher Schatten" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Heimlichkeit ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Heimlichkeit" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Jagd, Nächtlicher Schatten" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Heimlichkeit ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8948,7 +8948,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Schusswaffen" kosten="20" voraussetzungen="Kein Vorteil Tradition der Ifirngeweihten I" verbilligt="0" fertigkeiten="Jagd" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Schusswaffen ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Schusswaffen" kosten="20" voraussetzungen="Kein Vorteil Tradition der Ifirngeweihten I" verbilligt="0" fertigkeiten="Jagd" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Schusswaffen ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8957,7 +8957,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Wurfwaffen" kosten="20" voraussetzungen="Kein Vorteil Tradition der Ifirngeweihten I" verbilligt="0" fertigkeiten="Jagd" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Wurfwaffen ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Wurfwaffen" kosten="20" voraussetzungen="Kein Vorteil Tradition der Ifirngeweihten I" verbilligt="0" fertigkeiten="Jagd" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Wurfwaffen ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8966,7 +8966,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Magiekunde" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Magie, Magiebann" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Magiekunde ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Magiekunde" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Magie, Magiebann" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Magiekunde ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8975,7 +8975,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: MR" kosten="20" voraussetzungen="Kein Vorteil Tradition der Hesindegeweihten I" verbilligt="0" fertigkeiten="Magie, Wissen, Heiliges Feuer, Abu al'Mada, Magiebann" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf MR ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: MR" kosten="20" voraussetzungen="Kein Vorteil Tradition der Hesindegeweihten I" verbilligt="0" fertigkeiten="Magie, Wissen, Heiliges Feuer, Abu al'Mada, Magiebann" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf MR ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8984,7 +8984,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Autorität" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Wissen, Wachstum, Ordnung, Heerführung, Heim und Herd, Gutes Gold" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Autorität ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Autorität" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Wissen, Wachstum, Ordnung, Heerführung, Heim und Herd, Gutes Gold" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Autorität ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -8993,7 +8993,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Beeinflussung" kosten="20" voraussetzungen="Kein Vorteil Tradition der Hesindegeweihten I" verbilligt="0" fertigkeiten="Wissen, List, Harmonie, Friede, Fröhlicher Wanderer" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Beeinflussung ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Beeinflussung" kosten="20" voraussetzungen="Kein Vorteil Tradition der Hesindegeweihten I" verbilligt="0" fertigkeiten="Wissen, List, Harmonie, Friede, Fröhlicher Wanderer" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Beeinflussung ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9002,7 +9002,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Derekunde" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Wissen, Wachstum, Stiller Wanderer" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Derekunde ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Derekunde" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Wissen, Wachstum, Stiller Wanderer" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Derekunde ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9011,7 +9011,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Hiebwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Heiliges Erz, Schutz der Gläubigen, Guter Kampf" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Hiebwaffen ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Hiebwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Heiliges Erz, Schutz der Gläubigen, Guter Kampf" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Hiebwaffen ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9020,7 +9020,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: FF" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Heiliges Handwerk, Heilung, Nächtlicher Schatten, Heim und Herd, Neubeginn" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf FF ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: FF" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Heiliges Handwerk, Heilung, Nächtlicher Schatten, Heim und Herd, Neubeginn" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf FF ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9029,7 +9029,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Handwerk" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Heiliges Handwerk" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Handwerk ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Handwerk" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Heiliges Handwerk" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Handwerk ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9038,7 +9038,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Verschlagenheit" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Nächtlicher Schatten" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Verschlagenheit ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Verschlagenheit" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Nächtlicher Schatten" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Verschlagenheit ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9047,7 +9047,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Handgemenge" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Guter Kampf" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Handgemenge ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Handgemenge" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Guter Kampf" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Handgemenge ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9056,7 +9056,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Klingenwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Guter Kampf" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Klingenwaffen ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Klingenwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Guter Kampf" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Klingenwaffen ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9065,7 +9065,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Stangenwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Guter Kampf" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Stangenwaffen ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Stangenwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Guter Kampf" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Stangenwaffen ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9074,7 +9074,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Gebräuche" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Sichere Heimkehr, Fröhlicher Wanderer" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Gebräuche ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Gebräuche" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Sichere Heimkehr, Fröhlicher Wanderer" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Gebräuche ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9083,7 +9083,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Erste Fertigkeit nach Wahl" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Neubeginn" variable="0" kommentar="1" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf die erste Fertigkeit nach Wahl ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Erste Fertigkeit nach Wahl" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Neubeginn" variable="0" kommentar="1" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf die erste Fertigkeit nach Wahl ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9092,7 +9092,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Mirakel: Zweite Fertigkeit nach Wahl" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Neubeginn" variable="0" kommentar="1" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf die zweite Fertigkeit nach Wahl ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: Zweite Fertigkeit nach Wahl" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Neubeginn" variable="0" kommentar="1" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf die zweite Fertigkeit nach Wahl ist um +4 Punkte erleichtert.
 Mächtige Liturgie: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9101,7 +9101,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 KaP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Alchemie" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Alchemie ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Alchemie" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Alchemie ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9110,7 +9110,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: IN" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf IN ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: IN" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="0" csAuflisten="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf IN ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9119,7 +9119,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Mythenkunde" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Mythenkunde ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Mythenkunde" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Mythenkunde ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9128,7 +9128,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: MU" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf MU ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: MU" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="0" csAuflisten="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf MU ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9137,7 +9137,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Wahrnehmung" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Wahrnehmung ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Wahrnehmung" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Wahrnehmung ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9146,7 +9146,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: CH" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf CH ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: CH" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf CH ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9155,7 +9155,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Heilkunde" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Heilkunde ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Heilkunde" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Heilkunde ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9164,7 +9164,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: KL" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf KL ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: KL" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf KL ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9173,7 +9173,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: GE" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf GE ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: GE" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf GE ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9182,7 +9182,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: KK" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf KK ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: KK" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf KK ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9191,7 +9191,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Athletik" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Athletik ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Athletik" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Athletik ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9200,7 +9200,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: KO" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf KO ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: KO" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf KO ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9209,7 +9209,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Selbstbeherrschung" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Selbstbeherrschung ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Selbstbeherrschung" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Selbstbeherrschung ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9218,7 +9218,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Überleben" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Überleben ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Überleben" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Überleben ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9227,7 +9227,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Heimlichkeit" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Heimlichkeit ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Heimlichkeit" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Heimlichkeit ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9236,7 +9236,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Schusswaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Schusswaffen ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Schusswaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Schusswaffen ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9245,7 +9245,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Wurfwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Wurfwaffen ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Wurfwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Wurfwaffen ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9254,7 +9254,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Magiekunde" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Magiekunde ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Magiekunde" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Magiekunde ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9263,7 +9263,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: MR" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf MR ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: MR" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf MR ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9272,7 +9272,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Autorität" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Autorität ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Autorität" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Autorität ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9281,7 +9281,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Beeinflussung" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Beeinflussung ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Beeinflussung" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Beeinflussung ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9290,7 +9290,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Derekunde" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Derekunde ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Derekunde" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Derekunde ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9299,7 +9299,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Hiebwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Hiebwaffen ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Hiebwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Hiebwaffen ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9308,7 +9308,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: FF" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf FF ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: FF" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf FF ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9317,7 +9317,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Handwerk" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Handwerk ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Handwerk" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Handwerk ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9326,7 +9326,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Verschlagenheit" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Verschlagenheit ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Verschlagenheit" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Verschlagenheit ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9335,7 +9335,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Handgemenge" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Handgemenge ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Handgemenge" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Handgemenge ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9344,7 +9344,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Klingenwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Klingenwaffen ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Klingenwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Klingenwaffen ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9353,7 +9353,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Stangenwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Stangenwaffen ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Stangenwaffen" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Stangenwaffen ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9362,7 +9362,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Gebräuche" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Gebräuche ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Gebräuche" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf Gebräuche ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9371,7 +9371,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Erste Fertigkeit nach Wahl" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="1" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf die erste Fertigkeit nach Wahl ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Erste Fertigkeit nach Wahl" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="1" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf die erste Fertigkeit nach Wahl ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -9380,7 +9380,7 @@ Reichweite: Berührung
 Wirkungsdauer: 4 Minuten
 Kosten: 4 GuP
 Erlernen: 20 EP</Talent>
-  <Talent name="Dämonische Stärkung: Zweite Fertigkeit nach Wahl" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="1" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf die zweite Fertigkeit nach Wahl ist um +4 Punkte erleichtert.
+  <Talent name="Dämonische Stärkung: Zweite Fertigkeit nach Wahl" kosten="20" voraussetzungen="" verbilligt="0" fertigkeiten="" variable="0" kommentar="1" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf die zweite Fertigkeit nach Wahl ist um +4 Punkte erleichtert.
 Mächtige Anrufung: Erhöht die Erleichterung um +2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
