@@ -256,9 +256,8 @@ Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
         self.ui.spinRemaining.setEnabled(not show)
         self.ui.spinSpent.setEnabled(not show)
         self.ui.checkReq.setEnabled(not show)
-        self.ui.buttonQuicksave.setVisible(not show)
-        self.ui.buttonSave.setVisible(not show)
-        self.ui.buttonSavePDF.setVisible(not show)
+        for i in range(1, self.ui.horizontalLayout_3.count()): 
+            self.ui.horizontalLayout_3.itemAt(i).widget().setVisible(not show)
         self.ui.progressBar.setVisible(show)
       
     def pdfMeisterProgressCallback(self, progress):
