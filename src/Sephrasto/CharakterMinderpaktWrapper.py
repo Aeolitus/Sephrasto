@@ -22,7 +22,7 @@ class CharakterMinderpaktWrapper():
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
         
-        self.vorteilTypen = Wolke.DB.einstellungen["VorteilsTypen"].toTextList()
+        self.vorteilTypen = Wolke.DB.einstellungen["Vorteile: Typen"].toTextList()
         self.uiVor.treeWidget.itemSelectionChanged.connect(self.vortClicked)
         self.uiVor.treeWidget.header().setSectionResizeMode(0,1)
         if len(Wolke.Char.vorteile) > 0:

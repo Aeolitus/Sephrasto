@@ -265,7 +265,7 @@ class EquipWrapper(QtCore.QObject):
                 W.eigenschaften = list(map(str.strip, self.editEig[index].text().strip().rstrip(",").split(",")))
             W.kampfstil = self.comboStil[index].currentText()
 
-            waffenHaerteWSStern = Wolke.DB.einstellungen["WaffenHärteWSStern"].toTextList()
+            waffenHaerteWSStern = Wolke.DB.einstellungen["Waffen: Härte WSStern"].toTextList()
             if W.name in waffenHaerteWSStern:
                 W.haerte = Wolke.Char.wsStern
             else:
@@ -325,7 +325,7 @@ class EquipWrapper(QtCore.QObject):
         self.editEig[index].setText(", ".join(W.eigenschaften))
         self.spinW6[index].setValue(W.W6)
         self.spinPlus[index].setValue(W.plus)
-        waffenHaerteWSStern = Wolke.DB.einstellungen["WaffenHärteWSStern"].toTextList()
+        waffenHaerteWSStern = Wolke.DB.einstellungen["Waffen: Härte WSStern"].toTextList()
         if W.name in waffenHaerteWSStern:
             self.spinHaerte[index].setValue(Wolke.Char.wsStern)
             self.spinHaerte[index].setEnabled(False)

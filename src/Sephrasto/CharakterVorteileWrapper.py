@@ -22,7 +22,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
         self.uiVor = UI.CharakterVorteile.Ui_Form()
         self.uiVor.setupUi(self.formVor)
         
-        self.vorteilTypen = Wolke.DB.einstellungen["VorteilsTypen"].toTextList()
+        self.vorteilTypen = Wolke.DB.einstellungen["Vorteile: Typen"].toTextList()
         self.uiVor.treeWidget.itemSelectionChanged.connect(self.vortClicked)
         self.uiVor.treeWidget.itemChanged.connect(self.itemChangeHandler)
         self.uiVor.treeWidget.header().setSectionResizeMode(0,1)

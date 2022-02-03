@@ -38,7 +38,7 @@ class DatenbankEditFreieFertigkeitWrapper(object):
         self.ui.leName.textChanged.connect(self.nameChanged)
         self.nameChanged()
 
-        ffTypen = datenbank.einstellungen["FreieFertigkeitsTypen"].toTextList()
+        ffTypen = datenbank.einstellungen["FreieFertigkeiten: Typen"].toTextList()
         self.ui.comboTyp.addItems(ffTypen)
         self.ui.comboTyp.setCurrentText(fert.kategorie)       
         self.ui.teVoraussetzungen.setPlainText(Hilfsmethoden.VorArray2Str(fert.voraussetzungen, None))

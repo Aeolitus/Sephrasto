@@ -41,10 +41,11 @@ class Datenbank():
         #In dieser Funktion kann dann die UserDB-XML-Datei angepasst werden, bevor sie geladen wird.
         #Da Migrationen hier im Gegensatz zur Charaktermigration nur bei Schema-Änderungen nötig sind, gibt es nichts was wir dem User in einer messagebox zeigen müssten
         #Die Funktionen werden inkrementell ausgeführt, bspw. bei UserDB-Version '0' und DB-Code-Version '2' wird zuerst die Funktion für 1, dann die Funktion für 2 aufgerufen
-        self.datenbankCodeVersion = 1
+        self.datenbankCodeVersion = 2
         self.migrationen = [
             lambda xmlRoot: None, #nichts zu tun, initiale db version
-            self.migriere0zu1,     
+            self.migriere0zu1,    
+            self.migriere1zu2
         ]
         if not self.migrationen[self.datenbankCodeVersion]:
             raise Exception("Migrations-Code vergessen.")
@@ -291,6 +292,18 @@ class Datenbank():
             wa.attrib.pop('kraf')
             wa.attrib.pop('schn')
             wa.set('kampfstile', ", ".join(kampfstile))
+
+    def migriere1zu2(self, root):
+        # Apply the added attributes to the user database to make their life easier
+        for ta in root.findall('Talent'):
+            name = ta.get('name')
+            if name in self.talente:
+                ta.set('referenzbuch', '0')
+                ta.set('referenzseite', str(self.talente[name].referenzSeite))
+        for fe in root.findall('Übernatürliche-Fertigkeit'):
+            name = fe.get('name')
+            if name in self.übernatürlicheFertigkeiten and self.übernatürlicheFertigkeiten[name].talenteGruppieren:
+                fe.set('talentegruppieren', '1')
 
     def xmlLadenInternal(self, file, refDB):
         Wolke.Fehlercode = -20

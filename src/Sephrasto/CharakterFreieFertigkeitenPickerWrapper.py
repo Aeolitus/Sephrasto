@@ -25,8 +25,8 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
         
-        self.kategorien = Wolke.DB.einstellungen["FreieFertigkeitsTypen"].toTextList()
-        self.abbreviations = Wolke.DB.einstellungen["FreieFertigkeitenTypAbkürzungen"].toTextDict('\n', False)
+        self.kategorien = Wolke.DB.einstellungen["FreieFertigkeiten: Typen"].toTextList()
+        self.abbreviations = Wolke.DB.einstellungen["FreieFertigkeiten: Typ-Abkürzungen"].toTextDict('\n', False)
 
         self.populateTree()
 

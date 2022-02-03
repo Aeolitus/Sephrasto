@@ -41,7 +41,7 @@ class DatenbankEditVorteilWrapper(object):
         self.ui.kostenEdit.setValue(vorteil.kosten)
         self.ui.comboNachkauf.setCurrentText(vorteil.nachkauf)
 
-        self.ui.comboTyp.addItems(datenbank.einstellungen["VorteilsTypen"].toTextList())
+        self.ui.comboTyp.addItems(datenbank.einstellungen["Vorteile: Typen"].toTextList())
         self.ui.comboTyp.setCurrentIndex(vorteil.typ)
 
         self.ui.voraussetzungenEdit.setPlainText(Hilfsmethoden.VorArray2Str(vorteil.voraussetzungen, None))

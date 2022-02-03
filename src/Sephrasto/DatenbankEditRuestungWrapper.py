@@ -45,7 +45,7 @@ class DatenbankEditRuestungWrapper(object):
         self.ui.sbBrust.valueChanged.connect(self.rsChanged)
         self.ui.sbKopf.valueChanged.connect(self.rsChanged)
 
-        self.ui.cbTyp.addItems(datenbank.einstellungen["RüstungsTypen"].toTextList())
+        self.ui.cbTyp.addItems(datenbank.einstellungen["Rüstungen: Typen"].toTextList())
         self.ui.cbTyp.setCurrentIndex(ruestung.typ)
         self.ui.cbSystem.setCurrentIndex(ruestung.system)
         self.ui.sbBeine.setValue(ruestung.rs[0])

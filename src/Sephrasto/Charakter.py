@@ -81,7 +81,7 @@ class Char():
         self.attribute = {}
         for key in Definitionen.Attribute.keys():
             self.attribute[key] = Fertigkeiten.Attribut(key)
-            self.attribute[key].steigerungsfaktor = Wolke.DB.einstellungen["AttributeSteigerungsfaktor"].toInt()
+            self.attribute[key].steigerungsfaktor = Wolke.DB.einstellungen["Attribute: Steigerungsfaktor"].toInt()
         self.wsBasis = -1
         self.ws = -1
         self.wsStern = -1
@@ -98,11 +98,11 @@ class Char():
         self.iniBasis = -1
         self.ini = -1
         self.asp = Fertigkeiten.Energie()
-        self.asp.steigerungsfaktor = Wolke.DB.einstellungen["EnergienSteigerungsfaktor"].toInt()
+        self.asp.steigerungsfaktor = Wolke.DB.einstellungen["Energien: Steigerungsfaktor"].toInt()
         self.aspBasis = 0
         self.aspMod = 0
         self.kap = Fertigkeiten.Energie()
-        self.kap.steigerungsfaktor = Wolke.DB.einstellungen["EnergienSteigerungsfaktor"].toInt()
+        self.kap.steigerungsfaktor = Wolke.DB.einstellungen["Energien: Steigerungsfaktor"].toInt()
         self.kapBasis = 0
         self.kapMod = 0
         
@@ -115,10 +115,10 @@ class Char():
         #Vierter Block: Fertigkeiten und Freie Fertigkeiten
         self.fertigkeiten = copy.deepcopy(Wolke.DB.fertigkeiten)
         self.freieFertigkeiten = []
-        self.freieFertigkeitenNumKostenlos = Wolke.DB.einstellungen["FreieFertigkeitenAnzahlKostenlos"].toInt()
-        self.freieFertigkeitKosten = [Wolke.DB.einstellungen["FreieFertigkeitenKostenStufe1"].toInt(),
-                                      Wolke.DB.einstellungen["FreieFertigkeitenKostenStufe2"].toInt(),
-                                      Wolke.DB.einstellungen["FreieFertigkeitenKostenStufe3"].toInt()]
+        self.freieFertigkeitenNumKostenlos = Wolke.DB.einstellungen["FreieFertigkeiten: Anzahl Kostenlos"].toInt()
+        self.freieFertigkeitKosten = [Wolke.DB.einstellungen["FreieFertigkeiten: Kosten Stufe1"].toInt(),
+                                      Wolke.DB.einstellungen["FreieFertigkeiten: Kosten Stufe2"].toInt(),
+                                      Wolke.DB.einstellungen["FreieFertigkeiten: Kosten Stufe3"].toInt()]
         self.freieFertigkeitKosten[1] += self.freieFertigkeitKosten[0]
         self.freieFertigkeitKosten[2] += self.freieFertigkeitKosten[1]
         self.talenteVariable = {} #Contains Name: VariableKosten
@@ -425,28 +425,28 @@ class Char():
             self.attribute[key].aktualisieren()
 
         scriptAPI = { 'getAttribut' : lambda attribut: self.attribute[attribut].wert }
-        self.aspBasis = eval(Wolke.DB.einstellungen["BasisAsPScript"].toText(), scriptAPI)
+        self.aspBasis = eval(Wolke.DB.einstellungen["Basis AsP Script"].toText(), scriptAPI)
         self.aspMod = 0
 
-        self.kapBasis = eval(Wolke.DB.einstellungen["BasisKaPScript"].toText(), scriptAPI)
+        self.kapBasis = eval(Wolke.DB.einstellungen["Basis KaP Script"].toText(), scriptAPI)
         self.kapMod = 0
 
-        self.wsBasis = eval(Wolke.DB.einstellungen["BasisWSScript"].toText(), scriptAPI)
+        self.wsBasis = eval(Wolke.DB.einstellungen["Basis WS Script"].toText(), scriptAPI)
         self.ws = self.wsBasis
 
-        self.mrBasis = eval(Wolke.DB.einstellungen["BasisMRScript"].toText(), scriptAPI)
+        self.mrBasis = eval(Wolke.DB.einstellungen["Basis MR Script"].toText(), scriptAPI)
         self.mr = self.mrBasis
 
-        self.gsBasis = eval(Wolke.DB.einstellungen["BasisGSScript"].toText(), scriptAPI)
+        self.gsBasis = eval(Wolke.DB.einstellungen["Basis GS Script"].toText(), scriptAPI)
         self.gs = self.gsBasis
 
-        self.iniBasis = eval(Wolke.DB.einstellungen["BasisINIScript"].toText(), scriptAPI)
+        self.iniBasis = eval(Wolke.DB.einstellungen["Basis INI Script"].toText(), scriptAPI)
         self.ini = self.iniBasis     
         
-        self.dhBasis = eval(Wolke.DB.einstellungen["BasisDHScript"].toText(), scriptAPI)
+        self.dhBasis = eval(Wolke.DB.einstellungen["Basis DH Script"].toText(), scriptAPI)
         self.dh = self.dhBasis
 
-        self.schadensbonusBasis = eval(Wolke.DB.einstellungen["BasisSchadensbonusScript"].toText(), scriptAPI)
+        self.schadensbonusBasis = eval(Wolke.DB.einstellungen["Basis Schadensbonus Script"].toText(), scriptAPI)
         self.schadensbonus = self.schadensbonusBasis
 
         self.schipsMax = 4
@@ -522,7 +522,7 @@ class Char():
     def updateWaffenwerte(self):
         self.waffenwerte = []
 
-        fertsSB = Wolke.DB.einstellungen["FertigkeitenSchadensbonus"].toTextList()
+        fertsSB = Wolke.DB.einstellungen["Fertigkeiten: Schadensbonus"].toTextList()
         for el in self.waffen:
             waffenwerte = Waffenwerte()
             self.waffenwerte.append(waffenwerte)
@@ -599,9 +599,9 @@ class Char():
         if Wolke.DB.talente[talent].kosten != -1:
             cost = Wolke.DB.talente[talent].kosten
         elif Wolke.DB.talente[talent].verbilligt:
-            cost = Wolke.DB.einstellungen["TalenteVerbilligtSteigerungsfaktorMulti"].toInt()*steigerungsfaktor
+            cost = Wolke.DB.einstellungen["Talente: SteigerungsfaktorMulti Verbilligt"].toInt()*steigerungsfaktor
         else:
-            cost = Wolke.DB.einstellungen["TalenteSteigerungsfaktorMulti"].toInt()*steigerungsfaktor
+            cost = Wolke.DB.einstellungen["Talente: SteigerungsfaktorMulti"].toInt()*steigerungsfaktor
 
         cost = EventBus.applyFilter("talent_kosten", cost, { "charakter" : self, "talent": talent })
         return cost

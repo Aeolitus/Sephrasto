@@ -37,7 +37,7 @@ class RuestungPicker(object):
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
         
-        self.ruestungsTypen = Wolke.DB.einstellungen["RüstungsTypen"].toTextList()
+        self.ruestungsTypen = Wolke.DB.einstellungen["Rüstungen: Typen"].toTextList()
 
         if ruestung is not None and ruestung != "":
             self.replaceButton = QtWidgets.QPushButton("Rüstung ersetzen")

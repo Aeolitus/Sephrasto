@@ -59,9 +59,9 @@ class DatenbankEditFertigkeitWrapper(object):
         self.ui.textEdit.setPlainText(fertigkeit.text)
 
         if ueber:
-            fertigkeitsTypen = datenbank.einstellungen["FertigkeitsTypenÜbernatürlich"].toTextList()
+            fertigkeitsTypen = datenbank.einstellungen["Fertigkeiten: Typen übernatürlich"].toTextList()
         else:
-            fertigkeitsTypen = datenbank.einstellungen["FertigkeitsTypenProfan"].toTextList()
+            fertigkeitsTypen = datenbank.einstellungen["Fertigkeiten: Typen profan"].toTextList()
         self.ui.comboTyp.addItems(fertigkeitsTypen)
         self.ui.comboTyp.setCurrentIndex(fertigkeit.printclass)
 

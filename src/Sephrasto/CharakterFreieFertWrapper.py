@@ -22,9 +22,9 @@ class CharakterFreieFertWrapper(QtCore.QObject):
         self.uiFert = UI.CharakterFreieFert.Ui_Form()
         self.uiFert.setupUi(self.formFert)
 
-        kosten = [str(Wolke.DB.einstellungen["FreieFertigkeitenKostenStufe1"].toInt()),
-                  str(Wolke.DB.einstellungen["FreieFertigkeitenKostenStufe2"].toInt()),
-                  str(Wolke.DB.einstellungen["FreieFertigkeitenKostenStufe3"].toInt())]
+        kosten = [str(Wolke.DB.einstellungen["FreieFertigkeiten: Kosten Stufe1"].toInt()),
+                  str(Wolke.DB.einstellungen["FreieFertigkeiten: Kosten Stufe2"].toInt()),
+                  str(Wolke.DB.einstellungen["FreieFertigkeiten: Kosten Stufe3"].toInt())]
         self.uiFert.labelRegeln.setText(self.uiFert.labelRegeln.text() +
                                         " Sie kosten jeweils " + kosten[0] + "/" + kosten[1] + "/" + kosten[2] + " EP.")
 

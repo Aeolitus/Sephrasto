@@ -21,7 +21,7 @@ class CheatsheetGenerator(object):
             self.RulesLineCount = 60
             self.RulesCharCount = 45
 
-        self.reihenfolge = Wolke.DB.einstellungen["RegelanhangReihenfolge"].toTextList()
+        self.reihenfolge = Wolke.DB.einstellungen["Regelanhang: Reihenfolge"].toTextList()
         self.aktiveManöverTypen = [int(m[1:]) for m in self.reihenfolge if m[0] == "M"]
         self.aktiveVorteilTypen = [int(v[1:]) for v in self.reihenfolge if v[0] == "V"]
 
@@ -229,57 +229,20 @@ class CheatsheetGenerator(object):
                 except WaffeneigenschaftException:
                     pass      
         
-        fertigkeitsTypen = Wolke.DB.einstellungen["FertigkeitsTypenÜbernatürlich"].toTextList()
+        fertigkeitsTypen = Wolke.DB.einstellungen["Fertigkeiten: Typen übernatürlich"].toTextList()
         talentboxList = CharakterPrintUtility.getÜberTalente(Wolke.Char)
-        zauber = []
-        liturgien = []
-        anrufungen = []
-        # We don't know which of the above types a talent is, so have have to guess... should work 99.99%
-        for tal in talentboxList:
-            if " asp" in tal.ko.lower():
-                zauber.append(tal)
-            elif " kap" in tal.ko.lower():
-                liturgien.append(tal)
-            elif " gup" in tal.ko.lower():
-                anrufungen.append(tal)
-            else:
-                fertTyp = fertigkeitsTypen[tal.groupFert.printclass]
-                if "zauber" in fertTyp.lower():
-                    zauber.append(tal)
-                elif "liturgie" in fertTyp.lower():
-                    liturgien.append(tal)
-                elif "anrufung" in fertTyp.lower():
-                    anrufungen.append(tal)
-                elif ("Zauberer I" in Wolke.Char.vorteile) or ("Tradition der Borbaradianer I" in Wolke.Char.vorteile):
-                    zauber.append(tal)
-                elif "Geweiht I" in Wolke.Char.vorteile:
-                    liturgien.append(tal)
-                elif "Paktierer I" in Wolke.Char.vorteile:
-                    anrufungen.append(tal)
-                else:
-                    zauber.append(tal)
+        (zauber, liturgien, anrufungen) = CharakterPrintUtility.groupUeberTalente(talentboxList)
 
         rules = []
         ruleLineCounts = []
 
-        vorteileMergeScript = Wolke.DB.einstellungen["RegelanhangVorteileMergeScript"].toText()
-        manöverMergeScript = Wolke.DB.einstellungen["RegelanhangManöverMergeScript"].toText()
-        vorteilTypen = Wolke.DB.einstellungen["VorteilsTypen"].toTextList()
-        manöverTypen = Wolke.DB.einstellungen["ManöverTypen"].toTextList()
+        manöverMergeScript = Wolke.DB.einstellungen["Regelanhang: Manöver Mergescript"].toText()
+        vorteilTypen = Wolke.DB.einstellungen["Vorteile: Typen"].toTextList()
+        manöverTypen = Wolke.DB.einstellungen["Manöver: Typen"].toTextList()
 
         vorteileGruppiert = []
         for i in range(len(vorteilTypen)):
-            vorteileGruppiert.append([])
-        for i in range(len(vorteilTypen)):
-            scriptVariables = { "char" : Wolke.Char, "typ" : i, "mergeTo" : i }
-            exec(vorteileMergeScript, scriptVariables)
-            mergeTo = scriptVariables["mergeTo"]
-            if mergeTo >= len(vorteilTypen):
-                mergeTo = i
-            empty = len(vorteileGruppiert[mergeTo]) == 0
-            vorteileGruppiert[mergeTo].extend([el for el in sortV if Wolke.DB.vorteile[el].typ == i])
-            if not empty:
-                vorteileGruppiert[mergeTo] = sorted(vorteileGruppiert[mergeTo])
+            vorteileGruppiert.append([el for el in sortV if Wolke.DB.vorteile[el].typ == i])
 
         manöverGruppiert = []
         for i in range(len(manöverTypen)):

@@ -318,7 +318,8 @@ class pdfMeister(object):
 
     def pdfDritterBlock(self, fields):
         logging.debug("PDF Block 3")
-        (vorteileAllgemein, vorteileKampf, vorteileUeber) = CharakterPrintUtility.getVorteile(Wolke.Char)
+        vorteile = CharakterPrintUtility.getVorteile(Wolke.Char)
+        (vorteileAllgemein, vorteileKampf, vorteileUeber) = CharakterPrintUtility.groupVorteile(Wolke.Char, vorteile, link = True)
 
         # Move vorteile to the next category if there is overflow
         maxVort = self.CharakterBogen.maxVorteile * self.MergePerLineCount
@@ -446,7 +447,7 @@ class pdfMeister(object):
                 fields[base + 'ATm'] = str(waffenwerte.AT)
 
                 fields[base + 'VTm'] = str(waffenwerte.VT)
-                vtVerboten = Wolke.DB.einstellungen["WaffenTalenteVTVerboten"].toTextList()
+                vtVerboten = Wolke.DB.einstellungen["Waffen: Talente VT verboten"].toTextList()
                 if el.name in Wolke.DB.waffen:
                     waffe = Wolke.DB.waffen[el.name]
                     if waffe.talent in vtVerboten or waffe.name in vtVerboten:
@@ -499,8 +500,8 @@ class pdfMeister(object):
         del überFertigkeiten[:min(self.CharakterBogen.maxÜberFertigkeiten, len(überFertigkeiten))]
 
     def printÜberTalente(self, fields, überTalente):
-        wdAbbreviations = Wolke.DB.einstellungen["CharsheetTalentAbkürzungenWirkungsdauer"].toTextDict('\n', False)
-        koAbbreviations = Wolke.DB.einstellungen["CharsheetTalentAbkürzungenKosten"].toTextDict('\n', False)
+        wdAbbreviations = Wolke.DB.einstellungen["Charsheet: Talent-Abkürzungen Wirkungsdauer"].toTextDict('\n', False)
+        koAbbreviations = Wolke.DB.einstellungen["Charsheet: Talent-Abkürzungen Kosten"].toTextDict('\n', False)
 
         for i in range(0, min(self.CharakterBogen.maxÜberTalente, len(überTalente))):
             base = 'Uebertal' + str(i+1)
@@ -534,7 +535,7 @@ class pdfMeister(object):
 
         # Insert fertigkeit names into talente
         lastGroup = None
-        fertigkeitsTypen = Wolke.DB.einstellungen["FertigkeitsTypenÜbernatürlich"].toTextList()
+        fertigkeitsTypen = Wolke.DB.einstellungen["Fertigkeiten: Typen übernatürlich"].toTextList()
         for talent in überTalenteTmp:
             if lastGroup != talent.groupFert:
                 if lastGroup is None or lastGroup.printclass != talent.groupFert.printclass or talent.groupFert.talenteGruppieren:

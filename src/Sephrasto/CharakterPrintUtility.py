@@ -6,19 +6,23 @@ from difflib import SequenceMatcher
 from fractions import Fraction
 
 class CharakterPrintUtility:
+
     @staticmethod
-    def getVorteile(char, link = True):
+    def getVorteile(char):
+        return sorted(char.vorteile, key = lambda v: (Wolke.DB.vorteile[v].typ, Wolke.DB.vorteile[v].name))
+
+    @staticmethod
+    def groupVorteile(char, vorteile, link = True):
         # Collect a list of Vorteile, where different levels of the same are
         # combined into one entry and then split them into the three categories
         if link:
-            vorteile = [v for v in char.vorteile if not CharakterPrintUtility.isLinkedToVorteil(char, Wolke.DB.vorteile[v])]
-        else:
-            vorteile = char.vorteile
+            vorteile = [v for v in vorteile if not CharakterPrintUtility.isLinkedToVorteil(char, Wolke.DB.vorteile[v])]
+
         vorteileAllgemein = []
         vorteileKampf = []
         vorteileUeber = []
 
-        vorteileMergeScript = Wolke.DB.einstellungen["CharsheetVorteileMergeScript"].toText()
+        vorteileMergeScript = Wolke.DB.einstellungen["Charsheet: Vorteile Mergescript"].toText()
         for vort in vorteile:
             vorteil = Wolke.DB.vorteile[vort]
             if link:
@@ -34,7 +38,7 @@ class CharakterPrintUtility:
             else:
                 vorteileUeber.append(name)
 
-        # Sort them, non-alphabetical sorting due to grouping might confuse
+        # sort again, otherwise they are sorted by vorteil type which is confusing if they go into the same table
         vorteileAllgemein.sort(key = str.lower)
         vorteileKampf.sort(key = str.lower)
         vorteileUeber.sort(key = str.lower)
@@ -155,6 +159,22 @@ class CharakterPrintUtility:
 
         talentBoxes.sort(key = lambda tt: sortTalents(tt))
         return talentBoxes
+
+    @staticmethod
+    def groupUeberTalente(talentboxList):
+        liturgieTypen = [int(t) for t in Wolke.DB.einstellungen["Fertigkeiten: Liturgie-Typen"].toTextList()]
+        anrufungTypen = [int(t) for t in Wolke.DB.einstellungen["Fertigkeiten: Anrufungs-Typen"].toTextList()]
+        zauber = []
+        liturgien = []
+        anrufungen = []
+        for tal in talentboxList:
+            if tal.groupFert is not None and tal.groupFert.printclass in liturgieTypen:
+                liturgien.append(tal)
+            elif tal.groupFert is not None and tal.groupFert.printclass in anrufungTypen:
+                anrufungen.append(tal)
+            else:
+                zauber.append(tal)
+        return (zauber, liturgien, anrufungen)
 
     textToFraction = {
         "ein Achtel" : "1/8",
@@ -288,7 +308,7 @@ class CharakterPrintUtility:
     @staticmethod
     def getLinkedName(char, vorteil, forceKommentar = False):
         name = vorteil.getFullName(char, forceKommentar)
-        vorteilsnamenErsetzen = [int(typ) for typ in Wolke.DB.einstellungen["CharsheetVorteilsnamenErsetzen"].toTextList()]
+        vorteilsnamenErsetzen = [int(typ) for typ in Wolke.DB.einstellungen["Regelanhang: Vorteilsnamen ersetzen"].toTextList()]
 
         for vor2 in char.vorteile:
             vorteil2 = Wolke.DB.vorteile[vor2]
@@ -312,7 +332,7 @@ class CharakterPrintUtility:
                         name += ", " + name2
 
         if "," in name:
-            abbreviations = Wolke.DB.einstellungen["CharsheetVerknüpfungsAbkürzungen"].toTextDict('\n', False)
+            abbreviations = Wolke.DB.einstellungen["Charsheet: Verknüpfungs-Abkürzungen"].toTextDict('\n', False)
             nameStart = name[:name.index(",")]
             nameAbbreviate = name[name.index(","):]
             for k,v in abbreviations.items():
