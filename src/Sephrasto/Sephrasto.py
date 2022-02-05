@@ -149,10 +149,10 @@ class MainWindowWrapper(object):
         '''
         Creates a new CharakterEditor which is empty and shows it.
         '''
+        EventBus.doAction("charaktereditor_oeffnet", { "neu" : True, "filepath" : "" })
         self.ed = CharakterEditor.Editor(self._plugins, self.savePathUpdated)
         if self.ed.noDatabase:
             raise Exception("Konnte datenbank.xml nicht finden")
-        EventBus.doAction("charaktereditor_oeffnet", { "neu" : True, "filepath" : "" })
         self.ed.formMain = QtWidgets.QWidget()
         self.ed.ui = UI.CharakterMain.Ui_formMain()
         self.ed.ui.setupUi(self.ed.formMain)
