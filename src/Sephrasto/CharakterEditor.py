@@ -6,6 +6,9 @@ Created on Sun Feb 26 22:36:35 2017
 """
 
 from PyQt5 import QtWidgets, QtCore
+from PyQt5.QtGui import QCursor
+from PyQt5.QtWidgets import QApplication
+from PyQt5.QtCore import Qt
 import CharakterBeschreibungWrapper
 import CharakterAttributeWrapper
 import CharakterEquipmentWrapper
@@ -251,6 +254,11 @@ Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
         self.changed = False
 
     def showProgressBar(self, show):
+        if show:
+            QApplication.setOverrideCursor(QCursor(Qt.WaitCursor))
+        else:
+            QApplication.restoreOverrideCursor()
+
         self.ui.tabs.setEnabled(not show)
         self.ui.spinEP.setEnabled(not show)
         self.ui.spinRemaining.setEnabled(not show)
