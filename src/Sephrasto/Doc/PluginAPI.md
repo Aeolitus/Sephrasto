@@ -68,14 +68,20 @@ Zweck: Elemente der Basisdatenbank anpassen/hinzufügen/löschen, bevor die Haus
 Zweck: Aktion durchführen, nachdem die Datenbank inkl. Hausregeldatenbank komplett geladen wurde. Eine Referenz auf das Datenbank-Objekt erhalten.
 <br />
 ## Vorhandene Filter
-- "pdf_concat" (Filter: filePaths : array)<br />
+- "pdf_concat" (Filter: filePaths : array of string)<br />
 Zweck: Sephrasto fügt zum Schluss alle generierten Einzelseiten zusammen. Diese Liste von Einzelseiten kann hiermit manipuliert werden, z.B. um weitere Seiten einzufügen.
-- "pdf_export" (Filter: pdfFields : dict)<br />
+- "pdf_export" (Filter: pdfFields : dict of {string : string})<br />
 Zweck: von Sephrasto generierte PDF-Felder vor dem Exportieren der PDF modifizieren
 - "charakter_xml_laden" (Filter: xmlRoot : etree.Element, Parameter: { "charakter" : Char })<br />
 Zweck: Daten aus der Charakterdatei auslesen oder modifizieren, bevor Sephrasto sie liest. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
 - "charakter_xml_schreiben" (Filter: xmlRoot : etree.Element, Parameter: { "charakter" : Char })<br />
 Zweck: Der Charakterdatei Daten hinzufügen oder Daten modifizieren, bevor Sephrasto die Datei schreibt. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
+- "datenbank_xml_laden" (Filter: xmlRoot : etree.Element, Parameter: { "datenbank" : Datenbank, "basisdatenbank" : bool })<br />
+Zweck: Daten aus der Datenbank-Datei auslesen oder modifizieren, bevor Sephrasto sie liest. Der "basisdatenbank"-Parameter enthält die Information, ob es sich um die Basisdatenbank- oder eine Hausregeldatenbank-Datei handelt.
+- "datenbank_xml_schreiben" (Filter: xmlRoot : etree.Element, Parameter: { "datenbank" : Datenbank })<br />
+Zweck: Der Datenbankdatei Daten hinzufügen oder Daten modifizieren, bevor Sephrasto die Datei schreibt.
+- "datenbank_editor_typen" (Filter: databaseTypes : array of DatenbankEdit.DatabaseType)<br />
+Zweck: Dem Datenbankeditor weitere Datentypen hinzufügen.
 - "set_charakterbogen" (Filter: charakterBogen : CharakterBogenInfo)<br />
 Zweck: Den vom Nutzer gewählten Charakterbogen modifizieren, z.B. den Pfad der Datei anpassen um einen Charakterbogen aus dem Plugin zu verwenden.
 - "asp_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "wert" : int })<br />

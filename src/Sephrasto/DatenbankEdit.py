@@ -26,6 +26,7 @@ from EinstellungenWrapper import EinstellungenWrapper
 from Wolke import Wolke
 from copy import copy
 import logging
+from EventBus import EventBus
 
 class DatabaseType(object):
     def __init__(self, databaseDict, addFunc, editFunc, showCheckbox):
@@ -51,6 +52,8 @@ class DatenbankEdit(object):
                 for button in plugin.createDatabaseButtons():
                     self.ui.verticalLayout.addWidget(button)
 
+        self.initDatabaseTypes()
+
         # GUI Mods
         self.model = QtGui.QStandardItemModel(self.ui.listDatenbank)
         self.ui.listDatenbank.setModel(self.model)
@@ -58,18 +61,6 @@ class DatenbankEdit(object):
         self.ui.listDatenbank.setSelectionMode(QtWidgets.QAbstractItemView.ExtendedSelection)
         self.ui.listDatenbank.selectionModel().selectionChanged.connect(self.listSelectionChanged)
         self.ui.checkFilterTyp.stateChanged.connect(self.filterTypChanged)
-        self.ui.showTalente.stateChanged.connect(self.updateGUI)
-        self.ui.showVorteile.stateChanged.connect(self.updateGUI)
-        self.ui.showFertigkeiten.stateChanged.connect(self.updateGUI)
-        self.ui.showUebernatuerlicheFertigkeiten.stateChanged.connect(self.updateGUI)
-        self.ui.showWaffeneigenschaften.stateChanged.connect(self.updateGUI)
-        self.ui.showWaffen.stateChanged.connect(self.updateGUI)
-        self.ui.showRuestungen.stateChanged.connect(self.updateGUI)
-        self.ui.showManoever.stateChanged.connect(self.updateGUI)
-        self.ui.showEinstellung.stateChanged.connect(self.updateGUI)
-        self.ui.showFreieFertigkeiten.stateChanged.connect(self.updateGUI)
-        self.ui.showUserAdded.stateChanged.connect(self.updateGUI)
-        self.ui.showDeleted.stateChanged.connect(self.updateGUI)
         self.ui.nameFilterEdit.textChanged.connect(self.updateGUI)
         self.ui.buttonCloseDB.clicked.connect(self.closeDatenbank)
         self.ui.buttonLoadDB.clicked.connect(self.loadDatenbank)
@@ -85,9 +76,16 @@ class DatenbankEdit(object):
         self.ui.buttonHinzufuegen.clicked.connect(self.hinzufuegen)
         self.ui.buttonWiederherstellen.clicked.connect(self.wiederherstellen)
 
+        self.ui.showUserAdded.stateChanged.connect(self.updateGUI)
+        self.ui.showDeleted.stateChanged.connect(self.updateGUI)
+        for dbType in self.pluginDatabaseTypes.values():
+            self.ui.verticalLayout_3.addWidget(dbType.showCheckbox)
+        for dbType in self.databaseTypes.values():
+            dbType.showCheckbox.stateChanged.connect(self.updateGUI)
+
         self.Form.closeEvent = self.closeEvent
         self.windowTitleDefault = self.Form.windowTitle()
-        self.initDatabaseTypes()
+
         self.updateGUI()
         self.updateWindowTitleAndCloseButton()
     
@@ -138,7 +136,13 @@ class DatenbankEdit(object):
         self.databaseTypes["Rüstung"] = DatabaseType(self.datenbank.rüstungen, self.addRuestung, self.editRuestung, self.ui.showRuestungen)
         self.databaseTypes["Manöver / Modifikation"] = DatabaseType(self.datenbank.manöver, self.addManoever, self.editManoever, self.ui.showManoever)
         self.databaseTypes["Einstellung"] = DatabaseType(self.datenbank.einstellungen, self.addEinstellung, self.editEinstellung, self.ui.showEinstellung)
-
+        self.pluginDatabaseTypes = {}
+        self.pluginDatabaseTypes = EventBus.applyFilter("datenbank_editor_typen", self.pluginDatabaseTypes)
+        for dbType in self.pluginDatabaseTypes:
+            if dbType in self.databaseTypes.keys():
+                del self.pluginDatabaseTypes[dbType]
+            else:
+                self.databaseTypes[dbType] = self.pluginDatabaseTypes[dbType]
 
     def cancelDueToPendingChanges(self, action):
         if self.changed:
@@ -171,7 +175,6 @@ class DatenbankEdit(object):
         self.ui.buttonCloseDB.setEnabled(self.savepath and True or False)
 
     def updateGUI(self):
-
         self.model.clear()
         showUserAdded = self.ui.showUserAdded.isChecked()
 
@@ -264,80 +267,53 @@ class DatenbankEdit(object):
         Akzeptiert der Nutzer, wird seiner Auswahl nach ein Dialog zum
         Erstellen des Eintrages geöffnet.
         '''
-        dbS = DatenbankSelectTypeWrapper.DatenbankSelectTypeWrapper()
+        dbS = DatenbankSelectTypeWrapper.DatenbankSelectTypeWrapper(self.databaseTypes)
         if dbS.entryType is not None and dbS.entryType in self.databaseTypes:
             databaseType = self.databaseTypes[dbS.entryType]
-            databaseType.addFunc()
+            val = databaseType.addFunc()
+            if val is not None:
+                databaseType.databaseDict.update({val.name : val})
+                self.onDatabaseChange()
 
     def addTalent(self):
         tal = Fertigkeiten.Talent()
-        ret = self.editTalent(tal)
-        if ret is not None:
-            self.datenbank.talente.update({ret.name: ret})
-            self.onDatabaseChange()
+        return self.editTalent(tal)
                           
     def addVorteil(self):
         vor = Fertigkeiten.Vorteil()
-        ret = self.editVorteil(vor)
-        if ret is not None:
-            self.datenbank.vorteile.update({ret.name: ret})
-            self.onDatabaseChange()
+        return self.editVorteil(vor)
                           
     def addFertigkeit(self):
         fer = Fertigkeiten.Fertigkeit()
-        ret = self.editFertigkeit(fer)
-        if ret is not None:
-            self.datenbank.fertigkeiten.update({ret.name: ret})
-            self.onDatabaseChange()
+        return self.editFertigkeit(fer)
                           
     def addUebernatuerlich(self):
         fer = Fertigkeiten.Fertigkeit()
-        ret = self.editUebernatuerlich(fer)
-        if ret is not None:
-            self.datenbank.übernatürlicheFertigkeiten.update({ret.name: ret})
-            self.onDatabaseChange()
+        return self.editUebernatuerlich(fer)
             
     def addFreieFertigkeit(self):
         fer = Fertigkeiten.FreieFertigkeitDB()
-        ret = self.editFreieFertigkeit(fer)
-        if ret is not None:
-            self.datenbank.freieFertigkeiten.update({ret.name: ret})
-            self.onDatabaseChange()
+        return self.editFreieFertigkeit(fer)
                       
     def addWaffeneigenschaft(self):
         we = Objekte.Waffeneigenschaft()
-        ret = self.editWaffeneigenschaft(we)
-        if ret is not None:
-            self.datenbank.waffeneigenschaften.update({ret.name: ret})
-            self.onDatabaseChange()
+        return self.editWaffeneigenschaft(we)
 
     def addWaffe(self):
         waf = Objekte.Nahkampfwaffe()
-        ret = self.editWaffe(waf)
-        if ret is not None:
-            self.datenbank.waffen.update({ret.name: ret})
-            self.onDatabaseChange()
+        return self.editWaffe(waf)
             
     def addRuestung(self):
         rüs = Objekte.Ruestung()
-        ret = self.editRuestung(rüs)
-        if ret is not None:
-            self.datenbank.rüstungen.update({ret.name: ret})
-            self.onDatabaseChange()
+        return self.editRuestung(rüs)
     
     def addManoever(self):
         man = Fertigkeiten.Manoever()
-        ret = self.editManoever(man)
-        if ret is not None:
-            self.datenbank.manöver.update({ret.name: ret})
-            self.onDatabaseChange()
+        return self.editManoever(man)
             
     def addEinstellung(self):
         de = DatenbankEinstellung()
-        ret = self.editEinstellung(de)
-        if ret is not None:
-            self.datenbank.einstellungen.update({ret.name: ret})
-            self.onDatabaseChange()
+        return self.editEinstellung(de)
     
     def editTalent(self, inp, readonly = False):
         dbT = DatenbankEditTalentWrapper.DatenbankEditTalentWrapper(self.datenbank, inp, readonly)

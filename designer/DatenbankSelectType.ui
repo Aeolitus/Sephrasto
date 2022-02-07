@@ -71,119 +71,7 @@
       </spacer>
      </item>
      <item>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="2" column="1">
-        <widget class="QRadioButton" name="buttonUebernatuerlich">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Übernatürliche Fertigkeit</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0">
-        <widget class="QRadioButton" name="buttonWaffe">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Waffe</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QRadioButton" name="buttonVorteil">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Vorteil</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QRadioButton" name="buttonFertigkeit">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Profane Fertigkeit</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QRadioButton" name="buttonFreieFertigkeit">
-         <property name="text">
-          <string>Freie Fertigkeit</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QRadioButton" name="buttonTalent">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Talent</string>
-         </property>
-         <property name="checked">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
-        <widget class="QRadioButton" name="buttonRuestung">
-         <property name="text">
-          <string>Rüstung</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0">
-        <widget class="QRadioButton" name="buttonManoever">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Manöver / Modifikation / Regel</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1">
-        <widget class="QRadioButton" name="buttonWaffeneigenschaft">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>20</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Waffeneigenschaft</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <layout class="QVBoxLayout" name="buttonLayout"/>
      </item>
      <item>
       <spacer name="verticalSpacer">
@@ -215,17 +103,6 @@
    </item>
   </layout>
  </widget>
- <tabstops>
-  <tabstop>buttonVorteil</tabstop>
-  <tabstop>buttonFertigkeit</tabstop>
-  <tabstop>buttonFreieFertigkeit</tabstop>
-  <tabstop>buttonUebernatuerlich</tabstop>
-  <tabstop>buttonTalent</tabstop>
-  <tabstop>buttonRuestung</tabstop>
-  <tabstop>buttonWaffe</tabstop>
-  <tabstop>buttonWaffeneigenschaft</tabstop>
-  <tabstop>buttonManoever</tabstop>
- </tabstops>
  <resources/>
  <connections>
   <connection>

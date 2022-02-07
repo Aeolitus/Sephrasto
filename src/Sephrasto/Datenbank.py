@@ -219,6 +219,8 @@ class Datenbank():
             r.set('name', rm[0])
             r.set('typ', rm[1])
 
+        root = EventBus.applyFilter("datenbank_xml_schreiben", root, { "datenbank" : self })
+
         #Write XML to file
         Wolke.Fehlercode = -26
         doc = etree.ElementTree(root)
@@ -326,6 +328,8 @@ class Datenbank():
             self.userDBMigrieren(root, userDBVersion, self.datenbankCodeVersion)
 
         numLoaded = 0
+
+        root = EventBus.applyFilter("datenbank_xml_laden", root, { "datenbank" : self, "basisdatenbank" : refDB })
         
         #Remove existing entries (should be used in database_user only)
         #Also check if the entries exist at all (might have been removed/renamed due to a ref db update)

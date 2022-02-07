@@ -8,12 +8,39 @@ from PyQt5 import QtWidgets, QtCore
 import UI.DatenbankSelectType
 
 class DatenbankSelectTypeWrapper(object):
-    def __init__(self):
+    def __init__(self, dbTypes):
         super().__init__()
         Dialog = QtWidgets.QDialog()
         ui = UI.DatenbankSelectType.Ui_Dialog()
         ui.setupUi(Dialog)
-        
+
+        # Todo: Should probably just rename them properly but it would require a db migration...
+        displayNames = {
+            "Manöver / Modifikation" : "Manöver / Modifikation / Regel",
+            "Fertigkeit" : "Fertigkeit (profan)",
+            "Übernatürliche Fertigkeit" : "Fertigkeit (übernatürlich)"
+        }
+        displayNames_inverse = {v: k for k, v in displayNames.items()}
+
+        types = []
+        for dbType in sorted(dbTypes):
+            if dbType == "Einstellung":
+                continue
+            if dbType in displayNames:
+                types.append(displayNames[dbType])
+            else:
+                types.append(dbType)
+        types = sorted(types)
+
+        buttons = []
+        for dbType in types:
+            button = QtWidgets.QRadioButton()
+            button.setText(dbType)
+            buttons.append(button)
+            ui.buttonLayout.addWidget(button)
+
+        buttons[0].setChecked(True)
+
         Dialog.setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
@@ -22,27 +49,13 @@ class DatenbankSelectTypeWrapper(object):
         
         Dialog.show()
         ret = Dialog.exec_()
+        self.entryType = None
         if ret == QtWidgets.QDialog.Accepted:
-            #entryType should correspond with the names in DatenbankEdit::initDatabaseTypes
-            if ui.buttonTalent.isChecked():
-                self.entryType = "Talent"
-            elif ui.buttonVorteil.isChecked():
-                self.entryType = "Vorteil"
-            elif ui.buttonFertigkeit.isChecked():
-                self.entryType = "Fertigkeit"
-            elif ui.buttonUebernatuerlich.isChecked():
-                self.entryType = "Übernatürliche Fertigkeit"
-            elif ui.buttonFreieFertigkeit.isChecked():
-                self.entryType = "Freie Fertigkeit"
-            elif ui.buttonManoever.isChecked():
-                self.entryType = "Manöver / Modifikation"
-            elif ui.buttonWaffeneigenschaft.isChecked():
-                self.entryType = "Waffeneigenschaft"
-            elif ui.buttonWaffe.isChecked():
-                self.entryType = "Waffe"
-            else:
-                self.entryType = "Rüstung"
-        else: 
-            self.entryType = None
+            for button in buttons:
+                if button.isChecked():
+                    self.entryType = button.text()
+                    if self.entryType in displayNames_inverse:
+                        self.entryType = displayNames_inverse[self.entryType]
+                    break
         
         
