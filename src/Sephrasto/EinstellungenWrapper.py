@@ -186,6 +186,18 @@ class EinstellungenWrapper():
         with open(settingsPath, 'w') as outfile:
             yaml.dump(Wolke.Settings, outfile)
 
+    # Plugins can use this function to add their own settings
+    # The setting can afterwards be accessed via Wolke.Settings["setting name"]
+    @staticmethod
+    def addSettings(settings):
+        foundMissingSetting = False
+        for setting in settings:
+            if not setting in Wolke.Settings:
+                Wolke.Settings[setting] = ""
+                foundMissingSetting = True
+        if foundMissingSetting:
+            EinstellungenWrapper.save()
+
     def updatePluginCheckboxes(self, plugins):
         self.pluginCheckboxes = []
         for i in reversed(range(self.ui.gbPlugins.layout().count())): 
