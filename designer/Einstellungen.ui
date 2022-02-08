@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>486</width>
-    <height>644</height>
+    <height>669</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -38,6 +38,12 @@
             </item>
             <item>
              <widget class="QComboBox" name="comboRegelbasis">
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>16777215</height>
+               </size>
+              </property>
               <item>
                <property name="text">
                 <string>Keine</string>
@@ -81,6 +87,12 @@
             </item>
             <item>
              <widget class="QComboBox" name="comboBogen">
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>16777215</height>
+               </size>
+              </property>
               <item>
                <property name="text">
                 <string>Frag immer nach</string>
@@ -130,6 +142,12 @@
             </item>
             <item>
              <widget class="QComboBox" name="comboFontSize">
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>16777215</height>
+               </size>
+              </property>
               <item>
                <property name="text">
                 <string>Klein</string>
@@ -317,9 +335,116 @@
        <item>
         <widget class="QGroupBox" name="groupBox_4">
          <property name="title">
-          <string>Sonstiges</string>
+          <string>Darstellung</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_9">
+            <item>
+             <widget class="QLabel" name="label_8">
+              <property name="text">
+               <string>Theme:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboTheme">
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <item>
+               <property name="text">
+                <string>Standard</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Fusion Light</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Fusion Dark</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>DSA Forum</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_11">
+            <item>
+             <widget class="QLabel" name="label_9">
+              <property name="text">
+               <string>Schriftart:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboFont">
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>16777215</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_12">
+            <item>
+             <widget class="QLabel" name="label_10">
+              <property name="text">
+               <string>Schriftgröße:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboAppFontSize">
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <item>
+               <property name="text">
+                <string>Klein</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Mittel</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Groß</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_5">
+         <property name="title">
+          <string>Sonstiges</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_8">
           <item>
            <widget class="QCheckBox" name="checkUpdate">
             <property name="text">
@@ -331,70 +456,43 @@
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_8">
-            <property name="text">
-             <string>Theme:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QComboBox" name="comboTheme">
+           <layout class="QHBoxLayout" name="horizontalLayout_10">
             <item>
-             <property name="text">
-              <string>Standard</string>
-             </property>
+             <widget class="QLabel" name="label_5">
+              <property name="text">
+               <string>Logging-Level:</string>
+              </property>
+             </widget>
             </item>
             <item>
-             <property name="text">
-              <string>Fusion Light</string>
-             </property>
+             <widget class="QComboBox" name="comboLogging">
+              <property name="maximumSize">
+               <size>
+                <width>200</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="currentIndex">
+               <number>0</number>
+              </property>
+              <item>
+               <property name="text">
+                <string>Protokolliere nur Fehler</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Protokolliere Warnungen und Fehler</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Protokolliere auch Debug-Informationen</string>
+               </property>
+              </item>
+             </widget>
             </item>
-            <item>
-             <property name="text">
-              <string>Fusion Dark</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>DSA Forum</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="label_5">
-            <property name="text">
-             <string>Logging-Level:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QComboBox" name="comboLogging">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="currentIndex">
-             <number>1</number>
-            </property>
-            <item>
-             <property name="text">
-              <string>Protokolliere nur Fehler</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Protokolliere Warnungen und Fehler</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Protokolliere auch Debugging-Informationen</string>
-             </property>
-            </item>
-           </widget>
+           </layout>
           </item>
          </layout>
         </widget>
@@ -429,9 +527,6 @@
   <tabstop>editPlugins</tabstop>
   <tabstop>buttonPlugins</tabstop>
   <tabstop>resetPlugins</tabstop>
-  <tabstop>checkUpdate</tabstop>
-  <tabstop>comboTheme</tabstop>
-  <tabstop>comboLogging</tabstop>
  </tabstops>
  <resources/>
  <connections>

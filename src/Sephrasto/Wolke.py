@@ -23,7 +23,9 @@ class Wolke:
         'PDF-Open': False,
         'UpdateCheck_Disable' : False,
         'UpdateCheck_DisableFor' : '',
-        'Theme' : "Standard"
+        'Theme' : "Standard",
+        'Font' : "",
+        'FontSize' : 7
     }
     ErrorCode = {
          0: 'No Error. You really shouldnt be seeing this.',

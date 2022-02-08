@@ -24,6 +24,9 @@ class UebernatuerlichWrapper(QtCore.QObject):
         self.uiFert.setupUi(self.formFert)
         
         self.model = QtGui.QStandardItemModel(self.uiFert.listTalente)
+        font = QtWidgets.QApplication.instance().font()
+        font.setPointSize(font.pointSize()+2)
+        self.uiFert.listTalente.setFont(font)
         self.uiFert.listTalente.setModel(self.model)
 
         self.mwp = MousewheelProtector.MousewheelProtector()
@@ -91,23 +94,30 @@ class UebernatuerlichWrapper(QtCore.QObject):
             #header.setMinimumSectionSize
 
             self.uiFert.tableWidget.verticalHeader().setVisible(False)
+            font = QtWidgets.QApplication.instance().font()
+            font.setPointSize(font.pointSize()+2)
             item = QtWidgets.QTableWidgetItem()
+            item.setFont(font)
             item.setText("PDF")
             item.setToolTip("Fertigkeit in Charakterblatt übernehmen?")
             self.uiFert.tableWidget.setHorizontalHeaderItem(0, item)
             item = QtWidgets.QTableWidgetItem()
+            item.setFont(QtWidgets.QApplication.instance().font())
             item.setText("Name")
             self.uiFert.tableWidget.setHorizontalHeaderItem(1, item)
             item = QtWidgets.QTableWidgetItem()
+            item.setFont(font)
             item.setTextAlignment(QtCore.Qt.AlignCenter)
             item.setText("FW")
             item.setToolTip("Fertigkeitswert")
             self.uiFert.tableWidget.setHorizontalHeaderItem(2, item)
             item = QtWidgets.QTableWidgetItem()
+            item.setFont(font)
             item.setTextAlignment(QtCore.Qt.AlignCenter)
             item.setText("Talente")
             self.uiFert.tableWidget.setHorizontalHeaderItem(3, item)
             item = QtWidgets.QTableWidgetItem()
+            item.setFont(font)
             item.setTextAlignment(QtCore.Qt.AlignCenter)
             item.setText("PW")
             item.setToolTip("Probenwert")
@@ -260,7 +270,9 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 if not el in Wolke.Char.talenteVariable:
                     costStr = " (" + str(Wolke.Char.getTalentCost(el, fert.steigerungsfaktor)) + " EP)"
                 item = QtGui.QStandardItem(talStr + costStr)
+                item.setFont(QtWidgets.QApplication.instance().font())
                 item.setEditable(False)
+                item.setSelectable(False)
                 self.model.appendRow(item)
             self.updateTalentRow()
         

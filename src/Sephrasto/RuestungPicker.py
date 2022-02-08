@@ -45,6 +45,10 @@ class RuestungPicker(object):
             self.ui.buttonBox.addButton(self.replaceButton, QtWidgets.QDialogButtonBox.AcceptRole)
 
         logging.debug("Ui is Setup...")
+        font = QtWidgets.QApplication.instance().font()
+        font.setPointSize(font.pointSize()+2)
+        self.ui.treeArmors.setFont(font)
+        self.ui.treeArmors.setHeaderHidden(True)
         self.populateTree()
         logging.debug("Tree Filled...")
         self.ui.treeArmors.itemSelectionChanged.connect(self.changeHandler)

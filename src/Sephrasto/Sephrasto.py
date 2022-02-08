@@ -25,6 +25,7 @@ from PluginLoader import PluginLoader
 from UpdateChecker import UpdateChecker
 from PyQt5.QtGui import QPalette, QColor
 from PyQt5.QtWidgets import QToolTip
+from Hilfsmethoden import Hilfsmethoden
 
 loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
 logging.basicConfig(filename="sephrasto.log", \
@@ -83,7 +84,7 @@ class MainWindowWrapper(object):
             QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling, True)
         if hasattr(QtCore.Qt, 'AA_UseHighDpiPixmaps'):
             QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_UseHighDpiPixmaps, True)
-
+   
         self.app = QtCore.QCoreApplication.instance()
         if self.app is None:
             self.app = QtWidgets.QApplication(sys.argv)
@@ -104,7 +105,7 @@ class MainWindowWrapper(object):
         EinstellungenWrapper.load()
         logging.getLogger().setLevel(loglevels[Wolke.Settings['Logging']])
 
-        self.updateTheme()
+        self.updateAppearance()
 
         UpdateChecker.checkForUpdate()
 
@@ -240,7 +241,23 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n")
            rules = " (" + os.path.splitext(os.path.basename(Wolke.DB.datei))[0] + ")"
         self.ed.formMain.setWindowTitle("Sephrasto" + file + rules)
 
-    def updateTheme(self):
+    def updateAppearance(self):
+        fonts = [] # add font names here and put them in the data/fonts folder to include them
+        for font in fonts:
+            for file in Hilfsmethoden.listdir(os.path.join("Data", "Fonts", font)):
+                if file.endswith(".ttf"):
+                    QtGui.QFontDatabase.addApplicationFont(os.path.join(os.path.dirname(os.path.abspath(__file__)), "Data", "Fonts", font, file))
+
+        fontSize = Wolke.Settings['FontSize']
+        fontFamily = Wolke.Settings['Font']
+        if fontFamily:
+            font = QtGui.QFontDatabase().font(fontFamily, "Regular", fontSize)
+            self.app.setFont(font)
+        else:
+            font = self.app.font()
+            font.setPointSize(fontSize)
+            self.app.setFont(font)
+
         style = Wolke.Settings['Theme']
         if style == "Standard":
             self.app.setStyle("windowsvista")

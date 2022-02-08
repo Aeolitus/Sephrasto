@@ -104,6 +104,10 @@ class WizardWrapper(object):
         self.regelnChanged()
         self.ui.btnAccept.clicked.connect(self.acceptClickedHandler)
 
+        font = QtWidgets.QApplication.instance().font()
+        font.setPointSize(font.pointSize()-1)
+        self.ui.label.setFont(font)
+
     def professionKategorieChanged(self):
         regeln = self.regelList[self.ui.cbRegeln.currentText()]
 

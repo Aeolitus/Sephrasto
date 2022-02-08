@@ -6,7 +6,7 @@ Created on Fri Apr 20 20:09:52 2018
 """
 from Wolke import Wolke
 import UI.Einstellungen
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtWidgets, QtCore, QtGui
 import os.path
 import yaml
 import logging
@@ -46,6 +46,19 @@ class EinstellungenWrapper():
         self.ui.checkUpdate.setChecked(not Wolke.Settings['UpdateCheck_Disable'])
         self.ui.comboLogging.setCurrentIndex(Wolke.Settings['Logging'])
         self.ui.comboTheme.setCurrentText(Wolke.Settings['Theme'])
+
+        self.fontFamilies = QtGui.QFontDatabase().families()
+        self.ui.comboFont.addItems(self.fontFamilies)
+        self.ui.comboFont.setCurrentText(QtWidgets.QApplication.instance().font().family())
+
+        fontSizeToIndex = {
+            7 : 0,
+            8 : 1,
+            9 : 2
+        }
+        fontSizeToIndex_inverse = {v: k for k, v in fontSizeToIndex.items()}
+
+        self.ui.comboAppFontSize.setCurrentIndex(fontSizeToIndex[Wolke.Settings['FontSize']])
             
         self.ui.buttonChar.clicked.connect(self.setCharPath)
         self.ui.buttonRegeln.clicked.connect(self.setRulePath)
@@ -103,6 +116,14 @@ class EinstellungenWrapper():
 
             if Wolke.Settings['Theme'] != self.ui.comboTheme.currentText():
                 Wolke.Settings['Theme'] = self.ui.comboTheme.currentText()
+                needRestart = True
+
+            if Wolke.Settings['Font'] != self.ui.comboFont.currentText():
+                Wolke.Settings['Font'] = self.ui.comboFont.currentText()
+                needRestart = True
+
+            if Wolke.Settings['FontSize'] != fontSizeToIndex_inverse[self.ui.comboAppFontSize.currentIndex()]:
+                Wolke.Settings['FontSize'] = fontSizeToIndex_inverse[self.ui.comboAppFontSize.currentIndex()]
                 needRestart = True
 
             EinstellungenWrapper.save()

@@ -55,6 +55,9 @@ class DatenbankEdit(object):
         self.initDatabaseTypes()
 
         # GUI Mods
+        font = QtWidgets.QApplication.instance().font()
+        font.setPointSize(font.pointSize()+2)
+        self.ui.listDatenbank.setFont(font)
         self.model = QtGui.QStandardItemModel(self.ui.listDatenbank)
         self.ui.listDatenbank.setModel(self.model)
         self.ui.listDatenbank.doubleClicked["QModelIndex"].connect(self.editSelected)

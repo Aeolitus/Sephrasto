@@ -33,6 +33,9 @@ class TalentPicker(object):
                 QtCore.Qt.WindowCloseButtonHint)
         
         self.model = QtGui.QStandardItemModel(self.ui.listTalente)
+        font = QtWidgets.QApplication.instance().font()
+        font.setPointSize(font.pointSize()+2)
+        self.ui.listTalente.setFont(font)
         self.ui.listTalente.setModel(self.model)
         self.ui.listTalente.selectionModel().currentChanged.connect(self.talChanged)
         

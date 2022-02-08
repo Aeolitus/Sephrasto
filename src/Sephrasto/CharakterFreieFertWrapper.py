@@ -7,7 +7,7 @@ Created on Sat Mar 18 18:09:33 2017
 import Fertigkeiten
 from Wolke import Wolke
 import UI.CharakterFreieFert
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtWidgets, QtCore, QtGui
 import logging
 from Hilfsmethoden import Hilfsmethoden
 import CharakterFreieFertigkeitenPickerWrapper
@@ -33,6 +33,7 @@ class CharakterFreieFertWrapper(QtCore.QObject):
         self.editFF = []
         self.comboFF = []
         self.buttonFF = []
+        font = QtGui.QFont("Times", QtWidgets.QApplication.instance().font().pointSize()) # serif font for the roman letters
         for row in range(0,7):
             for column in range(0,4):
                 self.ffCount +=1
@@ -42,10 +43,11 @@ class CharakterFreieFertWrapper(QtCore.QObject):
                 self.editFF.append(ffEdit)
                 ffLayout.addWidget(ffEdit)
                 ffCombo = QtWidgets.QComboBox()
+
                 ffCombo.addItem("I")
                 ffCombo.addItem("II")
                 ffCombo.addItem("III")
-                ffCombo.setFont(QtWidgets.QApplication.instance().font()) #hack to refresh font in fusion style
+                ffCombo.setFont(font)
                 ffCombo.currentIndexChanged.connect(self.update)
                 if self.ffCount <= Wolke.Char.freieFertigkeitenNumKostenlos:
                     ffCombo.setEnabled(False)

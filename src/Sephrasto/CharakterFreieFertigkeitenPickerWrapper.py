@@ -28,6 +28,10 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
         self.kategorien = Wolke.DB.einstellungen["FreieFertigkeiten: Typen"].toTextList()
         self.abbreviations = Wolke.DB.einstellungen["FreieFertigkeiten: Typ-Abkürzungen"].toTextDict('\n', False)
 
+        font = QtWidgets.QApplication.instance().font()
+        font.setPointSize(font.pointSize()+2)
+        self.ui.treeFerts.setFont(font)
+        self.ui.treeFerts.setHeaderHidden(True)
         self.populateTree()
 
         self.ui.treeFerts.itemSelectionChanged.connect(self.changeHandler)
