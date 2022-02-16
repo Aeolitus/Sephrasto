@@ -79,7 +79,7 @@ class CharakterFreieFertWrapper(QtCore.QObject):
             self.editFF[count].setText(el.name)
 
             index = el.wert-1
-            if count <= Wolke.Char.freieFertigkeitenNumKostenlos:
+            if count < Wolke.Char.freieFertigkeitenNumKostenlos:
                 index = 2
             self.comboFF[count].setCurrentIndex(index)
             self.editFF[count].blockSignals(False)
