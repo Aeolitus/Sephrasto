@@ -97,6 +97,7 @@ class MainWindowWrapper(object):
         self.ui.buttonRules.clicked.connect(self.editRuleset)
         self.ui.buttonSettings.clicked.connect(self.editSettings)
         self.ui.buttonHelp.clicked.connect(self.help)
+        self.ui.buttonClose.clicked.connect(self.closeButton)
         self.ui.labelVersion.setText(self._version_ + " - by Aeolitus ")
 
         self.app.setWindowIcon(QtGui.QIcon('icon_large.png'))
@@ -231,6 +232,9 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n")
         else:
             self.hilfe.form.show()
             self.hilfe.form.activateWindow()
+
+    def closeButton(self):
+        sys.exit(0)
 
     def savePathUpdated(self):
         file = " - Neuer Charakter"

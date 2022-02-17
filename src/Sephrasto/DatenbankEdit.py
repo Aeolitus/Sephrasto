@@ -69,6 +69,7 @@ class DatenbankEdit(object):
         self.ui.buttonLoadDB.clicked.connect(self.loadDatenbank)
         self.ui.buttonSaveDB.clicked.connect(self.saveDatenbank)
         self.ui.buttonQuicksave.clicked.connect(self.quicksaveDatenbank)
+        self.ui.buttonClose.clicked.connect(self.closeButton)
         self.ui.buttonEditieren.clicked.connect(self.editSelected)
         self.ui.buttonEditieren.setEnabled(False)
         self.ui.buttonDuplizieren.clicked.connect(self.duplicateSelected)
@@ -166,6 +167,9 @@ class DatenbankEdit(object):
     def closeEvent(self,event):
         if self.cancelDueToPendingChanges("Beenden"):
             event.ignore()
+
+    def closeButton(self):
+        self.Form.close()
 
     def onDatabaseChange(self):
         self.changed = True

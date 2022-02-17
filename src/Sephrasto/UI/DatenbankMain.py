@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'DatenbankMain.ui'
+# Form implementation generated from reading ui file 'designer/DatenbankMain.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.6
 #
@@ -109,6 +109,10 @@ class Ui_Form(object):
         self.buttonQuicksave.setMinimumSize(QtCore.QSize(0, 25))
         self.buttonQuicksave.setObjectName("buttonQuicksave")
         self.verticalLayout.addWidget(self.buttonQuicksave)
+        self.buttonClose = QtWidgets.QPushButton(Form)
+        self.buttonClose.setMinimumSize(QtCore.QSize(0, 25))
+        self.buttonClose.setObjectName("buttonClose")
+        self.verticalLayout.addWidget(self.buttonClose)
         self.horizontalLayout_2.addLayout(self.verticalLayout)
         self.verticalLayout_2 = QtWidgets.QVBoxLayout()
         self.verticalLayout_2.setObjectName("verticalLayout_2")
@@ -163,7 +167,8 @@ class Ui_Form(object):
         Form.setTabOrder(self.buttonCloseDB, self.buttonLoadDB)
         Form.setTabOrder(self.buttonLoadDB, self.buttonSaveDB)
         Form.setTabOrder(self.buttonSaveDB, self.buttonQuicksave)
-        Form.setTabOrder(self.buttonQuicksave, self.listDatenbank)
+        Form.setTabOrder(self.buttonQuicksave, self.buttonClose)
+        Form.setTabOrder(self.buttonClose, self.listDatenbank)
         Form.setTabOrder(self.listDatenbank, self.buttonHinzufuegen)
         Form.setTabOrder(self.buttonHinzufuegen, self.buttonEditieren)
         Form.setTabOrder(self.buttonEditieren, self.buttonDuplizieren)
@@ -191,18 +196,9 @@ class Ui_Form(object):
         self.buttonLoadDB.setText(_translate("Form", "Hausregeln laden"))
         self.buttonSaveDB.setText(_translate("Form", "Hausregeln speichern als..."))
         self.buttonQuicksave.setText(_translate("Form", "Hausregeln speichern"))
+        self.buttonClose.setText(_translate("Form", "Schließen"))
         self.buttonHinzufuegen.setText(_translate("Form", "Hinzufügen"))
         self.buttonEditieren.setText(_translate("Form", "Editieren"))
         self.buttonDuplizieren.setText(_translate("Form", "Duplizieren"))
         self.buttonLoeschen.setText(_translate("Form", "Löschen"))
         self.buttonWiederherstellen.setText(_translate("Form", "Wiederherstellen"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
-    sys.exit(app.exec_())

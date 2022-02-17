@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'MainWindow.ui'
+# Form implementation generated from reading ui file 'designer/MainWindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.6
 #
@@ -74,6 +74,9 @@ class Ui_Form(object):
         self.buttonHelp = QtWidgets.QPushButton(Form)
         self.buttonHelp.setObjectName("buttonHelp")
         self.gridLayout.addWidget(self.buttonHelp, 11, 0, 1, 1)
+        self.buttonClose = QtWidgets.QPushButton(Form)
+        self.buttonClose.setObjectName("buttonClose")
+        self.gridLayout.addWidget(self.buttonClose, 12, 0, 1, 1)
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -91,13 +94,4 @@ class Ui_Form(object):
         self.label_2.setText(_translate("Form", "Ein Charaktergenerator für Ilaris"))
         self.buttonSettings.setText(_translate("Form", "Einstellungen"))
         self.buttonHelp.setText(_translate("Form", "Hilfe"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
-    sys.exit(app.exec_())
+        self.buttonClose.setText(_translate("Form", "Schließen"))

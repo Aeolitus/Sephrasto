@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'CharakterMain.ui'
+# Form implementation generated from reading ui file 'designer/CharakterMain.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.6
 #
@@ -44,6 +44,10 @@ class Ui_formMain(object):
         self.buttonSave.setMinimumSize(QtCore.QSize(75, 0))
         self.buttonSave.setObjectName("buttonSave")
         self.horizontalLayout_3.addWidget(self.buttonSave)
+        self.buttonClose = QtWidgets.QPushButton(formMain)
+        self.buttonClose.setMinimumSize(QtCore.QSize(75, 0))
+        self.buttonClose.setObjectName("buttonClose")
+        self.horizontalLayout_3.addWidget(self.buttonClose)
         self.buttonSavePDF = QtWidgets.QPushButton(formMain)
         self.buttonSavePDF.setMinimumSize(QtCore.QSize(100, 0))
         self.buttonSavePDF.setMaximumSize(QtCore.QSize(16777214, 16777215))
@@ -125,6 +129,7 @@ class Ui_formMain(object):
         self.checkReq.setText(_translate("formMain", "Voraussetzungen überprüfen"))
         self.buttonQuicksave.setText(_translate("formMain", "Speichern"))
         self.buttonSave.setText(_translate("formMain", "Speichern als..."))
+        self.buttonClose.setText(_translate("formMain", "Schließen"))
         self.buttonSavePDF.setText(_translate("formMain", "PDF erstellen"))
         self.tabs.setTabText(self.tabs.indexOf(self.tab), _translate("formMain", "Tab 1"))
         self.tabs.setTabText(self.tabs.indexOf(self.tab_2), _translate("formMain", "Tab 2"))
@@ -134,13 +139,3 @@ class Ui_formMain(object):
         self.spinSpent.setSuffix(_translate("formMain", " EP"))
         self.label_2.setText(_translate("formMain", "    Verbleibend:    "))
         self.spinRemaining.setSuffix(_translate("formMain", " EP"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    formMain = QtWidgets.QWidget()
-    ui = Ui_formMain()
-    ui.setupUi(formMain)
-    formMain.show()
-    sys.exit(app.exec_())

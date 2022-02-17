@@ -128,6 +128,7 @@ class Editor(object):
         self.ui.buttonSave.clicked.connect(self.saveButton)
         self.ui.buttonQuicksave.clicked.connect(self.quicksaveButton)
         self.ui.buttonSavePDF.clicked.connect(self.pdfButton)
+        self.ui.buttonClose.clicked.connect(self.closeButton)
         self.ui.spinEP.valueChanged.connect(self.epChanged)
         self.ui.checkReq.stateChanged.connect(self.reqChanged)
         
@@ -157,6 +158,9 @@ class Editor(object):
             event.ignore()
         else:
             Wolke.Reqs = True
+
+    def closeButton(self):
+        self.formMain.close()
 
     def reqChanged(self):
         Wolke.Reqs = self.ui.checkReq.isChecked()
