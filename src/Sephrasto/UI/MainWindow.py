@@ -95,3 +95,13 @@ class Ui_Form(object):
         self.buttonSettings.setText(_translate("Form", "Einstellungen"))
         self.buttonHelp.setText(_translate("Form", "Hilfe"))
         self.buttonClose.setText(_translate("Form", "Schließen"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    Form = QtWidgets.QWidget()
+    ui = Ui_Form()
+    ui.setupUi(Form)
+    Form.show()
+    sys.exit(app.exec_())

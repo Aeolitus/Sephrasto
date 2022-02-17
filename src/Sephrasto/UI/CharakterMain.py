@@ -139,3 +139,13 @@ class Ui_formMain(object):
         self.spinSpent.setSuffix(_translate("formMain", " EP"))
         self.label_2.setText(_translate("formMain", "    Verbleibend:    "))
         self.spinRemaining.setSuffix(_translate("formMain", " EP"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    formMain = QtWidgets.QWidget()
+    ui = Ui_formMain()
+    ui.setupUi(formMain)
+    formMain.show()
+    sys.exit(app.exec_())

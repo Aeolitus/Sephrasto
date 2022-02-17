@@ -202,3 +202,13 @@ class Ui_Form(object):
         self.buttonDuplizieren.setText(_translate("Form", "Duplizieren"))
         self.buttonLoeschen.setText(_translate("Form", "Löschen"))
         self.buttonWiederherstellen.setText(_translate("Form", "Wiederherstellen"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    Form = QtWidgets.QWidget()
+    ui = Ui_Form()
+    ui.setupUi(Form)
+    Form.show()
+    sys.exit(app.exec_())
