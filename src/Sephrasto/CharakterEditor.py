@@ -90,9 +90,16 @@ class Editor(object):
         EventBus.doAction("charakter_geladen", { "neu" : self.savepath == "", "filepath" : self.savepath })
         self.ignoreModified = False
         
+    def wheelEvent(self, ev):
+        if ev.type() == QtCore.QEvent.Wheel:
+            if not self.ui.scrollArea.hasFocus():
+                ev.ignore()
+
     def setupMainForm(self):
         windowSize = Wolke.Settings["WindowSize-Charakter"]
         self.formMain.resize(windowSize[0], windowSize[1])
+
+        self.ui.scrollArea.wheelEvent = self.wheelEvent
 
         self.ui.progressBar.setVisible(False)
         self.updateEP()
