@@ -11,6 +11,7 @@ import Objekte
 import Definitionen
 import logging
 from Fertigkeiten import KampffertigkeitTyp
+import CharakterEquipmentWrapper
 
 class WaffenPicker(object):
     def __init__(self,waffe=None):
@@ -31,17 +32,20 @@ class WaffenPicker(object):
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
         
+        windowSize = Wolke.Settings["WindowSize-Waffen"]
+        self.Form.resize(windowSize[0], windowSize[1])
+
+        self.ui.splitter.adjustSize()
+        width = self.ui.splitter.size().width()
+        self.ui.splitter.setSizes([width*0.6, width*0.4])
+
         logging.debug("Ui is Setup...")
-        font = QtWidgets.QApplication.instance().font()
-        font.setPointSize(font.pointSize()+2)
-        self.ui.treeWeapons.setFont(font)
         self.populateTree()
         logging.debug("Tree Filled...")
         self.ui.treeWeapons.itemSelectionChanged.connect(self.changeHandler)
         self.ui.treeWeapons.itemDoubleClicked.connect(lambda item, column: self.ui.buttonBox.buttons()[0].click())
         self.ui.treeWeapons.header().setSectionResizeMode(0,1)
-        self.ui.treeWeapons.headerItem().setFont(0, font)
-        self.ui.treeWeapons.headerItem().setFont(1, font)
+
         self.ui.treeWeapons.setFocus()
         self.updateInfo()
         logging.debug("Info Updated...")
@@ -49,6 +53,9 @@ class WaffenPicker(object):
         self.Form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.Form.show()
         self.ret = self.Form.exec_()
+
+        Wolke.Settings["WindowSize-Waffen"] = [self.Form.size().width(), self.Form.size().height()]
+
         if self.ret == QtWidgets.QDialog.Accepted and self.current != '':
             self.waffe = Wolke.DB.waffen[self.current]
         else:
@@ -75,6 +82,10 @@ class WaffenPicker(object):
             parent.setText(0,kind.name)
             parent.setText(1,"")
             parent.setExpanded(True)
+            font = QtGui.QFont(Wolke.Settings["Font"], max(Wolke.Settings["FontSize"] + 1, Wolke.Settings["FontHeadingSize"]))
+            font.setBold(True)
+            font.setCapitalization(QtGui.QFont.SmallCaps)
+            parent.setFont(0, font)
             for el in wafs:
                 if not currSet:
                     self.current = el
@@ -116,27 +127,32 @@ class WaffenPicker(object):
             self.ui.labelName.setText("Keine Waffe selektiert")
             self.ui.labelTyp.setText("")
             self.ui.labelFert.setText("")
-            self.ui.plainStile.setPlainText("")
+            self.ui.labelTalent.setText("")
+            self.ui.labelKampfstile.setText("Kampfstile:")
             self.ui.labelTP.setText("")
             self.ui.labelRW.setText("")
             self.ui.labelWMLZ_Text.setText("Waffenmodifikator")
             self.ui.labelWMLZ.setText("")
             self.ui.labelH.setText("")
-            self.ui.plainEigenschaften.setPlainText("")
+            self.ui.labelEigenschaften.setText("Eigenschaften:")
         else:
             w = Wolke.DB.waffen[self.current]
-            self.ui.labelName.setText(w.name)
+            name = w.name
+            if name.endswith(" (" + w.talent + ")"):
+                name = name[:-3-len(w.talent)]
+            self.ui.labelName.setText(name)
             if type(w) == Objekte.Nahkampfwaffe:
-                self.ui.labelTyp.setText("Nah")
+                self.ui.labelTyp.setText("Nahkampfwaffe")
             else:
-                self.ui.labelTyp.setText("Fern")
-            self.ui.labelFert.setText(w.fertigkeit + " (" + w.talent + ")")
+                self.ui.labelTyp.setText("Fernkampfwaffe")
+            self.ui.labelFert.setText(w.fertigkeit)
+            self.ui.labelTalent.setText(w.talent)
             stile = Definitionen.KeinKampfstil
 
             if len(w.kampfstile) > 0:
                 stile = ", ".join(w.kampfstile)
 
-            self.ui.plainStile.setPlainText(stile)
+            self.ui.labelKampfstile.setText("Kampfstile: " + stile)
             tp = str(w.W6) + " W6"
             if w.plus < 0:
                 tp += " " + str(w.plus)
@@ -154,6 +170,4 @@ class WaffenPicker(object):
                 self.ui.labelWMLZ_Text.setText("Ladezeit")
                 self.ui.labelWMLZ.setText(str(w.lz))
             self.ui.labelH.setText(str(w.haerte))
-            self.ui.plainEigenschaften.setPlainText(", ".join(w.eigenschaften))
-        
-            
+            self.ui.labelEigenschaften.setText("Eigenschaften: " + ", ".join(w.eigenschaften))

@@ -13,29 +13,38 @@ import copy
 class TalentPicker(object):
     def __init__(self,fert,ueber):
         super().__init__()
-        if ueber:    
-            self.refC = Wolke.Char.übernatürlicheFertigkeiten
-            self.refD = Wolke.DB.übernatürlicheFertigkeiten
-        else:
-            self.refC = Wolke.Char.fertigkeiten
-            self.refD = Wolke.DB.fertigkeiten
-        self.talenteVariable = copy.deepcopy(Wolke.Char.talenteVariable)
-        self.gekaufteTalente = self.refC[fert].gekaufteTalente.copy()
         self.fert = fert
         self.Form = QtWidgets.QDialog()
         self.ui = UI.CharakterTalente.Ui_Dialog()
         self.ui.setupUi(self.Form)
+
+        if ueber:    
+            self.refC = Wolke.Char.übernatürlicheFertigkeiten
+            self.refD = Wolke.DB.übernatürlicheFertigkeiten
+            windowSize = Wolke.Settings["WindowSize-TalentUeber"]
+            self.Form.resize(windowSize[0], windowSize[1])
+        else:
+            self.refC = Wolke.Char.fertigkeiten
+            self.refD = Wolke.DB.fertigkeiten
+            self.Form.resize(self.Form.size()*0.7)
         
+            windowSize = Wolke.Settings["WindowSize-TalentProfan"]
+            self.Form.resize(windowSize[0], windowSize[1])
+
+        self.talenteVariable = copy.deepcopy(Wolke.Char.talenteVariable)
+        self.gekaufteTalente = self.refC[fert].gekaufteTalente.copy()
+
         self.Form.setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
         
+        self.ui.splitter.adjustSize()
+        width = self.ui.splitter.size().width()
+        self.ui.splitter.setSizes([width*0.4, width*0.6])
+
         self.model = QtGui.QStandardItemModel(self.ui.listTalente)
-        font = QtWidgets.QApplication.instance().font()
-        font.setPointSize(font.pointSize()+2)
-        self.ui.listTalente.setFont(font)
         self.ui.listTalente.setModel(self.model)
         self.ui.listTalente.selectionModel().currentChanged.connect(self.talChanged)
         
@@ -72,6 +81,12 @@ class TalentPicker(object):
         self.Form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.Form.show()
         self.ret = self.Form.exec_()
+
+        if ueber:
+            Wolke.Settings["WindowSize-TalentUeber"] = [self.Form.size().width(), self.Form.size().height()]
+        else:
+            Wolke.Settings["WindowSize-TalentProfan"] = [self.Form.size().width(), self.Form.size().height()]
+
         if self.ret == QtWidgets.QDialog.Accepted:
             self.gekaufteTalente = []
             for i in range(self.rowCount):

@@ -11,7 +11,7 @@ import MousewheelProtector
 from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtWidgets import QHeaderView
 import logging
-from CharakterFertigkeitenWrapper import FertigkeitItemDelegate
+from CharakterProfaneFertigkeitenWrapper import FertigkeitItemDelegate
 
 class UebernatuerlichWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
@@ -24,16 +24,22 @@ class UebernatuerlichWrapper(QtCore.QObject):
         self.uiFert.setupUi(self.formFert)
         
         self.model = QtGui.QStandardItemModel(self.uiFert.listTalente)
-        font = QtWidgets.QApplication.instance().font()
-        font.setPointSize(font.pointSize()+2)
-        self.uiFert.listTalente.setFont(font)
         self.uiFert.listTalente.setModel(self.model)
 
         self.mwp = MousewheelProtector.MousewheelProtector()
 
+        self.uiFert.splitter.adjustSize()
+        width = self.uiFert.splitter.size().width()
+        self.uiFert.splitter.setSizes([width*0.6, width*0.4])
+
         #Signals
         self.uiFert.spinFW.valueChanged.connect(lambda state : self.fwChanged(False))
         self.uiFert.tableWidget.currentItemChanged.connect(self.tableClicked)   
+        self.uiFert.buttonAdd.setStyle(None) # dont know why but the below settings wont do anything without it
+        self.uiFert.buttonAdd.setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9))
+        self.uiFert.buttonAdd.setText('\u002b')
+        self.uiFert.buttonAdd.setMaximumSize(QtCore.QSize(20, 20))
+        self.uiFert.buttonAdd.setMinimumSize(QtCore.QSize(20, 20))
         self.uiFert.buttonAdd.clicked.connect(self.editTalents)
         
         self.availableFerts = []
@@ -56,6 +62,9 @@ class UebernatuerlichWrapper(QtCore.QObject):
         
     def load(self):
         self.currentlyLoading = True
+        
+        self.uiFert.tableWidget.setColumnHidden(0, not Wolke.Char.ueberPDFAnzeigen)
+
         temp = [el for el in Wolke.DB.übernatürlicheFertigkeiten 
                 if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.übernatürlicheFertigkeiten[el].voraussetzungen)]
         if temp != self.availableFerts:
@@ -87,41 +96,33 @@ class UebernatuerlichWrapper(QtCore.QObject):
             header.setSectionResizeMode(3, QHeaderView.Fixed)
             header.setSectionResizeMode(4, QHeaderView.Fixed)
             self.uiFert.tableWidget.setColumnWidth(0, 40)
-            self.uiFert.tableWidget.setColumnWidth(2, 80)
-            self.uiFert.tableWidget.setColumnWidth(3, 80)
-            self.uiFert.tableWidget.setColumnWidth(4, 40)
+            self.uiFert.tableWidget.setColumnWidth(2, 65)
+            self.uiFert.tableWidget.setColumnWidth(3, 65)
+            self.uiFert.tableWidget.setColumnWidth(4, 90)
 
-            #header.setMinimumSectionSize
-
-            self.uiFert.tableWidget.verticalHeader().setVisible(False)
-            font = QtWidgets.QApplication.instance().font()
-            font.setPointSize(font.pointSize()+2)
             item = QtWidgets.QTableWidgetItem()
-            item.setFont(font)
             item.setText("PDF")
             item.setToolTip("Fertigkeit in Charakterblatt übernehmen?")
             self.uiFert.tableWidget.setHorizontalHeaderItem(0, item)
             item = QtWidgets.QTableWidgetItem()
-            item.setFont(QtWidgets.QApplication.instance().font())
             item.setText("Name")
+            item.setTextAlignment(QtCore.Qt.AlignLeft)
             self.uiFert.tableWidget.setHorizontalHeaderItem(1, item)
             item = QtWidgets.QTableWidgetItem()
-            item.setFont(font)
             item.setTextAlignment(QtCore.Qt.AlignCenter)
             item.setText("FW")
             item.setToolTip("Fertigkeitswert")
             self.uiFert.tableWidget.setHorizontalHeaderItem(2, item)
             item = QtWidgets.QTableWidgetItem()
-            item.setFont(font)
-            item.setTextAlignment(QtCore.Qt.AlignCenter)
-            item.setText("Talente")
-            self.uiFert.tableWidget.setHorizontalHeaderItem(3, item)
-            item = QtWidgets.QTableWidgetItem()
-            item.setFont(font)
             item.setTextAlignment(QtCore.Qt.AlignCenter)
             item.setText("PW")
             item.setToolTip("Probenwert")
+            self.uiFert.tableWidget.setHorizontalHeaderItem(3, item)
+            item = QtWidgets.QTableWidgetItem()
+            item.setTextAlignment(QtCore.Qt.AlignCenter)
+            item.setText("Talente")
             self.uiFert.tableWidget.setHorizontalHeaderItem(4, item)
+            
     
             count = 0
             
@@ -158,6 +159,12 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 self.spinRef[el].valueChanged.connect(lambda state, name=el: self.spinnerClicked(name))
                 self.uiFert.tableWidget.setCellWidget(count,2,self.spinRef[el])
                 
+                # Add PW
+                self.labelRef[el + "PW"] = QtWidgets.QLabel()
+                self.labelRef[el + "PW"].setText(str(fert.probenwertTalent))
+                self.labelRef[el + "PW"].setAlignment(QtCore.Qt.AlignCenter)
+                self.uiFert.tableWidget.setCellWidget(count,3,self.labelRef[el + "PW"])
+
                 # Add Talents Count and Add Button
                 self.layoutRef[el] = QtWidgets.QHBoxLayout()
                 self.labelRef[el] = QtWidgets.QLabel()
@@ -165,19 +172,15 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 self.labelRef[el].setAlignment(QtCore.Qt.AlignCenter)
                 self.layoutRef[el].addWidget(self.labelRef[el])
                 self.buttonRef[el] = QtWidgets.QPushButton()
-                self.buttonRef[el].setText("+")
-                self.buttonRef[el].setMaximumSize(QtCore.QSize(25, 20))
+                self.buttonRef[el].setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9))
+                self.buttonRef[el].setText('\u002b')
+                self.buttonRef[el].setMaximumSize(QtCore.QSize(20, 20))
+                self.buttonRef[el].setMinimumSize(QtCore.QSize(20, 20))
                 self.buttonRef[el].clicked.connect(lambda state, name=el: self.addClicked(name))
                 self.layoutRef[el].addWidget(self.buttonRef[el])
                 self.widgetRef[el] = QtWidgets.QWidget()
                 self.widgetRef[el].setLayout(self.layoutRef[el])
-                self.uiFert.tableWidget.setCellWidget(count,3,self.widgetRef[el])
-
-                # Add PW
-                self.labelRef[el + "PW"] = QtWidgets.QLabel()
-                self.labelRef[el + "PW"].setText(str(fert.probenwertTalent))
-                self.labelRef[el + "PW"].setAlignment(QtCore.Qt.AlignCenter)
-                self.uiFert.tableWidget.setCellWidget(count,4,self.labelRef[el + "PW"])
+                self.uiFert.tableWidget.setCellWidget(count,4,self.widgetRef[el])
 
                 self.rowRef.update({fert.name: count})
                 count += 1
@@ -241,6 +244,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 self.uiFert.spinFW.setValue(0)
                 self.uiFert.spinPW.setValue(0)
                 self.uiFert.plainText.setPlainText("")
+                self.uiFert.labelKategorie.setText("")
                 self.model.clear()
                 return
             self.currentlyLoading = True
@@ -257,6 +261,8 @@ class UebernatuerlichWrapper(QtCore.QObject):
             self.uiFert.spinFW.setValue(fert.wert)
             self.uiFert.spinPW.setValue(fert.probenwertTalent)
             self.uiFert.plainText.setPlainText(fert.text)
+            fertigkeitTypen = Wolke.DB.einstellungen["Fertigkeiten: Typen übernatürlich"].toTextList()
+            self.uiFert.labelKategorie.setText(fertigkeitTypen[fert.printclass])
             self.updateTalents()
             self.currentlyLoading = False
         
@@ -270,10 +276,13 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 if not el in Wolke.Char.talenteVariable:
                     costStr = " (" + str(Wolke.Char.getTalentCost(el, fert.steigerungsfaktor)) + " EP)"
                 item = QtGui.QStandardItem(talStr + costStr)
-                item.setFont(QtWidgets.QApplication.instance().font())
                 item.setEditable(False)
                 item.setSelectable(False)
                 self.model.appendRow(item)
+            self.uiFert.listTalente.setMaximumHeight(max(len(fert.gekaufteTalente), 1) * self.uiFert.listTalente.sizeHintForRow(0) +\
+               self.uiFert.listTalente.contentsMargins().top() +\
+               self.uiFert.listTalente.contentsMargins().bottom() +\
+               self.uiFert.listTalente.spacing())
             self.updateTalentRow()
         
     def editTalents(self):

@@ -1,5 +1,7 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 from LangerBogenBeschreibung import CharakterBeschreibungExt
+import UI.CharakterBeschreibung
+import CharakterBeschreibungWrapper
 import lxml.etree as etree
 from Wolke import Wolke
 import logging
@@ -52,6 +54,22 @@ class CharakterBeschreibungExtWrapper(QtCore.QObject):
         self.labelImageText = self.ui.labelImage.text()
         self.ui.buttonLoadImage.clicked.connect(self.buttonLoadImageClicked)
         self.ui.buttonDeleteImage.clicked.connect(self.buttonDeleteImageClicked)
+
+    def init(self):
+        self.beschWrapper = CharakterBeschreibungWrapper.BeschrWrapper()
+        self.ui.tabWidget.insertTab(0, self.beschWrapper.formBeschr, "Allgemein")
+        self.ui.tabWidget.setCurrentIndex(0)
+
+        for i in range(self.ui.tabWidget.tabBar().count()):
+            self.ui.tabWidget.tabBar().setTabTextColor(i, QtGui.QColor(Wolke.HeadingColor))
+
+        self.ui.tabWidget.setStyleSheet('QTabBar { font-size: ' + str(Wolke.Settings["FontHeadingSize"]) + 'pt; font-family: ' + Wolke.Settings["FontHeading"] + '; }')
+
+    def load(self):
+        self.beschWrapper.load()
+
+    def update(self):
+        self.beschWrapper.update()
 
     def setImage(self, pixmap):
         self.ui.labelImage.setPixmap(pixmap.scaled(self.ui.labelImage.size(), QtCore.Qt.KeepAspectRatio, QtCore.Qt.SmoothTransformation))

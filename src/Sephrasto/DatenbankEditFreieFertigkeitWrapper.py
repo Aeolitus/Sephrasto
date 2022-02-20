@@ -8,6 +8,7 @@ import Fertigkeiten
 from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
 import UI.DatenbankEditFreieFertigkeit
 from PyQt5 import QtWidgets, QtCore
+from Wolke import Wolke
 
 class DatenbankEditFreieFertigkeitWrapper(object):
     def __init__(self, datenbank, fert=None, readonly=False):
@@ -19,21 +20,24 @@ class DatenbankEditFreieFertigkeitWrapper(object):
         self.nameValid = True
         self.readonly = readonly
         self.voraussetzungenValid = True
-        ffDialog = QtWidgets.QDialog()
+        self.ffDialog = QtWidgets.QDialog()
         self.ui = UI.DatenbankEditFreieFertigkeit.Ui_ffDialog()
-        self.ui.setupUi(ffDialog)
+        self.ui.setupUi(self.ffDialog)
 
         if not fert.isUserAdded:
             if readonly:
                 self.ui.warning.setText("Gelöschte Elemente können nicht verändert werden.")
             self.ui.warning.setVisible(True)
 
-        ffDialog.setWindowFlags(
+        self.ffDialog.setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
         
+        windowSize = Wolke.Settings["WindowSize-DBFreieFert"]
+        self.ffDialog.resize(windowSize[0], windowSize[1])
+
         self.ui.leName.setText(fert.name)
         self.ui.leName.textChanged.connect(self.nameChanged)
         self.nameChanged()
@@ -44,8 +48,11 @@ class DatenbankEditFreieFertigkeitWrapper(object):
         self.ui.teVoraussetzungen.setPlainText(Hilfsmethoden.VorArray2Str(fert.voraussetzungen, None))
         self.ui.teVoraussetzungen.textChanged.connect(self.voraussetzungenTextChanged)
 
-        ffDialog.show()
-        ret = ffDialog.exec_()
+        self.ffDialog.show()
+        ret = self.ffDialog.exec_()
+
+        Wolke.Settings["WindowSize-DBFreieFert"] = [self.ffDialog.size().width(), self.ffDialog.size().height()]
+
         if ret == QtWidgets.QDialog.Accepted:
             self.freieFertigkeit = Fertigkeiten.FreieFertigkeitDB()
             self.freieFertigkeit.name = self.ui.leName.text()

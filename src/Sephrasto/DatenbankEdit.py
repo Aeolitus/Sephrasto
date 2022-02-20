@@ -41,12 +41,16 @@ class DatenbankEdit(object):
         super().__init__()
         self.plugins = plugins
         self.databaseTypes = {}
-        self.datenbank = Datenbank.Datenbank()
+        self.datenbank = Datenbank.Datenbank(Wolke.Settings['Datenbank'])
         self.savepath = self.datenbank.datei
         self.changed = False
         self.windowTitleDefault = ""
     
     def setupGUI(self):
+
+        windowSize = Wolke.Settings["WindowSize-Datenbank"]
+        self.Form.resize(windowSize[0], windowSize[1])
+
         for plugin in [p.plugin for p in self.plugins]:
             if hasattr(plugin, "createDatabaseButtons"):
                 for button in plugin.createDatabaseButtons():
@@ -55,9 +59,6 @@ class DatenbankEdit(object):
         self.initDatabaseTypes()
 
         # GUI Mods
-        font = QtWidgets.QApplication.instance().font()
-        font.setPointSize(font.pointSize()+2)
-        self.ui.listDatenbank.setFont(font)
         self.model = QtGui.QStandardItemModel(self.ui.listDatenbank)
         self.ui.listDatenbank.setModel(self.model)
         self.ui.listDatenbank.doubleClicked["QModelIndex"].connect(self.editSelected)
@@ -166,6 +167,8 @@ class DatenbankEdit(object):
     def closeEvent(self,event):
         if self.cancelDueToPendingChanges("Beenden"):
             event.ignore()
+        else:
+            Wolke.Settings["WindowSize-Datenbank"] = [self.Form.size().width(), self.Form.size().height()]
 
     def onDatabaseChange(self):
         self.changed = True

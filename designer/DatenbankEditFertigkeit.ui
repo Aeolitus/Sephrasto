@@ -32,66 +32,10 @@
    </item>
    <item row="0" column="0">
     <layout class="QGridLayout" name="gridLayout">
-     <item row="9" column="0">
-      <widget class="QLabel" name="label_5">
-       <property name="text">
-        <string>Beschreibung</string>
-       </property>
-      </widget>
-     </item>
      <item row="7" column="0">
       <widget class="QLabel" name="labelVoraussetzungen">
        <property name="text">
         <string>Voraussetzungen</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0" colspan="3">
-      <widget class="QLabel" name="warning">
-       <property name="visible">
-        <bool>false</bool>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 0); color: black;</string>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dies ist eine Ilaris-Standardfertigkeit. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in den Hausregeln gelöscht. Damit erhältst du für diese Fertigkeit keine automatischen Updates mehr mit neuen Sephrasto-Versionen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-       <property name="wordWrap">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="label_12">
-       <property name="minimumSize">
-        <size>
-         <width>110</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>Typ</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="0">
-      <widget class="QLabel" name="labelGruppieren">
-       <property name="text">
-        <string>Talente</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="minimumSize">
-        <size>
-         <width>110</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>Steigerungsfaktor</string>
        </property>
       </widget>
      </item>
@@ -109,23 +53,10 @@
        </property>
       </widget>
      </item>
-     <item row="9" column="1">
-      <widget class="QPlainTextEdit" name="textEdit">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="1">
-      <widget class="QPlainTextEdit" name="voraussetzungenEdit"/>
-     </item>
-     <item row="4" column="1">
-      <widget class="QComboBox" name="comboTyp">
-       <property name="toolTip">
-        <string>Fertigkeiten werden nach diesem Typ gruppiert und dann alphabetisch sortiert.</string>
+     <item row="6" column="0">
+      <widget class="QLabel" name="labelGruppieren">
+       <property name="text">
+        <string>Talente</string>
        </property>
       </widget>
      </item>
@@ -316,6 +247,62 @@
        </item>
       </layout>
      </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="nameEdit"/>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Beschreibung</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_12">
+       <property name="minimumSize">
+        <size>
+         <width>110</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Typ</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="2">
+      <widget class="QLabel" name="warning">
+       <property name="visible">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 0); color: black;</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dies ist eine Ilaris-Standardfertigkeit. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in den Hausregeln gelöscht. Damit erhältst du für diese Fertigkeit keine automatischen Updates mehr mit neuen Sephrasto-Versionen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <widget class="QPlainTextEdit" name="textEdit">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="labelKampffertigkeit">
+       <property name="text">
+        <string>Kampffertigkeit</string>
+       </property>
+      </widget>
+     </item>
      <item row="2" column="1">
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
@@ -352,13 +339,16 @@
        </item>
       </layout>
      </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="nameEdit"/>
+     <item row="7" column="1">
+      <widget class="QPlainTextEdit" name="voraussetzungenEdit"/>
      </item>
-     <item row="5" column="0">
-      <widget class="QLabel" name="labelKampffertigkeit">
+     <item row="6" column="1">
+      <widget class="QCheckBox" name="checkGruppieren">
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Talente werden grundsätzlich nach Fertigkeitstyp gruppiert. Mit dieser Option werden sie zusätzlich noch nach dem Namen der Fertigkeit gruppiert. Bei Talenten mit mehreren Fertigkeiten werden bei der Gruppierung außerdem Fertigkeiten mit dieser Option priorisiert.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
        <property name="text">
-        <string>Kampffertigkeit</string>
+        <string>Nach dieser Fertigkeit priorisiert gruppieren</string>
        </property>
       </widget>
      </item>
@@ -384,13 +374,23 @@
        </item>
       </widget>
      </item>
-     <item row="6" column="1">
-      <widget class="QCheckBox" name="checkGruppieren">
-       <property name="toolTip">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Talente werden grundsätzlich nach Fertigkeitstyp gruppiert. Mit dieser Option werden sie zusätzlich noch nach dem Namen der Fertigkeit gruppiert. Bei Talenten mit mehreren Fertigkeiten werden bei der Gruppierung außerdem Fertigkeiten mit dieser Option priorisiert.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="minimumSize">
+        <size>
+         <width>110</width>
+         <height>0</height>
+        </size>
        </property>
        <property name="text">
-        <string>Nach dieser Fertigkeit priorisiert gruppieren</string>
+        <string>Steigerungsfaktor</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QComboBox" name="comboTyp">
+       <property name="toolTip">
+        <string>Fertigkeiten werden nach diesem Typ gruppiert und dann alphabetisch sortiert.</string>
        </property>
       </widget>
      </item>

@@ -24,13 +24,13 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
+
+        windowSize = Wolke.Settings["WindowSize-FreieFert"]
+        self.Form.resize(windowSize[0], windowSize[1])
         
         self.kategorien = Wolke.DB.einstellungen["FreieFertigkeiten: Typen"].toTextList()
         self.abbreviations = Wolke.DB.einstellungen["FreieFertigkeiten: Typ-Abkürzungen"].toTextDict('\n', False)
 
-        font = QtWidgets.QApplication.instance().font()
-        font.setPointSize(font.pointSize()+2)
-        self.ui.treeFerts.setFont(font)
         self.ui.treeFerts.setHeaderHidden(True)
         self.populateTree()
 
@@ -42,6 +42,7 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
         self.Form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.Form.show()
         self.ret = self.Form.exec_()
+        Wolke.Settings["WindowSize-FreieFert"] = [self.Form.size().width(), self.Form.size().height()]
         if self.ret == QtWidgets.QDialog.Accepted and self.current != '':
             freieFertigkeit = Wolke.DB.freieFertigkeiten[self.current]
             self.fertigkeit = self.formatName(freieFertigkeit)
@@ -79,6 +80,10 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
             parent = QtWidgets.QTreeWidgetItem(self.ui.treeFerts)
             parent.setText(0,kategorie)
             parent.setExpanded(True)
+            font = QtGui.QFont(Wolke.Settings["Font"], max(Wolke.Settings["FontSize"] + 1, Wolke.Settings["FontHeadingSize"]))
+            font.setBold(True)
+            font.setCapitalization(QtGui.QFont.SmallCaps)
+            parent.setFont(0, font)
             for el in ferts:
                 if not currSet:
                     self.current = el

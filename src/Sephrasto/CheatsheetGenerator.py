@@ -13,13 +13,6 @@ class CheatsheetGenerator(object):
 
         self.RulesLineCount = 100
         self.RulesCharCount = 80
-        fontSize = Wolke.Settings["Cheatsheet-Fontsize"]
-        if fontSize == 1:
-            self.RulesLineCount = 80
-            self.RulesCharCount = 55
-        elif fontSize == 2:
-            self.RulesLineCount = 60
-            self.RulesCharCount = 45
 
         self.reihenfolge = Wolke.DB.einstellungen["Regelanhang: Reihenfolge"].toTextList()
         self.aktiveManöverTypen = [int(m[1:]) for m in self.reihenfolge if m[0] == "M"]
@@ -27,6 +20,17 @@ class CheatsheetGenerator(object):
 
     def formatCategory(self, category):
         return "===== " + category.upper() + " ====="
+
+    def updateFontSize(self):
+        self.RulesLineCount = 100
+        self.RulesCharCount = 80
+        fontSize = Wolke.Char.regelnGroesse
+        if fontSize == 1:
+            self.RulesLineCount = 80
+            self.RulesCharCount = 55
+        elif fontSize == 2:
+            self.RulesLineCount = 60
+            self.RulesCharCount = 45
 
     def getLineCount(self, text):
         lines = text.split("\n")
@@ -210,6 +214,7 @@ class CheatsheetGenerator(object):
             lineCounts.pop()
 
     def prepareRules(self):
+        self.updateFontSize()
         self.RuleCategories = []
         sortV = Wolke.Char.vorteile.copy()
         sortV = sorted(sortV, key=str.lower)

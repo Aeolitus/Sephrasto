@@ -27,10 +27,10 @@ class Waffeneigenschaft():
 class Waffe(Objekt):
     def __init__(self):
         super().__init__()
-        self.W6 = 2
-        self.plus = 2
+        self.W6 = 0
+        self.plus = 0
         self.eigenschaften = []
-        self.haerte = 7
+        self.haerte = 6
         self.rw = 0
         self.wm = 0
         self.fertigkeit = ''

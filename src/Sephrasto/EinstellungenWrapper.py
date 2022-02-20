@@ -28,8 +28,7 @@ class EinstellungenWrapper():
                 QtCore.Qt.WindowCloseButtonHint)
 
         self.ui.checkCheatsheet.setChecked(Wolke.Settings['Cheatsheet'])
-        self.ui.comboBogen.setCurrentText(Wolke.Settings['Bogen'])
-        self.comboBogenIndexChanged()
+        self.ui.comboBogen.setCurrentIndex(Wolke.Settings['Bogen'])
         self.ui.comboFontSize.setCurrentIndex(Wolke.Settings['Cheatsheet-Fontsize'])
 
         self.settingsFolder = EinstellungenWrapper.getSettingsFolder()
@@ -50,23 +49,39 @@ class EinstellungenWrapper():
         self.fontFamilies = QtGui.QFontDatabase().families()
         self.ui.comboFont.addItems(self.fontFamilies)
         self.ui.comboFont.setCurrentText(QtWidgets.QApplication.instance().font().family())
+        self.ui.spinAppFontSize.setValue(Wolke.Settings['FontSize'])
 
-        fontSizeToIndex = {
-            7 : 0,
-            8 : 1,
-            9 : 2
-        }
-        fontSizeToIndex_inverse = {v: k for k, v in fontSizeToIndex.items()}
-
-        self.ui.comboAppFontSize.setCurrentIndex(fontSizeToIndex[Wolke.Settings['FontSize']])
+        self.ui.comboFontHeading.addItems(self.fontFamilies)
+        if Wolke.Settings['FontHeading'] in self.fontFamilies:
+            self.ui.comboFontHeading.setCurrentText(Wolke.Settings['FontHeading'])
+        else:
+            self.ui.comboFontHeading.setCurrentText(QtWidgets.QApplication.instance().font().family())
+        self.ui.spinAppFontHeadingSize.setValue(Wolke.Settings['FontHeadingSize'])
             
+        font = QtGui.QFont("Font Awesome 6 Free Solid", 10)
         self.ui.buttonChar.clicked.connect(self.setCharPath)
+        self.ui.buttonChar.setFont(font)
+        self.ui.buttonChar.setText('\uf07c')
+
         self.ui.buttonRegeln.clicked.connect(self.setRulePath)
+        self.ui.buttonRegeln.setFont(font)
+        self.ui.buttonRegeln.setText('\uf07c')
+
         self.ui.buttonPlugins.clicked.connect(self.setPluginsPath)
+        self.ui.buttonPlugins.setFont(font)
+        self.ui.buttonPlugins.setText('\uf07c')
+
         self.ui.resetChar.clicked.connect(self.resetCharPath)
+        self.ui.resetChar.setFont(font)
+        self.ui.resetChar.setText('\uf2ea')
+
         self.ui.resetRegeln.clicked.connect(self.resetRulePath)
+        self.ui.resetRegeln.setFont(font)
+        self.ui.resetRegeln.setText('\uf2ea')
+
         self.ui.resetPlugins.clicked.connect(self.resetPluginsPath)
-        self.ui.comboBogen.currentIndexChanged.connect(self.comboBogenIndexChanged)
+        self.ui.resetPlugins.setFont(font)
+        self.ui.resetPlugins.setText('\uf2ea')
 
         self.form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.form.show()
@@ -74,7 +89,7 @@ class EinstellungenWrapper():
         if self.ret == QtWidgets.QDialog.Accepted:
             needRestart = False
 
-            Wolke.Settings['Bogen'] = self.ui.comboBogen.currentText()
+            Wolke.Settings['Bogen'] = self.ui.comboBogen.currentIndex()
             db = self.ui.comboRegelbasis.currentText()
             if db == 'Keine':
                 Wolke.Settings['Datenbank'] = None
@@ -122,8 +137,16 @@ class EinstellungenWrapper():
                 Wolke.Settings['Font'] = self.ui.comboFont.currentText()
                 needRestart = True
 
-            if Wolke.Settings['FontSize'] != fontSizeToIndex_inverse[self.ui.comboAppFontSize.currentIndex()]:
-                Wolke.Settings['FontSize'] = fontSizeToIndex_inverse[self.ui.comboAppFontSize.currentIndex()]
+            if Wolke.Settings['FontSize'] != self.ui.spinAppFontSize.value():
+                Wolke.Settings['FontSize'] = self.ui.spinAppFontSize.value()
+                needRestart = True
+
+            if Wolke.Settings['FontHeading'] != self.ui.comboFontHeading.currentText():
+                Wolke.Settings['FontHeading'] = self.ui.comboFontHeading.currentText()
+                needRestart = True
+
+            if Wolke.Settings['FontHeadingSize'] != self.ui.spinAppFontHeadingSize.value():
+                Wolke.Settings['FontHeadingSize'] = self.ui.spinAppFontHeadingSize.value()
                 needRestart = True
 
             EinstellungenWrapper.save()
@@ -189,6 +212,15 @@ class EinstellungenWrapper():
                     if not 'CharakterBeschreibungExt' in Wolke.Settings['Deaktivierte-Plugins']:
                         Wolke.Settings['Deaktivierte-Plugins'].append('CharakterBeschreibungExt')
                     Wolke.Settings['Version'] += 1
+                if Wolke.Settings['Version'] == 1:
+                    if Wolke.Settings['Bogen'] == "Standard Ilaris-Charakterbogen" or Wolke.Settings['Bogen'] == "Frag immer nach":
+                        Wolke.Settings['Bogen'] = 0
+                    elif Wolke.Settings['Bogen'] == "Die lange Version von Gatsu":
+                        Wolke.Settings['Bogen'] = 1
+                    Wolke.Settings['Font'] = "Crimson Pro"
+                    Wolke.Settings['FontSize'] = 9
+                    Wolke.Settings['Theme'] = "Ilaris"
+                    Wolke.Settings['Version'] += 1
         
         #Init defaults
         if not Wolke.Settings['Pfad-Chars']:
@@ -221,12 +253,13 @@ class EinstellungenWrapper():
 
     def updatePluginCheckboxes(self, plugins):
         self.pluginCheckboxes = []
-        for i in reversed(range(self.ui.gbPlugins.layout().count())): 
-            self.ui.gbPlugins.layout().itemAt(i).widget().setParent(None)
-
+        
+        layout = self.ui.gbPluginsOfficial.layout()
+        for i in reversed(range(layout.count())): 
+            if layout.itemAt(i).widget():
+                layout.itemAt(i).widget().setParent(None)
+            layout.removeItem(layout.itemAt(i))
         officialPlugins = [p for p in plugins if p.isOfficial]
-        if len(officialPlugins) > 0:
-            self.ui.gbPlugins.layout().addWidget(QtWidgets.QLabel("Offizielle Plugins:"))
         for pluginData in officialPlugins:
             check = QtWidgets.QCheckBox(pluginData.name)
             if pluginData.description:
@@ -234,12 +267,16 @@ class EinstellungenWrapper():
 
             if not (pluginData.name in Wolke.Settings['Deaktivierte-Plugins']):
                 check.setChecked(True)
-            self.ui.gbPlugins.layout().addWidget(check)
+            layout.addWidget(check)
             self.pluginCheckboxes.append(check)
+        layout.addStretch()
 
+        layout = self.ui.gbPluginsUser.layout()
+        for i in reversed(range(layout.count())): 
+            if layout.itemAt(i).widget():
+                layout.itemAt(i).widget().setParent(None)
+            layout.removeItem(layout.itemAt(i))
         userPlugins = [p for p in plugins if not p.isOfficial]
-        if len(userPlugins) > 0:
-            self.ui.gbPlugins.layout().addWidget(QtWidgets.QLabel("Nutzer-Plugins:"))
         for pluginData in userPlugins:
             check = QtWidgets.QCheckBox(pluginData.name)
             if pluginData.description:
@@ -247,20 +284,21 @@ class EinstellungenWrapper():
 
             if not (pluginData.name in Wolke.Settings['Deaktivierte-Plugins']):
                 check.setChecked(True)
-            self.ui.gbPlugins.layout().addWidget(check)
+            layout.addWidget(check)
             self.pluginCheckboxes.append(check)
+        layout.addStretch()
 
-    def comboBogenIndexChanged(self):
-        self.ui.checkCheatsheet.setEnabled(self.ui.comboBogen.currentIndex() != 0)
-        if not self.ui.checkCheatsheet.isEnabled():
-            self.ui.checkCheatsheet.setChecked(False)
-
-    def updateComboRegelbasis(self):
+    @staticmethod
+    def getDatenbanken(path):
         optionsList = ['Keine']            
-        if os.path.isdir(self.ui.editRegeln.text()):
-            for file in Hilfsmethoden.listdir(self.ui.editRegeln.text()):
+        if os.path.isdir(path):
+            for file in Hilfsmethoden.listdir(path):
                 if file.lower().endswith('.xml'):
                     optionsList.append(file)
+        return optionsList
+
+    def updateComboRegelbasis(self):
+        optionsList = EinstellungenWrapper.getDatenbanken(self.ui.editRegeln.text())
         self.ui.comboRegelbasis.clear()
         self.ui.comboRegelbasis.addItems(optionsList)
         if Wolke.Settings['Datenbank'] in optionsList:

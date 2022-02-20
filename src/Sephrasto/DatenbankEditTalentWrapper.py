@@ -9,6 +9,7 @@ from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
 import UI.DatenbankEditTalent
 from PyQt5 import QtWidgets, QtCore
 from TextTagCompleter import TextTagCompleter
+from Wolke import Wolke
 
 class DatenbankEditTalentWrapper(object):
     def __init__(self, datenbank, talent=None, readonly=False):
@@ -21,21 +22,24 @@ class DatenbankEditTalentWrapper(object):
         self.voraussetzungenValid = True
         self.fertigkeitenValid = True
         self.readonly = readonly
-        talentDialog = QtWidgets.QDialog()
+        self.talentDialog = QtWidgets.QDialog()
         self.ui = UI.DatenbankEditTalent.Ui_talentDialog()
-        self.ui.setupUi(talentDialog)
+        self.ui.setupUi(self.talentDialog)
 
         if not talent.isUserAdded:
             if readonly:
                 self.ui.warning.setText("Gelöschte Elemente können nicht verändert werden.")
             self.ui.warning.setVisible(True)
 
-        talentDialog.setWindowFlags(
+        self.talentDialog.setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
         
+        windowSize = Wolke.Settings["WindowSize-DBTalent"]
+        self.talentDialog.resize(windowSize[0], windowSize[1])
+
         self.ui.nameEdit.setText(talent.name)
         self.ui.nameEdit.textChanged.connect(self.nameChanged)
         self.nameChanged()
@@ -80,8 +84,11 @@ class DatenbankEditTalentWrapper(object):
             self.ui.comboSeite.setCurrentIndex(self.talentPicked.referenzBuch)
         self.ui.spinSeite.setValue(self.talentPicked.referenzSeite)
 
-        talentDialog.show()
-        ret = talentDialog.exec_()
+        self.talentDialog.show()
+        ret = self.talentDialog.exec_()
+
+        Wolke.Settings["WindowSize-DBTalent"] = [self.talentDialog.size().width(), self.talentDialog.size().height()]
+
         if ret == QtWidgets.QDialog.Accepted:
             self.talent = Fertigkeiten.Talent()
             self.talent.name = self.ui.nameEdit.text()

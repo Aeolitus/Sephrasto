@@ -9,6 +9,7 @@ import UI.DatenbankEditRuestung
 from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
 from PyQt5 import QtWidgets, QtCore
 import Definitionen
+from Wolke import Wolke
 
 class DatenbankEditRuestungWrapper(object):
     def __init__(self, datenbank, ruestung=None, readonly=False):
@@ -18,21 +19,24 @@ class DatenbankEditRuestungWrapper(object):
             ruestung = Objekte.Ruestung()
         self.ruestungPicked = ruestung
         self.readonly = readonly
-        ruestungDialog = QtWidgets.QDialog()
+        self.ruestungDialog = QtWidgets.QDialog()
         self.ui = UI.DatenbankEditRuestung.Ui_talentDialog()
-        self.ui.setupUi(ruestungDialog)
+        self.ui.setupUi(self.ruestungDialog)
         
         if not ruestung.isUserAdded:
             if readonly:
                 self.ui.warning.setText("Gelöschte Elemente können nicht verändert werden.")
             self.ui.warning.setVisible(True)
 
-        ruestungDialog.setWindowFlags(
+        self.ruestungDialog.setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
         
+        windowSize = Wolke.Settings["WindowSize-DBRuestung"]
+        self.ruestungDialog.resize(windowSize[0], windowSize[1])
+
         self.nameValid = True
         self.ui.leName.setText(ruestung.name)
         self.ui.leName.textChanged.connect(self.nameChanged)
@@ -56,9 +60,10 @@ class DatenbankEditRuestungWrapper(object):
         self.ui.sbKopf.setValue(ruestung.rs[5])
         self.ui.teBeschreibung.setPlainText(ruestung.text)
         
-        ruestungDialog.adjustSize()
-        ruestungDialog.show()
-        ret = ruestungDialog.exec_()
+        self.ruestungDialog.show()
+        ret = self.ruestungDialog.exec_()
+
+        Wolke.Settings["WindowSize-DBRuestung"] = [self.ruestungDialog.size().width(), self.ruestungDialog.size().height()]
 
         if ret == QtWidgets.QDialog.Accepted:
             self.ruestung = Objekte.Ruestung()

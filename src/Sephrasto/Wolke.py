@@ -4,29 +4,57 @@ Created on Sun Mar  5 22:02:26 2017
 
 @author: Aeolitus
 """
+
+class _DefaultSettings:
+    WindowSizeDefault1Col = [461, 522]
+    WindowSizeDefault2Col = [928, 522]
+
 class Wolke:
     Char = None
     DB = None
     Reqs = True
     Fehlercode = 0
     Settings = {
-        'Version' : 1,
-        'Bogen': 'Frag immer nach', 
+        'Version' : 2,
+        'Bogen': 0, 
         'Datenbank': None, 
-        'Cheatsheet': False, 
+        'Cheatsheet': True, 
         'Cheatsheet-Fontsize' : 0,
         'Pfad-Chars': '',
         'Pfad-Regeln': '',
         'Pfad-Plugins': '',
         'Deaktivierte-Plugins': ['CharakterBeschreibungExt'],
         'Logging': 1,
-        'PDF-Open': False,
+        'PDF-Open': True,
         'UpdateCheck_Disable' : False,
         'UpdateCheck_DisableFor' : '',
-        'Theme' : "Standard",
-        'Font' : "",
-        'FontSize' : 7
+        'Theme' : "Ilaris",
+        'Font' : "Crimson Pro",
+        'FontSize' : 9,
+        'FontHeading' : "Aniron",
+        'FontHeadingSize' : 7,
+        'WindowSize-Main' : [286, 346],
+        'WindowSize-Charakter' : [1130, 903],
+        'WindowSize-TalentProfan' : [650, 366],
+        'WindowSize-TalentUeber' : _DefaultSettings.WindowSizeDefault2Col,
+        'WindowSize-FreieFert' : _DefaultSettings.WindowSizeDefault1Col,
+        'WindowSize-Waffen' : _DefaultSettings.WindowSizeDefault2Col,
+        'WindowSize-Ruestungen' : _DefaultSettings.WindowSizeDefault2Col,
+        'WindowSize-Datenbank' : [661, 582],
+        'WindowSize-DBEinstellung' : _DefaultSettings.WindowSizeDefault1Col,
+        'WindowSize-DBFertigkeitProfan' : _DefaultSettings.WindowSizeDefault1Col,
+        'WindowSize-DBFertigkeitUeber' : _DefaultSettings.WindowSizeDefault1Col,
+        'WindowSize-DBFreieFert' : _DefaultSettings.WindowSizeDefault1Col,
+        'WindowSize-DBManoever' : _DefaultSettings.WindowSizeDefault1Col,
+        'WindowSize-DBRuestung' : _DefaultSettings.WindowSizeDefault1Col,
+        'WindowSize-DBTalent' : _DefaultSettings.WindowSizeDefault1Col,
+        'WindowSize-DBVorteil' : _DefaultSettings.WindowSizeDefault1Col,
+        'WindowSize-DBWaffeneigenschaft' : _DefaultSettings.WindowSizeDefault1Col,
+        'WindowSize-DBWaffe' : _DefaultSettings.WindowSizeDefault1Col,
+
     }
+    HeadingColor = "#000000"
+    BorderColor = "rgba(0,0,0,0.2)"
     ErrorCode = {
          0: 'No Error. You really shouldnt be seeing this.',
         -1: 'General, unspecified Error. Contact Aeolitus.',

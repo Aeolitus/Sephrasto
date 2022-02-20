@@ -13,7 +13,7 @@ class DatabaseException(Exception):
     pass
 
 class Datenbank():
-    def __init__(self):
+    def __init__(self, hausregeln):
         self.vorteile = {}
         self.fertigkeiten = {}
         self.talente = {}
@@ -27,9 +27,9 @@ class Datenbank():
         self.removeList = []
         
         self.datei = None
-        if Wolke.Settings['Datenbank']:
-            tmp = os.path.join(Wolke.Settings['Pfad-Regeln'], 
-                               Wolke.Settings['Datenbank'])
+
+        if hausregeln is not None:
+            tmp = os.path.join(Wolke.Settings['Pfad-Regeln'], hausregeln)
             if os.path.isfile(tmp):
                 self.datei = tmp
         self.userDbXml = None

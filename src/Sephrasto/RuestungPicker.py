@@ -36,6 +36,13 @@ class RuestungPicker(object):
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
+
+        windowSize = Wolke.Settings["WindowSize-Ruestungen"]
+        self.Form.resize(windowSize[0], windowSize[1])
+
+        self.ui.splitter.adjustSize()
+        width = self.ui.splitter.size().width()
+        self.ui.splitter.setSizes([width*0.6, width*0.4])
         
         self.ruestungsTypen = Wolke.DB.einstellungen["Rüstungen: Typen"].toTextList()
 
@@ -45,9 +52,6 @@ class RuestungPicker(object):
             self.ui.buttonBox.addButton(self.replaceButton, QtWidgets.QDialogButtonBox.AcceptRole)
 
         logging.debug("Ui is Setup...")
-        font = QtWidgets.QApplication.instance().font()
-        font.setPointSize(font.pointSize()+2)
-        self.ui.treeArmors.setFont(font)
         self.ui.treeArmors.setHeaderHidden(True)
         self.populateTree()
         logging.debug("Tree Filled...")
@@ -92,6 +96,8 @@ class RuestungPicker(object):
         self.Form.show()
         self.ret = self.Form.exec_()
 
+        Wolke.Settings["WindowSize-Ruestungen"] = [self.Form.size().width(), self.Form.size().height()]
+
         if self.ret == QtWidgets.QDialog.Accepted and self.current != '':
             self.ruestung = copy.deepcopy(Wolke.DB.rüstungen[self.current])
             if self.ruestung.name.endswith(" (ZRS)"):
@@ -127,6 +133,10 @@ class RuestungPicker(object):
             parent = QtWidgets.QTreeWidgetItem(self.ui.treeArmors)
             parent.setText(0,typ + "en")
             parent.setExpanded(True)
+            font = QtGui.QFont(Wolke.Settings["Font"], max(Wolke.Settings["FontSize"] + 1, Wolke.Settings["FontHeadingSize"]))
+            font.setBold(True)
+            font.setCapitalization(QtGui.QFont.SmallCaps)
+            parent.setFont(0, font)
             for el in ruestungen:
                 if not currSet:
                     self.current = el

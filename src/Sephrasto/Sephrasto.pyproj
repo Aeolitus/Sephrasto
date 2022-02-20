@@ -23,13 +23,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Charakter.py" />
+    <Compile Include="CharakterInfoWrapper.py" />
+    <Compile Include="CharakterProfaneFertigkeitenWrapper.py" />
     <Compile Include="UI\CharakterAttribute.py" />
     <Compile Include="CharakterAttributeWrapper.py" />
     <Compile Include="UI\CharakterBeschreibung.py" />
     <Compile Include="CharakterBeschreibungWrapper.py" />
     <Compile Include="CharakterEditor.py" />
-    <Compile Include="UI\CharakterEP.py" />
-    <Compile Include="CharakterEPWrapper.py" />
     <Compile Include="UI\CharakterEquipment.py" />
     <Compile Include="CharakterEquipmentWrapper.py" />
     <Compile Include="UI\CharakterFertigkeiten.py" />
@@ -38,14 +38,12 @@
     <Compile Include="CharakterFreieFertWrapper.py" />
     <Compile Include="UI\CharakterFreieFertigkeitenPicker.py" />
     <Compile Include="CharakterFreieFertigkeitenPickerWrapper.py" />
-    <Compile Include="UI\CharakterItems.py" />
-    <Compile Include="CharakterItemsWrapper.py" />
+    <Compile Include="UI\CharakterInfo.py" />
     <Compile Include="UI\CharakterMain.py" />
     <Compile Include="UI\CharakterMinderpakt.py" />
     <Compile Include="CharakterMinderpaktWrapper.py" />
-    <Compile Include="UI\CharakterNotiz.py" />
-    <Compile Include="CharakterNotizWrapper.py" />
     <Compile Include="CharakterPrintUtility.py" />
+    <Compile Include="UI\CharakterProfaneFertigkeiten.py" />
     <Compile Include="UI\CharakterRuestungen.py" />
     <Compile Include="UI\CharakterTalente.py" />
     <Compile Include="UI\CharakterUebernatuerlich.py" />

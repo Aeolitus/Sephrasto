@@ -6,7 +6,7 @@ Created on Fri Mar 10 17:21:49 2017
 """
 from Wolke import Wolke
 import UI.CharakterAttribute
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtWidgets, QtCore, QtGui
 import logging
 import copy
 
@@ -26,6 +26,18 @@ class AttrWrapper(QtCore.QObject):
         self.uiAttr = UI.CharakterAttribute.Ui_formAttribute()
         self.uiAttr.setupUi(self.formAttr)
         self.load()
+
+        font = QtGui.QFont(Wolke.Settings["FontHeading"], Wolke.Settings["FontHeadingSize"])
+        font.setBold(True)
+        self.uiAttr.labelWert.setFont(font)
+        self.uiAttr.labelWert.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
+        self.uiAttr.labelWert2.setFont(font)
+        self.uiAttr.labelWert2.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
+        self.uiAttr.labelPW.setFont(font)
+        self.uiAttr.labelPW.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
+        self.uiAttr.labelFormel.setFont(font)
+        self.uiAttr.labelFormel.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
+
         #Signals
         self.uiAttr.spinAsP.valueChanged.connect(self.update)
         self.uiAttr.spinKaP.valueChanged.connect(self.update)

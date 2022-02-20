@@ -10,6 +10,7 @@ from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
 from PyQt5 import QtWidgets, QtCore
 from TextTagCompleter import TextTagCompleter
 from Fertigkeiten import KampffertigkeitTyp
+from Wolke import Wolke
 
 class DatenbankEditWaffeWrapper(object):
     def __init__(self, datenbank, waffe=None, readonly=False):
@@ -19,20 +20,23 @@ class DatenbankEditWaffeWrapper(object):
             waffe = Objekte.Nahkampfwaffe()
         self.waffePicked = waffe
         self.readonly = readonly
-        waffeDialog = QtWidgets.QDialog()
+        self.waffeDialog = QtWidgets.QDialog()
         self.ui = UI.DatenbankEditWaffe.Ui_talentDialog()
-        self.ui.setupUi(waffeDialog)
+        self.ui.setupUi(self.waffeDialog)
         
         if not waffe.isUserAdded:
             if readonly:
                 self.ui.warning.setText("Gelöschte Elemente können nicht verändert werden.")
             self.ui.warning.setVisible(True)
 
-        waffeDialog.setWindowFlags(
+        self.waffeDialog.setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
+
+        windowSize = Wolke.Settings["WindowSize-DBWaffe"]
+        self.waffeDialog.resize(windowSize[0], windowSize[1])
         
         self.eigenschaftenValid = True
         self.nameValid = True
@@ -96,11 +100,12 @@ class DatenbankEditWaffeWrapper(object):
             else:
                 row += 1
                 col = 0
-        
-        waffeDialog.adjustSize()
 
-        waffeDialog.show()
-        ret = waffeDialog.exec_()
+        self.waffeDialog.show()
+        ret = self.waffeDialog.exec_()
+
+        Wolke.Settings["WindowSize-DBWaffe"] = [self.waffeDialog.size().width(), self.waffeDialog.size().height()]
+
         if ret == QtWidgets.QDialog.Accepted:
             if self.ui.comboTyp.currentIndex() == 0:
                 self.waffe = Objekte.Nahkampfwaffe()

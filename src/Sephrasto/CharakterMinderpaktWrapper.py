@@ -6,7 +6,7 @@ Created on Sat Mar 18 12:21:03 2017
 """
 from Wolke import Wolke
 import UI.CharakterMinderpakt
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtWidgets, QtCore, QtGui
 import logging
 
 class CharakterMinderpaktWrapper():    
@@ -22,9 +22,14 @@ class CharakterMinderpaktWrapper():
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
         
+        self.uiVor.splitter.adjustSize()
+        width = self.uiVor.splitter.size().width()
+        self.uiVor.splitter.setSizes([width*0.6, width*0.4])
+
         self.vorteilTypen = Wolke.DB.einstellungen["Vorteile: Typen"].toTextList()
         self.uiVor.treeWidget.itemSelectionChanged.connect(self.vortClicked)
         self.uiVor.treeWidget.header().setSectionResizeMode(0,1)
+
         if len(Wolke.Char.vorteile) > 0:
             self.currentVort = Wolke.Char.vorteile[0]
         else:
@@ -64,6 +69,11 @@ class CharakterMinderpaktWrapper():
             parent.setText(0, self.vorteilTypen[i])
             parent.setText(1,"")
             parent.setExpanded(True)
+            font = QtWidgets.QApplication.instance().font()
+            font.setBold(True)
+            font.setCapitalization(QtGui.QFont.SmallCaps)
+            font.setPointSize(max(Wolke.Settings["FontSize"] + 1, Wolke.Settings["FontHeadingSize"]))
+            parent.setFont(0, font)
             for el in vortList[i]:
                 child = QtWidgets.QTreeWidgetItem(parent)
                 child.setText(0, Wolke.DB.vorteile[el].name)
@@ -90,6 +100,6 @@ class CharakterMinderpaktWrapper():
             self.uiVor.labelNachkauf.setText(Wolke.DB.vorteile[self.currentVort].nachkauf)
             self.uiVor.plainText.setPlainText(Wolke.DB.vorteile[self.currentVort].text)
             if Wolke.DB.vorteile[self.currentVort].variableKosten:
-                self.uiVor.spinKosten.setValue(20)
+                self.uiVor.labelKosten.setText("20 EP")
             else:
-                self.uiVor.spinKosten.setValue(Wolke.DB.vorteile[self.currentVort].kosten)      
+                self.uiVor.labelKosten.setText(str(Wolke.DB.vorteile[self.currentVort].kosten) + " EP")

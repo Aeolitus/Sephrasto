@@ -2,6 +2,7 @@ import UI.DatenbankEditEinstellung
 import Datenbank
 from DatenbankEinstellung import DatenbankEinstellung
 from PyQt5 import QtWidgets, QtCore
+from Wolke import Wolke
 
 class DatenbankEditEinstellungWrapper(object):
     def __init__(self, datenbank, einstellung=None, readonly=False):
@@ -11,21 +12,24 @@ class DatenbankEditEinstellungWrapper(object):
             einstellung = DatenbankEinstellung()
         self.einstellungPicked = einstellung
         self.readonly = readonly
-        deDialog = QtWidgets.QDialog()
+        self.deDialog = QtWidgets.QDialog()
         self.ui = UI.DatenbankEditEinstellung.Ui_deDialog()
-        self.ui.setupUi(deDialog)
+        self.ui.setupUi(self.deDialog)
 
         if not einstellung.isUserAdded:
             if readonly:
                 self.ui.warning.setText("Gelöschte Elemente können nicht verändert werden.")
             self.ui.warning.setVisible(True)
 
-        deDialog.setWindowFlags(
+        self.deDialog.setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
         
+        windowSize = Wolke.Settings["WindowSize-DBEinstellung"]
+        self.deDialog.resize(windowSize[0], windowSize[1])
+
         self.ui.labelName.setText(einstellung.name)
         self.ui.labelBeschreibung.setText(einstellung.beschreibung)
         
@@ -41,11 +45,13 @@ class DatenbankEditEinstellungWrapper(object):
             self.ui.checkWert.setChecked(einstellung.toBool())
         else:
             self.ui.teWert.setPlainText(einstellung.toText())
-        deDialog.adjustSize()
 
         self.updateSaveButtonState()
-        deDialog.show()
-        ret = deDialog.exec_()
+        self.deDialog.show()
+        ret = self.deDialog.exec_()
+
+        Wolke.Settings["WindowSize-DBEinstellung"] = [self.deDialog.size().width(), self.deDialog.size().height()]
+
         if ret == QtWidgets.QDialog.Accepted:
             self.einstellung = Datenbank.DatenbankEinstellung()
             self.einstellung.name = self.ui.labelName.text()

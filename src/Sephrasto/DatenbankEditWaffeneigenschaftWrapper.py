@@ -7,6 +7,7 @@ Created on Sat Mar 18 10:52:34 2017
 import Objekte
 import UI.DatenbankEditWaffeneigenschaft
 from PyQt5 import QtWidgets, QtCore
+from Wolke import Wolke
 
 class DatenbankEditWaffeneigenschaftWrapper(object):
     def __init__(self, datenbank, waffeneigenschaft=None, readonly = False):
@@ -17,21 +18,24 @@ class DatenbankEditWaffeneigenschaftWrapper(object):
         self.waffeneigenschaftPicked = waffeneigenschaft
         self.nameValid = True
         self.readonly = readonly
-        waffeneigenschaftDialog = QtWidgets.QDialog()
+        self.waffeneigenschaftDialog = QtWidgets.QDialog()
         self.ui = UI.DatenbankEditWaffeneigenschaft.Ui_waffeneigenschaftDialog()
-        self.ui.setupUi(waffeneigenschaftDialog)
+        self.ui.setupUi(self.waffeneigenschaftDialog)
         
         if not waffeneigenschaft.isUserAdded:
             if readonly:
                 self.ui.warning.setText("Gelöschte Elemente können nicht verändert werden.")
             self.ui.warning.setVisible(True)
 
-        waffeneigenschaftDialog.setWindowFlags(
+        self.waffeneigenschaftDialog.setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
         
+        windowSize = Wolke.Settings["WindowSize-DBWaffeneigenschaft"]
+        self.waffeneigenschaftDialog.resize(windowSize[0], windowSize[1])
+
         self.ui.nameEdit.setText(waffeneigenschaft.name)
         self.ui.nameEdit.textChanged.connect(self.nameChanged)
         self.nameChanged()
@@ -51,8 +55,11 @@ class DatenbankEditWaffeneigenschaftWrapper(object):
 
         self.ui.scriptEdit.setToolTip("Siehe \"Skripte für Vorteile und Waffeneigenschaften\" in der Sephrasto-Hilfe für verfügbare Funktionen und Beispiele.")
 
-        waffeneigenschaftDialog.show()
-        ret = waffeneigenschaftDialog.exec_()
+        self.waffeneigenschaftDialog.show()
+        ret = self.waffeneigenschaftDialog.exec_()
+
+        Wolke.Settings["WindowSize-DBWaffeneigenschaft"] = [self.waffeneigenschaftDialog.size().width(), self.waffeneigenschaftDialog.size().height()]
+
         if ret == QtWidgets.QDialog.Accepted:
             self.waffeneigenschaft = Objekte.Waffeneigenschaft()
             self.waffeneigenschaft.name = self.ui.nameEdit.text()

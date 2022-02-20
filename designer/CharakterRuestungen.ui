@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>845</width>
-    <height>456</height>
+    <width>928</width>
+    <height>522</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,7 +25,7 @@
      <widget class="QWidget" name="verticalLayout_2" native="true">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>1</horstretch>
+        <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
@@ -124,7 +124,7 @@
           <string notr="true">padding: 1px</string>
          </property>
          <property name="frameShape">
-          <enum>QFrame::Box</enum>
+          <enum>QFrame::StyledPanel</enum>
          </property>
          <property name="widgetResizable">
           <bool>true</bool>
@@ -134,8 +134,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>278</width>
-            <height>393</height>
+            <width>449</width>
+            <height>459</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout">

@@ -8,6 +8,7 @@ import Fertigkeiten
 from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
 import UI.DatenbankEditFertigkeit
 from PyQt5 import QtWidgets, QtCore
+from Wolke import Wolke
 
 class DatenbankEditFertigkeitWrapper(object):
     def __init__(self, datenbank, fertigkeit=None, ueber=False, readonly=False):
@@ -20,21 +21,28 @@ class DatenbankEditFertigkeitWrapper(object):
         self.nameValid = True
         self.readonly = readonly
         self.voraussetzungenValid = True
-        fertDialog = QtWidgets.QDialog()
+        self.fertDialog = QtWidgets.QDialog()
         self.ui = UI.DatenbankEditFertigkeit.Ui_talentDialog()
-        self.ui.setupUi(fertDialog)
+        self.ui.setupUi(self.fertDialog)
         
         if not fertigkeit.isUserAdded:
             if readonly:
                 self.ui.warning.setText("Gelöschte Elemente können nicht verändert werden.")
             self.ui.warning.setVisible(True)
         
-        fertDialog.setWindowFlags(
+        self.fertDialog.setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
-        
+
+        if ueber:
+            windowSize = Wolke.Settings["WindowSize-DBFertigkeitUeber"]
+            self.fertDialog.resize(windowSize[0], windowSize[1])
+        else:
+            windowSize = Wolke.Settings["WindowSize-DBFertigkeitProfan"]
+            self.fertDialog.resize(windowSize[0], windowSize[1])
+
         self.ui.nameEdit.setText(fertigkeit.name)
         self.ui.nameEdit.textChanged.connect(self.nameChanged)
         self.nameChanged()
@@ -65,8 +73,14 @@ class DatenbankEditFertigkeitWrapper(object):
         self.ui.comboTyp.addItems(fertigkeitsTypen)
         self.ui.comboTyp.setCurrentIndex(fertigkeit.printclass)
 
-        fertDialog.show()
-        ret = fertDialog.exec_()
+        self.fertDialog.show()
+        ret = self.fertDialog.exec_()
+
+        if ueber:
+            Wolke.Settings["WindowSize-DBFertigkeitUeber"] = [self.fertDialog.size().width(), self.fertDialog.size().height()]
+        else:
+            Wolke.Settings["WindowSize-DBFertigkeitProfan"] = [self.fertDialog.size().width(), self.fertDialog.size().height()]
+
         if ret == QtWidgets.QDialog.Accepted:
             self.fertigkeit = Fertigkeiten.Fertigkeit()
             self.fertigkeit.name = self.ui.nameEdit.text()

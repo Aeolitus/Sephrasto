@@ -3,6 +3,7 @@ from cx_Freeze import setup, Executable
 import Version
 import os
 import shutil
+from distutils.dir_util import copy_tree
 
 print("Cleaning build folder")
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -70,68 +71,53 @@ for filename in removeFiles:
         except OSError:
             os.remove(filepath)
 
-# Copy additional files to build folder
-print("Copying additional files to build folder")
+# Copy additional files and folders to build folder
+print("Copying additional files and folders to build folder")
 
 includeFiles = {
-    os.path.join("Data", "datenbank.xml") : data_path,
-    os.path.join("Data", "Charakterbogen.pdf") : data_path,
-    os.path.join("Data", "Charakterbogen_lang.pdf") : data_path,
-    os.path.join("Data", "Regeln.pdf") : data_path,
-    os.path.join("Data", "ExtraSpells.pdf") : data_path,
+    "Data" : data_path,
+    "Doc" : doc_path,
     "icon_large.png" : build_path,
     "icon_multi.ico" : build_path,
 }
+
 if sys.platform == "win32":
     includeFiles.update({
-        os.path.join(env_styles_path, "qwindowsvistastyle.dll"): styles_path,
-        os.path.join(env_bin_path, "libEGL.dll"): build_path,
-        "Bin/ImageMagick/convert.exe" : os.path.join(bin_path, "ImageMagick"),
-        "Bin/ImageMagick/LICENSE.txt" : os.path.join(bin_path, "ImageMagick")
+        os.path.join(env_styles_path, "qwindowsvistastyle.dll") : styles_path,
+        os.path.join(env_bin_path, "libEGL.dll") : build_path,
+        "Bin/ImageMagick" : os.path.join(bin_path, "ImageMagick")
     })
 
-# Include documentation
-for file in os.listdir(os.path.join(dir_path, "Doc")):
-    fullPath = os.path.join(dir_path, "Doc", file)
-    if os.path.isfile(fullPath):
-        includeFiles[fullPath] = os.path.join(build_path, "Doc")
-
-for file in os.listdir(os.path.join(dir_path, "Doc", "Images")):
-    fullPath = os.path.join(dir_path, "Doc", "Images", file)
-    if os.path.isfile(fullPath):
-        includeFiles[fullPath] = os.path.join(build_path, "Doc", "Images")
-
-# Include plugins (beware, subfolders are not included)
-def includePlugin(name):
-    path = os.path.join(dir_path, "Plugins", name)
+# Include plugins
+for pluginName in os.listdir(os.path.join(dir_path, "Plugins")):
+    path = os.path.join(dir_path, "Plugins", pluginName)
     if not os.path.isdir(path):
-        return
-
+        continue
     files = os.listdir(path)
-    for i in files:
-        file = os.path.join(path, i)
-
-        if not os.path.basename(file) == "__pycache__" and not os.path.basename(file) == "UI":
-            includeFiles[file] = os.path.join(build_path, "Plugins", name)
-
-for dirName in os.listdir(os.path.join(dir_path, "Plugins")):
-    if os.path.isdir(os.path.join(dir_path, "Plugins", dirName)):
-        includePlugin(dirName)
+    for f in files:
+        file = os.path.join(path, f)
+        if os.path.basename(file) == "__pycache__" or os.path.basename(file) == "UI":
+            continue
+        if os.path.isfile(file):
+            includeFiles[file] = os.path.join(build_path, "Plugins", pluginName)
+        else:
+            includeFiles[file] = os.path.join(build_path, "Plugins", pluginName, os.path.basename(file))
 
 # Now do the actual copying
 for file,targetDir in includeFiles.items():
-    print(file)
-    if not os.path.exists(targetDir):
-        os.makedirs(targetDir)
     if not os.path.isfile(file) and not os.path.isdir(file):
         print("Error, file not found: " + file)
         cleanBuildFolder()
         sys.exit()
 
     if os.path.isfile(file):
+        if not os.path.exists(targetDir):
+            os.makedirs(targetDir)
         shutil.copy2(file, targetDir)
     else:
-        shutil.copytree(file, os.path.join(targetDir, os.path.basename(file)))
+        if not os.path.exists(os.path.dirname(targetDir)):
+            os.makedirs(os.path.dirname(targetDir))
+        shutil.copytree(file, targetDir)
 
 # Zip the build
 archiveName = "Sephrasto_v" + str(Version._sephrasto_version_major) + "." + str(Version._sephrasto_version_minor) + "." + str(Version._sephrasto_version_build)

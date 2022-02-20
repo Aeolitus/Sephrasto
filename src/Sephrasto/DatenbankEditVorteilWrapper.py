@@ -9,6 +9,7 @@ from Fertigkeiten import VorteilLinkKategorie
 import UI.DatenbankEditVorteil
 from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
 from PyQt5 import QtWidgets, QtCore
+from Wolke import Wolke
 
 class DatenbankEditVorteilWrapper(object):
     def __init__(self, datenbank, vorteil=None, readonly=False):
@@ -20,21 +21,24 @@ class DatenbankEditVorteilWrapper(object):
         self.nameValid = True
         self.readonly = readonly
         self.voraussetzungenValid = True
-        vorteilDialog = QtWidgets.QDialog()
+        self.vorteilDialog = QtWidgets.QDialog()
         self.ui = UI.DatenbankEditVorteil.Ui_talentDialog()
-        self.ui.setupUi(vorteilDialog)
+        self.ui.setupUi(self.vorteilDialog)
         
         if not vorteil.isUserAdded:
             if readonly:
                 self.ui.warning.setText("Gelöschte Elemente können nicht verändert werden.")
             self.ui.warning.setVisible(True)
 
-        vorteilDialog.setWindowFlags(
+        self.vorteilDialog.setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
         
+        windowSize = Wolke.Settings["WindowSize-DBVorteil"]
+        self.vorteilDialog.resize(windowSize[0], windowSize[1])
+
         self.ui.nameEdit.setText(vorteil.name)
         self.ui.nameEdit.textChanged.connect(self.nameChanged)
         self.nameChanged()
@@ -77,8 +81,11 @@ class DatenbankEditVorteilWrapper(object):
 
         self.ui.scriptEdit.setToolTip("Siehe \"Skripte für Vorteile und Waffeneigenschaften\" in der Sephrasto-Hilfe für verfügbare Funktionen und Beispiele.")
 
-        vorteilDialog.show()
-        ret = vorteilDialog.exec_()
+        self.vorteilDialog.show()
+        ret = self.vorteilDialog.exec_()
+
+        Wolke.Settings["WindowSize-DBVorteil"] = [self.vorteilDialog.size().width(), self.vorteilDialog.size().height()]
+
         if ret == QtWidgets.QDialog.Accepted:
             self.vorteil = Fertigkeiten.Vorteil()
             self.vorteil.name = self.ui.nameEdit.text()

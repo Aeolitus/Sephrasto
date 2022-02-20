@@ -6,7 +6,7 @@ Created on Fri Mar 10 17:25:53 2017
 """
 from Wolke import Wolke
 import UI.CharakterEquipment
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtWidgets, QtCore, QtGui
 import Objekte
 import Definitionen
 from WaffenPicker import WaffenPicker
@@ -28,41 +28,51 @@ class EquipWrapper(QtCore.QObject):
         self.uiEq = UI.CharakterEquipment.Ui_formAusruestung()
         self.uiEq.setupUi(self.formEq)
         logging.debug("UI Setup...")
-       
+
+        self.uiEq.tabWidget.currentChanged.connect(self.load)
+        for i in range(self.uiEq.tabWidget.tabBar().count()):
+            self.uiEq.tabWidget.tabBar().setTabTextColor(i, QtGui.QColor(Wolke.HeadingColor))
+        self.uiEq.tabWidget.setStyleSheet('QTabBar { font-size: ' + str(Wolke.Settings["FontHeadingSize"]) + 'pt; font-family: ' + Wolke.Settings["FontHeading"] + '; }')
+
+        palette = QtWidgets.QApplication.instance().palette()
+        alternateBgStyle = "background-color: " + palette.alternateBase().color().name() + ";"
+
         self.editRName = []
         self.spinBE = []
         self.spinRS = []
         self.spinZRS = []
         self.spinPunkte = []
-        for el in ["R1", "R2", "R3"]:
-            editRName = getattr(self.uiEq, "edit" + el + "name")
+        for i in range(3):
+            editRName = getattr(self.uiEq, "editR" + str(i+1) + "name")
             editRName.editingFinished.connect(self.updateRuestung)
             self.editRName.append(editRName)
 
-            spinBE = getattr(self.uiEq, "spin" + el + "be")
+            spinBE = getattr(self.uiEq, "spinR" + str(i+1) + "be")
             spinBE.valueChanged.connect(self.updateRuestung)
             self.spinBE.append(spinBE)
 
-            spinRS = getattr(self.uiEq, "spin" + el + "RS")
+            spinRS = getattr(self.uiEq, "spinR" + str(i+1) + "RS")
             spinRS.valueChanged.connect(self.updateRuestung)
             self.spinRS.append(spinRS)
 
-            self.spinZRS.append([getattr(self.uiEq, "spin" + el + "bein"),
-                getattr(self.uiEq, "spin" + el + "larm"),
-                getattr(self.uiEq, "spin" + el + "rarm"),
-                getattr(self.uiEq, "spin" + el + "bauch"),
-                getattr(self.uiEq, "spin" + el + "brust"),
-                getattr(self.uiEq, "spin" + el + "kopf")])
+            self.spinZRS.append([getattr(self.uiEq, "spinR" + str(i+1) + "bein"),
+                getattr(self.uiEq, "spinR" + str(i+1) + "larm"),
+                getattr(self.uiEq, "spinR" + str(i+1) + "rarm"),
+                getattr(self.uiEq, "spinR" + str(i+1) + "bauch"),
+                getattr(self.uiEq, "spinR" + str(i+1) + "brust"),
+                getattr(self.uiEq, "spinR" + str(i+1) + "kopf")])
             for spin in self.spinZRS[-1]:
                 spin.valueChanged.connect(self.updateRuestung)
 
-            self.spinPunkte.append(getattr(self.uiEq, "spin" + el + "punkte"))
+            self.spinPunkte.append(getattr(self.uiEq, "spinR" + str(i+1) + "punkte"))
 
-            addR = getattr(self.uiEq, "add" + el)
-            addR.clicked.connect(lambda state, idx=int(el[-1])-1: self.selectArmor(idx))
+            addR = getattr(self.uiEq, "addR" + str(i+1))
+            addR.setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9))
+            addR.setText('\u002b')
+            addR.setMaximumSize(QtCore.QSize(20, 20))
+            addR.clicked.connect(lambda state, idx=i: self.selectArmor(idx))
 
         self.editWName = []
-        self.labelTyp = []
         self.spinW6 = []
         self.spinPlus = []
         self.spinRW = []
@@ -72,54 +82,95 @@ class EquipWrapper(QtCore.QObject):
         self.editEig = []
         self.eigenschaftenCompleter = []
         self.comboStil = []
+        self.labelWerte = []
+        self.waffenTypen = []
+
         
-        for el in ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8']:
-            editWName = getattr(self.uiEq, "edit" + el + "name")
+        for i in range(8):
+            self.waffenTypen.append("")
+
+            editWName = getattr(self.uiEq, "editW" + str(i+1) + "name")
             editWName.editingFinished.connect(self.updateWaffen)
             self.editWName.append(editWName)
 
-            self.labelTyp.append(getattr(self.uiEq, "label" + el + "typ"))
-
-            spinW6 = getattr(self.uiEq, "spin" + el + "w6")
-            spinBE.valueChanged.connect(self.updateWaffen)
+            spinW6 = getattr(self.uiEq, "spinW" + str(i+1) + "w6")
+            spinW6.valueChanged.connect(self.updateWaffen)
             self.spinW6.append(spinW6)
 
-            spinPlus = getattr(self.uiEq, "spin" + el + "plus")
+            spinPlus = getattr(self.uiEq, "spinW" + str(i+1) + "plus")
             spinPlus.valueChanged.connect(self.updateWaffen)
             self.spinPlus.append(spinPlus)
 
-            spinRW = getattr(self.uiEq, "spin" + el + "rw")
+            spinRW = getattr(self.uiEq, "spinW" + str(i+1) + "rw")
             spinRW.valueChanged.connect(self.updateWaffen)
             self.spinRW.append(spinRW)
 
-            spinWM = getattr(self.uiEq, "spin" + el + "wm")
+            spinWM = getattr(self.uiEq, "spinW" + str(i+1) + "wm")
             spinWM.valueChanged.connect(self.updateWaffen)
             self.spinWM.append(spinWM)
 
-            spinLZ = getattr(self.uiEq, "spin" + el + "lz")
+            spinLZ = getattr(self.uiEq, "spinW" + str(i+1) + "lz")
             spinLZ.valueChanged.connect(self.updateWaffen)
             self.spinLZ.append(spinLZ)
 
-            spinHaerte = getattr(self.uiEq, "spin" + el + "h")
+            spinHaerte = getattr(self.uiEq, "spinW" + str(i+1) + "h")
             spinHaerte.valueChanged.connect(self.updateWaffen)
             self.spinHaerte.append(spinHaerte)
 
-            editEig = getattr(self.uiEq, "edit" + el + "eig")
+            editEig = getattr(self.uiEq, "editW" + str(i+1) + "eig")
             editEig.editingFinished.connect(self.updateWaffen)
             self.editEig.append(editEig)
             eigenschaftenCompleter = TextTagCompleter(editEig, Wolke.DB.waffeneigenschaften.keys())
             self.eigenschaftenCompleter.append(eigenschaftenCompleter)
 
-            comboStil = getattr(self.uiEq, "comboStil" + el[-1])
+            comboStil = getattr(self.uiEq, "comboStil" + str(i+1))
             comboStil.currentIndexChanged.connect(self.updateWaffen)
             self.comboStil.append(comboStil)
 
-            addW = getattr(self.uiEq, "add" + el)
-            addW.clicked.connect(lambda state, idx=int(el[-1])-1: self.selectWeapon(idx))
+            addW = getattr(self.uiEq, "addW" + str(i+1))
+            addW.setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9))
+            addW.setText('\u002b')
+            addW.setMaximumSize(QtCore.QSize(20, 20))
+            addW.clicked.connect(lambda state, idx=i: self.selectWeapon(idx))
+
+            color = Wolke.BorderColor
+            labelWerte = getattr(self.uiEq, "labelW" + str(i+1))
+            style = "border-left: 1px solid " + color + ";"\
+                "border-right: 1px solid " + color + ";"\
+                "border-bottom: 1px solid " + color + ";"\
+                "border-bottom-left-radius : 0px;"\
+                "border-bottom-right-radius : 0px;"
+            labelWerte.setStyleSheet(style)
+            self.labelWerte.append(labelWerte)
+
+            labelTopFrame = getattr(self.uiEq, "labelW" + str(i+1) + "TopFrame")
+            style = "border-left: 1px solid " + color + ";"\
+                "border-right: 1px solid " + color + ";"\
+                "border-top: 1px solid " + color + ";"\
+                "border-top-left-radius : 0px;"\
+                "border-top-right-radius : 0px;"
+            labelTopFrame.setStyleSheet(style)
+
+            labelLeftFrame = getattr(self.uiEq, "labelW" + str(i+1) + "LeftFrame")
+            style = "border-left: 1px solid " + color + "; border-top-left-radius : 0px;"
+            labelLeftFrame.setStyleSheet(style)
+
+            labelRightFrame = getattr(self.uiEq, "labelW" + str(i+1) + "RightFrame")
+            style = "border-right: 1px solid " + color + "; border-top-right-radius : 0px;"
+            labelRightFrame.setStyleSheet(style)
 
         logging.debug("Check Toggle...")
         self.uiEq.checkZonen.setChecked(Wolke.Char.zonenSystemNutzen)
         self.uiEq.checkZonen.stateChanged.connect(self.refreshZRSVisibility)
+
+        self.inventoryLines = []
+        for i in range(0,20):
+            lineEdit = getattr(self.uiEq, "lineEdit_"+ str(i+1))
+            lineEdit.editingFinished.connect(self.updateInventory)
+            self.inventoryLines.append(lineEdit)
+
+            if i in [2, 3, 6, 7, 10, 11, 14, 15, 18, 19]:
+                lineEdit.setStyleSheet(alternateBgStyle)
 
         self.currentlyLoading = False
         
@@ -181,10 +232,23 @@ class EquipWrapper(QtCore.QObject):
             Wolke.Char.aktualisieren()
             self.modified.emit()
 
+    def updateWeaponStats(self):
+        vtVerboten = Wolke.DB.einstellungen["Waffen: Talente VT verboten"].toTextList()
+        for index in range(8):
+            if index >= len(Wolke.Char.waffen) or not Wolke.Char.waffen[index].name:
+                self.labelWerte[index].setText("-")
+                continue
+            ww = Wolke.Char.waffenwerte[index]
+            waffe = Wolke.Char.waffen[index]
+            vt = ww.VT
+            if waffe.name in vtVerboten or waffe.talent in vtVerboten:
+                vt = "-"
+                #
+            self.labelWerte[index].setText("<b>Typ</b> " + self.waffenTypen[index] + " | <b>Kampfwerte</b> AT* " + str(ww.AT) + ", VT* " + str(vt) + ", TP* " + str(ww.TPW6) + "W6" + ("+" if ww.TPPlus >= 0 else "") + str(ww.TPPlus))
+
     def refreshDerivedWeaponValues(self, W, index):
         # Waffen Typ
-        if W.name != self.labelTyp[index].text():
-            self.labelTyp[index].setText(W.name)
+        self.waffenTypen[index] = W.name
 
         # Waffeneigenschaften tooltip
         tooltip = ""
@@ -198,7 +262,7 @@ class EquipWrapper(QtCore.QObject):
                 tooltip += "<b>" + we + ":</b> Unbekannte Eigenschaft\n"
         
         if tooltip:
-            tooltip = "<html><head/><body><div>" + tooltip[:-1].replace("\n", "<br>") + "</div></body></html>"
+            tooltip = tooltip[:-1].replace("\n", "<br>")
         self.editEig[index].setToolTip(tooltip)
 
         # Kampfstil combobox
@@ -207,7 +271,7 @@ class EquipWrapper(QtCore.QObject):
         comboStil.setCurrentIndex(0)
         comboStil.clear()
         comboStil.setToolTip(None)
-        name = self.labelTyp[index].text() or self.editWName[index].text()
+        name = self.waffenTypen[index] or self.editWName[index].text()
         if name:
             if name in Wolke.DB.waffen:
                 entries = [Definitionen.KeinKampfstil] + [ks for ks in Wolke.DB.waffen[name].kampfstile if ks + " I" in Wolke.Char.vorteile]
@@ -228,13 +292,13 @@ class EquipWrapper(QtCore.QObject):
         for index in range(8):
             # Remove weapon if display name is deleted
             anzeigename = self.editWName[index].text()
-            if self.labelTyp[index].text() and not anzeigename:
+            if self.waffenTypen[index] and not anzeigename:
                 self.currentlyLoading = True
                 self.loadWeaponIntoFields(Objekte.Nahkampfwaffe(), index)
                 self.currentlyLoading = False
 
             # Load weapon if an existing weapons name is entered into displayname of an empty row
-            name = self.labelTyp[index].text()
+            name = self.waffenTypen[index]
             if not name and anzeigename in Wolke.DB.waffen:
                 self.currentlyLoading = True
                 self.loadWeaponIntoFields(Wolke.DB.waffen[anzeigename], index)
@@ -249,7 +313,7 @@ class EquipWrapper(QtCore.QObject):
                 W.lz = self.spinLZ[index].value()
 
             W.anzeigename = anzeigename
-            W.name = name
+            W.name = self.waffenTypen[index]
             if W.name in Wolke.DB.waffen:
                 dbWaffe = Wolke.DB.waffen[W.name]
                 W.fertigkeit = dbWaffe.fertigkeit
@@ -280,6 +344,7 @@ class EquipWrapper(QtCore.QObject):
 
         if changed:
             Wolke.Char.aktualisieren()
+            self.updateWeaponStats()
             self.modified.emit()
 
     def load(self):
@@ -296,7 +361,42 @@ class EquipWrapper(QtCore.QObject):
             if index < 8:
                 self.loadWeaponIntoFields(W, index)
 
+        self.updateWeaponStats()
+
+        # Load in inventory
+        count = 0
+        for el in Wolke.Char.ausrüstung:
+            self.inventoryLines[count].setText(el)
+            count += 1
+            if count >= 20:
+                break
+
         self.currentlyLoading = False
+
+    def updateInventory(self):
+        # Update inventory
+        ausruestungNeu = []
+        for i in range(0,20):
+            ausruestungNeu.append(self.inventoryLines[i].text())
+
+        #Preserve the position of actual elements but remove any trailing empty elements
+        #This is needed for ArrayEqual later to work as intended
+        for ausr in reversed(ausruestungNeu):
+            if ausr == "":
+                ausruestungNeu.pop()
+            else:
+                break
+
+        if not Hilfsmethoden.ArrayEqual(ausruestungNeu, Wolke.Char.ausrüstung):
+            Wolke.Char.ausrüstung = ausruestungNeu
+            self.modified.emit()
+
+    def update(self):
+        if self.currentlyLoading:
+            return
+        self.updateWaffen()
+        self.updateRuestung()
+        self.updateInventory()
 
     def loadArmorIntoFields(self, R, index, replace):
         if replace or self.editRName[index].text() == "":
@@ -321,7 +421,9 @@ class EquipWrapper(QtCore.QObject):
 
     def loadWeaponIntoFields(self, W, index):
         self.editWName[index].setText(W.anzeigename or W.name)
-        self.labelTyp[index].setText(W.name)
+
+        self.waffenTypen[index] = W.name
+
         self.editEig[index].setText(", ".join(W.eigenschaften))
         self.spinW6[index].setValue(W.W6)
         self.spinPlus[index].setValue(W.plus)
@@ -355,17 +457,13 @@ class EquipWrapper(QtCore.QObject):
 
     def selectWeapon(self, index):
         W = None
-        for el in Wolke.DB.waffen:
-            if Wolke.DB.waffen[el].name == self.labelTyp[index].text():
-                W = el
-                logging.debug("Weapon found - its " + self.labelTyp[index].text())
-                break
+        if self.waffenTypen[index] in Wolke.DB.waffen:
+            W = Wolke.DB.waffen[self.waffenTypen[index]]
         logging.debug("Starting WaffenPicker")
         picker = WaffenPicker(W)
         logging.debug("WaffenPicker created")
         if picker.waffe is not None:
             self.currentlyLoading = True
-            #Wolke.Char.waffen.append(picker.waffe)
             self.loadWeaponIntoFields(picker.waffe, index)
             self.currentlyLoading = False
             self.updateWaffen()

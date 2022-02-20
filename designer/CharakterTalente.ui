@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>606</width>
-    <height>325</height>
+    <width>928</width>
+    <height>522</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,7 +22,7 @@
      <widget class="QListView" name="listTalente">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-        <horstretch>1</horstretch>
+        <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
@@ -47,7 +47,7 @@
           <string notr="true">padding: 1px</string>
          </property>
          <property name="frameShape">
-          <enum>QFrame::Box</enum>
+          <enum>QFrame::StyledPanel</enum>
          </property>
          <property name="widgetResizable">
           <bool>true</bool>
@@ -57,8 +57,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>221</width>
-            <height>262</height>
+            <width>467</width>
+            <height>459</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_2">
@@ -107,7 +107,7 @@
            <item row="4" column="0" colspan="2">
             <widget class="QPlainTextEdit" name="plainText">
              <property name="frameShape">
-              <enum>QFrame::Box</enum>
+              <enum>QFrame::StyledPanel</enum>
              </property>
              <property name="readOnly">
               <bool>true</bool>

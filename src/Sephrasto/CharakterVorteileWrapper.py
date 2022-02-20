@@ -8,7 +8,7 @@ from Wolke import Wolke
 import UI.CharakterVorteile
 import CharakterMinderpaktWrapper
 from Charakter import VariableKosten
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtWidgets, QtCore, QtGui
 import logging
 from EventBus import EventBus
 
@@ -24,14 +24,14 @@ class CharakterVorteileWrapper(QtCore.QObject):
         
         self.vorteilTypen = Wolke.DB.einstellungen["Vorteile: Typen"].toTextList()
         font = QtWidgets.QApplication.instance().font()
-        font.setPointSize(font.pointSize()+2)
-        self.uiVor.treeWidget.setFont(font)
         self.uiVor.treeWidget.itemSelectionChanged.connect(self.vortClicked)
         self.uiVor.treeWidget.itemChanged.connect(self.itemChangeHandler)
         self.uiVor.treeWidget.header().setSectionResizeMode(0,1)
-        self.uiVor.treeWidget.headerItem().setFont(0, font)
-        self.uiVor.treeWidget.headerItem().setFont(1, font)
         
+        self.uiVor.splitter.adjustSize()
+        width = self.uiVor.splitter.size().width()
+        self.uiVor.splitter.setSizes([width*0.6, width*0.4])
+
         if len(Wolke.Char.vorteile) > 0:
             self.currentVort = Wolke.Char.vorteile[0]
         else:
@@ -60,6 +60,11 @@ class CharakterVorteileWrapper(QtCore.QObject):
             parent.setText(1,"")
             parent.setExpanded(True)
             parent.setSizeHint(0, QtCore.QSize(0, 24))
+            font = parent.font(0)
+            font.setBold(True)
+            font.setCapitalization(QtGui.QFont.SmallCaps)
+            font.setPointSize(max(Wolke.Settings["FontSize"] + 1, Wolke.Settings["FontHeadingSize"]))
+            parent.setFont(0, font)
             for el in vortList[i]:
                 child = QtWidgets.QTreeWidgetItem(parent)
                 child.setText(0, Wolke.DB.vorteile[el].name)
@@ -88,7 +93,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
                     self.uiVor.treeWidget.setItemWidget(child,1,spin)
                 else:
                     child.setText(1, "20 EP" if el == Wolke.Char.minderpakt else str(Wolke.DB.vorteile[el].kosten) + " EP")
-                    child.setFont(1, QtWidgets.QApplication.instance().font())
+
                 if Wolke.DB.vorteile[el].kommentarErlauben:
                     if child.checkState(0) == QtCore.Qt.Checked:
                         self.handleAddKommentarWidget(el, child)
@@ -111,12 +116,16 @@ class CharakterVorteileWrapper(QtCore.QObject):
             if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.vorteile[el].voraussetzungen):
                 idx = min(Wolke.DB.vorteile[el].typ, len(vortList) -1)
                 vortList[idx].append(el)
+
         for i in range(len(vortList)):
             itm = self.uiVor.treeWidget.topLevelItem(i)
             if type(itm) != QtWidgets.QTreeWidgetItem:
-                    continue
+                continue
             if itm == 0: 
                 continue
+
+            itm.setHidden(len(vortList[i]) == 0)
+
             for j in range(itm.childCount()):
                 chi = itm.child(j)
                 if type(chi) != QtWidgets.QTreeWidgetItem:
@@ -275,7 +284,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
             self.uiVor.labelNachkauf.setText(vorteil.nachkauf)
             self.uiVor.plainText.setPlainText(vorteil.text)
             if vorteil.variableKosten and self.currentVort in Wolke.Char.vorteileVariable:
-                self.uiVor.spinKosten.setValue(Wolke.Char.vorteileVariable[self.currentVort].kosten)
+                self.uiVor.labelKosten.setText(str(Wolke.Char.vorteileVariable[self.currentVort].kosten) + " EP")
             else:
-                self.uiVor.spinKosten.setValue(vorteil.kosten)      
+                self.uiVor.labelKosten.setText(str(vorteil.kosten) + " EP")   
             

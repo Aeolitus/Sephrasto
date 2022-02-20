@@ -33,12 +33,16 @@ class CharakterFreieFertWrapper(QtCore.QObject):
         self.editFF = []
         self.comboFF = []
         self.buttonFF = []
-        font = QtGui.QFont("Times", QtWidgets.QApplication.instance().font().pointSize()) # serif font for the roman letters
+
+        palette = QtWidgets.QApplication.instance().palette()
+        bgStyle = "background-color: " + palette.alternateBase().color().name() + ";"
+
         for row in range(0,7):
             for column in range(0,4):
                 self.ffCount +=1
                 ffLayout = QtWidgets.QHBoxLayout()
                 ffEdit = QtWidgets.QLineEdit()
+
                 ffEdit.editingFinished.connect(self.update)
                 self.editFF.append(ffEdit)
                 ffLayout.addWidget(ffEdit)
@@ -47,7 +51,6 @@ class CharakterFreieFertWrapper(QtCore.QObject):
                 ffCombo.addItem("I")
                 ffCombo.addItem("II")
                 ffCombo.addItem("III")
-                ffCombo.setFont(font)
                 ffCombo.currentIndexChanged.connect(self.update)
                 if self.ffCount <= Wolke.Char.freieFertigkeitenNumKostenlos:
                     ffCombo.setEnabled(False)
@@ -56,10 +59,14 @@ class CharakterFreieFertWrapper(QtCore.QObject):
 
                 ffButton = QtWidgets.QPushButton()
                 self.buttonFF.append(ffButton)
-                ffButton.setText("+")
-                ffButton.setMaximumSize(QtCore.QSize(25, 20))
+                ffButton.setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9))
+                ffButton.setText('\u002b')
+                ffButton.setMaximumSize(QtCore.QSize(20, 20))
                 ffButton.clicked.connect(lambda state, edit=ffEdit: self.ffButtonClicked(edit))
                 ffLayout.addWidget(ffButton)
+
+                if row % 2 != 0:
+                    ffEdit.setStyleSheet(bgStyle)
 
                 self.uiFert.freieFertsGrid.addLayout(ffLayout, row, column)
         

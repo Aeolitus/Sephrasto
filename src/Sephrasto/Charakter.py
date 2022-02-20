@@ -152,8 +152,14 @@ class Char():
         self.EP_Uebernatuerlich = 0
         self.EP_Uebernatuerlich_Talente = 0
 
-        #Achter Block: Notiz
+        #Achter Block: Infos
         self.notiz = ""
+        self.charakterbogen = Wolke.Settings["Bogen"]
+        self.hausregeln = Wolke.Settings["Datenbank"]
+        self.finanzenAnzeigen = True
+        self.ueberPDFAnzeigen = False
+        self.regelnAnhaengen = Wolke.Settings["Cheatsheet"]
+        self.regelnGroesse = Wolke.Settings["Cheatsheet-Fontsize"]
 
         # Diagnostics
         self.fehlercode = 0
@@ -949,6 +955,14 @@ class Char():
         notiz =  etree.SubElement(root,'Notiz')
         notiz.text = self.notiz
 
+        einstellungen = etree.SubElement(root,'Einstellungen')
+        etree.SubElement(einstellungen,'Charakterbogen').text = str(self.charakterbogen)
+        etree.SubElement(einstellungen,'FinanzenAnzeigen').text = "1" if self.finanzenAnzeigen else "0"
+        etree.SubElement(einstellungen,'UeberPDFAnzeigen').text = "1" if self.ueberPDFAnzeigen else "0"
+        etree.SubElement(einstellungen,'RegelnAnhaengen').text = "1" if self.regelnAnhaengen else "0"
+        etree.SubElement(einstellungen,'RegelnGroesse').text = str(self.regelnGroesse)
+        etree.SubElement(einstellungen,'Hausregeln').text = str(self.hausregeln or "")
+
         #Plugins
         root = EventBus.applyFilter("charakter_xml_schreiben", root, { "charakter" : self })
 
@@ -985,6 +999,21 @@ class Char():
             messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
             messageBox.exec_()
 
+    @staticmethod
+    def xmlHausregelnLesen(filename):
+        root = etree.parse(filename).getroot()
+
+        einstellungen = root.find('Einstellungen')
+        if einstellungen:
+            return einstellungen.find('Hausregeln').text
+        else:
+            versionXml = root.find('Version')
+            if versionXml:
+                userDBXml = versionXml.find('NutzerDatenbankName')
+                if userDBXml is not None and userDBXml.text:
+                    return os.path.basename(userDBXml.text)
+        return None
+
     def xmlLesen(self,filename):
         '''Läd ein Charakter-Objekt aus einer XML Datei, deren Dateiname 
         inklusive Pfad als Argument übergeben wird'''
@@ -1004,7 +1033,8 @@ class Char():
             logging.debug("Character: VersionXML found")
             charDBVersion = int(versionXml.find('DatenbankVersion').text)
             userDBCRC = int(versionXml.find('NutzerDatenbankCRC').text)
-            userDBName = versionXml.find('NutzerDatenbankName').text or 'Keine Nutzer-Regelbasis'
+            userDBName = versionXml.find('NutzerDatenbankName').text or "Keine"
+
             if Wolke.DB.userDbXml is not None:
                 currentUserDBCRC = binascii.crc32(etree.tostring(Wolke.DB.userDbXml))
                 if userDBCRC != 0 and userDBCRC != currentUserDBCRC:
@@ -1020,6 +1050,8 @@ class Char():
 
         #Plugins
         root = EventBus.applyFilter("charakter_xml_laden", root, { "charakter" : self })
+
+        self.hausregeln = os.path.basename(Wolke.DB.datei) if Wolke.DB.datei else None
 
         alg = root.find('AllgemeineInfos')
         self.name = alg.find('name').text or ''
@@ -1176,6 +1208,14 @@ class Char():
         notiz = root.find('Notiz')
         if notiz is not None:
             self.notiz = notiz.text
+
+        einstellungen = root.find('Einstellungen')
+        if einstellungen:
+            self.charakterbogen = int(einstellungen.find('Charakterbogen').text)
+            self.finanzenAnzeigen = einstellungen.find('FinanzenAnzeigen').text == "1"
+            self.ueberPDFAnzeigen = einstellungen.find('UeberPDFAnzeigen').text == "1"
+            self.regelnAnhaengen = einstellungen.find('RegelnAnhaengen').text == "1"
+            self.regelnGroesse = int(einstellungen.find('RegelnGroesse').text)
         
         if userDBChanged or vIgnored or fIgnored or tIgnored or übIgnored:
             messageBox = QtWidgets.QMessageBox()
@@ -1183,7 +1223,7 @@ class Char():
             messageBox.setWindowTitle("Charakter laden - Hausregeln wurden geändert.")
 
             strArr = ["Seit du diesen Charakter das letzte mal bearbeitet hast wurden die Hausregeln aktualisiert. "]
-            currentDBName = os.path.basename(Wolke.DB.datei) if Wolke.DB.datei else "Keine Datenbank"
+            currentDBName = os.path.basename(Wolke.DB.datei) if Wolke.DB.datei else "Keine"
             if userDBName != currentDBName:
                 strArr.append("Auch der Pfad der aktuell geladenen Hausregeln ist ein anderer:\n- Vorher: '")
                 strArr.append(userDBName)

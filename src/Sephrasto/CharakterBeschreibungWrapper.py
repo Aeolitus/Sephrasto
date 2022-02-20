@@ -106,7 +106,7 @@ class BeschrWrapper(QtCore.QObject):
             self.modified.emit()
 
     def load(self):
-        self.uiBeschr.comboStatus.setToolTip("""<html><head/><body><div>Der Status wirkt sich auf die Lebenshaltungskosten aus. Der Vorteil Einkommen kann helfen, diese zu bestreiten.<br>
+        self.uiBeschr.comboStatus.setToolTip("""Der Status wirkt sich auf die Lebenshaltungskosten aus. Der Vorteil Einkommen kann helfen, diese zu bestreiten.<br>
         <b>Elite</b>: mind. 256 Dukaten pro Monat<br>
         Beispiele: Angehörige des Hochadels, reiche Patrizierinnen, Kirchenfürsten, Spektabilitäten und Handelsherrinnen, Bergkönige<br>
         Anmerkung: adlige Angehörige der Elite sollten in der Generierung den Vorteil Privilegien (Adel) wählen.<br>
@@ -118,15 +118,17 @@ class BeschrWrapper(QtCore.QObject):
         Beispiele: arme Bürger, freie oder leibeigene Kleinbäuerinnen, Soldaten, Angehörige barbarischer Kulturen<br>
         <b>Abschaum</b>: 1 Dukaten pro Monat<br>
         Beispiele: Sklavinnen, arme Leibeigene, Vagabundinnen, Wanderarbeiter
-        </div></body></html>""")
+        """)
 
-        self.uiBeschr.comboFinanzen.setToolTip("""<html><head/><body><div>Die Finanzen spielen nur bei einem neuen Charakter eine Rolle und haben Auswirkungen auf das Startkapital und die Anzahl Schicksalspunkte zu Beginn.<br>
+        self.uiBeschr.labelFinanzen.setVisible(Wolke.Char.finanzenAnzeigen)
+        self.uiBeschr.comboFinanzen.setVisible(Wolke.Char.finanzenAnzeigen)
+        self.uiBeschr.comboFinanzen.setToolTip("""Die Finanzen spielen nur bei einem neuen Charakter eine Rolle und haben Auswirkungen auf das Startkapital und die Anzahl Schicksalspunkte zu Beginn.<br>
         <b>Sehr reich</b>: 256 Dukaten, 0 Schicksalspunkte<br>
         <b>Reich</b>: 128 Dukaten, 2 Schicksalspunkte<br>
         <b>Normal</b>: 32 Dukaten, 4 Schicksalspunkte<br>
         <b>Arm</b>: 16 Dukaten, 5 Schicksalspunkte<br>
         <b>Sehr arm</b>: 4 Dukaten, 6 Schicksalspunkte
-        </div></body></html>""")
+        """)
 
         self.uiBeschr.comboHeimat.setToolTip("Jeder Charakter beherrscht seine Muttersprache und die Gebräuche seiner Heimat.\nDu erhältst gratis die Freie Fertigkeit zu deiner Muttersprache auf Stufe III und das passende Gebräuche-­Talent.")
 

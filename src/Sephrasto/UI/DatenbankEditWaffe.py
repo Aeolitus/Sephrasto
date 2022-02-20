@@ -15,7 +15,7 @@ class Ui_talentDialog(object):
     def setupUi(self, talentDialog):
         talentDialog.setObjectName("talentDialog")
         talentDialog.setWindowModality(QtCore.Qt.ApplicationModal)
-        talentDialog.resize(440, 550)
+        talentDialog.resize(440, 394)
         self.gridLayout_2 = QtWidgets.QGridLayout(talentDialog)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.gridLayout = QtWidgets.QGridLayout()
@@ -97,7 +97,7 @@ class Ui_talentDialog(object):
         self.horizontalLayout_3.addLayout(self.horizontalLayout_5)
         self.gridLayout.addLayout(self.horizontalLayout_3, 5, 1, 1, 1)
         self.textEigenschaften = QtWidgets.QPlainTextEdit(talentDialog)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.textEigenschaften.sizePolicy().hasHeightForWidth())

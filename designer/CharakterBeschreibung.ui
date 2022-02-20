@@ -40,6 +40,12 @@
          <height>0</height>
         </size>
        </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string>Kurzbeschreibung</string>
        </property>
@@ -50,6 +56,12 @@
      </item>
      <item row="7" column="1">
       <widget class="QLabel" name="label_6">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string>Eigenheiten</string>
        </property>
@@ -73,6 +85,12 @@
      </item>
      <item row="1" column="1">
       <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string>Name</string>
        </property>
@@ -80,6 +98,12 @@
      </item>
      <item row="2" column="1">
       <widget class="QLabel" name="label_2">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string>Spezies</string>
        </property>
@@ -90,6 +114,12 @@
      </item>
      <item row="3" column="1">
       <widget class="QLabel" name="label_3">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string>Status</string>
        </property>
@@ -256,7 +286,13 @@
       <widget class="QLineEdit" name="editRasse"/>
      </item>
      <item row="4" column="1">
-      <widget class="QLabel" name="label_5">
+      <widget class="QLabel" name="labelFinanzen">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string>Finanzen</string>
        </property>
@@ -293,6 +329,12 @@
      </item>
      <item row="5" column="1">
       <widget class="QLabel" name="label_7">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string>Heimatgebiet</string>
        </property>

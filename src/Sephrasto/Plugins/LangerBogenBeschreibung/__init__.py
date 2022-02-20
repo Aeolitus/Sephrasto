@@ -7,6 +7,7 @@ from LangerBogenBeschreibung import CharakterBeschreibungExt
 class Plugin:
     def __init__(self):
         self.charakterBeschreibungExtTab = None
+        EventBus.addFilter("class_beschreibung_wrapper", self.classBeschreibungWrapperHandler)
         EventBus.addAction("charaktereditor_oeffnet", self.charakterEditorOpenHandler)
         EventBus.addFilter("charakter_xml_laden", self.charakterXmlLadenHook)
         EventBus.addFilter("charakter_xml_schreiben", self.charakterXmlSchreibenHook)
@@ -24,8 +25,12 @@ class Plugin:
         return True
 
     def createCharakterTabs(self):
-        beschreibungExtTab = Tab(15, self.charakterBeschreibungExtTab, self.charakterBeschreibungExtTab.form, "Beschreibung 2")
+        self.charakterBeschreibungExtTab.init()
+        beschreibungExtTab = Tab(15, self.charakterBeschreibungExtTab, self.charakterBeschreibungExtTab.form, "Beschreibung")
         return [beschreibungExtTab]
+
+    def classBeschreibungWrapperHandler(self, wrapper, params):
+        return None
 
     def charakterEditorOpenHandler(self, params):
         self.charakterBeschreibungExtTab = CharakterBeschreibungExtWrapper.CharakterBeschreibungExtWrapper()

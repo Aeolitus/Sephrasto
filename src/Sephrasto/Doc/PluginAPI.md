@@ -104,8 +104,7 @@ Zweck: Die BE einer Rüstung des Rüstungauswahlfensters anpassen. Achtung: Da R
 	* "class_uebernatuerlichefertigkeiten_wrapper" (Filter: UebernatuerlichWrapper : class)
 	* "class_ausruestung_wrapper" (Filter: EquipWrapper : class)
 	* "class_vorteile_wrapper" (Filter: CharakterVorteileWrapper : class)
-	* "class_items_wrapper" (Filter: CharakterItemsWrapper : class)
-	* "class_ep_wrapper" (Filter: EPWrapper : class)
+	* "class_info_wrapper" (Filter: InfoWrapper : class)
 	* "class_notiz_wrapper" (Filter: CharakterNotizWrapper : class)
 
 ## Neues Plugin erstellen

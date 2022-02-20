@@ -8,6 +8,7 @@ import Fertigkeiten
 from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
 import UI.DatenbankEditManoever
 from PyQt5 import QtWidgets, QtCore
+from Wolke import Wolke
 
 class DatenbankEditManoeverWrapper(object):
     def __init__(self, datenbank, man=None, readonly=False):
@@ -19,21 +20,24 @@ class DatenbankEditManoeverWrapper(object):
         self.nameValid = True
         self.readonly = readonly
         self.voraussetzungenValid = True
-        manDialog = QtWidgets.QDialog()
+        self.manDialog = QtWidgets.QDialog()
         self.ui = UI.DatenbankEditManoever.Ui_manDialog()
-        self.ui.setupUi(manDialog)
+        self.ui.setupUi(self.manDialog)
 
         if not man.isUserAdded:
             if readonly:
                 self.ui.warning.setText("Gelöschte Elemente können nicht verändert werden.")
             self.ui.warning.setVisible(True)
 
-        manDialog.setWindowFlags(
+        self.manDialog.setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
         
+        windowSize = Wolke.Settings["WindowSize-DBManoever"]
+        self.manDialog.resize(windowSize[0], windowSize[1])
+
         self.ui.nameEdit.setText(man.name)
         self.ui.nameEdit.textChanged.connect(self.nameChanged)
         self.nameChanged()
@@ -47,8 +51,11 @@ class DatenbankEditManoeverWrapper(object):
         self.ui.voraussetzungenEdit.textChanged.connect(self.voraussetzungenTextChanged)
 
         self.ui.textEdit.setPlainText(man.text)
-        manDialog.show()
-        ret = manDialog.exec_()
+        self.manDialog.show()
+        ret = self.manDialog.exec_()
+
+        Wolke.Settings["WindowSize-DBManoever"] = [self.manDialog.size().width(), self.manDialog.size().height()]
+
         if ret == QtWidgets.QDialog.Accepted:
             self.man = Fertigkeiten.Manoever()
             self.man.name = self.ui.nameEdit.text()
