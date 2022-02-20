@@ -161,7 +161,10 @@ class EinstellungenWrapper():
                 messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
                 result = messageBox.exec_()
                 if result == 0:
-                    os.execl(sys.executable, os.path.abspath(__file__), *sys.argv) 
+                    if os.path.splitext(sys.executable)[0].endswith("Sephrasto"):
+                        os.execl(sys.executable, *sys.argv)
+                    else:
+                        os.execl(sys.executable, sys.argv[0], *sys.argv)
 
     @staticmethod
     def getSettingsFolder():

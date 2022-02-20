@@ -271,7 +271,7 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n")
         fonts = ["Crimson Pro", "Fontawesome"]
         for font in fonts:
             for file in Hilfsmethoden.listdir(os.path.join("Data", "Fonts", font)):
-                if file.endswith(".ttf") or file.endswith(".otf"):
+                if file.endswith(".ttf"):
                     QtGui.QFontDatabase.addApplicationFont(os.path.join(os.path.dirname(os.path.abspath(__file__)), "Data", "Fonts", font, file))
 
         fontSize = Wolke.Settings['FontSize']
