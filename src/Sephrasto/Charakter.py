@@ -1042,7 +1042,7 @@ class Char():
             elif userDBCRC != 0:
                 userDBChanged = True
 
-            if versionXml.find('Plugins') is not None:
+            if versionXml.find('Plugins') is not None and versionXml.find('Plugins').text:
                 self.enabledPlugins = versionXml.find('Plugins').text.split(",")
 
         logging.debug("Starting Character Migration")
@@ -1211,7 +1211,7 @@ class Char():
 
         einstellungen = root.find('Einstellungen')
         if einstellungen:
-            self.charakterbogen = int(einstellungen.find('Charakterbogen').text)
+            self.charakterbogen = einstellungen.find('Charakterbogen').text
             self.finanzenAnzeigen = einstellungen.find('FinanzenAnzeigen').text == "1"
             self.ueberPDFAnzeigen = einstellungen.find('UeberPDFAnzeigen').text == "1"
             self.regelnAnhaengen = einstellungen.find('RegelnAnhaengen').text == "1"

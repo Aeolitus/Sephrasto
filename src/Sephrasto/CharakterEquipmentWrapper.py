@@ -458,7 +458,7 @@ class EquipWrapper(QtCore.QObject):
     def selectWeapon(self, index):
         W = None
         if self.waffenTypen[index] in Wolke.DB.waffen:
-            W = Wolke.DB.waffen[self.waffenTypen[index]]
+            W = Wolke.DB.waffen[self.waffenTypen[index]].name
         logging.debug("Starting WaffenPicker")
         picker = WaffenPicker(W)
         logging.debug("WaffenPicker created")
