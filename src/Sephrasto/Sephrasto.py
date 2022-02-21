@@ -74,6 +74,7 @@ class MainWindowWrapper(object):
         '''
         self._version_ = "v" + str(Version._sephrasto_version_major) + "." + str(Version._sephrasto_version_minor) + "." + str(Version._sephrasto_version_build)
         logging.critical("Starte Sephrasto " + self._version_) #critical so it's always printed, independent of the debug level setting
+        logging.critical("Qt " + QtCore.qVersion() + " PyQt " + QtCore.PYQT_VERSION_STR) #for people that start from source
 
         super().__init__()
 
