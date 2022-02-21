@@ -37,7 +37,7 @@ class WaffenPicker(object):
 
         self.ui.splitter.adjustSize()
         width = self.ui.splitter.size().width()
-        self.ui.splitter.setSizes([width*0.6, width*0.4])
+        self.ui.splitter.setSizes([int(width*0.6), int(width*0.4)])
 
         logging.debug("Ui is Setup...")
         self.populateTree()

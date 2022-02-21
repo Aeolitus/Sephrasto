@@ -42,7 +42,7 @@ class TalentPicker(object):
         
         self.ui.splitter.adjustSize()
         width = self.ui.splitter.size().width()
-        self.ui.splitter.setSizes([width*0.4, width*0.6])
+        self.ui.splitter.setSizes([int(width*0.4), int(width*0.6)])
 
         self.model = QtGui.QStandardItemModel(self.ui.listTalente)
         self.ui.listTalente.setModel(self.model)

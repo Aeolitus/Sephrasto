@@ -47,7 +47,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
 
         self.uiFert.splitter.adjustSize()
         width = self.uiFert.splitter.size().width()
-        self.uiFert.splitter.setSizes([width*0.6, width*0.4])
+        self.uiFert.splitter.setSizes([int(width*0.6), int(width*0.4)])
 
         #Signals
         self.uiFert.spinFW.valueChanged.connect(lambda state : self.fwChanged(False))

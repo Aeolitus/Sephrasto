@@ -24,7 +24,7 @@ class CharakterMinderpaktWrapper():
         
         self.uiVor.splitter.adjustSize()
         width = self.uiVor.splitter.size().width()
-        self.uiVor.splitter.setSizes([width*0.6, width*0.4])
+        self.uiVor.splitter.setSizes([int(width*0.6), int(width*0.4)])
 
         self.vorteilTypen = Wolke.DB.einstellungen["Vorteile: Typen"].toTextList()
         self.uiVor.treeWidget.itemSelectionChanged.connect(self.vortClicked)
