@@ -315,15 +315,11 @@ Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
         
         result = -1
 
-        charakterBogen = None
-        if Wolke.Char.charakterbogen == 0:
-            charakterBogen = pdfM.pdfMeister.CharakterBogen
-        elif result == 1:
-            charakterBogen = pdfM.pdfMeister.CharakterBogenLang
-        else:
-            raise Exception()
-
-        self.pdfMeister.setCharakterbogen(EventBus.applyFilter("set_charakterbogen", charakterBogen))
+        charakterBoegen = EinstellungenWrapper.getCharakterbögen()
+        for bogen in charakterBoegen:
+            if Wolke.Char.charakterbogen == os.path.basename(os.path.splitext(bogen)[0]):
+                self.pdfMeister.setCharakterbogen(EventBus.applyFilter("set_charakterbogen", bogen))
+                break
 
         # Check if there is a base Charakterbogen.pdf:
         if not os.path.isfile(self.pdfMeister.CharakterBogen.filePath):

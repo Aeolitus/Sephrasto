@@ -24,36 +24,13 @@ import traceback
 from EventBus import EventBus
 from CheatsheetGenerator import CheatsheetGenerator
 from CharakterPrintUtility import CharakterPrintUtility
+import yaml
 
 CharakterbogenInfo = namedtuple('CharakterbogenInfo', 'filePath maxVorteile maxKampfVorteile maxÜberVorteile maxFreie maxFertigkeiten maxÜberFertigkeiten maxÜberTalente seitenProfan kurzbogenHack')
 
 class pdfMeister(object):
-
-    CharakterBogen = CharakterbogenInfo(filePath = os.path.join("Data", "Charakterbogen.pdf"),
-                                        maxVorteile = 8,
-                                        maxKampfVorteile = 16,
-                                        maxÜberVorteile = 12,
-                                        maxFreie = 12,
-                                        maxFertigkeiten = 2,
-                                        maxÜberFertigkeiten = 12,
-                                        maxÜberTalente = 30,
-                                        seitenProfan = 2,
-                                        kurzbogenHack=True)
-
-    CharakterBogenLang = CharakterbogenInfo(filePath = os.path.join("Data", "Charakterbogen_lang.pdf"),
-                                        maxVorteile = 24,
-                                        maxKampfVorteile = 16,
-                                        maxÜberVorteile = 12,
-                                        maxFreie = 28,
-                                        maxFertigkeiten = 28,
-                                        maxÜberFertigkeiten = 12,
-                                        maxÜberTalente = 30,
-                                        seitenProfan = 3,
-                                        kurzbogenHack=False)
-
     def __init__(self):
-        # Name des Charakterbogens, der verwendet wird (im gleichen Ordner)
-        self.CharakterBogen = pdfMeister.CharakterBogen
+        self.CharakterBogen = os.path.join("Data", "Charakterbogen", "Charakterbogen.pdf")
         self.ExtraPage = os.path.join("Data", "ExtraSpells.pdf")
         self.PrintRules = True
         self.RulesPage = os.path.join("Data", "Regeln.pdf")
@@ -61,8 +38,23 @@ class pdfMeister(object):
         self.CheatsheetGenerator = CheatsheetGenerator()
         self.MergePerLineCount = 3
 
-    def setCharakterbogen(self, charakterBogenInfo):
-        self.CharakterBogen = charakterBogenInfo
+    def setCharakterbogen(self, filePath):
+        inifile = os.path.splitext(filePath)[0] + ".ini"
+        if os.path.isfile(inifile):
+            with open(inifile,'r', encoding='utf8') as file:
+                tmpSet = yaml.safe_load(file)
+                self.CharakterBogen = CharakterbogenInfo(filePath = filePath,
+                                        maxVorteile = tmpSet["MaxVorteile"],
+                                        maxKampfVorteile = tmpSet["MaxKampfVorteile"],
+                                        maxÜberVorteile = tmpSet["MaxÜbernatürlicheVorteile"],
+                                        maxFreie = tmpSet["MaxFreieFertigkeiten"],
+                                        maxFertigkeiten = tmpSet["MaxFertigkeiten"],
+                                        maxÜberFertigkeiten = tmpSet["MaxÜbernatürlicheFertigkeiten"],
+                                        maxÜberTalente = tmpSet["MaxÜbernatürlicheTalente"],
+                                        seitenProfan = tmpSet["SeitenProfan"],
+                                        kurzbogenHack = tmpSet["KurzerBogenHack"] if "KurzerBogenHack" in tmpSet else False)
+        else:
+            raise Exception("Kann für den gewählten Charakterbogen keine Konfigurationsdatei finden")
 
     def pdfErstellen(self, filename, printRules, progressCallback):
         progressCallback(0)

@@ -82,8 +82,8 @@ Zweck: Daten aus der Datenbank-Datei auslesen oder modifizieren, bevor Sephrasto
 Zweck: Der Datenbankdatei Daten hinzufügen oder Daten modifizieren, bevor Sephrasto die Datei schreibt.
 - "datenbank_editor_typen" (Filter: databaseTypes : array of DatenbankEdit.DatabaseType)<br />
 Zweck: Dem Datenbankeditor weitere Datentypen hinzufügen.
-- "set_charakterbogen" (Filter: charakterBogen : CharakterBogenInfo)<br />
-Zweck: Den vom Nutzer gewählten Charakterbogen modifizieren, z.B. den Pfad der Datei anpassen um einen Charakterbogen aus dem Plugin zu verwenden.
+- "set_charakterbogen" (Filter: filePath : string)<br />
+Zweck: Den vom Nutzer gewählten Charakterbogen modifizieren, z.B. den Pfad der Datei anpassen um einen Charakterbogen aus dem Plugin zu verwenden. Achtung: Im Ordner des Charakterbogens muss sich eine gleichnamige Datei mit der Endung ".ini" befinden. Siehe Sephrasto/Data/Charakterbögen/Standard Charakterbogen.ini als Beispiel für deren Inhalt.
 - "asp_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "wert" : int })<br />
 Zweck: Die Kosten für AsP-Steigerungen anpassen. Der "wert" Parameter enthält die Anzahl zugekaufter AsP. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
 - "kap_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "wert" : int })<br />

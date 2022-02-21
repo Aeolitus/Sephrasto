@@ -16,13 +16,14 @@ class Wolke:
     Fehlercode = 0
     Settings = {
         'Version' : 2,
-        'Bogen': 0, 
+        'Bogen': "Standard Charakterbogen", 
         'Datenbank': None, 
         'Cheatsheet': True, 
         'Cheatsheet-Fontsize' : 0,
         'Pfad-Chars': '',
         'Pfad-Regeln': '',
         'Pfad-Plugins': '',
+        'Pfad-Charakterbögen': '',
         'Deaktivierte-Plugins': ['CharakterBeschreibungExt'],
         'Logging': 1,
         'PDF-Open': True,

@@ -10,6 +10,7 @@ import UI.CharakterInfo
 from PyQt5 import QtWidgets, QtCore, QtGui
 import logging
 from EinstellungenWrapper import EinstellungenWrapper
+import os
 
 class InfoWrapper(QtCore.QObject):
     '''
@@ -47,6 +48,17 @@ class InfoWrapper(QtCore.QObject):
         "Mit dieser kannst du selbst entscheiden, welche Fertigkeiten in den Charakterbogen übernommen werden sollen.")
         self.ui.checkRegeln.stateChanged.connect(self.einstellungenChanged)
         self.ui.comboHausregeln.currentIndexChanged.connect(self.einstellungenChanged)
+
+        boegen = [os.path.basename(os.path.splitext(bogen)[0]) for bogen in EinstellungenWrapper.getCharakterbögen()]
+        for bogen in boegen:
+            if bogen == "Standard Charakterbogen":
+                self.ui.comboCharsheet.insertItem(0, bogen)
+            elif bogen == "Langer Charakterbogen":
+                self.ui.comboCharsheet.insertItem(0, bogen)
+            else:
+                self.ui.comboCharsheet.addItem(bogen)
+        if not (Wolke.Char.charakterbogen in boegen):
+            Wolke.Char.charakterbogen = self.ui.comboCharsheet.itemText(0)
         self.ui.comboCharsheet.currentIndexChanged.connect(self.einstellungenChanged)
         self.ui.comboRegelnGroesse.currentIndexChanged.connect(self.einstellungenChanged)
         self.ui.teNotiz.textChanged.connect(self.notizChanged)
@@ -67,9 +79,9 @@ class InfoWrapper(QtCore.QObject):
         Wolke.Char.regelnAnhaengen = self.ui.checkRegeln.isChecked()
         Wolke.Char.regelnGroesse = self.ui.comboRegelnGroesse.currentIndex()
 
-        Wolke.Char.hausregeln = self.ui.comboHausregeln.currentText()
+        Wolke.Char.hausregeln = self.ui.comboHausregeln.currentText() if self.ui.comboHausregeln.currentText() != "Keine" else None
         self.ui.labelReload.setVisible(Wolke.Char.hausregeln != self.initialHausregeln)
-        Wolke.Char.charakterbogen = self.ui.comboCharsheet.currentIndex()
+        Wolke.Char.charakterbogen = self.ui.comboCharsheet.currentText()
         self.modified.emit()
 
     def load(self):
@@ -81,7 +93,7 @@ class InfoWrapper(QtCore.QObject):
         self.ui.checkRegeln.setChecked(Wolke.Char.regelnAnhaengen)
         self.ui.comboRegelnGroesse.setCurrentIndex(Wolke.Char.regelnGroesse)
         self.ui.comboHausregeln.setCurrentText(Wolke.Char.hausregeln or "Keine")
-        self.ui.comboCharsheet.setCurrentIndex(Wolke.Char.charakterbogen)
+        self.ui.comboCharsheet.setCurrentText(Wolke.Char.charakterbogen)
 
         ''' Load all values and derived values '''
         totalVal = 0

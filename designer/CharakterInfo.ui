@@ -69,18 +69,7 @@
          <widget class="QComboBox" name="comboHausregeln"/>
         </item>
         <item row="5" column="1">
-         <widget class="QComboBox" name="comboCharsheet">
-          <item>
-           <property name="text">
-            <string>Standard Ilaris-Charakterbogen</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Die lange Version von Gatsu</string>
-           </property>
-          </item>
-         </widget>
+         <widget class="QComboBox" name="comboCharsheet"/>
         </item>
         <item row="8" column="1">
          <widget class="QComboBox" name="comboRegelnGroesse">

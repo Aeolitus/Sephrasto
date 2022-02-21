@@ -40,8 +40,6 @@ class Ui_Form(object):
         self.gridLayout_5.addWidget(self.comboHausregeln, 3, 1, 1, 1)
         self.comboCharsheet = QtWidgets.QComboBox(self.groupBox_3)
         self.comboCharsheet.setObjectName("comboCharsheet")
-        self.comboCharsheet.addItem("")
-        self.comboCharsheet.addItem("")
         self.gridLayout_5.addWidget(self.comboCharsheet, 5, 1, 1, 1)
         self.comboRegelnGroesse = QtWidgets.QComboBox(self.groupBox_3)
         self.comboRegelnGroesse.setObjectName("comboRegelnGroesse")
@@ -338,8 +336,6 @@ class Ui_Form(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.labelEinstellungen.setText(_translate("Form", "Charakter-Einstellungen"))
-        self.comboCharsheet.setItemText(0, _translate("Form", "Standard Ilaris-Charakterbogen"))
-        self.comboCharsheet.setItemText(1, _translate("Form", "Die lange Version von Gatsu"))
         self.comboRegelnGroesse.setItemText(0, _translate("Form", "Klein"))
         self.comboRegelnGroesse.setItemText(1, _translate("Form", "Mittel"))
         self.comboRegelnGroesse.setItemText(2, _translate("Form", "Groß"))

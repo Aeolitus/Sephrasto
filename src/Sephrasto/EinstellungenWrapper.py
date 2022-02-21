@@ -28,7 +28,18 @@ class EinstellungenWrapper():
                 QtCore.Qt.WindowCloseButtonHint)
 
         self.ui.checkCheatsheet.setChecked(Wolke.Settings['Cheatsheet'])
-        self.ui.comboBogen.setCurrentIndex(Wolke.Settings['Bogen'])
+
+        boegen = [os.path.basename(os.path.splitext(bogen)[0]) for bogen in EinstellungenWrapper.getCharakterbögen()]
+        for bogen in boegen:
+            if bogen == "Standard Charakterbogen":
+                self.ui.comboBogen.insertItem(0, bogen)
+            elif bogen == "Langer Charakterbogen":
+                self.ui.comboBogen.insertItem(0, bogen)
+            else:
+                self.ui.comboBogen.addItem(bogen)
+        if not (Wolke.Settings['Bogen'] in boegen):
+            Wolke.Settings['Bogen'] = self.ui.comboBogen.itemText(0)
+        self.ui.comboBogen.setCurrentText(Wolke.Settings['Bogen'])
         self.ui.comboFontSize.setCurrentIndex(Wolke.Settings['Cheatsheet-Fontsize'])
 
         self.settingsFolder = EinstellungenWrapper.getSettingsFolder()
@@ -89,7 +100,7 @@ class EinstellungenWrapper():
         if self.ret == QtWidgets.QDialog.Accepted:
             needRestart = False
 
-            Wolke.Settings['Bogen'] = self.ui.comboBogen.currentIndex()
+            Wolke.Settings['Bogen'] = self.ui.comboBogen.currentText()
             db = self.ui.comboRegelbasis.currentText()
             if db == 'Keine':
                 Wolke.Settings['Datenbank'] = None
@@ -183,12 +194,6 @@ class EinstellungenWrapper():
         if not os.path.isdir(basePath):
             try:
                 os.mkdir(basePath)
-                if not os.path.isdir(os.path.join(basePath, 'Charaktere')):
-                    os.mkdir(os.path.join(basePath, 'Charaktere'))
-                if not os.path.isdir(os.path.join(basePath, 'Regeln')):
-                    os.mkdir(os.path.join(basePath, 'Regeln'))
-                if not os.path.isdir(os.path.join(basePath, 'Plugins')):
-                    os.mkdir(os.path.join(basePath, 'Plugins'))
             except:
                 messagebox = QtWidgets.QMessageBox()
                 messagebox.setWindowTitle("Fehler!")
@@ -196,6 +201,11 @@ class EinstellungenWrapper():
                 messagebox.setIcon(QtWidgets.QMessageBox.Critical)
                 messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
                 messagebox.exec_()
+
+        folders = ['Charaktere', 'Regeln', 'Plugins', 'Charakterbögen']
+        for folder in folders:
+            if not os.path.isdir(os.path.join(basePath, folder)):
+                os.mkdir(os.path.join(basePath, folder))
 
     @staticmethod
     def load():
@@ -217,9 +227,9 @@ class EinstellungenWrapper():
                     Wolke.Settings['Version'] += 1
                 if Wolke.Settings['Version'] == 1:
                     if Wolke.Settings['Bogen'] == "Standard Ilaris-Charakterbogen" or Wolke.Settings['Bogen'] == "Frag immer nach":
-                        Wolke.Settings['Bogen'] = 0
+                        Wolke.Settings['Bogen'] = "Standard Charakterbogen"
                     elif Wolke.Settings['Bogen'] == "Die lange Version von Gatsu":
-                        Wolke.Settings['Bogen'] = 1
+                        Wolke.Settings['Bogen'] = "Langer Charakterbogen"
                     Wolke.Settings['Font'] = "Crimson Pro"
                     Wolke.Settings['FontSize'] = 9
                     Wolke.Settings['Theme'] = "Ilaris"
@@ -232,6 +242,8 @@ class EinstellungenWrapper():
             Wolke.Settings['Pfad-Regeln'] = os.path.join(settingsFolder, 'Regeln')
         if not Wolke.Settings['Pfad-Plugins']:
             Wolke.Settings['Pfad-Plugins'] = os.path.join(settingsFolder, 'Plugins')
+        if not Wolke.Settings['Pfad-Charakterbögen']:
+            Wolke.Settings['Pfad-Charakterbögen'] = os.path.join(settingsFolder, 'Charakterbögen')
 
     @staticmethod
     def save():
@@ -299,6 +311,26 @@ class EinstellungenWrapper():
                 if file.lower().endswith('.xml'):
                     optionsList.append(file)
         return optionsList
+
+    @staticmethod
+    def getCharakterbögen():
+        result = []
+        for file in Hilfsmethoden.listdir(os.path.join("Data", "Charakterbögen")):
+            if not file.endswith(".pdf"):
+                continue
+
+            if not os.path.isfile(os.path.join("Data", "Charakterbögen", os.path.splitext(file)[0] + ".ini")):
+                continue
+            result.append(os.path.join("Data", "Charakterbögen", file))
+
+        for file in Hilfsmethoden.listdir(Wolke.Settings['Pfad-Charakterbögen']):
+            if not file.endswith(".pdf"):
+                continue
+
+            if not os.path.isfile(os.path.join(Wolke.Settings['Pfad-Charakterbögen'], os.path.splitext(file)[0] + ".ini")):
+                continue
+            result.append(os.path.join(Wolke.Settings['Pfad-Charakterbögen'], file))
+        return result
 
     def updateComboRegelbasis(self):
         optionsList = EinstellungenWrapper.getDatenbanken(self.ui.editRegeln.text())
