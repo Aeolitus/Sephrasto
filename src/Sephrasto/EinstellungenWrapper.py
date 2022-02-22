@@ -69,7 +69,7 @@ class EinstellungenWrapper():
             self.ui.comboFontHeading.setCurrentText(QtWidgets.QApplication.instance().font().family())
         self.ui.spinAppFontHeadingSize.setValue(Wolke.Settings['FontHeadingSize'])
             
-        font = QtGui.QFont("Font Awesome 6 Free Solid", 10)
+        font = QtGui.QFont("Font Awesome 6 Free Solid", 9, QtGui.QFont.Black)
         self.ui.buttonChar.clicked.connect(self.setCharPath)
         self.ui.buttonChar.setFont(font)
         self.ui.buttonChar.setText('\uf07c')

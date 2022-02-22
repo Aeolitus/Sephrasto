@@ -1004,11 +1004,11 @@ class Char():
         root = etree.parse(filename).getroot()
 
         einstellungen = root.find('Einstellungen')
-        if einstellungen:
+        if einstellungen is not None:
             return einstellungen.find('Hausregeln').text
         else:
             versionXml = root.find('Version')
-            if versionXml:
+            if versionXml is not None:
                 userDBXml = versionXml.find('NutzerDatenbankName')
                 if userDBXml is not None and userDBXml.text:
                     return os.path.basename(userDBXml.text)
@@ -1210,7 +1210,7 @@ class Char():
             self.notiz = notiz.text
 
         einstellungen = root.find('Einstellungen')
-        if einstellungen:
+        if einstellungen is not None:
             self.charakterbogen = einstellungen.find('Charakterbogen').text
             self.finanzenAnzeigen = einstellungen.find('FinanzenAnzeigen').text == "1"
             self.ueberPDFAnzeigen = einstellungen.find('UeberPDFAnzeigen').text == "1"

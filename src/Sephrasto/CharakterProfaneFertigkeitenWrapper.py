@@ -53,7 +53,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         self.uiFert.spinFW.valueChanged.connect(lambda state : self.fwChanged(False))
         self.uiFert.tableWidget.currentItemChanged.connect(self.tableClicked)
         self.uiFert.buttonAdd.setStyle(None) # dont know why but the below settings wont do anything without it
-        self.uiFert.buttonAdd.setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9))
+        self.uiFert.buttonAdd.setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9, QtGui.QFont.Black))
         self.uiFert.buttonAdd.setText('\u002b')
         self.uiFert.buttonAdd.setMaximumSize(QtCore.QSize(20, 20))
         self.uiFert.buttonAdd.setMinimumSize(QtCore.QSize(20, 20))
@@ -190,7 +190,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
                 self.labelRef[el].setAlignment(QtCore.Qt.AlignCenter)
                 self.layoutRef[el].addWidget(self.labelRef[el])
                 self.buttonRef[el] = QtWidgets.QPushButton()
-                self.buttonRef[el].setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9))
+                self.buttonRef[el].setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9, QtGui.QFont.Black))
                 self.buttonRef[el].setText('\u002b')
                 self.buttonRef[el].setMaximumSize(QtCore.QSize(20, 20))
                 self.buttonRef[el].setMinimumSize(QtCore.QSize(20, 20))

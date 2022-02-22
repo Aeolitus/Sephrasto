@@ -1,0 +1,1 @@
+Added the entry "WWS Family" so the font is correctly loaded under Linux.

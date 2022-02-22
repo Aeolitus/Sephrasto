@@ -230,6 +230,9 @@
               <height>28</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Auf den Standardordner zurücksetzen</string>
+            </property>
             <property name="text">
              <string>Zurücksetzen</string>
             </property>
@@ -249,6 +252,9 @@
               <height>28</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Ordner suchen</string>
+            </property>
             <property name="text">
              <string>Durchsuchen</string>
             </property>
@@ -267,6 +273,9 @@
               <width>28</width>
               <height>28</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Ordner suchen</string>
             </property>
             <property name="text">
              <string>Durchsuchen</string>
@@ -300,6 +309,9 @@
               <height>28</height>
              </size>
             </property>
+            <property name="toolTip">
+             <string>Auf den Standardordner zurücksetzen</string>
+            </property>
             <property name="text">
              <string>Zurücksetzen</string>
             </property>
@@ -321,6 +333,9 @@
               <width>28</width>
               <height>28</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Auf den Standardordner zurücksetzen</string>
             </property>
             <property name="text">
              <string>Zurücksetzen</string>
@@ -366,6 +381,9 @@
               <width>28</width>
               <height>28</height>
              </size>
+            </property>
+            <property name="toolTip">
+             <string>Ordner suchen</string>
             </property>
             <property name="text">
              <string>Durchsuchen</string>

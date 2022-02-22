@@ -67,7 +67,7 @@ class EquipWrapper(QtCore.QObject):
             self.spinPunkte.append(getattr(self.uiEq, "spinR" + str(i+1) + "punkte"))
 
             addR = getattr(self.uiEq, "addR" + str(i+1))
-            addR.setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9))
+            addR.setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9, QtGui.QFont.Black))
             addR.setText('\u002b')
             addR.setMaximumSize(QtCore.QSize(20, 20))
             addR.clicked.connect(lambda state, idx=i: self.selectArmor(idx))
@@ -128,7 +128,7 @@ class EquipWrapper(QtCore.QObject):
             self.comboStil.append(comboStil)
 
             addW = getattr(self.uiEq, "addW" + str(i+1))
-            addW.setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9))
+            addW.setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9, QtGui.QFont.Black))
             addW.setText('\u002b')
             addW.setMaximumSize(QtCore.QSize(20, 20))
             addW.clicked.connect(lambda state, idx=i: self.selectWeapon(idx))

@@ -59,7 +59,7 @@ class CharakterFreieFertWrapper(QtCore.QObject):
 
                 ffButton = QtWidgets.QPushButton()
                 self.buttonFF.append(ffButton)
-                ffButton.setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9))
+                ffButton.setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9, QtGui.QFont.Black))
                 ffButton.setText('\u002b')
                 ffButton.setMaximumSize(QtCore.QSize(20, 20))
                 ffButton.clicked.connect(lambda state, edit=ffEdit: self.ffButtonClicked(edit))

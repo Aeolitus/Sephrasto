@@ -279,7 +279,7 @@ class Hilfsmethoden:
                 delim = "~"
                 arr = re.split(delim, voraus, re.UNICODE)
                 #Vorteile:
-                if arr[0] is 'V':
+                if arr[0] == 'V':
                     if len(arr) > 2:
                         cond = int(arr[2])
                     else: 
@@ -292,7 +292,7 @@ class Hilfsmethoden:
                     elif found == 0 and cond == 0:
                         erfüllt = True
                 #Talente:
-                elif arr[0] is 'T':
+                elif arr[0] == 'T':
                     for fert in fertigkeiten.values():
                         if arr[1] in fert.gekaufteTalente:
                             erfüllt = True
@@ -303,7 +303,7 @@ class Hilfsmethoden:
                                 erfüllt = True
                                 break
                 #Waffeneigenschaften:
-                elif arr[0] is 'W':
+                elif arr[0] == 'W':
                     for waffe in waffen:
                         if arr[1] == "Nahkampfwaffe" and type(waffe) == Objekte.Nahkampfwaffe:
                             erfüllt = True
@@ -315,12 +315,12 @@ class Hilfsmethoden:
                             erfüllt = True
                             break
                 #Attribute:
-                elif arr[0] is 'A':
+                elif arr[0] == 'A':
                     #Wir greifen direkt auf den Eintrag zu und vergleichen. 
                     if attribute[arr[1]].wert >= int(arr[2]):
                         erfüllt = True
                 #MeisterAttribute:
-                elif arr[0] is 'M':
+                elif arr[0] == 'M':
                     #Wir greifen direkt auf den Eintrag zu und vergleichen. 
                     if attribute[arr[1]].wert >= int(arr[2]):
                         attrSorted = [a.wert for a in attribute.values() if a.key != arr[1]]
@@ -329,7 +329,7 @@ class Hilfsmethoden:
                         attr2 = max(attrSorted)
                         erfüllt = attr1 + attr2 >= 16  
                 #Übernatürliche Fertigkeiten:
-                elif arr[0] is 'U':
+                elif arr[0] == 'U':
                     if arr[1] in übernatürlicheFertigkeiten:
                         fertigkeit = übernatürlicheFertigkeiten[arr[1]]
                         wert = int(arr[2])
@@ -338,7 +338,7 @@ class Hilfsmethoden:
                         else:
                             erfüllt = fertigkeit.wert >= wert
                 #Fertigkeiten:
-                elif arr[0] is 'F':
+                elif arr[0] == 'F':
                     if arr[1] in fertigkeiten:
                         fertigkeit = fertigkeiten[arr[1]]
                         erfüllt = fertigkeit.wert >= int(arr[2])
