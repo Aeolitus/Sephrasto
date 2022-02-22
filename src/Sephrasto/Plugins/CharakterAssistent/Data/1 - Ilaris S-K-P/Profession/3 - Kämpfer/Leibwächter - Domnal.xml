@@ -1,8 +1,9 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>1</DatenbankVersion>
+    <DatenbankVersion>2</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName/>
+    <NutzerDatenbankName></NutzerDatenbankName>
+    <Plugins></Plugins>
   </Version>
   <AllgemeineInfos>
     <name>Domnal Arbedan</name>
@@ -125,15 +126,17 @@
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
     <Freie-Fertigkeit name="Imman" wert="1"/>
-    <Freie-Fertigkeit name="Thorwalsch" wert="1"/>
-    <Freie-Fertigkeit name="Kusliker Zeichen" wert="1"/>
+    <Freie-Fertigkeit name="Sprache: Thorwalsch" wert="1"/>
+    <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="1"/>
   </Fertigkeiten>
   <Objekte>
     <Zonensystem>False</Zonensystem>
     <Rüstungen>
       <Rüstung name="Kettenhaube, Genietete Lederrüstung, Lederhandschuhe, Hohe Stiefel" be="2" rs="2/2/2/2/2/2"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
       <Waffe name="Buckler (PW)" id="Buckler (Handgemengewaffen)" W6="1" plus="1" eigenschaften="Parierwaffe, Schild, Stumpf" haerte="11" rw="0" kampfstil="Parierwaffenkampf" wm="0" typ="Nah"/>
@@ -143,6 +146,7 @@
       <Waffe name="Langdolch (PW)" id="Langdolch" W6="1" plus="2" eigenschaften="Parierwaffe" haerte="10" rw="0" kampfstil="Parierwaffenkampf" wm="0" typ="Nah"/>
       <Waffe name="Wurfmesser" id="Wurfmesser" W6="1" plus="0" eigenschaften="" haerte="8" rw="4" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
       <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe, Kopflastig, Wendig" haerte="7" rw="0" kampfstil="Parierwaffenkampf" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>Wollhosen, Ledergürtel, Wollumhang mit Kaputze</Ausrüstungsstück>
@@ -159,4 +163,13 @@
     <EPtotal>3000</EPtotal>
     <EPspent>2971</EPspent>
   </Erfahrung>
+  <Notiz></Notiz>
+  <Einstellungen>
+    <Charakterbogen>Standard Charakterbogen</Charakterbogen>
+    <FinanzenAnzeigen>1</FinanzenAnzeigen>
+    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
+    <RegelnAnhaengen>1</RegelnAnhaengen>
+    <RegelnGroesse>0</RegelnGroesse>
+    <Hausregeln></Hausregeln>
+  </Einstellungen>
 </Charakter>

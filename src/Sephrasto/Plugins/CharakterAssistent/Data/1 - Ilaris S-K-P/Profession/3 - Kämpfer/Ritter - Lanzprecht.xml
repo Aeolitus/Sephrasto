@@ -1,8 +1,9 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>1</DatenbankVersion>
+    <DatenbankVersion>2</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName/>
+    <NutzerDatenbankName></NutzerDatenbankName>
+    <Plugins></Plugins>
   </Version>
   <AllgemeineInfos>
     <name>Lanzprecht Parinor von Eslamsgrund-Steynebruck</name>
@@ -129,25 +130,27 @@
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
     <Freie-Fertigkeit name="Minnesang" wert="1"/>
     <Freie-Fertigkeit name="Heraldik" wert="1"/>
-    <Freie-Fertigkeit name="Kusliker Zeichen" wert="1"/>
+    <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="1"/>
   </Fertigkeiten>
   <Objekte>
     <Zonensystem>False</Zonensystem>
     <Rüstungen>
       <Rüstung name="Leichte Platte, Schaller, Bart,Panzerhandschuhe, Beinschienen" be="3" rs="3/3/3/3/3/3"/>
       <Rüstung name="Gepolsteter Wappenrock, Gepolsterte Kappe" be="1" rs="1/1/1/1/1/1"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="Anderthalbhänder" id="Anderthalbhänder" W6="2" plus="2" eigenschaften="Zweihändig" haerte="10" rw="2" kampfstil="Kraftvoller Kampf" wm="1" typ="Nah"/>
-      <Waffe name="Anderthalbhänder" id="Anderthalbhänder" W6="2" plus="2" eigenschaften="Zweihändig" haerte="10" rw="2" kampfstil="Schneller Kampf" wm="1" typ="Nah"/>
+      <Waffe name="Anderthalbhänder (KVK)" id="Anderthalbhänder" W6="2" plus="2" eigenschaften="Zweihändig" haerte="10" rw="2" kampfstil="Kraftvoller Kampf" wm="1" typ="Nah"/>
+      <Waffe name="Anderthalbhänder (SNK)" id="Anderthalbhänder" W6="2" plus="2" eigenschaften="Zweihändig" haerte="10" rw="2" kampfstil="Schneller Kampf" wm="1" typ="Nah"/>
       <Waffe name="Tralloper Riese (RK)" id="Tralloper Riese" W6="2" plus="4" eigenschaften="Niederwerfen, Reittier" haerte="16" rw="1" kampfstil="Reiterkampf" wm="0" typ="Nah"/>
       <Waffe name="Kriegslanze" id="Kriegslanze" W6="3" plus="1" eigenschaften="" haerte="5" rw="2" kampfstil="Reiterkampf" wm="-1" typ="Nah"/>
       <Waffe name="Scheibendolch (SNK)" id="Scheibendolch" W6="1" plus="1" eigenschaften="Rüstungsbrechend" haerte="9" rw="0" kampfstil="Schneller Kampf" wm="0" typ="Nah"/>
       <Waffe name="Hand (KVK)" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="8" rw="0" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
       <Waffe name="Hand (SNK)" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="8" rw="0" kampfstil="Schneller Kampf" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>Sattel mit Satteltaschen, Zaumzeug, Pferdedecke</Ausrüstungsstück>
@@ -164,4 +167,13 @@
     <EPtotal>3000</EPtotal>
     <EPspent>2973</EPspent>
   </Erfahrung>
+  <Notiz/>
+  <Einstellungen>
+    <Charakterbogen>Standard Charakterbogen</Charakterbogen>
+    <FinanzenAnzeigen>1</FinanzenAnzeigen>
+    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
+    <RegelnAnhaengen>1</RegelnAnhaengen>
+    <RegelnGroesse>0</RegelnGroesse>
+    <Hausregeln></Hausregeln>
+  </Einstellungen>
 </Charakter>

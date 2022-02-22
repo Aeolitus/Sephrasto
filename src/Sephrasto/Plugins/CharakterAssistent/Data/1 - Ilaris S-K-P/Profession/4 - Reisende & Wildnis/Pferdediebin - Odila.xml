@@ -1,8 +1,9 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>1</DatenbankVersion>
+    <DatenbankVersion>2</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName/>
+    <NutzerDatenbankName></NutzerDatenbankName>
+    <Plugins></Plugins>
   </Version>
   <AllgemeineInfos>
     <name>Odila Sensendengler</name>
@@ -125,15 +126,17 @@
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
     <Freie-Fertigkeit name="Rosstäuscher" wert="1"/>
-    <Freie-Fertigkeit name="Gaunerzinken" wert="1"/>
+    <Freie-Fertigkeit name="Sprache: Atak (+Schrift)" wert="1"/>
     <Freie-Fertigkeit name="Volkslieder" wert="1"/>
   </Fertigkeiten>
   <Objekte>
     <Zonensystem>False</Zonensystem>
     <Rüstungen>
       <Rüstung name="Gepolstertes Wams und Lederkappe, Schwere Reitstiefel" be="1" rs="1/1/1/1/1/1"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
       <Waffe name="Reitpferd (RK)" id="Reitpferd" W6="2" plus="0" eigenschaften="Niederwerfen, Reittier" haerte="13" rw="1" kampfstil="Reiterkampf" wm="-1" typ="Nah"/>
@@ -161,4 +164,13 @@
     <EPtotal>3000</EPtotal>
     <EPspent>2991</EPspent>
   </Erfahrung>
+  <Notiz></Notiz>
+  <Einstellungen>
+    <Charakterbogen>Standard Charakterbogen</Charakterbogen>
+    <FinanzenAnzeigen>1</FinanzenAnzeigen>
+    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
+    <RegelnAnhaengen>1</RegelnAnhaengen>
+    <RegelnGroesse>0</RegelnGroesse>
+    <Hausregeln></Hausregeln>
+  </Einstellungen>
 </Charakter>

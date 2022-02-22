@@ -1,8 +1,9 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>1</DatenbankVersion>
+    <DatenbankVersion>2</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName/>
+    <NutzerDatenbankName></NutzerDatenbankName>
+    <Plugins></Plugins>
   </Version>
   <AllgemeineInfos>
     <name></name>
@@ -103,8 +104,21 @@
   </Fertigkeiten>
   <Objekte>
     <Zonensystem>False</Zonensystem>
-    <Rüstungen/>
-    <Waffen/>
+    <Rüstungen>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
+    </Rüstungen>
+    <Waffen>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+    </Waffen>
     <Ausrüstung/>
   </Objekte>
   <Übernatürliche-Fertigkeiten>
@@ -132,9 +146,6 @@
     <Übernatürliche-Fertigkeit name="Hellsicht" wert="0" addToPDF="False">
       <Talente/>
     </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Hexenflüche" wert="0" addToPDF="False">
-      <Talente/>
-    </Übernatürliche-Fertigkeit>
     <Übernatürliche-Fertigkeit name="Humus" wert="0" addToPDF="False">
       <Talente/>
     </Übernatürliche-Fertigkeit>
@@ -149,9 +160,6 @@
     <Übernatürliche-Fertigkeit name="Luft" wert="0" addToPDF="False">
       <Talente/>
     </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Schalenzauber" wert="0" addToPDF="False">
-      <Talente/>
-    </Übernatürliche-Fertigkeit>
     <Übernatürliche-Fertigkeit name="Temporal" wert="0" addToPDF="False">
       <Talente/>
     </Übernatürliche-Fertigkeit>
@@ -163,20 +171,35 @@
         <Talent name="Bindung des Vertrauten" variable="-1"/>
       </Talente>
     </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Vertrautenmagie" wert="0" addToPDF="False">
-      <Talente>
-        <Talent name="Bindung des Vertrauten" variable="-1"/>
-      </Talente>
-    </Übernatürliche-Fertigkeit>
     <Übernatürliche-Fertigkeit name="Verwandlung" wert="0" addToPDF="False">
       <Talente/>
     </Übernatürliche-Fertigkeit>
     <Übernatürliche-Fertigkeit name="Wasser" wert="0" addToPDF="False">
       <Talente/>
     </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Hexenflüche" wert="0" addToPDF="False">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Schalenzauber" wert="0" addToPDF="False">
+      <Talente/>
+    </Übernatürliche-Fertigkeit>
+    <Übernatürliche-Fertigkeit name="Vertrautenmagie" wert="0" addToPDF="False">
+      <Talente>
+        <Talent name="Bindung des Vertrauten" variable="-1"/>
+      </Talente>
+    </Übernatürliche-Fertigkeit>
   </Übernatürliche-Fertigkeiten>
   <Erfahrung>
     <EPtotal>0</EPtotal>
     <EPspent>320</EPspent>
   </Erfahrung>
+  <Notiz></Notiz>
+  <Einstellungen>
+    <Charakterbogen>Standard Charakterbogen</Charakterbogen>
+    <FinanzenAnzeigen>1</FinanzenAnzeigen>
+    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
+    <RegelnAnhaengen>1</RegelnAnhaengen>
+    <RegelnGroesse>0</RegelnGroesse>
+    <Hausregeln></Hausregeln>
+  </Einstellungen>
 </Charakter>

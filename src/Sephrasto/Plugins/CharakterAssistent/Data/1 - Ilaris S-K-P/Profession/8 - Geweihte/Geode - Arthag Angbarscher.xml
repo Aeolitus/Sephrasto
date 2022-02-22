@@ -1,8 +1,9 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>1</DatenbankVersion>
+    <DatenbankVersion>2</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName/>
+    <NutzerDatenbankName></NutzerDatenbankName>
+    <Plugins></Plugins>
   </Version>
   <AllgemeineInfos>
     <name>Arthag Angbarscher</name>
@@ -34,7 +35,6 @@
     <KaP wert="0"/>
   </Energien>
   <Vorteile minderpakt="">
-    <Vorteil variable="-1">Resistenz gegen Krankheiten</Vorteil>
     <Vorteil variable="-1">Scharfsinnig I</Vorteil>
     <Vorteil variable="-1">Zauberer I</Vorteil>
     <Vorteil variable="-1">Zauberer II</Vorteil>
@@ -45,7 +45,6 @@
     <Vorteil variable="-1">Bändiger der Elemente</Vorteil>
     <Vorteil variable="-1">Kontrolliertes Zaubern</Vorteil>
     <Vorteil variable="-1">Astrale Regeneration</Vorteil>
-    <Vorteil variable="-1">Angepasst (Dunkelheit) I</Vorteil>
   </Vorteile>
   <Fertigkeiten>
     <Fertigkeit name="Handgemenge" wert="1">
@@ -119,18 +118,29 @@
     <Fertigkeit name="Handwerk" wert="1">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="Rogolan" wert="3"/>
-    <Freie-Fertigkeit name="Rogolan (Schrift)" wert="3"/>
+    <Freie-Fertigkeit name="Sprache: Rogolan" wert="3"/>
+    <Freie-Fertigkeit name="Schrift: Rogolan-Runen" wert="3"/>
     <Freie-Fertigkeit name="" wert="1"/>
     <Freie-Fertigkeit name="" wert="1"/>
-    <Freie-Fertigkeit name="Garethi" wert="3"/>
-    <Freie-Fertigkeit name="Kusliker Zeichen" wert="1"/>
+    <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="1"/>
   </Fertigkeiten>
   <Objekte>
     <Zonensystem>False</Zonensystem>
-    <Rüstungen/>
+    <Rüstungen>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
+    </Rüstungen>
     <Waffen>
       <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="5" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung/>
   </Objekte>
@@ -213,7 +223,7 @@
     <Übernatürliche-Fertigkeit name="Verwandlung" wert="0" addToPDF="True">
       <Talente/>
     </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Wasser" wert="8" addToPDF="True">
+    <Übernatürliche-Fertigkeit name="Wasser" wert="7" addToPDF="True">
       <Talente>
         <Talent name="Herbeirufung des Wassers" variable="-1"/>
         <Talent name="Manifesto Element" variable="-1"/>
@@ -231,7 +241,7 @@
         <Talent name="Bindung des Ringes" variable="-1"/>
       </Talente>
     </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Vertrautenmagie" wert="5" addToPDF="True">
+    <Übernatürliche-Fertigkeit name="Vertrautenmagie" wert="4" addToPDF="True">
       <Talente>
         <Talent name="Bindung des Vertrauten" variable="-1"/>
         <Talent name="Bindungspartner finden" variable="-1"/>
@@ -243,32 +253,15 @@
   </Übernatürliche-Fertigkeiten>
   <Erfahrung>
     <EPtotal>2500</EPtotal>
-    <EPspent>2495</EPspent>
+    <EPspent>2436</EPspent>
   </Erfahrung>
-  <AllgemeineInfosExt>
-    <profession></profession>
-    <geschlecht></geschlecht>
-    <geburtsdatum></geburtsdatum>
-    <groesse></groesse>
-    <gewicht></gewicht>
-    <haarfarbe></haarfarbe>
-    <augenfarbe></augenfarbe>
-    <titel></titel>
-    <aussehen1></aussehen1>
-    <aussehen2></aussehen2>
-    <aussehen3></aussehen3>
-    <aussehen4></aussehen4>
-    <aussehen5></aussehen5>
-    <aussehen6></aussehen6>
-    <hintergrund0></hintergrund0>
-    <hintergrund1></hintergrund1>
-    <hintergrund2></hintergrund2>
-    <hintergrund3></hintergrund3>
-    <hintergrund4></hintergrund4>
-    <hintergrund5></hintergrund5>
-    <hintergrund6></hintergrund6>
-    <hintergrund7></hintergrund7>
-    <hintergrund8></hintergrund8>
-    <ansehen>0</ansehen>
-  </AllgemeineInfosExt>
+  <Notiz></Notiz>
+  <Einstellungen>
+    <Charakterbogen>Standard Charakterbogen</Charakterbogen>
+    <FinanzenAnzeigen>1</FinanzenAnzeigen>
+    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
+    <RegelnAnhaengen>1</RegelnAnhaengen>
+    <RegelnGroesse>0</RegelnGroesse>
+    <Hausregeln></Hausregeln>
+  </Einstellungen>
 </Charakter>

@@ -1,8 +1,9 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>1</DatenbankVersion>
+    <DatenbankVersion>2</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName/>
+    <NutzerDatenbankName></NutzerDatenbankName>
+    <Plugins></Plugins>
   </Version>
   <AllgemeineInfos>
     <name>Deinomache von Tyrakos</name>
@@ -123,21 +124,29 @@
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="Garethi" wert="3"/>
-    <Freie-Fertigkeit name="Kusliker Zeichen" wert="3"/>
+    <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="3"/>
     <Freie-Fertigkeit name="Philosophie" wert="2"/>
-    <Freie-Fertigkeit name="Altgüldenländisch" wert="2"/>
-    <Freie-Fertigkeit name="Tulamydia" wert="1"/>
-    <Freie-Fertigkeit name="Bosparano" wert="2"/>
+    <Freie-Fertigkeit name="Sprache: Aureliani" wert="2"/>
+    <Freie-Fertigkeit name="Sprache: Tulamidya" wert="1"/>
+    <Freie-Fertigkeit name="Sprache: Bosparano" wert="2"/>
   </Fertigkeiten>
   <Objekte>
     <Zonensystem>False</Zonensystem>
     <Rüstungen>
       <Rüstung name="Gambeson und Priesterroben, Lederkappe" be="1" rs="1/1/1/1/1/1"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
       <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="5" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
       <Waffe name="Zweililien" id="Zweililien" W6="2" plus="2" eigenschaften="Wendig, Zweihändig" haerte="5" rw="1" kampfstil="Schneller Kampf" wm="1" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>Wechselkleidung, Ledertasche</Ausrüstungsstück>
@@ -167,7 +176,7 @@
         <Talent name="Unverstellter Blick" variable="-1"/>
       </Talente>
     </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Wissen" wert="0" addToPDF="0">
+    <Übernatürliche-Fertigkeit name="Wissen" wert="0" addToPDF="False">
       <Talente/>
     </Übernatürliche-Fertigkeit>
   </Übernatürliche-Fertigkeiten>
@@ -175,4 +184,13 @@
     <EPtotal>3000</EPtotal>
     <EPspent>2984</EPspent>
   </Erfahrung>
+  <Notiz></Notiz>
+  <Einstellungen>
+    <Charakterbogen>Standard Charakterbogen</Charakterbogen>
+    <FinanzenAnzeigen>1</FinanzenAnzeigen>
+    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
+    <RegelnAnhaengen>1</RegelnAnhaengen>
+    <RegelnGroesse>0</RegelnGroesse>
+    <Hausregeln></Hausregeln>
+  </Einstellungen>
 </Charakter>

@@ -1,8 +1,9 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>1</DatenbankVersion>
+    <DatenbankVersion>2</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName/>
+    <NutzerDatenbankName></NutzerDatenbankName>
+    <Plugins></Plugins>
   </Version>
   <AllgemeineInfos>
     <name>Siona Ifirna</name>
@@ -106,7 +107,7 @@
     <Fertigkeit name="Alchemie" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Fertigkeit name="Heilkunde" wert="7">
+    <Fertigkeit name="Heilkunde" wert="6">
       <Talente>
         <Talent name="Wundheilung" variable="-1"/>
       </Talente>
@@ -114,20 +115,28 @@
     <Fertigkeit name="Handwerk" wert="3">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="Garethi" wert="3"/>
-    <Freie-Fertigkeit name="Kusliker Zeichen" wert="3"/>
+    <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="3"/>
     <Freie-Fertigkeit name="Kürschner" wert="1"/>
     <Freie-Fertigkeit name="Abrichten" wert="2"/>
     <Freie-Fertigkeit name="Schlitten fahren" wert="2"/>
   </Fertigkeiten>
   <Objekte>
     <Zonensystem>False</Zonensystem>
-    <Rüstungen/>
+    <Rüstungen>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
+    </Rüstungen>
     <Waffen>
       <Waffe name="Kurzbogen" id="Kurzbogen" W6="2" plus="1" eigenschaften="Zweihändig" haerte="3" rw="16" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
-      <Waffe name="Langbogen" id="Langbogen" W6="2" plus="3" eigenschaften="Schwer (4), nicht für Reiter, Zweihändig" haerte="3" rw="64" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="1"/>
+      <Waffe name="Langbogen" id="Langbogen" W6="2" plus="3" eigenschaften="Schwer (4), kein Reittier, Zweihändig" haerte="3" rw="64" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="1"/>
       <Waffe name="Dolch" id="Dolch (Handgemengewaffen)" W6="1" plus="1" eigenschaften="" haerte="9" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
       <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="4" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung/>
   </Objekte>
@@ -161,32 +170,15 @@
   </Übernatürliche-Fertigkeiten>
   <Erfahrung>
     <EPtotal>2500</EPtotal>
-    <EPspent>2488</EPspent>
+    <EPspent>2495</EPspent>
   </Erfahrung>
-  <AllgemeineInfosExt>
-    <profession></profession>
-    <geschlecht></geschlecht>
-    <geburtsdatum></geburtsdatum>
-    <groesse></groesse>
-    <gewicht></gewicht>
-    <haarfarbe></haarfarbe>
-    <augenfarbe></augenfarbe>
-    <titel></titel>
-    <aussehen1></aussehen1>
-    <aussehen2></aussehen2>
-    <aussehen3></aussehen3>
-    <aussehen4></aussehen4>
-    <aussehen5></aussehen5>
-    <aussehen6></aussehen6>
-    <hintergrund0></hintergrund0>
-    <hintergrund1></hintergrund1>
-    <hintergrund2></hintergrund2>
-    <hintergrund3></hintergrund3>
-    <hintergrund4></hintergrund4>
-    <hintergrund5></hintergrund5>
-    <hintergrund6></hintergrund6>
-    <hintergrund7></hintergrund7>
-    <hintergrund8></hintergrund8>
-    <ansehen>0</ansehen>
-  </AllgemeineInfosExt>
+  <Notiz/>
+  <Einstellungen>
+    <Charakterbogen>Standard Charakterbogen</Charakterbogen>
+    <FinanzenAnzeigen>1</FinanzenAnzeigen>
+    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
+    <RegelnAnhaengen>1</RegelnAnhaengen>
+    <RegelnGroesse>0</RegelnGroesse>
+    <Hausregeln></Hausregeln>
+  </Einstellungen>
 </Charakter>

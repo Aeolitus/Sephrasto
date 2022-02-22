@@ -1,8 +1,9 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>1</DatenbankVersion>
+    <DatenbankVersion>2</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName/>
+    <NutzerDatenbankName></NutzerDatenbankName>
+    <Plugins></Plugins>
   </Version>
   <AllgemeineInfos>
     <name>Lucanus</name>
@@ -31,7 +32,7 @@
   </Attribute>
   <Energien>
     <AsP wert="0"/>
-    <KaP wert="4"/>
+    <KaP wert="3"/>
   </Energien>
   <Vorteile minderpakt="">
     <Vorteil variable="-1">Glück I</Vorteil>
@@ -118,23 +119,32 @@
     <Fertigkeit name="Handwerk" wert="1">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="Bosparano" wert="3"/>
-    <Freie-Fertigkeit name="Garethi" wert="3"/>
-    <Freie-Fertigkeit name="Urtulamidya (Schrift)" wert="1"/>
-    <Freie-Fertigkeit name="Tulamidya (Schrift)" wert="2"/>
-    <Freie-Fertigkeit name="Imperiale Zeichen" wert="1"/>
-    <Freie-Fertigkeit name="Kusliker Zeichen" wert="2"/>
-    <Freie-Fertigkeit name="Zhayad (Schrift)" wert="1"/>
-    <Freie-Fertigkeit name="Tulamidya" wert="2"/>
+    <Freie-Fertigkeit name="Sprache: Bosparano" wert="3"/>
+    <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Schrift: Ur-Tulamidya-Zeichen" wert="1"/>
+    <Freie-Fertigkeit name="Schrift: Tulamidya-Zeichen" wert="2"/>
+    <Freie-Fertigkeit name="Schrift: Imperiale Zeichen" wert="1"/>
+    <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="2"/>
+    <Freie-Fertigkeit name="Schrift: Zhayad-Zeichen" wert="1"/>
+    <Freie-Fertigkeit name="Sprache: Tulamidya" wert="2"/>
     <Freie-Fertigkeit name="Weinkenner" wert="1"/>
   </Fertigkeiten>
   <Objekte>
     <Zonensystem>False</Zonensystem>
-    <Rüstungen/>
+    <Rüstungen>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
+    </Rüstungen>
     <Waffen>
       <Waffe name="Dolch" id="Dolch (Handgemengewaffen)" W6="1" plus="1" eigenschaften="" haerte="9" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
       <Waffe name="Knüppel" id="Knüppel" W6="1" plus="2" eigenschaften="Stumpf, Kopflastig" haerte="5" rw="1" kampfstil="Kein Kampfstil" wm="-1" typ="Nah"/>
       <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="5" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>einfache Kleidung, Umhang, Umhängetasche</Ausrüstungsstück>
@@ -143,15 +153,15 @@
     </Ausrüstung>
   </Objekte>
   <Übernatürliche-Fertigkeiten>
-    <Übernatürliche-Fertigkeit name="Zwölfgöttlicher Ritus" wert="0" addToPDF="True">
+    <Übernatürliche-Fertigkeit name="Zwölfgöttlicher Ritus" wert="0" addToPDF="False">
       <Talente>
         <Talent name="Grabsegen" variable="-1"/>
       </Talente>
     </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Schlaf" wert="0" addToPDF="0">
+    <Übernatürliche-Fertigkeit name="Schlaf" wert="0" addToPDF="False">
       <Talente/>
     </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Tod" wert="6" addToPDF="True">
+    <Übernatürliche-Fertigkeit name="Tod" wert="5" addToPDF="True">
       <Talente>
         <Talent name="Bannfluch des Heiligen Khalid" variable="-1"/>
         <Talent name="Exorzismus" variable="-1"/>
@@ -173,30 +183,13 @@
     <EPtotal>2500</EPtotal>
     <EPspent>2499</EPspent>
   </Erfahrung>
-  <AllgemeineInfosExt>
-    <profession></profession>
-    <geschlecht></geschlecht>
-    <geburtsdatum></geburtsdatum>
-    <groesse></groesse>
-    <gewicht></gewicht>
-    <haarfarbe></haarfarbe>
-    <augenfarbe></augenfarbe>
-    <titel></titel>
-    <aussehen1></aussehen1>
-    <aussehen2></aussehen2>
-    <aussehen3></aussehen3>
-    <aussehen4></aussehen4>
-    <aussehen5></aussehen5>
-    <aussehen6></aussehen6>
-    <hintergrund0></hintergrund0>
-    <hintergrund1></hintergrund1>
-    <hintergrund2></hintergrund2>
-    <hintergrund3></hintergrund3>
-    <hintergrund4></hintergrund4>
-    <hintergrund5></hintergrund5>
-    <hintergrund6></hintergrund6>
-    <hintergrund7></hintergrund7>
-    <hintergrund8></hintergrund8>
-    <ansehen>0</ansehen>
-  </AllgemeineInfosExt>
+  <Notiz></Notiz>
+  <Einstellungen>
+    <Charakterbogen>Standard Charakterbogen</Charakterbogen>
+    <FinanzenAnzeigen>1</FinanzenAnzeigen>
+    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
+    <RegelnAnhaengen>1</RegelnAnhaengen>
+    <RegelnGroesse>0</RegelnGroesse>
+    <Hausregeln></Hausregeln>
+  </Einstellungen>
 </Charakter>

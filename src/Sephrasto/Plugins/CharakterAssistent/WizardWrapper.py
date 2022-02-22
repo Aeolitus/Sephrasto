@@ -13,13 +13,6 @@ class Regeln(object):
         self.spezies = {}
         self.kulturen = {}
         self.professionen = {}
-        self.archetypen = False
-
-    def hasArchetypen(self):
-        return self.archetypen
-
-    def setHasArchetypen(self):
-        self.archetypen = True
 
 class WizardWrapper(object):
     def __init__(self):
@@ -45,12 +38,7 @@ class WizardWrapper(object):
                 kulturenFolder = os.path.join(datadir, regelnFolder, "Kultur")
                 regeln.kulturen = {**regeln.kulturen, **self.mapContainedFileNamesToPaths(kulturenFolder)}
 
-                if regelnName.endswith("Archetypen"):
-                    regeln.setHasArchetypen()
-                    professionenFolder = os.path.join(datadir, regelnFolder)
-                else:
-                    professionenFolder = os.path.join(datadir, regelnFolder, "Profession")
-
+                professionenFolder = os.path.join(datadir, regelnFolder, "Profession")
                 if os.path.isdir(professionenFolder):
                     for professionKategorieFolder in Hilfsmethoden.listdir(professionenFolder):
                         professionKategorieFolder = os.path.join(professionenFolder, professionKategorieFolder)
@@ -58,9 +46,9 @@ class WizardWrapper(object):
                             kategorie = os.path.basename(professionKategorieFolder)
                             if not kategorie in regeln.professionen:
                                 regeln.professionen[kategorie] = {}
-                            regeln.professionen[kategorie] = {**regeln.professionen[kategorie], **self.mapContainedFileNamesToPaths(professionKategorieFolder, regeln.hasArchetypen())}
+                            regeln.professionen[kategorie] = {**regeln.professionen[kategorie], **self.mapContainedFileNamesToPaths(professionKategorieFolder)}
 
-    def mapContainedFileNamesToPaths(self, folderPath, appendEP = False):
+    def mapContainedFileNamesToPaths(self, folderPath, appendEP = True):
         result = {}
         if os.path.isdir(folderPath):
             for path in Hilfsmethoden.listdir(folderPath):
@@ -127,16 +115,6 @@ class WizardWrapper(object):
             return
         regeln = self.regelList[self.ui.cbRegeln.currentText()]
 
-        self.ui.lblSpezies.setVisible(not regeln.hasArchetypen())
-        self.ui.cbSpezies.setVisible(not regeln.hasArchetypen())
-        self.ui.lblGeschlecht.setVisible(not regeln.hasArchetypen())
-        self.ui.btnMaennlich.setVisible(not regeln.hasArchetypen())
-        self.ui.btnWeiblich.setVisible(not regeln.hasArchetypen())
-        self.ui.lblKultur.setVisible(not regeln.hasArchetypen())
-        self.ui.cbKultur.setVisible(not regeln.hasArchetypen())
-        self.ui.lblProfessionKategorie.setText(regeln.hasArchetypen() and "Archetypkategorie" or "Professionskategorie")
-        self.ui.lblProfession.setText(regeln.hasArchetypen() and "Archetyp" or "Profession")
-
         self.ui.cbSpezies.clear()
         self.ui.cbKultur.clear()
         self.ui.cbProfessionKategorie.blockSignals(True)
@@ -148,8 +126,7 @@ class WizardWrapper(object):
         self.ui.cbKultur.addItem("Überspringen")
         self.ui.cbKultur.addItems(regeln.kulturen.keys())
 
-        if not regeln.hasArchetypen():
-            self.ui.cbProfessionKategorie.addItem("Überspringen")
+        self.ui.cbProfessionKategorie.addItem("Überspringen")
         self.ui.cbProfessionKategorie.addItems(regeln.professionen.keys())
         self.professionKategorieChanged()
 
@@ -166,31 +143,26 @@ class WizardWrapper(object):
         else:
             geschlecht = "männlich"
 
-        if not regeln.hasArchetypen():
-            Wolke.Char.kurzbeschreibung = "Geschlecht: " + geschlecht
-            EventBus.doAction("cbext_update", { 'name' : "geschlecht", 'value' : geschlecht })
+        Wolke.Char.kurzbeschreibung = "Geschlecht: " + geschlecht
+        EventBus.doAction("cbext_update", { 'name' : "geschlecht", 'value' : geschlecht })
 
-            if self.ui.cbSpezies.currentText() != "Überspringen":
-                spezies = regeln.spezies[self.ui.cbSpezies.currentText()]
-                CharakterMerger.xmlLesen(spezies[0], True, False)
-                CharakterMerger.handleChoices(spezies, self.ui.cbSpezies.currentText(), geschlecht, True, False, False)
+        if self.ui.cbSpezies.currentText() != "Überspringen":
+            spezies = regeln.spezies[self.ui.cbSpezies.currentText()]
+            CharakterMerger.xmlLesen(spezies[0], True, False)
+            CharakterMerger.handleChoices(spezies, self.ui.cbSpezies.currentText(), geschlecht, True, False, False)
 
-            if self.ui.cbKultur.currentText() != "Überspringen":
-                kultur = regeln.kulturen[self.ui.cbKultur.currentText()]
-                CharakterMerger.xmlLesen(kultur[0], False, True)
-                CharakterMerger.handleChoices(kultur, self.ui.cbKultur.currentText(), geschlecht, False, True, False)
+        if self.ui.cbKultur.currentText() != "Überspringen":
+            kultur = regeln.kulturen[self.ui.cbKultur.currentText()]
+            CharakterMerger.xmlLesen(kultur[0], False, True)
+            CharakterMerger.handleChoices(kultur, self.ui.cbKultur.currentText(), geschlecht, False, True, False)
 
         if self.ui.cbProfessionKategorie.currentText() != "Überspringen":
             professionKategorie = regeln.professionen[self.ui.cbProfessionKategorie.currentText()]
 
             if self.ui.cbProfession.currentText() != "Überspringen":
                 profession = professionKategorie[self.ui.cbProfession.currentText()]
-
-                if regeln.hasArchetypen():
-                    CharakterMerger.xmlLesen(profession[0], True, True)
-                else:
-                    CharakterMerger.xmlLesen(profession[0], False, False)
-                    CharakterMerger.handleChoices(profession, self.ui.cbProfession.currentText(), geschlecht, False, False, True)
+                CharakterMerger.xmlLesen(profession[0], False, False)
+                CharakterMerger.handleChoices(profession, self.ui.cbProfession.currentText(), geschlecht, False, False, True)
 
         Wolke.Char.aktualisieren()
 

@@ -1,8 +1,9 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>1</DatenbankVersion>
+    <DatenbankVersion>2</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName/>
+    <NutzerDatenbankName></NutzerDatenbankName>
+    <Plugins></Plugins>
   </Version>
   <AllgemeineInfos>
     <name>Yezabella Dulcinea Gharbistani</name>
@@ -122,23 +123,30 @@
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
     <Freie-Fertigkeit name="Musizieren" wert="2"/>
     <Freie-Fertigkeit name="Singen" wert="2"/>
-    <Freie-Fertigkeit name="Tulamydia" wert="1"/>
-    <Freie-Fertigkeit name="Kusliker Zeichen" wert="1"/>
-    <Freie-Fertigkeit name="Gaunerzinken" wert="1"/>
+    <Freie-Fertigkeit name="Sprache: Tulamidya" wert="1"/>
+    <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="1"/>
+    <Freie-Fertigkeit name="Sprache: Atak (+Schrift)" wert="1"/>
     <Freie-Fertigkeit name="Dichtkunst" wert="2"/>
   </Fertigkeiten>
   <Objekte>
     <Zonensystem>False</Zonensystem>
     <Rüstungen>
       <Rüstung name="Bunte Reisekleidung Mit Hut und Feder" be="0" rs="0/0/0/0/0/0"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
       <Waffe name="Langdolch" id="Langdolch" W6="1" plus="2" eigenschaften="Parierwaffe" haerte="10" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
       <Waffe name="Wurfmesser" id="Wurfmesser" W6="1" plus="0" eigenschaften="" haerte="8" rw="4" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
       <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="4" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>Rucksack, Ersatzkleidung</Ausrüstungsstück>
@@ -157,4 +165,13 @@
     <EPtotal>3000</EPtotal>
     <EPspent>2987</EPspent>
   </Erfahrung>
+  <Notiz></Notiz>
+  <Einstellungen>
+    <Charakterbogen>Standard Charakterbogen</Charakterbogen>
+    <FinanzenAnzeigen>1</FinanzenAnzeigen>
+    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
+    <RegelnAnhaengen>1</RegelnAnhaengen>
+    <RegelnGroesse>0</RegelnGroesse>
+    <Hausregeln></Hausregeln>
+  </Einstellungen>
 </Charakter>

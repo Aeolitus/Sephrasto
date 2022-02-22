@@ -32,7 +32,7 @@ class CharakterMerger(object):
         else:
             char.vorteileVariable[vorteil] = var
 
-    def setVariableTalentKosten(talent, var):
+    def setVariableTalentKosten(talent, var, fert):
         char = Wolke.Char
         #round down to nearest multiple in case of a db cost change
         defaultKosten = char.getDefaultTalentCost(talent, fert.steigerungsfaktor)
@@ -393,7 +393,7 @@ class CharakterMerger(object):
                 fert.gekaufteTalente.append(nam)
                 var = VariableKosten.parse(tal.attrib['variable'])
                 if var:
-                    CharakterMerger.setVariableTalentKosten(nam, var)
+                    CharakterMerger.setVariableTalentKosten(nam, var, fert)
 
             fert.aktualisieren(char.attribute)
             char.fertigkeiten.update({fert.name: fert})
@@ -483,7 +483,7 @@ class CharakterMerger(object):
                 fert.gekaufteTalente.append(nam)
                 var = VariableKosten.parse(tal.attrib['variable'])
                 if var:
-                    CharakterMerger.setVariableTalentKosten(nam, var)
+                    CharakterMerger.setVariableTalentKosten(nam, var, fert)
 
             fert.aktualisieren(char.attribute)
             char.übernatürlicheFertigkeiten.update({fert.name: fert})

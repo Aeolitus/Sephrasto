@@ -1,8 +1,9 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>1</DatenbankVersion>
+    <DatenbankVersion>2</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName/>
+    <NutzerDatenbankName></NutzerDatenbankName>
+    <Plugins></Plugins>
   </Version>
   <AllgemeineInfos>
     <name></name>
@@ -102,12 +103,25 @@
   </Fertigkeiten>
   <Objekte>
     <Zonensystem>False</Zonensystem>
-    <Rüstungen/>
-    <Waffen/>
+    <Rüstungen>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
+    </Rüstungen>
+    <Waffen>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+    </Waffen>
     <Ausrüstung/>
   </Objekte>
   <Übernatürliche-Fertigkeiten>
-    <Übernatürliche-Fertigkeit name="Zwölfgöttlicher Ritus" wert="0" addToPDF="2">
+    <Übernatürliche-Fertigkeit name="Zwölfgöttlicher Ritus" wert="0" addToPDF="False">
       <Talente>
         <Talent name="Geburtssegen" variable="-1"/>
         <Talent name="Glückssegen" variable="-1"/>
@@ -117,10 +131,10 @@
         <Talent name="Tranksegen" variable="-1"/>
       </Talente>
     </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Fröhlicher Wanderer" wert="0" addToPDF="2">
+    <Übernatürliche-Fertigkeit name="Fröhlicher Wanderer" wert="0" addToPDF="False">
       <Talente/>
     </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Stiller Wanderer" wert="0" addToPDF="2">
+    <Übernatürliche-Fertigkeit name="Stiller Wanderer" wert="0" addToPDF="False">
       <Talente/>
     </Übernatürliche-Fertigkeit>
   </Übernatürliche-Fertigkeiten>
@@ -128,4 +142,13 @@
     <EPtotal>0</EPtotal>
     <EPspent>360</EPspent>
   </Erfahrung>
+  <Notiz></Notiz>
+  <Einstellungen>
+    <Charakterbogen>Standard Charakterbogen</Charakterbogen>
+    <FinanzenAnzeigen>1</FinanzenAnzeigen>
+    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
+    <RegelnAnhaengen>1</RegelnAnhaengen>
+    <RegelnGroesse>0</RegelnGroesse>
+    <Hausregeln></Hausregeln>
+  </Einstellungen>
 </Charakter>

@@ -1,8 +1,9 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>1</DatenbankVersion>
+    <DatenbankVersion>2</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName/>
+    <NutzerDatenbankName></NutzerDatenbankName>
+    <Plugins></Plugins>
   </Version>
   <AllgemeineInfos>
     <name>Marek "der Andergaster" Karden</name>
@@ -61,7 +62,7 @@
     <Fertigkeit name="Stangenwaffen" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Fertigkeit name="Schusswaffen" wert="6">
+    <Fertigkeit name="Schusswaffen" wert="5">
       <Talente>
         <Talent name="Armbrüste" variable="-1"/>
       </Talente>
@@ -124,14 +125,16 @@
     <Fertigkeit name="Handwerk" wert="1">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="Garethi" wert="3"/>
-    <Freie-Fertigkeit name="Kusliker Zeichen" wert="3"/>
+    <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="3"/>
     <Freie-Fertigkeit name=" Tanzen " wert="1"/>
   </Fertigkeiten>
   <Objekte>
     <Zonensystem>False</Zonensystem>
     <Rüstungen>
       <Rüstung name="Kettenhemd mit Lederteilen" be="2" rs="2/2/2/2/2/2"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
       <Waffe name="Streitaxt" id="Streitaxt" W6="2" plus="1" eigenschaften="Kopflastig" haerte="8" rw="1" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
@@ -141,6 +144,7 @@
       <Waffe name="Dolch (SK)" id="Dolch (Handgemengewaffen)" W6="1" plus="1" eigenschaften="" haerte="9" rw="0" kampfstil="Schildkampf" wm="0" typ="Nah"/>
       <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe, Kopflastig, Wendig" haerte="7" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
       <Waffe name="Leichte Armbrust" id="Leichte Armbrust" W6="3" plus="1" eigenschaften="Zweihändig" haerte="4" rw="32" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="4"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>10 Bolzen im Köcher</Ausrüstungsstück>
@@ -157,32 +161,15 @@
   <Übernatürliche-Fertigkeiten/>
   <Erfahrung>
     <EPtotal>2500</EPtotal>
-    <EPspent>2499</EPspent>
+    <EPspent>2497</EPspent>
   </Erfahrung>
-  <AllgemeineInfosExt>
-    <profession></profession>
-    <geschlecht></geschlecht>
-    <geburtsdatum></geburtsdatum>
-    <groesse></groesse>
-    <gewicht></gewicht>
-    <haarfarbe></haarfarbe>
-    <augenfarbe></augenfarbe>
-    <titel></titel>
-    <aussehen1></aussehen1>
-    <aussehen2></aussehen2>
-    <aussehen3></aussehen3>
-    <aussehen4></aussehen4>
-    <aussehen5></aussehen5>
-    <aussehen6></aussehen6>
-    <hintergrund0></hintergrund0>
-    <hintergrund1></hintergrund1>
-    <hintergrund2></hintergrund2>
-    <hintergrund3></hintergrund3>
-    <hintergrund4></hintergrund4>
-    <hintergrund5></hintergrund5>
-    <hintergrund6></hintergrund6>
-    <hintergrund7></hintergrund7>
-    <hintergrund8></hintergrund8>
-    <ansehen>0</ansehen>
-  </AllgemeineInfosExt>
+  <Notiz></Notiz>
+  <Einstellungen>
+    <Charakterbogen>Standard Charakterbogen</Charakterbogen>
+    <FinanzenAnzeigen>1</FinanzenAnzeigen>
+    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
+    <RegelnAnhaengen>1</RegelnAnhaengen>
+    <RegelnGroesse>0</RegelnGroesse>
+    <Hausregeln></Hausregeln>
+  </Einstellungen>
 </Charakter>

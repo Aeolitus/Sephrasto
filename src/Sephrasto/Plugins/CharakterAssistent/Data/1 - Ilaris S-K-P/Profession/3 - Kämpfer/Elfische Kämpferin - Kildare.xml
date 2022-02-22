@@ -1,8 +1,9 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>1</DatenbankVersion>
+    <DatenbankVersion>2</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName/>
+    <NutzerDatenbankName></NutzerDatenbankName>
+    <Plugins></Plugins>
   </Version>
   <AllgemeineInfos>
     <name>Kildare Eulensinn</name>
@@ -47,8 +48,6 @@
     <Vorteil variable="-1">Schneller Kampf II</Vorteil>
     <Vorteil variable="-1">Tradition der Elfen I</Vorteil>
     <Vorteil variable="-1">Todesstoß</Vorteil>
-    <Vorteil variable="-1">Resistenz gegen Krankheiten</Vorteil>
-    <Vorteil variable="-1">Angepasst (Dunkelheit) I</Vorteil>
   </Vorteile>
   <Fertigkeiten>
     <Fertigkeit name="Handgemenge" wert="2">
@@ -122,22 +121,26 @@
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="Isdira" wert="3"/>
+    <Freie-Fertigkeit name="Sprache: Isdira" wert="3"/>
     <Freie-Fertigkeit name="Leierspiel" wert="1"/>
-    <Freie-Fertigkeit name="Garethi" wert="1"/>
+    <Freie-Fertigkeit name="Sprache: Garethi" wert="1"/>
   </Fertigkeiten>
   <Objekte>
     <Zonensystem>False</Zonensystem>
     <Rüstungen>
       <Rüstung name="Elfische Lederrüstung mit Arm &amp; Beinschienen" be="2" rs="2/2/2/2/2/2"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
       <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="7" rw="0" kampfstil="Schneller Kampf" wm="0" typ="Nah"/>
       <Waffe name="Speer (Infanteriewaffen)" id="Speer (Infanteriewaffen)" W6="3" plus="0" eigenschaften="Wendig, Zweihändig" haerte="6" rw="2" kampfstil="Schneller Kampf" wm="0" typ="Nah"/>
       <Waffe name="Speer (Wurfwaffe)" id="Speer (Wurfspeere)" W6="2" plus="0" eigenschaften="" haerte="5" rw="8" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
-      <Waffe name="Speerschleuder" id="Speerschleuder" W6="2" plus="1" eigenschaften="" haerte="5" rw="32" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="1"/>
+      <Waffe name="Speerschleuder" id="Speerschleuder" W6="2" plus="1" eigenschaften="kein Reittier" haerte="5" rw="16" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="1"/>
       <Waffe name="Wurfspeer" id="Wurfspeer" W6="2" plus="2" eigenschaften="" haerte="5" rw="8" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
       <Waffe name="Dolch (Handgemengewaffen)" id="Dolch (Handgemengewaffen)" W6="1" plus="1" eigenschaften="" haerte="9" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>Bauschkleidung, Elfische Wildlederstiefel</Ausrüstungsstück>
@@ -224,6 +227,15 @@
   </Übernatürliche-Fertigkeiten>
   <Erfahrung>
     <EPtotal>3000</EPtotal>
-    <EPspent>2980</EPspent>
+    <EPspent>2920</EPspent>
   </Erfahrung>
+  <Notiz></Notiz>
+  <Einstellungen>
+    <Charakterbogen>Standard Charakterbogen</Charakterbogen>
+    <FinanzenAnzeigen>1</FinanzenAnzeigen>
+    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
+    <RegelnAnhaengen>1</RegelnAnhaengen>
+    <RegelnGroesse>0</RegelnGroesse>
+    <Hausregeln></Hausregeln>
+  </Einstellungen>
 </Charakter>

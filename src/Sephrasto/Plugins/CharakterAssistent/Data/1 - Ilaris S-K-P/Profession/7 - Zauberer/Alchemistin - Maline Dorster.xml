@@ -1,8 +1,9 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>1</DatenbankVersion>
+    <DatenbankVersion>2</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName/>
+    <NutzerDatenbankName></NutzerDatenbankName>
+    <Plugins></Plugins>
   </Version>
   <AllgemeineInfos>
     <name>Maline Dorster</name>
@@ -105,7 +106,7 @@
     <Fertigkeit name="Verschlagenheit" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Fertigkeit name="Alchemie" wert="8">
+    <Fertigkeit name="Alchemie" wert="7">
       <Talente>
         <Talent name="Alchemistische Analyse" variable="-1"/>
         <Talent name="Magische Elixiere" variable="-1"/>
@@ -117,25 +118,32 @@
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="Garethi" wert="3"/>
-    <Freie-Fertigkeit name="Nanduria" wert="3"/>
+    <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Schrift: Nanduria-Zeichen" wert="3"/>
     <Freie-Fertigkeit name="" wert="1"/>
     <Freie-Fertigkeit name="" wert="1"/>
-    <Freie-Fertigkeit name="Bosparano" wert="2"/>
+    <Freie-Fertigkeit name="Sprache: Bosparano" wert="2"/>
     <Freie-Fertigkeit name="Meisterin der Al'Gebra" wert="1"/>
     <Freie-Fertigkeit name="" wert="1"/>
     <Freie-Fertigkeit name="" wert="1"/>
-    <Freie-Fertigkeit name="Kusliker Zeichen" wert="2"/>
+    <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="2"/>
   </Fertigkeiten>
   <Objekte>
     <Zonensystem>False</Zonensystem>
     <Rüstungen>
       <Rüstung name="Lederne Schutzkleidung" be="1" rs="1/1/1/1/1/1"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
       <Waffe name="Borndorn" id="Borndorn (Handgemengewaffen)" W6="1" plus="2" eigenschaften="" haerte="10" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
       <Waffe name="Borndorn (als Wurfwaffe)" id="Borndorn (Kurze Wurfwaffen)" W6="1" plus="2" eigenschaften="" haerte="9" rw="4" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
       <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="6" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>Lederschutzkleidung (Handschuhe, Schürze, Stiefel, K</Ausrüstungsstück>
@@ -239,32 +247,15 @@
   </Übernatürliche-Fertigkeiten>
   <Erfahrung>
     <EPtotal>2500</EPtotal>
-    <EPspent>2499</EPspent>
+    <EPspent>2491</EPspent>
   </Erfahrung>
-  <AllgemeineInfosExt>
-    <profession></profession>
-    <geschlecht></geschlecht>
-    <geburtsdatum></geburtsdatum>
-    <groesse></groesse>
-    <gewicht></gewicht>
-    <haarfarbe></haarfarbe>
-    <augenfarbe></augenfarbe>
-    <titel></titel>
-    <aussehen1></aussehen1>
-    <aussehen2></aussehen2>
-    <aussehen3></aussehen3>
-    <aussehen4></aussehen4>
-    <aussehen5></aussehen5>
-    <aussehen6></aussehen6>
-    <hintergrund0></hintergrund0>
-    <hintergrund1></hintergrund1>
-    <hintergrund2></hintergrund2>
-    <hintergrund3></hintergrund3>
-    <hintergrund4></hintergrund4>
-    <hintergrund5></hintergrund5>
-    <hintergrund6></hintergrund6>
-    <hintergrund7></hintergrund7>
-    <hintergrund8></hintergrund8>
-    <ansehen>0</ansehen>
-  </AllgemeineInfosExt>
+  <Notiz></Notiz>
+  <Einstellungen>
+    <Charakterbogen>Standard Charakterbogen</Charakterbogen>
+    <FinanzenAnzeigen>1</FinanzenAnzeigen>
+    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
+    <RegelnAnhaengen>1</RegelnAnhaengen>
+    <RegelnGroesse>0</RegelnGroesse>
+    <Hausregeln></Hausregeln>
+  </Einstellungen>
 </Charakter>

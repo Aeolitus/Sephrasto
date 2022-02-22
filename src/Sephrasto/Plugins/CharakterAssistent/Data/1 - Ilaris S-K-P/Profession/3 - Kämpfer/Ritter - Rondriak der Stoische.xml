@@ -1,8 +1,9 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>1</DatenbankVersion>
+    <DatenbankVersion>2</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName/>
+    <NutzerDatenbankName></NutzerDatenbankName>
+    <Plugins></Plugins>
   </Version>
   <AllgemeineInfos>
     <name>Rondriak der Stoische</name>
@@ -63,7 +64,7 @@
         <Talent name="Einhandklingenwaffen" variable="-1"/>
       </Talente>
     </Fertigkeit>
-    <Fertigkeit name="Stangenwaffen" wert="6">
+    <Fertigkeit name="Stangenwaffen" wert="5">
       <Talente>
         <Talent name="Lanzenreiten" variable="-1"/>
       </Talente>
@@ -106,7 +107,7 @@
     <Fertigkeit name="Derekunde" wert="1">
       <Talente/>
     </Fertigkeit>
-    <Fertigkeit name="Mythenkunde" wert="5">
+    <Fertigkeit name="Mythenkunde" wert="4">
       <Talente/>
     </Fertigkeit>
     <Fertigkeit name="Magiekunde" wert="0">
@@ -127,16 +128,18 @@
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="Garethi" wert="3"/>
-    <Freie-Fertigkeit name="Kusliker Zeichen" wert="3"/>
+    <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="3"/>
     <Freie-Fertigkeit name="Minnesang" wert="2"/>
     <Freie-Fertigkeit name="Abrichten" wert="1"/>
-    <Freie-Fertigkeit name="Orkisch" wert="1"/>
+    <Freie-Fertigkeit name="Sprache: Oloarkh" wert="1"/>
   </Fertigkeiten>
   <Objekte>
     <Zonensystem>False</Zonensystem>
     <Rüstungen>
       <Rüstung name="Kettenhemd" be="2" rs="2/2/2/2/2/2"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
+      <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
       <Waffe name="Schwert (SK)" id="Schwert" W6="2" plus="2" eigenschaften="" haerte="10" rw="1" kampfstil="Schildkampf" wm="0" typ="Nah"/>
@@ -163,32 +166,15 @@
   <Übernatürliche-Fertigkeiten/>
   <Erfahrung>
     <EPtotal>2500</EPtotal>
-    <EPspent>2488</EPspent>
+    <EPspent>2494</EPspent>
   </Erfahrung>
-  <AllgemeineInfosExt>
-    <profession></profession>
-    <geschlecht></geschlecht>
-    <geburtsdatum></geburtsdatum>
-    <groesse></groesse>
-    <gewicht></gewicht>
-    <haarfarbe></haarfarbe>
-    <augenfarbe></augenfarbe>
-    <titel></titel>
-    <aussehen1></aussehen1>
-    <aussehen2></aussehen2>
-    <aussehen3></aussehen3>
-    <aussehen4></aussehen4>
-    <aussehen5></aussehen5>
-    <aussehen6></aussehen6>
-    <hintergrund0></hintergrund0>
-    <hintergrund1></hintergrund1>
-    <hintergrund2></hintergrund2>
-    <hintergrund3></hintergrund3>
-    <hintergrund4></hintergrund4>
-    <hintergrund5></hintergrund5>
-    <hintergrund6></hintergrund6>
-    <hintergrund7></hintergrund7>
-    <hintergrund8></hintergrund8>
-    <ansehen>0</ansehen>
-  </AllgemeineInfosExt>
+  <Notiz></Notiz>
+  <Einstellungen>
+    <Charakterbogen>Standard Charakterbogen</Charakterbogen>
+    <FinanzenAnzeigen>1</FinanzenAnzeigen>
+    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
+    <RegelnAnhaengen>1</RegelnAnhaengen>
+    <RegelnGroesse>0</RegelnGroesse>
+    <Hausregeln></Hausregeln>
+  </Einstellungen>
 </Charakter>

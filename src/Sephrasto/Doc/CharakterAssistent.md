@@ -7,10 +7,7 @@ Der Charakterassistent ist ein offizielles Plugin, mit eurer Sephrastoinstallati
 - Ilaris S/K/P
 	* Spezies - strikt nach Regelwerk + Halbelfen und Halborks
 	* Kulturen - enthalten nur die Heimat + Muttersprache
-	* Professionen: sehr kleine Basispakete, hauptsächlich interessant für Geweihte wegen den Segnungen; Professionspakete von WeZwanzigs Archetypen-Schmiede (leicht angepasst).
-- Ilaris Archetypen
-	* Offizielle Ilaris Archetypen (aktualisiert)
-	* Archetypen von Baal Zephon (aktualisiert)
+	* Professionen: sehr kleine Basispakete, hauptsächlich interessant für Geweihte wegen den Segnungen; Professionspakete von WeZwanzigs Archetypen-Schmiede (leicht angepasst); Offizielle Ilaris Archetypen (aktualisiert); Archetypen von Baal Zephon (aktualisiert)
 - Weitere Kits zum Download:
 	* [Ilaris Advanced Kit](https://dsaforum.de/viewtopic.php?f=180&t=49412)
 <br />
@@ -24,7 +21,6 @@ Damit ihr eigene Kreationen mit dem nächsten Sephrasto-Update nicht verliert, k
 - Jeder Ordner in "Data" ist ein eigener "Baukasten" und erhält einen entsprechenden Eintrag im ersten Dropdown. Die Benennung ist egal, bis auf einen Sonderfall (siehe unten).
 - Jeder Baukasten benötigt je einen Ordner "Spezies", "Kultur" und "Profession". "Profession" benötigt als einziger weitere (beliebig benannte) Unterordner, die der "Professionskategorie" entsprechen.
 - In die "Spezies"-, "Kultur"- und jeweiligen Professionskategorie-Ordner werden die entsprechenden Sephrasto-XMLs gespeichert.
-- Sonderfall: Wenn ein Baukasten-Ordnername mit "Archetypen" endet, dann verhält er sich wie der "Profession"-Ordner. Wird dieser Baukasten im Plugin ausgewählt, dann werden Geschlecht/S/K ausgeblendet, da diese Konfigurationsmöglichkeiten bei komplett fertig gebauten Charakteren keinen Sinn ergeben.
 <br />
 ## Wie werden S/K/P verschmolzen?
 - Attribute: S und K werden addiert, bei P sind Attribute Mindestwerte. Wenn also bei S und K Charisma jeweils +2 beträgt und bei P +8, dann beträgt der Endwert +8.
