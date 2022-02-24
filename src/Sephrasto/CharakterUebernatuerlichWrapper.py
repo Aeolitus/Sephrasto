@@ -96,10 +96,15 @@ class UebernatuerlichWrapper(QtCore.QObject):
             header.setSectionResizeMode(3, QHeaderView.Fixed)
             header.setSectionResizeMode(4, QHeaderView.Fixed)
             self.uiFert.tableWidget.setColumnWidth(0, 40)
-            self.uiFert.tableWidget.setColumnWidth(2, 65)
-            self.uiFert.tableWidget.setColumnWidth(3, 65)
+            self.uiFert.tableWidget.setColumnWidth(2, 60)
+            self.uiFert.tableWidget.setColumnWidth(3, 80)
             self.uiFert.tableWidget.setColumnWidth(4, 65)
             self.uiFert.tableWidget.setColumnWidth(5, 90)
+
+            vheader = self.uiFert.tableWidget.verticalHeader()
+            vheader.setSectionResizeMode(QHeaderView.Fixed)
+            vheader.setDefaultSectionSize(30);
+            vheader.setMaximumSectionSize(30);
 
             item = QtWidgets.QTableWidgetItem()
             item.setText("PDF")
@@ -165,8 +170,9 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 
                 # Add Kosten
                 self.labelRef[el + "KO"] = QtWidgets.QLabel()
+                self.labelRef[el + "KO"].setStyleSheet("margin-left:10; margin-right:10;");
                 self.labelRef[el + "KO"].setText(self.getSteigerungskosten(fert))
-                self.labelRef[el + "KO"].setAlignment(QtCore.Qt.AlignCenter)
+                self.labelRef[el + "KO"].setAlignment(QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
                 self.uiFert.tableWidget.setCellWidget(count,3,self.labelRef[el + "KO"])
 
                 # Add PW
@@ -177,6 +183,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
 
                 # Add Talents Count and Add Button
                 self.layoutRef[el] = QtWidgets.QHBoxLayout()
+                self.layoutRef[el].setContentsMargins(10, 0, 10, 0)
                 self.labelRef[el] = QtWidgets.QLabel()
                 self.labelRef[el].setText(str(len(fert.gekaufteTalente)))
                 self.labelRef[el].setAlignment(QtCore.Qt.AlignCenter)
@@ -208,7 +215,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
         
     def getSteigerungskosten(self, fert):
         ep = (fert.wert+1) * fert.steigerungsfaktor
-        return "<span style='font-size: 9pt; font-family: Font Awesome 6 Free Solid;'>\uf176</span>&nbsp;&nbsp;" + str(ep) + " EP"
+        return "&nbsp;&nbsp;<span style='font-size: 9pt; font-family: Font Awesome 6 Free Solid;'>\uf176</span>&nbsp;&nbsp;" + str(ep) + " EP"
 
     def fwChanged(self, flag = False):
         if self.currentlyLoading:

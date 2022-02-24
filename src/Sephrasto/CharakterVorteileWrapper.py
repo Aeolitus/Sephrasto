@@ -54,12 +54,14 @@ class CharakterVorteileWrapper(QtCore.QObject):
         for vorteile in vortList:
             vorteile.sort()
 
+        rowHeight = 30
+
         for i in range(len(vortList)):
             parent = QtWidgets.QTreeWidgetItem(self.uiVor.treeWidget)
             parent.setText(0, self.vorteilTypen[i])
             parent.setText(1,"")
             parent.setExpanded(True)
-            parent.setSizeHint(0, QtCore.QSize(0, 24))
+            parent.setSizeHint(0, QtCore.QSize(0, rowHeight))
             font = parent.font(0)
             font.setBold(True)
             font.setCapitalization(QtGui.QFont.SmallCaps)
@@ -68,13 +70,14 @@ class CharakterVorteileWrapper(QtCore.QObject):
             for el in vortList[i]:
                 child = QtWidgets.QTreeWidgetItem(parent)
                 child.setText(0, Wolke.DB.vorteile[el].name)
-                child.setSizeHint(0, QtCore.QSize(0, 24))
+                child.setSizeHint(0, QtCore.QSize(0, rowHeight))
                 if el in Wolke.Char.vorteile:    
                     child.setCheckState(0, QtCore.Qt.Checked)
                 else:
                     child.setCheckState(0, QtCore.Qt.Unchecked)
                 if Wolke.DB.vorteile[el].variableKosten:
                     spin = QtWidgets.QSpinBox()
+                    spin.setFixedHeight(rowHeight)
                     spin.setMinimum(-9999)
                     spin.setSuffix(" EP")
                     spin.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)

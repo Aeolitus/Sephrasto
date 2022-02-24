@@ -111,16 +111,20 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
             header.setMinimumSectionSize(0)
             header.setSectionResizeMode(0, QHeaderView.Stretch)
             header.setSectionResizeMode(1, QHeaderView.Fixed)
-            self.uiFert.tableWidget.setColumnWidth(1, 65)
+            self.uiFert.tableWidget.setColumnWidth(1, 60)
             header.setSectionResizeMode(2, QHeaderView.Fixed)
-            self.uiFert.tableWidget.setColumnWidth(2, 65)
+            self.uiFert.tableWidget.setColumnWidth(2, 80)
             header.setSectionResizeMode(3, QHeaderView.Fixed)
             self.uiFert.tableWidget.setColumnWidth(3, 65)
             header.setSectionResizeMode(4, QHeaderView.Fixed)
             self.uiFert.tableWidget.setColumnWidth(4, 65)
             header.setSectionResizeMode(4, QHeaderView.Fixed)
             self.uiFert.tableWidget.setColumnWidth(5, 90)
-            
+
+            vheader = self.uiFert.tableWidget.verticalHeader()
+            vheader.setSectionResizeMode(QHeaderView.Fixed)
+            vheader.setDefaultSectionSize(30);
+            vheader.setMaximumSectionSize(30);
 
             item = QtWidgets.QTableWidgetItem()
             item.setText("Name")
@@ -186,8 +190,9 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
 
                 # Add Kosten
                 self.labelRef[el + "KO"] = QtWidgets.QLabel()
+                self.labelRef[el + "KO"].setStyleSheet("margin-left:10; margin-right:10;");
                 self.labelRef[el + "KO"].setText(self.getSteigerungskosten(fert))
-                self.labelRef[el + "KO"].setAlignment(QtCore.Qt.AlignCenter)
+                self.labelRef[el + "KO"].setAlignment(QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
                 self.uiFert.tableWidget.setCellWidget(count,2,self.labelRef[el + "KO"])
 
                 # Add PW
@@ -204,6 +209,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
 
                 # Add Talents Count and Add Button
                 self.layoutRef[el] = QtWidgets.QHBoxLayout()
+                self.layoutRef[el].setContentsMargins(10, 0, 10, 0)
                 self.labelRef[el] = QtWidgets.QLabel()
                 self.labelRef[el].setText(str(len(fert.gekaufteTalente)))
                 self.labelRef[el].setAlignment(QtCore.Qt.AlignCenter)
