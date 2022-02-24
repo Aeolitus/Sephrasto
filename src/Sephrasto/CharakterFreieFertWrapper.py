@@ -25,8 +25,7 @@ class CharakterFreieFertWrapper(QtCore.QObject):
         kosten = [str(Wolke.DB.einstellungen["FreieFertigkeiten: Kosten Stufe1"].toInt()),
                   str(Wolke.DB.einstellungen["FreieFertigkeiten: Kosten Stufe2"].toInt()),
                   str(Wolke.DB.einstellungen["FreieFertigkeiten: Kosten Stufe3"].toInt())]
-        self.uiFert.labelRegeln.setText(self.uiFert.labelRegeln.text() +
-                                        " Sie kosten jeweils " + kosten[0] + "/" + kosten[1] + "/" + kosten[2] + " EP.")
+        self.uiFert.labelRegeln.setText(self.uiFert.labelRegeln.text() + " Sie entsprechen jeweils einem PW von 6/14/22 und kosten " + kosten[0] + "/" + kosten[1] + "/" + kosten[2] + " EP.")
 
         self.ffCount = 0
 
