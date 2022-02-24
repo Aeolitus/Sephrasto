@@ -13,6 +13,7 @@ from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
 from PyQt5 import QtWidgets, QtCore
 import os.path
 from Fertigkeiten import KampffertigkeitTyp
+import base64
 
 class KampfstilMod():
     def __init__(self):
@@ -160,6 +161,33 @@ class Char():
         self.ueberPDFAnzeigen = False
         self.regelnAnhaengen = Wolke.Settings["Cheatsheet"]
         self.regelnGroesse = Wolke.Settings["Cheatsheet-Fontsize"]
+
+        #Neunter Block: Beschreibung Details
+        self.kultur = ""
+        self.profession = ""
+        self.geschlecht = ""
+        self.geburtsdatum = ""
+        self.groesse = ""
+        self.gewicht = ""
+        self.haarfarbe = ""
+        self.augenfarbe = ""
+        self.titel = ""
+        self.aussehen1 = ""
+        self.aussehen2 = ""
+        self.aussehen3 = ""
+        self.aussehen4 = ""
+        self.aussehen5 = ""
+        self.aussehen6 = ""
+        self.hintergrund0 = ""
+        self.hintergrund1 = ""
+        self.hintergrund2 = ""
+        self.hintergrund3 = ""
+        self.hintergrund4 = ""
+        self.hintergrund5 = ""
+        self.hintergrund6 = ""
+        self.hintergrund7 = ""
+        self.hintergrund8 = ""
+        self.bild = None
 
         # Diagnostics
         self.fehlercode = 0
@@ -963,6 +991,35 @@ class Char():
         etree.SubElement(einstellungen,'RegelnGroesse').text = str(self.regelnGroesse)
         etree.SubElement(einstellungen,'Hausregeln').text = str(self.hausregeln or "")
 
+        #Neunter Block
+        sub =  etree.SubElement(root,'AllgemeineInfosExt')
+        etree.SubElement(sub,'kultur').text = self.kultur
+        etree.SubElement(sub,'profession').text = self.profession
+        etree.SubElement(sub,'geschlecht').text = self.geschlecht
+        etree.SubElement(sub,'geburtsdatum').text = self.geburtsdatum
+        etree.SubElement(sub,'groesse').text = self.groesse
+        etree.SubElement(sub,'gewicht').text = self.gewicht
+        etree.SubElement(sub,'haarfarbe').text = self.haarfarbe
+        etree.SubElement(sub,'augenfarbe').text = self.augenfarbe
+        etree.SubElement(sub,'titel').text = self.titel
+        etree.SubElement(sub,'aussehen1').text = self.aussehen1
+        etree.SubElement(sub,'aussehen2').text = self.aussehen2
+        etree.SubElement(sub,'aussehen3').text = self.aussehen3
+        etree.SubElement(sub,'aussehen4').text = self.aussehen4
+        etree.SubElement(sub,'aussehen5').text = self.aussehen5
+        etree.SubElement(sub,'aussehen6').text = self.aussehen6
+        etree.SubElement(sub,'hintergrund0').text = self.hintergrund0
+        etree.SubElement(sub,'hintergrund1').text = self.hintergrund1
+        etree.SubElement(sub,'hintergrund2').text = self.hintergrund2
+        etree.SubElement(sub,'hintergrund3').text = self.hintergrund3
+        etree.SubElement(sub,'hintergrund4').text = self.hintergrund4
+        etree.SubElement(sub,'hintergrund5').text = self.hintergrund5
+        etree.SubElement(sub,'hintergrund6').text = self.hintergrund6
+        etree.SubElement(sub,'hintergrund7').text = self.hintergrund7
+        etree.SubElement(sub,'hintergrund8').text = self.hintergrund8
+        if self.bild:
+            etree.SubElement(sub,'bild').text = base64.b64encode(self.bild)
+
         #Plugins
         root = EventBus.applyFilter("charakter_xml_schreiben", root, { "charakter" : self })
 
@@ -1217,6 +1274,41 @@ class Char():
             self.regelnAnhaengen = einstellungen.find('RegelnAnhaengen').text == "1"
             self.regelnGroesse = int(einstellungen.find('RegelnGroesse').text)
         
+        #Neunter Block
+        alg = root.find('AllgemeineInfosExt')
+        if alg is not None:
+            if alg.find('kultur') is not None:
+                self.kultur = alg.find('kultur').text
+            self.profession = alg.find('profession').text or ''
+            self.geschlecht = alg.find('geschlecht').text or ''
+            self.geburtsdatum = alg.find('geburtsdatum').text or ''
+            self.groesse = alg.find('groesse').text or ''
+            self.gewicht = alg.find('gewicht').text or ''
+            self.haarfarbe = alg.find('haarfarbe').text or ''
+            self.augenfarbe = alg.find('augenfarbe').text or ''
+            self.titel = alg.find('titel').text or ''
+
+            self.aussehen1 = alg.find('aussehen1').text or ''
+            self.aussehen2 = alg.find('aussehen2').text or ''
+            self.aussehen3 = alg.find('aussehen3').text or ''
+            self.aussehen4 = alg.find('aussehen4').text or ''
+            self.aussehen5 = alg.find('aussehen5').text or ''
+            self.aussehen6 = alg.find('aussehen6').text or ''
+
+            self.hintergrund0 = alg.find('hintergrund0').text or ''
+            self.hintergrund1 = alg.find('hintergrund1').text or ''
+            self.hintergrund2 = alg.find('hintergrund2').text or ''
+            self.hintergrund3 = alg.find('hintergrund3').text or ''
+            self.hintergrund4 = alg.find('hintergrund4').text or ''
+            self.hintergrund5 = alg.find('hintergrund5').text or ''
+            self.hintergrund6 = alg.find('hintergrund6').text or ''
+            self.hintergrund7 = alg.find('hintergrund7').text or ''
+            self.hintergrund8 = alg.find('hintergrund8').text or ''
+
+            if alg.find('bild') is not None:
+                byteArray = bytes(alg.find('bild').text, 'utf-8')
+                self.bild = base64.b64decode(byteArray)
+
         if userDBChanged or vIgnored or fIgnored or tIgnored or übIgnored:
             messageBox = QtWidgets.QMessageBox()
             messageBox.setIcon(QtWidgets.QMessageBox.Warning)

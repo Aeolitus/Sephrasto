@@ -10,6 +10,7 @@ from PyQt5.QtGui import QCursor
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtCore import Qt
 import CharakterBeschreibungWrapper
+import CharakterBeschreibungDetailsWrapper
 import CharakterAttributeWrapper
 import CharakterEquipmentWrapper
 import CharakterFertigkeitenWrapper
@@ -26,6 +27,8 @@ import logging
 from EventBus import EventBus
 from shutil import which
 from EinstellungenWrapper import EinstellungenWrapper
+from CharakterAssistent import WizardWrapper
+from UI import Wizard
 
 class Tab():
     def __init__(self, order, wrapper, form, name):
@@ -62,10 +65,12 @@ class Editor(object):
             self.noDatabase = True
         
     def finishInit(self):
-        Wolke.Char = Charakter.Char() 
+        Wolke.Char = Charakter.Char()
 
         if self.savepath:
             Wolke.Char.xmlLesen(self.savepath)
+        else:
+            self.showCharacterWizard()
 
         enabledPlugins = []
         for pluginData in self.plugins:
@@ -105,10 +110,23 @@ class Editor(object):
         self.updateEP()
 
         tabs = []
-        beschrWrapper = EventBus.applyFilter("class_beschreibung_wrapper", CharakterBeschreibungWrapper.BeschrWrapper)
-        if beschrWrapper:
-            self.beschrWrapper = beschrWrapper()
-            tabs.append(Tab(10, self.beschrWrapper, self.beschrWrapper.formBeschr, "Beschreibung"))
+
+        details = False
+        for bogen in Wolke.Charakterbögen:
+            if Wolke.Char.charakterbogen == os.path.basename(os.path.splitext(bogen)[0]):
+                details = Wolke.Charakterbögen[bogen].beschreibungDetails
+                break
+
+        if details:
+            beschrWrapper = EventBus.applyFilter("class_beschreibungdetails_wrapper", CharakterBeschreibungDetailsWrapper.CharakterBeschreibungDetailsWrapper)
+            if beschrWrapper:
+                self.beschrWrapper = beschrWrapper()
+                tabs.append(Tab(10, self.beschrWrapper, self.beschrWrapper.form, "Beschreibung"))
+        else:
+            beschrWrapper = EventBus.applyFilter("class_beschreibung_wrapper", CharakterBeschreibungWrapper.BeschrWrapper)
+            if beschrWrapper:
+                self.beschrWrapper = beschrWrapper()
+                tabs.append(Tab(10, self.beschrWrapper, self.beschrWrapper.formBeschr, "Beschreibung"))
 
         attrWrapper = EventBus.applyFilter("class_attribute_wrapper", CharakterAttributeWrapper.AttrWrapper)
         if attrWrapper:
@@ -224,6 +242,11 @@ class Editor(object):
                 tab.wrapper.load()
 
         self.updateEP()
+
+    def reload(self, idx):
+        tab = self.tabs[idx]
+        if hasattr(tab.wrapper, "load"):
+            tab.wrapper.load()
         
     def updateAll(self):
         self.ignoreModified = True
@@ -283,6 +306,26 @@ Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
                 infoBox.exec_()
         self.changed = False
 
+
+    def showCharacterWizard(self):
+        if not Wolke.Settings['Charakter-Assistent']:
+            return
+
+        self.wizardEd = WizardWrapper.WizardWrapper()
+        self.wizardEd.formMain = QtWidgets.QDialog()
+        self.wizardEd.formMain .setWindowFlags(
+                QtCore.Qt.Window |
+                QtCore.Qt.CustomizeWindowHint |
+                QtCore.Qt.WindowTitleHint |
+                QtCore.Qt.WindowCloseButtonHint)
+
+        self.wizardEd.ui = Wizard.Ui_formMain()
+        self.wizardEd.ui.setupUi(self.wizardEd.formMain)
+        self.wizardEd.setupMainForm()
+        self.wizardEd.formMain.setWindowModality(QtCore.Qt.ApplicationModal)
+        self.wizardEd.formMain.show()
+        self.wizardEd.formMain.exec_()
+
     def showProgressBar(self, show):
         if show:
             QApplication.setOverrideCursor(QCursor(Qt.WaitCursor))
@@ -315,10 +358,9 @@ Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
         
         result = -1
 
-        charakterBoegen = EinstellungenWrapper.getCharakterbögen()
-        for bogen in charakterBoegen:
+        for bogen in Wolke.Charakterbögen:
             if Wolke.Char.charakterbogen == os.path.basename(os.path.splitext(bogen)[0]):
-                self.pdfMeister.setCharakterbogen(EventBus.applyFilter("set_charakterbogen", bogen))
+                self.pdfMeister.setCharakterbogen(EventBus.applyFilter("set_charakterbogen", Wolke.Charakterbögen[bogen]))
                 break
 
         # Check if there is a base Charakterbogen.pdf:

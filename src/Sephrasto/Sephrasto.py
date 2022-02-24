@@ -54,11 +54,10 @@ def sephrasto_excepthook(exc_type, exc_value, tb):
     messagebox.exec_()
 
 class PluginData(object):
-    def __init__(self, name, description, isOfficial, plugin):
+    def __init__(self, name, description, plugin):
         super().__init__()
         self.name = name
         self.description = description
-        self.isOfficial = isOfficial
         self.plugin = plugin
 
 class MainWindowWrapper(object):
@@ -116,24 +115,19 @@ class MainWindowWrapper(object):
         UpdateChecker.checkForUpdate()
 
         self._plugins = []
-        pluginPaths = ["Plugins", Wolke.Settings['Pfad-Plugins']]
+        for pluginName in PluginLoader.getPlugins(Wolke.Settings['Pfad-Plugins']):
+            description = PluginLoader.getPluginDescription(Wolke.Settings['Pfad-Plugins'], pluginName)
+            if pluginName in Wolke.Settings['Deaktivierte-Plugins']:
+                self._plugins.append(PluginData(pluginName, description, None))
+                continue
 
-        for pluginPath in pluginPaths:
-            pluginNames = PluginLoader.getPlugins(pluginPath)
-
-            for pluginName in pluginNames:
-                description = PluginLoader.getPluginDescription(pluginPath, pluginName)
-                if pluginName in Wolke.Settings['Deaktivierte-Plugins']:
-                    self._plugins.append(PluginData(pluginName, description, pluginPath == "Plugins", None))
-                    continue
-
-                plugin = PluginLoader.loadPlugin(pluginPath, pluginName)
-                self._plugins.append(PluginData(pluginName, description, pluginPath == "Plugins", plugin))
-                logging.critical("Plugin: loaded " + pluginName)
-                if hasattr(plugin, "createMainWindowButtons"):
-                    for button in plugin.createMainWindowButtons():
-                        button.setParent(self.Form)
-                        self.ui.vlPluginButtons.addWidget(button)
+            plugin = PluginLoader.loadPlugin(Wolke.Settings['Pfad-Plugins'], pluginName)
+            self._plugins.append(PluginData(pluginName, description, plugin))
+            logging.critical("Plugin: loaded " + pluginName)
+            if hasattr(plugin, "createMainWindowButtons"):
+                for button in plugin.createMainWindowButtons():
+                    button.setParent(self.Form)
+                    self.ui.vlPluginButtons.addWidget(button)
 
         EventBus.doAction("plugins_geladen")
 

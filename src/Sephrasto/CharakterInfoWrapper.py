@@ -49,7 +49,7 @@ class InfoWrapper(QtCore.QObject):
         self.ui.checkRegeln.stateChanged.connect(self.einstellungenChanged)
         self.ui.comboHausregeln.currentIndexChanged.connect(self.einstellungenChanged)
 
-        boegen = [os.path.basename(os.path.splitext(bogen)[0]) for bogen in EinstellungenWrapper.getCharakterbögen()]
+        boegen = [os.path.basename(os.path.splitext(bogen)[0]) for bogen in Wolke.Charakterbögen]
         for bogen in boegen:
             if bogen == "Standard Charakterbogen":
                 self.ui.comboCharsheet.insertItem(0, bogen)
@@ -65,6 +65,12 @@ class InfoWrapper(QtCore.QObject):
 
         self.initialHausregeln = Wolke.Char.hausregeln
 
+        self.initialDetails = False
+        for bogen in Wolke.Charakterbögen:
+            if Wolke.Char.charakterbogen == os.path.basename(os.path.splitext(bogen)[0]):
+                self.initialDetails = Wolke.Charakterbögen[bogen].beschreibungDetails
+                break
+
         self.currentlyLoading = False
         self.load()
 
@@ -78,10 +84,17 @@ class InfoWrapper(QtCore.QObject):
         Wolke.Char.ueberPDFAnzeigen = self.ui.checkUeberPDF.isChecked()
         Wolke.Char.regelnAnhaengen = self.ui.checkRegeln.isChecked()
         Wolke.Char.regelnGroesse = self.ui.comboRegelnGroesse.currentIndex()
-
         Wolke.Char.hausregeln = self.ui.comboHausregeln.currentText() if self.ui.comboHausregeln.currentText() != "Keine" else None
-        self.ui.labelReload.setVisible(Wolke.Char.hausregeln != self.initialHausregeln)
         Wolke.Char.charakterbogen = self.ui.comboCharsheet.currentText()
+
+        details = False
+        for bogen in Wolke.Charakterbögen:
+            if Wolke.Char.charakterbogen == os.path.basename(os.path.splitext(bogen)[0]):
+                details = Wolke.Charakterbögen[bogen].beschreibungDetails
+                break
+
+        self.ui.labelReload.setVisible(Wolke.Char.hausregeln != self.initialHausregeln or self.initialDetails != details)
+
         self.modified.emit()
 
     def load(self):

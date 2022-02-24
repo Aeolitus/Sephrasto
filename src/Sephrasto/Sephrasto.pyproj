@@ -23,6 +23,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Charakter.py" />
+    <Compile Include="CharakterAssistent\CharakterMerger.py" />
+    <Compile Include="CharakterAssistent\Choice.py" />
+    <Compile Include="CharakterAssistent\ChoicePopupWrapper.py" />
+    <Compile Include="CharakterAssistent\VariantPopupWrapper.py" />
+    <Compile Include="CharakterAssistent\WizardWrapper.py" />
+    <Compile Include="CharakterAssistent\ChoiceXmlVerifier.py" />
+    <Compile Include="CharakterBeschreibungDetailsWrapper.py" />
     <Compile Include="CharakterInfoWrapper.py" />
     <Compile Include="CharakterProfaneFertigkeitenWrapper.py" />
     <Compile Include="UI\CharakterAttribute.py" />
@@ -30,6 +37,7 @@
     <Compile Include="UI\CharakterBeschreibung.py" />
     <Compile Include="CharakterBeschreibungWrapper.py" />
     <Compile Include="CharakterEditor.py" />
+    <Compile Include="UI\CharakterBeschreibungDetails.py" />
     <Compile Include="UI\CharakterEquipment.py" />
     <Compile Include="CharakterEquipmentWrapper.py" />
     <Compile Include="UI\CharakterFertigkeiten.py" />
@@ -53,6 +61,7 @@
     <Compile Include="UI\CharakterWaffen.py" />
     <Compile Include="Datenbank.py" />
     <Compile Include="DatenbankEdit.py" />
+    <Compile Include="UI\ChoicePopup.py" />
     <Compile Include="UI\DatenbankEditEinstellung.py" />
     <Compile Include="DatenbankEditEinstellungWrapper.py" />
     <Compile Include="UI\DatenbankEditFertigkeit.py" />
@@ -86,6 +95,7 @@
     <Compile Include="Talentbox.py" />
     <Compile Include="TalentPicker.py" />
     <Compile Include="TextTagCompleter.py" />
+    <Compile Include="UI\Wizard.py" />
     <Compile Include="UpdateChecker.py" />
     <Compile Include="WaffenPicker.py" />
     <Compile Include="Wolke.py" />
@@ -100,24 +110,9 @@
     <Compile Include="EventBus.py" />
     <Compile Include="PluginLoader.py" />
     <Compile Include="CheatsheetGenerator.py" />
-    <Compile Include="Plugins\LangerBogenBeschreibung\__init__.py" />
-    <Compile Include="Plugins\LangerBogenBeschreibung\CharakterBeschreibungExt.py" />
-    <Compile Include="Plugins\LangerBogenBeschreibung\CharakterBeschreibungExtWrapper.py" />
-    <Compile Include="Plugins\CharakterAssistent\__init__.py" />
-    <Compile Include="Plugins\CharakterAssistent\CharakterMerger.py" />
-    <Compile Include="Plugins\CharakterAssistent\Choice.py" />
-    <Compile Include="Plugins\CharakterAssistent\ChoicePopup.py" />
-    <Compile Include="Plugins\CharakterAssistent\ChoicePopupWrapper.py" />
-    <Compile Include="Plugins\CharakterAssistent\VariantPopupWrapper.py" />
-    <Compile Include="Plugins\CharakterAssistent\Wizard.py" />
-    <Compile Include="Plugins\CharakterAssistent\WizardWrapper.py" />
-    <Compile Include="Plugins\CharakterAssistent\XmlVerifier.py" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\" />
-    <Folder Include="Plugins\" />
-    <Folder Include="Plugins\CharakterAssistent\" />
-    <Folder Include="Plugins\LangerBogenBeschreibung\" />
+    <Folder Include="CharakterAssistent\" />
     <Folder Include="UI\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

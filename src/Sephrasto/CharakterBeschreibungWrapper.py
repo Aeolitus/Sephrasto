@@ -27,13 +27,11 @@ class BeschrWrapper(QtCore.QObject):
         self.uiBeschr.setupUi(self.formBeschr)
         self.load()
         self.uiBeschr.editName.editingFinished.connect(self.update)
-        self.uiBeschr.editRasse.editingFinished.connect(
-                self.update)
-        self.uiBeschr.editKurzbeschreibung.editingFinished.connect(
-            self.update)
+        self.uiBeschr.editRasse.editingFinished.connect(self.update)
+        self.uiBeschr.editKurzbeschreibung.editingFinished.connect(self.update)
         for i in range(8):
-            eval("self.uiBeschr.editEig" + str(i+1) +
-                 ".editingFinished.connect(self.update)")
+            editEig = getattr(self.uiBeschr, "editEig" + str(i+1))
+            editEig.editingFinished.connect(self.update)
         self.uiBeschr.comboFinanzen.activated.connect(self.update)
         self.uiBeschr.comboStatus.activated.connect(self.update)
         self.uiBeschr.comboHeimat.activated.connect(self.update)
@@ -41,10 +39,39 @@ class BeschrWrapper(QtCore.QObject):
         if "Gebräuche" in Wolke.Char.fertigkeiten:
             if "Gebräuche: " + self.currentGebraeuche not in \
                     Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente and "Gebräuche: " + self.currentGebraeuche in Wolke.DB.talente:
-                Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.append(
-                        "Gebräuche: " + self.currentGebraeuche)
+                Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.append("Gebräuche: " + self.currentGebraeuche)
+
+        self.uiBeschr.comboStatus.setToolTip("""Der Status wirkt sich auf die Lebenshaltungskosten aus. Der Vorteil Einkommen kann helfen, diese zu bestreiten.<br>
+        <b>Elite</b>: mind. 256 Dukaten pro Monat<br>
+        Beispiele: Angehörige des Hochadels, reiche Patrizierinnen, Kirchenfürsten, Spektabilitäten und Handelsherrinnen, Bergkönige<br>
+        Anmerkung: adlige Angehörige der Elite sollten in der Generierung den Vorteil Privilegien (Adel) wählen.<br>
+        <b>Oberschicht</b>: 64 Dukaten pro Monat<br>
+        Beispiele: Niederadlige, angesehene Zauberinnen, Gelehrte, Geweihte und Offiziere, wohlhabende Großbürgerinnen, weise Mitglieder elfischer Sippen, zwergische Klanführer<br>
+        <b>Mittelschicht</b>: 16 Dukaten pro Monat<br>
+        Beispiele: angesehene Bürgerinnen und Handwerker, Großbäuerinnen, einfache Geweihte, Zauberer und Akademieabgängerinnen, verarmte Adlige, Häuptlinge aus „barbarischen“ Kulturen, viele Elfen und Zwerge<br>
+        <b>Unterschicht</b>: 4 Dukaten pro Monat<br>
+        Beispiele: arme Bürger, freie oder leibeigene Kleinbäuerinnen, Soldaten, Angehörige barbarischer Kulturen<br>
+        <b>Abschaum</b>: 1 Dukaten pro Monat<br>
+        Beispiele: Sklavinnen, arme Leibeigene, Vagabundinnen, Wanderarbeiter
+        """)
+
+        self.uiBeschr.comboFinanzen.setToolTip("""Die Finanzen spielen nur bei einem neuen Charakter eine Rolle und haben Auswirkungen auf das Startkapital und die Anzahl Schicksalspunkte zu Beginn.<br>
+        <b>Sehr reich</b>: 256 Dukaten, 0 Schicksalspunkte<br>
+        <b>Reich</b>: 128 Dukaten, 2 Schicksalspunkte<br>
+        <b>Normal</b>: 32 Dukaten, 4 Schicksalspunkte<br>
+        <b>Arm</b>: 16 Dukaten, 5 Schicksalspunkte<br>
+        <b>Sehr arm</b>: 4 Dukaten, 6 Schicksalspunkte
+        """)
+
+        self.uiBeschr.comboHeimat.setToolTip("Jeder Charakter beherrscht seine Muttersprache und die Gebräuche seiner Heimat.\nDu erhältst gratis die Freie Fertigkeit zu deiner Muttersprache auf Stufe III und das passende Gebräuche-­Talent.")
+
+        self.currentlyLoading = False
+        self.load()
 
     def update(self):
+        if self.currentlyLoading:
+            return
+
         ''' Transfer current values to Char object '''
         changed = False
 
@@ -106,31 +133,10 @@ class BeschrWrapper(QtCore.QObject):
             self.modified.emit()
 
     def load(self):
-        self.uiBeschr.comboStatus.setToolTip("""Der Status wirkt sich auf die Lebenshaltungskosten aus. Der Vorteil Einkommen kann helfen, diese zu bestreiten.<br>
-        <b>Elite</b>: mind. 256 Dukaten pro Monat<br>
-        Beispiele: Angehörige des Hochadels, reiche Patrizierinnen, Kirchenfürsten, Spektabilitäten und Handelsherrinnen, Bergkönige<br>
-        Anmerkung: adlige Angehörige der Elite sollten in der Generierung den Vorteil Privilegien (Adel) wählen.<br>
-        <b>Oberschicht</b>: 64 Dukaten pro Monat<br>
-        Beispiele: Niederadlige, angesehene Zauberinnen, Gelehrte, Geweihte und Offiziere, wohlhabende Großbürgerinnen, weise Mitglieder elfischer Sippen, zwergische Klanführer<br>
-        <b>Mittelschicht</b>: 16 Dukaten pro Monat<br>
-        Beispiele: angesehene Bürgerinnen und Handwerker, Großbäuerinnen, einfache Geweihte, Zauberer und Akademieabgängerinnen, verarmte Adlige, Häuptlinge aus „barbarischen“ Kulturen, viele Elfen und Zwerge<br>
-        <b>Unterschicht</b>: 4 Dukaten pro Monat<br>
-        Beispiele: arme Bürger, freie oder leibeigene Kleinbäuerinnen, Soldaten, Angehörige barbarischer Kulturen<br>
-        <b>Abschaum</b>: 1 Dukaten pro Monat<br>
-        Beispiele: Sklavinnen, arme Leibeigene, Vagabundinnen, Wanderarbeiter
-        """)
+        self.currentlyLoading = True
 
         self.uiBeschr.labelFinanzen.setVisible(Wolke.Char.finanzenAnzeigen)
         self.uiBeschr.comboFinanzen.setVisible(Wolke.Char.finanzenAnzeigen)
-        self.uiBeschr.comboFinanzen.setToolTip("""Die Finanzen spielen nur bei einem neuen Charakter eine Rolle und haben Auswirkungen auf das Startkapital und die Anzahl Schicksalspunkte zu Beginn.<br>
-        <b>Sehr reich</b>: 256 Dukaten, 0 Schicksalspunkte<br>
-        <b>Reich</b>: 128 Dukaten, 2 Schicksalspunkte<br>
-        <b>Normal</b>: 32 Dukaten, 4 Schicksalspunkte<br>
-        <b>Arm</b>: 16 Dukaten, 5 Schicksalspunkte<br>
-        <b>Sehr arm</b>: 4 Dukaten, 6 Schicksalspunkte
-        """)
-
-        self.uiBeschr.comboHeimat.setToolTip("Jeder Charakter beherrscht seine Muttersprache und die Gebräuche seiner Heimat.\nDu erhältst gratis die Freie Fertigkeit zu deiner Muttersprache auf Stufe III und das passende Gebräuche-­Talent.")
 
         ''' Load values from Char object '''
         self.uiBeschr.editName.setText(Wolke.Char.name)
@@ -172,4 +178,5 @@ class BeschrWrapper(QtCore.QObject):
                         Wolke.Char.heimat = heimat
                         self.uiBeschr.comboHeimat.setCurrentText(heimat)
                         break
-        
+
+        self.currentlyLoading = False

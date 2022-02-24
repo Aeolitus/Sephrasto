@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtWidgets, QtGui
-from CharakterAssistent import ChoicePopup
+from UI import ChoicePopup
 
 class VariantPopupWrapper(object):
     def __init__(self, variantListCollection, windowTitle):

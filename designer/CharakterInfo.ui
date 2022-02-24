@@ -68,69 +68,6 @@
         <item row="3" column="1">
          <widget class="QComboBox" name="comboHausregeln"/>
         </item>
-        <item row="5" column="1">
-         <widget class="QComboBox" name="comboCharsheet"/>
-        </item>
-        <item row="8" column="1">
-         <widget class="QComboBox" name="comboRegelnGroesse">
-          <item>
-           <property name="text">
-            <string>Klein</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Mittel</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Groß</string>
-           </property>
-          </item>
-         </widget>
-        </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="label_5">
-          <property name="text">
-           <string>Hausregeln:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="8" column="0">
-         <widget class="QLabel" name="label_7">
-          <property name="text">
-           <string>Regeln Schriftgröße:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="0">
-         <widget class="QLabel" name="label_6">
-          <property name="text">
-           <string>Charakterbogen:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="0" colspan="2">
-         <widget class="QLabel" name="labelReload">
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 0); color: black;</string>
-          </property>
-          <property name="text">
-           <string>Charakter muss gespeichert und neu geladen werden!</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0" colspan="2">
-         <widget class="QCheckBox" name="checkUeberPDF">
-          <property name="text">
-           <string>PDF-Ausgabe von übernatürlichen Fertigkeiten manuell auswählen</string>
-          </property>
-         </widget>
-        </item>
         <item row="1" column="0" colspan="2">
          <widget class="QCheckBox" name="checkFinanzen">
           <property name="text">
@@ -151,6 +88,72 @@
           </property>
           <property name="tristate">
            <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="1">
+         <widget class="QComboBox" name="comboRegelnGroesse">
+          <item>
+           <property name="text">
+            <string>Klein</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Mittel</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Groß</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QComboBox" name="comboCharsheet"/>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Hausregeln:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0">
+         <widget class="QLabel" name="label_7">
+          <property name="text">
+           <string>Regeln Schriftgröße:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0" colspan="2">
+         <widget class="QCheckBox" name="checkUeberPDF">
+          <property name="text">
+           <string>PDF-Ausgabe von übernatürlichen Fertigkeiten manuell auswählen</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>Charakterbogen:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="0" colspan="2">
+         <widget class="QLabel" name="labelReload">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(255, 255, 0); color: black;</string>
+          </property>
+          <property name="text">
+           <string>Der Charakter muss gespeichert und neu geladen werden, damit alle Änderungen übernommen werden können!</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>

@@ -1,7 +1,7 @@
 import lxml.etree as etree
 import logging
 
-class XmlVerifier(object):
+class ChoiceXmlVerifier(object):
     def __init__(self):
         pass
 
@@ -20,11 +20,11 @@ class XmlVerifier(object):
 
     def validateXmlChoices(node):
         for child in node.getchildren():
-            if not child.tag in XmlVerifier.allowedChoicesAttributes.keys():
+            if not child.tag in ChoiceXmlVerifier.allowedChoicesAttributes.keys():
                 logging.warn("CharakterAssistent: Unbekanntes XML element " + child.tag)
 
             for attrib in child.attrib:
-                if not attrib in XmlVerifier.allowedChoicesAttributes[child.tag]:
+                if not attrib in ChoiceXmlVerifier.allowedChoicesAttributes[child.tag]:
                     logging.warn("CharakterAssistent: Unbekanntes XML attribut " + attrib)
 
 
@@ -35,13 +35,13 @@ class XmlVerifier(object):
 
             if child.tag == "Auswahl":
                 for attrib in child.attrib:
-                    if not attrib in XmlVerifier.allowedAttributesAuswahl:
+                    if not attrib in ChoiceXmlVerifier.allowedAttributesAuswahl:
                         logging.warn("CharakterAssistent: Unbekanntes XML attribut " + attrib)
 
-                XmlVerifier.validateXmlChoices(child)
+                ChoiceXmlVerifier.validateXmlChoices(child)
             elif child.tag == "Varianten":
                 for attrib in child.attrib:
-                    if not attrib in XmlVerifier.allowedAttributesVarianten:
+                    if not attrib in ChoiceXmlVerifier.allowedAttributesVarianten:
                         logging.warn("CharakterAssistent: Unbekanntes XML attribut " + attrib)
 
                 for child2 in child.getchildren():
@@ -49,7 +49,7 @@ class XmlVerifier(object):
                         logging.warn("CharakterAssistent: Unbekanntes XML element " + child2.tag)
 
                     for attrib in child2.attrib:
-                        if not attrib in XmlVerifier.allowedAttributesVariante:
+                        if not attrib in ChoiceXmlVerifier.allowedAttributesVariante:
                             logging.warn("CharakterAssistent: Unbekanntes XML attribut " + attrib)
 
-                    XmlVerifier.validateXmlChoices(child2)
+                    ChoiceXmlVerifier.validateXmlChoices(child2)

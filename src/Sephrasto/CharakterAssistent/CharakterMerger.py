@@ -10,7 +10,7 @@ import lxml.etree as etree
 import logging
 from Hilfsmethoden import Hilfsmethoden
 from EventBus import EventBus
-from CharakterAssistent.XmlVerifier import XmlVerifier
+from CharakterAssistent.ChoiceXmlVerifier import ChoiceXmlVerifier
 
 class CharakterMerger(object):
     def __init__(self):
@@ -72,7 +72,7 @@ class CharakterMerger(object):
 
     def readChoices(path):
         root = etree.parse(path).getroot()
-        XmlVerifier.validateXml(root)
+        ChoiceXmlVerifier.validateXml(root)
 
         variantListCollections = []
         for varianten in root.findall('Varianten'):
@@ -88,24 +88,24 @@ class CharakterMerger(object):
 
         return variantListCollections, choiceListCollection
 
-    def handleChoices(paths, title, geschlecht, spezies, kultur, profession):
+    def handleChoices(element, geschlecht, spezies, kultur, profession):
         char = Wolke.Char
 
         if not spezies:
             char.kurzbeschreibung += ", "
             if kultur:
-                char.kurzbeschreibung += "Kultur: " + title
-                EventBus.doAction("cbext_update", { 'name' : "kultur", 'value' : title })
+                char.kurzbeschreibung += "Kultur: " + element.name
+                EventBus.doAction("cbext_update", { 'name' : "kultur", 'value' : element.name })
             else:
-                char.kurzbeschreibung += "Profession: " + title
-                EventBus.doAction("cbext_update", { 'name' : "profession", 'value' : title })
+                char.kurzbeschreibung += "Profession: " + element.name
+                EventBus.doAction("cbext_update", { 'name' : "profession", 'value' : element.name })
 
-        if len(paths) != 2:
+        if not element.varPath:
             return
 
         description = []
 
-        variantListCollections, choiceListCollection = CharakterMerger.readChoices(paths[1])
+        variantListCollections, choiceListCollection = CharakterMerger.readChoices(element.varPath)
 
         variantsSelected = []
         indexOffset = 0
@@ -122,7 +122,7 @@ class CharakterMerger(object):
             if (variantListCollection.chooseOne and len(variantListCollection.choiceLists) == 1):
                 choices.append(0)
             else:
-                popup = VariantPopupWrapper.VariantPopupWrapper(variantListCollection, title)
+                popup = VariantPopupWrapper.VariantPopupWrapper(variantListCollection, element.name)
                 choices = popup.choices
             for index in choices:
                 variantsSelected.append(indexOffset + index)
@@ -144,13 +144,13 @@ class CharakterMerger(object):
                 if anyChooseOne:
                     char.rasse = description
                 else:
-                    char.rasse = title + " (" + description + ")"
+                    char.rasse = element.name + " (" + description + ")"
             elif kultur:
                 char.kurzbeschreibung += " (" + description + ")"
-                EventBus.doAction("cbext_update", { 'name' : "kultur", 'value' : title + " (" + description + ")" })
+                EventBus.doAction("cbext_update", { 'name' : "kultur", 'value' : element.name + " (" + description + ")" })
             elif profession:
                 char.kurzbeschreibung += " (" + description + ")"
-                EventBus.doAction("cbext_update", { 'name' : "profession", 'value' : title + " (" + description + ")" })
+                EventBus.doAction("cbext_update", { 'name' : "profession", 'value' : element.name + " (" + description + ")" })
 
         for i in range(len(choiceListCollection.choiceLists)):
             choiceList = choiceListCollection.choiceLists[i]
@@ -161,7 +161,7 @@ class CharakterMerger(object):
             #Let user choose via popup or auto-choose if there is only one entry (usually due to removal - see below)
             choice = None
             if len(choiceList.choices) > 1:
-                popup = ChoicePopupWrapper.ChoicePopupWrapper(choiceList, title)
+                popup = ChoicePopupWrapper.ChoicePopupWrapper(choiceList, element.name)
                 choice = popup.choice
             elif len(choiceList.choices) == 1:
                 choice = choiceList.choices[0]
@@ -406,6 +406,9 @@ class CharakterMerger(object):
             if len(char.rüstung) == 3:
                 break
 
+            if not rüs.attrib['name']:
+                continue
+
             exists = False
             for r in char.rüstung:
                 if r.name == rüs.attrib['name']:
@@ -423,6 +426,9 @@ class CharakterMerger(object):
         for waf in objekte.findall('Waffen/Waffe'):
             if len(char.waffen) == 8:
                 break
+            
+            if not waf.attrib['name']:
+                continue
 
             exists = False
             for w in char.waffen:

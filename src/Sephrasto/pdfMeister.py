@@ -14,7 +14,6 @@ import Talentbox
 from subprocess import check_output
 import os
 import math
-from collections import namedtuple
 import logging
 import tempfile
 from Charakter import KampfstilMod
@@ -25,12 +24,13 @@ from EventBus import EventBus
 from CheatsheetGenerator import CheatsheetGenerator
 from CharakterPrintUtility import CharakterPrintUtility
 import yaml
-
-CharakterbogenInfo = namedtuple('CharakterbogenInfo', 'filePath maxVorteile maxKampfVorteile maxÜberVorteile maxFreie maxFertigkeiten maxÜberFertigkeiten maxÜberTalente seitenProfan kurzbogenHack')
+from shutil import which
+import platform
+from PyQt5 import QtWidgets, QtCore, QtGui
 
 class pdfMeister(object):
     def __init__(self):
-        self.CharakterBogen = os.path.join("Data", "Charakterbogen", "Charakterbogen.pdf")
+        self.CharakterBogen = None
         self.ExtraPage = os.path.join("Data", "ExtraSpells.pdf")
         self.PrintRules = True
         self.RulesPage = os.path.join("Data", "Regeln.pdf")
@@ -38,23 +38,8 @@ class pdfMeister(object):
         self.CheatsheetGenerator = CheatsheetGenerator()
         self.MergePerLineCount = 3
 
-    def setCharakterbogen(self, filePath):
-        inifile = os.path.splitext(filePath)[0] + ".ini"
-        if os.path.isfile(inifile):
-            with open(inifile,'r', encoding='utf8') as file:
-                tmpSet = yaml.safe_load(file)
-                self.CharakterBogen = CharakterbogenInfo(filePath = filePath,
-                                        maxVorteile = tmpSet["MaxVorteile"],
-                                        maxKampfVorteile = tmpSet["MaxKampfVorteile"],
-                                        maxÜberVorteile = tmpSet["MaxÜbernatürlicheVorteile"],
-                                        maxFreie = tmpSet["MaxFreieFertigkeiten"],
-                                        maxFertigkeiten = tmpSet["MaxFertigkeiten"],
-                                        maxÜberFertigkeiten = tmpSet["MaxÜbernatürlicheFertigkeiten"],
-                                        maxÜberTalente = tmpSet["MaxÜbernatürlicheTalente"],
-                                        seitenProfan = tmpSet["SeitenProfan"],
-                                        kurzbogenHack = tmpSet["KurzerBogenHack"] if "KurzerBogenHack" in tmpSet else False)
-        else:
-            raise Exception("Kann für den gewählten Charakterbogen keine Konfigurationsdatei finden")
+    def setCharakterbogen(self, charakterbogen):
+        self.CharakterBogen = charakterbogen
 
     def pdfErstellen(self, filename, printRules, progressCallback):
         progressCallback(0)
@@ -81,7 +66,7 @@ class pdfMeister(object):
         (extraUeber, extraTalente) = self.pdfSechsterBlock(fields)
         Wolke.Fehlercode = -88
         self.pdfSiebterBlock(fields)
-
+        self.pdfAchterBlock(fields)
         Wolke.Fehlercode = -99
 
         # Plugins die felder filtern lassen
@@ -156,6 +141,7 @@ class pdfMeister(object):
         progressCallback(70)
 
         Wolke.Fehlercode = -94
+        allPages = self.concatImage(allPages)
         allPages = EventBus.applyFilter("pdf_concat", allPages)
         progressCallback(75)
 
@@ -558,8 +544,98 @@ class pdfMeister(object):
         fields['ErfahEI'] = Wolke.Char.EPspent
         fields['ErfahVE'] = Wolke.Char.EPtotal - Wolke.Char.EPspent
 
+    def pdfAchterBlock(self, fields):
+        if Wolke.Char.kultur:
+            fields['Kultur'] = Wolke.Char.kultur
+
+        fields['Profession'] = Wolke.Char.profession
+        fields['Geschlecht'] = Wolke.Char.geschlecht
+        fields['Geburtsdatum'] = Wolke.Char.geburtsdatum
+        fields['Groesse'] = Wolke.Char.groesse
+        fields['Gewicht'] = Wolke.Char.gewicht
+        fields['Haarfarbe'] = Wolke.Char.haarfarbe
+        fields['Augenfarbe'] = Wolke.Char.augenfarbe
+        fields['Titel'] = Wolke.Char.titel
+
+        fields['Aussehen1'] = Wolke.Char.aussehen1
+        fields['Aussehen2'] = Wolke.Char.aussehen2
+        fields['Aussehen3'] = Wolke.Char.aussehen3
+        fields['Aussehen4'] = Wolke.Char.aussehen4
+        fields['Aussehen5'] = Wolke.Char.aussehen5
+        fields['Aussehen6'] = Wolke.Char.aussehen6
+        
+        fields['Hintergrund0'] = Wolke.Char.hintergrund0
+        fields['Hintergrund1'] = Wolke.Char.hintergrund1
+        fields['Hintergrund2'] = Wolke.Char.hintergrund2
+        fields['Hintergrund3'] = Wolke.Char.hintergrund3
+        fields['Hintergrund4'] = Wolke.Char.hintergrund4
+        fields['Hintergrund5'] = Wolke.Char.hintergrund5
+        fields['Hintergrund6'] = Wolke.Char.hintergrund6
+        fields['Hintergrund7'] = Wolke.Char.hintergrund7
+        fields['Hintergrund8'] = Wolke.Char.hintergrund8
+
     def createExtra(self, fields, überVorteile, überFertigkeiten, überTalente):
         self.printVorteile(fields, [], [], überVorteile)
         self.printÜberFertigkeiten(fields, überFertigkeiten)
         self.printÜberTalente(fields, überTalente)
         fields['EN'] = self.Energie
+
+    def concatImage(self, pages):
+        if not self.CharakterBogen.bild or not Wolke.Char.bild:
+            return pages
+
+        if platform.system() != 'Windows' and which("convert") is None:
+            messagebox = QtWidgets.QMessageBox()
+            messagebox.setWindowTitle("Kann Charakterbild nicht einfügen")
+            messagebox.setText("Das Einfügen des Charakterbilds benötigt das Programm 'convert' im Systempfad. Installationsdetails gibt es unter https://imagemagick.org.")
+            messagebox.setIcon(QtWidgets.QMessageBox.Warning)
+            messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            messagebox.exec_()
+            return pages
+
+        # The approach is to convert the image to pdf and stamp it over the char sheet with pdftk
+
+        handle, image_file = tempfile.mkstemp()
+        os.close(handle)
+        characterImage = QtGui.QPixmap()
+        characterImage.loadFromData(Wolke.Char.bild)
+        characterImage.save(image_file, "JPG")
+
+        handle, image_pdf = tempfile.mkstemp()
+        os.close(handle)
+        os.remove(image_pdf) # just using it to get a path
+        image_pdf += ".pdf"
+
+        handle, page1_pdf = tempfile.mkstemp()
+        os.close(handle)
+
+        handle, page1stamped_pdf = tempfile.mkstemp()
+        os.close(handle)
+
+        handle, pageRest_pdf = tempfile.mkstemp()
+        os.close(handle)
+
+        # pdftk stamps over every single page. We only want to stamp the first, so we need to split the char sheet first
+        pdf.check_output_silent(['pdftk', pages[0], "cat", "1", "output", page1_pdf])
+        pdf.check_output_silent(['pdftk', pages[0], "cat", "2-end", "output", pageRest_pdf])
+
+        # Setting page size to a2 so stamping has to reduce size - this way we can use a higher image resolution.
+        # The numbers after the page size are offsets from bottom and right to fit the image in the right spot
+        # Density (dpi) has to be fixed, otherwise page offsets break
+        # gravity + extent adds letterboxes to the image if needed, this keeps the image centered and allows to use fixed page offsets
+        convertPath = "convert"
+        if platform.system() == 'Windows':
+            convertPath = "Bin\\ImageMagick\\convert"
+
+        pdf.check_output_silent(convertPath + " \"" + image_file + "\" -resize 260x340 -gravity Center -extent 260x340 -density 96 "\
+           "-page a2+" + str(self.CharakterBogen.bildOffset[0]) + "+" + str(self.CharakterBogen.bildOffset[1]) + " \"" + image_pdf + "\"")
+        pdf.check_output_silent(['pdftk', page1_pdf, 'stamp', image_pdf, 'output', page1stamped_pdf, 'need_appearances'])
+
+        os.remove(pages[0])
+        os.remove(image_file)
+        os.remove(image_pdf)
+        os.remove(page1_pdf)
+
+        pages[0] = page1stamped_pdf
+        pages.insert(1, pageRest_pdf)
+        return pages

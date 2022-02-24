@@ -88,21 +88,6 @@ if sys.platform == "win32":
         "Bin/ImageMagick" : os.path.join(bin_path, "ImageMagick")
     })
 
-# Include plugins
-for pluginName in os.listdir(os.path.join(dir_path, "Plugins")):
-    path = os.path.join(dir_path, "Plugins", pluginName)
-    if not os.path.isdir(path):
-        continue
-    files = os.listdir(path)
-    for f in files:
-        file = os.path.join(path, f)
-        if os.path.basename(file) == "__pycache__" or os.path.basename(file) == "UI":
-            continue
-        if os.path.isfile(file):
-            includeFiles[file] = os.path.join(build_path, "Plugins", pluginName)
-        else:
-            includeFiles[file] = os.path.join(build_path, "Plugins", pluginName, os.path.basename(file))
-
 # Now do the actual copying
 for file,targetDir in includeFiles.items():
     if not os.path.isfile(file) and not os.path.isdir(file):

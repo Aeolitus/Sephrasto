@@ -9,15 +9,33 @@ class _DefaultSettings:
     WindowSizeDefault1Col = [461, 522]
     WindowSizeDefault2Col = [928, 522]
 
+class CharakterbogenInfo:
+    def __init__(self):
+        self.filePath = ""
+        self.maxVorteile = 0
+        self.maxKampfVorteile = 0
+        self.maxÜberVorteile = 0
+        self.maxFreie = 0
+        self.maxFertigkeiten = 0
+        self.maxÜberFertigkeiten = 0
+        self.maxÜberTalente = 0
+        self.seitenProfan = 0
+        self.kurzbogenHack = False
+        self.beschreibungDetails = False
+        self.bild = False
+        self.bildOffset = [0, 0]
+
 class Wolke:
     Char = None
     DB = None
     Reqs = True
     Fehlercode = 0
+    Charakterbögen = {}
     Settings = {
         'Version' : 2,
         'Bogen': "Standard Charakterbogen", 
         'Datenbank': None, 
+        'Charakter-Assistent' : True,
         'Cheatsheet': True, 
         'Cheatsheet-Fontsize' : 0,
         'Pfad-Chars': '',

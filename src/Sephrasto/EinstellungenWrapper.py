@@ -5,6 +5,7 @@ Created on Fri Apr 20 20:09:52 2018
 @author: Aeolitus
 """
 from Wolke import Wolke
+from Wolke import CharakterbogenInfo
 import UI.Einstellungen
 from PyQt5 import QtWidgets, QtCore, QtGui
 import os.path
@@ -29,7 +30,7 @@ class EinstellungenWrapper():
 
         self.ui.checkCheatsheet.setChecked(Wolke.Settings['Cheatsheet'])
 
-        boegen = [os.path.basename(os.path.splitext(bogen)[0]) for bogen in EinstellungenWrapper.getCharakterbögen()]
+        boegen = [os.path.basename(os.path.splitext(bogen)[0]) for bogen in Wolke.Charakterbögen]
         for bogen in boegen:
             if bogen == "Standard Charakterbogen":
                 self.ui.comboBogen.insertItem(0, bogen)
@@ -40,6 +41,7 @@ class EinstellungenWrapper():
         if not (Wolke.Settings['Bogen'] in boegen):
             Wolke.Settings['Bogen'] = self.ui.comboBogen.itemText(0)
         self.ui.comboBogen.setCurrentText(Wolke.Settings['Bogen'])
+        self.ui.checkWizard.setChecked(Wolke.Settings['Charakter-Assistent'])
         self.ui.comboFontSize.setCurrentIndex(Wolke.Settings['Cheatsheet-Fontsize'])
 
         self.settingsFolder = EinstellungenWrapper.getSettingsFolder()
@@ -52,7 +54,6 @@ class EinstellungenWrapper():
         self.updateComboRegelbasis()
             
         self.ui.checkPDFOpen.setChecked(Wolke.Settings['PDF-Open'])
-        
         self.ui.checkUpdate.setChecked(not Wolke.Settings['UpdateCheck_Disable'])
         self.ui.comboLogging.setCurrentIndex(Wolke.Settings['Logging'])
         self.ui.comboTheme.setCurrentText(Wolke.Settings['Theme'])
@@ -106,6 +107,8 @@ class EinstellungenWrapper():
                 Wolke.Settings['Datenbank'] = None
             else:
                 Wolke.Settings['Datenbank'] = db
+            
+            Wolke.Settings['Charakter-Assistent'] = self.ui.checkWizard.isChecked()
             Wolke.Settings['Cheatsheet'] = self.ui.checkCheatsheet.isChecked()
             Wolke.Settings['Cheatsheet-Fontsize'] = self.ui.comboFontSize.currentIndex()
 
@@ -245,6 +248,29 @@ class EinstellungenWrapper():
         if not Wolke.Settings['Pfad-Charakterbögen']:
             Wolke.Settings['Pfad-Charakterbögen'] = os.path.join(settingsFolder, 'Charakterbögen')
 
+        #Init charsheets
+        for filePath in EinstellungenWrapper.getCharakterbögen():
+            inifile = os.path.splitext(filePath)[0] + ".ini"
+            if not os.path.isfile(inifile):
+                continue
+            with open(inifile,'r', encoding='utf8') as file:
+                tmpSet = yaml.safe_load(file)
+                cbi  = CharakterbogenInfo()
+                cbi.filePath = filePath
+                cbi.maxVorteile = tmpSet["MaxVorteile"]
+                cbi.maxKampfVorteile = tmpSet["MaxKampfVorteile"]
+                cbi.maxÜberVorteile = tmpSet["MaxÜbernatürlicheVorteile"]
+                cbi.maxFreie = tmpSet["MaxFreieFertigkeiten"]
+                cbi.maxFertigkeiten = tmpSet["MaxFertigkeiten"]
+                cbi.maxÜberFertigkeiten = tmpSet["MaxÜbernatürlicheFertigkeiten"]
+                cbi.maxÜberTalente = tmpSet["MaxÜbernatürlicheTalente"]
+                cbi.seitenProfan = tmpSet["SeitenProfan"]
+                cbi.kurzbogenHack = tmpSet["KurzerBogenHack"] if "KurzerBogenHack" in tmpSet else False
+                cbi.beschreibungDetails = tmpSet["BeschreibungDetails"]
+                cbi.bild = tmpSet["Bild"]
+                cbi.bildOffset = tmpSet["BildOffset"] if "BildOffset" in tmpSet else [0, 0]
+                Wolke.Charakterbögen[filePath] = cbi
+
     @staticmethod
     def save():
         settingsFolder = EinstellungenWrapper.getSettingsFolder()
@@ -268,31 +294,14 @@ class EinstellungenWrapper():
 
     def updatePluginCheckboxes(self, plugins):
         self.pluginCheckboxes = []
-        
-        layout = self.ui.gbPluginsOfficial.layout()
+
+        layout = self.ui.gbPlugins.layout()
         for i in reversed(range(layout.count())): 
             if layout.itemAt(i).widget():
                 layout.itemAt(i).widget().setParent(None)
             layout.removeItem(layout.itemAt(i))
-        officialPlugins = [p for p in plugins if p.isOfficial]
-        for pluginData in officialPlugins:
-            check = QtWidgets.QCheckBox(pluginData.name)
-            if pluginData.description:
-                check.setToolTip(pluginData.description)
 
-            if not (pluginData.name in Wolke.Settings['Deaktivierte-Plugins']):
-                check.setChecked(True)
-            layout.addWidget(check)
-            self.pluginCheckboxes.append(check)
-        layout.addStretch()
-
-        layout = self.ui.gbPluginsUser.layout()
-        for i in reversed(range(layout.count())): 
-            if layout.itemAt(i).widget():
-                layout.itemAt(i).widget().setParent(None)
-            layout.removeItem(layout.itemAt(i))
-        userPlugins = [p for p in plugins if not p.isOfficial]
-        for pluginData in userPlugins:
+        for pluginData in plugins:
             check = QtWidgets.QCheckBox(pluginData.name)
             if pluginData.description:
                 check.setToolTip(pluginData.description)
