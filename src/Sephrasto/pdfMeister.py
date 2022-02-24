@@ -382,18 +382,32 @@ class pdfMeister(object):
         # Fill three rows of Rüstung
         for i in range(0, min(3, len(Wolke.Char.rüstung))):
             el = Wolke.Char.rüstung[i]
-            base = 'Ruest' + str(i+1)
-            fields[base + 'NA'] = el.name
-            fields[base + 'RS'] = el.getRSGesamtInt() + Wolke.Char.rsmod
-            fields[base + 'BE'] = max(el.be - Wolke.Char.rüstungsgewöhnung, 0)
-            fields[base + 'WS'] = int(el.getRSGesamtInt() + Wolke.Char.rsmod + Wolke.Char.ws)
-            base += 'RS'
-            fields[base + 'Bein'] = el.rs[0]+Wolke.Char.rsmod+Wolke.Char.ws
-            fields[base + 'lArm'] = el.rs[1]+Wolke.Char.rsmod+Wolke.Char.ws
-            fields[base + 'rArm'] = el.rs[2]+Wolke.Char.rsmod+Wolke.Char.ws
-            fields[base + 'Bauch'] = el.rs[3]+Wolke.Char.rsmod+Wolke.Char.ws
-            fields[base + 'Brust'] = el.rs[4]+Wolke.Char.rsmod+Wolke.Char.ws
-            fields[base + 'Kopf'] = el.rs[5]+Wolke.Char.rsmod+Wolke.Char.ws
+            if not el.name:
+                base = 'Ruest' + str(i+1)
+                fields[base + 'NA'] = ""
+                fields[base + 'RS'] = ""
+                fields[base + 'BE'] = ""
+                fields[base + 'WS'] = ""
+                base += 'RS'
+                fields[base + 'Bein'] = ""
+                fields[base + 'lArm'] = ""
+                fields[base + 'rArm'] = ""
+                fields[base + 'Bauch'] = ""
+                fields[base + 'Brust'] = ""
+                fields[base + 'Kopf'] = ""
+            else:
+                base = 'Ruest' + str(i+1)
+                fields[base + 'NA'] = el.name
+                fields[base + 'RS'] = el.getRSGesamtInt() + Wolke.Char.rsmod
+                fields[base + 'BE'] = max(el.be - Wolke.Char.rüstungsgewöhnung, 0)
+                fields[base + 'WS'] = int(el.getRSGesamtInt() + Wolke.Char.rsmod + Wolke.Char.ws)
+                base += 'RS'
+                fields[base + 'Bein'] = el.rs[0]+Wolke.Char.rsmod+Wolke.Char.ws
+                fields[base + 'lArm'] = el.rs[1]+Wolke.Char.rsmod+Wolke.Char.ws
+                fields[base + 'rArm'] = el.rs[2]+Wolke.Char.rsmod+Wolke.Char.ws
+                fields[base + 'Bauch'] = el.rs[3]+Wolke.Char.rsmod+Wolke.Char.ws
+                fields[base + 'Brust'] = el.rs[4]+Wolke.Char.rsmod+Wolke.Char.ws
+                fields[base + 'Kopf'] = el.rs[5]+Wolke.Char.rsmod+Wolke.Char.ws
 
         # Fill eight rows of weapons
         for i in range(0, min(8, len(Wolke.Char.waffen))):
