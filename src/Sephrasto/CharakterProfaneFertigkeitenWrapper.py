@@ -59,6 +59,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         self.uiFert.buttonAdd.setMinimumSize(QtCore.QSize(20, 20))
         self.uiFert.buttonAdd.clicked.connect(self.editTalents)
         
+        self.nahkampfFerts = []
         self.availableFerts = []
         self.rowRef = {}
         self.spinRef = {}
@@ -103,7 +104,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
             self.uiFert.tableWidget.setItemDelegate(FertigkeitItemDelegate(rowIndicesWithLinePaint))
             
             self.uiFert.tableWidget.setRowCount(len(self.availableFerts))
-            self.uiFert.tableWidget.setColumnCount(5)
+            self.uiFert.tableWidget.setColumnCount(6)
             self.uiFert.tableWidget.verticalHeader().setVisible(False)
 
             header = self.uiFert.tableWidget.horizontalHeader()
@@ -116,7 +117,9 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
             header.setSectionResizeMode(3, QHeaderView.Fixed)
             self.uiFert.tableWidget.setColumnWidth(3, 65)
             header.setSectionResizeMode(4, QHeaderView.Fixed)
-            self.uiFert.tableWidget.setColumnWidth(4, 90)
+            self.uiFert.tableWidget.setColumnWidth(4, 65)
+            header.setSectionResizeMode(4, QHeaderView.Fixed)
+            self.uiFert.tableWidget.setColumnWidth(5, 90)
             
 
             item = QtWidgets.QTableWidgetItem()
@@ -130,18 +133,22 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
             self.uiFert.tableWidget.setHorizontalHeaderItem(1, item)
             item = QtWidgets.QTableWidgetItem()
             item.setTextAlignment(QtCore.Qt.AlignCenter)
+            item.setText("Kosten")
+            self.uiFert.tableWidget.setHorizontalHeaderItem(2, item)
+            item = QtWidgets.QTableWidgetItem()
+            item.setTextAlignment(QtCore.Qt.AlignCenter)
             item.setText("PW")
             item.setToolTip("Probenwert")
-            self.uiFert.tableWidget.setHorizontalHeaderItem(2, item)
+            self.uiFert.tableWidget.setHorizontalHeaderItem(3, item)
             item = QtWidgets.QTableWidgetItem()
             item.setTextAlignment(QtCore.Qt.AlignCenter)
             item.setText("PW(T)")
             item.setToolTip("Probenwert mit Talent")
-            self.uiFert.tableWidget.setHorizontalHeaderItem(3, item)
+            self.uiFert.tableWidget.setHorizontalHeaderItem(4, item)
             item = QtWidgets.QTableWidgetItem()
             item.setTextAlignment(QtCore.Qt.AlignCenter)
             item.setText("Talente")
-            self.uiFert.tableWidget.setHorizontalHeaderItem(4, item)
+            self.uiFert.tableWidget.setHorizontalHeaderItem(5, item)
     
             count = 0
             
@@ -150,6 +157,8 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
                 if el not in self.availableFerts:
                     Wolke.Char.fertigkeiten.pop(el,None)
             
+            self.nahkampfFerts = []
+
             for el in self.availableFerts:
                 #Add abilities that werent there before
                 if el not in Wolke.Char.fertigkeiten:
@@ -157,6 +166,10 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
                     Wolke.Char.fertigkeiten[el].wert = 0
                 fert = Wolke.Char.fertigkeiten[el]
                 fert.aktualisieren(Wolke.Char.attribute)
+
+                if fert.kampffertigkeit == KampffertigkeitTyp.Nahkampf:
+                    self.nahkampfFerts.append(fert)
+
                 tableWidget = QtWidgets.QTableWidgetItem(el)
                 self.uiFert.tableWidget.setItem(count, 0, tableWidget)
 
@@ -171,17 +184,23 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
                 self.spinRef[el].valueChanged.connect(lambda state, name=el: self.spinnerClicked(name))
                 self.uiFert.tableWidget.setCellWidget(count,1,self.spinRef[el])
 
+                # Add Kosten
+                self.labelRef[el + "KO"] = QtWidgets.QLabel()
+                self.labelRef[el + "KO"].setText(self.getSteigerungskosten(fert))
+                self.labelRef[el + "KO"].setAlignment(QtCore.Qt.AlignCenter)
+                self.uiFert.tableWidget.setCellWidget(count,2,self.labelRef[el + "KO"])
+
                 # Add PW
                 self.labelRef[el + "PW"] = QtWidgets.QLabel()
                 self.labelRef[el + "PW"].setText(str(fert.probenwert))
                 self.labelRef[el + "PW"].setAlignment(QtCore.Qt.AlignCenter)
-                self.uiFert.tableWidget.setCellWidget(count,2,self.labelRef[el + "PW"])
+                self.uiFert.tableWidget.setCellWidget(count,3,self.labelRef[el + "PW"])
 
                 # Add PW (T)
                 self.labelRef[el + "PWT"] = QtWidgets.QLabel()
                 self.labelRef[el + "PWT"].setText(str(fert.probenwertTalent))
                 self.labelRef[el + "PWT"].setAlignment(QtCore.Qt.AlignCenter)
-                self.uiFert.tableWidget.setCellWidget(count,3,self.labelRef[el + "PWT"])
+                self.uiFert.tableWidget.setCellWidget(count,4,self.labelRef[el + "PWT"])
 
                 # Add Talents Count and Add Button
                 self.layoutRef[el] = QtWidgets.QHBoxLayout()
@@ -198,7 +217,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
                 self.layoutRef[el].addWidget(self.buttonRef[el])
                 self.widgetRef[el] = QtWidgets.QWidget()
                 self.widgetRef[el].setLayout(self.layoutRef[el])
-                self.uiFert.tableWidget.setCellWidget(count,4,self.widgetRef[el])
+                self.uiFert.tableWidget.setCellWidget(count,5,self.widgetRef[el])
 
                 self.rowRef.update({fert.name: count})
                 count += 1
@@ -214,32 +233,47 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
                 self.currentFertName = tmp
                 self.updateInfo()
         
+    def getSteigerungskosten(self, fert):
+        ep = (fert.wert+1) * fert.steigerungsfaktor
+        if fert.kampffertigkeit == KampffertigkeitTyp.Nahkampf and fert == Wolke.Char.getHöchsteKampffertigkeit():
+            ep = (fert.wert+1) * 4
+        return "<span style='font-size: 9pt; font-family: Font Awesome 6 Free Solid;'>\uf176</span>&nbsp;&nbsp;" + str(ep) + " EP"
+
     def fwChanged(self, flag = False):
-        if not self.currentlyLoading:
-            if self.currentFertName != "":
-                if flag:
-                    val = self.spinRef[self.currentFertName].value()
-                else:
-                    val = self.uiFert.spinFW.value()
-                fert = Wolke.Char.fertigkeiten[self.currentFertName]
-                fert.wert = val
-                Wolke.Char.fertigkeiten[self.currentFertName].aktualisieren(Wolke.Char.attribute)
-                self.uiFert.spinPW.setValue(fert.probenwert)
-                self.uiFert.spinPWT.setValue(fert.probenwertTalent)
-                if fert == Wolke.Char.getHöchsteKampffertigkeit():
-                    self.uiFert.spinSF.setValue(4)
-                else:
-                    self.uiFert.spinSF.setValue(fert.steigerungsfaktor)
+        if self.currentlyLoading:
+            return
+        if self.currentFertName == "":
+            return
 
-                if flag:
-                    self.uiFert.spinFW.setValue(val)
-                else:
-                    self.spinRef[self.currentFertName].setValue(val)
+        if flag:
+            val = self.spinRef[self.currentFertName].value()
+        else:
+            val = self.uiFert.spinFW.value()
+        fert = Wolke.Char.fertigkeiten[self.currentFertName]
+        fert.wert = val
+        Wolke.Char.fertigkeiten[self.currentFertName].aktualisieren(Wolke.Char.attribute)
+        self.uiFert.spinPW.setValue(fert.probenwert)
+        self.uiFert.spinPWT.setValue(fert.probenwertTalent)
+        if fert == Wolke.Char.getHöchsteKampffertigkeit():
+            self.uiFert.spinSF.setValue(4)
+        else:
+            self.uiFert.spinSF.setValue(fert.steigerungsfaktor)
 
-                self.labelRef[self.currentFertName + "PW"].setText(str(fert.probenwert))
-                self.labelRef[self.currentFertName + "PWT"].setText(str(fert.probenwertTalent))
+        if flag:
+            self.uiFert.spinFW.setValue(val)
+        else:
+            self.spinRef[self.currentFertName].setValue(val)
 
-                self.modified.emit()
+        updateKosten = [fert]
+        if fert.kampffertigkeit == KampffertigkeitTyp.Nahkampf:
+            updateKosten = self.nahkampfFerts
+
+        for f in updateKosten:
+            self.labelRef[f.name + "KO"].setText(self.getSteigerungskosten(f))
+        self.labelRef[self.currentFertName + "PW"].setText(str(fert.probenwert))
+        self.labelRef[self.currentFertName + "PWT"].setText(str(fert.probenwertTalent))
+
+        self.modified.emit()
     
     def spinnerClicked(self, fert):
         if not self.currentlyLoading:

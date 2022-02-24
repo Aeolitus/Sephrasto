@@ -9,6 +9,8 @@ import UI.CharakterAttribute
 from PyQt5 import QtWidgets, QtCore, QtGui
 import logging
 import copy
+from Hilfsmethoden import Hilfsmethoden
+from EventBus import EventBus
 
 class AttrWrapper(QtCore.QObject):
     ''' 
@@ -35,6 +37,8 @@ class AttrWrapper(QtCore.QObject):
         self.uiAttr.labelWert2.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
         self.uiAttr.labelPW.setFont(font)
         self.uiAttr.labelPW.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
+        self.uiAttr.labelKosten.setFont(font)
+        self.uiAttr.labelKosten.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
         self.uiAttr.labelFormel.setFont(font)
         self.uiAttr.labelFormel.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
 
@@ -55,8 +59,80 @@ class AttrWrapper(QtCore.QObject):
         ''' The calculation of values is done by the Attribut objects, so we 
         first update them with the current value, and then set the PW's. '''
         self.update()
-        self.load()
      
+    def updateTooltip(self, attribut, uiElement):
+        attribute = copy.deepcopy(Wolke.Char.attribute)
+        attribute[attribut].wert += 1
+        attribute[attribut].aktualisieren()
+
+        tooltip = "Eine Steigerung von " + attribut + " auf " + str(attribute[attribut].wert) + " bewirkt:\n"
+
+        abgeleitetNew = []
+        scriptAPI = { 'getAttribut' : lambda attribut: attribute[attribut].wert }
+        wsBasis = eval(Wolke.DB.einstellungen["Basis WS Script"].toText(), scriptAPI)
+        mrBasis = eval(Wolke.DB.einstellungen["Basis MR Script"].toText(), scriptAPI)
+        gsBasis = eval(Wolke.DB.einstellungen["Basis GS Script"].toText(), scriptAPI)
+        iniBasis = eval(Wolke.DB.einstellungen["Basis INI Script"].toText(), scriptAPI)
+        dhBasis = eval(Wolke.DB.einstellungen["Basis DH Script"].toText(), scriptAPI)
+        schadensbonusBasis = eval(Wolke.DB.einstellungen["Basis Schadensbonus Script"].toText(), scriptAPI)
+
+        scriptAPI = { 'getAttribut' : lambda attribut: Wolke.Char.attribute[attribut].wert }
+        wsBasis -= eval(Wolke.DB.einstellungen["Basis WS Script"].toText(), scriptAPI)
+        mrBasis -= eval(Wolke.DB.einstellungen["Basis MR Script"].toText(), scriptAPI)
+        gsBasis -= eval(Wolke.DB.einstellungen["Basis GS Script"].toText(), scriptAPI)
+        iniBasis -= eval(Wolke.DB.einstellungen["Basis INI Script"].toText(), scriptAPI)
+        dhBasis -= eval(Wolke.DB.einstellungen["Basis DH Script"].toText(), scriptAPI)
+        schadensbonusBasis -= eval(Wolke.DB.einstellungen["Basis Schadensbonus Script"].toText(), scriptAPI)
+
+        if wsBasis != 0:
+            abgeleitetNew.append("Wundschwelle " + ("+" if wsBasis > 0 else "") + str(wsBasis))
+        if mrBasis != 0:
+            abgeleitetNew.append("Magieresistenz " + ("+" if mrBasis > 0 else "") + str(mrBasis))
+        if gsBasis != 0:
+            abgeleitetNew.append("Geschwindigkeit " + ("+" if gsBasis > 0 else "") + str(gsBasis))
+        if iniBasis != 0:
+            abgeleitetNew.append("Initiative " + ("+" if iniBasis > 0 else "") + str(iniBasis))
+        if dhBasis != 0:
+            abgeleitetNew.append("Durchhaltevermögen " + ("+" if dhBasis > 0 else "") + str(dhBasis))
+        if schadensbonusBasis != 0:
+            abgeleitetNew.append("Schadensbonus " + ("+" if schadensbonusBasis > 0 else "") + str(schadensbonusBasis))
+
+        vortNew = []
+        for name, vort in Wolke.DB.vorteile.items():
+            if name in Wolke.Char.vorteile:
+                continue
+            elif Hilfsmethoden.voraussetzungenPrüfen(Wolke.Char.vorteile, Wolke.Char.waffen, Wolke.Char.attribute,  Wolke.Char.übernatürlicheFertigkeiten, Wolke.Char.fertigkeiten, vort.voraussetzungen):
+                continue
+            elif Hilfsmethoden.voraussetzungenPrüfen(Wolke.Char.vorteile, Wolke.Char.waffen, attribute,  Wolke.Char.übernatürlicheFertigkeiten, Wolke.Char.fertigkeiten, vort.voraussetzungen):
+                vortNew.append(name + " erwerbbar")
+
+        fertNew = []
+        fertigkeitenGroups = [copy.deepcopy(Wolke.Char.fertigkeiten), copy.deepcopy(Wolke.Char.übernatürlicheFertigkeiten)]
+        for fertigkeiten in fertigkeitenGroups:
+            for name, fert in fertigkeiten.items():
+                basisAlt = fert.basiswert
+                fert.aktualisieren(attribute)
+                if basisAlt != fert.basiswert:
+                    fertNew.append(name + " BW +" + str(fert.basiswert - basisAlt))
+
+        if len(abgeleitetNew) > 0:
+            tooltip += "\n".join(abgeleitetNew)
+
+        if len(fertNew) > 0:
+            if len(abgeleitetNew) > 0:
+                tooltip += "\n\n"
+            tooltip += "\n".join(fertNew)
+
+        if len(vortNew) > 0:
+            if len(abgeleitetNew) + len(fertNew) > 0:
+                tooltip += "\n\n"
+            tooltip += "\n".join(vortNew)
+
+        if len(abgeleitetNew) + len(vortNew) + len(fertNew) == 0:
+            tooltip = tooltip[:-2] + " keine weiteren Verbesserungen."
+
+        uiElement.setToolTip(tooltip)
+
     def checkConsequences(self, attribut, wert):
         attribute = copy.deepcopy(Wolke.Char.attribute)
         attribute[attribut].wert = wert
@@ -84,6 +160,9 @@ class AttrWrapper(QtCore.QObject):
                 changed = True
             else:
                 uiElement.setValue(Wolke.Char.attribute[attribut].wert)
+
+            self.updateTooltip(attribut, uiElement)
+
         return changed
 
     def update(self):
@@ -118,35 +197,88 @@ class AttrWrapper(QtCore.QObject):
             Wolke.Char.kap.wert = self.uiAttr.spinKaP.value()
             changed = True
 
+        self.updateDerivedValues()
+
         if changed:
             Wolke.Char.aktualisieren()
             self.modified.emit()
         
-    def load(self):
-        self.currentlyLoading = True
+    def getSteigerungskostenAsP(self):
+        val = (Wolke.Char.asp.wert + 1) * Wolke.Char.asp.steigerungsfaktor
+        return "(<span style='font-size: 9pt; font-family: Font Awesome 6 Free Solid;'>\uf176</span>&nbsp;&nbsp;" + str(EventBus.applyFilter("asp_kosten", val, { "charakter" : Wolke.Char, "wert" : Wolke.Char.asp.wert })) + " EP)"
 
-        ''' Load all values and derived values '''
-        self.uiAttr.spinKO.setValue(Wolke.Char.attribute['KO'].wert)
+    def getSteigerungskostenKaP(self):
+        val = (Wolke.Char.kap.wert + 1) * Wolke.Char.kap.steigerungsfaktor
+        return "(<span style='font-size: 9pt; font-family: Font Awesome 6 Free Solid;'>\uf176</span>&nbsp;&nbsp;" + str(EventBus.applyFilter("asp_kosten", val, { "charakter" : Wolke.Char, "wert" : Wolke.Char.kap.wert })) + " EP)"
+
+    def getAttributSteigerungskosten(self, attr):
+        attribut = Wolke.Char.attribute[attr]
+        val = (attribut.wert + 1) * attribut.steigerungsfaktor
+        return "<span style='font-size: 9pt; font-family: Font Awesome 6 Free Solid;'>\uf176</span>&nbsp;&nbsp;" + str(EventBus.applyFilter("attribut_kosten", val, { "charakter" : Wolke.Char, "attribut" : attr, "wert" : attribut.wert + 1 })) + " EP"
+
+    def updateDerivedValues(self):
         self.uiAttr.pwKO.setValue(Wolke.Char.attribute['KO'].wert*2)
-        self.uiAttr.spinMU.setValue(Wolke.Char.attribute['MU'].wert)
+        self.uiAttr.labelKostenKO.setText(self.getAttributSteigerungskosten('KO'))
+
         self.uiAttr.pwMU.setValue(Wolke.Char.attribute['MU'].wert*2)
-        self.uiAttr.spinGE.setValue(Wolke.Char.attribute['GE'].wert)
+        self.uiAttr.labelKostenMU.setText(self.getAttributSteigerungskosten('MU'))
+
         self.uiAttr.pwGE.setValue(Wolke.Char.attribute['GE'].wert*2)
-        self.uiAttr.spinKK.setValue(Wolke.Char.attribute['KK'].wert)
+        self.uiAttr.labelKostenGE.setText(self.getAttributSteigerungskosten('GE'))
+
         self.uiAttr.pwKK.setValue(Wolke.Char.attribute['KK'].wert*2)
-        self.uiAttr.spinIN.setValue(Wolke.Char.attribute['IN'].wert)
+        self.uiAttr.labelKostenKK.setText(self.getAttributSteigerungskosten('KK'))
+
         self.uiAttr.pwIN.setValue(Wolke.Char.attribute['IN'].wert*2)
-        self.uiAttr.spinKL.setValue(Wolke.Char.attribute['KL'].wert)
+        self.uiAttr.labelKostenIN.setText(self.getAttributSteigerungskosten('IN'))
+
         self.uiAttr.pwKL.setValue(Wolke.Char.attribute['KL'].wert*2)
-        self.uiAttr.spinCH.setValue(Wolke.Char.attribute['CH'].wert)
+        self.uiAttr.labelKostenKL.setText(self.getAttributSteigerungskosten('KL'))
+
         self.uiAttr.pwCH.setValue(Wolke.Char.attribute['CH'].wert*2)
-        self.uiAttr.spinFF.setValue(Wolke.Char.attribute['FF'].wert)
+        self.uiAttr.labelKostenCH.setText(self.getAttributSteigerungskosten('CH'))
+
         self.uiAttr.pwFF.setValue(Wolke.Char.attribute['FF'].wert*2)
+        self.uiAttr.labelKostenFF.setText(self.getAttributSteigerungskosten('FF'))
+
         self.uiAttr.abWS.setValue(Wolke.Char.ws)
         self.uiAttr.abGS.setValue(Wolke.Char.gs)
         self.uiAttr.abIN.setValue(Wolke.Char.ini)
         self.uiAttr.abMR.setValue(Wolke.Char.mr)
         self.uiAttr.abSB.setValue(Wolke.Char.schadensbonus)
+
+        self.uiAttr.labelKostenAsP.setText(self.getSteigerungskostenAsP())
+        self.uiAttr.labelKostenKaP.setText(self.getSteigerungskostenKaP())
+
+    def load(self):
+        self.currentlyLoading = True
+
+        ''' Load all values and derived values '''
+        self.uiAttr.spinKO.setValue(Wolke.Char.attribute['KO'].wert)
+
+        self.updateTooltip('KO', self.uiAttr.spinKO)
+        self.uiAttr.spinMU.setValue(Wolke.Char.attribute['MU'].wert)
+
+        self.updateTooltip('MU', self.uiAttr.spinMU)
+        self.uiAttr.spinGE.setValue(Wolke.Char.attribute['GE'].wert)
+
+        self.updateTooltip('GE', self.uiAttr.spinGE)
+        self.uiAttr.spinKK.setValue(Wolke.Char.attribute['KK'].wert)
+
+        self.updateTooltip('KK', self.uiAttr.spinKK)
+        self.uiAttr.spinIN.setValue(Wolke.Char.attribute['IN'].wert)
+
+        self.updateTooltip('IN', self.uiAttr.spinIN)
+        self.uiAttr.spinKL.setValue(Wolke.Char.attribute['KL'].wert)
+
+        self.updateTooltip('KL', self.uiAttr.spinKL)
+        self.uiAttr.spinCH.setValue(Wolke.Char.attribute['CH'].wert)
+
+        self.updateTooltip('CH', self.uiAttr.spinCH)
+        self.uiAttr.spinFF.setValue(Wolke.Char.attribute['FF'].wert)
+
+        self.updateTooltip('FF', self.uiAttr.spinFF)
+
         self.uiAttr.abAsP.setValue(Wolke.Char.aspBasis + Wolke.Char.aspMod)
         self.uiAttr.abKaP.setValue(Wolke.Char.kapBasis + Wolke.Char.kapMod)
         if "Zauberer I" in Wolke.Char.vorteile:
@@ -169,5 +301,7 @@ class AttrWrapper(QtCore.QObject):
         else:
             self.uiAttr.spinKaP.setValue(0)
             self.uiAttr.spinKaP.setEnabled(False)
+
+        self.updateDerivedValues()
 
         self.currentlyLoading = False
