@@ -1101,6 +1101,8 @@ class Char():
 
             if versionXml.find('Plugins') is not None and versionXml.find('Plugins').text:
                 self.enabledPlugins = versionXml.find('Plugins').text.split(",")
+                if "LangerBogenBeschreibung" in self.enabledPlugins:
+                    self.enabledPlugins.remove("LangerBogenBeschreibung") # it is now part of Sephrasto, no data will be lost anymore
 
         logging.debug("Starting Character Migration")
         self.charakterMigrieren(root, charDBVersion, self.datenbankCodeVersion)
