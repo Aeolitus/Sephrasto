@@ -92,44 +92,54 @@ class AttrWrapper(QtCore.QObject):
             abgeleitetNew.append("Geschwindigkeit " + ("+" if gsBasis > 0 else "") + str(gsBasis))
         if iniBasis != 0:
             abgeleitetNew.append("Initiative " + ("+" if iniBasis > 0 else "") + str(iniBasis))
-        if dhBasis != 0:
-            abgeleitetNew.append("Durchhaltevermögen " + ("+" if dhBasis > 0 else "") + str(dhBasis))
         if schadensbonusBasis != 0:
             abgeleitetNew.append("Schadensbonus " + ("+" if schadensbonusBasis > 0 else "") + str(schadensbonusBasis))
+        if dhBasis != 0:
+            abgeleitetNew.append("Durchhaltevermögen " + ("+" if dhBasis > 0 else "") + str(dhBasis))
 
         vortNew = []
-        for name, vort in Wolke.DB.vorteile.items():
-            if name in Wolke.Char.vorteile:
+        for vort in sorted(Wolke.DB.vorteile.values(), key = lambda v: v.typ):
+            if vort.name in Wolke.Char.vorteile:
                 continue
             elif Hilfsmethoden.voraussetzungenPrüfen(Wolke.Char.vorteile, Wolke.Char.waffen, Wolke.Char.attribute,  Wolke.Char.übernatürlicheFertigkeiten, Wolke.Char.fertigkeiten, vort.voraussetzungen):
                 continue
             elif Hilfsmethoden.voraussetzungenPrüfen(Wolke.Char.vorteile, Wolke.Char.waffen, attribute,  Wolke.Char.übernatürlicheFertigkeiten, Wolke.Char.fertigkeiten, vort.voraussetzungen):
-                vortNew.append(name + " erwerbbar")
+                vortNew.append(vort.name + " erwerbbar")
 
         fertNew = []
-        fertigkeitenGroups = [copy.deepcopy(Wolke.Char.fertigkeiten), copy.deepcopy(Wolke.Char.übernatürlicheFertigkeiten)]
-        for fertigkeiten in fertigkeitenGroups:
-            for name, fert in fertigkeiten.items():
-                fert.aktualisieren(Wolke.Char.attribute)
-                basisAlt = fert.basiswert
-                fert.aktualisieren(attribute)
-                if basisAlt != fert.basiswert:
-                    fertNew.append(name + " BW +" + str(fert.basiswert - basisAlt))
+        ferts = copy.deepcopy(Wolke.Char.fertigkeiten)
+        for fert in sorted(ferts.values(), key = lambda f: f.printclass):
+            fert.aktualisieren(Wolke.Char.attribute)
+            basisAlt = fert.basiswert
+            fert.aktualisieren(attribute)
+            if basisAlt != fert.basiswert:
+                fertNew.append(fert.name + " +" + str(fert.basiswert - basisAlt))
 
-        if len(abgeleitetNew) > 0:
-            tooltip += "\n".join(abgeleitetNew)
+        fertsÜberNew = []
+        ferts = copy.deepcopy(Wolke.Char.übernatürlicheFertigkeiten)
+        more = 0
+        for fert in sorted(ferts.values(), key = lambda f: f.printclass):
+            if len(fert.gekaufteTalente) == 0:
+                more += 1
+                continue
+            fert.aktualisieren(Wolke.Char.attribute)
+            basisAlt = fert.basiswert
+            fert.aktualisieren(attribute)
+            if basisAlt != fert.basiswert:
+                fertsÜberNew.append(fert.name + " +" + str(fert.basiswert - basisAlt))
+        if more > 0:
+            fertsÜberNew.append(str(more) + " ungenutzte übernat. Fertigkeiten +1")
 
-        if len(fertNew) > 0:
-            if len(abgeleitetNew) > 0:
-                tooltip += "\n\n"
-            tooltip += "\n".join(fertNew)
+        tooltipAdd = []
+        for infos in [abgeleitetNew, fertNew, fertsÜberNew, vortNew]:
+            tooltipAdd += infos
+            if len(infos) > 0:
+                tooltipAdd.append("")
 
-        if len(vortNew) > 0:
-            if len(abgeleitetNew) + len(fertNew) > 0:
-                tooltip += "\n\n"
-            tooltip += "\n".join(vortNew)
-
-        if len(abgeleitetNew) + len(vortNew) + len(fertNew) == 0:
+        if len(tooltipAdd) > 0:
+            tooltipAdd.pop()
+            tooltip += "\n".join(tooltipAdd)
+        else:
             tooltip = tooltip[:-2] + " keine weiteren Verbesserungen."
 
         uiElement.setToolTip(tooltip)
