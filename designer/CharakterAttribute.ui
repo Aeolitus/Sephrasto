@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>872</width>
+    <width>893</width>
     <height>460</height>
    </rect>
   </property>
@@ -261,6 +261,9 @@
          <bold>true</bold>
         </font>
        </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Die Geschwindigkeit stellt die Schnelligkeit und Beweglichkeit deines Charakters dar. Sie bestimmt, wie weit er sich im Kampf bewegen kann und hilft auch bei Verfolgungsjagden zu Fuß.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
        <property name="text">
         <string>Geschwindigkeit</string>
        </property>
@@ -273,6 +276,9 @@
          <weight>75</weight>
          <bold>true</bold>
         </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Intuition ermöglicht es deinem Charakter, Personen und Sachverhalte schnell richtig einzuschätzen. Sie steht auch für Wahrnehmung und Einfühlungsvermögen deines Charakters. Intuition beeinflusst eine breite Palette an Fertigkeiten und bestimmt deine Initiative im Kampf.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="text">
         <string>Intuition</string>
@@ -342,6 +348,9 @@
          <bold>true</bold>
         </font>
        </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Magiebegabte Charaktere können Astralenergie in sich aufnehmen und speichern. Die Vorteile Zauberer I/II/III/IV verleihen deinem Charakter 8/16/24/32 Astralpunkte (AsP). Du kannst diesen Vorrat an maximalen AsP durch den Zukauf nach Steigerungsfaktor 1 weiter erhöhen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
        <property name="text">
         <string>Astralenergie</string>
        </property>
@@ -354,6 +363,9 @@
          <weight>75</weight>
          <bold>true</bold>
         </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Die Wundschwelle bestimmt, wie gut dein Charakter Schaden widerstehen kann. Schaden bis zu deiner Wundschwelle ist zwar schmerzhaft, aber noch nicht wirklich gefährlich. Erst Schadensmengen über deiner Wundschwelle können deinen Charakter beeinträchtigen oder sogar töten.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="text">
         <string>Wundschwelle</string>
@@ -441,6 +453,9 @@
          <bold>true</bold>
         </font>
        </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Fingerfertigkeit ist die manuelle Geschicklichkeit deines Charakters. Er verfügt über eine gute Hand-Augen-Koordination und kann feine Bewegungen schnell und fehlerfrei ausführen. Handwerker, Fernkämpfer und Hersteller von Artefakten sollten deswegen nicht auf eine hohe Fingerfertigkeit verzichten.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
        <property name="text">
         <string>Fingerfertigkeit</string>
        </property>
@@ -485,6 +500,9 @@
          <weight>75</weight>
          <bold>true</bold>
         </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Konstitution beschreibt die Widerstandsfähigkeit deines Charakters gegen äußere Einflüsse wie Strapazen, Gifte, Krankheiten und Verwundungen. Die Konstitution beeinflusst nur wenige Fertigkeiten, bestimmt aber deine Wundschwelle, den wohl wichtigsten Basiswert.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="text">
         <string>Konstitution</string>
@@ -585,6 +603,9 @@
          <bold>true</bold>
         </font>
        </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Charisma ist die natürliche Ausstrahlung deines Charakters auf seine Umgebung. Es steht für Führungsqualitäten, Selbstbewusstsein, Überzeugungskraft und ein gewinnendes Wesen. Alle gesellschaftlichen Fertigkeiten hängen von deinem Charisma ab und auch Elementaristen benötigen ein hohes Charisma.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
        <property name="text">
         <string>Charisma</string>
        </property>
@@ -597,6 +618,9 @@
          <weight>75</weight>
          <bold>true</bold>
         </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Die Initiative steht für Reaktionsgeschwindigkeit und Übersicht im Kampf. Kämpfer mit hoher Initiative können zu Beginn eines Kampfes schneller handeln und so den Erstschlag führen. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="text">
         <string>Initiative</string>
@@ -673,6 +697,9 @@
          <weight>75</weight>
          <bold>true</bold>
         </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Die Magieresistenz ist die Widerstandsfähigkeit gegen Zauberei. Viele Zauber wirken nur auf deinen Charakter, wenn sie seine Magieresistenz in einer vergleichenden Probe überwinden.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="text">
         <string>Magieresistenz</string>
@@ -779,6 +806,9 @@
          <weight>75</weight>
          <bold>true</bold>
         </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Klugheit ist das logische Denkvermögen deines Charakters und seine Fähigkeit, komplizierte Zusammenhänge zu erkennen und zu analysieren. Kluge Charaktere verfügen auch über ein gutes Allgemeinwissen. Eine hohe Klugheit ist bei vielen gesellschaftlichen und allen Wissensfertigkeiten unverzichtbar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="text">
         <string>Klugheit</string>
@@ -935,6 +965,9 @@
          <weight>75</weight>
          <bold>true</bold>
         </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Körperkraft ist ein Maß für die Stärke deines Charakters. Kräftige Charaktere können schwere Lasten heben und ihre Angriffe richten durch den höheren Schadensbonus mehr Schaden an. Dadurch ist eine hohe Körperkraft gerade für kämpferische Charaktere hilfreich.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="text">
         <string>Körperkraft</string>
@@ -1150,6 +1183,9 @@
          <bold>true</bold>
         </font>
        </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hohe Körperkraft erhöht den Waffenschaden bei allen Angriffen mit Nahkampf- und Wurfwaffen. Kopflastige Waffen profitieren sogar doppelt vom Schadensbonus.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
        <property name="text">
         <string>Schadensbonus</string>
        </property>
@@ -1209,6 +1245,9 @@
          <bold>true</bold>
         </font>
        </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ein mutiger Charakter bewahrt in kritischen Situationen einen kühlen Kopf und schreckt nicht vor Gefahren zurück, was gerade im Nahkampf unerlässlich ist. Zusätzlich stärkt Mut den Widerstand gegen magische Beeinflussungen, indem er deine Magieresistenz erhöht. Auch Dämonologen benötigen einen hohen Mut.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
        <property name="text">
         <string>Mut</string>
        </property>
@@ -1242,6 +1281,9 @@
          <weight>75</weight>
          <bold>true</bold>
         </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Gewandtheit ist die Beweglichkeit und Gelenkigkeit deines Charakters. Gewandte Charaktere bewegen sich geschmeidig und können ihre Bewegungen gut abschätzen. Das fördert deine körperlichen und kämpferischen Fertigkeiten und erhöht deine Geschwindigkeit.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="text">
         <string>Gewandheit</string>

@@ -300,6 +300,9 @@ class AttrWrapper(QtCore.QObject):
 
         self.uiAttr.lblKap.setText("KaP")
         self.uiAttr.lblKapZugekauft.setText("Karmaenergie")
+        self.uiAttr.lblKapZugekauft.setToolTip("<html><head/><body><p>Als Geweihter stellt dir deine Gottheit Karmaenergie zur Verfügung: "\
+            "Die Vorteile Geweiht I/II/III/IV verleihen dir 8/16/24/32 Karmapunkte (KaP), die du für Liturgien nutzen kannst. "\
+            "Du kannst diesen Vorrat an maximalen KaP durch den Zukauf nach Steigerungsfaktor 1 erhöhen.</p></body></html>")
         if "Geweiht I" in Wolke.Char.vorteile:
             self.uiAttr.spinKaP.setEnabled(True)
             self.uiAttr.spinKaP.setValue(Wolke.Char.kap.wert)
@@ -308,6 +311,10 @@ class AttrWrapper(QtCore.QObject):
             self.uiAttr.spinKaP.setValue(Wolke.Char.kap.wert)
             self.uiAttr.lblKap.setText("GuP")
             self.uiAttr.lblKapZugekauft.setText("Gunstpunkte")
+            self.uiAttr.lblKapZugekauft.setToolTip("<html><head/><body><p>Ein Paktierer selbst verfügt nicht über übernatürliche Macht, sondern "\
+               "erbittet den Beistand seines Erzdämonen: Der Vorteil Paktierer I/II/III/IV verleiht ihm 8/16/24/32 Gunstpunkte (GuP), "\
+               "mit denen er den Erzdämon anrufen kann. GuP werden nach Steigerungsfaktor 1 gesteigert. Meist geschieht das, wenn der Paktierer "\
+               "ohnehin einen Kreis der Verdammnis aufsteigt oder dem Erzdämonen auf andere Weise nahe ist.</p></body></html>")
         else:
             self.uiAttr.spinKaP.setValue(0)
             self.uiAttr.spinKaP.setEnabled(False)
