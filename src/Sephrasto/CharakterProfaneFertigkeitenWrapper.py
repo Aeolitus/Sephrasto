@@ -241,7 +241,8 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         
     def getSteigerungskosten(self, fert):
         ep = (fert.wert+1) * fert.steigerungsfaktor
-        if fert.kampffertigkeit == KampffertigkeitTyp.Nahkampf and fert == Wolke.Char.getHöchsteKampffertigkeit():
+        höchste = Wolke.Char.getHöchsteKampffertigkeit()
+        if fert.kampffertigkeit == KampffertigkeitTyp.Nahkampf and fert.wert == höchste.wert:
             ep = (fert.wert+1) * 4
         return "<span style='font-size: 9pt; font-weight: 900; font-family: Font Awesome 6 Free Solid;'>\uf176</span>&nbsp;&nbsp;" + str(ep) + " EP"
 
