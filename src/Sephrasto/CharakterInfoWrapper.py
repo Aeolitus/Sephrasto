@@ -29,7 +29,6 @@ class InfoWrapper(QtCore.QObject):
 
         font = QtGui.QFont(Wolke.Settings["FontHeading"], Wolke.Settings["FontHeadingSize"])
         font.setBold(True)
-        font.setCapitalization(QtGui.QFont.SmallCaps)
         self.ui.labelNotiz.setFont(font)
         self.ui.labelNotiz.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
         self.ui.labelEP.setFont(font)

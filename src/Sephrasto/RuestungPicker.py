@@ -133,7 +133,7 @@ class RuestungPicker(object):
             parent = QtWidgets.QTreeWidgetItem(self.ui.treeArmors)
             parent.setText(0,typ + "en")
             parent.setExpanded(True)
-            font = QtGui.QFont(Wolke.Settings["Font"], max(Wolke.Settings["FontSize"] + 1, Wolke.Settings["FontHeadingSize"]))
+            font = QtGui.QFont(Wolke.Settings["Font"], Wolke.FontHeadingSizeL3)
             font.setBold(True)
             font.setCapitalization(QtGui.QFont.SmallCaps)
             parent.setFont(0, font)

@@ -51,7 +51,7 @@ class Wolke:
         'Font' : "Crimson Pro",
         'FontSize' : 9,
         'FontHeading' : "Aniron",
-        'FontHeadingSize' : 7,
+        'FontHeadingSize' : 8, # this is the L2 size, since it's the most used
         'WindowSize-Main' : [286, 346],
         'WindowSize-Charakter' : [1130, 903],
         'WindowSize-TalentProfan' : [650, 366],
@@ -72,6 +72,8 @@ class Wolke:
         'WindowSize-DBWaffe' : _DefaultSettings.WindowSizeDefault1Col,
 
     }
+    FontHeadingSizeL1 = 0
+    FontHeadingSizeL3 = 0
     HeadingColor = "#000000"
     BorderColor = "rgba(0,0,0,0.2)"
     ErrorCode = {

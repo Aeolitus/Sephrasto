@@ -29,7 +29,7 @@ class CharakterBeschreibungDetailsWrapper(QtCore.QObject):
         for i in range(self.ui.tabWidget.tabBar().count()):
             self.ui.tabWidget.tabBar().setTabTextColor(i, QtGui.QColor(Wolke.HeadingColor))
 
-        self.ui.tabWidget.setStyleSheet('QTabBar { font-size: ' + str(Wolke.Settings["FontHeadingSize"]) + 'pt; font-family: ' + Wolke.Settings["FontHeading"] + '; }')
+        self.ui.tabWidget.setStyleSheet('QTabBar { font-weight: bold; font-size: ' + str(Wolke.Settings["FontHeadingSize"]) + 'pt; font-family: \"' + Wolke.Settings["FontHeading"] + '\"; }')
 
         self.ui.chkKultur.stateChanged.connect(lambda state: self.ui.leKultur.setEnabled(self.ui.chkKultur.isChecked()))
 

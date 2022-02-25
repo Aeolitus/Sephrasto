@@ -171,7 +171,7 @@ class Editor(object):
         for i in range(self.ui.tabs.tabBar().count()):
             self.ui.tabs.tabBar().setTabTextColor(i, QtGui.QColor(Wolke.HeadingColor))
 
-        self.ui.tabs.setStyleSheet('QTabBar { font-size: ' + str(Wolke.Settings["FontHeadingSize"] +2) + 'pt; font-family: ' + Wolke.Settings["FontHeading"] + '; }')
+        self.ui.tabs.setStyleSheet('QTabBar { font-weight: bold; font-size: ' + str(Wolke.FontHeadingSizeL1) + 'pt; font-family: \"' + Wolke.Settings["FontHeading"] + '\"; }')
         self.ui.tabs.currentChanged.connect(self.reloadAll)
         self.ui.buttonSave.clicked.connect(self.saveButton)
         self.ui.buttonQuicksave.clicked.connect(self.quicksaveButton)

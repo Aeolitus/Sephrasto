@@ -128,7 +128,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
 
             item = QtWidgets.QTableWidgetItem()
             item.setText("Name")
-            item.setTextAlignment(QtCore.Qt.AlignLeft)
+            item.setTextAlignment(QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
             self.uiFert.tableWidget.setHorizontalHeaderItem(0, item)
             item = QtWidgets.QTableWidgetItem()
             item.setTextAlignment(QtCore.Qt.AlignCenter)

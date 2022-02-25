@@ -65,7 +65,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
             font = parent.font(0)
             font.setBold(True)
             font.setCapitalization(QtGui.QFont.SmallCaps)
-            font.setPointSize(max(Wolke.Settings["FontSize"] + 1, Wolke.Settings["FontHeadingSize"]))
+            font.setPointSize(Wolke.FontHeadingSizeL3)
             parent.setFont(0, font)
             for el in vortList[i]:
                 child = QtWidgets.QTreeWidgetItem(parent)

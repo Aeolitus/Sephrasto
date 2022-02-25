@@ -32,7 +32,7 @@ class EquipWrapper(QtCore.QObject):
         self.uiEq.tabWidget.currentChanged.connect(self.load)
         for i in range(self.uiEq.tabWidget.tabBar().count()):
             self.uiEq.tabWidget.tabBar().setTabTextColor(i, QtGui.QColor(Wolke.HeadingColor))
-        self.uiEq.tabWidget.setStyleSheet('QTabBar { font-size: ' + str(Wolke.Settings["FontHeadingSize"]) + 'pt; font-family: ' + Wolke.Settings["FontHeading"] + '; }')
+        self.uiEq.tabWidget.setStyleSheet('QTabBar { font-size: ' + str(Wolke.Settings["FontHeadingSize"]) + 'pt; font-family: \"' + Wolke.Settings["FontHeading"] + '\"; }')
 
         palette = QtWidgets.QApplication.instance().palette()
         alternateBgStyle = "background-color: " + palette.alternateBase().color().name() + ";"

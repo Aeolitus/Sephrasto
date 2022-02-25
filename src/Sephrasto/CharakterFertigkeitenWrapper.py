@@ -42,7 +42,7 @@ class FertigkeitenWrapper(QtCore.QObject):
 
         for i in range(self.uiFert.tabs.tabBar().count()):
             self.uiFert.tabs.tabBar().setTabTextColor(i, QtGui.QColor(Wolke.HeadingColor))
-        self.uiFert.tabs.setStyleSheet('QTabBar { font-size: ' + str(Wolke.Settings["FontHeadingSize"]) + 'pt; font-family: ' + Wolke.Settings["FontHeading"] + '; }')
+        self.uiFert.tabs.setStyleSheet('QTabBar { font-size: ' + str(Wolke.Settings["FontHeadingSize"]) + 'pt; font-family: \"' + Wolke.Settings["FontHeading"] + '\"; }')
 
     def load(self):
         self.profanWrapper.load()

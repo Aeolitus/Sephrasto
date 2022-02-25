@@ -109,7 +109,7 @@ class MainWindowWrapper(object):
         self.Form.resize(windowSize[0], windowSize[1])
 
         self.updateAppearance()
-        self.ui.label.setFont(QtGui.QFont(Wolke.Settings["FontHeading"], 16))
+        self.ui.label.setFont(QtGui.QFont("Aniron", 16))
         self.ui.label.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
 
         UpdateChecker.checkForUpdate()
@@ -251,11 +251,11 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n")
         styleReadonly = "*[readOnly=\"true\"] { background-color: " + readonlyColor + "; border: none; }"
         styleTooltip =  "QToolTip { font: " + str(fontSize) + "pt '" + fontFamily + "'; }"
         styleCombo = "QComboBox { font: " + str(fontSize) + "pt '" + fontFamily + "'; }"
-        styleTableHeader = "QHeaderView::section { font: " + str(Wolke.Settings['FontHeadingSize']) + "pt '" + Wolke.Settings['FontHeading'] + "'; color: " + headingColor + "; }"
+        styleTableHeader = "QHeaderView::section { font: bold " + str(Wolke.Settings['FontHeadingSize']) + "pt '" + Wolke.Settings['FontHeading'] + "'; color: " + headingColor + "; }"
         styleTable = "QTableView { font: " + str(fontSize) + "pt '" + fontFamily + "'; }"
         styleList = "QListView { font: " + str(fontSize) + "pt '" + fontFamily + "'; }"
         styleTree = "QTreeWidget { font: " + str(fontSize) + "pt '" + fontFamily + "'; }"
-        styleGroupbox = "QGroupBox { font: " + str(max(Wolke.Settings["FontSize"] + 1, Wolke.Settings["FontHeadingSize"])) + "pt '" + fontFamily + "'; font-weight: bold; font-variant: small-caps; color: " + headingColor + "; }"
+        styleGroupbox = "QGroupBox { font: " + str(Wolke.FontHeadingSizeL3) + "pt '" + fontFamily + "'; font-weight: bold; font-variant: small-caps; color: " + headingColor + "; }"
         styleMessagebox = "QMessageBox { font: " + str(fontSize) + "pt '" + fontFamily + "'; }"
         styleButton = ""
         if buttonColor:
@@ -278,6 +278,9 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n")
             font = self.app.font()
             font.setPointSize(fontSize)
             self.app.setFont(font)
+
+        Wolke.FontHeadingSizeL1 = Wolke.Settings["FontHeadingSize"] + 1
+        Wolke.FontHeadingSizeL3 = Wolke.Settings["FontSize"] + 2
 
         style = Wolke.Settings['Theme']
         if style == "Windows Vista":

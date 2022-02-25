@@ -82,7 +82,7 @@ class WaffenPicker(object):
             parent.setText(0,kind.name)
             parent.setText(1,"")
             parent.setExpanded(True)
-            font = QtGui.QFont(Wolke.Settings["Font"], max(Wolke.Settings["FontSize"] + 1, Wolke.Settings["FontHeadingSize"]))
+            font = QtGui.QFont(Wolke.Settings["Font"], Wolke.FontHeadingSizeL3)
             font.setBold(True)
             font.setCapitalization(QtGui.QFont.SmallCaps)
             parent.setFont(0, font)
