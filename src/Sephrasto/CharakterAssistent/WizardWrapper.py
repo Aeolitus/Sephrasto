@@ -109,6 +109,7 @@ class WizardWrapper(object):
 
         self.regelnChanged()
         self.ui.btnAccept.clicked.connect(self.acceptClickedHandler)
+        self.ui.btnCancel.clicked.connect(self.cancelClickedHandler)
 
         font = QtWidgets.QApplication.instance().font()
         font.setPointSize(font.pointSize()-1)
@@ -151,9 +152,12 @@ class WizardWrapper(object):
         self.ui.cbProfessionKategorie.addItems(sorted(regeln.professionen.keys()))
         self.professionKategorieChanged()
 
+    def cancelClickedHandler(self):
+        self.formMain.close()
+
     def acceptClickedHandler(self):
         if not self.ui.cbRegeln.currentText() in self.regelList:
-            self.formMain.hide()
+            self.formMain.close()
             return
 
         regeln = self.regelList[self.ui.cbRegeln.currentText()]

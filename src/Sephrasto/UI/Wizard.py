@@ -28,6 +28,9 @@ class Ui_formMain(object):
         self.gridLayout.setObjectName("gridLayout")
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.btnCancel = QtWidgets.QPushButton(formMain)
+        self.btnCancel.setObjectName("btnCancel")
+        self.horizontalLayout_3.addWidget(self.btnCancel)
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_3.addItem(spacerItem)
         self.btnAccept = QtWidgets.QPushButton(formMain)
@@ -148,6 +151,7 @@ class Ui_formMain(object):
     def retranslateUi(self, formMain):
         _translate = QtCore.QCoreApplication.translate
         formMain.setWindowTitle(_translate("formMain", "Charakterassistent"))
+        self.btnCancel.setText(_translate("formMain", "Ohne Assistent fortfahren"))
         self.btnAccept.setText(_translate("formMain", "Übernehmen"))
         self.label.setText(_translate("formMain", "<html><head/><body><p>Der Charakterassistent lebt von Communitybeiträgen. Eigene Spezies/Kulturen/Professionen/Archetypen lassen sich spielend leicht erstellen. Finde hier heraus wie und teile deine Kreationen: <a href=\"https://dsaforum.de/viewtopic.php?f=180&amp;t=56703\"><span style=\" text-decoration: underline;\">Charakterassistent auf dsaforum.de</span></a></p></body></html>"))
         self.label_2.setText(_translate("formMain", "Dieser Assistent betreut dich bei der Erstellung deines Charakters. Bei den Professionen sind manchmal Namen mitangegeben - dies sind vollwertige Archetypen mit Eigenheiten. Die angegebenen benötigten Erfahrungspunkte können niedriger oder höher ausfallen."))
