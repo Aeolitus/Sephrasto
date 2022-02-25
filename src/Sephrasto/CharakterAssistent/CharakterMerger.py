@@ -95,10 +95,10 @@ class CharakterMerger(object):
             char.kurzbeschreibung += ", "
             if kultur:
                 char.kurzbeschreibung += "Kultur: " + element.name
-                EventBus.doAction("cbext_update", { 'name' : "kultur", 'value' : element.name })
+                char.kultur = element.name
             else:
                 char.kurzbeschreibung += "Profession: " + element.name
-                EventBus.doAction("cbext_update", { 'name' : "profession", 'value' : element.name })
+                char.profession = element.name
 
         if not element.varPath:
             return
@@ -147,10 +147,10 @@ class CharakterMerger(object):
                     char.rasse = element.name + " (" + description + ")"
             elif kultur:
                 char.kurzbeschreibung += " (" + description + ")"
-                EventBus.doAction("cbext_update", { 'name' : "kultur", 'value' : element.name + " (" + description + ")" })
+                char.kultur = element.name + " (" + description + ")"
             elif profession:
                 char.kurzbeschreibung += " (" + description + ")"
-                EventBus.doAction("cbext_update", { 'name' : "profession", 'value' : element.name + " (" + description + ")" })
+                char.profession = element.name + " (" + description + ")"
 
         for i in range(len(choiceListCollection.choiceLists)):
             choiceList = choiceListCollection.choiceLists[i]

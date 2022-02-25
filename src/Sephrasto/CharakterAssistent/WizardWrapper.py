@@ -169,7 +169,7 @@ class WizardWrapper(object):
             geschlecht = "männlich"
 
         Wolke.Char.kurzbeschreibung = "Geschlecht: " + geschlecht
-        EventBus.doAction("cbext_update", { 'name' : "geschlecht", 'value' : geschlecht })
+        Wolke.Char.geschlecht = geschlecht
 
         if self.ui.cbSpezies.currentText() != "Überspringen":
             spezies = self.spezies[self.ui.cbSpezies.currentIndex()-1]
