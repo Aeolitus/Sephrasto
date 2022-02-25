@@ -243,7 +243,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         ep = (fert.wert+1) * fert.steigerungsfaktor
         if fert.kampffertigkeit == KampffertigkeitTyp.Nahkampf and fert == Wolke.Char.getHöchsteKampffertigkeit():
             ep = (fert.wert+1) * 4
-        return "<span style='font-size: 9pt; font-family: Font Awesome 6 Free Solid;'>\uf176</span>&nbsp;&nbsp;" + str(ep) + " EP"
+        return "<span style='font-size: 9pt; font-weight: 900; font-family: Font Awesome 6 Free Solid;'>\uf176</span>&nbsp;&nbsp;" + str(ep) + " EP"
 
     def fwChanged(self, flag = False):
         if self.currentlyLoading:

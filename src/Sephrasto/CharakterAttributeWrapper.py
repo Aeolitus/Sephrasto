@@ -110,6 +110,7 @@ class AttrWrapper(QtCore.QObject):
         fertigkeitenGroups = [copy.deepcopy(Wolke.Char.fertigkeiten), copy.deepcopy(Wolke.Char.übernatürlicheFertigkeiten)]
         for fertigkeiten in fertigkeitenGroups:
             for name, fert in fertigkeiten.items():
+                fert.aktualisieren(Wolke.Char.attribute)
                 basisAlt = fert.basiswert
                 fert.aktualisieren(attribute)
                 if basisAlt != fert.basiswert:
@@ -205,16 +206,16 @@ class AttrWrapper(QtCore.QObject):
         
     def getSteigerungskostenAsP(self):
         val = (Wolke.Char.asp.wert + 1) * Wolke.Char.asp.steigerungsfaktor
-        return "(<span style='font-size: 9pt; font-family: Font Awesome 6 Free Solid;'>\uf176</span>&nbsp;&nbsp;" + str(EventBus.applyFilter("asp_kosten", val, { "charakter" : Wolke.Char, "wert" : Wolke.Char.asp.wert })) + " EP)"
+        return "(<span style='font-size: 9pt; font-weight: 900; font-family: \"Font Awesome 6 Free Solid\";'>\uf176</span>&nbsp;&nbsp;" + str(EventBus.applyFilter("asp_kosten", val, { "charakter" : Wolke.Char, "wert" : Wolke.Char.asp.wert })) + " EP)"
 
     def getSteigerungskostenKaP(self):
         val = (Wolke.Char.kap.wert + 1) * Wolke.Char.kap.steigerungsfaktor
-        return "(<span style='font-size: 9pt; font-family: Font Awesome 6 Free Solid;'>\uf176</span>&nbsp;&nbsp;" + str(EventBus.applyFilter("asp_kosten", val, { "charakter" : Wolke.Char, "wert" : Wolke.Char.kap.wert })) + " EP)"
+        return "(<span style='font-size: 9pt; font-weight: 900; font-family: \"Font Awesome 6 Free Solid\";'>\uf176</span>&nbsp;&nbsp;" + str(EventBus.applyFilter("asp_kosten", val, { "charakter" : Wolke.Char, "wert" : Wolke.Char.kap.wert })) + " EP)"
 
     def getAttributSteigerungskosten(self, attr):
         attribut = Wolke.Char.attribute[attr]
         val = (attribut.wert + 1) * attribut.steigerungsfaktor
-        return "<span style='font-size: 9pt; font-family: Font Awesome 6 Free Solid;'>\uf176</span>&nbsp;&nbsp;" + str(EventBus.applyFilter("attribut_kosten", val, { "charakter" : Wolke.Char, "attribut" : attr, "wert" : attribut.wert + 1 })) + " EP"
+        return "<span style='font-size: 9pt; font-weight: 900; font-family: \"Font Awesome 6 Free Solid\";'>\uf176</span>&nbsp;&nbsp;" + str(EventBus.applyFilter("attribut_kosten", val, { "charakter" : Wolke.Char, "attribut" : attr, "wert" : attribut.wert + 1 })) + " EP"
 
     def updateDerivedValues(self):
         self.uiAttr.pwKO.setValue(Wolke.Char.attribute['KO'].wert*2)
@@ -255,28 +256,27 @@ class AttrWrapper(QtCore.QObject):
 
         ''' Load all values and derived values '''
         self.uiAttr.spinKO.setValue(Wolke.Char.attribute['KO'].wert)
-
         self.updateTooltip('KO', self.uiAttr.spinKO)
+
         self.uiAttr.spinMU.setValue(Wolke.Char.attribute['MU'].wert)
-
         self.updateTooltip('MU', self.uiAttr.spinMU)
+
         self.uiAttr.spinGE.setValue(Wolke.Char.attribute['GE'].wert)
-
         self.updateTooltip('GE', self.uiAttr.spinGE)
+
         self.uiAttr.spinKK.setValue(Wolke.Char.attribute['KK'].wert)
-
         self.updateTooltip('KK', self.uiAttr.spinKK)
+
         self.uiAttr.spinIN.setValue(Wolke.Char.attribute['IN'].wert)
-
         self.updateTooltip('IN', self.uiAttr.spinIN)
+
         self.uiAttr.spinKL.setValue(Wolke.Char.attribute['KL'].wert)
-
         self.updateTooltip('KL', self.uiAttr.spinKL)
+
         self.uiAttr.spinCH.setValue(Wolke.Char.attribute['CH'].wert)
-
         self.updateTooltip('CH', self.uiAttr.spinCH)
-        self.uiAttr.spinFF.setValue(Wolke.Char.attribute['FF'].wert)
 
+        self.uiAttr.spinFF.setValue(Wolke.Char.attribute['FF'].wert)
         self.updateTooltip('FF', self.uiAttr.spinFF)
 
         self.uiAttr.abAsP.setValue(Wolke.Char.aspBasis + Wolke.Char.aspMod)
