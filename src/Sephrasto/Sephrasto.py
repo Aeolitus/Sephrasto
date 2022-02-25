@@ -251,7 +251,7 @@ Fehlercode: " + str(Wolke.Fehlercode) + "\n")
         styleReadonly = "*[readOnly=\"true\"] { background-color: " + readonlyColor + "; border: none; }"
         styleTooltip =  "QToolTip { font: " + str(fontSize) + "pt '" + fontFamily + "'; }"
         styleCombo = "QComboBox { font: " + str(fontSize) + "pt '" + fontFamily + "'; }"
-        styleTableHeader = "QHeaderView::section { font: bold " + str(Wolke.Settings['FontHeadingSize']) + "pt '" + Wolke.Settings['FontHeading'] + "'; color: " + headingColor + "; }"
+        styleTableHeader = "QHeaderView::section { font: bold " + str(Wolke.Settings['FontHeadingSize']-1) + "pt '" + Wolke.Settings['FontHeading'] + "'; color: " + headingColor + "; }"
         styleTable = "QTableView { font: " + str(fontSize) + "pt '" + fontFamily + "'; }"
         styleList = "QListView { font: " + str(fontSize) + "pt '" + fontFamily + "'; }"
         styleTree = "QTreeWidget { font: " + str(fontSize) + "pt '" + fontFamily + "'; }"
