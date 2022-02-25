@@ -549,6 +549,7 @@ class Ui_formAttribute(object):
         spacerItem1 = QtWidgets.QSpacerItem(70, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout.addItem(spacerItem1, 5, 6, 1, 1)
         self.labelKosten = QtWidgets.QLabel(formAttribute)
+        self.labelKosten.setMinimumSize(QtCore.QSize(60, 0))
         font = QtGui.QFont()
         font.setBold(True)
         font.setWeight(75)
