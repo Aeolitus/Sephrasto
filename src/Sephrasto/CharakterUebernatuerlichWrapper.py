@@ -12,6 +12,7 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtWidgets import QHeaderView
 import logging
 from CharakterProfaneFertigkeitenWrapper import FertigkeitItemDelegate
+from Hilfsmethoden import Hilfsmethoden
 
 class UebernatuerlichWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
@@ -54,7 +55,6 @@ class UebernatuerlichWrapper(QtCore.QObject):
         #If there is an ability already, then we take it to display already
         self.currentFertName = next(iter(Wolke.Char.übernatürlicheFertigkeiten), "")
         self.currentlyLoading = False
-        self.load()
             
     def update(self):
         #Already implemented for the individual events
@@ -67,11 +67,18 @@ class UebernatuerlichWrapper(QtCore.QObject):
 
         temp = [el for el in Wolke.DB.übernatürlicheFertigkeiten 
                 if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.übernatürlicheFertigkeiten[el].voraussetzungen)]
-        if temp != self.availableFerts:
-            self.availableFerts = temp
+        # sort by printclass, then by name
+        temp.sort(key = lambda x: (Wolke.DB.übernatürlicheFertigkeiten[x].printclass, x)) 
 
-            # sort by printclass, then by name
-            self.availableFerts.sort(key = lambda x: (Wolke.DB.übernatürlicheFertigkeiten[x].printclass, x)) 
+        if Hilfsmethoden.ArrayEqual(temp, self.availableFerts):
+            for i in range(self.uiFert.tableWidget.rowCount()):
+                fert = Wolke.Char.übernatürlicheFertigkeiten[self.uiFert.tableWidget.item(i,1).text()]
+                self.pdfRef[fert.name].setChecked(fert.addToPDF)
+                self.labelRef[fert.name + "KO"].setText(self.getSteigerungskosten(fert))
+                self.labelRef[fert.name + "PW"].setText(str(fert.probenwert))
+                self.labelRef[fert.name].setText(str(len(fert.gekaufteTalente)))
+        else:
+            self.availableFerts = temp
 
             rowIndicesWithLinePaint = []
             count = 0
@@ -300,7 +307,6 @@ class UebernatuerlichWrapper(QtCore.QObject):
             self.uiFert.listTalente.contentsMargins().top() +\
             self.uiFert.listTalente.contentsMargins().bottom() +\
             self.uiFert.listTalente.spacing())
-        self.updateTalentRow()
         
     def editTalents(self):
         if self.currentFertName == "":
@@ -310,11 +316,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
         if tal.gekaufteTalente is not None:
             self.modified.emit()
             self.updateTalents()
-                
-    def updateTalentRow(self):
-        for i in range(self.uiFert.tableWidget.rowCount()):
-            fert = self.uiFert.tableWidget.item(i,1).text()
-            self.labelRef[fert].setText(str(len(Wolke.Char.übernatürlicheFertigkeiten[fert].gekaufteTalente)))
+            self.labelRef[self.currentFertName].setText(str(len(tal.gekaufteTalente)))
 
     def updateAddToPDF(self):
         if self.currentFertName == "":

@@ -175,7 +175,6 @@ class EquipWrapper(QtCore.QObject):
         self.currentlyLoading = False
         
         self.refreshZRSVisibility()
-        self.load()
 
     def refreshDerivedArmorValues(self, R, index):
         if self.uiEq.checkZonen.isChecked():

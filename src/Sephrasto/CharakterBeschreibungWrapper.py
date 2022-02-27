@@ -25,7 +25,7 @@ class BeschrWrapper(QtCore.QObject):
         self.formBeschr = QtWidgets.QWidget()
         self.uiBeschr = UI.CharakterBeschreibung.Ui_formBeschreibung()
         self.uiBeschr.setupUi(self.formBeschr)
-        self.load()
+
         self.uiBeschr.editName.editingFinished.connect(self.update)
         self.uiBeschr.editRasse.editingFinished.connect(self.update)
         self.uiBeschr.editKurzbeschreibung.editingFinished.connect(self.update)
@@ -66,7 +66,6 @@ class BeschrWrapper(QtCore.QObject):
         self.uiBeschr.comboHeimat.setToolTip("Jeder Charakter beherrscht seine Muttersprache und die Gebräuche seiner Heimat.\nDu erhältst gratis die Freie Fertigkeit zu deiner Muttersprache auf Stufe III und das passende Gebräuche-­Talent.")
 
         self.currentlyLoading = False
-        self.load()
 
     def update(self):
         if self.currentlyLoading:

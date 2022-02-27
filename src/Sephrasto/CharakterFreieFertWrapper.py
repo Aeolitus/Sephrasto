@@ -68,8 +68,6 @@ class CharakterFreieFertWrapper(QtCore.QObject):
                     ffEdit.setStyleSheet(bgStyle)
 
                 self.uiFert.freieFertsGrid.addLayout(ffLayout, row, column)
-        
-        self.load()
 
     def ffButtonClicked(self, edit):
         picker = CharakterFreieFertigkeitenPickerWrapper.CharakterFreieFertigkeitenPickerWrapper(edit.text())

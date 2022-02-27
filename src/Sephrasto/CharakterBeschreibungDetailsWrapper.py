@@ -65,7 +65,6 @@ class CharakterBeschreibungDetailsWrapper(QtCore.QObject):
         self.ui.buttonDeleteImage.clicked.connect(self.buttonDeleteImageClicked)
 
         self.currentlyLoading = False
-        self.load()
 
     def load(self):
         self.currentlyLoading = True

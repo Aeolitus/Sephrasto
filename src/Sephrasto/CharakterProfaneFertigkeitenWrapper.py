@@ -12,6 +12,7 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 import logging
 from PyQt5.QtWidgets import QHeaderView
 from Fertigkeiten import KampffertigkeitTyp
+from Hilfsmethoden import Hilfsmethoden
 
 # This item delegate is used to draw a seperator line between different fertigkeit categories ('printclasses')
 class FertigkeitItemDelegate(QtWidgets.QItemDelegate):
@@ -74,7 +75,6 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         except StopIteration:
             self.currentFertName = ''
         self.currentlyLoading = False
-        self.load()
             
     def update(self):
         #Already implemented for the individual events
@@ -84,12 +84,18 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         self.currentlyLoading = True
         temp = [el for el in Wolke.DB.fertigkeiten 
                 if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.fertigkeiten[el].voraussetzungen)]
-        if temp != self.availableFerts:
-            self.availableFerts = temp
+        # sort by printclass, then by name
+        temp.sort(key = lambda x: (Wolke.DB.fertigkeiten[x].printclass, x)) 
 
-            # sort by printclass, then by name
-            self.availableFerts.sort(key = lambda x: (Wolke.DB.fertigkeiten[x].printclass, x)) 
-            
+        if Hilfsmethoden.ArrayEqual(temp, self.availableFerts):
+            for i in range(self.uiFert.tableWidget.rowCount()):
+                fert = Wolke.Char.fertigkeiten[self.uiFert.tableWidget.item(i,0).text()]
+                self.labelRef[fert.name + "KO"].setText(self.getSteigerungskosten(fert))
+                self.labelRef[fert.name + "PW"].setText(str(fert.probenwert))
+                self.labelRef[fert.name + "PWT"].setText(str(fert.probenwertTalent))
+                self.labelRef[fert.name].setText(str(len(fert.gekaufteTalente)))
+        else:
+            self.availableFerts = temp
             rowIndicesWithLinePaint = []
             count = 0
             if len(self.availableFerts) > 0:
@@ -338,7 +344,6 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
             self.uiFert.listTalente.contentsMargins().bottom() +\
             self.uiFert.listTalente.spacing())
         self.uiFert.scrollAreaWidgetContents.layout().update()
-        self.updateTalentRow()
 
     def editTalents(self):
         if self.currentFertName == "":
@@ -347,9 +352,5 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         if tal.gekaufteTalente is not None:
             self.modified.emit()
             self.updateTalents()
-
-    def updateTalentRow(self):
-        for i in range(self.uiFert.tableWidget.rowCount()):
-            fert = self.uiFert.tableWidget.item(i,0).text()
-            self.labelRef[fert].setText(str(len(Wolke.Char.fertigkeiten[fert].gekaufteTalente)))
+            self.labelRef[self.currentFertName].setText(str(len(tal.gekaufteTalente)))
             

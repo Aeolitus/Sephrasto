@@ -27,7 +27,6 @@ class AttrWrapper(QtCore.QObject):
         self.formAttr = QtWidgets.QWidget()
         self.uiAttr = UI.CharakterAttribute.Ui_formAttribute()
         self.uiAttr.setupUi(self.formAttr)
-        self.load()
 
         font = QtGui.QFont(Wolke.Settings["FontHeading"], Wolke.Settings["FontHeadingSize"])
         font.setBold(True)

@@ -71,7 +71,6 @@ class InfoWrapper(QtCore.QObject):
                 break
 
         self.currentlyLoading = False
-        self.load()
 
     def update(self):
         pass
