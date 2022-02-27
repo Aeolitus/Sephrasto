@@ -67,7 +67,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
 
         temp = [el for el in Wolke.DB.übernatürlicheFertigkeiten 
                 if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.übernatürlicheFertigkeiten[el].voraussetzungen)]
-        if temp == self.availableFerts:
+        if temp != self.availableFerts:
             self.availableFerts = temp
 
             # sort by printclass, then by name
