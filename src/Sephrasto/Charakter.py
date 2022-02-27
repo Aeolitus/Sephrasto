@@ -71,7 +71,11 @@ class Char():
         self.rasse = ''
         self.status = 2
         self.kurzbeschreibung = ''
-        self.heimat = ''
+        heimaten = Wolke.DB.findHeimaten()
+        if "Mittelreich" in heimaten:
+            self.heimat = "Mittelreich"
+        else:
+            self.heimat = heimaten[0] if len(heimaten) > 0 else ""
         self.schipsMax = 4
         self.schips = 4
 
@@ -1114,6 +1118,12 @@ class Char():
         tmp = alg.find('heimat')
         if not tmp is None: 
             self.heimat = tmp.text
+            heimaten = Wolke.DB.findHeimaten()
+            if not self.heimat in heimaten:
+                if "Mittelreich" in heimaten:
+                    self.heimat = "Mittelreich"
+                else:
+                    self.heimat = heimaten[0] if len(heimaten) > 0 else ""
         for eig in alg.findall('eigenheiten/*'):
             self.eigenheiten.append(eig.text or "")
         #Zweiter Block

@@ -160,23 +160,11 @@ class BeschrWrapper(QtCore.QObject):
 
         ''' Fill and set Heimat '''
         self.uiBeschr.comboHeimat.clear()
-        heimatList = []
-        for tal in Wolke.DB.talente:
-            if tal.startswith("Gebräuche: "):
-                heimatList.append(tal[11:])
-        heimatList.sort()
-        if len(heimatList) == 0:
+        heimaten = Wolke.DB.findHeimaten()
+        if len(heimaten) == 0:
             self.uiBeschr.comboHeimat.setToolTip("Diese Liste wird anhand der Talente befüllt, die mit 'Gebräuche: ' im Namen starten.\nBitte diese Talente in der Regelbasis beibehalten, die Fertigkeit 'Gebräuche' kann jedoch gelöscht werden.")
         else:
-            self.uiBeschr.comboHeimat.addItems(heimatList)
-            if Wolke.Char.heimat in heimatList:
-                self.uiBeschr.comboHeimat.setCurrentText(Wolke.Char.heimat)
-            else:
-                Wolke.Char.heimat = heimatList[0]
-                for heimat in heimatList:
-                    if "Mittelreich" in heimat:
-                        Wolke.Char.heimat = heimat
-                        self.uiBeschr.comboHeimat.setCurrentText(heimat)
-                        break
+            self.uiBeschr.comboHeimat.addItems(heimaten)
+            self.uiBeschr.comboHeimat.setCurrentText(Wolke.Char.heimat)
 
         self.currentlyLoading = False
