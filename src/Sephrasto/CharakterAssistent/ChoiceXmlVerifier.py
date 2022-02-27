@@ -10,7 +10,7 @@ class ChoiceXmlVerifier(object):
     allowedAttributesAuswahl = ["name", "beschreibung", "geschlecht", "varianten", "keine-varianten"]
     allowedChoicesAttributes = {
         "Vorteil" : ["name", "wert", "kommentar"],
-        "Talent" : ["name"],
+        "Talent" : ["name", "wert", "kommentar"],
         "Fertigkeit" : ["name", "wert"],
         "Übernatürliche-Fertigkeit" : ["name", "wert"],
         "Freie-Fertigkeit" : ["name", "wert"],

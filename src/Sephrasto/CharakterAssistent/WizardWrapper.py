@@ -171,15 +171,14 @@ class WizardWrapper(object):
         Wolke.Char.kurzbeschreibung = "Geschlecht: " + geschlecht
         Wolke.Char.geschlecht = geschlecht
 
+        # First add selected SKP
         if self.ui.cbSpezies.currentText() != "Überspringen":
             spezies = self.spezies[self.ui.cbSpezies.currentIndex()-1]
             CharakterMerger.xmlLesen(spezies.path, True, False)
-            CharakterMerger.handleChoices(spezies, geschlecht, True, False, False)
 
         if self.ui.cbKultur.currentText() != "Überspringen":
             kultur = self.kulturen[self.ui.cbKultur.currentIndex()-1]
             CharakterMerger.xmlLesen(kultur.path, False, True)
-            CharakterMerger.handleChoices(kultur, geschlecht, False, True, False)
 
         if self.ui.cbProfessionKategorie.currentText() != "Überspringen":
             professionKategorie = regeln.professionen[self.ui.cbProfessionKategorie.currentText()]
@@ -187,6 +186,21 @@ class WizardWrapper(object):
             if self.ui.cbProfession.currentText() != "Überspringen":
                 profession = self.professionen[self.ui.cbProfession.currentIndex()-1]
                 CharakterMerger.xmlLesen(profession.path, False, False)
+
+        # Handle choices afterwards so EP spent can be displayed accurately
+        if self.ui.cbSpezies.currentText() != "Überspringen":
+            spezies = self.spezies[self.ui.cbSpezies.currentIndex()-1]
+            CharakterMerger.handleChoices(spezies, geschlecht, True, False, False)
+
+        if self.ui.cbKultur.currentText() != "Überspringen":
+            kultur = self.kulturen[self.ui.cbKultur.currentIndex()-1]
+            CharakterMerger.handleChoices(kultur, geschlecht, False, True, False)
+
+        if self.ui.cbProfessionKategorie.currentText() != "Überspringen":
+            professionKategorie = regeln.professionen[self.ui.cbProfessionKategorie.currentText()]
+
+            if self.ui.cbProfession.currentText() != "Überspringen":
+                profession = self.professionen[self.ui.cbProfession.currentIndex()-1]
                 CharakterMerger.handleChoices(profession, geschlecht, False, False, True)
 
         Wolke.Char.aktualisieren()

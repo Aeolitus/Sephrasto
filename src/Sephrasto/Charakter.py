@@ -651,8 +651,7 @@ class Char():
         #Erster Block ist gratis
         #Zweiter Block: Attribute und Abgeleitetes
         for key in Definitionen.Attribute:
-            val = sum(range(self.attribute[key].wert+1)) *\
-                        self.attribute[key].steigerungsfaktor
+            val = sum(range(self.attribute[key].wert+1)) * self.attribute[key].steigerungsfaktor
             spent += EventBus.applyFilter("attribut_kosten", val, { "charakter" : self, "attribut" : key, "wert" : self.attribute[key].wert })
 
         val = sum(range(self.asp.wert+1))*self.asp.steigerungsfaktor
@@ -681,8 +680,7 @@ class Char():
         self.EP_FreieFertigkeiten = 0
         paidTalents = []
         for fer in self.fertigkeiten:
-            val = sum(range(self.fertigkeiten[fer].wert+1))*\
-                        self.fertigkeiten[fer].steigerungsfaktor
+            val = sum(range(self.fertigkeiten[fer].wert+1)) * self.fertigkeiten[fer].steigerungsfaktor
             spent += val
             self.EP_Fertigkeiten += val
             for tal in self.fertigkeiten[fer].gekaufteTalente:
@@ -711,8 +709,7 @@ class Char():
         self.EP_Uebernatuerlich = 0
         self.EP_Uebernatuerlich_Talente = 0
         for fer in self.übernatürlicheFertigkeiten:
-            val = sum(range(self.übernatürlicheFertigkeiten[fer].wert+1))*\
-                        self.übernatürlicheFertigkeiten[fer].steigerungsfaktor
+            val = sum(range(self.übernatürlicheFertigkeiten[fer].wert+1)) * self.übernatürlicheFertigkeiten[fer].steigerungsfaktor
             spent += val
             self.EP_Uebernatuerlich += val
             for tal in self.übernatürlicheFertigkeiten[fer].gekaufteTalente:
@@ -727,8 +724,8 @@ class Char():
         höchsteKampffert = self.getHöchsteKampffertigkeit()
         if höchsteKampffert is not None:
             val = max(0, 2*sum(range(höchsteKampffert.wert+1)))
-        spent += val
-        self.EP_Fertigkeiten += val
+            spent += val
+            self.EP_Fertigkeiten += val
         #Store
         self.EPspent = spent
 
@@ -747,8 +744,7 @@ class Char():
                         continue
                     else:
                         self.minderpakt = None
-                if not self.voraussetzungenPrüfen(Wolke.DB.vorteile[vor]\
-                                                  .voraussetzungen):
+                if not self.voraussetzungenPrüfen(Wolke.DB.vorteile[vor].voraussetzungen):
                     remove.append(vor)
                     contFlag = False
             for el in remove:
@@ -857,13 +853,9 @@ class Char():
         root = etree.Element('Charakter')
 
         versionXml = etree.SubElement(root, 'Version')
-        etree.SubElement(versionXml, 'DatenbankVersion').text = \
-            str(self.datenbankCodeVersion)
-        etree.SubElement(versionXml, 'NutzerDatenbankCRC').text = \
-            str(binascii.crc32(etree.tostring(Wolke.DB.userDbXml))) if \
-            Wolke.DB.userDbXml is not None else "0"
-        etree.SubElement(versionXml, 'NutzerDatenbankName').text = \
-            os.path.basename(Wolke.DB.datei) if Wolke.DB.datei else ""
+        etree.SubElement(versionXml, 'DatenbankVersion').text = str(self.datenbankCodeVersion)
+        etree.SubElement(versionXml, 'NutzerDatenbankCRC').text = str(binascii.crc32(etree.tostring(Wolke.DB.userDbXml))) if Wolke.DB.userDbXml is not None else "0"
+        etree.SubElement(versionXml, 'NutzerDatenbankName').text = os.path.basename(Wolke.DB.datei) if Wolke.DB.datei else ""
         etree.SubElement(versionXml, 'Plugins').text = ",".join(self.enabledPlugins)
 
         #Erster Block

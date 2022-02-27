@@ -26,6 +26,16 @@ class Ui_formMain(object):
         self.gridLayout.setObjectName("gridLayout")
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.label = QtWidgets.QLabel(formMain)
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
+        self.horizontalLayout_3.addWidget(self.label)
+        self.labelEP = QtWidgets.QLabel(formMain)
+        self.labelEP.setObjectName("labelEP")
+        self.horizontalLayout_3.addWidget(self.labelEP)
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_3.addItem(spacerItem)
         self.buttonBox = QtWidgets.QDialogButtonBox(formMain)
@@ -47,6 +57,8 @@ class Ui_formMain(object):
     def retranslateUi(self, formMain):
         _translate = QtCore.QCoreApplication.translate
         formMain.setWindowTitle(_translate("formMain", "Triff deine Auswahl"))
+        self.label.setText(_translate("formMain", "EP ausgegeben:"))
+        self.labelEP.setText(_translate("formMain", "200"))
 
 
 if __name__ == "__main__":
