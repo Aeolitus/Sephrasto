@@ -67,7 +67,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
 
         temp = [el for el in Wolke.DB.übernatürlicheFertigkeiten 
                 if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.übernatürlicheFertigkeiten[el].voraussetzungen)]
-        if temp != self.availableFerts:
+        if temp == self.availableFerts:
             self.availableFerts = temp
 
             # sort by printclass, then by name
@@ -135,17 +135,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
     
             count = 0
             
-            #Remove Abilities for which the conditions are not met
-            for el in Wolke.Char.übernatürlicheFertigkeiten:
-                if el not in self.availableFerts:
-                    Wolke.Char.übernatürlicheFertigkeiten.pop(el,None)
-            
             for el in self.availableFerts:
-                #Add abilities that werent there before
-                if el not in Wolke.Char.übernatürlicheFertigkeiten:
-                    Wolke.Char.übernatürlicheFertigkeiten.update({el: Wolke.DB.übernatürlicheFertigkeiten[el].__deepcopy__()})
-                    Wolke.Char.übernatürlicheFertigkeiten[el].wert = 0
-                    Wolke.Char.übernatürlicheFertigkeiten[el].addToPDF = False
                 fert = Wolke.Char.übernatürlicheFertigkeiten[el]
                 fert.aktualisieren(Wolke.Char.attribute)
 
@@ -258,65 +248,68 @@ class UebernatuerlichWrapper(QtCore.QObject):
         self.editTalents()
         
     def updateInfo(self):
-        if self.currentFertName != "":
-            if self.currentFertName not in Wolke.Char.übernatürlicheFertigkeiten:
-                self.currentFertName = ""
-                self.uiFert.labelFertigkeit.setText("Fertigkeit")
-                self.uiFert.labelAttribute.setText("Attribute")
-                self.uiFert.spinSF.setValue(0)
-                self.uiFert.spinBasis.setValue(0)
-                self.uiFert.spinFW.setMaximum(0)
-                self.uiFert.spinFW.setValue(0)
-                self.uiFert.spinPW.setValue(0)
-                self.uiFert.plainText.setPlainText("")
-                self.uiFert.labelKategorie.setText("")
-                self.model.clear()
-                return
-            self.currentlyLoading = True
-            fert = Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName]
-            fert.aktualisieren(Wolke.Char.attribute)
-            self.uiFert.labelFertigkeit.setText(self.currentFertName)
-            self.uiFert.labelAttribute.setText(fert.attribute[0] + "/" 
-                                               + fert.attribute[1] + "/" 
-                                               + fert.attribute[2])
-            self.uiFert.spinSF.setValue(fert.steigerungsfaktor)
-            self.uiFert.spinBasis.setValue(fert.basiswert)
-            self.uiFert.spinFW.setMaximum(fert.maxWert)
-            self.spinRef[self.currentFertName].setMaximum(fert.maxWert)
-            self.uiFert.spinFW.setValue(fert.wert)
-            self.uiFert.spinPW.setValue(fert.probenwertTalent)
-            self.uiFert.plainText.setPlainText(fert.text)
-            fertigkeitTypen = Wolke.DB.einstellungen["Fertigkeiten: Typen übernatürlich"].toTextList()
-            self.uiFert.labelKategorie.setText(fertigkeitTypen[fert.printclass])
-            self.updateTalents()
-            self.currentlyLoading = False
+        if self.currentFertName == "":
+            return
+        if self.currentFertName not in Wolke.Char.übernatürlicheFertigkeiten:
+            self.currentFertName = ""
+            self.uiFert.labelFertigkeit.setText("Fertigkeit")
+            self.uiFert.labelAttribute.setText("Attribute")
+            self.uiFert.spinSF.setValue(0)
+            self.uiFert.spinBasis.setValue(0)
+            self.uiFert.spinFW.setMaximum(0)
+            self.uiFert.spinFW.setValue(0)
+            self.uiFert.spinPW.setValue(0)
+            self.uiFert.plainText.setPlainText("")
+            self.uiFert.labelKategorie.setText("")
+            self.model.clear()
+            return
+        self.currentlyLoading = True
+        fert = Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName]
+        fert.aktualisieren(Wolke.Char.attribute)
+        self.uiFert.labelFertigkeit.setText(self.currentFertName)
+        self.uiFert.labelAttribute.setText(fert.attribute[0] + "/" 
+                                            + fert.attribute[1] + "/" 
+                                            + fert.attribute[2])
+        self.uiFert.spinSF.setValue(fert.steigerungsfaktor)
+        self.uiFert.spinBasis.setValue(fert.basiswert)
+        self.uiFert.spinFW.setMaximum(fert.maxWert)
+        self.spinRef[self.currentFertName].setMaximum(fert.maxWert)
+        self.uiFert.spinFW.setValue(fert.wert)
+        self.uiFert.spinPW.setValue(fert.probenwertTalent)
+        self.uiFert.plainText.setPlainText(fert.text)
+        fertigkeitTypen = Wolke.DB.einstellungen["Fertigkeiten: Typen übernatürlich"].toTextList()
+        self.uiFert.labelKategorie.setText(fertigkeitTypen[fert.printclass])
+        self.updateTalents()
+        self.currentlyLoading = False
         
     def updateTalents(self):
-        if self.currentFertName != "":
-            self.model.clear()
-            fert = Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName]
-            for el in fert.gekaufteTalente:
-                talStr = Wolke.DB.talente[el].getFullName(Wolke.Char).replace(self.currentFertName + ": ", "")
-                costStr = ""
-                if not el in Wolke.Char.talenteVariable:
-                    costStr = " (" + str(Wolke.Char.getTalentCost(el, fert.steigerungsfaktor)) + " EP)"
-                item = QtGui.QStandardItem(talStr + costStr)
-                item.setEditable(False)
-                item.setSelectable(False)
-                self.model.appendRow(item)
-            self.uiFert.listTalente.setMaximumHeight(max(len(fert.gekaufteTalente), 1) * self.uiFert.listTalente.sizeHintForRow(0) +\
-               self.uiFert.listTalente.contentsMargins().top() +\
-               self.uiFert.listTalente.contentsMargins().bottom() +\
-               self.uiFert.listTalente.spacing())
-            self.updateTalentRow()
+        if self.currentFertName == "":
+            return
+        self.model.clear()
+        fert = Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName]
+        for el in fert.gekaufteTalente:
+            talStr = Wolke.DB.talente[el].getFullName(Wolke.Char).replace(self.currentFertName + ": ", "")
+            costStr = ""
+            if not el in Wolke.Char.talenteVariable:
+                costStr = " (" + str(Wolke.Char.getTalentCost(el, fert.steigerungsfaktor)) + " EP)"
+            item = QtGui.QStandardItem(talStr + costStr)
+            item.setEditable(False)
+            item.setSelectable(False)
+            self.model.appendRow(item)
+        self.uiFert.listTalente.setMaximumHeight(max(len(fert.gekaufteTalente), 1) * self.uiFert.listTalente.sizeHintForRow(0) +\
+            self.uiFert.listTalente.contentsMargins().top() +\
+            self.uiFert.listTalente.contentsMargins().bottom() +\
+            self.uiFert.listTalente.spacing())
+        self.updateTalentRow()
         
     def editTalents(self):
-        if self.currentFertName != "":
-            tal = TalentPicker.TalentPicker(self.currentFertName, True)
-            self.updateAddToPDF()
-            if tal.gekaufteTalente is not None:
-                self.modified.emit()
-                self.updateTalents()
+        if self.currentFertName == "":
+            return
+        tal = TalentPicker.TalentPicker(self.currentFertName, True)
+        self.updateAddToPDF()
+        if tal.gekaufteTalente is not None:
+            self.modified.emit()
+            self.updateTalents()
                 
     def updateTalentRow(self):
         for i in range(self.uiFert.tableWidget.rowCount()):
@@ -324,9 +317,10 @@ class UebernatuerlichWrapper(QtCore.QObject):
             self.labelRef[fert].setText(str(len(Wolke.Char.übernatürlicheFertigkeiten[fert].gekaufteTalente)))
 
     def updateAddToPDF(self):
-        if self.currentFertName != "":
-            fert = Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName]
-            add = len(fert.gekaufteTalente) > 0 and fert.wert > 0
-            fert.addToPDF = add
-            self.pdfRef[self.currentFertName].setChecked(add)
+        if self.currentFertName == "":
+            return
+        fert = Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName]
+        add = len(fert.gekaufteTalente) > 0 and fert.wert > 0
+        fert.addToPDF = add
+        self.pdfRef[self.currentFertName].setChecked(add)
             

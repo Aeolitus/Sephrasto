@@ -550,8 +550,8 @@ class Char():
             self.schips -= (2-self.finanzen)*2
 
         self.updateVorts()
-        self.updateFertigkeiten(self.fertigkeiten)
-        self.updateFertigkeiten(self.übernatürlicheFertigkeiten)
+        self.updateFertigkeiten(self.fertigkeiten, Wolke.DB.fertigkeiten)
+        self.updateFertigkeiten(self.übernatürlicheFertigkeiten, Wolke.DB.übernatürlicheFertigkeiten)
         self.updateWaffenwerte()
 
         EventBus.doAction("post_charakter_aktualisieren", { "charakter" : self })
@@ -798,7 +798,7 @@ class Char():
                 höchste = fert
         return höchste
 
-    def updateFertigkeiten(self, fertigkeiten):
+    def updateFertigkeiten(self, fertigkeiten, alleFertigkeiten):
         '''
         Similar to updateVorts, this removes all Fertigkeiten for which the
         requirements are no longer met until all are removed. Furthermore, all
@@ -822,6 +822,14 @@ class Char():
             if contFlag:
                 break
 
+        # Add missing Fertigkeiten
+        for name, fert in alleFertigkeiten.items():
+            if name in fertigkeiten:
+                continue
+            if self.voraussetzungenPrüfen(fert.voraussetzungen):
+                fertigkeiten.update({name : fert.__deepcopy__()})
+
+        # Update fertigkeiten and add keep talente with multiple fertigkeiten consistent
         talente = set()
         for fert in fertigkeiten.values():
             fert.aktualisieren(self.attribute)
@@ -1246,6 +1254,8 @@ class Char():
             fert.wert = int(fer.attrib['wert'])
             if 'addToPDF' in fer.attrib:
                 fert.addToPDF = fer.attrib['addToPDF'] == "True"
+            else:
+                fert.addToPDF = True # should stay enabled for old characters
             for tal in fer.findall('Talente/Talent'):
                 nam = tal.attrib['name']
                 if not nam in Wolke.DB.talente:

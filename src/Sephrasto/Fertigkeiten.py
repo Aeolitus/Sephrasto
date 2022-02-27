@@ -93,7 +93,7 @@ class Fertigkeit(Steigerbar):
         self.printclass = -1
         self.talenteGruppieren = False
         self.isUserAdded = True
-        self.addToPDF = True
+        self.addToPDF = False
 
     def aktualisieren(self, attribute):
         self.attributswerte = [attribute[self.attribute[0]].wert, 

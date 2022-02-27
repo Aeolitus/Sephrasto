@@ -155,19 +155,10 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
             self.uiFert.tableWidget.setHorizontalHeaderItem(5, item)
     
             count = 0
-            
-            #Remove Abilities for which the conditions are not met
-            for el in Wolke.Char.fertigkeiten:
-                if el not in self.availableFerts:
-                    Wolke.Char.fertigkeiten.pop(el,None)
-            
+
             self.nahkampfFerts = []
 
             for el in self.availableFerts:
-                #Add abilities that werent there before
-                if el not in Wolke.Char.fertigkeiten:
-                    Wolke.Char.fertigkeiten.update({el: Wolke.DB.fertigkeiten[el].__deepcopy__()})
-                    Wolke.Char.fertigkeiten[el].wert = 0
                 fert = Wolke.Char.fertigkeiten[el]
                 fert.aktualisieren(Wolke.Char.attribute)
 
@@ -294,67 +285,68 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         self.editTalents()
         
     def updateInfo(self):
-        if self.currentFertName != "":
-            if self.currentFertName not in Wolke.Char.fertigkeiten:
-                self.currentFertName = ""
-                self.uiFert.labelFertigkeit.setText("Fertigkeit")
-                self.uiFert.labelAttribute.setText("Attribute")
-                self.uiFert.spinSF.setValue(0)
-                self.uiFert.spinBasis.setValue(0)
-                self.uiFert.spinFW.setMaximum(0)
-                self.uiFert.spinFW.setValue(0)
-                self.uiFert.spinPW.setValue(0)
-                self.uiFert.spinPWT.setValue(0)
-                self.uiFert.plainText.setPlainText("")
-                self.uiFert.labelKategorie.setText("")
-                self.model.clear()
-                return
-            self.currentlyLoading = True
-            fert = Wolke.Char.fertigkeiten[self.currentFertName]
-            fert.aktualisieren(Wolke.Char.attribute)
-            self.uiFert.labelFertigkeit.setText(self.currentFertName)
-            self.uiFert.labelAttribute.setText(fert.attribute[0] + "/" 
-                                               + fert.attribute[1] + "/" 
-                                               + fert.attribute[2])
-            if fert == Wolke.Char.getHöchsteKampffertigkeit():
-                self.uiFert.spinSF.setValue(4)
-            else:
-                self.uiFert.spinSF.setValue(fert.steigerungsfaktor)
-            self.uiFert.spinBasis.setValue(fert.basiswert)
-            self.uiFert.spinFW.setMaximum(fert.maxWert)
-            self.spinRef[self.currentFertName].setMaximum(fert.maxWert)
-            self.uiFert.spinFW.setValue(fert.wert)
-            self.uiFert.spinPW.setValue(fert.probenwert)
-            self.uiFert.spinPWT.setValue(fert.probenwertTalent)
-            self.uiFert.plainText.setPlainText(fert.text)
-            fertigkeitTypen = Wolke.DB.einstellungen["Fertigkeiten: Typen profan"].toTextList()
-            self.uiFert.labelKategorie.setText(fertigkeitTypen[fert.printclass])
-            self.updateTalents()
-            self.currentlyLoading = False
+        if self.currentFertName == "":
+            return
+        if self.currentFertName not in Wolke.Char.fertigkeiten:
+            self.currentFertName = ""
+            self.uiFert.labelFertigkeit.setText("Fertigkeit")
+            self.uiFert.labelAttribute.setText("Attribute")
+            self.uiFert.spinSF.setValue(0)
+            self.uiFert.spinBasis.setValue(0)
+            self.uiFert.spinFW.setMaximum(0)
+            self.uiFert.spinFW.setValue(0)
+            self.uiFert.spinPW.setValue(0)
+            self.uiFert.spinPWT.setValue(0)
+            self.uiFert.plainText.setPlainText("")
+            self.uiFert.labelKategorie.setText("")
+            self.model.clear()
+            return
+        self.currentlyLoading = True
+        fert = Wolke.Char.fertigkeiten[self.currentFertName]
+        fert.aktualisieren(Wolke.Char.attribute)
+        self.uiFert.labelFertigkeit.setText(self.currentFertName)
+        self.uiFert.labelAttribute.setText(fert.attribute[0] + "/" + fert.attribute[1] + "/" + fert.attribute[2])
+        if fert == Wolke.Char.getHöchsteKampffertigkeit():
+            self.uiFert.spinSF.setValue(4)
+        else:
+            self.uiFert.spinSF.setValue(fert.steigerungsfaktor)
+        self.uiFert.spinBasis.setValue(fert.basiswert)
+        self.uiFert.spinFW.setMaximum(fert.maxWert)
+        self.spinRef[self.currentFertName].setMaximum(fert.maxWert)
+        self.uiFert.spinFW.setValue(fert.wert)
+        self.uiFert.spinPW.setValue(fert.probenwert)
+        self.uiFert.spinPWT.setValue(fert.probenwertTalent)
+        self.uiFert.plainText.setPlainText(fert.text)
+        fertigkeitTypen = Wolke.DB.einstellungen["Fertigkeiten: Typen profan"].toTextList()
+        self.uiFert.labelKategorie.setText(fertigkeitTypen[fert.printclass])
+        self.updateTalents()
+        self.currentlyLoading = False
         
     def updateTalents(self):
-        if self.currentFertName != "":
-            self.model.clear()
-            talente = Wolke.Char.fertigkeiten[self.currentFertName].gekaufteTalente
-            for el in talente:
-                talStr = Wolke.DB.talente[el].getFullName(Wolke.Char).replace(self.currentFertName + ": ", "")
-                item = QtGui.QStandardItem(talStr)
-                item.setEditable(False)
-                item.setSelectable(False)
-                self.model.appendRow(item)
-            self.uiFert.listTalente.setMaximumHeight(max(len(talente), 1) * self.uiFert.listTalente.sizeHintForRow(0) +\
-               self.uiFert.listTalente.contentsMargins().top() +\
-               self.uiFert.listTalente.contentsMargins().bottom() +\
-               self.uiFert.listTalente.spacing())
-            self.uiFert.scrollAreaWidgetContents.layout().update()
-            self.updateTalentRow()
+        if self.currentFertName == "":
+            return
+        self.model.clear()
+        talente = Wolke.Char.fertigkeiten[self.currentFertName].gekaufteTalente
+        for el in talente:
+            talStr = Wolke.DB.talente[el].getFullName(Wolke.Char).replace(self.currentFertName + ": ", "")
+            item = QtGui.QStandardItem(talStr)
+            item.setEditable(False)
+            item.setSelectable(False)
+            self.model.appendRow(item)
+        self.uiFert.listTalente.setMaximumHeight(max(len(talente), 1) * self.uiFert.listTalente.sizeHintForRow(0) +\
+            self.uiFert.listTalente.contentsMargins().top() +\
+            self.uiFert.listTalente.contentsMargins().bottom() +\
+            self.uiFert.listTalente.spacing())
+        self.uiFert.scrollAreaWidgetContents.layout().update()
+        self.updateTalentRow()
 
     def editTalents(self):
-        if self.currentFertName != "":
-            tal = TalentPicker.TalentPicker(self.currentFertName, False)
-            if tal.gekaufteTalente is not None:
-                self.modified.emit()
-                self.updateTalents()
+        if self.currentFertName == "":
+            return
+        tal = TalentPicker.TalentPicker(self.currentFertName, False)
+        if tal.gekaufteTalente is not None:
+            self.modified.emit()
+            self.updateTalents()
 
     def updateTalentRow(self):
         for i in range(self.uiFert.tableWidget.rowCount()):
