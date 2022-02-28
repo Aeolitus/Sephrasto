@@ -271,20 +271,8 @@ Versuchs doch bitte nochmal mit einer anderen Zieldatei.")
         if self.savepath == "":
             self.saveButton()
         else:
-            try:
-                Wolke.Char.xmlSchreiben(self.savepath)
-            except Exception as e:
-                logging.error("Sephrasto Fehlercode " + str(Wolke.Fehlercode) + ". Exception: " + str(e))
-                infoBox = QtWidgets.QMessageBox()
-                infoBox.setIcon(QtWidgets.QMessageBox.Information)
-                infoBox.setText("Speichern des Charakters fehlgeschlagen!")
-                infoBox.setInformativeText("Beim Speichern des Charakters ist ein Fehler aufgetreten!\n\
-Fehlercode: " + str(Wolke.Fehlercode) + "\n\
-Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
-                infoBox.setWindowTitle("Charakter speichern fehlgeschlagen.")
-                infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-                infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-                infoBox.exec_()
+            Wolke.Char.xmlSchreiben(self.savepath)
+
         self.changed = False
 
 
@@ -373,19 +361,5 @@ Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
             self.pdfMeister.pdfErstellen(spath, Wolke.Char.regelnAnhaengen, self.pdfMeisterProgressCallback)
             self.showProgressBar(False)
         except Exception as e:
-            logging.error("Sephrasto Fehlercode " + str(Wolke.Fehlercode) + ". Exception: " + str(e))
             self.showProgressBar(False)
-            self.ui.tabs.setEnabled(True)
-            self.ui.buttonQuicksave.setVisible(True)
-            self.ui.buttonSave.setVisible(True)
-            self.ui.buttonSavePDF.setVisible(True)
-            infoBox = QtWidgets.QMessageBox()
-            infoBox.setIcon(QtWidgets.QMessageBox.Information)
-            infoBox.setText("PDF-Erstellung fehlgeschlagen!")
-            infoBox.setInformativeText("Beim Erstellen des Charakterbogens ist ein Fehler aufgetreten.\n\
-Fehlercode: " + str(Wolke.Fehlercode) + "\n\
-Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
-            infoBox.setWindowTitle("PDF-Erstellung fehlgeschlagen.")
-            infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-            infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-            infoBox.exec_()
+            raise e

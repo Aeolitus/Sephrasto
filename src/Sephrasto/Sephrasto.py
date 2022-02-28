@@ -181,39 +181,20 @@ class MainWindowWrapper(object):
             return
         if not spath.endswith(".xml"):
             spath = spath + ".xml"
-        try:
-            EventBus.doAction("charaktereditor_oeffnet", { "neu" : False, "filepath" : spath })
-            self.ed = CharakterEditor.Editor(self._plugins, self.savePathUpdated, spath)
-        except Exception as e:
-            logging.error("Sephrasto Fehlercode " + str(Wolke.Fehlercode) + ". Exception: " + str(e))
-            infoBox = QtWidgets.QMessageBox()
-            infoBox.setIcon(QtWidgets.QMessageBox.Information)
-            if Wolke.Fehlercode <= -40 and Wolke.Fehlercode > -80:
-                infoBox.setText("Charakterdatei öffnen fehlgeschlagen")
-                infoBox.setInformativeText("Die XML-Datei konnte nicht gelesen werden.\n\
-Fehlercode: " + str(Wolke.Fehlercode) + "\n\
-Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
-                infoBox.setWindowTitle("Fehlerhafte Datei")
-            else:
-                infoBox.setText("Ein unerwarteter Fehler ist aufgetreten!")
-                infoBox.setInformativeText("Ein Fehler ist aufgetreten. Versuche, Sephrasto neu zu starten?\n\
-Fehlercode: " + str(Wolke.Fehlercode) + "\n")
-                infoBox.setWindowTitle("Unbekannter Fehler")
-            infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-            infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-            infoBox.exec_()
-        else:
-            if self.ed.noDatabase:
-                raise Exception("Konnte datenbank.xml nicht finden")
-            self.ed.formMain = QtWidgets.QWidget()
-            self.ed.ui = UI.CharakterMain.Ui_formMain()
-            self.ed.ui.setupUi(self.ed.formMain)
-            self.ed.ui.tabs.removeTab(0)
-            self.ed.ui.tabs.removeTab(0)
-            self.ed.setupMainForm()
-            self.savePathUpdated()
-            self.ed.formMain.show()
-            EventBus.doAction("charaktereditor_geoeffnet", { "neu" : False, "filepath" : spath })
+
+        EventBus.doAction("charaktereditor_oeffnet", { "neu" : False, "filepath" : spath })
+        self.ed = CharakterEditor.Editor(self._plugins, self.savePathUpdated, spath)
+        if self.ed.noDatabase:
+            raise Exception("Konnte datenbank.xml nicht finden")
+        self.ed.formMain = QtWidgets.QWidget()
+        self.ed.ui = UI.CharakterMain.Ui_formMain()
+        self.ed.ui.setupUi(self.ed.formMain)
+        self.ed.ui.tabs.removeTab(0)
+        self.ed.ui.tabs.removeTab(0)
+        self.ed.setupMainForm()
+        self.savePathUpdated()
+        self.ed.formMain.show()
+        EventBus.doAction("charaktereditor_geoeffnet", { "neu" : False, "filepath" : spath })
         
     def editRuleset(self):
         '''

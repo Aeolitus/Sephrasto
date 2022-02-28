@@ -57,13 +57,11 @@ class Datenbank():
         self.xmlLaden()              
 
     def xmlSchreiben(self):
-        Wolke.Fehlercode = -26
         root = etree.Element('Datenbank')
         
         etree.SubElement(root, 'Version').text = str(self.datenbankCodeVersion)
 
         #Vorteile
-        Wolke.Fehlercode = -27
         for vort in self.vorteile:
             vorteil = self.vorteile[vort]
             if not vorteil.isUserAdded: continue
@@ -91,7 +89,6 @@ class Datenbank():
                 v.set('linkElement', vorteil.linkElement)
 
         #Talente
-        Wolke.Fehlercode = -28
         for tal in self.talente:
             talent = self.talente[tal]
             if not talent.isUserAdded: continue
@@ -111,7 +108,6 @@ class Datenbank():
                 v.set('csAuflisten', "0")
             
         #Fertigkeiten
-        Wolke.Fehlercode = -29
         for fer in self.fertigkeiten:
             fertigkeit = self.fertigkeiten[fer]
             if not fertigkeit.isUserAdded: continue
@@ -124,7 +120,6 @@ class Datenbank():
             v.set('printclass',str(fertigkeit.printclass))
             v.text = fertigkeit.text
 
-        Wolke.Fehlercode = -30
         for fer in self.übernatürlicheFertigkeiten:
             fertigkeit = self.übernatürlicheFertigkeiten[fer]
             if not fertigkeit.isUserAdded: continue
@@ -150,7 +145,6 @@ class Datenbank():
             w.text = eigenschaft.text
 
         #Waffen
-        Wolke.Fehlercode = -31
         for wa in self.waffen:
             waffe = self.waffen[wa]
             if not waffe.isUserAdded: continue
@@ -188,7 +182,6 @@ class Datenbank():
             r.text = ruestung.text
 
         #Manöver
-        Wolke.Fehlercode = -34
         for ma in self.manöver:
             manöver = self.manöver[ma]
             if not manöver.isUserAdded: continue
@@ -226,16 +219,12 @@ class Datenbank():
         root = EventBus.applyFilter("datenbank_xml_schreiben", root, { "datenbank" : self })
 
         #Write XML to file
-        Wolke.Fehlercode = -26
         doc = etree.ElementTree(root)
-        Wolke.Fehlercode = -32
         with open(self.datei,'wb') as file:
             file.seek(0)
             file.truncate()
             doc.write(file, encoding='UTF-8', pretty_print=True)
             file.truncate()
-            
-        Wolke.Fehlercode = 0
 
     def xmlLaden(self):
         self.vorteile = {}
@@ -312,7 +301,6 @@ class Datenbank():
                 fe.set('talentegruppieren', '1')
 
     def xmlLadenInternal(self, file, refDB):
-        Wolke.Fehlercode = -20
         root = etree.parse(file).getroot()
 
         if root.tag != 'Datenbank':
@@ -368,7 +356,6 @@ class Datenbank():
                 logging.warn("Found remove entry for non-existant element: " + typ + " " + name)
 
         #Vorteile
-        Wolke.Fehlercode = -21
         vorteilNodes = root.findall('Vorteil')
         for vort in vorteilNodes:
             numLoaded += 1
@@ -409,7 +396,6 @@ class Datenbank():
             self.vorteile.update({V.name: V})
             
         #Talente
-        Wolke.Fehlercode = -22
         talentNodes = root.findall('Talent')
         for tal in talentNodes:
             numLoaded += 1
@@ -440,7 +426,6 @@ class Datenbank():
             self.talente.update({T.name: T})
             
         #Fertigkeiten
-        Wolke.Fehlercode = -23
         fertigkeitNodes = root.findall('Fertigkeit')
         for fer in fertigkeitNodes:
             numLoaded += 1
@@ -463,7 +448,6 @@ class Datenbank():
                     "To fix this warning, delete your change, restore the original and redo your change")
             self.fertigkeiten.update({F.name: F})
 
-        Wolke.Fehlercode = -24
         überFertigkeitNodes = root.findall('Übernatürliche-Fertigkeit')
         for fer in überFertigkeitNodes:
             numLoaded += 1
@@ -508,7 +492,6 @@ class Datenbank():
             self.waffeneigenschaften.update({W.name: W})
 
         #Waffen
-        Wolke.Fehlercode = -25
         for wa in root.findall('Waffe'):
             numLoaded += 1
             if wa.get('fk') == '1':
@@ -560,7 +543,6 @@ class Datenbank():
             self.rüstungen.update({r.name : r})
         
         #Manöver
-        Wolke.Fehlercode = -26
         manöverNodes = root.findall('Manöver')
         for ma in manöverNodes:
             numLoaded += 1
@@ -617,7 +599,6 @@ class Datenbank():
         notifyError = False # For testing of manual db changes
 
         #Vorteile
-        Wolke.Fehlercode = -21
         for vort in vorteilNodes:
             V = self.vorteile[vort.get('name')]
             try:
@@ -629,7 +610,6 @@ class Datenbank():
                 logging.warning(errorStr)
             
         #Talente
-        Wolke.Fehlercode = -22
         for tal in talentNodes:
             T = self.talente[tal.get('name')] 
             try:
@@ -653,7 +633,6 @@ class Datenbank():
                     logging.warning(errorStr)
 
         #Fertigkeiten
-        Wolke.Fehlercode = -23
         for fer in fertigkeitNodes:
             F = self.fertigkeiten[fer.get('name')]
             try:
@@ -664,7 +643,6 @@ class Datenbank():
                     assert False, errorStr
                 logging.warning(errorStr)
 
-        Wolke.Fehlercode = -24
         for fer in überFertigkeitNodes:
             F = self.übernatürlicheFertigkeiten[fer.get('name')]
             try:
@@ -676,7 +654,6 @@ class Datenbank():
                 logging.warning(errorStr)
       
         #Manöver
-        Wolke.Fehlercode = -26
         for ma in manöverNodes:
             m = self.manöver[ma.get('name')]
             try:
@@ -719,12 +696,8 @@ class Datenbank():
                         logging.warning("Error in Voraussetzungen of " + elem.name + ": " + str(e)) 
 
         if numLoaded <1 and refDB:
-            Wolke.Fehlercode = -33
             raise Exception('The selected database file is empty!')
         
-        # Reset 
-        Wolke.Fehlercode = 0
-
         return True
     
     def findKampfstile(self):

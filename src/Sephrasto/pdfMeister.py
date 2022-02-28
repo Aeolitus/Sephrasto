@@ -49,29 +49,20 @@ class pdfMeister(object):
         testing purposes,
         '''
         fields = {}
-        Wolke.Fehlercode = -82
         self.pdfErsterBlock(fields)
-        Wolke.Fehlercode = -83
         self.pdfZweiterBlock(fields)
-        Wolke.Fehlercode = -84
         extraVorteile = self.pdfDritterBlock(fields)
-        Wolke.Fehlercode = -85
         self.pdfVierterBlock(fields)
-        Wolke.Fehlercode = -86
         self.pdfFünfterBlock(fields)
-        Wolke.Fehlercode = -87
         (extraUeber, extraTalente) = self.pdfSechsterBlock(fields)
-        Wolke.Fehlercode = -88
         self.pdfSiebterBlock(fields)
         self.pdfAchterBlock(fields)
-        Wolke.Fehlercode = -99
 
         # Plugins die felder filtern lassen
         fields = EventBus.applyFilter("pdf_export", fields)
         progressCallback(10)
 
         # PDF erstellen - Felder bleiben bearbeitbar
-        Wolke.Fehlercode = -89
         handle, out_file = tempfile.mkstemp()
         os.close(handle)
         allPages = [out_file]
@@ -79,7 +70,6 @@ class pdfMeister(object):
         progressCallback(20)
 
         # Extraseiten
-        Wolke.Fehlercode = -91
         extraPageAdded = False
         if len(extraVorteile) > 0 or len(extraUeber) > 0 or len(extraTalente):
             if not os.path.isfile(self.ExtraPage):
@@ -89,10 +79,8 @@ class pdfMeister(object):
         pageCount = 0
         while len(extraVorteile) > 0 or len(extraUeber) > 0 or len(extraTalente) > 0:
             pageCount += 1
-            Wolke.Fehlercode = -92
             fieldsNew = {}
             self.createExtra(fieldsNew, extraVorteile, extraUeber, extraTalente)
-            Wolke.Fehlercode = -93
 
             handle, out_file = tempfile.mkstemp()
             os.close(handle)
@@ -105,7 +93,6 @@ class pdfMeister(object):
         if not ('Uebervorteil1' in fields) and \
            not ('Ueberfer1NA' in fields) and \
            not ('Uebertal1NA' in fields) and not extraPageAdded:
-            Wolke.Fehlercode = -96
             handle, out_file = tempfile.mkstemp()
             os.close(handle)
             pdf.shrink(allPages[0], 1, self.CharakterBogen.seitenProfan, out_file)
@@ -113,7 +100,6 @@ class pdfMeister(object):
             allPages[0] = out_file
         progressCallback(40)
 
-        Wolke.Fehlercode = -97
         if printRules:
             rules, ruleLineCounts = self.CheatsheetGenerator.prepareRules()
             startIndex = 0
@@ -137,7 +123,6 @@ class pdfMeister(object):
                 progressCallback(min(70, 40 + 3*pageCount))
         progressCallback(70)
 
-        Wolke.Fehlercode = -94
         allPages = self.concatImage(allPages)
         allPages = EventBus.applyFilter("pdf_concat", allPages)
         progressCallback(75)
@@ -145,7 +130,6 @@ class pdfMeister(object):
         pdf.concat(allPages, filename)
         progressCallback(90)
 
-        Wolke.Fehlercode = -95
         for page in allPages:
             os.remove(page)
         progressCallback(95)
@@ -153,12 +137,9 @@ class pdfMeister(object):
         EventBus.doAction("pdf_geschrieben", { "filename" : filename })
         progressCallback(100)
 
-        Wolke.Fehlercode = -98
         #Open PDF with default application:
         if Wolke.Settings['PDF-Open']:
             os.startfile(filename, 'open')
-            
-        Wolke.Fehlercode = 0
 
     def pdfErsterBlock(self, fields):
         logging.debug("PDF Block 1")
@@ -598,7 +579,7 @@ class pdfMeister(object):
         if platform.system() != 'Windows' and which("convert") is None:
             messagebox = QtWidgets.QMessageBox()
             messagebox.setWindowTitle("Kann Charakterbild nicht einfügen")
-            messagebox.setText("Das Einfügen des Charakterbilds benötigt das Programm 'convert' im Systempfad. Installationsdetails gibt es unter https://imagemagick.org.")
+            messagebox.setText("Das Einfügen des Charakterbilds benötigt das Programm 'convert' im Systempfad. Installationsdetails gibt es unter https://imagemagick.org. Der Charakterbogen wird nun ohne das Bild erstellt.")
             messagebox.setIcon(QtWidgets.QMessageBox.Warning)
             messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             messagebox.exec_()
@@ -638,15 +619,26 @@ class pdfMeister(object):
         if platform.system() == 'Windows':
             convertPath = "Bin\\ImageMagick\\convert"
 
-        pdf.check_output_silent(convertPath + " \"" + image_file + "\" -resize 260x340 -gravity Center -extent 260x340 -density 96 "\
-           "-page a2+" + str(self.CharakterBogen.bildOffset[0]) + "+" + str(self.CharakterBogen.bildOffset[1]) + " \"" + image_pdf + "\"")
-        pdf.check_output_silent(['pdftk', page1_pdf, 'stamp', image_pdf, 'output', page1stamped_pdf, 'need_appearances'])
+        try:
+            pdf.check_output_silent(convertPath + " \"" + image_file + "\" -resize 260x340 -gravity Center -extent 260x340 -density 96 "\
+               "-page a2+" + str(self.CharakterBogen.bildOffset[0]) + "+" + str(self.CharakterBogen.bildOffset[1]) + " \"" + image_pdf + "\"")
+            pdf.check_output_silent(['pdftk', page1_pdf, 'stamp', image_pdf, 'output', page1stamped_pdf, 'need_appearances'])
 
-        os.remove(pages[0])
-        os.remove(image_file)
-        os.remove(image_pdf)
-        os.remove(page1_pdf)
+            os.remove(pages[0])
+            os.remove(image_file)
+            os.remove(image_pdf)
+            os.remove(page1_pdf)
 
-        pages[0] = page1stamped_pdf
-        pages.insert(1, pageRest_pdf)
+            pages[0] = page1stamped_pdf
+            pages.insert(1, pageRest_pdf)
+        except Exception as e:
+            messagebox = QtWidgets.QMessageBox()
+            messagebox.setWindowTitle("Kann Charakterbild nicht einfügen")
+            messagebox.setText("Das Einfügen des Charakterbilds ist fehlgeschlagen: " + str(e) + ". Der Charakterbogen wird nun ohne das Bild erstellt.")
+            messagebox.setIcon(QtWidgets.QMessageBox.Warning)
+            messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            messagebox.exec_()
+            return pages
+
+
         return pages
