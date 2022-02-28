@@ -48,9 +48,6 @@ class pdfMeister(object):
         Charakterbogen. It has been broken down into seven subroutines for
         testing purposes,
         '''
-        Wolke.Fehlercode = -80
-        Wolke.Char.aktualisieren()
-        Wolke.Fehlercode = -81
         fields = {}
         Wolke.Fehlercode = -82
         self.pdfErsterBlock(fields)

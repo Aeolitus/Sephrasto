@@ -12,6 +12,17 @@ import logging
 from EinstellungenWrapper import EinstellungenWrapper
 import os
 
+class FocusWatcher(QtCore.QObject):
+    def __init__(self, callback):
+        super().__init__()
+        self.callback = callback
+
+    def eventFilter(self, obje, even):
+        if type(even) == QtGui.QFocusEvent:
+            if not obje.hasFocus():
+                self.callback()
+        return False
+
 class InfoWrapper(QtCore.QObject):
     '''
     Wrapper class for the EP Reference GUI. Contains methods for updating
@@ -60,7 +71,9 @@ class InfoWrapper(QtCore.QObject):
             Wolke.Char.charakterbogen = self.ui.comboCharsheet.itemText(0)
         self.ui.comboCharsheet.currentIndexChanged.connect(self.einstellungenChanged)
         self.ui.comboRegelnGroesse.currentIndexChanged.connect(self.einstellungenChanged)
-        self.ui.teNotiz.textChanged.connect(self.notizChanged)
+
+        self.focusWatcher = FocusWatcher(self.notizChanged)
+        self.ui.teNotiz.installEventFilter(self.focusWatcher)
 
         self.initialHausregeln = Wolke.Char.hausregeln
 
@@ -172,5 +185,7 @@ class InfoWrapper(QtCore.QObject):
     def notizChanged(self):
         if self.currentlyLoading:
             return
-        Wolke.Char.notiz = self.ui.teNotiz.toPlainText()
-        self.modified.emit()
+        
+        if Wolke.Char.notiz != self.ui.teNotiz.toPlainText():
+            Wolke.Char.notiz = self.ui.teNotiz.toPlainText()
+            self.modified.emit()

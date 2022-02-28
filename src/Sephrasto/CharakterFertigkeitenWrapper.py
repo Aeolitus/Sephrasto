@@ -39,17 +39,26 @@ class FertigkeitenWrapper(QtCore.QObject):
             self.ueberWrapper.modified.connect(self.onModified)
             self.uiFert.tabs.addTab(self.ueberWrapper.formFert, "Übernatürliche")
 
-
+        self.uiFert.tabs.currentChanged.connect(self.reload)
         for i in range(self.uiFert.tabs.tabBar().count()):
             self.uiFert.tabs.tabBar().setTabTextColor(i, QtGui.QColor(Wolke.HeadingColor))
         self.uiFert.tabs.setStyleSheet('QTabBar { font-size: ' + str(Wolke.Settings["FontHeadingSize"]) + 'pt; font-family: \"' + Wolke.Settings["FontHeading"] + '\"; }')
 
     def load(self):
-        self.profanWrapper.load()
-        self.freieWrapper.load()
-        self.ueberWrapper.load()
+        self.reload(self.uiFert.tabs.currentIndex())
         if hasattr(self, "ueberWrapper"):
             self.uiFert.tabs.setTabVisible(self.uiFert.tabs.indexOf(self.ueberWrapper.formFert), len(Wolke.Char.übernatürlicheFertigkeiten) > 0)
+
+    def reload(self, idx):
+        if idx == 0:
+            if hasattr(self, "profanWrapper"):
+                self.profanWrapper.load()
+        elif idx == 1:
+            if hasattr(self, "freieWrapper"):
+                self.freieWrapper.load()
+        elif idx == 2:
+            if hasattr(self, "ueberWrapper"):
+                self.ueberWrapper.load()
 
     def update(self):
         self.profanWrapper.update()

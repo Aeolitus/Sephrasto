@@ -11,6 +11,7 @@ import logging
 import copy
 from Hilfsmethoden import Hilfsmethoden
 from EventBus import EventBus
+import Definitionen
 
 class AttrWrapper(QtCore.QObject):
     ''' 
@@ -28,6 +29,15 @@ class AttrWrapper(QtCore.QObject):
         self.uiAttr = UI.CharakterAttribute.Ui_formAttribute()
         self.uiAttr.setupUi(self.formAttr)
 
+        # pre-sort and -filter vorteile to improve performance of tooltip generation
+        self.vorteile = {}
+        for attribut in Definitionen.Attribute:
+            self.vorteile[attribut] = []
+        for vorteil in sorted(Wolke.DB.vorteile.values(), key = lambda v: v.typ):
+            for attribut in Definitionen.Attribute:
+                if Hilfsmethoden.isAttributVoraussetzung(attribut, vorteil.voraussetzungen):
+                    self.vorteile[attribut].append(vorteil)
+
         font = QtGui.QFont(Wolke.Settings["FontHeading"], Wolke.Settings["FontHeadingSize"])
         font.setBold(True)
         self.uiAttr.labelWert.setFont(font)
@@ -44,20 +54,15 @@ class AttrWrapper(QtCore.QObject):
         #Signals
         self.uiAttr.spinAsP.valueChanged.connect(self.update)
         self.uiAttr.spinKaP.valueChanged.connect(self.update)
-        self.uiAttr.spinKO.valueChanged.connect(self.refresh)
-        self.uiAttr.spinMU.valueChanged.connect(self.refresh)
-        self.uiAttr.spinIN.valueChanged.connect(self.refresh)
-        self.uiAttr.spinGE.valueChanged.connect(self.refresh)
-        self.uiAttr.spinKK.valueChanged.connect(self.refresh)
-        self.uiAttr.spinFF.valueChanged.connect(self.refresh)
-        self.uiAttr.spinKL.valueChanged.connect(self.refresh)
-        self.uiAttr.spinCH.valueChanged.connect(self.refresh)
+        self.uiAttr.spinKO.valueChanged.connect(self.update)
+        self.uiAttr.spinMU.valueChanged.connect(self.update)
+        self.uiAttr.spinIN.valueChanged.connect(self.update)
+        self.uiAttr.spinGE.valueChanged.connect(self.update)
+        self.uiAttr.spinKK.valueChanged.connect(self.update)
+        self.uiAttr.spinFF.valueChanged.connect(self.update)
+        self.uiAttr.spinKL.valueChanged.connect(self.update)
+        self.uiAttr.spinCH.valueChanged.connect(self.update)
         self.currentlyLoading = False
-        
-    def refresh(self):
-        ''' The calculation of values is done by the Attribut objects, so we 
-        first update them with the current value, and then set the PW's. '''
-        self.update()
      
     def updateTooltip(self, attribut, uiElement):
         attribute = copy.deepcopy(Wolke.Char.attribute)
@@ -97,7 +102,7 @@ class AttrWrapper(QtCore.QObject):
             abgeleitetNew.append("Durchhaltevermögen " + ("+" if dhBasis > 0 else "") + str(dhBasis))
 
         vortNew = []
-        for vort in sorted(Wolke.DB.vorteile.values(), key = lambda v: v.typ):
+        for vort in self.vorteile[attribut]:
             if vort.name in Wolke.Char.vorteile:
                 continue
             elif Hilfsmethoden.voraussetzungenPrüfen(Wolke.Char.vorteile, Wolke.Char.waffen, Wolke.Char.attribute,  Wolke.Char.übernatürlicheFertigkeiten, Wolke.Char.fertigkeiten, vort.voraussetzungen):
@@ -210,7 +215,6 @@ class AttrWrapper(QtCore.QObject):
         self.updateDerivedValues()
 
         if changed:
-            Wolke.Char.aktualisieren()
             self.modified.emit()
         
     def getSteigerungskostenAsP(self):

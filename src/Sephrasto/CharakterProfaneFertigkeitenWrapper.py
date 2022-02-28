@@ -248,7 +248,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
             return
         if self.currentFertName == "":
             return
-
+        self.currentlyLoading = True
         if flag:
             val = self.spinRef[self.currentFertName].value()
         else:
@@ -278,6 +278,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         self.labelRef[self.currentFertName + "PWT"].setText(str(fert.probenwertTalent))
 
         self.modified.emit()
+        self.currentlyLoading = False
     
     def spinnerClicked(self, fert):
         if not self.currentlyLoading:

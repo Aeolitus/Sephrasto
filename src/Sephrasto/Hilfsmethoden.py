@@ -353,6 +353,20 @@ class Hilfsmethoden:
             return retNor
 
     @staticmethod
+    def isAttributVoraussetzung(attribut, voraussetzungen):
+        for voraus in voraussetzungen:
+            if type(voraus) is list:
+                if Hilfsmethoden.isAttributVoraussetzung(attribut, voraus):
+                    return True
+            else: 
+                delim = "~"
+                arr = re.split(delim, voraus, re.UNICODE)
+                if arr[0] == 'A' or arr[0] == 'M':
+                    if arr[1] == attribut:
+                        return True
+        return False
+
+    @staticmethod
     def AttrArray2Str(AttrArray, Datenbank = None):
         if len(AttrArray) != 3:
             return ""

@@ -29,7 +29,7 @@ class EquipWrapper(QtCore.QObject):
         self.uiEq.setupUi(self.formEq)
         logging.debug("UI Setup...")
 
-        self.uiEq.tabWidget.currentChanged.connect(self.load)
+        self.uiEq.tabWidget.currentChanged.connect(self.reload)
         for i in range(self.uiEq.tabWidget.tabBar().count()):
             self.uiEq.tabWidget.tabBar().setTabTextColor(i, QtGui.QColor(Wolke.HeadingColor))
         self.uiEq.tabWidget.setStyleSheet('QTabBar { font-size: ' + str(Wolke.Settings["FontHeadingSize"]) + 'pt; font-family: \"' + Wolke.Settings["FontHeading"] + '\"; }')
@@ -228,7 +228,6 @@ class EquipWrapper(QtCore.QObject):
             changed = True
 
         if changed:
-            Wolke.Char.aktualisieren()
             self.modified.emit()
 
     def updateWeaponStats(self):
@@ -242,7 +241,6 @@ class EquipWrapper(QtCore.QObject):
             vt = ww.VT
             if waffe.name in vtVerboten or waffe.talent in vtVerboten:
                 vt = "-"
-                #
             self.labelWerte[index].setText("<b>Typ</b> " + self.waffenTypen[index] + " | <b>Kampfwerte</b> AT* " + str(ww.AT) + ", VT* " + str(vt) + ", TP* " + str(ww.TPW6) + "W6" + ("+" if ww.TPPlus >= 0 else "") + str(ww.TPPlus))
 
     def refreshDerivedWeaponValues(self, W, index):
@@ -342,33 +340,37 @@ class EquipWrapper(QtCore.QObject):
             changed = True
 
         if changed:
-            Wolke.Char.aktualisieren()
-            self.updateWeaponStats()
             self.modified.emit()
+            self.updateWeaponStats()
 
     def load(self):
+        self.reload(self.uiEq.tabWidget.currentIndex())
+
+    def reload(self, idx):
         self.currentlyLoading = True
-        # Load in Armor
-        for index in range(len(Wolke.Char.rüstung)):
-            R = Wolke.Char.rüstung[index]
-            if index < 3:
-                self.loadArmorIntoFields(R, index, True)
 
-        # Load in Weapons
-        for index in range(len(Wolke.Char.waffen)):
-            W = Wolke.Char.waffen[index]
-            if index < 8:
-                self.loadWeaponIntoFields(W, index)
+        if idx == 0:
+            # Load in Weapons
+            for index in range(len(Wolke.Char.waffen)):
+                W = Wolke.Char.waffen[index]
+                if index < 8:
+                    self.loadWeaponIntoFields(W, index)
 
-        self.updateWeaponStats()
+            self.updateWeaponStats()
+        elif idx == 1:
+            # Load in Armor
+            for index in range(len(Wolke.Char.rüstung)):
+                R = Wolke.Char.rüstung[index]
+                if index < 3:
+                    self.loadArmorIntoFields(R, index, True)
 
-        # Load in inventory
-        count = 0
-        for el in Wolke.Char.ausrüstung:
-            self.inventoryLines[count].setText(el)
-            count += 1
-            if count >= 20:
-                break
+            # Load in inventory
+            count = 0
+            for el in Wolke.Char.ausrüstung:
+                self.inventoryLines[count].setText(el)
+                count += 1
+                if count >= 20:
+                    break
 
         self.currentlyLoading = False
 

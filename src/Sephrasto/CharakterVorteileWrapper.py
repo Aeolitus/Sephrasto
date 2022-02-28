@@ -265,7 +265,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
             manualUpdate = self.handleRemoveMinderpakt(name, item)
 
         self.modified.emit()
-        EventBus.doAction("charaktereditor_reload")
+        self.load()
         self.uiVor.treeWidget.blockSignals(False)
 
         if manualUpdate:

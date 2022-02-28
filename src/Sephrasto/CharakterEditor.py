@@ -93,7 +93,6 @@ class Editor(object):
         Wolke.Char.aktualisieren() # A bit later because it needs access to itself
         
         EventBus.doAction("charakter_geladen", { "neu" : self.savepath == "", "filepath" : self.savepath })
-        self.ignoreModified = False
         
     def wheelEvent(self, ev):
         if ev.type() == QtCore.QEvent.Wheel:
@@ -178,8 +177,8 @@ class Editor(object):
         self.ui.buttonSavePDF.clicked.connect(self.pdfButton)
         self.ui.spinEP.valueChanged.connect(self.epChanged)
         self.ui.checkReq.stateChanged.connect(self.reqChanged)
-        
-        self.reloadAll()
+
+        self.reload(self.ui.tabs.currentIndex())
 
         self.formMain.closeEvent = self.closeEvent
         
@@ -211,52 +210,35 @@ class Editor(object):
         Wolke.Reqs = self.ui.checkReq.isChecked()
         epBefore = Wolke.Char.EPspent
         Wolke.Char.aktualisieren()
-        self.reloadAll()
+        self.reload(self.ui.tabs.currentIndex())
         self.updateEP()
         if epBefore != Wolke.Char.EPspent:
             self.changed = True
     
     def onModified(self):
         self.changed = True
+        Wolke.Char.aktualisieren()
         self.updateEP()
 
     def updateEP(self):
-        if not self.ignoreModified:
-            self.ui.spinEP.setValue(Wolke.Char.EPtotal)
-            Wolke.Char.aktualisieren()
-            self.ui.spinRemaining.setValue(Wolke.Char.EPtotal-Wolke.Char.EPspent)
-            if Wolke.Char.EPtotal < Wolke.Char.EPspent:
-                self.ui.spinRemaining.setStyleSheet("QSpinBox { color: white; background-color: rgb(200,50,50) }")
-            else:
-                self.ui.spinRemaining.setStyleSheet("")
-            self.ui.spinSpent.setStyleSheet("")
-            self.ui.spinSpent.setValue(Wolke.Char.EPspent)
+        self.ui.spinEP.setValue(Wolke.Char.EPtotal)
+        self.ui.spinRemaining.setValue(Wolke.Char.EPtotal-Wolke.Char.EPspent)
+        if Wolke.Char.EPtotal < Wolke.Char.EPspent:
+            self.ui.spinRemaining.setStyleSheet("QSpinBox { color: white; background-color: rgb(200,50,50) }")
+        else:
+            self.ui.spinRemaining.setStyleSheet("")
+        self.ui.spinSpent.setStyleSheet("")
+        self.ui.spinSpent.setValue(Wolke.Char.EPspent)
     
     def epChanged(self):
         Wolke.Char.EPtotal = self.ui.spinEP.value()
         self.onModified()
-    
-    def reloadAll(self):
-        for tab in self.tabs:
-            if hasattr(tab.wrapper, "load"):
-                tab.wrapper.load()
-
-        self.updateEP()
 
     def reload(self, idx):
         tab = self.tabs[idx]
         if hasattr(tab.wrapper, "load"):
             tab.wrapper.load()
-        
-    def updateAll(self):
-        self.ignoreModified = True
-        for tab in self.tabs:
-            if hasattr(tab.wrapper, "update"):
-                tab.wrapper.update()
 
-        self.updateEP()
-        self.ignoreModified = False
-        
     def saveButton(self):
         if self.savepath != "":
             startDir = self.savepath
@@ -286,7 +268,6 @@ Versuchs doch bitte nochmal mit einer anderen Zieldatei.")
         self.quicksaveButton()
             
     def quicksaveButton(self):
-        self.updateAll()
         if self.savepath == "":
             self.saveButton()
         else:
@@ -353,8 +334,6 @@ Fehlermeldung: " + Wolke.ErrorCode[Wolke.Fehlercode] + "\n")
             messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             messagebox.exec_()
             return
-
-        self.updateAll()
         
         result = -1
 
