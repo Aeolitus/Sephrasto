@@ -39,6 +39,8 @@ Gestartet wird Sephrasto dann folgendermaßen:
 python Sephrasto/src/Sephrasto/Sephrasto.py
 ```
 
+Hinweis: Das Charakterbild im Beschreibung-Details Tab (nur mit langem Charakterbogen sichtbar) wird via ImageMagicks ```convert``` Befehl auf den Charakterbogen gestampt. Hierfür sollte mindestens ImageMagick 7.1.0.19 installiert sein und auch dann kann es unter Linux beim leider Export zu Problemen kommen, siehe https://dsaforum.de/viewtopic.php?f=180&t=45794&sid=382bfcf5ffe7ca3ddab8848060ed18b2&start=450#p2043754. Wenn der PDF-Export misslingt, ist die schnellste Lösung, das Charakterbild zu entfernen.
+
 ## Einrichtung von Visual Studio als IDE:
 * Installiere VS 2019 Community Edition mit dem Python Workload (kann auch nachträglich über den Installer installiert werden)
 * Setze den Pfad der Python-Umgebung in der Umgebungsvariable PATH (in der Regel C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64)
