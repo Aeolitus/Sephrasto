@@ -82,3 +82,14 @@ Durch das Attribut "pflichtwahl" muss eine der Varianten ausgewählt werden, ein
 Das Attribut "geschlecht" kann mit den "männlich" oder "weiblich" bei Variante und Auswahl genutzt werden, um diese zu entfernen, wenn im Hauptfenster das entsprechende Geschlecht nicht ausgewählt wurde.
 Das Attribut "beschreibung" kann genutzt werden um im Spezies-/Kurzbeschreibungsfeld neben dem Namen eine zusätzliche Beschreibung einzufügen, die nicht um Popup angezeigt wird. Falls das Attribut wie hier mit einem leeren Inhalt eingefügt wird, dann wird die Variante überhaupt nicht in das entsprechende Feld eingetragen.
 Da es sich in diesem Beispiel um eine Pflichtwahl handelt, bei der immer nur eine Variante - Mann oder Frau - bestehen bleiben kann, wird die entsprechende Variante automatisch appliziert und kein Popup angezeigt.
+<br />
+<br />
+**Beispiel 3, Profession Geode:**
+```
+<Charakter>
+  <Auswahl>
+    <Vorteil name="Magieabweisend" wert="-1"/>
+  </Auswahl>
+</Charakter>
+```
+Geoden sind üblicherweise Zwerge, sollten aber den Vorteil Magieabweisend dieser Spezies nicht haben. Bei Vorteilen und Talenten kann der Wert auf -1 gesetzt werden, wodurch diese entfernt werden, falls vorhanden.

@@ -43,7 +43,7 @@ class Choice(object):
 
             if self.name in Wolke.Char.fertigkeiten:
                 current = Wolke.Char.fertigkeiten[self.name].wert
-                valueStr += " (aktuell +" + str(current) + ")"
+                valueStr += " (aktuell FW " + str(current) + ")"
         elif self.typ == "Übernatürliche-Fertigkeit":
             if self.wert >= 0:
                 valueStr = " +" + str(self.wert)
@@ -52,7 +52,7 @@ class Choice(object):
 
             if self.name in Wolke.Char.übernatürlicheFertigkeiten:
                 current = Wolke.Char.übernatürlicheFertigkeiten[self.name].wert
-                valueStr += " (aktuell +" + str(current) + ")"
+                valueStr += " (aktuell FW " + str(current) + ")"
         elif self.typ == "Attribut":
             if self.wert >= 0:
                 valueStr = " +" + str(self.wert)
@@ -64,6 +64,9 @@ class Choice(object):
                 valueStr += " (aktuell " + str(current) + ")"
         else:
             prefix = self.typ + " "
+
+        if (self.typ == "Vorteil" or self.typ == "Talent") and self.wert == -1:
+            valueStr += " entfernt"
 
         if self.kommentar:
             valueStr += " (" + self.kommentar + ")"
@@ -141,20 +144,28 @@ class Choice(object):
             talent = Wolke.DB.talente[self.name]
             if len(talent.fertigkeiten) == 0:
                 return 0
+            if talent.variableKosten:
+                return self.wert
 
             if not talent.isSpezialTalent():
                 for fert in Wolke.Char.fertigkeiten.values():
                     if self.name in fert.gekaufteTalente:
-                        return 0
+                        if self.wert == -1:
+                            return -Wolke.Char.getDefaultTalentCost(self.name, fert.steigerungsfaktor)
+                        else:
+                            return 0
             else:
                 if talent.variableKosten:
                     return self.wert
                 for fert in Wolke.Char.übernatürlicheFertigkeiten.values():
                     if self.name in fert.gekaufteTalente:
-                        return 0
+                        if self.wert == -1:
+                            return -Wolke.Char.getDefaultTalentCost(self.name, fert.steigerungsfaktor)
+                        else:
+                            return 0
 
-            if talent.variableKosten:
-                return self.wert
+            if self.wert == -1:
+                return 0
             fert = None
             if talent.isSpezialTalent():
                 fert = Wolke.DB.übernatürlicheFertigkeiten[talent.fertigkeiten[0]]
@@ -169,6 +180,10 @@ class Choice(object):
             if vort.variableKosten:
                 return self.wert
             if self.name in Wolke.Char.vorteile:
+                if self.wert == -1:
+                    return -vort.kosten
+                return 0
+            if self.wert == -1:
                 return 0
             return vort.kosten
 
