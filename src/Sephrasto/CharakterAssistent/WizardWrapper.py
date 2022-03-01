@@ -105,6 +105,9 @@ class WizardWrapper(object):
                 self.ui.cbRegeln.setCurrentIndex(rl.index(regeln))
 
         self.ui.cbRegeln.currentIndexChanged.connect(self.regelnChanged)
+        self.ui.cbSpezies.currentIndexChanged.connect(self.updateAcceptButton)
+        self.ui.cbKultur.currentIndexChanged.connect(self.updateAcceptButton)
+        self.ui.cbProfession.currentIndexChanged.connect(self.updateAcceptButton)
         self.ui.cbProfessionKategorie.currentIndexChanged.connect(self.professionKategorieChanged)
 
         self.regelnChanged()
@@ -114,6 +117,11 @@ class WizardWrapper(object):
         font = QtWidgets.QApplication.instance().font()
         font.setPointSize(font.pointSize()-1)
         self.ui.label.setFont(font)
+
+    def updateAcceptButton(self):
+        self.ui.btnAccept.setEnabled(self.ui.cbSpezies.currentText() != "Überspringen" or
+                                     self.ui.cbKultur.currentText() != "Überspringen" or
+                                     (self.ui.cbProfession.currentText() != "" and self.ui.cbProfession.currentText() != "Überspringen"))
 
     def professionKategorieChanged(self):
         regeln = self.regelList[self.ui.cbRegeln.currentText()]
