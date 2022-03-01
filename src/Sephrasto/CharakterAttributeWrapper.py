@@ -52,19 +52,20 @@ class AttrWrapper(QtCore.QObject):
         self.uiAttr.labelFormel.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
 
         #Signals
+        self.widgetWert = {}
+        self.widgetKosten = {}
+        self.widgetPW = {}
+        for attribut in Definitionen.Attribute:
+            self.widgetWert[attribut] = getattr(self.uiAttr, "spin" + attribut)
+            self.widgetKosten[attribut] = getattr(self.uiAttr, "labelKosten" + attribut)
+            self.widgetPW[attribut] = getattr(self.uiAttr, "pw" + attribut)
+            self.widgetWert[attribut].valueChanged.connect(self.update)
         self.uiAttr.spinAsP.valueChanged.connect(self.update)
         self.uiAttr.spinKaP.valueChanged.connect(self.update)
-        self.uiAttr.spinKO.valueChanged.connect(self.update)
-        self.uiAttr.spinMU.valueChanged.connect(self.update)
-        self.uiAttr.spinIN.valueChanged.connect(self.update)
-        self.uiAttr.spinGE.valueChanged.connect(self.update)
-        self.uiAttr.spinKK.valueChanged.connect(self.update)
-        self.uiAttr.spinFF.valueChanged.connect(self.update)
-        self.uiAttr.spinKL.valueChanged.connect(self.update)
-        self.uiAttr.spinCH.valueChanged.connect(self.update)
+
         self.currentlyLoading = False
      
-    def updateTooltip(self, attribut, uiElement):
+    def updateTooltip(self, attribut):
         attribute = copy.deepcopy(Wolke.Char.attribute)
         attribute[attribut].wert += 1
         attribute[attribut].aktualisieren()
@@ -146,7 +147,7 @@ class AttrWrapper(QtCore.QObject):
         else:
             tooltip = tooltip[:-2] + " keine weiteren Verbesserungen."
 
-        uiElement.setToolTip(tooltip)
+        self.widgetWert[attribut].setToolTip(tooltip)
 
     def checkConsequences(self, attribut, wert):
         attribute = copy.deepcopy(Wolke.Char.attribute)
@@ -166,8 +167,9 @@ class AttrWrapper(QtCore.QObject):
             return result == 0
         return True
 
-    def updateAttribut(self, attribut, uiElement):
+    def updateAttribut(self, attribut):
         changed = False
+        uiElement = self.widgetWert[attribut]
         if Wolke.Char.attribute[attribut].wert != uiElement.value():
             if self.checkConsequences(attribut, uiElement.value()):
                 Wolke.Char.attribute[attribut].wert = uiElement.value()
@@ -176,7 +178,8 @@ class AttrWrapper(QtCore.QObject):
             else:
                 uiElement.setValue(Wolke.Char.attribute[attribut].wert)
 
-            self.updateTooltip(attribut, uiElement)
+            for attribut in Definitionen.Attribute:
+                self.updateTooltip(attribut)
 
         return changed
 
@@ -187,22 +190,9 @@ class AttrWrapper(QtCore.QObject):
         ''' Set and refresh all Attributes '''
         changed = False
 
-        if self.updateAttribut('KO', self.uiAttr.spinKO):
-            changed = True
-        if self.updateAttribut('MU', self.uiAttr.spinMU):
-            changed = True
-        if self.updateAttribut('GE', self.uiAttr.spinGE):
-            changed = True
-        if self.updateAttribut('KK', self.uiAttr.spinKK):
-            changed = True
-        if self.updateAttribut('IN', self.uiAttr.spinIN):
-            changed = True
-        if self.updateAttribut('KL', self.uiAttr.spinKL):
-            changed = True
-        if self.updateAttribut('CH', self.uiAttr.spinCH):
-            changed = True
-        if self.updateAttribut('FF', self.uiAttr.spinFF):
-            changed = True
+        for attribut in Definitionen.Attribute:
+            if self.updateAttribut(attribut):
+                changed = True
 
         if Wolke.Char.asp.wert != self.uiAttr.spinAsP.value():
             Wolke.Char.asp.wert = self.uiAttr.spinAsP.value()
@@ -231,29 +221,9 @@ class AttrWrapper(QtCore.QObject):
         return "<span style='font-size: 9pt; font-weight: 900; font-family: \"Font Awesome 6 Free Solid\";'>\uf176</span>&nbsp;&nbsp;" + str(EventBus.applyFilter("attribut_kosten", val, { "charakter" : Wolke.Char, "attribut" : attr, "wert" : attribut.wert + 1 })) + " EP"
 
     def updateDerivedValues(self):
-        self.uiAttr.pwKO.setValue(Wolke.Char.attribute['KO'].wert*2)
-        self.uiAttr.labelKostenKO.setText(self.getAttributSteigerungskosten('KO'))
-
-        self.uiAttr.pwMU.setValue(Wolke.Char.attribute['MU'].wert*2)
-        self.uiAttr.labelKostenMU.setText(self.getAttributSteigerungskosten('MU'))
-
-        self.uiAttr.pwGE.setValue(Wolke.Char.attribute['GE'].wert*2)
-        self.uiAttr.labelKostenGE.setText(self.getAttributSteigerungskosten('GE'))
-
-        self.uiAttr.pwKK.setValue(Wolke.Char.attribute['KK'].wert*2)
-        self.uiAttr.labelKostenKK.setText(self.getAttributSteigerungskosten('KK'))
-
-        self.uiAttr.pwIN.setValue(Wolke.Char.attribute['IN'].wert*2)
-        self.uiAttr.labelKostenIN.setText(self.getAttributSteigerungskosten('IN'))
-
-        self.uiAttr.pwKL.setValue(Wolke.Char.attribute['KL'].wert*2)
-        self.uiAttr.labelKostenKL.setText(self.getAttributSteigerungskosten('KL'))
-
-        self.uiAttr.pwCH.setValue(Wolke.Char.attribute['CH'].wert*2)
-        self.uiAttr.labelKostenCH.setText(self.getAttributSteigerungskosten('CH'))
-
-        self.uiAttr.pwFF.setValue(Wolke.Char.attribute['FF'].wert*2)
-        self.uiAttr.labelKostenFF.setText(self.getAttributSteigerungskosten('FF'))
+        for attribut in Definitionen.Attribute:
+            self.widgetPW[attribut].setValue(Wolke.Char.attribute[attribut].wert*2)
+            self.widgetKosten[attribut].setText(self.getAttributSteigerungskosten(attribut))
 
         self.uiAttr.abWS.setValue(Wolke.Char.ws)
         self.uiAttr.abGS.setValue(Wolke.Char.gs)
@@ -268,29 +238,9 @@ class AttrWrapper(QtCore.QObject):
         self.currentlyLoading = True
 
         ''' Load all values and derived values '''
-        self.uiAttr.spinKO.setValue(Wolke.Char.attribute['KO'].wert)
-        self.updateTooltip('KO', self.uiAttr.spinKO)
-
-        self.uiAttr.spinMU.setValue(Wolke.Char.attribute['MU'].wert)
-        self.updateTooltip('MU', self.uiAttr.spinMU)
-
-        self.uiAttr.spinGE.setValue(Wolke.Char.attribute['GE'].wert)
-        self.updateTooltip('GE', self.uiAttr.spinGE)
-
-        self.uiAttr.spinKK.setValue(Wolke.Char.attribute['KK'].wert)
-        self.updateTooltip('KK', self.uiAttr.spinKK)
-
-        self.uiAttr.spinIN.setValue(Wolke.Char.attribute['IN'].wert)
-        self.updateTooltip('IN', self.uiAttr.spinIN)
-
-        self.uiAttr.spinKL.setValue(Wolke.Char.attribute['KL'].wert)
-        self.updateTooltip('KL', self.uiAttr.spinKL)
-
-        self.uiAttr.spinCH.setValue(Wolke.Char.attribute['CH'].wert)
-        self.updateTooltip('CH', self.uiAttr.spinCH)
-
-        self.uiAttr.spinFF.setValue(Wolke.Char.attribute['FF'].wert)
-        self.updateTooltip('FF', self.uiAttr.spinFF)
+        for attribut in Definitionen.Attribute:
+            self.widgetWert[attribut].setValue(Wolke.Char.attribute[attribut].wert)
+            self.updateTooltip(attribut)
 
         self.uiAttr.abAsP.setValue(Wolke.Char.aspBasis + Wolke.Char.aspMod)
         self.uiAttr.abKaP.setValue(Wolke.Char.kapBasis + Wolke.Char.kapMod)
