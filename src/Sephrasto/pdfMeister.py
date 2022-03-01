@@ -628,7 +628,6 @@ class pdfMeister(object):
             os.remove(image_file)
             os.remove(image_pdf)
             os.remove(page1_pdf)
-            x = sasas
             pages[0] = page1stamped_pdf
             pages.insert(1, pageRest_pdf)
         except Exception as e:
