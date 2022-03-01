@@ -620,21 +620,25 @@ class pdfMeister(object):
             convertPath = "Bin\\ImageMagick\\convert"
 
         try:
-            pdf.check_output_silent(convertPath + " \"" + image_file + "\" -resize 260x340 -gravity Center -extent 260x340 -density 96 "\
-               "-page a2+" + str(self.CharakterBogen.bildOffset[0]) + "+" + str(self.CharakterBogen.bildOffset[1]) + " \"" + image_pdf + "\"")
+            pdf.check_output_silent([convertPath, image_file, "-resize", "260x340", "-gravity", "Center", "-extent", "260x340", "-density", "96",
+                                     "-page", f"a2+{self.CharakterBogen.bildOffset[0]}+{self.CharakterBogen.bildOffset[1]}", image_pdf])
             pdf.check_output_silent(['pdftk', page1_pdf, 'stamp', image_pdf, 'output', page1stamped_pdf, 'need_appearances'])
 
             os.remove(pages[0])
             os.remove(image_file)
             os.remove(image_pdf)
             os.remove(page1_pdf)
-
+            x = sasas
             pages[0] = page1stamped_pdf
             pages.insert(1, pageRest_pdf)
         except Exception as e:
             messagebox = QtWidgets.QMessageBox()
             messagebox.setWindowTitle("Kann Charakterbild nicht einfügen")
-            messagebox.setText("Das Einfügen des Charakterbilds ist fehlgeschlagen: " + str(e) + ". Der Charakterbogen wird nun ohne das Bild erstellt.")
+            text = "Das Einfügen des Charakterbilds ist fehlgeschlagen: " + str(e) + "."
+            if platform.system() == 'Linux':
+                text += "\nUnter Linux gibt es ein bekanntes Problem mit ImageMagick, siehe https://github.com/Aeolitus/Sephrasto/blob/master/README.md für einen Workaround."
+            text += "\nDer Charakterbogen wird nun ohne das Bild erstellt."
+            messagebox.setText(text)
             messagebox.setIcon(QtWidgets.QMessageBox.Warning)
             messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             messagebox.exec_()
