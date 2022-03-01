@@ -48,7 +48,7 @@ Dann öffne `etc/ImageMagick-{Version}/policy.xml` und füge unten die Zeile
 ```
 <policy domain="coder" rights="read | write" pattern="PDF" />`
 ```
-hinzu. Deine Versionsnummer musst du selbst eintragen. Getestet wurde bisher nur mit ImageMagick-Version 6 und höher. Die Datei ist vermutlich bei dir schreibgeschützt. Du kannst sie beispielsweise mit `sudo nano etc/ImageMagick-{Version}/policy.xml` öffnen, bearbeiten und speichern. Bedenke, dass die Änderung der Policy nicht nur für Sephrasto, sondern auch für andere Programme gilt, die ImageMagick nun für PDF-Bearbeitung frei nutzen können. Stelle via ```gs --version``` sicher, dass deine Ghostscript-Installation mindestens die Version 9.24 hat, ansonsten stellt diese Änderung ein Sicherheitsrisiko dar ([siehe hier] (https://stackoverflow.com/questions/52998331/imagemagick-security-policy-pdf-blocking-conversion).
+hinzu. Deine Versionsnummer musst du selbst eintragen. Getestet wurde bisher nur mit ImageMagick-Version 6 und höher. Die Datei ist vermutlich bei dir schreibgeschützt. Du kannst sie beispielsweise mit `sudo nano etc/ImageMagick-{Version}/policy.xml` öffnen, bearbeiten und speichern. Bedenke, dass die Änderung der Policy nicht nur für Sephrasto, sondern auch für andere Programme gilt, die ImageMagick nun für PDF-Bearbeitung frei nutzen können. Stelle via ```gs --version``` sicher, dass deine Ghostscript-Installation mindestens die Version 9.24 hat, ansonsten stellt diese Änderung ein Sicherheitsrisiko dar ([siehe hier](https://stackoverflow.com/questions/52998331/imagemagick-security-policy-pdf-blocking-conversion).
 
 ## Einrichtung von Visual Studio als IDE:
 * Installiere VS 2019 Community Edition mit dem Python Workload (kann auch nachträglich über den Installer installiert werden)
