@@ -202,10 +202,9 @@ class AttrWrapper(QtCore.QObject):
             Wolke.Char.kap.wert = self.uiAttr.spinKaP.value()
             changed = True
 
-        self.updateDerivedValues()
-
         if changed:
             self.modified.emit()
+            self.updateDerivedValues()
         
     def getSteigerungskostenAsP(self):
         val = (Wolke.Char.asp.wert + 1) * Wolke.Char.asp.steigerungsfaktor
