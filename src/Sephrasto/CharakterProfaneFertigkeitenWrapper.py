@@ -13,6 +13,7 @@ import logging
 from PyQt5.QtWidgets import QHeaderView
 from Fertigkeiten import KampffertigkeitTyp
 from Hilfsmethoden import Hilfsmethoden
+from EventBus import EventBus
 
 # This item delegate is used to draw a seperator line between different fertigkeit categories ('printclasses')
 class FertigkeitItemDelegate(QtWidgets.QItemDelegate):
@@ -349,7 +350,8 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
     def editTalents(self):
         if self.currentFertName == "":
             return
-        tal = TalentPicker.TalentPicker(self.currentFertName, False)
+        pickerClass = EventBus.applyFilter("class_talentpicker_wrapper", TalentPicker.TalentPicker)
+        tal = pickerClass(self.currentFertName, False)
         if tal.gekaufteTalente is not None:
             self.modified.emit()
             self.updateTalents()

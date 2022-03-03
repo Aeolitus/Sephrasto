@@ -342,6 +342,8 @@ class Char():
                 assert False, "Duplicate entry"
             self.waffenScriptAPI[k] = v
 
+        EventBus.doAction("charakter_instanziiert", { "charakter" : self })
+
     def API_modifyTalent(self, fertigkeit, talent, condition, mod):
         fert = self.fertigkeiten[fertigkeit]
         if not talent in fert.talentMods:

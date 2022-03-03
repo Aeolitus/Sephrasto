@@ -68,6 +68,8 @@ class Ui_deDialog(object):
         self.labelName.setObjectName("labelName")
         self.gridLayout.addWidget(self.labelName, 1, 1, 1, 1)
         self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 1, 1)
+        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_2.addItem(spacerItem, 1, 0, 1, 1)
 
         self.retranslateUi(deDialog)
         self.buttonBox.accepted.connect(deDialog.accept) # type: ignore

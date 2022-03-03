@@ -29,9 +29,10 @@ class Datenbank():
         self.datei = None
         
         if hausregeln is not None:
-            tmp = os.path.join(Wolke.Settings['Pfad-Regeln'], hausregeln)
-            if os.path.isfile(tmp):
-                self.datei = tmp
+            if hausregeln != "":
+                tmp = os.path.join(Wolke.Settings['Pfad-Regeln'], hausregeln)
+                if os.path.isfile(tmp):
+                    self.datei = tmp
         elif Wolke.Settings['Datenbank']:
             tmp = os.path.join(Wolke.Settings['Pfad-Regeln'], Wolke.Settings['Datenbank'])
             if os.path.isfile(tmp):

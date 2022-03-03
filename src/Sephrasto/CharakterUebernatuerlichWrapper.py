@@ -13,6 +13,7 @@ from PyQt5.QtWidgets import QHeaderView
 import logging
 from CharakterProfaneFertigkeitenWrapper import FertigkeitItemDelegate
 from Hilfsmethoden import Hilfsmethoden
+from EventBus import EventBus
 
 class UebernatuerlichWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
@@ -75,7 +76,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 fert = Wolke.Char.übernatürlicheFertigkeiten[self.uiFert.tableWidget.item(i,1).text()]
                 self.pdfRef[fert.name].setChecked(fert.addToPDF)
                 self.labelRef[fert.name + "KO"].setText(self.getSteigerungskosten(fert))
-                self.labelRef[fert.name + "PW"].setText(str(fert.probenwert))
+                self.labelRef[fert.name + "PW"].setText(str(fert.probenwertTalent))
                 self.labelRef[fert.name].setText(str(len(fert.gekaufteTalente)))
         else:
             self.availableFerts = temp
@@ -311,7 +312,8 @@ class UebernatuerlichWrapper(QtCore.QObject):
     def editTalents(self):
         if self.currentFertName == "":
             return
-        tal = TalentPicker.TalentPicker(self.currentFertName, True)
+        pickerClass = EventBus.applyFilter("class_talentpicker_wrapper", TalentPicker.TalentPicker)
+        tal = pickerClass(self.currentFertName, True)
         self.updateAddToPDF()
         if tal.gekaufteTalente is not None:
             self.modified.emit()

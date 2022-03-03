@@ -50,8 +50,10 @@ class Editor(object):
         hausregeln = Wolke.Settings['Datenbank']
         if self.savepath:
             tmp = Charakter.Char.xmlHausregelnLesen(self.savepath)
-            if tmp in EinstellungenWrapper.getDatenbanken(Wolke.Settings["Pfad-Regeln"]):
-                hausregeln = tmp if tmp != "Keine" else None
+            if tmp is None:
+                hausregeln = ""
+            elif tmp in EinstellungenWrapper.getDatenbanken(Wolke.Settings["Pfad-Regeln"]):
+                hausregeln = tmp if tmp != "Keine" else ""
 
         Wolke.DB = Datenbank.Datenbank(hausregeln)
         self.pdfMeister = pdfM.pdfMeister()
@@ -91,8 +93,6 @@ class Editor(object):
         Wolke.Char.enabledPlugins = enabledPlugins
 
         Wolke.Char.aktualisieren() # A bit later because it needs access to itself
-        
-        EventBus.doAction("charakter_geladen", { "neu" : self.savepath == "", "filepath" : self.savepath })
         
     def wheelEvent(self, ev):
         if ev.type() == QtCore.QEvent.Wheel:
@@ -233,6 +233,13 @@ class Editor(object):
     def epChanged(self):
         Wolke.Char.EPtotal = self.ui.spinEP.value()
         self.onModified()
+
+    def reloadByName(self, name):
+        for tab in self.tabs:
+            if tab.name == name:
+                if hasattr(tab.wrapper, "load"):
+                    tab.wrapper.load()
+                return
 
     def reload(self, idx):
         tab = self.tabs[idx]

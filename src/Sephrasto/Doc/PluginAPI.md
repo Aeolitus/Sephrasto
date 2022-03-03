@@ -39,17 +39,13 @@ def talentKostenFilter(self, val, params):
         return val + 10
 ```
 
-## Vorhandene Actions
-- "charakter_geladen" (Parameter: { "neu" : bool, "filepath" : string })<br />
-Zweck: Beliebige Aktion durchführen, nachdem der Charakter vollständig initialisiert wurde. Der neu Parameter enthält die Information, ob es sich um einen neuen Charakter handelt. Der filepath Parameter enthält den Pfad der Charakterdatei oder einen leeren string, falls ein neuer Charakter erstellt wurde.
+## Actions, die Sephrasto absendet
+- "charakter_instanziiert" (Parameter: { "charakter" : Char })<br />
+Zweck: Charakter modifizieren, nachdem er instanziiert, aber bevor er geladen und aktualisiert wurde. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
 - "charaktereditor_oeffnet" (Parameter: { "neu" : bool, "filepath" : string })<br />
 Zweck: Form und Wrapper für eigene Charakter-Editor Tabs initialisieren. Der neu Parameter enthält die Information, ob es sich um einen neuen Charakter handelt. Der filepath Parameter enthält den Pfad der Charakterdatei oder einen leeren string, falls ein neuer Charakter erstellt wird.
 - "charaktereditor_geoeffnet" (Parameter: { "neu" : bool, "filepath" : string })<br />
 Zweck: Beliebige Aktion durchführen, nachdem der CharakterEditor vollständig initialisiert wurde. Der neu Parameter enthält die Information, ob es sich um einen neuen Charakter handelt. Der filepath Parameter enthält den Pfad der Charakterdatei oder einen leeren string, falls ein neuer Charakter erstellt wurde.
-- "charaktereditor_reload"<br />
-Zweck: Alle tabs des Charaktereditors neu initialisieren.
-- "charaktereditor_modified"<br />
-Zweck: Der Charaktereditor wird beim Schließen ggf. ein Popup anzeigen, das über ungespeicherte Änderungen mitteilt
 - "plugins_geladen"<br />
 Zweck: Nach dieser Action sind alle Plugins initialisiert. Kann verwendet werden um mit anderen Plugins zu kommunizieren, um z.B. mit einer Action andere Plugins darüber in Kenntnis zu setzen, dass dieses Plugin vorhanden ist.
 - "pre_charakter_aktualisieren" (Parameter: { "charakter" : Char })<br />
@@ -67,7 +63,13 @@ Zweck: Elemente der Basisdatenbank anpassen/hinzufügen/löschen, bevor die Haus
 - "datenbank_geladen" (Parameter: { "datenbank" : Datenbank })<br />
 Zweck: Aktion durchführen, nachdem die Datenbank inkl. Hausregeldatenbank komplett geladen wurde. Eine Referenz auf das Datenbank-Objekt erhalten.
 <br />
-## Vorhandene Filter
+## Actions, die Sephrasto abonniert
+- "charaktereditor_reload" (Parameter: { "name" : string })<br />
+Zweck: Einen Toplevel-Tab des Charaktereditors neu initialisieren. Der name Parameter enthält den Namen des Tabs.
+- "charaktereditor_modified"<br />
+Zweck: Aktualisiert den Charakter und die EP und beim Schließen des Charaktereditors wird ein Popup angezeigt, das über ungespeicherte Änderungen mitteilt
+<br />
+## Filter, die Sephrasto absendet
 - "pdf_concat" (Filter: filePaths : array of string)<br />
 Zweck: Sephrasto fügt zum Schluss alle generierten Einzelseiten zusammen. Diese Liste von Einzelseiten kann hiermit manipuliert werden, z.B. um weitere Seiten einzufügen.
 - "pdf_export" (Filter: pdfFields : dict of {string : string})<br />
@@ -96,16 +98,21 @@ Zweck: Die Kosten für freie Fertigkeiten anpassen. Die Parameter enthalten den 
 Zweck: Die Kosten für Talente anpassen. Der "talent" Parameter enthält den Namen des Talents. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
 - "ruestung_be" (Filter: be: int, Parameter: { "name" : string })<br />
 Zweck: Die BE einer Rüstung des Rüstungauswahlfensters anpassen. Achtung: Da Rüstungen ergänzt werden können und die Namen dann konkateniert werden, sollte der name via "in" abgefragt werden (bspw. if "Leichte Platte" in name).
-- Die folgenden Filter haben alle eine Gemeinsamkeit:  Der Filterwert ist eine Wrapperklasse eines der UI-Tabs. Im Filter kann der Wrapper komplett ersetzt oder beerbt werden, um die Sephrasto-UI anzupassen.
+- Die folgenden Filter haben alle eine Gemeinsamkeit:  Der Filterwert ist eine Wrapperklasse eines der UI-Tabs oder Auswahlfenster. Im Filter kann der Wrapper komplett ersetzt oder beerbt werden, um die Sephrasto-UI anzupassen.
 	* "class_beschreibung_wrapper" (Filter: BeschrWrapper : class)
+	* "class_beschreibung_details_wrapper" (Filter: CharakterBeschreibungDetailsWrapper : class)
 	* "class_attribute_wrapper" (Filter: AttrWrapper : class)
 	* "class_fertigkeiten_wrapper" (Filter: FertigkeitenWrapper : class)
+	* "class_profanefertigkeiten_wrapper" (Filter: ProfaneFertigkeitenWrapper : class)
 	* "class_freiefertigkeiten_wrapper" (Filter: CharakterFreieFertWrapper : class)
 	* "class_uebernatuerlichefertigkeiten_wrapper" (Filter: UebernatuerlichWrapper : class)
 	* "class_ausruestung_wrapper" (Filter: EquipWrapper : class)
 	* "class_vorteile_wrapper" (Filter: CharakterVorteileWrapper : class)
 	* "class_info_wrapper" (Filter: InfoWrapper : class)
-	* "class_notiz_wrapper" (Filter: CharakterNotizWrapper : class)
+	* "class_waffenpicker_wrapper" (Filter: WaffenPicker : class)
+	* "class_ruestungspicker_wrapper" (Filter: RuestungPicker : class)
+	* "class_freiefertigkeitenpicker_wrapper" (Filter: CharakterFreieFertigkeitenPickerWrapper : class)
+	* "class_talentpicker_wrapper" (Filter: TalentPicker : class)
 
 ## Neues Plugin erstellen
 - Gehe in deinen `Dokumente/Sephrasto/Plugins` Ordner

@@ -44,15 +44,15 @@ class EquipWrapper(QtCore.QObject):
         self.spinPunkte = []
         for i in range(3):
             editRName = getattr(self.uiEq, "editR" + str(i+1) + "name")
-            editRName.editingFinished.connect(self.updateRuestung)
+            editRName.editingFinished.connect(self.updateRuestungen)
             self.editRName.append(editRName)
 
             spinBE = getattr(self.uiEq, "spinR" + str(i+1) + "be")
-            spinBE.valueChanged.connect(self.updateRuestung)
+            spinBE.valueChanged.connect(self.updateRuestungen)
             self.spinBE.append(spinBE)
 
             spinRS = getattr(self.uiEq, "spinR" + str(i+1) + "RS")
-            spinRS.valueChanged.connect(self.updateRuestung)
+            spinRS.valueChanged.connect(self.updateRuestungen)
             self.spinRS.append(spinRS)
 
             self.spinZRS.append([getattr(self.uiEq, "spinR" + str(i+1) + "bein"),
@@ -62,7 +62,7 @@ class EquipWrapper(QtCore.QObject):
                 getattr(self.uiEq, "spinR" + str(i+1) + "brust"),
                 getattr(self.uiEq, "spinR" + str(i+1) + "kopf")])
             for spin in self.spinZRS[-1]:
-                spin.valueChanged.connect(self.updateRuestung)
+                spin.valueChanged.connect(self.updateRuestungen)
 
             self.spinPunkte.append(getattr(self.uiEq, "spinR" + str(i+1) + "punkte"))
 
@@ -201,21 +201,25 @@ class EquipWrapper(QtCore.QObject):
 
         spinPunkte.setValue(sum(R.rs))
 
-    def updateRuestung(self):
+    def createRuestung(self, index):
+        R = Objekte.Ruestung() 
+        R.name = self.editRName[index].text()
+        R.be = int(self.spinBE[index].value())
+        if self.uiEq.checkZonen.isChecked():
+            for i in range(0, 6):
+                R.rs[i] = self.spinZRS[index][i].value()
+        else:
+            R.rs = 6*[self.spinRS[index].value()]
+        return R
+
+    def updateRuestungen(self):
         if self.currentlyLoading:
             return
         changed = False
 
         ruestungNeu = []
         for index in range(3):
-            R = Objekte.Ruestung() 
-            R.name = self.editRName[index].text()
-            R.be = int(self.spinBE[index].value())
-            if self.uiEq.checkZonen.isChecked():
-                for i in range(0, 6):
-                    R.rs[i] = self.spinZRS[index][i].value()
-            else:
-                R.rs = 6*[self.spinRS[index].value()]
+            R = self.createRuestung(index)
             ruestungNeu.append(R)
             self.refreshDerivedArmorValues(R, index)
 
@@ -280,6 +284,39 @@ class EquipWrapper(QtCore.QObject):
                 comboStil.setToolTip('Der Name der Waffe ist unbekannt, daher kann kein Kampfstil ausgewählt werden. Die Kampfwerte müssen in der PDF manuell ausgefüllt werden.')
         comboStil.blockSignals(False)
         
+    def createWaffe(self, index):
+        name = self.waffenTypen[index]
+        anzeigename = self.editWName[index].text()
+        if (not name in Wolke.DB.waffen) or type(Wolke.DB.waffen[name]) != Objekte.Fernkampfwaffe:
+            W = Objekte.Nahkampfwaffe()
+        else:
+            W = Objekte.Fernkampfwaffe()
+            W.lz = self.spinLZ[index].value()
+
+        W.anzeigename = anzeigename
+        W.name = self.waffenTypen[index]
+        if W.name in Wolke.DB.waffen:
+            dbWaffe = Wolke.DB.waffen[W.name]
+            W.fertigkeit = dbWaffe.fertigkeit
+            W.talent = dbWaffe.talent
+            W.kampfstile = dbWaffe.kampfstile.copy()
+        W.wm = self.spinWM[index].value()
+        W.rw = self.spinRW[index].value()
+        W.W6 = self.spinW6[index].value()
+        W.plus = self.spinPlus[index].value()
+
+        self.editEig[index].setText(self.editEig[index].text().strip().rstrip(","))
+        if self.editEig[index].text().strip():
+            W.eigenschaften = list(map(str.strip, self.editEig[index].text().strip().rstrip(",").split(",")))
+        W.kampfstil = self.comboStil[index].currentText()
+
+        waffenHaerteWSStern = Wolke.DB.einstellungen["Waffen: Härte WSStern"].toTextList()
+        if W.name in waffenHaerteWSStern:
+            W.haerte = Wolke.Char.wsStern
+        else:
+            W.haerte = self.spinHaerte[index].value()
+        return W
+
     def updateWaffen(self):
         if self.currentlyLoading:
             return
@@ -300,38 +337,9 @@ class EquipWrapper(QtCore.QObject):
                 self.currentlyLoading = True
                 self.loadWeaponIntoFields(Wolke.DB.waffen[anzeigename], index)
                 self.currentlyLoading = False
-                name = anzeigename
 
             # Create
-            if (not name in Wolke.DB.waffen) or type(Wolke.DB.waffen[name]) != Objekte.Fernkampfwaffe:
-                W = Objekte.Nahkampfwaffe()
-            else:
-                W = Objekte.Fernkampfwaffe()
-                W.lz = self.spinLZ[index].value()
-
-            W.anzeigename = anzeigename
-            W.name = self.waffenTypen[index]
-            if W.name in Wolke.DB.waffen:
-                dbWaffe = Wolke.DB.waffen[W.name]
-                W.fertigkeit = dbWaffe.fertigkeit
-                W.talent = dbWaffe.talent
-                W.kampfstile = dbWaffe.kampfstile.copy()
-            W.wm = self.spinWM[index].value()
-            W.rw = self.spinRW[index].value()
-            W.W6 = self.spinW6[index].value()
-            W.plus = self.spinPlus[index].value()
-
-            self.editEig[index].setText(self.editEig[index].text().strip().rstrip(","))
-            if self.editEig[index].text().strip():
-                W.eigenschaften = list(map(str.strip, self.editEig[index].text().strip().rstrip(",").split(",")))
-            W.kampfstil = self.comboStil[index].currentText()
-
-            waffenHaerteWSStern = Wolke.DB.einstellungen["Waffen: Härte WSStern"].toTextList()
-            if W.name in waffenHaerteWSStern:
-                W.haerte = Wolke.Char.wsStern
-            else:
-                W.haerte = self.spinHaerte[index].value()
-
+            W = self.createWaffe(index)
             waffenNeu.append(W)
             self.refreshDerivedWeaponValues(W, index)
             
@@ -396,7 +404,7 @@ class EquipWrapper(QtCore.QObject):
         if self.currentlyLoading:
             return
         self.updateWaffen()
-        self.updateRuestung()
+        self.updateRuestungen()
         self.updateInventory()
 
     def loadArmorIntoFields(self, R, index, replace):
@@ -448,20 +456,23 @@ class EquipWrapper(QtCore.QObject):
 
     def selectArmor(self, index):
         logging.debug("Starting RuestungPicker")
-        picker = RuestungPicker(self.editRName[index].text(), 2 if self.uiEq.checkZonen.isChecked() else 1)
+
+        pickerClass = EventBus.applyFilter("class_ruestungspicker_wrapper", RuestungPicker)
+        picker = pickerClass(self.editRName[index].text(), 2 if self.uiEq.checkZonen.isChecked() else 1)
         logging.debug("RuestungPicker created")
         if picker.ruestung is not None:
             self.currentlyLoading = True
             self.loadArmorIntoFields(picker.ruestung, index, picker.ruestungErsetzen)
             self.currentlyLoading = False
-            self.updateRuestung()
+            self.updateRuestungen()
 
     def selectWeapon(self, index):
         W = None
         if self.waffenTypen[index] in Wolke.DB.waffen:
             W = Wolke.DB.waffen[self.waffenTypen[index]].name
         logging.debug("Starting WaffenPicker")
-        picker = WaffenPicker(W)
+        pickerClass = EventBus.applyFilter("class_waffenpicker_wrapper", WaffenPicker)
+        picker = pickerClass(W)
         logging.debug("WaffenPicker created")
         if picker.waffe is not None:
             self.currentlyLoading = True

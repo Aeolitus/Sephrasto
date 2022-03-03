@@ -10,7 +10,8 @@ import UI.CharakterFreieFert
 from PyQt5 import QtWidgets, QtCore, QtGui
 import logging
 from Hilfsmethoden import Hilfsmethoden
-import CharakterFreieFertigkeitenPickerWrapper
+from CharakterFreieFertigkeitenPickerWrapper import CharakterFreieFertigkeitenPickerWrapper
+from EventBus import EventBus
 
 class CharakterFreieFertWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
@@ -70,7 +71,8 @@ class CharakterFreieFertWrapper(QtCore.QObject):
                 self.uiFert.freieFertsGrid.addLayout(ffLayout, row, column)
 
     def ffButtonClicked(self, edit):
-        picker = CharakterFreieFertigkeitenPickerWrapper.CharakterFreieFertigkeitenPickerWrapper(edit.text())
+        pickerClass = EventBus.applyFilter("class_freiefertigkeitenpicker_wrapper", CharakterFreieFertigkeitenPickerWrapper)
+        picker = pickerClass(edit.text())
         if picker.fertigkeit != None:
             edit.setText(picker.fertigkeit)
             self.update()
