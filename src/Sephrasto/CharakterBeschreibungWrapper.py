@@ -74,11 +74,11 @@ class BeschrWrapper(QtCore.QObject):
         ''' Transfer current values to Char object '''
         changed = False
 
-        if self.uiBeschr.editName.text() != "" and Wolke.Char.name != self.uiBeschr.editName.text():
+        if Wolke.Char.name != self.uiBeschr.editName.text():
             Wolke.Char.name = self.uiBeschr.editName.text()
             changed = True
 
-        if self.uiBeschr.editRasse.text() != "" and Wolke.Char.rasse != self.uiBeschr.editRasse.text():
+        if Wolke.Char.rasse != self.uiBeschr.editRasse.text():
             Wolke.Char.rasse = self.uiBeschr.editRasse.text()
             changed = True
 
