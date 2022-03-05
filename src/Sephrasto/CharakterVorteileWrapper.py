@@ -116,7 +116,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
             vortList.append([])
 
         for el in Wolke.DB.vorteile:
-            if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.vorteile[el].voraussetzungen):
+            if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.vorteile[el].voraussetzungen) or el == Wolke.Char.minderpakt:
                 idx = min(Wolke.DB.vorteile[el].typ, len(vortList) -1)
                 vortList[idx].append(el)
 
@@ -143,7 +143,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
                             self.handleAddKommentarWidget(txt, chi)
                 else:
                     chi.setCheckState(0, QtCore.Qt.Unchecked) 
-                if txt not in vortList[i] and txt != Wolke.Char.minderpakt:
+                if txt not in vortList[i]:
                     chi.setHidden(True)
                     chi.setCheckState(0,QtCore.Qt.Unchecked)
                     Wolke.Char.removeVorteil(txt)
