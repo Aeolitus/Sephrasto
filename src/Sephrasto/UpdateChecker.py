@@ -18,7 +18,7 @@ class UpdateChecker:
 
         try:
             response = requests.get(UpdateChecker._downloadLink, timeout = 1)
-        except Timeout:
+        except:
             return
 
         res = re.findall("Sephrasto_v(\S*).zip", response.text)
