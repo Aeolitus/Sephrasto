@@ -7,7 +7,7 @@
   </Version>
   <AllgemeineInfos>
     <name>Lanzprecht Parinor von Eslamsgrund-Steynebruck</name>
-    <rasse>Mittelländer</rasse>
+    <rasse></rasse>
     <status>1</status>
     <kurzbeschreibung>Rechtschaffener Ritter vom Stand</kurzbeschreibung>
     <schips>2</schips>
@@ -22,8 +22,8 @@
   <Attribute>
     <KO>5</KO>
     <MU>5</MU>
-    <GE>6</GE>
-    <KK>6</KK>
+    <GE>4</GE>
+    <KK>8</KK>
     <IN>4</IN>
     <KL>3</KL>
     <CH>4</CH>
@@ -34,20 +34,18 @@
     <KaP wert="0"/>
   </Energien>
   <Vorteile minderpakt="">
-    <Vorteil variable="40,">Besonderer Besitz</Vorteil>
-    <Vorteil variable="40,">Verbindungen</Vorteil>
+    <Vorteil variable="40,Schlachtross">Besonderer Besitz</Vorteil>
     <Vorteil variable="-1">Eindrucksvoll I</Vorteil>
-    <Vorteil variable="-1">Willensstark I</Vorteil>
     <Vorteil variable="-1">Kommando: Haltet Stand!</Vorteil>
     <Vorteil variable="-1">Niederwerfen</Vorteil>
-    <Vorteil variable="-1">Sturmangriff</Vorteil>
     <Vorteil variable="-1">Kampfreflexe</Vorteil>
     <Vorteil variable="-1">Kraftvoller Kampf I</Vorteil>
-    <Vorteil variable="-1">Schneller Kampf I</Vorteil>
     <Vorteil variable="-1">Kraftvoller Kampf II</Vorteil>
-    <Vorteil variable="-1">Schneller Kampf II</Vorteil>
     <Vorteil variable="-1">Reiterkampf I</Vorteil>
     <Vorteil variable="-1">Reiterkampf II</Vorteil>
+    <Vorteil variable="-1">Reiterkampf III</Vorteil>
+    <Vorteil variable="-1">Privilegien (Adel)</Vorteil>
+    <Vorteil variable="-1">Hammerschlag</Vorteil>
   </Vorteile>
   <Fertigkeiten>
     <Fertigkeit name="Handgemenge" wert="5">
@@ -56,12 +54,11 @@
         <Talent name="Handgemengewaffen" variable="-1"/>
       </Talente>
     </Fertigkeit>
-    <Fertigkeit name="Hiebwaffen" wert="4">
+    <Fertigkeit name="Hiebwaffen" wert="0">
       <Talente/>
     </Fertigkeit>
     <Fertigkeit name="Klingenwaffen" wert="8">
       <Talente>
-        <Talent name="Einhandklingenwaffen" variable="-1"/>
         <Talent name="Zweihandklingenwaffen" variable="-1"/>
       </Talente>
     </Fertigkeit>
@@ -76,7 +73,7 @@
     <Fertigkeit name="Wurfwaffen" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Fertigkeit name="Athletik" wert="5">
+    <Fertigkeit name="Athletik" wert="6">
       <Talente>
         <Talent name="Reiten" variable="-1"/>
       </Talente>
@@ -130,7 +127,7 @@
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
+    <Freie-Fertigkeit name="" wert="3"/>
     <Freie-Fertigkeit name="Minnesang" wert="1"/>
     <Freie-Fertigkeit name="Heraldik" wert="1"/>
     <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="1"/>
@@ -144,12 +141,12 @@
     </Rüstungen>
     <Waffen>
       <Waffe name="Anderthalbhänder (KVK)" id="Anderthalbhänder" W6="2" plus="2" eigenschaften="Zweihändig" haerte="10" rw="2" kampfstil="Kraftvoller Kampf" wm="1" typ="Nah"/>
-      <Waffe name="Anderthalbhänder (SNK)" id="Anderthalbhänder" W6="2" plus="2" eigenschaften="Zweihändig" haerte="10" rw="2" kampfstil="Schneller Kampf" wm="1" typ="Nah"/>
-      <Waffe name="Tralloper Riese (RK)" id="Tralloper Riese" W6="2" plus="4" eigenschaften="Niederwerfen, Reittier" haerte="16" rw="1" kampfstil="Reiterkampf" wm="0" typ="Nah"/>
+      <Waffe name="Anderthalbhänder (RK)" id="Anderthalbhänder" W6="2" plus="2" eigenschaften="Zweihändig" haerte="10" rw="2" kampfstil="Reiterkampf" wm="1" typ="Nah"/>
+      <Waffe name="Tralloper Riese" id="Tralloper Riese" W6="2" plus="4" eigenschaften="Niederwerfen, Reittier" haerte="16" rw="1" kampfstil="Reiterkampf" wm="0" typ="Nah"/>
       <Waffe name="Kriegslanze" id="Kriegslanze" W6="3" plus="1" eigenschaften="" haerte="5" rw="2" kampfstil="Reiterkampf" wm="-1" typ="Nah"/>
-      <Waffe name="Scheibendolch (SNK)" id="Scheibendolch" W6="1" plus="1" eigenschaften="Rüstungsbrechend" haerte="9" rw="0" kampfstil="Schneller Kampf" wm="0" typ="Nah"/>
-      <Waffe name="Hand (KVK)" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="8" rw="0" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
-      <Waffe name="Hand (SNK)" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="8" rw="0" kampfstil="Schneller Kampf" wm="0" typ="Nah"/>
+      <Waffe name="Scheibendolch (KVK)" id="Scheibendolch" W6="1" plus="1" eigenschaften="Rüstungsbrechend" haerte="9" rw="0" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung>
@@ -165,7 +162,7 @@
   <Übernatürliche-Fertigkeiten/>
   <Erfahrung>
     <EPtotal>3000</EPtotal>
-    <EPspent>2973</EPspent>
+    <EPspent>2995</EPspent>
   </Erfahrung>
   <Notiz/>
   <Einstellungen>
@@ -176,4 +173,30 @@
     <RegelnGroesse>0</RegelnGroesse>
     <Hausregeln></Hausregeln>
   </Einstellungen>
+  <AllgemeineInfosExt>
+    <kultur></kultur>
+    <profession></profession>
+    <geschlecht></geschlecht>
+    <geburtsdatum></geburtsdatum>
+    <groesse></groesse>
+    <gewicht></gewicht>
+    <haarfarbe></haarfarbe>
+    <augenfarbe></augenfarbe>
+    <titel></titel>
+    <aussehen1></aussehen1>
+    <aussehen2></aussehen2>
+    <aussehen3></aussehen3>
+    <aussehen4></aussehen4>
+    <aussehen5></aussehen5>
+    <aussehen6></aussehen6>
+    <hintergrund0></hintergrund0>
+    <hintergrund1></hintergrund1>
+    <hintergrund2></hintergrund2>
+    <hintergrund3></hintergrund3>
+    <hintergrund4></hintergrund4>
+    <hintergrund5></hintergrund5>
+    <hintergrund6></hintergrund6>
+    <hintergrund7></hintergrund7>
+    <hintergrund8></hintergrund8>
+  </AllgemeineInfosExt>
 </Charakter>

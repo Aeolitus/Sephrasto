@@ -1,8 +1,9 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>1</DatenbankVersion>
+    <DatenbankVersion>2</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName/>
+    <NutzerDatenbankName></NutzerDatenbankName>
+    <Plugins></Plugins>
   </Version>
   <AllgemeineInfos>
     <name></name>
@@ -103,7 +104,7 @@
       <Talente/>
     </Fertigkeit>
     <Freie-Fertigkeit name="" wert="3"/>
-    <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
+    <Freie-Fertigkeit name="Sprache: Garethi" wert="2"/>
     <Freie-Fertigkeit name="Sprache: Tulamidya" wert="2"/>
     <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="2"/>
     <Freie-Fertigkeit name="Sprache: Bosparano" wert="2"/>
@@ -113,8 +114,14 @@
     <Zonensystem>False</Zonensystem>
     <Rüstungen/>
     <Waffen>
-      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="4" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
       <Waffe name="Magierstab" id="Magierstab" W6="1" plus="1" eigenschaften="Stumpf, Unzerstörbar, Zweihändig" haerte="1" rw="2" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung/>
   </Objekte>
@@ -225,6 +232,41 @@
   </Übernatürliche-Fertigkeiten>
   <Erfahrung>
     <EPtotal>2000</EPtotal>
-    <EPspent>2010</EPspent>
+    <EPspent>1994</EPspent>
   </Erfahrung>
+  <Notiz></Notiz>
+  <Einstellungen>
+    <Charakterbogen>Ilaris Advanced Charakterbogen</Charakterbogen>
+    <FinanzenAnzeigen>1</FinanzenAnzeigen>
+    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
+    <RegelnAnhaengen>1</RegelnAnhaengen>
+    <RegelnGroesse>0</RegelnGroesse>
+    <Hausregeln></Hausregeln>
+  </Einstellungen>
+  <AllgemeineInfosExt>
+    <kultur></kultur>
+    <profession></profession>
+    <geschlecht></geschlecht>
+    <geburtsdatum></geburtsdatum>
+    <groesse></groesse>
+    <gewicht></gewicht>
+    <haarfarbe></haarfarbe>
+    <augenfarbe></augenfarbe>
+    <titel></titel>
+    <aussehen1></aussehen1>
+    <aussehen2></aussehen2>
+    <aussehen3></aussehen3>
+    <aussehen4></aussehen4>
+    <aussehen5></aussehen5>
+    <aussehen6></aussehen6>
+    <hintergrund0></hintergrund0>
+    <hintergrund1></hintergrund1>
+    <hintergrund2></hintergrund2>
+    <hintergrund3></hintergrund3>
+    <hintergrund4></hintergrund4>
+    <hintergrund5></hintergrund5>
+    <hintergrund6></hintergrund6>
+    <hintergrund7></hintergrund7>
+    <hintergrund8></hintergrund8>
+  </AllgemeineInfosExt>
 </Charakter>

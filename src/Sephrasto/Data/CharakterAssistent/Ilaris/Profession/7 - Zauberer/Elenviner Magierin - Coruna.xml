@@ -7,7 +7,7 @@
   </Version>
   <AllgemeineInfos>
     <name>Coruna Timerlan</name>
-    <rasse>Mittelländerin</rasse>
+    <rasse></rasse>
     <status>2</status>
     <kurzbeschreibung>Ehrgeizige Reichstreue Magistra</kurzbeschreibung>
     <schips>4</schips>
@@ -122,6 +122,7 @@
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
+    <Freie-Fertigkeit name="" wert="3"/>
     <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
     <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="2"/>
     <Freie-Fertigkeit name="Sprache: Bosparano" wert="2"/>
@@ -135,7 +136,7 @@
     </Rüstungen>
     <Waffen>
       <Waffe name="Magierstab" id="Magierstab" W6="1" plus="1" eigenschaften="Stumpf, Unzerstörbar, Zweihändig" haerte="1" rw="2" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
-      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="4" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
@@ -235,7 +236,7 @@
   </Übernatürliche-Fertigkeiten>
   <Erfahrung>
     <EPtotal>3000</EPtotal>
-    <EPspent>2954</EPspent>
+    <EPspent>2982</EPspent>
   </Erfahrung>
   <Notiz/>
   <Einstellungen>
@@ -246,4 +247,30 @@
     <RegelnGroesse>0</RegelnGroesse>
     <Hausregeln></Hausregeln>
   </Einstellungen>
+  <AllgemeineInfosExt>
+    <kultur></kultur>
+    <profession></profession>
+    <geschlecht></geschlecht>
+    <geburtsdatum></geburtsdatum>
+    <groesse></groesse>
+    <gewicht></gewicht>
+    <haarfarbe></haarfarbe>
+    <augenfarbe></augenfarbe>
+    <titel></titel>
+    <aussehen1></aussehen1>
+    <aussehen2></aussehen2>
+    <aussehen3></aussehen3>
+    <aussehen4></aussehen4>
+    <aussehen5></aussehen5>
+    <aussehen6></aussehen6>
+    <hintergrund0></hintergrund0>
+    <hintergrund1></hintergrund1>
+    <hintergrund2></hintergrund2>
+    <hintergrund3></hintergrund3>
+    <hintergrund4></hintergrund4>
+    <hintergrund5></hintergrund5>
+    <hintergrund6></hintergrund6>
+    <hintergrund7></hintergrund7>
+    <hintergrund8></hintergrund8>
+  </AllgemeineInfosExt>
 </Charakter>

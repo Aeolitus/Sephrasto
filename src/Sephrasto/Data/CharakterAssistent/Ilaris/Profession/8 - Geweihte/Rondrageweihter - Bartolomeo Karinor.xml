@@ -7,12 +7,12 @@
   </Version>
   <AllgemeineInfos>
     <name>Bartolomeo Karinor</name>
-    <rasse>Mensch</rasse>
+    <rasse></rasse>
     <status>1</status>
     <kurzbeschreibung>Athletischer Rondrageweihter aus Al'Anfa, der zu den Tugenden Rondras finden möchte.</kurzbeschreibung>
     <schips>4</schips>
     <finanzen>2</finanzen>
-    <heimat>Südaventurien</heimat>
+    <heimat>Mittelreich</heimat>
     <eigenheiten>
       <Eigenheit>Sucher nach dem Weg Rondras</Eigenheit>
       <Eigenheit>Loyalität über den Tod hinaus</Eigenheit>
@@ -65,15 +65,13 @@
     <Fertigkeit name="Wurfwaffen" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Fertigkeit name="Athletik" wert="7">
-      <Talente>
-        <Talent name="Schwimmen" variable="-1"/>
-      </Talente>
+    <Fertigkeit name="Athletik" wert="5">
+      <Talente/>
     </Fertigkeit>
     <Fertigkeit name="Heimlichkeit" wert="3">
       <Talente/>
     </Fertigkeit>
-    <Fertigkeit name="Selbstbeherrschung" wert="7">
+    <Fertigkeit name="Selbstbeherrschung" wert="6">
       <Talente>
         <Talent name="Zähigkeit" variable="-1"/>
       </Talente>
@@ -91,7 +89,7 @@
     </Fertigkeit>
     <Fertigkeit name="Gebräuche" wert="5">
       <Talente>
-        <Talent name="Gebräuche: Südaventurien" variable="-1"/>
+        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Derekunde" wert="0">
@@ -118,11 +116,12 @@
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
-    <Freie-Fertigkeit name="Schrift: Tulamidya-Zeichen" wert="3"/>
-    <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="3"/>
-    <Freie-Fertigkeit name="Weinkenner " wert="2"/>
+    <Freie-Fertigkeit name="" wert="3"/>
+    <Freie-Fertigkeit name="Sprache: Garethi" wert="2"/>
+    <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="2"/>
+    <Freie-Fertigkeit name="Schrift: Tulamidya-Zeichen" wert="2"/>
     <Freie-Fertigkeit name="Sprache: Tulamidya" wert="2"/>
+    <Freie-Fertigkeit name="Weinkenner " wert="2"/>
     <Freie-Fertigkeit name="Tänzer " wert="2"/>
   </Fertigkeiten>
   <Objekte>
@@ -135,7 +134,7 @@
     <Waffen>
       <Waffe name="Andergaster" id="Andergaster" W6="3" plus="3" eigenschaften="Kopflastig, Schwer (4), Zweihändig" haerte="9" rw="2" kampfstil="Kraftvoller Kampf" wm="-2" typ="Nah"/>
       <Waffe name="Dolch" id="Dolch (Handgemengewaffen)" W6="1" plus="1" eigenschaften="" haerte="9" rw="0" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
-      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="7" rw="0" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
@@ -161,6 +160,11 @@
         <Talent name="Schutzsegen" variable="-1"/>
         <Talent name="Speisesegen" variable="-1"/>
         <Talent name="Tranksegen" variable="-1"/>
+        <Talent name="Glückssegen" variable="-1"/>
+        <Talent name="Harmoniesegen" variable="-1"/>
+        <Talent name="Heilungssegen" variable="-1"/>
+        <Talent name="Märtyrersegen" variable="-1"/>
+        <Talent name="Weisheitssegen" variable="-1"/>
       </Talente>
     </Übernatürliche-Fertigkeit>
     <Übernatürliche-Fertigkeit name="Ehre" wert="0" addToPDF="True">
@@ -185,7 +189,7 @@
     <EPtotal>2500</EPtotal>
     <EPspent>2499</EPspent>
   </Erfahrung>
-  <Notiz></Notiz>
+  <Notiz/>
   <Einstellungen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
@@ -194,4 +198,30 @@
     <RegelnGroesse>0</RegelnGroesse>
     <Hausregeln></Hausregeln>
   </Einstellungen>
+  <AllgemeineInfosExt>
+    <kultur/>
+    <profession></profession>
+    <geschlecht></geschlecht>
+    <geburtsdatum></geburtsdatum>
+    <groesse></groesse>
+    <gewicht></gewicht>
+    <haarfarbe></haarfarbe>
+    <augenfarbe></augenfarbe>
+    <titel></titel>
+    <aussehen1></aussehen1>
+    <aussehen2></aussehen2>
+    <aussehen3></aussehen3>
+    <aussehen4></aussehen4>
+    <aussehen5></aussehen5>
+    <aussehen6></aussehen6>
+    <hintergrund0></hintergrund0>
+    <hintergrund1></hintergrund1>
+    <hintergrund2></hintergrund2>
+    <hintergrund3></hintergrund3>
+    <hintergrund4></hintergrund4>
+    <hintergrund5></hintergrund5>
+    <hintergrund6></hintergrund6>
+    <hintergrund7></hintergrund7>
+    <hintergrund8></hintergrund8>
+  </AllgemeineInfosExt>
 </Charakter>

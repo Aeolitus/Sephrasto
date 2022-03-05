@@ -7,12 +7,12 @@
   </Version>
   <AllgemeineInfos>
     <name>Orsox Sohn des Engerim</name>
-    <rasse>Zwerg</rasse>
+    <rasse></rasse>
     <status>2</status>
     <kurzbeschreibung>Zwergischer Prospektor und Fallensteller</kurzbeschreibung>
     <schips>4</schips>
     <finanzen>2</finanzen>
-    <heimat>Zwerge</heimat>
+    <heimat>Mittelreich</heimat>
     <eigenheiten>
       <Eigenheit>Über Weg und Steg</Eigenheit>
       <Eigenheit>Expertenmeinung</Eigenheit>
@@ -87,7 +87,7 @@
     </Fertigkeit>
     <Fertigkeit name="Gebräuche" wert="2">
       <Talente>
-        <Talent name="Gebräuche: Zwerge" variable="-1"/>
+        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Derekunde" wert="5">
@@ -116,6 +116,7 @@
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
+    <Freie-Fertigkeit name="" wert="3"/>
     <Freie-Fertigkeit name="Sprache: Rogolan" wert="3"/>
     <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="1"/>
     <Freie-Fertigkeit name="Sprache: Angram" wert="1"/>
@@ -132,8 +133,8 @@
       <Waffe name="Leichte Armbrust" id="Leichte Armbrust" W6="3" plus="1" eigenschaften="Zweihändig" haerte="4" rw="32" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="4"/>
       <Waffe name="Orknase" id="Orknase" W6="3" plus="0" eigenschaften="Kopflastig, Schwer (4), Zweihändig" haerte="8" rw="1" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
       <Waffe name="Lindwurmschläger" id="Lindwurmschläger" W6="2" plus="2" eigenschaften="" haerte="10" rw="1" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
-      <Waffe name="Dolch (Handgemengewaffen)" id="Dolch (Handgemengewaffen)" W6="1" plus="1" eigenschaften="" haerte="9" rw="0" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
-      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="7" rw="0" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
+      <Waffe name="Dolch" id="Dolch (Handgemengewaffen)" W6="1" plus="1" eigenschaften="" haerte="9" rw="0" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
@@ -151,9 +152,9 @@
   <Übernatürliche-Fertigkeiten/>
   <Erfahrung>
     <EPtotal>3000</EPtotal>
-    <EPspent>2856</EPspent>
+    <EPspent>2884</EPspent>
   </Erfahrung>
-  <Notiz></Notiz>
+  <Notiz/>
   <Einstellungen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
@@ -162,4 +163,30 @@
     <RegelnGroesse>0</RegelnGroesse>
     <Hausregeln></Hausregeln>
   </Einstellungen>
+  <AllgemeineInfosExt>
+    <kultur></kultur>
+    <profession></profession>
+    <geschlecht></geschlecht>
+    <geburtsdatum></geburtsdatum>
+    <groesse></groesse>
+    <gewicht></gewicht>
+    <haarfarbe></haarfarbe>
+    <augenfarbe></augenfarbe>
+    <titel></titel>
+    <aussehen1></aussehen1>
+    <aussehen2></aussehen2>
+    <aussehen3></aussehen3>
+    <aussehen4></aussehen4>
+    <aussehen5></aussehen5>
+    <aussehen6></aussehen6>
+    <hintergrund0></hintergrund0>
+    <hintergrund1></hintergrund1>
+    <hintergrund2></hintergrund2>
+    <hintergrund3></hintergrund3>
+    <hintergrund4></hintergrund4>
+    <hintergrund5></hintergrund5>
+    <hintergrund6></hintergrund6>
+    <hintergrund7></hintergrund7>
+    <hintergrund8></hintergrund8>
+  </AllgemeineInfosExt>
 </Charakter>

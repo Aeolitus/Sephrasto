@@ -7,12 +7,12 @@
   </Version>
   <AllgemeineInfos>
     <name>Kangrax Klappertopf</name>
-    <rasse>Hügelzwerg</rasse>
+    <rasse></rasse>
     <status>4</status>
     <kurzbeschreibung>Hügelzwergischer Kiepenkerl mit einem offenen Ohr und einer schier unerschöpflichen Kiepe.</kurzbeschreibung>
     <schips>4</schips>
     <finanzen>2</finanzen>
-    <heimat>Zwerge</heimat>
+    <heimat>Mittelreich</heimat>
     <eigenheiten>
       <Eigenheit>Über Stock und Stein</Eigenheit>
       <Eigenheit>"Da hab' ich doch noch was in meiner Kiepe..."</Eigenheit>
@@ -84,7 +84,6 @@
     </Fertigkeit>
     <Fertigkeit name="Gebräuche" wert="5">
       <Talente>
-        <Talent name="Gebräuche: Zwerge" variable="-1"/>
         <Talent name="Gebräuche: Mittelreich" variable="-1"/>
       </Talente>
     </Fertigkeit>
@@ -116,15 +115,12 @@
     <Fertigkeit name="Handwerk" wert="1">
       <Talente/>
     </Fertigkeit>
+    <Freie-Fertigkeit name="" wert="3"/>
     <Freie-Fertigkeit name="Sprache: Rogolan" wert="3"/>
-    <Freie-Fertigkeit name="Händler" wert="3"/>
-    <Freie-Fertigkeit name="" wert="1"/>
-    <Freie-Fertigkeit name="" wert="1"/>
     <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
-    <Freie-Fertigkeit name="Koch" wert="1"/>
-    <Freie-Fertigkeit name="" wert="1"/>
-    <Freie-Fertigkeit name="" wert="1"/>
     <Freie-Fertigkeit name="Sprache: Füchsisch (+Schrift)" wert="1"/>
+    <Freie-Fertigkeit name="Koch" wert="1"/>
+    <Freie-Fertigkeit name="Händler" wert="3"/>
   </Fertigkeiten>
   <Objekte>
     <Zonensystem>False</Zonensystem>
@@ -162,9 +158,9 @@
   <Übernatürliche-Fertigkeiten/>
   <Erfahrung>
     <EPtotal>2500</EPtotal>
-    <EPspent>2400</EPspent>
+    <EPspent>2388</EPspent>
   </Erfahrung>
-  <Notiz></Notiz>
+  <Notiz/>
   <Einstellungen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
@@ -173,4 +169,30 @@
     <RegelnGroesse>0</RegelnGroesse>
     <Hausregeln></Hausregeln>
   </Einstellungen>
+  <AllgemeineInfosExt>
+    <kultur></kultur>
+    <profession></profession>
+    <geschlecht></geschlecht>
+    <geburtsdatum></geburtsdatum>
+    <groesse></groesse>
+    <gewicht></gewicht>
+    <haarfarbe></haarfarbe>
+    <augenfarbe></augenfarbe>
+    <titel></titel>
+    <aussehen1></aussehen1>
+    <aussehen2></aussehen2>
+    <aussehen3></aussehen3>
+    <aussehen4></aussehen4>
+    <aussehen5></aussehen5>
+    <aussehen6></aussehen6>
+    <hintergrund0></hintergrund0>
+    <hintergrund1></hintergrund1>
+    <hintergrund2></hintergrund2>
+    <hintergrund3></hintergrund3>
+    <hintergrund4></hintergrund4>
+    <hintergrund5></hintergrund5>
+    <hintergrund6></hintergrund6>
+    <hintergrund7></hintergrund7>
+    <hintergrund8></hintergrund8>
+  </AllgemeineInfosExt>
 </Charakter>

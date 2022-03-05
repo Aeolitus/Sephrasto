@@ -1,14 +1,15 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>1</DatenbankVersion>
+    <DatenbankVersion>2</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName/>
+    <NutzerDatenbankName></NutzerDatenbankName>
+    <Plugins></Plugins>
   </Version>
   <AllgemeineInfos>
     <name></name>
-    <rasse>Mensch</rasse>
+    <rasse></rasse>
     <status>2</status>
-    <kurzbeschreibung>frisch geweihter Rondrageweihter</kurzbeschreibung>
+    <kurzbeschreibung></kurzbeschreibung>
     <schips>0</schips>
     <finanzen>0</finanzen>
     <heimat>Mittelreich</heimat>
@@ -42,6 +43,7 @@
     <Vorteil variable="-1">Niederwerfen</Vorteil>
     <Vorteil variable="-1">Willensstark II</Vorteil>
     <Vorteil variable="-1">Privilegien (Krieger)</Vorteil>
+    <Vorteil variable="-1">Geweiht III</Vorteil>
   </Vorteile>
   <Fertigkeiten>
     <Fertigkeit name="Handgemenge" wert="5">
@@ -125,9 +127,14 @@
       <Rüstung name="Kettenrüstung" be="3" rs="3/3/3/3/3/3"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="Rondrakamm" id="Rondrakamm" W6="2" plus="4" eigenschaften="Zweihändig, geweiht, +1W6 gegen &quot;Unheilige&quot;" haerte="10" rw="2" kampfstil="Schneller Kampf" wm="0" typ="Nah"/>
+      <Waffe name="Rondrakamm" id="Rondrakamm" W6="2" plus="4" eigenschaften="Zweihändig, geweiht" haerte="10" rw="2" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
       <Waffe name="Kurzschwert" id="Kurzschwert" W6="2" plus="0" eigenschaften="Wendig" haerte="10" rw="0" kampfstil="Schneller Kampf" wm="0" typ="Nah"/>
-      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="8" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>Einfache Reiseausrüstung</Ausrüstungsstück>
@@ -175,6 +182,41 @@
   </Übernatürliche-Fertigkeiten>
   <Erfahrung>
     <EPtotal>2500</EPtotal>
-    <EPspent>2496</EPspent>
+    <EPspent>2500</EPspent>
   </Erfahrung>
+  <Notiz/>
+  <Einstellungen>
+    <Charakterbogen>Ilaris Advanced Charakterbogen</Charakterbogen>
+    <FinanzenAnzeigen>1</FinanzenAnzeigen>
+    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
+    <RegelnAnhaengen>1</RegelnAnhaengen>
+    <RegelnGroesse>0</RegelnGroesse>
+    <Hausregeln></Hausregeln>
+  </Einstellungen>
+  <AllgemeineInfosExt>
+    <kultur/>
+    <profession></profession>
+    <geschlecht></geschlecht>
+    <geburtsdatum></geburtsdatum>
+    <groesse></groesse>
+    <gewicht></gewicht>
+    <haarfarbe></haarfarbe>
+    <augenfarbe></augenfarbe>
+    <titel></titel>
+    <aussehen1></aussehen1>
+    <aussehen2></aussehen2>
+    <aussehen3></aussehen3>
+    <aussehen4></aussehen4>
+    <aussehen5></aussehen5>
+    <aussehen6></aussehen6>
+    <hintergrund0></hintergrund0>
+    <hintergrund1></hintergrund1>
+    <hintergrund2></hintergrund2>
+    <hintergrund3></hintergrund3>
+    <hintergrund4></hintergrund4>
+    <hintergrund5></hintergrund5>
+    <hintergrund6></hintergrund6>
+    <hintergrund7></hintergrund7>
+    <hintergrund8></hintergrund8>
+  </AllgemeineInfosExt>
 </Charakter>

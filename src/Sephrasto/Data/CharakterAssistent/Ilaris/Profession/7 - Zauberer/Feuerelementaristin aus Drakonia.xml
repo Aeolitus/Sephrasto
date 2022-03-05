@@ -2,7 +2,8 @@
   <Version>
     <DatenbankVersion>2</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName/>
+    <NutzerDatenbankName></NutzerDatenbankName>
+    <Plugins></Plugins>
   </Version>
   <AllgemeineInfos>
     <name></name>
@@ -33,6 +34,7 @@
     <Vorteil variable="-1">Zauberer II</Vorteil>
     <Vorteil variable="-1">Tradition der Gildenmagier I</Vorteil>
     <Vorteil variable="-1">Zauberer III</Vorteil>
+    <Vorteil variable="-1">Privilegien (Gildenmagier)</Vorteil>
   </Vorteile>
   <Fertigkeiten>
     <Fertigkeit name="Handgemenge" wert="0">
@@ -44,7 +46,7 @@
     <Fertigkeit name="Klingenwaffen" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Fertigkeit name="Stangenwaffen" wert="8">
+    <Fertigkeit name="Stangenwaffen" wert="7">
       <Talente>
         <Talent name="Infanteriewaffen und Speere" variable="-1"/>
       </Talente>
@@ -120,6 +122,13 @@
     <Rüstungen/>
     <Waffen>
       <Waffe name="Kampfstab" id="Kampfstab" W6="1" plus="1" eigenschaften="Wendig, Stumpf, Zweihändig" haerte="4" rw="2" kampfstil="Kein Kampfstil" wm="1" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>Goldener Armreif mit gebundenem Feuergeist (4 gAsP)</Ausrüstungsstück>
@@ -156,7 +165,7 @@
         <Talent name="Manifesto Element" variable="-1"/>
       </Talente>
     </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Hellsicht" wert="0" addToPDF="True">
+    <Übernatürliche-Fertigkeit name="Hellsicht" wert="0" addToPDF="0">
       <Talente/>
     </Übernatürliche-Fertigkeit>
     <Übernatürliche-Fertigkeit name="Humus" wert="0" addToPDF="True">
@@ -204,10 +213,19 @@
   </Übernatürliche-Fertigkeiten>
   <Erfahrung>
     <EPtotal>2000</EPtotal>
-    <EPspent>2011</EPspent>
+    <EPspent>1999</EPspent>
   </Erfahrung>
   <Notiz/>
+  <Einstellungen>
+    <Charakterbogen>Ilaris Advanced Charakterbogen</Charakterbogen>
+    <FinanzenAnzeigen>1</FinanzenAnzeigen>
+    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
+    <RegelnAnhaengen>1</RegelnAnhaengen>
+    <RegelnGroesse>0</RegelnGroesse>
+    <Hausregeln></Hausregeln>
+  </Einstellungen>
   <AllgemeineInfosExt>
+    <kultur></kultur>
     <profession></profession>
     <geschlecht></geschlecht>
     <geburtsdatum></geburtsdatum>

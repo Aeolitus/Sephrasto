@@ -7,7 +7,7 @@
   </Version>
   <AllgemeineInfos>
     <name>Domnal Arbedan</name>
-    <rasse>Mittelländer</rasse>
+    <rasse></rasse>
     <status>3</status>
     <kurzbeschreibung>Beinharter Leibwächter von niederem Stand</kurzbeschreibung>
     <schips>4</schips>
@@ -126,7 +126,7 @@
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
+    <Freie-Fertigkeit name="" wert="3"/>
     <Freie-Fertigkeit name="Imman" wert="1"/>
     <Freie-Fertigkeit name="Sprache: Thorwalsch" wert="1"/>
     <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="1"/>
@@ -145,7 +145,7 @@
       <Waffe name="Schwert (SK)" id="Schwert" W6="2" plus="2" eigenschaften="" haerte="10" rw="1" kampfstil="Schildkampf" wm="0" typ="Nah"/>
       <Waffe name="Langdolch (PW)" id="Langdolch" W6="1" plus="2" eigenschaften="Parierwaffe" haerte="10" rw="0" kampfstil="Parierwaffenkampf" wm="0" typ="Nah"/>
       <Waffe name="Wurfmesser" id="Wurfmesser" W6="1" plus="0" eigenschaften="" haerte="8" rw="4" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
-      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe, Kopflastig, Wendig" haerte="7" rw="0" kampfstil="Parierwaffenkampf" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung>
@@ -163,7 +163,7 @@
     <EPtotal>3000</EPtotal>
     <EPspent>2971</EPspent>
   </Erfahrung>
-  <Notiz></Notiz>
+  <Notiz/>
   <Einstellungen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
@@ -172,4 +172,30 @@
     <RegelnGroesse>0</RegelnGroesse>
     <Hausregeln></Hausregeln>
   </Einstellungen>
+  <AllgemeineInfosExt>
+    <kultur></kultur>
+    <profession></profession>
+    <geschlecht></geschlecht>
+    <geburtsdatum></geburtsdatum>
+    <groesse></groesse>
+    <gewicht></gewicht>
+    <haarfarbe></haarfarbe>
+    <augenfarbe></augenfarbe>
+    <titel></titel>
+    <aussehen1></aussehen1>
+    <aussehen2></aussehen2>
+    <aussehen3></aussehen3>
+    <aussehen4></aussehen4>
+    <aussehen5></aussehen5>
+    <aussehen6></aussehen6>
+    <hintergrund0></hintergrund0>
+    <hintergrund1></hintergrund1>
+    <hintergrund2></hintergrund2>
+    <hintergrund3></hintergrund3>
+    <hintergrund4></hintergrund4>
+    <hintergrund5></hintergrund5>
+    <hintergrund6></hintergrund6>
+    <hintergrund7></hintergrund7>
+    <hintergrund8></hintergrund8>
+  </AllgemeineInfosExt>
 </Charakter>

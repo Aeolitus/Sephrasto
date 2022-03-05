@@ -7,7 +7,7 @@
   </Version>
   <AllgemeineInfos>
     <name>Odila Sensendengler</name>
-    <rasse>Mittelländerin</rasse>
+    <rasse></rasse>
     <status>3</status>
     <kurzbeschreibung>Pferdediebin und Wilderin auf der Flucht vor ihrer Vergangenheit</kurzbeschreibung>
     <schips>5</schips>
@@ -41,7 +41,7 @@
     <Vorteil variable="-1">Reiterkampf I</Vorteil>
     <Vorteil variable="-1">Schildkampf I</Vorteil>
     <Vorteil variable="-1">Kampfreflexe</Vorteil>
-    <Vorteil variable="40,">Besonderer Besitz</Vorteil>
+    <Vorteil variable="20,Reitpferd">Besonderer Besitz</Vorteil>
     <Vorteil variable="20,Pferde">Tierempathie</Vorteil>
   </Vorteile>
   <Fertigkeiten>
@@ -55,13 +55,13 @@
         <Talent name="Einhandhiebwaffen" variable="-1"/>
       </Talente>
     </Fertigkeit>
-    <Fertigkeit name="Klingenwaffen" wert="1">
+    <Fertigkeit name="Klingenwaffen" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Fertigkeit name="Stangenwaffen" wert="3">
+    <Fertigkeit name="Stangenwaffen" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Fertigkeit name="Schusswaffen" wert="8">
+    <Fertigkeit name="Schusswaffen" wert="7">
       <Talente>
         <Talent name="Bögen" variable="-1"/>
       </Talente>
@@ -72,7 +72,9 @@
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Athletik" wert="5">
-      <Talente/>
+      <Talente>
+        <Talent name="Reiten" variable="-1"/>
+      </Talente>
     </Fertigkeit>
     <Fertigkeit name="Heimlichkeit" wert="5">
       <Talente>
@@ -126,7 +128,7 @@
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
+    <Freie-Fertigkeit name="" wert="3"/>
     <Freie-Fertigkeit name="Rosstäuscher" wert="1"/>
     <Freie-Fertigkeit name="Sprache: Atak (+Schrift)" wert="1"/>
     <Freie-Fertigkeit name="Volkslieder" wert="1"/>
@@ -140,13 +142,13 @@
     </Rüstungen>
     <Waffen>
       <Waffe name="Reitpferd (RK)" id="Reitpferd" W6="2" plus="0" eigenschaften="Niederwerfen, Reittier" haerte="13" rw="1" kampfstil="Reiterkampf" wm="-1" typ="Nah"/>
-      <Waffe name="Streitkolben (SK)" id="Streitkolben" W6="2" plus="0" eigenschaften="Stumpf, Kopflastig, Rüstungsbrechend" haerte="8" rw="1" kampfstil="Schildkampf" wm="0" typ="Nah"/>
-      <Waffe name="Holzschild (SK)" id="Holzschild" W6="1" plus="0" eigenschaften="Schild, Stumpf" haerte="8" rw="0" kampfstil="Schildkampf" wm="1" typ="Nah"/>
       <Waffe name="Streitkolben (RK)" id="Streitkolben" W6="2" plus="0" eigenschaften="Stumpf, Kopflastig, Rüstungsbrechend" haerte="8" rw="1" kampfstil="Reiterkampf" wm="0" typ="Nah"/>
+      <Waffe name="Streitkolben (SK)" id="Holzschild" W6="1" plus="0" eigenschaften="Schild, Stumpf" haerte="8" rw="0" kampfstil="Schildkampf" wm="1" typ="Nah"/>
+      <Waffe name="Holzschild" id="Streitkolben" W6="2" plus="0" eigenschaften="Stumpf, Kopflastig, Rüstungsbrechend" haerte="8" rw="1" kampfstil="Schildkampf" wm="0" typ="Nah"/>
       <Waffe name="Kurzbogen" id="Kurzbogen" W6="2" plus="1" eigenschaften="Zweihändig" haerte="3" rw="16" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
-      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="6" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
       <Waffe name="Fledermaus" id="Fledermaus" W6="0" plus="0" eigenschaften="Umklammern (-2; 12)" haerte="3" rw="8" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
       <Waffe name="Lasso" id="Lasso" W6="0" plus="0" eigenschaften="Umklammern (-2; 12)" haerte="2" rw="4" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>Sattel mit Satteltaschen, Zaumzeug</Ausrüstungsstück>
@@ -162,9 +164,9 @@
   <Übernatürliche-Fertigkeiten/>
   <Erfahrung>
     <EPtotal>3000</EPtotal>
-    <EPspent>2991</EPspent>
+    <EPspent>2993</EPspent>
   </Erfahrung>
-  <Notiz></Notiz>
+  <Notiz/>
   <Einstellungen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
@@ -173,4 +175,30 @@
     <RegelnGroesse>0</RegelnGroesse>
     <Hausregeln></Hausregeln>
   </Einstellungen>
+  <AllgemeineInfosExt>
+    <kultur></kultur>
+    <profession></profession>
+    <geschlecht></geschlecht>
+    <geburtsdatum></geburtsdatum>
+    <groesse></groesse>
+    <gewicht></gewicht>
+    <haarfarbe></haarfarbe>
+    <augenfarbe></augenfarbe>
+    <titel></titel>
+    <aussehen1></aussehen1>
+    <aussehen2></aussehen2>
+    <aussehen3></aussehen3>
+    <aussehen4></aussehen4>
+    <aussehen5></aussehen5>
+    <aussehen6></aussehen6>
+    <hintergrund0></hintergrund0>
+    <hintergrund1></hintergrund1>
+    <hintergrund2></hintergrund2>
+    <hintergrund3></hintergrund3>
+    <hintergrund4></hintergrund4>
+    <hintergrund5></hintergrund5>
+    <hintergrund6></hintergrund6>
+    <hintergrund7></hintergrund7>
+    <hintergrund8></hintergrund8>
+  </AllgemeineInfosExt>
 </Charakter>

@@ -123,14 +123,12 @@
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
+    <Freie-Fertigkeit name="" wert="3"/>
     <Freie-Fertigkeit name="Boltan" wert="3"/>
     <Freie-Fertigkeit name="Tänzer" wert="2"/>
-    <Freie-Fertigkeit name="" wert="1"/>
-    <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="2"/>
-    <Freie-Fertigkeit name="Dichter" wert="2"/>
     <Freie-Fertigkeit name="Händler" wert="2"/>
-    <Freie-Fertigkeit name="" wert="1"/>
+    <Freie-Fertigkeit name="Dichter" wert="2"/>
+    <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="2"/>
     <Freie-Fertigkeit name="Schrift: Zhayad-Zeichen" wert="2"/>
   </Fertigkeiten>
   <Objekte>
@@ -143,9 +141,9 @@
     <Waffen>
       <Waffe name="Säbel" id="Säbel" W6="2" plus="2" eigenschaften="" haerte="10" rw="1" kampfstil="Schneller Kampf" wm="0" typ="Nah"/>
       <Waffe name="Dolch" id="Dolch (Handgemengewaffen)" W6="1" plus="1" eigenschaften="" haerte="9" rw="0" kampfstil="Schneller Kampf" wm="0" typ="Nah"/>
-      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="6" rw="0" kampfstil="Schneller Kampf" wm="0" typ="Nah"/>
-      <Waffe name="Borndorn " id="Borndorn (Kurze Wurfwaffen)" W6="1" plus="2" eigenschaften="3 Stück" haerte="9" rw="4" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
-      <Waffe name="Dolch (als Wurfwaffe)" id="Dolch (Kurze Wurfwaffen)" W6="1" plus="0" eigenschaften="" haerte="8" rw="4" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
+      <Waffe name="Borndorn" id="Borndorn (Kurze Wurfwaffen)" W6="1" plus="2" eigenschaften="3 Stück" haerte="9" rw="4" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
+      <Waffe name="Dolch (Wurfwaffe)" id="Dolch (Kurze Wurfwaffen)" W6="1" plus="0" eigenschaften="" haerte="8" rw="4" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
@@ -225,7 +223,7 @@
     <EPtotal>2500</EPtotal>
     <EPspent>2500</EPspent>
   </Erfahrung>
-  <Notiz></Notiz>
+  <Notiz/>
   <Einstellungen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
@@ -234,4 +232,30 @@
     <RegelnGroesse>0</RegelnGroesse>
     <Hausregeln></Hausregeln>
   </Einstellungen>
+  <AllgemeineInfosExt>
+    <kultur></kultur>
+    <profession></profession>
+    <geschlecht></geschlecht>
+    <geburtsdatum></geburtsdatum>
+    <groesse></groesse>
+    <gewicht></gewicht>
+    <haarfarbe></haarfarbe>
+    <augenfarbe></augenfarbe>
+    <titel></titel>
+    <aussehen1></aussehen1>
+    <aussehen2></aussehen2>
+    <aussehen3></aussehen3>
+    <aussehen4></aussehen4>
+    <aussehen5></aussehen5>
+    <aussehen6></aussehen6>
+    <hintergrund0></hintergrund0>
+    <hintergrund1></hintergrund1>
+    <hintergrund2></hintergrund2>
+    <hintergrund3></hintergrund3>
+    <hintergrund4></hintergrund4>
+    <hintergrund5></hintergrund5>
+    <hintergrund6></hintergrund6>
+    <hintergrund7></hintergrund7>
+    <hintergrund8></hintergrund8>
+  </AllgemeineInfosExt>
 </Charakter>

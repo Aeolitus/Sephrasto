@@ -7,10 +7,10 @@
   </Version>
   <AllgemeineInfos>
     <name>Lucanus</name>
-    <rasse>Mensch</rasse>
+    <rasse></rasse>
     <status>2</status>
     <kurzbeschreibung>Ein Borongeweihter ohne Erinnerungen, aber mit einem düsteren Geheimnis.</kurzbeschreibung>
-    <schips>6</schips>
+    <schips>5</schips>
     <finanzen>3</finanzen>
     <heimat>Mittelreich</heimat>
     <eigenheiten>
@@ -32,20 +32,17 @@
   </Attribute>
   <Energien>
     <AsP wert="0"/>
-    <KaP wert="3"/>
+    <KaP wert="0"/>
   </Energien>
   <Vorteile minderpakt="">
-    <Vorteil variable="-1">Glück I</Vorteil>
     <Vorteil variable="-1">Geweiht I</Vorteil>
     <Vorteil variable="-1">Geweiht II</Vorteil>
     <Vorteil variable="-1">Geweiht III</Vorteil>
     <Vorteil variable="-1">Tradition der Borongeweihten I</Vorteil>
     <Vorteil variable="-1">Tradition der Borongeweihten II</Vorteil>
-    <Vorteil variable="-1">Liturgische Routine</Vorteil>
-    <Vorteil variable="-1">Liturgische Sorgfalt</Vorteil>
   </Vorteile>
   <Fertigkeiten>
-    <Fertigkeit name="Handgemenge" wert="3">
+    <Fertigkeit name="Handgemenge" wert="2">
       <Talente/>
     </Fertigkeit>
     <Fertigkeit name="Hiebwaffen" wert="3">
@@ -54,7 +51,7 @@
     <Fertigkeit name="Klingenwaffen" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Fertigkeit name="Stangenwaffen" wert="1">
+    <Fertigkeit name="Stangenwaffen" wert="0">
       <Talente/>
     </Fertigkeit>
     <Fertigkeit name="Schusswaffen" wert="0">
@@ -95,11 +92,10 @@
     </Fertigkeit>
     <Fertigkeit name="Mythenkunde" wert="6">
       <Talente>
-        <Talent name="Geschichten und Legenden" variable="-1"/>
         <Talent name="Götter und Kulte" variable="-1"/>
       </Talente>
     </Fertigkeit>
-    <Fertigkeit name="Magiekunde" wert="6">
+    <Fertigkeit name="Magiekunde" wert="5">
       <Talente>
         <Talent name="Dämonenkunde" variable="-1"/>
       </Talente>
@@ -119,8 +115,8 @@
     <Fertigkeit name="Handwerk" wert="1">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="Sprache: Bosparano" wert="3"/>
-    <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
+    <Freie-Fertigkeit name="" wert="3"/>
+    <Freie-Fertigkeit name="Sprache: Bosparano" wert="2"/>
     <Freie-Fertigkeit name="Schrift: Ur-Tulamidya-Zeichen" wert="1"/>
     <Freie-Fertigkeit name="Schrift: Tulamidya-Zeichen" wert="2"/>
     <Freie-Fertigkeit name="Schrift: Imperiale Zeichen" wert="1"/>
@@ -128,6 +124,7 @@
     <Freie-Fertigkeit name="Schrift: Zhayad-Zeichen" wert="1"/>
     <Freie-Fertigkeit name="Sprache: Tulamidya" wert="2"/>
     <Freie-Fertigkeit name="Weinkenner" wert="1"/>
+    <Freie-Fertigkeit name="Sprache: Garethi" wert="2"/>
   </Fertigkeiten>
   <Objekte>
     <Zonensystem>False</Zonensystem>
@@ -139,7 +136,7 @@
     <Waffen>
       <Waffe name="Dolch" id="Dolch (Handgemengewaffen)" W6="1" plus="1" eigenschaften="" haerte="9" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
       <Waffe name="Knüppel" id="Knüppel" W6="1" plus="2" eigenschaften="Stumpf, Kopflastig" haerte="5" rw="1" kampfstil="Kein Kampfstil" wm="-1" typ="Nah"/>
-      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="5" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
@@ -153,9 +150,20 @@
     </Ausrüstung>
   </Objekte>
   <Übernatürliche-Fertigkeiten>
-    <Übernatürliche-Fertigkeit name="Zwölfgöttlicher Ritus" wert="0" addToPDF="False">
+    <Übernatürliche-Fertigkeit name="Zwölfgöttlicher Ritus" wert="1" addToPDF="True">
       <Talente>
         <Talent name="Grabsegen" variable="-1"/>
+        <Talent name="Eidsegen" variable="-1"/>
+        <Talent name="Feuersegen" variable="-1"/>
+        <Talent name="Geburtssegen" variable="-1"/>
+        <Talent name="Glückssegen" variable="-1"/>
+        <Talent name="Harmoniesegen" variable="-1"/>
+        <Talent name="Heilungssegen" variable="-1"/>
+        <Talent name="Märtyrersegen" variable="-1"/>
+        <Talent name="Schutzsegen" variable="-1"/>
+        <Talent name="Speisesegen" variable="-1"/>
+        <Talent name="Tranksegen" variable="-1"/>
+        <Talent name="Weisheitssegen" variable="-1"/>
       </Talente>
     </Übernatürliche-Fertigkeit>
     <Übernatürliche-Fertigkeit name="Schlaf" wert="0" addToPDF="False">
@@ -169,7 +177,7 @@
         <Talent name="Nemekaths Geisterblick " variable="-1"/>
       </Talente>
     </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Vergessen" wert="6" addToPDF="True">
+    <Übernatürliche-Fertigkeit name="Vergessen" wert="5" addToPDF="True">
       <Talente>
         <Talent name="Innere Ruhe" variable="-1"/>
         <Talent name="Mirakel: CH" variable="-1"/>
@@ -183,7 +191,7 @@
     <EPtotal>2500</EPtotal>
     <EPspent>2499</EPspent>
   </Erfahrung>
-  <Notiz></Notiz>
+  <Notiz/>
   <Einstellungen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
@@ -192,4 +200,30 @@
     <RegelnGroesse>0</RegelnGroesse>
     <Hausregeln></Hausregeln>
   </Einstellungen>
+  <AllgemeineInfosExt>
+    <kultur></kultur>
+    <profession></profession>
+    <geschlecht></geschlecht>
+    <geburtsdatum></geburtsdatum>
+    <groesse></groesse>
+    <gewicht></gewicht>
+    <haarfarbe></haarfarbe>
+    <augenfarbe></augenfarbe>
+    <titel></titel>
+    <aussehen1></aussehen1>
+    <aussehen2></aussehen2>
+    <aussehen3></aussehen3>
+    <aussehen4></aussehen4>
+    <aussehen5></aussehen5>
+    <aussehen6></aussehen6>
+    <hintergrund0></hintergrund0>
+    <hintergrund1></hintergrund1>
+    <hintergrund2></hintergrund2>
+    <hintergrund3></hintergrund3>
+    <hintergrund4></hintergrund4>
+    <hintergrund5></hintergrund5>
+    <hintergrund6></hintergrund6>
+    <hintergrund7></hintergrund7>
+    <hintergrund8></hintergrund8>
+  </AllgemeineInfosExt>
 </Charakter>

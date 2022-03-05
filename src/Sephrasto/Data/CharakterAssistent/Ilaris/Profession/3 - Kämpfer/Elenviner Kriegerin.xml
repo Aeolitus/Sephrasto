@@ -1,12 +1,13 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>1</DatenbankVersion>
+    <DatenbankVersion>2</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName/>
+    <NutzerDatenbankName></NutzerDatenbankName>
+    <Plugins></Plugins>
   </Version>
   <AllgemeineInfos>
     <name></name>
-    <rasse>Mensch</rasse>
+    <rasse></rasse>
     <status>2</status>
     <kurzbeschreibung>Kriegerin der Herzoglichen Kriegerakademie zu Elenvia</kurzbeschreibung>
     <schips>2</schips>
@@ -46,7 +47,7 @@
         <Talent name="Schilde" variable="-1"/>
       </Talente>
     </Fertigkeit>
-    <Fertigkeit name="Hiebwaffen" wert="4">
+    <Fertigkeit name="Hiebwaffen" wert="3">
       <Talente/>
     </Fertigkeit>
     <Fertigkeit name="Klingenwaffen" wert="8">
@@ -54,7 +55,7 @@
         <Talent name="Einhandklingenwaffen" variable="-1"/>
       </Talente>
     </Fertigkeit>
-    <Fertigkeit name="Stangenwaffen" wert="4">
+    <Fertigkeit name="Stangenwaffen" wert="3">
       <Talente/>
     </Fertigkeit>
     <Fertigkeit name="Schusswaffen" wert="2">
@@ -126,9 +127,14 @@
       <Rüstung name="kurzes Kettenhemd" be="2" rs="2/2/2/2/2/2"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="Schwert" id="Schwert" W6="2" plus="2" eigenschaften="" haerte="10" rw="1" kampfstil="Schildkampf" wm="0" typ="Nah"/>
+      <Waffe name="Schwert (SK)" id="Schwert" W6="2" plus="2" eigenschaften="" haerte="10" rw="1" kampfstil="Schildkampf" wm="0" typ="Nah"/>
+      <Waffe name="Schwert (ohne Schild)" id="Schwert" W6="2" plus="2" eigenschaften="" haerte="10" rw="1" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
       <Waffe name="Holzschild" id="Holzschild" W6="1" plus="0" eigenschaften="Schild, Stumpf" haerte="8" rw="0" kampfstil="Schildkampf" wm="1" typ="Nah"/>
-      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="6" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>einfache Reiseausrüstung</Ausrüstungsstück>
@@ -137,6 +143,41 @@
   <Übernatürliche-Fertigkeiten/>
   <Erfahrung>
     <EPtotal>2000</EPtotal>
-    <EPspent>2012</EPspent>
+    <EPspent>1996</EPspent>
   </Erfahrung>
+  <Notiz/>
+  <Einstellungen>
+    <Charakterbogen>Ilaris Advanced Charakterbogen</Charakterbogen>
+    <FinanzenAnzeigen>1</FinanzenAnzeigen>
+    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
+    <RegelnAnhaengen>1</RegelnAnhaengen>
+    <RegelnGroesse>0</RegelnGroesse>
+    <Hausregeln></Hausregeln>
+  </Einstellungen>
+  <AllgemeineInfosExt>
+    <kultur/>
+    <profession></profession>
+    <geschlecht></geschlecht>
+    <geburtsdatum></geburtsdatum>
+    <groesse></groesse>
+    <gewicht></gewicht>
+    <haarfarbe></haarfarbe>
+    <augenfarbe></augenfarbe>
+    <titel></titel>
+    <aussehen1></aussehen1>
+    <aussehen2></aussehen2>
+    <aussehen3></aussehen3>
+    <aussehen4></aussehen4>
+    <aussehen5></aussehen5>
+    <aussehen6></aussehen6>
+    <hintergrund0></hintergrund0>
+    <hintergrund1></hintergrund1>
+    <hintergrund2></hintergrund2>
+    <hintergrund3></hintergrund3>
+    <hintergrund4></hintergrund4>
+    <hintergrund5></hintergrund5>
+    <hintergrund6></hintergrund6>
+    <hintergrund7></hintergrund7>
+    <hintergrund8></hintergrund8>
+  </AllgemeineInfosExt>
 </Charakter>

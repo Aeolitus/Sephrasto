@@ -7,12 +7,12 @@
   </Version>
   <AllgemeineInfos>
     <name>Deinomache von Tyrakos</name>
-    <rasse>Mittelländerin</rasse>
+    <rasse></rasse>
     <status>2</status>
     <kurzbeschreibung>Zyklopäische Drakoniterin auf der Suche nach Wissen</kurzbeschreibung>
     <schips>4</schips>
     <finanzen>2</finanzen>
-    <heimat>Horasreich</heimat>
+    <heimat>Mittelreich</heimat>
     <eigenheiten>
       <Eigenheit>Wissen ist Macht, Hütet es gut</Eigenheit>
       <Eigenheit>Interessant, lasst uns darüber reden</Eigenheit>
@@ -40,11 +40,8 @@
     <Vorteil variable="-1">Tradition der Hesindegeweihten I</Vorteil>
     <Vorteil variable="-1">Tradition der Hesindegeweihten I</Vorteil>
     <Vorteil variable="-1">Schneller Kampf I</Vorteil>
-    <Vorteil variable="-1">Ausfall</Vorteil>
     <Vorteil variable="-1">Scharfsinnig I</Vorteil>
-    <Vorteil variable="20,">Privilegien</Vorteil>
     <Vorteil variable="-1">Willensstark I</Vorteil>
-    <Vorteil variable="40,">Verbindungen</Vorteil>
   </Vorteile>
   <Fertigkeiten>
     <Fertigkeit name="Handgemenge" wert="0">
@@ -56,7 +53,7 @@
     <Fertigkeit name="Klingenwaffen" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Fertigkeit name="Stangenwaffen" wert="6">
+    <Fertigkeit name="Stangenwaffen" wert="5">
       <Talente>
         <Talent name="Infanteriewaffen und Speere" variable="-1"/>
       </Talente>
@@ -73,7 +70,7 @@
     <Fertigkeit name="Heimlichkeit" wert="3">
       <Talente/>
     </Fertigkeit>
-    <Fertigkeit name="Selbstbeherrschung" wert="5">
+    <Fertigkeit name="Selbstbeherrschung" wert="4">
       <Talente>
         <Talent name="Willenskraft" variable="-1"/>
       </Talente>
@@ -89,7 +86,6 @@
     </Fertigkeit>
     <Fertigkeit name="Gebräuche" wert="5">
       <Talente>
-        <Talent name="Gebräuche: Horasreich" variable="-1"/>
         <Talent name="Gebräuche: Mittelreich" variable="-1"/>
       </Talente>
     </Fertigkeit>
@@ -124,12 +120,13 @@
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
+    <Freie-Fertigkeit name="" wert="3"/>
     <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
     <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="3"/>
-    <Freie-Fertigkeit name="Philosophie" wert="2"/>
     <Freie-Fertigkeit name="Sprache: Aureliani" wert="2"/>
     <Freie-Fertigkeit name="Sprache: Tulamidya" wert="1"/>
     <Freie-Fertigkeit name="Sprache: Bosparano" wert="2"/>
+    <Freie-Fertigkeit name="Philosophie" wert="2"/>
   </Fertigkeiten>
   <Objekte>
     <Zonensystem>False</Zonensystem>
@@ -139,8 +136,8 @@
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="5" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
       <Waffe name="Zweililien" id="Zweililien" W6="2" plus="2" eigenschaften="Wendig, Zweihändig" haerte="5" rw="1" kampfstil="Schneller Kampf" wm="1" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
@@ -165,6 +162,15 @@
         <Talent name="Grabsegen" variable="-1"/>
         <Talent name="Schutzsegen" variable="-1"/>
         <Talent name="Seelenprüfung" variable="-1"/>
+        <Talent name="Feuersegen" variable="-1"/>
+        <Talent name="Geburtssegen" variable="-1"/>
+        <Talent name="Glückssegen" variable="-1"/>
+        <Talent name="Harmoniesegen" variable="-1"/>
+        <Talent name="Heilungssegen" variable="-1"/>
+        <Talent name="Märtyrersegen" variable="-1"/>
+        <Talent name="Speisesegen" variable="-1"/>
+        <Talent name="Tranksegen" variable="-1"/>
+        <Talent name="Weisheitssegen" variable="-1"/>
       </Talente>
     </Übernatürliche-Fertigkeit>
     <Übernatürliche-Fertigkeit name="Magie" wert="6" addToPDF="True">
@@ -177,14 +183,16 @@
       </Talente>
     </Übernatürliche-Fertigkeit>
     <Übernatürliche-Fertigkeit name="Wissen" wert="0" addToPDF="False">
-      <Talente/>
+      <Talente>
+        <Talent name="Weisheitssegen" variable="-1"/>
+      </Talente>
     </Übernatürliche-Fertigkeit>
   </Übernatürliche-Fertigkeiten>
   <Erfahrung>
     <EPtotal>3000</EPtotal>
-    <EPspent>2984</EPspent>
+    <EPspent>2993</EPspent>
   </Erfahrung>
-  <Notiz></Notiz>
+  <Notiz/>
   <Einstellungen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
@@ -193,4 +201,30 @@
     <RegelnGroesse>0</RegelnGroesse>
     <Hausregeln></Hausregeln>
   </Einstellungen>
+  <AllgemeineInfosExt>
+    <kultur/>
+    <profession></profession>
+    <geschlecht></geschlecht>
+    <geburtsdatum></geburtsdatum>
+    <groesse></groesse>
+    <gewicht></gewicht>
+    <haarfarbe></haarfarbe>
+    <augenfarbe></augenfarbe>
+    <titel></titel>
+    <aussehen1></aussehen1>
+    <aussehen2></aussehen2>
+    <aussehen3></aussehen3>
+    <aussehen4></aussehen4>
+    <aussehen5></aussehen5>
+    <aussehen6></aussehen6>
+    <hintergrund0></hintergrund0>
+    <hintergrund1></hintergrund1>
+    <hintergrund2></hintergrund2>
+    <hintergrund3></hintergrund3>
+    <hintergrund4></hintergrund4>
+    <hintergrund5></hintergrund5>
+    <hintergrund6></hintergrund6>
+    <hintergrund7></hintergrund7>
+    <hintergrund8></hintergrund8>
+  </AllgemeineInfosExt>
 </Charakter>

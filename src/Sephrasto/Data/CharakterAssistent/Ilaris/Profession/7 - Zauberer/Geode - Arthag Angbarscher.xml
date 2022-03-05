@@ -7,12 +7,12 @@
   </Version>
   <AllgemeineInfos>
     <name>Arthag Angbarscher</name>
-    <rasse>Hügelzwerg</rasse>
+    <rasse></rasse>
     <status>3</status>
     <kurzbeschreibung>Melancholischer Wassergeode aus Angbar, der nach der Seele seines Zwillingsbruders fischt.</kurzbeschreibung>
     <schips>6</schips>
     <finanzen>4</finanzen>
-    <heimat>Zwerge</heimat>
+    <heimat>Mittelreich</heimat>
     <eigenheiten>
       <Eigenheit>Stille Wasser sind tief</Eigenheit>
       <Eigenheit>Bartlos</Eigenheit>
@@ -87,7 +87,7 @@
     </Fertigkeit>
     <Fertigkeit name="Gebräuche" wert="1">
       <Talente>
-        <Talent name="Gebräuche: Zwerge" variable="-1"/>
+        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Derekunde" wert="5">
@@ -118,11 +118,10 @@
     <Fertigkeit name="Handwerk" wert="1">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="Sprache: Rogolan" wert="3"/>
-    <Freie-Fertigkeit name="Schrift: Rogolan-Runen" wert="3"/>
-    <Freie-Fertigkeit name="" wert="1"/>
-    <Freie-Fertigkeit name="" wert="1"/>
-    <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
+    <Freie-Fertigkeit name="" wert="3"/>
+    <Freie-Fertigkeit name="Sprache: Rogolan" wert="2"/>
+    <Freie-Fertigkeit name="Schrift: Rogolan-Runen" wert="2"/>
+    <Freie-Fertigkeit name="Sprache: Garethi" wert="2"/>
     <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="1"/>
   </Fertigkeiten>
   <Objekte>
@@ -133,7 +132,7 @@
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="5" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
@@ -253,9 +252,9 @@
   </Übernatürliche-Fertigkeiten>
   <Erfahrung>
     <EPtotal>2500</EPtotal>
-    <EPspent>2436</EPspent>
+    <EPspent>2416</EPspent>
   </Erfahrung>
-  <Notiz></Notiz>
+  <Notiz/>
   <Einstellungen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
@@ -264,4 +263,30 @@
     <RegelnGroesse>0</RegelnGroesse>
     <Hausregeln></Hausregeln>
   </Einstellungen>
+  <AllgemeineInfosExt>
+    <kultur></kultur>
+    <profession></profession>
+    <geschlecht></geschlecht>
+    <geburtsdatum></geburtsdatum>
+    <groesse></groesse>
+    <gewicht></gewicht>
+    <haarfarbe></haarfarbe>
+    <augenfarbe></augenfarbe>
+    <titel></titel>
+    <aussehen1></aussehen1>
+    <aussehen2></aussehen2>
+    <aussehen3></aussehen3>
+    <aussehen4></aussehen4>
+    <aussehen5></aussehen5>
+    <aussehen6></aussehen6>
+    <hintergrund0></hintergrund0>
+    <hintergrund1></hintergrund1>
+    <hintergrund2></hintergrund2>
+    <hintergrund3></hintergrund3>
+    <hintergrund4></hintergrund4>
+    <hintergrund5></hintergrund5>
+    <hintergrund6></hintergrund6>
+    <hintergrund7></hintergrund7>
+    <hintergrund8></hintergrund8>
+  </AllgemeineInfosExt>
 </Charakter>

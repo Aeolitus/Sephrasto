@@ -7,7 +7,7 @@
   </Version>
   <AllgemeineInfos>
     <name>Menzel Ölschläger</name>
-    <rasse>Mittelländer</rasse>
+    <rasse></rasse>
     <status>2</status>
     <kurzbeschreibung>Peraine Geweihter mit Tragischer Vergangenheit</kurzbeschreibung>
     <schips>4</schips>
@@ -37,13 +37,10 @@
     <Vorteil variable="-1">Geweiht I</Vorteil>
     <Vorteil variable="-1">Geweiht II</Vorteil>
     <Vorteil variable="-1">Geweiht III</Vorteil>
-    <Vorteil variable="20,">Privilegien</Vorteil>
-    <Vorteil variable="20,">Verbindungen</Vorteil>
     <Vorteil variable="-1">Waffenloser Kampf</Vorteil>
     <Vorteil variable="-1">Abgehärtet I</Vorteil>
     <Vorteil variable="-1">Kraftvoller Kampf I</Vorteil>
     <Vorteil variable="-1">Kraftvoller Kampf II</Vorteil>
-    <Vorteil variable="-1">Gemeinschaft der Gläubigen</Vorteil>
     <Vorteil variable="-1">Tradition der Perainegeweihten I</Vorteil>
     <Vorteil variable="-1">Tradition der Perainegeweihten II</Vorteil>
     <Vorteil variable="-1">Resistenz gegen Krankheiten</Vorteil>
@@ -54,10 +51,8 @@
     <Fertigkeit name="Handgemenge" wert="4">
       <Talente/>
     </Fertigkeit>
-    <Fertigkeit name="Hiebwaffen" wert="6">
-      <Talente>
-        <Talent name="Zweihandhiebwaffen" variable="-1"/>
-      </Talente>
+    <Fertigkeit name="Hiebwaffen" wert="0">
+      <Talente/>
     </Fertigkeit>
     <Fertigkeit name="Klingenwaffen" wert="0">
       <Talente/>
@@ -129,8 +124,8 @@
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
+    <Freie-Fertigkeit name="" wert="3"/>
     <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
-    <Freie-Fertigkeit name="Heldenlegenden" wert="1"/>
     <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="1"/>
   </Fertigkeiten>
   <Objekte>
@@ -141,10 +136,10 @@
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="Dolch (Handgemengewaffen)" id="Dolch (Handgemengewaffen)" W6="1" plus="1" eigenschaften="" haerte="9" rw="0" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
+      <Waffe name="Dolch" id="Dolch (Handgemengewaffen)" W6="1" plus="1" eigenschaften="" haerte="9" rw="0" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
       <Waffe name="Keule" id="Keule" W6="2" plus="0" eigenschaften="Stumpf, Kopflastig" haerte="8" rw="1" kampfstil="Kraftvoller Kampf" wm="-1" typ="Nah"/>
       <Waffe name="Kampfstab" id="Kampfstab" W6="1" plus="1" eigenschaften="Wendig, Stumpf, Zweihändig" haerte="4" rw="2" kampfstil="Kraftvoller Kampf" wm="1" typ="Nah"/>
-      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe, Kopflastig, Wendig" haerte="7" rw="0" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
+      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
       <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
@@ -166,6 +161,14 @@
         <Talent name="Speisesegen" variable="-1"/>
         <Talent name="Tranksegen" variable="-1"/>
         <Talent name="Heilungssegen" variable="-1"/>
+        <Talent name="Eidsegen" variable="-1"/>
+        <Talent name="Geburtssegen" variable="-1"/>
+        <Talent name="Glückssegen" variable="-1"/>
+        <Talent name="Grabsegen" variable="-1"/>
+        <Talent name="Harmoniesegen" variable="-1"/>
+        <Talent name="Märtyrersegen" variable="-1"/>
+        <Talent name="Schutzsegen" variable="-1"/>
+        <Talent name="Weisheitssegen" variable="-1"/>
       </Talente>
     </Übernatürliche-Fertigkeit>
     <Übernatürliche-Fertigkeit name="Heilung" wert="5" addToPDF="True">
@@ -184,9 +187,9 @@
   </Übernatürliche-Fertigkeiten>
   <Erfahrung>
     <EPtotal>3000</EPtotal>
-    <EPspent>2989</EPspent>
+    <EPspent>2999</EPspent>
   </Erfahrung>
-  <Notiz></Notiz>
+  <Notiz/>
   <Einstellungen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
@@ -195,4 +198,30 @@
     <RegelnGroesse>0</RegelnGroesse>
     <Hausregeln></Hausregeln>
   </Einstellungen>
+  <AllgemeineInfosExt>
+    <kultur/>
+    <profession></profession>
+    <geschlecht></geschlecht>
+    <geburtsdatum></geburtsdatum>
+    <groesse></groesse>
+    <gewicht></gewicht>
+    <haarfarbe></haarfarbe>
+    <augenfarbe></augenfarbe>
+    <titel></titel>
+    <aussehen1></aussehen1>
+    <aussehen2></aussehen2>
+    <aussehen3></aussehen3>
+    <aussehen4></aussehen4>
+    <aussehen5></aussehen5>
+    <aussehen6></aussehen6>
+    <hintergrund0></hintergrund0>
+    <hintergrund1></hintergrund1>
+    <hintergrund2></hintergrund2>
+    <hintergrund3></hintergrund3>
+    <hintergrund4></hintergrund4>
+    <hintergrund5></hintergrund5>
+    <hintergrund6></hintergrund6>
+    <hintergrund7></hintergrund7>
+    <hintergrund8></hintergrund8>
+  </AllgemeineInfosExt>
 </Charakter>
