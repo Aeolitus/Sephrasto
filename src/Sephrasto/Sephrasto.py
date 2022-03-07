@@ -112,6 +112,13 @@ class MainWindowWrapper(object):
         self.ui.label.setFont(QtGui.QFont("Aniron", 16))
         self.ui.label.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
 
+        font = QtGui.QFont("Font Awesome 6 Free Solid", 9, QtGui.QFont.Black)
+        self.ui.buttonHelp.setFont(font)
+        self.ui.buttonHelp.setText("\uf059")
+
+        self.ui.buttonSettings.setFont(font)
+        self.ui.buttonSettings.setText("\uf013")
+
         UpdateChecker.checkForUpdate()
 
         self._plugins = []
@@ -248,7 +255,7 @@ class MainWindowWrapper(object):
         for font in fonts:
             for file in Hilfsmethoden.listdir(os.path.join("Data", "Fonts", font)):
                 if file.endswith(".ttf"):
-                    QtGui.QFontDatabase.addApplicationFont(os.path.join(os.path.dirname(os.path.abspath(__file__)), "Data", "Fonts", font, file))
+                    QtGui.QFontDatabase.addApplicationFont(os.path.join("Data", "Fonts", font, file))
 
         fontSize = Wolke.Settings['FontSize']
         fontFamily = Wolke.Settings['Font']

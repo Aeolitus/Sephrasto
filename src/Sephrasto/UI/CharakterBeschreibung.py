@@ -58,6 +58,7 @@ class Ui_formBeschreibung(object):
         self.label_2.setObjectName("label_2")
         self.gridLayout.addWidget(self.label_2, 2, 1, 1, 1)
         self.editName = QtWidgets.QLineEdit(formBeschreibung)
+        self.editName.setMinimumSize(QtCore.QSize(600, 0))
         self.editName.setObjectName("editName")
         self.gridLayout.addWidget(self.editName, 1, 2, 1, 1)
         self.label_3 = QtWidgets.QLabel(formBeschreibung)

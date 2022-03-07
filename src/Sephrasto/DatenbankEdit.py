@@ -70,15 +70,31 @@ class DatenbankEdit(object):
         self.ui.buttonLoadDB.clicked.connect(self.loadDatenbank)
         self.ui.buttonSaveDB.clicked.connect(self.saveDatenbank)
         self.ui.buttonQuicksave.clicked.connect(self.quicksaveDatenbank)
+
+        font = QtGui.QFont("Font Awesome 6 Free Solid", 9, QtGui.QFont.Black)
         self.ui.buttonEditieren.clicked.connect(self.editSelected)
         self.ui.buttonEditieren.setEnabled(False)
+        self.ui.buttonEditieren.setFont(font)
+        self.ui.buttonEditieren.setText("\uf044")
+
         self.ui.buttonDuplizieren.clicked.connect(self.duplicateSelected)
         self.ui.buttonDuplizieren.setEnabled(False)
+        self.ui.buttonDuplizieren.setFont(font)
+        self.ui.buttonDuplizieren.setText("\uf24d")
+
         self.ui.buttonLoeschen.clicked.connect(self.deleteSelected)
         self.ui.buttonLoeschen.setEnabled(False)
         self.ui.buttonLoeschen.setShortcut(QtGui.QKeySequence(QtCore.Qt.Key_Delete))
+        self.ui.buttonLoeschen.setFont(font)
+        self.ui.buttonLoeschen.setText("\uf2ed")
+
         self.ui.buttonHinzufuegen.clicked.connect(self.hinzufuegen)
+        self.ui.buttonHinzufuegen.setFont(font)
+        self.ui.buttonHinzufuegen.setText("\u002b")
+
         self.ui.buttonWiederherstellen.clicked.connect(self.wiederherstellen)
+        self.ui.buttonWiederherstellen.setFont(font)
+        self.ui.buttonWiederherstellen.setText("\uf829")
 
         self.ui.showUserAdded.stateChanged.connect(self.updateGUI)
         self.ui.showDeleted.stateChanged.connect(self.updateGUI)

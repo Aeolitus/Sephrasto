@@ -24,8 +24,7 @@ class Element(object):
 class WizardWrapper(object):
     def __init__(self):
         self.regelList = {}
-        rootdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        datadirs = [os.path.join(rootdir, "Data", "CharakterAssistent"), os.path.join(Wolke.Settings['Pfad-Plugins'], "CharakterAssistent")]
+        datadirs = [os.path.join("Data", "CharakterAssistent"), os.path.join(Wolke.Settings['Pfad-Plugins'], "CharakterAssistent")]
 
         for datadir in datadirs:
             if not os.path.isdir(datadir):

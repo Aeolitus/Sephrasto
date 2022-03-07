@@ -9,12 +9,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>661</width>
-    <height>582</height>
+    <width>795</width>
+    <height>535</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Sephrasto - Datenbank-Editor</string>
+  </property>
+  <property name="toolTip">
+   <string>Wiederherstellen</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -26,6 +29,12 @@
        </property>
        <item>
         <widget class="QLabel" name="labelParameter">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Filter nach Name:</string>
          </property>
@@ -36,6 +45,12 @@
        </item>
        <item>
         <widget class="QCheckBox" name="checkFilterTyp">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Filter nach Typ:</string>
          </property>
@@ -165,6 +180,12 @@
        </item>
        <item>
         <widget class="QLabel" name="labelParameter">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Filter nach Status:</string>
          </property>
@@ -238,7 +259,7 @@
           </size>
          </property>
          <property name="text">
-          <string>Hausregeln speichern als...</string>
+          <string>Speichern als...</string>
          </property>
         </widget>
        </item>
@@ -251,7 +272,7 @@
           </size>
          </property>
          <property name="text">
-          <string>Hausregeln speichern</string>
+          <string>Speichern</string>
          </property>
         </widget>
        </item>
@@ -281,9 +302,18 @@
           <widget class="QPushButton" name="buttonHinzufuegen">
            <property name="minimumSize">
             <size>
-             <width>0</width>
-             <height>25</height>
+             <width>28</width>
+             <height>28</height>
             </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>28</width>
+             <height>28</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>Hinzufügen</string>
            </property>
            <property name="text">
             <string>Hinzufügen</string>
@@ -294,9 +324,18 @@
           <widget class="QPushButton" name="buttonEditieren">
            <property name="minimumSize">
             <size>
-             <width>0</width>
-             <height>25</height>
+             <width>28</width>
+             <height>28</height>
             </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>28</width>
+             <height>28</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>Editieren</string>
            </property>
            <property name="text">
             <string>Editieren</string>
@@ -307,9 +346,18 @@
           <widget class="QPushButton" name="buttonDuplizieren">
            <property name="minimumSize">
             <size>
-             <width>0</width>
-             <height>25</height>
+             <width>28</width>
+             <height>28</height>
             </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>28</width>
+             <height>28</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>Duplizieren</string>
            </property>
            <property name="text">
             <string>Duplizieren</string>
@@ -320,9 +368,18 @@
           <widget class="QPushButton" name="buttonLoeschen">
            <property name="minimumSize">
             <size>
-             <width>0</width>
-             <height>25</height>
+             <width>28</width>
+             <height>28</height>
             </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>28</width>
+             <height>28</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>Löschen</string>
            </property>
            <property name="text">
             <string>Löschen</string>
@@ -333,12 +390,21 @@
           <widget class="QPushButton" name="buttonWiederherstellen">
            <property name="minimumSize">
             <size>
-             <width>0</width>
-             <height>25</height>
+             <width>28</width>
+             <height>28</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>28</width>
+             <height>28</height>
             </size>
            </property>
            <property name="visible">
             <bool>false</bool>
+           </property>
+           <property name="toolTip">
+            <string>W</string>
            </property>
            <property name="text">
             <string>Wiederherstellen</string>
