@@ -95,9 +95,16 @@ class EinstellungenWrapper():
         self.ui.resetPlugins.setFont(font)
         self.ui.resetPlugins.setText('\uf2ea')
 
+
+        windowSize = Wolke.Settings["WindowSize-Einstellungen"]
+        self.form.resize(windowSize[0], windowSize[1])
+
         self.form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.form.show()
         self.ret = self.form.exec_()
+
+        Wolke.Settings["WindowSize-Einstellungen"] = [self.form.size().width(), self.form.size().height()]
+
         if self.ret == QtWidgets.QDialog.Accepted:
             needRestart = False
 

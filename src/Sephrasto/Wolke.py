@@ -69,6 +69,7 @@ class Wolke:
         'WindowSize-DBVorteil' : _DefaultSettings.WindowSizeDefault1Col,
         'WindowSize-DBWaffeneigenschaft' : _DefaultSettings.WindowSizeDefault1Col,
         'WindowSize-DBWaffe' : _DefaultSettings.WindowSizeDefault1Col,
+        'WindowSize-Einstellungen' : [589, 903],
 
     }
     FontHeadingSizeL1 = 0
