@@ -53,13 +53,6 @@ def sephrasto_excepthook(exc_type, exc_value, tb):
     messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
     messagebox.exec_()
 
-class PluginData(object):
-    def __init__(self, name, description, plugin):
-        super().__init__()
-        self.name = name
-        self.description = description
-        self.plugin = plugin
-
 class MainWindowWrapper(object):
     '''
     Main Class responsible for running the entire application. 
@@ -122,19 +115,18 @@ class MainWindowWrapper(object):
         UpdateChecker.checkForUpdate()
 
         self._plugins = []
-        for pluginName in PluginLoader.getPlugins(Wolke.Settings['Pfad-Plugins']):
-            description = PluginLoader.getPluginDescription(Wolke.Settings['Pfad-Plugins'], pluginName)
-            if pluginName in Wolke.Settings['Deaktivierte-Plugins']:
-                self._plugins.append(PluginData(pluginName, description, None))
+        for pluginData in PluginLoader.getPlugins(Wolke.Settings['Pfad-Plugins']):
+            if pluginData.name in Wolke.Settings['Deaktivierte-Plugins']:
+                self._plugins.append(pluginData)
                 continue
 
-            plugin = PluginLoader.loadPlugin(Wolke.Settings['Pfad-Plugins'], pluginName)
-            self._plugins.append(PluginData(pluginName, description, plugin))
-            logging.critical("Plugin: loaded " + pluginName)
-            if hasattr(plugin, "createMainWindowButtons"):
-                for button in plugin.createMainWindowButtons():
-                    button.setParent(self.Form)
-                    self.ui.vlPluginButtons.addWidget(button)
+            if pluginData.load():
+                self._plugins.append(pluginData)
+                logging.critical("Plugin: loaded " + pluginData.name)
+                if hasattr(pluginData.plugin, "createMainWindowButtons"):
+                    for button in pluginData.plugin.createMainWindowButtons():
+                        button.setParent(self.Form)
+                        self.ui.vlPluginButtons.addWidget(button)
 
         EventBus.doAction("plugins_geladen")
 

@@ -13,12 +13,12 @@ import yaml
 import logging
 import sys
 from Hilfsmethoden import Hilfsmethoden
+from PluginLoader import PluginLoader
 
 class EinstellungenWrapper():    
     def __init__(self, plugins):
         super().__init__()
 
-        self.plugins = plugins
         self.form = QtWidgets.QDialog()
         self.ui = UI.Einstellungen.Ui_SettingsWindow()
         self.ui.setupUi(self.form)
@@ -50,7 +50,7 @@ class EinstellungenWrapper():
         self.ui.editPlugins.setText(Wolke.Settings['Pfad-Plugins'])
 
         self.pluginCheckboxes = []
-        self.updatePluginCheckboxes(self.plugins)
+        self.updatePluginCheckboxes(plugins)
         self.updateComboRegelbasis()
             
         self.ui.checkPDFOpen.setChecked(Wolke.Settings['PDF-Open'])
@@ -360,33 +360,36 @@ class EinstellungenWrapper():
             self.ui.comboRegelbasis.setCurrentText(Wolke.Settings['Datenbank'])
 
     def setCharPath(self):
-        path = QtWidgets.QFileDialog.getExistingDirectory(None,
+        p = QtWidgets.QFileDialog.getExistingDirectory(None,
           "Wähle einen Speicherort für Charaktere aus!",
           self.ui.editChar.text(),
           QtWidgets.QFileDialog.ShowDirsOnly)
-        path = os.path.realpath(path)
-        if os.path.isdir(path):
-            self.ui.editChar.setText(path)
+        if p:
+            p = os.path.realpath(p)
+            if os.path.isdir(p):
+                self.ui.editChar.setText(p)
             
     def setRulePath(self):
-        path = QtWidgets.QFileDialog.getExistingDirectory(None,
+        p = QtWidgets.QFileDialog.getExistingDirectory(None,
           "Wähle einen Speicherort für Regeln aus!",
           self.ui.editRegeln.text(),
           QtWidgets.QFileDialog.ShowDirsOnly)
-        path = os.path.realpath(path)
-        if os.path.isdir(path):
-            self.ui.editRegeln.setText(path)
-            self.updateComboRegelbasis()
+        if p:
+            p = os.path.realpath(p)
+            if os.path.isdir(p):
+                self.ui.editRegeln.setText(p)
+                self.updateComboRegelbasis()
 
     def setPluginsPath(self):
-        path = QtWidgets.QFileDialog.getExistingDirectory(None,
+        p = QtWidgets.QFileDialog.getExistingDirectory(None,
           "Wähle einen Speicherort für Plugins aus!",
           self.ui.editPlugins.text(),
           QtWidgets.QFileDialog.ShowDirsOnly)
-        path = os.path.realpath(path)
-        if os.path.isdir(path):
-            self.ui.editPlugins.setText(path)
-            self.updatePluginCheckboxes([p for p in self.plugins if p.isOfficial])
+        if p:
+            p = os.path.realpath(p)
+            if os.path.isdir(p):
+                self.ui.editPlugins.setText(p)
+                self.updatePluginCheckboxes(PluginLoader.getPlugins(p))
 
     def resetCharPath(self):
         p = os.path.join(self.settingsFolder, 'Charaktere')
@@ -400,4 +403,4 @@ class EinstellungenWrapper():
     def resetPluginsPath(self):
         p = os.path.join(self.settingsFolder, 'Plugins')
         self.ui.editPlugins.setText(p)
-        self.updatePluginCheckboxes([p for p in self.plugins if p.isOfficial])
+        self.updatePluginCheckboxes(PluginLoader.getPlugins(p))

@@ -5,6 +5,32 @@ import logging
 import sys
 from Hilfsmethoden import Hilfsmethoden
 
+class PluginData(object):
+    def __init__(self, path, name):
+        super().__init__()
+        self.path = path
+        self.name = name
+        self.description = ""
+
+        if not self.path in sys.path:
+            sys.path.append(self.path)
+        self.module = importlib.import_module(self.name, self.path)
+
+        try:
+            self.description = self.module.Plugin.getDescription()
+        except Exception:
+            self.description = ""
+
+        self.plugin = None
+
+    def load(self):
+        try:
+            self.plugin = self.module.Plugin()
+            return True
+        except:
+            logging.critical("Couldn't load plugin because class Plugin is missing: " + self.name)
+            return False
+
 class PluginLoader:
     @staticmethod
     def getPlugins(path):
@@ -12,36 +38,9 @@ class PluginLoader:
         if not os.path.isdir(path):
             return plugins
 
-        for i in Hilfsmethoden.listdir(path):
-            location = os.path.join(path, i)
+        for file in Hilfsmethoden.listdir(path):
+            location = os.path.join(path, file)
             if not os.path.isdir(location) or not "__init__.py" in Hilfsmethoden.listdir(location):
                 continue
-            plugins.append(i)
+            plugins.append(PluginData(path, file))
         return plugins
-
-    @staticmethod
-    def loadPlugin(basePath, pluginName):
-        if not basePath in sys.path:
-            sys.path.append(basePath)
-        module = importlib.import_module(pluginName, basePath)
-
-        try:
-            plugin = module.Plugin()
-        except:
-            logging.critical("Couldn't load plugin because class Plugin is missing: " + pluginName)
-            return
-        return plugin
-
-    @staticmethod
-    def getPluginDescription(basePath, pluginName):
-        if not basePath in sys.path:
-            sys.path.append(basePath)
-        module = importlib.import_module(pluginName, basePath)
-
-        try:
-            return module.Plugin.getDescription()
-        except AttributeError:
-            return ""
-        except:
-            logging.critical("Couldn't load plugin because class Plugin is missing: " + pluginName)
-            return ""

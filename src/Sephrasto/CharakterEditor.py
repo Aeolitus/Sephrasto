@@ -152,13 +152,16 @@ class Editor(object):
             self.infoWrapper = infoWrapper()
             tabs.append(Tab(70, self.infoWrapper, self.infoWrapper.formEP, "Info"))
 
-        for plugin in [p.plugin for p in self.plugins]:
-            if hasattr(plugin, "createCharakterTabs"):
-                for tab in plugin.createCharakterTabs():
+        for pd in self.plugins:
+            if pd.plugin is None:
+                continue
+
+            if hasattr(pd.plugin, "createCharakterTabs"):
+                for tab in pd.plugin.createCharakterTabs():
                    tabs.append(tab)
 
-            if hasattr(plugin, "createCharakterButtons"):
-                for button in plugin.createCharakterButtons():
+            if hasattr(pd.plugin, "createCharakterButtons"):
+                for button in pd.plugin.createCharakterButtons():
                     self.ui.horizontalLayout_3.addWidget(button)
 
         self.tabs = sorted(tabs, key=lambda tab: tab.order)

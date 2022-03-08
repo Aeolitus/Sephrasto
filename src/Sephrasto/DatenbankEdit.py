@@ -51,9 +51,12 @@ class DatenbankEdit(object):
         windowSize = Wolke.Settings["WindowSize-Datenbank"]
         self.Form.resize(windowSize[0], windowSize[1])
 
-        for plugin in [p.plugin for p in self.plugins]:
-            if hasattr(plugin, "createDatabaseButtons"):
-                for button in plugin.createDatabaseButtons():
+        for pd in self.plugins:
+            if pd.plugin is None:
+                continue
+
+            if hasattr(pd.plugin, "createDatabaseButtons"):
+                for button in pd.plugin.createDatabaseButtons():
                     self.ui.verticalLayout.addWidget(button)
 
         self.initDatabaseTypes()
