@@ -326,7 +326,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         self.uiFert.spinPWT.setValue(fert.probenwertTalent)
         self.uiFert.plainText.setPlainText(fert.text)
         fertigkeitTypen = Wolke.DB.einstellungen["Fertigkeiten: Typen profan"].toTextList()
-        self.uiFert.labelKategorie.setText(fertigkeitTypen[fert.printclass])
+        self.uiFert.labelKategorie.setText(fertigkeitTypen[min(fert.printclass, len(fertigkeitTypen)-1)])
         self.updateTalents()
         self.currentlyLoading = False
         

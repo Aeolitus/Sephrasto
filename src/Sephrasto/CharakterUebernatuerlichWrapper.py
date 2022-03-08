@@ -286,7 +286,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
         self.uiFert.spinPW.setValue(fert.probenwertTalent)
         self.uiFert.plainText.setPlainText(fert.text)
         fertigkeitTypen = Wolke.DB.einstellungen["Fertigkeiten: Typen übernatürlich"].toTextList()
-        self.uiFert.labelKategorie.setText(fertigkeitTypen[fert.printclass])
+        self.uiFert.labelKategorie.setText(fertigkeitTypen[min(fert.printclass, len(fertigkeitTypen)-1)])
         self.updateTalents()
         self.currentlyLoading = False
         
