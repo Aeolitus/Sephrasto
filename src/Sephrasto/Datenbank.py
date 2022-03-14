@@ -535,6 +535,7 @@ class Datenbank():
             r.rs[3] = int(rue.get('rsBauch'))
             r.rs[4] = int(rue.get('rsBrust'))
             r.rs[5] = int(rue.get('rsKopf'))
+            r.be = r.getRSGesamtInt()
             r.text = rue.text
             r.isUserAdded = not refDB
 

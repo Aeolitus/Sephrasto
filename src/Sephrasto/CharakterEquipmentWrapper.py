@@ -416,6 +416,7 @@ class EquipWrapper(QtCore.QObject):
         if not replace:
             for i in range(0, 6):
                 R.rs[i] += self.spinZRS[index][i].value()
+            R.be += self.spinBE[index].value()
 
         for i in range(0, 6):
             if self.uiEq.checkZonen.isChecked():
@@ -423,7 +424,7 @@ class EquipWrapper(QtCore.QObject):
             else:
                 self.spinZRS[index][i].setValue(R.getRSGesamtInt())
 
-        self.spinBE[index].setValue(EventBus.applyFilter("ruestung_be", R.getRSGesamtInt(), { "name" : R.name }))
+        self.spinBE[index].setValue(EventBus.applyFilter("ruestung_be", R.be, { "name" : R.name }))
         self.spinRS[index].setValue(R.getRSGesamtInt())
 
         self.refreshDerivedArmorValues(R, index)
