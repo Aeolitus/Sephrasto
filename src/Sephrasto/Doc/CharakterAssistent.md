@@ -35,7 +35,7 @@ Damit ihr eigene Kreationen mit dem nächsten Sephrasto-Update nicht verliert, k
 <br />
 ## tl;dr für eigene Professionen im Ilaris Baukasten?
 - Lege dein EP-Budget fest. Die meisten Charaktere werden mit 2000 oder 2500 EP erstellt. Ziehe von diesem Budget 160 EP ab, damit genug EP für alle Spezies übrig bleiben (Orks kosten 160 EP).
-- Erstelle einen neuen Charakter, speichere ihn ab als <Name der Profession>.xml in %userprofile%/Dokumente/Sephrasto/Plugins/CharakterAssistent/Ilaris/Profession/<Professions-Kategoriename>.
+- Erstelle einen neuen Charakter, speichere ihn ab als \<Name der Profession\>.xml in %userprofile%/Dokumente/Sephrasto/Plugins/CharakterAssistent/Ilaris/Profession/\<Professions-Kategoriename\>.
 - Erstelle den Charakter wie gewöhnlich, mit folgenden Ausnahmen:
 	* Lass alle Felder im Beschreibungs-Tab leer/wie sie sind, außer Finanzen. Trage Eigenheiten nur ein, wenn jeder Anhänger dieser Profession sie hat.
 	* Je nach Geschmack kannst du auch einen vollwertigen Archetyp erstellen und Name und Eigenheiten vollständig ausfüllen. Füge den Charakternamen dann mit Bindestrich dem Dateinamen an.
