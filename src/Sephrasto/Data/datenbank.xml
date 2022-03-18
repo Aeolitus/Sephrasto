@@ -6075,7 +6075,7 @@ Wirkungsdauer: 1 Monat
 Kosten: 1 AsP
 Fertigkeiten: Illusion, Stabzauber
 Erlernen: Mag 18; 20 EP</Talent>
-  <Talent name="Rhythmen der Ermutigung" kosten="40" voraussetzungen="Vorteil Tradition der Derwische I" verbilligt="0" fertigkeiten="Eigenschaften, Einfluss, Trommelrituale" variable="0" referenzseite="173" referenzbuch="0">Die Rhythmen schenken Zuversicht. Alle Zuhörer in einem Radius von 4 Schritt erhalten eine Erleichterung +2 auf Anführen und MU.
+  <Talent name="Rhythmen der Ermutigung" kosten="40" voraussetzungen="Vorteil Tradition der Derwische I" verbilligt="0" fertigkeiten="Eigenschaften, Einfluss, Trommelrituale" variable="0" referenzseite="173" referenzbuch="0">Die Rhythmen schenken Zuversicht. Alle Zuhörer in einem Radius von 4 Schritt erhalten eine Erleichterung +2 auf Anführen, Selbstbeherrschung und MU.
 Mächtige Magie: Der Bonus steigt um +1.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Stunde
@@ -6123,7 +6123,7 @@ Wirkungsdauer: 1 Tag
 Kosten: 16 AsP
 Fertigkeiten: Eigenschaften, Trommelrituale
 Erlernen: Der 14; 60 EP</Talent>
-  <Talent name="Rhythmen der Reinigung" kosten="40" voraussetzungen="Vorteil Tradition der Derwische I" verbilligt="0" fertigkeiten="Antimagie, Trommelrituale" variable="0" referenzseite="173" referenzbuch="0">Die Rhythmen gelten als Konterprobe (12) gegen sämtliche Einflusszauber, Hexenflüche und Druidenrituale auf dem Ziel. Bei gelungener Probe werden die Zauber aufgehoben.
+  <Talent name="Rhythmen der Reinigung" kosten="40" voraussetzungen="Vorteil Tradition der Derwische I" verbilligt="0" fertigkeiten="Antimagie, Trommelrituale" variable="0" referenzseite="173" referenzbuch="0">Die Rhythmen gelten als Konterprobe (12) gegen sämtliche Zauber auf dem Ziel. Bei gelungener Probe werden die Zauber aufgehoben.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Stunden
 Ziel: Einzelperson
@@ -6305,7 +6305,7 @@ Wirkungsdauer: augenblicklich
 Kosten: 8 AsP
 Fertigkeiten: Humus, Zaubermelodien
 Erlernen: Bard 14; 40 EP</Talent>
-  <Talent name="Lied des Wanderers" kosten="20" voraussetzungen="Vorteil Tradition der Zauberbarden I" verbilligt="0" fertigkeiten="Eigenschaften, Zaubermelodien" variable="0" referenzseite="175" referenzbuch="0">Das Lied stärkt das Durchhaltevermögen eines müden Wanderers. Der Zuhörer mit dem geringsten DH (siehe S. 34) in 4 Schritt Radius erhält ein verdoppeltes DH* und der Intervall, in dem er durch körperliche Anstrengung Erschöpfung verursacht, verdoppelt sich.
+  <Talent name="Lied des Wanderers" kosten="20" voraussetzungen="Vorteil Tradition der Zauberbarden I" verbilligt="0" fertigkeiten="Eigenschaften, Zaubermelodien" variable="0" referenzseite="175" referenzbuch="0">Das Lied stärkt das Durchhaltevermögen eines müden Wanderers. Der Zuhörer mit dem geringsten DH (siehe S. 34) in 4 Schritt Radius erhält ein verdoppeltes DH* und das Intervall, in dem er durch körperliche Anstrengung Erschöpfung verursacht, verdoppelt sich.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
 Ziel: Zone
@@ -6417,7 +6417,7 @@ Wirkungsdauer: augenblicklich
 Kosten: 16 AsP
 Fertigkeiten: Humus, Zaubertänze
 Erlernen: Ztz 12; 40 EP</Talent>
-  <Talent name="Tanz der Erlösung" kosten="20" voraussetzungen="Vorteil Tradition der Zaubertänzer I" verbilligt="0" fertigkeiten="Antimagie, Zaubertänze" variable="0" referenzseite="176" referenzbuch="0">Der Tanz gilt als Konterprobe (12) gegen sämtliche Einflusszauber, Hexenflüche und Druidenrituale auf dem Ziel. Bei gelungener Probe werden die Zauber aufgehoben.
+  <Talent name="Tanz der Erlösung" kosten="20" voraussetzungen="Vorteil Tradition der Zaubertänzer I" verbilligt="0" fertigkeiten="Antimagie, Zaubertänze" variable="0" referenzseite="176" referenzbuch="0">Der Tanz gilt als Konterprobe (12) gegen sämtliche Zauber auf dem Ziel. Bei gelungener Probe werden die Zauber aufgehoben.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Stunden
 Ziel: Einzelperson
@@ -6426,7 +6426,7 @@ Wirkungsdauer: augenblicklich
 Kosten: 8 AsP
 Fertigkeiten: Antimagie, Zaubertänze
 Erlernen: Ztz 12; 20 EP</Talent>
-  <Talent name="Tanz der Ermutigung" kosten="40" voraussetzungen="Vorteil Tradition der Zaubertänzer I" verbilligt="0" fertigkeiten="Eigenschaften, Einfluss, Zaubertänze" variable="0" referenzseite="176" referenzbuch="0">Der Tanz schenkt Zuversicht. Alle Zuhörer in einem Radius von 4 Schritt erhalten eine Erleichterung +2 auf Anführen und MU.
+  <Talent name="Tanz der Ermutigung" kosten="40" voraussetzungen="Vorteil Tradition der Zaubertänzer I" verbilligt="0" fertigkeiten="Eigenschaften, Einfluss, Zaubertänze" variable="0" referenzseite="176" referenzbuch="0">Der Tanz schenkt Zuversicht. Alle Zuhörer in einem Radius von 4 Schritt erhalten eine Erleichterung +2 auf Anführen, Selbstbeherrschung und MU.
 Mächtige Magie: Der Bonus steigt um +1.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Stunde
