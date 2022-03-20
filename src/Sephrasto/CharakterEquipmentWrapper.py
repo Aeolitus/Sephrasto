@@ -17,6 +17,7 @@ from EventBus import EventBus
 import re
 from EventBus import EventBus
 from TextTagCompleter import TextTagCompleter
+import copy
 
 class EquipWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
@@ -359,6 +360,10 @@ class EquipWrapper(QtCore.QObject):
 
         if idx == 0:
             # Load in Weapons
+            if len(Wolke.Char.waffen) == 0 and "Hand" in Wolke.DB.waffen:
+                Wolke.Char.waffen.append(copy.copy(Wolke.DB.waffen["Hand"]))
+                Wolke.Char.aktualisieren()
+
             for index in range(len(Wolke.Char.waffen)):
                 W = Wolke.Char.waffen[index]
                 if index < 8:
