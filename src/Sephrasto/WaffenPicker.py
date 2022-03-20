@@ -12,6 +12,7 @@ import Definitionen
 import logging
 from Fertigkeiten import KampffertigkeitTyp
 import CharakterEquipmentWrapper
+import copy
 
 class WaffenPicker(object):
     def __init__(self,waffe=None):
@@ -57,7 +58,7 @@ class WaffenPicker(object):
         Wolke.Settings["WindowSize-Waffen"] = [self.Form.size().width(), self.Form.size().height()]
 
         if self.ret == QtWidgets.QDialog.Accepted and self.current != '':
-            self.waffe = Wolke.DB.waffen[self.current]
+            self.waffe = copy.copy(Wolke.DB.waffen[self.current])
         else:
             self.waffe = None
 

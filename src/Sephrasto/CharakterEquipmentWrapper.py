@@ -363,6 +363,8 @@ class EquipWrapper(QtCore.QObject):
             if len(Wolke.Char.waffen) == 0 and "Hand" in Wolke.DB.waffen:
                 Wolke.Char.waffen.append(copy.copy(Wolke.DB.waffen["Hand"]))
                 Wolke.Char.aktualisieren()
+            while len(Wolke.Char.waffen) < 8:
+                Wolke.Char.waffen.append(Objekte.Nahkampfwaffe())
 
             for index in range(len(Wolke.Char.waffen)):
                 W = Wolke.Char.waffen[index]
@@ -482,7 +484,9 @@ class EquipWrapper(QtCore.QObject):
         logging.debug("WaffenPicker created")
         if picker.waffe is not None:
             self.currentlyLoading = True
-            self.loadWeaponIntoFields(picker.waffe, index)
+            Wolke.Char.waffen[index] = picker.waffe
+            Wolke.Char.aktualisieren()
+            self.loadWeaponIntoFields(Wolke.Char.waffen[index], index)
             self.currentlyLoading = False
             self.updateWaffen()
 
