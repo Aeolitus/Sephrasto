@@ -5419,7 +5419,7 @@ Wirkungsdauer: 4 Minuten
 Kosten: 8 AsP
 Fertigkeiten: Hellsicht, Geister rufen, Verständigung
 Erlernen: Smn 18; 40 EP</Talent>
-  <Talent name="Geisterbann" kosten="60" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Antimagie, Geister vertreiben" variable="0" referenzseite="166" referenzbuch="0">Der Zauber gilt als Konterprobe (12) gegen einen Zauber. Gelingt sie, wird der Zauber aufgehoben.
+  <Talent name="Geisterbann" kosten="60" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Antimagie, Geister vertreiben" variable="0" referenzseite="166" referenzbuch="0">Der Zauber gilt als Konterprobe (12) gegen einen Zauber, in den keine gAsP geflossen sind. Gelingt sie, wird der Zauber aufgehoben.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Minuten
 Ziel: Einzelperson
