@@ -60,14 +60,23 @@ class UebernatuerlichWrapper(QtCore.QObject):
     def update(self):
         #Already implemented for the individual events
         pass
-        
+
     def load(self):
         self.currentlyLoading = True
         
         self.uiFert.tableWidget.setColumnHidden(0, not Wolke.Char.ueberPDFAnzeigen)
 
-        temp = [el for el in Wolke.DB.übernatürlicheFertigkeiten 
-                if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.übernatürlicheFertigkeiten[el].voraussetzungen)]
+        temp = []
+        for el in Wolke.DB.übernatürlicheFertigkeiten:
+            if not Wolke.Char.voraussetzungenPrüfen(Wolke.DB.übernatürlicheFertigkeiten[el].voraussetzungen):
+                continue
+
+            # check if at least one talent is available
+            for tal in Wolke.DB.talente:
+                if el in Wolke.DB.talente[tal].fertigkeiten and Wolke.Char.voraussetzungenPrüfen(Wolke.DB.talente[tal].voraussetzungen):
+                    temp.append(el)
+                    break
+
         # sort by printclass, then by name
         temp.sort(key = lambda x: (Wolke.DB.übernatürlicheFertigkeiten[x].printclass, x)) 
 

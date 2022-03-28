@@ -16,9 +16,6 @@
   <property name="windowTitle">
    <string>Sephrasto - Datenbank-Editor</string>
   </property>
-  <property name="toolTip">
-   <string>Wiederherstellen</string>
-  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,1">
@@ -404,7 +401,7 @@
             <bool>false</bool>
            </property>
            <property name="toolTip">
-            <string>W</string>
+            <string>Wiederherstellen</string>
            </property>
            <property name="text">
             <string>Wiederherstellen</string>

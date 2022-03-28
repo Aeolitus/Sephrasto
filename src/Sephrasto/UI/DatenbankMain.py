@@ -189,7 +189,6 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Sephrasto - Datenbank-Editor"))
-        Form.setToolTip(_translate("Form", "Wiederherstellen"))
         self.labelParameter.setText(_translate("Form", "Filter nach Name:"))
         self.checkFilterTyp.setText(_translate("Form", "Filter nach Typ:"))
         self.showVorteile.setText(_translate("Form", "Vorteile"))
@@ -217,7 +216,7 @@ class Ui_Form(object):
         self.buttonDuplizieren.setText(_translate("Form", "Duplizieren"))
         self.buttonLoeschen.setToolTip(_translate("Form", "Löschen"))
         self.buttonLoeschen.setText(_translate("Form", "Löschen"))
-        self.buttonWiederherstellen.setToolTip(_translate("Form", "W"))
+        self.buttonWiederherstellen.setToolTip(_translate("Form", "Wiederherstellen"))
         self.buttonWiederherstellen.setText(_translate("Form", "Wiederherstellen"))
 
 
