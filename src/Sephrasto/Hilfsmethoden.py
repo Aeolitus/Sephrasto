@@ -258,15 +258,11 @@ class Hilfsmethoden:
             A für Attribut - prüft, ob das Attribut mit Key Str mindestens auf Wert W ist
             M für MeisterAttribut - wie Attribut, prüft außerdem ob zwei weitere Attribute auf insg. mindestens 16 sind
             U für Übernatürliche Fertigkeit - prüft, ob für die Übernatürliche Fertigkeit mit Key Str die Voraussetzungen erfüllt sind \
-                und sie mindestens auf Wert W ist. W=-1 hat ein spezielle Bedeutung, hier wird an Stelle des Fertigkeitswerts überprüft ob mindestens ein Talent aktiviert ist.
-            F für Fertigkeit - prüft, ob für die Übernatürliche Fertigkeit mit Key Str die Voraussetzungen erfüllt sind und sie mindestens auf Wert W ist.
+                und sie mindestens den PW(T) W hat. W=-1 hat ein spezielle Bedeutung, hier wird an Stelle des Fertigkeitswerts überprüft ob mindestens ein Talent aktiviert ist.
+            F für Fertigkeit - wie U für Übernatürliche Fertigkeit, aber betrifft profane Fertigkeiten.
         Einträge im Array können auch weitere Arrays and Voraussetzungen sein.
         Aus diesen Arrays muss nur ein Eintrag erfüllt sein.
-        Wenn Wolke.Reqs nicht gesetzt ist, gibt die Methode immer True zurück.
         '''
-        if not Wolke.Reqs:
-            return True
-
         #Gehe über alle Elemente in der Liste
         retNor = True
         retOr = False
@@ -336,12 +332,16 @@ class Hilfsmethoden:
                         if wert == -1:
                             erfüllt = len(fertigkeit.gekaufteTalente) > 0
                         else:
-                            erfüllt = fertigkeit.wert >= wert
+                            erfüllt = fertigkeit.probenwertTalent >= wert
                 #Fertigkeiten:
                 elif arr[0] == 'F':
                     if arr[1] in fertigkeiten:
                         fertigkeit = fertigkeiten[arr[1]]
-                        erfüllt = fertigkeit.wert >= int(arr[2])
+                        wert = int(arr[2])
+                        if wert == -1:
+                            erfüllt = len(fertigkeit.gekaufteTalente) > 0
+                        else:
+                            erfüllt = fertigkeit.probenwertTalent >= wert
             if not erfüllt:
                 retNor = False
             else:

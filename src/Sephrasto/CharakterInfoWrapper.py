@@ -71,6 +71,7 @@ class InfoWrapper(QtCore.QObject):
             Wolke.Char.charakterbogen = self.ui.comboCharsheet.itemText(0)
         self.ui.comboCharsheet.currentIndexChanged.connect(self.einstellungenChanged)
         self.ui.comboRegelnGroesse.currentIndexChanged.connect(self.einstellungenChanged)
+        self.ui.checkReq.stateChanged.connect(self.reqChanged)
 
         self.focusWatcher = FocusWatcher(self.notizChanged)
         self.ui.teNotiz.installEventFilter(self.focusWatcher)
@@ -87,6 +88,13 @@ class InfoWrapper(QtCore.QObject):
 
     def update(self):
         pass
+
+    def reqChanged(self):
+        if self.currentlyLoading:
+            return
+
+        Wolke.Char.voraussetzungenPruefen = self.ui.checkReq.isChecked()
+        self.modified.emit()
 
     def einstellungenChanged(self):
         if self.currentlyLoading:
@@ -112,6 +120,7 @@ class InfoWrapper(QtCore.QObject):
         self.currentlyLoading = True
         self.ui.teNotiz.setPlainText(Wolke.Char.notiz)
 
+        self.ui.checkReq.setChecked(Wolke.Char.voraussetzungenPruefen)
         self.ui.checkFinanzen.setChecked(Wolke.Char.finanzenAnzeigen)
         self.ui.checkUeberPDF.setChecked(Wolke.Char.ueberPDFAnzeigen)
         self.ui.checkRegeln.setChecked(Wolke.Char.regelnAnhaengen)

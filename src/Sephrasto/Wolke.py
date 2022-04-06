@@ -28,7 +28,6 @@ class CharakterbogenInfo:
 class Wolke:
     Char = None
     DB = None
-    Reqs = True
     Charakterbögen = {}
     Settings = {
         'Version' : 2,

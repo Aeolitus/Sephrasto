@@ -158,6 +158,7 @@ class Char():
         self.EP_Uebernatuerlich_Talente = 0
 
         #Achter Block: Infos
+        self.voraussetzungenPruefen = True
         self.notiz = ""
         self.charakterbogen = Wolke.Settings["Bogen"]
         self.hausregeln = Wolke.Settings["Datenbank"]
@@ -762,6 +763,9 @@ class Char():
         that all depend onto each other, like Zauberer I-IV when removing I.
         The parameters can be used to override character values. If None is specified, the character values are used.
         '''
+        if not self.voraussetzungenPruefen:
+            return []
+
         vorteile = copy.deepcopy(vorteile or self.vorteile)
         waffen = waffen or self.waffen
         attribute = attribute or self.attribute
@@ -853,6 +857,9 @@ class Char():
                     fertigkeiten[fName].gekaufteTalente.append(tal)
 
     def voraussetzungenPrüfen(self,voraussetzungen):
+        if not self.voraussetzungenPruefen:
+            return True
+
         return Hilfsmethoden.voraussetzungenPrüfen(self.vorteile, self.waffen, self.attribute, self.übernatürlicheFertigkeiten, self.fertigkeiten, voraussetzungen)
     
     def xmlSchreiben(self,filename):
@@ -977,6 +984,7 @@ class Char():
         notiz.text = self.notiz
 
         einstellungen = etree.SubElement(root,'Einstellungen')
+        etree.SubElement(einstellungen,'VoraussetzungenPruefen').text = "1" if self.voraussetzungenPruefen else "0"
         etree.SubElement(einstellungen,'Charakterbogen').text = str(self.charakterbogen)
         etree.SubElement(einstellungen,'FinanzenAnzeigen').text = "1" if self.finanzenAnzeigen else "0"
         etree.SubElement(einstellungen,'UeberPDFAnzeigen').text = "1" if self.ueberPDFAnzeigen else "0"
@@ -1259,6 +1267,8 @@ class Char():
         einstellungen = root.find('Einstellungen')
         if einstellungen is not None:
             self.charakterbogen = einstellungen.find('Charakterbogen').text
+            if einstellungen.find('VoraussetzungenPruefen') is not None:
+                self.voraussetzungenPruefen = einstellungen.find('VoraussetzungenPruefen').text == "1"
             self.finanzenAnzeigen = einstellungen.find('FinanzenAnzeigen').text == "1"
             self.ueberPDFAnzeigen = einstellungen.find('UeberPDFAnzeigen').text == "1"
             self.regelnAnhaengen = einstellungen.find('RegelnAnhaengen').text == "1"

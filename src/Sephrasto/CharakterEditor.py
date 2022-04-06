@@ -162,7 +162,7 @@ class Editor(object):
 
             if hasattr(pd.plugin, "createCharakterButtons"):
                 for button in pd.plugin.createCharakterButtons():
-                    self.ui.horizontalLayout_3.addWidget(button)
+                    self.ui.horizontalLayout_2.addWidget(button)
 
         self.tabs = sorted(tabs, key=lambda tab: tab.order)
         for tab in self.tabs:
@@ -179,7 +179,6 @@ class Editor(object):
         self.ui.buttonQuicksave.clicked.connect(self.quicksaveButton)
         self.ui.buttonSavePDF.clicked.connect(self.pdfButton)
         self.ui.spinEP.valueChanged.connect(self.epChanged)
-        self.ui.checkReq.stateChanged.connect(self.reqChanged)
 
         self.reload(self.ui.tabs.currentIndex())
 
@@ -206,17 +205,7 @@ class Editor(object):
         if self.cancelDueToPendingChanges("Beenden"):
             event.ignore()
         else:
-            Wolke.Reqs = True
             Wolke.Settings["WindowSize-Charakter"] = [self.formMain.size().width(), self.formMain.size().height()]
-
-    def reqChanged(self):
-        Wolke.Reqs = self.ui.checkReq.isChecked()
-        epBefore = Wolke.Char.EPspent
-        Wolke.Char.aktualisieren()
-        self.reload(self.ui.tabs.currentIndex())
-        self.updateEP()
-        if epBefore != Wolke.Char.EPspent:
-            self.changed = True
     
     def onModified(self):
         self.changed = True
@@ -315,9 +304,8 @@ Versuchs doch bitte nochmal mit einer anderen Zieldatei.")
         self.ui.spinEP.setEnabled(not show)
         self.ui.spinRemaining.setEnabled(not show)
         self.ui.spinSpent.setEnabled(not show)
-        self.ui.checkReq.setEnabled(not show)
-        for i in range(1, self.ui.horizontalLayout_3.count()): 
-            self.ui.horizontalLayout_3.itemAt(i).widget().setVisible(not show)
+        for i in range(7, self.ui.horizontalLayout_2.count()): 
+            self.ui.horizontalLayout_2.itemAt(i).widget().setVisible(not show)
         self.ui.progressBar.setVisible(show)
       
     def pdfMeisterProgressCallback(self, progress):

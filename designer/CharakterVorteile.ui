@@ -26,7 +26,7 @@
    <property name="bottomMargin">
     <number>20</number>
    </property>
-   <item row="0" column="0">
+   <item row="1" column="0">
     <widget class="QSplitter" name="splitter">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -134,18 +134,103 @@
          <x>0</x>
          <y>0</y>
          <width>340</width>
-         <height>418</height>
+         <height>394</height>
         </rect>
        </property>
-       <layout class="QGridLayout" name="gridLayout_2">
-        <item row="2" column="0">
+       <layout class="QGridLayout" name="gridLayout_2" columnstretch="0,1">
+        <item row="3" column="1">
+         <widget class="QLabel" name="labelKosten">
+          <property name="text">
+           <string>20 EP</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
          <widget class="QLabel" name="label_2">
           <property name="text">
            <string>Kosten:</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="0">
+        <item row="5" column="0" colspan="2">
+         <widget class="QPlainTextEdit" name="plainText">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="lineWidth">
+           <number>1</number>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="backgroundVisible">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" colspan="2">
+         <widget class="QLabel" name="labelVorteil">
+          <property name="font">
+           <font>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Vorteil</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Nachkauf:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QLabel" name="labelNachkauf">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>18</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Häufig</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Voraussetzungen:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLabel" name="labelVoraussetzungen">
+          <property name="text">
+           <string>keine</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="2">
          <widget class="QLabel" name="labelTyp">
           <property name="minimumSize">
            <size>
@@ -166,71 +251,19 @@
           </property>
          </widget>
         </item>
-        <item row="4" column="0" colspan="2">
-         <widget class="QPlainTextEdit" name="plainText">
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="lineWidth">
-           <number>1</number>
-          </property>
-          <property name="readOnly">
-           <bool>true</bool>
-          </property>
-          <property name="backgroundVisible">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="label">
-          <property name="text">
-           <string>Nachkauf:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="1">
-         <widget class="QLabel" name="labelNachkauf">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>18</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Häufig</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QLabel" name="labelKosten">
-          <property name="text">
-           <string>20 EP</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0" colspan="2">
-         <widget class="QLabel" name="labelVorteil">
-          <property name="font">
-           <font>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>Vorteil</string>
-          </property>
-         </widget>
-        </item>
        </layout>
       </widget>
      </widget>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QCheckBox" name="checkShowAll">
+     <property name="toolTip">
+      <string>Falls diese Option aktiviert ist, werden auch solche Vorteile angezeigt, für die du die Voraussetzungen nicht erfüllst.</string>
+     </property>
+     <property name="text">
+      <string>Alle Vorteile anzeigen</string>
+     </property>
     </widget>
    </item>
   </layout>

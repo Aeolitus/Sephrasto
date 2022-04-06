@@ -31,7 +31,7 @@
         <x>0</x>
         <y>0</y>
         <width>1107</width>
-        <height>815</height>
+        <height>844</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -84,93 +84,6 @@
       </layout>
      </widget>
     </widget>
-   </item>
-   <item row="2" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <item>
-      <widget class="QCheckBox" name="checkReq">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>125</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>Voraussetzungen überprüfen</string>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QProgressBar" name="progressBar">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>305</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="value">
-        <number>24</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="buttonQuicksave">
-       <property name="minimumSize">
-        <size>
-         <width>75</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>Speichern</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="buttonSave">
-       <property name="minimumSize">
-        <size>
-         <width>75</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>Speichern als...</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="buttonSavePDF">
-       <property name="minimumSize">
-        <size>
-         <width>100</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777214</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>PDF erstellen</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
    </item>
    <item row="1" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -295,6 +208,67 @@
        </property>
       </spacer>
      </item>
+     <item>
+      <widget class="QProgressBar" name="progressBar">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>305</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="value">
+        <number>24</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="buttonQuicksave">
+       <property name="minimumSize">
+        <size>
+         <width>75</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Speichern</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="buttonSave">
+       <property name="minimumSize">
+        <size>
+         <width>75</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Speichern als...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="buttonSavePDF">
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777214</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>PDF erstellen</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
   </layout>
@@ -304,10 +278,6 @@
   <tabstop>spinEP</tabstop>
   <tabstop>spinSpent</tabstop>
   <tabstop>spinRemaining</tabstop>
-  <tabstop>checkReq</tabstop>
-  <tabstop>buttonQuicksave</tabstop>
-  <tabstop>buttonSave</tabstop>
-  <tabstop>buttonSavePDF</tabstop>
  </tabstops>
  <resources/>
  <connections/>

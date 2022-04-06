@@ -214,6 +214,9 @@ class CheatsheetGenerator(object):
             lineCounts.pop()
 
     def prepareRules(self):
+        voraussetzungenPruefen = Wolke.Char.voraussetzungenPruefen
+        Wolke.Char.voraussetzungenPruefen = True
+
         self.updateFontSize()
         self.RuleCategories = []
         sortV = Wolke.Char.vorteile.copy()
@@ -289,6 +292,7 @@ class CheatsheetGenerator(object):
                 self.RuleCategories.append(self.formatCategory("Anrufungen"))
                 self.appendTalente(rules, ruleLineCounts, self.RuleCategories[-1], anrufungen)
 
+        Wolke.Char.voraussetzungenPruefen = voraussetzungenPruefen
         return rules, ruleLineCounts
         
 

@@ -65,10 +65,10 @@
         <property name="bottomMargin">
          <number>20</number>
         </property>
-        <item row="3" column="1">
+        <item row="4" column="1">
          <widget class="QComboBox" name="comboHausregeln"/>
         </item>
-        <item row="1" column="0" colspan="2">
+        <item row="2" column="0" colspan="2">
          <widget class="QCheckBox" name="checkFinanzen">
           <property name="text">
            <string>Finanzen anzeigen</string>
@@ -78,20 +78,47 @@
           </property>
          </widget>
         </item>
-        <item row="7" column="0" colspan="2">
-         <widget class="QCheckBox" name="checkRegeln">
+        <item row="9" column="0">
+         <widget class="QLabel" name="label_7">
           <property name="text">
-           <string>Dem Charakterbogen relevante Ilaris Regeln anhängen</string>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-          <property name="tristate">
-           <bool>false</bool>
+           <string>Regeln Schriftgröße:</string>
           </property>
          </widget>
         </item>
-        <item row="8" column="1">
+        <item row="10" column="0" colspan="2">
+         <widget class="QLabel" name="labelReload">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(255, 255, 0); color: black;</string>
+          </property>
+          <property name="text">
+           <string>Der Charakter muss gespeichert und neu geladen werden, damit alle Änderungen übernommen werden können!</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0" colspan="2">
+         <widget class="QCheckBox" name="checkUeberPDF">
+          <property name="text">
+           <string>PDF-Ausgabe von übernatürlichen Fertigkeiten manuell auswählen</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Hausregeln:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QComboBox" name="comboCharsheet"/>
+        </item>
+        <item row="9" column="1">
          <widget class="QComboBox" name="comboRegelnGroesse">
           <item>
            <property name="text">
@@ -110,49 +137,35 @@
           </item>
          </widget>
         </item>
-        <item row="5" column="1">
-         <widget class="QComboBox" name="comboCharsheet"/>
-        </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="label_5">
-          <property name="text">
-           <string>Hausregeln:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="8" column="0">
-         <widget class="QLabel" name="label_7">
-          <property name="text">
-           <string>Regeln Schriftgröße:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0" colspan="2">
-         <widget class="QCheckBox" name="checkUeberPDF">
-          <property name="text">
-           <string>PDF-Ausgabe von übernatürlichen Fertigkeiten manuell auswählen</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="0">
+        <item row="6" column="0">
          <widget class="QLabel" name="label_6">
           <property name="text">
            <string>Charakterbogen:</string>
           </property>
          </widget>
         </item>
-        <item row="9" column="0" colspan="2">
-         <widget class="QLabel" name="labelReload">
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 0); color: black;</string>
+        <item row="8" column="0" colspan="2">
+         <widget class="QCheckBox" name="checkRegeln">
+          <property name="text">
+           <string>Dem Charakterbogen relevante Ilaris Regeln anhängen</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+          <property name="tristate">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="2">
+         <widget class="QCheckBox" name="checkReq">
+          <property name="toolTip">
+           <string>Falls abgewählt, werden sämtliche Voraussetzungsprüfungen für Vorteile, übernatürliche Fertigkeiten usw. deaktiviert.</string>
           </property>
           <property name="text">
-           <string>Der Charakter muss gespeichert und neu geladen werden, damit alle Änderungen übernommen werden können!</string>
+           <string>Voraussetzungen überprüfen</string>
           </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-          </property>
-          <property name="wordWrap">
+          <property name="checked">
            <bool>true</bool>
           </property>
          </widget>

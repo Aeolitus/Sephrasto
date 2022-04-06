@@ -59,6 +59,7 @@ class AttrWrapper(QtCore.QObject):
             self.widgetWert[attribut] = getattr(self.uiAttr, "spin" + attribut)
             self.widgetKosten[attribut] = getattr(self.uiAttr, "labelKosten" + attribut)
             self.widgetPW[attribut] = getattr(self.uiAttr, "pw" + attribut)
+            self.widgetWert[attribut].setKeyboardTracking(False)
             self.widgetWert[attribut].valueChanged.connect(self.update)
         self.uiAttr.spinAsP.valueChanged.connect(self.update)
         self.uiAttr.spinKaP.valueChanged.connect(self.update)
@@ -103,13 +104,14 @@ class AttrWrapper(QtCore.QObject):
             abgeleitetNew.append("Durchhaltevermögen " + ("+" if dhBasis > 0 else "") + str(dhBasis))
 
         vortNew = []
-        for vort in self.vorteile[attribut]:
-            if vort.name in Wolke.Char.vorteile:
-                continue
-            elif Hilfsmethoden.voraussetzungenPrüfen(Wolke.Char.vorteile, Wolke.Char.waffen, Wolke.Char.attribute,  Wolke.Char.übernatürlicheFertigkeiten, Wolke.Char.fertigkeiten, vort.voraussetzungen):
-                continue
-            elif Hilfsmethoden.voraussetzungenPrüfen(Wolke.Char.vorteile, Wolke.Char.waffen, attribute,  Wolke.Char.übernatürlicheFertigkeiten, Wolke.Char.fertigkeiten, vort.voraussetzungen):
-                vortNew.append(vort.name + " erwerbbar")
+        if Wolke.Char.voraussetzungenPruefen:
+            for vort in self.vorteile[attribut]:
+                if vort.name in Wolke.Char.vorteile:
+                    continue
+                elif Hilfsmethoden.voraussetzungenPrüfen(Wolke.Char.vorteile, Wolke.Char.waffen, Wolke.Char.attribute, Wolke.Char.übernatürlicheFertigkeiten, Wolke.Char.fertigkeiten, vort.voraussetzungen):
+                    continue
+                elif Hilfsmethoden.voraussetzungenPrüfen(Wolke.Char.vorteile, Wolke.Char.waffen, attribute, Wolke.Char.übernatürlicheFertigkeiten, Wolke.Char.fertigkeiten, vort.voraussetzungen):
+                    vortNew.append(vort.name + " erwerbbar")
 
         fertNew = []
         ferts = copy.deepcopy(Wolke.Char.fertigkeiten)

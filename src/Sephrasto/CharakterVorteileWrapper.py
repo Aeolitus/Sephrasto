@@ -11,6 +11,7 @@ from Charakter import VariableKosten
 from PyQt5 import QtWidgets, QtCore, QtGui
 import logging
 from EventBus import EventBus
+from Hilfsmethoden import Hilfsmethoden
 
 class CharakterVorteileWrapper(QtCore.QObject):
     modified = QtCore.pyqtSignal()
@@ -39,7 +40,13 @@ class CharakterVorteileWrapper(QtCore.QObject):
             
         self.itemWidgets = {}
         
+        self.uiVor.checkShowAll.stateChanged.connect(self.onShowAllClicked)
+        self.showUnavailable = False
         self.initVorteile()
+
+    def onShowAllClicked(self):
+        self.showUnavailable = self.uiVor.checkShowAll.isChecked()
+        self.load()
 
     def initVorteile(self):
         self.uiVor.treeWidget.blockSignals(True)
@@ -102,10 +109,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
                         self.handleAddKommentarWidget(el, child)
                 else:
                     child.setText(1, "20 EP" if el == Wolke.Char.minderpakt else str(Wolke.DB.vorteile[el].kosten) + " EP")
-                if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.vorteile[el].voraussetzungen):
-                    child.setHidden(False)
-                else:
-                    child.setHidden(True)
+
         self.updateInfo()
         self.uiVor.treeWidget.blockSignals(False)
         
@@ -127,7 +131,10 @@ class CharakterVorteileWrapper(QtCore.QObject):
             if itm == 0: 
                 continue
 
-            itm.setHidden(len(vortList[i]) == 0)
+            if self.showUnavailable:
+                itm.setHidden(False)
+            else:
+                itm.setHidden(len(vortList[i]) == 0)
 
             for j in range(itm.childCount()):
                 chi = itm.child(j)
@@ -144,11 +151,19 @@ class CharakterVorteileWrapper(QtCore.QObject):
                 else:
                     chi.setCheckState(0, QtCore.Qt.Unchecked) 
                 if txt not in vortList[i]:
-                    chi.setHidden(True)
-                    chi.setCheckState(0,QtCore.Qt.Unchecked)
+                    if self.showUnavailable:
+                        chi.setFlags(QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsSelectable)
+                        chi.setCheckState(0,QtCore.Qt.Unchecked)
+                        chi.setForeground(0, QtGui.QBrush(QtCore.Qt.red))
+                        chi.setHidden(False)
+                    else:
+                        chi.setHidden(True)
                     Wolke.Char.removeVorteil(txt)
                 else:
+                    chi.setFlags(QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsSelectable)
+                    chi.setForeground(0, QtGui.QBrush())
                     chi.setHidden(False)
+
                 if (Wolke.DB.vorteile[txt].variableKosten or Wolke.DB.vorteile[txt].kommentarErlauben) and not txt in Wolke.Char.vorteileVariable:
                     if txt in self.itemWidgets:
                         self.setVariableKosten(txt, self.itemWidgets[txt].value(), "")
@@ -285,9 +300,26 @@ class CharakterVorteileWrapper(QtCore.QObject):
             self.uiVor.labelVorteil.setText(vorteil.name)
             self.uiVor.labelTyp.setText(self.vorteilTypen[vorteil.typ])
             self.uiVor.labelNachkauf.setText(vorteil.nachkauf)
+
+            voraussetzungen = [v.strip() for v in Hilfsmethoden.VorArray2Str(vorteil.voraussetzungen).split(",")]
+            voraussetzungen = [v for v in voraussetzungen if not v.startswith("Kein Vorteil Tradition")]
+            voraussetzungen = [v + " und 2 weitere Attribute auf insgesamt 16" if "MeisterAttribut" in v else v for v in voraussetzungen]
+            voraussetzungen = ", ".join(voraussetzungen)
+            voraussetzungen = voraussetzungen.replace(" ODER ", " oder ")
+            voraussetzungen = voraussetzungen.replace("'", "") # remove apostrophes from "Fertigkeit" and "Übernatürliche-Fertigkeit"
+            voraussetzungen = voraussetzungen.replace("Fertigkeit ", "")
+            voraussetzungen = voraussetzungen.replace("Übernatürliche-Fertigkeit ", "")
+            voraussetzungen = voraussetzungen.replace("MeisterAttribut ", "")
+            voraussetzungen = voraussetzungen.replace("Attribut ", "")
+            voraussetzungen = voraussetzungen.replace("Vorteil ", "")
+            voraussetzungen = voraussetzungen.replace("Kein ", "kein ")
+            if not voraussetzungen:
+                voraussetzungen = "keine"
+            self.uiVor.labelVoraussetzungen.setText(voraussetzungen)
+
             self.uiVor.plainText.setPlainText(vorteil.text)
             if vorteil.variableKosten and self.currentVort in Wolke.Char.vorteileVariable:
                 self.uiVor.labelKosten.setText(str(Wolke.Char.vorteileVariable[self.currentVort].kosten) + " EP")
             else:
-                self.uiVor.labelKosten.setText(str(vorteil.kosten) + " EP")   
+                self.uiVor.labelKosten.setText(str(vorteil.kosten) + " EP")
             
