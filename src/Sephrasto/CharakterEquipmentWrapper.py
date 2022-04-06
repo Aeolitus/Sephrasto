@@ -283,6 +283,7 @@ class EquipWrapper(QtCore.QObject):
             else:
                 comboStil.addItem('Waffe unbekannt')
                 comboStil.setToolTip('Der Name der Waffe ist unbekannt, daher kann kein Kampfstil ausgewählt werden. Die Kampfwerte müssen in der PDF manuell ausgefüllt werden.')
+        comboStil.setEnabled(comboStil.count() > 1)
         comboStil.blockSignals(False)
         
     def createWaffe(self, index):
