@@ -114,6 +114,8 @@ class CharakterVorteileWrapper(QtCore.QObject):
         self.uiVor.treeWidget.blockSignals(False)
         
     def load(self):
+        self.uiVor.checkShowAll.setVisible(Wolke.Char.voraussetzungenPruefen)
+
         self.uiVor.treeWidget.blockSignals(True)
         vortList = []
         for vortTyp in self.vorteilTypen:
