@@ -9702,7 +9702,7 @@ Fast alle Geweihten der Zwölf beherrschen die zwölf Segnungen: Eid-, Feuer-, G
   <Rüstung name="Gladiatorenschulter" typ="4" system="0" rsBeine="0" rsLArm="0" rsRArm="2" rsBauch="0" rsBrust="2" rsKopf="0">Kann nicht zweimal getragen werden. Benötigt keine wattierte Unterkleidung.</Rüstung>
   <Rüstung name="Hartholzharnisch" typ="2" system="0" rsBeine="1" rsLArm="1" rsRArm="1" rsBauch="3" rsBrust="3" rsKopf="0">Die Rüstung besteht aus maraskanischem Hartholz. Sie schützt vor Parasiten und ist feuchtigkeitsempfindlich. Benötigt wattierte Unterkleidung.</Rüstung>
   <Rüstung name="Horasischer Reiterharnisch" typ="4" system="0" rsBeine="3" rsLArm="4" rsRArm="4" rsBauch="5" rsBrust="5" rsKopf="3">Komplettrüstung, kann nicht ergänzt werden. Benötigt wattierte Unterkleidung.</Rüstung>
-  <Rüstung name="Iryanrüstung" typ="1" system="0" rsBeine="1" rsLArm="0" rsRArm="0" rsBauch="2" rsBrust="2" rsKopf="0">Die Rüstung ist feuerresistent.</Rüstung>
+  <Rüstung name="Iryanrüstung" typ="1" system="0" rsBeine="1" rsLArm="0" rsRArm="0" rsBauch="2" rsBrust="2" rsKopf="0">Die Rüstung ist feuerresistent. Beinhaltet bereits einen Streifenschurz.</Rüstung>
   <Rüstung name="Kettenmantel" typ="3" system="0" rsBeine="3" rsLArm="3" rsRArm="3" rsBauch="3" rsBrust="3" rsKopf="0">Benötigt wattierte Unterkleidung.</Rüstung>
   <Rüstung name="Kettenweste" typ="3" system="0" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="3" rsBrust="3" rsKopf="0">Benötigt keine wattierte Unterkleidung.</Rüstung>
   <Rüstung name="Kürass" typ="4" system="0" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="2" rsBrust="3" rsKopf="0">Benötigt keine wattierte Unterkleidung. Die Rüstung ist am Rücken offen.</Rüstung>
@@ -9715,10 +9715,10 @@ Fast alle Geweihten der Zwölf beherrschen die zwölf Segnungen: Eid-, Feuer-, G
   <Rüstung name="Amazonenrüstung" typ="4" system="0" rsBeine="3" rsLArm="2" rsRArm="2" rsBauch="4" rsBrust="4" rsKopf="3">Komplettrüstung aus Bronzekürass, Arm- und Beinschienen, Streifenschurz und visierlosem Helm. Benötigt keine wattierte Unterkleidung. Kann nicht ergänzt werden.</Rüstung>
   <Rüstung name="Armschienen (Bronze)" typ="4" system="2" rsBeine="0" rsLArm="2" rsRArm="2" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Arme. Benötigt keine wattierte Unterkleidung.</Rüstung>
   <Rüstung name="Armschienen (Leder)" typ="1" system="2" rsBeine="0" rsLArm="1" rsRArm="1" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Arme.</Rüstung>
-  <Rüstung name="Armschienen (Stahl)" typ="4" system="2" rsBeine="0" rsLArm="3" rsRArm="3" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Arme. Benötigt keine wattierte Unterkleidung.</Rüstung>
+  <Rüstung name="Armschienen (Stahl)" typ="4" system="2" rsBeine="0" rsLArm="2" rsRArm="2" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Arme. Benötigt keine wattierte Unterkleidung.</Rüstung>
   <Rüstung name="Beinschienen (Bronze)" typ="4" system="2" rsBeine="2" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Beine. Benötigt keine wattierte Unterkleidung.</Rüstung>
   <Rüstung name="Beinschienen (Leder)" typ="1" system="2" rsBeine="1" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Beine.</Rüstung>
-  <Rüstung name="Beinschienen (Stahl)" typ="4" system="2" rsBeine="3" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Beine. Benötigt keine wattierte Unterkleidung.</Rüstung>
+  <Rüstung name="Beinschienen (Stahl)" typ="4" system="2" rsBeine="2" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Beine. Benötigt keine wattierte Unterkleidung.</Rüstung>
   <Rüstung name="Beintaschen" typ="4" system="2" rsBeine="2" rsLArm="0" rsRArm="0" rsBauch="1" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Beine. Benötigt keine wattierte Unterkleidung.</Rüstung>
   <Rüstung name="Hohe Stiefel" typ="1" system="2" rsBeine="1" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Füße.</Rüstung>
   <Rüstung name="Kettenbeinlinge" typ="3" system="2" rsBeine="2" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Beine. Benötigt wattierte Unterkleidung.</Rüstung>
@@ -9732,7 +9732,7 @@ Fast alle Geweihten der Zwölf beherrschen die zwölf Segnungen: Eid-, Feuer-, G
   <Rüstung name="Panzerhandschuhe" typ="4" system="2" rsBeine="0" rsLArm="2" rsRArm="2" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Hände. Benötigt keine wattierte Unterkleidung.</Rüstung>
   <Rüstung name="Panzerschuh" typ="4" system="2" rsBeine="1" rsLArm="0" rsRArm="0" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Füße. Benötigt keine wattierte Unterkleidung.</Rüstung>
   <Rüstung name="Pelzweste" typ="1" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="1" rsBrust="1" rsKopf="0"/>
-  <Rüstung name="Plattenarme" typ="4" system="2" rsBeine="0" rsLArm="3" rsRArm="3" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Arme. Benötigt wattierte Unterkleidung.</Rüstung>
+  <Rüstung name="Plattenarme" typ="4" system="2" rsBeine="0" rsLArm="2" rsRArm="2" rsBauch="0" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Arme. Benötigt wattierte Unterkleidung.</Rüstung>
   <Rüstung name="Plattenschultern" typ="4" system="2" rsBeine="0" rsLArm="1" rsRArm="1" rsBauch="0" rsBrust="1" rsKopf="0">Rüstungsergänzung für die Schultern. Benötigt wattierte Unterkleidung.</Rüstung>
   <Rüstung name="Schürze" typ="4" system="2" rsBeine="2" rsLArm="0" rsRArm="0" rsBauch="1" rsBrust="0" rsKopf="0">Rüstungsergänzung für die Beine. Benötigt keine wattierte Unterkleidung.</Rüstung>
   <Rüstung name="Wattiertes Unterzeug (Kettenteile)" typ="0" system="2" rsBeine="1" rsLArm="2" rsRArm="2" rsBauch="1" rsBrust="2" rsKopf="0">Wird üblicherweise unter Metallrüstungen gegen Abschürfungen getragen.</Rüstung>
@@ -9764,9 +9764,9 @@ Fast alle Geweihten der Zwölf beherrschen die zwölf Segnungen: Eid-, Feuer-, G
   <Rüstung name="Brustschalen" typ="4" system="1" rsBeine="1" rsLArm="1" rsRArm="1" rsBauch="1" rsBrust="1" rsKopf="1">Benötigt keine wattierte Unterkleidung.</Rüstung>
   <Rüstung name="Bronzeharnisch" typ="4" system="1" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="2" rsBrust="3" rsKopf="0">Wird üblicherweise mit Bronzezeug ergänzt. Benötigt keine wattierte Unterkleidung.</Rüstung>
   <Rüstung name="Bronzeharnisch (ZRS)" typ="4" system="2" rsBeine="0" rsLArm="0" rsRArm="0" rsBauch="2" rsBrust="3" rsKopf="0">Wird üblicherweise mit Streifenschurz ergänzt.</Rüstung>
-  <Rüstung name="Kusliker Lamellar" typ="4" system="1" rsBeine="1" rsLArm="1" rsRArm="1" rsBauch="3" rsBrust="3" rsKopf="0">Benötigt wattierte Unterkleidung. Wird üblicherweise mit Bronzezeug ergänzt.</Rüstung>
-  <Rüstung name="Kusliker Lamellar (ZRS)" typ="4" system="2" rsBeine="1" rsLArm="1" rsRArm="1" rsBauch="3" rsBrust="3" rsKopf="0">Benötigt wattierte Unterkleidung. Wird üblicherweise mit Bronzehelm, -Arm und -Beinschienen ergänzt.</Rüstung>
-  <Rüstung name="Leichte Platte" typ="4" system="0" rsBeine="2" rsLArm="0" rsRArm="0" rsBauch="4" rsBrust="4" rsKopf="0">Benötigt wattierte Unterkleidung. Wird üblicherweise mit Kettenzeug oder Plattenzeug ergänzt.</Rüstung>
+  <Rüstung name="Kusliker Lamellar" typ="4" system="1" rsBeine="1" rsLArm="1" rsRArm="1" rsBauch="3" rsBrust="3" rsKopf="0">Benötigt wattierte Unterkleidung. Wird üblicherweise mit Bronzezeug ergänzt. Beinhaltet bereits einen Streifenschurz.</Rüstung>
+  <Rüstung name="Kusliker Lamellar (ZRS)" typ="4" system="2" rsBeine="1" rsLArm="1" rsRArm="1" rsBauch="3" rsBrust="3" rsKopf="0">Benötigt wattierte Unterkleidung. Wird üblicherweise mit Bronzehelm, -Arm und -Beinschienen ergänzt. Beinhaltet bereits einen Streifenschurz.</Rüstung>
+  <Rüstung name="Leichte Platte" typ="4" system="0" rsBeine="2" rsLArm="0" rsRArm="0" rsBauch="4" rsBrust="4" rsKopf="0">Benötigt wattierte Unterkleidung. Wird üblicherweise mit Kettenzeug oder Plattenzeug ergänzt. Beinhaltet bereits Beintaschen.</Rüstung>
   <Rüstung name="Krötenhaut" typ="1" system="0" rsBeine="0" rsLArm="1" rsRArm="1" rsBauch="1" rsBrust="2" rsKopf="0">Wird üblicherweise mit Lederzeug ergänzt.</Rüstung>
   <Rüstung name="Wattiertes Unterzeug (ZRS)" typ="0" system="2" rsBeine="1" rsLArm="1" rsRArm="1" rsBauch="1" rsBrust="1" rsKopf="0">Wird üblicherweise unter Metallrüstungen gegen Abschürfungen getragen.</Rüstung>
   <Rüstung name="Gambeson (ZRS)" typ="0" system="2" rsBeine="1" rsLArm="1" rsRArm="1" rsBauch="2" rsBrust="2" rsKopf="0">Kann unter vielen Torsorüstungen anstelle von wattierter Unterkleidung getragen werden, wenn diese entsprechend größer ausfallen. Erhöht die Temperaturstufe um +1 (S. 35).</Rüstung>
