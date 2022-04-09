@@ -27,14 +27,14 @@ Wenn diese Option aktiviert wird, können die Kosten für dieses Element im Char
 Wenn diese Option aktiviert wird, erscheint im Charaktereditor ein Kommentarfeld, sobald das Element erworben wird. Das dort eingetragene wird im Charakterbogen in Klammern angefügt. Dies wird in erster Linie für Elemente verwendet, bei denen der Nutzer eine frei gewählte Angabe machen muss, wie z.B. beim Vorteil Besonderer Besitz.
 <br />
 ### Voraussetzungen (Vorteil, Freie Fertigkeit, Übernatürliche Fertigkeit, Talent, Manöver/Modifikation/Regel)
-In diesem Feld kannst du Voraussetzungen für die die Verfügbarkeit von Datenbank-Elementen festlegen. Der Vorteil Ausfall erfordert beispielsweise das Attribut Mut auf einem Wert von 4, bevor ein Charakter ihn erwerben kann steht. Folgende Voraussetzungen sind möglich:
+In diesem Feld kannst du Voraussetzungen für die die Verfügbarkeit von Datenbank-Elementen festlegen. Der Vorteil Ausfall erfordert beispielsweise das Attribut Mut auf einem Wert von 4, bevor ein Charakter ihn erwerben kann. Folgende Voraussetzungen sind möglich:
 
 - ```Attribut <KO, MU, GE, KK, IN, KL, CH, FF> <Mindestwert>```<br />
 Überprüft, ob ein bestimmtes Attribut den angegebenen Mindestwert hat.<br />
 Beispiel: Attribut MU 4
 
 - ```MeisterAttribut <KO, MU, GE, KK, IN, KL, CH, FF> <Mindestwert>```<br />
-Überprüft, ob ein bestimmtes den angegebenen Mindestwert hat und ob zwei beliebige weitere Attribute insgesamt einen Wert von mindestens 16 haben. Dies wird in erster Linie für Kampfstile und Traditionen der Stufe IV verwendet.<br />
+Überprüft, ob ein bestimmtes Attribut den angegebenen Mindestwert hat und ob zwei beliebige weitere Attribute insgesamt einen Wert von mindestens Wert \* 1.6 haben. Dies wird in erster Linie für Kampfstile und Traditionen der Stufe IV verwendet.<br />
 Beispiel: MeisterAttribut KL 10
 
 - ```Vorteil <Vorteilsname>```<br />
@@ -45,17 +45,19 @@ Beispiel: Vorteil Zauberer I
 Überprüft, ob der Charakter den angegebenen Vorteil nicht erworben hat.<br />
 Beispiel: Kein Vorteil Zauberer I
 
-- ```Fertigkeit '<Fertigkeitsname>' <Mindestwert>```<br />
-Überprüft, ob der Charakter eine bestimmte Fertigkeit auf dem angegebenen Mindestwert hat. Ein Wert von -1 hat ein spezielle Bedeutung, hier wird an Stelle des Fertigkeitswerts überprüft, ob mindestens ein Talent aktiviert ist. Dies wird in erster Linie für das Datenbankelement Manöver/Modifikation/Regel verwendet.<br />
+- ```Fertigkeit '<Fertigkeitsname>' <Optional: Mindest-PW(T)>```<br />
+Überprüft, ob der Charakter eine bestimmte Fertigkeit auf dem angegebenen Mindest-PW(T) hat. Wenn du keinen Mindestwert oder -1 angibst, wird an Stelle des Fertigkeitswerts überprüft, ob mindestens ein Talent aktiviert ist. Dies wird in erster Linie für das Datenbankelement Manöver/Modifikation/Regel verwendet.<br />
 Beispiel: Fertigkeit 'Handwerk' 8
 
-- ```Übernatürliche-Fertigkeit '<Fertigkeitsname>' <Mindestwert>```<br />
-Überprüft, ob der Charakter eine bestimmte übernatürliche Fertigkeit auf dem angegebenen Mindestwert hat. Ein Wert von -1 hat ein spezielle Bedeutung, hier wird an Stelle des Fertigkeitswerts überprüft, ob mindestens ein Talent aktiviert ist. Dies wird in erster Linie für das Datenbankelement Manöver/Modifikation/Regel verwendet.<br />
-Beispiel: Übernatürliche-Fertigkeit 'Antimagie' -1
+- ```Übernatürliche-Fertigkeit '<Fertigkeitsname>' <Optional: Mindest-PW(T)>```<br />
+Überprüft, ob der Charakter eine bestimmte übernatürliche Fertigkeit auf dem angegebenen Mindest-PW(T) hat. Wenn du keinen Mindestwert oder -1 angibst, wird an Stelle des Fertigkeitswerts überprüft, ob mindestens ein Talent aktiviert ist. Dies wird in erster Linie für das Datenbankelement Manöver/Modifikation/Regel verwendet.<br />
+Beispiel: Übernatürliche-Fertigkeit 'Antimagie'
 
-- ```Talent <Talentname>```<br />
-Überprüft, ob der Charakter das angegebene Talent erworben hat. Dies wird in erster Linie für das Datenbankelement Manöver/Modifikation/Regel verwendet.<br />
-Beispiel: Talent Arcanovi Artefakt
+- ```Talent '<Talentname>' <Optional: Mindest-PW(T)>```<br />
+Profane Talente: Überprüft, ob eine der Talent-Fertigkeiten den angegebenen Mindest-PW oder Mindest-PW(T) hat, je nachdem, ob das Talent erworben wurde. Wenn du keinen Mindestwert oder -1 angibst, wird nur überprüft, ob das Talent erworben wurde.
+Übernatürliche Talente: Überprüft, ob das Talent erworben wurde und eine der Talent-Fertigkeiten den angegebenen Mindest-PW(T) hat. Wenn du keinen Mindestwert oder -1 angibst, wird nur überprüft, ob das Talent erworben wurde.
+Dies wird in erster Linie für das Datenbankelement Manöver/Modifikation/Regel verwendet.<br />
+Beispiel: Talent 'Arcanovi Artefakt' 10
 
 - ```Waffeneigenschaft <Waffeneigenschaftsname>```<br />
 Überprüft, ob der Charakter eine Waffe mit der angegebenen Waffeneigenschaft besitzt. Statt einer Waffeneigenschaft kann auch "Nahkampfwaffe" oder "Fernkampfwaffe" spezifiziert werden. Dies wird in erster Linie für das Datenbankelement Manöver/Modifikation/Regel verwendet.<br />

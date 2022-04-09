@@ -114,9 +114,20 @@ class Hilfsmethoden:
                         raise VoraussetzungException("Kann Vorteil '" + strpItm + "' in der Datenbank nicht finden.")
                     arrItm = "V" + delim + strpItm[13:] + delim + "0"
                 elif strpItm.startswith("Talent "):
-                    if not (strpItm[7:] in Datenbank.talente):
+                    if not strpItm[7] == "'":
+                        raise VoraussetzungException("Der Name eines Talents muss in Apostrophen gefasst werden. . (" + strpItm + ")")
+                    strpItm = strpItm[8:]
+                    index = strpItm.find("'")
+                    if index == -1:
+                        raise VoraussetzungException("Der Name einer Fertigkeit muss in Apostrophen gefasst werden. . (" + strpItm + ")")
+                    talent = strpItm[:index]
+                    if not (talent in Datenbank.talente):
                         raise VoraussetzungException("Kann Talent '" + strpItm + "' in der Datenbank nicht finden.")
-                    arrItm = "T" + delim + strpItm[7:] + delim + "1"
+                    try:
+                        wert = int(strpItm[index+2:]) if len(strpItm) -1 > index else -1
+                        arrItm = "T" + delim + talent + delim + str(wert)
+                    except ValueError:
+                        raise VoraussetzungException("Der angegebene Talent-PW '" + strpItm[index+2:] + "' ist keine gültige Zahl")
                 elif strpItm.startswith("Waffeneigenschaft "):
                     if (not (strpItm[18:] in Datenbank.waffeneigenschaften)) and strpItm[18:] != "Nahkampfwaffe" and strpItm[18:] != "Fernkampfwaffe":
                         raise VoraussetzungException("Kann keine Waffeneigenschaft '" + strpItm + "' in der Datenbank finden.")
@@ -153,7 +164,7 @@ class Hilfsmethoden:
                     if not (fertigkeit in Datenbank.übernatürlicheFertigkeiten):
                         raise VoraussetzungException("Kann Übernatürliche Fertigkeit '" + fertigkeit + "' in der Datenbank nicht finden.")
                     try:
-                        wert = int(strpItm[index+2:])
+                        wert = int(strpItm[index+2:]) if len(strpItm) -1 > index else -1
                         arrItm = "U" + delim + fertigkeit + delim + str(wert)
                     except ValueError:
                         raise VoraussetzungException("Der angegebene Fertigkeitswert '" + strpItm[index+2:] + "' ist keine gültige Zahl")
@@ -170,7 +181,7 @@ class Hilfsmethoden:
                         raise VoraussetzungException("Kann Fertigkeit '" + fertigkeit + "' in der Datenbank nicht finden.")
 
                     try:
-                        wert = int(strpItm[index+2:])
+                        wert = int(strpItm[index+2:]) if len(strpItm) -1 > index else -1
                         arrItm = "F" + delim + fertigkeit + delim + str(wert)
                     except ValueError:
                         raise VoraussetzungException("Der angegebene Fertigkeitswert '" + strpItm[index+2:] + "' ist keine gültige Zahl")
@@ -209,7 +220,9 @@ class Hilfsmethoden:
                     enStr += arr[1]
                 elif arr[0] == "T":
                     enStr += "Talent "
-                    enStr += arr[1]
+                    enStr += "'" + arr[1] + "'"
+                    if arr[2] != '-1':
+                        enStr += " " + str(arr[2])
                 elif arr[0] == "W":
                     enStr += "Waffeneigenschaft "
                     enStr += arr[1]
@@ -225,12 +238,14 @@ class Hilfsmethoden:
                     enStr += str(arr[2])
                 elif arr[0] == "U":
                     enStr += "Übernatürliche-Fertigkeit "
-                    enStr += "'" + arr[1] + "' "
-                    enStr += str(arr[2])
+                    enStr += "'" + arr[1] + "'"
+                    if arr[2] != '-1':
+                        enStr += " " + str(arr[2])
                 elif arr[0] == "F":
                     enStr += "Fertigkeit "
-                    enStr += "'" + arr[1] + "' "
-                    enStr += str(arr[2])
+                    enStr += "'" + arr[1] + "'"
+                    if arr[2] != '-1':
+                        enStr += " " + str(arr[2])
                 if enStr != "":
                     retArr.append(enStr)
         if len(retArr) > 0:
@@ -253,12 +268,14 @@ class Hilfsmethoden:
         Dabei ist L:
             V für Vorteil - prüft, ob ein Vorteil vorhanden ist. W = 1 bedeutet, der
                 Vorteil muss vorhanden sein. W=0 bedeutet, der Vorteil darf nicht vorhanden sein.
-            T für Talent - prüft, ob der Charakter ein Talent mit dem angegebenen Namen besitzt. W ist immer 1.
+            T für Talent - prüft, ob der Charakter ein Talent mit dem angegebenen Namen besitzt. W ist der Mindest-PW(T).
+                Bei profanen Talenten wird auch der PW überprüft, falls das Talent nicht erworben wirde.
+                W=-1 hat ein spezielle Bedeutung, hier wird lediglich überprüft, ob das Talent aktiviert ist.
             W für Waffeneigenschaft - prüft, ob der Charakter eine Waffe mit der angegebenen Eigenschaft besitzt. W ist immer 1.
             A für Attribut - prüft, ob das Attribut mit Key Str mindestens auf Wert W ist
-            M für MeisterAttribut - wie Attribut, prüft außerdem ob zwei weitere Attribute auf insg. mindestens 16 sind
+            M für MeisterAttribut - wie Attribut, prüft außerdem ob zwei weitere Attribute auf insg. mindestens W * 1.6 sind
             U für Übernatürliche Fertigkeit - prüft, ob für die Übernatürliche Fertigkeit mit Key Str die Voraussetzungen erfüllt sind \
-                und sie mindestens den PW(T) W hat. W=-1 hat ein spezielle Bedeutung, hier wird an Stelle des Fertigkeitswerts überprüft ob mindestens ein Talent aktiviert ist.
+                und sie mindestens den PW(T) W hat. W=-1 hat ein spezielle Bedeutung, hier wird an Stelle des Fertigkeitswerts überprüft, ob mindestens ein Talent aktiviert ist.
             F für Fertigkeit - wie U für Übernatürliche Fertigkeit, aber betrifft profane Fertigkeiten.
         Einträge im Array können auch weitere Arrays and Voraussetzungen sein.
         Aus diesen Arrays muss nur ein Eintrag erfüllt sein.
@@ -289,15 +306,29 @@ class Hilfsmethoden:
                         erfüllt = True
                 #Talente:
                 elif arr[0] == 'T':
-                    for fert in fertigkeiten.values():
-                        if arr[1] in fert.gekaufteTalente:
-                            erfüllt = True
-                            break
-                    if not erfüllt:
-                        for fert in übernatürlicheFertigkeiten.values():
-                            if arr[1] in fert.gekaufteTalente:
-                                erfüllt = True
-                                break
+                    if arr[1] in Wolke.DB.talente:
+                        talent = Wolke.DB.talente[arr[1]]
+                        wert = int(arr[2])
+                        if not talent.isSpezialTalent():
+                            for fert in talent.fertigkeiten:
+                                if not fert in fertigkeiten:
+                                    continue
+                                fertigkeit = fertigkeiten[fert]
+                                if wert == -1:
+                                    if arr[1] in fertigkeit.gekaufteTalente:
+                                        erfüllt = True
+                                        break
+                                elif (arr[1] in fertigkeit.gekaufteTalente and fertigkeit.probenwertTalent >= wert) or fertigkeit.probenwert >= wert:
+                                    erfüllt = True
+                                    break
+                        else:
+                            for fert in talent.fertigkeiten:
+                                if not fert in übernatürlicheFertigkeiten:
+                                    continue
+                                fertigkeit = übernatürlicheFertigkeiten[fert]
+                                if arr[1] in fertigkeit.gekaufteTalente and (wert == -1 or fertigkeit.probenwertTalent >= wert):
+                                    erfüllt = True
+                                    break
                 #Waffeneigenschaften:
                 elif arr[0] == 'W':
                     for waffe in waffen:
@@ -323,7 +354,7 @@ class Hilfsmethoden:
                         attr1 = max(attrSorted)
                         attrSorted.remove(attr1)
                         attr2 = max(attrSorted)
-                        erfüllt = attr1 + attr2 >= 16  
+                        erfüllt = attr1 + attr2 >= int(arr[2]) * 1.6  
                 #Übernatürliche Fertigkeiten:
                 elif arr[0] == 'U':
                     if arr[1] in übernatürlicheFertigkeiten:

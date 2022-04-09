@@ -8,6 +8,7 @@ from Wolke import Wolke
 import logging
 from DatenbankEinstellung import DatenbankEinstellung
 from EventBus import EventBus
+import re
 
 class DatabaseException(Exception):
     pass
@@ -46,11 +47,12 @@ class Datenbank():
         #In dieser Funktion kann dann die UserDB-XML-Datei angepasst werden, bevor sie geladen wird.
         #Da Migrationen hier im Gegensatz zur Charaktermigration nur bei Schema-Änderungen nötig sind, gibt es nichts was wir dem User in einer messagebox zeigen müssten
         #Die Funktionen werden inkrementell ausgeführt, bspw. bei UserDB-Version '0' und DB-Code-Version '2' wird zuerst die Funktion für 1, dann die Funktion für 2 aufgerufen
-        self.datenbankCodeVersion = 2
+        self.datenbankCodeVersion = 3
         self.migrationen = [
             lambda xmlRoot: None, #nichts zu tun, initiale db version
             self.migriere0zu1,    
-            self.migriere1zu2
+            self.migriere1zu2,
+            self.migriere2zu3
         ]
         if not self.migrationen[self.datenbankCodeVersion]:
             raise Exception("Migrations-Code vergessen.")
@@ -300,6 +302,22 @@ class Datenbank():
             name = fe.get('name')
             if name in self.übernatürlicheFertigkeiten and self.übernatürlicheFertigkeiten[name].talenteGruppieren:
                 fe.set('talentegruppieren', '1')
+
+    def migriere2zu3(self, root):
+        def fixTalentVoraussetzungen(type):
+            for node in root.findall(type):
+                vor = node.get('voraussetzungen')
+                if not vor:
+                    continue
+                node.set('voraussetzungen', re.sub(r"Talent \s*(.*?)\s*(,| ODER |$)", r"Talent '\1'\2", vor))
+
+        fixTalentVoraussetzungen('Talent')
+        fixTalentVoraussetzungen('Vorteil')
+        fixTalentVoraussetzungen('Manöver')
+        fixTalentVoraussetzungen('Waffeneigenschaft')
+        fixTalentVoraussetzungen('FreieFertigkeit')
+        fixTalentVoraussetzungen('Fertigkeit')
+        fixTalentVoraussetzungen('Übernatürliche-Fertigkeit')
 
     def xmlLadenInternal(self, file, refDB):
         root = etree.parse(file).getroot()
