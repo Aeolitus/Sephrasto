@@ -424,7 +424,8 @@ class EquipWrapper(QtCore.QObject):
         if not replace:
             for i in range(0, 6):
                 R.rs[i] += self.spinZRS[index][i].value()
-            R.be += self.spinBE[index].value()
+            beDelta = self.spinBE[index].value() - self.spinRS[index].value()
+            R.be = R.getRSGesamtInt() + beDelta
 
         for i in range(0, 6):
             if self.uiEq.checkZonen.isChecked():
