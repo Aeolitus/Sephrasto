@@ -33,8 +33,9 @@ class CharakterBeschreibungDetailsWrapper(QtCore.QObject):
 
         self.ui.tabWidget.setStyleSheet('QTabBar { font-weight: bold; font-size: ' + str(Wolke.Settings["FontHeadingSize"]) + 'pt; font-family: \"' + Wolke.Settings["FontHeading"] + '\"; }')
 
-        self.ui.chkKultur.stateChanged.connect(lambda state: self.ui.leKultur.setEnabled(self.ui.chkKultur.isChecked()))
+        self.ui.chkKultur.stateChanged.connect(self.updateDetails)
 
+        self.ui.leKultur.editingFinished.connect(self.updateDetails)
         self.ui.leProfession.editingFinished.connect(self.updateDetails)
         self.ui.leGeschlecht.editingFinished.connect(self.updateDetails)
         self.ui.leGeburtsdatum.editingFinished.connect(self.updateDetails)
@@ -126,6 +127,7 @@ class CharakterBeschreibungDetailsWrapper(QtCore.QObject):
 
         changed = False
 
+        self.ui.leKultur.setEnabled(self.ui.chkKultur.isChecked())
         if self.ui.chkKultur.isChecked():
             if Wolke.Char.kultur != self.ui.leKultur.text():
                 Wolke.Char.kultur = self.ui.leKultur.text()
