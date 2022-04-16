@@ -78,9 +78,12 @@ class CharakterBeschreibungDetailsWrapper(QtCore.QObject):
                 self.beschrWrapper.load()
         elif index == 1:
             self.currentlyLoading = True
+
             if Wolke.Char.kultur:
                 self.ui.chkKultur.setChecked(True)
                 self.ui.leKultur.setText(Wolke.Char.kultur)
+
+            self.ui.leKultur.setEnabled(self.ui.chkKultur.isChecked())
 
             self.ui.leProfession.setText(Wolke.Char.profession)
             self.ui.leGeschlecht.setText(Wolke.Char.geschlecht)
