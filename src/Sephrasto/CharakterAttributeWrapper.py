@@ -25,9 +25,9 @@ class AttrWrapper(QtCore.QObject):
         ''' Initialize the GUI and set signals for the spinners'''
         super().__init__()
         logging.debug("Initializing AttrWrapper...")
-        self.formAttr = QtWidgets.QWidget()
-        self.uiAttr = UI.CharakterAttribute.Ui_formAttribute()
-        self.uiAttr.setupUi(self.formAttr)
+        self.form = QtWidgets.QWidget()
+        self.ui = UI.CharakterAttribute.Ui_formAttribute()
+        self.ui.setupUi(self.form)
 
         # pre-sort and -filter vorteile to improve performance of tooltip generation
         self.vorteile = {}
@@ -40,29 +40,29 @@ class AttrWrapper(QtCore.QObject):
 
         font = QtGui.QFont(Wolke.Settings["FontHeading"], Wolke.Settings["FontHeadingSize"])
         font.setBold(True)
-        self.uiAttr.labelWert.setFont(font)
-        self.uiAttr.labelWert.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
-        self.uiAttr.labelWert2.setFont(font)
-        self.uiAttr.labelWert2.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
-        self.uiAttr.labelPW.setFont(font)
-        self.uiAttr.labelPW.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
-        self.uiAttr.labelKosten.setFont(font)
-        self.uiAttr.labelKosten.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
-        self.uiAttr.labelFormel.setFont(font)
-        self.uiAttr.labelFormel.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
+        self.ui.labelWert.setFont(font)
+        self.ui.labelWert.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
+        self.ui.labelWert2.setFont(font)
+        self.ui.labelWert2.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
+        self.ui.labelPW.setFont(font)
+        self.ui.labelPW.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
+        self.ui.labelKosten.setFont(font)
+        self.ui.labelKosten.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
+        self.ui.labelFormel.setFont(font)
+        self.ui.labelFormel.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
 
         #Signals
         self.widgetWert = {}
         self.widgetKosten = {}
         self.widgetPW = {}
         for attribut in Definitionen.Attribute:
-            self.widgetWert[attribut] = getattr(self.uiAttr, "spin" + attribut)
-            self.widgetKosten[attribut] = getattr(self.uiAttr, "labelKosten" + attribut)
-            self.widgetPW[attribut] = getattr(self.uiAttr, "pw" + attribut)
+            self.widgetWert[attribut] = getattr(self.ui, "spin" + attribut)
+            self.widgetKosten[attribut] = getattr(self.ui, "labelKosten" + attribut)
+            self.widgetPW[attribut] = getattr(self.ui, "pw" + attribut)
             self.widgetWert[attribut].setKeyboardTracking(False)
             self.widgetWert[attribut].valueChanged.connect(self.update)
-        self.uiAttr.spinAsP.valueChanged.connect(self.update)
-        self.uiAttr.spinKaP.valueChanged.connect(self.update)
+        self.ui.spinAsP.valueChanged.connect(self.update)
+        self.ui.spinKaP.valueChanged.connect(self.update)
 
         self.currentlyLoading = False
      
@@ -196,12 +196,12 @@ class AttrWrapper(QtCore.QObject):
             if self.updateAttribut(attribut):
                 changed = True
 
-        if Wolke.Char.asp.wert != self.uiAttr.spinAsP.value():
-            Wolke.Char.asp.wert = self.uiAttr.spinAsP.value()
+        if Wolke.Char.asp.wert != self.ui.spinAsP.value():
+            Wolke.Char.asp.wert = self.ui.spinAsP.value()
             changed = True
 
-        if Wolke.Char.kap.wert != self.uiAttr.spinKaP.value():
-            Wolke.Char.kap.wert = self.uiAttr.spinKaP.value()
+        if Wolke.Char.kap.wert != self.ui.spinKaP.value():
+            Wolke.Char.kap.wert = self.ui.spinKaP.value()
             changed = True
 
         if changed:
@@ -226,14 +226,14 @@ class AttrWrapper(QtCore.QObject):
             self.widgetPW[attribut].setValue(Wolke.Char.attribute[attribut].wert*2)
             self.widgetKosten[attribut].setText(self.getAttributSteigerungskosten(attribut))
 
-        self.uiAttr.abWS.setValue(Wolke.Char.ws)
-        self.uiAttr.abGS.setValue(Wolke.Char.gs)
-        self.uiAttr.abIN.setValue(Wolke.Char.ini)
-        self.uiAttr.abMR.setValue(Wolke.Char.mr)
-        self.uiAttr.abSB.setValue(Wolke.Char.schadensbonus)
+        self.ui.abWS.setValue(Wolke.Char.ws)
+        self.ui.abGS.setValue(Wolke.Char.gs)
+        self.ui.abIN.setValue(Wolke.Char.ini)
+        self.ui.abMR.setValue(Wolke.Char.mr)
+        self.ui.abSB.setValue(Wolke.Char.schadensbonus)
 
-        self.uiAttr.labelKostenAsP.setText(self.getSteigerungskostenAsP())
-        self.uiAttr.labelKostenKaP.setText(self.getSteigerungskostenKaP())
+        self.ui.labelKostenAsP.setText(self.getSteigerungskostenAsP())
+        self.ui.labelKostenKaP.setText(self.getSteigerungskostenKaP())
 
     def load(self):
         self.currentlyLoading = True
@@ -243,35 +243,35 @@ class AttrWrapper(QtCore.QObject):
             self.widgetWert[attribut].setValue(Wolke.Char.attribute[attribut].wert)
             self.updateTooltip(attribut)
 
-        self.uiAttr.abAsP.setValue(Wolke.Char.aspBasis + Wolke.Char.aspMod)
-        self.uiAttr.abKaP.setValue(Wolke.Char.kapBasis + Wolke.Char.kapMod)
+        self.ui.abAsP.setValue(Wolke.Char.aspBasis + Wolke.Char.aspMod)
+        self.ui.abKaP.setValue(Wolke.Char.kapBasis + Wolke.Char.kapMod)
         if "Zauberer I" in Wolke.Char.vorteile:
-            self.uiAttr.spinAsP.setEnabled(True)
-            self.uiAttr.spinAsP.setValue(Wolke.Char.asp.wert)
+            self.ui.spinAsP.setEnabled(True)
+            self.ui.spinAsP.setValue(Wolke.Char.asp.wert)
         else:
-            self.uiAttr.spinAsP.setValue(0)
-            self.uiAttr.spinAsP.setEnabled(False)
+            self.ui.spinAsP.setValue(0)
+            self.ui.spinAsP.setEnabled(False)
 
-        self.uiAttr.lblKap.setText("KaP")
-        self.uiAttr.lblKapZugekauft.setText("Karmaenergie")
-        self.uiAttr.lblKapZugekauft.setToolTip("<html><head/><body><p>Als Geweihter stellt dir deine Gottheit Karmaenergie zur Verfügung: "\
+        self.ui.lblKap.setText("KaP")
+        self.ui.lblKapZugekauft.setText("Karmaenergie")
+        self.ui.lblKapZugekauft.setToolTip("<html><head/><body><p>Als Geweihter stellt dir deine Gottheit Karmaenergie zur Verfügung: "\
             "Die Vorteile Geweiht I/II/III/IV verleihen dir 8/16/24/32 Karmapunkte (KaP), die du für Liturgien nutzen kannst. "\
             "Du kannst diesen Vorrat an maximalen KaP durch den Zukauf nach Steigerungsfaktor 1 erhöhen.</p></body></html>")
         if "Geweiht I" in Wolke.Char.vorteile:
-            self.uiAttr.spinKaP.setEnabled(True)
-            self.uiAttr.spinKaP.setValue(Wolke.Char.kap.wert)
+            self.ui.spinKaP.setEnabled(True)
+            self.ui.spinKaP.setValue(Wolke.Char.kap.wert)
         elif "Paktierer I" in Wolke.Char.vorteile:
-            self.uiAttr.spinKaP.setEnabled(True)
-            self.uiAttr.spinKaP.setValue(Wolke.Char.kap.wert)
-            self.uiAttr.lblKap.setText("GuP")
-            self.uiAttr.lblKapZugekauft.setText("Gunstpunkte")
-            self.uiAttr.lblKapZugekauft.setToolTip("<html><head/><body><p>Ein Paktierer selbst verfügt nicht über übernatürliche Macht, sondern "\
+            self.ui.spinKaP.setEnabled(True)
+            self.ui.spinKaP.setValue(Wolke.Char.kap.wert)
+            self.ui.lblKap.setText("GuP")
+            self.ui.lblKapZugekauft.setText("Gunstpunkte")
+            self.ui.lblKapZugekauft.setToolTip("<html><head/><body><p>Ein Paktierer selbst verfügt nicht über übernatürliche Macht, sondern "\
                "erbittet den Beistand seines Erzdämonen: Der Vorteil Paktierer I/II/III/IV verleiht ihm 8/16/24/32 Gunstpunkte (GuP), "\
                "mit denen er den Erzdämon anrufen kann. GuP werden nach Steigerungsfaktor 1 gesteigert. Meist geschieht das, wenn der Paktierer "\
                "ohnehin einen Kreis der Verdammnis aufsteigt oder dem Erzdämonen auf andere Weise nahe ist.</p></body></html>")
         else:
-            self.uiAttr.spinKaP.setValue(0)
-            self.uiAttr.spinKaP.setEnabled(False)
+            self.ui.spinKaP.setValue(0)
+            self.ui.spinKaP.setEnabled(False)
 
         self.updateDerivedValues()
 

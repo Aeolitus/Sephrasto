@@ -15,18 +15,18 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
             if fertigkeit in Wolke.DB.freieFertigkeiten:
                 self.current = fertigkeit
 
-        self.Form = QtWidgets.QDialog()
+        self.form = QtWidgets.QDialog()
         self.ui = UI.CharakterFreieFertigkeitenPicker.Ui_Dialog()
-        self.ui.setupUi(self.Form)
+        self.ui.setupUi(self.form)
         
-        self.Form.setWindowFlags(
+        self.form.setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
 
         windowSize = Wolke.Settings["WindowSize-FreieFert"]
-        self.Form.resize(windowSize[0], windowSize[1])
+        self.form.resize(windowSize[0], windowSize[1])
         
         self.kategorien = Wolke.DB.einstellungen["FreieFertigkeiten: Typen"].toTextList()
         self.abbreviations = Wolke.DB.einstellungen["FreieFertigkeiten: Typ-Abkürzungen"].toTextDict('\n', False)
@@ -39,10 +39,10 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
         self.ui.treeFerts.header().setSectionResizeMode(0,1)
         self.ui.treeFerts.setFocus()
         self.ui.nameFilterEdit.textChanged.connect(self.populateTree)
-        self.Form.setWindowModality(QtCore.Qt.ApplicationModal)
-        self.Form.show()
-        self.ret = self.Form.exec_()
-        Wolke.Settings["WindowSize-FreieFert"] = [self.Form.size().width(), self.Form.size().height()]
+        self.form.setWindowModality(QtCore.Qt.ApplicationModal)
+        self.form.show()
+        self.ret = self.form.exec_()
+        Wolke.Settings["WindowSize-FreieFert"] = [self.form.size().width(), self.form.size().height()]
         if self.ret == QtWidgets.QDialog.Accepted and self.current != '':
             freieFertigkeit = Wolke.DB.freieFertigkeiten[self.current]
             self.fertigkeit = self.formatName(freieFertigkeit)

@@ -160,11 +160,11 @@ class WizardWrapper(object):
         self.professionKategorieChanged()
 
     def cancelClickedHandler(self):
-        self.formMain.close()
+        self.form.close()
 
     def acceptClickedHandler(self):
         if not self.ui.cbRegeln.currentText() in self.regelList:
-            self.formMain.close()
+            self.form.close()
             return
 
         regeln = self.regelList[self.ui.cbRegeln.currentText()]
@@ -212,4 +212,4 @@ class WizardWrapper(object):
 
         Wolke.Char.aktualisieren()
 
-        self.formMain.hide()
+        self.form.hide()

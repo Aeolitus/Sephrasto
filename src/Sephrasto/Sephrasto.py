@@ -82,9 +82,9 @@ class MainWindowWrapper(object):
         if self.app is None:
             self.app = QtWidgets.QApplication(sys.argv)
 
-        self.Form = QtWidgets.QWidget()
+        self.form = QtWidgets.QWidget()
         self.ui = UI.MainWindow.Ui_Form()
-        self.ui.setupUi(self.Form)
+        self.ui.setupUi(self.form)
         self.ui.buttonNew.clicked.connect(self.createNew)
         self.ui.buttonEdit.clicked.connect(self.editExisting)
         self.ui.buttonRules.clicked.connect(self.editRuleset)
@@ -99,7 +99,7 @@ class MainWindowWrapper(object):
         logging.getLogger().setLevel(loglevels[Wolke.Settings['Logging']])
 
         windowSize = Wolke.Settings["WindowSize-Main"]
-        self.Form.resize(windowSize[0], windowSize[1])
+        self.form.resize(windowSize[0], windowSize[1])
 
         self.updateAppearance()
         self.ui.label.setFont(QtGui.QFont("Aniron", 16))
@@ -125,7 +125,7 @@ class MainWindowWrapper(object):
                 logging.critical("Plugin: loaded " + pluginData.name)
                 if hasattr(pluginData.plugin, "createMainWindowButtons"):
                     for button in pluginData.plugin.createMainWindowButtons():
-                        button.setParent(self.Form)
+                        button.setParent(self.form)
                         self.ui.vlPluginButtons.addWidget(button)
 
         EventBus.doAction("plugins_geladen")
@@ -133,20 +133,20 @@ class MainWindowWrapper(object):
         EventBus.addAction("charaktereditor_reload", self.charakterEditorReloadHook)
         EventBus.addAction("charaktereditor_modified", self.charakterEditorModifiedHook)
 
-        self.Form.show()
+        self.form.show()
 
         exitcode = self.app.exec_()
-        Wolke.Settings["WindowSize-Main"] = [self.Form.size().width(), self.Form.size().height()]
+        Wolke.Settings["WindowSize-Main"] = [self.form.size().width(), self.form.size().height()]
         EinstellungenWrapper.save()
 
         sys.exit(exitcode)
 
     def charakterEditorReloadHook(self, params):
-        if self.ed and not self.ed.formMain.isHidden():
+        if self.ed and not self.ed.form.isHidden():
             self.ed.reloadByName(params["name"])
             
     def charakterEditorModifiedHook(self, params):
-        if hasattr(self, "ed") and self.ed and not self.ed.formMain.isHidden():
+        if hasattr(self, "ed") and self.ed and not self.ed.form.isHidden():
             self.ed.onModified()
         
     def createNew(self):
@@ -157,14 +157,14 @@ class MainWindowWrapper(object):
         self.ed = CharakterEditor.Editor(self._plugins, self.savePathUpdated)
         if self.ed.noDatabase:
             raise Exception("Konnte datenbank.xml nicht finden")
-        self.ed.formMain = QtWidgets.QWidget()
+        self.ed.form = QtWidgets.QWidget()
         self.ed.ui = UI.CharakterMain.Ui_formMain()
-        self.ed.ui.setupUi(self.ed.formMain)
+        self.ed.ui.setupUi(self.ed.form)
         self.ed.ui.tabs.removeTab(0)
         self.ed.ui.tabs.removeTab(0)
         self.ed.setupMainForm()
         self.savePathUpdated()
-        self.ed.formMain.show()
+        self.ed.form.show()
         EventBus.doAction("charaktereditor_geoeffnet", { "neu" : True, "filepath" : "" })
         
     def editExisting(self):
@@ -185,14 +185,14 @@ class MainWindowWrapper(object):
         self.ed = CharakterEditor.Editor(self._plugins, self.savePathUpdated, spath)
         if self.ed.noDatabase:
             raise Exception("Konnte datenbank.xml nicht finden")
-        self.ed.formMain = QtWidgets.QWidget()
+        self.ed.form = QtWidgets.QWidget()
         self.ed.ui = UI.CharakterMain.Ui_formMain()
-        self.ed.ui.setupUi(self.ed.formMain)
+        self.ed.ui.setupUi(self.ed.form)
         self.ed.ui.tabs.removeTab(0)
         self.ed.ui.tabs.removeTab(0)
         self.ed.setupMainForm()
         self.savePathUpdated()
-        self.ed.formMain.show()
+        self.ed.form.show()
         EventBus.doAction("charaktereditor_geoeffnet", { "neu" : False, "filepath" : spath })
         
     def editRuleset(self):
@@ -223,7 +223,7 @@ class MainWindowWrapper(object):
         rules = ""
         if Wolke.DB.datei:
            rules = " (" + os.path.splitext(os.path.basename(Wolke.DB.datei))[0] + ")"
-        self.ed.formMain.setWindowTitle("Sephrasto" + file + rules)
+        self.ed.form.setWindowTitle("Sephrasto" + file + rules)
 
     def buildStylesheet(self, readonlyColor, headingColor, borderColor, buttonColor = None):
         fontSize = str(Wolke.Settings['FontSize'])

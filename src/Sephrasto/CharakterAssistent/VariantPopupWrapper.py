@@ -5,15 +5,15 @@ from Wolke import Wolke
 class VariantPopupWrapper(object):
     def __init__(self, variantListCollection, windowTitle, currentEP):
         super().__init__()
-        self.formMain = QtWidgets.QDialog()
-        self.formMain.setWindowFlags(
+        self.form = QtWidgets.QDialog()
+        self.form.setWindowFlags(
             QtCore.Qt.Window |
             QtCore.Qt.CustomizeWindowHint |
             QtCore.Qt.WindowTitleHint |
             QtCore.Qt.WindowCloseButtonHint)
         self.ui = ChoicePopup.Ui_formMain()
-        self.ui.setupUi(self.formMain)
-        self.formMain.setWindowTitle(self.formMain.windowTitle() + " (" + windowTitle + ")")
+        self.ui.setupUi(self.form)
+        self.form.setWindowTitle(self.form.windowTitle() + " (" + windowTitle + ")")
 
         self.buttons = []
         self.labels = []
@@ -35,10 +35,10 @@ class VariantPopupWrapper(object):
                 self.labels.append(label)
                 self.ui.verticalLayout.addWidget(label)
 
-        self.formMain.setWindowModality(QtCore.Qt.ApplicationModal)
-        self.formMain.show()
+        self.form.setWindowModality(QtCore.Qt.ApplicationModal)
+        self.form.show()
 
-        self.ret = self.formMain.exec_()
+        self.ret = self.form.exec_()
         self.choices = []
         if self.ret == QtWidgets.QDialog.Accepted:
             for i in range(len(variantListCollection.choiceLists)):

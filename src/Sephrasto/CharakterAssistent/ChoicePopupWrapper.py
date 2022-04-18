@@ -6,16 +6,16 @@ from Wolke import Wolke
 class ChoicePopupWrapper(object):
     def __init__(self, choiceList, windowTitle, currentEP):
         super().__init__()
-        self.formMain = QtWidgets.QDialog()
-        self.formMain.setWindowFlags(
+        self.form = QtWidgets.QDialog()
+        self.form.setWindowFlags(
             QtCore.Qt.Window |
             QtCore.Qt.CustomizeWindowHint |
             QtCore.Qt.WindowTitleHint |
             QtCore.Qt.WindowCloseButtonHint)
         self.ui = ChoicePopup.Ui_formMain()
-        self.ui.setupUi(self.formMain)
+        self.ui.setupUi(self.form)
 
-        self.formMain.setWindowTitle(self.formMain.windowTitle() + " (" + windowTitle + ")")
+        self.form.setWindowTitle(self.form.windowTitle() + " (" + windowTitle + ")")
         self.buttons = []
         self.ui.labelEP.setText(str(currentEP))
         for choice in choiceList.choices:
@@ -29,10 +29,10 @@ class ChoicePopupWrapper(object):
             self.buttons.append(button)
             self.ui.verticalLayout.addWidget(button)
 
-        self.formMain.setWindowModality(QtCore.Qt.ApplicationModal)
-        self.formMain.show()
+        self.form.setWindowModality(QtCore.Qt.ApplicationModal)
+        self.form.show()
 
-        self.ret = self.formMain.exec_()
+        self.ret = self.form.exec_()
         self.choice = None
         if self.ret == QtWidgets.QDialog.Accepted:
             for i in range(len(choiceList.choices)):

@@ -19,14 +19,14 @@ class CharakterFreieFertWrapper(QtCore.QObject):
     def __init__(self):
         super().__init__()
         logging.debug("Initializing FreieFertWrapper...")
-        self.formFert = QtWidgets.QWidget()
-        self.uiFert = UI.CharakterFreieFert.Ui_Form()
-        self.uiFert.setupUi(self.formFert)
+        self.form = QtWidgets.QWidget()
+        self.ui = UI.CharakterFreieFert.Ui_Form()
+        self.ui.setupUi(self.form)
 
         kosten = [str(Wolke.DB.einstellungen["FreieFertigkeiten: Kosten Stufe1"].toInt()),
                   str(Wolke.DB.einstellungen["FreieFertigkeiten: Kosten Stufe2"].toInt()),
                   str(Wolke.DB.einstellungen["FreieFertigkeiten: Kosten Stufe3"].toInt())]
-        self.uiFert.labelRegeln.setText(self.uiFert.labelRegeln.text() + " Sie entsprechen jeweils einem PW von 6/14/22 und kosten " + kosten[0] + "/" + kosten[1] + "/" + kosten[2] + " EP.")
+        self.ui.labelRegeln.setText(self.ui.labelRegeln.text() + " Sie entsprechen jeweils einem PW von 6/14/22 und kosten " + kosten[0] + "/" + kosten[1] + "/" + kosten[2] + " EP.")
 
         self.ffCount = 0
 
@@ -68,7 +68,7 @@ class CharakterFreieFertWrapper(QtCore.QObject):
                 if row % 2 != 0:
                     ffEdit.setStyleSheet(bgStyle)
 
-                self.uiFert.freieFertsGrid.addLayout(ffLayout, row, column)
+                self.ui.freieFertsGrid.addLayout(ffLayout, row, column)
 
     def ffButtonClicked(self, edit):
         pickerClass = EventBus.applyFilter("class_freiefertigkeitenpicker_wrapper", CharakterFreieFertigkeitenPickerWrapper)

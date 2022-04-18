@@ -13,31 +13,31 @@ class CharakterMinderpaktWrapper():
     def __init__(self):
         super().__init__()
         logging.debug("Initializing Minderpakt...")
-        self.formVor = QtWidgets.QDialog()
-        self.uiVor = UI.CharakterMinderpakt.Ui_Dialog()
-        self.uiVor.setupUi(self.formVor)
-        self.formVor.setWindowFlags(
+        self.form = QtWidgets.QDialog()
+        self.ui = UI.CharakterMinderpakt.Ui_Dialog()
+        self.ui.setupUi(self.form)
+        self.form.setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
         
-        self.uiVor.splitter.adjustSize()
-        width = self.uiVor.splitter.size().width()
-        self.uiVor.splitter.setSizes([int(width*0.6), int(width*0.4)])
+        self.ui.splitter.adjustSize()
+        width = self.ui.splitter.size().width()
+        self.ui.splitter.setSizes([int(width*0.6), int(width*0.4)])
 
         self.vorteilTypen = Wolke.DB.einstellungen["Vorteile: Typen"].toTextList()
-        self.uiVor.treeWidget.itemSelectionChanged.connect(self.vortClicked)
-        self.uiVor.treeWidget.header().setSectionResizeMode(0,1)
+        self.ui.treeWidget.itemSelectionChanged.connect(self.vortClicked)
+        self.ui.treeWidget.header().setSectionResizeMode(0,1)
 
         if len(Wolke.Char.vorteile) > 0:
             self.currentVort = Wolke.Char.vorteile[0]
         else:
             self.currentVort = ""
         self.initVorteile()
-        self.formVor.setWindowModality(QtCore.Qt.ApplicationModal)
-        self.formVor.show()
-        self.ret = self.formVor.exec_()
+        self.form.setWindowModality(QtCore.Qt.ApplicationModal)
+        self.form.show()
+        self.ret = self.form.exec_()
         if self.ret == QtWidgets.QDialog.Accepted:
             if self.currentVort not in Wolke.DB.vorteile:
                 self.minderpakt = None
@@ -47,7 +47,7 @@ class CharakterMinderpaktWrapper():
             self.minderpakt = None
           
     def initVorteile(self):
-        self.uiVor.treeWidget.blockSignals(True)
+        self.ui.treeWidget.blockSignals(True)
         vortList = []
         for vortTyp in self.vorteilTypen:
             vortList.append([])
@@ -65,7 +65,7 @@ class CharakterMinderpaktWrapper():
             vorteile.sort()
 
         for i in range(len(vortList)):
-            parent = QtWidgets.QTreeWidgetItem(self.uiVor.treeWidget)
+            parent = QtWidgets.QTreeWidgetItem(self.ui.treeWidget)
             parent.setText(0, self.vorteilTypen[i])
             parent.setText(1,"")
             parent.setExpanded(True)
@@ -82,10 +82,10 @@ class CharakterMinderpaktWrapper():
                 else:
                     child.setText(1, str(Wolke.DB.vorteile[el].kosten) + " EP")
         self.updateInfo()
-        self.uiVor.treeWidget.blockSignals(False)
+        self.ui.treeWidget.blockSignals(False)
     
     def vortClicked(self):
-        for el in self.uiVor.treeWidget.selectedItems():
+        for el in self.ui.treeWidget.selectedItems():
             if el.text(0) in self.vorteilTypen:
                 continue
             self.currentVort = el.text(0)
@@ -94,12 +94,12 @@ class CharakterMinderpaktWrapper():
  
     def updateInfo(self):
         if self.currentVort != "":
-            self.uiVor.labelVorteil.setText(Wolke.DB.vorteile[self.currentVort].name)
+            self.ui.labelVorteil.setText(Wolke.DB.vorteile[self.currentVort].name)
             typ = min(Wolke.DB.vorteile[self.currentVort].typ, len(self.vorteilTypen)-1)
-            self.uiVor.labelTyp.setText(self.vorteilTypen[typ])
-            self.uiVor.labelNachkauf.setText(Wolke.DB.vorteile[self.currentVort].nachkauf)
-            self.uiVor.plainText.setPlainText(Wolke.DB.vorteile[self.currentVort].text)
+            self.ui.labelTyp.setText(self.vorteilTypen[typ])
+            self.ui.labelNachkauf.setText(Wolke.DB.vorteile[self.currentVort].nachkauf)
+            self.ui.plainText.setPlainText(Wolke.DB.vorteile[self.currentVort].text)
             if Wolke.DB.vorteile[self.currentVort].variableKosten:
-                self.uiVor.labelKosten.setText("20 EP")
+                self.ui.labelKosten.setText("20 EP")
             else:
-                self.uiVor.labelKosten.setText(str(Wolke.DB.vorteile[self.currentVort].kosten) + " EP")
+                self.ui.labelKosten.setText(str(Wolke.DB.vorteile[self.currentVort].kosten) + " EP")

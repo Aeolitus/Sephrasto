@@ -53,8 +53,8 @@ class Ruestung(Objekt):
         super().__init__()
         self.typ = 0
         self.system = 0
-        self.be = -1
-        self.rs = [-1,-1,-1,-1,-1,-1]
+        self.be = 0
+        self.rs = [0,0,0,0,0,0]
         # Bein LArm RArm Bauch Brust Kopf
 
     def getRSGesamt(self):

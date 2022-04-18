@@ -101,7 +101,7 @@ class Editor(object):
 
     def setupMainForm(self):
         windowSize = Wolke.Settings["WindowSize-Charakter"]
-        self.formMain.resize(windowSize[0], windowSize[1])
+        self.form.resize(windowSize[0], windowSize[1])
 
         self.ui.scrollArea.wheelEvent = self.wheelEvent
 
@@ -125,32 +125,32 @@ class Editor(object):
             beschrWrapper = EventBus.applyFilter("class_beschreibung_wrapper", CharakterBeschreibungWrapper.BeschrWrapper)
             if beschrWrapper:
                 self.beschrWrapper = beschrWrapper()
-                tabs.append(Tab(10, self.beschrWrapper, self.beschrWrapper.formBeschr, "Beschreibung"))
+                tabs.append(Tab(10, self.beschrWrapper, self.beschrWrapper.form, "Beschreibung"))
 
         attrWrapper = EventBus.applyFilter("class_attribute_wrapper", CharakterAttributeWrapper.AttrWrapper)
         if attrWrapper:
             self.attrWrapper = attrWrapper()
-            tabs.append(Tab(20, self.attrWrapper, self.attrWrapper.formAttr, "Attribute"))
+            tabs.append(Tab(20, self.attrWrapper, self.attrWrapper.form, "Attribute"))
 
         vortWrapper = EventBus.applyFilter("class_vorteile_wrapper", CharakterVorteileWrapper.CharakterVorteileWrapper)
         if vortWrapper:
             self.vortWrapper = vortWrapper()
-            tabs.append(Tab(30, self.vortWrapper, self.vortWrapper.formVor, "Vorteile"))
+            tabs.append(Tab(30, self.vortWrapper, self.vortWrapper.form, "Vorteile"))
 
         fertWrapper = EventBus.applyFilter("class_fertigkeiten_wrapper", CharakterFertigkeitenWrapper.FertigkeitenWrapper)
         if fertWrapper:
             self.fertWrapper = fertWrapper()
-            tabs.append(Tab(40, self.fertWrapper, self.fertWrapper.formFert, "Fertigkeiten"))
+            tabs.append(Tab(40, self.fertWrapper, self.fertWrapper.form, "Fertigkeiten"))
 
         equipWrapper = EventBus.applyFilter("class_ausruestung_wrapper", CharakterEquipmentWrapper.EquipWrapper)
         if equipWrapper:
             self.equipWrapper = equipWrapper()
-            tabs.append(Tab(50, self.equipWrapper, self.equipWrapper.formEq, "Ausrüstung"))   
+            tabs.append(Tab(50, self.equipWrapper, self.equipWrapper.form, "Ausrüstung"))   
 
         infoWrapper = EventBus.applyFilter("class_ep_wrapper", CharakterInfoWrapper.InfoWrapper)
         if infoWrapper:
             self.infoWrapper = infoWrapper()
-            tabs.append(Tab(70, self.infoWrapper, self.infoWrapper.formEP, "Info"))
+            tabs.append(Tab(70, self.infoWrapper, self.infoWrapper.form, "Info"))
 
         for pd in self.plugins:
             if pd.plugin is None:
@@ -182,7 +182,7 @@ class Editor(object):
 
         self.reload(self.ui.tabs.currentIndex())
 
-        self.formMain.closeEvent = self.closeEvent
+        self.form.closeEvent = self.closeEvent
         
     def cancelDueToPendingChanges(self, action):
         if self.changed:
@@ -201,11 +201,11 @@ class Editor(object):
         return False
 
     def closeEvent(self,event):
-        self.formMain.setFocus() #make sure editingfinished is called on potential line edits in focus
+        self.form.setFocus() #make sure editingfinished is called on potential line edits in focus
         if self.cancelDueToPendingChanges("Beenden"):
             event.ignore()
         else:
-            Wolke.Settings["WindowSize-Charakter"] = [self.formMain.size().width(), self.formMain.size().height()]
+            Wolke.Settings["WindowSize-Charakter"] = [self.form.size().width(), self.form.size().height()]
     
     def onModified(self):
         self.changed = True
@@ -280,19 +280,19 @@ Versuchs doch bitte nochmal mit einer anderen Zieldatei.")
             return
 
         self.wizardEd = WizardWrapper.WizardWrapper()
-        self.wizardEd.formMain = QtWidgets.QDialog()
-        self.wizardEd.formMain .setWindowFlags(
+        self.wizardEd.form = QtWidgets.QDialog()
+        self.wizardEd.form .setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
 
         self.wizardEd.ui = Wizard.Ui_formMain()
-        self.wizardEd.ui.setupUi(self.wizardEd.formMain)
+        self.wizardEd.ui.setupUi(self.wizardEd.form)
         self.wizardEd.setupMainForm()
-        self.wizardEd.formMain.setWindowModality(QtCore.Qt.ApplicationModal)
-        self.wizardEd.formMain.show()
-        self.wizardEd.formMain.exec_()
+        self.wizardEd.form.setWindowModality(QtCore.Qt.ApplicationModal)
+        self.wizardEd.form.show()
+        self.wizardEd.form.exec_()
 
     def showProgressBar(self, show):
         if show:

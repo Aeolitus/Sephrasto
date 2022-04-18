@@ -23,10 +23,10 @@ class CharakterBeschreibungDetailsWrapper(QtCore.QObject):
         if beschrWrapper:
             self.beschrWrapper = beschrWrapper()
             self.beschrWrapper.modified.connect(lambda: self.modified.emit())
-            self.ui.tabWidget.insertTab(0, self.beschrWrapper.formBeschr, "Allgemein")
+            self.ui.tabWidget.insertTab(0, self.beschrWrapper.form, "Allgemein")
 
         self.ui.tabWidget.setCurrentIndex(0)
-        self.ui.tabWidget.currentChanged.connect(self.reload)
+        self.ui.tabWidget.currentChanged.connect(self.load)
 
         for i in range(self.ui.tabWidget.tabBar().count()):
             self.ui.tabWidget.tabBar().setTabTextColor(i, QtGui.QColor(Wolke.HeadingColor))
@@ -70,13 +70,9 @@ class CharakterBeschreibungDetailsWrapper(QtCore.QObject):
         self.currentlyLoading = False
 
     def load(self):
-        self.reload(self.ui.tabWidget.currentIndex())
-
-    def reload(self, index):
-        if index == 0:
-            if hasattr(self, "beschrWrapper"):
-                self.beschrWrapper.load()
-        elif index == 1:
+        if hasattr(self, "beschrWrapper") and self.ui.tabWidget.currentWidget() == self.beschrWrapper.form:
+            self.beschrWrapper.load()
+        elif self.ui.tabWidget.currentWidget() == self.ui.tab_2:
             self.currentlyLoading = True
 
             if Wolke.Char.kultur:
@@ -118,15 +114,9 @@ class CharakterBeschreibungDetailsWrapper(QtCore.QObject):
 
             self.currentlyLoading = False
 
-    def update(self):
-        self.beschrWrapper.update()
-        self.updateDetails()
-
     def updateDetails(self):
         if self.currentlyLoading:
             return
-
-        self.beschrWrapper.update()
 
         changed = False
 

@@ -49,7 +49,7 @@ class DatenbankEdit(object):
     def setupGUI(self):
 
         windowSize = Wolke.Settings["WindowSize-Datenbank"]
-        self.Form.resize(windowSize[0], windowSize[1])
+        self.form.resize(windowSize[0], windowSize[1])
 
         for pd in self.plugins:
             if pd.plugin is None:
@@ -106,8 +106,8 @@ class DatenbankEdit(object):
         for dbType in self.databaseTypes.values():
             dbType.showCheckbox.stateChanged.connect(self.updateGUI)
 
-        self.Form.closeEvent = self.closeEvent
-        self.windowTitleDefault = self.Form.windowTitle()
+        self.form.closeEvent = self.closeEvent
+        self.windowTitleDefault = self.form.windowTitle()
 
         self.updateGUI()
         self.updateWindowTitleAndCloseButton()
@@ -187,7 +187,7 @@ class DatenbankEdit(object):
         if self.cancelDueToPendingChanges("Beenden"):
             event.ignore()
         else:
-            Wolke.Settings["WindowSize-Datenbank"] = [self.Form.size().width(), self.Form.size().height()]
+            Wolke.Settings["WindowSize-Datenbank"] = [self.form.size().width(), self.form.size().height()]
 
     def onDatabaseChange(self):
         self.changed = True
@@ -196,7 +196,7 @@ class DatenbankEdit(object):
     
     def updateWindowTitleAndCloseButton(self):
         splitpath = self.savepath and os.path.split(self.savepath) or ["keine Hausregeln geladen"]
-        self.Form.setWindowTitle(self.windowTitleDefault + " (" + splitpath[-1] + ")")
+        self.form.setWindowTitle(self.windowTitleDefault + " (" + splitpath[-1] + ")")
         self.ui.buttonCloseDB.setEnabled(self.savepath and True or False)
 
     def updateGUI(self):

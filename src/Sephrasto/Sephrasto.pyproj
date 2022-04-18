@@ -38,9 +38,12 @@
     <Compile Include="CharakterBeschreibungWrapper.py" />
     <Compile Include="CharakterEditor.py" />
     <Compile Include="UI\CharakterBeschreibungDetails.py" />
-    <Compile Include="UI\CharakterEquipment.py" />
+    <Compile Include="UI\CharakterWaffen.py" />
+    <Compile Include="UI\CharakterInventar.py" />
     <Compile Include="CharakterEquipmentWrapper.py" />
-    <Compile Include="UI\CharakterFertigkeiten.py" />
+    <Compile Include="CharakterWaffenWrapper.py" />
+    <Compile Include="CharakterInventarWrapper.py" />
+    <Compile Include="UI\CharakterTabWidget.py" />
     <Compile Include="CharakterFertigkeitenWrapper.py" />
     <Compile Include="UI\CharakterFreieFert.py" />
     <Compile Include="CharakterFreieFertWrapper.py" />

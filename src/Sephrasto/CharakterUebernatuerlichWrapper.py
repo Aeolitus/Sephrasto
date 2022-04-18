@@ -21,28 +21,28 @@ class UebernatuerlichWrapper(QtCore.QObject):
     def __init__(self):
         super().__init__()
         logging.debug("Initializing UebernatuerlichWrapper...")
-        self.formFert = QtWidgets.QWidget()
-        self.uiFert = UI.CharakterUebernatuerlich.Ui_Form()
-        self.uiFert.setupUi(self.formFert)
+        self.form = QtWidgets.QWidget()
+        self.ui = UI.CharakterUebernatuerlich.Ui_Form()
+        self.ui.setupUi(self.form)
         
-        self.model = QtGui.QStandardItemModel(self.uiFert.listTalente)
-        self.uiFert.listTalente.setModel(self.model)
+        self.model = QtGui.QStandardItemModel(self.ui.listTalente)
+        self.ui.listTalente.setModel(self.model)
 
         self.mwp = MousewheelProtector.MousewheelProtector()
 
-        self.uiFert.splitter.adjustSize()
-        width = self.uiFert.splitter.size().width()
-        self.uiFert.splitter.setSizes([int(width*0.6), int(width*0.4)])
+        self.ui.splitter.adjustSize()
+        width = self.ui.splitter.size().width()
+        self.ui.splitter.setSizes([int(width*0.6), int(width*0.4)])
 
         #Signals
-        self.uiFert.spinFW.valueChanged.connect(lambda state : self.fwChanged(False))
-        self.uiFert.tableWidget.currentItemChanged.connect(self.tableClicked)   
-        self.uiFert.buttonAdd.setStyle(None) # dont know why but the below settings wont do anything without it
-        self.uiFert.buttonAdd.setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9, QtGui.QFont.Black))
-        self.uiFert.buttonAdd.setText('\u002b')
-        self.uiFert.buttonAdd.setMaximumSize(QtCore.QSize(20, 20))
-        self.uiFert.buttonAdd.setMinimumSize(QtCore.QSize(20, 20))
-        self.uiFert.buttonAdd.clicked.connect(self.editTalents)
+        self.ui.spinFW.valueChanged.connect(lambda state : self.fwChanged(False))
+        self.ui.tableWidget.currentItemChanged.connect(self.tableClicked)   
+        self.ui.buttonAdd.setStyle(None) # dont know why but the below settings wont do anything without it
+        self.ui.buttonAdd.setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9, QtGui.QFont.Black))
+        self.ui.buttonAdd.setText('\u002b')
+        self.ui.buttonAdd.setMaximumSize(QtCore.QSize(20, 20))
+        self.ui.buttonAdd.setMinimumSize(QtCore.QSize(20, 20))
+        self.ui.buttonAdd.clicked.connect(self.editTalents)
         
         self.availableFerts = []
         self.rowRef = {}
@@ -64,7 +64,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
     def load(self):
         self.currentlyLoading = True
         
-        self.uiFert.tableWidget.setColumnHidden(0, not Wolke.Char.ueberPDFAnzeigen)
+        self.ui.tableWidget.setColumnHidden(0, not Wolke.Char.ueberPDFAnzeigen)
 
         temp = []
         for el in Wolke.DB.übernatürlicheFertigkeiten:
@@ -81,8 +81,8 @@ class UebernatuerlichWrapper(QtCore.QObject):
         temp.sort(key = lambda x: (Wolke.DB.übernatürlicheFertigkeiten[x].printclass, x)) 
 
         if Hilfsmethoden.ArrayEqual(temp, self.availableFerts):
-            for i in range(self.uiFert.tableWidget.rowCount()):
-                fert = Wolke.Char.übernatürlicheFertigkeiten[self.uiFert.tableWidget.item(i,1).text()]
+            for i in range(self.ui.tableWidget.rowCount()):
+                fert = Wolke.Char.übernatürlicheFertigkeiten[self.ui.tableWidget.item(i,1).text()]
                 self.pdfRef[fert.name].setChecked(fert.addToPDF)
                 self.labelRef[fert.name + "KO"].setText(self.getSteigerungskosten(fert))
                 self.labelRef[fert.name + "PW"].setText(str(fert.probenwertTalent))
@@ -100,25 +100,25 @@ class UebernatuerlichWrapper(QtCore.QObject):
                         lastPrintclass = Wolke.DB.übernatürlicheFertigkeiten[el].printclass
                     count += 1
 
-            self.uiFert.tableWidget.clear()
-            self.uiFert.tableWidget.setItemDelegate(FertigkeitItemDelegate(rowIndicesWithLinePaint))
+            self.ui.tableWidget.clear()
+            self.ui.tableWidget.setItemDelegate(FertigkeitItemDelegate(rowIndicesWithLinePaint))
 
-            self.uiFert.tableWidget.setRowCount(len(self.availableFerts))
-            self.uiFert.tableWidget.setColumnCount(6)
-            header = self.uiFert.tableWidget.horizontalHeader()
+            self.ui.tableWidget.setRowCount(len(self.availableFerts))
+            self.ui.tableWidget.setColumnCount(6)
+            header = self.ui.tableWidget.horizontalHeader()
             header.setMinimumSectionSize(0)
             header.setSectionResizeMode(0, QHeaderView.Fixed)
             header.setSectionResizeMode(1, QHeaderView.Stretch)
             header.setSectionResizeMode(2, QHeaderView.Fixed)
             header.setSectionResizeMode(3, QHeaderView.Fixed)
             header.setSectionResizeMode(4, QHeaderView.Fixed)
-            self.uiFert.tableWidget.setColumnWidth(0, 40)
-            self.uiFert.tableWidget.setColumnWidth(2, 60)
-            self.uiFert.tableWidget.setColumnWidth(3, 80)
-            self.uiFert.tableWidget.setColumnWidth(4, 65)
-            self.uiFert.tableWidget.setColumnWidth(5, 90)
+            self.ui.tableWidget.setColumnWidth(0, 40)
+            self.ui.tableWidget.setColumnWidth(2, 60)
+            self.ui.tableWidget.setColumnWidth(3, 80)
+            self.ui.tableWidget.setColumnWidth(4, 65)
+            self.ui.tableWidget.setColumnWidth(5, 90)
 
-            vheader = self.uiFert.tableWidget.verticalHeader()
+            vheader = self.ui.tableWidget.verticalHeader()
             vheader.setSectionResizeMode(QHeaderView.Fixed)
             vheader.setDefaultSectionSize(30);
             vheader.setMaximumSectionSize(30);
@@ -126,29 +126,29 @@ class UebernatuerlichWrapper(QtCore.QObject):
             item = QtWidgets.QTableWidgetItem()
             item.setText("PDF")
             item.setToolTip("Fertigkeit in Charakterblatt übernehmen?")
-            self.uiFert.tableWidget.setHorizontalHeaderItem(0, item)
+            self.ui.tableWidget.setHorizontalHeaderItem(0, item)
             item = QtWidgets.QTableWidgetItem()
             item.setText("Name")
             item.setTextAlignment(QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-            self.uiFert.tableWidget.setHorizontalHeaderItem(1, item)
+            self.ui.tableWidget.setHorizontalHeaderItem(1, item)
             item = QtWidgets.QTableWidgetItem()
             item.setTextAlignment(QtCore.Qt.AlignCenter)
             item.setText("FW")
             item.setToolTip("Fertigkeitswert")
-            self.uiFert.tableWidget.setHorizontalHeaderItem(2, item)
+            self.ui.tableWidget.setHorizontalHeaderItem(2, item)
             item = QtWidgets.QTableWidgetItem()
             item.setTextAlignment(QtCore.Qt.AlignCenter)
             item.setText("Kosten")
-            self.uiFert.tableWidget.setHorizontalHeaderItem(3, item)
+            self.ui.tableWidget.setHorizontalHeaderItem(3, item)
             item = QtWidgets.QTableWidgetItem()
             item.setTextAlignment(QtCore.Qt.AlignCenter)
             item.setText("PW")
             item.setToolTip("Probenwert")
-            self.uiFert.tableWidget.setHorizontalHeaderItem(4, item)
+            self.ui.tableWidget.setHorizontalHeaderItem(4, item)
             item = QtWidgets.QTableWidgetItem()
             item.setTextAlignment(QtCore.Qt.AlignCenter)
             item.setText("Talente")
-            self.uiFert.tableWidget.setHorizontalHeaderItem(5, item)
+            self.ui.tableWidget.setHorizontalHeaderItem(5, item)
     
             count = 0
             
@@ -160,9 +160,9 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 self.pdfRef[el].setStyleSheet("margin-left:10; margin-right:10;");
                 self.pdfRef[el].setChecked(fert.addToPDF)
                 self.pdfRef[el].stateChanged.connect(lambda state, name=el: self.addToPDFClicked(name, state))
-                self.uiFert.tableWidget.setCellWidget(count,0,self.pdfRef[el])
+                self.ui.tableWidget.setCellWidget(count,0,self.pdfRef[el])
 
-                self.uiFert.tableWidget.setItem(count, 1, QtWidgets.QTableWidgetItem(el))
+                self.ui.tableWidget.setItem(count, 1, QtWidgets.QTableWidgetItem(el))
                 
                 # Add Spinner for FW
                 self.spinRef[el] = QtWidgets.QSpinBox()
@@ -173,20 +173,20 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 self.spinRef[el].setValue(fert.wert)
                 self.spinRef[el].setAlignment(QtCore.Qt.AlignCenter)
                 self.spinRef[el].valueChanged.connect(lambda state, name=el: self.spinnerClicked(name))
-                self.uiFert.tableWidget.setCellWidget(count,2,self.spinRef[el])
+                self.ui.tableWidget.setCellWidget(count,2,self.spinRef[el])
                 
                 # Add Kosten
                 self.labelRef[el + "KO"] = QtWidgets.QLabel()
                 self.labelRef[el + "KO"].setStyleSheet("margin-left:10; margin-right:10;");
                 self.labelRef[el + "KO"].setText(self.getSteigerungskosten(fert))
                 self.labelRef[el + "KO"].setAlignment(QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-                self.uiFert.tableWidget.setCellWidget(count,3,self.labelRef[el + "KO"])
+                self.ui.tableWidget.setCellWidget(count,3,self.labelRef[el + "KO"])
 
                 # Add PW
                 self.labelRef[el + "PW"] = QtWidgets.QLabel()
                 self.labelRef[el + "PW"].setText(str(fert.probenwertTalent))
                 self.labelRef[el + "PW"].setAlignment(QtCore.Qt.AlignCenter)
-                self.uiFert.tableWidget.setCellWidget(count,4,self.labelRef[el + "PW"])
+                self.ui.tableWidget.setCellWidget(count,4,self.labelRef[el + "PW"])
 
                 # Add Talents Count and Add Button
                 self.layoutRef[el] = QtWidgets.QHBoxLayout()
@@ -204,18 +204,18 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 self.layoutRef[el].addWidget(self.buttonRef[el])
                 self.widgetRef[el] = QtWidgets.QWidget()
                 self.widgetRef[el].setLayout(self.layoutRef[el])
-                self.uiFert.tableWidget.setCellWidget(count,5,self.widgetRef[el])
+                self.ui.tableWidget.setCellWidget(count,5,self.widgetRef[el])
 
                 self.rowRef.update({fert.name: count})
                 count += 1
-            self.uiFert.tableWidget.cellClicked.connect(self.tableClicked) 
+            self.ui.tableWidget.cellClicked.connect(self.tableClicked) 
         self.updateInfo()
         self.updateTalents()    
         self.currentlyLoading = False
         
     def tableClicked(self):
         if not self.currentlyLoading:
-            tmp = self.uiFert.tableWidget.item(self.uiFert.tableWidget.currentRow(),1).text()
+            tmp = self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),1).text()
             if tmp in Wolke.Char.übernatürlicheFertigkeiten:    
                 self.currentFertName = tmp
                 self.updateInfo()
@@ -232,13 +232,13 @@ class UebernatuerlichWrapper(QtCore.QObject):
         if flag:
             val = self.spinRef[self.currentFertName].value()
         else:
-            val = self.uiFert.spinFW.value()
+            val = self.ui.spinFW.value()
         fert = Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName]
         fert.wert = val
         fert.aktualisieren(Wolke.Char.attribute)
-        self.uiFert.spinPW.setValue(fert.probenwertTalent)
+        self.ui.spinPW.setValue(fert.probenwertTalent)
         if flag:
-            self.uiFert.spinFW.setValue(val)
+            self.ui.spinFW.setValue(val)
         else:
             self.spinRef[fert.name].setValue(val)
 
@@ -269,33 +269,33 @@ class UebernatuerlichWrapper(QtCore.QObject):
             return
         if self.currentFertName not in Wolke.Char.übernatürlicheFertigkeiten:
             self.currentFertName = ""
-            self.uiFert.labelFertigkeit.setText("Fertigkeit")
-            self.uiFert.labelAttribute.setText("Attribute")
-            self.uiFert.spinSF.setValue(0)
-            self.uiFert.spinBasis.setValue(0)
-            self.uiFert.spinFW.setMaximum(0)
-            self.uiFert.spinFW.setValue(0)
-            self.uiFert.spinPW.setValue(0)
-            self.uiFert.plainText.setPlainText("")
-            self.uiFert.labelKategorie.setText("")
+            self.ui.labelFertigkeit.setText("Fertigkeit")
+            self.ui.labelAttribute.setText("Attribute")
+            self.ui.spinSF.setValue(0)
+            self.ui.spinBasis.setValue(0)
+            self.ui.spinFW.setMaximum(0)
+            self.ui.spinFW.setValue(0)
+            self.ui.spinPW.setValue(0)
+            self.ui.plainText.setPlainText("")
+            self.ui.labelKategorie.setText("")
             self.model.clear()
             return
         self.currentlyLoading = True
         fert = Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName]
         fert.aktualisieren(Wolke.Char.attribute)
-        self.uiFert.labelFertigkeit.setText(self.currentFertName)
-        self.uiFert.labelAttribute.setText(fert.attribute[0] + "/" 
+        self.ui.labelFertigkeit.setText(self.currentFertName)
+        self.ui.labelAttribute.setText(fert.attribute[0] + "/" 
                                             + fert.attribute[1] + "/" 
                                             + fert.attribute[2])
-        self.uiFert.spinSF.setValue(fert.steigerungsfaktor)
-        self.uiFert.spinBasis.setValue(fert.basiswert)
-        self.uiFert.spinFW.setMaximum(fert.maxWert)
+        self.ui.spinSF.setValue(fert.steigerungsfaktor)
+        self.ui.spinBasis.setValue(fert.basiswert)
+        self.ui.spinFW.setMaximum(fert.maxWert)
         self.spinRef[self.currentFertName].setMaximum(fert.maxWert)
-        self.uiFert.spinFW.setValue(fert.wert)
-        self.uiFert.spinPW.setValue(fert.probenwertTalent)
-        self.uiFert.plainText.setPlainText(fert.text)
+        self.ui.spinFW.setValue(fert.wert)
+        self.ui.spinPW.setValue(fert.probenwertTalent)
+        self.ui.plainText.setPlainText(fert.text)
         fertigkeitTypen = Wolke.DB.einstellungen["Fertigkeiten: Typen übernatürlich"].toTextList()
-        self.uiFert.labelKategorie.setText(fertigkeitTypen[min(fert.printclass, len(fertigkeitTypen)-1)])
+        self.ui.labelKategorie.setText(fertigkeitTypen[min(fert.printclass, len(fertigkeitTypen)-1)])
         self.updateTalents()
         self.currentlyLoading = False
         
@@ -313,10 +313,10 @@ class UebernatuerlichWrapper(QtCore.QObject):
             item.setEditable(False)
             item.setSelectable(False)
             self.model.appendRow(item)
-        self.uiFert.listTalente.setMaximumHeight(max(len(fert.gekaufteTalente), 1) * self.uiFert.listTalente.sizeHintForRow(0) +\
-            self.uiFert.listTalente.contentsMargins().top() +\
-            self.uiFert.listTalente.contentsMargins().bottom() +\
-            self.uiFert.listTalente.spacing())
+        self.ui.listTalente.setMaximumHeight(max(len(fert.gekaufteTalente), 1) * self.ui.listTalente.sizeHintForRow(0) +\
+            self.ui.listTalente.contentsMargins().top() +\
+            self.ui.listTalente.contentsMargins().bottom() +\
+            self.ui.listTalente.spacing())
         
     def editTalents(self):
         if self.currentFertName == "":

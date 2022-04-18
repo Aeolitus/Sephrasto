@@ -27,18 +27,18 @@ class RuestungPicker(object):
         else:
             self.current = ""
 
-        self.Form = QtWidgets.QDialog()
+        self.form = QtWidgets.QDialog()
         self.ui = UI.CharakterRuestungPicker.Ui_Dialog()
-        self.ui.setupUi(self.Form)
+        self.ui.setupUi(self.form)
         
-        self.Form.setWindowFlags(
+        self.form.setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
 
         windowSize = Wolke.Settings["WindowSize-Ruestungen"]
-        self.Form.resize(windowSize[0], windowSize[1])
+        self.form.resize(windowSize[0], windowSize[1])
 
         self.ui.splitter.adjustSize()
         width = self.ui.splitter.size().width()
@@ -92,11 +92,11 @@ class RuestungPicker(object):
             self.ui.lblKopfL.show()
             self.ui.lblZRS.show()
 
-        self.Form.setWindowModality(QtCore.Qt.ApplicationModal)
-        self.Form.show()
-        self.ret = self.Form.exec_()
+        self.form.setWindowModality(QtCore.Qt.ApplicationModal)
+        self.form.show()
+        self.ret = self.form.exec_()
 
-        Wolke.Settings["WindowSize-Ruestungen"] = [self.Form.size().width(), self.Form.size().height()]
+        Wolke.Settings["WindowSize-Ruestungen"] = [self.form.size().width(), self.form.size().height()]
 
         if self.ret == QtWidgets.QDialog.Accepted and self.current != '':
             self.ruestung = copy.deepcopy(Wolke.DB.rüstungen[self.current])

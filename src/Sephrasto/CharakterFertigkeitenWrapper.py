@@ -9,7 +9,7 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 from CharakterProfaneFertigkeitenWrapper import ProfaneFertigkeitenWrapper
 from CharakterFreieFertWrapper import CharakterFreieFertWrapper
 from CharakterUebernatuerlichWrapper import UebernatuerlichWrapper
-import UI.CharakterFertigkeiten
+import UI.CharakterTabWidget
 from EventBus import EventBus
 
 class FertigkeitenWrapper(QtCore.QObject):
@@ -17,53 +17,43 @@ class FertigkeitenWrapper(QtCore.QObject):
     
     def __init__(self):
         super().__init__()
-        self.formFert = QtWidgets.QWidget()
-        self.uiFert = UI.CharakterFertigkeiten.Ui_Form()
-        self.uiFert.setupUi(self.formFert)
+        self.form = QtWidgets.QWidget()
+        self.ui = UI.CharakterTabWidget.Ui_Form()
+        self.ui.setupUi(self.form)
 
         profanWrapper = EventBus.applyFilter("class_profanefertigkeiten_wrapper", ProfaneFertigkeitenWrapper)
         if profanWrapper:
             self.profanWrapper = profanWrapper()
             self.profanWrapper.modified.connect(self.onModified)
-            self.uiFert.tabs.addTab(self.profanWrapper.formFert, "Profane")
+            self.ui.tabs.addTab(self.profanWrapper.form, "Profane")
 
         freieWrapper = EventBus.applyFilter("class_freiefertigkeiten_wrapper", CharakterFreieFertWrapper)
         if freieWrapper:
             self.freieWrapper = freieWrapper()
             self.freieWrapper.modified.connect(self.onModified)
-            self.uiFert.tabs.addTab(self.freieWrapper.formFert, "Freie")
+            self.ui.tabs.addTab(self.freieWrapper.form, "Freie")
 
         ueberWrapper = EventBus.applyFilter("class_uebernatuerlichefertigkeiten_wrapper", UebernatuerlichWrapper)
         if ueberWrapper:
             self.ueberWrapper = ueberWrapper()
             self.ueberWrapper.modified.connect(self.onModified)
-            self.uiFert.tabs.addTab(self.ueberWrapper.formFert, "Übernatürliche")
+            self.ui.tabs.addTab(self.ueberWrapper.form, "Übernatürliche")
 
-        self.uiFert.tabs.currentChanged.connect(self.reload)
-        for i in range(self.uiFert.tabs.tabBar().count()):
-            self.uiFert.tabs.tabBar().setTabTextColor(i, QtGui.QColor(Wolke.HeadingColor))
-        self.uiFert.tabs.setStyleSheet('QTabBar { font-size: ' + str(Wolke.Settings["FontHeadingSize"]) + 'pt; font-family: \"' + Wolke.Settings["FontHeading"] + '\"; }')
+        self.ui.tabs.currentChanged.connect(self.load)
+        for i in range(self.ui.tabs.tabBar().count()):
+            self.ui.tabs.tabBar().setTabTextColor(i, QtGui.QColor(Wolke.HeadingColor))
+        self.ui.tabs.setStyleSheet('QTabBar { font-size: ' + str(Wolke.Settings["FontHeadingSize"]) + 'pt; font-family: \"' + Wolke.Settings["FontHeading"] + '\"; }')
 
     def load(self):
-        self.reload(self.uiFert.tabs.currentIndex())
+        if hasattr(self, "profanWrapper") and self.ui.tabs.currentWidget() == self.profanWrapper.form:
+            self.profanWrapper.load()
+        elif hasattr(self, "freieWrapper") and self.ui.tabs.currentWidget() == self.freieWrapper.form:
+            self.freieWrapper.load()
+        elif hasattr(self, "ueberWrapper") and self.ui.tabs.currentWidget() == self.ueberWrapper.form:
+            self.ueberWrapper.load()
+
         if hasattr(self, "ueberWrapper"):
-            self.uiFert.tabs.setTabVisible(self.uiFert.tabs.indexOf(self.ueberWrapper.formFert), len(Wolke.Char.übernatürlicheFertigkeiten) > 0)
-
-    def reload(self, idx):
-        if idx == 0:
-            if hasattr(self, "profanWrapper"):
-                self.profanWrapper.load()
-        elif idx == 1:
-            if hasattr(self, "freieWrapper"):
-                self.freieWrapper.load()
-        elif idx == 2:
-            if hasattr(self, "ueberWrapper"):
-                self.ueberWrapper.load()
-
-    def update(self):
-        self.profanWrapper.update()
-        self.freieWrapper.update()
-        self.ueberWrapper.update()
+            self.ui.tabs.setTabVisible(self.ui.tabs.indexOf(self.ueberWrapper.form), len(Wolke.Char.übernatürlicheFertigkeiten) > 0)
 
     def onModified(self):
         self.modified.emit()

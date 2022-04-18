@@ -34,9 +34,9 @@ class InfoWrapper(QtCore.QObject):
         ''' Initialize the GUI and set signals for the spinners'''
         super().__init__()
         logging.debug("Initializing InfoWrapper...")
-        self.formEP = QtWidgets.QWidget()
+        self.form = QtWidgets.QWidget()
         self.ui = UI.CharakterInfo.Ui_Form()
-        self.ui.setupUi(self.formEP)
+        self.ui.setupUi(self.form)
 
         font = QtGui.QFont(Wolke.Settings["FontHeading"], Wolke.Settings["FontHeadingSize"])
         font.setBold(True)

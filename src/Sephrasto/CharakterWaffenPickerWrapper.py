@@ -23,18 +23,18 @@ class WaffenPicker(object):
             self.current = waffe
         else:
             self.current = ""
-        self.Form = QtWidgets.QDialog()
+        self.form = QtWidgets.QDialog()
         self.ui = UI.CharakterWaffenPicker.Ui_Dialog()
-        self.ui.setupUi(self.Form)
+        self.ui.setupUi(self.form)
         
-        self.Form.setWindowFlags(
+        self.form.setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
                 QtCore.Qt.WindowCloseButtonHint)
         
         windowSize = Wolke.Settings["WindowSize-Waffen"]
-        self.Form.resize(windowSize[0], windowSize[1])
+        self.form.resize(windowSize[0], windowSize[1])
 
         self.ui.splitter.adjustSize()
         width = self.ui.splitter.size().width()
@@ -51,11 +51,11 @@ class WaffenPicker(object):
         self.updateInfo()
         logging.debug("Info Updated...")
         self.ui.nameFilterEdit.textChanged.connect(self.populateTree)
-        self.Form.setWindowModality(QtCore.Qt.ApplicationModal)
-        self.Form.show()
-        self.ret = self.Form.exec_()
+        self.form.setWindowModality(QtCore.Qt.ApplicationModal)
+        self.form.show()
+        self.ret = self.form.exec_()
 
-        Wolke.Settings["WindowSize-Waffen"] = [self.Form.size().width(), self.Form.size().height()]
+        Wolke.Settings["WindowSize-Waffen"] = [self.form.size().width(), self.form.size().height()]
 
         if self.ret == QtWidgets.QDialog.Accepted and self.current != '':
             self.waffe = copy.copy(Wolke.DB.waffen[self.current])

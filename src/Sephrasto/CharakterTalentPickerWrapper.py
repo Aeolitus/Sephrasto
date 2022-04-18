@@ -14,27 +14,27 @@ class TalentPicker(object):
     def __init__(self,fert,ueber):
         super().__init__()
         self.fert = fert
-        self.Form = QtWidgets.QDialog()
+        self.form = QtWidgets.QDialog()
         self.ui = UI.CharakterTalentPicker.Ui_Dialog()
-        self.ui.setupUi(self.Form)
+        self.ui.setupUi(self.form)
 
         if ueber:    
             self.refC = Wolke.Char.übernatürlicheFertigkeiten
             self.refD = Wolke.DB.übernatürlicheFertigkeiten
             windowSize = Wolke.Settings["WindowSize-TalentUeber"]
-            self.Form.resize(windowSize[0], windowSize[1])
+            self.form.resize(windowSize[0], windowSize[1])
         else:
             self.refC = Wolke.Char.fertigkeiten
             self.refD = Wolke.DB.fertigkeiten
-            self.Form.resize(self.Form.size()*0.7)
+            self.form.resize(self.form.size()*0.7)
         
             windowSize = Wolke.Settings["WindowSize-TalentProfan"]
-            self.Form.resize(windowSize[0], windowSize[1])
+            self.form.resize(windowSize[0], windowSize[1])
 
         self.talenteVariable = copy.deepcopy(Wolke.Char.talenteVariable)
         self.gekaufteTalente = self.refC[fert].gekaufteTalente.copy()
 
-        self.Form.setWindowFlags(
+        self.form.setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
@@ -78,14 +78,14 @@ class TalentPicker(object):
         self.ui.listTalente.setModel(self.model)
         self.ui.listTalente.setFocus()
         self.ui.listTalente.setCurrentIndex(self.model.index(0, 0))
-        self.Form.setWindowModality(QtCore.Qt.ApplicationModal)
-        self.Form.show()
-        self.ret = self.Form.exec_()
+        self.form.setWindowModality(QtCore.Qt.ApplicationModal)
+        self.form.show()
+        self.ret = self.form.exec_()
 
         if ueber:
-            Wolke.Settings["WindowSize-TalentUeber"] = [self.Form.size().width(), self.Form.size().height()]
+            Wolke.Settings["WindowSize-TalentUeber"] = [self.form.size().width(), self.form.size().height()]
         else:
-            Wolke.Settings["WindowSize-TalentProfan"] = [self.Form.size().width(), self.Form.size().height()]
+            Wolke.Settings["WindowSize-TalentProfan"] = [self.form.size().width(), self.form.size().height()]
 
         if self.ret == QtWidgets.QDialog.Accepted:
             self.gekaufteTalente = []
