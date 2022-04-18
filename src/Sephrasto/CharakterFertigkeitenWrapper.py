@@ -52,7 +52,8 @@ class FertigkeitenWrapper(QtCore.QObject):
         elif hasattr(self, "ueberWrapper") and self.ui.tabs.currentWidget() == self.ueberWrapper.form:
             self.ueberWrapper.load()
 
-        if hasattr(self, "ueberWrapper"):
+        # toggle ueber tab visibility, check first if function exists - older qt versions dont have it
+        if hasattr(self, "ueberWrapper") and hasattr(self.ui.tabs, "setTabVisible"):
             self.ui.tabs.setTabVisible(self.ui.tabs.indexOf(self.ueberWrapper.form), len(Wolke.Char.übernatürlicheFertigkeiten) > 0)
 
     def onModified(self):
