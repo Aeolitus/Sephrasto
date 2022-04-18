@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'CharakterWaffen.ui'
+# Form implementation generated from reading ui file 'CharakterWaffenPicker.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.6
 #

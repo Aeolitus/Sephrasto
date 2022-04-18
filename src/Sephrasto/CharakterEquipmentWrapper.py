@@ -9,8 +9,8 @@ import UI.CharakterEquipment
 from PyQt5 import QtWidgets, QtCore, QtGui
 import Objekte
 import Definitionen
-from WaffenPicker import WaffenPicker
-from RuestungPicker import RuestungPicker
+from CharakterWaffenPickerWrapper import WaffenPicker
+from CharakterRuestungPickerWrapper import RuestungPicker
 import logging
 from Hilfsmethoden import Hilfsmethoden
 from EventBus import EventBus

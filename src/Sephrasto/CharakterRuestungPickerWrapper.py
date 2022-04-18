@@ -4,7 +4,7 @@ Created on Sun Mar  5 16:45:34 2017
 
 @author: Aeolitus
 """
-import UI.CharakterRuestungen
+import UI.CharakterRuestungPicker
 from PyQt5 import QtCore, QtWidgets, QtGui
 from Wolke import Wolke
 import Objekte
@@ -28,7 +28,7 @@ class RuestungPicker(object):
             self.current = ""
 
         self.Form = QtWidgets.QDialog()
-        self.ui = UI.CharakterRuestungen.Ui_Dialog()
+        self.ui = UI.CharakterRuestungPicker.Ui_Dialog()
         self.ui.setupUi(self.Form)
         
         self.Form.setWindowFlags(
@@ -131,7 +131,7 @@ class RuestungPicker(object):
                 continue
 
             parent = QtWidgets.QTreeWidgetItem(self.ui.treeArmors)
-            parent.setText(0,typ + "en")
+            parent.setText(0, typ)
             parent.setExpanded(True)
             font = QtGui.QFont(Wolke.Settings["Font"], Wolke.FontHeadingSizeL3)
             font.setBold(True)
@@ -186,7 +186,7 @@ class RuestungPicker(object):
 
             name = r.name
             if name.endswith(" (ZRS)"):
-                    name = name[:-6]
+                name = name[:-6]
             self.ui.lblName.setText(name)
             typ = min(r.typ, len(self.ruestungsTypen)-1)
             self.ui.lblTyp.setText(self.ruestungsTypen[typ])

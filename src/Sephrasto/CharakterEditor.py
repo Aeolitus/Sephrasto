@@ -22,7 +22,7 @@ import Charakter
 import Datenbank
 from Wolke import Wolke
 import os.path
-import pdfMeister as pdfM
+import PdfExporter
 import logging
 from EventBus import EventBus
 from shutil import which
@@ -56,7 +56,7 @@ class Editor(object):
                 hausregeln = tmp if tmp != "Keine" else ""
 
         Wolke.DB = Datenbank.Datenbank(hausregeln)
-        self.pdfMeister = pdfM.pdfMeister()
+        self.pdfExporter = PdfExporter.PdfExporter()
 
         self.changed = False
         self.savePathUpdatedCallback = savePathUpdatedCallback
@@ -308,7 +308,7 @@ Versuchs doch bitte nochmal mit einer anderen Zieldatei.")
             self.ui.horizontalLayout_2.itemAt(i).widget().setVisible(not show)
         self.ui.progressBar.setVisible(show)
       
-    def pdfMeisterProgressCallback(self, progress):
+    def pdfExporterProgressCallback(self, progress):
         self.ui.progressBar.setValue(progress)
 
     def pdfButton(self):
@@ -325,14 +325,14 @@ Versuchs doch bitte nochmal mit einer anderen Zieldatei.")
 
         for bogen in Wolke.Charakterbögen:
             if Wolke.Char.charakterbogen == os.path.basename(os.path.splitext(bogen)[0]):
-                self.pdfMeister.setCharakterbogen(EventBus.applyFilter("set_charakterbogen", Wolke.Charakterbögen[bogen]))
+                self.pdfExporter.setCharakterbogen(EventBus.applyFilter("set_charakterbogen", Wolke.Charakterbögen[bogen]))
                 break
 
         # Check if there is a base Charakterbogen.pdf:
-        if not os.path.isfile(self.pdfMeister.CharakterBogen.filePath):
+        if not os.path.isfile(self.pdfExporter.CharakterBogen.filePath):
             messagebox = QtWidgets.QMessageBox()
             messagebox.setWindowTitle("Fehler!")
-            messagebox.setText("Konnte " + self.pdfMeister.CharakterBogen.filePath + " nicht im Installationsordner finden")
+            messagebox.setText("Konnte " + self.pdfExporter.CharakterBogen.filePath + " nicht im Installationsordner finden")
             messagebox.setIcon(QtWidgets.QMessageBox.Critical)
             messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             messagebox.exec_()
@@ -356,7 +356,7 @@ Versuchs doch bitte nochmal mit einer anderen Zieldatei.")
             
         try:
             self.showProgressBar(True)
-            self.pdfMeister.pdfErstellen(spath, Wolke.Char.regelnAnhaengen, self.pdfMeisterProgressCallback)
+            self.pdfExporter.pdfErstellen(spath, Wolke.Char.regelnAnhaengen, self.pdfExporterProgressCallback)
             self.showProgressBar(False)
         except Exception as e:
             self.showProgressBar(False)

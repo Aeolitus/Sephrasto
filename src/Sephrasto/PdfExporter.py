@@ -7,7 +7,7 @@ Created on Wed Nov 15 10:08:59 2017
 This class exists to handle all the writing of the charactor to the pdf.
 """
 from Wolke import Wolke
-import pdf
+import PdfSerializer
 import Definitionen
 import Objekte
 import Talentbox
@@ -28,7 +28,7 @@ from shutil import which
 import platform
 from PyQt5 import QtWidgets, QtCore, QtGui
 
-class pdfMeister(object):
+class PdfExporter(object):
     def __init__(self):
         self.CharakterBogen = None
         self.ExtraPage = os.path.join("Data", "ExtraSpells.pdf")
@@ -66,7 +66,7 @@ class pdfMeister(object):
         handle, out_file = tempfile.mkstemp()
         os.close(handle)
         allPages = [out_file]
-        pdf.write_pdf(self.CharakterBogen.filePath, fields, out_file, False)
+        PdfSerializer.write_pdf(self.CharakterBogen.filePath, fields, out_file, False)
         progressCallback(20)
 
         # Extraseiten
@@ -85,7 +85,7 @@ class pdfMeister(object):
             handle, out_file = tempfile.mkstemp()
             os.close(handle)
             allPages.append(out_file)
-            pdf.write_pdf(self.ExtraPage, fieldsNew, out_file, False)
+            PdfSerializer.write_pdf(self.ExtraPage, fieldsNew, out_file, False)
             progressCallback(20 + min(35, 20 + 3*pageCount))
         progressCallback(35)
 
@@ -95,7 +95,7 @@ class pdfMeister(object):
            not ('Uebertal1NA' in fields) and not extraPageAdded:
             handle, out_file = tempfile.mkstemp()
             os.close(handle)
-            pdf.shrink(allPages[0], 1, self.CharakterBogen.seitenProfan, out_file)
+            PdfSerializer.shrink(allPages[0], 1, self.CharakterBogen.seitenProfan, out_file)
             os.remove(allPages[0])
             allPages[0] = out_file
         progressCallback(40)
@@ -118,7 +118,7 @@ class pdfMeister(object):
 
                 handle, out_file = tempfile.mkstemp()
                 os.close(handle)
-                pdf.write_pdf(self.RulesPage, rulesFields, out_file, False)
+                PdfSerializer.write_pdf(self.RulesPage, rulesFields, out_file, False)
                 allPages.append(out_file)
                 progressCallback(min(70, 40 + 3*pageCount))
         progressCallback(70)
@@ -127,7 +127,7 @@ class pdfMeister(object):
         allPages = EventBus.applyFilter("pdf_concat", allPages)
         progressCallback(75)
 
-        pdf.concat(allPages, filename)
+        PdfSerializer.concat(allPages, filename)
         progressCallback(90)
 
         for page in allPages:
@@ -245,7 +245,7 @@ class pdfMeister(object):
 
     def printVorteile(self, fields, vorteileAllgemein, vorteileKampf, vorteileUeber):
         # Fill fields
-        cellIndex = pdfMeister.getCellIndex(len(vorteileAllgemein), self.CharakterBogen.maxVorteile)
+        cellIndex = PdfExporter.getCellIndex(len(vorteileAllgemein), self.CharakterBogen.maxVorteile)
         for i in range(0, len(vorteileAllgemein)):
             field = 'Vorteil' + str(cellIndex[i]+1)
             if not field in fields:
@@ -253,7 +253,7 @@ class pdfMeister(object):
             else:
                 fields[field] += " | " + vorteileAllgemein[i]
 
-        cellIndex = pdfMeister.getCellIndex(len(vorteileKampf), self.CharakterBogen.maxKampfVorteile)
+        cellIndex = PdfExporter.getCellIndex(len(vorteileKampf), self.CharakterBogen.maxKampfVorteile)
         for i in range(0, len(vorteileKampf)):
             field = 'Kampfvorteil' + str(cellIndex[i]+1)
             if not field in fields:
@@ -262,7 +262,7 @@ class pdfMeister(object):
                 fields[field] += " | " + vorteileKampf[i]
 
         ueberLen = min(self.CharakterBogen.maxÜberVorteile * self.MergePerLineCount, len(vorteileUeber))
-        cellIndex = pdfMeister.getCellIndex(ueberLen, self.CharakterBogen.maxÜberVorteile)
+        cellIndex = PdfExporter.getCellIndex(ueberLen, self.CharakterBogen.maxÜberVorteile)
         for i in range(0, ueberLen):
             field = 'Uebervorteil' + str(cellIndex[i]+1)
             if not field in fields:
@@ -608,8 +608,8 @@ class pdfMeister(object):
         os.close(handle)
 
         # pdftk stamps over every single page. We only want to stamp the first, so we need to split the char sheet first
-        pdf.check_output_silent(['pdftk', pages[0], "cat", "1", "output", page1_pdf])
-        pdf.check_output_silent(['pdftk', pages[0], "cat", "2-end", "output", pageRest_pdf])
+        PdfSerializer.check_output_silent(['pdftk', pages[0], "cat", "1", "output", page1_pdf])
+        PdfSerializer.check_output_silent(['pdftk', pages[0], "cat", "2-end", "output", pageRest_pdf])
 
         # Setting page size to a2 so stamping has to reduce size - this way we can use a higher image resolution.
         # The numbers after the page size are offsets from bottom and right to fit the image in the right spot
@@ -620,9 +620,9 @@ class pdfMeister(object):
             convertPath = "Bin\\ImageMagick\\convert"
 
         try:
-            pdf.check_output_silent([convertPath, image_file, "-resize", "260x340", "-gravity", "Center", "-extent", "260x340", "-density", "96",
+            PdfSerializer.check_output_silent([convertPath, image_file, "-resize", "260x340", "-gravity", "Center", "-extent", "260x340", "-density", "96",
                                      "-page", f"a2+{self.CharakterBogen.bildOffset[0]}+{self.CharakterBogen.bildOffset[1]}", image_pdf])
-            pdf.check_output_silent(['pdftk', page1_pdf, 'stamp', image_pdf, 'output', page1stamped_pdf, 'need_appearances'])
+            PdfSerializer.check_output_silent(['pdftk', page1_pdf, 'stamp', image_pdf, 'output', page1stamped_pdf, 'need_appearances'])
 
             os.remove(pages[0])
             os.remove(image_file)

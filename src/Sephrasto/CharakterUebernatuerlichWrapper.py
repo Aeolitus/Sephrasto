@@ -6,7 +6,7 @@ Created on Fri Mar 10 17:33:11 2017
 """
 from Wolke import Wolke
 import UI.CharakterUebernatuerlich
-import TalentPicker
+import CharakterTalentPickerWrapper
 import MousewheelProtector
 from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtWidgets import QHeaderView
@@ -321,7 +321,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
     def editTalents(self):
         if self.currentFertName == "":
             return
-        pickerClass = EventBus.applyFilter("class_talentpicker_wrapper", TalentPicker.TalentPicker)
+        pickerClass = EventBus.applyFilter("class_talentpicker_wrapper", CharakterTalentPickerWrapper.TalentPicker)
         tal = pickerClass(self.currentFertName, True)
         self.updateAddToPDF()
         if tal.gekaufteTalente is not None:

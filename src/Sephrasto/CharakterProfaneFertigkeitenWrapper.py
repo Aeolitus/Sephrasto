@@ -6,7 +6,7 @@ Created on Fri Mar 10 17:33:11 2017
 """
 from Wolke import Wolke
 import UI.CharakterProfaneFertigkeiten
-import TalentPicker
+import CharakterTalentPickerWrapper
 import MousewheelProtector
 from PyQt5 import QtWidgets, QtCore, QtGui
 import logging
@@ -350,7 +350,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
     def editTalents(self):
         if self.currentFertName == "":
             return
-        pickerClass = EventBus.applyFilter("class_talentpicker_wrapper", TalentPicker.TalentPicker)
+        pickerClass = EventBus.applyFilter("class_talentpicker_wrapper", CharakterTalentPickerWrapper.TalentPicker)
         tal = pickerClass(self.currentFertName, False)
         if tal.gekaufteTalente is not None:
             self.modified.emit()

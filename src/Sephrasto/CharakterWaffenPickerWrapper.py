@@ -4,7 +4,7 @@ Created on Sun Mar  5 16:45:34 2017
 
 @author: Aeolitus
 """
-import UI.CharakterWaffen
+import UI.CharakterWaffenPicker
 from PyQt5 import QtCore, QtWidgets, QtGui
 from Wolke import Wolke
 import Objekte
@@ -24,7 +24,7 @@ class WaffenPicker(object):
         else:
             self.current = ""
         self.Form = QtWidgets.QDialog()
-        self.ui = UI.CharakterWaffen.Ui_Dialog()
+        self.ui = UI.CharakterWaffenPicker.Ui_Dialog()
         self.ui.setupUi(self.Form)
         
         self.Form.setWindowFlags(

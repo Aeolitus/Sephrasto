@@ -4,7 +4,7 @@ Created on Sun Mar  5 16:45:34 2017
 
 @author: Aeolitus
 """
-import UI.CharakterTalente
+import UI.CharakterTalentPicker
 from PyQt5 import QtCore, QtWidgets, QtGui
 from Wolke import Wolke
 from Charakter import VariableKosten
@@ -15,7 +15,7 @@ class TalentPicker(object):
         super().__init__()
         self.fert = fert
         self.Form = QtWidgets.QDialog()
-        self.ui = UI.CharakterTalente.Ui_Dialog()
+        self.ui = UI.CharakterTalentPicker.Ui_Dialog()
         self.ui.setupUi(self.Form)
 
         if ueber:    
