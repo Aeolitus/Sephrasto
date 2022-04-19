@@ -109,6 +109,8 @@ Zweck: Die BE einer Rüstung des Rüstungauswahlfensters anpassen. Achtung: Da R
 	* "class_freiefertigkeiten_wrapper" (Filter: CharakterFreieFertWrapper : class)
 	* "class_uebernatuerlichefertigkeiten_wrapper" (Filter: UebernatuerlichWrapper : class)
 	* "class_ausruestung_wrapper" (Filter: EquipWrapper : class)
+	* "class_waffen_wrapper" (Filter: CharakterWaffenWrapper : class)
+	* "class_inventar_wrapper" (Filter: CharakterInventarWrapper : class)
 	* "class_vorteile_wrapper" (Filter: CharakterVorteileWrapper : class)
 	* "class_info_wrapper" (Filter: InfoWrapper : class)
 	* "class_waffenpicker_wrapper" (Filter: WaffenPicker : class)

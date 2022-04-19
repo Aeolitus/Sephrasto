@@ -147,7 +147,7 @@ class Editor(object):
             self.equipWrapper = equipWrapper()
             tabs.append(Tab(50, self.equipWrapper, self.equipWrapper.form, "Ausrüstung"))   
 
-        infoWrapper = EventBus.applyFilter("class_ep_wrapper", CharakterInfoWrapper.InfoWrapper)
+        infoWrapper = EventBus.applyFilter("class_info_wrapper", CharakterInfoWrapper.InfoWrapper)
         if infoWrapper:
             self.infoWrapper = infoWrapper()
             tabs.append(Tab(70, self.infoWrapper, self.infoWrapper.form, "Info"))
