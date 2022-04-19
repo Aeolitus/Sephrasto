@@ -62,6 +62,8 @@ Zweck: Aktion durchführen, nachdem die Charakter-PDF geschrieben wurde, z.B. ei
 Zweck: Elemente der Basisdatenbank anpassen/hinzufügen/löschen, bevor die Hausregel-Datenbank geladen wird. Ein übliches Beispiel ist das Hinzufügen von DatenbankEinstellung-Elementen, mit welchen das Plugin konfiguriert werden kann.
 - "datenbank_geladen" (Parameter: { "datenbank" : Datenbank })<br />
 Zweck: Aktion durchführen, nachdem die Datenbank inkl. Hausregeldatenbank komplett geladen wurde. Eine Referenz auf das Datenbank-Objekt erhalten.
+- "regelanhang_anfuegen" (Parameter: { "reihenfolge" : string, "appendCallback" : Python-Funktion })<br />
+Zweck: Dem Regelanhang weiteren Text hinzufügen. Dies geschieht über den Parameter "appendCallback", einer Pythonfunktion die den Kategorienamen und den Text als Funktionsparameter hat. Der Kategoriename kann auch auf einen leeren string gesetzt werden. Die Action wird mehrmals aufgerufen, der "reihenfolge" Parameter sollte genutzt werden, um den Text an der richtigen Stelle einzufügen. Er entspricht einem Eintrag in der Datenbank-Einstellung "Regelanhang: Reihenfolge".
 <br />
 ## Actions, die Sephrasto abonniert
 - "charaktereditor_reload" (Parameter: { "name" : string })<br />

@@ -5,14 +5,15 @@ from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
 import Objekte
 from Fertigkeiten import VorteilLinkKategorie
 from CharakterPrintUtility import CharakterPrintUtility
+from EventBus import EventBus
 
 class CheatsheetGenerator(object):
 
     def __init__(self):
-        self.RuleCategories = []
+        self.ruleCategories = []
 
-        self.RulesLineCount = 100
-        self.RulesCharCount = 80
+        self.rulesLineCount = 100
+        self.rulesCharCount = 80
 
         self.reihenfolge = Wolke.DB.einstellungen["Regelanhang: Reihenfolge"].toTextList()
         self.aktiveManöverTypen = [int(m[1:]) for m in self.reihenfolge if m[0] == "M"]
@@ -22,21 +23,21 @@ class CheatsheetGenerator(object):
         return "===== " + category.upper() + " ====="
 
     def updateFontSize(self):
-        self.RulesLineCount = 100
-        self.RulesCharCount = 80
+        self.rulesLineCount = 100
+        self.rulesCharCount = 80
         fontSize = Wolke.Char.regelnGroesse
         if fontSize == 1:
-            self.RulesLineCount = 80
-            self.RulesCharCount = 55
+            self.rulesLineCount = 80
+            self.rulesCharCount = 55
         elif fontSize == 2:
-            self.RulesLineCount = 60
-            self.RulesCharCount = 45
+            self.rulesLineCount = 60
+            self.rulesCharCount = 45
 
     def getLineCount(self, text):
         lines = text.split("\n")
         lineCount = 0
         for line in lines:
-            lineCount += max(int(math.ceil(len(line) / self.RulesCharCount)), 1)
+            lineCount += max(int(math.ceil(len(line) / self.rulesCharCount)), 1)
         lineCount = lineCount - 1 #every text ends with two newlines, the second doesnt count, subtract 1
 
         #the largest fontsize tends to more lines beause of missing hyphenation
@@ -45,22 +46,22 @@ class CheatsheetGenerator(object):
 
         return lineCount
 
-    def appendWaffeneigenschaften(self, strList, lineCounts, category, eigenschaften):
+    def appendWaffeneigenschaften(self, rules, lineCounts, category, eigenschaften):
         if not eigenschaften or (len(eigenschaften) == 0):
             return
-        strList.append(category + "\n\n")
-        lineCounts.append(self.getLineCount(strList[-1]))
+        rules.append(category + "\n\n")
+        lineCounts.append(self.getLineCount(rules[-1]))
         count = 0
         for weName, waffen in sorted(eigenschaften.items()):
             we = Wolke.DB.waffeneigenschaften[weName]
             if not we.text:
                 continue
             count += 1
-            strList.append(we.name + " (" + ", ".join(waffen) + ")\n" + we.text + "\n\n")
-            lineCounts.append(self.getLineCount(strList[-1]))
+            rules.append(we.name + " (" + ", ".join(waffen) + ")\n" + we.text + "\n\n")
+            lineCounts.append(self.getLineCount(rules[-1]))
 
         if count == 0:
-            strList.pop()
+            rules.pop()
             lineCounts.pop()
 
     def isLinkedToAny(self, vorteil):
@@ -77,11 +78,11 @@ class CheatsheetGenerator(object):
 
         return False
 
-    def appendVorteile(self, strList, lineCounts, category, vorteile):
+    def appendVorteile(self, rules, lineCounts, category, vorteile):
         if not vorteile or (len(vorteile) == 0):
             return
-        strList.append(category + "\n\n")
-        lineCounts.append(self.getLineCount(strList[-1]))
+        rules.append(category + "\n\n")
+        lineCounts.append(self.getLineCount(rules[-1]))
         count = 0
         for vor in vorteile:
             vorteil = Wolke.DB.vorteile[vor]
@@ -100,18 +101,18 @@ class CheatsheetGenerator(object):
             result.append("\n")
             result.append(beschreibung)
             result.append("\n\n")
-            strList.append("".join(result))
-            lineCounts.append(self.getLineCount(strList[-1]))
+            rules.append("".join(result))
+            lineCounts.append(self.getLineCount(rules[-1]))
         
         if count == 0:
-            strList.pop()
+            rules.pop()
             lineCounts.pop()
     
-    def appendManöver(self, strList, lineCounts, category, manöverList):
+    def appendManöver(self, rules, lineCounts, category, manöverList):
         if not manöverList or (len(manöverList) == 0):
             return
-        strList.append(category + "\n\n")
-        lineCounts.append(self.getLineCount(strList[-1]))
+        rules.append(category + "\n\n")
+        lineCounts.append(self.getLineCount(rules[-1]))
         count = 0
         for man in manöverList:
             manöver = Wolke.DB.manöver[man]
@@ -145,18 +146,18 @@ class CheatsheetGenerator(object):
                     result.append(beschreibung.replace("\n", " "))
 
             result.append("\n\n")
-            strList.append("".join(result))
-            lineCounts.append(self.getLineCount(strList[-1]))
+            rules.append("".join(result))
+            lineCounts.append(self.getLineCount(rules[-1]))
 
         if count == 0:
-            strList.pop()
+            rules.pop()
             lineCounts.pop()
 
-    def appendTalente(self, strList, lineCounts, category, talente):
+    def appendTalente(self, rules, lineCounts, category, talente):
         if not talente or (len(talente) == 0):
             return
-        strList.append(category + "\n\n")
-        lineCounts.append(self.getLineCount(strList[-1]))
+        rules.append(category + "\n\n")
+        lineCounts.append(self.getLineCount(rules[-1]))
         count = 0
         for tal in talente:
             result = []
@@ -206,19 +207,28 @@ class CheatsheetGenerator(object):
                     result.append(beschreibung.replace("\n", " "))
 
             result.append("\n\n")
-            strList.append("".join(result))
-            lineCounts.append(self.getLineCount(strList[-1]))
+            rules.append("".join(result))
+            lineCounts.append(self.getLineCount(rules[-1]))
 
         if count == 0:
-            strList.pop()
+            rules.pop()
             lineCounts.pop()
+
+    def appendGeneric(self, category, text, rules, lineCounts):
+        if category:
+            formattedCategory = self.formatCategory(category)
+            self.ruleCategories.append(formattedCategory)
+            rules.append(formattedCategory + "\n\n")
+            lineCounts.append(self.getLineCount(rules[-1]))
+        rules.append(text)
+        lineCounts.append(self.getLineCount(rules[-1]))
 
     def prepareRules(self):
         voraussetzungenPruefen = Wolke.Char.voraussetzungenPruefen
         Wolke.Char.voraussetzungenPruefen = True
 
         self.updateFontSize()
-        self.RuleCategories = []
+        self.ruleCategories = []
         sortV = Wolke.Char.vorteile.copy()
         sortV = sorted(sortV, key=str.lower)
 
@@ -271,26 +281,28 @@ class CheatsheetGenerator(object):
                 typ = int(r[1:])
                 if typ >= len(vorteileGruppiert):
                     continue
-                self.RuleCategories.append(self.formatCategory(vorteilTypen[typ]))
-                self.appendVorteile(rules, ruleLineCounts, self.RuleCategories[-1], vorteileGruppiert[typ])
+                self.ruleCategories.append(self.formatCategory(vorteilTypen[typ]))
+                self.appendVorteile(rules, ruleLineCounts, self.ruleCategories[-1], vorteileGruppiert[typ])
             elif r[0] == "M":
                 typ = int(r[1:])
                 if typ >= len(manöverGruppiert):
                     continue
-                self.RuleCategories.append(self.formatCategory(manöverTypen[typ]))
-                self.appendManöver(rules, ruleLineCounts, self.RuleCategories[-1], manöverGruppiert[typ])
+                self.ruleCategories.append(self.formatCategory(manöverTypen[typ]))
+                self.appendManöver(rules, ruleLineCounts, self.ruleCategories[-1], manöverGruppiert[typ])
             elif r[0] == "W":
-                self.RuleCategories.append(self.formatCategory("Waffeneigenschaften"))
-                self.appendWaffeneigenschaften(rules, ruleLineCounts, self.RuleCategories[-1], waffeneigenschaften)
+                self.ruleCategories.append(self.formatCategory("Waffeneigenschaften"))
+                self.appendWaffeneigenschaften(rules, ruleLineCounts, self.ruleCategories[-1], waffeneigenschaften)
             elif r[0] == "Z":
-                self.RuleCategories.append(self.formatCategory("Zauber"))
-                self.appendTalente(rules, ruleLineCounts, self.RuleCategories[-1], zauber)
+                self.ruleCategories.append(self.formatCategory("Zauber"))
+                self.appendTalente(rules, ruleLineCounts, self.ruleCategories[-1], zauber)
             elif r[0] == "L":
-                self.RuleCategories.append(self.formatCategory("Liturgien"))
-                self.appendTalente(rules, ruleLineCounts, self.RuleCategories[-1], liturgien)
+                self.ruleCategories.append(self.formatCategory("Liturgien"))
+                self.appendTalente(rules, ruleLineCounts, self.ruleCategories[-1], liturgien)
             elif r[0] == "A":
-                self.RuleCategories.append(self.formatCategory("Anrufungen"))
-                self.appendTalente(rules, ruleLineCounts, self.RuleCategories[-1], anrufungen)
+                self.ruleCategories.append(self.formatCategory("Anrufungen"))
+                self.appendTalente(rules, ruleLineCounts, self.ruleCategories[-1], anrufungen)
+            
+            EventBus.doAction("regelanhang_anfuegen", { "reihenfolge" : r, "appendCallback" : lambda category, text, r=rules, l=ruleLineCounts: self.appendGeneric(category, text, r, l) })
 
         Wolke.Char.voraussetzungenPruefen = voraussetzungenPruefen
         return rules, ruleLineCounts
@@ -300,10 +312,10 @@ class CheatsheetGenerator(object):
         lineCount = 0
         endIndex = start
 
-        while lineCount < self.RulesLineCount and endIndex < len(ruleLineCounts):
+        while lineCount < self.rulesLineCount and endIndex < len(ruleLineCounts):
             nextLineCount = ruleLineCounts[endIndex] - 1 #subtract one because every entry ends with a newline
             leeway = int(nextLineCount * 0.3) #give big texts some leeway on the target line count to avoid big empty spaces
-            if lineCount + nextLineCount > self.RulesLineCount + leeway:
+            if lineCount + nextLineCount > self.rulesLineCount + leeway:
                 break
             lineCount = lineCount + ruleLineCounts[endIndex]
             endIndex = endIndex + 1
@@ -313,7 +325,7 @@ class CheatsheetGenerator(object):
 
         #Make sure a category is never the last line on the page
         category = rules[endIndex-1][:-2]
-        if category in self.RuleCategories:
+        if category in self.ruleCategories:
             lineCount -= ruleLineCounts[endIndex-1]
             endIndex = endIndex - 1
 
@@ -324,8 +336,8 @@ class CheatsheetGenerator(object):
         result = ''.join(rules[start:endIndex])
 
         # Append newlines to make the auto-fontsize about same as large as the other pages
-        if self.RulesLineCount - lineCount > 0:
-            result += '\n' * (self.RulesLineCount - lineCount)
+        if self.rulesLineCount - lineCount > 0:
+            result += '\n' * (self.rulesLineCount - lineCount)
 
         if len(rules) == endIndex:
             #return -1 to signal that we are done
