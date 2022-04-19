@@ -580,6 +580,8 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         self.updateWindowTitleAndCloseButton()
         self.changed = False
 
+    RememberConflictResult = -1
+
     def loadDatenbank(self):
         if self.cancelDueToPendingChanges("Andere Datenbank laden"):
             return
@@ -619,19 +621,27 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             infoBox.setIcon(QtWidgets.QMessageBox.Question)
             infoBox.setText(typ + " " + old.name + " wurde sowohl in den bestehenden, als auch in den neu geladenen Hausregeln geändert. Welche Version möchtest du beibehalten?")
             infoBox.setWindowTitle("Zusätzliche Hausregeln laden: Konflikt")
+
             infoBox.addButton(QtWidgets.QPushButton("Aktuell ansehen"), QtWidgets.QMessageBox.YesRole)
             infoBox.addButton(QtWidgets.QPushButton("Neu ansehen"), QtWidgets.QMessageBox.YesRole)
             infoBox.addButton(QtWidgets.QPushButton("Aktuell auswählen"), QtWidgets.QMessageBox.YesRole)
             infoBox.addButton(QtWidgets.QPushButton("Neu auswählen"), QtWidgets.QMessageBox.YesRole)
-            return infoBox.exec_()
+            check = QtWidgets.QCheckBox("Alle weiteren Konflikte gleich behandeln.")
+            infoBox.setCheckBox(check)
+            return (infoBox.exec_(), infoBox.checkBox().isChecked())
 
         def conflictCB(typ, old, new):
             result = -1
-            while result < 2:
-                result = showConflict(typ, old, new)
+            if DatenbankEditor.RememberConflictResult != -1:
+                result = DatenbankEditor.RememberConflictResult
+
+            while result < 2: 
+                result, checked = showConflict(typ, old, new)
                 if result < 2 and typ in self.databaseTypes:
                     databaseType = self.databaseTypes[typ]
                     databaseType.editFunc(old if result == 0 else new, True)
+                elif result >= 2 and checked:
+                    DatenbankEditor.RememberConflictResult = result
 
             return old if result == 2 else new
 
@@ -648,7 +658,9 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             infoBox.addButton(QtWidgets.QPushButton("Verstanden!"), QtWidgets.QMessageBox.YesRole)
             result = infoBox.exec_()
             if result == 1:
+                DatenbankEditor.RememberConflictResult = -1
                 self.datenbank.xmlLadenAdditiv(spath, conflictCB)
+                DatenbankEditor.RememberConflictResult = -1
             else:
                 return
         else:
