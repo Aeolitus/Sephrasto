@@ -237,11 +237,15 @@ class CharakterWaffenWrapper(QtCore.QObject):
     def load(self):
         self.currentlyLoading = True
 
+        aktualisieren = False
         if len(Wolke.Char.waffen) == 0 and "Hand" in Wolke.DB.waffen:
             Wolke.Char.waffen.append(copy.copy(Wolke.DB.waffen["Hand"]))
-            Wolke.Char.aktualisieren()
+            aktualisieren = True
         while len(Wolke.Char.waffen) < 8:
+            aktualisieren = True
             Wolke.Char.waffen.append(Objekte.Nahkampfwaffe())
+        if aktualisieren:
+            Wolke.Char.aktualisieren()
 
         for index in range(len(Wolke.Char.waffen)):
             W = Wolke.Char.waffen[index]
