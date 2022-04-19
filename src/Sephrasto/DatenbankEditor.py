@@ -245,6 +245,11 @@ class DatenbankEditor(object):
                             self.model.appendRow(item)
 
         self.ui.listDatenbank.setModel(self.model)
+
+        if self.datenbank.datei:
+            self.ui.buttonLoadDB.setText("Weitere Hausregeln laden")
+        else:
+            self.ui.buttonLoadDB.setText("Hausregeln laden")
                
     def wiederherstellen(self):
         for itm in self.ui.listDatenbank.selectedIndexes():
@@ -597,10 +602,60 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             infoBox.exec_()
             self.loadDatenbank()
             return
-        self.savepath = spath
-        self.datenbank.datei = spath
-        self.datenbank.xmlLaden()
-        self.initDatabaseTypes()
+
+        if spath == self.datenbank.datei:
+            infoBox = QtWidgets.QMessageBox()
+            infoBox.setIcon(QtWidgets.QMessageBox.Warning)
+            infoBox.setText("Diese Hausregeln sind bereits geladen!")
+            infoBox.setWindowTitle("Ungültige Datei!")
+            infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
+            infoBox.exec_()
+            self.loadDatenbank()
+            return
+
+        def showConflict(typ, old, new):
+            infoBox = QtWidgets.QMessageBox()
+            infoBox.setIcon(QtWidgets.QMessageBox.Question)
+            infoBox.setText(typ + " " + old.name + " wurde sowohl in den bestehenden, als auch in den neu geladenen Hausregeln geändert. Welche Version möchtest du beibehalten?")
+            infoBox.setWindowTitle("Zusätzliche Hausregeln laden: Konflikt")
+            infoBox.addButton(QtWidgets.QPushButton("Aktuell ansehen"), QtWidgets.QMessageBox.YesRole)
+            infoBox.addButton(QtWidgets.QPushButton("Neu ansehen"), QtWidgets.QMessageBox.YesRole)
+            infoBox.addButton(QtWidgets.QPushButton("Aktuell auswählen"), QtWidgets.QMessageBox.YesRole)
+            infoBox.addButton(QtWidgets.QPushButton("Neu auswählen"), QtWidgets.QMessageBox.YesRole)
+            return infoBox.exec_()
+
+        def conflictCB(typ, old, new):
+            result = -1
+            while result < 2:
+                result = showConflict(typ, old, new)
+                if result < 2 and typ in self.databaseTypes:
+                    databaseType = self.databaseTypes[typ]
+                    databaseType.editFunc(old if result == 0 else new, True)
+
+            return old if result == 2 else new
+
+        if self.datenbank.datei:
+            infoBox = QtWidgets.QMessageBox()
+            infoBox.setIcon(QtWidgets.QMessageBox.Warning)
+            infoBox.setText("Es sind bereits Hausregeln geladen. Wenn du zusätzlich noch andere Hausregeln lädst, werden beide zusammengefasst!\n" +
+                            "Wenn in beiden Hausregeln die gleichen Datenbank-Elemente geändert wurden, wirst du dich zwischen einer Version entscheiden müssen - Sephrasto wird dir dabei helfen. " +
+                            "Du kannst dies ohne Risiko ausprobieren: Die zusammengefassten Hausregeln werden erst gespeichert, wenn du den Speichern-Button drückst.\n" +
+                            "In jedem Fall solltest du hinterher aber überprüfen, ob alle geänderten Elemente noch intakt sind. " +
+                            "Beispielsweise könnten die zusätzlichen Hausregeln einen Vorteil gelöscht haben, der in den aktuellen Hausregeln irgendwo als Voraussetzung gelistet ist.")
+            infoBox.setWindowTitle("Mehrere Hausregeln laden")
+            infoBox.addButton(QtWidgets.QPushButton("Abbrechen"), QtWidgets.QMessageBox.NoRole)
+            infoBox.addButton(QtWidgets.QPushButton("Verstanden!"), QtWidgets.QMessageBox.YesRole)
+            result = infoBox.exec_()
+            if result == 1:
+                self.datenbank.xmlLadenAdditiv(spath, conflictCB)
+            else:
+                return
+        else:
+            self.savepath = spath
+            self.datenbank.datei = spath
+            self.datenbank.xmlLaden()
+
         self.updateGUI()
         self.updateWindowTitleAndCloseButton()
         self.changed = False

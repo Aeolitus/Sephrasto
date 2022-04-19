@@ -324,7 +324,10 @@ class Datenbank():
         fixTalentVoraussetzungen('Fertigkeit')
         fixTalentVoraussetzungen('Übernatürliche-Fertigkeit')
 
-    def xmlLadenInternal(self, file, refDB):
+    def xmlLadenAdditiv(self, file, conflictCB):
+        self.xmlLadenInternal(file, False, conflictCB)
+
+    def xmlLadenInternal(self, file, refDB, conflictCB = None):
         root = etree.parse(file).getroot()
 
         if root.tag != 'Datenbank':
@@ -356,13 +359,16 @@ class Datenbank():
 
             if not typ in self.tablesByName:
                 continue
+
             table = self.tablesByName[typ]
             if not name in table:
                 continue
 
-            removed = table.pop(name)
             if not typ in self.removeList:
                 self.removeList[typ] = {}
+            if name in self.removeList[typ]:
+                continue # loading another user db, ignore if the same element has been removed in both
+            removed = table.pop(name)
             self.removeList[typ][name] = removed
 
         #Vorteile
@@ -400,9 +406,8 @@ class Datenbank():
             if vort.get('linkElement'):
                 V.linkElement = vort.get('linkElement')
 
-            if V.name in self.vorteile:
-                logging.warn("Vorteil " + V.name + " exists already in the database, probably a \"Remove\" entry is missing. " +
-                    "To fix this warning, delete your change, restore the original and redo your change")
+            if conflictCB and V.name in self.vorteile:
+                V = conflictCB('Vorteil', self.vorteile[V.name], V)
             self.vorteile.update({V.name: V})
             
         #Talente
@@ -430,9 +435,9 @@ class Datenbank():
 
             T.isUserAdded = not refDB
 
-            if T.name in self.talente:
-                logging.warn("Talent " + T.name + " exists already in the database, probably a \"Remove\" entry is missing. " +
-                    "To fix this warning, delete your change, restore the original and redo your change")
+            if conflictCB and T.name in self.talente:
+                T = conflictCB('Talent', self.talente[T.name], T)
+
             self.talente.update({T.name: T})
             
         #Fertigkeiten
@@ -453,9 +458,9 @@ class Datenbank():
             else:
                 F.printclass = -1
 
-            if F.name in self.fertigkeiten:
-                logging.warn("Fertigkeit " + F.name + " exists already in the database, probably a \"Remove\" entry is missing. " +
-                    "To fix this warning, delete your change, restore the original and redo your change")
+            if conflictCB and F.name in self.fertigkeiten:
+                F = conflictCB('Fertigkeit', self.fertigkeiten[F.name], F)
+
             self.fertigkeiten.update({F.name: F})
 
         überFertigkeitNodes = root.findall('Übernatürliche-Fertigkeit')
@@ -477,9 +482,9 @@ class Datenbank():
             if fer.get('talentegruppieren'):
                 F.talenteGruppieren = int(fer.get('talentegruppieren')) == 1
 
-            if F.name in self.übernatürlicheFertigkeiten:
-                logging.warn("Fertigkeit " + F.name + " exists already in the database, probably a \"Remove\" entry is missing. " +
-                    "To fix this warning, delete your change, restore the original and redo your change")
+            if conflictCB and F.name in self.übernatürlicheFertigkeiten:
+                F = conflictCB('Übernatürliche Fertigkeit', self.übernatürlicheFertigkeiten[F.name], F)
+
             self.übernatürlicheFertigkeiten.update({F.name: F})
           
         #Waffeneigenschaften
@@ -526,9 +531,8 @@ class Datenbank():
                 w.kampfstile = list(map(str.strip, kampfstile.split(",")))
             w.isUserAdded = not refDB
 
-            if w.name in self.waffen:
-                logging.warn("Waffe " + w.name + " exists already in the database, probably a \"Remove\" entry is missing. " +
-                    "To fix this warning, delete your change, restore the original and redo your change")
+            if conflictCB and w.name in self.waffen:
+                w = conflictCB('Waffe', self.waffen[w.name], w)
             self.waffen.update({w.name: w})
 
         #Rüstungen
@@ -548,9 +552,8 @@ class Datenbank():
             r.text = rue.text
             r.isUserAdded = not refDB
 
-            if r.name in self.rüstungen:
-                logging.warn("Rüstung " + r.name + " exists already in the database, probably a \"Remove\" entry is missing. " +
-                    "To fix this warning, delete your change, restore the original and redo your change")
+            if conflictCB and r.name in self.rüstungen:
+                r = conflictCB('Rüstung', self.rüstungen[r.name], r)
             self.rüstungen.update({r.name : r})
         
         #Manöver
@@ -565,9 +568,8 @@ class Datenbank():
             m.text = ma.text or ''
             m.isUserAdded = not refDB
 
-            if m.name in self.manöver:
-                logging.warn("Manöver " + m.name + " exists already in the database, probably a \"Remove\" entry is missing. " +
-                    "To fix this warning, delete your change, restore the original and redo your change")
+            if conflictCB and m.name in self.manöver:
+                m = conflictCB('Manöver / Modifikation', self.manöver[m.name], m)
 
             self.manöver.update({m.name: m})
 
@@ -580,9 +582,9 @@ class Datenbank():
             ff.kategorie = ffNode.get('kategorie')
             ff.isUserAdded = not refDB
 
-            if ff.name in self.freieFertigkeiten:
-                logging.warn("Freie Fertigkeit " + ff.name + " exists already in the database, probably a \"Remove\" entry is missing. " +
-                    "To fix this warning, delete your change, restore the original and redo your change")
+            if conflictCB and ff.name in self.freieFertigkeiten:
+                ff = conflictCB('Freie Fertigkeit', self.freieFertigkeiten[ff.name], ff)
+
             self.freieFertigkeiten.update({ff.name: ff})
 
         #Einstellungen
@@ -603,6 +605,10 @@ class Datenbank():
 
             de.wert = eNode.text or ''
             de.isUserAdded = not refDB
+
+            if conflictCB and de.name in self.einstellungen:
+                de = conflictCB('Einstellung', self.einstellungen[de.name], de)
+
             self.einstellungen.update({de.name: de})
 
         # Step 2: Voraussetzungen - requires everything else to be loaded for cross validation
