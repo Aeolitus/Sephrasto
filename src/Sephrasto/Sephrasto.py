@@ -200,11 +200,11 @@ class MainWindowWrapper(object):
         Creates the DatenbankEdit Form and shows the contents of datenbank.xml.
         '''
         self.D = DatenbankEdit.DatenbankEdit(self._plugins)
-        self.D.Form = QtWidgets.QWidget()
+        self.D.form = QtWidgets.QWidget()
         self.D.ui = UI.DatenbankMain.Ui_Form()
-        self.D.ui.setupUi(self.D.Form)
+        self.D.ui.setupUi(self.D.form)
         self.D.setupGUI()
-        self.D.Form.show()
+        self.D.form.show()
         
     def editSettings(self):
         EinstellungenWrapper(self._plugins)
