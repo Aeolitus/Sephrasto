@@ -169,7 +169,7 @@ class RuestungPicker(object):
         
     def updateInfo(self):
         self.ui.buttonBox.buttons()[0].setEnabled(self.current != "")
-        if self.current == "":
+        if not self.current:
             self.ui.lblName.setText("Keine Rüstung selektiert")
             self.ui.lblTyp.setText("")
             self.ui.lblRS.setText("")
