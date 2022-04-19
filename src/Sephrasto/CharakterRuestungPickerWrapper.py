@@ -161,7 +161,7 @@ class RuestungPicker(object):
     def changeHandler(self):
         self.current = ""
         for el in self.ui.treeArmors.selectedItems():
-            if el.text(0)[:-2] in self.ruestungsTypen:
+            if el.text(0) in self.ruestungsTypen:
                 continue
             self.current = el.data(0, QtCore.Qt.UserRole) # contains key of armor
             break
