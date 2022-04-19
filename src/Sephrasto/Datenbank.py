@@ -15,18 +15,7 @@ class DatabaseException(Exception):
 
 class Datenbank():
     def __init__(self, hausregeln = None):
-        self.vorteile = {}
-        self.fertigkeiten = {}
-        self.talente = {}
-        self.übernatürlicheFertigkeiten = {}
-        self.waffen = {}
-        self.rüstungen = {}
-        self.manöver = {}
-        self.waffeneigenschaften = {}
-        self.freieFertigkeiten = {}
-        self.einstellungen = {}
-        self.removeList = []
-        
+        self.initializeTables()        
         self.datei = None
         
         if hausregeln is not None:
@@ -58,6 +47,31 @@ class Datenbank():
             raise Exception("Migrations-Code vergessen.")
 
         self.xmlLaden()              
+
+    def initializeTables(self):
+        self.vorteile = {}
+        self.fertigkeiten = {}
+        self.talente = {}
+        self.übernatürlicheFertigkeiten = {}
+        self.waffen = {}
+        self.rüstungen = {}
+        self.manöver = {}
+        self.waffeneigenschaften = {}
+        self.freieFertigkeiten = {}
+        self.einstellungen = {}
+        self.removeList = {}
+        self.tablesByName = {
+            'Vorteil' : self.vorteile,
+            'Fertigkeit' : self.fertigkeiten,
+            'Talent' : self.talente,
+            'Übernatürliche Fertigkeit' : self.übernatürlicheFertigkeiten,
+            'Waffeneigenschaft' : self.waffeneigenschaften,
+            'Waffe' : self.waffen,
+            'Rüstung' : self.rüstungen,
+            'Manöver / Modifikation' : self.manöver,
+            'Freie Fertigkeit' : self.freieFertigkeiten,
+            'Einstellung' : self.einstellungen
+        }
 
     def xmlSchreiben(self):
         root = etree.Element('Datenbank')
@@ -214,10 +228,11 @@ class Datenbank():
             e.text = einstellung.wert
 
         #Remove list
-        for rm in self.removeList:
-            r = etree.SubElement(root,'Remove')
-            r.set('name', rm[0])
-            r.set('typ', rm[1])
+        for typ in self.removeList:
+            for name in self.removeList[typ]:
+                r = etree.SubElement(root,'Remove')
+                r.set('name', name)
+                r.set('typ', typ)
 
         root = EventBus.applyFilter("datenbank_xml_schreiben", root, { "datenbank" : self })
 
@@ -230,17 +245,7 @@ class Datenbank():
             file.truncate()
 
     def xmlLaden(self):
-        self.vorteile = {}
-        self.fertigkeiten = {}
-        self.talente = {}
-        self.übernatürlicheFertigkeiten = {}
-        self.waffen = {}
-        self.rüstungen = {}
-        self.manöver = {}
-        self.waffeneigenschaften = {}
-        self.freieFertigkeiten = {}
-        self.einstellungen = {}
-        self.removeList = []
+        self.initializeTables()
 
         databasePath = os.path.join('Data', 'datenbank.xml')
         if os.path.isfile(databasePath):
@@ -348,31 +353,17 @@ class Datenbank():
             typ = rem.get('typ')
             name = rem.get('name')
             removed = None
-            #typ should correspond with the names in DatenbankEdit::initDatabaseTypes
-            if typ == 'Vorteil' and name in self.vorteile:
-                removed = self.vorteile.pop(name)
-            elif typ == 'Fertigkeit' and name in self.fertigkeiten:
-                removed = self.fertigkeiten.pop(name)
-            elif typ == 'Talent' and name in self.talente:
-                removed = self.talente.pop(name)
-            elif typ == 'Übernatürliche Fertigkeit' and name in self.übernatürlicheFertigkeiten:
-                removed = self.übernatürlicheFertigkeiten.pop(name)
-            elif typ == 'Waffeneigenschaft' and name in self.waffeneigenschaften:
-                removed = self.waffeneigenschaften.pop(name)
-            elif typ == 'Waffe' and name in self.waffen:
-                removed = self.waffen.pop(name)
-            elif typ == 'Rüstung' and name in self.rüstungen:
-                removed = self.rüstungen.pop(name)
-            elif typ == 'Manöver / Modifikation' and name in self.manöver:
-                removed = self.manöver.pop(name)
-            elif typ == 'Freie Fertigkeit' and name in self.freieFertigkeiten:
-                removed = self.freieFertigkeiten.pop(name)
-            elif typ == 'Einstellung' and name in self.einstellungen:
-                removed = self.einstellungen.pop(name)
-            if removed:
-                self.removeList.append((name, typ, removed))
-            else:
-                logging.warn("Found remove entry for non-existant element: " + typ + " " + name)
+
+            if not typ in self.tablesByName:
+                continue
+            table = self.tablesByName[typ]
+            if not name in table:
+                continue
+
+            removed = table.pop(name)
+            if not typ in self.removeList:
+                self.removeList[typ] = {}
+            self.removeList[typ][name] = removed
 
         #Vorteile
         vorteilNodes = root.findall('Vorteil')
@@ -596,7 +587,6 @@ class Datenbank():
 
         #Einstellungen
         eNodes = root.findall('Einstellung')
-        einstellungenRemoved = [r for r in self.removeList if r[1] == 'Einstellung']
         for eNode in eNodes:
             numLoaded += 1
             de = DatenbankEinstellung()
@@ -604,11 +594,11 @@ class Datenbank():
             if refDB:
                 de.typ = eNode.get('typ')
                 de.beschreibung = eNode.get('beschreibung')
-            else:
-                for el in einstellungenRemoved:
-                    if de.name == el[0]:
-                        de.typ = el[2].typ
-                        de.beschreibung = el[2].beschreibung
+            elif 'Einstellung' in self.removeList:
+                for name in self.removeList['Einstellung']:
+                    if de.name == name:
+                        de.typ = self.removeList['Einstellung'][name].typ
+                        de.beschreibung = self.removeList['Einstellung'][name].beschreibung
                         break
 
             de.wert = eNode.text or ''

@@ -28,10 +28,9 @@ from copy import copy
 import logging
 from EventBus import EventBus
 
-class DatabaseType(object):
-    def __init__(self, databaseDict, addFunc, editFunc, showCheckbox):
+class DatenbankTypWrapper(object):
+    def __init__(self, addFunc, editFunc, showCheckbox):
         super().__init__()
-        self.databaseDict = databaseDict
         self.addFunc = addFunc
         self.editFunc = editFunc
         self.showCheckbox = showCheckbox
@@ -47,7 +46,6 @@ class DatenbankEditor(object):
         self.windowTitleDefault = ""
     
     def setupGUI(self):
-
         windowSize = Wolke.Settings["WindowSize-Datenbank"]
         self.form.resize(windowSize[0], windowSize[1])
 
@@ -58,8 +56,6 @@ class DatenbankEditor(object):
             if hasattr(pd.plugin, "createDatabaseButtons"):
                 for button in pd.plugin.createDatabaseButtons():
                     self.ui.verticalLayout.addWidget(button)
-
-        self.initDatabaseTypes()
 
         # GUI Mods
         self.model = QtGui.QStandardItemModel(self.ui.listDatenbank)
@@ -101,8 +97,24 @@ class DatenbankEditor(object):
 
         self.ui.showUserAdded.stateChanged.connect(self.updateGUI)
         self.ui.showDeleted.stateChanged.connect(self.updateGUI)
-        for dbType in self.pluginDatabaseTypes.values():
-            self.ui.verticalLayout_3.addWidget(dbType.showCheckbox)
+
+        self.databaseTypes = {}
+        self.databaseTypes["Talent"] = DatenbankTypWrapper(self.addTalent, self.editTalent, self.ui.showTalente)
+        self.databaseTypes["Vorteil"] = DatenbankTypWrapper(self.addVorteil, self.editVorteil, self.ui.showVorteile)
+        self.databaseTypes["Fertigkeit"] = DatenbankTypWrapper(self.addFertigkeit, self.editFertigkeit, self.ui.showFertigkeiten)
+        self.databaseTypes["Übernatürliche Fertigkeit"] = DatenbankTypWrapper(self.addUebernatuerlich, self.editUebernatuerlich, self.ui.showUebernatuerlicheFertigkeiten)
+        self.databaseTypes["Freie Fertigkeit"] = DatenbankTypWrapper(self.addFreieFertigkeit, self.editFreieFertigkeit, self.ui.showFreieFertigkeiten)
+        self.databaseTypes["Waffeneigenschaft"] = DatenbankTypWrapper(self.addWaffeneigenschaft, self.editWaffeneigenschaft, self.ui.showWaffeneigenschaften)
+        self.databaseTypes["Waffe"] = DatenbankTypWrapper(self.addWaffe, self.editWaffe, self.ui.showWaffen)
+        self.databaseTypes["Rüstung"] = DatenbankTypWrapper(self.addRuestung, self.editRuestung, self.ui.showRuestungen)
+        self.databaseTypes["Manöver / Modifikation"] = DatenbankTypWrapper(self.addManoever, self.editManoever, self.ui.showManoever)
+        self.databaseTypes["Einstellung"] = DatenbankTypWrapper(self.addEinstellung, self.editEinstellung, self.ui.showEinstellung)
+        pluginDatabaseTypes = {}
+        pluginDatabaseTypes = EventBus.applyFilter("datenbank_editor_typen", pluginDatabaseTypes)
+        for dbType in pluginDatabaseTypes:
+            self.databaseTypes[dbType] = pluginDatabaseTypes[dbType]
+            self.ui.verticalLayout_3.addWidget(pluginDatabaseTypes[dbType].showCheckbox)
+
         for dbType in self.databaseTypes.values():
             dbType.showCheckbox.stateChanged.connect(self.updateGUI)
 
@@ -142,30 +154,13 @@ class DatenbankEditor(object):
             self.ui.buttonLoeschen.setVisible(True)
             self.ui.buttonWiederherstellen.setVisible(False)
             tmp = item.split(" : ")
-            if tmp[1] == "Einstellung":
-                databaseType = self.databaseTypes["Einstellung"]
-                if tmp[0] in databaseType.databaseDict and not databaseType.databaseDict[tmp[0]].isUserAdded:
+            name = tmp[0]
+            typ = tmp[1]
+            if typ == "Einstellung":
+                table = self.datenbank.tablesByName["Einstellung"]
+                if name in table and not table[name].isUserAdded:
                     self.ui.buttonLoeschen.setEnabled(False)
-
-    def initDatabaseTypes(self):
-        self.databaseTypes = {}
-        self.databaseTypes["Talent"] = DatabaseType(self.datenbank.talente, self.addTalent, self.editTalent, self.ui.showTalente)
-        self.databaseTypes["Vorteil"] = DatabaseType(self.datenbank.vorteile, self.addVorteil, self.editVorteil, self.ui.showVorteile)
-        self.databaseTypes["Fertigkeit"] = DatabaseType(self.datenbank.fertigkeiten, self.addFertigkeit, self.editFertigkeit, self.ui.showFertigkeiten)
-        self.databaseTypes["Übernatürliche Fertigkeit"] = DatabaseType(self.datenbank.übernatürlicheFertigkeiten, self.addUebernatuerlich, self.editUebernatuerlich, self.ui.showUebernatuerlicheFertigkeiten)
-        self.databaseTypes["Freie Fertigkeit"] = DatabaseType(self.datenbank.freieFertigkeiten, self.addFreieFertigkeit, self.editFreieFertigkeit, self.ui.showFreieFertigkeiten)
-        self.databaseTypes["Waffeneigenschaft"] = DatabaseType(self.datenbank.waffeneigenschaften, self.addWaffeneigenschaft, self.editWaffeneigenschaft, self.ui.showWaffeneigenschaften)
-        self.databaseTypes["Waffe"] = DatabaseType(self.datenbank.waffen, self.addWaffe, self.editWaffe, self.ui.showWaffen)
-        self.databaseTypes["Rüstung"] = DatabaseType(self.datenbank.rüstungen, self.addRuestung, self.editRuestung, self.ui.showRuestungen)
-        self.databaseTypes["Manöver / Modifikation"] = DatabaseType(self.datenbank.manöver, self.addManoever, self.editManoever, self.ui.showManoever)
-        self.databaseTypes["Einstellung"] = DatabaseType(self.datenbank.einstellungen, self.addEinstellung, self.editEinstellung, self.ui.showEinstellung)
-        self.pluginDatabaseTypes = {}
-        self.pluginDatabaseTypes = EventBus.applyFilter("datenbank_editor_typen", self.pluginDatabaseTypes)
-        for dbType in self.pluginDatabaseTypes:
-            if dbType in self.databaseTypes.keys():
-                del self.pluginDatabaseTypes[dbType]
-            else:
-                self.databaseTypes[dbType] = self.pluginDatabaseTypes[dbType]
+                    self.ui.buttonDuplizieren.setEnabled(False)
 
     def cancelDueToPendingChanges(self, action):
         if self.changed:
@@ -219,32 +214,35 @@ class DatenbankEditor(object):
         self.ui.checkFilterTyp.blockSignals(False)
 
         for dbTypeName,dbType in self.databaseTypes.items():
-            if dbType.showCheckbox.isChecked():
-                for itm, value in sorted(dbType.databaseDict.items()):
-                    if not value.isUserAdded and showUserAdded:
-                        continue
-                    if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
-                        continue
-                    item = QtGui.QStandardItem(itm + " : " + dbTypeName)
-                    item.setEditable(False)
-                    if value.isUserAdded:
-                        item.setBackground(QtGui.QBrush(QtCore.Qt.green))
-                        item.setForeground(QtGui.QBrush(QtCore.Qt.black))
-                    self.model.appendRow(item)
+            if not dbType.showCheckbox.isChecked():
+                continue
+            table = self.datenbank.tablesByName[dbTypeName]
+            for itm, value in sorted(table.items()):
+                if not value.isUserAdded and showUserAdded:
+                    continue
+                if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
+                    continue
+                item = QtGui.QStandardItem(itm + " : " + dbTypeName)
+                item.setEditable(False)
+                if value.isUserAdded:
+                    item.setBackground(QtGui.QBrush(QtCore.Qt.green))
+                    item.setForeground(QtGui.QBrush(QtCore.Qt.black))
+                self.model.appendRow(item)
 
         if self.ui.showDeleted.isChecked():
-            for itm in sorted(self.datenbank.removeList):
-                if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm[0].lower():
-                    continue
+            for type in sorted(self.datenbank.removeList):
+                for name in self.datenbank.removeList[type]:
+                    if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in name.lower():
+                        continue
 
-                if itm[1] in self.databaseTypes:
-                    databaseType = self.databaseTypes[itm[1]]
-                    if databaseType.showCheckbox.isChecked():
-                        item = QtGui.QStandardItem(itm[0] + " : "  + itm[1] + " (gelöscht)")
-                        item.setEditable(False)
-                        item.setBackground(QtGui.QBrush(QtCore.Qt.red))
-                        item.setForeground(QtGui.QBrush(QtCore.Qt.white))
-                        self.model.appendRow(item)
+                    if type in self.databaseTypes:
+                        databaseType = self.databaseTypes[type]
+                        if databaseType.showCheckbox.isChecked():
+                            item = QtGui.QStandardItem(name + " : "  + type + " (gelöscht)")
+                            item.setEditable(False)
+                            item.setBackground(QtGui.QBrush(QtCore.Qt.red))
+                            item.setForeground(QtGui.QBrush(QtCore.Qt.white))
+                            self.model.appendRow(item)
 
         self.ui.listDatenbank.setModel(self.model)
                
@@ -253,21 +251,25 @@ class DatenbankEditor(object):
             item = self.model.itemData(itm)[0]
             if not item.endswith(" (gelöscht)"):
                 continue
-            item = item[:-11]
-            tmp = item.split(" : ")
+            item = item[:-11].split(" : ")
+            name = item[0]
+            typ = item[1]
 
-            removed = [item for item in self.datenbank.removeList if item[0] == tmp[0] and item[1] == tmp[1]][0]
+            removed = False
+            if typ in self.datenbank.removeList and name in self.datenbank.removeList[typ]:
+                removed = self.datenbank.removeList[typ][name]
+
             if not removed:
                 raise Exception('State corrupted.')
 
             exists = False
 
-            if tmp[1] in self.databaseTypes:
-                databaseType = self.databaseTypes[tmp[1]]
-                if tmp[0] in databaseType.databaseDict:
+            if typ in self.datenbank.tablesByName:
+                table = self.datenbank.tablesByName[typ]
+                if name in table:
                     exists = True
                 else:
-                    databaseType.databaseDict.update({tmp[0]: removed[2]})
+                    table.update({name: removed})
             else:
                 raise Exception('Unknown category.')
 
@@ -275,12 +277,12 @@ class DatenbankEditor(object):
                 messageBox = QtWidgets.QMessageBox()
                 messageBox.setIcon(QtWidgets.QMessageBox.Information)
                 messageBox.setWindowTitle('Wiederherstellen nicht möglich!')
-                messageBox.setText('Es existiert bereits ein(e) ' + tmp[1] + ' mit dem Namen "' + tmp[0] + '"')            
+                messageBox.setText('Es existiert bereits ein(e) ' + typ + ' mit dem Namen "' + name + '"')            
                 messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
                 messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
                 messageBox.exec_()
                 return
-            self.datenbank.removeList.remove(removed)
+            del self.datenbank.removeList[typ][name]
 
         self.onDatabaseChange();
     
@@ -297,7 +299,7 @@ class DatenbankEditor(object):
             databaseType = self.databaseTypes[dbS.entryType]
             val = databaseType.addFunc()
             if val is not None:
-                databaseType.databaseDict.update({val.name : val})
+                self.datenbank.tablesByName[dbS.entryType].update({val.name : val})
                 self.onDatabaseChange()
 
     def addTalent(self):
@@ -384,48 +386,61 @@ class DatenbankEditor(object):
         databaseChanged = False
         for itm in self.ui.listDatenbank.selectedIndexes():
             tmp = self.model.itemData(itm)[0].split(" : ")
-            if tmp[1].endswith(" (gelöscht)"):
-                tmp[1] = tmp[1][:-11]
-                deletedItem = [item for item in self.datenbank.removeList if item[0] == tmp[0] and item[1] == tmp[1]][0]
+            name = tmp[0]
+            typ = tmp[1]
+            if typ.endswith(" (gelöscht)"):
+                typ = typ[:-11]
+                deletedItem = False
+                if typ in self.datenbank.removeList and name in self.datenbank.removeList[typ]:
+                    deletedItem = self.datenbank.removeList[typ][name]
                 if not deletedItem:
                     raise Exception('State corrupted.')
 
-                if deletedItem[1] in self.databaseTypes:
-                    databaseType = self.databaseTypes[deletedItem[1]]
-                    databaseType.editFunc(deletedItem[2], True)
+                if typ in self.databaseTypes:
+                    databaseType = self.databaseTypes[typ]
+                    databaseType.editFunc(deletedItem, True)
                 continue
 
-            if tmp[1] in self.databaseTypes:
-                databaseType = self.databaseTypes[tmp[1]]
-                element = databaseType.databaseDict[tmp[0]]
-                if element is not None:
-                    ret = databaseType.editFunc(element)
-                    if ret is not None:
-                        if not element.isUserAdded:
-                            self.datenbank.removeList.append((tmp[0], tmp[1], element))
-                        databaseType.databaseDict.pop(tmp[0],None)
-                        databaseType.databaseDict.update({ret.name: ret})
-                        databaseChanged = True
+            if not typ in self.datenbank.tablesByName:
+                continue
+            table = self.datenbank.tablesByName[typ]
+            element = table[name]
+            if element is None:
+                continue
+            if not typ in self.databaseTypes:
+                continue
+            ret = self.databaseTypes[typ].editFunc(element)
+            if ret is None:
+                continue
+            if not element.isUserAdded:
+                if not typ in self.datenbank.removeList:
+                    self.datenbank.removeList[typ] = {}
+                self.datenbank.removeList[typ][name] = element
+            table.pop(name,None)
+            table.update({ret.name: ret})
+            databaseChanged = True
 
         if databaseChanged:
             self.onDatabaseChange()
 
-    def duplicate(self, list, name):
-        item = list[name]
+    def duplicate(self, table, name):
+        item = table[name]
         clone = copy(item)
         clone.isUserAdded = True
-        while clone.name in list:
+        while clone.name in table:
             clone.name = clone.name + " (Kopie)"
-        list[clone.name] = clone
+        table[clone.name] = clone
 
     def duplicateSelected(self):
         databaseChanged = False
         for itm in self.ui.listDatenbank.selectedIndexes():
             tmp = self.model.itemData(itm)[0].split(" : ")
+            name = tmp[0]
+            typ = tmp[1]
 
-            if tmp[1] in self.databaseTypes:
-                databaseType = self.databaseTypes[tmp[1]]
-                self.duplicate(databaseType.databaseDict, tmp[0])
+            if typ in self.datenbank.tablesByName:
+                table = self.datenbank.tablesByName[typ]
+                self.duplicate(table, name)
                 databaseChanged = True
 
         if databaseChanged:
@@ -435,23 +450,30 @@ class DatenbankEditor(object):
         databaseChanged = False
         for itm in self.ui.listDatenbank.selectedIndexes():
             tmp = self.model.itemData(itm)[0].split(" : ")
-            if tmp[1] in self.databaseTypes:
-                databaseType = self.databaseTypes[tmp[1]]
-                element  = databaseType.databaseDict[tmp[0]]
+            name = tmp[0]
+            typ = tmp[1]
+            if typ in self.datenbank.tablesByName:
+                table = self.datenbank.tablesByName[typ]
+                element  = table[name]
                 if not element.isUserAdded:
-                    if tmp[1] == "Einstellung":
+                    if typ == "Einstellung":
                         continue
-                    self.datenbank.removeList.append((tmp[0], tmp[1], element))
-                databaseType.databaseDict.pop(tmp[0],None)
+                    if not typ in self.datenbank.removeList:
+                        self.datenbank.removeList[typ] = {}
+                    self.datenbank.removeList[typ][name] = element
+                table.pop(name,None)
 
-                if tmp[1] == "Einstellung":
+                if typ == "Einstellung":
                     # Auto restore
-                    removed = [item for item in self.datenbank.removeList if item[0] == tmp[0] and item[1] == tmp[1]]
-                    if len(removed) > 0:
-                        databaseType.databaseDict.update({tmp[0]: removed[0][2]})
-                        self.datenbank.removeList.remove(removed[0])
+                    removed = False
+                    if typ in self.datenbank.removeList and name in self.datenbank.removeList[typ]:
+                        removed = self.datenbank.removeList[typ][name]
+
+                    if removed:
+                        table.update({name: removed})
+                        del self.datenbank.removeList[typ][name]
                     else:
-                        logging.warn("Tried to auto restore " + tmp[0] + " but didn't find it in the database.")
+                        logging.warn("Tried to auto restore " + name + " but didn't find it in the database.")
 
                 databaseChanged = True
 
@@ -549,7 +571,6 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         self.datenbank.datei = None
         self.savepath = None
         self.datenbank.xmlLaden()
-        self.initDatabaseTypes()
         self.updateGUI()
         self.updateWindowTitleAndCloseButton()
         self.changed = False

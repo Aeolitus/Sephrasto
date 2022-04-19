@@ -84,8 +84,8 @@ Zweck: Der Charakterdatei Daten hinzufügen oder Daten modifizieren, bevor Sephr
 Zweck: Daten aus der Datenbank-Datei auslesen oder modifizieren, bevor Sephrasto sie liest. Der "basisdatenbank"-Parameter enthält die Information, ob es sich um die Basisdatenbank- oder eine Hausregeldatenbank-Datei handelt.
 - "datenbank_xml_schreiben" (Filter: xmlRoot : etree.Element, Parameter: { "datenbank" : Datenbank })<br />
 Zweck: Der Datenbankdatei Daten hinzufügen oder Daten modifizieren, bevor Sephrasto die Datei schreibt.
-- "datenbank_editor_typen" (Filter: databaseTypes : array of DatenbankEdit.DatabaseType)<br />
-Zweck: Dem Datenbankeditor weitere Datentypen hinzufügen.
+- "datenbank_editor_typen" (Filter: databaseTypes : dict of DatenbankEdit.DatenbankTypWrapper)<br />
+Zweck: Dem Datenbankeditor weitere Datentypen hinzufügen. Zusätzlich muss via datenbank_geladen in datenbank.tablesByName die Datenbankelement-Tabelle eingetragenwerden.
 - "set_charakterbogen" (Filter: filePath : string)<br />
 Zweck: Den vom Nutzer gewählten Charakterbogen modifizieren, z.B. den Pfad der Datei anpassen um einen Charakterbogen aus dem Plugin zu verwenden. Achtung: Im Ordner des Charakterbogens muss sich eine gleichnamige Datei mit der Endung ".ini" befinden. Siehe Sephrasto/Data/Charakterbögen/Standard Charakterbogen.ini als Beispiel für deren Inhalt.
 - "asp_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "wert" : int })<br />
