@@ -147,6 +147,14 @@ class Ui_formMain(object):
 
         self.retranslateUi(formMain)
         QtCore.QMetaObject.connectSlotsByName(formMain)
+        formMain.setTabOrder(self.cbRegeln, self.btnWeiblich)
+        formMain.setTabOrder(self.btnWeiblich, self.btnMaennlich)
+        formMain.setTabOrder(self.btnMaennlich, self.cbSpezies)
+        formMain.setTabOrder(self.cbSpezies, self.cbKultur)
+        formMain.setTabOrder(self.cbKultur, self.cbProfessionKategorie)
+        formMain.setTabOrder(self.cbProfessionKategorie, self.cbProfession)
+        formMain.setTabOrder(self.cbProfession, self.btnCancel)
+        formMain.setTabOrder(self.btnCancel, self.btnAccept)
 
     def retranslateUi(self, formMain):
         _translate = QtCore.QCoreApplication.translate

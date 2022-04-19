@@ -399,10 +399,16 @@
   </layout>
  </widget>
  <tabstops>
+  <tabstop>nameEdit</tabstop>
   <tabstop>steigerungsfaktorEdit</tabstop>
   <tabstop>comboAttribut1</tabstop>
   <tabstop>comboAttribut2</tabstop>
   <tabstop>comboAttribut3</tabstop>
+  <tabstop>comboTyp</tabstop>
+  <tabstop>comboKampffertigkeit</tabstop>
+  <tabstop>checkGruppieren</tabstop>
+  <tabstop>voraussetzungenEdit</tabstop>
+  <tabstop>textEdit</tabstop>
  </tabstops>
  <resources/>
  <connections>

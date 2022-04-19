@@ -216,10 +216,11 @@ class Ui_formBeschreibung(object):
         self.retranslateUi(formBeschreibung)
         self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(formBeschreibung)
+        formBeschreibung.setTabOrder(self.leKultur, self.chkKultur)
+        formBeschreibung.setTabOrder(self.chkKultur, self.leProfession)
         formBeschreibung.setTabOrder(self.leProfession, self.leGeschlecht)
         formBeschreibung.setTabOrder(self.leGeschlecht, self.leGeburtsdatum)
-        formBeschreibung.setTabOrder(self.leGeburtsdatum, self.leTitel)
-        formBeschreibung.setTabOrder(self.leTitel, self.leGroesse)
+        formBeschreibung.setTabOrder(self.leGeburtsdatum, self.leGroesse)
         formBeschreibung.setTabOrder(self.leGroesse, self.leGewicht)
         formBeschreibung.setTabOrder(self.leGewicht, self.leHaarfarbe)
         formBeschreibung.setTabOrder(self.leHaarfarbe, self.leAugenfarbe)
@@ -229,7 +230,8 @@ class Ui_formBeschreibung(object):
         formBeschreibung.setTabOrder(self.leAussehen3, self.leAussehen4)
         formBeschreibung.setTabOrder(self.leAussehen4, self.leAussehen5)
         formBeschreibung.setTabOrder(self.leAussehen5, self.leAussehen6)
-        formBeschreibung.setTabOrder(self.leAussehen6, self.leHintergrund0)
+        formBeschreibung.setTabOrder(self.leAussehen6, self.leTitel)
+        formBeschreibung.setTabOrder(self.leTitel, self.leHintergrund0)
         formBeschreibung.setTabOrder(self.leHintergrund0, self.leHintergrund1)
         formBeschreibung.setTabOrder(self.leHintergrund1, self.leHintergrund2)
         formBeschreibung.setTabOrder(self.leHintergrund2, self.leHintergrund3)
@@ -238,6 +240,9 @@ class Ui_formBeschreibung(object):
         formBeschreibung.setTabOrder(self.leHintergrund5, self.leHintergrund6)
         formBeschreibung.setTabOrder(self.leHintergrund6, self.leHintergrund7)
         formBeschreibung.setTabOrder(self.leHintergrund7, self.leHintergrund8)
+        formBeschreibung.setTabOrder(self.leHintergrund8, self.buttonLoadImage)
+        formBeschreibung.setTabOrder(self.buttonLoadImage, self.buttonDeleteImage)
+        formBeschreibung.setTabOrder(self.buttonDeleteImage, self.tabWidget)
 
     def retranslateUi(self, formBeschreibung):
         _translate = QtCore.QCoreApplication.translate

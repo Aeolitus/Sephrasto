@@ -258,6 +258,28 @@ class Ui_SettingsWindow(object):
         self.buttonBox.accepted.connect(SettingsWindow.accept) # type: ignore
         self.buttonBox.rejected.connect(SettingsWindow.reject) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(SettingsWindow)
+        SettingsWindow.setTabOrder(self.scrollArea, self.checkWizard)
+        SettingsWindow.setTabOrder(self.checkWizard, self.comboRegelbasis)
+        SettingsWindow.setTabOrder(self.comboRegelbasis, self.comboBogen)
+        SettingsWindow.setTabOrder(self.comboBogen, self.checkCheatsheet)
+        SettingsWindow.setTabOrder(self.checkCheatsheet, self.comboFontSize)
+        SettingsWindow.setTabOrder(self.comboFontSize, self.editChar)
+        SettingsWindow.setTabOrder(self.editChar, self.buttonChar)
+        SettingsWindow.setTabOrder(self.buttonChar, self.resetChar)
+        SettingsWindow.setTabOrder(self.resetChar, self.editRegeln)
+        SettingsWindow.setTabOrder(self.editRegeln, self.buttonRegeln)
+        SettingsWindow.setTabOrder(self.buttonRegeln, self.resetRegeln)
+        SettingsWindow.setTabOrder(self.resetRegeln, self.editPlugins)
+        SettingsWindow.setTabOrder(self.editPlugins, self.buttonPlugins)
+        SettingsWindow.setTabOrder(self.buttonPlugins, self.resetPlugins)
+        SettingsWindow.setTabOrder(self.resetPlugins, self.comboTheme)
+        SettingsWindow.setTabOrder(self.comboTheme, self.comboFont)
+        SettingsWindow.setTabOrder(self.comboFont, self.spinAppFontSize)
+        SettingsWindow.setTabOrder(self.spinAppFontSize, self.comboFontHeading)
+        SettingsWindow.setTabOrder(self.comboFontHeading, self.spinAppFontHeadingSize)
+        SettingsWindow.setTabOrder(self.spinAppFontHeadingSize, self.checkUpdate)
+        SettingsWindow.setTabOrder(self.checkUpdate, self.checkPDFOpen)
+        SettingsWindow.setTabOrder(self.checkPDFOpen, self.comboLogging)
 
     def retranslateUi(self, SettingsWindow):
         _translate = QtCore.QCoreApplication.translate

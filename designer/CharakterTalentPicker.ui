@@ -182,6 +182,7 @@
  </widget>
  <tabstops>
   <tabstop>listTalente</tabstop>
+  <tabstop>scrollArea</tabstop>
   <tabstop>spinKosten</tabstop>
   <tabstop>textKommentar</tabstop>
   <tabstop>plainText</tabstop>

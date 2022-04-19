@@ -428,6 +428,7 @@
   <tabstop>showWaffen</tabstop>
   <tabstop>showWaffeneigenschaften</tabstop>
   <tabstop>showManoever</tabstop>
+  <tabstop>showEinstellung</tabstop>
   <tabstop>showDeleted</tabstop>
   <tabstop>showUserAdded</tabstop>
   <tabstop>buttonCloseDB</tabstop>

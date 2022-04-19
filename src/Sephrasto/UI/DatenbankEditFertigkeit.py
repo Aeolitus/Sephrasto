@@ -152,9 +152,15 @@ class Ui_talentDialog(object):
         self.buttonBox.accepted.connect(talentDialog.accept) # type: ignore
         self.buttonBox.rejected.connect(talentDialog.reject) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(talentDialog)
+        talentDialog.setTabOrder(self.nameEdit, self.steigerungsfaktorEdit)
         talentDialog.setTabOrder(self.steigerungsfaktorEdit, self.comboAttribut1)
         talentDialog.setTabOrder(self.comboAttribut1, self.comboAttribut2)
         talentDialog.setTabOrder(self.comboAttribut2, self.comboAttribut3)
+        talentDialog.setTabOrder(self.comboAttribut3, self.comboTyp)
+        talentDialog.setTabOrder(self.comboTyp, self.comboKampffertigkeit)
+        talentDialog.setTabOrder(self.comboKampffertigkeit, self.checkGruppieren)
+        talentDialog.setTabOrder(self.checkGruppieren, self.voraussetzungenEdit)
+        talentDialog.setTabOrder(self.voraussetzungenEdit, self.textEdit)
 
     def retranslateUi(self, talentDialog):
         _translate = QtCore.QCoreApplication.translate

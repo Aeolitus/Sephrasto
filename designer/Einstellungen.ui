@@ -698,6 +698,31 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>scrollArea</tabstop>
+  <tabstop>checkWizard</tabstop>
+  <tabstop>comboRegelbasis</tabstop>
+  <tabstop>comboBogen</tabstop>
+  <tabstop>checkCheatsheet</tabstop>
+  <tabstop>comboFontSize</tabstop>
+  <tabstop>editChar</tabstop>
+  <tabstop>buttonChar</tabstop>
+  <tabstop>resetChar</tabstop>
+  <tabstop>editRegeln</tabstop>
+  <tabstop>buttonRegeln</tabstop>
+  <tabstop>resetRegeln</tabstop>
+  <tabstop>editPlugins</tabstop>
+  <tabstop>buttonPlugins</tabstop>
+  <tabstop>resetPlugins</tabstop>
+  <tabstop>comboTheme</tabstop>
+  <tabstop>comboFont</tabstop>
+  <tabstop>spinAppFontSize</tabstop>
+  <tabstop>comboFontHeading</tabstop>
+  <tabstop>spinAppFontHeadingSize</tabstop>
+  <tabstop>checkUpdate</tabstop>
+  <tabstop>checkPDFOpen</tabstop>
+  <tabstop>comboLogging</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

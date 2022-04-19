@@ -394,10 +394,11 @@
   </layout>
  </widget>
  <tabstops>
+  <tabstop>leKultur</tabstop>
+  <tabstop>chkKultur</tabstop>
   <tabstop>leProfession</tabstop>
   <tabstop>leGeschlecht</tabstop>
   <tabstop>leGeburtsdatum</tabstop>
-  <tabstop>leTitel</tabstop>
   <tabstop>leGroesse</tabstop>
   <tabstop>leGewicht</tabstop>
   <tabstop>leHaarfarbe</tabstop>
@@ -408,6 +409,7 @@
   <tabstop>leAussehen4</tabstop>
   <tabstop>leAussehen5</tabstop>
   <tabstop>leAussehen6</tabstop>
+  <tabstop>leTitel</tabstop>
   <tabstop>leHintergrund0</tabstop>
   <tabstop>leHintergrund1</tabstop>
   <tabstop>leHintergrund2</tabstop>
@@ -417,6 +419,9 @@
   <tabstop>leHintergrund6</tabstop>
   <tabstop>leHintergrund7</tabstop>
   <tabstop>leHintergrund8</tabstop>
+  <tabstop>buttonLoadImage</tabstop>
+  <tabstop>buttonDeleteImage</tabstop>
+  <tabstop>tabWidget</tabstop>
  </tabstops>
  <resources/>
  <connections/>

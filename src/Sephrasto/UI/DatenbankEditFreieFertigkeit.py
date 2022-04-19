@@ -57,7 +57,8 @@ class Ui_ffDialog(object):
         self.buttonBox.accepted.connect(ffDialog.accept) # type: ignore
         self.buttonBox.rejected.connect(ffDialog.reject) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(ffDialog)
-        ffDialog.setTabOrder(self.leName, self.teVoraussetzungen)
+        ffDialog.setTabOrder(self.leName, self.comboTyp)
+        ffDialog.setTabOrder(self.comboTyp, self.teVoraussetzungen)
 
     def retranslateUi(self, ffDialog):
         _translate = QtCore.QCoreApplication.translate

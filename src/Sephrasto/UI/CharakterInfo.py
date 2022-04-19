@@ -336,6 +336,13 @@ class Ui_Form(object):
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
+        Form.setTabOrder(self.teNotiz, self.checkReq)
+        Form.setTabOrder(self.checkReq, self.checkFinanzen)
+        Form.setTabOrder(self.checkFinanzen, self.checkUeberPDF)
+        Form.setTabOrder(self.checkUeberPDF, self.comboHausregeln)
+        Form.setTabOrder(self.comboHausregeln, self.comboCharsheet)
+        Form.setTabOrder(self.comboCharsheet, self.checkRegeln)
+        Form.setTabOrder(self.checkRegeln, self.comboRegelnGroesse)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate

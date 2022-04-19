@@ -158,13 +158,13 @@ class Ui_formBeschreibung(object):
         formBeschreibung.setTabOrder(self.comboFinanzen, self.comboHeimat)
         formBeschreibung.setTabOrder(self.comboHeimat, self.editKurzbeschreibung)
         formBeschreibung.setTabOrder(self.editKurzbeschreibung, self.editEig1)
-        formBeschreibung.setTabOrder(self.editEig1, self.editEig2)
-        formBeschreibung.setTabOrder(self.editEig2, self.editEig3)
-        formBeschreibung.setTabOrder(self.editEig3, self.editEig4)
-        formBeschreibung.setTabOrder(self.editEig4, self.editEig5)
-        formBeschreibung.setTabOrder(self.editEig5, self.editEig6)
-        formBeschreibung.setTabOrder(self.editEig6, self.editEig7)
-        formBeschreibung.setTabOrder(self.editEig7, self.editEig8)
+        formBeschreibung.setTabOrder(self.editEig1, self.editEig3)
+        formBeschreibung.setTabOrder(self.editEig3, self.editEig5)
+        formBeschreibung.setTabOrder(self.editEig5, self.editEig7)
+        formBeschreibung.setTabOrder(self.editEig7, self.editEig2)
+        formBeschreibung.setTabOrder(self.editEig2, self.editEig4)
+        formBeschreibung.setTabOrder(self.editEig4, self.editEig6)
+        formBeschreibung.setTabOrder(self.editEig6, self.editEig8)
 
     def retranslateUi(self, formBeschreibung):
         _translate = QtCore.QCoreApplication.translate

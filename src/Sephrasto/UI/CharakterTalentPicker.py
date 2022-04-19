@@ -97,7 +97,8 @@ class Ui_Dialog(object):
         self.buttonBox.accepted.connect(Dialog.accept) # type: ignore
         self.buttonBox.rejected.connect(Dialog.reject) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(Dialog)
-        Dialog.setTabOrder(self.listTalente, self.spinKosten)
+        Dialog.setTabOrder(self.listTalente, self.scrollArea)
+        Dialog.setTabOrder(self.scrollArea, self.spinKosten)
         Dialog.setTabOrder(self.spinKosten, self.textKommentar)
         Dialog.setTabOrder(self.textKommentar, self.plainText)
 

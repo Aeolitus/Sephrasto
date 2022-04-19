@@ -40,6 +40,9 @@ class Ui_formHilfe(object):
 
         self.retranslateUi(formHilfe)
         QtCore.QMetaObject.connectSlotsByName(formHilfe)
+        formHilfe.setTabOrder(self.buttonBackward, self.buttonForward)
+        formHilfe.setTabOrder(self.buttonForward, self.buttonHome)
+        formHilfe.setTabOrder(self.buttonHome, self.teHelp)
 
     def retranslateUi(self, formHilfe):
         _translate = QtCore.QCoreApplication.translate

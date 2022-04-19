@@ -368,12 +368,12 @@
   <tabstop>comboHeimat</tabstop>
   <tabstop>editKurzbeschreibung</tabstop>
   <tabstop>editEig1</tabstop>
-  <tabstop>editEig2</tabstop>
   <tabstop>editEig3</tabstop>
-  <tabstop>editEig4</tabstop>
   <tabstop>editEig5</tabstop>
-  <tabstop>editEig6</tabstop>
   <tabstop>editEig7</tabstop>
+  <tabstop>editEig2</tabstop>
+  <tabstop>editEig4</tabstop>
+  <tabstop>editEig6</tabstop>
   <tabstop>editEig8</tabstop>
  </tabstops>
  <resources/>

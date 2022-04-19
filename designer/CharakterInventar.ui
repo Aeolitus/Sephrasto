@@ -1021,6 +1021,62 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>editR1name</tabstop>
+  <tabstop>spinR1be</tabstop>
+  <tabstop>spinR1RS</tabstop>
+  <tabstop>spinR1bein</tabstop>
+  <tabstop>spinR1larm</tabstop>
+  <tabstop>spinR1rarm</tabstop>
+  <tabstop>spinR1bauch</tabstop>
+  <tabstop>spinR1brust</tabstop>
+  <tabstop>spinR1kopf</tabstop>
+  <tabstop>spinR1punkte</tabstop>
+  <tabstop>addR1</tabstop>
+  <tabstop>editR2name</tabstop>
+  <tabstop>spinR2be</tabstop>
+  <tabstop>spinR2RS</tabstop>
+  <tabstop>spinR2bein</tabstop>
+  <tabstop>spinR2larm</tabstop>
+  <tabstop>spinR2rarm</tabstop>
+  <tabstop>spinR2bauch</tabstop>
+  <tabstop>spinR2brust</tabstop>
+  <tabstop>spinR2kopf</tabstop>
+  <tabstop>spinR2punkte</tabstop>
+  <tabstop>addR2</tabstop>
+  <tabstop>editR3name</tabstop>
+  <tabstop>spinR3be</tabstop>
+  <tabstop>spinR3RS</tabstop>
+  <tabstop>spinR3bein</tabstop>
+  <tabstop>spinR3larm</tabstop>
+  <tabstop>spinR3rarm</tabstop>
+  <tabstop>spinR3bauch</tabstop>
+  <tabstop>spinR3brust</tabstop>
+  <tabstop>spinR3kopf</tabstop>
+  <tabstop>spinR3punkte</tabstop>
+  <tabstop>addR3</tabstop>
+  <tabstop>checkZonen</tabstop>
+  <tabstop>lineEdit_1</tabstop>
+  <tabstop>lineEdit_3</tabstop>
+  <tabstop>lineEdit_5</tabstop>
+  <tabstop>lineEdit_7</tabstop>
+  <tabstop>lineEdit_9</tabstop>
+  <tabstop>lineEdit_11</tabstop>
+  <tabstop>lineEdit_13</tabstop>
+  <tabstop>lineEdit_15</tabstop>
+  <tabstop>lineEdit_17</tabstop>
+  <tabstop>lineEdit_19</tabstop>
+  <tabstop>lineEdit_2</tabstop>
+  <tabstop>lineEdit_4</tabstop>
+  <tabstop>lineEdit_6</tabstop>
+  <tabstop>lineEdit_8</tabstop>
+  <tabstop>lineEdit_10</tabstop>
+  <tabstop>lineEdit_12</tabstop>
+  <tabstop>lineEdit_14</tabstop>
+  <tabstop>lineEdit_16</tabstop>
+  <tabstop>lineEdit_18</tabstop>
+  <tabstop>lineEdit_20</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

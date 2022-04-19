@@ -866,6 +866,16 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>teNotiz</tabstop>
+  <tabstop>checkReq</tabstop>
+  <tabstop>checkFinanzen</tabstop>
+  <tabstop>checkUeberPDF</tabstop>
+  <tabstop>comboHausregeln</tabstop>
+  <tabstop>comboCharsheet</tabstop>
+  <tabstop>checkRegeln</tabstop>
+  <tabstop>comboRegelnGroesse</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

@@ -67,6 +67,12 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>buttonBackward</tabstop>
+  <tabstop>buttonForward</tabstop>
+  <tabstop>buttonHome</tabstop>
+  <tabstop>teHelp</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

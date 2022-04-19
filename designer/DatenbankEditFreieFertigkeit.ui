@@ -90,6 +90,7 @@
  </widget>
  <tabstops>
   <tabstop>leName</tabstop>
+  <tabstop>comboTyp</tabstop>
   <tabstop>teVoraussetzungen</tabstop>
  </tabstops>
  <resources/>

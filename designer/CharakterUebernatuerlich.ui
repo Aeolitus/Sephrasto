@@ -120,7 +120,7 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>431</width>
+         <width>429</width>
          <height>418</height>
         </rect>
        </property>
@@ -390,8 +390,11 @@
   <tabstop>tableWidget</tabstop>
   <tabstop>scrollArea</tabstop>
   <tabstop>spinFW</tabstop>
+  <tabstop>spinSF</tabstop>
   <tabstop>spinPW</tabstop>
+  <tabstop>spinBasis</tabstop>
   <tabstop>buttonAdd</tabstop>
+  <tabstop>listTalente</tabstop>
   <tabstop>plainText</tabstop>
  </tabstops>
  <resources/>

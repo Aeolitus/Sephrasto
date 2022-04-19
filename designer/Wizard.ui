@@ -322,6 +322,17 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>cbRegeln</tabstop>
+  <tabstop>btnWeiblich</tabstop>
+  <tabstop>btnMaennlich</tabstop>
+  <tabstop>cbSpezies</tabstop>
+  <tabstop>cbKultur</tabstop>
+  <tabstop>cbProfessionKategorie</tabstop>
+  <tabstop>cbProfession</tabstop>
+  <tabstop>btnCancel</tabstop>
+  <tabstop>btnAccept</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
