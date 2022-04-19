@@ -63,7 +63,7 @@
     <Compile Include="CharakterVorteileWrapper.py" />
     <Compile Include="UI\CharakterWaffenPicker.py" />
     <Compile Include="Datenbank.py" />
-    <Compile Include="DatenbankEdit.py" />
+    <Compile Include="DatenbankEditor.py" />
     <Compile Include="UI\ChoicePopup.py" />
     <Compile Include="UI\DatenbankEditEinstellung.py" />
     <Compile Include="DatenbankEditEinstellungWrapper.py" />

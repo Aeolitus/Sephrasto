@@ -36,7 +36,7 @@ class DatabaseType(object):
         self.editFunc = editFunc
         self.showCheckbox = showCheckbox
 
-class DatenbankEdit(object):
+class DatenbankEditor(object):
     def __init__(self, plugins):
         super().__init__()
         self.plugins = plugins
@@ -585,7 +585,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         self.changed = False
         
 if __name__ == "__main__":
-    D = DatenbankEdit()
+    D = DatenbankEditor()
     app = QtCore.QCoreApplication.instance()
     if app is None:
         app = QtWidgets.QApplication(sys.argv)

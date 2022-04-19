@@ -12,7 +12,7 @@ import os
 import os.path
 import UI.MainWindow
 import CharakterEditor
-import DatenbankEdit
+import DatenbankEditor
 import UI.CharakterMain
 import UI.DatenbankMain
 from Wolke import Wolke
@@ -199,7 +199,7 @@ class MainWindowWrapper(object):
         '''
         Creates the DatenbankEdit Form and shows the contents of datenbank.xml.
         '''
-        self.D = DatenbankEdit.DatenbankEdit(self._plugins)
+        self.D = DatenbankEditor.DatenbankEditor(self._plugins)
         self.D.form = QtWidgets.QWidget()
         self.D.ui = UI.DatenbankMain.Ui_Form()
         self.D.ui.setupUi(self.D.form)
