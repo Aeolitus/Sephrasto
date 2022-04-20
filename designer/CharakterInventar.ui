@@ -907,7 +907,7 @@
      <property name="flat">
       <bool>false</bool>
      </property>
-     <layout class="QGridLayout" name="gridLayout_2" rowstretch="0,0,0,0,0,0,0,0,0,0,0,0,0">
+     <layout class="QGridLayout" name="gridLayout_2" rowstretch="0,0,0,0,0,0,0,0,0,0">
       <property name="sizeConstraint">
        <enum>QLayout::SetDefaultConstraint</enum>
       </property>
@@ -923,16 +923,43 @@
       <property name="bottomMargin">
        <number>20</number>
       </property>
-      <item row="6" column="2">
-       <widget class="QLineEdit" name="lineEdit_10"/>
+      <item row="5" column="0">
+       <widget class="QLineEdit" name="lineEdit_11"/>
       </item>
-      <item row="1" column="2">
+      <item row="9" column="0">
+       <widget class="QLineEdit" name="lineEdit_19"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLineEdit" name="lineEdit_3"/>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLineEdit" name="lineEdit_17"/>
+      </item>
+      <item row="8" column="1">
+       <widget class="QLineEdit" name="lineEdit_18"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLineEdit" name="lineEdit_7"/>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="lineEdit_12"/>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLineEdit" name="lineEdit_15"/>
+      </item>
+      <item row="1" column="1">
        <widget class="QLineEdit" name="lineEdit_4"/>
       </item>
-      <item row="10" column="2">
-       <widget class="QLineEdit" name="lineEdit_16"/>
+      <item row="6" column="1">
+       <widget class="QLineEdit" name="lineEdit_14"/>
       </item>
-      <item row="0" column="2">
+      <item row="4" column="1">
+       <widget class="QLineEdit" name="lineEdit_10"/>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="lineEdit_8"/>
+      </item>
+      <item row="0" column="1">
        <widget class="QLineEdit" name="lineEdit_2">
         <property name="minimumSize">
          <size>
@@ -942,38 +969,23 @@
         </property>
        </widget>
       </item>
-      <item row="12" column="0">
-       <widget class="QLineEdit" name="lineEdit_19"/>
-      </item>
-      <item row="10" column="0">
-       <widget class="QLineEdit" name="lineEdit_15"/>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLineEdit" name="lineEdit_5"/>
-      </item>
-      <item row="12" column="2">
+      <item row="9" column="1">
        <widget class="QLineEdit" name="lineEdit_20"/>
       </item>
-      <item row="3" column="2">
+      <item row="2" column="0">
+       <widget class="QLineEdit" name="lineEdit_5"/>
+      </item>
+      <item row="7" column="1">
+       <widget class="QLineEdit" name="lineEdit_16"/>
+      </item>
+      <item row="2" column="1">
        <widget class="QLineEdit" name="lineEdit_6"/>
       </item>
-      <item row="5" column="2">
-       <widget class="QLineEdit" name="lineEdit_8"/>
-      </item>
-      <item row="8" column="0">
-       <widget class="QLineEdit" name="lineEdit_13"/>
-      </item>
-      <item row="5" column="0">
-       <widget class="QLineEdit" name="lineEdit_7"/>
-      </item>
-      <item row="6" column="0">
+      <item row="4" column="0">
        <widget class="QLineEdit" name="lineEdit_9"/>
       </item>
-      <item row="11" column="0">
-       <widget class="QLineEdit" name="lineEdit_17"/>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLineEdit" name="lineEdit_3"/>
+      <item row="6" column="0">
+       <widget class="QLineEdit" name="lineEdit_13"/>
       </item>
       <item row="0" column="0">
        <widget class="QLineEdit" name="lineEdit_1">
@@ -990,18 +1002,6 @@
          <string/>
         </property>
        </widget>
-      </item>
-      <item row="8" column="2">
-       <widget class="QLineEdit" name="lineEdit_14"/>
-      </item>
-      <item row="7" column="0">
-       <widget class="QLineEdit" name="lineEdit_11"/>
-      </item>
-      <item row="11" column="2">
-       <widget class="QLineEdit" name="lineEdit_18"/>
-      </item>
-      <item row="7" column="2">
-       <widget class="QLineEdit" name="lineEdit_12"/>
       </item>
      </layout>
     </widget>
