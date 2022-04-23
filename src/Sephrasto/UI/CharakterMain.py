@@ -138,7 +138,7 @@ class Ui_formMain(object):
         self.label_2.setText(_translate("formMain", "    Verbleibend:    "))
         self.spinRemaining.setSuffix(_translate("formMain", " EP"))
         self.buttonQuicksave.setText(_translate("formMain", "Speichern"))
-        self.buttonSave.setText(_translate("formMain", "Speichern als..."))
+        self.buttonSave.setText(_translate("formMain", "Speichern unter..."))
         self.buttonSavePDF.setText(_translate("formMain", "PDF erstellen"))
 
 

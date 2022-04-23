@@ -207,7 +207,7 @@ class Ui_Form(object):
         self.showUserAdded.setText(_translate("Form", "Nur eigene Änderungen"))
         self.buttonCloseDB.setText(_translate("Form", "Hausregeln schließen"))
         self.buttonLoadDB.setText(_translate("Form", "Hausregeln laden"))
-        self.buttonSaveDB.setText(_translate("Form", "Speichern als..."))
+        self.buttonSaveDB.setText(_translate("Form", "Speichern unter..."))
         self.buttonQuicksave.setText(_translate("Form", "Speichern"))
         self.buttonHinzufuegen.setToolTip(_translate("Form", "Hinzufügen"))
         self.buttonHinzufuegen.setText(_translate("Form", "Hinzufügen"))
