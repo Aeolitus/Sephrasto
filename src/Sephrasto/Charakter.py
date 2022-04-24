@@ -305,9 +305,9 @@ class Char():
             'modifyBEMod' : lambda beMod: setattr(self, 'rüstungsgewöhnung', self.rüstungsgewöhnung + beMod),
 
             #Kampfstil
-             'getKampfstil' : lambda kampfstil: copy.copy(self.kampfstilMods[kampfstil]),
-             'setKampfstil' : self.API_setKampfstil,
-             'modifyKampfstil' : self.API_modifyKampfstil,
+            'getKampfstil' : lambda kampfstil: copy.copy(self.kampfstilMods[kampfstil]),
+            'setKampfstil' : self.API_setKampfstil,
+            'modifyKampfstil' : self.API_modifyKampfstil,
 
             #Attribute
             'getAttribut' : lambda attribut: self.attribute[attribut].wert,
@@ -338,9 +338,18 @@ class Char():
             'getWaffenWerte' : lambda: copy.deepcopy(self.currentWaffenwerte),
         }
 
+
+        filter = ['setSchadensbonus', 'modifySchadensbonus',
+                  'setBEMod', 'modifyBEMod', 'modifyFertigkeitBasiswert',
+                  'setKampfstil', 'modifyKampfstil',
+                  'addWaffeneigenschaft', 'removeWaffeneigenschaft']
         for k,v in self.charakterScriptAPI.items():
             if k in self.waffenScriptAPI:
                 assert False, "Duplicate entry"
+
+            if k in filter:
+                continue
+
             self.waffenScriptAPI[k] = v
 
         EventBus.doAction("charakter_instanziiert", { "charakter" : self })
@@ -462,6 +471,8 @@ class Char():
         for key in Definitionen.Attribute:
             self.attribute[key].aktualisieren()
 
+        self.updateVorts()
+
         scriptAPI = { 'getAttribut' : lambda attribut: self.attribute[attribut].wert }
         self.aspBasis = eval(Wolke.DB.einstellungen["Basis AsP Script"].toText(), scriptAPI)
         self.aspMod = 0
@@ -533,9 +544,15 @@ class Char():
                 logging.info("Character: applying script for Vorteil " + vort.name)
                 exec(vort.script, self.charakterScriptAPI)
 
-        #Update these values afterwards because values they depend on might be modified by Vorteil scripts
+        # Update BE, Fertigkeiten and Waffenwerte afterwards because they might be modified by Vorteil scripts
+        # BE needs to be updated before updateWaffenwerte because it depends on it
         self.be = max(0,self.be-self.rüstungsgewöhnung)
 
+        self.updateFertigkeiten(self.fertigkeiten, Wolke.DB.fertigkeiten)
+        self.updateFertigkeiten(self.übernatürlicheFertigkeiten, Wolke.DB.übernatürlicheFertigkeiten)
+        self.updateWaffenwerte() # also executes waffeneigenschaft scripts
+
+        # Update these values at the end because they might be modified by Vorteil or Waffeneigenschaft scripts
         self.wsStern = self.rsmod + self.ws
         if len(self.rüstung) > 0:
             self.wsStern += self.rüstung[0].getRSGesamtInt()
@@ -548,11 +565,6 @@ class Char():
             self.schips += self.finanzen - 2
         else:
             self.schips -= (2-self.finanzen)*2
-
-        self.updateVorts()
-        self.updateFertigkeiten(self.fertigkeiten, Wolke.DB.fertigkeiten)
-        self.updateFertigkeiten(self.übernatürlicheFertigkeiten, Wolke.DB.übernatürlicheFertigkeiten)
-        self.updateWaffenwerte()
 
         EventBus.doAction("post_charakter_aktualisieren", { "charakter" : self })
         self.epZaehlen()

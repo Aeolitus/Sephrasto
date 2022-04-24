@@ -55,8 +55,8 @@ Beispiel: addWaffeneigenschaft('Unbewaffnet', 'Kopflastig')
 Beispiel: removeWaffeneigenschaft('Unbewaffnet', 'Zerbrechlich')
 <br />
 ### Waffeneigenschaften (WE)
-Diese Funktionen stehen nur innerhalb von Waffeneigenschaft-Scripts zur Verfügung.
-
+Waffeneigenschaft-Scripts haben keinen Zugriff auf: setSchadensbonus, modifySchadensbonus, setBEMod, modifyBEMod, modifyFertigkeitBasiswert, setKampfstil, modifyKampfstil, addWaffeneigenschaft, removeWaffeneigenschaft.
+Die folgenden Funktionen stehen ausschließlich innerhalb von Waffeneigenschaft-Scripts zur Verfügung:
 - Parameter dieser WE als string erhalten: ```getEigenschaftParam <Parameter: Parameternummer>```<br />
 Parameter müssen mit Semikolon getrennt werden.  
 - Waffen mit dieser WE modifizieren: ```modifyWaffeAT, modifyWaffeVT, modifyWaffeTPW6, modifyWaffeTPPlus, modifyWaffeHaerte, modifyWaffeRW, setWaffeAT, setWaffeVT, setWaffeTPW6, setWaffeTPPlus, setWaffeHaerte, setWaffeRW```
