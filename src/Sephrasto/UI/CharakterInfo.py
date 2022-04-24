@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(974, 659)
+        Form.resize(974, 680)
         self.gridLayout = QtWidgets.QGridLayout(Form)
         self.gridLayout.setContentsMargins(20, 20, 20, 20)
         self.gridLayout.setHorizontalSpacing(20)
@@ -348,9 +348,11 @@ class Ui_Form(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.labelEinstellungen.setText(_translate("Form", "Charakter-Einstellungen"))
-        self.checkFinanzen.setText(_translate("Form", "Finanzen anzeigen"))
+        self.checkFinanzen.setToolTip(_translate("Form", "<html><head/><body><p>Die Finanzen spielen nur bei einem neuen Charakter eine Rolle und können nach dem ersten Abenteuer ausgeblendet werden. Auch die aktuellen Schicksalspunkte werden dann nicht mehr ausgegeben, da diese ab dem ersten Abenteuer händisch verwaltet werden.</p></body></html>"))
+        self.checkFinanzen.setText(_translate("Form", "Finanzen anzeigen und aktuelle Schicksalspunkte ausgeben"))
         self.label_7.setText(_translate("Form", "Regeln Schriftgröße:"))
         self.labelReload.setText(_translate("Form", "Der Charakter muss gespeichert und neu geladen werden, damit alle Änderungen übernommen werden können!"))
+        self.checkUeberPDF.setToolTip(_translate("Form", "<html><head/><body><p>Sephrasto übernimmt automatisch alle übernatürlichen Fertigkeiten in den Charakterbogen, deren FW mindestens 1 beträgt und für welche du mindestens ein Talent aktiviert hast. Wenn du diese Option aktivierst, zeigt Sephrasto eine PDF-Spalte bei den übernatürlichen Fertigkeiten an. Mit dieser kannst du selbst entscheiden, welche Fertigkeiten in den Charakterbogen übernommen werden sollen.</p></body></html>"))
         self.checkUeberPDF.setText(_translate("Form", "PDF-Ausgabe von übernatürlichen Fertigkeiten manuell auswählen"))
         self.label_5.setText(_translate("Form", "Hausregeln:"))
         self.comboRegelnGroesse.setItemText(0, _translate("Form", "Klein"))

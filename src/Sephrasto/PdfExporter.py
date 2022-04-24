@@ -150,7 +150,8 @@ class PdfExporter(object):
         fields['Finanzen'] = Definitionen.Finanzen[Wolke.Char.finanzen]
         fields['Kurzb'] = Wolke.Char.kurzbeschreibung
         fields['Schip'] = Wolke.Char.schipsMax
-        fields['Schipm'] = Wolke.Char.schips
+        if Wolke.Char.finanzenAnzeigen:
+            fields['Schipm'] = Wolke.Char.schips
         # Erste Acht Eigenheiten
         for i in range(0, min(8, len(Wolke.Char.eigenheiten))):
             fields['Eigen' + str(i+1)] = Wolke.Char.eigenheiten[i]

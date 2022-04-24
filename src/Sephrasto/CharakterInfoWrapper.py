@@ -49,13 +49,8 @@ class InfoWrapper(QtCore.QObject):
         self.ui.labelReload.setVisible(False)
 
         self.ui.comboHausregeln.addItems(EinstellungenWrapper.getDatenbanken(Wolke.Settings["Pfad-Regeln"]))
-        self.ui.checkFinanzen.setToolTip("Die Finanzen spielen nur bei einem neuen Charakter eine Rolle und können nach dem ersten Abenteuer ausgeblendet werden.")
         self.ui.checkFinanzen.stateChanged.connect(self.einstellungenChanged)
         self.ui.checkUeberPDF.stateChanged.connect(self.einstellungenChanged)
-        self.ui.checkUeberPDF.setToolTip("Sephrasto übernimmt automatisch alle übernatürlichen Fertigkeiten in den Charakterbogen, deren FW mindestens 1 beträgt \n"\
-        "und für welche du mindestens ein Talent aktiviert hast.\n"\
-        "Wenn du diese Option aktivierst, zeigt Sephrasto eine PDF-Spalte bei den übernatürlichen Fertigkeiten an.\n"\
-        "Mit dieser kannst du selbst entscheiden, welche Fertigkeiten in den Charakterbogen übernommen werden sollen.")
         self.ui.checkRegeln.stateChanged.connect(self.einstellungenChanged)
         self.ui.comboHausregeln.currentIndexChanged.connect(self.einstellungenChanged)
 

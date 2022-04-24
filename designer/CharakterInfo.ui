@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>974</width>
-    <height>659</height>
+    <height>680</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -70,8 +70,11 @@
         </item>
         <item row="2" column="0" colspan="2">
          <widget class="QCheckBox" name="checkFinanzen">
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Die Finanzen spielen nur bei einem neuen Charakter eine Rolle und können nach dem ersten Abenteuer ausgeblendet werden. Auch die aktuellen Schicksalspunkte werden dann nicht mehr ausgegeben, da diese ab dem ersten Abenteuer händisch verwaltet werden.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
           <property name="text">
-           <string>Finanzen anzeigen</string>
+           <string>Finanzen anzeigen und aktuelle Schicksalspunkte ausgeben</string>
           </property>
           <property name="checked">
            <bool>true</bool>
@@ -103,6 +106,9 @@
         </item>
         <item row="3" column="0" colspan="2">
          <widget class="QCheckBox" name="checkUeberPDF">
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sephrasto übernimmt automatisch alle übernatürlichen Fertigkeiten in den Charakterbogen, deren FW mindestens 1 beträgt und für welche du mindestens ein Talent aktiviert hast. Wenn du diese Option aktivierst, zeigt Sephrasto eine PDF-Spalte bei den übernatürlichen Fertigkeiten an. Mit dieser kannst du selbst entscheiden, welche Fertigkeiten in den Charakterbogen übernommen werden sollen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
           <property name="text">
            <string>PDF-Ausgabe von übernatürlichen Fertigkeiten manuell auswählen</string>
           </property>
