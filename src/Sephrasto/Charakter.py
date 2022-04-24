@@ -529,6 +529,8 @@ class Char():
             self.übernatürlicheFertigkeiten[fert].basiswertMod = 0
             self.übernatürlicheFertigkeiten[fert].talentMods = {}
 
+        EventBus.doAction("charakter_aktualisieren_vorteilscripts", { "charakter" : self })
+
         #Execute Vorteil scripts to modify character stats
         vorteileByPrio = collections.defaultdict(list)
         for vortName in self.vorteile:
@@ -545,11 +547,12 @@ class Char():
                 exec(vort.script, self.charakterScriptAPI)
 
         # Update BE, Fertigkeiten and Waffenwerte afterwards because they might be modified by Vorteil scripts
-        # BE needs to be updated before updateWaffenwerte because it depends on it
-        self.be = max(0,self.be-self.rüstungsgewöhnung)
-
+        EventBus.doAction("charakter_aktualisieren_fertigkeiten", { "charakter" : self })
         self.updateFertigkeiten(self.fertigkeiten, Wolke.DB.fertigkeiten)
         self.updateFertigkeiten(self.übernatürlicheFertigkeiten, Wolke.DB.übernatürlicheFertigkeiten)
+
+        EventBus.doAction("charakter_aktualisieren_waffeneigenschaftscripts", { "charakter" : self })
+        self.be = max(0,self.be-self.rüstungsgewöhnung) # BE needs to be updated before updateWaffenwerte because it depends on it
         self.updateWaffenwerte() # also executes waffeneigenschaft scripts
 
         # Update these values at the end because they might be modified by Vorteil or Waffeneigenschaft scripts
@@ -568,6 +571,7 @@ class Char():
 
         EventBus.doAction("post_charakter_aktualisieren", { "charakter" : self })
         self.epZaehlen()
+
 
     def updateWaffenwerte(self):
         self.waffenwerte = []
