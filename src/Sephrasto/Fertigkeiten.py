@@ -80,12 +80,12 @@ class Fertigkeit(Steigerbar):
     def __init__(self):
         super().__init__()
         self.gekaufteTalente = []
-        self.talentMods = {} #for vorteil scripts, { talentnname1 : { condition1 : mod1, condition2 : mod2, ... }, talentname2 : {}, ... }
+        self.talentMods = {} # for vorteil scripts, only used in export { talentnname1 : { condition1 : mod1, condition2 : mod2, ... }, talentname2 : {}, ... }
         self.kampffertigkeit = KampffertigkeitTyp.Keine
         self.attribute = ['KO','KO','KO']
         self.attributswerte = [-1,-1,-1]
         self.basiswert = -1
-        self.basiswertMod = 0 #for vorteil scripts
+        self.basiswertMod = 0 # for vorteil scripts, only used in export
         self.probenwert = -1
         self.probenwertTalent = -1
         self.voraussetzungen = []
@@ -101,7 +101,7 @@ class Fertigkeit(Steigerbar):
                                attribute[self.attribute[2]].wert]
         self.maxWert = max(self.attributswerte)+2
         # Python Round does mess up sometimes
-        self.basiswert = round(sum(self.attributswerte)/3+0.0001) + self.basiswertMod
+        self.basiswert = round(sum(self.attributswerte)/3+0.0001)
         self.probenwert = self.basiswert + round(self.wert/2+0.0001)
         self.probenwertTalent = self.basiswert + self.wert
 

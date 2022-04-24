@@ -118,7 +118,7 @@ class CharakterPrintUtility:
                 if not el in char.übernatürlicheFertigkeiten:
                     continue
                 fert = char.übernatürlicheFertigkeiten[el]
-                tt.pw = max(tt.pw, fert.probenwertTalent)
+                tt.pw = max(tt.pw, fert.probenwertTalent + fert.basiswertMod)
 
                 if tt.groupFert is None:
                     tt.groupFert = fert

@@ -319,12 +319,12 @@ class PdfExporter(object):
             if fertigkeit.basiswertMod == 0:
                 fields[base + "BA"] = fertigkeit.basiswert
             else:
-                fields[base + "BA"] = str(fertigkeit.basiswert) + "*"
+                fields[base + "BA"] = str(fertigkeit.basiswert + fertigkeit.basiswertMod) + "*"
 
             fields[base + "FW"] = fertigkeit.wert
             fields[base + "TA"] = ", ".join([t.anzeigeName for t in CharakterPrintUtility.getTalente(Wolke.Char, fertigkeit)])
-            fields[base + "PW"] = fertigkeit.probenwert
-            fields[base + "PWT"] = fertigkeit.probenwertTalent
+            fields[base + "PW"] = fertigkeit.probenwert + fertigkeit.basiswertMod
+            fields[base + "PWT"] = fertigkeit.probenwertTalent + fertigkeit.basiswertMod
             count += 1
         fertigkeitenNames.clear()
 
@@ -461,12 +461,12 @@ class PdfExporter(object):
             fields[base + 'AT'] = fe.attribute[0] + '/' + \
                 fe.attribute[1] + '/' + fe.attribute[2]
             fields[base + 'FW'] = fe.wert
-            fields[base + 'PW'] = fe.probenwertTalent
+            fields[base + 'PW'] = fe.probenwertTalent + fe.basiswertMod
 
             if fe.basiswertMod == 0:
                 fields[base + 'BA'] = fe.basiswert
             else:
-                fields[base + 'BA'] = str(fe.basiswert) + "*"
+                fields[base + 'BA'] = str(fe.basiswert + fe.basiswertMod) + "*"
 
         del überFertigkeiten[:min(self.CharakterBogen.maxÜberFertigkeiten, len(überFertigkeiten))]
 
