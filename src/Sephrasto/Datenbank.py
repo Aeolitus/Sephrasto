@@ -14,8 +14,7 @@ class DatabaseException(Exception):
     pass
 
 class Datenbank():
-    def __init__(self, hausregeln = None):
-        self.initializeTables()        
+    def __init__(self, hausregeln = None):    
         self.datei = None
         
         if hausregeln is not None:
@@ -29,6 +28,7 @@ class Datenbank():
                 self.datei = tmp
         self.userDbXml = None
         self.loaded = False
+        self.enabledPlugins = []
 
         #Versionierung
         #Wenn sich das Schema der Ref-DB ändert müssen bestehende user dbs aktualisiert werden.
@@ -48,35 +48,12 @@ class Datenbank():
 
         self.xmlLaden()              
 
-    def initializeTables(self):
-        self.vorteile = {}
-        self.fertigkeiten = {}
-        self.talente = {}
-        self.übernatürlicheFertigkeiten = {}
-        self.waffen = {}
-        self.rüstungen = {}
-        self.manöver = {}
-        self.waffeneigenschaften = {}
-        self.freieFertigkeiten = {}
-        self.einstellungen = {}
-        self.removeList = {}
-        self.tablesByName = {
-            'Vorteil' : self.vorteile,
-            'Fertigkeit' : self.fertigkeiten,
-            'Talent' : self.talente,
-            'Übernatürliche Fertigkeit' : self.übernatürlicheFertigkeiten,
-            'Waffeneigenschaft' : self.waffeneigenschaften,
-            'Waffe' : self.waffen,
-            'Rüstung' : self.rüstungen,
-            'Manöver / Modifikation' : self.manöver,
-            'Freie Fertigkeit' : self.freieFertigkeiten,
-            'Einstellung' : self.einstellungen
-        }
-
     def xmlSchreiben(self):
         root = etree.Element('Datenbank')
         
-        etree.SubElement(root, 'Version').text = str(self.datenbankCodeVersion)
+        versionXml = etree.SubElement(root, 'Version')
+        versionXml.text = str(self.datenbankCodeVersion)
+        etree.SubElement(root, 'Plugins').text = ",".join(self.enabledPlugins)
 
         #Vorteile
         for vort in self.vorteile:
@@ -245,7 +222,29 @@ class Datenbank():
             file.truncate()
 
     def xmlLaden(self):
-        self.initializeTables()
+        self.vorteile = {}
+        self.fertigkeiten = {}
+        self.talente = {}
+        self.übernatürlicheFertigkeiten = {}
+        self.waffen = {}
+        self.rüstungen = {}
+        self.manöver = {}
+        self.waffeneigenschaften = {}
+        self.freieFertigkeiten = {}
+        self.einstellungen = {}
+        self.removeList = {}
+        self.tablesByName = {
+            'Vorteil' : self.vorteile,
+            'Fertigkeit' : self.fertigkeiten,
+            'Talent' : self.talente,
+            'Übernatürliche Fertigkeit' : self.übernatürlicheFertigkeiten,
+            'Waffeneigenschaft' : self.waffeneigenschaften,
+            'Waffe' : self.waffen,
+            'Rüstung' : self.rüstungen,
+            'Manöver / Modifikation' : self.manöver,
+            'Freie Fertigkeit' : self.freieFertigkeiten,
+            'Einstellung' : self.einstellungen
+        }
 
         databasePath = os.path.join('Data', 'datenbank.xml')
         if os.path.isfile(databasePath):
@@ -346,9 +345,15 @@ class Datenbank():
             logging.debug("Starting User DB Migration")
             self.userDBMigrieren(root, userDBVersion, self.datenbankCodeVersion)
 
+            if root.find('Plugins') is not None and root.find('Plugins').text:
+                if conflictCB is None:
+                    self.enabledPlugins = root.find('Plugins').text.split(",")
+                else:
+                    self.enabledPlugins += root.find('Plugins').text.split(",")
+
         numLoaded = 0
 
-        root = EventBus.applyFilter("datenbank_xml_laden", root, { "datenbank" : self, "basisdatenbank" : refDB })
+        root = EventBus.applyFilter("datenbank_xml_laden", root, { "datenbank" : self, "basisdatenbank" : refDB, "conflictCallback" : conflictCB })
         
         #Remove existing entries (should be used in database_user only)
         #Also check if the entries exist at all (might have been removed/renamed due to a ref db update)
@@ -501,9 +506,8 @@ class Datenbank():
 
             W.isUserAdded = not refDB
 
-            if W.name in self.waffeneigenschaften:
-                logging.warn("Waffeneigenschaft " + W.name + " exists already in the database, probably a \"Remove\" entry is missing. " +
-                    "To fix this warning, delete your change, restore the original and redo your change")
+            if conflictCB and W.name in self.waffeneigenschaften:
+                W = conflictCB('Waffeneigenschaft', self.waffeneigenschaften[W.name], W)
             self.waffeneigenschaften.update({W.name: W})
 
         #Waffen

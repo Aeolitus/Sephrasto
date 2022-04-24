@@ -1309,6 +1309,8 @@ class Char():
                 byteArray = bytes(alg.find('bild').text, 'utf-8')
                 self.bild = base64.b64decode(byteArray)
 
+        EventBus.doAction("charakter_xml_geladen", { "charakter" : self , "xmlRoot" : root })
+
         if userDBChanged or vIgnored or fIgnored or tIgnored or übIgnored:
             messageBox = QtWidgets.QMessageBox()
             messageBox.setIcon(QtWidgets.QMessageBox.Warning)

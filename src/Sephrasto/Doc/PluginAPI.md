@@ -46,6 +46,8 @@ Zweck: Charakter modifizieren, nachdem er instanziiert, aber bevor er geladen un
 Zweck: Form und Wrapper für eigene Charakter-Editor Tabs initialisieren. Der neu Parameter enthält die Information, ob es sich um einen neuen Charakter handelt. Der filepath Parameter enthält den Pfad der Charakterdatei oder einen leeren string, falls ein neuer Charakter erstellt wird.
 - "charaktereditor_geoeffnet" (Parameter: { "neu" : bool, "filepath" : string })<br />
 Zweck: Beliebige Aktion durchführen, nachdem der CharakterEditor vollständig initialisiert wurde. Der neu Parameter enthält die Information, ob es sich um einen neuen Charakter handelt. Der filepath Parameter enthält den Pfad der Charakterdatei oder einen leeren string, falls ein neuer Charakter erstellt wurde.
+- "charakter_xml_geladen" (Parameter: { "charakter" : Char, "xmlRoot" : etree.Element })<br />
+Zweck: Daten aus der Charakterdatei auslesen oder modifizieren, nachdem Sephrasto sie gelesen hat. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
 - "plugins_geladen"<br />
 Zweck: Nach dieser Action sind alle Plugins initialisiert. Kann verwendet werden um mit anderen Plugins zu kommunizieren, um z.B. mit einer Action andere Plugins darüber in Kenntnis zu setzen, dass dieses Plugin vorhanden ist.
 - "pre_charakter_aktualisieren" (Parameter: { "charakter" : Char })<br />
@@ -80,8 +82,8 @@ Zweck: von Sephrasto generierte PDF-Felder vor dem Exportieren der PDF modifizie
 Zweck: Daten aus der Charakterdatei auslesen oder modifizieren, bevor Sephrasto sie liest. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
 - "charakter_xml_schreiben" (Filter: xmlRoot : etree.Element, Parameter: { "charakter" : Char })<br />
 Zweck: Der Charakterdatei Daten hinzufügen oder Daten modifizieren, bevor Sephrasto die Datei schreibt. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "datenbank_xml_laden" (Filter: xmlRoot : etree.Element, Parameter: { "datenbank" : Datenbank, "basisdatenbank" : bool })<br />
-Zweck: Daten aus der Datenbank-Datei auslesen oder modifizieren, bevor Sephrasto sie liest. Der "basisdatenbank"-Parameter enthält die Information, ob es sich um die Basisdatenbank- oder eine Hausregeldatenbank-Datei handelt.
+- "datenbank_xml_laden" (Filter: xmlRoot : etree.Element, Parameter: { "datenbank" : Datenbank, "basisdatenbank" : bool, "conflictCallback" : Python-Funktion })<br />
+Zweck: Daten aus der Datenbank-Datei auslesen oder modifizieren, bevor Sephrasto sie liest. Der "basisdatenbank"-Parameter enthält die Information, ob es sich um die Basisdatenbank- oder eine Hausregeldatenbank-Datei handelt. Der "conflictCallback"-Parameter ist nur gesetzt wenn basisdatenbank=false und kann ausgeführt werden, um beim Laden mehrerer Hausregeldatenbanken Konflikte eigener Datenbanktypen aufzulösen. Hierzu werden dem Callback der Name des Datenbanktyps, die alte sowie die neue Version des Elements als parameter übergeben, siehe Datenbank.py.
 - "datenbank_xml_schreiben" (Filter: xmlRoot : etree.Element, Parameter: { "datenbank" : Datenbank })<br />
 Zweck: Der Datenbankdatei Daten hinzufügen oder Daten modifizieren, bevor Sephrasto die Datei schreibt.
 - "datenbank_editor_typen" (Filter: databaseTypes : dict of DatenbankEdit.DatenbankTypWrapper)<br />
@@ -126,6 +128,7 @@ Zweck: Die BE einer Rüstung des Rüstungauswahlfensters anpassen. Achtung: Da R
 - Falls du Action oder Filter Handler registrieren möchtest, stelle sicher, dass sie über die gesamte Programm-Dauer bestehen bleiben. Vermeide es also beispielsweise Handler in einem UI Wrapper zu registrieren, den du jedes mal neu erstellst, wenn ein neuer Charakter geladen wird oder ein Hauptfenster-Button geclickt wird. Stattdessen kannst du den Handler in deiner `__init__.py` registrieren und dann eine Funktion auf dem aktuellen Wrapper aufrufen.
 - Optional: Füge die Funktion getDescription ein und gib einen Beschreibungs-String zurück - dieser wird in den Sephrasto-Einstellungen als Tooltip angezeigt.
 - Optional: Füge die Funktion changesCharacter ein und gib True zurück, falls dein Plugin die Charakterdaten ändert. Falls ein Charakter mit diesem Plugin erstellt wurde und dann ohne Plugin geöffnet wird, erscheint dann ein Warndialog.
+- Optional: Füge die Funktion changesDatabase ein und gib True zurück, falls dein Plugin die Datenbank ändert. Falls Hausregeln mit diesem Plugin erstellt wurden und dann ohne Plugin geöffnet werden, erscheint dann ein Warndialog.
 <br />
 ```python
 from EventBus import EventBus
@@ -139,6 +142,9 @@ class Plugin:
 		return "Mein erstes Plugin"
 		
 	def changesCharacter(self):
+        return True
+        
+    def changesDatabase(self):
         return True
 ```
 

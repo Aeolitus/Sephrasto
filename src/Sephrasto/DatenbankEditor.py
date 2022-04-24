@@ -29,7 +29,7 @@ import logging
 from EventBus import EventBus
 
 class DatenbankTypWrapper(object):
-    def __init__(self, addFunc, editFunc, showCheckbox):
+    def __init__(self, addFunc, editFunc, showCheckbox = None):
         super().__init__()
         self.addFunc = addFunc
         self.editFunc = editFunc
@@ -44,6 +44,26 @@ class DatenbankEditor(object):
         self.savepath = self.datenbank.datei
         self.changed = False
         self.windowTitleDefault = ""
+        self.checkMissingPlugins()
+
+    def checkMissingPlugins(self):
+        enabledPlugins = []
+        for pluginData in self.plugins:
+            if pluginData.plugin is not None and hasattr(pluginData.plugin, "changesDatabase") and pluginData.plugin.changesDatabase():
+                enabledPlugins.append(pluginData.name)
+        
+        missingPlugins = set(self.datenbank.enabledPlugins) - set(enabledPlugins)
+        if len(missingPlugins) > 0:
+            infoBox = QtWidgets.QMessageBox()
+            infoBox.setIcon(QtWidgets.QMessageBox.Warning)
+            infoBox.setWindowTitle("Plugin fehlt!")
+            infoBox.setText("Die Datenbank wurde mit einem oder mehreren Plugins erstellt, die sie beeinflussen. "\
+            "Nicht alle davon sind aktiv, daher können beim Speichern Daten dieser Plugins verloren gehen:\n\n" + ", ".join(missingPlugins))
+            infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
+            infoBox.exec_()
+
+        self.datenbank.enabledPlugins = enabledPlugins
     
     def setupGUI(self):
         windowSize = Wolke.Settings["WindowSize-Datenbank"]
@@ -113,6 +133,9 @@ class DatenbankEditor(object):
         pluginDatabaseTypes = EventBus.applyFilter("datenbank_editor_typen", pluginDatabaseTypes)
         for dbType in pluginDatabaseTypes:
             self.databaseTypes[dbType] = pluginDatabaseTypes[dbType]
+            if not self.databaseTypes[dbType].showCheckbox:
+                self.databaseTypes[dbType].showCheckbox = QtWidgets.QCheckBox(dbType)
+                self.databaseTypes[dbType].showCheckbox.setChecked(True)
             self.ui.verticalLayout_3.addWidget(pluginDatabaseTypes[dbType].showCheckbox)
 
         for dbType in self.databaseTypes.values():
@@ -667,9 +690,10 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             self.savepath = spath
             self.datenbank.datei = spath
             self.datenbank.xmlLaden()
-
+        
         self.updateGUI()
         self.updateWindowTitleAndCloseButton()
+        self.checkMissingPlugins()
         self.changed = False
         
 if __name__ == "__main__":
