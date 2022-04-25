@@ -729,9 +729,4 @@ class Datenbank():
         return kampfstile
 
     def findHeimaten(self):
-        heimatList = []
-        for tal in self.talente:
-            if tal.startswith("Gebräuche: "):
-                heimatList.append(tal[11:])
-        heimatList.sort()
-        return heimatList
+        return sorted(self.einstellungen["Heimaten"].toTextList())

@@ -81,7 +81,7 @@ class PdfExporter(object):
             pageCount += 1
             fieldsNew = {}
             self.createExtra(fieldsNew, extraVorteile, extraUeber, extraTalente)
-
+            fieldsNew = EventBus.applyFilter("pdf_export_extrapage", fieldsNew)
             handle, out_file = tempfile.mkstemp()
             os.close(handle)
             allPages.append(out_file)

@@ -78,6 +78,8 @@ Zweck: Aktualisiert den Charakter und die EP und beim Schließen des Charaktered
 Zweck: Sephrasto fügt zum Schluss alle generierten Einzelseiten zusammen. Diese Liste von Einzelseiten kann hiermit manipuliert werden, z.B. um weitere Seiten einzufügen.
 - "pdf_export" (Filter: pdfFields : dict of {string : string})<br />
 Zweck: von Sephrasto generierte PDF-Felder vor dem Exportieren der PDF modifizieren
+- "pdf_export_extrapage" (Filter: pdfFields : dict of {string : string})<br />
+Zweck: von Sephrasto generierte PDF-Felder vor dem Exportieren der PDF modifizieren. Wird nur für Extraseiten aufgerufen, wenn diese nötig sind. Sie enthalten nur die Felder für übernatürliche Fertigkeiten, Talente und Vorteile.
 - "charakter_xml_laden" (Filter: xmlRoot : etree.Element, Parameter: { "charakter" : Char })<br />
 Zweck: Daten aus der Charakterdatei auslesen oder modifizieren, bevor Sephrasto sie liest. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
 - "charakter_xml_schreiben" (Filter: xmlRoot : etree.Element, Parameter: { "charakter" : Char })<br />

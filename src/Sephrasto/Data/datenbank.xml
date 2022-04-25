@@ -2158,7 +2158,7 @@ Wirkungsdauer: 8 Initiativephasen
 Kosten: 8 AsP
 Fertigkeiten: Feuer
 Erlernen: Elf, Srl 18; 20 EP</Talent>
-  <Talent name="Igniplano Flächenbrand" kosten="60" voraussetzungen="" verbilligt="0" fertigkeiten="Feuer" variable="0" referenzseite="139" referenzbuch="0">Du beschwörst flammende Urgewalten aus der Erde hervor. In einem Kreis mit 4 Schritt Radius fügen Flammensäulen jedem Wesen 4W6 TP zu, die Nachbrennen (S. 98) verursachen. Alles Brennbare in der Zone geht augenblicklich in Flammen auf.
+  <Talent name="Igniplano Flächenbrand" kosten="60" voraussetzungen="Kein Vorteil Zauberer I, Kein Vorteil Tradition der Borbaradianer I" verbilligt="0" fertigkeiten="Feuer" variable="0" referenzseite="139" referenzbuch="0">Du beschwörst flammende Urgewalten aus der Erde hervor. In einem Kreis mit 4 Schritt Radius fügen Flammensäulen jedem Wesen 4W6 TP zu, die Nachbrennen (S. 98) verursachen. Alles Brennbare in der Zone geht augenblicklich in Flammen auf.
 Mächtige Magie: Die TP steigen um +2W6.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 4 Aktionen
@@ -10272,6 +10272,7 @@ Anmerkung: Mit dem Totes handle! können nur permanente Untote erschaffen werden
   <FreieFertigkeit kategorie="Sprache">Riesen-Sprache</FreieFertigkeit>
   <FreieFertigkeit kategorie="Sprache">Zhayad</FreieFertigkeit>
   <FreieFertigkeit kategorie="Sprache">Zyklopisch</FreieFertigkeit>
+  <Einstellung name="Heimaten" typ="Text" beschreibung="Legt alle verfügbaren Heimaten fest. Die Angabe erfolgt als kommaseparierte Liste.">Mittelreich, Horasreich, Tulamidenlande, Südaventurien, Bornland, Thorwal, Maraskan, Elfen, Zwerge</Einstellung>
   <Einstellung name="Basis AsP Script" typ="Text" beschreibung="Das Pythonscript berechnet die Basis-Astralenergie. Es steht hierfür die Funktion getAttribut('Attributsname') zur Verfügung.">0</Einstellung>
   <Einstellung name="Basis KaP Script" typ="Text" beschreibung="Das Pythonscript berechnet die Basis-Karmaenergie. Es steht hierfür die Funktion getAttribut('Attributsname') zur Verfügung.">0</Einstellung>
   <Einstellung name="Basis WS Script" typ="Text" beschreibung="Das Pythonscript berechnet die Basis-Wundschwelle. Es steht hierfür die Funktion getAttribut('Attributsname') zur Verfügung.">4 + int(getAttribut('KO')/4)</Einstellung>
