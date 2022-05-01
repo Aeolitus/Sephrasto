@@ -27,6 +27,7 @@ import yaml
 from shutil import which
 import platform
 from PyQt5 import QtWidgets, QtCore, QtGui
+import copy
 
 class PdfExporter(object):
     def __init__(self):
@@ -351,7 +352,7 @@ class PdfExporter(object):
                  "Mythenkunde", "Überleben", "Alchemie", "Handwerk", 
                  "Heilkunde", "Verschlagenheit"]
 
-            self.printFertigkeiten(fields, None, standardFerts)
+            self.printFertigkeiten(fields, None, copy.copy(standardFerts))
             self.printFertigkeiten(fields, "Indi", [f for f in fertigkeiten if not f in standardFerts])
         else:
             self.printFertigkeiten(fields, "Fertigkeit", fertigkeiten)
