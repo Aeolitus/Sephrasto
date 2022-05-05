@@ -277,6 +277,9 @@ class CheatsheetGenerator(object):
                 manöverGruppiert[mergeTo] = sorted(manöverGruppiert[mergeTo])
 
         for r in self.reihenfolge:
+            if not r in Wolke.Char.regelnKategorien:
+                continue
+
             if r[0] == "V":
                 typ = int(r[1:])
                 if typ >= len(vorteileGruppiert):

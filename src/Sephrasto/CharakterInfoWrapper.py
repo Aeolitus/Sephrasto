@@ -11,6 +11,7 @@ from PyQt5 import QtWidgets, QtCore, QtGui
 import logging
 from EinstellungenWrapper import EinstellungenWrapper
 import os
+from EventBus import EventBus
 
 class FocusWatcher(QtCore.QObject):
     def __init__(self, callback):
@@ -79,6 +80,44 @@ class InfoWrapper(QtCore.QObject):
                 self.initialDetails = Wolke.Charakterbögen[bogen].beschreibungDetails
                 break
 
+        self.ui.comboRegelnGroesse.setEnabled(Wolke.Char.regelnAnhaengen)
+        self.ui.listRegelKategorien.setEnabled(Wolke.Char.regelnAnhaengen)
+
+        vorteilTypen = Wolke.DB.einstellungen["Vorteile: Typen"].toTextList()
+        manöverTypen = Wolke.DB.einstellungen["Manöver: Typen"].toTextList()
+        self.regelKategorien = []
+        for r in Wolke.DB.einstellungen["Regelanhang: Reihenfolge"].toTextList():
+            if r[0] == "V":
+                typ = int(r[1:])
+                self.regelKategorien.append([vorteilTypen[typ], r])
+            elif r[0] == "M":
+                typ = int(r[1:])
+                self.regelKategorien.append([manöverTypen[typ], r])
+            elif r[0] == "W":
+                self.regelKategorien.append(["Waffeneigenschaften", r])
+            elif r[0] == "Z":
+                self.regelKategorien.append(["Zauber", r])
+            elif r[0] == "L":
+                self.regelKategorien.append(["Liturgien", r])
+            elif r[0] == "A":
+                self.regelKategorien.append(["Anrufungen", r])
+            else:
+                name = EventBus.applyFilter("regelanhang_reihenfolge_name", r)
+                self.regelKategorien.append([name, r])
+
+        model = QtGui.QStandardItemModel(self.ui.listRegelKategorien)
+        for kategorie in self.regelKategorien:
+            item = QtGui.QStandardItem(kategorie[0])
+            item.setCheckable(True)
+            if kategorie[1] in Wolke.Char.regelnKategorien:
+                item.setCheckState(QtCore.Qt.Checked)
+            else:
+                item.setCheckState(QtCore.Qt.Unchecked)
+            model.appendRow(item)
+
+        self.ui.listRegelKategorien.setModel(model)
+        self.ui.listRegelKategorien.model().dataChanged.connect(self.regelKategorienChanged)
+
         self.currentlyLoading = False
 
     def update(self):
@@ -89,6 +128,17 @@ class InfoWrapper(QtCore.QObject):
             return
 
         Wolke.Char.voraussetzungenPruefen = self.ui.checkReq.isChecked()
+        self.modified.emit()
+
+    def regelKategorienChanged(self):
+        aktiveKategorien = []
+
+        for i in range(self.ui.listRegelKategorien.model().rowCount()):
+            item = self.ui.listRegelKategorien.model().item(i)
+            if item.checkState() == QtCore.Qt.Checked:
+                aktiveKategorien.append(self.regelKategorien[i][1])
+
+        Wolke.Char.regelnKategorien = aktiveKategorien
         self.modified.emit()
 
     def einstellungenChanged(self):
@@ -108,6 +158,9 @@ class InfoWrapper(QtCore.QObject):
                 break
 
         self.ui.labelReload.setVisible(Wolke.Char.hausregeln != self.initialHausregeln or self.initialDetails != details)
+
+        self.ui.comboRegelnGroesse.setEnabled(Wolke.Char.regelnAnhaengen)
+        self.ui.listRegelKategorien.setEnabled(Wolke.Char.regelnAnhaengen)
 
         self.modified.emit()
 

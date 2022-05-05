@@ -166,6 +166,7 @@ class Char():
         self.ueberPDFAnzeigen = False
         self.regelnAnhaengen = Wolke.Settings["Cheatsheet"]
         self.regelnGroesse = Wolke.Settings["Cheatsheet-Fontsize"]
+        self.regelnKategorien = Wolke.DB.einstellungen["Regelanhang: Reihenfolge"].toTextList()
 
         #Neunter Block: Beschreibung Details
         self.kultur = ""
@@ -1006,6 +1007,7 @@ class Char():
         etree.SubElement(einstellungen,'UeberPDFAnzeigen').text = "1" if self.ueberPDFAnzeigen else "0"
         etree.SubElement(einstellungen,'RegelnAnhaengen').text = "1" if self.regelnAnhaengen else "0"
         etree.SubElement(einstellungen,'RegelnGroesse').text = str(self.regelnGroesse)
+        etree.SubElement(einstellungen,'RegelnKategorien').text = str(",".join(self.regelnKategorien))
         etree.SubElement(einstellungen,'Hausregeln').text = str(self.hausregeln or "")
 
         #Neunter Block
@@ -1289,7 +1291,9 @@ class Char():
             self.ueberPDFAnzeigen = einstellungen.find('UeberPDFAnzeigen').text == "1"
             self.regelnAnhaengen = einstellungen.find('RegelnAnhaengen').text == "1"
             self.regelnGroesse = int(einstellungen.find('RegelnGroesse').text)
-        
+            if einstellungen.find('RegelnKategorien') is not None:
+                self.regelnKategorien = list(map(str.strip, einstellungen.find('RegelnKategorien').text.split(",")))
+
         #Neunter Block
         alg = root.find('AllgemeineInfosExt')
         if alg is not None:
