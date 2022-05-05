@@ -34,11 +34,15 @@ logging.basicConfig(filename="sephrasto.log", \
 
 def sephrasto_excepthook(exc_type, exc_value, tb):
     traceback = [' Traceback (most recent call last):']
+
+    filename = ""
     while tb:
         filename = tb.tb_frame.f_code.co_filename
         name = tb.tb_frame.f_code.co_name
         lineno = tb.tb_lineno
         traceback.append('   File "%.500s", line %d, in %.500s' %(filename, lineno, name))
+        if not tb.tb_next:
+            break
         tb = tb.tb_next
 
     # Exception type and value
@@ -46,9 +50,15 @@ def sephrasto_excepthook(exc_type, exc_value, tb):
     logging.critical(exception + "\n".join(traceback))
 
     #Try to show message box, hopefully its not a crash in Qt
+    text = "Unerwarteter Fehler:" + exception + ". Bei Fragen zum diesem Fehler bitte sephrasto.log mitsenden."
+    if Wolke.Settings['Pfad-Plugins'] in filename:
+        splitPath = os.path.split(os.path.relpath(filename, Wolke.Settings['Pfad-Plugins']))
+        if len(splitPath) > 0:
+            text = f"Das Plugin {splitPath[0]} hat einen Fehler verursacht:\n{exception}.\n\nEs ist vermutlich nicht mit dieser Sephrastoversion kompatibel, bitte wende dich an den Plugin-Autor."    
+
     messagebox = QtWidgets.QMessageBox()
     messagebox.setWindowTitle("Fehler!")
-    messagebox.setText("Unerwarteter Fehler:" + exception + ". Bei Fragen zum diesem Fehler bitte sephrasto.log mitsenden.")
+    messagebox.setText(text)
     messagebox.setIcon(QtWidgets.QMessageBox.Critical)
     messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
     messagebox.exec_()
@@ -127,6 +137,13 @@ class MainWindowWrapper(object):
                     for button in pluginData.plugin.createMainWindowButtons():
                         button.setParent(self.form)
                         self.ui.vlPluginButtons.addWidget(button)
+            else:
+                messagebox = QtWidgets.QMessageBox()
+                messagebox.setWindowTitle("Fehler!")
+                messagebox.setText(f"Das Laden des Plugins {pluginData.name} ist fehlgeschlagen.\nEs ist vermutlich nicht mit dieser Sephrastoversion kompatibel, bitte wende dich an den Plugin-Autor.")
+                messagebox.setIcon(QtWidgets.QMessageBox.Critical)
+                messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+                messagebox.exec_()
 
         EventBus.doAction("plugins_geladen")
 
