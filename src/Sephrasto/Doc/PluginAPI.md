@@ -104,6 +104,8 @@ Zweck: Die Kosten für freie Fertigkeiten anpassen. Die Parameter enthalten den 
 Zweck: Die Kosten für Talente anpassen. Der "talent" Parameter enthält den Namen des Talents. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
 - "ruestung_be" (Filter: be: int, Parameter: { "name" : string })<br />
 Zweck: Die BE einer Rüstung des Rüstungauswahlfensters anpassen. Achtung: Da Rüstungen ergänzt werden können und die Namen dann konkateniert werden, sollte der name via "in" abgefragt werden (bspw. if "Leichte Platte" in name).
+- "regelanhang_reihenfolge_name" (Filter: name : string)<br />
+Zweck: Wenn der Datenbank-Einstellung "Regelanhang: Reihenfolge" neue Kürzel hinzugefügt werden, kann mit diesem Filter der volle Name für das Kürzel angegeben werden, damit es im Info-Tab bei den Regelanhangkategorien verständlich dargestellt wird. Der anfängliche Filterwert entspricht dem Kürzel.
 - Die folgenden Filter haben alle eine Gemeinsamkeit:  Der Filterwert ist eine Wrapperklasse eines der UI-Tabs oder Auswahlfenster. Im Filter kann der Wrapper komplett ersetzt oder beerbt werden, um die Sephrasto-UI anzupassen.
 	* "class_beschreibung_wrapper" (Filter: BeschrWrapper : class)
 	* "class_beschreibung_details_wrapper" (Filter: CharakterBeschreibungDetailsWrapper : class)
