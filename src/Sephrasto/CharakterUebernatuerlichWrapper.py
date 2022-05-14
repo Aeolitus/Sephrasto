@@ -188,7 +188,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
                     self.labelRef[el + "Name"].setToolTip("Diese Fertigkeit bietet dir nur wenige Talente im Gesamtwert von unter 120 EP.\nSie zu steigern lohnt sich daher nur für die wenigsten.\nÜblicherweise kannst du die enthaltenen Talente aber auch mit einer anderen Fertigkeit wirken.")
                 else:
                     self.labelRef[el + "Name"] =  QtWidgets.QLabel(el)
-
+                self.labelRef[el + "Name"].setContentsMargins(3, 0, 0, 0)
                 self.ui.tableWidget.setCellWidget(count, 1, self.labelRef[el + "Name"])
 
                 # Add Spinner for FW
