@@ -36,7 +36,8 @@ class UebernatuerlichWrapper(QtCore.QObject):
 
         #Signals
         self.ui.spinFW.valueChanged.connect(lambda state : self.fwChanged(False))
-        self.ui.tableWidget.currentItemChanged.connect(self.tableClicked)   
+        self.ui.tableWidget.currentCellChanged.connect(self.tableClicked)   
+        self.ui.tableWidget.cellClicked.connect(self.tableClicked) 
         self.ui.buttonAdd.setStyle(None) # dont know why but the below settings wont do anything without it
         self.ui.buttonAdd.setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9, QtGui.QFont.Black))
         self.ui.buttonAdd.setText('\u002b')
@@ -82,7 +83,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
 
         if Hilfsmethoden.ArrayEqual(temp, self.availableFerts):
             for i in range(self.ui.tableWidget.rowCount()):
-                fert = Wolke.Char.übernatürlicheFertigkeiten[self.ui.tableWidget.item(i,1).text()]
+                fert = Wolke.Char.übernatürlicheFertigkeiten[self.availableFerts[i]]
                 self.pdfRef[fert.name].setChecked(fert.addToPDF)
                 self.labelRef[fert.name + "KO"].setText(self.getSteigerungskosten(fert))
                 self.labelRef[fert.name + "PW"].setText(str(fert.probenwertTalent))
@@ -101,6 +102,13 @@ class UebernatuerlichWrapper(QtCore.QObject):
                     count += 1
 
             self.ui.tableWidget.clear()
+            self.rowRef = {}
+            self.spinRef = {}
+            self.labelRef = {}
+            self.layoutRef = {}
+            self.buttonRef = {}
+            self.widgetRef = {}
+            self.pdfRef = {}
             self.ui.tableWidget.setItemDelegate(FertigkeitItemDelegate(rowIndicesWithLinePaint))
 
             self.ui.tableWidget.setRowCount(len(self.availableFerts))
@@ -112,6 +120,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
             header.setSectionResizeMode(2, QHeaderView.Fixed)
             header.setSectionResizeMode(3, QHeaderView.Fixed)
             header.setSectionResizeMode(4, QHeaderView.Fixed)
+            header.setSectionResizeMode(5, QHeaderView.Fixed)
             self.ui.tableWidget.setColumnWidth(0, 40)
             self.ui.tableWidget.setColumnWidth(2, 60)
             self.ui.tableWidget.setColumnWidth(3, 80)
@@ -151,6 +160,14 @@ class UebernatuerlichWrapper(QtCore.QObject):
             self.ui.tableWidget.setHorizontalHeaderItem(5, item)
     
             count = 0
+
+            availableTalents = []
+            for t in Wolke.DB.talente:
+                talent = Wolke.DB.talente[t]
+                if not talent.isSpezialTalent():
+                    continue
+                if Wolke.Char.voraussetzungenPrüfen(talent.voraussetzungen):
+                    availableTalents.append(talent)
             
             for el in self.availableFerts:
                 fert = Wolke.Char.übernatürlicheFertigkeiten[el]
@@ -162,8 +179,18 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 self.pdfRef[el].stateChanged.connect(lambda state, name=el: self.addToPDFClicked(name, state))
                 self.ui.tableWidget.setCellWidget(count,0,self.pdfRef[el])
 
-                self.ui.tableWidget.setItem(count, 1, QtWidgets.QTableWidgetItem(el))
-                
+                totalTalentCost = 0
+                for talent in availableTalents:
+                    if el in talent.fertigkeiten:
+                        totalTalentCost += talent.kosten
+                if totalTalentCost < 120:
+                    self.labelRef[el + "Name"] =  QtWidgets.QLabel(el + "&nbsp;&nbsp;<span style='font-size: 9pt; font-weight: " + Hilfsmethoden.qtWeightToCSS(QtGui.QFont.Black) + "; font-family: \"Font Awesome 6 Free Solid\";'>\uf73d</span>")
+                    self.labelRef[el + "Name"].setToolTip("Diese Fertigkeit bietet dir nur wenige Talente im Gesamtwert von unter 120 EP.\nSie zu steigern lohnt sich daher nur für die wenigsten.\nÜblicherweise kannst du die enthaltenen Talente aber auch mit einer anderen Fertigkeit wirken.")
+                else:
+                    self.labelRef[el + "Name"] =  QtWidgets.QLabel(el)
+
+                self.ui.tableWidget.setCellWidget(count, 1, self.labelRef[el + "Name"])
+
                 # Add Spinner for FW
                 self.spinRef[el] = QtWidgets.QSpinBox()
                 self.spinRef[el].setFocusPolicy(QtCore.Qt.StrongFocus)
@@ -172,6 +199,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 self.spinRef[el].setMaximum(fert.maxWert)
                 self.spinRef[el].setValue(fert.wert)
                 self.spinRef[el].setAlignment(QtCore.Qt.AlignCenter)
+                self.spinRef[el].setButtonSymbols(QtWidgets.QAbstractSpinBox.PlusMinus)
                 self.spinRef[el].valueChanged.connect(lambda state, name=el: self.spinnerClicked(name))
                 self.ui.tableWidget.setCellWidget(count,2,self.spinRef[el])
                 
@@ -208,21 +236,20 @@ class UebernatuerlichWrapper(QtCore.QObject):
 
                 self.rowRef.update({fert.name: count})
                 count += 1
-            self.ui.tableWidget.cellClicked.connect(self.tableClicked) 
         self.updateInfo()
         self.updateTalents()    
         self.currentlyLoading = False
         
     def tableClicked(self):
         if not self.currentlyLoading:
-            tmp = self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),1).text()
+            tmp = self.availableFerts[self.ui.tableWidget.currentRow()]
             if tmp in Wolke.Char.übernatürlicheFertigkeiten:    
                 self.currentFertName = tmp
                 self.updateInfo()
         
     def getSteigerungskosten(self, fert):
         ep = (fert.wert+1) * fert.steigerungsfaktor
-        return "&nbsp;&nbsp;<span style='font-size: 9pt; font-weight: 900; font-family: \"Font Awesome 6 Free Solid\";'>\uf176</span>&nbsp;&nbsp;" + str(ep) + " EP"
+        return "&nbsp;&nbsp;<span style='font-size: 9pt; font-weight: " + Hilfsmethoden.qtWeightToCSS(QtGui.QFont.Black) + "; font-family: \"Font Awesome 6 Free Solid\";'>\uf176</span>&nbsp;&nbsp;" + str(ep) + " EP"
 
     def fwChanged(self, flag = False):
         if self.currentlyLoading:

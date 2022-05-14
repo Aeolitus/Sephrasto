@@ -11,7 +11,6 @@ import PdfSerializer
 import Definitionen
 import Objekte
 import Talentbox
-import subprocess
 import os
 import math
 import logging
@@ -140,11 +139,7 @@ class PdfExporter(object):
 
         #Open PDF with default application:
         if Wolke.Settings['PDF-Open']:
-            if sys.platform == "win32":
-                os.startfile(filename, "open")
-            else:
-                opener = "open" if sys.platform == "darwin" else "xdg-open"
-                subprocess.call([opener, filename])
+            Hilfsmethoden.openFile(filename)
 
     def pdfErsterBlock(self, fields):
         logging.debug("PDF Block 1")

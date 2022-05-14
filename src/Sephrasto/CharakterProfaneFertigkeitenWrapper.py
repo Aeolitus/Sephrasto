@@ -54,6 +54,8 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         #Signals
         self.ui.spinFW.valueChanged.connect(lambda state : self.fwChanged(False))
         self.ui.tableWidget.currentItemChanged.connect(self.tableClicked)
+        self.ui.tableWidget.currentCellChanged.connect(self.tableClicked)
+        self.ui.tableWidget.cellClicked.connect(self.tableClicked) 
         self.ui.buttonAdd.setStyle(None) # dont know why but the below settings wont do anything without it
         self.ui.buttonAdd.setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9, QtGui.QFont.Black))
         self.ui.buttonAdd.setText('\u002b')
@@ -108,6 +110,12 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
                     count += 1
 
             self.ui.tableWidget.clear()
+            self.rowRef = {}
+            self.spinRef = {}
+            self.labelRef = {}
+            self.layoutRef = {}
+            self.buttonRef = {}
+            self.widgetRef = {}
             self.ui.tableWidget.setItemDelegate(FertigkeitItemDelegate(rowIndicesWithLinePaint))
             
             self.ui.tableWidget.setRowCount(len(self.availableFerts))
@@ -183,6 +191,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
                 self.spinRef[el].setMaximum(fert.maxWert)
                 self.spinRef[el].setValue(fert.wert)
                 self.spinRef[el].setAlignment(QtCore.Qt.AlignCenter)
+                self.spinRef[el].setButtonSymbols(QtWidgets.QAbstractSpinBox.PlusMinus)
                 self.spinRef[el].valueChanged.connect(lambda state, name=el: self.spinnerClicked(name))
                 self.ui.tableWidget.setCellWidget(count,1,self.spinRef[el])
 
@@ -225,14 +234,13 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
 
                 self.rowRef.update({fert.name: count})
                 count += 1
-            self.ui.tableWidget.cellClicked.connect(self.tableClicked) 
         self.updateInfo()
         self.updateTalents()    
         self.currentlyLoading = False
         
     def tableClicked(self):
         if not self.currentlyLoading:
-            tmp = self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text()
+            tmp = self.availableFerts[self.ui.tableWidget.currentRow()]
             if tmp in Wolke.Char.fertigkeiten:    
                 self.currentFertName = tmp
                 self.updateInfo()
@@ -242,7 +250,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         höchste = Wolke.Char.getHöchsteKampffertigkeit()
         if fert.kampffertigkeit == KampffertigkeitTyp.Nahkampf and fert.wert == höchste.wert:
             ep = (fert.wert+1) * 4
-        return "<span style='font-size: 9pt; font-weight: 900; font-family: \"Font Awesome 6 Free Solid\";'>\uf176</span>&nbsp;&nbsp;" + str(ep) + " EP"
+        return "<span style='font-size: 9pt; font-weight: " + Hilfsmethoden.qtWeightToCSS(QtGui.QFont.Black) + "; font-family: \"Font Awesome 6 Free Solid\";'>\uf176</span>&nbsp;&nbsp;" + str(ep) + " EP"
 
     def fwChanged(self, flag = False):
         if self.currentlyLoading:

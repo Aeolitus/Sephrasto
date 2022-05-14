@@ -11,6 +11,8 @@ import os
 import re
 from Wolke import Wolke
 import Objekte
+import subprocess
+import sys
 
 class VoraussetzungException(Exception):
     pass
@@ -447,3 +449,17 @@ class Hilfsmethoden:
     def listdir(path):
         return [unicodedata.normalize('NFC', f.decode("utf-8") if isinstance(f, bytes) else f) for f in os.listdir(path)]
     
+    # The exact value is important especially on linux, otherwise qt wont find the correct font
+    # Internally qt divides css weights by 8 to get the qt weight, so we need to invert this
+    @staticmethod
+    def qtWeightToCSS(weight):
+        return str(weight * 8)
+
+    # os.startfile isn't implemented on linux and mac...
+    @staticmethod
+    def openFile(filepath):
+        if sys.platform == "win32":
+            os.startfile(filepath, "open")
+        else:
+            opener = "open" if sys.platform == "darwin" else "xdg-open"
+            subprocess.call([opener, filepath])
