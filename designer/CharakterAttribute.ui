@@ -1488,6 +1488,54 @@
        </property>
       </widget>
      </item>
+     <item row="7" column="7">
+      <widget class="QLabel" name="label_16">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Durchhaltevermögen</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="8">
+      <widget class="QLabel" name="label_17">
+       <property name="font">
+        <font>
+         <italic>true</italic>
+        </font>
+       </property>
+       <property name="text">
+        <string>DH</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="9">
+      <widget class="QSpinBox" name="abDH">
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::NoButtons</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="11">
+      <widget class="QLabel" name="label_35">
+       <property name="text">
+        <string>(KO)</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
    <item row="1" column="0">

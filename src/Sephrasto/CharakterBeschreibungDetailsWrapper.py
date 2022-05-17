@@ -23,6 +23,8 @@ class CharakterBeschreibungDetailsWrapper(QtCore.QObject):
         if beschrWrapper:
             self.beschrWrapper = beschrWrapper()
             self.beschrWrapper.modified.connect(lambda: self.modified.emit())
+            self.beschrWrapper.ui.label_4.hide()
+            self.beschrWrapper.ui.editKurzbeschreibung.hide()
             self.ui.tabWidget.insertTab(0, self.beschrWrapper.form, "Allgemein")
 
         self.ui.tabWidget.setCurrentIndex(0)

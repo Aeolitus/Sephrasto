@@ -231,6 +231,7 @@ class AttrWrapper(QtCore.QObject):
         self.ui.abIN.setValue(Wolke.Char.ini)
         self.ui.abMR.setValue(Wolke.Char.mr)
         self.ui.abSB.setValue(Wolke.Char.schadensbonus)
+        self.ui.abDH.setValue(Wolke.Char.dh)
 
         self.ui.labelKostenAsP.setText(self.getSteigerungskostenAsP())
         self.ui.labelKostenKaP.setText(self.getSteigerungskostenKaP())
