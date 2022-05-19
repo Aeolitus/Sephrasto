@@ -40,8 +40,8 @@ class CheatsheetGenerator(object):
             lineCount += max(int(math.ceil(len(line) / self.rulesCharCount)), 1)
         lineCount = lineCount - 1 #every text ends with two newlines, the second doesnt count, subtract 1
 
-        #the largest fontsize tends to more lines beause of missing hyphenation
-        if Wolke.Settings["Cheatsheet-Fontsize"] > 1:
+        #the largest fontsize tends to generate more lines because of missing hyphenation
+        if Wolke.Char.regelnGroesse > 1:
             lineCount += int(lineCount * 0.2)
 
         return lineCount
