@@ -127,6 +127,7 @@ class Ui_formBeschreibung(object):
         self.leAussehen2.setObjectName("leAussehen2")
         self.gridLayout_2.addWidget(self.leAussehen2, 10, 1, 1, 2)
         self.chkKultur = QtWidgets.QCheckBox(self.tab_2)
+        self.chkKultur.setChecked(True)
         self.chkKultur.setObjectName("chkKultur")
         self.gridLayout_2.addWidget(self.chkKultur, 1, 5, 1, 1)
         self.leHintergrund7 = QtWidgets.QLineEdit(self.tab_2)
@@ -256,7 +257,7 @@ class Ui_formBeschreibung(object):
         self.label_3.setText(_translate("formBeschreibung", "Geschlecht"))
         self.label.setText(_translate("formBeschreibung", "Profession"))
         self.label_11.setText(_translate("formBeschreibung", "Kultur"))
-        self.chkKultur.setText(_translate("formBeschreibung", "Heimat überschreiben"))
+        self.chkKultur.setText(_translate("formBeschreibung", "Automatisch befüllen"))
         self.label_4.setText(_translate("formBeschreibung", "Geburtsdatum"))
         self.label_8.setText(_translate("formBeschreibung", "Augenfarbe"))
         self.labelImage.setText(_translate("formBeschreibung", "Bild-Auflösung: 260x340 px\n"

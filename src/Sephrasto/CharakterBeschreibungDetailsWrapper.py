@@ -78,10 +78,12 @@ class CharakterBeschreibungDetailsWrapper(QtCore.QObject):
             self.currentlyLoading = True
 
             if Wolke.Char.kultur:
-                self.ui.chkKultur.setChecked(True)
+                self.ui.chkKultur.setChecked(False)
                 self.ui.leKultur.setText(Wolke.Char.kultur)
+            else:
+                self.ui.leKultur.setText(Wolke.Char.heimat)
 
-            self.ui.leKultur.setEnabled(self.ui.chkKultur.isChecked())
+            self.ui.leKultur.setEnabled(not self.ui.chkKultur.isChecked())
 
             self.ui.leProfession.setText(Wolke.Char.profession)
             self.ui.leGeschlecht.setText(Wolke.Char.geschlecht)
@@ -122,8 +124,8 @@ class CharakterBeschreibungDetailsWrapper(QtCore.QObject):
 
         changed = False
 
-        self.ui.leKultur.setEnabled(self.ui.chkKultur.isChecked())
-        if self.ui.chkKultur.isChecked():
+        self.ui.leKultur.setEnabled(not self.ui.chkKultur.isChecked())
+        if not self.ui.chkKultur.isChecked():
             if Wolke.Char.kultur != self.ui.leKultur.text():
                 Wolke.Char.kultur = self.ui.leKultur.text()
                 changed = True
@@ -131,6 +133,7 @@ class CharakterBeschreibungDetailsWrapper(QtCore.QObject):
             if Wolke.Char.kultur:
                 Wolke.Char.kultur = ""
                 changed = True
+            self.ui.leKultur.setText(Wolke.Char.heimat)
 
         if Wolke.Char.profession != self.ui.leProfession.text():
             Wolke.Char.profession = self.ui.leProfession.text()
