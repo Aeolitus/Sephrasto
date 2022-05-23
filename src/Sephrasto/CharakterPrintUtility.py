@@ -49,11 +49,13 @@ class CharakterPrintUtility:
     def getFreieFertigkeiten(char):
         ferts = []
         for el in char.freieFertigkeiten:
-            if el.wert < 1 or el.wert > 3 or not el.name:
+            if el.wert < 1 or el.wert > 3:
                 continue
-            name = el.name + " "
-            for i in range(el.wert):
-                name += "I"
+            name = el.name
+            if name:
+                name = el.name + " "
+                for i in range(el.wert):
+                    name += "I"
             ferts.append(name)
         return ferts
 
