@@ -1191,7 +1191,8 @@ class Char():
                     continue
                 talent = Wolke.DB.talente[nam]
                 if not fert.name in talent.fertigkeiten:
-                    # talent was probably moved to a different fert, just ignore it without mentioning it
+                    # talent was probably moved to a different fert
+                    tIgnored.add(nam)
                     continue
                 fert.gekaufteTalente.append(nam)
                 var = VariableKosten.parse(tal.attrib['variable'])
