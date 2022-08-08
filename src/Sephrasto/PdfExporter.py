@@ -34,6 +34,7 @@ class PdfExporter(object):
         self.ExtraPage = os.path.join("Data", "ExtraSpells.pdf")
         self.PrintRules = True
         self.RulesPage = os.path.join("Data", "Regeln.pdf")
+        self.RulesBackground = os.path.join("Data", "Hintergrund.pdf")
         self.Energie = ""
         self.CheatsheetGenerator = CheatsheetGenerator()
         self.MergePerLineCount = 3
@@ -101,6 +102,7 @@ class PdfExporter(object):
         progressCallback(40)
 
         if printRules:
+            rulePages = []
             rules, ruleLineCounts = self.CheatsheetGenerator.prepareRules()
             startIndex = 0
             pageCount = 0
@@ -119,8 +121,22 @@ class PdfExporter(object):
                 handle, out_file = tempfile.mkstemp()
                 os.close(handle)
                 PdfSerializer.write_pdf(self.RulesPage, rulesFields, out_file, False)
-                allPages.append(out_file)
+                rulePages.append(out_file)
                 progressCallback(min(70, 40 + 3*pageCount))
+
+            # Add the background image separately with a pdftk "background" call - this way it will be shared by all pages to decrease file size
+            if len(rulePages) > 0:
+                handle, concatPath = tempfile.mkstemp()
+                os.close(handle)
+                PdfSerializer.concat(rulePages, concatPath)
+                handle, out_file = tempfile.mkstemp()
+                os.close(handle)
+                PdfSerializer.check_output_silent(['pdftk', concatPath, 'background', self.RulesBackground, 'output', out_file, 'need_appearances'])
+                allPages.append(out_file)
+                os.remove(concatPath)
+                for page in rulePages:
+                    os.remove(page)
+
         progressCallback(70)
 
         allPages = self.concatImage(allPages)
