@@ -169,6 +169,8 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 if Wolke.Char.voraussetzungenPrüfen(talent.voraussetzungen):
                     availableTalents.append(talent)
             
+            font = QtGui.QFont(Wolke.Settings["Font"], Wolke.Settings["FontSize"])
+
             for el in self.availableFerts:
                 fert = Wolke.Char.übernatürlicheFertigkeiten[el]
                 fert.aktualisieren(Wolke.Char.attribute)
@@ -188,6 +190,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
                     self.labelRef[el + "Name"].setToolTip("Diese Fertigkeit bietet dir nur wenige Talente im Gesamtwert von unter 120 EP.\nSie zu steigern lohnt sich daher nur für die wenigsten.\nÜblicherweise kannst du die enthaltenen Talente aber auch mit einer anderen Fertigkeit wirken.")
                 else:
                     self.labelRef[el + "Name"] =  QtWidgets.QLabel(el)
+                self.labelRef[el + "Name"].setFont(font) # workaround for macos until app.setFont works there
                 self.labelRef[el + "Name"].setContentsMargins(3, 0, 0, 0)
                 self.ui.tableWidget.setCellWidget(count, 1, self.labelRef[el + "Name"])
 
@@ -205,6 +208,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 
                 # Add Kosten
                 self.labelRef[el + "KO"] = QtWidgets.QLabel()
+                self.labelRef[el + "KO"].setFont(font) # workaround for macos until app.setFont works there
                 self.labelRef[el + "KO"].setStyleSheet("margin-left:10; margin-right:10;");
                 self.labelRef[el + "KO"].setText(self.getSteigerungskosten(fert))
                 self.labelRef[el + "KO"].setAlignment(QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
@@ -212,6 +216,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
 
                 # Add PW
                 self.labelRef[el + "PW"] = QtWidgets.QLabel()
+                self.labelRef[el + "PW"].setFont(font) # workaround for macos until app.setFont works there
                 self.labelRef[el + "PW"].setText(str(fert.probenwertTalent))
                 self.labelRef[el + "PW"].setAlignment(QtCore.Qt.AlignCenter)
                 self.ui.tableWidget.setCellWidget(count,4,self.labelRef[el + "PW"])
@@ -220,6 +225,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 self.layoutRef[el] = QtWidgets.QHBoxLayout()
                 self.layoutRef[el].setContentsMargins(10, 0, 10, 0)
                 self.labelRef[el] = QtWidgets.QLabel()
+                self.labelRef[el].setFont(font) # workaround for macos until app.setFont works there
                 self.labelRef[el].setText(str(len(fert.gekaufteTalente)))
                 self.labelRef[el].setAlignment(QtCore.Qt.AlignCenter)
                 self.layoutRef[el].addWidget(self.labelRef[el])

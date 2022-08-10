@@ -41,15 +41,15 @@ class AttrWrapper(QtCore.QObject):
         font = QtGui.QFont(Wolke.Settings["FontHeading"], Wolke.Settings["FontHeadingSize"])
         font.setBold(True)
         self.ui.labelWert.setFont(font)
-        self.ui.labelWert.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
+        self.ui.labelWert.setStyleSheet("color: " + Wolke.HeadingColor)
         self.ui.labelWert2.setFont(font)
-        self.ui.labelWert2.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
+        self.ui.labelWert2.setStyleSheet("color: " + Wolke.HeadingColor)
         self.ui.labelPW.setFont(font)
-        self.ui.labelPW.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
+        self.ui.labelPW.setStyleSheet("color: " + Wolke.HeadingColor)
         self.ui.labelKosten.setFont(font)
-        self.ui.labelKosten.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
+        self.ui.labelKosten.setStyleSheet("color: " + Wolke.HeadingColor)
         self.ui.labelFormel.setFont(font)
-        self.ui.labelFormel.setStyleSheet("color: " + Wolke.HeadingColor + ";}")
+        self.ui.labelFormel.setStyleSheet("color: " + Wolke.HeadingColor)
 
         #Signals
         self.widgetWert = {}

@@ -209,6 +209,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
         w = QtWidgets.QWidget()
         layout = QtWidgets.QHBoxLayout()
         label = QtWidgets.QLabel("Kommentar")
+        label.setFont(QtGui.QFont(Wolke.Settings["Font"], Wolke.Settings["FontSize"]))  # workaround for macos until app.setFont works there
         text = QtWidgets.QLineEdit(kommentar)
         layout.addWidget(label)
         layout.addWidget(text)

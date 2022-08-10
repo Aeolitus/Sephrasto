@@ -1,1 +1,2 @@
 Added the entry "WWS Family" so the font is correctly loaded under Linux.
+Changed "Preferred Family Name" from "Font Awesome 6 Free" to "Font Awesome 6 Free Solid" so the font is correctly loaded under macOS
