@@ -12,6 +12,7 @@ import os.path
 import yaml
 import logging
 import sys
+import platform
 from Hilfsmethoden import Hilfsmethoden
 from PluginLoader import PluginLoader
 
@@ -194,14 +195,24 @@ class EinstellungenWrapper():
     @staticmethod
     def getSettingsFolder():
         userFolder = os.path.expanduser('~')
-        if sys.platform.startswith("win"):
+        system = platform.system()
+        if system == 'Windows':
             import ctypes.wintypes
             CSIDL_PERSONAL = 5       # My Documents
             SHGFP_TYPE_CURRENT = 0   # Get current, not default value
             buf= ctypes.create_unicode_buffer(ctypes.wintypes.MAX_PATH)
             ctypes.windll.shell32.SHGetFolderPathW(None, CSIDL_PERSONAL, None, SHGFP_TYPE_CURRENT, buf)
             userFolder = buf.value or userFolder
-        return os.path.join(userFolder,'Sephrasto')
+            return os.path.join(userFolder,'Sephrasto')
+        elif system == 'Linux':
+            if os.path.isdir(os.path.join(userFolder,'.sephrasto')):
+                return os.path.join(userFolder,'.sephrasto') # allow users to rename the folder to a hidden folder
+            else:
+                return os.path.join(userFolder,'sephrasto')
+        elif system == 'Darwin':
+            return os.path.join(userFolder, 'Documents', 'Sephrasto') # the documents folder is language-independent on macos
+        else:
+            return os.path.join(userFolder,'Sephrasto')
 
     @staticmethod
     def createUserFolders(basePath):

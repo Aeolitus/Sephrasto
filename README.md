@@ -39,6 +39,9 @@ Gestartet wird Sephrasto dann folgendermaßen:
 python Sephrasto/src/Sephrasto/Sephrasto.py
 ```
 
+### Sephrasto Userordner ###
+Wenn dich der automatisch generierte Sephrasto-Ordner im Userverzeichnis stört, kannst du ihn von "sephrasto" in ".sephrasto" umbenennen, um ihn zu verstecken. Sephrasto wird dann den "sephrasto" Ordner nicht neu erstellen.
+
 ### Charakterbild ###
 Das Charakterbild kann im Beschreibung-Details Tab hinzugefügt werden (nur mit langem Charakterbogen sichtbar). Sollte die PDF-Erstellung mit Charakterbild nicht gelingen und wird dir folgende Fehlermeldung angezeigt:
 ```
