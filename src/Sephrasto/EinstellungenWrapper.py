@@ -261,13 +261,13 @@ class EinstellungenWrapper():
                     Wolke.Settings['Version'] += 1
         
         #Init defaults
-        if not Wolke.Settings['Pfad-Chars']:
+        if not Wolke.Settings['Pfad-Chars'] or not os.path.isdir(Wolke.Settings['Pfad-Chars']):
             Wolke.Settings['Pfad-Chars'] = os.path.join(settingsFolder, 'Charaktere')
-        if not Wolke.Settings['Pfad-Regeln']:
+        if not Wolke.Settings['Pfad-Regeln'] or not os.path.isdir(Wolke.Settings['Pfad-Regeln']):
             Wolke.Settings['Pfad-Regeln'] = os.path.join(settingsFolder, 'Regeln')
-        if not Wolke.Settings['Pfad-Plugins']:
+        if not Wolke.Settings['Pfad-Plugins'] or not os.path.isdir(Wolke.Settings['Pfad-Plugins']):
             Wolke.Settings['Pfad-Plugins'] = os.path.join(settingsFolder, 'Plugins')
-        if not Wolke.Settings['Pfad-Charakterbögen']:
+        if not Wolke.Settings['Pfad-Charakterbögen'] or not os.path.isdir(Wolke.Settings['Pfad-Charakterbögen']):
             Wolke.Settings['Pfad-Charakterbögen'] = os.path.join(settingsFolder, 'Charakterbögen')
 
         #Init charsheets
