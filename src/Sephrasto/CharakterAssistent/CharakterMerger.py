@@ -159,12 +159,8 @@ class CharakterMerger(object):
                 continue
 
             #Let user choose via popup or auto-choose if there is only one entry (usually due to removal - see below)
-            choice = None
-            if len(choiceList.choices) > 1:
-                popup = ChoicePopupWrapper.ChoicePopupWrapper(choiceList, element.name, char.EPspent)
-                choice = popup.choice
-            elif len(choiceList.choices) == 1:
-                choice = choiceList.choices[0]
+            popup = ChoicePopupWrapper.ChoicePopupWrapper(choiceList, element.name, char.EPspent)
+            choice = popup.choice
 
             if not choice:
                 continue
