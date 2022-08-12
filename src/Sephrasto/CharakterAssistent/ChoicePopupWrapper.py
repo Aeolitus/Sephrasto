@@ -24,16 +24,26 @@ class ChoicePopupWrapper(object):
                 continue
 
             button = QtWidgets.QRadioButton(choiceStr)
-            if len(self.buttons) == 0:
-                button.setChecked(True)
+            error = choice.getErrorString()
+            if error:
+                button.setEnabled(False)
             self.buttons.append(button)
             self.ui.verticalLayout.addWidget(button)
+
+        self.choice = None
+        atLeastOne = False
+        for button in self.buttons:
+            if button.isEnabled():
+                button.setChecked(True)
+                atLeastOne = True
+                break
+        if not atLeastOne:
+            return
 
         self.form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.form.show()
 
         self.ret = self.form.exec_()
-        self.choice = None
         if self.ret == QtWidgets.QDialog.Accepted:
             for i in range(len(choiceList.choices)):
                 if self.buttons[i].isChecked():
