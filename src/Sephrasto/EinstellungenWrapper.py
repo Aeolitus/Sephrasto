@@ -77,22 +77,29 @@ class EinstellungenWrapper():
             self.ui.comboFontHeading.setCurrentText(Wolke.DefaultOSFont)
         self.ui.spinAppFontHeadingSize.setValue(Wolke.Settings['FontHeadingSize'])
 
+        font = QtGui.QFont("Font Awesome 6 Free Solid", 9, QtGui.QFont.Black)
         self.ui.buttonChar.clicked.connect(self.setCharPath)
+        self.ui.buttonChar.setFont(font)
         self.ui.buttonChar.setText('\uf07c')
 
         self.ui.buttonRegeln.clicked.connect(self.setRulePath)
+        self.ui.buttonRegeln.setFont(font)
         self.ui.buttonRegeln.setText('\uf07c')
 
         self.ui.buttonPlugins.clicked.connect(self.setPluginsPath)
+        self.ui.buttonPlugins.setFont(font)
         self.ui.buttonPlugins.setText('\uf07c')
 
         self.ui.resetChar.clicked.connect(self.resetCharPath)
+        self.ui.resetChar.setFont(font)
         self.ui.resetChar.setText('\uf2ea')
 
         self.ui.resetRegeln.clicked.connect(self.resetRulePath)
+        self.ui.resetRegeln.setFont(font)
         self.ui.resetRegeln.setText('\uf2ea')
 
         self.ui.resetPlugins.clicked.connect(self.resetPluginsPath)
+        self.ui.resetPlugins.setFont(font)
         self.ui.resetPlugins.setText('\uf2ea')
 
         self.ui.resetFontDefault.clicked.connect(self.resetFonts)
@@ -244,7 +251,6 @@ class EinstellungenWrapper():
         EinstellungenWrapper.createFolder(settingsFolder)
         EinstellungenWrapper.createUserFolders(userFolder)
         settingsPath = os.path.join(settingsFolder, 'Sephrasto.ini')
-
         if os.path.isfile(settingsPath):
             with open(settingsPath,'r') as infile:
                 tmpSet = yaml.safe_load(infile)
@@ -298,6 +304,7 @@ class EinstellungenWrapper():
                 cbi.maxÜberFertigkeiten = tmpSet["MaxÜbernatürlicheFertigkeiten"]
                 cbi.maxÜberTalente = tmpSet["MaxÜbernatürlicheTalente"]
                 cbi.seitenProfan = tmpSet["SeitenProfan"]
+                cbi.kurzbogenHack = tmpSet["KurzerBogenHack"] if "KurzerBogenHack" in tmpSet else False
                 cbi.beschreibungDetails = tmpSet["BeschreibungDetails"]
                 cbi.bild = tmpSet["Bild"]
                 cbi.bildOffset = tmpSet["BildOffset"] if "BildOffset" in tmpSet else [0, 0]
