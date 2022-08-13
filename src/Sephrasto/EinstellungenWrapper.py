@@ -8,7 +8,7 @@ from Wolke import Wolke
 from Wolke import CharakterbogenInfo
 import UI.Einstellungen
 from PyQt5 import QtWidgets, QtCore, QtGui
-import os.path
+import os
 import yaml
 import logging
 import sys
@@ -195,7 +195,7 @@ class EinstellungenWrapper():
 
     @staticmethod
     def getSettingsFolder():
-        return appdirs.user_config_dir(appname='Sephrasto')
+        return appdirs.user_config_dir(appname='Sephrasto', appauthor='Ilaris')
 
     @staticmethod
     def getDefaultUserFolder():
@@ -205,7 +205,8 @@ class EinstellungenWrapper():
     def createFolder(basePath):
         if not os.path.isdir(basePath):
             try:
-                os.mkdir(basePath)
+                # makedirs in case parent folder does not exist
+                os.makedirs(basePath)
             except:
                 messagebox = QtWidgets.QMessageBox()
                 messagebox.setWindowTitle("Fehler!")
@@ -222,7 +223,7 @@ class EinstellungenWrapper():
         folders = ['Charaktere', 'Regeln', 'Plugins', 'Charakterbögen']
         for folder in folders:
             if not os.path.isdir(os.path.join(basePath, folder)):
-                os.mkdir(os.path.join(basePath, folder))
+                os.makedirs(os.path.join(basePath, folder))
 
     @staticmethod
     def load():
