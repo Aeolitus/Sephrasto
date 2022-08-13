@@ -198,7 +198,11 @@ class EinstellungenWrapper():
         return appdirs.user_config_dir(appname='Sephrasto')
 
     @staticmethod
-    def createSettingsFolders(basePath):
+    def getDefaultUserFolder():
+        return os.path.join(os.path.expanduser('~'), 'Sephrasto')
+
+    @staticmethod
+    def createFolder(basePath):
         if not os.path.isdir(basePath):
             try:
                 os.mkdir(basePath)
@@ -206,23 +210,14 @@ class EinstellungenWrapper():
                 messagebox = QtWidgets.QMessageBox()
                 messagebox.setWindowTitle("Fehler!")
                 messagebox.setText(
-                    "Konnte den Sephrasto Ordner in deinem Nutzerverzeichnis nicht erstellen (" + basePath + "). Bitte stelle sicher, dass Sephrasto die nötigen Schreibrechte hat und dein Antivirus Programm den Zugriff nicht blockiert. Sephrasto wird sonst nicht richtig funktionieren.")
+                    "Konnte den Sephrasto Ordner in deinem lokalen Einstellungsverzeichnis nicht erstellen (" + basePath + "). Bitte stelle sicher, dass Sephrasto die nötigen Schreibrechte hat und dein Antivirus Programm den Zugriff nicht blockiert. Sephrasto wird sonst nicht richtig funktionieren.")
                 messagebox.setIcon(QtWidgets.QMessageBox.Critical)
                 messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
                 messagebox.exec_()
 
     @staticmethod
     def createUserFolders(basePath):
-        if not os.path.isdir(basePath):
-            try:
-                os.mkdir(basePath)
-            except:
-                messagebox = QtWidgets.QMessageBox()
-                messagebox.setWindowTitle("Fehler!")
-                messagebox.setText("Konnte den Sephrasto Ordner in deinem Nutzerverzeichnis nicht erstellen (" + basePath + "). Bitte stelle sicher, dass Sephrasto die nötigen Schreibrechte hat und dein Antivirus Programm den Zugriff nicht blockiert. Sephrasto wird sonst nicht richtig funktionieren.")
-                messagebox.setIcon(QtWidgets.QMessageBox.Critical)
-                messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-                messagebox.exec_()
+        EinstellungenWrapper.createFolder(basePath)
 
         folders = ['Charaktere', 'Regeln', 'Plugins', 'Charakterbögen']
         for folder in folders:
@@ -232,8 +227,8 @@ class EinstellungenWrapper():
     @staticmethod
     def load():
         settingsFolder = EinstellungenWrapper.getSettingsFolder()
-        userFolder = os.path.join(os.path.expanduser('~'), 'Sephrasto')
-        EinstellungenWrapper.createSettingsFolders(settingsFolder)
+        userFolder = EinstellungenWrapper.getDefaultUserFolder()
+        EinstellungenWrapper.createFolder(settingsFolder)
         EinstellungenWrapper.createUserFolders(userFolder)
         settingsPath = os.path.join(settingsFolder, 'Sephrasto.ini')
         if os.path.isfile(settingsPath):
@@ -295,7 +290,7 @@ class EinstellungenWrapper():
     @staticmethod
     def save():
         settingsFolder = EinstellungenWrapper.getSettingsFolder()
-        EinstellungenWrapper.createSettingsFolders(settingsFolder)
+        EinstellungenWrapper.createFolder(settingsFolder)
 
         settingsPath = os.path.join(settingsFolder, 'Sephrasto.ini')
         with open(settingsPath, 'w') as outfile:
