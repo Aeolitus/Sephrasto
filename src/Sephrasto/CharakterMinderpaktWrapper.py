@@ -20,7 +20,9 @@ class CharakterMinderpaktWrapper():
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
-                QtCore.Qt.WindowCloseButtonHint)
+                QtCore.Qt.WindowCloseButtonHint |
+                QtCore.Qt.WindowMaximizeButtonHint |
+                QtCore.Qt.WindowMinimizeButtonHint)
         
         self.ui.splitter.adjustSize()
         width = self.ui.splitter.size().width()

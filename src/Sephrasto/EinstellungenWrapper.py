@@ -28,7 +28,9 @@ class EinstellungenWrapper():
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
-                QtCore.Qt.WindowCloseButtonHint)
+                QtCore.Qt.WindowCloseButtonHint |
+                QtCore.Qt.WindowMaximizeButtonHint |
+                QtCore.Qt.WindowMinimizeButtonHint)
 
         self.ui.checkCheatsheet.setChecked(Wolke.Settings['Cheatsheet'])
 
