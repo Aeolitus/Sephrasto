@@ -35,7 +35,9 @@ class DatenbankEditTalentWrapper(object):
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
-                QtCore.Qt.WindowCloseButtonHint)
+                QtCore.Qt.WindowCloseButtonHint |
+                QtCore.Qt.WindowMaximizeButtonHint |
+                QtCore.Qt.WindowMinimizeButtonHint)
         
         windowSize = Wolke.Settings["WindowSize-DBTalent"]
         self.talentDialog.resize(windowSize[0], windowSize[1])

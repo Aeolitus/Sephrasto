@@ -34,7 +34,9 @@ class DatenbankEditFertigkeitWrapper(object):
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |
                 QtCore.Qt.WindowTitleHint |
-                QtCore.Qt.WindowCloseButtonHint)
+                QtCore.Qt.WindowCloseButtonHint |
+                QtCore.Qt.WindowMaximizeButtonHint |
+                QtCore.Qt.WindowMinimizeButtonHint)
 
         if ueber:
             windowSize = Wolke.Settings["WindowSize-DBFertigkeitUeber"]
