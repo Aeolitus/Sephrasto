@@ -105,7 +105,7 @@ class EinstellungenWrapper():
         elif system == 'Linux':
             self.ui.resetFontOS.setText('\uf17c')
         elif system == 'Darwin':
-            self.ui.resetFontOS.setText('\uf179')
+            self.ui.resetFontOS.setText('\uf5d1')
         else:
             self.ui.resetFontOS.setText('\ue4e5')
 
@@ -430,14 +430,11 @@ class EinstellungenWrapper():
         self.ui.comboTheme.setCurrentText("Ilaris")
         if systemFont:
             self.ui.comboFont.setCurrentText(Wolke.DefaultOSFont)
-            self.ui.spinAppFontSize.setValue(Wolke.DefaultOSFontSize)
-            self.ui.comboFontHeading.setCurrentText("Aniron")
-            self.ui.spinAppFontHeadingSize.setValue(Wolke.DefaultOSFontSize -1)
         else:
             self.ui.comboFont.setCurrentText("Crimson Pro")
-            self.ui.spinAppFontSize.setValue(9)
-            self.ui.comboFontHeading.setCurrentText("Aniron")
-            self.ui.spinAppFontHeadingSize.setValue(8)
+        self.ui.spinAppFontSize.setValue(Wolke.DefaultOSFontSize)
+        self.ui.comboFontHeading.setCurrentText("Aniron")
+        self.ui.spinAppFontHeadingSize.setValue(Wolke.DefaultOSFontSize -1)
 
     @staticmethod
     def useSystemFont():
@@ -450,7 +447,7 @@ class EinstellungenWrapper():
     @staticmethod
     def useDefaultFont():
         Wolke.Settings['Font'] = "Crimson Pro"
-        Wolke.Settings['FontSize'] = 9
+        Wolke.Settings['FontSize'] = Wolke.DefaultOSFontSize
         Wolke.Settings['FontHeading'] = "Aniron"
-        Wolke.Settings['FontHeadingSize'] = 8
+        Wolke.Settings['FontHeadingSize'] = Wolke.DefaultOSFontSize -1
         Wolke.Settings['IconSize'] = min(max(9, Wolke.Settings['FontSize']), 12)
