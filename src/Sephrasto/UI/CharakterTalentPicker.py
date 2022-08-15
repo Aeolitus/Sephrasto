@@ -109,7 +109,9 @@ class Ui_Dialog(object):
         self.spinKosten.setSuffix(_translate("Dialog", " EP"))
         self.labelKommentar.setText(_translate("Dialog", "Kommentar:"))
         self.labelName.setText(_translate("Dialog", "Talentname"))
+        self.labelName.setProperty("class", _translate("Dialog", "h4"))
         self.labelInfo.setText(_translate("Dialog", "Spezialtalent"))
+        self.labelInfo.setProperty("class", _translate("Dialog", "italic"))
 
 
 if __name__ == "__main__":

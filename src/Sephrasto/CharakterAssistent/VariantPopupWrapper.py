@@ -32,7 +32,6 @@ class VariantPopupWrapper(object):
             desc = variantList.getDescription()
             if desc:
                 label = QtWidgets.QLabel(desc)
-                label.setFont(QtGui.QFont(Wolke.Settings["Font"], Wolke.Settings["FontSize"]))  # workaround for macos until app.setFont works there
                 self.labels.append(label)
                 self.ui.verticalLayout.addWidget(label)
 

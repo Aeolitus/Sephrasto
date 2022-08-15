@@ -48,8 +48,11 @@ class Ui_formHilfe(object):
         _translate = QtCore.QCoreApplication.translate
         formHilfe.setWindowTitle(_translate("formHilfe", "Sephrasto - Hilfe"))
         self.buttonBackward.setText(_translate("formHilfe", "..."))
+        self.buttonBackward.setProperty("class", _translate("formHilfe", "icon"))
         self.buttonForward.setText(_translate("formHilfe", "..."))
+        self.buttonForward.setProperty("class", _translate("formHilfe", "icon"))
         self.buttonHome.setText(_translate("formHilfe", "..."))
+        self.buttonHome.setProperty("class", _translate("formHilfe", "icon"))
 
 
 if __name__ == "__main__":

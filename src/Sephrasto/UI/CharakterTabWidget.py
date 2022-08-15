@@ -32,6 +32,7 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
+        self.tabs.setProperty("class", _translate("Form", "h2"))
 
 
 if __name__ == "__main__":

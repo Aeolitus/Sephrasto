@@ -212,12 +212,15 @@ class Ui_Form(object):
         self.label.setToolTip(_translate("Form", "Probenwert mit Talent"))
         self.label.setText(_translate("Form", "PW(T):"))
         self.labelFertigkeit.setText(_translate("Form", "Fertigkeit"))
+        self.labelFertigkeit.setProperty("class", _translate("Form", "h4"))
         self.label_6.setText(_translate("Form", "Basis:"))
         self.labelKategorie.setText(_translate("Form", "Körperliche Fertigkeiten"))
+        self.labelKategorie.setProperty("class", _translate("Form", "italic"))
         self.label_7.setToolTip(_translate("Form", "Fertigkeitswert"))
         self.label_7.setText(_translate("Form", "FW:"))
         self.label_9.setText(_translate("Form", "Erworbene Talente:"))
         self.buttonAdd.setText(_translate("Form", "+"))
+        self.buttonAdd.setProperty("class", _translate("Form", "icon"))
 
 
 if __name__ == "__main__":

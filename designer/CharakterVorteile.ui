@@ -134,7 +134,7 @@
          <x>0</x>
          <y>0</y>
          <width>340</width>
-         <height>394</height>
+         <height>395</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_2" columnstretch="0,1">
@@ -181,6 +181,9 @@
           </property>
           <property name="text">
            <string>Vorteil</string>
+          </property>
+          <property name="class" stdset="0">
+           <string>h4</string>
           </property>
          </widget>
         </item>
@@ -248,6 +251,9 @@
           </property>
           <property name="alignment">
            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+          <property name="class" stdset="0">
+           <string>italic</string>
           </property>
          </widget>
         </item>

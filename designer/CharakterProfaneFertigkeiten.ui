@@ -348,6 +348,9 @@
           <property name="text">
            <string>Fertigkeit</string>
           </property>
+          <property name="class" stdset="0">
+           <string>h4</string>
+          </property>
          </widget>
         </item>
         <item row="5" column="0">
@@ -366,6 +369,9 @@
           </property>
           <property name="text">
            <string>Körperliche Fertigkeiten</string>
+          </property>
+          <property name="class" stdset="0">
+           <string>italic</string>
           </property>
          </widget>
         </item>
@@ -450,6 +456,9 @@
           </property>
           <property name="text">
            <string>+</string>
+          </property>
+          <property name="class" stdset="0">
+           <string>icon</string>
           </property>
          </widget>
         </item>

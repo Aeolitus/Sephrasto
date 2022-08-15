@@ -40,6 +40,9 @@
      <property name="elideMode">
       <enum>Qt::ElideNone</enum>
      </property>
+     <property name="class" stdset="0">
+      <string>h2</string>
+     </property>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">
        <string>Details</string>
@@ -77,6 +80,9 @@
            <property name="text">
             <string>Familie/Hintergrund/Herkunft</string>
            </property>
+           <property name="class" stdset="0">
+            <string>h4</string>
+           </property>
           </widget>
          </item>
          <item row="4" column="4">
@@ -96,6 +102,9 @@
            <property name="text">
             <string>Titel</string>
            </property>
+           <property name="class" stdset="0">
+            <string>h4</string>
+           </property>
           </widget>
          </item>
          <item row="12" column="4" colspan="2">
@@ -112,6 +121,9 @@
            <property name="text">
             <string>Haarfarbe</string>
            </property>
+           <property name="class" stdset="0">
+            <string>h4</string>
+           </property>
           </widget>
          </item>
          <item row="9" column="2">
@@ -127,6 +139,9 @@
            </property>
            <property name="text">
             <string>Größe</string>
+           </property>
+           <property name="class" stdset="0">
+            <string>h4</string>
            </property>
           </widget>
          </item>
@@ -147,6 +162,9 @@
            <property name="text">
             <string>Aussehen</string>
            </property>
+           <property name="class" stdset="0">
+            <string>h4</string>
+           </property>
           </widget>
          </item>
          <item row="6" column="1">
@@ -159,6 +177,9 @@
            </property>
            <property name="text">
             <string>Gewicht</string>
+           </property>
+           <property name="class" stdset="0">
+            <string>h4</string>
            </property>
           </widget>
          </item>
@@ -173,6 +194,9 @@
            <property name="text">
             <string>Geschlecht</string>
            </property>
+           <property name="class" stdset="0">
+            <string>h4</string>
+           </property>
           </widget>
          </item>
          <item row="2" column="1">
@@ -185,6 +209,9 @@
            </property>
            <property name="text">
             <string>Profession</string>
+           </property>
+           <property name="class" stdset="0">
+            <string>h4</string>
            </property>
           </widget>
          </item>
@@ -207,6 +234,9 @@
            </property>
            <property name="text">
             <string>Kultur</string>
+           </property>
+           <property name="class" stdset="0">
+            <string>h4</string>
            </property>
           </widget>
          </item>
@@ -243,6 +273,9 @@
            <property name="text">
             <string>Geburtsdatum</string>
            </property>
+           <property name="class" stdset="0">
+            <string>h4</string>
+           </property>
           </widget>
          </item>
          <item row="8" column="1">
@@ -255,6 +288,9 @@
            </property>
            <property name="text">
             <string>Augenfarbe</string>
+           </property>
+           <property name="class" stdset="0">
+            <string>h4</string>
            </property>
           </widget>
          </item>

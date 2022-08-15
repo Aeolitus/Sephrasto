@@ -142,6 +142,9 @@
              <property name="alignment">
               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
              </property>
+             <property name="class" stdset="0">
+              <string>italic</string>
+             </property>
             </widget>
            </item>
            <item row="3" column="1">
@@ -176,6 +179,9 @@
              </property>
              <property name="text">
               <string>Vorteil</string>
+             </property>
+             <property name="class" stdset="0">
+              <string>h4</string>
              </property>
             </widget>
            </item>

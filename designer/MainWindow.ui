@@ -105,6 +105,9 @@
        <property name="text">
         <string>Hilfe</string>
        </property>
+       <property name="class" stdset="0">
+        <string>icon</string>
+       </property>
       </widget>
      </item>
      <item>
@@ -123,6 +126,9 @@
        </property>
        <property name="text">
         <string>Einst</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>icon</string>
        </property>
       </widget>
      </item>
@@ -153,6 +159,9 @@
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
+     </property>
+     <property name="class" stdset="0">
+      <string>title</string>
      </property>
     </widget>
    </item>

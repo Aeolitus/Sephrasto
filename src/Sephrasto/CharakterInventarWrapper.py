@@ -63,7 +63,6 @@ class CharakterInventarWrapper(QtCore.QObject):
             self.spinPunkte.append(getattr(self.ui, "spinR" + str(i+1) + "punkte"))
 
             addR = getattr(self.ui, "addR" + str(i+1))
-            addR.setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9, QtGui.QFont.Black))
             addR.setText('\u002b')
             addR.setMaximumSize(QtCore.QSize(20, 20))
             addR.clicked.connect(lambda state, idx=i: self.selectArmor(idx))

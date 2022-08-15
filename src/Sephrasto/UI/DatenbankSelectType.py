@@ -56,6 +56,7 @@ class Ui_Dialog(object):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Sephrasto - Datenbankeintrag anlegen..."))
         self.label.setText(_translate("Dialog", "Was möchtest du anlegen?"))
+        self.label.setProperty("class", _translate("Dialog", "h4"))
 
 
 if __name__ == "__main__":

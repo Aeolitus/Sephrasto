@@ -267,6 +267,9 @@
        <property name="text">
         <string>Geschwindigkeit</string>
        </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
       </widget>
      </item>
      <item row="6" column="1">
@@ -282,6 +285,9 @@
        </property>
        <property name="text">
         <string>Intuition</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
        </property>
       </widget>
      </item>
@@ -354,6 +360,9 @@
        <property name="text">
         <string>Astralenergie</string>
        </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
       </widget>
      </item>
      <item row="2" column="7">
@@ -369,6 +378,9 @@
        </property>
        <property name="text">
         <string>Wundschwelle</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
        </property>
       </widget>
      </item>
@@ -411,6 +423,9 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
+       </property>
+       <property name="class" stdset="0">
+        <string>italic</string>
        </property>
       </widget>
      </item>
@@ -459,6 +474,9 @@
        <property name="text">
         <string>Fingerfertigkeit</string>
        </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
       </widget>
      </item>
      <item row="9" column="7">
@@ -477,6 +495,9 @@
        </property>
        <property name="text">
         <string>Karmaenergie</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
        </property>
       </widget>
      </item>
@@ -506,6 +527,9 @@
        </property>
        <property name="text">
         <string>Konstitution</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
        </property>
       </widget>
      </item>
@@ -580,6 +604,9 @@
        <property name="margin">
         <number>0</number>
        </property>
+       <property name="class" stdset="0">
+        <string>h2</string>
+       </property>
       </widget>
      </item>
      <item row="4" column="11">
@@ -609,6 +636,9 @@
        <property name="text">
         <string>Charisma</string>
        </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
       </widget>
      </item>
      <item row="6" column="7">
@@ -624,6 +654,9 @@
        </property>
        <property name="text">
         <string>Initiative</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
        </property>
       </widget>
      </item>
@@ -704,6 +737,9 @@
        <property name="text">
         <string>Magieresistenz</string>
        </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
       </widget>
      </item>
      <item row="3" column="3">
@@ -763,6 +799,9 @@
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
+       <property name="class" stdset="0">
+        <string>italic</string>
+       </property>
       </widget>
      </item>
      <item row="5" column="11">
@@ -797,6 +836,9 @@
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
+       <property name="class" stdset="0">
+        <string>italic</string>
+       </property>
       </widget>
      </item>
      <item row="7" column="1">
@@ -812,6 +854,9 @@
        </property>
        <property name="text">
         <string>Klugheit</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
        </property>
       </widget>
      </item>
@@ -833,6 +878,9 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
+       </property>
+       <property name="class" stdset="0">
+        <string>italic</string>
        </property>
       </widget>
      </item>
@@ -972,6 +1020,9 @@
        <property name="text">
         <string>Körperkraft</string>
        </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
       </widget>
      </item>
      <item row="1" column="4">
@@ -1000,6 +1051,9 @@
        <property name="margin">
         <number>0</number>
        </property>
+       <property name="class" stdset="0">
+        <string>h2</string>
+       </property>
       </widget>
      </item>
      <item row="9" column="8">
@@ -1020,6 +1074,9 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
+       </property>
+       <property name="class" stdset="0">
+        <string>italic</string>
        </property>
       </widget>
      </item>
@@ -1079,6 +1136,9 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
+       </property>
+       <property name="class" stdset="0">
+        <string>italic</string>
        </property>
       </widget>
      </item>
@@ -1173,6 +1233,9 @@
        <property name="margin">
         <number>0</number>
        </property>
+       <property name="class" stdset="0">
+        <string>h2</string>
+       </property>
       </widget>
      </item>
      <item row="5" column="7">
@@ -1188,6 +1251,9 @@
        </property>
        <property name="text">
         <string>Schadensbonus</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
        </property>
       </widget>
      </item>
@@ -1235,6 +1301,9 @@
        <property name="margin">
         <number>0</number>
        </property>
+       <property name="class" stdset="0">
+        <string>h2</string>
+       </property>
       </widget>
      </item>
      <item row="3" column="1">
@@ -1250,6 +1319,9 @@
        </property>
        <property name="text">
         <string>Mut</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
        </property>
       </widget>
      </item>
@@ -1288,6 +1360,9 @@
        <property name="text">
         <string>Gewandheit</string>
        </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
       </widget>
      </item>
      <item row="2" column="8">
@@ -1308,6 +1383,9 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
+       </property>
+       <property name="class" stdset="0">
+        <string>italic</string>
        </property>
       </widget>
      </item>
@@ -1406,6 +1484,9 @@
        <property name="alignment">
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
+       <property name="class" stdset="0">
+        <string>h2</string>
+       </property>
       </widget>
      </item>
      <item row="2" column="5">
@@ -1499,6 +1580,9 @@
        <property name="text">
         <string>Durchhaltevermögen</string>
        </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
       </widget>
      </item>
      <item row="7" column="8">
@@ -1513,6 +1597,9 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
+       </property>
+       <property name="class" stdset="0">
+        <string>italic</string>
        </property>
       </widget>
      </item>

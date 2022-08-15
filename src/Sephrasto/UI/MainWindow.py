@@ -94,8 +94,11 @@ class Ui_Form(object):
         self.label_2.setText(_translate("Form", "Ein Charaktergenerator für Ilaris"))
         self.buttonEdit.setText(_translate("Form", "Charakter laden"))
         self.buttonHelp.setText(_translate("Form", "Hilfe"))
+        self.buttonHelp.setProperty("class", _translate("Form", "icon"))
         self.buttonSettings.setText(_translate("Form", "Einst"))
+        self.buttonSettings.setProperty("class", _translate("Form", "icon"))
         self.label.setText(_translate("Form", "Sephrasto"))
+        self.label.setProperty("class", _translate("Form", "title"))
         self.labelVersion.setText(_translate("Form", "PLACEHOLDER"))
         self.buttonRules.setText(_translate("Form", "Regelbasis bearbeiten"))
 

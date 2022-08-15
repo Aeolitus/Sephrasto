@@ -73,7 +73,7 @@ class Ui_Dialog(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 449, 459))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 375, 459))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.gridLayout = QtWidgets.QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout.setObjectName("gridLayout")
@@ -186,6 +186,7 @@ class Ui_Dialog(object):
         self.label_3.setText(_translate("Dialog", "Talent:"))
         self.labelEigenschaften.setText(_translate("Dialog", "Eigenschaften:"))
         self.labelName.setText(_translate("Dialog", "Brabakbengel"))
+        self.labelName.setProperty("class", _translate("Dialog", "h4"))
         self.labelKampfstile.setText(_translate("Dialog", "Kampfstile:"))
         self.label_2.setText(_translate("Dialog", "Trefferpunkte:"))
         self.labelWMLZ_Text.setText(_translate("Dialog", "Waffenmodifikator:"))
@@ -194,6 +195,7 @@ class Ui_Dialog(object):
         self.label.setText(_translate("Dialog", "Fertigkeit:"))
         self.labelTP.setText(_translate("Dialog", "2W6+2"))
         self.labelTyp.setText(_translate("Dialog", "Nahkampfwaffe"))
+        self.labelTyp.setProperty("class", _translate("Dialog", "italic"))
 
 
 if __name__ == "__main__":

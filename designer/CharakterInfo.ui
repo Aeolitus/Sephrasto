@@ -45,6 +45,9 @@
        <property name="text">
         <string>Charakter-Einstellungen</string>
        </property>
+       <property name="class" stdset="0">
+        <string>h2</string>
+       </property>
       </widget>
      </item>
      <item>
@@ -225,6 +228,9 @@
        </property>
        <property name="text">
         <string>EP-Verteilung</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h2</string>
        </property>
       </widget>
      </item>
@@ -462,6 +468,9 @@
             <property name="text">
              <string>Vorteile</string>
             </property>
+            <property name="class" stdset="0">
+             <string>h4</string>
+            </property>
            </widget>
           </item>
           <item row="0" column="2">
@@ -527,6 +536,9 @@
             </property>
             <property name="text">
              <string>Übernatürliche Fertigkeiten und Talente</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>h4</string>
             </property>
            </widget>
           </item>
@@ -706,6 +718,9 @@
             <property name="text">
              <string>Attribute</string>
             </property>
+            <property name="class" stdset="0">
+             <string>h4</string>
+            </property>
            </widget>
           </item>
           <item row="4" column="0">
@@ -778,6 +793,9 @@
             </property>
             <property name="text">
              <string>Profane Fertigkeiten und Talente</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>h4</string>
             </property>
            </widget>
           </item>
@@ -857,6 +875,9 @@
        </property>
        <property name="text">
         <string>Notiz</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h2</string>
        </property>
       </widget>
      </item>

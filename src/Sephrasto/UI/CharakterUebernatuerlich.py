@@ -190,10 +190,13 @@ class Ui_Form(object):
         self.labelAttribute.setText(_translate("Form", "MU/IN/CH"))
         self.label_8.setText(_translate("Form", "PW:"))
         self.labelFertigkeit.setText(_translate("Form", "Fertigkeit"))
+        self.labelFertigkeit.setProperty("class", _translate("Form", "h4"))
         self.label_9.setText(_translate("Form", "Erworbene Talente:"))
         self.label_6.setText(_translate("Form", "Basis:"))
         self.buttonAdd.setText(_translate("Form", "+"))
+        self.buttonAdd.setProperty("class", _translate("Form", "icon"))
         self.labelKategorie.setText(_translate("Form", "Allgemeine Zauber"))
+        self.labelKategorie.setProperty("class", _translate("Form", "italic"))
 
 
 if __name__ == "__main__":

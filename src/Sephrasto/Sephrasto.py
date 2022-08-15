@@ -26,6 +26,7 @@ from UpdateChecker import UpdateChecker
 from PyQt5.QtGui import QPalette, QColor
 from PyQt5.QtWidgets import QToolTip
 from Hilfsmethoden import Hilfsmethoden
+import platform
 
 loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
 logging.basicConfig(filename="sephrasto.log", \
@@ -68,6 +69,7 @@ class MainWindowWrapper(object):
     Main Class responsible for running the entire application. 
     Just shows three buttons and handles the execution of the individual subparts.
     '''
+
     def __init__(self):
         sys.excepthook = sephrasto_excepthook
 
@@ -91,7 +93,6 @@ class MainWindowWrapper(object):
         self.app = QtCore.QCoreApplication.instance()
         if self.app is None:
             self.app = QtWidgets.QApplication(sys.argv)
-
         self.form = QtWidgets.QWidget()
         self.ui = UI.MainWindow.Ui_Form()
         self.ui.setupUi(self.form)
@@ -104,6 +105,13 @@ class MainWindowWrapper(object):
 
         self.app.setWindowIcon(QtGui.QIcon('icon_large.png'))
         
+        if platform.system() != 'Windows': # hardcoded for windows, qt doesnt provide the correct font here
+            defaultFont = QtGui.QFont()
+            Wolke.DefaultOSFont = defaultFont.family() 
+            Wolke.DefaultOSFontSize = defaultFont.pointSize()
+            if Wolke.DefaultOSFontSize == -1:
+                Wolke.DefaultOSFontSize = Wolke.Settings['FontSize']
+
         # Get the Settings loaded
         EinstellungenWrapper.load()
         logging.getLogger().setLevel(loglevels[Wolke.Settings['Logging']])
@@ -112,14 +120,8 @@ class MainWindowWrapper(object):
         self.form.resize(windowSize[0], windowSize[1])
 
         self.updateAppearance()
-        self.ui.label.setFont(QtGui.QFont("Aniron", 16))
-        self.ui.label.setStyleSheet("color: " + Wolke.HeadingColor)
 
-        font = QtGui.QFont("Font Awesome 6 Free Solid", 9, QtGui.QFont.Black)
-        self.ui.buttonHelp.setFont(font)
         self.ui.buttonHelp.setText("\uf059")
-
-        self.ui.buttonSettings.setFont(font)
         self.ui.buttonSettings.setText("\uf013")
 
         UpdateChecker.checkForUpdate()
@@ -242,22 +244,26 @@ class MainWindowWrapper(object):
            rules = " (" + os.path.splitext(os.path.basename(Wolke.DB.datei))[0] + ")"
         self.ed.form.setWindowTitle("Sephrasto" + file + rules)
 
-    def buildStylesheet(self, readonlyColor, headingColor, borderColor, buttonColor = None):
-        fontSize = str(Wolke.Settings['FontSize'])
-        fontFamily = str(Wolke.Settings['Font'])
-        styleReadonly = "*[readOnly=\"true\"] { background-color: " + readonlyColor + "; border: none; }"
-        styleTooltip =  "QToolTip { font: " + str(fontSize) + "pt '" + fontFamily + "'; }"
-        styleCombo = "QComboBox { font: " + str(fontSize) + "pt '" + fontFamily + "'; }"
-        styleTableHeader = "QHeaderView::section { font: bold " + str(Wolke.Settings['FontHeadingSize']-1) + "pt '" + Wolke.Settings['FontHeading'] + "'; color: " + headingColor + "; }"
-        styleTable = "QTableView { font: " + str(fontSize) + "pt '" + fontFamily + "'; }"
-        styleList = "QListView { font: " + str(fontSize) + "pt '" + fontFamily + "'; }"
-        styleTree = "QTreeWidget { font: " + str(fontSize) + "pt '" + fontFamily + "'; }"
-        styleGroupbox = "QGroupBox { font: " + str(Wolke.FontHeadingSizeL3) + "pt '" + fontFamily + "'; font-weight: bold; font-variant: small-caps; color: " + headingColor + "; }"
-        styleMessagebox = "QMessageBox { font: " + str(fontSize) + "pt '" + fontFamily + "'; }"
-        styleButton = ""
+    def buildStylesheet(self, readonlyColor, panelColor, buttonColor = None):
+        standardFont = f"font-family: '{Wolke.Settings['Font']}'"
+        headingFont = f"font-family: '{Wolke.Settings['FontHeading']}'; color: {Wolke.HeadingColor}"
+
+        css = f"""*[readOnly=\"true\"] {{ background-color: {readonlyColor}; border: none; }}
+        QWidget, QToolTip {{ {standardFont}; font-size: {Wolke.Settings['FontSize']}pt; }}
+        QHeaderView::section {{ font-weight: bold; font-size: {Wolke.Settings['FontHeadingSize']-1}pt; {headingFont}; }}
+        .smallText {{ font-size: {Wolke.Settings['FontSize']-1}pt; }}
+        .italic {{ font-style: italic; }}
+        .panel {{ background: {panelColor}; }}
+        .h1 {{ font-weight: bold; font-size: {Wolke.FontHeadingSizeL1}pt; {headingFont}; }}
+        .h2 {{ font-weight: bold; font-size: {Wolke.Settings['FontHeadingSize']}pt; {headingFont}; }}
+        .h3, QGroupBox {{ font-weight: bold; font-variant: small-caps; font-size: {Wolke.FontHeadingSizeL3}pt; {standardFont}; color: {Wolke.HeadingColor}; }}
+        .h4 {{ font-weight: bold; }}
+        .title {{ font-weight: bold; font-size: 16pt; {headingFont}; }}
+        .icon {{ font-size: {Wolke.Settings['IconSize']}pt; font-weight: {Hilfsmethoden.qtWeightToCSS(QtGui.QFont.Black)}; font-family: 'Font Awesome 6 Free Solid'; }}"""
+
         if buttonColor:
-            styleButton = "QPushButton { background-color: " + buttonColor + " }"
-        self.app.setStyleSheet(styleReadonly + styleTooltip + styleCombo + styleTableHeader + styleTable + styleList + styleTree + styleGroupbox + styleButton + styleMessagebox)
+            css += f"QPushButton {{ background-color: {buttonColor}; }}"
+        self.app.setStyleSheet(css)
 
     def updateAppearance(self):
         fonts = ["Aniron", "Crimson Pro", "Fontawesome"]
@@ -265,16 +271,6 @@ class MainWindowWrapper(object):
             for file in Hilfsmethoden.listdir(os.path.join("Data", "Fonts", font)):
                 if file.endswith(".ttf"):
                     QtGui.QFontDatabase.addApplicationFont(os.path.join(os.path.dirname(os.path.abspath(__file__)), "Data", "Fonts", font, file))
-
-        fontSize = Wolke.Settings['FontSize']
-        fontFamily = Wolke.Settings['Font']
-        if fontFamily:
-            font = QtGui.QFontDatabase().font(fontFamily, "Regular", fontSize)
-            self.app.setFont(font)
-        else:
-            font = self.app.font()
-            font.setPointSize(fontSize)
-            self.app.setFont(font)
 
         Wolke.FontHeadingSizeL1 = Wolke.Settings["FontHeadingSize"] + 1
         Wolke.FontHeadingSizeL3 = Wolke.Settings["FontSize"] + 2
@@ -287,7 +283,7 @@ class MainWindowWrapper(object):
             QToolTip.setPalette(self.app.style().standardPalette())
             Wolke.HeadingColor = "#000000"
             Wolke.BorderColor = "rgba(0,0,0,0.2)"
-            self.buildStylesheet("#ffffff", Wolke.HeadingColor, Wolke.BorderColor)
+            self.buildStylesheet("#ffffff", "#b3b3b3")
         elif style == "Fusion Light":
             self.app.setStyle('fusion')
             palette = self.app.style().standardPalette()
@@ -297,7 +293,7 @@ class MainWindowWrapper(object):
             QToolTip.setPalette(palette)
             Wolke.HeadingColor = "#000000"
             Wolke.BorderColor = "rgba(0,0,0,0.2)"
-            self.buildStylesheet("#ffffff", Wolke.HeadingColor, Wolke.BorderColor)
+            self.buildStylesheet("#ffffff", "#b3b3b3")
         elif style == "Fusion Dark":
             self.app.setStyle('fusion')
             palette = QPalette()
@@ -324,7 +320,7 @@ class MainWindowWrapper(object):
             QToolTip.setPalette(palette)
             Wolke.HeadingColor = "#ffffff"
             Wolke.BorderColor = "rgba(255,255,255,0.2)"
-            self.buildStylesheet("#434343", Wolke.HeadingColor, Wolke.BorderColor)
+            self.buildStylesheet("#434343", "#7d7d7d")
         elif style == "Ilaris":
             self.app.setStyle('fusion')
 
@@ -363,7 +359,7 @@ class MainWindowWrapper(object):
             QToolTip.setPalette(palette)
             Wolke.HeadingColor = "#4A000B"
             Wolke.BorderColor = "rgba(0,0,0,0.2)"
-            self.buildStylesheet("#e4d0a5", Wolke.HeadingColor, Wolke.BorderColor, "#d1bd94")
+            self.buildStylesheet("#e4d0a5", "#e8c5a9", "#d1bd94")
         elif style == "DSA Forum":
             self.app.setStyle('fusion')
             palette = QPalette()
@@ -400,7 +396,7 @@ class MainWindowWrapper(object):
             QToolTip.setPalette(palette)
             Wolke.HeadingColor = "#000000"
             Wolke.BorderColor = "rgba(0,0,0,0.2)"
-            self.buildStylesheet("#dcc484", Wolke.HeadingColor, Wolke.BorderColor)
+            self.buildStylesheet("#dcc484", "#f6efe2")
         
 if __name__ == "__main__":
     itm = MainWindowWrapper()

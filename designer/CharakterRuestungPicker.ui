@@ -207,12 +207,18 @@
              <property name="text">
               <string>Kettenhemd</string>
              </property>
+             <property name="class" stdset="0">
+              <string>h4</string>
+             </property>
             </widget>
            </item>
            <item row="1" column="0" colspan="2">
             <widget class="QLabel" name="lblTyp">
              <property name="text">
               <string>Kettenrüstung</string>
+             </property>
+             <property name="class" stdset="0">
+              <string>italic</string>
              </property>
             </widget>
            </item>

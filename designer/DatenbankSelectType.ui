@@ -55,6 +55,9 @@
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
       </widget>
      </item>
      <item>

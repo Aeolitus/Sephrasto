@@ -93,7 +93,6 @@ class CharakterWaffenWrapper(QtCore.QObject):
             self.comboStil.append(comboStil)
 
             addW = getattr(self.ui, "addW" + str(i+1))
-            addW.setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9, QtGui.QFont.Black))
             addW.setText('\u002b')
             addW.setMaximumSize(QtCore.QSize(20, 20))
             addW.clicked.connect(lambda state, idx=i: self.selectWeapon(idx))
@@ -101,13 +100,11 @@ class CharakterWaffenWrapper(QtCore.QObject):
 
             if i > 0:
                 upW = getattr(self.ui, "buttonW" + str(i+1) + "Up")
-                upW.setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9, QtGui.QFont.Black))
                 upW.setText('\uf106')
                 upW.setMaximumSize(QtCore.QSize(20, 20))
                 upW.clicked.connect(lambda state, idx=i: self.moveWeapon(idx, -1))
             if i < 7:
                 downW = getattr(self.ui, "buttonW" + str(i+1) + "Down")
-                downW.setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9, QtGui.QFont.Black))
                 downW.setText('\uf078')
                 downW.setMaximumSize(QtCore.QSize(20, 20))
                 downW.clicked.connect(lambda state, idx=i: self.moveWeapon(idx, +1))

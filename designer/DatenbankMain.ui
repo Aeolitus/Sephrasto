@@ -35,6 +35,9 @@
          <property name="text">
           <string>Filter nach Name:</string>
          </property>
+         <property name="class" stdset="0">
+          <string>h4</string>
+         </property>
         </widget>
        </item>
        <item>
@@ -56,6 +59,9 @@
          </property>
          <property name="tristate">
           <bool>true</bool>
+         </property>
+         <property name="class" stdset="0">
+          <string>h4</string>
          </property>
         </widget>
        </item>
@@ -186,6 +192,9 @@
          <property name="text">
           <string>Filter nach Status:</string>
          </property>
+         <property name="class" stdset="0">
+          <string>h4</string>
+         </property>
         </widget>
        </item>
        <item>
@@ -315,6 +324,9 @@
            <property name="text">
             <string>Hinzufügen</string>
            </property>
+           <property name="class" stdset="0">
+            <string>icon</string>
+           </property>
           </widget>
          </item>
          <item>
@@ -336,6 +348,9 @@
            </property>
            <property name="text">
             <string>Editieren</string>
+           </property>
+           <property name="class" stdset="0">
+            <string>icon</string>
            </property>
           </widget>
          </item>
@@ -359,6 +374,9 @@
            <property name="text">
             <string>Duplizieren</string>
            </property>
+           <property name="class" stdset="0">
+            <string>icon</string>
+           </property>
           </widget>
          </item>
          <item>
@@ -380,6 +398,9 @@
            </property>
            <property name="text">
             <string>Löschen</string>
+           </property>
+           <property name="class" stdset="0">
+            <string>icon</string>
            </property>
           </widget>
          </item>
