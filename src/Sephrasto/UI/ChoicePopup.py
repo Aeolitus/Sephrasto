@@ -58,6 +58,7 @@ class Ui_formMain(object):
         _translate = QtCore.QCoreApplication.translate
         formMain.setWindowTitle(_translate("formMain", "Triff deine Auswahl"))
         self.label.setText(_translate("formMain", "EP ausgegeben:"))
+        self.label.setProperty("class", _translate("formMain", "h4"))
         self.labelEP.setText(_translate("formMain", "200"))
 
 

@@ -165,6 +165,9 @@
        <property name="text">
         <string>Down</string>
        </property>
+       <property name="class" stdset="0">
+        <string>icon</string>
+       </property>
       </widget>
      </item>
      <item row="7" column="12">
@@ -196,6 +199,9 @@
        </property>
        <property name="text">
         <string>Kampfstil</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
        </property>
       </widget>
      </item>
@@ -350,6 +356,9 @@
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
       </widget>
      </item>
      <item row="3" column="8">
@@ -379,6 +388,9 @@
        <property name="text">
         <string>Up</string>
        </property>
+       <property name="class" stdset="0">
+        <string>icon</string>
+       </property>
       </widget>
      </item>
      <item row="15" column="9">
@@ -391,6 +403,9 @@
        </property>
        <property name="text">
         <string>Up</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>icon</string>
        </property>
       </widget>
      </item>
@@ -480,6 +495,9 @@
        </property>
        <property name="text">
         <string>Up</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>icon</string>
        </property>
       </widget>
      </item>
@@ -576,6 +594,9 @@
        </property>
        <property name="text">
         <string>Down</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>icon</string>
        </property>
       </widget>
      </item>
@@ -764,6 +785,9 @@
        <property name="text">
         <string>Down</string>
        </property>
+       <property name="class" stdset="0">
+        <string>icon</string>
+       </property>
       </widget>
      </item>
      <item row="27" column="7">
@@ -801,6 +825,9 @@
        </property>
        <property name="text">
         <string>+</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>icon</string>
        </property>
       </widget>
      </item>
@@ -1081,6 +1108,9 @@
        <property name="text">
         <string>Up</string>
        </property>
+       <property name="class" stdset="0">
+        <string>icon</string>
+       </property>
       </widget>
      </item>
      <item row="6" column="0" colspan="13">
@@ -1132,6 +1162,9 @@
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
       </widget>
      </item>
      <item row="31" column="3">
@@ -1167,6 +1200,9 @@
        <property name="text">
         <string>Up</string>
        </property>
+       <property name="class" stdset="0">
+        <string>icon</string>
+       </property>
       </widget>
      </item>
      <item row="7" column="11">
@@ -1179,6 +1215,9 @@
        </property>
        <property name="text">
         <string>+</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>icon</string>
        </property>
       </widget>
      </item>
@@ -1250,6 +1289,9 @@
        <property name="text">
         <string>Down</string>
        </property>
+       <property name="class" stdset="0">
+        <string>icon</string>
+       </property>
       </widget>
      </item>
      <item row="23" column="9">
@@ -1262,6 +1304,9 @@
        </property>
        <property name="text">
         <string>Up</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>icon</string>
        </property>
       </widget>
      </item>
@@ -1333,6 +1378,9 @@
        </property>
        <property name="text">
         <string>Up</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>icon</string>
        </property>
       </widget>
      </item>
@@ -1420,6 +1468,9 @@
        <property name="text">
         <string>Name</string>
        </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
       </widget>
      </item>
      <item row="15" column="7">
@@ -1480,6 +1531,9 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
        </property>
       </widget>
      </item>
@@ -1639,6 +1693,9 @@
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
       </widget>
      </item>
      <item row="18" column="0" colspan="13">
@@ -1748,6 +1805,9 @@
        <property name="text">
         <string>+</string>
        </property>
+       <property name="class" stdset="0">
+        <string>icon</string>
+       </property>
       </widget>
      </item>
      <item row="11" column="2">
@@ -1850,6 +1910,9 @@
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
       </widget>
      </item>
      <item row="23" column="5">
@@ -1884,6 +1947,9 @@
        </property>
        <property name="text">
         <string>Down</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>icon</string>
        </property>
       </widget>
      </item>
@@ -2012,6 +2078,9 @@
        <property name="text">
         <string>Eigenschaften</string>
        </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
       </widget>
      </item>
      <item row="23" column="4">
@@ -2129,6 +2198,9 @@
        </property>
        <property name="text">
         <string>+</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>icon</string>
        </property>
       </widget>
      </item>
@@ -2279,6 +2351,9 @@
        <property name="text">
         <string>+</string>
        </property>
+       <property name="class" stdset="0">
+        <string>icon</string>
+       </property>
       </widget>
      </item>
      <item row="7" column="4">
@@ -2313,6 +2388,9 @@
        </property>
        <property name="text">
         <string>+</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>icon</string>
        </property>
       </widget>
      </item>
@@ -2456,6 +2534,9 @@
        <property name="text">
         <string>+</string>
        </property>
+       <property name="class" stdset="0">
+        <string>icon</string>
+       </property>
       </widget>
      </item>
      <item row="3" column="7">
@@ -2571,6 +2652,9 @@
        <property name="text">
         <string>Down</string>
        </property>
+       <property name="class" stdset="0">
+        <string>icon</string>
+       </property>
       </widget>
      </item>
      <item row="19" column="0">
@@ -2653,6 +2737,9 @@
        <property name="text">
         <string>+</string>
        </property>
+       <property name="class" stdset="0">
+        <string>icon</string>
+       </property>
       </widget>
      </item>
      <item row="3" column="10">
@@ -2665,6 +2752,9 @@
        </property>
        <property name="text">
         <string>Down</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>icon</string>
        </property>
       </widget>
      </item>

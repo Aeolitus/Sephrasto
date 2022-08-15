@@ -170,10 +170,15 @@ class Ui_formBeschreibung(object):
         _translate = QtCore.QCoreApplication.translate
         formBeschreibung.setWindowTitle(_translate("formBeschreibung", "Beschreibung"))
         self.label_4.setText(_translate("formBeschreibung", "Kurzbeschreibung"))
+        self.label_4.setProperty("class", _translate("formBeschreibung", "h4"))
         self.label_6.setText(_translate("formBeschreibung", "Eigenheiten"))
+        self.label_6.setProperty("class", _translate("formBeschreibung", "h4"))
         self.label.setText(_translate("formBeschreibung", "Name"))
+        self.label.setProperty("class", _translate("formBeschreibung", "h4"))
         self.label_2.setText(_translate("formBeschreibung", "Spezies"))
+        self.label_2.setProperty("class", _translate("formBeschreibung", "h4"))
         self.label_3.setText(_translate("formBeschreibung", "Status"))
+        self.label_3.setProperty("class", _translate("formBeschreibung", "h4"))
         self.comboFinanzen.setItemText(0, _translate("formBeschreibung", "Sehr Reich"))
         self.comboFinanzen.setItemText(1, _translate("formBeschreibung", "Reich"))
         self.comboFinanzen.setItemText(2, _translate("formBeschreibung", "Normal"))
@@ -185,7 +190,9 @@ class Ui_formBeschreibung(object):
         self.comboStatus.setItemText(3, _translate("formBeschreibung", "Unterschicht"))
         self.comboStatus.setItemText(4, _translate("formBeschreibung", "Abschaum"))
         self.labelFinanzen.setText(_translate("formBeschreibung", "Finanzen"))
+        self.labelFinanzen.setProperty("class", _translate("formBeschreibung", "h4"))
         self.label_7.setText(_translate("formBeschreibung", "Heimatgebiet"))
+        self.label_7.setProperty("class", _translate("formBeschreibung", "h4"))
 
 
 if __name__ == "__main__":

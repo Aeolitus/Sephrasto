@@ -113,10 +113,6 @@ class WizardWrapper(object):
         self.ui.btnAccept.clicked.connect(self.acceptClickedHandler)
         self.ui.btnCancel.clicked.connect(self.cancelClickedHandler)
 
-        font = QtWidgets.QApplication.instance().font()
-        font.setPointSize(font.pointSize()-1)
-        self.ui.label.setFont(font)
-
     def updateAcceptButton(self):
         self.ui.btnAccept.setEnabled(self.ui.cbSpezies.currentText() != "Überspringen" or
                                      self.ui.cbKultur.currentText() != "Überspringen" or

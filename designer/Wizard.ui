@@ -125,6 +125,9 @@
      <property name="openExternalLinks">
       <bool>true</bool>
      </property>
+     <property name="class" stdset="0">
+      <string>smallText</string>
+     </property>
     </widget>
    </item>
    <item row="6" column="1">
@@ -134,9 +137,6 @@
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
       <widget class="QLabel" name="label_2">
-       <property name="styleSheet">
-        <string notr="true">background: #e8c5a9;</string>
-       </property>
        <property name="text">
         <string>Dieser Assistent betreut dich bei der Erstellung deines Charakters. Bei den Professionen sind manchmal Namen mitangegeben - dies sind vollwertige Archetypen mit Eigenheiten. Die angegebenen benötigten Erfahrungspunkte können niedriger oder höher ausfallen.</string>
        </property>
@@ -145,6 +145,9 @@
        </property>
        <property name="margin">
         <number>0</number>
+       </property>
+       <property name="class" stdset="0">
+        <string>panel</string>
        </property>
       </widget>
      </item>
@@ -160,6 +163,9 @@
      </property>
      <property name="text">
       <string>Geschlecht</string>
+     </property>
+     <property name="class" stdset="0">
+      <string>h4</string>
      </property>
     </widget>
    </item>
@@ -180,6 +186,9 @@
      <property name="text">
       <string>Baukasten</string>
      </property>
+     <property name="class" stdset="0">
+      <string>h4</string>
+     </property>
     </widget>
    </item>
    <item row="8" column="0">
@@ -193,6 +202,9 @@
      <property name="text">
       <string>Profession</string>
      </property>
+     <property name="class" stdset="0">
+      <string>h4</string>
+     </property>
     </widget>
    </item>
    <item row="7" column="0">
@@ -205,6 +217,9 @@
      </property>
      <property name="text">
       <string>Professionskategorie</string>
+     </property>
+     <property name="class" stdset="0">
+      <string>h4</string>
      </property>
     </widget>
    </item>
@@ -252,6 +267,9 @@
      </property>
      <property name="text">
       <string>Spezies</string>
+     </property>
+     <property name="class" stdset="0">
+      <string>h4</string>
      </property>
     </widget>
    </item>
@@ -311,6 +329,9 @@
      </property>
      <property name="text">
       <string>Kultur</string>
+     </property>
+     <property name="class" stdset="0">
+      <string>h4</string>
      </property>
     </widget>
    </item>

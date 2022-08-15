@@ -39,7 +39,6 @@ class UebernatuerlichWrapper(QtCore.QObject):
         self.ui.tableWidget.currentCellChanged.connect(self.tableClicked)   
         self.ui.tableWidget.cellClicked.connect(self.tableClicked) 
         self.ui.buttonAdd.setStyle(None) # dont know why but the below settings wont do anything without it
-        self.ui.buttonAdd.setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9, QtGui.QFont.Black))
         self.ui.buttonAdd.setText('\u002b')
         self.ui.buttonAdd.setMaximumSize(QtCore.QSize(20, 20))
         self.ui.buttonAdd.setMinimumSize(QtCore.QSize(20, 20))
@@ -186,11 +185,10 @@ class UebernatuerlichWrapper(QtCore.QObject):
                     if el in talent.fertigkeiten:
                         totalTalentCost += talent.kosten
                 if totalTalentCost < 120:
-                    self.labelRef[el + "Name"] =  QtWidgets.QLabel(el + "&nbsp;&nbsp;<span style='font-size: 9pt; font-weight: " + Hilfsmethoden.qtWeightToCSS(QtGui.QFont.Black) + "; font-family: \"Font Awesome 6 Free Solid\";'>\uf73d</span>")
+                    self.labelRef[el + "Name"] =  QtWidgets.QLabel(el + "&nbsp;&nbsp;<span style='font-size: " + str(Wolke.Settings['IconSize']) + "pt; font-weight: " + Hilfsmethoden.qtWeightToCSS(QtGui.QFont.Black) + "; font-family: \"Font Awesome 6 Free Solid\";'>\uf73d</span>")
                     self.labelRef[el + "Name"].setToolTip("Diese Fertigkeit bietet dir nur wenige Talente im Gesamtwert von unter 120 EP.\nSie zu steigern lohnt sich daher nur für die wenigsten.\nÜblicherweise kannst du die enthaltenen Talente aber auch mit einer anderen Fertigkeit wirken.")
                 else:
                     self.labelRef[el + "Name"] =  QtWidgets.QLabel(el)
-                self.labelRef[el + "Name"].setFont(font) # workaround for macos until app.setFont works there
                 self.labelRef[el + "Name"].setContentsMargins(3, 0, 0, 0)
                 self.ui.tableWidget.setCellWidget(count, 1, self.labelRef[el + "Name"])
 
@@ -208,7 +206,6 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 
                 # Add Kosten
                 self.labelRef[el + "KO"] = QtWidgets.QLabel()
-                self.labelRef[el + "KO"].setFont(font) # workaround for macos until app.setFont works there
                 self.labelRef[el + "KO"].setStyleSheet("margin-left:10; margin-right:10;");
                 self.labelRef[el + "KO"].setText(self.getSteigerungskosten(fert))
                 self.labelRef[el + "KO"].setAlignment(QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
@@ -216,7 +213,6 @@ class UebernatuerlichWrapper(QtCore.QObject):
 
                 # Add PW
                 self.labelRef[el + "PW"] = QtWidgets.QLabel()
-                self.labelRef[el + "PW"].setFont(font) # workaround for macos until app.setFont works there
                 self.labelRef[el + "PW"].setText(str(fert.probenwertTalent))
                 self.labelRef[el + "PW"].setAlignment(QtCore.Qt.AlignCenter)
                 self.ui.tableWidget.setCellWidget(count,4,self.labelRef[el + "PW"])
@@ -225,12 +221,11 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 self.layoutRef[el] = QtWidgets.QHBoxLayout()
                 self.layoutRef[el].setContentsMargins(10, 0, 10, 0)
                 self.labelRef[el] = QtWidgets.QLabel()
-                self.labelRef[el].setFont(font) # workaround for macos until app.setFont works there
                 self.labelRef[el].setText(str(len(fert.gekaufteTalente)))
                 self.labelRef[el].setAlignment(QtCore.Qt.AlignCenter)
                 self.layoutRef[el].addWidget(self.labelRef[el])
                 self.buttonRef[el] = QtWidgets.QPushButton()
-                self.buttonRef[el].setFont(QtGui.QFont("Font Awesome 6 Free Solid", 9, QtGui.QFont.Black))
+                self.buttonRef[el].setProperty("class", "icon")
                 self.buttonRef[el].setText('\u002b')
                 self.buttonRef[el].setMaximumSize(QtCore.QSize(20, 20))
                 self.buttonRef[el].setMinimumSize(QtCore.QSize(20, 20))
@@ -255,7 +250,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
         
     def getSteigerungskosten(self, fert):
         ep = (fert.wert+1) * fert.steigerungsfaktor
-        return "&nbsp;&nbsp;<span style='font-size: 9pt; font-weight: " + Hilfsmethoden.qtWeightToCSS(QtGui.QFont.Black) + "; font-family: \"Font Awesome 6 Free Solid\";'>\uf176</span>&nbsp;&nbsp;" + str(ep) + " EP"
+        return "&nbsp;&nbsp;<span style='font-size: " + str(Wolke.Settings['IconSize']) + "pt; font-weight: " + Hilfsmethoden.qtWeightToCSS(QtGui.QFont.Black) + "; font-family: \"Font Awesome 6 Free Solid\";'>\uf176</span>&nbsp;&nbsp;" + str(ep) + " EP"
 
     def fwChanged(self, flag = False):
         if self.currentlyLoading:

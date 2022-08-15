@@ -131,6 +131,9 @@
              <property name="text">
               <string>Talentname</string>
              </property>
+             <property name="class" stdset="0">
+              <string>h4</string>
+             </property>
             </widget>
            </item>
            <item row="2" column="0" colspan="2">
@@ -148,6 +151,9 @@
              </property>
              <property name="text">
               <string>Spezialtalent</string>
+             </property>
+             <property name="class" stdset="0">
+              <string>italic</string>
              </property>
             </widget>
            </item>

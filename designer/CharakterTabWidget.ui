@@ -40,6 +40,9 @@
      <property name="documentMode">
       <bool>false</bool>
      </property>
+     <property name="class" stdset="0">
+      <string>h2</string>
+     </property>
     </widget>
    </item>
   </layout>

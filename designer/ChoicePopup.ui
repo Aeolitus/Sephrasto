@@ -39,6 +39,9 @@
        <property name="text">
         <string>EP ausgegeben:</string>
        </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
       </widget>
      </item>
      <item>

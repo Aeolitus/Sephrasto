@@ -249,6 +249,9 @@
             <property name="text">
              <string>Zurücksetzen</string>
             </property>
+            <property name="class" stdset="0">
+             <string>icon</string>
+            </property>
            </widget>
           </item>
           <item row="2" column="2">
@@ -271,6 +274,9 @@
             <property name="text">
              <string>Durchsuchen</string>
             </property>
+            <property name="class" stdset="0">
+             <string>icon</string>
+            </property>
            </widget>
           </item>
           <item row="0" column="2">
@@ -292,6 +298,9 @@
             </property>
             <property name="text">
              <string>Durchsuchen</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>icon</string>
             </property>
            </widget>
           </item>
@@ -328,6 +337,9 @@
             <property name="text">
              <string>Zurücksetzen</string>
             </property>
+            <property name="class" stdset="0">
+             <string>icon</string>
+            </property>
            </widget>
           </item>
           <item row="1" column="1">
@@ -352,6 +364,9 @@
             </property>
             <property name="text">
              <string>Zurücksetzen</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>icon</string>
             </property>
            </widget>
           </item>
@@ -401,6 +416,9 @@
             <property name="text">
              <string>Durchsuchen</string>
             </property>
+            <property name="class" stdset="0">
+             <string>icon</string>
+            </property>
            </widget>
           </item>
          </layout>
@@ -426,62 +444,6 @@
           <string>Darstellung</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_9">
-            <property name="text">
-             <string>Schriftart:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="label_10">
-            <property name="text">
-             <string>Schriftgröße:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="2">
-           <widget class="QComboBox" name="comboTheme">
-            <property name="minimumSize">
-             <size>
-              <width>240</width>
-              <height>0</height>
-             </size>
-            </property>
-            <item>
-             <property name="text">
-              <string>Ilaris</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>DSA Forum</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Fusion Light</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Fusion Dark</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Windows Vista</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-          <item row="6" column="0">
-           <widget class="QLabel" name="label_12">
-            <property name="text">
-             <string>Schriftgröße Überschriften:</string>
-            </property>
-           </widget>
-          </item>
           <item row="0" column="0">
            <widget class="QLabel" name="label_8">
             <property name="text">
@@ -489,13 +451,30 @@
             </property>
            </widget>
           </item>
-          <item row="2" column="2">
-           <widget class="QComboBox" name="comboFont">
-            <property name="minimumSize">
+          <item row="5" column="0">
+           <widget class="QLabel" name="label_11">
+            <property name="text">
+             <string>Schriftart Überschriften:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
              <size>
-              <width>240</width>
-              <height>0</height>
+              <width>40</width>
+              <height>20</height>
              </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_10">
+            <property name="text">
+             <string>Schriftgröße:</string>
             </property>
            </widget>
           </item>
@@ -509,45 +488,13 @@
             </property>
            </widget>
           </item>
-          <item row="6" column="2">
-           <layout class="QHBoxLayout" name="horizontalLayout_5">
-            <item>
-             <widget class="QWidget" name="widget" native="true"/>
-            </item>
-            <item>
-             <widget class="QSpinBox" name="spinAppFontHeadingSize">
-              <property name="minimumSize">
-               <size>
-                <width>60</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>60</width>
-                <height>16777215</height>
-               </size>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-              <property name="minimum">
-               <number>6</number>
-              </property>
-              <property name="maximum">
-               <number>18</number>
-              </property>
-              <property name="value">
-               <number>10</number>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="5" column="0">
-           <widget class="QLabel" name="label_11">
-            <property name="text">
-             <string>Schriftart Überschriften:</string>
+          <item row="2" column="2">
+           <widget class="QComboBox" name="comboFont">
+            <property name="minimumSize">
+             <size>
+              <width>240</width>
+              <height>0</height>
+             </size>
             </property>
            </widget>
           </item>
@@ -586,18 +533,143 @@
             </item>
            </layout>
           </item>
-          <item row="5" column="1">
-           <spacer name="horizontalSpacer_3">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_9">
+            <property name="text">
+             <string>Schriftart:</string>
             </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
+           </widget>
+          </item>
+          <item row="7" column="0">
+           <widget class="QLabel" name="label_12">
+            <property name="text">
+             <string>Schriftgröße Überschriften:</string>
             </property>
-           </spacer>
+           </widget>
+          </item>
+          <item row="7" column="2">
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <item>
+             <widget class="QWidget" name="widget" native="true"/>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="spinAppFontHeadingSize">
+              <property name="minimumSize">
+               <size>
+                <width>60</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>60</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <property name="minimum">
+               <number>6</number>
+              </property>
+              <property name="maximum">
+               <number>18</number>
+              </property>
+              <property name="value">
+               <number>10</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="2">
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <widget class="QComboBox" name="comboTheme">
+              <property name="minimumSize">
+               <size>
+                <width>240</width>
+                <height>0</height>
+               </size>
+              </property>
+              <item>
+               <property name="text">
+                <string>Ilaris</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>DSA Forum</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Fusion Light</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Fusion Dark</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Windows Vista</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="resetFontOS">
+              <property name="minimumSize">
+               <size>
+                <width>28</width>
+                <height>28</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>28</width>
+                <height>28</height>
+               </size>
+              </property>
+              <property name="toolTip">
+               <string>Darstellungsoptionen auf Betriebssystemstandard zurücksetzen</string>
+              </property>
+              <property name="text">
+               <string>OS</string>
+              </property>
+              <property name="class" stdset="0">
+               <string>icon</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="resetFontDefault">
+              <property name="minimumSize">
+               <size>
+                <width>28</width>
+                <height>28</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>28</width>
+                <height>28</height>
+               </size>
+              </property>
+              <property name="toolTip">
+               <string>Darstellungsoptionen auf Sephrastostandard zurücksetzen</string>
+              </property>
+              <property name="text">
+               <string>Zurücksetzen</string>
+              </property>
+              <property name="class" stdset="0">
+               <string>icon</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </item>
          </layout>
         </widget>
@@ -714,7 +786,6 @@
   <tabstop>editPlugins</tabstop>
   <tabstop>buttonPlugins</tabstop>
   <tabstop>resetPlugins</tabstop>
-  <tabstop>comboTheme</tabstop>
   <tabstop>comboFont</tabstop>
   <tabstop>spinAppFontSize</tabstop>
   <tabstop>comboFontHeading</tabstop>

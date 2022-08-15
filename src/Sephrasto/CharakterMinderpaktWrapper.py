@@ -71,10 +71,9 @@ class CharakterMinderpaktWrapper():
             parent.setText(0, self.vorteilTypen[i])
             parent.setText(1,"")
             parent.setExpanded(True)
-            font = QtWidgets.QApplication.instance().font()
+            font = QtGui.QFont(Wolke.Settings["Font"], Wolke.FontHeadingSizeL3)
             font.setBold(True)
             font.setCapitalization(QtGui.QFont.SmallCaps)
-            font.setPointSize(Wolke.FontHeadingSizeL3)
             parent.setFont(0, font)
             for el in vortList[i]:
                 child = QtWidgets.QTreeWidgetItem(parent)

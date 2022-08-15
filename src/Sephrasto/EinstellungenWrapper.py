@@ -64,41 +64,50 @@ class EinstellungenWrapper():
 
         self.fontFamilies = QtGui.QFontDatabase().families()
         self.ui.comboFont.addItems(self.fontFamilies)
-        self.ui.comboFont.setCurrentText(QtWidgets.QApplication.instance().font().family())
+        if Wolke.Settings['Font'] in self.fontFamilies:
+            self.ui.comboFont.setCurrentText(Wolke.Settings['Font'])
+        else:
+            self.ui.comboFont.setCurrentText(Wolke.DefaultOSFont)
         self.ui.spinAppFontSize.setValue(Wolke.Settings['FontSize'])
 
         self.ui.comboFontHeading.addItems(self.fontFamilies)
         if Wolke.Settings['FontHeading'] in self.fontFamilies:
             self.ui.comboFontHeading.setCurrentText(Wolke.Settings['FontHeading'])
         else:
-            self.ui.comboFontHeading.setCurrentText(QtWidgets.QApplication.instance().font().family())
+            self.ui.comboFontHeading.setCurrentText(Wolke.DefaultOSFont)
         self.ui.spinAppFontHeadingSize.setValue(Wolke.Settings['FontHeadingSize'])
-            
-        font = QtGui.QFont("Font Awesome 6 Free Solid", 9, QtGui.QFont.Black)
+
         self.ui.buttonChar.clicked.connect(self.setCharPath)
-        self.ui.buttonChar.setFont(font)
         self.ui.buttonChar.setText('\uf07c')
 
         self.ui.buttonRegeln.clicked.connect(self.setRulePath)
-        self.ui.buttonRegeln.setFont(font)
         self.ui.buttonRegeln.setText('\uf07c')
 
         self.ui.buttonPlugins.clicked.connect(self.setPluginsPath)
-        self.ui.buttonPlugins.setFont(font)
         self.ui.buttonPlugins.setText('\uf07c')
 
         self.ui.resetChar.clicked.connect(self.resetCharPath)
-        self.ui.resetChar.setFont(font)
         self.ui.resetChar.setText('\uf2ea')
 
         self.ui.resetRegeln.clicked.connect(self.resetRulePath)
-        self.ui.resetRegeln.setFont(font)
         self.ui.resetRegeln.setText('\uf2ea')
 
         self.ui.resetPlugins.clicked.connect(self.resetPluginsPath)
-        self.ui.resetPlugins.setFont(font)
         self.ui.resetPlugins.setText('\uf2ea')
 
+        self.ui.resetFontDefault.clicked.connect(self.resetFonts)
+        self.ui.resetFontDefault.setText('\uf2ea')
+
+        self.ui.resetFontOS.clicked.connect(lambda: self.resetFonts(True))
+        system = platform.system()
+        if system == 'Windows':
+            self.ui.resetFontOS.setText('\uf17a')
+        elif system == 'Linux':
+            self.ui.resetFontOS.setText('\uf17c')
+        elif system == 'Darwin':
+            self.ui.resetFontOS.setText('\uf179')
+        else:
+            self.ui.resetFontOS.setText('\ue4e5')
 
         windowSize = Wolke.Settings["WindowSize-Einstellungen"]
         self.form.resize(windowSize[0], windowSize[1])
@@ -234,6 +243,7 @@ class EinstellungenWrapper():
         EinstellungenWrapper.createFolder(settingsFolder)
         EinstellungenWrapper.createUserFolders(userFolder)
         settingsPath = os.path.join(settingsFolder, 'Sephrasto.ini')
+
         if os.path.isfile(settingsPath):
             with open(settingsPath,'r') as infile:
                 tmpSet = yaml.safe_load(infile)
@@ -256,8 +266,11 @@ class EinstellungenWrapper():
                     Wolke.Settings['FontSize'] = 9
                     Wolke.Settings['Theme'] = "Ilaris"
                     Wolke.Settings['Version'] += 1
-        
+
         #Init defaults
+        if not Wolke.Settings['Font'] or not Wolke.Settings['FontSize'] or not Wolke.Settings['FontHeading'] or not Wolke.Settings['FontHeadingSize'] or not Wolke.Settings['IconSize']:
+            EinstellungenWrapper.useDefaultFont()
+
         if not Wolke.Settings['Pfad-Chars'] or not os.path.isdir(Wolke.Settings['Pfad-Chars']):
             Wolke.Settings['Pfad-Chars'] = os.path.join(userFolder, 'Charaktere')
         if not Wolke.Settings['Pfad-Regeln'] or not os.path.isdir(Wolke.Settings['Pfad-Regeln']):
@@ -412,3 +425,32 @@ class EinstellungenWrapper():
         p = os.path.join(self.settingsFolder, 'Plugins')
         self.ui.editPlugins.setText(p)
         self.updatePluginCheckboxes(PluginLoader.getPlugins(p))
+
+    def resetFonts(self, systemFont = False):
+        self.ui.comboTheme.setCurrentText("Ilaris")
+        if systemFont:
+            self.ui.comboFont.setCurrentText(Wolke.DefaultOSFont)
+            self.ui.spinAppFontSize.setValue(Wolke.DefaultOSFontSize)
+            self.ui.comboFontHeading.setCurrentText("Aniron")
+            self.ui.spinAppFontHeadingSize.setValue(Wolke.DefaultOSFontSize -1)
+        else:
+            self.ui.comboFont.setCurrentText("Crimson Pro")
+            self.ui.spinAppFontSize.setValue(9)
+            self.ui.comboFontHeading.setCurrentText("Aniron")
+            self.ui.spinAppFontHeadingSize.setValue(8)
+
+    @staticmethod
+    def useSystemFont():
+        Wolke.Settings['Font'] = Wolke.DefaultOSFont
+        Wolke.Settings['FontSize'] = Wolke.DefaultOSFontSize
+        Wolke.Settings['FontHeading'] = "Aniron"
+        Wolke.Settings['FontHeadingSize'] = Wolke.DefaultOSFontSize -1
+        Wolke.Settings['IconSize'] = min(max(9, Wolke.Settings['FontSize']), 12)
+
+    @staticmethod
+    def useDefaultFont():
+        Wolke.Settings['Font'] = "Crimson Pro"
+        Wolke.Settings['FontSize'] = 9
+        Wolke.Settings['FontHeading'] = "Aniron"
+        Wolke.Settings['FontHeadingSize'] = 8
+        Wolke.Settings['IconSize'] = min(max(9, Wolke.Settings['FontSize']), 12)

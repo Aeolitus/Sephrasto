@@ -126,7 +126,7 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>449</width>
+            <width>375</width>
             <height>459</height>
            </rect>
           </property>
@@ -232,6 +232,9 @@
              <property name="text">
               <string>Brabakbengel</string>
              </property>
+             <property name="class" stdset="0">
+              <string>h4</string>
+             </property>
             </widget>
            </item>
            <item row="4" column="0" colspan="2">
@@ -310,6 +313,9 @@
              </property>
              <property name="alignment">
               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
+             <property name="class" stdset="0">
+              <string>italic</string>
              </property>
             </widget>
            </item>

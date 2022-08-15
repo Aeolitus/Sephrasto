@@ -46,10 +46,11 @@ class Wolke:
         'UpdateCheck_Disable' : False,
         'UpdateCheck_DisableFor' : '',
         'Theme' : "Ilaris",
-        'Font' : "Crimson Pro",
-        'FontSize' : 9,
-        'FontHeading' : "Aniron",
-        'FontHeadingSize' : 8, # this is the L2 size, since it's the most used
+        'Font' : "",
+        'FontSize' : 0,
+        'FontHeading' : "",
+        'FontHeadingSize' : 0,
+        'IconSize' : 0,
         'WindowSize-Main' : [286, 346],
         'WindowSize-Charakter' : [1130, 903],
         'WindowSize-TalentProfan' : [650, 366],
@@ -69,9 +70,10 @@ class Wolke:
         'WindowSize-DBWaffeneigenschaft' : _DefaultSettings.WindowSizeDefault1Col,
         'WindowSize-DBWaffe' : _DefaultSettings.WindowSizeDefault1Col,
         'WindowSize-Einstellungen' : [589, 903],
-
     }
     FontHeadingSizeL1 = 0
     FontHeadingSizeL3 = 0
     HeadingColor = "#000000"
     BorderColor = "rgba(0,0,0,0.2)"
+    DefaultOSFont = "Segoe UI"
+    DefaultOSFontSize = 9

@@ -129,13 +129,17 @@ class Ui_formMain(object):
     def retranslateUi(self, formMain):
         _translate = QtCore.QCoreApplication.translate
         formMain.setWindowTitle(_translate("formMain", "Sephrasto - Charakter erstellen"))
+        self.tabs.setProperty("class", _translate("formMain", "h1"))
         self.tabs.setTabText(self.tabs.indexOf(self.tab), _translate("formMain", "Tab 1"))
         self.tabs.setTabText(self.tabs.indexOf(self.tab_2), _translate("formMain", "Tab 2"))
         self.label.setText(_translate("formMain", "    Total:    "))
+        self.label.setProperty("class", _translate("formMain", "h4"))
         self.spinEP.setSuffix(_translate("formMain", " EP"))
         self.label_3.setText(_translate("formMain", "    Ausgegeben:    "))
+        self.label_3.setProperty("class", _translate("formMain", "h4"))
         self.spinSpent.setSuffix(_translate("formMain", " EP"))
         self.label_2.setText(_translate("formMain", "    Verbleibend:    "))
+        self.label_2.setProperty("class", _translate("formMain", "h4"))
         self.spinRemaining.setSuffix(_translate("formMain", " EP"))
         self.buttonQuicksave.setText(_translate("formMain", "Speichern"))
         self.buttonSave.setText(_translate("formMain", "Speichern unter..."))

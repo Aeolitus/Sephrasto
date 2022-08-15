@@ -65,6 +65,9 @@
              <property name="documentMode">
               <bool>false</bool>
              </property>
+             <property name="class" stdset="0">
+              <string>h1</string>
+             </property>
              <widget class="QWidget" name="tab">
               <attribute name="title">
                <string>Tab 1</string>
@@ -98,6 +101,9 @@
        <property name="text">
         <string>    Total:    </string>
        </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
       </widget>
      </item>
      <item>
@@ -126,6 +132,9 @@
        </property>
        <property name="text">
         <string>    Ausgegeben:    </string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
        </property>
       </widget>
      </item>
@@ -164,6 +173,9 @@
        </property>
        <property name="text">
         <string>    Verbleibend:    </string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
        </property>
       </widget>
      </item>
