@@ -108,9 +108,9 @@ class MainWindowWrapper(object):
         if platform.system() != 'Windows': # hardcoded for windows, qt doesnt provide the correct font here
             defaultFont = QtGui.QFont()
             Wolke.DefaultOSFont = defaultFont.family() 
-            Wolke.DefaultOSFontSize = defaultFont.pointSize()
-            if Wolke.DefaultOSFontSize == -1:
-                Wolke.DefaultOSFontSize = Wolke.Settings['FontSize']
+            fontSize = defaultFont.pointSize()
+            if fontSize != -1:
+                Wolke.DefaultOSFontSize = fontSize
 
         # Get the Settings loaded
         EinstellungenWrapper.load()
