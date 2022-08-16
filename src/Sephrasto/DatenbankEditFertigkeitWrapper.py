@@ -38,6 +38,9 @@ class DatenbankEditFertigkeitWrapper(object):
                 QtCore.Qt.WindowMaximizeButtonHint |
                 QtCore.Qt.WindowMinimizeButtonHint)
 
+        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setText("Speichern")
+        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).setText("Abbrechen")
+
         if ueber:
             windowSize = Wolke.Settings["WindowSize-DBFertigkeitUeber"]
             self.fertDialog.resize(windowSize[0], windowSize[1])
