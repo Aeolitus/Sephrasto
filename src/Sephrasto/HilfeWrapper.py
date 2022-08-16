@@ -18,11 +18,11 @@ class HilfeWrapper(QtCore.QObject):
                 QtCore.Qt.WindowMaximizeButtonHint |
                 QtCore.Qt.WindowMinimizeButtonHint)
 
-        self.ui.buttonBackward.setIcon(self.form.style().standardIcon(QStyle.SP_ArrowBack))
+        self.ui.buttonBackward.setText('\uf0a8')
         self.ui.buttonBackward.clicked.connect(self.ui.teHelp.backward)
-        self.ui.buttonForward.setIcon(self.form.style().standardIcon(QStyle.SP_ArrowForward))
+        self.ui.buttonForward.setText('\uf0a9')
         self.ui.buttonForward.clicked.connect(self.ui.teHelp.forward)
-        self.ui.buttonHome.setIcon(self.form.style().standardIcon(QStyle.SP_ArrowUp))
+        self.ui.buttonHome.setText('\uf015')
         self.ui.buttonHome.clicked.connect(self.ui.teHelp.home)
 
         self.ui.teHelp.backwardAvailable.connect(self.updateBackwardAvailable)
