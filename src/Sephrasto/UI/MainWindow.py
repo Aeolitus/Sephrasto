@@ -100,6 +100,7 @@ class Ui_Form(object):
         self.label.setText(_translate("Form", "Sephrasto"))
         self.label.setProperty("class", _translate("Form", "title"))
         self.labelVersion.setText(_translate("Form", "PLACEHOLDER"))
+        self.labelVersion.setProperty("class", _translate("Form", "smallText"))
         self.buttonRules.setText(_translate("Form", "Regelbasis bearbeiten"))
 
 
