@@ -82,7 +82,15 @@ class MainWindowWrapper(object):
 
         super().__init__()
 
-        os.chdir(os.path.dirname(os.path.abspath(__file__)))
+        # Set current directory so we can use relative paths
+        # There are many test cases, i.e. starting from VS, from a different folder, with python, directly Sephrasto.py via shebang, built exe etc. and much can go wrong
+        # We need to remember the old current dir for restarting purposes via settings  - again things can go wrong otherwise
+        # Also on windows there is a weird issue when starting Sephrasto.exe from a different folder, so we use sys.argv[0] as a fallback (which doesnt work in other cases -.-)
+        EinstellungenWrapper.oldWorkingDir = os.getcwd() 
+        if os.path.isfile(os.path.abspath(__file__)):
+            os.chdir(os.path.dirname(os.path.abspath(__file__)))
+        else:
+            os.chdir(os.path.dirname(sys.argv[0]))
         
         #Make sure the application scales properly, i.e. in Win10 users can change the UI scale in the display settings
         if hasattr(QtCore.Qt, 'AA_EnableHighDpiScaling'):
@@ -270,7 +278,8 @@ class MainWindowWrapper(object):
         for font in fonts:
             for file in Hilfsmethoden.listdir(os.path.join("Data", "Fonts", font)):
                 if file.endswith(".ttf"):
-                    QtGui.QFontDatabase.addApplicationFont(os.path.join(os.path.dirname(os.path.abspath(__file__)), "Data", "Fonts", font, file))
+                    # We need an absolute path here for macos
+                    QtGui.QFontDatabase.addApplicationFont(os.path.join(os.getcwd(), "Data", "Fonts", font, file))
 
         Wolke.FontHeadingSizeL1 = Wolke.Settings["FontHeadingSize"] + 1
         Wolke.FontHeadingSizeL3 = Wolke.Settings["FontSize"] + 2

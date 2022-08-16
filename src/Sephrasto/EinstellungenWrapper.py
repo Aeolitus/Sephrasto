@@ -198,6 +198,7 @@ class EinstellungenWrapper():
     
     @staticmethod
     def restartSephrasto():
+        os.chdir(EinstellungenWrapper.oldWorkingDir)
         if os.path.splitext(sys.executable)[0].endswith("Sephrasto"):
             os.execl(sys.executable, *sys.argv)
         else:
