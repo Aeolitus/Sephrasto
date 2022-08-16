@@ -42,6 +42,8 @@ class TalentPicker(object):
                 QtCore.Qt.WindowMaximizeButtonHint |
                 QtCore.Qt.WindowMinimizeButtonHint)
         
+        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).setText("Abbrechen")
+
         self.ui.splitter.adjustSize()
         width = self.ui.splitter.size().width()
         self.ui.splitter.setSizes([int(width*0.4), int(width*0.6)])

@@ -35,6 +35,8 @@ class WaffenPicker(object):
                 QtCore.Qt.WindowMaximizeButtonHint |
                 QtCore.Qt.WindowMinimizeButtonHint)
         
+        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).setText("Abbrechen")
+
         windowSize = Wolke.Settings["WindowSize-Waffen"]
         self.form.resize(windowSize[0], windowSize[1])
 

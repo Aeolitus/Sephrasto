@@ -37,6 +37,9 @@ class DatenbankEditWaffeWrapper(object):
                 QtCore.Qt.WindowMaximizeButtonHint |
                 QtCore.Qt.WindowMinimizeButtonHint)
 
+        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setText("Speichern")
+        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).setText("Abbrechen")
+
         windowSize = Wolke.Settings["WindowSize-DBWaffe"]
         self.waffeDialog.resize(windowSize[0], windowSize[1])
         

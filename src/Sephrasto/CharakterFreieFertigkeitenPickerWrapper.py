@@ -27,6 +27,8 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
                 QtCore.Qt.WindowMaximizeButtonHint |
                 QtCore.Qt.WindowMinimizeButtonHint)
 
+        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).setText("Abbrechen")
+
         windowSize = Wolke.Settings["WindowSize-FreieFert"]
         self.form.resize(windowSize[0], windowSize[1])
         
