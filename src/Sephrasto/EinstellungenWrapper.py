@@ -303,7 +303,6 @@ class EinstellungenWrapper():
                 cbi.maxÜberFertigkeiten = tmpSet["MaxÜbernatürlicheFertigkeiten"]
                 cbi.maxÜberTalente = tmpSet["MaxÜbernatürlicheTalente"]
                 cbi.seitenProfan = tmpSet["SeitenProfan"]
-                cbi.kurzbogenHack = tmpSet["KurzerBogenHack"] if "KurzerBogenHack" in tmpSet else False
                 cbi.beschreibungDetails = tmpSet["BeschreibungDetails"]
                 cbi.bild = tmpSet["Bild"]
                 cbi.bildOffset = tmpSet["BildOffset"] if "BildOffset" in tmpSet else [0, 0]

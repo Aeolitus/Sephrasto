@@ -20,7 +20,6 @@ class CharakterbogenInfo:
         self.maxÜberFertigkeiten = 0
         self.maxÜberTalente = 0
         self.seitenProfan = 0
-        self.kurzbogenHack = False
         self.beschreibungDetails = False
         self.bild = False
         self.bildOffset = [0, 0]

@@ -309,28 +309,35 @@ class PdfExporter(object):
         # return uebervorteile - they need to go on extra page if any are left
         return vorteileUeber
 
-    def printFertigkeiten(self, fields, baseStr, fertigkeitenNames):
+    def printFertigkeiten(self, fields, fertigkeitenNames):
+        while len(fertigkeitenNames) > self.CharakterBogen.maxFertigkeiten:
+            niedrigste = None
+            for el in fertigkeitenNames:
+                if el not in Wolke.Char.fertigkeiten:
+                    continue
+                fertigkeit = Wolke.Char.fertigkeiten[el]
+                if niedrigste == None or fertigkeit.probenwertTalent < niedrigste.probenwertTalent:
+                    niedrigste = fertigkeit
+            fertigkeitenNames.remove(niedrigste.name)
+            logging.warning("Der Charakter zu viele Fertigkeiten für den Charakterbogen. Ignoriere Fertigkeit mit niedrigstem PWT: " + niedrigste.name)
+
         count = 1
+        höchsteKampffertigkeit = Wolke.Char.getHöchsteKampffertigkeit()
         for el in fertigkeitenNames:
             if el not in Wolke.Char.fertigkeiten:
                 continue
             fertigkeit = Wolke.Char.fertigkeiten[el]
 
-            if baseStr:
-                base = baseStr + str(count)
-                fields[base + "NA"] = fertigkeit.name           
-                fields[base + "FA"] = fertigkeit.steigerungsfaktor
-                fields[base + "AT"] = \
-                    fertigkeit.attribute[0] + '/' + \
-                    fertigkeit.attribute[1] + '/' + \
-                    fertigkeit.attribute[2]
+            base = "Fertigkeit" + str(count)
+            fields[base + "NA"] = fertigkeit.name           
+            if fertigkeit == höchsteKampffertigkeit:
+                fields[base + "FA"] = 4
             else:
-                base = el[0:5]
-                # Fix Umlaute
-                if el == "Gebräuche":
-                    base = "Gebra"
-                elif el == "Überleben":
-                    base = "Ueber"
+                fields[base + "FA"] = fertigkeit.steigerungsfaktor
+            fields[base + "AT"] = \
+                fertigkeit.attribute[0] + '/' + \
+                fertigkeit.attribute[1] + '/' + \
+                fertigkeit.attribute[2]
 
             if fertigkeit.basiswertMod == 0:
                 fields[base + "BA"] = fertigkeit.basiswert
@@ -359,18 +366,7 @@ class PdfExporter(object):
                 count = 1
 
         fertigkeiten = CharakterPrintUtility.getFertigkeiten(Wolke.Char)
-        if self.CharakterBogen.kurzbogenHack:
-            standardFerts = ["Handgemenge", "Hiebwaffen", "Klingenwaffen", "Stangenwaffen",
-                 "Schusswaffen", "Wurfwaffen", "Athletik", "Heimlichkeit", 
-                 "Selbstbeherrschung", "Wahrnehmung", "Autorität", 
-                 "Beeinflussung", "Gebräuche", "Derekunde", "Magiekunde", 
-                 "Mythenkunde", "Überleben", "Alchemie", "Handwerk", 
-                 "Heilkunde", "Verschlagenheit"]
-
-            self.printFertigkeiten(fields, None, copy.copy(standardFerts))
-            self.printFertigkeiten(fields, "Indi", [f for f in fertigkeiten if not f in standardFerts])
-        else:
-            self.printFertigkeiten(fields, "Fertigkeit", fertigkeiten)
+        self.printFertigkeiten(fields, fertigkeiten)
 
     def pdfFünfterBlock(self, fields):
         logging.debug("PDF Block 5")
