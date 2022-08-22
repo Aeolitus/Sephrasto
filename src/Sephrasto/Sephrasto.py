@@ -86,7 +86,7 @@ class MainWindowWrapper(object):
         # There are many test cases, i.e. starting from VS, from a different folder, with python, directly Sephrasto.py via shebang, built exe etc. and much can go wrong
         # We need to remember the old current dir for restarting purposes via settings  - again things can go wrong otherwise
         # Also on windows there is a weird issue when starting Sephrasto.exe from a different folder, so we use sys.argv[0] as a fallback (which doesnt work in other cases -.-)
-        EinstellungenWrapper.oldWorkingDir = os.getcwd() 
+        EinstellungenWrapper.oldWorkingDir = os.getcwd()
         if os.path.isfile(os.path.abspath(__file__)):
             os.chdir(os.path.dirname(os.path.abspath(__file__)))
         else:
@@ -115,7 +115,7 @@ class MainWindowWrapper(object):
         
         if platform.system() != 'Windows': # hardcoded for windows, qt doesnt provide the correct font here
             defaultFont = QtGui.QFont()
-            Wolke.DefaultOSFont = defaultFont.family() 
+            Wolke.DefaultOSFont = defaultFont.family()
             fontSize = defaultFont.pointSize()
             if fontSize != -1:
                 Wolke.DefaultOSFontSize = fontSize
@@ -368,6 +368,46 @@ class MainWindowWrapper(object):
             QToolTip.setPalette(palette)
             Wolke.HeadingColor = "#4A000B"
             Wolke.BorderColor = "rgba(0,0,0,0.2)"
+            self.buildStylesheet("#e4d0a5", Wolke.HeadingColor, Wolke.BorderColor, "#d1bd94")
+        elif style == "Loirana":
+            self.app.setStyle('fusion')
+
+            palette = QPalette()
+            colors = {
+                "box" : QColor("#ffb86c"),
+                "bg": QColor("#282a36"),
+                "heading" : QColor("#bd93f9"),
+                "text": QColor("#f8f8f2"),
+                "table": QColor("#6272a4"),
+                "bg_bestiarium" : QColor("#44475a"),
+                "bg_dark" : QColor("#44475a"),
+                "text_dark": QColor("#ff5555")
+            }
+
+            palette.setColor(QPalette.Window, colors["bg"])
+            palette.setColor(QPalette.WindowText, colors["text"])
+            palette.setColor(QPalette.Base, colors["bg"])
+            palette.setColor(QPalette.AlternateBase, colors["table"])
+            palette.setColor(QPalette.ToolTipBase, colors["bg"])
+            palette.setColor(QPalette.ToolTipText, colors["text"])
+            palette.setColor(QPalette.Text, colors["text"])
+            palette.setColor(QPalette.Button, colors["bg_dark"])
+            palette.setColor(QPalette.ButtonText, colors["text"])
+            palette.setColor(QPalette.BrightText, colors["text"])
+            palette.setColor(QPalette.Link, colors["heading"])
+            palette.setColor(QPalette.Highlight, colors["box"])
+            palette.setColor(QPalette.HighlightedText, colors["text"])
+            #palette.setColor(QPalette.Active, QPalette.Button, colors["box"])
+            palette.setColor(QPalette.Disabled, QPalette.ButtonText, colors["text_dark"])
+            palette.setColor(QPalette.Disabled, QPalette.WindowText, colors["text_dark"])
+            palette.setColor(QPalette.Disabled, QPalette.Text, colors["text_dark"])
+            palette.setColor(QPalette.Disabled, QPalette.HighlightedText, colors["text_dark"])
+            palette.setColor(QPalette.Disabled, QPalette.Base, colors["bg_dark"])
+            self.app.setPalette(palette)
+            QToolTip.setPalette(palette)
+            Wolke.HeadingColor = "#bd93f9"
+            Wolke.BorderColor = "rgba(0,0,0,0.2)"
+            self.buildStylesheet("#44475a", Wolke.HeadingColor, Wolke.BorderColor, "#44475a")
             self.buildStylesheet("#e4d0a5", "#e8c5a9", "#d1bd94")
         elif style == "DSA Forum":
             self.app.setStyle('fusion')
