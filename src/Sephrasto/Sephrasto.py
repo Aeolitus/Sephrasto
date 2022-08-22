@@ -368,7 +368,7 @@ class MainWindowWrapper(object):
             QToolTip.setPalette(palette)
             Wolke.HeadingColor = "#4A000B"
             Wolke.BorderColor = "rgba(0,0,0,0.2)"
-            self.buildStylesheet("#e4d0a5", Wolke.HeadingColor, Wolke.BorderColor, "#d1bd94")
+            self.buildStylesheet("#e4d0a5", "#e8c5a9", "#d1bd94")
         elif style == "Loirana":
             self.app.setStyle('fusion')
 
@@ -407,8 +407,7 @@ class MainWindowWrapper(object):
             QToolTip.setPalette(palette)
             Wolke.HeadingColor = "#bd93f9"
             Wolke.BorderColor = "rgba(0,0,0,0.2)"
-            self.buildStylesheet("#44475a", Wolke.HeadingColor, Wolke.BorderColor, "#44475a")
-            self.buildStylesheet("#e4d0a5", "#e8c5a9", "#d1bd94")
+            self.buildStylesheet("#44475a", Wolke.HeadingColor, "#44475a")
         elif style == "DSA Forum":
             self.app.setStyle('fusion')
             palette = QPalette()
