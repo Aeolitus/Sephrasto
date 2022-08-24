@@ -13,6 +13,7 @@ import yaml
 import logging
 import sys
 import platform
+import PathHelper
 from Hilfsmethoden import Hilfsmethoden
 from PluginLoader import PluginLoader
 
@@ -59,6 +60,10 @@ class EinstellungenWrapper():
         self.ui.checkPDFOpen.setChecked(Wolke.Settings['PDF-Open'])
         self.ui.checkUpdate.setChecked(not Wolke.Settings['UpdateCheck_Disable'])
         self.ui.comboLogging.setCurrentIndex(Wolke.Settings['Logging'])
+
+        # Offer custom themes
+        for theme in PathHelper.getThemes():
+            self.ui.comboTheme.addItem(theme["name"])
         self.ui.comboTheme.setCurrentText(Wolke.Settings['Theme'])
 
         self.fontFamilies = QtGui.QFontDatabase().families()
@@ -206,32 +211,22 @@ class EinstellungenWrapper():
 
     @staticmethod
     def getSettingsFolder():
-        userFolder = os.path.expanduser('~')
-        system = platform.system()
-        if system == 'Windows':
-            import ctypes.wintypes
-            CSIDL_PERSONAL = 5       # My Documents
-            SHGFP_TYPE_CURRENT = 0   # Get current, not default value
-            buf= ctypes.create_unicode_buffer(ctypes.wintypes.MAX_PATH)
-            ctypes.windll.shell32.SHGetFolderPathW(None, CSIDL_PERSONAL, None, SHGFP_TYPE_CURRENT, buf)
-            userFolder = buf.value or userFolder
-            return os.path.join(userFolder,'Sephrasto')
-        elif system == 'Linux':
-            if os.path.isdir(os.path.join(userFolder,'.sephrasto')):
-                return os.path.join(userFolder,'.sephrasto') # allow users to rename the folder to a hidden folder
-            else:
-                return os.path.join(userFolder,'sephrasto')
-        elif system == 'Darwin':
-            return os.path.join(userFolder, 'Documents', 'Sephrasto') # the documents folder is language-independent on macos
-        else:
-            return os.path.join(userFolder,'Sephrasto')
+        res = PathHelper.getSettingsFolder()
+        if not os.path.isdir(res):
+            if not PathHelper.createFolder(res):
+                messagebox = QtWidgets.QMessageBox()
+                messagebox.setWindowTitle("Fehler!")
+                messagebox.setText(
+                    "Konnte den Sephrasto Ordner in deinem lokalen Einstellungsverzeichnis nicht erstellen (" + res + "). Bitte stelle sicher, dass Sephrasto die nötigen Schreibrechte hat und dein Antivirus Programm den Zugriff nicht blockiert. Sephrasto wird sonst nicht richtig funktionieren.")
+                messagebox.setIcon(QtWidgets.QMessageBox.Critical)
+                messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+                messagebox.exec_()
+        return res
 
     @staticmethod
-    def createUserFolders(basePath):
+    def createUserFolder(basePath):
         if not os.path.isdir(basePath):
-            try:
-                os.mkdir(basePath)
-            except:
+            if not PathHelper.createFolder(basePath):
                 messagebox = QtWidgets.QMessageBox()
                 messagebox.setWindowTitle("Fehler!")
                 messagebox.setText("Konnte den Sephrasto Ordner in deinem Nutzerverzeichnis nicht erstellen (" + basePath + "). Bitte stelle sicher, dass Sephrasto die nötigen Schreibrechte hat und dein Antivirus Programm den Zugriff nicht blockiert. Sephrasto wird sonst nicht richtig funktionieren.")
@@ -239,15 +234,10 @@ class EinstellungenWrapper():
                 messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
                 messagebox.exec_()
 
-        folders = ['Charaktere', 'Regeln', 'Plugins', 'Charakterbögen']
-        for folder in folders:
-            if not os.path.isdir(os.path.join(basePath, folder)):
-                os.mkdir(os.path.join(basePath, folder))
 
     @staticmethod
     def load():
         settingsFolder = EinstellungenWrapper.getSettingsFolder()
-        EinstellungenWrapper.createUserFolders(settingsFolder)
         settingsPath = os.path.join(settingsFolder, 'Sephrasto.ini')
 
         if os.path.isfile(settingsPath):
@@ -276,15 +266,16 @@ class EinstellungenWrapper():
         #Init defaults
         if not Wolke.Settings['Font'] or not Wolke.Settings['FontSize'] or not Wolke.Settings['FontHeading'] or not Wolke.Settings['FontHeadingSize'] or not Wolke.Settings['IconSize']:
             EinstellungenWrapper.useDefaultFont()
-        
-        if not Wolke.Settings['Pfad-Chars'] or not os.path.isdir(Wolke.Settings['Pfad-Chars']):
-            Wolke.Settings['Pfad-Chars'] = os.path.join(settingsFolder, 'Charaktere')
-        if not Wolke.Settings['Pfad-Regeln'] or not os.path.isdir(Wolke.Settings['Pfad-Regeln']):
-            Wolke.Settings['Pfad-Regeln'] = os.path.join(settingsFolder, 'Regeln')
-        if not Wolke.Settings['Pfad-Plugins'] or not os.path.isdir(Wolke.Settings['Pfad-Plugins']):
-            Wolke.Settings['Pfad-Plugins'] = os.path.join(settingsFolder, 'Plugins')
-        if not Wolke.Settings['Pfad-Charakterbögen'] or not os.path.isdir(Wolke.Settings['Pfad-Charakterbögen']):
-            Wolke.Settings['Pfad-Charakterbögen'] = os.path.join(settingsFolder, 'Charakterbögen')
+
+        folders = [('Pfad-Chars', 'Charaktere'),
+                   ('Pfad-Regeln', 'Regeln'),
+                   ('Pfad-Plugins', 'Plugins'),
+                   ('Pfad-Charakterbögen', 'Charakterbögen')]
+
+        for configName, folderName in folders:
+            if not Wolke.Settings[configName] or not os.path.isdir(Wolke.Settings[configName]):
+                Wolke.Settings[configName] = os.path.join(PathHelper.getDefaultUserFolder(), folderName)
+                EinstellungenWrapper.createUserFolder(Wolke.Settings[configName])
 
         #Init charsheets
         for filePath in EinstellungenWrapper.getCharakterbögen():
@@ -311,8 +302,6 @@ class EinstellungenWrapper():
     @staticmethod
     def save():
         settingsFolder = EinstellungenWrapper.getSettingsFolder()
-        EinstellungenWrapper.createUserFolders(settingsFolder)
-
         settingsPath = os.path.join(settingsFolder, 'Sephrasto.ini')
         with open(settingsPath, 'w') as outfile:
             yaml.dump(Wolke.Settings, outfile)
@@ -418,16 +407,16 @@ class EinstellungenWrapper():
                 self.updatePluginCheckboxes(PluginLoader.getPlugins(p))
 
     def resetCharPath(self):
-        p = os.path.join(self.settingsFolder, 'Charaktere')
+        p = os.path.join(PathHelper.getDefaultUserFolder(), 'Charaktere')
         self.ui.editChar.setText(p)
         
     def resetRulePath(self):
-        p = os.path.join(self.settingsFolder, 'Regeln')
+        p = os.path.join(PathHelper.getDefaultUserFolder(), 'Regeln')
         self.ui.editRegeln.setText(p)
         self.updateComboRegelbasis()
         
     def resetPluginsPath(self):
-        p = os.path.join(self.settingsFolder, 'Plugins')
+        p = os.path.join(PathHelper.getDefaultUserFolder(), 'Plugins')
         self.ui.editPlugins.setText(p)
         self.updatePluginCheckboxes(PluginLoader.getPlugins(p))
 

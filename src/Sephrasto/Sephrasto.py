@@ -28,6 +28,8 @@ from PyQt5.QtWidgets import QToolTip
 from Hilfsmethoden import Hilfsmethoden
 import platform
 
+import PathHelper
+
 loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
 logging.basicConfig(filename="sephrasto.log", \
     level=loglevels[Wolke.Settings['Logging']], \
@@ -406,6 +408,32 @@ class MainWindowWrapper(object):
             Wolke.HeadingColor = "#000000"
             Wolke.BorderColor = "rgba(0,0,0,0.2)"
             self.buildStylesheet("#dcc484", "#f6efe2")
+        else:
+            try:
+                for pal in PathHelper.getThemes():
+                    self.app.setStyle('fusion')
+                    palette = QPalette()
+
+                    if 'name' in pal and pal['name'] == style:
+                        for elem, col in pal["palette"]:
+                            palette.setColor(elem, QColor(col))
+
+                        if 'active' in pal:
+                            for elem, col in pal["active"]:
+                                palette.setColor(QPalette.Active, elem, QColor(col))
+
+                        if 'disabled' in pal:
+                            for elem, col in pal["disabled"]:
+                                palette.setColor(QPalette.Disabled, elem, QColor(col))
+
+                        self.app.setPalette(palette)
+                        QToolTip.setPalette(palette)
+                        Wolke.HeadingColor = pal["heading"]
+                        Wolke.BorderColor = pal["border"]
+                        self.buildStylesheet(pal["sheet"]["readonly"], pal["sheet"]["panel"], pal["sheet"]["button"])
+                        break
+            except:
+                pass
         
 if __name__ == "__main__":
     itm = MainWindowWrapper()
