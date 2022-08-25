@@ -1,8 +1,8 @@
-from PyQt5 import QtWidgets, QtCore
+from PySide6 import QtWidgets, QtCore
 import UI.Hilfe
 import logging
-from PyQt5.QtWidgets import QStyle
-from PyQt5.QtCore import QUrl
+from PySide6.QtWidgets import QStyle
+from PySide6.QtCore import QUrl
 
 class HilfeWrapper(QtCore.QObject):
     def __init__(self):

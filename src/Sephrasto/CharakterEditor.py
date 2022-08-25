@@ -5,10 +5,10 @@ Created on Sun Feb 26 22:36:35 2017
 @author: Aeolitus
 """
 
-from PyQt5 import QtWidgets, QtCore, QtGui
-from PyQt5.QtGui import QCursor
-from PyQt5.QtWidgets import QApplication
-from PyQt5.QtCore import Qt
+from PySide6 import QtWidgets, QtCore, QtGui
+from PySide6.QtGui import QCursor
+from PySide6.QtWidgets import QApplication
+from PySide6.QtCore import Qt
 import CharakterBeschreibungWrapper
 import CharakterBeschreibungDetailsWrapper
 import CharakterAttributeWrapper
@@ -88,7 +88,7 @@ class Editor(object):
             "Nicht alle davon sind aktiv, daher können beim Speichern Daten dieser Plugins verloren gehen:\n\n" + ", ".join(missingPlugins))
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-            infoBox.exec_()
+            infoBox.exec()
 
         Wolke.Char.enabledPlugins = enabledPlugins
 
@@ -190,10 +190,10 @@ class Editor(object):
             messagebox.setWindowTitle(action)
             messagebox.setText("Sollen die ausstehenden Änderungen gespeichert werden?")
             messagebox.setIcon(QtWidgets.QMessageBox.Question)
-            messagebox.addButton(QtWidgets.QPushButton("Ja"), QtWidgets.QMessageBox.YesRole)
-            messagebox.addButton(QtWidgets.QPushButton("Nein"), QtWidgets.QMessageBox.NoRole)
-            messagebox.addButton(QtWidgets.QPushButton("Abbrechen"), QtWidgets.QMessageBox.RejectRole)
-            result = messagebox.exec_()
+            messagebox.addButton("Ja", QtWidgets.QMessageBox.YesRole)
+            messagebox.addButton("Nein", QtWidgets.QMessageBox.NoRole)
+            messagebox.addButton("Abbrechen", QtWidgets.QMessageBox.RejectRole)
+            result = messagebox.exec()
             if result == 0:
                 self.quicksaveButton()
             elif result == 2:
@@ -260,7 +260,7 @@ Versuchs doch bitte nochmal mit einer anderen Zieldatei.")
             infoBox.setWindowTitle("Charakter speichern fehlgeschlagen.")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-            infoBox.exec_()
+            infoBox.exec()
             return
         self.savepath = spath
         self.savePathUpdatedCallback()
@@ -292,7 +292,7 @@ Versuchs doch bitte nochmal mit einer anderen Zieldatei.")
         self.wizardEd.setupMainForm()
         self.wizardEd.form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.wizardEd.form.show()
-        self.wizardEd.form.exec_()
+        self.wizardEd.form.exec()
 
     def showProgressBar(self, show):
         if show:
@@ -318,7 +318,7 @@ Versuchs doch bitte nochmal mit einer anderen Zieldatei.")
             messagebox.setText("Sephrasto benötigt PDFtk für den PDF-Export. Hier kannst du es kostenlos herunterladen:\nhttps://www.pdflabs.com/tools/pdftk-server/")
             messagebox.setIcon(QtWidgets.QMessageBox.Critical)
             messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-            messagebox.exec_()
+            messagebox.exec()
             return
         
         result = -1
@@ -335,7 +335,7 @@ Versuchs doch bitte nochmal mit einer anderen Zieldatei.")
             messagebox.setText("Konnte " + self.pdfExporter.CharakterBogen.filePath + " nicht im Installationsordner finden")
             messagebox.setIcon(QtWidgets.QMessageBox.Critical)
             messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-            messagebox.exec_()
+            messagebox.exec()
             return
         
         if os.path.isfile(self.savepath):

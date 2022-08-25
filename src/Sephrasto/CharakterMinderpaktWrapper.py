@@ -6,7 +6,7 @@ Created on Sat Mar 18 12:21:03 2017
 """
 from Wolke import Wolke
 import UI.CharakterMinderpakt
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PySide6 import QtWidgets, QtCore, QtGui
 import logging
 
 class CharakterMinderpaktWrapper():    
@@ -30,7 +30,7 @@ class CharakterMinderpaktWrapper():
 
         self.vorteilTypen = Wolke.DB.einstellungen["Vorteile: Typen"].toTextList()
         self.ui.treeWidget.itemSelectionChanged.connect(self.vortClicked)
-        self.ui.treeWidget.header().setSectionResizeMode(0,1)
+        self.ui.treeWidget.header().setSectionResizeMode(0,QtWidgets.QHeaderView.Stretch)
 
         if len(Wolke.Char.vorteile) > 0:
             self.currentVort = Wolke.Char.vorteile[0]
@@ -39,7 +39,7 @@ class CharakterMinderpaktWrapper():
         self.initVorteile()
         self.form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.form.show()
-        self.ret = self.form.exec_()
+        self.ret = self.form.exec()
         if self.ret == QtWidgets.QDialog.Accepted:
             if self.currentVort not in Wolke.DB.vorteile:
                 self.minderpakt = None

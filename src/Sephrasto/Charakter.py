@@ -10,7 +10,7 @@ import collections
 from EventBus import EventBus
 from Wolke import Wolke
 from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
-from PyQt5 import QtWidgets, QtCore
+from PySide6 import QtWidgets, QtCore
 import os.path
 from Fertigkeiten import KampffertigkeitTyp
 import base64
@@ -1071,7 +1071,7 @@ class Char():
                 messageBox.setInformativeText("\n".join(strArr))
             messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-            messageBox.exec_()
+            messageBox.exec()
 
     @staticmethod
     def xmlHausregelnLesen(filename):
@@ -1381,4 +1381,4 @@ class Char():
             messageBox.setInformativeText(text + "\n\nDu kannst diese Nachricht in sephrasto.log nochmal nachlesen.")
             messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-            messageBox.exec_()
+            messageBox.exec()

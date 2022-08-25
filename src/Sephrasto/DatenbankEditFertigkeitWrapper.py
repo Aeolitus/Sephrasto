@@ -7,7 +7,7 @@ Created on Sat Mar 18 11:21:32 2017
 import Fertigkeiten
 from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
 import UI.DatenbankEditFertigkeit
-from PyQt5 import QtWidgets, QtCore
+from PySide6 import QtWidgets, QtCore
 from Wolke import Wolke
 
 class DatenbankEditFertigkeitWrapper(object):
@@ -79,7 +79,7 @@ class DatenbankEditFertigkeitWrapper(object):
         self.ui.comboTyp.setCurrentIndex(fertigkeit.printclass)
 
         self.fertDialog.show()
-        ret = self.fertDialog.exec_()
+        ret = self.fertDialog.exec()
 
         if ueber:
             Wolke.Settings["WindowSize-DBFertigkeitUeber"] = [self.fertDialog.size().width(), self.fertDialog.size().height()]

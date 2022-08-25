@@ -7,7 +7,7 @@ Created on Thu Apr 19 22:33:21 2018
 import Fertigkeiten
 from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
 import UI.DatenbankEditFreieFertigkeit
-from PyQt5 import QtWidgets, QtCore
+from PySide6 import QtWidgets, QtCore
 from Wolke import Wolke
 
 class DatenbankEditFreieFertigkeitWrapper(object):
@@ -54,7 +54,7 @@ class DatenbankEditFreieFertigkeitWrapper(object):
         self.ui.teVoraussetzungen.textChanged.connect(self.voraussetzungenTextChanged)
 
         self.ffDialog.show()
-        ret = self.ffDialog.exec_()
+        ret = self.ffDialog.exec()
 
         Wolke.Settings["WindowSize-DBFreieFert"] = [self.ffDialog.size().width(), self.ffDialog.size().height()]
 

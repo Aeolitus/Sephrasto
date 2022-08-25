@@ -6,7 +6,7 @@ Created on Sat Mar 18 10:52:34 2017
 """
 import Objekte
 import UI.DatenbankEditWaffeneigenschaft
-from PyQt5 import QtWidgets, QtCore
+from PySide6 import QtWidgets, QtCore
 from Wolke import Wolke
 
 class DatenbankEditWaffeneigenschaftWrapper(object):
@@ -61,7 +61,7 @@ class DatenbankEditWaffeneigenschaftWrapper(object):
         self.ui.scriptEdit.setToolTip("Siehe \"Skripte für Vorteile und Waffeneigenschaften\" in der Sephrasto-Hilfe für verfügbare Funktionen und Beispiele.")
 
         self.waffeneigenschaftDialog.show()
-        ret = self.waffeneigenschaftDialog.exec_()
+        ret = self.waffeneigenschaftDialog.exec()
 
         Wolke.Settings["WindowSize-DBWaffeneigenschaft"] = [self.waffeneigenschaftDialog.size().width(), self.waffeneigenschaftDialog.size().height()]
 

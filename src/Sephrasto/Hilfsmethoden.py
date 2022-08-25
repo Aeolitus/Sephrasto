@@ -6,7 +6,6 @@ Created on Sat Feb 18 16:35:08 2017
 """
 import Definitionen
 import logging
-import unicodedata
 import os
 import re
 from Wolke import Wolke
@@ -443,11 +442,6 @@ class Hilfsmethoden:
                 if lh[count] != rh[count]:
                     return False
         return True
-
-    #The os.listdir implementation is having encoding issues. On OSX the paths are non normalized utf-8, on Unix the paths might be multibyte.
-    @staticmethod
-    def listdir(path):
-        return [unicodedata.normalize('NFC', f.decode("utf-8") if isinstance(f, bytes) else f) for f in os.listdir(path)]
     
     # The exact value is important especially on linux, otherwise qt wont find the correct font
     # Internally qt divides css weights by 8 to get the qt weight, so we need to invert this

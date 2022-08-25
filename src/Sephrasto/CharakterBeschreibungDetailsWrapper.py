@@ -1,17 +1,17 @@
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PySide6 import QtWidgets, QtCore, QtGui
 import UI.CharakterBeschreibungDetails
 import UI.CharakterBeschreibung
 import CharakterBeschreibungWrapper
 import lxml.etree as etree
 from Wolke import Wolke
 import logging
-from PyQt5.QtGui import QPixmap
+from PySide6.QtGui import QPixmap
 import tempfile
 import os
 from EventBus import EventBus
 
 class CharakterBeschreibungDetailsWrapper(QtCore.QObject):
-    modified = QtCore.pyqtSignal()
+    modified = QtCore.Signal()
 
     def __init__(self):
         super().__init__()
@@ -68,6 +68,14 @@ class CharakterBeschreibungDetailsWrapper(QtCore.QObject):
         self.labelImageText = self.ui.labelImage.text()
         self.ui.buttonLoadImage.clicked.connect(self.buttonLoadImageClicked)
         self.ui.buttonDeleteImage.clicked.connect(self.buttonDeleteImageClicked)
+
+        for bogen in Wolke.Charakterbögen:
+            if Wolke.Char.charakterbogen == os.path.basename(os.path.splitext(bogen)[0]):
+                if not  Wolke.Charakterbögen[bogen].bild:
+                    self.ui.buttonLoadImage.setVisible(False)
+                    self.ui.buttonDeleteImage.setVisible(False)
+                    self.ui.labelImage.setVisible(False)
+                break
 
         self.currentlyLoading = False
 

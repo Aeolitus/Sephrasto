@@ -7,7 +7,7 @@ Created on Sat Mar 18 10:52:34 2017
 import Objekte
 import UI.DatenbankEditWaffe
 from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
-from PyQt5 import QtWidgets, QtCore
+from PySide6 import QtWidgets, QtCore
 from TextTagCompleter import TextTagCompleter
 from Fertigkeiten import KampffertigkeitTyp
 from Wolke import Wolke
@@ -107,7 +107,7 @@ class DatenbankEditWaffeWrapper(object):
                 col = 0
 
         self.waffeDialog.show()
-        ret = self.waffeDialog.exec_()
+        ret = self.waffeDialog.exec()
 
         Wolke.Settings["WindowSize-DBWaffe"] = [self.waffeDialog.size().width(), self.waffeDialog.size().height()]
 

@@ -3,7 +3,7 @@ import lxml.etree as etree
 from Hilfsmethoden import Hilfsmethoden, VoraussetzungException, WaffeneigenschaftException
 import os.path
 import Objekte
-from PyQt5 import QtWidgets
+from PySide6 import QtWidgets
 from Wolke import Wolke
 import logging
 from DatenbankEinstellung import DatenbankEinstellung
@@ -262,7 +262,7 @@ class Datenbank():
             messagebox.setText(self.datei + " ist keine valide Datenbank-Datei!")
             messagebox.setIcon(QtWidgets.QMessageBox.Critical)
             messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-            messagebox.exec_()
+            messagebox.exec()
 
     def userDBMigrieren(self, xmlRoot, userDBVersion, datenbankCodeVersion):
         dbChanged = userDBVersion < datenbankCodeVersion

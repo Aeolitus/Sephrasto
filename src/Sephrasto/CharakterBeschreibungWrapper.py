@@ -6,7 +6,7 @@ Created on Fri Mar 10 17:11:39 2017
 """
 from Wolke import Wolke
 import UI.CharakterBeschreibung
-from PyQt5 import QtWidgets, QtCore
+from PySide6 import QtWidgets, QtCore
 import logging
 from Hilfsmethoden import Hilfsmethoden
 
@@ -16,7 +16,7 @@ class BeschrWrapper(QtCore.QObject):
     the GUI elements to the current values and for changing the current values
     to the values set by the user.
     '''
-    modified = QtCore.pyqtSignal()
+    modified = QtCore.Signal()
 
     def __init__(self):
         ''' Initialize and connect signals '''

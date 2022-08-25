@@ -177,11 +177,11 @@ class Plugin:
         return [tab]
 
 #Datei MeinTabWrapper.py im Plugin-Ordner
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PySide6 import QtWidgets, QtCore, QtGui
 from MeinPlugin import MeinTab
 
 class MeinTabWrapper(QtCore.QObject):
-    modified = QtCore.pyqtSignal()
+    modified = QtCore.Signal()
     
     def __init__(self):
         super().__init__()
@@ -204,7 +204,7 @@ class MeinTabWrapper(QtCore.QObject):
 Implementiere in deiner Plugin-Klasse eine Funktion mit dem Namen `createMainWindowButtons`, `createCharakterButtons` oder `createDatabaseButtons` und returne eine Liste von (Button) Widgets. Im `clicked` Event der widgets kannst du einen Handler registrieren, der dann beispielsweise ein neues Fenster zeigt.
 <br />
 ```python
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PySide6 import QtWidgets, QtCore, QtGui
 from EventBus import EventBus
 from MeinPlugin import MeinFensterWrapper
 
@@ -225,7 +225,7 @@ class Plugin:
         self.meinFenster.form.show()
 
 #Datei MeinFensterWrapper.py im Plugin-Ordner
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PySide6 import QtWidgets, QtCore, QtGui
 from MeinPlugin import MeinFenster
 
 class MeinFensterWrapper(QtCore.QObject):   
@@ -239,7 +239,7 @@ class MeinFensterWrapper(QtCore.QObject):
 Implementiere einen der "class_xx_wrapper" Filter, die UI-Wrapper-Klasse wird als Parameter gereicht. Du kannst diesen Parameter im Handler beerben und diese oder eine ganz neue Klasse returnen. Im folgenden Beispiel wird bei den freien Fertigkeiten die dritte Stufe entfernt.
 <br />
 ```python
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PySide6 import QtWidgets, QtCore, QtGui
 from EventBus import EventBus
 
 class Plugin:

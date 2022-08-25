@@ -5,7 +5,7 @@ Created on Sun Mar  5 16:45:34 2017
 @author: Aeolitus
 """
 import UI.CharakterRuestungPicker
-from PyQt5 import QtCore, QtWidgets, QtGui
+from PySide6 import QtCore, QtWidgets, QtGui
 from Wolke import Wolke
 import Objekte
 import Definitionen
@@ -61,7 +61,7 @@ class RuestungPicker(object):
         logging.debug("Tree Filled...")
         self.ui.treeArmors.itemSelectionChanged.connect(self.changeHandler)
         self.ui.treeArmors.itemDoubleClicked.connect(lambda item, column: self.ui.buttonBox.buttons()[0].click())
-        self.ui.treeArmors.header().setSectionResizeMode(0,1)
+        self.ui.treeArmors.header().setSectionResizeMode(0,QtWidgets.QHeaderView.Fixed)
         self.ui.treeArmors.setFocus()
         self.updateInfo()
         logging.debug("Info Updated...")
@@ -98,7 +98,7 @@ class RuestungPicker(object):
 
         self.form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.form.show()
-        self.ret = self.form.exec_()
+        self.ret = self.form.exec()
 
         Wolke.Settings["WindowSize-Ruestungen"] = [self.form.size().width(), self.form.size().height()]
 

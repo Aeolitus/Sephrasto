@@ -5,7 +5,7 @@ Created on Sun Mar  5 16:45:34 2017
 @author: Aeolitus
 """
 import UI.CharakterTalentPicker
-from PyQt5 import QtCore, QtWidgets, QtGui
+from PySide6 import QtCore, QtWidgets, QtGui
 from Wolke import Wolke
 from Charakter import VariableKosten
 import copy
@@ -49,8 +49,6 @@ class TalentPicker(object):
         self.ui.splitter.setSizes([int(width*0.4), int(width*0.6)])
 
         self.model = QtGui.QStandardItemModel(self.ui.listTalente)
-        self.ui.listTalente.setModel(self.model)
-        self.ui.listTalente.selectionModel().currentChanged.connect(self.talChanged)
         
         talente = []
         for el in Wolke.DB.talente:
@@ -70,9 +68,9 @@ class TalentPicker(object):
             item.setEditable(False)
             item.setCheckable(True)
             if el in self.gekaufteTalente:
-                item.setCheckState(2)
+                item.setCheckState(QtCore.Qt.Checked)
             else:
-                item.setCheckState(0)
+                item.setCheckState(QtCore.Qt.Unchecked)
             self.model.appendRow(item)
             self.rowCount += 1
         if self.rowCount > 0:
@@ -80,11 +78,12 @@ class TalentPicker(object):
         self.ui.textKommentar.textChanged.connect(self.kommentarChanged)
         self.ui.spinKosten.valueChanged.connect(self.spinChanged)
         self.ui.listTalente.setModel(self.model)
+        self.ui.listTalente.selectionModel().currentChanged.connect(self.talChanged)
         self.ui.listTalente.setFocus()
         self.ui.listTalente.setCurrentIndex(self.model.index(0, 0))
         self.form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.form.show()
-        self.ret = self.form.exec_()
+        self.ret = self.form.exec()
 
         if ueber:
             Wolke.Settings["WindowSize-TalentUeber"] = [self.form.size().width(), self.form.size().height()]
@@ -141,7 +140,7 @@ class TalentPicker(object):
             self.ui.labelName.setProperty("data", talent) # store talent name in user data
             self.ui.labelInfo.hide()
             self.ui.spinKosten.setReadOnly(True)
-            self.ui.spinKosten.setButtonSymbols(2)
+            self.ui.spinKosten.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
             self.ui.spinKosten.setMinimum(0)
             self.ui.textKommentar.hide()
             self.ui.labelKommentar.hide()
@@ -156,7 +155,7 @@ class TalentPicker(object):
             if talent in self.talenteVariable:
                 if Wolke.DB.talente[talent].variableKosten:
                     self.ui.spinKosten.setReadOnly(False)
-                    self.ui.spinKosten.setButtonSymbols(0)
+                    self.ui.spinKosten.setButtonSymbols(QtWidgets.QAbstractSpinBox.PlusMinus)
                     step = Wolke.Char.getDefaultTalentCost(talent, self.refD[self.fert].steigerungsfaktor)
                     self.ui.spinKosten.setSingleStep(step)
                     self.ui.spinKosten.setMinimum(step)

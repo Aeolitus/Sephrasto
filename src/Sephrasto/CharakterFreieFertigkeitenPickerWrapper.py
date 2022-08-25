@@ -1,4 +1,4 @@
-from PyQt5 import QtCore, QtWidgets, QtGui
+from PySide6 import QtCore, QtWidgets, QtGui
 from Wolke import Wolke
 import UI.CharakterFreieFertigkeitenPicker
 from EventBus import EventBus
@@ -40,12 +40,12 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
 
         self.ui.treeFerts.itemSelectionChanged.connect(self.changeHandler)
         self.ui.treeFerts.itemDoubleClicked.connect(lambda item, column: self.ui.buttonBox.buttons()[0].click())
-        self.ui.treeFerts.header().setSectionResizeMode(0,1)
+        self.ui.treeFerts.header().setSectionResizeMode(0, QtWidgets.QHeaderView.Fixed)
         self.ui.treeFerts.setFocus()
         self.ui.nameFilterEdit.textChanged.connect(self.populateTree)
         self.form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.form.show()
-        self.ret = self.form.exec_()
+        self.ret = self.form.exec()
         Wolke.Settings["WindowSize-FreieFert"] = [self.form.size().width(), self.form.size().height()]
         if self.ret == QtWidgets.QDialog.Accepted and self.current != '':
             freieFertigkeit = Wolke.DB.freieFertigkeiten[self.current]

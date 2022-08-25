@@ -1,7 +1,7 @@
 import UI.DatenbankEditEinstellung
 import Datenbank
 from DatenbankEinstellung import DatenbankEinstellung
-from PyQt5 import QtWidgets, QtCore
+from PySide6 import QtWidgets, QtCore
 from Wolke import Wolke
 
 class DatenbankEditEinstellungWrapper(object):
@@ -53,7 +53,7 @@ class DatenbankEditEinstellungWrapper(object):
 
         self.updateSaveButtonState()
         self.deDialog.show()
-        ret = self.deDialog.exec_()
+        ret = self.deDialog.exec()
 
         Wolke.Settings["WindowSize-DBEinstellung"] = [self.deDialog.size().width(), self.deDialog.size().height()]
 

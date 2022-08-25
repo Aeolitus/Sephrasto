@@ -7,14 +7,14 @@ Created on Sat Mar 18 18:09:33 2017
 import Fertigkeiten
 from Wolke import Wolke
 import UI.CharakterFreieFert
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PySide6 import QtWidgets, QtCore, QtGui
 import logging
 from Hilfsmethoden import Hilfsmethoden
 from CharakterFreieFertigkeitenPickerWrapper import CharakterFreieFertigkeitenPickerWrapper
 from EventBus import EventBus
 
 class CharakterFreieFertWrapper(QtCore.QObject):
-    modified = QtCore.pyqtSignal()
+    modified = QtCore.Signal()
     
     def __init__(self):
         super().__init__()
@@ -62,7 +62,7 @@ class CharakterFreieFertWrapper(QtCore.QObject):
                 ffButton.setProperty("class", "icon")
                 ffButton.setText('\u002b')
                 ffButton.setMaximumSize(QtCore.QSize(20, 20))
-                ffButton.clicked.connect(lambda state, edit=ffEdit: self.ffButtonClicked(edit))
+                ffButton.clicked.connect(lambda qtNeedsThis=False, edit=ffEdit: self.ffButtonClicked(edit))
                 ffLayout.addWidget(ffButton)
 
                 if row % 2 != 0:

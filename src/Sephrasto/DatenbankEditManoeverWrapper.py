@@ -7,7 +7,7 @@ Created on Thu Apr 19 22:33:21 2018
 import Fertigkeiten
 from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
 import UI.DatenbankEditManoever
-from PyQt5 import QtWidgets, QtCore
+from PySide6 import QtWidgets, QtCore
 from Wolke import Wolke
 
 class DatenbankEditManoeverWrapper(object):
@@ -57,7 +57,7 @@ class DatenbankEditManoeverWrapper(object):
 
         self.ui.textEdit.setPlainText(man.text)
         self.manDialog.show()
-        ret = self.manDialog.exec_()
+        ret = self.manDialog.exec()
 
         Wolke.Settings["WindowSize-DBManoever"] = [self.manDialog.size().width(), self.manDialog.size().height()]
 

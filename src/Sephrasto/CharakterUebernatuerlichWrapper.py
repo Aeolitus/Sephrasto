@@ -8,15 +8,15 @@ from Wolke import Wolke
 import UI.CharakterUebernatuerlich
 import CharakterTalentPickerWrapper
 import MousewheelProtector
-from PyQt5 import QtWidgets, QtCore, QtGui
-from PyQt5.QtWidgets import QHeaderView
+from PySide6 import QtWidgets, QtCore, QtGui
+from PySide6.QtWidgets import QHeaderView
 import logging
 from CharakterProfaneFertigkeitenWrapper import FertigkeitItemDelegate
 from Hilfsmethoden import Hilfsmethoden
 from EventBus import EventBus
 
 class UebernatuerlichWrapper(QtCore.QObject):
-    modified = QtCore.pyqtSignal()
+    modified = QtCore.Signal()
     
     def __init__(self):
         super().__init__()
@@ -35,7 +35,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
         self.ui.splitter.setSizes([int(width*0.6), int(width*0.4)])
 
         #Signals
-        self.ui.spinFW.valueChanged.connect(lambda state : self.fwChanged(False))
+        self.ui.spinFW.valueChanged.connect(lambda: self.fwChanged(False))
         self.ui.tableWidget.currentCellChanged.connect(self.tableClicked)   
         self.ui.tableWidget.cellClicked.connect(self.tableClicked) 
         self.ui.buttonAdd.setStyle(None) # dont know why but the below settings wont do anything without it
@@ -185,7 +185,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
                     if el in talent.fertigkeiten:
                         totalTalentCost += talent.kosten
                 if totalTalentCost < 120:
-                    self.labelRef[el + "Name"] =  QtWidgets.QLabel(el + "&nbsp;&nbsp;<span style='font-size: " + str(Wolke.Settings['IconSize']) + "pt; font-weight: " + Hilfsmethoden.qtWeightToCSS(QtGui.QFont.Black) + "; font-family: \"Font Awesome 6 Free Solid\";'>\uf73d</span>")
+                    self.labelRef[el + "Name"] =  QtWidgets.QLabel(el + "&nbsp;&nbsp;<span class='icon'>\uf73d</span>")
                     self.labelRef[el + "Name"].setToolTip("Diese Fertigkeit bietet dir nur wenige Talente im Gesamtwert von unter 120 EP.\nSie zu steigern lohnt sich daher nur für die wenigsten.\nÜblicherweise kannst du die enthaltenen Talente aber auch mit einer anderen Fertigkeit wirken.")
                 else:
                     self.labelRef[el + "Name"] =  QtWidgets.QLabel(el)
@@ -201,7 +201,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 self.spinRef[el].setValue(fert.wert)
                 self.spinRef[el].setAlignment(QtCore.Qt.AlignCenter)
                 self.spinRef[el].setButtonSymbols(QtWidgets.QAbstractSpinBox.PlusMinus)
-                self.spinRef[el].valueChanged.connect(lambda state, name=el: self.spinnerClicked(name))
+                self.spinRef[el].valueChanged.connect(lambda qtNeedsThis=False, name=el: self.spinnerClicked(name))
                 self.ui.tableWidget.setCellWidget(count,2,self.spinRef[el])
                 
                 # Add Kosten
@@ -229,7 +229,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 self.buttonRef[el].setText('\u002b')
                 self.buttonRef[el].setMaximumSize(QtCore.QSize(20, 20))
                 self.buttonRef[el].setMinimumSize(QtCore.QSize(20, 20))
-                self.buttonRef[el].clicked.connect(lambda state, name=el: self.addClicked(name))
+                self.buttonRef[el].clicked.connect(lambda qtNeedsThis=False, name=el: self.addClicked(name))
                 self.layoutRef[el].addWidget(self.buttonRef[el])
                 self.widgetRef[el] = QtWidgets.QWidget()
                 self.widgetRef[el].setLayout(self.layoutRef[el])
@@ -250,7 +250,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
         
     def getSteigerungskosten(self, fert):
         ep = (fert.wert+1) * fert.steigerungsfaktor
-        return "&nbsp;&nbsp;<span style='font-size: " + str(Wolke.Settings['IconSize']) + "pt; font-weight: " + Hilfsmethoden.qtWeightToCSS(QtGui.QFont.Black) + "; font-family: \"Font Awesome 6 Free Solid\";'>\uf176</span>&nbsp;&nbsp;" + str(ep) + " EP"
+        return "&nbsp;&nbsp;<span class='icon'>\uf176</span>&nbsp;&nbsp;" + str(ep) + " EP"
 
     def fwChanged(self, flag = False):
         if self.currentlyLoading:

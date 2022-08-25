@@ -2,7 +2,7 @@ import requests
 from requests.exceptions import Timeout
 import re
 import Version
-from PyQt5 import QtWidgets, QtCore
+from PySide6 import QtWidgets, QtCore
 import webbrowser
 from EinstellungenWrapper import EinstellungenWrapper
 from Wolke import Wolke
@@ -57,15 +57,15 @@ class UpdateChecker:
         messageBox.setIcon(QtWidgets.QMessageBox.Information)
         messageBox.setWindowTitle("Neue Sephrasto-Version")
         messageBox.setText("Eine neue Version von Sephrasto ist verfügbar: " + version + ". Clicke auf Download, um zur Sephrasto-Seite auf dsaforum.de zu gelangen.")
-        messageBox.addButton(QtWidgets.QPushButton("Download"), QtWidgets.QMessageBox.AcceptRole)
-        messageBox.addButton(QtWidgets.QPushButton("OK"), QtWidgets.QMessageBox.AcceptRole)
+        messageBox.addButton("Download", QtWidgets.QMessageBox.AcceptRole)
+        messageBox.addButton("OK", QtWidgets.QMessageBox.AcceptRole)
         messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
 
         check = QtWidgets.QCheckBox("Information für dieses Update nicht mehr anzeigen.")
         check.setCheckState(QtCore.Qt.Unchecked)
         messageBox.setCheckBox(check)
 
-        result = messageBox.exec_()
+        result = messageBox.exec()
 
         if result == 0:
             webbrowser.open(UpdateChecker._downloadLink)

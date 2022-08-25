@@ -5,7 +5,7 @@ Created on Sat Mar 18 11:29:39 2017
 @author: Aeolitus
 """
 import sys
-from PyQt5 import QtCore, QtWidgets, QtGui
+from PySide6 import QtCore, QtWidgets, QtGui
 import Fertigkeiten
 import Datenbank
 import UI.DatenbankMain
@@ -61,7 +61,7 @@ class DatenbankEditor(object):
             "Nicht alle davon sind aktiv, daher können beim Speichern Daten dieser Plugins verloren gehen:\n\n" + ", ".join(missingPlugins))
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-            infoBox.exec_()
+            infoBox.exec()
 
         self.datenbank.enabledPlugins = enabledPlugins
     
@@ -185,10 +185,10 @@ class DatenbankEditor(object):
             messagebox.setWindowTitle(action)
             messagebox.setText("Sollen die ausstehenden Änderungen gespeichert werden?")
             messagebox.setIcon(QtWidgets.QMessageBox.Question)
-            messagebox.addButton(QtWidgets.QPushButton("Ja"), QtWidgets.QMessageBox.YesRole)
-            messagebox.addButton(QtWidgets.QPushButton("Nein"), QtWidgets.QMessageBox.NoRole)
-            messagebox.addButton(QtWidgets.QPushButton("Abbrechen"), QtWidgets.QMessageBox.RejectRole)
-            result = messagebox.exec_()
+            messagebox.addButton("Ja", QtWidgets.QMessageBox.YesRole)
+            messagebox.addButton("Nein", QtWidgets.QMessageBox.NoRole)
+            messagebox.addButton("Abbrechen", QtWidgets.QMessageBox.RejectRole)
+            result = messagebox.exec()
             if result == 0:
                 self.quicksaveDatenbank()
             elif result == 2:
@@ -223,11 +223,11 @@ class DatenbankEditor(object):
 
         self.ui.checkFilterTyp.blockSignals(True)
         if allChecked:
-            self.ui.checkFilterTyp.setCheckState(2)
+            self.ui.checkFilterTyp.setCheckState(QtCore.Qt.Checked)
         elif anyChecked:
-            self.ui.checkFilterTyp.setCheckState(1)
+            self.ui.checkFilterTyp.setCheckState(QtCore.Qt.PartiallyChecked)
         else:
-            self.ui.checkFilterTyp.setCheckState(0)
+            self.ui.checkFilterTyp.setCheckState(QtCore.Qt.Unchecked)
         self.ui.checkFilterTyp.blockSignals(False)
 
         for dbTypeName,dbType in self.databaseTypes.items():
@@ -302,7 +302,7 @@ class DatenbankEditor(object):
                 messageBox.setText('Es existiert bereits ein(e) ' + typ + ' mit dem Namen "' + name + '"')            
                 messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
                 messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-                messageBox.exec_()
+                messageBox.exec()
                 return
             del self.datenbank.removeList[typ][name]
 
@@ -520,10 +520,10 @@ class DatenbankEditor(object):
             infoBox.setIcon(QtWidgets.QMessageBox.Question)
             infoBox.setText("Der Charakter-Editor kann nur Datenbanken aus dem in den Einstellungen gesetzten Pfad laden, sicher dass du die Datenbank hierhin speichern möchtest?")
             infoBox.setWindowTitle("Hausregeln speichern")
-            infoBox.addButton(QtWidgets.QPushButton("Ja"), QtWidgets.QMessageBox.YesRole)
-            infoBox.addButton(QtWidgets.QPushButton("Anderer Pfad"), QtWidgets.QMessageBox.NoRole)
-            infoBox.addButton(QtWidgets.QPushButton("Abbrechen"), QtWidgets.QMessageBox.RejectRole)
-            result = infoBox.exec_()
+            infoBox.addButton("Ja", QtWidgets.QMessageBox.YesRole)
+            infoBox.addButton("Anderer Pfad", QtWidgets.QMessageBox.NoRole)
+            infoBox.addButton("Abbrechen", QtWidgets.QMessageBox.RejectRole)
+            result = infoBox.exec()
             if result == 1:
                 self.saveDatenbank()
                 return
@@ -543,7 +543,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             infoBox.setWindowTitle("Ungültige Datei!")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-            infoBox.exec_()
+            infoBox.exec()
             self.saveDatenbank()
             return
 
@@ -556,9 +556,9 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             infoBox.setIcon(QtWidgets.QMessageBox.Question)
             infoBox.setText("Sollen die neuen Hausregeln in den Einstellungen aktiv gesetzt werden?")
             infoBox.setWindowTitle("Hausregeln aktiv setzen")
-            infoBox.addButton(QtWidgets.QPushButton("Ja"), QtWidgets.QMessageBox.YesRole)
-            infoBox.addButton(QtWidgets.QPushButton("Nein"), QtWidgets.QMessageBox.NoRole)
-            result = infoBox.exec_()
+            infoBox.addButton("Ja", QtWidgets.QMessageBox.YesRole)
+            infoBox.addButton("Nein", QtWidgets.QMessageBox.NoRole)
+            result = infoBox.exec()
             if result == 0:
                 Wolke.Settings['Datenbank'] = os.path.basename(spath)
                 EinstellungenWrapper.save()
@@ -581,7 +581,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             infoBox.setWindowTitle("Ungültige Datei!")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-            infoBox.exec_()
+            infoBox.exec()
         else:
             self.datenbank.datei = self.savepath
             self.datenbank.xmlSchreiben()
@@ -618,7 +618,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             infoBox.setWindowTitle("Ungültige Datei!")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-            infoBox.exec_()
+            infoBox.exec()
             self.loadDatenbank()
             return
 
@@ -629,7 +629,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             infoBox.setWindowTitle("Ungültige Datei!")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-            infoBox.exec_()
+            infoBox.exec()
             self.loadDatenbank()
             return
 
@@ -639,13 +639,13 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             infoBox.setText(typ + " " + old.name + " wurde sowohl in den bestehenden, als auch in den neu geladenen Hausregeln geändert. Welche Version möchtest du beibehalten?")
             infoBox.setWindowTitle("Zusätzliche Hausregeln laden: Konflikt")
 
-            infoBox.addButton(QtWidgets.QPushButton("Aktuell ansehen"), QtWidgets.QMessageBox.YesRole)
-            infoBox.addButton(QtWidgets.QPushButton("Neu ansehen"), QtWidgets.QMessageBox.YesRole)
-            infoBox.addButton(QtWidgets.QPushButton("Aktuell auswählen"), QtWidgets.QMessageBox.YesRole)
-            infoBox.addButton(QtWidgets.QPushButton("Neu auswählen"), QtWidgets.QMessageBox.YesRole)
+            infoBox.addButton("Aktuell ansehen", QtWidgets.QMessageBox.YesRole)
+            infoBox.addButton("Neu ansehen", QtWidgets.QMessageBox.YesRole)
+            infoBox.addButton("Aktuell auswählen", QtWidgets.QMessageBox.YesRole)
+            infoBox.addButton("Neu auswählen", QtWidgets.QMessageBox.YesRole)
             check = QtWidgets.QCheckBox("Alle weiteren Konflikte gleich behandeln.")
             infoBox.setCheckBox(check)
-            return (infoBox.exec_(), infoBox.checkBox().isChecked())
+            return (infoBox.exec(), infoBox.checkBox().isChecked())
 
         def conflictCB(typ, old, new):
             result = -1
@@ -671,9 +671,9 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
                             "In jedem Fall solltest du hinterher aber überprüfen, ob alle geänderten Elemente noch intakt sind. " +
                             "Beispielsweise könnten die zusätzlichen Hausregeln einen Vorteil gelöscht haben, der in den aktuellen Hausregeln irgendwo als Voraussetzung gelistet ist.")
             infoBox.setWindowTitle("Mehrere Hausregeln laden")
-            infoBox.addButton(QtWidgets.QPushButton("Abbrechen"), QtWidgets.QMessageBox.NoRole)
-            infoBox.addButton(QtWidgets.QPushButton("Verstanden!"), QtWidgets.QMessageBox.YesRole)
-            result = infoBox.exec_()
+            infoBox.addButton("Abbrechen", QtWidgets.QMessageBox.NoRole)
+            infoBox.addButton("Verstanden!", QtWidgets.QMessageBox.YesRole)
+            result = infoBox.exec()
             if result == 1:
                 DatenbankEditor.RememberConflictResult = -1
                 self.datenbank.xmlLadenAdditiv(spath, conflictCB)
@@ -700,4 +700,4 @@ if __name__ == "__main__":
     D.ui.setupUi(D.Form)
     D.setupGUI()
     D.Form.show()
-    app.exec_()
+    app.exec()

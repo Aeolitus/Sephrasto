@@ -6,7 +6,7 @@ Created on Fri Mar 10 17:25:53 2017
 """
 from Wolke import Wolke
 import UI.CharakterWaffen
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PySide6 import QtWidgets, QtCore, QtGui
 import Objekte
 import Definitionen
 from CharakterWaffenPickerWrapper import WaffenPicker
@@ -18,7 +18,7 @@ from TextTagCompleter import TextTagCompleter
 import copy
 
 class CharakterWaffenWrapper(QtCore.QObject):
-    modified = QtCore.pyqtSignal()
+    modified = QtCore.Signal()
     
     def __init__(self):
         super().__init__()
@@ -95,19 +95,19 @@ class CharakterWaffenWrapper(QtCore.QObject):
             addW = getattr(self.ui, "addW" + str(i+1))
             addW.setText('\u002b')
             addW.setMaximumSize(QtCore.QSize(20, 20))
-            addW.clicked.connect(lambda state, idx=i: self.selectWeapon(idx))
+            addW.clicked.connect(lambda qtNeedsThis=False, idx=i: self.selectWeapon(idx))
             self.addW.append(addW)
 
             if i > 0:
                 upW = getattr(self.ui, "buttonW" + str(i+1) + "Up")
                 upW.setText('\uf106')
-                upW.setMaximumSize(QtCore.QSize(20, 20))
-                upW.clicked.connect(lambda state, idx=i: self.moveWeapon(idx, -1))
+                upW.setMaximumSize(QtCore.QSize(20, 10))
+                upW.clicked.connect(lambda qtNeedsThis=False, idx=i: self.moveWeapon(idx, -1))
             if i < 7:
                 downW = getattr(self.ui, "buttonW" + str(i+1) + "Down")
                 downW.setText('\uf078')
-                downW.setMaximumSize(QtCore.QSize(20, 20))
-                downW.clicked.connect(lambda state, idx=i: self.moveWeapon(idx, +1))
+                downW.setMaximumSize(QtCore.QSize(20, 10))
+                downW.clicked.connect(lambda qtNeedsThis=False, idx=i: self.moveWeapon(idx, +1))
 
             color = Wolke.BorderColor
             labelWerte = getattr(self.ui, "labelW" + str(i+1))
@@ -117,6 +117,9 @@ class CharakterWaffenWrapper(QtCore.QObject):
                 "border-bottom-left-radius : 0px;"\
                 "border-bottom-right-radius : 0px;"
             labelWerte.setStyleSheet(style)
+            labelWerte.setToolTip("""<p style='white-space:pre'><span class='icon'>\uf0c1</span>  Waffentyp, unabhängig vom selbst gewählten Namen
+<span class='icon'>\uf00b</span>   Kampfwerte inklusive BE
+<span class='icon'>\uf6e3</span>   Werteveränderungen</p>""")
             self.labelWerte.append(labelWerte)
 
             labelTopFrame = getattr(self.ui, "labelW" + str(i+1) + "TopFrame")
@@ -156,7 +159,57 @@ class CharakterWaffenWrapper(QtCore.QObject):
             vt = ww.VT
             if waffe.name in vtVerboten or waffe.talent in vtVerboten:
                 vt = "-"
-            self.labelWerte[index].setText("<b>Typ</b> " + self.waffenTypen[index] + " | <b>Kampfwerte</b> AT* " + str(ww.AT) + ", VT* " + str(vt) + ", TP* " + str(ww.TPW6) + "W6" + ("+" if ww.TPPlus >= 0 else "") + str(ww.TPPlus))
+
+            verbesserung = []
+            if self.waffenTypen[index] in Wolke.DB.waffen:
+                dbWaffe = Wolke.DB.waffen[self.waffenTypen[index]]
+
+                w6Diff = waffe.W6 - dbWaffe.W6
+                plusDiff = waffe.plus - dbWaffe.plus
+
+                haerteDiff = waffe.haerte - dbWaffe.haerte
+                waffenHaerteWSStern = Wolke.DB.einstellungen["Waffen: Härte WSStern"].toTextList()
+                if dbWaffe.name in waffenHaerteWSStern:
+                    haerteDiff = waffe.haerte - Wolke.Char.wsStern
+                wmDiff = waffe.wm - dbWaffe.wm
+                rwDiff = waffe.rw - dbWaffe.rw
+                lzDiff = 0
+                if type(waffe) is Objekte.Fernkampfwaffe:
+                    lzDiff = waffe.lz - dbWaffe.lz
+
+                eigPlusDiff = list(set(waffe.eigenschaften) - set(dbWaffe.eigenschaften))
+                eigMinusDiff = list(set(dbWaffe.eigenschaften) - set(waffe.eigenschaften))
+
+                if w6Diff != 0:
+                    verbesserung.append("TP " + ("+" if w6Diff >= 0 else "") + str(w6Diff) + "W6")
+                if plusDiff != 0:
+                    tmp = ("+" if plusDiff >= 0 else "") + str(plusDiff)
+                    if w6Diff != 0:
+                        verbesserung[0] += tmp
+                    else:
+                        verbesserung.append("TP " + tmp)
+                if rwDiff != 0:
+                    verbesserung.append("RW " + ("+" if rwDiff >= 0 else "") + str(rwDiff))
+                if wmDiff != 0:
+                    verbesserung.append("WM " + ("+" if wmDiff >= 0 else "") + str(wmDiff))
+                if lzDiff != 0:
+                    verbesserung.append("LZ " + ("+" if lzDiff >= 0 else "") + str(lzDiff))
+                if haerteDiff != 0:
+                    verbesserung.append("Härte " + ("+" if haerteDiff >= 0 else "") + str(haerteDiff))
+                if len(eigPlusDiff) > 0:
+                    verbesserung.append("Eigenschaften +" + ", +".join(eigPlusDiff))
+                if len(eigMinusDiff) > 0:
+                    if len(eigPlusDiff) > 0:
+                        verbesserung.append("-" + ", -".join(eigMinusDiff))
+                    else:
+                        verbesserung.append("Eigenschaften -" + ", -".join(eigMinusDiff))
+            verbesserung = ', '.join(verbesserung).replace(", Eigenschaften", "; Eigenschaften")
+
+            text = f"""<span class='icon'>\uf0c1</span>&nbsp;&nbsp;{self.waffenTypen[index]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class='icon'>\uf00b</span>&nbsp;&nbsp;AT* {ww.AT}, VT* {vt}, TP* {ww.TPW6}W6{"+" if ww.TPPlus >= 0 else ""}{ww.TPPlus}"""
+            if len(verbesserung) > 0:
+                text += f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='icon'>\uf6e3</span>&nbsp;&nbsp;{verbesserung}"
+            self.labelWerte[index].setText(text)
 
     def refreshDerivedWeaponValues(self, W, index):
         # Waffen Typ
@@ -280,11 +333,11 @@ class CharakterWaffenWrapper(QtCore.QObject):
         self.spinPlus[index].setValue(W.plus)
         waffenHaerteWSStern = Wolke.DB.einstellungen["Waffen: Härte WSStern"].toTextList()
         if W.name in waffenHaerteWSStern:
-            self.spinHaerte[index].setValue(Wolke.Char.wsStern)
+            W.haerte = Wolke.Char.wsStern
             self.spinHaerte[index].setEnabled(False)
         else:
-            self.spinHaerte[index].setValue(W.haerte)
             self.spinHaerte[index].setEnabled(True)
+        self.spinHaerte[index].setValue(W.haerte)
         self.spinRW[index].setValue(W.rw)
         self.spinWM[index].setValue(W.wm)
 
@@ -301,11 +354,11 @@ class CharakterWaffenWrapper(QtCore.QObject):
         self.editEig[index].setEnabled(not isEmpty)
         self.spinW6[index].setEnabled(not isEmpty)
         self.spinPlus[index].setEnabled(not isEmpty)
-        self.spinHaerte[index].setEnabled(not isEmpty)
         self.spinRW[index].setEnabled(not isEmpty)
         self.spinWM[index].setEnabled(not isEmpty)
         self.comboStil[index].setEnabled(not isEmpty and self.comboStil[index].count() > 1)
         if isEmpty:
+            self.spinHaerte[index].setEnabled(False)
             self.addW[index].setText('\u002b')
         else:
             self.addW[index].setText('\uf2ed')

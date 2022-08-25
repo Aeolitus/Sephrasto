@@ -21,9 +21,9 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 '''
 
-from PyQt5 import QtWidgets, QtCore
-from PyQt5.QtCore import QStringListModel
-from PyQt5.QtWidgets import QCompleter
+from PySide6 import QtWidgets, QtCore
+from PySide6.QtCore import QStringListModel
+from PySide6.QtWidgets import QCompleter
 
 class TextTagCompleter(QCompleter):
     def __init__(self, parent, tags):

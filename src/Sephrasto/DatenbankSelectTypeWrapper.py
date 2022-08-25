@@ -4,7 +4,7 @@ Created on Sat Mar 18 10:33:39 2017
 
 @author: Aeolitus
 """
-from PyQt5 import QtWidgets, QtCore
+from PySide6 import QtWidgets, QtCore
 import UI.DatenbankSelectType
 
 class DatenbankSelectTypeWrapper(object):
@@ -48,7 +48,7 @@ class DatenbankSelectTypeWrapper(object):
                 QtCore.Qt.WindowCloseButtonHint)
         
         Dialog.show()
-        ret = Dialog.exec_()
+        ret = Dialog.exec()
         self.entryType = None
         if ret == QtWidgets.QDialog.Accepted:
             for button in buttons:

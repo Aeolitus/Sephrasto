@@ -1,7 +1,5 @@
 # Sephrasto
-Ein Charaktergenerator für das DSA-Hausregelsystem Ilaris, erstellt von Aeolitus. So vollständig wie möglich.
-
-In der Gebrauchsanleitung.pdf finden sich Erklärungen und Warnhinweise.
+Ein Charaktergenerator für das DSA-Hausregelsystem Ilaris, erstellt von Aeolitus. So vollständig wie möglich. Eine Gebrauchsanweisung findest du, wenn du im Hauptfenster auf den Hilfe-Button clickst.
 
 ## Features
 * Automatisches Befüllen des Ilaris Charakterbogens (Benötigt pdftk : Gratis-Download für Windows @ https://www.pdflabs.com/tools/pdftk-server/, Linux-Installation siehe unten)
@@ -12,10 +10,10 @@ Bei Fragen / Änderungswünschen / Feedback einfach Bescheid sagen - im dsaforum
 
 ## Dieses Tool verwendet
 
-Um Sephrasto mit Python zu verwenden, ist Version 3.7+ empfehlenswert, aber nicht dringend notwendig. 
+Um Sephrasto mit Python zu verwenden, wird mindestens Version 3.6 benötigt, Version 3.7+ wird aber empfohlen. 
 
 ### Pakete
-* PyQt5 (https://www.riverbankcomputing.com/software/pyqt/download5) für die Grafische Oberfläche
+* PySide6 (https://www.qt.io/qt-for-python) für die Grafische Oberfläche
 * lxml (http://lxml.de/) als xml-parser (unter Linux: `libxml2-dev` und `libxmlsec1-dev` global installieren, wenn lxml via pip installiert werden soll)
 * PyYAML (https://pyyaml.org/) als yaml-parser
 * requests (https://github.com/psf/requests) für den update checker
@@ -86,13 +84,12 @@ Für Sephrastos Charakterbildfeature wird imagemagick benötigt, das leider in d
 * Öffne das Exception Settings Fenster (Debug -> Windows -> Exception Settings) und selektiere alle Python Exceptions, dann deaktiviere <All Python Exceptions not in this list>, BaseException und Exception - damit breaken die custom exceptions nicht, die Sephrasto intern nutzt.
 
 ## UI design mit Qt
-* Modifiziere niemals Dateien, die am Anfang "Created by: PyQt5 UI code generator" stehen haben von Hand!
-* Stattdessen wird das UI durch ".ui"-XML-Dateien im "Sephrasto/UI" Ordner definiert. Optionalerweise können diese mit dem Qt Creator visuell designed werden (enthalten im Qt-Installer unter https://www.qt.io/).
-* Aus diesen Dateien wird dann der Python-Code mit Hilfe von "Sephrasto/UI/convert.bat" erzeugt.
-* Erstelle in deinem "Python/Scripts" Ordner "pyuic5.bat" mit dem Inhalt "CALL pyuic5.exe %*"
+* Modifiziere niemals Dateien im "src/Sephrasto/UI" Ordner von Hand!
+* Stattdessen wird das UI durch ".ui"-XML-Dateien im "designer" Ordner definiert. Optionalerweise können diese mit dem Qt Creator visuell designed werden (enthalten im Qt-Installer unter https://www.qt.io/).
+* Aus diesen Dateien wird dann der Python-Code mit Hilfe von "designer/convert.bat" erzeugt.
 * Bei Problemen mit convert.bat, stelle sicher, dass:
     * ... der Python Install-Ordner und der Unterordner "Scripts" in deiner PATH-Umgebungsvariable enthalten sind. Dies wird normalerweise vom Python installer automatisch gemacht. (Windows 10: System -> Advanced System Settings -> Environment Variables -> Path - in User oder System)
-    * ... "Python/Scripts" die Datei "pyuic5.exe" enthält. Diese wird normalerweise durch das Installieren von PyQt5 dort angelegt.
+    * ... "Python/Scripts" die Datei "pyside6-uic.exe" enthält. Diese wird normalerweise durch das Installieren von PySide6 dort angelegt.
 
 ## Abschlussbemerkung
 Dieses Tool ist das Projekt, an dem ich Python / Qt gelernt habe. Deutliche Schwankungen im Coding-Stil und in der Codequalität sind demnach zu erwarten. Ich werde über die Zeit versuchen, das zu beheben; einige Spuren davon (wie das furchtbare denglisch) werden vermutlich bleiben. 

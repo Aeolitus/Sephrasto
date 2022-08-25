@@ -5,7 +5,7 @@ Created on Fri Mar 10 17:33:11 2017
 @author: Lennart
 """
 from Wolke import Wolke
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PySide6 import QtWidgets, QtCore, QtGui
 from CharakterProfaneFertigkeitenWrapper import ProfaneFertigkeitenWrapper
 from CharakterFreieFertWrapper import CharakterFreieFertWrapper
 from CharakterUebernatuerlichWrapper import UebernatuerlichWrapper
@@ -13,7 +13,7 @@ import UI.CharakterTabWidget
 from EventBus import EventBus
 
 class FertigkeitenWrapper(QtCore.QObject):
-    modified = QtCore.pyqtSignal()
+    modified = QtCore.Signal()
     
     def __init__(self):
         super().__init__()

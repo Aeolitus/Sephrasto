@@ -8,9 +8,9 @@ from Wolke import Wolke
 import UI.CharakterProfaneFertigkeiten
 import CharakterTalentPickerWrapper
 import MousewheelProtector
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PySide6 import QtWidgets, QtCore, QtGui
 import logging
-from PyQt5.QtWidgets import QHeaderView
+from PySide6.QtWidgets import QHeaderView
 from Fertigkeiten import KampffertigkeitTyp
 from Hilfsmethoden import Hilfsmethoden
 from EventBus import EventBus
@@ -28,7 +28,7 @@ class FertigkeitItemDelegate(QtWidgets.QItemDelegate):
             painter.drawLine(option.rect.bottomLeft() + QtCore.QPoint(0, 1), option.rect.bottomRight() + QtCore.QPoint(0, 1));
 
 class ProfaneFertigkeitenWrapper(QtCore.QObject):
-    modified = QtCore.pyqtSignal()
+    modified = QtCore.Signal()
     
     def __init__(self):
         super().__init__()
@@ -38,9 +38,9 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         self.ui.setupUi(self.form)
 
         header = self.ui.tableWidget.horizontalHeader()
-        header.setSectionResizeMode(0, 1)
-        header.setSectionResizeMode(1, 3)
-        header.setSectionResizeMode(2, 3)
+        header.setSectionResizeMode(0, QHeaderView.Fixed)
+        header.setSectionResizeMode(1, QHeaderView.Stretch)
+        header.setSectionResizeMode(2, QHeaderView.Stretch)
         
         self.model = QtGui.QStandardItemModel(self.ui.listTalente)
         self.ui.listTalente.setModel(self.model)
@@ -52,7 +52,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         self.ui.splitter.setSizes([int(width*0.6), int(width*0.4)])
 
         #Signals
-        self.ui.spinFW.valueChanged.connect(lambda state : self.fwChanged(False))
+        self.ui.spinFW.valueChanged.connect(lambda: self.fwChanged(False))
         self.ui.tableWidget.currentItemChanged.connect(self.tableClicked)
         self.ui.tableWidget.currentCellChanged.connect(self.tableClicked)
         self.ui.tableWidget.cellClicked.connect(self.tableClicked) 
@@ -192,7 +192,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
                 self.spinRef[el].setValue(fert.wert)
                 self.spinRef[el].setAlignment(QtCore.Qt.AlignCenter)
                 self.spinRef[el].setButtonSymbols(QtWidgets.QAbstractSpinBox.PlusMinus)
-                self.spinRef[el].valueChanged.connect(lambda state, name=el: self.spinnerClicked(name))
+                self.spinRef[el].valueChanged.connect(lambda qtNeedThis=False, name=el: self.spinnerClicked(name))
                 self.ui.tableWidget.setCellWidget(count,1,self.spinRef[el])
 
                 # Add Kosten
@@ -226,7 +226,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
                 self.buttonRef[el].setText('\u002b')
                 self.buttonRef[el].setMaximumSize(QtCore.QSize(20, 20))
                 self.buttonRef[el].setMinimumSize(QtCore.QSize(20, 20))
-                self.buttonRef[el].clicked.connect(lambda state, name=el: self.addClicked(name))
+                self.buttonRef[el].clicked.connect(lambda qtNeedsThis=False, name=el: self.addClicked(name))
                 self.layoutRef[el].addWidget(self.buttonRef[el])
                 self.widgetRef[el] = QtWidgets.QWidget()
                 self.widgetRef[el].setLayout(self.layoutRef[el])
@@ -250,7 +250,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         höchste = Wolke.Char.getHöchsteKampffertigkeit()
         if fert.kampffertigkeit == KampffertigkeitTyp.Nahkampf and fert.wert == höchste.wert:
             ep = (fert.wert+1) * 4
-        return "<span style='font-size: " + str(Wolke.Settings['IconSize']) + "pt; font-weight: " + Hilfsmethoden.qtWeightToCSS(QtGui.QFont.Black) + "; font-family: \"Font Awesome 6 Free Solid\";'>\uf176</span>&nbsp;&nbsp;" + str(ep) + " EP"
+        return "<span class='icon'>\uf176</span>&nbsp;&nbsp;" + str(ep) + " EP"
 
     def fwChanged(self, flag = False):
         if self.currentlyLoading:

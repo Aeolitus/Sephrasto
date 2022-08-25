@@ -3,7 +3,7 @@ import os
 import os.path
 import logging
 import sys
-from Hilfsmethoden import Hilfsmethoden
+import PathHelper
 
 class PluginData(object):
     def __init__(self, path, name):
@@ -38,9 +38,9 @@ class PluginLoader:
         if not os.path.isdir(path):
             return plugins
 
-        for file in Hilfsmethoden.listdir(path):
+        for file in PathHelper.listdir(path):
             location = os.path.join(path, file)
-            if not os.path.isdir(location) or not "__init__.py" in Hilfsmethoden.listdir(location):
+            if not os.path.isdir(location) or not "__init__.py" in PathHelper.listdir(location):
                 continue
             plugins.append(PluginData(path, file))
         return plugins

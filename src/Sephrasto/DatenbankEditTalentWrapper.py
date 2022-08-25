@@ -7,7 +7,7 @@ Created on Sat Mar 18 11:04:21 2017
 import Fertigkeiten
 from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
 import UI.DatenbankEditTalent
-from PyQt5 import QtWidgets, QtCore
+from PySide6 import QtWidgets, QtCore
 from TextTagCompleter import TextTagCompleter
 from Wolke import Wolke
 
@@ -90,7 +90,7 @@ class DatenbankEditTalentWrapper(object):
         self.ui.spinSeite.setValue(self.talentPicked.referenzSeite)
 
         self.talentDialog.show()
-        ret = self.talentDialog.exec_()
+        ret = self.talentDialog.exec()
 
         Wolke.Settings["WindowSize-DBTalent"] = [self.talentDialog.size().width(), self.talentDialog.size().height()]
 

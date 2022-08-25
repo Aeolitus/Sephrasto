@@ -6,7 +6,7 @@ Created on Fri Mar 10 17:21:49 2017
 """
 from Wolke import Wolke
 import UI.CharakterAttribute
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PySide6 import QtWidgets, QtCore, QtGui
 import logging
 import copy
 from Hilfsmethoden import Hilfsmethoden
@@ -19,7 +19,7 @@ class AttrWrapper(QtCore.QObject):
     the GUI elements to the current values and for changing the current values
     to the values set by the user. 
     '''
-    modified = QtCore.pyqtSignal()
+    modified = QtCore.Signal()
     
     def __init__(self):
         ''' Initialize the GUI and set signals for the spinners'''
@@ -150,9 +150,9 @@ class AttrWrapper(QtCore.QObject):
             messageBox.setText("Wenn du " + attribut + " auf " + str(wert) + " senkst, verlierst du die folgenden Vorteile:")
             remove.append("\nBist du sicher?")
             messageBox.setInformativeText("\n".join(remove))
-            messageBox.addButton(QtWidgets.QPushButton("Ja"), QtWidgets.QMessageBox.YesRole)
-            messageBox.addButton(QtWidgets.QPushButton("Abbrechen"), QtWidgets.QMessageBox.RejectRole)
-            result = messageBox.exec_()
+            messageBox.addButton("Ja", QtWidgets.QMessageBox.YesRole)
+            messageBox.addButton("Abbrechen", QtWidgets.QMessageBox.RejectRole)
+            result = messageBox.exec()
             return result == 0
         return True
 
@@ -197,16 +197,16 @@ class AttrWrapper(QtCore.QObject):
         
     def getSteigerungskostenAsP(self):
         val = (Wolke.Char.asp.wert + 1) * Wolke.Char.asp.steigerungsfaktor
-        return "(<span style='font-size: " + str(Wolke.Settings['IconSize']) + "pt; font-weight: " + Hilfsmethoden.qtWeightToCSS(QtGui.QFont.Black) + "; font-family: \"Font Awesome 6 Free Solid\";'>\uf176</span>&nbsp;&nbsp;" + str(EventBus.applyFilter("asp_kosten", val, { "charakter" : Wolke.Char, "wert" : Wolke.Char.asp.wert })) + " EP)"
+        return "(<span class='icon'>\uf176</span>&nbsp;&nbsp;" + str(EventBus.applyFilter("asp_kosten", val, { "charakter" : Wolke.Char, "wert" : Wolke.Char.asp.wert })) + " EP)"
 
     def getSteigerungskostenKaP(self):
         val = (Wolke.Char.kap.wert + 1) * Wolke.Char.kap.steigerungsfaktor
-        return "(<span style='font-size: " + str(Wolke.Settings['IconSize']) + "pt; font-weight: " + Hilfsmethoden.qtWeightToCSS(QtGui.QFont.Black) + "; font-family: \"Font Awesome 6 Free Solid\";'>\uf176</span>&nbsp;&nbsp;" + str(EventBus.applyFilter("asp_kosten", val, { "charakter" : Wolke.Char, "wert" : Wolke.Char.kap.wert })) + " EP)"
+        return "(<span class='icon'>\uf176</span>&nbsp;&nbsp;" + str(EventBus.applyFilter("asp_kosten", val, { "charakter" : Wolke.Char, "wert" : Wolke.Char.kap.wert })) + " EP)"
 
     def getAttributSteigerungskosten(self, attr):
         attribut = Wolke.Char.attribute[attr]
         val = (attribut.wert + 1) * attribut.steigerungsfaktor
-        return "<span style='font-size: " + str(Wolke.Settings['IconSize']) + "pt; font-weight: " + Hilfsmethoden.qtWeightToCSS(QtGui.QFont.Black) + "; font-family: \"Font Awesome 6 Free Solid\";'>\uf176</span>&nbsp;&nbsp;" + str(EventBus.applyFilter("attribut_kosten", val, { "charakter" : Wolke.Char, "attribut" : attr, "wert" : attribut.wert + 1 })) + " EP"
+        return "<span class='icon'>\uf176</span>&nbsp;&nbsp;" + str(EventBus.applyFilter("attribut_kosten", val, { "charakter" : Wolke.Char, "attribut" : attr, "wert" : attribut.wert + 1 })) + " EP"
 
     def updateDerivedValues(self):
         for attribut in Definitionen.Attribute:

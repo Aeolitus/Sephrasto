@@ -16,4 +16,6 @@ Fehlermeldungen und Verbesserungsvorschläge können gerne unter [Issues auf Git
 3. [Skripte für Vorteile und Waffeneigenschaften](ScriptAPI.md)<br />
 4. [Eigene Plugins schreiben](PluginAPI.md)<br />
 5. [Charakter Assistent](CharakterAssistent.md)<br /><br />
-    5.1 [Varianten und Auswahlmöglichkeiten](Varianten_Auswahlmöglichkeiten.md)
+    5.1 [Varianten und Auswahlmöglichkeiten](Varianten_Auswahlmöglichkeiten.md)<br />
+6. [Eigene Charakterbögen erstellen](Charakterbogen.md)<br />
+7. [Ein eigenes Theme erstellen](Theme.md)

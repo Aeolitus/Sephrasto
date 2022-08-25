@@ -113,6 +113,7 @@
     <Compile Include="EventBus.py" />
     <Compile Include="PluginLoader.py" />
     <Compile Include="CheatsheetGenerator.py" />
+    <Compile Include="PathHelper.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CharakterAssistent\" />

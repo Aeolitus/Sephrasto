@@ -8,7 +8,7 @@ import Fertigkeiten
 from Fertigkeiten import VorteilLinkKategorie
 import UI.DatenbankEditVorteil
 from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
-from PyQt5 import QtWidgets, QtCore
+from PySide6 import QtWidgets, QtCore
 from Wolke import Wolke
 
 class DatenbankEditVorteilWrapper(object):
@@ -87,7 +87,7 @@ class DatenbankEditVorteilWrapper(object):
         self.ui.scriptEdit.setToolTip("Siehe \"Skripte für Vorteile und Waffeneigenschaften\" in der Sephrasto-Hilfe für verfügbare Funktionen und Beispiele.")
 
         self.vorteilDialog.show()
-        ret = self.vorteilDialog.exec_()
+        ret = self.vorteilDialog.exec()
 
         Wolke.Settings["WindowSize-DBVorteil"] = [self.vorteilDialog.size().width(), self.vorteilDialog.size().height()]
 

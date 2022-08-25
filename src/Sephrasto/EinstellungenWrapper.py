@@ -7,7 +7,7 @@ Created on Fri Apr 20 20:09:52 2018
 from Wolke import Wolke
 from Wolke import CharakterbogenInfo
 import UI.Einstellungen
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PySide6 import QtWidgets, QtCore, QtGui
 import os.path
 import yaml
 import logging
@@ -48,10 +48,10 @@ class EinstellungenWrapper():
         self.ui.checkWizard.setChecked(Wolke.Settings['Charakter-Assistent'])
         self.ui.comboFontSize.setCurrentIndex(Wolke.Settings['Cheatsheet-Fontsize'])
 
-        self.settingsFolder = EinstellungenWrapper.getSettingsFolder()
         self.ui.editChar.setText(Wolke.Settings['Pfad-Chars'])
         self.ui.editRegeln.setText(Wolke.Settings['Pfad-Regeln'])
         self.ui.editPlugins.setText(Wolke.Settings['Pfad-Plugins'])
+        self.ui.editCharakterboegen.setText(Wolke.Settings['Pfad-Charakterbögen'])
 
         self.pluginCheckboxes = []
         self.updatePluginCheckboxes(plugins)
@@ -62,8 +62,8 @@ class EinstellungenWrapper():
         self.ui.comboLogging.setCurrentIndex(Wolke.Settings['Logging'])
 
         # Offer custom themes
-        for theme in PathHelper.getThemes():
-            self.ui.comboTheme.addItem(theme["name"])
+        for theme in Wolke.Themes.keys():
+            self.ui.comboTheme.addItem(theme)
         self.ui.comboTheme.setCurrentText(Wolke.Settings['Theme'])
 
         self.fontFamilies = QtGui.QFontDatabase().families()
@@ -90,6 +90,9 @@ class EinstellungenWrapper():
         self.ui.buttonPlugins.clicked.connect(self.setPluginsPath)
         self.ui.buttonPlugins.setText('\uf07c')
 
+        self.ui.buttonCharakterboegen.clicked.connect(self.setCharakterboegenPath)
+        self.ui.buttonCharakterboegen.setText('\uf07c')
+
         self.ui.resetChar.clicked.connect(self.resetCharPath)
         self.ui.resetChar.setText('\uf2ea')
 
@@ -99,26 +102,23 @@ class EinstellungenWrapper():
         self.ui.resetPlugins.clicked.connect(self.resetPluginsPath)
         self.ui.resetPlugins.setText('\uf2ea')
 
+        self.ui.resetCharakterboegen.clicked.connect(self.resetCharakterboegenPath)
+        self.ui.resetCharakterboegen.setText('\uf2ea')
+
         self.ui.resetFontDefault.clicked.connect(self.resetFonts)
         self.ui.resetFontDefault.setText('\uf2ea')
 
+        self.ui.checkDPI.setChecked(Wolke.Settings['DPI-Skalierung'])
+
         self.ui.resetFontOS.clicked.connect(lambda: self.resetFonts(True))
-        system = platform.system()
-        if system == 'Windows':
-            self.ui.resetFontOS.setText('\uf17a')
-        elif system == 'Linux':
-            self.ui.resetFontOS.setText('\uf17c')
-        elif system == 'Darwin':
-            self.ui.resetFontOS.setText('\uf5d1')
-        else:
-            self.ui.resetFontOS.setText('\ue4e5')
+        self.ui.resetFontOS.setText('\uf390')
 
         windowSize = Wolke.Settings["WindowSize-Einstellungen"]
         self.form.resize(windowSize[0], windowSize[1])
 
         self.form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.form.show()
-        self.ret = self.form.exec_()
+        self.ret = self.form.exec()
 
         Wolke.Settings["WindowSize-Einstellungen"] = [self.form.size().width(), self.form.size().height()]
 
@@ -140,6 +140,7 @@ class EinstellungenWrapper():
                 Wolke.Settings['Pfad-Chars'] = self.ui.editChar.text()
             else:
                 Wolke.Settings['Pfad-Chars'] = ''
+
             if os.path.isdir(self.ui.editRegeln.text()):
                 Wolke.Settings['Pfad-Regeln'] = self.ui.editRegeln.text()
             else:
@@ -151,6 +152,13 @@ class EinstellungenWrapper():
                 else:
                     Wolke.Settings['Pfad-Plugins'] = ''
                 needRestart = True
+
+            if self.ui.editCharakterboegen.text() != Wolke.Settings['Pfad-Charakterbögen']:
+                if os.path.isdir(self.ui.editCharakterboegen.text()):
+                    Wolke.Settings['Pfad-Charakterbögen'] = self.ui.editCharakterboegen.text()
+                else:
+                    Wolke.Settings['Pfad-Charakterbögen'] = ''
+                needRestart = True # TODO: reload char sheets so a restart isnt necessary
 
             for checkbox in self.pluginCheckboxes:
                 if checkbox.isChecked() and (checkbox.text() in Wolke.Settings['Deaktivierte-Plugins']):
@@ -187,6 +195,10 @@ class EinstellungenWrapper():
                 Wolke.Settings['FontHeadingSize'] = self.ui.spinAppFontHeadingSize.value()
                 needRestart = True
 
+            if Wolke.Settings['DPI-Skalierung'] != self.ui.checkDPI.isChecked():
+                Wolke.Settings['DPI-Skalierung'] = self.ui.checkDPI.isChecked()
+                needRestart = True
+
             EinstellungenWrapper.save()
 
             if needRestart:
@@ -194,10 +206,10 @@ class EinstellungenWrapper():
                 messageBox.setIcon(QtWidgets.QMessageBox.Information)
                 messageBox.setWindowTitle("Sephrasto neustarten?")
                 messageBox.setText("Sephrasto muss bei Änderungen an Plugin- oder Theme-Einstellungen neugestartet werden.")
-                messageBox.addButton(QtWidgets.QPushButton("Neustarten"), QtWidgets.QMessageBox.YesRole)
-                messageBox.addButton(QtWidgets.QPushButton("Später"), QtWidgets.QMessageBox.RejectRole)
+                messageBox.addButton("Neustarten", QtWidgets.QMessageBox.YesRole)
+                messageBox.addButton("Später", QtWidgets.QMessageBox.RejectRole)
                 messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-                result = messageBox.exec_()
+                result = messageBox.exec()
                 if result == 0:
                     EinstellungenWrapper.restartSephrasto()
     
@@ -210,34 +222,34 @@ class EinstellungenWrapper():
             os.execl(sys.executable, sys.argv[0], *sys.argv)
 
     @staticmethod
-    def getSettingsFolder():
+    def createSettingsFolder():
         res = PathHelper.getSettingsFolder()
         if not os.path.isdir(res):
             if not PathHelper.createFolder(res):
                 messagebox = QtWidgets.QMessageBox()
                 messagebox.setWindowTitle("Fehler!")
-                messagebox.setText(
-                    "Konnte den Sephrasto Ordner in deinem lokalen Einstellungsverzeichnis nicht erstellen (" + res + "). Bitte stelle sicher, dass Sephrasto die nötigen Schreibrechte hat und dein Antivirus Programm den Zugriff nicht blockiert. Sephrasto wird sonst nicht richtig funktionieren.")
+                messagebox.setText("Konnte den Sephrasto Ordner in deinem lokalen Einstellungsverzeichnis nicht erstellen (" + res + "). Bitte stelle sicher, dass Sephrasto die nötigen Schreibrechte hat und dein Antivirus Programm den Zugriff nicht blockiert. Sephrasto wird sonst nicht richtig funktionieren.")
                 messagebox.setIcon(QtWidgets.QMessageBox.Critical)
                 messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-                messagebox.exec_()
+                messagebox.exec()
         return res
 
     @staticmethod
     def createUserFolder(basePath):
-        if not os.path.isdir(basePath):
-            if not PathHelper.createFolder(basePath):
-                messagebox = QtWidgets.QMessageBox()
-                messagebox.setWindowTitle("Fehler!")
-                messagebox.setText("Konnte den Sephrasto Ordner in deinem Nutzerverzeichnis nicht erstellen (" + basePath + "). Bitte stelle sicher, dass Sephrasto die nötigen Schreibrechte hat und dein Antivirus Programm den Zugriff nicht blockiert. Sephrasto wird sonst nicht richtig funktionieren.")
-                messagebox.setIcon(QtWidgets.QMessageBox.Critical)
-                messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-                messagebox.exec_()
+        if os.path.isdir(basePath):
+            return
+        if not PathHelper.createFolder(basePath):
+            messagebox = QtWidgets.QMessageBox()
+            messagebox.setWindowTitle("Fehler!")
+            messagebox.setText("Konnte den Sephrasto Ordner in deinem Nutzerverzeichnis nicht erstellen (" + basePath + "). Bitte stelle sicher, dass Sephrasto die nötigen Schreibrechte hat und dein Antivirus Programm den Zugriff nicht blockiert. Sephrasto wird sonst nicht richtig funktionieren.")
+            messagebox.setIcon(QtWidgets.QMessageBox.Critical)
+            messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            messagebox.exec_()
 
 
     @staticmethod
     def load():
-        settingsFolder = EinstellungenWrapper.getSettingsFolder()
+        settingsFolder = EinstellungenWrapper.createSettingsFolder()
         settingsPath = os.path.join(settingsFolder, 'Sephrasto.ini')
 
         if os.path.isfile(settingsPath):
@@ -264,9 +276,6 @@ class EinstellungenWrapper():
                     Wolke.Settings['Version'] += 1
 
         #Init defaults
-        if not Wolke.Settings['Font'] or not Wolke.Settings['FontSize'] or not Wolke.Settings['FontHeading'] or not Wolke.Settings['FontHeadingSize'] or not Wolke.Settings['IconSize']:
-            EinstellungenWrapper.useDefaultFont()
-
         folders = [('Pfad-Chars', 'Charaktere'),
                    ('Pfad-Regeln', 'Regeln'),
                    ('Pfad-Plugins', 'Plugins'),
@@ -299,9 +308,12 @@ class EinstellungenWrapper():
                 cbi.bildOffset = tmpSet["BildOffset"] if "BildOffset" in tmpSet else [0, 0]
                 Wolke.Charakterbögen[filePath] = cbi
 
+        #Init themes
+        Wolke.Themes = EinstellungenWrapper.getThemes()
+
     @staticmethod
     def save():
-        settingsFolder = EinstellungenWrapper.getSettingsFolder()
+        settingsFolder = EinstellungenWrapper.createSettingsFolder()
         settingsPath = os.path.join(settingsFolder, 'Sephrasto.ini')
         with open(settingsPath, 'w') as outfile:
             yaml.dump(Wolke.Settings, outfile)
@@ -325,7 +337,8 @@ class EinstellungenWrapper():
         for i in reversed(range(layout.count())): 
             if layout.itemAt(i).widget():
                 layout.itemAt(i).widget().setParent(None)
-            layout.removeItem(layout.itemAt(i))
+            else:
+                layout.removeItem(layout.itemAt(i))
 
         for pluginData in plugins:
             check = QtWidgets.QCheckBox(pluginData.name)
@@ -338,11 +351,13 @@ class EinstellungenWrapper():
             self.pluginCheckboxes.append(check)
         layout.addStretch()
 
+        self.ui.gbPlugins.setVisible(len(self.pluginCheckboxes) > 0)
+
     @staticmethod
     def getDatenbanken(path):
         optionsList = ['Keine']            
         if os.path.isdir(path):
-            for file in Hilfsmethoden.listdir(path):
+            for file in PathHelper.listdir(path):
                 if file.lower().endswith('.xml'):
                     optionsList.append(file)
         return optionsList
@@ -350,7 +365,7 @@ class EinstellungenWrapper():
     @staticmethod
     def getCharakterbögen():
         result = []
-        for file in Hilfsmethoden.listdir(os.path.join("Data", "Charakterbögen")):
+        for file in PathHelper.listdir(os.path.join("Data", "Charakterbögen")):
             if not file.endswith(".pdf"):
                 continue
 
@@ -358,13 +373,30 @@ class EinstellungenWrapper():
                 continue
             result.append(os.path.join("Data", "Charakterbögen", file))
 
-        for file in Hilfsmethoden.listdir(Wolke.Settings['Pfad-Charakterbögen']):
+        for file in PathHelper.listdir(Wolke.Settings['Pfad-Charakterbögen']):
             if not file.endswith(".pdf"):
                 continue
 
             if not os.path.isfile(os.path.join(Wolke.Settings['Pfad-Charakterbögen'], os.path.splitext(file)[0] + ".ini")):
                 continue
             result.append(os.path.join(Wolke.Settings['Pfad-Charakterbögen'], file))
+        return result
+
+    @staticmethod
+    def getThemes():
+        result = {}
+
+        files = [os.path.join("Data", "Themes", f) for f in PathHelper.listdir(os.path.join("Data", "Themes"))]
+        userTheme = os.path.join(PathHelper.getSettingsFolder(), "Mein Theme.ini")
+        if os.path.isfile(userTheme):
+            files.append(userTheme)
+
+        for filePath in files:
+            if not filePath.endswith(".ini"):
+                continue
+            with open(filePath,'r', encoding='utf8') as file:
+                result[os.path.splitext(os.path.basename(filePath))[0]] = yaml.safe_load(file)
+
         return result
 
     def updateComboRegelbasis(self):
@@ -406,6 +438,16 @@ class EinstellungenWrapper():
                 self.ui.editPlugins.setText(p)
                 self.updatePluginCheckboxes(PluginLoader.getPlugins(p))
 
+    def setCharakterboegenPath(self):
+        p = QtWidgets.QFileDialog.getExistingDirectory(None,
+          "Wähle einen Speicherort für Charakterbögen aus!",
+          self.ui.editCharakterboegen.text(),
+          QtWidgets.QFileDialog.ShowDirsOnly)
+        if p:
+            p = os.path.realpath(p)
+            if os.path.isdir(p):
+                self.ui.editCharakterboegen.setText(p)
+
     def resetCharPath(self):
         p = os.path.join(PathHelper.getDefaultUserFolder(), 'Charaktere')
         self.ui.editChar.setText(p)
@@ -419,6 +461,10 @@ class EinstellungenWrapper():
         p = os.path.join(PathHelper.getDefaultUserFolder(), 'Plugins')
         self.ui.editPlugins.setText(p)
         self.updatePluginCheckboxes(PluginLoader.getPlugins(p))
+
+    def resetCharakterboegenPath(self):
+        p = os.path.join(PathHelper.getDefaultUserFolder(), 'Charakterbögen')
+        self.ui.editCharakterboegen.setText(p)
 
     def resetFonts(self, systemFont = False):
         self.ui.comboTheme.setCurrentText("Ilaris")
@@ -436,7 +482,6 @@ class EinstellungenWrapper():
         Wolke.Settings['FontSize'] = Wolke.DefaultOSFontSize
         Wolke.Settings['FontHeading'] = "Aniron"
         Wolke.Settings['FontHeadingSize'] = Wolke.DefaultOSFontSize -1
-        Wolke.Settings['IconSize'] = min(max(9, Wolke.Settings['FontSize']), 12)
 
     @staticmethod
     def useDefaultFont():
@@ -444,4 +489,3 @@ class EinstellungenWrapper():
         Wolke.Settings['FontSize'] = Wolke.DefaultOSFontSize
         Wolke.Settings['FontHeading'] = "Aniron"
         Wolke.Settings['FontHeadingSize'] = Wolke.DefaultOSFontSize -1
-        Wolke.Settings['IconSize'] = min(max(9, Wolke.Settings['FontSize']), 12)

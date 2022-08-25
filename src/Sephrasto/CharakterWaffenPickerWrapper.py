@@ -5,7 +5,7 @@ Created on Sun Mar  5 16:45:34 2017
 @author: Aeolitus
 """
 import UI.CharakterWaffenPicker
-from PyQt5 import QtCore, QtWidgets, QtGui
+from PySide6 import QtCore, QtWidgets, QtGui
 from Wolke import Wolke
 import Objekte
 import Definitionen
@@ -49,7 +49,7 @@ class WaffenPicker(object):
         logging.debug("Tree Filled...")
         self.ui.treeWeapons.itemSelectionChanged.connect(self.changeHandler)
         self.ui.treeWeapons.itemDoubleClicked.connect(lambda item, column: self.ui.buttonBox.buttons()[0].click())
-        self.ui.treeWeapons.header().setSectionResizeMode(0,1)
+        self.ui.treeWeapons.header().setSectionResizeMode(0,QtWidgets.QHeaderView.Stretch)
 
         self.ui.treeWeapons.setFocus()
         self.updateInfo()
@@ -57,7 +57,7 @@ class WaffenPicker(object):
         self.ui.nameFilterEdit.textChanged.connect(self.populateTree)
         self.form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.form.show()
-        self.ret = self.form.exec_()
+        self.ret = self.form.exec()
 
         Wolke.Settings["WindowSize-Waffen"] = [self.form.size().width(), self.form.size().height()]
 

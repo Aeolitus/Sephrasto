@@ -1,4 +1,4 @@
-from PyQt5 import QtCore, QtWidgets, QtGui
+from PySide6 import QtCore, QtWidgets, QtGui
 from UI import ChoicePopup
 from Wolke import Wolke
 
@@ -38,7 +38,7 @@ class VariantPopupWrapper(object):
         self.form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.form.show()
 
-        self.ret = self.form.exec_()
+        self.ret = self.form.exec()
         self.choices = []
         if self.ret == QtWidgets.QDialog.Accepted:
             for i in range(len(variantListCollection.choiceLists)):

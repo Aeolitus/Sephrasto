@@ -7,7 +7,7 @@ Created on Sat Mar 18 10:52:34 2017
 import Objekte
 import UI.DatenbankEditRuestung
 from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
-from PyQt5 import QtWidgets, QtCore
+from PySide6 import QtWidgets, QtCore
 import Definitionen
 from Wolke import Wolke
 
@@ -66,7 +66,7 @@ class DatenbankEditRuestungWrapper(object):
         self.ui.teBeschreibung.setPlainText(ruestung.text)
         
         self.ruestungDialog.show()
-        ret = self.ruestungDialog.exec_()
+        ret = self.ruestungDialog.exec()
 
         Wolke.Settings["WindowSize-DBRuestung"] = [self.ruestungDialog.size().width(), self.ruestungDialog.size().height()]
 

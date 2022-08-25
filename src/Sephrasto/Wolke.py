@@ -28,6 +28,7 @@ class Wolke:
     Char = None
     DB = None
     Charakterbögen = {}
+    Themes = {}
     Settings = {
         'Version' : 2,
         'Bogen': "Standard Charakterbogen", 
@@ -45,11 +46,11 @@ class Wolke:
         'UpdateCheck_Disable' : False,
         'UpdateCheck_DisableFor' : '',
         'Theme' : "Ilaris",
-        'Font' : "",
-        'FontSize' : 0,
-        'FontHeading' : "",
-        'FontHeadingSize' : 0,
-        'IconSize' : 0,
+        'Font' : "Crimson Pro",
+        'FontSize' : 9,
+        'FontHeading' : "Aniron",
+        'FontHeadingSize' : 8,
+        'DPI-Skalierung' : False,
         'WindowSize-Main' : [286, 346],
         'WindowSize-Charakter' : [1130, 903],
         'WindowSize-TalentProfan' : [650, 366],
@@ -74,5 +75,7 @@ class Wolke:
     FontHeadingSizeL3 = 0
     HeadingColor = "#000000"
     BorderColor = "rgba(0,0,0,0.2)"
-    DefaultOSFont = "Segoe UI"
+    ReadonlyColor = "#ffffff"
+    PanelColor = "#b3b3b3"
+    DefaultOSFont = ""
     DefaultOSFontSize = 9

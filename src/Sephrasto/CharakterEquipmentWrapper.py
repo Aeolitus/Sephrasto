@@ -5,14 +5,14 @@ Created on Fri Mar 10 17:25:53 2017
 @author: Lennart
 """
 from Wolke import Wolke
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PySide6 import QtWidgets, QtCore, QtGui
 from CharakterWaffenWrapper import CharakterWaffenWrapper
 from CharakterInventarWrapper import CharakterInventarWrapper
 import UI.CharakterTabWidget
 from EventBus import EventBus
 
 class EquipWrapper(QtCore.QObject):
-    modified = QtCore.pyqtSignal()
+    modified = QtCore.Signal()
     
     def __init__(self):
         super().__init__()

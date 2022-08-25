@@ -6,7 +6,7 @@ Created on Fri Mar 10 17:25:53 2017
 """
 from Wolke import Wolke
 import UI.CharakterInventar
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PySide6 import QtWidgets, QtCore, QtGui
 import Objekte
 import Definitionen
 from CharakterRuestungPickerWrapper import RuestungPicker
@@ -18,7 +18,7 @@ from TextTagCompleter import TextTagCompleter
 import copy
 
 class CharakterInventarWrapper(QtCore.QObject):
-    modified = QtCore.pyqtSignal()
+    modified = QtCore.Signal()
     
     def __init__(self):
         super().__init__()
@@ -37,6 +37,7 @@ class CharakterInventarWrapper(QtCore.QObject):
         self.spinZRS = []
         self.spinPunkte = []
         self.addR = []
+        self.removeR = []
 
         for i in range(3):
             editRName = getattr(self.ui, "editR" + str(i+1) + "name")
@@ -65,8 +66,15 @@ class CharakterInventarWrapper(QtCore.QObject):
             addR = getattr(self.ui, "addR" + str(i+1))
             addR.setText('\u002b')
             addR.setMaximumSize(QtCore.QSize(20, 20))
-            addR.clicked.connect(lambda state, idx=i: self.selectArmor(idx))
+            addR.clicked.connect(lambda qtNeedsThis=False, idx=i: self.selectArmor(idx))
             self.addR.append(addR)
+
+            removeR = getattr(self.ui, "removeR" + str(i+1))
+            removeR.setVisible(False)
+            removeR.setText('\uf2ed')
+            removeR.setMaximumSize(QtCore.QSize(20, 20))
+            removeR.clicked.connect(lambda qtNeedsThis=False, idx=i: self.removeArmor(idx))
+            self.removeR.append(removeR)
 
         logging.debug("Check Toggle...")
         self.ui.checkZonen.setChecked(Wolke.Char.zonenSystemNutzen)
@@ -131,10 +139,7 @@ class CharakterInventarWrapper(QtCore.QObject):
             R = self.createRuestung(index)
             ruestungNeu.append(R)
             self.refreshDerivedArmorValues(R, index)
-            if R == Objekte.Ruestung():
-                self.addR[index].setText('\u002b')
-            else:
-                self.addR[index].setText('\uf2ed')
+            self.removeR[index].setVisible(R != Objekte.Ruestung())
 
         if not Hilfsmethoden.ArrayEqual(ruestungNeu, Wolke.Char.rüstung):
             changed = True
@@ -207,27 +212,24 @@ class CharakterInventarWrapper(QtCore.QObject):
 
         self.refreshDerivedArmorValues(R, index)
 
-        if R == Objekte.Ruestung():
-            self.addR[index].setText('\u002b')
-        else:
-            self.addR[index].setText('\uf2ed')
+        self.removeR[index].setVisible(R != Objekte.Ruestung())
 
     def selectArmor(self, index):
-        if index >= len (Wolke.Char.rüstung) or Wolke.Char.rüstung[index] == Objekte.Ruestung():
-            logging.debug("Starting RuestungPicker")
-            pickerClass = EventBus.applyFilter("class_ruestungspicker_wrapper", RuestungPicker)
-            picker = pickerClass(self.editRName[index].text(), 2 if self.ui.checkZonen.isChecked() else 1)
-            logging.debug("RuestungPicker created")
-            if picker.ruestung is not None:
-                self.currentlyLoading = True
-                self.loadArmorIntoFields(picker.ruestung, index, picker.ruestungErsetzen)
-                self.currentlyLoading = False
-                self.updateRuestungen()
-        else:
+        logging.debug("Starting RuestungPicker")
+        pickerClass = EventBus.applyFilter("class_ruestungspicker_wrapper", RuestungPicker)
+        picker = pickerClass(self.editRName[index].text(), 2 if self.ui.checkZonen.isChecked() else 1)
+        logging.debug("RuestungPicker created")
+        if picker.ruestung is not None:
             self.currentlyLoading = True
-            self.loadArmorIntoFields(Objekte.Ruestung(), index, True)
+            self.loadArmorIntoFields(picker.ruestung, index, picker.ruestungErsetzen)
             self.currentlyLoading = False
             self.updateRuestungen()
+
+    def removeArmor(self, index):
+        self.currentlyLoading = True
+        self.loadArmorIntoFields(Objekte.Ruestung(), index, True)
+        self.currentlyLoading = False
+        self.updateRuestungen()
 
     def refreshZRSVisibility(self):
         if self.currentlyLoading:

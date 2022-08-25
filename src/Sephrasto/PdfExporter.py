@@ -25,7 +25,7 @@ from CharakterPrintUtility import CharakterPrintUtility
 import yaml
 from shutil import which
 import platform
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PySide6 import QtWidgets, QtCore, QtGui
 import copy
 
 class PdfExporter(object):
@@ -488,13 +488,8 @@ class PdfExporter(object):
 
         for i in range(0, min(self.CharakterBogen.maxÜberTalente, len(überTalente))):
             base = 'Uebertal' + str(i+1)
-
-            # need to fix both charsheets and extraspells to get rid of this hack...
-            fieldSeite = 'Ubertal' + str(i+1) + 'SE'
-            if i > 24:
-                fieldSeite = "Ueberfer" + str(i+1) + 'FA'
             fields[base + 'NA'] = überTalente[i].anzeigeName
-            fields[fieldSeite] = überTalente[i].se
+            fields[base + 'SE'] = überTalente[i].se
             fields[base + 'PW'] = überTalente[i].pw
             fields[base + 'VO'] = überTalente[i].vo
             fields[base + 'WD'] = überTalente[i].wd
@@ -595,7 +590,7 @@ class PdfExporter(object):
             messagebox.setText("Das Einfügen des Charakterbilds benötigt das Programm 'convert' im Systempfad. Installationsdetails gibt es unter https://imagemagick.org. Der Charakterbogen wird nun ohne das Bild erstellt.")
             messagebox.setIcon(QtWidgets.QMessageBox.Warning)
             messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-            messagebox.exec_()
+            messagebox.exec()
             return pages
 
         # The approach is to convert the image to pdf and stamp it over the char sheet with pdftk
@@ -653,7 +648,7 @@ class PdfExporter(object):
             messagebox.setText(text)
             messagebox.setIcon(QtWidgets.QMessageBox.Warning)
             messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-            messagebox.exec_()
+            messagebox.exec()
             return pages
 
 

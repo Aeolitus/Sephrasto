@@ -5,7 +5,8 @@ Created on Thu Mar 23 21:30:34 2017
 
 @author: Aeolitus
 """
-from PyQt5 import QtWidgets, QtCore, QtGui
+import PySide6
+from PySide6 import QtWidgets, QtCore, QtGui
 import sys
 import logging
 import os
@@ -23,8 +24,8 @@ import Version
 from EventBus import EventBus
 from PluginLoader import PluginLoader
 from UpdateChecker import UpdateChecker
-from PyQt5.QtGui import QPalette, QColor
-from PyQt5.QtWidgets import QToolTip
+from PySide6.QtGui import QPalette, QColor
+from PySide6.QtWidgets import QToolTip
 from Hilfsmethoden import Hilfsmethoden
 import platform
 
@@ -64,7 +65,7 @@ def sephrasto_excepthook(exc_type, exc_value, tb):
     messagebox.setText(text)
     messagebox.setIcon(QtWidgets.QMessageBox.Critical)
     messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-    messagebox.exec_()
+    messagebox.exec()
 
 class MainWindowWrapper(object):
     '''
@@ -80,7 +81,7 @@ class MainWindowWrapper(object):
         '''
         self._version_ = "v" + str(Version._sephrasto_version_major) + "." + str(Version._sephrasto_version_minor) + "." + str(Version._sephrasto_version_build)
         logging.critical("Starte Sephrasto " + self._version_) #critical so it's always printed, independent of the debug level setting
-        logging.critical("Qt " + QtCore.qVersion() + " PyQt " + QtCore.PYQT_VERSION_STR) #for people that start from source
+        logging.critical(f"Qt {QtCore.qVersion()} PySide {PySide6.__version__} (compiled with Qt {QtCore.__version__})") #for people that start from source
 
         super().__init__()
 
@@ -93,16 +94,30 @@ class MainWindowWrapper(object):
             os.chdir(os.path.dirname(os.path.abspath(__file__)))
         else:
             os.chdir(os.path.dirname(sys.argv[0]))
-        
-        #Make sure the application scales properly, i.e. in Win10 users can change the UI scale in the display settings
-        if hasattr(QtCore.Qt, 'AA_EnableHighDpiScaling'):
-            QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling, True)
-        if hasattr(QtCore.Qt, 'AA_UseHighDpiPixmaps'):
-            QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_UseHighDpiPixmaps, True)
-   
+
+        # Get the Settings loaded
+        EinstellungenWrapper.load()
+        logging.getLogger().setLevel(loglevels[Wolke.Settings['Logging']])
+
+        os.environ["QT_ENABLE_HIGHDPI_SCALING"] = "1" if Wolke.Settings['DPI-Skalierung'] else "0"
+
         self.app = QtCore.QCoreApplication.instance()
         if self.app is None:
             self.app = QtWidgets.QApplication(sys.argv)
+
+        # Font hinting adjusts font outlines for lining up with the raster grid. This was apparently important for low res which nobody has anymore today.
+        # In my tests it made stuff look worse, especially the fontawesome icons, so we are disabling it
+        font = self.app.font()
+        font.setHintingPreference(QtGui.QFont.HintingPreference.PreferNoHinting)
+        self.app.setFont(font)
+
+        # Query system font and font size for settings dialog restore option
+        defaultFont = QtGui.QFont()
+        Wolke.DefaultOSFont = defaultFont.family() 
+        fontSize = defaultFont.pointSize()
+        if fontSize != -1:
+            Wolke.DefaultOSFontSize = fontSize
+
         self.form = QtWidgets.QWidget()
         self.ui = UI.MainWindow.Ui_Form()
         self.ui.setupUi(self.form)
@@ -112,19 +127,7 @@ class MainWindowWrapper(object):
         self.ui.buttonSettings.clicked.connect(self.editSettings)
         self.ui.buttonHelp.clicked.connect(self.help)
         self.ui.labelVersion.setText(self._version_ + " - by Aeolitus ")
-
         self.app.setWindowIcon(QtGui.QIcon('icon_large.png'))
-        
-        if platform.system() != 'Windows': # hardcoded for windows, qt doesnt provide the correct font here
-            defaultFont = QtGui.QFont()
-            Wolke.DefaultOSFont = defaultFont.family() 
-            fontSize = defaultFont.pointSize()
-            if fontSize != -1:
-                Wolke.DefaultOSFontSize = fontSize
-
-        # Get the Settings loaded
-        EinstellungenWrapper.load()
-        logging.getLogger().setLevel(loglevels[Wolke.Settings['Logging']])
 
         windowSize = Wolke.Settings["WindowSize-Main"]
         self.form.resize(windowSize[0], windowSize[1])
@@ -155,7 +158,7 @@ class MainWindowWrapper(object):
                 messagebox.setText(f"Das Laden des Plugins {pluginData.name} ist fehlgeschlagen.\nEs ist vermutlich nicht mit dieser Sephrastoversion kompatibel, bitte wende dich an den Plugin-Autor.")
                 messagebox.setIcon(QtWidgets.QMessageBox.Critical)
                 messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-                messagebox.exec_()
+                messagebox.exec()
 
         EventBus.doAction("plugins_geladen")
 
@@ -164,7 +167,7 @@ class MainWindowWrapper(object):
 
         self.form.show()
 
-        exitcode = self.app.exec_()
+        exitcode = self.app.exec()
         Wolke.Settings["WindowSize-Main"] = [self.form.size().width(), self.form.size().height()]
         EinstellungenWrapper.save()
 
@@ -254,186 +257,89 @@ class MainWindowWrapper(object):
            rules = " (" + os.path.splitext(os.path.basename(Wolke.DB.datei))[0] + ")"
         self.ed.form.setWindowTitle("Sephrasto" + file + rules)
 
-    def buildStylesheet(self, readonlyColor, panelColor, buttonColor = None):
-        standardFont = f"font-family: '{Wolke.Settings['Font']}'"
-        headingFont = f"font-family: '{Wolke.Settings['FontHeading']}'; color: {Wolke.HeadingColor}"
-
-        css = f"""*[readOnly=\"true\"] {{ background-color: {readonlyColor}; border: none; }}
-        QWidget, QToolTip {{ {standardFont}; font-size: {Wolke.Settings['FontSize']}pt; }}
-        QHeaderView::section {{ font-weight: bold; font-size: {Wolke.Settings['FontHeadingSize']-1}pt; {headingFont}; }}
-        .smallText {{ font-size: {Wolke.Settings['FontSize']-1}pt; }}
-        .italic {{ font-style: italic; }}
-        .panel {{ background: {panelColor}; }}
-        .h1 {{ font-weight: bold; font-size: {Wolke.FontHeadingSizeL1}pt; {headingFont}; }}
-        .h2 {{ font-weight: bold; font-size: {Wolke.Settings['FontHeadingSize']}pt; {headingFont}; }}
-        .h3, QGroupBox {{ font-weight: bold; font-variant: small-caps; font-size: {Wolke.FontHeadingSizeL3}pt; {standardFont}; color: {Wolke.HeadingColor}; }}
-        .h4 {{ font-weight: bold; }}
-        .title {{ font-weight: bold; font-size: 16pt; {headingFont}; }}
-        .icon {{ font-size: {Wolke.Settings['IconSize']}pt; font-weight: {Hilfsmethoden.qtWeightToCSS(QtGui.QFont.Black)}; font-family: 'Font Awesome 6 Free Solid'; }}"""
-
-        if buttonColor:
-            css += f"QPushButton {{ background-color: {buttonColor}; }}"
-        self.app.setStyleSheet(css)
-
     def updateAppearance(self):
+        # Load fonts
         fonts = ["Aniron", "Crimson Pro", "Fontawesome"]
         for font in fonts:
-            for file in Hilfsmethoden.listdir(os.path.join("Data", "Fonts", font)):
-                if file.endswith(".ttf"):
+            for file in PathHelper.listdir(os.path.join("Data", "Fonts", font)):
+                if file.endswith(".ttf") or file.endswith(".otf"):
                     # We need an absolute path here for macos
-                    QtGui.QFontDatabase.addApplicationFont(os.path.join(os.getcwd(), "Data", "Fonts", font, file))
+                    result = QtGui.QFontDatabase.addApplicationFont(os.path.join(os.getcwd(), "Data", "Fonts", font, file))
+                    if result == -1:
+                        logging.error("Could not add font " + file)
 
         Wolke.FontHeadingSizeL1 = Wolke.Settings["FontHeadingSize"] + 1
         Wolke.FontHeadingSizeL3 = Wolke.Settings["FontSize"] + 2
 
-        style = Wolke.Settings['Theme']
-        if style == "Windows Vista":
-            self.app.setStyle("windowsvista")
-            palette = self.app.style().standardPalette()
-            self.app.setPalette(palette)
-            QToolTip.setPalette(self.app.style().standardPalette())
-            Wolke.HeadingColor = "#000000"
-            Wolke.BorderColor = "rgba(0,0,0,0.2)"
-            self.buildStylesheet("#ffffff", "#b3b3b3")
-        elif style == "Fusion Light":
-            self.app.setStyle('fusion')
-            palette = self.app.style().standardPalette()
-            palette.setColor(QPalette.ToolTipBase, QtCore.Qt.white)
-            palette.setColor(QPalette.ToolTipText, QtCore.Qt.black)
-            self.app.setPalette(palette)
-            QToolTip.setPalette(palette)
-            Wolke.HeadingColor = "#000000"
-            Wolke.BorderColor = "rgba(0,0,0,0.2)"
-            self.buildStylesheet("#ffffff", "#b3b3b3")
-        elif style == "Fusion Dark":
-            self.app.setStyle('fusion')
-            palette = QPalette()
-            palette.setColor(QPalette.Window, QColor(53, 53, 53))
-            palette.setColor(QPalette.WindowText, QtCore.Qt.white)
-            palette.setColor(QPalette.Base, QColor(25, 25, 25))
-            palette.setColor(QPalette.AlternateBase, QColor(53, 53, 53))
-            palette.setColor(QPalette.ToolTipBase, QtCore.Qt.black)
-            palette.setColor(QPalette.ToolTipText, QtCore.Qt.white)
-            palette.setColor(QPalette.Text, QtCore.Qt.white)
-            palette.setColor(QPalette.Button, QColor(53, 53, 53))
-            palette.setColor(QPalette.ButtonText, QtCore.Qt.white)
-            palette.setColor(QPalette.BrightText, QtCore.Qt.white)
-            palette.setColor(QPalette.Link, QColor(42, 130, 218))
-            palette.setColor(QPalette.Highlight, QColor(42, 130, 218))
-            palette.setColor(QPalette.HighlightedText, QtCore.Qt.black)
-            palette.setColor(QPalette.Active, QPalette.Button, QColor(53, 53, 53))
-            palette.setColor(QPalette.Disabled, QPalette.ButtonText, QtCore.Qt.darkGray)
-            palette.setColor(QPalette.Disabled, QPalette.WindowText, QtCore.Qt.darkGray)
-            palette.setColor(QPalette.Disabled, QPalette.Text, QtCore.Qt.darkGray)
-            palette.setColor(QPalette.Disabled, QPalette.HighlightedText, QtCore.Qt.darkGray)
-            palette.setColor(QPalette.Disabled, QPalette.Base, QColor(53, 53, 53))
+        # Set theme
+        themeName = Wolke.Settings['Theme']
+        if themeName in Wolke.Themes:
+            theme = Wolke.Themes[themeName]
+
+            # Set style, i.e. fusion
+            self.app.setStyle(theme["Style"])
+
+            # Set color palette
+            if "StandardPalette" in theme and theme["StandardPalette"]:
+                palette = self.app.style().standardPalette()
+            else:
+                palette = QPalette()
+
+            if "Palette" in theme:
+                for elem, col in theme["Palette"].items():
+                    if not hasattr(QPalette, elem):
+                        logging.warning("Theme tries to set invalid QPalette element " + elem)
+                        continue
+                    palette.setColor(getattr(QPalette, elem), QColor(col))
+
+            if "Palette-Active" in theme:
+                for elem, col in theme["Palette-Active"].items():
+                    if not hasattr(QPalette, elem):
+                        logging.warning("Theme tries to set invalid QPalette element " + elem)
+                        continue
+                    palette.setColor(QPalette.Active, getattr(QPalette, elem), QColor(col))
+
+            if "Palette-Disabled" in theme:
+                for elem, col in theme["Palette-Disabled"].items():
+                    if not hasattr(QPalette, elem):
+                        logging.warning("Theme tries to set invalid QPalette element " + elem)
+                        continue
+                    palette.setColor(QPalette.Disabled, getattr(QPalette, elem), QColor(col))
+
             self.app.setPalette(palette)
             QToolTip.setPalette(palette)
-            Wolke.HeadingColor = "#ffffff"
-            Wolke.BorderColor = "rgba(255,255,255,0.2)"
-            self.buildStylesheet("#434343", "#7d7d7d")
-        elif style == "Ilaris":
-            self.app.setStyle('fusion')
 
-            palette = QPalette()
-            colors = {
-                "box" : QColor("#d1be9d"),
-                "bg": QColor("#f1e6ce"),
-                "heading" : QColor("#4A000B"),
-                "text": QColor("#221E1F"),
-                "table": QColor("#e8c5a9"),
-                "bg_bestiarium" : QColor("#f7e5cd"),
-                "bg_dark" : QColor("#e4d0a5"),
-                "text_dark": QColor("#7a561c")
-            }
+            # Set remaining colors that we also need elsewhere in the code
+            if "HeadingColor" in theme:
+                Wolke.HeadingColor = theme["HeadingColor"]
+            if "BorderColor" in theme:
+                Wolke.BorderColor = theme["BorderColor"]
+            if "ReadonlyColor" in theme:
+                Wolke.ReadonlyColor = theme["ReadonlyColor"]
+            if "PanelColor" in theme:
+                Wolke.PanelColor = theme["PanelColor"]
 
-            palette.setColor(QPalette.Window, colors["bg"])
-            palette.setColor(QPalette.WindowText, colors["text"])
-            palette.setColor(QPalette.Base, colors["bg"])
-            palette.setColor(QPalette.AlternateBase, colors["table"])
-            palette.setColor(QPalette.ToolTipBase, colors["bg"])
-            palette.setColor(QPalette.ToolTipText, colors["text"])
-            palette.setColor(QPalette.Text, colors["text"])
-            palette.setColor(QPalette.Button, colors["bg_dark"])
-            palette.setColor(QPalette.ButtonText, colors["text"])
-            palette.setColor(QPalette.BrightText, colors["text"])
-            palette.setColor(QPalette.Link, colors["heading"])
-            palette.setColor(QPalette.Highlight, colors["box"])
-            palette.setColor(QPalette.HighlightedText, colors["text"])
-            #palette.setColor(QPalette.Active, QPalette.Button, colors["box"])
-            palette.setColor(QPalette.Disabled, QPalette.ButtonText, colors["text_dark"])
-            palette.setColor(QPalette.Disabled, QPalette.WindowText, colors["text_dark"])
-            palette.setColor(QPalette.Disabled, QPalette.Text, colors["text_dark"])
-            palette.setColor(QPalette.Disabled, QPalette.HighlightedText, colors["text_dark"])
-            palette.setColor(QPalette.Disabled, QPalette.Base, colors["bg_dark"])
-            self.app.setPalette(palette)
-            QToolTip.setPalette(palette)
-            Wolke.HeadingColor = "#4A000B"
-            Wolke.BorderColor = "rgba(0,0,0,0.2)"
-            self.buildStylesheet("#e4d0a5", "#e8c5a9", "#d1bd94")
-        elif style == "DSA Forum":
-            self.app.setStyle('fusion')
-            palette = QPalette()
-            # DSA-Forum colors (picked from screenshot)
-            colors = {
-                "bg_light": QColor("#f6efe2"),
-                "bg": QColor("#f1e2c3"),
-                "bg_dark": QColor("#cdad74"),  # bg braun (hover tabs) 
-                "button": QColor("#dcc484"),  # tabs buttons rahmen
-                "text": QColor("#000000"),
-                "text_dark": QColor("#7a561c"),
-                "alert": QColor("#ae0007"),  # text rot
-            }
-            palette.setColor(QPalette.Window, colors["bg"])
-            palette.setColor(QPalette.WindowText, colors["text"])
-            palette.setColor(QPalette.Base, colors["bg"])
-            palette.setColor(QPalette.AlternateBase, colors["bg_light"])
-            palette.setColor(QPalette.ToolTipBase, colors["bg"])
-            palette.setColor(QPalette.ToolTipText, colors["text"])
-            palette.setColor(QPalette.Text, colors["text"])
-            palette.setColor(QPalette.Button, colors["button"])
-            palette.setColor(QPalette.ButtonText, colors["text"])
-            palette.setColor(QPalette.BrightText, colors["text"])
-            palette.setColor(QPalette.Link, colors["text_dark"])
-            palette.setColor(QPalette.Highlight, colors["bg_dark"])
-            palette.setColor(QPalette.HighlightedText, colors["text"])
-            #palette.setColor(QPalette.Active, QPalette.Button, colors["alert"])
-            palette.setColor(QPalette.Disabled, QPalette.ButtonText, colors["text_dark"])
-            palette.setColor(QPalette.Disabled, QPalette.WindowText, colors["text_dark"])
-            palette.setColor(QPalette.Disabled, QPalette.Text, colors["text_dark"])
-            palette.setColor(QPalette.Disabled, QPalette.HighlightedText, colors["text_dark"])
-            palette.setColor(QPalette.Disabled, QPalette.Base, colors["bg_dark"])
-            self.app.setPalette(palette)
-            QToolTip.setPalette(palette)
-            Wolke.HeadingColor = "#000000"
-            Wolke.BorderColor = "rgba(0,0,0,0.2)"
-            self.buildStylesheet("#dcc484", "#f6efe2")
-        else:
-            try:
-                for pal in PathHelper.getThemes():
-                    self.app.setStyle('fusion')
-                    palette = QPalette()
+        # Create stylesheet
+        standardFont = f"font-family: '{Wolke.Settings['Font']}'"
+        headingFont = f"font-family: '{Wolke.Settings['FontHeading']}'; color: {Wolke.HeadingColor}"
+        css = f"""*[readOnly=\"true\"] {{ background-color: {Wolke.ReadonlyColor}; border: none; }}
+QWidget, QToolTip {{ {standardFont}; font-size: {Wolke.Settings['FontSize']}pt; }}
+QHeaderView::section {{ font-weight: bold; font-size: {Wolke.Settings['FontHeadingSize']-1}pt; {headingFont}; }}
+QListView::item {{ margin-top: 4px; margin-bottom: 4px; }}
+QTreeView::item {{ margin-top: 4px; margin-bottom: 4px; }}
+.smallText {{ font-size: {Wolke.Settings['FontSize']-1}pt; }}
+.italic {{ font-style: italic; }}
+.panel {{ background: {Wolke.PanelColor}; }}
+.h1 {{ font-weight: bold; font-size: {Wolke.FontHeadingSizeL1}pt; {headingFont}; }}
+.h2 {{ font-weight: bold; font-size: {Wolke.Settings['FontHeadingSize']}pt; {headingFont}; }}
+.h3, QGroupBox {{ font-weight: bold; font-variant: small-caps; font-size: {Wolke.FontHeadingSizeL3}pt; {standardFont}; color: {Wolke.HeadingColor}; }}
+.h4 {{ font-weight: bold; }}
+.title {{ font-weight: bold; font-size: 16pt; {headingFont}; }}
+.icon {{ font-size: {min(Wolke.Settings['FontSize'], 12)}pt; font-family: 'Font Awesome 6 Free Solid';}}\n"""
 
-                    if 'name' in pal and pal['name'] == style:
-                        for elem, col in pal["palette"]:
-                            palette.setColor(elem, QColor(col))
-
-                        if 'active' in pal:
-                            for elem, col in pal["active"]:
-                                palette.setColor(QPalette.Active, elem, QColor(col))
-
-                        if 'disabled' in pal:
-                            for elem, col in pal["disabled"]:
-                                palette.setColor(QPalette.Disabled, elem, QColor(col))
-
-                        self.app.setPalette(palette)
-                        QToolTip.setPalette(palette)
-                        Wolke.HeadingColor = pal["heading"]
-                        Wolke.BorderColor = pal["border"]
-                        self.buildStylesheet(pal["sheet"]["readonly"], pal["sheet"]["panel"], pal["sheet"]["button"])
-                        break
-            except:
-                pass
+        if 'CSS' in theme:
+            css += theme['CSS']
+        self.app.setStyleSheet(css)
         
 if __name__ == "__main__":
     itm = MainWindowWrapper()

@@ -1,4 +1,4 @@
-from PyQt5 import QtCore, QtWidgets, QtGui
+from PySide6 import QtCore, QtWidgets, QtGui
 from UI import ChoicePopup
 from CharakterAssistent import Choice
 from Wolke import Wolke
@@ -43,7 +43,7 @@ class ChoicePopupWrapper(object):
         self.form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.form.show()
 
-        self.ret = self.form.exec_()
+        self.ret = self.form.exec()
         if self.ret == QtWidgets.QDialog.Accepted:
             for i in range(len(choiceList.choices)):
                 if self.buttons[i].isChecked():

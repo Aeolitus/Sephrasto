@@ -7,7 +7,7 @@ Created on Sun Sep 24 15:58:13 2017
 
 from Wolke import Wolke
 import UI.CharakterInfo
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PySide6 import QtWidgets, QtCore, QtGui
 import logging
 from EinstellungenWrapper import EinstellungenWrapper
 import os
@@ -29,7 +29,7 @@ class InfoWrapper(QtCore.QObject):
     Wrapper class for the EP Reference GUI. Contains methods for updating
     the GUI elements to the current values.
     '''
-    modified = QtCore.pyqtSignal()
+    modified = QtCore.Signal()
 
     def __init__(self):
         ''' Initialize the GUI and set signals for the spinners'''

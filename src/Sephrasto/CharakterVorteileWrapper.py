@@ -8,17 +8,18 @@ from Wolke import Wolke
 import UI.CharakterVorteile
 import CharakterMinderpaktWrapper
 from Charakter import VariableKosten
-from PyQt5 import QtWidgets, QtCore, QtGui
+from PySide6 import QtWidgets, QtCore, QtGui
 import logging
 from EventBus import EventBus
 from Hilfsmethoden import Hilfsmethoden
 
 class CharakterVorteileWrapper(QtCore.QObject):
-    modified = QtCore.pyqtSignal()
+    modified = QtCore.Signal()
     
     def __init__(self):
         super().__init__()
         logging.debug("Initializing VorteileWrapper...")
+        self.rowHeight = 30
         self.form = QtWidgets.QWidget()
         self.ui = UI.CharakterVorteile.Ui_Form()
         self.ui.setupUi(self.form)
@@ -27,7 +28,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
         font = QtWidgets.QApplication.instance().font()
         self.ui.treeWidget.itemSelectionChanged.connect(self.vortClicked)
         self.ui.treeWidget.itemChanged.connect(self.itemChangeHandler)
-        self.ui.treeWidget.header().setSectionResizeMode(0,1)
+        self.ui.treeWidget.header().setSectionResizeMode(0,QtWidgets.QHeaderView.Stretch)
         
         self.ui.splitter.adjustSize()
         width = self.ui.splitter.size().width()
@@ -61,14 +62,12 @@ class CharakterVorteileWrapper(QtCore.QObject):
         for vorteile in vortList:
             vorteile.sort()
 
-        rowHeight = 30
-
         for i in range(len(vortList)):
             parent = QtWidgets.QTreeWidgetItem(self.ui.treeWidget)
             parent.setText(0, self.vorteilTypen[i])
             parent.setText(1,"")
             parent.setExpanded(True)
-            parent.setSizeHint(0, QtCore.QSize(0, rowHeight))
+            parent.setSizeHint(0, QtCore.QSize(0, self.rowHeight))
             font = parent.font(0)
             font.setBold(True)
             font.setCapitalization(QtGui.QFont.SmallCaps)
@@ -77,14 +76,14 @@ class CharakterVorteileWrapper(QtCore.QObject):
             for el in vortList[i]:
                 child = QtWidgets.QTreeWidgetItem(parent)
                 child.setText(0, Wolke.DB.vorteile[el].name)
-                child.setSizeHint(0, QtCore.QSize(0, rowHeight))
+                child.setSizeHint(0, QtCore.QSize(0, self.rowHeight))
                 if el in Wolke.Char.vorteile:    
                     child.setCheckState(0, QtCore.Qt.Checked)
                 else:
                     child.setCheckState(0, QtCore.Qt.Unchecked)
                 if Wolke.DB.vorteile[el].variableKosten:
                     spin = QtWidgets.QSpinBox()
-                    spin.setFixedHeight(rowHeight)
+                    spin.setFixedHeight(self.rowHeight)
                     spin.setMinimum(-9999)
                     spin.setSuffix(" EP")
                     spin.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
@@ -99,7 +98,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
                             spin.setValue(Wolke.DB.vorteile[el].kosten)
                     spin.setSingleStep(20)
                     self.itemWidgets[el] = spin
-                    spin.valueChanged.connect(lambda state, name=el: self.spinnerChanged(name,state))
+                    spin.valueChanged.connect(lambda qtNeedsThis=False, name=el: self.spinnerChanged(name))
                     self.ui.treeWidget.setItemWidget(child,1,spin)
                 else:
                     child.setText(1, "20 EP" if el == Wolke.Char.minderpakt else str(Wolke.DB.vorteile[el].kosten) + " EP")
@@ -187,8 +186,8 @@ class CharakterVorteileWrapper(QtCore.QObject):
         if kommentar != None:
             Wolke.Char.vorteileVariable[name].kommentar = kommentar
 
-    def spinnerChanged(self,name,state):
-        self.setVariableKosten(name, state, None)
+    def spinnerChanged(self,name):
+        self.setVariableKosten(name, self.itemWidgets[name].value(), None)
         self.currentVort = name
         self.modified.emit()
         self.updateInfo()
@@ -208,6 +207,8 @@ class CharakterVorteileWrapper(QtCore.QObject):
 
         w = QtWidgets.QWidget()
         layout = QtWidgets.QHBoxLayout()
+        margin = 4
+        layout.setContentsMargins(0, margin, 0, margin)
         label = QtWidgets.QLabel("Kommentar")
         text = QtWidgets.QLineEdit(kommentar)
         layout.addWidget(label)
@@ -216,6 +217,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
         text.textChanged.connect(lambda text, name=name: self.kommentarChanged(name, text))
 
         child = QtWidgets.QTreeWidgetItem(parent)
+        child.setSizeHint(0, QtCore.QSize(0, self.rowHeight + 2*margin))
         self.ui.treeWidget.setItemWidget(child,0,w)
         parent.setExpanded(True)
 

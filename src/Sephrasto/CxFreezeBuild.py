@@ -14,11 +14,6 @@ styles_path = os.path.join(build_path, "styles")
 doc_path = os.path.join(build_path, "Doc")
 bin_path = os.path.join(build_path, "Bin")
 data_path = os.path.join(build_path, "Data")
-env_python_path = os.path.dirname(sys.executable)
-env_plugins_path = os.path.join(env_python_path, "Lib", "site-packages", "PyQt5", "Qt5", "plugins")
-env_styles_path = os.path.join(env_plugins_path, "styles")
-env_platforms_path = os.path.join(env_plugins_path, "platforms")
-env_bin_path = os.path.join(env_python_path, "Lib", "site-packages", "PyQt5", "Qt5", "bin")
 
 # Clean buildfolder and create build root folder
 def cleanBuildFolder():
@@ -40,7 +35,7 @@ print("Running cxfreeze")
 build_exe_options = {
     "build_exe" : build_path,
     "includes" : ["multiprocessing"],
-    "excludes" : ["distutils", "html", "unittest", "pydoc", "bz2", "pyexpat", "lzma"],
+    "excludes" : ["tkinter", "distutils", "html", "unittest", "pydoc", "bz2", "pyexpat", "lzma"],
     "optimize" : 2,
     "zip_include_packages" : "*",
     "zip_exclude_packages" : ""
@@ -54,12 +49,21 @@ setup(  name = 'Sephrasto',
         description = 'Charakter-Generierungstool für Ilaris',
         version = str(Version._sephrasto_version_major) + "." + str(Version._sephrasto_version_minor) + "." + str(Version._sephrasto_version_build),
         options = {"build_exe" : build_exe_options },
+        py_modules = [],
         executables = [Executable("Sephrasto.py", base=base, icon="icon_multi.ico")])
         
 # Remove unneeded files
 print("Removing unneeded files")
 removeFiles = [
-    "imageFormats"
+    os.path.join("lib", "PySide6", "Qt6Network.dll"),
+    os.path.join("lib", "PySide6", "Qt6Network.pyd"),
+    os.path.join("lib", "PySide6", "plugins", "imageformats", "Qt6Core.dll"),
+    os.path.join("lib", "PySide6", "plugins", "imageformats", "Qt6Gui.dll"),
+    os.path.join("lib", "PySide6", "plugins", "platforms", "Qt6Core.dll"),
+    os.path.join("lib", "PySide6", "plugins", "platforms", "Qt6Gui.dll"),
+    os.path.join("lib", "PySide6", "plugins", "styles", "Qt6Core.dll"),
+    os.path.join("lib", "PySide6", "plugins", "styles", "Qt6Gui.dll"),
+    os.path.join("lib", "PySide6", "plugins", "styles", "Qt6Widgets.dll"),
 ]
 
 for filename in removeFiles:
@@ -83,8 +87,6 @@ includeFiles = {
 
 if sys.platform == "win32":
     includeFiles.update({
-        os.path.join(env_styles_path, "qwindowsvistastyle.dll") : styles_path,
-        os.path.join(env_bin_path, "libEGL.dll") : build_path,
         "Bin/ImageMagick" : os.path.join(bin_path, "ImageMagick")
     })
 
