@@ -3,17 +3,11 @@ import os
 import sys
 from os import walk
 
+from PyQt5.QtCore import QStandardPaths
+
 
 def getSettingsFolder():
-    if sys.platform == "win32":
-        path = os.getenv('LOCALAPPDATA', os.path.expanduser("~/AppData/Local"))
-    elif sys.platform == 'darwin':
-        path = os.path.expanduser('~/Library/Preferences')
-    else:
-        path = os.getenv('XDG_CONFIG_HOME', os.path.expanduser("~/.config"))
-    path = os.path.join(path, 'Sephrasto')
-    return path
-
+    return os.path.join(QStandardPaths.writableLocation(QStandardPaths.ConfigLocation), 'Sephrasto')
 
 def getDefaultUserFolder():
     return os.path.join(os.path.expanduser('~'), 'Sephrasto')
@@ -32,7 +26,8 @@ def createFolder(basePath):
 def getThemes():
     result = []
     try:
-        themeFolder = os.path.join(getSettingsFolder(), "themes")
+        settings = getSettingsFolder()
+        themeFolder = os.path.join(settings, "themes")
         createFolder(themeFolder)
         filenames = next(walk(themeFolder), (None, None, []))[2]
         themes = [x for x in filenames if x.endswith(".json")]
