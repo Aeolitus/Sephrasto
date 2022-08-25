@@ -1,11 +1,18 @@
-import appdirs
 import json
 import os
+import sys
 from os import walk
 
 
 def getSettingsFolder():
-    return appdirs.user_config_dir(appname='Sephrasto', appauthor='Ilaris')
+    if sys.platform == "win32":
+        path = os.getenv('LOCALAPPDATA', os.path.expanduser("~/AppData/Local"))
+    elif sys.platform == 'darwin':
+        path = os.path.expanduser('~/Library/Preferences')
+    else:
+        path = os.getenv('XDG_CONFIG_HOME', os.path.expanduser("~/.config"))
+    path = os.path.join(path, 'Sephrasto')
+    return path
 
 
 def getDefaultUserFolder():
