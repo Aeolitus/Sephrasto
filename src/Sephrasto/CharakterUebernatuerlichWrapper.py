@@ -185,7 +185,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
                     if el in talent.fertigkeiten:
                         totalTalentCost += talent.kosten
                 if totalTalentCost < 120:
-                    self.labelRef[el + "Name"] =  QtWidgets.QLabel(el + "&nbsp;&nbsp;<span class='icon'>\uf73d</span>")
+                    self.labelRef[el + "Name"] =  QtWidgets.QLabel(el + "&nbsp;&nbsp;<span style='" + Wolke.FontAwesomeCSS + "'>\uf73d</span>")
                     self.labelRef[el + "Name"].setToolTip("Diese Fertigkeit bietet dir nur wenige Talente im Gesamtwert von unter 120 EP.\nSie zu steigern lohnt sich daher nur für die wenigsten.\nÜblicherweise kannst du die enthaltenen Talente aber auch mit einer anderen Fertigkeit wirken.")
                 else:
                     self.labelRef[el + "Name"] =  QtWidgets.QLabel(el)
@@ -250,7 +250,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
         
     def getSteigerungskosten(self, fert):
         ep = (fert.wert+1) * fert.steigerungsfaktor
-        return "&nbsp;&nbsp;<span class='icon'>\uf176</span>&nbsp;&nbsp;" + str(ep) + " EP"
+        return "&nbsp;&nbsp;<span style='" + Wolke.FontAwesomeCSS + "'>\uf176</span>&nbsp;&nbsp;" + str(ep) + " EP"
 
     def fwChanged(self, flag = False):
         if self.currentlyLoading:

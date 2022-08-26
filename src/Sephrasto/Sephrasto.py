@@ -324,6 +324,7 @@ class MainWindowWrapper(object):
         # Create stylesheet
         standardFont = f"font-family: '{Wolke.Settings['Font']}'"
         headingFont = f"font-family: '{Wolke.Settings['FontHeading']}'; color: {Wolke.HeadingColor}"
+        Wolke.FontAwesomeCSS = f"font-size: {min(Wolke.Settings['FontSize'], 12)}pt; font-family: 'Font Awesome 6 Free Solid'; font-weight: 900;"
         css = f"""*[readOnly=\"true\"] {{ background-color: {Wolke.ReadonlyColor}; border: none; }}
 QWidget, QToolTip {{ {standardFont}; font-size: {Wolke.Settings['FontSize']}pt; }}
 QHeaderView::section {{ font-weight: bold; font-size: {Wolke.Settings['FontHeadingSize']-1}pt; {headingFont}; }}
@@ -337,7 +338,7 @@ QTreeView::item {{ margin-top: 4px; margin-bottom: 4px; }}
 .h3, QGroupBox {{ font-weight: bold; font-variant: small-caps; font-size: {Wolke.FontHeadingSizeL3}pt; {standardFont}; color: {Wolke.HeadingColor}; }}
 .h4 {{ font-weight: bold; }}
 .title {{ font-weight: bold; font-size: 16pt; {headingFont}; }}
-.icon {{ font-size: {min(Wolke.Settings['FontSize'], 12)}pt; font-family: 'Font Awesome 6 Free Solid'; font-weight: {Hilfsmethoden.qtWeightToCSS(QtGui.QFont.Black)};}}\n"""
+.icon {{ {Wolke.FontAwesomeCSS} }}\n"""
 
         if 'CSS' in theme:
             css += theme['CSS']

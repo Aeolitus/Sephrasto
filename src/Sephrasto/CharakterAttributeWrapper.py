@@ -197,16 +197,16 @@ class AttrWrapper(QtCore.QObject):
         
     def getSteigerungskostenAsP(self):
         val = (Wolke.Char.asp.wert + 1) * Wolke.Char.asp.steigerungsfaktor
-        return "(<span class='icon'>\uf176</span>&nbsp;&nbsp;" + str(EventBus.applyFilter("asp_kosten", val, { "charakter" : Wolke.Char, "wert" : Wolke.Char.asp.wert })) + " EP)"
+        return "(<span style='" + Wolke.FontAwesomeCSS + "'>\uf176</span>&nbsp;&nbsp;" + str(EventBus.applyFilter("asp_kosten", val, { "charakter" : Wolke.Char, "wert" : Wolke.Char.asp.wert })) + " EP)"
 
     def getSteigerungskostenKaP(self):
         val = (Wolke.Char.kap.wert + 1) * Wolke.Char.kap.steigerungsfaktor
-        return "(<span class='icon'>\uf176</span>&nbsp;&nbsp;" + str(EventBus.applyFilter("asp_kosten", val, { "charakter" : Wolke.Char, "wert" : Wolke.Char.kap.wert })) + " EP)"
+        return "(<span style='" + Wolke.FontAwesomeCSS + "'>\uf176</span>&nbsp;&nbsp;" + str(EventBus.applyFilter("asp_kosten", val, { "charakter" : Wolke.Char, "wert" : Wolke.Char.kap.wert })) + " EP)"
 
     def getAttributSteigerungskosten(self, attr):
         attribut = Wolke.Char.attribute[attr]
         val = (attribut.wert + 1) * attribut.steigerungsfaktor
-        return "<span class='icon'>\uf176</span>&nbsp;&nbsp;" + str(EventBus.applyFilter("attribut_kosten", val, { "charakter" : Wolke.Char, "attribut" : attr, "wert" : attribut.wert + 1 })) + " EP"
+        return "<span style='" + Wolke.FontAwesomeCSS + "'>\uf176</span>&nbsp;&nbsp;" + str(EventBus.applyFilter("attribut_kosten", val, { "charakter" : Wolke.Char, "attribut" : attr, "wert" : attribut.wert + 1 })) + " EP"
 
     def updateDerivedValues(self):
         for attribut in Definitionen.Attribute:

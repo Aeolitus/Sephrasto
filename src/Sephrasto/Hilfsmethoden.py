@@ -442,12 +442,6 @@ class Hilfsmethoden:
                 if lh[count] != rh[count]:
                     return False
         return True
-    
-    # The exact value is important especially on linux, otherwise qt wont find the correct font
-    # Internally qt divides css weights by 8 to get the qt weight, so we need to invert this
-    @staticmethod
-    def qtWeightToCSS(weight):
-        return str(weight * 8)
 
     # os.startfile isn't implemented on linux and mac...
     @staticmethod

@@ -79,3 +79,4 @@ class Wolke:
     PanelColor = "#b3b3b3"
     DefaultOSFont = ""
     DefaultOSFontSize = 9
+    FontAwesomeCSS = "" # Qt does not support 'class' in span tags (yet), so we store the style here for reuse in the app

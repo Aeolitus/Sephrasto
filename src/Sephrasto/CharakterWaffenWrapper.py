@@ -117,9 +117,9 @@ class CharakterWaffenWrapper(QtCore.QObject):
                 "border-bottom-left-radius : 0px;"\
                 "border-bottom-right-radius : 0px;"
             labelWerte.setStyleSheet(style)
-            labelWerte.setToolTip("""<p style='white-space:pre'><span class='icon'>\uf0c1</span>  Waffentyp, unabhängig vom selbst gewählten Namen
-<span class='icon'>\uf00b</span>   Kampfwerte inklusive BE
-<span class='icon'>\uf6e3</span>   Werteveränderungen</p>""")
+            labelWerte.setToolTip(f"""<p style='white-space:pre'><span style='{Wolke.FontAwesomeCSS}'>\uf0c1</span>  Waffentyp, unabhängig vom selbst gewählten Namen
+<span style='{Wolke.FontAwesomeCSS}'>\uf00b</span>   Kampfwerte inklusive BE
+<span style='{Wolke.FontAwesomeCSS}'>\uf6e3</span>   Werteveränderungen</p>""")
             self.labelWerte.append(labelWerte)
 
             labelTopFrame = getattr(self.ui, "labelW" + str(i+1) + "TopFrame")
@@ -205,10 +205,10 @@ class CharakterWaffenWrapper(QtCore.QObject):
                         verbesserung.append("Eigenschaften -" + ", -".join(eigMinusDiff))
             verbesserung = ', '.join(verbesserung).replace(", Eigenschaften", "; Eigenschaften")
 
-            text = f"""<span class='icon'>\uf0c1</span>&nbsp;&nbsp;{self.waffenTypen[index]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class='icon'>\uf00b</span>&nbsp;&nbsp;AT* {ww.AT}, VT* {vt}, TP* {ww.TPW6}W6{"+" if ww.TPPlus >= 0 else ""}{ww.TPPlus}"""
+            text = f"""<span style='{Wolke.FontAwesomeCSS}'>\uf0c1</span>&nbsp;&nbsp;{self.waffenTypen[index]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style='{Wolke.FontAwesomeCSS}'>\uf00b</span>&nbsp;&nbsp;AT* {ww.AT}, VT* {vt}, TP* {ww.TPW6}W6{"+" if ww.TPPlus >= 0 else ""}{ww.TPPlus}"""
             if len(verbesserung) > 0:
-                text += f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='icon'>\uf6e3</span>&nbsp;&nbsp;{verbesserung}"
+                text += f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='{Wolke.FontAwesomeCSS}'>\uf6e3</span>&nbsp;&nbsp;{verbesserung}"
             self.labelWerte[index].setText(text)
 
     def refreshDerivedWeaponValues(self, W, index):

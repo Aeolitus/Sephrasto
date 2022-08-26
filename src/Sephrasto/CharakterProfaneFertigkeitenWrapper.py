@@ -250,7 +250,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         höchste = Wolke.Char.getHöchsteKampffertigkeit()
         if fert.kampffertigkeit == KampffertigkeitTyp.Nahkampf and fert.wert == höchste.wert:
             ep = (fert.wert+1) * 4
-        return "<span class='icon'>\uf176</span>&nbsp;&nbsp;" + str(ep) + " EP"
+        return "<span style='" + Wolke.FontAwesomeCSS + "'>\uf176</span>&nbsp;&nbsp;" + str(ep) + " EP"
 
     def fwChanged(self, flag = False):
         if self.currentlyLoading:
