@@ -1,4 +1,4 @@
-# Sephrasto
+# Sephrasto - Loirana Fork
 Ein Charaktergenerator für das DSA-Hausregelsystem Ilaris, erstellt von Aeolitus. So vollständig wie möglich. Eine Gebrauchsanweisung findest du, wenn du im Hauptfenster auf den Hilfe-Button clickst.
 
 ## Features
