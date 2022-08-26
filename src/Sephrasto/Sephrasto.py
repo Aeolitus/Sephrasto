@@ -318,6 +318,8 @@ class MainWindowWrapper(object):
                 Wolke.ReadonlyColor = theme["ReadonlyColor"]
             if "PanelColor" in theme:
                 Wolke.PanelColor = theme["PanelColor"]
+        else:
+            theme = ''
 
         # Create stylesheet
         standardFont = f"font-family: '{Wolke.Settings['Font']}'"
