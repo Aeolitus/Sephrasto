@@ -119,6 +119,7 @@ class MainWindowWrapper(object):
             Wolke.DefaultOSFontSize = fontSize
             if Wolke.Settings['FontSize'] == 0:
                 Wolke.Settings['FontSize'] = Wolke.DefaultOSFontSize
+                Wolke.Settings['FontHeadingSize'] = Wolke.DefaultOSFontSize -1
 
         self.form = QtWidgets.QWidget()
         self.ui = UI.MainWindow.Ui_Form()
