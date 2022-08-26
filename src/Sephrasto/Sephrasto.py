@@ -117,6 +117,8 @@ class MainWindowWrapper(object):
         fontSize = defaultFont.pointSize()
         if fontSize != -1:
             Wolke.DefaultOSFontSize = fontSize
+            if Wolke.Settings['FontSize'] == 0:
+                Wolke.Settings['FontSize'] = Wolke.DefaultOSFontSize
 
         self.form = QtWidgets.QWidget()
         self.ui = UI.MainWindow.Ui_Form()
@@ -324,7 +326,7 @@ class MainWindowWrapper(object):
         # Create stylesheet
         standardFont = f"font-family: '{Wolke.Settings['Font']}'"
         headingFont = f"font-family: '{Wolke.Settings['FontHeading']}'; color: {Wolke.HeadingColor}"
-        Wolke.FontAwesomeCSS = f"font-size: {min(Wolke.Settings['FontSize'], 12)}pt; font-family: 'Font Awesome 6 Free Solid'; font-weight: 900;"
+        Wolke.FontAwesomeCSS = f"font-size: {min(Wolke.Settings['FontSize'], 12)}pt; font-family: \"Font Awesome 6 Free Solid\"; font-weight: 900;"
         css = f"""*[readOnly=\"true\"] {{ background-color: {Wolke.ReadonlyColor}; border: none; }}
 QWidget, QToolTip {{ {standardFont}; font-size: {Wolke.Settings['FontSize']}pt; }}
 QHeaderView::section {{ font-weight: bold; font-size: {Wolke.Settings['FontHeadingSize']-1}pt; {headingFont}; }}

@@ -108,6 +108,11 @@ class EinstellungenWrapper():
         self.ui.resetFontDefault.clicked.connect(self.resetFonts)
         self.ui.resetFontDefault.setText('\uf2ea')
 
+        # the dpi setting doesn't do anything on macOS, hide the option
+        if platform.system() == "Darwin":  
+            self.ui.label_13.setVisible(False)
+            self.ui.checkDPI.setVisible(False)
+
         self.ui.checkDPI.setChecked(Wolke.Settings['DPI-Skalierung'])
 
         self.ui.resetFontOS.clicked.connect(lambda: self.resetFonts(True))
@@ -475,17 +480,3 @@ class EinstellungenWrapper():
         self.ui.spinAppFontSize.setValue(Wolke.DefaultOSFontSize)
         self.ui.comboFontHeading.setCurrentText("Aniron")
         self.ui.spinAppFontHeadingSize.setValue(Wolke.DefaultOSFontSize -1)
-
-    @staticmethod
-    def useSystemFont():
-        Wolke.Settings['Font'] = Wolke.DefaultOSFont
-        Wolke.Settings['FontSize'] = Wolke.DefaultOSFontSize
-        Wolke.Settings['FontHeading'] = "Aniron"
-        Wolke.Settings['FontHeadingSize'] = Wolke.DefaultOSFontSize -1
-
-    @staticmethod
-    def useDefaultFont():
-        Wolke.Settings['Font'] = "Crimson Pro"
-        Wolke.Settings['FontSize'] = Wolke.DefaultOSFontSize
-        Wolke.Settings['FontHeading'] = "Aniron"
-        Wolke.Settings['FontHeadingSize'] = Wolke.DefaultOSFontSize -1
