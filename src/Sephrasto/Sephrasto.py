@@ -337,10 +337,11 @@ QTreeView::item {{ margin-top: 4px; margin-bottom: 4px; }}
 .h3, QGroupBox {{ font-weight: bold; font-variant: small-caps; font-size: {Wolke.FontHeadingSizeL3}pt; {standardFont}; color: {Wolke.HeadingColor}; }}
 .h4 {{ font-weight: bold; }}
 .title {{ font-weight: bold; font-size: 16pt; {headingFont}; }}
-.icon {{ font-size: {min(Wolke.Settings['FontSize'], 12)}pt; font-family: 'Font Awesome 6 Free Solid';}}\n"""
+.icon {{ font-size: {min(Wolke.Settings['FontSize'], 12)}pt; font-family: 'Font Awesome 6 Free Solid'; font-weight: 'Solid'}}\n"""
 
         if 'CSS' in theme:
             css += theme['CSS']
+        css += ".icon { font-weight: 900; }\n"
         self.app.setStyleSheet(css)
         
 if __name__ == "__main__":
