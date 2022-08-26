@@ -1,18 +1,10 @@
 import os
 import platform
 import unicodedata
+from PyQt5.QtCore import QStandardPaths
 
 def getSettingsFolder():
-    system = platform.system()
-    if system == 'Windows':
-        return getDefaultUserFolder()
-    elif system == 'Darwin':
-        path = os.path.expanduser('~/Library/Preferences/')
-        return os.path.join(path, "Sephrasto")
-    else:
-        path = os.getenv('XDG_CONFIG_HOME', os.path.expanduser("~/.config"))
-        return os.path.join(path, "Sephrasto")
-    return path
+    return os.path.join(QStandardPaths.writableLocation(QStandardPaths.ConfigLocation), 'Sephrasto')
 
 def getDefaultUserFolder():
     userFolder = os.path.expanduser('~')
@@ -24,7 +16,7 @@ def getDefaultUserFolder():
         buf= ctypes.create_unicode_buffer(ctypes.wintypes.MAX_PATH)
         ctypes.windll.shell32.SHGetFolderPathW(None, CSIDL_PERSONAL, None, SHGFP_TYPE_CURRENT, buf)
         userFolder = buf.value or userFolder
-        return os.path.join(userFolder,'Sephrasto')
+        return os.path.join(userFolder, 'Sephrasto')
     elif system == 'Linux':
         if os.path.isdir(os.path.join(userFolder,'.sephrasto')):
             return os.path.join(userFolder,'.sephrasto') # allow users to rename the folder to a hidden folder
@@ -33,7 +25,7 @@ def getDefaultUserFolder():
     elif system == 'Darwin':
         return os.path.join(userFolder, 'Documents', 'Sephrasto') # the documents folder is language-independent on macos
     else:
-        return os.path.join(userFolder,'Sephrasto')
+        return os.path.join(userFolder, 'Sephrasto')
 
 def createFolder(basePath):
     if not os.path.isdir(basePath):
