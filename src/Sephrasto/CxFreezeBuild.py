@@ -38,7 +38,8 @@ build_exe_options = {
     "excludes" : ["tkinter", "distutils", "html", "unittest", "pydoc", "bz2", "pyexpat", "lzma"],
     "optimize" : 2,
     "zip_include_packages" : "*",
-    "zip_exclude_packages" : ""
+    "zip_exclude_packages" : "",
+    "include_msvcr" : True
 }
 
 base = None
@@ -55,6 +56,7 @@ setup(  name = 'Sephrasto',
 # Remove unneeded files
 print("Removing unneeded files")
 removeFiles = [
+    # TODO: these entries can be removed once newer cx_freeze versions dont create these superfluous files anymore
     os.path.join("lib", "PySide6", "Qt6Network.dll"),
     os.path.join("lib", "PySide6", "Qt6Network.pyd"),
     os.path.join("lib", "PySide6", "plugins", "imageformats", "Qt6Core.dll"),
@@ -75,6 +77,11 @@ for filename in removeFiles:
         except OSError:
             os.remove(filepath)
 
+# The python dlls need to be ALSO present inside the lib folder for Sephrasto to work on non-dev PCs
+# TODO: remove this once newer cx_freeze versions fix the issue
+shutil.copy2(os.path.join(build_path, "python3.dll"), os.path.join(build_path, "lib", "python3.dll"))
+shutil.copy2(os.path.join(build_path, "python37.dll"), os.path.join(build_path, "lib", "python37.dll"))
+             
 # Copy additional files and folders to build folder
 print("Copying additional files and folders to build folder")
 
