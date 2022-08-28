@@ -96,7 +96,7 @@ class MainWindowWrapper(object):
             os.chdir(os.path.dirname(sys.argv[0]))
 
         # Get the Settings loaded
-        EinstellungenWrapper.load()
+        EinstellungenWrapper.loadPreQt()
         logging.getLogger().setLevel(loglevels[Wolke.Settings['Logging']])
 
         os.environ["QT_ENABLE_HIGHDPI_SCALING"] = "1" if Wolke.Settings['DPI-Skalierung'] else "0"
@@ -104,6 +104,8 @@ class MainWindowWrapper(object):
         self.app = QtCore.QCoreApplication.instance()
         if self.app is None:
             self.app = QtWidgets.QApplication(sys.argv)
+
+        EinstellungenWrapper.loadPostQt()
 
         # Font hinting adjusts font outlines for lining up with the raster grid. This was apparently important for low res which nobody has anymore today.
         # In my tests it made stuff look worse, especially the fontawesome icons, so we are disabling it

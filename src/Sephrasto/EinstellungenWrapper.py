@@ -253,32 +253,39 @@ class EinstellungenWrapper():
 
 
     @staticmethod
-    def load():
-        settingsFolder = EinstellungenWrapper.createSettingsFolder()
+    def loadPreQt():
+        # Do not use any PySide/Qt stuff here, the QApplication isn't initialized yet when this function is called
+        # We do a 2-step initialization to read in some settings that we require before the QApp (like DPI)
+        settingsFolder = PathHelper.getSettingsFolder()
         settingsPath = os.path.join(settingsFolder, 'Sephrasto.ini')
+        if not os.path.isfile(settingsPath):
+            return
+        with open(settingsPath,'r') as infile:
+            tmpSet = yaml.safe_load(infile)
+            for el in tmpSet:
+                Wolke.Settings[el] = tmpSet[el]
+            if not 'Version' in tmpSet:
+                Wolke.Settings['Version'] = 0
 
-        if os.path.isfile(settingsPath):
-            with open(settingsPath,'r') as infile:
-                tmpSet = yaml.safe_load(infile)
-                for el in tmpSet:
-                    Wolke.Settings[el] = tmpSet[el]
-                if not 'Version' in tmpSet:
-                    Wolke.Settings['Version'] = 0
+            #Settings migration code goes here, dont forget to increment the base version in Wolke.py too
+            if Wolke.Settings['Version'] == 0:
+                if not 'CharakterBeschreibungExt' in Wolke.Settings['Deaktivierte-Plugins']:
+                    Wolke.Settings['Deaktivierte-Plugins'].append('CharakterBeschreibungExt')
+                Wolke.Settings['Version'] += 1
+            if Wolke.Settings['Version'] == 1:
+                if Wolke.Settings['Bogen'] == "Standard Ilaris-Charakterbogen" or Wolke.Settings['Bogen'] == "Frag immer nach":
+                    Wolke.Settings['Bogen'] = "Standard Charakterbogen"
+                elif Wolke.Settings['Bogen'] == "Die lange Version von Gatsu":
+                    Wolke.Settings['Bogen'] = "Langer Charakterbogen"
+                Wolke.Settings['Font'] = "Crimson Pro"
+                Wolke.Settings['FontSize'] = 9
+                Wolke.Settings['Theme'] = "Ilaris"
+                Wolke.Settings['Version'] += 1
 
-                #Settings migration code goes here, dont forget to increment the base version in Wolke.py too
-                if Wolke.Settings['Version'] == 0:
-                    if not 'CharakterBeschreibungExt' in Wolke.Settings['Deaktivierte-Plugins']:
-                        Wolke.Settings['Deaktivierte-Plugins'].append('CharakterBeschreibungExt')
-                    Wolke.Settings['Version'] += 1
-                if Wolke.Settings['Version'] == 1:
-                    if Wolke.Settings['Bogen'] == "Standard Ilaris-Charakterbogen" or Wolke.Settings['Bogen'] == "Frag immer nach":
-                        Wolke.Settings['Bogen'] = "Standard Charakterbogen"
-                    elif Wolke.Settings['Bogen'] == "Die lange Version von Gatsu":
-                        Wolke.Settings['Bogen'] = "Langer Charakterbogen"
-                    Wolke.Settings['Font'] = "Crimson Pro"
-                    Wolke.Settings['FontSize'] = 9
-                    Wolke.Settings['Theme'] = "Ilaris"
-                    Wolke.Settings['Version'] += 1
+    @staticmethod
+    def loadPostQt():
+        #Here we are allowed to use Qt for messageboxes etc.
+        EinstellungenWrapper.createSettingsFolder()
 
         #Init defaults
         folders = [('Pfad-Chars', 'Charaktere'),
@@ -286,10 +293,22 @@ class EinstellungenWrapper():
                    ('Pfad-Plugins', 'Plugins'),
                    ('Pfad-Charakterbögen', 'Charakterbögen')]
 
+        missingFolders = []
         for configName, folderName in folders:
+            if Wolke.Settings[configName] and not os.path.isdir(Wolke.Settings[configName]):
+                missingFolders.append(folderName)
+
             if not Wolke.Settings[configName] or not os.path.isdir(Wolke.Settings[configName]):
                 Wolke.Settings[configName] = os.path.join(PathHelper.getDefaultUserFolder(), folderName)
                 EinstellungenWrapper.createUserFolder(Wolke.Settings[configName])
+
+        if len(missingFolders) > 0:
+            messagebox = QtWidgets.QMessageBox()
+            messagebox.setWindowTitle("Fehlende Ordner")
+            messagebox.setText("Die folgenden Ordner existieren nicht mehr und wurden auf den Standardpfad zurückgesetzt: " + ", ".join(missingFolders))
+            messagebox.setIcon(QtWidgets.QMessageBox.Warning)
+            messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            messagebox.exec()
 
         #Init charsheets
         for filePath in EinstellungenWrapper.getCharakterbögen():
