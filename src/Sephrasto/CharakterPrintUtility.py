@@ -130,16 +130,16 @@ class CharakterPrintUtility:
                     if tt.groupFert.probenwertTalent < fert.probenwertTalent:
                         tt.groupFert = fert
 
-            res = re.findall('Vorbereitungszeit:(.*?)\n', talent.text, re.UNICODE)
+            res = re.findall('Vorbereitungszeit:(.*?)(?:$|\n)', talent.text, re.UNICODE)
             if len(res) == 1:
                 tt.vo = res[0].strip()
-            res = re.findall('Reichweite:(.*?)\n', talent.text, re.UNICODE)
+            res = re.findall('Reichweite:(.*?)(?:$|\n)', talent.text, re.UNICODE)
             if len(res) == 1:
                 tt.re = res[0].strip()
-            res = re.findall('Wirkungsdauer:(.*?)\n', talent.text, re.UNICODE)
+            res = re.findall('Wirkungsdauer:(.*?)(?:$|\n)', talent.text, re.UNICODE)
             if len(res) == 1:
                 tt.wd = res[0].strip()
-            res = re.findall('Kosten:(.*?)\n', talent.text, re.UNICODE)
+            res = re.findall('Kosten:(.*?)(?:$|\n)', talent.text, re.UNICODE)
             if len(res) == 1:
                 tt.ko = res[0].strip()
 
