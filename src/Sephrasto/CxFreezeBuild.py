@@ -35,7 +35,7 @@ print("Running cxfreeze")
 build_exe_options = {
     "build_exe" : build_path,
     "includes" : ["multiprocessing"],
-    "excludes" : ["tkinter", "distutils", "html", "unittest", "pydoc", "bz2", "pyexpat", "lzma"],
+    "excludes" : ["tkinter", "distutils", "html", "unittest", "pydoc", "bz2", "pyexpat", "lzma", "PySide6.QtNetwork"],
     "optimize" : 2,
     "zip_include_packages" : "*",
     "zip_exclude_packages" : "",
@@ -56,16 +56,7 @@ setup(  name = 'Sephrasto',
 # Remove unneeded files
 print("Removing unneeded files")
 removeFiles = [
-    # TODO: these entries can be removed once newer cx_freeze versions dont create these superfluous files anymore
-    os.path.join("lib", "PySide6", "Qt6Network.dll"),
-    os.path.join("lib", "PySide6", "Qt6Network.pyd"),
-    os.path.join("lib", "PySide6", "plugins", "imageformats", "Qt6Core.dll"),
-    os.path.join("lib", "PySide6", "plugins", "imageformats", "Qt6Gui.dll"),
-    os.path.join("lib", "PySide6", "plugins", "platforms", "Qt6Core.dll"),
-    os.path.join("lib", "PySide6", "plugins", "platforms", "Qt6Gui.dll"),
-    os.path.join("lib", "PySide6", "plugins", "styles", "Qt6Core.dll"),
-    os.path.join("lib", "PySide6", "plugins", "styles", "Qt6Gui.dll"),
-    os.path.join("lib", "PySide6", "plugins", "styles", "Qt6Widgets.dll"),
+    # none atm
 ]
 
 for filename in removeFiles:
