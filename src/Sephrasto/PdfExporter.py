@@ -447,19 +447,10 @@ class PdfExporter(object):
                     sg = "+"
                 fields[base + 'TPm'] = "-" if keinSchaden else str(waffenwerte.TPW6) + "W6" + sg + str(waffenwerte.TPPlus)
 
-        # Fill 20 Cells of Ausrüstung. Have to shift around because sephrasto ui and pdf form are transposed.
+        # Fill 20 Cells of Ausrüstung
         count = 1
-        countl = 1
-        countr = 11
         for el in Wolke.Char.ausrüstung:
-            if count % 2 != 0:
-                index = countl
-                countl += 1
-            else:
-                index = countr
-                countr += 1
-
-            fields['Ausruestung' + str(index)] = el
+            fields['Ausruestung' + str(count)] = el
             if count >= 20:
                 break
             count += 1
