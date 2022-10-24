@@ -31,13 +31,8 @@ import copy
 class PdfExporter(object):
     def __init__(self):
         self.CharakterBogen = None
-        self.ExtraPage = os.path.join("Data", "ExtraSpells.pdf")
-        self.PrintRules = True
-        self.RulesPage = os.path.join("Data", "Regeln.pdf")
-        self.RulesBackground = os.path.join("Data", "Hintergrund.pdf")
         self.Energie = ""
         self.CheatsheetGenerator = CheatsheetGenerator()
-        self.MergePerLineCount = 3
 
     def setCharakterbogen(self, charakterbogen):
         self.CharakterBogen = charakterbogen
@@ -64,41 +59,40 @@ class PdfExporter(object):
         progressCallback(10)
 
         # PDF erstellen - Felder bleiben bearbeitbar
-        handle, out_file = tempfile.mkstemp()
-        os.close(handle)
-        allPages = [out_file]
-        PdfSerializer.write_pdf(self.CharakterBogen.filePath, fields, out_file, False)
+        flatten = Wolke.Char.formularEditierbarkeit == 2
+        allPages = [PdfSerializer.write_pdf(self.CharakterBogen.filePath, fields, None, flatten)]
         progressCallback(20)
 
         # Extraseiten
         extraPageAdded = False
-        if len(extraVorteile) > 0 or len(extraUeber) > 0 or len(extraTalente):
-            if not os.path.isfile(self.ExtraPage):
-                raise Exception() 
-            extraPageAdded = True
+        if self.CharakterBogen.extraÜberSeiten:
+            extraPage = None
+            if len(extraVorteile) > 0 or len(extraUeber) > 0 or len(extraTalente):
+                extraPageAdded = True
+                extraPage = PdfSerializer.shrink(self.CharakterBogen.filePath, self.CharakterBogen.überSeite, self.CharakterBogen.überSeite)
 
-        pageCount = 0
-        while len(extraVorteile) > 0 or len(extraUeber) > 0 or len(extraTalente) > 0:
-            pageCount += 1
-            fieldsNew = {}
-            self.createExtra(fieldsNew, extraVorteile, extraUeber, extraTalente)
-            fieldsNew = EventBus.applyFilter("pdf_export_extrapage", fieldsNew)
-            handle, out_file = tempfile.mkstemp()
-            os.close(handle)
-            allPages.append(out_file)
-            PdfSerializer.write_pdf(self.ExtraPage, fieldsNew, out_file, False)
-            progressCallback(20 + min(35, 20 + 3*pageCount))
+            pageCount = 0
+            while len(extraVorteile) > 0 or len(extraUeber) > 0 or len(extraTalente) > 0:
+                pageCount += 1
+                fieldsNew = {}
+                self.createExtra(fieldsNew, extraVorteile, extraUeber, extraTalente)
+                fieldsNew = EventBus.applyFilter("pdf_export_extrapage", fieldsNew)
+                allPages.append(PdfSerializer.write_pdf(extraPage, fieldsNew, None, flatten))
+                
+                progressCallback(20 + min(35, 20 + 3*pageCount))
+
+            if extraPage:
+                os.remove(extraPage)
         progressCallback(35)
 
-        #Entferne Seite 3, falls keine übernatürlichen Fertigkeiten
-        if not ('Uebervorteil1' in fields) and \
+        #Entferne die Seite für Übernatürliches, falls keine übernatürlichen Fertigkeiten vorhanden sind
+        if self.CharakterBogen.überSeite > 0 and \
+           not ('Uebervorteil1' in fields) and \
            not ('Ueberfer1NA' in fields) and \
            not ('Uebertal1NA' in fields) and not extraPageAdded:
-            handle, out_file = tempfile.mkstemp()
-            os.close(handle)
-            PdfSerializer.shrink(allPages[0], 1, self.CharakterBogen.seitenProfan, out_file)
+            shrinked = PdfSerializer.shrink(allPages[0], 1, self.CharakterBogen.überSeite-1)
             os.remove(allPages[0])
-            allPages[0] = out_file
+            allPages[0] = shrinked
         progressCallback(40)
 
         if printRules:
@@ -118,28 +112,25 @@ class PdfExporter(object):
                     str, startIndex = self.CheatsheetGenerator.writeRules(rules, ruleLineCounts, startIndex)
                     rulesFields["Regeln2"] = str
 
-                handle, out_file = tempfile.mkstemp()
-                os.close(handle)
-                PdfSerializer.write_pdf(self.RulesPage, rulesFields, out_file, False)
-                rulePages.append(out_file)
+                flatten = Wolke.Char.formularEditierbarkeit == 1 or Wolke.Char.formularEditierbarkeit == 2
+                rulePages.append(PdfSerializer.write_pdf(self.CharakterBogen.regelanhangPfad, rulesFields, None, flatten))
                 progressCallback(min(70, 40 + 3*pageCount))
 
-            # Add the background image separately with a pdftk "background" call - this way it will be shared by all pages to decrease file size
+            
             if len(rulePages) > 0:
-                handle, concatPath = tempfile.mkstemp()
-                os.close(handle)
-                PdfSerializer.concat(rulePages, concatPath)
-                handle, out_file = tempfile.mkstemp()
-                os.close(handle)
-                PdfSerializer.check_output_silent(['pdftk', concatPath, 'background', self.RulesBackground, 'output', out_file, 'need_appearances'])
-                allPages.append(out_file)
-                os.remove(concatPath)
-                for page in rulePages:
-                    os.remove(page)
+                # Add the background image separately with a pdftk "background" call - this way it will be shared by all pages to decrease file size
+                if self.CharakterBogen.regelanhangHintergrundPfad:
+                    concatPath = PdfSerializer.concat(rulePages)
+                    allPages.append(PdfSerializer.addBackground(concatPath, self.CharakterBogen.regelanhangHintergrundPfad))
+                    os.remove(concatPath)
+                    for page in rulePages:
+                        os.remove(page)
+                else:
+                    allPages += rulePages
 
         progressCallback(70)
 
-        allPages = self.concatImage(allPages)
+        allPages = self.stampImage(allPages)
         allPages = EventBus.applyFilter("pdf_concat", allPages)
         progressCallback(75)
 
@@ -149,6 +140,8 @@ class PdfExporter(object):
         for page in allPages:
             os.remove(page)
         progressCallback(95)
+
+        PdfSerializer.squeeze(filename, filename)
 
         EventBus.doAction("pdf_geschrieben", { "filename" : filename })
         progressCallback(100)
@@ -211,6 +204,8 @@ class PdfExporter(object):
         if "Kampfreflexe" in Wolke.Char.vorteile:
             fields['ModKampfreflexe'] = checked
 
+        fields['DH'] = Wolke.Char.dh
+
         if "Gefäß der Sterne" in Wolke.Char.vorteile:
             fields['ModGefaess'] = checked
 
@@ -220,13 +215,21 @@ class PdfExporter(object):
             fields['AstralenergieBasis'] = Wolke.Char.aspBasis
             fields['Astralenergie'] = Wolke.Char.asp.wert + Wolke.Char.aspBasis + Wolke.Char.aspMod
             fields['ModAstralenergie'] = Wolke.Char.asp.wert
+        else:
+            fields['AstralenergieBasis'] = "-"
+            fields['Astralenergie'] = "-"
+            fields['ModAstralenergie'] = "-"
 
         if isGeweiht:
             fields['KarmaenergieBasis'] = Wolke.Char.kapBasis
             fields['Karmaenergie'] = Wolke.Char.kap.wert + Wolke.Char.kapBasis + Wolke.Char.kapMod
             fields['ModKarmaenergie'] = Wolke.Char.kap.wert
+        else:
+            fields['KarmaenergieBasis'] = "-"
+            fields['Karmaenergie'] = "-"
+            fields['ModKarmaenergie'] = "-"
 
-        self.Energie = ""
+        self.Energie = "-"
         if isZauberer:
             self.Energie = str(Wolke.Char.asp.wert + Wolke.Char.aspBasis + Wolke.Char.aspMod)
             if isGeweiht:
@@ -278,29 +281,34 @@ class PdfExporter(object):
             else:
                 fields[field] += " | " + vorteileKampf[i]
 
-        ueberLen = min(self.CharakterBogen.maxÜberVorteile * self.MergePerLineCount, len(vorteileUeber))
-        cellIndex = PdfExporter.getCellIndex(ueberLen, self.CharakterBogen.maxÜberVorteile)
-        for i in range(0, ueberLen):
-            field = 'Uebervorteil' + str(cellIndex[i]+1)
-            if not field in fields:
-                fields[field] = vorteileUeber[i]
-            else:
-                fields[field] += " | " + vorteileUeber[i]
+        if self.CharakterBogen.maxÜberVorteile > 0:
+            ueberLen = min(self.CharakterBogen.maxÜberVorteile * self.CharakterBogen.maxÜberVorteileProFeld, len(vorteileUeber))
+            cellIndex = PdfExporter.getCellIndex(ueberLen, self.CharakterBogen.maxÜberVorteile)
+            for i in range(0, ueberLen):
+                field = 'Uebervorteil' + str(cellIndex[i]+1)
+                if not field in fields:
+                    fields[field] = vorteileUeber[i]
+                else:
+                    fields[field] += " | " + vorteileUeber[i]
 
-        del vorteileUeber[:ueberLen]
+            del vorteileUeber[:ueberLen]
 
     def pdfDritterBlock(self, fields):
         logging.debug("PDF Block 3")
         vorteile = CharakterPrintUtility.getVorteile(Wolke.Char)
         (vorteileAllgemein, vorteileKampf, vorteileUeber) = CharakterPrintUtility.groupVorteile(Wolke.Char, vorteile, link = True)
+        if self.CharakterBogen.überVorteileZuKampf:
+            vorteileKampf.extend(vorteileUeber)
+            vorteileUeber = []
+
 
         # Move vorteile to the next category if there is overflow
-        maxVort = self.CharakterBogen.maxVorteile * self.MergePerLineCount
+        maxVort = self.CharakterBogen.maxVorteile * self.CharakterBogen.maxVorteileProFeld
         if len(vorteileAllgemein) > maxVort:
             vorteileKampf.extend(vorteileAllgemein[maxVort:])
             del vorteileAllgemein[maxVort:]
 
-        maxVort = self.CharakterBogen.maxKampfVorteile * self.MergePerLineCount
+        maxVort = self.CharakterBogen.maxKampfVorteile * self.CharakterBogen.maxKampfVorteileProFeld
         if len(vorteileKampf) > maxVort:
             vorteileUeber.extend(vorteileKampf[maxVort:])
             del vorteileKampf[maxVort:]
@@ -310,17 +318,6 @@ class PdfExporter(object):
         return vorteileUeber
 
     def printFertigkeiten(self, fields, fertigkeitenNames):
-        while len(fertigkeitenNames) > self.CharakterBogen.maxFertigkeiten:
-            niedrigste = None
-            for el in fertigkeitenNames:
-                if el not in Wolke.Char.fertigkeiten:
-                    continue
-                fertigkeit = Wolke.Char.fertigkeiten[el]
-                if niedrigste == None or fertigkeit.probenwertTalent < niedrigste.probenwertTalent:
-                    niedrigste = fertigkeit
-            fertigkeitenNames.remove(niedrigste.name)
-            logging.warning("Der Charakter zu viele Fertigkeiten für den Charakterbogen. Ignoriere Fertigkeit mit niedrigstem PWT: " + niedrigste.name)
-
         count = 1
         höchsteKampffertigkeit = Wolke.Char.getHöchsteKampffertigkeit()
         for el in fertigkeitenNames:
@@ -351,21 +348,49 @@ class PdfExporter(object):
             count += 1
         fertigkeitenNames.clear()
 
+    def countMaxFertigkeiten(self):
+        if self.CharakterBogen.überFertigkeitenZuProfan and len(Wolke.Char.übernatürlicheFertigkeiten) > 0:
+            return self.CharakterBogen.maxFertigkeiten - min(len([fert for fert in Wolke.Char.übernatürlicheFertigkeiten.values() if fert.addToPDF]), self.CharakterBogen.maxÜberFertigkeiten)
+        else:
+            return self.CharakterBogen.maxFertigkeiten
+
     def pdfVierterBlock(self, fields):
         logging.debug("PDF Block 4")
         # Freie Fertigkeiten
-        freieFerts = CharakterPrintUtility.getFreieFertigkeiten(Wolke.Char)
-        count = 1
-        for fert in freieFerts:
-            if ('Frei' + str(count)) in fields:
-                fields['Frei' + str(count)] += ", " + fert
+        freieFertsTmp = copy.copy(Wolke.Char.freieFertigkeiten)
+
+        # Usually we want to keep the same order as in Sephrasto, however,
+        # compact the entries if there are too many  for the character sheet
+        if len(freieFertsTmp) > self.CharakterBogen.maxFreie:
+            freieFertsTmp = [f for f in freieFertsTmp if f.name]
+
+        while len(freieFertsTmp) > self.CharakterBogen.maxFreie * self.CharakterBogen.maxFreieProFeld:
+            niedrigste = None
+            for el in freieFertsTmp:
+                if niedrigste == None or el.wert < niedrigste.wert:
+                    niedrigste = el
+            freieFertsTmp.remove(niedrigste)
+            logging.warning("Der Charakter hat zu viele Freie Fertigkeiten für den Charakterbogen. Ignoriere Fertigkeit mit niedrigstem Wert: " + niedrigste.name)
+
+        freieFerts = CharakterPrintUtility.getFreieFertigkeitenNames(freieFertsTmp)
+        cellIndex = PdfExporter.getCellIndex(len(freieFerts), self.CharakterBogen.maxFreie)
+        for i in range(0, len(freieFerts)):
+            field = 'Frei' + str(cellIndex[i]+1)
+            if not field in fields:
+                fields[field] = freieFerts[i]
             else:
-                fields['Frei' + str(count)] = fert
-            count += 1
-            if count > self.CharakterBogen.maxFreie:
-                count = 1
+                fields[field] += " | " + freieFerts[i]
 
         fertigkeiten = CharakterPrintUtility.getFertigkeiten(Wolke.Char)
+
+        while len(fertigkeiten) > self.countMaxFertigkeiten():
+            niedrigste = None
+            for el in fertigkeiten:
+                fertigkeit = Wolke.Char.fertigkeiten[el]
+                if niedrigste == None or fertigkeit.probenwertTalent < niedrigste.probenwertTalent:
+                    niedrigste = fertigkeit
+            fertigkeiten.remove(niedrigste.name)
+            logging.warning("Der Charakter hat zu viele Fertigkeiten für den Charakterbogen. Ignoriere Fertigkeit mit niedrigstem PWT: " + niedrigste.name)
         self.printFertigkeiten(fields, fertigkeiten)
 
     def pdfFünfterBlock(self, fields):
@@ -455,21 +480,24 @@ class PdfExporter(object):
                 break
             count += 1
 
-    def printÜberFertigkeiten(self, fields, überFertigkeiten):
+    def printÜberFertigkeiten(self, fields, überFertigkeiten, fieldBase = 'Ueberfer', fieldStartIndex = 0):
         for i in range(0, min(self.CharakterBogen.maxÜberFertigkeiten, len(überFertigkeiten))):
             fe = Wolke.Char.übernatürlicheFertigkeiten[überFertigkeiten[i]]
-            base = 'Ueberfer' + str(i + 1)
+            base = fieldBase + str(i + 1 + fieldStartIndex)
             fields[base + 'NA'] = fe.name
             fields[base + 'FA'] = fe.steigerungsfaktor
             fields[base + 'AT'] = fe.attribute[0] + '/' + \
                 fe.attribute[1] + '/' + fe.attribute[2]
             fields[base + 'FW'] = fe.wert
             fields[base + 'PW'] = fe.probenwertTalent + fe.basiswertMod
+            fields[base + 'PWT'] = "-"
 
             if fe.basiswertMod == 0:
                 fields[base + 'BA'] = fe.basiswert
             else:
                 fields[base + 'BA'] = str(fe.basiswert + fe.basiswertMod) + "*"
+
+            fields[base + "TA"] = ", ".join([t.anzeigeName for t in CharakterPrintUtility.getTalente(Wolke.Char, fe, True)])
 
         del überFertigkeiten[:min(self.CharakterBogen.maxÜberFertigkeiten, len(überFertigkeiten))]
 
@@ -497,9 +525,31 @@ class PdfExporter(object):
         logging.debug("PDF Block 6")
 
         überFertigkeiten = CharakterPrintUtility.getÜberFertigkeiten(Wolke.Char)
+        if not self.CharakterBogen.extraÜberSeiten:
+            while len(überFertigkeiten) > self.CharakterBogen.maxÜberFertigkeiten:
+                niedrigste = None
+                for el in überFertigkeiten:
+                    fertigkeit = Wolke.Char.übernatürlicheFertigkeiten[el]
+                    if niedrigste == None or fertigkeit.probenwertTalent < niedrigste.probenwertTalent:
+                        niedrigste = fertigkeit
+                überFertigkeiten.remove(niedrigste.name)
+                logging.warning("Der Charakter hat zu viele übernatürliche Fertigkeiten für den Charakterbogen. Ignoriere Fertigkeit mit niedrigstem PWT: " + niedrigste.name)
+
+        if self.CharakterBogen.überFertigkeitenZuProfan:
+            self.printÜberFertigkeiten(fields, überFertigkeiten, "Fertigkeit", self.countMaxFertigkeiten())
+            return ([], [])
         self.printÜberFertigkeiten(fields, überFertigkeiten)
 
         überTalenteTmp = CharakterPrintUtility.getÜberTalente(Wolke.Char)
+        if not self.CharakterBogen.extraÜberSeiten:
+            while len(überTalenteTmp) > self.CharakterBogen.maxÜberTalente:
+                niedrigste = None
+                for el in überTalenteTmp:
+                    if niedrigste == None or int(el.pw) < int(niedrigste.pw):
+                        niedrigste = el
+                überTalenteTmp.remove(niedrigste)
+                logging.warning("Der Charakter hat zu viele übernatürliche Talente für den Charakterbogen. Ignoriere Talent mit niedrigstem PWT: " + niedrigste.na)
+
         überTalente = []
 
         # Insert fertigkeit names into talente
@@ -554,7 +604,13 @@ class PdfExporter(object):
         fields['Aussehen4'] = Wolke.Char.aussehen4
         fields['Aussehen5'] = Wolke.Char.aussehen5
         fields['Aussehen6'] = Wolke.Char.aussehen6
-        
+        fields['Aussehen'] = ((Wolke.Char.aussehen1 + "\n") if Wolke.Char.aussehen1 else "") + \
+            ((Wolke.Char.aussehen2 + "\n") if Wolke.Char.aussehen2 else "") + \
+            ((Wolke.Char.aussehen3 + "\n") if Wolke.Char.aussehen3 else "") + \
+            ((Wolke.Char.aussehen4 + "\n") if Wolke.Char.aussehen4 else "") + \
+            ((Wolke.Char.aussehen5 + "\n") if Wolke.Char.aussehen5 else "") + \
+            ((Wolke.Char.aussehen6 + "\n") if Wolke.Char.aussehen6 else "")
+        fields['Aussehen'] = fields['Aussehen'].rstrip()
         fields['Hintergrund0'] = Wolke.Char.hintergrund0
         fields['Hintergrund1'] = Wolke.Char.hintergrund1
         fields['Hintergrund2'] = Wolke.Char.hintergrund2
@@ -564,6 +620,18 @@ class PdfExporter(object):
         fields['Hintergrund6'] = Wolke.Char.hintergrund6
         fields['Hintergrund7'] = Wolke.Char.hintergrund7
         fields['Hintergrund8'] = Wolke.Char.hintergrund8
+        fields['Hintergrund'] = ((Wolke.Char.hintergrund0 + "\n") if Wolke.Char.hintergrund0 else "") + \
+            ((Wolke.Char.hintergrund1 + "\n") if Wolke.Char.hintergrund1 else "") + \
+            ((Wolke.Char.hintergrund2 + "\n") if Wolke.Char.hintergrund2 else "") + \
+            ((Wolke.Char.hintergrund3 + "\n") if Wolke.Char.hintergrund3 else "") + \
+            ((Wolke.Char.hintergrund4 + "\n") if Wolke.Char.hintergrund4 else "") + \
+            ((Wolke.Char.hintergrund5 + "\n") if Wolke.Char.hintergrund5 else "") + \
+            ((Wolke.Char.hintergrund6 + "\n") if Wolke.Char.hintergrund6 else "") + \
+            ((Wolke.Char.hintergrund7 + "\n") if Wolke.Char.hintergrund7 else "") + \
+            ((Wolke.Char.hintergrund8 + "\n") if Wolke.Char.hintergrund8 else "")
+        fields['Hintergrund'] = fields['Hintergrund'].rstrip()
+
+        fields['Notiz'] = Wolke.Char.notiz or ""
 
     def createExtra(self, fields, überVorteile, überFertigkeiten, überTalente):
         self.printVorteile(fields, [], [], überVorteile)
@@ -571,8 +639,8 @@ class PdfExporter(object):
         self.printÜberTalente(fields, überTalente)
         fields['EN'] = self.Energie
 
-    def concatImage(self, pages):
-        if not self.CharakterBogen.bild or not Wolke.Char.bild:
+    def stampImage(self, pages):
+        if len(self.CharakterBogen.bild) == 0 or not Wolke.Char.bild:
             return pages
 
         if platform.system() != 'Windows' and which("convert") is None:
@@ -584,51 +652,47 @@ class PdfExporter(object):
             messagebox.exec()
             return pages
 
-        # The approach is to convert the image to pdf and stamp it over the char sheet with pdftk
-
-        handle, image_file = tempfile.mkstemp()
-        os.close(handle)
-        characterImage = QtGui.QPixmap()
-        characterImage.loadFromData(Wolke.Char.bild)
-        characterImage.save(image_file, "JPG")
-
-        handle, image_pdf = tempfile.mkstemp()
-        os.close(handle)
-        os.remove(image_pdf) # just using it to get a path
-        image_pdf += ".pdf"
-
-        handle, page1_pdf = tempfile.mkstemp()
-        os.close(handle)
-
-        handle, page1stamped_pdf = tempfile.mkstemp()
-        os.close(handle)
-
-        handle, pageRest_pdf = tempfile.mkstemp()
-        os.close(handle)
-
-        # pdftk stamps over every single page. We only want to stamp the first, so we need to split the char sheet first
-        PdfSerializer.check_output_silent(['pdftk', pages[0], "cat", "1", "output", page1_pdf])
-        PdfSerializer.check_output_silent(['pdftk', pages[0], "cat", "2-end", "output", pageRest_pdf])
-
-        # Setting page size to a2 so stamping has to reduce size - this way we can use a higher image resolution.
-        # The numbers after the page size are offsets from bottom and right to fit the image in the right spot
-        # Density (dpi) has to be fixed, otherwise page offsets break
-        # gravity + extent adds letterboxes to the image if needed, this keeps the image centered and allows to use fixed page offsets
-        convertPath = "convert"
-        if platform.system() == 'Windows':
-            convertPath = "Bin\\ImageMagick\\convert"
-
         try:
-            PdfSerializer.check_output_silent([convertPath, image_file, "-resize", "260x340", "-gravity", "Center", "-extent", "260x340", "-density", "96",
-                                     "-page", f"a2+{self.CharakterBogen.bildOffset[0]}+{self.CharakterBogen.bildOffset[1]}", image_pdf])
-            PdfSerializer.check_output_silent(['pdftk', page1_pdf, 'stamp', image_pdf, 'output', page1stamped_pdf, 'need_appearances'])
+            empty = PdfSerializer.createEmptyPage()
 
-            os.remove(pages[0])
+            # Convert the image to pdf
+            handle, image_file = tempfile.mkstemp()
+            os.close(handle)
+            characterImage = QtGui.QPixmap()
+            characterImage.loadFromData(Wolke.Char.bild)
+            characterImage.save(image_file, "JPG")
+
+            # Iterate through the bild array of the character sheet and create a page with the image for each entry
+            stampPages = []
+            for i in range(len(self.CharakterBogen.bild)):
+                if len(self.CharakterBogen.bild[i]) != 3:
+                    stampPages.append(empty)
+                    continue
+                bildGröße = self.CharakterBogen.bild[i][0]
+                bildOffset = self.CharakterBogen.bild[i][1:]
+                # Setting page size to a2 so stamping has to reduce size - this way we can use a higher image resolution.
+                # The numbers after the page size are offsets from bottom and right to fit the image in the right spot
+                # Density (dpi) has to be fixed, otherwise page offsets break
+                # gravity + extent adds letterboxes to the image if needed, this keeps the image centered and allows to use fixed page offsets
+                image_pdf = PdfSerializer.convertImageToPDF(image_file, [math.ceil(260 * bildGröße), math.ceil(340 * bildGröße)], "a2", bildOffset)
+                stampPages.append(image_pdf)
+
             os.remove(image_file)
-            os.remove(image_pdf)
-            os.remove(page1_pdf)
-            pages[0] = page1stamped_pdf
-            pages.insert(1, pageRest_pdf)
+
+            # pdftk repeats the last page of the stamp pdf if its page count is lower - make sure its empty
+            stampPages.append(empty)
+            
+            # make a single pdf file out of the stamp pages
+            stampPdf = PdfSerializer.concat(stampPages)
+            for page in stampPages:
+                if os.path.isfile(page):
+                    os.remove(page)
+
+            # overlay each page of the stamp pdf over the corresponding page of the character sheet
+            result = PdfSerializer.multistamp(pages[0], stampPdf)
+            os.remove(pages[0])
+            os.remove(stampPdf)
+            pages[0] = result
         except Exception as e:
             messagebox = QtWidgets.QMessageBox()
             messagebox.setWindowTitle("Kann Charakterbild nicht einfügen")
@@ -641,6 +705,5 @@ class PdfExporter(object):
             messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             messagebox.exec()
             return pages
-
 
         return pages

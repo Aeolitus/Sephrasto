@@ -114,6 +114,7 @@
     <Compile Include="PluginLoader.py" />
     <Compile Include="CheatsheetGenerator.py" />
     <Compile Include="PathHelper.py" />
+    <Compile Include="pycpdflib.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CharakterAssistent\" />

@@ -4,6 +4,7 @@ import Version
 import os
 import shutil
 from distutils.dir_util import copy_tree
+import platform
 
 print("Cleaning build folder")
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -43,7 +44,8 @@ build_exe_options = {
 }
 
 base = None
-if sys.platform == "win32":
+system = platform.system()
+if system == "Windows":
     base = "Win32GUI"
 
 setup(  name = 'Sephrasto',
@@ -83,10 +85,9 @@ includeFiles = {
     "icon_multi.ico" : build_path,
 }
 
-if sys.platform == "win32":
-    includeFiles.update({
-        "Bin/ImageMagick" : os.path.join(bin_path, "ImageMagick")
-    })
+includeFiles.update({
+    "Bin/" + system : os.path.join(bin_path, system)
+})
 
 # Now do the actual copying
 for file,targetDir in includeFiles.items():

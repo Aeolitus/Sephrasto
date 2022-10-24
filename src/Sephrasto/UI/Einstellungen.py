@@ -45,7 +45,7 @@ class Ui_SettingsWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 547, 767))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 605, 800))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(20, 20, 20, 20)
@@ -57,12 +57,43 @@ class Ui_SettingsWindow(object):
         self.groupBox.setFlat(False)
         self.gridLayout_3 = QGridLayout(self.groupBox)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.label = QLabel(self.groupBox)
+        self.label.setObjectName(u"label")
+        font1 = QFont()
+        font1.setItalic(False)
+        self.label.setFont(font1)
+
+        self.gridLayout_3.addWidget(self.label, 4, 0, 1, 1)
+
+        self.comboBogen = QComboBox(self.groupBox)
+        self.comboBogen.setObjectName(u"comboBogen")
+        self.comboBogen.setMinimumSize(QSize(240, 0))
+
+        self.gridLayout_3.addWidget(self.comboBogen, 4, 2, 1, 1)
+
+        self.label_6 = QLabel(self.groupBox)
+        self.label_6.setObjectName(u"label_6")
+        self.label_6.setFont(font1)
+
+        self.gridLayout_3.addWidget(self.label_6, 9, 0, 1, 1)
+
         self.comboRegelbasis = QComboBox(self.groupBox)
         self.comboRegelbasis.addItem("")
         self.comboRegelbasis.setObjectName(u"comboRegelbasis")
         self.comboRegelbasis.setMinimumSize(QSize(240, 0))
 
         self.gridLayout_3.addWidget(self.comboRegelbasis, 2, 2, 1, 1)
+
+        self.label_16 = QLabel(self.groupBox)
+        self.label_16.setObjectName(u"label_16")
+
+        self.gridLayout_3.addWidget(self.label_16, 8, 0, 1, 1)
+
+        self.checkWizard = QCheckBox(self.groupBox)
+        self.checkWizard.setObjectName(u"checkWizard")
+        self.checkWizard.setChecked(True)
+
+        self.gridLayout_3.addWidget(self.checkWizard, 1, 2, 1, 1)
 
         self.label_4 = QLabel(self.groupBox)
         self.label_4.setObjectName(u"label_4")
@@ -78,19 +109,14 @@ class Ui_SettingsWindow(object):
 
         self.gridLayout_3.addWidget(self.comboFontSize, 9, 2, 1, 1)
 
-        self.label = QLabel(self.groupBox)
-        self.label.setObjectName(u"label")
-        font1 = QFont()
-        font1.setItalic(False)
-        self.label.setFont(font1)
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_3.addWidget(self.label, 4, 0, 1, 1)
+        self.gridLayout_3.addItem(self.horizontalSpacer_4, 2, 1, 1, 1)
 
-        self.comboBogen = QComboBox(self.groupBox)
-        self.comboBogen.setObjectName(u"comboBogen")
-        self.comboBogen.setMinimumSize(QSize(240, 0))
+        self.label_17 = QLabel(self.groupBox)
+        self.label_17.setObjectName(u"label_17")
 
-        self.gridLayout_3.addWidget(self.comboBogen, 4, 2, 1, 1)
+        self.gridLayout_3.addWidget(self.label_17, 1, 0, 1, 1)
 
         self.checkCheatsheet = QCheckBox(self.groupBox)
         self.checkCheatsheet.setObjectName(u"checkCheatsheet")
@@ -98,31 +124,18 @@ class Ui_SettingsWindow(object):
 
         self.gridLayout_3.addWidget(self.checkCheatsheet, 8, 2, 1, 1)
 
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.label_19 = QLabel(self.groupBox)
+        self.label_19.setObjectName(u"label_19")
 
-        self.gridLayout_3.addItem(self.horizontalSpacer_4, 2, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.label_19, 10, 0, 1, 1)
 
-        self.label_6 = QLabel(self.groupBox)
-        self.label_6.setObjectName(u"label_6")
-        self.label_6.setFont(font1)
+        self.comboFormular = QComboBox(self.groupBox)
+        self.comboFormular.addItem("")
+        self.comboFormular.addItem("")
+        self.comboFormular.addItem("")
+        self.comboFormular.setObjectName(u"comboFormular")
 
-        self.gridLayout_3.addWidget(self.label_6, 9, 0, 1, 1)
-
-        self.label_16 = QLabel(self.groupBox)
-        self.label_16.setObjectName(u"label_16")
-
-        self.gridLayout_3.addWidget(self.label_16, 8, 0, 1, 1)
-
-        self.label_17 = QLabel(self.groupBox)
-        self.label_17.setObjectName(u"label_17")
-
-        self.gridLayout_3.addWidget(self.label_17, 1, 0, 1, 1)
-
-        self.checkWizard = QCheckBox(self.groupBox)
-        self.checkWizard.setObjectName(u"checkWizard")
-        self.checkWizard.setChecked(True)
-
-        self.gridLayout_3.addWidget(self.checkWizard, 1, 2, 1, 1)
+        self.gridLayout_3.addWidget(self.comboFormular, 10, 2, 1, 1)
 
 
         self.verticalLayout.addWidget(self.groupBox)
@@ -434,31 +447,39 @@ class Ui_SettingsWindow(object):
     def retranslateUi(self, SettingsWindow):
         SettingsWindow.setWindowTitle(QCoreApplication.translate("SettingsWindow", u"Sephrasto - Einstellungen", None))
         self.groupBox.setTitle(QCoreApplication.translate("SettingsWindow", u"Standard-Einstellungen f\u00fcr neue Charaktere", None))
+        self.label.setText(QCoreApplication.translate("SettingsWindow", u"Verwendeter Charakterbogen", None))
+#if QT_CONFIG(tooltip)
+        self.comboBogen.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Hier erscheinen alle Charakterb\u00f6gen, die mit Sephrasto geliefert werden sowie alle aus deinem Charakterbogen-Pfad, siehe unten. Der gew\u00e4hlte Charakterbogen wird bei neuen Charakteren automatisch aktiv gesetzt. Dies kannst du nachtr\u00e4glich im Info-Tab des Charaktereditors \u00e4ndern.</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.label_6.setText(QCoreApplication.translate("SettingsWindow", u"Regeln Schriftgr\u00f6\u00dfe", None))
         self.comboRegelbasis.setItemText(0, QCoreApplication.translate("SettingsWindow", u"Keine", None))
 
 #if QT_CONFIG(tooltip)
         self.comboRegelbasis.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Hier erscheinen alle Hausregeldatenbanken in deinem Regel-Pfad, siehe unten. Die gew\u00e4hlten Hausregeln werden bei neuen Charakteren automatisch aktiv gesetzt. Dies kannst du nachtr\u00e4glich im Info-Tab des Charaktereditors \u00e4ndern.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
+        self.label_16.setText(QCoreApplication.translate("SettingsWindow", u"Dem Charakterbogen Ilaris Regeln anh\u00e4ngen", None))
+#if QT_CONFIG(tooltip)
+        self.checkWizard.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Der Charakter Assistent erscheint beim Erstellen eines neuen Charakters und beschleunigt die Erstellung durch Schablonen f\u00fcr Spezies, Kultur und Profession.</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.checkWizard.setText("")
         self.label_4.setText(QCoreApplication.translate("SettingsWindow", u"Hausregeln", None))
         self.comboFontSize.setItemText(0, QCoreApplication.translate("SettingsWindow", u"Klein", None))
         self.comboFontSize.setItemText(1, QCoreApplication.translate("SettingsWindow", u"Mittel", None))
         self.comboFontSize.setItemText(2, QCoreApplication.translate("SettingsWindow", u"Gro\u00df", None))
 
-        self.label.setText(QCoreApplication.translate("SettingsWindow", u"Verwendeter Charakterbogen", None))
-#if QT_CONFIG(tooltip)
-        self.comboBogen.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Hier erscheinen alle Charakterb\u00f6gen, die mit Sephrasto geliefert werden sowie alle aus deinem Charakterbogen-Pfad, siehe unten. Der gew\u00e4hlte Charakterbogen wird bei neuen Charakteren automatisch aktiv gesetzt. Dies kannst du nachtr\u00e4glich im Info-Tab des Charaktereditors \u00e4ndern.</p></body></html>", None))
-#endif // QT_CONFIG(tooltip)
+        self.label_17.setText(QCoreApplication.translate("SettingsWindow", u"Charakter Assistent nutzen", None))
 #if QT_CONFIG(tooltip)
         self.checkCheatsheet.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Sephrasto kann automatisch alle Regeln, die f\u00fcr deinen Charakter relevant sind, zusammentragen und deiner PDF hinten anf\u00fcgen. Diese Einstellung gilt f\u00fcr neue Charaktere. Du kannst sie nachtr\u00e4glich im Info-Tab des Charaktereditors \u00e4ndern.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.checkCheatsheet.setText("")
-        self.label_6.setText(QCoreApplication.translate("SettingsWindow", u"Regeln Schriftgr\u00f6\u00dfe", None))
-        self.label_16.setText(QCoreApplication.translate("SettingsWindow", u"Dem Charakterbogen Ilaris Regeln anh\u00e4ngen", None))
-        self.label_17.setText(QCoreApplication.translate("SettingsWindow", u"Charakter Assistent nutzen", None))
+        self.label_19.setText(QCoreApplication.translate("SettingsWindow", u"Formularfelder", None))
+        self.comboFormular.setItemText(0, QCoreApplication.translate("SettingsWindow", u"Charakterbogen & Regelanhang editierbar", None))
+        self.comboFormular.setItemText(1, QCoreApplication.translate("SettingsWindow", u"Nur Charakterbogen editierbar", None))
+        self.comboFormular.setItemText(2, QCoreApplication.translate("SettingsWindow", u"Nicht editierbar", None))
+
 #if QT_CONFIG(tooltip)
-        self.checkWizard.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Der Charakter Assistent erscheint beim Erstellen eines neuen Charakters und beschleunigt die Erstellung durch Schablonen f\u00fcr Spezies, Kultur und Profession.</p></body></html>", None))
+        self.comboFormular.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Manche PDF-Reader k\u00f6nnen Formularfelder in PDF-Dokumenten nicht durchsuchen oder machen beispielsweise Probleme beim Regelanhang wegen der automatischen Schriftgr\u00f6\u00dfe. Die Formularfelder erh\u00f6hen die Dateigr\u00f6\u00dfe au\u00dferdem rund 10%. Mit dieser Option kannst du diese in reine Textfelder umwandeln. Sie sind dann allerdings nicht mehr editierbar. Diese Einstellung gilt f\u00fcr neue Charaktere. Du kannst sie nachtr\u00e4glich im Info-Tab des Charaktereditors \u00e4ndern.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
-        self.checkWizard.setText("")
         self.groupBox_2.setTitle(QCoreApplication.translate("SettingsWindow", u"Speicherpfade", None))
         self.label_7.setText(QCoreApplication.translate("SettingsWindow", u"Plugins", None))
         self.label_3.setText(QCoreApplication.translate("SettingsWindow", u"Regeln", None))

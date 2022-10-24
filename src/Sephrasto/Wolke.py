@@ -5,6 +5,8 @@ Created on Sun Mar  5 22:02:26 2017
 @author: Aeolitus
 """
 
+import os
+
 class _DefaultSettings:
     WindowSizeDefault1Col = [461, 522]
     WindowSizeDefault2Col = [928, 522]
@@ -12,17 +14,26 @@ class _DefaultSettings:
 class CharakterbogenInfo:
     def __init__(self):
         self.filePath = ""
+        self.info = ""
         self.maxVorteile = 0
+        self.maxVorteileProFeld = 3
         self.maxKampfVorteile = 0
+        self.maxKampfVorteileProFeld = 3
         self.maxÜberVorteile = 0
+        self.maxÜberVorteileProFeld = 3
         self.maxFreie = 0
+        self.maxFreieProFeld = 3
         self.maxFertigkeiten = 0
         self.maxÜberFertigkeiten = 0
         self.maxÜberTalente = 0
-        self.seitenProfan = 0
+        self.überSeite = 0
+        self.überFertigkeitenZuProfan = False
+        self.überVorteileZuKampf = False
+        self.extraÜberSeiten = True
         self.beschreibungDetails = False
-        self.bild = False
-        self.bildOffset = [0, 0]
+        self.bild = []
+        self.regelanhangPfad = os.path.join("Data", "Charakterbögen", "Regeln.pdf")
+        self.regelanhangHintergrundPfad = os.path.join("Data", "Charakterbögen", "Hintergrund.pdf")
 
 class Wolke:
     Char = None
@@ -36,6 +47,7 @@ class Wolke:
         'Charakter-Assistent' : True,
         'Cheatsheet': True, 
         'Cheatsheet-Fontsize' : 0,
+        'Formular-Editierbarkeit' : 0,
         'Pfad-Chars': '',
         'Pfad-Regeln': '',
         'Pfad-Plugins': '',

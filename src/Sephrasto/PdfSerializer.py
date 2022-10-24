@@ -28,6 +28,8 @@ import tempfile
 from re import match
 from tempfile import NamedTemporaryFile
 import subprocess
+import pycpdflib
+import logging
 
 def check_output_silent(call):
     if platform.system() == 'Windows':
@@ -64,7 +66,7 @@ def get_fields(pdf_file):
                     fields[key] = re_object.group(2)
     return fields
 
-def write_pdf(source, fields, output, flatten=False):
+def write_pdf(source, fields, out_file = None, flatten=False):
     '''
     Take a source file path, list or dictionary of fdf fields, and
     output path, and create a filled-out pdf.
@@ -72,19 +74,25 @@ def write_pdf(source, fields, output, flatten=False):
     fdf = forge_fdf(fdf_data_strings=fields)
     with NamedTemporaryFile(delete=False) as file:
         file.write(fdf)
-    call = ['pdftk', source, 'fill_form', file.name, 'output', output]
-    call.append('need_appearances')
+
+    if not out_file:
+        handle, out_file = tempfile.mkstemp()
+        os.close(handle)
+
+    call = ['pdftk', source, 'fill_form', file.name, 'output', out_file]
     if flatten:
         call.append('flatten')
+    else:
+        call.append('need_appearances')
     try:
         check_output_silent(call)
     except FileNotFoundError:
         raise PdftkNotInstalledError('Could not locate PDFtk installation')
     remove(file.name)
-    
+    return out_file
+
 class PdftkNotInstalledError(Exception):
     pass
-
 
 def smart_encode_str(s):
     """Create a UTF-16 encoded PDF string literal for `s`."""
@@ -277,6 +285,92 @@ def concat(files, out_file=None):
         raise
     return out_file
 
-def shrink(file, fromPageNumber, toPageNumber, out_file):
+def shrink(file, fromPageNumber, toPageNumber, out_file = None):
+    if not out_file:
+        handle, out_file = tempfile.mkstemp()
+        os.close(handle)
     call = ['pdftk', file, 'cat', str(fromPageNumber) + "-" + str(toPageNumber), 'output', out_file]
     check_output_silent(call)
+    return out_file
+
+def squeeze(file, out_file = None):
+    if not out_file:
+        handle, out_file = tempfile.mkstemp()
+        os.close(handle)
+
+    try:
+        pdf = pycpdflib.fromFile(file, "")
+        pycpdflib.squeezeInMemory(pdf)
+        pycpdflib.toFile(pdf, out_file, False, False)
+    except Exception as e:
+        logging.error("Unable to squeeze pdf: " + str(e))
+
+    return out_file
+
+def addBackground(file, background_file, out_file = None):
+    if not out_file:
+        handle, out_file = tempfile.mkstemp()
+        os.close(handle)
+    call = ['pdftk', file, 'background', background_file, 'output', out_file, 'need_appearances']
+    check_output_silent(call)
+    return out_file
+
+def split(file, pagerange, out_file = None):
+    if not out_file:
+        handle, out_file = tempfile.mkstemp()
+        os.close(handle)
+    call = ['pdftk', file, "cat", pagerange, "output", out_file]
+    check_output_silent(call)
+    return out_file
+
+def stamp(file, stamp_file, out_file = None):
+    if not out_file:
+        handle, out_file = tempfile.mkstemp()
+        os.close(handle)
+    call = ['pdftk', file, 'stamp', stamp_file, 'output', out_file, 'need_appearances']
+    check_output_silent(call)
+    return out_file
+
+def multistamp(file, stamp_file, out_file = None):
+    if not out_file:
+        handle, out_file = tempfile.mkstemp()
+        os.close(handle)
+    call = ['pdftk', file, 'multistamp', stamp_file, 'output', out_file, 'need_appearances']
+    check_output_silent(call)
+    return out_file
+
+def createEmptyPage(pageSize = "A4", out_file = None):
+    if not out_file:
+        handle, out_file = tempfile.mkstemp()
+        os.close(handle)
+        os.remove(out_file) # just using it to get a path
+        out_file += ".pdf"
+
+    convertPath = "convert"
+    if platform.system() == 'Windows':
+        convertPath = os.path.join("Bin", platform.system(), "ImageMagick", "convert")
+
+    call = [convertPath, "xc:none", "-page", pageSize, out_file]
+    check_output_silent(call)
+    return out_file
+
+def convertImageToPDF(file, targetSize, pageSize, offset, out_file = None):
+    if not out_file:
+        handle, out_file = tempfile.mkstemp()
+        os.close(handle)
+        os.remove(out_file) # just using it to get a path
+        out_file += ".pdf"
+
+    convertPath = "convert"
+    if platform.system() == 'Windows':
+        convertPath = os.path.join("Bin", platform.system(), "ImageMagick", "convert")
+
+    targetSize = f"{targetSize[0]}x{targetSize[1]}"
+
+    pageSize += ("+" if offset[0] >= 0 else "") + str(offset[0])
+    pageSize += ("+" if offset[1] >= 0 else "") + str(offset[1])
+
+    call = [convertPath, file, "-resize", targetSize, "-gravity", "Center", "-extent", targetSize, "-density", "96",
+            "-page", pageSize, out_file]
+    check_output_silent(call)
+    return out_file

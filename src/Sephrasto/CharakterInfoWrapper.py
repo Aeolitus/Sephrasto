@@ -46,6 +46,7 @@ class InfoWrapper(QtCore.QObject):
         self.ui.checkUeberPDF.stateChanged.connect(self.einstellungenChanged)
         self.ui.checkRegeln.stateChanged.connect(self.einstellungenChanged)
         self.ui.comboHausregeln.currentIndexChanged.connect(self.einstellungenChanged)
+        self.ui.comboFormular.currentIndexChanged.connect(self.einstellungenChanged)
 
         boegen = [os.path.basename(os.path.splitext(bogen)[0]) for bogen in Wolke.Charakterbögen]
         for bogen in boegen:
@@ -133,6 +134,13 @@ class InfoWrapper(QtCore.QObject):
         Wolke.Char.regelnKategorien = aktiveKategorien
         self.modified.emit()
 
+    @staticmethod
+    def getCharakterbogen(name):
+        for bogen in Wolke.Charakterbögen.values():
+            if name == os.path.basename(os.path.splitext(bogen.filePath)[0]):
+                return bogen
+        return None
+
     def einstellungenChanged(self):
         if self.currentlyLoading:
             return
@@ -142,12 +150,13 @@ class InfoWrapper(QtCore.QObject):
         Wolke.Char.regelnGroesse = self.ui.comboRegelnGroesse.currentIndex()
         Wolke.Char.hausregeln = self.ui.comboHausregeln.currentText() if self.ui.comboHausregeln.currentText() != "Keine" else None
         Wolke.Char.charakterbogen = self.ui.comboCharsheet.currentText()
+        Wolke.Char.formularEditierbarkeit = self.ui.comboFormular.currentIndex()
 
         details = False
-        for bogen in Wolke.Charakterbögen:
-            if Wolke.Char.charakterbogen == os.path.basename(os.path.splitext(bogen)[0]):
-                details = Wolke.Charakterbögen[bogen].beschreibungDetails
-                break
+        cbi = InfoWrapper.getCharakterbogen(Wolke.Char.charakterbogen)
+        if cbi:
+            self.ui.comboCharsheet.setToolTip(cbi.info)
+            details = cbi.beschreibungDetails
 
         self.ui.labelReload.setVisible(Wolke.Char.hausregeln != self.initialHausregeln or self.initialDetails != details)
 
@@ -167,6 +176,10 @@ class InfoWrapper(QtCore.QObject):
         self.ui.comboRegelnGroesse.setCurrentIndex(Wolke.Char.regelnGroesse)
         self.ui.comboHausregeln.setCurrentText(Wolke.Char.hausregeln or "Keine")
         self.ui.comboCharsheet.setCurrentText(Wolke.Char.charakterbogen)
+        cbi = InfoWrapper.getCharakterbogen(Wolke.Char.charakterbogen)
+        if cbi:
+            self.ui.comboCharsheet.setToolTip(cbi.info)
+        self.ui.comboFormular.setCurrentIndex(Wolke.Char.formularEditierbarkeit)
 
         ''' Load all values and derived values '''
         totalVal = 0

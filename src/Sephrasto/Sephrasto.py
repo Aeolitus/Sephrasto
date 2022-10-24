@@ -28,8 +28,8 @@ from PySide6.QtGui import QPalette, QColor
 from PySide6.QtWidgets import QToolTip
 from Hilfsmethoden import Hilfsmethoden
 import platform
-
 import PathHelper
+import pycpdflib
 
 loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
 logging.basicConfig(filename="sephrasto.log", \
@@ -94,6 +94,13 @@ class MainWindowWrapper(object):
             os.chdir(os.path.dirname(os.path.abspath(__file__)))
         else:
             os.chdir(os.path.dirname(sys.argv[0]))
+
+        try:
+            dllPath = os.path.join(os.getcwd(), "Bin", platform.system(), "cpdflib")
+            os.environ["PATH"] += ";"+dllPath
+            pycpdflib.loadDLL(os.path.join(dllPath, "libpycpdf.dll"))
+        except Exception as e:
+            logging.error("Unable to load cpdf: " + str(e))
 
         # Get the Settings loaded
         EinstellungenWrapper.loadPreQt()

@@ -47,8 +47,12 @@ class CharakterPrintUtility:
 
     @staticmethod
     def getFreieFertigkeiten(char):
+        return CharakterPrintUtility.getFreieFertigkeitenNames(char.freieFertigkeiten)
+
+    @staticmethod
+    def getFreieFertigkeitenNames(freieFertigkeiten):
         ferts = []
-        for el in char.freieFertigkeiten:
+        for el in freieFertigkeiten:
             if el.wert < 1 or el.wert > 3:
                 continue
             name = el.name
@@ -64,7 +68,7 @@ class CharakterPrintUtility:
         return sorted(char.fertigkeiten, key = lambda x: (Wolke.DB.fertigkeiten[x].printclass, x))
 
     @staticmethod
-    def getTalente(char, fertigkeit):
+    def getTalente(char, fertigkeit, nurHöchsteFertigkeit = False):
         talentBoxes = []
         talente = fertigkeit.gekaufteTalente.copy()
         talente.extend([t for t in fertigkeit.talentMods if not t in talente])
@@ -72,6 +76,18 @@ class CharakterPrintUtility:
 
         for el in talente:
             talent = Wolke.DB.talente[el]
+
+            if nurHöchsteFertigkeit:
+                höchste = None
+                for fert in talent.fertigkeiten:
+                    ferts = char.übernatürlicheFertigkeiten if talent.isSpezialTalent() else char.fertigkeiten
+                    if fert not in ferts:
+                        continue
+                    if höchste == None or höchste.probenwertTalent < ferts[fert].probenwertTalent:
+                        höchste = ferts[fert]
+                if höchste.name != fertigkeit.name:
+                    continue
+
             tt = Talentbox.Talentbox()
             tt.na = el
             tt.pw = fertigkeit.probenwertTalent

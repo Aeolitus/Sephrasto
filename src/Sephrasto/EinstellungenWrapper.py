@@ -47,6 +47,7 @@ class EinstellungenWrapper():
         self.ui.comboBogen.setCurrentText(Wolke.Settings['Bogen'])
         self.ui.checkWizard.setChecked(Wolke.Settings['Charakter-Assistent'])
         self.ui.comboFontSize.setCurrentIndex(Wolke.Settings['Cheatsheet-Fontsize'])
+        self.ui.comboFormular.setCurrentIndex(Wolke.Settings['Formular-Editierbarkeit'])
 
         self.ui.editChar.setText(Wolke.Settings['Pfad-Chars'])
         self.ui.editRegeln.setText(Wolke.Settings['Pfad-Regeln'])
@@ -140,6 +141,7 @@ class EinstellungenWrapper():
             Wolke.Settings['Charakter-Assistent'] = self.ui.checkWizard.isChecked()
             Wolke.Settings['Cheatsheet'] = self.ui.checkCheatsheet.isChecked()
             Wolke.Settings['Cheatsheet-Fontsize'] = self.ui.comboFontSize.currentIndex()
+            Wolke.Settings['Formular-Editierbarkeit'] = self.ui.comboFormular.currentIndex()
 
             if os.path.isdir(self.ui.editChar.text()):
                 Wolke.Settings['Pfad-Chars'] = self.ui.editChar.text()
@@ -326,10 +328,38 @@ class EinstellungenWrapper():
                 cbi.maxFertigkeiten = tmpSet["MaxFertigkeiten"]
                 cbi.maxÜberFertigkeiten = tmpSet["MaxÜbernatürlicheFertigkeiten"]
                 cbi.maxÜberTalente = tmpSet["MaxÜbernatürlicheTalente"]
-                cbi.seitenProfan = tmpSet["SeitenProfan"]
-                cbi.beschreibungDetails = tmpSet["BeschreibungDetails"]
-                cbi.bild = tmpSet["Bild"]
-                cbi.bildOffset = tmpSet["BildOffset"] if "BildOffset" in tmpSet else [0, 0]
+
+                if "Info" in tmpSet:
+                    cbi.info = tmpSet["Info"]
+                if "ÜberSeite" in tmpSet:
+                    cbi.überSeite = tmpSet["ÜberSeite"]
+                if "ÜberFertigkeitenZuProfan" in tmpSet:
+                    cbi.überFertigkeitenZuProfan = tmpSet["ÜberFertigkeitenZuProfan"]
+                if "ÜberVorteileZuKampf" in tmpSet:
+                    cbi.überVorteileZuKampf = tmpSet["ÜberVorteileZuKampf"]
+                if "MaxVorteileProFeld" in tmpSet:
+                    cbi.maxVorteileProFeld = tmpSet["MaxVorteileProFeld"]
+                if "MaxKampfVorteileProFeld" in tmpSet:
+                    cbi.maxKampfVorteileProFeld = tmpSet["MaxKampfVorteileProFeld"]
+                if "MaxÜberVorteileProFeld" in tmpSet:
+                    cbi.maxÜberVorteileProFeld = tmpSet["MaxÜberVorteileProFeld"]
+                if "MaxFreieProFeld" in tmpSet:
+                    cbi.maxFreieProFeld = tmpSet["MaxFreieProFeld"]
+                if "ExtraÜberSeiten" in tmpSet:
+                    cbi.extraÜberSeiten = tmpSet["ExtraÜberSeiten"]
+                if "BeschreibungDetails" in tmpSet:
+                    cbi.beschreibungDetails = tmpSet["BeschreibungDetails"]
+                if "Bild" in tmpSet:
+                    for v in tmpSet["Bild"]:
+                        cbi.bild.append(v)
+                regelAnhang = os.path.splitext(filePath)[0] + "_Regeln.pdf"
+                if os.path.isfile(regelAnhang):
+                    cbi.regelanhangPfad = regelAnhang
+                    regelAnhangHintergrund = os.path.splitext(filePath)[0] + "_Hintergrund.pdf"
+                    if os.path.isfile(regelAnhangHintergrund):
+                        cbi.regelanhangHintergrundPfad = regelAnhangHintergrund
+                    else:
+                        cbi.regelanhangHintergrundPfad = None
                 Wolke.Charakterbögen[filePath] = cbi
 
         #Init themes

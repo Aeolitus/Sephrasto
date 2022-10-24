@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>974</width>
-    <height>721</height>
+    <height>755</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -68,82 +68,59 @@
         <property name="bottomMargin">
          <number>20</number>
         </property>
-        <item row="1" column="0" colspan="2">
-         <widget class="QCheckBox" name="checkReq">
-          <property name="toolTip">
-           <string>Falls abgewählt, werden sämtliche Voraussetzungsprüfungen für Vorteile, übernatürliche Fertigkeiten usw. deaktiviert.</string>
-          </property>
-          <property name="text">
-           <string>Voraussetzungen überprüfen</string>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
         <item row="4" column="1">
-         <widget class="QComboBox" name="comboHausregeln"/>
-        </item>
-        <item row="4" column="0">
-         <widget class="QLabel" name="label_5">
-          <property name="text">
-           <string>Hausregeln:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="9" column="0">
-         <widget class="QLabel" name="label_7">
-          <property name="text">
-           <string>Regelschriftgröße:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="0" colspan="2">
-         <widget class="QCheckBox" name="checkUeberPDF">
+         <widget class="QComboBox" name="comboHausregeln">
           <property name="toolTip">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sephrasto übernimmt automatisch alle übernatürlichen Fertigkeiten in den Charakterbogen, deren FW mindestens 1 beträgt und für welche du mindestens ein Talent aktiviert hast. Wenn du diese Option aktivierst, zeigt Sephrasto eine PDF-Spalte bei den übernatürlichen Fertigkeiten an. Mit dieser kannst du selbst entscheiden, welche Fertigkeiten in den Charakterbogen übernommen werden sollen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hier erscheinen alle Hausregeldatenbanken in deinem Regel-Pfad.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_12">
           <property name="text">
-           <string>PDF-Ausgabe von übernatürlichen Fertigkeiten manuell auswählen</string>
+           <string>Vor dem ersten Abenteuer</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QComboBox" name="comboCharsheet">
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hier erscheinen alle Charakterbögen, die mit Sephrasto geliefert werden sowie alle aus deinem Charakterbogen-Pfad.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0" colspan="2">
+         <widget class="Line" name="line">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
         <item row="6" column="0">
          <widget class="QLabel" name="label_6">
           <property name="text">
-           <string>Charakterbogen:</string>
+           <string>Charakterbogen</string>
           </property>
          </widget>
         </item>
-        <item row="2" column="0" colspan="2">
-         <widget class="QCheckBox" name="checkFinanzen">
-          <property name="toolTip">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Die Finanzen spielen nur bei einem neuen Charakter eine Rolle und können nach dem ersten Abenteuer ausgeblendet werden. Auch die aktuellen Schicksalspunkte werden dann nicht mehr ausgegeben, da diese ab dem ersten Abenteuer händisch verwaltet werden.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
+        <item row="7" column="0">
+         <widget class="QLabel" name="label_14">
           <property name="text">
-           <string>Finanzen anzeigen und aktuelle Schicksalspunkte ausgeben</string>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
+           <string>Relevante Regeln anhängen</string>
           </property>
          </widget>
         </item>
-        <item row="6" column="1">
-         <widget class="QComboBox" name="comboCharsheet"/>
-        </item>
-        <item row="11" column="0" colspan="2">
-         <widget class="QLabel" name="labelReload">
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 0); color: black;</string>
-          </property>
+        <item row="11" column="0">
+         <widget class="QLabel" name="cbFormular">
           <property name="text">
-           <string>Der Charakter muss gespeichert und neu geladen werden, damit alle Änderungen übernommen werden können!</string>
+           <string>Formularfelder</string>
           </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-          </property>
-          <property name="wordWrap">
-           <bool>true</bool>
+         </widget>
+        </item>
+        <item row="9" column="0">
+         <widget class="QLabel" name="label_7">
+          <property name="text">
+           <string>Regelschriftgröße</string>
           </property>
          </widget>
         </item>
@@ -166,10 +143,26 @@
           </item>
          </widget>
         </item>
-        <item row="8" column="0" colspan="2">
-         <widget class="QCheckBox" name="checkRegeln">
+        <item row="0" column="1">
+         <widget class="QCheckBox" name="checkReq">
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Falls abgewählt, werden sämtliche Voraussetzungsprüfungen für Vorteile, übernatürliche Fertigkeiten usw. deaktiviert.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
           <property name="text">
-           <string>Dem Charakterbogen relevante Ilaris Regeln anhängen</string>
+           <string/>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1">
+         <widget class="QCheckBox" name="checkRegeln">
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sephrasto kann automatisch alle Regeln, die für deinen Charakter relevant sind, zusammentragen und deiner PDF hinten anfügen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string/>
           </property>
           <property name="checked">
            <bool>true</bool>
@@ -179,10 +172,59 @@
           </property>
          </widget>
         </item>
+        <item row="11" column="1">
+         <widget class="QComboBox" name="comboFormular">
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Manche PDF-Reader können Formularfelder in PDF-Dokumenten nicht durchsuchen oder machen beispielsweise Probleme beim Regelanhang wegen der automatischen Schriftgröße. Die Formularfelder erhöhen die Dateigröße außerdem rund 10%. Mit dieser Option kannst du diese in reine Textfelder umwandeln. Sie sind dann allerdings nicht mehr editierbar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <item>
+           <property name="text">
+            <string>Charakterbogen &amp; Regelanhang editierbar</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Nur Charakterbogen editierbar</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Nicht editierbar</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Hausregeln</string>
+          </property>
+         </widget>
+        </item>
         <item row="10" column="0">
          <widget class="QLabel" name="label_10">
           <property name="text">
-           <string>Regelkategorien:</string>
+           <string>Regelkategorien</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_11">
+          <property name="text">
+           <string>Voraussetzungen überprüfen</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QCheckBox" name="checkFinanzen">
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Die Finanzen spielen nur bei einem neuen Charakter eine Rolle und können nach dem ersten Abenteuer ausgeblendet werden. Auch die aktuellen Schicksalspunkte werden dann nicht mehr ausgegeben, da diese ab dem ersten Abenteuer händisch verwaltet werden.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -194,8 +236,50 @@
             <height>80</height>
            </size>
           </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hier kannst du einzelne Kategorien beim Regelanhang ausnehmen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
           <property name="horizontalScrollBarPolicy">
            <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="12" column="0">
+         <widget class="QLabel" name="label_13">
+          <property name="text">
+           <string>PDF-Ausgabe von übernatürlichen Fertigkeiten manuell auswählen</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="13" column="0" colspan="2">
+         <widget class="QLabel" name="labelReload">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(255, 255, 0); color: black;</string>
+          </property>
+          <property name="text">
+           <string>Der Charakter muss gespeichert und neu geladen werden, damit alle Änderungen übernommen werden können!</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="12" column="1">
+         <widget class="QCheckBox" name="checkUeberPDF">
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sephrasto übernimmt automatisch alle übernatürlichen Fertigkeiten in den Charakterbogen, deren FW mindestens 1 beträgt und für welche du mindestens ein Talent aktiviert hast. Wenn du diese Option aktivierst, zeigt Sephrasto eine PDF-Spalte bei den übernatürlichen Fertigkeiten an. Mit dieser kannst du selbst entscheiden, welche Fertigkeiten in den Charakterbogen übernommen werden sollen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
           </property>
          </widget>
         </item>
@@ -915,12 +999,8 @@
  </widget>
  <tabstops>
   <tabstop>teNotiz</tabstop>
-  <tabstop>checkReq</tabstop>
-  <tabstop>checkFinanzen</tabstop>
-  <tabstop>checkUeberPDF</tabstop>
   <tabstop>comboHausregeln</tabstop>
   <tabstop>comboCharsheet</tabstop>
-  <tabstop>checkRegeln</tabstop>
   <tabstop>comboRegelnGroesse</tabstop>
  </tabstops>
  <resources/>

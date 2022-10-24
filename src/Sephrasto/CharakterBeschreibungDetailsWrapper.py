@@ -71,7 +71,7 @@ class CharakterBeschreibungDetailsWrapper(QtCore.QObject):
 
         for bogen in Wolke.Charakterbögen:
             if Wolke.Char.charakterbogen == os.path.basename(os.path.splitext(bogen)[0]):
-                if not  Wolke.Charakterbögen[bogen].bild:
+                if len(Wolke.Charakterbögen[bogen].bild) == 0:
                     self.ui.buttonLoadImage.setVisible(False)
                     self.ui.buttonDeleteImage.setVisible(False)
                     self.ui.labelImage.setVisible(False)
