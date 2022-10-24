@@ -232,9 +232,9 @@ class CharakterBeschreibungDetailsWrapper(QtCore.QObject):
         buffer = QtCore.QBuffer()
         buffer.open(QtCore.QIODevice.WriteOnly);
         self.characterImage.save(buffer, "JPG")
-        imageDdata = buffer.data()
-        if Wolke.Char.bild != imageDdata:
-            Wolke.Char.bild = imageDdata
+        imageData = buffer.data().data()
+        if Wolke.Char.bild != imageData:
+            Wolke.Char.bild = imageData
             self.modified.emit()
 
     def buttonDeleteImageClicked(self):
