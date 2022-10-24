@@ -97,8 +97,11 @@ class MainWindowWrapper(object):
 
         try:
             dllPath = os.path.join(os.getcwd(), "Bin", platform.system(), "cpdflib")
-            os.environ["PATH"] += ";"+dllPath
-            pycpdflib.loadDLL(os.path.join(dllPath, "libpycpdf.dll"))
+            if platform.system() == "Darwin" or platform.system() == "Linux":
+                pycpdflib.loadDLL(os.path.join(dllPath, "libpycpdf.so"))
+            elif platform.system() == "Windows":
+                os.environ["PATH"] += ";"+dllPath
+                pycpdflib.loadDLL(os.path.join(dllPath, "libpycpdf.dll"))
         except Exception as e:
             logging.error("Unable to load cpdf: " + str(e))
 
