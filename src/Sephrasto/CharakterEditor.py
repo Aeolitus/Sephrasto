@@ -29,6 +29,7 @@ from shutil import which
 from EinstellungenWrapper import EinstellungenWrapper
 from CharakterAssistent import WizardWrapper
 from UI import Wizard
+import platform
 
 class Tab():
     def __init__(self, order, wrapper, form, name):
@@ -315,7 +316,13 @@ Versuchs doch bitte nochmal mit einer anderen Zieldatei.")
         if which("pdftk") is None:
             messagebox = QtWidgets.QMessageBox()
             messagebox.setWindowTitle("PDFtk ist nicht installiert!")
-            messagebox.setText("Sephrasto benötigt PDFtk für den PDF-Export. Hier kannst du es kostenlos herunterladen:\nhttps://www.pdflabs.com/tools/pdftk-server/")
+            message = "Sephrasto benötigt PDFtk für den PDF-Export. Hier kannst du es kostenlos herunterladen:\n"
+
+            if platform.system() != "Darwin":
+                message += "https://www.pdflabs.com/tools/pdftk-server/"
+            else:
+                message += "https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/pdftk_server-2.02-mac_osx-10.11-setup.pkg \n\nBitte exakt diese Version!"
+            messagebox.setText(message)
             messagebox.setIcon(QtWidgets.QMessageBox.Critical)
             messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             messagebox.exec()
