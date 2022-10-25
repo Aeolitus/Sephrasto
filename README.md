@@ -8,7 +8,7 @@ Ein Charaktergenerator für das DSA-Hausregelsystem Ilaris, erstellt von Aeolitu
 
 Bei Fragen / Änderungswünschen / Feedback einfach Bescheid sagen - im dsaforum oder hier!
 
-## Pakete
+## Verwendete Pakete und Programme
 * Um Sephrasto mit Python zu verwenden, wird mindestens Version 3.6 benötigt, Version 3.7+ wird aber empfohlen. 
 * PySide6 (https://www.qt.io/qt-for-python) für die Grafische Oberfläche
 * lxml (http://lxml.de/) als xml-parser (unter Linux: `libxml2-dev` und `libxmlsec1-dev` global installieren, wenn lxml via pip installiert werden soll)
@@ -18,8 +18,12 @@ Bei Fragen / Änderungswünschen / Feedback einfach Bescheid sagen - im dsaforum
     * certifi (https://github.com/certifi/python-certifi)
     * idna (https://github.com/kjd/idna)
     * urllib3 (https://urllib3.readthedocs.io)
-* fdfgen (im Sephrasto code bereits integriert, https://github.com/ccnmtl/fdfgen) zum Editieren des Charakterbogens
 * cx_freeze (optional, https://github.com/marcelotduarte/cx_Freeze) um Sephrasto-Builds zu erstellen
+
+Mitgeliefert werden außerdem:
+* fdfgen (https://github.com/ccnmtl/fdfgen) zum Editieren des Charakterbogens
+* convert (nur Windows, https://imagemagick.org) zum Einfügen des Charakterbilds in den Charakterbogen
+* cpdf (https://www.coherentpdf.com) zur Reduzierung der Dateigröße des Charakterbogens
 
 Die zugehörigen Lizenzen können hier gefunden werden: [Acknowledgements](src/Sephrasto/Doc/Acknowledgements.md)
 
@@ -65,7 +69,7 @@ hinzu. Deine Versionsnummer musst du selbst eintragen. Getestet wurde bisher nur
 
 Gestartet wird Sephrasto dann folgendermaßen:
 * Doppelclick auf Sephrasto.py (natürlich kannst du auch ein Alias erstellen)
-* Gegebenenfalls musst du über System Preferences -> Security & Privacy noch die Ausführung erlauben
+* Beim ersten Start musst du über System Preferences -> Security & Privacy noch die Ausführung erlauben. Beim ersten PDF-Export das gleiche für cpdf.
 * Optional kannst du im Python Launcher noch "Run in a Terminal window" deaktivieren, um das zusätzliche Terminalfenster loszuwerden
 
 ### Charakterbild ###
