@@ -21,6 +21,8 @@ Bei Fragen / Änderungswünschen / Feedback einfach Bescheid sagen - im dsaforum
 * fdfgen (im Sephrasto code bereits integriert, https://github.com/ccnmtl/fdfgen) zum Editieren des Charakterbogens
 * cx_freeze (optional, https://github.com/marcelotduarte/cx_Freeze) um Sephrasto-Builds zu erstellen
 
+Die zugehörigen Lizenzen können hier gefunden werden: [Acknowledgements](src/Sephrasto/Doc/Acknowledgements.md)
+
 ## Installation Linux (Ubuntu/Debian)
 ```
 sudo apt install python3-pip
