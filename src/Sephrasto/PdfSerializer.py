@@ -1,17 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-This file consists of the following merged together into one file for usability
-
-    # FIRST #
-Port of the PHP forge_fdf library by Sid Steward
-(http://www.pdfhacks.com/forge_fdf/)
-
+This file contains code from the fdfgen repository (https://github.com/ccnmtl/fdfgen),
+which is a port of the PHP forge_fdf library by Sid Steward (http://www.pdfhacks.com/forge_fdf/)
 Anders Pearson <anders@columbia.edu> at Columbia Center For New Media Teaching
 and Learning <http://ccnmtl.columbia.edu/>
-
-    # SECOND # 
-PDFFields - found at:
-    https://github.com/evfredericksen/pdffields
 """
 
 import codecs
@@ -36,34 +28,7 @@ def check_output_silent(call):
         startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
         return subprocess.check_output(call, startupinfo=startupinfo)
     else:
-        #TODO
         return subprocess.check_output(call)
-
-def get_fields(pdf_file):
-    '''
-    Use pdftk to get a pdf's fields as a string, parse the string
-    and return the fields as a dictionary, with field names as keys
-    and field values as values.
-    '''
-    fields = {}
-    call = ['pdftk', pdf_file, 'dump_data_fields_utf8']
-    try:
-        data_string = check_output_silent(call).decode('utf8')
-    except FileNotFoundError:
-        raise PdftkNotInstalledError('Could not locate PDFtk installation')
-    data_list = data_string.split('\r\n')
-    if len(data_list) == 1:
-        data_list = data_string.split('\n')
-    for line in data_list:
-        if line:
-            re_object = match(r'(\w+): (.+)', line)
-            if re_object is not None:
-                if re_object.group(1) == 'FieldName':
-                    key = re_object.group(2)
-                    fields[key] = ''
-                elif re_object.group(1) == 'FieldValue':
-                    fields[key] = re_object.group(2)
-    return fields
 
 def write_pdf(source, fields, out_file = None, flatten=False):
     '''
@@ -83,15 +48,10 @@ def write_pdf(source, fields, out_file = None, flatten=False):
         call.append('flatten')
     else:
         call.append('need_appearances')
-    try:
-        check_output_silent(call)
-    except FileNotFoundError:
-        raise PdftkNotInstalledError('Could not locate PDFtk installation')
+    
+    check_output_silent(call)
     remove(file.name)
     return out_file
-
-class PdftkNotInstalledError(Exception):
-    pass
 
 def smart_encode_str(s):
     """Create a UTF-16 encoded PDF string literal for `s`."""
