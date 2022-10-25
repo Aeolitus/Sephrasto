@@ -28,7 +28,6 @@ import tempfile
 from re import match
 from tempfile import NamedTemporaryFile
 import subprocess
-import pycpdflib
 import logging
 
 def check_output_silent(call):
@@ -298,10 +297,11 @@ def squeeze(file, out_file = None):
         handle, out_file = tempfile.mkstemp()
         os.close(handle)
 
+    cpdfPath = os.path.join("Bin", platform.system(), "cpdf", "cpdf")
+    call = [cpdfPath, "-squeeze", file, "-o", out_file]
+
     try:
-        pdf = pycpdflib.fromFile(file, "")
-        pycpdflib.squeezeInMemory(pdf)
-        pycpdflib.toFile(pdf, out_file, False, False)
+        check_output_silent(call)
     except Exception as e:
         logging.error("Unable to squeeze pdf: " + str(e))
 
