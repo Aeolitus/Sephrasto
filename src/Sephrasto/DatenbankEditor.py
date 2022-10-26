@@ -142,10 +142,10 @@ class DatenbankEditor(object):
         self.updateWindowTitleAndCloseButton()
     
     def filterTypChanged(self):
-        if self.ui.checkFilterTyp.checkState() == 0:
+        if self.ui.checkFilterTyp.checkState() == QtCore.Qt.Unchecked:
             for dbType in self.databaseTypes.values():
                 dbType.showCheckbox.setChecked(False)
-        elif self.ui.checkFilterTyp.checkState() == 1 or self.ui.checkFilterTyp.checkState() == 2:
+        else:
             for dbType in self.databaseTypes.values():
                 dbType.showCheckbox.setChecked(True)
 
