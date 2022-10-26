@@ -61,4 +61,4 @@ class Ruestung(Objekt):
         return round(sum(self.rs) / 6, 2)
 
     def getRSGesamtInt(self):
-        return int(self.getRSGesamt() + 0.5 + 0.0001)
+        return int(sum(self.rs) / 6 + 0.5)

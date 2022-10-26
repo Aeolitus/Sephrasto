@@ -27,8 +27,8 @@ class Attribut(Steigerbar):
         self.name = Attribute[Key]
         self.key = Key
     def aktualisieren(self):
-        self.probenwert = self.wert*2
-    
+        scriptAPI = { 'getWert' : lambda: self.wert }
+        self.probenwert = eval(Wolke.DB.einstellungen["Attribute: PW Script"].toText(), scriptAPI)    
 
 # Implementation für Steigerbare Energien (Karma und AsP). SF ist 1, kein Limit.
 class Energie(Steigerbar):
@@ -99,11 +99,12 @@ class Fertigkeit(Steigerbar):
         self.attributswerte = [attribute[self.attribute[0]].wert, 
                                attribute[self.attribute[1]].wert,
                                attribute[self.attribute[2]].wert]
-        self.maxWert = max(self.attributswerte)+2
-        # Python Round does mess up sometimes
-        self.basiswert = round(sum(self.attributswerte)/3+0.0001)
-        self.probenwert = self.basiswert + round(self.wert/2+0.0001)
-        self.probenwertTalent = self.basiswert + self.wert
+        scriptAPI = { 'getAttribute' : lambda: self.attributswerte, 'getWert' : lambda: self.wert }
+        self.maxWert = eval(Wolke.DB.einstellungen["Fertigkeiten: Maximalwert Script"].toText(), scriptAPI)
+        self.basiswert = eval(Wolke.DB.einstellungen["Fertigkeiten: BW Script"].toText(), scriptAPI)
+        scriptAPI['getBasiswert'] = lambda: self.basiswert
+        self.probenwert = eval(Wolke.DB.einstellungen["Fertigkeiten: PW Script"].toText(), scriptAPI)
+        self.probenwertTalent = eval(Wolke.DB.einstellungen["Fertigkeiten: PWT Script"].toText(), scriptAPI)
 
     def __deepcopy__(self, memo=""):
         F = Fertigkeit()
