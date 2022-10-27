@@ -38,7 +38,9 @@ class CharakterWaffenWrapper(QtCore.QObject):
         self.editEig = []
         self.eigenschaftenCompleter = []
         self.comboStil = []
+        self.labelBasis = []
         self.labelWerte = []
+        self.labelMods = []
         self.waffenTypen = []
         self.addW = []
         
@@ -110,17 +112,33 @@ class CharakterWaffenWrapper(QtCore.QObject):
                 downW.clicked.connect(lambda qtNeedsThis=False, idx=i: self.moveWeapon(idx, +1))
 
             color = Wolke.BorderColor
-            labelWerte = getattr(self.ui, "labelW" + str(i+1))
+            labelContainer = getattr(self.ui, "labelContainerW" + str(i+1))
             style = "border-left: 1px solid " + color + ";"\
                 "border-right: 1px solid " + color + ";"\
                 "border-bottom: 1px solid " + color + ";"\
                 "border-bottom-left-radius : 0px;"\
                 "border-bottom-right-radius : 0px;"
-            labelWerte.setStyleSheet(style)
-            labelWerte.setToolTip(f"""<p style='white-space:pre'><span style='{Wolke.FontAwesomeCSS}'>\uf0c1</span>  Waffentyp, unabhängig vom selbst gewählten Namen
-<span style='{Wolke.FontAwesomeCSS}'>\uf00b</span>   Kampfwerte inklusive BE
-<span style='{Wolke.FontAwesomeCSS}'>\uf6e3</span>   Werteveränderungen</p>""")
+            labelContainer.setStyleSheet(style)
+            labelBasis = getattr(self.ui, "labelW" + str(i+1) + "Basis")
+            labelBasis.setToolTip(f"""<p style='white-space:pre'><span style='{Wolke.FontAwesomeCSS}'>\uf02d</span>  Basiswaffe
+
+Sephrasto leitet von der Basiswaffe das verwendete Talent, die erlaubten Kampfstile und von dir vorgenommene Anpassungen der Waffenwerte ab.
+Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ändert sich dadurch nicht.</p>""")
+            labelBasis.setStyleSheet("border: none;")
+            self.labelBasis.append(labelBasis)
+            labelWerte = getattr(self.ui, "labelW" + str(i+1) + "Werte")
+            labelWerte.setToolTip(f"""<p style='white-space:pre'><span style='{Wolke.FontAwesomeCSS}'>\uf6cf</span>   Kampfwerte
+
+- AT* und VT*: Talent-PW + Waffen-WM + Kampfstilbonus - BE der ersten Rüstung
+- TP*: Waffen-TP + Schadensbonus (x2, falls kopflastig) + Kampfstilbonus</p>""")
+            labelWerte.setStyleSheet("border: none;")
             self.labelWerte.append(labelWerte)
+            labelMods = getattr(self.ui, "labelW" + str(i+1) + "Mods")
+            labelMods.setToolTip(f"""<p style='white-space:pre'><span style='{Wolke.FontAwesomeCSS}'>\uf6e3</span>   Anpassungen der Waffenwerte
+
+Üblich sind hier TP +1 und Härte +2 je Stufe Hohe Qualität bei der Fertigung (kein Härtebonus bei Fernkampfwaffen) und WM +1 für persönliche Waffen.</p>""")
+            labelMods.setStyleSheet("border: none;")
+            self.labelMods.append(labelMods)
 
             labelTopFrame = getattr(self.ui, "labelW" + str(i+1) + "TopFrame")
             style = "border-left: 1px solid " + color + ";"\
@@ -148,68 +166,79 @@ class CharakterWaffenWrapper(QtCore.QObject):
         self.currentlyLoading = False
         self.updateWaffen()
 
+    def diffWeapons(self, weapon1, weapon2):
+        diff = []
+        w6Diff = weapon1.W6 - weapon2.W6
+        plusDiff = weapon1.plus - weapon2.plus
+
+        haerteDiff = weapon1.haerte - weapon2.haerte
+        waffenHaerteWSStern = Wolke.DB.einstellungen["Waffen: Härte WSStern"].toTextList()
+        if weapon2.name in waffenHaerteWSStern:
+            haerteDiff = weapon1.haerte - Wolke.Char.wsStern
+        wmDiff = weapon1.wm - weapon2.wm
+        rwDiff = weapon1.rw - weapon2.rw
+        lzDiff = 0
+        if type(weapon1) is Objekte.Fernkampfwaffe:
+            lzDiff = weapon1.lz - weapon2.lz
+
+        eigPlusDiff = list(set(weapon1.eigenschaften) - set(weapon2.eigenschaften))
+        eigMinusDiff = list(set(weapon2.eigenschaften) - set(weapon1.eigenschaften))
+
+        if w6Diff != 0:
+            diff.append("TP " + ("+" if w6Diff >= 0 else "") + str(w6Diff) + "W6")
+        if plusDiff != 0:
+            tmp = ("+" if plusDiff >= 0 else "") + str(plusDiff)
+            if w6Diff != 0:
+                diff[0] += tmp
+            else:
+                diff.append("TP " + tmp)
+        if rwDiff != 0:
+            diff.append("RW " + ("+" if rwDiff >= 0 else "") + str(rwDiff))
+        if wmDiff != 0:
+            diff.append("WM " + ("+" if wmDiff >= 0 else "") + str(wmDiff))
+        if lzDiff != 0:
+            diff.append("LZ " + ("+" if lzDiff >= 0 else "") + str(lzDiff))
+        if haerteDiff != 0:
+            diff.append("Härte " + ("+" if haerteDiff >= 0 else "") + str(haerteDiff))
+        if len(eigPlusDiff) > 0:
+            diff.append("Eigenschaften +" + ", +".join(eigPlusDiff))
+        if len(eigMinusDiff) > 0:
+            if len(eigPlusDiff) > 0:
+                diff[-1] += ", " + ("-" + ", -".join(eigMinusDiff))
+            else:
+                diff.append("Eigenschaften -" + ", -".join(eigMinusDiff))
+        return diff
+
+
     def updateWeaponStats(self):
         vtVerboten = Wolke.DB.einstellungen["Waffen: Talente VT verboten"].toTextList()
         for index in range(8):
             if index >= len(Wolke.Char.waffen) or not Wolke.Char.waffen[index].name:
-                self.labelWerte[index].setText("-")
+                self.labelBasis[index].setText(f"<span style='{Wolke.FontAwesomeCSS}'>\uf02d</span>&nbsp;&nbsp;-")
+                self.labelWerte[index].hide()
+                self.labelMods[index].hide()
                 continue
+            self.labelWerte[index].show()
+            self.labelMods[index].show()
             ww = Wolke.Char.waffenwerte[index]
             waffe = Wolke.Char.waffen[index]
             vt = ww.VT
             if waffe.name in vtVerboten or waffe.talent in vtVerboten:
                 vt = "-"
-
-            verbesserung = []
+            
+            diff = []
             if self.waffenTypen[index] in Wolke.DB.waffen:
                 dbWaffe = Wolke.DB.waffen[self.waffenTypen[index]]
+                diff = self.diffWeapons(waffe, dbWaffe)
 
-                w6Diff = waffe.W6 - dbWaffe.W6
-                plusDiff = waffe.plus - dbWaffe.plus
+            diff = ', '.join(diff).replace(", Eigenschaften", "; Eigenschaften")
+            self.labelBasis[index].setText(f"<span style='{Wolke.FontAwesomeCSS}'>\uf02d</span>&nbsp;&nbsp;{self.waffenTypen[index]}")
+            self.labelWerte[index].setText(f"""<span style='{Wolke.FontAwesomeCSS}'>\uf6cf</span>&nbsp;&nbsp;AT* {ww.AT}, VT* {vt}, TP* {ww.TPW6}W6{"+" if ww.TPPlus >= 0 else ""}{ww.TPPlus}""")
+            if len(diff) > 0:
+                self.labelMods[index].setText(f"<span style='{Wolke.FontAwesomeCSS}'>\uf6e3</span>&nbsp;&nbsp;{diff}")
+            else:
+                self.labelMods[index].setText("")
 
-                haerteDiff = waffe.haerte - dbWaffe.haerte
-                waffenHaerteWSStern = Wolke.DB.einstellungen["Waffen: Härte WSStern"].toTextList()
-                if dbWaffe.name in waffenHaerteWSStern:
-                    haerteDiff = waffe.haerte - Wolke.Char.wsStern
-                wmDiff = waffe.wm - dbWaffe.wm
-                rwDiff = waffe.rw - dbWaffe.rw
-                lzDiff = 0
-                if type(waffe) is Objekte.Fernkampfwaffe:
-                    lzDiff = waffe.lz - dbWaffe.lz
-
-                eigPlusDiff = list(set(waffe.eigenschaften) - set(dbWaffe.eigenschaften))
-                eigMinusDiff = list(set(dbWaffe.eigenschaften) - set(waffe.eigenschaften))
-
-                if w6Diff != 0:
-                    verbesserung.append("TP " + ("+" if w6Diff >= 0 else "") + str(w6Diff) + "W6")
-                if plusDiff != 0:
-                    tmp = ("+" if plusDiff >= 0 else "") + str(plusDiff)
-                    if w6Diff != 0:
-                        verbesserung[0] += tmp
-                    else:
-                        verbesserung.append("TP " + tmp)
-                if rwDiff != 0:
-                    verbesserung.append("RW " + ("+" if rwDiff >= 0 else "") + str(rwDiff))
-                if wmDiff != 0:
-                    verbesserung.append("WM " + ("+" if wmDiff >= 0 else "") + str(wmDiff))
-                if lzDiff != 0:
-                    verbesserung.append("LZ " + ("+" if lzDiff >= 0 else "") + str(lzDiff))
-                if haerteDiff != 0:
-                    verbesserung.append("Härte " + ("+" if haerteDiff >= 0 else "") + str(haerteDiff))
-                if len(eigPlusDiff) > 0:
-                    verbesserung.append("Eigenschaften +" + ", +".join(eigPlusDiff))
-                if len(eigMinusDiff) > 0:
-                    if len(eigPlusDiff) > 0:
-                        verbesserung.append("-" + ", -".join(eigMinusDiff))
-                    else:
-                        verbesserung.append("Eigenschaften -" + ", -".join(eigMinusDiff))
-            verbesserung = ', '.join(verbesserung).replace(", Eigenschaften", "; Eigenschaften")
-
-            text = f"""<span style='{Wolke.FontAwesomeCSS}'>\uf0c1</span>&nbsp;&nbsp;{self.waffenTypen[index]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span style='{Wolke.FontAwesomeCSS}'>\uf00b</span>&nbsp;&nbsp;AT* {ww.AT}, VT* {vt}, TP* {ww.TPW6}W6{"+" if ww.TPPlus >= 0 else ""}{ww.TPPlus}"""
-            if len(verbesserung) > 0:
-                text += f"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style='{Wolke.FontAwesomeCSS}'>\uf6e3</span>&nbsp;&nbsp;{verbesserung}"
-            self.labelWerte[index].setText(text)
 
     def refreshDerivedWeaponValues(self, W, index):
         # Waffen Typ
