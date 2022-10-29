@@ -61,6 +61,50 @@ class UebernatuerlichWrapper(QtCore.QObject):
         #Already implemented for the individual events
         pass
 
+    def getNonOptimalFerts(self, ferts):
+        availableTalents = []
+        for t in Wolke.DB.talente:
+            talent = Wolke.DB.talente[t]
+            if not talent.isSpezialTalent():
+                continue
+            if talent.name.endswith("(passiv)") or talent.name.endswith("(Passiv)"):
+                if not " PW " in talent.text:
+                    continue
+            if Wolke.Char.voraussetzungenPrüfen(talent.voraussetzungen):
+                availableTalents.append(talent)
+
+        result = []
+        for el in ferts:
+            totalTalentCost = 0
+             # going to use the word unique for talents that the char has only one fert for
+            uniqueTalentCost = 0
+            uniqueTalentOwned = False
+            for talent in availableTalents:
+                available = False
+                unique = True
+                owned = False
+                for talFert in talent.fertigkeiten:
+                    if talFert in Wolke.Char.übernatürlicheFertigkeiten:
+                        owned = owned or talent.name in Wolke.Char.übernatürlicheFertigkeiten[talFert].gekaufteTalente
+                    if talFert == el:
+                        available = True
+                    elif talFert in ferts:
+                        unique = False
+                if not available:
+                    continue
+                totalTalentCost += talent.kosten
+                if unique:
+                    uniqueTalentCost += talent.kosten
+                    if owned:
+                        uniqueTalentOwned = True
+
+            if uniqueTalentOwned:
+                continue
+            if totalTalentCost < 120 or (totalTalentCost < 180 and uniqueTalentCost < 60):
+                result.append(el)
+
+        return result
+
     def load(self):
         self.currentlyLoading = True
         
@@ -77,8 +121,12 @@ class UebernatuerlichWrapper(QtCore.QObject):
                     temp.append(el)
                     break
 
+        nonOptimalFerts = self.getNonOptimalFerts(temp)
+        def getPrintclass(fert, nonOptimalFerts):
+             return Wolke.DB.übernatürlicheFertigkeiten[fert].printclass + (99999 if fert in nonOptimalFerts else 0)
+
         # sort by printclass, then by name
-        temp.sort(key = lambda x: (Wolke.DB.übernatürlicheFertigkeiten[x].printclass, x)) 
+        temp.sort(key = lambda x: (getPrintclass(x, nonOptimalFerts), x))
 
         if Hilfsmethoden.ArrayEqual(temp, self.availableFerts):
             for i in range(self.ui.tableWidget.rowCount()):
@@ -93,11 +141,11 @@ class UebernatuerlichWrapper(QtCore.QObject):
             rowIndicesWithLinePaint = []
             count = 0
             if len(self.availableFerts) > 0:
-                lastPrintclass = Wolke.DB.übernatürlicheFertigkeiten[self.availableFerts[0]].printclass
+                lastPrintclass = getPrintclass(self.availableFerts[0], nonOptimalFerts)
                 for el in self.availableFerts:
-                    if Wolke.DB.übernatürlicheFertigkeiten[el].printclass != lastPrintclass:
+                    if getPrintclass(el, nonOptimalFerts) != lastPrintclass:
                         rowIndicesWithLinePaint.append(count-1)
-                        lastPrintclass = Wolke.DB.übernatürlicheFertigkeiten[el].printclass
+                        lastPrintclass = getPrintclass(el, nonOptimalFerts)
                     count += 1
 
             self.ui.tableWidget.clear()
@@ -159,14 +207,6 @@ class UebernatuerlichWrapper(QtCore.QObject):
             self.ui.tableWidget.setHorizontalHeaderItem(5, item)
     
             count = 0
-
-            availableTalents = []
-            for t in Wolke.DB.talente:
-                talent = Wolke.DB.talente[t]
-                if not talent.isSpezialTalent():
-                    continue
-                if Wolke.Char.voraussetzungenPrüfen(talent.voraussetzungen):
-                    availableTalents.append(talent)
             
             font = QtGui.QFont(Wolke.Settings["Font"], Wolke.Settings["FontSize"])
 
@@ -180,18 +220,15 @@ class UebernatuerlichWrapper(QtCore.QObject):
                 self.pdfRef[el].stateChanged.connect(lambda state, name=el: self.addToPDFClicked(name, state))
                 self.ui.tableWidget.setCellWidget(count,0,self.pdfRef[el])
 
-                totalTalentCost = 0
-                for talent in availableTalents:
-                    if el in talent.fertigkeiten:
-                        totalTalentCost += talent.kosten
-                if totalTalentCost < 120:
-                    self.labelRef[el + "Name"] =  QtWidgets.QLabel(el + "&nbsp;&nbsp;<span style='" + Wolke.FontAwesomeCSS + "'>\uf73d</span>")
-                    self.labelRef[el + "Name"].setToolTip("Diese Fertigkeit bietet dir nur wenige Talente im Gesamtwert von unter 120 EP.\nSie zu steigern lohnt sich daher nur für die wenigsten.\nÜblicherweise kannst du die enthaltenen Talente aber auch mit einer anderen Fertigkeit wirken.")
+                if el in nonOptimalFerts:
+                    self.labelRef[el + "Name"] =  QtWidgets.QLabel("<span style='" + Wolke.FontAwesomeCSS + "'>\uf071</span>&nbsp;&nbsp;" + el)
+                    self.labelRef[el + "Name"].setToolTip("""Diese Fertigkeit bietet dir nur wenige Talente von denen (meistens) alle über andere Fertigkeiten gewirkt werden können.
+Du kannst die Fertigkeit dennoch steigern, aber es wird nicht empfohlen.
+Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser Fertigkeit gewirkt werden kann.""")
                 else:
                     self.labelRef[el + "Name"] =  QtWidgets.QLabel(el)
                 self.labelRef[el + "Name"].setContentsMargins(3, 0, 0, 0)
                 self.ui.tableWidget.setCellWidget(count, 1, self.labelRef[el + "Name"])
-
                 # Add Spinner for FW
                 self.spinRef[el] = QtWidgets.QSpinBox()
                 self.spinRef[el].setFocusPolicy(QtCore.Qt.StrongFocus)
@@ -354,8 +391,7 @@ class UebernatuerlichWrapper(QtCore.QObject):
         self.updateAddToPDF()
         if tal.gekaufteTalente is not None:
             self.modified.emit()
-            self.updateTalents()
-            self.labelRef[self.currentFertName].setText(str(len(tal.gekaufteTalente)))
+            self.load()
 
     def updateAddToPDF(self):
         if self.currentFertName == "":
