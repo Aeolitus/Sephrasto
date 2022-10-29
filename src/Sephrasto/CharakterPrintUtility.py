@@ -368,12 +368,13 @@ class CharakterPrintUtility:
         else:
             beschreibung = vorteil.text.replace("\n\n", "\n")
 
+        beschreibungenErsetzen = [int(typ) for typ in Wolke.DB.einstellungen["Regelanhang: Vorteilsbeschreibungen ersetzen"].toTextList()]
         for vor2 in char.vorteile:
             vorteil2 = Wolke.DB.vorteile[vor2]
             if CharakterPrintUtility.isLinkedTo(char, vorteil2, VorteilLinkKategorie.Vorteil, vorteil.name):
                 beschreibung2 = CharakterPrintUtility.getLinkedDescription(char, vorteil2)
 
-                if vorteil2.typ == 0:
+                if vorteil2.typ in beschreibungenErsetzen:
                     #allgemeine vorteile replace the description of what they link to (except vorteil is variable with a comment)
                     if not (vorteil.name in char.vorteileVariable) or not char.vorteileVariable[vorteil.name].kommentar:
                         beschreibung = beschreibung2
