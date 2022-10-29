@@ -69,6 +69,11 @@ for filename in removeFiles:
             shutil.rmtree(filepath)
         except OSError:
             os.remove(filepath)
+
+# The python dlls need to be ALSO present inside the lib folder for Sephrasto to work on non-dev PCs
+# TODO: remove this once newer cx_freeze versions fix the issue
+shutil.copy2(os.path.join(build_path, "python3.dll"), os.path.join(build_path, "lib", "python3.dll"))
+shutil.copy2(os.path.join(build_path, "python37.dll"), os.path.join(build_path, "lib", "python37.dll"))
              
 # Copy additional files and folders to build folder
 print("Copying additional files and folders to build folder")
