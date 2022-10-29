@@ -237,7 +237,7 @@ class CharakterPrintUtility:
         return result.strip()
 
     @staticmethod
-    def __mergeDescriptions(str1, str2):
+    def mergeDescriptions(str1, str2):
         #match numbers or fractions, + is ignored, nums with prefix S. are skipped
         reNumbers = re.compile(r'-?\d+/\d+|-?\d+', re.UNICODE)
 
@@ -381,6 +381,6 @@ class CharakterPrintUtility:
                     else:
                         beschreibung += "\n" + beschreibung2
                 else:
-                    beschreibung = CharakterPrintUtility.__mergeDescriptions(beschreibung, beschreibung2)
+                    beschreibung = CharakterPrintUtility.mergeDescriptions(beschreibung, beschreibung2)
 
         return beschreibung
