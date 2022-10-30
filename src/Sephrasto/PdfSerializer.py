@@ -23,12 +23,18 @@ import subprocess
 import logging
 
 def check_output_silent(call):
-    if platform.system() == 'Windows':
-        startupinfo = subprocess.STARTUPINFO()
-        startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-        return subprocess.check_output(call, startupinfo=startupinfo)
-    else:
-        return subprocess.check_output(call)
+    try:
+        if platform.system() == 'Windows':
+            startupinfo = subprocess.STARTUPINFO()
+            startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+            return subprocess.check_output(call, startupinfo=startupinfo, stderr=subprocess.STDOUT)
+        else:
+            return subprocess.check_output(call, stderr=subprocess.STDOUT)
+    except subprocess.CalledProcessError as error:
+        processError = error.output.decode('utf-8')
+        if "Failed to open" in processError:
+            processError = "Vermutlich hat ein anderes Programm ein Überschreiben der Datei verhindert. Bitte schließe alle Programme, in denen die Datei geöffnet ist."
+        raise Exception(processError)
 
 def write_pdf(source, fields, out_file = None, flatten=False):
     '''
