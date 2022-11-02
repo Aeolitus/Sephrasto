@@ -56,6 +56,9 @@ Dann öffne `etc/ImageMagick-{Version}/policy.xml` und füge unten die Zeile
 ```
 hinzu. Deine Versionsnummer musst du selbst eintragen. Getestet wurde bisher nur mit ImageMagick-Version 6 und höher. Die Datei ist vermutlich bei dir schreibgeschützt. Du kannst sie beispielsweise mit `sudo nano etc/ImageMagick-{Version}/policy.xml` öffnen, bearbeiten und speichern. Bedenke, dass die Änderung der Policy nicht nur für Sephrasto, sondern auch für andere Programme gilt, die ImageMagick nun für PDF-Bearbeitung frei nutzen können. Stelle via ```gs --version``` sicher, dass deine Ghostscript-Installation mindestens die Version 9.24 hat, ansonsten stellt diese Änderung ein Sicherheitsrisiko dar ([siehe hier](https://stackoverflow.com/questions/52998331/imagemagick-security-policy-pdf-blocking-conversion).
 
+## Installation Windows
+Für Windows stellen wir unter https://github.com/Aeolitus/Sephrasto/releases builds zur Verfügung.
+
 ## Installation macOS
 * Lade den neuesten Sephrasto Sourcecode herunter (https://github.com/Aeolitus/Sephrasto/releases) und entpacke ihn an einen Ort deiner Wahl. 
 * Installiere Python 3: https://www.python.org/downloads/macos/
@@ -75,10 +78,15 @@ Gestartet wird Sephrasto dann folgendermaßen:
 ### Charakterbild ###
 Für Sephrastos Charakterbildfeature wird imagemagick benötigt, das leider in der aktuellen Version nicht funktioniert wie es soll. Ein Bugreport wurde bereits abgesendet: https://github.com/ImageMagick/ImageMagick/issues/5439. Falls du es dennoch installieren möchtest oder der Bug inzwischen behoben wurde, kannst du den folgenden Befehl nutzen: ```brew install imagemagick```. Benötigt den Homebrew Paketmanager https://brew.sh.
 
-## Einrichtung von Visual Studio als IDE:
+## Für Entwickler
+
+### Erstellen von Windows builds
+Stelle sicher, dass alle Pakete aus der requirements.txt installiert sind. Aktuell nutzen wir außerdem Python 3.9.7 und cx_Freeze 6.13.1 zum Erstellen von Windows builds. Nun solltest du build.bat im Sephrasto root ausführen können.
+
+### Einrichtung von Visual Studio als IDE:
 * Installiere VS 2019 Community Edition mit dem Python Workload (kann auch nachträglich über den Installer installiert werden)
 * Setze den Pfad der Python-Umgebung in der Umgebungsvariable PATH (in der Regel C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64)
-* Öffne Sephrasto.sln
+* Öffne Sephrasto/src/Sephrasto.sln
 * Installiere die dependencies: Solution Explorer -> Python Environments -> Rechtsclick auf Python 3.x -> Install Python Package.
 * Stelle zuerst sicher, dass deine pip Version aktuell ist, aktualisiere diese gegebenenfalls und starte Visual Studio neu
 * Installiere nun die oben genannten Pakete im gleichen Menu.
@@ -86,7 +94,7 @@ Für Sephrastos Charakterbildfeature wird imagemagick benötigt, das leider in d
 * Stelle das Tab-Verhalten auf "Insert Spaces": Tools -> Options -> Text Editor -> Python -> Tabs
 * Öffne das Exception Settings Fenster (Debug -> Windows -> Exception Settings) und selektiere alle Python Exceptions, dann deaktiviere <All Python Exceptions not in this list>, BaseException und Exception - damit breaken die custom exceptions nicht, die Sephrasto intern nutzt.
 
-## UI design mit Qt
+### UI design mit Qt
 * Modifiziere niemals Dateien im "src/Sephrasto/UI" Ordner von Hand!
 * Stattdessen wird das UI durch ".ui"-XML-Dateien im "designer" Ordner definiert. Optionalerweise können diese mit dem Qt Creator visuell designed werden (enthalten im Qt-Installer unter https://www.qt.io/).
 * Aus diesen Dateien wird dann der Python-Code mit Hilfe von "designer/convert.bat" erzeugt.
