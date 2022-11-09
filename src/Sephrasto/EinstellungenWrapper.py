@@ -31,7 +31,7 @@ class EinstellungenWrapper():
                 QtCore.Qt.WindowCloseButtonHint |
                 QtCore.Qt.WindowMaximizeButtonHint |
                 QtCore.Qt.WindowMinimizeButtonHint)
-
+        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).setText("Abbrechen")
         self.ui.checkCheatsheet.setChecked(Wolke.Settings['Cheatsheet'])
 
         boegen = [os.path.basename(os.path.splitext(bogen)[0]) for bogen in Wolke.Charakterbögen]
