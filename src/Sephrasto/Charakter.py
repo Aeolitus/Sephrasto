@@ -1042,7 +1042,7 @@ class Char():
             etree.SubElement(sub,'bild').text = base64.b64encode(self.bild)
 
         #Plugins
-        root = EventBus.applyFilter("charakter_xml_schreiben", root, { "charakter" : self })
+        root = EventBus.applyFilter("charakter_xml_schreiben", root, { "charakter" : self, "filepath" : filename })
 
         #Write XML to file
         doc = etree.ElementTree(root)
