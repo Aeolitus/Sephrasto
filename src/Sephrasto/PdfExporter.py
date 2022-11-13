@@ -143,7 +143,7 @@ class PdfExporter(object):
 
         PdfSerializer.squeeze(filename, filename)
 
-        EventBus.doAction("pdf_geschrieben", { "filename" : filename })
+        EventBus.doAction("pdf_geschrieben", { "filepath" : filename, "filename" : filename }) # filename is deprecated, remove in future
         progressCallback(100)
 
         #Open PDF with default application:

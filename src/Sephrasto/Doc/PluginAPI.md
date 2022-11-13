@@ -58,7 +58,7 @@ Zweck: Beliebige Aktion durchführen, nachdem die Charakterwerte in irgendeiner 
 Zweck: Aktionen durchführen, die nicht mit der Vorteil-Script-API möglich sind. Der "name" Parameter enthält den Namen des Vorteils. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
 - "vorteil_gekauft" (Parameter: { "charakter" : Char, "name" : string })<br />
 Zweck: Aktionen durchführen, die nicht mit der Vorteil-Script-API möglich sind. Der "name" Parameter enthält den Namen des Vorteils. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "pdf_geschrieben" (Parameter: { "filename" : string })<br />
+- "pdf_geschrieben" (Parameter: { "filepath" : string })<br />
 Zweck: Aktion durchführen, nachdem die Charakter-PDF geschrieben wurde, z.B. eine weitere PDF schreiben. Der Parameter enthält den Dateinamen der Charakter-PDF mit absolutem Pfad.
 - "basisdatenbank_geladen" (Parameter: { "datenbank" : Datenbank })<br />
 Zweck: Elemente der Basisdatenbank anpassen/hinzufügen/löschen, bevor die Hausregel-Datenbank geladen wird. Ein übliches Beispiel ist das Hinzufügen von DatenbankEinstellung-Elementen, mit welchen das Plugin konfiguriert werden kann.
