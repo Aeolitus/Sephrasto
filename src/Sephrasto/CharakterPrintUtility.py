@@ -83,7 +83,7 @@ class CharakterPrintUtility:
                     ferts = char.übernatürlicheFertigkeiten if talent.isSpezialTalent() else char.fertigkeiten
                     if fert not in ferts:
                         continue
-                    if höchste == None or höchste.probenwertTalent < ferts[fert].probenwertTalent:
+                    if höchste == None or (ferts[fert].addToPDF and höchste.probenwertTalent < ferts[fert].probenwertTalent):
                         höchste = ferts[fert]
                 if höchste.name != fertigkeit.name:
                     continue
