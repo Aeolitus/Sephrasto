@@ -30,23 +30,8 @@ class UpdateChecker:
         while len(version) < 3:
             version.append(0)
 
-        if version[0] < Version._sephrasto_version_major:
-            return
-
-        if version[0] > Version._sephrasto_version_major:
+        if Version.isClientLower(version[0], version[1], version[2]):
             UpdateChecker.showUpdate(res[0])
-            return
-
-        if version[1] < Version._sephrasto_version_minor:
-            return
-
-        if version[1] > Version._sephrasto_version_minor:
-            UpdateChecker.showUpdate(res[0])
-            return
-
-        if version[2] > Version._sephrasto_version_build:
-            UpdateChecker.showUpdate(res[0])
-            return
 
     @staticmethod    
     def showUpdate(version):
@@ -56,7 +41,7 @@ class UpdateChecker:
         messageBox = QtWidgets.QMessageBox()
         messageBox.setIcon(QtWidgets.QMessageBox.Information)
         messageBox.setWindowTitle("Neue Sephrasto-Version")
-        messageBox.setText("Eine neue Version von Sephrasto ist verfügbar: " + version + ". Clicke auf Download, um zur Sephrasto-Seite auf dsaforum.de zu gelangen.")
+        messageBox.setText(f"Eine neue Version von Sephrasto ist verfügbar!\n\nInstallierte Version: {Version.toString()}\nNeue Version: {version}\n\nClicke auf Download, um zur Sephrasto-Seite auf dsaforum.de zu gelangen.")
         messageBox.addButton("Download", QtWidgets.QMessageBox.AcceptRole)
         messageBox.addButton("OK", QtWidgets.QMessageBox.AcceptRole)
         messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
