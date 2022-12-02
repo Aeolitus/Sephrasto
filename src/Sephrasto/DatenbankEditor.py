@@ -46,12 +46,15 @@ class DatenbankEditor(object):
         self.windowTitleDefault = ""
         self.checkMissingPlugins()
 
-    def checkMissingPlugins(self):
+    def getDatabaseChangingPlugins(self):
         enabledPlugins = []
         for pluginData in self.plugins:
             if pluginData.plugin is not None and hasattr(pluginData.plugin, "changesDatabase") and pluginData.plugin.changesDatabase():
                 enabledPlugins.append(pluginData.name)
-        
+        return enabledPlugins
+
+    def checkMissingPlugins(self):
+        enabledPlugins = self.getDatabaseChangingPlugins()       
         missingPlugins = set(self.datenbank.enabledPlugins) - set(enabledPlugins)
         if len(missingPlugins) > 0:
             infoBox = QtWidgets.QMessageBox()
@@ -583,6 +586,8 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
             infoBox.exec()
         else:
+            # plugins may change their changesDatabase-flag depending on database settings, so update the enabled plugins here
+            self.datenbank.enabledPlugins = self.getDatabaseChangingPlugins()
             self.datenbank.datei = self.savepath
             self.datenbank.xmlSchreiben()
             self.changed = False

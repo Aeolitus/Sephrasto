@@ -345,11 +345,14 @@ class Datenbank():
             logging.debug("Starting User DB Migration")
             self.userDBMigrieren(root, userDBVersion, self.datenbankCodeVersion)
 
-            if root.find('Plugins') is not None and root.find('Plugins').text:
-                if conflictCB is None:
-                    self.enabledPlugins = root.find('Plugins').text.split(",")
-                else:
+            loadAdditive = conflictCB is not None
+            if root.find('Plugins') is not None and root.find('Plugins').text:         
+                if loadAdditive:
                     self.enabledPlugins += root.find('Plugins').text.split(",")
+                else:
+                    self.enabledPlugins = root.find('Plugins').text.split(",")
+            elif not loadAdditive:
+                self.enabledPlugins = []
 
         numLoaded = 0
 
