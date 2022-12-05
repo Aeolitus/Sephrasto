@@ -264,7 +264,7 @@ def squeeze(file, out_file = None):
         os.close(handle)
 
     cpdfPath = os.path.join("Bin", platform.system(), "cpdf", "cpdf")
-    call = [cpdfPath, "-squeeze", file, "-o", out_file]
+    call = [cpdfPath, "-squeeze", "-i", file, "-o", out_file]
 
     try:
         check_output_silent(call)
