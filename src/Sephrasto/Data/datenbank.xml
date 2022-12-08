@@ -1041,7 +1041,7 @@ Wirkungsdauer: 16 Initiativephasen
 Kosten: 16 AsP
 Fertigkeiten: Dämonisch, Verständigung
 Erlernen: Hex 18; Bor, Mag 20; 40 EP</Talent>
-  <Talent name="Nuntiovolo Botenvogel" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Dämonisch" variable="0" referenzseite="129" referenzbuch="0">Du formst eine Rauchgestalt, die einen kleinen Gegenstand (wie einen Brief) mit etwa 50 Meilen pro Stunde an den gewünschten Zielort bringt. Der Zauber kann nur in der Nacht gewirkt werden und ist unzuverlässig: Wenn dem Spielleiter eine verdeckte Probe (6, I) misslingt, kommt die Rauchgestalt nicht an.
+  <Talent name="Nuntiovolo Botenvogel" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Dämonisch" variable="0" referenzseite="129" referenzbuch="0">Du formst eine Rauchgestalt, die einen kleinen Gegenstand (wie einen Brief) mit etwa 50 Meilen pro Stunde an den gewünschten Zielort bringt. Der Zauber kann nur in der Nacht gewirkt werden und ist unzuverlässig: Wenn dem Spielleiter eine verdeckte Probe (6, I) misslingt, kommt die Rauchgestalt nicht an.
 Mächtige Magie: Die Schwierigkeit der Probe ist 5/4/3/2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 8 Aktionen
@@ -1892,7 +1892,7 @@ Erlernen: Dru 16; Mag 18; 40 EP</Talent>
 Probenschwierigkeit: 12
 Modifikationen: Reise ins Eis (–4; du kannst dich mit 1 Schritt pro Initiativephase in Eis und Schnee bewegen, als würdest du darin tauchen. Im Eis brauchst du nicht zu atmen.)
 Begleiter (–4; der Zauber betrifft auch eine weitere Person, mit der du permanent Hautkontakt halten musst.)
-Leib aus Eis (–8; Deine Kreaturenklasse wird zu "Elementar" mit allen entsprechenden Eigenschaften (S. 99). Du kannst während der Wirkungsdauer keine Zauber wirken.)
+Leib aus Eis (–8; Deine Kreaturenklasse wird zu "Elementar" mit allen entsprechenden Eigenschaften (S. 99). Du kannst während der Wirkungsdauer keine Zauber wirken.)
 Vorbereitungszeit: 8 Aktionen
 Ziel: selbst
 Reichweite: Berührung
@@ -1991,7 +1991,7 @@ Reichweite: Berührung
 Wirkungsdauer: 1 Stunde
 Kosten: 8 AsP
 Fertigkeiten: Erz, Verwandlung
-Erlernen: Ach 12; Geo, Mag 14; Dru 16; Alch 20; 40 EP</Talent>
+Erlernen: Ach 12; Geo, Mag 14; Dru 16; Alch 20; 40 EP</Talent>
   <Talent name="Archofaxius" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Erz" variable="0" referenzseite="138" referenzbuch="0">Eine Strahl aus elementarem Erz fügt dem Ziel 4W6 TP zu und verursacht Niederschmettern (S. 98). Ballistischer Zauber.
 Mächtige Magie: Die TP steigen um 2W6.
 Probenschwierigkeit: 12
@@ -2023,7 +2023,7 @@ Kosten: 16/32/64 AsP (Diener/Dschinn/Meister)
 Fertigkeiten: Erz
 Erlernen: Geo 14; Ach, Dru, Mag 16; Alch 18; 60 EP
 Anmerkung: Nicht überall sind die Wahren Namen und damit die Beschwörung von elementaren Dienern und vor allem Meistern bekannt. </Talent>
-  <Talent name="Fortifex arkane Wand" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Erz, Umwelt" variable="0" referenzseite="138" referenzbuch="0">Es entsteht eine maximal 2x2 Schritt große, 5 Finger dicke, unsichtbare Wand. Die Wand ist undurchdringlich für Gegenstände bis zum Gewicht einer Rotzenkugel, schwerere Gegenstände werden nur leicht verlangsamt.
+  <Talent name="Fortifex arkane Wand" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Erz, Umwelt" variable="0" referenzseite="138" referenzbuch="0">Es entsteht eine maximal 2x2 Schritt große, 5 Finger dicke, unsichtbare Wand. Die Wand ist undurchdringlich für Gegenstände bis zum Gewicht einer Rotzenkugel, schwerere Gegenstände werden nur leicht verlangsamt.
 Mächtige Magie: Die Wand ist bis zum Gewicht eines schweren Menschen/Pferdes mit Reiter/einer Kutsche/eines Schiffes undurchdringlich.
 Probenschwierigkeit: 12
 Modifikationen: Begleiter (–4; die Wand bewegt sich mit dir.)
@@ -2035,7 +2035,7 @@ Wirkungsdauer: 4 Minuten
 Kosten: 8 AsP
 Fertigkeiten: Erz, Umwelt
 Erlernen: Mag 16; Ach 18; Alch 20; 40 EP</Talent>
-  <Talent name="Kraft des Erzes" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Erz, Verwandlung" variable="0" referenzseite="138" referenzbuch="0">Der schwerste Metallgegenstand in Reichweite wird stark magnetisch. Im Radius von 8 Schritt um den Magneten müssen alle Träger von Metallgegenständen eine Konterprobe (KK, 16) ablegen. Misslingt sie, werden ihnen Metallgegenstände aus den Händen gerissen und schlittern in Richtung des Magneten – bei einer Rüstung mit ihrem Träger. Selbst wenn die Konterprobe gelingt, sind alle Proben im Umgang mit Metallgegenständen um –4 erschwert.
+  <Talent name="Kraft des Erzes" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Erz, Verwandlung" variable="0" referenzseite="138" referenzbuch="0">Der schwerste Metallgegenstand in Reichweite wird stark magnetisch. Im Radius von 8 Schritt um den Magneten müssen alle Träger von Metallgegenständen eine Konterprobe (KK, 16) ablegen. Misslingt sie, werden ihnen Metallgegenstände aus den Händen gerissen und schlittern in Richtung des Magneten – bei einer Rüstung mit ihrem Träger. Selbst wenn die Konterprobe gelingt, sind alle Proben im Umgang mit Metallgegenständen um –4 erschwert.
 Mächtige Magie: Der Malus steigt um –2.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
@@ -2044,12 +2044,12 @@ Reichweite: 8 Schritt
 Wirkungsdauer: 1 Stunde
 Kosten: 8 AsP
 Fertigkeiten: Erz, Verwandlung
-Erlernen: Geo 12; Dru 16; Ach 18; Alch, Mag 20; 40 EP</Talent>
+Erlernen: Geo 12; Dru 16; Ach 18; Alch, Mag 20; 40 EP</Talent>
   <Talent name="Leib des Erzes" kosten="60" voraussetzungen="Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I" verbilligt="0" fertigkeiten="Erz, Verwandlung" variable="0" referenzseite="138" referenzbuch="0">Du harmonierst mit dem Element Erz. Du bist immun gegen Erzschaden und dein RS gegen Metallwaffen steigt um 1.
 Probenschwierigkeit: 12
 Modifikationen: Reise ins Element (–4; du kannst dich mit 1 Schritt pro Initiativephase durch Stein und Erz bewegen, als würdest du darin tauchen. Im Erz brauchst du nicht zu atmen.)
 Begleiter (–4; der Zauber betrifft auch eine weitere Person, mit der du permanent Hautkontakt halten musst.)
-Leib aus Erz (–8; Deine Kreaturenklasse wird zu "Elementar" mit allen entsprechenden Eigenschaften (S. 99). Du kannst während der Wirkungsdauer keine Zauber wirken.)
+Leib aus Erz (–8; Deine Kreaturenklasse wird zu "Elementar" mit allen entsprechenden Eigenschaften (S. 99). Du kannst während der Wirkungsdauer keine Zauber wirken.)
 Vorbereitungszeit: 8 Aktionen
 Ziel: selbst
 Reichweite: Berührung
@@ -2183,7 +2183,7 @@ Erlernen: Mag 18; Ach, Geo 20; 60 EP</Talent>
 Probenschwierigkeit: 12
 Modifikationen: Reise ins Feuer (–4; du kannst dich mit 1 Schritt pro Initiativephase durch Feuer und Lava bewegen, als würdest du darin tauchen. Im Feuer brauchst du nicht zu atmen.)
 Begleiter (–4; der Zauber betrifft auch eine weitere Person, mit der du permanent Hautkontakt halten musst.)
-Leib aus Feuer (–8; Deine Kreaturenklasse wird zu "Elementar" mit allen entsprechenden Eigenschaften (S. 99). Du kannst während der Wirkungsdauer keine Zauber wirken.)
+Leib aus Feuer (–8; Deine Kreaturenklasse wird zu "Elementar" mit allen entsprechenden Eigenschaften (S. 99). Du kannst während der Wirkungsdauer keine Zauber wirken.)
 Vorbereitungszeit: 8 Aktionen
 Ziel: selbst
 Reichweite: Berührung
@@ -2402,7 +2402,7 @@ Reichweite: Berührung
 Wirkungsdauer: augenblicklich
 Kosten: 8 AsP
 Fertigkeiten: Humus, Verwandlung
-Erlernen: Elf, Mag 8; Ach, Geo 12; Alch, Dru 14; Srl 16; 60 EP</Talent>
+Erlernen: Elf, Mag 8; Ach, Geo 12; Alch, Dru 14; Srl 16; 60 EP</Talent>
   <Talent name="Herbeirufung des Humus" kosten="60" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Humus" variable="0" referenzseite="142" referenzbuch="0">Ruft ein Elementarwesen des jeweiligen Elements herbei (mehr zu Herbeirufungen S. 81), das in deiner unmittelbaren Nähe erscheint.
 Probenschwierigkeit: 16/24/32 (Diener/Dschinn/Meister)
 Vorbereitungszeit: frei wählbar
@@ -2434,7 +2434,7 @@ Reichweite: Berührung
 Wirkungsdauer: augenblicklich
 Kosten: nach Projekt
 Fertigkeiten: Humus, Verwandlung
-Erlernen: Elf 14; Geo 18; Alch, Dru, Hex, Mag 20; 60 EP</Talent>
+Erlernen: Elf 14; Geo 18; Alch, Dru, Hex, Mag 20; 60 EP</Talent>
   <Talent name="Hexenspeichel" kosten="60" voraussetzungen="Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Humus, Verwandlung" variable="0" referenzseite="142" referenzbuch="0">Dein Ziel erhält 2W6+4 Heilpunkte, für jede Überschreitung der WS heilst du eine Wunde.
 Mächtige Magie: Erhöht die Heilpunkte um 4.
 Probenschwierigkeit: 12+Wund-Mod. des Ziels
@@ -2471,7 +2471,7 @@ Erlernen: Ach, Mag 18; Geo, Dru 20; 60 EP</Talent>
   <Talent name="Klarum Purum" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Humus" variable="0" referenzseite="142" referenzbuch="0">Du stoppst die Wirkung eines Giftes bis Stufe 16 sofort.
 Mächtige Magie: Die maximal aufgehobene Giftstufe steigt um 4.
 Probenschwierigkeit: 12
-Modifikationen: Schutz (Wirkungsdauer 8 Stunden; die verzauberte Person ist resistent gegen Gifte bis zur entsprechenden Giftstufe (S. 35). War sie bereits resistent, ist sie immun.)
+Modifikationen: Schutz (Wirkungsdauer 8 Stunden; die verzauberte Person ist resistent gegen Gifte bis zur entsprechenden Giftstufe (S. 35). War sie bereits resistent, ist sie immun.)
 Vorbereitungszeit: 2 Aktionen
 Ziel: Einzelwesen
 Reichweite: Berührung
@@ -2493,7 +2493,7 @@ Erlernen: Dru, Geo 16; Hex 18; Ach, Elf 20; 40 EP</Talent>
 Probenschwierigkeit: 12
 Modifikationen: Reise in die Erde (–4; du kannst dich mit 2 Schritt pro Initiativephase durch Holz und Erde bewegen, als würdest du darin tauchen. Im Humus brauchst du nicht zu atmen.)
 Begleiter (–4; der Zauber betrifft auch eine weitere Person, mit der du permanent Hautkontakt halten musst.)
-Leib aus Humus (–8; Deine Kreaturenklasse wird zu "Elementar" mit allen entsprechenden Eigenschaften (S. 99). Du kannst während der Wirkungsdauer keine Zauber wirken.)
+Leib aus Humus (–8; Deine Kreaturenklasse wird zu "Elementar" mit allen entsprechenden Eigenschaften (S. 99). Du kannst während der Wirkungsdauer keine Zauber wirken.)
 Vorbereitungszeit: 8 Aktionen
 Ziel: selbst
 Reichweite: Berührung
@@ -2873,7 +2873,7 @@ Wirkungsdauer: 4 Stunden
 Kosten: 4 AsP
 Fertigkeiten: Kraft, Verständigung
 Erlernen: Dru 12; Geo 14; Mag 18; Ach, Bor, Hex 20; 40 EP</Talent>
-  <Talent name="Tauschrausch" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Kraft, Umwelt" variable="0" referenzseite="146" referenzbuch="0">Zwei Gegenstände deiner Wahl, die jeweils maximal 2 Stein schwer sind und maximal 4 Schritt voneinander entfernt stehen, tauschen auf der Stelle ihren Platz. Die Gegenstände dürfen nicht magisch, geweiht, befestigt oder mit einem Lebewesen in Kontakt sein.
+  <Talent name="Tauschrausch" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Kraft, Umwelt" variable="0" referenzseite="146" referenzbuch="0">Zwei Gegenstände deiner Wahl, die jeweils maximal 2 Stein schwer sind und maximal 4 Schritt voneinander entfernt stehen, tauschen auf der Stelle ihren Platz. Die Gegenstände dürfen nicht magisch, geweiht, befestigt oder mit einem Lebewesen in Kontakt sein.
 Mächtige Magie: Das maximale Gewicht und die maximale Distanz verdoppeln sich.
 Probenschwierigkeit: 12
 Modifikationen: Einmischen (–8; auch magische und geweihte Gegenstände können gewählt werden.)
@@ -2987,7 +2987,7 @@ Anmerkung: Nicht überall sind die Wahren Namen und damit die Beschwörung von e
 Probenschwierigkeit: 12
 Modifikationen: Reise im Wind (–4; du kannst dich mit GS Schritt pro Initiativephase durch die Luft bewegen, als würdest du darin tauchen.)
 Begleiter (–4; der Zauber betrifft auch eine weitere Person, mit der du permanent Hautkontakt halten musst.)
-Leib aus Luft (–8; Deine Kreaturenklasse wird zu "Elementar" mit allen entsprechenden Eigenschaften (S. 99). Du kannst während der Wirkungsdauer keine Zauber wirken.)
+Leib aus Luft (–8; Deine Kreaturenklasse wird zu "Elementar" mit allen entsprechenden Eigenschaften (S. 99). Du kannst während der Wirkungsdauer keine Zauber wirken.)
 Vorbereitungszeit: 8 Aktionen
 Ziel: selbst
 Reichweite: Berührung
@@ -3119,7 +3119,7 @@ Kosten: 4 AsP
 Fertigkeiten: Luft, Verständigung
 Erlernen: Dru 12; Geo 14; Elf 16; 20 EP</Talent>
   <Talent name="Windhose" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Luft, Umwelt" variable="0" referenzseite="149" referenzbuch="0">Du erzeugst einen Wirbelsturm, den du mit einer Geschwindigkeit von 4 Schritt pro Initiativephase bewegen kannst. Der Wirbelsturm hat einen Radius von 2 Schritt. Wer immer ihn berührt, erleidet pro Initiativephase 1W6 TP durch umherfliegende Kleinteile und muss eine Konterprobe (KK, 16) ablegen, um nicht in eine zufällige Richtung zurückgestoßen (S. 98) zu werden. Erfordert Konzentration.
-Mächtige Magie: Gegenstände und Tiere bis zur Größe eines Kopfes/Rucksacks/Menschen/ Pferdes wirbeln durch die Luft und verursachen zusätzliche 1W6 TP pro Initiativephase. Der Radius des Wirbelsturms steigt um je 1 Schritt.
+Mächtige Magie: Gegenstände und Tiere bis zur Größe eines Kopfes/Rucksacks/Menschen/ Pferdes wirbeln durch die Luft und verursachen zusätzliche 1W6 TP pro Initiativephase. Der Radius des Wirbelsturms steigt um je 1 Schritt.
 Probenschwierigkeit: 12
 Modifikationen: Beweglich (–4; erhöht die Geschwindigkeit des Wirbelsturms um 4 Schritt pro Initiativephase. Mehrfach wählbar.)
 Vorbereitungszeit: 8 Aktionen
@@ -3186,7 +3186,7 @@ Wirkungsdauer: bis die Bindung gelöst wird
 Kosten: 16 AsP, davon 2 gAsP
 Fertigkeiten: Temporal, Verwandlung
 Erlernen: Bor 20; 20 EP</Talent>
-  <Talent name="Objectofixo" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Temporal, Verwandlung" variable="0" referenzseite="149" referenzbuch="0">Du fixierst einen Gegenstand von maximal 2 Stein auf einer waagrechten Fläche. Er kann nicht bewegt werden.
+  <Talent name="Objectofixo" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Temporal, Verwandlung" variable="0" referenzseite="149" referenzbuch="0">Du fixierst einen Gegenstand von maximal 2 Stein auf einer waagrechten Fläche. Er kann nicht bewegt werden.
 Mächtige Magie: Das maximale Gewicht verdoppelt sich.
 Probenschwierigkeit: 12
 Modifikationen: Bilderhaken (–4; du fixierst einen Gegenstand an einer senkrechten Fläche)
@@ -3219,7 +3219,7 @@ Wirkungsdauer: 1 Woche
 Kosten: 4 AsP
 Fertigkeiten: Temporal, Verwandlung
 Erlernen: Ach 12; Alch 14; Mag 16; 20 EP</Talent>
-  <Talent name="Animatio stummer Diener" kosten="60" voraussetzungen="Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Umwelt" variable="0" referenzseite="150" referenzbuch="0">Du verzauberst ein Objekt von maximal 4 Stein, sodass es eine einfache Bewegung wiederholt. Du musst die Bewegung während der Vorbereitungszeit sieben Mal eigenhändig ausführen und ein Signal bestimmen (z.B. ein Fingerschnippen oder ein Wort). Gibst du das Signal, führt der Gegenstand die Bewegung aus. Seine KK entspricht deiner KK während der Vorbereitungszeit.
+  <Talent name="Animatio stummer Diener" kosten="60" voraussetzungen="Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Umwelt" variable="0" referenzseite="150" referenzbuch="0">Du verzauberst ein Objekt von maximal 4 Stein, sodass es eine einfache Bewegung wiederholt. Du musst die Bewegung während der Vorbereitungszeit sieben Mal eigenhändig ausführen und ein Signal bestimmen (z.B. ein Fingerschnippen oder ein Wort). Gibst du das Signal, führt der Gegenstand die Bewegung aus. Seine KK entspricht deiner KK während der Vorbereitungszeit.
 Mächtige Magie: Das maximale Gewicht verdoppelt sich.
 Probenschwierigkeit: 12
 Modifikationen:  Mehrere Objekte (–4; du kannst bis zu FF Objekte gleichzeitig verzaubern, solange ihre Bewegungen zusammengehören.)
@@ -3273,7 +3273,7 @@ Erlernen: Alch, Mag 14; Srl 16; Sch 18; 40 EP</Talent>
 Mächtige Magie: Erhöht KK und die Schritte pro Initiativephase um +2.
 Probenschwierigkeit: 12
 Modifikationen: Unsichtbarer Hieb (Wirkungsdauer augenblicklich, 4 AsP; der Zauber fügt einem Objekt 2W6 SP zu. Mächtige Magie erhöht den Schaden um +4.)
-Magische Abwehr (–4, wird in einer Reaktion gewirkt, Wirkungsdauer augenblicklich, 4 AsP; die Zauberprobe gilt als VT gegen einen Nahkampfangriff in Reichweite.)
+Magische Abwehr (–4, wird in einer Reaktion gewirkt, Wirkungsdauer augenblicklich, 4 AsP; die Zauberprobe gilt als VT gegen einen Nahkampfangriff in Reichweite.)
 Fesselfeld (–8, 32 AsP; in einer Zone von 4 Schritt Radius wird die Bewegung jedes unbelebten Objekts mit einer KK von 2 behindert, was Kampfhandlungen mit Waffen fast unmöglich macht.)
 Vorbereitungszeit: 1 Aktion
 Ziel: Einzelobjekt
@@ -3313,7 +3313,7 @@ Wirkungsdauer: augenblicklich
 Kosten: 8 AsP
 Fertigkeiten: Umwelt
 Erlernen: Ach, Mag 20; 40 EP</Talent>
-  <Talent name="Mahlstrom" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Umwelt, Wasser" variable="0" referenzseite="151" referenzbuch="0">Du erzeugst einen Strudel im Wasser. Wesen in der Umgebung müssen jede Initiativephase eine Konterprobe (Schwimmen, 16) ablegen, die um die Distanz zum Zentrum in Schritt erleichtert ist. Beim Misslingen wird es 4 Schritt näher ins Zentrum des Mahlstroms gezogen. Im Zentrum erleidet jedes Ziel 4W6 SP und wird in die Tiefe gezogen.
+  <Talent name="Mahlstrom" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Umwelt, Wasser" variable="0" referenzseite="151" referenzbuch="0">Du erzeugst einen Strudel im Wasser. Wesen in der Umgebung müssen jede Initiativephase eine Konterprobe (Schwimmen, 16) ablegen, die um die Distanz zum Zentrum in Schritt erleichtert ist. Beim Misslingen wird es 4 Schritt näher ins Zentrum des Mahlstroms gezogen. Im Zentrum erleidet jedes Ziel 4W6 SP und wird in die Tiefe gezogen.
 Probenschwierigkeit: 12
 Modifikationen: Schiffverschlinger (–4, 4 Minuten, Wirkungsdauer 1 Stunde, 64 AsP; der Strudel ist so groß, dass er sogar Schiffe verschlingen kann. Die Konterprobe ist nur um 1 pro 8 Schritt Distanz erleichtert.)
 Vorbereitungszeit: 8 Aktionen
@@ -3610,7 +3610,7 @@ Erlernen: Sch 12; 20 EP</Talent>
 Probenschwierigkeit: 12
 Modifikationen: Reise ins Wasser (–4; du kannst dich mit GS Schritt pro Initiativephase durchs Wasser bewegen. Du musst im Wasser nicht atmen.)
 Begleiter (–4; der Zauber betrifft auch eine weitere Person, mit der du permanent Hautkontakt halten musst.)
-Leib aus Wasser (–8; Deine Kreaturenklasse wird zu "Elementar" mit allen entsprechenden Eigenschaften (S. 99). Du kannst während der Wirkungsdauer keine Zauber wirken.)
+Leib aus Wasser (–8; Deine Kreaturenklasse wird zu "Elementar" mit allen entsprechenden Eigenschaften (S. 99). Du kannst während der Wirkungsdauer keine Zauber wirken.)
 Vorbereitungszeit: 8 Aktionen
 Ziel: selbst
 Reichweite: Berührung
@@ -3650,7 +3650,7 @@ Wirkungsdauer: 8 Stunden
 Kosten: 16 AsP
 Fertigkeiten: Verwandlung
 Erlernen: Ach, Mag 14; Alch, Hex 18; Dru 20; 60 EP</Talent>
-  <Talent name="Serpentialis Schlangenleib" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Verwandlung" variable="0" referenzseite="154" referenzbuch="0">Deine Arme verwandeln sich in grüne, 2 Schritt lange Giftschlangen, deren hinteres Ende noch mit deinem Rumpf verbunden ist. Die Schlangen können beide in einer Aktion Konflikt angreifen (WS 3, VT 10, RW 2, AT 10, TP 2W6) und ein Waffengift übertragen (Stufe 20, keine Verzögerung, Intervall 2 INI-Phasen, Wirkungsdauer 2 INI-Phasen, 2W6 SP).
+  <Talent name="Serpentialis Schlangenleib" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Verwandlung" variable="0" referenzseite="154" referenzbuch="0">Deine Arme verwandeln sich in grüne, 2 Schritt lange Giftschlangen, deren hinteres Ende noch mit deinem Rumpf verbunden ist. Die Schlangen können beide in einer Aktion Konflikt angreifen (WS 3, VT 10, RW 2, AT 10, TP 2W6) und ein Waffengift übertragen (Stufe 20, keine Verzögerung, Intervall 2 INI-Phasen, Wirkungsdauer 2 INI-Phasen, 2W6 SP).
 Mächtige Magie: Die WS der Schlangen steigt um +1, AT, VT und TP um +2.
 Probenschwierigkeit: 12
 Modifikationen: Schlangengriff (Wirkungsdauer 4 Minuten, 4 AsP; die Arme verwandeln sich in kampfunfähige, aber geschickte Nattern, deren FF gleich deiner ist.)
@@ -3960,7 +3960,7 @@ Wirkungsdauer: 1 Stunde
 Kosten: 8 AsP
 Fertigkeiten: Einfluss, Elfenlieder
 Erlernen: Elf 16; 40 EP</Talent>
-  <Talent name="Lied der Lieder " kosten="40" voraussetzungen="Vorteil Tradition der Elfen I" verbilligt="0" fertigkeiten="Einfluss, Elfenlieder" variable="0" referenzseite="158" referenzbuch="0">Alle Humanoide in Hörreichweite sind von deiner immer berauschenderen Musik völlig gefesselt. Nur mit einer Konterprobe (Willenskraft, 16) kann sich ein Zuhörer für 16 Initiativephasen dem Zauber des Liedes entziehen. Ansonsten erwacht er, wenn du aufhörst zu spielen oder er eine Wunde erleidet. Erfordert Konzentration, erlaubt Aufrechterhalten.
+  <Talent name="Lied der Lieder " kosten="40" voraussetzungen="Vorteil Tradition der Elfen I" verbilligt="0" fertigkeiten="Einfluss, Elfenlieder" variable="0" referenzseite="158" referenzbuch="0">Alle Humanoide in Hörreichweite sind von deiner immer berauschenderen Musik völlig gefesselt. Nur mit einer Konterprobe (Willenskraft, 16) kann sich ein Zuhörer für 16 Initiativephasen dem Zauber des Liedes entziehen. Ansonsten erwacht er, wenn du aufhörst zu spielen oder er eine Wunde erleidet. Erfordert Konzentration, erlaubt Aufrechterhalten.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
 Ziel: Zone
@@ -5095,7 +5095,7 @@ Wirkungsdauer: 1 Tag
 Kosten: 8 AsP
 Fertigkeiten: Eigenschaften, Geister der Stärkung
 Erlernen: Smn 16; 20 EP</Talent>
-  <Talent name="Wegzeichen" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Hellsicht, Geister der Stärkung, Geister rufen, Verständigung" variable="0" referenzseite="163" referenzbuch="0">Du vergräbst einen Talisman. Während der Wirkungsdauer kannst unter Aufwendung von 1 AsP erfahren, wo deine Wegzeichen liegen und diese intuitiv unterscheiden.
+  <Talent name="Wegzeichen" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Hellsicht, Geister der Stärkung, Geister rufen, Verständigung" variable="0" referenzseite="163" referenzbuch="0">Du vergräbst einen Talisman. Während der Wirkungsdauer kannst unter Aufwendung von 1 AsP erfahren, wo deine Wegzeichen liegen und diese intuitiv unterscheiden.
 Probenschwierigkeit: 12
 Modifikationen: Permanenz (–4, Wirkungsdauer bis die Bindung gelöst wird, Kosten 8 AsP, davon 1 gAsP)
 Sprechendes Zeichen (–4; das Zeichen kann einen kurzen Satz als Botschaft enthalten, der mit einem AG von 2 (S. 80) gelesen werden kann)
@@ -5116,7 +5116,7 @@ Wirkungsdauer: 1 Tag
 Kosten: 4 AsP
 Fertigkeiten: Eigenschaften, Hellsicht, Geister der Stärkung, Geister rufen
 Erlernen: Smn 12; 0 EP</Talent>
-  <Talent name="Wild Finden" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Eigenschaften, Hellsicht, Geister der Stärkung, Geister rufen" variable="0" referenzseite="163" referenzbuch="0">Du erfährst, ob und wo sich im Radius von 1 Meile jagdbares Wild befindet und um welche Tiere es sich handelt. Sind jagdbare Tiere in der Nähe, können Jäger gezielt in die richtige Richtung losziehen. Das senkt die Schwierigkeit der Jagd (S. 68) auf 12, so als ob sie sich in wildreichem Gebiet befänden.
+  <Talent name="Wild Finden" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Eigenschaften, Hellsicht, Geister der Stärkung, Geister rufen" variable="0" referenzseite="163" referenzbuch="0">Du erfährst, ob und wo sich im Radius von 1 Meile jagdbares Wild befindet und um welche Tiere es sich handelt. Sind jagdbare Tiere in der Nähe, können Jäger gezielt in die richtige Richtung losziehen. Das senkt die Schwierigkeit der Jagd (S. 68) auf 12, so als ob sie sich in wildreichem Gebiet befänden.
 Mächtige Magie: Verdoppelt den Radius.
 Probenschwierigkeit: 12
 Modifikationen: Gaben der Erde (die Wirkung bezieht sich auf nahrhafte Pflanzen und verringert die Schwierigkeit von Überleben-Proben)
@@ -5323,7 +5323,7 @@ Wirkungsdauer: augenblicklich
 Kosten: 16/32/64 AsP (Diener/Dschinn/Meister)
 Fertigkeiten: Geister rufen, Wasser
 Erlernen: Smn 16; 60 EP</Talent>
-  <Talent name="Hilferuf" kosten="60" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Geister rufen, Verständigung" variable="0" referenzseite="165" referenzbuch="0">Du rufst ein Feenwesen, einen Totengeist oder einige Mindergeister aus einem Radius von 1 Meile herbei. Das Wesen eilt zu dir und du kannst es um Hilfe bei einem unmittelbaren Problem bitten. Meistens hilft das Wesen, es kann aber auch einen Gegengefallen fordern oder (selten) die Hilfe ablehnen.
+  <Talent name="Hilferuf" kosten="60" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Geister rufen, Verständigung" variable="0" referenzseite="165" referenzbuch="0">Du rufst ein Feenwesen, einen Totengeist oder einige Mindergeister aus einem Radius von 1 Meile herbei. Das Wesen eilt zu dir und du kannst es um Hilfe bei einem unmittelbaren Problem bitten. Meistens hilft das Wesen, es kann aber auch einen Gegengefallen fordern oder (selten) die Hilfe ablehnen.
 Mächtige Magie: Verdoppelt den Radius.
 Probenschwierigkeit: 12
 Modifikationen: Art (–4, du kannst dir die Art des helfenden Geists aussuchen)
@@ -5369,7 +5369,7 @@ Fertigkeiten: Einfluss, Geister rufen, Verständigung
 Erlernen: Smn 14; 20 EP
 Anmerkung: Der Zauber muss für jedes Wesen extra gelernt werden. Übliche Wesen sind Wölfe (Nivesen), Wildschweine (Goblins), Rinder (Ferkinas), Schlinger (Achaz), Seeschlangen (Achaz), Haie (Tocamujac), Oger (Ork), Mammuts (Gjalsker).
 Sephrasto: Trage die gewählten Wesen in das Kommentarfeld ein. Wenn du mehrere Wesen wählst, dann erhöhe die EP-Kosten entsprechend.</Talent>
-  <Talent name="Rat der Ahnen" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Geister rufen, Verständigung" variable="0" referenzseite="165" referenzbuch="0">Du rufst einen Totengeist in den Körper eines seiner Nachfahren herab. Dort verhält er sich seinem Charakter gemäß; er kann Rat geben oder die Stammeskrieger anführen. Es ist nicht möglich, die Bindung zu lösen. Der Totengeist entscheidet selbst, wann er den Körper verlässt – notfalls ist ein Großer Geisterbann (S. 166) nötig. Der Tote muss im letzten Jahr verstorben sein.
+  <Talent name="Rat der Ahnen" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Geister rufen, Verständigung" variable="0" referenzseite="165" referenzbuch="0">Du rufst einen Totengeist in den Körper eines seiner Nachfahren herab. Dort verhält er sich seinem Charakter gemäß; er kann Rat geben oder die Stammeskrieger anführen. Es ist nicht möglich, die Bindung zu lösen. Der Totengeist entscheidet selbst, wann er den Körper verlässt – notfalls ist ein Großer Geisterbann (S. 166) nötig. Der Tote muss im letzten Jahr verstorben sein.
 Mächtige Magie: Der Tote kann seit 10 Jahren/100 Jahren/1000 Jahren/seit Menschengedenken verstorben sein.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Stunde
@@ -5442,8 +5442,8 @@ Erlernen: Smn 12; 60 EP</Talent>
   <Talent name="Großer Geisterbann" kosten="80" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Antimagie, Geister vertreiben" variable="0" referenzseite="166" referenzbuch="0">Hiermit bannst du beschworene Wesenheiten, in die keine gAsP geflossen sind (wie nicht gebundene Elementare und Dämonen).
 Probenschwierigkeit: Beschwörungsschwierigkeit des zu bannenden Wesens
 Modifikationen: Geisterkerker (+4; das Wesen wird nicht verbannt, sondern permanent in ein Gefäß gesperrt. Wird das Gefäß geöffnet oder zerstört, ist das Wesen frei und meist sehr wütend auf den Schamanen und/oder den Befreier.)
-Gebundene Geister (Entspricht dem allgemeinen Zauber Destructibo (S. 126))
-Geister vertreiben (Entspricht dem allgemeinen Zauber Geister austreiben (S. 127))
+Gebundene Geister (Entspricht dem allgemeinen Zauber Destructibo (S. 126))
+Geister vertreiben (Entspricht dem allgemeinen Zauber Geister austreiben (S. 127))
 Vorbereitungszeit: 8 Aktionen
 Ziel: Beschworenes Wesen
 Reichweite: 4 Schritt
@@ -5619,7 +5619,7 @@ Erlernen: Ach 16; 20 EP</Talent>
 Erlernen: Ach 12; 20 EP</Talent>
   <Talent name="Federleichter Beutel (passiv)" kosten="20" voraussetzungen="Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Kristallmagie" variable="0" referenzseite="168" referenzbuch="0">Pro 4 volle Punkte PW Kristallmagie halbiert sich das Gewicht der Gegenstände im Schuppenbeutel (z.B. bei einem PW von 9 auf ein Viertel).
 Erlernen: Ach 16; 20 EP</Talent>
-  <Talent name="Geräumiger Schuppenbeutel (passiv)" kosten="20" voraussetzungen="Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Kristallmagie" variable="0" referenzseite="168" referenzbuch="0">Pro 4 volle Punkte PW Kristallmagie steigt das Volumen des Schuppenbeutels um 2 Liter. Von außen betrachtet bleibt die Größe des Beutels jedoch gleich.
+  <Talent name="Geräumiger Schuppenbeutel (passiv)" kosten="20" voraussetzungen="Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Kristallmagie" variable="0" referenzseite="168" referenzbuch="0">Pro 4 volle Punkte PW Kristallmagie steigt das Volumen des Schuppenbeutels um 2 Liter. Von außen betrachtet bleibt die Größe des Beutels jedoch gleich.
 Erlernen: Ach 18; 20 EP</Talent>
   <Talent name="Suchende Finger" kosten="20" voraussetzungen="Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Hellsicht, Kristallmagie, Umwelt" variable="0" referenzseite="168" referenzbuch="0">Du hältst einen im Schuppenbeutel aufbewahrten Gegenstand sofort in der Hand.
 Probenschwierigkeit: 12
@@ -5784,11 +5784,11 @@ Kosten: 4 AsP
 Fertigkeiten: Hellsicht, Kugelzauber
 Erlernen: Srl 14; Mag 16; 20 EP</Talent>
   <Talent name="Kugel des Hellsehers (passiv)" kosten="20" voraussetzungen="Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Hellsicht, Kugelzauber" variable="0" referenzseite="170" referenzbuch="0">Du lässt 2 gAsP in die Kugel fließen. Fortan sind Hellsichtszauber um +1 erleichtert.
-Modifikationen: Mächtige Kugel (Hellsichtszauber sind um +2 erleichtert, du musst 4 gAsP in die Kugel fließen lassen.)
+Modifikationen: Mächtige Kugel (Hellsichtszauber sind um +2 erleichtert, du musst 4 gAsP in die Kugel fließen lassen.)
 Fertigkeiten: Hellsicht, Kugelzauber
 Erlernen: Mag, Srl 16; 20 EP</Talent>
   <Talent name="Kugel des Illusionisten (passiv)" kosten="20" voraussetzungen="Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Illusion, Kugelzauber" variable="0" referenzseite="170" referenzbuch="0">Du lässt 2 gAsP in die Kugel fließen. Fortan sind Illusionszauber um +1 erleichtert
-Modifikationen: Mächtige Kugel (Illusionszauber sind um +2 erleichtert, du musst 4 gAsP in die Kugel fließen lassen.)
+Modifikationen: Mächtige Kugel (Illusionszauber sind um +2 erleichtert, du musst 4 gAsP in die Kugel fließen lassen.)
 Fertigkeiten: Illusion, Kugelzauber
 Erlernen: Srl 12; Mag 18; 20 EP</Talent>
   <Talent name="Schutz gegen Untote" kosten="40" voraussetzungen="Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Antimagie, Kugelzauber" variable="0" referenzseite="170" referenzbuch="0">Eine silbrige Kuppel mit 2 Schritt Radius umgibt dich und bewegt sich mit dir. Untote mit einer Beschwörungsschwierigkeit von maximal 16 können sie nicht durchschreiten. Du kannst Untote mit der Kugel zurückdrängen, wenn dir eine vergleichende KK-Probe gelingt. Umgekehrt ist das nicht möglich.
@@ -5872,7 +5872,7 @@ Kosten: 16 AsP
 Fertigkeiten: Erz, Ringrituale, Umwelt
 Erlernen: Geo 16; 60 EP</Talent>
   <Talent name="Seelenfeuer" kosten="60" voraussetzungen="Vorteil Tradition der Geoden I" verbilligt="0" fertigkeiten="Kraft, Ringrituale" variable="0" referenzseite="170" referenzbuch="0">Kalt leuchtendes Licht schießt in einem Radius von 4 Schritt aus dem Boden. Es erstarrt in der von dir gewünschten Form und verbrennt alle Humanoiden, die es berühren, mit 2W6 SP pro Initiativephase.
-Mächtige Magie: Erhöht den Schaden um +4 SP und den Radius um 2 Schritt.
+Mächtige Magie: Erhöht den Schaden um +4 SP und den Radius um 2 Schritt.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Aktion
 Ziel: Zone
@@ -6094,7 +6094,7 @@ Wirkungsdauer: augenblicklich
 Kosten: 16 AsP
 Fertigkeiten: Humus, Trommelrituale
 Erlernen: Der 14; 40 EP</Talent>
-  <Talent name="Rhythmen der Jagd" kosten="40" voraussetzungen="Vorteil Tradition der Derwische I" verbilligt="0" fertigkeiten="Eigenschaften, Trommelrituale" variable="0" referenzseite="173" referenzbuch="0">Die Rhythmen schärfen die Jagdinstinkte der Zuhörer. Alle Zuhörer in einem Radius von 4 Schritt erhalten eine Erleichterung +2 auf Pirschen, Überleben, Tierkunde und GE-Proben.
+  <Talent name="Rhythmen der Jagd" kosten="40" voraussetzungen="Vorteil Tradition der Derwische I" verbilligt="0" fertigkeiten="Eigenschaften, Trommelrituale" variable="0" referenzseite="173" referenzbuch="0">Die Rhythmen schärfen die Jagdinstinkte der Zuhörer. Alle Zuhörer in einem Radius von 4 Schritt erhalten eine Erleichterung +2 auf Pirschen, Überleben, Tierkunde und GE-Proben.
 Mächtige Magie: Der Bonus steigt um +1.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Stunde
@@ -6104,7 +6104,7 @@ Wirkungsdauer: 1 Tag
 Kosten: 16 AsP
 Fertigkeiten: Eigenschaften, Trommelrituale
 Erlernen: Der 12; 40 EP</Talent>
-  <Talent name="Rhythmen des gottgefälligen Zornes" kosten="60" voraussetzungen="Vorteil Tradition der Derwische I" verbilligt="0" fertigkeiten="Kraft, Trommelrituale" variable="0" referenzseite="173" referenzbuch="0">Die Waffen der Zuhörer im Radius von 4 Schritt gelten während der Wirkungsdauer als magisch.
+  <Talent name="Rhythmen des gottgefälligen Zornes" kosten="60" voraussetzungen="Vorteil Tradition der Derwische I" verbilligt="0" fertigkeiten="Kraft, Trommelrituale" variable="0" referenzseite="173" referenzbuch="0">Die Waffen der Zuhörer im Radius von 4 Schritt gelten während der Wirkungsdauer als magisch.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Stunde
 Ziel: Zone
@@ -6188,7 +6188,7 @@ Wirkungsdauer: 1 Stunde
 Kosten: 1 AsP
 Fertigkeiten: Einfluss, Vertrautenmagie
 Erlernen: Geo, Hex 8; 20 EP</Talent>
-  <Talent name="Letzter Ausweg" kosten="40" voraussetzungen="Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Kraft, Vertrautenmagie" variable="0" referenzseite="174" referenzbuch="0">Dein Vertrautentier mobilisiert alle Kräfte, um dich oder sich zu retten. Alle Feinde in 4 Schritt Radius erleiden 2W6 SP. Das Vertrautentier erleidet sofort 4 Wunden.
+  <Talent name="Letzter Ausweg" kosten="40" voraussetzungen="Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Kraft, Vertrautenmagie" variable="0" referenzseite="174" referenzbuch="0">Dein Vertrautentier mobilisiert alle Kräfte, um dich oder sich zu retten. Alle Feinde in 4 Schritt Radius erleiden 2W6 SP. Das Vertrautentier erleidet sofort 4 Wunden.
 Mächtige Magie: Die SP steigen um +4.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 0 Aktionen
@@ -6361,7 +6361,7 @@ Wirkungsdauer: 16 Initiativephasen
 Kosten: 4 AsP
 Fertigkeiten: Eigenschaften, Zaubermelodien
 Erlernen: Bard 16; 20 EP</Talent>
-  <Talent name="Melodie des Einlullens" kosten="40" voraussetzungen="Vorteil Tradition der Zauberbarden I" verbilligt="0" fertigkeiten="Einfluss, Zaubermelodien" variable="0" referenzseite="175" referenzbuch="0">Alle Humanoide in Hörreichweite sind von deiner immer berauschenderen Musik völlig gefesselt. Nur mit einer Konterprobe (Willenskraft, 16) kann sich ein Zuhörer für 16 Initiativephasen dem Zauber des Liedes entziehen. Ansonsten erwacht er, wenn du aufhörst zu spielen oder er eine Wunde erleidet. Erfordert Konzentration, erlaubt Aufrechterhalten.
+  <Talent name="Melodie des Einlullens" kosten="40" voraussetzungen="Vorteil Tradition der Zauberbarden I" verbilligt="0" fertigkeiten="Einfluss, Zaubermelodien" variable="0" referenzseite="175" referenzbuch="0">Alle Humanoide in Hörreichweite sind von deiner immer berauschenderen Musik völlig gefesselt. Nur mit einer Konterprobe (Willenskraft, 16) kann sich ein Zuhörer für 16 Initiativephasen dem Zauber des Liedes entziehen. Ansonsten erwacht er, wenn du aufhörst zu spielen oder er eine Wunde erleidet. Erfordert Konzentration, erlaubt Aufrechterhalten.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
 Ziel: Zone
@@ -6399,7 +6399,7 @@ Wirkungsdauer: augenblicklich
 Kosten: 4 AsP
 Fertigkeiten: Eigenschaften, Zaubermelodien
 Erlernen: Bard 14; 20 EP</Talent>
-  <Talent name="Tanz der Bilder" kosten="0" voraussetzungen="Vorteil Tradition der Zaubertänzer I" verbilligt="0" fertigkeiten="Illusion, Zaubertänze" variable="0" referenzseite="176" referenzbuch="0">Alle humanoiden Zuseher im Radius von 4 Schritt werden von einer raschen Abfolge von Bildern mit einer beruhigenden, heiteren oder alptraumhaften Grundstimmung (nach deiner Wahl) gefesselt. Die Wirkung endet, wenn du aufhörst zu tanzen. Erlaubt Aufrechterhalten, erfordert Konzentration.
+  <Talent name="Tanz der Bilder" kosten="0" voraussetzungen="Vorteil Tradition der Zaubertänzer I" verbilligt="0" fertigkeiten="Illusion, Zaubertänze" variable="0" referenzseite="176" referenzbuch="0">Alle humanoiden Zuseher im Radius von 4 Schritt werden von einer raschen Abfolge von Bildern mit einer beruhigenden, heiteren oder alptraumhaften Grundstimmung (nach deiner Wahl) gefesselt. Die Wirkung endet, wenn du aufhörst zu tanzen. Erlaubt Aufrechterhalten, erfordert Konzentration.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
 Ziel: Zone
@@ -6446,7 +6446,7 @@ Wirkungsdauer: augenblicklich
 Kosten: 8 AsP
 Fertigkeiten: Humus, Zaubertänze
 Erlernen: Ztz 14; 20 EP</Talent>
-  <Talent name="Tanz der Jagd" kosten="40" voraussetzungen="Vorteil Tradition der Zaubertänzer I" verbilligt="0" fertigkeiten="Eigenschaften, Zaubertänze" variable="0" referenzseite="176" referenzbuch="0">Der Tanz schärft die Jagdinstinkte der Zuhörer. Alle Zuhörer in einem Radius von 4 Schritt erhalten eine Erleichterung +2 auf Pirschen, Überleben, Tierkunde und GE-Proben.
+  <Talent name="Tanz der Jagd" kosten="40" voraussetzungen="Vorteil Tradition der Zaubertänzer I" verbilligt="0" fertigkeiten="Eigenschaften, Zaubertänze" variable="0" referenzseite="176" referenzbuch="0">Der Tanz schärft die Jagdinstinkte der Zuhörer. Alle Zuhörer in einem Radius von 4 Schritt erhalten eine Erleichterung +2 auf Pirschen, Überleben, Tierkunde und GE-Proben.
 Mächtige Magie: Der Bonus steigt um +1.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 1 Stunde
@@ -6621,7 +6621,7 @@ Wirkungsdauer: 1 Stunde
 Kosten: 4 KaP
 Fertigkeiten: Winter, Zwölfgöttlicher Ritus, Guter Kampf
 Erlernen: Fir, Kor 4; Ang, Aves, Brn, Eff, Hes, Ifi, Ing, Nan, Per, Phe, Pra, Rah, Ron, Tra, Tsa, Swa 8; 20 EP</Talent>
-  <Talent name="Objektsegen" kosten="20" voraussetzungen="Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der Ifirngeweihten I ODER Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition der Angroschgeweihten I ODER Vorteil Tradition der Korgeweihten I ODER Vorteil Tradition der Nandusgeweihten I ODER Vorteil Tradition der Perainegeweihten I ODER Vorteil Tradition der Phexgeweihten I ODER Vorteil Tradition der Praiosgeweihten I ODER Vorteil Tradition der Rahjageweihten I ODER Vorteil Tradition der Rondrageweihten I ODER Vorteil Tradition der Swafnirgeweihten I ODER Vorteil Tradition der Traviageweihten I ODER Vorteil Tradition der Tsageweihten I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus" variable="0" referenzseite="178" referenzbuch="0">Du segnest ein Objekt bis zur Größe eines Rucksacks oder eine Substanz mit bis zu 8 Litern Volumen. Das Objekt gilt als geweiht.
+  <Talent name="Objektsegen" kosten="20" voraussetzungen="Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der Ifirngeweihten I ODER Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition der Angroschgeweihten I ODER Vorteil Tradition der Korgeweihten I ODER Vorteil Tradition der Nandusgeweihten I ODER Vorteil Tradition der Perainegeweihten I ODER Vorteil Tradition der Phexgeweihten I ODER Vorteil Tradition der Praiosgeweihten I ODER Vorteil Tradition der Rahjageweihten I ODER Vorteil Tradition der Rondrageweihten I ODER Vorteil Tradition der Swafnirgeweihten I ODER Vorteil Tradition der Traviageweihten I ODER Vorteil Tradition der Tsageweihten I" verbilligt="0" fertigkeiten="Zwölfgöttlicher Ritus" variable="0" referenzseite="178" referenzbuch="0">Du segnest ein Objekt bis zur Größe eines Rucksacks oder eine Substanz mit bis zu 8 Litern Volumen. Das Objekt gilt als geweiht.
 Mächtige Liturgie: Verdoppelt die Größe des Objekts bzw. das Volumen.
 Probenschwierigkeit: 12
 Modifikationen: Bauwerk (–8; du kannst größere Objekte wie Brücken oder Stollen segnen. Kosten und Wirkungsdauer sind deutlich höher und Spielleiterentscheid.)
@@ -6940,7 +6940,7 @@ Erlernen: Eff 16; Aves 18; 20 EP</Talent>
   <Talent name="Tränen des Milden" kosten="20" voraussetzungen="Vorteil Tradition der Efferdgeweihten I" verbilligt="0" fertigkeiten="Flüsse und Quellen" variable="0" referenzseite="182" referenzbuch="0">Innerhalb des nächsten Tages regnet es auf die Felder im Radius von 1 Meile und das Saatgut kann wachsen.
 Mächtige Liturgie: Verdoppelt den Radius.
 Probenschwierigkeit: 12
-Modifikationen: Tränen des Zürnenden (–8, 8 Aktionen, Wirkungsdauer 1 Stunde, 16 KaP; statt einem sanften Regen bricht nach 1 Minute ein heftiger Platzregen los, der Wege in Schlammpisten verwandelt und Fernkampfangriffe um –8 erschwert.)
+Modifikationen: Tränen des Zürnenden (–8, 8 Aktionen, Wirkungsdauer 1 Stunde, 16 KaP; statt einem sanften Regen bricht nach 1 Minute ein heftiger Platzregen los, der Wege in Schlammpisten verwandelt und Fernkampfangriffe um –8 erschwert.)
 Vorbereitungszeit: 1 Stunde
 Ziel: Zone
 Reichweite: Berührung
@@ -8250,7 +8250,7 @@ Wirkungsdauer: 1 Stunde
 Kosten: 4 KaP
 Fertigkeiten: Rausch
 Erlernen: Rah 16; 20 EP</Talent>
-  <Talent name="Rahjas Sinnlichkeit" kosten="60" voraussetzungen="Vorteil Tradition der Rahjageweihten I" verbilligt="0" fertigkeiten="Rausch" variable="0" referenzseite="196" referenzbuch="0">Durch den Segen der Göttin erhältst du Resistenz I (profan, magisch, geweiht, siehe S. 98). Gleichzeitig sind aber alle Sinneseindrücke verstärkt, weswegen du schon beim Erleiden von einer Wunde eine Wundschmerz-Probe ablegen musst.
+  <Talent name="Rahjas Sinnlichkeit" kosten="60" voraussetzungen="Vorteil Tradition der Rahjageweihten I" verbilligt="0" fertigkeiten="Rausch" variable="0" referenzseite="196" referenzbuch="0">Durch den Segen der Göttin erhältst du Resistenz I (profan, magisch, geweiht, siehe S. 98). Gleichzeitig sind aber alle Sinneseindrücke verstärkt, weswegen du schon beim Erleiden von einer Wunde eine Wundschmerz-Probe ablegen musst.
 Mächtige Liturgie: Je zwei Stufen erhöhen die Resistenz um eine Stufe.
 Probenschwierigkeit: 12
 Vorbereitungszeit: 16 Aktionen
@@ -10056,7 +10056,7 @@ Anmerkung: Wesenheiten und Zauber mit gAsP werden mit dem Destructibo gebannt.</
   <Manöver name="Eigenschaft Ballistisch" typ="4" voraussetzungen="Talent 'Hexengalle' ODER Talent 'Zorn der Elemente' ODER Talent 'Aeolitus Windgebraus' ODER Talent 'Ignifaxius Flammenstrahl' ODER Talent 'Orcanofaxius' ODER Talent 'Archofaxius' ODER Talent 'Aquafaxius' ODER Talent 'Humofaxius' ODER Talent 'Frigifaxius'" probe="" gegenprobe="">Genau wie ein Fernkampfangriff benötigen ballistische Zauber eine direkte Sichtlinie zu ihrem Ziel und sie können wie ein Fernkampfangriff abgewehrt werden (S. 47).</Manöver>
   <Manöver name="Eigenschaft Illusion (Sinn)" typ="4" voraussetzungen="Talent 'Sinesigill Unerkannt' ODER Talent 'Harmlose Gestalt' ODER Übernatürliche-Fertigkeit 'Illusion' ODER Talent 'Aufmerksamer Wächter' ODER Übernatürliche-Fertigkeit 'Kugelzauber' ODER Talent 'Zaubersiegel'" probe="" gegenprobe="">Der Zauber erzeugt ein Trugbild, das die angegebenen Sinne täuscht. Die Illusion kann nicht mit stofflicher Materie interagieren. Ein illusorisches Goldstück kann nicht berührt werden, die Illusion einer Wand lässt keine Gegenstände abprallen und der Hieb eines illusionären Schwertes verursacht keinen Schaden. Illusionen wechselwirken aber mit Licht. Sie werfen Schatten und können selbst als Lichtquelle dienen. Fast alle Illusionen haben Fehler. Diese Fehler können mit einer Konterprobe (Wachsamkeit, 16) entdeckt werden, womit die Illusion durchschaut wird und keine Wirkung mehr hat.</Manöver>
   <Manöver name="Eigenschaft Konterprobe" typ="4" voraussetzungen="Vorteil Geweiht I ODER Vorteil Zauberer I ODER Vorteil Paktierer I ODER Vorteil Tradition der Borbaradianer I" probe="Talent oder Attribut" gegenprobe="">Manchen Zaubern kannst du auch mit profanen Fertigkeiten widerstehen, zum Beispiel wenn du dich mit deiner Willenskraft gegen die Wirkung des Friedenslieds stemmst. In diesem Fall kannst du eine Konterprobe ablegen. Die Auswirkungen und die Schwierigkeit einer Konterprobe findest du beim jeweiligen Zauber, die Schwierigkeit einer Konterprobe steigt aber in jedem Fall um +4 pro Mächtige Magie/Liturgie. Das gilt auch, wenn Mächtige Magie keine anderen Auswirkungen hat und deswegen beim Zauber gar nicht angeführt ist.</Manöver>
-  <Manöver name="Eigenschaft Konzentration" typ="4" voraussetzungen="Vorteil Geweiht I ODER Vorteil Zauberer I ODER Vorteil Paktierer I ODER Vorteil Tradition der Borbaradianer I" probe="" gegenprobe="">Der Zauber fordert deine volle Aufmerksamkeit. Du musst während der gesamten Wirkungsdauer die Aktion Konzentration (S. 37) wählen. Kannst oder willst du das nicht, endet der Zauber.</Manöver>
+  <Manöver name="Eigenschaft Konzentration" typ="4" voraussetzungen="Vorteil Geweiht I ODER Vorteil Zauberer I ODER Vorteil Paktierer I ODER Vorteil Tradition der Borbaradianer I" probe="" gegenprobe="">Der Zauber fordert deine volle Aufmerksamkeit. Du musst während der gesamten Wirkungsdauer die Aktion Konzentration (S. 37) wählen. Kannst oder willst du das nicht, endet der Zauber.</Manöver>
   <Manöver name="Eigenschaft Objektritual" typ="4" voraussetzungen="Talent 'Bannschwert' ODER Übernatürliche-Fertigkeit 'Dolchzauber' ODER Übernatürliche-Fertigkeit 'Elfenlieder' ODER Übernatürliche-Fertigkeit 'Keulenrituale' ODER Übernatürliche-Fertigkeit 'Kristallmagie' ODER Übernatürliche-Fertigkeit 'Kugelzauber' ODER Übernatürliche-Fertigkeit 'Ringrituale' ODER Übernatürliche-Fertigkeit 'Schalenzauber' ODER Übernatürliche-Fertigkeit 'Stabzauber'" probe="" gegenprobe="">Objektrituale sind Talente, die sich immer auf ein bestimmtes Objekt – oder das Vertrautentier – beziehen, das mit einem Bindungsritual an dich gebunden wird. Danach kannst du (und nur du) die besonderen Fähigkeiten des Ritualobjekts nutzen. Manche Objektrituale erlauben auch passive Wirkungen, wobei du das Objekt meist berühren musst. Die Bindung erlischt, wenn du sie in einer zeitraubenden Zeremonie freiwillig löst oder wenn das Objekt entzaubert wird, was aber nur durch mächtigste Antimagie oder liturgisches Wirken möglich ist. Zuletzt gilt, dass du niemals zwei Objekte der gleichen Kategorie (zwei Zauberstäbe, Vertrautentiere) an dich binden kannst.</Manöver>
   <Manöver name="Elementarer Sekundäreffekt" typ="4" voraussetzungen="Vorteil Geweiht I ODER Vorteil Zauberer I ODER Vorteil Paktierer I ODER Vorteil Tradition der Borbaradianer I" probe="" gegenprobe="">Sekundäreffekte treten sein, sobald ein Angriff auf einen Schlag mindestens 2 Wunden verursacht. Dann muss das Ziel eine Attributsprobe (20, I) ablegen, +4 für jede zusätzliche Wunde. Entsteht der Effekt ohne, dass Schaden angerichtet wird, dann wird statt der Attributsprobe eine Konterprobe (S. 124) abgelegt.
 - Erfrieren: Misslingt dem Opfer eine KO-Probe (20, I), erleidet es einen Punkt Erschöpfung. 
