@@ -562,8 +562,11 @@ class Char():
         if len(self.rüstung) > 0:
             self.wsStern += self.rüstung[0].getRSGesamtInt()
 
-        self.dhStern = max(self.dh - 2 * self.be, 1)
-        self.gsStern = max(self.gs - self.be, 1)
+        scriptAPI = { "getBE" : lambda: self.be, "getDH" : lambda: self.dh }
+        self.dhStern = eval(Wolke.DB.einstellungen["DH* Script"].toText(), scriptAPI)
+
+        scriptAPI = { "getBE" : lambda: self.be, "getGS" : lambda: self.gs }
+        self.gsStern = eval(Wolke.DB.einstellungen["GS* Script"].toText(), scriptAPI)
 
         self.schips = self.schipsMax
         if self.finanzen >= 2: 
