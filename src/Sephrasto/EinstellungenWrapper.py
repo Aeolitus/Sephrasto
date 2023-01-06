@@ -264,6 +264,8 @@ class EinstellungenWrapper():
             return
         with open(settingsPath,'r') as infile:
             tmpSet = yaml.safe_load(infile)
+            if tmpSet is None:
+                return
             for el in tmpSet:
                 Wolke.Settings[el] = tmpSet[el]
             if not 'Version' in tmpSet:
