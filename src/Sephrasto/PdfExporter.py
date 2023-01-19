@@ -229,13 +229,16 @@ class PdfExporter(object):
             fields['Karmaenergie'] = "-"
             fields['ModKarmaenergie'] = "-"
 
-        self.Energie = "-"
+        self.Energie = ""
         if isZauberer:
             self.Energie = str(Wolke.Char.asp.wert + Wolke.Char.aspBasis + Wolke.Char.aspMod)
             if isGeweiht:
                 self.Energie += " / "
         if isGeweiht:
             self.Energie += str(Wolke.Char.kap.wert + Wolke.Char.kapBasis + Wolke.Char.kapMod)
+        if not self.Energie:
+            self.Energie = "-"
+
         fields['EN'] = self.Energie
 
         fields['DHm'] = Wolke.Char.dhStern
