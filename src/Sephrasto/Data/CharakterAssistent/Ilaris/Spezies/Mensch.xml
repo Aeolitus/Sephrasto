@@ -104,16 +104,7 @@
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
-    <Waffen>
-      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="4" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-    </Waffen>
+    <Waffen></Waffen>
     <Ausrüstung/>
   </Objekte>
   <Übernatürliche-Fertigkeiten/>

@@ -132,12 +132,6 @@
     <Waffen>
       <Waffe name="Haumesser" id="Haumesser" W6="2" plus="1" eigenschaften="" haerte="9" rw="1" kampfstil="Kein Kampfstil" wm="-1" typ="Nah"/>
       <Waffe name="Dolch" id="Dolch (Handgemengewaffen)" W6="1" plus="1" eigenschaften="" haerte="9" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
-      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe" haerte="6" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>Haumesser</Ausrüstungsstück>

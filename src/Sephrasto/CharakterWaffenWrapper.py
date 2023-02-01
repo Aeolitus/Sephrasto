@@ -334,9 +334,11 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
         self.currentlyLoading = True
 
         aktualisieren = False
-        if len(Wolke.Char.waffen) == 0 and "Hand" in Wolke.DB.waffen:
-            Wolke.Char.waffen.append(copy.copy(Wolke.DB.waffen["Hand"]))
-            aktualisieren = True
+        if len(Wolke.Char.waffen) == 0:
+            for waffe in Wolke.DB.einstellungen["Waffen: Standardwaffen"].toTextList():
+                if waffe in Wolke.DB.waffen:
+                    Wolke.Char.waffen.append(copy.copy(Wolke.DB.waffen[waffe]))
+                    aktualisieren = True
         while len(Wolke.Char.waffen) < 8:
             aktualisieren = True
             Wolke.Char.waffen.append(Objekte.Nahkampfwaffe())

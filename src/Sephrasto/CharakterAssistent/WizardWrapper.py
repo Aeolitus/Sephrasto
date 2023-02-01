@@ -7,6 +7,7 @@ from EinstellungenWrapper import EinstellungenWrapper
 from EventBus import EventBus
 from CharakterAssistent.CharakterMerger import CharakterMerger
 import PathHelper
+import copy
 
 class Regeln(object):
     def __init__(self):
@@ -174,7 +175,12 @@ class WizardWrapper(object):
         Wolke.Char.kurzbeschreibung = "Geschlecht: " + geschlecht
         Wolke.Char.geschlecht = geschlecht
 
-        # First add selected SKP
+        # 1. add default weapons (Sephrasto only adds them if the weapons array is empty, which might not be the case here)
+        for waffe in Wolke.DB.einstellungen["Waffen: Standardwaffen"].toTextList():
+            if waffe in Wolke.DB.waffen:
+                Wolke.Char.waffen.append(copy.copy(Wolke.DB.waffen[waffe]))
+
+        # 2. add selected SKP
         if self.ui.cbSpezies.currentText() != "Überspringen":
             spezies = self.spezies[self.ui.cbSpezies.currentIndex()-1]
             CharakterMerger.xmlLesen(spezies.path, True, False)
@@ -190,7 +196,7 @@ class WizardWrapper(object):
                 profession = self.professionen[self.ui.cbProfession.currentIndex()-1]
                 CharakterMerger.xmlLesen(profession.path, False, False)
 
-        # Handle choices afterwards so EP spent can be displayed accurately
+        # 3. Handle choices afterwards so EP spent can be displayed accurately
         if self.ui.cbSpezies.currentText() != "Überspringen":
             spezies = self.spezies[self.ui.cbSpezies.currentIndex()-1]
             CharakterMerger.handleChoices(spezies, geschlecht, True, False, False)

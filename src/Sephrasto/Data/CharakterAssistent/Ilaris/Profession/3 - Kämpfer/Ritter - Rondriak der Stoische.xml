@@ -150,7 +150,6 @@
       <Waffe name="Holzschild (RK)" id="Holzschild" W6="1" plus="0" eigenschaften="Schild, Stumpf" haerte="8" rw="0" kampfstil="Reiterkampf" wm="1" typ="Nah"/>
       <Waffe name="Kriegslanze (RK)" id="Kriegslanze" W6="3" plus="1" eigenschaften="" haerte="5" rw="2" kampfstil="Reiterkampf" wm="-1" typ="Nah"/>
       <Waffe name="Reitpferd (RK)" id="Reitpferd" W6="2" plus="0" eigenschaften="Niederwerfen, Reittier" haerte="13" rw="1" kampfstil="Reiterkampf" wm="-1" typ="Nah"/>
-      <Waffe name="Hand" id="Hand" W6="1" plus="0" eigenschaften="Parierwaffe, Stumpf, Zerbrechlich, kein Malus als Nebenwaffe, Kopflastig, Wendig" haerte="6" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>Wappenrock</Ausrüstungsstück>
