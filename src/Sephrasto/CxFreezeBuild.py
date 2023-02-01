@@ -36,7 +36,7 @@ print("Running cxfreeze")
 build_exe_options = {
     "build_exe" : build_path,
     "includes" : ["multiprocessing"],
-    "excludes" : ["tkinter", "distutils", "html", "unittest", "pydoc", "bz2", "pyexpat", "lzma", "PySide6.QtNetwork"],
+    "excludes" : ["tkinter", "distutils", "html", "unittest", "pydoc", "bz2", "pyexpat", "lzma"],
     "optimize" : 2,
     "zip_include_packages" : "*",
     "zip_exclude_packages" : ["shiboken6"],
@@ -58,7 +58,12 @@ setup(  name = 'Sephrasto',
 # Remove unneeded files
 print("Removing unneeded files")
 removeFiles = [
-    # none atm
+    "frozen_application_license.txt", #we already have that in Acknowledgements.md
+    "lib/PySide6/Qt6Network.dll",
+    "lib/PySide6/QtNetwork.pyd",
+    "lib/PySide6/QtNetwork.pyd",
+    "lib/PySide6/Qt6Svg.dll",
+    "lib/PySide6/Qt6Pdf.dll",
 ]
 
 for filename in removeFiles:
