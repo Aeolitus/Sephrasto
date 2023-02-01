@@ -81,7 +81,7 @@ Für Sephrastos Charakterbildfeature wird imagemagick benötigt, das leider in d
 ## Für Entwickler
 
 ### Erstellen von Windows builds
-Stelle sicher, dass alle Pakete aus der requirements.txt installiert sind. Aktuell nutzen wir außerdem Python 3.9.7 und cx_Freeze 6.13.1 zum Erstellen von Windows builds. Nun solltest du build.bat im Sephrasto root ausführen können.
+Stelle sicher, dass alle Pakete aus der requirements.txt installiert sind. Aktuell nutzen wir außerdem Python 3.9.7 und cx_Freeze 6.14.2 zum Erstellen von Windows builds. Nun solltest du build.bat im Sephrasto root ausführen können.
 
 ### Einrichtung von Visual Studio als IDE:
 * Installiere VS 2019 Community Edition mit dem Python Workload (kann auch nachträglich über den Installer installiert werden)
