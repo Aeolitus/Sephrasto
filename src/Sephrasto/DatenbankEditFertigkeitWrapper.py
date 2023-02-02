@@ -76,7 +76,7 @@ class DatenbankEditFertigkeitWrapper(object):
         else:
             fertigkeitsTypen = datenbank.einstellungen["Fertigkeiten: Typen profan"].toTextList()
         self.ui.comboTyp.addItems(fertigkeitsTypen)
-        self.ui.comboTyp.setCurrentIndex(fertigkeit.printclass)
+        self.ui.comboTyp.setCurrentIndex(fertigkeit.typ)
 
         self.fertDialog.show()
         ret = self.fertDialog.exec()
@@ -99,7 +99,7 @@ class DatenbankEditFertigkeitWrapper(object):
                              self.ui.comboAttribut3.currentText()]
             self.fertigkeit.text = self.ui.textEdit.toPlainText()
             self.fertigkeit.talenteGruppieren = self.ui.checkGruppieren.isChecked()
-            self.fertigkeit.printclass = self.ui.comboTyp.currentIndex()
+            self.fertigkeit.typ = self.ui.comboTyp.currentIndex()
             self.fertigkeit.isUserAdded = False
             if self.fertigkeit == self.fertigkeitPicked:
                 self.fertigkeit = None

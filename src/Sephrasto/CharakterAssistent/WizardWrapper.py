@@ -80,7 +80,10 @@ class WizardWrapper(object):
                         elPath = path
                         if appendEP:
                             root = etree.parse(path).getroot()
-                            elName += " | " + root.find('Erfahrung/EPspent').text + " EP"
+                            if root.find('Erfahrung/EPspent') is not None: #deprecated
+                                elName += " | " + root.find('Erfahrung/EPspent').text + " EP"
+                            elif root.find('Erfahrung/Ausgegeben') is not None:
+                                elName += " | " + root.find('Erfahrung/Ausgegeben').text + " EP"
 
                     if elKey in result:
                         if elVarPath:

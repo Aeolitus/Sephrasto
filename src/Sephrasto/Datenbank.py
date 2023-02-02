@@ -9,6 +9,7 @@ import logging
 from DatenbankEinstellung import DatenbankEinstellung
 from EventBus import EventBus
 import re
+from Migrationen import Migrationen
 
 class DatabaseException(Exception):
     pass
@@ -30,29 +31,13 @@ class Datenbank():
         self.loaded = False
         self.enabledPlugins = []
 
-        #Versionierung
-        #Wenn sich das Schema der Ref-DB ändert müssen bestehende user dbs aktualisiert werden.
-        #Hier kann die Datenbank Code Version inkrementiert werden und in der Migrationen-Map eine Migrationsfunktion für die neue Version angelegt werden.
-        #In dieser Funktion kann dann die UserDB-XML-Datei angepasst werden, bevor sie geladen wird.
-        #Da Migrationen hier im Gegensatz zur Charaktermigration nur bei Schema-Änderungen nötig sind, gibt es nichts was wir dem User in einer messagebox zeigen müssten
-        #Die Funktionen werden inkrementell ausgeführt, bspw. bei UserDB-Version '0' und DB-Code-Version '2' wird zuerst die Funktion für 1, dann die Funktion für 2 aufgerufen
-        self.datenbankCodeVersion = 3
-        self.migrationen = [
-            lambda xmlRoot: None, #nichts zu tun, initiale db version
-            self.migriere0zu1,    
-            self.migriere1zu2,
-            self.migriere2zu3
-        ]
-        if not self.migrationen[self.datenbankCodeVersion]:
-            raise Exception("Migrations-Code vergessen.")
-
         self.xmlLaden()              
 
     def xmlSchreiben(self):
         root = etree.Element('Datenbank')
         
         versionXml = etree.SubElement(root, 'Version')
-        versionXml.text = str(self.datenbankCodeVersion)
+        versionXml.text = str(Migrationen.datenbankCodeVersion)
         etree.SubElement(root, 'Plugins').text = ",".join(self.enabledPlugins)
 
         #Vorteile
@@ -65,7 +50,7 @@ class Datenbank():
             v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(vorteil.voraussetzungen, None))
             v.set('nachkauf',vorteil.nachkauf)
             v.set('typ', str(vorteil.typ))
-            v.set('variable', str(1 if vorteil.variableKosten else 0))
+            v.set('variableKosten', str(1 if vorteil.variableKosten else 0))
             v.set('kommentar', str(1 if vorteil.kommentarErlauben else 0))
             v.text = vorteil.text
             if vorteil.script:
@@ -92,7 +77,7 @@ class Datenbank():
             v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(talent.voraussetzungen, None))
             v.set('verbilligt',str(talent.verbilligt))
             v.set('fertigkeiten',Hilfsmethoden.FertArray2Str(talent.fertigkeiten, None))
-            v.set('variable', str(1 if talent.variableKosten else 0))
+            v.set('variableKosten', str(1 if talent.variableKosten else 0))
             v.set('kommentar', str(1 if talent.kommentarErlauben else 0))
             v.set('referenzbuch', str(talent.referenzBuch))
             v.set('referenzseite', str(talent.referenzSeite))
@@ -111,18 +96,18 @@ class Datenbank():
             v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(fertigkeit.voraussetzungen, None))
             v.set('attribute',Hilfsmethoden.AttrArray2Str(fertigkeit.attribute))
             v.set('kampffertigkeit',str(fertigkeit.kampffertigkeit))
-            v.set('printclass',str(fertigkeit.printclass))
+            v.set('typ',str(fertigkeit.typ))
             v.text = fertigkeit.text
 
         for fer in self.übernatürlicheFertigkeiten:
             fertigkeit = self.übernatürlicheFertigkeiten[fer]
             if not fertigkeit.isUserAdded: continue
-            v = etree.SubElement(root,'Übernatürliche-Fertigkeit')
+            v = etree.SubElement(root,'ÜbernatürlicheFertigkeit')
             v.set('name',fertigkeit.name)
             v.set('steigerungsfaktor',str(fertigkeit.steigerungsfaktor))
             v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(fertigkeit.voraussetzungen, None))
             v.set('attribute',Hilfsmethoden.AttrArray2Str(fertigkeit.attribute))
-            v.set('printclass',str(fertigkeit.printclass))
+            v.set('typ',str(fertigkeit.typ))
             v.set('talentegruppieren',str(1 if fertigkeit.talenteGruppieren else 0))
             v.text = fertigkeit.text
               
@@ -144,19 +129,20 @@ class Datenbank():
             if not waffe.isUserAdded: continue
             w = etree.SubElement(root,'Waffe')
             w.set('name', waffe.name)
-            w.set('W6', str(waffe.W6))
+            w.set('würfel', str(waffe.würfel))
+            w.set('würfelSeiten', str(waffe.würfelSeiten))
             w.set('plus', str(waffe.plus))
-            w.set('haerte', str(waffe.haerte))
+            w.set('härte', str(waffe.haerte))
             w.text = ", ".join(waffe.eigenschaften)
             w.set('fertigkeit', waffe.fertigkeit)
             w.set('talent', waffe.talent)
             w.set('kampfstile', ", ".join(waffe.kampfstile))
             w.set('rw', str(waffe.rw))
+            w.set('wm', str(waffe.wm))
             if type(waffe) == Objekte.Fernkampfwaffe:
                 w.set('lz', str(waffe.lz))
                 w.set('fk', '1')
             else:
-                w.set('wm', str(waffe.wm))
                 w.set('fk', '0')
 
         #Rüstungen
@@ -264,65 +250,6 @@ class Datenbank():
             messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             messagebox.exec()
 
-    def userDBMigrieren(self, xmlRoot, userDBVersion, datenbankCodeVersion):
-        dbChanged = userDBVersion < datenbankCodeVersion
-        while userDBVersion < datenbankCodeVersion:
-            logging.warning("Migriere UserDB von Version " + str(userDBVersion ) + " zu " + str(userDBVersion + 1))
-            userDBVersion +=1
-            self.migrationen[userDBVersion](xmlRoot)
-
-    def migriere0zu1(self, root):
-        for wa in root.findall('Waffe'):
-            kampfstile = []
-            if int(wa.get('beid')) == 1:
-                kampfstile.append("Beidhändiger Kampf")
-            if int(wa.get('pari')) == 1:
-                kampfstile.append("Parierwaffenkampf")
-            if int(wa.get('reit')) == 1:
-                kampfstile.append("Reiterkampf")
-            if int(wa.get('schi')) == 1:
-                kampfstile.append("Schildkampf")
-            if int(wa.get('kraf')) == 1:
-                kampfstile.append("Kraftvoller Kampf")
-            if int(wa.get('schn')) == 1:
-                kampfstile.append("Schneller Kampf")
-
-            wa.attrib.pop('beid')
-            wa.attrib.pop('pari')
-            wa.attrib.pop('reit')
-            wa.attrib.pop('schi')
-            wa.attrib.pop('kraf')
-            wa.attrib.pop('schn')
-            wa.set('kampfstile', ", ".join(kampfstile))
-
-    def migriere1zu2(self, root):
-        # Apply the added attributes to the user database to make their life easier
-        for ta in root.findall('Talent'):
-            name = ta.get('name')
-            if name in self.talente:
-                ta.set('referenzbuch', '0')
-                ta.set('referenzseite', str(self.talente[name].referenzSeite))
-        for fe in root.findall('Übernatürliche-Fertigkeit'):
-            name = fe.get('name')
-            if name in self.übernatürlicheFertigkeiten and self.übernatürlicheFertigkeiten[name].talenteGruppieren:
-                fe.set('talentegruppieren', '1')
-
-    def migriere2zu3(self, root):
-        def fixTalentVoraussetzungen(type):
-            for node in root.findall(type):
-                vor = node.get('voraussetzungen')
-                if not vor:
-                    continue
-                node.set('voraussetzungen', re.sub(r"Talent \s*(.*?)\s*(,| ODER |$)", r"Talent '\1'\2", vor))
-
-        fixTalentVoraussetzungen('Talent')
-        fixTalentVoraussetzungen('Vorteil')
-        fixTalentVoraussetzungen('Manöver')
-        fixTalentVoraussetzungen('Waffeneigenschaft')
-        fixTalentVoraussetzungen('FreieFertigkeit')
-        fixTalentVoraussetzungen('Fertigkeit')
-        fixTalentVoraussetzungen('Übernatürliche-Fertigkeit')
-
     def xmlLadenAdditiv(self, file, conflictCB):
         self.xmlLadenInternal(file, False, conflictCB)
 
@@ -337,13 +264,13 @@ class Datenbank():
 
             #Versionierung
             versionXml = root.find('Version')
-            userDBVersion = 0
+            hausregelnVersion = 0
             if versionXml is not None:
                 logging.debug("User DB: VersionXML found")
-                userDBVersion = int(versionXml.text)
+                hausregelnVersion = int(versionXml.text)
 
-            logging.debug("Starting User DB Migration")
-            self.userDBMigrieren(root, userDBVersion, self.datenbankCodeVersion)
+            logging.debug("Start Hausregeln Migration")
+            Migrationen.hausregelnMigrieren(self, root, hausregelnVersion)
 
             loadAdditive = conflictCB is not None
             if root.find('Plugins') is not None and root.find('Plugins').text:         
@@ -395,8 +322,8 @@ class Datenbank():
                 V.scriptPrio = int(prio)
 
             V.isUserAdded = not refDB
-            if vort.get('variable'):
-                V.variableKosten = int(vort.get('variable')) == 1
+            if vort.get('variableKosten'):
+                V.variableKosten = int(vort.get('variableKosten')) == 1
             else:
                 V.variableKosten = False
 
@@ -428,7 +355,7 @@ class Datenbank():
             T.verbilligt = int(tal.get('verbilligt'))
             T.text = tal.text or ''
             T.fertigkeiten = Hilfsmethoden.FertStr2Array(tal.get('fertigkeiten'), None)
-            T.variableKosten = int(tal.get('variable')) == 1
+            T.variableKosten = int(tal.get('variableKosten')) == 1
             if tal.get('kommentar'):
                 T.kommentarErlauben = T.variableKosten or int(tal.get('kommentar')) == 1
             else:
@@ -460,18 +387,18 @@ class Datenbank():
             F.kampffertigkeit = int(fer.get('kampffertigkeit'))
             F.isUserAdded = not refDB
 
-            printClass = fer.get('printclass')
-            if printClass:
-                F.printclass = int(printClass)
+            typ = fer.get('typ')
+            if typ:
+                F.typ = int(typ)
             else:
-                F.printclass = -1
+                F.typ = -1
 
             if conflictCB and F.name in self.fertigkeiten:
                 F = conflictCB('Fertigkeit', self.fertigkeiten[F.name], F)
 
             self.fertigkeiten.update({F.name: F})
 
-        überFertigkeitNodes = root.findall('Übernatürliche-Fertigkeit')
+        überFertigkeitNodes = root.findall('ÜbernatürlicheFertigkeit')
         for fer in überFertigkeitNodes:
             numLoaded += 1
             F = Fertigkeiten.Fertigkeit()
@@ -481,11 +408,11 @@ class Datenbank():
             F.attribute = Hilfsmethoden.AttrStr2Array(fer.get('attribute'))
             F.isUserAdded = not refDB
 
-            printClass = fer.get('printclass')
-            if printClass:
-                F.printclass = int(printClass)
+            typ = fer.get('typ')
+            if typ:
+                F.typ = int(typ)
             else:
-                F.printclass = -1
+                F.typ = -1
 
             if fer.get('talentegruppieren'):
                 F.talenteGruppieren = int(fer.get('talentegruppieren')) == 1
@@ -521,12 +448,13 @@ class Datenbank():
                 w.lz = int(wa.get('lz'))
             else:
                 w = Objekte.Nahkampfwaffe()
-                w.wm = int(wa.get('wm'))
+            w.wm = int(wa.get('wm'))
             w.name = wa.get('name')
             w.rw = int(wa.get('rw'))
-            w.W6 = int(wa.get('W6'))
+            w.würfel = int(wa.get('würfel'))
+            w.würfelSeiten = int(wa.get('würfelSeiten'))
             w.plus = int(wa.get('plus'))
-            w.haerte = int(wa.get('haerte'))
+            w.haerte = int(wa.get('härte'))
             if wa.text:
                 w.eigenschaften = list(map(str.strip, wa.text.split(",")))
             w.fertigkeit = wa.get('fertigkeit')
@@ -585,7 +513,7 @@ class Datenbank():
         for ffNode in ffNodes:
             numLoaded += 1
             ff = Fertigkeiten.FreieFertigkeitDB()
-            ff.name = ffNode.text
+            ff.name = ffNode.get('name')
             ff.kategorie = ffNode.get('kategorie')
             ff.isUserAdded = not refDB
 
@@ -689,7 +617,7 @@ class Datenbank():
                
         #Freie Fertigkeiten
         for ffNode in ffNodes:
-            ff = self.freieFertigkeiten[ffNode.text]
+            ff = self.freieFertigkeiten[ffNode.get('name')]
             try:
                 if ffNode.get('voraussetzungen'):
                     ff.voraussetzungen = Hilfsmethoden.VorStr2Array(ffNode.get('voraussetzungen'), self)

@@ -9,9 +9,9 @@ Sephrasto bietet eine Reihe von Funktionen an, anhand derer die meisten Skripte 
 Die folgenden Funktionen stehen neben Python-Builtins wie 'round' zur Verfügung:
 <br />
 ### Beschreibung
-- Hintergrund: ```getName, getRasse, getStatus, getKurzbeschreibung, getHeimat, getFinanzen```
+- Hintergrund: ```getName, getSpezies, getStatus, getKurzbeschreibung, getHeimat, getFinanzen```
 - Eigenheiten: ```getEigenheiten <Return: string[8]>```
-- EP: ```getEPTotal, getEPSpent```
+- EP: ```getEPGesamt, getEPAusgegeben```
 <br />
 ### Attribute
 - ```getGE, getKK, getKO, getFF, getMU, getIN, getKL, getCH```
@@ -48,7 +48,7 @@ Hinweis: Dies ist nützlich, um permanente Erleichterungen auf ein Talent (ggf. 
 ### Ausrüstung
 - Inventar: ```getAusrüstung <Return: string[]>```
 - Rüstung: ```getRüstung <Return: { name, text, be, rs[6] }[]>```
-- Waffen: ```getWaffen <Return: { name, text, W6, plus, eigenschaften[], haerte, fertigkeit, talent, kampfstile[], kampfstil, rw, wm, lz}[]>```<br />
+- Waffen: ```getWaffen <Return: { name, text, würfel, würfelSeiten, plus, eigenschaften[], haerte, fertigkeit, talent, kampfstile[], kampfstil, rw, wm, lz}[]>```<br />
 Hinweis: Nur Fernkampfwaffen haben das Feld 'lz'.
 <br />
 ### Sonstiges

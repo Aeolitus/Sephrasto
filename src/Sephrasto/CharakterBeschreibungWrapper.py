@@ -27,7 +27,7 @@ class BeschrWrapper(QtCore.QObject):
         self.ui.setupUi(self.form)
 
         self.ui.editName.editingFinished.connect(self.update)
-        self.ui.editRasse.editingFinished.connect(self.update)
+        self.ui.editSpezies.editingFinished.connect(self.update)
         self.ui.editKurzbeschreibung.editingFinished.connect(self.update)
         for i in range(8):
             editEig = getattr(self.ui, "editEig" + str(i+1))
@@ -78,8 +78,8 @@ class BeschrWrapper(QtCore.QObject):
             Wolke.Char.name = self.ui.editName.text()
             changed = True
 
-        if Wolke.Char.rasse != self.ui.editRasse.text():
-            Wolke.Char.rasse = self.ui.editRasse.text()
+        if Wolke.Char.spezies != self.ui.editSpezies.text():
+            Wolke.Char.spezies = self.ui.editSpezies.text()
             changed = True
 
         if Wolke.Char.status != self.ui.comboStatus.currentIndex():
@@ -139,7 +139,7 @@ class BeschrWrapper(QtCore.QObject):
 
         ''' Load values from Char object '''
         self.ui.editName.setText(Wolke.Char.name)
-        self.ui.editRasse.setText(Wolke.Char.rasse)
+        self.ui.editSpezies.setText(Wolke.Char.spezies)
         self.ui.comboStatus.setCurrentIndex(Wolke.Char.status)
         self.ui.comboFinanzen.setCurrentIndex(Wolke.Char.finanzen)
         self.ui.editKurzbeschreibung.setText(Wolke.Char.kurzbeschreibung)

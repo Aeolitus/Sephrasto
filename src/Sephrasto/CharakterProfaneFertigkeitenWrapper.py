@@ -15,7 +15,7 @@ from Fertigkeiten import KampffertigkeitTyp
 from Hilfsmethoden import Hilfsmethoden
 from EventBus import EventBus
 
-# This item delegate is used to draw a seperator line between different fertigkeit categories ('printclasses')
+# This item delegate is used to draw a seperator line between different fertigkeit types
 class FertigkeitItemDelegate(QtWidgets.QItemDelegate):
     def __init__(self, rowIndicesWithLinePaint):
         super().__init__()
@@ -85,8 +85,8 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         self.currentlyLoading = True
         temp = [el for el in Wolke.DB.fertigkeiten 
                 if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.fertigkeiten[el].voraussetzungen)]
-        # sort by printclass, then by name
-        temp.sort(key = lambda x: (Wolke.DB.fertigkeiten[x].printclass, x)) 
+        # sort by type, then by name
+        temp.sort(key = lambda x: (Wolke.DB.fertigkeiten[x].typ, x)) 
 
         if Hilfsmethoden.ArrayEqual(temp, self.availableFerts):
             for i in range(self.ui.tableWidget.rowCount()):
@@ -100,11 +100,11 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
             rowIndicesWithLinePaint = []
             count = 0
             if len(self.availableFerts) > 0:
-                lastPrintclass = Wolke.DB.fertigkeiten[self.availableFerts[0]].printclass
+                lastType = Wolke.DB.fertigkeiten[self.availableFerts[0]].typ
                 for el in self.availableFerts:
-                    if Wolke.DB.fertigkeiten[el].printclass != lastPrintclass:
+                    if Wolke.DB.fertigkeiten[el].typ != lastType:
                         rowIndicesWithLinePaint.append(count-1)
-                        lastPrintclass = Wolke.DB.fertigkeiten[el].printclass
+                        lastType = Wolke.DB.fertigkeiten[el].typ
                     count += 1
 
             self.ui.tableWidget.clear()
@@ -334,7 +334,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         self.ui.spinPWT.setValue(fert.probenwertTalent)
         self.ui.plainText.setPlainText(fert.text)
         fertigkeitTypen = Wolke.DB.einstellungen["Fertigkeiten: Typen profan"].toTextList()
-        self.ui.labelKategorie.setText(fertigkeitTypen[min(fert.printclass, len(fertigkeitTypen)-1)])
+        self.ui.labelKategorie.setText(fertigkeitTypen[min(fert.typ, len(fertigkeitTypen)-1)])
         self.updateTalents()
         self.currentlyLoading = False
         

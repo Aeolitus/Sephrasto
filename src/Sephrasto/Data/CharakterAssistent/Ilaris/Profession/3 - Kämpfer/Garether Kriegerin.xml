@@ -1,20 +1,20 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>2</DatenbankVersion>
+    <DatenbankVersion>3</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
     <NutzerDatenbankName></NutzerDatenbankName>
     <Plugins></Plugins>
   </Version>
-  <AllgemeineInfos>
-    <name></name>
-    <rasse></rasse>
-    <status>2</status>
-    <kurzbeschreibung>Kriegerin des Instituts der hohen Schule der Reiterei zu Gareth</kurzbeschreibung>
-    <schips>0</schips>
-    <finanzen>0</finanzen>
-    <heimat>Mittelreich</heimat>
-    <eigenheiten/>
-  </AllgemeineInfos>
+  <Beschreibung>
+    <Name></Name>
+    <Spezies></Spezies>
+    <Status>2</Status>
+    <Kurzbeschreibung>Kriegerin des Instituts der hohen Schule der Reiterei zu Gareth</Kurzbeschreibung>
+    <SchiP>0</SchiP>
+    <Finanzen>0</Finanzen>
+    <Heimat>Mittelreich</Heimat>
+    <Eigenheiten/>
+  </Beschreibung>
   <Attribute>
     <KO>4</KO>
     <MU>4</MU>
@@ -30,16 +30,16 @@
     <KaP wert="0"/>
   </Energien>
   <Vorteile minderpakt="">
-    <Vorteil variable="-1">Einkommen I</Vorteil>
-    <Vorteil variable="-1">Einkommen II</Vorteil>
-    <Vorteil variable="-1">Standfest</Vorteil>
-    <Vorteil variable="-1">Ausfall</Vorteil>
-    <Vorteil variable="-1">Niederwerfen</Vorteil>
-    <Vorteil variable="-1">Waffenloser Kampf</Vorteil>
-    <Vorteil variable="-1">Reiterkampf I</Vorteil>
-    <Vorteil variable="-1">Reiterkampf II</Vorteil>
-    <Vorteil variable="-1">Schildkampf I</Vorteil>
-    <Vorteil variable="-1">Privilegien (Krieger)</Vorteil>
+    <Vorteil>Einkommen I</Vorteil>
+    <Vorteil>Einkommen II</Vorteil>
+    <Vorteil>Standfest</Vorteil>
+    <Vorteil>Ausfall</Vorteil>
+    <Vorteil>Niederwerfen</Vorteil>
+    <Vorteil>Waffenloser Kampf</Vorteil>
+    <Vorteil>Reiterkampf I</Vorteil>
+    <Vorteil>Reiterkampf II</Vorteil>
+    <Vorteil>Schildkampf I</Vorteil>
+    <Vorteil>Privilegien (Krieger)</Vorteil>
   </Vorteile>
   <Fertigkeiten>
     <Fertigkeit name="Handgemenge" wert="3">
@@ -50,12 +50,12 @@
     </Fertigkeit>
     <Fertigkeit name="Klingenwaffen" wert="6">
       <Talente>
-        <Talent name="Einhandklingenwaffen" variable="-1"/>
+        <Talent name="Einhandklingenwaffen"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Stangenwaffen" wert="8">
       <Talente>
-        <Talent name="Lanzenreiten" variable="-1"/>
+        <Talent name="Lanzenreiten"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Schusswaffen" wert="0">
@@ -66,7 +66,7 @@
     </Fertigkeit>
     <Fertigkeit name="Athletik" wert="7">
       <Talente>
-        <Talent name="Reiten" variable="-1"/>
+        <Talent name="Reiten"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Heimlichkeit" wert="0">
@@ -74,7 +74,7 @@
     </Fertigkeit>
     <Fertigkeit name="Selbstbeherrschung" wert="4">
       <Talente>
-        <Talent name="Zähigkeit" variable="-1"/>
+        <Talent name="Zähigkeit"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Wahrnehmung" wert="3">
@@ -88,7 +88,7 @@
     </Fertigkeit>
     <Fertigkeit name="Gebräuche" wert="3">
       <Talente>
-        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
+        <Talent name="Gebräuche: Mittelreich"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Derekunde" wert="2">
@@ -102,7 +102,7 @@
     </Fertigkeit>
     <Fertigkeit name="Überleben" wert="4">
       <Talente>
-        <Talent name="Überleben: Mittelaventurien" variable="-1"/>
+        <Talent name="Überleben: Mittelaventurien"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Verschlagenheit" wert="0">
@@ -113,73 +113,76 @@
     </Fertigkeit>
     <Fertigkeit name="Heilkunde" wert="4">
       <Talente>
-        <Talent name="Wundheilung" variable="-1"/>
+        <Talent name="Wundheilung"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="" wert="3"/>
-    <Freie-Fertigkeit name="Sprache: Garethi" wert="2"/>
-    <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="2"/>
+    <FreieFertigkeit name="" wert="3"/>
+    <FreieFertigkeit name="Sprache: Garethi" wert="2"/>
+    <FreieFertigkeit name="Schrift: Kusliker Zeichen" wert="2"/>
   </Fertigkeiten>
   <Objekte>
-    <Zonensystem>False</Zonensystem>
+    <Zonensystem>0</Zonensystem>
     <Rüstungen>
       <Rüstung name="leichte Platte" be="3" rs="3/3/3/3/3/3"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="Kriegslanze" id="Kriegslanze" W6="3" plus="1" eigenschaften="" haerte="5" rw="2" kampfstil="Reiterkampf" wm="-1" typ="Nah"/>
-      <Waffe name="Säbel" id="Säbel" W6="2" plus="2" eigenschaften="" haerte="10" rw="1" kampfstil="Reiterkampf" wm="0" typ="Nah"/>
-      <Waffe name="Großschild" id="Großschild" W6="1" plus="-1" eigenschaften="Schild, Stumpf" haerte="7" rw="0" kampfstil="Reiterkampf" wm="2" typ="Nah"/>
-      <Waffe name="Kriegspferd" id="Kriegspferd" W6="2" plus="2" eigenschaften="Niederwerfen, Reittier" haerte="14" rw="1" kampfstil="Reiterkampf" wm="1" typ="Nah"/>
-      <Waffe name="Säbel (zu Fuß)" id="Säbel" W6="2" plus="2" eigenschaften="" haerte="10" rw="1" kampfstil="Schildkampf" wm="0" typ="Nah"/>
-      <Waffe name="Großschild (zu Fuß)" id="Großschild" W6="1" plus="-1" eigenschaften="Schild, Stumpf" haerte="7" rw="0" kampfstil="Schildkampf" wm="2" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="Kriegslanze" id="Kriegslanze" würfel="3" würfelSeiten="6" plus="1" eigenschaften="" härte="5" rw="2" kampfstil="Reiterkampf" wm="-1" typ="Nah"/>
+      <Waffe name="Säbel" id="Säbel" würfel="2" würfelSeiten="6" plus="2" eigenschaften="" härte="10" rw="1" kampfstil="Reiterkampf" wm="0" typ="Nah"/>
+      <Waffe name="Großschild" id="Großschild" würfel="1" würfelSeiten="6" plus="-1" eigenschaften="Schild, Stumpf" härte="7" rw="0" kampfstil="Reiterkampf" wm="2" typ="Nah"/>
+      <Waffe name="Kriegspferd" id="Kriegspferd" würfel="2" würfelSeiten="6" plus="2" eigenschaften="Niederwerfen, Reittier" härte="14" rw="1" kampfstil="Reiterkampf" wm="1" typ="Nah"/>
+      <Waffe name="Säbel (zu Fuß)" id="Säbel" würfel="2" würfelSeiten="6" plus="2" eigenschaften="" härte="10" rw="1" kampfstil="Schildkampf" wm="0" typ="Nah"/>
+      <Waffe name="Großschild (zu Fuß)" id="Großschild" würfel="1" würfelSeiten="6" plus="-1" eigenschaften="Schild, Stumpf" härte="7" rw="0" kampfstil="Schildkampf" wm="2" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>einfache Reiseausrüstung</Ausrüstungsstück>
     </Ausrüstung>
   </Objekte>
-  <Übernatürliche-Fertigkeiten/>
+  <ÜbernatürlicheFertigkeiten/>
   <Erfahrung>
-    <EPtotal>2000</EPtotal>
-    <EPspent>1987</EPspent>
+    <Gesamt>2000</Gesamt>
+    <Ausgegeben>1987</Ausgegeben>
   </Erfahrung>
   <Notiz/>
   <Einstellungen>
+    <VoraussetzungenPrüfen>1</VoraussetzungenPrüfen>
     <Charakterbogen>Ilaris Advanced Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
-    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
-    <RegelnAnhaengen>1</RegelnAnhaengen>
-    <RegelnGroesse>0</RegelnGroesse>
+    <ÜbernatürlichesPDFSpalteAnzeigen>0</ÜbernatürlichesPDFSpalteAnzeigen>
+    <RegelnAnhängen>1</RegelnAnhängen>
+    <RegelnGrösse>0</RegelnGrösse>
+    <RegelnKategorien>V0, V1, M9, V2, V3, M5, W, M8, M0, M1, V4, V5, M2, M4, Z, V6, V7, M3, M7, L, V8, M6, A, M10</RegelnKategorien>
+    <FormularEditierbarkeit>0</FormularEditierbarkeit>
     <Hausregeln></Hausregeln>
   </Einstellungen>
-  <AllgemeineInfosExt>
-    <kultur/>
-    <profession></profession>
-    <geschlecht></geschlecht>
-    <geburtsdatum></geburtsdatum>
-    <groesse></groesse>
-    <gewicht></gewicht>
-    <haarfarbe></haarfarbe>
-    <augenfarbe></augenfarbe>
-    <titel></titel>
-    <aussehen1></aussehen1>
-    <aussehen2></aussehen2>
-    <aussehen3></aussehen3>
-    <aussehen4></aussehen4>
-    <aussehen5></aussehen5>
-    <aussehen6></aussehen6>
-    <hintergrund0></hintergrund0>
-    <hintergrund1></hintergrund1>
-    <hintergrund2></hintergrund2>
-    <hintergrund3></hintergrund3>
-    <hintergrund4></hintergrund4>
-    <hintergrund5></hintergrund5>
-    <hintergrund6></hintergrund6>
-    <hintergrund7></hintergrund7>
-    <hintergrund8></hintergrund8>
-  </AllgemeineInfosExt>
+  <BeschreibungDetails>
+    <Kultur/>
+    <Profession></Profession>
+    <Geschlecht></Geschlecht>
+    <Geburtsdatum></Geburtsdatum>
+    <Grösse></Grösse>
+    <Gewicht></Gewicht>
+    <Haarfarbe></Haarfarbe>
+    <Augenfarbe></Augenfarbe>
+    <Titel></Titel>
+    <Aussehen1></Aussehen1>
+    <Aussehen2></Aussehen2>
+    <Aussehen3></Aussehen3>
+    <Aussehen4></Aussehen4>
+    <Aussehen5></Aussehen5>
+    <Aussehen6></Aussehen6>
+    <Hintergrund0></Hintergrund0>
+    <Hintergrund1></Hintergrund1>
+    <Hintergrund2></Hintergrund2>
+    <Hintergrund3></Hintergrund3>
+    <Hintergrund4></Hintergrund4>
+    <Hintergrund5></Hintergrund5>
+    <Hintergrund6></Hintergrund6>
+    <Hintergrund7></Hintergrund7>
+    <Hintergrund8></Hintergrund8>
+  </BeschreibungDetails>
 </Charakter>

@@ -102,7 +102,7 @@ class AttrWrapper(QtCore.QObject):
 
         fertNew = []
         ferts = copy.deepcopy(Wolke.Char.fertigkeiten)
-        for fert in sorted(ferts.values(), key = lambda f: f.printclass):
+        for fert in sorted(ferts.values(), key = lambda f: f.typ):
             fert.aktualisieren(Wolke.Char.attribute)
             basisAlt = fert.basiswert
             fert.aktualisieren(attribute)
@@ -112,7 +112,7 @@ class AttrWrapper(QtCore.QObject):
         fertsÜberNew = []
         ferts = copy.deepcopy(Wolke.Char.übernatürlicheFertigkeiten)
         more = 0
-        for fert in sorted(ferts.values(), key = lambda f: f.printclass):
+        for fert in sorted(ferts.values(), key = lambda f: f.typ):
             if len(fert.gekaufteTalente) == 0:
                 more += 1
                 continue

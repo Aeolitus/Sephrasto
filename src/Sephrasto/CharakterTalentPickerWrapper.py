@@ -7,7 +7,6 @@ Created on Sun Mar  5 16:45:34 2017
 import UI.CharakterTalentPicker
 from PySide6 import QtCore, QtWidgets, QtGui
 from Wolke import Wolke
-from Charakter import VariableKosten
 import copy
 
 class TalentPicker(object):
@@ -31,7 +30,8 @@ class TalentPicker(object):
             windowSize = Wolke.Settings["WindowSize-TalentProfan"]
             self.form.resize(windowSize[0], windowSize[1])
 
-        self.talenteVariable = copy.deepcopy(Wolke.Char.talenteVariable)
+        self.talenteVariableKosten = copy.deepcopy(Wolke.Char.talenteVariableKosten)
+        self.talenteKommentare = copy.deepcopy(Wolke.Char.talenteKommentare)
         self.gekaufteTalente = self.refC[fert].gekaufteTalente.copy()
 
         self.form.setWindowFlags(
@@ -56,8 +56,10 @@ class TalentPicker(object):
             if (ueber and not talent.isSpezialTalent()) or (not ueber and talent.isSpezialTalent()):
                 continue
             if fert in talent.fertigkeiten and Wolke.Char.voraussetzungenPrüfen(talent.voraussetzungen):
-                if (talent.variableKosten or talent.kommentarErlauben) and not el in self.talenteVariable:
-                    self.setVariableKosten(el, Wolke.Char.getTalentCost(el, self.refD[self.fert].steigerungsfaktor), "")
+                if talent.variableKosten and not el in self.talenteVariableKosten:
+                    self.talenteVariableKosten[el] = Wolke.Char.getTalentCost(el, self.refD[self.fert].steigerungsfaktor)
+                if talent.kommentarErlauben and not el in self.talenteKommentare:
+                    self.talenteKommentare[el] = ""
                 talente.append(el)
         talente.sort()
 
@@ -99,8 +101,10 @@ class TalentPicker(object):
                         if el in self.refC:
                             if tmp not in self.refC[el].gekaufteTalente:
                                 self.refC[el].gekaufteTalente.append(tmp)
-                    if tmp in self.talenteVariable:
-                        Wolke.Char.talenteVariable[tmp] = self.talenteVariable[tmp]
+                    if tmp in self.talenteVariableKosten:
+                        Wolke.Char.talenteVariableKosten[tmp] = self.talenteVariableKosten[tmp]
+                    if tmp in self.talenteKommentare:
+                        Wolke.Char.talenteKommentare[tmp] = self.talenteKommentare[tmp]
                 else:
                     for el in Wolke.DB.talente[tmp].fertigkeiten:
                         if el in self.refC:
@@ -110,29 +114,20 @@ class TalentPicker(object):
             self.gekaufteTalente = self.refC[fert].gekaufteTalente
         else:
             self.gekaufteTalente = None
-     
-    def setVariableKosten(self, talent, kosten, kommentar):
-        if not Wolke.DB.talente[talent].variableKosten and not Wolke.DB.talente[talent].kommentarErlauben:
-            return
-
-        if not talent in self.talenteVariable:
-            vk = VariableKosten()
-            self.talenteVariable[talent] = vk
-
-        if kosten != None:
-            self.talenteVariable[talent].kosten = kosten
-        if kommentar != None:
-            self.talenteVariable[talent].kommentar = kommentar
 
     def talChanged(self, item, prev):
         text = item.data(QtCore.Qt.UserRole)
         self.updateFields(text)
         
     def spinChanged(self):
-        self.setVariableKosten(self.ui.labelName.property("data"), self.ui.spinKosten.value(), None)
+        tal = self.ui.labelName.property("data")
+        if Wolke.DB.talente[tal].variableKosten:
+            self.talenteVariableKosten[tal] = self.ui.spinKosten.value()
         
     def kommentarChanged(self, text):
-        self.setVariableKosten(self.ui.labelName.property("data"), None, text)
+        tal = self.ui.labelName.property("data")
+        if Wolke.DB.talente[tal].kommentarErlauben:
+            self.talenteKommentare[tal] = text
 
     def updateFields(self, talent):
         if talent is not None:
@@ -142,8 +137,7 @@ class TalentPicker(object):
             self.ui.spinKosten.setReadOnly(True)
             self.ui.spinKosten.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
             self.ui.spinKosten.setMinimum(0)
-            self.ui.textKommentar.hide()
-            self.ui.labelKommentar.hide()
+
             if Wolke.DB.talente[talent].kosten == -1:
                 if Wolke.DB.talente[talent].verbilligt:
                     self.ui.labelInfo.show()
@@ -152,21 +146,25 @@ class TalentPicker(object):
                 self.ui.labelInfo.show()
                 self.ui.labelInfo.setText("Spezialtalent")
 
-            if talent in self.talenteVariable:
+            if talent in self.talenteVariableKosten and Wolke.DB.talente[talent].variableKosten:
                 if Wolke.DB.talente[talent].variableKosten:
                     self.ui.spinKosten.setReadOnly(False)
                     self.ui.spinKosten.setButtonSymbols(QtWidgets.QAbstractSpinBox.PlusMinus)
                     step = Wolke.Char.getDefaultTalentCost(talent, self.refD[self.fert].steigerungsfaktor)
                     self.ui.spinKosten.setSingleStep(step)
                     self.ui.spinKosten.setMinimum(step)
-                    self.ui.spinKosten.setValue(self.talenteVariable[talent].kosten)
-                else:
-                    self.ui.spinKosten.setValue(Wolke.Char.getDefaultTalentCost(talent, self.refD[self.fert].steigerungsfaktor))
-                self.ui.textKommentar.show()
-                self.ui.labelKommentar.show()
-                self.ui.textKommentar.setText(self.talenteVariable[talent].kommentar)
+                    self.ui.spinKosten.setValue(self.talenteVariableKosten[talent])
             else:
                 self.ui.spinKosten.setValue(Wolke.Char.getDefaultTalentCost(talent, self.refD[self.fert].steigerungsfaktor))
+
+            if talent in self.talenteKommentare and Wolke.DB.talente[talent].kommentarErlauben:
+                self.ui.textKommentar.show()
+                self.ui.labelKommentar.show()
+                self.ui.textKommentar.setText(self.talenteKommentare[talent])
+            else:
+                self.ui.textKommentar.hide()
+                self.ui.labelKommentar.hide()
+
             if self.fert == "Gebräuche":
                 if self.displayStr(Wolke.DB.talente[talent].name) == \
                         Wolke.Char.heimat:

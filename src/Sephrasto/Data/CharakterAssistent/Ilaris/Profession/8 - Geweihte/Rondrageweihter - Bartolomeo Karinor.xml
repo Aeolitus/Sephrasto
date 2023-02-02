@@ -1,24 +1,24 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>2</DatenbankVersion>
+    <DatenbankVersion>3</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
     <NutzerDatenbankName></NutzerDatenbankName>
     <Plugins></Plugins>
   </Version>
-  <AllgemeineInfos>
-    <name>Bartolomeo Karinor</name>
-    <rasse></rasse>
-    <status>1</status>
-    <kurzbeschreibung>Athletischer Rondrageweihter aus Al'Anfa, der zu den Tugenden Rondras finden möchte.</kurzbeschreibung>
-    <schips>4</schips>
-    <finanzen>2</finanzen>
-    <heimat>Mittelreich</heimat>
-    <eigenheiten>
+  <Beschreibung>
+    <Name>Bartolomeo Karinor</Name>
+    <Spezies></Spezies>
+    <Status>1</Status>
+    <Kurzbeschreibung>Athletischer Rondrageweihter aus Al'Anfa, der zu den Tugenden Rondras finden möchte.</Kurzbeschreibung>
+    <SchiP>4</SchiP>
+    <Finanzen>2</Finanzen>
+    <Heimat>Mittelreich</Heimat>
+    <Eigenheiten>
       <Eigenheit>Sucher nach dem Weg Rondras</Eigenheit>
       <Eigenheit>Loyalität über den Tod hinaus</Eigenheit>
       <Eigenheit>Aha, aus Al'Anfa also...</Eigenheit>
-    </eigenheiten>
-  </AllgemeineInfos>
+    </Eigenheiten>
+  </Beschreibung>
   <Attribute>
     <KO>4</KO>
     <MU>5</MU>
@@ -34,15 +34,15 @@
     <KaP wert="0"/>
   </Energien>
   <Vorteile minderpakt="">
-    <Vorteil variable="-1">Zerstörerisch I</Vorteil>
-    <Vorteil variable="-1">Ausfall</Vorteil>
-    <Vorteil variable="-1">Kraftvoller Kampf I</Vorteil>
-    <Vorteil variable="-1">Kraftvoller Kampf II</Vorteil>
-    <Vorteil variable="-1">Niederwerfen</Vorteil>
-    <Vorteil variable="-1">Geweiht I</Vorteil>
-    <Vorteil variable="-1">Geweiht II</Vorteil>
-    <Vorteil variable="-1">Tradition der Rondrageweihten I</Vorteil>
-    <Vorteil variable="-1">Privilegien (Krieger)</Vorteil>
+    <Vorteil>Zerstörerisch I</Vorteil>
+    <Vorteil>Ausfall</Vorteil>
+    <Vorteil>Kraftvoller Kampf I</Vorteil>
+    <Vorteil>Kraftvoller Kampf II</Vorteil>
+    <Vorteil>Niederwerfen</Vorteil>
+    <Vorteil>Geweiht I</Vorteil>
+    <Vorteil>Geweiht II</Vorteil>
+    <Vorteil>Tradition der Rondrageweihten I</Vorteil>
+    <Vorteil>Privilegien (Krieger)</Vorteil>
   </Vorteile>
   <Fertigkeiten>
     <Fertigkeit name="Handgemenge" wert="5">
@@ -53,7 +53,7 @@
     </Fertigkeit>
     <Fertigkeit name="Klingenwaffen" wert="8">
       <Talente>
-        <Talent name="Zweihandklingenwaffen" variable="-1"/>
+        <Talent name="Zweihandklingenwaffen"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Stangenwaffen" wert="0">
@@ -73,7 +73,7 @@
     </Fertigkeit>
     <Fertigkeit name="Selbstbeherrschung" wert="6">
       <Talente>
-        <Talent name="Zähigkeit" variable="-1"/>
+        <Talent name="Zähigkeit"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Wahrnehmung" wert="3">
@@ -84,12 +84,12 @@
     </Fertigkeit>
     <Fertigkeit name="Beeinflussung" wert="5">
       <Talente>
-        <Talent name="Überreden" variable="-1"/>
+        <Talent name="Überreden"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Gebräuche" wert="5">
       <Talente>
-        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
+        <Talent name="Gebräuche: Mittelreich"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Derekunde" wert="0">
@@ -116,30 +116,30 @@
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="" wert="3"/>
-    <Freie-Fertigkeit name="Sprache: Garethi" wert="2"/>
-    <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="2"/>
-    <Freie-Fertigkeit name="Schrift: Tulamidya-Zeichen" wert="2"/>
-    <Freie-Fertigkeit name="Sprache: Tulamidya" wert="2"/>
-    <Freie-Fertigkeit name="Weinkenner " wert="2"/>
-    <Freie-Fertigkeit name="Tänzer " wert="2"/>
+    <FreieFertigkeit name="" wert="3"/>
+    <FreieFertigkeit name="Sprache: Garethi" wert="2"/>
+    <FreieFertigkeit name="Schrift: Kusliker Zeichen" wert="2"/>
+    <FreieFertigkeit name="Schrift: Tulamidya-Zeichen" wert="2"/>
+    <FreieFertigkeit name="Sprache: Tulamidya" wert="2"/>
+    <FreieFertigkeit name="Weinkenner " wert="2"/>
+    <FreieFertigkeit name="Tänzer " wert="2"/>
   </Fertigkeiten>
   <Objekte>
-    <Zonensystem>False</Zonensystem>
+    <Zonensystem>0</Zonensystem>
     <Rüstungen>
       <Rüstung name="Kurzes Kettenhemd" be="2" rs="2/2/2/2/2/2"/>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="Andergaster" id="Andergaster" W6="3" plus="3" eigenschaften="Kopflastig, Schwer (4), Zweihändig" haerte="9" rw="2" kampfstil="Kraftvoller Kampf" wm="-2" typ="Nah"/>
-      <Waffe name="Dolch" id="Dolch (Handgemengewaffen)" W6="1" plus="1" eigenschaften="" haerte="9" rw="0" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="Andergaster" id="Andergaster" würfel="3" würfelSeiten="6" plus="3" eigenschaften="Kopflastig, Schwer (4), Zweihändig" härte="9" rw="2" kampfstil="Kraftvoller Kampf" wm="-2" typ="Nah"/>
+      <Waffe name="Dolch" id="Dolch (Handgemengewaffen)" würfel="1" würfelSeiten="6" plus="1" eigenschaften="" härte="9" rw="0" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>Wappenrock</Ausrüstungsstück>
@@ -150,78 +150,81 @@
       <Ausrüstungsstück>Wechselkleidung</Ausrüstungsstück>
     </Ausrüstung>
   </Objekte>
-  <Übernatürliche-Fertigkeiten>
-    <Übernatürliche-Fertigkeit name="Zwölfgöttlicher Ritus" wert="1" addToPDF="True">
+  <ÜbernatürlicheFertigkeiten>
+    <ÜbernatürlicheFertigkeit name="Zwölfgöttlicher Ritus" wert="1" exportieren="1">
       <Talente>
-        <Talent name="Eidsegen" variable="-1"/>
-        <Talent name="Feuersegen" variable="-1"/>
-        <Talent name="Geburtssegen" variable="-1"/>
-        <Talent name="Grabsegen" variable="-1"/>
-        <Talent name="Schutzsegen" variable="-1"/>
-        <Talent name="Speisesegen" variable="-1"/>
-        <Talent name="Tranksegen" variable="-1"/>
-        <Talent name="Glückssegen" variable="-1"/>
-        <Talent name="Harmoniesegen" variable="-1"/>
-        <Talent name="Heilungssegen" variable="-1"/>
-        <Talent name="Märtyrersegen" variable="-1"/>
-        <Talent name="Weisheitssegen" variable="-1"/>
+        <Talent name="Eidsegen"/>
+        <Talent name="Feuersegen"/>
+        <Talent name="Geburtssegen"/>
+        <Talent name="Grabsegen"/>
+        <Talent name="Schutzsegen"/>
+        <Talent name="Speisesegen"/>
+        <Talent name="Tranksegen"/>
+        <Talent name="Glückssegen"/>
+        <Talent name="Harmoniesegen"/>
+        <Talent name="Heilungssegen"/>
+        <Talent name="Märtyrersegen"/>
+        <Talent name="Weisheitssegen"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Ehre" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Ehre" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Heerführung" wert="5" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Heerführung" wert="5" exportieren="1">
       <Talente>
-        <Talent name="Segen des Heiligen Hlûthar" variable="-1"/>
-        <Talent name="Ritus der Schlachthilfe" variable="-1"/>
+        <Talent name="Segen des Heiligen Hlûthar"/>
+        <Talent name="Ritus der Schlachthilfe"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Schutz der Gläubigen" wert="4" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Schutz der Gläubigen" wert="4" exportieren="1">
       <Talente>
-        <Talent name="Schutzsegen" variable="-1"/>
-        <Talent name="Mirakel: KK" variable="-1"/>
-        <Talent name="Mirakel: Klingenwaffen" variable="-1"/>
-        <Talent name="Wundersames Teilen des Martyriums" variable="-1"/>
+        <Talent name="Schutzsegen"/>
+        <Talent name="Mirakel: KK"/>
+        <Talent name="Mirakel: Klingenwaffen"/>
+        <Talent name="Wundersames Teilen des Martyriums"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-  </Übernatürliche-Fertigkeiten>
+    </ÜbernatürlicheFertigkeit>
+  </ÜbernatürlicheFertigkeiten>
   <Erfahrung>
-    <EPtotal>2500</EPtotal>
-    <EPspent>2499</EPspent>
+    <Gesamt>2500</Gesamt>
+    <Ausgegeben>2499</Ausgegeben>
   </Erfahrung>
   <Notiz/>
   <Einstellungen>
+    <VoraussetzungenPrüfen>1</VoraussetzungenPrüfen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
-    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
-    <RegelnAnhaengen>1</RegelnAnhaengen>
-    <RegelnGroesse>0</RegelnGroesse>
+    <ÜbernatürlichesPDFSpalteAnzeigen>0</ÜbernatürlichesPDFSpalteAnzeigen>
+    <RegelnAnhängen>1</RegelnAnhängen>
+    <RegelnGrösse>0</RegelnGrösse>
+    <RegelnKategorien>V0, V1, M9, V2, V3, M5, W, M8, M0, M1, V4, V5, M2, M4, Z, V6, V7, M3, M7, L, V8, M6, A, M10</RegelnKategorien>
+    <FormularEditierbarkeit>0</FormularEditierbarkeit>
     <Hausregeln></Hausregeln>
   </Einstellungen>
-  <AllgemeineInfosExt>
-    <kultur/>
-    <profession></profession>
-    <geschlecht></geschlecht>
-    <geburtsdatum></geburtsdatum>
-    <groesse></groesse>
-    <gewicht></gewicht>
-    <haarfarbe></haarfarbe>
-    <augenfarbe></augenfarbe>
-    <titel></titel>
-    <aussehen1></aussehen1>
-    <aussehen2></aussehen2>
-    <aussehen3></aussehen3>
-    <aussehen4></aussehen4>
-    <aussehen5></aussehen5>
-    <aussehen6></aussehen6>
-    <hintergrund0></hintergrund0>
-    <hintergrund1></hintergrund1>
-    <hintergrund2></hintergrund2>
-    <hintergrund3></hintergrund3>
-    <hintergrund4></hintergrund4>
-    <hintergrund5></hintergrund5>
-    <hintergrund6></hintergrund6>
-    <hintergrund7></hintergrund7>
-    <hintergrund8></hintergrund8>
-  </AllgemeineInfosExt>
+  <BeschreibungDetails>
+    <Kultur/>
+    <Profession></Profession>
+    <Geschlecht></Geschlecht>
+    <Geburtsdatum></Geburtsdatum>
+    <Grösse></Grösse>
+    <Gewicht></Gewicht>
+    <Haarfarbe></Haarfarbe>
+    <Augenfarbe></Augenfarbe>
+    <Titel></Titel>
+    <Aussehen1></Aussehen1>
+    <Aussehen2></Aussehen2>
+    <Aussehen3></Aussehen3>
+    <Aussehen4></Aussehen4>
+    <Aussehen5></Aussehen5>
+    <Aussehen6></Aussehen6>
+    <Hintergrund0></Hintergrund0>
+    <Hintergrund1></Hintergrund1>
+    <Hintergrund2></Hintergrund2>
+    <Hintergrund3></Hintergrund3>
+    <Hintergrund4></Hintergrund4>
+    <Hintergrund5></Hintergrund5>
+    <Hintergrund6></Hintergrund6>
+    <Hintergrund7></Hintergrund7>
+    <Hintergrund8></Hintergrund8>
+  </BeschreibungDetails>
 </Charakter>

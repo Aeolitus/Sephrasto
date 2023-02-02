@@ -122,11 +122,11 @@ class UebernatuerlichWrapper(QtCore.QObject):
                     break
 
         nonOptimalFerts = self.getNonOptimalFerts(temp)
-        def getPrintclass(fert, nonOptimalFerts):
-             return Wolke.DB.übernatürlicheFertigkeiten[fert].printclass + (99999 if fert in nonOptimalFerts else 0)
+        def getType(fert, nonOptimalFerts):
+             return Wolke.DB.übernatürlicheFertigkeiten[fert].typ + (99999 if fert in nonOptimalFerts else 0)
 
-        # sort by printclass, then by name
-        temp.sort(key = lambda x: (getPrintclass(x, nonOptimalFerts), x))
+        # sort by type, then by name
+        temp.sort(key = lambda x: (getType(x, nonOptimalFerts), x))
 
         if Hilfsmethoden.ArrayEqual(temp, self.availableFerts):
             for i in range(self.ui.tableWidget.rowCount()):
@@ -141,11 +141,11 @@ class UebernatuerlichWrapper(QtCore.QObject):
             rowIndicesWithLinePaint = []
             count = 0
             if len(self.availableFerts) > 0:
-                lastPrintclass = getPrintclass(self.availableFerts[0], nonOptimalFerts)
+                lastType = getType(self.availableFerts[0], nonOptimalFerts)
                 for el in self.availableFerts:
-                    if getPrintclass(el, nonOptimalFerts) != lastPrintclass:
+                    if getType(el, nonOptimalFerts) != lastType:
                         rowIndicesWithLinePaint.append(count-1)
-                        lastPrintclass = getPrintclass(el, nonOptimalFerts)
+                        lastType = getType(el, nonOptimalFerts)
                     count += 1
 
             self.ui.tableWidget.clear()
@@ -360,7 +360,7 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
         self.ui.spinPW.setValue(fert.probenwertTalent)
         self.ui.plainText.setPlainText(fert.text)
         fertigkeitTypen = Wolke.DB.einstellungen["Fertigkeiten: Typen übernatürlich"].toTextList()
-        self.ui.labelKategorie.setText(fertigkeitTypen[min(fert.printclass, len(fertigkeitTypen)-1)])
+        self.ui.labelKategorie.setText(fertigkeitTypen[min(fert.typ, len(fertigkeitTypen)-1)])
         self.updateTalents()
         self.currentlyLoading = False
         
@@ -372,7 +372,7 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
         for el in fert.gekaufteTalente:
             talStr = Wolke.DB.talente[el].getFullName(Wolke.Char).replace(self.currentFertName + ": ", "")
             costStr = ""
-            if not el in Wolke.Char.talenteVariable:
+            if not el in Wolke.Char.talenteVariableKosten:
                 costStr = " (" + str(Wolke.Char.getTalentCost(el, fert.steigerungsfaktor)) + " EP)"
             item = QtGui.QStandardItem(talStr + costStr)
             item.setEditable(False)

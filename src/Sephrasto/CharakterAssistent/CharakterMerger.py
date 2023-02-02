@@ -1,4 +1,3 @@
-from Charakter import VariableKosten
 from CharakterAssistent import ChoicePopupWrapper
 from CharakterAssistent import VariantPopupWrapper
 from CharakterAssistent import Choice
@@ -11,41 +10,46 @@ import logging
 from Hilfsmethoden import Hilfsmethoden
 from EventBus import EventBus
 from CharakterAssistent.ChoiceXmlVerifier import ChoiceXmlVerifier
+from Migrationen import Migrationen
 
 class CharakterMerger(object):
     def __init__(self):
         pass
 
-    def setVariableVorteilKosten(vorteil, var):
+    def setVariableVorteilKosten(vorteil, kosten):
         char = Wolke.Char
-        if vorteil in char.vorteileVariable:
-            if vorteil in char.vorteile:
-                char.vorteileVariable[vorteil].kosten += var.kosten
-            else:
-                char.vorteileVariable[vorteil].kosten = var.kosten
-
-            if var.kommentar != "":
-                if char.vorteileVariable[vorteil].kommentar != "":
-                    char.vorteileVariable[vorteil].kommentar += ", " + var.kommentar
-                else:
-                    char.vorteileVariable[vorteil].kommentar = var.kommentar
+        if vorteil in char.vorteileVariableKosten and vorteil in char.vorteile:
+            char.vorteileVariableKosten[vorteil] += var.kosten
         else:
-            char.vorteileVariable[vorteil] = var
+            char.vorteileVariableKosten[vorteil] = kosten
 
-    def setVariableTalentKosten(talent, var, fert):
+    def setVorteilKommentar(vorteil, kommentar):
+        char = Wolke.Char
+        if kommentar == "":
+            return
+        if vorteil in char.vorteileKommentare and char.vorteileKommentare[vorteil] != "":
+            char.vorteileKommentare[vorteil] += ", " + kommentar
+        else:
+            char.vorteileKommentare[vorteil] = kommentar
+
+    def setVariableTalentKosten(talent, kosten, fert):
         char = Wolke.Char
         #round down to nearest multiple in case of a db cost change
         defaultKosten = char.getDefaultTalentCost(talent, fert.steigerungsfaktor)
-        var.kosten = max(var.kosten - (var.kosten%defaultKosten), defaultKosten)
-        if talent in char.talenteVariable:
-            char.talenteVariable[talent].kosten += var.kosten
-            if var.kommentar != "":
-                if char.talenteVariable[talent].kommentar != "" and not var.kommentar in char.talenteVariable[talent].kommentar:
-                    char.talenteVariable[talent].kommentar += ", " + var.kommentar
-                else:
-                    char.talenteVariable[talent].kommentar = var.kommentar
+        kosten = max(kosten - (kosten % defaultKosten), defaultKosten)
+        if talent in char.talenteVariableKosten:
+            char.talenteVariableKosten[talent] += kosten
         else:
-            char.talenteVariable[talent] = var
+            char.talenteVariableKosten[talent] = kosten
+
+    def setTalentKommentar(talent, kommentar):
+        char = Wolke.Char
+        if kommentar == "":
+            return
+        if talent in char.talenteKommentare and char.talenteKommentare[talent] != "" and not kommentar in char.talenteKommentare[talent]:
+            char.talenteKommentare[talent] += ", " + kommentar
+        else:
+            char.talenteKommentare[talent] = kommentar
      
     def addFreieFertigkeit(name, wert, overrideEmpty):
         if name == "":
@@ -122,7 +126,7 @@ class CharakterMerger(object):
             if (variantListCollection.chooseOne and len(variantListCollection.choiceLists) == 1):
                 choices.append(0)
             else:
-                popup = VariantPopupWrapper.VariantPopupWrapper(variantListCollection, element.name, char.EPspent)
+                popup = VariantPopupWrapper.VariantPopupWrapper(variantListCollection, element.name, char.epAusgegeben)
                 choices = popup.choices
             for index in choices:
                 variantsSelected.append(indexOffset + index)
@@ -142,9 +146,9 @@ class CharakterMerger(object):
             description = ", ".join(description)
             if spezies:
                 if anyChooseOne:
-                    char.rasse = description
+                    char.spezies = description
                 else:
-                    char.rasse = element.name + " (" + description + ")"
+                    char.spezies = element.name + " (" + description + ")"
             elif kultur:
                 char.kurzbeschreibung += " (" + description + ")"
                 char.kultur = element.name + " (" + description + ")"
@@ -159,7 +163,7 @@ class CharakterMerger(object):
                 continue
 
             #Let user choose via popup or auto-choose if there is only one entry (usually due to removal - see below)
-            popup = ChoicePopupWrapper.ChoicePopupWrapper(choiceList, element.name, char.EPspent)
+            popup = ChoicePopupWrapper.ChoicePopupWrapper(choiceList, element.name, char.epAusgegeben)
             choice = popup.choice
 
             if not choice:
@@ -288,10 +292,9 @@ class CharakterMerger(object):
                 char.removeVorteil(choice.name)
             else:
                 if Wolke.DB.vorteile[choice.name].variableKosten:
-                    var = VariableKosten()
-                    var.kosten = choice.wert
-                    var.kommentar = choice.kommentar
-                    CharakterMerger.setVariableVorteilKosten(choice.name, var)
+                    CharakterMerger.setVariableVorteilKosten(choice.name, choice.wert)
+                if Wolke.DB.vorteile[choice.name].kommentarErlauben:
+                    CharakterMerger.setVorteilKommentar(choice.name, choice.kommentar)
                 char.addVorteil(choice.name)
         elif choice.typ == "Talent":
             found = False
@@ -318,10 +321,9 @@ class CharakterMerger(object):
                             if not choice.name in char.übernatürlicheFertigkeiten[fert].gekaufteTalente:
                                 char.übernatürlicheFertigkeiten[fert].gekaufteTalente.append(choice.name)
                             if talent.variableKosten:
-                                var = VariableKosten()
-                                var.kosten = choice.wert
-                                var.kommentar = choice.kommentar
-                                CharakterMerger.setVariableTalentKosten(talent.name, var, char.übernatürlicheFertigkeiten[fert])
+                                CharakterMerger.setVariableTalentKosten(talent.name, choice.wert, char.übernatürlicheFertigkeiten[fert])
+                            if talent.kommentarErlauben:
+                                CharakterMerger.setTalentKommentar(talent.name, choice.kommentar)
 
         char.aktualisieren()
 
@@ -329,22 +331,26 @@ class CharakterMerger(object):
         char = Wolke.Char
         root = etree.parse(path).getroot()
 
-        alg = root.find('AllgemeineInfos')
+        versionXml = root.find('Version')
+        charVersion = int(versionXml.find('DatenbankVersion').text)
+        Migrationen.charakterMigrieren(Wolke.Char, root, charVersion)
 
-        char.name = alg.find('name').text or ''
-        char.status = int(alg.find('status').text)
+        alg = root.find('Beschreibung')
 
-        kurzbeschreibung = alg.find('kurzbeschreibung').text or ''
+        char.name = alg.find('Name').text or ''
+        char.status = int(alg.find('Status').text)
+
+        kurzbeschreibung = alg.find('Kurzbeschreibung').text or ''
         if kurzbeschreibung:
             if char.kurzbeschreibung:
                 char.kurzbeschreibung += ", "
             char.kurzbeschreibung += kurzbeschreibung
-        char.finanzen = int(alg.find('finanzen').text)
+        char.finanzen = int(alg.find('Finanzen').text)
 
         if spezies:
-            char.rasse = alg.find('rasse').text or ''
+            char.spezies = alg.find('Spezies').text or ''
 
-        tmp = alg.find('heimat')
+        tmp = alg.find('Heimat')
         skipTal = ""
         if not tmp is None:
             if kultur:
@@ -357,7 +363,7 @@ class CharakterMerger(object):
             else:
                 skipTal = "Gebräuche: " + tmp.text
 
-        for eig in alg.findall('eigenheiten/*'):
+        for eig in alg.findall('Eigenheiten/*'):
             if len(char.eigenheiten) == 8:
                 break
             if eig.text and not (eig.text in char.eigenheiten):
@@ -385,9 +391,10 @@ class CharakterMerger(object):
         for vor in root.findall('Vorteile/*'):
             if not vor.text in Wolke.DB.vorteile:
                 continue
-            var = VariableKosten.parse(vor.get('variable'))
-            if var:
-                CharakterMerger.setVariableVorteilKosten(vor.text, var)
+            if 'variableKosten' in vor.attrib:
+                CharakterMerger.setVariableVorteilKosten(vor.text, int(vor.attrib['variableKosten']))
+            if 'kommentar' in vor.attrib:
+                CharakterMerger.setVorteilKommentar(vor.text, vor.attrib['kommentar'])
 
             char.addVorteil(vor.text)
 
@@ -411,14 +418,15 @@ class CharakterMerger(object):
                 if nam == skipTal:
                     continue
                 fert.gekaufteTalente.append(nam)
-                var = VariableKosten.parse(tal.attrib['variable'])
-                if var:
-                    CharakterMerger.setVariableTalentKosten(nam, var, fert)
+                if 'variableKosten' in tal.attrib:
+                    CharakterMerger.setVariableTalentKosten(nam, int(tal.attrib['variableKosten']), fert)
+                if 'kommentar' in tal.attrib:
+                    CharakterMerger.setTalentKommentar(nam, int(tal.attrib['kommentar']))
 
             fert.aktualisieren(char.attribute)
             char.fertigkeiten.update({fert.name: fert})
 
-        for fer in root.findall('Fertigkeiten/Freie-Fertigkeit'):
+        for fer in root.findall('Fertigkeiten/FreieFertigkeit'):
             CharakterMerger.addFreieFertigkeit(fer.attrib['name'], int(fer.attrib['wert']), False)
 
         objekte = root.find('Objekte');
@@ -467,11 +475,12 @@ class CharakterMerger(object):
             waff.anzeigename = waf.attrib['name']
             waff.name = waf.get('id') or waff.anzeigename
             waff.rw = int(waf.attrib['rw'])
-            waff.W6 = int(waf.attrib['W6'])
+            waff.würfel = int(waf.attrib['würfel'])
+            waff.würfelSeiten = int(waf.attrib['würfelSeiten'])
             waff.plus = int(waf.attrib['plus'])
             if waf.attrib['eigenschaften']:
                 waff.eigenschaften = list(map(str.strip, waf.attrib['eigenschaften'].split(",")))
-            waff.haerte = int(waf.attrib['haerte'])
+            waff.haerte = int(waf.attrib['härte'])
             waff.kampfstil = waf.attrib['kampfstil']
             if waff.name in Wolke.DB.waffen:
                 dbWaffe = Wolke.DB.waffen[waff.name]
@@ -487,7 +496,7 @@ class CharakterMerger(object):
             if aus.text and not (aus.text in char.ausrüstung):
                 char.ausrüstung.append(aus.text)
 
-        for fer in root.findall('Übernatürliche-Fertigkeiten/Übernatürliche-Fertigkeit'):
+        for fer in root.findall('ÜbernatürlicheFertigkeiten/ÜbernatürlicheFertigkeit'):
             nam = fer.attrib['name']
             if not nam in Wolke.DB.übernatürlicheFertigkeiten:
                 continue
@@ -498,8 +507,8 @@ class CharakterMerger(object):
                 fert = Wolke.DB.übernatürlicheFertigkeiten[nam].__deepcopy__()
 
             fert.wert += int(fer.attrib['wert'])
-            if 'addToPDF' in fer.attrib:
-                fert.addToPDF = fer.attrib['addToPDF'] == "True"
+            if 'exportieren' in fer.attrib:
+                fert.addToPDF = fer.attrib['exportieren'] == "1"
             for tal in fer.findall('Talente/Talent'):
                 nam = tal.attrib['name']
                 if not nam in Wolke.DB.talente:
@@ -507,9 +516,12 @@ class CharakterMerger(object):
                 if nam in fert.gekaufteTalente:
                     continue
                 fert.gekaufteTalente.append(nam)
-                var = VariableKosten.parse(tal.attrib['variable'])
-                if var:
-                    CharakterMerger.setVariableTalentKosten(nam, var, fert)
+
+                if 'variableKosten' in tal.attrib:
+                    CharakterMerger.setVariableTalentKosten(nam, int(tal.attrib['variableKosten']), fert)
+
+                if 'kommentar' in tal.attrib:
+                    CharakterMerger.setTalentKommentar(nam, tal.attrib['kommentar'])
 
             fert.aktualisieren(char.attribute)
             char.übernatürlicheFertigkeiten.update({fert.name: fert})

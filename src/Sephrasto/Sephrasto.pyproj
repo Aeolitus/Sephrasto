@@ -7,12 +7,11 @@
     <ProjectHome />
     <StartupFile>Sephrasto.py</StartupFile>
     <SearchPath />
-    <WorkingDirectory>
-    </WorkingDirectory>
+    <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
-    <InterpreterId />
+    <InterpreterId>Global|PythonCore|3.9</InterpreterId>
     <IsWindowsApplication>True</IsWindowsApplication>
     <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
   </PropertyGroup>
@@ -32,6 +31,7 @@
     <Compile Include="CharakterBeschreibungDetailsWrapper.py" />
     <Compile Include="CharakterInfoWrapper.py" />
     <Compile Include="CharakterProfaneFertigkeitenWrapper.py" />
+    <Compile Include="Migrationen.py" />
     <Compile Include="UI\CharakterAttribute.py" />
     <Compile Include="CharakterAttributeWrapper.py" />
     <Compile Include="UI\CharakterBeschreibung.py" />
@@ -118,6 +118,10 @@
   <ItemGroup>
     <Folder Include="CharakterAssistent\" />
     <Folder Include="UI\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|PythonCore|3.7" />
+    <InterpreterReference Include="Global|PythonCore|3.9" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>

@@ -90,7 +90,7 @@ class Fertigkeit(Steigerbar):
         self.probenwertTalent = -1
         self.voraussetzungen = []
         self.maxWert = -1
-        self.printclass = -1
+        self.typ = -1
         self.talenteGruppieren = False
         self.isUserAdded = True
         self.addToPDF = False
@@ -123,7 +123,7 @@ class Fertigkeit(Steigerbar):
         F.probenwert = self.probenwert
         F.probenwertTalent = -self.probenwertTalent
         F.maxWert = self.maxWert
-        F.printclass = self.printclass
+        F.typ = self.typ
         F.talenteGruppieren = self.talenteGruppieren
         F.isUserAdded = self.isUserAdded
         F.addToPDF = self.addToPDF
@@ -139,7 +139,6 @@ class Talent():
         self.variableKosten = False
         self.kommentarErlauben = False
         self.text = ''
-        self.printclass = -1 #deprecated
         self.cheatsheetAuflisten = True
         self.referenzBuch = 0
         self.referenzSeite = 0
@@ -153,21 +152,26 @@ class Talent():
         return self.kosten != -1
     
     def getFullName(self, char):
-        variable = "" 
-        if self.name in char.talenteVariable:
-            addKommentar = char.talenteVariable[self.name].kommentar != ""
-            addEP = self.variableKosten
+        variable = ""
+        ep = None
+        kommentar = None
 
-            if addKommentar or addEP:
-                variable += "("
-            if addKommentar:
-                variable += char.talenteVariable[self.name].kommentar
-            if addKommentar and addEP:
-                variable += "; "
-            if addEP:
-                variable += str(char.talenteVariable[self.name].kosten) + " EP"
-            if addKommentar or addEP:
-                variable += ")"
+        if self.variableKosten and self.name in char.talenteVariableKosten:
+            ep = str(char.talenteVariableKosten[self.name])
+
+        if self.kommentarErlauben and self.name in char.talenteKommentare and char.talenteKommentare[self.name] != "":
+            kommentar = char.talenteKommentare[self.name]
+
+        if kommentar or ep:
+            variable += "("
+        if kommentar:
+            variable += kommentar
+        if kommentar and ep:
+            variable += "; "
+        if ep:
+            variable += ep + " EP"
+        if kommentar or ep:
+            variable += ")"
 
         if variable:
             return self.name + " " + variable
@@ -203,25 +207,29 @@ class Vorteil():
         if self.__dict__ == other.__dict__: return True
 
     def getFullName(self, char, forceKommentar = False):
-        variable = "" 
-
         if self.name == "Minderpakt" and char.minderpakt is not None:
             return self.name + " (" + Wolke.Char.minderpakt + ")"
+        
+        variable = ""
+        ep = None
+        kommentar = None
+        if self.variableKosten and self.name in char.vorteileVariableKosten:
+            ep = str(char.vorteileVariableKosten[self.name])
 
-        if self.name in char.vorteileVariable:
-            addKommentar = char.vorteileVariable[self.name].kommentar != "" and (forceKommentar or not ("$kommentar$" in self.cheatsheetBeschreibung))
-            addEP = self.variableKosten
+        if self.kommentarErlauben and self.name in char.vorteileKommentare and \
+            char.vorteileKommentare[self.name] != "" and (forceKommentar or not ("$kommentar$" in self.cheatsheetBeschreibung)):
+            kommentar = char.vorteileKommentare[self.name]
 
-            if addKommentar or addEP:
-                variable += "("
-            if addKommentar:
-                variable += char.vorteileVariable[self.name].kommentar
-            if addKommentar and addEP:
-                variable += "; "
-            if addEP:
-                variable += str(char.vorteileVariable[self.name].kosten) + " EP"
-            if addKommentar or addEP:
-                variable += ")"
+        if kommentar or ep:
+            variable += "("
+        if kommentar:
+            variable += kommentar
+        if kommentar and ep:
+            variable += "; "
+        if ep:
+            variable += ep + " EP"
+        if kommentar or ep:
+            variable += ")"
 
         if variable:
             return self.name + " " + variable

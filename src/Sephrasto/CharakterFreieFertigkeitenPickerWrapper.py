@@ -41,7 +41,7 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
         self.ui.treeFerts.itemSelectionChanged.connect(self.changeHandler)
         self.ui.treeFerts.itemDoubleClicked.connect(lambda item, column: self.ui.buttonBox.buttons()[0].click())
         self.ui.treeFerts.header().setSectionResizeMode(0, QtWidgets.QHeaderView.Fixed)
-        self.ui.treeFerts.setFocus()
+        self.ui.nameFilterEdit.setFocus()
         self.ui.nameFilterEdit.textChanged.connect(self.populateTree)
         self.form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.form.show()

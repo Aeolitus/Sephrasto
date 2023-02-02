@@ -29,7 +29,8 @@ class CharakterWaffenWrapper(QtCore.QObject):
         logging.debug("UI Setup...")
 
         self.editWName = []
-        self.spinW6 = []
+        self.spinWürfel = []
+        self.labelSeiten = []
         self.spinPlus = []
         self.spinRW = []
         self.spinWM = []
@@ -52,10 +53,13 @@ class CharakterWaffenWrapper(QtCore.QObject):
             editWName.setEnabled(False)
             self.editWName.append(editWName)
 
-            spinW6 = getattr(self.ui, "spinW" + str(i+1) + "w6")
-            spinW6.valueChanged.connect(self.updateWaffen)
-            spinW6.setEnabled(False)
-            self.spinW6.append(spinW6)
+            spinWürfel = getattr(self.ui, "spinW" + str(i+1) + "w6")
+            spinWürfel.valueChanged.connect(self.updateWaffen)
+            spinWürfel.setEnabled(False)
+            self.spinWürfel.append(spinWürfel)
+
+            labelSeiten = getattr(self.ui, "labelW" + str(i+1) + "seiten")
+            self.labelSeiten.append(labelSeiten)
 
             spinPlus = getattr(self.ui, "spinW" + str(i+1) + "plus")
             spinPlus.valueChanged.connect(self.updateWaffen)
@@ -168,7 +172,7 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
 
     def diffWeapons(self, weapon1, weapon2):
         diff = []
-        w6Diff = weapon1.W6 - weapon2.W6
+        würfelDiff = weapon1.würfel - weapon2.würfel
         plusDiff = weapon1.plus - weapon2.plus
 
         haerteDiff = weapon1.haerte - weapon2.haerte
@@ -184,11 +188,11 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
         eigPlusDiff = list(set(weapon1.eigenschaften) - set(weapon2.eigenschaften))
         eigMinusDiff = list(set(weapon2.eigenschaften) - set(weapon1.eigenschaften))
 
-        if w6Diff != 0:
-            diff.append("TP " + ("+" if w6Diff >= 0 else "") + str(w6Diff) + "W6")
+        if würfelDiff != 0:
+            diff.append("TP " + ("+" if würfelDiff >= 0 else "") + str(würfelDiff) + "W" + str(weapon1.würfelSeiten))
         if plusDiff != 0:
             tmp = ("+" if plusDiff >= 0 else "") + str(plusDiff)
-            if w6Diff != 0:
+            if würfelDiff != 0:
                 diff[0] += tmp
             else:
                 diff.append("TP " + tmp)
@@ -233,7 +237,7 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
 
             diff = ', '.join(diff).replace(", Eigenschaften", "; Eigenschaften")
             self.labelBasis[index].setText(f"<span style='{Wolke.FontAwesomeCSS}'>\uf02d</span>&nbsp;&nbsp;{self.waffenTypen[index]}")
-            self.labelWerte[index].setText(f"""<span style='{Wolke.FontAwesomeCSS}'>\uf6cf</span>&nbsp;&nbsp;AT* {ww.AT}, VT* {vt}, TP* {ww.TPW6}W6{"+" if ww.TPPlus >= 0 else ""}{ww.TPPlus}""")
+            self.labelWerte[index].setText(f"""<span style='{Wolke.FontAwesomeCSS}'>\uf6cf</span>&nbsp;&nbsp;AT* {ww.AT}, VT* {vt}, TP* {ww.TPW6}W{str(waffe.würfelSeiten)}{"+" if ww.TPPlus >= 0 else ""}{ww.TPPlus}""")
             if len(diff) > 0:
                 self.labelMods[index].setText(f"<span style='{Wolke.FontAwesomeCSS}'>\uf6e3</span>&nbsp;&nbsp;{diff}")
             else:
@@ -294,9 +298,10 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
             W.fertigkeit = dbWaffe.fertigkeit
             W.talent = dbWaffe.talent
             W.kampfstile = dbWaffe.kampfstile.copy()
+            W.würfelSeiten = dbWaffe.würfelSeiten
         W.wm = self.spinWM[index].value()
         W.rw = self.spinRW[index].value()
-        W.W6 = self.spinW6[index].value()
+        W.würfel = self.spinWürfel[index].value()
         W.plus = self.spinPlus[index].value()
 
         self.editEig[index].setText(self.editEig[index].text().strip().rstrip(","))
@@ -360,7 +365,8 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
         self.waffenTypen[index] = W.name
 
         self.editEig[index].setText(", ".join(W.eigenschaften))
-        self.spinW6[index].setValue(W.W6)
+        self.spinWürfel[index].setValue(W.würfel)
+        self.labelSeiten[index].setText("W" + str(W.würfelSeiten) + "+")
         self.spinPlus[index].setValue(W.plus)
         waffenHaerteWSStern = Wolke.DB.einstellungen["Waffen: Härte WSStern"].toTextList()
         if W.name in waffenHaerteWSStern:
@@ -383,7 +389,7 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
         isEmpty = W == Objekte.Nahkampfwaffe()
         self.editWName[index].setEnabled(not isEmpty)
         self.editEig[index].setEnabled(not isEmpty)
-        self.spinW6[index].setEnabled(not isEmpty)
+        self.spinWürfel[index].setEnabled(not isEmpty)
         self.spinPlus[index].setEnabled(not isEmpty)
         self.spinRW[index].setEnabled(not isEmpty)
         self.spinWM[index].setEnabled(not isEmpty)

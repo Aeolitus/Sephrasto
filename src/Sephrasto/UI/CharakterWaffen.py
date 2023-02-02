@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterWaffen.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.0
+## Created by: Qt User Interface Compiler version 6.4.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -49,10 +49,10 @@ class Ui_formWaffen(object):
 
         self.horizontalLayout_3.addWidget(self.spinW1w6)
 
-        self.label_22 = QLabel(formWaffen)
-        self.label_22.setObjectName(u"label_22")
+        self.labelW1seiten = QLabel(formWaffen)
+        self.labelW1seiten.setObjectName(u"labelW1seiten")
 
-        self.horizontalLayout_3.addWidget(self.label_22)
+        self.horizontalLayout_3.addWidget(self.labelW1seiten)
 
         self.spinW1plus = QSpinBox(formWaffen)
         self.spinW1plus.setObjectName(u"spinW1plus")
@@ -306,10 +306,10 @@ class Ui_formWaffen(object):
 
         self.horizontalLayout_12.addWidget(self.spinW7w6)
 
-        self.label_40 = QLabel(formWaffen)
-        self.label_40.setObjectName(u"label_40")
+        self.labelW7seiten = QLabel(formWaffen)
+        self.labelW7seiten.setObjectName(u"labelW7seiten")
 
-        self.horizontalLayout_12.addWidget(self.label_40)
+        self.horizontalLayout_12.addWidget(self.labelW7seiten)
 
         self.spinW7plus = QSpinBox(formWaffen)
         self.spinW7plus.setObjectName(u"spinW7plus")
@@ -432,10 +432,10 @@ class Ui_formWaffen(object):
 
         self.horizontalLayout_9.addWidget(self.spinW5w6)
 
-        self.label_37 = QLabel(formWaffen)
-        self.label_37.setObjectName(u"label_37")
+        self.labelW5seiten = QLabel(formWaffen)
+        self.labelW5seiten.setObjectName(u"labelW5seiten")
 
-        self.horizontalLayout_9.addWidget(self.label_37)
+        self.horizontalLayout_9.addWidget(self.labelW5seiten)
 
         self.spinW5plus = QSpinBox(formWaffen)
         self.spinW5plus.setObjectName(u"spinW5plus")
@@ -620,10 +620,10 @@ class Ui_formWaffen(object):
 
         self.horizontalLayout_7.addWidget(self.spinW3w6)
 
-        self.label_35 = QLabel(formWaffen)
-        self.label_35.setObjectName(u"label_35")
+        self.labelW3seiten = QLabel(formWaffen)
+        self.labelW3seiten.setObjectName(u"labelW3seiten")
 
-        self.horizontalLayout_7.addWidget(self.label_35)
+        self.horizontalLayout_7.addWidget(self.labelW3seiten)
 
         self.spinW3plus = QSpinBox(formWaffen)
         self.spinW3plus.setObjectName(u"spinW3plus")
@@ -654,10 +654,10 @@ class Ui_formWaffen(object):
 
         self.horizontalLayout_10.addWidget(self.spinW6w6)
 
-        self.label_38 = QLabel(formWaffen)
-        self.label_38.setObjectName(u"label_38")
+        self.labelW6seiten = QLabel(formWaffen)
+        self.labelW6seiten.setObjectName(u"labelW6seiten")
 
-        self.horizontalLayout_10.addWidget(self.label_38)
+        self.horizontalLayout_10.addWidget(self.labelW6seiten)
 
         self.spinW6plus = QSpinBox(formWaffen)
         self.spinW6plus.setObjectName(u"spinW6plus")
@@ -970,10 +970,10 @@ class Ui_formWaffen(object):
 
         self.horizontalLayout_13.addWidget(self.spinW8w6)
 
-        self.label_41 = QLabel(formWaffen)
-        self.label_41.setObjectName(u"label_41")
+        self.labelW8seiten = QLabel(formWaffen)
+        self.labelW8seiten.setObjectName(u"labelW8seiten")
 
-        self.horizontalLayout_13.addWidget(self.label_41)
+        self.horizontalLayout_13.addWidget(self.labelW8seiten)
 
         self.spinW8plus = QSpinBox(formWaffen)
         self.spinW8plus.setObjectName(u"spinW8plus")
@@ -1044,10 +1044,10 @@ class Ui_formWaffen(object):
 
         self.horizontalLayout_8.addWidget(self.spinW4w6)
 
-        self.label_36 = QLabel(formWaffen)
-        self.label_36.setObjectName(u"label_36")
+        self.labelW4seiten = QLabel(formWaffen)
+        self.labelW4seiten.setObjectName(u"labelW4seiten")
 
-        self.horizontalLayout_8.addWidget(self.label_36)
+        self.horizontalLayout_8.addWidget(self.labelW4seiten)
 
         self.spinW4plus = QSpinBox(formWaffen)
         self.spinW4plus.setObjectName(u"spinW4plus")
@@ -1446,10 +1446,10 @@ class Ui_formWaffen(object):
 
         self.horizontalLayout_11.addWidget(self.spinW2w6)
 
-        self.label_39 = QLabel(formWaffen)
-        self.label_39.setObjectName(u"label_39")
+        self.labelW2seiten = QLabel(formWaffen)
+        self.labelW2seiten.setObjectName(u"labelW2seiten")
 
-        self.horizontalLayout_11.addWidget(self.label_39)
+        self.horizontalLayout_11.addWidget(self.labelW2seiten)
 
         self.spinW2plus = QSpinBox(formWaffen)
         self.spinW2plus.setObjectName(u"spinW2plus")
@@ -1594,7 +1594,7 @@ class Ui_formWaffen(object):
 
     def retranslateUi(self, formWaffen):
         formWaffen.setWindowTitle(QCoreApplication.translate("formWaffen", u"Form", None))
-        self.label_22.setText(QCoreApplication.translate("formWaffen", u"W6 +", None))
+        self.labelW1seiten.setText(QCoreApplication.translate("formWaffen", u"W6 +", None))
         self.labelW2TopFrame.setText("")
         self.labelW8Basis.setText(QCoreApplication.translate("formWaffen", u"Basiswaffe Hand", None))
         self.labelW8Werte.setText(QCoreApplication.translate("formWaffen", u"Werte AT* 10 VT* 10 TP 2W6+2", None))
@@ -1636,7 +1636,7 @@ class Ui_formWaffen(object):
         self.buttonW5Down.setText(QCoreApplication.translate("formWaffen", u"Down", None))
         self.buttonW5Down.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
         self.labelW1RightFrame.setText("")
-        self.label_40.setText(QCoreApplication.translate("formWaffen", u"W6 +", None))
+        self.labelW7seiten.setText(QCoreApplication.translate("formWaffen", u"W6 +", None))
 #if QT_CONFIG(tooltip)
         self.buttonW2Up.setToolTip(QCoreApplication.translate("formWaffen", u"Waffe eine Zeile nach oben schieben", None))
 #endif // QT_CONFIG(tooltip)
@@ -1651,7 +1651,7 @@ class Ui_formWaffen(object):
         self.labelW3LeftFrame.setText("")
         self.addW4.setText(QCoreApplication.translate("formWaffen", u"+", None))
         self.addW4.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
-        self.label_37.setText(QCoreApplication.translate("formWaffen", u"W6 +", None))
+        self.labelW5seiten.setText(QCoreApplication.translate("formWaffen", u"W6 +", None))
         self.editW8name.setText("")
         self.labelHaerte.setText(QCoreApplication.translate("formWaffen", u"H\u00e4rte", None))
         self.labelHaerte.setProperty("class", QCoreApplication.translate("formWaffen", u"h4", None))
@@ -1677,8 +1677,8 @@ class Ui_formWaffen(object):
 #endif // QT_CONFIG(tooltip)
         self.labelWM.setText(QCoreApplication.translate("formWaffen", u"WM", None))
         self.labelWM.setProperty("class", QCoreApplication.translate("formWaffen", u"h4", None))
-        self.label_35.setText(QCoreApplication.translate("formWaffen", u"W6 +", None))
-        self.label_38.setText(QCoreApplication.translate("formWaffen", u"W6 +", None))
+        self.labelW3seiten.setText(QCoreApplication.translate("formWaffen", u"W6 +", None))
+        self.labelW6seiten.setText(QCoreApplication.translate("formWaffen", u"W6 +", None))
         self.addW5.setText(QCoreApplication.translate("formWaffen", u"+", None))
         self.addW5.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
         self.labelW1Basis.setText(QCoreApplication.translate("formWaffen", u"Basiswaffe Hand", None))
@@ -1712,8 +1712,8 @@ class Ui_formWaffen(object):
         self.labelW6Basis.setText(QCoreApplication.translate("formWaffen", u"Basiswaffe Hand", None))
         self.labelW6Werte.setText(QCoreApplication.translate("formWaffen", u"Werte AT* 10 VT* 10 TP 2W6+2", None))
         self.labelW6Mods.setText(QCoreApplication.translate("formWaffen", u"Verbesserungen AT +1", None))
-        self.label_41.setText(QCoreApplication.translate("formWaffen", u"W6 +", None))
-        self.label_36.setText(QCoreApplication.translate("formWaffen", u"W6 +", None))
+        self.labelW8seiten.setText(QCoreApplication.translate("formWaffen", u"W6 +", None))
+        self.labelW4seiten.setText(QCoreApplication.translate("formWaffen", u"W6 +", None))
         self.labelW4RightFrame.setText("")
         self.labelW6LeftFrame.setText("")
 #if QT_CONFIG(tooltip)
@@ -1754,7 +1754,7 @@ class Ui_formWaffen(object):
         self.labelW3Werte.setText(QCoreApplication.translate("formWaffen", u"Werte AT* 10 VT* 10 TP 2W6+2", None))
         self.labelW3Mods.setText(QCoreApplication.translate("formWaffen", u"Verbesserungen AT +1", None))
         self.labelW1LeftFrame.setText("")
-        self.label_39.setText(QCoreApplication.translate("formWaffen", u"W6 +", None))
+        self.labelW2seiten.setText(QCoreApplication.translate("formWaffen", u"W6 +", None))
         self.labelW7LeftFrame.setText("")
 #if QT_CONFIG(tooltip)
         self.buttonW8Up.setToolTip(QCoreApplication.translate("formWaffen", u"Waffe eine Zeile nach oben schieben", None))

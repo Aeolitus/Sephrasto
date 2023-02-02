@@ -183,34 +183,34 @@ class InfoWrapper(QtCore.QObject):
 
         ''' Load all values and derived values '''
         totalVal = 0
-        if Wolke.Char.EPtotal > 0:
-            totalVal = Wolke.Char.EPtotal
+        if Wolke.Char.epGesamt > 0:
+            totalVal = Wolke.Char.epGesamt
         else:
-            totalVal = Wolke.Char.EPspent
+            totalVal = Wolke.Char.epAusgegeben
         if totalVal == 0:
             totalVal = 1
 
-        self.ui.spinAttributeSpent.setValue(Wolke.Char.EP_Attribute)
-        self.ui.spinAttributePercent.setValue(round(Wolke.Char.EP_Attribute / totalVal * 100))
+        self.ui.spinAttributeSpent.setValue(Wolke.Char.epAttribute)
+        self.ui.spinAttributePercent.setValue(round(Wolke.Char.epAttribute / totalVal * 100))
 
-        self.ui.spinVorteileSpent.setValue(Wolke.Char.EP_Vorteile)
-        self.ui.spinVorteilePercent.setValue(round(Wolke.Char.EP_Vorteile / totalVal * 100))
+        self.ui.spinVorteileSpent.setValue(Wolke.Char.epVorteile)
+        self.ui.spinVorteilePercent.setValue(round(Wolke.Char.epVorteile / totalVal * 100))
 
-        total = Wolke.Char.EP_Fertigkeiten + Wolke.Char.EP_Fertigkeiten_Talente + Wolke.Char.EP_FreieFertigkeiten
+        total = Wolke.Char.epFertigkeiten + Wolke.Char.epFertigkeitenTalente + Wolke.Char.epFreieFertigkeiten
 
         self.ui.spinProfanSpent.setValue(total)
         self.ui.spinProfanPercent.setValue(round(total / totalVal * 100))
 
-        self.ui.spinFertigkeitenSpent.setValue(Wolke.Char.EP_Fertigkeiten)
-        self.ui.spinFertigkeitenPercent.setValue(round(Wolke.Char.EP_Fertigkeiten / max(total, 1) * 100))
+        self.ui.spinFertigkeitenSpent.setValue(Wolke.Char.epFertigkeiten)
+        self.ui.spinFertigkeitenPercent.setValue(round(Wolke.Char.epFertigkeiten / max(total, 1) * 100))
 
-        self.ui.spinTalenteSpent.setValue(Wolke.Char.EP_Fertigkeiten_Talente)
-        self.ui.spinTalentePercent.setValue(round(Wolke.Char.EP_Fertigkeiten_Talente / max(total, 1) * 100))
+        self.ui.spinTalenteSpent.setValue(Wolke.Char.epFertigkeitenTalente)
+        self.ui.spinTalentePercent.setValue(round(Wolke.Char.epFertigkeitenTalente / max(total, 1) * 100))
 
-        self.ui.spinFreieSpent.setValue(Wolke.Char.EP_FreieFertigkeiten)
-        self.ui.spinFreiePercent.setValue(round(Wolke.Char.EP_FreieFertigkeiten / max(total, 1) * 100))
+        self.ui.spinFreieSpent.setValue(Wolke.Char.epFreieFertigkeiten)
+        self.ui.spinFreiePercent.setValue(round(Wolke.Char.epFreieFertigkeiten / max(total, 1) * 100))
 
-        if Wolke.Char.EP_Uebernatuerlich + Wolke.Char.EP_Uebernatuerlich_Talente > 0:
+        if Wolke.Char.epÜbernatürlich + Wolke.Char.epÜbernatürlichTalente > 0:
             self.ui.spinUebernatuerlichSpent.show()
             self.ui.spinUebernatuerlichPercent.show()
             self.ui.spinUeberFertigkeitenSpent.show()
@@ -221,16 +221,16 @@ class InfoWrapper(QtCore.QObject):
             self.ui.labelUeber2.show()
             self.ui.labelUeber3.show()
 
-            total = Wolke.Char.EP_Uebernatuerlich + Wolke.Char.EP_Uebernatuerlich_Talente
+            total = Wolke.Char.epÜbernatürlich + Wolke.Char.epÜbernatürlichTalente
 
             self.ui.spinUebernatuerlichSpent.setValue(total)
             self.ui.spinUebernatuerlichPercent.setValue(round(total / totalVal * 100))
 
-            self.ui.spinUeberFertigkeitenSpent.setValue(Wolke.Char.EP_Uebernatuerlich)
-            self.ui.spinUeberFertigkeitenPercent.setValue(round(Wolke.Char.EP_Uebernatuerlich / max(total, 1) * 100))
+            self.ui.spinUeberFertigkeitenSpent.setValue(Wolke.Char.epÜbernatürlich)
+            self.ui.spinUeberFertigkeitenPercent.setValue(round(Wolke.Char.epÜbernatürlich / max(total, 1) * 100))
 
-            self.ui.spinUeberTalenteSpent.setValue(Wolke.Char.EP_Uebernatuerlich_Talente)
-            self.ui.spinUeberTalentePercent.setValue(round(Wolke.Char.EP_Uebernatuerlich_Talente / max(total, 1) * 100))
+            self.ui.spinUeberTalenteSpent.setValue(Wolke.Char.epÜbernatürlichTalente)
+            self.ui.spinUeberTalentePercent.setValue(round(Wolke.Char.epÜbernatürlichTalente / max(total, 1) * 100))
         else:
             self.ui.spinUebernatuerlichSpent.hide()
             self.ui.spinUebernatuerlichPercent.hide()

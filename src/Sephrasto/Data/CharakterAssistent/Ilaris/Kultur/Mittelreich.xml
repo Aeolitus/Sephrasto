@@ -1,20 +1,20 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>2</DatenbankVersion>
+    <DatenbankVersion>3</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
     <NutzerDatenbankName></NutzerDatenbankName>
     <Plugins></Plugins>
   </Version>
-  <AllgemeineInfos>
-    <name></name>
-    <rasse></rasse>
-    <status>2</status>
-    <kurzbeschreibung></kurzbeschreibung>
-    <schips>4</schips>
-    <finanzen>2</finanzen>
-    <heimat>Mittelreich</heimat>
-    <eigenheiten/>
-  </AllgemeineInfos>
+  <Beschreibung>
+    <Name></Name>
+    <Spezies></Spezies>
+    <Status>2</Status>
+    <Kurzbeschreibung></Kurzbeschreibung>
+    <SchiP>4</SchiP>
+    <Finanzen>2</Finanzen>
+    <Heimat>Mittelreich</Heimat>
+    <Eigenheiten/>
+  </Beschreibung>
   <Attribute>
     <KO>0</KO>
     <MU>0</MU>
@@ -69,7 +69,7 @@
     </Fertigkeit>
     <Fertigkeit name="Gebräuche" wert="0">
       <Talente>
-        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
+        <Talent name="Gebräuche: Mittelreich"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Derekunde" wert="0">
@@ -96,39 +96,68 @@
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="Sprache: Garethi" wert="3"/>
+    <FreieFertigkeit name="Sprache: Garethi" wert="3"/>
   </Fertigkeiten>
   <Objekte>
-    <Zonensystem>False</Zonensystem>
+    <Zonensystem>0</Zonensystem>
     <Rüstungen>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung/>
   </Objekte>
-  <Übernatürliche-Fertigkeiten/>
+  <ÜbernatürlicheFertigkeiten/>
   <Erfahrung>
-    <EPtotal>0</EPtotal>
-    <EPspent>0</EPspent>
+    <Gesamt>0</Gesamt>
+    <Ausgegeben>0</Ausgegeben>
   </Erfahrung>
-  <Notiz></Notiz>
+  <Notiz/>
   <Einstellungen>
+    <VoraussetzungenPrüfen>1</VoraussetzungenPrüfen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
-    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
-    <RegelnAnhaengen>1</RegelnAnhaengen>
-    <RegelnGroesse>0</RegelnGroesse>
+    <ÜbernatürlichesPDFSpalteAnzeigen>0</ÜbernatürlichesPDFSpalteAnzeigen>
+    <RegelnAnhängen>1</RegelnAnhängen>
+    <RegelnGrösse>0</RegelnGrösse>
+    <RegelnKategorien>V0, V1, M9, V2, V3, M5, W, M8, M0, M1, V4, V5, M2, M4, Z, V6, V7, M3, M7, L, V8, M6, A, M10</RegelnKategorien>
+    <FormularEditierbarkeit>0</FormularEditierbarkeit>
     <Hausregeln></Hausregeln>
   </Einstellungen>
+  <BeschreibungDetails>
+    <Kultur/>
+    <Profession></Profession>
+    <Geschlecht></Geschlecht>
+    <Geburtsdatum></Geburtsdatum>
+    <Grösse></Grösse>
+    <Gewicht></Gewicht>
+    <Haarfarbe></Haarfarbe>
+    <Augenfarbe></Augenfarbe>
+    <Titel></Titel>
+    <Aussehen1></Aussehen1>
+    <Aussehen2></Aussehen2>
+    <Aussehen3></Aussehen3>
+    <Aussehen4></Aussehen4>
+    <Aussehen5></Aussehen5>
+    <Aussehen6></Aussehen6>
+    <Hintergrund0></Hintergrund0>
+    <Hintergrund1></Hintergrund1>
+    <Hintergrund2></Hintergrund2>
+    <Hintergrund3></Hintergrund3>
+    <Hintergrund4></Hintergrund4>
+    <Hintergrund5></Hintergrund5>
+    <Hintergrund6></Hintergrund6>
+    <Hintergrund7></Hintergrund7>
+    <Hintergrund8></Hintergrund8>
+  </BeschreibungDetails>
 </Charakter>

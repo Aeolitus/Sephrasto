@@ -1,24 +1,24 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>2</DatenbankVersion>
+    <DatenbankVersion>3</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
     <NutzerDatenbankName></NutzerDatenbankName>
     <Plugins></Plugins>
   </Version>
-  <AllgemeineInfos>
-    <name>Kildare Eulensinn</name>
-    <rasse></rasse>
-    <status>2</status>
-    <kurzbeschreibung>Elfenkämpferin auf der Suche nach Ihrem Sinn</kurzbeschreibung>
-    <schips>4</schips>
-    <finanzen>2</finanzen>
-    <heimat>Mittelreich</heimat>
-    <eigenheiten>
+  <Beschreibung>
+    <Name>Kildare Eulensinn</Name>
+    <Spezies></Spezies>
+    <Status>2</Status>
+    <Kurzbeschreibung>Elfenkämpferin auf der Suche nach Ihrem Sinn</Kurzbeschreibung>
+    <SchiP>4</SchiP>
+    <Finanzen>2</Finanzen>
+    <Heimat>Mittelreich</Heimat>
+    <Eigenheiten>
       <Eigenheit>Wie kannst du sowas Essen?</Eigenheit>
       <Eigenheit>Wo sind deine Götter?</Eigenheit>
       <Eigenheit>Sie sind wie Kinder</Eigenheit>
-    </eigenheiten>
-  </AllgemeineInfos>
+    </Eigenheiten>
+  </Beschreibung>
   <Attribute>
     <KO>4</KO>
     <MU>5</MU>
@@ -34,20 +34,20 @@
     <KaP wert="0"/>
   </Energien>
   <Vorteile minderpakt="">
-    <Vorteil variable="-1">Zauberer I</Vorteil>
-    <Vorteil variable="-1">Zauberer II</Vorteil>
-    <Vorteil variable="-1">Zauberer III</Vorteil>
-    <Vorteil variable="-1">Flink I</Vorteil>
-    <Vorteil variable="-1">Flink II</Vorteil>
-    <Vorteil variable="-1">Kampfreflexe</Vorteil>
-    <Vorteil variable="-1">Sturmangriff</Vorteil>
-    <Vorteil variable="-1">Ausfall</Vorteil>
-    <Vorteil variable="-1">Ruhige Hand</Vorteil>
-    <Vorteil variable="-1">Standfest</Vorteil>
-    <Vorteil variable="-1">Schneller Kampf I</Vorteil>
-    <Vorteil variable="-1">Schneller Kampf II</Vorteil>
-    <Vorteil variable="-1">Tradition der Elfen I</Vorteil>
-    <Vorteil variable="-1">Todesstoß</Vorteil>
+    <Vorteil>Zauberer I</Vorteil>
+    <Vorteil>Zauberer II</Vorteil>
+    <Vorteil>Zauberer III</Vorteil>
+    <Vorteil>Flink I</Vorteil>
+    <Vorteil>Flink II</Vorteil>
+    <Vorteil>Kampfreflexe</Vorteil>
+    <Vorteil>Sturmangriff</Vorteil>
+    <Vorteil>Ausfall</Vorteil>
+    <Vorteil>Ruhige Hand</Vorteil>
+    <Vorteil>Standfest</Vorteil>
+    <Vorteil>Schneller Kampf I</Vorteil>
+    <Vorteil>Schneller Kampf II</Vorteil>
+    <Vorteil>Tradition der Elfen I</Vorteil>
+    <Vorteil>Todesstoß</Vorteil>
   </Vorteile>
   <Fertigkeiten>
     <Fertigkeit name="Handgemenge" wert="2">
@@ -61,7 +61,7 @@
     </Fertigkeit>
     <Fertigkeit name="Stangenwaffen" wert="8">
       <Talente>
-        <Talent name="Infanteriewaffen und Speere" variable="-1"/>
+        <Talent name="Infanteriewaffen und Speere"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Schusswaffen" wert="0">
@@ -69,7 +69,7 @@
     </Fertigkeit>
     <Fertigkeit name="Wurfwaffen" wert="5">
       <Talente>
-        <Talent name="Wurfspeere" variable="-1"/>
+        <Talent name="Wurfspeere"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Athletik" wert="4">
@@ -77,7 +77,7 @@
     </Fertigkeit>
     <Fertigkeit name="Heimlichkeit" wert="4">
       <Talente>
-        <Talent name="Pirschen" variable="-1"/>
+        <Talent name="Pirschen"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Selbstbeherrschung" wert="4">
@@ -94,7 +94,7 @@
     </Fertigkeit>
     <Fertigkeit name="Gebräuche" wert="1">
       <Talente>
-        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
+        <Talent name="Gebräuche: Mittelreich"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Derekunde" wert="2">
@@ -121,26 +121,26 @@
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="" wert="3"/>
-    <Freie-Fertigkeit name="Leierspiel" wert="1"/>
-    <Freie-Fertigkeit name="Sprache: Garethi" wert="1"/>
+    <FreieFertigkeit name="" wert="3"/>
+    <FreieFertigkeit name="Leierspiel" wert="1"/>
+    <FreieFertigkeit name="Sprache: Garethi" wert="1"/>
   </Fertigkeiten>
   <Objekte>
-    <Zonensystem>False</Zonensystem>
+    <Zonensystem>0</Zonensystem>
     <Rüstungen>
       <Rüstung name="Elfische Lederrüstung mit Arm &amp; Beinschienen" be="2" rs="2/2/2/2/2/2"/>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="Speer" id="Speer (Infanteriewaffen)" W6="2" plus="1" eigenschaften="" haerte="6" rw="2" kampfstil="Schneller Kampf" wm="0" typ="Nah"/>
-      <Waffe name="Speer (Wurfwaffe)" id="Speer (Wurfspeere)" W6="2" plus="0" eigenschaften="" haerte="5" rw="8" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
-      <Waffe name="Speerschleuder" id="Speerschleuder" W6="2" plus="1" eigenschaften="kein Reittier" haerte="5" rw="16" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="1"/>
-      <Waffe name="Wurfspeer" id="Wurfspeer" W6="2" plus="3" eigenschaften="" haerte="5" rw="8" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
-      <Waffe name="Dolch" id="Dolch (Handgemengewaffen)" W6="1" plus="1" eigenschaften="" haerte="9" rw="0" kampfstil="Schneller Kampf" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="Speer" id="Speer (Infanteriewaffen)" würfel="2" würfelSeiten="6" plus="1" eigenschaften="" härte="6" rw="2" kampfstil="Schneller Kampf" wm="0" typ="Nah"/>
+      <Waffe name="Speer (Wurfwaffe)" id="Speer (Wurfspeere)" würfel="2" würfelSeiten="6" plus="0" eigenschaften="" härte="5" rw="8" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
+      <Waffe name="Speerschleuder" id="Speerschleuder" würfel="2" würfelSeiten="6" plus="1" eigenschaften="kein Reittier" härte="5" rw="16" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="1"/>
+      <Waffe name="Wurfspeer" id="Wurfspeer" würfel="2" würfelSeiten="6" plus="3" eigenschaften="" härte="5" rw="8" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
+      <Waffe name="Dolch" id="Dolch (Handgemengewaffen)" würfel="1" würfelSeiten="6" plus="1" eigenschaften="" härte="9" rw="0" kampfstil="Schneller Kampf" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>Bauschkleidung, Elfische Wildlederstiefel</Ausrüstungsstück>
@@ -155,113 +155,116 @@
       <Ausrüstungsstück>Hand voll glänzender Flusskiesel</Ausrüstungsstück>
     </Ausrüstung>
   </Objekte>
-  <Übernatürliche-Fertigkeiten>
-    <Übernatürliche-Fertigkeit name="Antimagie" wert="0" addToPDF="True">
+  <ÜbernatürlicheFertigkeiten>
+    <ÜbernatürlicheFertigkeit name="Antimagie" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Dämonisch" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Dämonisch" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Eigenschaften" wert="4" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Eigenschaften" wert="4" exportieren="1">
       <Talente>
-        <Talent name="Armatrutz" variable="-1"/>
-        <Talent name="Axxeleratus Blitzgeschwind" variable="-1"/>
-        <Talent name="Eiseskälte Kämpferherz" variable="-1"/>
-        <Talent name="Falkenauge Meisterschuss" variable="-1"/>
-        <Talent name="Wipfellauf" variable="-1"/>
+        <Talent name="Armatrutz"/>
+        <Talent name="Axxeleratus Blitzgeschwind"/>
+        <Talent name="Eiseskälte Kämpferherz"/>
+        <Talent name="Falkenauge Meisterschuss"/>
+        <Talent name="Wipfellauf"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Einfluss" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Einfluss" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Eis" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Eis" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Erz" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Erz" wert="0" exportieren="1">
       <Talente>
-        <Talent name="Armatrutz" variable="-1"/>
+        <Talent name="Armatrutz"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Feuer" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Feuer" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Hellsicht" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Hellsicht" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Humus" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Humus" wert="0" exportieren="1">
       <Talente>
-        <Talent name="Wipfellauf" variable="-1"/>
-        <Talent name="Balsam Salabunde" variable="-1"/>
+        <Talent name="Wipfellauf"/>
+        <Talent name="Balsam Salabunde"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Illusion" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Illusion" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Kraft" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Kraft" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Luft" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Luft" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Temporal" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Temporal" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Umwelt" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Umwelt" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Verständigung" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Verständigung" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Verwandlung" wert="2" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Verwandlung" wert="2" exportieren="1">
       <Talente>
-        <Talent name="Balsam Salabunde" variable="-1"/>
-        <Talent name="Adlerschwinge Wolfsgestalt" variable="40,"/>
+        <Talent name="Balsam Salabunde"/>
+        <Talent name="Adlerschwinge Wolfsgestalt" variableKosten="40" kommentar=""/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Wasser" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Wasser" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Elfenlieder" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Elfenlieder" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-  </Übernatürliche-Fertigkeiten>
+    </ÜbernatürlicheFertigkeit>
+  </ÜbernatürlicheFertigkeiten>
   <Erfahrung>
-    <EPtotal>3000</EPtotal>
-    <EPspent>2920</EPspent>
+    <Gesamt>3000</Gesamt>
+    <Ausgegeben>2920</Ausgegeben>
   </Erfahrung>
   <Notiz/>
   <Einstellungen>
+    <VoraussetzungenPrüfen>1</VoraussetzungenPrüfen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
-    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
-    <RegelnAnhaengen>1</RegelnAnhaengen>
-    <RegelnGroesse>0</RegelnGroesse>
+    <ÜbernatürlichesPDFSpalteAnzeigen>0</ÜbernatürlichesPDFSpalteAnzeigen>
+    <RegelnAnhängen>1</RegelnAnhängen>
+    <RegelnGrösse>0</RegelnGrösse>
+    <RegelnKategorien>V0, V1, M9, V2, V3, M5, W, M8, M0, M1, V4, V5, M2, M4, Z, V6, V7, M3, M7, L, V8, M6, A, M10</RegelnKategorien>
+    <FormularEditierbarkeit>0</FormularEditierbarkeit>
     <Hausregeln></Hausregeln>
   </Einstellungen>
-  <AllgemeineInfosExt>
-    <kultur/>
-    <profession></profession>
-    <geschlecht></geschlecht>
-    <geburtsdatum></geburtsdatum>
-    <groesse></groesse>
-    <gewicht></gewicht>
-    <haarfarbe></haarfarbe>
-    <augenfarbe></augenfarbe>
-    <titel></titel>
-    <aussehen1></aussehen1>
-    <aussehen2></aussehen2>
-    <aussehen3></aussehen3>
-    <aussehen4></aussehen4>
-    <aussehen5></aussehen5>
-    <aussehen6></aussehen6>
-    <hintergrund0></hintergrund0>
-    <hintergrund1></hintergrund1>
-    <hintergrund2></hintergrund2>
-    <hintergrund3></hintergrund3>
-    <hintergrund4></hintergrund4>
-    <hintergrund5></hintergrund5>
-    <hintergrund6></hintergrund6>
-    <hintergrund7></hintergrund7>
-    <hintergrund8></hintergrund8>
-  </AllgemeineInfosExt>
+  <BeschreibungDetails>
+    <Kultur/>
+    <Profession></Profession>
+    <Geschlecht></Geschlecht>
+    <Geburtsdatum></Geburtsdatum>
+    <Grösse></Grösse>
+    <Gewicht></Gewicht>
+    <Haarfarbe></Haarfarbe>
+    <Augenfarbe></Augenfarbe>
+    <Titel></Titel>
+    <Aussehen1></Aussehen1>
+    <Aussehen2></Aussehen2>
+    <Aussehen3></Aussehen3>
+    <Aussehen4></Aussehen4>
+    <Aussehen5></Aussehen5>
+    <Aussehen6></Aussehen6>
+    <Hintergrund0></Hintergrund0>
+    <Hintergrund1></Hintergrund1>
+    <Hintergrund2></Hintergrund2>
+    <Hintergrund3></Hintergrund3>
+    <Hintergrund4></Hintergrund4>
+    <Hintergrund5></Hintergrund5>
+    <Hintergrund6></Hintergrund6>
+    <Hintergrund7></Hintergrund7>
+    <Hintergrund8></Hintergrund8>
+  </BeschreibungDetails>
 </Charakter>

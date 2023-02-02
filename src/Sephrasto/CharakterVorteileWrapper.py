@@ -7,7 +7,6 @@ Created on Sat Mar 18 12:21:03 2017
 from Wolke import Wolke
 import UI.CharakterVorteile
 import CharakterMinderpaktWrapper
-from Charakter import VariableKosten
 from PySide6 import QtWidgets, QtCore, QtGui
 import logging
 from EventBus import EventBus
@@ -92,8 +91,8 @@ class CharakterVorteileWrapper(QtCore.QObject):
                         spin.setValue(20)
                         spin.setReadOnly(True)
                     else:
-                        if el in Wolke.Char.vorteileVariable:
-                            spin.setValue(Wolke.Char.vorteileVariable[el].kosten)
+                        if el in Wolke.Char.vorteileVariableKosten:
+                            spin.setValue(Wolke.Char.vorteileVariableKosten[el])
                         else:
                             spin.setValue(Wolke.DB.vorteile[el].kosten)
                     spin.setSingleStep(20)
@@ -144,11 +143,11 @@ class CharakterVorteileWrapper(QtCore.QObject):
                 txt = chi.text(0)
                 if txt in Wolke.Char.vorteile or txt == Wolke.Char.minderpakt:    
                     chi.setCheckState(0, QtCore.Qt.Checked)
-                    if txt in Wolke.Char.vorteileVariable:
-                        if Wolke.DB.vorteile[txt].variableKosten:
-                            self.itemWidgets[txt].setValue(Wolke.Char.vorteileVariable[txt].kosten)
-                        if Wolke.DB.vorteile[txt].kommentarErlauben:
-                            self.handleAddKommentarWidget(txt, chi)
+                    if txt in Wolke.Char.vorteileVariableKosten and Wolke.DB.vorteile[txt].variableKosten:
+                        self.itemWidgets[txt].setValue(Wolke.Char.vorteileVariableKosten[txt])
+
+                    if txt in Wolke.Char.vorteileKommentare and Wolke.DB.vorteile[txt].kommentarErlauben:
+                        self.handleAddKommentarWidget(txt, chi)
                 else:
                     chi.setCheckState(0, QtCore.Qt.Unchecked) 
                 if txt not in vortList[i]:
@@ -165,35 +164,31 @@ class CharakterVorteileWrapper(QtCore.QObject):
                     chi.setForeground(0, QtGui.QBrush())
                     chi.setHidden(False)
 
-                if (Wolke.DB.vorteile[txt].variableKosten or Wolke.DB.vorteile[txt].kommentarErlauben) and not txt in Wolke.Char.vorteileVariable:
+                if Wolke.DB.vorteile[txt].variableKosten and not txt in Wolke.Char.vorteileVariableKosten:
                     if txt in self.itemWidgets:
-                        self.setVariableKosten(txt, self.itemWidgets[txt].value(), "")
+                        Wolke.Char.vorteileVariableKosten[txt] = self.itemWidgets[txt].value()
                     else:
-                        self.setVariableKosten(txt, Wolke.DB.vorteile[txt].kosten, "")
+                        Wolke.Char.vorteileVariableKosten[txt] = Wolke.DB.vorteile[txt].kosten
+
+                if Wolke.DB.vorteile[txt].kommentarErlauben and not txt in Wolke.Char.vorteileKommentare:
+                    Wolke.Char.vorteileKommentare[txt] = ""
+
         self.updateInfo()
         self.ui.treeWidget.blockSignals(False)
         
     def update(self):
         pass
 
-    def setVariableKosten(self, name, kosten, kommentar):
-        if not name in Wolke.Char.vorteileVariable:
-            vk = VariableKosten()
-            Wolke.Char.vorteileVariable[name] = vk
-
-        if kosten != None:
-            Wolke.Char.vorteileVariable[name].kosten = kosten
-        if kommentar != None:
-            Wolke.Char.vorteileVariable[name].kommentar = kommentar
-
     def spinnerChanged(self,name):
-        self.setVariableKosten(name, self.itemWidgets[name].value(), None)
+        if Wolke.DB.vorteile[name].variableKosten:
+            Wolke.Char.vorteileVariableKosten[name] = self.itemWidgets[name].value()
         self.currentVort = name
         self.modified.emit()
         self.updateInfo()
 
     def kommentarChanged(self, name, text):
-        self.setVariableKosten(name, None, text)
+        if Wolke.DB.vorteile[name].kommentarErlauben:
+            Wolke.Char.vorteileKommentare[name] = text
         self.currentVort = name
         self.modified.emit()
         self.updateInfo()
@@ -202,8 +197,8 @@ class CharakterVorteileWrapper(QtCore.QObject):
         if not Wolke.DB.vorteile[name].kommentarErlauben or parent.childCount() > 0:
             return
         kommentar = ""
-        if name in Wolke.Char.vorteileVariable:
-            kommentar = Wolke.Char.vorteileVariable[name].kommentar
+        if name in Wolke.Char.vorteileKommentare:
+            kommentar = Wolke.Char.vorteileKommentare[name]
 
         w = QtWidgets.QWidget()
         layout = QtWidgets.QHBoxLayout()
@@ -322,8 +317,8 @@ class CharakterVorteileWrapper(QtCore.QObject):
             self.ui.labelVoraussetzungen.setText(voraussetzungen)
 
             self.ui.plainText.setPlainText(vorteil.text)
-            if vorteil.variableKosten and self.currentVort in Wolke.Char.vorteileVariable:
-                self.ui.labelKosten.setText(str(Wolke.Char.vorteileVariable[self.currentVort].kosten) + " EP")
+            if vorteil.variableKosten and self.currentVort in Wolke.Char.vorteileVariableKosten:
+                self.ui.labelKosten.setText(str(Wolke.Char.vorteileVariableKosten[self.currentVort]) + " EP")
             else:
                 self.ui.labelKosten.setText(str(vorteil.kosten) + " EP")
             

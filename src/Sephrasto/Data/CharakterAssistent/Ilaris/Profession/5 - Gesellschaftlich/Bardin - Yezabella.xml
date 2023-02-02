@@ -1,24 +1,24 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>2</DatenbankVersion>
+    <DatenbankVersion>3</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
     <NutzerDatenbankName></NutzerDatenbankName>
     <Plugins></Plugins>
   </Version>
-  <AllgemeineInfos>
-    <name>Yezabella Dulcinea Gharbistani</name>
-    <rasse></rasse>
-    <status>3</status>
-    <kurzbeschreibung>Almadanische Troubaroura mit einem Auge für Profit</kurzbeschreibung>
-    <schips>6</schips>
-    <finanzen>3</finanzen>
-    <heimat>Mittelreich</heimat>
-    <eigenheiten>
+  <Beschreibung>
+    <Name>Yezabella Dulcinea Gharbistani</Name>
+    <Spezies></Spezies>
+    <Status>3</Status>
+    <Kurzbeschreibung>Almadanische Troubaroura mit einem Auge für Profit</Kurzbeschreibung>
+    <SchiP>6</SchiP>
+    <Finanzen>3</Finanzen>
+    <Heimat>Mittelreich</Heimat>
+    <Eigenheiten>
       <Eigenheit>Ich hab da eine Geschichte gehört</Eigenheit>
       <Eigenheit>Was glänzt denn da?</Eigenheit>
       <Eigenheit>Fahrendes Volk</Eigenheit>
-    </eigenheiten>
-  </AllgemeineInfos>
+    </Eigenheiten>
+  </Beschreibung>
   <Attribute>
     <KO>3</KO>
     <MU>3</MU>
@@ -34,15 +34,15 @@
     <KaP wert="0"/>
   </Energien>
   <Vorteile minderpakt="">
-    <Vorteil variable="-1">Flink I</Vorteil>
-    <Vorteil variable="-1">Eindrucksvoll II</Vorteil>
-    <Vorteil variable="-1">Eindrucksvoll I</Vorteil>
-    <Vorteil variable="-1">Standfest</Vorteil>
-    <Vorteil variable="-1">Reflexschuss</Vorteil>
-    <Vorteil variable="-1">Zwergennase</Vorteil>
-    <Vorteil variable="-1">Glück I</Vorteil>
-    <Vorteil variable="-1">Vorausschauend I</Vorteil>
-    <Vorteil variable="-1">Vorausschauend II</Vorteil>
+    <Vorteil>Flink I</Vorteil>
+    <Vorteil>Eindrucksvoll II</Vorteil>
+    <Vorteil>Eindrucksvoll I</Vorteil>
+    <Vorteil>Standfest</Vorteil>
+    <Vorteil>Reflexschuss</Vorteil>
+    <Vorteil>Zwergennase</Vorteil>
+    <Vorteil>Glück I</Vorteil>
+    <Vorteil>Vorausschauend I</Vorteil>
+    <Vorteil>Vorausschauend II</Vorteil>
   </Vorteile>
   <Fertigkeiten>
     <Fertigkeit name="Handgemenge" wert="3">
@@ -68,7 +68,7 @@
     </Fertigkeit>
     <Fertigkeit name="Heimlichkeit" wert="6">
       <Talente>
-        <Talent name="Untertauchen" variable="-1"/>
+        <Talent name="Untertauchen"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Selbstbeherrschung" wert="0">
@@ -76,8 +76,8 @@
     </Fertigkeit>
     <Fertigkeit name="Wahrnehmung" wert="6">
       <Talente>
-        <Talent name="Menschenkenntnis" variable="-1"/>
-        <Talent name="Wachsamkeit" variable="-1"/>
+        <Talent name="Menschenkenntnis"/>
+        <Talent name="Wachsamkeit"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Autorität" wert="0">
@@ -85,14 +85,14 @@
     </Fertigkeit>
     <Fertigkeit name="Beeinflussung" wert="5">
       <Talente>
-        <Talent name="Betören" variable="-1"/>
-        <Talent name="Überreden" variable="-1"/>
+        <Talent name="Betören"/>
+        <Talent name="Überreden"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Gebräuche" wert="6">
       <Talente>
-        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
-        <Talent name="Gebräuche: Tulamidenlande" variable="-1"/>
+        <Talent name="Gebräuche: Mittelreich"/>
+        <Talent name="Gebräuche: Tulamidenlande"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Derekunde" wert="0">
@@ -100,7 +100,7 @@
     </Fertigkeit>
     <Fertigkeit name="Mythenkunde" wert="7">
       <Talente>
-        <Talent name="Geschichten und Legenden" variable="-1"/>
+        <Talent name="Geschichten und Legenden"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Magiekunde" wert="0">
@@ -111,7 +111,7 @@
     </Fertigkeit>
     <Fertigkeit name="Verschlagenheit" wert="6">
       <Talente>
-        <Talent name="Stehlen" variable="-1"/>
+        <Talent name="Stehlen"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Alchemie" wert="0">
@@ -123,30 +123,30 @@
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="" wert="3"/>
-    <Freie-Fertigkeit name="Musizieren" wert="2"/>
-    <Freie-Fertigkeit name="Singen" wert="2"/>
-    <Freie-Fertigkeit name="Sprache: Tulamidya" wert="1"/>
-    <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="1"/>
-    <Freie-Fertigkeit name="Sprache: Atak (+Schrift)" wert="1"/>
-    <Freie-Fertigkeit name="Dichtkunst" wert="2"/>
+    <FreieFertigkeit name="" wert="3"/>
+    <FreieFertigkeit name="Musizieren" wert="2"/>
+    <FreieFertigkeit name="Singen" wert="2"/>
+    <FreieFertigkeit name="Sprache: Tulamidya" wert="1"/>
+    <FreieFertigkeit name="Schrift: Kusliker Zeichen" wert="1"/>
+    <FreieFertigkeit name="Sprache: Atak (+Schrift)" wert="1"/>
+    <FreieFertigkeit name="Dichtkunst" wert="2"/>
   </Fertigkeiten>
   <Objekte>
-    <Zonensystem>False</Zonensystem>
+    <Zonensystem>0</Zonensystem>
     <Rüstungen>
       <Rüstung name="Bunte Reisekleidung Mit Hut und Feder" be="0" rs="0/0/0/0/0/0"/>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="Langdolch" id="Langdolch" W6="1" plus="2" eigenschaften="Parierwaffe" haerte="10" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
-      <Waffe name="Wurfmesser" id="Wurfmesser" W6="1" plus="0" eigenschaften="" haerte="8" rw="4" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="Langdolch" id="Langdolch" würfel="1" würfelSeiten="6" plus="2" eigenschaften="Parierwaffe" härte="10" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="Wurfmesser" id="Wurfmesser" würfel="1" würfelSeiten="6" plus="0" eigenschaften="" härte="8" rw="4" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>Rucksack, Ersatzkleidung</Ausrüstungsstück>
@@ -160,44 +160,47 @@
       <Ausrüstungsstück>Bürste, Kamm, Seife</Ausrüstungsstück>
     </Ausrüstung>
   </Objekte>
-  <Übernatürliche-Fertigkeiten/>
+  <ÜbernatürlicheFertigkeiten/>
   <Erfahrung>
-    <EPtotal>3000</EPtotal>
-    <EPspent>2987</EPspent>
+    <Gesamt>3000</Gesamt>
+    <Ausgegeben>2987</Ausgegeben>
   </Erfahrung>
   <Notiz/>
   <Einstellungen>
+    <VoraussetzungenPrüfen>1</VoraussetzungenPrüfen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
-    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
-    <RegelnAnhaengen>1</RegelnAnhaengen>
-    <RegelnGroesse>0</RegelnGroesse>
+    <ÜbernatürlichesPDFSpalteAnzeigen>0</ÜbernatürlichesPDFSpalteAnzeigen>
+    <RegelnAnhängen>1</RegelnAnhängen>
+    <RegelnGrösse>0</RegelnGrösse>
+    <RegelnKategorien>V0, V1, M9, V2, V3, M5, W, M8, M0, M1, V4, V5, M2, M4, Z, V6, V7, M3, M7, L, V8, M6, A, M10</RegelnKategorien>
+    <FormularEditierbarkeit>0</FormularEditierbarkeit>
     <Hausregeln></Hausregeln>
   </Einstellungen>
-  <AllgemeineInfosExt>
-    <kultur></kultur>
-    <profession></profession>
-    <geschlecht></geschlecht>
-    <geburtsdatum></geburtsdatum>
-    <groesse></groesse>
-    <gewicht></gewicht>
-    <haarfarbe></haarfarbe>
-    <augenfarbe></augenfarbe>
-    <titel></titel>
-    <aussehen1></aussehen1>
-    <aussehen2></aussehen2>
-    <aussehen3></aussehen3>
-    <aussehen4></aussehen4>
-    <aussehen5></aussehen5>
-    <aussehen6></aussehen6>
-    <hintergrund0></hintergrund0>
-    <hintergrund1></hintergrund1>
-    <hintergrund2></hintergrund2>
-    <hintergrund3></hintergrund3>
-    <hintergrund4></hintergrund4>
-    <hintergrund5></hintergrund5>
-    <hintergrund6></hintergrund6>
-    <hintergrund7></hintergrund7>
-    <hintergrund8></hintergrund8>
-  </AllgemeineInfosExt>
+  <BeschreibungDetails>
+    <Kultur/>
+    <Profession></Profession>
+    <Geschlecht></Geschlecht>
+    <Geburtsdatum></Geburtsdatum>
+    <Grösse></Grösse>
+    <Gewicht></Gewicht>
+    <Haarfarbe></Haarfarbe>
+    <Augenfarbe></Augenfarbe>
+    <Titel></Titel>
+    <Aussehen1></Aussehen1>
+    <Aussehen2></Aussehen2>
+    <Aussehen3></Aussehen3>
+    <Aussehen4></Aussehen4>
+    <Aussehen5></Aussehen5>
+    <Aussehen6></Aussehen6>
+    <Hintergrund0></Hintergrund0>
+    <Hintergrund1></Hintergrund1>
+    <Hintergrund2></Hintergrund2>
+    <Hintergrund3></Hintergrund3>
+    <Hintergrund4></Hintergrund4>
+    <Hintergrund5></Hintergrund5>
+    <Hintergrund6></Hintergrund6>
+    <Hintergrund7></Hintergrund7>
+    <Hintergrund8></Hintergrund8>
+  </BeschreibungDetails>
 </Charakter>

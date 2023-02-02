@@ -1,24 +1,24 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>2</DatenbankVersion>
+    <DatenbankVersion>3</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
     <NutzerDatenbankName></NutzerDatenbankName>
     <Plugins></Plugins>
   </Version>
-  <AllgemeineInfos>
-    <name>Lanzprecht Parinor von Eslamsgrund-Steynebruck</name>
-    <rasse></rasse>
-    <status>1</status>
-    <kurzbeschreibung>Rechtschaffener Ritter vom Stand</kurzbeschreibung>
-    <schips>2</schips>
-    <finanzen>1</finanzen>
-    <heimat>Mittelreich</heimat>
-    <eigenheiten>
+  <Beschreibung>
+    <Name>Lanzprecht Parinor von Eslamsgrund-Steynebruck</Name>
+    <Spezies></Spezies>
+    <Status>1</Status>
+    <Kurzbeschreibung>Rechtschaffener Ritter vom Stand</Kurzbeschreibung>
+    <SchiP>2</SchiP>
+    <Finanzen>1</Finanzen>
+    <Heimat>Mittelreich</Heimat>
+    <Eigenheiten>
       <Eigenheit>Für das Licht!</Eigenheit>
       <Eigenheit>Ehrlich währt am Längsten</Eigenheit>
       <Eigenheit>Jeder hat seinen Platz</Eigenheit>
-    </eigenheiten>
-  </AllgemeineInfos>
+    </Eigenheiten>
+  </Beschreibung>
   <Attribute>
     <KO>5</KO>
     <MU>5</MU>
@@ -34,24 +34,24 @@
     <KaP wert="0"/>
   </Energien>
   <Vorteile minderpakt="">
-    <Vorteil variable="40,Schlachtross">Besonderer Besitz</Vorteil>
-    <Vorteil variable="-1">Eindrucksvoll I</Vorteil>
-    <Vorteil variable="-1">Kommando: Haltet Stand!</Vorteil>
-    <Vorteil variable="-1">Niederwerfen</Vorteil>
-    <Vorteil variable="-1">Kampfreflexe</Vorteil>
-    <Vorteil variable="-1">Kraftvoller Kampf I</Vorteil>
-    <Vorteil variable="-1">Kraftvoller Kampf II</Vorteil>
-    <Vorteil variable="-1">Reiterkampf I</Vorteil>
-    <Vorteil variable="-1">Reiterkampf II</Vorteil>
-    <Vorteil variable="-1">Reiterkampf III</Vorteil>
-    <Vorteil variable="-1">Privilegien (Adel)</Vorteil>
-    <Vorteil variable="-1">Hammerschlag</Vorteil>
+    <Vorteil variableKosten="40" kommentar="Schlachtross">Besonderer Besitz</Vorteil>
+    <Vorteil>Eindrucksvoll I</Vorteil>
+    <Vorteil>Kommando: Haltet Stand!</Vorteil>
+    <Vorteil>Niederwerfen</Vorteil>
+    <Vorteil>Kampfreflexe</Vorteil>
+    <Vorteil>Kraftvoller Kampf I</Vorteil>
+    <Vorteil>Kraftvoller Kampf II</Vorteil>
+    <Vorteil>Reiterkampf I</Vorteil>
+    <Vorteil>Reiterkampf II</Vorteil>
+    <Vorteil>Reiterkampf III</Vorteil>
+    <Vorteil>Privilegien (Adel)</Vorteil>
+    <Vorteil>Hammerschlag</Vorteil>
   </Vorteile>
   <Fertigkeiten>
     <Fertigkeit name="Handgemenge" wert="5">
       <Talente>
-        <Talent name="Unbewaffnet" variable="-1"/>
-        <Talent name="Handgemengewaffen" variable="-1"/>
+        <Talent name="Unbewaffnet"/>
+        <Talent name="Handgemengewaffen"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Hiebwaffen" wert="0">
@@ -59,12 +59,12 @@
     </Fertigkeit>
     <Fertigkeit name="Klingenwaffen" wert="8">
       <Talente>
-        <Talent name="Zweihandklingenwaffen" variable="-1"/>
+        <Talent name="Zweihandklingenwaffen"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Stangenwaffen" wert="7">
       <Talente>
-        <Talent name="Lanzenreiten" variable="-1"/>
+        <Talent name="Lanzenreiten"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Schusswaffen" wert="3">
@@ -75,7 +75,7 @@
     </Fertigkeit>
     <Fertigkeit name="Athletik" wert="6">
       <Talente>
-        <Talent name="Reiten" variable="-1"/>
+        <Talent name="Reiten"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Heimlichkeit" wert="0">
@@ -83,7 +83,7 @@
     </Fertigkeit>
     <Fertigkeit name="Selbstbeherrschung" wert="5">
       <Talente>
-        <Talent name="Zähigkeit" variable="-1"/>
+        <Talent name="Zähigkeit"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Wahrnehmung" wert="5">
@@ -91,8 +91,8 @@
     </Fertigkeit>
     <Fertigkeit name="Autorität" wert="5">
       <Talente>
-        <Talent name="Anführen" variable="-1"/>
-        <Talent name="Einschüchtern" variable="-1"/>
+        <Talent name="Anführen"/>
+        <Talent name="Einschüchtern"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Beeinflussung" wert="2">
@@ -100,7 +100,7 @@
     </Fertigkeit>
     <Fertigkeit name="Gebräuche" wert="3">
       <Talente>
-        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
+        <Talent name="Gebräuche: Mittelreich"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Derekunde" wert="1">
@@ -127,27 +127,27 @@
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="" wert="3"/>
-    <Freie-Fertigkeit name="Minnesang" wert="1"/>
-    <Freie-Fertigkeit name="Heraldik" wert="1"/>
-    <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="1"/>
+    <FreieFertigkeit name="" wert="3"/>
+    <FreieFertigkeit name="Minnesang" wert="1"/>
+    <FreieFertigkeit name="Heraldik" wert="1"/>
+    <FreieFertigkeit name="Schrift: Kusliker Zeichen" wert="1"/>
   </Fertigkeiten>
   <Objekte>
-    <Zonensystem>False</Zonensystem>
+    <Zonensystem>0</Zonensystem>
     <Rüstungen>
       <Rüstung name="Leichte Platte, Schaller, Bart,Panzerhandschuhe, Beinschienen" be="3" rs="3/3/3/3/3/3"/>
       <Rüstung name="Gepolsteter Wappenrock, Gepolsterte Kappe" be="1" rs="1/1/1/1/1/1"/>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="Anderthalbhänder (KVK)" id="Anderthalbhänder" W6="2" plus="2" eigenschaften="Zweihändig" haerte="10" rw="2" kampfstil="Kraftvoller Kampf" wm="1" typ="Nah"/>
-      <Waffe name="Anderthalbhänder (RK)" id="Anderthalbhänder" W6="2" plus="2" eigenschaften="Zweihändig" haerte="10" rw="2" kampfstil="Reiterkampf" wm="1" typ="Nah"/>
-      <Waffe name="Tralloper Riese" id="Tralloper Riese" W6="2" plus="4" eigenschaften="Niederwerfen, Reittier" haerte="16" rw="1" kampfstil="Reiterkampf" wm="0" typ="Nah"/>
-      <Waffe name="Kriegslanze" id="Kriegslanze" W6="3" plus="1" eigenschaften="" haerte="5" rw="2" kampfstil="Reiterkampf" wm="-1" typ="Nah"/>
-      <Waffe name="Scheibendolch (KVK)" id="Scheibendolch" W6="1" plus="1" eigenschaften="Rüstungsbrechend" haerte="9" rw="0" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="Anderthalbhänder (KVK)" id="Anderthalbhänder" würfel="2" würfelSeiten="6" plus="2" eigenschaften="Zweihändig" härte="10" rw="2" kampfstil="Kraftvoller Kampf" wm="1" typ="Nah"/>
+      <Waffe name="Anderthalbhänder (RK)" id="Anderthalbhänder" würfel="2" würfelSeiten="6" plus="2" eigenschaften="Zweihändig" härte="10" rw="2" kampfstil="Reiterkampf" wm="1" typ="Nah"/>
+      <Waffe name="Tralloper Riese" id="Tralloper Riese" würfel="2" würfelSeiten="6" plus="4" eigenschaften="Niederwerfen, Reittier" härte="16" rw="1" kampfstil="Reiterkampf" wm="0" typ="Nah"/>
+      <Waffe name="Kriegslanze" id="Kriegslanze" würfel="3" würfelSeiten="6" plus="1" eigenschaften="" härte="5" rw="2" kampfstil="Reiterkampf" wm="-1" typ="Nah"/>
+      <Waffe name="Scheibendolch (KVK)" id="Scheibendolch" würfel="1" würfelSeiten="6" plus="1" eigenschaften="Rüstungsbrechend" härte="9" rw="0" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>Sattel mit Satteltaschen, Zaumzeug, Pferdedecke</Ausrüstungsstück>
@@ -159,44 +159,47 @@
       <Ausrüstungsstück>Schlafrolle</Ausrüstungsstück>
     </Ausrüstung>
   </Objekte>
-  <Übernatürliche-Fertigkeiten/>
+  <ÜbernatürlicheFertigkeiten/>
   <Erfahrung>
-    <EPtotal>3000</EPtotal>
-    <EPspent>2995</EPspent>
+    <Gesamt>3000</Gesamt>
+    <Ausgegeben>2995</Ausgegeben>
   </Erfahrung>
   <Notiz/>
   <Einstellungen>
+    <VoraussetzungenPrüfen>1</VoraussetzungenPrüfen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
-    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
-    <RegelnAnhaengen>1</RegelnAnhaengen>
-    <RegelnGroesse>0</RegelnGroesse>
+    <ÜbernatürlichesPDFSpalteAnzeigen>0</ÜbernatürlichesPDFSpalteAnzeigen>
+    <RegelnAnhängen>1</RegelnAnhängen>
+    <RegelnGrösse>0</RegelnGrösse>
+    <RegelnKategorien>V0, V1, M9, V2, V3, M5, W, M8, M0, M1, V4, V5, M2, M4, Z, V6, V7, M3, M7, L, V8, M6, A, M10</RegelnKategorien>
+    <FormularEditierbarkeit>0</FormularEditierbarkeit>
     <Hausregeln></Hausregeln>
   </Einstellungen>
-  <AllgemeineInfosExt>
-    <kultur></kultur>
-    <profession></profession>
-    <geschlecht></geschlecht>
-    <geburtsdatum></geburtsdatum>
-    <groesse></groesse>
-    <gewicht></gewicht>
-    <haarfarbe></haarfarbe>
-    <augenfarbe></augenfarbe>
-    <titel></titel>
-    <aussehen1></aussehen1>
-    <aussehen2></aussehen2>
-    <aussehen3></aussehen3>
-    <aussehen4></aussehen4>
-    <aussehen5></aussehen5>
-    <aussehen6></aussehen6>
-    <hintergrund0></hintergrund0>
-    <hintergrund1></hintergrund1>
-    <hintergrund2></hintergrund2>
-    <hintergrund3></hintergrund3>
-    <hintergrund4></hintergrund4>
-    <hintergrund5></hintergrund5>
-    <hintergrund6></hintergrund6>
-    <hintergrund7></hintergrund7>
-    <hintergrund8></hintergrund8>
-  </AllgemeineInfosExt>
+  <BeschreibungDetails>
+    <Kultur/>
+    <Profession></Profession>
+    <Geschlecht></Geschlecht>
+    <Geburtsdatum></Geburtsdatum>
+    <Grösse></Grösse>
+    <Gewicht></Gewicht>
+    <Haarfarbe></Haarfarbe>
+    <Augenfarbe></Augenfarbe>
+    <Titel></Titel>
+    <Aussehen1></Aussehen1>
+    <Aussehen2></Aussehen2>
+    <Aussehen3></Aussehen3>
+    <Aussehen4></Aussehen4>
+    <Aussehen5></Aussehen5>
+    <Aussehen6></Aussehen6>
+    <Hintergrund0></Hintergrund0>
+    <Hintergrund1></Hintergrund1>
+    <Hintergrund2></Hintergrund2>
+    <Hintergrund3></Hintergrund3>
+    <Hintergrund4></Hintergrund4>
+    <Hintergrund5></Hintergrund5>
+    <Hintergrund6></Hintergrund6>
+    <Hintergrund7></Hintergrund7>
+    <Hintergrund8></Hintergrund8>
+  </BeschreibungDetails>
 </Charakter>

@@ -1,25 +1,25 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>2</DatenbankVersion>
+    <DatenbankVersion>3</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
     <NutzerDatenbankName></NutzerDatenbankName>
     <Plugins></Plugins>
   </Version>
-  <AllgemeineInfos>
-    <name>Arthag Angbarscher</name>
-    <rasse></rasse>
-    <status>3</status>
-    <kurzbeschreibung>Melancholischer Wassergeode aus Angbar, der nach der Seele seines Zwillingsbruders fischt.</kurzbeschreibung>
-    <schips>6</schips>
-    <finanzen>4</finanzen>
-    <heimat>Mittelreich</heimat>
-    <eigenheiten>
+  <Beschreibung>
+    <Name>Arthag Angbarscher</Name>
+    <Spezies></Spezies>
+    <Status>3</Status>
+    <Kurzbeschreibung>Melancholischer Wassergeode aus Angbar, der nach der Seele seines Zwillingsbruders fischt.</Kurzbeschreibung>
+    <SchiP>6</SchiP>
+    <Finanzen>4</Finanzen>
+    <Heimat>Mittelreich</Heimat>
+    <Eigenheiten>
       <Eigenheit>Stille Wasser sind tief</Eigenheit>
       <Eigenheit>Bartlos</Eigenheit>
       <Eigenheit>Seelenfischer</Eigenheit>
       <Eigenheit>Seelenfischer Freund klarer Wässerchen</Eigenheit>
-    </eigenheiten>
-  </AllgemeineInfos>
+    </Eigenheiten>
+  </Beschreibung>
   <Attribute>
     <KO>4</KO>
     <MU>1</MU>
@@ -35,16 +35,16 @@
     <KaP wert="0"/>
   </Energien>
   <Vorteile minderpakt="">
-    <Vorteil variable="-1">Scharfsinnig I</Vorteil>
-    <Vorteil variable="-1">Zauberer I</Vorteil>
-    <Vorteil variable="-1">Zauberer II</Vorteil>
-    <Vorteil variable="-1">Zauberer III</Vorteil>
-    <Vorteil variable="-1">Zauberer IV</Vorteil>
-    <Vorteil variable="-1">Tradition der Geoden I</Vorteil>
-    <Vorteil variable="-1">Tradition der Geoden II</Vorteil>
-    <Vorteil variable="-1">Bändiger der Elemente</Vorteil>
-    <Vorteil variable="-1">Kontrolliertes Zaubern</Vorteil>
-    <Vorteil variable="-1">Astrale Regeneration</Vorteil>
+    <Vorteil>Scharfsinnig I</Vorteil>
+    <Vorteil>Zauberer I</Vorteil>
+    <Vorteil>Zauberer II</Vorteil>
+    <Vorteil>Zauberer III</Vorteil>
+    <Vorteil>Zauberer IV</Vorteil>
+    <Vorteil>Tradition der Geoden I</Vorteil>
+    <Vorteil>Tradition der Geoden II</Vorteil>
+    <Vorteil>Bändiger der Elemente</Vorteil>
+    <Vorteil>Kontrolliertes Zaubern</Vorteil>
+    <Vorteil>Astrale Regeneration</Vorteil>
   </Vorteile>
   <Fertigkeiten>
     <Fertigkeit name="Handgemenge" wert="1">
@@ -67,7 +67,7 @@
     </Fertigkeit>
     <Fertigkeit name="Athletik" wert="5">
       <Talente>
-        <Talent name="Schwimmen" variable="-1"/>
+        <Talent name="Schwimmen"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Heimlichkeit" wert="0">
@@ -87,12 +87,12 @@
     </Fertigkeit>
     <Fertigkeit name="Gebräuche" wert="1">
       <Talente>
-        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
+        <Talent name="Gebräuche: Mittelreich"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Derekunde" wert="5">
       <Talente>
-        <Talent name="Tierkunde" variable="-1"/>
+        <Talent name="Tierkunde"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Mythenkunde" wert="1">
@@ -100,7 +100,7 @@
     </Fertigkeit>
     <Fertigkeit name="Magiekunde" wert="5">
       <Talente>
-        <Talent name="Elementarkunde" variable="-1"/>
+        <Talent name="Elementarkunde"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Überleben" wert="1">
@@ -118,175 +118,178 @@
     <Fertigkeit name="Handwerk" wert="1">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="" wert="3"/>
-    <Freie-Fertigkeit name="Sprache: Rogolan" wert="2"/>
-    <Freie-Fertigkeit name="Schrift: Rogolan-Runen" wert="2"/>
-    <Freie-Fertigkeit name="Sprache: Garethi" wert="2"/>
-    <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="1"/>
+    <FreieFertigkeit name="" wert="3"/>
+    <FreieFertigkeit name="Sprache: Rogolan" wert="2"/>
+    <FreieFertigkeit name="Schrift: Rogolan-Runen" wert="2"/>
+    <FreieFertigkeit name="Sprache: Garethi" wert="2"/>
+    <FreieFertigkeit name="Schrift: Kusliker Zeichen" wert="1"/>
   </Fertigkeiten>
   <Objekte>
-    <Zonensystem>False</Zonensystem>
+    <Zonensystem>0</Zonensystem>
     <Rüstungen>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung/>
   </Objekte>
-  <Übernatürliche-Fertigkeiten>
-    <Übernatürliche-Fertigkeit name="Antimagie" wert="0" addToPDF="True">
+  <ÜbernatürlicheFertigkeiten>
+    <ÜbernatürlicheFertigkeit name="Antimagie" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Dämonisch" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Dämonisch" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Eigenschaften" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Eigenschaften" wert="0" exportieren="1">
       <Talente>
-        <Talent name="Wellenlauf" variable="-1"/>
-        <Talent name="Tiersinne" variable="-1"/>
+        <Talent name="Wellenlauf"/>
+        <Talent name="Tiersinne"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Einfluss" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Einfluss" wert="0" exportieren="1">
       <Talente>
-        <Talent name="Bindungspartner finden" variable="-1"/>
+        <Talent name="Bindungspartner finden"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Eis" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Eis" wert="0" exportieren="1">
       <Talente>
-        <Talent name="Manifesto Element" variable="-1"/>
-        <Talent name="Zorn der Elemente" variable="-1"/>
+        <Talent name="Manifesto Element"/>
+        <Talent name="Zorn der Elemente"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Erz" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Erz" wert="0" exportieren="1">
       <Talente>
-        <Talent name="Manifesto Element" variable="-1"/>
-        <Talent name="Zorn der Elemente" variable="-1"/>
+        <Talent name="Manifesto Element"/>
+        <Talent name="Zorn der Elemente"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Feuer" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Feuer" wert="0" exportieren="1">
       <Talente>
-        <Talent name="Manifesto Element" variable="-1"/>
-        <Talent name="Zorn der Elemente" variable="-1"/>
+        <Talent name="Manifesto Element"/>
+        <Talent name="Zorn der Elemente"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Hellsicht" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Hellsicht" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Humus" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Humus" wert="0" exportieren="1">
       <Talente>
-        <Talent name="Manifesto Element" variable="-1"/>
-        <Talent name="Zorn der Elemente" variable="-1"/>
+        <Talent name="Manifesto Element"/>
+        <Talent name="Zorn der Elemente"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Illusion" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Illusion" wert="0" exportieren="1">
       <Talente>
-        <Talent name="Tarnung" variable="-1"/>
+        <Talent name="Tarnung"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Kraft" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Kraft" wert="0" exportieren="1">
       <Talente>
-        <Talent name="Bindung des Ringes" variable="-1"/>
-        <Talent name="Bindung des Vertrauten" variable="-1"/>
+        <Talent name="Bindung des Ringes"/>
+        <Talent name="Bindung des Vertrauten"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Luft" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Luft" wert="0" exportieren="1">
       <Talente>
-        <Talent name="Manifesto Element" variable="-1"/>
-        <Talent name="Wasserbann" variable="-1"/>
-        <Talent name="Zorn der Elemente" variable="-1"/>
+        <Talent name="Manifesto Element"/>
+        <Talent name="Wasserbann"/>
+        <Talent name="Zorn der Elemente"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Temporal" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Temporal" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Umwelt" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Umwelt" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Verständigung" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Verständigung" wert="0" exportieren="1">
       <Talente>
-        <Talent name="Bindung des Vertrauten" variable="-1"/>
-        <Talent name="Tiersinne" variable="-1"/>
-        <Talent name="Wachsame Augen" variable="-1"/>
+        <Talent name="Bindung des Vertrauten"/>
+        <Talent name="Tiersinne"/>
+        <Talent name="Wachsame Augen"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Verwandlung" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Verwandlung" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Wasser" wert="7" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Wasser" wert="7" exportieren="1">
       <Talente>
-        <Talent name="Herbeirufung des Wassers" variable="-1"/>
-        <Talent name="Manifesto Element" variable="-1"/>
-        <Talent name="Wasserbann" variable="-1"/>
-        <Talent name="Wellenlauf" variable="-1"/>
-        <Talent name="Zorn der Elemente" variable="-1"/>
+        <Talent name="Herbeirufung des Wassers"/>
+        <Talent name="Manifesto Element"/>
+        <Talent name="Wasserbann"/>
+        <Talent name="Wellenlauf"/>
+        <Talent name="Zorn der Elemente"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Dolchzauber" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Dolchzauber" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Ringrituale" wert="1" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Ringrituale" wert="1" exportieren="1">
       <Talente>
-        <Talent name="Wasserbann" variable="-1"/>
-        <Talent name="Bindung des Ringes" variable="-1"/>
+        <Talent name="Wasserbann"/>
+        <Talent name="Bindung des Ringes"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Vertrautenmagie" wert="4" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Vertrautenmagie" wert="4" exportieren="1">
       <Talente>
-        <Talent name="Bindung des Vertrauten" variable="-1"/>
-        <Talent name="Bindungspartner finden" variable="-1"/>
-        <Talent name="Tiersinne" variable="-1"/>
-        <Talent name="Tarnung" variable="-1"/>
-        <Talent name="Wachsame Augen" variable="-1"/>
+        <Talent name="Bindung des Vertrauten"/>
+        <Talent name="Bindungspartner finden"/>
+        <Talent name="Tiersinne"/>
+        <Talent name="Tarnung"/>
+        <Talent name="Wachsame Augen"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-  </Übernatürliche-Fertigkeiten>
+    </ÜbernatürlicheFertigkeit>
+  </ÜbernatürlicheFertigkeiten>
   <Erfahrung>
-    <EPtotal>2500</EPtotal>
-    <EPspent>2416</EPspent>
+    <Gesamt>2500</Gesamt>
+    <Ausgegeben>2416</Ausgegeben>
   </Erfahrung>
   <Notiz/>
   <Einstellungen>
+    <VoraussetzungenPrüfen>1</VoraussetzungenPrüfen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
-    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
-    <RegelnAnhaengen>1</RegelnAnhaengen>
-    <RegelnGroesse>0</RegelnGroesse>
+    <ÜbernatürlichesPDFSpalteAnzeigen>0</ÜbernatürlichesPDFSpalteAnzeigen>
+    <RegelnAnhängen>1</RegelnAnhängen>
+    <RegelnGrösse>0</RegelnGrösse>
+    <RegelnKategorien>V0, V1, M9, V2, V3, M5, W, M8, M0, M1, V4, V5, M2, M4, Z, V6, V7, M3, M7, L, V8, M6, A, M10</RegelnKategorien>
+    <FormularEditierbarkeit>0</FormularEditierbarkeit>
     <Hausregeln></Hausregeln>
   </Einstellungen>
-  <AllgemeineInfosExt>
-    <kultur></kultur>
-    <profession></profession>
-    <geschlecht></geschlecht>
-    <geburtsdatum></geburtsdatum>
-    <groesse></groesse>
-    <gewicht></gewicht>
-    <haarfarbe></haarfarbe>
-    <augenfarbe></augenfarbe>
-    <titel></titel>
-    <aussehen1></aussehen1>
-    <aussehen2></aussehen2>
-    <aussehen3></aussehen3>
-    <aussehen4></aussehen4>
-    <aussehen5></aussehen5>
-    <aussehen6></aussehen6>
-    <hintergrund0></hintergrund0>
-    <hintergrund1></hintergrund1>
-    <hintergrund2></hintergrund2>
-    <hintergrund3></hintergrund3>
-    <hintergrund4></hintergrund4>
-    <hintergrund5></hintergrund5>
-    <hintergrund6></hintergrund6>
-    <hintergrund7></hintergrund7>
-    <hintergrund8></hintergrund8>
-  </AllgemeineInfosExt>
+  <BeschreibungDetails>
+    <Kultur/>
+    <Profession></Profession>
+    <Geschlecht></Geschlecht>
+    <Geburtsdatum></Geburtsdatum>
+    <Grösse></Grösse>
+    <Gewicht></Gewicht>
+    <Haarfarbe></Haarfarbe>
+    <Augenfarbe></Augenfarbe>
+    <Titel></Titel>
+    <Aussehen1></Aussehen1>
+    <Aussehen2></Aussehen2>
+    <Aussehen3></Aussehen3>
+    <Aussehen4></Aussehen4>
+    <Aussehen5></Aussehen5>
+    <Aussehen6></Aussehen6>
+    <Hintergrund0></Hintergrund0>
+    <Hintergrund1></Hintergrund1>
+    <Hintergrund2></Hintergrund2>
+    <Hintergrund3></Hintergrund3>
+    <Hintergrund4></Hintergrund4>
+    <Hintergrund5></Hintergrund5>
+    <Hintergrund6></Hintergrund6>
+    <Hintergrund7></Hintergrund7>
+    <Hintergrund8></Hintergrund8>
+  </BeschreibungDetails>
 </Charakter>

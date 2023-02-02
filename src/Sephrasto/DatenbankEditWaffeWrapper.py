@@ -60,15 +60,16 @@ class DatenbankEditWaffeWrapper(object):
         self.ui.textEigenschaften.textChanged.connect(self.eigenschaftenChanged)
 
         self.ui.spinHaerte.setValue(waffe.haerte)
-        self.ui.spinW6.setValue(waffe.W6)
+        self.ui.spinWuerfel.setValue(waffe.würfel)
+        self.ui.comboWuerfelSeiten.setCurrentText("W" + str(waffe.würfelSeiten))
         self.ui.spinPlus.setValue(waffe.plus)
         self.ui.spinRW1.setValue(waffe.rw)
+        self.ui.spinWM.setValue(waffe.wm)
         if type(waffe) == Objekte.Fernkampfwaffe:
             self.switchType(1)
-            self.ui.spinWMLZ.setValue(waffe.lz)
+            self.ui.spinLZ.setValue(waffe.lz)
         else:
             self.switchType(0)
-            self.ui.spinWMLZ.setValue(waffe.wm)
 
         for fert in datenbank.fertigkeiten.values():
             if fert.kampffertigkeit == KampffertigkeitTyp.Keine:
@@ -114,13 +115,14 @@ class DatenbankEditWaffeWrapper(object):
         if ret == QtWidgets.QDialog.Accepted:
             if self.ui.comboTyp.currentIndex() == 0:
                 self.waffe = Objekte.Nahkampfwaffe()
-                self.waffe.wm = int(self.ui.spinWMLZ.value())
             else:
                 self.waffe = Objekte.Fernkampfwaffe()
-                self.waffe.lz = int(self.ui.spinWMLZ.value())
+                self.waffe.lz = int(self.ui.spinLZ.value())
             self.waffe.rw = int(self.ui.spinRW1.value())
-            self.waffe.W6 = int(self.ui.spinW6.value())
+            self.waffe.würfel = int(self.ui.spinWuerfel.value())
+            self.waffe.würfelSeiten = int(self.ui.comboWuerfelSeiten.currentText()[1:])
             self.waffe.plus = int(self.ui.spinPlus.value())
+            self.waffe.wm = int(self.ui.spinWM.value())
             self.waffe.haerte = int(self.ui.spinHaerte.value())
             eigenschaftStr = self.ui.textEigenschaften.toPlainText()
             if eigenschaftStr:
@@ -144,13 +146,10 @@ class DatenbankEditWaffeWrapper(object):
         else:
             self.kampfstile.append(kampfstil)
 
-    def switchType(self, melee):
-        if melee == 0:
-            self.ui.spinWMLZ.setMinimum(-9)
-            self.ui.labelWMLZ.setText("Waffenmodifikator")
-        else:
-            self.ui.spinWMLZ.setMinimum(0)
-            self.ui.labelWMLZ.setText("Ladezeit")
+    def switchType(self, index):
+        self.ui.labelLZ.setVisible(index == 1)
+        #self.ui.spacerLZ.setVisible(index == 1)
+        self.ui.spinLZ.setVisible(index == 1)
             
     def switchTals(self, ff):
         self.ui.comboTalent.setCurrentIndex(0)

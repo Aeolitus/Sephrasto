@@ -214,17 +214,17 @@ class Editor(object):
         self.updateEP()
 
     def updateEP(self):
-        self.ui.spinEP.setValue(Wolke.Char.EPtotal)
-        self.ui.spinRemaining.setValue(Wolke.Char.EPtotal-Wolke.Char.EPspent)
-        if Wolke.Char.EPtotal < Wolke.Char.EPspent:
+        self.ui.spinEP.setValue(Wolke.Char.epGesamt)
+        self.ui.spinRemaining.setValue(Wolke.Char.epGesamt-Wolke.Char.epAusgegeben)
+        if Wolke.Char.epGesamt < Wolke.Char.epAusgegeben:
             self.ui.spinRemaining.setStyleSheet("QSpinBox { color: white; background-color: rgb(200,50,50) }")
         else:
             self.ui.spinRemaining.setStyleSheet("")
         self.ui.spinSpent.setStyleSheet("")
-        self.ui.spinSpent.setValue(Wolke.Char.EPspent)
+        self.ui.spinSpent.setValue(Wolke.Char.epAusgegeben)
     
     def epChanged(self):
-        Wolke.Char.EPtotal = self.ui.spinEP.value()
+        Wolke.Char.epGesamt = self.ui.spinEP.value()
         self.onModified()
 
     def reloadByName(self, name):

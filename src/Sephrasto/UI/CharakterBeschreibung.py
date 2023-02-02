@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterBeschreibung.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.0
+## Created by: Qt User Interface Compiler version 6.4.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -158,10 +158,10 @@ class Ui_formBeschreibung(object):
 
         self.gridLayout.addLayout(self.gridLayout_2, 7, 2, 1, 1)
 
-        self.editRasse = QLineEdit(formBeschreibung)
-        self.editRasse.setObjectName(u"editRasse")
+        self.editSpezies = QLineEdit(formBeschreibung)
+        self.editSpezies.setObjectName(u"editSpezies")
 
-        self.gridLayout.addWidget(self.editRasse, 2, 2, 1, 1)
+        self.gridLayout.addWidget(self.editSpezies, 2, 2, 1, 1)
 
         self.labelFinanzen = QLabel(formBeschreibung)
         self.labelFinanzen.setObjectName(u"labelFinanzen")
@@ -191,8 +191,8 @@ class Ui_formBeschreibung(object):
 
         self.gridLayout_3.addLayout(self.gridLayout, 0, 0, 1, 1)
 
-        QWidget.setTabOrder(self.editName, self.editRasse)
-        QWidget.setTabOrder(self.editRasse, self.comboStatus)
+        QWidget.setTabOrder(self.editName, self.editSpezies)
+        QWidget.setTabOrder(self.editSpezies, self.comboStatus)
         QWidget.setTabOrder(self.comboStatus, self.comboFinanzen)
         QWidget.setTabOrder(self.comboFinanzen, self.comboHeimat)
         QWidget.setTabOrder(self.comboHeimat, self.editKurzbeschreibung)

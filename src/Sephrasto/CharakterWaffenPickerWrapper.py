@@ -51,7 +51,7 @@ class WaffenPicker(object):
         self.ui.treeWeapons.itemDoubleClicked.connect(lambda item, column: self.ui.buttonBox.buttons()[0].click())
         self.ui.treeWeapons.header().setSectionResizeMode(0,QtWidgets.QHeaderView.Stretch)
 
-        self.ui.treeWeapons.setFocus()
+        self.ui.nameFilterEdit.setFocus()
         self.updateInfo()
         logging.debug("Info Updated...")
         self.ui.nameFilterEdit.textChanged.connect(self.populateTree)
@@ -136,8 +136,8 @@ class WaffenPicker(object):
             self.ui.labelKampfstile.setText("Kampfstile:")
             self.ui.labelTP.setText("")
             self.ui.labelRW.setText("")
-            self.ui.labelWMLZ_Text.setText("Waffenmodifikator")
-            self.ui.labelWMLZ.setText("")
+            self.ui.labelWM.setText("")
+            self.ui.labelLZ.setText("")
             self.ui.labelH.setText("")
             self.ui.labelEigenschaften.setText("Eigenschaften:")
         else:
@@ -158,21 +158,25 @@ class WaffenPicker(object):
                 stile = ", ".join(w.kampfstile)
 
             self.ui.labelKampfstile.setText("Kampfstile: " + stile)
-            tp = str(w.W6) + " W6"
+            tp = str(w.würfel) + "W" + str(w.würfelSeiten)
             if w.plus < 0:
-                tp += " " + str(w.plus)
+                tp += "" + str(w.plus)
             else:
-                tp += " +" + str(w.plus)
+                tp += "+" + str(w.plus)
             self.ui.labelTP.setText(tp)
             self.ui.labelRW.setText(str(w.rw))
-            if type(w) == Objekte.Nahkampfwaffe:
-                self.ui.labelWMLZ_Text.setText("Waffenmodifikator")
-                if w.wm<0:
-                    self.ui.labelWMLZ.setText(str(w.wm))
-                else:
-                    self.ui.labelWMLZ.setText("+" + str(w.wm))
+
+            if w.wm<0:
+                self.ui.labelWM.setText(str(w.wm))
             else:
-                self.ui.labelWMLZ_Text.setText("Ladezeit")
-                self.ui.labelWMLZ.setText(str(w.lz))
+                self.ui.labelWM.setText("+" + str(w.wm))
+
+            if type(w) == Objekte.Nahkampfwaffe:
+                self.ui.labelLZ_Text.hide()
+                self.ui.labelLZ.hide()
+            else:
+                self.ui.labelLZ_Text.show()
+                self.ui.labelLZ.show()
+                self.ui.labelLZ.setText(str(w.lz))
             self.ui.labelH.setText(str(w.haerte))
             self.ui.labelEigenschaften.setText("Eigenschaften: " + ", ".join(w.eigenschaften))

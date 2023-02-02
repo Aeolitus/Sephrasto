@@ -14,6 +14,7 @@ from PySide6 import QtWidgets, QtCore
 import os.path
 from Fertigkeiten import KampffertigkeitTyp
 import base64
+from Migrationen import Migrationen
 
 class KampfstilMod():
     def __init__(self):
@@ -38,22 +39,6 @@ class Waffenwerte():
         self.Haerte = 0
         self.Kampfstil = ""
 
-class VariableKosten():
-    def __init__(self):
-        self.kosten = 0
-        self.kommentar = ""
-
-    @staticmethod
-    def parse(variable):
-        var = list(map(str.strip, variable.split(",", 1)))
-        if int(var[0]) == -1:
-            return None
-        vk = VariableKosten()
-        vk.kosten = int(var[0])
-        if len(var) > 1:
-            vk.kommentar = var[1]
-        return vk
-
 class Char():
     ''' 
     Main Workhorse Class. Contains all information about a charakter, performs
@@ -68,7 +53,7 @@ class Char():
         #Erster Block: Allgemeine Infos
         self.enabledPlugins = []
         self.name = ''
-        self.rasse = ''
+        self.spezies = ''
         self.status = 2
         self.kurzbeschreibung = ''
         heimaten = Wolke.DB.findHeimaten()
@@ -113,7 +98,8 @@ class Char():
         
         #Dritter Block: Vorteile, gespeichert als String
         self.vorteile = [] #Important: use addVorteil and addRemove functions for modification
-        self.vorteileVariable = {} #Contains Name: VariableKosten
+        self.vorteileVariableKosten = {}
+        self.vorteileKommentare = {}
         self.minderpakt = None
         self.kampfstilMods = {}
 
@@ -121,12 +107,13 @@ class Char():
         self.fertigkeiten = copy.deepcopy(Wolke.DB.fertigkeiten)
         self.freieFertigkeiten = []
         self.freieFertigkeitenNumKostenlos = Wolke.DB.einstellungen["FreieFertigkeiten: Anzahl Kostenlos"].toInt()
-        self.freieFertigkeitKosten = [Wolke.DB.einstellungen["FreieFertigkeiten: Kosten Stufe1"].toInt(),
-                                      Wolke.DB.einstellungen["FreieFertigkeiten: Kosten Stufe2"].toInt(),
+        self.freieFertigkeitKosten = [Wolke.DB.einstellungen["FreieFertigkeiten: Kosten Stufe1"].toInt(), 
+                                      Wolke.DB.einstellungen["FreieFertigkeiten: Kosten Stufe2"].toInt(), 
                                       Wolke.DB.einstellungen["FreieFertigkeiten: Kosten Stufe3"].toInt()]
         self.freieFertigkeitKosten[1] += self.freieFertigkeitKosten[0]
         self.freieFertigkeitKosten[2] += self.freieFertigkeitKosten[1]
-        self.talenteVariable = {} #Contains Name: VariableKosten
+        self.talenteVariableKosten = {}
+        self.talenteKommentare = {}
 
         #Fünfter Block: Ausrüstung etc
         self.be = 0
@@ -146,16 +133,16 @@ class Char():
             Wolke.DB.übernatürlicheFertigkeiten)
 
         #Siebter Block: EP
-        self.EPtotal = 0
-        self.EPspent = 0
+        self.epGesamt = 0
+        self.epAusgegeben = 0
         
-        self.EP_Attribute = 0
-        self.EP_Vorteile = 0
-        self.EP_Fertigkeiten = 0
-        self.EP_Fertigkeiten_Talente = 0
-        self.EP_FreieFertigkeiten = 0
-        self.EP_Uebernatuerlich = 0
-        self.EP_Uebernatuerlich_Talente = 0
+        self.epAttribute = 0
+        self.epVorteile = 0
+        self.epFertigkeiten = 0
+        self.epFertigkeitenTalente = 0
+        self.epFreieFertigkeiten = 0
+        self.epÜbernatürlich = 0
+        self.epÜbernatürlichTalente = 0
 
         #Achter Block: Infos
         self.voraussetzungenPruefen = True
@@ -196,126 +183,109 @@ class Char():
         self.hintergrund8 = ""
         self.bild = None
 
-        #Versionierung
-        #Wenn die Ref-DB eine Änderung erhält durch die existierende Charakter-XMLs aktualisiert werden müssen,
-        #kann hier die Datenbank Code Version inkrementiert werden und in der Migrationen-Map eine Migrationsfunktion für die neue Version angelegt werden.
-        #In dieser Funktion kann dann die Charakter-XML-Datei angepasst werden, bevor sie geladen wird.
-        #WICHTIG: Bei Vorteilen/(ÜB-)Fertigkeiten/Talenten nur solche migrieren, bei denen in der aktuell geladenen Datenbasis userAdded == False ist, außer das schema hat sich geändert.
-        #Die Migrationsfunktion sollte einen string zurückgeben, der erklärt was geändert wurde - dies wird dem Nutzer in einer Messagebox angezeigt.
-        #Die Funktionen werden inkrementell ausgeführt, bspw. bei Charakter-DB-Version '0' und Code-DB-Version '2' wird zuerst die Funktion für 1, dann die Funktion für 2 aufgerufen
-        self.datenbankCodeVersion = 2
-        self.migrationen = [
-            lambda xmlRoot: None, #nichts zu tun, initiale db version
-            self.migriere0zu1,
-            self.migriere1zu2
-        ]
-
-        if not self.migrationen[self.datenbankCodeVersion]:
-            raise Exception("Migrations-Code vergessen.")
-
         #Bei Änderungen nicht vergessen die script docs in ScriptAPI.md anzupassen
         self.charakterScriptAPI = {
             #Hintergrund
-            'getName' : lambda: self.name,
-            'getRasse' : lambda: self.rasse,
-            'getStatus' : lambda: self.status,
-            'getKurzbeschreibung' : lambda: self.kurzbeschreibung,
-            'getHeimat' : lambda: self.heimat,
-            'getFinanzen' : lambda: self.finanzen,
-            'getEigenheiten' : lambda: copy.deepcopy(self.eigenheiten),
-            'getEPTotal' : lambda: self.EPtotal,
-            'getEPSpent' : lambda: self.EPspent,
+            'getName' : lambda: self.name, 
+            'getSpezies' : lambda: self.spezies, 
+            'getStatus' : lambda: self.status, 
+            'getKurzbeschreibung' : lambda: self.kurzbeschreibung, 
+            'getHeimat' : lambda: self.heimat, 
+            'getFinanzen' : lambda: self.finanzen, 
+            'getEigenheiten' : lambda: copy.deepcopy(self.eigenheiten), 
+            'getEPGesamt' : lambda: self.epGesamt, 
+            'getEPAusgegeben' : lambda: self.epAusgegeben, 
 
             #Fertigkeiten, Vorteile & Ausrüstung
-            'getFertigkeit' : lambda name: copy.deepcopy(self.fertigkeiten[name]),
-            'getÜbernatürlicheFertigkeit' : lambda name: copy.deepcopy(self.übernatürlicheFertigkeiten[name]),
-            'getFreieFertigkeiten' : lambda: copy.deepcopy(self.freieFertigkeiten),
-            'getVorteile' : lambda: copy.deepcopy([el for el in Wolke.DB.vorteile if el in self.vorteile]),
-            'getRüstung' : lambda: copy.deepcopy(self.rüstung),
-            'getWaffen' : lambda: copy.deepcopy(self.waffen),
-            'getAusrüstung' : lambda: copy.deepcopy(self.ausrüstung),
-            'modifyFertigkeitBasiswert' : lambda name, mod: setattr(self.fertigkeiten[name], 'basiswertMod', self.fertigkeiten[name].basiswertMod + mod),
-            'modifyÜbernatürlicheFertigkeitBasiswert' : self.API_modifyÜbernatürlicheFertigkeitBasiswert,
-            'modifyTalent' : self.API_modifyTalent,
+            'getFertigkeit' : lambda name: copy.deepcopy(self.fertigkeiten[name]), 
+            'getÜbernatürlicheFertigkeit' : lambda name: copy.deepcopy(self.übernatürlicheFertigkeiten[name]), 
+            'getFreieFertigkeiten' : lambda: copy.deepcopy(self.freieFertigkeiten), 
+            'getVorteile' : lambda: copy.deepcopy([el for el in Wolke.DB.vorteile if el in self.vorteile]), 
+            'getRüstung' : lambda: copy.deepcopy(self.rüstung), 
+            'getWaffen' : lambda: copy.deepcopy(self.waffen), 
+            'getAusrüstung' : lambda: copy.deepcopy(self.ausrüstung), 
+            'modifyFertigkeitBasiswert' : lambda name, mod: setattr(self.fertigkeiten[name], 'basiswertMod', self.fertigkeiten[name].basiswertMod + mod), 
+            'modifyÜbernatürlicheFertigkeitBasiswert' : self.API_modifyÜbernatürlicheFertigkeitBasiswert, 
+            'modifyTalent' : self.API_modifyTalent, 
 
             #Asp
-            'getAsPBasis' : lambda: self.aspBasis,
-            'setAsPBasis' : lambda aspBasis: setattr(self, 'aspBasis', aspBasis),
-            'modifyAsPBasis' : lambda aspBasis: setattr(self, 'aspBasis', self.aspBasis + aspBasis),
-            'getAsPMod' : lambda: self.aspMod,
-            'setAsPMod' : lambda aspMod: setattr(self, 'aspMod', aspMod),
-            'modifyAsPMod' : lambda aspMod: setattr(self, 'aspMod', self.aspMod + aspMod),
+            'getAsPBasis' : lambda: self.aspBasis, 
+            'setAsPBasis' : lambda aspBasis: setattr(self, 'aspBasis', aspBasis), 
+            'modifyAsPBasis' : lambda aspBasis: setattr(self, 'aspBasis', self.aspBasis + aspBasis), 
+            'getAsPMod' : lambda: self.aspMod, 
+            'setAsPMod' : lambda aspMod: setattr(self, 'aspMod', aspMod), 
+            'modifyAsPMod' : lambda aspMod: setattr(self, 'aspMod', self.aspMod + aspMod), 
 
             #Kap
-            'getKaPBasis' : lambda: self.kapBasis,
-            'setKaPBasis' : lambda kapBasis: setattr(self, 'kapBasis', kapBasis),
-            'modifyKaPBasis' : lambda kapBasis: setattr(self, 'kapBasis', self.kapBasis + kapBasis),
-            'getKaPMod' : lambda: self.kapMod,
-            'setKaPMod' : lambda kapMod: setattr(self, 'kapMod', kapMod),
-            'modifyKaPMod' : lambda kapMod: setattr(self, 'kapMod', self.kapMod + kapMod),
+            'getKaPBasis' : lambda: self.kapBasis, 
+            'setKaPBasis' : lambda kapBasis: setattr(self, 'kapBasis', kapBasis), 
+            'modifyKaPBasis' : lambda kapBasis: setattr(self, 'kapBasis', self.kapBasis + kapBasis), 
+            'getKaPMod' : lambda: self.kapMod, 
+            'setKaPMod' : lambda kapMod: setattr(self, 'kapMod', kapMod), 
+            'modifyKaPMod' : lambda kapMod: setattr(self, 'kapMod', self.kapMod + kapMod), 
 
             #Schip
-            'getSchiPMax' : lambda: self.schipsMax,
-            'setSchiPMax' : lambda schipsMax: setattr(self, 'schipsMax', schipsMax),
-            'modifySchiPMax' : lambda schipsMax: setattr(self, 'schipsMax', self.schipsMax + schipsMax),
+            'getSchiPMax' : lambda: self.schipsMax, 
+            'setSchiPMax' : lambda schipsMax: setattr(self, 'schipsMax', schipsMax), 
+            'modifySchiPMax' : lambda schipsMax: setattr(self, 'schipsMax', self.schipsMax + schipsMax), 
 
             #WS
-            'getWSBasis' : lambda: self.wsBasis,
-            'getWS' : lambda: self.ws,
-            'setWS' : lambda ws: setattr(self, 'ws', ws),
-            'modifyWS' : lambda ws: setattr(self, 'ws', self.ws + ws),
+            'getWSBasis' : lambda: self.wsBasis, 
+            'getWS' : lambda: self.ws, 
+            'setWS' : lambda ws: setattr(self, 'ws', ws), 
+            'modifyWS' : lambda ws: setattr(self, 'ws', self.ws + ws), 
 
             #MR
-            'getMRBasis' : lambda: self.mrBasis,
-            'getMR' : lambda: self.mr,
-            'setMR' : lambda mr: setattr(self, 'mr', mr),
-            'modifyMR' : lambda mr: setattr(self, 'mr', self.mr + mr),
+            'getMRBasis' : lambda: self.mrBasis, 
+            'getMR' : lambda: self.mr, 
+            'setMR' : lambda mr: setattr(self, 'mr', mr), 
+            'modifyMR' : lambda mr: setattr(self, 'mr', self.mr + mr), 
 
             #GS
-            'getGSBasis' : lambda: self.gsBasis,
-            'getGS' : lambda: self.gs,
-            'setGS' : lambda gs: setattr(self, 'gs', gs),
-            'modifyGS' : lambda gs: setattr(self, 'gs', self.gs + gs),
+            'getGSBasis' : lambda: self.gsBasis, 
+            'getGS' : lambda: self.gs, 
+            'setGS' : lambda gs: setattr(self, 'gs', gs), 
+            'modifyGS' : lambda gs: setattr(self, 'gs', self.gs + gs), 
 
             #DH
-            'getDHBasis' : lambda: self.dhBasis,
-            'getDH' : lambda: self.dh,
-            'setDH' : lambda dh: setattr(self, 'dh', dh),
-            'modifyDH' : lambda dh: setattr(self, 'dh', self.dh + dh),
+            'getDHBasis' : lambda: self.dhBasis, 
+            'getDH' : lambda: self.dh, 
+            'setDH' : lambda dh: setattr(self, 'dh', dh), 
+            'modifyDH' : lambda dh: setattr(self, 'dh', self.dh + dh), 
 
             #Schadensbonus
-            'getSchadensbonusBasis' : lambda: self.schadensbonusBasis,
-            'getSchadensbonus' : lambda: self.schadensbonus,
-            'setSchadensbonus' : lambda schadensbonus: setattr(self, 'schadensbonus', schadensbonus),
-            'modifySchadensbonus' : lambda schadensbonus: setattr(self, 'schadensbonus', self.schadensbonus + schadensbonus),
+            'getSchadensbonusBasis' : lambda: self.schadensbonusBasis, 
+            'getSchadensbonus' : lambda: self.schadensbonus, 
+            'setSchadensbonus' : lambda schadensbonus: setattr(self, 'schadensbonus', schadensbonus), 
+            'modifySchadensbonus' : lambda schadensbonus: setattr(self, 'schadensbonus', self.schadensbonus + schadensbonus), 
 
             #INI
-            'getINIBasis' : lambda: self.iniBasis,
-            'getINI' : lambda: self.ini,
-            'setINI' : lambda ini: setattr(self, 'ini', ini),
-            'modifyINI' : lambda ini: setattr(self, 'ini', self.ini + ini),
+            'getINIBasis' : lambda: self.iniBasis, 
+            'getINI' : lambda: self.ini, 
+            'setINI' : lambda ini: setattr(self, 'ini', ini), 
+            'modifyINI' : lambda ini: setattr(self, 'ini', self.ini + ini), 
 
             #RS
-            'getRSMod' : lambda: self.rsmod,
-            'setRSMod' : lambda rsmod: setattr(self, 'rsmod', rsmod),
-            'modifyRSMod' : lambda rsmod: setattr(self, 'rsmod', self.rsmod + rsmod),
+            'getRSMod' : lambda: self.rsmod, 
+            'setRSMod' : lambda rsmod: setattr(self, 'rsmod', rsmod), 
+            'modifyRSMod' : lambda rsmod: setattr(self, 'rsmod', self.rsmod + rsmod), 
 
             #BE
-            'getBEBasis' : lambda: self.be,
-            'getBEMod' : lambda: self.rüstungsgewöhnung,
-            'setBEMod' : lambda beMod: setattr(self, 'rüstungsgewöhnung', beMod),
-            'modifyBEMod' : lambda beMod: setattr(self, 'rüstungsgewöhnung', self.rüstungsgewöhnung + beMod),
+            'getBEBasis' : lambda: self.be, 
+            'getBEMod' : lambda: self.rüstungsgewöhnung, 
+            'setBEMod' : lambda beMod: setattr(self, 'rüstungsgewöhnung', beMod), 
+            'modifyBEMod' : lambda beMod: setattr(self, 'rüstungsgewöhnung', self.rüstungsgewöhnung + beMod), 
 
             #Kampfstil
-            'getKampfstil' : lambda kampfstil: copy.copy(self.kampfstilMods[kampfstil]),
-            'setKampfstil' : self.API_setKampfstil,
-            'modifyKampfstil' : self.API_modifyKampfstil,
+            'getKampfstil' : lambda kampfstil: copy.copy(self.kampfstilMods[kampfstil]), 
+            'setKampfstil' : self.API_setKampfstil, 
+            'modifyKampfstil' : self.API_modifyKampfstil, 
 
             #Attribute
-            'getAttribut' : lambda attribut: self.attribute[attribut].wert,
+            'getAttribut' : lambda attribut: self.attribute[attribut].wert, 
 
             #Misc
-            'addWaffeneigenschaft' : self.API_addWaffeneigenschaft,
+            'addWaffeneigenschaft' : self.API_addWaffeneigenschaft, 
             'removeWaffeneigenschaft' : self.API_removeWaffeneigenschaft
         }
 
@@ -324,28 +294,28 @@ class Char():
             self.charakterScriptAPI["get" + attribut.key] = lambda attribut=attribut.key: self.attribute[attribut].wert
         
         self.waffenScriptAPI = {
-            'getEigenschaftParam' : lambda paramNb: self.API_getWaffeneigenschaftParam(paramNb),
-            'modifyWaffeAT' : lambda atmod: setattr(self.currentWaffenwerte, 'AT', self.currentWaffenwerte.AT + atmod),
-            'modifyWaffeVT' : lambda vtmod: setattr(self.currentWaffenwerte, 'VT', self.currentWaffenwerte.VT + vtmod),
-            'modifyWaffeTPW6' : lambda tpw6mod: setattr(self.currentWaffenwerte, 'TPW6', self.currentWaffenwerte.TPW6 + tpw6mod),
-            'modifyWaffeTPPlus' : lambda tpplusmod: setattr(self.currentWaffenwerte, 'TPPlus', self.currentWaffenwerte.TPPlus + tpplusmod),
-            'modifyWaffeHaerte' : lambda haertemod: setattr(self.currentWaffenwerte, 'Haerte', self.currentWaffenwerte.Haerte + haertemod),
-            'modifyWaffeRW' : lambda rwmod: setattr(self.currentWaffenwerte, 'RW', self.currentWaffenwerte.RW + rwmod),
-            'setWaffeAT' : lambda at: setattr(self.currentWaffenwerte, 'AT', at),
-            'setWaffeVT' : lambda vt: setattr(self.currentWaffenwerte, 'VT', vt),
-            'setWaffeTPW6' : lambda tpw6: setattr(self.currentWaffenwerte, 'TPW6', tpw6),
-            'setWaffeTPPlus' : lambda tpplus: setattr(self.currentWaffenwerte, 'TPPlus', tpplus),
-            'setWaffeHaerte' : lambda haerte: setattr(self.currentWaffenwerte, 'Haerte', haerte),
-            'setWaffeRW' : lambda rw: setattr(self.currentWaffenwerte, 'RW', rw),
-            'getWaffenWerte' : lambda: copy.deepcopy(self.currentWaffenwerte),
+            'getEigenschaftParam' : lambda paramNb: self.API_getWaffeneigenschaftParam(paramNb), 
+            'modifyWaffeAT' : lambda atmod: setattr(self.currentWaffenwerte, 'AT', self.currentWaffenwerte.AT + atmod), 
+            'modifyWaffeVT' : lambda vtmod: setattr(self.currentWaffenwerte, 'VT', self.currentWaffenwerte.VT + vtmod), 
+            'modifyWaffeTPW6' : lambda tpw6mod: setattr(self.currentWaffenwerte, 'TPW6', self.currentWaffenwerte.TPW6 + tpw6mod), 
+            'modifyWaffeTPPlus' : lambda tpplusmod: setattr(self.currentWaffenwerte, 'TPPlus', self.currentWaffenwerte.TPPlus + tpplusmod), 
+            'modifyWaffeHaerte' : lambda haertemod: setattr(self.currentWaffenwerte, 'Haerte', self.currentWaffenwerte.Haerte + haertemod), 
+            'modifyWaffeRW' : lambda rwmod: setattr(self.currentWaffenwerte, 'RW', self.currentWaffenwerte.RW + rwmod), 
+            'setWaffeAT' : lambda at: setattr(self.currentWaffenwerte, 'AT', at), 
+            'setWaffeVT' : lambda vt: setattr(self.currentWaffenwerte, 'VT', vt), 
+            'setWaffeTPW6' : lambda tpw6: setattr(self.currentWaffenwerte, 'TPW6', tpw6), 
+            'setWaffeTPPlus' : lambda tpplus: setattr(self.currentWaffenwerte, 'TPPlus', tpplus), 
+            'setWaffeHaerte' : lambda haerte: setattr(self.currentWaffenwerte, 'Haerte', haerte), 
+            'setWaffeRW' : lambda rw: setattr(self.currentWaffenwerte, 'RW', rw), 
+            'getWaffenWerte' : lambda: copy.deepcopy(self.currentWaffenwerte), 
         }
 
 
-        filter = ['setSchadensbonus', 'modifySchadensbonus',
-                  'setBEMod', 'modifyBEMod', 'modifyFertigkeitBasiswert',
-                  'setKampfstil', 'modifyKampfstil',
+        filter = ['setSchadensbonus', 'modifySchadensbonus', 
+                  'setBEMod', 'modifyBEMod', 'modifyFertigkeitBasiswert', 
+                  'setKampfstil', 'modifyKampfstil', 
                   'addWaffeneigenschaft', 'removeWaffeneigenschaft']
-        for k,v in self.charakterScriptAPI.items():
+        for k, v in self.charakterScriptAPI.items():
             if k in self.waffenScriptAPI:
                 assert False, "Duplicate entry"
 
@@ -421,38 +391,6 @@ class Char():
         if not len(parameters) >= paramNb:
             raise Exception("Die Waffeneigenschaft '" + self.currentEigenschaft + "' erfordert " + paramNb + " Parameter, aber es wurden nur " + len(parameters) + " gefunden. Parameter müssen mit Semikolon getrennt werden")
         return parameters[paramNb-1]
-
-    def migriere0zu1(self, xmlRoot):
-        Kampfstile = ["Kein Kampfstil", "Beidhändiger Kampf", "Parierwaffenkampf", "Reiterkampf", 
-              "Schildkampf", "Kraftvoller Kampf", "Schneller Kampf"]
-
-        for waf in xmlRoot.findall('Objekte/Waffen/Waffe'):
-            kampfstilIndex = int(waf.attrib['kampfstil'])
-            waf.attrib['kampfstil'] = Kampfstile[kampfstilIndex]
-
-        return "Datenbank Schema-Änderung (der selektierte Kampfstil bei Waffen wurde von indexbasiert zu stringbasiert geändert)"
-
-    def migriere1zu2(self, xmlRoot):
-        VorteileAlt = ["Angepasst I (Wasser)", "Angepasst I (Wald)", "Angepasst I (Dunkelheit)", "Angepasst I (Schnee)", "Angepasst II (Wasser)", "Angepasst II (Wald)", "Angepasst II (Dunkelheit)", "Angepasst II (Schnee)", "Tieremphatie"]
-        VorteileNeu = ["Angepasst (Wasser) I", "Angepasst (Wald) I", "Angepasst (Dunkelheit) I", "Angepasst (Schnee) I", "Angepasst (Wasser) II", "Angepasst (Wald) II", "Angepasst (Dunkelheit) II", "Angepasst (Schnee) II", "Tierempathie"]
-
-        for vort in xmlRoot.findall('Vorteile/Vorteil'):
-            if vort.text in VorteileAlt:
-                vort.text = VorteileNeu[VorteileAlt.index(vort.text)]
-
-        return "Angepasst I (<Umgebung>) wurde in Angepasst (<Umgebung>) I umbenannt"
-
-    def migriere2zu3(self, xmlRoot):
-        #Dies würde aufgerufen werden, wenn datenbankCodeVersion 2 oder höher und Charakter-DatenbankVersion geringer als 2 wäre
-        #WICHTIG: bei Vorteilen/(ÜB-)Fertigkeiten/Talenten nur solche migrieren, bei denen in der aktuell geladenen Datenbasis userAdded == False ist, außer das Schema hat sich geändert.
-        #Beispiel:
-        #if not 'Handgemenge' in Wolke.DB.fertigkeiten or not Wolke.DB.fertigkeiten['Handgemenge'].isUserAdded:
-        #    for fer in xmlRoot.findall('Fertigkeiten/Fertigkeit'):
-        #        if fer.attrib['name'] == 'Handgemenge':
-        #            fer.attrib['name'] = 'Raufen'
-        #            return "Handgemenge wurde in Raufen umbenannt"
-        #return None
-        raise Exception('Not implemented')
 
     def addVorteil(self, vorteil):
         if not vorteil or vorteil in self.vorteile:
@@ -554,7 +492,7 @@ class Char():
         self.updateFertigkeiten(self.übernatürlicheFertigkeiten, Wolke.DB.übernatürlicheFertigkeiten)
 
         EventBus.doAction("charakter_aktualisieren_waffeneigenschaftscripts", { "charakter" : self })
-        self.be = max(0,self.be-self.rüstungsgewöhnung) # BE needs to be updated before updateWaffenwerte because it depends on it
+        self.be = max(0, self.be-self.rüstungsgewöhnung) # BE needs to be updated before updateWaffenwerte because it depends on it
         self.updateWaffenwerte() # also executes waffeneigenschaft scripts
 
         # Update these values at the end because they might be modified by Vorteil or Waffeneigenschaft scripts
@@ -586,7 +524,7 @@ class Char():
             waffenwerte = Waffenwerte()
             self.waffenwerte.append(waffenwerte)
             waffenwerte.RW = el.rw
-            waffenwerte.TPW6 = el.W6
+            waffenwerte.TPW6 = el.würfel
             waffenwerte.TPPlus = el.plus
             waffenwerte.Haerte = el.haerte
             waffenwerte.Kampfstil = el.kampfstil
@@ -666,8 +604,8 @@ class Char():
         return cost
 
     def getTalentCost(self, talent, steigerungsfaktor):
-        if talent in self.talenteVariable:
-            return self.talenteVariable[talent].kosten
+        if talent in self.talenteVariableKosten:
+            return self.talenteVariableKosten[talent]
         return self.getDefaultTalentCost(talent, steigerungsfaktor)
 
     def epZaehlen(self):
@@ -684,7 +622,7 @@ class Char():
         val = sum(range(self.kap.wert+1))*self.kap.steigerungsfaktor   
         spent += EventBus.applyFilter("kap_kosten", val, { "charakter" : self, "wert" : self.kap.wert })
 
-        self.EP_Attribute = spent
+        self.epAttribute = spent
         #Dritter Block: Vorteile
         for vor in self.vorteile:
             if vor == self.minderpakt:
@@ -693,21 +631,21 @@ class Char():
                     continue
                 else:
                     self.minderpakt = None
-            if vor in self.vorteileVariable:
-                spent += self.vorteileVariable[vor].kosten
+            if vor in self.vorteileVariableKosten:
+                spent += self.vorteileVariableKosten[vor]
             elif Wolke.DB.vorteile[vor].kosten != -1:
                 spent += Wolke.DB.vorteile[vor].kosten
         
-        self.EP_Vorteile = spent - self.EP_Attribute
+        self.epVorteile = spent - self.epAttribute
         #Vierter Block: Fertigkeiten und Freie Fertigkeiten
-        self.EP_Fertigkeiten = 0
-        self.EP_Fertigkeiten_Talente = 0
-        self.EP_FreieFertigkeiten = 0
+        self.epFertigkeiten = 0
+        self.epFertigkeitenTalente = 0
+        self.epFreieFertigkeiten = 0
         paidTalents = []
         for fer in self.fertigkeiten:
             val = sum(range(self.fertigkeiten[fer].wert+1)) * self.fertigkeiten[fer].steigerungsfaktor
             spent += val
-            self.EP_Fertigkeiten += val
+            self.epFertigkeiten += val
             for tal in self.fertigkeiten[fer].gekaufteTalente:
                 if tal in paidTalents:
                     continue
@@ -716,7 +654,7 @@ class Char():
                 paidTalents.append(tal)
                 val = self.getTalentCost(tal, self.fertigkeiten[fer].steigerungsfaktor)
                 spent += val
-                self.EP_Fertigkeiten_Talente += val
+                self.epFertigkeitenTalente += val
 
         numKostenlos = 0
         for fer in self.freieFertigkeiten:
@@ -728,31 +666,31 @@ class Char():
                 continue
             val = EventBus.applyFilter("freiefertigkeit_kosten", self.freieFertigkeitKosten[fer.wert-1], { "charakter" : self, "name" : fer.name, "wert" : fer.wert })
             spent += val
-            self.EP_FreieFertigkeiten += val
+            self.epFreieFertigkeiten += val
         #Fünfter Block ist gratis
         #Sechster Block: Übernatürliches
-        self.EP_Uebernatuerlich = 0
-        self.EP_Uebernatuerlich_Talente = 0
+        self.epÜbernatürlich = 0
+        self.epÜbernatürlichTalente = 0
         for fer in self.übernatürlicheFertigkeiten:
             val = sum(range(self.übernatürlicheFertigkeiten[fer].wert+1)) * self.übernatürlicheFertigkeiten[fer].steigerungsfaktor
             spent += val
-            self.EP_Uebernatuerlich += val
+            self.epÜbernatürlich += val
             for tal in self.übernatürlicheFertigkeiten[fer].gekaufteTalente:
                 if tal in paidTalents:
                     continue
                 paidTalents.append(tal)
                 val = self.getTalentCost(tal, self.übernatürlicheFertigkeiten[fer].steigerungsfaktor)
                 spent += val
-                self.EP_Uebernatuerlich_Talente += val
+                self.epÜbernatürlichTalente += val
         #Siebter Block ist gratis
         #Achter Block: Fix für höchste Kampffertigkeit
         höchsteKampffert = self.getHöchsteKampffertigkeit()
         if höchsteKampffert is not None:
             val = max(0, 2*sum(range(höchsteKampffert.wert+1)))
             spent += val
-            self.EP_Fertigkeiten += val
+            self.epFertigkeiten += val
         #Store
-        self.EPspent = spent
+        self.epAusgegeben = spent
 
     def updateVorts(self):
         ''' 
@@ -842,7 +780,7 @@ class Char():
                     contFlag = False
                 fertigkeiten[fert].aktualisieren(self.attribute)
             for el in remove:
-                fertigkeiten.pop(el,None)
+                fertigkeiten.pop(el, None)
             if contFlag:
                 break
 
@@ -877,206 +815,185 @@ class Char():
                 elif tal not in fert.gekaufteTalente:
                     fertigkeiten[fName].gekaufteTalente.append(tal)
 
-    def voraussetzungenPrüfen(self,voraussetzungen):
+    def voraussetzungenPrüfen(self, voraussetzungen):
         if not self.voraussetzungenPruefen:
             return True
 
         return Hilfsmethoden.voraussetzungenPrüfen(self.vorteile, self.waffen, self.attribute, self.übernatürlicheFertigkeiten, self.fertigkeiten, voraussetzungen)
     
-    def xmlSchreiben(self,filename):
+    def xmlSchreiben(self, filename):
         '''Speichert dieses Charakter-Objekt in einer XML Datei, deren 
         Dateiname inklusive Pfad als Argument übergeben wird'''
         #Document Root
         root = etree.Element('Charakter')
 
         versionXml = etree.SubElement(root, 'Version')
-        etree.SubElement(versionXml, 'DatenbankVersion').text = str(self.datenbankCodeVersion)
+        etree.SubElement(versionXml, 'CharakterVersion').text = str(Migrationen.charakterCodeVersion)
         etree.SubElement(versionXml, 'NutzerDatenbankCRC').text = str(binascii.crc32(etree.tostring(Wolke.DB.userDbXml))) if Wolke.DB.userDbXml is not None else "0"
         etree.SubElement(versionXml, 'NutzerDatenbankName').text = os.path.basename(Wolke.DB.datei) if Wolke.DB.datei else ""
-        etree.SubElement(versionXml, 'Plugins').text = ",".join(self.enabledPlugins)
+        etree.SubElement(versionXml, 'Plugins').text = ", ".join(self.enabledPlugins)
 
         #Erster Block
-        sub =  etree.SubElement(root,'AllgemeineInfos')
-        etree.SubElement(sub,'name').text = self.name
-        etree.SubElement(sub,'rasse').text = self.rasse
-        etree.SubElement(sub,'status').text = str(self.status)
-        etree.SubElement(sub,'kurzbeschreibung').text = self.kurzbeschreibung
-        etree.SubElement(sub,'schips').text = str(self.schips)
-        etree.SubElement(sub,'finanzen').text = str(self.finanzen)
-        etree.SubElement(sub,'heimat').text = self.heimat
-        eigs = etree.SubElement(sub,'eigenheiten')
+        sub =  etree.SubElement(root, 'Beschreibung')
+        etree.SubElement(sub, 'Name').text = self.name
+        etree.SubElement(sub, 'Spezies').text = self.spezies
+        etree.SubElement(sub, 'Status').text = str(self.status)
+        etree.SubElement(sub, 'Kurzbeschreibung').text = self.kurzbeschreibung
+        etree.SubElement(sub, 'SchiP').text = str(self.schips)
+        etree.SubElement(sub, 'Finanzen').text = str(self.finanzen)
+        etree.SubElement(sub, 'Heimat').text = self.heimat
+        eigs = etree.SubElement(sub, 'Eigenheiten')
         for eigenh in self.eigenheiten:
-            etree.SubElement(eigs,'Eigenheit').text = eigenh
+            etree.SubElement(eigs, 'Eigenheit').text = eigenh
         #Zweiter Block - abgeleitete nicht notwendig da automatisch neu berechnet
-        atr = etree.SubElement(root,'Attribute')
+        atr = etree.SubElement(root, 'Attribute')
         for attr in self.attribute:
-            etree.SubElement(atr,attr).text = str(self.attribute[attr].wert)
-        en = etree.SubElement(root,'Energien')
-        etree.SubElement(en,'AsP').set('wert',str(self.asp.wert))
-        etree.SubElement(en,'KaP').set('wert',str(self.kap.wert))
+            etree.SubElement(atr, attr).text = str(self.attribute[attr].wert)
+        en = etree.SubElement(root, 'Energien')
+        etree.SubElement(en, 'AsP').set('wert', str(self.asp.wert))
+        etree.SubElement(en, 'KaP').set('wert', str(self.kap.wert))
         #Dritter Block    
-        vor = etree.SubElement(root,'Vorteile')
+        vor = etree.SubElement(root, 'Vorteile')
         if self.minderpakt is not None:
-            vor.set('minderpakt',self.minderpakt)
+            vor.set('minderpakt', self.minderpakt)
         else:
-            vor.set('minderpakt','')
+            vor.set('minderpakt', '')
         for vort in self.vorteile:
-            v = etree.SubElement(vor,'Vorteil')
+            v = etree.SubElement(vor, 'Vorteil')
             v.text = vort
-            if vort in self.vorteileVariable:
-                v.set('variable',str(self.vorteileVariable[vort].kosten) + "," + self.vorteileVariable[vort].kommentar)
-            else:
-                v.set('variable','-1')
+            if vort in self.vorteileVariableKosten:
+                v.set('variableKosten', str(self.vorteileVariableKosten[vort]))
+            if vort in self.vorteileKommentare:
+                v.set('kommentar', self.vorteileKommentare[vort])
+
         #Vierter Block
-        fer = etree.SubElement(root,'Fertigkeiten')
+        fer = etree.SubElement(root, 'Fertigkeiten')
         for fert in self.fertigkeiten:
-            fertNode = etree.SubElement(fer,'Fertigkeit')
-            fertNode.set('name',self.fertigkeiten[fert].name)
-            fertNode.set('wert',str(self.fertigkeiten[fert].wert))
-            talentNode = etree.SubElement(fertNode,'Talente')
+            fertNode = etree.SubElement(fer, 'Fertigkeit')
+            fertNode.set('name', self.fertigkeiten[fert].name)
+            fertNode.set('wert', str(self.fertigkeiten[fert].wert))
+            talentNode = etree.SubElement(fertNode, 'Talente')
             for talent in self.fertigkeiten[fert].gekaufteTalente:
-                talNode = etree.SubElement(talentNode,'Talent')
-                talNode.set('name',talent)
-                if talent in self.talenteVariable:
-                    talNode.set('variable',str(self.talenteVariable[talent].kosten) + "," + self.talenteVariable[talent].kommentar)
-                else:
-                    talNode.set('variable','-1')
+                talNode = etree.SubElement(talentNode, 'Talent')
+                talNode.set('name', talent)
+                if talent in self.talenteVariableKosten:
+                    talNode.set('variableKosten', str(self.talenteVariableKosten[talent]))
+                if talent in self.talenteKommentare:
+                    talNode.set('kommentar', self.talenteKommentare[talent])
 
         for fert in self.freieFertigkeiten:
-            freiNode = etree.SubElement(fer,'Freie-Fertigkeit')
-            freiNode.set('name',fert.name)
-            freiNode.set('wert',str(fert.wert))
+            freiNode = etree.SubElement(fer, 'FreieFertigkeit')
+            freiNode.set('name', fert.name)
+            freiNode.set('wert', str(fert.wert))
         #Fünfter Block
-        aus = etree.SubElement(root,'Objekte')
+        aus = etree.SubElement(root, 'Objekte')
 
-        zonenSystem = etree.SubElement(aus,'Zonensystem')
-        zonenSystem.text = str(self.zonenSystemNutzen)
+        zonenSystem = etree.SubElement(aus, 'Zonensystem')
+        zonenSystem.text = "1" if self.zonenSystemNutzen else "0"
 
-        rüs = etree.SubElement(aus,'Rüstungen')
+        rüs = etree.SubElement(aus, 'Rüstungen')
         for rüst in self.rüstung:
-            rüsNode = etree.SubElement(rüs,'Rüstung')
-            rüsNode.set('name',rüst.name)
-            rüsNode.set('be',str(rüst.be))
-            rüsNode.set('rs',Hilfsmethoden.RsArray2Str(rüst.rs))
+            rüsNode = etree.SubElement(rüs, 'Rüstung')
+            rüsNode.set('name', rüst.name)
+            rüsNode.set('be', str(rüst.be))
+            rüsNode.set('rs', Hilfsmethoden.RsArray2Str(rüst.rs))
 
-        waf = etree.SubElement(aus,'Waffen')
+        waf = etree.SubElement(aus, 'Waffen')
         for waff in self.waffen:
-            wafNode = etree.SubElement(waf,'Waffe')
-            wafNode.set('name',waff.anzeigename)
-            wafNode.set('id',waff.name)
-            wafNode.set('W6',str(waff.W6))
-            wafNode.set('plus',str(waff.plus))
-            wafNode.set('eigenschaften',", ".join(waff.eigenschaften))
-            wafNode.set('haerte',str(waff.haerte))
-            wafNode.set('rw',str(waff.rw))
-            wafNode.set('kampfstil',waff.kampfstil)
-            wafNode.set('wm',str(waff.wm))
+            wafNode = etree.SubElement(waf, 'Waffe')
+            wafNode.set('name', waff.anzeigename)
+            wafNode.set('id', waff.name)
+            wafNode.set('würfel', str(waff.würfel))
+            wafNode.set('würfelSeiten', str(waff.würfelSeiten))
+            wafNode.set('plus', str(waff.plus))
+            wafNode.set('eigenschaften', ", ".join(waff.eigenschaften))
+            wafNode.set('härte', str(waff.haerte))
+            wafNode.set('rw', str(waff.rw))
+            wafNode.set('kampfstil', waff.kampfstil)
+            wafNode.set('wm', str(waff.wm))
             if type(waff) is Objekte.Nahkampfwaffe:
-                wafNode.set('typ','Nah')
+                wafNode.set('typ', 'Nah')
             elif type(waff) is Objekte.Fernkampfwaffe:
-                wafNode.set('typ','Fern')
-                wafNode.set('lz',str(waff.lz))
+                wafNode.set('typ', 'Fern')
+                wafNode.set('lz', str(waff.lz))
 
-        ausrüst = etree.SubElement(aus,'Ausrüstung')
+        ausrüst = etree.SubElement(aus, 'Ausrüstung')
         for ausr in self.ausrüstung:
-            etree.SubElement(ausrüst,'Ausrüstungsstück').text = ausr
+            etree.SubElement(ausrüst, 'Ausrüstungsstück').text = ausr
         #Sechster Block
-        üfer = etree.SubElement(root,'Übernatürliche-Fertigkeiten')
+        üfer = etree.SubElement(root, 'ÜbernatürlicheFertigkeiten')
         for fert in self.übernatürlicheFertigkeiten:
-            fertNode = etree.SubElement(üfer,'Übernatürliche-Fertigkeit')
-            fertNode.set('name',self.übernatürlicheFertigkeiten[fert].name)
-            fertNode.set('wert',str(self.übernatürlicheFertigkeiten[fert].wert))
-            fertNode.set('addToPDF',str(self.übernatürlicheFertigkeiten[fert].addToPDF))
-            talentNode = etree.SubElement(fertNode,'Talente')
+            fertNode = etree.SubElement(üfer, 'ÜbernatürlicheFertigkeit')
+            fertNode.set('name', self.übernatürlicheFertigkeiten[fert].name)
+            fertNode.set('wert', str(self.übernatürlicheFertigkeiten[fert].wert))
+            fertNode.set('exportieren', "1" if self.übernatürlicheFertigkeiten[fert].addToPDF else "0")
+            talentNode = etree.SubElement(fertNode, 'Talente')
             for talent in self.übernatürlicheFertigkeiten[fert].gekaufteTalente:
-                talNode = etree.SubElement(talentNode,'Talent')
-                talNode.set('name',talent)
-                if talent in self.talenteVariable:
-                    talNode.set('variable',str(self.talenteVariable[talent].kosten) + "," + self.talenteVariable[talent].kommentar)
-                else:
-                    talNode.set('variable','-1')
+                talNode = etree.SubElement(talentNode, 'Talent')
+                talNode.set('name', talent)
+                if talent in self.talenteVariableKosten:
+                    talNode.set('variableKosten', str(self.talenteVariableKosten[talent]))
+                if talent in self.talenteKommentare:
+                    talNode.set('kommentar', self.talenteKommentare[talent])
         #Siebter Block
-        epn = etree.SubElement(root,'Erfahrung')
-        etree.SubElement(epn,'EPtotal').text = str(self.EPtotal)
-        etree.SubElement(epn,'EPspent').text = str(self.EPspent)
+        epn = etree.SubElement(root, 'Erfahrung')
+        etree.SubElement(epn, 'Gesamt').text = str(self.epGesamt)
+        etree.SubElement(epn, 'Ausgegeben').text = str(self.epAusgegeben)
         
         #Achter Block
-        notiz =  etree.SubElement(root,'Notiz')
+        notiz =  etree.SubElement(root, 'Notiz')
         notiz.text = self.notiz
 
-        einstellungen = etree.SubElement(root,'Einstellungen')
-        etree.SubElement(einstellungen,'VoraussetzungenPruefen').text = "1" if self.voraussetzungenPruefen else "0"
-        etree.SubElement(einstellungen,'Charakterbogen').text = str(self.charakterbogen)
-        etree.SubElement(einstellungen,'FinanzenAnzeigen').text = "1" if self.finanzenAnzeigen else "0"
-        etree.SubElement(einstellungen,'UeberPDFAnzeigen').text = "1" if self.ueberPDFAnzeigen else "0"
-        etree.SubElement(einstellungen,'RegelnAnhaengen').text = "1" if self.regelnAnhaengen else "0"
-        etree.SubElement(einstellungen,'RegelnGroesse').text = str(self.regelnGroesse)
-        etree.SubElement(einstellungen,'RegelnKategorien').text = str(",".join(self.regelnKategorien))
-        etree.SubElement(einstellungen,'FormularEditierbarkeit').text = str(self.formularEditierbarkeit)
-        etree.SubElement(einstellungen,'Hausregeln').text = str(self.hausregeln or "")
+        einstellungen = etree.SubElement(root, 'Einstellungen')
+        etree.SubElement(einstellungen, 'VoraussetzungenPrüfen').text = "1" if self.voraussetzungenPruefen else "0"
+        etree.SubElement(einstellungen, 'Charakterbogen').text = str(self.charakterbogen)
+        etree.SubElement(einstellungen, 'FinanzenAnzeigen').text = "1" if self.finanzenAnzeigen else "0"
+        etree.SubElement(einstellungen, 'ÜbernatürlichesPDFSpalteAnzeigen').text = "1" if self.ueberPDFAnzeigen else "0"
+        etree.SubElement(einstellungen, 'RegelnAnhängen').text = "1" if self.regelnAnhaengen else "0"
+        etree.SubElement(einstellungen, 'RegelnGrösse').text = str(self.regelnGroesse)
+        etree.SubElement(einstellungen, 'RegelnKategorien').text = str(", ".join(self.regelnKategorien))
+        etree.SubElement(einstellungen, 'FormularEditierbarkeit').text = str(self.formularEditierbarkeit)
+        etree.SubElement(einstellungen, 'Hausregeln').text = str(self.hausregeln or "")
 
         #Neunter Block
-        sub =  etree.SubElement(root,'AllgemeineInfosExt')
-        etree.SubElement(sub,'kultur').text = self.kultur
-        etree.SubElement(sub,'profession').text = self.profession
-        etree.SubElement(sub,'geschlecht').text = self.geschlecht
-        etree.SubElement(sub,'geburtsdatum').text = self.geburtsdatum
-        etree.SubElement(sub,'groesse').text = self.groesse
-        etree.SubElement(sub,'gewicht').text = self.gewicht
-        etree.SubElement(sub,'haarfarbe').text = self.haarfarbe
-        etree.SubElement(sub,'augenfarbe').text = self.augenfarbe
-        etree.SubElement(sub,'titel').text = self.titel
-        etree.SubElement(sub,'aussehen1').text = self.aussehen1
-        etree.SubElement(sub,'aussehen2').text = self.aussehen2
-        etree.SubElement(sub,'aussehen3').text = self.aussehen3
-        etree.SubElement(sub,'aussehen4').text = self.aussehen4
-        etree.SubElement(sub,'aussehen5').text = self.aussehen5
-        etree.SubElement(sub,'aussehen6').text = self.aussehen6
-        etree.SubElement(sub,'hintergrund0').text = self.hintergrund0
-        etree.SubElement(sub,'hintergrund1').text = self.hintergrund1
-        etree.SubElement(sub,'hintergrund2').text = self.hintergrund2
-        etree.SubElement(sub,'hintergrund3').text = self.hintergrund3
-        etree.SubElement(sub,'hintergrund4').text = self.hintergrund4
-        etree.SubElement(sub,'hintergrund5').text = self.hintergrund5
-        etree.SubElement(sub,'hintergrund6').text = self.hintergrund6
-        etree.SubElement(sub,'hintergrund7').text = self.hintergrund7
-        etree.SubElement(sub,'hintergrund8').text = self.hintergrund8
+        sub =  etree.SubElement(root, 'BeschreibungDetails')
+        etree.SubElement(sub, 'Kultur').text = self.kultur
+        etree.SubElement(sub, 'Profession').text = self.profession
+        etree.SubElement(sub, 'Geschlecht').text = self.geschlecht
+        etree.SubElement(sub, 'Geburtsdatum').text = self.geburtsdatum
+        etree.SubElement(sub, 'Grösse').text = self.groesse
+        etree.SubElement(sub, 'Gewicht').text = self.gewicht
+        etree.SubElement(sub, 'Haarfarbe').text = self.haarfarbe
+        etree.SubElement(sub, 'Augenfarbe').text = self.augenfarbe
+        etree.SubElement(sub, 'Titel').text = self.titel
+        etree.SubElement(sub, 'Aussehen1').text = self.aussehen1
+        etree.SubElement(sub, 'Aussehen2').text = self.aussehen2
+        etree.SubElement(sub, 'Aussehen3').text = self.aussehen3
+        etree.SubElement(sub, 'Aussehen4').text = self.aussehen4
+        etree.SubElement(sub, 'Aussehen5').text = self.aussehen5
+        etree.SubElement(sub, 'Aussehen6').text = self.aussehen6
+        etree.SubElement(sub, 'Hintergrund0').text = self.hintergrund0
+        etree.SubElement(sub, 'Hintergrund1').text = self.hintergrund1
+        etree.SubElement(sub, 'Hintergrund2').text = self.hintergrund2
+        etree.SubElement(sub, 'Hintergrund3').text = self.hintergrund3
+        etree.SubElement(sub, 'Hintergrund4').text = self.hintergrund4
+        etree.SubElement(sub, 'Hintergrund5').text = self.hintergrund5
+        etree.SubElement(sub, 'Hintergrund6').text = self.hintergrund6
+        etree.SubElement(sub, 'Hintergrund7').text = self.hintergrund7
+        etree.SubElement(sub, 'Hintergrund8').text = self.hintergrund8
         if self.bild:
-            etree.SubElement(sub,'bild').text = base64.b64encode(self.bild)
+            etree.SubElement(sub, 'Bild').text = base64.b64encode(self.bild)
 
         #Plugins
         root = EventBus.applyFilter("charakter_xml_schreiben", root, { "charakter" : self, "filepath" : filename })
 
         #Write XML to file
         doc = etree.ElementTree(root)
-        with open(filename,'wb') as file:
+        with open(filename, 'wb') as file:
             file.seek(0)
             file.truncate()
             doc.write(file, encoding='UTF-8', pretty_print=True)
             file.truncate()
-
-    def charakterMigrieren(self, xmlRoot, charDBVersion, datenbankCodeVersion):
-        strArr = ["Weitere Informationen:"]
-        dbChanged = charDBVersion < datenbankCodeVersion
-        while charDBVersion < datenbankCodeVersion:
-            logging.warning("Migriere Charakter von Version " + str(charDBVersion ) + " zu " + str(charDBVersion + 1))
-            charDBVersion +=1
-            info = self.migrationen[charDBVersion](xmlRoot)
-            if info:
-                strArr.append(info)
-
-        if dbChanged:
-            messageBox = QtWidgets.QMessageBox()
-            messageBox.setIcon(QtWidgets.QMessageBox.Information)
-            messageBox.setWindowTitle("Charakter laden - Datenbank wurde aktualisiert.")
-            messageBox.setText("Seit du diesen Charakter das letzte mal bearbeitet hast wurde die offizielle Sephrasto-Datenbank aktualisiert. " \
-                              "Dein Charakter ist jetzt auf dem neuesten Stand. " \
-                              "Ausnahmen: Waffen werden nicht automatisch angepasst und behalten ihren (eventuell alten) Stand, ebenso alles was in Hausregeln geändert wurde.")
-            if len(strArr) > 1:
-                messageBox.setInformativeText("\n".join(strArr))
-            messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-            messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-            messageBox.exec()
 
     @staticmethod
     def xmlHausregelnLesen(filename):
@@ -1093,7 +1010,7 @@ class Char():
                     return os.path.basename(userDBXml.text)
         return None
 
-    def xmlLesen(self,filename):
+    def xmlLesen(self, filename):
         '''Läd ein Charakter-Objekt aus einer XML Datei, deren Dateiname 
         inklusive Pfad als Argument übergeben wird'''
         #Alles bisherige löschen
@@ -1101,12 +1018,15 @@ class Char():
         root = etree.parse(filename).getroot()
         #Erster Block
         versionXml = root.find('Version')
-        charDBVersion = 0
+        charakterVersion = 0
         userDBChanged = False
         userDBName = "Unbekannt"
         if versionXml is not None:
             logging.debug("Character: VersionXML found")
-            charDBVersion = int(versionXml.find('DatenbankVersion').text)
+
+            if versionXml.find('DatenbankVersion') is not None:
+                versionXml.find('DatenbankVersion').tag = 'CharakterVersion'
+            charakterVersion = int(versionXml.find('CharakterVersion').text)
             userDBCRC = int(versionXml.find('NutzerDatenbankCRC').text)
             userDBName = versionXml.find('NutzerDatenbankName').text or "Keine"
 
@@ -1118,35 +1038,45 @@ class Char():
                 userDBChanged = True
 
             if versionXml.find('Plugins') is not None and versionXml.find('Plugins').text:
-                self.enabledPlugins = versionXml.find('Plugins').text.split(",")
+                self.enabledPlugins = versionXml.find('Plugins').text.split(", ")
                 if "LangerBogenBeschreibung" in self.enabledPlugins:
                     self.enabledPlugins.remove("LangerBogenBeschreibung") # it is now part of Sephrasto, no data will be lost anymore
 
         logging.debug("Starting Character Migration")
-        self.charakterMigrieren(root, charDBVersion, self.datenbankCodeVersion)
+        updates = Migrationen.charakterMigrieren(self, root, charakterVersion)
+
+        if len(updates) > 0:
+            messageBox = QtWidgets.QMessageBox()
+            messageBox.setIcon(QtWidgets.QMessageBox.Information)
+            messageBox.setWindowTitle("Charakter laden - Datenbank wurde aktualisiert.")
+            messageBox.setText("Seit du diesen Charakter das letzte mal bearbeitet hast wurde die offizielle Sephrasto-Datenbank aktualisiert. " \
+                              "Dein Charakter ist jetzt auf dem neuesten Stand. " \
+                              "Ausnahmen: Waffen werden nicht automatisch angepasst und behalten ihren (eventuell alten) Stand, ebenso alles was in Hausregeln geändert wurde.")
+            messageBox.setInformativeText("Weitere Informationen:\n" + "\n".join(updates))
+            messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
+            messageBox.exec()
 
         #Plugins
         root = EventBus.applyFilter("charakter_xml_laden", root, { "charakter" : self })
 
         self.hausregeln = os.path.basename(Wolke.DB.datei) if Wolke.DB.datei else None
 
-        alg = root.find('AllgemeineInfos')
-        self.name = alg.find('name').text or ''
-        self.rasse = alg.find('rasse').text or ''
-        self.status = int(alg.find('status').text)
-        self.kurzbeschreibung = alg.find('kurzbeschreibung').text or ''
-        self.schips = int(alg.find('schips').text)
-        self.finanzen = int(alg.find('finanzen').text)
-        tmp = alg.find('heimat')
-        if not tmp is None: 
-            self.heimat = tmp.text
-            heimaten = Wolke.DB.findHeimaten()
-            if not self.heimat in heimaten:
-                if "Mittelreich" in heimaten:
-                    self.heimat = "Mittelreich"
-                else:
-                    self.heimat = heimaten[0] if len(heimaten) > 0 else ""
-        for eig in alg.findall('eigenheiten/*'):
+        alg = root.find('Beschreibung')
+        self.name = alg.find('Name').text or ''
+        self.spezies = alg.find('Spezies').text or ''
+        self.status = int(alg.find('Status').text)
+        self.kurzbeschreibung = alg.find('Kurzbeschreibung').text or ''
+        self.schips = int(alg.find('SchiP').text)
+        self.finanzen = int(alg.find('Finanzen').text)
+        self.heimat = alg.find('Heimat').text
+        heimaten = Wolke.DB.findHeimaten()
+        if not self.heimat in heimaten:
+            if "Mittelreich" in heimaten:
+                self.heimat = "Mittelreich"
+            else:
+                self.heimat = heimaten[0] if len(heimaten) > 0 else ""
+        for eig in alg.findall('Eigenheiten/*'):
             self.eigenheiten.append(eig.text or "")
         #Zweiter Block
         for atr in root.findall('Attribute/*'):
@@ -1174,11 +1104,15 @@ class Char():
                 vIgnored.append(vor.text)
                 continue
             self.vorteile.append(vor.text)
-            var = VariableKosten.parse(vor.get('variable'))
-            if var:
-                if not Wolke.DB.vorteile[vor.text].variableKosten:
-                    var.kosten = Wolke.DB.vorteile[vor.text].kosten
-                self.vorteileVariable[vor.text] = var
+
+            if 'variableKosten' in vor.attrib:
+                if Wolke.DB.vorteile[vor.text].variableKosten:
+                    self.vorteileVariableKosten[vor.text] = int(vor.get('variableKosten'))
+                else:
+                    self.vorteileVariableKosten[vor.text] = Wolke.DB.vorteile[vor.text].kosten
+
+            if 'kommentar' in vor.attrib:
+                self.vorteileKommentare[vor.text] = vor.get('kommentar')
 
         #Vierter Block
         for fer in root.findall('Fertigkeiten/Fertigkeit'):
@@ -1200,28 +1134,31 @@ class Char():
                     tIgnored.add(nam)
                     continue
                 fert.gekaufteTalente.append(nam)
-                var = VariableKosten.parse(tal.attrib['variable'])
-                if var:
+
+                if 'variableKosten' in tal.attrib:
                     #round down to nearest multiple in case of a db cost change
                     if Wolke.DB.talente[nam].variableKosten:
                         defaultKosten = self.getDefaultTalentCost(nam, fert.steigerungsfaktor)
-                        var.kosten = max(var.kosten - (var.kosten%defaultKosten), defaultKosten)
+                        kosten = int(tal.attrib['variableKosten'])
+                        self.talenteVariableKosten[nam] = max(kosten - (kosten % defaultKosten), defaultKosten)
                     else:
-                        var.kosten = self.getDefaultTalentCost(nam, fert.steigerungsfaktor)
-                    self.talenteVariable[nam] = var
+                        self.talenteVariableKosten[nam] = self.getDefaultTalentCost(nam, fert.steigerungsfaktor)
+
+                if 'kommentar' in tal.attrib:
+                    self.talenteKommentare[nam] = tal.attrib['kommentar']
+
             fert.aktualisieren(self.attribute)
             self.fertigkeiten.update({fert.name: fert})
 
-        for fer in root.findall('Fertigkeiten/Freie-Fertigkeit'):
+        for fer in root.findall('Fertigkeiten/FreieFertigkeit'):
             fert = Fertigkeiten.FreieFertigkeit()            
             fert.name = fer.attrib['name']
             fert.wert = int(fer.attrib['wert'])
             self.freieFertigkeiten.append(fert)
+
         #Fünfter Block
         objekte = root.find('Objekte');
-        zonenSystem = objekte.find('Zonensystem')
-        if zonenSystem != None:
-            self.zonenSystemNutzen = zonenSystem.text == "True"
+        self.zonenSystemNutzen = objekte.find('Zonensystem').text == "1"
 
         for rüs in objekte.findall('Rüstungen/Rüstung'):
             rüst = Objekte.Ruestung()
@@ -1236,15 +1173,16 @@ class Char():
             else:
                 waff = Objekte.Fernkampfwaffe()
                 waff.lz = int(waf.attrib['lz'])
-            waff.wm = int(waf.get('wm') or 0)
+            waff.wm = int(waf.get('wm'))
             waff.anzeigename = waf.attrib['name']
             waff.name = waf.get('id') or waff.anzeigename
             waff.rw = int(waf.attrib['rw'])
-            waff.W6 = int(waf.attrib['W6'])
+            waff.würfel = int(waf.attrib['würfel'])
+            waff.würfelSeiten = int(waf.attrib['würfelSeiten'])
             waff.plus = int(waf.attrib['plus'])
             if waf.attrib['eigenschaften']:
-                waff.eigenschaften = list(map(str.strip, waf.attrib['eigenschaften'].split(",")))
-            waff.haerte = int(waf.attrib['haerte'])
+                waff.eigenschaften = list(map(str.strip, waf.attrib['eigenschaften'].split(", ")))
+            waff.haerte = int(waf.attrib['härte'])
             waff.kampfstil = waf.attrib['kampfstil']
             if waff.name in Wolke.DB.waffen:
                 dbWaffe = Wolke.DB.waffen[waff.name]
@@ -1257,7 +1195,7 @@ class Char():
         for aus in objekte.findall('Ausrüstung/Ausrüstungsstück'):
             self.ausrüstung.append(aus.text or "")
         #Sechster Block 
-        for fer in root.findall('Übernatürliche-Fertigkeiten/Übernatürliche-Fertigkeit'):
+        for fer in root.findall('ÜbernatürlicheFertigkeiten/ÜbernatürlicheFertigkeit'):
             nam = fer.attrib['name']
             if not nam in Wolke.DB.übernatürlicheFertigkeiten:
                 übIgnored.append(nam)
@@ -1265,81 +1203,78 @@ class Char():
 
             fert = Wolke.DB.übernatürlicheFertigkeiten[nam].__deepcopy__()
             fert.wert = int(fer.attrib['wert'])
-            if 'addToPDF' in fer.attrib:
-                fert.addToPDF = fer.attrib['addToPDF'] == "True"
-            else:
-                fert.addToPDF = True # should stay enabled for old characters
+            fert.addToPDF = fer.attrib['exportieren'] == "1"
+
             for tal in fer.findall('Talente/Talent'):
                 nam = tal.attrib['name']
                 if not nam in Wolke.DB.talente:
                     tIgnored.add(nam)
                     continue
                 fert.gekaufteTalente.append(nam)
-                var = VariableKosten.parse(tal.attrib['variable'])
-                if var:
+
+                if 'variableKosten' in tal.attrib:
                     #round down to nearest multiple in case of a db cost change
-                    defaultKosten = self.getDefaultTalentCost(nam, fert.steigerungsfaktor)
-                    var.kosten = max(var.kosten - (var.kosten%defaultKosten), defaultKosten)
-                    self.talenteVariable[nam] = var
+                    if Wolke.DB.talente[nam].variableKosten:
+                        defaultKosten = self.getDefaultTalentCost(nam, fert.steigerungsfaktor)
+                        kosten = int(tal.attrib['variableKosten'])
+                        self.talenteVariableKosten[nam] = max(kosten - (kosten % defaultKosten), defaultKosten)
+                    else:
+                        self.talenteVariableKosten[nam] = self.getDefaultTalentCost(nam, fert.steigerungsfaktor)
+
+                if 'kommentar' in tal.attrib:
+                    self.talenteKommentare[nam] = tal.attrib['kommentar']
+
             fert.aktualisieren(self.attribute)
             self.übernatürlicheFertigkeiten.update({fert.name: fert})
         #Siebter Block
-        self.EPtotal = int(root.find('Erfahrung/EPtotal').text)
-        self.EPspent = int(root.find('Erfahrung/EPspent').text)   
+        self.epGesamt = int(root.find('Erfahrung/Gesamt').text)
+        self.epAusgegeben = int(root.find('Erfahrung/Ausgegeben').text)   
 
         #Achter Block
-        notiz = root.find('Notiz')
-        if notiz is not None:
-            self.notiz = notiz.text
+        self.notiz = root.find('Notiz').text
 
         einstellungen = root.find('Einstellungen')
-        if einstellungen is not None:
-            self.charakterbogen = einstellungen.find('Charakterbogen').text
-            if einstellungen.find('VoraussetzungenPruefen') is not None:
-                self.voraussetzungenPruefen = einstellungen.find('VoraussetzungenPruefen').text == "1"
-            self.finanzenAnzeigen = einstellungen.find('FinanzenAnzeigen').text == "1"
-            self.ueberPDFAnzeigen = einstellungen.find('UeberPDFAnzeigen').text == "1"
-            self.regelnAnhaengen = einstellungen.find('RegelnAnhaengen').text == "1"
-            self.regelnGroesse = int(einstellungen.find('RegelnGroesse').text)
-            if einstellungen.find('FormularEditierbarkeit') is not None:
-                self.formularEditierbarkeit = int(einstellungen.find('FormularEditierbarkeit').text)
-            if einstellungen.find('RegelnKategorien') is not None:
-                self.regelnKategorien = list(map(str.strip, einstellungen.find('RegelnKategorien').text.split(",")))
+        self.charakterbogen = einstellungen.find('Charakterbogen').text
+        self.voraussetzungenPruefen = einstellungen.find('VoraussetzungenPrüfen').text == "1"
+        self.finanzenAnzeigen = einstellungen.find('FinanzenAnzeigen').text == "1"
+        self.ueberPDFAnzeigen = einstellungen.find('ÜbernatürlichesPDFSpalteAnzeigen').text == "1"
+        self.regelnAnhaengen = einstellungen.find('RegelnAnhängen').text == "1"
+        self.regelnGroesse = int(einstellungen.find('RegelnGrösse').text)
+        self.formularEditierbarkeit = int(einstellungen.find('FormularEditierbarkeit').text)
+        self.regelnKategorien = list(map(str.strip, einstellungen.find('RegelnKategorien').text.split(", ")))
 
         #Neunter Block
-        alg = root.find('AllgemeineInfosExt')
-        if alg is not None:
-            if alg.find('kultur') is not None:
-                self.kultur = alg.find('kultur').text
-            self.profession = alg.find('profession').text or ''
-            self.geschlecht = alg.find('geschlecht').text or ''
-            self.geburtsdatum = alg.find('geburtsdatum').text or ''
-            self.groesse = alg.find('groesse').text or ''
-            self.gewicht = alg.find('gewicht').text or ''
-            self.haarfarbe = alg.find('haarfarbe').text or ''
-            self.augenfarbe = alg.find('augenfarbe').text or ''
-            self.titel = alg.find('titel').text or ''
+        alg = root.find('BeschreibungDetails')
+        self.kultur = alg.find('Kultur').text
+        self.profession = alg.find('Profession').text or ''
+        self.geschlecht = alg.find('Geschlecht').text or ''
+        self.geburtsdatum = alg.find('Geburtsdatum').text or ''
+        self.groesse = alg.find('Grösse').text or ''
+        self.gewicht = alg.find('Gewicht').text or ''
+        self.haarfarbe = alg.find('Haarfarbe').text or ''
+        self.augenfarbe = alg.find('Augenfarbe').text or ''
+        self.titel = alg.find('Titel').text or ''
 
-            self.aussehen1 = alg.find('aussehen1').text or ''
-            self.aussehen2 = alg.find('aussehen2').text or ''
-            self.aussehen3 = alg.find('aussehen3').text or ''
-            self.aussehen4 = alg.find('aussehen4').text or ''
-            self.aussehen5 = alg.find('aussehen5').text or ''
-            self.aussehen6 = alg.find('aussehen6').text or ''
+        self.aussehen1 = alg.find('Aussehen1').text or ''
+        self.aussehen2 = alg.find('Aussehen2').text or ''
+        self.aussehen3 = alg.find('Aussehen3').text or ''
+        self.aussehen4 = alg.find('Aussehen4').text or ''
+        self.aussehen5 = alg.find('Aussehen5').text or ''
+        self.aussehen6 = alg.find('Aussehen6').text or ''
 
-            self.hintergrund0 = alg.find('hintergrund0').text or ''
-            self.hintergrund1 = alg.find('hintergrund1').text or ''
-            self.hintergrund2 = alg.find('hintergrund2').text or ''
-            self.hintergrund3 = alg.find('hintergrund3').text or ''
-            self.hintergrund4 = alg.find('hintergrund4').text or ''
-            self.hintergrund5 = alg.find('hintergrund5').text or ''
-            self.hintergrund6 = alg.find('hintergrund6').text or ''
-            self.hintergrund7 = alg.find('hintergrund7').text or ''
-            self.hintergrund8 = alg.find('hintergrund8').text or ''
+        self.hintergrund0 = alg.find('Hintergrund0').text or ''
+        self.hintergrund1 = alg.find('Hintergrund1').text or ''
+        self.hintergrund2 = alg.find('Hintergrund2').text or ''
+        self.hintergrund3 = alg.find('Hintergrund3').text or ''
+        self.hintergrund4 = alg.find('Hintergrund4').text or ''
+        self.hintergrund5 = alg.find('Hintergrund5').text or ''
+        self.hintergrund6 = alg.find('Hintergrund6').text or ''
+        self.hintergrund7 = alg.find('Hintergrund7').text or ''
+        self.hintergrund8 = alg.find('Hintergrund8').text or ''
 
-            if alg.find('bild') is not None:
-                byteArray = bytes(alg.find('bild').text, 'utf-8')
-                self.bild = base64.b64decode(byteArray)
+        if alg.find('Bild') is not None:
+            byteArray = bytes(alg.find('Bild').text, 'utf-8')
+            self.bild = base64.b64decode(byteArray)
 
         EventBus.doAction("charakter_xml_geladen", { "charakter" : self , "xmlRoot" : root })
 

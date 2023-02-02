@@ -62,7 +62,7 @@ class RuestungPicker(object):
         self.ui.treeArmors.itemSelectionChanged.connect(self.changeHandler)
         self.ui.treeArmors.itemDoubleClicked.connect(lambda item, column: self.ui.buttonBox.buttons()[0].click())
         self.ui.treeArmors.header().setSectionResizeMode(0,QtWidgets.QHeaderView.Fixed)
-        self.ui.treeArmors.setFocus()
+        self.ui.nameFilterEdit.setFocus()
         self.updateInfo()
         logging.debug("Info Updated...")
         self.ui.nameFilterEdit.textChanged.connect(self.populateTree)

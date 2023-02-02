@@ -153,7 +153,7 @@ class PdfExporter(object):
     def pdfErsterBlock(self, fields):
         logging.debug("PDF Block 1")
         fields['Name'] = Wolke.Char.name
-        fields['Rasse'] = Wolke.Char.rasse
+        fields['Rasse'] = Wolke.Char.spezies
         fields['Kultur'] = Wolke.Char.heimat
         fields['Statu'] = Definitionen.Statusse[Wolke.Char.status]
         fields['Finanzen'] = Definitionen.Finanzen[Wolke.Char.finanzen]
@@ -450,8 +450,8 @@ class PdfExporter(object):
                 if el.plus >= 0:
                     sg = "+"
 
-                keinSchaden = el.W6 == 0 and el.plus == 0
-                fields[base + 'TP'] = "-" if keinSchaden else str(el.W6) + "W6" + sg + str(el.plus)
+                keinSchaden = el.würfel == 0 and el.plus == 0
+                fields[base + 'TP'] = "-" if keinSchaden else str(el.würfel) + "W" + str(el.würfelSeiten) + sg + str(el.plus)
                 fields[base + 'HA'] = str(waffenwerte.Haerte)
                 fields[base + 'EI'] = ", ".join(el.eigenschaften)
 
@@ -473,7 +473,7 @@ class PdfExporter(object):
                 sg = ""
                 if waffenwerte.TPPlus >= 0:
                     sg = "+"
-                fields[base + 'TPm'] = "-" if keinSchaden else str(waffenwerte.TPW6) + "W6" + sg + str(waffenwerte.TPPlus)
+                fields[base + 'TPm'] = "-" if keinSchaden else str(waffenwerte.TPW6) + "W" + str(el.würfelSeiten) + sg + str(waffenwerte.TPPlus)
 
         # Fill 20 Cells of Ausrüstung
         count = 1
@@ -560,7 +560,7 @@ class PdfExporter(object):
         fertigkeitsTypen = Wolke.DB.einstellungen["Fertigkeiten: Typen übernatürlich"].toTextList()
         for talent in überTalenteTmp:
             if lastGroup != talent.groupFert:
-                if lastGroup is None or lastGroup.printclass != talent.groupFert.printclass or talent.groupFert.talenteGruppieren:
+                if lastGroup is None or lastGroup.typ != talent.groupFert.typ or talent.groupFert.talenteGruppieren:
                     if lastGroup is not None:
                         tbEmpty = Talentbox.Talentbox()
                         tbEmpty.pw = ''
@@ -569,8 +569,8 @@ class PdfExporter(object):
                     tb = Talentbox.Talentbox()
                     tb.pw = ''
                     tb.anzeigeName = talent.groupFert.name.upper()
-                    if not talent.groupFert.talenteGruppieren and talent.groupFert.printclass < len(fertigkeitsTypen):
-                        tb.anzeigeName = fertigkeitsTypen[talent.groupFert.printclass].upper()
+                    if not talent.groupFert.talenteGruppieren and talent.groupFert.typ < len(fertigkeitsTypen):
+                        tb.anzeigeName = fertigkeitsTypen[talent.groupFert.typ].upper()
                     überTalente.append(tb)
                 lastGroup = talent.groupFert
 
@@ -584,9 +584,9 @@ class PdfExporter(object):
 
     def pdfSiebterBlock(self, fields):
         logging.debug("PDF Block 7")
-        fields['ErfahGE'] = Wolke.Char.EPtotal
-        fields['ErfahEI'] = Wolke.Char.EPspent
-        fields['ErfahVE'] = Wolke.Char.EPtotal - Wolke.Char.EPspent
+        fields['ErfahGE'] = Wolke.Char.epGesamt
+        fields['ErfahEI'] = Wolke.Char.epAusgegeben
+        fields['ErfahVE'] = Wolke.Char.epGesamt - Wolke.Char.epAusgegeben
 
     def pdfAchterBlock(self, fields):
         if Wolke.Char.kultur:

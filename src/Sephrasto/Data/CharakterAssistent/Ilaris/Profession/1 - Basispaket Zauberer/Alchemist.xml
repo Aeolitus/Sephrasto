@@ -1,20 +1,20 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>2</DatenbankVersion>
+    <DatenbankVersion>3</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
     <NutzerDatenbankName></NutzerDatenbankName>
     <Plugins></Plugins>
   </Version>
-  <AllgemeineInfos>
-    <name></name>
-    <rasse></rasse>
-    <status>2</status>
-    <kurzbeschreibung></kurzbeschreibung>
-    <schips>4</schips>
-    <finanzen>2</finanzen>
-    <heimat>Mittelreich</heimat>
-    <eigenheiten/>
-  </AllgemeineInfos>
+  <Beschreibung>
+    <Name></Name>
+    <Spezies></Spezies>
+    <Status>2</Status>
+    <Kurzbeschreibung></Kurzbeschreibung>
+    <SchiP>4</SchiP>
+    <Finanzen>2</Finanzen>
+    <Heimat>Mittelreich</Heimat>
+    <Eigenheiten/>
+  </Beschreibung>
   <Attribute>
     <KO>0</KO>
     <MU>0</MU>
@@ -30,8 +30,8 @@
     <KaP wert="0"/>
   </Energien>
   <Vorteile minderpakt="">
-    <Vorteil variable="-1">Zauberer I</Vorteil>
-    <Vorteil variable="-1">Tradition der Alchemisten I</Vorteil>
+    <Vorteil>Zauberer I</Vorteil>
+    <Vorteil>Tradition der Alchemisten I</Vorteil>
   </Vorteile>
   <Fertigkeiten>
     <Fertigkeit name="Handgemenge" wert="0">
@@ -72,7 +72,7 @@
     </Fertigkeit>
     <Fertigkeit name="Gebräuche" wert="0">
       <Talente>
-        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
+        <Talent name="Gebräuche: Mittelreich"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Derekunde" wert="0">
@@ -101,121 +101,124 @@
     </Fertigkeit>
   </Fertigkeiten>
   <Objekte>
-    <Zonensystem>False</Zonensystem>
+    <Zonensystem>0</Zonensystem>
     <Rüstungen>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung/>
   </Objekte>
-  <Übernatürliche-Fertigkeiten>
-    <Übernatürliche-Fertigkeit name="Antimagie" wert="0" addToPDF="False">
+  <ÜbernatürlicheFertigkeiten>
+    <ÜbernatürlicheFertigkeit name="Antimagie" wert="0" exportieren="0">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Dämonisch" wert="0" addToPDF="False">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Dämonisch" wert="0" exportieren="0">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Eigenschaften" wert="0" addToPDF="False">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Eigenschaften" wert="0" exportieren="0">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Einfluss" wert="0" addToPDF="False">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Einfluss" wert="0" exportieren="0">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Eis" wert="0" addToPDF="False">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Eis" wert="0" exportieren="0">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Erz" wert="0" addToPDF="False">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Erz" wert="0" exportieren="0">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Feuer" wert="0" addToPDF="False">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Feuer" wert="0" exportieren="0">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Hellsicht" wert="0" addToPDF="False">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Hellsicht" wert="0" exportieren="0">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Humus" wert="0" addToPDF="False">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Humus" wert="0" exportieren="0">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Illusion" wert="0" addToPDF="False">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Illusion" wert="0" exportieren="0">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Kraft" wert="0" addToPDF="False">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Kraft" wert="0" exportieren="0">
       <Talente>
-        <Talent name="Bindung der Schale" variable="-1"/>
+        <Talent name="Bindung der Schale"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Luft" wert="0" addToPDF="False">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Luft" wert="0" exportieren="0">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Temporal" wert="0" addToPDF="False">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Temporal" wert="0" exportieren="0">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Umwelt" wert="0" addToPDF="False">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Umwelt" wert="0" exportieren="0">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Verständigung" wert="0" addToPDF="False">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Verständigung" wert="0" exportieren="0">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Verwandlung" wert="0" addToPDF="False">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Verwandlung" wert="0" exportieren="0">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Wasser" wert="0" addToPDF="False">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Wasser" wert="0" exportieren="0">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Schalenzauber" wert="0" addToPDF="False">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Schalenzauber" wert="0" exportieren="0">
       <Talente>
-        <Talent name="Bindung der Schale" variable="-1"/>
+        <Talent name="Bindung der Schale"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-  </Übernatürliche-Fertigkeiten>
+    </ÜbernatürlicheFertigkeit>
+  </ÜbernatürlicheFertigkeiten>
   <Erfahrung>
-    <EPtotal>0</EPtotal>
-    <EPspent>240</EPspent>
+    <Gesamt>0</Gesamt>
+    <Ausgegeben>240</Ausgegeben>
   </Erfahrung>
   <Notiz/>
   <Einstellungen>
+    <VoraussetzungenPrüfen>1</VoraussetzungenPrüfen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
-    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
-    <RegelnAnhaengen>1</RegelnAnhaengen>
-    <RegelnGroesse>0</RegelnGroesse>
+    <ÜbernatürlichesPDFSpalteAnzeigen>0</ÜbernatürlichesPDFSpalteAnzeigen>
+    <RegelnAnhängen>1</RegelnAnhängen>
+    <RegelnGrösse>0</RegelnGrösse>
+    <RegelnKategorien>V0, V1, M9, V2, V3, M5, W, M8, M0, M1, V4, V5, M2, M4, Z, V6, V7, M3, M7, L, V8, M6, A, M10</RegelnKategorien>
+    <FormularEditierbarkeit>0</FormularEditierbarkeit>
     <Hausregeln></Hausregeln>
   </Einstellungen>
-  <AllgemeineInfosExt>
-    <kultur></kultur>
-    <profession></profession>
-    <geschlecht></geschlecht>
-    <geburtsdatum></geburtsdatum>
-    <groesse></groesse>
-    <gewicht></gewicht>
-    <haarfarbe></haarfarbe>
-    <augenfarbe></augenfarbe>
-    <titel></titel>
-    <aussehen1></aussehen1>
-    <aussehen2></aussehen2>
-    <aussehen3></aussehen3>
-    <aussehen4></aussehen4>
-    <aussehen5></aussehen5>
-    <aussehen6></aussehen6>
-    <hintergrund0></hintergrund0>
-    <hintergrund1></hintergrund1>
-    <hintergrund2></hintergrund2>
-    <hintergrund3></hintergrund3>
-    <hintergrund4></hintergrund4>
-    <hintergrund5></hintergrund5>
-    <hintergrund6></hintergrund6>
-    <hintergrund7></hintergrund7>
-    <hintergrund8></hintergrund8>
-  </AllgemeineInfosExt>
+  <BeschreibungDetails>
+    <Kultur/>
+    <Profession></Profession>
+    <Geschlecht></Geschlecht>
+    <Geburtsdatum></Geburtsdatum>
+    <Grösse></Grösse>
+    <Gewicht></Gewicht>
+    <Haarfarbe></Haarfarbe>
+    <Augenfarbe></Augenfarbe>
+    <Titel></Titel>
+    <Aussehen1></Aussehen1>
+    <Aussehen2></Aussehen2>
+    <Aussehen3></Aussehen3>
+    <Aussehen4></Aussehen4>
+    <Aussehen5></Aussehen5>
+    <Aussehen6></Aussehen6>
+    <Hintergrund0></Hintergrund0>
+    <Hintergrund1></Hintergrund1>
+    <Hintergrund2></Hintergrund2>
+    <Hintergrund3></Hintergrund3>
+    <Hintergrund4></Hintergrund4>
+    <Hintergrund5></Hintergrund5>
+    <Hintergrund6></Hintergrund6>
+    <Hintergrund7></Hintergrund7>
+    <Hintergrund8></Hintergrund8>
+  </BeschreibungDetails>
 </Charakter>

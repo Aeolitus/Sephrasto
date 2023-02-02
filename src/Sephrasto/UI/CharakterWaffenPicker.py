@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterWaffenPicker.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.0
+## Created by: Qt User Interface Compiler version 6.4.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -93,37 +93,14 @@ class Ui_Dialog(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 375, 459))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 407, 459))
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.labelTalent = QLabel(self.scrollAreaWidgetContents)
-        self.labelTalent.setObjectName(u"labelTalent")
-        self.labelTalent.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-        self.labelTalent.setWordWrap(True)
+        self.labelEigenschaften = QLabel(self.scrollAreaWidgetContents)
+        self.labelEigenschaften.setObjectName(u"labelEigenschaften")
+        self.labelEigenschaften.setWordWrap(True)
 
-        self.gridLayout.addWidget(self.labelTalent, 3, 1, 1, 1)
-
-        self.labelWMLZ = QLabel(self.scrollAreaWidgetContents)
-        self.labelWMLZ.setObjectName(u"labelWMLZ")
-        self.labelWMLZ.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout.addWidget(self.labelWMLZ, 8, 1, 1, 1)
-
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout.addItem(self.verticalSpacer, 11, 0, 1, 1)
-
-        self.label_4 = QLabel(self.scrollAreaWidgetContents)
-        self.label_4.setObjectName(u"label_4")
-
-        self.gridLayout.addWidget(self.label_4, 7, 0, 1, 1)
-
-        self.line = QFrame(self.scrollAreaWidgetContents)
-        self.line.setObjectName(u"line")
-        self.line.setFrameShape(QFrame.HLine)
-        self.line.setFrameShadow(QFrame.Sunken)
-
-        self.gridLayout.addWidget(self.line, 5, 0, 1, 2)
+        self.gridLayout.addWidget(self.labelEigenschaften, 11, 0, 1, 2)
 
         self.labelFert = QLabel(self.scrollAreaWidgetContents)
         self.labelFert.setObjectName(u"labelFert")
@@ -132,22 +109,36 @@ class Ui_Dialog(object):
 
         self.gridLayout.addWidget(self.labelFert, 2, 1, 1, 1)
 
+        self.labelH = QLabel(self.scrollAreaWidgetContents)
+        self.labelH.setObjectName(u"labelH")
+        self.labelH.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout.addWidget(self.labelH, 10, 1, 1, 1)
+
+        self.labelTalent = QLabel(self.scrollAreaWidgetContents)
+        self.labelTalent.setObjectName(u"labelTalent")
+        self.labelTalent.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.labelTalent.setWordWrap(True)
+
+        self.gridLayout.addWidget(self.labelTalent, 3, 1, 1, 1)
+
         self.labelRW = QLabel(self.scrollAreaWidgetContents)
         self.labelRW.setObjectName(u"labelRW")
         self.labelRW.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
         self.gridLayout.addWidget(self.labelRW, 7, 1, 1, 1)
 
-        self.label_3 = QLabel(self.scrollAreaWidgetContents)
-        self.label_3.setObjectName(u"label_3")
+        self.labelKampfstile = QLabel(self.scrollAreaWidgetContents)
+        self.labelKampfstile.setObjectName(u"labelKampfstile")
+        self.labelKampfstile.setWordWrap(True)
 
-        self.gridLayout.addWidget(self.label_3, 3, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelKampfstile, 4, 0, 1, 2)
 
-        self.labelEigenschaften = QLabel(self.scrollAreaWidgetContents)
-        self.labelEigenschaften.setObjectName(u"labelEigenschaften")
-        self.labelEigenschaften.setWordWrap(True)
+        self.labelTP = QLabel(self.scrollAreaWidgetContents)
+        self.labelTP.setObjectName(u"labelTP")
+        self.labelTP.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout.addWidget(self.labelEigenschaften, 10, 0, 1, 2)
+        self.gridLayout.addWidget(self.labelTP, 6, 1, 1, 1)
 
         self.labelName = QLabel(self.scrollAreaWidgetContents)
         self.labelName.setObjectName(u"labelName")
@@ -157,11 +148,12 @@ class Ui_Dialog(object):
 
         self.gridLayout.addWidget(self.labelName, 0, 0, 1, 1)
 
-        self.labelKampfstile = QLabel(self.scrollAreaWidgetContents)
-        self.labelKampfstile.setObjectName(u"labelKampfstile")
-        self.labelKampfstile.setWordWrap(True)
+        self.line = QFrame(self.scrollAreaWidgetContents)
+        self.line.setObjectName(u"line")
+        self.line.setFrameShape(QFrame.HLine)
+        self.line.setFrameShadow(QFrame.Sunken)
 
-        self.gridLayout.addWidget(self.labelKampfstile, 4, 0, 1, 2)
+        self.gridLayout.addWidget(self.line, 5, 0, 1, 2)
 
         self.label_2 = QLabel(self.scrollAreaWidgetContents)
         self.label_2.setObjectName(u"label_2")
@@ -169,32 +161,21 @@ class Ui_Dialog(object):
 
         self.gridLayout.addWidget(self.label_2, 6, 0, 1, 1)
 
-        self.labelWMLZ_Text = QLabel(self.scrollAreaWidgetContents)
-        self.labelWMLZ_Text.setObjectName(u"labelWMLZ_Text")
-
-        self.gridLayout.addWidget(self.labelWMLZ_Text, 8, 0, 1, 1)
-
         self.label_10 = QLabel(self.scrollAreaWidgetContents)
         self.label_10.setObjectName(u"label_10")
 
-        self.gridLayout.addWidget(self.label_10, 9, 0, 1, 1)
+        self.gridLayout.addWidget(self.label_10, 10, 0, 1, 1)
 
-        self.labelH = QLabel(self.scrollAreaWidgetContents)
-        self.labelH.setObjectName(u"labelH")
-        self.labelH.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.label_3 = QLabel(self.scrollAreaWidgetContents)
+        self.label_3.setObjectName(u"label_3")
 
-        self.gridLayout.addWidget(self.labelH, 9, 1, 1, 1)
+        self.gridLayout.addWidget(self.label_3, 3, 0, 1, 1)
 
-        self.label = QLabel(self.scrollAreaWidgetContents)
-        self.label.setObjectName(u"label")
+        self.labelWM = QLabel(self.scrollAreaWidgetContents)
+        self.labelWM.setObjectName(u"labelWM")
+        self.labelWM.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout.addWidget(self.label, 2, 0, 1, 1)
-
-        self.labelTP = QLabel(self.scrollAreaWidgetContents)
-        self.labelTP.setObjectName(u"labelTP")
-        self.labelTP.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout.addWidget(self.labelTP, 6, 1, 1, 1)
+        self.gridLayout.addWidget(self.labelWM, 8, 1, 1, 1)
 
         self.labelTyp = QLabel(self.scrollAreaWidgetContents)
         self.labelTyp.setObjectName(u"labelTyp")
@@ -204,6 +185,36 @@ class Ui_Dialog(object):
         self.labelTyp.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.gridLayout.addWidget(self.labelTyp, 1, 0, 1, 2)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout.addItem(self.verticalSpacer, 12, 0, 1, 1)
+
+        self.label = QLabel(self.scrollAreaWidgetContents)
+        self.label.setObjectName(u"label")
+
+        self.gridLayout.addWidget(self.label, 2, 0, 1, 1)
+
+        self.labelWM_Text = QLabel(self.scrollAreaWidgetContents)
+        self.labelWM_Text.setObjectName(u"labelWM_Text")
+
+        self.gridLayout.addWidget(self.labelWM_Text, 8, 0, 1, 1)
+
+        self.label_4 = QLabel(self.scrollAreaWidgetContents)
+        self.label_4.setObjectName(u"label_4")
+
+        self.gridLayout.addWidget(self.label_4, 7, 0, 1, 1)
+
+        self.labelLZ_Text = QLabel(self.scrollAreaWidgetContents)
+        self.labelLZ_Text.setObjectName(u"labelLZ_Text")
+
+        self.gridLayout.addWidget(self.labelLZ_Text, 9, 0, 1, 1)
+
+        self.labelLZ = QLabel(self.scrollAreaWidgetContents)
+        self.labelLZ.setObjectName(u"labelLZ")
+        self.labelLZ.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout.addWidget(self.labelLZ, 9, 1, 1, 1)
 
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
@@ -237,23 +248,25 @@ class Ui_Dialog(object):
         ___qtreewidgetitem = self.treeWeapons.headerItem()
         ___qtreewidgetitem.setText(1, QCoreApplication.translate("Dialog", u"Talent", None));
         ___qtreewidgetitem.setText(0, QCoreApplication.translate("Dialog", u"Name", None));
-        self.labelTalent.setText(QCoreApplication.translate("Dialog", u"Einhandhiebwaffen", None))
-        self.labelWMLZ.setText(QCoreApplication.translate("Dialog", u"-1", None))
-        self.label_4.setText(QCoreApplication.translate("Dialog", u"Reichweite:", None))
-        self.labelFert.setText(QCoreApplication.translate("Dialog", u"Hiebwaffen", None))
-        self.labelRW.setText(QCoreApplication.translate("Dialog", u"1", None))
-        self.label_3.setText(QCoreApplication.translate("Dialog", u"Talent:", None))
         self.labelEigenschaften.setText(QCoreApplication.translate("Dialog", u"Eigenschaften:", None))
+        self.labelFert.setText(QCoreApplication.translate("Dialog", u"Hiebwaffen", None))
+        self.labelH.setText(QCoreApplication.translate("Dialog", u"8", None))
+        self.labelTalent.setText(QCoreApplication.translate("Dialog", u"Einhandhiebwaffen", None))
+        self.labelRW.setText(QCoreApplication.translate("Dialog", u"1", None))
+        self.labelKampfstile.setText(QCoreApplication.translate("Dialog", u"Kampfstile:", None))
+        self.labelTP.setText(QCoreApplication.translate("Dialog", u"2W6+2", None))
         self.labelName.setText(QCoreApplication.translate("Dialog", u"Brabakbengel", None))
         self.labelName.setProperty("class", QCoreApplication.translate("Dialog", u"h4", None))
-        self.labelKampfstile.setText(QCoreApplication.translate("Dialog", u"Kampfstile:", None))
         self.label_2.setText(QCoreApplication.translate("Dialog", u"Trefferpunkte:", None))
-        self.labelWMLZ_Text.setText(QCoreApplication.translate("Dialog", u"Waffenmodifikator:", None))
         self.label_10.setText(QCoreApplication.translate("Dialog", u"H\u00e4rte:", None))
-        self.labelH.setText(QCoreApplication.translate("Dialog", u"8", None))
-        self.label.setText(QCoreApplication.translate("Dialog", u"Fertigkeit:", None))
-        self.labelTP.setText(QCoreApplication.translate("Dialog", u"2W6+2", None))
+        self.label_3.setText(QCoreApplication.translate("Dialog", u"Talent:", None))
+        self.labelWM.setText(QCoreApplication.translate("Dialog", u"-1", None))
         self.labelTyp.setText(QCoreApplication.translate("Dialog", u"Nahkampfwaffe", None))
         self.labelTyp.setProperty("class", QCoreApplication.translate("Dialog", u"italic", None))
+        self.label.setText(QCoreApplication.translate("Dialog", u"Fertigkeit:", None))
+        self.labelWM_Text.setText(QCoreApplication.translate("Dialog", u"Waffenmodifikator:", None))
+        self.label_4.setText(QCoreApplication.translate("Dialog", u"Reichweite:", None))
+        self.labelLZ_Text.setText(QCoreApplication.translate("Dialog", u"Ladezeit:", None))
+        self.labelLZ.setText(QCoreApplication.translate("Dialog", u"0", None))
     # retranslateUi
 

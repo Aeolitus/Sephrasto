@@ -65,7 +65,7 @@ class CharakterPrintUtility:
 
     @staticmethod
     def getFertigkeiten(char):
-        return sorted(char.fertigkeiten, key = lambda x: (Wolke.DB.fertigkeiten[x].printclass, x))
+        return sorted(char.fertigkeiten, key = lambda x: (Wolke.DB.fertigkeiten[x].typ, x))
 
     @staticmethod
     def getTalente(char, fertigkeit, nurHöchsteFertigkeit = False):
@@ -109,7 +109,7 @@ class CharakterPrintUtility:
     @staticmethod
     def getÜberFertigkeiten(char):
         ferts = [f for f in char.übernatürlicheFertigkeiten if char.übernatürlicheFertigkeiten[f].addToPDF]
-        ferts = sorted(ferts, key = lambda f: (Wolke.DB.übernatürlicheFertigkeiten[f].printclass, f))
+        ferts = sorted(ferts, key = lambda f: (Wolke.DB.übernatürlicheFertigkeiten[f].typ, f))
         return ferts
 
     @staticmethod
@@ -171,9 +171,9 @@ class CharakterPrintUtility:
             if tt.groupFert is None:
                 return (0, "", tt.na)
             elif tt.groupFert.talenteGruppieren:
-               return (tt.groupFert.printclass, tt.groupFert.name, tt.na)
+               return (tt.groupFert.typ, tt.groupFert.name, tt.na)
             else:
-               return (tt.groupFert.printclass, "", tt.na)
+               return (tt.groupFert.typ, "", tt.na)
 
         talentBoxes.sort(key = lambda tt: sortTalents(tt))
         return talentBoxes
@@ -186,9 +186,9 @@ class CharakterPrintUtility:
         liturgien = []
         anrufungen = []
         for tal in talentboxList:
-            if tal.groupFert is not None and tal.groupFert.printclass in liturgieTypen:
+            if tal.groupFert is not None and tal.groupFert.typ in liturgieTypen:
                 liturgien.append(tal)
-            elif tal.groupFert is not None and tal.groupFert.printclass in anrufungTypen:
+            elif tal.groupFert is not None and tal.groupFert.typ in anrufungTypen:
                 anrufungen.append(tal)
             else:
                 zauber.append(tal)
@@ -334,7 +334,7 @@ class CharakterPrintUtility:
                 name2 = CharakterPrintUtility.getLinkedName(char, vorteil2, forceKommentar)
 
                 #allgemeine vorteile, kampfstile and traditionen only keep the last name (except vorteil is variable with a comment)
-                if (not (vorteil.name in char.vorteileVariable) or not char.vorteileVariable[vorteil.name].kommentar)\
+                if (not (vorteil.name in char.vorteileVariableKosten) or not (vorteil.name in char.vorteileKommentare))\
                    and (vorteil2.typ in vorteilsnamenErsetzen):
                     name = name2
                 else:
@@ -362,9 +362,8 @@ class CharakterPrintUtility:
     def getLinkedDescription(char, vorteil):
         beschreibung = vorteil.cheatsheetBeschreibung.replace("\n\n", "\n")
         if beschreibung:
-            if vorteil.name in char.vorteileVariable:
-                if "$kommentar$" in beschreibung:
-                    beschreibung = beschreibung.replace("$kommentar$", char.vorteileVariable[vorteil.name].kommentar)
+            if vorteil.name in char.vorteileKommentare and "$kommentar$" in beschreibung:
+                beschreibung = beschreibung.replace("$kommentar$", char.vorteileKommentare[vorteil.name])
         else:
             beschreibung = vorteil.text.replace("\n\n", "\n")
 
@@ -376,7 +375,7 @@ class CharakterPrintUtility:
 
                 if vorteil2.typ in beschreibungenErsetzen:
                     #allgemeine vorteile replace the description of what they link to (except vorteil is variable with a comment)
-                    if not (vorteil.name in char.vorteileVariable) or not char.vorteileVariable[vorteil.name].kommentar:
+                    if not (vorteil.name in char.vorteileVariableKosten) or not (vorteil.name in char.vorteileKommentare):
                         beschreibung = beschreibung2
                     else:
                         beschreibung += "\n" + beschreibung2

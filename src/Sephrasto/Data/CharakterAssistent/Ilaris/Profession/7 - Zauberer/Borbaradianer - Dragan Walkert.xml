@@ -1,26 +1,26 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>2</DatenbankVersion>
+    <DatenbankVersion>3</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
     <NutzerDatenbankName></NutzerDatenbankName>
     <Plugins></Plugins>
   </Version>
-  <AllgemeineInfos>
-    <name>Dragan Walkert</name>
-    <rasse>Mensch</rasse>
-    <status>2</status>
-    <kurzbeschreibung>Optimistischer und selbstbewusster Missionar für die Lehren Borbarads.</kurzbeschreibung>
-    <schips>4</schips>
-    <finanzen>2</finanzen>
-    <heimat>Mittelreich</heimat>
-    <eigenheiten>
+  <Beschreibung>
+    <Name>Dragan Walkert</Name>
+    <Spezies>Mensch</Spezies>
+    <Status>2</Status>
+    <Kurzbeschreibung>Optimistischer und selbstbewusster Missionar für die Lehren Borbarads.</Kurzbeschreibung>
+    <SchiP>4</SchiP>
+    <Finanzen>2</Finanzen>
+    <Heimat>Mittelreich</Heimat>
+    <Eigenheiten>
       <Eigenheit>Propheten des verbotenen Glaubens</Eigenheit>
       <Eigenheit>Von Amazeroth berührt</Eigenheit>
       <Eigenheit>Strahlende Persönlichkeit</Eigenheit>
       <Eigenheit>Ich kann dir helfen</Eigenheit>
       <Eigenheit>Ich habe meinen eigenen Weg gewählt</Eigenheit>
-    </eigenheiten>
-  </AllgemeineInfos>
+    </Eigenheiten>
+  </Beschreibung>
   <Attribute>
     <KO>6</KO>
     <MU>4</MU>
@@ -36,14 +36,14 @@
     <KaP wert="0"/>
   </Energien>
   <Vorteile minderpakt="Tradition der Borbaradianer I">
-    <Vorteil variable="-1">Minderpakt</Vorteil>
-    <Vorteil variable="-1">Tradition der Borbaradianer I</Vorteil>
-    <Vorteil variable="-1">Willensstark I</Vorteil>
-    <Vorteil variable="-1">Ausfall</Vorteil>
-    <Vorteil variable="-1">Kommando: Haltet Stand!</Vorteil>
-    <Vorteil variable="-1">Rüstungsgewöhnung</Vorteil>
-    <Vorteil variable="-1">Schneller Kampf I</Vorteil>
-    <Vorteil variable="-1">Durchatmen</Vorteil>
+    <Vorteil>Minderpakt</Vorteil>
+    <Vorteil>Tradition der Borbaradianer I</Vorteil>
+    <Vorteil>Willensstark I</Vorteil>
+    <Vorteil>Ausfall</Vorteil>
+    <Vorteil>Kommando: Haltet Stand!</Vorteil>
+    <Vorteil>Rüstungsgewöhnung</Vorteil>
+    <Vorteil>Schneller Kampf I</Vorteil>
+    <Vorteil>Durchatmen</Vorteil>
   </Vorteile>
   <Fertigkeiten>
     <Fertigkeit name="Handgemenge" wert="0">
@@ -54,7 +54,7 @@
     </Fertigkeit>
     <Fertigkeit name="Klingenwaffen" wert="5">
       <Talente>
-        <Talent name="Einhandklingenwaffen" variable="-1"/>
+        <Talent name="Einhandklingenwaffen"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Stangenwaffen" wert="0">
@@ -65,7 +65,7 @@
     </Fertigkeit>
     <Fertigkeit name="Wurfwaffen" wert="5">
       <Talente>
-        <Talent name="Kurze Wurfwaffen" variable="-1"/>
+        <Talent name="Kurze Wurfwaffen"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Athletik" wert="3">
@@ -76,7 +76,7 @@
     </Fertigkeit>
     <Fertigkeit name="Selbstbeherrschung" wert="5">
       <Talente>
-        <Talent name="Willenskraft" variable="-1"/>
+        <Talent name="Willenskraft"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Wahrnehmung" wert="3">
@@ -84,17 +84,17 @@
     </Fertigkeit>
     <Fertigkeit name="Autorität" wert="6">
       <Talente>
-        <Talent name="Rhetorik" variable="-1"/>
+        <Talent name="Rhetorik"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Beeinflussung" wert="6">
       <Talente>
-        <Talent name="Betören" variable="-1"/>
+        <Talent name="Betören"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Gebräuche" wert="5">
       <Talente>
-        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
+        <Talent name="Gebräuche: Mittelreich"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Derekunde" wert="3">
@@ -102,7 +102,7 @@
     </Fertigkeit>
     <Fertigkeit name="Mythenkunde" wert="5">
       <Talente>
-        <Talent name="Götter und Kulte" variable="-1"/>
+        <Talent name="Götter und Kulte"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Magiekunde" wert="3">
@@ -123,30 +123,30 @@
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="" wert="3"/>
-    <Freie-Fertigkeit name="Boltan" wert="3"/>
-    <Freie-Fertigkeit name="Tänzer" wert="2"/>
-    <Freie-Fertigkeit name="Händler" wert="2"/>
-    <Freie-Fertigkeit name="Dichter" wert="2"/>
-    <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="2"/>
-    <Freie-Fertigkeit name="Schrift: Zhayad-Zeichen" wert="2"/>
+    <FreieFertigkeit name="" wert="3"/>
+    <FreieFertigkeit name="Boltan" wert="3"/>
+    <FreieFertigkeit name="Tänzer" wert="2"/>
+    <FreieFertigkeit name="Händler" wert="2"/>
+    <FreieFertigkeit name="Dichter" wert="2"/>
+    <FreieFertigkeit name="Schrift: Kusliker Zeichen" wert="2"/>
+    <FreieFertigkeit name="Schrift: Zhayad-Zeichen" wert="2"/>
   </Fertigkeiten>
   <Objekte>
-    <Zonensystem>False</Zonensystem>
+    <Zonensystem>0</Zonensystem>
     <Rüstungen>
       <Rüstung name="Lederrüstung" be="1" rs="1/1/1/1/1/1"/>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="Säbel" id="Säbel" W6="2" plus="2" eigenschaften="" haerte="10" rw="1" kampfstil="Schneller Kampf" wm="0" typ="Nah"/>
-      <Waffe name="Dolch" id="Dolch (Handgemengewaffen)" W6="1" plus="1" eigenschaften="" haerte="9" rw="0" kampfstil="Schneller Kampf" wm="0" typ="Nah"/>
-      <Waffe name="Borndorn" id="Borndorn (Kurze Wurfwaffen)" W6="1" plus="2" eigenschaften="3 Stück" haerte="9" rw="4" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
-      <Waffe name="Dolch (Wurfwaffe)" id="Dolch (Kurze Wurfwaffen)" W6="1" plus="0" eigenschaften="" haerte="8" rw="4" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="Säbel" id="Säbel" würfel="2" würfelSeiten="6" plus="2" eigenschaften="" härte="10" rw="1" kampfstil="Schneller Kampf" wm="0" typ="Nah"/>
+      <Waffe name="Dolch" id="Dolch (Handgemengewaffen)" würfel="1" würfelSeiten="6" plus="1" eigenschaften="" härte="9" rw="0" kampfstil="Schneller Kampf" wm="0" typ="Nah"/>
+      <Waffe name="Borndorn" id="Borndorn (Kurze Wurfwaffen)" würfel="1" würfelSeiten="6" plus="2" eigenschaften="3 Stück" härte="9" rw="4" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
+      <Waffe name="Dolch (Wurfwaffe)" id="Dolch (Kurze Wurfwaffen)" würfel="1" würfelSeiten="6" plus="0" eigenschaften="" härte="8" rw="4" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>Mantel mit Kapuze, Lederstiefel, Rucksack, Schlafsac</Ausrüstungsstück>
@@ -156,106 +156,109 @@
       <Ausrüstungsstück>Seife, Hartwurst und Käse für 3 Tage, Wasserflasche</Ausrüstungsstück>
     </Ausrüstung>
   </Objekte>
-  <Übernatürliche-Fertigkeiten>
-    <Übernatürliche-Fertigkeit name="Antimagie" wert="0" addToPDF="True">
+  <ÜbernatürlicheFertigkeiten>
+    <ÜbernatürlicheFertigkeit name="Antimagie" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Dämonisch" wert="6" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Dämonisch" wert="6" exportieren="1">
       <Talente>
-        <Talent name="Brenne toter Stoff!" variable="-1"/>
-        <Talent name="Hartes schmelze!" variable="-1"/>
-        <Talent name="Höllenpein zerreiße dich!" variable="-1"/>
-        <Talent name="Nuntiovolo Botenvogel" variable="-1"/>
-        <Talent name="Schwarz und Rot" variable="-1"/>
+        <Talent name="Brenne toter Stoff!"/>
+        <Talent name="Hartes schmelze!"/>
+        <Talent name="Höllenpein zerreiße dich!"/>
+        <Talent name="Nuntiovolo Botenvogel"/>
+        <Talent name="Schwarz und Rot"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Eigenschaften" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Eigenschaften" wert="0" exportieren="1">
       <Talente>
-        <Talent name="Schwarz und Rot" variable="-1"/>
+        <Talent name="Schwarz und Rot"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Einfluss" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Einfluss" wert="0" exportieren="1">
       <Talente>
-        <Talent name="Höllenpein zerreiße dich!" variable="-1"/>
+        <Talent name="Höllenpein zerreiße dich!"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Eis" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Eis" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Erz" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Erz" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Feuer" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Feuer" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Hellsicht" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Hellsicht" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Humus" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Humus" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Illusion" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Illusion" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Kraft" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Kraft" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Luft" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Luft" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Temporal" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Temporal" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Umwelt" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Umwelt" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Verständigung" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Verständigung" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Verwandlung" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Verwandlung" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Wasser" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Wasser" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-  </Übernatürliche-Fertigkeiten>
+    </ÜbernatürlicheFertigkeit>
+  </ÜbernatürlicheFertigkeiten>
   <Erfahrung>
-    <EPtotal>2500</EPtotal>
-    <EPspent>2500</EPspent>
+    <Gesamt>2500</Gesamt>
+    <Ausgegeben>2500</Ausgegeben>
   </Erfahrung>
   <Notiz/>
   <Einstellungen>
+    <VoraussetzungenPrüfen>1</VoraussetzungenPrüfen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
-    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
-    <RegelnAnhaengen>1</RegelnAnhaengen>
-    <RegelnGroesse>0</RegelnGroesse>
+    <ÜbernatürlichesPDFSpalteAnzeigen>0</ÜbernatürlichesPDFSpalteAnzeigen>
+    <RegelnAnhängen>1</RegelnAnhängen>
+    <RegelnGrösse>0</RegelnGrösse>
+    <RegelnKategorien>V0, V1, M9, V2, V3, M5, W, M8, M0, M1, V4, V5, M2, M4, Z, V6, V7, M3, M7, L, V8, M6, A, M10</RegelnKategorien>
+    <FormularEditierbarkeit>0</FormularEditierbarkeit>
     <Hausregeln></Hausregeln>
   </Einstellungen>
-  <AllgemeineInfosExt>
-    <kultur></kultur>
-    <profession></profession>
-    <geschlecht></geschlecht>
-    <geburtsdatum></geburtsdatum>
-    <groesse></groesse>
-    <gewicht></gewicht>
-    <haarfarbe></haarfarbe>
-    <augenfarbe></augenfarbe>
-    <titel></titel>
-    <aussehen1></aussehen1>
-    <aussehen2></aussehen2>
-    <aussehen3></aussehen3>
-    <aussehen4></aussehen4>
-    <aussehen5></aussehen5>
-    <aussehen6></aussehen6>
-    <hintergrund0></hintergrund0>
-    <hintergrund1></hintergrund1>
-    <hintergrund2></hintergrund2>
-    <hintergrund3></hintergrund3>
-    <hintergrund4></hintergrund4>
-    <hintergrund5></hintergrund5>
-    <hintergrund6></hintergrund6>
-    <hintergrund7></hintergrund7>
-    <hintergrund8></hintergrund8>
-  </AllgemeineInfosExt>
+  <BeschreibungDetails>
+    <Kultur/>
+    <Profession></Profession>
+    <Geschlecht></Geschlecht>
+    <Geburtsdatum></Geburtsdatum>
+    <Grösse></Grösse>
+    <Gewicht></Gewicht>
+    <Haarfarbe></Haarfarbe>
+    <Augenfarbe></Augenfarbe>
+    <Titel></Titel>
+    <Aussehen1></Aussehen1>
+    <Aussehen2></Aussehen2>
+    <Aussehen3></Aussehen3>
+    <Aussehen4></Aussehen4>
+    <Aussehen5></Aussehen5>
+    <Aussehen6></Aussehen6>
+    <Hintergrund0></Hintergrund0>
+    <Hintergrund1></Hintergrund1>
+    <Hintergrund2></Hintergrund2>
+    <Hintergrund3></Hintergrund3>
+    <Hintergrund4></Hintergrund4>
+    <Hintergrund5></Hintergrund5>
+    <Hintergrund6></Hintergrund6>
+    <Hintergrund7></Hintergrund7>
+    <Hintergrund8></Hintergrund8>
+  </BeschreibungDetails>
 </Charakter>

@@ -71,7 +71,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_22">
+        <widget class="QLabel" name="labelW1seiten">
          <property name="text">
           <string>W6 +</string>
          </property>
@@ -663,7 +663,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_40">
+        <widget class="QLabel" name="labelW7seiten">
          <property name="text">
           <string>W6 +</string>
          </property>
@@ -956,7 +956,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_37">
+        <widget class="QLabel" name="labelW5seiten">
          <property name="text">
           <string>W6 +</string>
          </property>
@@ -1384,7 +1384,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_35">
+        <widget class="QLabel" name="labelW3seiten">
          <property name="text">
           <string>W6 +</string>
          </property>
@@ -1457,7 +1457,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_38">
+        <widget class="QLabel" name="labelW6seiten">
          <property name="text">
           <string>W6 +</string>
          </property>
@@ -2212,7 +2212,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_41">
+        <widget class="QLabel" name="labelW8seiten">
          <property name="text">
           <string>W6 +</string>
          </property>
@@ -2373,7 +2373,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_36">
+        <widget class="QLabel" name="labelW4seiten">
          <property name="text">
           <string>W6 +</string>
          </property>
@@ -3307,7 +3307,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_39">
+        <widget class="QLabel" name="labelW2seiten">
          <property name="text">
           <string>W6 +</string>
          </property>

@@ -1,20 +1,20 @@
 <Charakter>
   <Version>
-    <DatenbankVersion>2</DatenbankVersion>
+    <DatenbankVersion>3</DatenbankVersion>
     <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
     <NutzerDatenbankName></NutzerDatenbankName>
     <Plugins></Plugins>
   </Version>
-  <AllgemeineInfos>
-    <name></name>
-    <rasse></rasse>
-    <status>2</status>
-    <kurzbeschreibung>Magierin der Halle des Quecksilbers zu Festum</kurzbeschreibung>
-    <schips>4</schips>
-    <finanzen>2</finanzen>
-    <heimat>Mittelreich</heimat>
-    <eigenheiten/>
-  </AllgemeineInfos>
+  <Beschreibung>
+    <Name></Name>
+    <Spezies></Spezies>
+    <Status>2</Status>
+    <Kurzbeschreibung>Magierin der Halle des Quecksilbers zu Festum</Kurzbeschreibung>
+    <SchiP>4</SchiP>
+    <Finanzen>2</Finanzen>
+    <Heimat>Mittelreich</Heimat>
+    <Eigenheiten/>
+  </Beschreibung>
   <Attribute>
     <KO>2</KO>
     <MU>3</MU>
@@ -30,12 +30,12 @@
     <KaP wert="0"/>
   </Energien>
   <Vorteile minderpakt="">
-    <Vorteil variable="-1">Zauberer I</Vorteil>
-    <Vorteil variable="-1">Zauberer II</Vorteil>
-    <Vorteil variable="-1">Zauberer III</Vorteil>
-    <Vorteil variable="-1">Kontrolliertes Zaubern</Vorteil>
-    <Vorteil variable="-1">Tradition der Gildenmagier I</Vorteil>
-    <Vorteil variable="-1">Privilegien (Gildenmagier)</Vorteil>
+    <Vorteil>Zauberer I</Vorteil>
+    <Vorteil>Zauberer II</Vorteil>
+    <Vorteil>Zauberer III</Vorteil>
+    <Vorteil>Kontrolliertes Zaubern</Vorteil>
+    <Vorteil>Tradition der Gildenmagier I</Vorteil>
+    <Vorteil>Privilegien (Gildenmagier)</Vorteil>
   </Vorteile>
   <Fertigkeiten>
     <Fertigkeit name="Handgemenge" wert="0">
@@ -76,7 +76,7 @@
     </Fertigkeit>
     <Fertigkeit name="Gebräuche" wert="3">
       <Talente>
-        <Talent name="Gebräuche: Mittelreich" variable="-1"/>
+        <Talent name="Gebräuche: Mittelreich"/>
       </Talente>
     </Fertigkeit>
     <Fertigkeit name="Derekunde" wert="3">
@@ -103,170 +103,173 @@
     <Fertigkeit name="Handwerk" wert="0">
       <Talente/>
     </Fertigkeit>
-    <Freie-Fertigkeit name="" wert="3"/>
-    <Freie-Fertigkeit name="Sprache: Garethi" wert="2"/>
-    <Freie-Fertigkeit name="Sprache: Tulamidya" wert="2"/>
-    <Freie-Fertigkeit name="Schrift: Kusliker Zeichen" wert="2"/>
-    <Freie-Fertigkeit name="Sprache: Bosparano" wert="2"/>
-    <Freie-Fertigkeit name="Schrift: Tulamidya-Zeichen" wert="2"/>
+    <FreieFertigkeit name="" wert="3"/>
+    <FreieFertigkeit name="Sprache: Garethi" wert="2"/>
+    <FreieFertigkeit name="Sprache: Tulamidya" wert="2"/>
+    <FreieFertigkeit name="Schrift: Kusliker Zeichen" wert="2"/>
+    <FreieFertigkeit name="Sprache: Bosparano" wert="2"/>
+    <FreieFertigkeit name="Schrift: Tulamidya-Zeichen" wert="2"/>
   </Fertigkeiten>
   <Objekte>
-    <Zonensystem>False</Zonensystem>
+    <Zonensystem>0</Zonensystem>
     <Rüstungen/>
     <Waffen>
-      <Waffe name="Magierstab" id="Magierstab" W6="1" plus="1" eigenschaften="Stumpf, Unzerstörbar, Zweihändig" haerte="1" rw="2" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" W6="0" plus="0" eigenschaften="" haerte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="Magierstab" id="Magierstab" würfel="1" würfelSeiten="6" plus="1" eigenschaften="Stumpf, Unzerstörbar, Zweihändig" härte="1" rw="2" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
     </Waffen>
     <Ausrüstung/>
   </Objekte>
-  <Übernatürliche-Fertigkeiten>
-    <Übernatürliche-Fertigkeit name="Antimagie" wert="0" addToPDF="True">
+  <ÜbernatürlicheFertigkeiten>
+    <ÜbernatürlicheFertigkeit name="Antimagie" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Dämonisch" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Dämonisch" wert="0" exportieren="1">
       <Talente>
-        <Talent name="Hartes schmelze!" variable="-1"/>
+        <Talent name="Hartes schmelze!"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Eigenschaften" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Eigenschaften" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Einfluss" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Einfluss" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Eis" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Eis" wert="0" exportieren="1">
       <Talente>
-        <Talent name="Caldofrigo heiß und kalt" variable="-1"/>
+        <Talent name="Caldofrigo heiß und kalt"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Erz" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Erz" wert="0" exportieren="1">
       <Talente>
-        <Talent name="Adamantium Erzstruktur" variable="-1"/>
+        <Talent name="Adamantium Erzstruktur"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Feuer" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Feuer" wert="0" exportieren="1">
       <Talente>
-        <Talent name="Ewige Flamme" variable="-1"/>
-        <Talent name="Caldofrigo heiß und kalt" variable="-1"/>
+        <Talent name="Ewige Flamme"/>
+        <Talent name="Caldofrigo heiß und kalt"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Hellsicht" wert="3" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Hellsicht" wert="3" exportieren="1">
       <Talente>
-        <Talent name="Analys Arcanstruktur" variable="-1"/>
-        <Talent name="Odem Arcanum" variable="-1"/>
+        <Talent name="Analys Arcanstruktur"/>
+        <Talent name="Odem Arcanum"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Humus" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Humus" wert="0" exportieren="1">
       <Talente>
-        <Talent name="Balsam Salabunde" variable="-1"/>
+        <Talent name="Balsam Salabunde"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Illusion" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Illusion" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Kraft" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Kraft" wert="0" exportieren="1">
       <Talente>
-        <Talent name="Bindung des Stabs" variable="-1"/>
-        <Talent name="Analys Arcanstruktur" variable="-1"/>
-        <Talent name="Odem Arcanum" variable="-1"/>
+        <Talent name="Bindung des Stabs"/>
+        <Talent name="Analys Arcanstruktur"/>
+        <Talent name="Odem Arcanum"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Luft" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Luft" wert="0" exportieren="1">
       <Talente>
-        <Talent name="Nebelwand und Morgendunst" variable="-1"/>
-        <Talent name="Sapefacta Zauberschwamm" variable="-1"/>
+        <Talent name="Nebelwand und Morgendunst"/>
+        <Talent name="Sapefacta Zauberschwamm"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Temporal" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Temporal" wert="0" exportieren="1">
       <Talente>
-        <Talent name="Objectofixo" variable="-1"/>
+        <Talent name="Objectofixo"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Umwelt" wert="6" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Umwelt" wert="6" exportieren="1">
       <Talente>
-        <Talent name="Flim Flam Funkel" variable="-1"/>
-        <Talent name="Foramen Foraminor" variable="-1"/>
-        <Talent name="Nebelwand und Morgendunst" variable="-1"/>
-        <Talent name="Silentium Schweigekreis" variable="-1"/>
-        <Talent name="Sapefacta Zauberschwamm" variable="-1"/>
-        <Talent name="Caldofrigo heiß und kalt" variable="-1"/>
+        <Talent name="Flim Flam Funkel"/>
+        <Talent name="Foramen Foraminor"/>
+        <Talent name="Nebelwand und Morgendunst"/>
+        <Talent name="Silentium Schweigekreis"/>
+        <Talent name="Sapefacta Zauberschwamm"/>
+        <Talent name="Caldofrigo heiß und kalt"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Verständigung" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Verständigung" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Verwandlung" wert="6" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Verwandlung" wert="6" exportieren="1">
       <Talente>
-        <Talent name="Adamantium Erzstruktur" variable="-1"/>
-        <Talent name="Balsam Salabunde" variable="-1"/>
-        <Talent name="Caldofrigo heiß und kalt" variable="-1"/>
-        <Talent name="Hartes schmelze!" variable="-1"/>
-        <Talent name="Objectofixo" variable="-1"/>
+        <Talent name="Adamantium Erzstruktur"/>
+        <Talent name="Balsam Salabunde"/>
+        <Talent name="Caldofrigo heiß und kalt"/>
+        <Talent name="Hartes schmelze!"/>
+        <Talent name="Objectofixo"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Wasser" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Wasser" wert="0" exportieren="1">
       <Talente>
-        <Talent name="Nebelwand und Morgendunst" variable="-1"/>
-        <Talent name="Hartes schmelze!" variable="-1"/>
-        <Talent name="Sapefacta Zauberschwamm" variable="-1"/>
+        <Talent name="Nebelwand und Morgendunst"/>
+        <Talent name="Hartes schmelze!"/>
+        <Talent name="Sapefacta Zauberschwamm"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Kugelzauber" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Kugelzauber" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Schalenzauber" wert="0" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Schalenzauber" wert="0" exportieren="1">
       <Talente/>
-    </Übernatürliche-Fertigkeit>
-    <Übernatürliche-Fertigkeit name="Stabzauber" wert="3" addToPDF="True">
+    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Stabzauber" wert="3" exportieren="1">
       <Talente>
-        <Talent name="Bindung des Stabs" variable="-1"/>
-        <Talent name="Ewige Flamme" variable="-1"/>
+        <Talent name="Bindung des Stabs"/>
+        <Talent name="Ewige Flamme"/>
       </Talente>
-    </Übernatürliche-Fertigkeit>
-  </Übernatürliche-Fertigkeiten>
+    </ÜbernatürlicheFertigkeit>
+  </ÜbernatürlicheFertigkeiten>
   <Erfahrung>
-    <EPtotal>2000</EPtotal>
-    <EPspent>1994</EPspent>
+    <Gesamt>2000</Gesamt>
+    <Ausgegeben>1994</Ausgegeben>
   </Erfahrung>
-  <Notiz></Notiz>
+  <Notiz/>
   <Einstellungen>
+    <VoraussetzungenPrüfen>1</VoraussetzungenPrüfen>
     <Charakterbogen>Ilaris Advanced Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
-    <UeberPDFAnzeigen>0</UeberPDFAnzeigen>
-    <RegelnAnhaengen>1</RegelnAnhaengen>
-    <RegelnGroesse>0</RegelnGroesse>
+    <ÜbernatürlichesPDFSpalteAnzeigen>0</ÜbernatürlichesPDFSpalteAnzeigen>
+    <RegelnAnhängen>1</RegelnAnhängen>
+    <RegelnGrösse>0</RegelnGrösse>
+    <RegelnKategorien>V0, V1, M9, V2, V3, M5, W, M8, M0, M1, V4, V5, M2, M4, Z, V6, V7, M3, M7, L, V8, M6, A, M10</RegelnKategorien>
+    <FormularEditierbarkeit>0</FormularEditierbarkeit>
     <Hausregeln></Hausregeln>
   </Einstellungen>
-  <AllgemeineInfosExt>
-    <kultur></kultur>
-    <profession></profession>
-    <geschlecht></geschlecht>
-    <geburtsdatum></geburtsdatum>
-    <groesse></groesse>
-    <gewicht></gewicht>
-    <haarfarbe></haarfarbe>
-    <augenfarbe></augenfarbe>
-    <titel></titel>
-    <aussehen1></aussehen1>
-    <aussehen2></aussehen2>
-    <aussehen3></aussehen3>
-    <aussehen4></aussehen4>
-    <aussehen5></aussehen5>
-    <aussehen6></aussehen6>
-    <hintergrund0></hintergrund0>
-    <hintergrund1></hintergrund1>
-    <hintergrund2></hintergrund2>
-    <hintergrund3></hintergrund3>
-    <hintergrund4></hintergrund4>
-    <hintergrund5></hintergrund5>
-    <hintergrund6></hintergrund6>
-    <hintergrund7></hintergrund7>
-    <hintergrund8></hintergrund8>
-  </AllgemeineInfosExt>
+  <BeschreibungDetails>
+    <Kultur/>
+    <Profession></Profession>
+    <Geschlecht></Geschlecht>
+    <Geburtsdatum></Geburtsdatum>
+    <Grösse></Grösse>
+    <Gewicht></Gewicht>
+    <Haarfarbe></Haarfarbe>
+    <Augenfarbe></Augenfarbe>
+    <Titel></Titel>
+    <Aussehen1></Aussehen1>
+    <Aussehen2></Aussehen2>
+    <Aussehen3></Aussehen3>
+    <Aussehen4></Aussehen4>
+    <Aussehen5></Aussehen5>
+    <Aussehen6></Aussehen6>
+    <Hintergrund0></Hintergrund0>
+    <Hintergrund1></Hintergrund1>
+    <Hintergrund2></Hintergrund2>
+    <Hintergrund3></Hintergrund3>
+    <Hintergrund4></Hintergrund4>
+    <Hintergrund5></Hintergrund5>
+    <Hintergrund6></Hintergrund6>
+    <Hintergrund7></Hintergrund7>
+    <Hintergrund8></Hintergrund8>
+  </BeschreibungDetails>
 </Charakter>
