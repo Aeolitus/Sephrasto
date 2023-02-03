@@ -35,7 +35,7 @@ class CharakterWaffenWrapper(QtCore.QObject):
         self.spinRW = []
         self.spinWM = []
         self.spinLZ = []
-        self.spinHaerte = []
+        self.spinHärte = []
         self.editEig = []
         self.eigenschaftenCompleter = []
         self.comboStil = []
@@ -81,10 +81,10 @@ class CharakterWaffenWrapper(QtCore.QObject):
             spinLZ.setEnabled(False)
             self.spinLZ.append(spinLZ)
 
-            spinHaerte = getattr(self.ui, "spinW" + str(i+1) + "h")
-            spinHaerte.valueChanged.connect(self.updateWaffen)
-            spinHaerte.setEnabled(False)
-            self.spinHaerte.append(spinHaerte)
+            spinHärte = getattr(self.ui, "spinW" + str(i+1) + "h")
+            spinHärte.valueChanged.connect(self.updateWaffen)
+            spinHärte.setEnabled(False)
+            self.spinHärte.append(spinHärte)
 
             editEig = getattr(self.ui, "editW" + str(i+1) + "eig")
             editEig.editingFinished.connect(self.updateWaffen)
@@ -175,10 +175,10 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
         würfelDiff = weapon1.würfel - weapon2.würfel
         plusDiff = weapon1.plus - weapon2.plus
 
-        haerteDiff = weapon1.haerte - weapon2.haerte
-        waffenHaerteWSStern = Wolke.DB.einstellungen["Waffen: Härte WSStern"].toTextList()
-        if weapon2.name in waffenHaerteWSStern:
-            haerteDiff = weapon1.haerte - Wolke.Char.wsStern
+        härteDiff = weapon1.härte - weapon2.härte
+        waffenHärteWSStern = Wolke.DB.einstellungen["Waffen: Härte WSStern"].toTextList()
+        if weapon2.name in waffenHärteWSStern:
+            härteDiff = weapon1.härte - Wolke.Char.wsStern
         wmDiff = weapon1.wm - weapon2.wm
         rwDiff = weapon1.rw - weapon2.rw
         lzDiff = 0
@@ -202,8 +202,8 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
             diff.append("WM " + ("+" if wmDiff >= 0 else "") + str(wmDiff))
         if lzDiff != 0:
             diff.append("LZ " + ("+" if lzDiff >= 0 else "") + str(lzDiff))
-        if haerteDiff != 0:
-            diff.append("Härte " + ("+" if haerteDiff >= 0 else "") + str(haerteDiff))
+        if härteDiff != 0:
+            diff.append("Härte " + ("+" if härteDiff >= 0 else "") + str(härteDiff))
         if len(eigPlusDiff) > 0:
             diff.append("Eigenschaften +" + ", +".join(eigPlusDiff))
         if len(eigMinusDiff) > 0:
@@ -226,7 +226,7 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
             self.labelMods[index].show()
             ww = Wolke.Char.waffenwerte[index]
             waffe = Wolke.Char.waffen[index]
-            vt = ww.VT
+            vt = ww.vt
             if waffe.name in vtVerboten or waffe.talent in vtVerboten:
                 vt = "-"
             
@@ -237,7 +237,7 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
 
             diff = ', '.join(diff).replace(", Eigenschaften", "; Eigenschaften")
             self.labelBasis[index].setText(f"<span style='{Wolke.FontAwesomeCSS}'>\uf02d</span>&nbsp;&nbsp;{self.waffenTypen[index]}")
-            self.labelWerte[index].setText(f"""<span style='{Wolke.FontAwesomeCSS}'>\uf6cf</span>&nbsp;&nbsp;AT* {ww.AT}, VT* {vt}, TP* {ww.TPW6}W{str(waffe.würfelSeiten)}{"+" if ww.TPPlus >= 0 else ""}{ww.TPPlus}""")
+            self.labelWerte[index].setText(f"""<span style='{Wolke.FontAwesomeCSS}'>\uf6cf</span>&nbsp;&nbsp;AT* {ww.at}, VT* {vt}, TP* {ww.würfel}W{str(waffe.würfelSeiten)}{"+" if ww.plus >= 0 else ""}{ww.plus}""")
             if len(diff) > 0:
                 self.labelMods[index].setText(f"<span style='{Wolke.FontAwesomeCSS}'>\uf6e3</span>&nbsp;&nbsp;{diff}")
             else:
@@ -309,11 +309,11 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
             W.eigenschaften = list(map(str.strip, self.editEig[index].text().strip().rstrip(",").split(",")))
         W.kampfstil = self.comboStil[index].currentText()
 
-        waffenHaerteWSStern = Wolke.DB.einstellungen["Waffen: Härte WSStern"].toTextList()
-        if W.name in waffenHaerteWSStern:
-            W.haerte = Wolke.Char.wsStern
+        waffenHärteWSStern = Wolke.DB.einstellungen["Waffen: Härte WSStern"].toTextList()
+        if W.name in waffenHärteWSStern:
+            W.härte = Wolke.Char.wsStern
         else:
-            W.haerte = self.spinHaerte[index].value()
+            W.härte = self.spinHärte[index].value()
         return W
 
     def updateWaffen(self):
@@ -368,13 +368,13 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
         self.spinWürfel[index].setValue(W.würfel)
         self.labelSeiten[index].setText("W" + str(W.würfelSeiten) + "+")
         self.spinPlus[index].setValue(W.plus)
-        waffenHaerteWSStern = Wolke.DB.einstellungen["Waffen: Härte WSStern"].toTextList()
-        if W.name in waffenHaerteWSStern:
-            W.haerte = Wolke.Char.wsStern
-            self.spinHaerte[index].setEnabled(False)
+        waffenHärteWSStern = Wolke.DB.einstellungen["Waffen: Härte WSStern"].toTextList()
+        if W.name in waffenHärteWSStern:
+            W.härte = Wolke.Char.wsStern
+            self.spinHärte[index].setEnabled(False)
         else:
-            self.spinHaerte[index].setEnabled(True)
-        self.spinHaerte[index].setValue(W.haerte)
+            self.spinHärte[index].setEnabled(True)
+        self.spinHärte[index].setValue(W.härte)
         self.spinRW[index].setValue(W.rw)
         self.spinWM[index].setValue(W.wm)
 
@@ -395,7 +395,7 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
         self.spinWM[index].setEnabled(not isEmpty)
         self.comboStil[index].setEnabled(not isEmpty and self.comboStil[index].count() > 1)
         if isEmpty:
-            self.spinHaerte[index].setEnabled(False)
+            self.spinHärte[index].setEnabled(False)
             self.addW[index].setText('\u002b')
         else:
             self.addW[index].setText('\uf2ed')

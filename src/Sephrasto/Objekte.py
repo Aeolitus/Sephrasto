@@ -31,7 +31,7 @@ class Waffe(Objekt):
         self.würfelSeiten = 6
         self.plus = 0
         self.eigenschaften = []
-        self.haerte = 6
+        self.härte = 6
         self.rw = 0
         self.wm = 0
         self.fertigkeit = ''

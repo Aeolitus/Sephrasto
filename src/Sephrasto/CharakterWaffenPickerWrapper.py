@@ -178,5 +178,5 @@ class WaffenPicker(object):
                 self.ui.labelLZ_Text.show()
                 self.ui.labelLZ.show()
                 self.ui.labelLZ.setText(str(w.lz))
-            self.ui.labelH.setText(str(w.haerte))
+            self.ui.labelH.setText(str(w.härte))
             self.ui.labelEigenschaften.setText("Eigenschaften: " + ", ".join(w.eigenschaften))

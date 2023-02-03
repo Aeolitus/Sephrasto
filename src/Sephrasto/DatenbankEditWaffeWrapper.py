@@ -59,7 +59,7 @@ class DatenbankEditWaffeWrapper(object):
         self.ui.textEigenschaften.setPlainText(", ".join(waffe.eigenschaften))
         self.ui.textEigenschaften.textChanged.connect(self.eigenschaftenChanged)
 
-        self.ui.spinHaerte.setValue(waffe.haerte)
+        self.ui.spinHaerte.setValue(waffe.härte)
         self.ui.spinWuerfel.setValue(waffe.würfel)
         self.ui.comboWuerfelSeiten.setCurrentText("W" + str(waffe.würfelSeiten))
         self.ui.spinPlus.setValue(waffe.plus)
@@ -123,7 +123,7 @@ class DatenbankEditWaffeWrapper(object):
             self.waffe.würfelSeiten = int(self.ui.comboWuerfelSeiten.currentText()[1:])
             self.waffe.plus = int(self.ui.spinPlus.value())
             self.waffe.wm = int(self.ui.spinWM.value())
-            self.waffe.haerte = int(self.ui.spinHaerte.value())
+            self.waffe.härte = int(self.ui.spinHaerte.value())
             eigenschaftStr = self.ui.textEigenschaften.toPlainText()
             if eigenschaftStr:
                 self.waffe.eigenschaften = list(map(str.strip, eigenschaftStr.strip().rstrip(',').split(",")))

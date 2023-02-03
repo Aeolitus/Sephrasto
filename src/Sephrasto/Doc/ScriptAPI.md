@@ -48,7 +48,7 @@ Hinweis: Dies ist nützlich, um permanente Erleichterungen auf ein Talent (ggf. 
 ### Ausrüstung
 - Inventar: ```getAusrüstung <Return: string[]>```
 - Rüstung: ```getRüstung <Return: { name, text, be, rs[6] }[]>```
-- Waffen: ```getWaffen <Return: { name, text, würfel, würfelSeiten, plus, eigenschaften[], haerte, fertigkeit, talent, kampfstile[], kampfstil, rw, wm, lz}[]>```<br />
+- Waffen: ```getWaffen <Return: { name, text, würfel, würfelSeiten, plus, eigenschaften[], härte, fertigkeit, talent, kampfstile[], kampfstil, rw, wm, lz}[]>```<br />
 Hinweis: Nur Fernkampfwaffen haben das Feld 'lz'.
 <br />
 ### Sonstiges
@@ -62,8 +62,8 @@ Waffeneigenschaft-Scripts haben keinen Zugriff auf: ```setSchadensbonus, modifyS
 Die folgenden Funktionen stehen ausschließlich innerhalb von Waffeneigenschaft-Scripts zur Verfügung:
 - Parameter dieser WE als string erhalten: ```getEigenschaftParam <Parameter: Parameternummer>```<br />
 Parameter müssen mit Semikolon getrennt werden.  
-- Waffen mit dieser WE modifizieren: ```modifyWaffeAT, modifyWaffeVT, modifyWaffeTPW6, modifyWaffeTPPlus, modifyWaffeHaerte, modifyWaffeRW, setWaffeAT, setWaffeVT, setWaffeTPW6, setWaffeTPPlus, setWaffeHaerte, setWaffeRW```
-- Aktuelle Werte der Waffe erhalten: ```getWaffenWerte <Return: { AT, VT, RW, TPW6, TPPlus, Haerte, Kampfstil }>```
+- Waffen mit dieser WE modifizieren: ```modifyWaffeAT, modifyWaffeVT, modifyWaffeTPWürfel, modifyWaffeTPPlus, modifyWaffeHäerte, modifyWaffeRW, setWaffeAT, setWaffeVT, setWaffeTPWürfel, setWaffeTPPlus, setWaffeHärte, setWaffeRW```
+- Aktuelle Werte der Waffe erhalten: ```getWaffenWerte <Return: { at, vt, rw, würfel, plus, härte, kampfstil }>```
 <br />
 ## Beispiele
 <br />

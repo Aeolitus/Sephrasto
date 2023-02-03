@@ -18,11 +18,11 @@ from Migrationen import Migrationen
 
 class KampfstilMod():
     def __init__(self):
-        self.AT = 0
-        self.VT = 0
-        self.TP = 0
-        self.RW = 0
-        self.BE = 0
+        self.at = 0
+        self.vt = 0
+        self.tp = 0
+        self.rw = 0
+        self.be = 0
 
     def __deepcopy__(self):
       clone = type(self)()
@@ -31,13 +31,13 @@ class KampfstilMod():
 
 class Waffenwerte():
     def __init__(self):
-        self.AT = 0
-        self.VT = 0
-        self.RW = 0
-        self.TPW6 = 0
-        self.TPPlus = 0
-        self.Haerte = 0
-        self.Kampfstil = ""
+        self.at = 0
+        self.vt = 0
+        self.rw = 0
+        self.würfel = 0
+        self.plus = 0
+        self.härte = 0
+        self.kampfstil = ""
 
 class Char():
     ''' 
@@ -295,18 +295,18 @@ class Char():
         
         self.waffenScriptAPI = {
             'getEigenschaftParam' : lambda paramNb: self.API_getWaffeneigenschaftParam(paramNb), 
-            'modifyWaffeAT' : lambda atmod: setattr(self.currentWaffenwerte, 'AT', self.currentWaffenwerte.AT + atmod), 
-            'modifyWaffeVT' : lambda vtmod: setattr(self.currentWaffenwerte, 'VT', self.currentWaffenwerte.VT + vtmod), 
-            'modifyWaffeTPW6' : lambda tpw6mod: setattr(self.currentWaffenwerte, 'TPW6', self.currentWaffenwerte.TPW6 + tpw6mod), 
-            'modifyWaffeTPPlus' : lambda tpplusmod: setattr(self.currentWaffenwerte, 'TPPlus', self.currentWaffenwerte.TPPlus + tpplusmod), 
-            'modifyWaffeHaerte' : lambda haertemod: setattr(self.currentWaffenwerte, 'Haerte', self.currentWaffenwerte.Haerte + haertemod), 
-            'modifyWaffeRW' : lambda rwmod: setattr(self.currentWaffenwerte, 'RW', self.currentWaffenwerte.RW + rwmod), 
-            'setWaffeAT' : lambda at: setattr(self.currentWaffenwerte, 'AT', at), 
-            'setWaffeVT' : lambda vt: setattr(self.currentWaffenwerte, 'VT', vt), 
-            'setWaffeTPW6' : lambda tpw6: setattr(self.currentWaffenwerte, 'TPW6', tpw6), 
-            'setWaffeTPPlus' : lambda tpplus: setattr(self.currentWaffenwerte, 'TPPlus', tpplus), 
-            'setWaffeHaerte' : lambda haerte: setattr(self.currentWaffenwerte, 'Haerte', haerte), 
-            'setWaffeRW' : lambda rw: setattr(self.currentWaffenwerte, 'RW', rw), 
+            'modifyWaffeAT' : lambda atmod: setattr(self.currentWaffenwerte, 'at', self.currentWaffenwerte.at + atmod), 
+            'modifyWaffeVT' : lambda vtmod: setattr(self.currentWaffenwerte, 'vt', self.currentWaffenwerte.vt + vtmod), 
+            'modifyWaffeTPWürfel' : lambda würfelmod: setattr(self.currentWaffenwerte, 'würfel', self.currentWaffenwerte.würfel + würfelmod), 
+            'modifyWaffeTPPlus' : lambda plusmod: setattr(self.currentWaffenwerte, 'plus', self.currentWaffenwerte.plus + plusmod), 
+            'modifyWaffeHärte' : lambda härtemod: setattr(self.currentWaffenwerte, 'härte', self.currentWaffenwerte.härte + härtemod), 
+            'modifyWaffeRW' : lambda rwmod: setattr(self.currentWaffenwerte, 'rw', self.currentWaffenwerte.rw + rwmod), 
+            'setWaffeAT' : lambda at: setattr(self.currentWaffenwerte, 'at', at), 
+            'setWaffeVT' : lambda vt: setattr(self.currentWaffenwerte, 'vt', vt), 
+            'setWaffeTPWürfel' : lambda würfel: setattr(self.currentWaffenwerte, 'würfel', würfel), 
+            'setWaffeTPPlus' : lambda plus: setattr(self.currentWaffenwerte, 'plus', plus), 
+            'setWaffeHärte' : lambda härte: setattr(self.currentWaffenwerte, 'härte', härte), 
+            'setWaffeRW' : lambda rw: setattr(self.currentWaffenwerte, 'rw', rw), 
             'getWaffenWerte' : lambda: copy.deepcopy(self.currentWaffenwerte), 
         }
 
@@ -352,7 +352,7 @@ class Char():
     
     def API_modifyKampfstil(self, kampfstil, at, vt, tp, rw, be = 0):
         k = self.kampfstilMods[kampfstil]
-        self.API_setKampfstil(kampfstil, k.AT + at, k.VT + vt, k.TP + tp, k.RW + rw, k.BE + be)
+        self.API_setKampfstil(kampfstil, k.at + at, k.vt + vt, k.tp + tp, k.rw + rw, k.be + be)
 
     def API_addWaffeneigenschaft(self, talentName, eigenschaft):
         self.modifyWaffeneigenschaft(talentName, eigenschaft, False)
@@ -523,11 +523,11 @@ class Char():
         for el in self.waffen:
             waffenwerte = Waffenwerte()
             self.waffenwerte.append(waffenwerte)
-            waffenwerte.RW = el.rw
-            waffenwerte.TPW6 = el.würfel
-            waffenwerte.TPPlus = el.plus
-            waffenwerte.Haerte = el.haerte
-            waffenwerte.Kampfstil = el.kampfstil
+            waffenwerte.rw = el.rw
+            waffenwerte.würfel = el.würfel
+            waffenwerte.plus = el.plus
+            waffenwerte.härte = el.härte
+            waffenwerte.kampfstil = el.kampfstil
 
             # Calculate modifiers for AT, PA, TP from Kampfstil and Talent
             if el.name in Wolke.DB.waffen:
@@ -552,21 +552,21 @@ class Char():
                 if el.kampfstil != Definitionen.KeinKampfstil:
                     logging.warn("Waffe " + el.name + " referenziert einen nicht existierenden Kampfstil: " + el.kampfstil)
 
-            waffenwerte.AT = bwert + kampfstilMods.AT
-            waffenwerte.VT = bwert + kampfstilMods.VT
-            waffenwerte.TPPlus += kampfstilMods.TP
-            waffenwerte.RW += kampfstilMods.RW
-            waffenwerte.AT += el.wm
-            waffenwerte.VT += el.wm
+            waffenwerte.at = bwert + kampfstilMods.at
+            waffenwerte.vt = bwert + kampfstilMods.vt
+            waffenwerte.plus += kampfstilMods.tp
+            waffenwerte.rw += kampfstilMods.rw
+            waffenwerte.at += el.wm
+            waffenwerte.vt += el.wm
 
             for f in fertsSB:
                 if (f == "Nahkampfwaffen" and type(el) == Objekte.Nahkampfwaffe) or fertig == f:
-                    waffenwerte.TPPlus += self.schadensbonus
+                    waffenwerte.plus += self.schadensbonus
                     break
 
-            be = max(self.be + kampfstilMods.BE, 0)
-            waffenwerte.AT -= be
-            waffenwerte.VT -= be
+            be = max(self.be + kampfstilMods.be, 0)
+            waffenwerte.at -= be
+            waffenwerte.vt -= be
 
             self.currentWaffenwerte = waffenwerte
 
@@ -907,7 +907,7 @@ class Char():
             wafNode.set('würfelSeiten', str(waff.würfelSeiten))
             wafNode.set('plus', str(waff.plus))
             wafNode.set('eigenschaften', ", ".join(waff.eigenschaften))
-            wafNode.set('härte', str(waff.haerte))
+            wafNode.set('härte', str(waff.härte))
             wafNode.set('rw', str(waff.rw))
             wafNode.set('kampfstil', waff.kampfstil)
             wafNode.set('wm', str(waff.wm))
@@ -1182,7 +1182,7 @@ class Char():
             waff.plus = int(waf.attrib['plus'])
             if waf.attrib['eigenschaften']:
                 waff.eigenschaften = list(map(str.strip, waf.attrib['eigenschaften'].split(", ")))
-            waff.haerte = int(waf.attrib['härte'])
+            waff.härte = int(waf.attrib['härte'])
             waff.kampfstil = waf.attrib['kampfstil']
             if waff.name in Wolke.DB.waffen:
                 dbWaffe = Wolke.DB.waffen[waff.name]

@@ -480,7 +480,7 @@ class CharakterMerger(object):
             waff.plus = int(waf.attrib['plus'])
             if waf.attrib['eigenschaften']:
                 waff.eigenschaften = list(map(str.strip, waf.attrib['eigenschaften'].split(",")))
-            waff.haerte = int(waf.attrib['härte'])
+            waff.härte = int(waf.attrib['härte'])
             waff.kampfstil = waf.attrib['kampfstil']
             if waff.name in Wolke.DB.waffen:
                 dbWaffe = Wolke.DB.waffen[waff.name]

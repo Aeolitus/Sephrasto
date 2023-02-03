@@ -132,7 +132,7 @@ class Datenbank():
             w.set('würfel', str(waffe.würfel))
             w.set('würfelSeiten', str(waffe.würfelSeiten))
             w.set('plus', str(waffe.plus))
-            w.set('härte', str(waffe.haerte))
+            w.set('härte', str(waffe.härte))
             w.text = ", ".join(waffe.eigenschaften)
             w.set('fertigkeit', waffe.fertigkeit)
             w.set('talent', waffe.talent)
@@ -454,7 +454,7 @@ class Datenbank():
             w.würfel = int(wa.get('würfel'))
             w.würfelSeiten = int(wa.get('würfelSeiten'))
             w.plus = int(wa.get('plus'))
-            w.haerte = int(wa.get('härte'))
+            w.härte = int(wa.get('härte'))
             if wa.text:
                 w.eigenschaften = list(map(str.strip, wa.text.split(",")))
             w.fertigkeit = wa.get('fertigkeit')

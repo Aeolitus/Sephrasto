@@ -452,28 +452,28 @@ class PdfExporter(object):
 
                 keinSchaden = el.würfel == 0 and el.plus == 0
                 fields[base + 'TP'] = "-" if keinSchaden else str(el.würfel) + "W" + str(el.würfelSeiten) + sg + str(el.plus)
-                fields[base + 'HA'] = str(waffenwerte.Haerte)
+                fields[base + 'HA'] = str(waffenwerte.härte)
                 fields[base + 'EI'] = ", ".join(el.eigenschaften)
 
-                fields[base + 'ATm'] = str(waffenwerte.AT)
+                fields[base + 'ATm'] = str(waffenwerte.at)
 
-                fields[base + 'VTm'] = str(waffenwerte.VT)
+                fields[base + 'VTm'] = str(waffenwerte.vt)
                 vtVerboten = Wolke.DB.einstellungen["Waffen: Talente VT verboten"].toTextList()
                 if el.name in Wolke.DB.waffen:
                     waffe = Wolke.DB.waffen[el.name]
                     if waffe.talent in vtVerboten or waffe.name in vtVerboten:
                         fields[base + 'VTm'] = "-"
 
-                fields[base + 'RW'] = str(waffenwerte.RW)
+                fields[base + 'RW'] = str(waffenwerte.rw)
 
                 fields[base + 'WM'] = str(el.wm)
                 if type(el) == Objekte.Fernkampfwaffe:
                     fields[base + 'WM'] += " / " + str(el.lz)
 
                 sg = ""
-                if waffenwerte.TPPlus >= 0:
+                if waffenwerte.plus >= 0:
                     sg = "+"
-                fields[base + 'TPm'] = "-" if keinSchaden else str(waffenwerte.TPW6) + "W" + str(el.würfelSeiten) + sg + str(waffenwerte.TPPlus)
+                fields[base + 'TPm'] = "-" if keinSchaden else str(waffenwerte.würfel) + "W" + str(el.würfelSeiten) + sg + str(waffenwerte.plus)
 
         # Fill 20 Cells of Ausrüstung
         count = 1
