@@ -256,7 +256,7 @@ class Migrationen():
             waf.attrib.pop("W6")
             waf.attrib["würfelSeiten"] = "6"
             if not 'wm' in waf.attrib:
-                waf.set('wm', 0)
+                waf.set('wm', "0")
 
         objekte.find('Zonensystem').text = "1" if objekte.find('Zonensystem').text == "True" else "0"
 
