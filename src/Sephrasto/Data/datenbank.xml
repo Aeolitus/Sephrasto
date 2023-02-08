@@ -10321,8 +10321,6 @@ getPW() - gibt den PW des Talents der Waffe zurück&#10;
 getKampfstil() - gibt die Modifikatoren des aktiven Kampfstils  mit folgenden Attributen zurück: at, vt, plus, rw, be&#10;
 getSB() - gibt den Schadensbonus zurück&#10;
 getBE() - gibt die Behinderung zurück&#10;
-hasWE('Schwer') - gibt zurück, ob die Waffe die angegebene Waffeneigenschaft hat (Parameter werden ignoriert)&#10;
-getWEParam('Schwer', 1) - gibt den Parameter an der angegebenen Stelle der Waffeneigenschaft zurück&#10;
 setWaffenwerte(at, vt, plus, rw) - diese Funktion muss aufgerufen werden, sie setzt die Waffenwerte">be = max(getBE() + getKampfstil().be, 0)
 at = getPW() + getKampfstil().at + getWaffe().wm - be
 vt = getPW() + getKampfstil().vt + getWaffe().wm - be
