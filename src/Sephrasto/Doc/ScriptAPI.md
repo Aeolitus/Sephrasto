@@ -43,7 +43,7 @@ Hinweis: Dies ist nützlich, um permanente Erleichterungen auf ein Talent (ggf. 
 <br />
 ### Vorteile
 - Vorteile allgemein: ```getVorteile <Return: { name, wert, steigerungsfaktor, text, kosten, typ, voraussetzungen[], nachkauf, text }[]>```
-- Kampfstile: ```getKampfstil <Parameter: Kampfstil-Name. Return: { AT, VT, TP, RW, BE }>, setKampfstil/modifyKampfstil <Parameter: Kampfstil-Name, AT, VT, TP, RW, BE>```
+- Kampfstile: ```getKampfstil <Parameter: Kampfstil-Name. Return: { at, vt, plus, rw, be }>, setKampfstil/modifyKampfstil <Parameter: Kampfstil-Name, at, vt, plus, rw, be>```
 <br />
 ### Ausrüstung
 - Inventar: ```getAusrüstung <Return: string[]>```
@@ -58,7 +58,7 @@ Beispiel: addWaffeneigenschaft('Unbewaffnet', 'Kopflastig')
 Beispiel: removeWaffeneigenschaft('Unbewaffnet', 'Zerbrechlich')
 <br />
 ### Waffeneigenschaften (WE)
-Waffeneigenschaft-Scripts haben keinen Zugriff auf: ```setSchadensbonus, modifySchadensbonus, setBEMod, modifyBEMod, modifyFertigkeitBasiswert, setKampfstil, modifyKampfstil, addWaffeneigenschaft, removeWaffeneigenschaft```
+Waffeneigenschaft-Scripts haben keinen Zugriff auf: ```setSchadensbonus, modifySchadensbonus, setBEMod, modifyBEMod, setRSMod, modifyRSMod, modifyFertigkeitBasiswert, setKampfstil, modifyKampfstil, addWaffeneigenschaft, removeWaffeneigenschaft```
 Die folgenden Funktionen stehen ausschließlich innerhalb von Waffeneigenschaft-Scripts zur Verfügung:
 - Parameter dieser WE als string erhalten: ```getEigenschaftParam <Parameter: Parameternummer>```<br />
 Parameter müssen mit Semikolon getrennt werden.  
@@ -84,9 +84,9 @@ Erhöht die AsP um den Charismawert + 4.
 
 ### Vorteil Reiterkampf II
 ```
-modifyKampfstil('Reiterkampf', 1, 1, 1, 0); setKampfstilBEIgnore('Reiterkampf', 'Athletik', 'Reiten')">
+modifyKampfstil('Reiterkampf', 1, 1, 1, 0, -1)
 ```
-Erhöht für den Kampfstil Reiterkampf die Werte für TP, AT und VT um eins. Außerdem wird mit dem Kampfstil Reiterkampf die Behinderung ignoriert, falls die Waffe mit dem Talent Reiten der Fertigkeit Athletik geführt wird.
+Erhöht für den Kampfstil Reiterkampf die Werte für AT, VT und TP um +1 und senkt die BE um -1.
 <br />
 
 ### Waffeneigenschaft Kopflastig

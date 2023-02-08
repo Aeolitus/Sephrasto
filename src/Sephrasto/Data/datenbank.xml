@@ -10314,10 +10314,25 @@ elif typ &gt;= 4:
         mergeTo = 10</Einstellung>
   <Einstellung name="Charsheet: Verknüpfungs-Abkürzungen" typ="Text" beschreibung="Die Namen verknüpfter Vorteile etc. können eventuell zu lang für den Charakterbogen werden. Hier kann pro Zeile nach folgendem Format (ohne Anführungszeichen) eine Abkürzung definiert werden: 'Name=Abkürzung'. Name kann auch nur ein Teil des Namens sein. Wird auch im Regelanhang angewandt.">astrale Regeneration=a. R.
 Rüstungsgewöhnung=Rgw.</Einstellung>
+  <Einstellung name="Waffen: Waffenwerte Script" typ="Text" beschreibung="Das Pythonscript berechnet AT*, VT*, TP* und RW* für jede Waffe. Es stehen hierfür die folgenden Funktionen zur Verfügung:&#10;
+getAttribut('KK') - gibt den Wert des angegeben Attributs zurück&#10;
+getWaffe() - gibt das Waffenobjekt mit folgenden Attributen zurück: name, text, würfel, würfelSeiten, plus, eigenschaften[], härte, fertigkeit, talent, kampfstile[], kampfstil, rw, wm, lz&#10;
+getPW() - gibt den PW des Talents der Waffe zurück&#10;
+getKampfstil() - gibt die Modifikatoren des aktiven Kampfstils  mit folgenden Attributen zurück: at, vt, plus, rw, be&#10;
+getSB() - gibt den Schadensbonus zurück&#10;
+getBE() - gibt die Behinderung zurück&#10;
+hasWE('Schwer') - gibt zurück, ob die Waffe die angegebene Waffeneigenschaft hat (Parameter werden ignoriert)&#10;
+getWEParam('Schwer', 1) - gibt den Parameter an der angegebenen Stelle der Waffeneigenschaft zurück&#10;
+setWaffenwerte(at, vt, plus, rw) - diese Funktion muss aufgerufen werden, sie setzt die Waffenwerte">be = max(getBE() + getKampfstil().be, 0)
+at = getPW() + getKampfstil().at + getWaffe().wm - be
+vt = getPW() + getKampfstil().vt + getWaffe().wm - be
+sb = getSB() if getWaffe().fertigkeit not in ["Schusswaffen"] else 0
+plus = getWaffe().plus + getKampfstil().plus + sb
+rw = getWaffe().rw + getKampfstil().rw
+setWaffenwerte(at, vt, plus, rw)</Einstellung>
   <Einstellung name="Waffen: Standardwaffen" typ="Text" beschreibung="Legt alle Waffen fest, die ein neuer Charakter automatisch erhalten soll. Die Angabe erfolgt als kommaseparierte Liste.">Hand</Einstellung>
-  <Einstellung name="Waffen: Talente VT verboten" typ="Text" beschreibung="Bei Waffen der hier aufgeführten Talente wird bei der VT ein '-' eingetragen. Es können statt dem Talent auch die Namen einzelner Waffen angegeben werden. Die Angabe erfolgt als kommaseparierte Liste.">Lanzenreiten, Armbrüste, Blasrohre, Bögen, Diskusse, Kurze Wurfwaffen, Schleudern, Wurfspeere</Einstellung>
   <Einstellung name="Waffen: Härte WSStern" typ="Text" beschreibung="Bei den hier aufgeführten Waffen wird die Härte auf die WS* des Charakters gesetzt. Die Angabe erfolgt als kommaseparierte Liste.">Hand, Fuß</Einstellung>
-  <Einstellung name="Fertigkeiten: Schadensbonus" typ="Text" beschreibung="Waffen der hier aufgeführten Fertigkeiten erhalten den Schadensbonus. Statt einer Fertigkeit kann auch allgemein 'Nahkampfwaffen' angegeben werden. Die Angabe erfolgt als kommaseparierte Liste.">Nahkampfwaffen, Wurfwaffen</Einstellung>
+  <Einstellung name="Waffen: Talente VT verboten" typ="Text" beschreibung="Bei Waffen der hier aufgeführten Talente wird bei der VT ein '-' eingetragen. Es können statt dem Talent auch die Namen einzelner Waffen angegeben werden. Die Angabe erfolgt als kommaseparierte Liste.">Lanzenreiten, Armbrüste, Blasrohre, Bögen, Diskusse, Kurze Wurfwaffen, Schleudern, Wurfspeere</Einstellung>
   <Einstellung name="FreieFertigkeiten: Typ-Abkürzungen" typ="Text" beschreibung="Die Typ-Namen von Freien Fertigkeiten können eventuell zu lang für den Charakterbogen werden. Hier kann pro Zeile nach folgendem Format (ohne Anführungszeichen) eine Abkürzung definiert werden: 'Name=Abkürzung'. Name kann auch nur ein Teil des Namens sein."></Einstellung>
   <Einstellung name="Fertigkeiten: Typen profan" typ="Text" beschreibung="Definiert die verfügbaren Typen von profanen Fertigkeiten im Datenbank-Editor und deren Reihenfolge in der Fertigkeitenliste des Charaktereditors. Die Angabe erfolgt als kommaseparierte Liste. Achtung: Das Ändern der Reihenfolge erfordert in der Regel ein Überarbeiten aller Fertigkeiten. Ein Umbenennen existierender oder Anfügen weiterer Typen ist dagegen unproblematisch.">Nahkampffertigkeiten, Fernkampffertigkeiten, Körperliche Fertigkeiten, Gesellschaftliche Fertigkeiten, Wissensfertigkeiten, Handwerkliche Fertigkeiten</Einstellung>
   <Einstellung name="Fertigkeiten: Typen übernatürlich" typ="Text" beschreibung="Definiert die verfügbaren Typen von übernatürlichen Fertigkeiten im Datenbank-Editor und deren Reihenfolge in der Fertigkeitenliste des Charaktereditors. Die Angabe erfolgt als kommaseparierte Liste. Bei einer Änderung sollten auch die Einstellungen 'Fertigkeiten: Liturgie-Typen' und 'Fertigkeiten: Anrufungs-Typen' angepasst werden. Achtung: Das Ändern der Reihenfolge erfordert in der Regel ein Überarbeiten aller Fertigkeiten. Ein Umbenennen existierender oder Anfügen weiterer Typen ist dagegen unproblematisch.">Allgemeine Zauber, Traditionszauber, Allgemeine Liturgien, Traditionsliturgien, Anrufungen</Einstellung>

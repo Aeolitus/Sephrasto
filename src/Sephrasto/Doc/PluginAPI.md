@@ -52,6 +52,12 @@ Zweck: Daten aus der Charakterdatei auslesen oder modifizieren, nachdem Sephrast
 Zweck: Nach dieser Action sind alle Plugins initialisiert. Kann verwendet werden um mit anderen Plugins zu kommunizieren, um z.B. mit einer Action andere Plugins darüber in Kenntnis zu setzen, dass dieses Plugin vorhanden ist.
 - "pre_charakter_aktualisieren" (Parameter: { "charakter" : Char })<br />
 Zweck: Beliebige Aktion durchführen, nachdem die Charakterwerte in irgendeiner Form modifiziert wurden, aber bevor die Veränderungen berechnet werden. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
+- "charakter_aktualisieren_vorteilscripts" (Parameter: { "charakter" : Char })<br />
+Zweck: Wird während der Charakteraktualisierung nach der Berechnung des Basiswerte und vor der Ausführung der Vorteilskripte aufgerufen. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
+- "charakter_aktualisieren_fertigkeiten" (Parameter: { "charakter" : Char })<br />
+Zweck: Wird während der Charakteraktualisierung nach der Ausführung der Vorteilskripte und vor der Aktualisierung der Fertigkeiten aufgerufen. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
+- "charakter_aktualisieren_waffenwerte" (Parameter: { "charakter" : Char })<br />
+Zweck: Wird während der Charakteraktualisierung nach allen Berechnungen außer den Waffenwerten aufgerufen. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
 - "post_charakter_aktualisieren" (Parameter: { "charakter" : Char })<br />
 Zweck: Beliebige Aktion durchführen, nachdem die Charakterwerte in irgendeiner Form modifiziert und berechnet wurden. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
 - "vorteil_entfernt" (Parameter:  { "charakter" : Char, "name" : string })<br />

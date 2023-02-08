@@ -133,7 +133,7 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
             labelWerte = getattr(self.ui, "labelW" + str(i+1) + "Werte")
             labelWerte.setToolTip(f"""<p style='white-space:pre'><span style='{Wolke.FontAwesomeCSS}'>\uf6cf</span>   Kampfwerte
 
-- AT* und VT*: Talent-PW + Waffen-WM + Kampfstilbonus - BE der ersten Rüstung
+- AT* und VT*: Talent-PW + WM + Kampfstilbonus - BE der ersten Rüstung -2 (falls zu schwer)
 - TP*: Waffen-TP + Schadensbonus (x2, falls kopflastig) + Kampfstilbonus</p>""")
             labelWerte.setStyleSheet("border: none;")
             self.labelWerte.append(labelWerte)
@@ -178,7 +178,7 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
         härteDiff = weapon1.härte - weapon2.härte
         waffenHärteWSStern = Wolke.DB.einstellungen["Waffen: Härte WSStern"].toTextList()
         if weapon2.name in waffenHärteWSStern:
-            härteDiff = weapon1.härte - Wolke.Char.wsStern
+            härteDiff = 0
         wmDiff = weapon1.wm - weapon2.wm
         rwDiff = weapon1.rw - weapon2.rw
         lzDiff = 0
