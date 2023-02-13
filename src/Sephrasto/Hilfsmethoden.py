@@ -447,7 +447,7 @@ class Hilfsmethoden:
     @staticmethod
     def openFile(filepath):
         if sys.platform == "win32":
-            os.startfile(filepath, "open")
+            os.startfile(filepath.replace('/', '\\'), "open")
         else:
             opener = "open" if sys.platform == "darwin" else "xdg-open"
             subprocess.call([opener, filepath])
