@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sephrasto"
-version = "3.4.0"
+version = "3.4.1"
 description = "Ein Charaktergenerator für das DSA-Hausregelsystem Ilaris."
 authors = ["Aeolitus", "brzGatsu"]
 license = "MIT License"

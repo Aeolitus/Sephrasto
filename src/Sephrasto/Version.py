@@ -1,6 +1,6 @@
 _sephrasto_version_major = 3
 _sephrasto_version_minor = 4
-_sephrasto_version_build = 0
+_sephrasto_version_build = 1
 
 def isClientSameOrHigher(major, minor, build):
     if _sephrasto_version_major < major:

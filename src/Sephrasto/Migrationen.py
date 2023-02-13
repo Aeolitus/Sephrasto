@@ -28,7 +28,7 @@ class Migrationen():
     def __init__(self):
         pass
 
-    datenbankCodeVersion = 4
+    datenbankCodeVersion = 5
     charakterCodeVersion = 3
 
     def hausregelnMigrieren(datenbank, xmlRoot, hausregelnVersion):
@@ -38,6 +38,7 @@ class Migrationen():
             Migrationen.hausregeln1zu2,
             Migrationen.hausregeln2zu3,
             Migrationen.hausregeln3zu4,
+            Migrationen.hausregeln4zu5,
         ]
 
         if not migrationen[Migrationen.datenbankCodeVersion]:
@@ -167,6 +168,12 @@ class Migrationen():
             node.attrib.pop('W6')
             if not 'wm' in node.attrib:
                 node.set('wm', '0')
+
+    def hausregeln4zu5(datenbank, root):
+        for node in root.findall('FreieFertigkeit'):
+            if not 'name' in node.attrib:
+                node.set('name', node.text)
+                node.text = ""
 
     #--------------------------------
     # Charakter Migrationsfunktionen

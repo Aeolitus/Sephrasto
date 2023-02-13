@@ -178,9 +178,9 @@ class Datenbank():
             fert = self.freieFertigkeiten[ff]
             if not fert.isUserAdded: continue
             f = etree.SubElement(root, 'FreieFertigkeit')
+            f.set('name', fert.name)
             f.set('kategorie', fert.kategorie)
             f.set('voraussetzungen', Hilfsmethoden.VorArray2Str(fert.voraussetzungen, None))
-            f.text = fert.name
 
         #Einstellungen
         for de in self.einstellungen:
