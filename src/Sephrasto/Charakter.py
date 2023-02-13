@@ -947,7 +947,7 @@ class Char():
         etree.SubElement(einstellungen, 'ÜbernatürlichesPDFSpalteAnzeigen').text = "1" if self.ueberPDFAnzeigen else "0"
         etree.SubElement(einstellungen, 'RegelnAnhängen').text = "1" if self.regelnAnhaengen else "0"
         etree.SubElement(einstellungen, 'RegelnGrösse').text = str(self.regelnGroesse)
-        etree.SubElement(einstellungen, 'RegelnKategorien').text = str(", ".join(self.regelnKategorien))
+        etree.SubElement(einstellungen, 'RegelnKategorien').text = str(",".join(self.regelnKategorien))
         etree.SubElement(einstellungen, 'FormularEditierbarkeit').text = str(self.formularEditierbarkeit)
         etree.SubElement(einstellungen, 'Hausregeln').text = str(self.hausregeln or "")
 
@@ -1237,7 +1237,7 @@ class Char():
         self.regelnAnhaengen = einstellungen.find('RegelnAnhängen').text == "1"
         self.regelnGroesse = int(einstellungen.find('RegelnGrösse').text)
         self.formularEditierbarkeit = int(einstellungen.find('FormularEditierbarkeit').text)
-        self.regelnKategorien = list(map(str.strip, einstellungen.find('RegelnKategorien').text.split(", ")))
+        self.regelnKategorien = list(map(str.strip, einstellungen.find('RegelnKategorien').text.split(",")))
 
         #Neunter Block
         alg = root.find('BeschreibungDetails')
