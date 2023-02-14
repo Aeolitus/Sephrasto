@@ -170,10 +170,16 @@ class Migrationen():
                 node.set('wm', '0')
 
     def hausregeln4zu5(datenbank, root):
+        remove = []
         for node in root.findall('FreieFertigkeit'):
             if not 'name' in node.attrib:
-                node.set('name', node.text)
-                node.text = ""
+                if node.text is None:
+                    remove.append(node)
+                else:
+                    node.set('name', node.text)
+                    node.text = ""
+        for r in remove:
+            root.remove(node)
 
     #--------------------------------
     # Charakter Migrationsfunktionen
