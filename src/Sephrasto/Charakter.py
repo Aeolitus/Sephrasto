@@ -148,7 +148,7 @@ class Char():
         self.ueberPDFAnzeigen = False
         self.regelnAnhaengen = Wolke.Settings["Cheatsheet"]
         self.regelnGroesse = Wolke.Settings["Cheatsheet-Fontsize"]
-        self.regelnKategorien = Wolke.DB.einstellungen["Regelanhang: Reihenfolge"].toTextList()
+        self.regelnKategorien = [r for r in Wolke.DB.einstellungen["Regelanhang: Reihenfolge"].toTextList() if not (r[0] == "T" and len(r) > 2)] # "T" for title is not a displayed option
         self.formularEditierbarkeit = Wolke.Settings["Formular-Editierbarkeit"]
 
         #Neunter Block: Beschreibung Details
@@ -948,7 +948,7 @@ class Char():
         etree.SubElement(einstellungen, 'RegelnAnhängen').text = "1" if self.regelnAnhaengen else "0"
         etree.SubElement(einstellungen, 'RegelnGrösse').text = str(self.regelnGroesse)
         etree.SubElement(einstellungen, 'RegelnKategorien').text = str(",".join(self.regelnKategorien))
-        etree.SubElement(einstellungen, 'FormularEditierbarkeit').text = str(self.formularEditierbarkeit)
+        etree.SubElement(einstellungen, 'FormularEditierbarkeit').text = "1" if self.formularEditierbarkeit else "0"
         etree.SubElement(einstellungen, 'Hausregeln').text = str(self.hausregeln or "")
 
         #Neunter Block
@@ -1236,7 +1236,7 @@ class Char():
         self.ueberPDFAnzeigen = einstellungen.find('ÜbernatürlichesPDFSpalteAnzeigen').text == "1"
         self.regelnAnhaengen = einstellungen.find('RegelnAnhängen').text == "1"
         self.regelnGroesse = int(einstellungen.find('RegelnGrösse').text)
-        self.formularEditierbarkeit = int(einstellungen.find('FormularEditierbarkeit').text)
+        self.formularEditierbarkeit = einstellungen.find('FormularEditierbarkeit').text == "1"
         self.regelnKategorien = list(map(str.strip, einstellungen.find('RegelnKategorien').text.split(",")))
 
         #Neunter Block

@@ -12,6 +12,7 @@ import Definitionen
 import logging
 import copy
 from EventBus import EventBus
+from Hilfsmethoden import Hilfsmethoden
 
 class RuestungPicker(object):
 
@@ -210,4 +211,5 @@ class RuestungPicker(object):
             self.ui.lblBrust.setText(str(r.rs[4]))
             self.ui.lblKopf.setText(str(r.rs[5]))
             self.ui.lblZRS.setText("= " + str(sum(r.rs)))
-            self.ui.teBeschreibung.setPlainText(r.text)
+            self.ui.teBeschreibung.setPlainText("")
+            self.ui.teBeschreibung.appendHtml(Hilfsmethoden.fixHtml(r.text))

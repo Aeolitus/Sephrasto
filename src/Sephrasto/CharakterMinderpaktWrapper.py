@@ -8,6 +8,7 @@ from Wolke import Wolke
 import UI.CharakterMinderpakt
 from PySide6 import QtWidgets, QtCore, QtGui
 import logging
+from Hilfsmethoden import Hilfsmethoden
 
 class CharakterMinderpaktWrapper():    
     def __init__(self):
@@ -99,7 +100,8 @@ class CharakterMinderpaktWrapper():
             typ = min(Wolke.DB.vorteile[self.currentVort].typ, len(self.vorteilTypen)-1)
             self.ui.labelTyp.setText(self.vorteilTypen[typ])
             self.ui.labelNachkauf.setText(Wolke.DB.vorteile[self.currentVort].nachkauf)
-            self.ui.plainText.setPlainText(Wolke.DB.vorteile[self.currentVort].text)
+            self.ui.plainText.setPlainText("")
+            self.ui.plainText.appendHtml(Hilfsmethoden.fixHtml(Wolke.DB.vorteile[self.currentVort].text))
             if Wolke.DB.vorteile[self.currentVort].variableKosten:
                 self.ui.labelKosten.setText("20 EP")
             else:

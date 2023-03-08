@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>589</width>
+    <width>694</width>
     <height>844</height>
    </rect>
   </property>
@@ -61,8 +61,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>605</width>
-        <height>800</height>
+        <width>631</width>
+        <height>794</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -175,31 +175,6 @@
             </property>
            </widget>
           </item>
-          <item row="9" column="2">
-           <widget class="QComboBox" name="comboFontSize">
-            <property name="minimumSize">
-             <size>
-              <width>240</width>
-              <height>0</height>
-             </size>
-            </property>
-            <item>
-             <property name="text">
-              <string>Klein</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Mittel</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Groß</string>
-             </property>
-            </item>
-           </widget>
-          </item>
           <item row="2" column="1">
            <spacer name="horizontalSpacer_4">
             <property name="orientation">
@@ -236,30 +211,52 @@
           <item row="10" column="0">
            <widget class="QLabel" name="label_19">
             <property name="text">
-             <string>Formularfelder</string>
+             <string>Charakterbogen Formularfelder editierbar</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="2">
+           <widget class="QSpinBox" name="spinRulesFontSize">
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::PlusMinus</enum>
+            </property>
+            <property name="minimum">
+             <number>6</number>
+            </property>
+            <property name="maximum">
+             <number>12</number>
+            </property>
+            <property name="value">
+             <number>8</number>
             </property>
            </widget>
           </item>
           <item row="10" column="2">
-           <widget class="QComboBox" name="comboFormular">
+           <widget class="QCheckBox" name="checkFormular">
             <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Manche PDF-Reader können Formularfelder in PDF-Dokumenten nicht durchsuchen oder machen beispielsweise Probleme beim Regelanhang wegen der automatischen Schriftgröße. Die Formularfelder erhöhen die Dateigröße außerdem rund 10%. Mit dieser Option kannst du diese in reine Textfelder umwandeln. Sie sind dann allerdings nicht mehr editierbar. Diese Einstellung gilt für neue Charaktere. Du kannst sie nachträglich im Info-Tab des Charaktereditors ändern.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Manche PDF-Reader können Formularfelder in PDF-Dokumenten nicht durchsuchen oder machen beispielsweise Probleme wegen der automatischen Schriftgröße. Die Formularfelder erhöhen die Dateigröße außerdem rund 10%. Mit dieser Option kannst du diese in reine Textfelder umwandeln. Sie sind dann allerdings nicht mehr editierbar. Diese Einstellung gilt für neue Charaktere. Du kannst sie nachträglich im Info-Tab des Charaktereditors ändern.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
-            <item>
-             <property name="text">
-              <string>Charakterbogen &amp; Regelanhang editierbar</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Nur Charakterbogen editierbar</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Nicht editierbar</string>
-             </property>
-            </item>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
            </widget>
           </item>
          </layout>
@@ -722,6 +719,9 @@
             <property name="alignment">
              <set>Qt::AlignCenter</set>
             </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::PlusMinus</enum>
+            </property>
             <property name="minimum">
              <number>6</number>
             </property>
@@ -752,6 +752,9 @@
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::PlusMinus</enum>
             </property>
             <property name="minimum">
              <number>6</number>
@@ -884,7 +887,6 @@
   <tabstop>scrollArea</tabstop>
   <tabstop>comboRegelbasis</tabstop>
   <tabstop>comboBogen</tabstop>
-  <tabstop>comboFontSize</tabstop>
   <tabstop>editChar</tabstop>
   <tabstop>buttonChar</tabstop>
   <tabstop>resetChar</tabstop>

@@ -8,6 +8,7 @@ import UI.CharakterTalentPicker
 from PySide6 import QtCore, QtWidgets, QtGui
 from Wolke import Wolke
 import copy
+from Hilfsmethoden import Hilfsmethoden
 
 class TalentPicker(object):
     def __init__(self,fert,ueber):
@@ -169,7 +170,8 @@ class TalentPicker(object):
                 if self.displayStr(Wolke.DB.talente[talent].name) == \
                         Wolke.Char.heimat:
                     self.ui.spinKosten.setValue(0)
-            self.ui.plainText.setPlainText(Wolke.DB.talente[talent].text)
+            self.ui.plainText.setPlainText("")
+            self.ui.plainText.appendHtml(Hilfsmethoden.fixHtml(Wolke.DB.talente[talent].text))
 
     def displayStr(self,inp):
         return inp.replace(self.fert + ": ", "")

@@ -124,8 +124,8 @@ class DatenbankEditVorteilWrapper(object):
 
     def linkKategorieChanged(self):
         self.ui.comboLinkElement.clear()
-        if self.ui.comboLinkKategorie.currentIndex() == VorteilLinkKategorie.ManöverMod:
-            self.ui.comboLinkElement.addItems(sorted(self.datenbank.manöver.keys()))
+        if self.ui.comboLinkKategorie.currentIndex() == VorteilLinkKategorie.Regel:
+            self.ui.comboLinkElement.addItems(sorted(self.datenbank.regeln.keys()))
         elif self.ui.comboLinkKategorie.currentIndex() == VorteilLinkKategorie.ÜberTalent:
             self.ui.comboLinkElement.addItems(sorted([el for el in self.datenbank.talente if self.datenbank.talente[el].isSpezialTalent()]))
         elif self.ui.comboLinkKategorie.currentIndex() == VorteilLinkKategorie.Vorteil:

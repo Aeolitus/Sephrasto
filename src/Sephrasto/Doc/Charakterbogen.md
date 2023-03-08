@@ -1,12 +1,18 @@
 [Hilfe](Help.md) > Eigene Charakterbögen erstellen
 
 # Eigene Charakterbögen erstellen
-Du kannst Sephrasto weitere Charakterbögen hinzufügen. Kopiere deinen Bogen hierzu einfach in den Charakterbögen-Ordner, der in den Einstellungen von Sephrasto konfiguriert ist. Du musst Sephrasto allerdings noch ein paar Informationen zu deinem Bogen geben in Form einer Konfigurationsdatei. Diese ist eine Textdatei mit dem gleichen Namen wie die PDF-Datei, aber mit der Endung ".ini". Am einfachsten ist es, wenn du erstmal eine der bestehenden Konfigurationsdateien dorthin kopierst und entsprechend umbenennst. Diese findest du in deinem Sephrasto-Installationsordner im Unterordner Data/Charakterbögen. 
+Du kannst Sephrasto weitere Charakterbögen hinzufügen. Kopiere deinen Bogen hierzu einfach in den Charakterbögen-Ordner, der in den Einstellungen von Sephrasto konfiguriert ist. Du musst Sephrasto allerdings noch ein paar Informationen zu deinem Bogen geben in Form einer Konfigurationsdatei. Diese ist eine Textdatei mit dem gleichen Namen wie die PDF-Datei, aber mit der Endung ".ini". Am einfachsten ist es, wenn du erstmal eine der bestehenden Konfigurationsdateien dorthin kopierst und entsprechend umbenennst. Diese findest du in deinem Sephrasto-Installationsordner im Unterordner Data/Charakterbögen. Alle Konfigurationsmöglichkeiten sind optional.
 <br />
 ## Charakterbogen-Konfiguration
 <br />
 Info: "Bester Charakterbogen"<br />
 -> Tooltip, der im Info-Tab angezeigt wird.<br />
+<br />
+Seitengrösse: A4<br />
+-> Legt die Seitengröße fest. Die üblichsten Werte sind A4, A5 und Letter - alle weiteren mögliche Werte können hier gefunden werden: <a href="https://doc.qt.io/qt-6/qpagesize.html">QPageSize</a><br />
+<br />
+Seitenorientierung: Portrait<br />
+-> Legt die Orientierung der Regelanhangseiten fest, mögliche Werte sind "Portrait" und "Landscape".<br />
 <br />
 MaxVorteile: 24<br />
 -> Die Anzahl an Formularfeldern für Vorteile.<br />
@@ -42,25 +48,40 @@ MaxÜbernatürlicheTalente: 30<br />
 -> Die Anzahl an Formularfeldern für übernatürliche Talente.<br />
 <br />
 ÜberSeite: 3<br />
--> Optional. Die Seitenzahl der Seite für übernatürliche Fertigkeiten und Vorteile, falls vorhanden. Seiten die darüber hinausgehen werden bei profanen Charakteren abgeschnitten - Sephrasto geht also davon aus, dass übernatürliches zum Schluss kommt.<br />
+-> Die Seitenzahl der Seite für übernatürliche Fertigkeiten und Vorteile, falls vorhanden. Seiten die darüber hinausgehen werden bei profanen Charakteren abgeschnitten - Sephrasto geht also davon aus, dass übernatürliches zum Schluss kommt.<br />
 <br />
 ÜberFertigkeitenZuProfan: False<br />
--> Optional (Standard: False). Hiermit werden übernatürliche Fertigkeiten bei den profanen Fertigkeiten eingetragen.<br />
+-> Hiermit werden übernatürliche Fertigkeiten bei den profanen Fertigkeiten eingetragen.<br />
 <br />
 ÜberVorteileZuKampf: False<br />
--> Optional (Standard: False). Hiermit werden übernatürliche Vorteile bei den Kampfvorteilen eingetragen.<br />
+-> Hiermit werden übernatürliche Vorteile bei den Kampfvorteilen eingetragen.<br />
 <br />
 ExtraÜberSeiten: True<br />
--> Optional (Standard: True). Hiermit kann die Ausgabe von Extra-Seiten (z.B. bei zu vielen Zaubern) deaktiviert werden. Es wird hierfür immer die Seite [ÜberSeite] verwendet, also die Seite für Übernatürliches.<br />
+-> Hiermit kann die Ausgabe von Extra-Seiten (z.B. bei zu vielen Zaubern) deaktiviert werden. Es wird hierfür immer die Seite [ÜberSeite] verwendet, also die Seite für Übernatürliches.<br />
 <br />
-BeschreibungDetails: True<br />
--> Optional (Standard: False). Legt fest, ob der Beschreibung-Details Tab im Charaktereditor angezeigt werden soll.<br />
+BeschreibungDetails: False<br />
+-> Legt fest, ob der Beschreibung-Details Tab im Charaktereditor angezeigt werden soll.<br />
 <br />
 Bild:<br />
 - [1.0, 115.55, 89.55]<br />
 - []<br />
 - [1.5, 130.8, 74.0]<br />
--> Optional (Standard: - [] bzw. kein Bild). Mit diesem Eintrag kannst du das Charakterbild auf einer oder mehreren Seiten an unterschiedlichen Stellen einfügen. Die Seitenzahl entspricht dem Listen-Index +1. Die einzelnen Elemente enthalten einen Array mit 3 Werten: Größenmultiplikator, X-Offset und Y-Offset, jeweils von der Mitte des Dokuments. Füge einen leeren Array ein, um eine Seite zu überspringen (im Beispiel wird ein Bild auf den Seiten 1 und 3 eingefügt). Das Offset ist nicht wirklich zu errechnen, hier hilft nur Trial & Error.<br />
+-> Mit diesem Eintrag kannst du das Charakterbild auf einer oder mehreren Seiten an unterschiedlichen Stellen einfügen. Die Seitenzahl entspricht dem Listen-Index +1. Die einzelnen Elemente enthalten einen Array mit 3 Werten: Größenmultiplikator, X-Offset und Y-Offset (jeweils von der Ecke oben-links des Dokuments). Füge einen leeren Array ein, um eine Seite zu überspringen (im Beispiel wird ein Bild auf den Seiten 1 und 3 eingefügt). Es kann ein paar Export-Versuche benötigen, bis du gute Größen- und Offsetwerte für deinen Charakterbogen gefunden hast - nutze idealerweise ein einfarbiges Bild mit einer Auflösung von 260 x 340. Nach Änderungen musst du Sephrasto neustarten.<br />
+<br />
+RegelanhangSeitengrösse: A4<br />
+-> Legt die Seitengröße für den Regelanhang fest. Die üblichsten Werte sind A4, A5 und Letter - alle weiteren mögliche Werte können hier gefunden werden: <a href="https://doc.qt.io/qt-6/qpagesize.html">QPageSize</a><br />
+<br />
+RegelanhangSeitenorientierung: Portrait<br />
+-> Legt die Orientierung der Regelanhangseiten fest, mögliche Werte sind "Portrait" und "Landscape".<br />
+<br />
+RegelanhangSeitenabstände: [70, 36, 70, 36]<br />
+-> Legt den Abstand des Regelanhangtexts zum Seitenrand in der Einheit Points fest. Die Reihenfolge ist oben, rechts, unten, links.<br />
+<br />
+RegelanhangSeitenzahlPosition: bottom<br />
+-> Legt dfest, an welchem Seitenrand die Regelanhang-Seitenzahlen verankert werden sollen. Möglich sind: top, topleft, topright, left, bottomleft, bottom, bottomright, right, diagonal, reverse-diagonal, center.<br />
+<br />
+RegelanhangSeitenzahlAbstand: 40<br />
+-> Legt den Abstand der Regelanhang-Seitenzahlen von der gewählten Verankerung in der Einheit Points fest.
 <br />
 
 ## Formularfelder
@@ -188,8 +209,5 @@ Sephrasto befüllt die folgenden Formularfelder. In Eckigen Klammern befindet si
 <br />
 
 ## Regelanhang anpassen
-Alle Charakterbögen verwenden für den Regelanhang standardmäßig die Data/Charakterbögen/Regeln.pdf und Data/Charakterbögen/Hintergrund.pdf. Der Hintergrund ist separat, um geringere Dateigrößen zu ermöglichen. Wenn dein Charakterbogen auch hier andere Dokumente verwenden soll, dann benenne sie \[Charakterbogen-Dateiname\]_Regeln.pdf und \[Charakterbogen-Dateiname\]_Hintergrund.pdf und lege sie ebenso in deinen in den Einstellungen festgelegten Charakterbögen-Ordner. Wenn du die Hintergrund-PDF weglässt, wird der Regelanhang entsprechend ohne Hintergrund ausgegeben.<br />
-<br />
-Formularfelder:
-- Regeln[1-2]
-- Seite
+Alle Charakterbögen verwenden für den Regelanhang standardmäßig die Dateien Data/Charakterbögen/Regelanhang.html und Data/Charakterbögen/Hintergrund.pdf. Die HTML-Datei wird anhand der Regelanhang-Einstellungen (s. o.) zu einer PDF umgewandelt. Hierbei werden \{rules_content\} und \{rules_font_size\} durch den Regelanhang-Text bzw. die in Sephrasto eingestellte Schriftgröße ersetzt. In der HTML-Datei angegebene Pfade haben immer den Ordner der HTML-Datei als Ausgangsbasis. Der Hintergrund ist separat, um geringere Dateigrößen zu ermöglichen.<br />
+Wenn dein Charakterbogen auch andere Dokumente verwenden soll, dann benenne sie \[Charakterbogen-Dateiname\]_Regelanhang.html und \[Charakterbogen-Dateiname\]_Hintergrund.pdf und lege sie ebenso in deinen in den Einstellungen festgelegten Charakterbögen-Ordner. Wenn du die Hintergrund-PDF weglässt, wird der Regelanhang entsprechend ohne Hintergrund ausgegeben.

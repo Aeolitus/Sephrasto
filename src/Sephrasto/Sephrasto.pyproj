@@ -29,6 +29,7 @@
     <Compile Include="CharakterAssistent\WizardWrapper.py" />
     <Compile Include="CharakterAssistent\ChoiceXmlVerifier.py" />
     <Compile Include="CharakterBeschreibungDetailsWrapper.py" />
+    <Compile Include="Charakterbogen.py" />
     <Compile Include="CharakterInfoWrapper.py" />
     <Compile Include="CharakterProfaneFertigkeitenWrapper.py" />
     <Compile Include="Migrationen.py" />
@@ -71,6 +72,7 @@
     <Compile Include="DatenbankEditFertigkeitWrapper.py" />
     <Compile Include="UI\DatenbankEditFreieFertigkeit.py" />
     <Compile Include="DatenbankEditFreieFertigkeitWrapper.py" />
+    <Compile Include="UI\DatenbankEditRegel.py" />
     <Compile Include="UI\DatenbankEditRuestung.py" />
     <Compile Include="DatenbankEditRuestungWrapper.py" />
     <Compile Include="UI\DatenbankEditTalent.py" />
@@ -102,8 +104,7 @@
     <Compile Include="UpdateChecker.py" />
     <Compile Include="CharakterWaffenPickerWrapper.py" />
     <Compile Include="Wolke.py" />
-    <Compile Include="UI\DatenbankEditManoever.py" />
-    <Compile Include="DatenbankEditManoeverWrapper.py" />
+    <Compile Include="DatenbankEditRegelWrapper.py" />
     <Compile Include="CxFreezeBuild.py" />
     <Compile Include="Version.py" />
     <Compile Include="UI\Einstellungen.py" />

@@ -28,8 +28,8 @@ class Migrationen():
     def __init__(self):
         pass
 
-    datenbankCodeVersion = 5
-    charakterCodeVersion = 3
+    datenbankCodeVersion = 6
+    charakterCodeVersion = 4
 
     def hausregelnMigrieren(datenbank, xmlRoot, hausregelnVersion):
         migrationen = [
@@ -39,6 +39,7 @@ class Migrationen():
             Migrationen.hausregeln2zu3,
             Migrationen.hausregeln3zu4,
             Migrationen.hausregeln4zu5,
+            Migrationen.hausregeln5zu6,
         ]
 
         if not migrationen[Migrationen.datenbankCodeVersion]:
@@ -55,7 +56,8 @@ class Migrationen():
             lambda charakter, xmlRoot: None, #nichts zu tun, initiale db version
             Migrationen.charakter0zu1, 
             Migrationen.charakter1zu2, 
-            Migrationen.charakter2zu3
+            Migrationen.charakter2zu3,
+            Migrationen.charakter3zu4,
         ]
 
         if not migrationen[Migrationen.charakterCodeVersion]:
@@ -180,6 +182,53 @@ class Migrationen():
                     node.text = ""
         for r in remove:
             root.remove(node)
+
+    def hausregeln5zu6(datenbank, root):
+        for node in root.findall('Manöver'):
+            if 'gegenprobe' in node.attrib and node.attrib['gegenprobe']:
+                node.text = "<i>Gegenprobe:</i> " + node.attrib['gegenprobe'] + "\n" + node.text
+            node.tag = "Regel"
+
+        for node in root.findall('Remove'):
+            if node.attrib['typ'] == "Manöver / Modifikation":
+                node.attrib['typ'] = "Regel"
+            elif node.attrib['typ'] == "Fertigkeit":
+                node.attrib['typ'] = "Fertigkeit (profan)"
+            elif node.attrib['typ'] == "Übernatürliche Fertigkeit":
+                node.attrib['typ'] = "Fertigkeit (übernatürlich)"
+
+            if node.attrib['name'] == "Regelanhang: Manöver Mergescript":
+                node.attrib['name'] = "Regelanhang: Regel Mergescript"
+            elif node.attrib['name'] == "Manöver: Typen":
+                node.attrib['name'] = "Regeln: Typen"
+
+        for node in root.findall('Einstellung'):
+            if node.attrib['name'] == "Regelanhang: Manöver Mergescript":
+                node.attrib['name'] = "Regelanhang: Regel Mergescript"
+            elif node.attrib['name'] == "Manöver: Typen":
+                node.attrib['name'] = "Regeln: Typen"
+            elif node.attrib['name'] == "Regelanhang: Reihenfolge":
+                node.text = node.text.replace("M", "R:")
+                node.text = node.text.replace("V", "V:")
+
+        for node in root.findall('Talent'):
+            bold = ["Mächtige Magie:", "Mächtige Liturgie:", "Mächtige Anrufung:", "Probenschwierigkeit:", "Modifikationen:", "Vorbereitungszeit:",
+                    "Ziel:", "Reichweite:", "Wirkungsdauer:", "Kosten:", "Fertigkeiten:", "Erlernen:", "Anmerkung:", "Sephrasto:", "Fertigkeit Eis:",
+                    "Fertigkeit Erz:", "Fertigkeit Feuer:", "Fertigkeit Humus:", "Fertigkeit Luft:", "Fertigkeit Wasser:"]
+            boldPattern = re.compile("(?<!<b>)(" + "|".join(bold) + ")(?!</b>)")
+            italic = ["Konterprobe", "Aufrechterhalten", "Ballistischer", "Ballistische", "Erfrieren", "Niederschmettern", "Nachbrennen", "Fesseln", "Zurückstoßen", "Ertränken", "Konzentration", "Objektritual", "Objektrituale"]
+            italicPattern = re.compile("(?<!<i>)(" + "|".join(italic) + ")(?!</i>)")
+            illusionPattern = re.compile("(?<!<i>)Illusion \((Sicht|Gehör|Geruch|Geschmack|Tast)")
+            node.text = boldPattern.sub(lambda m: "<b>" + m.group(0) + "</b>", node.text)
+            node.text = italicPattern.sub(lambda m: "<i>" + m.group(0) + "</i>", node.text)
+            node.text = illusionPattern.sub(lambda m: m.group(0).replace("Illusion", "<i>Illusion</i>"), node.text)
+
+        for node in root.findall('Regel'):
+            italic = ["Gegenprobe:", "Wirkung:", "Voraussetzung:", "Voraussetzungen:", "Besonderheit:", "Besonderheiten:", "Anmerkung:", "Anmerkungen:",
+                "Hohe Qualität:", "Probenschwierigkeit:", "Modifikationen:", "Dauer:", "Werkzeuge:", "Verbrauchsmaterialien:", "Haltbarkeit:",
+                "Talent:", "Talente:", "Unterstützung:"]
+            italicPattern = re.compile("(?<!<i>)(" + "|".join(italic) + ")(?!</i>)")
+            node.text = italicPattern.sub(lambda m: "<i>" + m.group(0) + "</i>", node.text)
 
     #--------------------------------
     # Charakter Migrationsfunktionen
@@ -365,3 +414,16 @@ class Migrationen():
             alg.find('bild').tag = "Bild"
 
         return None
+
+    def charakter3zu4(charakter, xmlRoot):
+        einstellungen = xmlRoot.find('Einstellungen')
+        editierbar = einstellungen.find('FormularEditierbarkeit').text != "2"
+        einstellungen.find('FormularEditierbarkeit').text = "1" if editierbar else "0"
+        groesse = int(einstellungen.find('RegelnGrösse').text)
+        if groesse == 0:
+            einstellungen.find('RegelnGrösse').text = "8"
+        elif groesse == 1:
+            einstellungen.find('RegelnGrösse').text = "10"
+        elif groesse == 2:
+            einstellungen.find('RegelnGrösse').text = "12"
+        einstellungen.find('RegelnKategorien').text = str(",".join(charakter.regelnKategorien))

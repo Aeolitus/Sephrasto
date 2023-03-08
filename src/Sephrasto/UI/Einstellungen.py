@@ -15,18 +15,18 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractButton, QAbstractScrollArea, QApplication, QCheckBox,
-    QComboBox, QDialog, QDialogButtonBox, QGridLayout,
-    QGroupBox, QHBoxLayout, QLabel, QLineEdit,
-    QPushButton, QScrollArea, QSizePolicy, QSpacerItem,
-    QSpinBox, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QAbstractButton, QAbstractScrollArea, QAbstractSpinBox, QApplication,
+    QCheckBox, QComboBox, QDialog, QDialogButtonBox,
+    QGridLayout, QGroupBox, QHBoxLayout, QLabel,
+    QLineEdit, QPushButton, QScrollArea, QSizePolicy,
+    QSpacerItem, QSpinBox, QVBoxLayout, QWidget)
 
 class Ui_SettingsWindow(object):
     def setupUi(self, SettingsWindow):
         if not SettingsWindow.objectName():
             SettingsWindow.setObjectName(u"SettingsWindow")
         SettingsWindow.setWindowModality(Qt.ApplicationModal)
-        SettingsWindow.resize(589, 844)
+        SettingsWindow.resize(694, 844)
         SettingsWindow.setMinimumSize(QSize(520, 0))
         self.gridLayout = QGridLayout(SettingsWindow)
         self.gridLayout.setObjectName(u"gridLayout")
@@ -45,7 +45,7 @@ class Ui_SettingsWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 605, 800))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 631, 794))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(20, 20, 20, 20)
@@ -100,15 +100,6 @@ class Ui_SettingsWindow(object):
 
         self.gridLayout_3.addWidget(self.label_4, 2, 0, 1, 1)
 
-        self.comboFontSize = QComboBox(self.groupBox)
-        self.comboFontSize.addItem("")
-        self.comboFontSize.addItem("")
-        self.comboFontSize.addItem("")
-        self.comboFontSize.setObjectName(u"comboFontSize")
-        self.comboFontSize.setMinimumSize(QSize(240, 0))
-
-        self.gridLayout_3.addWidget(self.comboFontSize, 9, 2, 1, 1)
-
         self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_3.addItem(self.horizontalSpacer_4, 2, 1, 1, 1)
@@ -129,13 +120,23 @@ class Ui_SettingsWindow(object):
 
         self.gridLayout_3.addWidget(self.label_19, 10, 0, 1, 1)
 
-        self.comboFormular = QComboBox(self.groupBox)
-        self.comboFormular.addItem("")
-        self.comboFormular.addItem("")
-        self.comboFormular.addItem("")
-        self.comboFormular.setObjectName(u"comboFormular")
+        self.spinRulesFontSize = QSpinBox(self.groupBox)
+        self.spinRulesFontSize.setObjectName(u"spinRulesFontSize")
+        self.spinRulesFontSize.setMinimumSize(QSize(60, 0))
+        self.spinRulesFontSize.setMaximumSize(QSize(60, 16777215))
+        self.spinRulesFontSize.setAlignment(Qt.AlignCenter)
+        self.spinRulesFontSize.setButtonSymbols(QAbstractSpinBox.PlusMinus)
+        self.spinRulesFontSize.setMinimum(6)
+        self.spinRulesFontSize.setMaximum(12)
+        self.spinRulesFontSize.setValue(8)
 
-        self.gridLayout_3.addWidget(self.comboFormular, 10, 2, 1, 1)
+        self.gridLayout_3.addWidget(self.spinRulesFontSize, 9, 2, 1, 1)
+
+        self.checkFormular = QCheckBox(self.groupBox)
+        self.checkFormular.setObjectName(u"checkFormular")
+        self.checkFormular.setChecked(True)
+
+        self.gridLayout_3.addWidget(self.checkFormular, 10, 2, 1, 1)
 
 
         self.verticalLayout.addWidget(self.groupBox)
@@ -342,6 +343,7 @@ class Ui_SettingsWindow(object):
         self.spinAppFontSize.setMaximumSize(QSize(60, 16777215))
         self.spinAppFontSize.setLayoutDirection(Qt.LeftToRight)
         self.spinAppFontSize.setAlignment(Qt.AlignCenter)
+        self.spinAppFontSize.setButtonSymbols(QAbstractSpinBox.PlusMinus)
         self.spinAppFontSize.setMinimum(6)
         self.spinAppFontSize.setMaximum(18)
         self.spinAppFontSize.setValue(8)
@@ -354,6 +356,7 @@ class Ui_SettingsWindow(object):
         self.spinAppFontHeadingSize.setMaximumSize(QSize(60, 16777215))
         self.spinAppFontHeadingSize.setLayoutDirection(Qt.LeftToRight)
         self.spinAppFontHeadingSize.setAlignment(Qt.AlignCenter)
+        self.spinAppFontHeadingSize.setButtonSymbols(QAbstractSpinBox.PlusMinus)
         self.spinAppFontHeadingSize.setMinimum(6)
         self.spinAppFontHeadingSize.setMaximum(18)
         self.spinAppFontHeadingSize.setValue(10)
@@ -420,8 +423,7 @@ class Ui_SettingsWindow(object):
 
         QWidget.setTabOrder(self.scrollArea, self.comboRegelbasis)
         QWidget.setTabOrder(self.comboRegelbasis, self.comboBogen)
-        QWidget.setTabOrder(self.comboBogen, self.comboFontSize)
-        QWidget.setTabOrder(self.comboFontSize, self.editChar)
+        QWidget.setTabOrder(self.comboBogen, self.editChar)
         QWidget.setTabOrder(self.editChar, self.buttonChar)
         QWidget.setTabOrder(self.buttonChar, self.resetChar)
         QWidget.setTabOrder(self.resetChar, self.editRegeln)
@@ -463,23 +465,16 @@ class Ui_SettingsWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.checkWizard.setText("")
         self.label_4.setText(QCoreApplication.translate("SettingsWindow", u"Hausregeln", None))
-        self.comboFontSize.setItemText(0, QCoreApplication.translate("SettingsWindow", u"Klein", None))
-        self.comboFontSize.setItemText(1, QCoreApplication.translate("SettingsWindow", u"Mittel", None))
-        self.comboFontSize.setItemText(2, QCoreApplication.translate("SettingsWindow", u"Gro\u00df", None))
-
         self.label_17.setText(QCoreApplication.translate("SettingsWindow", u"Charakter Assistent nutzen", None))
 #if QT_CONFIG(tooltip)
         self.checkCheatsheet.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Sephrasto kann automatisch alle Regeln, die f\u00fcr deinen Charakter relevant sind, zusammentragen und deiner PDF hinten anf\u00fcgen. Diese Einstellung gilt f\u00fcr neue Charaktere. Du kannst sie nachtr\u00e4glich im Info-Tab des Charaktereditors \u00e4ndern.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.checkCheatsheet.setText("")
-        self.label_19.setText(QCoreApplication.translate("SettingsWindow", u"Formularfelder", None))
-        self.comboFormular.setItemText(0, QCoreApplication.translate("SettingsWindow", u"Charakterbogen & Regelanhang editierbar", None))
-        self.comboFormular.setItemText(1, QCoreApplication.translate("SettingsWindow", u"Nur Charakterbogen editierbar", None))
-        self.comboFormular.setItemText(2, QCoreApplication.translate("SettingsWindow", u"Nicht editierbar", None))
-
+        self.label_19.setText(QCoreApplication.translate("SettingsWindow", u"Charakterbogen Formularfelder editierbar", None))
 #if QT_CONFIG(tooltip)
-        self.comboFormular.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Manche PDF-Reader k\u00f6nnen Formularfelder in PDF-Dokumenten nicht durchsuchen oder machen beispielsweise Probleme beim Regelanhang wegen der automatischen Schriftgr\u00f6\u00dfe. Die Formularfelder erh\u00f6hen die Dateigr\u00f6\u00dfe au\u00dferdem rund 10%. Mit dieser Option kannst du diese in reine Textfelder umwandeln. Sie sind dann allerdings nicht mehr editierbar. Diese Einstellung gilt f\u00fcr neue Charaktere. Du kannst sie nachtr\u00e4glich im Info-Tab des Charaktereditors \u00e4ndern.</p></body></html>", None))
+        self.checkFormular.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Manche PDF-Reader k\u00f6nnen Formularfelder in PDF-Dokumenten nicht durchsuchen oder machen beispielsweise Probleme wegen der automatischen Schriftgr\u00f6\u00dfe. Die Formularfelder erh\u00f6hen die Dateigr\u00f6\u00dfe au\u00dferdem rund 10%. Mit dieser Option kannst du diese in reine Textfelder umwandeln. Sie sind dann allerdings nicht mehr editierbar. Diese Einstellung gilt f\u00fcr neue Charaktere. Du kannst sie nachtr\u00e4glich im Info-Tab des Charaktereditors \u00e4ndern.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
+        self.checkFormular.setText("")
         self.groupBox_2.setTitle(QCoreApplication.translate("SettingsWindow", u"Speicherpfade", None))
         self.label_7.setText(QCoreApplication.translate("SettingsWindow", u"Plugins", None))
         self.label_3.setText(QCoreApplication.translate("SettingsWindow", u"Regeln", None))

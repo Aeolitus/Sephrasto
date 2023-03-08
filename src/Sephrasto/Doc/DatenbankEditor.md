@@ -26,7 +26,7 @@ Wenn diese Option aktiviert wird, können die Kosten für dieses Element im Char
 ### Nutzern erlauben einen Kommentar einzutragen (Vorteil, Talent)
 Wenn diese Option aktiviert wird, erscheint im Charaktereditor ein Kommentarfeld, sobald das Element erworben wird. Das dort eingetragene wird im Charakterbogen in Klammern angefügt. Dies wird in erster Linie für Elemente verwendet, bei denen der Nutzer eine frei gewählte Angabe machen muss, wie z.B. beim Vorteil Besonderer Besitz.
 <br />
-### Voraussetzungen (Vorteil, Freie Fertigkeit, Übernatürliche Fertigkeit, Talent, Manöver/Modifikation/Regel)
+### Voraussetzungen (Vorteil, Freie Fertigkeit, Übernatürliche Fertigkeit, Talent, Regel)
 In diesem Feld kannst du Voraussetzungen für die die Verfügbarkeit von Datenbank-Elementen festlegen. Der Vorteil Ausfall erfordert beispielsweise das Attribut Mut auf einem Wert von 4, bevor ein Charakter ihn erwerben kann. Folgende Voraussetzungen sind möglich:
 
 - ```Attribut <KO, MU, GE, KK, IN, KL, CH, FF> <Mindestwert>```<br />
@@ -46,21 +46,21 @@ Beispiel: Vorteil Zauberer I
 Beispiel: Kein Vorteil Zauberer I
 
 - ```Fertigkeit '<Fertigkeitsname>' <Optional: Mindest-PW(T)>```<br />
-Überprüft, ob der Charakter eine bestimmte Fertigkeit auf dem angegebenen Mindest-PW(T) hat. Wenn du keinen Mindestwert oder -1 angibst, wird an Stelle des Fertigkeitswerts überprüft, ob mindestens ein Talent aktiviert ist. Dies wird in erster Linie für das Datenbankelement Manöver/Modifikation/Regel verwendet.<br />
+Überprüft, ob der Charakter eine bestimmte Fertigkeit auf dem angegebenen Mindest-PW(T) hat. Wenn du keinen Mindestwert oder -1 angibst, wird an Stelle des Fertigkeitswerts überprüft, ob mindestens ein Talent aktiviert ist. Dies wird in erster Linie für das Datenbankelement Regel verwendet.<br />
 Beispiel: Fertigkeit 'Handwerk' 8
 
 - ```Übernatürliche-Fertigkeit '<Fertigkeitsname>' <Optional: Mindest-PW(T)>```<br />
-Überprüft, ob der Charakter eine bestimmte übernatürliche Fertigkeit auf dem angegebenen Mindest-PW(T) hat. Wenn du keinen Mindestwert oder -1 angibst, wird an Stelle des Fertigkeitswerts überprüft, ob mindestens ein Talent aktiviert ist. Dies wird in erster Linie für das Datenbankelement Manöver/Modifikation/Regel verwendet.<br />
+Überprüft, ob der Charakter eine bestimmte übernatürliche Fertigkeit auf dem angegebenen Mindest-PW(T) hat. Wenn du keinen Mindestwert oder -1 angibst, wird an Stelle des Fertigkeitswerts überprüft, ob mindestens ein Talent aktiviert ist. Dies wird in erster Linie für das Datenbankelement Regel verwendet.<br />
 Beispiel: Übernatürliche-Fertigkeit 'Antimagie'
 
 - ```Talent '<Talentname>' <Optional: Mindest-PW(T)>```<br />
 Profane Talente: Überprüft, ob eine der Talent-Fertigkeiten den angegebenen Mindest-PW oder Mindest-PW(T) hat, je nachdem, ob das Talent erworben wurde. Wenn du keinen Mindestwert oder -1 angibst, wird nur überprüft, ob das Talent erworben wurde.
 Übernatürliche Talente: Überprüft, ob das Talent erworben wurde und eine der Talent-Fertigkeiten den angegebenen Mindest-PW(T) hat. Wenn du keinen Mindestwert oder -1 angibst, wird nur überprüft, ob das Talent erworben wurde.
-Dies wird in erster Linie für das Datenbankelement Manöver/Modifikation/Regel verwendet.<br />
+Dies wird in erster Linie für das Datenbankelement Regel verwendet.<br />
 Beispiel: Talent 'Arcanovi Artefakt' 10
 
 - ```Waffeneigenschaft <Waffeneigenschaftsname>```<br />
-Überprüft, ob der Charakter eine Waffe mit der angegebenen Waffeneigenschaft besitzt. Statt einer Waffeneigenschaft kann auch "Nahkampfwaffe" oder "Fernkampfwaffe" spezifiziert werden. Dies wird in erster Linie für das Datenbankelement Manöver/Modifikation/Regel verwendet.<br />
+Überprüft, ob der Charakter eine Waffe mit der angegebenen Waffeneigenschaft besitzt. Statt einer Waffeneigenschaft kann auch "Nahkampfwaffe" oder "Fernkampfwaffe" spezifiziert werden. Dies wird in erster Linie für das Datenbankelement Regel verwendet.<br />
 Beispiel: Waffeneigenschaft Stumpf.
 
 Falls mehrere Voraussetzungen erfüllt sein müssen, können diese komma-separiert angegeben werden, z.B. wie beim Vorteil Gesegnete Waffe: Attribut MU 6, Vorteil Geweiht I.<br />
@@ -77,13 +77,13 @@ In diesem Feld kannst du Python-Skripte einfügen, die beim Erwerb des Elements 
 Wenn mehrere Skripte den gleichen Wert verändern, kann die Reihenfolge der Ausführung eine Rolle spielen. Über die Priorität kannst du diese Reihenfolge beeinflussen - je niedriger der Wert, desto früher wird das Skript ausgeführt.
 <br />
 ### Verknüpfung (Vorteil)
-Über diese Felder kann ein Vorteil mit einem Element vom Typ Vorteil, Übernatürliches Talent oder Manöver/Modifikation/Regel verknüpft werden. Dies bewirkt zwei Dinge:
+Über diese Felder kann ein Vorteil mit einem Element vom Typ Vorteil, Übernatürliches Talent oder Regel verknüpft werden. Dies bewirkt zwei Dinge:
 1. Verknüpfte Vorteile werden im Charakterbogen zusammengefasst. Falls ein Charakter z.B. Schneller Kampf I-III erworben hat, so wird dies durch die Verknüpfung genau so in ein Feld des Charakterbogens eingetragen und nicht als drei einzelne Vorteile in separate Felder.
 2. Verknüpfte Elemente werden im Regelanhang zusammengeführt, damit der Anhang einerseits kompakter wird und andererseits die Regeln im passenden Kontext beieinander stehen. Beispiel: Der Vorteil Schnelle Heilung ist mit der Regel Regeneration verknüpft - dies bewirkt, dass die Regeln zu Schnelle Heilung direkt bei den Regenerationsregeln aufgeführt werden, statt als eigener Absatz unter Vorteile.
 <br />
 ## Besondere Datenbank-Elemente
 Die folgenden Elemente können nicht im Charaktereditor gesehen werden:
-- Manöver/Modifikation/Regel: Hier können allgemeine Regeln eingetragen werden. Diese werden ausschließlich im Regelanhang verwendet.
+- Regel: Hier können allgemeine Regeln eingetragen werden. Diese werden ausschließlich im Regelanhang verwendet.
 - Einstellung: Einstellungen definieren die verfügbaren Typen von Vorteilen usw. oder modifizieren das Verhalten von Sephrasto, so können z.B. die EP-Kosten von Freien Fertigkeiten geändert werden. Es können keine eigenen Einstellungen hinzugefügt werden. Wenn eine geänderte Einstellung gelöscht wird, so wird das Original automatisch wiederhergestellt.
 <br />
 ## Sonderfälle

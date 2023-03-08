@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>974</width>
-    <height>755</height>
+    <height>790</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -113,7 +113,7 @@
         <item row="11" column="0">
          <widget class="QLabel" name="cbFormular">
           <property name="text">
-           <string>Formularfelder</string>
+           <string>Formularfelder editierbar</string>
           </property>
          </widget>
         </item>
@@ -122,25 +122,6 @@
           <property name="text">
            <string>Regelschriftgröße</string>
           </property>
-         </widget>
-        </item>
-        <item row="9" column="1">
-         <widget class="QComboBox" name="comboRegelnGroesse">
-          <item>
-           <property name="text">
-            <string>Klein</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Mittel</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Groß</string>
-           </property>
-          </item>
          </widget>
         </item>
         <item row="0" column="1">
@@ -170,28 +151,6 @@
           <property name="tristate">
            <bool>false</bool>
           </property>
-         </widget>
-        </item>
-        <item row="11" column="1">
-         <widget class="QComboBox" name="comboFormular">
-          <property name="toolTip">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Manche PDF-Reader können Formularfelder in PDF-Dokumenten nicht durchsuchen oder machen beispielsweise Probleme beim Regelanhang wegen der automatischen Schriftgröße. Die Formularfelder erhöhen die Dateigröße außerdem rund 10%. Mit dieser Option kannst du diese in reine Textfelder umwandeln. Sie sind dann allerdings nicht mehr editierbar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-          </property>
-          <item>
-           <property name="text">
-            <string>Charakterbogen &amp; Regelanhang editierbar</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Nur Charakterbogen editierbar</string>
-           </property>
-          </item>
-          <item>
-           <property name="text">
-            <string>Nicht editierbar</string>
-           </property>
-          </item>
          </widget>
         </item>
         <item row="4" column="0">
@@ -280,6 +239,47 @@
           </property>
           <property name="checked">
            <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="1">
+         <widget class="QSpinBox" name="spinRegelnGroesse">
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>60</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::PlusMinus</enum>
+          </property>
+          <property name="minimum">
+           <number>6</number>
+          </property>
+          <property name="maximum">
+           <number>12</number>
+          </property>
+          <property name="value">
+           <number>8</number>
+          </property>
+         </widget>
+        </item>
+        <item row="11" column="1">
+         <widget class="QCheckBox" name="checkFormular">
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Manche PDF-Reader können Formularfelder in PDF-Dokumenten nicht durchsuchen oder machen beispielsweise Probleme wegen der automatischen Schriftgröße. Die Formularfelder erhöhen die Dateigröße außerdem rund 10%. Mit dieser Option kannst du diese in reine Textfelder umwandeln. Sie sind dann allerdings nicht mehr editierbar. Diese Einstellung gilt für neue Charaktere. Du kannst sie nachträglich im Info-Tab des Charaktereditors ändern.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -1001,7 +1001,6 @@
   <tabstop>teNotiz</tabstop>
   <tabstop>comboHausregeln</tabstop>
   <tabstop>comboCharsheet</tabstop>
-  <tabstop>comboRegelnGroesse</tabstop>
  </tabstops>
  <resources/>
  <connections/>

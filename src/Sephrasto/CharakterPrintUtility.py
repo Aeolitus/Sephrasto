@@ -146,16 +146,27 @@ class CharakterPrintUtility:
                     if tt.groupFert.probenwertTalent < fert.probenwertTalent:
                         tt.groupFert = fert
 
-            res = re.findall('Vorbereitungszeit:(.*?)(?:$|\n)', talent.text, re.UNICODE)
+            res = re.findall('<b>Vorbereitungszeit:</b>(.*?)(?:$|\n)', talent.text, re.UNICODE)
+            if len(res) == 0:
+                res = re.findall('Vorbereitungszeit:(.*?)(?:$|\n)', talent.text, re.UNICODE)
             if len(res) == 1:
                 tt.vo = res[0].strip()
-            res = re.findall('Reichweite:(.*?)(?:$|\n)', talent.text, re.UNICODE)
+
+            res = re.findall('<b>Reichweite:</b>(.*?)(?:$|\n)', talent.text, re.UNICODE)
+            if len(res) == 0:
+                res = re.findall('Reichweite:(.*?)(?:$|\n)', talent.text, re.UNICODE)
             if len(res) == 1:
                 tt.re = res[0].strip()
-            res = re.findall('Wirkungsdauer:(.*?)(?:$|\n)', talent.text, re.UNICODE)
+
+            res = re.findall('<b>Wirkungsdauer:</b>(.*?)(?:$|\n)', talent.text, re.UNICODE)
+            if len(res) == 0:
+                res = re.findall('Wirkungsdauer:(.*?)(?:$|\n)', talent.text, re.UNICODE)
             if len(res) == 1:
                 tt.wd = res[0].strip()
-            res = re.findall('Kosten:(.*?)(?:$|\n)', talent.text, re.UNICODE)
+
+            res = re.findall('<b>Kosten:</b>(.*?)(?:$|\n)', talent.text, re.UNICODE)
+            if len(res) == 0:
+                res = re.findall('Kosten:(.*?)(?:$|\n)', talent.text, re.UNICODE)
             if len(res) == 1:
                 tt.ko = res[0].strip()
 
@@ -307,7 +318,7 @@ class CharakterPrintUtility:
 
     @staticmethod
     def isLinkedTo(char, vorteil, kategorie, element):
-        if kategorie == VorteilLinkKategorie.ManöverMod and vorteil.linkKategorie == VorteilLinkKategorie.ManöverMod:
+        if kategorie == VorteilLinkKategorie.Regel and vorteil.linkKategorie == VorteilLinkKategorie.Regel:
             return vorteil.linkElement == element
         elif kategorie == VorteilLinkKategorie.ÜberTalent and vorteil.linkKategorie == VorteilLinkKategorie.ÜberTalent:
             if vorteil.linkElement == element:

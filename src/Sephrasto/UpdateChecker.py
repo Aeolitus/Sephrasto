@@ -1,37 +1,44 @@
-import requests
-from requests.exceptions import Timeout
 import re
 import Version
-from PySide6 import QtWidgets, QtCore
-import webbrowser
+from PySide6 import QtWidgets, QtCore, QtWebEngineCore
 from EinstellungenWrapper import EinstellungenWrapper
 from Wolke import Wolke
+import webbrowser
 
 class UpdateChecker:
 
     _downloadLink = "https://dsaforum.de/app.php/dlext/?view=detail&df_id=213"
+    _page = None
 
     @staticmethod
     def checkForUpdate():
-        if Wolke.Settings["UpdateCheck_Disable"]:
+        if Wolke.Settings["UpdateCheck_Disable"] or UpdateChecker._page is not None:
             return
 
-        try:
-            response = requests.get(UpdateChecker._downloadLink, timeout = 1)
-        except:
-            return
+        UpdateChecker._page = QtWebEngineCore.QWebEnginePage()
 
-        res = re.findall("Sephrasto_v(\S*).zip", response.text)
-        if len(res) == 0:
-            return
+        def onTextDownloaded(text):
+            UpdateChecker._page = None
+            res = re.findall("Sephrasto_v(\S*).zip", text)
+            if len(res) == 0:
+                return
 
-        version = [int(s) for s in res[0].split(".")]
+            version = [int(s) for s in res[0].split(".")]
 
-        while len(version) < 3:
-            version.append(0)
+            while len(version) < 3:
+                version.append(0)
 
-        if Version.isClientLower(version[0], version[1], version[2]):
-            UpdateChecker.showUpdate(res[0])
+            if Version.isClientLower(version[0], version[1], version[2]):
+                UpdateChecker.showUpdate(res[0])
+
+        def loadFinished(ok):
+            if ok:
+                UpdateChecker._page.toPlainText(onTextDownloaded)
+            else:
+                UpdateChecker._page = None
+
+        UpdateChecker._page.loadFinished.connect(loadFinished)
+        UpdateChecker._page.load(QtCore.QUrl(UpdateChecker._downloadLink))
 
     @staticmethod    
     def showUpdate(version):
@@ -41,9 +48,9 @@ class UpdateChecker:
         messageBox = QtWidgets.QMessageBox()
         messageBox.setIcon(QtWidgets.QMessageBox.Information)
         messageBox.setWindowTitle("Neue Sephrasto-Version")
-        messageBox.setText(f"Eine neue Version von Sephrasto ist verfügbar!\n\nInstallierte Version: {Version.toString()}\nNeue Version: {version}\n\nClicke auf Download, um zur Sephrasto-Seite auf dsaforum.de zu gelangen.")
+        messageBox.setText(f"Eine neue Version von Sephrasto ist verfügbar! Clicke auf Download, um zur Sephrasto-Seite auf dsaforum.de zu gelangen.\n\nInstallierte Version: {Version.toString()}\nNeue Version: {version}")
         messageBox.addButton("Download", QtWidgets.QMessageBox.AcceptRole)
-        messageBox.addButton("OK", QtWidgets.QMessageBox.AcceptRole)
+        messageBox.addButton("Später", QtWidgets.QMessageBox.AcceptRole)
         messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
 
         check = QtWidgets.QCheckBox("Information für dieses Update nicht mehr anzeigen.")

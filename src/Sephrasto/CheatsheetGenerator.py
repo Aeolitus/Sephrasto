@@ -7,66 +7,46 @@ from Fertigkeiten import VorteilLinkKategorie
 from CharakterPrintUtility import CharakterPrintUtility
 from EventBus import EventBus
 
+# The qt web engine then doesnt handle column-break in print layout properly,
+# so we have to hack around a bit by placing titles and categories inside the individual articles before the actual rule element header.
+# Maybe in the future qt will upgrade to a newer chromium that supports that css property...
 class CheatsheetGenerator(object):
 
     def __init__(self):
-        self.ruleCategories = []
-
-        self.rulesLineCount = 100
-        self.rulesCharCount = 80
-
         self.reihenfolge = Wolke.DB.einstellungen["Regelanhang: Reihenfolge"].toTextList()
-        self.aktiveManöverTypen = [int(m[1:]) for m in self.reihenfolge if m[0] == "M"]
-        self.aktiveVorteilTypen = [int(v[1:]) for v in self.reihenfolge if v[0] == "V"]
+        self.aktiveRegelTypen = [int(r[2:]) for r in self.reihenfolge if r[0] == "R" and len(r) > 2 and r[2:].isnumeric()]
+        self.aktiveVorteilTypen = [int(r[2:]) for r in self.reihenfolge if r[0] == "V" and len(r) > 2 and r[2:].isnumeric()]
 
-    def formatCategory(self, category):
-        return "===== " + category.upper() + " ====="
+    @staticmethod
+    def categoryHeading(title, category):
+        return title + "<span class='ruleCategoryHeading'>" + category + "</span><br>"
 
-    def updateFontSize(self):
-        self.rulesLineCount = 100
-        self.rulesCharCount = 80
-        fontSize = Wolke.Char.regelnGroesse
-        if fontSize == 1:
-            self.rulesLineCount = 80
-            self.rulesCharCount = 55
-        elif fontSize == 2:
-            self.rulesLineCount = 60
-            self.rulesCharCount = 45
+    @staticmethod
+    def ruleHeading(text):
+        return "<span class='ruleHeading'>" + text + "</span><br>"
 
-    def getLineCount(self, text):
-        lines = text.split("\n")
-        lineCount = 0
-        for line in lines:
-            lineCount += max(int(math.ceil(len(line) / self.rulesCharCount)), 1)
-        lineCount = lineCount - 1 #every text ends with two newlines, the second doesnt count, subtract 1
-
-        #the largest fontsize tends to generate more lines because of missing hyphenation
-        if Wolke.Char.regelnGroesse > 1:
-            lineCount += int(lineCount * 0.2)
-
-        return lineCount
-
-    def appendWaffeneigenschaften(self, rules, lineCounts, category, eigenschaften):
+    def appendWaffeneigenschaften(self, rules, category, eigenschaften):
         if not eigenschaften or (len(eigenschaften) == 0):
             return
-        rules.append(category + "\n\n")
-        lineCounts.append(self.getLineCount(rules[-1]))
+        rules.append("<article>" + category)
         count = 0
         for weName, waffen in sorted(eigenschaften.items()):
             we = Wolke.DB.waffeneigenschaften[weName]
             if not we.text:
                 continue
             count += 1
-            rules.append(we.name + " (" + ", ".join(waffen) + ")\n" + we.text + "\n\n")
-            lineCounts.append(self.getLineCount(rules[-1]))
+            if count != 1:
+                rules.append("<article>")
+            rules.append(CheatsheetGenerator.ruleHeading(we.name + " (" + ", ".join(waffen) + ")") + we.text + "</article>")
 
         if count == 0:
             rules.pop()
-            lineCounts.pop()
+            return False
+        return True
 
     def isLinkedToAny(self, vorteil):
-        if vorteil.linkKategorie == VorteilLinkKategorie.ManöverMod:
-            return vorteil.linkElement in Wolke.DB.manöver and Wolke.DB.manöver[vorteil.linkElement].typ in self.aktiveManöverTypen
+        if vorteil.linkKategorie == VorteilLinkKategorie.Regel:
+            return vorteil.linkElement in Wolke.DB.regeln and Wolke.DB.regeln[vorteil.linkElement].typ in self.aktiveRegelTypen
         elif vorteil.linkKategorie == VorteilLinkKategorie.ÜberTalent:
             for fer in Wolke.Char.übernatürlicheFertigkeiten:
                 if vorteil.linkElement in Wolke.Char.übernatürlicheFertigkeiten[fer].gekaufteTalente:
@@ -78,116 +58,116 @@ class CheatsheetGenerator(object):
 
         return False
 
-    def appendVorteile(self, rules, lineCounts, category, vorteile):
+    def appendVorteile(self, rules, category, vorteile):
         if not vorteile or (len(vorteile) == 0):
             return
-        rules.append(category + "\n\n")
-        lineCounts.append(self.getLineCount(rules[-1]))
+        rules.append("<article>" + category)
         count = 0
         for vor in vorteile:
             vorteil = Wolke.DB.vorteile[vor]
             if not vorteil.cheatsheetAuflisten or self.isLinkedToAny(vorteil):
                 continue
 
-            beschreibung = CharakterPrintUtility.getLinkedDescription(Wolke.Char, vorteil)
-            if not beschreibung:
+            text = CharakterPrintUtility.getLinkedDescription(Wolke.Char, vorteil)
+            if not text:
                 continue
-            if "\n" in beschreibung:
-                beschreibung = "- " + beschreibung.replace("\n", "\n- ")
 
             count += 1
             result = []
-            result.append(CharakterPrintUtility.getLinkedName(Wolke.Char, vorteil))
-            result.append("\n")
-            result.append(beschreibung)
-            result.append("\n\n")
+            if count != 1:
+                result.append("<article>")
+            result.append(CheatsheetGenerator.ruleHeading(CharakterPrintUtility.getLinkedName(Wolke.Char, vorteil)))
+
+            if "\n" in text:
+                text = "<ul><li> " + text.replace("\n", "</li><li>") + "</ul>"
+            result.append(text)
+            result.append("</article>")
             rules.append("".join(result))
-            lineCounts.append(self.getLineCount(rules[-1]))
         
         if count == 0:
             rules.pop()
-            lineCounts.pop()
+            return False
+        return True
     
-    def appendManöver(self, rules, lineCounts, category, manöverList):
-        if not manöverList or (len(manöverList) == 0):
+    def appendRegeln(self, rules, category, regelList):
+        if not regelList or (len(regelList) == 0):
             return
-        rules.append(category + "\n\n")
-        lineCounts.append(self.getLineCount(rules[-1]))
+        rules.append("<article>" + category)
         count = 0
-        for man in manöverList:
-            manöver = Wolke.DB.manöver[man]
-            if not Wolke.Char.voraussetzungenPrüfen(manöver.voraussetzungen):
+        for man in regelList:
+            regel = Wolke.DB.regeln[man]
+            if not Wolke.Char.voraussetzungenPrüfen(regel.voraussetzungen):
                 continue
             count += 1
             result = []
-            if manöver.name.endswith(" (M)") or manöver.name.endswith(" (L)") or manöver.name.endswith(" (D)"):
-                result.append(manöver.name[:-4])
-            elif manöver.name.endswith(" (FK)"):
-                result.append(manöver.name[:-5])
-            else:
-                result.append(manöver.name)
-            if manöver.probe:
-                result.append(" (" + manöver.probe + ")")
-            result.append("\n")
-            if manöver.gegenprobe:
-                result.append("Gegenprobe: " + manöver.gegenprobe + "\n")
-
-            result.append(manöver.text)
+            if count != 1:
+                result.append("<article>")
+            name = regel.name
+            for trim in [" (M)", " (L)", "(D)", " (FK)"]:
+                if name.endswith(trim):
+                    name = name[:-len(trim)]
+            if regel.probe:
+                name += " (" + regel.probe + ")"
+            result.append(CheatsheetGenerator.ruleHeading(name))
+            result.append(regel.text)
            
+            linkedText = []
             for vor in Wolke.Char.vorteile:
                 vorteil = Wolke.DB.vorteile[vor]
-                if CharakterPrintUtility.isLinkedTo(Wolke.Char, vorteil, VorteilLinkKategorie.ManöverMod, man):
+                if CharakterPrintUtility.isLinkedTo(Wolke.Char, vorteil, VorteilLinkKategorie.Regel, man):
                     beschreibung = CharakterPrintUtility.getLinkedDescription(Wolke.Char, vorteil)
                     if not beschreibung:
                         continue
-                    result.append("\n=> ")
-                    result.append(CharakterPrintUtility.getLinkedName(Wolke.Char, vorteil))
-                    result.append(": ")
-                    result.append(beschreibung.replace("\n", " "))
+                    linkedText.append("<li class='checkbox'>")
+                    linkedText.append(CharakterPrintUtility.getLinkedName(Wolke.Char, vorteil))
+                    linkedText.append(": ")
+                    linkedText.append(beschreibung.replace("\n", " "))
+                    linkedText.append("</li>")
+            if len(linkedText) > 0:
+                result.append("<ul>" + "".join(linkedText) + "</ul>")
 
-            result.append("\n\n")
+            result.append("</article>")
             rules.append("".join(result))
-            lineCounts.append(self.getLineCount(rules[-1]))
 
         if count == 0:
             rules.pop()
-            lineCounts.pop()
+            return False
+        return True
 
-    def appendTalente(self, rules, lineCounts, category, talente):
+    def appendTalente(self, rules, category, talente):
         if not talente or (len(talente) == 0):
             return
-        rules.append(category + "\n\n")
-        lineCounts.append(self.getLineCount(rules[-1]))
+        rules.append("<article>" + category)
         count = 0
-        for tal in talente:
-            result = []
+        for tal in talente:       
             if not tal.cheatsheetAuflisten or not tal.text:
                 continue
             count += 1
-            result.append(tal.anzeigeName)
-            result.append(" (PW " + str(tal.pw) + ")")
-            result.append("\n")
-            text = tal.text
+            result = []
+            if count != 1:
+                result.append("<article>")
+            result.append(CheatsheetGenerator.ruleHeading(tal.anzeigeName + " (PW " + str(tal.pw) + ")"))
+            text = Wolke.DB.talente[tal.na].text
             
             #Remove everything from Sephrasto on
-            index = text.find('\nSephrasto')
+            index = text.find('\n<b>Sephrasto')
             if index != -1:
                 text = text[:index]
 
             #Remove everything from Anmerkung on but keep the text and append it later
-            index = text.find('\nAnmerkung')
+            index = text.find('\n<b>Anmerkung')
             anmerkung = ""
             if index != -1:
                 anmerkung = text[index:]
                 text = text[:index]
 
             #Remove everything from Fertigkeiten on
-            index = text.find('\nFertigkeiten')
+            index = text.find('\n<b>Fertigkeiten')
             if index != -1:
                 text = text[:index]
 
             #Remove everything from Erlernen on (some talents don't have a Fertigkeiten list)
-            index = text.find('\nErlernen')
+            index = text.find('\n<b>Erlernen')
             if index != -1:
                 text = text[:index]
 
@@ -195,45 +175,38 @@ class CheatsheetGenerator(object):
             if anmerkung:
                 result.append(anmerkung)
 
+            linkedText = []
             for vor in Wolke.Char.vorteile:
                 vorteil = Wolke.DB.vorteile[vor]
                 if CharakterPrintUtility.isLinkedTo(Wolke.Char, vorteil, VorteilLinkKategorie.ÜberTalent, tal.na):
                     beschreibung = CharakterPrintUtility.getLinkedDescription(Wolke.Char, vorteil)
                     if not beschreibung:
                         continue
-                    result.append("\n=> ")
-                    result.append(CharakterPrintUtility.getLinkedName(Wolke.Char, vorteil))
-                    result.append(": ")
-                    result.append(beschreibung.replace("\n", " "))
+                    linkedText.append("<li class='checkbox'>")
+                    linkedText.append(CharakterPrintUtility.getLinkedName(Wolke.Char, vorteil))
+                    linkedText.append(": ")
+                    linkedText.append(beschreibung.replace("\n", " "))
+                    linkedText.append("</li>")
+            if len(linkedText) > 0:
+                result.append("<ul>" + "".join(linkedText) + "</ul>")
 
-            result.append("\n\n")
+            result.append("</article>")
             rules.append("".join(result))
-            lineCounts.append(self.getLineCount(rules[-1]))
 
         if count == 0:
             rules.pop()
-            lineCounts.pop()
+            return False
+        return True
 
-    def appendGeneric(self, category, text, rules, lineCounts):
-        if category:
-            formattedCategory = self.formatCategory(category)
-            self.ruleCategories.append(formattedCategory)
-            rules.append(formattedCategory + "\n\n")
-            lineCounts.append(self.getLineCount(rules[-1]))
-        rules.append(text)
-        lineCounts.append(self.getLineCount(rules[-1]))
-
-    def prepareRules(self):
+    def generateRules(self):
         voraussetzungenPruefen = Wolke.Char.voraussetzungenPruefen
         Wolke.Char.voraussetzungenPruefen = True
 
-        self.updateFontSize()
-        self.ruleCategories = []
         sortV = Wolke.Char.vorteile.copy()
         sortV = sorted(sortV, key=str.lower)
 
-        sortM = list(Wolke.DB.manöver.keys())
-        sortM = sorted(sortM, key=str.lower)
+        sortR = list(Wolke.DB.regeln.keys())
+        sortR = sorted(sortR, key=str.lower)
 
         waffeneigenschaften = {}
         for waffe in Wolke.Char.waffen:
@@ -252,97 +225,69 @@ class CheatsheetGenerator(object):
         (zauber, liturgien, anrufungen) = CharakterPrintUtility.groupUeberTalente(talentboxList)
 
         rules = []
-        ruleLineCounts = []
 
-        manöverMergeScript = Wolke.DB.einstellungen["Regelanhang: Manöver Mergescript"].toText()
+        regelMergeScript = Wolke.DB.einstellungen["Regelanhang: Regel Mergescript"].toText()
         vorteilTypen = Wolke.DB.einstellungen["Vorteile: Typen"].toTextList()
-        manöverTypen = Wolke.DB.einstellungen["Manöver: Typen"].toTextList()
+        regelTypen = Wolke.DB.einstellungen["Regeln: Typen"].toTextList()
 
         vorteileGruppiert = []
         for i in range(len(vorteilTypen)):
             vorteileGruppiert.append([el for el in sortV if Wolke.DB.vorteile[el].typ == i])
 
-        manöverGruppiert = []
-        for i in range(len(manöverTypen)):
-            manöverGruppiert.append([])
-        for i in range(len(manöverTypen)):
+        regelnGruppiert = []
+        for i in range(len(regelTypen)):
+            regelnGruppiert.append([])
+        for i in range(len(regelTypen)):
             scriptVariables = { "char" : Wolke.Char, "typ" : i, "mergeTo" : i }
-            exec(manöverMergeScript, scriptVariables)
+            exec(regelMergeScript, scriptVariables)
             mergeTo = scriptVariables["mergeTo"]
-            if mergeTo >= len(manöverTypen):
+            if mergeTo >= len(regelTypen):
                 mergeTo = i
-            empty = len(manöverGruppiert[mergeTo]) == 0
-            manöverGruppiert[mergeTo].extend([el for el in sortM if (Wolke.DB.manöver[el].typ == i)])
+            empty = len(regelnGruppiert[mergeTo]) == 0
+            regelnGruppiert[mergeTo].extend([el for el in sortR if (Wolke.DB.regeln[el].typ == i)])
             if not empty:
-                manöverGruppiert[mergeTo] = sorted(manöverGruppiert[mergeTo])
+                regelnGruppiert[mergeTo] = sorted(regelnGruppiert[mergeTo])
 
+        lastTitle = ""
+        title = ""
         for r in self.reihenfolge:
+            if r[0] == "T" and len(r) > 2:
+                if lastTitle and len(rules) > 0 and rules[-1] == lastTitle:
+                    rules.pop()
+                title = "<h1 class='title'>" + r[2:] + "</h1>"
+                lastTitle = title
             if not r in Wolke.Char.regelnKategorien:
                 continue
-
-            if r[0] == "V":
-                typ = int(r[1:])
+            if r[0] == "V" and len(r) > 2 and r[2:].isnumeric():
+                typ = int(r[2:])
                 if typ >= len(vorteileGruppiert):
                     continue
-                self.ruleCategories.append(self.formatCategory(vorteilTypen[typ]))
-                self.appendVorteile(rules, ruleLineCounts, self.ruleCategories[-1], vorteileGruppiert[typ])
-            elif r[0] == "M":
-                typ = int(r[1:])
-                if typ >= len(manöverGruppiert):
+                if self.appendVorteile(rules, CheatsheetGenerator.categoryHeading(title, vorteilTypen[typ]), vorteileGruppiert[typ]):
+                    title = ""
+            elif r[0] == "R" and len(r) > 2 and r[2:].isnumeric():
+                typ = int(r[2:])
+                if typ >= len(regelnGruppiert):
                     continue
-                self.ruleCategories.append(self.formatCategory(manöverTypen[typ]))
-                self.appendManöver(rules, ruleLineCounts, self.ruleCategories[-1], manöverGruppiert[typ])
+                if self.appendRegeln(rules, CheatsheetGenerator.categoryHeading(title, regelTypen[typ]), regelnGruppiert[typ]):
+                    title = ""
             elif r[0] == "W":
-                self.ruleCategories.append(self.formatCategory("Waffeneigenschaften"))
-                self.appendWaffeneigenschaften(rules, ruleLineCounts, self.ruleCategories[-1], waffeneigenschaften)
+                if self.appendWaffeneigenschaften(rules, CheatsheetGenerator.categoryHeading(title, "Waffeneigenschaften"), waffeneigenschaften):
+                    title = ""
             elif r[0] == "Z":
-                self.ruleCategories.append(self.formatCategory("Zauber"))
-                self.appendTalente(rules, ruleLineCounts, self.ruleCategories[-1], zauber)
+                if self.appendTalente(rules, CheatsheetGenerator.categoryHeading(title, "Zauber"), zauber):
+                    title = ""
             elif r[0] == "L":
-                self.ruleCategories.append(self.formatCategory("Liturgien"))
-                self.appendTalente(rules, ruleLineCounts, self.ruleCategories[-1], liturgien)
+                if self.appendTalente(rules, CheatsheetGenerator.categoryHeading(title, "Liturgien"), liturgien):
+                    title = ""
             elif r[0] == "A":
-                self.ruleCategories.append(self.formatCategory("Anrufungen"))
-                self.appendTalente(rules, ruleLineCounts, self.ruleCategories[-1], anrufungen)
+                if self.appendTalente(rules, CheatsheetGenerator.categoryHeading(title, "Anrufungen"), anrufungen):
+                    title = ""
             
-            EventBus.doAction("regelanhang_anfuegen", { "reihenfolge" : r, "appendCallback" : lambda category, text, r=rules, l=ruleLineCounts: self.appendGeneric(category, text, r, l) })
+            EventBus.doAction("regelanhang_anfuegen", { "reihenfolge" : r, "appendCallback" : lambda text: rules.append(text) })
+
+        if lastTitle and len(rules) > 0 and rules[-1] == lastTitle:
+            rules.pop()
 
         Wolke.Char.voraussetzungenPruefen = voraussetzungenPruefen
-        return rules, ruleLineCounts
-        
-
-    def writeRules(self, rules, ruleLineCounts, start):
-        lineCount = 0
-        endIndex = start
-
-        while lineCount < self.rulesLineCount and endIndex < len(ruleLineCounts):
-            nextLineCount = ruleLineCounts[endIndex] - 1 #subtract one because every entry ends with a newline
-            leeway = int(nextLineCount * 0.3) #give big texts some leeway on the target line count to avoid big empty spaces
-            if lineCount + nextLineCount > self.rulesLineCount + leeway:
-                break
-            lineCount = lineCount + ruleLineCounts[endIndex]
-            endIndex = endIndex + 1
-
-        if endIndex <= start:
-            return "", -1
-
-        #Make sure a category is never the last line on the page
-        category = rules[endIndex-1][:-2]
-        if category in self.ruleCategories:
-            lineCount -= ruleLineCounts[endIndex-1]
-            endIndex = endIndex - 1
-
-        #Remove the trailing new line from the last entry
-        rules[endIndex-1] = rules[endIndex-1][:-2]
-        lineCount -= 1
-
-        result = ''.join(rules[start:endIndex])
-
-        # Append newlines to make the auto-fontsize about same as large as the other pages
-        if self.rulesLineCount - lineCount > 0:
-            result += '\n' * (self.rulesLineCount - lineCount)
-
-        if len(rules) == endIndex:
-            #return -1 to signal that we are done
-            return result, -1
-        return result, endIndex
+        rules = Hilfsmethoden.fixHtml("".join(rules))
+        return rules

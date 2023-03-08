@@ -79,7 +79,7 @@ class PdfExporter(object):
                 fieldsNew = EventBus.applyFilter("pdf_export_extrapage", fieldsNew)
                 allPages.append(PdfSerializer.write_pdf(extraPage, fieldsNew, None, flatten))
                 
-                progressCallback(20 + min(35, 20 + 3*pageCount))
+                progressCallback(min(35, 20 + 3*pageCount))
 
             if extraPage:
                 os.remove(extraPage)
@@ -96,37 +96,30 @@ class PdfExporter(object):
         progressCallback(40)
 
         if printRules:
-            rulePages = []
-            rules, ruleLineCounts = self.CheatsheetGenerator.prepareRules()
-            startIndex = 0
-            pageCount = 0
-
-            rulesFields = {}
-            while startIndex != -1:
-                pageCount += 1
-                rulesFields["Seite"] = pageCount
-                str, startIndex = self.CheatsheetGenerator.writeRules(rules, ruleLineCounts, startIndex)
-                rulesFields["Regeln1"] = str
-                rulesFields["Regeln2"] = ""
-                if startIndex != -1:
-                    str, startIndex = self.CheatsheetGenerator.writeRules(rules, ruleLineCounts, startIndex)
-                    rulesFields["Regeln2"] = str
-
-                flatten = Wolke.Char.formularEditierbarkeit == 1 or Wolke.Char.formularEditierbarkeit == 2
-                rulePages.append(PdfSerializer.write_pdf(self.CharakterBogen.regelanhangPfad, rulesFields, None, flatten))
-                progressCallback(min(70, 40 + 3*pageCount))
-
-            
-            if len(rulePages) > 0:
+            rules = self.CheatsheetGenerator.generateRules()
+            progressCallback(45)
+            if len(rules) != 0:
+                html = ""
+                with open(self.CharakterBogen.regelanhangPfad, 'r', encoding="utf-8") as infile:
+                    html = infile.read()
+                    rules = self.CheatsheetGenerator.generateRules()
+                    html = html.replace("{rules_content}", rules)
+                    html = html.replace("{rules_font_size}", str(Wolke.Char.regelnGroesse))
+                    html = html.replace("{sephrasto_dir}", "file:///" + os.getcwd().replace('\\', '/')) #should be done after content because it may use this macro
+                rulesFile = PdfSerializer.convertHtmlToPdf(html, self.CharakterBogen.regelanhangPfad, self.CharakterBogen.getRegelanhangPageLayout())
+                progressCallback(50)
+                PdfSerializer.addText(rulesFile,
+                                      "%Page/%EndPage",
+                                      self.CharakterBogen.regelanhangSeitenzahlPosition,
+                                      str(self.CharakterBogen.regelanhangSeitenzahlAbstand),
+                                      "black", "Times-Roman", "12", rulesFile)
+                progressCallback(60)
                 # Add the background image separately with a pdftk "background" call - this way it will be shared by all pages to decrease file size
                 if self.CharakterBogen.regelanhangHintergrundPfad:
-                    concatPath = PdfSerializer.concat(rulePages)
-                    allPages.append(PdfSerializer.addBackground(concatPath, self.CharakterBogen.regelanhangHintergrundPfad))
-                    os.remove(concatPath)
-                    for page in rulePages:
-                        os.remove(page)
+                    allPages.append(PdfSerializer.addBackground(rulesFile, self.CharakterBogen.regelanhangHintergrundPfad))
+                    os.remove(rulesFile)
                 else:
-                    allPages += rulePages
+                    allPages.append(rulesFile)
 
         progressCallback(70)
 
@@ -646,67 +639,28 @@ class PdfExporter(object):
         if len(self.CharakterBogen.bild) == 0 or not Wolke.Char.bild:
             return pages
 
-        if platform.system() != 'Windows' and which("convert") is None:
-            messagebox = QtWidgets.QMessageBox()
-            messagebox.setWindowTitle("Kann Charakterbild nicht einfügen")
-            messagebox.setText("Das Einfügen des Charakterbilds benötigt das Programm 'convert' im Systempfad. Installationsdetails gibt es unter https://imagemagick.org. Der Charakterbogen wird nun ohne das Bild erstellt.")
-            messagebox.setIcon(QtWidgets.QMessageBox.Warning)
-            messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-            messagebox.exec()
-            return pages
+        empty = PdfSerializer.createEmptyPage(self.CharakterBogen.getPageLayout())
+        stampPages = []
+        for i in range(len(self.CharakterBogen.bild)):
+            if not self.CharakterBogen.hasImage(i):
+                stampPages.append(empty)
+                continue
+            imagePdf = PdfSerializer.convertJpgToPdf(Wolke.Char.bild, self.CharakterBogen.getImageSize(i, [260, 340]), self.CharakterBogen.getImageOffset(i), self.CharakterBogen.getPageLayout())
+            stampPages.append(imagePdf)
 
-        try:
-            empty = PdfSerializer.createEmptyPage()
-
-            # Convert the image to pdf
-            handle, image_file = tempfile.mkstemp()
-            os.close(handle)
-            characterImage = QtGui.QPixmap()
-            characterImage.loadFromData(Wolke.Char.bild)
-            characterImage.save(image_file, "JPG")
-
-            # Iterate through the bild array of the character sheet and create a page with the image for each entry
-            stampPages = []
-            for i in range(len(self.CharakterBogen.bild)):
-                if len(self.CharakterBogen.bild[i]) != 3:
-                    stampPages.append(empty)
-                    continue
-                bildGröße = self.CharakterBogen.bild[i][0]
-                bildOffset = self.CharakterBogen.bild[i][1:]
-                # Setting page size to a2 so stamping has to reduce size - this way we can use a higher image resolution.
-                # The numbers after the page size are offsets from bottom and right to fit the image in the right spot
-                # Density (dpi) has to be fixed, otherwise page offsets break
-                # gravity + extent adds letterboxes to the image if needed, this keeps the image centered and allows to use fixed page offsets
-                image_pdf = PdfSerializer.convertImageToPDF(image_file, [math.ceil(260 * bildGröße), math.ceil(340 * bildGröße)], "a2", bildOffset)
-                stampPages.append(image_pdf)
-
-            os.remove(image_file)
-
-            # pdftk repeats the last page of the stamp pdf if its page count is lower - make sure its empty
-            stampPages.append(empty)
+        # pdftk repeats the last page of the stamp pdf if its page count is lower - make sure its empty
+        stampPages.append(empty)
             
-            # make a single pdf file out of the stamp pages
-            stampPdf = PdfSerializer.concat(stampPages)
-            for page in stampPages:
-                if os.path.isfile(page):
-                    os.remove(page)
+        # make a single pdf file out of the stamp pages
+        stampPdf = PdfSerializer.concat(stampPages)
+        for page in stampPages:
+            if os.path.isfile(page):
+                os.remove(page)
 
-            # overlay each page of the stamp pdf over the corresponding page of the character sheet
-            result = PdfSerializer.multistamp(pages[0], stampPdf)
-            os.remove(pages[0])
-            os.remove(stampPdf)
-            pages[0] = result
-        except Exception as e:
-            messagebox = QtWidgets.QMessageBox()
-            messagebox.setWindowTitle("Kann Charakterbild nicht einfügen")
-            text = "Das Einfügen des Charakterbilds ist fehlgeschlagen: " + str(e) + "."
-            if platform.system() == 'Linux':
-                text += "\nUnter Linux gibt es ein bekanntes Problem mit ImageMagick, siehe https://github.com/Aeolitus/Sephrasto/blob/master/README.md für einen Workaround."
-            text += "\nDer Charakterbogen wird nun ohne das Bild erstellt."
-            messagebox.setText(text)
-            messagebox.setIcon(QtWidgets.QMessageBox.Warning)
-            messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-            messagebox.exec()
-            return pages
+        # overlay each page of the stamp pdf over the corresponding page of the character sheet
+        result = PdfSerializer.multistamp(pages[0], stampPdf)
+        os.remove(pages[0])
+        os.remove(stampPdf)
+        pages[0] = result
 
         return pages

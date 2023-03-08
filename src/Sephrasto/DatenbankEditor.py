@@ -17,7 +17,7 @@ import DatenbankSelectTypeWrapper
 import DatenbankEditWaffeneigenschaftWrapper
 import DatenbankEditWaffeWrapper
 import DatenbankEditRuestungWrapper
-import DatenbankEditManoeverWrapper
+import DatenbankEditRegelWrapper
 import DatenbankEditEinstellungWrapper
 from DatenbankEinstellung import DatenbankEinstellung
 import Objekte
@@ -118,13 +118,13 @@ class DatenbankEditor(object):
         self.databaseTypes = {}
         self.databaseTypes["Talent"] = DatenbankTypWrapper(self.addTalent, self.editTalent, self.ui.showTalente)
         self.databaseTypes["Vorteil"] = DatenbankTypWrapper(self.addVorteil, self.editVorteil, self.ui.showVorteile)
-        self.databaseTypes["Fertigkeit"] = DatenbankTypWrapper(self.addFertigkeit, self.editFertigkeit, self.ui.showFertigkeiten)
-        self.databaseTypes["Übernatürliche Fertigkeit"] = DatenbankTypWrapper(self.addUebernatuerlich, self.editUebernatuerlich, self.ui.showUebernatuerlicheFertigkeiten)
+        self.databaseTypes["Fertigkeit (profan)"] = DatenbankTypWrapper(self.addFertigkeit, self.editFertigkeit, self.ui.showFertigkeiten)
+        self.databaseTypes["Fertigkeit (übernatürlich)"] = DatenbankTypWrapper(self.addUebernatuerlich, self.editUebernatuerlich, self.ui.showUebernatuerlicheFertigkeiten)
         self.databaseTypes["Freie Fertigkeit"] = DatenbankTypWrapper(self.addFreieFertigkeit, self.editFreieFertigkeit, self.ui.showFreieFertigkeiten)
         self.databaseTypes["Waffeneigenschaft"] = DatenbankTypWrapper(self.addWaffeneigenschaft, self.editWaffeneigenschaft, self.ui.showWaffeneigenschaften)
         self.databaseTypes["Waffe"] = DatenbankTypWrapper(self.addWaffe, self.editWaffe, self.ui.showWaffen)
         self.databaseTypes["Rüstung"] = DatenbankTypWrapper(self.addRuestung, self.editRuestung, self.ui.showRuestungen)
-        self.databaseTypes["Manöver / Modifikation"] = DatenbankTypWrapper(self.addManoever, self.editManoever, self.ui.showManoever)
+        self.databaseTypes["Regel"] = DatenbankTypWrapper(self.addRegeln, self.editRegeln, self.ui.showRegeln)
         self.databaseTypes["Einstellung"] = DatenbankTypWrapper(self.addEinstellung, self.editEinstellung, self.ui.showEinstellung)
         pluginDatabaseTypes = {}
         pluginDatabaseTypes = EventBus.applyFilter("datenbank_editor_typen", pluginDatabaseTypes)
@@ -251,7 +251,7 @@ class DatenbankEditor(object):
 
         if self.ui.showDeleted.isChecked():
             for type in sorted(self.datenbank.removeList):
-                for name in self.datenbank.removeList[type]:
+                for name in sorted(self.datenbank.removeList[type]):
                     if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in name.lower():
                         continue
 
@@ -359,9 +359,9 @@ class DatenbankEditor(object):
         rüs = Objekte.Ruestung()
         return self.editRuestung(rüs)
     
-    def addManoever(self):
-        man = Fertigkeiten.Manoever()
-        return self.editManoever(man)
+    def addRegeln(self):
+        man = Fertigkeiten.Regel()
+        return self.editRegeln(man)
             
     def addEinstellung(self):
         de = DatenbankEinstellung()
@@ -399,9 +399,9 @@ class DatenbankEditor(object):
         dbW = DatenbankEditRuestungWrapper.DatenbankEditRuestungWrapper(self.datenbank, inp, readonly)
         return dbW.ruestung
         
-    def editManoever(self, inp, readonly = False):
-        dbM = DatenbankEditManoeverWrapper.DatenbankEditManoeverWrapper(self.datenbank, inp, readonly)
-        return dbM.man
+    def editRegeln(self, inp, readonly = False):
+        dbM = DatenbankEditRegelWrapper.DatenbankEditRegelWrapper(self.datenbank, inp, readonly)
+        return dbM.regel
 
     def editEinstellung(self, inp, readonly = False):
         dbE = DatenbankEditEinstellungWrapper.DatenbankEditEinstellungWrapper(self.datenbank, inp, readonly)

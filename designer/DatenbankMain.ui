@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>795</width>
-    <height>535</height>
+    <height>582</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -160,9 +160,9 @@
           </widget>
          </item>
          <item>
-          <widget class="QCheckBox" name="showManoever">
+          <widget class="QCheckBox" name="showRegeln">
            <property name="text">
-            <string>Manöver / Modifikation / Regel</string>
+            <string>Regeln</string>
            </property>
            <property name="checked">
             <bool>true</bool>
@@ -448,7 +448,7 @@
   <tabstop>showRuestungen</tabstop>
   <tabstop>showWaffen</tabstop>
   <tabstop>showWaffeneigenschaften</tabstop>
-  <tabstop>showManoever</tabstop>
+  <tabstop>showRegeln</tabstop>
   <tabstop>showEinstellung</tabstop>
   <tabstop>showDeleted</tabstop>
   <tabstop>showUserAdded</tabstop>

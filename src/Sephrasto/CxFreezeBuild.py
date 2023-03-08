@@ -5,13 +5,13 @@ import os
 import shutil
 from distutils.dir_util import copy_tree
 import platform
+import subprocess
 
 print("Cleaning build folder")
 dir_path = os.path.dirname(os.path.realpath(__file__))
-build_path_root = os.path.join(dir_path, "..", "..", "build")
+project_path = os.path.join(dir_path, "..", "..")
+build_path_root = os.path.join(project_path,  "build")
 build_path = os.path.join(build_path_root, "Sephrasto")
-platforms_path = os.path.join(build_path, "platforms")
-styles_path = os.path.join(build_path, "styles")
 doc_path = os.path.join(build_path, "Doc")
 bin_path = os.path.join(build_path, "Bin")
 data_path = os.path.join(build_path, "Data")
@@ -35,7 +35,7 @@ else:
 print("Running cxfreeze")
 build_exe_options = {
     "build_exe" : build_path,
-    "includes" : ["multiprocessing"],
+    "includes" : ["multiprocessing", "PySide6.QtPrintSupport", "PySide6.QtWebChannel"],
     "excludes" : ["tkinter", "distutils", "html", "unittest", "pydoc", "bz2", "pyexpat", "lzma"],
     "optimize" : 2,
     "zip_include_packages" : "*",
@@ -59,11 +59,18 @@ setup(  name = 'Sephrasto',
 print("Removing unneeded files")
 removeFiles = [
     "frozen_application_license.txt", #we already have that in Acknowledgements.md
-    "lib/PySide6/Qt6Network.dll",
-    "lib/PySide6/QtNetwork.pyd",
-    "lib/PySide6/QtNetwork.pyd",
     "lib/PySide6/Qt6Svg.dll",
     "lib/PySide6/Qt6Pdf.dll",
+    "lib/PySide6/opengl32sw.dll",
+    "lib/PySide6/resources/qtwebengine_devtools_resources.pak",
+    "lib/PySide6/resources/qtwebengine_resources_100p.pak",
+    "lib/PySide6/resources/qtwebengine_resources_200p.pak",
+    "lib/PySide6/translations",
+    "lib/PySide6/bin",
+    "lib/PySide6/d3dcompiler_47.dll",
+    "lib/libcrypto-1_1.dll",
+    "lib/libssl-1_1.dll",
+    "lib/D3DCOMPILER_47.dll",
 ]
 
 for filename in removeFiles:
@@ -109,7 +116,15 @@ for file,targetDir in includeFiles.items():
 archiveName = "Sephrasto_v" + str(Version._sephrasto_version_major) + "." + str(Version._sephrasto_version_minor) + "." + str(Version._sephrasto_version_build)
 print("Creating archive " + archiveName + ".zip")
 
-shutil.make_archive(os.path.join(dir_path, archiveName), 'zip', build_path_root)
+
+if system == "Windows":
+    # We are using 7-zip for better compression with deflate64. This compression is natively supported by windows 7+.
+    # This is a nice tool for building the commandline args: https://axelstudios.github.io/7z/#!/
+    sevenZip = os.path.join(project_path, "tools", "7-zip", "7za.exe")
+    subprocess.check_output([sevenZip, "a", "-tzip", "-mx7", "-mm=Deflate64", os.path.join(dir_path, archiveName) + ".zip", build_path], stderr=subprocess.STDOUT)
+else:
+    shutil.make_archive(os.path.join(dir_path, archiveName), 'zip', build_path_root)
+
 shutil.move(os.path.join(dir_path, archiveName) + ".zip", os.path.join(build_path_root, archiveName) + ".zip")
 
 print("Build completed")

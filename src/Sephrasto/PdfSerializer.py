@@ -10,10 +10,6 @@ import codecs
 import sys
 import shutil
 import platform
-
-if sys.version_info[0] < 3:
-    bytes = str
-    
 from os import remove
 import os
 import tempfile
@@ -21,6 +17,16 @@ from re import match
 from tempfile import NamedTemporaryFile
 import subprocess
 import logging
+from PySide6 import QtCore, QtWebEngineCore
+from contextlib import contextmanager
+import base64
+
+@contextmanager
+def waitForSignal(signal):
+    loop = QtCore.QEventLoop()
+    signal.connect(loop.quit)
+    yield
+    loop.exec_()
 
 def check_output_silent(call):
     try:
@@ -273,6 +279,18 @@ def squeeze(file, out_file = None):
 
     return out_file
 
+def addText(file, text, pos, posOffset, color = "black", font = "Times-Roman", fontsize = "12", out_file = None):
+    if not out_file:
+        handle, out_file = tempfile.mkstemp()
+        os.close(handle)
+    cpdfPath = os.path.join("Bin", platform.system(), "cpdf", "cpdf")
+    call = [cpdfPath, "-add-text", text, "-" + pos, posOffset, "-color", color, "-font", font, "-font-size", fontsize, file, "-o", out_file]
+    try:
+        check_output_silent(call)
+    except Exception as e:
+        logging.error("Unable to add text to pdf: " + str(e))
+    return out_file
+
 def addBackground(file, background_file, out_file = None):
     if not out_file:
         handle, out_file = tempfile.mkstemp()
@@ -305,38 +323,43 @@ def multistamp(file, stamp_file, out_file = None):
     check_output_silent(call)
     return out_file
 
-def createEmptyPage(pageSize = "A4", out_file = None):
+def createEmptyPage(pageLayout, backgroundColor = QtCore.Qt.transparent, out_file = None):
+    if not out_file:
+        handle, out_file = tempfile.mkstemp()
+        os.close(handle)
+        os.remove(out_file) # just using it to get a path
+        out_file += ".pdf"
+    
+    return convertHtmlToPdf("", "", pageLayout, backgroundColor, out_file)
+
+def convertJpgToPdf(imageBytes, imageTargetSize, imageOffset, pageLayout, backgroundColor = QtCore.Qt.transparent, out_file = None):
+    if not out_file:
+        handle, out_file = tempfile.mkstemp()
+        os.close(handle)
+        os.remove(out_file) # just using it to get a path
+        out_file += ".pdf"
+    image = base64.b64encode(imageBytes).decode('ascii')
+    html = f"<div style='margin-left: {imageOffset[0]}px; margin-top: {imageOffset[1]}px; width: {imageTargetSize[0]}px; height: {imageTargetSize[1]}px;'>\
+    <img src='data:image/jpg;base64, {image}' style='width: 100%; height: 100%; object-fit: contain;'>\
+    </div>"
+    return convertHtmlToPdf(html, "", pageLayout, backgroundColor, out_file)
+
+def convertHtmlToPdf(html, htmlBaseUrl, pageLayout, backgroundColor = QtCore.Qt.transparent, out_file = None):
+    if isinstance(htmlBaseUrl, str):
+        htmlBaseUrl = QtCore.QUrl.fromLocalFile(QtCore.QFileInfo(htmlBaseUrl).absoluteFilePath())
+
     if not out_file:
         handle, out_file = tempfile.mkstemp()
         os.close(handle)
         os.remove(out_file) # just using it to get a path
         out_file += ".pdf"
 
-    convertPath = "convert"
-    if platform.system() == 'Windows':
-        convertPath = os.path.join("Bin", platform.system(), "ImageMagick", "convert")
+    page = QtWebEngineCore.QWebEnginePage()
+    page.setBackgroundColor(backgroundColor)
+    with waitForSignal(page.loadFinished):
+        page.setHtml(html, htmlBaseUrl)
 
-    call = [convertPath, "xc:none", "-page", pageSize, out_file]
-    check_output_silent(call)
-    return out_file
+    with waitForSignal(page.pdfPrintingFinished):
+        page.printToPdf(out_file, pageLayout)
 
-def convertImageToPDF(file, targetSize, pageSize, offset, out_file = None):
-    if not out_file:
-        handle, out_file = tempfile.mkstemp()
-        os.close(handle)
-        os.remove(out_file) # just using it to get a path
-        out_file += ".pdf"
-
-    convertPath = "convert"
-    if platform.system() == 'Windows':
-        convertPath = os.path.join("Bin", platform.system(), "ImageMagick", "convert")
-
-    targetSize = f"{targetSize[0]}x{targetSize[1]}"
-
-    pageSize += ("+" if offset[0] >= 0 else "") + str(offset[0])
-    pageSize += ("+" if offset[1] >= 0 else "") + str(offset[1])
-
-    call = [convertPath, file, "-resize", targetSize, "-gravity", "Center", "-extent", targetSize, "-density", "96",
-            "-page", pageSize, out_file]
-    check_output_silent(call)
     return out_file

@@ -180,7 +180,7 @@ class Talent():
 
 class VorteilLinkKategorie():
    NichtVerknüpfen = 0
-   ManöverMod = 1
+   Regel = 1
    ÜberTalent = 2
    Vorteil = 3
 
@@ -236,13 +236,12 @@ class Vorteil():
         else:
             return self.name
 
-class Manoever():
+class Regel():
     def __init__(self):
         self.name = ''
         self.typ = 0
         self.voraussetzungen = []
         self.probe = ''
-        self.gegenprobe = ''
         self.text = ''
         self.isUserAdded = True
     def __eq__(self, other) : 

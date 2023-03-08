@@ -25,7 +25,7 @@ class Ui_Form(object):
         if not Form.objectName():
             Form.setObjectName(u"Form")
         Form.setWindowModality(Qt.ApplicationModal)
-        Form.resize(795, 535)
+        Form.resize(795, 582)
         self.gridLayout = QGridLayout(Form)
         self.gridLayout.setObjectName(u"gridLayout")
         self.horizontalLayout_2 = QHBoxLayout()
@@ -107,11 +107,11 @@ class Ui_Form(object):
 
         self.verticalLayout_3.addWidget(self.showWaffeneigenschaften)
 
-        self.showManoever = QCheckBox(Form)
-        self.showManoever.setObjectName(u"showManoever")
-        self.showManoever.setChecked(True)
+        self.showRegeln = QCheckBox(Form)
+        self.showRegeln.setObjectName(u"showRegeln")
+        self.showRegeln.setChecked(True)
 
-        self.verticalLayout_3.addWidget(self.showManoever)
+        self.verticalLayout_3.addWidget(self.showRegeln)
 
         self.showEinstellung = QCheckBox(Form)
         self.showEinstellung.setObjectName(u"showEinstellung")
@@ -239,8 +239,8 @@ class Ui_Form(object):
         QWidget.setTabOrder(self.showTalente, self.showRuestungen)
         QWidget.setTabOrder(self.showRuestungen, self.showWaffen)
         QWidget.setTabOrder(self.showWaffen, self.showWaffeneigenschaften)
-        QWidget.setTabOrder(self.showWaffeneigenschaften, self.showManoever)
-        QWidget.setTabOrder(self.showManoever, self.showEinstellung)
+        QWidget.setTabOrder(self.showWaffeneigenschaften, self.showRegeln)
+        QWidget.setTabOrder(self.showRegeln, self.showEinstellung)
         QWidget.setTabOrder(self.showEinstellung, self.showDeleted)
         QWidget.setTabOrder(self.showDeleted, self.showUserAdded)
         QWidget.setTabOrder(self.showUserAdded, self.buttonCloseDB)
@@ -272,7 +272,7 @@ class Ui_Form(object):
         self.showRuestungen.setText(QCoreApplication.translate("Form", u"R\u00fcstungen", None))
         self.showWaffen.setText(QCoreApplication.translate("Form", u"Waffen", None))
         self.showWaffeneigenschaften.setText(QCoreApplication.translate("Form", u"Waffeneigenschaften", None))
-        self.showManoever.setText(QCoreApplication.translate("Form", u"Man\u00f6ver / Modifikation / Regel", None))
+        self.showRegeln.setText(QCoreApplication.translate("Form", u"Regeln", None))
         self.showEinstellung.setText(QCoreApplication.translate("Form", u"Einstellung", None))
         self.labelParameter1.setText(QCoreApplication.translate("Form", u"Filter nach Status:", None))
         self.labelParameter1.setProperty("class", QCoreApplication.translate("Form", u"h4", None))

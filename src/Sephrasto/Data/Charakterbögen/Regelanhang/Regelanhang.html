@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="hyphen/hyphen.js"></script>
+        <script src="hyphen/de-1996.js"></script>
+        <script>
+        window.onload = function(){
+            layout = document.getElementById('layout');
+            var hyphenateHTMLSync = createHyphenator(hyphenationPatternsDe1996, { html: true });
+            layout.innerHTML = hyphenateHTMLSync(layout.innerHTML) ;    
+        }
+        </script>
+        <style>
+            @font-face {
+                font-family: 'Aniron';
+                src: url('{sephrasto_dir}/Data/Fonts/Aniron/anirb___.ttf') format('truetype');
+            }
+            
+            @font-face {
+                font-family: 'Crimson Pro';
+                src: url('{sephrasto_dir}/Data/Fonts/Crimson Pro/CrimsonPro-Regular.ttf') format('truetype');
+                font-style: normal;
+                font-weight: 400;
+            }
+            
+            @font-face {
+                font-family: 'Crimson Pro';
+                src: url('{sephrasto_dir}/Data/Fonts/Crimson Pro/CrimsonPro-Italic.ttf') format('truetype');
+                font-style: italic;
+                font-weight: 400;
+            }
+            
+            @font-face {
+                font-family: 'Crimson Pro';
+                src: url('{sephrasto_dir}/Data/Fonts/Crimson Pro/CrimsonPro-Bold.ttf') format('truetype');
+                font-style: bold;
+                font-weight: 700;
+
+            }
+            
+            @font-face {
+                font-family: 'FontAwesome';
+                src: url('{sephrasto_dir}/Data/Fonts/Fontawesome/fa-solid-900.ttf') format('truetype');
+            }
+            
+            #layout {
+                column-count: 2;
+                column-gap: 30px;
+                column-fill: auto;  /* not working... */
+            }
+            
+            html, body {
+                font-family: 'Minion Pro', 'Crimson Pro'; /* we cannot redist Minion Pro, but use it if its installed on the computer */
+                font-size: {rules_font_size}pt;
+            }
+
+            .title {
+                font-family: 'Aniron';
+                font-size: calc({rules_font_size}pt + 4pt);
+                margin: 0;
+                color: #4A000B;
+            }
+
+            .ruleCategoryHeading {
+                font-variant: small-caps;
+                font-weight: bold;
+                font-size: calc({rules_font_size}pt + 5pt);
+                color: #4A000B;
+            }
+            
+            .ruleHeading {
+                font-weight: bold;
+            }
+            
+            article {
+                margin-top: 8px;
+                page-break-inside: avoid; /* qt web engine doesnt handle print layout very well without this */
+            }
+            
+            article:first-of-type {
+                margin-top: -4px;
+            }
+            
+            .title + .ruleCategoryHeading {
+                margin-top: 0px;
+            }
+            
+            ul {
+              --icon-size: .8em;
+              --gutter: .5em;
+              padding: 0 0 0 var(--icon-size);
+              margin: 0;
+              margin-bottom: calc({rules_font_size}pt/2);
+            }
+
+            ul li {
+              padding-left: var(--gutter);
+            }
+
+            ul li::marker {
+              content: "\f054";
+              font-family: 'FontAwesome';
+              font-size: var(--icon-size);
+            }
+
+            ul li.checkbox::marker {
+              content: "\f14a";
+              font-family: 'FontAwesome';
+              font-size: var(--icon-size);
+            }
+            
+            table {
+                margin-top: calc({rules_font_size}pt/2);
+                margin-bottom: calc({rules_font_size}pt/2);
+                margin-left: auto;
+                margin-right: auto;
+                border-collapse: collapse;
+            }
+            
+            th {
+                font-variant: small-caps;
+                color: #4A000B;
+                font-size: calc({rules_font_size}pt + 1pt);
+                border-bottom: 1px solid #4A000B;
+                line-height: 70%; /* offsetting a bit for minion pro large descender */
+                padding-top: 0.4em;;  /* offsetting a bit for minion pro large descender */
+            }
+            
+            tr:nth-of-type(even) {
+                background-color:#E4C3A8;
+            }
+            
+            td {
+                line-height: 90%; /* offsetting a bit for minion pro's large descender */
+                padding-top: 0.4em; /* offsetting a bit for minion pro large descender */
+            }
+            
+            img {
+                width:100%;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: calc({rules_font_size}pt/2);
+                margin-bottom: calc({rules_font_size}pt/2);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="layout">{rules_content}</div>
+    </body>
+</html>

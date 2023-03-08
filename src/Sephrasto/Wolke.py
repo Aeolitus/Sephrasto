@@ -11,43 +11,19 @@ class _DefaultSettings:
     WindowSizeDefault1Col = [461, 522]
     WindowSizeDefault2Col = [928, 522]
 
-class CharakterbogenInfo:
-    def __init__(self):
-        self.filePath = ""
-        self.info = ""
-        self.maxVorteile = 0
-        self.maxVorteileProFeld = 3
-        self.maxKampfVorteile = 0
-        self.maxKampfVorteileProFeld = 3
-        self.maxÜberVorteile = 0
-        self.maxÜberVorteileProFeld = 3
-        self.maxFreie = 0
-        self.maxFreieProFeld = 3
-        self.maxFertigkeiten = 0
-        self.maxÜberFertigkeiten = 0
-        self.maxÜberTalente = 0
-        self.überSeite = 0
-        self.überFertigkeitenZuProfan = False
-        self.überVorteileZuKampf = False
-        self.extraÜberSeiten = True
-        self.beschreibungDetails = False
-        self.bild = []
-        self.regelanhangPfad = os.path.join("Data", "Charakterbögen", "Regeln.pdf")
-        self.regelanhangHintergrundPfad = os.path.join("Data", "Charakterbögen", "Hintergrund.pdf")
-
 class Wolke:
     Char = None
     DB = None
     Charakterbögen = {}
     Themes = {}
     Settings = {
-        'Version' : 2,
+        'Version' : 3,
         'Bogen': "Standard Charakterbogen", 
         'Datenbank': None, 
         'Charakter-Assistent' : True,
         'Cheatsheet': True, 
-        'Cheatsheet-Fontsize' : 0,
-        'Formular-Editierbarkeit' : 0,
+        'Cheatsheet-Fontsize' : 8,
+        'Formular-Editierbarkeit' : True,
         'Pfad-Chars': '',
         'Pfad-Regeln': '',
         'Pfad-Plugins': '',
@@ -75,7 +51,7 @@ class Wolke:
         'WindowSize-DBFertigkeitProfan' : _DefaultSettings.WindowSizeDefault1Col,
         'WindowSize-DBFertigkeitUeber' : _DefaultSettings.WindowSizeDefault1Col,
         'WindowSize-DBFreieFert' : _DefaultSettings.WindowSizeDefault1Col,
-        'WindowSize-DBManoever' : _DefaultSettings.WindowSizeDefault1Col,
+        'WindowSize-DBRegel' : _DefaultSettings.WindowSizeDefault1Col,
         'WindowSize-DBRuestung' : _DefaultSettings.WindowSizeDefault1Col,
         'WindowSize-DBTalent' : _DefaultSettings.WindowSizeDefault1Col,
         'WindowSize-DBVorteil' : _DefaultSettings.WindowSizeDefault1Col,

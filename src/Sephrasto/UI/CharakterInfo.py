@@ -24,7 +24,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(974, 755)
+        Form.resize(974, 790)
         self.gridLayout = QGridLayout(Form)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setHorizontalSpacing(20)
@@ -87,14 +87,6 @@ class Ui_Form(object):
 
         self.gridLayout_5.addWidget(self.label_7, 9, 0, 1, 1)
 
-        self.comboRegelnGroesse = QComboBox(self.groupBox_3)
-        self.comboRegelnGroesse.addItem("")
-        self.comboRegelnGroesse.addItem("")
-        self.comboRegelnGroesse.addItem("")
-        self.comboRegelnGroesse.setObjectName(u"comboRegelnGroesse")
-
-        self.gridLayout_5.addWidget(self.comboRegelnGroesse, 9, 1, 1, 1)
-
         self.checkReq = QCheckBox(self.groupBox_3)
         self.checkReq.setObjectName(u"checkReq")
         self.checkReq.setChecked(True)
@@ -107,14 +99,6 @@ class Ui_Form(object):
         self.checkRegeln.setTristate(False)
 
         self.gridLayout_5.addWidget(self.checkRegeln, 7, 1, 1, 1)
-
-        self.comboFormular = QComboBox(self.groupBox_3)
-        self.comboFormular.addItem("")
-        self.comboFormular.addItem("")
-        self.comboFormular.addItem("")
-        self.comboFormular.setObjectName(u"comboFormular")
-
-        self.gridLayout_5.addWidget(self.comboFormular, 11, 1, 1, 1)
 
         self.label_5 = QLabel(self.groupBox_3)
         self.label_5.setObjectName(u"label_5")
@@ -163,6 +147,23 @@ class Ui_Form(object):
         self.checkUeberPDF.setChecked(False)
 
         self.gridLayout_5.addWidget(self.checkUeberPDF, 12, 1, 1, 1)
+
+        self.spinRegelnGroesse = QSpinBox(self.groupBox_3)
+        self.spinRegelnGroesse.setObjectName(u"spinRegelnGroesse")
+        self.spinRegelnGroesse.setMinimumSize(QSize(60, 0))
+        self.spinRegelnGroesse.setMaximumSize(QSize(60, 16777215))
+        self.spinRegelnGroesse.setButtonSymbols(QAbstractSpinBox.PlusMinus)
+        self.spinRegelnGroesse.setMinimum(6)
+        self.spinRegelnGroesse.setMaximum(12)
+        self.spinRegelnGroesse.setValue(8)
+
+        self.gridLayout_5.addWidget(self.spinRegelnGroesse, 9, 1, 1, 1)
+
+        self.checkFormular = QCheckBox(self.groupBox_3)
+        self.checkFormular.setObjectName(u"checkFormular")
+        self.checkFormular.setChecked(True)
+
+        self.gridLayout_5.addWidget(self.checkFormular, 11, 1, 1, 1)
 
 
         self.verticalLayout_4.addWidget(self.groupBox_3)
@@ -468,7 +469,6 @@ class Ui_Form(object):
 
         QWidget.setTabOrder(self.teNotiz, self.comboHausregeln)
         QWidget.setTabOrder(self.comboHausregeln, self.comboCharsheet)
-        QWidget.setTabOrder(self.comboCharsheet, self.comboRegelnGroesse)
 
         self.retranslateUi(Form)
 
@@ -489,12 +489,8 @@ class Ui_Form(object):
 #endif // QT_CONFIG(tooltip)
         self.label_6.setText(QCoreApplication.translate("Form", u"Charakterbogen", None))
         self.label_14.setText(QCoreApplication.translate("Form", u"Relevante Regeln anh\u00e4ngen", None))
-        self.cbFormular.setText(QCoreApplication.translate("Form", u"Formularfelder", None))
+        self.cbFormular.setText(QCoreApplication.translate("Form", u"Formularfelder editierbar", None))
         self.label_7.setText(QCoreApplication.translate("Form", u"Regelschriftgr\u00f6\u00dfe", None))
-        self.comboRegelnGroesse.setItemText(0, QCoreApplication.translate("Form", u"Klein", None))
-        self.comboRegelnGroesse.setItemText(1, QCoreApplication.translate("Form", u"Mittel", None))
-        self.comboRegelnGroesse.setItemText(2, QCoreApplication.translate("Form", u"Gro\u00df", None))
-
 #if QT_CONFIG(tooltip)
         self.checkReq.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>Falls abgew\u00e4hlt, werden s\u00e4mtliche Voraussetzungspr\u00fcfungen f\u00fcr Vorteile, \u00fcbernat\u00fcrliche Fertigkeiten usw. deaktiviert.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
@@ -503,13 +499,6 @@ class Ui_Form(object):
         self.checkRegeln.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>Sephrasto kann automatisch alle Regeln, die f\u00fcr deinen Charakter relevant sind, zusammentragen und deiner PDF hinten anf\u00fcgen.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.checkRegeln.setText("")
-        self.comboFormular.setItemText(0, QCoreApplication.translate("Form", u"Charakterbogen & Regelanhang editierbar", None))
-        self.comboFormular.setItemText(1, QCoreApplication.translate("Form", u"Nur Charakterbogen editierbar", None))
-        self.comboFormular.setItemText(2, QCoreApplication.translate("Form", u"Nicht editierbar", None))
-
-#if QT_CONFIG(tooltip)
-        self.comboFormular.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>Manche PDF-Reader k\u00f6nnen Formularfelder in PDF-Dokumenten nicht durchsuchen oder machen beispielsweise Probleme beim Regelanhang wegen der automatischen Schriftgr\u00f6\u00dfe. Die Formularfelder erh\u00f6hen die Dateigr\u00f6\u00dfe au\u00dferdem rund 10%. Mit dieser Option kannst du diese in reine Textfelder umwandeln. Sie sind dann allerdings nicht mehr editierbar.</p></body></html>", None))
-#endif // QT_CONFIG(tooltip)
         self.label_5.setText(QCoreApplication.translate("Form", u"Hausregeln", None))
         self.label_10.setText(QCoreApplication.translate("Form", u"Regelkategorien", None))
         self.label_11.setText(QCoreApplication.translate("Form", u"Voraussetzungen \u00fcberpr\u00fcfen", None))
@@ -526,6 +515,10 @@ class Ui_Form(object):
         self.checkUeberPDF.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>Sephrasto \u00fcbernimmt automatisch alle \u00fcbernat\u00fcrlichen Fertigkeiten in den Charakterbogen, deren FW mindestens 1 betr\u00e4gt und f\u00fcr welche du mindestens ein Talent aktiviert hast. Wenn du diese Option aktivierst, zeigt Sephrasto eine PDF-Spalte bei den \u00fcbernat\u00fcrlichen Fertigkeiten an. Mit dieser kannst du selbst entscheiden, welche Fertigkeiten in den Charakterbogen \u00fcbernommen werden sollen.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.checkUeberPDF.setText("")
+#if QT_CONFIG(tooltip)
+        self.checkFormular.setToolTip(QCoreApplication.translate("Form", u"<html><head/><body><p>Manche PDF-Reader k\u00f6nnen Formularfelder in PDF-Dokumenten nicht durchsuchen oder machen beispielsweise Probleme wegen der automatischen Schriftgr\u00f6\u00dfe. Die Formularfelder erh\u00f6hen die Dateigr\u00f6\u00dfe au\u00dferdem rund 10%. Mit dieser Option kannst du diese in reine Textfelder umwandeln. Sie sind dann allerdings nicht mehr editierbar. Diese Einstellung gilt f\u00fcr neue Charaktere. Du kannst sie nachtr\u00e4glich im Info-Tab des Charaktereditors \u00e4ndern.</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.checkFormular.setText("")
         self.labelEP.setText(QCoreApplication.translate("Form", u"EP-Verteilung", None))
         self.labelEP.setProperty("class", QCoreApplication.translate("Form", u"h2", None))
         self.groupBox_2.setTitle("")

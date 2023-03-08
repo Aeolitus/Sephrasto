@@ -161,17 +161,16 @@ class Datenbank():
             r.set('rsKopf', str(ruestung.rs[5]))
             r.text = ruestung.text
 
-        #Manöver
-        for ma in self.manöver:
-            manöver = self.manöver[ma]
-            if not manöver.isUserAdded: continue
-            m = etree.SubElement(root, 'Manöver')
-            m.set('name', manöver.name)
-            m.set('typ', str(manöver.typ))
-            m.set('voraussetzungen', Hilfsmethoden.VorArray2Str(manöver.voraussetzungen, None))
-            m.set('probe', manöver.probe)
-            m.set('gegenprobe', manöver.gegenprobe)
-            m.text = manöver.text
+        #Regeln
+        for r in self.regeln:
+            regel = self.regeln[r]
+            if not regel.isUserAdded: continue
+            regelNode = etree.SubElement(root, 'Regel')
+            regelNode.set('name', regel.name)
+            regelNode.set('typ', str(regel.typ))
+            regelNode.set('voraussetzungen', Hilfsmethoden.VorArray2Str(regel.voraussetzungen, None))
+            regelNode.set('probe', regel.probe)
+            regelNode.text = regel.text
             
         #Freie Fertigkeiten
         for ff in self.freieFertigkeiten:
@@ -214,20 +213,20 @@ class Datenbank():
         self.übernatürlicheFertigkeiten = {}
         self.waffen = {}
         self.rüstungen = {}
-        self.manöver = {}
+        self.regeln = {}
         self.waffeneigenschaften = {}
         self.freieFertigkeiten = {}
         self.einstellungen = {}
         self.removeList = {}
         self.tablesByName = {
             'Vorteil' : self.vorteile,
-            'Fertigkeit' : self.fertigkeiten,
+            'Fertigkeit (profan)' : self.fertigkeiten,
             'Talent' : self.talente,
-            'Übernatürliche Fertigkeit' : self.übernatürlicheFertigkeiten,
+            'Fertigkeit (übernatürlich)' : self.übernatürlicheFertigkeiten,
             'Waffeneigenschaft' : self.waffeneigenschaften,
             'Waffe' : self.waffen,
             'Rüstung' : self.rüstungen,
-            'Manöver / Modifikation' : self.manöver,
+            'Regel' : self.regeln,
             'Freie Fertigkeit' : self.freieFertigkeiten,
             'Einstellung' : self.einstellungen
         }
@@ -491,22 +490,21 @@ class Datenbank():
                 r = conflictCB('Rüstung', self.rüstungen[r.name], r)
             self.rüstungen.update({r.name : r})
         
-        #Manöver
-        manöverNodes = root.findall('Manöver')
-        for ma in manöverNodes:
+        #Regeln
+        regelNodes = root.findall('Regel')
+        for regelNode in regelNodes:
             numLoaded += 1
-            m = Fertigkeiten.Manoever()
-            m.name = ma.get('name')
-            m.probe = ma.get('probe')
-            m.gegenprobe = ma.get('gegenprobe')
-            m.typ = int(ma.get('typ'))
-            m.text = ma.text or ''
-            m.isUserAdded = not refDB
+            r = Fertigkeiten.Regel()
+            r.name = regelNode.get('name')
+            r.probe = regelNode.get('probe')
+            r.typ = int(regelNode.get('typ'))
+            r.text = regelNode.text or ''
+            r.isUserAdded = not refDB
 
-            if conflictCB and m.name in self.manöver:
-                m = conflictCB('Manöver / Modifikation', self.manöver[m.name], m)
+            if conflictCB and r.name in self.regeln:
+                r = conflictCB('Regel', self.regeln[r.name], r)
 
-            self.manöver.update({m.name: m})
+            self.regeln.update({r.name: r})
 
         #Freie Fertigkeiten
         ffNodes = root.findall('FreieFertigkeit')
@@ -604,13 +602,13 @@ class Datenbank():
                     assert False, errorStr
                 logging.warning(errorStr)
       
-        #Manöver
-        for ma in manöverNodes:
-            m = self.manöver[ma.get('name')]
+        #Regeln
+        for regelNode in regelNodes:
+            r = self.regeln[regelNode.get('name')]
             try:
-                m.voraussetzungen = Hilfsmethoden.VorStr2Array(ma.get('voraussetzungen'), self)
+                r.voraussetzungen = Hilfsmethoden.VorStr2Array(regelNode.get('voraussetzungen'), self)
             except VoraussetzungException as e:
-                errorStr = "Error in Voraussetzungen of Manöver " + m.name + ": " + str(e)
+                errorStr = "Error in Voraussetzungen of Regel " + r.name + ": " + str(e)
                 if notifyError:
                     assert False, errorStr
                 logging.warning(errorStr)
@@ -639,7 +637,7 @@ class Datenbank():
                     logging.warning(errorStr)
 
         if not refDB:
-            for dbType in [self.vorteile, self.talente, self.fertigkeiten, self.übernatürlicheFertigkeiten, self.manöver, self.freieFertigkeiten]:
+            for dbType in [self.vorteile, self.talente, self.fertigkeiten, self.übernatürlicheFertigkeiten, self.regeln, self.freieFertigkeiten]:
                 for elem in dbType.values():
                     try:
                         Hilfsmethoden.VorStr2Array(Hilfsmethoden.VorArray2Str(elem.voraussetzungen), self)

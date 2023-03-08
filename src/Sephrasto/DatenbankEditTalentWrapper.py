@@ -10,6 +10,7 @@ import UI.DatenbankEditTalent
 from PySide6 import QtWidgets, QtCore
 from TextTagCompleter import TextTagCompleter
 from Wolke import Wolke
+import re
 
 class DatenbankEditTalentWrapper(object):
     def __init__(self, datenbank, talent=None, readonly=False):
@@ -23,6 +24,7 @@ class DatenbankEditTalentWrapper(object):
         self.fertigkeitenValid = True
         self.readonly = readonly
         self.talentDialog = QtWidgets.QDialog()
+        self.talentDialog.accept = lambda: self.accept()
         self.ui = UI.DatenbankEditTalent.Ui_talentDialog()
         self.ui.setupUi(self.talentDialog)
 
@@ -196,3 +198,44 @@ class DatenbankEditTalentWrapper(object):
 
     def updateSaveButtonState(self):
         self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(not self.readonly and self.nameValid and self.voraussetzungenValid and self.fertigkeitenValid)
+
+    def accept(self):
+        text = self.ui.textEdit.toPlainText()
+        example = ""
+        bold = ["Mächtige Magie:", "Mächtige Liturgie:", "Mächtige Anrufung:", "Probenschwierigkeit:", "Modifikationen:", "Vorbereitungszeit:",
+                "Ziel:", "Reichweite:", "Wirkungsdauer:", "Kosten:", "Fertigkeiten:", "Erlernen:", "Anmerkung:", "Sephrasto:", "Fertigkeit Eis:",
+                "Fertigkeit Erz:", "Fertigkeit Feuer:", "Fertigkeit Humus:", "Fertigkeit Luft:", "Fertigkeit Wasser:"]
+        boldPattern = re.compile("(?<!<b>)(" + "|".join(bold) + ")(?!</b>)")
+        italic = ["Konterprobe", "Aufrechterhalten", "Ballistischer", "Ballistische", "Erfrieren", "Niederschmettern", "Nachbrennen", "Fesseln", "Zurückstoßen", "Ertränken", "Konzentration", "Objektritual", "Objektrituale"]
+        italicPattern = re.compile("(?<!<i>)(" + "|".join(italic) + ")(?!</i>)")
+        illusionPattern = re.compile("(?<!<i>)Illusion \((Sicht|Gehör|Geruch|Geschmack|Tast)")
+
+        match = boldPattern.search(text)
+        if match:
+            example = "\"" + match.group(0)[:-1] + "\", normalerweise fett"
+        if not match:
+            match = italicPattern.search(text)
+            if match:
+                example = "\"" + match.group(0) + "\", normalerweise kursiv"
+        if not match:
+            match = illusionPattern.search(text)
+            if match:
+                example = "Illusion, normalerweise kursiv"
+
+        if match:
+            messageBox = QtWidgets.QMessageBox()
+            messageBox.setIcon(QtWidgets.QMessageBox.Warning)
+            messageBox.setWindowTitle("Formatierung der Beschreibung anpassen?")
+            messageBox.setText("Die Beschreibung enthält Schlüsselwörter (z. B. " + example + "), die nicht wie üblich formatiert sind. Soll Sephrasto den Text automatisch anpassen?")
+            messageBox.addButton("Ja", QtWidgets.QMessageBox.YesRole)
+            messageBox.addButton("Nein", QtWidgets.QMessageBox.RejectRole)
+            messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
+            result = messageBox.exec()
+            if result == 0:
+                text = boldPattern.sub(lambda m: "<b>" + m.group(0) + "</b>", text)
+                text = italicPattern.sub(lambda m: "<i>" + m.group(0) + "</i>", text)
+                text = illusionPattern.sub(lambda m: m.group(0).replace("Illusion", "<i>Illusion</i>"), text)
+                self.ui.textEdit.setPlainText(text)
+                return
+
+        self.talentDialog.done(QtWidgets.QDialog.Accepted)

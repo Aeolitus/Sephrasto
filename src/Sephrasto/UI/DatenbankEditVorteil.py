@@ -25,7 +25,7 @@ class Ui_talentDialog(object):
         if not talentDialog.objectName():
             talentDialog.setObjectName(u"talentDialog")
         talentDialog.setWindowModality(Qt.ApplicationModal)
-        talentDialog.resize(488, 772)
+        talentDialog.resize(488, 790)
         self.gridLayout_2 = QGridLayout(talentDialog)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.buttonBox = QDialogButtonBox(talentDialog)
@@ -292,7 +292,7 @@ class Ui_talentDialog(object):
         self.label_8.setText(QCoreApplication.translate("talentDialog", u"Alternative Beschreibung (optional)", None))
         self.label_7.setText(QCoreApplication.translate("talentDialog", u"Kommentar", None))
         self.comboLinkKategorie.setItemText(0, QCoreApplication.translate("talentDialog", u"Nicht verkn\u00fcpfen", None))
-        self.comboLinkKategorie.setItemText(1, QCoreApplication.translate("talentDialog", u"Man\u00f6ver / Mod.", None))
+        self.comboLinkKategorie.setItemText(1, QCoreApplication.translate("talentDialog", u"Regel", None))
         self.comboLinkKategorie.setItemText(2, QCoreApplication.translate("talentDialog", u"\u00dcbernat. Talent", None))
         self.comboLinkKategorie.setItemText(3, QCoreApplication.translate("talentDialog", u"Vorteil", None))
 

@@ -5,7 +5,7 @@ Created on Fri Apr 20 20:09:52 2018
 @author: Aeolitus
 """
 from Wolke import Wolke
-from Wolke import CharakterbogenInfo
+from Charakterbogen import Charakterbogen
 import UI.Einstellungen
 from PySide6 import QtWidgets, QtCore, QtGui
 import os.path
@@ -46,8 +46,8 @@ class EinstellungenWrapper():
             Wolke.Settings['Bogen'] = self.ui.comboBogen.itemText(0)
         self.ui.comboBogen.setCurrentText(Wolke.Settings['Bogen'])
         self.ui.checkWizard.setChecked(Wolke.Settings['Charakter-Assistent'])
-        self.ui.comboFontSize.setCurrentIndex(Wolke.Settings['Cheatsheet-Fontsize'])
-        self.ui.comboFormular.setCurrentIndex(Wolke.Settings['Formular-Editierbarkeit'])
+        self.ui.spinRulesFontSize.setValue(Wolke.Settings['Cheatsheet-Fontsize'])
+        self.ui.checkFormular.setChecked(Wolke.Settings['Formular-Editierbarkeit'])
 
         self.ui.editChar.setText(Wolke.Settings['Pfad-Chars'])
         self.ui.editRegeln.setText(Wolke.Settings['Pfad-Regeln'])
@@ -140,8 +140,8 @@ class EinstellungenWrapper():
             
             Wolke.Settings['Charakter-Assistent'] = self.ui.checkWizard.isChecked()
             Wolke.Settings['Cheatsheet'] = self.ui.checkCheatsheet.isChecked()
-            Wolke.Settings['Cheatsheet-Fontsize'] = self.ui.comboFontSize.currentIndex()
-            Wolke.Settings['Formular-Editierbarkeit'] = self.ui.comboFormular.currentIndex()
+            Wolke.Settings['Cheatsheet-Fontsize'] = self.ui.spinRulesFontSize.value()
+            Wolke.Settings['Formular-Editierbarkeit'] = self.ui.checkFormular.isChecked()
 
             if os.path.isdir(self.ui.editChar.text()):
                 Wolke.Settings['Pfad-Chars'] = self.ui.editChar.text()
@@ -285,6 +285,15 @@ class EinstellungenWrapper():
                 Wolke.Settings['FontSize'] = 9
                 Wolke.Settings['Theme'] = "Ilaris"
                 Wolke.Settings['Version'] += 1
+            if Wolke.Settings['Version'] == 2:
+                if Wolke.Settings['Cheatsheet-Fontsize'] == 0:
+                    Wolke.Settings['Cheatsheet-Fontsize'] = 8
+                elif Wolke.Settings['Cheatsheet-Fontsize'] == 1:
+                    Wolke.Settings['Cheatsheet-Fontsize'] = 10
+                elif Wolke.Settings['Cheatsheet-Fontsize'] == 2:
+                    Wolke.Settings['Cheatsheet-Fontsize'] = 12
+                Wolke.Settings['Formular-Editierbarkeit'] = Wolke.Settings['Formular-Editierbarkeit'] != "2"
+                Wolke.Settings['Version'] += 1
 
     @staticmethod
     def loadPostQt():
@@ -316,53 +325,9 @@ class EinstellungenWrapper():
 
         #Init charsheets
         for filePath in EinstellungenWrapper.getCharakterbögen():
-            inifile = os.path.splitext(filePath)[0] + ".ini"
-            if not os.path.isfile(inifile):
-                continue
-            with open(inifile,'r', encoding='utf8') as file:
-                tmpSet = yaml.safe_load(file)
-                cbi  = CharakterbogenInfo()
-                cbi.filePath = filePath
-                cbi.maxVorteile = tmpSet["MaxVorteile"]
-                cbi.maxKampfVorteile = tmpSet["MaxKampfVorteile"]
-                cbi.maxÜberVorteile = tmpSet["MaxÜbernatürlicheVorteile"]
-                cbi.maxFreie = tmpSet["MaxFreieFertigkeiten"]
-                cbi.maxFertigkeiten = tmpSet["MaxFertigkeiten"]
-                cbi.maxÜberFertigkeiten = tmpSet["MaxÜbernatürlicheFertigkeiten"]
-                cbi.maxÜberTalente = tmpSet["MaxÜbernatürlicheTalente"]
-
-                if "Info" in tmpSet:
-                    cbi.info = tmpSet["Info"]
-                if "ÜberSeite" in tmpSet:
-                    cbi.überSeite = tmpSet["ÜberSeite"]
-                if "ÜberFertigkeitenZuProfan" in tmpSet:
-                    cbi.überFertigkeitenZuProfan = tmpSet["ÜberFertigkeitenZuProfan"]
-                if "ÜberVorteileZuKampf" in tmpSet:
-                    cbi.überVorteileZuKampf = tmpSet["ÜberVorteileZuKampf"]
-                if "MaxVorteileProFeld" in tmpSet:
-                    cbi.maxVorteileProFeld = tmpSet["MaxVorteileProFeld"]
-                if "MaxKampfVorteileProFeld" in tmpSet:
-                    cbi.maxKampfVorteileProFeld = tmpSet["MaxKampfVorteileProFeld"]
-                if "MaxÜberVorteileProFeld" in tmpSet:
-                    cbi.maxÜberVorteileProFeld = tmpSet["MaxÜberVorteileProFeld"]
-                if "MaxFreieProFeld" in tmpSet:
-                    cbi.maxFreieProFeld = tmpSet["MaxFreieProFeld"]
-                if "ExtraÜberSeiten" in tmpSet:
-                    cbi.extraÜberSeiten = tmpSet["ExtraÜberSeiten"]
-                if "BeschreibungDetails" in tmpSet:
-                    cbi.beschreibungDetails = tmpSet["BeschreibungDetails"]
-                if "Bild" in tmpSet:
-                    for v in tmpSet["Bild"]:
-                        cbi.bild.append(v)
-                regelAnhang = os.path.splitext(filePath)[0] + "_Regeln.pdf"
-                if os.path.isfile(regelAnhang):
-                    cbi.regelanhangPfad = regelAnhang
-                    regelAnhangHintergrund = os.path.splitext(filePath)[0] + "_Hintergrund.pdf"
-                    if os.path.isfile(regelAnhangHintergrund):
-                        cbi.regelanhangHintergrundPfad = regelAnhangHintergrund
-                    else:
-                        cbi.regelanhangHintergrundPfad = None
-                Wolke.Charakterbögen[filePath] = cbi
+            cb = Charakterbogen()
+            if cb.load(filePath):
+                Wolke.Charakterbögen[filePath] = cb
 
         #Init themes
         Wolke.Themes = EinstellungenWrapper.getThemes()

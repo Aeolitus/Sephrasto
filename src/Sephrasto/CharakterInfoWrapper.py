@@ -46,7 +46,7 @@ class InfoWrapper(QtCore.QObject):
         self.ui.checkUeberPDF.stateChanged.connect(self.einstellungenChanged)
         self.ui.checkRegeln.stateChanged.connect(self.einstellungenChanged)
         self.ui.comboHausregeln.currentIndexChanged.connect(self.einstellungenChanged)
-        self.ui.comboFormular.currentIndexChanged.connect(self.einstellungenChanged)
+        self.ui.checkFormular.stateChanged.connect(self.einstellungenChanged)
 
         boegen = [os.path.basename(os.path.splitext(bogen)[0]) for bogen in Wolke.Charakterbögen]
         for bogen in boegen:
@@ -59,7 +59,7 @@ class InfoWrapper(QtCore.QObject):
         if not (Wolke.Char.charakterbogen in boegen):
             Wolke.Char.charakterbogen = self.ui.comboCharsheet.itemText(0)
         self.ui.comboCharsheet.currentIndexChanged.connect(self.einstellungenChanged)
-        self.ui.comboRegelnGroesse.currentIndexChanged.connect(self.einstellungenChanged)
+        self.ui.spinRegelnGroesse.valueChanged.connect(self.einstellungenChanged)
         self.ui.checkReq.stateChanged.connect(self.reqChanged)
 
         self.focusWatcher = FocusWatcher(self.notizChanged)
@@ -73,19 +73,21 @@ class InfoWrapper(QtCore.QObject):
                 self.initialDetails = Wolke.Charakterbögen[bogen].beschreibungDetails
                 break
 
-        self.ui.comboRegelnGroesse.setEnabled(Wolke.Char.regelnAnhaengen)
+        self.ui.spinRegelnGroesse.setEnabled(Wolke.Char.regelnAnhaengen)
         self.ui.listRegelKategorien.setEnabled(Wolke.Char.regelnAnhaengen)
 
         vorteilTypen = Wolke.DB.einstellungen["Vorteile: Typen"].toTextList()
-        manöverTypen = Wolke.DB.einstellungen["Manöver: Typen"].toTextList()
+        regelnTypen = Wolke.DB.einstellungen["Regeln: Typen"].toTextList()
         self.regelKategorien = []
         for r in Wolke.DB.einstellungen["Regelanhang: Reihenfolge"].toTextList():
-            if r[0] == "V":
-                typ = int(r[1:])
+            if r[0] == "T" and len(r) > 2:
+                continue
+            if r[0] == "V" and len(r) > 2 and r[2:].isnumeric():
+                typ = int(r[2:])
                 self.regelKategorien.append([vorteilTypen[typ], r])
-            elif r[0] == "M":
-                typ = int(r[1:])
-                self.regelKategorien.append([manöverTypen[typ], r])
+            elif r[0] == "R" and len(r) > 2 and r[2:].isnumeric():
+                typ = int(r[2:])
+                self.regelKategorien.append([regelnTypen[typ], r])
             elif r[0] == "W":
                 self.regelKategorien.append(["Waffeneigenschaften", r])
             elif r[0] == "Z":
@@ -147,10 +149,10 @@ class InfoWrapper(QtCore.QObject):
         Wolke.Char.finanzenAnzeigen = self.ui.checkFinanzen.isChecked()
         Wolke.Char.ueberPDFAnzeigen = self.ui.checkUeberPDF.isChecked()
         Wolke.Char.regelnAnhaengen = self.ui.checkRegeln.isChecked()
-        Wolke.Char.regelnGroesse = self.ui.comboRegelnGroesse.currentIndex()
+        Wolke.Char.regelnGroesse = self.ui.spinRegelnGroesse.value()
         Wolke.Char.hausregeln = self.ui.comboHausregeln.currentText() if self.ui.comboHausregeln.currentText() != "Keine" else None
         Wolke.Char.charakterbogen = self.ui.comboCharsheet.currentText()
-        Wolke.Char.formularEditierbarkeit = self.ui.comboFormular.currentIndex()
+        Wolke.Char.formularEditierbarkeit = self.ui.checkFormular.isChecked()
 
         details = False
         cbi = InfoWrapper.getCharakterbogen(Wolke.Char.charakterbogen)
@@ -160,7 +162,7 @@ class InfoWrapper(QtCore.QObject):
 
         self.ui.labelReload.setVisible(Wolke.Char.hausregeln != self.initialHausregeln or self.initialDetails != details)
 
-        self.ui.comboRegelnGroesse.setEnabled(Wolke.Char.regelnAnhaengen)
+        self.ui.spinRegelnGroesse.setEnabled(Wolke.Char.regelnAnhaengen)
         self.ui.listRegelKategorien.setEnabled(Wolke.Char.regelnAnhaengen)
 
         self.modified.emit()
@@ -173,13 +175,13 @@ class InfoWrapper(QtCore.QObject):
         self.ui.checkFinanzen.setChecked(Wolke.Char.finanzenAnzeigen)
         self.ui.checkUeberPDF.setChecked(Wolke.Char.ueberPDFAnzeigen)
         self.ui.checkRegeln.setChecked(Wolke.Char.regelnAnhaengen)
-        self.ui.comboRegelnGroesse.setCurrentIndex(Wolke.Char.regelnGroesse)
+        self.ui.spinRegelnGroesse.setValue(Wolke.Char.regelnGroesse)
         self.ui.comboHausregeln.setCurrentText(Wolke.Char.hausregeln or "Keine")
         self.ui.comboCharsheet.setCurrentText(Wolke.Char.charakterbogen)
         cbi = InfoWrapper.getCharakterbogen(Wolke.Char.charakterbogen)
         if cbi:
             self.ui.comboCharsheet.setToolTip(cbi.info)
-        self.ui.comboFormular.setCurrentIndex(Wolke.Char.formularEditierbarkeit)
+        self.ui.checkFormular.setChecked(Wolke.Char.formularEditierbarkeit)
 
         ''' Load all values and derived values '''
         totalVal = 0

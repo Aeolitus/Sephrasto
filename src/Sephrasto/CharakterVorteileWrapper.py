@@ -316,7 +316,8 @@ class CharakterVorteileWrapper(QtCore.QObject):
                 voraussetzungen = "keine"
             self.ui.labelVoraussetzungen.setText(voraussetzungen)
 
-            self.ui.plainText.setPlainText(vorteil.text)
+            self.ui.plainText.setPlainText("")
+            self.ui.plainText.appendHtml(Hilfsmethoden.fixHtml(vorteil.text))
             if vorteil.variableKosten and self.currentVort in Wolke.Char.vorteileVariableKosten:
                 self.ui.labelKosten.setText(str(Wolke.Char.vorteileVariableKosten[self.currentVort]) + " EP")
             else:

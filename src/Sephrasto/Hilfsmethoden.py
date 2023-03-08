@@ -451,3 +451,14 @@ class Hilfsmethoden:
         else:
             opener = "open" if sys.platform == "darwin" else "xdg-open"
             subprocess.call([opener, filepath])
+    
+    @staticmethod
+    def fixHtml(text):
+        # Replace newlines by <br> tags, unless they are preceded by a '>' or followed by a block-level element
+        # Its a bit hacky but placing <br> tags after every line in the database editor would be too cumbersome.
+
+        text = re.sub("\n\s*(?=</?(table|p|div|h\\d|ol|ul|li|tr|th|td))", "", text) #remove any spaces and newlines before a block-level element
+        text = re.sub("(</(table|p|div|h\\d|ol|ul|li|tr|th|td)>)\n","\\1", text) #remove any newlines after a block-level element
+        text = text.replace("\n", "<br>")
+        text = text.replace("    ", "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;") #replace 4 whitespaces by non-breaking spaces - the whitespaces would be removed otherwise
+        return text
