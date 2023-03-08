@@ -18,6 +18,7 @@ Bei Fragen / Änderungswünschen / Feedback einfach Bescheid sagen - im dsaforum
 Mitgeliefert werden außerdem:
 * fdfgen (https://github.com/ccnmtl/fdfgen) zum Editieren des Charakterbogens
 * cpdf (https://www.coherentpdf.com) zur Reduzierung der Dateigröße des Charakterbogens
+* hyphen (https://github.com/ytiurin/hyphen) für das korrekte Umbrechen von Textzeilen im Regelanhang
 
 Die zugehörigen Lizenzen können hier gefunden werden: [Acknowledgements](src/Sephrasto/Doc/Acknowledgements.md)
 
