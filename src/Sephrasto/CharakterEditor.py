@@ -311,6 +311,7 @@ Versuchs doch bitte nochmal mit einer anderen Zieldatei.")
       
     def pdfExporterProgressCallback(self, progress):
         self.ui.progressBar.setValue(progress)
+        QtWidgets.QApplication.processEvents() #make sure the gui doesnt freeze
 
     def pdfButton(self):
         if which("pdftk") is None:
