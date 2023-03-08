@@ -186,7 +186,7 @@ class Migrationen():
     def hausregeln5zu6(datenbank, root):
         for node in root.findall('Manöver'):
             if 'gegenprobe' in node.attrib and node.attrib['gegenprobe']:
-                node.text = "<i>Gegenprobe:</i> " + node.attrib['gegenprobe'] + "\n" + node.text
+                node.text = "<i>Gegenprobe:</i> " + node.attrib['gegenprobe'] + (("\n" + node.text) if node.text else "")
             node.tag = "Regel"
 
         for node in root.findall('Remove'):
@@ -208,10 +208,13 @@ class Migrationen():
             elif node.attrib['name'] == "Manöver: Typen":
                 node.attrib['name'] = "Regeln: Typen"
             elif node.attrib['name'] == "Regelanhang: Reihenfolge":
-                node.text = node.text.replace("M", "R:")
-                node.text = node.text.replace("V", "V:")
+                if node.text:
+                    node.text = node.text.replace("M", "R:")
+                    node.text = node.text.replace("V", "V:")
 
         for node in root.findall('Talent'):
+            if not node.text:
+                continue
             bold = ["Mächtige Magie:", "Mächtige Liturgie:", "Mächtige Anrufung:", "Probenschwierigkeit:", "Modifikationen:", "Vorbereitungszeit:",
                     "Ziel:", "Reichweite:", "Wirkungsdauer:", "Kosten:", "Fertigkeiten:", "Erlernen:", "Anmerkung:", "Sephrasto:", "Fertigkeit Eis:",
                     "Fertigkeit Erz:", "Fertigkeit Feuer:", "Fertigkeit Humus:", "Fertigkeit Luft:", "Fertigkeit Wasser:"]
@@ -224,6 +227,8 @@ class Migrationen():
             node.text = illusionPattern.sub(lambda m: m.group(0).replace("Illusion", "<i>Illusion</i>"), node.text)
 
         for node in root.findall('Regel'):
+            if not node.text:
+                continue
             italic = ["Gegenprobe:", "Wirkung:", "Voraussetzung:", "Voraussetzungen:", "Besonderheit:", "Besonderheiten:", "Anmerkung:", "Anmerkungen:",
                 "Hohe Qualität:", "Probenschwierigkeit:", "Modifikationen:", "Dauer:", "Werkzeuge:", "Verbrauchsmaterialien:", "Haltbarkeit:",
                 "Talent:", "Talente:", "Unterstützung:"]
