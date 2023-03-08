@@ -50,6 +50,7 @@ class DatenbankEditEinstellungWrapper(object):
             self.ui.checkWert.setChecked(einstellung.toBool())
         else:
             self.ui.teWert.setPlainText(einstellung.toText())
+            self.deDialog.layout().removeItem(self.ui.verticalSpacer)
 
         self.updateSaveButtonState()
         self.deDialog.show()
