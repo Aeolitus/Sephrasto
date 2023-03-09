@@ -269,7 +269,7 @@ class Datenbank():
                 hausregelnVersion = int(versionXml.text)
 
             logging.debug("Start Hausregeln Migration")
-            Migrationen.hausregelnMigrieren(self, root, hausregelnVersion)
+            Migrationen.hausregelnMigrieren(root, hausregelnVersion)
 
             loadAdditive = conflictCB is not None
             if root.find('Plugins') is not None and root.find('Plugins').text:         

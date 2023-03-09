@@ -152,7 +152,7 @@ class InfoWrapper(QtCore.QObject):
         Wolke.Char.regelnGroesse = self.ui.spinRegelnGroesse.value()
         Wolke.Char.hausregeln = self.ui.comboHausregeln.currentText() if self.ui.comboHausregeln.currentText() != "Keine" else None
         Wolke.Char.charakterbogen = self.ui.comboCharsheet.currentText()
-        Wolke.Char.formularEditierbarkeit = self.ui.checkFormular.isChecked()
+        Wolke.Char.formularEditierbar = self.ui.checkFormular.isChecked()
 
         details = False
         cbi = InfoWrapper.getCharakterbogen(Wolke.Char.charakterbogen)
@@ -181,7 +181,7 @@ class InfoWrapper(QtCore.QObject):
         cbi = InfoWrapper.getCharakterbogen(Wolke.Char.charakterbogen)
         if cbi:
             self.ui.comboCharsheet.setToolTip(cbi.info)
-        self.ui.checkFormular.setChecked(Wolke.Char.formularEditierbarkeit)
+        self.ui.checkFormular.setChecked(Wolke.Char.formularEditierbar)
 
         ''' Load all values and derived values '''
         totalVal = 0

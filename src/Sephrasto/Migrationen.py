@@ -10,10 +10,12 @@ from DatenbankEinstellung import DatenbankEinstellung
 from EventBus import EventBus
 import re
 
-# ACHTUNG: Niemals existierenden Migrationscode ändern oder löschen!
+# ACHTUNG: Existierenden Migrationscode nur ändern wenn du 100% weißt, was du tust!
 # Migrationscode verändert die xml nodes von Charakter- oder Hausregeldateien, bevor sie eingelesen werden.
+# Es kann dabei verlockend sein, auf den aktuellen Charakter oder die aktuelle Datenbank zuzugreifen, aber das ist sehr fehleranfällig!
+# Deren Struktur ist in Zukunft eventuell nicht mehr rückwirkend mit einer alten Migration kompatibel.
 # Die Versionsnummer aus der Datei wird verglichen mit der Versionsnummer aus dem code, dann wird (beginnend bei der Dateiversion) jede Migrationsfunktion ausgeführt, bis die Codeversion erreicht ist
-# Beim Migrationscode immer darauf achten, dass Datenbankelemente via Hausregeln editiert worden sein können. In diesem Fall ist deren attribut "userAdded" == True.
+# Bei Charaktermigrationen immer darauf achten, dass Datenbankelemente via Hausregeln editiert worden sein können. In diesem Fall ist deren attribut "userAdded" == True.
 # Je nach Situation sollte eine Migration dann nicht ausgeführt werden.
 # Die Charakter-Migrationsfunktionen können einen string zurückgeben, der erklärt was geändert wurde - dies wird dem Nutzer in einer Messagebox angezeigt.
 
@@ -31,9 +33,9 @@ class Migrationen():
     datenbankCodeVersion = 6
     charakterCodeVersion = 4
 
-    def hausregelnMigrieren(datenbank, xmlRoot, hausregelnVersion):
+    def hausregelnMigrieren(xmlRoot, hausregelnVersion):
         migrationen = [
-            lambda datenbank, xmlRoot: None, #nichts zu tun, initiale db version
+            lambda xmlRoot: None, #nichts zu tun, initiale db version
             Migrationen.hausregeln0zu1,    
             Migrationen.hausregeln1zu2,
             Migrationen.hausregeln2zu3,
@@ -49,11 +51,11 @@ class Migrationen():
         while hausregelnVersion < Migrationen.datenbankCodeVersion:
             logging.warning("Migriere Hausregeln von Version " + str(hausregelnVersion ) + " zu " + str(hausregelnVersion + 1))
             hausregelnVersion +=1
-            migrationen[hausregelnVersion](datenbank, xmlRoot)
+            migrationen[hausregelnVersion](xmlRoot)
 
-    def charakterMigrieren(charakter, xmlRoot, charakterVersion):
+    def charakterMigrieren(xmlRoot, charakterVersion):
         migrationen = [
-            lambda charakter, xmlRoot: None, #nichts zu tun, initiale db version
+            lambda xmlRoot: None, #nichts zu tun, initiale db version
             Migrationen.charakter0zu1, 
             Migrationen.charakter1zu2, 
             Migrationen.charakter2zu3,
@@ -67,7 +69,7 @@ class Migrationen():
         while charakterVersion < Migrationen.charakterCodeVersion:
             logging.warning("Migriere Charakter von Version " + str(charakterVersion) + " zu " + str(charakterVersion + 1))
             charakterVersion +=1
-            update = migrationen[charakterVersion](charakter, xmlRoot)
+            update = migrationen[charakterVersion](xmlRoot)
             if update:
                 updates.append(update)
 
@@ -77,7 +79,7 @@ class Migrationen():
     # Hausregeln Migrationsfunktionen
     #--------------------------------
 
-    def hausregeln0zu1(datenbank, root):
+    def hausregeln0zu1(root):
         for wa in root.findall('Waffe'):
             kampfstile = []
             if int(wa.get('beid')) == 1:
@@ -101,19 +103,11 @@ class Migrationen():
             wa.attrib.pop('schn')
             wa.set('kampfstile', ", ".join(kampfstile))
 
-    def hausregeln1zu2(datenbank, root):
-        # Apply the added attributes to the user database to make their life easier
-        for ta in root.findall('Talent'):
-            name = ta.get('name')
-            if name in datenbank.talente:
-                ta.set('referenzbuch', '0')
-                ta.set('referenzseite', str(datenbank.talente[name].referenzSeite))
-        for fe in root.findall('Übernatürliche-Fertigkeit'):
-            name = fe.get('name')
-            if name in datenbank.übernatürlicheFertigkeiten and datenbank.übernatürlicheFertigkeiten[name].talenteGruppieren:
-                fe.set('talentegruppieren', '1')
+    def hausregeln1zu2(root):
+        # removed this migration, it accessed the database for a convenience conversion - bad idea
+        pass
 
-    def hausregeln2zu3(datenbank, root):
+    def hausregeln2zu3(root):
         def fixTalentVoraussetzungen(type):
             for node in root.findall(type):
                 vor = node.get('voraussetzungen')
@@ -129,7 +123,7 @@ class Migrationen():
         fixTalentVoraussetzungen('Fertigkeit')
         fixTalentVoraussetzungen('Übernatürliche-Fertigkeit')
 
-    def hausregeln3zu4(datenbank, root):
+    def hausregeln3zu4(root):
         stripped = ["Krähenruf ", "Ruhe Körper, Ruhe Geist ", "Auge des Limbus ", "Aerofugo Vakuum ", "Schutz des Dolches ", "Lied der Lieder ",
                     "Nemekaths Geisterblick ", "Phexens Augenzwinkern ", "Daradors Bann der Schatten ", "Licht des Herrn ", "Harmonischer Rausch ", "Bund der Schwerter "]
 
@@ -171,7 +165,7 @@ class Migrationen():
             if not 'wm' in node.attrib:
                 node.set('wm', '0')
 
-    def hausregeln4zu5(datenbank, root):
+    def hausregeln4zu5(root):
         remove = []
         for node in root.findall('FreieFertigkeit'):
             if not 'name' in node.attrib:
@@ -183,7 +177,7 @@ class Migrationen():
         for r in remove:
             root.remove(node)
 
-    def hausregeln5zu6(datenbank, root):
+    def hausregeln5zu6(root):
         for node in root.findall('Manöver'):
             if 'gegenprobe' in node.attrib and node.attrib['gegenprobe']:
                 node.text = "<i>Gegenprobe:</i> " + node.attrib['gegenprobe'] + (("\n" + node.text) if node.text else "")
@@ -239,7 +233,7 @@ class Migrationen():
     # Charakter Migrationsfunktionen
     #--------------------------------
 
-    def charakter0zu1(charakter, xmlRoot):
+    def charakter0zu1( xmlRoot):
         Kampfstile = ["Kein Kampfstil", "Beidhändiger Kampf", "Parierwaffenkampf", "Reiterkampf", 
               "Schildkampf", "Kraftvoller Kampf", "Schneller Kampf"]
 
@@ -249,7 +243,7 @@ class Migrationen():
 
         return "Datenbank Schema-Änderung (der selektierte Kampfstil bei Waffen wurde von indexbasiert zu stringbasiert geändert)"
 
-    def charakter1zu2(charakter, xmlRoot):
+    def charakter1zu2(xmlRoot):
         VorteileAlt = ["Angepasst I (Wasser)", "Angepasst I (Wald)", "Angepasst I (Dunkelheit)", "Angepasst I (Schnee)", "Angepasst II (Wasser)", "Angepasst II (Wald)", "Angepasst II (Dunkelheit)", "Angepasst II (Schnee)", "Tieremphatie"]
         VorteileNeu = ["Angepasst (Wasser) I", "Angepasst (Wald) I", "Angepasst (Dunkelheit) I", "Angepasst (Schnee) I", "Angepasst (Wasser) II", "Angepasst (Wald) II", "Angepasst (Dunkelheit) II", "Angepasst (Schnee) II", "Tierempathie"]
 
@@ -259,7 +253,7 @@ class Migrationen():
 
         return "Angepasst I (<Umgebung>) wurde in Angepasst (<Umgebung>) I umbenannt"
 
-    def charakter2zu3(charakter, xmlRoot):
+    def charakter2zu3(xmlRoot):
         stripped = ["Krähenruf ", "Ruhe Körper, Ruhe Geist ", "Auge des Limbus ", "Aerofugo Vakuum ", "Schutz des Dolches ", "Lied der Lieder ", 
                     "Nemekaths Geisterblick ", "Phexens Augenzwinkern ", "Daradors Bann der Schatten ", "Licht des Herrn ", "Harmonischer Rausch ", "Bund der Schwerter "]
 
@@ -314,7 +308,7 @@ class Migrationen():
 
         objekte = xmlRoot.find('Objekte');
         if objekte.find('Zonensystem') is None:
-            etree.SubElement(objekte, 'Zonensystem').text = str(charakter.zonenSystemNutzen)
+            etree.SubElement(objekte, 'Zonensystem').text = "True"
 
         for waf in objekte.findall('Waffen/Waffe'):
             waf.attrib["härte"] = waf.attrib["haerte"]
@@ -329,28 +323,28 @@ class Migrationen():
 
         if xmlRoot.find('Einstellungen') is None:
             einstellungen = etree.SubElement(xmlRoot, 'Einstellungen')
-            etree.SubElement(einstellungen, 'VoraussetzungenPruefen').text = "1" if charakter.voraussetzungenPruefen else "0"
-            etree.SubElement(einstellungen, 'Charakterbogen').text = str(charakter.charakterbogen)
-            etree.SubElement(einstellungen, 'FinanzenAnzeigen').text = "1" if charakter.finanzenAnzeigen else "0"
-            etree.SubElement(einstellungen, 'UeberPDFAnzeigen').text = "1" if charakter.ueberPDFAnzeigen else "0"
-            etree.SubElement(einstellungen, 'RegelnAnhaengen').text = "1" if charakter.regelnAnhaengen else "0"
-            etree.SubElement(einstellungen, 'RegelnGroesse').text = str(charakter.regelnGroesse)
-            etree.SubElement(einstellungen, 'RegelnKategorien').text = str(", ".join(charakter.regelnKategorien))
-            etree.SubElement(einstellungen, 'FormularEditierbarkeit').text = str(charakter.formularEditierbarkeit)
-            etree.SubElement(einstellungen, 'Hausregeln').text = str(charakter.hausregeln or "")
+            etree.SubElement(einstellungen, 'VoraussetzungenPruefen').text = "1"
+            etree.SubElement(einstellungen, 'Charakterbogen').text = "Standard Charakterbogen"
+            etree.SubElement(einstellungen, 'FinanzenAnzeigen').text = "1"
+            etree.SubElement(einstellungen, 'UeberPDFAnzeigen').text = "0"
+            etree.SubElement(einstellungen, 'RegelnAnhaengen').text = "1"
+            etree.SubElement(einstellungen, 'RegelnGroesse').text = "1"
+            etree.SubElement(einstellungen, 'RegelnKategorien').text = "V0, V1, M9, V2, V3, M5, W, M8, M0, M1, V4, V5, M2, M4, Z, V6, V7, M3, M7, L, V8, M6, A, M10"
+            etree.SubElement(einstellungen, 'FormularEditierbarkeit').text = "0"
+            etree.SubElement(einstellungen, 'Hausregeln').text = ""
 
         einstellungen = xmlRoot.find('Einstellungen')
         if einstellungen.find('VoraussetzungenPruefen') is None:
-            etree.SubElement(einstellungen, 'VoraussetzungenPrüfen').text = "1" if charakter.voraussetzungenPruefen else "0"
+            etree.SubElement(einstellungen, 'VoraussetzungenPrüfen').text = "1"
         else:
             einstellungen.find('VoraussetzungenPruefen').tag = 'VoraussetzungenPrüfen'
         einstellungen.find('UeberPDFAnzeigen').tag = 'ÜbernatürlichesPDFSpalteAnzeigen'
         einstellungen.find('RegelnAnhaengen').tag = 'RegelnAnhängen'
         einstellungen.find('RegelnGroesse').tag = 'RegelnGrösse'
         if einstellungen.find('FormularEditierbarkeit') is None:
-            etree.SubElement(einstellungen, 'FormularEditierbarkeit').text = str(charakter.formularEditierbarkeit)
+            etree.SubElement(einstellungen, 'FormularEditierbarkeit').text = "0"
         if einstellungen.find('RegelnKategorien') is None:
-                etree.SubElement(einstellungen, 'RegelnKategorien').text = str(", ".join(charakter.regelnKategorien))
+                etree.SubElement(einstellungen, 'RegelnKategorien').text = "V0, V1, M9, V2, V3, M5, W, M8, M0, M1, V4, V5, M2, M4, Z, V6, V7, M3, M7, L, V8, M6, A, M10"
 
         if xmlRoot.find('Notiz') is None:
             etree.SubElement(xmlRoot, 'Notiz')
@@ -420,7 +414,7 @@ class Migrationen():
 
         return None
 
-    def charakter3zu4(charakter, xmlRoot):
+    def charakter3zu4(xmlRoot):
         einstellungen = xmlRoot.find('Einstellungen')
         editierbar = einstellungen.find('FormularEditierbarkeit').text != "2"
         einstellungen.find('FormularEditierbarkeit').text = "1" if editierbar else "0"
@@ -431,4 +425,4 @@ class Migrationen():
             einstellungen.find('RegelnGrösse').text = "10"
         elif groesse == 2:
             einstellungen.find('RegelnGrösse').text = "12"
-        einstellungen.find('RegelnKategorien').text = str(",".join(charakter.regelnKategorien))
+        einstellungen.find('RegelnKategorien').text = "R:12,V:0,R:11,R:9,V:1,R:5,R:0,V:2,V:3,R:8,R:1,W,V:4,V:5,R:2,R:4,Z,V:6,V:7,R:3,R:7,L,V:8,R:6,A,R:10"

@@ -149,7 +149,7 @@ class Char():
         self.regelnAnhaengen = Wolke.Settings["Cheatsheet"]
         self.regelnGroesse = Wolke.Settings["Cheatsheet-Fontsize"]
         self.regelnKategorien = [r for r in Wolke.DB.einstellungen["Regelanhang: Reihenfolge"].toTextList() if not (r[0] == "T" and len(r) > 2)] # "T" for title is not a displayed option
-        self.formularEditierbarkeit = Wolke.Settings["Formular-Editierbarkeit"]
+        self.formularEditierbar = Wolke.Settings["Formular-Editierbarkeit"]
 
         #Neunter Block: Beschreibung Details
         self.kultur = ""
@@ -948,7 +948,7 @@ class Char():
         etree.SubElement(einstellungen, 'RegelnAnhängen').text = "1" if self.regelnAnhaengen else "0"
         etree.SubElement(einstellungen, 'RegelnGrösse').text = str(self.regelnGroesse)
         etree.SubElement(einstellungen, 'RegelnKategorien').text = str(",".join(self.regelnKategorien))
-        etree.SubElement(einstellungen, 'FormularEditierbarkeit').text = "1" if self.formularEditierbarkeit else "0"
+        etree.SubElement(einstellungen, 'FormularEditierbarkeit').text = "1" if self.formularEditierbar else "0"
         etree.SubElement(einstellungen, 'Hausregeln').text = str(self.hausregeln or "")
 
         #Neunter Block
@@ -1039,7 +1039,7 @@ class Char():
                     self.enabledPlugins.remove("LangerBogenBeschreibung") # it is now part of Sephrasto, no data will be lost anymore
 
         logging.debug("Starting Character Migration")
-        updates = Migrationen.charakterMigrieren(self, root, charakterVersion)
+        updates = Migrationen.charakterMigrieren(root, charakterVersion)
 
         if len(updates) > 0:
             messageBox = QtWidgets.QMessageBox()
@@ -1236,7 +1236,7 @@ class Char():
         self.ueberPDFAnzeigen = einstellungen.find('ÜbernatürlichesPDFSpalteAnzeigen').text == "1"
         self.regelnAnhaengen = einstellungen.find('RegelnAnhängen').text == "1"
         self.regelnGroesse = int(einstellungen.find('RegelnGrösse').text)
-        self.formularEditierbarkeit = einstellungen.find('FormularEditierbarkeit').text == "1"
+        self.formularEditierbar = einstellungen.find('FormularEditierbarkeit').text == "1"
         self.regelnKategorien = list(map(str.strip, einstellungen.find('RegelnKategorien').text.split(",")))
 
         #Neunter Block

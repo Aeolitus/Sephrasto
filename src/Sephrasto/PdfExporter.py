@@ -59,7 +59,7 @@ class PdfExporter(object):
         progressCallback(10)
 
         # PDF erstellen - Felder bleiben bearbeitbar
-        flatten = Wolke.Char.formularEditierbarkeit == 2
+        flatten = not Wolke.Char.formularEditierbar
         allPages = [PdfSerializer.write_pdf(self.CharakterBogen.filePath, fields, None, flatten)]
         progressCallback(20)
 

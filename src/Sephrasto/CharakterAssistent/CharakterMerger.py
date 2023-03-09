@@ -333,7 +333,7 @@ class CharakterMerger(object):
 
         versionXml = root.find('Version')
         charVersion = int(versionXml.find('DatenbankVersion').text)
-        Migrationen.charakterMigrieren(Wolke.Char, root, charVersion)
+        Migrationen.charakterMigrieren(root, charVersion)
 
         alg = root.find('Beschreibung')
 
