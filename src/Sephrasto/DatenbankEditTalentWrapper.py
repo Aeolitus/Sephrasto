@@ -4,131 +4,112 @@ Created on Sat Mar 18 11:04:21 2017
 
 @author: Aeolitus
 """
-import Fertigkeiten
+from DatenbankElementEditorBase import DatenbankElementEditorBase, BeschreibungEditor, VoraussetzungenEditor
 from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
 import UI.DatenbankEditTalent
-from PySide6 import QtWidgets, QtCore
-from TextTagCompleter import TextTagCompleter
+from PySide6 import QtWidgets, QtCore, QtGui
+from QtUtils.TextTagCompleter import TextTagCompleter
 from Wolke import Wolke
 import re
+from Core.Talent import TalentDefinition
+from Datenbank import Datenbank
+from QtUtils.HtmlToolbar import HtmlToolbar
 
-class DatenbankEditTalentWrapper(object):
+class DatenbankEditTalentWrapper(DatenbankElementEditorBase):
     def __init__(self, datenbank, talent=None, readonly=False):
         super().__init__()
-        self.datenbank = datenbank
-        if talent is None:
-            talent = Fertigkeiten.Talent()
-        self.talentPicked = talent
-        self.nameValid = True
-        self.voraussetzungenValid = True
-        self.fertigkeitenValid = True
-        self.readonly = readonly
-        self.talentDialog = QtWidgets.QDialog()
-        self.talentDialog.accept = lambda: self.accept()
-        self.ui = UI.DatenbankEditTalent.Ui_talentDialog()
-        self.ui.setupUi(self.talentDialog)
+        self.beschreibungEditor = BeschreibungEditor(self)
+        self.beschreibungInfoEditor = BeschreibungEditor(self, "info", "teInfo", "tbInfo")
+        self.voraussetzungenEditor = VoraussetzungenEditor(self)
+        self.validator["Fertigkeiten"] = True
+        self.setupAndShow(datenbank, UI.DatenbankEditTalent.Ui_dialog(), TalentDefinition, talent, readonly)
 
-        if not talent.isUserAdded:
-            if readonly:
-                self.ui.warning.setText("Gelöschte Elemente können nicht verändert werden.")
-            self.ui.warning.setVisible(True)
+    def load(self, talent):
+        super().load(talent)
+        self.htmlToolbar1 = HtmlToolbar(self.ui.teBeschreibung)
+        self.ui.tab.layout().insertWidget(0, self.htmlToolbar1)
+        self.htmlToolbar2 = HtmlToolbar(self.ui.teInfo)
+        self.ui.tab_3.layout().insertWidget(0, self.htmlToolbar2)
+        self.voraussetzungenEditor.load(talent)
+        self.beschreibungEditor.load(talent)
+        self.beschreibungInfoEditor.load(talent)
 
-        self.talentDialog.setWindowFlags(
-                QtCore.Qt.Window |
-                QtCore.Qt.CustomizeWindowHint |
-                QtCore.Qt.WindowTitleHint |
-                QtCore.Qt.WindowCloseButtonHint |
-                QtCore.Qt.WindowMaximizeButtonHint |
-                QtCore.Qt.WindowMinimizeButtonHint)
+        self.ui.buttonSpezial.setChecked(talent.spezialTalent)
 
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setText("Speichern")
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).setText("Abbrechen")
+        spezialTalentTypen = list(self.datenbank.einstellungen["Talente: Spezialtalent Typen"].wert.keys())
+        self.ui.comboTyp.addItems(spezialTalentTypen)
+        if talent.spezialTalent:
+            self.ui.comboTyp.setCurrentIndex(talent.spezialTyp)
+        self.ui.spinKosten.setValue(talent.kosten)
+        self.ui.checkCheatsheet.setChecked(talent.cheatsheetAuflisten)
+        self.ui.buttonProfan.setChecked(not talent.spezialTalent)
+        self.ui.checkVerbilligt.setChecked(talent.verbilligt)
+        self.ui.checkVariable.setChecked(talent.variableKosten)
+        self.ui.checkKommentar.setChecked(talent.kommentarErlauben)
+
+        self.fertigkeitenCompleter = TextTagCompleter(self.ui.leFertigkeiten, [])
+        self.ui.leFertigkeiten.setText(Hilfsmethoden.FertArray2Str(talent.fertigkeiten, None))
+        self.ui.leFertigkeiten.textChanged.connect(self.fertigkeitenTextChanged)
         
-        windowSize = Wolke.Settings["WindowSize-DBTalent"]
-        self.talentDialog.resize(windowSize[0], windowSize[1])
-
-        self.ui.nameEdit.setText(talent.name)
-        self.ui.nameEdit.textChanged.connect(self.nameChanged)
-        self.nameChanged()
-        if talent.verbilligt:
-            self.ui.buttonVerbilligt.setChecked(True)
-        elif talent.kosten != -1:
-            self.ui.buttonSpezial.setChecked(True)
-            self.ui.spinKosten.setValue(talent.kosten)
-            self.ui.checkCheatsheet.setChecked(talent.cheatsheetAuflisten)
-        else:
-            self.ui.buttonRegulaer.setChecked(True)
-        if talent.variableKosten:
-            self.ui.checkVariable.setChecked(True)
-        else:
-            self.ui.checkVariable.setChecked(False)
-
-        if talent.kommentarErlauben:
-            self.ui.checkKommentar.setChecked(True)
-        else:
-            self.ui.checkKommentar.setChecked(False)
-
-        self.fertigkeitenCompleter = TextTagCompleter(self.ui.fertigkeitenEdit, [])
-        self.ui.fertigkeitenEdit.setText(Hilfsmethoden.FertArray2Str(talent.fertigkeiten, None))
-        self.ui.fertigkeitenEdit.textChanged.connect(self.fertigkeitenTextChanged)
-        
-        self.ui.buttonRegulaer.clicked.connect(self.kostenChanged)
-        self.ui.buttonVerbilligt.clicked.connect(self.kostenChanged)
+        self.ui.buttonProfan.clicked.connect(self.kostenChanged)
         self.ui.buttonSpezial.clicked.connect(self.kostenChanged)
         self.kostenChanged()
 
         self.ui.checkVariable.clicked.connect(self.variableKostenCheckChanged)
         self.variableKostenCheckChanged()
 
-        self.ui.voraussetzungenEdit.setPlainText(Hilfsmethoden.VorArray2Str(talent.voraussetzungen, None))
-        self.ui.voraussetzungenEdit.textChanged.connect(self.voraussetzungenTextChanged)
-
-        self.ui.textEdit.setPlainText(talent.text)
-
-        bücher = datenbank.einstellungen["Referenzbücher"].toTextList()
+        bücher = self.datenbank.einstellungen["Referenzbücher"].wert
         if (len(bücher) > 0):
             self.ui.comboSeite.addItems(bücher)
-            self.ui.comboSeite.setCurrentIndex(self.talentPicked.referenzBuch)
-        self.ui.spinSeite.setValue(self.talentPicked.referenzSeite)
+            self.ui.comboSeite.setCurrentIndex(talent.referenzBuch)
+        self.ui.spinSeite.setValue(talent.referenzSeite)
 
-        self.talentDialog.show()
-        ret = self.talentDialog.exec()
+        self.ui.teInfo.textChanged.connect(self.updateInfoTabColor)
+        self.updateInfoTabColor()
 
-        Wolke.Settings["WindowSize-DBTalent"] = [self.talentDialog.size().width(), self.talentDialog.size().height()]
+        self.ui.comboVorschau.currentIndexChanged.connect(self.updateVorschau)
+        self.updateVorschau()
 
-        if ret == QtWidgets.QDialog.Accepted:
-            self.talent = Fertigkeiten.Talent()
-            self.talent.name = self.ui.nameEdit.text()
-            self.talent.fertigkeiten = Hilfsmethoden.FertStr2Array(self.ui.fertigkeitenEdit.text(),None)
-            self.talent.voraussetzungen = Hilfsmethoden.VorStr2Array(self.ui.voraussetzungenEdit.toPlainText(), datenbank)
-            self.talent.text = self.ui.textEdit.toPlainText()
-            self.talent.kosten = -1
-
-            self.talent.kommentarErlauben = self.ui.checkKommentar.isChecked()
-            self.talent.variableKosten = self.ui.checkVariable.isChecked()
-
-            if self.ui.buttonSpezial.isChecked():
-                self.talent.kosten = self.ui.spinKosten.value()
-            elif self.ui.buttonVerbilligt.isChecked():
-                self.talent.verbilligt = 1
-            self.talent.cheatsheetAuflisten = self.ui.checkCheatsheet.isChecked()
-
-            self.talent.referenzBuch = self.ui.comboSeite.currentIndex()
-            self.talent.referenzSeite = self.ui.spinSeite.value()
-
-            self.talent.isUserAdded = False
-            if self.talent == self.talentPicked:
-                self.talent = None
-            else:
-                self.talent.isUserAdded = True
+    def updateInfoTabColor(self):
+        if self.ui.teInfo.toPlainText():
+            self.ui.tabWidget.tabBar().setTabTextColor(1, QtCore.Qt.darkGreen)
         else:
-            self.talent = None
+            palette = QtWidgets.QApplication.instance().palette()
+            palette.setCurrentColorGroup(QtGui.QPalette.Disabled)
+            self.ui.tabWidget.tabBar().setTabTextColor(1, palette.buttonText().color())
+
+    def updateVorschau(self):
+        self.ui.tbBeschreibung.setVisible(self.ui.comboVorschau.currentIndex() == 0)
+        self.ui.tbInfo.setVisible(self.ui.comboVorschau.currentIndex() == 1)
+
+    def update(self, talent):
+        super().update(talent)
+        self.voraussetzungenEditor.update(talent)
+        self.beschreibungEditor.update(talent)
+        self.beschreibungInfoEditor.update(talent)
+        if self.ui.buttonSpezial.isChecked():
+            talent.spezialTyp = self.ui.comboTyp.currentIndex()
+        else:
+            talent.spezialTyp = -1
+        talent.kommentarErlauben = self.ui.checkKommentar.isChecked()
+        talent.variableKosten = self.ui.checkVariable.isChecked()
+        talent.kosten = self.ui.spinKosten.value()
+        talent.verbilligt = self.ui.checkVerbilligt.isChecked()
+        talent.fertigkeiten = Hilfsmethoden.FertStr2Array(self.ui.leFertigkeiten.text(),None)
+        talent.cheatsheetAuflisten = self.ui.checkCheatsheet.isChecked()
+        talent.referenzBuch = self.ui.comboSeite.currentIndex()
+        talent.referenzSeite = self.ui.spinSeite.value()
 
     def kostenChanged(self):
         self.ui.spinKosten.setEnabled(self.ui.buttonSpezial.isChecked())
+        self.ui.checkVerbilligt.setEnabled(not self.ui.buttonSpezial.isChecked())
+        
+        wasEnabled = self.ui.checkCheatsheet.isEnabled()
         self.ui.checkCheatsheet.setEnabled(self.ui.buttonSpezial.isChecked())
-        self.ui.comboSeite.setEnabled(self.ui.buttonSpezial.isChecked())
-        self.ui.spinSeite.setEnabled(self.ui.buttonSpezial.isChecked())
+        if not wasEnabled and self.ui.buttonSpezial.isChecked():
+            self.ui.checkCheatsheet.setChecked(True)
+        elif not self.ui.buttonSpezial.isChecked():
+            self.ui.checkCheatsheet.setChecked(False)
 
         if self.ui.buttonSpezial.isChecked():
             self.fertigkeitenCompleter.setTags([f for f in self.datenbank.übernatürlicheFertigkeiten.keys()])
@@ -142,68 +123,44 @@ class DatenbankEditTalentWrapper(object):
         self.ui.checkKommentar.setEnabled(not self.ui.checkVariable.isChecked())
 
     def nameChanged(self):
-        name = self.ui.nameEdit.text()
-        fertigkeiten = Hilfsmethoden.FertStr2Array(self.ui.fertigkeitenEdit.text(),None)
-        if name == "":
-            self.ui.nameEdit.setToolTip("Name darf nicht leer sein.")
-            self.ui.nameEdit.setStyleSheet("border: 1px solid red;")
-            self.nameValid = False
-        elif name != self.talentPicked.name and name in self.datenbank.talente:
-            self.ui.nameEdit.setToolTip("Name existiert bereits.")
-            self.ui.nameEdit.setStyleSheet("border: 1px solid red;")
-            self.nameValid = False
-        elif "Gebräuche" in fertigkeiten and not name.startswith("Gebräuche: "):
-            self.ui.nameEdit.setToolTip("Talentnamen für die Fertigkeit Gebräuche müssen mit 'Gebräuche: ' anfangen.")
-            self.ui.nameEdit.setStyleSheet("border: 1px solid red;")
-            self.nameValid = False
-        else:
-            self.ui.nameEdit.setToolTip("")
-            self.ui.nameEdit.setStyleSheet("")
-            self.nameValid = True
-        self.updateSaveButtonState()
-
-    def voraussetzungenTextChanged(self):
-        try:
-            Hilfsmethoden.VorStr2Array(self.ui.voraussetzungenEdit.toPlainText(), self.datenbank)
-            self.ui.voraussetzungenEdit.setStyleSheet("")
-            self.ui.voraussetzungenEdit.setToolTip("")
-            self.voraussetzungenValid = True
-        except VoraussetzungException as e:
-            self.ui.voraussetzungenEdit.setStyleSheet("border: 1px solid red;")
-            self.ui.voraussetzungenEdit.setToolTip(str(e))
-            self.voraussetzungenValid = False
-        self.updateSaveButtonState()
+        super().nameChanged()
+        name = self.ui.leName.text()
+        fertigkeiten = Hilfsmethoden.FertStr2Array(self.ui.leFertigkeiten.text(),None)
+        if not self.validator["Name"] and name != self.elementPicked.name and name in self.datenbank.talente:
+            self.ui.leName.setToolTip(f"Name existiert bereits.\nVerwende am besten das Namensschema 'Fertigkeit: {name}'.")
+        elif self.validator["Name"] and "Gebräuche" in fertigkeiten and not name.startswith("Gebräuche: "):
+            self.ui.leName.setToolTip("Talentnamen für die Fertigkeit Gebräuche müssen mit 'Gebräuche: ' anfangen.")
+            self.ui.leName.setStyleSheet("border: 1px solid red;")
+            self.validator["Name"] = False
+            self.updateSaveButtonState()
 
     def fertigkeitenTextChanged(self):
-        fertigkeiten = Hilfsmethoden.FertStr2Array(self.ui.fertigkeitenEdit.text(),None)
-        self.fertigkeitenValid = True
+        fertigkeiten = Hilfsmethoden.FertStr2Array(self.ui.leFertigkeiten.text(),None)
+        self.validator["Fertigkeiten"] = True
         for fertigkeit in fertigkeiten:
             if self.ui.buttonSpezial.isChecked():
                 if not fertigkeit in self.datenbank.übernatürlicheFertigkeiten:
-                    self.ui.fertigkeitenEdit.setStyleSheet("border: 1px solid red;")
-                    self.ui.fertigkeitenEdit.setToolTip("Unbekannte übernatürliche Fertigkeit '" + fertigkeit + "'. Spezialtalente müssen übernatürlichen Fertigkeiten zugewiesen werden.")
-                    self.fertigkeitenValid = False
+                    self.ui.leFertigkeiten.setStyleSheet("border: 1px solid red;")
+                    self.ui.leFertigkeiten.setToolTip("Unbekannte übernatürliche Fertigkeit '" + fertigkeit + "'. Spezialtalente müssen übernatürlichen Fertigkeiten zugewiesen werden.")
+                    self.validator["Fertigkeiten"] = False
                     break
             else:
                 if not fertigkeit in self.datenbank.fertigkeiten:
-                    self.ui.fertigkeitenEdit.setStyleSheet("border: 1px solid red;")
-                    self.ui.fertigkeitenEdit.setToolTip("Unbekannte profane Fertigkeit '" + fertigkeit + "'. Reguläre Talente müssen profanen Fertigkeiten zugewiesen werden.")
-                    self.fertigkeitenValid = False
+                    self.ui.leFertigkeiten.setStyleSheet("border: 1px solid red;")
+                    self.ui.leFertigkeiten.setToolTip("Unbekannte profane Fertigkeit '" + fertigkeit + "'. Reguläre Talente müssen profanen Fertigkeiten zugewiesen werden.")
+                    self.validator["Fertigkeiten"] = False
                     break
 
-        if self.fertigkeitenValid:
-            self.ui.fertigkeitenEdit.setStyleSheet("")
-            self.ui.fertigkeitenEdit.setToolTip("")
+        if self.validator["Fertigkeiten"]:
+            self.ui.leFertigkeiten.setStyleSheet("")
+            self.ui.leFertigkeiten.setToolTip("")
         self.nameChanged()
 
-    def updateSaveButtonState(self):
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(not self.readonly and self.nameValid and self.voraussetzungenValid and self.fertigkeitenValid)
-
     def accept(self):
-        text = self.ui.textEdit.toPlainText()
+        text = self.ui.teBeschreibung.toPlainText()
         example = ""
         bold = ["Mächtige Magie:", "Mächtige Liturgie:", "Mächtige Anrufung:", "Probenschwierigkeit:", "Modifikationen:", "Vorbereitungszeit:",
-                "Ziel:", "Reichweite:", "Wirkungsdauer:", "Kosten:", "Fertigkeiten:", "Erlernen:", "Anmerkung:", "Sephrasto:", "Fertigkeit Eis:",
+                "Ziel:", "Reichweite:", "Wirkungsdauer:", "Kosten:", "Fertigkeiten:", "Erlernen:", "Anmerkung:", "Fertigkeit Eis:",
                 "Fertigkeit Erz:", "Fertigkeit Feuer:", "Fertigkeit Humus:", "Fertigkeit Luft:", "Fertigkeit Wasser:"]
         boldPattern = re.compile("(?<!<b>)(" + "|".join(bold) + ")(?!</b>)")
         italic = ["Konterprobe", "Aufrechterhalten", "Ballistischer", "Ballistische", "Erfrieren", "Niederschmettern", "Nachbrennen", "Fesseln", "Zurückstoßen", "Ertränken", "Konzentration", "Objektritual", "Objektrituale"]
@@ -235,7 +192,7 @@ class DatenbankEditTalentWrapper(object):
                 text = boldPattern.sub(lambda m: "<b>" + m.group(0) + "</b>", text)
                 text = italicPattern.sub(lambda m: "<i>" + m.group(0) + "</i>", text)
                 text = illusionPattern.sub(lambda m: m.group(0).replace("Illusion", "<i>Illusion</i>"), text)
-                self.ui.textEdit.setPlainText(text)
+                self.ui.teBeschreibung.setPlainText(text)
                 return
 
-        self.talentDialog.done(QtWidgets.QDialog.Accepted)
+        super().accept()

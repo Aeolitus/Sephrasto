@@ -7,10 +7,9 @@ Created on Sun Mar  5 16:45:34 2017
 import UI.CharakterWaffenPicker
 from PySide6 import QtCore, QtWidgets, QtGui
 from Wolke import Wolke
-import Objekte
-import Definitionen
 import logging
-from Fertigkeiten import KampffertigkeitTyp
+from Core.Fertigkeit import KampffertigkeitTyp
+from Core.Waffe import WaffeDefinition
 import CharakterEquipmentWrapper
 import copy
 
@@ -51,6 +50,7 @@ class WaffenPicker(object):
         self.ui.treeWeapons.itemDoubleClicked.connect(lambda item, column: self.ui.buttonBox.buttons()[0].click())
         self.ui.treeWeapons.header().setSectionResizeMode(0,QtWidgets.QHeaderView.Stretch)
 
+        self.ui.labelFilter.setText("\uf002")
         self.ui.nameFilterEdit.setFocus()
         self.updateInfo()
         logging.debug("Info Updated...")
@@ -96,8 +96,8 @@ class WaffenPicker(object):
                     self.current = el
                     currSet = True
                 child = QtWidgets.QTreeWidgetItem(parent)
-                child.setText(0,Wolke.DB.waffen[el].anzeigename or el)
-                child.setText(1,Wolke.DB.waffen[el].talent)
+                child.setText(0, Wolke.DB.waffen[el].anzeigename or el)
+                child.setText(1, Wolke.DB.waffen[el].talent)
                 child.setData(0, QtCore.Qt.UserRole, el) # store key of weapon in user data
 
         self.ui.treeWeapons.sortItems(1,QtCore.Qt.AscendingOrder)
@@ -105,9 +105,9 @@ class WaffenPicker(object):
         if self.current in Wolke.DB.waffen:
             found = self.ui.treeWeapons.findItems(Wolke.DB.waffen[self.current].anzeigename, QtCore.Qt.MatchExactly | QtCore.Qt.MatchRecursive)
             if len(found) > 0:
-                self.ui.treeWeapons.setCurrentItem(found[0], 0, QtCore.QItemSelectionModel.Select)
+                self.ui.treeWeapons.setCurrentItem(found[0], 0, QtCore.QItemSelectionModel.Select | QtCore.QItemSelectionModel.Rows)
         elif self.ui.treeWeapons.topLevelItemCount() > 0 and self.ui.treeWeapons.topLevelItem(0).childCount() > 0:
-            self.ui.treeWeapons.setCurrentItem(self.ui.treeWeapons.topLevelItem(0).child(0), 0, QtCore.QItemSelectionModel.Select)
+            self.ui.treeWeapons.setCurrentItem(self.ui.treeWeapons.topLevelItem(0).child(0), 0, QtCore.QItemSelectionModel.Select | QtCore.QItemSelectionModel.Rows)
         self.changeHandler()
 
 
@@ -146,13 +146,13 @@ class WaffenPicker(object):
             if name.endswith(" (" + w.talent + ")"):
                 name = name[:-3-len(w.talent)]
             self.ui.labelName.setText(name)
-            if type(w) == Objekte.Nahkampfwaffe:
+            if w.nahkampf:
                 self.ui.labelTyp.setText("Nahkampfwaffe")
             else:
                 self.ui.labelTyp.setText("Fernkampfwaffe")
             self.ui.labelFert.setText(w.fertigkeit)
             self.ui.labelTalent.setText(w.talent)
-            stile = Definitionen.KeinKampfstil
+            stile = WaffeDefinition.keinKampfstil
 
             if len(w.kampfstile) > 0:
                 stile = ", ".join(w.kampfstile)
@@ -171,7 +171,7 @@ class WaffenPicker(object):
             else:
                 self.ui.labelWM.setText("+" + str(w.wm))
 
-            if type(w) == Objekte.Nahkampfwaffe:
+            if w.nahkampf:
                 self.ui.labelLZ_Text.hide()
                 self.ui.labelLZ.hide()
             else:
@@ -179,4 +179,7 @@ class WaffenPicker(object):
                 self.ui.labelLZ.show()
                 self.ui.labelLZ.setText(str(w.lz))
             self.ui.labelH.setText(str(w.härte))
-            self.ui.labelEigenschaften.setText("Eigenschaften: " + ", ".join(w.eigenschaften))
+            if len(w.eigenschaften) > 0:
+                self.ui.labelEigenschaften.setText("Eigenschaften: " + ", ".join(w.eigenschaften))
+            else:
+                self.ui.labelEigenschaften.setText("Eigenschaften: keine")

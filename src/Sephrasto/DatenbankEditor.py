@@ -6,42 +6,89 @@ Created on Sat Mar 18 11:29:39 2017
 """
 import sys
 from PySide6 import QtCore, QtWidgets, QtGui
-import Fertigkeiten
-import Datenbank
+from Core.DatenbankEinstellung import DatenbankEinstellung
+from Core.Attribut import AttributDefinition
+from Core.AbgeleiteterWert import AbgeleiteterWertDefinition
+from Core.Energie import EnergieDefinition
+from Core.Fertigkeit import FertigkeitDefinition, UeberFertigkeitDefinition
+from Core.FreieFertigkeit import FreieFertigkeitDefinition
+from Core.Regel import Regel
+from Core.Ruestung import RuestungDefinition
+from Core.Talent import TalentDefinition
+from Core.Vorteil import VorteilDefinition
+from Core.Waffe import WaffeDefinition
+from Core.Waffeneigenschaft import Waffeneigenschaft
+from Core.DatenbankEinstellung import DatenbankEinstellung
+from Datenbank import Datenbank
 import UI.DatenbankMain
 import DatenbankEditFertigkeitWrapper
 import DatenbankEditFreieFertigkeitWrapper
 import DatenbankEditTalentWrapper
 import DatenbankEditVorteilWrapper
-import DatenbankSelectTypeWrapper
 import DatenbankEditWaffeneigenschaftWrapper
 import DatenbankEditWaffeWrapper
 import DatenbankEditRuestungWrapper
 import DatenbankEditRegelWrapper
 import DatenbankEditEinstellungWrapper
-from DatenbankEinstellung import DatenbankEinstellung
-import Objekte
+import DatenbankEditAttributWrapper
+import DatenbankEditAbgeleiteterWertWrapper
+import DatenbankEditEnergieWrapper
+import DatenbankErrorLogWrapper
 import os
 from EinstellungenWrapper import EinstellungenWrapper
 from Wolke import Wolke
 from copy import copy
 import logging
 from EventBus import EventBus
+from HilfeWrapper import HilfeWrapper
+from Hilfsmethoden import Hilfsmethoden
+from QtUtils.RichTextButton import RichTextToolButton
 
-class DatenbankTypWrapper(object):
-    def __init__(self, addFunc, editFunc, showCheckbox = None):
-        super().__init__()
-        self.addFunc = addFunc
-        self.editFunc = editFunc
-        self.showCheckbox = showCheckbox
+class DatenbankTypWrapper:
+    def __init__(self, dataType, editorType, isDeletable):
+        self.dataType = dataType
+        self.editorType = editorType
+        self.isDeletable = isDeletable
+        self.isAddable = isDeletable
+        self.showSubtype = hasattr(dataType, "typname")
+        self.showDetails = hasattr(dataType, "details")
+
+    def add(self, datenbank):
+        return self.edit(datenbank, self.dataType())
+
+    def edit(self, datenbank, inp, readonly = False):
+        filterName = self.dataType.__name__.lower()
+        editorType = EventBus.applyFilter("dbe_class_" + filterName + "_wrapper", self.editorType)
+        editor = self.editorType(datenbank, inp, readonly)
+        return editor.element
+
+class DBESortFilterProxyModel(QtCore.QSortFilterProxyModel):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.nameFilter = ""
+        self.statusFilters = []
+
+    def setFilters(self, nameFilter, statusFilters):
+        self.nameFilter = nameFilter.lower()
+        self.statusFilters = statusFilters
+        self.invalidateFilter()
+
+    def filterAcceptsRow(self, sourceRow, sourceParent):
+        model = self.sourceModel()
+        statusIndex = model.index(sourceRow, 0, sourceParent)
+        status = model.data(statusIndex)
+        nameIndex = model.index(sourceRow, 1, sourceParent)
+        name = model.data(nameIndex).lower()
+        return self.nameFilter in name and status in self.statusFilters
 
 class DatenbankEditor(object):
-    def __init__(self, plugins):
+    def __init__(self, plugins, onCloseCB):
         super().__init__()
         self.plugins = plugins
+        self.onCloseCB = onCloseCB
         self.databaseTypes = {}
-        self.datenbank = Datenbank.Datenbank(Wolke.Settings['Datenbank'])
-        self.savepath = self.datenbank.datei
+        self.datenbank = Datenbank(Wolke.Settings['Datenbank'])
+        self.savepath = self.datenbank.hausregelDatei
         self.changed = False
         self.windowTitleDefault = ""
         self.checkMissingPlugins()
@@ -72,26 +119,58 @@ class DatenbankEditor(object):
         windowSize = Wolke.Settings["WindowSize-Datenbank"]
         self.form.resize(windowSize[0], windowSize[1])
 
-        for pd in self.plugins:
-            if pd.plugin is None:
-                continue
+        self.menus = {
+            "Datei" : self.ui.menuDatei,
+            "Ansicht" : self.ui.menuAnsicht,
+            "Hilfe" : self.ui.menuHilfe
+        }
 
-            if hasattr(pd.plugin, "createDatabaseButtons"):
-                for button in pd.plugin.createDatabaseButtons():
-                    self.ui.verticalLayout.addWidget(button)
+        def addMenuItem(menu, action):
+            if menu not in self.menus:
+                self.menus[menu] = QtWidgets.QMenu(self.ui.menubar)
+                self.menus[menu].setTitle(menu)
+                self.ui.menubar.addAction(self.menus[menu].menuAction())
+            self.menus[menu].addAction(action)
+        EventBus.doAction("dbe_menuitems_erstellen", { "addMenuItemCB" : addMenuItem })
 
         # GUI Mods
-        self.model = QtGui.QStandardItemModel(self.ui.listDatenbank)
-        self.ui.listDatenbank.setModel(self.model)
-        self.ui.listDatenbank.doubleClicked["QModelIndex"].connect(self.editSelected)
-        self.ui.listDatenbank.setSelectionMode(QtWidgets.QAbstractItemView.ExtendedSelection)
-        self.ui.listDatenbank.selectionModel().selectionChanged.connect(self.listSelectionChanged)
-        self.ui.checkFilterTyp.stateChanged.connect(self.filterTypChanged)
-        self.ui.nameFilterEdit.textChanged.connect(self.updateGUI)
-        self.ui.buttonCloseDB.clicked.connect(self.closeDatenbank)
-        self.ui.buttonLoadDB.clicked.connect(self.loadDatenbank)
-        self.ui.buttonSaveDB.clicked.connect(self.saveDatenbank)
+        self.ui.labelFilterName.setText("\uf002")
+        self.ui.nameFilterEdit.textChanged.connect(self.updateFilter)
+
+        self.ui.buttonStatusFilter = RichTextToolButton(None, 2*"&nbsp;" + "<span style='" + Wolke.FontAwesomeCSS + f"'>\uf0b0</span>&nbsp;&nbsp;Status-Filter" + 4*"&nbsp;")
+        self.ui.buttonStatusFilter.setPopupMode(QtWidgets.QToolButton.InstantPopup)
+        self.ui.horizontalLayout_3.addWidget(self.ui.buttonStatusFilter)
+        self.statusFilterMenu = QtWidgets.QMenu()
+        for el in ["Alle", "Neu", "Geändert", "RAW", "Gelöscht"]:
+            action = self.statusFilterMenu.addAction(el)
+            action.setCheckable(True)
+            action.setChecked(True)
+            if el != "Alle":
+                action.triggered.connect(self.updateFilter)
+
+        self.statusFilterMenu.actions()[0].triggered.connect(self.filterAllToggled)
+        self.ui.buttonStatusFilter.setMenu(self.statusFilterMenu)
+
+        # Menu actions
+        self.ui.actionOeffnen.triggered.connect(lambda: self.loadDatenbank())
+        self.ui.actionZusaetzlichOeffnen.triggered.connect(lambda: self.loadDatenbank(True))
+        self.ui.actionZusaetzlichOeffnen.setEnabled(self.datenbank.hausregelDatei is not None)
+        self.ui.actionSpeichern.triggered.connect(self.quicksaveDatenbank)
+        self.ui.actionSpeichern_unter.triggered.connect(self.saveDatenbank)
+        self.ui.actionSchliessen.triggered.connect(self.closeDatenbank)
+        self.ui.actionBeenden.triggered.connect(lambda: self.form.close())
+
+        self.ui.actionFehlerliste.triggered.connect(self.showErrorLog)
+
+        self.ui.actionDatenbank_Editor.triggered.connect(self.showEditorHelp)
+        self.ui.actionScript_API.triggered.connect(self.showScriptHelp)
+
+        # Edit buttons
+        self.ui.buttonOpen.clicked.connect(self.loadDatenbank)
+        self.ui.buttonOpen.setText("\uf07c")
+
         self.ui.buttonQuicksave.clicked.connect(self.quicksaveDatenbank)
+        self.ui.buttonQuicksave.setText("\uf0c7")
 
         self.ui.buttonEditieren.clicked.connect(self.editSelected)
         self.ui.buttonEditieren.setEnabled(False)
@@ -112,75 +191,157 @@ class DatenbankEditor(object):
         self.ui.buttonWiederherstellen.clicked.connect(self.wiederherstellen)
         self.ui.buttonWiederherstellen.setText("\uf829")
 
-        self.ui.showUserAdded.stateChanged.connect(self.updateGUI)
-        self.ui.showDeleted.stateChanged.connect(self.updateGUI)
+        self.ui.buttonRAW.clicked.connect(self.vanillaAnsehen)
+        self.ui.buttonRAW.setText("\uf02d")
+
+        self.ui.checkDetails.stateChanged.connect(self.onDetailsClicked)
 
         self.databaseTypes = {}
-        self.databaseTypes["Talent"] = DatenbankTypWrapper(self.addTalent, self.editTalent, self.ui.showTalente)
-        self.databaseTypes["Vorteil"] = DatenbankTypWrapper(self.addVorteil, self.editVorteil, self.ui.showVorteile)
-        self.databaseTypes["Fertigkeit (profan)"] = DatenbankTypWrapper(self.addFertigkeit, self.editFertigkeit, self.ui.showFertigkeiten)
-        self.databaseTypes["Fertigkeit (übernatürlich)"] = DatenbankTypWrapper(self.addUebernatuerlich, self.editUebernatuerlich, self.ui.showUebernatuerlicheFertigkeiten)
-        self.databaseTypes["Freie Fertigkeit"] = DatenbankTypWrapper(self.addFreieFertigkeit, self.editFreieFertigkeit, self.ui.showFreieFertigkeiten)
-        self.databaseTypes["Waffeneigenschaft"] = DatenbankTypWrapper(self.addWaffeneigenschaft, self.editWaffeneigenschaft, self.ui.showWaffeneigenschaften)
-        self.databaseTypes["Waffe"] = DatenbankTypWrapper(self.addWaffe, self.editWaffe, self.ui.showWaffen)
-        self.databaseTypes["Rüstung"] = DatenbankTypWrapper(self.addRuestung, self.editRuestung, self.ui.showRuestungen)
-        self.databaseTypes["Regel"] = DatenbankTypWrapper(self.addRegeln, self.editRegeln, self.ui.showRegeln)
-        self.databaseTypes["Einstellung"] = DatenbankTypWrapper(self.addEinstellung, self.editEinstellung, self.ui.showEinstellung)
-        pluginDatabaseTypes = {}
-        pluginDatabaseTypes = EventBus.applyFilter("datenbank_editor_typen", pluginDatabaseTypes)
-        for dbType in pluginDatabaseTypes:
-            self.databaseTypes[dbType] = pluginDatabaseTypes[dbType]
-            if not self.databaseTypes[dbType].showCheckbox:
-                self.databaseTypes[dbType].showCheckbox = QtWidgets.QCheckBox(dbType)
-                self.databaseTypes[dbType].showCheckbox.setChecked(True)
-            self.ui.verticalLayout_3.addWidget(pluginDatabaseTypes[dbType].showCheckbox)
+        self.databaseTypes[AbgeleiteterWertDefinition] = DatenbankTypWrapper(AbgeleiteterWertDefinition, DatenbankEditAbgeleiteterWertWrapper.DatenbankEditAbgeleiteterWertWrapper, True)
+        self.databaseTypes[AttributDefinition] = DatenbankTypWrapper(AttributDefinition, DatenbankEditAttributWrapper.DatenbankEditAttributWrapper, True)
+        self.databaseTypes[DatenbankEinstellung] = DatenbankTypWrapper(DatenbankEinstellung, DatenbankEditEinstellungWrapper.DatenbankEditEinstellungWrapper, False)
+        self.databaseTypes[EnergieDefinition] = DatenbankTypWrapper(EnergieDefinition, DatenbankEditEnergieWrapper.DatenbankEditEnergieWrapper, True)
+        self.databaseTypes[FertigkeitDefinition] = DatenbankTypWrapper(FertigkeitDefinition, DatenbankEditFertigkeitWrapper.DatenbankEditProfaneFertigkeitWrapper, True)
+        self.databaseTypes[UeberFertigkeitDefinition] = DatenbankTypWrapper(UeberFertigkeitDefinition, DatenbankEditFertigkeitWrapper.DatenbankEditUebernatürlicheFertigkeitWrapper, True)
+        self.databaseTypes[FreieFertigkeitDefinition] = DatenbankTypWrapper(FreieFertigkeitDefinition, DatenbankEditFreieFertigkeitWrapper.DatenbankEditFreieFertigkeitWrapper, True)
+        self.databaseTypes[Regel] = DatenbankTypWrapper(Regel, DatenbankEditRegelWrapper.DatenbankEditRegelWrapper, True)
+        self.databaseTypes[RuestungDefinition] = DatenbankTypWrapper(RuestungDefinition, DatenbankEditRuestungWrapper.DatenbankEditRuestungWrapper, True)
+        self.databaseTypes[TalentDefinition] = DatenbankTypWrapper(TalentDefinition, DatenbankEditTalentWrapper.DatenbankEditTalentWrapper, True)
+        self.databaseTypes[VorteilDefinition] = DatenbankTypWrapper(VorteilDefinition, DatenbankEditVorteilWrapper.DatenbankEditVorteilWrapper, True)
+        self.databaseTypes[WaffeDefinition] = DatenbankTypWrapper(WaffeDefinition, DatenbankEditWaffeWrapper.DatenbankEditWaffeWrapper, True)
+        self.databaseTypes[Waffeneigenschaft] = DatenbankTypWrapper(Waffeneigenschaft, DatenbankEditWaffeneigenschaftWrapper.DatenbankEditWaffeneigenschaftWrapper, True)
+        self.databaseTypes = EventBus.applyFilter("datenbank_editor_typen", self.databaseTypes)
 
-        for dbType in self.databaseTypes.values():
-            dbType.showCheckbox.stateChanged.connect(self.updateGUI)
+        self.ui.tabWidget.setStyleSheet(f"QTabBar::tab {{ max-height: {max(Hilfsmethoden.emToPixels(4.5), 40)}px; }}")
+        tabIndex = 0
+        self.lists = []
+        self.models = []
+        self.filters = []
+        self.databaseTypesByIndex = []
+        self.tabLabels = []
+
+        for dbType in sorted(self.databaseTypes, key = lambda t: t.displayName):
+            self.databaseTypesByIndex.append(dbType)
+            tableView = QtWidgets.QTableView()
+            self.lists.append(tableView)
+            model = QtGui.QStandardItemModel(tableView)
+            self.models.append(model)
+
+            filterProxy = DBESortFilterProxyModel()
+            self.filters.append(filterProxy)
+            filterProxy.setSourceModel(model)
+
+            tableView.setModel(filterProxy)
+            tableView.doubleClicked["QModelIndex"].connect(self.editSelected)
+            tableView.setSelectionMode(QtWidgets.QAbstractItemView.ExtendedSelection)
+            tableView.selectionModel().selectionChanged.connect(self.listSelectionChanged)         
+            tableView.setAlternatingRowColors(True)
+            tableView.setShowGrid(False)
+            tableView.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+            tableView.setSortingEnabled(True)
+            tableView.sortByColumn(1, QtCore.Qt.AscendingOrder);
+            tableView.verticalHeader().setVisible(False)
+            setting = 'ColumnWidth-DBName' + dbType.__name__
+            if setting not in Wolke.Settings:
+                Wolke.Settings[setting] = 250
+            tableView.horizontalHeader().sectionResized.connect(lambda col, old, new, setting=setting: Wolke.Settings.update({setting : new}) if col == 1 else None)
+            setting = 'ColumnWidth-DBTyp' + dbType.__name__
+            if setting not in Wolke.Settings:
+                Wolke.Settings[setting] = 150
+            tableView.horizontalHeader().sectionResized.connect(lambda col, old, new, setting=setting: Wolke.Settings.update({setting : new}) if col == 2 else None)
+
+            # Hack: we are setting the tab name to empty and add a label as tab button. A Proper solution would be to subclass the tab widget.
+            self.ui.tabWidget.insertTab(tabIndex, tableView, "")
+            tabLabel = QtWidgets.QLabel(dbType.displayName)
+            self.tabLabels.append(tabLabel)
+            self.ui.tabWidget.tabBar().setTabButton(tabIndex, QtWidgets.QTabBar.ButtonPosition.LeftSide, tabLabel)
+            tabIndex += 1
+
+        self.ui.tabWidget.currentChanged.connect(self.currentTabChanged)
 
         self.form.closeEvent = self.closeEvent
         self.windowTitleDefault = self.form.windowTitle()
 
+        self.updateFilter()
         self.updateGUI()
         self.updateWindowTitleAndCloseButton()
-    
-    def filterTypChanged(self):
-        if self.ui.checkFilterTyp.checkState() == QtCore.Qt.Unchecked:
-            for dbType in self.databaseTypes.values():
-                dbType.showCheckbox.setChecked(False)
-        else:
-            for dbType in self.databaseTypes.values():
-                dbType.showCheckbox.setChecked(True)
+
+        if len(self.datenbank.loadingErrors) > 0:
+            QtCore.QTimer.singleShot(0, self.showErrorLog)
+
+    def onDetailsClicked(self):
+        dbType = self.databaseTypesByIndex[self.ui.tabWidget.currentIndex()]
+        typeWrapper = self.databaseTypes[dbType]
+        if typeWrapper.showDetails:
+            self.updateGUI()
+
+    def filterAllToggled(self):
+        checked = self.statusFilterMenu.actions()[0].isChecked()
+        for a in self.statusFilterMenu.actions()[1:]:
+            a.blockSignals(True)
+            a.setChecked(checked)
+            a.blockSignals(False)
+        self.updateFilter()
+
+    def currentTabChanged(self):
+        self.updateFilter()
+        self.updateGUI() 
 
     def listSelectionChanged(self):
-        indexes = self.ui.listDatenbank.selectedIndexes()
+        dbType = self.databaseTypesByIndex[self.ui.tabWidget.currentIndex()]
+        tableView = self.lists[self.ui.tabWidget.currentIndex()]
+        model = self.models[self.ui.tabWidget.currentIndex()]
+        filter = self.filters[self.ui.tabWidget.currentIndex()]
+        indexes = tableView.selectedIndexes()
+        self.ui.buttonHinzufuegen.setEnabled(self.databaseTypes[dbType].isAddable)
         if not indexes:
             self.ui.buttonEditieren.setEnabled(False)
             self.ui.buttonLoeschen.setEnabled(False)
             self.ui.buttonLoeschen.setVisible(True)
             self.ui.buttonWiederherstellen.setVisible(False)
             self.ui.buttonDuplizieren.setEnabled(False)
+            self.ui.buttonRAW.setVisible(False)
             return
-        item = self.model.itemData(indexes[0])[0]
-        if item.endswith(" (gelöscht)"):
-            self.ui.buttonDuplizieren.setEnabled(False)
-            self.ui.buttonEditieren.setEnabled(True)
-            self.ui.buttonLoeschen.setVisible(False)
-            self.ui.buttonWiederherstellen.setVisible(True)
-        else:
-            self.ui.buttonDuplizieren.setEnabled(True)
-            self.ui.buttonEditieren.setEnabled(True)
-            self.ui.buttonLoeschen.setEnabled(True)
-            self.ui.buttonLoeschen.setVisible(True)
-            self.ui.buttonWiederherstellen.setVisible(False)
-            tmp = item.split(" : ")
-            name = tmp[0]
-            typ = tmp[1]
-            if typ == "Einstellung":
-                table = self.datenbank.tablesByName["Einstellung"]
-                if name in table and not table[name].isUserAdded:
-                    self.ui.buttonLoeschen.setEnabled(False)
-                    self.ui.buttonDuplizieren.setEnabled(False)
+
+        self.ui.buttonEditieren.setEnabled(True)
+
+        deletable = True
+        restorable = True
+        duplicatable = True
+        userAdded = True
+        changed = True
+        for idx in indexes:
+            element = model.itemFromIndex(filter.mapToSource(idx)).data(QtCore.Qt.UserRole)
+            if element is None:
+                continue
+            if not self.databaseTypes[element.__class__].isDeletable:
+                deletable = False
+            if not self.databaseTypes[element.__class__].isAddable:
+                duplicatable = False
+
+            if self.datenbank.isRemoved(element):
+                deletable = False
+                duplicatable = False
+                userAdded = False
+                changed = False
+            elif self.datenbank.isOverriddenByOther(element):
+                deletable = False
+                duplicatable = False
+                userAdded = False
+                changed = False
+            else:
+                restorable = False
+                if not self.datenbank.isChangedOrNew(element):
+                    userAdded = False
+                if not self.datenbank.isChanged(element):
+                    changed = False
+
+        self.ui.buttonLoeschen.setVisible(not restorable or deletable or userAdded)
+        self.ui.buttonLoeschen.setEnabled(deletable or userAdded)
+        self.ui.buttonWiederherstellen.setVisible(restorable)
+        self.ui.buttonWiederherstellen.setVisible(restorable)
+        self.ui.buttonDuplizieren.setEnabled(duplicatable)
+        self.ui.buttonRAW.setVisible(changed)
 
     def cancelDueToPendingChanges(self, action):
         if self.changed:
@@ -203,113 +364,172 @@ class DatenbankEditor(object):
             event.ignore()
         else:
             Wolke.Settings["WindowSize-Datenbank"] = [self.form.size().width(), self.form.size().height()]
+            if hasattr(self, "errorLogWindow"):
+                self.errorLogWindow.form.close()
+                self.errorLogWindow = None
+            if hasattr(self, "editorHelpWindow"):
+                self.editorHelpWindow.form.close()
+                self.editorHelpWindow = None
+            if hasattr(self, "scriptHelpWindow"):
+                self.scriptHelpWindow.form.close()
+                self.scriptHelpWindow = None
+            self.onCloseCB()
 
     def onDatabaseChange(self):
         self.changed = True
         self.updateGUI()
-        self.listSelectionChanged()
     
     def updateWindowTitleAndCloseButton(self):
         splitpath = self.savepath and os.path.split(self.savepath) or ["keine Hausregeln geladen"]
         self.form.setWindowTitle(self.windowTitleDefault + " (" + splitpath[-1] + ")")
-        self.ui.buttonCloseDB.setEnabled(self.savepath and True or False)
+        self.ui.actionSchliessen.setEnabled(self.savepath != "" or self.changed)
+
+    def updateFilter(self):
+        statusses = []
+        if self.statusFilterMenu.actions()[1].isChecked():
+            statusses.append("+")
+        if self.statusFilterMenu.actions()[2].isChecked():
+            statusses.append("\uf044")
+        if self.statusFilterMenu.actions()[3].isChecked():
+            statusses.append("\uf02d")
+        if self.statusFilterMenu.actions()[4].isChecked():
+            statusses.append("\uf068")
+        if len(statusses) < 4:
+            allAction = self.statusFilterMenu.actions()[0]
+            allAction.blockSignals(True)
+            allAction.setChecked(False)
+            allAction.blockSignals(False)
+    
+        filter = self.filters[self.ui.tabWidget.currentIndex()]
+        filter.setFilters(self.ui.nameFilterEdit.text(), statusses)
 
     def updateGUI(self):
-        self.model.clear()
-        showUserAdded = self.ui.showUserAdded.isChecked()
+        dbType = self.databaseTypesByIndex[self.ui.tabWidget.currentIndex()]
+        tableView = self.lists[self.ui.tabWidget.currentIndex()]
+        model = self.models[self.ui.tabWidget.currentIndex()]
+        filter = self.filters[self.ui.tabWidget.currentIndex()]
+        prevScrollPos = tableView.verticalScrollBar().value()
+        prevSelected = tableView.selectionModel().selectedIndexes()
 
-        allChecked = True
-        anyChecked = False
-        for dbType in self.databaseTypes.values():
-            anyChecked = anyChecked or dbType.showCheckbox.isChecked()
-            allChecked = allChecked and dbType.showCheckbox.isChecked()
-
-        self.ui.checkFilterTyp.blockSignals(True)
-        if allChecked:
-            self.ui.checkFilterTyp.setCheckState(QtCore.Qt.Checked)
-        elif anyChecked:
-            self.ui.checkFilterTyp.setCheckState(QtCore.Qt.PartiallyChecked)
+        if self.ui.checkDetails.isChecked():
+            tableView.verticalHeader().setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
         else:
-            self.ui.checkFilterTyp.setCheckState(QtCore.Qt.Unchecked)
-        self.ui.checkFilterTyp.blockSignals(False)
+            tableView.verticalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Fixed)
+            tableView.verticalHeader().setDefaultSectionSize(Hilfsmethoden.emToPixels(3.4))
+        
+        tableView.selectionModel().blockSignals(True)
+        prevSortCol = tableView.horizontalHeader().sortIndicatorSection()
+        prevSortOrder = tableView.horizontalHeader().sortIndicatorOrder()
+        model.clear()
 
-        for dbTypeName,dbType in self.databaseTypes.items():
-            if not dbType.showCheckbox.isChecked():
-                continue
-            table = self.datenbank.tablesByName[dbTypeName]
-            for itm, value in sorted(table.items()):
-                if not value.isUserAdded and showUserAdded:
-                    continue
-                if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in itm.lower():
-                    continue
-                item = QtGui.QStandardItem(itm + " : " + dbTypeName)
-                item.setEditable(False)
-                if value.isUserAdded:
-                    item.setBackground(QtGui.QBrush(QtCore.Qt.green))
-                    item.setForeground(QtGui.QBrush(QtCore.Qt.black))
-                self.model.appendRow(item)
+        typeWrapper = self.databaseTypes[dbType]
+        headerLabels = ["", "Name"]
+        setColWidth = False
+        if typeWrapper.showSubtype:
+            headerLabels.append("Typ")
+            setColWidth = True
+        if typeWrapper.showDetails:
+            headerLabels.append("Details")
+        model.setHorizontalHeaderLabels(headerLabels)
+        tableView.setColumnWidth(0, Hilfsmethoden.emToPixels(2.5))
+        tableView.setColumnWidth(1, Wolke.Settings['ColumnWidth-DBName' + dbType.__name__])
+        if setColWidth:
+            tableView.setColumnWidth(2, Wolke.Settings['ColumnWidth-DBTyp' + dbType.__name__])
+        tableView.horizontalHeader().setSectionResizeMode(0, QtWidgets.QHeaderView.Fixed)
+        tableView.horizontalHeader().setSectionResizeMode(len(headerLabels)-1, QtWidgets.QHeaderView.Stretch)
+        tableView.sortByColumn(prevSortCol, prevSortOrder);
 
-        if self.ui.showDeleted.isChecked():
-            for type in sorted(self.datenbank.removeList):
-                for name in sorted(self.datenbank.removeList[type]):
-                    if self.ui.nameFilterEdit.text() and not self.ui.nameFilterEdit.text().lower() in name.lower():
-                        continue
+        table = list(self.datenbank.tablesByType[dbType].values())
+        table.extend([self.datenbank.referenceDB[dbType][el] for el in self.datenbank.getRemoved(dbType)])
+        for element in table:
+            row = []
+            iconItem = QtGui.QStandardItem()
+            iconItem.setFont(Wolke.FontAwesomeFont)
+            iconItem.setTextAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+            if self.datenbank.isRemoved(element):
+                iconItem.setText("\uf068")
+                iconItem.setForeground(QtGui.QBrush(QtCore.Qt.red))
+                iconItem.setToolTip("<b>Gelöschtes</b> RAW Element.")
+            elif self.datenbank.isNew(element):
+                iconItem.setText("\u002b")
+                iconItem.setForeground(QtGui.QBrush(QtCore.Qt.darkGreen))
+                iconItem.setToolTip("<b>Neues</b> Element.")
+            elif self.datenbank.isChanged(element):
+                iconItem.setText('\uf044')
+                iconItem.setForeground(QtGui.QBrush(QtCore.Qt.blue))
+                iconItem.setToolTip("<b>Geändertes</b> RAW Element. Wenn du es löschst, erhältst du die Möglichkeit, die RAW-Daten wiederherzustellen. Unten rechts hast du über den RAW-Button die Möglichkeit diese anzusehen.")
+            elif not self.datenbank.isOverriddenByOther(element):
+                iconItem.setText("\uf02d")
+                iconItem.setToolTip("<b>RAW</b> Element. Regeln wie sie im Buch stehen.")
+            row.append(iconItem)
 
-                    if type in self.databaseTypes:
-                        databaseType = self.databaseTypes[type]
-                        if databaseType.showCheckbox.isChecked():
-                            item = QtGui.QStandardItem(name + " : "  + type + " (gelöscht)")
-                            item.setEditable(False)
-                            item.setBackground(QtGui.QBrush(QtCore.Qt.red))
-                            item.setForeground(QtGui.QBrush(QtCore.Qt.white))
-                            self.model.appendRow(item)
+            nameItem = QtGui.QStandardItem(element.name)     
+            nameItem.setData(element, QtCore.Qt.UserRole)
+            nameItem.setEditable(False)
+            row.append(nameItem)
 
-        self.ui.listDatenbank.setModel(self.model)
+            if typeWrapper.showSubtype:
+                subTypeText = element.typname(self.datenbank)
+                subTypeItem = QtGui.QStandardItem(subTypeText or "n/a")
+                subTypeItem.setEditable(False)
+                row.append(subTypeItem)
 
-        if self.datenbank.datei:
-            self.ui.buttonLoadDB.setText("Weitere Hausregeln laden")
-        else:
-            self.ui.buttonLoadDB.setText("Hausregeln laden")
+            if typeWrapper.showDetails:
+                text = element.details(self.datenbank)
+                if not self.ui.checkDetails.isChecked():
+                    text = text.split("\n")[0]
+                detailsItem = QtGui.QStandardItem(text)
+                detailsItem.setEditable(False)
+                row.append(detailsItem)
+
+            model.appendRow(row)
+
+        for itemIndex in prevSelected:
+            row = itemIndex.row()
+            tableView.selectionModel().select(filter.index(row, 0), QtCore.QItemSelectionModel.Select | QtCore.QItemSelectionModel.Rows)
+        QtCore.QTimer.singleShot(0, lambda view=tableView, scrollPos=prevScrollPos: view.verticalScrollBar().setValue(scrollPos))
+
+        tableView.selectionModel().blockSignals(False)
+        self.listSelectionChanged()
                
     def wiederherstellen(self):
-        for itm in self.ui.listDatenbank.selectedIndexes():
-            item = self.model.itemData(itm)[0]
-            if not item.endswith(" (gelöscht)"):
+        model = self.models[self.ui.tabWidget.currentIndex()]
+        filter = self.filters[self.ui.tabWidget.currentIndex()]
+        tableView = self.lists[self.ui.tabWidget.currentIndex()]
+
+        for itm in tableView.selectedIndexes():
+            element = model.itemFromIndex(filter.mapToSource(itm)).data(QtCore.Qt.UserRole)
+            if element is None:
                 continue
-            item = item[:-11].split(" : ")
-            name = item[0]
-            typ = item[1]
-
-            removed = False
-            if typ in self.datenbank.removeList and name in self.datenbank.removeList[typ]:
-                removed = self.datenbank.removeList[typ][name]
-
-            if not removed:
-                raise Exception('State corrupted.')
-
-            exists = False
-
-            if typ in self.datenbank.tablesByName:
-                table = self.datenbank.tablesByName[typ]
-                if name in table:
-                    exists = True
-                else:
-                    table.update({name: removed})
-            else:
-                raise Exception('Unknown category.')
-
-            if exists:
+            table = self.datenbank.tablesByType[element.__class__]
+            if element.name in table:
                 messageBox = QtWidgets.QMessageBox()
-                messageBox.setIcon(QtWidgets.QMessageBox.Information)
-                messageBox.setWindowTitle('Wiederherstellen nicht möglich!')
-                messageBox.setText('Es existiert bereits ein(e) ' + typ + ' mit dem Namen "' + name + '"')            
-                messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-                messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-                messageBox.exec()
-                return
-            del self.datenbank.removeList[typ][name]
+                messageBox.setIcon(QtWidgets.QMessageBox.Question)
+                messageBox.setWindowTitle("Geändertes Element zurücksetzen?")
+                messageBox.setText(f"Bist du sicher, dass du die Original-Daten von {element.name} wiederherstellen möchtest? Damit gehen alle von dir gemachten Anderungen verloren.")            
+                messageBox.addButton("Ja", QtWidgets.QMessageBox.YesRole)
+                messageBox.addButton("Nein", QtWidgets.QMessageBox.RejectRole)
+                if messageBox.exec() == 1:
+                    continue
+            elif not self.datenbank.isRemoved(element):
+                continue
+            table[element.name] = self.datenbank.referenceDB[element.__class__][element.name]
 
         self.onDatabaseChange();
+
+    def vanillaAnsehen(self):
+        model = self.models[self.ui.tabWidget.currentIndex()]
+        filter = self.filters[self.ui.tabWidget.currentIndex()]
+        tableView = self.lists[self.ui.tabWidget.currentIndex()]
+
+        for itm in tableView.selectedIndexes():
+            element = model.itemFromIndex(filter.mapToSource(itm)).data(QtCore.Qt.UserRole)
+            if element is None:
+                continue
+            if not self.datenbank.isChanged(element):
+                continue
+            table = self.datenbank.referenceDB[element.__class__]
+            self.edit(table[element.name], True)
     
     def hinzufuegen(self):
         '''
@@ -319,188 +539,94 @@ class DatenbankEditor(object):
         Akzeptiert der Nutzer, wird seiner Auswahl nach ein Dialog zum
         Erstellen des Eintrages geöffnet.
         '''
-        dbS = DatenbankSelectTypeWrapper.DatenbankSelectTypeWrapper(self.databaseTypes)
-        if dbS.entryType is not None and dbS.entryType in self.databaseTypes:
-            databaseType = self.databaseTypes[dbS.entryType]
-            val = databaseType.addFunc()
-            if val is not None:
-                self.datenbank.tablesByName[dbS.entryType].update({val.name : val})
-                self.onDatabaseChange()
-
-    def addTalent(self):
-        tal = Fertigkeiten.Talent()
-        return self.editTalent(tal)
-                          
-    def addVorteil(self):
-        vor = Fertigkeiten.Vorteil()
-        return self.editVorteil(vor)
-                          
-    def addFertigkeit(self):
-        fer = Fertigkeiten.Fertigkeit()
-        return self.editFertigkeit(fer)
-                          
-    def addUebernatuerlich(self):
-        fer = Fertigkeiten.Fertigkeit()
-        return self.editUebernatuerlich(fer)
-            
-    def addFreieFertigkeit(self):
-        fer = Fertigkeiten.FreieFertigkeitDB()
-        return self.editFreieFertigkeit(fer)
-                      
-    def addWaffeneigenschaft(self):
-        we = Objekte.Waffeneigenschaft()
-        return self.editWaffeneigenschaft(we)
-
-    def addWaffe(self):
-        waf = Objekte.Nahkampfwaffe()
-        return self.editWaffe(waf)
-            
-    def addRuestung(self):
-        rüs = Objekte.Ruestung()
-        return self.editRuestung(rüs)
-    
-    def addRegeln(self):
-        man = Fertigkeiten.Regel()
-        return self.editRegeln(man)
-            
-    def addEinstellung(self):
-        de = DatenbankEinstellung()
-        return self.editEinstellung(de)
-    
-    def editTalent(self, inp, readonly = False):
-        dbT = DatenbankEditTalentWrapper.DatenbankEditTalentWrapper(self.datenbank, inp, readonly)
-        return dbT.talent
-
-    def editVorteil(self, inp, readonly = False):
-        dbV = DatenbankEditVorteilWrapper.DatenbankEditVorteilWrapper(self.datenbank, inp, readonly)
-        return dbV.vorteil
-
-    def editFertigkeit(self, inp, readonly = False):
-        dbF = DatenbankEditFertigkeitWrapper.DatenbankEditFertigkeitWrapper(self.datenbank, inp, False, readonly)
-        return dbF.fertigkeit
-
-    def editUebernatuerlich(self, inp, readonly = False):
-        dbU = DatenbankEditFertigkeitWrapper.DatenbankEditFertigkeitWrapper(self.datenbank, inp, True, readonly)
-        return dbU.fertigkeit
-    
-    def editFreieFertigkeit(self, inp, readonly = False):
-        dbU = DatenbankEditFreieFertigkeitWrapper.DatenbankEditFreieFertigkeitWrapper(self.datenbank, inp, readonly)
-        return dbU.freieFertigkeit
-    
-    def editWaffeneigenschaft(self, inp, readonly = False):
-        dbW = DatenbankEditWaffeneigenschaftWrapper.DatenbankEditWaffeneigenschaftWrapper(self.datenbank, inp, readonly)
-        return dbW.waffeneigenschaft
-
-    def editWaffe(self, inp, readonly = False):
-        dbW = DatenbankEditWaffeWrapper.DatenbankEditWaffeWrapper(self.datenbank, inp, readonly)
-        return dbW.waffe
-    
-    def editRuestung(self, inp, readonly = False):
-        dbW = DatenbankEditRuestungWrapper.DatenbankEditRuestungWrapper(self.datenbank, inp, readonly)
-        return dbW.ruestung
-        
-    def editRegeln(self, inp, readonly = False):
-        dbM = DatenbankEditRegelWrapper.DatenbankEditRegelWrapper(self.datenbank, inp, readonly)
-        return dbM.regel
-
-    def editEinstellung(self, inp, readonly = False):
-        dbE = DatenbankEditEinstellungWrapper.DatenbankEditEinstellungWrapper(self.datenbank, inp, readonly)
-        return dbE.einstellung
+        dbType = self.databaseTypesByIndex[self.ui.tabWidget.currentIndex()]   
+        val = self.databaseTypes[dbType].add(self.datenbank)
+        if val is not None:
+            self.datenbank.tablesByType[dbType][val.name] = val
+            self.onDatabaseChange()
 
     def editSelected(self):
+        tableView = self.lists[self.ui.tabWidget.currentIndex()]
+        model = self.models[self.ui.tabWidget.currentIndex()]
+        filter = self.filters[self.ui.tabWidget.currentIndex()]
         databaseChanged = False
-        for itm in self.ui.listDatenbank.selectedIndexes():
-            tmp = self.model.itemData(itm)[0].split(" : ")
-            name = tmp[0]
-            typ = tmp[1]
-            if typ.endswith(" (gelöscht)"):
-                typ = typ[:-11]
-                deletedItem = False
-                if typ in self.datenbank.removeList and name in self.datenbank.removeList[typ]:
-                    deletedItem = self.datenbank.removeList[typ][name]
-                if not deletedItem:
-                    raise Exception('State corrupted.')
-
-                if typ in self.databaseTypes:
-                    databaseType = self.databaseTypes[typ]
-                    databaseType.editFunc(deletedItem, True)
-                continue
-
-            if not typ in self.datenbank.tablesByName:
-                continue
-            table = self.datenbank.tablesByName[typ]
-            element = table[name]
+        for itm in tableView.selectedIndexes(): 
+            element = model.itemFromIndex(filter.mapToSource(itm)).data(QtCore.Qt.UserRole)
             if element is None:
                 continue
-            if not typ in self.databaseTypes:
-                continue
-            ret = self.databaseTypes[typ].editFunc(element)
-            if ret is None:
-                continue
-            if not element.isUserAdded:
-                if not typ in self.datenbank.removeList:
-                    self.datenbank.removeList[typ] = {}
-                self.datenbank.removeList[typ][name] = element
-            table.pop(name,None)
-            table.update({ret.name: ret})
-            databaseChanged = True
+            if self.edit(element, True):
+                databaseChanged = True
 
         if databaseChanged:
             self.onDatabaseChange()
 
+    def edit(self, element, surpressChanges = False):
+        if element is None:
+            return False
+        readonly = False
+        if self.datenbank.isRemoved(element) or self.datenbank.isOverriddenByOther(element):
+            readonly = True
+        ret = self.databaseTypes[element.__class__].edit(self.datenbank, element, readonly)
+        if ret is None:
+            return False
+        table = self.datenbank.tablesByType[element.__class__]
+        if ret.name != element.name:
+            table.pop(element.name)
+        table[ret.name] = ret
+        if not surpressChanges:
+            self.onDatabaseChange()
+        return True
+
     def duplicate(self, table, name):
         item = table[name]
         clone = copy(item)
-        clone.isUserAdded = True
         while clone.name in table:
             clone.name = clone.name + " (Kopie)"
         table[clone.name] = clone
 
     def duplicateSelected(self):
+        tableView = self.lists[self.ui.tabWidget.currentIndex()]
+        model = self.models[self.ui.tabWidget.currentIndex()]
+        filter = self.filters[self.ui.tabWidget.currentIndex()]
         databaseChanged = False
-        for itm in self.ui.listDatenbank.selectedIndexes():
-            tmp = self.model.itemData(itm)[0].split(" : ")
-            name = tmp[0]
-            typ = tmp[1]
-
-            if typ in self.datenbank.tablesByName:
-                table = self.datenbank.tablesByName[typ]
-                self.duplicate(table, name)
-                databaseChanged = True
+        for itm in tableView.selectedIndexes():
+            element = model.itemFromIndex(filter.mapToSource(itm)).data(QtCore.Qt.UserRole)
+            if element is None:
+                continue
+            table = self.datenbank.tablesByType[element.__class__]
+            self.duplicate(table, element.name)
+            databaseChanged = True
 
         if databaseChanged:
             self.onDatabaseChange()
                                 
     def deleteSelected(self):
+        tableView = self.lists[self.ui.tabWidget.currentIndex()]
+        model = self.models[self.ui.tabWidget.currentIndex()]
+        filter = self.filters[self.ui.tabWidget.currentIndex()]
         databaseChanged = False
-        for itm in self.ui.listDatenbank.selectedIndexes():
-            tmp = self.model.itemData(itm)[0].split(" : ")
-            name = tmp[0]
-            typ = tmp[1]
-            if typ in self.datenbank.tablesByName:
-                table = self.datenbank.tablesByName[typ]
-                element  = table[name]
-                if not element.isUserAdded:
-                    if typ == "Einstellung":
-                        continue
-                    if not typ in self.datenbank.removeList:
-                        self.datenbank.removeList[typ] = {}
-                    self.datenbank.removeList[typ][name] = element
-                table.pop(name,None)
+        for itm in tableView.selectedIndexes():
+            item = model.itemFromIndex(filter.mapToSource(itm))
+            element = item.data(QtCore.Qt.UserRole)
+            if element is None:
+                continue
+            table = self.datenbank.tablesByType[element.__class__]
+            wasChanged = self.datenbank.isChanged(element)
+            table.pop(element.name)
+            if self.datenbank.isRemoved(element):
+                autorestore = not self.databaseTypes[element.__class__].isDeletable
+                if not autorestore and wasChanged:
+                    messageBox = QtWidgets.QMessageBox()
+                    messageBox.setIcon(QtWidgets.QMessageBox.Question)
+                    messageBox.setWindowTitle("Original-Daten wiederherstellen?")
+                    messageBox.setText(f"Möchtest du die Original-Daten von {element.name} nach dem Löschen deiner Änderungen wiederherstellen?")            
+                    messageBox.addButton("Ja", QtWidgets.QMessageBox.YesRole)
+                    messageBox.addButton("Nein", QtWidgets.QMessageBox.RejectRole)
+                    autorestore = messageBox.exec() == 0
+                if autorestore:
+                    table[element.name] = self.datenbank.referenceDB[element.__class__][element.name]
 
-                if typ == "Einstellung":
-                    # Auto restore
-                    removed = False
-                    if typ in self.datenbank.removeList and name in self.datenbank.removeList[typ]:
-                        removed = self.datenbank.removeList[typ][name]
-
-                    if removed:
-                        table.update({name: removed})
-                        del self.datenbank.removeList[typ][name]
-                    else:
-                        logging.warn("Tried to auto restore " + name + " but didn't find it in the database.")
-
-                databaseChanged = True
+            databaseChanged = True
 
         if databaseChanged:
             self.onDatabaseChange()
@@ -588,25 +714,48 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         else:
             # plugins may change their changesDatabase-flag depending on database settings, so update the enabled plugins here
             self.datenbank.enabledPlugins = self.getDatabaseChangingPlugins()
-            self.datenbank.datei = self.savepath
+            self.datenbank.hausregelDatei = self.savepath
             self.datenbank.xmlSchreiben()
             self.changed = False
     
     def closeDatenbank(self):
         if self.cancelDueToPendingChanges("Datenbank schließen"):
             return
-        self.datenbank.datei = None
+        self.datenbank.hausregelDatei = None
         self.savepath = None
         self.datenbank.xmlLaden()
         self.updateGUI()
         self.updateWindowTitleAndCloseButton()
         self.changed = False
+        self.ui.actionZusaetzlichOeffnen.setEnabled(False)
+
+        if hasattr(self, "errorLogWindow"):
+            self.errorLogWindow.refresh()
 
     RememberConflictResult = -1
 
-    def loadDatenbank(self):
+    def loadDatenbank(self, additiv = False):
         if self.cancelDueToPendingChanges("Andere Datenbank laden"):
             return
+
+        if not additiv:
+            self.datenbank.hausregelDatei = None
+
+        if self.datenbank.hausregelDatei is not None:
+            infoBox = QtWidgets.QMessageBox()
+            infoBox.setIcon(QtWidgets.QMessageBox.Warning)
+            infoBox.setText("Es sind bereits Hausregeln geladen. Wenn du zusätzlich noch andere Hausregeln lädst, werden beide zusammengefasst!\n" +
+                            "Wenn in beiden Hausregeln die gleichen Datenbank-Elemente geändert wurden, wirst du dich zwischen einer Version entscheiden müssen - Sephrasto wird dir dabei helfen. " +
+                            "Du kannst dies ohne Risiko ausprobieren: Die zusammengefassten Hausregeln werden erst gespeichert, wenn du den Speichern-Button drückst.\n" +
+                            "In jedem Fall solltest du hinterher aber überprüfen, ob alle geänderten Elemente noch intakt sind. " +
+                            "Beispielsweise könnten die zusätzlichen Hausregeln einen Vorteil gelöscht haben, der in den aktuellen Hausregeln irgendwo als Voraussetzung gelistet ist.")
+            infoBox.setWindowTitle("Mehrere Hausregeln laden")
+            infoBox.addButton("Abbrechen", QtWidgets.QMessageBox.NoRole)
+            infoBox.addButton("Verstanden!", QtWidgets.QMessageBox.YesRole)
+            result = infoBox.exec()
+            if result != 1:
+                return
+
         if os.path.isdir(Wolke.Settings['Pfad-Regeln']):
             startDir = Wolke.Settings['Pfad-Regeln']
         else:
@@ -624,10 +773,10 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
             infoBox.exec()
-            self.loadDatenbank()
+            self.loadDatenbank(additiv)
             return
 
-        if spath == self.datenbank.datei:
+        if spath == self.datenbank.hausregelDatei:
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Warning)
             infoBox.setText("Diese Hausregeln sind bereits geladen!")
@@ -635,13 +784,13 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
             infoBox.exec()
-            self.loadDatenbank()
+            self.loadDatenbank(additiv)
             return
 
         def showConflict(typ, old, new):
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Question)
-            infoBox.setText(typ + " " + old.name + " wurde sowohl in den bestehenden, als auch in den neu geladenen Hausregeln geändert. Welche Version möchtest du beibehalten?")
+            infoBox.setText(typ.displayName + " " + old.name + " wurde sowohl in den bestehenden, als auch in den neu geladenen Hausregeln geändert. Welche Version möchtest du beibehalten?")
             infoBox.setWindowTitle("Zusätzliche Hausregeln laden: Konflikt")
 
             infoBox.addButton("Aktuell ansehen", QtWidgets.QMessageBox.YesRole)
@@ -661,48 +810,49 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
                 result, checked = showConflict(typ, old, new)
                 if result < 2 and typ in self.databaseTypes:
                     databaseType = self.databaseTypes[typ]
-                    databaseType.editFunc(old if result == 0 else new, True)
+                    databaseType.edit(self.datenbank, old if result == 0 else new, True)
                 elif result >= 2 and checked:
                     DatenbankEditor.RememberConflictResult = result
 
             return old if result == 2 else new
 
-        if self.datenbank.datei:
-            infoBox = QtWidgets.QMessageBox()
-            infoBox.setIcon(QtWidgets.QMessageBox.Warning)
-            infoBox.setText("Es sind bereits Hausregeln geladen. Wenn du zusätzlich noch andere Hausregeln lädst, werden beide zusammengefasst!\n" +
-                            "Wenn in beiden Hausregeln die gleichen Datenbank-Elemente geändert wurden, wirst du dich zwischen einer Version entscheiden müssen - Sephrasto wird dir dabei helfen. " +
-                            "Du kannst dies ohne Risiko ausprobieren: Die zusammengefassten Hausregeln werden erst gespeichert, wenn du den Speichern-Button drückst.\n" +
-                            "In jedem Fall solltest du hinterher aber überprüfen, ob alle geänderten Elemente noch intakt sind. " +
-                            "Beispielsweise könnten die zusätzlichen Hausregeln einen Vorteil gelöscht haben, der in den aktuellen Hausregeln irgendwo als Voraussetzung gelistet ist.")
-            infoBox.setWindowTitle("Mehrere Hausregeln laden")
-            infoBox.addButton("Abbrechen", QtWidgets.QMessageBox.NoRole)
-            infoBox.addButton("Verstanden!", QtWidgets.QMessageBox.YesRole)
-            result = infoBox.exec()
-            if result == 1:
-                DatenbankEditor.RememberConflictResult = -1
-                self.datenbank.xmlLadenAdditiv(spath, conflictCB)
-                DatenbankEditor.RememberConflictResult = -1
-            else:
-                return
+        if self.datenbank.hausregelDatei is not None:
+            DatenbankEditor.RememberConflictResult = -1
+            self.datenbank.xmlLadenAdditiv(spath, conflictCB)
+            DatenbankEditor.RememberConflictResult = -1
         else:
             self.savepath = spath
-            self.datenbank.datei = spath
+            self.datenbank.hausregelDatei = spath
             self.datenbank.xmlLaden()
+
+        if len(self.datenbank.loadingErrors) > 0:
+            self.showErrorLog()
         
         self.updateGUI()
         self.updateWindowTitleAndCloseButton()
         self.checkMissingPlugins()
         self.changed = False
-        
-if __name__ == "__main__":
-    D = DatenbankEditor()
-    app = QtCore.QCoreApplication.instance()
-    if app is None:
-        app = QtWidgets.QApplication(sys.argv)
-    D.Form = QtWidgets.QWidget()
-    D.ui = UI.DatenbankMain.Ui_Form()
-    D.ui.setupUi(D.Form)
-    D.setupGUI()
-    D.Form.show()
-    app.exec()
+        self.ui.actionZusaetzlichOeffnen.setEnabled(self.datenbank.hausregelDatei is not None)
+
+    def showErrorLog(self):
+        if not hasattr(self, "errorLogWindow"):
+            self.errorLogWindow = DatenbankErrorLogWrapper.DatenbankErrorLogWrapper(self.datenbank, lambda element: self.edit(element))
+        else:
+            self.errorLogWindow.refresh()
+            self.errorLogWindow.form.show()
+            self.errorLogWindow.form.activateWindow()
+
+    def showEditorHelp(self):
+        if not hasattr(self, "editorHelpWindow"):
+            self.editorHelpWindow = HilfeWrapper("DatenbankEditor.md", False)
+            self.editorHelpWindow.form.show()
+        else:
+            self.editorHelpWindow.form.show()
+            self.editorHelpWindow.form.activateWindow()
+
+    def showScriptHelp(self):
+        if not hasattr(self, "scriptHelpWindow"):
+            self.scriptHelpWindow = HilfeWrapper("ScriptAPI.md", False)
+        else:
+            self.scriptHelpWindow.form.show()
+            self.scriptHelpWindow.form.activateWindow()

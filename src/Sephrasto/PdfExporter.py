@@ -8,9 +8,6 @@ This class exists to handle all the writing of the charactor to the pdf.
 """
 from Wolke import Wolke
 import PdfSerializer
-import Definitionen
-import Objekte
-import Talentbox
 import os
 import math
 import logging
@@ -27,6 +24,9 @@ from shutil import which
 import platform
 from PySide6 import QtWidgets, QtCore, QtGui
 import copy
+from Core.Talent import Talent, TalentDefinition
+from Core.Fertigkeit import Fertigkeit
+from QtUtils.ProgressDialogExt import ProgressDialogExt
 
 class PdfExporter(object):
     def __init__(self):
@@ -37,8 +37,13 @@ class PdfExporter(object):
     def setCharakterbogen(self, charakterbogen):
         self.CharakterBogen = charakterbogen
 
-    def pdfErstellen(self, filename, printRules, progressCallback):
-        progressCallback(0)
+    def pdfErstellen(self, filename, printRules):
+        dlg = ProgressDialogExt(minimum = 0, maximum = 100)
+        dlg.setWindowTitle("Exportiere Charakter")
+        dlg.setLabelText("Befülle Formularfelder")    
+        dlg.show()
+        QtWidgets.QApplication.processEvents() #make sure the dialog immediatelly shows
+
         '''
         This entire subblock is responsible for filling all the fields of the
         Charakterbogen. It has been broken down into seven subroutines for
@@ -56,12 +61,40 @@ class PdfExporter(object):
 
         # Plugins die felder filtern lassen
         fields = EventBus.applyFilter("pdf_export", fields)
-        progressCallback(10)
 
-        # PDF erstellen - Felder bleiben bearbeitbar
+        # Mappings des Charakterbogens applizieren
+        for field in self.CharakterBogen.formularMappings:
+            if field in fields:
+                if isinstance(self.CharakterBogen.formularMappings[field], list):
+                    mappings = self.CharakterBogen.formularMappings[field]
+                else:
+                    mappings = [self.CharakterBogen.formularMappings[field]]
+
+                for mapping in mappings:
+                    fields[mapping] = fields[field]
+
+        if dlg.shouldCancel():
+            return
+        dlg.setValue(10)
+
+
+        # PDF erstellen
         flatten = not Wolke.Char.formularEditierbar
+        bookmarks = []
+        for i in range(PdfSerializer.getNumPages(self.CharakterBogen.filePath)):
+            text = "Charakterbogen"
+            if i < len(self.CharakterBogen.seitenbeschreibungen):
+                text = self.CharakterBogen.seitenbeschreibungen[i]
+            bookmarks.append(PdfSerializer.PdfBookmark("S. " + str(i+1) + " - " + text, i+1))
+        i += 1
+
         allPages = [PdfSerializer.write_pdf(self.CharakterBogen.filePath, fields, None, flatten)]
-        progressCallback(20)
+
+        if dlg.shouldCancel():
+            for page in allPages: os.remove(page)
+            return
+        dlg.setLabelText("Füge zusätzliche Seiten für Übernatürliches an")
+        dlg.setValue(20)
 
         # Extraseiten
         extraPageAdded = False
@@ -78,42 +111,76 @@ class PdfExporter(object):
                 self.createExtra(fieldsNew, extraVorteile, extraUeber, extraTalente)
                 fieldsNew = EventBus.applyFilter("pdf_export_extrapage", fieldsNew)
                 allPages.append(PdfSerializer.write_pdf(extraPage, fieldsNew, None, flatten))
-                
-                progressCallback(min(35, 20 + 3*pageCount))
+                bookmarks.append(PdfSerializer.PdfBookmark("S. " + str(i+1) + " - " + text, i+1))
+                i += 1
+                if dlg.shouldCancel():
+                    for page in allPages: os.remove(page)
+                    os.remove(extraPage)
+                    return
+                dlg.setValue(min(30, 20 + 2*pageCount))
 
             if extraPage:
                 os.remove(extraPage)
-        progressCallback(35)
 
         #Entferne die Seite für Übernatürliches, falls keine übernatürlichen Fertigkeiten vorhanden sind
         if self.CharakterBogen.überSeite > 0 and \
            not ('Uebervorteil1' in fields) and \
            not ('Ueberfer1NA' in fields) and \
            not ('Uebertal1NA' in fields) and not extraPageAdded:
+            if dlg.shouldCancel():
+                for page in allPages: os.remove(page)
+                return
+            dlg.setValue(30)
+            dlg.setLabelText("Charakter ist profan, entferne Seite für Übernatürliches")
             shrinked = PdfSerializer.shrink(allPages[0], 1, self.CharakterBogen.überSeite-1)
             os.remove(allPages[0])
             allPages[0] = shrinked
-        progressCallback(40)
+            bookmarks.pop()
+            i -= 1
 
         if printRules:
+            if dlg.shouldCancel():
+                for page in allPages: os.remove(page)
+                return
+            dlg.setLabelText("Erstelle Regelanhang")
+            dlg.setValue(35)
             rules = self.CheatsheetGenerator.generateRules()
-            progressCallback(45)
             if len(rules) != 0:
+                dlg.setValue(40)
                 html = ""
                 with open(self.CharakterBogen.regelanhangPfad, 'r', encoding="utf-8") as infile:
                     html = infile.read()
-                    rules = self.CheatsheetGenerator.generateRules()
+                    html = html.replace("{sephrasto_dir}", "file:///" + os.getcwd().replace('\\', '/'))
                     html = html.replace("{rules_content}", rules)
                     html = html.replace("{rules_font_size}", str(Wolke.Char.regelnGroesse))
-                    html = html.replace("{sephrasto_dir}", "file:///" + os.getcwd().replace('\\', '/')) #should be done after content because it may use this macro
-                rulesFile = PdfSerializer.convertHtmlToPdf(html, self.CharakterBogen.regelanhangPfad, self.CharakterBogen.getRegelanhangPageLayout())
-                progressCallback(50)
+                rulesFile = PdfSerializer.convertHtmlToPdf(html, self.CharakterBogen.regelanhangPfad, self.CharakterBogen.getRegelanhangPageLayout(), 100)
+
+                for j in range(1, PdfSerializer.getNumPages(rulesFile)+1):
+                    bookmarks.append(PdfSerializer.PdfBookmark("S. " + str(i+1) + " - Regelanhang " + str(j), i+1))
+                    i += 1
+
+                if dlg.shouldCancel():
+                    for page in allPages: os.remove(page)
+                    os.remove(rulesFile)
+                    return
+                dlg.setValue(50)
                 PdfSerializer.addText(rulesFile,
                                       "%Page/%EndPage",
                                       self.CharakterBogen.regelanhangSeitenzahlPosition,
                                       str(self.CharakterBogen.regelanhangSeitenzahlAbstand),
-                                      "black", "Times-Roman", "12", rulesFile)
-                progressCallback(60)
+                                      "black", "Times-Roman", "10", rulesFile)
+                dlg.setValue(52)
+                PdfSerializer.addText(rulesFile,
+                                      f"{Wolke.Char.name} ({Wolke.Char.epGesamt} EP)",
+                                      self.CharakterBogen.regelanhangSeitenzahlPosition,
+                                      str(self.CharakterBogen.regelanhangSeitenzahlAbstand-10),
+                                      "black", "Times-Roman", "6", rulesFile)
+
+                if dlg.shouldCancel():
+                    for page in allPages: os.remove(page)
+                    os.remove(rulesFile)
+                    return
+                dlg.setValue(55)
                 # Add the background image separately with a pdftk "background" call - this way it will be shared by all pages to decrease file size
                 if self.CharakterBogen.regelanhangHintergrundPfad:
                     allPages.append(PdfSerializer.addBackground(rulesFile, self.CharakterBogen.regelanhangHintergrundPfad))
@@ -121,23 +188,52 @@ class PdfExporter(object):
                 else:
                     allPages.append(rulesFile)
 
-        progressCallback(70)
-
+        if dlg.shouldCancel():
+            for page in allPages: os.remove(page)
+            return
+        dlg.setLabelText("Stemple Charakterbild")
+        dlg.setValue(60)
         allPages = self.stampImage(allPages)
+
+        if dlg.shouldCancel():
+            for page in allPages: os.remove(page)
+            return
+        dlg.setLabelText("Führe Plugins aus")
+        dlg.setValue(70)
         allPages = EventBus.applyFilter("pdf_concat", allPages)
-        progressCallback(75)
 
-        PdfSerializer.concat(allPages, filename)
-        progressCallback(90)
+        if dlg.shouldCancel():
+            for page in allPages: os.remove(page)
+            return
+        dlg.setLabelText("Füge PDF-Dateien zusammen")
+        dlg.setValue(75)
+        tmp = PdfSerializer.concat(allPages)
 
+        dlg.setLabelText("Lösche temporäre Dateien")
+        dlg.setValue(85)
         for page in allPages:
             os.remove(page)
-        progressCallback(95)
 
+        if dlg.shouldCancel():
+            os.remove(tmp)
+            return
+        dlg.setLabelText("Füge Lesezeichen hinzu")
+        dlg.setValue(90)
+        PdfSerializer.addBookmarks(tmp, bookmarks, filename)
+        os.remove(tmp)
+
+        if dlg.shouldCancel():
+            os.remove(filename)
+            return
+        dlg.setLabelText("Optimiere Dateigröße")
+        dlg.setValue(95)
         PdfSerializer.squeeze(filename, filename)
 
-        EventBus.doAction("pdf_geschrieben", { "filepath" : filename, "filename" : filename }) # filename is deprecated, remove in future
-        progressCallback(100)
+        EventBus.doAction("pdf_geschrieben", { "filepath" : filename })
+        dlg.setValue(100)
+
+        dlg.hide()
+        dlg.deleteLater()
 
         #Open PDF with default application:
         if Wolke.Settings['PDF-Open']:
@@ -146,97 +242,58 @@ class PdfExporter(object):
     def pdfErsterBlock(self, fields):
         logging.debug("PDF Block 1")
         fields['Name'] = Wolke.Char.name
-        fields['Rasse'] = Wolke.Char.spezies
+        fields['Spezies'] = Wolke.Char.spezies
         fields['Kultur'] = Wolke.Char.heimat
-        fields['Statu'] = Definitionen.Statusse[Wolke.Char.status]
-        fields['Finanzen'] = Definitionen.Finanzen[Wolke.Char.finanzen]
+        statusse = Wolke.DB.einstellungen["Statusse"].wert
+        if Wolke.Char.status < len(statusse):
+            fields['Status'] = statusse[Wolke.Char.status]
+        finanzen = Wolke.DB.einstellungen["Finanzen"].wert
+        if Wolke.Char.finanzen < len(finanzen):
+            fields['Finanzen'] = finanzen[Wolke.Char.finanzen]
         fields['Kurzb'] = Wolke.Char.kurzbeschreibung
-        fields['Schip'] = Wolke.Char.schipsMax
-        if Wolke.Char.finanzenAnzeigen:
-            fields['Schipm'] = Wolke.Char.schips
         # Erste Acht Eigenheiten
         for i in range(0, min(8, len(Wolke.Char.eigenheiten))):
             fields['Eigen' + str(i+1)] = Wolke.Char.eigenheiten[i]
 
     def pdfZweiterBlock(self, fields):
         logging.debug("PDF Block 2")
-        for key in Definitionen.Attribute:
+        for key in Wolke.Char.attribute:
             fields[key] = Wolke.Char.attribute[key].wert
-            fields[key + '2'] = Wolke.Char.attribute[key].probenwert
-            fields[key + '3'] = Wolke.Char.attribute[key].probenwert
-        fields['WundschwelleBasis'] = Wolke.Char.wsBasis
-        fields['Wundschwelle'] = Wolke.Char.ws
-        fields['WS'] = Wolke.Char.ws
+            fields[key + 'PW'] = Wolke.Char.attribute[key].probenwert
+
+        for aw in Wolke.Char.abgeleiteteWerte.values():
+            fields[aw.name + "Basis"] = aw.basiswert
+            fields[aw.name] = aw.wert
+            fields[aw.name + "m"] = aw.finalwert
+
+        if not Wolke.Char.finanzenAnzeigen and 'SchiPm' in fields:
+            del fields['SchiPm']
 
         checked = 'Yes'
-        if "Unverwüstlich" in Wolke.Char.vorteile:
-            fields['ModUnverwuestlich'] = checked
-
-        fields['MagieresistenzBasis'] = Wolke.Char.mrBasis
-        fields['Magieresistenz'] = Wolke.Char.mr
-        if "Willensstark I" in Wolke.Char.vorteile:
-            fields['ModWillensstark1'] = checked
-        if "Willensstark II" in Wolke.Char.vorteile:
-            fields['ModWillensstark2'] = checked
-        if "Unbeugsamkeit" in Wolke.Char.vorteile:
-            fields['ModUnbeugsam'] = checked
-
-        fields['GeschwindigkeitBasis'] = Wolke.Char.gsBasis
-        fields['Geschwindigkeit'] = Wolke.Char.gs
-        if "Flink I" in Wolke.Char.vorteile:
-            fields['ModFlink1'] = checked
-        if "Flink II" in Wolke.Char.vorteile:
-            fields['ModFlink2'] = checked
-
-        fields['SchadensbonusBasis'] = Wolke.Char.schadensbonusBasis
-        fields['Schadensbonus'] = Wolke.Char.schadensbonus
-
-        fields['InitiativeBasis'] = Wolke.Char.iniBasis
-        fields['Initiative'] = Wolke.Char.ini
-        fields['INIm'] = Wolke.Char.ini
-        if "Kampfreflexe" in Wolke.Char.vorteile:
-            fields['ModKampfreflexe'] = checked
-
-        fields['DH'] = Wolke.Char.dh
-
-        if "Gefäß der Sterne" in Wolke.Char.vorteile:
-            fields['ModGefaess'] = checked
-
-        isZauberer = Wolke.Char.aspBasis + Wolke.Char.aspMod > 0
-        isGeweiht = Wolke.Char.kapBasis + Wolke.Char.kapMod > 0
-        if isZauberer:
-            fields['AstralenergieBasis'] = Wolke.Char.aspBasis
-            fields['Astralenergie'] = Wolke.Char.asp.wert + Wolke.Char.aspBasis + Wolke.Char.aspMod
-            fields['ModAstralenergie'] = Wolke.Char.asp.wert
-        else:
-            fields['AstralenergieBasis'] = "-"
-            fields['Astralenergie'] = "-"
-            fields['ModAstralenergie'] = "-"
-
-        if isGeweiht:
-            fields['KarmaenergieBasis'] = Wolke.Char.kapBasis
-            fields['Karmaenergie'] = Wolke.Char.kap.wert + Wolke.Char.kapBasis + Wolke.Char.kapMod
-            fields['ModKarmaenergie'] = Wolke.Char.kap.wert
-        else:
-            fields['KarmaenergieBasis'] = "-"
-            fields['Karmaenergie'] = "-"
-            fields['ModKarmaenergie'] = "-"
+        for vort in Wolke.Char.vorteile:
+            field = "Vorteil" + vort.replace(" ", "").replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").replace("ß", "ss")
+            fields[field] = checked
 
         self.Energie = ""
-        if isZauberer:
-            self.Energie = str(Wolke.Char.asp.wert + Wolke.Char.aspBasis + Wolke.Char.aspMod)
-            if isGeweiht:
-                self.Energie += " / "
-        if isGeweiht:
-            self.Energie += str(Wolke.Char.kap.wert + Wolke.Char.kapBasis + Wolke.Char.kapMod)
-        if not self.Energie:
+        for en in Wolke.Char.energien.values():
+            fields[en.name + 'Basis'] = en.basiswert
+            fields[en.name] = en.gesamtwert
+            fields['Mod' + en.name] = en.wert
+            self.Energie += str(en.gesamtwert) + " / "
+
+        if self.Energie:
+            self.Energie = self.Energie[:-3]
+        else:
             self.Energie = "-"
 
-        fields['EN'] = self.Energie
+        for en in Wolke.DB.energien.values():
+            if en.name in Wolke.Char.energien:
+                continue
+            fields[en.name + 'Basis'] = "-"
+            fields[en.name] = "-"
+            fields['Mod' + en.name] = "-"
 
-        fields['DHm'] = Wolke.Char.dhStern
-        fields['GSm'] = Wolke.Char.gsStern
-        fields['WSm'] = Wolke.Char.wsStern
+        fields['EN'] = self.Energie
 
     @staticmethod
     def getCellIndex(numElements, maxCells):
@@ -315,7 +372,7 @@ class PdfExporter(object):
 
     def printFertigkeiten(self, fields, fertigkeitenNames):
         count = 1
-        höchsteKampffertigkeit = Wolke.Char.getHöchsteKampffertigkeit()
+        höchsteKampffertigkeit = Fertigkeit.getHöchsteKampffertigkeit(Wolke.Char.fertigkeiten)
         for el in fertigkeitenNames:
             if el not in Wolke.Char.fertigkeiten:
                 continue
@@ -338,7 +395,7 @@ class PdfExporter(object):
                 fields[base + "BA"] = str(fertigkeit.basiswert + fertigkeit.basiswertMod) + "*"
 
             fields[base + "FW"] = fertigkeit.wert
-            fields[base + "TA"] = ", ".join([t.anzeigeName for t in CharakterPrintUtility.getTalente(Wolke.Char, fertigkeit)])
+            fields[base + "TA"] = ", ".join(CharakterPrintUtility.getTalente(Wolke.Char, fertigkeit))
             fields[base + "PW"] = fertigkeit.probenwert + fertigkeit.basiswertMod
             fields[base + "PWT"] = fertigkeit.probenwertTalent + fertigkeit.basiswertMod
             count += 1
@@ -392,9 +449,15 @@ class PdfExporter(object):
     def pdfFünfterBlock(self, fields):
         logging.debug("PDF Block 5")
         # Fill three rows of Rüstung
+        scriptAPI = {}
+        for ab in Wolke.Char.abgeleiteteWerte:
+            scriptAPI['get' + ab + 'Basis'] = lambda ab=ab: Wolke.Char.abgeleiteteWerte[ab].basiswert
+            scriptAPI['get' + ab] = lambda ab=ab: Wolke.Char.abgeleiteteWerte[ab].wert
+            scriptAPI['get' + ab + 'Mod'] = lambda ab=ab: Wolke.Char.abgeleiteteWerte[ab].mod
+
         for i in range(0, min(3, len(Wolke.Char.rüstung))):
             el = Wolke.Char.rüstung[i]
-            if not el.name:
+            if not el.name and el.getRSGesamtInt() == 0:
                 base = 'Ruest' + str(i+1)
                 fields[base + 'NA'] = ""
                 fields[base + 'RS'] = ""
@@ -409,17 +472,29 @@ class PdfExporter(object):
                 fields[base + 'Kopf'] = ""
             else:
                 base = 'Ruest' + str(i+1)
+                ws = 0
+                rsmod = 0
+                bemod = 0
+                scriptAPI["rs"] = el.getRSGesamtInt()
+                scriptAPI["be"] = el.be
                 fields[base + 'NA'] = el.name
-                fields[base + 'RS'] = el.getRSGesamtInt() + Wolke.Char.rsmod
-                fields[base + 'BE'] = max(el.be - Wolke.Char.rüstungsgewöhnung, 0)
-                fields[base + 'WS'] = int(el.getRSGesamtInt() + Wolke.Char.rsmod + Wolke.Char.ws)
+                fields[base + 'RS'] = eval(Wolke.DB.einstellungen["Rüstungen: RS Script"].wert, scriptAPI)
+                fields[base + 'BE'] = eval(Wolke.DB.einstellungen["Rüstungen: BE Script"].wert, scriptAPI)
+                fields[base + 'WS'] = eval(Wolke.DB.einstellungen["Rüstungen: WSStern Script"].wert, scriptAPI)
+
                 base += 'RS'
-                fields[base + 'Bein'] = el.rs[0]+Wolke.Char.rsmod+Wolke.Char.ws
-                fields[base + 'lArm'] = el.rs[1]+Wolke.Char.rsmod+Wolke.Char.ws
-                fields[base + 'rArm'] = el.rs[2]+Wolke.Char.rsmod+Wolke.Char.ws
-                fields[base + 'Bauch'] = el.rs[3]+Wolke.Char.rsmod+Wolke.Char.ws
-                fields[base + 'Brust'] = el.rs[4]+Wolke.Char.rsmod+Wolke.Char.ws
-                fields[base + 'Kopf'] = el.rs[5]+Wolke.Char.rsmod+Wolke.Char.ws
+                scriptAPI["rs"] = el.rs[0]
+                fields[base + 'Bein'] = eval(Wolke.DB.einstellungen["Rüstungen: WSStern Script"].wert, scriptAPI)
+                scriptAPI["rs"] = el.rs[1]
+                fields[base + 'lArm'] = eval(Wolke.DB.einstellungen["Rüstungen: WSStern Script"].wert, scriptAPI)
+                scriptAPI["rs"] = el.rs[2]
+                fields[base + 'rArm'] = eval(Wolke.DB.einstellungen["Rüstungen: WSStern Script"].wert, scriptAPI)
+                scriptAPI["rs"] = el.rs[3]
+                fields[base + 'Bauch'] = eval(Wolke.DB.einstellungen["Rüstungen: WSStern Script"].wert, scriptAPI)
+                scriptAPI["rs"] = el.rs[4]
+                fields[base + 'Brust'] = eval(Wolke.DB.einstellungen["Rüstungen: WSStern Script"].wert, scriptAPI)
+                scriptAPI["rs"] = el.rs[5]
+                fields[base + 'Kopf'] = eval(Wolke.DB.einstellungen["Rüstungen: WSStern Script"].wert, scriptAPI)
 
         # Fill eight rows of weapons
         for i in range(0, min(8, len(Wolke.Char.waffen))):
@@ -451,7 +526,7 @@ class PdfExporter(object):
                 fields[base + 'ATm'] = str(waffenwerte.at)
 
                 fields[base + 'VTm'] = str(waffenwerte.vt)
-                vtVerboten = Wolke.DB.einstellungen["Waffen: Talente VT verboten"].toTextList()
+                vtVerboten = Wolke.DB.einstellungen["Waffen: Talente VT verboten"].wert
                 if el.name in Wolke.DB.waffen:
                     waffe = Wolke.DB.waffen[el.name]
                     if waffe.talent in vtVerboten or waffe.name in vtVerboten:
@@ -460,7 +535,7 @@ class PdfExporter(object):
                 fields[base + 'RW'] = str(waffenwerte.rw)
 
                 fields[base + 'WM'] = str(el.wm)
-                if type(el) == Objekte.Fernkampfwaffe:
+                if el.fernkampf:
                     fields[base + 'WM'] += " / " + str(el.lz)
 
                 sg = ""
@@ -493,27 +568,29 @@ class PdfExporter(object):
             else:
                 fields[base + 'BA'] = str(fe.basiswert + fe.basiswertMod) + "*"
 
-            fields[base + "TA"] = ", ".join([t.anzeigeName for t in CharakterPrintUtility.getTalente(Wolke.Char, fe, True)])
+            fields[base + "TA"] = ", ".join(CharakterPrintUtility.getTalente(Wolke.Char, fe, True))
 
         del überFertigkeiten[:min(self.CharakterBogen.maxÜberFertigkeiten, len(überFertigkeiten))]
 
     def printÜberTalente(self, fields, überTalente):
-        wdAbbreviations = Wolke.DB.einstellungen["Charsheet: Talent-Abkürzungen Wirkungsdauer"].toTextDict('\n', False)
-        koAbbreviations = Wolke.DB.einstellungen["Charsheet: Talent-Abkürzungen Kosten"].toTextDict('\n', False)
+        wdAbbreviations = Wolke.DB.einstellungen["Charsheet: Talent-Abkürzungen Wirkungsdauer"].wert
+        koAbbreviations = Wolke.DB.einstellungen["Charsheet: Talent-Abkürzungen Kosten"].wert
 
         for i in range(0, min(self.CharakterBogen.maxÜberTalente, len(überTalente))):
             base = 'Uebertal' + str(i+1)
-            fields[base + 'NA'] = überTalente[i].anzeigeName
-            fields[base + 'SE'] = überTalente[i].se
-            fields[base + 'PW'] = überTalente[i].pw
-            fields[base + 'VO'] = überTalente[i].vo
-            fields[base + 'WD'] = überTalente[i].wd
+            fields[base + 'NA'] = überTalente[i].anzeigenameExt
+            fields[base + 'SE'] = überTalente[i].referenz
+            pw = überTalente[i].probenwert
+            if pw != -1:
+                fields[base + 'PW'] = str(pw)
+            fields[base + 'VO'] = überTalente[i].vorbereitungszeit
+            fields[base + 'WD'] = überTalente[i].wirkungsdauer
             for a in wdAbbreviations:
                 fields[base + 'WD'] = fields[base + 'WD'].replace(a, wdAbbreviations[a])
-            fields[base + 'KO'] = überTalente[i].ko
+            fields[base + 'KO'] = überTalente[i].energieKosten
             for a in koAbbreviations:
                 fields[base + 'KO'] = fields[base + 'KO'].replace(a, koAbbreviations[a])
-            fields[base + 'RE'] = überTalente[i].re
+            fields[base + 'RE'] = überTalente[i].reichweite
 
         del überTalente[:min(self.CharakterBogen.maxÜberTalente, len(überTalente))]
 
@@ -536,12 +613,15 @@ class PdfExporter(object):
             return ([], [])
         self.printÜberFertigkeiten(fields, überFertigkeiten)
 
-        überTalenteTmp = CharakterPrintUtility.getÜberTalente(Wolke.Char)
+        talenteByTyp = CharakterPrintUtility.getÜberTalente(Wolke.Char)
+        überTalenteTmp = []
+        for arr in talenteByTyp:
+            überTalenteTmp.extend(arr)
         if not self.CharakterBogen.extraÜberSeiten:
             while len(überTalenteTmp) > self.CharakterBogen.maxÜberTalente:
                 niedrigste = None
                 for el in überTalenteTmp:
-                    if niedrigste == None or int(el.pw) < int(niedrigste.pw):
+                    if niedrigste == None or int(el.probenwert) < int(niedrigste.probenwert):
                         niedrigste = el
                 überTalenteTmp.remove(niedrigste)
                 logging.warning("Der Charakter hat zu viele übernatürliche Talente für den Charakterbogen. Ignoriere Talent mit niedrigstem PWT: " + niedrigste.na)
@@ -550,22 +630,25 @@ class PdfExporter(object):
 
         # Insert fertigkeit names into talente
         lastGroup = None
-        fertigkeitsTypen = Wolke.DB.einstellungen["Fertigkeiten: Typen übernatürlich"].toTextList()
+        fertigkeitsTypen = Wolke.DB.einstellungen["Fertigkeiten: Typen übernatürlich"].wert
         for talent in überTalenteTmp:
-            if lastGroup != talent.groupFert:
-                if lastGroup is None or lastGroup.typ != talent.groupFert.typ or talent.groupFert.talenteGruppieren:
+            hauptFert = talent.hauptfertigkeit
+            if lastGroup != hauptFert:
+                if lastGroup is None or lastGroup.typ != hauptFert.typ or hauptFert.talenteGruppieren:
                     if lastGroup is not None:
-                        tbEmpty = Talentbox.Talentbox()
-                        tbEmpty.pw = ''
-                        überTalente.append(tbEmpty)
+                        emptyDef = TalentDefinition()
+                        emptyDef.finalize(Wolke.DB)
+                        talEmpty = Talent(emptyDef, Wolke.Char)
+                        überTalente.append(talEmpty)
                     
-                    tb = Talentbox.Talentbox()
-                    tb.pw = ''
-                    tb.anzeigeName = talent.groupFert.name.upper()
-                    if not talent.groupFert.talenteGruppieren and talent.groupFert.typ < len(fertigkeitsTypen):
-                        tb.anzeigeName = fertigkeitsTypen[talent.groupFert.typ].upper()
-                    überTalente.append(tb)
-                lastGroup = talent.groupFert
+                    talHeaderDef = TalentDefinition()
+                    talHeaderDef.name = hauptFert.name.upper()
+                    if not hauptFert.talenteGruppieren:
+                        talHeaderDef.name = hauptFert.typname(Wolke.DB).upper()
+                    talHeaderDef.finalize(Wolke.DB)
+                    talHeader = Talent(talHeaderDef, Wolke.Char)
+                    überTalente.append(talHeader)
+                lastGroup = hauptFert
 
             überTalente.append(talent)
 
@@ -594,38 +677,19 @@ class PdfExporter(object):
         fields['Augenfarbe'] = Wolke.Char.augenfarbe
         fields['Titel'] = Wolke.Char.titel
 
-        fields['Aussehen1'] = Wolke.Char.aussehen1
-        fields['Aussehen2'] = Wolke.Char.aussehen2
-        fields['Aussehen3'] = Wolke.Char.aussehen3
-        fields['Aussehen4'] = Wolke.Char.aussehen4
-        fields['Aussehen5'] = Wolke.Char.aussehen5
-        fields['Aussehen6'] = Wolke.Char.aussehen6
-        fields['Aussehen'] = ((Wolke.Char.aussehen1 + "\n") if Wolke.Char.aussehen1 else "") + \
-            ((Wolke.Char.aussehen2 + "\n") if Wolke.Char.aussehen2 else "") + \
-            ((Wolke.Char.aussehen3 + "\n") if Wolke.Char.aussehen3 else "") + \
-            ((Wolke.Char.aussehen4 + "\n") if Wolke.Char.aussehen4 else "") + \
-            ((Wolke.Char.aussehen5 + "\n") if Wolke.Char.aussehen5 else "") + \
-            ((Wolke.Char.aussehen6 + "\n") if Wolke.Char.aussehen6 else "")
-        fields['Aussehen'] = fields['Aussehen'].rstrip()
-        fields['Hintergrund0'] = Wolke.Char.hintergrund0
-        fields['Hintergrund1'] = Wolke.Char.hintergrund1
-        fields['Hintergrund2'] = Wolke.Char.hintergrund2
-        fields['Hintergrund3'] = Wolke.Char.hintergrund3
-        fields['Hintergrund4'] = Wolke.Char.hintergrund4
-        fields['Hintergrund5'] = Wolke.Char.hintergrund5
-        fields['Hintergrund6'] = Wolke.Char.hintergrund6
-        fields['Hintergrund7'] = Wolke.Char.hintergrund7
-        fields['Hintergrund8'] = Wolke.Char.hintergrund8
-        fields['Hintergrund'] = ((Wolke.Char.hintergrund0 + "\n") if Wolke.Char.hintergrund0 else "") + \
-            ((Wolke.Char.hintergrund1 + "\n") if Wolke.Char.hintergrund1 else "") + \
-            ((Wolke.Char.hintergrund2 + "\n") if Wolke.Char.hintergrund2 else "") + \
-            ((Wolke.Char.hintergrund3 + "\n") if Wolke.Char.hintergrund3 else "") + \
-            ((Wolke.Char.hintergrund4 + "\n") if Wolke.Char.hintergrund4 else "") + \
-            ((Wolke.Char.hintergrund5 + "\n") if Wolke.Char.hintergrund5 else "") + \
-            ((Wolke.Char.hintergrund6 + "\n") if Wolke.Char.hintergrund6 else "") + \
-            ((Wolke.Char.hintergrund7 + "\n") if Wolke.Char.hintergrund7 else "") + \
-            ((Wolke.Char.hintergrund8 + "\n") if Wolke.Char.hintergrund8 else "")
-        fields['Hintergrund'] = fields['Hintergrund'].rstrip()
+        aussehenMerged = ""
+        for i in range(6):
+            fields['Aussehen' + str(i+1)] = Wolke.Char.aussehen[i]
+            if Wolke.Char.aussehen[i]:
+                aussehenMerged += Wolke.Char.aussehen[i] + "\n"
+        fields['Aussehen'] = aussehenMerged.rstrip()
+
+        hintergrundMerged = ""
+        for i in range(9):
+            fields['Hintergrund' + str(i)] = Wolke.Char.hintergrund[i]
+            if Wolke.Char.hintergrund[i]:
+                hintergrundMerged += Wolke.Char.hintergrund[i] + "\n"
+        fields['Hintergrund'] = hintergrundMerged.rstrip()
 
         fields['Notiz'] = Wolke.Char.notiz or ""
 
@@ -645,7 +709,7 @@ class PdfExporter(object):
             if not self.CharakterBogen.hasImage(i):
                 stampPages.append(empty)
                 continue
-            imagePdf = PdfSerializer.convertJpgToPdf(Wolke.Char.bild, self.CharakterBogen.getImageSize(i, [260, 340]), self.CharakterBogen.getImageOffset(i), self.CharakterBogen.getPageLayout())
+            imagePdf = PdfSerializer.convertJpgToPdf(Wolke.Char.bild, self.CharakterBogen.getImageSize(i, Wolke.CharImageSize), self.CharakterBogen.getImageOffset(i), self.CharakterBogen.getPageLayout())
             stampPages.append(imagePdf)
 
         # pdftk repeats the last page of the stamp pdf if its page count is lower - make sure its empty

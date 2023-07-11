@@ -66,9 +66,9 @@ Zweck: Aktionen durchführen, die nicht mit der Vorteil-Script-API möglich sind
 Zweck: Aktionen durchführen, die nicht mit der Vorteil-Script-API möglich sind. Der "name" Parameter enthält den Namen des Vorteils. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
 - "pdf_geschrieben" (Parameter: { "filepath" : string })<br />
 Zweck: Aktion durchführen, nachdem die Charakter-PDF geschrieben wurde, z.B. eine weitere PDF schreiben. Der Parameter enthält den Dateinamen der Charakter-PDF mit absolutem Pfad.
-- "basisdatenbank_geladen" (Parameter: { "datenbank" : Datenbank })<br />
+- "basisdatenbank_geladen" (Parameter: { "datenbank" : Datenbank, "isCharakterEditor" : bool })<br />
 Zweck: Elemente der Basisdatenbank anpassen/hinzufügen/löschen, bevor die Hausregel-Datenbank geladen wird. Ein übliches Beispiel ist das Hinzufügen von DatenbankEinstellung-Elementen, mit welchen das Plugin konfiguriert werden kann.
-- "datenbank_geladen" (Parameter: { "datenbank" : Datenbank })<br />
+- "datenbank_geladen" (Parameter: { "datenbank" : Datenbank, "isCharakterEditor" : bool })<br />
 Zweck: Aktion durchführen, nachdem die Datenbank inkl. Hausregeldatenbank komplett geladen wurde. Eine Referenz auf das Datenbank-Objekt erhalten.
 - "regelanhang_anfuegen" (Parameter: { "reihenfolge" : string, "appendCallback" : Python-Funktion })<br />
 Zweck: Dem Regelanhang weiteren Text hinzufügen. Dies geschieht über den Parameter "appendCallback", einer Pythonfunktion die den Kategorienamen und den Text als Funktionsparameter hat. Der Kategoriename kann auch auf einen leeren string gesetzt werden. Die Action wird mehrmals aufgerufen, der "reihenfolge" Parameter sollte genutzt werden, um den Text an der richtigen Stelle einzufügen. Er entspricht einem Eintrag in der Datenbank-Einstellung "Regelanhang: Reihenfolge".
@@ -91,23 +91,26 @@ Zweck: Daten aus der Charakterdatei auslesen oder modifizieren, bevor Sephrasto 
 - "charakter_xml_schreiben" (Filter: xmlRoot : etree.Element, Parameter: { "charakter" : Char, "filepath" : string })<br />
 Zweck: Der Charakterdatei Daten hinzufügen oder Daten modifizieren, bevor Sephrasto die Datei schreibt. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
 - "datenbank_xml_laden" (Filter: xmlRoot : etree.Element, Parameter: { "datenbank" : Datenbank, "basisdatenbank" : bool, "conflictCallback" : Python-Funktion })<br />
-Zweck: Daten aus der Datenbank-Datei auslesen oder modifizieren, bevor Sephrasto sie liest. Der "basisdatenbank"-Parameter enthält die Information, ob es sich um die Basisdatenbank- oder eine Hausregeldatenbank-Datei handelt. Der "conflictCallback"-Parameter ist nur gesetzt wenn basisdatenbank=false und kann ausgeführt werden, um beim Laden mehrerer Hausregeldatenbanken Konflikte eigener Datenbanktypen aufzulösen. Hierzu werden dem Callback der Name des Datenbanktyps, die alte sowie die neue Version des Elements als parameter übergeben, siehe Datenbank.py.
+Zweck: Datenbank-Datei auslesen, nachdem Sephrasto sie gelesen hat. Der "basisdatenbank"-Parameter enthält die Information, ob es sich um die Basisdatenbank- oder eine Hausregeldatenbank-Datei handelt. Der "conflictCallback"-Parameter ist nur gesetzt wenn basisdatenbank=false und kann ausgeführt werden, um beim Laden mehrerer Hausregeldatenbanken Konflikte eigener Datenbanktypen aufzulösen. Hierzu werden dem Callback der Name des Datenbanktyps, die alte sowie die neue Version des Elements als parameter übergeben, siehe Datenbank.py.
 - "datenbank_xml_schreiben" (Filter: xmlRoot : etree.Element, Parameter: { "datenbank" : Datenbank })<br />
 Zweck: Der Datenbankdatei Daten hinzufügen oder Daten modifizieren, bevor Sephrasto die Datei schreibt.
+- "datenbank_verify", (Filter: loadingErrors : array, Parameter: { "datenbank" : Datenbank, "isCharakterEditor" : bool }) <br />
+Zweck: Eigene Datentypen verifizieren und bei Fehlern dem loadingErrors array hinzufügen, damit diese in der Fehlerliste des Datenbankeditors erscheinen.
 - "datenbank_editor_typen" (Filter: databaseTypes : dict of DatenbankEdit.DatenbankTypWrapper)<br />
-Zweck: Dem Datenbankeditor weitere Datentypen hinzufügen. Zusätzlich muss via datenbank_geladen in datenbank.tablesByName die Datenbankelement-Tabelle eingetragenwerden.
+Zweck: Dem Datenbankeditor weitere Datentypen hinzufügen. Zusätzlich muss via datenbank_geladen in datenbank.tablesByType die Datenbankelement-Tabelle eingetragenwerden.
 - "set_charakterbogen" (Filter: filePath : string)<br />
 Zweck: Den vom Nutzer gewählten Charakterbogen modifizieren, z.B. den Pfad der Datei anpassen um einen Charakterbogen aus dem Plugin zu verwenden. Achtung: Im Ordner des Charakterbogens muss sich eine gleichnamige Datei mit der Endung ".ini" befinden. Siehe Sephrasto/Data/Charakterbögen/Standard Charakterbogen.ini als Beispiel für deren Inhalt.
-- "asp_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "wert" : int })<br />
+- "energie_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "wertVon" : int, "wertAuf" : int })<br />
 Zweck: Die Kosten für AsP-Steigerungen anpassen. Der "wert" Parameter enthält die Anzahl zugekaufter AsP. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "kap_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "wert" : int })<br />
-Zweck: Die Kosten für KaP-Steigerungen anpassen. Der "wert" Parameter enthält die Anzahl zugekaufter KaP. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "attribut_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "attribut" : string, "wert" : int })<br />
+- "attribut_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "attribut" : string, "wertVon" : int, "wertAuf" : int })<br />
 Zweck: Die Kosten für Attributs-Steigerungen anpassen. Die Parameter enthalten den Namen des Attributs und dessen Wert. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "freiefertigkeit_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "name" : string, "wert" : int })<br />
+- "fertigkeit_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "name" : string, "wertVon" : int, "wertAuf" : int })<br />
+- "freiefertigkeit_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "name" : string, "wertVon" : int, "wertAuf" : int })<br />
 Zweck: Die Kosten für freie Fertigkeiten anpassen. Die Parameter enthalten den Namen der freien Fertigkeit und die Stufe. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
 - "talent_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "talent" : string })<br />
 Zweck: Die Kosten für Talente anpassen. Der "talent" Parameter enthält den Namen des Talents. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
+- "vorteil_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "vorteil" : string })<br />
+Zweck: Die Kosten für Vorteile anpassen. Der "vorteil" Parameter enthält den Namen des Vorteils. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
 - "ruestung_be" (Filter: be: int, Parameter: { "name" : string })<br />
 Zweck: Die BE einer Rüstung des Rüstungauswahlfensters anpassen. Achtung: Da Rüstungen ergänzt werden können und die Namen dann konkateniert werden, sollte der name via "in" abgefragt werden (bspw. if "Leichte Platte" in name).
 - "regelanhang_reihenfolge_name" (Filter: name : string)<br />
@@ -129,6 +132,20 @@ Zweck: Wenn der Datenbank-Einstellung "Regelanhang: Reihenfolge" neue Kürzel hi
 	* "class_ruestungspicker_wrapper" (Filter: RuestungPicker : class)
 	* "class_freiefertigkeitenpicker_wrapper" (Filter: CharakterFreieFertigkeitenPickerWrapper : class)
 	* "class_talentpicker_wrapper" (Filter: TalentPicker : class)
+- Das gleiche gilt für die Hausregeleditor-Fenster:
+    * "dbe_class_abgeleiteterwertdefinition_wrapper" (Filter: DatenbankEditAbgeleiteterWertWrapper : class)
+    * "dbe_class_attributdefinition_wrapper" (Filter: DatenbankEditAttributWrapper : class)
+    * "dbe_class_datenbankeinstellung_wrapper" (Filter: DatenbankEditEinstellungWrapper : class)
+    * "dbe_class_energiedefinition_wrapper" (Filter: DatenbankEditEnergieWrapper : class)
+    * "dbe_class_profanefertigkeitdefinition_wrapper" (Filter: DatenbankEditProfaneFertigkeitWrapper : class)
+    * "dbe_class_uebernatuelichefertigkeitdefinition_wrapper" (Filter: DatenbankEditUebernatürlicheFertigkeitWrapper : class)
+    * "dbe_class_freiefertigkeitdefinition_wrapper" (Filter: DatenbankEditFreieFertigkeitWrapper : class)
+    * "dbe_class_regel_wrapper" (Filter: DatenbankEditRegelWrapper : class)
+    * "dbe_class_ruestungdefinition_wrapper" (Filter: DatenbankEditRuestungWrapper : class)
+    * "dbe_class_talentdefinition_wrapper" (Filter: DatenbankEditTalentWrapper : class)
+    * "dbe_class_vorteildefinition_wrapper" (Filter: DatenbankEditVorteilWrapper : class)
+    * "dbe_class_waffedefinition_wrapper" (Filter: DatenbankEditWaffeWrapper : class)
+    * "dbe_class_waffeneigenschaftdefinition_wrapper" (Filter: DatenbankEditWaffeneigenschaftWrapper : class)
 
 ## Neues Plugin erstellen
 - Gehe in deinen `Dokumente/Sephrasto/Plugins` Ordner

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="de-DE">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="hyphen/hyphen.js"></script>
@@ -41,13 +41,20 @@
             
             @font-face {
                 font-family: 'FontAwesome';
+                src: url('{sephrasto_dir}/Data/Fonts/Fontawesome/fa-regular-400.ttf') format('truetype');
+                font-weight: 400;
+            }
+            
+            @font-face {
+                font-family: 'FontAwesome';
                 src: url('{sephrasto_dir}/Data/Fonts/Fontawesome/fa-solid-900.ttf') format('truetype');
+                font-weight: 900;
             }
             
             #layout {
                 column-count: 2;
                 column-gap: 30px;
-                column-fill: auto;  /* not working... */
+                column-fill: auto;
             }
             
             html, body {
@@ -55,59 +62,93 @@
                 font-size: {rules_font_size}pt;
             }
 
-            .title {
+            h1 {
                 font-family: 'Aniron';
                 font-size: calc({rules_font_size}pt + 4pt);
                 margin: 0;
+                margin-top: 8px;
                 color: #4A000B;
+                break-after: avoid-column;
             }
 
-            .ruleCategoryHeading {
+            h2 {
                 font-variant: small-caps;
                 font-weight: bold;
                 font-size: calc({rules_font_size}pt + 5pt);
+                margin: 0;
+                margin-top: 8px;
                 color: #4A000B;
+                break-after: avoid-column;
             }
             
-            .ruleHeading {
+            h3 {
                 font-weight: bold;
+                font-size: {rules_font_size}pt;
+                margin: 0;
             }
             
             article {
+                page-break-inside: avoid;
                 margin-top: 8px;
-                page-break-inside: avoid; /* qt web engine doesnt handle print layout very well without this */
             }
             
-            article:first-of-type {
-                margin-top: -4px;
-            }
-            
-            .title + .ruleCategoryHeading {
+            h1:first-of-type {
                 margin-top: 0px;
             }
             
+            h1 + h2 {
+                margin-top: 0px;
+            }
+            
+            h1 + article {
+                margin-top: 0px;
+            }
+            
+            h2 + article {
+                margin-top: 0px;
+            }
+            
+            ol {
+                padding: 0;
+                padding-left: 1em;
+                margin: 0;
+                margin-bottom: calc({rules_font_size}pt/2);
+            }
+            
+            ol li {
+                padding-left: 0.5em;
+            }
+            
             ul {
-              --icon-size: .8em;
-              --gutter: .5em;
-              padding: 0 0 0 var(--icon-size);
-              margin: 0;
-              margin-bottom: calc({rules_font_size}pt/2);
+                padding: 0;
+                padding-left: 0.5em;
+                margin: 0;
+                margin-bottom: calc({rules_font_size}pt/2);
             }
-
+            
             ul li {
-              padding-left: var(--gutter);
+                list-style-type: none;
+                position: relative;  /* needed for setting position to absolute in li::before */
+                padding-left: 1em;
             }
 
-            ul li::marker {
-              content: "\f054";
-              font-family: 'FontAwesome';
-              font-size: var(--icon-size);
+            ul li::before {
+                content: "\2022";
+                font-family: 'FontAwesome';
+                position: absolute;
+                left: -0.4em;
+                font-size: 1em;
+                font-weight: 400;
             }
-
-            ul li.checkbox::marker {
-              content: "\f14a";
-              font-family: 'FontAwesome';
-              font-size: var(--icon-size);
+            
+            ul li.checkbox::before {
+                content: "\f14a";
+                font-family: 'FontAwesome';
+                position: absolute;
+                left: -0.5em;
+                top: 0.1em;
+                font-size: 0.8em;
+                font-weight: 400;
             }
             
             table {
@@ -116,15 +157,17 @@
                 margin-left: auto;
                 margin-right: auto;
                 border-collapse: collapse;
+                width: min(100%, calc({rules_font_size}*13%)); /* reduce table-width for size smaller than 8 */
+                hyphens: none;
             }
             
             th {
                 font-variant: small-caps;
                 color: #4A000B;
-                font-size: calc({rules_font_size}pt + 1pt);
                 border-bottom: 1px solid #4A000B;
                 line-height: 70%; /* offsetting a bit for minion pro large descender */
                 padding-top: 0.4em;;  /* offsetting a bit for minion pro large descender */
+                white-space: nowrap;
             }
             
             tr:nth-of-type(even) {
@@ -134,6 +177,7 @@
             td {
                 line-height: 90%; /* offsetting a bit for minion pro's large descender */
                 padding-top: 0.4em; /* offsetting a bit for minion pro large descender */
+                vertical-align: middle;
             }
             
             img {

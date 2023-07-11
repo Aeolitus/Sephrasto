@@ -13,7 +13,7 @@ Fehlermeldungen und Verbesserungsvorschläge können gerne unter [Issues auf Git
 
 1. [Charaktereditor](CharakterEditor.md)<br />
 2. [Datenbankeditor](DatenbankEditor.md)<br />
-3. [Skripte für Vorteile und Waffeneigenschaften](ScriptAPI.md)<br />
+3. [Skripte für Abgeleitete Werte, Vorteile und Waffeneigenschaften](ScriptAPI.md)<br />
 4. [Eigene Plugins schreiben](PluginAPI.md)<br />
 5. [Charakter Assistent](CharakterAssistent.md)<br /><br />
     5.1 [Varianten und Auswahlmöglichkeiten](Varianten_Auswahlmöglichkeiten.md)<br />

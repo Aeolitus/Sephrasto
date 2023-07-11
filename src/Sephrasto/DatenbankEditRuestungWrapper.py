@@ -4,109 +4,54 @@ Created on Sat Mar 18 10:52:34 2017
 
 @author: Aeolitus
 """
-import Objekte
+from DatenbankElementEditorBase import DatenbankElementEditorBase, BeschreibungEditor
+from Core.Ruestung import RuestungDefinition
 import UI.DatenbankEditRuestung
 from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
 from PySide6 import QtWidgets, QtCore
-import Definitionen
 from Wolke import Wolke
+from Datenbank import Datenbank
+from QtUtils.HtmlToolbar import HtmlToolbar
 
-class DatenbankEditRuestungWrapper(object):
-    def __init__(self, datenbank, ruestung=None, readonly=False):
+class DatenbankEditRuestungWrapper(DatenbankElementEditorBase):
+    def __init__(self, datenbank, rüstung=None, readonly=False):
         super().__init__()
-        self.db = datenbank
-        if ruestung is None:
-            ruestung = Objekte.Ruestung()
-        self.ruestungPicked = ruestung
-        self.readonly = readonly
-        self.ruestungDialog = QtWidgets.QDialog()
-        self.ui = UI.DatenbankEditRuestung.Ui_talentDialog()
-        self.ui.setupUi(self.ruestungDialog)
-        
-        if not ruestung.isUserAdded:
-            if readonly:
-                self.ui.warning.setText("Gelöschte Elemente können nicht verändert werden.")
-            self.ui.warning.setVisible(True)
+        self.beschreibungEditor = BeschreibungEditor(self)
+        self.setupAndShow(datenbank, UI.DatenbankEditRuestung.Ui_dialog(), RuestungDefinition, rüstung, readonly)
 
-        self.ruestungDialog.setWindowFlags(
-                QtCore.Qt.Window |
-                QtCore.Qt.CustomizeWindowHint |
-                QtCore.Qt.WindowTitleHint |
-                QtCore.Qt.WindowCloseButtonHint |
-                QtCore.Qt.WindowMaximizeButtonHint |
-                QtCore.Qt.WindowMinimizeButtonHint)
+    def load(self, rüstung):
+        super().load(rüstung)
+        self.htmlToolbar = HtmlToolbar(self.ui.teBeschreibung)
+        self.ui.tab.layout().insertWidget(0, self.htmlToolbar)
+        self.beschreibungEditor.load(rüstung)
+        self.ui.spinBeine.valueChanged.connect(self.rsChanged)
+        self.ui.spinSchwert.valueChanged.connect(self.rsChanged)
+        self.ui.spinSchild.valueChanged.connect(self.rsChanged)
+        self.ui.spinBauch.valueChanged.connect(self.rsChanged)
+        self.ui.spinBrust.valueChanged.connect(self.rsChanged)
+        self.ui.spinKopf.valueChanged.connect(self.rsChanged)
 
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setText("Speichern")
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).setText("Abbrechen")
-        
-        windowSize = Wolke.Settings["WindowSize-DBRuestung"]
-        self.ruestungDialog.resize(windowSize[0], windowSize[1])
+        self.ui.comboTyp.addItems(self.datenbank.einstellungen["Rüstungen: Typen"].wert)
+        self.ui.comboTyp.setCurrentIndex(rüstung.typ)
+        self.ui.comboSystem.setCurrentIndex(rüstung.system)
+        self.ui.spinBeine.setValue(rüstung.rs[0])
+        self.ui.spinSchwert.setValue(rüstung.rs[1])
+        self.ui.spinSchild.setValue(rüstung.rs[2])
+        self.ui.spinBauch.setValue(rüstung.rs[3])
+        self.ui.spinBrust.setValue(rüstung.rs[4])
+        self.ui.spinKopf.setValue(rüstung.rs[5])
 
-        self.nameValid = True
-        self.ui.leName.setText(ruestung.name)
-        self.ui.leName.textChanged.connect(self.nameChanged)
-        self.nameChanged()
-
-        self.ui.sbBeine.valueChanged.connect(self.rsChanged)
-        self.ui.sbSchwert.valueChanged.connect(self.rsChanged)
-        self.ui.sbSchild.valueChanged.connect(self.rsChanged)
-        self.ui.sbBauch.valueChanged.connect(self.rsChanged)
-        self.ui.sbBrust.valueChanged.connect(self.rsChanged)
-        self.ui.sbKopf.valueChanged.connect(self.rsChanged)
-
-        self.ui.cbTyp.addItems(datenbank.einstellungen["Rüstungen: Typen"].toTextList())
-        self.ui.cbTyp.setCurrentIndex(ruestung.typ)
-        self.ui.cbSystem.setCurrentIndex(ruestung.system)
-        self.ui.sbBeine.setValue(ruestung.rs[0])
-        self.ui.sbSchwert.setValue(ruestung.rs[1])
-        self.ui.sbSchild.setValue(ruestung.rs[2])
-        self.ui.sbBauch.setValue(ruestung.rs[3])
-        self.ui.sbBrust.setValue(ruestung.rs[4])
-        self.ui.sbKopf.setValue(ruestung.rs[5])
-        self.ui.teBeschreibung.setPlainText(ruestung.text)
-        
-        self.ruestungDialog.show()
-        ret = self.ruestungDialog.exec()
-
-        Wolke.Settings["WindowSize-DBRuestung"] = [self.ruestungDialog.size().width(), self.ruestungDialog.size().height()]
-
-        if ret == QtWidgets.QDialog.Accepted:
-            self.ruestung = Objekte.Ruestung()
-            self.ruestung.name = self.ui.leName.text()
-            self.ruestung.typ = self.ui.cbTyp.currentIndex()
-            self.ruestung.system = self.ui.cbSystem.currentIndex()
-            self.ruestung.rs[0] = int(self.ui.sbBeine.value())
-            self.ruestung.rs[1] = int(self.ui.sbSchwert.value())
-            self.ruestung.rs[2] = int(self.ui.sbSchild.value())
-            self.ruestung.rs[3] = int(self.ui.sbBauch.value())
-            self.ruestung.rs[4] = int(self.ui.sbBrust.value())
-            self.ruestung.rs[5] = int(self.ui.sbKopf.value())
-            self.ruestung.text = self.ui.teBeschreibung.toPlainText()
-            self.ruestung.isUserAdded = False
-            if self.ruestung == self.ruestungPicked:
-                self.ruestung = None
-            else:
-                self.ruestung.isUserAdded = True
-        else:
-            self.ruestung = None
+    def update(self, rüstung):
+        super().update(rüstung)
+        self.beschreibungEditor.update(rüstung)   
+        rüstung.typ = self.ui.comboTyp.currentIndex()
+        rüstung.system = self.ui.comboSystem.currentIndex()
+        rüstung.rs[0] = int(self.ui.spinBeine.value())
+        rüstung.rs[1] = int(self.ui.spinSchwert.value())
+        rüstung.rs[2] = int(self.ui.spinSchild.value())
+        rüstung.rs[3] = int(self.ui.spinBauch.value())
+        rüstung.rs[4] = int(self.ui.spinBrust.value())
+        rüstung.rs[5] = int(self.ui.spinKopf.value())
 
     def rsChanged(self):
-        self.ui.lblRS.setText(str(round((self.ui.sbBeine.value() + self.ui.sbSchwert.value() + self.ui.sbSchild.value() + self.ui.sbBauch.value() + self.ui.sbBrust.value() + self.ui.sbKopf.value()) / 6, 2)))
-
-    def nameChanged(self):
-        name = self.ui.leName.text()
-        self.nameValid = False
-        if name == "":
-            self.ui.leName.setToolTip("Name darf nicht leer sein.")
-            self.ui.leName.setStyleSheet("border: 1px solid red;")
-        elif name != self.ruestungPicked.name and name in self.db.rüstungen:
-            self.ui.leName.setToolTip("Name existiert bereits.")
-            self.ui.leName.setStyleSheet("border: 1px solid red;")
-        else:
-            self.ui.leName.setToolTip("")
-            self.ui.leName.setStyleSheet("")
-            self.nameValid = True
-        self.updateSaveButtonState()
-
-    def updateSaveButtonState(self):
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(not self.readonly and self.nameValid)
+        self.ui.labelRS.setText(str(round((self.ui.spinBeine.value() + self.ui.spinSchwert.value() + self.ui.spinSchild.value() + self.ui.spinBauch.value() + self.ui.spinBrust.value() + self.ui.spinKopf.value()) / 6, 2)))

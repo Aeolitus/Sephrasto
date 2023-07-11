@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>talentDialog</class>
- <widget class="QDialog" name="talentDialog">
+ <class>dialog</class>
+ <widget class="QDialog" name="dialog">
   <property name="windowModality">
    <enum>Qt::ApplicationModal</enum>
   </property>
@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>441</width>
-    <height>434</height>
+    <height>465</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,60 +19,6 @@
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
     <layout class="QGridLayout" name="gridLayout">
-     <item row="11" column="2">
-      <widget class="QSpinBox" name="sbKopf">
-       <property name="minimumSize">
-        <size>
-         <width>50</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="maximum">
-        <number>8</number>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="2">
-      <widget class="QSpinBox" name="sbBeine">
-       <property name="minimumSize">
-        <size>
-         <width>50</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="maximum">
-        <number>8</number>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0" colspan="3">
-      <widget class="QLabel" name="warning">
-       <property name="visible">
-        <bool>false</bool>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 0); color: black;</string>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dies ist eine Ilaris-Standardrüstung. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in den Hausregeln gelöscht. Damit erhältst du für diese Rüstung keine automatischen Updates mehr mit neuen Sephrasto-Versionen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-       <property name="wordWrap">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
      <item row="11" column="1">
       <widget class="QLabel" name="label_7">
        <property name="text">
@@ -80,8 +26,8 @@
        </property>
       </widget>
      </item>
-     <item row="9" column="2">
-      <widget class="QSpinBox" name="sbBauch">
+     <item row="10" column="2">
+      <widget class="QSpinBox" name="spinBrust">
        <property name="minimumSize">
         <size>
          <width>50</width>
@@ -94,31 +40,8 @@
          <height>16777215</height>
         </size>
        </property>
-       <property name="maximum">
-        <number>8</number>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="1">
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string>Schildarm</string>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="2">
-      <widget class="QSpinBox" name="sbSchild">
-       <property name="minimumSize">
-        <size>
-         <width>50</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>16777215</height>
-        </size>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
        </property>
        <property name="maximum">
         <number>8</number>
@@ -138,6 +61,35 @@
        </property>
       </widget>
      </item>
+     <item row="7" column="2">
+      <widget class="QSpinBox" name="spinSchild">
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="maximum">
+        <number>8</number>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="0">
+      <widget class="QLabel" name="label_10">
+       <property name="text">
+        <string>Beschreibung</string>
+       </property>
+      </widget>
+     </item>
      <item row="2" column="1" colspan="2">
       <widget class="QLineEdit" name="leName">
        <property name="minimumSize">
@@ -145,86 +97,6 @@
          <width>300</width>
          <height>0</height>
         </size>
-       </property>
-      </widget>
-     </item>
-     <item row="9" column="1">
-      <widget class="QLabel" name="label_5">
-       <property name="text">
-        <string>Bauch</string>
-       </property>
-      </widget>
-     </item>
-     <item row="8" column="2">
-      <widget class="QSpinBox" name="sbSchwert">
-       <property name="minimumSize">
-        <size>
-         <width>50</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="maximum">
-        <number>8</number>
-       </property>
-      </widget>
-     </item>
-     <item row="10" column="2">
-      <widget class="QSpinBox" name="sbBrust">
-       <property name="minimumSize">
-        <size>
-         <width>50</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="maximum">
-        <number>8</number>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="0">
-      <widget class="QLabel" name="label_8">
-       <property name="text">
-        <string>RS</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="1">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>Beine</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_9">
-       <property name="text">
-        <string>Typ</string>
-       </property>
-      </widget>
-     </item>
-     <item row="8" column="1">
-      <widget class="QLabel" name="label_4">
-       <property name="text">
-        <string>Schwertarm</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="2">
-      <widget class="QLabel" name="lblRS">
-       <property name="text">
-        <string>0</string>
        </property>
       </widget>
      </item>
@@ -236,27 +108,90 @@
       </widget>
      </item>
      <item row="3" column="1" colspan="2">
-      <widget class="QComboBox" name="cbTyp"/>
+      <widget class="QComboBox" name="comboTyp"/>
      </item>
-     <item row="12" column="0">
-      <widget class="QLabel" name="label_10">
-       <property name="text">
-        <string>Beschreibung</string>
+     <item row="6" column="2">
+      <widget class="QSpinBox" name="spinBeine">
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="maximum">
+        <number>8</number>
        </property>
       </widget>
      </item>
-     <item row="12" column="1" colspan="2">
-      <widget class="QTextEdit" name="teBeschreibung"/>
-     </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="label_11">
+     <item row="8" column="1">
+      <widget class="QLabel" name="label_4">
        <property name="text">
-        <string>Verfügbarkeit</string>
+        <string>Schwertarm</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="2">
+      <widget class="QSpinBox" name="spinKopf">
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="maximum">
+        <number>8</number>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="1">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Bauch</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="2">
+      <widget class="QSpinBox" name="spinBauch">
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="maximum">
+        <number>8</number>
        </property>
       </widget>
      </item>
      <item row="4" column="1" colspan="2">
-      <widget class="QComboBox" name="cbSystem">
+      <widget class="QComboBox" name="comboSystem">
        <item>
         <property name="text">
          <string>Beide Rüstungssysteme</string>
@@ -274,6 +209,86 @@
        </item>
       </widget>
      </item>
+     <item row="6" column="1">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Beine</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_9">
+       <property name="text">
+        <string>Typ</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="2">
+      <widget class="QSpinBox" name="spinSchwert">
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="maximum">
+        <number>8</number>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="2">
+      <widget class="QLabel" name="labelRS">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_11">
+       <property name="text">
+        <string>Verfügbarkeit</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="3">
+      <widget class="QLabel" name="warning">
+       <property name="visible">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 0); color: black;</string>
+       </property>
+       <property name="text">
+        <string></string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_8">
+       <property name="text">
+        <string>RS</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Schildarm</string>
+       </property>
+      </widget>
+     </item>
      <item row="5" column="1">
       <spacer name="horizontalSpacer">
        <property name="orientation">
@@ -286,6 +301,60 @@
         </size>
        </property>
       </spacer>
+     </item>
+     <item row="12" column="1" colspan="2">
+      <widget class="QTabWidget" name="tabWidget">
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="tab">
+        <attribute name="title">
+         <string>HTML</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QTextEdit" name="teBeschreibung"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tab_2">
+        <attribute name="title">
+         <string>Vorschau</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QTextBrowser" name="tbBeschreibung"/>
+         </item>
+        </layout>
+       </widget>
+      </widget>
      </item>
     </layout>
    </item>
@@ -306,22 +375,21 @@
  </widget>
  <tabstops>
   <tabstop>leName</tabstop>
-  <tabstop>cbTyp</tabstop>
-  <tabstop>cbSystem</tabstop>
-  <tabstop>sbBeine</tabstop>
-  <tabstop>sbSchild</tabstop>
-  <tabstop>sbSchwert</tabstop>
-  <tabstop>sbBauch</tabstop>
-  <tabstop>sbBrust</tabstop>
-  <tabstop>sbKopf</tabstop>
-  <tabstop>teBeschreibung</tabstop>
+  <tabstop>comboTyp</tabstop>
+  <tabstop>comboSystem</tabstop>
+  <tabstop>spinBeine</tabstop>
+  <tabstop>spinSchild</tabstop>
+  <tabstop>spinSchwert</tabstop>
+  <tabstop>spinBauch</tabstop>
+  <tabstop>spinBrust</tabstop>
+  <tabstop>spinKopf</tabstop>
  </tabstops>
  <resources/>
  <connections>
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>talentDialog</receiver>
+   <receiver>dialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -337,7 +405,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>talentDialog</receiver>
+   <receiver>dialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

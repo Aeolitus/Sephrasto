@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>872</width>
-    <height>460</height>
+    <height>571</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -139,95 +139,14 @@
          <x>0</x>
          <y>0</y>
          <width>429</width>
-         <height>418</height>
+         <height>529</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_3">
-        <item row="8" column="0" colspan="5">
-         <widget class="QPlainTextEdit" name="plainText">
-          <property name="focusPolicy">
-           <enum>Qt::NoFocus</enum>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Sunken</enum>
-          </property>
-          <property name="lineWidth">
-           <number>1</number>
-          </property>
-          <property name="readOnly">
-           <bool>true</bool>
-          </property>
-          <property name="backgroundVisible">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="1">
-         <widget class="QSpinBox" name="spinSF">
-          <property name="minimumSize">
-           <size>
-            <width>60</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>60</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="focusPolicy">
-           <enum>Qt::NoFocus</enum>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-          <property name="readOnly">
-           <bool>true</bool>
-          </property>
-          <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::NoButtons</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="0">
-         <widget class="QLabel" name="label_5">
-          <property name="toolTip">
-           <string>Steigerungsfaktor</string>
-          </property>
+        <item row="6" column="0" colspan="2">
+         <widget class="QLabel" name="label_9">
           <property name="text">
-           <string>SF:</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="4">
-         <widget class="QSpinBox" name="spinFW">
-          <property name="minimumSize">
-           <size>
-            <width>60</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>60</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-          <property name="readOnly">
-           <bool>false</bool>
-          </property>
-          <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::PlusMinus</enum>
+           <string>Erworbene Talente:</string>
           </property>
          </widget>
         </item>
@@ -238,68 +157,6 @@
           </property>
           <property name="text">
            <string>PW:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="0" colspan="2">
-         <layout class="QHBoxLayout" name="horizontalLayout_4">
-          <property name="spacing">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QLabel" name="label_3">
-            <property name="text">
-             <string>Attribute:</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="labelAttribute">
-            <property name="text">
-             <string>MU/CH/IN</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item row="5" column="3">
-         <widget class="QLabel" name="label">
-          <property name="toolTip">
-           <string>Probenwert mit Talent</string>
-          </property>
-          <property name="text">
-           <string>PW(T):</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="4">
-         <widget class="QSpinBox" name="spinPW">
-          <property name="minimumSize">
-           <size>
-            <width>60</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>60</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="focusPolicy">
-           <enum>Qt::NoFocus</enum>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-          <property name="readOnly">
-           <bool>true</bool>
-          </property>
-          <property name="buttonSymbols">
-           <enum>QAbstractSpinBox::NoButtons</enum>
           </property>
          </widget>
         </item>
@@ -331,47 +188,13 @@
           </property>
          </widget>
         </item>
-        <item row="0" column="0" colspan="5">
-         <widget class="QLabel" name="labelFertigkeit">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>20</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
+        <item row="5" column="3">
+         <widget class="QLabel" name="label">
+          <property name="toolTip">
+           <string>Probenwert mit Talent</string>
           </property>
           <property name="text">
-           <string>Fertigkeit</string>
-          </property>
-          <property name="class" stdset="0">
-           <string>h4</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="0">
-         <widget class="QLabel" name="label_6">
-          <property name="text">
-           <string>Basis:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0" colspan="5">
-         <widget class="QLabel" name="labelKategorie">
-          <property name="font">
-           <font>
-            <italic>true</italic>
-           </font>
-          </property>
-          <property name="text">
-           <string>Körperliche Fertigkeiten</string>
-          </property>
-          <property name="class" stdset="0">
-           <string>italic</string>
+           <string>PW(T):</string>
           </property>
          </widget>
         </item>
@@ -379,6 +202,19 @@
          <widget class="Line" name="line">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_5">
+          <property name="toolTip">
+           <string>Steigerungsfaktor</string>
+          </property>
+          <property name="text">
+           <string>SF:</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
           </property>
          </widget>
         </item>
@@ -411,10 +247,136 @@
           </property>
          </widget>
         </item>
-        <item row="6" column="0" colspan="2">
-         <widget class="QLabel" name="label_9">
+        <item row="3" column="0" colspan="2">
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>Attribute:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelAttribute">
+            <property name="text">
+             <string>MU/CH/IN</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="0" colspan="5">
+         <widget class="QLabel" name="labelKategorie">
+          <property name="font">
+           <font>
+            <italic>true</italic>
+           </font>
+          </property>
           <property name="text">
-           <string>Erworbene Talente:</string>
+           <string>Körperliche Fertigkeiten</string>
+          </property>
+          <property name="class" stdset="0">
+           <string>italic</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0" colspan="5">
+         <widget class="QTextBrowser" name="plainText">
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Sunken</enum>
+          </property>
+          <property name="lineWidth">
+           <number>1</number>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" colspan="5">
+         <widget class="QLabel" name="labelFertigkeit">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Fertigkeit</string>
+          </property>
+          <property name="class" stdset="0">
+           <string>h4</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="4">
+         <widget class="QSpinBox" name="spinFW">
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>60</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="readOnly">
+           <bool>false</bool>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::PlusMinus</enum>
+          </property>
+          <property name="prefix">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QSpinBox" name="spinSF">
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>60</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
           </property>
          </widget>
         </item>
@@ -446,19 +408,64 @@
           </property>
          </widget>
         </item>
-        <item row="6" column="4">
-         <widget class="QPushButton" name="buttonAdd">
+        <item row="5" column="0">
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>Basis:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="4">
+         <widget class="QSpinBox" name="spinPW">
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="maximumSize">
            <size>
-            <width>25</width>
-            <height>20</height>
+            <width>60</width>
+            <height>16777215</height>
            </size>
+          </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::NoButtons</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="0">
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="6" column="4">
+         <widget class="QPushButton" name="buttonAdd">
+          <property name="layoutDirection">
+           <enum>Qt::RightToLeft</enum>
           </property>
           <property name="text">
            <string>+</string>
           </property>
           <property name="class" stdset="0">
-           <string>icon</string>
+           <string>iconSmall</string>
           </property>
          </widget>
         </item>
@@ -473,7 +480,6 @@
   <tabstop>tableWidget</tabstop>
   <tabstop>scrollArea</tabstop>
   <tabstop>spinFW</tabstop>
-  <tabstop>buttonAdd</tabstop>
   <tabstop>plainText</tabstop>
  </tabstops>
  <resources/>

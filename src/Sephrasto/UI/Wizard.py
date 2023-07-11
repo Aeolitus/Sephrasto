@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'Wizard.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.2
+## Created by: Qt User Interface Compiler version 6.5.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -16,8 +16,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
-    QHBoxLayout, QLabel, QPushButton, QRadioButton,
-    QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
+    QHBoxLayout, QLabel, QLineEdit, QPushButton,
+    QRadioButton, QSizePolicy, QSpacerItem, QVBoxLayout,
+    QWidget)
 
 class Ui_formMain(object):
     def setupUi(self, formMain):
@@ -57,11 +58,11 @@ class Ui_formMain(object):
 
         self.gridLayout.addLayout(self.horizontalLayout_3, 15, 0, 1, 2)
 
-        self.cbRegeln = QComboBox(formMain)
-        self.cbRegeln.setObjectName(u"cbRegeln")
-        self.cbRegeln.setMinimumSize(QSize(300, 0))
+        self.cbBaukasten = QComboBox(formMain)
+        self.cbBaukasten.setObjectName(u"cbBaukasten")
+        self.cbBaukasten.setMinimumSize(QSize(300, 0))
 
-        self.gridLayout.addWidget(self.cbRegeln, 3, 1, 1, 1)
+        self.gridLayout.addWidget(self.cbBaukasten, 3, 1, 1, 1)
 
         self.label = QLabel(formMain)
         self.label.setObjectName(u"label")
@@ -122,6 +123,7 @@ class Ui_formMain(object):
         self.gridLayout.addWidget(self.lblProfessionKategorie, 7, 0, 1, 1)
 
         self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setSpacing(10)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -137,6 +139,16 @@ class Ui_formMain(object):
         self.btnMaennlich.setObjectName(u"btnMaennlich")
 
         self.horizontalLayout.addWidget(self.btnMaennlich)
+
+        self.btnDivers = QRadioButton(formMain)
+        self.btnDivers.setObjectName(u"btnDivers")
+
+        self.horizontalLayout.addWidget(self.btnDivers)
+
+        self.leDivers = QLineEdit(formMain)
+        self.leDivers.setObjectName(u"leDivers")
+
+        self.horizontalLayout.addWidget(self.leDivers)
 
 
         self.gridLayout.addLayout(self.horizontalLayout, 4, 1, 1, 1)
@@ -184,7 +196,18 @@ class Ui_formMain(object):
 
         self.gridLayout.addWidget(self.cbProfession, 8, 1, 1, 1)
 
-        QWidget.setTabOrder(self.cbRegeln, self.btnWeiblich)
+        self.label_3 = QLabel(formMain)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setFont(font1)
+
+        self.gridLayout.addWidget(self.label_3, 2, 0, 1, 1)
+
+        self.cbRegeln = QComboBox(formMain)
+        self.cbRegeln.setObjectName(u"cbRegeln")
+
+        self.gridLayout.addWidget(self.cbRegeln, 2, 1, 1, 1)
+
+        QWidget.setTabOrder(self.cbBaukasten, self.btnWeiblich)
         QWidget.setTabOrder(self.btnWeiblich, self.btnMaennlich)
         QWidget.setTabOrder(self.btnMaennlich, self.cbSpezies)
         QWidget.setTabOrder(self.cbSpezies, self.cbKultur)
@@ -194,6 +217,9 @@ class Ui_formMain(object):
         QWidget.setTabOrder(self.btnCancel, self.btnAccept)
 
         self.retranslateUi(formMain)
+
+        self.btnAccept.setDefault(True)
+
 
         QMetaObject.connectSlotsByName(formMain)
     # setupUi
@@ -216,9 +242,12 @@ class Ui_formMain(object):
         self.lblProfessionKategorie.setProperty("class", QCoreApplication.translate("formMain", u"h4", None))
         self.btnWeiblich.setText(QCoreApplication.translate("formMain", u"Weiblich", None))
         self.btnMaennlich.setText(QCoreApplication.translate("formMain", u"M\u00e4nnlich", None))
+        self.btnDivers.setText("")
         self.lblSpezies.setText(QCoreApplication.translate("formMain", u"Spezies", None))
         self.lblSpezies.setProperty("class", QCoreApplication.translate("formMain", u"h4", None))
         self.lblKultur.setText(QCoreApplication.translate("formMain", u"Kultur", None))
         self.lblKultur.setProperty("class", QCoreApplication.translate("formMain", u"h4", None))
+        self.label_3.setText(QCoreApplication.translate("formMain", u"Hausregeln", None))
+        self.label_3.setProperty("class", QCoreApplication.translate("formMain", u"h4", None))
     # retranslateUi
 

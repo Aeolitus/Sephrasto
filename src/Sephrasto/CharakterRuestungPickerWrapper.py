@@ -7,12 +7,11 @@ Created on Sun Mar  5 16:45:34 2017
 import UI.CharakterRuestungPicker
 from PySide6 import QtCore, QtWidgets, QtGui
 from Wolke import Wolke
-import Objekte
-import Definitionen
 import logging
 import copy
 from EventBus import EventBus
 from Hilfsmethoden import Hilfsmethoden
+from QtUtils.AutoResizingTextBrowser import TextEditAutoResizer
 
 class RuestungPicker(object):
 
@@ -40,6 +39,7 @@ class RuestungPicker(object):
                 QtCore.Qt.WindowMaximizeButtonHint |
                 QtCore.Qt.WindowMinimizeButtonHint)
 
+        self.autoResizeHelper = TextEditAutoResizer(self.ui.teBeschreibung)
         self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).setText("Abbrechen")
 
         windowSize = Wolke.Settings["WindowSize-Ruestungen"]
@@ -48,8 +48,6 @@ class RuestungPicker(object):
         self.ui.splitter.adjustSize()
         width = self.ui.splitter.size().width()
         self.ui.splitter.setSizes([int(width*0.6), int(width*0.4)])
-        
-        self.ruestungsTypen = Wolke.DB.einstellungen["Rüstungen: Typen"].toTextList()
 
         if ruestung is not None and ruestung != "":
             self.replaceButton = QtWidgets.QPushButton("Rüstung ersetzen")
@@ -63,6 +61,7 @@ class RuestungPicker(object):
         self.ui.treeArmors.itemSelectionChanged.connect(self.changeHandler)
         self.ui.treeArmors.itemDoubleClicked.connect(lambda item, column: self.ui.buttonBox.buttons()[0].click())
         self.ui.treeArmors.header().setSectionResizeMode(0,QtWidgets.QHeaderView.Fixed)
+        self.ui.labelFilter.setText("\uf002")
         self.ui.nameFilterEdit.setFocus()
         self.updateInfo()
         logging.debug("Info Updated...")
@@ -117,7 +116,7 @@ class RuestungPicker(object):
         currSet = self.current != ""
         self.ui.treeArmors.clear()
 
-        for typ in self.ruestungsTypen:
+        for typ in Wolke.DB.einstellungen["Rüstungen: Typen"].wert:
             ruestungen = []
             for rues in Wolke.DB.rüstungen:
                 if Wolke.DB.rüstungen[rues].system != 0 and Wolke.DB.rüstungen[rues].system != self.system:
@@ -127,8 +126,8 @@ class RuestungPicker(object):
                     filterText = self.ui.nameFilterEdit.text().lower()
                     if (not filterText in Wolke.DB.rüstungen[rues].name.lower()):
                         continue
-                typ2 = min(Wolke.DB.rüstungen[rues].typ, len(self.ruestungsTypen)-1)
-                if self.ruestungsTypen[typ2] == typ:
+                typ2 = Wolke.DB.rüstungen[rues].typname(Wolke.DB)
+                if typ2 == typ:
                     ruestungen.append(rues)
 
             ruestungen.sort()
@@ -158,15 +157,15 @@ class RuestungPicker(object):
         if self.current in Wolke.DB.rüstungen:
             found = self.ui.treeArmors.findItems(Wolke.DB.rüstungen[self.current].name, QtCore.Qt.MatchExactly | QtCore.Qt.MatchRecursive)
             if len(found) > 0:
-                self.ui.treeArmors.setCurrentItem(found[0], 0, QtCore.QItemSelectionModel.Select)
+                self.ui.treeArmors.setCurrentItem(found[0], 0, QtCore.QItemSelectionModel.Select | QtCore.QItemSelectionModel.Rows)
         elif self.ui.treeArmors.topLevelItemCount() > 0 and self.ui.treeArmors.topLevelItem(0).childCount() > 0:
-            self.ui.treeArmors.setCurrentItem(self.ui.treeArmors.topLevelItem(0).child(0), 0, QtCore.QItemSelectionModel.Select)
+            self.ui.treeArmors.setCurrentItem(self.ui.treeArmors.topLevelItem(0).child(0), 0, QtCore.QItemSelectionModel.Select | QtCore.QItemSelectionModel.Rows)
         self.changeHandler()
 
     def changeHandler(self):
         self.current = ""
         for el in self.ui.treeArmors.selectedItems():
-            if el.text(0) in self.ruestungsTypen:
+            if el.text(0) in Wolke.DB.einstellungen["Rüstungen: Typen"].wert:
                 continue
             self.current = el.data(0, QtCore.Qt.UserRole) # contains key of armor
             break
@@ -193,8 +192,7 @@ class RuestungPicker(object):
             if name.endswith(" (ZRS)"):
                 name = name[:-6]
             self.ui.lblName.setText(name)
-            typ = min(r.typ, len(self.ruestungsTypen)-1)
-            self.ui.lblTyp.setText(self.ruestungsTypen[typ])
+            self.ui.lblTyp.setText(r.typname(Wolke.DB))
 
             if self.system == 1:
                 be = EventBus.applyFilter("ruestung_be", r.getRSGesamtInt(), { "name" : r.name })
@@ -211,5 +209,4 @@ class RuestungPicker(object):
             self.ui.lblBrust.setText(str(r.rs[4]))
             self.ui.lblKopf.setText(str(r.rs[5]))
             self.ui.lblZRS.setText("= " + str(sum(r.rs)))
-            self.ui.teBeschreibung.setPlainText("")
-            self.ui.teBeschreibung.appendHtml(Hilfsmethoden.fixHtml(r.text))
+            self.ui.teBeschreibung.setText(Hilfsmethoden.fixHtml(r.text))

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>regelDialog</class>
- <widget class="QDialog" name="regelDialog">
+ <class>dialog</class>
+ <widget class="QDialog" name="dialog">
   <property name="windowModality">
    <enum>Qt::ApplicationModal</enum>
   </property>
@@ -10,35 +10,15 @@
     <x>0</x>
     <y>0</y>
     <width>440</width>
-    <height>550</height>
+    <height>462</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Sephrasto - Manöver / Modifikation bearbeiten...</string>
+   <string>Sephrasto - Regel bearbeiten...</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
     <layout class="QGridLayout" name="gridLayout">
-     <item row="5" column="0">
-      <widget class="QLabel" name="label_5">
-       <property name="text">
-        <string>Beschreibung</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_6">
-       <property name="text">
-        <string>Typ</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLineEdit" name="probeEdit"/>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="nameEdit"/>
-     </item>
      <item row="0" column="0" colspan="2">
       <widget class="QLabel" name="warning">
        <property name="visible">
@@ -48,10 +28,121 @@
         <string notr="true">background-color: rgb(255, 255, 0); color: black;</string>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dies ist ein Ilaris-Standardmanöver / eine Ilaris-Standardmodifikation. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in den Hausregeln gelöscht. Damit erhältst du für dieses Manöver / diese Modifikation keine automatischen Updates mehr mit neuen Sephrasto-Versionen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string></string>
        </property>
        <property name="wordWrap">
         <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="leProbe"/>
+     </item>
+     <item row="4" column="1">
+      <widget class="QPlainTextEdit" name="teVoraussetzungen">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>250</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Siehe &quot;Datenbank Editor -&gt; Einstellungsmöglichkeiten -&gt; Voraussetzungen&quot; in der Sephrasto-Hilfe für eine Anleitung.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Probe</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="minimumSize">
+        <size>
+         <width>110</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Voraussetzungen</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Name</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QTabWidget" name="tabWidget">
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="tab">
+        <attribute name="title">
+         <string>HTML</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QPlainTextEdit" name="teBeschreibung">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tab_2">
+        <attribute name="title">
+         <string>Vorschau</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QTextBrowser" name="tbBeschreibung"/>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Beschreibung</string>
        </property>
       </widget>
      </item>
@@ -109,43 +200,13 @@
        </item>
       </widget>
      </item>
-     <item row="4" column="1">
-      <widget class="QPlainTextEdit" name="voraussetzungenEdit"/>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="leName"/>
      </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="label_4">
-       <property name="minimumSize">
-        <size>
-         <width>110</width>
-         <height>0</height>
-        </size>
-       </property>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_6">
        <property name="text">
-        <string>Voraussetzungen</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>Probe</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="1">
-      <widget class="QPlainTextEdit" name="textEdit">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Name</string>
+        <string>Typ</string>
        </property>
       </widget>
      </item>
@@ -167,18 +228,17 @@
   </layout>
  </widget>
  <tabstops>
-  <tabstop>nameEdit</tabstop>
-  <tabstop>probeEdit</tabstop>
+  <tabstop>leName</tabstop>
+  <tabstop>leProbe</tabstop>
   <tabstop>comboTyp</tabstop>
-  <tabstop>voraussetzungenEdit</tabstop>
-  <tabstop>textEdit</tabstop>
+  <tabstop>teVoraussetzungen</tabstop>
  </tabstops>
  <resources/>
  <connections>
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>regelDialog</receiver>
+   <receiver>dialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -194,7 +254,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>regelDialog</receiver>
+   <receiver>dialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

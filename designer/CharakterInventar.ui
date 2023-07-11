@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>971</width>
-    <height>557</height>
+    <height>586</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -98,17 +98,11 @@
         </item>
         <item row="3" column="10">
          <widget class="QPushButton" name="removeR3">
-          <property name="maximumSize">
-           <size>
-            <width>23</width>
-            <height>23</height>
-           </size>
-          </property>
           <property name="text">
            <string>-</string>
           </property>
           <property name="class" stdset="0">
-           <string>icon</string>
+           <string>iconSmall</string>
           </property>
          </widget>
         </item>
@@ -292,17 +286,11 @@
         </item>
         <item row="3" column="11">
          <widget class="QPushButton" name="addR3">
-          <property name="maximumSize">
-           <size>
-            <width>23</width>
-            <height>23</height>
-           </size>
-          </property>
           <property name="text">
            <string>+</string>
           </property>
           <property name="class" stdset="0">
-           <string>icon</string>
+           <string>iconSmall</string>
           </property>
          </widget>
         </item>
@@ -757,23 +745,11 @@
         </item>
         <item row="1" column="11">
          <widget class="QPushButton" name="addR1">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>23</width>
-            <height>23</height>
-           </size>
-          </property>
           <property name="text">
            <string>+</string>
           </property>
           <property name="class" stdset="0">
-           <string>icon</string>
+           <string>iconSmall</string>
           </property>
          </widget>
         </item>
@@ -824,49 +800,31 @@
         </item>
         <item row="2" column="10">
          <widget class="QPushButton" name="removeR2">
-          <property name="maximumSize">
-           <size>
-            <width>23</width>
-            <height>23</height>
-           </size>
-          </property>
           <property name="text">
            <string>-</string>
           </property>
           <property name="class" stdset="0">
-           <string>icon</string>
+           <string>iconSmall</string>
           </property>
          </widget>
         </item>
         <item row="2" column="11">
          <widget class="QPushButton" name="addR2">
-          <property name="maximumSize">
-           <size>
-            <width>23</width>
-            <height>23</height>
-           </size>
-          </property>
           <property name="text">
            <string>+</string>
           </property>
           <property name="class" stdset="0">
-           <string>icon</string>
+           <string>iconSmall</string>
           </property>
          </widget>
         </item>
         <item row="1" column="10">
          <widget class="QPushButton" name="removeR1">
-          <property name="maximumSize">
-           <size>
-            <width>23</width>
-            <height>23</height>
-           </size>
-          </property>
           <property name="text">
            <string>-</string>
           </property>
           <property name="class" stdset="0">
-           <string>icon</string>
+           <string>iconSmall</string>
           </property>
          </widget>
         </item>

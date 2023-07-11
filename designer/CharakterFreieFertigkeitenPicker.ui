@@ -39,14 +39,24 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="QLabel" name="labelFilter">
-          <property name="text">
-           <string>Suchen:</string>
+         <widget class="QLineEdit" name="nameFilterEdit">
+          <property name="placeholderText">
+           <string>Suchen...</string>
+          </property>
+          <property name="clearButtonEnabled">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="nameFilterEdit"/>
+         <widget class="QLabel" name="labelFilter">
+          <property name="text">
+           <string>Suchen</string>
+          </property>
+          <property name="class" stdset="0">
+           <string>icon</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>

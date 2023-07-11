@@ -7,15 +7,15 @@ Created on Fri Mar 10 17:25:53 2017
 from Wolke import Wolke
 import UI.CharakterInventar
 from PySide6 import QtWidgets, QtCore, QtGui
-import Objekte
-import Definitionen
 from CharakterRuestungPickerWrapper import RuestungPicker
 import logging
 from Hilfsmethoden import Hilfsmethoden
 from EventBus import EventBus
 import re
-from TextTagCompleter import TextTagCompleter
+from QtUtils.TextTagCompleter import TextTagCompleter
 import copy
+from Core.Ruestung import Ruestung, RuestungDefinition
+from functools import partial
 
 class CharakterInventarWrapper(QtCore.QObject):
     modified = QtCore.Signal()
@@ -65,15 +65,13 @@ class CharakterInventarWrapper(QtCore.QObject):
 
             addR = getattr(self.ui, "addR" + str(i+1))
             addR.setText('\u002b')
-            addR.setMaximumSize(QtCore.QSize(20, 20))
-            addR.clicked.connect(lambda qtNeedsThis=False, idx=i: self.selectArmor(idx))
+            addR.clicked.connect(partial(self.selectArmor, index=i))
             self.addR.append(addR)
 
             removeR = getattr(self.ui, "removeR" + str(i+1))
             removeR.setVisible(False)
             removeR.setText('\uf2ed')
-            removeR.setMaximumSize(QtCore.QSize(20, 20))
-            removeR.clicked.connect(lambda qtNeedsThis=False, idx=i: self.removeArmor(idx))
+            removeR.clicked.connect(partial(self.removeArmor, index=i))
             self.removeR.append(removeR)
 
         logging.debug("Check Toggle...")
@@ -119,8 +117,13 @@ class CharakterInventarWrapper(QtCore.QObject):
         spinPunkte.setValue(sum(R.rs))
 
     def createRuestung(self, index):
-        R = Objekte.Ruestung() 
-        R.name = self.editRName[index].text()
+        name = self.editRName[index].text()
+        if name in Wolke.DB.rüstungen:
+            R = Ruestung(Wolke.DB.rüstungen[name])
+        else:
+            definition = RuestungDefinition()
+            definition.name = name
+            R = Ruestung(definition)
         R.be = int(self.spinBE[index].value())
         if self.ui.checkZonen.isChecked():
             for i in range(0, 6):
@@ -139,7 +142,7 @@ class CharakterInventarWrapper(QtCore.QObject):
             R = self.createRuestung(index)
             ruestungNeu.append(R)
             self.refreshDerivedArmorValues(R, index)
-            self.removeR[index].setVisible(R != Objekte.Ruestung())
+            self.removeR[index].setVisible(R.name != "")
 
         if not Hilfsmethoden.ArrayEqual(ruestungNeu, Wolke.Char.rüstung):
             changed = True
@@ -212,7 +215,7 @@ class CharakterInventarWrapper(QtCore.QObject):
 
         self.refreshDerivedArmorValues(R, index)
 
-        self.removeR[index].setVisible(R != Objekte.Ruestung())
+        self.removeR[index].setVisible(R.name != "")
 
     def selectArmor(self, index):
         logging.debug("Starting RuestungPicker")
@@ -221,13 +224,13 @@ class CharakterInventarWrapper(QtCore.QObject):
         logging.debug("RuestungPicker created")
         if picker.ruestung is not None:
             self.currentlyLoading = True
-            self.loadArmorIntoFields(picker.ruestung, index, picker.ruestungErsetzen)
+            self.loadArmorIntoFields(Ruestung(picker.ruestung), index, picker.ruestungErsetzen)
             self.currentlyLoading = False
             self.updateRuestungen()
 
     def removeArmor(self, index):
         self.currentlyLoading = True
-        self.loadArmorIntoFields(Objekte.Ruestung(), index, True)
+        self.loadArmorIntoFields(Ruestung(RuestungDefinition()), index, True)
         self.currentlyLoading = False
         self.updateRuestungen()
 

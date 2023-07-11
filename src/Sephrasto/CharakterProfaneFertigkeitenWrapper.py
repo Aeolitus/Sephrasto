@@ -7,13 +7,16 @@ Created on Fri Mar 10 17:33:11 2017
 from Wolke import Wolke
 import UI.CharakterProfaneFertigkeiten
 import CharakterTalentPickerWrapper
-import MousewheelProtector
+from QtUtils.MousewheelProtector import MousewheelProtector
 from PySide6 import QtWidgets, QtCore, QtGui
 import logging
 from PySide6.QtWidgets import QHeaderView
-from Fertigkeiten import KampffertigkeitTyp
+from Core.Fertigkeit import Fertigkeit, KampffertigkeitTyp
 from Hilfsmethoden import Hilfsmethoden
 from EventBus import EventBus
+import copy
+from QtUtils.AutoResizingTextBrowser import TextEditAutoResizer
+from functools import partial
 
 # This item delegate is used to draw a seperator line between different fertigkeit types
 class FertigkeitItemDelegate(QtWidgets.QItemDelegate):
@@ -37,6 +40,8 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         self.ui = UI.CharakterProfaneFertigkeiten.Ui_Form()
         self.ui.setupUi(self.form)
 
+        self.autoResizeHelper = TextEditAutoResizer(self.ui.plainText)
+
         header = self.ui.tableWidget.horizontalHeader()
         header.setSectionResizeMode(0, QHeaderView.Fixed)
         header.setSectionResizeMode(1, QHeaderView.Stretch)
@@ -45,7 +50,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         self.model = QtGui.QStandardItemModel(self.ui.listTalente)
         self.ui.listTalente.setModel(self.model)
 
-        self.mwp = MousewheelProtector.MousewheelProtector()
+        self.mwp = MousewheelProtector()
 
         self.ui.splitter.adjustSize()
         width = self.ui.splitter.size().width()
@@ -57,8 +62,6 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         self.ui.tableWidget.currentCellChanged.connect(self.tableClicked)
         self.ui.tableWidget.cellClicked.connect(self.tableClicked) 
         self.ui.buttonAdd.setText('\u002b')
-        self.ui.buttonAdd.setMaximumSize(QtCore.QSize(20, 20))
-        self.ui.buttonAdd.setMinimumSize(QtCore.QSize(20, 20))
         self.ui.buttonAdd.clicked.connect(self.editTalents)
         
         self.nahkampfFerts = []
@@ -71,9 +74,9 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         self.widgetRef = {}
 
         #If there is an ability already, then we take it to display already
-        try:
+        if len(Wolke.Char.fertigkeiten) > 0:
             self.currentFertName = Wolke.Char.fertigkeiten.__iter__().__next__()
-        except StopIteration:
+        else:
             self.currentFertName = ''
         self.currentlyLoading = False
             
@@ -83,15 +86,18 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         
     def load(self):
         self.currentlyLoading = True
-        temp = [el for el in Wolke.DB.fertigkeiten 
-                if Wolke.Char.voraussetzungenPrüfen(Wolke.DB.fertigkeiten[el].voraussetzungen)]
+
+        temp = list(Wolke.Char.fertigkeiten.keys())
+
         # sort by type, then by name
-        temp.sort(key = lambda x: (Wolke.DB.fertigkeiten[x].typ, x)) 
+        temp.sort(key = lambda x: (Wolke.Char.fertigkeiten[x].typ, x)) 
 
         if Hilfsmethoden.ArrayEqual(temp, self.availableFerts):
             for i in range(self.ui.tableWidget.rowCount()):
                 fert = Wolke.Char.fertigkeiten[self.ui.tableWidget.item(i,0).text()]
-                self.labelRef[fert.name + "KO"].setText(self.getSteigerungskosten(fert))
+                text, tooltip = ProfaneFertigkeitenWrapper.getSteigerungskosten(fert)
+                self.labelRef[fert.name + "KO"].setText(text)
+                self.labelRef[fert.name + "KO"].setToolTip(tooltip)
                 self.labelRef[fert.name + "PW"].setText(str(fert.probenwert))
                 self.labelRef[fert.name + "PWT"].setText(str(fert.probenwertTalent))
                 self.labelRef[fert.name].setText(str(len(fert.gekaufteTalente)))
@@ -124,20 +130,20 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
             header.setMinimumSectionSize(0)
             header.setSectionResizeMode(0, QHeaderView.Stretch)
             header.setSectionResizeMode(1, QHeaderView.Fixed)
-            self.ui.tableWidget.setColumnWidth(1, 60)
+            self.ui.tableWidget.setColumnWidth(1, Hilfsmethoden.emToPixels(6.7))
             header.setSectionResizeMode(2, QHeaderView.Fixed)
-            self.ui.tableWidget.setColumnWidth(2, 80)
+            self.ui.tableWidget.setColumnWidth(2, Hilfsmethoden.emToPixels(8.9))
             header.setSectionResizeMode(3, QHeaderView.Fixed)
-            self.ui.tableWidget.setColumnWidth(3, 65)
+            self.ui.tableWidget.setColumnWidth(3, Hilfsmethoden.emToPixels(7.3))
             header.setSectionResizeMode(4, QHeaderView.Fixed)
-            self.ui.tableWidget.setColumnWidth(4, 65)
+            self.ui.tableWidget.setColumnWidth(4, Hilfsmethoden.emToPixels(7.3))
             header.setSectionResizeMode(4, QHeaderView.Fixed)
-            self.ui.tableWidget.setColumnWidth(5, 90)
+            self.ui.tableWidget.setColumnWidth(5, Hilfsmethoden.emToPixels(10))
 
             vheader = self.ui.tableWidget.verticalHeader()
             vheader.setSectionResizeMode(QHeaderView.Fixed)
-            vheader.setDefaultSectionSize(30);
-            vheader.setMaximumSectionSize(30);
+            vheader.setDefaultSectionSize(Hilfsmethoden.emToPixels(3.4));
+            vheader.setMaximumSectionSize(Hilfsmethoden.emToPixels(3.4));
 
             item = QtWidgets.QTableWidgetItem()
             item.setText("Name")
@@ -175,7 +181,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
 
             for el in self.availableFerts:
                 fert = Wolke.Char.fertigkeiten[el]
-                fert.aktualisieren(Wolke.Char.attribute)
+                fert.aktualisieren()
 
                 if fert.kampffertigkeit == KampffertigkeitTyp.Nahkampf:
                     self.nahkampfFerts.append(fert)
@@ -192,13 +198,15 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
                 self.spinRef[el].setValue(fert.wert)
                 self.spinRef[el].setAlignment(QtCore.Qt.AlignCenter)
                 self.spinRef[el].setButtonSymbols(QtWidgets.QAbstractSpinBox.PlusMinus)
-                self.spinRef[el].valueChanged.connect(lambda qtNeedThis=False, name=el: self.spinnerClicked(name))
+                self.spinRef[el].valueChanged.connect(partial(self.spinnerClicked, fert=el))
                 self.ui.tableWidget.setCellWidget(count,1,self.spinRef[el])
 
                 # Add Kosten
                 self.labelRef[el + "KO"] = QtWidgets.QLabel()
-                self.labelRef[el + "KO"].setStyleSheet("margin-left:10; margin-right:10;");
-                self.labelRef[el + "KO"].setText(self.getSteigerungskosten(fert))
+                self.labelRef[el + "KO"].setStyleSheet("margin-left:1.1em;");
+                text, tooltip = ProfaneFertigkeitenWrapper.getSteigerungskosten(fert)
+                self.labelRef[el + "KO"].setText(text)
+                self.labelRef[el + "KO"].setToolTip(tooltip)
                 self.labelRef[el + "KO"].setAlignment(QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
                 self.ui.tableWidget.setCellWidget(count,2,self.labelRef[el + "KO"])
 
@@ -222,11 +230,9 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
                 self.labelRef[el].setAlignment(QtCore.Qt.AlignCenter)
                 self.layoutRef[el].addWidget(self.labelRef[el])
                 self.buttonRef[el] = QtWidgets.QPushButton()
-                self.buttonRef[el].setProperty("class", "icon")
+                self.buttonRef[el].setProperty("class", "iconSmall")
                 self.buttonRef[el].setText('\u002b')
-                self.buttonRef[el].setMaximumSize(QtCore.QSize(20, 20))
-                self.buttonRef[el].setMinimumSize(QtCore.QSize(20, 20))
-                self.buttonRef[el].clicked.connect(lambda qtNeedsThis=False, name=el: self.addClicked(name))
+                self.buttonRef[el].clicked.connect(partial(self.addClicked, fert=el))
                 self.layoutRef[el].addWidget(self.buttonRef[el])
                 self.widgetRef[el] = QtWidgets.QWidget()
                 self.widgetRef[el].setLayout(self.layoutRef[el])
@@ -244,13 +250,6 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
             if tmp in Wolke.Char.fertigkeiten:    
                 self.currentFertName = tmp
                 self.updateInfo()
-        
-    def getSteigerungskosten(self, fert):
-        ep = (fert.wert+1) * fert.steigerungsfaktor
-        höchste = Wolke.Char.getHöchsteKampffertigkeit()
-        if fert.kampffertigkeit == KampffertigkeitTyp.Nahkampf and fert.wert == höchste.wert:
-            ep = (fert.wert+1) * 4
-        return "<span style='" + Wolke.FontAwesomeCSS + "'>\uf176</span>&nbsp;&nbsp;" + str(ep) + " EP"
 
     def fwChanged(self, flag = False):
         if self.currentlyLoading:
@@ -264,10 +263,10 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
             val = self.ui.spinFW.value()
         fert = Wolke.Char.fertigkeiten[self.currentFertName]
         fert.wert = val
-        Wolke.Char.fertigkeiten[self.currentFertName].aktualisieren(Wolke.Char.attribute)
+        Wolke.Char.fertigkeiten[self.currentFertName].aktualisieren()
         self.ui.spinPW.setValue(fert.probenwert)
         self.ui.spinPWT.setValue(fert.probenwertTalent)
-        if fert == Wolke.Char.getHöchsteKampffertigkeit():
+        if fert == Fertigkeit.getHöchsteKampffertigkeit(Wolke.Char.fertigkeiten):
             self.ui.spinSF.setValue(4)
         else:
             self.ui.spinSF.setValue(fert.steigerungsfaktor)
@@ -282,14 +281,16 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
             updateKosten = self.nahkampfFerts
 
         for f in updateKosten:
-            self.labelRef[f.name + "KO"].setText(self.getSteigerungskosten(f))
+            text, tooltip = ProfaneFertigkeitenWrapper.getSteigerungskosten(f)
+            self.labelRef[f.name + "KO"].setText(text)
+            self.labelRef[f.name + "KO"].setToolTip(tooltip)
         self.labelRef[self.currentFertName + "PW"].setText(str(fert.probenwert))
         self.labelRef[self.currentFertName + "PWT"].setText(str(fert.probenwertTalent))
 
         self.modified.emit()
         self.currentlyLoading = False
     
-    def spinnerClicked(self, fert):
+    def spinnerClicked(self, val, fert):
         if not self.currentlyLoading:
             self.currentFertName = fert
             self.updateInfo()
@@ -319,10 +320,10 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
             return
         self.currentlyLoading = True
         fert = Wolke.Char.fertigkeiten[self.currentFertName]
-        fert.aktualisieren(Wolke.Char.attribute)
+        fert.aktualisieren()
         self.ui.labelFertigkeit.setText(self.currentFertName)
         self.ui.labelAttribute.setText(fert.attribute[0] + "/" + fert.attribute[1] + "/" + fert.attribute[2])
-        if fert == Wolke.Char.getHöchsteKampffertigkeit():
+        if fert == Fertigkeit.getHöchsteKampffertigkeit(Wolke.Char.fertigkeiten):
             self.ui.spinSF.setValue(4)
         else:
             self.ui.spinSF.setValue(fert.steigerungsfaktor)
@@ -332,10 +333,8 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         self.ui.spinFW.setValue(fert.wert)
         self.ui.spinPW.setValue(fert.probenwert)
         self.ui.spinPWT.setValue(fert.probenwertTalent)
-        self.ui.plainText.setPlainText("")
-        self.ui.plainText.appendHtml(Hilfsmethoden.fixHtml(fert.text))
-        fertigkeitTypen = Wolke.DB.einstellungen["Fertigkeiten: Typen profan"].toTextList()
-        self.ui.labelKategorie.setText(fertigkeitTypen[min(fert.typ, len(fertigkeitTypen)-1)])
+        self.ui.plainText.setText(Hilfsmethoden.fixHtml(fert.text))
+        self.ui.labelKategorie.setText(fert.typname(Wolke.DB))
         self.updateTalents()
         self.currentlyLoading = False
         
@@ -345,8 +344,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         self.model.clear()
         talente = Wolke.Char.fertigkeiten[self.currentFertName].gekaufteTalente
         for el in talente:
-            talStr = Wolke.DB.talente[el].getFullName(Wolke.Char).replace(self.currentFertName + ": ", "")
-            item = QtGui.QStandardItem(talStr)
+            item = QtGui.QStandardItem(Wolke.Char.talente[el].anzeigenameExt)
             item.setEditable(False)
             item.setSelectable(False)
             self.model.appendRow(item)
@@ -364,5 +362,55 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         if tal.gekaufteTalente is not None:
             self.modified.emit()
             self.updateTalents()
-            self.labelRef[self.currentFertName].setText(str(len(tal.gekaufteTalente)))
-            
+            self.labelRef[self.currentFertName].setText(str(len(tal.gekaufteTalente)))        
+
+    @staticmethod
+    def getSteigerungskosten(fert):
+        if fert.wert == fert.maxWert:
+            maxWert = max(fert.attributswerte)
+            attribute = [attr for attr in fert.attribute if Wolke.Char.attribute[attr].wert == maxWert]
+            kosten = Wolke.Char.attribute[attribute[0]].steigerungskosten()
+            attribute = list(dict.fromkeys(attribute))
+            attribute = ", ".join(attribute)
+            attribute = attribute[::-1].replace(" ,"," redo ", 1)[::-1] #replace last ", " by " oder "
+            return "<span></span>&nbsp;&nbsp;&nbsp;max", f"Steigere das höchste Attribut von {fert.name} ({attribute} für {kosten} EP), um das Maximum zu erhöhen."
+        else:
+            kosten, attribute = ProfaneFertigkeitenWrapper.basiswertSteigern(fert, Wolke.Char.attribute)
+            if kosten != -1 and kosten <= fert.steigerungskosten():
+                steigern = []
+                for attr in attribute:
+                    if Wolke.Char.attribute[attr].wert < attribute[attr].wert:
+                        steigern.append(attr + " +" + str(attribute[attr].wert - Wolke.Char.attribute[attr].wert))
+                steigern = ", ".join(steigern)
+                steigern = steigern[::-1].replace(" ,"," dnu ", 1)[::-1] #replace last ", " by " und "
+                warnIcon = "<span style='" + Wolke.FontAwesomeCSS + "'>\uf071</span>&nbsp;&nbsp;"
+                return warnIcon + str(fert.steigerungskosten()) + " EP", "Es lohnt sich mehr, den Basiswert durch Attribute zu steigern (zum Beispiel " + steigern + " für " + str(kosten) + " EP)."
+            else:     
+                arrowUpIcon = "<span style='" + Wolke.FontAwesomeCSS + "'>\uf176</span>&nbsp;&nbsp;"
+                return arrowUpIcon + str(fert.steigerungskosten()) + " EP" , ""
+
+    @staticmethod
+    def basiswertSteigern(fert, attr):
+        def cost(attribut):
+            return attribut.kosten() / fert.attribute.count(attribut.name)
+
+        attribute = copy.deepcopy(attr)
+        bwKosten = 0
+        iterationCount = 0 #just a safety measure in case someone changes the BW script setting
+        diff = 0
+        while diff == 0:
+            niedrigstesAttr = fert.attribute[0]
+            for attr in fert.attribute:
+                cost1 = cost(attribute[niedrigstesAttr])
+                cost2 = cost(attribute[attr])
+                if (cost1 == cost2 and attribute[attr].wert > attribute[niedrigstesAttr].wert) or cost1 > cost2:
+                    niedrigstesAttr = attr
+            bwKosten += attribute[niedrigstesAttr].steigerungskosten()
+            attribute[niedrigstesAttr].wert += 1
+            attribute[niedrigstesAttr].aktualisieren()
+            diff = fert.diffBasiswert(attribute)
+            iterationCount += 1
+            if iterationCount == 20:
+                return -1, attribute
+
+        return bwKosten, attribute

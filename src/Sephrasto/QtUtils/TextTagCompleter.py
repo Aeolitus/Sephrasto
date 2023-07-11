@@ -69,9 +69,13 @@ class TextTagCompleter(QCompleter):
         self.tags = set(tags)
 
     def handleLineEditTextChanged(self):
+        if self.__cursorPos() != len(self.__text()):
+            # atm the completer doesn't work properly when trying to insert a tag element in the middle of the text
+            # so lets rather disable it in this case than annoy the user with text cursor jumping around randomly
+            return
+
         text = self.__text()[:self.__cursorPos()]
         prefix = text.split(',')[-1].strip()
-
         textTags = []
         for t in self.__text().split(','):
             t1 = t.strip()
@@ -82,7 +86,6 @@ class TextTagCompleter(QCompleter):
         tags = list(self.tags.difference(textTags))
         model = QStringListModel(tags, self)
         self.setModel(model)
-
         self.setCompletionPrefix(prefix)
         if prefix.strip() != '':
             self.complete()
@@ -92,5 +95,9 @@ class TextTagCompleter(QCompleter):
         before_text = self.__text()[:cursor_pos]
         after_text = self.__text()[cursor_pos:]
         prefix_len = len(before_text.split(',')[-1].strip())
-        self.__setText('%s%s, %s' % (before_text[:cursor_pos - prefix_len], text, after_text))
-        self.__setCursorPos(cursor_pos - prefix_len + len(text) + 2)
+        if after_text:
+            self.__setText('%s%s, %s' % (before_text[:cursor_pos - prefix_len], text, after_text))
+            self.__setCursorPos(cursor_pos - prefix_len + len(text) + 2)
+        else:
+            self.__setText('%s%s' % (before_text[:cursor_pos - prefix_len], text))
+            self.__setCursorPos(cursor_pos - prefix_len + len(text))

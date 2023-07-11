@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterInventar.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.2
+## Created by: Qt User Interface Compiler version 6.5.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -24,7 +24,7 @@ class Ui_formInventar(object):
     def setupUi(self, formInventar):
         if not formInventar.objectName():
             formInventar.setObjectName(u"formInventar")
-        formInventar.resize(971, 557)
+        formInventar.resize(971, 586)
         formInventar.setMinimumSize(QSize(802, 0))
         self.verticalLayout = QVBoxLayout(formInventar)
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -57,7 +57,6 @@ class Ui_formInventar(object):
 
         self.removeR3 = QPushButton(self.gbRstungen)
         self.removeR3.setObjectName(u"removeR3")
-        self.removeR3.setMaximumSize(QSize(23, 23))
 
         self.Ruestungen.addWidget(self.removeR3, 3, 10, 1, 1)
 
@@ -146,7 +145,6 @@ class Ui_formInventar(object):
 
         self.addR3 = QPushButton(self.gbRstungen)
         self.addR3.setObjectName(u"addR3")
-        self.addR3.setMaximumSize(QSize(23, 23))
 
         self.Ruestungen.addWidget(self.addR3, 3, 11, 1, 1)
 
@@ -336,8 +334,6 @@ class Ui_formInventar(object):
 
         self.addR1 = QPushButton(self.gbRstungen)
         self.addR1.setObjectName(u"addR1")
-        self.addR1.setMinimumSize(QSize(0, 0))
-        self.addR1.setMaximumSize(QSize(23, 23))
 
         self.Ruestungen.addWidget(self.addR1, 1, 11, 1, 1)
 
@@ -366,19 +362,16 @@ class Ui_formInventar(object):
 
         self.removeR2 = QPushButton(self.gbRstungen)
         self.removeR2.setObjectName(u"removeR2")
-        self.removeR2.setMaximumSize(QSize(23, 23))
 
         self.Ruestungen.addWidget(self.removeR2, 2, 10, 1, 1)
 
         self.addR2 = QPushButton(self.gbRstungen)
         self.addR2.setObjectName(u"addR2")
-        self.addR2.setMaximumSize(QSize(23, 23))
 
         self.Ruestungen.addWidget(self.addR2, 2, 11, 1, 1)
 
         self.removeR1 = QPushButton(self.gbRstungen)
         self.removeR1.setObjectName(u"removeR1")
-        self.removeR1.setMaximumSize(QSize(23, 23))
 
         self.Ruestungen.addWidget(self.removeR1, 1, 10, 1, 1)
 
@@ -620,7 +613,7 @@ class Ui_formInventar(object):
         self.gbRstungen.setTitle(QCoreApplication.translate("formInventar", u"R\u00fcstungen", None))
         self.gbRstungen.setProperty("class", QCoreApplication.translate("formInventar", u"h3", None))
         self.removeR3.setText(QCoreApplication.translate("formInventar", u"-", None))
-        self.removeR3.setProperty("class", QCoreApplication.translate("formInventar", u"icon", None))
+        self.removeR3.setProperty("class", QCoreApplication.translate("formInventar", u"iconSmall", None))
 #if QT_CONFIG(tooltip)
         self.editR3name.setToolTip(QCoreApplication.translate("formInventar", u"Nur die erste R\u00fcstung wird zur Berechnung der WS* usw. verwendet.", None))
 #endif // QT_CONFIG(tooltip)
@@ -632,7 +625,7 @@ class Ui_formInventar(object):
         self.labelRName.setText(QCoreApplication.translate("formInventar", u"Name", None))
         self.labelRName.setProperty("class", QCoreApplication.translate("formInventar", u"h4", None))
         self.addR3.setText(QCoreApplication.translate("formInventar", u"+", None))
-        self.addR3.setProperty("class", QCoreApplication.translate("formInventar", u"icon", None))
+        self.addR3.setProperty("class", QCoreApplication.translate("formInventar", u"iconSmall", None))
         self.labelBrust.setText(QCoreApplication.translate("formInventar", u"Brust", None))
         self.labelBrust.setProperty("class", QCoreApplication.translate("formInventar", u"h4", None))
 #if QT_CONFIG(tooltip)
@@ -654,16 +647,16 @@ class Ui_formInventar(object):
         self.labelKopf.setText(QCoreApplication.translate("formInventar", u"Kopf", None))
         self.labelKopf.setProperty("class", QCoreApplication.translate("formInventar", u"h4", None))
         self.addR1.setText(QCoreApplication.translate("formInventar", u"+", None))
-        self.addR1.setProperty("class", QCoreApplication.translate("formInventar", u"icon", None))
+        self.addR1.setProperty("class", QCoreApplication.translate("formInventar", u"iconSmall", None))
 #if QT_CONFIG(tooltip)
         self.editR2name.setToolTip(QCoreApplication.translate("formInventar", u"Nur die erste R\u00fcstung wird zur Berechnung der WS* usw. verwendet.", None))
 #endif // QT_CONFIG(tooltip)
         self.removeR2.setText(QCoreApplication.translate("formInventar", u"-", None))
-        self.removeR2.setProperty("class", QCoreApplication.translate("formInventar", u"icon", None))
+        self.removeR2.setProperty("class", QCoreApplication.translate("formInventar", u"iconSmall", None))
         self.addR2.setText(QCoreApplication.translate("formInventar", u"+", None))
-        self.addR2.setProperty("class", QCoreApplication.translate("formInventar", u"icon", None))
+        self.addR2.setProperty("class", QCoreApplication.translate("formInventar", u"iconSmall", None))
         self.removeR1.setText(QCoreApplication.translate("formInventar", u"-", None))
-        self.removeR1.setProperty("class", QCoreApplication.translate("formInventar", u"icon", None))
+        self.removeR1.setProperty("class", QCoreApplication.translate("formInventar", u"iconSmall", None))
         self.labelPunkte.setText(QCoreApplication.translate("formInventar", u"Punkte", None))
         self.labelPunkte.setProperty("class", QCoreApplication.translate("formInventar", u"h4", None))
         self.checkZonen.setText(QCoreApplication.translate("formInventar", u"Zonenr\u00fcstungssystem benutzen", None))

@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterMain.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.2
+## Created by: Qt User Interface Compiler version 6.5.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -16,9 +16,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractSpinBox, QApplication, QFrame, QGridLayout,
-    QHBoxLayout, QLabel, QProgressBar, QPushButton,
-    QScrollArea, QSizePolicy, QSpacerItem, QSpinBox,
-    QTabWidget, QVBoxLayout, QWidget)
+    QHBoxLayout, QLabel, QPushButton, QScrollArea,
+    QSizePolicy, QSpacerItem, QSpinBox, QTabWidget,
+    QVBoxLayout, QWidget)
 
 class Ui_formMain(object):
     def setupUi(self, formMain):
@@ -122,14 +122,6 @@ class Ui_formMain(object):
         self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout_2.addItem(self.horizontalSpacer)
-
-        self.progressBar = QProgressBar(formMain)
-        self.progressBar.setObjectName(u"progressBar")
-        self.progressBar.setEnabled(True)
-        self.progressBar.setMaximumSize(QSize(305, 16777215))
-        self.progressBar.setValue(24)
-
-        self.horizontalLayout_2.addWidget(self.progressBar)
 
         self.buttonQuicksave = QPushButton(formMain)
         self.buttonQuicksave.setObjectName(u"buttonQuicksave")

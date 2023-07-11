@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterMinderpakt.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.2
+## Created by: Qt User Interface Compiler version 6.5.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -17,9 +17,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractButton, QAbstractItemView, QApplication, QDialog,
     QDialogButtonBox, QFrame, QGridLayout, QHeaderView,
-    QLabel, QPlainTextEdit, QScrollArea, QSizePolicy,
-    QSplitter, QTreeWidget, QTreeWidgetItem, QVBoxLayout,
-    QWidget)
+    QLabel, QScrollArea, QSizePolicy, QSpacerItem,
+    QSplitter, QTextBrowser, QTreeWidget, QTreeWidgetItem,
+    QVBoxLayout, QWidget)
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -74,6 +74,11 @@ class Ui_Dialog(object):
         self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 465, 497))
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout.setObjectName(u"gridLayout")
+        self.label = QLabel(self.scrollAreaWidgetContents)
+        self.label.setObjectName(u"label")
+
+        self.gridLayout.addWidget(self.label, 3, 0, 1, 1)
+
         self.labelTyp = QLabel(self.scrollAreaWidgetContents)
         self.labelTyp.setObjectName(u"labelTyp")
         self.labelTyp.setMinimumSize(QSize(0, 18))
@@ -83,6 +88,11 @@ class Ui_Dialog(object):
         self.labelTyp.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.gridLayout.addWidget(self.labelTyp, 1, 0, 1, 1)
+
+        self.label_2 = QLabel(self.scrollAreaWidgetContents)
+        self.label_2.setObjectName(u"label_2")
+
+        self.gridLayout.addWidget(self.label_2, 2, 0, 1, 1)
 
         self.labelNachkauf = QLabel(self.scrollAreaWidgetContents)
         self.labelNachkauf.setObjectName(u"labelNachkauf")
@@ -100,20 +110,13 @@ class Ui_Dialog(object):
 
         self.gridLayout.addWidget(self.labelVorteil, 0, 0, 1, 2)
 
-        self.plainText = QPlainTextEdit(self.scrollAreaWidgetContents)
+        self.plainText = QTextBrowser(self.scrollAreaWidgetContents)
         self.plainText.setObjectName(u"plainText")
         self.plainText.setFrameShape(QFrame.StyledPanel)
         self.plainText.setFrameShadow(QFrame.Sunken)
         self.plainText.setLineWidth(1)
-        self.plainText.setReadOnly(True)
-        self.plainText.setBackgroundVisible(False)
 
         self.gridLayout.addWidget(self.plainText, 4, 0, 1, 2)
-
-        self.label_2 = QLabel(self.scrollAreaWidgetContents)
-        self.label_2.setObjectName(u"label_2")
-
-        self.gridLayout.addWidget(self.label_2, 2, 0, 1, 1)
 
         self.labelKosten = QLabel(self.scrollAreaWidgetContents)
         self.labelKosten.setObjectName(u"labelKosten")
@@ -121,10 +124,9 @@ class Ui_Dialog(object):
 
         self.gridLayout.addWidget(self.labelKosten, 2, 1, 1, 1)
 
-        self.label = QLabel(self.scrollAreaWidgetContents)
-        self.label.setObjectName(u"label")
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout.addWidget(self.label, 3, 0, 1, 1)
+        self.gridLayout.addItem(self.verticalSpacer, 5, 0, 1, 1)
 
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
@@ -157,13 +159,13 @@ class Ui_Dialog(object):
         ___qtreewidgetitem = self.treeWidget.headerItem()
         ___qtreewidgetitem.setText(1, QCoreApplication.translate("Dialog", u"Kosten", None));
         ___qtreewidgetitem.setText(0, QCoreApplication.translate("Dialog", u"Vorteil", None));
+        self.label.setText(QCoreApplication.translate("Dialog", u"Nachkauf:", None))
         self.labelTyp.setText(QCoreApplication.translate("Dialog", u"Profan", None))
         self.labelTyp.setProperty("class", QCoreApplication.translate("Dialog", u"italic", None))
+        self.label_2.setText(QCoreApplication.translate("Dialog", u"Kosten:", None))
         self.labelNachkauf.setText(QCoreApplication.translate("Dialog", u"H\u00e4ufig", None))
         self.labelVorteil.setText(QCoreApplication.translate("Dialog", u"Vorteil", None))
         self.labelVorteil.setProperty("class", QCoreApplication.translate("Dialog", u"h4", None))
-        self.label_2.setText(QCoreApplication.translate("Dialog", u"Kosten:", None))
         self.labelKosten.setText(QCoreApplication.translate("Dialog", u"20 EP", None))
-        self.label.setText(QCoreApplication.translate("Dialog", u"Nachkauf:", None))
     # retranslateUi
 

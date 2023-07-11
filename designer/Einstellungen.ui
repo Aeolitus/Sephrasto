@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>694</width>
-    <height>844</height>
+    <height>913</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -61,8 +61,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>631</width>
-        <height>794</height>
+        <width>717</width>
+        <height>833</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -296,18 +296,6 @@
           </item>
           <item row="3" column="2">
            <widget class="QPushButton" name="buttonPlugins">
-            <property name="minimumSize">
-             <size>
-              <width>28</width>
-              <height>28</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>28</width>
-              <height>28</height>
-             </size>
-            </property>
             <property name="toolTip">
              <string>Ordner suchen</string>
             </property>
@@ -321,18 +309,6 @@
           </item>
           <item row="3" column="3">
            <widget class="QPushButton" name="resetPlugins">
-            <property name="minimumSize">
-             <size>
-              <width>28</width>
-              <height>28</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>28</width>
-              <height>28</height>
-             </size>
-            </property>
             <property name="toolTip">
              <string>Auf den Standardordner zurücksetzen</string>
             </property>
@@ -346,18 +322,6 @@
           </item>
           <item row="0" column="3">
            <widget class="QPushButton" name="resetChar">
-            <property name="minimumSize">
-             <size>
-              <width>28</width>
-              <height>28</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>28</width>
-              <height>28</height>
-             </size>
-            </property>
             <property name="toolTip">
              <string>Auf den Standardordner zurücksetzen</string>
             </property>
@@ -384,18 +348,6 @@
           </item>
           <item row="2" column="3">
            <widget class="QPushButton" name="resetRegeln">
-            <property name="minimumSize">
-             <size>
-              <width>28</width>
-              <height>28</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>28</width>
-              <height>28</height>
-             </size>
-            </property>
             <property name="toolTip">
              <string>Auf den Standardordner zurücksetzen</string>
             </property>
@@ -409,18 +361,6 @@
           </item>
           <item row="2" column="2">
            <widget class="QPushButton" name="buttonRegeln">
-            <property name="minimumSize">
-             <size>
-              <width>28</width>
-              <height>28</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>28</width>
-              <height>28</height>
-             </size>
-            </property>
             <property name="toolTip">
              <string>Ordner suchen</string>
             </property>
@@ -450,18 +390,6 @@
           </item>
           <item row="0" column="2">
            <widget class="QPushButton" name="buttonChar">
-            <property name="minimumSize">
-             <size>
-              <width>28</width>
-              <height>28</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>28</width>
-              <height>28</height>
-             </size>
-            </property>
             <property name="toolTip">
              <string>Ordner suchen</string>
             </property>
@@ -485,18 +413,6 @@
           </item>
           <item row="4" column="2">
            <widget class="QPushButton" name="buttonCharakterboegen">
-            <property name="minimumSize">
-             <size>
-              <width>28</width>
-              <height>28</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>28</width>
-              <height>28</height>
-             </size>
-            </property>
             <property name="text">
              <string>Durchsuchen</string>
             </property>
@@ -507,18 +423,6 @@
           </item>
           <item row="4" column="3">
            <widget class="QPushButton" name="resetCharakterboegen">
-            <property name="minimumSize">
-             <size>
-              <width>28</width>
-              <height>28</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>28</width>
-              <height>28</height>
-             </size>
-            </property>
             <property name="text">
              <string>Zurücksetzen</string>
             </property>
@@ -535,7 +439,7 @@
          <property name="title">
           <string>Plugins</string>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_10"/>
+         <layout class="QGridLayout" name="gridLayout_6"/>
         </widget>
        </item>
        <item>
@@ -550,30 +454,6 @@
           <string>Darstellung</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_9">
-            <property name="text">
-             <string>Schriftart</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="2">
-           <widget class="QComboBox" name="comboFont">
-            <property name="minimumSize">
-             <size>
-              <width>240</width>
-              <height>0</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-          <item row="8" column="0">
-           <widget class="QLabel" name="label_13">
-            <property name="text">
-             <string>DPI-Skalierung</string>
-            </property>
-           </widget>
-          </item>
           <item row="3" column="0">
            <widget class="QLabel" name="label_10">
             <property name="text">
@@ -581,44 +461,10 @@
             </property>
            </widget>
           </item>
-          <item row="5" column="2">
-           <widget class="QComboBox" name="comboFontHeading">
-            <property name="minimumSize">
-             <size>
-              <width>240</width>
-              <height>0</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-          <item row="7" column="0">
-           <widget class="QLabel" name="label_12">
-            <property name="text">
-             <string>Schriftgröße Überschriften</string>
-            </property>
-           </widget>
-          </item>
           <item row="0" column="0">
            <widget class="QLabel" name="label_8">
             <property name="text">
              <string>Theme</string>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="0">
-           <widget class="QLabel" name="label_11">
-            <property name="text">
-             <string>Schriftart Überschriften</string>
-            </property>
-           </widget>
-          </item>
-          <item row="8" column="2">
-           <widget class="QCheckBox" name="checkDPI">
-            <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Viele Betriebssysteme bieten an, Programme, Schriften usw. größer darzustellen. Sephrasto kann diese sogenannte DPI-Skalierung vom Betriebssystem übernehmen. Dabei kann es aktuell allerdings noch zu Darstellungsfehlern wie niedrigaufgelösten Bildern oder Icons kommen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-            <property name="text">
-             <string/>
             </property>
            </widget>
           </item>
@@ -636,18 +482,6 @@
             </item>
             <item>
              <widget class="QPushButton" name="resetFontOS">
-              <property name="minimumSize">
-               <size>
-                <width>28</width>
-                <height>28</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>28</width>
-                <height>28</height>
-               </size>
-              </property>
               <property name="toolTip">
                <string>Darstellungsoptionen auf Betriebssystemstandard zurücksetzen</string>
               </property>
@@ -661,18 +495,6 @@
             </item>
             <item>
              <widget class="QPushButton" name="resetFontDefault">
-              <property name="minimumSize">
-               <size>
-                <width>28</width>
-                <height>28</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>28</width>
-                <height>28</height>
-               </size>
-              </property>
               <property name="toolTip">
                <string>Darstellungsoptionen auf Sephrastostandard zurücksetzen</string>
               </property>
@@ -685,53 +507,6 @@
              </widget>
             </item>
            </layout>
-          </item>
-          <item row="5" column="1">
-           <spacer name="horizontalSpacer_3">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="3" column="2">
-           <widget class="QSpinBox" name="spinAppFontSize">
-            <property name="minimumSize">
-             <size>
-              <width>60</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>60</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="layoutDirection">
-             <enum>Qt::LeftToRight</enum>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-            <property name="buttonSymbols">
-             <enum>QAbstractSpinBox::PlusMinus</enum>
-            </property>
-            <property name="minimum">
-             <number>6</number>
-            </property>
-            <property name="maximum">
-             <number>18</number>
-            </property>
-            <property name="value">
-             <number>8</number>
-            </property>
-           </widget>
           </item>
           <item row="7" column="2">
            <widget class="QSpinBox" name="spinAppFontHeadingSize">
@@ -767,6 +542,205 @@
             </property>
            </widget>
           </item>
+          <item row="5" column="2">
+           <widget class="QComboBox" name="comboFontHeading">
+            <property name="minimumSize">
+             <size>
+              <width>240</width>
+              <height>0</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="9" column="2">
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QLabel" name="label_21">
+              <property name="text">
+               <string>Spalten</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="spinCharListCols">
+              <property name="minimumSize">
+               <size>
+                <width>60</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>60</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="buttonSymbols">
+               <enum>QAbstractSpinBox::PlusMinus</enum>
+              </property>
+              <property name="minimum">
+               <number>1</number>
+              </property>
+              <property name="maximum">
+               <number>4</number>
+              </property>
+              <property name="value">
+               <number>2</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_22">
+              <property name="text">
+               <string>Zeilen</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSpinBox" name="spinCharListRows">
+              <property name="minimumSize">
+               <size>
+                <width>60</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>60</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="buttonSymbols">
+               <enum>QAbstractSpinBox::PlusMinus</enum>
+              </property>
+              <property name="minimum">
+               <number>1</number>
+              </property>
+              <property name="maximum">
+               <number>8</number>
+              </property>
+              <property name="value">
+               <number>5</number>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="label_11">
+            <property name="text">
+             <string>Schriftart Überschriften</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="0">
+           <widget class="QLabel" name="label_13">
+            <property name="text">
+             <string>Hauptfenster Charakterliste Layout</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="0">
+           <widget class="QLabel" name="label_12">
+            <property name="text">
+             <string>Schriftgröße Überschriften</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="2">
+           <widget class="QCheckBox" name="checkDPI">
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Viele Betriebssysteme bieten an, Programme, Schriften usw. größer darzustellen. Sephrasto kann diese sogenannte DPI-Skalierung vom Betriebssystem übernehmen. Dabei kann es aktuell allerdings noch zu Darstellungsfehlern wie niedrigaufgelösten Bildern oder Icons kommen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QComboBox" name="comboFont">
+            <property name="minimumSize">
+             <size>
+              <width>240</width>
+              <height>0</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="0">
+           <widget class="QLabel" name="labelDPI">
+            <property name="text">
+             <string>DPI-Skalierung</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_9">
+            <property name="text">
+             <string>Schriftart</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2">
+           <widget class="QSpinBox" name="spinAppFontSize">
+            <property name="minimumSize">
+             <size>
+              <width>60</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="buttonSymbols">
+             <enum>QAbstractSpinBox::PlusMinus</enum>
+            </property>
+            <property name="minimum">
+             <number>6</number>
+            </property>
+            <property name="maximum">
+             <number>18</number>
+            </property>
+            <property name="value">
+             <number>8</number>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
        </item>
@@ -776,10 +750,92 @@
           <string>Sonstiges</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_4">
+          <item row="4" column="1">
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>Logging</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="2" colspan="2">
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <widget class="QComboBox" name="comboLogging">
+              <property name="minimumSize">
+               <size>
+                <width>240</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="currentIndex">
+               <number>0</number>
+              </property>
+              <item>
+               <property name="text">
+                <string>Nur Fehler loggen</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Warnungen und Fehler loggen</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Alles loggen</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="buttonLogOpen">
+              <property name="toolTip">
+               <string>Logdatei zeigen</string>
+              </property>
+              <property name="text">
+               <string>PushButton</string>
+              </property>
+              <property name="class" stdset="0">
+               <string>icon</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_14">
+            <property name="text">
+             <string>Beim Start nach Updates suchen</string>
+            </property>
+           </widget>
+          </item>
           <item row="3" column="0">
            <widget class="QLabel" name="label_15">
             <property name="text">
              <string>Charakterbogen nach dem Erstellen öffnen</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2">
+           <widget class="QCheckBox" name="checkPDFOpen">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
@@ -795,71 +851,6 @@
              <bool>true</bool>
             </property>
            </widget>
-          </item>
-          <item row="4" column="0">
-           <widget class="QLabel" name="label_5">
-            <property name="text">
-             <string>Logging-Level</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="2">
-           <widget class="QCheckBox" name="checkPDFOpen">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="2">
-           <widget class="QComboBox" name="comboLogging">
-            <property name="minimumSize">
-             <size>
-              <width>240</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="currentIndex">
-             <number>0</number>
-            </property>
-            <item>
-             <property name="text">
-              <string>Nur Fehler</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Warnungen und Fehler</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Debug-Informationen</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_14">
-            <property name="text">
-             <string>Beim Start nach Updates suchen</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1">
-           <spacer name="horizontalSpacer_5">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
           </item>
          </layout>
         </widget>
@@ -898,7 +889,6 @@
   <tabstop>resetPlugins</tabstop>
   <tabstop>comboFont</tabstop>
   <tabstop>comboFontHeading</tabstop>
-  <tabstop>comboLogging</tabstop>
  </tabstops>
  <resources/>
  <connections>

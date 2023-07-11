@@ -19,13 +19,48 @@
      <property name="sizeConstraint">
       <enum>QLayout::SetDefaultConstraint</enum>
      </property>
-     <item row="3" column="3">
-      <spacer name="horizontalSpacer_2">
+     <item row="1" column="2">
+      <widget class="QLineEdit" name="editName"/>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLabel" name="label_3">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Status</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="2">
+      <widget class="QLineEdit" name="editKurzbeschreibung"/>
+     </item>
+     <item row="0" column="1">
+      <spacer name="verticalSpacer_7">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="1" column="3">
+      <spacer name="horizontalSpacer_3">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
        <property name="sizeType">
-        <enum>QSizePolicy::Expanding</enum>
+        <enum>QSizePolicy::Fixed</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
@@ -35,8 +70,169 @@
        </property>
       </spacer>
      </item>
+     <item row="1" column="5">
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Preferred</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>150</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="8" column="1">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Expanding</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLabel" name="labelFinanzen">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Finanzen</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="2">
+      <widget class="QComboBox" name="comboStatus">
+       <property name="currentIndex">
+        <number>-1</number>
+       </property>
+       <property name="maxVisibleItems">
+        <number>5</number>
+       </property>
+       <property name="minimumContentsLength">
+        <number>0</number>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="2">
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="editEig2">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLineEdit" name="editEig3">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="editEig8">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="editEig6">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLineEdit" name="editEig7">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLineEdit" name="editEig1">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLineEdit" name="editEig5">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="editEig4">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="1" column="0">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Preferred</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>150</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
      <item row="6" column="1">
-      <widget class="QLabel" name="label_4">
+      <widget class="QLabel" name="labelKurzbeschreibung">
        <property name="minimumSize">
         <size>
          <width>120</width>
@@ -57,8 +253,8 @@
        </property>
       </widget>
      </item>
-     <item row="6" column="2">
-      <widget class="QLineEdit" name="editKurzbeschreibung"/>
+     <item row="2" column="2">
+      <widget class="QLineEdit" name="editSpezies"/>
      </item>
      <item row="7" column="1">
       <widget class="QLabel" name="label_6">
@@ -78,22 +274,6 @@
         <string>h4</string>
        </property>
       </widget>
-     </item>
-     <item row="3" column="0">
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Expanding</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
      </item>
      <item row="1" column="1">
       <widget class="QLabel" name="label">
@@ -127,236 +307,18 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="2">
-      <widget class="QLineEdit" name="editName">
-       <property name="minimumSize">
-        <size>
-         <width>600</width>
-         <height>0</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QLabel" name="label_3">
-       <property name="font">
-        <font>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Status</string>
-       </property>
-       <property name="class" stdset="0">
-        <string>h4</string>
-       </property>
-      </widget>
-     </item>
      <item row="4" column="2">
       <widget class="QComboBox" name="comboFinanzen">
        <property name="currentIndex">
-        <number>2</number>
+        <number>-1</number>
        </property>
        <property name="maxVisibleItems">
         <number>5</number>
        </property>
-       <item>
-        <property name="text">
-         <string>Sehr Reich</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Reich</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Normal</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Arm</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Sehr Arm</string>
-        </property>
-       </item>
       </widget>
      </item>
-     <item row="3" column="2">
-      <widget class="QComboBox" name="comboStatus">
-       <property name="currentIndex">
-        <number>2</number>
-       </property>
-       <property name="maxVisibleItems">
-        <number>5</number>
-       </property>
-       <property name="minimumContentsLength">
-        <number>0</number>
-       </property>
-       <item>
-        <property name="text">
-         <string>Elite</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Oberschicht</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Mittelschicht</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Unterschicht</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Abschaum</string>
-        </property>
-       </item>
-      </widget>
-     </item>
-     <item row="7" column="2">
-      <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0">
-        <widget class="QLineEdit" name="editEig1">
-         <property name="minimumSize">
-          <size>
-           <width>200</width>
-           <height>0</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QLineEdit" name="editEig6">
-         <property name="minimumSize">
-          <size>
-           <width>200</width>
-           <height>0</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLineEdit" name="editEig3">
-         <property name="minimumSize">
-          <size>
-           <width>200</width>
-           <height>0</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLineEdit" name="editEig5">
-         <property name="minimumSize">
-          <size>
-           <width>200</width>
-           <height>0</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QLineEdit" name="editEig4">
-         <property name="minimumSize">
-          <size>
-           <width>200</width>
-           <height>0</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QLineEdit" name="editEig2">
-         <property name="minimumSize">
-          <size>
-           <width>200</width>
-           <height>0</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QLineEdit" name="editEig7">
-         <property name="minimumSize">
-          <size>
-           <width>200</width>
-           <height>0</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
-        <widget class="QLineEdit" name="editEig8">
-         <property name="minimumSize">
-          <size>
-           <width>200</width>
-           <height>0</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="2" column="2">
-      <widget class="QLineEdit" name="editSpezies"/>
-     </item>
-     <item row="4" column="1">
-      <widget class="QLabel" name="labelFinanzen">
-       <property name="font">
-        <font>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Finanzen</string>
-       </property>
-       <property name="class" stdset="0">
-        <string>h4</string>
-       </property>
-      </widget>
-     </item>
-     <item row="8" column="1">
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Expanding</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="0" column="1">
-      <spacer name="verticalSpacer_7">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
+     <item row="5" column="2">
+      <widget class="QComboBox" name="comboHeimat"/>
      </item>
      <item row="5" column="1">
       <widget class="QLabel" name="label_7">
@@ -374,15 +336,88 @@
        </property>
       </widget>
      </item>
-     <item row="5" column="2">
-      <widget class="QComboBox" name="comboHeimat"/>
+     <item row="0" column="4" rowspan="9">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <spacer name="horizontalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>0</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelImage">
+         <property name="minimumSize">
+          <size>
+           <width>208</width>
+           <height>272</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>208</width>
+           <height>272</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Das Bild wird im Sephrasto-Hauptfenster für die Schnellade-Funktion verwendet und im Charakterbogen ausgegeben. Hinweis: Der Standard Charakterbogen hat keinen Platz für ein Bild. Wechsle im Info-Tab auf den "Standardbogen mit Bild statt SchiP" oder einen der anderen Bögen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="text">
+          <string>Bild-Auflösung: 260x340 px
+(wird automatisch angepasst)</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QPushButton" name="buttonLoadImage">
+           <property name="text">
+            <string>Bild laden</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="buttonDeleteImage">
+           <property name="text">
+            <string>Bild löschen</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>0</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
      </item>
     </layout>
    </item>
   </layout>
  </widget>
  <tabstops>
-  <tabstop>editName</tabstop>
   <tabstop>editSpezies</tabstop>
   <tabstop>comboStatus</tabstop>
   <tabstop>comboFinanzen</tabstop>

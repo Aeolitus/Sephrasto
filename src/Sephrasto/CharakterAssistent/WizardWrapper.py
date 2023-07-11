@@ -8,6 +8,9 @@ from EventBus import EventBus
 from CharakterAssistent.CharakterMerger import CharakterMerger
 import PathHelper
 import copy
+from Core.Waffe import Waffe
+from Datenbank import Datenbank
+from Charakter import Char
 
 class Regeln(object):
     def __init__(self):
@@ -96,34 +99,29 @@ class WizardWrapper(object):
         return result
 
     def setupMainForm(self):
+        self.ui.cbRegeln.addItems(EinstellungenWrapper.getDatenbanken(Wolke.Settings["Pfad-Regeln"]))
+        self.ui.cbRegeln.setCurrentText(Wolke.Settings['Datenbank'])
+
         rl = sorted(list(self.regelList.keys()))
         if "Ilaris" in rl:
             rl.remove("Ilaris")
             rl.insert(0, "Ilaris")
-        self.ui.cbRegeln.addItems(rl)
+        self.ui.cbBaukasten.addItems(rl)
 
         if "CharakterAssistent_Regeln" in Wolke.Settings:
             regeln = Wolke.Settings["CharakterAssistent_Regeln"]
             if regeln in rl:
-                self.ui.cbRegeln.setCurrentIndex(rl.index(regeln))
+                self.ui.cbBaukasten.setCurrentIndex(rl.index(regeln))
 
-        self.ui.cbRegeln.currentIndexChanged.connect(self.regelnChanged)
-        self.ui.cbSpezies.currentIndexChanged.connect(self.updateAcceptButton)
-        self.ui.cbKultur.currentIndexChanged.connect(self.updateAcceptButton)
-        self.ui.cbProfession.currentIndexChanged.connect(self.updateAcceptButton)
+        self.ui.cbBaukasten.currentIndexChanged.connect(self.regelnChanged)
         self.ui.cbProfessionKategorie.currentIndexChanged.connect(self.professionKategorieChanged)
 
         self.regelnChanged()
         self.ui.btnAccept.clicked.connect(self.acceptClickedHandler)
         self.ui.btnCancel.clicked.connect(self.cancelClickedHandler)
 
-    def updateAcceptButton(self):
-        self.ui.btnAccept.setEnabled(self.ui.cbSpezies.currentText() != "Überspringen" or
-                                     self.ui.cbKultur.currentText() != "Überspringen" or
-                                     (self.ui.cbProfession.currentText() != "" and self.ui.cbProfession.currentText() != "Überspringen"))
-
     def professionKategorieChanged(self):
-        regeln = self.regelList[self.ui.cbRegeln.currentText()]
+        regeln = self.regelList[self.ui.cbBaukasten.currentText()]
 
         self.ui.cbProfession.clear()
         kategorie = self.ui.cbProfessionKategorie.currentText()
@@ -135,12 +133,12 @@ class WizardWrapper(object):
             self.ui.cbProfession.addItems([el.comboName for el in self.professionen])
 
     def regelnChanged(self):
-        Wolke.Settings["CharakterAssistent_Regeln"] = self.ui.cbRegeln.currentText()
+        Wolke.Settings["CharakterAssistent_Regeln"] = self.ui.cbBaukasten.currentText()
         EinstellungenWrapper.save()
 
-        if not self.ui.cbRegeln.currentText() in self.regelList:
+        if not self.ui.cbBaukasten.currentText() in self.regelList:
             return
-        regeln = self.regelList[self.ui.cbRegeln.currentText()]
+        regeln = self.regelList[self.ui.cbBaukasten.currentText()]
 
         self.ui.cbSpezies.clear()
         self.ui.cbKultur.clear()
@@ -160,28 +158,31 @@ class WizardWrapper(object):
         self.professionKategorieChanged()
 
     def cancelClickedHandler(self):
-        self.form.close()
+        self.form.reject()
 
     def acceptClickedHandler(self):
-        if not self.ui.cbRegeln.currentText() in self.regelList:
-            self.form.close()
+        if not self.ui.cbBaukasten.currentText() in self.regelList:
+            self.form.reject()
             return
-
-        regeln = self.regelList[self.ui.cbRegeln.currentText()]
+        Wolke.DB = Datenbank(self.ui.cbRegeln.currentText(), True)
+        Wolke.Char = Char()
+        regeln = self.regelList[self.ui.cbBaukasten.currentText()]
 
         geschlecht = ""
         if self.ui.btnWeiblich.isChecked():
             geschlecht = "weiblich"
-        else:
+        elif self.ui.btnMaennlich.isChecked():
             geschlecht = "männlich"
+        else:
+            geschlecht = self.ui.leDivers.text()
 
         Wolke.Char.kurzbeschreibung = "Geschlecht: " + geschlecht
         Wolke.Char.geschlecht = geschlecht
 
         # 1. add default weapons (Sephrasto only adds them if the weapons array is empty, which might not be the case here)
-        for waffe in Wolke.DB.einstellungen["Waffen: Standardwaffen"].toTextList():
+        for waffe in Wolke.DB.einstellungen["Waffen: Standardwaffen"].wert:
             if waffe in Wolke.DB.waffen:
-                Wolke.Char.waffen.append(copy.copy(Wolke.DB.waffen[waffe]))
+                Wolke.Char.waffen.append(Waffe(Wolke.DB.waffen[waffe]))
 
         # 2. add selected SKP
         if self.ui.cbSpezies.currentText() != "Überspringen":
@@ -215,6 +216,4 @@ class WizardWrapper(object):
                 profession = self.professionen[self.ui.cbProfession.currentIndex()-1]
                 CharakterMerger.handleChoices(profession, geschlecht, False, False, True)
 
-        Wolke.Char.aktualisieren()
-
-        self.form.hide()
+        self.form.accept()

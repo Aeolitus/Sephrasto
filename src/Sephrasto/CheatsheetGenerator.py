@@ -2,57 +2,55 @@ from Wolke import Wolke
 import re
 import math
 from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
-import Objekte
-from Fertigkeiten import VorteilLinkKategorie
+from Core.Vorteil import VorteilLinkKategorie
 from CharakterPrintUtility import CharakterPrintUtility
 from EventBus import EventBus
+import base64
 
-# The qt web engine then doesnt handle column-break in print layout properly,
-# so we have to hack around a bit by placing titles and categories inside the individual articles before the actual rule element header.
-# Maybe in the future qt will upgrade to a newer chromium that supports that css property...
 class CheatsheetGenerator(object):
-
     def __init__(self):
-        self.reihenfolge = Wolke.DB.einstellungen["Regelanhang: Reihenfolge"].toTextList()
-        self.aktiveRegelTypen = [int(r[2:]) for r in self.reihenfolge if r[0] == "R" and len(r) > 2 and r[2:].isnumeric()]
-        self.aktiveVorteilTypen = [int(r[2:]) for r in self.reihenfolge if r[0] == "V" and len(r) > 2 and r[2:].isnumeric()]
+        pass
 
     @staticmethod
     def categoryHeading(title, category):
-        return title + "<span class='ruleCategoryHeading'>" + category + "</span><br>"
+        if title == category:
+            return f"<h1>{title}</h1>"
+        if title:
+            return f"<h1>{title}</h1><h2>{category}</h2>"
+        return f"<h2>{category}</h2>"
 
     @staticmethod
     def ruleHeading(text):
-        return "<span class='ruleHeading'>" + text + "</span><br>"
+        return "<h3>" + text + "</h3>"
 
     def appendWaffeneigenschaften(self, rules, category, eigenschaften):
         if not eigenschaften or (len(eigenschaften) == 0):
             return
-        rules.append("<article>" + category)
+        rules.append(category)
         count = 0
         for weName, waffen in sorted(eigenschaften.items()):
             we = Wolke.DB.waffeneigenschaften[weName]
             if not we.text:
                 continue
             count += 1
-            if count != 1:
-                rules.append("<article>")
-            rules.append(CheatsheetGenerator.ruleHeading(we.name + " (" + ", ".join(waffen) + ")") + we.text + "</article>")
+            rules.append("<article>" + CheatsheetGenerator.ruleHeading(we.name + " (" + ", ".join(waffen) + ")") + we.text + "</article>")
 
         if count == 0:
             rules.pop()
             return False
         return True
 
+    def isElementActive(self, r, element):
+        return f"{r}:{element.typ}" not in Wolke.Char.deaktivierteRegelKategorien and f"{r}:{element.name}" not in Wolke.Char.deaktivierteRegelKategorien
+
     def isLinkedToAny(self, vorteil):
         if vorteil.linkKategorie == VorteilLinkKategorie.Regel:
-            return vorteil.linkElement in Wolke.DB.regeln and Wolke.DB.regeln[vorteil.linkElement].typ in self.aktiveRegelTypen
+            return vorteil.linkElement in Wolke.DB.regeln and self.isElementActive("R", Wolke.DB.regeln[vorteil.linkElement])
         elif vorteil.linkKategorie == VorteilLinkKategorie.ÜberTalent:
-            for fer in Wolke.Char.übernatürlicheFertigkeiten:
-                if vorteil.linkElement in Wolke.Char.übernatürlicheFertigkeiten[fer].gekaufteTalente:
-                    return True
+            if vorteil.linkElement in Wolke.Char.talente and self.isElementActive("S", Wolke.Char.talente[vorteil.linkElement]):
+                return True
         elif vorteil.linkKategorie == VorteilLinkKategorie.Vorteil:
-            if vorteil.linkElement in Wolke.Char.vorteile and Wolke.DB.vorteile[vorteil.linkElement].typ in self.aktiveVorteilTypen:
+            if vorteil.linkElement in Wolke.Char.vorteile and self.isElementActive("V", Wolke.Char.vorteile[vorteil.linkElement]):
                 return True
             return self.isLinkedToAny(Wolke.DB.vorteile[vorteil.linkElement])
 
@@ -61,25 +59,29 @@ class CheatsheetGenerator(object):
     def appendVorteile(self, rules, category, vorteile):
         if not vorteile or (len(vorteile) == 0):
             return
-        rules.append("<article>" + category)
+        rules.append(category)
         count = 0
-        for vor in vorteile:
-            vorteil = Wolke.DB.vorteile[vor]
+        for vorteil in vorteile:
+            if "V:" + vorteil.name in Wolke.Char.deaktivierteRegelKategorien:
+                continue
+
             if not vorteil.cheatsheetAuflisten or self.isLinkedToAny(vorteil):
                 continue
 
             text = CharakterPrintUtility.getLinkedDescription(Wolke.Char, vorteil)
             if not text:
                 continue
-
             count += 1
             result = []
-            if count != 1:
-                result.append("<article>")
-            result.append(CheatsheetGenerator.ruleHeading(CharakterPrintUtility.getLinkedName(Wolke.Char, vorteil)))
 
-            if "\n" in text:
-                text = "<ul><li> " + text.replace("\n", "</li><li>") + "</ul>"
+            result.append("<article>" + CheatsheetGenerator.ruleHeading(CharakterPrintUtility.getLinkedName(Wolke.Char, vorteil, descriptionWillFollow=True)))
+
+            bedingungen = CharakterPrintUtility.getLinkedBedingungen(Wolke.Char, vorteil)
+            if bedingungen:
+                result.append(f"<i>Bedingungen:</i> {bedingungen}\n")
+
+            if "\n" in text and not "<ul" in text and not "<ol" in text:
+                text = "<ul><li>" + text.replace("\n", "</li><li>") + "</li></ul>"
             result.append(text)
             result.append("</article>")
             rules.append("".join(result))
@@ -92,28 +94,26 @@ class CheatsheetGenerator(object):
     def appendRegeln(self, rules, category, regelList):
         if not regelList or (len(regelList) == 0):
             return
-        rules.append("<article>" + category)
+        rules.append(category)
         count = 0
         for man in regelList:
             regel = Wolke.DB.regeln[man]
-            if not Wolke.Char.voraussetzungenPrüfen(regel.voraussetzungen):
+            if "R:" + regel.name in Wolke.Char.deaktivierteRegelKategorien:
+                continue
+
+            if not Wolke.Char.voraussetzungenPrüfen(regel):
                 continue
             count += 1
             result = []
-            if count != 1:
-                result.append("<article>")
-            name = regel.name
-            for trim in [" (M)", " (L)", "(D)", " (FK)"]:
-                if name.endswith(trim):
-                    name = name[:-len(trim)]
+            result.append("<article>")
+            name = regel.anzeigename
             if regel.probe:
                 name += " (" + regel.probe + ")"
             result.append(CheatsheetGenerator.ruleHeading(name))
             result.append(regel.text)
            
             linkedText = []
-            for vor in Wolke.Char.vorteile:
-                vorteil = Wolke.DB.vorteile[vor]
+            for vorteil in Wolke.Char.vorteile.values():
                 if CharakterPrintUtility.isLinkedTo(Wolke.Char, vorteil, VorteilLinkKategorie.Regel, man):
                     beschreibung = CharakterPrintUtility.getLinkedDescription(Wolke.Char, vorteil)
                     if not beschreibung:
@@ -137,48 +137,21 @@ class CheatsheetGenerator(object):
     def appendTalente(self, rules, category, talente):
         if not talente or (len(talente) == 0):
             return
-        rules.append("<article>" + category)
+        rules.append(category)
         count = 0
-        for tal in talente:       
+        for tal in talente:     
+            if "S:" + tal.name in Wolke.Char.deaktivierteRegelKategorien:
+                continue
             if not tal.cheatsheetAuflisten or not tal.text:
                 continue
             count += 1
             result = []
-            if count != 1:
-                result.append("<article>")
-            result.append(CheatsheetGenerator.ruleHeading(tal.anzeigeName + " (PW " + str(tal.pw) + ")"))
-            text = Wolke.DB.talente[tal.na].text
-            
-            #Remove everything from Sephrasto on
-            index = text.find('\n<b>Sephrasto')
-            if index != -1:
-                text = text[:index]
-
-            #Remove everything from Anmerkung on but keep the text and append it later
-            index = text.find('\n<b>Anmerkung')
-            anmerkung = ""
-            if index != -1:
-                anmerkung = text[index:]
-                text = text[:index]
-
-            #Remove everything from Fertigkeiten on
-            index = text.find('\n<b>Fertigkeiten')
-            if index != -1:
-                text = text[:index]
-
-            #Remove everything from Erlernen on (some talents don't have a Fertigkeiten list)
-            index = text.find('\n<b>Erlernen')
-            if index != -1:
-                text = text[:index]
-
-            result.append(text)
-            if anmerkung:
-                result.append(anmerkung)
+            result.append("<article>" + CheatsheetGenerator.ruleHeading(tal.anzeigename + " (PW " + str(tal.probenwert) + ")"))
+            result.append(tal.text)
 
             linkedText = []
-            for vor in Wolke.Char.vorteile:
-                vorteil = Wolke.DB.vorteile[vor]
-                if CharakterPrintUtility.isLinkedTo(Wolke.Char, vorteil, VorteilLinkKategorie.ÜberTalent, tal.na):
+            for vorteil in Wolke.Char.vorteile.values():
+                if CharakterPrintUtility.isLinkedTo(Wolke.Char, vorteil, VorteilLinkKategorie.ÜberTalent, tal.name):
                     beschreibung = CharakterPrintUtility.getLinkedDescription(Wolke.Char, vorteil)
                     if not beschreibung:
                         continue
@@ -202,8 +175,8 @@ class CheatsheetGenerator(object):
         voraussetzungenPruefen = Wolke.Char.voraussetzungenPruefen
         Wolke.Char.voraussetzungenPruefen = True
 
-        sortV = Wolke.Char.vorteile.copy()
-        sortV = sorted(sortV, key=str.lower)
+        sortV = Wolke.Char.vorteile.values()
+        sortV = sorted(sortV, key=lambda vor: vor.name)
 
         sortR = list(Wolke.DB.regeln.keys())
         sortR = sorted(sortR, key=str.lower)
@@ -218,21 +191,20 @@ class CheatsheetGenerator(object):
                     else:
                         waffeneigenschaften[we.name].append(waffe.anzeigename)
                 except WaffeneigenschaftException:
-                    pass      
+                    pass    
         
-        fertigkeitsTypen = Wolke.DB.einstellungen["Fertigkeiten: Typen übernatürlich"].toTextList()
-        talentboxList = CharakterPrintUtility.getÜberTalente(Wolke.Char)
-        (zauber, liturgien, anrufungen) = CharakterPrintUtility.groupUeberTalente(talentboxList)
+        talenteByTyp = CharakterPrintUtility.getÜberTalente(Wolke.Char)
 
         rules = []
 
-        regelMergeScript = Wolke.DB.einstellungen["Regelanhang: Regel Mergescript"].toText()
-        vorteilTypen = Wolke.DB.einstellungen["Vorteile: Typen"].toTextList()
-        regelTypen = Wolke.DB.einstellungen["Regeln: Typen"].toTextList()
+        regelMergeScript = Wolke.DB.einstellungen["Regelanhang: Regel Mergescript"].wert
+        vorteilTypen = Wolke.DB.einstellungen["Vorteile: Typen"].wert
+        regelTypen = Wolke.DB.einstellungen["Regeln: Typen"].wert
+        spezialTalentTypen = list(Wolke.DB.einstellungen["Talente: Spezialtalent Typen"].wert.values())
 
         vorteileGruppiert = []
         for i in range(len(vorteilTypen)):
-            vorteileGruppiert.append([el for el in sortV if Wolke.DB.vorteile[el].typ == i])
+            vorteileGruppiert.append([el for el in sortV if el.typ == i])
 
         regelnGruppiert = []
         for i in range(len(regelTypen)):
@@ -250,13 +222,13 @@ class CheatsheetGenerator(object):
 
         lastTitle = ""
         title = ""
-        for r in self.reihenfolge:
+        for r in Wolke.DB.einstellungen["Regelanhang: Reihenfolge"].wert:
             if r[0] == "T" and len(r) > 2:
                 if lastTitle and len(rules) > 0 and rules[-1] == lastTitle:
                     rules.pop()
-                title = "<h1 class='title'>" + r[2:] + "</h1>"
+                title = r[2:]
                 lastTitle = title
-            if not r in Wolke.Char.regelnKategorien:
+            if r in Wolke.Char.deaktivierteRegelKategorien:
                 continue
             if r[0] == "V" and len(r) > 2 and r[2:].isnumeric():
                 typ = int(r[2:])
@@ -273,14 +245,11 @@ class CheatsheetGenerator(object):
             elif r[0] == "W":
                 if self.appendWaffeneigenschaften(rules, CheatsheetGenerator.categoryHeading(title, "Waffeneigenschaften"), waffeneigenschaften):
                     title = ""
-            elif r[0] == "Z":
-                if self.appendTalente(rules, CheatsheetGenerator.categoryHeading(title, "Zauber"), zauber):
-                    title = ""
-            elif r[0] == "L":
-                if self.appendTalente(rules, CheatsheetGenerator.categoryHeading(title, "Liturgien"), liturgien):
-                    title = ""
-            elif r[0] == "A":
-                if self.appendTalente(rules, CheatsheetGenerator.categoryHeading(title, "Anrufungen"), anrufungen):
+            elif r[0] == "S" and len(r) > 2 and r[2:].isnumeric():
+                typ = int(r[2:])
+                if typ >= len(spezialTalentTypen):
+                    continue
+                if self.appendTalente(rules, CheatsheetGenerator.categoryHeading(title, spezialTalentTypen[typ]), talenteByTyp[typ]):
                     title = ""
             
             EventBus.doAction("regelanhang_anfuegen", { "reihenfolge" : r, "appendCallback" : lambda text: rules.append(text) })
@@ -289,5 +258,5 @@ class CheatsheetGenerator(object):
             rules.pop()
 
         Wolke.Char.voraussetzungenPruefen = voraussetzungenPruefen
-        rules = Hilfsmethoden.fixHtml("".join(rules))
+        rules = Hilfsmethoden.fixHtml("".join(rules), False)
         return rules

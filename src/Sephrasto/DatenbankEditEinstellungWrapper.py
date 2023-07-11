@@ -1,84 +1,73 @@
+from DatenbankElementEditorBase import DatenbankElementEditorBase, ScriptEditor
 import UI.DatenbankEditEinstellung
-import Datenbank
-from DatenbankEinstellung import DatenbankEinstellung
+from Core.DatenbankEinstellung import DatenbankEinstellung
 from PySide6 import QtWidgets, QtCore
 from Wolke import Wolke
+from Datenbank import Datenbank
 
-class DatenbankEditEinstellungWrapper(object):
-    def __init__(self, datenbank, einstellung=None, readonly=False):
+class DatenbankEditEinstellungWrapper(DatenbankElementEditorBase):
+    def __init__(self, datenbank, element, readonly=False):
         super().__init__()
-        self.datenbank = datenbank
-        if einstellung is None:
-            einstellung = DatenbankEinstellung()
-        self.einstellungPicked = einstellung
-        self.readonly = readonly
-        self.deDialog = QtWidgets.QDialog()
-        self.ui = UI.DatenbankEditEinstellung.Ui_deDialog()
-        self.ui.setupUi(self.deDialog)
+        if element.typ in ["Exec", "Eval"]:
+            self.scriptEditor = ScriptEditor(self, "text")
+        elif element.typ == "TextDict":
+            self.validator["Text"] = True
+        self.setupAndShow(datenbank, UI.DatenbankEditEinstellung.Ui_dialog(), DatenbankEinstellung, element, readonly)
 
-        if not einstellung.isUserAdded:
-            if readonly:
-                self.ui.warning.setText("Gelöschte Elemente können nicht verändert werden.")
-            self.ui.warning.setVisible(True)
-
-        self.deDialog.setWindowFlags(
-                QtCore.Qt.Window |
-                QtCore.Qt.CustomizeWindowHint |
-                QtCore.Qt.WindowTitleHint |
-                QtCore.Qt.WindowCloseButtonHint |
-                QtCore.Qt.WindowMaximizeButtonHint |
-                QtCore.Qt.WindowMinimizeButtonHint)
-
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setText("Speichern")
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).setText("Abbrechen")
-        
-        windowSize = Wolke.Settings["WindowSize-DBEinstellung"]
-        self.deDialog.resize(windowSize[0], windowSize[1])
-
+    def load(self, einstellung):
         self.ui.labelName.setText(einstellung.name)
         self.ui.labelBeschreibung.setText(einstellung.beschreibung)
-        
-        self.ui.checkWert.setVisible(einstellung.typ == 'Bool')
-        self.ui.spinWert.setVisible(einstellung.typ == 'Int')
-        self.ui.dspinWert.setVisible(einstellung.typ == 'Float')
-        self.ui.teWert.setVisible(einstellung.typ == 'Text')
+        self.ui.checkText.setVisible(einstellung.typ == 'Bool')
+        self.ui.spinText.setVisible(einstellung.typ == 'Int')
+        self.ui.dspinText.setVisible(einstellung.typ == 'Float')
+        self.ui.teText.setVisible(einstellung.typ in ['Text', 'TextList', 'IntList', 'TextDict', 'Eval', 'Exec'])
         if einstellung.typ == 'Int':
-            self.ui.spinWert.setValue(einstellung.toInt())
+            self.ui.spinText.setValue(int(einstellung.text))
         elif einstellung.typ == 'Float':
-            self.ui.dspinWert.setValue(einstellung.toFloat())
+            self.ui.dspinText.setValue(float(einstellung.text))
         elif einstellung.typ == 'Bool':
-            self.ui.checkWert.setChecked(einstellung.toBool())
+            self.ui.checkText.setChecked(einstellung.text.lower() == "true" or einstellung.text == '1')
+        elif einstellung.typ in ["Exec", "Eval"]:
+            self.scriptEditor.load(einstellung)
+            self.dialog.layout().removeItem(self.ui.verticalSpacer)
+        elif einstellung.typ == "TextDict":
+            self.ui.teText.textChanged.connect(self.dictChanged)
+            self.ui.teText.setPlainText(einstellung.text)
+            self.dialog.layout().removeItem(self.ui.verticalSpacer)         
         else:
-            self.ui.teWert.setPlainText(einstellung.toText())
-            self.deDialog.layout().removeItem(self.ui.verticalSpacer)
+            self.ui.teText.setPlainText(einstellung.text)
+            self.dialog.layout().removeItem(self.ui.verticalSpacer)
 
-        self.updateSaveButtonState()
-        self.deDialog.show()
-        ret = self.deDialog.exec()
-
-        Wolke.Settings["WindowSize-DBEinstellung"] = [self.deDialog.size().width(), self.deDialog.size().height()]
-
-        if ret == QtWidgets.QDialog.Accepted:
-            self.einstellung = Datenbank.DatenbankEinstellung()
-            self.einstellung.name = self.ui.labelName.text()
-            self.einstellung.typ = self.einstellungPicked.typ
-            self.einstellung.beschreibung = self.einstellungPicked.beschreibung
-            if einstellung.typ == 'Int':
-                self.einstellung.wert = str(self.ui.spinWert.value())
-            elif einstellung.typ == 'Float':
-                self.einstellung.wert = str(self.ui.dspinWert.value())
-            elif einstellung.typ == 'Bool':
-                self.einstellung.wert = str(self.ui.checkWert.isChecked())
-            else:
-                self.einstellung.wert = self.ui.teWert.toPlainText()
-
-            self.einstellung.isUserAdded = False
-            if self.einstellung == self.einstellungPicked:
-                self.einstellung = None
-            else:
-                self.einstellung.isUserAdded = True
+    def update(self, einstellung):
+        einstellung.name = self.ui.labelName.text()
+        einstellung.typ = self.elementPicked.typ
+        einstellung.beschreibung = self.elementPicked.beschreibung
+        if einstellung.typ == 'Int':
+            einstellung.text = str(self.ui.spinText.value())
+        elif einstellung.typ == 'Float':
+            einstellung.text = str(self.ui.dspinText.value())
+        elif einstellung.typ == 'Bool':
+            einstellung.text = str(self.ui.checkText.isChecked())
+        elif einstellung.typ in ["Exec", "Eval"]:
+            self.scriptEditor.update(einstellung)
         else:
-            self.einstellung = None
+            einstellung.text = self.ui.teText.toPlainText()
 
-    def updateSaveButtonState(self):
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(not self.readonly)
+    def dictChanged(self):
+        text = self.ui.teText.toPlainText()
+        allLinesValid = True
+        for line in text.split(self.elementPicked.separator):
+            if not "=" in line:
+                allLinesValid = False
+                break
+
+        if text and not allLinesValid:
+            self.ui.teText.setToolTip("Jeder Eintrag muss ein '=' enthalten.")
+            self.ui.teText.setStyleSheet("border: 1px solid red;")
+            self.validator["Text"] = False
+            self.updateSaveButtonState()
+        else:
+            self.ui.teText.setToolTip("")
+            self.ui.teText.setStyleSheet("")
+            self.validator["Text"] = True
+            self.updateSaveButtonState()

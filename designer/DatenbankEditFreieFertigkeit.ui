@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ffDialog</class>
- <widget class="QDialog" name="ffDialog">
+ <class>dialog</class>
+ <widget class="QDialog" name="dialog">
   <property name="windowModality">
    <enum>Qt::ApplicationModal</enum>
   </property>
@@ -33,7 +33,11 @@
       </widget>
      </item>
      <item row="3" column="1">
-      <widget class="QPlainTextEdit" name="teVoraussetzungen"/>
+      <widget class="QPlainTextEdit" name="teVoraussetzungen">
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Siehe &quot;Datenbank Editor -&gt; Einstellungsmöglichkeiten -&gt; Voraussetzungen&quot; in der Sephrasto-Hilfe für eine Anleitung.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
      </item>
      <item row="0" column="0" colspan="2">
       <widget class="QLabel" name="warning">
@@ -44,7 +48,7 @@
         <string notr="true">background-color: rgb(255, 255, 0); color: black;</string>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dies ist eine Ilaris Standard-Freie-Fertigkeit. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in den Hausregeln gelöscht. Damit erhältst du für diese Freie Fertigkeit keine automatischen Updates mehr mit neuen Sephrasto-Versionen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string></string>
        </property>
        <property name="wordWrap">
         <bool>true</bool>
@@ -98,7 +102,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>ffDialog</receiver>
+   <receiver>dialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -114,7 +118,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>ffDialog</receiver>
+   <receiver>dialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

@@ -83,12 +83,15 @@
        <property name="text">
         <string>Übernehmen</string>
        </property>
+       <property name="default">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
     </layout>
    </item>
    <item row="3" column="1">
-    <widget class="QComboBox" name="cbRegeln">
+    <widget class="QComboBox" name="cbBaukasten">
      <property name="minimumSize">
       <size>
        <width>300</width>
@@ -225,6 +228,9 @@
    </item>
    <item row="4" column="1">
     <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="spacing">
+      <number>10</number>
+     </property>
      <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
@@ -254,6 +260,16 @@
         <string>Männlich</string>
        </property>
       </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="btnDivers">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="leDivers"/>
      </item>
     </layout>
    </item>
@@ -341,10 +357,29 @@
    <item row="8" column="1">
     <widget class="QComboBox" name="cbProfession"/>
    </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="label_3">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Hausregeln</string>
+     </property>
+     <property name="class" stdset="0">
+      <string>h4</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QComboBox" name="cbRegeln"/>
+   </item>
   </layout>
  </widget>
  <tabstops>
-  <tabstop>cbRegeln</tabstop>
+  <tabstop>cbBaukasten</tabstop>
   <tabstop>btnWeiblich</tabstop>
   <tabstop>btnMaennlich</tabstop>
   <tabstop>cbSpezies</tabstop>

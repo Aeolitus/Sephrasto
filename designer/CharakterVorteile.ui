@@ -134,43 +134,10 @@
          <x>0</x>
          <y>0</y>
          <width>340</width>
-         <height>395</height>
+         <height>394</height>
         </rect>
        </property>
-       <layout class="QGridLayout" name="gridLayout_2" columnstretch="0,1">
-        <item row="3" column="1">
-         <widget class="QLabel" name="labelKosten">
-          <property name="text">
-           <string>20 EP</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="label_2">
-          <property name="text">
-           <string>Kosten:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="0" colspan="2">
-         <widget class="QPlainTextEdit" name="plainText">
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
-          </property>
-          <property name="lineWidth">
-           <number>1</number>
-          </property>
-          <property name="readOnly">
-           <bool>true</bool>
-          </property>
-          <property name="backgroundVisible">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
+       <layout class="QGridLayout" name="gridLayout_2" columnstretch="0,0">
         <item row="0" column="0" colspan="2">
          <widget class="QLabel" name="labelVorteil">
           <property name="font">
@@ -187,26 +154,16 @@
           </property>
          </widget>
         </item>
-        <item row="4" column="0">
-         <widget class="QLabel" name="label">
+        <item row="2" column="1">
+         <widget class="QLabel" name="labelVoraussetzungen">
           <property name="text">
-           <string>Nachkauf:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="1">
-         <widget class="QLabel" name="labelNachkauf">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>18</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Häufig</string>
+           <string>keine</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
@@ -220,18 +177,25 @@
           </property>
          </widget>
         </item>
-        <item row="2" column="1">
-         <widget class="QLabel" name="labelVoraussetzungen">
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_2">
           <property name="text">
-           <string>keine</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-          <property name="wordWrap">
-           <bool>true</bool>
+           <string>Kosten:</string>
           </property>
          </widget>
+        </item>
+        <item row="5" column="0" colspan="2">
+         <widget class="QTextBrowser" name="plainText"/>
+        </item>
+        <item row="6" column="0" colspan="2">
+         <layout class="QVBoxLayout" name="vlQuerverweise">
+          <property name="spacing">
+           <number>12</number>
+          </property>
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+         </layout>
         </item>
         <item row="1" column="0" colspan="2">
          <widget class="QLabel" name="labelTyp">
@@ -257,6 +221,52 @@
           </property>
          </widget>
         </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Nachkauf:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLabel" name="labelKosten">
+          <property name="text">
+           <string>20 EP</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QLabel" name="labelNachkauf">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>18</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Häufig</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
        </layout>
       </widget>
      </widget>
@@ -277,7 +287,6 @@
  <tabstops>
   <tabstop>treeWidget</tabstop>
   <tabstop>scrollArea</tabstop>
-  <tabstop>plainText</tabstop>
  </tabstops>
  <resources/>
  <connections/>

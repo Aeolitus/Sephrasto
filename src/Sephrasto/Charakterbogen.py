@@ -4,10 +4,12 @@ import yaml
 
 class Charakterbogen:
     def __init__(self):
+        self.name = ""
         self.filePath = ""
         self.info = ""
         self.seitengrösse = "A4"
         self.seitenorientierung = "Portrait"
+        self.seitenbeschreibungen = []
         self.maxVorteile = 0
         self.maxVorteileProFeld = 3
         self.maxKampfVorteile = 0
@@ -23,7 +25,6 @@ class Charakterbogen:
         self.überFertigkeitenZuProfan = False
         self.überVorteileZuKampf = False
         self.extraÜberSeiten = True
-        self.beschreibungDetails = False
         self.bild = []
         self.regelanhangPfad = os.path.join("Data", "Charakterbögen", "Regelanhang", "Regelanhang.html")
         self.regelanhangHintergrundPfad = os.path.join("Data", "Charakterbögen", "Regelanhang", "Hintergrund.pdf")
@@ -32,6 +33,7 @@ class Charakterbogen:
         self.regelanhangSeitenabstände = [70, 36, 70, 36]
         self.regelanhangSeitenzahlPosition = "bottom"
         self.regelanhangSeitenzahlAbstand = 40
+        self.formularMappings = {}
 
     def getPageLayout(self):
         pl = QtGui.QPageLayout()
@@ -59,21 +61,29 @@ class Charakterbogen:
     def getImageOffset(self, index):
         return self.bild[index][1:]
 
-    def load(self, filePath):
-        inifile = os.path.splitext(filePath)[0] + ".ini"
-        if not os.path.isfile(inifile):
-            return False
-
-        self.filePath = filePath
+    def load(self, inifile):
         yamlDict = None
         with open(inifile,'r', encoding='utf8') as file:
-            yamlDict = yaml.safe_load(file)       
+            yamlDict = yaml.safe_load(file) 
+            
+        datei = os.path.splitext(inifile)[0] + ".pdf"
+        
+        if "Datei" in yamlDict:
+            datei = os.path.join(os.path.dirname(inifile), yamlDict["Datei"])
+
+        if not os.path.isfile(datei):
+            return False
+        self.name = os.path.splitext(os.path.basename(inifile))[0]
+        self.filePath = datei
+
         if "Info" in yamlDict:
             self.info = yamlDict["Info"]
         if "Seitengrösse" in yamlDict:
             self.seitengrösse = yamlDict["Seitengrösse"]
         if "Seitenorientierung" in yamlDict:
             self.seitenorientierung = yamlDict["Seitenorientierung"]
+        if "Seitenbeschreibungen" in yamlDict:
+            self.seitenbeschreibungen = yamlDict["Seitenbeschreibungen"]
         if "MaxVorteile" in yamlDict:
             self.maxVorteile = yamlDict["MaxVorteile"]
         if "MaxKampfVorteile" in yamlDict:
@@ -104,15 +114,13 @@ class Charakterbogen:
             self.maxFreieProFeld = yamlDict["MaxFreieProFeld"]
         if "ExtraÜberSeiten" in yamlDict:
             self.extraÜberSeiten = yamlDict["ExtraÜberSeiten"]
-        if "BeschreibungDetails" in yamlDict:
-            self.beschreibungDetails = yamlDict["BeschreibungDetails"]
         if "Bild" in yamlDict:
             for v in yamlDict["Bild"]:
                 self.bild.append(v)
-        regelAnhang = os.path.splitext(filePath)[0] + "_Regelanhang.html"
+        regelAnhang = os.path.splitext(self.filePath)[0] + "_Regelanhang.html"
         if os.path.isfile(regelAnhang):
             self.regelanhangPfad = regelAnhang
-            regelAnhangHintergrund = os.path.splitext(filePath)[0] + "_Hintergrund.pdf"
+            regelAnhangHintergrund = os.path.splitext(self.filePath)[0] + "_Hintergrund.pdf"
             if os.path.isfile(regelAnhangHintergrund):
                 self.regelanhangHintergrundPfad = regelAnhangHintergrund
             else:
@@ -127,5 +135,7 @@ class Charakterbogen:
             self.regelanhangSeitenzahlPosition = yamlDict["RegelanhangSeitenzahlPosition"]
         if "RegelanhangSeitenzahlAbstand" in yamlDict:
             self.regelanhangSeitenzahlAbstand = yamlDict["RegelanhangSeitenzahlAbstand"]
+        if "FormularMappings" in yamlDict:
+            self.formularMappings = yamlDict["FormularMappings"]
 
         return True

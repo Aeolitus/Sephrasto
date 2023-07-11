@@ -7,15 +7,15 @@ Created on Fri Mar 10 17:25:53 2017
 from Wolke import Wolke
 import UI.CharakterWaffen
 from PySide6 import QtWidgets, QtCore, QtGui
-import Objekte
-import Definitionen
+from Core.Waffe import Waffe, WaffeDefinition
 from CharakterWaffenPickerWrapper import WaffenPicker
 import logging
 from Hilfsmethoden import Hilfsmethoden
 from EventBus import EventBus
 import re
-from TextTagCompleter import TextTagCompleter
+from QtUtils.TextTagCompleter import TextTagCompleter
 import copy
+from functools import partial
 
 class CharakterWaffenWrapper(QtCore.QObject):
     modified = QtCore.Signal()
@@ -99,21 +99,17 @@ class CharakterWaffenWrapper(QtCore.QObject):
             self.comboStil.append(comboStil)
 
             addW = getattr(self.ui, "addW" + str(i+1))
-            addW.setText('\u002b')
-            addW.setMaximumSize(QtCore.QSize(20, 20))
-            addW.clicked.connect(lambda qtNeedsThis=False, idx=i: self.selectWeapon(idx))
+            addW.clicked.connect(partial(self.selectWeapon, index=i))
             self.addW.append(addW)
 
             if i > 0:
                 upW = getattr(self.ui, "buttonW" + str(i+1) + "Up")
                 upW.setText('\uf106')
-                upW.setMaximumSize(QtCore.QSize(20, 10))
-                upW.clicked.connect(lambda qtNeedsThis=False, idx=i: self.moveWeapon(idx, -1))
+                upW.clicked.connect(partial(self.moveWeapon, index=i, direction=-1))
             if i < 7:
                 downW = getattr(self.ui, "buttonW" + str(i+1) + "Down")
                 downW.setText('\uf078')
-                downW.setMaximumSize(QtCore.QSize(20, 10))
-                downW.clicked.connect(lambda qtNeedsThis=False, idx=i: self.moveWeapon(idx, +1))
+                downW.clicked.connect(partial(self.moveWeapon, index=i, direction=+1))
 
             color = Wolke.BorderColor
             labelContainer = getattr(self.ui, "labelContainerW" + str(i+1))
@@ -133,8 +129,8 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
             labelWerte = getattr(self.ui, "labelW" + str(i+1) + "Werte")
             labelWerte.setToolTip(f"""<p style='white-space:pre'><span style='{Wolke.FontAwesomeCSS}'>\uf6cf</span>   Kampfwerte
 
-- AT* und VT*: Talent-PW + WM + Kampfstilbonus - BE der ersten Rüstung -2 (falls zu schwer)
-- TP*: Waffen-TP + Schadensbonus (x2, falls kopflastig) + Kampfstilbonus</p>""")
+- AT und VT: Talent-PW + WM + Kampfstilbonus - BE der ersten Rüstung -2 (falls zu schwer)
+- TP: Waffen-TP + Schadensbonus (x2, falls kopflastig) + Kampfstilbonus</p>""")
             labelWerte.setStyleSheet("border: none;")
             self.labelWerte.append(labelWerte)
             labelMods = getattr(self.ui, "labelW" + str(i+1) + "Mods")
@@ -170,26 +166,26 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
         self.currentlyLoading = False
         self.updateWaffen()
 
-    def diffWeapons(self, weapon1, weapon2):
+    def diffWaffeDefinition(self, waffe):
         diff = []
-        würfelDiff = weapon1.würfel - weapon2.würfel
-        plusDiff = weapon1.plus - weapon2.plus
+        würfelDiff = waffe.würfel - waffe.definition.würfel
+        plusDiff = waffe.plus - waffe.definition.plus
 
-        härteDiff = weapon1.härte - weapon2.härte
-        waffenHärteWSStern = Wolke.DB.einstellungen["Waffen: Härte WSStern"].toTextList()
-        if weapon2.name in waffenHärteWSStern:
+        härteDiff = waffe.härte - waffe.definition.härte
+        waffenHärteWSStern = Wolke.DB.einstellungen["Waffen: Härte WSStern"].wert
+        if waffe.definition.name in waffenHärteWSStern:
             härteDiff = 0
-        wmDiff = weapon1.wm - weapon2.wm
-        rwDiff = weapon1.rw - weapon2.rw
+        wmDiff = waffe.wm - waffe.definition.wm
+        rwDiff = waffe.rw - waffe.definition.rw
         lzDiff = 0
-        if type(weapon1) is Objekte.Fernkampfwaffe:
-            lzDiff = weapon1.lz - weapon2.lz
+        if waffe.fernkampf:
+            lzDiff = waffe.lz - waffe.definition.lz
 
-        eigPlusDiff = list(set(weapon1.eigenschaften) - set(weapon2.eigenschaften))
-        eigMinusDiff = list(set(weapon2.eigenschaften) - set(weapon1.eigenschaften))
+        eigPlusDiff = list(set(waffe.eigenschaften) - set(waffe.definition.eigenschaften))
+        eigMinusDiff = list(set(waffe.definition.eigenschaften) - set(waffe.eigenschaften))
 
         if würfelDiff != 0:
-            diff.append("TP " + ("+" if würfelDiff >= 0 else "") + str(würfelDiff) + "W" + str(weapon1.würfelSeiten))
+            diff.append("TP " + ("+" if würfelDiff >= 0 else "") + str(würfelDiff) + "W" + str(waffe.würfelSeiten))
         if plusDiff != 0:
             tmp = ("+" if plusDiff >= 0 else "") + str(plusDiff)
             if würfelDiff != 0:
@@ -205,17 +201,16 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
         if härteDiff != 0:
             diff.append("Härte " + ("+" if härteDiff >= 0 else "") + str(härteDiff))
         if len(eigPlusDiff) > 0:
-            diff.append("Eigenschaften +" + ", +".join(eigPlusDiff))
+            diff.append(f"<span style='{Wolke.FontAwesomeCSS}'>\u002b</span>&nbsp;&nbsp;" + ", ".join(eigPlusDiff))
         if len(eigMinusDiff) > 0:
             if len(eigPlusDiff) > 0:
-                diff[-1] += ", " + ("-" + ", -".join(eigMinusDiff))
+                diff[-1] += f"&nbsp;&nbsp;<span style='{Wolke.FontAwesomeCSS}'>\uf068</span>&nbsp;&nbsp;" + ",a ".join(eigMinusDiff)
             else:
-                diff.append("Eigenschaften -" + ", -".join(eigMinusDiff))
+                diff.append(f"<span style='{Wolke.FontAwesomeCSS}'>\uf068</span>&nbsp;&nbsp;" + ", ".join(eigMinusDiff))
         return diff
 
-
     def updateWeaponStats(self):
-        vtVerboten = Wolke.DB.einstellungen["Waffen: Talente VT verboten"].toTextList()
+        vtVerboten = Wolke.DB.einstellungen["Waffen: Talente VT verboten"].wert
         for index in range(8):
             if index >= len(Wolke.Char.waffen) or not Wolke.Char.waffen[index].name:
                 self.labelBasis[index].setText(f"<span style='{Wolke.FontAwesomeCSS}'>\uf02d</span>&nbsp;&nbsp;-")
@@ -230,14 +225,12 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
             if waffe.name in vtVerboten or waffe.talent in vtVerboten:
                 vt = "-"
             
-            diff = []
-            if self.waffenTypen[index] in Wolke.DB.waffen:
-                dbWaffe = Wolke.DB.waffen[self.waffenTypen[index]]
-                diff = self.diffWeapons(waffe, dbWaffe)
+            diff = self.diffWaffeDefinition(waffe)
 
             diff = ', '.join(diff).replace(", Eigenschaften", "; Eigenschaften")
-            self.labelBasis[index].setText(f"<span style='{Wolke.FontAwesomeCSS}'>\uf02d</span>&nbsp;&nbsp;{self.waffenTypen[index]}")
-            self.labelWerte[index].setText(f"""<span style='{Wolke.FontAwesomeCSS}'>\uf6cf</span>&nbsp;&nbsp;AT* {ww.at}, VT* {vt}, TP* {ww.würfel}W{str(waffe.würfelSeiten)}{"+" if ww.plus >= 0 else ""}{ww.plus}""")
+
+            self.labelBasis[index].setText(f"<span style='{Wolke.FontAwesomeCSS}'>\uf02d</span>&nbsp;&nbsp;{waffe.definition.anzeigename} ({waffe.talent})")
+            self.labelWerte[index].setText(f"""<span style='{Wolke.FontAwesomeCSS}'>\uf6cf</span>&nbsp;&nbsp;AT {ww.at}, VT {vt}, TP {ww.würfel}W{str(waffe.würfelSeiten)}{"+" if ww.plus >= 0 else ""}{ww.plus}""")
             if len(diff) > 0:
                 self.labelMods[index].setText(f"<span style='{Wolke.FontAwesomeCSS}'>\uf6e3</span>&nbsp;&nbsp;{diff}")
             else:
@@ -269,49 +262,44 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
         comboStil.setCurrentIndex(0)
         comboStil.clear()
         comboStil.setToolTip(None)
-        name = self.waffenTypen[index] or self.editWName[index].text()
-        if name:
-            if name in Wolke.DB.waffen:
-                entries = [Definitionen.KeinKampfstil] + [ks for ks in Wolke.DB.waffen[name].kampfstile if ks + " I" in Wolke.Char.vorteile]
-                comboStil.addItems(entries)
-                if W.kampfstil in entries:
-                    comboStil.setCurrentIndex(entries.index(W.kampfstil))
-            else:
-                comboStil.addItem('Waffe unbekannt')
-                comboStil.setToolTip('Der Name der Waffe ist unbekannt, daher kann kein Kampfstil ausgewählt werden. Die Kampfwerte müssen in der PDF manuell ausgefüllt werden.')
+        if W.name:
+            entries = [WaffeDefinition.keinKampfstil] + [ks for ks in W.kampfstile if ks + " I" in Wolke.Char.vorteile]
+            comboStil.addItems(entries)
+            if W.kampfstil in entries:
+                comboStil.setCurrentIndex(entries.index(W.kampfstil))
         comboStil.setEnabled(comboStil.count() > 1)
         comboStil.blockSignals(False)
         
     def createWaffe(self, index):
         name = self.waffenTypen[index]
         anzeigename = self.editWName[index].text()
-        if (not name in Wolke.DB.waffen) or type(Wolke.DB.waffen[name]) != Objekte.Fernkampfwaffe:
-            W = Objekte.Nahkampfwaffe()
+        if name in Wolke.DB.waffen:
+            W = Waffe(Wolke.DB.waffen[name])
         else:
-            W = Objekte.Fernkampfwaffe()
+            definition = WaffeDefinition()
+            definition.name = name
+            W = Waffe(definition)
+
+        if W.fernkampf:
             W.lz = self.spinLZ[index].value()
 
         W.anzeigename = anzeigename
-        W.name = self.waffenTypen[index]
-        if W.name in Wolke.DB.waffen:
-            dbWaffe = Wolke.DB.waffen[W.name]
-            W.fertigkeit = dbWaffe.fertigkeit
-            W.talent = dbWaffe.talent
-            W.kampfstile = dbWaffe.kampfstile.copy()
-            W.würfelSeiten = dbWaffe.würfelSeiten
         W.wm = self.spinWM[index].value()
         W.rw = self.spinRW[index].value()
         W.würfel = self.spinWürfel[index].value()
         W.plus = self.spinPlus[index].value()
 
-        self.editEig[index].setText(self.editEig[index].text().strip().rstrip(","))
-        if self.editEig[index].text().strip():
-            W.eigenschaften = list(map(str.strip, self.editEig[index].text().strip().rstrip(",").split(",")))
+        eigenschaften = self.editEig[index].text().strip().rstrip(",")
+        self.editEig[index].setText(eigenschaften)
+        if eigenschaften:
+            W.eigenschaften = list(map(str.strip, eigenschaften.split(",")))
+        else:
+            W.eigenschaften = []
         W.kampfstil = self.comboStil[index].currentText()
 
-        waffenHärteWSStern = Wolke.DB.einstellungen["Waffen: Härte WSStern"].toTextList()
-        if W.name in waffenHärteWSStern:
-            W.härte = Wolke.Char.wsStern
+        waffenHärteWSStern = Wolke.DB.einstellungen["Waffen: Härte WSStern"].wert
+        if "WS" in Wolke.Char.abgeleiteteWerte and W.name in waffenHärteWSStern:
+            W.härte = Wolke.Char.abgeleiteteWerte["WS"].finalwert
         else:
             W.härte = self.spinHärte[index].value()
         return W
@@ -340,13 +328,13 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
 
         aktualisieren = False
         if len(Wolke.Char.waffen) == 0:
-            for waffe in Wolke.DB.einstellungen["Waffen: Standardwaffen"].toTextList():
+            for waffe in Wolke.DB.einstellungen["Waffen: Standardwaffen"].wert:
                 if waffe in Wolke.DB.waffen:
-                    Wolke.Char.waffen.append(copy.copy(Wolke.DB.waffen[waffe]))
+                    Wolke.Char.waffen.append(Waffe(Wolke.DB.waffen[waffe]))
                     aktualisieren = True
         while len(Wolke.Char.waffen) < 8:
             aktualisieren = True
-            Wolke.Char.waffen.append(Objekte.Nahkampfwaffe())
+            Wolke.Char.waffen.append(Waffe(WaffeDefinition()))
         if aktualisieren:
             Wolke.Char.aktualisieren()
 
@@ -368,9 +356,9 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
         self.spinWürfel[index].setValue(W.würfel)
         self.labelSeiten[index].setText("W" + str(W.würfelSeiten) + "+")
         self.spinPlus[index].setValue(W.plus)
-        waffenHärteWSStern = Wolke.DB.einstellungen["Waffen: Härte WSStern"].toTextList()
-        if W.name in waffenHärteWSStern:
-            W.härte = Wolke.Char.wsStern
+        waffenHärteWSStern = Wolke.DB.einstellungen["Waffen: Härte WSStern"].wert
+        if "WS" in Wolke.Char.abgeleiteteWerte and W.name in waffenHärteWSStern:
+            W.härte = Wolke.Char.abgeleiteteWerte["WS"].finalwert
             self.spinHärte[index].setEnabled(False)
         else:
             self.spinHärte[index].setEnabled(True)
@@ -378,15 +366,15 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
         self.spinRW[index].setValue(W.rw)
         self.spinWM[index].setValue(W.wm)
 
-        if type(W) == Objekte.Fernkampfwaffe:
+        if W.fernkampf:
             self.spinLZ[index].setValue(W.lz)
             self.spinLZ[index].setEnabled(True)
-        elif type(W) == Objekte.Nahkampfwaffe:
+        else:
             self.spinLZ[index].setEnabled(False)
         
         self.refreshDerivedWeaponValues(W, index)
 
-        isEmpty = W == Objekte.Nahkampfwaffe()
+        isEmpty = W.name == ""
         self.editWName[index].setEnabled(not isEmpty)
         self.editEig[index].setEnabled(not isEmpty)
         self.spinWürfel[index].setEnabled(not isEmpty)
@@ -401,21 +389,20 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
             self.addW[index].setText('\uf2ed')
 
     def selectWeapon(self, index):
-        if Wolke.Char.waffen[index] == Objekte.Nahkampfwaffe():
-            W = None
-            if self.waffenTypen[index] in Wolke.DB.waffen:
-                W = Wolke.DB.waffen[self.waffenTypen[index]].name
+        if Wolke.Char.waffen[index].name == "":
+            # add
             logging.debug("Starting WaffenPicker")
             pickerClass = EventBus.applyFilter("class_waffenpicker_wrapper", WaffenPicker)
-            picker = pickerClass(W)
+            picker = pickerClass()
             logging.debug("WaffenPicker created")
             if picker.waffe is not None:
                 self.currentlyLoading = True
-                self.loadWeaponIntoFields(picker.waffe, index)
+                self.loadWeaponIntoFields(Waffe(picker.waffe), index)
                 self.currentlyLoading = False
                 self.updateWaffen()
         else:
+            #remove
             self.currentlyLoading = True
-            self.loadWeaponIntoFields(Objekte.Nahkampfwaffe(), index)
+            self.loadWeaponIntoFields(Waffe(WaffeDefinition()), index)
             self.currentlyLoading = False
             self.updateWaffen()

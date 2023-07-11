@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>talentDialog</class>
- <widget class="QDialog" name="talentDialog">
+ <class>dialog</class>
+ <widget class="QDialog" name="dialog">
   <property name="windowModality">
    <enum>Qt::ApplicationModal</enum>
   </property>
@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>440</width>
-    <height>517</height>
+    <height>551</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,308 +39,12 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Fertigkeitsname</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string>Attribute</string>
-       </property>
-      </widget>
-     </item>
      <item row="6" column="0">
       <widget class="QLabel" name="labelGruppieren">
        <property name="text">
         <string>Talente</string>
        </property>
       </widget>
-     </item>
-     <item row="3" column="1">
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QComboBox" name="comboAttribut1">
-         <property name="minimumSize">
-          <size>
-           <width>45</width>
-           <height>0</height>
-          </size>
-         </property>
-         <item>
-          <property name="text">
-           <string>KO</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>MU</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>GE</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>KK</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>IN</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>KL</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>CH</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>FF</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_6">
-         <property name="text">
-          <string> - </string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QComboBox" name="comboAttribut2">
-         <property name="minimumSize">
-          <size>
-           <width>45</width>
-           <height>0</height>
-          </size>
-         </property>
-         <item>
-          <property name="text">
-           <string>KO</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>MU</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>GE</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>KK</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>IN</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>KL</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>CH</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>FF</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_7">
-         <property name="text">
-          <string> - </string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QComboBox" name="comboAttribut3">
-         <property name="minimumSize">
-          <size>
-           <width>45</width>
-           <height>0</height>
-          </size>
-         </property>
-         <item>
-          <property name="text">
-           <string>KO</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>MU</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>GE</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>KK</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>IN</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>KL</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>CH</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>FF</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer_3">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="nameEdit"/>
-     </item>
-     <item row="8" column="0">
-      <widget class="QLabel" name="label_5">
-       <property name="text">
-        <string>Beschreibung</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="label_12">
-       <property name="minimumSize">
-        <size>
-         <width>110</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>Typ</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0" colspan="2">
-      <widget class="QLabel" name="warning">
-       <property name="visible">
-        <bool>false</bool>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 0); color: black;</string>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dies ist eine Ilaris-Standardfertigkeit. Sobald du hier etwas veränderst, bekommst du eine persönliche Kopie und das Original wird in den Hausregeln gelöscht. Damit erhältst du für diese Fertigkeit keine automatischen Updates mehr mit neuen Sephrasto-Versionen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-       <property name="wordWrap">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="8" column="1">
-      <widget class="QPlainTextEdit" name="textEdit">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="0">
-      <widget class="QLabel" name="labelKampffertigkeit">
-       <property name="text">
-        <string>Kampffertigkeit</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
-        <spacer name="horizontalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QSpinBox" name="steigerungsfaktorEdit">
-         <property name="suffix">
-          <string/>
-         </property>
-         <property name="minimum">
-          <number>1</number>
-         </property>
-         <property name="maximum">
-          <number>4</number>
-         </property>
-         <property name="singleStep">
-          <number>1</number>
-         </property>
-         <property name="value">
-          <number>2</number>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="7" column="1">
-      <widget class="QPlainTextEdit" name="voraussetzungenEdit"/>
      </item>
      <item row="6" column="1">
       <widget class="QCheckBox" name="checkGruppieren">
@@ -374,6 +78,49 @@
        </item>
       </widget>
      </item>
+     <item row="4" column="1">
+      <widget class="QComboBox" name="comboTyp">
+       <property name="toolTip">
+        <string>Fertigkeiten werden nach diesem Typ gruppiert und dann alphabetisch sortiert.</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QPlainTextEdit" name="teVoraussetzungen">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>250</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Siehe &quot;Datenbank Editor -&gt; Einstellungsmöglichkeiten -&gt; Voraussetzungen&quot; in der Sephrasto-Hilfe für eine Anleitung.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Fertigkeitsname</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="2">
+      <widget class="QLabel" name="warning">
+       <property name="visible">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 0); color: black;</string>
+       </property>
+       <property name="text">
+        <string></string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
      <item row="2" column="0">
       <widget class="QLabel" name="label_2">
        <property name="minimumSize">
@@ -387,35 +134,231 @@
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
-      <widget class="QComboBox" name="comboTyp">
-       <property name="toolTip">
-        <string>Fertigkeiten werden nach diesem Typ gruppiert und dann alphabetisch sortiert.</string>
+     <item row="8" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Beschreibung</string>
        </property>
       </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_12">
+       <property name="minimumSize">
+        <size>
+         <width>110</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Typ</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="spinSF">
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::PlusMinus</enum>
+         </property>
+         <property name="suffix">
+          <string/>
+         </property>
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+         <property name="singleStep">
+          <number>1</number>
+         </property>
+         <property name="value">
+          <number>2</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="labelKampffertigkeit">
+       <property name="text">
+        <string>Kampffertigkeit</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="leName"/>
+     </item>
+     <item row="8" column="1">
+      <widget class="QTabWidget" name="tabWidget">
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="tab">
+        <attribute name="title">
+         <string>HTML</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QPlainTextEdit" name="teBeschreibung">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tab_2">
+        <attribute name="title">
+         <string>Vorschau</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QTextBrowser" name="tbBeschreibung"/>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Attribute</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QComboBox" name="comboAttribut1">
+         <property name="minimumSize">
+          <size>
+           <width>45</width>
+           <height>0</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string> - </string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="comboAttribut2">
+         <property name="minimumSize">
+          <size>
+           <width>45</width>
+           <height>0</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string> - </string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="comboAttribut3">
+         <property name="minimumSize">
+          <size>
+           <width>45</width>
+           <height>0</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
      </item>
     </layout>
    </item>
   </layout>
  </widget>
  <tabstops>
-  <tabstop>nameEdit</tabstop>
-  <tabstop>steigerungsfaktorEdit</tabstop>
+  <tabstop>leName</tabstop>
+  <tabstop>spinSF</tabstop>
   <tabstop>comboAttribut1</tabstop>
   <tabstop>comboAttribut2</tabstop>
   <tabstop>comboAttribut3</tabstop>
   <tabstop>comboTyp</tabstop>
   <tabstop>comboKampffertigkeit</tabstop>
   <tabstop>checkGruppieren</tabstop>
-  <tabstop>voraussetzungenEdit</tabstop>
-  <tabstop>textEdit</tabstop>
+  <tabstop>teVoraussetzungen</tabstop>
  </tabstops>
  <resources/>
  <connections>
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>talentDialog</receiver>
+   <receiver>dialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -431,7 +374,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>talentDialog</receiver>
+   <receiver>dialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

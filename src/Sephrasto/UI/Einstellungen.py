@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'Einstellungen.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.2
+## Created by: Qt User Interface Compiler version 6.5.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -26,7 +26,7 @@ class Ui_SettingsWindow(object):
         if not SettingsWindow.objectName():
             SettingsWindow.setObjectName(u"SettingsWindow")
         SettingsWindow.setWindowModality(Qt.ApplicationModal)
-        SettingsWindow.resize(694, 844)
+        SettingsWindow.resize(694, 913)
         SettingsWindow.setMinimumSize(QSize(520, 0))
         self.gridLayout = QGridLayout(SettingsWindow)
         self.gridLayout.setObjectName(u"gridLayout")
@@ -45,7 +45,7 @@ class Ui_SettingsWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 631, 794))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 717, 833))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(20, 20, 20, 20)
@@ -159,22 +159,16 @@ class Ui_SettingsWindow(object):
 
         self.buttonPlugins = QPushButton(self.groupBox_2)
         self.buttonPlugins.setObjectName(u"buttonPlugins")
-        self.buttonPlugins.setMinimumSize(QSize(28, 28))
-        self.buttonPlugins.setMaximumSize(QSize(28, 28))
 
         self.gridLayout_5.addWidget(self.buttonPlugins, 3, 2, 1, 1)
 
         self.resetPlugins = QPushButton(self.groupBox_2)
         self.resetPlugins.setObjectName(u"resetPlugins")
-        self.resetPlugins.setMinimumSize(QSize(28, 28))
-        self.resetPlugins.setMaximumSize(QSize(28, 28))
 
         self.gridLayout_5.addWidget(self.resetPlugins, 3, 3, 1, 1)
 
         self.resetChar = QPushButton(self.groupBox_2)
         self.resetChar.setObjectName(u"resetChar")
-        self.resetChar.setMinimumSize(QSize(28, 28))
-        self.resetChar.setMaximumSize(QSize(28, 28))
 
         self.gridLayout_5.addWidget(self.resetChar, 0, 3, 1, 1)
 
@@ -192,15 +186,11 @@ class Ui_SettingsWindow(object):
 
         self.resetRegeln = QPushButton(self.groupBox_2)
         self.resetRegeln.setObjectName(u"resetRegeln")
-        self.resetRegeln.setMinimumSize(QSize(28, 28))
-        self.resetRegeln.setMaximumSize(QSize(28, 28))
 
         self.gridLayout_5.addWidget(self.resetRegeln, 2, 3, 1, 1)
 
         self.buttonRegeln = QPushButton(self.groupBox_2)
         self.buttonRegeln.setObjectName(u"buttonRegeln")
-        self.buttonRegeln.setMinimumSize(QSize(28, 28))
-        self.buttonRegeln.setMaximumSize(QSize(28, 28))
 
         self.gridLayout_5.addWidget(self.buttonRegeln, 2, 2, 1, 1)
 
@@ -217,8 +207,6 @@ class Ui_SettingsWindow(object):
 
         self.buttonChar = QPushButton(self.groupBox_2)
         self.buttonChar.setObjectName(u"buttonChar")
-        self.buttonChar.setMinimumSize(QSize(28, 28))
-        self.buttonChar.setMaximumSize(QSize(28, 28))
 
         self.gridLayout_5.addWidget(self.buttonChar, 0, 2, 1, 1)
 
@@ -234,15 +222,11 @@ class Ui_SettingsWindow(object):
 
         self.buttonCharakterboegen = QPushButton(self.groupBox_2)
         self.buttonCharakterboegen.setObjectName(u"buttonCharakterboegen")
-        self.buttonCharakterboegen.setMinimumSize(QSize(28, 28))
-        self.buttonCharakterboegen.setMaximumSize(QSize(28, 28))
 
         self.gridLayout_5.addWidget(self.buttonCharakterboegen, 4, 2, 1, 1)
 
         self.resetCharakterboegen = QPushButton(self.groupBox_2)
         self.resetCharakterboegen.setObjectName(u"resetCharakterboegen")
-        self.resetCharakterboegen.setMinimumSize(QSize(28, 28))
-        self.resetCharakterboegen.setMaximumSize(QSize(28, 28))
 
         self.gridLayout_5.addWidget(self.resetCharakterboegen, 4, 3, 1, 1)
 
@@ -251,8 +235,8 @@ class Ui_SettingsWindow(object):
 
         self.gbPlugins = QGroupBox(self.scrollAreaWidgetContents)
         self.gbPlugins.setObjectName(u"gbPlugins")
-        self.verticalLayout_10 = QVBoxLayout(self.gbPlugins)
-        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.gridLayout_6 = QGridLayout(self.gbPlugins)
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
 
         self.verticalLayout.addWidget(self.gbPlugins)
 
@@ -261,52 +245,15 @@ class Ui_SettingsWindow(object):
         self.groupBox_4.setFont(font)
         self.gridLayout_2 = QGridLayout(self.groupBox_4)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.label_9 = QLabel(self.groupBox_4)
-        self.label_9.setObjectName(u"label_9")
-
-        self.gridLayout_2.addWidget(self.label_9, 2, 0, 1, 1)
-
-        self.comboFont = QComboBox(self.groupBox_4)
-        self.comboFont.setObjectName(u"comboFont")
-        self.comboFont.setMinimumSize(QSize(240, 0))
-
-        self.gridLayout_2.addWidget(self.comboFont, 2, 2, 1, 1)
-
-        self.label_13 = QLabel(self.groupBox_4)
-        self.label_13.setObjectName(u"label_13")
-
-        self.gridLayout_2.addWidget(self.label_13, 8, 0, 1, 1)
-
         self.label_10 = QLabel(self.groupBox_4)
         self.label_10.setObjectName(u"label_10")
 
         self.gridLayout_2.addWidget(self.label_10, 3, 0, 1, 1)
 
-        self.comboFontHeading = QComboBox(self.groupBox_4)
-        self.comboFontHeading.setObjectName(u"comboFontHeading")
-        self.comboFontHeading.setMinimumSize(QSize(240, 0))
-
-        self.gridLayout_2.addWidget(self.comboFontHeading, 5, 2, 1, 1)
-
-        self.label_12 = QLabel(self.groupBox_4)
-        self.label_12.setObjectName(u"label_12")
-
-        self.gridLayout_2.addWidget(self.label_12, 7, 0, 1, 1)
-
         self.label_8 = QLabel(self.groupBox_4)
         self.label_8.setObjectName(u"label_8")
 
         self.gridLayout_2.addWidget(self.label_8, 0, 0, 1, 1)
-
-        self.label_11 = QLabel(self.groupBox_4)
-        self.label_11.setObjectName(u"label_11")
-
-        self.gridLayout_2.addWidget(self.label_11, 5, 0, 1, 1)
-
-        self.checkDPI = QCheckBox(self.groupBox_4)
-        self.checkDPI.setObjectName(u"checkDPI")
-
-        self.gridLayout_2.addWidget(self.checkDPI, 8, 2, 1, 1)
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
@@ -318,37 +265,16 @@ class Ui_SettingsWindow(object):
 
         self.resetFontOS = QPushButton(self.groupBox_4)
         self.resetFontOS.setObjectName(u"resetFontOS")
-        self.resetFontOS.setMinimumSize(QSize(28, 28))
-        self.resetFontOS.setMaximumSize(QSize(28, 28))
 
         self.horizontalLayout_2.addWidget(self.resetFontOS)
 
         self.resetFontDefault = QPushButton(self.groupBox_4)
         self.resetFontDefault.setObjectName(u"resetFontDefault")
-        self.resetFontDefault.setMinimumSize(QSize(28, 28))
-        self.resetFontDefault.setMaximumSize(QSize(28, 28))
 
         self.horizontalLayout_2.addWidget(self.resetFontDefault)
 
 
         self.gridLayout_2.addLayout(self.horizontalLayout_2, 0, 2, 1, 1)
-
-        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_2.addItem(self.horizontalSpacer_3, 5, 1, 1, 1)
-
-        self.spinAppFontSize = QSpinBox(self.groupBox_4)
-        self.spinAppFontSize.setObjectName(u"spinAppFontSize")
-        self.spinAppFontSize.setMinimumSize(QSize(60, 0))
-        self.spinAppFontSize.setMaximumSize(QSize(60, 16777215))
-        self.spinAppFontSize.setLayoutDirection(Qt.LeftToRight)
-        self.spinAppFontSize.setAlignment(Qt.AlignCenter)
-        self.spinAppFontSize.setButtonSymbols(QAbstractSpinBox.PlusMinus)
-        self.spinAppFontSize.setMinimum(6)
-        self.spinAppFontSize.setMaximum(18)
-        self.spinAppFontSize.setValue(8)
-
-        self.gridLayout_2.addWidget(self.spinAppFontSize, 3, 2, 1, 1)
 
         self.spinAppFontHeadingSize = QSpinBox(self.groupBox_4)
         self.spinAppFontHeadingSize.setObjectName(u"spinAppFontHeadingSize")
@@ -363,6 +289,106 @@ class Ui_SettingsWindow(object):
 
         self.gridLayout_2.addWidget(self.spinAppFontHeadingSize, 7, 2, 1, 1)
 
+        self.comboFontHeading = QComboBox(self.groupBox_4)
+        self.comboFontHeading.setObjectName(u"comboFontHeading")
+        self.comboFontHeading.setMinimumSize(QSize(240, 0))
+
+        self.gridLayout_2.addWidget(self.comboFontHeading, 5, 2, 1, 1)
+
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_2.addItem(self.horizontalSpacer_3, 5, 1, 1, 1)
+
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.label_21 = QLabel(self.groupBox_4)
+        self.label_21.setObjectName(u"label_21")
+
+        self.horizontalLayout_3.addWidget(self.label_21)
+
+        self.spinCharListCols = QSpinBox(self.groupBox_4)
+        self.spinCharListCols.setObjectName(u"spinCharListCols")
+        self.spinCharListCols.setMinimumSize(QSize(60, 0))
+        self.spinCharListCols.setMaximumSize(QSize(60, 16777215))
+        self.spinCharListCols.setButtonSymbols(QAbstractSpinBox.PlusMinus)
+        self.spinCharListCols.setMinimum(1)
+        self.spinCharListCols.setMaximum(4)
+        self.spinCharListCols.setValue(2)
+
+        self.horizontalLayout_3.addWidget(self.spinCharListCols)
+
+        self.label_22 = QLabel(self.groupBox_4)
+        self.label_22.setObjectName(u"label_22")
+
+        self.horizontalLayout_3.addWidget(self.label_22)
+
+        self.spinCharListRows = QSpinBox(self.groupBox_4)
+        self.spinCharListRows.setObjectName(u"spinCharListRows")
+        self.spinCharListRows.setMinimumSize(QSize(60, 0))
+        self.spinCharListRows.setMaximumSize(QSize(60, 16777215))
+        self.spinCharListRows.setButtonSymbols(QAbstractSpinBox.PlusMinus)
+        self.spinCharListRows.setMinimum(1)
+        self.spinCharListRows.setMaximum(8)
+        self.spinCharListRows.setValue(5)
+
+        self.horizontalLayout_3.addWidget(self.spinCharListRows)
+
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer)
+
+
+        self.gridLayout_2.addLayout(self.horizontalLayout_3, 9, 2, 1, 1)
+
+        self.label_11 = QLabel(self.groupBox_4)
+        self.label_11.setObjectName(u"label_11")
+
+        self.gridLayout_2.addWidget(self.label_11, 5, 0, 1, 1)
+
+        self.label_13 = QLabel(self.groupBox_4)
+        self.label_13.setObjectName(u"label_13")
+
+        self.gridLayout_2.addWidget(self.label_13, 9, 0, 1, 1)
+
+        self.label_12 = QLabel(self.groupBox_4)
+        self.label_12.setObjectName(u"label_12")
+
+        self.gridLayout_2.addWidget(self.label_12, 7, 0, 1, 1)
+
+        self.checkDPI = QCheckBox(self.groupBox_4)
+        self.checkDPI.setObjectName(u"checkDPI")
+
+        self.gridLayout_2.addWidget(self.checkDPI, 8, 2, 1, 1)
+
+        self.comboFont = QComboBox(self.groupBox_4)
+        self.comboFont.setObjectName(u"comboFont")
+        self.comboFont.setMinimumSize(QSize(240, 0))
+
+        self.gridLayout_2.addWidget(self.comboFont, 2, 2, 1, 1)
+
+        self.labelDPI = QLabel(self.groupBox_4)
+        self.labelDPI.setObjectName(u"labelDPI")
+
+        self.gridLayout_2.addWidget(self.labelDPI, 8, 0, 1, 1)
+
+        self.label_9 = QLabel(self.groupBox_4)
+        self.label_9.setObjectName(u"label_9")
+
+        self.gridLayout_2.addWidget(self.label_9, 2, 0, 1, 1)
+
+        self.spinAppFontSize = QSpinBox(self.groupBox_4)
+        self.spinAppFontSize.setObjectName(u"spinAppFontSize")
+        self.spinAppFontSize.setMinimumSize(QSize(60, 0))
+        self.spinAppFontSize.setMaximumSize(QSize(60, 16777215))
+        self.spinAppFontSize.setLayoutDirection(Qt.LeftToRight)
+        self.spinAppFontSize.setAlignment(Qt.AlignCenter)
+        self.spinAppFontSize.setButtonSymbols(QAbstractSpinBox.PlusMinus)
+        self.spinAppFontSize.setMinimum(6)
+        self.spinAppFontSize.setMaximum(18)
+        self.spinAppFontSize.setValue(8)
+
+        self.gridLayout_2.addWidget(self.spinAppFontSize, 3, 2, 1, 1)
+
 
         self.verticalLayout.addWidget(self.groupBox_4)
 
@@ -370,28 +396,17 @@ class Ui_SettingsWindow(object):
         self.groupBox_5.setObjectName(u"groupBox_5")
         self.gridLayout_4 = QGridLayout(self.groupBox_5)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.label_15 = QLabel(self.groupBox_5)
-        self.label_15.setObjectName(u"label_15")
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_4.addWidget(self.label_15, 3, 0, 1, 1)
-
-        self.checkUpdate = QCheckBox(self.groupBox_5)
-        self.checkUpdate.setObjectName(u"checkUpdate")
-        self.checkUpdate.setChecked(True)
-
-        self.gridLayout_4.addWidget(self.checkUpdate, 2, 2, 1, 1)
+        self.gridLayout_4.addItem(self.horizontalSpacer_5, 4, 1, 1, 1)
 
         self.label_5 = QLabel(self.groupBox_5)
         self.label_5.setObjectName(u"label_5")
 
         self.gridLayout_4.addWidget(self.label_5, 4, 0, 1, 1)
 
-        self.checkPDFOpen = QCheckBox(self.groupBox_5)
-        self.checkPDFOpen.setObjectName(u"checkPDFOpen")
-        self.checkPDFOpen.setChecked(True)
-
-        self.gridLayout_4.addWidget(self.checkPDFOpen, 3, 2, 1, 1)
-
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.comboLogging = QComboBox(self.groupBox_5)
         self.comboLogging.addItem("")
         self.comboLogging.addItem("")
@@ -399,16 +414,37 @@ class Ui_SettingsWindow(object):
         self.comboLogging.setObjectName(u"comboLogging")
         self.comboLogging.setMinimumSize(QSize(240, 0))
 
-        self.gridLayout_4.addWidget(self.comboLogging, 4, 2, 1, 1)
+        self.horizontalLayout.addWidget(self.comboLogging)
+
+        self.buttonLogOpen = QPushButton(self.groupBox_5)
+        self.buttonLogOpen.setObjectName(u"buttonLogOpen")
+
+        self.horizontalLayout.addWidget(self.buttonLogOpen)
+
+
+        self.gridLayout_4.addLayout(self.horizontalLayout, 4, 2, 1, 2)
 
         self.label_14 = QLabel(self.groupBox_5)
         self.label_14.setObjectName(u"label_14")
 
         self.gridLayout_4.addWidget(self.label_14, 2, 0, 1, 1)
 
-        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.label_15 = QLabel(self.groupBox_5)
+        self.label_15.setObjectName(u"label_15")
 
-        self.gridLayout_4.addItem(self.horizontalSpacer_5, 4, 1, 1, 1)
+        self.gridLayout_4.addWidget(self.label_15, 3, 0, 1, 1)
+
+        self.checkPDFOpen = QCheckBox(self.groupBox_5)
+        self.checkPDFOpen.setObjectName(u"checkPDFOpen")
+        self.checkPDFOpen.setChecked(True)
+
+        self.gridLayout_4.addWidget(self.checkPDFOpen, 3, 2, 1, 1)
+
+        self.checkUpdate = QCheckBox(self.groupBox_5)
+        self.checkUpdate.setObjectName(u"checkUpdate")
+        self.checkUpdate.setChecked(True)
+
+        self.gridLayout_4.addWidget(self.checkUpdate, 2, 2, 1, 1)
 
 
         self.verticalLayout.addWidget(self.groupBox_5)
@@ -434,7 +470,6 @@ class Ui_SettingsWindow(object):
         QWidget.setTabOrder(self.buttonPlugins, self.resetPlugins)
         QWidget.setTabOrder(self.resetPlugins, self.comboFont)
         QWidget.setTabOrder(self.comboFont, self.comboFontHeading)
-        QWidget.setTabOrder(self.comboFontHeading, self.comboLogging)
 
         self.retranslateUi(SettingsWindow)
         self.buttonBox.accepted.connect(SettingsWindow.accept)
@@ -516,16 +551,8 @@ class Ui_SettingsWindow(object):
         self.resetCharakterboegen.setProperty("class", QCoreApplication.translate("SettingsWindow", u"icon", None))
         self.gbPlugins.setTitle(QCoreApplication.translate("SettingsWindow", u"Plugins", None))
         self.groupBox_4.setTitle(QCoreApplication.translate("SettingsWindow", u"Darstellung", None))
-        self.label_9.setText(QCoreApplication.translate("SettingsWindow", u"Schriftart", None))
-        self.label_13.setText(QCoreApplication.translate("SettingsWindow", u"DPI-Skalierung", None))
         self.label_10.setText(QCoreApplication.translate("SettingsWindow", u"Schriftgr\u00f6\u00dfe", None))
-        self.label_12.setText(QCoreApplication.translate("SettingsWindow", u"Schriftgr\u00f6\u00dfe \u00dcberschriften", None))
         self.label_8.setText(QCoreApplication.translate("SettingsWindow", u"Theme", None))
-        self.label_11.setText(QCoreApplication.translate("SettingsWindow", u"Schriftart \u00dcberschriften", None))
-#if QT_CONFIG(tooltip)
-        self.checkDPI.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Viele Betriebssysteme bieten an, Programme, Schriften usw. gr\u00f6\u00dfer darzustellen. Sephrasto kann diese sogenannte DPI-Skalierung vom Betriebssystem \u00fcbernehmen. Dabei kann es aktuell allerdings noch zu Darstellungsfehlern wie niedrigaufgel\u00f6sten Bildern oder Icons kommen.</p></body></html>", None))
-#endif // QT_CONFIG(tooltip)
-        self.checkDPI.setText("")
 #if QT_CONFIG(tooltip)
         self.resetFontOS.setToolTip(QCoreApplication.translate("SettingsWindow", u"Darstellungsoptionen auf Betriebssystemstandard zur\u00fccksetzen", None))
 #endif // QT_CONFIG(tooltip)
@@ -536,18 +563,34 @@ class Ui_SettingsWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.resetFontDefault.setText(QCoreApplication.translate("SettingsWindow", u"Zur\u00fccksetzen", None))
         self.resetFontDefault.setProperty("class", QCoreApplication.translate("SettingsWindow", u"icon", None))
+        self.label_21.setText(QCoreApplication.translate("SettingsWindow", u"Spalten", None))
+        self.label_22.setText(QCoreApplication.translate("SettingsWindow", u"Zeilen", None))
+        self.label_11.setText(QCoreApplication.translate("SettingsWindow", u"Schriftart \u00dcberschriften", None))
+        self.label_13.setText(QCoreApplication.translate("SettingsWindow", u"Hauptfenster Charakterliste Layout", None))
+        self.label_12.setText(QCoreApplication.translate("SettingsWindow", u"Schriftgr\u00f6\u00dfe \u00dcberschriften", None))
+#if QT_CONFIG(tooltip)
+        self.checkDPI.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Viele Betriebssysteme bieten an, Programme, Schriften usw. gr\u00f6\u00dfer darzustellen. Sephrasto kann diese sogenannte DPI-Skalierung vom Betriebssystem \u00fcbernehmen. Dabei kann es aktuell allerdings noch zu Darstellungsfehlern wie niedrigaufgel\u00f6sten Bildern oder Icons kommen.</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.checkDPI.setText("")
+        self.labelDPI.setText(QCoreApplication.translate("SettingsWindow", u"DPI-Skalierung", None))
+        self.label_9.setText(QCoreApplication.translate("SettingsWindow", u"Schriftart", None))
         self.groupBox_5.setTitle(QCoreApplication.translate("SettingsWindow", u"Sonstiges", None))
+        self.label_5.setText(QCoreApplication.translate("SettingsWindow", u"Logging", None))
+        self.comboLogging.setItemText(0, QCoreApplication.translate("SettingsWindow", u"Nur Fehler loggen", None))
+        self.comboLogging.setItemText(1, QCoreApplication.translate("SettingsWindow", u"Warnungen und Fehler loggen", None))
+        self.comboLogging.setItemText(2, QCoreApplication.translate("SettingsWindow", u"Alles loggen", None))
+
+#if QT_CONFIG(tooltip)
+        self.buttonLogOpen.setToolTip(QCoreApplication.translate("SettingsWindow", u"Logdatei zeigen", None))
+#endif // QT_CONFIG(tooltip)
+        self.buttonLogOpen.setText(QCoreApplication.translate("SettingsWindow", u"PushButton", None))
+        self.buttonLogOpen.setProperty("class", QCoreApplication.translate("SettingsWindow", u"icon", None))
+        self.label_14.setText(QCoreApplication.translate("SettingsWindow", u"Beim Start nach Updates suchen", None))
         self.label_15.setText(QCoreApplication.translate("SettingsWindow", u"Charakterbogen nach dem Erstellen \u00f6ffnen", None))
+        self.checkPDFOpen.setText("")
 #if QT_CONFIG(tooltip)
         self.checkUpdate.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Falls aktiviert sendet Sephrasto bei jedem Start eine Anfrage an dsaforum.de, um nachzusehen, ob es eine neuere Version gibt.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.checkUpdate.setText("")
-        self.label_5.setText(QCoreApplication.translate("SettingsWindow", u"Logging-Level", None))
-        self.checkPDFOpen.setText("")
-        self.comboLogging.setItemText(0, QCoreApplication.translate("SettingsWindow", u"Nur Fehler", None))
-        self.comboLogging.setItemText(1, QCoreApplication.translate("SettingsWindow", u"Warnungen und Fehler", None))
-        self.comboLogging.setItemText(2, QCoreApplication.translate("SettingsWindow", u"Debug-Informationen", None))
-
-        self.label_14.setText(QCoreApplication.translate("SettingsWindow", u"Beim Start nach Updates suchen", None))
     # retranslateUi
 

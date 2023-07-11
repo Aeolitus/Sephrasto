@@ -38,6 +38,8 @@ class Wolke:
         'FontSize' : 0, # we default this to os font size after start
         'FontHeading' : "Aniron",
         'FontHeadingSize' : 8,
+        'CharListCols' : 2,
+        'CharListRows' : 5,
         'DPI-Skalierung' : False,
         'WindowSize-Main' : [286, 346],
         'WindowSize-Charakter' : [1130, 903],
@@ -47,17 +49,9 @@ class Wolke:
         'WindowSize-Waffen' : _DefaultSettings.WindowSizeDefault2Col,
         'WindowSize-Ruestungen' : _DefaultSettings.WindowSizeDefault2Col,
         'WindowSize-Datenbank' : [661, 582],
-        'WindowSize-DBEinstellung' : _DefaultSettings.WindowSizeDefault1Col,
-        'WindowSize-DBFertigkeitProfan' : _DefaultSettings.WindowSizeDefault1Col,
-        'WindowSize-DBFertigkeitUeber' : _DefaultSettings.WindowSizeDefault1Col,
-        'WindowSize-DBFreieFert' : _DefaultSettings.WindowSizeDefault1Col,
-        'WindowSize-DBRegel' : _DefaultSettings.WindowSizeDefault1Col,
-        'WindowSize-DBRuestung' : _DefaultSettings.WindowSizeDefault1Col,
-        'WindowSize-DBTalent' : _DefaultSettings.WindowSizeDefault1Col,
-        'WindowSize-DBVorteil' : _DefaultSettings.WindowSizeDefault1Col,
-        'WindowSize-DBWaffeneigenschaft' : _DefaultSettings.WindowSizeDefault1Col,
-        'WindowSize-DBWaffe' : _DefaultSettings.WindowSizeDefault1Col,
         'WindowSize-Einstellungen' : [589, 903],
+        'WindowSize-Regelanhang' : _DefaultSettings.WindowSizeDefault1Col,
+        'Recent-Chars' : [],
     }
     FontHeadingSizeL1 = 0
     FontHeadingSizeL3 = 0
@@ -68,3 +62,6 @@ class Wolke:
     DefaultOSFont = ""
     DefaultOSFontSize = 9
     FontAwesomeCSS = "" # Qt does not support 'class' in span tags (yet), so we store the style here for reuse in the app
+    FontAwesomeFont = None
+    FontAwesomeRegularFont = None
+    CharImageSize = [260.0, 340.0]

@@ -9,6 +9,7 @@ import UI.CharakterMinderpakt
 from PySide6 import QtWidgets, QtCore, QtGui
 import logging
 from Hilfsmethoden import Hilfsmethoden
+from QtUtils.AutoResizingTextBrowser import TextEditAutoResizer
 
 class CharakterMinderpaktWrapper():    
     def __init__(self):
@@ -24,17 +25,20 @@ class CharakterMinderpaktWrapper():
                 QtCore.Qt.WindowCloseButtonHint |
                 QtCore.Qt.WindowMaximizeButtonHint |
                 QtCore.Qt.WindowMinimizeButtonHint)
-        
+
+        self.autoResizeHelper = TextEditAutoResizer(self.ui.plainText)
+        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).setText("Abbrechen")
+
         self.ui.splitter.adjustSize()
         width = self.ui.splitter.size().width()
         self.ui.splitter.setSizes([int(width*0.6), int(width*0.4)])
 
-        self.vorteilTypen = Wolke.DB.einstellungen["Vorteile: Typen"].toTextList()
+        self.vorteilTypen = Wolke.DB.einstellungen["Vorteile: Typen"].wert
         self.ui.treeWidget.itemSelectionChanged.connect(self.vortClicked)
         self.ui.treeWidget.header().setSectionResizeMode(0,QtWidgets.QHeaderView.Stretch)
 
         if len(Wolke.Char.vorteile) > 0:
-            self.currentVort = Wolke.Char.vorteile[0]
+            self.currentVort = next(iter(Wolke.Char.vorteile))
         else:
             self.currentVort = ""
         self.initVorteile()
@@ -96,13 +100,17 @@ class CharakterMinderpaktWrapper():
  
     def updateInfo(self):
         if self.currentVort != "":
-            self.ui.labelVorteil.setText(Wolke.DB.vorteile[self.currentVort].name)
-            typ = min(Wolke.DB.vorteile[self.currentVort].typ, len(self.vorteilTypen)-1)
+            vorteil = Wolke.DB.vorteile[self.currentVort]
+            self.ui.labelVorteil.setText(vorteil.name)
+            typ = min(vorteil.typ, len(self.vorteilTypen)-1)
             self.ui.labelTyp.setText(self.vorteilTypen[typ])
-            self.ui.labelNachkauf.setText(Wolke.DB.vorteile[self.currentVort].nachkauf)
-            self.ui.plainText.setPlainText("")
-            self.ui.plainText.appendHtml(Hilfsmethoden.fixHtml(Wolke.DB.vorteile[self.currentVort].text))
-            if Wolke.DB.vorteile[self.currentVort].variableKosten:
+            self.ui.labelNachkauf.setText(vorteil.nachkauf)
+
+            text = vorteil.text
+            if vorteil.info:
+                text += f"\n\n<b>Sephrasto</b>: {vorteil.info}"
+            self.ui.plainText.setText(Hilfsmethoden.fixHtml(text))
+            if vorteil.variableKosten:
                 self.ui.labelKosten.setText("20 EP")
             else:
-                self.ui.labelKosten.setText(str(Wolke.DB.vorteile[self.currentVort].kosten) + " EP")
+                self.ui.labelKosten.setText(str(vorteil.kosten) + " EP")

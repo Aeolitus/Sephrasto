@@ -5,7 +5,7 @@ from PySide6.QtWidgets import QStyle
 from PySide6.QtCore import QUrl
 
 class HilfeWrapper(QtCore.QObject):
-    def __init__(self):
+    def __init__(self, source="Help.md", enableNavigation = True, searchPaths = ['./Doc/']):
         super().__init__()
         self.form = QtWidgets.QDialog()
         self.ui = UI.Hilfe.Ui_formHilfe()
@@ -18,23 +18,28 @@ class HilfeWrapper(QtCore.QObject):
                 QtCore.Qt.WindowMaximizeButtonHint |
                 QtCore.Qt.WindowMinimizeButtonHint)
 
-        self.ui.buttonBackward.setText('\uf0a8')
-        self.ui.buttonBackward.clicked.connect(self.ui.teHelp.backward)
-        self.ui.buttonForward.setText('\uf0a9')
-        self.ui.buttonForward.clicked.connect(self.ui.teHelp.forward)
-        self.ui.buttonHome.setText('\uf015')
-        self.ui.buttonHome.clicked.connect(self.ui.teHelp.home)
+        if enableNavigation:
+            self.ui.buttonBackward.setText('\uf0a8')
+            self.ui.buttonBackward.clicked.connect(self.ui.teHelp.backward)
+            self.ui.buttonForward.setText('\uf0a9')
+            self.ui.buttonForward.clicked.connect(self.ui.teHelp.forward)
+            self.ui.buttonHome.setText('\uf015')
+            self.ui.buttonHome.clicked.connect(self.ui.teHelp.home)
+        else:
+            self.ui.buttonBackward.hide()
+            self.ui.buttonForward.hide()
+            self.ui.buttonHome.hide()
+            self.ui.teHelp.setOpenLinks(False)
 
         self.ui.teHelp.backwardAvailable.connect(self.updateBackwardAvailable)
         self.ui.teHelp.forwardAvailable.connect(self.updateForwardAvailable)
         self.updateBackwardAvailable()
         self.updateForwardAvailable()
 
-        self.ui.teHelp.setSearchPaths(['./Doc/'])
-        self.ui.teHelp.setSource(QUrl('Help.md'))
+        self.ui.teHelp.setSearchPaths(searchPaths)
+        self.ui.teHelp.setSource(QUrl(source))
 
         self.form.setWindowModality(QtCore.Qt.NonModal)
-        self.form.show()
 
     def updateBackwardAvailable(self):
         self.ui.buttonBackward.setEnabled(self.ui.teHelp.isBackwardAvailable())

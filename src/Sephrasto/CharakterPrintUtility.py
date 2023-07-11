@@ -1,6 +1,5 @@
 from Wolke import Wolke
-from Fertigkeiten import VorteilLinkKategorie
-import Talentbox
+from Core.Vorteil import VorteilLinkKategorie
 import re
 from difflib import SequenceMatcher
 from fractions import Fraction
@@ -9,27 +8,26 @@ class CharakterPrintUtility:
 
     @staticmethod
     def getVorteile(char):
-        return sorted(char.vorteile, key = lambda v: (Wolke.DB.vorteile[v].typ, Wolke.DB.vorteile[v].name))
+        return sorted(char.vorteile.values(), key = lambda v: (v.typ, v.name))
 
     @staticmethod
     def groupVorteile(char, vorteile, link = True):
         # Collect a list of Vorteile, where different levels of the same are
         # combined into one entry and then split them into the three categories
         if link:
-            vorteile = [v for v in vorteile if not CharakterPrintUtility.isLinkedToVorteil(char, Wolke.DB.vorteile[v])]
+            vorteile = [v for v in vorteile if not CharakterPrintUtility.isLinkedToVorteil(char, v)]
 
         vorteileAllgemein = []
         vorteileKampf = []
         vorteileUeber = []
 
-        vorteileMergeScript = Wolke.DB.einstellungen["Charsheet: Vorteile Mergescript"].toText()
-        for vort in vorteile:
-            vorteil = Wolke.DB.vorteile[vort]
+        vorteileMergeScript = Wolke.DB.einstellungen["Charsheet: Vorteile Mergescript"].wert
+        for vorteil in vorteile:
             if link:
-                name = CharakterPrintUtility.getLinkedName(char, vorteil, forceKommentar=True)
+                name = CharakterPrintUtility.getLinkedName(char, vorteil)
             else:
-                name = vorteil.getFullName(char)
-            scriptVariables = { "char" : char, "name" : vort, "typ" : vorteil.typ, "mergeTo" : 0 }
+                name = vorteil.anzeigenameExt
+            scriptVariables = { "char" : char, "name" : vorteil.name, "typ" : vorteil.typ, "mergeTo" : 0 }
             exec(vorteileMergeScript, scriptVariables)
             if scriptVariables["mergeTo"] == 0:
                 vorteileAllgemein.append(name)
@@ -69,42 +67,33 @@ class CharakterPrintUtility:
 
     @staticmethod
     def getTalente(char, fertigkeit, nurHöchsteFertigkeit = False):
-        talentBoxes = []
-        talente = fertigkeit.gekaufteTalente.copy()
-        talente.extend([t for t in fertigkeit.talentMods if not t in talente])
-        talente = sorted(talente)
+        result = []
+        talente = [Wolke.DB.talente[t] for t in fertigkeit.gekaufteTalente]
+        talente.extend([Wolke.DB.talente[t] for t in fertigkeit.talentMods if not t in fertigkeit.gekaufteTalente])
+        talente = sorted(talente, key = lambda t : t.anzeigename)
 
         for el in talente:
-            talent = Wolke.DB.talente[el]
-
             if nurHöchsteFertigkeit:
                 höchste = None
-                for fert in talent.fertigkeiten:
-                    ferts = char.übernatürlicheFertigkeiten if talent.isSpezialTalent() else char.fertigkeiten
-                    if fert not in ferts:
+                ferts = char.übernatürlicheFertigkeiten if el.spezialTalent else char.fertigkeiten
+                for fertName in el.fertigkeiten:   
+                    if fertName not in ferts:
                         continue
-                    if höchste == None or (ferts[fert].addToPDF and höchste.probenwertTalent < ferts[fert].probenwertTalent):
-                        höchste = ferts[fert]
+                    fert = ferts[fertName]
+                    if höchste == None or (fert.addToPDF and höchste.probenwertTalent < fert.probenwertTalent):
+                        höchste = fert
                 if höchste.name != fertigkeit.name:
                     continue
 
-            tt = Talentbox.Talentbox()
-            tt.na = el
-            tt.pw = fertigkeit.probenwertTalent
-            tt.groupFert = fertigkeit
-            tt.text = talent.text
+            name = char.talente[el.name].anzeigenameExt if el.name in char.talente else el.anzeigename
+            if el.name in fertigkeit.talentMods:
+                for condition,mod in sorted(fertigkeit.talentMods[el.name].items()):
+                    name += " " + (condition + " " if condition else "") + ("+" if mod >= 0 else "") + str(mod)        
+            if not el.name in fertigkeit.gekaufteTalente:
+                name = "(" + name + ")"
+            result.append(name)
 
-            tt.anzeigeName = talent.getFullName(char) if el in fertigkeit.gekaufteTalente else el
-            tt.anzeigeName = tt.anzeigeName.replace(fertigkeit.name + ": ", "")
-            if el in fertigkeit.talentMods:
-                for condition,mod in sorted(fertigkeit.talentMods[el].items()):
-                    tt.anzeigeName += " " + (condition + " " if condition else "") + ("+" if mod >= 0 else "") + str(mod)        
-            if not el in fertigkeit.gekaufteTalente:
-                tt.anzeigeName = "(" + tt.anzeigeName + ")"
-
-            talentBoxes.append(tt)
-
-        return talentBoxes
+        return result
 
     @staticmethod
     def getÜberFertigkeiten(char):
@@ -114,96 +103,20 @@ class CharakterPrintUtility:
 
     @staticmethod
     def getÜberTalente(char):
-        talente = set()
-        for fert in char.übernatürlicheFertigkeiten:
-            for talent in char.übernatürlicheFertigkeiten[fert].gekaufteTalente:
-                talente.add(talent)
-        talentBoxes = []
-        referenzBücher = Wolke.DB.einstellungen["Referenzbücher"].toTextList()
-        for t in talente:
-            # Fill Talente
-            talent = Wolke.DB.talente[t]
-            tt = Talentbox.Talentbox()
-
-            tt.na = talent.name
-            tt.anzeigeName = talent.getFullName(char)
-            tt.cheatsheetAuflisten = talent.cheatsheetAuflisten
-            tt.text = talent.text
-
-            if len(talent.fertigkeiten) == 1:
-                tt.na = tt.na.replace(talent.fertigkeiten[0] + ": ", "")
-            for el in talent.fertigkeiten:
-                if not el in char.übernatürlicheFertigkeiten:
-                    continue
-                fert = char.übernatürlicheFertigkeiten[el]
-                tt.pw = max(tt.pw, fert.probenwertTalent + fert.basiswertMod)
-
-                if tt.groupFert is None:
-                    tt.groupFert = fert
-                elif not tt.groupFert.talenteGruppieren and fert.talenteGruppieren:
-                    tt.groupFert = fert
-                elif tt.groupFert.talenteGruppieren and fert.talenteGruppieren:
-                    if tt.groupFert.probenwertTalent < fert.probenwertTalent:
-                        tt.groupFert = fert
-
-            res = re.findall('<b>Vorbereitungszeit:</b>(.*?)(?:$|\n)', talent.text, re.UNICODE)
-            if len(res) == 0:
-                res = re.findall('Vorbereitungszeit:(.*?)(?:$|\n)', talent.text, re.UNICODE)
-            if len(res) == 1:
-                tt.vo = res[0].strip()
-
-            res = re.findall('<b>Reichweite:</b>(.*?)(?:$|\n)', talent.text, re.UNICODE)
-            if len(res) == 0:
-                res = re.findall('Reichweite:(.*?)(?:$|\n)', talent.text, re.UNICODE)
-            if len(res) == 1:
-                tt.re = res[0].strip()
-
-            res = re.findall('<b>Wirkungsdauer:</b>(.*?)(?:$|\n)', talent.text, re.UNICODE)
-            if len(res) == 0:
-                res = re.findall('Wirkungsdauer:(.*?)(?:$|\n)', talent.text, re.UNICODE)
-            if len(res) == 1:
-                tt.wd = res[0].strip()
-
-            res = re.findall('<b>Kosten:</b>(.*?)(?:$|\n)', talent.text, re.UNICODE)
-            if len(res) == 0:
-                res = re.findall('Kosten:(.*?)(?:$|\n)', talent.text, re.UNICODE)
-            if len(res) == 1:
-                tt.ko = res[0].strip()
-
-            if talent.referenzSeite > 0:
-                if talent.referenzBuch >= len(referenzBücher) or referenzBücher[talent.referenzBuch] == "Ilaris":
-                    tt.se = "S. " + str(talent.referenzSeite)
-                else:
-                    tt.se = referenzBücher[talent.referenzBuch] + " S. " + str(talent.referenzSeite)
-
-            talentBoxes.append(tt)
-
-        def sortTalents(tt):
-            if tt.groupFert is None:
-                return (0, "", tt.na)
-            elif tt.groupFert.talenteGruppieren:
-               return (tt.groupFert.typ, tt.groupFert.name, tt.na)
+        def sortTalente(tal):
+            hauptFert = tal.hauptfertigkeit
+            if hauptFert is None:
+                return (0, "", tal.name)
+            elif hauptFert.talenteGruppieren:
+               return (hauptFert.typ, hauptFert.name, tal.name)
             else:
-               return (tt.groupFert.typ, "", tt.na)
+               return (hauptFert.typ, "", tal.name)
 
-        talentBoxes.sort(key = lambda tt: sortTalents(tt))
-        return talentBoxes
-
-    @staticmethod
-    def groupUeberTalente(talentboxList):
-        liturgieTypen = [int(t) for t in Wolke.DB.einstellungen["Fertigkeiten: Liturgie-Typen"].toTextList()]
-        anrufungTypen = [int(t) for t in Wolke.DB.einstellungen["Fertigkeiten: Anrufungs-Typen"].toTextList()]
-        zauber = []
-        liturgien = []
-        anrufungen = []
-        for tal in talentboxList:
-            if tal.groupFert is not None and tal.groupFert.typ in liturgieTypen:
-                liturgien.append(tal)
-            elif tal.groupFert is not None and tal.groupFert.typ in anrufungTypen:
-                anrufungen.append(tal)
-            else:
-                zauber.append(tal)
-        return (zauber, liturgien, anrufungen)
+        talenteByTyp = []
+        for typ in range(len(Wolke.DB.einstellungen["Talente: Spezialtalent Typen"].wert)):
+            talenteByTyp.append([t for t in char.talente.values() if t.spezialTyp == typ])
+            talenteByTyp[-1].sort(key = sortTalente)
+        return talenteByTyp
 
     textToFraction = {
         "ein Achtel" : "1/8",
@@ -321,10 +234,8 @@ class CharakterPrintUtility:
         if kategorie == VorteilLinkKategorie.Regel and vorteil.linkKategorie == VorteilLinkKategorie.Regel:
             return vorteil.linkElement == element
         elif kategorie == VorteilLinkKategorie.ÜberTalent and vorteil.linkKategorie == VorteilLinkKategorie.ÜberTalent:
-            if vorteil.linkElement == element:
-                for fer in char.übernatürlicheFertigkeiten:
-                    if vorteil.linkElement in char.übernatürlicheFertigkeiten[fer].gekaufteTalente:
-                        return True
+            if vorteil.linkElement == element and vorteil.linkElement in char.talente:
+                return True
         elif vorteil.linkKategorie == VorteilLinkKategorie.Vorteil:
             if kategorie == VorteilLinkKategorie.Vorteil and vorteil.linkElement == element and (vorteil.linkElement in char.vorteile):
                 return True
@@ -335,18 +246,18 @@ class CharakterPrintUtility:
         return False
 
     @staticmethod
-    def getLinkedName(char, vorteil, forceKommentar = False):
-        name = vorteil.getFullName(char, forceKommentar)
-        vorteilsnamenErsetzen = [int(typ) for typ in Wolke.DB.einstellungen["Regelanhang: Vorteilsnamen ersetzen"].toTextList()]
+    def getLinkedName(char, vorteil, descriptionWillFollow = False):
+        name = vorteil.anzeigenameExt
+        if descriptionWillFollow and "$kommentar$" in vorteil.cheatsheetBeschreibung:
+            name = vorteil.name
+        vorteilsnamenErsetzen = Wolke.DB.einstellungen["Regelanhang: Vorteilsnamen ersetzen"].wert
 
-        for vor2 in char.vorteile:
-            vorteil2 = Wolke.DB.vorteile[vor2]
+        for vorteil2 in char.vorteile.values():
             if CharakterPrintUtility.isLinkedTo(char, vorteil2, VorteilLinkKategorie.Vorteil, vorteil.name):
-                name2 = CharakterPrintUtility.getLinkedName(char, vorteil2, forceKommentar)
+                name2 = CharakterPrintUtility.getLinkedName(char, vorteil2, descriptionWillFollow)
 
                 #allgemeine vorteile, kampfstile and traditionen only keep the last name (except vorteil is variable with a comment)
-                if (not (vorteil.name in char.vorteileVariableKosten) or not (vorteil.name in char.vorteileKommentare))\
-                   and (vorteil2.typ in vorteilsnamenErsetzen):
+                if (not (vorteil.variableKosten) or not (vorteil.kommentarErlauben and vorteil.kommentar)) and (vorteil2.typ in vorteilsnamenErsetzen):
                     name = name2
                 else:
                     fullset = [" I", " II", " III", " IV", " V", " VI", " VII"]
@@ -361,7 +272,7 @@ class CharakterPrintUtility:
                         name += ", " + name2
 
         if "," in name:
-            abbreviations = Wolke.DB.einstellungen["Charsheet: Verknüpfungs-Abkürzungen"].toTextDict('\n', False)
+            abbreviations = Wolke.DB.einstellungen["Charsheet: Verknüpfungs-Abkürzungen"].wert
             nameStart = name[:name.index(",")]
             nameAbbreviate = name[name.index(","):]
             for k,v in abbreviations.items():
@@ -370,23 +281,36 @@ class CharakterPrintUtility:
         return name
 
     @staticmethod
+    def getLinkedBedingungen(char, vorteil):
+        bedingungen = vorteil.bedingungen
+        beschreibungenErsetzen = Wolke.DB.einstellungen["Regelanhang: Vorteilsbeschreibungen ersetzen"].wert
+        for vorteil2 in char.vorteile.values():
+            if CharakterPrintUtility.isLinkedTo(char, vorteil2, VorteilLinkKategorie.Vorteil, vorteil.name):
+                if vorteil2.typ in beschreibungenErsetzen:
+                    continue
+                bedingungen2 = CharakterPrintUtility.getLinkedBedingungen(char, vorteil2)
+                if bedingungen2:
+                    bedingungen += "\n" + bedingungen2
+
+        return bedingungen.strip()
+
+    @staticmethod
     def getLinkedDescription(char, vorteil):
         beschreibung = vorteil.cheatsheetBeschreibung.replace("\n\n", "\n")
         if beschreibung:
-            if vorteil.name in char.vorteileKommentare and "$kommentar$" in beschreibung:
-                beschreibung = beschreibung.replace("$kommentar$", char.vorteileKommentare[vorteil.name])
+            if vorteil.kommentarErlauben and "$kommentar$" in beschreibung:
+                beschreibung = beschreibung.replace("$kommentar$", vorteil.kommentar)
         else:
             beschreibung = vorteil.text.replace("\n\n", "\n")
 
-        beschreibungenErsetzen = [int(typ) for typ in Wolke.DB.einstellungen["Regelanhang: Vorteilsbeschreibungen ersetzen"].toTextList()]
-        for vor2 in char.vorteile:
-            vorteil2 = Wolke.DB.vorteile[vor2]
+        beschreibungenErsetzen = Wolke.DB.einstellungen["Regelanhang: Vorteilsbeschreibungen ersetzen"].wert
+        for vorteil2 in char.vorteile.values():
             if CharakterPrintUtility.isLinkedTo(char, vorteil2, VorteilLinkKategorie.Vorteil, vorteil.name):
                 beschreibung2 = CharakterPrintUtility.getLinkedDescription(char, vorteil2)
 
                 if vorteil2.typ in beschreibungenErsetzen:
                     #allgemeine vorteile replace the description of what they link to (except vorteil is variable with a comment)
-                    if not (vorteil.name in char.vorteileVariableKosten) or not (vorteil.name in char.vorteileKommentare):
+                    if not vorteil.variableKosten or not (vorteil.kommentarErlauben and vorteil.kommentar):
                         beschreibung = beschreibung2
                     else:
                         beschreibung += "\n" + beschreibung2

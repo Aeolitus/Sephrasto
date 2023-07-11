@@ -29,6 +29,7 @@ from PySide6.QtWidgets import QToolTip
 from Hilfsmethoden import Hilfsmethoden
 import platform
 import PathHelper
+from CharakterListe import CharakterListe
 
 loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
 logging.basicConfig(filename="sephrasto.log", \
@@ -125,12 +126,7 @@ class MainWindowWrapper(object):
         self.form = QtWidgets.QWidget()
         self.ui = UI.MainWindow.Ui_Form()
         self.ui.setupUi(self.form)
-        self.ui.buttonNew.clicked.connect(self.createNew)
-        self.ui.buttonEdit.clicked.connect(self.editExisting)
-        self.ui.buttonRules.clicked.connect(self.editRuleset)
-        self.ui.buttonSettings.clicked.connect(self.editSettings)
-        self.ui.buttonHelp.clicked.connect(self.help)
-        self.ui.labelVersion.setText(self._version_ + " - by Aeolitus ")
+        self.ui.labelVersion.setText(self._version_ + " - by Aeolitus & Gatsu")
         self.app.setWindowIcon(QtGui.QIcon('icon_large.png'))
 
         windowSize = Wolke.Settings["WindowSize-Main"]
@@ -138,11 +134,38 @@ class MainWindowWrapper(object):
 
         self.updateAppearance()
 
-        self.ui.buttonHelp.setText("\uf059")
-        self.ui.buttonSettings.setText("\uf013")
+        self.ui.buttonRules.setText("\uf1c0")
+        self.ui.buttonRules.clicked.connect(self.editRuleset)
 
+        self.ui.buttonSettings.setText("\uf013")
+        self.ui.buttonSettings.clicked.connect(self.editSettings)
+
+        self.ui.buttonHelp.setText("\uf059")
+        self.ui.buttonHelp.clicked.connect(self.help)
+
+        # Load Background image and make sure it resizes dynamically
+        self.background = QtGui.QPixmap("Data/Images/background.png")
+        self.form.paintEvent = self.paintEvent
+
+        # Glow effect for sephrasto label
+        self.glow = QtWidgets.QGraphicsDropShadowEffect()
+        self.glow.setBlurRadius(10)
+        self.glow.setXOffset(0)
+        self.glow.setYOffset(0)
+        self.glow.setColor(QColor("#ffffff"))
+        self.ui.label.setGraphicsEffect(self.glow)
+
+        # Init recent characters list (including new and load buttons)
+        self.charakterListe = CharakterListe(Wolke.Settings['CharListCols'], Wolke.Settings['CharListRows'])
+        self.charakterListe.load.connect(self.editExisting)
+        self.charakterListe.createNew.connect(self.createNew)
+        self.ui.scrollArea.setWidget(self.charakterListe)
+
+        # Check for updates
         UpdateChecker.checkForUpdate()
 
+        # Load plugins and add buttons (if any)
+        buttons = [self.ui.buttonRules]
         self._plugins = []
         for pluginData in PluginLoader.getPlugins(Wolke.Settings['Pfad-Plugins']):
             if pluginData.name in Wolke.Settings['Deaktivierte-Plugins']:
@@ -155,7 +178,8 @@ class MainWindowWrapper(object):
                 if hasattr(pluginData.plugin, "createMainWindowButtons"):
                     for button in pluginData.plugin.createMainWindowButtons():
                         button.setParent(self.form)
-                        self.ui.vlPluginButtons.addWidget(button)
+                        self.ui.horizontalLayout.insertWidget(0, button)
+                        buttons.append(button)
             else:
                 messagebox = QtWidgets.QMessageBox()
                 messagebox.setWindowTitle("Fehler!")
@@ -164,18 +188,42 @@ class MainWindowWrapper(object):
                 messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
                 messagebox.exec()
 
+        self.dbEditor = None
+
         EventBus.doAction("plugins_geladen")
 
         EventBus.addAction("charaktereditor_reload", self.charakterEditorReloadHook)
         EventBus.addAction("charaktereditor_modified", self.charakterEditorModifiedHook)
 
+        self.updateRecents()
         self.form.show()
-
         exitcode = self.app.exec()
         Wolke.Settings["WindowSize-Main"] = [self.form.size().width(), self.form.size().height()]
         EinstellungenWrapper.save()
 
         sys.exit(exitcode)
+
+    def updateRecents(self):
+        self.charakterListe.update(Wolke.Settings['Recent-Chars'])
+        self.ui.scrollArea.setFixedWidth(self.charakterListe.totalWidth)
+        self.ui.scrollArea.setMaximumHeight(self.charakterListe.totalHeight)
+
+    def paintEvent(self, pe):
+        painter = QtGui.QPainter(self.form)
+        winSize = self.form.size()
+        pixmapRatio = self.background.width() / self.background.height()
+        windowRatio = winSize.width() / winSize.height()
+
+        if pixmapRatio > windowRatio:
+          newWidth = winSize.height() * pixmapRatio
+          offset = (newWidth - winSize.width()) / -2
+          painter.drawPixmap(offset, 0, newWidth, winSize.height(), self.background)
+        else:
+          newHeight = winSize.width() / windowRatio
+          newWidth = newHeight * pixmapRatio      
+          offsetW = (newWidth - winSize.width()) / -2
+          offsetH = (newHeight - winSize.height()) / -2
+          painter.drawPixmap(offsetW, offsetH, newWidth, newHeight, self.background)
 
     def charakterEditorReloadHook(self, params):
         if self.ed and not self.ed.form.isHidden():
@@ -190,9 +238,8 @@ class MainWindowWrapper(object):
         Creates a new CharakterEditor which is empty and shows it.
         '''
         EventBus.doAction("charaktereditor_oeffnet", { "neu" : True, "filepath" : "" })
-        self.ed = CharakterEditor.Editor(self._plugins, self.savePathUpdated)
-        if self.ed.noDatabase:
-            raise Exception("Konnte datenbank.xml nicht finden")
+        self.form.hide()
+        self.ed = CharakterEditor.Editor(self._plugins, self.charakterEditorClosedHandler, self.savePathUpdated)
         self.ed.form = QtWidgets.QWidget()
         self.ed.ui = UI.CharakterMain.Ui_formMain()
         self.ed.ui.setupUi(self.ed.form)
@@ -201,26 +248,27 @@ class MainWindowWrapper(object):
         self.ed.setupMainForm()
         self.savePathUpdated()
         self.ed.form.show()
+        
         EventBus.doAction("charaktereditor_geoeffnet", { "neu" : True, "filepath" : "" })
         
-    def editExisting(self):
+    def editExisting(self, spath = ""):
         '''
         Creates a CharakterEditor for an existing character and shows it.
         '''
-        if os.path.isdir(Wolke.Settings['Pfad-Chars']):
-            startDir = Wolke.Settings['Pfad-Chars']
-        else:
-            startDir = ""
-        spath, _ = QtWidgets.QFileDialog.getOpenFileName(None,"Charakter laden...",startDir,"XML-Datei (*.xml)")
+        if spath == "":
+            if os.path.isdir(Wolke.Settings['Pfad-Chars']):
+                startDir = Wolke.Settings['Pfad-Chars']
+            else:
+                startDir = ""
+            spath, _ = QtWidgets.QFileDialog.getOpenFileName(None,"Charakter laden...",startDir,"XML-Datei (*.xml)")
         if spath == "":
             return
         if not spath.endswith(".xml"):
             spath = spath + ".xml"
 
         EventBus.doAction("charaktereditor_oeffnet", { "neu" : False, "filepath" : spath })
-        self.ed = CharakterEditor.Editor(self._plugins, self.savePathUpdated, spath)
-        if self.ed.noDatabase:
-            raise Exception("Konnte datenbank.xml nicht finden")
+        self.form.hide()
+        self.ed = CharakterEditor.Editor(self._plugins, self.charakterEditorClosedHandler, self.savePathUpdated, spath)
         self.ed.form = QtWidgets.QWidget()
         self.ed.ui = UI.CharakterMain.Ui_formMain()
         self.ed.ui.setupUi(self.ed.form)
@@ -230,17 +278,44 @@ class MainWindowWrapper(object):
         self.savePathUpdated()
         self.ed.form.show()
         EventBus.doAction("charaktereditor_geoeffnet", { "neu" : False, "filepath" : spath })
+
+    def addRecentChar(self, spath):
+        if spath in Wolke.Settings['Recent-Chars']:
+            Wolke.Settings['Recent-Chars'].remove(spath)
+        Wolke.Settings['Recent-Chars'].insert(0, spath)
+        if len(Wolke.Settings['Recent-Chars']) > 32:
+            Wolke.Settings['Recent-Chars'].pop()
         
+    def charakterEditorClosedHandler(self):
+        if self.ed.savepath:
+            self.addRecentChar(self.ed.savepath)
+        self.ed.form.deleteLater()
+        del self.ed
+        self.ed = None
+        self.updateRecents()
+        self.form.show()
+
     def editRuleset(self):
         '''
         Creates the DatenbankEdit Form and shows the contents of datenbank.xml.
         '''
-        self.D = DatenbankEditor.DatenbankEditor(self._plugins)
-        self.D.form = QtWidgets.QWidget()
-        self.D.ui = UI.DatenbankMain.Ui_Form()
-        self.D.ui.setupUi(self.D.form)
-        self.D.setupGUI()
-        self.D.form.show()
+        if self.dbEditor is not None:
+            self.dbEditor.form.show()
+            self.dbEditor.form.activateWindow()
+            return
+        self.form.hide()
+        self.dbEditor = DatenbankEditor.DatenbankEditor(self._plugins, self.dbeClosedHandler)
+        self.dbEditor.form = QtWidgets.QMainWindow()
+        self.dbEditor.ui = UI.DatenbankMain.Ui_Form()
+        self.dbEditor.ui.setupUi(self.dbEditor.form)
+        self.dbEditor.setupGUI()
+        self.dbEditor.form.show()
+
+    def dbeClosedHandler(self):
+        self.dbEditor.form.deleteLater()
+        del self.dbEditor
+        self.dbEditor = None
+        self.form.show()
         
     def editSettings(self):
         EinstellungenWrapper(self._plugins)
@@ -248,6 +323,7 @@ class MainWindowWrapper(object):
     def help(self):
         if not hasattr(self, "hilfe"):
             self.hilfe = HilfeWrapper()
+            self.hilfe.form.show()
         else:
             self.hilfe.form.show()
             self.hilfe.form.activateWindow()
@@ -257,8 +333,8 @@ class MainWindowWrapper(object):
         if self.ed.savepath:
             file = " - " + os.path.basename(self.ed.savepath)
         rules = ""
-        if Wolke.DB.datei:
-           rules = " (" + os.path.splitext(os.path.basename(Wolke.DB.datei))[0] + ")"
+        if Wolke.DB.hausregelDatei:
+           rules = " (" + os.path.splitext(os.path.basename(Wolke.DB.hausregelDatei))[0] + ")"
         self.ed.form.setWindowTitle("Sephrasto" + file + rules)
 
     def updateAppearance(self):
@@ -276,6 +352,7 @@ class MainWindowWrapper(object):
         Wolke.FontHeadingSizeL3 = Wolke.Settings["FontSize"] + 2
 
         # Set theme
+        palette = self.app.style().standardPalette()
         themeName = Wolke.Settings['Theme']
         if themeName in Wolke.Themes:
             theme = Wolke.Themes[themeName]
@@ -284,9 +361,7 @@ class MainWindowWrapper(object):
             self.app.setStyle(theme["Style"])
 
             # Set color palette
-            if "StandardPalette" in theme and theme["StandardPalette"]:
-                palette = self.app.style().standardPalette()
-            else:
+            if "StandardPalette" not in theme or not theme["StandardPalette"]:
                 palette = QPalette()
 
             if "Palette" in theme:
@@ -324,25 +399,40 @@ class MainWindowWrapper(object):
                 Wolke.PanelColor = theme["PanelColor"]
         else:
             theme = ''
-
+            
         # Create stylesheet
         standardFont = f"font-family: '{Wolke.Settings['Font']}'"
         headingFont = f"font-family: '{Wolke.Settings['FontHeading']}'; color: {Wolke.HeadingColor}"
-        Wolke.FontAwesomeCSS = f"font-size: {min(Wolke.Settings['FontSize'], 12)}pt; font-family: \"Font Awesome 6 Free Solid\"; font-weight: 900;"
+        Wolke.FontAwesomeCSS = f"font-size: {Wolke.Settings['FontSize']}pt; font-family: \"Font Awesome 6 Free Solid\"; font-weight: 900;"
+        Wolke.FontAwesomeFont = QtGui.QFont("Font Awesome 6 Free Solid", Wolke.Settings['FontSize'], QtGui.QFont.Black)
+        Wolke.FontAwesomeRegularFont = QtGui.QFont("Font Awesome 6 Free Regular", Wolke.Settings['FontSize'], QtGui.QFont.Normal)
         css = f"""*[readOnly=\"true\"] {{ background-color: {Wolke.ReadonlyColor}; border: none; }}
 QWidget, QToolTip {{ {standardFont}; font-size: {Wolke.Settings['FontSize']}pt; }}
 QHeaderView::section {{ font-weight: bold; font-size: {Wolke.Settings['FontHeadingSize']-1}pt; {headingFont}; }}
-QListView::item {{ margin-top: 4px; margin-bottom: 4px; }}
-QTreeView::item {{ margin-top: 4px; margin-bottom: 4px; }}
+QListView::item {{ margin-top: 0.3em; margin-bottom: 0.3em; }}
+QTreeView::item {{ margin-top: 0.3em; margin-bottom: 0.3em; }}
+.treeVorteile::item {{ margin: 0.1em; }}
+QLineEdit {{color: {palette.text().color().name()};}} /* for some reason the color isnt applied to the palceholder text otherwise */
+QCheckBox::indicator {{ width: {Hilfsmethoden.emToPixels(1.9)}px; height: {Hilfsmethoden.emToPixels(1.9)}px; }} /* doesnt work for tree/list - setting it via ::indicator breaks text offsets*/
 .smallText {{ font-size: {Wolke.Settings['FontSize']-1}pt; }}
+.smallTextBright {{ font-size: {Wolke.Settings['FontSize']-1}pt; color: #ffffff }}
 .italic {{ font-style: italic; }}
 .panel {{ background: {Wolke.PanelColor}; }}
 .h1 {{ font-weight: bold; font-size: {Wolke.FontHeadingSizeL1}pt; {headingFont}; }}
 .h2 {{ font-weight: bold; font-size: {Wolke.Settings['FontHeadingSize']}pt; {headingFont}; }}
 .h3, QGroupBox {{ font-weight: bold; font-variant: small-caps; font-size: {Wolke.FontHeadingSizeL3}pt; {standardFont}; color: {Wolke.HeadingColor}; }}
 .h4 {{ font-weight: bold; }}
-.title {{ font-weight: bold; font-size: 16pt; {headingFont}; }}
-.icon {{ {Wolke.FontAwesomeCSS} }}\n"""
+.title {{ font-weight: bold; font-size: 16pt; {headingFont}; color: #ffffff }}
+.subtitle {{ font-size: 10pt; color: #ffffff }}
+.icon {{ {Wolke.FontAwesomeCSS} max-width: {Hilfsmethoden.emToPixels(3.2)}px; max-height: {Hilfsmethoden.emToPixels(3.2)}px;}}
+.iconSmall {{ {Wolke.FontAwesomeCSS} max-width: {Hilfsmethoden.emToPixels(2.3)}px; max-height: {Hilfsmethoden.emToPixels(2.3)}px;}}
+.iconTopDownArrow {{ {Wolke.FontAwesomeCSS} max-width: {Hilfsmethoden.emToPixels(2.3)}px; max-height: {Hilfsmethoden.emToPixels(1.2)}px;}}
+.charListScrollArea {{ background-color:#44444444; }}
+.charWidget {{ border-image: url(Data/Images/recents_background.png) 0 0 0 0 stretch stretch; }}
+.charWidget:hover {{ border-image: url(Data/Images/recents_background_hovered.png) 0 0 0 0 stretch stretch; }}
+.charWidget[pressed="true"] {{ border-image: url(Data/Images/recents_background_pressed.png) 0 0 0 0 stretch stretch; }}
+.charWidgetIcon {{ {Wolke.FontAwesomeCSS} font-size: 14pt; color: #ffffff; background: #44444444; }}
+\n"""
 
         if 'CSS' in theme:
             css += theme['CSS']

@@ -1,6 +1,8 @@
 from Wolke import Wolke
 from EventBus import EventBus
-from Fertigkeiten import KampffertigkeitTyp
+from Core.Fertigkeit import KampffertigkeitTyp
+from Core.FreieFertigkeit import FreieFertigkeitDefinition
+import logging
 
 class Choice(object):
     def __init__(self):
@@ -11,6 +13,10 @@ class Choice(object):
         self.kommentar = ""
 
     def getErrorString(self):
+        # Some paths are logging instead of returning the error.
+        # These cases may not always be true, i.e. if the choice is bundled with others inside a variant
+        # So we're not displaying these errors because it might be more confusing if the displayed a wrong info
+        # Usually the commented out parts mean anyways, that the creator of the template made an error
         if self.typ == "Freie-Fertigkeit":
             for ff in Wolke.Char.freieFertigkeiten:
                 if self.name == ff.name:
@@ -18,33 +24,59 @@ class Choice(object):
                         return "bereits Maximum"
                     break
         elif self.typ == "Fertigkeit":
-            pass
             if self.name in Wolke.Char.fertigkeiten:
                 if self.wert > 0 and Wolke.Char.fertigkeiten[self.name].wert == Wolke.Char.fertigkeiten[self.name].maxWert:
-                    return "bereits Maximum"
+                    logging.warn(f"CharakterAssistent: {self.typ} {self.name} bereits Maximum")
+                    return None
                 if self.wert < 0 and Wolke.Char.fertigkeiten[self.name].wert == 0:
-                    return "bereits Minimum"
+                    logging.warn(f"CharakterAssistent: {self.typ} {self.name} bereits Minimum")
+                    return None
+            else:
+                logging.warn(f"CharakterAssistent: {self.typ} {self.name} nicht vorhanden")
+                return None
         elif self.typ == "Übernatürliche-Fertigkeit":
-            pass
             if self.name in Wolke.Char.übernatürlicheFertigkeiten:
                 if self.wert > 0 and Wolke.Char.übernatürlicheFertigkeiten[self.name].wert == Wolke.Char.übernatürlicheFertigkeiten[self.name].maxWert:
-                    return "bereits Maximum"
+                    logging.warn(f"CharakterAssistent: {self.typ} {self.name} bereits Maximum")
+                    return None
                 if self.wert < 0 and Wolke.Char.übernatürlicheFertigkeiten[self.name].wert == 0:
-                    return "bereits Minimum"
+                    logging.warn(f"CharakterAssistent: {self.typ} {self.name} bereits Minimum")
+                    return None
+            else:
+                logging.warn(f"CharakterAssistent: {self.typ} {self.name} nicht vorhanden")
+                return None
         elif self.typ == "Attribut":
             if self.name in Wolke.Char.attribute and self.wert < 0 and Wolke.Char.attribute[self.name].wert == 0:
                 return "bereits Minimum"
         elif self.typ == "Vorteil":
-            if self.name in Wolke.Char.vorteile and not self.kommentar:
-                return "bereits erworben"
+            if self.name in Wolke.Char.vorteile:
+                vorteil = Wolke.Char.vorteile[self.name]
+                if vorteil.kommentarErlauben and self.kommentar in vorteil.kommentar:
+                    return "bereits erworben"
+
+                if not vorteil.variableKosten:
+                    return "bereits erworben"
+            if not self.name in Wolke.DB.vorteile:
+                logging.warn(f"CharakterAssistent: {self.typ} {self.name} unbekannt")
+                return None          
+            if not Wolke.Char.voraussetzungenPrüfen(Wolke.DB.vorteile[self.name]):
+                logging.warn(f"CharakterAssistent: {self.typ} {self.name} Voraussetzungen nicht erfüllt")
+                return None
         elif self.typ == "Talent":
-            if not self.kommentar:
-                for fert in Wolke.Char.fertigkeiten:
-                    if self.name in Wolke.Char.fertigkeiten[fert].gekaufteTalente:
-                        return "bereits erworben"
-                for fert in Wolke.Char.übernatürlicheFertigkeiten:
-                    if self.name in Wolke.Char.übernatürlicheFertigkeiten[fert].gekaufteTalente:
-                        return "bereits erworben"
+            if self.name in Wolke.Char.talente:
+                talent = Wolke.Char.talente[self.name]
+                if talent.kommentarErlauben and self.kommentar in talent.kommentar:
+                    return "bereits erworben"
+
+                if not talent.variableKosten:
+                    return "bereits erworben"
+
+            if not self.name in Wolke.DB.talente:
+                logging.warn(f"CharakterAssistent: {self.typ} {self.name} unbekannt")
+                return None
+            if not Wolke.Char.voraussetzungenPrüfen(Wolke.DB.talente[self.name]):
+                logging.warn(f"CharakterAssistent: {self.typ} {self.name} Voraussetzungen nicht erfüllt")
+                return None
         elif self.typ == "Eigenheit":
             if self.name in Wolke.Char.eigenheiten:
                 return "bereits vorhanden"
@@ -158,11 +190,8 @@ class Choice(object):
         if self.typ == "Freie-Fertigkeit":
             for fert in Wolke.Char.freieFertigkeiten:
                 if self.name == fert.name:
-                    level = min(self.wert, 3 - fert.wert)
-                    oldCost = EventBus.applyFilter("freiefertigkeit_kosten", Wolke.Char.freieFertigkeitKosten[fert.wert-1], { "Wolke.Charakter" : Wolke.Char, "name" : fert.name, "wert" : fert.wert })
-                    newCost = EventBus.applyFilter("freiefertigkeit_kosten", Wolke.Char.freieFertigkeitKosten[fert.wert+level-1], { "Wolke.Charakter" : Wolke.Char, "name" : fert.name, "wert" : fert.wert + level })
-                    return newCost - oldCost
-            return EventBus.applyFilter("freiefertigkeit_kosten", Wolke.Char.freieFertigkeitKosten[self.wert-1], { "Wolke.Charakter" : Wolke.Char, "name" : self.name, "wert" : self.wert })
+                    return fert.steigerungskosten(self.wert)
+            return EventBus.applyFilter("freiefertigkeit_kosten", FreieFertigkeitDefinition.gesamtkosten[self.wert], { "name" : self.name, "wertVon" : 0, "wertAuf" : self.wert })
 
         elif self.typ == "Fertigkeit":
             if not self.name in Wolke.Char.fertigkeiten:
@@ -188,60 +217,32 @@ class Choice(object):
             if not self.name in Wolke.Char.attribute:
                 return 0
             attribut = Wolke.Char.attribute[self.name]
-            oldCost = sum(range(attribut.wert+1)) * attribut.steigerungsfaktor
-            oldCost = EventBus.applyFilter("attribut_kosten", oldCost, { "Wolke.Charakter" : Wolke.Char, "attribut" : self.name, "wert" : attribut.wert })
-            newCost = sum(range(attribut.wert+self.wert+1)) * attribut.steigerungsfaktor
-            newCost = EventBus.applyFilter("attribut_kosten", newCost, { "Wolke.Charakter" : Wolke.Char, "attribut" : self.name, "wert" : attribut.wert+self.wert })
-            return newCost - oldCost
+            return attribut.steigerungskosten(self.wert)
 
         elif self.typ == "Talent":
             if not self.name in Wolke.DB.talente:
                 return 0
-            talent = Wolke.DB.talente[self.name]
-            if len(talent.fertigkeiten) == 0:
-                return 0
-            if talent.variableKosten:
-                return self.wert
-
-            if not talent.isSpezialTalent():
-                for fert in Wolke.Char.fertigkeiten.values():
-                    if self.name in fert.gekaufteTalente:
-                        if self.wert == -1:
-                            return -Wolke.Char.getDefaultTalentCost(self.name, fert.steigerungsfaktor)
-                        else:
-                            return 0
-            else:
-                if talent.variableKosten:
-                    return self.wert
-                for fert in Wolke.Char.übernatürlicheFertigkeiten.values():
-                    if self.name in fert.gekaufteTalente:
-                        if self.wert == -1:
-                            return -Wolke.Char.getDefaultTalentCost(self.name, fert.steigerungsfaktor)
-                        else:
-                            return 0
-
+            talentDefinition = Wolke.DB.talente[self.name]
             if self.wert == -1:
+                if self.name in Wolke.Char.talente:
+                    return -Wolke.Char.talente[self.name].kosten
                 return 0
-            fert = None
-            if talent.isSpezialTalent():
-                fert = Wolke.DB.übernatürlicheFertigkeiten[talent.fertigkeiten[0]]
             else:
-                fert = Wolke.DB.fertigkeiten[talent.fertigkeiten[0]]
-            return Wolke.Char.getDefaultTalentCost(self.name, fert.steigerungsfaktor)
-
+                if talentDefinition.variableKosten:
+                    return self.wert
+                return talentDefinition.kosten
         elif self.typ == "Vorteil":
             if not self.name in Wolke.DB.vorteile:
                 return 0
-            vort = Wolke.DB.vorteile[self.name]
-            if vort.variableKosten:
-                return self.wert
-            if self.name in Wolke.Char.vorteile:
-                if self.wert == -1:
-                    return -vort.kosten
-                return 0
+            vorteilDefinition = Wolke.DB.vorteile[self.name]
             if self.wert == -1:
+                if self.name in Wolke.Char.vorteile:
+                    return -Wolke.Char.vorteile[self.name].kosten
                 return 0
-            return vort.kosten
+            else:
+                if vorteilDefinition.variableKosten:
+                    return self.wert
+                return vorteilDefinition.kosten
 
         else:
             return 0

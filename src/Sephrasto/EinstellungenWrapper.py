@@ -16,6 +16,7 @@ import platform
 import PathHelper
 from Hilfsmethoden import Hilfsmethoden
 from PluginLoader import PluginLoader
+from functools import partial
 
 class EinstellungenWrapper():    
     def __init__(self, plugins):
@@ -62,6 +63,9 @@ class EinstellungenWrapper():
         self.ui.checkUpdate.setChecked(not Wolke.Settings['UpdateCheck_Disable'])
         self.ui.comboLogging.setCurrentIndex(Wolke.Settings['Logging'])
 
+        self.ui.spinCharListCols.setValue(Wolke.Settings['CharListCols'])
+        self.ui.spinCharListRows.setValue(Wolke.Settings['CharListRows'])
+
         # Offer custom themes
         for theme in Wolke.Themes.keys():
             self.ui.comboTheme.addItem(theme)
@@ -81,7 +85,7 @@ class EinstellungenWrapper():
         else:
             self.ui.comboFontHeading.setCurrentText(Wolke.DefaultOSFont)
         self.ui.spinAppFontHeadingSize.setValue(Wolke.Settings['FontHeadingSize'])
-            
+
         self.ui.buttonChar.clicked.connect(self.setCharPath)
         self.ui.buttonChar.setText('\uf07c')
 
@@ -109,9 +113,12 @@ class EinstellungenWrapper():
         self.ui.resetFontDefault.clicked.connect(self.resetFonts)
         self.ui.resetFontDefault.setText('\uf2ea')
 
+        self.ui.buttonLogOpen.clicked.connect(self.openLogLocation)
+        self.ui.buttonLogOpen.setText('\uf07c')
+
         # the dpi setting doesn't do anything on macOS, hide the option
         if platform.system() == "Darwin":  
-            self.ui.label_13.setVisible(False)
+            self.ui.labelDPI.setVisible(False)
             self.ui.checkDPI.setVisible(False)
 
         self.ui.checkDPI.setChecked(Wolke.Settings['DPI-Skalierung'])
@@ -181,6 +188,14 @@ class EinstellungenWrapper():
             logging.getLogger().setLevel(loglevels[Wolke.Settings['Logging']])
             
             Wolke.Settings['PDF-Open'] = self.ui.checkPDFOpen.isChecked()
+
+            if Wolke.Settings['CharListCols'] != self.ui.spinCharListCols.value():
+                Wolke.Settings['CharListCols'] = self.ui.spinCharListCols.value()
+                needRestart = True
+
+            if Wolke.Settings['CharListRows'] != self.ui.spinCharListRows.value():
+                Wolke.Settings['CharListRows'] = self.ui.spinCharListRows.value()
+                needRestart = True
 
             if Wolke.Settings['Theme'] != self.ui.comboTheme.currentText():
                 Wolke.Settings['Theme'] = self.ui.comboTheme.currentText()
@@ -311,23 +326,27 @@ class EinstellungenWrapper():
             if Wolke.Settings[configName] and not os.path.isdir(Wolke.Settings[configName]):
                 missingFolders.append(folderName)
 
+        if len(missingFolders) > 0:
+            messageBox = QtWidgets.QMessageBox()
+            messageBox.setWindowTitle("Fehlende Ordner")
+            messageBox.setText("Die folgenden Ordner existieren nicht mehr. Sollen sie auf den Standardpfad zurückgesetzt werden?")
+            messageBox.setInformativeText(", ".join(missingFolders))
+            messageBox.setIcon(QtWidgets.QMessageBox.Warning)
+            messageBox.addButton("Zurücksetzen", QtWidgets.QMessageBox.YesRole)
+            messageBox.addButton("Sephrasto beenden", QtWidgets.QMessageBox.RejectRole)
+            if messageBox.exec() == 1:
+                sys.exit()
+
+        for configName, folderName in folders:
             if not Wolke.Settings[configName] or not os.path.isdir(Wolke.Settings[configName]):
                 Wolke.Settings[configName] = os.path.join(PathHelper.getDefaultUserFolder(), folderName)
                 EinstellungenWrapper.createUserFolder(Wolke.Settings[configName])
-
-        if len(missingFolders) > 0:
-            messagebox = QtWidgets.QMessageBox()
-            messagebox.setWindowTitle("Fehlende Ordner")
-            messagebox.setText("Die folgenden Ordner existieren nicht mehr und wurden auf den Standardpfad zurückgesetzt: " + ", ".join(missingFolders))
-            messagebox.setIcon(QtWidgets.QMessageBox.Warning)
-            messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-            messagebox.exec()
 
         #Init charsheets
         for filePath in EinstellungenWrapper.getCharakterbögen():
             cb = Charakterbogen()
             if cb.load(filePath):
-                Wolke.Charakterbögen[filePath] = cb
+                Wolke.Charakterbögen[cb.name] = cb
 
         #Init themes
         Wolke.Themes = EinstellungenWrapper.getThemes()
@@ -346,13 +365,14 @@ class EinstellungenWrapper():
         foundMissingSetting = False
         for setting in settings:
             if not setting in Wolke.Settings:
-                Wolke.Settings[setting] = ""
+                Wolke.Settings[setting] = settings[setting]
                 foundMissingSetting = True
         if foundMissingSetting:
             EinstellungenWrapper.save()
 
     def updatePluginCheckboxes(self, plugins):
         self.pluginCheckboxes = []
+        self.pluginButtons = []
 
         layout = self.ui.gbPlugins.layout()
         for i in reversed(range(layout.count())): 
@@ -361,6 +381,7 @@ class EinstellungenWrapper():
             else:
                 layout.removeItem(layout.itemAt(i))
 
+        count = 0
         for pluginData in plugins:
             check = QtWidgets.QCheckBox(pluginData.name)
             if pluginData.description:
@@ -368,9 +389,18 @@ class EinstellungenWrapper():
 
             if not (pluginData.name in Wolke.Settings['Deaktivierte-Plugins']):
                 check.setChecked(True)
-            layout.addWidget(check)
+            layout.addWidget(check, count, 0)
             self.pluginCheckboxes.append(check)
-        layout.addStretch()
+
+            if hasattr(pluginData.plugin, "showSettings"):
+                button = QtWidgets.QPushButton()
+                button.setProperty("class", "icon")
+                button.setText("\uf013")
+                button.setToolTip(pluginData.name + " Einstellungen")
+                button.clicked.connect(partial(pluginData.plugin.showSettings))
+                layout.addWidget(button, count, 1)
+                self.pluginButtons.append(button)
+            count += 1
 
         self.ui.gbPlugins.setVisible(len(self.pluginCheckboxes) > 0)
 
@@ -387,18 +417,12 @@ class EinstellungenWrapper():
     def getCharakterbögen():
         result = []
         for file in PathHelper.listdir(os.path.join("Data", "Charakterbögen")):
-            if not file.endswith(".pdf"):
-                continue
-
-            if not os.path.isfile(os.path.join("Data", "Charakterbögen", os.path.splitext(file)[0] + ".ini")):
+            if not file.endswith(".ini"):
                 continue
             result.append(os.path.join("Data", "Charakterbögen", file))
 
         for file in PathHelper.listdir(Wolke.Settings['Pfad-Charakterbögen']):
-            if not file.endswith(".pdf"):
-                continue
-
-            if not os.path.isfile(os.path.join(Wolke.Settings['Pfad-Charakterbögen'], os.path.splitext(file)[0] + ".ini")):
+            if not file.endswith(".ini"):
                 continue
             result.append(os.path.join(Wolke.Settings['Pfad-Charakterbögen'], file))
         return result
@@ -496,3 +520,6 @@ class EinstellungenWrapper():
         self.ui.spinAppFontSize.setValue(Wolke.DefaultOSFontSize)
         self.ui.comboFontHeading.setCurrentText("Aniron")
         self.ui.spinAppFontHeadingSize.setValue(Wolke.DefaultOSFontSize -1)
+
+    def openLogLocation(self):
+        Hilfsmethoden.openFile(os.getcwd())

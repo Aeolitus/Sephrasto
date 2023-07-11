@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterWaffen.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.2
+## Created by: Qt User Interface Compiler version 6.5.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -124,13 +124,11 @@ class Ui_formWaffen(object):
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.buttonW3Up = QPushButton(formWaffen)
         self.buttonW3Up.setObjectName(u"buttonW3Up")
-        self.buttonW3Up.setMaximumSize(QSize(23, 23))
 
         self.verticalLayout_4.addWidget(self.buttonW3Up)
 
         self.buttonW3Down = QPushButton(formWaffen)
         self.buttonW3Down.setObjectName(u"buttonW3Down")
-        self.buttonW3Down.setMaximumSize(QSize(23, 23))
 
         self.verticalLayout_4.addWidget(self.buttonW3Down)
 
@@ -172,7 +170,6 @@ class Ui_formWaffen(object):
 
         self.addW7 = QPushButton(formWaffen)
         self.addW7.setObjectName(u"addW7")
-        self.addW7.setMaximumSize(QSize(23, 23))
 
         self.Waffen.addWidget(self.addW7, 27, 10, 1, 1)
 
@@ -235,7 +232,6 @@ class Ui_formWaffen(object):
 
         self.addW8 = QPushButton(formWaffen)
         self.addW8.setObjectName(u"addW8")
-        self.addW8.setMaximumSize(QSize(23, 23))
 
         self.Waffen.addWidget(self.addW8, 31, 10, 1, 1)
 
@@ -265,13 +261,11 @@ class Ui_formWaffen(object):
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.buttonW5Up = QPushButton(formWaffen)
         self.buttonW5Up.setObjectName(u"buttonW5Up")
-        self.buttonW5Up.setMaximumSize(QSize(23, 23))
 
         self.verticalLayout_6.addWidget(self.buttonW5Up)
 
         self.buttonW5Down = QPushButton(formWaffen)
         self.buttonW5Down.setObjectName(u"buttonW5Down")
-        self.buttonW5Down.setMaximumSize(QSize(23, 23))
 
         self.verticalLayout_6.addWidget(self.buttonW5Down)
 
@@ -331,13 +325,11 @@ class Ui_formWaffen(object):
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.buttonW2Up = QPushButton(formWaffen)
         self.buttonW2Up.setObjectName(u"buttonW2Up")
-        self.buttonW2Up.setMaximumSize(QSize(23, 23))
 
         self.verticalLayout_3.addWidget(self.buttonW2Up)
 
         self.buttonW2Down = QPushButton(formWaffen)
         self.buttonW2Down.setObjectName(u"buttonW2Down")
-        self.buttonW2Down.setMaximumSize(QSize(23, 23))
 
         self.verticalLayout_3.addWidget(self.buttonW2Down)
 
@@ -404,7 +396,6 @@ class Ui_formWaffen(object):
 
         self.addW4 = QPushButton(formWaffen)
         self.addW4.setObjectName(u"addW4")
-        self.addW4.setMaximumSize(QSize(23, 23))
 
         self.Waffen.addWidget(self.addW4, 15, 10, 1, 1)
 
@@ -480,13 +471,11 @@ class Ui_formWaffen(object):
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
         self.buttonW4Up = QPushButton(formWaffen)
         self.buttonW4Up.setObjectName(u"buttonW4Up")
-        self.buttonW4Up.setMaximumSize(QSize(23, 23))
 
         self.verticalLayout_5.addWidget(self.buttonW4Up)
 
         self.buttonW4Down = QPushButton(formWaffen)
         self.buttonW4Down.setObjectName(u"buttonW4Down")
-        self.buttonW4Down.setMaximumSize(QSize(23, 23))
 
         self.verticalLayout_5.addWidget(self.buttonW4Down)
 
@@ -520,7 +509,6 @@ class Ui_formWaffen(object):
 
         self.addW6 = QPushButton(formWaffen)
         self.addW6.setObjectName(u"addW6")
-        self.addW6.setMaximumSize(QSize(23, 23))
 
         self.Waffen.addWidget(self.addW6, 23, 10, 1, 1)
 
@@ -676,7 +664,6 @@ class Ui_formWaffen(object):
 
         self.addW5 = QPushButton(formWaffen)
         self.addW5.setObjectName(u"addW5")
-        self.addW5.setMaximumSize(QSize(23, 23))
 
         self.Waffen.addWidget(self.addW5, 19, 10, 1, 1)
 
@@ -897,13 +884,11 @@ class Ui_formWaffen(object):
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
         self.buttonW6Up = QPushButton(formWaffen)
         self.buttonW6Up.setObjectName(u"buttonW6Up")
-        self.buttonW6Up.setMaximumSize(QSize(23, 23))
 
         self.verticalLayout_7.addWidget(self.buttonW6Up)
 
         self.buttonW6Down = QPushButton(formWaffen)
         self.buttonW6Down.setObjectName(u"buttonW6Down")
-        self.buttonW6Down.setMaximumSize(QSize(23, 23))
 
         self.verticalLayout_7.addWidget(self.buttonW6Down)
 
@@ -1083,13 +1068,11 @@ class Ui_formWaffen(object):
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.buttonW7Up = QPushButton(formWaffen)
         self.buttonW7Up.setObjectName(u"buttonW7Up")
-        self.buttonW7Up.setMaximumSize(QSize(23, 23))
 
         self.verticalLayout_8.addWidget(self.buttonW7Up)
 
         self.buttonW7Down = QPushButton(formWaffen)
         self.buttonW7Down.setObjectName(u"buttonW7Down")
-        self.buttonW7Down.setMaximumSize(QSize(23, 23))
 
         self.verticalLayout_8.addWidget(self.buttonW7Down)
 
@@ -1156,7 +1139,6 @@ class Ui_formWaffen(object):
 
         self.addW3 = QPushButton(formWaffen)
         self.addW3.setObjectName(u"addW3")
-        self.addW3.setMaximumSize(QSize(23, 23))
 
         self.Waffen.addWidget(self.addW3, 11, 10, 1, 1)
 
@@ -1183,7 +1165,6 @@ class Ui_formWaffen(object):
 
         self.addW1 = QPushButton(formWaffen)
         self.addW1.setObjectName(u"addW1")
-        self.addW1.setMaximumSize(QSize(23, 23))
 
         self.Waffen.addWidget(self.addW1, 3, 10, 1, 1)
 
@@ -1217,7 +1198,6 @@ class Ui_formWaffen(object):
 
         self.addW2 = QPushButton(formWaffen)
         self.addW2.setObjectName(u"addW2")
-        self.addW2.setMaximumSize(QSize(23, 23))
 
         self.Waffen.addWidget(self.addW2, 7, 10, 1, 1)
 
@@ -1278,7 +1258,6 @@ class Ui_formWaffen(object):
 
         self.buttonW1Down = QPushButton(formWaffen)
         self.buttonW1Down.setObjectName(u"buttonW1Down")
-        self.buttonW1Down.setMaximumSize(QSize(23, 23))
 
         self.verticalLayout_2.addWidget(self.buttonW1Down)
 
@@ -1478,7 +1457,6 @@ class Ui_formWaffen(object):
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
         self.buttonW8Up = QPushButton(formWaffen)
         self.buttonW8Up.setObjectName(u"buttonW8Up")
-        self.buttonW8Up.setMaximumSize(QSize(23, 23))
 
         self.verticalLayout_9.addWidget(self.buttonW8Up)
 
@@ -1603,12 +1581,12 @@ class Ui_formWaffen(object):
         self.buttonW3Up.setToolTip(QCoreApplication.translate("formWaffen", u"Waffe eine Zeile nach oben schieben", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonW3Up.setText(QCoreApplication.translate("formWaffen", u"Up", None))
-        self.buttonW3Up.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
+        self.buttonW3Up.setProperty("class", QCoreApplication.translate("formWaffen", u"iconTopDownArrow", None))
 #if QT_CONFIG(tooltip)
         self.buttonW3Down.setToolTip(QCoreApplication.translate("formWaffen", u"Waffe eine Zeile nach unten schieben", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonW3Down.setText(QCoreApplication.translate("formWaffen", u"Down", None))
-        self.buttonW3Down.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
+        self.buttonW3Down.setProperty("class", QCoreApplication.translate("formWaffen", u"iconTopDownArrow", None))
         self.labelW1TopFrame.setText("")
         self.labelWName.setText(QCoreApplication.translate("formWaffen", u"Name", None))
         self.labelWName.setProperty("class", QCoreApplication.translate("formWaffen", u"h4", None))
@@ -1618,39 +1596,39 @@ class Ui_formWaffen(object):
         self.labelTP.setText(QCoreApplication.translate("formWaffen", u"TP", None))
         self.labelTP.setProperty("class", QCoreApplication.translate("formWaffen", u"h4", None))
         self.addW7.setText(QCoreApplication.translate("formWaffen", u"+", None))
-        self.addW7.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
+        self.addW7.setProperty("class", QCoreApplication.translate("formWaffen", u"iconSmall", None))
         self.labelW2Basis.setText(QCoreApplication.translate("formWaffen", u"Basiswaffe Hand", None))
         self.labelW2Werte.setText(QCoreApplication.translate("formWaffen", u"Werte AT* 10 VT* 10 TP 2W6+2", None))
         self.labelW2Mods.setText(QCoreApplication.translate("formWaffen", u"Verbesserungen AT +1", None))
         self.labelW8TopFrame.setText("")
         self.addW8.setText(QCoreApplication.translate("formWaffen", u"+", None))
-        self.addW8.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
+        self.addW8.setProperty("class", QCoreApplication.translate("formWaffen", u"iconSmall", None))
 #if QT_CONFIG(tooltip)
         self.buttonW5Up.setToolTip(QCoreApplication.translate("formWaffen", u"Waffe eine Zeile nach oben schieben", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonW5Up.setText(QCoreApplication.translate("formWaffen", u"Up", None))
-        self.buttonW5Up.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
+        self.buttonW5Up.setProperty("class", QCoreApplication.translate("formWaffen", u"iconTopDownArrow", None))
 #if QT_CONFIG(tooltip)
         self.buttonW5Down.setToolTip(QCoreApplication.translate("formWaffen", u"Waffe eine Zeile nach unten schieben", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonW5Down.setText(QCoreApplication.translate("formWaffen", u"Down", None))
-        self.buttonW5Down.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
+        self.buttonW5Down.setProperty("class", QCoreApplication.translate("formWaffen", u"iconTopDownArrow", None))
         self.labelW1RightFrame.setText("")
         self.labelW7seiten.setText(QCoreApplication.translate("formWaffen", u"W6 +", None))
 #if QT_CONFIG(tooltip)
         self.buttonW2Up.setToolTip(QCoreApplication.translate("formWaffen", u"Waffe eine Zeile nach oben schieben", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonW2Up.setText(QCoreApplication.translate("formWaffen", u"Up", None))
-        self.buttonW2Up.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
+        self.buttonW2Up.setProperty("class", QCoreApplication.translate("formWaffen", u"iconTopDownArrow", None))
 #if QT_CONFIG(tooltip)
         self.buttonW2Down.setToolTip(QCoreApplication.translate("formWaffen", u"Waffe eine Zeile nach unten schieben", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonW2Down.setText(QCoreApplication.translate("formWaffen", u"Down", None))
-        self.buttonW2Down.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
+        self.buttonW2Down.setProperty("class", QCoreApplication.translate("formWaffen", u"iconTopDownArrow", None))
         self.labelW2RightFrame.setText("")
         self.labelW3LeftFrame.setText("")
         self.addW4.setText(QCoreApplication.translate("formWaffen", u"+", None))
-        self.addW4.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
+        self.addW4.setProperty("class", QCoreApplication.translate("formWaffen", u"iconSmall", None))
         self.labelW5seiten.setText(QCoreApplication.translate("formWaffen", u"W6 +", None))
         self.editW8name.setText("")
         self.labelHaerte.setText(QCoreApplication.translate("formWaffen", u"H\u00e4rte", None))
@@ -1659,17 +1637,17 @@ class Ui_formWaffen(object):
         self.buttonW4Up.setToolTip(QCoreApplication.translate("formWaffen", u"Waffe eine Zeile nach oben schieben", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonW4Up.setText(QCoreApplication.translate("formWaffen", u"Up", None))
-        self.buttonW4Up.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
+        self.buttonW4Up.setProperty("class", QCoreApplication.translate("formWaffen", u"iconTopDownArrow", None))
 #if QT_CONFIG(tooltip)
         self.buttonW4Down.setToolTip(QCoreApplication.translate("formWaffen", u"Waffe eine Zeile nach unten schieben", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonW4Down.setText(QCoreApplication.translate("formWaffen", u"Down", None))
-        self.buttonW4Down.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
+        self.buttonW4Down.setProperty("class", QCoreApplication.translate("formWaffen", u"iconTopDownArrow", None))
         self.labelW6RightFrame.setText("")
         self.labelW7TopFrame.setText("")
         self.labelW3RightFrame.setText("")
         self.addW6.setText(QCoreApplication.translate("formWaffen", u"+", None))
-        self.addW6.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
+        self.addW6.setProperty("class", QCoreApplication.translate("formWaffen", u"iconSmall", None))
         self.labelW5LeftFrame.setText("")
         self.labelW5RightFrame.setText("")
 #if QT_CONFIG(tooltip)
@@ -1680,7 +1658,7 @@ class Ui_formWaffen(object):
         self.labelW3seiten.setText(QCoreApplication.translate("formWaffen", u"W6 +", None))
         self.labelW6seiten.setText(QCoreApplication.translate("formWaffen", u"W6 +", None))
         self.addW5.setText(QCoreApplication.translate("formWaffen", u"+", None))
-        self.addW5.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
+        self.addW5.setProperty("class", QCoreApplication.translate("formWaffen", u"iconSmall", None))
         self.labelW1Basis.setText(QCoreApplication.translate("formWaffen", u"Basiswaffe Hand", None))
         self.labelW1Werte.setText(QCoreApplication.translate("formWaffen", u"Werte AT* 10 VT* 10 TP 2W6+2", None))
         self.labelW1Mods.setText(QCoreApplication.translate("formWaffen", u"Verbesserungen AT +1", None))
@@ -1703,12 +1681,12 @@ class Ui_formWaffen(object):
         self.buttonW6Up.setToolTip(QCoreApplication.translate("formWaffen", u"Waffe eine Zeile nach oben schieben", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonW6Up.setText(QCoreApplication.translate("formWaffen", u"Up", None))
-        self.buttonW6Up.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
+        self.buttonW6Up.setProperty("class", QCoreApplication.translate("formWaffen", u"iconTopDownArrow", None))
 #if QT_CONFIG(tooltip)
         self.buttonW6Down.setToolTip(QCoreApplication.translate("formWaffen", u"Waffe eine Zeile nach unten schieben", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonW6Down.setText(QCoreApplication.translate("formWaffen", u"Down", None))
-        self.buttonW6Down.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
+        self.buttonW6Down.setProperty("class", QCoreApplication.translate("formWaffen", u"iconTopDownArrow", None))
         self.labelW6Basis.setText(QCoreApplication.translate("formWaffen", u"Basiswaffe Hand", None))
         self.labelW6Werte.setText(QCoreApplication.translate("formWaffen", u"Werte AT* 10 VT* 10 TP 2W6+2", None))
         self.labelW6Mods.setText(QCoreApplication.translate("formWaffen", u"Verbesserungen AT +1", None))
@@ -1720,23 +1698,23 @@ class Ui_formWaffen(object):
         self.buttonW7Up.setToolTip(QCoreApplication.translate("formWaffen", u"Waffe eine Zeile nach oben schieben", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonW7Up.setText(QCoreApplication.translate("formWaffen", u"Up", None))
-        self.buttonW7Up.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
+        self.buttonW7Up.setProperty("class", QCoreApplication.translate("formWaffen", u"iconTopDownArrow", None))
 #if QT_CONFIG(tooltip)
         self.buttonW7Down.setToolTip(QCoreApplication.translate("formWaffen", u"Waffe eine Zeile nach unten schieben", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonW7Down.setText(QCoreApplication.translate("formWaffen", u"Down", None))
-        self.buttonW7Down.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
+        self.buttonW7Down.setProperty("class", QCoreApplication.translate("formWaffen", u"iconTopDownArrow", None))
         self.labelW8LeftFrame.setText("")
         self.labelW5TopFrame.setText("")
         self.labelW4LeftFrame.setText("")
         self.addW3.setText(QCoreApplication.translate("formWaffen", u"+", None))
-        self.addW3.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
+        self.addW3.setProperty("class", QCoreApplication.translate("formWaffen", u"iconSmall", None))
         self.addW1.setText(QCoreApplication.translate("formWaffen", u"+", None))
-        self.addW1.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
+        self.addW1.setProperty("class", QCoreApplication.translate("formWaffen", u"iconSmall", None))
         self.labelEigenschaften.setText(QCoreApplication.translate("formWaffen", u"Eigenschaften", None))
         self.labelEigenschaften.setProperty("class", QCoreApplication.translate("formWaffen", u"h4", None))
         self.addW2.setText(QCoreApplication.translate("formWaffen", u"+", None))
-        self.addW2.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
+        self.addW2.setProperty("class", QCoreApplication.translate("formWaffen", u"iconSmall", None))
         self.labelW3TopFrame.setText("")
         self.labelW6TopFrame.setText("")
         self.labelW4TopFrame.setText("")
@@ -1744,7 +1722,7 @@ class Ui_formWaffen(object):
         self.buttonW1Down.setToolTip(QCoreApplication.translate("formWaffen", u"Waffe eine Zeile nach unten schieben", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonW1Down.setText(QCoreApplication.translate("formWaffen", u"Down", None))
-        self.buttonW1Down.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
+        self.buttonW1Down.setProperty("class", QCoreApplication.translate("formWaffen", u"iconTopDownArrow", None))
         self.editW8eig.setText("")
         self.labelW8RightFrame.setText("")
         self.labelKampfstil.setText(QCoreApplication.translate("formWaffen", u"Kampfstil", None))
@@ -1760,7 +1738,7 @@ class Ui_formWaffen(object):
         self.buttonW8Up.setToolTip(QCoreApplication.translate("formWaffen", u"Waffe eine Zeile nach oben schieben", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonW8Up.setText(QCoreApplication.translate("formWaffen", u"Up", None))
-        self.buttonW8Up.setProperty("class", QCoreApplication.translate("formWaffen", u"icon", None))
+        self.buttonW8Up.setProperty("class", QCoreApplication.translate("formWaffen", u"iconTopDownArrow", None))
 #if QT_CONFIG(tooltip)
         self.labelLZ.setToolTip(QCoreApplication.translate("formWaffen", u"Ladezeit", None))
 #endif // QT_CONFIG(tooltip)

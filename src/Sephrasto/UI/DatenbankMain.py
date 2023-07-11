@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'DatenbankMain.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.2
+## Created by: Qt User Interface Compiler version 6.5.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -11,172 +11,51 @@
 from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
     QMetaObject, QObject, QPoint, QRect,
     QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
+    QCursor, QFont, QFontDatabase, QGradient,
+    QIcon, QImage, QKeySequence, QLinearGradient,
+    QPainter, QPalette, QPixmap, QRadialGradient,
+    QTransform)
 from PySide6.QtWidgets import (QApplication, QCheckBox, QGridLayout, QHBoxLayout,
-    QLabel, QLayout, QLineEdit, QListView,
-    QPushButton, QSizePolicy, QSpacerItem, QVBoxLayout,
-    QWidget)
+    QLabel, QLineEdit, QMainWindow, QMenu,
+    QMenuBar, QPushButton, QSizePolicy, QSpacerItem,
+    QTabWidget, QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.setWindowModality(Qt.ApplicationModal)
-        Form.resize(795, 582)
-        self.gridLayout = QGridLayout(Form)
+        Form.setWindowModality(Qt.NonModal)
+        Form.resize(853, 663)
+        self.actionSpeichern = QAction(Form)
+        self.actionSpeichern.setObjectName(u"actionSpeichern")
+        self.actionSpeichern_unter = QAction(Form)
+        self.actionSpeichern_unter.setObjectName(u"actionSpeichern_unter")
+        self.actionZur_cksetzen = QAction(Form)
+        self.actionZur_cksetzen.setObjectName(u"actionZur_cksetzen")
+        self.actionOeffnen = QAction(Form)
+        self.actionOeffnen.setObjectName(u"actionOeffnen")
+        self.actionBeenden = QAction(Form)
+        self.actionBeenden.setObjectName(u"actionBeenden")
+        self.actionDatenbank_Editor = QAction(Form)
+        self.actionDatenbank_Editor.setObjectName(u"actionDatenbank_Editor")
+        self.actionScript_API = QAction(Form)
+        self.actionScript_API.setObjectName(u"actionScript_API")
+        self.actionFehlerliste = QAction(Form)
+        self.actionFehlerliste.setObjectName(u"actionFehlerliste")
+        self.actionSchliessen = QAction(Form)
+        self.actionSchliessen.setObjectName(u"actionSchliessen")
+        self.actionZusaetzlichOeffnen = QAction(Form)
+        self.actionZusaetzlichOeffnen.setObjectName(u"actionZusaetzlichOeffnen")
+        self.centralwidget = QWidget(Form)
+        self.centralwidget.setObjectName(u"centralwidget")
+        self.gridLayout = QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.horizontalLayout_2 = QHBoxLayout()
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.verticalLayout = QVBoxLayout()
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setSizeConstraint(QLayout.SetDefaultConstraint)
-        self.labelParameter = QLabel(Form)
-        self.labelParameter.setObjectName(u"labelParameter")
-        font = QFont()
-        font.setBold(True)
-        self.labelParameter.setFont(font)
+        self.tabWidget = QTabWidget(self.centralwidget)
+        self.tabWidget.setObjectName(u"tabWidget")
+        self.tabWidget.setTabPosition(QTabWidget.West)
 
-        self.verticalLayout.addWidget(self.labelParameter)
-
-        self.nameFilterEdit = QLineEdit(Form)
-        self.nameFilterEdit.setObjectName(u"nameFilterEdit")
-
-        self.verticalLayout.addWidget(self.nameFilterEdit)
-
-        self.checkFilterTyp = QCheckBox(Form)
-        self.checkFilterTyp.setObjectName(u"checkFilterTyp")
-        self.checkFilterTyp.setFont(font)
-        self.checkFilterTyp.setChecked(True)
-        self.checkFilterTyp.setTristate(True)
-
-        self.verticalLayout.addWidget(self.checkFilterTyp)
-
-        self.verticalLayout_3 = QVBoxLayout()
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.verticalLayout_3.setContentsMargins(10, -1, -1, -1)
-        self.showVorteile = QCheckBox(Form)
-        self.showVorteile.setObjectName(u"showVorteile")
-        self.showVorteile.setChecked(True)
-        self.showVorteile.setTristate(False)
-
-        self.verticalLayout_3.addWidget(self.showVorteile)
-
-        self.showFertigkeiten = QCheckBox(Form)
-        self.showFertigkeiten.setObjectName(u"showFertigkeiten")
-        self.showFertigkeiten.setChecked(True)
-
-        self.verticalLayout_3.addWidget(self.showFertigkeiten)
-
-        self.showFreieFertigkeiten = QCheckBox(Form)
-        self.showFreieFertigkeiten.setObjectName(u"showFreieFertigkeiten")
-        self.showFreieFertigkeiten.setChecked(True)
-
-        self.verticalLayout_3.addWidget(self.showFreieFertigkeiten)
-
-        self.showUebernatuerlicheFertigkeiten = QCheckBox(Form)
-        self.showUebernatuerlicheFertigkeiten.setObjectName(u"showUebernatuerlicheFertigkeiten")
-        self.showUebernatuerlicheFertigkeiten.setMinimumSize(QSize(200, 0))
-        self.showUebernatuerlicheFertigkeiten.setChecked(True)
-
-        self.verticalLayout_3.addWidget(self.showUebernatuerlicheFertigkeiten)
-
-        self.showTalente = QCheckBox(Form)
-        self.showTalente.setObjectName(u"showTalente")
-        self.showTalente.setChecked(True)
-
-        self.verticalLayout_3.addWidget(self.showTalente)
-
-        self.showRuestungen = QCheckBox(Form)
-        self.showRuestungen.setObjectName(u"showRuestungen")
-        self.showRuestungen.setChecked(True)
-
-        self.verticalLayout_3.addWidget(self.showRuestungen)
-
-        self.showWaffen = QCheckBox(Form)
-        self.showWaffen.setObjectName(u"showWaffen")
-        self.showWaffen.setChecked(True)
-
-        self.verticalLayout_3.addWidget(self.showWaffen)
-
-        self.showWaffeneigenschaften = QCheckBox(Form)
-        self.showWaffeneigenschaften.setObjectName(u"showWaffeneigenschaften")
-        self.showWaffeneigenschaften.setChecked(True)
-
-        self.verticalLayout_3.addWidget(self.showWaffeneigenschaften)
-
-        self.showRegeln = QCheckBox(Form)
-        self.showRegeln.setObjectName(u"showRegeln")
-        self.showRegeln.setChecked(True)
-
-        self.verticalLayout_3.addWidget(self.showRegeln)
-
-        self.showEinstellung = QCheckBox(Form)
-        self.showEinstellung.setObjectName(u"showEinstellung")
-        self.showEinstellung.setChecked(True)
-
-        self.verticalLayout_3.addWidget(self.showEinstellung)
-
-
-        self.verticalLayout.addLayout(self.verticalLayout_3)
-
-        self.labelParameter1 = QLabel(Form)
-        self.labelParameter1.setObjectName(u"labelParameter1")
-        self.labelParameter1.setFont(font)
-
-        self.verticalLayout.addWidget(self.labelParameter1)
-
-        self.showDeleted = QCheckBox(Form)
-        self.showDeleted.setObjectName(u"showDeleted")
-        self.showDeleted.setChecked(True)
-
-        self.verticalLayout.addWidget(self.showDeleted)
-
-        self.showUserAdded = QCheckBox(Form)
-        self.showUserAdded.setObjectName(u"showUserAdded")
-        self.showUserAdded.setChecked(False)
-
-        self.verticalLayout.addWidget(self.showUserAdded)
-
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout.addItem(self.verticalSpacer)
-
-        self.buttonCloseDB = QPushButton(Form)
-        self.buttonCloseDB.setObjectName(u"buttonCloseDB")
-        self.buttonCloseDB.setMinimumSize(QSize(0, 25))
-
-        self.verticalLayout.addWidget(self.buttonCloseDB)
-
-        self.buttonLoadDB = QPushButton(Form)
-        self.buttonLoadDB.setObjectName(u"buttonLoadDB")
-        self.buttonLoadDB.setMinimumSize(QSize(0, 25))
-
-        self.verticalLayout.addWidget(self.buttonLoadDB)
-
-        self.buttonSaveDB = QPushButton(Form)
-        self.buttonSaveDB.setObjectName(u"buttonSaveDB")
-        self.buttonSaveDB.setMinimumSize(QSize(0, 25))
-
-        self.verticalLayout.addWidget(self.buttonSaveDB)
-
-        self.buttonQuicksave = QPushButton(Form)
-        self.buttonQuicksave.setObjectName(u"buttonQuicksave")
-        self.buttonQuicksave.setMinimumSize(QSize(0, 25))
-
-        self.verticalLayout.addWidget(self.buttonQuicksave)
-
-
-        self.horizontalLayout_2.addLayout(self.verticalLayout)
-
-        self.verticalLayout_2 = QVBoxLayout()
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.listDatenbank = QListView(Form)
-        self.listDatenbank.setObjectName(u"listDatenbank")
-
-        self.verticalLayout_2.addWidget(self.listDatenbank)
+        self.gridLayout.addWidget(self.tabWidget, 1, 1, 1, 1)
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -184,74 +63,106 @@ class Ui_Form(object):
 
         self.horizontalLayout.addItem(self.horizontalSpacer)
 
-        self.buttonHinzufuegen = QPushButton(Form)
+        self.buttonHinzufuegen = QPushButton(self.centralwidget)
         self.buttonHinzufuegen.setObjectName(u"buttonHinzufuegen")
-        self.buttonHinzufuegen.setMinimumSize(QSize(28, 28))
-        self.buttonHinzufuegen.setMaximumSize(QSize(28, 28))
 
         self.horizontalLayout.addWidget(self.buttonHinzufuegen)
 
-        self.buttonEditieren = QPushButton(Form)
+        self.buttonEditieren = QPushButton(self.centralwidget)
         self.buttonEditieren.setObjectName(u"buttonEditieren")
-        self.buttonEditieren.setMinimumSize(QSize(28, 28))
-        self.buttonEditieren.setMaximumSize(QSize(28, 28))
 
         self.horizontalLayout.addWidget(self.buttonEditieren)
 
-        self.buttonDuplizieren = QPushButton(Form)
+        self.buttonRAW = QPushButton(self.centralwidget)
+        self.buttonRAW.setObjectName(u"buttonRAW")
+
+        self.horizontalLayout.addWidget(self.buttonRAW)
+
+        self.buttonDuplizieren = QPushButton(self.centralwidget)
         self.buttonDuplizieren.setObjectName(u"buttonDuplizieren")
-        self.buttonDuplizieren.setMinimumSize(QSize(28, 28))
-        self.buttonDuplizieren.setMaximumSize(QSize(28, 28))
 
         self.horizontalLayout.addWidget(self.buttonDuplizieren)
 
-        self.buttonLoeschen = QPushButton(Form)
+        self.buttonLoeschen = QPushButton(self.centralwidget)
         self.buttonLoeschen.setObjectName(u"buttonLoeschen")
-        self.buttonLoeschen.setMinimumSize(QSize(28, 28))
-        self.buttonLoeschen.setMaximumSize(QSize(28, 28))
 
         self.horizontalLayout.addWidget(self.buttonLoeschen)
 
-        self.buttonWiederherstellen = QPushButton(Form)
+        self.buttonWiederherstellen = QPushButton(self.centralwidget)
         self.buttonWiederherstellen.setObjectName(u"buttonWiederherstellen")
-        self.buttonWiederherstellen.setMinimumSize(QSize(28, 28))
-        self.buttonWiederherstellen.setMaximumSize(QSize(28, 28))
-        self.buttonWiederherstellen.setVisible(False)
 
         self.horizontalLayout.addWidget(self.buttonWiederherstellen)
 
 
-        self.verticalLayout_2.addLayout(self.horizontalLayout)
+        self.gridLayout.addLayout(self.horizontalLayout, 2, 1, 1, 1)
+
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.buttonOpen = QPushButton(self.centralwidget)
+        self.buttonOpen.setObjectName(u"buttonOpen")
+
+        self.horizontalLayout_3.addWidget(self.buttonOpen)
+
+        self.buttonQuicksave = QPushButton(self.centralwidget)
+        self.buttonQuicksave.setObjectName(u"buttonQuicksave")
+
+        self.horizontalLayout_3.addWidget(self.buttonQuicksave)
+
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_3)
+
+        self.nameFilterEdit = QLineEdit(self.centralwidget)
+        self.nameFilterEdit.setObjectName(u"nameFilterEdit")
+        self.nameFilterEdit.setClearButtonEnabled(True)
+
+        self.horizontalLayout_3.addWidget(self.nameFilterEdit)
+
+        self.labelFilterName = QLabel(self.centralwidget)
+        self.labelFilterName.setObjectName(u"labelFilterName")
+
+        self.horizontalLayout_3.addWidget(self.labelFilterName)
+
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_2)
+
+        self.checkDetails = QCheckBox(self.centralwidget)
+        self.checkDetails.setObjectName(u"checkDetails")
+
+        self.horizontalLayout_3.addWidget(self.checkDetails)
 
 
-        self.horizontalLayout_2.addLayout(self.verticalLayout_2)
+        self.gridLayout.addLayout(self.horizontalLayout_3, 0, 1, 1, 1)
 
-        self.horizontalLayout_2.setStretch(1, 1)
-
-        self.gridLayout.addLayout(self.horizontalLayout_2, 0, 0, 1, 1)
-
-        QWidget.setTabOrder(self.nameFilterEdit, self.checkFilterTyp)
-        QWidget.setTabOrder(self.checkFilterTyp, self.showVorteile)
-        QWidget.setTabOrder(self.showVorteile, self.showFertigkeiten)
-        QWidget.setTabOrder(self.showFertigkeiten, self.showFreieFertigkeiten)
-        QWidget.setTabOrder(self.showFreieFertigkeiten, self.showUebernatuerlicheFertigkeiten)
-        QWidget.setTabOrder(self.showUebernatuerlicheFertigkeiten, self.showTalente)
-        QWidget.setTabOrder(self.showTalente, self.showRuestungen)
-        QWidget.setTabOrder(self.showRuestungen, self.showWaffen)
-        QWidget.setTabOrder(self.showWaffen, self.showWaffeneigenschaften)
-        QWidget.setTabOrder(self.showWaffeneigenschaften, self.showRegeln)
-        QWidget.setTabOrder(self.showRegeln, self.showEinstellung)
-        QWidget.setTabOrder(self.showEinstellung, self.showDeleted)
-        QWidget.setTabOrder(self.showDeleted, self.showUserAdded)
-        QWidget.setTabOrder(self.showUserAdded, self.buttonCloseDB)
-        QWidget.setTabOrder(self.buttonCloseDB, self.buttonLoadDB)
-        QWidget.setTabOrder(self.buttonLoadDB, self.buttonSaveDB)
-        QWidget.setTabOrder(self.buttonSaveDB, self.buttonQuicksave)
-        QWidget.setTabOrder(self.buttonQuicksave, self.listDatenbank)
-        QWidget.setTabOrder(self.listDatenbank, self.buttonHinzufuegen)
+        Form.setCentralWidget(self.centralwidget)
+        self.menubar = QMenuBar(Form)
+        self.menubar.setObjectName(u"menubar")
+        self.menubar.setGeometry(QRect(0, 0, 853, 26))
+        self.menuDatei = QMenu(self.menubar)
+        self.menuDatei.setObjectName(u"menuDatei")
+        self.menuAnsicht = QMenu(self.menubar)
+        self.menuAnsicht.setObjectName(u"menuAnsicht")
+        self.menuHilfe = QMenu(self.menubar)
+        self.menuHilfe.setObjectName(u"menuHilfe")
+        Form.setMenuBar(self.menubar)
         QWidget.setTabOrder(self.buttonHinzufuegen, self.buttonEditieren)
         QWidget.setTabOrder(self.buttonEditieren, self.buttonDuplizieren)
         QWidget.setTabOrder(self.buttonDuplizieren, self.buttonLoeschen)
+
+        self.menubar.addAction(self.menuDatei.menuAction())
+        self.menubar.addAction(self.menuAnsicht.menuAction())
+        self.menubar.addAction(self.menuHilfe.menuAction())
+        self.menuDatei.addAction(self.actionOeffnen)
+        self.menuDatei.addAction(self.actionZusaetzlichOeffnen)
+        self.menuDatei.addAction(self.actionSchliessen)
+        self.menuDatei.addAction(self.actionSpeichern)
+        self.menuDatei.addAction(self.actionSpeichern_unter)
+        self.menuDatei.addSeparator()
+        self.menuDatei.addAction(self.actionBeenden)
+        self.menuAnsicht.addAction(self.actionFehlerliste)
+        self.menuHilfe.addAction(self.actionDatenbank_Editor)
+        self.menuHilfe.addAction(self.actionScript_API)
 
         self.retranslateUi(Form)
 
@@ -260,28 +171,16 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Sephrasto - Datenbank-Editor", None))
-        self.labelParameter.setText(QCoreApplication.translate("Form", u"Filter nach Name:", None))
-        self.labelParameter.setProperty("class", QCoreApplication.translate("Form", u"h4", None))
-        self.checkFilterTyp.setText(QCoreApplication.translate("Form", u"Filter nach Typ:", None))
-        self.checkFilterTyp.setProperty("class", QCoreApplication.translate("Form", u"h4", None))
-        self.showVorteile.setText(QCoreApplication.translate("Form", u"Vorteile", None))
-        self.showFertigkeiten.setText(QCoreApplication.translate("Form", u"Profane Fertigkeiten", None))
-        self.showFreieFertigkeiten.setText(QCoreApplication.translate("Form", u"Freie Fertigkeiten", None))
-        self.showUebernatuerlicheFertigkeiten.setText(QCoreApplication.translate("Form", u"\u00dcbernat\u00fcrliche Fertigkeiten", None))
-        self.showTalente.setText(QCoreApplication.translate("Form", u"Talente", None))
-        self.showRuestungen.setText(QCoreApplication.translate("Form", u"R\u00fcstungen", None))
-        self.showWaffen.setText(QCoreApplication.translate("Form", u"Waffen", None))
-        self.showWaffeneigenschaften.setText(QCoreApplication.translate("Form", u"Waffeneigenschaften", None))
-        self.showRegeln.setText(QCoreApplication.translate("Form", u"Regeln", None))
-        self.showEinstellung.setText(QCoreApplication.translate("Form", u"Einstellung", None))
-        self.labelParameter1.setText(QCoreApplication.translate("Form", u"Filter nach Status:", None))
-        self.labelParameter1.setProperty("class", QCoreApplication.translate("Form", u"h4", None))
-        self.showDeleted.setText(QCoreApplication.translate("Form", u"Gel\u00f6schte Standardelemente", None))
-        self.showUserAdded.setText(QCoreApplication.translate("Form", u"Nur eigene \u00c4nderungen", None))
-        self.buttonCloseDB.setText(QCoreApplication.translate("Form", u"Hausregeln schlie\u00dfen", None))
-        self.buttonLoadDB.setText(QCoreApplication.translate("Form", u"Hausregeln laden", None))
-        self.buttonSaveDB.setText(QCoreApplication.translate("Form", u"Speichern unter...", None))
-        self.buttonQuicksave.setText(QCoreApplication.translate("Form", u"Speichern", None))
+        self.actionSpeichern.setText(QCoreApplication.translate("Form", u"Speichern", None))
+        self.actionSpeichern_unter.setText(QCoreApplication.translate("Form", u"Speichern unter...", None))
+        self.actionZur_cksetzen.setText(QCoreApplication.translate("Form", u"Zur\u00fccksetzen", None))
+        self.actionOeffnen.setText(QCoreApplication.translate("Form", u"\u00d6ffnen", None))
+        self.actionBeenden.setText(QCoreApplication.translate("Form", u"Beenden", None))
+        self.actionDatenbank_Editor.setText(QCoreApplication.translate("Form", u"Datenbank-Editor", None))
+        self.actionScript_API.setText(QCoreApplication.translate("Form", u"Script API", None))
+        self.actionFehlerliste.setText(QCoreApplication.translate("Form", u"Fehlerliste", None))
+        self.actionSchliessen.setText(QCoreApplication.translate("Form", u"Datei schlie\u00dfen und RAW laden", None))
+        self.actionZusaetzlichOeffnen.setText(QCoreApplication.translate("Form", u"Zus\u00e4tzlich \u00f6ffnen", None))
 #if QT_CONFIG(tooltip)
         self.buttonHinzufuegen.setToolTip(QCoreApplication.translate("Form", u"Hinzuf\u00fcgen", None))
 #endif // QT_CONFIG(tooltip)
@@ -292,6 +191,11 @@ class Ui_Form(object):
 #endif // QT_CONFIG(tooltip)
         self.buttonEditieren.setText(QCoreApplication.translate("Form", u"Editieren", None))
         self.buttonEditieren.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
+#if QT_CONFIG(tooltip)
+        self.buttonRAW.setToolTip(QCoreApplication.translate("Form", u"RAW ansehen", None))
+#endif // QT_CONFIG(tooltip)
+        self.buttonRAW.setText(QCoreApplication.translate("Form", u"RAW ansehen", None))
+        self.buttonRAW.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
 #if QT_CONFIG(tooltip)
         self.buttonDuplizieren.setToolTip(QCoreApplication.translate("Form", u"Duplizieren", None))
 #endif // QT_CONFIG(tooltip)
@@ -306,5 +210,23 @@ class Ui_Form(object):
         self.buttonWiederherstellen.setToolTip(QCoreApplication.translate("Form", u"Wiederherstellen", None))
 #endif // QT_CONFIG(tooltip)
         self.buttonWiederherstellen.setText(QCoreApplication.translate("Form", u"Wiederherstellen", None))
+        self.buttonWiederherstellen.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
+#if QT_CONFIG(tooltip)
+        self.buttonOpen.setToolTip(QCoreApplication.translate("Form", u"\u00d6ffnen", None))
+#endif // QT_CONFIG(tooltip)
+        self.buttonOpen.setText(QCoreApplication.translate("Form", u"PushButton", None))
+        self.buttonOpen.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
+#if QT_CONFIG(tooltip)
+        self.buttonQuicksave.setToolTip(QCoreApplication.translate("Form", u"Speichern", None))
+#endif // QT_CONFIG(tooltip)
+        self.buttonQuicksave.setText(QCoreApplication.translate("Form", u"Quicksave", None))
+        self.buttonQuicksave.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
+        self.nameFilterEdit.setPlaceholderText(QCoreApplication.translate("Form", u"Suchen...", None))
+        self.labelFilterName.setText(QCoreApplication.translate("Form", u"Suchen", None))
+        self.labelFilterName.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
+        self.checkDetails.setText(QCoreApplication.translate("Form", u"Erweiterte Details", None))
+        self.menuDatei.setTitle(QCoreApplication.translate("Form", u"Datei", None))
+        self.menuAnsicht.setTitle(QCoreApplication.translate("Form", u"Ansicht", None))
+        self.menuHilfe.setTitle(QCoreApplication.translate("Form", u"Hilfe", None))
     # retranslateUi
 

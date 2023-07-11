@@ -9,6 +9,7 @@ import UI.CharakterBeschreibung
 from PySide6 import QtWidgets, QtCore
 import logging
 from Hilfsmethoden import Hilfsmethoden
+from PySide6.QtGui import QPixmap
 
 class BeschrWrapper(QtCore.QObject):
     '''
@@ -32,39 +33,24 @@ class BeschrWrapper(QtCore.QObject):
         for i in range(8):
             editEig = getattr(self.ui, "editEig" + str(i+1))
             editEig.editingFinished.connect(self.update)
+
+        finanzen = Wolke.DB.einstellungen["Finanzen"].wert
+        self.ui.comboFinanzen.addItems(Wolke.DB.einstellungen["Finanzen"].wert)
+        if "Normal" in finanzen:
+            self.ui.comboFinanzen.setCurrentText("Normal")
         self.ui.comboFinanzen.activated.connect(self.update)
+        self.ui.comboStatus.addItems(Wolke.DB.einstellungen["Statusse"].wert)
         self.ui.comboStatus.activated.connect(self.update)
         self.ui.comboHeimat.activated.connect(self.update)
-        self.currentGebraeuche = Wolke.Char.heimat
-        if "Gebräuche" in Wolke.Char.fertigkeiten:
-            if "Gebräuche: " + self.currentGebraeuche not in \
-                    Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente and "Gebräuche: " + self.currentGebraeuche in Wolke.DB.talente:
-                Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.append("Gebräuche: " + self.currentGebraeuche)
 
-        self.ui.comboStatus.setToolTip("""Der Status wirkt sich auf die Lebenshaltungskosten aus. Der Vorteil Einkommen kann helfen, diese zu bestreiten.<br>
-        <b>Elite</b>: mind. 256 Dukaten pro Monat<br>
-        Beispiele: Angehörige des Hochadels, reiche Patrizierinnen, Kirchenfürsten, Spektabilitäten und Handelsherrinnen, Bergkönige<br>
-        Anmerkung: adlige Angehörige der Elite sollten in der Generierung den Vorteil Privilegien (Adel) wählen.<br>
-        <b>Oberschicht</b>: 64 Dukaten pro Monat<br>
-        Beispiele: Niederadlige, angesehene Zauberinnen, Gelehrte, Geweihte und Offiziere, wohlhabende Großbürgerinnen, weise Mitglieder elfischer Sippen, zwergische Klanführer<br>
-        <b>Mittelschicht</b>: 16 Dukaten pro Monat<br>
-        Beispiele: angesehene Bürgerinnen und Handwerker, Großbäuerinnen, einfache Geweihte, Zauberer und Akademieabgängerinnen, verarmte Adlige, Häuptlinge aus „barbarischen“ Kulturen, viele Elfen und Zwerge<br>
-        <b>Unterschicht</b>: 4 Dukaten pro Monat<br>
-        Beispiele: arme Bürger, freie oder leibeigene Kleinbäuerinnen, Soldaten, Angehörige barbarischer Kulturen<br>
-        <b>Abschaum</b>: 1 Dukaten pro Monat<br>
-        Beispiele: Sklavinnen, arme Leibeigene, Vagabundinnen, Wanderarbeiter
-        """)
+        self.ui.comboStatus.setToolTip(Hilfsmethoden.fixHtml(Wolke.DB.einstellungen["Statusse: Beschreibung"].wert))
+        self.ui.comboFinanzen.setToolTip(Hilfsmethoden.fixHtml(Wolke.DB.einstellungen["Finanzen: Beschreibung"].wert))
+        self.ui.comboHeimat.setToolTip(Hilfsmethoden.fixHtml(Wolke.DB.einstellungen["Heimaten: Beschreibung"].wert))
 
-        self.ui.comboFinanzen.setToolTip("""Die Finanzen spielen nur bei einem neuen Charakter eine Rolle und haben Auswirkungen auf das Startkapital und die Anzahl Schicksalspunkte zu Beginn.<br>
-        <b>Sehr reich</b>: 256 Dukaten, 0 Schicksalspunkte<br>
-        <b>Reich</b>: 128 Dukaten, 2 Schicksalspunkte<br>
-        <b>Normal</b>: 32 Dukaten, 4 Schicksalspunkte<br>
-        <b>Arm</b>: 16 Dukaten, 5 Schicksalspunkte<br>
-        <b>Sehr arm</b>: 4 Dukaten, 6 Schicksalspunkte
-        """)
-
-        self.ui.comboHeimat.setToolTip("Jeder Charakter beherrscht seine Muttersprache und die Gebräuche seiner Heimat.\nDu erhältst gratis die Freie Fertigkeit zu deiner Muttersprache auf Stufe III und das passende Gebräuche-­Talent.")
-
+        self.characterImage = None
+        self.labelImageText = self.ui.labelImage.text()
+        self.ui.buttonLoadImage.clicked.connect(self.buttonLoadImageClicked)
+        self.ui.buttonDeleteImage.clicked.connect(self.buttonDeleteImageClicked)
         self.currentlyLoading = False
 
     def update(self):
@@ -89,19 +75,6 @@ class BeschrWrapper(QtCore.QObject):
         if Wolke.Char.finanzen != self.ui.comboFinanzen.currentIndex():
             Wolke.Char.finanzen = self.ui.comboFinanzen.currentIndex()
             changed = True
-
-        if "Gebräuche" in Wolke.Char.fertigkeiten:
-            if self.ui.comboHeimat.currentText() != self.currentGebraeuche:
-                if "Gebräuche: " + self.currentGebraeuche in \
-                        Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente:
-                    Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.remove(
-                            "Gebräuche: " + self.currentGebraeuche)
-                self.currentGebraeuche = self.ui.comboHeimat.currentText()
-                if "Gebräuche: " + self.currentGebraeuche not in \
-                        Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente:
-                    Wolke.Char.fertigkeiten["Gebräuche"].gekaufteTalente.append(
-                        "Gebräuche: " + self.currentGebraeuche)
-                changed = True
 
         if Wolke.Char.heimat != self.ui.comboHeimat.currentText():
             Wolke.Char.heimat = self.ui.comboHeimat.currentText()
@@ -140,8 +113,12 @@ class BeschrWrapper(QtCore.QObject):
         ''' Load values from Char object '''
         self.ui.editName.setText(Wolke.Char.name)
         self.ui.editSpezies.setText(Wolke.Char.spezies)
-        self.ui.comboStatus.setCurrentIndex(Wolke.Char.status)
-        self.ui.comboFinanzen.setCurrentIndex(Wolke.Char.finanzen)
+        statusse = Wolke.DB.einstellungen["Statusse"].wert
+        if Wolke.Char.status < len(statusse):
+            self.ui.comboStatus.setCurrentIndex(Wolke.Char.status)
+        finanzen = Wolke.DB.einstellungen["Finanzen"].wert
+        if Wolke.Char.finanzen < len(finanzen):
+            self.ui.comboFinanzen.setCurrentIndex(Wolke.Char.finanzen)
         self.ui.editKurzbeschreibung.setText(Wolke.Char.kurzbeschreibung)
         arr = ["", "", "", "", "", "", "", ""]
         count = 0
@@ -159,8 +136,45 @@ class BeschrWrapper(QtCore.QObject):
 
         ''' Fill and set Heimat '''
         self.ui.comboHeimat.clear()
-        heimaten = Wolke.DB.findHeimaten()
+        heimaten = sorted(Wolke.DB.einstellungen["Heimaten"].wert)
         self.ui.comboHeimat.addItems(heimaten)
         self.ui.comboHeimat.setCurrentText(Wolke.Char.heimat)
 
+        if Wolke.Char.bild:
+            self.characterImage = QPixmap()
+            self.characterImage.loadFromData(Wolke.Char.bild)
+            self.setImage(self.characterImage)
+
         self.currentlyLoading = False
+
+    def setImage(self, pixmap):
+        self.ui.labelImage.setPixmap(pixmap.scaled(self.ui.labelImage.size(), QtCore.Qt.KeepAspectRatio, QtCore.Qt.SmoothTransformation))
+
+    def buttonLoadImageClicked(self):
+        spath, _ = QtWidgets.QFileDialog.getOpenFileName(None,"Bild laden...", "", "Bild Dateien (*.png *.jpg *.bmp)")
+        if spath == "":
+            return
+        
+        self.characterImage = QPixmap(spath).scaled(Wolke.CharImageSize[0], Wolke.CharImageSize[1], QtCore.Qt.KeepAspectRatio, QtCore.Qt.SmoothTransformation)
+        self.setImage(self.characterImage)
+
+        buffer = QtCore.QBuffer()
+        buffer.open(QtCore.QIODevice.WriteOnly);
+        self.characterImage.save(buffer, "JPG")
+        imageData = buffer.data().data()
+        if Wolke.Char.bild != imageData:
+            Wolke.Char.bild = imageData
+            self.modified.emit()
+
+    def buttonDeleteImageClicked(self):
+        self.characterImage = None
+        self.ui.labelImage.setPixmap(QPixmap())
+        self.ui.labelImage.setText(self.labelImageText)
+
+        if Wolke.Char.bild != None:
+            Wolke.Char.bild = None
+            self.modified.emit()
+
+    def onDetailsVisibilityChanged(self, visible):
+        self.ui.labelKurzbeschreibung.setVisible(not visible)
+        self.ui.editKurzbeschreibung.setVisible(not visible)

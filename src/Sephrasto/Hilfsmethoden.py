@@ -4,14 +4,14 @@ Created on Sat Feb 18 16:35:08 2017
 
 @author: Aeolitus
 """
-import Definitionen
 import logging
 import os
 import re
 from Wolke import Wolke
-import Objekte
+from Core.Vorteil import Vorteil, VorteilDefinition
 import subprocess
 import sys
+import fnmatch
 
 class VoraussetzungException(Exception):
     pass
@@ -82,8 +82,13 @@ class Hilfsmethoden:
                 retStr += itm
         return retStr
 
+
     @staticmethod
-    def VorStr2Array(VoraussetzungenString, Datenbank):
+    def containsWildcard(string):
+        return "*" in string or "?" in string or "[" in string
+
+    @staticmethod
+    def VorStr2Array(VoraussetzungenString, Datenbank = None):
         '''
         Voraussetzungen werden vom User ebenfalls im Fließtext eingetragen.
         Das Format ist dabei im folgenden Illustriert:
@@ -91,6 +96,7 @@ class Hilfsmethoden:
             Attribut MU 8 ODER Vorteil Geweiht I ODER Vorteil Emphatie,
             Waffeneigenschaft Rüstungsbrechend"
         Groß- und Kleinschreibung sind wichtig! Kein geht nicht für Attribute.
+        Wenn die Datenbank übergeben wird, werden die Voraussetzungen auf Korrektheit geprüft und ggf. Exceptions geworfen
         '''
         delim = "~"
 
@@ -107,12 +113,26 @@ class Hilfsmethoden:
                 arrItm = subArr
             else:
                 if strpItm.startswith("Vorteil "):
-                    if not (strpItm[8:] in Datenbank.vorteile):
-                        raise VoraussetzungException("Kann Vorteil '" + strpItm + "' in der Datenbank nicht finden.")
+                    if Datenbank is not None and not (strpItm[8:] in Datenbank.vorteile):
+                        if Hilfsmethoden.containsWildcard(strpItm[8:]):
+                            match = False
+                            for vort in Datenbank.vorteile:
+                                match = match or fnmatch.fnmatchcase(vort, strpItm[8:])
+                            if not match:
+                                raise VoraussetzungException("Kann keinen Vorteil in der Datenbank finden, welcher der Wildcard-Suche '" + strpItm[8:] + "' entspricht.")
+                        else:
+                            raise VoraussetzungException("Kann Vorteil '" + strpItm[8:] + "' in der Datenbank nicht finden.")
                     arrItm = "V" + delim + strpItm[8:] + delim + "1"
                 elif strpItm.startswith("Kein Vorteil "):
-                    if not (strpItm[13:] in Datenbank.vorteile):
-                        raise VoraussetzungException("Kann Vorteil '" + strpItm + "' in der Datenbank nicht finden.")
+                    if Datenbank is not None and not (strpItm[13:] in Datenbank.vorteile):
+                        if Hilfsmethoden.containsWildcard(strpItm[13:]):
+                            match = False
+                            for vort in Datenbank.vorteile:
+                                match = match or fnmatch.fnmatchcase(vort, strpItm[13:])
+                            if not match:
+                                raise VoraussetzungException("Kann keinen Vorteil in der Datenbank finden, welcher der Wildcard-Suche '" + strpItm[13:] + "' entspricht.")
+                        else:
+                            raise VoraussetzungException("Kann Vorteil '" + strpItm[13:] + "' in der Datenbank nicht finden.")
                     arrItm = "V" + delim + strpItm[13:] + delim + "0"
                 elif strpItm.startswith("Talent "):
                     if not strpItm[7] == "'":
@@ -122,7 +142,7 @@ class Hilfsmethoden:
                     if index == -1:
                         raise VoraussetzungException("Der Name einer Fertigkeit muss in Apostrophen gefasst werden. . (" + strpItm + ")")
                     talent = strpItm[:index]
-                    if not (talent in Datenbank.talente):
+                    if Datenbank is not None and not (talent in Datenbank.talente):
                         raise VoraussetzungException("Kann Talent '" + strpItm + "' in der Datenbank nicht finden.")
                     try:
                         wert = int(strpItm[index+2:]) if len(strpItm) -1 > index else -1
@@ -130,29 +150,27 @@ class Hilfsmethoden:
                     except ValueError:
                         raise VoraussetzungException("Der angegebene Talent-PW '" + strpItm[index+2:] + "' ist keine gültige Zahl")
                 elif strpItm.startswith("Waffeneigenschaft "):
-                    if (not (strpItm[18:] in Datenbank.waffeneigenschaften)) and strpItm[18:] != "Nahkampfwaffe" and strpItm[18:] != "Fernkampfwaffe":
-                        raise VoraussetzungException("Kann keine Waffeneigenschaft '" + strpItm + "' in der Datenbank finden.")
+                    if Datenbank is not None and (not (strpItm[18:] in Datenbank.waffeneigenschaften)) and strpItm[18:] != "Nahkampfwaffe" and strpItm[18:] != "Fernkampfwaffe":
+                        raise VoraussetzungException("Kann keine Waffeneigenschaft '" + strpItm[18:] + "' in der Datenbank finden.")
                     arrItm = "W" + delim + strpItm[18:] + delim + "1"
                 elif strpItm.startswith("Attribut "):
                     attribut = strpItm[9:11]
-                    if attribut in Definitionen.Attribute:
-                        try:
-                            wert = int(strpItm[12:])
-                            arrItm = "A" + delim + attribut + delim + str(wert)
-                        except ValueError:
-                            raise VoraussetzungException("Der angegebene Attribut-Wert '" + strpItm[12:] + "' ist keine gültige Zahl.")
-                    else:
+                    if Datenbank is not None and attribut not in Datenbank.attribute:
                         raise VoraussetzungException("Das angegebene Attribut '" + attribut + "' ist ungültig. Unterstützt werden 'KO', 'MU', 'GE', 'KK', 'IN', 'KL', 'CH' und 'FF'")
+                    try:
+                        wert = int(strpItm[12:])
+                        arrItm = "A" + delim + attribut + delim + str(wert)
+                    except ValueError:
+                        raise VoraussetzungException("Der angegebene Attribut-Wert '" + strpItm[12:] + "' ist keine gültige Zahl.")
                 elif strpItm.startswith("MeisterAttribut "):
                     attribut = strpItm[16:18]
-                    if attribut in Definitionen.Attribute:
-                        try:
-                            wert = int(strpItm[19:])
-                            arrItm = "M" + delim + attribut + delim + str(wert)
-                        except ValueError:
-                            raise VoraussetzungException("Der angegebene Attribut-Wert '" + strpItm[19:] + "' ist keine gültige Zahl.")
-                    else:
+                    if Datenbank is not None and attribut not in Datenbank.attribute:
                         raise VoraussetzungException("Das angegebene Attribut '" + attribut + "' ist ungültig. Unterstützt werden 'KO', 'MU', 'GE', 'KK', 'IN', 'KL', 'CH' und 'FF'")
+                    try:
+                        wert = int(strpItm[19:])
+                        arrItm = "M" + delim + attribut + delim + str(wert)
+                    except ValueError:
+                        raise VoraussetzungException("Der angegebene Attribut-Wert '" + strpItm[19:] + "' ist keine gültige Zahl.")
                 elif strpItm.startswith("Übernatürliche-Fertigkeit "):
                     if not strpItm[26] == "'":
                         raise VoraussetzungException("Der Name einer Übernatürlichen Fertigkeit muss in Apostrophen gefasst werden. (" + strpItm + ")")
@@ -162,7 +180,7 @@ class Hilfsmethoden:
                         raise VoraussetzungException("Der Name einer Übernatürlichen Fertigkeit muss in Apostrophen gefasst werden. (" + strpItm + ")")
                     fertigkeit = strpItm[:index]
 
-                    if not (fertigkeit in Datenbank.übernatürlicheFertigkeiten):
+                    if Datenbank is not None and fertigkeit not in Datenbank.übernatürlicheFertigkeiten:
                         raise VoraussetzungException("Kann Übernatürliche Fertigkeit '" + fertigkeit + "' in der Datenbank nicht finden.")
                     try:
                         wert = int(strpItm[index+2:]) if len(strpItm) -1 > index else -1
@@ -178,7 +196,7 @@ class Hilfsmethoden:
                         raise VoraussetzungException("Der Name einer Fertigkeit muss in Apostrophen gefasst werden. . (" + strpItm + ")")
                     fertigkeit = strpItm[:index]
 
-                    if not (fertigkeit in Datenbank.fertigkeiten):
+                    if Datenbank is not None and fertigkeit not in Datenbank.fertigkeiten:
                         raise VoraussetzungException("Kann Fertigkeit '" + fertigkeit + "' in der Datenbank nicht finden.")
 
                     try:
@@ -192,7 +210,7 @@ class Hilfsmethoden:
         return retArr
     
     @staticmethod
-    def VorArray2Str(VoraussetzungenArray, Datenbank = None):
+    def VorArray2Str(VoraussetzungenArray):
         delim = "~"
 
         retArr = []
@@ -202,7 +220,7 @@ class Hilfsmethoden:
                 orArr = []
                 orStr = ""
                 for part in itm:
-                    orArr.append(Hilfsmethoden.VorArray2Str(part, Datenbank))    
+                    orArr.append(Hilfsmethoden.VorArray2Str(part))    
                 if len(orArr) > 0:
                     orStr = orArr[0]
                 if len(orArr) > 1:
@@ -256,13 +274,49 @@ class Hilfsmethoden:
                 if len(itm) > 0:
                     retStr += ", " + itm
         return retStr
-    
-    @staticmethod
-    def voraussetzungenPrüfen(vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, voraussetzungen):
-        return Hilfsmethoden.__voraussetzungenPrüfen(vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, voraussetzungen, False)
 
     @staticmethod
-    def __voraussetzungenPrüfen(vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, voraussetzungen, Or):
+    def VerifyVorArray(VoraussetzungenArray, Datenbank):
+        Hilfsmethoden.VorStr2Array(Hilfsmethoden.VorArray2Str(VoraussetzungenArray), Datenbank)
+    
+    @staticmethod
+    def VorArray2AnzeigeStr(VoraussetzungenArray, Datenbank):
+        if len(VoraussetzungenArray) == 0:
+            return "keine"
+        # convert to non-nested array with entries separated by "," (= and)
+        voraussetzungen = [v.strip() for v in Hilfsmethoden.VorArray2Str(VoraussetzungenArray).split(",")]
+        # convert MeisterAttribut text
+        voraussetzungen = [v + " und 2 weitere Attribute auf insgesamt 16" if "MeisterAttribut" in v else v for v in voraussetzungen]
+        # merge multiple "Tradition der " (=marker) entries
+        for i in range(len(voraussetzungen)):
+            # convert each voraussetzung to array, split by ODER entries
+            split = voraussetzungen[i].replace(" ODER ", ",").split(",")
+            lastMarker = None
+            for j in range(len(split)):
+                # remove every occurence of the marker after the first until there is a new marker
+                split[j] = split[j].strip()
+                for marker in ["Vorteil Tradition der "]:
+                    if split[j].startswith(marker):
+                        if lastMarker is None or lastMarker != marker:
+                            lastMarker = marker
+                        else:
+                            split[j] = split[j].replace(marker, "")
+                    else:
+                        lastMarker = None
+            voraussetzungen[i] = ", ".join(split)
+            voraussetzungen[i] = voraussetzungen[i][::-1].replace(" ,"," REDO ", 1)[::-1] #replace last ", " by " ODER "
+        # merge to single string and apply replacements
+        voraussetzungen = "; ".join(voraussetzungen)
+        for text, replace in Datenbank.einstellungen["Voraussetzungen: Anzeigetext ersetzen"].wert.items():
+            voraussetzungen = voraussetzungen.replace(text, replace)
+        return voraussetzungen
+
+    @staticmethod
+    def voraussetzungenPrüfen(dbElement, vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, talente):
+        return Hilfsmethoden.__voraussetzungenPrüfen(dbElement, dbElement.voraussetzungen, vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, talente, False)
+
+    @staticmethod
+    def __voraussetzungenPrüfen(dbElement, voraussetzungen, vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, talente, Or):
         '''
         Prüft, ob ein Array von Voraussetzungen erfüllt ist.
         Format: ['L:Str:W', 'L:Str:W']
@@ -287,7 +341,7 @@ class Hilfsmethoden:
         for voraus in voraussetzungen:
             erfüllt = False
             if type(voraus) is list:
-                erfüllt = Hilfsmethoden.__voraussetzungenPrüfen(vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, voraus,True)
+                erfüllt = Hilfsmethoden.__voraussetzungenPrüfen(dbElement, voraus, vorteile, waffen, attribute, übernatürlicheFertigkeiten, fertigkeiten, talente, True)
             else: 
                 #Split am Separator
                 delim = "~"
@@ -295,48 +349,49 @@ class Hilfsmethoden:
                 #Vorteile:
                 if arr[0] == 'V':
                     if len(arr) > 2:
-                        cond = int(arr[2])
+                        cond = int(arr[2]) == 1
                     else: 
-                        cond = 1
-                    found = 0
-                    if arr[1] in vorteile:
-                        found = 1
-                    if found == 1 and cond == 1:
-                        erfüllt = True
-                    elif found == 0 and cond == 0:
-                        erfüllt = True
+                        cond = True
+                    found = arr[1] in vorteile
+                    if not found and Hilfsmethoden.containsWildcard(arr[1]):
+                        for vort in vorteile:
+                            #wildcard-suchen sollten das element ausschließen, dessen voraussetuzng gerade geprüft wird
+                            if (isinstance(dbElement, VorteilDefinition) or isinstance(dbElement, Vorteil)) and dbElement.name == vort:
+                                continue
+                            if fnmatch.fnmatchcase(vort, arr[1]):
+                                found = True
+                                break
+                    erfüllt = (found and cond) or (not found and not cond)
                 #Talente:
                 elif arr[0] == 'T':
                     if arr[1] in Wolke.DB.talente:
-                        talent = Wolke.DB.talente[arr[1]]
                         wert = int(arr[2])
-                        if not talent.isSpezialTalent():
-                            for fert in talent.fertigkeiten:
-                                if not fert in fertigkeiten:
-                                    continue
-                                fertigkeit = fertigkeiten[fert]
-                                if wert == -1:
-                                    if arr[1] in fertigkeit.gekaufteTalente:
-                                        erfüllt = True
-                                        break
-                                elif (arr[1] in fertigkeit.gekaufteTalente and fertigkeit.probenwertTalent >= wert) or fertigkeit.probenwert >= wert:
-                                    erfüllt = True
-                                    break
+                        if wert == -1:
+                            if arr[1] in talente:
+                                erfüllt = True
                         else:
-                            for fert in talent.fertigkeiten:
-                                if not fert in übernatürlicheFertigkeiten:
+                            talent = Wolke.DB.talente[arr[1]]
+                            ferts = fertigkeiten
+                            if talent.spezialTalent:
+                                ferts = übernatürlicheFertigkeiten
+                            for fertName in talent.fertigkeiten:
+                                if not fertName in ferts:
                                     continue
-                                fertigkeit = übernatürlicheFertigkeiten[fert]
-                                if arr[1] in fertigkeit.gekaufteTalente and (wert == -1 or fertigkeit.probenwertTalent >= wert):
+                                fert = ferts[fertName]
+                                pw = fert.probenwert
+                                if arr[1] in talente:
+                                    # do not use talent.probenwert here, it may not be up to date
+                                    pw = fert.probenwertTalent
+                                if pw >= wert:
                                     erfüllt = True
                                     break
                 #Waffeneigenschaften:
                 elif arr[0] == 'W':
                     for waffe in waffen:
-                        if arr[1] == "Nahkampfwaffe" and type(waffe) == Objekte.Nahkampfwaffe:
+                        if arr[1] == "Nahkampfwaffe" and waffe.nahkampf:
                             erfüllt = True
                             break
-                        elif arr[1] == "Fernkampfwaffe" and type(waffe) == Objekte.Fernkampfwaffe:
+                        elif arr[1] == "Fernkampfwaffe" and waffe.fernkampf:
                             erfüllt = True
                             break
                         elif arr[1] in waffe.eigenschaften:
@@ -351,7 +406,7 @@ class Hilfsmethoden:
                 elif arr[0] == 'M':
                     #Wir greifen direkt auf den Eintrag zu und vergleichen. 
                     if attribute[arr[1]].wert >= int(arr[2]):
-                        attrSorted = [a.wert for a in attribute.values() if a.key != arr[1]]
+                        attrSorted = [a.wert for a in attribute.values() if a.name != arr[1]]
                         attr1 = max(attrSorted)
                         attrSorted.remove(attr1)
                         attr2 = max(attrSorted)
@@ -401,26 +456,19 @@ class Hilfsmethoden:
         return False
 
     @staticmethod
-    def AttrArray2Str(AttrArray, Datenbank = None):
+    def AttrArray2Str(AttrArray):
         if len(AttrArray) != 3:
             return ""
-        retStr = ""
-        for el in AttrArray:
-            if el not in Definitionen.Attribute:
-                return ""
-        retStr = AttrArray[0] + "|" + AttrArray[1] + "|" + AttrArray[2]
-        return retStr
+        return AttrArray[0] + "|" + AttrArray[1] + "|" + AttrArray[2]
     
     @staticmethod
-    def AttrStr2Array(AttrStr, Datenbank = None):
+    def AttrStr2Array(AttrStr):
         retArr = []
         if len(AttrStr) == 0:
             return []
         for el in AttrStr.split("|"):
             if len(el) == 0:
                 continue
-            if el not in Definitionen.Attribute:
-                return []
             retArr.append(el)
         return retArr
     
@@ -453,7 +501,7 @@ class Hilfsmethoden:
             subprocess.call([opener, filepath])
     
     @staticmethod
-    def fixHtml(text):
+    def fixHtml(text, addCSS = True):
         # Replace newlines by <br> tags, unless they are preceded by a '>' or followed by a block-level element
         # Its a bit hacky but placing <br> tags after every line in the database editor would be too cumbersome.
 
@@ -461,4 +509,23 @@ class Hilfsmethoden:
         text = re.sub("(</(table|p|div|h\\d|ol|ul|li|tr|th|td)>)\n","\\1", text) #remove any newlines after a block-level element
         text = text.replace("\n", "<br>")
         text = text.replace("    ", "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;") #replace 4 whitespaces by non-breaking spaces - the whitespaces would be removed otherwise
+        text = text.replace("S. ", "S.&nbsp;") # make sure there is no linebreak in pagenumbers
+        text = text.replace("$sephrasto_dir$", "file:///" + os.getcwd().replace('\\', '/'))
+        text = text.replace("$regeln_dir$", "file:///" + Wolke.Settings['Pfad-Regeln'].replace('\\', '/'))
+        text = text.replace("$plugins_dir$", "file:///" + Wolke.Settings['Pfad-Plugins'].replace('\\', '/'))
+
+        if addCSS:
+            css = """<style>
+            h4 { margin: 0px; margin-top: 1em; }
+            table {margin-top: 1em; margin-bottom: 1em; border-collapse: collapse;}
+            th { border-bottom: 1px solid #4A000B; }
+            td { padding: 0.1em; }
+            ul { padding: 0; margin: 0; }
+            ol { padding: 0; margin: 0; }
+            </style>"""
+            text = f"<head>{css}</head><body>{text}</body>"
         return text
+
+    @staticmethod
+    def emToPixels(em):
+        return em * Wolke.Settings['FontSize']

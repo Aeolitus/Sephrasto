@@ -1,462 +1,306 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>Form</class>
- <widget class="QWidget" name="Form">
+ <widget class="QMainWindow" name="Form">
   <property name="windowModality">
-   <enum>Qt::ApplicationModal</enum>
+   <enum>Qt::NonModal</enum>
   </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>795</width>
-    <height>582</height>
+    <width>853</width>
+    <height>663</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Sephrasto - Datenbank-Editor</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,1">
-     <item>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <property name="sizeConstraint">
-        <enum>QLayout::SetDefaultConstraint</enum>
-       </property>
-       <item>
-        <widget class="QLabel" name="labelParameter">
-         <property name="font">
-          <font>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Filter nach Name:</string>
-         </property>
-         <property name="class" stdset="0">
-          <string>h4</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="nameFilterEdit"/>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="checkFilterTyp">
-         <property name="font">
-          <font>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Filter nach Typ:</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-         <property name="tristate">
-          <bool>true</bool>
-         </property>
-         <property name="class" stdset="0">
-          <string>h4</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_3">
-         <property name="leftMargin">
-          <number>10</number>
-         </property>
-         <item>
-          <widget class="QCheckBox" name="showVorteile">
-           <property name="text">
-            <string>Vorteile</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
-           <property name="tristate">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="showFertigkeiten">
-           <property name="text">
-            <string>Profane Fertigkeiten</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="showFreieFertigkeiten">
-           <property name="text">
-            <string>Freie Fertigkeiten</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="showUebernatuerlicheFertigkeiten">
-           <property name="minimumSize">
-            <size>
-             <width>200</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Übernatürliche Fertigkeiten</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="showTalente">
-           <property name="text">
-            <string>Talente</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="showRuestungen">
-           <property name="text">
-            <string>Rüstungen</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="showWaffen">
-           <property name="text">
-            <string>Waffen</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="showWaffeneigenschaften">
-           <property name="text">
-            <string>Waffeneigenschaften</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="showRegeln">
-           <property name="text">
-            <string>Regeln</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="showEinstellung">
-           <property name="text">
-            <string>Einstellung</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QLabel" name="labelParameter">
-         <property name="font">
-          <font>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Filter nach Status:</string>
-         </property>
-         <property name="class" stdset="0">
-          <string>h4</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="showDeleted">
-         <property name="text">
-          <string>Gelöschte Standardelemente</string>
-         </property>
-         <property name="checked">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="showUserAdded">
-         <property name="text">
-          <string>Nur eigene Änderungen</string>
-         </property>
-         <property name="checked">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="buttonCloseDB">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>25</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Hausregeln schließen</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="buttonLoadDB">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>25</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Hausregeln laden</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="buttonSaveDB">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>25</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Speichern unter...</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="buttonQuicksave">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>25</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Speichern</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <item>
-        <widget class="QListView" name="listDatenbank"/>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <item>
-          <spacer name="horizontalSpacer">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QPushButton" name="buttonHinzufuegen">
-           <property name="minimumSize">
-            <size>
-             <width>28</width>
-             <height>28</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>28</width>
-             <height>28</height>
-            </size>
-           </property>
-           <property name="toolTip">
-            <string>Hinzufügen</string>
-           </property>
-           <property name="text">
-            <string>Hinzufügen</string>
-           </property>
-           <property name="class" stdset="0">
-            <string>icon</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="buttonEditieren">
-           <property name="minimumSize">
-            <size>
-             <width>28</width>
-             <height>28</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>28</width>
-             <height>28</height>
-            </size>
-           </property>
-           <property name="toolTip">
-            <string>Editieren</string>
-           </property>
-           <property name="text">
-            <string>Editieren</string>
-           </property>
-           <property name="class" stdset="0">
-            <string>icon</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="buttonDuplizieren">
-           <property name="minimumSize">
-            <size>
-             <width>28</width>
-             <height>28</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>28</width>
-             <height>28</height>
-            </size>
-           </property>
-           <property name="toolTip">
-            <string>Duplizieren</string>
-           </property>
-           <property name="text">
-            <string>Duplizieren</string>
-           </property>
-           <property name="class" stdset="0">
-            <string>icon</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="buttonLoeschen">
-           <property name="minimumSize">
-            <size>
-             <width>28</width>
-             <height>28</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>28</width>
-             <height>28</height>
-            </size>
-           </property>
-           <property name="toolTip">
-            <string>Löschen</string>
-           </property>
-           <property name="text">
-            <string>Löschen</string>
-           </property>
-           <property name="class" stdset="0">
-            <string>icon</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="buttonWiederherstellen">
-           <property name="minimumSize">
-            <size>
-             <width>28</width>
-             <height>28</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>28</width>
-             <height>28</height>
-            </size>
-           </property>
-           <property name="visible">
-            <bool>false</bool>
-           </property>
-           <property name="toolTip">
-            <string>Wiederherstellen</string>
-           </property>
-           <property name="text">
-            <string>Wiederherstellen</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </item>
-    </layout>
-   </item>
-  </layout>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="1">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="tabPosition">
+       <enum>QTabWidget::West</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="buttonHinzufuegen">
+        <property name="toolTip">
+         <string>Hinzufügen</string>
+        </property>
+        <property name="text">
+         <string>Hinzufügen</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>icon</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="buttonEditieren">
+        <property name="toolTip">
+         <string>Editieren</string>
+        </property>
+        <property name="text">
+         <string>Editieren</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>icon</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="buttonRAW">
+        <property name="toolTip">
+         <string>RAW ansehen</string>
+        </property>
+        <property name="text">
+         <string>RAW ansehen</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>icon</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="buttonDuplizieren">
+        <property name="toolTip">
+         <string>Duplizieren</string>
+        </property>
+        <property name="text">
+         <string>Duplizieren</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>icon</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="buttonLoeschen">
+        <property name="toolTip">
+         <string>Löschen</string>
+        </property>
+        <property name="text">
+         <string>Löschen</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>icon</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="buttonWiederherstellen">
+        <property name="toolTip">
+         <string>Wiederherstellen</string>
+        </property>
+        <property name="text">
+         <string>Wiederherstellen</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>icon</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="1">
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QPushButton" name="buttonOpen">
+        <property name="toolTip">
+         <string>Öffnen</string>
+        </property>
+        <property name="text">
+         <string>PushButton</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>icon</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="buttonQuicksave">
+        <property name="toolTip">
+         <string>Speichern</string>
+        </property>
+        <property name="text">
+         <string>Quicksave</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>icon</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="nameFilterEdit">
+        <property name="placeholderText">
+         <string>Suchen...</string>
+        </property>
+        <property name="clearButtonEnabled">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="labelFilterName">
+        <property name="text">
+         <string>Suchen</string>
+        </property>
+        <property name="class" stdset="0">
+         <string>icon</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="checkDetails">
+        <property name="text">
+         <string>Erweiterte Details</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>853</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuDatei">
+    <property name="title">
+     <string>Datei</string>
+    </property>
+    <addaction name="actionOeffnen"/>
+    <addaction name="actionZusaetzlichOeffnen"/>
+    <addaction name="actionSchliessen"/>
+    <addaction name="actionSpeichern"/>
+    <addaction name="actionSpeichern_unter"/>
+    <addaction name="separator"/>
+    <addaction name="actionBeenden"/>
+   </widget>
+   <widget class="QMenu" name="menuAnsicht">
+    <property name="title">
+     <string>Ansicht</string>
+    </property>
+    <addaction name="actionFehlerliste"/>
+   </widget>
+   <widget class="QMenu" name="menuHilfe">
+    <property name="title">
+     <string>Hilfe</string>
+    </property>
+    <addaction name="actionDatenbank_Editor"/>
+    <addaction name="actionScript_API"/>
+   </widget>
+   <addaction name="menuDatei"/>
+   <addaction name="menuAnsicht"/>
+   <addaction name="menuHilfe"/>
+  </widget>
+  <action name="actionSpeichern">
+   <property name="text">
+    <string>Speichern</string>
+   </property>
+  </action>
+  <action name="actionSpeichern_unter">
+   <property name="text">
+    <string>Speichern unter...</string>
+   </property>
+  </action>
+  <action name="actionZur_cksetzen">
+   <property name="text">
+    <string>Zurücksetzen</string>
+   </property>
+  </action>
+  <action name="actionOeffnen">
+   <property name="text">
+    <string>Öffnen</string>
+   </property>
+  </action>
+  <action name="actionBeenden">
+   <property name="text">
+    <string>Beenden</string>
+   </property>
+  </action>
+  <action name="actionDatenbank_Editor">
+   <property name="text">
+    <string>Datenbank-Editor</string>
+   </property>
+  </action>
+  <action name="actionScript_API">
+   <property name="text">
+    <string>Script API</string>
+   </property>
+  </action>
+  <action name="actionFehlerliste">
+   <property name="text">
+    <string>Fehlerliste</string>
+   </property>
+  </action>
+  <action name="actionSchliessen">
+   <property name="text">
+    <string>Datei schließen und RAW laden</string>
+   </property>
+  </action>
+  <action name="actionZusaetzlichOeffnen">
+   <property name="text">
+    <string>Zusätzlich öffnen</string>
+   </property>
+  </action>
  </widget>
  <tabstops>
-  <tabstop>nameFilterEdit</tabstop>
-  <tabstop>checkFilterTyp</tabstop>
-  <tabstop>showVorteile</tabstop>
-  <tabstop>showFertigkeiten</tabstop>
-  <tabstop>showFreieFertigkeiten</tabstop>
-  <tabstop>showUebernatuerlicheFertigkeiten</tabstop>
-  <tabstop>showTalente</tabstop>
-  <tabstop>showRuestungen</tabstop>
-  <tabstop>showWaffen</tabstop>
-  <tabstop>showWaffeneigenschaften</tabstop>
-  <tabstop>showRegeln</tabstop>
-  <tabstop>showEinstellung</tabstop>
-  <tabstop>showDeleted</tabstop>
-  <tabstop>showUserAdded</tabstop>
-  <tabstop>buttonCloseDB</tabstop>
-  <tabstop>buttonLoadDB</tabstop>
-  <tabstop>buttonSaveDB</tabstop>
-  <tabstop>buttonQuicksave</tabstop>
-  <tabstop>listDatenbank</tabstop>
   <tabstop>buttonHinzufuegen</tabstop>
   <tabstop>buttonEditieren</tabstop>
   <tabstop>buttonDuplizieren</tabstop>

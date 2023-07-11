@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterFreieFertigkeitenPicker.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.2
+## Created by: Qt User Interface Compiler version 6.5.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -45,15 +45,16 @@ class Ui_Dialog(object):
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.nameFilterEdit = QLineEdit(self.verticalLayout_2)
+        self.nameFilterEdit.setObjectName(u"nameFilterEdit")
+        self.nameFilterEdit.setClearButtonEnabled(True)
+
+        self.horizontalLayout.addWidget(self.nameFilterEdit)
+
         self.labelFilter = QLabel(self.verticalLayout_2)
         self.labelFilter.setObjectName(u"labelFilter")
 
         self.horizontalLayout.addWidget(self.labelFilter)
-
-        self.nameFilterEdit = QLineEdit(self.verticalLayout_2)
-        self.nameFilterEdit.setObjectName(u"nameFilterEdit")
-
-        self.horizontalLayout.addWidget(self.nameFilterEdit)
 
 
         self.verticalLayout2.addLayout(self.horizontalLayout)
@@ -100,7 +101,9 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Sephrasto - Freie Fertigkeit w\u00e4hlen...", None))
         self.label.setText(QCoreApplication.translate("Dialog", u"Inoffiziell: Bei den aufgef\u00fchrten Sprachen und Schriften handelt es sich um an WdS orientierte Vorschl\u00e4ge.", None))
-        self.labelFilter.setText(QCoreApplication.translate("Dialog", u"Suchen:", None))
+        self.nameFilterEdit.setPlaceholderText(QCoreApplication.translate("Dialog", u"Suchen...", None))
+        self.labelFilter.setText(QCoreApplication.translate("Dialog", u"Suchen", None))
+        self.labelFilter.setProperty("class", QCoreApplication.translate("Dialog", u"icon", None))
         ___qtreewidgetitem = self.treeFerts.headerItem()
         ___qtreewidgetitem.setText(0, QCoreApplication.translate("Dialog", u"Freie Fertigkeit", None));
     # retranslateUi

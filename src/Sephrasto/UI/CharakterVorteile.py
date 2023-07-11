@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterVorteile.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.2
+## Created by: Qt User Interface Compiler version 6.5.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -16,9 +16,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractItemView, QApplication, QCheckBox, QFrame,
-    QGridLayout, QHeaderView, QLabel, QPlainTextEdit,
-    QScrollArea, QSizePolicy, QSplitter, QTreeWidget,
-    QTreeWidgetItem, QWidget)
+    QGridLayout, QHeaderView, QLabel, QScrollArea,
+    QSizePolicy, QSpacerItem, QSplitter, QTextBrowser,
+    QTreeWidget, QTreeWidgetItem, QVBoxLayout, QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -68,29 +68,9 @@ class Ui_Form(object):
         self.scrollArea.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 340, 395))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 340, 394))
         self.gridLayout_2 = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.labelKosten = QLabel(self.scrollAreaWidgetContents)
-        self.labelKosten.setObjectName(u"labelKosten")
-        self.labelKosten.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout_2.addWidget(self.labelKosten, 3, 1, 1, 1)
-
-        self.label_2 = QLabel(self.scrollAreaWidgetContents)
-        self.label_2.setObjectName(u"label_2")
-
-        self.gridLayout_2.addWidget(self.label_2, 3, 0, 1, 1)
-
-        self.plainText = QPlainTextEdit(self.scrollAreaWidgetContents)
-        self.plainText.setObjectName(u"plainText")
-        self.plainText.setFrameShape(QFrame.StyledPanel)
-        self.plainText.setLineWidth(1)
-        self.plainText.setReadOnly(True)
-        self.plainText.setBackgroundVisible(False)
-
-        self.gridLayout_2.addWidget(self.plainText, 5, 0, 1, 2)
-
         self.labelVorteil = QLabel(self.scrollAreaWidgetContents)
         self.labelVorteil.setObjectName(u"labelVorteil")
         font = QFont()
@@ -99,17 +79,12 @@ class Ui_Form(object):
 
         self.gridLayout_2.addWidget(self.labelVorteil, 0, 0, 1, 2)
 
-        self.label = QLabel(self.scrollAreaWidgetContents)
-        self.label.setObjectName(u"label")
+        self.labelVoraussetzungen = QLabel(self.scrollAreaWidgetContents)
+        self.labelVoraussetzungen.setObjectName(u"labelVoraussetzungen")
+        self.labelVoraussetzungen.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.labelVoraussetzungen.setWordWrap(True)
 
-        self.gridLayout_2.addWidget(self.label, 4, 0, 1, 1)
-
-        self.labelNachkauf = QLabel(self.scrollAreaWidgetContents)
-        self.labelNachkauf.setObjectName(u"labelNachkauf")
-        self.labelNachkauf.setMinimumSize(QSize(0, 18))
-        self.labelNachkauf.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout_2.addWidget(self.labelNachkauf, 4, 1, 1, 1)
+        self.gridLayout_2.addWidget(self.labelVoraussetzungen, 2, 1, 1, 1)
 
         self.label_3 = QLabel(self.scrollAreaWidgetContents)
         self.label_3.setObjectName(u"label_3")
@@ -117,12 +92,22 @@ class Ui_Form(object):
 
         self.gridLayout_2.addWidget(self.label_3, 2, 0, 1, 1)
 
-        self.labelVoraussetzungen = QLabel(self.scrollAreaWidgetContents)
-        self.labelVoraussetzungen.setObjectName(u"labelVoraussetzungen")
-        self.labelVoraussetzungen.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-        self.labelVoraussetzungen.setWordWrap(True)
+        self.label_2 = QLabel(self.scrollAreaWidgetContents)
+        self.label_2.setObjectName(u"label_2")
 
-        self.gridLayout_2.addWidget(self.labelVoraussetzungen, 2, 1, 1, 1)
+        self.gridLayout_2.addWidget(self.label_2, 3, 0, 1, 1)
+
+        self.plainText = QTextBrowser(self.scrollAreaWidgetContents)
+        self.plainText.setObjectName(u"plainText")
+
+        self.gridLayout_2.addWidget(self.plainText, 5, 0, 1, 2)
+
+        self.vlQuerverweise = QVBoxLayout()
+        self.vlQuerverweise.setSpacing(12)
+        self.vlQuerverweise.setObjectName(u"vlQuerverweise")
+        self.vlQuerverweise.setContentsMargins(-1, 10, -1, -1)
+
+        self.gridLayout_2.addLayout(self.vlQuerverweise, 6, 0, 1, 2)
 
         self.labelTyp = QLabel(self.scrollAreaWidgetContents)
         self.labelTyp.setObjectName(u"labelTyp")
@@ -134,7 +119,28 @@ class Ui_Form(object):
 
         self.gridLayout_2.addWidget(self.labelTyp, 1, 0, 1, 2)
 
-        self.gridLayout_2.setColumnStretch(1, 1)
+        self.label = QLabel(self.scrollAreaWidgetContents)
+        self.label.setObjectName(u"label")
+
+        self.gridLayout_2.addWidget(self.label, 4, 0, 1, 1)
+
+        self.labelKosten = QLabel(self.scrollAreaWidgetContents)
+        self.labelKosten.setObjectName(u"labelKosten")
+        self.labelKosten.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_2.addWidget(self.labelKosten, 3, 1, 1, 1)
+
+        self.labelNachkauf = QLabel(self.scrollAreaWidgetContents)
+        self.labelNachkauf.setObjectName(u"labelNachkauf")
+        self.labelNachkauf.setMinimumSize(QSize(0, 18))
+        self.labelNachkauf.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_2.addWidget(self.labelNachkauf, 4, 1, 1, 1)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_2.addItem(self.verticalSpacer, 7, 0, 1, 1)
+
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.splitter.addWidget(self.scrollArea)
 
@@ -146,7 +152,6 @@ class Ui_Form(object):
         self.gridLayout.addWidget(self.checkShowAll, 2, 0, 1, 1)
 
         QWidget.setTabOrder(self.treeWidget, self.scrollArea)
-        QWidget.setTabOrder(self.scrollArea, self.plainText)
 
         self.retranslateUi(Form)
 
@@ -158,16 +163,16 @@ class Ui_Form(object):
         ___qtreewidgetitem = self.treeWidget.headerItem()
         ___qtreewidgetitem.setText(1, QCoreApplication.translate("Form", u"Kosten", None));
         ___qtreewidgetitem.setText(0, QCoreApplication.translate("Form", u"Vorteil", None));
-        self.labelKosten.setText(QCoreApplication.translate("Form", u"20 EP", None))
-        self.label_2.setText(QCoreApplication.translate("Form", u"Kosten:", None))
         self.labelVorteil.setText(QCoreApplication.translate("Form", u"Vorteil", None))
         self.labelVorteil.setProperty("class", QCoreApplication.translate("Form", u"h4", None))
-        self.label.setText(QCoreApplication.translate("Form", u"Nachkauf:", None))
-        self.labelNachkauf.setText(QCoreApplication.translate("Form", u"H\u00e4ufig", None))
-        self.label_3.setText(QCoreApplication.translate("Form", u"Voraussetzungen:", None))
         self.labelVoraussetzungen.setText(QCoreApplication.translate("Form", u"keine", None))
+        self.label_3.setText(QCoreApplication.translate("Form", u"Voraussetzungen:", None))
+        self.label_2.setText(QCoreApplication.translate("Form", u"Kosten:", None))
         self.labelTyp.setText(QCoreApplication.translate("Form", u"Allgemeine Vorteile", None))
         self.labelTyp.setProperty("class", QCoreApplication.translate("Form", u"italic", None))
+        self.label.setText(QCoreApplication.translate("Form", u"Nachkauf:", None))
+        self.labelKosten.setText(QCoreApplication.translate("Form", u"20 EP", None))
+        self.labelNachkauf.setText(QCoreApplication.translate("Form", u"H\u00e4ufig", None))
 #if QT_CONFIG(tooltip)
         self.checkShowAll.setToolTip(QCoreApplication.translate("Form", u"Falls diese Option aktiviert ist, werden auch solche Vorteile angezeigt, f\u00fcr die du die Voraussetzungen nicht erf\u00fcllst.", None))
 #endif // QT_CONFIG(tooltip)

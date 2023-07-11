@@ -1,12 +1,21 @@
-import Fertigkeiten
+from Core.Attribut import AttributDefinition
+from Core.AbgeleiteterWert import AbgeleiteterWertDefinition
+from Core.Energie import EnergieDefinition
+from Core.Fertigkeit import FertigkeitDefinition, UeberFertigkeitDefinition
+from Core.FreieFertigkeit import FreieFertigkeitDefinition
+from Core.Regel import Regel
+from Core.Ruestung import RuestungDefinition
+from Core.Talent import TalentDefinition
+from Core.Vorteil import VorteilDefinition, VorteilLinkKategorie
+from Core.Waffe import WaffeDefinition
+from Core.Waffeneigenschaft import Waffeneigenschaft
+from Core.DatenbankEinstellung import DatenbankEinstellung
 import lxml.etree as etree
 from Hilfsmethoden import Hilfsmethoden, VoraussetzungException, WaffeneigenschaftException
 import os.path
-import Objekte
 from PySide6 import QtWidgets
 from Wolke import Wolke
 import logging
-from DatenbankEinstellung import DatenbankEinstellung
 from EventBus import EventBus
 import re
 from Migrationen import Migrationen
@@ -15,23 +24,27 @@ class DatabaseException(Exception):
     pass
 
 class Datenbank():
-    def __init__(self, hausregeln = None):    
-        self.datei = None
+    def __init__(self, hausregeln = None, isCharakterEditor = False):    
+        self.hausregelDatei = None
         
         if hausregeln is not None:
-            if hausregeln != "":
+            if hausregeln and hausregeln != "Keine":
                 tmp = os.path.join(Wolke.Settings['Pfad-Regeln'], hausregeln)
                 if os.path.isfile(tmp):
-                    self.datei = tmp
+                    self.hausregelDatei = tmp
         elif Wolke.Settings['Datenbank']:
             tmp = os.path.join(Wolke.Settings['Pfad-Regeln'], Wolke.Settings['Datenbank'])
             if os.path.isfile(tmp):
-                self.datei = tmp
+                self.hausregelDatei = tmp
         self.userDbXml = None
         self.loaded = False
         self.enabledPlugins = []
-
-        self.xmlLaden()              
+        self.loadingErrors = []
+        self.xmlLaden(isCharakterEditor)   
+        
+    @property
+    def hausregelnAnzeigeName(self):
+        return os.path.basename(self.hausregelDatei) if self.hausregelDatei else "Keine"
 
     def xmlSchreiben(self):
         root = etree.Element('Datenbank')
@@ -40,14 +53,50 @@ class Datenbank():
         versionXml.text = str(Migrationen.datenbankCodeVersion)
         etree.SubElement(root, 'Plugins').text = ",".join(self.enabledPlugins)
 
+        #Attribute
+        for attribut in self.attribute.values():
+            if not self.isChangedOrNew(attribut): continue
+            a = etree.SubElement(root, 'Attribut')
+            a.set('name', attribut.name)
+            a.set('anzeigename', attribut.anzeigename)
+            a.set('steigerungsfaktor', str(attribut.steigerungsfaktor))
+            a.set('sortorder', str(attribut.sortorder))
+            a.text = attribut.text
+
+        #Abgeleitete Werte
+        for abgeleiteterWert in self.abgeleiteteWerte.values():
+            if not self.isChangedOrNew(abgeleiteterWert): continue
+            a = etree.SubElement(root, 'AbgeleiteterWert')
+            a.set('name', abgeleiteterWert.name)
+            a.set('anzeigename', abgeleiteterWert.anzeigename)
+            a.set('anzeigen', "1" if abgeleiteterWert.anzeigen else "0")
+            a.set('formel', abgeleiteterWert.formel)
+            if abgeleiteterWert.script:
+                a.set('script', abgeleiteterWert.script)
+            if abgeleiteterWert.finalscript:
+                a.set('finalscript', abgeleiteterWert.finalscript)
+            a.set('sortorder', str(abgeleiteterWert.sortorder))
+            a.text = abgeleiteterWert.text
+
+        # Energien
+        for energie in self.energien.values():
+            if not self.isChangedOrNew(energie): continue
+            a = etree.SubElement(root, 'Energie')
+            a.set('name', energie.name)
+            a.set('anzeigename', energie.anzeigename)
+            a.set('steigerungsfaktor', str(energie.steigerungsfaktor))
+            a.set('voraussetzungen', Hilfsmethoden.VorArray2Str(energie.voraussetzungen))
+            a.set('sortorder', str(energie.sortorder))
+            a.text = energie.text
+            
         #Vorteile
         for vort in self.vorteile:
             vorteil = self.vorteile[vort]
-            if not vorteil.isUserAdded: continue
+            if not self.isChangedOrNew(vorteil): continue
             v = etree.SubElement(root,'Vorteil')
             v.set('name',vorteil.name)
             v.set('kosten',str(vorteil.kosten))
-            v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(vorteil.voraussetzungen, None))
+            v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(vorteil.voraussetzungen))
             v.set('nachkauf',vorteil.nachkauf)
             v.set('typ', str(vorteil.typ))
             v.set('variableKosten', str(1 if vorteil.variableKosten else 0))
@@ -66,34 +115,45 @@ class Datenbank():
                 v.set('linkKategorie', str(vorteil.linkKategorie))
             if vorteil.linkElement:
                 v.set('linkElement', vorteil.linkElement)
+            if len(vorteil.querverweise) > 0:
+                v.set('querverweise', " | ".join(vorteil.querverweise))
+            if vorteil.info:
+                v.set('info', vorteil.info)
+            if vorteil.bedingungen:
+                v.set('bedingungen', vorteil.bedingungen)
 
         #Talente
         for tal in self.talente:
             talent = self.talente[tal]
-            if not talent.isUserAdded: continue
+            if not self.isChangedOrNew(talent): continue
             v = etree.SubElement(root,'Talent')
             v.set('name',talent.name)
-            v.set('kosten',str(talent.kosten))
-            v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(talent.voraussetzungen, None))
-            v.set('verbilligt',str(talent.verbilligt))
+            if talent.spezialTalent:
+                v.set('kosten',str(talent.kosten))
+                v.set('spezialTyp',str(talent.spezialTyp))
+            else:
+                v.set('kosten',"-1")                
+            v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(talent.voraussetzungen))
+            v.set('verbilligt', "1" if talent.verbilligt else "0")
             v.set('fertigkeiten',Hilfsmethoden.FertArray2Str(talent.fertigkeiten, None))
             v.set('variableKosten', str(1 if talent.variableKosten else 0))
             v.set('kommentar', str(1 if talent.kommentarErlauben else 0))
             v.set('referenzbuch', str(talent.referenzBuch))
             v.set('referenzseite', str(talent.referenzSeite))
             v.text = talent.text
-
             if not talent.cheatsheetAuflisten:
                 v.set('csAuflisten', "0")
+            if talent.info:
+                v.set('info', talent.info)
             
         #Fertigkeiten
         for fer in self.fertigkeiten:
             fertigkeit = self.fertigkeiten[fer]
-            if not fertigkeit.isUserAdded: continue
+            if not self.isChangedOrNew(fertigkeit): continue
             v = etree.SubElement(root,'Fertigkeit')
             v.set('name',fertigkeit.name)
             v.set('steigerungsfaktor',str(fertigkeit.steigerungsfaktor))
-            v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(fertigkeit.voraussetzungen, None))
+            v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(fertigkeit.voraussetzungen))
             v.set('attribute',Hilfsmethoden.AttrArray2Str(fertigkeit.attribute))
             v.set('kampffertigkeit',str(fertigkeit.kampffertigkeit))
             v.set('typ',str(fertigkeit.typ))
@@ -101,20 +161,20 @@ class Datenbank():
 
         for fer in self.übernatürlicheFertigkeiten:
             fertigkeit = self.übernatürlicheFertigkeiten[fer]
-            if not fertigkeit.isUserAdded: continue
+            if not self.isChangedOrNew(fertigkeit): continue
             v = etree.SubElement(root,'ÜbernatürlicheFertigkeit')
             v.set('name',fertigkeit.name)
             v.set('steigerungsfaktor',str(fertigkeit.steigerungsfaktor))
-            v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(fertigkeit.voraussetzungen, None))
+            v.set('voraussetzungen',Hilfsmethoden.VorArray2Str(fertigkeit.voraussetzungen))
             v.set('attribute',Hilfsmethoden.AttrArray2Str(fertigkeit.attribute))
             v.set('typ',str(fertigkeit.typ))
             v.set('talentegruppieren',str(1 if fertigkeit.talenteGruppieren else 0))
             v.text = fertigkeit.text
-              
+
         #Waffeneigenschaften
         for we in self.waffeneigenschaften:
             eigenschaft = self.waffeneigenschaften[we]
-            if not eigenschaft.isUserAdded: continue
+            if not self.isChangedOrNew(eigenschaft): continue
             w = etree.SubElement(root, 'Waffeneigenschaft')
             w.set('name', eigenschaft.name)
             if eigenschaft.script:
@@ -126,7 +186,7 @@ class Datenbank():
         #Waffen
         for wa in self.waffen:
             waffe = self.waffen[wa]
-            if not waffe.isUserAdded: continue
+            if not self.isChangedOrNew(waffe): continue
             w = etree.SubElement(root,'Waffe')
             w.set('name', waffe.name)
             w.set('würfel', str(waffe.würfel))
@@ -139,7 +199,7 @@ class Datenbank():
             w.set('kampfstile', ", ".join(waffe.kampfstile))
             w.set('rw', str(waffe.rw))
             w.set('wm', str(waffe.wm))
-            if type(waffe) == Objekte.Fernkampfwaffe:
+            if waffe.fernkampf:
                 w.set('lz', str(waffe.lz))
                 w.set('fk', '1')
             else:
@@ -148,7 +208,7 @@ class Datenbank():
         #Rüstungen
         for rue in self.rüstungen:
             ruestung = self.rüstungen[rue]
-            if not ruestung.isUserAdded: continue
+            if not self.isChangedOrNew(ruestung): continue
             r = etree.SubElement(root, 'Rüstung')
             r.set('name', ruestung.name)
             r.set('typ', str(ruestung.typ))
@@ -164,49 +224,89 @@ class Datenbank():
         #Regeln
         for r in self.regeln:
             regel = self.regeln[r]
-            if not regel.isUserAdded: continue
+            if not self.isChangedOrNew(regel): continue
             regelNode = etree.SubElement(root, 'Regel')
             regelNode.set('name', regel.name)
             regelNode.set('typ', str(regel.typ))
-            regelNode.set('voraussetzungen', Hilfsmethoden.VorArray2Str(regel.voraussetzungen, None))
+            regelNode.set('voraussetzungen', Hilfsmethoden.VorArray2Str(regel.voraussetzungen))
             regelNode.set('probe', regel.probe)
             regelNode.text = regel.text
             
         #Freie Fertigkeiten
         for ff in self.freieFertigkeiten:
             fert = self.freieFertigkeiten[ff]
-            if not fert.isUserAdded: continue
+            if not self.isChangedOrNew(fert): continue
             f = etree.SubElement(root, 'FreieFertigkeit')
             f.set('name', fert.name)
             f.set('kategorie', fert.kategorie)
-            f.set('voraussetzungen', Hilfsmethoden.VorArray2Str(fert.voraussetzungen, None))
+            f.set('voraussetzungen', Hilfsmethoden.VorArray2Str(fert.voraussetzungen))
 
         #Einstellungen
         for de in self.einstellungen:
             einstellung = self.einstellungen[de]
-            if not einstellung.isUserAdded: continue
+            if not self.isChangedOrNew(einstellung): continue
             e = etree.SubElement(root, 'Einstellung')
             e.set('name', einstellung.name)
-            e.text = einstellung.wert
+            e.text = einstellung.text
 
         #Remove list
-        for typ in self.removeList:
-            for name in self.removeList[typ]:
+        for type in self.referenceDB:
+            for name in self.getRemoved(type):
                 r = etree.SubElement(root,'Remove')
                 r.set('name', name)
-                r.set('typ', typ)
+                r.set('typ', type.__name__)
 
         root = EventBus.applyFilter("datenbank_xml_schreiben", root, { "datenbank" : self })
 
         #Write XML to file
         doc = etree.ElementTree(root)
-        with open(self.datei,'wb') as file:
+        with open(self.hausregelDatei,'wb') as file:
             file.seek(0)
             file.truncate()
-            doc.write(file, encoding='UTF-8', pretty_print=True)
+            doctype = """<!DOCTYPE xsl:stylesheet [
+   <!ENTITY nbsp "&#160;">
+]>"""
+            doc.write(file, xml_declaration=True, encoding='UTF-8', pretty_print=True, doctype=doctype)
             file.truncate()
 
-    def xmlLaden(self):
+    def insertTable(self, type, table):
+        self.tablesByType[type] = table
+        self.referenceDB[type] = {}
+
+    def loadElement(self, element, refDB = True, conflictCB = None):
+        dbKey = element.__class__
+        if refDB:
+            self.referenceDB[dbKey][element.name] = element
+        elif conflictCB and element.name in self.tablesByType[dbKey] and not element.deepequals(self.tablesByType[dbKey][element.name]):
+            element = conflictCB(dbKey, self.tablesByType[dbKey][element.name], element)
+        self.tablesByType[dbKey][element.name] = element
+
+    def isNew(self, element):
+        return element.name not in self.referenceDB[element.__class__]
+
+    def isChanged(self, element):
+        if self.isNew(element):
+            return False
+        return self.tablesByType[element.__class__][element.name] != self.referenceDB[element.__class__][element.name]
+
+    def isChangedOrNew(self, element):
+        if self.isNew(element):
+            return True
+        return self.tablesByType[element.__class__][element.name] != self.referenceDB[element.__class__][element.name]
+
+    def isRemoved(self, element):
+        return element.name not in self.tablesByType[element.__class__] and element.name in self.referenceDB[element.__class__]
+
+    def getRemoved(self, type):
+        return set(self.referenceDB[type].keys()) - set(self.tablesByType[type].keys())
+
+    def isOverriddenByOther(self, element):
+        return self.isChanged(element) and element == self.referenceDB[element.__class__][element.name]
+
+    def xmlLaden(self, isCharakterEditor = False):
+        self.attribute = {}
+        self.abgeleiteteWerte = {}
+        self.energien = {}
         self.vorteile = {}
         self.fertigkeiten = {}
         self.talente = {}
@@ -217,42 +317,60 @@ class Datenbank():
         self.waffeneigenschaften = {}
         self.freieFertigkeiten = {}
         self.einstellungen = {}
-        self.removeList = {}
-        self.tablesByName = {
-            'Vorteil' : self.vorteile,
-            'Fertigkeit (profan)' : self.fertigkeiten,
-            'Talent' : self.talente,
-            'Fertigkeit (übernatürlich)' : self.übernatürlicheFertigkeiten,
-            'Waffeneigenschaft' : self.waffeneigenschaften,
-            'Waffe' : self.waffen,
-            'Rüstung' : self.rüstungen,
-            'Regel' : self.regeln,
-            'Freie Fertigkeit' : self.freieFertigkeiten,
-            'Einstellung' : self.einstellungen
-        }
+        self.tablesByType = {}
+        self.referenceDB = {}
+
+        # the order in this table is also the order in which the elements get their finalize call
+        # this is important espacially for vorteile which require many other types to be finalized first
+        self.insertTable(DatenbankEinstellung, self.einstellungen) 
+        self.insertTable(AttributDefinition, self.attribute) 
+        self.insertTable(AbgeleiteterWertDefinition, self.abgeleiteteWerte) 
+        self.insertTable(EnergieDefinition, self.energien) 
+        self.insertTable(FertigkeitDefinition, self.fertigkeiten) 
+        self.insertTable(TalentDefinition, self.talente) 
+        self.insertTable(UeberFertigkeitDefinition, self.übernatürlicheFertigkeiten) 
+        self.insertTable(Waffeneigenschaft, self.waffeneigenschaften) 
+        self.insertTable(WaffeDefinition, self.waffen) 
+        self.insertTable(RuestungDefinition, self.rüstungen) 
+        self.insertTable(Regel, self.regeln) 
+        self.insertTable(FreieFertigkeitDefinition, self.freieFertigkeiten)  
+        self.insertTable(VorteilDefinition, self.vorteile)
 
         databasePath = os.path.join('Data', 'datenbank.xml')
         if os.path.isfile(databasePath):
-            self.xmlLadenInternal(databasePath, refDB=True)
-            self.loaded = True
-            EventBus.doAction("basisdatenbank_geladen", { "datenbank" : self })
+            refDB = True
+            self.loaded = self.xmlLadenInternal(databasePath, refDB, isCharakterEditor)
+            if not self.loaded:
+                return
 
+            EventBus.doAction("basisdatenbank_geladen", { "datenbank" : self, "isCharakterEditor" : isCharakterEditor })
         try:   
-            if self.datei and os.path.isfile(self.datei):
-                self.xmlLadenInternal(self.datei, refDB=False) 
-                EventBus.doAction("datenbank_geladen", { "datenbank" : self })
+            if self.hausregelDatei and os.path.isfile(self.hausregelDatei):
+                refDB = False
+                self.xmlLadenInternal(self.hausregelDatei, refDB, isCharakterEditor) 
         except DatabaseException:
             messagebox = QtWidgets.QMessageBox()
             messagebox.setWindowTitle("Fehler!")
-            messagebox.setText(self.datei + " ist keine valide Datenbank-Datei!")
-            messagebox.setIcon(QtWidgets.QMessageBox.Critical)
+            messagebox.setText(self.hausregelDatei + " ist keine valide Datenbank-Datei!")
+            messagebox.setIcon(QtWidgets.QMessageBox.Critical)  
             messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             messagebox.exec()
 
-    def xmlLadenAdditiv(self, file, conflictCB):
-        self.xmlLadenInternal(file, False, conflictCB)
+        self.verify(isCharakterEditor)
 
-    def xmlLadenInternal(self, file, refDB, conflictCB = None):
+        for table in self.tablesByType.values():
+            for element in table.values():
+                element.finalize(self)
+
+        EventBus.doAction("datenbank_geladen", { "datenbank" : self, "isCharakterEditor" : isCharakterEditor })
+
+    def xmlLadenAdditiv(self, file, conflictCB):
+        self.xmlLadenInternal(file, refDB = False, isCharakterEditor = False, conflictCB = conflictCB)
+        for table in self.tablesByType.values():
+            for element in table.values():
+                element.finalize(self)
+
+    def xmlLadenInternal(self, file, refDB, isCharakterEditor, conflictCB = None):
         root = etree.parse(file).getroot()
 
         if root.tag != 'Datenbank':
@@ -269,7 +387,7 @@ class Datenbank():
                 hausregelnVersion = int(versionXml.text)
 
             logging.debug("Start Hausregeln Migration")
-            Migrationen.hausregelnMigrieren(root, hausregelnVersion)
+            Migrationen.hausregelnMigrieren(root, hausregelnVersion, headless = isCharakterEditor)
 
             loadAdditive = conflictCB is not None
             if root.find('Plugins') is not None and root.find('Plugins').text:         
@@ -282,45 +400,81 @@ class Datenbank():
 
         numLoaded = 0
 
-        root = EventBus.applyFilter("datenbank_xml_laden", root, { "datenbank" : self, "basisdatenbank" : refDB, "conflictCallback" : conflictCB })
-        
         #Remove existing entries (should be used in database_user only)
         #Also check if the entries exist at all (might have been removed/renamed due to a ref db update)
+        nameToType = {t.__name__ : t for t in self.tablesByType}
+
         for rem in root.findall('Remove'):
             typ = rem.get('typ')
             name = rem.get('name')
-            removed = None
-
-            if not typ in self.tablesByName:
+            if typ not in nameToType:
                 continue
-
-            table = self.tablesByName[typ]
+            table = self.tablesByType[nameToType[typ]]
             if not name in table:
                 continue
+            table.pop(name)
 
-            if not typ in self.removeList:
-                self.removeList[typ] = {}
-            if name in self.removeList[typ]:
-                continue # loading another user db, ignore if the same element has been removed in both
-            removed = table.pop(name)
-            self.removeList[typ][name] = removed
+        #Attribute
+        attributNodes = root.findall('Attribut')
+        for node in attributNodes:
+            numLoaded += 1
+            A = AttributDefinition()
+            A.name = node.get('name')
+            A.text = node.text or ''
+            A.anzeigename = node.get('anzeigename')
+            A.steigerungsfaktor = int(node.get('steigerungsfaktor'))
+            A.sortorder = int(node.get('sortorder'))
+            self.loadElement(A, refDB, conflictCB)
+
+        #Abgeleitete Werte
+        abNodes = root.findall('AbgeleiteterWert')
+        for node in abNodes:
+            numLoaded += 1
+            A = AbgeleiteterWertDefinition()
+            A.name = node.get('name')
+            A.text = node.text or ''
+            A.anzeigename = node.get('anzeigename')
+            A.anzeigen = node.get('anzeigen') == "1"
+            A.formel = node.get('formel')
+            A.script = node.get('script') or ""
+            A.finalscript = node.get('finalscript') or ""
+            A.sortorder = int(node.get('sortorder'))
+            self.loadElement(A, refDB, conflictCB)
+
+        # Energien
+        energieNodes = root.findall('Energie')
+        for node in energieNodes:
+            numLoaded += 1
+            E = EnergieDefinition()
+            E.name = node.get('name')
+            if 'voraussetzungen' in node.attrib:
+                E.voraussetzungen = Hilfsmethoden.VorStr2Array(node.get('voraussetzungen'))
+            E.text = node.text or ''
+            E.anzeigename = node.get('anzeigename')
+            E.steigerungsfaktor = int(node.get('steigerungsfaktor'))
+            E.sortorder = int(node.get('sortorder'))
+            self.loadElement(E, refDB, conflictCB)
 
         #Vorteile
         vorteilNodes = root.findall('Vorteil')
         for vort in vorteilNodes:
             numLoaded += 1
-            V = Fertigkeiten.Vorteil()
+            V = VorteilDefinition()
             V.name = vort.get('name')
             V.kosten = int(vort.get('kosten'))
             V.nachkauf = vort.get('nachkauf')
             V.typ = int(vort.get('typ'))
+            if 'voraussetzungen' in vort.attrib:
+                V.voraussetzungen = Hilfsmethoden.VorStr2Array(vort.get('voraussetzungen'))
             V.text = vort.text or ''
-            V.script = vort.get('script')
+            V.script = vort.get('script') or ""
             prio = vort.get('scriptPrio')
             if prio:
                 V.scriptPrio = int(prio)
 
-            V.isUserAdded = not refDB
+            if vort.get('querverweise'):
+                V.querverweise = list(map(str.strip, vort.get('querverweise').split("|")))
+
             if vort.get('variableKosten'):
                 V.variableKosten = int(vort.get('variableKosten')) == 1
             else:
@@ -339,19 +493,68 @@ class Datenbank():
                 V.linkKategorie = int(vort.get('linkKategorie'))
             if vort.get('linkElement'):
                 V.linkElement = vort.get('linkElement')
+            if vort.get('info'):
+                V.info = vort.get('info')
+            if vort.get('bedingungen'):
+                V.bedingungen = vort.get('bedingungen')
 
-            if conflictCB and V.name in self.vorteile:
-                V = conflictCB('Vorteil', self.vorteile[V.name], V)
-            self.vorteile.update({V.name: V})
+            self.loadElement(V, refDB, conflictCB)
             
+        #Fertigkeiten
+        fertigkeitNodes = root.findall('Fertigkeit')
+        for fer in fertigkeitNodes:
+            numLoaded += 1
+            F = FertigkeitDefinition()
+            F.name = fer.get('name')
+            F.steigerungsfaktor = int(fer.get('steigerungsfaktor'))
+            if 'voraussetzungen' in fer.attrib:
+                F.voraussetzungen = Hilfsmethoden.VorStr2Array(fer.get('voraussetzungen'))
+            F.text = fer.text or ''
+            F.attribute = Hilfsmethoden.AttrStr2Array(fer.get('attribute'))
+            F.kampffertigkeit = int(fer.get('kampffertigkeit'))
+
+            typ = fer.get('typ')
+            if typ:
+                F.typ = int(typ)
+            else:
+                F.typ = -1
+
+            self.loadElement(F, refDB, conflictCB)
+
+        überFertigkeitNodes = root.findall('ÜbernatürlicheFertigkeit')
+        for fer in überFertigkeitNodes:
+            numLoaded += 1
+            F = UeberFertigkeitDefinition()
+            F.name = fer.get('name')
+            F.steigerungsfaktor = int(fer.get('steigerungsfaktor'))
+            if 'voraussetzungen' in fer.attrib:
+                F.voraussetzungen = Hilfsmethoden.VorStr2Array(fer.get('voraussetzungen'))
+            F.text = fer.text or ''
+            F.attribute = Hilfsmethoden.AttrStr2Array(fer.get('attribute'))
+
+            typ = fer.get('typ')
+            if typ:
+                F.typ = int(typ)
+            else:
+                F.typ = -1
+
+            if fer.get('talentegruppieren'):
+                F.talenteGruppieren = int(fer.get('talentegruppieren')) == 1
+
+            self.loadElement(F, refDB, conflictCB)
+
         #Talente
         talentNodes = root.findall('Talent')
         for tal in talentNodes:
             numLoaded += 1
-            T = Fertigkeiten.Talent()
-            T.name = tal.get('name')
+            T = TalentDefinition()
+            T.name = tal.get('name') 
             T.kosten = int(tal.get('kosten'))
-            T.verbilligt = int(tal.get('verbilligt'))
+            if 'spezialTyp' in tal.attrib:
+                T.spezialTyp = int(tal.get('spezialTyp'))
+            T.verbilligt = int(tal.get('verbilligt')) == 1
+            if 'voraussetzungen' in tal.attrib:
+                T.voraussetzungen = Hilfsmethoden.VorStr2Array(tal.get('voraussetzungen'))
             T.text = tal.text or ''
             T.fertigkeiten = Hilfsmethoden.FertStr2Array(tal.get('fertigkeiten'), None)
             T.variableKosten = int(tal.get('variableKosten')) == 1
@@ -366,87 +569,32 @@ class Datenbank():
                 T.referenzBuch = int(tal.get('referenzbuch'))
             if tal.get('referenzseite'):
                 T.referenzSeite = int(tal.get('referenzseite'))
+            if tal.get('info'):
+                T.info = tal.get('info')
 
-            T.isUserAdded = not refDB
-
-            if conflictCB and T.name in self.talente:
-                T = conflictCB('Talent', self.talente[T.name], T)
-
-            self.talente.update({T.name: T})
-            
-        #Fertigkeiten
-        fertigkeitNodes = root.findall('Fertigkeit')
-        for fer in fertigkeitNodes:
-            numLoaded += 1
-            F = Fertigkeiten.Fertigkeit()
-            F.name = fer.get('name')
-            F.steigerungsfaktor = int(fer.get('steigerungsfaktor'))
-            F.text = fer.text or ''
-            F.attribute = Hilfsmethoden.AttrStr2Array(fer.get('attribute'))
-            F.kampffertigkeit = int(fer.get('kampffertigkeit'))
-            F.isUserAdded = not refDB
-
-            typ = fer.get('typ')
-            if typ:
-                F.typ = int(typ)
-            else:
-                F.typ = -1
-
-            if conflictCB and F.name in self.fertigkeiten:
-                F = conflictCB('Fertigkeit', self.fertigkeiten[F.name], F)
-
-            self.fertigkeiten.update({F.name: F})
-
-        überFertigkeitNodes = root.findall('ÜbernatürlicheFertigkeit')
-        for fer in überFertigkeitNodes:
-            numLoaded += 1
-            F = Fertigkeiten.Fertigkeit()
-            F.name = fer.get('name')
-            F.steigerungsfaktor = int(fer.get('steigerungsfaktor'))
-            F.text = fer.text or ''
-            F.attribute = Hilfsmethoden.AttrStr2Array(fer.get('attribute'))
-            F.isUserAdded = not refDB
-
-            typ = fer.get('typ')
-            if typ:
-                F.typ = int(typ)
-            else:
-                F.typ = -1
-
-            if fer.get('talentegruppieren'):
-                F.talenteGruppieren = int(fer.get('talentegruppieren')) == 1
-
-            if conflictCB and F.name in self.übernatürlicheFertigkeiten:
-                F = conflictCB('Übernatürliche Fertigkeit', self.übernatürlicheFertigkeiten[F.name], F)
-
-            self.übernatürlicheFertigkeiten.update({F.name: F})
+            self.loadElement(T, refDB, conflictCB)
           
         #Waffeneigenschaften
         eigenschaftNodes = root.findall('Waffeneigenschaft')
         for eigenschaft in eigenschaftNodes:
             numLoaded += 1
-            W = Objekte.Waffeneigenschaft()
+            W = Waffeneigenschaft()
             W.name = eigenschaft.get('name')
             W.text = eigenschaft.text or ''
-            W.script = eigenschaft.get('script')
+            W.script = eigenschaft.get('script') or ""
             prio = eigenschaft.get('scriptPrio')
             if prio:
                 W.scriptPrio = int(prio)
 
-            W.isUserAdded = not refDB
-
-            if conflictCB and W.name in self.waffeneigenschaften:
-                W = conflictCB('Waffeneigenschaft', self.waffeneigenschaften[W.name], W)
-            self.waffeneigenschaften.update({W.name: W})
+            self.loadElement(W, refDB, conflictCB)
 
         #Waffen
         for wa in root.findall('Waffe'):
             numLoaded += 1
-            if wa.get('fk') == '1':
-                w = Objekte.Fernkampfwaffe()
+            w = WaffeDefinition()
+            w.fernkampf = wa.get('fk') == '1'
+            if w.fernkampf:
                 w.lz = int(wa.get('lz'))
-            else:
-                w = Objekte.Nahkampfwaffe()
             w.wm = int(wa.get('wm'))
             w.name = wa.get('name')
             w.rw = int(wa.get('rw'))
@@ -458,21 +606,16 @@ class Datenbank():
                 w.eigenschaften = list(map(str.strip, wa.text.split(",")))
             w.fertigkeit = wa.get('fertigkeit')
             w.talent = wa.get('talent')
-            if w.name and w.talent:
-                w.anzeigename = w.name.replace(" (" + w.talent + ")", "")
             kampfstile = wa.get('kampfstile')
             if kampfstile:
-                w.kampfstile = list(map(str.strip, kampfstile.split(",")))
-            w.isUserAdded = not refDB
+                w.kampfstile = sorted(list(map(str.strip, kampfstile.split(","))))
 
-            if conflictCB and w.name in self.waffen:
-                w = conflictCB('Waffe', self.waffen[w.name], w)
-            self.waffen.update({w.name: w})
+            self.loadElement(w, refDB, conflictCB)
 
         #Rüstungen
         for rue in root.findall('Rüstung'):
             numLoaded += 1
-            r = Objekte.Ruestung()
+            r = RuestungDefinition()
             r.name = rue.get('name')
             r.typ = int(rue.get('typ'))
             r.system = int(rue.get('system'))
@@ -482,43 +625,35 @@ class Datenbank():
             r.rs[3] = int(rue.get('rsBauch'))
             r.rs[4] = int(rue.get('rsBrust'))
             r.rs[5] = int(rue.get('rsKopf'))
-            r.be = r.getRSGesamtInt()
-            r.text = rue.text
-            r.isUserAdded = not refDB
+            r.text = rue.text or ''
 
-            if conflictCB and r.name in self.rüstungen:
-                r = conflictCB('Rüstung', self.rüstungen[r.name], r)
-            self.rüstungen.update({r.name : r})
+            self.loadElement(r, refDB, conflictCB)
         
         #Regeln
         regelNodes = root.findall('Regel')
         for regelNode in regelNodes:
             numLoaded += 1
-            r = Fertigkeiten.Regel()
+            r = Regel()
             r.name = regelNode.get('name')
             r.probe = regelNode.get('probe')
             r.typ = int(regelNode.get('typ'))
+            if 'voraussetzungen' in regelNode.attrib:
+                r.voraussetzungen = Hilfsmethoden.VorStr2Array(regelNode.get('voraussetzungen'))
             r.text = regelNode.text or ''
-            r.isUserAdded = not refDB
 
-            if conflictCB and r.name in self.regeln:
-                r = conflictCB('Regel', self.regeln[r.name], r)
-
-            self.regeln.update({r.name: r})
+            self.loadElement(r, refDB, conflictCB)
 
         #Freie Fertigkeiten
         ffNodes = root.findall('FreieFertigkeit')
         for ffNode in ffNodes:
             numLoaded += 1
-            ff = Fertigkeiten.FreieFertigkeitDB()
+            ff = FreieFertigkeitDefinition()
             ff.name = ffNode.get('name')
             ff.kategorie = ffNode.get('kategorie')
-            ff.isUserAdded = not refDB
+            if 'voraussetzungen' in ffNode.attrib:
+                ff.voraussetzungen = Hilfsmethoden.VorStr2Array(ffNode.get('voraussetzungen'))
 
-            if conflictCB and ff.name in self.freieFertigkeiten:
-                ff = conflictCB('Freie Fertigkeit', self.freieFertigkeiten[ff.name], ff)
-
-            self.freieFertigkeiten.update({ff.name: ff})
+            self.loadElement(ff, refDB, conflictCB)
 
         #Einstellungen
         eNodes = root.findall('Einstellung')
@@ -529,125 +664,145 @@ class Datenbank():
             if refDB:
                 de.typ = eNode.get('typ')
                 de.beschreibung = eNode.get('beschreibung')
-            elif 'Einstellung' in self.removeList:
-                for name in self.removeList['Einstellung']:
-                    if de.name == name:
-                        de.typ = self.removeList['Einstellung'][name].typ
-                        de.beschreibung = self.removeList['Einstellung'][name].beschreibung
-                        break
+                de.split = eNode.get('split') == "1"
+                de.separator = eNode.get('separator') or "\n"
+                de.strip = eNode.get('strip') == "1"
+            elif de.name in self.referenceDB[DatenbankEinstellung]:
+                removed = self.referenceDB[DatenbankEinstellung][de.name]
+                de.typ = removed.typ
+                de.beschreibung = removed.beschreibung
+                de.strip = removed.strip
+                de.separator = removed.separator
 
-            de.wert = eNode.text or ''
-            de.isUserAdded = not refDB
+            de.text = eNode.text or ""
+            self.loadElement(de, refDB, conflictCB)
 
-            if conflictCB and de.name in self.einstellungen:
-                de = conflictCB('Einstellung', self.einstellungen[de.name], de)
+        # Done
+        if numLoaded <1 and refDB:
+            raise Exception('The selected database file is empty!')
 
-            self.einstellungen.update({de.name: de})
+        root = EventBus.applyFilter("datenbank_xml_laden", root, { "datenbank" : self, "basisdatenbank" : refDB, "conflictCallback" : conflictCB })      
+        return True
 
-        # Step 2: Voraussetzungen - requires everything else to be loaded for cross validation
-        notifyError = False # For testing of manual db changes
+    def verify(self, isCharakterEditor = False):
+        self.loadingErrors = [] 
 
-        #Vorteile
-        for vort in vorteilNodes:
-            V = self.vorteile[vort.get('name')]
-            try:
-                V.voraussetzungen = Hilfsmethoden.VorStr2Array(vort.get('voraussetzungen'), self)
-            except VoraussetzungException as e:
-                errorStr = "Error in Voraussetzungen of Vorteil " + V.name + ": " + str(e)
-                if notifyError:
-                    assert False, errorStr
-                logging.warning(errorStr)
-            
-        #Talente
-        for tal in talentNodes:
-            T = self.talente[tal.get('name')] 
-            try:
-                T.voraussetzungen = Hilfsmethoden.VorStr2Array(tal.get('voraussetzungen'), self)
-            except VoraussetzungException as e:
-                errorStr = "Error in Voraussetzungen of Talent " + T.name + ": " + str(e)
-                if notifyError:
-                    assert False, errorStr
-                logging.warning(errorStr)
-
-            if len(T.fertigkeiten) == 0:
-                errorStr = "Talent " + T.name + " has no Fertigkeiten."
-                if notifyError:
-                    assert False, errorStr
-                logging.debug("Talent " + T.name + " has no Fertigkeiten.")
-            for fert in T.fertigkeiten:
-                if not fert in self.fertigkeiten and not fert in self.übernatürlicheFertigkeiten:
-                    errorStr = "Talent is referencing non-existing Fertigkeit " + T.name + ": " + fert
-                    if notifyError:
-                        assert False, errorStr
+        # Voraussetzungen
+        voraussetzungenKeys = [EnergieDefinition, VorteilDefinition, TalentDefinition, FertigkeitDefinition, UeberFertigkeitDefinition, Regel, FreieFertigkeitDefinition]
+        for dbKey in self.tablesByType:
+            if dbKey not in voraussetzungenKeys:
+                continue
+            for el in self.tablesByType[dbKey].values():
+                try:
+                    Hilfsmethoden.VerifyVorArray(el.voraussetzungen, self)
+                except VoraussetzungException as e:
+                    if isCharakterEditor:
+                        el.voraussetzungen = []
+                    errorStr = f"{dbKey.displayName} {el.name} hat fehlerhafte Voraussetzungen: {str(e)}"
+                    self.loadingErrors.append([el, errorStr])
                     logging.warning(errorStr)
 
-        #Fertigkeiten
-        for fer in fertigkeitNodes:
-            F = self.fertigkeiten[fer.get('name')]
-            try:
-                F.voraussetzungen = Hilfsmethoden.VorStr2Array(fer.get('voraussetzungen'), self)
-            except VoraussetzungException as e:
-                errorStr = "Error in Voraussetzungen of Fertigkeit " + F.name + ": " + str(e)
-                if notifyError:
-                    assert False, errorStr
+        #Vorteile
+        for V in self.vorteile.values():
+            errorStr = ""
+            if V.linkKategorie == VorteilLinkKategorie.Regel and not V.linkElement in self.regeln:
+                errorStr = f"Vorteil {V.name} ist mit einer nicht-existierenden Regel verknüpft: {V.linkElement}"
+            elif V.linkKategorie == VorteilLinkKategorie.ÜberTalent and not V.linkElement in self.talente:
+                errorStr = f"Vorteil {V.name} ist mit einem nicht-existierenden Talent verknüpft: {V.linkElement}"
+            elif V.linkKategorie == VorteilLinkKategorie.Vorteil and not V.linkElement in self.vorteile:
+                errorStr = f"Vorteil {V.name} ist mit einem nicht-existierenden Vorteil verknüpft: {V.linkElement}"
+            if errorStr:
+                if isCharakterEditor:
+                    V.linkKategorie = VorteilLinkKategorie.NichtVerknüpfen
+                    V.linkElement = ""
+                self.loadingErrors.append([V, errorStr])
                 logging.warning(errorStr)
 
-        for fer in überFertigkeitNodes:
-            F = self.übernatürlicheFertigkeiten[fer.get('name')]
-            try:
-                F.voraussetzungen = Hilfsmethoden.VorStr2Array(fer.get('voraussetzungen'), self)
-            except VoraussetzungException as e:
-                errorStr = "Error in Voraussetzungen of Übernatürliche Fertigkeit " + F.name + ": " + str(e)
-                if notifyError:
-                    assert False, errorStr
-                logging.warning(errorStr)
-      
-        #Regeln
-        for regelNode in regelNodes:
-            r = self.regeln[regelNode.get('name')]
-            try:
-                r.voraussetzungen = Hilfsmethoden.VorStr2Array(regelNode.get('voraussetzungen'), self)
-            except VoraussetzungException as e:
-                errorStr = "Error in Voraussetzungen of Regel " + r.name + ": " + str(e)
-                if notifyError:
-                    assert False, errorStr
-                logging.warning(errorStr)
-               
-        #Freie Fertigkeiten
-        for ffNode in ffNodes:
-            ff = self.freieFertigkeiten[ffNode.get('name')]
-            try:
-                if ffNode.get('voraussetzungen'):
-                    ff.voraussetzungen = Hilfsmethoden.VorStr2Array(ffNode.get('voraussetzungen'), self)
-            except VoraussetzungException as e:
-                errorStr = "Error in Voraussetzungen of FreieFertigkeit " + ff.name + ": " + str(e)
-                if notifyError:
-                    assert False, errorStr
-                logging.warning(errorStr)
+            for ref in V.querverweise:
+                if ref.startswith("Regel:"):
+                    regel = ref[len("Regel:"):]
+                    if regel not in self.regeln:
+                        errorStr = f"Vorteil {V.name} hat einen Querverweis auf eine nicht-existierende Regel: {regel}"
+                        self.loadingErrors.append([V, errorStr])
+                        logging.warning(errorStr)
+                elif ref.startswith("Vorteil:"):
+                    vorteil = ref[len("Vorteil:"):]
+                    if vorteil not in self.vorteile:
+                        errorStr = f"Vorteil {V.name} hat einen Querverweis auf einen nicht-existierenden Vorteil: {vorteil}"
+                        self.loadingErrors.append([V, errorStr])
+                        logging.warning(errorStr)
+                elif ref.startswith("Talent:"):
+                    talent = ref[len("Talent:"):]
+                    if talent not in self.talente:
+                        errorStr = f"Vorteil {V.name} hat einen Querverweis auf ein nicht-existierendes Talent: {talent}"
+                        self.loadingErrors.append([V, errorStr])
+                        logging.warning(errorStr)
+                elif ref.startswith("Waffeneigenschaft:"):
+                    we = ref[len("Waffeneigenschaft:"):]
+                    if we not in self.waffeneigenschaften:
+                        errorStr = f"Vorteil {V.name} hat einen Querverweis auf eine nicht-existierende Waffeneigenschaft: {we}"
+                        self.loadingErrors.append([V, errorStr])
+                        logging.warning(errorStr)
+                        continue
+                elif ref.startswith("Abgeleiteter Wert:"):
+                    wert = ref[len("Abgeleiteter Wert:"):]
+                    if wert not in self.abgeleiteteWerte:
+                        errorStr = f"Vorteil {V.name} hat einen Querverweis auf einen nicht-existierenden abgeleiteten Wert: {wert}"
+                        self.loadingErrors.append([V, errorStr])
+                        logging.warning(errorStr)
+            
+        #Talente
+        for T in self.talente.values():
+            if len(T.fertigkeiten) == 0:
+                logging.debug(f"Talent {T.name} hat keine Fertigkeiten.")
+            ferts = self.fertigkeiten
+            if T.spezialTalent:
+                ferts = self.übernatürlicheFertigkeiten
+            tmp = T.fertigkeiten
+            T.fertigkeiten = []
+            for fert in tmp:
+                if fert not in ferts:
+                    errorStr = f"Talent {T.name} referenziert eine nicht-existierende Fertigkeit: {fert}"
+                    self.loadingErrors.append([T, errorStr])
+                    logging.warning(errorStr)
+                    if isCharakterEditor:
+                        continue
+                T.fertigkeiten.append(fert)
 
-        #Further verifications
+        #Fertigkeiten     
+        attributeKeys = [FertigkeitDefinition, UeberFertigkeitDefinition]
+        for dbKey in self.tablesByType:
+            if dbKey not in attributeKeys:
+                continue
+            for el in self.tablesByType[dbKey].values():
+                idx = -1
+                for attribut in el.attribute:
+                    idx += 1
+                    if not attribut in self.attribute:
+                        errorStr = f"{dbKey.displayName} {el.name} referenziert ein nicht-existierendes Attribut: {attribut}"
+                        self.loadingErrors.append([el, errorStr])
+                        logging.warning(errorStr)
+                        if isCharakterEditor:
+                            el.attribute[idx] = next(iter(self.attribute.values())).name
+
+        #Waffen:
+        alleKampfstile = self.findKampfstile()
         for wa in self.waffen.values():
             for eig in wa.eigenschaften:
                 try:
                     Hilfsmethoden.VerifyWaffeneigenschaft(eig, self)
                 except WaffeneigenschaftException as e:
-                    errorStr = "Error in Eigenschaften of Waffe " + wa.name + ": " + str(e)
-                    if notifyError:
-                        assert False, errorStr
+                    errorStr = "Waffe " + wa.name + " hat fehlerhafte Eigenschaften: " + str(e)
+                    self.loadingErrors.append([wa, errorStr])
                     logging.warning(errorStr)
 
-        if not refDB:
-            for dbType in [self.vorteile, self.talente, self.fertigkeiten, self.übernatürlicheFertigkeiten, self.regeln, self.freieFertigkeiten]:
-                for elem in dbType.values():
-                    try:
-                        Hilfsmethoden.VorStr2Array(Hilfsmethoden.VorArray2Str(elem.voraussetzungen), self)
-                    except VoraussetzungException as e:
-                        logging.warning("Error in Voraussetzungen of " + elem.name + ": " + str(e)) 
+            for kampfstil in wa.kampfstile:
+                if kampfstil not in alleKampfstile:
+                    errorStr = f"Waffe {wa.name} referenziert einen nicht-existierenden Kampfstil: {kampfstil}"
+                    self.loadingErrors.append([wa, errorStr])
+                    logging.warning(errorStr)
 
-        if numLoaded <1 and refDB:
-            raise Exception('The selected database file is empty!')
-        
-        return True
+        self.loadingErrors = EventBus.applyFilter("datenbank_verify", self.loadingErrors, { "datenbank" : self, "isCharakterEditor" : isCharakterEditor })   
     
     def findKampfstile(self):
         kampfstilVorteile = [vort for vort in self.vorteile.values() if vort.typ == 3 and vort.name.endswith(" I")]
@@ -656,6 +811,3 @@ class Datenbank():
         for vort in kampfstilVorteile:
             kampfstile.append(vort.name[:-2])
         return kampfstile
-
-    def findHeimaten(self):
-        return sorted(self.einstellungen["Heimaten"].toTextList())

@@ -234,12 +234,6 @@
        </property>
        <item>
         <widget class="QPushButton" name="buttonW3Up">
-         <property name="maximumSize">
-          <size>
-           <width>23</width>
-           <height>23</height>
-          </size>
-         </property>
          <property name="toolTip">
           <string>Waffe eine Zeile nach oben schieben</string>
          </property>
@@ -247,18 +241,12 @@
           <string>Up</string>
          </property>
          <property name="class" stdset="0">
-          <string>icon</string>
+          <string>iconTopDownArrow</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="buttonW3Down">
-         <property name="maximumSize">
-          <size>
-           <width>23</width>
-           <height>23</height>
-          </size>
-         </property>
          <property name="toolTip">
           <string>Waffe eine Zeile nach unten schieben</string>
          </property>
@@ -266,7 +254,7 @@
           <string>Down</string>
          </property>
          <property name="class" stdset="0">
-          <string>icon</string>
+          <string>iconTopDownArrow</string>
          </property>
         </widget>
        </item>
@@ -341,17 +329,11 @@
      </item>
      <item row="27" column="10">
       <widget class="QPushButton" name="addW7">
-       <property name="maximumSize">
-        <size>
-         <width>23</width>
-         <height>23</height>
-        </size>
-       </property>
        <property name="text">
         <string>+</string>
        </property>
        <property name="class" stdset="0">
-        <string>icon</string>
+        <string>iconSmall</string>
        </property>
       </widget>
      </item>
@@ -487,17 +469,11 @@
      </item>
      <item row="31" column="10">
       <widget class="QPushButton" name="addW8">
-       <property name="maximumSize">
-        <size>
-         <width>23</width>
-         <height>23</height>
-        </size>
-       </property>
        <property name="text">
         <string>+</string>
        </property>
        <property name="class" stdset="0">
-        <string>icon</string>
+        <string>iconSmall</string>
        </property>
       </widget>
      </item>
@@ -559,12 +535,6 @@
        </property>
        <item>
         <widget class="QPushButton" name="buttonW5Up">
-         <property name="maximumSize">
-          <size>
-           <width>23</width>
-           <height>23</height>
-          </size>
-         </property>
          <property name="toolTip">
           <string>Waffe eine Zeile nach oben schieben</string>
          </property>
@@ -572,18 +542,12 @@
           <string>Up</string>
          </property>
          <property name="class" stdset="0">
-          <string>icon</string>
+          <string>iconTopDownArrow</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="buttonW5Down">
-         <property name="maximumSize">
-          <size>
-           <width>23</width>
-           <height>23</height>
-          </size>
-         </property>
          <property name="toolTip">
           <string>Waffe eine Zeile nach unten schieben</string>
          </property>
@@ -591,7 +555,7 @@
           <string>Down</string>
          </property>
          <property name="class" stdset="0">
-          <string>icon</string>
+          <string>iconTopDownArrow</string>
          </property>
         </widget>
        </item>
@@ -709,12 +673,6 @@
        </property>
        <item>
         <widget class="QPushButton" name="buttonW2Up">
-         <property name="maximumSize">
-          <size>
-           <width>23</width>
-           <height>23</height>
-          </size>
-         </property>
          <property name="toolTip">
           <string>Waffe eine Zeile nach oben schieben</string>
          </property>
@@ -722,18 +680,12 @@
           <string>Up</string>
          </property>
          <property name="class" stdset="0">
-          <string>icon</string>
+          <string>iconTopDownArrow</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="buttonW2Down">
-         <property name="maximumSize">
-          <size>
-           <width>23</width>
-           <height>23</height>
-          </size>
-         </property>
          <property name="toolTip">
           <string>Waffe eine Zeile nach unten schieben</string>
          </property>
@@ -741,7 +693,7 @@
           <string>Down</string>
          </property>
          <property name="class" stdset="0">
-          <string>icon</string>
+          <string>iconTopDownArrow</string>
          </property>
         </widget>
        </item>
@@ -886,17 +838,11 @@
      </item>
      <item row="15" column="10">
       <widget class="QPushButton" name="addW4">
-       <property name="maximumSize">
-        <size>
-         <width>23</width>
-         <height>23</height>
-        </size>
-       </property>
        <property name="text">
         <string>+</string>
        </property>
        <property name="class" stdset="0">
-        <string>icon</string>
+        <string>iconSmall</string>
        </property>
       </widget>
      </item>
@@ -1056,12 +1002,6 @@
        </property>
        <item>
         <widget class="QPushButton" name="buttonW4Up">
-         <property name="maximumSize">
-          <size>
-           <width>23</width>
-           <height>23</height>
-          </size>
-         </property>
          <property name="toolTip">
           <string>Waffe eine Zeile nach oben schieben</string>
          </property>
@@ -1069,18 +1009,12 @@
           <string>Up</string>
          </property>
          <property name="class" stdset="0">
-          <string>icon</string>
+          <string>iconTopDownArrow</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="buttonW4Down">
-         <property name="maximumSize">
-          <size>
-           <width>23</width>
-           <height>23</height>
-          </size>
-         </property>
          <property name="toolTip">
           <string>Waffe eine Zeile nach unten schieben</string>
          </property>
@@ -1088,7 +1022,7 @@
           <string>Down</string>
          </property>
          <property name="class" stdset="0">
-          <string>icon</string>
+          <string>iconTopDownArrow</string>
          </property>
         </widget>
        </item>
@@ -1150,17 +1084,11 @@
      </item>
      <item row="23" column="10">
       <widget class="QPushButton" name="addW6">
-       <property name="maximumSize">
-        <size>
-         <width>23</width>
-         <height>23</height>
-        </size>
-       </property>
        <property name="text">
         <string>+</string>
        </property>
        <property name="class" stdset="0">
-        <string>icon</string>
+        <string>iconSmall</string>
        </property>
       </widget>
      </item>
@@ -1498,17 +1426,11 @@
      </item>
      <item row="19" column="10">
       <widget class="QPushButton" name="addW5">
-       <property name="maximumSize">
-        <size>
-         <width>23</width>
-         <height>23</height>
-        </size>
-       </property>
        <property name="text">
         <string>+</string>
        </property>
        <property name="class" stdset="0">
-        <string>icon</string>
+        <string>iconSmall</string>
        </property>
       </widget>
      </item>
@@ -2030,12 +1952,6 @@
        </property>
        <item>
         <widget class="QPushButton" name="buttonW6Up">
-         <property name="maximumSize">
-          <size>
-           <width>23</width>
-           <height>23</height>
-          </size>
-         </property>
          <property name="toolTip">
           <string>Waffe eine Zeile nach oben schieben</string>
          </property>
@@ -2043,18 +1959,12 @@
           <string>Up</string>
          </property>
          <property name="class" stdset="0">
-          <string>icon</string>
+          <string>iconTopDownArrow</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="buttonW6Down">
-         <property name="maximumSize">
-          <size>
-           <width>23</width>
-           <height>23</height>
-          </size>
-         </property>
          <property name="toolTip">
           <string>Waffe eine Zeile nach unten schieben</string>
          </property>
@@ -2062,7 +1972,7 @@
           <string>Down</string>
          </property>
          <property name="class" stdset="0">
-          <string>icon</string>
+          <string>iconTopDownArrow</string>
          </property>
         </widget>
        </item>
@@ -2457,12 +2367,6 @@
        </property>
        <item>
         <widget class="QPushButton" name="buttonW7Up">
-         <property name="maximumSize">
-          <size>
-           <width>23</width>
-           <height>23</height>
-          </size>
-         </property>
          <property name="toolTip">
           <string>Waffe eine Zeile nach oben schieben</string>
          </property>
@@ -2470,18 +2374,12 @@
           <string>Up</string>
          </property>
          <property name="class" stdset="0">
-          <string>icon</string>
+          <string>iconTopDownArrow</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="buttonW7Down">
-         <property name="maximumSize">
-          <size>
-           <width>23</width>
-           <height>23</height>
-          </size>
-         </property>
          <property name="toolTip">
           <string>Waffe eine Zeile nach unten schieben</string>
          </property>
@@ -2489,7 +2387,7 @@
           <string>Down</string>
          </property>
          <property name="class" stdset="0">
-          <string>icon</string>
+          <string>iconTopDownArrow</string>
          </property>
         </widget>
        </item>
@@ -2630,17 +2528,11 @@
      </item>
      <item row="11" column="10">
       <widget class="QPushButton" name="addW3">
-       <property name="maximumSize">
-        <size>
-         <width>23</width>
-         <height>23</height>
-        </size>
-       </property>
        <property name="text">
         <string>+</string>
        </property>
        <property name="class" stdset="0">
-        <string>icon</string>
+        <string>iconSmall</string>
        </property>
       </widget>
      </item>
@@ -2693,17 +2585,11 @@
      </item>
      <item row="3" column="10">
       <widget class="QPushButton" name="addW1">
-       <property name="maximumSize">
-        <size>
-         <width>23</width>
-         <height>23</height>
-        </size>
-       </property>
        <property name="text">
         <string>+</string>
        </property>
        <property name="class" stdset="0">
-        <string>icon</string>
+        <string>iconSmall</string>
        </property>
       </widget>
      </item>
@@ -2779,17 +2665,11 @@
      </item>
      <item row="7" column="10">
       <widget class="QPushButton" name="addW2">
-       <property name="maximumSize">
-        <size>
-         <width>23</width>
-         <height>23</height>
-        </size>
-       </property>
        <property name="text">
         <string>+</string>
        </property>
        <property name="class" stdset="0">
-        <string>icon</string>
+        <string>iconSmall</string>
        </property>
       </widget>
      </item>
@@ -2921,12 +2801,6 @@
        </item>
        <item>
         <widget class="QPushButton" name="buttonW1Down">
-         <property name="maximumSize">
-          <size>
-           <width>23</width>
-           <height>23</height>
-          </size>
-         </property>
          <property name="toolTip">
           <string>Waffe eine Zeile nach unten schieben</string>
          </property>
@@ -2934,7 +2808,7 @@
           <string>Down</string>
          </property>
          <property name="class" stdset="0">
-          <string>icon</string>
+          <string>iconTopDownArrow</string>
          </property>
         </widget>
        </item>
@@ -3372,12 +3246,6 @@
        </property>
        <item>
         <widget class="QPushButton" name="buttonW8Up">
-         <property name="maximumSize">
-          <size>
-           <width>23</width>
-           <height>23</height>
-          </size>
-         </property>
          <property name="toolTip">
           <string>Waffe eine Zeile nach oben schieben</string>
          </property>
@@ -3385,7 +3253,7 @@
           <string>Up</string>
          </property>
          <property name="class" stdset="0">
-          <string>icon</string>
+          <string>iconTopDownArrow</string>
          </property>
         </widget>
        </item>

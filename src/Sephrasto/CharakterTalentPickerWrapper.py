@@ -9,6 +9,9 @@ from PySide6 import QtCore, QtWidgets, QtGui
 from Wolke import Wolke
 import copy
 from Hilfsmethoden import Hilfsmethoden
+from Core.Talent import Talent
+from QtUtils.AutoResizingTextBrowser import TextEditAutoResizer
+from EventBus import EventBus
 
 class TalentPicker(object):
     def __init__(self,fert,ueber):
@@ -31,8 +34,6 @@ class TalentPicker(object):
             windowSize = Wolke.Settings["WindowSize-TalentProfan"]
             self.form.resize(windowSize[0], windowSize[1])
 
-        self.talenteVariableKosten = copy.deepcopy(Wolke.Char.talenteVariableKosten)
-        self.talenteKommentare = copy.deepcopy(Wolke.Char.talenteKommentare)
         self.gekaufteTalente = self.refC[fert].gekaufteTalente.copy()
 
         self.form.setWindowFlags(
@@ -43,34 +44,42 @@ class TalentPicker(object):
                 QtCore.Qt.WindowMaximizeButtonHint |
                 QtCore.Qt.WindowMinimizeButtonHint)
         
+        self.autoResizeHelper = TextEditAutoResizer(self.ui.plainText)
         self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).setText("Abbrechen")
 
         self.ui.splitter.adjustSize()
         width = self.ui.splitter.size().width()
         self.ui.splitter.setSizes([int(width*0.4), int(width*0.6)])
 
+        self.currentTalent = ""
+        self.talentKosten = {}
+        self.talentKommentare = {}
+
         self.model = QtGui.QStandardItemModel(self.ui.listTalente)
         
         talente = []
         for el in Wolke.DB.talente:
             talent = Wolke.DB.talente[el]
-            if (ueber and not talent.isSpezialTalent()) or (not ueber and talent.isSpezialTalent()):
+            if (ueber and not talent.spezialTalent) or (not ueber and talent.spezialTalent):
                 continue
-            if fert in talent.fertigkeiten and Wolke.Char.voraussetzungenPrüfen(talent.voraussetzungen):
-                if talent.variableKosten and not el in self.talenteVariableKosten:
-                    self.talenteVariableKosten[el] = Wolke.Char.getTalentCost(el, self.refD[self.fert].steigerungsfaktor)
-                if talent.kommentarErlauben and not el in self.talenteKommentare:
-                    self.talenteKommentare[el] = ""
-                talente.append(el)
-        talente.sort()
+            if fert in talent.fertigkeiten and Wolke.Char.voraussetzungenPrüfen(talent):
+                talente.append(talent.name)
+                if talent.name in Wolke.Char.talente:
+                    self.talentKosten[talent.name] = Wolke.Char.talente[talent.name].kosten
+                    self.talentKommentare[talent.name] = Wolke.Char.talente[talent.name].kommentar
+                else:
+                    self.talentKosten[talent.name] = EventBus.applyFilter("talent_kosten", talent.kosten, { "charakter" : Wolke.Char, "talent" : talent.name })
+                    self.talentKommentare[talent.name] = ""
+        talente = sorted(talente)
 
         self.rowCount = 0
         for el in talente:
-            item = QtGui.QStandardItem(self.displayStr(el))
+            talent = Wolke.DB.talente[el]
+            item = QtGui.QStandardItem(talent.anzeigename)
             item.setData(el, QtCore.Qt.UserRole) # store talent name in user data
             item.setEditable(False)
             item.setCheckable(True)
-            if el in self.gekaufteTalente:
+            if talent.name in self.gekaufteTalente:
                 item.setCheckState(QtCore.Qt.Checked)
             else:
                 item.setCheckState(QtCore.Qt.Unchecked)
@@ -84,6 +93,13 @@ class TalentPicker(object):
         self.ui.listTalente.selectionModel().currentChanged.connect(self.talChanged)
         self.ui.listTalente.setFocus()
         self.ui.listTalente.setCurrentIndex(self.model.index(0, 0))
+
+        fwWarnung = Wolke.DB.einstellungen["Talente: FW Warnung"].wert
+        if ueber or self.refC[self.fert].wert >= fwWarnung:
+            self.ui.labelTip.hide()
+        else:
+            self.ui.labelTip.setText("<span style='" + Wolke.FontAwesomeCSS + f"'>\uf071</span>&nbsp;&nbsp;Talente lohnen sich üblicherweise erst ab einem Fertigkeitswert von {fwWarnung}.")
+
         self.form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.form.show()
         self.ret = self.form.exec()
@@ -96,82 +112,65 @@ class TalentPicker(object):
         if self.ret == QtWidgets.QDialog.Accepted:
             self.gekaufteTalente = []
             for i in range(self.rowCount):
-                tmp = self.model.item(i).data(QtCore.Qt.UserRole)
-                if self.model.item(i).checkState() == QtCore.Qt.Checked:
-                    for el in Wolke.DB.talente[tmp].fertigkeiten:
-                        if el in self.refC:
-                            if tmp not in self.refC[el].gekaufteTalente:
-                                self.refC[el].gekaufteTalente.append(tmp)
-                    if tmp in self.talenteVariableKosten:
-                        Wolke.Char.talenteVariableKosten[tmp] = self.talenteVariableKosten[tmp]
-                    if tmp in self.talenteKommentare:
-                        Wolke.Char.talenteKommentare[tmp] = self.talenteKommentare[tmp]
+                el = self.model.item(i).data(QtCore.Qt.UserRole)
+                if self.model.item(i).checkState() == QtCore.Qt.Checked:  
+                    talent = Wolke.Char.addTalent(el)
+                    if talent.variableKosten:
+                        talent.kosten = self.talentKosten[el]
+                    if talent.kommentarErlauben:
+                        talent.kommentar = self.talentKommentare[el]
                 else:
-                    for el in Wolke.DB.talente[tmp].fertigkeiten:
-                        if el in self.refC:
-                            if tmp in self.refC[el].gekaufteTalente:
-                                self.refC[el].gekaufteTalente.remove(tmp)
+                    Wolke.Char.removeTalent(el)
 
             self.gekaufteTalente = self.refC[fert].gekaufteTalente
         else:
             self.gekaufteTalente = None
 
     def talChanged(self, item, prev):
-        text = item.data(QtCore.Qt.UserRole)
-        self.updateFields(text)
-        
+        talent = item.data(QtCore.Qt.UserRole)
+        self.updateFields(talent)
+
     def spinChanged(self):
-        tal = self.ui.labelName.property("data")
-        if Wolke.DB.talente[tal].variableKosten:
-            self.talenteVariableKosten[tal] = self.ui.spinKosten.value()
+        if not self.currentTalent:
+            return
+        self.talentKosten[self.currentTalent] = self.ui.spinKosten.value()
         
     def kommentarChanged(self, text):
-        tal = self.ui.labelName.property("data")
-        if Wolke.DB.talente[tal].kommentarErlauben:
-            self.talenteKommentare[tal] = text
+        if not self.currentTalent:
+            return
+        self.talentKommentare[self.currentTalent] = text
 
-    def updateFields(self, talent):
-        if talent is not None:
-            self.ui.labelName.setText(self.displayStr(talent))
-            self.ui.labelName.setProperty("data", talent) # store talent name in user data
-            self.ui.labelInfo.hide()
-            self.ui.spinKosten.setReadOnly(True)
-            self.ui.spinKosten.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
-            self.ui.spinKosten.setMinimum(0)
+    def updateFields(self, tal):
+        if tal is None:
+            return
+        talent = Wolke.DB.talente[tal]
 
-            if Wolke.DB.talente[talent].kosten == -1:
-                if Wolke.DB.talente[talent].verbilligt:
-                    self.ui.labelInfo.show()
-                    self.ui.labelInfo.setText("Verbilligt")
-            else:
-                self.ui.labelInfo.show()
-                self.ui.labelInfo.setText("Spezialtalent")
+        self.currentTalent = talent.name
+        self.ui.labelName.setText(talent.anzeigename + (" (verbilligt)" if talent.verbilligt else ""))
+        self.ui.labelInfo.hide()
+        self.ui.spinKosten.setReadOnly(True)
+        self.ui.spinKosten.setButtonSymbols(QtWidgets.QAbstractSpinBox.NoButtons)
 
-            if talent in self.talenteVariableKosten and Wolke.DB.talente[talent].variableKosten:
-                if Wolke.DB.talente[talent].variableKosten:
-                    self.ui.spinKosten.setReadOnly(False)
-                    self.ui.spinKosten.setButtonSymbols(QtWidgets.QAbstractSpinBox.PlusMinus)
-                    step = Wolke.Char.getDefaultTalentCost(talent, self.refD[self.fert].steigerungsfaktor)
-                    self.ui.spinKosten.setSingleStep(step)
-                    self.ui.spinKosten.setMinimum(step)
-                    self.ui.spinKosten.setValue(self.talenteVariableKosten[talent])
-            else:
-                self.ui.spinKosten.setValue(Wolke.Char.getDefaultTalentCost(talent, self.refD[self.fert].steigerungsfaktor))
+        if talent.spezialTalent:
+            self.ui.labelInfo.show()
+            self.ui.labelInfo.setText(talent.typname(Wolke.DB))
 
-            if talent in self.talenteKommentare and Wolke.DB.talente[talent].kommentarErlauben:
-                self.ui.textKommentar.show()
-                self.ui.labelKommentar.show()
-                self.ui.textKommentar.setText(self.talenteKommentare[talent])
-            else:
-                self.ui.textKommentar.hide()
-                self.ui.labelKommentar.hide()
+        if talent.variableKosten:
+            self.ui.spinKosten.setReadOnly(False)
+            self.ui.spinKosten.setButtonSymbols(QtWidgets.QAbstractSpinBox.PlusMinus)
+            self.ui.spinKosten.setSingleStep(talent.kosten)
 
-            if self.fert == "Gebräuche":
-                if self.displayStr(Wolke.DB.talente[talent].name) == \
-                        Wolke.Char.heimat:
-                    self.ui.spinKosten.setValue(0)
-            self.ui.plainText.setPlainText("")
-            self.ui.plainText.appendHtml(Hilfsmethoden.fixHtml(Wolke.DB.talente[talent].text))
+        self.ui.spinKosten.setValue(self.talentKosten[tal])
 
-    def displayStr(self,inp):
-        return inp.replace(self.fert + ": ", "")
+        if talent.kommentarErlauben:
+            self.ui.textKommentar.show()
+            self.ui.labelKommentar.show()
+            self.ui.textKommentar.setText(self.talentKommentare[tal])
+        else:
+            self.ui.textKommentar.hide()
+            self.ui.labelKommentar.hide()
+
+        text = talent.text
+        if talent.info:
+            text += f"\n<b>Sephrasto</b>: {talent.info}"
+        self.ui.plainText.setText(Hilfsmethoden.fixHtml(text))

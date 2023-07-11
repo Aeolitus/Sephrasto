@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterBeschreibung.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.2
+## Created by: Qt User Interface Compiler version 6.5.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QLabel,
-    QLayout, QLineEdit, QSizePolicy, QSpacerItem,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QGridLayout, QHBoxLayout,
+    QLabel, QLayout, QLineEdit, QPushButton,
+    QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
 
 class Ui_formBeschreibung(object):
     def setupUi(self, formBeschreibung):
@@ -29,76 +29,47 @@ class Ui_formBeschreibung(object):
         self.gridLayout = QGridLayout()
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setSizeConstraint(QLayout.SetDefaultConstraint)
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.editName = QLineEdit(formBeschreibung)
+        self.editName.setObjectName(u"editName")
 
-        self.gridLayout.addItem(self.horizontalSpacer_2, 3, 3, 1, 1)
+        self.gridLayout.addWidget(self.editName, 1, 2, 1, 1)
 
-        self.label_4 = QLabel(formBeschreibung)
-        self.label_4.setObjectName(u"label_4")
-        self.label_4.setMinimumSize(QSize(120, 0))
+        self.label_3 = QLabel(formBeschreibung)
+        self.label_3.setObjectName(u"label_3")
         font = QFont()
         font.setBold(True)
-        self.label_4.setFont(font)
+        self.label_3.setFont(font)
 
-        self.gridLayout.addWidget(self.label_4, 6, 1, 1, 1)
+        self.gridLayout.addWidget(self.label_3, 3, 1, 1, 1)
 
         self.editKurzbeschreibung = QLineEdit(formBeschreibung)
         self.editKurzbeschreibung.setObjectName(u"editKurzbeschreibung")
 
         self.gridLayout.addWidget(self.editKurzbeschreibung, 6, 2, 1, 1)
 
-        self.label_6 = QLabel(formBeschreibung)
-        self.label_6.setObjectName(u"label_6")
-        self.label_6.setFont(font)
-        self.label_6.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.verticalSpacer_7 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout.addWidget(self.label_6, 7, 1, 1, 1)
+        self.gridLayout.addItem(self.verticalSpacer_7, 0, 1, 1, 1)
 
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
 
-        self.gridLayout.addItem(self.horizontalSpacer, 3, 0, 1, 1)
+        self.gridLayout.addItem(self.horizontalSpacer_3, 1, 3, 1, 1)
 
-        self.label = QLabel(formBeschreibung)
-        self.label.setObjectName(u"label")
-        self.label.setFont(font)
+        self.horizontalSpacer_2 = QSpacerItem(150, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
 
-        self.gridLayout.addWidget(self.label, 1, 1, 1, 1)
+        self.gridLayout.addItem(self.horizontalSpacer_2, 1, 5, 1, 1)
 
-        self.label_2 = QLabel(formBeschreibung)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setFont(font)
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout.addWidget(self.label_2, 2, 1, 1, 1)
+        self.gridLayout.addItem(self.verticalSpacer, 8, 1, 1, 1)
 
-        self.editName = QLineEdit(formBeschreibung)
-        self.editName.setObjectName(u"editName")
-        self.editName.setMinimumSize(QSize(600, 0))
+        self.labelFinanzen = QLabel(formBeschreibung)
+        self.labelFinanzen.setObjectName(u"labelFinanzen")
+        self.labelFinanzen.setFont(font)
 
-        self.gridLayout.addWidget(self.editName, 1, 2, 1, 1)
-
-        self.label_3 = QLabel(formBeschreibung)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setFont(font)
-
-        self.gridLayout.addWidget(self.label_3, 3, 1, 1, 1)
-
-        self.comboFinanzen = QComboBox(formBeschreibung)
-        self.comboFinanzen.addItem("")
-        self.comboFinanzen.addItem("")
-        self.comboFinanzen.addItem("")
-        self.comboFinanzen.addItem("")
-        self.comboFinanzen.addItem("")
-        self.comboFinanzen.setObjectName(u"comboFinanzen")
-        self.comboFinanzen.setMaxVisibleItems(5)
-
-        self.gridLayout.addWidget(self.comboFinanzen, 4, 2, 1, 1)
+        self.gridLayout.addWidget(self.labelFinanzen, 4, 1, 1, 1)
 
         self.comboStatus = QComboBox(formBeschreibung)
-        self.comboStatus.addItem("")
-        self.comboStatus.addItem("")
-        self.comboStatus.addItem("")
-        self.comboStatus.addItem("")
-        self.comboStatus.addItem("")
         self.comboStatus.setObjectName(u"comboStatus")
         self.comboStatus.setMaxVisibleItems(5)
         self.comboStatus.setMinimumContentsLength(0)
@@ -107,11 +78,23 @@ class Ui_formBeschreibung(object):
 
         self.gridLayout_2 = QGridLayout()
         self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.editEig1 = QLineEdit(formBeschreibung)
-        self.editEig1.setObjectName(u"editEig1")
-        self.editEig1.setMinimumSize(QSize(200, 0))
+        self.editEig2 = QLineEdit(formBeschreibung)
+        self.editEig2.setObjectName(u"editEig2")
+        self.editEig2.setMinimumSize(QSize(200, 0))
 
-        self.gridLayout_2.addWidget(self.editEig1, 0, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.editEig2, 0, 1, 1, 1)
+
+        self.editEig3 = QLineEdit(formBeschreibung)
+        self.editEig3.setObjectName(u"editEig3")
+        self.editEig3.setMinimumSize(QSize(200, 0))
+
+        self.gridLayout_2.addWidget(self.editEig3, 1, 0, 1, 1)
+
+        self.editEig8 = QLineEdit(formBeschreibung)
+        self.editEig8.setObjectName(u"editEig8")
+        self.editEig8.setMinimumSize(QSize(200, 0))
+
+        self.gridLayout_2.addWidget(self.editEig8, 3, 1, 1, 1)
 
         self.editEig6 = QLineEdit(formBeschreibung)
         self.editEig6.setObjectName(u"editEig6")
@@ -119,11 +102,17 @@ class Ui_formBeschreibung(object):
 
         self.gridLayout_2.addWidget(self.editEig6, 2, 1, 1, 1)
 
-        self.editEig3 = QLineEdit(formBeschreibung)
-        self.editEig3.setObjectName(u"editEig3")
-        self.editEig3.setMinimumSize(QSize(200, 0))
+        self.editEig7 = QLineEdit(formBeschreibung)
+        self.editEig7.setObjectName(u"editEig7")
+        self.editEig7.setMinimumSize(QSize(200, 0))
 
-        self.gridLayout_2.addWidget(self.editEig3, 1, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.editEig7, 3, 0, 1, 1)
+
+        self.editEig1 = QLineEdit(formBeschreibung)
+        self.editEig1.setObjectName(u"editEig1")
+        self.editEig1.setMinimumSize(QSize(200, 0))
+
+        self.gridLayout_2.addWidget(self.editEig1, 0, 0, 1, 1)
 
         self.editEig5 = QLineEdit(formBeschreibung)
         self.editEig5.setObjectName(u"editEig5")
@@ -137,45 +126,54 @@ class Ui_formBeschreibung(object):
 
         self.gridLayout_2.addWidget(self.editEig4, 1, 1, 1, 1)
 
-        self.editEig2 = QLineEdit(formBeschreibung)
-        self.editEig2.setObjectName(u"editEig2")
-        self.editEig2.setMinimumSize(QSize(200, 0))
-
-        self.gridLayout_2.addWidget(self.editEig2, 0, 1, 1, 1)
-
-        self.editEig7 = QLineEdit(formBeschreibung)
-        self.editEig7.setObjectName(u"editEig7")
-        self.editEig7.setMinimumSize(QSize(200, 0))
-
-        self.gridLayout_2.addWidget(self.editEig7, 3, 0, 1, 1)
-
-        self.editEig8 = QLineEdit(formBeschreibung)
-        self.editEig8.setObjectName(u"editEig8")
-        self.editEig8.setMinimumSize(QSize(200, 0))
-
-        self.gridLayout_2.addWidget(self.editEig8, 3, 1, 1, 1)
-
 
         self.gridLayout.addLayout(self.gridLayout_2, 7, 2, 1, 1)
+
+        self.horizontalSpacer = QSpacerItem(150, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer, 1, 0, 1, 1)
+
+        self.labelKurzbeschreibung = QLabel(formBeschreibung)
+        self.labelKurzbeschreibung.setObjectName(u"labelKurzbeschreibung")
+        self.labelKurzbeschreibung.setMinimumSize(QSize(120, 0))
+        self.labelKurzbeschreibung.setFont(font)
+
+        self.gridLayout.addWidget(self.labelKurzbeschreibung, 6, 1, 1, 1)
 
         self.editSpezies = QLineEdit(formBeschreibung)
         self.editSpezies.setObjectName(u"editSpezies")
 
         self.gridLayout.addWidget(self.editSpezies, 2, 2, 1, 1)
 
-        self.labelFinanzen = QLabel(formBeschreibung)
-        self.labelFinanzen.setObjectName(u"labelFinanzen")
-        self.labelFinanzen.setFont(font)
+        self.label_6 = QLabel(formBeschreibung)
+        self.label_6.setObjectName(u"label_6")
+        self.label_6.setFont(font)
+        self.label_6.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
 
-        self.gridLayout.addWidget(self.labelFinanzen, 4, 1, 1, 1)
+        self.gridLayout.addWidget(self.label_6, 7, 1, 1, 1)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.label = QLabel(formBeschreibung)
+        self.label.setObjectName(u"label")
+        self.label.setFont(font)
 
-        self.gridLayout.addItem(self.verticalSpacer, 8, 1, 1, 1)
+        self.gridLayout.addWidget(self.label, 1, 1, 1, 1)
 
-        self.verticalSpacer_7 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.label_2 = QLabel(formBeschreibung)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setFont(font)
 
-        self.gridLayout.addItem(self.verticalSpacer_7, 0, 1, 1, 1)
+        self.gridLayout.addWidget(self.label_2, 2, 1, 1, 1)
+
+        self.comboFinanzen = QComboBox(formBeschreibung)
+        self.comboFinanzen.setObjectName(u"comboFinanzen")
+        self.comboFinanzen.setMaxVisibleItems(5)
+
+        self.gridLayout.addWidget(self.comboFinanzen, 4, 2, 1, 1)
+
+        self.comboHeimat = QComboBox(formBeschreibung)
+        self.comboHeimat.setObjectName(u"comboHeimat")
+
+        self.gridLayout.addWidget(self.comboHeimat, 5, 2, 1, 1)
 
         self.label_7 = QLabel(formBeschreibung)
         self.label_7.setObjectName(u"label_7")
@@ -183,15 +181,46 @@ class Ui_formBeschreibung(object):
 
         self.gridLayout.addWidget(self.label_7, 5, 1, 1, 1)
 
-        self.comboHeimat = QComboBox(formBeschreibung)
-        self.comboHeimat.setObjectName(u"comboHeimat")
+        self.verticalLayout = QVBoxLayout()
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.horizontalSpacer_4 = QSpacerItem(0, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout.addWidget(self.comboHeimat, 5, 2, 1, 1)
+        self.verticalLayout.addItem(self.horizontalSpacer_4)
+
+        self.labelImage = QLabel(formBeschreibung)
+        self.labelImage.setObjectName(u"labelImage")
+        self.labelImage.setMinimumSize(QSize(208, 272))
+        self.labelImage.setMaximumSize(QSize(208, 272))
+        self.labelImage.setAlignment(Qt.AlignCenter)
+        self.labelImage.setWordWrap(True)
+
+        self.verticalLayout.addWidget(self.labelImage)
+
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.buttonLoadImage = QPushButton(formBeschreibung)
+        self.buttonLoadImage.setObjectName(u"buttonLoadImage")
+
+        self.horizontalLayout.addWidget(self.buttonLoadImage)
+
+        self.buttonDeleteImage = QPushButton(formBeschreibung)
+        self.buttonDeleteImage.setObjectName(u"buttonDeleteImage")
+
+        self.horizontalLayout.addWidget(self.buttonDeleteImage)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout)
+
+        self.horizontalSpacer_5 = QSpacerItem(0, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout.addItem(self.horizontalSpacer_5)
+
+
+        self.gridLayout.addLayout(self.verticalLayout, 0, 4, 9, 1)
 
 
         self.gridLayout_3.addLayout(self.gridLayout, 0, 0, 1, 1)
 
-        QWidget.setTabOrder(self.editName, self.editSpezies)
         QWidget.setTabOrder(self.editSpezies, self.comboStatus)
         QWidget.setTabOrder(self.comboStatus, self.comboFinanzen)
         QWidget.setTabOrder(self.comboFinanzen, self.comboHeimat)
@@ -207,8 +236,8 @@ class Ui_formBeschreibung(object):
 
         self.retranslateUi(formBeschreibung)
 
-        self.comboFinanzen.setCurrentIndex(2)
-        self.comboStatus.setCurrentIndex(2)
+        self.comboStatus.setCurrentIndex(-1)
+        self.comboFinanzen.setCurrentIndex(-1)
 
 
         QMetaObject.connectSlotsByName(formBeschreibung)
@@ -216,31 +245,26 @@ class Ui_formBeschreibung(object):
 
     def retranslateUi(self, formBeschreibung):
         formBeschreibung.setWindowTitle(QCoreApplication.translate("formBeschreibung", u"Beschreibung", None))
-        self.label_4.setText(QCoreApplication.translate("formBeschreibung", u"Kurzbeschreibung", None))
-        self.label_4.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.label_3.setText(QCoreApplication.translate("formBeschreibung", u"Status", None))
+        self.label_3.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.labelFinanzen.setText(QCoreApplication.translate("formBeschreibung", u"Finanzen", None))
+        self.labelFinanzen.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+        self.labelKurzbeschreibung.setText(QCoreApplication.translate("formBeschreibung", u"Kurzbeschreibung", None))
+        self.labelKurzbeschreibung.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
         self.label_6.setText(QCoreApplication.translate("formBeschreibung", u"Eigenheiten", None))
         self.label_6.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
         self.label.setText(QCoreApplication.translate("formBeschreibung", u"Name", None))
         self.label.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
         self.label_2.setText(QCoreApplication.translate("formBeschreibung", u"Spezies", None))
         self.label_2.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
-        self.label_3.setText(QCoreApplication.translate("formBeschreibung", u"Status", None))
-        self.label_3.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
-        self.comboFinanzen.setItemText(0, QCoreApplication.translate("formBeschreibung", u"Sehr Reich", None))
-        self.comboFinanzen.setItemText(1, QCoreApplication.translate("formBeschreibung", u"Reich", None))
-        self.comboFinanzen.setItemText(2, QCoreApplication.translate("formBeschreibung", u"Normal", None))
-        self.comboFinanzen.setItemText(3, QCoreApplication.translate("formBeschreibung", u"Arm", None))
-        self.comboFinanzen.setItemText(4, QCoreApplication.translate("formBeschreibung", u"Sehr Arm", None))
-
-        self.comboStatus.setItemText(0, QCoreApplication.translate("formBeschreibung", u"Elite", None))
-        self.comboStatus.setItemText(1, QCoreApplication.translate("formBeschreibung", u"Oberschicht", None))
-        self.comboStatus.setItemText(2, QCoreApplication.translate("formBeschreibung", u"Mittelschicht", None))
-        self.comboStatus.setItemText(3, QCoreApplication.translate("formBeschreibung", u"Unterschicht", None))
-        self.comboStatus.setItemText(4, QCoreApplication.translate("formBeschreibung", u"Abschaum", None))
-
-        self.labelFinanzen.setText(QCoreApplication.translate("formBeschreibung", u"Finanzen", None))
-        self.labelFinanzen.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
         self.label_7.setText(QCoreApplication.translate("formBeschreibung", u"Heimatgebiet", None))
         self.label_7.setProperty("class", QCoreApplication.translate("formBeschreibung", u"h4", None))
+#if QT_CONFIG(tooltip)
+        self.labelImage.setToolTip(QCoreApplication.translate("formBeschreibung", u"<html><head/><body><p>Das Bild wird im Sephrasto-Hauptfenster f\u00fcr die Schnellade-Funktion verwendet und im Charakterbogen ausgegeben. Hinweis: Der Standard Charakterbogen hat keinen Platz f\u00fcr ein Bild. Wechsle im Info-Tab auf den \"Standardbogen mit Bild statt SchiP\" oder einen der anderen B\u00f6gen.</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.labelImage.setText(QCoreApplication.translate("formBeschreibung", u"Bild-Aufl\u00f6sung: 260x340 px\n"
+"(wird automatisch angepasst)", None))
+        self.buttonLoadImage.setText(QCoreApplication.translate("formBeschreibung", u"Bild laden", None))
+        self.buttonDeleteImage.setText(QCoreApplication.translate("formBeschreibung", u"Bild l\u00f6schen", None))
     # retranslateUi
 

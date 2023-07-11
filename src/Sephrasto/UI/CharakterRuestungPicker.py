@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterRuestungPicker.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.2
+## Created by: Qt User Interface Compiler version 6.5.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -18,8 +18,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QAbstractButton, QAbstractItemView, QApplication, QDialog,
     QDialogButtonBox, QFrame, QGridLayout, QHBoxLayout,
     QHeaderView, QLabel, QLayout, QLineEdit,
-    QPlainTextEdit, QScrollArea, QSizePolicy, QSpacerItem,
-    QSplitter, QTreeWidget, QTreeWidgetItem, QVBoxLayout,
+    QScrollArea, QSizePolicy, QSpacerItem, QSplitter,
+    QTextBrowser, QTreeWidget, QTreeWidgetItem, QVBoxLayout,
     QWidget)
 
 class Ui_Dialog(object):
@@ -51,15 +51,16 @@ class Ui_Dialog(object):
 
         self.filterLayout = QHBoxLayout()
         self.filterLayout.setObjectName(u"filterLayout")
+        self.nameFilterEdit = QLineEdit(self.verticalLayout_2)
+        self.nameFilterEdit.setObjectName(u"nameFilterEdit")
+        self.nameFilterEdit.setClearButtonEnabled(True)
+
+        self.filterLayout.addWidget(self.nameFilterEdit)
+
         self.labelFilter = QLabel(self.verticalLayout_2)
         self.labelFilter.setObjectName(u"labelFilter")
 
         self.filterLayout.addWidget(self.labelFilter)
-
-        self.nameFilterEdit = QLineEdit(self.verticalLayout_2)
-        self.nameFilterEdit.setObjectName(u"nameFilterEdit")
-
-        self.filterLayout.addWidget(self.nameFilterEdit)
 
 
         self.verticalLayout2.addLayout(self.filterLayout)
@@ -212,9 +213,8 @@ class Ui_Dialog(object):
 
         self.gridLayout.addWidget(self.lblRS, 3, 1, 1, 1)
 
-        self.teBeschreibung = QPlainTextEdit(self.scrollAreaWidgetContents)
+        self.teBeschreibung = QTextBrowser(self.scrollAreaWidgetContents)
         self.teBeschreibung.setObjectName(u"teBeschreibung")
-        self.teBeschreibung.setReadOnly(True)
 
         self.gridLayout.addWidget(self.teBeschreibung, 15, 0, 1, 2)
 
@@ -247,7 +247,9 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Sephrasto - R\u00fcstung w\u00e4hlen...", None))
         self.label.setText(QCoreApplication.translate("Dialog", u"Inoffiziell: Bei den hier aufgelisteten R\u00fcstungen handelt es sich um an WdS orientierte Vorschl\u00e4ge. Die Festlegung des RS einer R\u00fcstung obliegt am Ende dem Spielleiter.", None))
-        self.labelFilter.setText(QCoreApplication.translate("Dialog", u"Suchen:", None))
+        self.nameFilterEdit.setPlaceholderText(QCoreApplication.translate("Dialog", u"Suchen...", None))
+        self.labelFilter.setText(QCoreApplication.translate("Dialog", u"Suchen", None))
+        self.labelFilter.setProperty("class", QCoreApplication.translate("Dialog", u"icon", None))
         ___qtreewidgetitem = self.treeArmors.headerItem()
         ___qtreewidgetitem.setText(0, QCoreApplication.translate("Dialog", u"Name", None));
         self.lblKopf.setText(QCoreApplication.translate("Dialog", u"0", None))

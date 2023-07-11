@@ -31,8 +31,47 @@
     <Compile Include="CharakterBeschreibungDetailsWrapper.py" />
     <Compile Include="Charakterbogen.py" />
     <Compile Include="CharakterInfoWrapper.py" />
+    <Compile Include="CharakterListe.py" />
     <Compile Include="CharakterProfaneFertigkeitenWrapper.py" />
+    <Compile Include="Core\AbgeleiteterWert.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Attribut.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Energie.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\FreieFertigkeit.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Regel.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Talent.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Vorteil.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Waffe.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Waffeneigenschaft.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DatenbankEditAbgeleiteterWertWrapper.py" />
+    <Compile Include="DatenbankEditAttributWrapper.py" />
+    <Compile Include="DatenbankElementEditorBase.py" />
+    <Compile Include="DatenbankEditEnergieWrapper.py" />
+    <Compile Include="DatenbankErrorLogWrapper.py" />
     <Compile Include="Migrationen.py" />
+    <Compile Include="QtUtils\AutoResizingTextBrowser.py" />
+    <Compile Include="QtUtils\HtmlToolbar.py" />
+    <Compile Include="QtUtils\ProgressDialogExt.py" />
+    <Compile Include="QtUtils\RichTextButton.py" />
+    <Compile Include="QtUtils\Section.py" />
+    <Compile Include="QtUtils\SimpleSettingsDialog.py" />
     <Compile Include="UI\CharakterAttribute.py" />
     <Compile Include="CharakterAttributeWrapper.py" />
     <Compile Include="UI\CharakterBeschreibung.py" />
@@ -66,8 +105,11 @@
     <Compile Include="Datenbank.py" />
     <Compile Include="DatenbankEditor.py" />
     <Compile Include="UI\ChoicePopup.py" />
+    <Compile Include="UI\DatenbankEditAbgeleiteterWert.py" />
+    <Compile Include="UI\DatenbankEditAttribut.py" />
     <Compile Include="UI\DatenbankEditEinstellung.py" />
     <Compile Include="DatenbankEditEinstellungWrapper.py" />
+    <Compile Include="UI\DatenbankEditEnergie.py" />
     <Compile Include="UI\DatenbankEditFertigkeit.py" />
     <Compile Include="DatenbankEditFertigkeitWrapper.py" />
     <Compile Include="UI\DatenbankEditFreieFertigkeit.py" />
@@ -81,25 +123,22 @@
     <Compile Include="DatenbankEditVorteilWrapper.py" />
     <Compile Include="UI\DatenbankEditWaffe.py" />
     <Compile Include="DatenbankEditWaffeWrapper.py" />
-    <Compile Include="DatenbankEinstellung.py" />
+    <Compile Include="Core\DatenbankEinstellung.py" />
+    <Compile Include="UI\DatenbankErrorLog.py" />
     <Compile Include="UI\DatenbankMain.py" />
-    <Compile Include="UI\DatenbankSelectType.py" />
-    <Compile Include="DatenbankSelectTypeWrapper.py" />
-    <Compile Include="Definitionen.py" />
-    <Compile Include="Fertigkeiten.py" />
+    <Compile Include="Core\Fertigkeit.py" />
     <Compile Include="UI\Hilfe.py" />
     <Compile Include="HilfeWrapper.py" />
     <Compile Include="Hilfsmethoden.py" />
     <Compile Include="UI\MainWindow.py" />
-    <Compile Include="MousewheelProtector.py" />
-    <Compile Include="Objekte.py" />
+    <Compile Include="QtUtils\MousewheelProtector.py" />
+    <Compile Include="Core\Ruestung.py" />
     <Compile Include="PdfSerializer.py" />
     <Compile Include="PdfExporter.py" />
     <Compile Include="CharakterRuestungPickerWrapper.py" />
     <Compile Include="Sephrasto.py" />
-    <Compile Include="Talentbox.py" />
     <Compile Include="CharakterTalentPickerWrapper.py" />
-    <Compile Include="TextTagCompleter.py" />
+    <Compile Include="QtUtils\TextTagCompleter.py" />
     <Compile Include="UI\Wizard.py" />
     <Compile Include="UpdateChecker.py" />
     <Compile Include="CharakterWaffenPickerWrapper.py" />
@@ -118,7 +157,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CharakterAssistent\" />
+    <Folder Include="Core\" />
     <Folder Include="UI\" />
+    <Folder Include="QtUtils\" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|PythonCore|3.7" />

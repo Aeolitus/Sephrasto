@@ -26,409 +26,355 @@
    <property name="bottomMargin">
     <number>20</number>
    </property>
-   <item row="0" column="0" rowspan="2">
-    <widget class="QTabWidget" name="tabWidget">
-     <property name="tabPosition">
-      <enum>QTabWidget::North</enum>
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="gridLayout_2">
+     <property name="horizontalSpacing">
+      <number>20</number>
      </property>
-     <property name="tabShape">
-      <enum>QTabWidget::Rounded</enum>
-     </property>
-     <property name="currentIndex">
-      <number>0</number>
-     </property>
-     <property name="elideMode">
-      <enum>Qt::ElideNone</enum>
-     </property>
-     <property name="class" stdset="0">
-      <string>h2</string>
-     </property>
-     <widget class="QWidget" name="tab_2">
-      <attribute name="title">
-       <string>Details</string>
-      </attribute>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="2" column="1">
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="1" column="1">
-        <layout class="QGridLayout" name="gridLayout_2">
-         <property name="horizontalSpacing">
-          <number>20</number>
-         </property>
-         <item row="8" column="2">
-          <widget class="QLineEdit" name="leAugenfarbe"/>
-         </item>
-         <item row="5" column="4" colspan="2">
-          <widget class="QLabel" name="label_10">
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Familie/Hintergrund/Herkunft</string>
-           </property>
-           <property name="class" stdset="0">
-            <string>h4</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="4">
-          <widget class="QLabel" name="label_2">
-           <property name="minimumSize">
-            <size>
-             <width>68</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Titel</string>
-           </property>
-           <property name="class" stdset="0">
-            <string>h4</string>
-           </property>
-          </widget>
-         </item>
-         <item row="12" column="4" colspan="2">
-          <widget class="QLineEdit" name="leHintergrund6"/>
-         </item>
-         <item row="7" column="1">
-          <widget class="QLabel" name="label_7">
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Haarfarbe</string>
-           </property>
-           <property name="class" stdset="0">
-            <string>h4</string>
-           </property>
-          </widget>
-         </item>
-         <item row="9" column="2">
-          <widget class="QLineEdit" name="leAussehen1"/>
-         </item>
-         <item row="5" column="1">
-          <widget class="QLabel" name="label_5">
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Größe</string>
-           </property>
-           <property name="class" stdset="0">
-            <string>h4</string>
-           </property>
-          </widget>
-         </item>
-         <item row="11" column="4" colspan="2">
-          <widget class="QLineEdit" name="leHintergrund5"/>
-         </item>
-         <item row="7" column="4" colspan="2">
-          <widget class="QLineEdit" name="leHintergrund1"/>
-         </item>
-         <item row="9" column="1">
-          <widget class="QLabel" name="label_9">
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Aussehen</string>
-           </property>
-           <property name="class" stdset="0">
-            <string>h4</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="1">
-          <widget class="QLabel" name="label_6">
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Gewicht</string>
-           </property>
-           <property name="class" stdset="0">
-            <string>h4</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="1">
-          <widget class="QLabel" name="label_3">
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Geschlecht</string>
-           </property>
-           <property name="class" stdset="0">
-            <string>h4</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="1">
-          <widget class="QLabel" name="label">
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Profession</string>
-           </property>
-           <property name="class" stdset="0">
-            <string>h4</string>
-           </property>
-          </widget>
-         </item>
-         <item row="9" column="4" colspan="2">
-          <widget class="QLineEdit" name="leHintergrund3"/>
-         </item>
-         <item row="11" column="1" colspan="2">
-          <widget class="QLineEdit" name="leAussehen3"/>
-         </item>
-         <item row="12" column="1" colspan="2">
-          <widget class="QLineEdit" name="leAussehen4"/>
-         </item>
-         <item row="1" column="1">
-          <widget class="QLabel" name="label_11">
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Kultur</string>
-           </property>
-           <property name="class" stdset="0">
-            <string>h4</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="2">
-          <widget class="QLineEdit" name="leGroesse"/>
-         </item>
-         <item row="10" column="1" colspan="2">
-          <widget class="QLineEdit" name="leAussehen2"/>
-         </item>
-         <item row="1" column="5">
-          <widget class="QCheckBox" name="chkKultur">
-           <property name="text">
-            <string>Automatisch befüllen</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="13" column="4" colspan="2">
-          <widget class="QLineEdit" name="leHintergrund7"/>
-         </item>
-         <item row="3" column="2">
-          <widget class="QLineEdit" name="leGeschlecht"/>
-         </item>
-         <item row="4" column="1">
-          <widget class="QLabel" name="label_4">
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Geburtsdatum</string>
-           </property>
-           <property name="class" stdset="0">
-            <string>h4</string>
-           </property>
-          </widget>
-         </item>
-         <item row="8" column="1">
-          <widget class="QLabel" name="label_8">
-           <property name="font">
-            <font>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Augenfarbe</string>
-           </property>
-           <property name="class" stdset="0">
-            <string>h4</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="2" colspan="3">
-          <widget class="QLineEdit" name="leKultur">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="2">
-          <widget class="QLineEdit" name="leGeburtsdatum"/>
-         </item>
-         <item row="3" column="3" rowspan="11">
-          <widget class="QLabel" name="labelImage">
-           <property name="minimumSize">
-            <size>
-             <width>208</width>
-             <height>272</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>208</width>
-             <height>272</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Bild-Auflösung: 260x340 px
-(wird automatisch angepasst)</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-           <property name="wordWrap">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="2">
-          <widget class="QLineEdit" name="leHaarfarbe"/>
-         </item>
-         <item row="14" column="4" colspan="2">
-          <widget class="QLineEdit" name="leHintergrund8"/>
-         </item>
-         <item row="8" column="4" colspan="2">
-          <widget class="QLineEdit" name="leHintergrund2"/>
-         </item>
-         <item row="2" column="2" colspan="4">
-          <widget class="QLineEdit" name="leProfession"/>
-         </item>
-         <item row="10" column="4" colspan="2">
-          <widget class="QLineEdit" name="leHintergrund4"/>
-         </item>
-         <item row="4" column="5">
-          <widget class="QLineEdit" name="leTitel">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>0</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item row="14" column="1" colspan="2">
-          <widget class="QLineEdit" name="leAussehen6"/>
-         </item>
-         <item row="14" column="3">
-          <layout class="QHBoxLayout" name="horizontalLayout">
-           <item>
-            <widget class="QPushButton" name="buttonLoadImage">
-             <property name="text">
-              <string>Bild laden</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="buttonDeleteImage">
-             <property name="text">
-              <string>Bild Löschen</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item row="6" column="2">
-          <widget class="QLineEdit" name="leGewicht"/>
-         </item>
-         <item row="13" column="1" colspan="2">
-          <widget class="QLineEdit" name="leAussehen5"/>
-         </item>
-         <item row="6" column="4" colspan="2">
-          <widget class="QLineEdit" name="leHintergrund0"/>
-         </item>
-        </layout>
-       </item>
-       <item row="0" column="1">
-        <spacer name="verticalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="1" column="0">
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="1" column="2">
-        <spacer name="horizontalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </widget>
-    </widget>
+     <item row="5" column="2">
+      <widget class="QLineEdit" name="leGroesse"/>
+     </item>
+     <item row="6" column="2">
+      <widget class="QLineEdit" name="leGewicht"/>
+     </item>
+     <item row="5" column="4" colspan="2">
+      <widget class="QLabel" name="label_10">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Familie/Hintergrund/Herkunft</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="1">
+      <widget class="QLabel" name="label_9">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Aussehen</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="4">
+      <widget class="QLabel" name="label_2">
+       <property name="minimumSize">
+        <size>
+         <width>68</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Titel</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="2">
+      <widget class="QLineEdit" name="leGeburtsdatum"/>
+     </item>
+     <item row="6" column="4" colspan="2">
+      <widget class="QLineEdit" name="leHintergrund0"/>
+     </item>
+     <item row="13" column="4" colspan="2">
+      <widget class="QLineEdit" name="leHintergrund7"/>
+     </item>
+     <item row="1" column="0">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="3" column="2">
+      <widget class="QLineEdit" name="leGeschlecht"/>
+     </item>
+     <item row="8" column="1">
+      <widget class="QLabel" name="label_8">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Augenfarbe</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="4" colspan="2">
+      <widget class="QLineEdit" name="leHintergrund3"/>
+     </item>
+     <item row="12" column="1" colspan="2">
+      <widget class="QLineEdit" name="leAussehen4"/>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLabel" name="label_7">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Haarfarbe</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2" colspan="4">
+      <widget class="QLineEdit" name="leProfession"/>
+     </item>
+     <item row="7" column="2">
+      <widget class="QLineEdit" name="leHaarfarbe"/>
+     </item>
+     <item row="13" column="1" colspan="2">
+      <widget class="QLineEdit" name="leAussehen5"/>
+     </item>
+     <item row="7" column="4" colspan="2">
+      <widget class="QLineEdit" name="leHintergrund1"/>
+     </item>
+     <item row="8" column="2">
+      <widget class="QLineEdit" name="leAugenfarbe"/>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLabel" name="label_4">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Geburtsdatum</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Profession</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="label_11">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Kultur</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="4" colspan="2">
+      <widget class="QLineEdit" name="leHintergrund8"/>
+     </item>
+     <item row="8" column="4" colspan="2">
+      <widget class="QLineEdit" name="leHintergrund2"/>
+     </item>
+     <item row="11" column="4" colspan="2">
+      <widget class="QLineEdit" name="leHintergrund5"/>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLabel" name="label_5">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Größe</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="5">
+      <widget class="QCheckBox" name="chkKultur">
+       <property name="text">
+        <string>Automatisch befüllen</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="6">
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="0" column="3">
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="1" column="2" colspan="3">
+      <widget class="QLineEdit" name="leKultur">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="1" colspan="2">
+      <widget class="QLineEdit" name="leAussehen6"/>
+     </item>
+     <item row="10" column="4" colspan="2">
+      <widget class="QLineEdit" name="leHintergrund4"/>
+     </item>
+     <item row="4" column="5">
+      <widget class="QLineEdit" name="leTitel">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="3">
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="9" column="2">
+      <widget class="QLineEdit" name="leAussehen1"/>
+     </item>
+     <item row="10" column="1" colspan="2">
+      <widget class="QLineEdit" name="leAussehen2"/>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLabel" name="label_6">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Gewicht</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="1" colspan="2">
+      <widget class="QLineEdit" name="leAussehen3"/>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLabel" name="label_3">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Geschlecht</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="4" colspan="2">
+      <widget class="QLineEdit" name="leHintergrund6"/>
+     </item>
+     <item row="15" column="3">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>
@@ -458,9 +404,6 @@
   <tabstop>leHintergrund6</tabstop>
   <tabstop>leHintergrund7</tabstop>
   <tabstop>leHintergrund8</tabstop>
-  <tabstop>buttonLoadImage</tabstop>
-  <tabstop>buttonDeleteImage</tabstop>
-  <tabstop>tabWidget</tabstop>
  </tabstops>
  <resources/>
  <connections/>

@@ -4,7 +4,6 @@ Created on Sat Mar 18 18:09:33 2017
 
 @author: Aeolitus
 """
-import Fertigkeiten
 from Wolke import Wolke
 import UI.CharakterFreieFert
 from PySide6 import QtWidgets, QtCore, QtGui
@@ -12,6 +11,8 @@ import logging
 from Hilfsmethoden import Hilfsmethoden
 from CharakterFreieFertigkeitenPickerWrapper import CharakterFreieFertigkeitenPickerWrapper
 from EventBus import EventBus
+from Core.FreieFertigkeit import FreieFertigkeit, FreieFertigkeitDefinition
+from functools import partial
 
 class CharakterFreieFertWrapper(QtCore.QObject):
     modified = QtCore.Signal()
@@ -22,11 +23,7 @@ class CharakterFreieFertWrapper(QtCore.QObject):
         self.form = QtWidgets.QWidget()
         self.ui = UI.CharakterFreieFert.Ui_Form()
         self.ui.setupUi(self.form)
-
-        kosten = [str(Wolke.DB.einstellungen["FreieFertigkeiten: Kosten Stufe1"].toInt()),
-                  str(Wolke.DB.einstellungen["FreieFertigkeiten: Kosten Stufe2"].toInt()),
-                  str(Wolke.DB.einstellungen["FreieFertigkeiten: Kosten Stufe3"].toInt())]
-        self.ui.labelRegeln.setText(self.ui.labelRegeln.text() + " Sie entsprechen jeweils einem PW von 6/14/22 und kosten " + kosten[0] + "/" + kosten[1] + "/" + kosten[2] + " EP.")
+        self.ui.labelRegeln.setText(self.ui.labelRegeln.text() + f" Sie entsprechen jeweils einem PW von 6/14/22 und kosten {FreieFertigkeitDefinition.steigerungskosten[1]}/{FreieFertigkeitDefinition.steigerungskosten[2]}/{FreieFertigkeitDefinition.steigerungskosten[3]} EP.")
 
         self.ffCount = 0
 
@@ -59,10 +56,9 @@ class CharakterFreieFertWrapper(QtCore.QObject):
 
                 ffButton = QtWidgets.QPushButton()
                 self.buttonFF.append(ffButton)
-                ffButton.setProperty("class", "icon")
+                ffButton.setProperty("class", "iconSmall")
                 ffButton.setText('\u002b')
-                ffButton.setMaximumSize(QtCore.QSize(20, 20))
-                ffButton.clicked.connect(lambda qtNeedsThis=False, edit=ffEdit: self.ffButtonClicked(edit))
+                ffButton.clicked.connect(partial(self.ffButtonClicked, edit=ffEdit))
                 ffLayout.addWidget(ffButton)
 
                 if row % 2 != 0:
@@ -109,8 +105,14 @@ class CharakterFreieFertWrapper(QtCore.QObject):
     def update(self):
         freieNeu = []
         for count in range(0,self.ffCount):
-            fert = Fertigkeiten.FreieFertigkeit()
-            fert.name = self.editFF[count].text()
+            name = self.editFF[count].text()
+            definition = None
+            if name in Wolke.DB.freieFertigkeiten:
+                definition = Wolke.DB.freieFertigkeiten[name]
+            else:
+                definition = FreieFertigkeitDefinition()
+                definition.name = name
+            fert = FreieFertigkeit(definition, Wolke.Char)
             fert.wert = self.comboFF[count].currentIndex()+1
             freieNeu.append(fert)
 

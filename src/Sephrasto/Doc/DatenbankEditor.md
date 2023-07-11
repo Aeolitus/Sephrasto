@@ -1,32 +1,31 @@
 [Hilfe](Help.md) > Datenbankeditor
 
 # Datenbank-Editor
-Mit einem Klick auf **Regelbasis bearbeiten** , öffnet sich ein neues Fenster mit dem Regelbasis-Editor. Dieser Editor erlaubt es dir, Sephrasto individuell auf deine Gruppe zuzuschneiden. Über ihn kannst du die Regeln, welche sämtliche Talente, Vorteile, Fertigkeiten und Waffen definieren, nach Belieben ändern, neue hinzufügen und andere entfernen. Diese werden hier zusammenfassend Datenbank-Elemente genannt.
+Mit einem Klick auf **Regelbasis bearbeiten** , öffnet sich ein neues Fenster mit dem Regelbasis-Editor. Dieser Editor erlaubt es dir, Sephrasto individuell auf deine Gruppe zuzuschneiden. Über ihn kannst du die Regeln für Talente, Vorteile, Fertigkeiten Waffen usw. definieren, nach Belieben ändern, neue hinzufügen und andere entfernen. Diese werden hier zusammenfassend Datenbank-Elemente genannt.
 <br /><br />
 ![DatenbankEditor](Images/DatenbankEditor.jpg)
 <br /><br />
-In der linken Hälfte kannst du durch Suche und/oder Filter auswählen, welche Regeln dir angezeigt werden. Die Liste in der rechten Hälfte, beinhaltet dann alle Regeln, die in diese Kategorien passen.
+In der linken Hälfte kannst du den Element-Typ auswählen, den du bearbeiten möchtest. Die Liste in der rechten Hälfte, beinhaltet dann alle existierenden und gelöschten Elemente dieses Typs. Standardmäßig haben alle Elemente ein Buch-Icon - dieses steht dafür, dass die Elemente den RAW (rules as written) entsprechen und unerändert sind.
 <br /><br />
-Die Knöpfe in der unteren rechten Ecke erlauben es dir, neue Regeln zu erstellen, die ausgewählte Regel zu bearbeiten sowie Regeln zu duplizieren und zu löschen. Auch ein Doppelklick auf einen Listeneintrag bringt dich zum Bearbeitungsfenster. Du kannst auch mehrere Listeneinträge markieren um die entsprechende Aktion bei allen auf einmal anzuwenden.
+Mit einem Klick auf "Datei" in der Menuleiste kannst du deine Hausregeln speichern oder andere laden. Sephrasto verwendet als Basis immer die mitgelieferte _datenbank.xml_, die im gleichen Ordner wie die _Sephrasto.exe_ abgelegt ist. Alle Änderungen, die du vornimmst, werden in einer separaten Hausregel-Datenbank - ebenfalls eine XML-Datei - gespeichert. Wenn du sie lädst, wird sie über die Basis-Datenbank "drüber" geladen. Diesen Vorgang kannst du mit "Zusätzlich öffnen" wiederholen und so die Daten aus mehreren Hausregel-Datenbanken kombinieren.
 <br /><br />
-In der unteren linken Ecke schließlich kannst du die fertige Regelbasis speichern oder eine andere laden. Sephrasto verwendet als Basis immer die mitgelieferte _datenbank.xml_, die im gleichen Ordner wie die ausführbare Datei abgelegt ist. Alle Änderungen, die du vornimmst, werden in einer separaten Hausregel-Datenbank - ebenfalls eine XML-Datei - gespeichert. Wenn du sie lädst, wird sie über die Basis-Datenbank "drüber" geladen. Diese funktioniert wie folgt:
-- Wann immer du einen Eintrag änderst, erhältst du eine Kopie aus der Basis-Datenbank und das Original wird als gelöscht markiert.
-- Damit erhältst du für diese Hausregel-Datenbank keine Aktualisierungen mehr für dieses Datenbank-Element mit neuen Sephrastoversionen, z.B. falls der Steigerungsfaktor einer Fertigkeit durch Errata geändert wird. Falls du das Original wiederherstellst (s.u.) bist du wieder auf dem neuesten Stand.
-- Geänderte oder hinzugefügte Datenbankelemente werden grün markiert, gelöschte rot. Wenn du also den Adlerschwinge änderst, siehst du einmal einen roten Eintrag (das Original aus der Basisdatenbank) und einen grünen Eintrag (die Kopie des Originals mit deinen Änderungen).
-- Wenn du ein Original wiederherstellen möchtest, dann wähle es aus und klicke auf den Wiederherstellen-Knopf. Zuvor musst du aber eine eventuelle Hausregelkopie löschen.
+Die Buttons in der unteren rechten Ecke erlauben es dir, neue Regeln zu erstellen, die ausgewählte Regel zu bearbeiten sowie Regeln zu duplizieren und zu löschen. Auch ein Doppelklick auf einen Listeneintrag bringt dich zum Bearbeitungsfenster. Du kannst auch mehrere Listeneinträge markieren um die entsprechende Aktion bei allen auf einmal anzuwenden.
+- Wann immer du ein Element änderst, erhält es ein blaues Bearbeitet-Icon. Damit erhältst du für diese Hausregel-Datenbank keine Aktualisierungen mehr für dieses Datenbank-Element mit neuen Sephrastoversionen, z.B. falls der Steigerungsfaktor einer Fertigkeit durch Errata geändert wird. Wenn du bearbeitete Elemente auswählst, erscheint unten rechts ein Button mit Buch-Icon mit dem du die originalen RAW Daten ansehen kannst. Wenn du sie löschst, wirst du gefragt, ob das Element komplett gelöscht werden soll oder ob du die RAW-Daten wiederherstellen möchtest.
+- Komplett neu hinzugefügte Datenbankelemente werden mit einem grünen Plus-Icon markiert.
+- Aus der Basisdatenbank gelöschte Elemente werden mit einem roten Minus-Icon markiert. Wenn du sie wiederherstellen möchtest, dann wähle sie aus und klicke auf den Wiederherstellen-Button.
 <br />
 ## Einstellungsmöglichkeiten
 Im folgenden werden einige der Einstellungsmöglichkeiten von Datenbank-Elementen erklärt. In Klammern stehen die Elemente, die diese Einstellungen anbieten. Das folgende Beispiel des Vorteils Schneller Kampf II zeigt die meisten beschriebenen Optionen.
 <br /><br />
 ![VorteilEditor](Images/VorteilEditor.jpg)
 <br />
-### Kosten sind Variabel (Vorteil, Talent)
+### Variable Kosten (Vorteil, Talent)
 Wenn diese Option aktiviert wird, können die Kosten für dieses Element im Charaktereditor händisch eingegeben werden. Die Kommentar-Option (s.u.) wird dann automatisch aktiviert.
 <br />
-### Nutzern erlauben einen Kommentar einzutragen (Vorteil, Talent)
+### Kommentar (Vorteil, Talent)
 Wenn diese Option aktiviert wird, erscheint im Charaktereditor ein Kommentarfeld, sobald das Element erworben wird. Das dort eingetragene wird im Charakterbogen in Klammern angefügt. Dies wird in erster Linie für Elemente verwendet, bei denen der Nutzer eine frei gewählte Angabe machen muss, wie z.B. beim Vorteil Besonderer Besitz.
 <br />
-### Voraussetzungen (Vorteil, Freie Fertigkeit, Übernatürliche Fertigkeit, Talent, Regel)
+### Voraussetzungen (Energie, Vorteil, Freie Fertigkeit, Übernatürliche Fertigkeit, Talent, Regel)
 In diesem Feld kannst du Voraussetzungen für die die Verfügbarkeit von Datenbank-Elementen festlegen. Der Vorteil Ausfall erfordert beispielsweise das Attribut Mut auf einem Wert von 4, bevor ein Charakter ihn erwerben kann. Folgende Voraussetzungen sind möglich:
 
 - ```Attribut <KO, MU, GE, KK, IN, KL, CH, FF> <Mindestwert>```<br />
@@ -38,12 +37,12 @@ Beispiel: Attribut MU 4
 Beispiel: MeisterAttribut KL 10
 
 - ```Vorteil <Vorteilsname>```<br />
-Überprüft, ob der Charakter den angegebenen Vorteil erworben hat.<br />
-Beispiel: Vorteil Zauberer I
+Überprüft, ob der Charakter den angegebenen Vorteil erworben hat. Im Namen können auch Wildcards verwendet werden (https://docs.python.org/3/library/fnmatch.html) - das Element selbst wird hierbei ausgenommen.<br />
+Beispiel: Vorteil Zauberer I, Vorteil Tradition der *geweihten I
 
 - ```Kein Vorteil <Vorteilsname>```<br />
-Überprüft, ob der Charakter den angegebenen Vorteil nicht erworben hat.<br />
-Beispiel: Kein Vorteil Zauberer I
+Überprüft, ob der Charakter den angegebenen Vorteil nicht erworben hat. Im Namen können auch Wildcards verwendet werden (https://docs.python.org/3/library/fnmatch.html) - das Element selbst wird hierbei ausgenommen.<br />
+Beispiel: Kein Vorteil Zauberer I, Kein Vorteil Tradition der *geweihten I
 
 - ```Fertigkeit '<Fertigkeitsname>' <Optional: Mindest-PW(T)>```<br />
 Überprüft, ob der Charakter eine bestimmte Fertigkeit auf dem angegebenen Mindest-PW(T) hat. Wenn du keinen Mindestwert oder -1 angibst, wird an Stelle des Fertigkeitswerts überprüft, ob mindestens ein Talent aktiviert ist. Dies wird in erster Linie für das Datenbankelement Regel verwendet.<br />
@@ -66,15 +65,24 @@ Beispiel: Waffeneigenschaft Stumpf.
 Falls mehrere Voraussetzungen erfüllt sein müssen, können diese komma-separiert angegeben werden, z.B. wie beim Vorteil Gesegnete Waffe: Attribut MU 6, Vorteil Geweiht I.<br />
 Falls nur eine von mehrere Voraussetzungen erfüllt sein muss, können die Voraussetzungen mit einem ODER verknüpft werden, z.B. wie beim Vorteil Reiterkampf I: Attribut GE 4 ODER Attribut KK 4.
 <br />
-### Alternative Beschreibung (Vorteil)
-Die Beschreibung wird sowohl im Charaktereditor angezeigt, als auch im Regelanhang ausgegeben. Über das Feld alternative Beschreibung kann im Regelanhang ein anderer Text ausgegeben werden. In diesem Alternativtext gibt es außerdem die Möglichkeit über das Makro $kommentar$ den Inhalt des Kommentarfelds an gewünschter Stelle einzufügen (siehe Kampfstil/Tradition IV Vorteile).
+### Beschreibung (fast alle)
+Die Beschreibung wird sowohl im Charaktereditor angezeigt, als auch im Regelanhang ausgegeben. Hierbei kannst du HTML verwenden, wobei für die meisten Tags (table, ul, etc.) von Sephrasto automatisch ein CSS-Stylesheet appliziert wird. Über die Toolbar hast du außerdem zwei Möglichkeiten, Bilder einzufügen:
+- Als Link zu einer Bilddatei auf deiner Festplatte. Du kannst hier entweder einen absoluten Pfad angeben, oder eines der Makros **$sephrasto_dir$**, **$regeln_dir$** oder **$plugins_dir$** verwenden, um einen relativen Pfad zum Sephrasto-Installations-/Hausregel- oder Plugins-Ordner anzugeben. Beispiel: ```<img src="$regeln_dir$/MeineHausregelBilder/Zauber.png">```
+- Eingebettet als Text. Das Bild wird in Text konvertiert und direkt in die Beschreibung eingefügt. Der Inhalt der Beschreibung wird dadurch ziemlich lang und die Größe deiner Hausregeldatei wächst. Dafür kann das Bild im Gegensatz zu einem Link nicht verloren gehen. Das Bild wird dabei auf maximal 512x512 Pixel reduziert.<br />
+  
+Bei Vorteilen und Talenten kannst du außerdem eine **Zusatzinfo** angeben, die im Charaktereditor nach der eigentlichen Beschreibung angezeigt wird. Dies kann Beispielsweise eine Erklärung sein, was der Nutzer in das Kommentarfeld eintragen soll.<br />
 <br />
-### Regelanhang auflisten (Talent)
-Wenn diese Option ausgeschaltet ist, wird das Talent nicht im Regelanhang aufgeführt. Dies wird in erster Linie für Mirakel verwendet, deren Regeln repetetiv sind und separat als Regel-Element im Regelanhang auftauchen.
+Ausschließlich bei Vorteilen kannst du zudem noch eine alternative Beschreibung für den **Regelanhang** angeben. Hier kannst du außerdem das Makro **$kommentar$** verwenden, um Sephrasto den Nutzerkommentar an entsprechender Stelle einfügen zu lassen (falls die Option aktiviert ist). Ebenso hast du bei Vorteilen noch die Möglichkeit **Bedingungen** für die Nutzung des Vorteils anzugeben, beispielsweise benötigte Waffen bei einem Kampfstil oder erforderliche Gesten usw. bei Zaubertraditionen. 
 <br />
-### Script / Priorität (Vorteil, Waffeneigenschaft)
+### Regelanhang auflisten (Vorteil, Talent)
+Wenn diese Option ausgeschaltet ist, wird das Element nicht im Regelanhang aufgeführt. Dies wird bei Talenten für Mirakel verwendet, deren Regeln repetetiv sind und separat als Element vom Typ Regel eingetragen werden. Ähnlich verhält es sich beispielsweise bei Vorteilen, die nur Manöver oder Modifikationen ermöglichen.
+<br />
+### Script / Priorität (Abgeleiteter Wert, Vorteil, Waffeneigenschaft)
 In diesem Feld kannst du Python-Skripte einfügen, die beim Erwerb des Elements ausgeführt werden. Hierfür steht dir Sephrastos [Script-API](ScriptAPI.md) zu Verfügung.
 Wenn mehrere Skripte den gleichen Wert verändern, kann die Reihenfolge der Ausführung eine Rolle spielen. Über die Priorität kannst du diese Reihenfolge beeinflussen - je niedriger der Wert, desto früher wird das Skript ausgeführt.
+<br />
+### Querverweise (Vorteil)
+Hier können Regeln, Talente, Vorteile und Waffeneigenschaften, Abgeleitete Werte, Statusse und Finanzen referenziert werden, die für den editierten Vorteil von Relevanz sind. Sie werden dann im Charaktereditor bei den Vorteilen eingeblendet.
 <br />
 ### Verknüpfung (Vorteil)
 Über diese Felder kann ein Vorteil mit einem Element vom Typ Vorteil, Übernatürliches Talent oder Regel verknüpft werden. Dies bewirkt zwei Dinge:
@@ -82,13 +90,12 @@ Wenn mehrere Skripte den gleichen Wert verändern, kann die Reihenfolge der Ausf
 2. Verknüpfte Elemente werden im Regelanhang zusammengeführt, damit der Anhang einerseits kompakter wird und andererseits die Regeln im passenden Kontext beieinander stehen. Beispiel: Der Vorteil Schnelle Heilung ist mit der Regel Regeneration verknüpft - dies bewirkt, dass die Regeln zu Schnelle Heilung direkt bei den Regenerationsregeln aufgeführt werden, statt als eigener Absatz unter Vorteile.
 <br />
 ## Besondere Datenbank-Elemente
-Die folgenden Elemente können nicht im Charaktereditor gesehen werden:
-- Regel: Hier können allgemeine Regeln eingetragen werden. Diese werden ausschließlich im Regelanhang verwendet.
-- Einstellung: Einstellungen definieren die verfügbaren Typen von Vorteilen usw. oder modifizieren das Verhalten von Sephrasto, so können z.B. die EP-Kosten von Freien Fertigkeiten geändert werden. Es können keine eigenen Einstellungen hinzugefügt werden. Wenn eine geänderte Einstellung gelöscht wird, so wird das Original automatisch wiederhergestellt.
+- Regel: Hier können allgemeine Regeln eingetragen werden. Diese werden hauptsächlich im Regelanhang verwendet, können im Charaktereditor aber auch im Rahmen der Querverweise bei Vorteilen angezeigt werden.
+- Einstellung: Einstellungen definieren die verfügbaren Typen von Vorteilen usw. oder modifizieren das Verhalten von Sephrasto, so können z.B. die EP-Kosten von Freien Fertigkeiten geändert werden. Einstellungen können nicht im Charaktereditor gesehen werden und es können keine eigenen Einstellungen hinzugefügt werden. Wenn eine geänderte Einstellung gelöscht wird, so wird das Original automatisch wiederhergestellt.
 <br />
 ## Sonderfälle
 Der Datenbankeditor ist sehr vielseitig, aber es gibt ein paar Sonderfälle, diese werden hier erläutert:
-- Um (nicht erlaubte) Namensdopplungen bei Talenten zu vermeiden, können diese einen beliebigen Text (üblicherweise den Fertigkeitsnamen), gefolgt von einem Doppelpunkt vor ihrem Namen aufweisen, dies wird in der Anzeige und im Charakterbogen gekürzt. Dies ist beispielsweise bei den Gebräuche- und Überleben-Talenten der Fall, z.B. "Gebräuche: Mittelreich".
-- Die Heimatgebiet-Liste des Charaktereditors wird durch alle Talente befüllt, deren Name mit "Gebräuche: " beginnt. Die Fertigkeit Gebräuche kann aber ohne Probleme gelöscht werden.
+- Um (nicht erlaubte) Namensdopplungen bei Talenten zu vermeiden, können diese den Fertigkeitsnamen, gefolgt von einem Doppelpunkt vor ihrem Namen aufweisen. Dies wird in der Anzeige und im Charakterbogen gekürzt. Dies ist beispielsweise bei den Gebräuche- und Überleben-Talenten der Fall, z.B. "Gebräuche: Mittelreich".
+- Um (nicht erlaubte) Namensdopplungen bei Waffen zu vermeiden, können diese nach ihrem Namen in Klammern das verwendete Talent, "NK" oder "FK" aufweisen. Dies wird in der Anzeige und im Charakterbogen gekürzt.
 - Rüstungen können separat fürs Zonensystem und das einfache Rüstungssystem angelegt werden. Um Namensdopplungen zu vermeiden können die Varianten fürs ZRS mit " (ZRS)" enden, dies wird in der Anzeige und im Charakterbogen gekürzt.
 - Um tiefergreifende Anpassungen an Sephrasto vorzunehmen ist eventuell ein selbst geschriebenes [Plugin](PluginAPI.md) notwendig. Beispielsweise kann hiermit die EP-Kostenberechnung aller Datenbankelemente oder der gesamte PDF-Output angepasst werden.
