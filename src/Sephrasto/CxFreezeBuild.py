@@ -35,7 +35,7 @@ else:
 print("Running cxfreeze")
 build_exe_options = {
     "build_exe" : build_path,
-    "includes" : ["multiprocessing", "PySide6.QtPrintSupport", "PySide6.QtWebChannel"],
+    "includes" : ["multiprocessing", "PySide6.QtPrintSupport", "PySide6.QtWebChannel", "PySide6.QtWebEngineWidgets", "QtUtils.SimpleSettingsDialog"],
     "excludes" : ["tkinter", "distutils", "html", "unittest", "pydoc", "bz2", "pyexpat", "lzma"],
     "optimize" : 2,
     "zip_include_packages" : "*",
