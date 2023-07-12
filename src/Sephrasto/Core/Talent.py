@@ -42,7 +42,8 @@ class TalentDefinition:
         if self.spezialTalent:
             ferts = db.übernatürlicheFertigkeiten
         for fert in self.fertigkeiten:
-            fertigkeitenResolved.append(ferts[fert])
+            if fert in ferts:
+                fertigkeitenResolved.append(ferts[fert])
 
         for fert in fertigkeitenResolved:
             if self.hauptfertigkeit is None:

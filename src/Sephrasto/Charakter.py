@@ -999,7 +999,7 @@ class Char():
             else:
                 definition = FreieFertigkeitDefinition()
                 definition.name = name
-            fertl = FreieFertigkeit(definition, self)
+            fert = FreieFertigkeit(definition, self)
             fert.wert = int(fer.attrib['wert'])
             self.freieFertigkeiten.append(fert)
 
