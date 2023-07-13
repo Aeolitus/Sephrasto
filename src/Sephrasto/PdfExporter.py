@@ -138,7 +138,7 @@ class PdfExporter(object):
             allPages[0] = shrinked
             if len(bookmarks) > 0:
                 bookmarks.pop()
-            i -= 1
+                i -= 1
 
         if printRules:
             if dlg.shouldCancel():
