@@ -81,6 +81,7 @@ class PdfExporter(object):
         # PDF erstellen
         flatten = not Wolke.Char.formularEditierbar
         bookmarks = []
+        i = 0
         for i in range(PdfSerializer.getNumPages(self.CharakterBogen.filePath)):
             text = "Charakterbogen"
             if i < len(self.CharakterBogen.seitenbeschreibungen):
@@ -135,7 +136,8 @@ class PdfExporter(object):
             shrinked = PdfSerializer.shrink(allPages[0], 1, self.CharakterBogen.überSeite-1)
             os.remove(allPages[0])
             allPages[0] = shrinked
-            bookmarks.pop()
+            if len(bookmarks) > 0:
+                bookmarks.pop()
             i -= 1
 
         if printRules:
@@ -217,6 +219,7 @@ class PdfExporter(object):
         if dlg.shouldCancel():
             os.remove(tmp)
             return
+
         dlg.setLabelText("Füge Lesezeichen hinzu")
         dlg.setValue(90)
         PdfSerializer.addBookmarks(tmp, bookmarks, filename)

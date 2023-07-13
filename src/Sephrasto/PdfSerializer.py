@@ -328,10 +328,12 @@ def multistamp(file, stamp_file, out_file = None):
 def getNumPages(file):
     call = ['pdftk', file, 'dump_data_utf8']
     data = check_output_silent(call)
-    data = data.decode('utf-8').split("\r\n")
+    data = data.decode('utf-8').split(os.linesep)
     for d in data:
         if d.startswith("NumberOfPages: "):
             return int(d[len("NumberOfPages: "):])
+
+    logging.error("Unable to get number of pdf pages. File: " + file + "\nPDF-Data: " + str("\n".join(data or "none")))
     return 0
 
 class PdfBookmark:
@@ -345,20 +347,21 @@ def addBookmarks(file, bookmarks, out_file = None):
         handle, out_file = tempfile.mkstemp()
         os.close(handle)
 
-    handle, bookmarksFile = tempfile.mkstemp()
-    os.close(handle)
-    content = []
-    for bm in bookmarks:
-        content.append("BookmarkBegin")
-        content.append("BookmarkTitle: " + bm.title)
-        content.append("BookmarkLevel: " + str(bm.level))
-        content.append("BookmarkPageNumber: " + str(bm.pageNumber))
-    with open(bookmarksFile, 'wb') as f:
-        f.write('\n'.join(content).encode())
+    if len(bookmarks) > 0:
+        handle, bookmarksFile = tempfile.mkstemp()
+        os.close(handle)
+        content = []
+        for bm in bookmarks:
+            content.append("BookmarkBegin")
+            content.append("BookmarkTitle: " + bm.title)
+            content.append("BookmarkLevel: " + str(bm.level))
+            content.append("BookmarkPageNumber: " + str(bm.pageNumber))
+        with open(bookmarksFile, 'wb') as f:
+            f.write('\n'.join(content).encode())
 
-    call = ['pdftk', file, 'update_info_utf8', bookmarksFile, 'output', out_file]
-    check_output_silent(call)
-    os.remove(bookmarksFile)
+        call = ['pdftk', file, 'update_info_utf8', bookmarksFile, 'output', out_file]
+        check_output_silent(call)
+        os.remove(bookmarksFile)
     return out_file
 
 def createEmptyPage(pageLayout, backgroundColor = QtCore.Qt.transparent, out_file = None):
