@@ -30,6 +30,7 @@ class TalentDefinition:
         self.reichweite = ""
         self.wirkungsdauer = ""
         self.energieKosten = ""
+        self.erlernen = ""
         self.referenz = ""
 
     def deepequals(self, other): 
@@ -64,6 +65,7 @@ class TalentDefinition:
             self.reichweite = findStat("Reichweite")
             self.wirkungsdauer = findStat("Wirkungsdauer")
             self.energieKosten = findStat("Kosten")
+            self.erlernen = findStat("Erlernen")
         else:
             steigerungsfaktor = 1
             for fert in fertigkeitenResolved:
@@ -191,6 +193,10 @@ class Talent:
     @property
     def energieKosten(self):
         return self.definition.energieKosten
+
+    @property
+    def erlernen(self):
+        return self.definition.erlernen
 
     @property
     def referenz(self):
