@@ -67,6 +67,26 @@ def sephrasto_excepthook(exc_type, exc_value, tb):
     messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
     messagebox.exec()
 
+def breakIfDebuggerAttached():
+    if hasattr(sys, 'gettrace') and sys.gettrace() is not None:
+        breakpoint()
+
+def qt_message_handler(mode, context, message):
+    message = "%s (%s:%d, %s)" % (message, context.file, context.line, context.file)
+    if mode == QtCore.QtMsgType.QtInfoMsg:
+        logging.info(message)
+    elif mode == QtCore.QtMsgType.QtWarningMsg:
+        logging.warning(message)
+        breakIfDebuggerAttached()
+    elif mode == QtCore.QtMsgType.QtCriticalMsg:
+        logging.error(message)
+        breakIfDebuggerAttached()
+    elif mode == QtCore.QtMsgType.QtFatalMsg:
+        logging.critical(message)
+        breakIfDebuggerAttached()
+    else:
+        logging.debug(message)
+
 class MainWindowWrapper(object):
     '''
     Main Class responsible for running the entire application. 
@@ -75,6 +95,7 @@ class MainWindowWrapper(object):
 
     def __init__(self):
         sys.excepthook = sephrasto_excepthook
+        QtCore.qInstallMessageHandler(qt_message_handler)
 
         '''
         Initializes the GUI and connects the buttons.
