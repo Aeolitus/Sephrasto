@@ -217,7 +217,7 @@
      <x>0</x>
      <y>0</y>
      <width>853</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuDatei">
@@ -232,9 +232,9 @@
     <addaction name="separator"/>
     <addaction name="actionBeenden"/>
    </widget>
-   <widget class="QMenu" name="menuAnsicht">
+   <widget class="QMenu" name="menuAnalysieren">
     <property name="title">
-     <string>Ansicht</string>
+     <string>Analysieren</string>
     </property>
     <addaction name="actionFehlerliste"/>
    </widget>
@@ -246,7 +246,7 @@
     <addaction name="actionScript_API"/>
    </widget>
    <addaction name="menuDatei"/>
-   <addaction name="menuAnsicht"/>
+   <addaction name="menuAnalysieren"/>
    <addaction name="menuHilfe"/>
   </widget>
   <action name="actionSpeichern">
@@ -286,7 +286,7 @@
   </action>
   <action name="actionFehlerliste">
    <property name="text">
-    <string>Fehlerliste</string>
+    <string>Hausregeln</string>
    </property>
   </action>
   <action name="actionSchliessen">
@@ -297,6 +297,11 @@
   <action name="actionZusaetzlichOeffnen">
    <property name="text">
     <string>Zusätzlich öffnen</string>
+   </property>
+  </action>
+  <action name="actionCharakterAssistent">
+   <property name="text">
+    <string>Charakter Assistent Auswahlmöglichkeiten</string>
    </property>
   </action>
  </widget>

@@ -12,7 +12,7 @@ class Choice(object):
         self.typ = "Fertigkeit"
         self.kommentar = ""
 
-    def getErrorString(self):
+    def getErrorString(self, db):
         # Some paths are logging instead of returning the error.
         # These cases may not always be true, i.e. if the choice is bundled with others inside a variant
         # So we're not displaying these errors because it might be more confusing if the displayed a wrong info
@@ -56,10 +56,10 @@ class Choice(object):
 
                 if not vorteil.variableKosten:
                     return "bereits erworben"
-            if not self.name in Wolke.DB.vorteile:
+            if not self.name in db.vorteile:
                 logging.warn(f"CharakterAssistent: {self.typ} {self.name} unbekannt")
                 return None          
-            if not Wolke.Char.voraussetzungenPrüfen(Wolke.DB.vorteile[self.name]):
+            if not Wolke.Char.voraussetzungenPrüfen(db.vorteile[self.name]):
                 logging.warn(f"CharakterAssistent: {self.typ} {self.name} Voraussetzungen nicht erfüllt")
                 return None
         elif self.typ == "Talent":
@@ -71,10 +71,10 @@ class Choice(object):
                 if not talent.variableKosten:
                     return "bereits erworben"
 
-            if not self.name in Wolke.DB.talente:
+            if not self.name in db.talente:
                 logging.warn(f"CharakterAssistent: {self.typ} {self.name} unbekannt")
                 return None
-            if not Wolke.Char.voraussetzungenPrüfen(Wolke.DB.talente[self.name]):
+            if not Wolke.Char.voraussetzungenPrüfen(db.talente[self.name]):
                 logging.warn(f"CharakterAssistent: {self.typ} {self.name} Voraussetzungen nicht erfüllt")
                 return None
         elif self.typ == "Eigenheit":
@@ -82,7 +82,7 @@ class Choice(object):
                 return "bereits vorhanden"
         return None
 
-    def toString(self, addEP = True):
+    def toString(self, db, addEP = True):
         valueStr = ""
         prefix = ""
         if self.typ == "Freie-Fertigkeit":
@@ -151,13 +151,13 @@ class Choice(object):
         if self.kommentar:
             valueStr += " (" + self.kommentar + ")"
 
-        errorString = self.getErrorString()
+        errorString = self.getErrorString(db)
         if addEP and self.typ != "Eigenheit" and not errorString:
             if valueStr.endswith(")"):
                 valueStr = valueStr[:-1] + "; "
             else:
                 valueStr += " ("
-            valueStr += str(self.countEP()) + " EP)"
+            valueStr += str(self.countEP(db)) + " EP)"
 
         if errorString:
             if valueStr.endswith(")"):
@@ -186,7 +186,7 @@ class Choice(object):
         ep += max(0, 2*sum(range(höchsteWert+1)))
         return ep
 
-    def countEP(self):
+    def countEP(self, db):
         if self.typ == "Freie-Fertigkeit":
             for fert in Wolke.Char.freieFertigkeiten:
                 if self.name == fert.name:
@@ -220,9 +220,9 @@ class Choice(object):
             return attribut.steigerungskosten(self.wert)
 
         elif self.typ == "Talent":
-            if not self.name in Wolke.DB.talente:
+            if not self.name in db.talente:
                 return 0
-            talentDefinition = Wolke.DB.talente[self.name]
+            talentDefinition = db.talente[self.name]
             if self.wert == -1:
                 if self.name in Wolke.Char.talente:
                     return -Wolke.Char.talente[self.name].kosten
@@ -232,9 +232,9 @@ class Choice(object):
                     return self.wert
                 return talentDefinition.kosten
         elif self.typ == "Vorteil":
-            if not self.name in Wolke.DB.vorteile:
+            if not self.name in db.vorteile:
                 return 0
-            vorteilDefinition = Wolke.DB.vorteile[self.name]
+            vorteilDefinition = db.vorteile[self.name]
             if self.wert == -1:
                 if self.name in Wolke.Char.vorteile:
                     return -Wolke.Char.vorteile[self.name].kosten
@@ -288,19 +288,19 @@ class ChoiceList(object):
     def filter(self, choice):
         self.choices = [c for c in self.choices if not (c.name == choice.name and c.typ == choice.typ and c.kommentar == choice.kommentar)]
 
-    def toString(self):
-        return self.name + " (" + str(self.countEP()) + " EP)"
+    def toString(self, db):
+        return self.name + " (" + str(self.countEP(db)) + " EP)"
 
-    def getDescription(self):
+    def getDescription(self, db):
         if len(self.choices) > 0:
-            return "        " + "\n        ".join([c.toString(False) for c in self.choices])
+            return "        " + "\n        ".join([c.toString(db, False) for c in self.choices])
         else:
             return None
 
-    def countEP(self):
+    def countEP(self, db):
         count = 0
         for choice in self.choices:
-            count += choice.countEP()
+            count += choice.countEP(db)
         return count
 
 class ChoiceListCollection(object):

@@ -36,10 +36,17 @@ class HilfeWrapper(QtCore.QObject):
         self.updateBackwardAvailable()
         self.updateForwardAvailable()
 
-        self.ui.teHelp.setSearchPaths(searchPaths)
-        self.ui.teHelp.setSource(QUrl(source))
+        if source is not None:
+            self.ui.teHelp.setSearchPaths(searchPaths)
+            self.ui.teHelp.setSource(QUrl(source))
 
         self.form.setWindowModality(QtCore.Qt.NonModal)
+
+    def setTitle(self, text):
+        self.form.setWindowTitle("Sephrasto - " + text)
+
+    def setText(self, text):
+        self.ui.teHelp.setText(text)
 
     def updateBackwardAvailable(self):
         self.ui.buttonBackward.setEnabled(self.ui.teHelp.isBackwardAvailable())

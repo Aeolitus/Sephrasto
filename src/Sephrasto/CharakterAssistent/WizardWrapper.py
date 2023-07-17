@@ -28,35 +28,36 @@ class Element(object):
 class WizardWrapper(object):
     def __init__(self):
         self.regelList = {}
-        datadirs = [os.path.join("Data", "CharakterAssistent"), os.path.join(Wolke.Settings['Pfad-Plugins'], "CharakterAssistent")]
 
-        for datadir in datadirs:
-            if not os.path.isdir(datadir):
+        self.baukastenFolders = []
+        for dataFolder in [os.path.join("Data", "CharakterAssistent"), os.path.join(Wolke.Settings['Pfad-Plugins'], "CharakterAssistent")]:
+            if not os.path.isdir(dataFolder):
                 continue
+            for baukastenFolders in PathHelper.listdir(dataFolder):
+                self.baukastenFolders.append(os.path.join(dataFolder, baukastenFolders))
 
-            for regelnFolder in PathHelper.listdir(datadir):
-                if not os.path.isdir(os.path.join(datadir, regelnFolder)):
-                    continue
-                regelnName = os.path.splitext(os.path.basename(regelnFolder))[0]
-                if not regelnName in self.regelList:
-                    self.regelList[regelnName] = Regeln()
-                regeln = self.regelList[regelnName]
+    def loadTemplates(self):
+        for baukastenFolder in self.baukastenFolders:
+            baukastenName = os.path.splitext(os.path.basename(baukastenFolder))[0]
+            if not baukastenName in self.regelList:
+                self.regelList[baukastenName] = Regeln()
+            regeln = self.regelList[baukastenName]
 
-                speziesFolder = os.path.join(datadir, regelnFolder, "Spezies")
-                regeln.spezies = {**regeln.spezies, **self.mapContainedFileNamesToPaths(speziesFolder)} #syntax = merge dict b into a
+            speziesFolder = os.path.join(baukastenFolder, "Spezies")
+            regeln.spezies = {**regeln.spezies, **self.mapContainedFileNamesToPaths(speziesFolder)} #syntax = merge dict b into a
 
-                kulturenFolder = os.path.join(datadir, regelnFolder, "Kultur")
-                regeln.kulturen = {**regeln.kulturen, **self.mapContainedFileNamesToPaths(kulturenFolder)}
+            kulturenFolder = os.path.join(baukastenFolder, "Kultur")
+            regeln.kulturen = {**regeln.kulturen, **self.mapContainedFileNamesToPaths(kulturenFolder)}
 
-                professionenFolder = os.path.join(datadir, regelnFolder, "Profession")
-                if os.path.isdir(professionenFolder):
-                    for professionKategorieFolder in PathHelper.listdir(professionenFolder):
-                        professionKategorieFolder = os.path.join(professionenFolder, professionKategorieFolder)
-                        if os.path.isdir(professionKategorieFolder):
-                            kategorie = os.path.basename(professionKategorieFolder)
-                            if not kategorie in regeln.professionen:
-                                regeln.professionen[kategorie] = {}
-                            regeln.professionen[kategorie] = {**regeln.professionen[kategorie], **self.mapContainedFileNamesToPaths(professionKategorieFolder)}
+            professionenFolder = os.path.join(baukastenFolder, "Profession")
+            if os.path.isdir(professionenFolder):
+                for professionKategorieFolder in PathHelper.listdir(professionenFolder):
+                    professionKategorieFolder = os.path.join(professionenFolder, professionKategorieFolder)
+                    if os.path.isdir(professionKategorieFolder):
+                        kategorie = os.path.basename(professionKategorieFolder)
+                        if not kategorie in regeln.professionen:
+                            regeln.professionen[kategorie] = {}
+                        regeln.professionen[kategorie] = {**regeln.professionen[kategorie], **self.mapContainedFileNamesToPaths(professionKategorieFolder)}
 
     def mapContainedFileNamesToPaths(self, folderPath, appendEP = True):
         result = {}
@@ -75,10 +76,6 @@ class WizardWrapper(object):
                     if elKey.endswith("_var"):
                         elVarPath = path
                         elKey = elKey[:-4]
-
-                        if logging.root.level == logging.DEBUG:
-                            logging.debug("CharakterAssistent: Verifiziere " + path)
-                            CharakterMerger.readChoices(path) # print log warnings for entire data folder on char creation
                     else:
                         elPath = path
                         if appendEP:
@@ -97,6 +94,24 @@ class WizardWrapper(object):
                     else:
                         result[elKey] = Element(elPath, elVarPath, elKey, elName)
         return result
+
+    def verify(self, db, baukastenFolder):
+        errors = []
+        foldersToCheck = []
+        foldersToCheck.append(os.path.join(baukastenFolder, "Spezies"))
+        foldersToCheck.append(os.path.join(baukastenFolder, "Kultur"))
+        professionenFolder = os.path.join(baukastenFolder, "Profession")
+        if os.path.isdir(professionenFolder):
+            foldersToCheck.extend([os.path.join(professionenFolder, p) for p in PathHelper.listdir(professionenFolder)])
+        for folderPath in foldersToCheck:
+            for path in PathHelper.listdir(folderPath):
+                path = os.path.join(folderPath, path)
+                if os.path.isfile(path):
+                    fileNameSplit = os.path.splitext(os.path.basename(path))
+                    if fileNameSplit[0].endswith("_var") and fileNameSplit[1] == ".xml":
+                        errors.extend(CharakterMerger.verifyChoices(db, path))
+        return errors
+
 
     def setupMainForm(self):
         self.ui.cbRegeln.addItems(EinstellungenWrapper.getDatenbanken(Wolke.Settings["Pfad-Regeln"]))
@@ -187,33 +202,33 @@ class WizardWrapper(object):
         # 2. add selected SKP
         if self.ui.cbSpezies.currentText() != "Überspringen":
             spezies = self.spezies[self.ui.cbSpezies.currentIndex()-1]
-            CharakterMerger.xmlLesen(spezies.path, True, False)
+            CharakterMerger.xmlLesen(Wolke.DB, spezies.path, True, False)
 
         if self.ui.cbKultur.currentText() != "Überspringen":
             kultur = self.kulturen[self.ui.cbKultur.currentIndex()-1]
-            CharakterMerger.xmlLesen(kultur.path, False, True)
+            CharakterMerger.xmlLesen(Wolke.DB, kultur.path, False, True)
 
         if self.ui.cbProfessionKategorie.currentText() != "Überspringen":
             professionKategorie = regeln.professionen[self.ui.cbProfessionKategorie.currentText()]
 
             if self.ui.cbProfession.currentText() != "Überspringen":
                 profession = self.professionen[self.ui.cbProfession.currentIndex()-1]
-                CharakterMerger.xmlLesen(profession.path, False, False)
+                CharakterMerger.xmlLesen(Wolke.DB, profession.path, False, False)
 
         # 3. Handle choices afterwards so EP spent can be displayed accurately
         if self.ui.cbSpezies.currentText() != "Überspringen":
             spezies = self.spezies[self.ui.cbSpezies.currentIndex()-1]
-            CharakterMerger.handleChoices(spezies, geschlecht, True, False, False)
+            CharakterMerger.handleChoices(Wolke.DB, spezies, geschlecht, True, False, False)
 
         if self.ui.cbKultur.currentText() != "Überspringen":
             kultur = self.kulturen[self.ui.cbKultur.currentIndex()-1]
-            CharakterMerger.handleChoices(kultur, geschlecht, False, True, False)
+            CharakterMerger.handleChoices(Wolke.DB, kultur, geschlecht, False, True, False)
 
         if self.ui.cbProfessionKategorie.currentText() != "Überspringen":
             professionKategorie = regeln.professionen[self.ui.cbProfessionKategorie.currentText()]
 
             if self.ui.cbProfession.currentText() != "Überspringen":
                 profession = self.professionen[self.ui.cbProfession.currentIndex()-1]
-                CharakterMerger.handleChoices(profession, geschlecht, False, False, True)
+                CharakterMerger.handleChoices(Wolke.DB, profession, geschlecht, False, False, True)
 
         self.form.accept()

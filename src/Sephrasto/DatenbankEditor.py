@@ -43,6 +43,8 @@ from EventBus import EventBus
 from HilfeWrapper import HilfeWrapper
 from Hilfsmethoden import Hilfsmethoden
 from QtUtils.RichTextButton import RichTextToolButton
+from CharakterAssistent.WizardWrapper import WizardWrapper
+from functools import partial
 
 class DatenbankTypWrapper:
     def __init__(self, dataType, editorType, isDeletable):
@@ -121,7 +123,7 @@ class DatenbankEditor(object):
 
         self.menus = {
             "Datei" : self.ui.menuDatei,
-            "Ansicht" : self.ui.menuAnsicht,
+            "Analysieren" : self.ui.menuAnalysieren,
             "Hilfe" : self.ui.menuHilfe
         }
 
@@ -161,6 +163,15 @@ class DatenbankEditor(object):
         self.ui.actionBeenden.triggered.connect(lambda: self.form.close())
 
         self.ui.actionFehlerliste.triggered.connect(self.showErrorLog)
+        self.wizardWrapper = WizardWrapper()
+        self.wizardActions = []
+        for baukastenFolder in self.wizardWrapper.baukastenFolders:
+            action = QtGui.QAction("Charakter Assistent: " + os.path.basename(baukastenFolder))
+            action.triggered.connect(partial(self.showCharakterAssistentErrorLog, baukasten=baukastenFolder))
+            self.ui.menuAnalysieren.addAction(action)
+            self.wizardActions.append(action)
+
+        self.ui.actionCharakterAssistent.triggered.connect(self.showCharakterAssistentErrorLog)
 
         self.ui.actionDatenbank_Editor.triggered.connect(self.showEditorHelp)
         self.ui.actionScript_API.triggered.connect(self.showScriptHelp)
@@ -841,6 +852,21 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             self.errorLogWindow.refresh()
             self.errorLogWindow.form.show()
             self.errorLogWindow.form.activateWindow()
+
+    def showCharakterAssistentErrorLog(self, baukasten):
+        if not hasattr(self, "charakterAssistentErrorLog"):
+            self.charakterAssistentErrorLog = HilfeWrapper(None, False)
+            self.charakterAssistentErrorLog.form.show()
+        else:
+            self.charakterAssistentErrorLog.form.show()
+            self.charakterAssistentErrorLog.form.activateWindow()
+
+        self.charakterAssistentErrorLog.setTitle("Charakter Assistent Fehler (" + os.path.basename(baukasten) + ")")
+        errors = "<br>".join(self.wizardWrapper.verify(self.datenbank, baukasten))
+        if errors:
+            self.charakterAssistentErrorLog.setText(errors)
+        else:
+            self.charakterAssistentErrorLog.setText("<b>Keine Fehler gefunden!</b>")
 
     def showEditorHelp(self):
         if not hasattr(self, "editorHelpWindow"):

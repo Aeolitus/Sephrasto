@@ -19,37 +19,48 @@ class ChoiceXmlVerifier(object):
     }
 
     def validateXmlChoices(node):
+        errors = []
         for child in node.getchildren():
             if not child.tag in ChoiceXmlVerifier.allowedChoicesAttributes.keys():
-                logging.warn("CharakterAssistent: Unbekanntes XML element " + child.tag)
+                errors.append("Unbekanntes XML element " + child.tag)
+                logging.warn(errors[-1])
 
             for attrib in child.attrib:
                 if not attrib in ChoiceXmlVerifier.allowedChoicesAttributes[child.tag]:
-                    logging.warn("CharakterAssistent: Unbekanntes XML attribut " + attrib)
+                    errors.append("Unbekanntes XML attribut " + attrib)
+                    logging.warn(errors[-1])
+        return errors
 
 
     def validateXml(node):
+        errors = []
         for child in node.getchildren():
             if child.tag != "Auswahl" and child.tag != "Varianten":
-                logging.warn("CharakterAssistent: Unbekanntes XML element " + child.tag)
+                errors.append("Unbekanntes XML element " + child.tag)
+                logging.warn(errors[-1])
 
             if child.tag == "Auswahl":
                 for attrib in child.attrib:
                     if not attrib in ChoiceXmlVerifier.allowedAttributesAuswahl:
-                        logging.warn("CharakterAssistent: Unbekanntes XML attribut " + attrib)
+                        errors.append("Unbekanntes XML attribut " + attrib)
+                        logging.warn(errors[-1])
 
-                ChoiceXmlVerifier.validateXmlChoices(child)
+                errors.extend(ChoiceXmlVerifier.validateXmlChoices(child))
             elif child.tag == "Varianten":
                 for attrib in child.attrib:
                     if not attrib in ChoiceXmlVerifier.allowedAttributesVarianten:
-                        logging.warn("CharakterAssistent: Unbekanntes XML attribut " + attrib)
+                        errors.append("Unbekanntes XML attribut " + attrib)
+                        logging.warn(errors[-1])
 
                 for child2 in child.getchildren():
                     if child2.tag != "Variante":
-                        logging.warn("CharakterAssistent: Unbekanntes XML element " + child2.tag)
+                        errors.append("Unbekanntes XML element " + child2.tag)
+                        logging.warn(errors[-1])
 
                     for attrib in child2.attrib:
                         if not attrib in ChoiceXmlVerifier.allowedAttributesVariante:
-                            logging.warn("CharakterAssistent: Unbekanntes XML attribut " + attrib)
+                            errors.append("Unbekanntes XML attribut " + attrib)
+                            logging.warn(errors[-1])
 
-                    ChoiceXmlVerifier.validateXmlChoices(child2)
+                    errors.extend(ChoiceXmlVerifier.validateXmlChoices(child2))
+        return errors

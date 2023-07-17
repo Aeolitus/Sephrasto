@@ -292,6 +292,7 @@ Versuchs doch bitte nochmal mit einer anderen Zieldatei.")
             return False
 
         self.wizardEd = WizardWrapper.WizardWrapper()
+        self.wizardEd.loadTemplates()
         self.wizardEd.form = QtWidgets.QDialog()
         self.wizardEd.form .setWindowFlags(
                 QtCore.Qt.Window |
