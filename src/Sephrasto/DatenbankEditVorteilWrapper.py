@@ -215,7 +215,7 @@ class DatenbankEditVorteilWrapper(DatenbankElementEditorBase):
             self.updateSaveButtonState()
 
     def querverweiseChanged(self):
-        rowHeight = self.ui.listVerweise.sizeHintForRow(0)
+        rowHeight = max(self.ui.listVerweise.sizeHintForRow(0), 28) # can be -1
         contentHeight = rowHeight * max(self.ui.listVerweise.count(), 3) + 2 * self.ui.listVerweise.frameWidth()
         self.ui.listVerweise.setFixedHeight(contentHeight)
 

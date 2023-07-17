@@ -635,7 +635,9 @@ class DatenbankEditor(object):
                     messageBox.addButton("Nein", QtWidgets.QMessageBox.RejectRole)
                     autorestore = messageBox.exec() == 0
                 if autorestore:
-                    table[element.name] = self.datenbank.referenceDB[element.__class__][element.name]
+                    restoredElement = self.datenbank.referenceDB[element.__class__][element.name]
+                    restoredElement.finalize(self.datenbank) #might not have been called if it was overriden
+                    table[restoredElement.name] = restoredElement
 
             databaseChanged = True
 
