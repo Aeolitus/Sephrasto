@@ -13,6 +13,7 @@ class ProgressDialogExt(QtWidgets.QProgressDialog):
         self.setMinimumHeight(100)
         self.setWindowModality(QtCore.Qt.ApplicationModal)
         self.setValue(0)
+        self.setAutoReset(False)
 
     def closeEvent(self, event):
         if event.spontaneous():
