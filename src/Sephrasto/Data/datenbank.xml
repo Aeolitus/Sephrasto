@@ -827,6 +827,7 @@ Stabilisierung (-8; das Ziel darf sofort eine MR-Probe gegen einen auf es wirken
   <Talent name="Chimaeroform Hybridgestalt" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Dämonisch, Verwandlung" variableKosten="0" referenzseite="128" referenzbuch="0">Du erschaffst eine Chimäre aus zwei oder mehr Lebewesen (mehr zu Beschwörungen siehe S. 81). Eines dieser Lebewesen kann durch einen Dämon ersetzt werden. Die Chimäre hat sich nach 1 Stunde an ihre Existenz gewöhnt und ist einsatzfähig.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; nach Chimäre
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
+&lt;b&gt;Ziel:&lt;/b&gt; Material für eine einzelne Chimäre
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; bis die Bindung gelöst wird
 &lt;b&gt;Kosten:&lt;/b&gt; nach Chimäre, 1/4 der Basiskosten als gAsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dämonisch, Verwandlung
@@ -3706,7 +3707,7 @@ Du stellst eine enge magische Bindung zu deinem Ritualgegenstand (ein Dolch für
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Dolchzauber
 &lt;b&gt;Erlernen:&lt;/b&gt; Dru 18; 40 EP</Talent>
   <Talent name="Ernte des Dolches" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I" verbilligt="0" fertigkeiten="Dolchzauber, Temporal, Verwandlung" variableKosten="0" referenzseite="156" referenzbuch="0">Die nächste mit dem Ritualgegenstand geerntete Pflanze ist viermal so lange haltbar.
-  Probenschwierigkeit: 12
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; Ritualgegenstand
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
@@ -3904,7 +3905,7 @@ Du stellst eine enge magische Bindung zu deinem Ritualgegenstand (ein Dolch für
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 16 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; selbst
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; bis zur Fertigstellung.
+&lt;b&gt;Wirkungsdauer:&lt;/b&gt; bis zur Fertigstellung
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Eigenschaften, Elfenlieder
 &lt;b&gt;Erlernen:&lt;/b&gt; Elf 18; 60 EP</Talent>
@@ -5134,12 +5135,13 @@ Sprechendes Zeichen (-4; das Zeichen kann einen kurzen Satz als Botschaft enthal
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dämonisch, Geister des Zorns, Umwelt
 &lt;b&gt;Erlernen:&lt;/b&gt; Smn 18; 20 EP</Talent>
   <Talent name="Tabu" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Einfluss, Geister vertreiben, Geister des Zorns" variableKosten="0" referenzseite="164" referenzbuch="0">Um die verzauberte Zone von 16 Schritt Radius zu betreten, ist eine &lt;i&gt;Konterprobe&lt;/i&gt; (Willenskraft, 12) nötig. Davon sind all jene ausgenommen, die während der gesamten Vorbereitungszeit in der Zone waren.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Verdoppelt dens Radius.
+&lt;b&gt;Mächtige Magie:&lt;/b&gt; Verdoppelt den Radius.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Minuten
 &lt;b&gt;Ziel:&lt;/b&gt; Zone
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; bis die Bindung gelöst wirdKosten: 16 AsP, davon 1 gAsP
+&lt;b&gt;Wirkungsdauer:&lt;/b&gt; bis die Bindung gelöst wird
+&lt;b&gt;Kosten:&lt;/b&gt; 16 AsP, davon 1 gAsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Einfluss, Geister vertreiben, Geister des Zorns
 &lt;b&gt;Erlernen:&lt;/b&gt; Smn 16; 20 EP</Talent>
   <Talent name="Tairachs Krieger" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Dämonisch, Geister rufen, Geister des Zorns" variableKosten="0" referenzseite="164" referenzbuch="0">Du erhebst eine Leiche als Untoten (mehr zu Beschwörungen siehe S. 81), der in zwei INI-Phasen einsatzfähig ist. Entspricht dem Skelettarius.
@@ -5560,7 +5562,12 @@ Geister vertreiben (Entspricht dem allgemeinen Zauber Geister austreiben (S. 127
   <Talent name="Tropfenschliff" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Erz, Kristallmagie, Kraft" variableKosten="0" referenzseite="169" referenzbuch="0">Der Zauber gleicht weitgehend dem Rundschliff, aber du kannst die spontane Modifikation Wirkungsdauer verlängern einmal ohne Erschwernis ausführen. Nicht mit anderen Schliffen kombinierbar.
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Erz, Kristallmagie, Kraft
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach 14; 40 EP</Talent>
-  <Talent name="Smaragdschliff" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Erz, Kristallmagie, Kraft" variableKosten="0" referenzseite="169" referenzbuch="0">Der Zauber gleicht weitgehend dem Rundschliff, aber du kannst die spontane Modifikation Kosten sparen einmal ohne Erschwernis ausführen. Du musst die Modifikation auch ohne den Schliff beherrschen. Nicht mit anderen Schliffen kombinierbar.
+  <Talent name="Smaragdschliff" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Erz, Kristallmagie, Kraft" variableKosten="0" referenzseite="169" referenzbuch="0">Du versiehst einen gebundenen Kristall mit einem Smaragdschliff. Wann immer du mit Hilfe dieses Kristalls einen Zauber wirkst, kannst du die spontane Modifikation Kosten sparen einmal ohne Erschwernis ausführen. Du musst die Modifikation auch ohne den Schliff beherrschen. Nicht mit anderen Schliffen kombinierbar.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
+&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Stunden
+&lt;b&gt;Ziel:&lt;/b&gt; gebundener Kristall
+&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
+&lt;b&gt;Wirkungsdauer:&lt;/b&gt; bis die Bindung gelöst wird
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP, davon 4 gAsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Erz, Kristallmagie, Kraft
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach 18; 40 EP</Talent>
@@ -5610,7 +5617,7 @@ Geister vertreiben (Entspricht dem allgemeinen Zauber Geister austreiben (S. 127
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; gebundener Kristall
- Reichweite: Berührung
+&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Hellsicht, Kristallmagie
@@ -6753,7 +6760,8 @@ Anmerkungen: Nur herausragende Geweihte können sich in Tiere verwandeln, die ni
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Ehre, Gutes Gold, Ordnung, Rausch, Vergessen
 &lt;b&gt;Erlernen:&lt;/b&gt; Pra 8; Brn, Ron 12; Kor, Rah 14; 60 EP</Talent>
   <Talent name="Innere Ruhe" spezialTyp="1" kosten="40" voraussetzungen="Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der Praiosgeweihten I" verbilligt="0" fertigkeiten="Ordnung, Vergessen" variableKosten="0" referenzseite="181" referenzbuch="0">Du besinnst dich auf deine innere Kraft. Proben auf Selbstbeherrschung sind um +4 erleichtert.
-&lt;b&gt;Mächtige Liturgie:&lt;/b&gt; Der Bonus steigt um +2. Probenschwierigkeit: 12
+&lt;b&gt;Mächtige Liturgie:&lt;/b&gt; Der Bonus steigt um +2.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; selbst
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
