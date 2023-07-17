@@ -76,6 +76,10 @@ def qt_message_handler(mode, context, message):
     if mode == QtCore.QtMsgType.QtInfoMsg:
         logging.info(message)
     elif mode == QtCore.QtMsgType.QtWarningMsg:
+        if "qtwebengine_locales" in message:
+            # we can ignore this warning, we deleted the locales on purpose to save space
+            return
+
         logging.warning(message)
         breakIfDebuggerAttached()
     elif mode == QtCore.QtMsgType.QtCriticalMsg:

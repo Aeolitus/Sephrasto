@@ -48,7 +48,7 @@ class Migrationen():
 
         updates = []
         while hausregelnVersion < Migrationen.datenbankCodeVersion:
-            logging.warning("Migriere Hausregeln von Version " + str(hausregelnVersion ) + " zu " + str(hausregelnVersion + 1))
+            logging.warning(f"Migriere Hausregeln {os.path.basename(xmlRoot.base) if xmlRoot.base else '?'} von Version {hausregelnVersion} zu {hausregelnVersion + 1}")
             hausregelnVersion +=1
             update = migrationen[hausregelnVersion](xmlRoot)
             if update:
@@ -87,7 +87,7 @@ class Migrationen():
 
         updates = []
         while charakterVersion < Migrationen.charakterCodeVersion:
-            logging.warning("Migriere Charakter von Version " + str(charakterVersion) + " zu " + str(charakterVersion + 1))
+            logging.warning(f"Migriere Charakter {os.path.basename(xmlRoot.base) if xmlRoot.base else '?'} von Version {charakterVersion} zu {charakterVersion + 1}")
             charakterVersion +=1
             update = migrationen[charakterVersion](xmlRoot)
             if update:
