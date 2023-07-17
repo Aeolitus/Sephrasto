@@ -138,9 +138,17 @@ class Fertigkeit:
         return höchste
 
     def steigerungskosten(self, numSteigerungen = 1):
-        if numSteigerungen < 1 or self.wert == self.maxWert:
+        if numSteigerungen == 0 or (numSteigerungen > 0 and self.wert == self.maxWert):
            return 0
-        numSteigerungen = min(numSteigerungen, self.maxWert - self.wert)
+
+        startWert = self.wert
+        multiplier = 1
+        if numSteigerungen < 0:
+            startWert = max(self.wert + numSteigerungen, 0)
+            numSteigerungen = self.wert - startWert
+            multiplier = -1
+
+        numSteigerungen = min(numSteigerungen, self.maxWert - startWert)
         sf = self.steigerungsfaktor
 
         sf4AbWert = None
@@ -149,13 +157,14 @@ class Fertigkeit:
             sf4AbWert = höchste.wert + 1
 
         kosten = 0
-        nextWert = self.wert +1
+        nextWert = startWert + 1
         for i in range(numSteigerungen):
             if (sf4AbWert is not None) and nextWert >= sf4AbWert:
                 sf = 4
             kosten += nextWert * sf
             nextWert += 1
-        return EventBus.applyFilter("fertigkeit_kosten", kosten, { "charakter" : self.charakter, "name" : self.name, "wertVon" : self.wert, "wertAuf" : self.wert+numSteigerungen })
+        kosten *= multiplier
+        return EventBus.applyFilter("fertigkeit_kosten", kosten, { "charakter" : self.charakter, "name" : self.name, "wertVon" : startWert, "wertAuf" : startWert + numSteigerungen })
 
     def typname(self, db):
         return self.definition.typname(db)

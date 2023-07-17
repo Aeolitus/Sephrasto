@@ -69,14 +69,22 @@ class Energie:
         return self.basiswert + self.wert + self.mod
 
     def steigerungskosten(self, numSteigerungen = 1):
-        if numSteigerungen < 1:
+        if numSteigerungen == 0:
            return 0
+        startWert = self.wert
+        multiplier = 1
+        if numSteigerungen < 0:
+            startWert = max(self.wert + numSteigerungen, 0)
+            numSteigerungen = self.wert - startWert
+            multiplier = -1
+
         kosten = 0
-        nextWert = self.wert +1
+        nextWert = startWert +1
         for i in range(numSteigerungen):
             kosten += nextWert * self.steigerungsfaktor
             nextWert += 1
-        return EventBus.applyFilter("energie_kosten", kosten, { "charakter" : self.charakter, "energie" : self.name, "wertVon" : self.wert, "wertAuf" : self.wert + numSteigerungen })
+        kosten *= multiplier
+        return EventBus.applyFilter("energie_kosten", kosten, { "charakter" : self.charakter, "energie" : self.name, "wertVon" : startWert, "wertAuf" : startWert + numSteigerungen })
 
     def kosten(self):
         kosten = sum(range(self.wert+1)) * self.steigerungsfaktor
