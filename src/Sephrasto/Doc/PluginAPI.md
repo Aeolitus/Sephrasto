@@ -72,6 +72,8 @@ Zweck: Elemente der Basisdatenbank anpassen/hinzufügen/löschen, bevor die Haus
 Zweck: Aktion durchführen, nachdem die Datenbank inkl. Hausregeldatenbank komplett geladen wurde. Eine Referenz auf das Datenbank-Objekt erhalten.
 - "regelanhang_anfuegen" (Parameter: { "reihenfolge" : string, "appendCallback" : Python-Funktion })<br />
 Zweck: Dem Regelanhang weiteren Text hinzufügen. Dies geschieht über den Parameter "appendCallback", einer Pythonfunktion die den Kategorienamen und den Text als Funktionsparameter hat. Der Kategoriename kann auch auf einen leeren string gesetzt werden. Die Action wird mehrmals aufgerufen, der "reihenfolge" Parameter sollte genutzt werden, um den Text an der richtigen Stelle einzufügen. Er entspricht einem Eintrag in der Datenbank-Einstellung "Regelanhang: Reihenfolge".
+- "dbe_menuitems_erstellen" (Parameter: { "addMenuItemCB" : Python-Funktion })<br />
+Zweck: Dem Datenbankeditor-Menu Einträge hinzufügen. Rufe dazu den addMenuItemCB auf. Er benötigt zwei Parameter: Der erste ist der Name des Menus, der zweite eine QAction.
 <br />
 ## Actions, die Sephrasto abonniert
 - "charaktereditor_reload" (Parameter: { "name" : string })<br />
@@ -96,7 +98,7 @@ Zweck: Datenbank-Datei auslesen, nachdem Sephrasto sie gelesen hat. Der "basisda
 Zweck: Der Datenbankdatei Daten hinzufügen oder Daten modifizieren, bevor Sephrasto die Datei schreibt.
 - "datenbank_verify", (Filter: loadingErrors : array, Parameter: { "datenbank" : Datenbank, "isCharakterEditor" : bool }) <br />
 Zweck: Eigene Datentypen verifizieren und bei Fehlern dem loadingErrors array hinzufügen, damit diese in der Fehlerliste des Datenbankeditors erscheinen.
-- "datenbank_editor_typen" (Filter: databaseTypes : dict of DatenbankEdit.DatenbankTypWrapper)<br />
+- "datenbank_editor_typen" (Filter: databaseTypes : dict of { Class : DatenbankEdit.DatenbankTypWrapper } )<br />
 Zweck: Dem Datenbankeditor weitere Datentypen hinzufügen. Zusätzlich muss via datenbank_geladen in datenbank.tablesByType die Datenbankelement-Tabelle eingetragenwerden.
 - "set_charakterbogen" (Filter: filePath : string)<br />
 Zweck: Den vom Nutzer gewählten Charakterbogen modifizieren, z.B. den Pfad der Datei anpassen um einen Charakterbogen aus dem Plugin zu verwenden. Achtung: Im Ordner des Charakterbogens muss sich eine gleichnamige Datei mit der Endung ".ini" befinden. Siehe Sephrasto/Data/Charakterbögen/Standard Charakterbogen.ini als Beispiel für deren Inhalt.
@@ -223,8 +225,8 @@ class MeinTabWrapper(QtCore.QObject):
 	    pass
 ```
 
-## Hauptfenster, Charaktereditor oder Datenbankeditor Button hinzufügen
-Implementiere in deiner Plugin-Klasse eine Funktion mit dem Namen `createMainWindowButtons`, `createCharakterButtons` oder `createDatabaseButtons` und returne eine Liste von (Button) Widgets. Im `clicked` Event der widgets kannst du einen Handler registrieren, der dann beispielsweise ein neues Fenster zeigt.
+## Hauptfenster oder Charaktereditor Button hinzufügen
+Implementiere in deiner Plugin-Klasse eine Funktion mit dem Namen `createMainWindowButtons` oder `createCharakterButtons` und returne eine Liste von (Button) Widgets. Im `clicked` Event der widgets kannst du einen Handler registrieren, der dann beispielsweise ein neues Fenster zeigt.
 <br />
 ```python
 from PySide6 import QtWidgets, QtCore, QtGui
@@ -238,8 +240,8 @@ class Plugin:
 
     def createMainWindowButtons(self):
         self.meinFensterButton = QtWidgets.QPushButton()
-        self.meinFensterButton.setObjectName("buttonPlugin")
-        self.meinFensterButton.setText("Mein Fenster")
+        self.meinFensterButton.setProperty("class", "icon")
+        self.meinFensterButton.setText("\uf6f0") #font awesome icon
         self.meinFensterButton.clicked.connect(self.createMeinFenster)
         return [self.meinFensterButton]
         
@@ -255,9 +257,48 @@ class MeinFensterWrapper(QtCore.QObject):
     def __init__(self):
         super().__init__()
         self.form = QtWidgets.QWidget()
-        self.ui = MeinFenster.Ui_Form()
+        self.ui = MeinFenster.Ui_Form() # mit qt creator erstellte form
         self.ui.setupUi(self.form)
 ```
+
+## Datenbankeditor Menueintrag hinzufügen
+Für in deiner Plugin-Klasse einen handler für die Action `dbe_menuitems_erstellen` hinzu und hole den addMenuItemCB aus den parametern. Mit diesem Callback kannst du QActions in ein beliebiges Menu des Datenbankeditors einfügen.
+<br />
+```python
+from PySide6 import QtGui
+from EventBus import EventBus
+class Plugin:
+    def __init__(self):
+        EventBus.addAction("dbe_menuitems_erstellen", self.menusErstellen)
+
+    def menusErstellen(self, params):
+        addMenuItemCB = params["addMenuItemCB"]
+        self.exportDB = QtGui.QAction("Mein Export")
+        self.exportDB.triggered.connect(self.export)
+        addMenuItemCB("Export", self.export)
+        
+    def export(self):
+        [...]
+```
+
+## Dem Plugin in den Sephrasto-Einstellungen einen eigenen Einstellungsdialog hinzufügen
+Füge die Funktion showSettings ein und zeige ein beliebiges Fenster oder nutze Sephrastos SimpleSettingsDialog. Dieser kümmert sich automatisch um das Darstellen, Laden und Speichern der Einstellungen in der Sephrasto.ini über die `addSetting` Funktion.
+<br />
+```python
+from PySide6 import QtWidgets
+from QtUtils.SimpleSettingsDialog import SimpleSettingsDialog
+class Plugin:
+    def showSettings(self):
+        dlg = SimpleSettingsDialog("Mein Plugin Einstellungen")
+        dlg.addSetting("MeinPlugin_Checkbox", "Checkboxoption", QtWidgets.QCheckBox())
+        dlg.addSetting("MeinPlugin_Spinbox", "Spinboxoption", QtWidgets.QSpinBox())
+        dlg.addSetting("MeinPlugin_Text", "Textoption", QtWidgets.QLineEdit())
+        combobox = QtWidgets.QComboBox()
+        combobox.addItems(["OptionA", "Option B", "Option C"])
+        dlg.addSetting("MeinPlugin_Combobox", "Comboboxoption", combobox)
+        dlg.show()
+```
+
 ## Existierende UI anpassen
 Implementiere einen der "class_xx_wrapper" Filter, die UI-Wrapper-Klasse wird als Parameter gereicht. Du kannst diesen Parameter im Handler beerben und diese oder eine ganz neue Klasse returnen. Im folgenden Beispiel wird bei den freien Fertigkeiten die dritte Stufe entfernt.
 <br />
