@@ -72,6 +72,7 @@
     <Compile Include="QtUtils\RichTextButton.py" />
     <Compile Include="QtUtils\Section.py" />
     <Compile Include="QtUtils\SimpleSettingsDialog.py" />
+    <Compile Include="QtUtils\WebEngineViewPlus.py" />
     <Compile Include="UI\CharakterAttribute.py" />
     <Compile Include="CharakterAttributeWrapper.py" />
     <Compile Include="UI\CharakterBeschreibung.py" />

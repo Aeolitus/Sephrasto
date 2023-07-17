@@ -17,7 +17,8 @@ from re import match
 from tempfile import NamedTemporaryFile
 import subprocess
 import logging
-from PySide6 import QtCore, QtWebEngineCore, QtWidgets
+from PySide6 import QtCore, QtWidgets
+from QtUtils.WebEngineViewPlus import WebEngineViewPlus
 from contextlib import contextmanager
 import base64
 
@@ -385,7 +386,7 @@ def convertJpgToPdf(imageBytes, imageTargetSize, imageOffset, pageLayout, backgr
     </div>"
     return convertHtmlToPdf(html, "", pageLayout, 0, backgroundColor, out_file)
 
-def convertHtmlToPdf(html, htmlBaseUrl, pageLayout, pageloadDelayMs = 0, backgroundColor = QtCore.Qt.transparent, out_file = None, webEnginePage = None):
+def convertHtmlToPdf(html, htmlBaseUrl, pageLayout, pageloadDelayMs = 0, backgroundColor = QtCore.Qt.transparent, out_file = None, webEngineView = None):
     if isinstance(htmlBaseUrl, str):
         htmlBaseUrl = QtCore.QUrl.fromLocalFile(QtCore.QFileInfo(htmlBaseUrl).absoluteFilePath())
 
@@ -395,19 +396,24 @@ def convertHtmlToPdf(html, htmlBaseUrl, pageLayout, pageloadDelayMs = 0, backgro
         os.remove(out_file) # just using it to get a path
         out_file += ".pdf"
 
-    if webEnginePage is None:
-         webEnginePage = QtWebEngineCore.QWebEnginePage()
+    # deliberatly not using WebEnginePage, seems to have problems with QWebChannel
+    if webEngineView is None:
+         webEngineView = WebEngineViewPlus()
 
-    webEnginePage.setBackgroundColor(backgroundColor)
-    with waitForSignal(webEnginePage.loadFinished):
-        webEnginePage.setHtml(html, htmlBaseUrl)
+    webEngineView.page().setBackgroundColor(backgroundColor)
+
+    if not hasattr(webEngineView, "htmlLoaded"): #WebEngineViewPlus
+        raise Exception("Please use WebEngineViewPlus and implement the webchannel in your html file as documented in WebEngineViewPlus.")
+
+    with waitForSignal(webEngineView.htmlLoaded):
+        webEngineView.setHtml(html, htmlBaseUrl)
 
     if pageloadDelayMs > 0:
         timer = QtCore.QTimer()
         with waitForSignal(timer.timeout):
             timer.start(pageloadDelayMs)
 
-    with waitForSignal(webEnginePage.pdfPrintingFinished):
-        webEnginePage.printToPdf(out_file, pageLayout)
+    with waitForSignal(webEngineView.pdfPrintingFinished):
+        webEngineView.printToPdf(out_file, pageLayout)
 
     return out_file

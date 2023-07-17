@@ -4,11 +4,19 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="hyphen/hyphen.js"></script>
         <script src="hyphen/de-1996.js"></script>
+        <script type="text/javascript" src="qrc:///qtwebchannel/qwebchannel.js"></script>
         <script>
         window.onload = function(){
             layout = document.getElementById('layout');
             var hyphenateHTMLSync = createHyphenator(hyphenationPatternsDe1996, { html: true });
-            layout.innerHTML = hyphenateHTMLSync(layout.innerHTML) ;    
+            layout.innerHTML = hyphenateHTMLSync(layout.innerHTML);
+            //Done, callback to Sephrasto
+            new QWebChannel(qt.webChannelTransport,
+                function (channel) {
+                    Bridge = channel.objects.Bridge;
+                    Bridge.htmlLoaded();
+                }
+            );
         }
         </script>
         <style>
