@@ -41,7 +41,7 @@ class Waffenwerte():
 class CharMinimal:
     def __init__(self, filename):
         root = etree.parse(filename).getroot()
-        Migrationen.charakterMigrieren(root, True)
+        Migrationen.charakterMigrieren(root)
         self.hausregeln = root.find("Version").find("Hausregeln").text or "Keine"
         self.name = os.path.splitext(os.path.basename(filename))[0]
         name = alg = root.find('Beschreibung').find('Name').text
@@ -888,7 +888,7 @@ class Char():
     @staticmethod
     def xmlHausregelnLesen(filename):
         root = etree.parse(filename).getroot()
-        Migrationen.charakterMigrieren(root, True)
+        Migrationen.charakterMigrieren(root)
         return root.find('Version').find('Hausregeln').text or "Keine"
 
     def xmlLesen(self, filename):
@@ -904,7 +904,7 @@ class Char():
             messageBox.setIcon(QtWidgets.QMessageBox.Information)
             messageBox.setWindowTitle("Charakter laden - Datenbank wurde aktualisiert.")
             messageBox.setText("Seit du diesen Charakter das letzte mal bearbeitet hast wurde die offizielle Sephrasto-Datenbank aktualisiert. " \
-                              "Dein Charakter ist jetzt auf dem neuesten Stand. " \
+                              "Dein Charakter ist jetzt auf dem neuesten Stand. Die Änderungen werden erst final übernommen, wenn du speicherst. " \
                               "Ausnahmen: Waffen werden nicht automatisch angepasst und behalten ihren (eventuell alten) Stand, ebenso alles was in Hausregeln geändert wurde.")
             messageBox.setInformativeText("Weitere Informationen:\n" + "\n".join(updates))
             messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)

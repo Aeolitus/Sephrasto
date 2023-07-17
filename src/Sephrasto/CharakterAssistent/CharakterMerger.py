@@ -319,7 +319,7 @@ class CharakterMerger:
     def xmlLesen(db, path, spezies, kultur):
         char = Wolke.Char
         root = etree.parse(path).getroot()
-        Migrationen.charakterMigrieren(root, True)
+        Migrationen.charakterMigrieren(root)
 
         alg = root.find('Beschreibung')
 

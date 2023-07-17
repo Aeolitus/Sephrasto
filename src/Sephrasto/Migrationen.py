@@ -31,33 +31,7 @@ class Migrationen():
     datenbankCodeVersion = 7
     charakterCodeVersion = 5
 
-    dialogKeys = {}
-    headless = False
-
-    def __reset():
-        Migrationen.dialogKeys = {}
-
-    def continueDialog(key, title, message):
-        if Migrationen.headless:
-            return True
-        if key in Migrationen.dialogKeys:
-            return Migrationen.dialogKeys[key]
-
-        messageBox = QtWidgets.QMessageBox()
-        messageBox.setIcon(QtWidgets.QMessageBox.Warning)
-        messageBox.setWindowTitle(title)
-        messageBox.setText(message)
-        messageBox.setInformativeText("Falls du mit Ja antwortest: Bitte überprüfe danach alle betroffenen, von dir geänderten Elemente, bevor du abspeicherst.")
-        messageBox.addButton("Ja", QtWidgets.QMessageBox.YesRole)
-        messageBox.addButton("Nein", QtWidgets.QMessageBox.RejectRole)
-        messageBox.setEscapeButton(QtWidgets.QMessageBox.No)  
-        Migrationen.dialogKeys[key] = messageBox.exec() == 0
-        return Migrationen.dialogKeys[key]
-
-    def hausregelnMigrieren(xmlRoot, hausregelnVersion, headless):
-        Migrationen.__reset()
-        Migrationen.headless = headless
-
+    def hausregelnMigrieren(xmlRoot, hausregelnVersion):
         migrationen = [
             lambda xmlRoot: None, #nichts zu tun, initiale db version
             Migrationen.hausregeln0zu1,    
@@ -72,16 +46,16 @@ class Migrationen():
         if not migrationen[Migrationen.datenbankCodeVersion]:
             raise Exception("Migrations-Code vergessen.")
 
-        dbChanged = hausregelnVersion < Migrationen.datenbankCodeVersion
+        updates = []
         while hausregelnVersion < Migrationen.datenbankCodeVersion:
             logging.warning("Migriere Hausregeln von Version " + str(hausregelnVersion ) + " zu " + str(hausregelnVersion + 1))
             hausregelnVersion +=1
-            migrationen[hausregelnVersion](xmlRoot)
+            update = migrationen[hausregelnVersion](xmlRoot)
+            if update:
+                updates.append(update)
+        return updates
 
-    def charakterMigrieren(xmlRoot, headless = False):
-        Migrationen.__reset()
-        Migrationen.headless = headless
-
+    def charakterMigrieren(xmlRoot):
         # Die Versionsdaten müssen immer migriert werden.
         versionXml = xmlRoot.find('Version')
         if versionXml is None:
@@ -148,10 +122,11 @@ class Migrationen():
             wa.attrib.pop('kraf')
             wa.attrib.pop('schn')
             wa.set('kampfstile', ", ".join(kampfstile))
+        return None
 
     def hausregeln1zu2(root):
         # removed this migration, it accessed the database for a convenience conversion - bad idea
-        pass
+        return None
 
     def hausregeln2zu3(root):
         def fixTalentVoraussetzungen(type):
@@ -168,6 +143,7 @@ class Migrationen():
         fixTalentVoraussetzungen('FreieFertigkeit')
         fixTalentVoraussetzungen('Fertigkeit')
         fixTalentVoraussetzungen('Übernatürliche-Fertigkeit')
+        return None
 
     def hausregeln3zu4(root):
         stripped = ["Krähenruf ", "Ruhe Körper, Ruhe Geist ", "Auge des Limbus ", "Aerofugo Vakuum ", "Schutz des Dolches ", "Lied der Lieder ",
@@ -210,6 +186,7 @@ class Migrationen():
             node.attrib.pop('W6')
             if not 'wm' in node.attrib:
                 node.set('wm', '0')
+        return None
 
     def hausregeln4zu5(root):
         remove = []
@@ -222,6 +199,7 @@ class Migrationen():
                     node.text = ""
         for r in remove:
             root.remove(node)
+        return None
 
     def hausregeln5zu6(root):
         for node in root.findall('Manöver'):
@@ -274,6 +252,9 @@ class Migrationen():
                 "Talent:", "Talente:", "Unterstützung:"]
             italicPattern = re.compile("(?<!<i>)(" + "|".join(italic) + ")(?!</i>)")
             node.text = italicPattern.sub(lambda m: "<i>" + m.group(0) + "</i>", node.text)
+
+        return "- Das Feld Gegenprobe wurde bei Regeln entfernt und der vorige Inhalt am Anfang der Beschreibung eingefügt.\n"\
+               "- Bei Talenten und Regeln wurden HTML-Tags in die Beschreibung eingefügt."
 
     def hausregeln6zu7(root):
         # Use actual type names in remove tags instead of display names
@@ -407,27 +388,22 @@ class Migrationen():
                 node.attrib["script"] = node.attrib["script"].replace("modifyKaPBasis", "modifyGuPBasis")
 
             if name.startswith("Tiergeist ("):
-                if Migrationen.continueDialog("7: Tiergeister", "Hausregelmigration: Tiergeister", "Die Voraussetzungen unterstützen nun Wildcards, sodass Tiergeister deutlich einfacher erstellt werden können. \
-Sollen die Vorausstzungen der von dir geänderten Tiergeist (*)-Vorteile automatisch angepasst werden?"):
-                    node.attrib["voraussetzungen"] = "Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)"
+                node.attrib["voraussetzungen"] = "Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)"
 
             if name.startswith("Tradition der ") and name.endswith("geweihten I"):
-                if Migrationen.continueDialog("7: Geweihtentraditionen", "Hausregelmigration: Geweihtentraditionen", "Die Voraussetzungen unterstützen nun Wildcards, sodass Geweihtentraditionen deutlich einfacher erstellt werden können. \
-Sollen die Vorausstzungen der von dir geänderten 'Tradition der *geweihten I'-Vorteile automatisch angepasst werden?"):
-                    split = node.attrib["voraussetzungen"].split(",")
-                    attribut = None
-                    for v in split:
-                        if v.startswith("Attribut"):
-                            attribut = v + ", "
-                    node.attrib["voraussetzungen"] = (attribut if attribut else "") + "Vorteil Geweiht I, Kein Vorteil Tradition der *geweihten I"
+                split = node.attrib["voraussetzungen"].split(",")
+                attribut = None
+                for v in split:
+                    if v.startswith("Attribut"):
+                        attribut = v + ", "
+                node.attrib["voraussetzungen"] = (attribut if attribut else "") + "Vorteil Geweiht I, Kein Vorteil Tradition der *geweihten I"
 
             if name == "Scharfsinnig I" and "linkElement" not in node.attrib:
                 node.attrib["linkKategorie"] = "1"
                 node.attrib["linkElement"] = "Informationen suchen"
 
             if name in querverweise:
-                if Migrationen.continueDialog("7: Querverweise", "Hausregelmigration: Querverweise", "Vorteile können nun mit Querverweisen versehen werden. Sollen die Verweise der Standarddatenbank auf die von dir geänderten Vorteile übertragen werden?"):
-                    node.set("querverweise", querverweise[name])
+                node.set("querverweise", querverweise[name])
 
         for elementType in ["Vorteil", "Waffeneigenschaft"]:
             for node in root.findall(elementType):
@@ -538,12 +514,25 @@ Sollen die Vorausstzungen der von dir geänderten 'Tradition der *geweihten I'-V
                  "Lockruf (Wesen)" : "Trage die gewählten Wesen in das Kommentarfeld ein. Wenn du mehrere Wesen wählst, dann erhöhe die EP-Kosten entsprechend.", "Tiergestalt" : "Trage das entsprechende Tier in das Kommentarfeld ein.", "Krakenhaut" : "Trage das entsprechende Tier in das Kommentarfeld ein."}
 
         for el in root.findall('Vorteil') + root.findall('Talent'):
-            if Migrationen.continueDialog("8: Infotexte",
-                                          "Hausregelmigration: Infotexte",
-                                          "Einige Vorteile und Talente haben eine neues Feld für Infotexte erhalten, sollen diese automatisch befüllt werden? "\
-                                          "Vermutlich ist der Text bereits in der normalen Beschreibung vorhanden, dort musst du ihn dann händisch löschen."):
-                if el.get('name') in infos:
-                    el.set("info", infos[el.get('name')])
+            if el.get('name') in infos:
+                el.set("info", infos[el.get('name')])
+            if el.text is not None:
+                text = el.text.split("\n")
+                if text[-1].startswith("Sephrasto:"):
+                    el.text = "\n".join(text[:-1]).strip()
+                    el.set("info", text[-1][len("Sephrasto:"):].strip())
+
+        # Fill the new bedingungen field
+        for el in root.findall('Vorteil'):
+            if el.text is None:
+                continue
+            if not el.text.startswith("Bedingungen:"):
+                continue
+            text = el.text.split("\n")
+            if len(text) == 1:
+                text.append("")
+            el.text = "\n".join(text[1:]).strip()
+            el.set("bedingungen",  text[0][len("Bedingungen:"):].strip())
 
         # With the talent change the "Regelanhang: Reihenfolge" setting also changed to index the talent type
         for node in root.findall('Einstellung'):
@@ -552,6 +541,13 @@ Sollen die Vorausstzungen der von dir geänderten 'Tradition der *geweihten I'-V
                     node.text = node.text.replace("Z", "S:0")
                     node.text = node.text.replace("L", "S:1")
                     node.text = node.text.replace("A", "S:2")
+
+        return "- Bei Vorteilen können nun Querverweise angegeben werden - bei geänderten RAW Elementen wurden diese automatisch übernommen. Bei selbst erstellten Vorteilen wurde nichts geändert.\n"\
+               "- Bei Vorteilen und Talenten können über das neue Infofeld nun Nutzungshinweise für den Charaktereditor angegeben werden. Diese wurden automatisch aus dem Text extrahiert und in das neue Feld eingefügt (in seltenen Fällen können sie zusätzlich noch wie zuvor im Text stehen).\n"\
+               "- Bei Vorteilen können über das neue Bedingungen-Feld Bedingungen für die Nutzbarkeit festgelegt werden, z. B. bei Kampfstilen. Diese wurden automatisch aus dem Text extrahiert und in das neue Feld eingefügt.\n"\
+               "- Die Vorteile Tiergeist (Wolf/Khoramsbestie), Tiergeist (Wildkatze/Panther) und Vorteil Tiergeist (Fuchs/Mungo) wurden in individuelle Vorteile aufgeteilt und entsprechende Vorteils-Voraussetzungen überall angepasst.\n"\
+               "- Die Voraussetzungen von allen Tiergeistern und Geweihtentraditionen wurden vereinfacht durch die neuen Wildcards.\n"\
+               "- Bei Spezialtalenten muss nun angegeben werden, ob es sich um Zauber, Liturgien etc. handelt. Dies wurde für alle Spezialtalente automatisch ermittelt."
 
     #--------------------------------
     # Charakter Migrationsfunktionen

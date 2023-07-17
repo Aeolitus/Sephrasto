@@ -387,7 +387,18 @@ class Datenbank():
                 hausregelnVersion = int(versionXml.text)
 
             logging.debug("Start Hausregeln Migration")
-            Migrationen.hausregelnMigrieren(root, hausregelnVersion, headless = isCharakterEditor)
+            updates = Migrationen.hausregelnMigrieren(root, hausregelnVersion)
+            if not isCharakterEditor and len(updates) > 0:
+                messageBox = QtWidgets.QMessageBox()
+                messageBox.setIcon(QtWidgets.QMessageBox.Information)
+                messageBox.setWindowTitle("Hausregeln wurden aktualisiert.")
+                messageBox.setText("Seit du diese Hausregeln das letzte mal bearbeitet hast, wurde das Datenbank-Schema aktualisiert. " \
+                                  "Deine Hausregeln sind jetzt auf dem neuesten Stand. Die Änderungen werden erst final übernommen, wenn du speicherst.")
+                messageBox.setInformativeText("Weitere Informationen:\n" + "\n".join(updates))
+                messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+                messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
+                messageBox.exec()
+
 
             loadAdditive = conflictCB is not None
             if root.find('Plugins') is not None and root.find('Plugins').text:         
