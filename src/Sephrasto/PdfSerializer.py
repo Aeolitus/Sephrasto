@@ -365,6 +365,27 @@ def addBookmarks(file, bookmarks, out_file = None):
         os.remove(bookmarksFile)
     return out_file
 
+def __htmlForBody(htmlBody):
+    return f"""<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="qrc:///qtwebchannel/qwebchannel.js"></script>
+        <script>
+        window.onload = function(){{
+            new QWebChannel(qt.webChannelTransport,
+                function (channel) {{
+                    Bridge = channel.objects.Bridge;
+                    Bridge.htmlLoaded();
+                }}
+            );
+        }}
+        </script>
+    </head>
+    <body>
+        {htmlBody}
+    </body>
+</html>"""
+
 def createEmptyPage(pageLayout, backgroundColor = QtCore.Qt.transparent, out_file = None):
     if not out_file:
         handle, out_file = tempfile.mkstemp()
@@ -372,7 +393,7 @@ def createEmptyPage(pageLayout, backgroundColor = QtCore.Qt.transparent, out_fil
         os.remove(out_file) # just using it to get a path
         out_file += ".pdf"
     
-    return convertHtmlToPdf("", "", pageLayout, 0, backgroundColor, out_file)
+    return convertHtmlToPdf(__htmlForBody(""), "", pageLayout, 0, backgroundColor, out_file)
 
 def convertJpgToPdf(imageBytes, imageTargetSize, imageOffset, pageLayout, backgroundColor = QtCore.Qt.transparent, out_file = None):
     if not out_file:
@@ -384,7 +405,7 @@ def convertJpgToPdf(imageBytes, imageTargetSize, imageOffset, pageLayout, backgr
     html = f"<div style='background: white; margin-left: {imageOffset[0]}px; margin-top: {imageOffset[1]}px; width: {imageTargetSize[0]}px; height: {imageTargetSize[1]}px;'>\
     <img src='data:image/jpg;base64, {image}' style='width: 100%; height: 100%; object-fit: contain;'>\
     </div>"
-    return convertHtmlToPdf(html, "", pageLayout, 0, backgroundColor, out_file)
+    return convertHtmlToPdf(__htmlForBody(html), "", pageLayout, 0, backgroundColor, out_file)
 
 def convertHtmlToPdf(html, htmlBaseUrl, pageLayout, pageloadDelayMs = 0, backgroundColor = QtCore.Qt.transparent, out_file = None, webEngineView = None):
     if isinstance(htmlBaseUrl, str):
@@ -402,7 +423,7 @@ def convertHtmlToPdf(html, htmlBaseUrl, pageLayout, pageloadDelayMs = 0, backgro
 
     webEngineView.page().setBackgroundColor(backgroundColor)
 
-    if not hasattr(webEngineView, "htmlLoaded"): #WebEngineViewPlus
+    if not hasattr(webEngineView, "htmlLoaded") or not "qrc:///qtwebchannel/qwebchannel.js" in html: #WebEngineViewPlus
         raise Exception("Please use WebEngineViewPlus and implement the webchannel in your html file as documented in WebEngineViewPlus.")
 
     with waitForSignal(webEngineView.htmlLoaded):
