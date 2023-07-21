@@ -42,6 +42,8 @@ class DatenbankEditEinstellungWrapper(DatenbankElementEditorBase):
         einstellung.name = self.ui.labelName.text()
         einstellung.typ = self.elementPicked.typ
         einstellung.beschreibung = self.elementPicked.beschreibung
+        einstellung.separator = self.elementPicked.separator
+        einstellung.strip = self.elementPicked.strip
         if einstellung.typ == 'Int':
             einstellung.text = str(self.ui.spinText.value())
         elif einstellung.typ == 'Float':

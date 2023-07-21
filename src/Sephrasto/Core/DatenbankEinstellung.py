@@ -43,7 +43,7 @@ class DatenbankEinstellung(object):
             for el in textList:
                 if not el:
                     continue
-                tmp = el.split("=")
+                tmp = el.split("=", 1)
                 if self.strip:
                     self.wert[tmp[0].strip()] = tmp[1].strip()
                 else:
