@@ -237,10 +237,10 @@ Dein Reittier ignoriert die üblichen Erschwernisse für Nebenwaffen (S. 39) und
 
 Erlaubt das Manöver Überrennen mit dem Reittier.</Vorteil>
   <Vorteil name="Reiterkampf IV" kosten="80" voraussetzungen="MeisterAttribut GE 10 ODER MeisterAttribut KK 10, Vorteil Reiterkampf III" nachkauf="häufig" typ="3" variableKosten="0" kommentar="1" csBeschreibung="Waffenmeister: $kommentar$." linkKategorie="3" linkElement="Reiterkampf III" info="Für je einen Punkt kannst du die fixe Erschwernis eines Manöver um einen Punkt senken (bis maximal auf die Hälfte), für 4 Punkte die AT oder VT um einen Punkt erhöhen oder für bis zu 4 Punkte ein passendes, neues Manöver erfinden. Besondere Vorteile wie eine geringere Patzerchance, höhere Reichweite oder Schaden sind ebenfalls möglich. Solche Vorteile – wie der Waffenmeister ganz allgemein – und ihre Kosten sollten unbedingt mit der Gruppe und dem Spielleiter abgesprochen werden. Trage die Verbesserungen in das Kommentarfeld ein.">8 Punkte können zur Verbesserung des Kampfstils verwendet werden.</Vorteil>
-  <Vorteil name="Bändiger der Elemente" kosten="20" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut CH 4" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" linkKategorie="1" linkElement="Beschwörungen" querverweise="Regel:Beschwörungen|Regel:Beschwörungen - Elementare|Regel:Beschwörungen - Golems">Bei Elementaren sinkt die Erschwernis für schwierige und anmaßende Dienste (S. 81) um eine Stufe.</Vorteil>
-  <Vorteil name="Meister der Wünsche" kosten="40" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut CH 6" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" linkKategorie="1" linkElement="Beschwörungen" querverweise="Regel:Beschwörungen|Regel:Beschwörungen - Elementare|Regel:Beschwörungen - Golems">Nachdem ein gebundenes Elementar (S. 81) einen Dienst erfüllt hat, kannst du für die Hälfte der Basisbeschwörungskosten einen zusätzlichen Dienst erbitten.</Vorteil>
+  <Vorteil name="Bändiger der Elemente" kosten="20" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut CH 4" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" linkKategorie="1" linkElement="Beschwörungen" querverweise="Regel:Beschwörungen">Bei Elementaren sinkt die Erschwernis für schwierige und anmaßende Dienste (S. 81) um eine Stufe.</Vorteil>
+  <Vorteil name="Meister der Wünsche" kosten="40" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut CH 6" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" linkKategorie="1" linkElement="Beschwörungen" querverweise="Regel:Beschwörungen|Regel:Beschwörungen - Bindung">Nachdem ein gebundenes Elementar (S. 81) einen Dienst erfüllt hat, kannst du für die Hälfte der Basisbeschwörungskosten einen zusätzlichen Dienst erbitten.</Vorteil>
   <Vorteil name="Gefäß der Sterne" kosten="60" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut CH 8" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" script="modifyAsPMod(getCH() + 4)" csBeschreibung="Deine maximale Astralenergie steigt um 4 + CH Punkte (bereits eingerechnet). Solltest du nach dem Erwerb dieses Vorteils dein CH erhöhen, erhöht das auch deine Astralenergie.">Deine maximale Astralenergie steigt um 4 + CH Punkte. Solltest du nach dem Erwerb dieses Vorteils dein CH erhöhen, erhöht das auch deine Astralenergie.</Vorteil>
-  <Vorteil name="Gebieter der Urgewalten" kosten="80" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut CH 10" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" linkKategorie="1" linkElement="Beschwörungen" querverweise="Regel:Beschwörungen|Regel:Beschwörungen - Bindung|Regel:Beschwörungen - Elementare|Regel:Beschwörungen - Golems">Gebundene Elementare kosten nur noch die halben gAsP und eine misslungene Beherrschungsprobe kann einmalig für die Hälfte der Beschwörungskosten wiederholt werden.</Vorteil>
+  <Vorteil name="Gebieter der Urgewalten" kosten="80" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut CH 10" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" linkKategorie="1" linkElement="Beschwörungen" querverweise="Regel:Beschwörungen|Regel:Beschwörungen - Bindung">Gebundene Elementare kosten nur noch die halben gAsP und eine misslungene Beherrschungsprobe kann einmalig für die Hälfte der Beschwörungskosten wiederholt werden.</Vorteil>
   <Vorteil name="Reaktivierung" kosten="20" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut FF 4" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" csBeschreibung="Du kannst wieder aufladbare Artefakte erschaffen und reaktivieren. Das Aufladen erfordert eine Arcanovi-Probe (16). Diese kostet so viele AsP, wie die Basiskosten der wirkenden Sprüche betragen." linkKategorie="1" linkElement="Artefaktherstellung" querverweise="Regel:Artefaktherstellung">Du kannst wieder aufladbare Artefakte erschaffen und reaktivieren (S. 78).</Vorteil>
   <Vorteil name="Matrixverständnis" kosten="40" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut FF 6" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" linkKategorie="1" linkElement="Artefaktherstellung" querverweise="Regel:Artefaktherstellung">Der erste wirkende Zauber, der bei der Artefakterschaffung misslingt, darf einmal wiederholt werden.
 
@@ -251,10 +251,10 @@ Bei Strukturanalysen (S. 80) erhältst du einen zusätzlichen Analysegrad, wenn 
   <Vorteil name="Verbotene Pforten" kosten="40" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut KO 6" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" querverweise="Vorteil:Tradition der Borbaradianer I|Abgeleiteter Wert:WS">Mit diesem Vorteil kannst du deine Zauber mit deiner Lebenskraft speisen. Wenn du nicht über ausreichend AsP für einen Zauber verfügst, kannst du dir selbst Wunden zufügen. Jede dieser Wunden stellt WS+4 AsP für deinen Zauber zur Verfügung, überschüssige AsP verfallen. Verwendest du zudem die Tradition der Borbaradianer, kannst du sogar WS+8 AsP pro Wunde nutzen. Die eigene Lebenskraft kann jedoch niemals genutzt werden, um sich selbst zu heilen. Die Verbotenen Pforten können übrigens keine gAsP zur Verfügung stellen – gAsP müssen immer vom Zaubernden selbst stammen.</Vorteil>
   <Vorteil name="Verbesserte astrale Regeneration" kosten="60" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut KO 8" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" csBeschreibung="Du regenerierst 2 zusätzliche AsP pro Nacht." linkKategorie="3" linkElement="Astrale Regeneration" querverweise="Regel:Regeneration">Du regenerierst 2 weitere, zusätzliche AsP pro Nacht.</Vorteil>
   <Vorteil name="Meisterliche astrale Regeneration" kosten="80" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut KO 10" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" csBeschreibung="Du regenerierst 3 zusätzliche AsP pro Nacht." linkKategorie="3" linkElement="Verbesserte astrale Regeneration" querverweise="Regel:Regeneration">Du regenerierst 3 weitere, zusätzliche AsP pro Nacht.</Vorteil>
-  <Vorteil name="Bändiger der Kreaturen" kosten="20" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut MU 4" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" linkKategorie="1" linkElement="Beschwörungen - Zusätzliche Fähigkeiten" querverweise="Regel:Beschwörungen|Regel:Beschwörungen - Zusätzliche Fähigkeiten|Regel:Beschwörungen - Dämonen|Regel:Beschwörungen - Untote|Regel:Beschwörungen - Chimären|Regel:Beschwörungen - Golems">Du kannst von dir beschworenen unheiligen Wesenheiten (S. 81) zusätzliche Fähigkeiten im Wert von 4 Punkten verleihen.</Vorteil>
-  <Vorteil name="Meister der Seelenlosen" kosten="40" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut MU 6" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" linkKategorie="1" linkElement="Beschwörungen" querverweise="Regel:Beschwörungen|Regel:Beschwörungen - Bindung|Regel:Beschwörungen - Dämonen|Regel:Beschwörungen - Untote|Regel:Beschwörungen - Chimären|Regel:Beschwörungen - Golems">Wann immer ein gebundenes unheiliges Wesen (S. 81) seinen Dienst erfüllt hat, kannst du für die Hälfte der Basisbeschwörungskosten einen zusätzlichen Dienst erbitten.</Vorteil>
-  <Vorteil name="Blutmagie" kosten="60" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut MU 8" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" querverweise="Abgeleiteter Wert:WS|Regel:Beschwörungen - Dämonen|Regel:Beschwörungen - Elementare">Mit finsterer und streng verbotener Blutmagie nutzt du fremde Lebenskraft für deine Zauber. Das Opfer wird dabei völlig ausgezehrt und stirbt. Ein zauberkundiges Opfer stellt 8 x WS AsP, ein humanoides Opfer 4 x WS AsP und ein profanes Tier WS AsP zur Verfügung. Blutmagie erleichtert die Beschwörung von Dämonen um +4, aber erschwert die Kontrollprobe von Dämonen und Elementaren um -4. Blutmagie kann übrigens keine gAsP zur Verfügung stellen – gAsP müssen immer vom Zaubernden selbst stammen.</Vorteil>
-  <Vorteil name="Gebieter der Finsternis" kosten="80" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut MU 10" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" linkKategorie="1" linkElement="Beschwörungen" querverweise="Regel:Beschwörungen|Regel:Beschwörungen - Bindung|Regel:Beschwörungen - Dämonen|Regel:Beschwörungen - Untote|Regel:Beschwörungen - Chimären|Regel:Beschwörungen - Golems">Gebundene unheilige Wesenheiten kosten nur noch die halben gAsP und eine misslungene Beschwörungsprobe kann einmalig für die Hälfte der Beschwörungskosten wiederholt werden.</Vorteil>
+  <Vorteil name="Bändiger der Kreaturen" kosten="20" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut MU 4" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" linkKategorie="1" linkElement="Beschwörungen - Zusätzliche Fähigkeiten" querverweise="Regel:Beschwörungen|Regel:Beschwörungen - Zusätzliche Fähigkeiten">Du kannst von dir beschworenen unheiligen Wesenheiten (S. 81) zusätzliche Fähigkeiten im Wert von 4 Punkten verleihen.</Vorteil>
+  <Vorteil name="Meister der Seelenlosen" kosten="40" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut MU 6" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" linkKategorie="1" linkElement="Beschwörungen" querverweise="Regel:Beschwörungen|Regel:Beschwörungen - Bindung">Wann immer ein gebundenes unheiliges Wesen (S. 81) seinen Dienst erfüllt hat, kannst du für die Hälfte der Basisbeschwörungskosten einen zusätzlichen Dienst erbitten.</Vorteil>
+  <Vorteil name="Blutmagie" kosten="60" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut MU 8" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" querverweise="Abgeleiteter Wert:WS|Regel:Beschwörungen">Mit finsterer und streng verbotener Blutmagie nutzt du fremde Lebenskraft für deine Zauber. Das Opfer wird dabei völlig ausgezehrt und stirbt. Ein zauberkundiges Opfer stellt 8 x WS AsP, ein humanoides Opfer 4 x WS AsP und ein profanes Tier WS AsP zur Verfügung. Blutmagie erleichtert die Beschwörung von Dämonen um +4, aber erschwert die Kontrollprobe von Dämonen und Elementaren um -4. Blutmagie kann übrigens keine gAsP zur Verfügung stellen – gAsP müssen immer vom Zaubernden selbst stammen.</Vorteil>
+  <Vorteil name="Gebieter der Finsternis" kosten="80" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut MU 10" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" linkKategorie="1" linkElement="Beschwörungen" querverweise="Regel:Beschwörungen|Regel:Beschwörungen - Bindung">Gebundene unheilige Wesenheiten kosten nur noch die halben gAsP und eine misslungene Beschwörungsprobe kann einmalig für die Hälfte der Beschwörungskosten wiederholt werden.</Vorteil>
   <Vorteil name="Unitatio" kosten="20" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut IN 4" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" querverweise="Regel:Zusammenarbeit">Der Vorteil ermöglicht es dir, mit anderen Kennern dieses Vorteils einen Zauberzirkel zu bilden. Alle Teilnehmer des Zirkels müssen sich berühren und willens sein, ihre Astralenergie zu teilen.
 Solange der Zirkel besteht, können die Teilnehmer die Regeln zur Zusammenarbeit (S. 8) nutzen, um sich gegenseitig beim Zaubern zu unterstützen. Üblicherweise sind dabei maximal vier Helfer möglich, welche die Probe des Zaubernden um jeweils +2 erleichtern können. Allerdings werden Elfensippen und manchen Hexenzirkeln noch viel mächtigere Unitatio-Zauberei nachgesagt.
 Zusätzlich werden die Zauberkosten aller Teilnehmer gleichmäßig auf den gesamten Zirkel aufgeteilt. Sollte ein Teilungsrest übrigbleiben oder ein Teilnehmer über zu wenige AsP verfügen, muss der Zaubernde diese Kosten tragen. Nur gAsP muss der Zaubernde stets selbst tragen.</Vorteil>
@@ -422,7 +422,7 @@ Du musst dich beim Erlernen für ein Tier entscheiden (siehe S. 160). Alle deine
   <Vorteil name="Tradition der Durro-dun II" kosten="40" voraussetzungen="Attribut MU 6, Vorteil Tradition der Durro-dun I" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Durro-dun I">Erfahrene Durro-dûn rufen die Tiergeister scheinbar mühelos in ihren Körper. Die Kosten aller Zauber, die du auf dich selbst wirkst, sinken um ein Viertel der Basiskosten.</Vorteil>
   <Vorteil name="Tradition der Durro-dun III" kosten="60" voraussetzungen="Attribut MU 8, Vorteil Tradition der Durro-dun II" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Durro-dun II" querverweise="Regel:Opferung (Durro-dûn)">Erlaubt die spontane Modifikation Opferung.</Vorteil>
   <Vorteil name="Tradition der Durro-dun IV" kosten="80" voraussetzungen="MeisterAttribut MU 10, Vorteil Tradition der Durro-dun III" nachkauf="häufig" typ="5" variableKosten="0" kommentar="1" csBeschreibung="Meisterschaft: $kommentar$." linkKategorie="3" linkElement="Tradition der Durro-dun III" info="Für 1 Punkt kann ein Zauber um +2 erleichtert werden (maximal +4). Für 2 Punkte kannst du eine spontane Modifikation außer Mächtige Magie um +1 erleichtern (maximal +1). Spezielle Vorteile wie eine geringere Patzerchance oder länger nachbrennende Feuerzauber sind ebenfalls möglich. Solche Verbesserungen (und ihre Kosten) sollten mit dem Spielleiter und der Gruppe abgesprochen werden. Trage die Verbesserungen in das Kommentarfeld ein.">8 Punkte können zur Verbesserung der Tradition verwendet werden.</Vorteil>
-  <Vorteil name="Tradition der Schamanen I" kosten="20" voraussetzungen="Attribut IN 4, Vorteil Zauberer I" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" bedingungen="Sichtkontakt, Geste oder Tanz, gesprochene oder gesungene Formel">Du kannst Zauber in der Tradition der Schamanen erlernen und benutzen. Solche Zauber findest du unter Geister d. Stärkung (S. 162), Geister d. Zorns, Geister rufen, Geister vertreiben und Keulenrituale (S. 167).
+  <Vorteil name="Tradition der Schamanen I" kosten="20" voraussetzungen="Attribut IN 4, Vorteil Zauberer I" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" bedingungen="Sichtkontakt, Geste oder Tanz, gesprochene oder gesungene Formel">Du kannst Zauber in der Tradition der Schamanen erlernen und benutzen. Solche Zauber findest du unter Geister der Stärkung (S. 162), Geister des Zorns, Geister rufen, Geister vertreiben und Keulenrituale (S. 167).
 
 Verärgert der Nutznießer eines positiven schamanischen Zaubers den entsprechenden Geist, endet der Zauber sofort (Spielleiterentscheid).</Vorteil>
   <Vorteil name="Tradition der Schamanen II" kosten="40" voraussetzungen="Attribut IN 6, Vorteil Tradition der Schamanen I" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Schamanen I">Schamanen binden oft einen beträchtlichen Teil ihrer Astralenergie in ihre Zauber. Wenn du mindestens 2/4/8/16 gAsP gebunden hast, sind deine Zauber um +1/+2/+3/+4 erleichtert.</Vorteil>
@@ -653,7 +653,12 @@ Liturgien sind um 2-8 Punkte erschwert, wenn ihr Einsatz gegen die Gebote der Ki
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP, davon 4 gAsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Dämonisch
 &lt;b&gt;Erlernen:&lt;/b&gt; Bor, Mag 18; Ach, Alch, Dru, Geo, Elf 20; 40 EP</Talent>
-  <Talent name="Dämonenbann" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Antimagie, Dämonisch" variableKosten="0" referenzseite="126" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Dämonisch sowie gegen Dämonen und Untote, in die keine gAsP geflossen sind. Spezielle Antimagie-Modifikationen siehe S. 126.
+  <Talent name="Dämonenbann" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Antimagie, Dämonisch" variableKosten="0" referenzseite="126" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Dämonisch sowie gegen Dämonen und Untote. Du musst eine Modifikation wählen.
+&lt;b&gt;Gegenzauber:&lt;/b&gt; 0 Aktionen, Ziel Zauber in Vorbereitung, 16 Schritt, Wirkungsdauer augenblicklich, 4 AsP; stört einen anderen Zauberer während dessen Zaubervorbereitung. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert. 
+&lt;b&gt;Magie unterdrücken:&lt;/b&gt; 16 Aktionen, 8 Schritt, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Zauber der Fertigkeit um -8 erschwert. Mächtige Magie erhöht den Malus um -4. 
+&lt;b&gt;Zauber aufheben:&lt;/b&gt; 8 Aktionen, Ziel Zauber, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten des Zaubers; hebt einen bereits gewirkten Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
+&lt;b&gt;Wesenheit bannen:&lt;/b&gt; Beschwörungsschwierigkeit des Ziels, 8 Aktionen, Ziel Dämon oder Untoter, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten der Beschwörung; du bannst ein Wesen, in das keine gAsP geflossen sind.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Dämonisch
 &lt;b&gt;Erlernen:&lt;/b&gt; Dru, Elf, Mag 14; Hex 16; Geo 18; 60 EP</Talent>
   <Talent name="Destructibo Arcanitas" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Antimagie, Kraft" variableKosten="0" referenzseite="126" referenzbuch="0">Du bannst einen Zauber, in den gAsP geflossen sind (wie ein Artefakt oder ein permanenter Fluch), oder ein Wesen, in das gAsP geflossen sind (wie eine Chimäre oder einen gebundenen Dämon).
@@ -666,13 +671,26 @@ Liturgien sind um 2-8 Punkte erschwert, wenn ihr Einsatz gegen die Gebote der Ki
 &lt;b&gt;Kosten:&lt;/b&gt; halbe Basiskosten des Zaubers oder der Beschwörung
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Kraft
 &lt;b&gt;Erlernen:&lt;/b&gt; Mag 18; Ach, Elf, Dru 20; 40 EP</Talent>
-  <Talent name="Eigenschaft wiederherstellen" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Antimagie, Eigenschaften" variableKosten="0" referenzseite="126" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Eigenschaften, spezielle Antimagie-Modifikationen siehe S. 126.
+  <Talent name="Eigenschaft wiederherstellen" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Antimagie, Eigenschaften" variableKosten="0" referenzseite="126" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Eigenschaften. Du musst eine Modifikation wählen.
+&lt;b&gt;Gegenzauber:&lt;/b&gt; 0 Aktionen, Ziel Zauber in Vorbereitung, 16 Schritt, Wirkungsdauer augenblicklich, 4 AsP; stört einen anderen Zauberer während dessen Zaubervorbereitung. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert.
+&lt;b&gt;Magie unterdrücken:&lt;/b&gt; 16 Aktionen, 8 Schritt, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Zauber der Fertigkeit um -8 erschwert. Mächtige Magie erhöht den Malus um -4. 
+&lt;b&gt;Zauber aufheben:&lt;/b&gt; 8 Aktionen, Ziel Zauber, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten des Zaubers; hebt einen bereits gewirkten Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Eigenschaften
 &lt;b&gt;Erlernen:&lt;/b&gt; Alch, Hex 12; Ach, Dru, Geo, Mag, Elf 14; 40 EP</Talent>
-  <Talent name="Einfluss bannen" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Antimagie, Einfluss" variableKosten="0" referenzseite="126" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Einfluss, spezielle Antimagie-Modifikationen siehe S. 126.
+  <Talent name="Einfluss bannen" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Antimagie, Einfluss" variableKosten="0" referenzseite="126" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Einfluss. Du musst eine Modifikation wählen.
+&lt;b&gt;Gegenzauber:&lt;/b&gt; 0 Aktionen, Ziel Zauber in Vorbereitung, 16 Schritt, Wirkungsdauer augenblicklich, 4 AsP; stört einen anderen Zauberer während dessen Zaubervorbereitung. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert. 
+&lt;b&gt;Magie unterdrücken:&lt;/b&gt; 16 Aktionen, 8 Schritt, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Zauber der Fertigkeit um -8 erschwert. Mächtige Magie erhöht den Malus um -4. 
+&lt;b&gt;Zauber aufheben:&lt;/b&gt; 8 Aktionen, Ziel Zauber, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten des Zaubers; hebt einen bereits gewirkten Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Einfluss
 &lt;b&gt;Erlernen:&lt;/b&gt; Dru 8; Geo, Hex 12; Ach, Elf, Mag 14; Alch, Sch, Srl 16; 40 EP</Talent>
-  <Talent name="Elementarbann" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Antimagie, Eis, Erz, Feuer, Humus, Luft, Wasser" variableKosten="0" referenzseite="126" referenzbuch="0">Wirkt gegen Zauber der Fertigkeiten Eis, Erz, Feuer, Humus, Luft und Wasser, sowie gegen Elementare, in die keine gAsP geflossen sind. Spezielle Antimagie-Modifikationen siehe S. 126.
+  <Talent name="Elementarbann" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Antimagie, Eis, Erz, Feuer, Humus, Luft, Wasser" variableKosten="0" referenzseite="126" referenzbuch="0">Wirkt gegen Zauber der Fertigkeiten Eis, Erz, Feuer, Humus, Luft und Wasser, sowie gegen Elementare. Du musst eine Modifikation wählen.
+&lt;b&gt;Gegenzauber:&lt;/b&gt; 0 Aktionen, Ziel Zauber in Vorbereitung, 16 Schritt, Wirkungsdauer augenblicklich, 4 AsP; stört einen anderen Zauberer während dessen Zaubervorbereitung. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert. 
+&lt;b&gt;Magie unterdrücken:&lt;/b&gt; 16 Aktionen, 8 Schritt, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Zauber der Fertigkeit um -8 erschwert. Mächtige Magie erhöht den Malus um -4. 
+&lt;b&gt;Zauber aufheben:&lt;/b&gt; 8 Aktionen, Ziel Zauber, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten des Zaubers; hebt einen bereits gewirkten Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
+&lt;b&gt;Wesenheit bannen:&lt;/b&gt; Beschwörungsschwierigkeit des Ziels, 8 Aktionen, Ziel Elementar, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten der Beschwörung; du bannst ein Elementar, in das keine gAsP geflossen sind.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Eis, Erz, Feuer, Humus, Luft, Wasser
 &lt;b&gt;Erlernen:&lt;/b&gt; Dru, Elf, Geo, Mag 18; 40 EP</Talent>
   <Talent name="Gardianum Zauberschild" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Antimagie, Kraft" variableKosten="0" referenzseite="126" referenzbuch="0">Du erschaffst eine unsichtbare und immaterielle Schutzkuppel mit dir als Zentrum und 2 Schritt Radius. Schadenszauber werden von der Kuppel abgefangen, die nach 8 Beschädigungen zusammenbricht (Härte 2).
@@ -697,13 +715,25 @@ Persönlicher Schild (-4, Wirkungsdauer 1 Stunde; der Zauber legt sich als zweit
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Verständigung
 &lt;b&gt;Erlernen:&lt;/b&gt; Dru 8; Mag 14; Geo, Hex 16; 20 EP</Talent>
-  <Talent name="Hellsicht trüben" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Antimagie, Hellsicht" variableKosten="0" referenzseite="127" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Hellsicht, spezielle Antimagie-Modifikationen siehe S. 126.
+  <Talent name="Hellsicht trüben" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Antimagie, Hellsicht" variableKosten="0" referenzseite="127" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Hellsicht. Du musst eine Modifikation wählen.
+&lt;b&gt;Gegenzauber:&lt;/b&gt; 0 Aktionen, Ziel Zauber in Vorbereitung, 16 Schritt, Wirkungsdauer augenblicklich, 4 AsP; stört einen anderen Zauberer während dessen Zaubervorbereitung. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert. 
+&lt;b&gt;Magie unterdrücken:&lt;/b&gt; 16 Aktionen, 8 Schritt, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Zauber der Fertigkeit um -8 erschwert. Mächtige Magie erhöht den Malus um -4. 
+&lt;b&gt;Zauber aufheben:&lt;/b&gt; 8 Aktionen, Ziel Zauber, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten des Zaubers; hebt einen bereits gewirkten Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Hellsicht
 &lt;b&gt;Erlernen:&lt;/b&gt; Dru, Geo 12; Mag, Sch, Srl 14; Ach, Elf, Hex 16; Alch 18; 20 EP</Talent>
-  <Talent name="Illusion auflösen" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Antimagie, Illusion" variableKosten="0" referenzseite="127" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Illusion, spezielle Antimagie-Modifikationen siehe S. 126.
+  <Talent name="Illusion auflösen" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Antimagie, Illusion" variableKosten="0" referenzseite="127" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Illusion. Du musst eine Modifikation wählen.
+&lt;b&gt;Gegenzauber:&lt;/b&gt; 0 Aktionen, Ziel Zauber in Vorbereitung, 16 Schritt, Wirkungsdauer augenblicklich, 4 AsP; stört einen anderen Zauberer während dessen Zaubervorbereitung. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert. 
+&lt;b&gt;Magie unterdrücken:&lt;/b&gt; 16 Aktionen, 8 Schritt, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Zauber der Fertigkeit um -8 erschwert. Mächtige Magie erhöht den Malus um -4. 
+&lt;b&gt;Zauber aufheben:&lt;/b&gt; 8 Aktionen, Ziel Zauber, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten des Zaubers; hebt einen bereits gewirkten Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Illusion
 &lt;b&gt;Erlernen:&lt;/b&gt; Mag, Srl 14; Hex, Sch 18; 20 EP</Talent>
-  <Talent name="Kraftmagie neutralisieren" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Antimagie, Kraft" variableKosten="0" referenzseite="127" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Kraft, spezielle Antimagie-Modifikationen siehe S. 126.
+  <Talent name="Kraftmagie neutralisieren" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Antimagie, Kraft" variableKosten="0" referenzseite="127" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Kraft. Du musst eine Modifikation wählen.
+&lt;b&gt;Gegenzauber:&lt;/b&gt; 0 Aktionen, Ziel Zauber in Vorbereitung, 16 Schritt, Wirkungsdauer augenblicklich, 4 AsP; stört einen anderen Zauberer während dessen Zaubervorbereitung. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert. 
+&lt;b&gt;Magie unterdrücken:&lt;/b&gt; 16 Aktionen, 8 Schritt, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Zauber der Fertigkeit um -8 erschwert. Mächtige Magie erhöht den Malus um -4. 
+&lt;b&gt;Zauber aufheben:&lt;/b&gt; 8 Aktionen, Ziel Zauber, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten des Zaubers; hebt einen bereits gewirkten Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Kraft
 &lt;b&gt;Erlernen:&lt;/b&gt; Mag 18; 20 EP</Talent>
   <Talent name="Protectionis Kontrabann" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Antimagie, Kraft" variableKosten="0" referenzseite="127" referenzbuch="0">Du schützt deinen nächsten, während der Wirkungsdauer begonnenen Zauber vor Antimagie. Jede Antimagie gegen diesen Zauber ist um -4 erschwert.
@@ -793,13 +823,25 @@ Stabilisierung (-8; das Ziel darf sofort eine MR-Probe gegen einen auf es wirken
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Illusion
 &lt;b&gt;Erlernen:&lt;/b&gt; Mag 20; 20 EP</Talent>
-  <Talent name="Veränderung aufheben" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Antimagie, Umwelt" variableKosten="0" referenzseite="127" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Umwelt, spezielle Antimagie-Modifikationen siehe S. 126.
+  <Talent name="Veränderung aufheben" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Antimagie, Umwelt" variableKosten="0" referenzseite="127" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Umwelt. Du musst eine Modifikation wählen.
+&lt;b&gt;Gegenzauber:&lt;/b&gt; 0 Aktionen, Ziel Zauber in Vorbereitung, 16 Schritt, Wirkungsdauer augenblicklich, 4 AsP; stört einen anderen Zauberer während dessen Zaubervorbereitung. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert. 
+&lt;b&gt;Magie unterdrücken:&lt;/b&gt; 16 Aktionen, 8 Schritt, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Zauber der Fertigkeit um -8 erschwert. Mächtige Magie erhöht den Malus um -4. 
+&lt;b&gt;Zauber aufheben:&lt;/b&gt; 8 Aktionen, Ziel Zauber, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten des Zaubers; hebt einen bereits gewirkten Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Umwelt
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach, Geo, Mag 14; Dru, Elf, Sch 16; Alch 18; 20 EP</Talent>
-  <Talent name="Verwandlung beenden" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Antimagie, Verwandlung" variableKosten="0" referenzseite="127" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Verwandlung und Chimären, spezielle Antimagie-Modifikationen siehe S. 126.
+  <Talent name="Verwandlung beenden" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Antimagie, Verwandlung" variableKosten="0" referenzseite="127" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Verwandlung. Du musst eine Modifikation wählen.
+&lt;b&gt;Gegenzauber:&lt;/b&gt; 0 Aktionen, Ziel Zauber in Vorbereitung, 16 Schritt, Wirkungsdauer augenblicklich, 4 AsP; stört einen anderen Zauberer während dessen Zaubervorbereitung. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert. 
+&lt;b&gt;Magie unterdrücken:&lt;/b&gt; 16 Aktionen, 8 Schritt, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Zauber der Fertigkeit um -8 erschwert. Mächtige Magie erhöht den Malus um -4. 
+&lt;b&gt;Zauber aufheben:&lt;/b&gt; 8 Aktionen, Ziel Zauber, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten des Zaubers; hebt einen bereits gewirkten Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Verwandlung
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach, Dru, Hex, Mag 14; Elf, Geo, Srl 16; 40 EP</Talent>
-  <Talent name="Verständigung stören" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Antimagie, Verständigung" variableKosten="0" referenzseite="127" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Verständigung, spezielle Antimagie-Modifikationen siehe S. 126.
+  <Talent name="Verständigung stören" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Antimagie, Verständigung" variableKosten="0" referenzseite="127" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Verständigung. Du musst eine Modifikation wählen.
+&lt;b&gt;Gegenzauber:&lt;/b&gt; 0 Aktionen, Ziel Zauber in Vorbereitung, 16 Schritt, Wirkungsdauer augenblicklich, 4 AsP; stört einen anderen Zauberer während dessen Zaubervorbereitung. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert. 
+&lt;b&gt;Magie unterdrücken:&lt;/b&gt; 16 Aktionen, 8 Schritt, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Zauber der Fertigkeit um -8 erschwert. Mächtige Magie erhöht den Malus um -4. 
+&lt;b&gt;Zauber aufheben:&lt;/b&gt; 8 Aktionen, Ziel Zauber, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten des Zaubers; hebt einen bereits gewirkten Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Verständigung
 &lt;b&gt;Erlernen:&lt;/b&gt; Elf 12; Ach, Dru, Mag 14; Geo 16; Hex 18; 20 EP</Talent>
   <Talent name="Brenne toter Stoff!" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Feuer, Verwandlung" variableKosten="0" kommentar="0" referenzseite="128" referenzbuch="0">Du entzündest ein magisches Feuer, das 2W6 SP pro Initiativephase auf einem unbelebten Ziel anrichtet. Das Feuer brennt auf brennbaren Materialien auch nach dem Ende der Wirkungsdauer weiter.
@@ -824,12 +866,12 @@ Stabilisierung (-8; das Ziel darf sofort eine MR-Probe gegen einen auf es wirken
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dämonisch (nicht in Geo, Mag, Srl), Feuer, Verwandlung
 &lt;b&gt;Erlernen:&lt;/b&gt; Bor 12; Alch, Geo 14; Ach, Mag 18; Srl 20; 40 EP</Talent>
-  <Talent name="Chimaeroform Hybridgestalt" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Dämonisch, Verwandlung" variableKosten="0" referenzseite="128" referenzbuch="0">Du erschaffst eine Chimäre aus zwei oder mehr Lebewesen (mehr zu Beschwörungen siehe S. 81). Eines dieser Lebewesen kann durch einen Dämon ersetzt werden. Die Chimäre hat sich nach 1 Stunde an ihre Existenz gewöhnt und ist einsatzfähig.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; nach Chimäre
+  <Talent name="Chimaeroform Hybridgestalt" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Dämonisch, Verwandlung" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="128">Du erschaffst eine Chimäre aus zwei oder mehr Lebewesen. Eines dieser Lebewesen kann durch einen Dämon ersetzt werden. Die Chimäre hat sich nach 1 Stunde an ihre Existenz gewöhnt und ist einsatzfähig. Schwierigkeit und Kosten richten sich nach deren Mächtigkeit auf der Skala schwach (z. B. Hundeblume)/nützlich (z. B. Widderhyäne)/stark (z. B. Mantikor)/mächtig (z. B. Drachenchimäre). Die Beherrschungsprobe wird auf MU abgelegt. Wenn diese misslingt, kannst du es nach 1 Stunde erneut versuchen. Mehr zu Beschwörungen siehe S. 81.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12/16/20/24
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; Material für eine einzelne Chimäre
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; bis die Bindung gelöst wird
-&lt;b&gt;Kosten:&lt;/b&gt; nach Chimäre, 1/4 der Basiskosten als gAsP
+&lt;b&gt;Kosten:&lt;/b&gt; 8/16/24/32 AsP, ein Viertel der Basiskosten als gAsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dämonisch, Verwandlung
 &lt;b&gt;Erlernen:&lt;/b&gt; Mag 18; Hex 20; 60 EP</Talent>
   <Talent name="Ecliptifactus Schattenkraft" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Dämonisch, Verwandlung" variableKosten="0" referenzseite="128" referenzbuch="0">Dein Schatten kämpft an deiner Seite (WS 5, INI 6, GS 6, RW 1, VT 6, AT 6, TP 2W6). Zusätzlich verfügt der Schatten über die Vorteile Schreckgestalt II, Körperlosigkeit, Paraphysikalität und Schmerzimmun II (S. 98). Stirbt der Schatten, verlierst du deine komplette Astralenergie und regenerierst keine AsP, bis der Schatten nach 7 Wochen nachgewachsen ist.
@@ -923,14 +965,16 @@ Permanenz (-4, Wirkungsdauer bis die Bindung gelöst wird, 16 AsP, davon 2 gAsP)
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dämonisch, Einfluss
 &lt;b&gt;Erlernen:&lt;/b&gt; Bor 8; Alch, Mag 18; 60 EP</Talent>
-  <Talent name="Invocatio" spezialTyp="0" kosten="120" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Dämonisch" variableKosten="0" referenzseite="129" referenzbuch="0">Ruft einen Dämon herbei (mehr zur Dämonenbeschwörung siehe S. 81), der in deiner unmittelbaren Nähe erscheint.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; nach Dämon
+  <Talent name="Invocatio" kosten="120" spezialTyp="0" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Dämonisch" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="129">Ruft einen Dämon herbei, der in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala minder (z. B. Gotongi)/nieder (z. B. Zant)/weniggehörnt (z. B. Ulchuchu)/gehörnt (z. B. Shruuf)/vielgehörnt (z. B. Shruuf)/mächtig (z. B. Yo’Na‘Hoh). Die Beherrschungsprobe wird auf MU abgelegt. Beim Einsatz von Blutmagie ist die Beschwörungsprobe um +4 erleichtert, aber die Beherrschungsprobe um -4 erschwert. Mehr zur Beschwörungungen siehe S. 81.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/20/24/28/32/36
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; einzelner Dämon
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; nach Dämon
+&lt;b&gt;Kosten:&lt;/b&gt; 16/24/32/48/64/80 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dämonisch
-&lt;b&gt;Erlernen:&lt;/b&gt; Mag 14; Bor, Hex 16; Ach, Alch, Dru 18; 120 EP</Talent>
+&lt;b&gt;Erlernen:&lt;/b&gt; Mag 14; Bor, Hex 16; Ach, Alch, Dru 18; 120 EP
+&lt;b&gt;Anmerkung:&lt;/b&gt; Bei misslungenen Dämonenbeschwörungen kann es zu gefährlichen chaotischen Nebeneffekten kommen.
+&lt;b&gt;Chaotische Dämonen (optional):&lt;/b&gt; Dämonen sind Wesen des Chaos und oft weiß nicht einmal der Beschwörer, welche Eigenschaften das von ihm gerufene Wesen haben wird. Der Spielleiter kann dem Dämon versteckt zusätzliche Fähigkeiten verleihen entsprechend der Zufallstabelle auf S. 98.</Talent>
   <Talent name="Karnifilo Raserei" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Dämonisch, Eigenschaften, Einfluss" variableKosten="0" referenzseite="129" referenzbuch="0">Dein Ziel verfällt in einen Kampfrausch. Es erhält die Vorteile Kalte Wut und Offensiver Kampfstil (S. 43) und nutzt in jeder Aktion volle Offensive. Sind keine Gegner mehr da, greift es auch Verbündete an.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Die AT steigt um +1.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
@@ -993,12 +1037,12 @@ Krötenkunde (-4; du kannst den Zauber auf eine bestimmte Art von Echsenwesen be
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dämonisch, Verständigung
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach 16; Bor 18; Mag 20; 40 EP</Talent>
-  <Talent name="Stein wandle!" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Dämonisch" variableKosten="0" referenzseite="129" referenzbuch="0">Du erschaffst einen Golem aus Holz, Stein oder anderen Materialien (mehr zu Beschwörungen siehe S. 81). Der Golem hat sich nach 1 Stunde an seine Existenz gewöhnt und ist einsatzfähig.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; nach Golem
+  <Talent name="Stein wandle!" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Dämonisch" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="129">Du erschaffst einen Golem aus Holz, Stein oder anderen Materialien. Der Golem hat sich nach 1 Stunde an seine Existenz gewöhnt und ist einsatzfähig. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala schwach (z. B. laufende Truhe)/nützlich (z. B. Mephir)/stark (z. B. Homunculus)/mächtig (z. B. Ogerstatue).  Die Beherrschungsprobe wird auf MU abgelegt. Wenn diese misslingt, kannst du es nach 1 Stunde erneut versuchen. Mehr zu Beschwörungen siehe S. 81
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/20/24/28
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; Material für einen einzelnen Golem
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; bis die Bindung gelöst wird
-&lt;b&gt;Kosten:&lt;/b&gt; nach Golem, ein Viertel der Basiskosten als gAsP
+&lt;b&gt;Kosten:&lt;/b&gt; 8/16/24/32 AsP, ein Viertel der Basiskosten als gAsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dämonisch
 &lt;b&gt;Erlernen:&lt;/b&gt; Bor, Mag 18; 60 EP</Talent>
   <Talent name="Schwarz und Rot" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Dämonisch, Eigenschaften" variableKosten="0" referenzseite="129" referenzbuch="0">In der Herzgegend deines Opfers entsteht ein schmerzhaftes rotes Mal, das sich langsam ausbreitet. Nach 2 und 4 Stunden erleidet das Opfer 1 Wunde. Solange das Opfer Schaden nimmt, sind Wundmalusse verdoppelt.
@@ -1011,13 +1055,13 @@ Krötenkunde (-4; du kannst den Zauber auf eine bestimmte Art von Echsenwesen be
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dämonisch, Eigenschaften
 &lt;b&gt;Erlernen:&lt;/b&gt; Bor 16; Mag 18; Hex 20; 40 EP</Talent>
-  <Talent name="Skelettarius Totenherr" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Dämonisch" variableKosten="0" referenzseite="129" referenzbuch="0">Du erhebst eine Leiche als Untoten (mehr zu Beschwörungen siehe S. 81), der in zwei INI-Phasen einsatzfähig ist.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; nach Untotem
+  <Talent name="Skelettarius Totenherr" kosten="40" spezialTyp="0" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Dämonisch" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="129">Du erhebst eine Leiche als Untoten, der in zwei INI-Phasen einsatzfähig ist. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala schwach (z. B. Skelett)/nützlich (z. B. Knochenritter)/stark (z. B. Kriegermumie)/mächtig (z. B. Kriegsherr). Die Beherrschungsprobe wird auf MU abgelegt. Mehr zu Beschwörungen siehe S. 81.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12/16/20/24
 &lt;b&gt;Modifikationen:&lt;/b&gt; Schnelle Erhebung (-4; der Untote ist sofort bereit.)
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; Material für einen einzelnen Untoten
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; nach Untotem
+&lt;b&gt;Kosten:&lt;/b&gt; 8/16/24/32 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dämonisch
 &lt;b&gt;Erlernen:&lt;/b&gt; Bor, Mag 16; Alch 20; 40 EP</Talent>
   <Talent name="Tlalucs Odem Pestgestank" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Dämonisch" variableKosten="0" referenzseite="129" referenzbuch="0">Eine giftige Wolke breitet sich aus deinem Mund 8 Schritt weit kegelförmig aus (45°). Jedes Wesen in der Wolke nimmt 2W6 SP und muss eine &lt;i&gt;Konterprobe&lt;/i&gt; (Zähigkeit, 16) bestehen, um nicht einen Malus von -4 auf alle Proben zu erleiden.
@@ -1032,12 +1076,13 @@ Miasmafaxius (-4, Einzelperson, 8 AsP)
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dämonisch
 &lt;b&gt;Erlernen:&lt;/b&gt; Mag 18; Bor, Dru, Hex 20; 40 EP</Talent>
-  <Talent name="Totes handle!" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Dämonisch" variableKosten="0" referenzseite="130" referenzbuch="0">Du erschaffst aus einer Leiche einen untoten Diener (mehr zu Beschwörungen siehe S. 81). Der Untote hat sich nach 1 Stunde an seine Existenz gewöhnt und ist einsatzfähig.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; nach Untotem
+  <Talent name="Totes handle!" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Dämonisch" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="130">Du erschaffst aus einer Leiche einen untoten Diener. Der Untote hat sich nach 1 Stunde an seine Existenz gewöhnt und ist einsatzfähig. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala schwach (z. B. Skelett)/nützlich (z. B. Knochenritter)/stark (z. B. Kriegermumie)/mächtig (z. B. Kriegsherr). Die Beherrschungsprobe wird auf MU abgelegt. Wenn diese misslingt, kannst du es nach 1 Stunde erneut versuchen. Mehr zu Beschwörungen siehe S. 81.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12/16/20/24
+&lt;b&gt;Modifikationen:&lt;/b&gt; Schnelle Erhebung (-4; der Untote ist sofort bereit.)
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; Material für einen einzelnen Untoten
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; bis die Bindung gelöst wird
-&lt;b&gt;Kosten:&lt;/b&gt; nach Untotem, ein Viertel der Basiskosten als gAsP
+&lt;b&gt;Kosten:&lt;/b&gt; 8/16/24/32 AsP, ein Viertel der Basiskosten als gAsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dämonisch
 &lt;b&gt;Erlernen:&lt;/b&gt; Bor, Mag 18; 60 EP</Talent>
   <Talent name="Umbraporta Schattensprung" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Dämonisch, Kraft" variableKosten="0" referenzseite="130" referenzbuch="0">Du trittst in einen Schatten hinein und wirst sofort durch den Limbus zu einem anderen Schatten transportiert.
@@ -1747,15 +1792,15 @@ Ferne Zone (-8, Zone, 8 Schritt, 32 AsP)
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Eis, Feuer, Umwelt (Zone), Verwandlung
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach, Dru, Mag 16; Alch, Geo, Srl 18; 60 EP</Talent>
-  <Talent name="Herbeirufung des Eises" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Eis" variableKosten="0" referenzseite="136" referenzbuch="0">Ruft ein Elementarwesen des jeweiligen Elements herbei (mehr zu Herbeirufungen S. 81), das in deiner unmittelbaren Nähe erscheint.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32 (Diener/Dschinn/Meister)
+  <Talent name="Herbeirufung des Eises" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Eis" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="136">Ruft ein Eiselementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Snefnug)/Dschinn (z. B. Firndorn)/Meister (z. B. Glacius).  Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; einzelnes Elementar
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 16/32/64 AsP (Diener/Dschinn/Meister)
+&lt;b&gt;Kosten:&lt;/b&gt; 16/32/64 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Eis
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach, Dru, Mag 16; Alch 18; 60 EP
-&lt;b&gt;Anmerkung:&lt;/b&gt; Nicht überall sind die Wahren Namen und damit die Beschwörung von elementaren Dienern und vor allem Meistern bekannt. </Talent>
+&lt;b&gt;Anmerkung:&lt;/b&gt; Nicht überall sind die Wahren Namen und damit die Beschwörung von elementaren Dienern und vor allem Meistern bekannt.</Talent>
   <Talent name="Frigifaxius" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Eis" variableKosten="0" referenzseite="136" referenzbuch="0">Eine Strahl aus elementarem Eis fügt dem Ziel 4W6 TP zu und verursacht &lt;i&gt;Erfrieren&lt;/i&gt; (S. 98). &lt;i&gt;Ballistischer&lt;/i&gt; Zauber.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Die TP steigen um 2W6.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
@@ -1924,15 +1969,15 @@ Zauberklinge (-4; während der Wirkungsdauer gilt die Waffe als magisch.)
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Erz
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach, Mag 18; Geo, Dru 20; 60 EP</Talent>
-  <Talent name="Herbeirufung des Erzes" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Erz" variableKosten="0" referenzseite="138" referenzbuch="0">Ruft ein Elementarwesen des jeweiligen Elements herbei (mehr zu Herbeirufungen S. 81), das in deiner unmittelbaren Nähe erscheint.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32 (Diener/Dschinn/Meister)
+  <Talent name="Herbeirufung des Erzes" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Erz" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="138">Ruft ein Erzelementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Grommur)/Dschinn (z. B. Farlin)/Meister (z. B. Chakharîm).  Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; einzelnes Elementar
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 16/32/64 AsP (Diener/Dschinn/Meister)
+&lt;b&gt;Kosten:&lt;/b&gt; 16/32/64 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Erz
 &lt;b&gt;Erlernen:&lt;/b&gt; Geo 14; Ach, Dru, Mag 16; Alch 18; 60 EP
-&lt;b&gt;Anmerkung:&lt;/b&gt; Nicht überall sind die Wahren Namen und damit die Beschwörung von elementaren Dienern und vor allem Meistern bekannt. </Talent>
+&lt;b&gt;Anmerkung:&lt;/b&gt; Nicht überall sind die Wahren Namen und damit die Beschwörung von elementaren Dienern und vor allem Meistern bekannt.</Talent>
   <Talent name="Fortifex arkane Wand" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Erz, Umwelt" variableKosten="0" referenzseite="138" referenzbuch="0">Es entsteht eine maximal 2x2 Schritt große, 5 Finger dicke, unsichtbare Wand. Die Wand ist undurchdringlich für Gegenstände bis zum Gewicht einer Rotzenkugel, schwerere Gegenstände werden nur leicht verlangsamt.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Die Wand ist bis zum Gewicht eines schweren Menschen/Pferdes mit Reiter/einer Kutsche/eines Schiffes undurchdringlich.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
@@ -1987,12 +2032,12 @@ Permanenz (-4, 4 AsP, davon 1 gAsP, Wirkungsdauer bis die Bindung gelöst wird o
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Erz
 &lt;b&gt;Erlernen:&lt;/b&gt; Mag 18; 20 EP</Talent>
-  <Talent name="Staub wandle!" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Erz" variableKosten="0" referenzseite="138" referenzbuch="0">Du erschaffst einen Golem aus Sand (mehr zu Beschwörungen siehe S. 81). Der Golem hat sich nach 1 Stunde an seine Existenz gewöhnt und ist einsatzfähig.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; nach Golem
+  <Talent name="Staub wandle!" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Erz" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="138">Du erschaffst einen Golem aus Holz, Stein oder anderen Materialien. Der Golem hat sich nach 1 Stunde an seine Existenz gewöhnt und ist einsatzfähig. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala schwach (z. B. laufende Truhe)/nützlich (z. B. Mephir)/stark (z. B. Homunculus)/mächtig (z. B. Ogerstatue).  Die Beherrschungsprobe wird auf CH abgelegt. Wenn diese misslingt, kannst du es nach 1 Stunde erneut versuchen. Mehr zu Beschwörungen siehe S. 81
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/20/24/28
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
-&lt;b&gt;Ziel:&lt;/b&gt; einzelner Rohling
+&lt;b&gt;Ziel:&lt;/b&gt; Material für einen einzelnen Golem
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; bis die Bindung gelöst wird
-&lt;b&gt;Kosten:&lt;/b&gt; nach Golem, ein Viertel der Basiskosten als gAsP
+&lt;b&gt;Kosten:&lt;/b&gt; 8/16/24/32 AsP, ein Viertel der Basiskosten als gAsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Erz
 &lt;b&gt;Erlernen:&lt;/b&gt; Mag 18; 60 EP</Talent>
   <Talent name="Wand aus Erz" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Erz" variableKosten="0" referenzseite="138" referenzbuch="0">Eine 3 Schritt hohe und bis zu 4 Schritt lange Wand aus massivem Erz wächst entlang einer von dir bestimmten Linie aus dem Boden. Sie verfügt über eine Härte von 32. Sie kann mit einer &lt;i&gt;Konterprobe&lt;/i&gt; (Klettern, 20) in 8 Aktionen überwunden werden.
@@ -2026,15 +2071,15 @@ Permanenz (-4, 4 AsP, davon 1 gAsP, Wirkungsdauer bis die Bindung gelöst wird)
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Feuer
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach, Mag 12; Alch, Srl 16; 20 EP</Talent>
-  <Talent name="Herbeirufung des Feuers" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Feuer" variableKosten="0" referenzseite="139" referenzbuch="0">Ruft ein Elementarwesen des jeweiligen Elements herbei (mehr zu Herbeirufungen S. 81), das in deiner unmittelbaren Nähe erscheint.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32 (Diener/Dschinn/Meister)
+  <Talent name="Herbeirufung des Feuers" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Feuer" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="139">Ruft ein Feuerelementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Flammina)/Dschinn (z. B. Al‘Jallahir)/Meister (z. B. Lagramagmangr).  Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; einzelnes Elementar
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 16/32/64 AsP (Diener/Dschinn/Meister)
+&lt;b&gt;Kosten:&lt;/b&gt; 16/32/64 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Feuer
 &lt;b&gt;Erlernen:&lt;/b&gt; Geo 14; Ach, Dru, Mag 16; Alch 18; 60 EP
-&lt;b&gt;Anmerkung:&lt;/b&gt; Nicht überall sind die Wahren Namen und damit die Beschwörung von elementaren Dienern und vor allem Meistern bekannt. </Talent>
+&lt;b&gt;Anmerkung:&lt;/b&gt; Nicht überall sind die Wahren Namen und damit die Beschwörung von elementaren Dienern und vor allem Meistern bekannt.</Talent>
   <Talent name="Ignifaxius Flammenstrahl" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Feuer" variableKosten="0" referenzseite="139" referenzbuch="0">Eine Flammenlanze fügt dem Ziel 4W6 TP zu und verursacht &lt;i&gt;Nachbrennen&lt;/i&gt; (S. 98). &lt;i&gt;Ballistischer&lt;/i&gt; Zauber.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Die TP steigen um 2W6.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
@@ -2313,15 +2358,15 @@ Sofortige Regeneration (-16, 4 Aktionen, 32 AsP; das Ziel erhält für 32 Initia
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Humus, Verwandlung
 &lt;b&gt;Erlernen:&lt;/b&gt; Elf, Mag 8; Ach, Geo 12; Alch, Dru 14; Srl 16; 60 EP</Talent>
-  <Talent name="Herbeirufung des Humus" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Humus" variableKosten="0" referenzseite="142" referenzbuch="0">Ruft ein Elementarwesen des jeweiligen Elements herbei (mehr zu Herbeirufungen S. 81), das in deiner unmittelbaren Nähe erscheint.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32 (Diener/Dschinn/Meister)
+  <Talent name="Herbeirufung des Humus" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Humus" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="142">Ruft ein Humuselementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Kräuterkopf)/Dschinn (z. B. Abu al‘Azilat)/Meister (z. B. Eichbart).  Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; einzelnes Elementar
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 16/32/64 AsP (Diener/Dschinn/Meister)
+&lt;b&gt;Kosten:&lt;/b&gt; 16/32/64 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Humus
 &lt;b&gt;Erlernen:&lt;/b&gt; Geo 14; Ach, Dru, Mag 16; Alch 18; 60 EP
-&lt;b&gt;Anmerkung:&lt;/b&gt; Nicht überall sind die Wahren Namen und damit die Beschwörung von elementaren Dienern und vor allem Meistern bekannt. </Talent>
+&lt;b&gt;Anmerkung:&lt;/b&gt; Nicht überall sind die Wahren Namen und damit die Beschwörung von elementaren Dienern und vor allem Meistern bekannt.</Talent>
   <Talent name="Fesselranken" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Humus" variableKosten="0" referenzseite="142" referenzbuch="0">Aus dem Boden unter deinem Opfer wachsen Ranken hervor, die es mit einem Umklammern-Manöver (-4) festhalten, aus der es sich mit einer Aktion Konflikt und einer &lt;i&gt;Konterprobe&lt;/i&gt; (GE oder KK, 16) befreien kann. Beachte, dass diese Probe ebenfalls durch das Umklammern erschwert ist.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Dornenfessel (-8; misslungene &lt;i&gt;Konterprobe&lt;/i&gt;n fügen dem Opfer 2W6 TP zu.)
@@ -2884,15 +2929,15 @@ Kunstflug (-8; das Opfer fliegt Figuren, die du mit deinen Armen vorgibst. Erfor
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Luft, Umwelt, Verwandlung
 &lt;b&gt;Erlernen:&lt;/b&gt; Sch 14; 40 EP</Talent>
-  <Talent name="Herbeirufung der Luft" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Luft" variableKosten="0" referenzseite="147" referenzbuch="0">Ruft ein Elementarwesen des jeweiligen Elements herbei (mehr zu Herbeirufungen S. 81), das in deiner unmittelbaren Nähe erscheint.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32 (Diener/Dschinn/Meister)
+  <Talent name="Herbeirufung der Luft" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Luft" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="147">Ruft ein Luftelementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Emling)/Dschinn (z. B. Sausewind)/Meister (z. B. Brashaidor).  Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; einzelnes Elementar
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 16/32/64 AsP (Diener/Dschinn/Meister)
+&lt;b&gt;Kosten:&lt;/b&gt; 16/32/64 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Luft
 &lt;b&gt;Erlernen:&lt;/b&gt; Geo 14; Ach, Dru, Mag 16; Alch 18; 60 EP
-&lt;b&gt;Anmerkung:&lt;/b&gt; Nicht überall sind die Wahren Namen und damit die Beschwörung von elementaren Dienern und vor allem Meistern bekannt. </Talent>
+&lt;b&gt;Anmerkung:&lt;/b&gt; Nicht überall sind die Wahren Namen und damit die Beschwörung von elementaren Dienern und vor allem Meistern bekannt.</Talent>
   <Talent name="Leib des Windes" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Elfen I" verbilligt="0" fertigkeiten="Luft, Verwandlung" variableKosten="0" referenzseite="147" referenzbuch="0">Du harmonierst mit dem Element Luft. Du bist immun gegen Luftschaden, wiegst nur noch die Hälfte und Winde beeinflussen dich nicht.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Reise im Wind (-4; du kannst dich mit GS Schritt pro Initiativephase durch die Luft bewegen, als würdest du darin tauchen.)
@@ -3645,15 +3690,15 @@ Permanenz (-4, Wirkungsdauer bis die Bindung gelöst wird, zusätzlich ein Achte
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Wasser
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach, Mag 18; Geo, Dru 20; 60 EP</Talent>
-  <Talent name="Herbeirufung des Wassers" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Wasser" variableKosten="0" referenzseite="155" referenzbuch="0">Ruft ein Elementarwesen des jeweiligen Elements herbei (mehr zu Herbeirufungen S. 81), das in deiner unmittelbaren Nähe erscheint.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32 (Diener/Dschinn/Meister)
+  <Talent name="Herbeirufung des Wassers" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Wasser" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="155">Ruft ein Wasserelementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Baromna)/Dschinn (z. B. Baradarasch)/Meister (z. B. Hefashar).  Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; einzelnes Elementar
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 16/32/64 AsP (Diener/Dschinn/Meister)
+&lt;b&gt;Kosten:&lt;/b&gt; 16/32/64 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Wasser
 &lt;b&gt;Erlernen:&lt;/b&gt; Geo 14; Ach, Dru, Mag 16; Alch 18; 60 EP
-&lt;b&gt;Anmerkung:&lt;/b&gt; Nicht überall sind die Wahren Namen und damit die Beschwörung von elementaren Dienern und vor allem Meistern bekannt. </Talent>
+&lt;b&gt;Anmerkung:&lt;/b&gt; Nicht überall sind die Wahren Namen und damit die Beschwörung von elementaren Dienern und vor allem Meistern bekannt.</Talent>
   <Talent name="Pfeil des Wassers" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Wasser" variableKosten="0" referenzseite="155" referenzbuch="0">Du verzauberst einen Pfeil (oder Bolzen oder Wurfwaffe), sodass er im Flug die Macht des Elements freisetzt. Der Pfeil verursacht Wasserschaden und &lt;i&gt;Ertränken&lt;/i&gt; (S. 98). Der Pfeil wird durch Regen nicht beeinflusst und kann auch unter Wasser ohne Einschränkungen verwendet werden.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Geschütz (-4; du verzauberst ein größeres Geschoss wie das einer Balliste.)
@@ -3832,16 +3877,16 @@ Du stellst eine enge magische Bindung zu deinem Ritualgegenstand (ein Dolch für
 &lt;b&gt;Kosten:&lt;/b&gt; 1 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dolchzauber, Hellsicht, Kraft
 &lt;b&gt;Erlernen:&lt;/b&gt; Dru 12; Geo 14; 20 EP</Talent>
-  <Talent name="Bindung des Iama" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Elfen I" verbilligt="0" fertigkeiten="Elfenlieder, Kraft" variableKosten="0" referenzseite="158" referenzbuch="0">Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her, welche die Voraussetzung für alle weiteren Talente dieser Fertigkeit ist. Außerdem wird der Ritualgegenstand unzerbrechlich.
+  <Talent name="Bindung des Iama" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Elfen I" verbilligt="0" fertigkeiten="Elfenlieder, Kraft" variableKosten="0" referenzseite="158" referenzbuch="0">Du stellst eine enge magische Bindung zu deinem Iama her, welche die Voraussetzung für alle weiteren Talente dieser Fertigkeit ist. Außerdem wird das Iama unzerbrechlich.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Stunden
-&lt;b&gt;Ziel:&lt;/b&gt; Ritualgegenstand
+&lt;b&gt;Ziel:&lt;/b&gt; Iama
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; permanent
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Elfenlieder, Kraft
 &lt;b&gt;Erlernen:&lt;/b&gt; Elf 4; 20 EP</Talent>
-  <Talent name="Apport des Iama" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Elfen I" verbilligt="0" fertigkeiten="Elfenlieder, Umwelt" variableKosten="0" referenzseite="158" referenzbuch="0">Der Ritualgegenstand kehrt fliegend mit einer Geschwindigkeit von 10 Meilen pro Stunde zu dir zurück. Er weicht Hindernissen aus oder durchbricht sie notfalls, wenn die KK von PW Elfenlieder/2 oder Umwelt/2 dafür ausreicht.
+  <Talent name="Apport des Iama" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Elfen I" verbilligt="0" fertigkeiten="Elfenlieder, Umwelt" variableKosten="0" referenzseite="158" referenzbuch="0">Das Iama kehrt fliegend mit einer Geschwindigkeit von 10 Meilen pro Stunde zu dir zurück. Er weicht Hindernissen aus oder durchbricht sie notfalls, wenn die KK von PW Elfenlieder/2 oder Umwelt/2 dafür ausreicht.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; Zone
@@ -3962,8 +4007,8 @@ Du stellst eine enge magische Bindung zu deinem Ritualgegenstand (ein Dolch für
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Falls zutreffend, geschieht das Folgende: Probenerleichterungen steigen um +2, TP um +2, die Giftstufe um +4, die Flugweiten und -höhen um 4/2 Schritt. Je zwei Stufen erhöhen einen RS-Bonus um +1.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Zone
-&lt;b&gt;Reichweite:&lt;/b&gt; selbst
+&lt;b&gt;Ziel:&lt;/b&gt; selbst
+&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Verwandlung, Gaben des Blutgeists
@@ -5116,14 +5161,16 @@ Sprechendes Zeichen (-4; das Zeichen kann einen kurzen Satz als Botschaft enthal
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Einfluss, Geister des Zorns
 &lt;b&gt;Erlernen:&lt;/b&gt; Smn 20; 40 EP</Talent>
-  <Talent name="Macht der Ungeformten" spezialTyp="0" kosten="120" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Dämonisch, Geister rufen, Geister des Zorns" variableKosten="0" referenzseite="164" referenzbuch="0">Ruft einen Dämon herbei (mehr zur Dämonenbeschwörung siehe S. 81), der in deiner unmittelbaren Nähe erscheint.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; nach Dämon
+  <Talent name="Macht der Ungeformten" kosten="120" spezialTyp="0" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Dämonisch, Geister rufen, Geister des Zorns" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="164">Ruft einen Dämon herbei, der in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala minder (z. B. Gotongi)/nieder (z. B. Zant)/weniggehörnt (z. B. Ulchuchu)/gehörnt (z. B. Shruuf)/vielgehörnt (z. B. Shruuf)/mächtig (z. B. Yo’Na‘Hoh). Die Beherrschungsprobe wird auf MU abgelegt. Beim Einsatz von Blutmagie ist die Beschwörungsprobe um +4 erleichtert, aber die Beherrschungsprobe um -4 erschwert. Mehr zur Beschwörungungen siehe S. 81.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/20/24/28/32/36
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; einzelner Dämon
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; nach Dämon
+&lt;b&gt;Kosten:&lt;/b&gt; 16/24/32/48/64/80 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dämonisch, Geister rufen, Geister des Zorns
-&lt;b&gt;Erlernen:&lt;/b&gt; Smn 18; 120 EP</Talent>
+&lt;b&gt;Erlernen:&lt;/b&gt; Smn 18; 120 EP
+&lt;b&gt;Anmerkung:&lt;/b&gt; Bei misslungenen Dämonenbeschwörungen kann es zu gefährlichen chaotischen Nebeneffekten kommen.
+&lt;b&gt;Chaotische Dämonen (optional):&lt;/b&gt; Dämonen sind Wesen des Chaos und oft weiß nicht einmal der Beschwörer, welche Eigenschaften das von ihm gerufene Wesen haben wird. Der Spielleiter kann dem Dämon versteckt zusätzliche Fähigkeiten verleihen entsprechend der Zufallstabelle auf S. 98.</Talent>
   <Talent name="Rikais Fluch" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Dämonisch, Geister des Zorns, Umwelt" variableKosten="0" referenzseite="164" referenzbuch="0">Der Zauber schwächt Pflanzen und Gegenstände aus dem Element Humus in einem Radius von 2 Schritt. Pflanzen und verderbliches Material verrotten, die Härte hölzerner oder lederner Objekte sinkt um ein Viertel der Basishärte. Die Auswirkungen auf Lebewesen sind zu gering, um sie zu bemerken.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Verdoppelt den Radius.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
@@ -5144,13 +5191,13 @@ Sprechendes Zeichen (-4; das Zeichen kann einen kurzen Satz als Botschaft enthal
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP, davon 1 gAsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Einfluss, Geister vertreiben, Geister des Zorns
 &lt;b&gt;Erlernen:&lt;/b&gt; Smn 16; 20 EP</Talent>
-  <Talent name="Tairachs Krieger" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Dämonisch, Geister rufen, Geister des Zorns" variableKosten="0" referenzseite="164" referenzbuch="0">Du erhebst eine Leiche als Untoten (mehr zu Beschwörungen siehe S. 81), der in zwei INI-Phasen einsatzfähig ist. Entspricht dem Skelettarius.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; nach Untotem
+  <Talent name="Tairachs Krieger" kosten="40" spezialTyp="0" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Dämonisch, Geister rufen, Geister des Zorns" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="164">Du erhebst eine Leiche als Untoten, der in zwei INI-Phasen einsatzfähig ist. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala schwach (z. B. Skelett)/nützlich (z. B. Knochenritter)/stark (z. B. Kriegermumie)/mächtig (z. B. Kriegsherr). Die Beherrschungsprobe wird auf MU abgelegt. Mehr zu Beschwörungen siehe S. 81.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12/16/20/24
 &lt;b&gt;Modifikationen:&lt;/b&gt; Schnelle Erhebung (-4; der Untote ist sofort bereit.)
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; Material für einen einzelnen Untoten
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; nach Untotem
+&lt;b&gt;Kosten:&lt;/b&gt; 8/16/24/32 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dämonisch, Geister rufen, Geister des Zorns
 &lt;b&gt;Erlernen:&lt;/b&gt; Smn 18; 40 EP</Talent>
   <Talent name="Tairachs Sklaven" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Verständigung, Geister des Zorns" variableKosten="0" referenzseite="164" referenzbuch="0">Dein Geist fährt in den frischen Leichnam eines Lebewesens ein, der sich als von dir gesteuerter Untoter erhebt. Dabei sind keine Beschwörungs- oder Beherrschungsproben notwendig. Dein Körper bleibt währenddessen reglos zurück; sollte er vernichtet werden, endet der Zauber und du bist tot.
@@ -5190,46 +5237,51 @@ Sprechendes Zeichen (-4; das Zeichen kann einen kurzen Satz als Botschaft enthal
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Geister rufen, Verständigung
 &lt;b&gt;Erlernen:&lt;/b&gt; Smn 14; 60 EP</Talent>
-  <Talent name="Macht des Erzes" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Erz, Geister rufen" variableKosten="0" referenzseite="165" referenzbuch="0">Ruft ein Elementarwesen des jeweiligen Elements herbei (mehr zu Herbeirufungen S. 81), das in deiner unmittelbaren Nähe erscheint.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32 (Diener/Dschinn/Meister)
+  <Talent name="Macht des Erzes" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Erz, Geister rufen" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="165">Ruft ein Erzelementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Grommur)/Dschinn (z. B. Farlin)/Meister (z. B. Chakharîm).  Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; einzelnes Elementar
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 16/32/64 AsP (Diener/Dschinn/Meister)
+&lt;b&gt;Kosten:&lt;/b&gt; 16/32/64 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Erz, Geister rufen
-&lt;b&gt;Erlernen:&lt;/b&gt; Smn 18; 60 EP</Talent>
-  <Talent name="Macht des Feuers" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Feuer, Geister rufen" variableKosten="0" referenzseite="165" referenzbuch="0">Ruft ein Elementarwesen des jeweiligen Elements herbei (mehr zu Herbeirufungen S. 81), das in deiner unmittelbaren Nähe erscheint.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32 (Diener/Dschinn/Meister)
+&lt;b&gt;Erlernen:&lt;/b&gt; Smn 18; 60 EP
+&lt;b&gt;Anmerkung:&lt;/b&gt; Nicht überall sind die Wahren Namen und damit die Beschwörung von elementaren Dienern und vor allem Meistern bekannt.</Talent>
+  <Talent name="Macht des Feuers" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Feuer, Geister rufen" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="165">Ruft ein Feuerelementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Flammina)/Dschinn (z. B. Al‘Jallahir)/Meister (z. B. Lagramagmangr).  Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; einzelnes Elementar
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 16/32/64 AsP (Diener/Dschinn/Meister)
+&lt;b&gt;Kosten:&lt;/b&gt; 16/32/64 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Feuer, Geister rufen
-&lt;b&gt;Erlernen:&lt;/b&gt; Smn 18; 60 EP</Talent>
-  <Talent name="Macht des Humus" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Humus, Geister rufen" variableKosten="0" referenzseite="165" referenzbuch="0">Ruft ein Elementarwesen des jeweiligen Elements herbei (mehr zu Herbeirufungen S. 81), das in deiner unmittelbaren Nähe erscheint.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32 (Diener/Dschinn/Meister)
+&lt;b&gt;Erlernen:&lt;/b&gt; Smn 18; 60 EP
+&lt;b&gt;Anmerkung:&lt;/b&gt; Nicht überall sind die Wahren Namen und damit die Beschwörung von elementaren Dienern und vor allem Meistern bekannt.</Talent>
+  <Talent name="Macht des Humus" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Humus, Geister rufen" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="165">Ruft ein Humuselementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Kräuterkopf)/Dschinn (z. B. Abu al‘Azilat)/Meister (z. B. Eichbart).  Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; einzelnes Elementar
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 16/32/64 AsP (Diener/Dschinn/Meister)
+&lt;b&gt;Kosten:&lt;/b&gt; 16/32/64 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Humus, Geister rufen
-&lt;b&gt;Erlernen:&lt;/b&gt; Smn 16; 60 EP</Talent>
-  <Talent name="Macht der Luft" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Geister rufen, Luft" variableKosten="0" referenzseite="165" referenzbuch="0">Ruft ein Elementarwesen des jeweiligen Elements herbei (mehr zu Herbeirufungen S. 81), das in deiner unmittelbaren Nähe erscheint.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32 (Diener/Dschinn/Meister)
+&lt;b&gt;Erlernen:&lt;/b&gt; Smn 16; 60 EP
+&lt;b&gt;Anmerkung:&lt;/b&gt; Nicht überall sind die Wahren Namen und damit die Beschwörung von elementaren Dienern und vor allem Meistern bekannt.</Talent>
+  <Talent name="Macht der Luft" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Geister rufen, Luft" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="165">Ruft ein Luftelementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Emling)/Dschinn (z. B. Sausewind)/Meister (z. B. Brashaidor).  Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; einzelnes Elementar
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 16/32/64 AsP (Diener/Dschinn/Meister)
+&lt;b&gt;Kosten:&lt;/b&gt; 16/32/64 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Geister rufen, Luft
-&lt;b&gt;Erlernen:&lt;/b&gt; Smn 16; 60 EP</Talent>
-  <Talent name="Macht des Wassers" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Geister rufen, Wasser" variableKosten="0" referenzseite="165" referenzbuch="0">Ruft ein Elementarwesen des jeweiligen Elements herbei (mehr zu Herbeirufungen S. 81), das in deiner unmittelbaren Nähe erscheint.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32 (Diener/Dschinn/Meister)
+&lt;b&gt;Erlernen:&lt;/b&gt; Smn 16; 60 EP
+&lt;b&gt;Anmerkung:&lt;/b&gt; Nicht überall sind die Wahren Namen und damit die Beschwörung von elementaren Dienern und vor allem Meistern bekannt.</Talent>
+  <Talent name="Macht des Wassers" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Geister rufen, Wasser" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="165">Ruft ein Wasserelementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Baromna)/Dschinn (z. B. Baradarasch)/Meister (z. B. Hefashar).  Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; einzelnes Elementar
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 16/32/64 AsP (Diener/Dschinn/Meister)
+&lt;b&gt;Kosten:&lt;/b&gt; 16/32/64 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Geister rufen, Wasser
-&lt;b&gt;Erlernen:&lt;/b&gt; Smn 16; 60 EP</Talent>
+&lt;b&gt;Erlernen:&lt;/b&gt; Smn 16; 60 EP
+&lt;b&gt;Anmerkung:&lt;/b&gt; Nicht überall sind die Wahren Namen und damit die Beschwörung von elementaren Dienern und vor allem Meistern bekannt.</Talent>
   <Talent name="Hilferuf" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Geister rufen, Verständigung" variableKosten="0" referenzseite="165" referenzbuch="0">Du rufst ein Feenwesen, einen Totengeist oder einige Mindergeister aus einem Radius von 1 Meile herbei. Das Wesen eilt zu dir und du kannst es um Hilfe bei einem unmittelbaren Problem bitten. Meistens hilft das Wesen, es kann aber auch einen Gegengefallen fordern oder (selten) die Hilfe ablehnen.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Verdoppelt den Radius.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
@@ -5446,17 +5498,17 @@ Geister vertreiben (Entspricht dem allgemeinen Zauber Geister austreiben (S. 127
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Eigenschaften, Hexenflüche
 &lt;b&gt;Erlernen:&lt;/b&gt; Hex 16; 20 EP</Talent>
-  <Talent name="Weihe der Keule" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Keulenrituale, Kraft" variableKosten="0" referenzseite="167" referenzbuch="0">Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her, welche die Voraussetzung für alle weiteren Talente dieser Fertigkeit ist. Außerdem wird der Ritualgegenstand unzerbrechlich und zählt als magische Waffe.
+  <Talent name="Weihe der Keule" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Keulenrituale, Kraft" variableKosten="0" referenzseite="167" referenzbuch="0">Du stellst eine enge magische Bindung zu deiner Knochenkeule her, welche die Voraussetzung für alle weiteren Talente dieser Fertigkeit ist. Außerdem wird die Knochenkeule unzerbrechlich und zählt als magische Waffe.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Geerbte Keule (Du bindest die Keule deines Lehrmeisters. Von ihm auf die Keule gewirkte Rituale verfliegen, aber die Keule gilt als Lehrmeister für diese Rituale.)
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Stunden
-&lt;b&gt;Ziel:&lt;/b&gt; Ritualgegenstand
+&lt;b&gt;Ziel:&lt;/b&gt; Knochenkeule
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; permanent
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Keulenrituale, Kraft
 &lt;b&gt;Erlernen:&lt;/b&gt; Smn 8; 20 EP</Talent>
-  <Talent name="Apport der Keule" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Keulenrituale, Umwelt" variableKosten="0" referenzseite="167" referenzbuch="0">Der Ritualgegenstand kehrt fliegend mit einer Geschwindigkeit von 10 Meilen pro Stunde zu dir zurück. Er weicht Hindernissen aus oder durchbricht sie notfalls, wenn die KK von PW Keulenrituale/2 oder Umwelt/2 dafür ausreicht.
+  <Talent name="Apport der Keule" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Keulenrituale, Umwelt" variableKosten="0" referenzseite="167" referenzbuch="0">Die Knochenkeule kehrt fliegend mit einer Geschwindigkeit von 10 Meilen pro Stunde zu dir zurück. Sie weicht Hindernissen aus oder durchbricht sie notfalls, wenn die KK von PW Keulenrituale/2 oder Umwelt/2 dafür ausreicht.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; Zone
@@ -5465,7 +5517,7 @@ Geister vertreiben (Entspricht dem allgemeinen Zauber Geister austreiben (S. 127
 &lt;b&gt;Kosten:&lt;/b&gt; 1 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Keulenrituale, Umwelt
 &lt;b&gt;Erlernen:&lt;/b&gt; Smn 18; 20 EP</Talent>
-  <Talent name="Bann der Keule (passiv)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Keulenrituale" variableKosten="0" referenzseite="167" referenzbuch="0">Du lässt 2/4/6/8 gAsP in die Keule fließen. Fortan sind alle Beherrschungsproben für Elementare oder für Untote und Dämonen um +1/2/3/4 erleichtert. Du kannst die gAsP und gewählte Kreaturenklasse in einem einwöchigen Ritual, das 16 AsP kostet, verändern.
+  <Talent name="Bann der Keule (passiv)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Keulenrituale" variableKosten="0" referenzseite="167" referenzbuch="0">Du lässt 2/4/6/8 gAsP in die Keule fließen. Fortan sind alle Beherrschungsproben für Elementare &lt;b&gt;oder&lt;/b&gt; für Untote und Dämonen um +1/2/3/4 erleichtert. Du kannst die gAsP und gewählte Kreaturenklasse in einem einwöchigen Ritual, das 16 AsP kostet, verändern.
 &lt;b&gt;Erlernen:&lt;/b&gt; Smn 14; 40 EP</Talent>
   <Talent name="Geist der Keule" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Keulenrituale, Verständigung" variableKosten="0" referenzseite="167" referenzbuch="0">Du bindest einen Totengeist in die Keule. Solange der Geist an die Keule gebunden ist, erfüllt er dir eine Bitte, wenn dir eine CH-Probe (16) gelingt. Die erste Bitte seit dem letzten Neumond ist nicht erschwert, aber bei jeder zusätzlichen Bitte erleidest du einen kumulativen Malus von -4. Es kann immer nur ein Wesen in der Keule gebunden sein.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
@@ -5503,16 +5555,16 @@ Geister vertreiben (Entspricht dem allgemeinen Zauber Geister austreiben (S. 127
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Keulenrituale, Kraft
 &lt;b&gt;Erlernen:&lt;/b&gt; Smn 14; 40 EP</Talent>
-  <Talent name="Bindung des Schuppenbeutels" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Kraft, Kristallmagie" variableKosten="0" referenzseite="168" referenzbuch="0">Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her, welche die Voraussetzung für alle weiteren Talente dieser Fertigkeit ist. Außerdem wird der Ritualgegenstand unzerbrechlich.
+  <Talent name="Bindung des Schuppenbeutels" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Kraft, Kristallmagie" variableKosten="0" referenzseite="168" referenzbuch="0">Du stellst eine enge magische Bindung zu deinem Schuppenbeutels her, welche die Voraussetzung für alle weiteren Talente dieser Fertigkeit ist. Außerdem wird der Schuppenbeutels unzerbrechlich.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Stunden
-&lt;b&gt;Ziel:&lt;/b&gt; Ritualgegenstand
+&lt;b&gt;Ziel:&lt;/b&gt; Schuppenbeutel
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; permanent
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Kraft, Kristallmagie
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach 8; 20 EP</Talent>
-  <Talent name="Apport des Schuppenbeutels" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Kristallmagie, Umwelt" variableKosten="0" referenzseite="168" referenzbuch="0">Der Ritualgegenstand kehrt fliegend mit einer Geschwindigkeit von 10 Meilen pro Stunde zu dir zurück. Er weicht Hindernissen aus oder durchbricht sie notfalls, wenn die KK von PW Kristallmagie/2 oder Umwelt/2 dafür ausreicht.
+  <Talent name="Apport des Schuppenbeutels" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Kristallmagie, Umwelt" variableKosten="0" referenzseite="168" referenzbuch="0">Der Schuppenbeutels kehrt fliegend mit einer Geschwindigkeit von 10 Meilen pro Stunde zu dir zurück. Er weicht Hindernissen aus oder durchbricht sie notfalls, wenn die KK von PW Kristallmagie/2 oder Umwelt/2 dafür ausreicht.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; Zone
@@ -5622,16 +5674,16 @@ Geister vertreiben (Entspricht dem allgemeinen Zauber Geister austreiben (S. 127
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Hellsicht, Kristallmagie
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach 16; 40 EP</Talent>
-  <Talent name="Bindung der Kugel" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Kraft, Kugelzauber" variableKosten="0" referenzseite="169" referenzbuch="0">Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her, welche die Voraussetzung für alle weiteren Talente dieser Fertigkeit ist. Außerdem wird der Ritualgegenstand unzerbrechlich.
+  <Talent name="Bindung der Kugel" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Kraft, Kugelzauber" variableKosten="0" referenzseite="169" referenzbuch="0">Du stellst eine enge magische Bindung zu deiner Kristallkugel her, welche die Voraussetzung für alle weiteren Talente dieser Fertigkeit ist. Außerdem wird die Kristallkugel unzerbrechlich.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Stunden
-&lt;b&gt;Ziel:&lt;/b&gt; Ritualgegenstand
+&lt;b&gt;Ziel:&lt;/b&gt; Kristallkugel
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; permanent
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Kraft, Kugelzauber
 &lt;b&gt;Erlernen:&lt;/b&gt; Srl 8; Mag 14; 20 EP</Talent>
-  <Talent name="Apport der Kugel" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Kugelzauber, Umwelt" variableKosten="0" referenzseite="169" referenzbuch="0">Der Ritualgegenstand kehrt fliegend mit einer Geschwindigkeit von 10 Meilen pro Stunde zu dir zurück. Er weicht Hindernissen aus oder durchbricht sie notfalls, wenn die KK von PW Kugelzauber/2 oder Umwelt/2 dafür ausreicht.
+  <Talent name="Apport der Kugel" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Kugelzauber, Umwelt" variableKosten="0" referenzseite="169" referenzbuch="0">Die Kristallkugel kehrt fliegend mit einer Geschwindigkeit von 10 Meilen pro Stunde zu dir zurück. Sie weicht Hindernissen aus oder durchbricht sie notfalls, wenn die KK von PW Kugelzauber/2 oder Umwelt/2 dafür ausreicht.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; Zone
@@ -5712,10 +5764,10 @@ Geister vertreiben (Entspricht dem allgemeinen Zauber Geister austreiben (S. 127
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Kugelzauber
 &lt;b&gt;Erlernen:&lt;/b&gt; Mag 18; Srl 20; 40 EP</Talent>
-  <Talent name="Bindung des Ringes" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Geoden I" verbilligt="0" fertigkeiten="Kraft, Ringrituale" variableKosten="0" referenzseite="170" referenzbuch="0">Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her, welche die Voraussetzung für alle weiteren Talente dieser Fertigkeit ist. Außerdem wird der Ritualgegenstand unzerbrechlich.
+  <Talent name="Bindung des Ringes" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Geoden I" verbilligt="0" fertigkeiten="Kraft, Ringrituale" variableKosten="0" referenzseite="170" referenzbuch="0">Du stellst eine enge magische Bindung zu deinem Schlangenreif her, welche die Voraussetzung für alle weiteren Talente dieser Fertigkeit ist. Außerdem wird der Schlangenreif unzerbrechlich.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Stunden
-&lt;b&gt;Ziel:&lt;/b&gt; Ritualgegenstand
+&lt;b&gt;Ziel:&lt;/b&gt; Schlangenreif
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; permanent
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP
@@ -5823,10 +5875,10 @@ Temperatur: heiß/warm/mittel/kühl/kalt.
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Luft, Ringrituale
 &lt;b&gt;Erlernen:&lt;/b&gt; Geo 14; 40 EP</Talent>
-  <Talent name="Bindung der Schale" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Kraft, Schalenzauber" variableKosten="0" referenzseite="171" referenzbuch="0">Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her, welche die Voraussetzung für alle weiteren Talente dieser Fertigkeit ist. Außerdem wird der Ritualgegenstand unzerbrechlich.
+  <Talent name="Bindung der Schale" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Kraft, Schalenzauber" variableKosten="0" referenzseite="171" referenzbuch="0">Du stellst eine enge magische Bindung zu deiner Schale der Alchemie her, welche die Voraussetzung für alle weiteren Talente dieser Fertigkeit ist. Außerdem wird die Schale der Alchemie unzerbrechlich.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Stunden
-&lt;b&gt;Ziel:&lt;/b&gt; Ritualgegenstand
+&lt;b&gt;Ziel:&lt;/b&gt; Schale der Alchemie
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; permanent
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP
@@ -5834,7 +5886,7 @@ Temperatur: heiß/warm/mittel/kühl/kalt.
 &lt;b&gt;Erlernen:&lt;/b&gt; Alch 8; Hex 14; Mag 16; 20 EP</Talent>
   <Talent name="Allegorische Analyse (passiv)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Schalenzauber" variableKosten="0" referenzseite="171" referenzbuch="0">Du lässt einen 1 gAsP in die Schale fließen. Fortan leuchten bei der Analyse einer Astralstruktur in deiner Schale arkane Symbole auf der Schale auf. Dadurch steigt dein Analysegrad bei Intensitätsanalysen um 1 (S. 80).
 &lt;b&gt;Erlernen:&lt;/b&gt; Alch 12; Hex, Mag 16; 20 EP</Talent>
-  <Talent name="Apport der Schale" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Schalenzauber, Umwelt" variableKosten="0" referenzseite="171" referenzbuch="0">Der Ritualgegenstand kehrt fliegend mit einer Geschwindigkeit von 10 Meilen pro Stunde zu dir zurück. Er weicht Hindernissen aus oder durchbricht sie notfalls, wenn die KK von PW Schalenzauber/2 oder Umwelt/2 dafür ausreicht.
+  <Talent name="Apport der Schale" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Schalenzauber, Umwelt" variableKosten="0" referenzseite="171" referenzbuch="0">Die Schale der Alchemie kehrt fliegend mit einer Geschwindigkeit von 10 Meilen pro Stunde zu dir zurück. Sie weicht Hindernissen aus oder durchbricht sie notfalls, wenn die KK von PW Schalenzauber/2 oder Umwelt/2 dafür ausreicht.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; Zone
@@ -5893,16 +5945,16 @@ Temperatur: heiß/warm/mittel/kühl/kalt.
 &lt;b&gt;Kosten:&lt;/b&gt; 1 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Eis, Erz, Feuer, Humus, Luft, Wasser, Schalenzauber
 &lt;b&gt;Erlernen:&lt;/b&gt; Alch 12; 20 EP</Talent>
-  <Talent name="Bindung des Stabs" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Kraft, Stabzauber" variableKosten="0" referenzseite="172" referenzbuch="0">Du stellst eine enge magische Bindung zu deinem Ritualgegenstand her, welche die Voraussetzung für alle weiteren Talente dieser Fertigkeit ist. Außerdem wird der Ritualgegenstand unzerbrechlich und gilt als magische Waffe.
+  <Talent name="Bindung des Stabs" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Kraft, Stabzauber" variableKosten="0" referenzseite="172" referenzbuch="0">Du stellst eine enge magische Bindung zu deinem Zauberstab her, welche die Voraussetzung für alle weiteren Talente dieser Fertigkeit ist. Außerdem wird der Zauberstab unzerbrechlich und gilt als magische Waffe.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Stunden
-&lt;b&gt;Ziel:&lt;/b&gt; Ritualgegenstand
+&lt;b&gt;Ziel:&lt;/b&gt; Zauberstab
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; permanent
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Kraft, Stabzauber
 &lt;b&gt;Erlernen:&lt;/b&gt; Mag 8; 20 EP</Talent>
-  <Talent name="Apport des Stabs" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Stabzauber, Umwelt" variableKosten="0" referenzseite="172" referenzbuch="0">Der Ritualgegenstand kehrt fliegend mit einer Geschwindigkeit von 10 Meilen pro Stunde zu dir zurück. Er weicht Hindernissen aus oder durchbricht sie notfalls, wenn die KK von PW Stabzauber/2 oder Umwelt/2 dafür ausreicht.
+  <Talent name="Apport des Stabs" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Stabzauber, Umwelt" variableKosten="0" referenzseite="172" referenzbuch="0">Der Zauberstab kehrt fliegend mit einer Geschwindigkeit von 10 Meilen pro Stunde zu dir zurück. Er weicht Hindernissen aus oder durchbricht sie notfalls, wenn die KK von PW Stabzauber/2 oder Umwelt/2 dafür ausreicht.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; Zone
@@ -6688,7 +6740,7 @@ Große Traumreise (-8, 16 KaP; du kannst mit einigen Gefährten in den Traum rei
 &lt;b&gt;Ziel:&lt;/b&gt; Einzelwesen
 &lt;b&gt;Reichweite:&lt;/b&gt; 32 Schritt
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; halbe Basiskosten d. Beschwörung in KaP
+&lt;b&gt;Kosten:&lt;/b&gt; halbe Basiskosten der Beschwörung in KaP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Abu al'Mada, Heiliges Feuer, Magie, Magiebann, Schutz der Gläubigen, Tod, Wind und Wogen
 &lt;b&gt;Erlernen:&lt;/b&gt; Hes, Pra, Ron 8; Eff 12; Brn, Phe 14; Ang, Ing 16; 60 EP</Talent>
   <Talent name="Marbos Geleit" spezialTyp="1" kosten="0" voraussetzungen="Vorteil Tradition der Borongeweihten I" verbilligt="0" fertigkeiten="Tod" variableKosten="0" referenzseite="180" referenzbuch="0">Deine Seele verlässt kurzzeitig deinen Körper und begleitet und beschützt die des Verstorbenen auf dem Weg über das Nirgendmeer.
@@ -9403,13 +9455,13 @@ Große Traumreise (-8, 16 KaP; du kannst mit einigen Gefährten in den Traum rei
 &lt;b&gt;Kosten:&lt;/b&gt; 4 GuP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dämonische Hilfe (Cpt)
 &lt;b&gt;Erlernen:&lt;/b&gt; Cpt 14; 20 EP</Talent>
-  <Talent name="Wasserleiche erheben" spezialTyp="2" kosten="40" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variableKosten="0" referenzseite="204" referenzbuch="0">Du erhebst eine Leiche als Wasserleiche (mehr zu Beschwörungen siehe S. 81), die in zwei INI-Phasen einsatzfähig ist.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Schnelle Erhebung (-4; die Wasserleiche ist sofort bereit.)
+  <Talent name="Wasserleiche erheben" kosten="40" spezialTyp="2" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="204">Du erhebst eine Leiche als Untoten (nur Wasserleichen möglich), der in zwei INI-Phasen einsatzfähig ist. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala schwach/nützlich/stark/mächtig. Die Beherrschungsprobe wird auf MU abgelegt. Mehr zu Beschwörungen siehe S. 81.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12/16/20/24
+&lt;b&gt;Modifikationen:&lt;/b&gt; Schnelle Erhebung (-4; der Untote ist sofort bereit.)
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
-&lt;b&gt;Ziel:&lt;/b&gt; Material für eine einzelne Wasserleiche
+&lt;b&gt;Ziel:&lt;/b&gt; Material für einen einzelnen Untoten
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 4 GuP
+&lt;b&gt;Kosten:&lt;/b&gt; 4/8/12/16 GuP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dämonische Hilfe (Cpt)
 &lt;b&gt;Erlernen:&lt;/b&gt; Cpt 14; 40 EP</Talent>
   <Talent name="Amrychoths Tanz" spezialTyp="2" kosten="40" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variableKosten="0" referenzseite="204" referenzbuch="0">Im Radius von einer Meile kannst du den Wind auf einer Skala von windstill/leichte Brise/steife Brise/Sturm/Orkan um zwei Stufen verändern und seine Richtung lenken.
@@ -9478,47 +9530,7 @@ Dieses Wissen ist rein praktisch; exotische Tiere, Monster oder seltene Heilpfla
   <Fertigkeit name="Heilkunde" steigerungsfaktor="3" voraussetzungen="" attribute="CH|FF|KL" kampffertigkeit="0" typ="5">Ein Heilkundiger bekämpft tödliche Blutungen, heimtückische Gifte sowie langwierige Krankheiten und hilft seinen Gefährten so, wieder auf die Beine zu kommen. </Fertigkeit>
   <Fertigkeit name="Handwerk" steigerungsfaktor="3" voraussetzungen="" attribute="FF|FF|KK" kampffertigkeit="0" typ="5">Mit Handwerk schmiedest du Waffen und Rüstungen, fertigst filigrane Mechaniken und stabile Truhen.</Fertigkeit>
   <ÜbernatürlicheFertigkeit name="Antimagie" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Schelme I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Magiedilettant" attribute="CH|KL|MU" typ="0">Mit Antimagie kannst du Zauber während der Vorbereitung stören, bereits gewirkte Zauber aufheben und beschworene Wesenheiten bannen. Gerade Magier der Weißen Gilde gelten als Experten der Antimagie.
-Die meisten antimagischen Zauber richten sich gegen alle Zauber einer bestimmten übernatürlichen Fertigkeit (siehe Zauber) und verfügen über &lt;b&gt;vier Modifikationen&lt;/b&gt;:
-
-&lt;b&gt;1. Gegenzauber&lt;/b&gt;
-Der Gegenzauber stört einen anderen Zauberer während dessen Zaubervorbereitung. Er wirkt als &lt;i&gt;&lt;i&gt;Konterprobe&lt;/i&gt;&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Zauber in Vorbereitung
-&lt;b&gt;Reichweite:&lt;/b&gt; 16 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP
-
-&lt;b&gt;2. Magie unterdrücken&lt;/b&gt;
-Diese Variante unterdrückt zukünftige Zauber. In einer Zone von 16 Schritt Radius sind alle Zauber der Fertigkeit um -8 erschwert.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Malus steigt um -4.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 16 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Zone
-&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
-
-&lt;b&gt;3. Zauber aufheben&lt;/b&gt;
-Hiermit hebst du einen bereits gewirkten Zauber auf, in den keine gAsP geflossen sind. Zauber aufheben gilt als &lt;i&gt;&lt;i&gt;Konterprobe&lt;/i&gt;&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Zauber
-&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; halbe Basiskosten des Zaubers
-
-&lt;b&gt;4. Wesenheit bannen&lt;/b&gt;
-Hiermit bannst du beschworene Wesenheiten, in die keine gAsP geflossen sind (wie nichtgebundene Elementare und Dämonen).
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Beschwörungsschwierigkeit des zu bannenden Wesens
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; beschworenes Wesen
-&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; halbe Basiskosten der Beschwörung
-&lt;b&gt;Anmerkung:&lt;/b&gt; Wesenheiten und Zauber mit gAsP werden mit dem Destructibo gebannt.
-
-Eine dieser vier Modifikationen kombinierst du mit einem antimagischen Zauber. Zum Beispiel kannst du mit dem Zauber Einfluss bannen und der Modifikation Zauber aufheben einen Imperavi aufheben, oder mit dem Elementarbann und Wesenheit bannen einen Dschinn austreiben.</ÜbernatürlicheFertigkeit>
+Die meisten antimagischen Zauber richten sich gegen alle Zauber einer bestimmten übernatürlichen Fertigkeit (siehe Zauber) und verfügen über die &lt;b&gt;vier Modifikationen&lt;/b&gt; Gegenzauber, Magie unterdrücken, Zauber aufheben und Wesenheit bannen. Eine dieser vier Modifikationen kombinierst du mit einem antimagischen Zauber. Zum Beispiel kannst du mit dem Zauber Einfluss bannen und der Modifikation Zauber aufheben einen Imperavi aufheben, oder mit dem Elementarbann und Wesenheit bannen einen Dschinn austreiben.</ÜbernatürlicheFertigkeit>
   <ÜbernatürlicheFertigkeit name="Dämonisch" steigerungsfaktor="3" voraussetzungen="Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Schelme I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Magiedilettant" attribute="CH|MU|MU" typ="0">Diese finstere Zauberei ruft Dämonen in die dritte Sphäre, erhebt Untote, erschafft Chimären und Golems oder nutzt die Macht der Niederhöllen für andere zerstörerische Effekte.</ÜbernatürlicheFertigkeit>
   <ÜbernatürlicheFertigkeit name="Eigenschaften" steigerungsfaktor="3" voraussetzungen="Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Schelme I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Magiedilettant" attribute="GE|IN|KO" typ="0">Mit Eigenschaftsmagie kannst du deine Fähigkeiten und die deiner Gefährten verbessern oder Feinde behindern. </ÜbernatürlicheFertigkeit>
   <ÜbernatürlicheFertigkeit name="Einfluss" steigerungsfaktor="3" voraussetzungen="Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Schelme I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Magiedilettant" attribute="CH|CH|IN" typ="0">Als Einflusszauberer kannst du die Gedanken, Sinne und Gefühle deiner Mitmenschen manipulieren. Manche Einflusszauber (z.B. Bannbaladin) wirken äußerst subtil und sind während der Wirkung nicht zu bemerken. Im Zweifelsfall kann das Ziel nach dem Ende der Wirkung eine &lt;i&gt;Konterprobe&lt;/i&gt; (KL, 16) ablegen, um sich die Verzauberung bewusst zu machen.</ÜbernatürlicheFertigkeit>
@@ -9931,36 +9943,6 @@ Fast alle Geweihten der Zwölf beherrschen die zwölf Segnungen: Eid-, Feuer-, G
   <Regel name="Opferung (Paktierer)" typ="6" voraussetzungen="Vorteil Tradition der Paktierer III" probe="Anrufung +4">&lt;i&gt;Wirkung:&lt;/i&gt; Das rituelle Opfer eines intelligenten Wesens erleichtert die Anrufung um +4, ein Geweihter der Gegengottheit verdoppelt den Bonus sogar.</Regel>
   <Regel name="Bann des Eisens" typ="4" voraussetzungen="" probe="">Viele Metalle und Legierungen behindern den Fluss astraler Energie. In einer &lt;b&gt;Metallrüstung&lt;/b&gt; sind alle deine Zauber um –4x RS erschwert, metallene Arm- und Beinfesseln verursachen einen Abzug von -4, eine Halskrause sogar von -8. In einem Raum aus Koschbasalt sind alle Zauber um -8 bis -16 Punkte erschwert. All diese Abzüge addieren sich auf.
     Erleidest du mindestens eine Stunde lang Erschwernisse durch den Bann des Eisens, &lt;b&gt;regenerierst&lt;/b&gt; du in der nächsten Nacht außerdem &lt;b&gt;keine AsP&lt;/b&gt;. Regelmäßiger Kontakt mit Metall über Jahre hinweg kann den Astralkörper permanent schädigen.</Regel>
-  <Regel name="Antimagie - Gegenzauber" typ="4" voraussetzungen="Übernatürliche-Fertigkeit 'Antimagie'" probe="Antimagie-Zauber">Der Gegenzauber stört einen anderen Zauberer während dessen Zaubervorbereitung. Er wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Zauber in Vorbereitung
-&lt;b&gt;Reichweite:&lt;/b&gt; 16 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Regel>
-  <Regel name="Antimagie - Magie unterdrücken" typ="4" voraussetzungen="Übernatürliche-Fertigkeit 'Antimagie'" probe="Antimagie-Zauber">Diese Variante unterdrückt zukünftige Zauber. In einer Zone von 16 Schritt Radius sind alle Zauber der Fertigkeit um -8 erschwert.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Malus steigt um -4.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 16 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Zone
-&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Regel>
-  <Regel name="Antimagie - Zauber aufheben" typ="4" voraussetzungen="Übernatürliche-Fertigkeit 'Antimagie'" probe="Antimagie-Zauber">Hiermit hebst du einen bereits gewirkten Zauber auf, in den keine gAsP geflossen sind. Zauber aufheben gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Zauber
-&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; halbe Basiskosten des Zaubers</Regel>
-  <Regel name="Antimagie - Wesenheit bannen" typ="4" voraussetzungen="Übernatürliche-Fertigkeit 'Antimagie'" probe="Antimagie-Zauber">Hiermit bannst du beschworene Wesenheiten, in die keine gAsP geflossen sind (wie nicht gebundene Elementare und Dämonen).
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Beschwörungsschwierigkeit des zu bannenden Wesens
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; beschworenes Wesen
-&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; halbe Basiskosten der Beschwörung
-&lt;b&gt;Anmerkung:&lt;/b&gt; Wesenheiten und Zauber mit gAsP werden mit dem Destructibo gebannt.</Regel>
   <Regel name="Hexenbesen reiten" typ="4" voraussetzungen="Vorteil Tradition der Hexen I" probe="">Jede Hexe kann auf einem Besen oder einem anderen Holzgegenstand reiten. Dazu erhält sie bei der halbjährlichen Hexennacht die Hexensalbe, mit der das bestrichene Objekt flugfähig ist. Die Aktivierung des Besens vor jedem Flug kostet 1 AsP. Tollkühne Flugmanöver erfordern Proben auf das Talent Akrobatik. Misslungene Proben bedeuten, dass die Hexe die Kontrolle über den Besen verliert und schlimmstenfalls unsanft notlanden muss – schwere Verletzungen nicht ausgeschlossen. Bei einem Patzer kann der Hexe der Absturz drohen, sie könnte aber auch den Zorn eines Drachen geweckt haben.</Regel>
   <Regel name="Hexenflüche" typ="4" voraussetzungen="Übernatürliche-Fertigkeit 'Hexenflüche'" probe="">Als Hexe hast du &lt;b&gt;zwei Möglichkeiten&lt;/b&gt;, deine Flüche zu überbringen. Entweder du schleuderst sie &lt;b&gt;direkt&lt;/b&gt; lautstark auf das Opfer, wodurch du häufig vom Bonus der Hexischen Tradition II profitieren kannst, oder du lässt den Fluch unauffällig von deinem Vertrauten &lt;b&gt;überbringen&lt;/b&gt;. Dafür benötigst du allerdings ein Körperteil (z.B. Haar) deines Opfers. In beiden Fällen legst du danach die Probe auf eine passende übernatürliche Fertigkeit ab. Jeder Hexenfluch kann auch &lt;b&gt;permanent&lt;/b&gt; gesprochen werden. Dann halten ein Viertel der AsP als gAsP den Fluch aufrecht. Neben Antimagie oder göttlichem Wirken kann ein permanenter Fluch immer auch durch das Erfüllen einer Bedingung beendet werden. Diese Bedingung muss realistisch erfüllbar sein und du musst sie dem Verfluchten mitteilen (direkter Fluch) oder er erfährt sie in seinen Träumen (überbrachter Fluch).</Regel>
   <Regel name="Eigenschaft Aufrechterhalten (M)" typ="4" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I" probe="">Bevor die Wirkung eines Zaubers endet, kannst du sie um die Basiswirkungsdauer verlängern. Dazu musst du nur die Hälfte der Basiskosten bezahlen.</Regel>
@@ -10498,45 +10480,6 @@ Die &lt;b&gt;Hauptwaffe&lt;/b&gt; wählst du zu Kampfbeginn, andere sind &lt;b&g
   &lt;td align="center"&gt;-4&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;</Regel>
-  <Regel name="Beschwörungen - Chimären" typ="4" voraussetzungen="Talent 'Chimaeroform Hybridgestalt'" probe="Chimaeroform / MU">&lt;i&gt;Probenschwierigkeiten und Kosten (1/4 der Basis als gAsP):&lt;/i&gt;
-&lt;ul&gt;&lt;li&gt;12 (schwache Ch., z.B. Hundeblume), 8 AsP&lt;/li&gt;
-&lt;li&gt;16 (nützliche Ch., z.B. Widderhyäne), 16 AsP&lt;/li&gt;
-&lt;li&gt;20 (starke Ch., z.B. Mantikor), 24 AsP&lt;/li&gt;
-&lt;li&gt;24 (mächtige Ch., z.B. Drachenchim.), 32 AsP&lt;/li&gt;&lt;/ul&gt;
-&lt;i&gt;Beschwörungsprobe Mod.:&lt;/i&gt; +Bonus durch Vorbereitung, -Kosten für Zusatzfähigkeiten
-&lt;i&gt;Kontrollprobe Mod.:&lt;/i&gt; +Bonus durch Vorbereitung, +4 bis -8 je nach Dienst</Regel>
-  <Regel name="Beschwörungen - Dämonen" typ="4" voraussetzungen="Talent 'Invocatio' ODER Talent 'Macht der Ungeformten'" probe="Invocatio / MU">&lt;i&gt;Probenschwierigkeiten und Kosten:&lt;/i&gt;
-&lt;ul&gt;&lt;li&gt;16 (mindere D. z.B. Gotongi), 16 AsP&lt;/li&gt;
-&lt;li&gt;20 (niedere D. z.B. Zant), 24 AsP&lt;/li&gt;
-&lt;li&gt;24 (weniggehörnte D., z.B. Ulchuchu), 32 AsP&lt;/li&gt;
-&lt;li&gt;28 (gehörnte D., z.B. Shruuf), 48 AsP&lt;/li&gt;
-&lt;li&gt;32 (vielgehörnte D., z.B. Duglum), 64 AsP&lt;/li&gt;
-&lt;li&gt;36 (mächtige D., z.B. Yo’Na‘Hoh), 80 AsP&lt;/li&gt;&lt;/ul&gt;
-&lt;i&gt;Beschwörungsprobe Mod.:&lt;/i&gt; +Bonus durch Vorbereitung, -Kosten für Zusatzfähigkeiten, +4 beim Einsatz von Blutmagie
-&lt;i&gt;Kontrollprobe Mod.:&lt;/i&gt; +Bonus durch Vorbereitung, +4 bis -8 je nach Dienst, -4 beim Einsatz von Blutmagie
-&lt;i&gt;Chaotische Dämonen (optional):&lt;/i&gt; Dämonen sind Wesen des Chaos und oft weiß nicht einmal der Beschwörer, welche Eigenschaften das von ihm gerufene Wesen haben wird. Der Spielleiter kann dem Dämon versteckt zusätzliche Fähigkeiten verleihen entsprechend der Zufallstabelle auf S. 98.
-&lt;i&gt;Anmerkung:&lt;/i&gt; Bei misslungenen Dämonenbeschwörungen kann es zu gefährlichen chaotischen Nebeneffekten kommen. </Regel>
-  <Regel name="Beschwörungen - Elementare" typ="4" voraussetzungen="Talent 'Herbeirufung des Feuers' ODER Talent 'Herbeirufung des Eises' ODER Talent 'Herbeirufung der Luft' ODER Talent 'Herbeirufung des Wassers' ODER Talent 'Herbeirufung des Humus' ODER Talent 'Herbeirufung des Erzes' ODER Talent 'Macht des Erzes' ODER Talent 'Macht des Feuers' ODER Talent 'Macht des Humus' ODER Talent 'Macht der Luft' ODER Talent 'Macht des Wassers'" probe="Herbeirufung des Elements / CH">&lt;i&gt;Probenschwierigkeiten und Kosten:&lt;/i&gt;
-&lt;ul&gt;&lt;li&gt;16 (Diener, z.B. Kräuterkopf), 16 AsP&lt;/li&gt;
-&lt;li&gt;24 (Dschinne, z.B. Sausewind), 32 AsP&lt;/li&gt;
-&lt;li&gt;32 (Meister, z.B. Hefashar), 64 AsP&lt;/li&gt;&lt;/ul&gt;
-&lt;i&gt;Beschwörungsprobe Mod.:&lt;/i&gt; +Bonus durch Vorbereitung, -Kosten für Zusatzfähigkeiten
-&lt;i&gt;Kontrollprobe Mod.:&lt;/i&gt; +Bonus durch Vorbereitung, +4 bis -8 je nach Dienst, -4 beim Einsatz von Blutmagie</Regel>
-  <Regel name="Beschwörungen - Golems" typ="4" voraussetzungen="Talent 'Stein wandle!' ODER Talent 'Staub wandle!'" probe="Stein oder Staub wandle / MU oder CH (elem.)">&lt;i&gt;Probenschwierigkeiten und Kosten (1/4 der Basis als gAsP):&lt;/i&gt;
-&lt;ul&gt;&lt;li&gt;16 (schwache G., z.B. lauf. Truhe), 8 AsP&lt;/li&gt;
-&lt;li&gt;20 (nützliche G., z.B. Mephir), 16 AsP&lt;/li&gt;
-&lt;li&gt;24 (starke G., z.B. Homunculus), 24 AsP&lt;/li&gt;
-&lt;li&gt;28 (mächtige G., z.B. Ogerstatue), 32 AsP&lt;/li&gt;&lt;/ul&gt;
-&lt;i&gt;Beschwörungsprobe Mod.:&lt;/i&gt; +Bonus durch Vorbereitung, -Kosten für Zusatzfähigkeiten
-&lt;i&gt;Kontrollprobe Mod.:&lt;/i&gt; +Bonus durch Vorbereitung, +4 bis -8 je nach Dienst</Regel>
-  <Regel name="Beschwörungen - Untote" typ="4" voraussetzungen="Talent 'Skelettarius Totenherr' ODER Talent 'Tairachs Krieger' ODER Talent 'Wasserleiche erheben' ODER Talent 'Totes handle!'" probe="Skelettarius oder Totes handle / MU">&lt;i&gt;Probenschwierigkeiten und Kosten:&lt;/i&gt;
-&lt;ul&gt;&lt;li&gt;12 (schwache U., z.B. Skelett), 8 AsP&lt;/li&gt;
-&lt;li&gt;16 (nützliche U., z.B. Knochenritter), 16 AsP&lt;/li&gt;
-&lt;li&gt;20 (starke U., z.B. Kriegermumie), 24 AsP&lt;/li&gt;
-&lt;li&gt;24 (mächtige U., z.B. Kriegsherr), 32 AsP&lt;/li&gt;&lt;/ul&gt;
-&lt;i&gt;Beschwörungsprobe Mod.:&lt;/i&gt; +Bonus durch Vorbereitung, -Kosten für Zusatzfähigkeiten
-&lt;i&gt;Kontrollprobe Mod.:&lt;/i&gt; +Bonus durch Vorbereitung, +4 bis -8 je nach Dienst
-&lt;i&gt;Anmerkung:&lt;/i&gt; Mit dem Totes handle! können nur permanente Untote erschaffen werden, bei den Kosten sind hier 1/4 der Basiskosten gAsp</Regel>
   <Waffeneigenschaft name="Kopflastig" script="modifyWaffeTPPlus(getSB())">Die Waffe kann zusätzliche Kraft besonders effizient in Schaden umwandeln. Der Schadensbonus durch hohe KK zählt für sie doppelt.</Waffeneigenschaft>
   <Waffeneigenschaft name="Parierwaffe">Das Führen einer solchen Waffe ist Voraussetzung für den Parierwaffenstil.</Waffeneigenschaft>
   <Waffeneigenschaft name="Reittier">Ein Reittier ist Voraussetzung für den Reiterkampfstil. Angriffe mit dem Reittier sind um +4 erleichtert, wenn das Reittier in einer höheren Größenklasse als das Ziel ist.</Waffeneigenschaft>
@@ -10694,9 +10637,7 @@ halbe Basiskosten=Basiskosten/2
  der Beschwörung=
  in KaP=
  in GuP=
-nach Golem, ein Viertel der Basiskosten als gAsP=nach Golem, 1/4 gAsP
-nach Untotem, ein Viertel der Basiskosten als gAsP=nach Untotem, 1/4 gAsP
-nach Chimäre, 1/4 der Basiskosten als gAsP=nach Chimäre, 1/4 gAsP</Einstellung>
+AsP, ein Viertel der Basiskosten als gAsP=+1/4 gAsP</Einstellung>
   <Einstellung name="Charsheet: Talent-Abkürzungen Wirkungsdauer" typ="TextDict" separator="&#10;" strip="0" beschreibung="Die Wirkungsdauer von übernatürlichen Talenten kann eventuell zu lang für den Charakterbogen werden. Hier kann pro Zeile nach folgendem Format (ohne Anführungszeichen) eine Abkürzung definiert werden: 'Text=Abkürzung'. Text kann auch nur ein Teil des Wirkungsdauer-Texts sein.">bis die Bindung gelöst wird=bis Bindung gelöst
 oder bis der Befehl erfüllt ist=/ bis Befehl erfüllt
 Bis die Aufgabe gelöst wurde, maximal=Bis Aufgabe gelöst / max.
