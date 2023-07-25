@@ -761,6 +761,10 @@ class Datenbank():
                         errorStr = f"Vorteil {V.name} hat einen Querverweis auf einen nicht-existierenden abgeleiteten Wert: {wert}"
                         self.loadingErrors.append([V, errorStr])
                         logging.warning(errorStr)
+                elif ref != "Finanzen" and ref != "Statusse":
+                    errorStr = f"Vorteil {V.name} hat einen Querverweis mit falscher Syntax: {ref}. Unterstützt werden nur Regel, Vorteil, Talent, Waffeneigenschaft, Abgeleiteter Wert, Finanzen und Statusse."
+                    self.loadingErrors.append([V, errorStr])
+                    logging.warning(errorStr)
             
         #Talente
         for T in self.talente.values():

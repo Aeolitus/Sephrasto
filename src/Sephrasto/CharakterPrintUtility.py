@@ -257,8 +257,14 @@ class CharakterPrintUtility:
                 name2 = CharakterPrintUtility.getLinkedName(char, vorteil2, descriptionWillFollow)
 
                 #allgemeine vorteile, kampfstile and traditionen only keep the last name (except vorteil is variable with a comment)
-                if (not (vorteil.variableKosten) or not (vorteil.kommentarErlauben and vorteil.kommentar)) and (vorteil2.typ in vorteilsnamenErsetzen):
+                if (not vorteil.variableKosten) and vorteil2.typ in vorteilsnamenErsetzen:
                     name = name2
+                    if vorteil.kommentarErlauben and vorteil.kommentar:
+                        if name.endswith(")"):
+                            name = name[:-1]
+                            name += f"; {vorteil.kommentar})" # todo: kommentar order is wrong
+                        else:
+                            name += f" ({vorteil.kommentar})"
                 else:
                     fullset = [" I", " II", " III", " IV", " V", " VI", " VII"]
                     basename = ""

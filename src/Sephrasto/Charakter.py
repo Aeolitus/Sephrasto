@@ -100,7 +100,6 @@ class Char():
         self.kampfstilMods = {}
 
         #Vierter Block: Fertigkeiten und Freie Fertigkeiten
-
         self.fertigkeiten = {}
         self.freieFertigkeiten = []
         self.freieFertigkeitenNumKostenlos = Wolke.DB.einstellungen["FreieFertigkeiten: Anzahl Kostenlos"].wert
@@ -110,10 +109,7 @@ class Char():
         self.rüstung = []
         self.waffen = []
         self.waffenwerte = []
-        self.currentEigenschaft = None #used by waffenScriptAPI during iteration
-        self.currentWaffenwerte = None #used by waffenScriptAPI during iteration
         self.ausrüstung = []
-        self.waffenEigenschaftenUndo = [] #For undoing changes made by Vorteil scripts
         self.zonenSystemNutzen = False
 
         #Sechster Block: Übernatürliches
@@ -165,7 +161,13 @@ class Char():
         else:
             self.heimat = heimaten[0] if len(heimaten) > 0 else ""
 
+        #Script API
         #Bei Änderungen nicht vergessen die script docs in ScriptAPI.md anzupassen
+        self.currentVorteil = None #used by vorteilScriptAPI during iteration
+        self.currentEigenschaft = None #used by waffenScriptAPI during iteration
+        self.currentWaffenwerte = None #used by waffenScriptAPI during iteration
+        self.waffenEigenschaftenUndo = [] #For undoing changes made by Vorteil scripts
+
         self.charakterScriptAPI = {
             #Hintergrund
             'getName' : lambda: self.name, 
@@ -189,6 +191,7 @@ class Char():
             'modifyFertigkeitBasiswert' : lambda name, mod: setattr(self.fertigkeiten[name], 'basiswertMod', self.fertigkeiten[name].basiswertMod + mod), 
             'modifyÜbernatürlicheFertigkeitBasiswert' : self.API_modifyÜbernatürlicheFertigkeitBasiswert, 
             'modifyTalent' : self.API_modifyTalent, 
+            'addTalent' : self.API_addTalent, 
 
             #Kampfstil
             'getKampfstil' : lambda kampfstil: copy.copy(self.kampfstilMods[kampfstil]), 
@@ -279,6 +282,18 @@ class Char():
             fert.talentMods[talent][condition] = mod
         else:
             fert.talentMods[talent][condition] += mod
+
+    def API_addTalent(self, talent, kosten = -1, requiredÜberFert = None):
+        voraussetzungen = []
+        if requiredÜberFert:
+            if requiredÜberFert in self.übernatürlicheFertigkeiten:
+                voraussetzungen = Hilfsmethoden.VorStr2Array("Übernatürliche-Fertigkeit '" + requiredÜberFert + "'", Wolke.DB)
+            else:
+                return
+        talent = self.addTalent(talent)
+        talent.voraussetzungen = talent.voraussetzungen + Hilfsmethoden.VorStr2Array("Vorteil " + self.currentVorteil, Wolke.DB) + voraussetzungen
+        if kosten != -1:
+            talent.kosten = kosten
 
     def API_modifyÜbernatürlicheFertigkeitBasiswert (self, name, mod):
         if not name in self.übernatürlicheFertigkeiten:
@@ -450,7 +465,9 @@ class Char():
         for key in sorted(vorteileByPrio):
             for vort in vorteileByPrio[key]:
                 logging.info("Character: applying script for Vorteil " + vort.name)
+                self.currentVorteil = vort.name
                 vort.executeScript()
+        self.currentVorteil = None
 
         # Update BE, Fertigkeiten and Waffenwerte afterwards because they might be modified by Vorteil scripts
         for ab in self.abgeleiteteWerte.values():

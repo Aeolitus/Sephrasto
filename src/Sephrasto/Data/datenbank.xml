@@ -69,7 +69,7 @@ Beispiele für besonderen Besitz sind:
   <Vorteil name="Magieabweisend" kosten="40" voraussetzungen="" nachkauf="extrem selten" typ="0" variableKosten="0" kommentar="0" querverweise="Regel:Mächtige Magie">Zauber wirken auf dich deutlich schwächer. Du ignorierst bei allen Zaubern eine Stufe der spontanen Modifikation Mächtige Magie. Zauber ohne Mächtige Magie haben auf dich keine Wirkung.</Vorteil>
   <Vorteil name="Magiegespür" kosten="60" voraussetzungen="" nachkauf="extrem selten" typ="0" variableKosten="0" kommentar="0" querverweise="Talent:Sinnenschärfe">In der Nähe astraler Kräfte überfällt dich ein Frösteln, du hörst sphärische Klänge oder ein Farbschleier legt sich über die Umgebung. Mit dem Talent Sinnenschärfe kannst du Intensitätsanalysen (S. 80) von magischen Gegenständen durchführen. Nach dem aktiven Einsatz der Gabe erleidest du 1 Punkt Erschöpfung.</Vorteil>
   <Vorteil name="Minderpakt" kosten="0" voraussetzungen="" nachkauf="üblich" typ="0" variableKosten="0" kommentar="1" csBeschreibung="Du hast die Eigenheit „Von (Erzdämon) berührt“. Mit dieser Eigenheit kann der Erzdämon versuchen, dich in passenden Situationen zu einem Seelenpakt zu verführen.">Minderpakte werden deutlich leichter als reguläre Pakte geschlossen - und oft auch unfreiwillig. Dafür bedeutet ein Minderpakt noch keinen Eintritt in die Kreise der Verdammnis. Stattdessen kann ein Minderpaktierer sofort einen Vorteil für maximal 20 EP erwerben, für den er nicht zwingend die Voraussetzungen erfüllen muss - ein klassisches Beispiel ist die Tradition der Borbaradianer I.
-  Im Gegenzug erhält ein Minderpaktierer die Eigenheit „Von (Erzdämon) berührt“. Mit dieser Eigenheit kann der Erzdämon versuchen, den Minderpaktierer in passenden Situationen zu einem Seelenpakt zu verführen.</Vorteil>
+    Im Gegenzug erhält ein Minderpaktierer die Eigenheit „Von (Erzdämon) berührt“. Mit dieser Eigenheit kann der Erzdämon versuchen, den Minderpaktierer in passenden Situationen zu einem Seelenpakt zu verführen.</Vorteil>
   <Vorteil name="Natürliche Rüstung" kosten="80" voraussetzungen="" nachkauf="extrem selten" typ="0" variableKosten="0" kommentar="0" script="modifyRS(1)" csBeschreibung="Du verfügst über ein dichtes Fell oder zähe Schuppenhaut, wodurch dein RS um 1 steigt (bereits eingerechnet). Die BE verändert sich dadurch nicht.">Du verfügst über ein dichtes Fell oder zähe Schuppenhaut, wodurch dein RS um 1 steigt. Die BE verändert sich dadurch nicht.
 
 Dieser Vorteil kann üblicherweise nur von Achaz, Orks oder ähnlichen Spezies gewählt werden.</Vorteil>
@@ -165,6 +165,7 @@ Mit einer Aktion Konflikt und einer &lt;i&gt;Konterprobe&lt;/i&gt; (MU, 16) kann
   <Vorteil name="Ruhige Hand" kosten="20" voraussetzungen="Attribut FF 4" nachkauf="häufig" typ="2" variableKosten="0" kommentar="0" linkKategorie="1" linkElement="Zielen" querverweise="Regel:Zielen">Verdoppelt im Fernkampf den Bonus durch Zielen.</Vorteil>
   <Vorteil name="Reflexschuss" kosten="40" voraussetzungen="Attribut FF 6" nachkauf="häufig" typ="2" variableKosten="0" kommentar="0" linkKategorie="1" linkElement="Fernkampfmodifikatoren" querverweise="Regel:Fernkampfmodifikatoren">Im Fernkampf sinken Abzüge durch Bewegung oder Wind um 1 Stufe.</Vorteil>
   <Vorteil name="Schnellziehen" kosten="60" voraussetzungen="Attribut FF 8" nachkauf="häufig" typ="2" variableKosten="0" kommentar="0" csBeschreibung="Nahkampf- und Wurfwaffen können in einer freien Aktion gezogen werden." linkKategorie="1" linkElement="Aktion Bereit machen (einfach)" querverweise="Regel:Schnellschuss|Regel:Aktion Bereit machen (einfach)">Erlaubt das Manöver Schnellschuss.
+
 Nahkampf- und Wurfwaffen können in einer freien Aktion gezogen werden.</Vorteil>
   <Vorteil name="Meisterschuss" kosten="80" voraussetzungen="Attribut FF 10" nachkauf="häufig" typ="2" variableKosten="0" kommentar="0" csAuflisten="0" querverweise="Regel:Meisterschuss">Erlaubt das Manöver Meisterschuss.</Vorteil>
   <Vorteil name="Niederwerfen" kosten="20" voraussetzungen="Attribut KK 4" nachkauf="häufig" typ="2" variableKosten="0" kommentar="0" csAuflisten="0" querverweise="Regel:Niederwerfen">Erlaubt das Manöver Niederwerfen.</Vorteil>
@@ -256,8 +257,8 @@ Bei Strukturanalysen (S. 80) erhältst du einen zusätzlichen Analysegrad, wenn 
   <Vorteil name="Blutmagie" kosten="60" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut MU 8" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" querverweise="Abgeleiteter Wert:WS|Regel:Beschwörungen">Mit finsterer und streng verbotener Blutmagie nutzt du fremde Lebenskraft für deine Zauber. Das Opfer wird dabei völlig ausgezehrt und stirbt. Ein zauberkundiges Opfer stellt 8 x WS AsP, ein humanoides Opfer 4 x WS AsP und ein profanes Tier WS AsP zur Verfügung. Blutmagie erleichtert die Beschwörung von Dämonen um +4, aber erschwert die Kontrollprobe von Dämonen und Elementaren um -4. Blutmagie kann übrigens keine gAsP zur Verfügung stellen – gAsP müssen immer vom Zaubernden selbst stammen.</Vorteil>
   <Vorteil name="Gebieter der Finsternis" kosten="80" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut MU 10" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" linkKategorie="1" linkElement="Beschwörungen" querverweise="Regel:Beschwörungen|Regel:Beschwörungen - Bindung">Gebundene unheilige Wesenheiten kosten nur noch die halben gAsP und eine misslungene Beschwörungsprobe kann einmalig für die Hälfte der Beschwörungskosten wiederholt werden.</Vorteil>
   <Vorteil name="Unitatio" kosten="20" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut IN 4" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" querverweise="Regel:Zusammenarbeit">Der Vorteil ermöglicht es dir, mit anderen Kennern dieses Vorteils einen Zauberzirkel zu bilden. Alle Teilnehmer des Zirkels müssen sich berühren und willens sein, ihre Astralenergie zu teilen.
-Solange der Zirkel besteht, können die Teilnehmer die Regeln zur Zusammenarbeit (S. 8) nutzen, um sich gegenseitig beim Zaubern zu unterstützen. Üblicherweise sind dabei maximal vier Helfer möglich, welche die Probe des Zaubernden um jeweils +2 erleichtern können. Allerdings werden Elfensippen und manchen Hexenzirkeln noch viel mächtigere Unitatio-Zauberei nachgesagt.
-Zusätzlich werden die Zauberkosten aller Teilnehmer gleichmäßig auf den gesamten Zirkel aufgeteilt. Sollte ein Teilungsrest übrigbleiben oder ein Teilnehmer über zu wenige AsP verfügen, muss der Zaubernde diese Kosten tragen. Nur gAsP muss der Zaubernde stets selbst tragen.</Vorteil>
+    Solange der Zirkel besteht, können die Teilnehmer die Regeln zur &lt;b&gt;Zusammenarbeit&lt;/b&gt; (S. 8) nutzen, um sich gegenseitig beim Zaubern zu unterstützen. Üblicherweise sind dabei maximal vier Helfer möglich, welche die Probe des Zaubernden um jeweils +2 erleichtern können. Allerdings werden Elfensippen und manchen Hexenzirkeln noch viel mächtigere Unitatio-Zauberei nachgesagt.
+    Zusätzlich werden die &lt;b&gt;Zauberkosten&lt;/b&gt; aller Teilnehmer gleichmäßig auf den gesamten Zirkel &lt;b&gt;aufgeteilt&lt;/b&gt;. Sollte ein Teilungsrest übrigbleiben oder ein Teilnehmer über zu wenige AsP verfügen, muss der Zaubernde diese Kosten tragen. Nur gAsP muss der Zaubernde stets selbst tragen.</Vorteil>
   <Vorteil name="Flexible Magie" kosten="40" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut IN 6" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" linkKategorie="1" linkElement="Aktion Konzentration (voll)" querverweise="Regel:Aktion Konzentration (voll)">Während du einen Zauber vorbereitest, kannst du dich mit einer Erschwernis von -4 verteidigen.</Vorteil>
   <Vorteil name="Mühelose Magie" kosten="60" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut IN 8" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" querverweise="Regel:Mächtige Magie">Zeigt der gewertete Würfel bei einem Zauber eine 16 oder höher, sinken die Kosten um die Hälfte der Basiskosten und der Zauber erhält zusätzlich 1 Stufe Mächtige Magie.</Vorteil>
   <Vorteil name="Flinke Magie" kosten="80" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut IN 10" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" querverweise="Regel:Aktion Konflikt (einfach)|Regel:Freie Aktion">Einmal pro Initiativephase kannst du eine Zauberprobe in einer freien Aktion statt einer Aktion Konflikt durchführen.</Vorteil>
@@ -265,79 +266,79 @@ Zusätzlich werden die Zauberkosten aller Teilnehmer gleichmäßig auf den gesam
   <Vorteil name="Kraftlinienmagie" kosten="40" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut KL 6" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" querverweise="Regel:Regeneration">An Kraftlinien oder -knoten sind Zauber mit passenden Fertigkeiten je nach Linienstärke um +2 bis +4 erleichtert und die Regeneration ist um 2-4 AsP erhöht.</Vorteil>
   <Vorteil name="Effizientes Zaubern" kosten="60" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut KL 8" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" csAuflisten="0" querverweise="Regel:Kosten sparen (M)">Ermöglicht die spontane Modifikation Kosten sparen.</Vorteil>
   <Vorteil name="Vorbereitendes Zaubern" kosten="80" voraussetzungen="Vorteil Zauberer I ODER Vorteil Tradition der Borbaradianer I, Attribut KL 10" nachkauf="häufig" typ="4" variableKosten="0" kommentar="0" querverweise="Regel:Aktion Konzentration (voll)|Regel:Aktion Konflikt (einfach)">Zwischen dem Vorbereiten des Zaubers und der Aktion Konflikt dürfen bis zu KL Minuten liegen. Danach gilt der Zauber als fehlgeschlagen. Ein Ziel in Reichweite wird erst in der Aktion Konflikt ausgewählt. Du kannst nur einen Zauber in Vorbereitung halten.</Vorteil>
-  <Vorteil name="Tiergeist (Affe)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Attributo|Talent:Axxeleratus Blitzgeschwind|Talent:Motoricus Geisterhand|Talent:Wipfellauf" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen und dann alle Zauber des Tiergeists unter der Fertigkeit Gaben des Blutgeists aktivieren.">&lt;i&gt;Archetyp:&lt;/i&gt; Akrobat
+  <Vorteil name="Tiergeist (Affe)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Attributo|Talent:Axxeleratus Blitzgeschwind|Talent:Motoricus Geisterhand|Talent:Wipfellauf" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen - die entsprechenden Zauber erscheinen unter der Fertigkeit Gaben des Blutgeists und werden automatisch aktiviert.." script="for t in ['Attributo', 'Axxeleratus Blitzgeschwind', 'Motoricus Geisterhand', 'Wipfellauf']: addTalent(t + ' (Tiergeist)', 0, 'Gaben des Blutgeists')">&lt;i&gt;Archetyp:&lt;/i&gt; Akrobat
 &lt;i&gt;Wertebonus:&lt;/i&gt; Akrobatik, Klettern, Pirschen, Wurfwaffen, GE
 &lt;i&gt;Verwandlung:&lt;/i&gt; Schwanz (Akrobatik und Klettern +4), Kopf (Sinnenschärfe und Wachsamkeit +4)
 &lt;i&gt;Zauber:&lt;/i&gt; Attributo, Axxeleratus, Motoricus, Wipfellauf</Vorteil>
-  <Vorteil name="Tiergeist (Bär)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Bärenruhe Winterschlaf|Talent:Eiseskälte Kämpferherz|Talent:Ruhe Körper, Ruhe Geist|Talent:Sanftmut|Talent:Standfest Katzengleich|Talent:Zaubernahrung Hungerbann" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen und dann alle Zauber des Tiergeists unter der Fertigkeit Gaben des Blutgeists aktivieren.">&lt;i&gt;Archetyp:&lt;/i&gt; Nahkämpfer
+  <Vorteil name="Tiergeist (Bär)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Bärenruhe Winterschlaf|Talent:Eiseskälte Kämpferherz|Talent:Ruhe Körper, Ruhe Geist|Talent:Sanftmut|Talent:Standfest Katzengleich|Talent:Zaubernahrung Hungerbann" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen - die entsprechenden Zauber erscheinen unter der Fertigkeit Gaben des Blutgeists und werden automatisch aktiviert.." script="for t in ['Bärenruhe Winterschlaf', 'Eiseskälte Kämpferherz', 'Ruhe Körper, Ruhe Geist', 'Sanftmut', 'Standfest Katzengleich', 'Zaubernahrung Hungerbann']: addTalent(t + ' (Tiergeist)', 0, 'Gaben des Blutgeists')">&lt;i&gt;Archetyp:&lt;/i&gt; Nahkämpfer
 &lt;i&gt;Wertebonus:&lt;/i&gt; TP im Nahkampf, Zähigkeit, KK
 &lt;i&gt;Verwandlung:&lt;/i&gt; Pranken (2W6+2 TP waffenlos, nicht zerbrechlich, RW 1), Pelz (+2 RS, Kälteschutz wie dicke Winterkleidung (S. 35))
 &lt;i&gt;Zauber:&lt;/i&gt; Bärenruhe, Eiseskälte, Ruhe Körper, Sanftmut, Standfest, Zaubernahrung</Vorteil>
-  <Vorteil name="Tiergeist (Elefant)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Memorans Gedächtniskraft|Talent:Psychostabilis|Talent:Seelentier erkennen|Talent:Xenographus Schriftenkunde" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen und dann alle Zauber des Tiergeists unter der Fertigkeit Gaben des Blutgeists aktivieren.">&lt;i&gt;Archetyp:&lt;/i&gt; Weiser
+  <Vorteil name="Tiergeist (Elefant)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Memorans Gedächtniskraft|Talent:Psychostabilis|Talent:Seelentier erkennen|Talent:Xenographus Schriftenkunde" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen - die entsprechenden Zauber erscheinen unter der Fertigkeit Gaben des Blutgeists und werden automatisch aktiviert.." script="for t in ['Memorans Gedächtniskraft', 'Psychostabilis', 'Seelentier erkennen', 'Xenographus Schriftenkunde']: addTalent(t + ' (Tiergeist)', 0, 'Gaben des Blutgeists')">&lt;i&gt;Archetyp:&lt;/i&gt; Weiser
 &lt;i&gt;Wertebonus:&lt;/i&gt; Heilkunde, Geographie, Mythenkunde, KL
 &lt;i&gt;Verwandlung:&lt;/i&gt; Haut (+1 RS und Willenskraft +4), Stoßzähne (2W6+2 TP waffenlos, nicht zerbrechlich, RW 1)
 &lt;i&gt;Zauber:&lt;/i&gt; Memorans, Psychostabilis, Seelentier erkennen, Xenographus</Vorteil>
-  <Vorteil name="Tiergeist (Eule)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Blick aufs Wesen|Talent:Exposami Lebenskraft|Talent:Hexenkrallen|Talent:Sensibar Empathicus|Talent:Silentium Schweigekreis" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen und dann alle Zauber des Tiergeists unter der Fertigkeit Gaben des Blutgeists aktivieren.">&lt;i&gt;Archetyp:&lt;/i&gt; Kundschafter
+  <Vorteil name="Tiergeist (Eule)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Blick aufs Wesen|Talent:Exposami Lebenskraft|Talent:Hexenkrallen|Talent:Sensibar Empathicus|Talent:Silentium Schweigekreis" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen - die entsprechenden Zauber erscheinen unter der Fertigkeit Gaben des Blutgeists und werden automatisch aktiviert.." script="for t in ['Blick aufs Wesen', 'Exposami Lebenskraft', 'Hexenkrallen', 'Sensibar Empathicus', 'Silentium Schweigekreis']: addTalent(t + ' (Tiergeist)', 0, 'Gaben des Blutgeists')">&lt;i&gt;Archetyp:&lt;/i&gt; Kundschafter
 &lt;i&gt;Wertebonus:&lt;/i&gt; Pirschen, Sinnenschärfe, Überleben, IN
 &lt;i&gt;Verwandlung:&lt;/i&gt; Flügel (bis zu 8 Schritt weite und 4 Schritt hohe Sprünge, Gleitflüge von bis zu 4xHöhe Schritt), Kopf (Sinnenschärfe und Wachsamkeit +4, wenn Sicht gefragt ist, Angepasst (Dunkelheit) steigt um 1 Stufe)
 &lt;i&gt;Zauber:&lt;/i&gt; Blick aufs Wesen, Exposami, Hexenkrallen, Senisbar, Silentium</Vorteil>
-  <Vorteil name="Tiergeist (Falke)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Adlerauge Luchsenohr|Talent:Axxeleratus Blitzgeschwind|Talent:Falkenauge Meisterschuss|Talent:Pfeil der Luft|Talent:Aeropulvis sanfter Fall" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen und dann alle Zauber des Tiergeists unter der Fertigkeit Gaben des Blutgeists aktivieren.">&lt;i&gt;Archetyp:&lt;/i&gt; Fernkämpfer
+  <Vorteil name="Tiergeist (Falke)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Adlerauge Luchsenohr|Talent:Axxeleratus Blitzgeschwind|Talent:Falkenauge Meisterschuss|Talent:Pfeil der Luft|Talent:Aeropulvis sanfter Fall" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen - die entsprechenden Zauber erscheinen unter der Fertigkeit Gaben des Blutgeists und werden automatisch aktiviert.." script="for t in ['Adlerauge Luchsenohr', 'Axxeleratus Blitzgeschwind', 'Falkenauge Meisterschuss', 'Pfeil der Luft', 'Aeropulvis sanfter Fall']: addTalent(t + ' (Tiergeist)', 0, 'Gaben des Blutgeists')">&lt;i&gt;Archetyp:&lt;/i&gt; Fernkämpfer
 &lt;i&gt;Wertebonus:&lt;/i&gt; TP im Fernkampf, Sinnenschärfe, Wachsamkeit, FF
 &lt;i&gt;Verwandlung:&lt;/i&gt; Flügel (bis zu 8 Schritt weite und 4 Schritt hohe Sprünge, Gleitflüge von bis zu 4xHöhe Schritt), Kopf (Sinnenschärfe +8 und Wachsamkeit +4, wenn Sicht gefragt ist)
 &lt;i&gt;Zauber:&lt;/i&gt; Adlerauge, Axxeleratus, Falkenauge, Pfeil der Luft, Aeropulvis</Vorteil>
-  <Vorteil name="Tiergeist (Fischotter)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Eins mit der Natur|Talent:Katzenaugen|Talent:Foramen Foraminor|Talent:Wasseratem|Talent:Wellenlauf|Talent:Hilfreiche Tatze, rettende Schwinge" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen und dann alle Zauber des Tiergeists unter der Fertigkeit Gaben des Blutgeists aktivieren.">&lt;i&gt;Archetyp:&lt;/i&gt; Akrobat
+  <Vorteil name="Tiergeist (Fischotter)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Eins mit der Natur|Talent:Katzenaugen|Talent:Foramen Foraminor|Talent:Wasseratem|Talent:Wellenlauf|Talent:Hilfreiche Tatze, rettende Schwinge" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen - die entsprechenden Zauber erscheinen unter der Fertigkeit Gaben des Blutgeists und werden automatisch aktiviert.." script="for t in ['Eins mit der Natur', 'Katzenaugen', 'Foramen Foraminor', 'Wasseratem', 'Wellenlauf', 'Hilfreiche Tatze, rettende Schwinge']: addTalent(t + ' (Tiergeist)', 0, 'Gaben des Blutgeists')">&lt;i&gt;Archetyp:&lt;/i&gt; Akrobat
 &lt;i&gt;Wertebonus:&lt;/i&gt; Akrobatik, Klettern, Pirschen, Schwimmen, GE
 &lt;i&gt;Verwandlung:&lt;/i&gt; Pfoten (Schwimmen +4, Angepasst (Wasser) steigt um 1 Stufe), Pelz (+2 RS, Kälteschutz wie dicke Winterkleidung (S. 35))
 &lt;i&gt;Zauber:&lt;/i&gt; Eins mit der Natur, Katzenaugen, Foramen, Wasseratem, Wellenlauf, Hilfreiche Tatze</Vorteil>
-  <Vorteil name="Tiergeist (Fuchs)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Attributo|Talent:Harmlose Gestalt|Talent:Sensibar Empathicus|Talent:Seidenzunge Elfenwort" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen und dann alle Zauber des Tiergeists unter der Fertigkeit Gaben des Blutgeists aktivieren.">&lt;i&gt;Archetyp:&lt;/i&gt; Gesellschafter
+  <Vorteil name="Tiergeist (Fuchs)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Attributo|Talent:Harmlose Gestalt|Talent:Sensibar Empathicus|Talent:Seidenzunge Elfenwort" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen - die entsprechenden Zauber erscheinen unter der Fertigkeit Gaben des Blutgeists und werden automatisch aktiviert.." script="for t in ['Attributo', 'Harmlose Gestalt', 'Sensibar Empathicus', 'Seidenzunge Elfenwort']: addTalent(t + ' (Tiergeist)', 0, 'Gaben des Blutgeists')">&lt;i&gt;Archetyp:&lt;/i&gt; Gesellschafter
 &lt;i&gt;Wertebonus:&lt;/i&gt; Gebräuche, Überreden, Menschenkenntnis, CH
 &lt;i&gt;Verwandlung:&lt;/i&gt; Fell (+1 RS, Pirschen +4), Kopf (Sinnenschärfe und Wachsamkeit +4)
 &lt;i&gt;Zauber:&lt;/i&gt; Attributo, Harmlose Gestalt, Sensibar, Seidenzunge</Vorteil>
-  <Vorteil name="Tiergeist (Mungo)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Attributo|Talent:Harmlose Gestalt|Talent:Sensibar Empathicus|Talent:Seidenzunge Elfenwort" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen und dann alle Zauber des Tiergeists unter der Fertigkeit Gaben des Blutgeists aktivieren.">&lt;i&gt;Archetyp:&lt;/i&gt; Gesellschafter
+  <Vorteil name="Tiergeist (Mungo)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Attributo|Talent:Harmlose Gestalt|Talent:Sensibar Empathicus|Talent:Seidenzunge Elfenwort" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen - die entsprechenden Zauber erscheinen unter der Fertigkeit Gaben des Blutgeists und werden automatisch aktiviert.." script="for t in ['Attributo', 'Harmlose Gestalt', 'Sensibar Empathicus', 'Seidenzunge Elfenwort']: addTalent(t + ' (Tiergeist)', 0, 'Gaben des Blutgeists')">&lt;i&gt;Archetyp:&lt;/i&gt; Gesellschafter
 &lt;i&gt;Wertebonus:&lt;/i&gt; Gebräuche, Überreden, Menschenkenntnis, CH
 &lt;i&gt;Verwandlung:&lt;/i&gt; Fell (+1 RS, Pirschen +4), Kopf (Sinnenschärfe und Wachsamkeit +4)
 &lt;i&gt;Zauber:&lt;/i&gt; Attributo, Harmlose Gestalt, Sensibar, Seidenzunge</Vorteil>
-  <Vorteil name="Tiergeist (Gebirgsbock)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Axxeleratus Blitzgeschwind|Talent:Eins mit der Natur|Talent:Firnlauf|Talent:Spinnenlauf|Talent:Standfest Katzengleich" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen und dann alle Zauber des Tiergeists unter der Fertigkeit Gaben des Blutgeists aktivieren.">&lt;i&gt;Archetyp:&lt;/i&gt; Sammler
+  <Vorteil name="Tiergeist (Gebirgsbock)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Axxeleratus Blitzgeschwind|Talent:Eins mit der Natur|Talent:Firnlauf|Talent:Spinnenlauf|Talent:Standfest Katzengleich" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen - die entsprechenden Zauber erscheinen unter der Fertigkeit Gaben des Blutgeists und werden automatisch aktiviert.." script="for t in ['Axxeleratus Blitzgeschwind', 'Eins mit der Natur', 'Firnlauf', 'Spinnenlauf', 'Standfest Katzengleich']: addTalent(t + ' (Tiergeist)', 0, 'Gaben des Blutgeists')">&lt;i&gt;Archetyp:&lt;/i&gt; Sammler
 &lt;i&gt;Wertebonus:&lt;/i&gt; Pflanzenkunde, Tierkunde, Überleben, Wachsamkeit, KO
 &lt;i&gt;Verwandlung:&lt;/i&gt; Hörner (2W6+2 TP waffenlos, nicht zerbrechlich, RW 1), Pelz (+2 RS, Kälteschutz wie dicke Winterkleidung (S. 35))
 &lt;i&gt;Zauber:&lt;/i&gt; Axxeleratus, Eins mit der Natur, Firnlauf, Spinnenlauf, Standfest</Vorteil>
-  <Vorteil name="Tiergeist (Löwe)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Ängste lindern|Talent:Armatrutz|Talent:Katzenaugen|Talent:Kusch!|Talent:Standfest Katzengleich" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen und dann alle Zauber des Tiergeists unter der Fertigkeit Gaben des Blutgeists aktivieren.">&lt;i&gt;Archetyp:&lt;/i&gt; Anführer
+  <Vorteil name="Tiergeist (Löwe)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Ängste lindern|Talent:Armatrutz|Talent:Katzenaugen|Talent:Kusch!|Talent:Standfest Katzengleich" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen - die entsprechenden Zauber erscheinen unter der Fertigkeit Gaben des Blutgeists und werden automatisch aktiviert.." script="for t in ['Ängste lindern', 'Armatrutz', 'Katzenaugen', 'Kusch!', 'Standfest Katzengleich']: addTalent(t + ' (Tiergeist)', 0, 'Gaben des Blutgeists')">&lt;i&gt;Archetyp:&lt;/i&gt; Anführer
 &lt;i&gt;Wertebonus:&lt;/i&gt; Autorität, Willenskraft, MU
 &lt;i&gt;Verwandlung:&lt;/i&gt; Maul (2W6+2 TP waffenlos, Einschüchtern +4), Mähne (Anführen +4, Furcht-Effekte sinken um 1 Stufe)
 &lt;i&gt;Zauber:&lt;/i&gt; Ängste lindern, Armatrutz, Katzenaugen, Kusch!, Standfest</Vorteil>
-  <Vorteil name="Tiergeist (Mammut)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Ängste lindern|Talent:Armatrutz|Talent:Kusch!|Talent:Psychostabilis|Talent:Zaubernahrung Hungerbann" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen und dann alle Zauber des Tiergeists unter der Fertigkeit Gaben des Blutgeists aktivieren.">&lt;i&gt;Archetyp:&lt;/i&gt; Anführer
+  <Vorteil name="Tiergeist (Mammut)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Ängste lindern|Talent:Armatrutz|Talent:Kusch!|Talent:Psychostabilis|Talent:Zaubernahrung Hungerbann" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen - die entsprechenden Zauber erscheinen unter der Fertigkeit Gaben des Blutgeists und werden automatisch aktiviert.." script="for t in ['Ängste lindern', 'Armatrutz', 'Kusch!', 'Psychostabilis', 'Zaubernahrung Hungerbann']: addTalent(t + ' (Tiergeist)', 0, 'Gaben des Blutgeists')">&lt;i&gt;Archetyp:&lt;/i&gt; Anführer
 &lt;i&gt;Wertebonus:&lt;/i&gt; Autorität, Willenskraft, MU
 &lt;i&gt;Verwandlung:&lt;/i&gt; Pelz (+2 RS, Kälteschutz wie dicke Winterkleidung (S. 35)), Stoßzähne (2W6+2 TP waffenlos, RW 1)
 &lt;i&gt;Zauber:&lt;/i&gt; Ängste lindern, Armatrutz, Kusch!, Psychostabilis, Zaubernahrung</Vorteil>
-  <Vorteil name="Tiergeist (Rabe)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Krähenruf|Talent:Sensibar Empathicus|Talent:Nekropathia Seelenreise|Talent:Memorans Gedächtniskraft" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen und dann alle Zauber des Tiergeists unter der Fertigkeit Gaben des Blutgeists aktivieren.">&lt;i&gt;Archetyp:&lt;/i&gt; Weiser
+  <Vorteil name="Tiergeist (Rabe)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Krähenruf|Talent:Sensibar Empathicus|Talent:Nekropathia Seelenreise|Talent:Memorans Gedächtniskraft" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen - die entsprechenden Zauber erscheinen unter der Fertigkeit Gaben des Blutgeists und werden automatisch aktiviert.." script="for t in ['Krähenruf', 'Sensibar Empathicus', 'Nekropathia Seelenreise', 'Memorans Gedächtniskraft']: addTalent(t + ' (Tiergeist)', 0, 'Gaben des Blutgeists')">&lt;i&gt;Archetyp:&lt;/i&gt; Weiser
 &lt;i&gt;Wertebonus:&lt;/i&gt; Heilkunde, Geographie, Mythenkunde, KL
 &lt;i&gt;Verwandlung:&lt;/i&gt; Flügel (bis zu 8 Schritt weite und 4 Schritt hohe Sprünge, Gleitflüge von bis zu 4xHöhe Schritt), Kopf (Sinnenschärfe und Wachsamkeit +4)
 &lt;i&gt;Zauber:&lt;/i&gt; Krähenruf, Sensibar, Nekropathia, Memorans</Vorteil>
-  <Vorteil name="Tiergeist (Schlange)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Atemnot|Talent:Psychostabilis|Talent:Serpentialis Schlangenleib|Talent:Vipernblick|Talent:Warmes Blut" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen und dann alle Zauber des Tiergeists unter der Fertigkeit Gaben des Blutgeists aktivieren.">&lt;i&gt;Archetyp:&lt;/i&gt; Weiser
+  <Vorteil name="Tiergeist (Schlange)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Atemnot|Talent:Psychostabilis|Talent:Serpentialis Schlangenleib|Talent:Vipernblick|Talent:Warmes Blut" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen - die entsprechenden Zauber erscheinen unter der Fertigkeit Gaben des Blutgeists und werden automatisch aktiviert.." script="for t in ['Atemnot', 'Psychostabilis', 'Serpentialis Schlangenleib', 'Vipernblick', 'Warmes Blut']: addTalent(t + ' (Tiergeist)', 0, 'Gaben des Blutgeists')">&lt;i&gt;Archetyp:&lt;/i&gt; Weiser
 &lt;i&gt;Wertebonus:&lt;/i&gt; Alchemie, Magietheorie, Mythenkunde, KL
 &lt;i&gt;Verwandlung:&lt;/i&gt; Giftzähne (2W6 TP waffenlos, Vergiftung mit Waffengift (Stufe 20, ohne Verzögerung, Intervall und Dauer 2W6 INI-Phasen 2W6 SP)), Schuppen (+1 RS, Pirschen +4)
 &lt;i&gt;Zauber:&lt;/i&gt; Atemnot, Psychostabilis, Seperentialis, Vipernblick, Warmes Blut</Vorteil>
-  <Vorteil name="Tiergeist (Stier)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Attributo|Talent:Horriphobus Schreckgestalt|Talent:Sensattaco Meisterstreich|Talent:Standfest Katzengleich" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen und dann alle Zauber des Tiergeists unter der Fertigkeit Gaben des Blutgeists aktivieren.">&lt;i&gt;Archetyp:&lt;/i&gt; Nahkämpfer
+  <Vorteil name="Tiergeist (Stier)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Attributo|Talent:Horriphobus Schreckgestalt|Talent:Sensattaco Meisterstreich|Talent:Standfest Katzengleich" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen - die entsprechenden Zauber erscheinen unter der Fertigkeit Gaben des Blutgeists und werden automatisch aktiviert.." script="for t in ['Attributo', 'Horriphobus Schreckgestalt', 'Sensattaco Meisterstreich', 'Standfest Katzengleich']: addTalent(t + ' (Tiergeist)', 0, 'Gaben des Blutgeists')">&lt;i&gt;Archetyp:&lt;/i&gt; Nahkämpfer
 &lt;i&gt;Wertebonus:&lt;/i&gt; TP im Nahkampf, Zähigkeit, KK
 &lt;i&gt;Verwandlung:&lt;/i&gt; Hörner (2W6+2 TP waffenlos, nicht zerbrechlich, RW 1), Haut (+1 RS, Zähigkeit +4)
 &lt;i&gt;Zauber:&lt;/i&gt; Attributo, Horriphobus, Sensattaco, Standfest</Vorteil>
-  <Vorteil name="Tiergeist (Wildkatze)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Eins mit der Natur|Talent:Katzenaugen|Talent:Krötensprung|Talent:Spurlos Trittlos|Talent:Standfest Katzengleich|Talent:Wipfellauf" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen und dann alle Zauber des Tiergeists unter der Fertigkeit Gaben des Blutgeists aktivieren.">&lt;i&gt;Archetyp:&lt;/i&gt; Akrobat
+  <Vorteil name="Tiergeist (Wildkatze)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Eins mit der Natur|Talent:Katzenaugen|Talent:Krötensprung|Talent:Spurlos Trittlos|Talent:Standfest Katzengleich|Talent:Wipfellauf" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen - die entsprechenden Zauber erscheinen unter der Fertigkeit Gaben des Blutgeists und werden automatisch aktiviert.." script="for t in ['Eins mit der Natur', 'Katzenaugen', 'Krötensprung', 'Spurlos Trittlos', 'Standfest Katzengleich', 'Wipfellauf']: addTalent(t + ' (Tiergeist)', 0, 'Gaben des Blutgeists')">&lt;i&gt;Archetyp:&lt;/i&gt; Akrobat
 &lt;i&gt;Wertebonus:&lt;/i&gt; Akrobatik, Klettern, Laufen, Pirschen, GE
 &lt;i&gt;Verwandlung:&lt;/i&gt; Krallen (2W6+2 TP waffenlos, Klettern +4), Fell (+1 RS, Pirschen +4)
 &lt;i&gt;Zauber:&lt;/i&gt; Eins mit der Natur, Katzenaugen, Krötensprung, Spurlos, Standfest, Wipfellauf</Vorteil>
-  <Vorteil name="Tiergeist (Panther)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Eins mit der Natur|Talent:Katzenaugen|Talent:Krötensprung|Talent:Spurlos Trittlos|Talent:Standfest Katzengleich|Talent:Wipfellauf" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen und dann alle Zauber des Tiergeists unter der Fertigkeit Gaben des Blutgeists aktivieren.">&lt;i&gt;Archetyp:&lt;/i&gt; Akrobat
+  <Vorteil name="Tiergeist (Panther)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Eins mit der Natur|Talent:Katzenaugen|Talent:Krötensprung|Talent:Spurlos Trittlos|Talent:Standfest Katzengleich|Talent:Wipfellauf" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen - die entsprechenden Zauber erscheinen unter der Fertigkeit Gaben des Blutgeists und werden automatisch aktiviert.." script="for t in ['Eins mit der Natur', 'Katzenaugen', 'Krötensprung', 'Spurlos Trittlos', 'Standfest Katzengleich', 'Wipfellauf']: addTalent(t + ' (Tiergeist)', 0, 'Gaben des Blutgeists')">&lt;i&gt;Archetyp:&lt;/i&gt; Akrobat
 &lt;i&gt;Wertebonus:&lt;/i&gt; Akrobatik, Klettern, Laufen, Pirschen, GE
 &lt;i&gt;Verwandlung:&lt;/i&gt; Krallen (2W6+2 TP waffenlos, Klettern +4), Fell (+1 RS, Pirschen +4)
 &lt;i&gt;Zauber:&lt;/i&gt; Eins mit der Natur, Katzenaugen, Krötensprung, Spurlos, Standfest, Wipfellauf</Vorteil>
-  <Vorteil name="Tiergeist (Wildschwein)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Abvenenum reine Speise|Talent:Eins mit der Natur|Talent:Kusch!|Talent:Standfest Katzengleich|Talent:Zaubernahrung Hungerbann" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen und dann alle Zauber des Tiergeists unter der Fertigkeit Gaben des Blutgeists aktivieren.">&lt;i&gt;Archetyp:&lt;/i&gt; Sammler
+  <Vorteil name="Tiergeist (Wildschwein)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Abvenenum reine Speise|Talent:Eins mit der Natur|Talent:Kusch!|Talent:Standfest Katzengleich|Talent:Zaubernahrung Hungerbann" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen - die entsprechenden Zauber erscheinen unter der Fertigkeit Gaben des Blutgeists und werden automatisch aktiviert.." script="for t in ['Abvenenum reine Speise', 'Eins mit der Natur', 'Kusch!', 'Standfest Katzengleich', 'Zaubernahrung Hungerbann']: addTalent(t + ' (Tiergeist)', 0, 'Gaben des Blutgeists')">&lt;i&gt;Archetyp:&lt;/i&gt; Sammler
 &lt;i&gt;Wertebonus:&lt;/i&gt; Pflanzenkunde, Tierkunde, Überleben, Wachsamkeit, KO
 &lt;i&gt;Verwandlung:&lt;/i&gt; Schnauze (2W6 TP waffenlos, Sinnenschärfe und Wachsamkeit +4, wenn der Geruchssinn gefragt ist), Fell (+1 RS, Pirschen +4)
 &lt;i&gt;Zauber:&lt;/i&gt; Abvenenum, Eins mit der Natur, Kusch!, Standfest, Zaubernahrung</Vorteil>
-  <Vorteil name="Tiergeist (Wolf)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Adlerauge Luchsenohr|Talent:Axxeleratus Blitzgeschwind|Talent:Eins mit der Natur|Talent:Kusch!|Talent:Movimento Dauerlauf|Talent:Spurlos Trittlos" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen und dann alle Zauber des Tiergeists unter der Fertigkeit Gaben des Blutgeists aktivieren.">&lt;i&gt;Archetyp:&lt;/i&gt; Kundschafter
+  <Vorteil name="Tiergeist (Wolf)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Adlerauge Luchsenohr|Talent:Axxeleratus Blitzgeschwind|Talent:Eins mit der Natur|Talent:Kusch!|Talent:Movimento Dauerlauf|Talent:Spurlos Trittlos" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen - die entsprechenden Zauber erscheinen unter der Fertigkeit Gaben des Blutgeists und werden automatisch aktiviert.." script="for t in ['Adlerauge Luchsenohr', 'Axxeleratus Blitzgeschwind', 'Eins mit der Natur', 'Kusch!', 'Movimento Dauerlauf', 'Spurlos Trittlos']: addTalent(t + ' (Tiergeist)', 0, 'Gaben des Blutgeists')">&lt;i&gt;Archetyp:&lt;/i&gt; Kundschafter
 &lt;i&gt;Wertebonus:&lt;/i&gt; Pirschen, Sinnenschärfe, Überleben, IN
 &lt;i&gt;Verwandlung:&lt;/i&gt; Schnauze (2W6 TP waffenlos, Sinnenschärfe und Wachsamkeit +4, wenn der Geruchssinn gefragt ist), Pelz (+2 RS, Kälteschutz wie dicke Winterkleidung (S. 35))
 &lt;i&gt;Zauber:&lt;/i&gt; Adlerauge, Axxeleratus, Eins mit der Natur, Kusch!, Movimento, Spurlos</Vorteil>
-  <Vorteil name="Tiergeist (Khoramsbestie)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Adlerauge Luchsenohr|Talent:Axxeleratus Blitzgeschwind|Talent:Eins mit der Natur|Talent:Kusch!|Talent:Movimento Dauerlauf|Spurlos" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen und dann alle Zauber des Tiergeists unter der Fertigkeit Gaben des Blutgeists aktivieren.">&lt;i&gt;Archetyp:&lt;/i&gt; Kundschafter
+  <Vorteil name="Tiergeist (Khoramsbestie)" kosten="0" voraussetzungen="Vorteil Tradition der Anach-Nurim I ODER Vorteil Tradition der Durro-dun I ODER Vorteil Tradition der Schamanen I, Vorteil Tradition der Schamanen I ODER Kein Vorteil Tiergeist (*)" nachkauf="häufig" typ="9" variableKosten="0" kommentar="0" querverweise="Talent:Adlerauge Luchsenohr|Talent:Axxeleratus Blitzgeschwind|Talent:Eins mit der Natur|Talent:Kusch!|Talent:Movimento Dauerlauf|Talent:Spurlos Trittlos" info="Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen - die entsprechenden Zauber erscheinen unter der Fertigkeit Gaben des Blutgeists und werden automatisch aktiviert.." script="for t in ['Adlerauge Luchsenohr', 'Axxeleratus Blitzgeschwind', 'Eins mit der Natur', 'Kusch!', 'Movimento Dauerlauf', 'Spurlos Trittlos']: addTalent(t + ' (Tiergeist)', 0, 'Gaben des Blutgeists')">&lt;i&gt;Archetyp:&lt;/i&gt; Kundschafter
 &lt;i&gt;Wertebonus:&lt;/i&gt; Pirschen, Sinnenschärfe, Überleben, IN
 &lt;i&gt;Verwandlung:&lt;/i&gt; Schnauze (2W6 TP waffenlos, Sinnenschärfe und Wachsamkeit +4, wenn der Geruchssinn gefragt ist), Pelz (+2 RS, Kälteschutz wie dicke Winterkleidung (S. 35))
 &lt;i&gt;Zauber:&lt;/i&gt; Adlerauge, Axxeleratus, Eins mit der Natur, Kusch!, Movimento, Spurlos</Vorteil>
@@ -347,13 +348,13 @@ Zauber der Fertigkeiten Einfluss, Verwandlung und Eigenschaften können nur in F
   <Vorteil name="Tradition der Alchemisten II" kosten="40" voraussetzungen="Attribut FF 6, Vorteil Tradition der Alchemisten I" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Alchemisten I">Alchemistische Zauber sind fest in der stofflichen Welt verankert. Die Wirkungsdauer aller Zauber ist verdoppelt.</Vorteil>
   <Vorteil name="Tradition der Alchemisten III" kosten="60" voraussetzungen="Attribut FF 8, Vorteil Tradition der Alchemisten II" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Alchemisten II" querverweise="Regel:Zeit lassen">Erlaubt die spontane Modifikation Zeit lassen.</Vorteil>
   <Vorteil name="Tradition der Alchemisten IV" kosten="80" voraussetzungen="MeisterAttribut FF 10, Vorteil Tradition der Alchemisten III" nachkauf="häufig" typ="5" variableKosten="0" kommentar="1" csBeschreibung="Meisterschaft: $kommentar$." linkKategorie="3" linkElement="Tradition der Alchemisten III" info="Für 1 Punkt kann ein Zauber um +2 erleichtert werden (maximal +4). Für 2 Punkte kannst du eine spontane Modifikation außer Mächtige Magie um +1 erleichtern (maximal +1). Spezielle Vorteile wie eine geringere Patzerchance oder länger nachbrennende Feuerzauber sind ebenfalls möglich. Solche Verbesserungen (und ihre Kosten) sollten mit dem Spielleiter und der Gruppe abgesprochen werden. Trage die Verbesserungen in das Kommentarfeld ein.">8 Punkte können zur Verbesserung der Tradition verwendet werden.</Vorteil>
-  <Vorteil name="Tradition der Borbaradianer I" kosten="20" voraussetzungen="Attribut MU 4, Vorteil Zauberer I" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" csBeschreibung="Du kannst Zauber in der Tradition der Borbaradianer erlernen und benutzen. Solche Zauber findest du unter den allgemeinen Zaubern." querverweise="Regel:Verbotene Pforten|Vorteil:Minderpakt" bedingungen="Sichtkontakt, Geste, Laut gesprochene Zauberformel">Du kannst Zauber in der Tradition der Borbaradianer erlernen und benutzen. Solche Zauber findest du unter den allgemeinen Zaubern; wenn du nicht über ausreichend AsP verfügst, kannst du sie mit deiner Lebenskraft speisen (S. 78).
+  <Vorteil name="Tradition der Borbaradianer I" kosten="20" voraussetzungen="Attribut MU 4, Vorteil Zauberer I" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" csBeschreibung="Du kannst Zauber in der Tradition der Borbaradianer erlernen und benutzen. Solche Zauber findest du unter den allgemeinen Zaubern; wenn du nicht über ausreichend AsP verfügst, kannst du sie mit deiner Lebenskraft speisen (S. 78)." querverweise="Regel:Verbotene Pforten|Vorteil:Minderpakt" bedingungen="Sichtkontakt, Geste, Laut gesprochene Zauberformel">Du kannst Zauber in der Tradition der Borbaradianer erlernen und benutzen. Solche Zauber findest du unter den allgemeinen Zaubern; wenn du nicht über ausreichend AsP verfügst, kannst du sie mit deiner Lebenskraft speisen (S. 78).
 
 Du kannst den Vorteil auch mit einem Minderpakt (S. 92) erwerben, ohne Zauberer zu sein.</Vorteil>
   <Vorteil name="Tradition der Borbaradianer II" kosten="40" voraussetzungen="Attribut MU 6, Vorteil Tradition der Borbaradianer I" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Borbaradianer I">Borbaradianische Zauber sind chaotisch und instabil. Du kannst Zauberproben mit 1W20 statt mit 3W20 ablegen. Dadurch verbessern sich deine Chancen bei besonders gewagten Zaubern.</Vorteil>
   <Vorteil name="Tradition der Borbaradianer III" kosten="60" voraussetzungen="Attribut MU 8, Vorteil Tradition der Borbaradianer II" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Borbaradianer II" querverweise="Regel:Erzwingen">Erlaubt die spontane Modifikation Erzwingen.</Vorteil>
-  <Vorteil name="Tradition der Borbaradianer IV" kosten="80" voraussetzungen="MeisterAttribut MU 10, Vorteil Tradition der Borbaradianer III" nachkauf="häufig" typ="5" variableKosten="0" kommentar="1" csBeschreibung="Meisterschaft: $kommentar$." linkKategorie="3" linkElement="Tradition der Borbaradianer III" info="Für 1 Punkt kann ein Zauber um +2 erleichtert werden (maximal +4). Für 2 Punkte kannst du eine spontane Modifikation außer Mächtige Magie um +1 erleichtern (maximal +1). Spezielle Vorteile wie eine geringere Patzerchance oder länger nachbrennende Feuerzauber sind ebenfalls möglich. Solche Verbesserungen (und ihre Kosten) sollten mit dem Spielleiter und der Gruppe abgesprochen werden. Trage die Verbesserungen in das Kommentarfeld ein.">8 Punkte können zur Verbesserung der Tradition verwendet werden. Du kannst 4 Punkte davon verwenden, um den Minderpakt zu brechen, ohne die borbaradianische Tradition zu verlieren.</Vorteil>
-  <Vorteil name="Tradition der Geoden I" kosten="20" voraussetzungen="Attribut IN 4, Vorteil Zauberer I" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" bedingungen="Sichtkontakt, Geste, kein Kontakt mit verhüttetem Material">Du kannst Zauber in der Tradition der Geoden erlernen und benutzen. Solche Zauber findest du unter den allgemeinen Zaubern, unter Dolchzauber (S. 156), Ringrituale (S. 170) und Vertrautenmagie (S. 173).
+  <Vorteil name="Tradition der Borbaradianer IV" kosten="80" voraussetzungen="MeisterAttribut MU 10, Vorteil Tradition der Borbaradianer III" nachkauf="häufig" typ="5" variableKosten="0" kommentar="1" csBeschreibung="Meisterschaft: $kommentar$." linkKategorie="3" linkElement="Tradition der Borbaradianer III" info="Du kannst 4 Punkte davon verwenden, um den Minderpakt zu brechen, ohne die borbaradianische Tradition zu verlieren. Für 1 Punkt kann ein Zauber um +2 erleichtert werden (maximal +4). Für 2 Punkte kannst du eine spontane Modifikation außer Mächtige Magie um +1 erleichtern (maximal +1). Spezielle Vorteile wie eine geringere Patzerchance oder länger nachbrennende Feuerzauber sind ebenfalls möglich. Solche Verbesserungen (und ihre Kosten) sollten mit dem Spielleiter und der Gruppe abgesprochen werden. Trage die Verbesserungen in das Kommentarfeld ein.">8 Punkte können zur Verbesserung der Tradition verwendet werden.</Vorteil>
+  <Vorteil name="Tradition der Geoden I" kosten="20" voraussetzungen="Attribut IN 4, Vorteil Zauberer I" nachkauf="häufig" typ="5" variableKosten="0" kommentar="1" bedingungen="Sichtkontakt, Geste, kein Kontakt mit verhüttetem Material" info="Trage das gewählte Element in das Kommentarfeld ein.">Du kannst Zauber in der Tradition der Geoden erlernen und benutzen. Solche Zauber findest du unter den allgemeinen Zaubern, unter Dolchzauber (S. 156), Ringrituale (S. 170) und Vertrautenmagie (S. 173).
 
 Du musst dich beim Erlernen für ein bevorzugtes Element entscheiden. Geodische Zauber können nicht schriftlich weitergegeben werden.</Vorteil>
   <Vorteil name="Tradition der Geoden II" kosten="40" voraussetzungen="Attribut IN 6, Vorteil Tradition der Geoden I" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Geoden I">Geoden gelten als die fähigsten Elementaristen Aventuriens. Wenn du einen Zauber mit deinem bevorzugten Element wirkst, kannst du eine Basismodifikation (z.B. 1x Mächtige Magie) ohne Erschwernis ausführen.</Vorteil>
@@ -416,7 +417,7 @@ Die Bedingung Trommelspiel kann nicht ignoriert werden.</Vorteil>
   <Vorteil name="Tradition der Derwische II" kosten="40" voraussetzungen="Attribut FF 6, Vorteil Tradition der Derwische I" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Derwische I">Deine Rhythmen sind auf größere Entfernung hörbar. Alle deine Zauber mit dem Ziel Zone wirken auf alle Ziele im Umkreis von 8 Schritt (statt 4 Schritt).</Vorteil>
   <Vorteil name="Tradition der Derwische III" kosten="60" voraussetzungen="Attribut FF 8, Vorteil Tradition der Derwische II" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Derwische II" querverweise="Regel:Opferung (Derwische)">Erlaubt die spontane Modifikation Opferung.</Vorteil>
   <Vorteil name="Tradition der Derwische IV" kosten="80" voraussetzungen="MeisterAttribut FF 10, Vorteil Tradition der Derwische III" nachkauf="häufig" typ="5" variableKosten="0" kommentar="1" csBeschreibung="Meisterschaft: $kommentar$." linkKategorie="3" linkElement="Tradition der Derwische III" info="Für 1 Punkt kann ein Zauber um +2 erleichtert werden (maximal +4). Für 2 Punkte kannst du eine spontane Modifikation außer Mächtige Magie um +1 erleichtern (maximal +1). Spezielle Vorteile wie eine geringere Patzerchance oder länger nachbrennende Feuerzauber sind ebenfalls möglich. Solche Verbesserungen (und ihre Kosten) sollten mit dem Spielleiter und der Gruppe abgesprochen werden. Trage die Verbesserungen in das Kommentarfeld ein.">8 Punkte können zur Verbesserung der Tradition verwendet werden.</Vorteil>
-  <Vorteil name="Tradition der Durro-dun I" kosten="20" voraussetzungen="Attribut MU 4, Vorteil Zauberer I" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" csBeschreibung="Du kannst Zauber in der Tradition der Durro-dûn erlernen und benutzen. Solche Zauber findest du unter Gaben des Odun (S. 159).&#10;&#10;Du musst dich beim Erlernen für ein Tier entscheiden (siehe S. 160). Alle deine Zauber beziehen sich auf dieses Tier." info="Die Tiertabelle ist in Sephrasto über die kostenlosen Tiergeist-Vorteile abgebildet, wähle einen davon aus. Dies schaltet alle Zauber des Tiergeists über die Fertigkeit Gaben des Odun frei." bedingungen="Sichtkontakt, Geste">Du kannst Zauber in der Tradition der Durro-dûn erlernen und benutzen. Solche Zauber findest du unter Gaben des Odun (S. 159).
+  <Vorteil name="Tradition der Durro-dun I" kosten="20" voraussetzungen="Attribut MU 4, Vorteil Zauberer I" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" info="Die Tiertabelle ist in Sephrasto über die kostenlosen Tiergeist-Vorteile abgebildet, wähle einen davon aus. Dies schaltet alle Zauber des Tiergeists über die Fertigkeit Gaben des Odun frei." bedingungen="Sichtkontakt, Geste">Du kannst Zauber in der Tradition der Durro-dûn erlernen und benutzen. Solche Zauber findest du unter Gaben des Odun (S. 159).
 
 Du musst dich beim Erlernen für ein Tier entscheiden (siehe S. 160). Alle deine Zauber beziehen sich auf dieses Tier.</Vorteil>
   <Vorteil name="Tradition der Durro-dun II" kosten="40" voraussetzungen="Attribut MU 6, Vorteil Tradition der Durro-dun I" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Durro-dun I">Erfahrene Durro-dûn rufen die Tiergeister scheinbar mühelos in ihren Körper. Die Kosten aller Zauber, die du auf dich selbst wirkst, sinken um ein Viertel der Basiskosten.</Vorteil>
@@ -427,7 +428,7 @@ Du musst dich beim Erlernen für ein Tier entscheiden (siehe S. 160). Alle deine
 Verärgert der Nutznießer eines positiven schamanischen Zaubers den entsprechenden Geist, endet der Zauber sofort (Spielleiterentscheid).</Vorteil>
   <Vorteil name="Tradition der Schamanen II" kosten="40" voraussetzungen="Attribut IN 6, Vorteil Tradition der Schamanen I" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Schamanen I">Schamanen binden oft einen beträchtlichen Teil ihrer Astralenergie in ihre Zauber. Wenn du mindestens 2/4/8/16 gAsP gebunden hast, sind deine Zauber um +1/+2/+3/+4 erleichtert.</Vorteil>
   <Vorteil name="Tradition der Schamanen III" kosten="60" voraussetzungen="Attribut IN 8, Vorteil Tradition der Schamanen II" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Schamanen II" querverweise="Regel:Zeremonie (M)">Erlaubt die spontane Modifikation Zeremonie.</Vorteil>
-  <Vorteil name="Tradition der Schamanen IV" kosten="80" voraussetzungen="MeisterAttribut IN 10, Vorteil Tradition der Schamanen III" nachkauf="häufig" typ="5" variableKosten="0" kommentar="1" csBeschreibung="Meisterschaft: $kommentar$." linkKategorie="3" linkElement="Tradition der Schamanen III" info="Für 1 Punkt kann ein Zauber um +2 erleichtert werden (maximal +4). Für 2 Punkte kannst du eine spontane Modifikation außer Mächtige Magie um +1 erleichtern (maximal +1). Spezielle Vorteile wie eine geringere Patzerchance oder länger nachbrennende Feuerzauber sind ebenfalls möglich. Solche Verbesserungen (und ihre Kosten) sollten mit dem Spielleiter und der Gruppe abgesprochen werden. Trage die Verbesserungen in das Kommentarfeld ein.">8 Punkte können zur Verbesserung der Tradition verwendet werden. Für 4 Punkte davon kannst du die Fähigkeit erlangen, mittels freier Seelenfahrt ins Geisterreich zu reisen und dort verschiedenste Zauberwirkungen hervorzurufen. Solche Reisen sind jedoch stets gefährlich, Details sind Spielleiterentscheid.</Vorteil>
+  <Vorteil name="Tradition der Schamanen IV" kosten="80" voraussetzungen="MeisterAttribut IN 10, Vorteil Tradition der Schamanen III" nachkauf="häufig" typ="5" variableKosten="0" kommentar="1" csBeschreibung="Meisterschaft: $kommentar$." linkKategorie="3" linkElement="Tradition der Schamanen III" info="Für 4 Punkte davon kannst du die Fähigkeit erlangen, mittels freier Seelenfahrt ins Geisterreich zu reisen und dort verschiedenste Zauberwirkungen hervorzurufen. Solche Reisen sind jedoch stets gefährlich, Details sind Spielleiterentscheid. Für 1 Punkt kann ein Zauber um +2 erleichtert werden (maximal +4). Für 2 Punkte kannst du eine spontane Modifikation außer Mächtige Magie um +1 erleichtern (maximal +1). Spezielle Vorteile wie eine geringere Patzerchance oder länger nachbrennende Feuerzauber sind ebenfalls möglich. Solche Verbesserungen (und ihre Kosten) sollten mit dem Spielleiter und der Gruppe abgesprochen werden. Trage die Verbesserungen in das Kommentarfeld ein.">8 Punkte können zur Verbesserung der Tradition verwendet werden.</Vorteil>
   <Vorteil name="Tradition der Zauberbarden I" kosten="20" voraussetzungen="Attribut CH 4, Vorteil Zauberer I" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" bedingungen="Sichtkontakt, Instrumentenspiel, Ziel kann dich hören">Du kannst Zauber in der Tradition der Zauberbarden erlernen und benutzen. Solche Zauber findest du unter Zaubermelodien (S. 174).
 
 Die Bedingung Instrumentenspiel kann nicht ignoriert werden.</Vorteil>
@@ -445,8 +446,8 @@ Die Bedingung Tanz kann nicht ignoriert werden.</Vorteil>
   <Vorteil name="Aura der Heiligkeit" kosten="60" voraussetzungen="Attribut CH 8, Vorteil Geweiht I" nachkauf="häufig" typ="6" variableKosten="0" kommentar="0">Gläubige Mitstreiter in einem Radius von 16 Schritt erhalten eine Erleichterung von +1 auf alle Mirakel-Fertigkeiten deiner Gottheit, sowie alle Liturgien. Du selbst profitierst nicht von diesem Bonus.</Vorteil>
   <Vorteil name="Segnung der Gläubigen" kosten="80" voraussetzungen="Attribut CH 10, Vorteil Geweiht I" nachkauf="häufig" typ="6" variableKosten="0" kommentar="0">Liturgien, die ausschließlich gläubige Mitstreiter (und nicht dich selbst) verstärken, kosten nur die halben Basiskosten.</Vorteil>
   <Vorteil name="Gemeinsames Wunder" kosten="20" voraussetzungen="Attribut IN 4, Vorteil Geweiht I" nachkauf="häufig" typ="6" variableKosten="0" kommentar="0" querverweise="Regel:Zusammenarbeit">Der Vorteil ermöglicht es dir, mit anderen Kennern dieses Vorteils einen Liturgiezirkel zu bilden. Alle Teilnehmer des Zirkels müssen sich berühren und willens sein, ihre Karmaenergie zu teilen.
-Solange der Zirkel besteht, können die Teilnehmer die Regeln zur Zusammenarbeit (S. 8) nutzen, um sich gegenseitig bei Liturgien zu unterstützen. Üblicherweise sind dabei maximal vier Helfer möglich, welche die Probe des Wirkenden um jeweils +2 erleichtern können.
-Zusätzlich werden die Liturgiekosten aller Teilnehmer gleichmäßig auf den gesamten Zirkel aufgeteilt. Sollte ein Teilungsrest übrigbleiben oder ein Teilnehmer über zu wenige KaP verfügen, muss der Wirkende diese Kosten tragen. Nur gKaP muss der Wirkende stets selbst tragen.</Vorteil>
+    Solange der Zirkel besteht, können die Teilnehmer die Regeln zur &lt;b&gt;Zusammenarbeit&lt;/b&gt; (S. 8) nutzen, um sich gegenseitig bei Liturgien zu unterstützen. Üblicherweise sind dabei maximal vier Helfer möglich, welche die Probe des Wirkenden um jeweils +2 erleichtern können.
+    Zusätzlich werden die &lt;b&gt;Liturgiekosten&lt;/b&gt; aller Teilnehmer gleichmäßig auf den gesamten Zirkel &lt;b&gt;aufgeteilt&lt;/b&gt;. Sollte ein Teilungsrest übrigbleiben oder ein Teilnehmer über zu wenige KaP verfügen, muss der Wirkende diese Kosten tragen. Nur gKaP muss der Wirkende stets selbst tragen.</Vorteil>
   <Vorteil name="Zuverlässiges Wunder" kosten="40" voraussetzungen="Attribut IN 6, Vorteil Geweiht I" nachkauf="häufig" typ="6" variableKosten="0" kommentar="0" linkKategorie="1" linkElement="Mirakel" querverweise="Regel:Mirakel">Schlägt eine durch ein Mirakel unterstützte Probe fehl, bleibt die Wirkung des Mirakels aufrecht (1x pro Mirakel). Patzer bei solchen Proben gelten nur als gewöhnlich misslungen.</Vorteil>
   <Vorteil name="Beeindruckendes Wunder" kosten="60" voraussetzungen="Attribut IN 8, Vorteil Geweiht I" nachkauf="häufig" typ="6" variableKosten="0" kommentar="0" csBeschreibung="Mächtige Liturgie verleiht einen Bonus von +4 statt +2." linkKategorie="1" linkElement="Mirakel" querverweise="Regel:Mirakel|Regel:Mächtige Liturgie">Bei Mirakeln verleiht die Modifikation Mächtige Liturgie einen Bonus von +4 statt +2.</Vorteil>
   <Vorteil name="Göttliche Nähe" kosten="80" voraussetzungen="Attribut IN 10, Vorteil Geweiht I" nachkauf="häufig" typ="6" variableKosten="0" kommentar="0" linkKategorie="1" linkElement="Regeneration" querverweise="Regel:Regeneration">Du regenerierst 1 zusätzlichen KaP pro Nacht.</Vorteil>
@@ -496,13 +497,13 @@ Liturgien sind um 2-8 Punkte erschwert, wenn ihr Einsatz gegen die Prinzipien de
   <Vorteil name="Tradition der Ifirngeweihten II" kosten="40" voraussetzungen="Attribut IN 6, Vorteil Tradition der Ifirngeweihten I" nachkauf="häufig" typ="7" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Ifirngeweihten I">Ifirngeweihte durchstreifen die Lande und helfen denen, die in Not geraten sind. Liturgien, von denen nur andere (aber sie selbst nicht) profitieren, sind um +2 erleichtert.</Vorteil>
   <Vorteil name="Tradition der Ifirngeweihten III" kosten="60" voraussetzungen="Attribut IN 8, Vorteil Tradition der Ifirngeweihten II" nachkauf="häufig" typ="7" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Ifirngeweihten II" querverweise="Regel:Zeremonie (L)">Erlaubt die spontane Modifikation Zeremonie.</Vorteil>
   <Vorteil name="Tradition der Ifirngeweihten IV" kosten="80" voraussetzungen="MeisterAttribut IN 10, Vorteil Tradition der Ifirngeweihten III" nachkauf="häufig" typ="7" variableKosten="0" kommentar="1" csBeschreibung="Meisterschaft: $kommentar$." linkKategorie="3" linkElement="Tradition der Ifirngeweihten III" info="Mit einem Punkt kannst du eine Liturgie um +2 erleichtern (maximal +4) oder eine spontane Modifikation, außer Mächtige Liturgie, um +1 erleichtern (maximal +1). Weitere Vorteile wie ein Schutzsegen mit größerem Wirkungsbereich sind ebenfalls möglich, sollten (mitsamt ihren Kosten) aber mit dem Spielleiter und der Gruppe abgesprochen werden. Trage die Verbesserungen in das Kommentarfeld ein.">8 Punkte können zur Verbesserung der Tradition verwendet werden.</Vorteil>
-  <Vorteil name="Tradition der Ingerimmgeweihten I" kosten="20" voraussetzungen="Attribut FF 4, Vorteil Geweiht I, Kein Vorteil Tradition der *geweihten I" nachkauf="häufig" typ="7" variableKosten="0" kommentar="0" bedingungen="Sichtkontakt, Geste, gesprochenes oder gesungenes Gebet">Du kannst Liturgien in der Tradition der Ingerimmgeweihten erlernen und benutzen. Solche Liturgien findest du unter den allgemeinen Liturgien, unter Heiliges Erz, Hl. Feuer und Hl. Handwerk (ab S. 188).
+  <Vorteil name="Tradition der Ingerimmgeweihten I" kosten="20" voraussetzungen="Attribut FF 4, Vorteil Geweiht I, Kein Vorteil Tradition der *geweihten I" nachkauf="häufig" typ="7" variableKosten="0" kommentar="0" bedingungen="Sichtkontakt, Geste, gesprochenes oder gesungenes Gebet">Du kannst Liturgien in der Tradition der Ingerimmgeweihten erlernen und benutzen. Solche Liturgien findest du unter den allgemeinen Liturgien, unter Heiliges Erz, Heiliges Feuer und Heiliges Handwerk (ab S. 188).
 
 Liturgien sind um 2-8 Punkte erschwert, wenn ihr Einsatz gegen die Prinzipien des Geweihten verstößt.</Vorteil>
   <Vorteil name="Tradition der Ingerimmgeweihten II" kosten="40" voraussetzungen="Attribut FF 6, Vorteil Tradition der Ingerimmgeweihten I" nachkauf="häufig" typ="7" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Ingerimmgeweihten I">Ingerimmgeweihte dienen dem Herren des Feuers und des Erzes. In Gebäuden sind alle Liturgien um 2-4 Punkte erleichtert.</Vorteil>
   <Vorteil name="Tradition der Ingerimmgeweihten III" kosten="60" voraussetzungen="Attribut FF 8, Vorteil Tradition der Ingerimmgeweihten II" nachkauf="häufig" typ="7" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Ingerimmgeweihten II" querverweise="Regel:Opferung (Ingerimm)">Erlaubt die spontane Modifikation Opferung.</Vorteil>
   <Vorteil name="Tradition der Ingerimmgeweihten IV" kosten="80" voraussetzungen="MeisterAttribut FF 10, Vorteil Tradition der Ingerimmgeweihten III" nachkauf="häufig" typ="7" variableKosten="0" kommentar="1" csBeschreibung="Meisterschaft: $kommentar$." linkKategorie="3" linkElement="Tradition der Ingerimmgeweihten III" info="Mit einem Punkt kannst du eine Liturgie um +2 erleichtern (maximal +4) oder eine spontane Modifikation, außer Mächtige Liturgie, um +1 erleichtern (maximal +1). Weitere Vorteile wie ein Schutzsegen mit größerem Wirkungsbereich sind ebenfalls möglich, sollten (mitsamt ihren Kosten) aber mit dem Spielleiter und der Gruppe abgesprochen werden. Trage die Verbesserungen in das Kommentarfeld ein.">8 Punkte können zur Verbesserung der Tradition verwendet werden.</Vorteil>
-  <Vorteil name="Tradition der Angroschgeweihten I" kosten="20" voraussetzungen="Attribut FF 4, Vorteil Geweiht I, Kein Vorteil Tradition der *geweihten I" nachkauf="häufig" typ="7" variableKosten="0" kommentar="0" bedingungen="Sichtkontakt, Geste, gesprochenes oder gesungenes Gebet">Du kannst Liturgien in der Tradition der Angroschgeweihten erlernen und benutzen. Solche Liturgien findest du unter den allgemeinen Liturgien, unter Heiliges Erz, Hl. Feuer und Hl. Handwerk (ab S. 188).
+  <Vorteil name="Tradition der Angroschgeweihten I" kosten="20" voraussetzungen="Attribut FF 4, Vorteil Geweiht I, Kein Vorteil Tradition der *geweihten I" nachkauf="häufig" typ="7" variableKosten="0" kommentar="0" bedingungen="Sichtkontakt, Geste, gesprochenes oder gesungenes Gebet">Du kannst Liturgien in der Tradition der Angroschgeweihten erlernen und benutzen. Solche Liturgien findest du unter den allgemeinen Liturgien, unter Heiliges Erz, Heiliges Feuer und Heiliges Handwerk (ab S. 188).
 
 Liturgien sind um 2-8 Punkte erschwert, wenn ihr Einsatz gegen die Prinzipien des Geweihten verstößt.</Vorteil>
   <Vorteil name="Tradition der Angroschgeweihten II" kosten="40" voraussetzungen="Attribut FF 6, Vorteil Tradition der Angroschgeweihten I" nachkauf="häufig" typ="7" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Angroschgeweihten I">Angroschgeweihte dienen dem Herren des Feuers und des Erzes. Unterirdisch sind alle Liturgien um 2-4 Punkte erleichtert.</Vorteil>
@@ -4013,405 +4014,6 @@ Du stellst eine enge magische Bindung zu deinem Ritualgegenstand (ein Dolch für
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Verwandlung, Gaben des Blutgeists
 &lt;b&gt;Erlernen:&lt;/b&gt; Ana 12; 60 EP</Talent>
-  <Talent name="Attributo (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Affe) ODER Vorteil Tiergeist (Fuchs) ODER Vorteil Tiergeist (Mungo) ODER Vorteil Tiergeist (Stier)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">Wähle ein Attribut aus. Proben auf dieses Attribut sind um +2, Fertigkeitsproben mit diesem Attribut um +1 erleichtert.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2/+1.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Axxeleratus Blitzgeschwind (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Affe) ODER Vorteil Tiergeist (Falke) ODER Vorteil Tiergeist (Gebirgsbock) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">Die GS deines Zieles erhöht sich um +4 und alle AT und VT sind um +2 erleichtert, Ausweichen um weitere +2.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Die GS steigt um weitere +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; 4 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Wipfellauf (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Affe) ODER Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Du kannst dich durch Baumkronen und Unterholz bewegen, als wären sie eine normale Straße. Unter diesen Bedingungen erleidest du keinerlei Erschwernisse oder Geschwindigkeitsabzüge.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Kopfüber (-8; du kannst selbst kopfüber an Bäumen laufen.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 16 AsP</Talent>
-  <Talent name="Eiseskälte Kämpferherz (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Bär)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Das Ziel empfindet keinerlei Schmerzen mehr. Es erhält den Vorteil Kalte Wut (S. 43). Proben zum Ignorieren von Wundschmerz sind um +4 erleichtert.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Ruhe Körper, Ruhe Geist (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Bär)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="143" referenzbuch="0">Dein Ziel sinkt in einen tiefen Schlaf, aus dem es nur mit Gewalt geweckt werden kann. Wird es nicht vorzeitig geweckt, regeneriert es zwei zusätzliche Wunden.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Regeneriert eine weitere Wunde.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 16 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 8 Stunden
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Sanftmut (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Bär)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="135" referenzbuch="0">Das verzauberte Tier verliert seine Angriffslust, solange es nicht angegriffen oder gereizt wird.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Die Lethargie hält sogar dann, wenn das Tier gereizt/leicht verletzt/schwer verletzt wird.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Aktion
-&lt;b&gt;Ziel:&lt;/b&gt; Tier
-&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Standfest Katzengleich (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Bär) ODER Vorteil Tiergeist (Gebirgsbock) ODER Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Stier) ODER Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther) ODER Vorteil Tiergeist (Wildschwein)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Deine Geschicklichkeit erhöht sich. Alle Proben, um auf den Beinen zu bleiben, sind um +4 erleichtert und deine Patzerchance im Kampf sinkt um 1 auf dem W20.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Zaubernahrung Hungerbann (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Bär) ODER Vorteil Tiergeist (Mammut) ODER Vorteil Tiergeist (Wildschwein)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Für einen Tag spürst du keinerlei Hunger und die Kraft des Zaubers ernährt dich. Du musst spätestens vor vier Tagen echtes Essen zu dir genommen haben.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Die letzte echte Mahlzeit kann bis zu zwei Tage länger her sein.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Durstbann (-4, 8 AsP; auch jeglicher Durst wird vom Zauber gestillt.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Tag
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Memorans Gedächtniskraft (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Elefant) ODER Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Du kannst dir sämtliche Bilder, Schriftstücke, Inschriften und ähnliches für immer einprägen. Eine Seite eines Buches kostet dich etwa eine Minute.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Drachengedächtnis (-8, Wirkungsdauer 16 Initiativephasen; alles, was du während der Wirkungsdauer siehst, ist dir für immer ins Gedächtnis gebrannt.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; 4 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Psychostabilis (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Elefant) ODER Vorteil Tiergeist (Mammut) ODER Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="127" referenzbuch="0">Magieresistenz-Proben des Ziels sind um +4 erleichtert.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Erhöht den Bonus um +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Schnellsteigerung (-4; Wirkungsdauer 16 Initiativephasen; verdoppelt die Erleichterung.)
-Stabilisierung (-8; das Ziel darf sofort eine MR-Probe gegen einen auf es wirkenden Zauber wiederholen. Gelingt sie, wird dieser Zauber für die Wirkungsdauer des Psychostabilis unterdrückt.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Seelentier erkennen (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Elefant)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="141" referenzbuch="0">Du erkennst das Seelentier deines Zieles. Wenn dir das Tier und seine assoziierten Eigenschaften bekannt sind, erleichtert dir das alle künftigen gesellschaftlichen Proben dem Ziel gegenüber um +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; 4 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Xenographus Schriftenkunde (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Elefant)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="142" referenzbuch="0">Du kannst den Sinn eines geschriebenen Satzes verstehen, auch wenn du Schrift und Sprache nicht kennst.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Verdoppelt die Anzahl der Sätze.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelobjekt
-&lt;b&gt;Reichweite:&lt;/b&gt; 4 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Blick aufs Wesen (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="140" referenzbuch="0">Der Zauber offenbart dir die Fertigkeiten deines Ziels. Du erhältst einen groben Eindruck von seinen körperlichen, geistigen, handwerklichen, kämpferischen und zauberischen Fähigkeiten.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Du erfährst auch besonders hohe Fertigkeiten/markante Vorteile/Eigenheiten/Vorlieben und Vorgehen.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
-&lt;b&gt;Modifikationen:&lt;/b&gt; Leuchtende Persönlichkeit (-4; du erkennst in einer Gruppe von bis zu 8 Personen diejenige, die in einem von dir gewählten Bereich am meisten heraussticht. Durch eine &lt;i&gt;Konterprobe&lt;/i&gt; (MR, 16) können sich die Personen vor der Entdeckung schützen.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 16 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelwesen
-&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Exposami Lebenskraft (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="141" referenzbuch="0">Du nimmst Lebewesen als grün leuchtende Flecken wahr. Der Zauber kann alle Elemente bis auf Erz und Eis durchdringen.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Du kannst Angehörige verschiedener Spezies/verschiedene Individuen unterscheiden und wiedererkennen.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Reinheit der Aura (-8; der Zauber zeigt den Gesundheitszustand des Ziels, dämonische Verseuchungen usw.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Aktion
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; 16 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 8 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Hexenkrallen (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Deine Fingernägel werden lang, scharf und hart wie Raubtierklauen. Deine Hände richten 2W6 Waffenschaden an und verlieren die Eigenschaft Zerbrechlich.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Erhöht den Schaden um +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Silentium Schweigekreis (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="151" referenzbuch="0">Der Zauber dämpft alle Geräusche in einer Kugel mit 2 Schritt Radius. Entsprechende Wahrnehmungs-Proben sind um -4 erschwert.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Malus steigt um -2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Begleiter (-4; die Kugel bewegt sich mit dir.)
-Fremdbegleiter (-8; die Kugel bewegt sich mit einem Einzelwesen.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Zone
-&lt;b&gt;Reichweite:&lt;/b&gt; 2 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Adlerauge Luchsenohr (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Falke) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">Du schärfst deine Sinne auf magische Weise. Alle Proben auf Sinnenschärfe und Wachsamkeit sind um +4 erleichtert.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Einzelsinn (-4, Wirkungsdauer 1 Stunde; nur ein Sinn ist betroffen.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Falkenauge Meisterschuss (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Falke)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Dein nächster Fernkampfangriff ist um +4 erleichtert.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Dauerndes Band (-8, 8 AsP; der Zauber wirkt auf alle Fernkampfangriffe während der Wirkungsdauer.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Aktion
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 8 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Pfeil der Luft (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Falke)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="148" referenzbuch="0">Du verzauberst einen Pfeil (oder Bolzen oder Wurfwaffe), sodass er im Flug die Macht des Elements freisetzt. Der Pfeil verursacht Luftschaden und &lt;i&gt;Zurückstoßen&lt;/i&gt; (S. 98). Die Reichweite für diesen Schuss ist verdoppelt.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Geschütz (-4; du verzauberst ein größeres Geschoss wie das einer Balliste.)
-Permanenz (-4, 4 AsP, davon 1 gAsP, Wirkungsdauer bis die Bindung gelöst wird oder der Pfeil verschossen wurde)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Aktion
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelobjekt
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 8 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Aeropulvis sanfter Fall (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Falke)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="147" referenzbuch="0">Halbiert die effektive Höhe eines Sturzes oder Sprunges (kumulativ zur Akrobatik-Probe).
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Eins mit der Natur (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Fischotter) ODER Vorteil Tiergeist (Gebirgsbock) ODER Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther) ODER Vorteil Tiergeist (Wildschwein) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Das Ziel kann in der Wildnis kann es natürliche Gefahren wie mit der Gabe Gefahreninstinkt erahnen. Beherrscht es die Gabe bereits, sind damit verbundene Proben um +4 erleichtert. Wirkt nicht unter der Erde, auf dem Meer oder in dämonisch pervertiertem Gebiet.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Überleben-Proben sind um +2 erleichtert.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Tag
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Katzenaugen (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Fischotter) ODER Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Du ignorierst eine Stufe Dunkelheit, aber grelles Licht erschwert alle Proben um -2. Bei absoluter Dunkelheit ist der Zauber wirkungslos.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Du ignorierst 2/3 Stufen Dunkelheit.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Foramen Foraminor (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Fischotter)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="150" referenzbuch="0">Du öffnest ein Schloss beliebiger Bauart.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Herstellungsschwierigkeit des Schlosses
-&lt;b&gt;Modifikationen:&lt;/b&gt; Riegel (-4, 8 AsP; auch ein schwerer Riegel wie an einem Stadttor kann hiermit geöffnet werden.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelobjekt
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Wasseratem (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Fischotter)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="155" referenzbuch="0">Du kannst unter Wasser atmen, jedoch nicht mehr an Land. Erlaubt &lt;i&gt;Aufrechterhalten&lt;/i&gt;.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 16 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Wellenlauf (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Fischotter)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Wasser ist für dich ein fester Untergrund. Du erleidest keine Abzüge durch ungünstige Position und wirst nicht durch Wellen und Strömungen beeinflusst. Erlaubt &lt;i&gt;Aufrechterhalten&lt;/i&gt;.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Sinken (-4; du kannst die Zauberwirkung nach Belieben unterdrücken und wieder aktiv werden lassen. Bei Aktivierung unter Wasser wirst du an die Wasseroberfläche gehoben.)
-Wasserwand (-8; du kannst selbst an Wasserfällen hochklettern, wofür einfache Klettern-Proben anfallen.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Hilfreiche Tatze, rettende Schwinge (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Fischotter)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="134" referenzbuch="0">Du wählst eine Tierart. Befindet sich ein Tier dieser Art in einem Radius von 1 Meile, eilt es herbei. Du kannst das Tier um einen Gefallen bitten, den dieses wenn möglich erfüllen wird. Dann trollt sich das Tier.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Verdoppelt den Radius.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Zone
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Harmlose Gestalt (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Fuchs) ODER Vorteil Tiergeist (Mungo)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="133" referenzbuch="0">Mit dieser &lt;i&gt;Illusion&lt;/i&gt; (Sicht, Gehör, Geruch) erscheinst du den Umstehenden als kleines Kind, alter Krüppel, Orkfrau oder als eine andere harmlose Gestalt. Deine Kleidung ist von der Illusion betroffen, zusätzliche Gegenstände wie ein Wanderstab oder ein Rucksack nicht. Erlaubt &lt;i&gt;Aufrechterhalten&lt;/i&gt;.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Sensibar Empathicus (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Eule) ODER Vorteil Tiergeist (Fuchs) ODER Vorteil Tiergeist (Mungo) ODER Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="141" referenzbuch="0">Du kannst die Gefühle deines Gegenübers erahnen, wodurch deine Menschenkenntnis gegen das Ziel um +4 steigt.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; 4 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Seidenzunge Elfenwort (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Fuchs) ODER Vorteil Tiergeist (Mungo)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="135" referenzbuch="0">Das Ziel denkt nicht zu genau über deine Worte nach und findet dich überzeugend. Alle Überreden-Proben gegen dein Ziel sind um +4 erleichtert.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Aktion
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; 4 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Firnlauf (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Gebirgsbock)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Jede noch so dünne Eis- oder Schneeschicht trägt dich wie trockener Boden. Unter diesen Bedingungen erleidest du keinerlei Erschwernisse oder Geschwindigkeitsabzüge.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Verankerung (-4, 2 AsP; du verankerst dich so auf einer Eisfläche, dass du selbst dann nicht stürzt, wenn sie in bedrohliche Schieflage oder schnelle Bewegung gerät.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Spinnenlauf (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Gebirgsbock)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Deine Hände und Füße haften an Oberflächen, sodass du mit GS 1 an glatten Wänden und sogar Decken ohne Griffen klettern kannst. Erlaubt &lt;i&gt;Aufrechterhalten&lt;/i&gt;.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Erhöht die GS um +1.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Ängste lindern (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Mammut)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="133" referenzbuch="0">Auf dem Ziel lastende Furcht-Effekte sinken um eine Stufe.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Armatrutz (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Mammut)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">Der RS deines Zieles steigt um 1.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Je zwei Stufen verleihen +1 RS.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Körperschild (-4, 1 AsP; der Armatrutz schützt nur eine Trefferzone.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Aktion
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Kusch! (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Mammut) ODER Vorteil Tiergeist (Wildschwein) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="134" referenzbuch="0">Das verzauberte Tier flieht vor dir.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
-&lt;b&gt;Modifikationen:&lt;/b&gt; Schrecken des Schwarms (-4; du verscheuchst einen Schwarm Kleintiere.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; einzelnes Tier
-&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Krähenruf  (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="134" referenzbuch="0">Du rufst einen Krähenschwarm aus bis zu 100 Meilen Entfernung zur Hilfe, der sofort erscheint und an deiner Seite kämpft (WS 3, Koloss I, INI 6, GS 8, VT 3, RW 2, AT 10, TP 2W6-2, Zusätzliche AT I).
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; WS, AT und TP des Schwarms steigen um je +1.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Zone
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Nekropathia Seelenreise (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="152" referenzbuch="0">Du nimmst Kontakt mit einer Seele in Borons Hallen auf. Du kannst mit ihr sprechen, doch es bleibt ihr überlassen, ob und wie sie antwortet. Der Tod der Person darf maximal 1 Jahr zurückliegen und du benötigst einen persönlichen Gegenstand.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Verzehnfacht den Abstand zum Todeszeitpunkt.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelobjekt
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Atemnot (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">Du entziehst dem Opfer einen Teil seiner Kraft. Es erleidet 2 Punkte Erschöpfung. Du regenerierst die Hälfte der angerichteten Erschöpfung.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Verursacht 1 weiteren Punkt Erschöpfung.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; 4 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Serpentialis Schlangenleib (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="154" referenzbuch="0">Deine Arme verwandeln sich in grüne, 2 Schritt lange Giftschlangen, deren hinteres Ende noch mit deinem Rumpf verbunden ist. Die Schlangen können beide in einer Aktion Konflikt angreifen (WS 3, VT 10, RW 2, AT 10, TP 2W6) und ein Waffengift übertragen (Stufe 20, keine Verzögerung, Intervall 2 INI-Phasen, Wirkungsdauer 2 INI-Phasen, 2W6 SP).
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Die WS der Schlangen steigt um +1, AT, VT und TP um +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Schlangengriff (Wirkungsdauer 4 Minuten, 4 AsP; die Arme verwandeln sich in kampfunfähige, aber geschickte Nattern, deren FF gleich deiner ist.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 16 AsP</Talent>
-  <Talent name="Vipernblick (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="136" referenzbuch="0">Du erscheinst deinem Opfer als grauenvolle Gestalt aus den Niederhöllen. Es kann nicht wegsehen und ist vor Angst handlungsunfähig. Wird der Sichtkontakt unterbrochen, endet der Zauber.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
-&lt;b&gt;Modifikationen:&lt;/b&gt; Fremdgestalt (-4; du kannst eine andere Person wählen, die als Alpgestalt erscheint.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelwesen
-&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Kosten:&lt;/b&gt; 16 AsP</Talent>
-  <Talent name="Warmes Blut (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Durch diesen Zauber siehst du die Wärmestrahlung deiner Umgebung. Kaltes erscheint schwarz bis grünblau, Warmblüter sind gelb und Feuer ist orange bis tiefrot.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Horriphobus Schreckgestalt (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Stier)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="134" referenzbuch="0">Dein Opfer hat schreckliche Angst vor dir und erleidet einen Furcht-Effekt Stufe 2.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Furcht-Effekt steigt um eine Stufe.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelwesen
-&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Sensattaco Meisterstreich (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Stier)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Dein Ziel erkennt intuitiv die Lücken in der Verteidigung des Gegners. Seine AT sind um +2 erleichtert und seine Chance auf einen Triumph bei einer AT steigt um 1 auf dem W20 (zum Beispiel von 20 auf 19-20).
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +1.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Aktion
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Krötensprung (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Der nächste Sprung deines Zieles ist gewaltig. Er kann bis zu 8 Schritt Weite und 4 Schritt Höhe überwinden und die effektive Sturzhöhe (S. 35) sinkt um 4 Schritt.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Die Weite steigt um +4 Schritt,  die (Sturz-)Höhe um +2 Schritt.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Krötengang (-4, Wirkungsdauer 16 Initiativephasen, 8 AsP; dein Ziel kann beliebig oft springen.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Spurlos Trittlos (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="151" referenzbuch="0">Du tarnst deine Fährte mit Magie. Alle Proben zur Verfolgung deiner Fährte sind um -4 erschwert.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Malus steigt um -2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Andere Person (-4, Ziel Einzelperson)
-Zone (-4, Zone, 16 AsP; der Zauber betrifft alle in einem Radius von 4 Schritt.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Abvenenum reine Speise (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Wildschwein)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="153" referenzbuch="0">Du reinigst eine Mahlzeit für 10 Personen von Verfallserscheinungen, Giften und Krankheitserregern, bis zu einer Gift-/Krankheitsstufe von 20. Der Geschmack ändert sich nicht.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Die maximal aufgehobene Gift-/Krankheitsstufe steigt um 4.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Schutz vor Übelkeit (-4; auch ungefährliche, aber unangenehme Inhalte wie Salz im Meerwasser werden entfernt.)
-Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was dem Essen hinzugefügt wird.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelobjekte
-&lt;b&gt;Reichweite:&lt;/b&gt; 2 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Movimento Dauerlauf (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Verdoppelt das DH* (S. 34) des Ziels und das Intervall, in dem körperliche Anstrengung Erschöpfung verursacht.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Je zwei Stufen verdreifachen/vervierfachen das DH* und das Intervall.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelwesen
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 8 Stunden
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Bärenruhe Winterschlaf (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Bär)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="153" referenzbuch="0">Du versetzt dein Ziel in einen tiefen Winterschlaf. Während des Schlafes benötigt es keine Nahrung, und kein Wasser. Gifte, Krankheiten und Kälte fügen ihm keinen Schaden zu. Dafür regeneriert es auch nicht.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Der lange Schlaf (-4, Wirkungsdauer 1 Monat, 16 AsP)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelwesen
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Tag
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Motoricus Geisterhand (Blutgeist)" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tiergeist (Affe)" verbilligt="0" fertigkeiten="Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="151" referenzbuch="0">Du kannst einen Gegenstand mit einer KK von 2 anheben und mit maximal 4 Schritt pro Initiativephase durch die Luft fliegen lassen. Besonders komplizierte und feine Bewegungen sind um bis zu 8 Punkte erschwert. Erfordert &lt;i&gt;Konzentration&lt;/i&gt;.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Erhöht KK und die Schritte pro Initiativephase um +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Unsichtbarer Hieb (Wirkungsdauer augenblicklich; der Zauber fügt einem Objekt 2W6 SP zu. Mächtige Magie erhöht den Schaden um +4.)
-Magische Abwehr (-4, wird in einer Reaktion gewirkt, Wirkungsdauer augenblicklich; die Zauberprobe gilt als VT gegen einen Nahkampfangriff in Reichweite.)
-Fesselfeld (-8, 32 AsP; in einer Zone von 4 Schritt Radius wird die Bewegung jedes unbelebten Objekts mit einer KK von 2 behindert, was Kampfhandlungen mit Waffen fast unmöglich macht.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Aktion
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelobjekt
-&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
   <Talent name="Blut des (Tieres)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Durro-dun I" verbilligt="0" fertigkeiten="Verwandlung, Gaben des Odun" variableKosten="0" referenzseite="159" referenzbuch="0">Du wirst von der animalischen Essenz deines Tiergeistes erfüllt. Jedem, der keine &lt;i&gt;Konterprobe&lt;/i&gt; (MU, 16) besteht, erscheinst du als ein Wesen mit Schreckgestalt II (S. 98).
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
@@ -4473,7 +4075,7 @@ Fesselfeld (-8, 32 AsP; in einer Zone von 4 Schritt Radius wird die Bewegung jed
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Verwandlung, Gaben des Odun
 &lt;b&gt;Erlernen:&lt;/b&gt; Dur 16; normalerweise 40 EP
 &lt;b&gt;Anmerkung:&lt;/b&gt; Die Lernkosten des Zaubers orientieren sich an der Tierart, wobei fliegende, giftige, sehr starke usw. Tiere teurer sind.</Talent>
-  <Talent name="Abvenenum reine Speise (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Wildschwein)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="153" referenzbuch="0">Du reinigst eine Mahlzeit für 10 Personen von Verfallserscheinungen, Giften und Krankheitserregern, bis zu einer Gift-/Krankheitsstufe von 20. Der Geschmack ändert sich nicht.
+  <Talent name="Abvenenum reine Speise (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Wildschwein)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="153" referenzbuch="0">Du reinigst eine Mahlzeit für 10 Personen von Verfallserscheinungen, Giften und Krankheitserregern, bis zu einer Gift-/Krankheitsstufe von 20. Der Geschmack ändert sich nicht.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Die maximal aufgehobene Gift-/Krankheitsstufe steigt um 4.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Schutz vor Übelkeit (-4; auch ungefährliche, aber unangenehme Inhalte wie Salz im Meerwasser werden entfernt.)
@@ -4483,7 +4085,7 @@ Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was 
 &lt;b&gt;Reichweite:&lt;/b&gt; 2 Schritt
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Adlerauge Luchsenohr (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Falke) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">Du schärfst deine Sinne auf magische Weise. Alle Proben auf Sinnenschärfe und Wachsamkeit sind um +4 erleichtert.
+  <Talent name="Adlerauge Luchsenohr (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Falke) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">Du schärfst deine Sinne auf magische Weise. Alle Proben auf Sinnenschärfe und Wachsamkeit sind um +4 erleichtert.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Einzelsinn (-4, Wirkungsdauer 1 Stunde; nur ein Sinn ist betroffen.)
@@ -4492,14 +4094,14 @@ Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was 
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Aeropulvis sanfter Fall (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Falke)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="147" referenzbuch="0">Halbiert die effektive Höhe eines Sturzes oder Sprunges (kumulativ zur Akrobatik-Probe).
+  <Talent name="Aeropulvis sanfter Fall (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Falke)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="147" referenzbuch="0">Halbiert die effektive Höhe eines Sturzes oder Sprunges (kumulativ zur Akrobatik-Probe).
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; selbst
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Armatrutz (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Mammut)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">Der RS deines Zieles steigt um 1.
+  <Talent name="Armatrutz (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Mammut)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">Der RS deines Zieles steigt um 1.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Je zwei Stufen verleihen +1 RS.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Körperschild (-4, 1 AsP; der Armatrutz schützt nur eine Trefferzone.)
@@ -4508,7 +4110,7 @@ Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was 
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Atemnot (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">Du entziehst dem Opfer einen Teil seiner Kraft. Es erleidet 2 Punkte Erschöpfung. Du regenerierst die Hälfte der angerichteten Erschöpfung.
+  <Talent name="Atemnot (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">Du entziehst dem Opfer einen Teil seiner Kraft. Es erleidet 2 Punkte Erschöpfung. Du regenerierst die Hälfte der angerichteten Erschöpfung.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Verursacht 1 weiteren Punkt Erschöpfung.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
@@ -4516,7 +4118,7 @@ Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was 
 &lt;b&gt;Reichweite:&lt;/b&gt; 4 Schritt
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Attributo (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Affe) ODER Vorteil Tiergeist (Fuchs) ODER Vorteil Tiergeist (Mungo) ODER Vorteil Tiergeist (Stier)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">Wähle ein Attribut aus. Proben auf dieses Attribut sind um +2, Fertigkeitsproben mit diesem Attribut um +1 erleichtert.
+  <Talent name="Attributo (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Affe) ODER Vorteil Tiergeist (Fuchs) ODER Vorteil Tiergeist (Mungo) ODER Vorteil Tiergeist (Stier)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">Wähle ein Attribut aus. Proben auf dieses Attribut sind um +2, Fertigkeitsproben mit diesem Attribut um +1 erleichtert.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2/+1.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
@@ -4524,7 +4126,7 @@ Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was 
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Axxeleratus Blitzgeschwind (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Affe) ODER Vorteil Tiergeist (Falke) ODER Vorteil Tiergeist (Gebirgsbock) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">Die GS deines Zieles erhöht sich um +4 und alle AT und VT sind um +2 erleichtert, Ausweichen um weitere +2.
+  <Talent name="Axxeleratus Blitzgeschwind (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Affe) ODER Vorteil Tiergeist (Falke) ODER Vorteil Tiergeist (Gebirgsbock) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">Die GS deines Zieles erhöht sich um +4 und alle AT und VT sind um +2 erleichtert, Ausweichen um weitere +2.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Die GS steigt um weitere +2.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
@@ -4532,7 +4134,7 @@ Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was 
 &lt;b&gt;Reichweite:&lt;/b&gt; 4 Schritt
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Blick aufs Wesen (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="140" referenzbuch="0">Der Zauber offenbart dir die Fertigkeiten deines Ziels. Du erhältst einen groben Eindruck von seinen körperlichen, geistigen, handwerklichen, kämpferischen und zauberischen Fähigkeiten.
+  <Talent name="Blick aufs Wesen (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="140" referenzbuch="0">Der Zauber offenbart dir die Fertigkeiten deines Ziels. Du erhältst einen groben Eindruck von seinen körperlichen, geistigen, handwerklichen, kämpferischen und zauberischen Fähigkeiten.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Du erfährst auch besonders hohe Fertigkeiten/markante Vorteile/Eigenheiten/Vorlieben und Vorgehen.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
 &lt;b&gt;Modifikationen:&lt;/b&gt; Leuchtende Persönlichkeit (-4; du erkennst in einer Gruppe von bis zu 8 Personen diejenige, die in einem von dir gewählten Bereich am meisten heraussticht. Durch eine &lt;i&gt;Konterprobe&lt;/i&gt; (MR, 16) können sich die Personen vor der Entdeckung schützen.)
@@ -4541,7 +4143,7 @@ Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was 
 &lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Bärenruhe Winterschlaf (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Bär)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="153" referenzbuch="0">Du versetzt dein Ziel in einen tiefen Winterschlaf. Während des Schlafes benötigt es keine Nahrung, und kein Wasser. Gifte, Krankheiten und Kälte fügen ihm keinen Schaden zu. Dafür regeneriert es auch nicht.
+  <Talent name="Bärenruhe Winterschlaf (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Bär)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="153" referenzbuch="0">Du versetzt dein Ziel in einen tiefen Winterschlaf. Während des Schlafes benötigt es keine Nahrung, und kein Wasser. Gifte, Krankheiten und Kälte fügen ihm keinen Schaden zu. Dafür regeneriert es auch nicht.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Der lange Schlaf (-4, Wirkungsdauer 1 Monat, 16 AsP)
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Minuten
@@ -4549,7 +4151,7 @@ Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was 
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Tag
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Eins mit der Natur (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Fischotter) ODER Vorteil Tiergeist (Gebirgsbock) ODER Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther) ODER Vorteil Tiergeist (Wildschwein) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Das Ziel kann in der Wildnis kann es natürliche Gefahren wie mit der Gabe Gefahreninstinkt erahnen. Beherrscht es die Gabe bereits, sind damit verbundene Proben um +4 erleichtert. Wirkt nicht unter der Erde, auf dem Meer oder in dämonisch pervertiertem Gebiet.
+  <Talent name="Eins mit der Natur (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Fischotter) ODER Vorteil Tiergeist (Gebirgsbock) ODER Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther) ODER Vorteil Tiergeist (Wildschwein) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Das Ziel kann in der Wildnis kann es natürliche Gefahren wie mit der Gabe Gefahreninstinkt erahnen. Beherrscht es die Gabe bereits, sind damit verbundene Proben um +4 erleichtert. Wirkt nicht unter der Erde, auf dem Meer oder in dämonisch pervertiertem Gebiet.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Überleben-Proben sind um +2 erleichtert.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Minuten
@@ -4557,7 +4159,7 @@ Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was 
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Tag
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Eiseskälte Kämpferherz (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Bär)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Das Ziel empfindet keinerlei Schmerzen mehr. Es erhält den Vorteil Kalte Wut (S. 43). Proben zum Ignorieren von Wundschmerz sind um +4 erleichtert.
+  <Talent name="Eiseskälte Kämpferherz (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Bär)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Das Ziel empfindet keinerlei Schmerzen mehr. Es erhält den Vorteil Kalte Wut (S. 43). Proben zum Ignorieren von Wundschmerz sind um +4 erleichtert.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
@@ -4565,7 +4167,7 @@ Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was 
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Exposami Lebenskraft (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="141" referenzbuch="0">Du nimmst Lebewesen als grün leuchtende Flecken wahr. Der Zauber kann alle Elemente bis auf Erz und Eis durchdringen.
+  <Talent name="Exposami Lebenskraft (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="141" referenzbuch="0">Du nimmst Lebewesen als grün leuchtende Flecken wahr. Der Zauber kann alle Elemente bis auf Erz und Eis durchdringen.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Du kannst Angehörige verschiedener Spezies/verschiedene Individuen unterscheiden und wiedererkennen.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Reinheit der Aura (-8; der Zauber zeigt den Gesundheitszustand des Ziels, dämonische Verseuchungen usw.)
@@ -4574,7 +4176,7 @@ Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was 
 &lt;b&gt;Reichweite:&lt;/b&gt; 16 Schritt
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 8 Initiativephasen
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Falkenauge Meisterschuss (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Falke)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Dein nächster Fernkampfangriff ist um +4 erleichtert.
+  <Talent name="Falkenauge Meisterschuss (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Falke)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Dein nächster Fernkampfangriff ist um +4 erleichtert.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Dauerndes Band (-8, 8 AsP; der Zauber wirkt auf alle Fernkampfangriffe während der Wirkungsdauer.)
@@ -4583,7 +4185,7 @@ Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was 
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 8 Initiativephasen
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Firnlauf (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Gebirgsbock)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Jede noch so dünne Eis- oder Schneeschicht trägt dich wie trockener Boden. Unter diesen Bedingungen erleidest du keinerlei Erschwernisse oder Geschwindigkeitsabzüge.
+  <Talent name="Firnlauf (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Gebirgsbock)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Jede noch so dünne Eis- oder Schneeschicht trägt dich wie trockener Boden. Unter diesen Bedingungen erleidest du keinerlei Erschwernisse oder Geschwindigkeitsabzüge.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Verankerung (-4, 2 AsP; du verankerst dich so auf einer Eisfläche, dass du selbst dann nicht stürzt, wenn sie in bedrohliche Schieflage oder schnelle Bewegung gerät.)
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
@@ -4591,7 +4193,7 @@ Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was 
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Foramen Foraminor (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Fischotter)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="150" referenzbuch="0">Du öffnest ein Schloss beliebiger Bauart.
+  <Talent name="Foramen Foraminor (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Fischotter)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="150" referenzbuch="0">Du öffnest ein Schloss beliebiger Bauart.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Herstellungsschwierigkeit des Schlosses
 &lt;b&gt;Modifikationen:&lt;/b&gt; Riegel (-4, 8 AsP; auch ein schwerer Riegel wie an einem Stadttor kann hiermit geöffnet werden.)
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
@@ -4599,14 +4201,14 @@ Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was 
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Harmlose Gestalt (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Fuchs) ODER Vorteil Tiergeist (Mungo)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="133" referenzbuch="0">Mit dieser &lt;i&gt;Illusion&lt;/i&gt; (Sicht, Gehör, Geruch) erscheinst du den Umstehenden als kleines Kind, alter Krüppel, Orkfrau oder als eine andere harmlose Gestalt. Deine Kleidung ist von der Illusion betroffen, zusätzliche Gegenstände wie ein Wanderstab oder ein Rucksack nicht. Erlaubt &lt;i&gt;Aufrechterhalten&lt;/i&gt;.
+  <Talent name="Harmlose Gestalt (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Fuchs) ODER Vorteil Tiergeist (Mungo)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="133" referenzbuch="0">Mit dieser &lt;i&gt;Illusion&lt;/i&gt; (Sicht, Gehör, Geruch) erscheinst du den Umstehenden als kleines Kind, alter Krüppel, Orkfrau oder als eine andere harmlose Gestalt. Deine Kleidung ist von der Illusion betroffen, zusätzliche Gegenstände wie ein Wanderstab oder ein Rucksack nicht. Erlaubt &lt;i&gt;Aufrechterhalten&lt;/i&gt;.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; selbst
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Hexenkrallen (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Deine Fingernägel werden lang, scharf und hart wie Raubtierklauen. Deine Hände richten 2W6 Waffenschaden an und verlieren die Eigenschaft Zerbrechlich.
+  <Talent name="Hexenkrallen (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Deine Fingernägel werden lang, scharf und hart wie Raubtierklauen. Deine Hände richten 2W6 Waffenschaden an und verlieren die Eigenschaft Zerbrechlich.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Erhöht den Schaden um +2.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
@@ -4614,7 +4216,7 @@ Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was 
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Hilfreiche Tatze, rettende Schwinge (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Fischotter)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="134" referenzbuch="0">Du wählst eine Tierart. Befindet sich ein Tier dieser Art in einem Radius von 1 Meile, eilt es herbei. Du kannst das Tier um einen Gefallen bitten, den dieses wenn möglich erfüllen wird. Dann trollt sich das Tier.
+  <Talent name="Hilfreiche Tatze, rettende Schwinge (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Fischotter)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="134" referenzbuch="0">Du wählst eine Tierart. Befindet sich ein Tier dieser Art in einem Radius von 1 Meile, eilt es herbei. Du kannst das Tier um einen Gefallen bitten, den dieses wenn möglich erfüllen wird. Dann trollt sich das Tier.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Verdoppelt den Radius.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
@@ -4622,7 +4224,7 @@ Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was 
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Horriphobus Schreckgestalt (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Stier)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="134" referenzbuch="0">Dein Opfer hat schreckliche Angst vor dir und erleidet einen Furcht-Effekt Stufe 2.
+  <Talent name="Horriphobus Schreckgestalt (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Stier)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="134" referenzbuch="0">Dein Opfer hat schreckliche Angst vor dir und erleidet einen Furcht-Effekt Stufe 2.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Furcht-Effekt steigt um eine Stufe.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
@@ -4630,7 +4232,7 @@ Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was 
 &lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Katzenaugen (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Fischotter) ODER Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Du ignorierst eine Stufe Dunkelheit, aber grelles Licht erschwert alle Proben um -2. Bei absoluter Dunkelheit ist der Zauber wirkungslos.
+  <Talent name="Katzenaugen (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Fischotter) ODER Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Du ignorierst eine Stufe Dunkelheit, aber grelles Licht erschwert alle Proben um -2. Bei absoluter Dunkelheit ist der Zauber wirkungslos.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Du ignorierst 2/3 Stufen Dunkelheit.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
@@ -4638,7 +4240,7 @@ Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was 
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Krähenruf  (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="134" referenzbuch="0">Du rufst einen Krähenschwarm aus bis zu 100 Meilen Entfernung zur Hilfe, der sofort erscheint und an deiner Seite kämpft (WS 3, Koloss I, INI 6, GS 8, VT 3, RW 2, AT 10, TP 2W6-2, Zusätzliche AT I).
+  <Talent name="Krähenruf  (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="134" referenzbuch="0">Du rufst einen Krähenschwarm aus bis zu 100 Meilen Entfernung zur Hilfe, der sofort erscheint und an deiner Seite kämpft (WS 3, Koloss I, INI 6, GS 8, VT 3, RW 2, AT 10, TP 2W6-2, Zusätzliche AT I).
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; WS, AT und TP des Schwarms steigen um je +1.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
@@ -4646,7 +4248,7 @@ Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was 
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Krötensprung (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Der nächste Sprung deines Zieles ist gewaltig. Er kann bis zu 8 Schritt Weite und 4 Schritt Höhe überwinden und die effektive Sturzhöhe (S. 35) sinkt um 4 Schritt.
+  <Talent name="Krötensprung (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Der nächste Sprung deines Zieles ist gewaltig. Er kann bis zu 8 Schritt Weite und 4 Schritt Höhe überwinden und die effektive Sturzhöhe (S. 35) sinkt um 4 Schritt.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Die Weite steigt um +4 Schritt,  die (Sturz-)Höhe um +2 Schritt.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Krötengang (-4, Wirkungsdauer 16 Initiativephasen, 8 AsP; dein Ziel kann beliebig oft springen.)
@@ -4655,7 +4257,7 @@ Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was 
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Kusch! (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Mammut) ODER Vorteil Tiergeist (Wildschwein) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="134" referenzbuch="0">Das verzauberte Tier flieht vor dir.
+  <Talent name="Kusch! (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Mammut) ODER Vorteil Tiergeist (Wildschwein) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="134" referenzbuch="0">Das verzauberte Tier flieht vor dir.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
 &lt;b&gt;Modifikationen:&lt;/b&gt; Schrecken des Schwarms (-4; du verscheuchst einen Schwarm Kleintiere.)
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
@@ -4663,7 +4265,7 @@ Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was 
 &lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Memorans Gedächtniskraft (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Elefant) ODER Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Du kannst dir sämtliche Bilder, Schriftstücke, Inschriften und ähnliches für immer einprägen. Eine Seite eines Buches kostet dich etwa eine Minute.
+  <Talent name="Memorans Gedächtniskraft (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Elefant) ODER Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Du kannst dir sämtliche Bilder, Schriftstücke, Inschriften und ähnliches für immer einprägen. Eine Seite eines Buches kostet dich etwa eine Minute.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Drachengedächtnis (-8, Wirkungsdauer 16 Initiativephasen; alles, was du während der Wirkungsdauer siehst, ist dir für immer ins Gedächtnis gebrannt.)
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Minuten
@@ -4671,7 +4273,7 @@ Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was 
 &lt;b&gt;Reichweite:&lt;/b&gt; 4 Schritt
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Motoricus Geisterhand (Tiergeist)" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tiergeist (Affe)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="151" referenzbuch="0">Du kannst einen Gegenstand mit einer KK von 2 anheben und mit maximal 4 Schritt pro Initiativephase durch die Luft fliegen lassen. Besonders komplizierte und feine Bewegungen sind um bis zu 8 Punkte erschwert. Erfordert &lt;i&gt;Konzentration&lt;/i&gt;.
+  <Talent name="Motoricus Geisterhand (Tiergeist)" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tiergeist (Affe)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="151" referenzbuch="0">Du kannst einen Gegenstand mit einer KK von 2 anheben und mit maximal 4 Schritt pro Initiativephase durch die Luft fliegen lassen. Besonders komplizierte und feine Bewegungen sind um bis zu 8 Punkte erschwert. Erfordert &lt;i&gt;Konzentration&lt;/i&gt;.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Erhöht KK und die Schritte pro Initiativephase um +2.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Unsichtbarer Hieb (Wirkungsdauer augenblicklich; der Zauber fügt einem Objekt 2W6 SP zu. Mächtige Magie erhöht den Schaden um +4.)
@@ -4682,7 +4284,7 @@ Fesselfeld (-8, 32 AsP; in einer Zone von 4 Schritt Radius wird die Bewegung jed
 &lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Movimento Dauerlauf (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Verdoppelt das DH* (S. 34) des Ziels und das Intervall, in dem körperliche Anstrengung Erschöpfung verursacht.
+  <Talent name="Movimento Dauerlauf (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Verdoppelt das DH* (S. 34) des Ziels und das Intervall, in dem körperliche Anstrengung Erschöpfung verursacht.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Je zwei Stufen verdreifachen/vervierfachen das DH* und das Intervall.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
@@ -4690,7 +4292,7 @@ Fesselfeld (-8, 32 AsP; in einer Zone von 4 Schritt Radius wird die Bewegung jed
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 8 Stunden
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Nekropathia Seelenreise (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="152" referenzbuch="0">Du nimmst Kontakt mit einer Seele in Borons Hallen auf. Du kannst mit ihr sprechen, doch es bleibt ihr überlassen, ob und wie sie antwortet. Der Tod der Person darf maximal 1 Jahr zurückliegen und du benötigst einen persönlichen Gegenstand.
+  <Talent name="Nekropathia Seelenreise (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="152" referenzbuch="0">Du nimmst Kontakt mit einer Seele in Borons Hallen auf. Du kannst mit ihr sprechen, doch es bleibt ihr überlassen, ob und wie sie antwortet. Der Tod der Person darf maximal 1 Jahr zurückliegen und du benötigst einen persönlichen Gegenstand.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Verzehnfacht den Abstand zum Todeszeitpunkt.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Minuten
@@ -4698,7 +4300,7 @@ Fesselfeld (-8, 32 AsP; in einer Zone von 4 Schritt Radius wird die Bewegung jed
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Pfeil der Luft (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Falke)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="148" referenzbuch="0">Du verzauberst einen Pfeil (oder Bolzen oder Wurfwaffe), sodass er im Flug die Macht des Elements freisetzt. Der Pfeil verursacht Luftschaden und &lt;i&gt;Zurückstoßen&lt;/i&gt; (S. 98). Die Reichweite für diesen Schuss ist verdoppelt.
+  <Talent name="Pfeil der Luft (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Falke)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="148" referenzbuch="0">Du verzauberst einen Pfeil (oder Bolzen oder Wurfwaffe), sodass er im Flug die Macht des Elements freisetzt. Der Pfeil verursacht Luftschaden und &lt;i&gt;Zurückstoßen&lt;/i&gt; (S. 98). Die Reichweite für diesen Schuss ist verdoppelt.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Geschütz (-4; du verzauberst ein größeres Geschoss wie das einer Balliste.)
 Permanenz (-4, 4 AsP, davon 1 gAsP, Wirkungsdauer bis die Bindung gelöst wird oder der Pfeil verschossen wurde)
@@ -4707,7 +4309,7 @@ Permanenz (-4, 4 AsP, davon 1 gAsP, Wirkungsdauer bis die Bindung gelöst wird o
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 8 Initiativephasen
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Psychostabilis (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Elefant) ODER Vorteil Tiergeist (Mammut) ODER Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="127" referenzbuch="0">Magieresistenz-Proben des Ziels sind um +4 erleichtert.
+  <Talent name="Psychostabilis (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Elefant) ODER Vorteil Tiergeist (Mammut) ODER Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="127" referenzbuch="0">Magieresistenz-Proben des Ziels sind um +4 erleichtert.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Erhöht den Bonus um +2.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Schnellsteigerung (-4; Wirkungsdauer 16 Initiativephasen; verdoppelt die Erleichterung.)
@@ -4717,7 +4319,7 @@ Stabilisierung (-8; das Ziel darf sofort eine MR-Probe gegen einen auf es wirken
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Ruhe Körper, Ruhe Geist (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Bär)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="143" referenzbuch="0">Dein Ziel sinkt in einen tiefen Schlaf, aus dem es nur mit Gewalt geweckt werden kann. Wird es nicht vorzeitig geweckt, regeneriert es zwei zusätzliche Wunden.
+  <Talent name="Ruhe Körper, Ruhe Geist (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Bär)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="143" referenzbuch="0">Dein Ziel sinkt in einen tiefen Schlaf, aus dem es nur mit Gewalt geweckt werden kann. Wird es nicht vorzeitig geweckt, regeneriert es zwei zusätzliche Wunden.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Regeneriert eine weitere Wunde.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 16 Aktionen
@@ -4725,7 +4327,7 @@ Stabilisierung (-8; das Ziel darf sofort eine MR-Probe gegen einen auf es wirken
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 8 Stunden
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Sanftmut (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Bär)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="135" referenzbuch="0">Das verzauberte Tier verliert seine Angriffslust, solange es nicht angegriffen oder gereizt wird.
+  <Talent name="Sanftmut (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Bär)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="135" referenzbuch="0">Das verzauberte Tier verliert seine Angriffslust, solange es nicht angegriffen oder gereizt wird.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Die Lethargie hält sogar dann, wenn das Tier gereizt/leicht verletzt/schwer verletzt wird.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Aktion
@@ -4733,14 +4335,14 @@ Stabilisierung (-8; das Ziel darf sofort eine MR-Probe gegen einen auf es wirken
 &lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Seelentier erkennen (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Elefant)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="141" referenzbuch="0">Du erkennst das Seelentier deines Zieles. Wenn dir das Tier und seine assoziierten Eigenschaften bekannt sind, erleichtert dir das alle künftigen gesellschaftlichen Proben dem Ziel gegenüber um +2.
+  <Talent name="Seelentier erkennen (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Elefant)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="141" referenzbuch="0">Du erkennst das Seelentier deines Zieles. Wenn dir das Tier und seine assoziierten Eigenschaften bekannt sind, erleichtert dir das alle künftigen gesellschaftlichen Proben dem Ziel gegenüber um +2.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
 &lt;b&gt;Reichweite:&lt;/b&gt; 4 Schritt
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Seidenzunge Elfenwort (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Fuchs) ODER Vorteil Tiergeist (Mungo)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="135" referenzbuch="0">Das Ziel denkt nicht zu genau über deine Worte nach und findet dich überzeugend. Alle Überreden-Proben gegen dein Ziel sind um +4 erleichtert.
+  <Talent name="Seidenzunge Elfenwort (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Fuchs) ODER Vorteil Tiergeist (Mungo)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="135" referenzbuch="0">Das Ziel denkt nicht zu genau über deine Worte nach und findet dich überzeugend. Alle Überreden-Proben gegen dein Ziel sind um +4 erleichtert.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Aktion
@@ -4748,7 +4350,7 @@ Stabilisierung (-8; das Ziel darf sofort eine MR-Probe gegen einen auf es wirken
 &lt;b&gt;Reichweite:&lt;/b&gt; 4 Schritt
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Sensattaco Meisterstreich (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Stier)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Dein Ziel erkennt intuitiv die Lücken in der Verteidigung des Gegners. Seine AT sind um +2 erleichtert und seine Chance auf einen Triumph bei einer AT steigt um 1 auf dem W20 (zum Beispiel von 20 auf 19-20).
+  <Talent name="Sensattaco Meisterstreich (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Stier)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Dein Ziel erkennt intuitiv die Lücken in der Verteidigung des Gegners. Seine AT sind um +2 erleichtert und seine Chance auf einen Triumph bei einer AT steigt um 1 auf dem W20 (zum Beispiel von 20 auf 19-20).
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +1.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Aktion
@@ -4756,7 +4358,7 @@ Stabilisierung (-8; das Ziel darf sofort eine MR-Probe gegen einen auf es wirken
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Sensibar Empathicus (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Eule) ODER Vorteil Tiergeist (Fuchs) ODER Vorteil Tiergeist (Mungo) ODER Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="141" referenzbuch="0">Du kannst die Gefühle deines Gegenübers erahnen, wodurch deine Menschenkenntnis gegen das Ziel um +4 steigt.
+  <Talent name="Sensibar Empathicus (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Eule) ODER Vorteil Tiergeist (Fuchs) ODER Vorteil Tiergeist (Mungo) ODER Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="141" referenzbuch="0">Du kannst die Gefühle deines Gegenübers erahnen, wodurch deine Menschenkenntnis gegen das Ziel um +4 steigt.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
@@ -4764,7 +4366,7 @@ Stabilisierung (-8; das Ziel darf sofort eine MR-Probe gegen einen auf es wirken
 &lt;b&gt;Reichweite:&lt;/b&gt; 4 Schritt
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Serpentialis Schlangenleib (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="154" referenzbuch="0">Deine Arme verwandeln sich in grüne, 2 Schritt lange Giftschlangen, deren hinteres Ende noch mit deinem Rumpf verbunden ist. Die Schlangen können beide in einer Aktion Konflikt angreifen (WS 3, VT 10, RW 2, AT 10, TP 2W6) und ein Waffengift übertragen (Stufe 20, keine Verzögerung, Intervall 2 INI-Phasen, Wirkungsdauer 2 INI-Phasen, 2W6 SP).
+  <Talent name="Serpentialis Schlangenleib (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="154" referenzbuch="0">Deine Arme verwandeln sich in grüne, 2 Schritt lange Giftschlangen, deren hinteres Ende noch mit deinem Rumpf verbunden ist. Die Schlangen können beide in einer Aktion Konflikt angreifen (WS 3, VT 10, RW 2, AT 10, TP 2W6) und ein Waffengift übertragen (Stufe 20, keine Verzögerung, Intervall 2 INI-Phasen, Wirkungsdauer 2 INI-Phasen, 2W6 SP).
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Die WS der Schlangen steigt um +1, AT, VT und TP um +2.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Schlangengriff (Wirkungsdauer 4 Minuten, 4 AsP; die Arme verwandeln sich in kampfunfähige, aber geschickte Nattern, deren FF gleich deiner ist.)
@@ -4773,7 +4375,7 @@ Stabilisierung (-8; das Ziel darf sofort eine MR-Probe gegen einen auf es wirken
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP</Talent>
-  <Talent name="Silentium Schweigekreis (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="151" referenzbuch="0">Der Zauber dämpft alle Geräusche in einer Kugel mit 2 Schritt Radius. Entsprechende Wahrnehmungs-Proben sind um -4 erschwert.
+  <Talent name="Silentium Schweigekreis (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="151" referenzbuch="0">Der Zauber dämpft alle Geräusche in einer Kugel mit 2 Schritt Radius. Entsprechende Wahrnehmungs-Proben sind um -4 erschwert.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Malus steigt um -2.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Begleiter (-4; die Kugel bewegt sich mit dir.)
@@ -4783,7 +4385,7 @@ Fremdbegleiter (-8; die Kugel bewegt sich mit einem Einzelwesen.)
 &lt;b&gt;Reichweite:&lt;/b&gt; 2 Schritt
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Spinnenlauf (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Gebirgsbock)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Deine Hände und Füße haften an Oberflächen, sodass du mit GS 1 an glatten Wänden und sogar Decken ohne Griffen klettern kannst. Erlaubt &lt;i&gt;Aufrechterhalten&lt;/i&gt;.
+  <Talent name="Spinnenlauf (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Gebirgsbock)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Deine Hände und Füße haften an Oberflächen, sodass du mit GS 1 an glatten Wänden und sogar Decken ohne Griffen klettern kannst. Erlaubt &lt;i&gt;Aufrechterhalten&lt;/i&gt;.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Erhöht die GS um +1.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
@@ -4791,7 +4393,7 @@ Fremdbegleiter (-8; die Kugel bewegt sich mit einem Einzelwesen.)
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Spurlos Trittlos (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="151" referenzbuch="0">Du tarnst deine Fährte mit Magie. Alle Proben zur Verfolgung deiner Fährte sind um -4 erschwert.
+  <Talent name="Spurlos Trittlos (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="151" referenzbuch="0">Du tarnst deine Fährte mit Magie. Alle Proben zur Verfolgung deiner Fährte sind um -4 erschwert.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Malus steigt um -2.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Andere Person (-4, Ziel Einzelperson)
@@ -4801,7 +4403,7 @@ Zone (-4, Zone, 16 AsP; der Zauber betrifft alle in einem Radius von 4 Schritt.)
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Standfest Katzengleich (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Bär) ODER Vorteil Tiergeist (Gebirgsbock) ODER Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Stier) ODER Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther) ODER Vorteil Tiergeist (Wildschwein)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Deine Geschicklichkeit erhöht sich. Alle Proben, um auf den Beinen zu bleiben, sind um +4 erleichtert und deine Patzerchance im Kampf sinkt um 1 auf dem W20.
+  <Talent name="Standfest Katzengleich (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Bär) ODER Vorteil Tiergeist (Gebirgsbock) ODER Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Stier) ODER Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther) ODER Vorteil Tiergeist (Wildschwein)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Deine Geschicklichkeit erhöht sich. Alle Proben, um auf den Beinen zu bleiben, sind um +4 erleichtert und deine Patzerchance im Kampf sinkt um 1 auf dem W20.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
@@ -4809,7 +4411,7 @@ Zone (-4, Zone, 16 AsP; der Zauber betrifft alle in einem Radius von 4 Schritt.)
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Vipernblick (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="136" referenzbuch="0">Du erscheinst deinem Opfer als grauenvolle Gestalt aus den Niederhöllen. Es kann nicht wegsehen und ist vor Angst handlungsunfähig. Wird der Sichtkontakt unterbrochen, endet der Zauber.
+  <Talent name="Vipernblick (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="136" referenzbuch="0">Du erscheinst deinem Opfer als grauenvolle Gestalt aus den Niederhöllen. Es kann nicht wegsehen und ist vor Angst handlungsunfähig. Wird der Sichtkontakt unterbrochen, endet der Zauber.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
 &lt;b&gt;Modifikationen:&lt;/b&gt; Fremdgestalt (-4; du kannst eine andere Person wählen, die als Alpgestalt erscheint.)
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
@@ -4817,21 +4419,21 @@ Zone (-4, Zone, 16 AsP; der Zauber betrifft alle in einem Radius von 4 Schritt.)
 &lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP</Talent>
-  <Talent name="Warmes Blut (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Durch diesen Zauber siehst du die Wärmestrahlung deiner Umgebung. Kaltes erscheint schwarz bis grünblau, Warmblüter sind gelb und Feuer ist orange bis tiefrot.
+  <Talent name="Warmes Blut (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Durch diesen Zauber siehst du die Wärmestrahlung deiner Umgebung. Kaltes erscheint schwarz bis grünblau, Warmblüter sind gelb und Feuer ist orange bis tiefrot.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; selbst
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Wasseratem (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Fischotter)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="155" referenzbuch="0">Du kannst unter Wasser atmen, jedoch nicht mehr an Land. Erlaubt &lt;i&gt;Aufrechterhalten&lt;/i&gt;.
+  <Talent name="Wasseratem (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Fischotter)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="155" referenzbuch="0">Du kannst unter Wasser atmen, jedoch nicht mehr an Land. Erlaubt &lt;i&gt;Aufrechterhalten&lt;/i&gt;.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 16 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Wellenlauf (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Fischotter)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Wasser ist für dich ein fester Untergrund. Du erleidest keine Abzüge durch ungünstige Position und wirst nicht durch Wellen und Strömungen beeinflusst. Erlaubt &lt;i&gt;Aufrechterhalten&lt;/i&gt;.
+  <Talent name="Wellenlauf (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Fischotter)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Wasser ist für dich ein fester Untergrund. Du erleidest keine Abzüge durch ungünstige Position und wirst nicht durch Wellen und Strömungen beeinflusst. Erlaubt &lt;i&gt;Aufrechterhalten&lt;/i&gt;.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Sinken (-4; du kannst die Zauberwirkung nach Belieben unterdrücken und wieder aktiv werden lassen. Bei Aktivierung unter Wasser wirst du an die Wasseroberfläche gehoben.)
 Wasserwand (-8; du kannst selbst an Wasserfällen hochklettern, wofür einfache Klettern-Proben anfallen.)
@@ -4840,7 +4442,7 @@ Wasserwand (-8; du kannst selbst an Wasserfällen hochklettern, wofür einfache 
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Wipfellauf (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Affe) ODER Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Du kannst dich durch Baumkronen und Unterholz bewegen, als wären sie eine normale Straße. Unter diesen Bedingungen erleidest du keinerlei Erschwernisse oder Geschwindigkeitsabzüge.
+  <Talent name="Wipfellauf (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Affe) ODER Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Du kannst dich durch Baumkronen und Unterholz bewegen, als wären sie eine normale Straße. Unter diesen Bedingungen erleidest du keinerlei Erschwernisse oder Geschwindigkeitsabzüge.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Kopfüber (-8; du kannst selbst kopfüber an Bäumen laufen.)
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
@@ -4848,7 +4450,7 @@ Wasserwand (-8; du kannst selbst an Wasserfällen hochklettern, wofür einfache 
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP</Talent>
-  <Talent name="Xenographus Schriftenkunde (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Elefant)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="142" referenzbuch="0">Du kannst den Sinn eines geschriebenen Satzes verstehen, auch wenn du Schrift und Sprache nicht kennst.
+  <Talent name="Xenographus Schriftenkunde (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Elefant)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="142" referenzbuch="0">Du kannst den Sinn eines geschriebenen Satzes verstehen, auch wenn du Schrift und Sprache nicht kennst.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Verdoppelt die Anzahl der Sätze.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
@@ -4856,7 +4458,7 @@ Wasserwand (-8; du kannst selbst an Wasserfällen hochklettern, wofür einfache 
 &lt;b&gt;Reichweite:&lt;/b&gt; 4 Schritt
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Zaubernahrung Hungerbann (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Bär) ODER Vorteil Tiergeist (Mammut) ODER Vorteil Tiergeist (Wildschwein)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Für einen Tag spürst du keinerlei Hunger und die Kraft des Zaubers ernährt dich. Du musst spätestens vor vier Tagen echtes Essen zu dir genommen haben.
+  <Talent name="Zaubernahrung Hungerbann (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Bär) ODER Vorteil Tiergeist (Mammut) ODER Vorteil Tiergeist (Wildschwein)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Für einen Tag spürst du keinerlei Hunger und die Kraft des Zaubers ernährt dich. Du musst spätestens vor vier Tagen echtes Essen zu dir genommen haben.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Die letzte echte Mahlzeit kann bis zu zwei Tage länger her sein.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Durstbann (-4, 8 AsP; auch jeglicher Durst wird vom Zauber gestillt.)
@@ -4865,7 +4467,7 @@ Wasserwand (-8; du kannst selbst an Wasserfällen hochklettern, wofür einfache 
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Tag
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Ängste lindern (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Mammut)" verbilligt="0" fertigkeiten="Gaben des Odun" variableKosten="0" kommentar="0" referenzseite="133" referenzbuch="0">Auf dem Ziel lastende Furcht-Effekte sinken um eine Stufe.
+  <Talent name="Ängste lindern (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Mammut)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="133" referenzbuch="0">Auf dem Ziel lastende Furcht-Effekte sinken um eine Stufe.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
@@ -9524,13 +9126,13 @@ Anmerkungen: Nur herausragende Paktierere können sich in Tiere verwandeln, die 
   <Fertigkeit name="Mythenkunde" steigerungsfaktor="2" voraussetzungen="" attribute="KL|KL|IN" kampffertigkeit="0" typ="4">Mythenkunde ist das Wissen über die Götter und ihre Diener, sowohl die eigene Religion, als auch – weniger genau – fremde Religionen betreffend. Zusätzlich gehört dazu die Kenntnis der Geschichte sowie bekannter Sagen und Legenden, was meist schwer voneinander zu trennen ist.</Fertigkeit>
   <Fertigkeit name="Magiekunde" steigerungsfaktor="2" voraussetzungen="" attribute="KL|KL|MU" kampffertigkeit="0" typ="4">Die astrale Kraft durchzieht die ganze Welt und wird seit Jahrtausenden von Zauberern genutzt. Magiekunde ist das theoretische Wissen über diese Kraft und ihre Verwendung.</Fertigkeit>
   <Fertigkeit name="Überleben" steigerungsfaktor="3" voraussetzungen="" attribute="FF|GE|KO" kampffertigkeit="0" typ="4">Hierunter fallen alle Fähigkeiten, die zum Überleben in der Wildnis erforderlich sind. Du kannst dich orientieren oder einen Lagerplatz, Nahrung und Wasser finden. Außerdem bist du mit typischen Gefahren der Wildnis vertraut und kannst tierische und menschliche Fährten deuten und ihnen folgen.
-Dieses Wissen ist rein praktisch; exotische Tiere, Monster oder seltene Heilpflanzen fallen nicht in diesen Bereich.</Fertigkeit>
+    Dieses Wissen ist rein praktisch; exotische Tiere, Monster oder seltene Heilpflanzen fallen nicht in diesen Bereich.</Fertigkeit>
   <Fertigkeit name="Verschlagenheit" steigerungsfaktor="2" voraussetzungen="" attribute="FF|IN|MU" kampffertigkeit="0" typ="5">Verschlagenheit ist das Handwerk von zwielichtigen Gestalten, die Diebstahl, Falschsspiel und Einbruch nicht scheuen.</Fertigkeit>
   <Fertigkeit name="Alchemie" steigerungsfaktor="3" voraussetzungen="" attribute="FF|FF|KL" kampffertigkeit="0" typ="5">Alchemie ist die Wissenschaft von der Umwandlung der Stoffe. Mit ihr kannst du nützliche Tränke herstellen oder unbekannte Gebräue analysieren; für beides ist aber zumindest ein einfacher Analysekoffer notwendig.</Fertigkeit>
   <Fertigkeit name="Heilkunde" steigerungsfaktor="3" voraussetzungen="" attribute="CH|FF|KL" kampffertigkeit="0" typ="5">Ein Heilkundiger bekämpft tödliche Blutungen, heimtückische Gifte sowie langwierige Krankheiten und hilft seinen Gefährten so, wieder auf die Beine zu kommen. </Fertigkeit>
   <Fertigkeit name="Handwerk" steigerungsfaktor="3" voraussetzungen="" attribute="FF|FF|KK" kampffertigkeit="0" typ="5">Mit Handwerk schmiedest du Waffen und Rüstungen, fertigst filigrane Mechaniken und stabile Truhen.</Fertigkeit>
   <ÜbernatürlicheFertigkeit name="Antimagie" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Schelme I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Magiedilettant" attribute="CH|KL|MU" typ="0">Mit Antimagie kannst du Zauber während der Vorbereitung stören, bereits gewirkte Zauber aufheben und beschworene Wesenheiten bannen. Gerade Magier der Weißen Gilde gelten als Experten der Antimagie.
-Die meisten antimagischen Zauber richten sich gegen alle Zauber einer bestimmten übernatürlichen Fertigkeit (siehe Zauber) und verfügen über die &lt;b&gt;vier Modifikationen&lt;/b&gt; Gegenzauber, Magie unterdrücken, Zauber aufheben und Wesenheit bannen. Eine dieser vier Modifikationen kombinierst du mit einem antimagischen Zauber. Zum Beispiel kannst du mit dem Zauber Einfluss bannen und der Modifikation Zauber aufheben einen Imperavi aufheben, oder mit dem Elementarbann und Wesenheit bannen einen Dschinn austreiben.</ÜbernatürlicheFertigkeit>
+    Die meisten antimagischen Zauber richten sich gegen alle Zauber einer bestimmten übernatürlichen Fertigkeit (siehe Zauber) und verfügen über die &lt;b&gt;vier Modifikationen&lt;/b&gt; Gegenzauber, Magie unterdrücken, Zauber aufheben und Wesenheit bannen. Eine dieser vier Modifikationen kombinierst du mit einem antimagischen Zauber. Zum Beispiel kannst du mit dem Zauber Einfluss bannen und der Modifikation Zauber aufheben einen Imperavi aufheben, oder mit dem Elementarbann und Wesenheit bannen einen Dschinn austreiben.</ÜbernatürlicheFertigkeit>
   <ÜbernatürlicheFertigkeit name="Dämonisch" steigerungsfaktor="3" voraussetzungen="Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Schelme I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Magiedilettant" attribute="CH|MU|MU" typ="0">Diese finstere Zauberei ruft Dämonen in die dritte Sphäre, erhebt Untote, erschafft Chimären und Golems oder nutzt die Macht der Niederhöllen für andere zerstörerische Effekte.</ÜbernatürlicheFertigkeit>
   <ÜbernatürlicheFertigkeit name="Eigenschaften" steigerungsfaktor="3" voraussetzungen="Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Schelme I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Magiedilettant" attribute="GE|IN|KO" typ="0">Mit Eigenschaftsmagie kannst du deine Fähigkeiten und die deiner Gefährten verbessern oder Feinde behindern. </ÜbernatürlicheFertigkeit>
   <ÜbernatürlicheFertigkeit name="Einfluss" steigerungsfaktor="3" voraussetzungen="Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Schelme I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Magiedilettant" attribute="CH|CH|IN" typ="0">Als Einflusszauberer kannst du die Gedanken, Sinne und Gefühle deiner Mitmenschen manipulieren. Manche Einflusszauber (z.B. Bannbaladin) wirken äußerst subtil und sind während der Wirkung nicht zu bemerken. Im Zweifelsfall kann das Ziel nach dem Ende der Wirkung eine &lt;i&gt;Konterprobe&lt;/i&gt; (KL, 16) ablegen, um sich die Verzauberung bewusst zu machen.</ÜbernatürlicheFertigkeit>
@@ -9549,10 +9151,8 @@ Die meisten antimagischen Zauber richten sich gegen alle Zauber einer bestimmten
   <ÜbernatürlicheFertigkeit name="Wasser" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Schelme I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Magiedilettant" attribute="CH|KL|MU" typ="0">Als Wasserzauberer beherrschst du das unergründlichste aller Elemente und kannst die wechselhaften und unberechenbaren Elementare des Wassers herbeirufen.</ÜbernatürlicheFertigkeit>
   <ÜbernatürlicheFertigkeit name="Dolchzauber" steigerungsfaktor="3" voraussetzungen="Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I" attribute="FF|KL|MU" typ="1" talentegruppieren="1">Die geheimen Rituale der Druiden beruhen auf ihrem verzauberten Dolch aus Obsidian, während Geoden eine goldene Sichel als Ritualinstrument bevorzugen. Alle Talente gelten als &lt;i&gt;Objektrituale&lt;/i&gt;.</ÜbernatürlicheFertigkeit>
   <ÜbernatürlicheFertigkeit name="Elfenlieder" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Elfen I" attribute="CH|FF|IN" typ="1" talentegruppieren="1">Die auf einem Iama vorgetragenen Elfenlieder gehören zu den ältesten Spielarten der Zauberei, der du begegnen kannst. Da viele Lieder zweistimmig gesungen werden, steht die Fertigkeit nur Elfen und manchen Halbelfen zur Verfügung. Elfenlieder gelten als &lt;i&gt;Objektrituale&lt;/i&gt;. </ÜbernatürlicheFertigkeit>
-  <ÜbernatürlicheFertigkeit name="Gaben des Blutgeists" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Anach-Nurim I" attribute="KO|MU|MU" typ="1" talentegruppieren="1">Ein Anach-Nûr isst das Herz eines frisch erlegten Tieres, um dessen Blutgeist in sich aufzunehmen und sich durch dessen Kräfte zur stärken oder sogar zu verwandeln. Doch ein unaufmerksamer Moment und der Blutgeist gewinnt die Oberhand. Dann wird der Anach-Nûr zu einer rasenden Bestie...
-  Die Tiere findest du auf Seite 160f.</ÜbernatürlicheFertigkeit>
-  <ÜbernatürlicheFertigkeit name="Gaben des Odun" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Durro-dun I" attribute="IN|KO|MU" typ="1" talentegruppieren="1">Durro-dûn spüren eine intensive Verbindung zu einem Tiergeist, dem Odun. Mit der Kraft des Odun stärken sie sich im Kampf oder kommen ihrer animalischen Seite näher.
-  Die Tiere findest du auf Seite 160f.</ÜbernatürlicheFertigkeit>
+  <ÜbernatürlicheFertigkeit name="Gaben des Blutgeists" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Anach-Nurim I" attribute="KO|MU|MU" typ="1" talentegruppieren="1">Ein Anach-Nûr isst das Herz eines frisch erlegten Tieres, um dessen Blutgeist in sich aufzunehmen und sich durch dessen Kräfte zur stärken oder sogar zu verwandeln. Doch ein unaufmerksamer Moment und der Blutgeist gewinnt die Oberhand. Dann wird der Anach-Nûr zu einer rasenden Bestie...</ÜbernatürlicheFertigkeit>
+  <ÜbernatürlicheFertigkeit name="Gaben des Odun" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Durro-dun I" attribute="IN|KO|MU" typ="1" talentegruppieren="1">Durro-dûn spüren eine intensive Verbindung zu einem Tiergeist, dem Odun. Mit der Kraft des Odun stärken sie sich im Kampf oder kommen ihrer animalischen Seite näher.</ÜbernatürlicheFertigkeit>
   <ÜbernatürlicheFertigkeit name="Geister der Stärkung" steigerungsfaktor="3" voraussetzungen="Vorteil Tradition der Schamanen I" attribute="CH|FF|IN" typ="1" talentegruppieren="1">Geschickte Schamanen lassen wohlgesonnene Geister in Gegenstände und Personen einfahren und stärken sie so. Solche Schamanen sind oft ein Segen für den ganzen Stamm, den sie in vielerlei Situationen unterstützen können.</ÜbernatürlicheFertigkeit>
   <ÜbernatürlicheFertigkeit name="Geister des Zorns" steigerungsfaktor="3" voraussetzungen="Vorteil Tradition der Schamanen I" attribute="MU|IN|KO" typ="1" talentegruppieren="1">Manche Schamanen sind finstere Gesellen, die zornige Geister auf ihre Feinde hetzen. Solche Schamanen sind oft bei Freund und Feind gefürchtet.</ÜbernatürlicheFertigkeit>
   <ÜbernatürlicheFertigkeit name="Geister rufen" steigerungsfaktor="4" voraussetzungen="Vorteil Tradition der Schamanen I" attribute="CH|IN|KL" typ="1" talentegruppieren="1">Einige Schamanen sehen sich hauptsächlich als Vermittler zwischen der Welt der Menschen und dem Geisterreich. Sie können dessen Bewohner herbeirufen und sie um Hilfe bitten.</ÜbernatürlicheFertigkeit>
@@ -9564,7 +9164,7 @@ Die meisten antimagischen Zauber richten sich gegen alle Zauber einer bestimmten
   <ÜbernatürlicheFertigkeit name="Kugelzauber" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Gildenmagier I" attribute="CH|FF|IN" typ="1" talentegruppieren="1">Die Kristallkugel eines Scharlatans oder Gildenmagiers dient als Fokus für Illusionen, aber auch als Spionagewerkzeug. Alle Talente gelten als &lt;i&gt;Objektrituale&lt;/i&gt;.</ÜbernatürlicheFertigkeit>
   <ÜbernatürlicheFertigkeit name="Ringrituale" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Geoden I" attribute="IN|KO|MU" typ="1" talentegruppieren="1">Die Geoden sprechen ihre Rituale in einen Schlagenhalsreif aus Gold. Gleichzeitig ist der Schlangenreif ein besonders einladender Ort für Geister, wodurch es zu erwünschten und unerwünschten Besessenheiten kommen kann. Alle Talente gelten als &lt;i&gt;Objektrituale&lt;/i&gt;.
 
-  Bis der Geode die Seele seines verstorbenen Zwillingsbruders aufgespürt hat, ist der Schlangenreif ein Magnet für Geister. Das kannst du nutzen, um wohlwollende Elementargeister an den Schlangenreif zu binden, allerdings kann es auch zu unangenehmen oder sogar gefährlichen Besessenheiten kommen. Der Schlangenreif ist also Vorteil und Nachteil gleichermaßen - und eignet sich damit perfekt als eine Eigenheit für deinen Geoden.</ÜbernatürlicheFertigkeit>
+    Bis der Geode die Seele seines verstorbenen Zwillingsbruders aufgespürt hat, ist der Schlangenreif ein Magnet für Geister. Das kannst du nutzen, um wohlwollende Elementargeister an den Schlangenreif zu binden, allerdings kann es auch zu unangenehmen oder sogar gefährlichen Besessenheiten kommen. Der Schlangenreif ist also Vorteil und Nachteil gleichermaßen - und eignet sich damit perfekt als eine Eigenheit für deinen Geoden.</ÜbernatürlicheFertigkeit>
   <ÜbernatürlicheFertigkeit name="Schalenzauber" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Gildenmagier I" attribute="FF|IN|KL" typ="1" talentegruppieren="1">Dieses Ritualinstrument aus Silber oder Mondsilber wird von Alchemisten und einigen Gildenmagiern benutzt. Hexen verwenden stattdessen einen Kessel. Die Talente gelten als &lt;i&gt;Objektrituale&lt;/i&gt;, die passiven Effekte der Schale erfordern jedoch keine ständige Berührung.</ÜbernatürlicheFertigkeit>
   <ÜbernatürlicheFertigkeit name="Stabzauber" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Gildenmagier I" attribute="IN|KL|KL" typ="1" talentegruppieren="1">Der Zauberstab eines Gildenmagiers ist sicherlich das bekannteste Ritualinstrument. Er unterstützt den Magier als Fackel, Seil oder magischer Rammbock, kann aber auch Astralenergie speichern. Alle Talente gelten als &lt;i&gt;Objektrituale&lt;/i&gt;. </ÜbernatürlicheFertigkeit>
   <ÜbernatürlicheFertigkeit name="Trommelrituale" steigerungsfaktor="2" voraussetzungen="Vorteil Tradition der Derwische I" attribute="IN|FF|KO" typ="1" talentegruppieren="1">Die Derwische rufen mit ihren Trommelritualen ihren Gott Rashtullah an und stärken so ihre rechtgläubigen Mitstreiter.</ÜbernatürlicheFertigkeit>
@@ -10688,6 +10288,5 @@ Fertigkeit =
 Talent =
 MeisterAttribut =
 Attribut =
-Vorteil =
-</Einstellung>
+Vorteil =</Einstellung>
 </Datenbank>

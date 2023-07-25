@@ -97,6 +97,8 @@ class TalentDefinition:
             typen = list(db.einstellungen["Talente: Spezialtalent Typen"].wert.keys())
             spezialTyp = min(self.spezialTyp, len(typen) - 1)
             typ = typen[spezialTyp]
+        if self.hauptfertigkeit is not None:
+            typ += f" ({self.hauptfertigkeit.name})"
         return typ
 
     def details(self, db):
@@ -116,11 +118,14 @@ class Talent:
         self._updateAnzeigenameExt()
         self.probenwert = -1
         self._hauptfertigkeitOverride = None
+        self._voraussetzungenOverride = None
 
     def __deepcopy__(self, memo=""):
         T = Talent(self.definition, self.charakter)
         T._kommentar = self._kommentar
         T._kostenOverride = self._kostenOverride
+        if self._voraussetzungenOverride:
+            V._voraussetzungenOverride = self._voraussetzungenOverride.copy()
         T.anzeigenameExt = self.anzeigenameExt
         T.probenwert = self.probenwert
         T._hauptfertigkeitOverride = self._hauptfertigkeitOverride
@@ -161,6 +166,16 @@ class Talent:
     @property
     def voraussetzungen(self):
         return self.definition.voraussetzungen
+
+    @property
+    def voraussetzungen(self):
+        if self._voraussetzungenOverride is not None:
+            return self._voraussetzungenOverride
+        return self.definition.voraussetzungen
+
+    @voraussetzungen.setter
+    def voraussetzungen(self, voraussetzungen):
+        self._voraussetzungenOverride = voraussetzungen
 
     @property
     def variableKosten(self):

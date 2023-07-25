@@ -45,6 +45,7 @@ from Hilfsmethoden import Hilfsmethoden
 from QtUtils.RichTextButton import RichTextToolButton
 from CharakterAssistent.WizardWrapper import WizardWrapper
 from functools import partial
+import fnmatch
 
 class DatenbankTypWrapper:
     def __init__(self, dataType, editorType, isDeletable):
@@ -72,6 +73,10 @@ class DBESortFilterProxyModel(QtCore.QSortFilterProxyModel):
 
     def setFilters(self, nameFilter, statusFilters):
         self.nameFilter = nameFilter.lower()
+        if not self.nameFilter.startswith("*"):
+            self.nameFilter = "*" + self.nameFilter
+        if not self.nameFilter.endswith("*"):
+            self.nameFilter += "*"
         self.statusFilters = statusFilters
         self.invalidateFilter()
 
@@ -81,7 +86,7 @@ class DBESortFilterProxyModel(QtCore.QSortFilterProxyModel):
         status = model.data(statusIndex)
         nameIndex = model.index(sourceRow, 1, sourceParent)
         name = model.data(nameIndex).lower()
-        return self.nameFilter in name and status in self.statusFilters
+        return fnmatch.fnmatchcase(name, self.nameFilter) and status in self.statusFilters
 
 class DatenbankEditor(object):
     def __init__(self, plugins, onCloseCB):

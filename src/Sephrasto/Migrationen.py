@@ -339,7 +339,7 @@ class Migrationen():
             "Tiergeist (Panther)" : "Talent:Eins mit der Natur|Talent:Katzenaugen|Talent:Krötensprung|Talent:Spurlos Trittlos|Talent:Standfest Katzengleich|Talent:Wipfellauf",
             "Tiergeist (Wildschwein)" : "Talent:Abvenenum reine Speise|Talent:Eins mit der Natur|Talent:Kusch!|Talent:Standfest Katzengleich|Talent:Zaubernahrung Hungerbann",
             "Tiergeist (Wolf)" : "Talent:Adlerauge Luchsenohr|Talent:Axxeleratus Blitzgeschwind|Talent:Eins mit der Natur|Talent:Kusch!|Talent:Movimento Dauerlauf|Talent:Spurlos Trittlos",
-            "Tiergeist (Khoramsbestie)" : "Talent:Adlerauge Luchsenohr|Talent:Axxeleratus Blitzgeschwind|Talent:Eins mit der Natur|Talent:Kusch!|Talent:Movimento Dauerlauf|Spurlos",
+            "Tiergeist (Khoramsbestie)" : "Talent:Adlerauge Luchsenohr|Talent:Axxeleratus Blitzgeschwind|Talent:Eins mit der Natur|Talent:Kusch!|Talent:Movimento Dauerlauf|Talent:Spurlos Trittlos",
             "Tradition der Alchemisten III" : "Regel:Zeit lassen", "Tradition der Borbaradianer I" : "Regel:Verbotene Pforten|Vorteil:Minderpakt",
             "Tradition der Borbaradianer III" : "Regel:Erzwingen", "Tradition der Geoden III" : "Regel:Zeit lassen", "Tradition der Gildenmagier III" : "Regel:Zeit lassen", 
             "Tradition der Druiden III" : "Regel:Erzwingen", "Tradition der Elfen III" : "Regel:Zeit lassen",
@@ -486,7 +486,7 @@ class Migrationen():
         waffenmeisterschaft = "Für je einen Punkt kannst du die fixe Erschwernis eines Manöver um einen Punkt senken (bis maximal auf die Hälfte), für 4 Punkte die AT oder VT um einen Punkt erhöhen oder für bis zu 4 Punkte ein passendes, neues Manöver erfinden. "\
                               "Besondere Vorteile wie eine geringere Patzerchance, höhere Reichweite oder Schaden sind ebenfalls möglich. Solche Vorteile – wie der Waffenmeister ganz allgemein – und ihre Kosten sollten unbedingt mit der Gruppe und dem Spielleiter abgesprochen werden. Trage die Verbesserungen in das Kommentarfeld ein."
         tiergeist = "Die Verbindung mit einem Tiergeist wird in Sephrasto als kostenloser Vorteil abgebildet. Schamanen können mehrere Tiergeister wählen. "\
-                    "Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen und dann alle Zauber des Tiergeists unter der Fertigkeit Gaben des Blutgeists aktivieren."
+                    "Durro-dûn müssen sich für ein Tier entscheiden und können dann die Zauber des Tiergeists unter der Fertigkeit Gaben des Odun erlernen. Anach-nûrim können das Tier wechseln, indem sie einen neuen Blutgeist aufnehmen - die entsprechenden Zauber erscheinen unter der Fertigkeit Gaben des Blutgeists und werden automatisch aktiviert."
         meisterschaftM = "Für 1 Punkt kann ein Zauber um +2 erleichtert werden (maximal +4). Für 2 Punkte kannst du eine spontane Modifikation außer Mächtige Magie um +1 erleichtern (maximal +1). Spezielle Vorteile wie eine geringere Patzerchance oder länger nachbrennende Feuerzauber sind ebenfalls möglich. "\
                          "Solche Verbesserungen (und ihre Kosten) sollten mit dem Spielleiter und der Gruppe abgesprochen werden. Trage die Verbesserungen in das Kommentarfeld ein."
         meisterschaftL = "Mit einem Punkt kannst du eine Liturgie um +2 erleichtern (maximal +4) oder eine spontane Modifikation, außer Mächtige Liturgie, um +1 erleichtern (maximal +1). "\
