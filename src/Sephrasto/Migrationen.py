@@ -768,6 +768,11 @@ class Migrationen():
             if not tal.attrib['name'] in talente:
                 talente.append(tal.attrib['name'])
                 targetNode.append(tal)
+            # also fix some spelling mistakes
+            if tal.attrib['name'] == "Weidegründe Finden":
+                tal.attrib['name'] == "Weidegründe finden"
+            elif tal.attrib['name'] == "Wild Finden":
+                tal.attrib['name'] == "Wild finden"
 
         # Vorteil purchased with Minderpakt is now stored in Minderpakts kommentar
         minderpakt = ""

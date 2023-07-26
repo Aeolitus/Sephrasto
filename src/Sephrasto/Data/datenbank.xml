@@ -831,10 +831,11 @@ Stabilisierung (-8; das Ziel darf sofort eine MR-Probe gegen einen auf es wirken
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Umwelt
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach, Geo, Mag 14; Dru, Elf, Sch 16; Alch 18; 20 EP</Talent>
-  <Talent name="Verwandlung beenden" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Antimagie, Verwandlung" variableKosten="0" referenzseite="127" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Verwandlung. Du musst eine Modifikation wählen.
+  <Talent name="Verwandlung beenden" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Antimagie, Verwandlung" variableKosten="0" referenzseite="127" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Verwandlung und Chimären. Du musst eine Modifikation wählen.
 &lt;b&gt;Gegenzauber:&lt;/b&gt; 0 Aktionen, Ziel Zauber in Vorbereitung, 16 Schritt, Wirkungsdauer augenblicklich, 4 AsP; stört einen anderen Zauberer während dessen Zaubervorbereitung. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert. 
 &lt;b&gt;Magie unterdrücken:&lt;/b&gt; 16 Aktionen, 8 Schritt, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Zauber der Fertigkeit um -8 erschwert. Mächtige Magie erhöht den Malus um -4. 
 &lt;b&gt;Zauber aufheben:&lt;/b&gt; 8 Aktionen, Ziel Zauber, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten des Zaubers; hebt einen bereits gewirkten Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
+&lt;b&gt;Wesenheit bannen:&lt;/b&gt; Beschwörungsschwierigkeit des Ziels, 8 Aktionen, Ziel Chimäre, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten der Beschwörung; du bannst eine Chimäre, in die keine gAsP geflossen sind.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Verwandlung
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach, Dru, Hex, Mag 14; Elf, Geo, Srl 16; 40 EP</Talent>
@@ -4660,7 +4661,7 @@ Sprechendes Zeichen (-4; das Zeichen kann einen kurzen Satz als Botschaft enthal
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Hellsicht, Geister der Stärkung, Geister rufen, Verständigung
 &lt;b&gt;Erlernen:&lt;/b&gt; Smn 14; 20 EP</Talent>
-  <Talent name="Weidegründe Finden" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Eigenschaften, Hellsicht, Geister der Stärkung, Geister rufen" variableKosten="0" referenzseite="163" referenzbuch="0">Die Geister helfen dir auf dem Weg zu den nächsten Weidegründen. Entsprechende Überleben-Proben sind um +4 erleichtert.
+  <Talent name="Weidegründe finden" spezialTyp="0" kosten="0" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Eigenschaften, Hellsicht, Geister der Stärkung, Geister rufen" variableKosten="0" referenzseite="163" referenzbuch="0">Die Geister helfen dir auf dem Weg zu den nächsten Weidegründen. Entsprechende Überleben-Proben sind um +4 erleichtert.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Stunde
@@ -4670,7 +4671,7 @@ Sprechendes Zeichen (-4; das Zeichen kann einen kurzen Satz als Botschaft enthal
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Eigenschaften, Hellsicht, Geister der Stärkung, Geister rufen
 &lt;b&gt;Erlernen:&lt;/b&gt; Smn 12; 0 EP</Talent>
-  <Talent name="Wild Finden" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Eigenschaften, Hellsicht, Geister der Stärkung, Geister rufen" variableKosten="0" referenzseite="163" referenzbuch="0">Du erfährst, ob und wo sich im Radius von 1 Meile jagdbares Wild befindet und um welche Tiere es sich handelt. Sind jagdbare Tiere in der Nähe, können Jäger gezielt in die richtige Richtung losziehen. Das senkt die Schwierigkeit der Jagd (S. 68) auf 12, so als ob sie sich in wildreichem Gebiet befänden.
+  <Talent name="Wild finden" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Eigenschaften, Hellsicht, Geister der Stärkung, Geister rufen" variableKosten="0" referenzseite="163" referenzbuch="0">Du erfährst, ob und wo sich im Radius von 1 Meile jagdbares Wild befindet und um welche Tiere es sich handelt. Sind jagdbare Tiere in der Nähe, können Jäger gezielt in die richtige Richtung losziehen. Das senkt die Schwierigkeit der Jagd (S. 68) auf 12, so als ob sie sich in wildreichem Gebiet befänden.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Verdoppelt den Radius.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Gaben der Erde (die Wirkung bezieht sich auf nahrhafte Pflanzen und verringert die Schwierigkeit von Überleben-Proben)
