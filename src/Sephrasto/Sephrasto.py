@@ -456,6 +456,7 @@ QCheckBox::indicator {{ width: {Hilfsmethoden.emToPixels(1.9)}px; height: {Hilfs
 .charWidget {{ border-image: url(Data/Images/recents_background.png) 0 0 0 0 stretch stretch; }}
 .charWidget:hover {{ border-image: url(Data/Images/recents_background_hovered.png) 0 0 0 0 stretch stretch; }}
 .charWidget[pressed="true"] {{ border-image: url(Data/Images/recents_background_pressed.png) 0 0 0 0 stretch stretch; }}
+.charWidgetLabel {{ color: #000000; }}
 .charWidgetIcon {{ {Wolke.FontAwesomeCSS} font-size: 14pt; color: #ffffff; background: #44444444; }}
 \n"""
 

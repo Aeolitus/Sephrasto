@@ -18,6 +18,7 @@ class CharWidget(QtWidgets.QAbstractButton):
         layout.addWidget(self.iconLabel)
 
         self.label = QtWidgets.QLabel()
+        self.label.setProperty("class", "charWidgetLabel")
         layout.addWidget(self.label)
         self.setLayout(layout)
         self.setProperty("class", "charWidget")
