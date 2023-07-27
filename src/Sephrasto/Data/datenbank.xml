@@ -1080,7 +1080,6 @@ Miasmafaxius (-4, Einzelperson, 8 AsP)
 &lt;b&gt;Erlernen:&lt;/b&gt; Mag 18; Bor, Dru, Hex 20; 40 EP</Talent>
   <Talent name="Totes handle!" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Dämonisch" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="130">Du erschaffst aus einer Leiche einen untoten Diener. Der Untote hat sich nach 1 Stunde an seine Existenz gewöhnt und ist einsatzfähig. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala schwach (z. B. Skelett)/nützlich (z. B. Knochenritter)/stark (z. B. Kriegermumie)/mächtig (z. B. Kriegsherr). Die Beherrschungsprobe wird auf MU abgelegt. Wenn diese misslingt, kannst du es nach 1 Stunde erneut versuchen. Mehr zu Beschwörungen siehe S. 81.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12/16/20/24
-&lt;b&gt;Modifikationen:&lt;/b&gt; Schnelle Erhebung (-4; der Untote ist sofort bereit.)
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; Material für einen einzelnen Untoten
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; bis die Bindung gelöst wird
@@ -5214,7 +5213,13 @@ Geister vertreiben (Entspricht dem allgemeinen Zauber Geister austreiben (S. 127
   <Talent name="Tafelschliff" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Erz, Kristallmagie, Kraft" variableKosten="0" referenzseite="169" referenzbuch="0">Der Zauber gleicht weitgehend dem Rundschliff, aber du kannst die spontane Modifikation Reichweite erhöhen einmal ohne Erschwernis ausführen. Nicht mit anderen Schliffen kombinierbar.
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Erz, Kristallmagie, Kraft
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach 14; 40 EP</Talent>
-  <Talent name="Tropfenschliff" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Erz, Kristallmagie, Kraft" variableKosten="0" referenzseite="169" referenzbuch="0">Der Zauber gleicht weitgehend dem Rundschliff, aber du kannst die spontane Modifikation Wirkungsdauer verlängern einmal ohne Erschwernis ausführen. Nicht mit anderen Schliffen kombinierbar.
+  <Talent name="Tropfenschliff" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Erz, Kristallmagie, Kraft" variableKosten="0" referenzseite="169" referenzbuch="0">Du versiehst einen gebundenen Kristall mit einem Tropfenschliff. Wann immer du mit Hilfe dieses Kristalls einen Zauber wirkst, kannst du die spontane Modifikation Wirkungsdauer verlängern einmal ohne Erschwernis ausführen. Nicht mit anderen Schliffen kombinierbar.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
+&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Stunden
+&lt;b&gt;Ziel:&lt;/b&gt; gebundener Kristall
+&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
+&lt;b&gt;Wirkungsdauer:&lt;/b&gt; bis die Bindung gelöst wird
+&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP, davon 2 gAsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Erz, Kristallmagie, Kraft
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach 14; 40 EP</Talent>
   <Talent name="Smaragdschliff" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Erz, Kristallmagie, Kraft" variableKosten="0" referenzseite="169" referenzbuch="0">Du versiehst einen gebundenen Kristall mit einem Smaragdschliff. Wann immer du mit Hilfe dieses Kristalls einen Zauber wirkst, kannst du die spontane Modifikation Kosten sparen einmal ohne Erschwernis ausführen. Du musst die Modifikation auch ohne den Schliff beherrschen. Nicht mit anderen Schliffen kombinierbar.
