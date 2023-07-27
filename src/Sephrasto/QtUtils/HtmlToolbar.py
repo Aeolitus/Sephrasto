@@ -142,9 +142,9 @@ class HtmlToolbar(QtWidgets.QWidget):
             return
         table = "<table>"
         first = True
-        for col in range(spinCol.value()):
+        for row in range(spinRow.value()):
             table += "\n<tr>"
-            for row in range(spinRow.value()):
+            for col in range(spinCol.value()):
                 table += "\n<th></th>" if first else "\n<td></td>"
             table += "\n</tr>"
             first = False
