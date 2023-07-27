@@ -38,10 +38,10 @@ class Wolke:
         'FontSize' : 0, # we default this to os font size after start
         'FontHeading' : "Aniron",
         'FontHeadingSize' : 8,
-        'CharListCols' : 2,
+        'CharListCols' : 1,
         'CharListRows' : 5,
         'DPI-Skalierung' : False,
-        'WindowSize-Main' : [620, 570],
+        'WindowSize-Main' : [426, 594],
         'WindowSize-Charakter' : [1230, 970],
         'WindowSize-TalentProfan' : [650, 366],
         'WindowSize-TalentUeber' : _DefaultSettings.WindowSizeDefault2Col,

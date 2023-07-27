@@ -159,7 +159,7 @@ class CharakterListe(QtWidgets.QWidget):
         totalHeight = numRows * maxHeight
         totalHeight += (numRows) * layout.spacing()
         totalHeight += layout.contentsMargins().top() + layout.contentsMargins().bottom()
-        maxWidth = Hilfsmethoden.emToPixels(30)
+        maxWidth = Hilfsmethoden.emToPixels(40) if self.numCols == 1 else Hilfsmethoden.emToPixels(30)
         totalWidth = self.numCols * maxWidth
         horizontalSpacing = 7.0
         totalWidth += (self.numCols-1) * horizontalSpacing

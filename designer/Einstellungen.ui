@@ -61,8 +61,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>717</width>
-        <height>833</height>
+        <width>690</width>
+        <height>815</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -875,9 +875,12 @@
   </layout>
  </widget>
  <tabstops>
-  <tabstop>scrollArea</tabstop>
+  <tabstop>checkWizard</tabstop>
   <tabstop>comboRegelbasis</tabstop>
   <tabstop>comboBogen</tabstop>
+  <tabstop>checkCheatsheet</tabstop>
+  <tabstop>spinRulesFontSize</tabstop>
+  <tabstop>checkFormular</tabstop>
   <tabstop>editChar</tabstop>
   <tabstop>buttonChar</tabstop>
   <tabstop>resetChar</tabstop>
@@ -887,8 +890,24 @@
   <tabstop>editPlugins</tabstop>
   <tabstop>buttonPlugins</tabstop>
   <tabstop>resetPlugins</tabstop>
+  <tabstop>editCharakterboegen</tabstop>
+  <tabstop>buttonCharakterboegen</tabstop>
+  <tabstop>resetCharakterboegen</tabstop>
+  <tabstop>comboTheme</tabstop>
+  <tabstop>resetFontOS</tabstop>
+  <tabstop>resetFontDefault</tabstop>
   <tabstop>comboFont</tabstop>
+  <tabstop>spinAppFontSize</tabstop>
   <tabstop>comboFontHeading</tabstop>
+  <tabstop>spinAppFontHeadingSize</tabstop>
+  <tabstop>checkDPI</tabstop>
+  <tabstop>spinCharListCols</tabstop>
+  <tabstop>spinCharListRows</tabstop>
+  <tabstop>checkUpdate</tabstop>
+  <tabstop>checkPDFOpen</tabstop>
+  <tabstop>comboLogging</tabstop>
+  <tabstop>buttonLogOpen</tabstop>
+  <tabstop>scrollArea</tabstop>
  </tabstops>
  <resources/>
  <connections>

@@ -379,9 +379,12 @@
   </layout>
  </widget>
  <tabstops>
+  <tabstop>cbRegeln</tabstop>
   <tabstop>cbBaukasten</tabstop>
   <tabstop>btnWeiblich</tabstop>
   <tabstop>btnMaennlich</tabstop>
+  <tabstop>btnDivers</tabstop>
+  <tabstop>leDivers</tabstop>
   <tabstop>cbSpezies</tabstop>
   <tabstop>cbKultur</tabstop>
   <tabstop>cbProfessionKategorie</tabstop>
