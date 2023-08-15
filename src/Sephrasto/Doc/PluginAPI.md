@@ -94,7 +94,7 @@ Zweck: Daten aus der Charakterdatei auslesen oder modifizieren, bevor Sephrasto 
 Zweck: Der Charakterdatei Daten hinzufügen oder Daten modifizieren, bevor Sephrasto die Datei schreibt. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
 - "datenbank_xml_laden" (Filter: xmlRoot : etree.Element, Parameter: { "datenbank" : Datenbank, "basisdatenbank" : bool, "conflictCallback" : Python-Funktion })<br />
 Zweck: Datenbank-Datei auslesen, nachdem Sephrasto sie gelesen hat. Der "basisdatenbank"-Parameter enthält die Information, ob es sich um die Basisdatenbank- oder eine Hausregeldatenbank-Datei handelt. Der "conflictCallback"-Parameter ist nur gesetzt wenn basisdatenbank=false und kann ausgeführt werden, um beim Laden mehrerer Hausregeldatenbanken Konflikte eigener Datenbanktypen aufzulösen. Hierzu werden dem Callback der Name des Datenbanktyps, die alte sowie die neue Version des Elements als parameter übergeben, siehe Datenbank.py.
-- "datenbank_xml_schreiben" (Filter: xmlRoot : etree.Element, Parameter: { "datenbank" : Datenbank })<br />
+- "datenbank_xml_schreiben" (Filter: xmlRoot : etree.Element, Parameter: { "datenbank" : Datenbank, "merge" : bool })<br />
 Zweck: Der Datenbankdatei Daten hinzufügen oder Daten modifizieren, bevor Sephrasto die Datei schreibt.
 - "datenbank_verify", (Filter: loadingErrors : array, Parameter: { "datenbank" : Datenbank, "isCharakterEditor" : bool }) <br />
 Zweck: Eigene Datentypen verifizieren und bei Fehlern dem loadingErrors array hinzufügen, damit diese in der Fehlerliste des Datenbankeditors erscheinen.
