@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'DatenbankMain.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.1
+## Created by: Qt User Interface Compiler version 6.5.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -49,6 +49,8 @@ class Ui_Form(object):
         self.actionZusaetzlichOeffnen.setObjectName(u"actionZusaetzlichOeffnen")
         self.actionCharakterAssistent = QAction(Form)
         self.actionCharakterAssistent.setObjectName(u"actionCharakterAssistent")
+        self.actionDBMergen = QAction(Form)
+        self.actionDBMergen.setObjectName(u"actionDBMergen")
         self.centralwidget = QWidget(Form)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout = QGridLayout(self.centralwidget)
@@ -140,13 +142,15 @@ class Ui_Form(object):
         Form.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(Form)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 853, 21))
+        self.menubar.setGeometry(QRect(0, 0, 853, 26))
         self.menuDatei = QMenu(self.menubar)
         self.menuDatei.setObjectName(u"menuDatei")
         self.menuAnalysieren = QMenu(self.menubar)
         self.menuAnalysieren.setObjectName(u"menuAnalysieren")
         self.menuHilfe = QMenu(self.menubar)
         self.menuHilfe.setObjectName(u"menuHilfe")
+        self.menuExport = QMenu(self.menubar)
+        self.menuExport.setObjectName(u"menuExport")
         Form.setMenuBar(self.menubar)
         QWidget.setTabOrder(self.buttonHinzufuegen, self.buttonEditieren)
         QWidget.setTabOrder(self.buttonEditieren, self.buttonDuplizieren)
@@ -154,17 +158,19 @@ class Ui_Form(object):
 
         self.menubar.addAction(self.menuDatei.menuAction())
         self.menubar.addAction(self.menuAnalysieren.menuAction())
+        self.menubar.addAction(self.menuExport.menuAction())
         self.menubar.addAction(self.menuHilfe.menuAction())
         self.menuDatei.addAction(self.actionOeffnen)
         self.menuDatei.addAction(self.actionZusaetzlichOeffnen)
-        self.menuDatei.addAction(self.actionSchliessen)
         self.menuDatei.addAction(self.actionSpeichern)
         self.menuDatei.addAction(self.actionSpeichern_unter)
+        self.menuDatei.addAction(self.actionSchliessen)
         self.menuDatei.addSeparator()
         self.menuDatei.addAction(self.actionBeenden)
         self.menuAnalysieren.addAction(self.actionFehlerliste)
         self.menuHilfe.addAction(self.actionDatenbank_Editor)
         self.menuHilfe.addAction(self.actionScript_API)
+        self.menuExport.addAction(self.actionDBMergen)
 
         self.retranslateUi(Form)
 
@@ -184,6 +190,7 @@ class Ui_Form(object):
         self.actionSchliessen.setText(QCoreApplication.translate("Form", u"Datei schlie\u00dfen und RAW laden", None))
         self.actionZusaetzlichOeffnen.setText(QCoreApplication.translate("Form", u"Zus\u00e4tzlich \u00f6ffnen", None))
         self.actionCharakterAssistent.setText(QCoreApplication.translate("Form", u"Charakter Assistent Auswahlm\u00f6glichkeiten", None))
+        self.actionDBMergen.setText(QCoreApplication.translate("Form", u"Datenbank mergen und exportieren", None))
 #if QT_CONFIG(tooltip)
         self.buttonHinzufuegen.setToolTip(QCoreApplication.translate("Form", u"Hinzuf\u00fcgen", None))
 #endif // QT_CONFIG(tooltip)
@@ -231,5 +238,6 @@ class Ui_Form(object):
         self.menuDatei.setTitle(QCoreApplication.translate("Form", u"Datei", None))
         self.menuAnalysieren.setTitle(QCoreApplication.translate("Form", u"Analysieren", None))
         self.menuHilfe.setTitle(QCoreApplication.translate("Form", u"Hilfe", None))
+        self.menuExport.setTitle(QCoreApplication.translate("Form", u"Export", None))
     # retranslateUi
 

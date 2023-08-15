@@ -46,6 +46,7 @@ from QtUtils.RichTextButton import RichTextToolButton
 from CharakterAssistent.WizardWrapper import WizardWrapper
 from functools import partial
 import fnmatch
+from Migrationen import Migrationen
 
 class DatenbankTypWrapper:
     def __init__(self, dataType, editorType, isDeletable):
@@ -94,7 +95,9 @@ class DatenbankEditor(object):
         self.plugins = plugins
         self.onCloseCB = onCloseCB
         self.databaseTypes = {}
-        self.datenbank = Datenbank(Wolke.Settings['Datenbank'])
+        self.datenbank = Datenbank()
+        self.datenbank.xmlLaden(hausregeln = Wolke.Settings['Datenbank'])
+        self.showDatabaseMigrationUpdatesPopup()
         self.savepath = self.datenbank.hausregelDatei
         self.changed = False
         self.windowTitleDefault = ""
@@ -129,7 +132,8 @@ class DatenbankEditor(object):
         self.menus = {
             "Datei" : self.ui.menuDatei,
             "Analysieren" : self.ui.menuAnalysieren,
-            "Hilfe" : self.ui.menuHilfe
+            "Export" : self.ui.menuExport,
+            "Hilfe" : self.ui.menuHilfe,
         }
 
         def addMenuItem(menu, action):
@@ -164,6 +168,7 @@ class DatenbankEditor(object):
         self.ui.actionZusaetzlichOeffnen.setEnabled(self.datenbank.hausregelDatei is not None)
         self.ui.actionSpeichern.triggered.connect(self.quicksaveDatenbank)
         self.ui.actionSpeichern_unter.triggered.connect(self.saveDatenbank)
+        self.ui.actionDBMergen.triggered.connect(lambda: self.saveDatenbank(True))
         self.ui.actionSchliessen.triggered.connect(self.closeDatenbank)
         self.ui.actionBeenden.triggered.connect(lambda: self.form.close())
 
@@ -648,8 +653,8 @@ class DatenbankEditor(object):
 
         if databaseChanged:
             self.onDatabaseChange()
-                              
-    def saveDatenbank(self):
+ 
+    def saveDatenbank(self, merge = False):
         if os.path.isdir(Wolke.Settings['Pfad-Regeln']):
             startDir = Wolke.Settings['Pfad-Regeln']
         else:
@@ -672,7 +677,7 @@ class DatenbankEditor(object):
             infoBox.addButton("Abbrechen", QtWidgets.QMessageBox.RejectRole)
             result = infoBox.exec()
             if result == 1:
-                self.saveDatenbank()
+                self.saveDatenbank(merge)
                 return
             elif result == 2:
                 return
@@ -691,14 +696,18 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
             infoBox.exec()
-            self.saveDatenbank()
+            self.saveDatenbank(merge)
             return
 
+        tmp = self.savepath
         self.savepath = spath
-        self.quicksaveDatenbank()
+        self.quicksaveDatenbank(merge)
+        if merge:
+            self.savepath = tmp
+
         self.updateWindowTitleAndCloseButton()
 
-        if isInRulesPath and Wolke.Settings['Datenbank'] != os.path.basename(spath):
+        if not merge and isInRulesPath and Wolke.Settings['Datenbank'] != os.path.basename(spath):
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Question)
             infoBox.setText("Sollen die neuen Hausregeln in den Einstellungen aktiv gesetzt werden?")
@@ -710,9 +719,9 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
                 Wolke.Settings['Datenbank'] = os.path.basename(spath)
                 EinstellungenWrapper.save()
         
-    def quicksaveDatenbank(self):
+    def quicksaveDatenbank(self, merge = False):
         if not self.savepath:
-            self.saveDatenbank()
+            self.saveDatenbank(merge)
             return
 
         refDatabaseFile = os.getcwd() + os.path.normpath("/Data/datenbank.xml")
@@ -733,13 +742,12 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             # plugins may change their changesDatabase-flag depending on database settings, so update the enabled plugins here
             self.datenbank.enabledPlugins = self.getDatabaseChangingPlugins()
             self.datenbank.hausregelDatei = self.savepath
-            self.datenbank.xmlSchreiben()
+            self.datenbank.xmlSchreiben(merge)
             self.changed = False
     
     def closeDatenbank(self):
         if self.cancelDueToPendingChanges("Datenbank schließen"):
             return
-        self.datenbank.hausregelDatei = None
         self.savepath = None
         self.datenbank.xmlLaden()
         self.updateGUI()
@@ -756,10 +764,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         if self.cancelDueToPendingChanges("Andere Datenbank laden"):
             return
 
-        if not additiv:
-            self.datenbank.hausregelDatei = None
-
-        if self.datenbank.hausregelDatei is not None:
+        if additiv and self.datenbank.hausregelDatei is not None:
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Warning)
             infoBox.setText("Es sind bereits Hausregeln geladen. Wenn du zusätzlich noch andere Hausregeln lädst, werden beide zusammengefasst!\n" +
@@ -834,14 +839,19 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
 
             return old if result == 2 else new
 
-        if self.datenbank.hausregelDatei is not None:
+        if additiv:
             DatenbankEditor.RememberConflictResult = -1
-            self.datenbank.xmlLadenAdditiv(spath, conflictCB)
+            if not self.datenbank.xmlLadenAdditiv(spath, conflictCB):
+                self.showInvalidDatabasePopup(spath)
             DatenbankEditor.RememberConflictResult = -1
         else:
-            self.savepath = spath
-            self.datenbank.hausregelDatei = spath
-            self.datenbank.xmlLaden()
+            if self.datenbank.xmlLaden(hausregeln=spath):
+                self.savepath = spath
+            else:
+                self.savepath = None
+                self.showInvalidDatabasePopup(spath)
+
+        self.showDatabaseMigrationUpdatesPopup()
 
         if len(self.datenbank.loadingErrors) > 0:
             self.showErrorLog()
@@ -851,6 +861,27 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         self.checkMissingPlugins()
         self.changed = False
         self.ui.actionZusaetzlichOeffnen.setEnabled(self.datenbank.hausregelDatei is not None)
+
+    def showDatabaseMigrationUpdatesPopup(self):
+        if len(Migrationen.hausregelUpdates) == 0:
+            return
+        messageBox = QtWidgets.QMessageBox()
+        messageBox.setIcon(QtWidgets.QMessageBox.Information)
+        messageBox.setWindowTitle("Hausregeln wurden aktualisiert")
+        messageBox.setText(Migrationen.hausregelUpdates[0])
+        if len(Migrationen.hausregelUpdates) > 1:
+            messageBox.setInformativeText("Weitere Informationen:\n- " + "\n- ".join(Migrationen.hausregelUpdates[1:]))
+        messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+        messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
+        messageBox.exec()
+
+    def showInvalidDatabasePopup(self, file):
+        messagebox = QtWidgets.QMessageBox()
+        messagebox.setWindowTitle("Fehler!")
+        messagebox.setText(file + " ist keine valide Datenbank-Datei!")
+        messagebox.setIcon(QtWidgets.QMessageBox.Critical)  
+        messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+        messagebox.exec()
 
     def showErrorLog(self):
         if not hasattr(self, "errorLogWindow"):

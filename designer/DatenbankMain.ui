@@ -217,7 +217,7 @@
      <x>0</x>
      <y>0</y>
      <width>853</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuDatei">
@@ -226,9 +226,9 @@
     </property>
     <addaction name="actionOeffnen"/>
     <addaction name="actionZusaetzlichOeffnen"/>
-    <addaction name="actionSchliessen"/>
     <addaction name="actionSpeichern"/>
     <addaction name="actionSpeichern_unter"/>
+    <addaction name="actionSchliessen"/>
     <addaction name="separator"/>
     <addaction name="actionBeenden"/>
    </widget>
@@ -245,8 +245,15 @@
     <addaction name="actionDatenbank_Editor"/>
     <addaction name="actionScript_API"/>
    </widget>
+   <widget class="QMenu" name="menuExport">
+    <property name="title">
+     <string>Export</string>
+    </property>
+    <addaction name="actionDBMergen"/>
+   </widget>
    <addaction name="menuDatei"/>
    <addaction name="menuAnalysieren"/>
+   <addaction name="menuExport"/>
    <addaction name="menuHilfe"/>
   </widget>
   <action name="actionSpeichern">
@@ -302,6 +309,11 @@
   <action name="actionCharakterAssistent">
    <property name="text">
     <string>Charakter Assistent Auswahlmöglichkeiten</string>
+   </property>
+  </action>
+  <action name="actionDBMergen">
+   <property name="text">
+    <string>Datenbank mergen und exportieren</string>
    </property>
   </action>
  </widget>

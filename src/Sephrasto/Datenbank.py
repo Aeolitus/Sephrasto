@@ -13,40 +13,24 @@ from Core.DatenbankEinstellung import DatenbankEinstellung
 import lxml.etree as etree
 from Hilfsmethoden import Hilfsmethoden, VoraussetzungException, WaffeneigenschaftException
 import os.path
-from PySide6 import QtWidgets
 from Wolke import Wolke
 import logging
 from EventBus import EventBus
 import re
 from Migrationen import Migrationen
 
-class DatabaseException(Exception):
-    pass
-
 class Datenbank():
-    def __init__(self, hausregeln = None, isCharakterEditor = False):    
+    def __init__(self):
+        self.datei = None
         self.hausregelDatei = None
-        
-        if hausregeln is not None:
-            if hausregeln and hausregeln != "Keine":
-                tmp = os.path.join(Wolke.Settings['Pfad-Regeln'], hausregeln)
-                if os.path.isfile(tmp):
-                    self.hausregelDatei = tmp
-        elif Wolke.Settings['Datenbank']:
-            tmp = os.path.join(Wolke.Settings['Pfad-Regeln'], Wolke.Settings['Datenbank'])
-            if os.path.isfile(tmp):
-                self.hausregelDatei = tmp
-        self.userDbXml = None
-        self.loaded = False
         self.enabledPlugins = []
         self.loadingErrors = []
-        self.xmlLaden(isCharakterEditor)   
         
     @property
     def hausregelnAnzeigeName(self):
         return os.path.basename(self.hausregelDatei) if self.hausregelDatei else "Keine"
 
-    def xmlSchreiben(self):
+    def xmlSchreiben(self, merge = False):
         root = etree.Element('Datenbank')
         
         versionXml = etree.SubElement(root, 'Version')
@@ -55,7 +39,7 @@ class Datenbank():
 
         #Attribute
         for attribut in self.attribute.values():
-            if not self.isChangedOrNew(attribut): continue
+            if not merge and not self.isChangedOrNew(attribut): continue
             a = etree.SubElement(root, 'Attribut')
             a.set('name', attribut.name)
             a.set('anzeigename', attribut.anzeigename)
@@ -65,7 +49,7 @@ class Datenbank():
 
         #Abgeleitete Werte
         for abgeleiteterWert in self.abgeleiteteWerte.values():
-            if not self.isChangedOrNew(abgeleiteterWert): continue
+            if not merge and not self.isChangedOrNew(abgeleiteterWert): continue
             a = etree.SubElement(root, 'AbgeleiteterWert')
             a.set('name', abgeleiteterWert.name)
             a.set('anzeigename', abgeleiteterWert.anzeigename)
@@ -80,7 +64,7 @@ class Datenbank():
 
         # Energien
         for energie in self.energien.values():
-            if not self.isChangedOrNew(energie): continue
+            if not merge and not self.isChangedOrNew(energie): continue
             a = etree.SubElement(root, 'Energie')
             a.set('name', energie.name)
             a.set('anzeigename', energie.anzeigename)
@@ -92,7 +76,7 @@ class Datenbank():
         #Vorteile
         for vort in self.vorteile:
             vorteil = self.vorteile[vort]
-            if not self.isChangedOrNew(vorteil): continue
+            if not merge and not self.isChangedOrNew(vorteil): continue
             v = etree.SubElement(root,'Vorteil')
             v.set('name',vorteil.name)
             v.set('kosten',str(vorteil.kosten))
@@ -125,7 +109,7 @@ class Datenbank():
         #Talente
         for tal in self.talente:
             talent = self.talente[tal]
-            if not self.isChangedOrNew(talent): continue
+            if not merge and not self.isChangedOrNew(talent): continue
             v = etree.SubElement(root,'Talent')
             v.set('name',talent.name)
             if talent.spezialTalent:
@@ -149,7 +133,7 @@ class Datenbank():
         #Fertigkeiten
         for fer in self.fertigkeiten:
             fertigkeit = self.fertigkeiten[fer]
-            if not self.isChangedOrNew(fertigkeit): continue
+            if not merge and not self.isChangedOrNew(fertigkeit): continue
             v = etree.SubElement(root,'Fertigkeit')
             v.set('name',fertigkeit.name)
             v.set('steigerungsfaktor',str(fertigkeit.steigerungsfaktor))
@@ -161,7 +145,7 @@ class Datenbank():
 
         for fer in self.übernatürlicheFertigkeiten:
             fertigkeit = self.übernatürlicheFertigkeiten[fer]
-            if not self.isChangedOrNew(fertigkeit): continue
+            if not merge and not self.isChangedOrNew(fertigkeit): continue
             v = etree.SubElement(root,'ÜbernatürlicheFertigkeit')
             v.set('name',fertigkeit.name)
             v.set('steigerungsfaktor',str(fertigkeit.steigerungsfaktor))
@@ -174,7 +158,7 @@ class Datenbank():
         #Waffeneigenschaften
         for we in self.waffeneigenschaften:
             eigenschaft = self.waffeneigenschaften[we]
-            if not self.isChangedOrNew(eigenschaft): continue
+            if not merge and not self.isChangedOrNew(eigenschaft): continue
             w = etree.SubElement(root, 'Waffeneigenschaft')
             w.set('name', eigenschaft.name)
             if eigenschaft.script:
@@ -186,7 +170,7 @@ class Datenbank():
         #Waffen
         for wa in self.waffen:
             waffe = self.waffen[wa]
-            if not self.isChangedOrNew(waffe): continue
+            if not merge and not self.isChangedOrNew(waffe): continue
             w = etree.SubElement(root,'Waffe')
             w.set('name', waffe.name)
             w.set('würfel', str(waffe.würfel))
@@ -208,7 +192,7 @@ class Datenbank():
         #Rüstungen
         for rue in self.rüstungen:
             ruestung = self.rüstungen[rue]
-            if not self.isChangedOrNew(ruestung): continue
+            if not merge and not self.isChangedOrNew(ruestung): continue
             r = etree.SubElement(root, 'Rüstung')
             r.set('name', ruestung.name)
             r.set('typ', str(ruestung.typ))
@@ -224,7 +208,7 @@ class Datenbank():
         #Regeln
         for r in self.regeln:
             regel = self.regeln[r]
-            if not self.isChangedOrNew(regel): continue
+            if not merge and not self.isChangedOrNew(regel): continue
             regelNode = etree.SubElement(root, 'Regel')
             regelNode.set('name', regel.name)
             regelNode.set('typ', str(regel.typ))
@@ -235,7 +219,7 @@ class Datenbank():
         #Freie Fertigkeiten
         for ff in self.freieFertigkeiten:
             fert = self.freieFertigkeiten[ff]
-            if not self.isChangedOrNew(fert): continue
+            if not merge and not self.isChangedOrNew(fert): continue
             f = etree.SubElement(root, 'FreieFertigkeit')
             f.set('name', fert.name)
             f.set('kategorie', fert.kategorie)
@@ -244,19 +228,20 @@ class Datenbank():
         #Einstellungen
         for de in self.einstellungen:
             einstellung = self.einstellungen[de]
-            if not self.isChangedOrNew(einstellung): continue
+            if not merge and not self.isChangedOrNew(einstellung): continue
             e = etree.SubElement(root, 'Einstellung')
             e.set('name', einstellung.name)
             e.text = einstellung.text
 
         #Remove list
-        for type in self.referenceDB:
-            for name in self.getRemoved(type):
-                r = etree.SubElement(root,'Remove')
-                r.set('name', name)
-                r.set('typ', type.__name__)
+        if not merge:
+            for type in self.referenceDB:
+                for name in self.getRemoved(type):
+                    r = etree.SubElement(root,'Remove')
+                    r.set('name', name)
+                    r.set('typ', type.__name__)
 
-        root = EventBus.applyFilter("datenbank_xml_schreiben", root, { "datenbank" : self })
+        root = EventBus.applyFilter("datenbank_xml_schreiben", root, { "datenbank" : self, "merge" : merge })
 
         #Write XML to file
         doc = etree.ElementTree(root)
@@ -303,7 +288,22 @@ class Datenbank():
     def isOverriddenByOther(self, element):
         return self.isChanged(element) and element == self.referenceDB[element.__class__][element.name]
 
-    def xmlLaden(self, isCharakterEditor = False):
+    def xmlLaden(self, datei = os.path.join('Data', 'datenbank.xml'), hausregeln = None, isCharakterEditor = False):
+        self.datei = datei
+        self.hausregelDatei = None
+        
+        if hausregeln is not None:
+            if os.path.isfile(hausregeln):
+                self.hausregelDatei = hausregeln
+            elif hausregeln and hausregeln != "Keine":
+                tmp = os.path.join(Wolke.Settings['Pfad-Regeln'], hausregeln)
+                if os.path.isfile(tmp):
+                    self.hausregelDatei = tmp
+        elif Wolke.Settings['Datenbank']:
+            tmp = os.path.join(Wolke.Settings['Pfad-Regeln'], Wolke.Settings['Datenbank'])
+            if os.path.isfile(tmp):
+                self.hausregelDatei = tmp
+
         self.attribute = {}
         self.abgeleiteteWerte = {}
         self.energien = {}
@@ -336,25 +336,20 @@ class Datenbank():
         self.insertTable(FreieFertigkeitDefinition, self.freieFertigkeiten)  
         self.insertTable(VorteilDefinition, self.vorteile)
 
-        databasePath = os.path.join('Data', 'datenbank.xml')
-        if os.path.isfile(databasePath):
+        if os.path.isfile(self.datei):
             refDB = True
-            self.loaded = self.xmlLadenInternal(databasePath, refDB, isCharakterEditor)
-            if not self.loaded:
-                return
+            if not self.xmlLadenInternal(self.datei, refDB):
+                self.datei = None
+                return False
 
             EventBus.doAction("basisdatenbank_geladen", { "datenbank" : self, "isCharakterEditor" : isCharakterEditor })
-        try:   
-            if self.hausregelDatei and os.path.isfile(self.hausregelDatei):
-                refDB = False
-                self.xmlLadenInternal(self.hausregelDatei, refDB, isCharakterEditor) 
-        except DatabaseException:
-            messagebox = QtWidgets.QMessageBox()
-            messagebox.setWindowTitle("Fehler!")
-            messagebox.setText(self.hausregelDatei + " ist keine valide Datenbank-Datei!")
-            messagebox.setIcon(QtWidgets.QMessageBox.Critical)  
-            messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-            messagebox.exec()
+
+        hausregelnValid = True
+        if self.hausregelDatei and os.path.isfile(self.hausregelDatei):
+            refDB = False
+            hausregelnValid = self.xmlLadenInternal(self.hausregelDatei, refDB)
+            if not hausregelnValid:
+                self.hausregelDatei = None
 
         self.verify(isCharakterEditor)
 
@@ -363,22 +358,23 @@ class Datenbank():
                 element.finalize(self)
 
         EventBus.doAction("datenbank_geladen", { "datenbank" : self, "isCharakterEditor" : isCharakterEditor })
+        return hausregelnValid
 
     def xmlLadenAdditiv(self, file, conflictCB):
-        self.xmlLadenInternal(file, refDB = False, isCharakterEditor = False, conflictCB = conflictCB)
+        if not self.xmlLadenInternal(file, refDB = False, conflictCB = conflictCB):
+            return False
         for table in self.tablesByType.values():
             for element in table.values():
                 element.finalize(self)
+        return True
 
-    def xmlLadenInternal(self, file, refDB, isCharakterEditor, conflictCB = None):
+    def xmlLadenInternal(self, file, refDB, conflictCB = None):
         root = etree.parse(file).getroot()
 
         if root.tag != 'Datenbank':
-            raise DatabaseException('Not a valid database file')
+            return False
 
         if not refDB:
-            self.userDbXml = root
-
             #Versionierung
             versionXml = root.find('Version')
             hausregelnVersion = 0
@@ -387,18 +383,7 @@ class Datenbank():
                 hausregelnVersion = int(versionXml.text)
 
             logging.debug("Start Hausregeln Migration")
-            updates = Migrationen.hausregelnMigrieren(root, hausregelnVersion)
-            if not isCharakterEditor and len(updates) > 0:
-                messageBox = QtWidgets.QMessageBox()
-                messageBox.setIcon(QtWidgets.QMessageBox.Information)
-                messageBox.setWindowTitle("Hausregeln wurden aktualisiert.")
-                messageBox.setText("Seit du diese Hausregeln das letzte mal bearbeitet hast, wurde das Datenbank-Schema aktualisiert. " \
-                                  "Deine Hausregeln sind jetzt auf dem neuesten Stand. Die Änderungen werden erst final übernommen, wenn du speicherst.")
-                messageBox.setInformativeText("Weitere Informationen:\n" + "\n".join(updates))
-                messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-                messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-                messageBox.exec()
-
+            Migrationen.hausregelnMigrieren(root, hausregelnVersion)
 
             loadAdditive = conflictCB is not None
             if root.find('Plugins') is not None and root.find('Plugins').text:         

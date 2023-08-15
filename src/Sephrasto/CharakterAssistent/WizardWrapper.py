@@ -179,7 +179,14 @@ class WizardWrapper(object):
         if not self.ui.cbBaukasten.currentText() in self.regelList:
             self.form.reject()
             return
-        Wolke.DB = Datenbank(self.ui.cbRegeln.currentText(), True)
+        if not Wolke.DB.xmlLaden(hausregeln = self.ui.cbRegeln.currentText(), isCharakterEditor = True):
+            messagebox = QtWidgets.QMessageBox()
+            messagebox.setWindowTitle("Fehler!")
+            messagebox.setText(self.ui.cbRegeln.currentText() + " ist keine valide Datenbank-Datei!")
+            messagebox.setIcon(QtWidgets.QMessageBox.Critical)  
+            messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            messagebox.exec()
+            return
         Wolke.Char = Char()
         regeln = self.regelList[self.ui.cbBaukasten.currentText()]
 

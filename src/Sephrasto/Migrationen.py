@@ -1,12 +1,10 @@
 import lxml.etree as etree
 from Hilfsmethoden import Hilfsmethoden, VoraussetzungException, WaffeneigenschaftException
 import os.path
-from PySide6 import QtWidgets
 from Wolke import Wolke
 import logging
 from EventBus import EventBus
 import re
-from Core.Fertigkeit import FertigkeitDefinition
 
 # ACHTUNG: Existierenden Migrationscode nur ändern wenn du 100% weißt, was du tust!
 # Migrationscode verändert die xml nodes von Charakter- oder Hausregeldateien, bevor sie eingelesen werden.
@@ -31,6 +29,9 @@ class Migrationen():
     datenbankCodeVersion = 7
     charakterCodeVersion = 5
 
+    hausregelUpdates = []
+    charakterUpdates = []
+
     def hausregelnMigrieren(xmlRoot, hausregelnVersion):
         migrationen = [
             lambda xmlRoot: None, #nichts zu tun, initiale db version
@@ -46,14 +47,15 @@ class Migrationen():
         if not migrationen[Migrationen.datenbankCodeVersion]:
             raise Exception("Migrations-Code vergessen.")
 
-        updates = []
+        Migrationen.hausregelUpdates = []
+        if hausregelnVersion < Migrationen.datenbankCodeVersion:
+            Migrationen.hausregelUpdates.append("Deine Hausregeln sind jetzt auf dem neuesten Stand. Die Änderungen werden erst final übernommen, wenn du speicherst.")
+
         while hausregelnVersion < Migrationen.datenbankCodeVersion:
             logging.warning(f"Migriere Hausregeln {os.path.basename(xmlRoot.base) if xmlRoot.base else '?'} von Version {hausregelnVersion} zu {hausregelnVersion + 1}")
             hausregelnVersion +=1
-            update = migrationen[hausregelnVersion](xmlRoot)
-            if update:
-                updates.append(update)
-        return updates
+            updateInfo = migrationen[hausregelnVersion](xmlRoot)
+            Migrationen.hausregelUpdates.extend(updateInfo)
 
     def charakterMigrieren(xmlRoot):
         # Die Versionsdaten müssen immer migriert werden.
@@ -85,15 +87,15 @@ class Migrationen():
         if not migrationen[Migrationen.charakterCodeVersion]:
             raise Exception("Migrations-Code vergessen.")
 
-        updates = []
+        Migrationen.charakterUpdates = []
+
+        if charakterVersion < Migrationen.charakterCodeVersion:
+            Migrationen.charakterUpdates.append("Dein Charakter ist jetzt auf dem neuesten Stand. Die Änderungen werden erst final übernommen, wenn du speicherst.")
         while charakterVersion < Migrationen.charakterCodeVersion:
             logging.warning(f"Migriere Charakter {os.path.basename(xmlRoot.base) if xmlRoot.base else '?'} von Version {charakterVersion} zu {charakterVersion + 1}")
             charakterVersion +=1
-            update = migrationen[charakterVersion](xmlRoot)
-            if update:
-                updates.append(update)
-
-        return updates
+            updateInfo = migrationen[charakterVersion](xmlRoot)
+            Migrationen.charakterUpdates.extend(updateInfo)
 
     #--------------------------------
     # Hausregeln Migrationsfunktionen
@@ -122,11 +124,11 @@ class Migrationen():
             wa.attrib.pop('kraf')
             wa.attrib.pop('schn')
             wa.set('kampfstile', ", ".join(kampfstile))
-        return None
+        return []
 
     def hausregeln1zu2(root):
         # removed this migration, it accessed the database for a convenience conversion - bad idea
-        return None
+        return []
 
     def hausregeln2zu3(root):
         def fixTalentVoraussetzungen(type):
@@ -143,7 +145,7 @@ class Migrationen():
         fixTalentVoraussetzungen('FreieFertigkeit')
         fixTalentVoraussetzungen('Fertigkeit')
         fixTalentVoraussetzungen('Übernatürliche-Fertigkeit')
-        return None
+        return []
 
     def hausregeln3zu4(root):
         stripped = ["Krähenruf ", "Ruhe Körper, Ruhe Geist ", "Auge des Limbus ", "Aerofugo Vakuum ", "Schutz des Dolches ", "Lied der Lieder ",
@@ -186,7 +188,7 @@ class Migrationen():
             node.attrib.pop('W6')
             if not 'wm' in node.attrib:
                 node.set('wm', '0')
-        return None
+        return []
 
     def hausregeln4zu5(root):
         remove = []
@@ -199,7 +201,7 @@ class Migrationen():
                     node.text = ""
         for r in remove:
             root.remove(node)
-        return None
+        return []
 
     def hausregeln5zu6(root):
         for node in root.findall('Manöver'):
@@ -253,8 +255,8 @@ class Migrationen():
             italicPattern = re.compile("(?<!<i>)(" + "|".join(italic) + ")(?!</i>)")
             node.text = italicPattern.sub(lambda m: "<i>" + m.group(0) + "</i>", node.text)
 
-        return "- Das Feld Gegenprobe wurde bei Regeln entfernt und der vorige Inhalt am Anfang der Beschreibung eingefügt.\n"\
-               "- Bei Talenten und Regeln wurden HTML-Tags in die Beschreibung eingefügt."
+        return ["Das Feld Gegenprobe wurde bei Regeln entfernt und der vorige Inhalt am Anfang der Beschreibung eingefügt.",
+                "Bei Talenten und Regeln wurden HTML-Tags in die Beschreibung eingefügt."]
 
     def hausregeln6zu7(root):
         # Use actual type names in remove tags instead of display names
@@ -542,12 +544,12 @@ class Migrationen():
                     node.text = node.text.replace("L", "S:1")
                     node.text = node.text.replace("A", "S:2")
 
-        return "- Bei Vorteilen können nun Querverweise angegeben werden - bei geänderten RAW Elementen wurden diese automatisch übernommen. Bei selbst erstellten Vorteilen wurde nichts geändert.\n"\
-               "- Bei Vorteilen und Talenten können über das neue Infofeld nun Nutzungshinweise für den Charaktereditor angegeben werden. Diese wurden automatisch aus dem Text extrahiert und in das neue Feld eingefügt (in seltenen Fällen können sie zusätzlich noch wie zuvor im Text stehen).\n"\
-               "- Bei Vorteilen können über das neue Bedingungen-Feld Bedingungen für die Nutzbarkeit festgelegt werden, z. B. bei Kampfstilen. Diese wurden automatisch aus dem Text extrahiert und in das neue Feld eingefügt.\n"\
-               "- Die Vorteile Tiergeist (Wolf/Khoramsbestie), Tiergeist (Wildkatze/Panther) und Vorteil Tiergeist (Fuchs/Mungo) wurden in individuelle Vorteile aufgeteilt und entsprechende Vorteils-Voraussetzungen überall angepasst.\n"\
-               "- Die Voraussetzungen von allen Tiergeistern und Geweihtentraditionen wurden vereinfacht durch die neuen Wildcards.\n"\
-               "- Bei Spezialtalenten muss nun angegeben werden, ob es sich um Zauber, Liturgien etc. handelt. Dies wurde für alle Spezialtalente automatisch ermittelt."
+        return ["Bei Vorteilen können nun Querverweise angegeben werden - bei geänderten RAW Elementen wurden diese automatisch übernommen. Bei selbst erstellten Vorteilen wurde nichts geändert.",
+               "Bei Vorteilen und Talenten können über das neue Infofeld nun Nutzungshinweise für den Charaktereditor angegeben werden. Diese wurden automatisch aus dem Text extrahiert und in das neue Feld eingefügt (in seltenen Fällen können sie zusätzlich noch wie zuvor im Text stehen).",
+               "Bei Vorteilen können über das neue Bedingungen-Feld Bedingungen für die Nutzbarkeit festgelegt werden, z. B. bei Kampfstilen. Diese wurden automatisch aus dem Text extrahiert und in das neue Feld eingefügt.",
+               "Die Vorteile Tiergeist (Wolf/Khoramsbestie), Tiergeist (Wildkatze/Panther) und Vorteil Tiergeist (Fuchs/Mungo) wurden in individuelle Vorteile aufgeteilt und entsprechende Vorteils-Voraussetzungen überall angepasst.",
+               "Die Voraussetzungen von allen Tiergeistern und Geweihtentraditionen wurden vereinfacht durch die neuen Wildcards.",
+               "Bei Spezialtalenten muss nun angegeben werden, ob es sich um Zauber, Liturgien etc. handelt. Dies wurde für alle Spezialtalente automatisch ermittelt."]
 
     #--------------------------------
     # Charakter Migrationsfunktionen
@@ -561,7 +563,7 @@ class Migrationen():
             kampfstilIndex = int(waf.attrib['kampfstil'])
             waf.attrib['kampfstil'] = Kampfstile[kampfstilIndex]
 
-        return None
+        return []
 
     def charakter1zu2(xmlRoot):
         VorteileAlt = ["Angepasst I (Wasser)", "Angepasst I (Wald)", "Angepasst I (Dunkelheit)", "Angepasst I (Schnee)", "Angepasst II (Wasser)", "Angepasst II (Wald)", "Angepasst II (Dunkelheit)", "Angepasst II (Schnee)", "Tieremphatie"]
@@ -571,7 +573,7 @@ class Migrationen():
             if vort.text in VorteileAlt:
                 vort.text = VorteileNeu[VorteileAlt.index(vort.text)]
 
-        return None
+        return []
 
     def charakter2zu3(xmlRoot):
         # Some Talente ended with a space, we need to correct that
@@ -737,7 +739,7 @@ class Migrationen():
         if alg.find('bild') is not None:
             alg.find('bild').tag = "Bild"
 
-        return None
+        return []
 
     def charakter3zu4(xmlRoot):
         einstellungen = xmlRoot.find('Einstellungen')
@@ -758,7 +760,7 @@ class Migrationen():
         # RegelnKategorien has changed a lot, so we reset it
         einstellungen.find('RegelnKategorien').text = "R:12,V:0,R:11,R:9,V:1,R:5,R:0,V:2,V:3,R:8,R:1,W,V:4,V:5,R:2,R:4,Z,V:6,V:7,R:3,R:7,L,V:8,R:6,A,R:10"
 
-        return None
+        return []
         
     def charakter4zu5(xmlRoot):
         #Talente are now stored individually, not as subelement of Fertigkeit anymore
@@ -801,5 +803,5 @@ class Migrationen():
         charakterbogen = einstellungen.find('Charakterbogen').text
         etree.SubElement(einstellungen, 'DetailsAnzeigen').text = "0" if charakterbogen == "Standard Charakterbogen" else "1"
         etree.SubElement(einstellungen, 'DeaktivierteRegelKategorien').text = ""
-        return None
+        return []
 

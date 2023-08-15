@@ -915,15 +915,14 @@ class Char():
         self.__init__()
         root = etree.parse(filename).getroot()
         logging.debug("Starting Character Migration")
-        updates = Migrationen.charakterMigrieren(root)
-        if len(updates) > 0:
+        Migrationen.charakterMigrieren(root)
+        if len(Migrationen.charakterUpdates) > 0:
             messageBox = QtWidgets.QMessageBox()
             messageBox.setIcon(QtWidgets.QMessageBox.Information)
-            messageBox.setWindowTitle("Charakter laden - Datenbank wurde aktualisiert.")
-            messageBox.setText("Seit du diesen Charakter das letzte mal bearbeitet hast wurde die offizielle Sephrasto-Datenbank aktualisiert. " \
-                              "Dein Charakter ist jetzt auf dem neuesten Stand. Die Änderungen werden erst final übernommen, wenn du speicherst. " \
-                              "Ausnahmen: Waffen werden nicht automatisch angepasst und behalten ihren (eventuell alten) Stand, ebenso alles was in Hausregeln geändert wurde.")
-            messageBox.setInformativeText("Weitere Informationen:\n" + "\n".join(updates))
+            messageBox.setWindowTitle("Charakter wurde aktualisiert")
+            messageBox.setText(Migrationen.charakterUpdates[0])
+            if len(Migrationen.charakterUpdates) > 1:
+                messageBox.setInformativeText("Weitere Informationen:\n- " + "\n- ".join(Migrationen.charakterUpdates[1:]))
             messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
             messageBox.exec()

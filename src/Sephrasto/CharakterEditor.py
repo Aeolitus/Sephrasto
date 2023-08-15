@@ -51,6 +51,7 @@ class Editor(object):
         self.changed = False
         self.savePathUpdatedCallback = savePathUpdatedCallback
 
+        Wolke.DB = Datenbank.Datenbank()
         wizardSuccess = False
         hausregeln = Wolke.Settings['Datenbank']
         if self.savepath:
@@ -75,7 +76,13 @@ class Editor(object):
             wizardSuccess = self.showCharacterWizard()
 
         if not wizardSuccess:
-            Wolke.DB = Datenbank.Datenbank(hausregeln, True)
+            if not Wolke.DB.xmlLaden(hausregeln = hausregeln, isCharakterEditor = True):
+                messagebox = QtWidgets.QMessageBox()
+                messagebox.setWindowTitle("Fehler!")
+                messagebox.setText(hausregeln + " ist keine valide Datenbank-Datei! Der Charaktereditor wird ohne Hausregeln gestartet.")
+                messagebox.setIcon(QtWidgets.QMessageBox.Critical)  
+                messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+                messagebox.exec()
             Wolke.Char = Charakter.Char()
             if self.savepath:
                 Wolke.Char.xmlLesen(self.savepath)
