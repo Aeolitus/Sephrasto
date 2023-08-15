@@ -18,7 +18,7 @@ class DatenbankEditVorteilWrapper(DatenbankElementEditorBase):
         super().__init__()
         self.validator["Querverweise"] = True
         self.beschreibungEditor = BeschreibungEditor(self)
-        self.beschreibungRegelanhangEditor = BeschreibungEditor(self, "cheatsheetBeschreibung", "teCheatsheet", "tbCheatsheet")
+        self.beschreibungRegelanhangEditor = BeschreibungEditor(self, "cheatsheetBeschreibung", "teCheatsheet", "tbCheatsheet", True)
         self.beschreibungBedingungenEditor = BeschreibungEditor(self, "bedingungen", "teBedingungen", "tbBedingungen")
         self.beschreibungInfoEditor = BeschreibungEditor(self, "info", "teInfo", "tbInfo")
         self.voraussetzungenEditor = VoraussetzungenEditor(self)

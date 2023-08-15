@@ -99,11 +99,12 @@ class DatenbankElementEditorBase():
         self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setEnabled(True)
 
 class BeschreibungEditor:
-    def __init__(self, editor, propertyName = "text", textEditName = "teBeschreibung", previewName = "tbBeschreibung"):
+    def __init__(self, editor, propertyName = "text", textEditName = "teBeschreibung", previewName = "tbBeschreibung", listifyPreview = False):
         self.editor = editor
         self.textEditName = textEditName
         self.previewName = previewName
         self.propertyName = propertyName
+        self.listifyPreview = listifyPreview
 
     def load(self, element):
         textEdit = getattr(self.editor.ui, self.textEditName)
@@ -119,7 +120,10 @@ class BeschreibungEditor:
         textEdit = getattr(self.editor.ui, self.textEditName)
         if self.previewName is not None:
             previewEdit = getattr(self.editor.ui, self.previewName)
-            previewEdit.setText(Hilfsmethoden.fixHtml(textEdit.toPlainText()))
+            text = textEdit.toPlainText()
+            if self.listifyPreview and ("\n" in text and not "<ul" in text and not "<ol" in text):
+                text = "<ul><li>" + text.replace("\n", "</li><li>") + "</li></ul>"
+            previewEdit.setText(Hilfsmethoden.fixHtml(text))
 
 class VoraussetzungenEditor:
     def __init__(self, editor):
