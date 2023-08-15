@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'Wizard.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.1
+## Created by: Qt User Interface Compiler version 6.5.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -207,9 +207,12 @@ class Ui_formMain(object):
 
         self.gridLayout.addWidget(self.cbRegeln, 2, 1, 1, 1)
 
+        QWidget.setTabOrder(self.cbRegeln, self.cbBaukasten)
         QWidget.setTabOrder(self.cbBaukasten, self.btnWeiblich)
         QWidget.setTabOrder(self.btnWeiblich, self.btnMaennlich)
-        QWidget.setTabOrder(self.btnMaennlich, self.cbSpezies)
+        QWidget.setTabOrder(self.btnMaennlich, self.btnDivers)
+        QWidget.setTabOrder(self.btnDivers, self.leDivers)
+        QWidget.setTabOrder(self.leDivers, self.cbSpezies)
         QWidget.setTabOrder(self.cbSpezies, self.cbKultur)
         QWidget.setTabOrder(self.cbKultur, self.cbProfessionKategorie)
         QWidget.setTabOrder(self.cbProfessionKategorie, self.cbProfession)

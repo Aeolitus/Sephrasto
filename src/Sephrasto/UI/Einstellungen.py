@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'Einstellungen.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.1
+## Created by: Qt User Interface Compiler version 6.5.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -45,7 +45,7 @@ class Ui_SettingsWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 717, 833))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 690, 815))
         self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(20, 20, 20, 20)
@@ -457,9 +457,12 @@ class Ui_SettingsWindow(object):
 
         self.gridLayout.addWidget(self.scrollArea, 0, 0, 1, 1)
 
-        QWidget.setTabOrder(self.scrollArea, self.comboRegelbasis)
+        QWidget.setTabOrder(self.checkWizard, self.comboRegelbasis)
         QWidget.setTabOrder(self.comboRegelbasis, self.comboBogen)
-        QWidget.setTabOrder(self.comboBogen, self.editChar)
+        QWidget.setTabOrder(self.comboBogen, self.checkCheatsheet)
+        QWidget.setTabOrder(self.checkCheatsheet, self.spinRulesFontSize)
+        QWidget.setTabOrder(self.spinRulesFontSize, self.checkFormular)
+        QWidget.setTabOrder(self.checkFormular, self.editChar)
         QWidget.setTabOrder(self.editChar, self.buttonChar)
         QWidget.setTabOrder(self.buttonChar, self.resetChar)
         QWidget.setTabOrder(self.resetChar, self.editRegeln)
@@ -468,8 +471,24 @@ class Ui_SettingsWindow(object):
         QWidget.setTabOrder(self.resetRegeln, self.editPlugins)
         QWidget.setTabOrder(self.editPlugins, self.buttonPlugins)
         QWidget.setTabOrder(self.buttonPlugins, self.resetPlugins)
-        QWidget.setTabOrder(self.resetPlugins, self.comboFont)
-        QWidget.setTabOrder(self.comboFont, self.comboFontHeading)
+        QWidget.setTabOrder(self.resetPlugins, self.editCharakterboegen)
+        QWidget.setTabOrder(self.editCharakterboegen, self.buttonCharakterboegen)
+        QWidget.setTabOrder(self.buttonCharakterboegen, self.resetCharakterboegen)
+        QWidget.setTabOrder(self.resetCharakterboegen, self.comboTheme)
+        QWidget.setTabOrder(self.comboTheme, self.resetFontOS)
+        QWidget.setTabOrder(self.resetFontOS, self.resetFontDefault)
+        QWidget.setTabOrder(self.resetFontDefault, self.comboFont)
+        QWidget.setTabOrder(self.comboFont, self.spinAppFontSize)
+        QWidget.setTabOrder(self.spinAppFontSize, self.comboFontHeading)
+        QWidget.setTabOrder(self.comboFontHeading, self.spinAppFontHeadingSize)
+        QWidget.setTabOrder(self.spinAppFontHeadingSize, self.checkDPI)
+        QWidget.setTabOrder(self.checkDPI, self.spinCharListCols)
+        QWidget.setTabOrder(self.spinCharListCols, self.spinCharListRows)
+        QWidget.setTabOrder(self.spinCharListRows, self.checkUpdate)
+        QWidget.setTabOrder(self.checkUpdate, self.checkPDFOpen)
+        QWidget.setTabOrder(self.checkPDFOpen, self.comboLogging)
+        QWidget.setTabOrder(self.comboLogging, self.buttonLogOpen)
+        QWidget.setTabOrder(self.buttonLogOpen, self.scrollArea)
 
         self.retranslateUi(SettingsWindow)
         self.buttonBox.accepted.connect(SettingsWindow.accept)
