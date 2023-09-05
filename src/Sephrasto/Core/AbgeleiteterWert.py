@@ -53,12 +53,6 @@ class AbgeleiteterWert:
         A.finalwert = self.finalwert
         return A
 
-    def executeScript(self, api):
-        self.definition.executeScript(api)
-
-    def executeFinalscript(self, api):
-        self.definition.executeFinalscript(api)
-
     @property
     def name(self):
         return self.definition.name
