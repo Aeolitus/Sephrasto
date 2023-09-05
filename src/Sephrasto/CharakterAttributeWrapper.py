@@ -224,9 +224,6 @@ class AttrWrapper(QtCore.QObject):
             else:
                 uiElement.setValue(Wolke.Char.attribute[attribut].wert)
 
-            for attribut in Wolke.Char.attribute:
-                self.updateTooltip(attribut)
-
         return changed
 
     def update(self):
@@ -247,6 +244,8 @@ class AttrWrapper(QtCore.QObject):
 
         if changed:
             self.modified.emit()
+            for attribut in Wolke.Char.attribute:
+                self.updateTooltip(attribut)
             self.updateDerivedValues()
         
     def getEnergieSteigerungskosten(self, energie):
