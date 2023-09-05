@@ -917,6 +917,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
     def showScriptHelp(self):
         if not hasattr(self, "scriptHelpWindow"):
             self.scriptHelpWindow = HilfeWrapper("ScriptAPI.md", False)
+            self.scriptHelpWindow.form.show()
         else:
             self.scriptHelpWindow.form.show()
             self.scriptHelpWindow.form.activateWindow()
