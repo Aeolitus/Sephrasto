@@ -100,6 +100,9 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
                 self.labelRef[fert.name + "KO"].setToolTip(tooltip)
                 self.labelRef[fert.name + "PW"].setText(str(fert.probenwert))
                 self.labelRef[fert.name + "PWT"].setText(str(fert.probenwertTalent))
+                if fert.basiswertMod != 0:
+                    self.labelRef[fert.name + "PW"].setText(str(fert.probenwert + fert.basiswertMod) + "*")
+                    self.labelRef[fert.name + "PWT"].setText(str(fert.probenwertTalent + fert.basiswertMod) + "*")
                 self.labelRef[fert.name].setText(str(len(fert.gekaufteTalente)))
         else:
             self.availableFerts = temp
@@ -215,12 +218,18 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
                 self.labelRef[el + "PW"].setText(str(fert.probenwert))
                 self.labelRef[el + "PW"].setAlignment(QtCore.Qt.AlignCenter)
                 self.ui.tableWidget.setCellWidget(count,3,self.labelRef[el + "PW"])
+                if fert.basiswertMod != 0:
+                    self.labelRef[fert.name + "PW"].setText(str(fert.probenwert + fert.basiswertMod) + "*")
 
                 # Add PW (T)
                 self.labelRef[el + "PWT"] = QtWidgets.QLabel()
                 self.labelRef[el + "PWT"].setText(str(fert.probenwertTalent))
                 self.labelRef[el + "PWT"].setAlignment(QtCore.Qt.AlignCenter)
                 self.ui.tableWidget.setCellWidget(count,4,self.labelRef[el + "PWT"])
+
+                if fert.basiswertMod != 0:
+                    self.labelRef[fert.name + "PW"].setText(str(fert.probenwert + fert.basiswertMod) + "*")
+                    self.labelRef[fert.name + "PWT"].setText(str(fert.probenwertTalent + fert.basiswertMod) + "*")
 
                 # Add Talents Count and Add Button
                 self.layoutRef[el] = QtWidgets.QHBoxLayout()
@@ -264,8 +273,8 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         fert = Wolke.Char.fertigkeiten[self.currentFertName]
         fert.wert = val
         Wolke.Char.fertigkeiten[self.currentFertName].aktualisieren()
-        self.ui.spinPW.setValue(fert.probenwert)
-        self.ui.spinPWT.setValue(fert.probenwertTalent)
+        self.ui.spinPW.setValue(fert.probenwert + fert.basiswertMod)
+        self.ui.spinPWT.setValue(fert.probenwertTalent + fert.basiswertMod)
         if fert == Fertigkeit.getHöchsteKampffertigkeit(Wolke.Char.fertigkeiten):
             self.ui.spinSF.setValue(4)
         else:
@@ -284,8 +293,11 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
             text, tooltip = ProfaneFertigkeitenWrapper.getSteigerungskosten(f)
             self.labelRef[f.name + "KO"].setText(text)
             self.labelRef[f.name + "KO"].setToolTip(tooltip)
-        self.labelRef[self.currentFertName + "PW"].setText(str(fert.probenwert))
-        self.labelRef[self.currentFertName + "PWT"].setText(str(fert.probenwertTalent))
+        self.labelRef[fert.name + "PW"].setText(str(fert.probenwert))
+        self.labelRef[fert.name + "PWT"].setText(str(fert.probenwertTalent))
+        if fert.basiswertMod != 0:
+            self.labelRef[fert.name + "PW"].setText(str(fert.probenwert + fert.basiswertMod) + "*")
+            self.labelRef[fert.name + "PWT"].setText(str(fert.probenwertTalent + fert.basiswertMod) + "*")
 
         self.modified.emit()
         self.currentlyLoading = False
@@ -327,12 +339,12 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
             self.ui.spinSF.setValue(4)
         else:
             self.ui.spinSF.setValue(fert.steigerungsfaktor)
-        self.ui.spinBasis.setValue(fert.basiswert)
+        self.ui.spinBasis.setValue(fert.basiswert + fert.basiswertMod)
         self.ui.spinFW.setMaximum(fert.maxWert)
         self.spinRef[self.currentFertName].setMaximum(fert.maxWert)
         self.ui.spinFW.setValue(fert.wert)
-        self.ui.spinPW.setValue(fert.probenwert)
-        self.ui.spinPWT.setValue(fert.probenwertTalent)
+        self.ui.spinPW.setValue(fert.probenwert + fert.basiswertMod)
+        self.ui.spinPWT.setValue(fert.probenwertTalent + fert.basiswertMod)
         self.ui.plainText.setText(Hilfsmethoden.fixHtml(fert.text))
         self.ui.labelKategorie.setText(fert.typname(Wolke.DB))
         self.updateTalents()

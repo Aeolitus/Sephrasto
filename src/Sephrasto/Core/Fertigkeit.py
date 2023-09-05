@@ -56,7 +56,7 @@ class Fertigkeit:
         self.talentMods = {} # for vorteil scripts, only used in export { talentnname1 : { condition1 : mod1, condition2 : mod2, ... }, talentname2 : {}, ... 
         self.attributswerte = [-1,-1,-1]
         self.basiswert = -1
-        self.basiswertMod = 0 # for vorteil scripts, only used in export
+        self.basiswertMod = 0 # may be set by vorteil scripts, not used in calculations for bw, pw, pwt, only in ui and pdf (requirements checks would be a nightmare)
         self.probenwert = -1
         self.probenwertTalent = -1
         self.maxWert = -1

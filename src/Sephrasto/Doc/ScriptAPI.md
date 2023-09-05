@@ -43,7 +43,7 @@ Die folgenden Funktionen stehen neben Python-Builtins wie 'round' zur Verfügung
 - Freie Fertigkeiten: ```getFreieFertigkeiten <Return: { name, kategorie, voraussetzungen[], wert }>```
 - Fertigkeiten: ```getFertigkeit/getÜbernatürlicheFertigkeit <Parameter: Fertigkeits-Name. Return: { name, steigerungsfaktor, text, attribute [], kampffertigkeit, voraussetzungen [], typ, talenteGruppieren, wert, gekaufteTalente[], talentMods {}, attributswerte, basiswert, basiswertMod, probenwert, probenwertTalent, maxWert, addToPdf  }>```
 - Fertigkeiten Basis: ```modifyFertigkeitBasiswert : <Parameter: Fertigkeits-Name, Modifikator>```<br />
-Hinweis: Dies ist nützlich, um sich permanente Erleichterungen auf eine Fertigkeit nicht merken zu müssen. Die Modifizierung wird ausschließlich im Charakterbogen eingerechnet!
+Hinweis: Dies ist nützlich, um sich permanente Erleichterungen auf eine Fertigkeit nicht merken zu müssen. Diese Modifikation wird bei Voraussetzungen der Typen "Fertigkeit" und "Talent" nicht eingerechnet!
 - Übernatürliche Fertigkeiten Basis: ```modifyÜbernatürlicheFertigkeitBasiswert : <Parameter: Fertigkeits-Name, Modifikator>```
 - Talente modifizieren: ```modifyTalent : <Parameter: Fertigkeits-Name (profan), Talent-Name, Bedingung, Modifikator>```<br />
 Beispiel mit Bedingung: modifyTalent('Beeinflussung', 'Überreden', 'Rededuell', 2)<br />

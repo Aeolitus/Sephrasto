@@ -141,6 +141,8 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
                 self.labelRef[fert.name + "KO"].setText(text)
                 self.labelRef[fert.name + "KO"].setToolTip(tooltip)
                 self.labelRef[fert.name + "PW"].setText(str(fert.probenwertTalent))
+                if fert.basiswertMod != 0:
+                    self.labelRef[fert.name + "PW"].setText(str(fert.probenwertTalent + fert.basiswertMod) + "*")
                 self.labelRef[fert.name].setText(str(len(fert.gekaufteTalente)))
         else:
             self.availableFerts = temp
@@ -258,6 +260,8 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
                 # Add PW
                 self.labelRef[el + "PW"] = QtWidgets.QLabel()
                 self.labelRef[el + "PW"].setText(str(fert.probenwertTalent))
+                if fert.basiswertMod != 0:
+                    self.labelRef[fert.name + "PW"].setText(str(fert.probenwertTalent + fert.basiswertMod) + "*")
                 self.labelRef[el + "PW"].setAlignment(QtCore.Qt.AlignCenter)
                 self.ui.tableWidget.setCellWidget(count,4,self.labelRef[el + "PW"])
 
@@ -302,7 +306,7 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
         fert = Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName]
         fert.wert = val
         fert.aktualisieren()
-        self.ui.spinPW.setValue(fert.probenwertTalent)
+        self.ui.spinPW.setValue(fert.probenwertTalent + fert.basiswertMod)
         if flag:
             self.ui.spinFW.setValue(val)
         else:
@@ -312,6 +316,8 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
         self.labelRef[fert.name + "KO"].setText(text)
         self.labelRef[fert.name + "KO"].setToolTip(tooltip)
         self.labelRef[fert.name + "PW"].setText(str(fert.probenwertTalent))
+        if fert.basiswertMod != 0:
+            self.labelRef[fert.name + "PW"].setText(str(fert.probenwertTalent + fert.basiswertMod) + "*")
 
         self.updateAddToPDF()
 
@@ -356,11 +362,11 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
                                             + fert.attribute[1] + "/" 
                                             + fert.attribute[2])
         self.ui.spinSF.setValue(fert.steigerungsfaktor)
-        self.ui.spinBasis.setValue(fert.basiswert)
+        self.ui.spinBasis.setValue(fert.basiswert + fert.basiswertMod)
         self.ui.spinFW.setMaximum(fert.maxWert)
         self.spinRef[self.currentFertName].setMaximum(fert.maxWert)
         self.ui.spinFW.setValue(fert.wert)
-        self.ui.spinPW.setValue(fert.probenwertTalent)
+        self.ui.spinPW.setValue(fert.probenwertTalent + fert.basiswertMod)
         self.ui.plainText.setText(Hilfsmethoden.fixHtml(fert.text))
         self.ui.labelKategorie.setText(fert.typname(Wolke.DB))
         self.updateTalents()
