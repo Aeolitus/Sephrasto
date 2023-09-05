@@ -525,17 +525,18 @@ class PdfExporter(object):
                 fields[base + 'TP'] = "-" if keinSchaden else str(el.würfel) + "W" + str(el.würfelSeiten) + sg + str(el.plus)
                 fields[base + 'HA'] = str(waffenwerte.härte)
                 fields[base + 'EI'] = ", ".join(el.eigenschaften)
-
                 fields[base + 'ATm'] = str(waffenwerte.at)
-
                 fields[base + 'VTm'] = str(waffenwerte.vt)
-                vtVerboten = Wolke.DB.einstellungen["Waffen: Talente VT verboten"].wert
-                if el.name in Wolke.DB.waffen:
-                    waffe = Wolke.DB.waffen[el.name]
-                    if waffe.talent in vtVerboten or waffe.name in vtVerboten:
-                        fields[base + 'VTm'] = "-"
-
                 fields[base + 'RW'] = str(waffenwerte.rw)
+                
+                atVerboten = Wolke.DB.einstellungen["Waffen: Talente AT verboten"].wert
+                if el.talent in atVerboten or el.name in atVerboten:
+                    fields[base + 'RW'] = "-"
+                    fields[base + 'ATm'] = "-"
+
+                vtVerboten = Wolke.DB.einstellungen["Waffen: Talente VT verboten"].wert
+                if el.talent in vtVerboten or el.name in vtVerboten:
+                    fields[base + 'VTm'] = "-"
 
                 fields[base + 'WM'] = str(el.wm)
                 if el.fernkampf:

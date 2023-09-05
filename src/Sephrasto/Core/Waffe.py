@@ -65,6 +65,7 @@ class Waffe:
         self._härteOverride = None
         self._anzeigenameOverride = None
         self.kampfstil = WaffeDefinition.keinKampfstil
+        self.beSlot = 1
 
     def __deepcopy__(self, memo=""):
         W = Waffe(self.definition)
@@ -79,6 +80,7 @@ class Waffe:
         W._härteOverride = self._härteOverride
         W._anzeigenameOverride = self._anzeigenameOverride
         W.kampfstil = self.kampfstil
+        W.beSlot = self.beSlot
         return W
 
     @property

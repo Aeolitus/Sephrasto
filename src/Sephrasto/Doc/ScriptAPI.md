@@ -61,13 +61,13 @@ Beispiel mit Kosten auf 0 EP gesetzt und "Gaben des Butgeists" als Bedingung: ad
 ### Ausrüstung
 - Inventar: ```getAusrüstung <Return: string[]>```
 - Rüstung: ```getRüstung <Return: { name, text, typ, system, rs[6], be }[]>```
-- Waffen: ```getWaffen <Return: { name, würfel, würfelSeiten, plus, eigenschaften[], härte, fertigkeit, talent, kampfstile[], kampfstil, rw, wm, lz, fernkampf, nahkampf, anzeigename}[]>```
+- Waffen: ```getWaffen <Return: { name, würfel, würfelSeiten, plus, eigenschaften[], härte, fertigkeit, talent, beSlot, kampfstile[], kampfstil, rw, wm, lz, fernkampf, nahkampf, anzeigename}[]>```
 <br />
 ### Sonstiges
-- ```addWaffeneigenschaft <Parameter: TalentName, Eigenschaft>```<br />
-Beispiel: addWaffeneigenschaft('Unbewaffnet', 'Kopflastig')
-- ```removeWaffeneigenschaft <Parameter: TalentName, Eigenschaft>```<br />
-Beispiel: removeWaffeneigenschaft('Unbewaffnet', 'Zerbrechlich')
+- ```addWaffeneigenschaft <Parameter: WaffenName, Eigenschaft>```<br />
+Beispiel: addWaffeneigenschaft('Hand', 'Kopflastig')
+- ```removeWaffeneigenschaft <Parameter: WaffenName, Eigenschaft>```<br />
+Beispiel: removeWaffeneigenschaft('Hand', 'Zerbrechlich')
 <br />
 ## Besonderheiten
 
@@ -87,9 +87,9 @@ Parameter müssen mit Semikolon getrennt werden.
 
 ### Vorteil Waffenloser Kampf
 ```
-addWaffeneigenschaft('Unbewaffnet', 'Kopflastig'); addWaffeneigenschaft('Unbewaffnet', 'Wendig')
+Beispiel: for waffe in ['Hand', 'Fuß']: addWaffeneigenschaft(waffe, 'Kopflastig');  addWaffeneigenschaft(waffe, 'Wendig')
 ```
-Fügt allen Waffen, die mit dem Talent Unbewaffnet geführt werden, die Eigenschaften Kopflastig und Wendig hinzu.
+Fügt den Waffen Hand und Fuß die Eigenschaften Kopflastig und Wendig hinzu.
 <br />
 
 ### Vorteil Gefäß der Sterne

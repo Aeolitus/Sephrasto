@@ -38,6 +38,7 @@ class CharakterWaffenWrapper(QtCore.QObject):
         self.spinHärte = []
         self.editEig = []
         self.eigenschaftenCompleter = []
+        self.comboBE = []
         self.comboStil = []
         self.labelBasis = []
         self.labelWerte = []
@@ -93,6 +94,11 @@ class CharakterWaffenWrapper(QtCore.QObject):
             eigenschaftenCompleter = TextTagCompleter(editEig, Wolke.DB.waffeneigenschaften.keys())
             self.eigenschaftenCompleter.append(eigenschaftenCompleter)
 
+            comboBE = getattr(self.ui, "comboBEW" + str(i+1))
+            comboBE.currentIndexChanged.connect(self.updateWaffen)
+            comboBE.setEnabled(False)
+            self.comboBE.append(comboBE)
+
             comboStil = getattr(self.ui, "comboStil" + str(i+1))
             comboStil.currentIndexChanged.connect(self.updateWaffen)
             comboStil.setEnabled(False)
@@ -129,7 +135,7 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
             labelWerte = getattr(self.ui, "labelW" + str(i+1) + "Werte")
             labelWerte.setToolTip(f"""<p style='white-space:pre'><span style='{Wolke.FontAwesomeCSS}'>\uf6cf</span>   Kampfwerte
 
-- AT und VT: Talent-PW + WM + Kampfstilbonus - BE der ersten Rüstung -2 (falls zu schwer)
+- AT und VT: Talent-PW + WM + Kampfstilbonus - BE -2 (falls zu schwer)
 - TP: Waffen-TP + Schadensbonus (x2, falls kopflastig) + Kampfstilbonus</p>""")
             labelWerte.setStyleSheet("border: none;")
             self.labelWerte.append(labelWerte)
@@ -210,6 +216,7 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
         return diff
 
     def updateWeaponStats(self):
+        atVerboten = Wolke.DB.einstellungen["Waffen: Talente AT verboten"].wert
         vtVerboten = Wolke.DB.einstellungen["Waffen: Talente VT verboten"].wert
         for index in range(8):
             if index >= len(Wolke.Char.waffen) or not Wolke.Char.waffen[index].name:
@@ -221,6 +228,13 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
             self.labelMods[index].show()
             ww = Wolke.Char.waffenwerte[index]
             waffe = Wolke.Char.waffen[index]
+
+            at = ww.at
+            tp = f"""{ww.würfel}W{str(waffe.würfelSeiten)}{"+" if ww.plus >= 0 else ""}{ww.plus}"""
+            if waffe.name in atVerboten or waffe.talent in atVerboten:
+                at = "-"
+                tp = "-"
+
             vt = ww.vt
             if waffe.name in vtVerboten or waffe.talent in vtVerboten:
                 vt = "-"
@@ -230,7 +244,7 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
             diff = ', '.join(diff).replace(", Eigenschaften", "; Eigenschaften")
 
             self.labelBasis[index].setText(f"<span style='{Wolke.FontAwesomeCSS}'>\uf02d</span>&nbsp;&nbsp;{waffe.definition.anzeigename} ({waffe.talent})")
-            self.labelWerte[index].setText(f"""<span style='{Wolke.FontAwesomeCSS}'>\uf6cf</span>&nbsp;&nbsp;AT {ww.at}, VT {vt}, TP {ww.würfel}W{str(waffe.würfelSeiten)}{"+" if ww.plus >= 0 else ""}{ww.plus}""")
+            self.labelWerte[index].setText(f"""<span style='{Wolke.FontAwesomeCSS}'>\uf6cf</span>&nbsp;&nbsp;AT {at}, VT {vt}, TP {tp}""")
             if len(diff) > 0:
                 self.labelMods[index].setText(f"<span style='{Wolke.FontAwesomeCSS}'>\uf6e3</span>&nbsp;&nbsp;{diff}")
             else:
@@ -295,6 +309,7 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
             W.eigenschaften = list(map(str.strip, eigenschaften.split(",")))
         else:
             W.eigenschaften = []
+        W.beSlot = self.comboBE[index].currentIndex()
         W.kampfstil = self.comboStil[index].currentText()
 
         waffenHärteWSStern = Wolke.DB.einstellungen["Waffen: Härte WSStern"].wert
@@ -365,6 +380,7 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
         self.spinHärte[index].setValue(W.härte)
         self.spinRW[index].setValue(W.rw)
         self.spinWM[index].setValue(W.wm)
+        self.comboBE[index].setCurrentIndex(W.beSlot)
 
         if W.fernkampf:
             self.spinLZ[index].setValue(W.lz)
@@ -375,12 +391,14 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
         self.refreshDerivedWeaponValues(W, index)
 
         isEmpty = W.name == ""
+        atVerboten = W.name in Wolke.DB.einstellungen["Waffen: Talente AT verboten"].wert or W.talent in Wolke.DB.einstellungen["Waffen: Talente AT verboten"].wert
         self.editWName[index].setEnabled(not isEmpty)
         self.editEig[index].setEnabled(not isEmpty)
-        self.spinWürfel[index].setEnabled(not isEmpty)
-        self.spinPlus[index].setEnabled(not isEmpty)
-        self.spinRW[index].setEnabled(not isEmpty)
+        self.spinWürfel[index].setEnabled(not isEmpty and not atVerboten)
+        self.spinPlus[index].setEnabled(not isEmpty and not atVerboten)
+        self.spinRW[index].setEnabled(not isEmpty and not atVerboten)
         self.spinWM[index].setEnabled(not isEmpty)
+        self.comboBE[index].setEnabled(not isEmpty)
         self.comboStil[index].setEnabled(not isEmpty and self.comboStil[index].count() > 1)
         if isEmpty:
             self.spinHärte[index].setEnabled(False)

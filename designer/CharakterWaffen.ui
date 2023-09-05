@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>971</width>
-    <height>819</height>
+    <width>1198</width>
+    <height>889</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -37,13 +37,65 @@
      <property name="verticalSpacing">
       <number>0</number>
      </property>
-     <item row="3" column="2">
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item row="31" column="0">
+      <widget class="QLabel" name="labelW8LeftFrame">
+       <property name="minimumSize">
+        <size>
+         <width>5</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>4</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="11">
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="buttonW4Up">
+         <property name="toolTip">
+          <string>Waffe eine Zeile nach oben schieben</string>
+         </property>
+         <property name="text">
+          <string>Up</string>
+         </property>
+         <property name="class" stdset="0">
+          <string>iconTopDownArrow</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="buttonW4Down">
+         <property name="toolTip">
+          <string>Waffe eine Zeile nach unten schieben</string>
+         </property>
+         <property name="text">
+          <string>Down</string>
+         </property>
+         <property name="class" stdset="0">
+          <string>iconTopDownArrow</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="27" column="2">
+      <layout class="QHBoxLayout" name="horizontalLayout_12">
        <property name="spacing">
         <number>8</number>
        </property>
        <item>
-        <widget class="QSpinBox" name="spinW1w6">
+        <widget class="QSpinBox" name="spinW7w6">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -71,14 +123,14 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="labelW1seiten">
+        <widget class="QLabel" name="labelW7seiten">
          <property name="text">
           <string>W6 +</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QSpinBox" name="spinW1plus">
+        <widget class="QSpinBox" name="spinW7plus">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -110,11 +162,27 @@
        </item>
       </layout>
      </item>
-     <item row="15" column="7">
-      <widget class="QLineEdit" name="editW4eig"/>
+     <item row="27" column="13">
+      <widget class="QLabel" name="labelW7RightFrame">
+       <property name="minimumSize">
+        <size>
+         <width>5</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>4</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
      </item>
-     <item row="21" column="1">
-      <spacer name="verticalSpacer_7">
+     <item row="5" column="1">
+      <spacer name="verticalSpacer_2">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
@@ -129,8 +197,11 @@
        </property>
       </spacer>
      </item>
-     <item row="6" column="0" colspan="12">
-      <widget class="QLabel" name="labelW2TopFrame">
+     <item row="11" column="7">
+      <widget class="QLineEdit" name="editW3eig"/>
+     </item>
+     <item row="10" column="0" colspan="14">
+      <widget class="QLabel" name="labelW3TopFrame">
        <property name="maximumSize">
         <size>
          <width>16777215</width>
@@ -142,7 +213,29 @@
        </property>
       </widget>
      </item>
-     <item row="32" column="0" colspan="12">
+     <item row="15" column="5">
+      <widget class="QSpinBox" name="spinW4lz">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+      </widget>
+     </item>
+     <item row="32" column="0" colspan="14">
       <widget class="QWidget" name="labelContainerW8" native="true">
        <layout class="QHBoxLayout" name="horizontalLayout_18">
         <property name="spacing">
@@ -227,113 +320,98 @@
        </layout>
       </widget>
      </item>
-     <item row="11" column="9">
-      <layout class="QVBoxLayout" name="verticalLayout_4">
+     <item row="3" column="2">
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
        <property name="spacing">
-        <number>0</number>
+        <number>8</number>
        </property>
        <item>
-        <widget class="QPushButton" name="buttonW3Up">
-         <property name="toolTip">
-          <string>Waffe eine Zeile nach oben schieben</string>
+        <widget class="QSpinBox" name="spinW1w6">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
          </property>
-         <property name="text">
-          <string>Up</string>
+         <property name="minimumSize">
+          <size>
+           <width>25</width>
+           <height>0</height>
+          </size>
          </property>
-         <property name="class" stdset="0">
-          <string>iconTopDownArrow</string>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="buttonW3Down">
-         <property name="toolTip">
-          <string>Waffe eine Zeile nach unten schieben</string>
-         </property>
+        <widget class="QLabel" name="labelW1seiten">
          <property name="text">
-          <string>Down</string>
+          <string>W6 +</string>
          </property>
-         <property name="class" stdset="0">
-          <string>iconTopDownArrow</string>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="spinW1plus">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>25</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="minimum">
+          <number>-99</number>
          </property>
         </widget>
        </item>
       </layout>
      </item>
-     <item row="2" column="0" colspan="12">
-      <widget class="QLabel" name="labelW1TopFrame">
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>8</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLabel" name="labelWName">
-       <property name="font">
-        <font>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Name</string>
-       </property>
-       <property name="class" stdset="0">
-        <string>h4</string>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="8">
-      <widget class="QComboBox" name="comboStil2">
+     <item row="23" column="4">
+      <widget class="QSpinBox" name="spinW6wm">
        <property name="minimumSize">
         <size>
-         <width>160</width>
+         <width>44</width>
          <height>0</height>
         </size>
-       </property>
-       <property name="sizeAdjustPolicy">
-        <enum>QComboBox::AdjustToContents</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="7">
-      <widget class="QLineEdit" name="editW2eig"/>
-     </item>
-     <item row="0" column="2">
-      <widget class="QLabel" name="labelTP">
-       <property name="font">
-        <font>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="toolTip">
-        <string>Trefferpunkte</string>
-       </property>
-       <property name="text">
-        <string>TP</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
-       <property name="class" stdset="0">
-        <string>h4</string>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
        </property>
-      </widget>
-     </item>
-     <item row="27" column="10">
-      <widget class="QPushButton" name="addW7">
-       <property name="text">
-        <string>+</string>
+       <property name="minimum">
+        <number>-99</number>
        </property>
-       <property name="class" stdset="0">
-        <string>iconSmall</string>
+       <property name="maximum">
+        <number>99</number>
        </property>
       </widget>
      </item>
@@ -359,7 +437,7 @@
        </property>
       </widget>
      </item>
-     <item row="8" column="0" colspan="12">
+     <item row="8" column="0" colspan="14">
       <widget class="QWidget" name="labelContainerW2" native="true">
        <layout class="QHBoxLayout" name="horizontalLayout_5">
         <property name="spacing">
@@ -444,519 +522,6 @@
        </layout>
       </widget>
      </item>
-     <item row="27" column="1">
-      <widget class="QLineEdit" name="editW7name">
-       <property name="maximumSize">
-        <size>
-         <width>200</width>
-         <height>16777215</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item row="30" column="0" colspan="12">
-      <widget class="QLabel" name="labelW8TopFrame">
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>8</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="31" column="10">
-      <widget class="QPushButton" name="addW8">
-       <property name="text">
-        <string>+</string>
-       </property>
-       <property name="class" stdset="0">
-        <string>iconSmall</string>
-       </property>
-      </widget>
-     </item>
-     <item row="13" column="1">
-      <spacer name="verticalSpacer_5">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>12</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="31" column="8">
-      <widget class="QComboBox" name="comboStil8">
-       <property name="minimumSize">
-        <size>
-         <width>160</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="sizeAdjustPolicy">
-        <enum>QComboBox::AdjustToContents</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="23" column="4">
-      <widget class="QSpinBox" name="spinW6wm">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="minimum">
-        <number>-99</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
-       </property>
-      </widget>
-     </item>
-     <item row="19" column="9">
-      <layout class="QVBoxLayout" name="verticalLayout_6">
-       <property name="spacing">
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QPushButton" name="buttonW5Up">
-         <property name="toolTip">
-          <string>Waffe eine Zeile nach oben schieben</string>
-         </property>
-         <property name="text">
-          <string>Up</string>
-         </property>
-         <property name="class" stdset="0">
-          <string>iconTopDownArrow</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="buttonW5Down">
-         <property name="toolTip">
-          <string>Waffe eine Zeile nach unten schieben</string>
-         </property>
-         <property name="text">
-          <string>Down</string>
-         </property>
-         <property name="class" stdset="0">
-          <string>iconTopDownArrow</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="3" column="11">
-      <widget class="QLabel" name="labelW1RightFrame">
-       <property name="minimumSize">
-        <size>
-         <width>5</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>4</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="11" column="8">
-      <widget class="QComboBox" name="comboStil3">
-       <property name="minimumSize">
-        <size>
-         <width>160</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="sizeAdjustPolicy">
-        <enum>QComboBox::AdjustToContents</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="27" column="2">
-      <layout class="QHBoxLayout" name="horizontalLayout_12">
-       <property name="spacing">
-        <number>8</number>
-       </property>
-       <item>
-        <widget class="QSpinBox" name="spinW7w6">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>25</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="buttonSymbols">
-          <enum>QAbstractSpinBox::NoButtons</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="labelW7seiten">
-         <property name="text">
-          <string>W6 +</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QSpinBox" name="spinW7plus">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>25</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="buttonSymbols">
-          <enum>QAbstractSpinBox::NoButtons</enum>
-         </property>
-         <property name="minimum">
-          <number>-99</number>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="7" column="9">
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <property name="spacing">
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QPushButton" name="buttonW2Up">
-         <property name="toolTip">
-          <string>Waffe eine Zeile nach oben schieben</string>
-         </property>
-         <property name="text">
-          <string>Up</string>
-         </property>
-         <property name="class" stdset="0">
-          <string>iconTopDownArrow</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="buttonW2Down">
-         <property name="toolTip">
-          <string>Waffe eine Zeile nach unten schieben</string>
-         </property>
-         <property name="text">
-          <string>Down</string>
-         </property>
-         <property name="class" stdset="0">
-          <string>iconTopDownArrow</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="7" column="1">
-      <widget class="QLineEdit" name="editW2name">
-       <property name="maximumSize">
-        <size>
-         <width>200</width>
-         <height>16777215</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item row="11" column="5">
-      <widget class="QSpinBox" name="spinW3lz">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="minimum">
-        <number>0</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="8">
-      <widget class="QComboBox" name="comboStil1">
-       <property name="minimumSize">
-        <size>
-         <width>160</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="currentIndex">
-        <number>-1</number>
-       </property>
-       <property name="sizeAdjustPolicy">
-        <enum>QComboBox::AdjustToContents</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="11" column="6">
-      <widget class="QSpinBox" name="spinW3h">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="minimum">
-        <number>0</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
-       </property>
-       <property name="value">
-        <number>6</number>
-       </property>
-      </widget>
-     </item>
-     <item row="23" column="1">
-      <widget class="QLineEdit" name="editW6name">
-       <property name="maximumSize">
-        <size>
-         <width>200</width>
-         <height>16777215</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="1">
-      <spacer name="verticalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>12</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="7" column="11">
-      <widget class="QLabel" name="labelW2RightFrame">
-       <property name="minimumSize">
-        <size>
-         <width>5</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>4</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="11" column="0">
-      <widget class="QLabel" name="labelW3LeftFrame">
-       <property name="minimumSize">
-        <size>
-         <width>5</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>4</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="15" column="10">
-      <widget class="QPushButton" name="addW4">
-       <property name="text">
-        <string>+</string>
-       </property>
-       <property name="class" stdset="0">
-        <string>iconSmall</string>
-       </property>
-      </widget>
-     </item>
-     <item row="31" column="3">
-      <widget class="QSpinBox" name="spinW8rw">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="readOnly">
-        <bool>false</bool>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="maximum">
-        <number>999</number>
-       </property>
-      </widget>
-     </item>
-     <item row="19" column="2">
-      <layout class="QHBoxLayout" name="horizontalLayout_9">
-       <property name="spacing">
-        <number>8</number>
-       </property>
-       <item>
-        <widget class="QSpinBox" name="spinW5w6">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>25</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="buttonSymbols">
-          <enum>QAbstractSpinBox::NoButtons</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="labelW5seiten">
-         <property name="text">
-          <string>W6 +</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QSpinBox" name="spinW5plus">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>25</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="buttonSymbols">
-          <enum>QAbstractSpinBox::NoButtons</enum>
-         </property>
-         <property name="minimum">
-          <number>-99</number>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="31" column="1">
-      <widget class="QLineEdit" name="editW8name">
-       <property name="maximumSize">
-        <size>
-         <width>200</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="readOnly">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
      <item row="0" column="6">
       <widget class="QLabel" name="labelHaerte">
        <property name="font">
@@ -973,1112 +538,6 @@
        </property>
        <property name="class" stdset="0">
         <string>h4</string>
-       </property>
-      </widget>
-     </item>
-     <item row="15" column="3">
-      <widget class="QSpinBox" name="spinW4rw">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="maximum">
-        <number>999</number>
-       </property>
-      </widget>
-     </item>
-     <item row="15" column="9">
-      <layout class="QVBoxLayout" name="verticalLayout_5">
-       <property name="spacing">
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QPushButton" name="buttonW4Up">
-         <property name="toolTip">
-          <string>Waffe eine Zeile nach oben schieben</string>
-         </property>
-         <property name="text">
-          <string>Up</string>
-         </property>
-         <property name="class" stdset="0">
-          <string>iconTopDownArrow</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="buttonW4Down">
-         <property name="toolTip">
-          <string>Waffe eine Zeile nach unten schieben</string>
-         </property>
-         <property name="text">
-          <string>Down</string>
-         </property>
-         <property name="class" stdset="0">
-          <string>iconTopDownArrow</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="23" column="11">
-      <widget class="QLabel" name="labelW6RightFrame">
-       <property name="minimumSize">
-        <size>
-         <width>5</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>4</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="26" column="0" colspan="12">
-      <widget class="QLabel" name="labelW7TopFrame">
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>8</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="23" column="7">
-      <widget class="QLineEdit" name="editW6eig"/>
-     </item>
-     <item row="11" column="11">
-      <widget class="QLabel" name="labelW3RightFrame">
-       <property name="minimumSize">
-        <size>
-         <width>5</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>4</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="23" column="10">
-      <widget class="QPushButton" name="addW6">
-       <property name="text">
-        <string>+</string>
-       </property>
-       <property name="class" stdset="0">
-        <string>iconSmall</string>
-       </property>
-      </widget>
-     </item>
-     <item row="15" column="8">
-      <widget class="QComboBox" name="comboStil4">
-       <property name="minimumSize">
-        <size>
-         <width>160</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="sizeAdjustPolicy">
-        <enum>QComboBox::AdjustToContents</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="19" column="0">
-      <widget class="QLabel" name="labelW5LeftFrame">
-       <property name="minimumSize">
-        <size>
-         <width>5</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>4</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="19" column="8">
-      <widget class="QComboBox" name="comboStil5">
-       <property name="minimumSize">
-        <size>
-         <width>160</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="sizeAdjustPolicy">
-        <enum>QComboBox::AdjustToContents</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="7">
-      <widget class="QLineEdit" name="editW1eig"/>
-     </item>
-     <item row="19" column="11">
-      <widget class="QLabel" name="labelW5RightFrame">
-       <property name="minimumSize">
-        <size>
-         <width>5</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>4</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="4">
-      <widget class="QLabel" name="labelWM">
-       <property name="minimumSize">
-        <size>
-         <width>45</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="toolTip">
-        <string>Waffenmodifikator</string>
-       </property>
-       <property name="text">
-        <string>WM</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="class" stdset="0">
-        <string>h4</string>
-       </property>
-      </widget>
-     </item>
-     <item row="15" column="5">
-      <widget class="QSpinBox" name="spinW4lz">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="minimum">
-        <number>0</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
-       </property>
-      </widget>
-     </item>
-     <item row="27" column="4">
-      <widget class="QSpinBox" name="spinW7wm">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="minimum">
-        <number>-99</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
-       </property>
-      </widget>
-     </item>
-     <item row="15" column="4">
-      <widget class="QSpinBox" name="spinW4wm">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="minimum">
-        <number>-99</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
-       </property>
-      </widget>
-     </item>
-     <item row="23" column="6">
-      <widget class="QSpinBox" name="spinW6h">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="minimum">
-        <number>0</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
-       </property>
-       <property name="value">
-        <number>6</number>
-       </property>
-      </widget>
-     </item>
-     <item row="11" column="2">
-      <layout class="QHBoxLayout" name="horizontalLayout_7">
-       <property name="spacing">
-        <number>8</number>
-       </property>
-       <item>
-        <widget class="QSpinBox" name="spinW3w6">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>25</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="buttonSymbols">
-          <enum>QAbstractSpinBox::NoButtons</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="labelW3seiten">
-         <property name="text">
-          <string>W6 +</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QSpinBox" name="spinW3plus">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>25</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="buttonSymbols">
-          <enum>QAbstractSpinBox::NoButtons</enum>
-         </property>
-         <property name="minimum">
-          <number>-99</number>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="23" column="2">
-      <layout class="QHBoxLayout" name="horizontalLayout_10">
-       <property name="spacing">
-        <number>8</number>
-       </property>
-       <item>
-        <widget class="QSpinBox" name="spinW6w6">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>25</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="buttonSymbols">
-          <enum>QAbstractSpinBox::NoButtons</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="labelW6seiten">
-         <property name="text">
-          <string>W6 +</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QSpinBox" name="spinW6plus">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>25</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="buttonSymbols">
-          <enum>QAbstractSpinBox::NoButtons</enum>
-         </property>
-         <property name="minimum">
-          <number>-99</number>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="19" column="10">
-      <widget class="QPushButton" name="addW5">
-       <property name="text">
-        <string>+</string>
-       </property>
-       <property name="class" stdset="0">
-        <string>iconSmall</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0" colspan="12">
-      <widget class="QWidget" name="labelContainerW1" native="true">
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <property name="spacing">
-         <number>0</number>
-        </property>
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <property name="bottomMargin">
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="labelW1Basis">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Basiswaffe Hand</string>
-          </property>
-          <property name="margin">
-           <number>0</number>
-          </property>
-          <property name="indent">
-           <number>14</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelW1Werte">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Werte AT* 10 VT* 10 TP 2W6+2</string>
-          </property>
-          <property name="indent">
-           <number>14</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelW1Mods">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Verbesserungen AT +1</string>
-          </property>
-          <property name="indent">
-           <number>14</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item row="16" column="0" colspan="12">
-      <widget class="QWidget" name="labelContainerW4" native="true">
-       <layout class="QHBoxLayout" name="horizontalLayout_14">
-        <property name="spacing">
-         <number>0</number>
-        </property>
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <property name="bottomMargin">
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="labelW4Basis">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Basiswaffe Hand</string>
-          </property>
-          <property name="margin">
-           <number>0</number>
-          </property>
-          <property name="indent">
-           <number>14</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelW4Werte">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Werte AT* 10 VT* 10 TP 2W6+2</string>
-          </property>
-          <property name="indent">
-           <number>14</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelW4Mods">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Verbesserungen AT +1</string>
-          </property>
-          <property name="indent">
-           <number>14</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_5">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>467</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item row="11" column="4">
-      <widget class="QSpinBox" name="spinW3wm">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="minimum">
-        <number>-99</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
-       </property>
-      </widget>
-     </item>
-     <item row="23" column="3">
-      <widget class="QSpinBox" name="spinW6rw">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="maximum">
-        <number>999</number>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="0">
-      <widget class="QLabel" name="labelW2LeftFrame">
-       <property name="minimumSize">
-        <size>
-         <width>5</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>4</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="19" column="4">
-      <widget class="QSpinBox" name="spinW5wm">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="minimum">
-        <number>-99</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
-       </property>
-      </widget>
-     </item>
-     <item row="20" column="0" colspan="12">
-      <widget class="QWidget" name="labelContainerW5" native="true">
-       <layout class="QHBoxLayout" name="horizontalLayout_15">
-        <property name="spacing">
-         <number>0</number>
-        </property>
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <property name="bottomMargin">
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="labelW5Basis">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Basiswaffe Hand</string>
-          </property>
-          <property name="margin">
-           <number>0</number>
-          </property>
-          <property name="indent">
-           <number>14</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelW5Werte">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Werte AT* 10 VT* 10 TP 2W6+2</string>
-          </property>
-          <property name="indent">
-           <number>14</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelW5Mods">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Verbesserungen AT +1</string>
-          </property>
-          <property name="indent">
-           <number>14</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_6">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>467</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item row="9" column="1">
-      <spacer name="verticalSpacer_3">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>12</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="11" column="1">
-      <widget class="QLineEdit" name="editW3name">
-       <property name="maximumSize">
-        <size>
-         <width>200</width>
-         <height>16777215</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item row="28" column="0" colspan="12">
-      <widget class="QWidget" name="labelContainerW7" native="true">
-       <layout class="QHBoxLayout" name="horizontalLayout_17">
-        <property name="spacing">
-         <number>0</number>
-        </property>
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <property name="bottomMargin">
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="labelW7Basis">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Basiswaffe Hand</string>
-          </property>
-          <property name="margin">
-           <number>0</number>
-          </property>
-          <property name="indent">
-           <number>14</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelW7Werte">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Werte AT* 10 VT* 10 TP 2W6+2</string>
-          </property>
-          <property name="indent">
-           <number>14</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelW7Mods">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Verbesserungen AT +1</string>
-          </property>
-          <property name="indent">
-           <number>14</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_8">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>467</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item row="25" column="1">
-      <spacer name="verticalSpacer_8">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>12</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="19" column="7">
-      <widget class="QLineEdit" name="editW5eig"/>
-     </item>
-     <item row="0" column="3">
-      <widget class="QLabel" name="labelRW">
-       <property name="font">
-        <font>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="toolTip">
-        <string>Reichweite</string>
-       </property>
-       <property name="text">
-        <string>RW</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="class" stdset="0">
-        <string>h4</string>
-       </property>
-      </widget>
-     </item>
-     <item row="27" column="5">
-      <widget class="QSpinBox" name="spinW7lz">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="minimum">
-        <number>0</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
-       </property>
-      </widget>
-     </item>
-     <item row="23" column="9">
-      <layout class="QVBoxLayout" name="verticalLayout_7">
-       <property name="spacing">
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QPushButton" name="buttonW6Up">
-         <property name="toolTip">
-          <string>Waffe eine Zeile nach oben schieben</string>
-         </property>
-         <property name="text">
-          <string>Up</string>
-         </property>
-         <property name="class" stdset="0">
-          <string>iconTopDownArrow</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="buttonW6Down">
-         <property name="toolTip">
-          <string>Waffe eine Zeile nach unten schieben</string>
-         </property>
-         <property name="text">
-          <string>Down</string>
-         </property>
-         <property name="class" stdset="0">
-          <string>iconTopDownArrow</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="24" column="0" colspan="12">
-      <widget class="QWidget" name="labelContainerW6" native="true">
-       <layout class="QHBoxLayout" name="horizontalLayout_16">
-        <property name="spacing">
-         <number>0</number>
-        </property>
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <property name="bottomMargin">
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="labelW6Basis">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Basiswaffe Hand</string>
-          </property>
-          <property name="margin">
-           <number>0</number>
-          </property>
-          <property name="indent">
-           <number>14</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelW6Werte">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Werte AT* 10 VT* 10 TP 2W6+2</string>
-          </property>
-          <property name="indent">
-           <number>14</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="labelW6Mods">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>30</height>
-           </size>
-          </property>
-          <property name="text">
-           <string>Verbesserungen AT +1</string>
-          </property>
-          <property name="indent">
-           <number>14</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_7">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>467</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item row="11" column="3">
-      <widget class="QSpinBox" name="spinW3rw">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="maximum">
-        <number>999</number>
        </property>
       </widget>
      </item>
@@ -2164,8 +623,8 @@
        </item>
       </layout>
      </item>
-     <item row="31" column="5">
-      <widget class="QSpinBox" name="spinW8lz">
+     <item row="15" column="6">
+      <widget class="QSpinBox" name="spinW4h">
        <property name="minimumSize">
         <size>
          <width>44</width>
@@ -2174,66 +633,6 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
-       </property>
-       <property name="readOnly">
-        <bool>false</bool>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="minimum">
-        <number>0</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
-       </property>
-      </widget>
-     </item>
-     <item row="19" column="1">
-      <widget class="QLineEdit" name="editW5name">
-       <property name="maximumSize">
-        <size>
-         <width>200</width>
-         <height>16777215</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item row="19" column="5">
-      <widget class="QSpinBox" name="spinW5lz">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="minimum">
-        <number>0</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
-       </property>
-      </widget>
-     </item>
-     <item row="31" column="6">
-      <widget class="QSpinBox" name="spinW8h">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="readOnly">
-        <bool>false</bool>
        </property>
        <property name="buttonSymbols">
         <enum>QAbstractSpinBox::PlusMinus</enum>
@@ -2249,13 +648,199 @@
        </property>
       </widget>
      </item>
-     <item row="15" column="2">
-      <layout class="QHBoxLayout" name="horizontalLayout_8">
+     <item row="11" column="5">
+      <widget class="QSpinBox" name="spinW3lz">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="6">
+      <widget class="QSpinBox" name="spinW2h">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+       <property name="value">
+        <number>6</number>
+       </property>
+      </widget>
+     </item>
+     <item row="19" column="9">
+      <widget class="QComboBox" name="comboStil5">
+       <property name="minimumSize">
+        <size>
+         <width>160</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QComboBox::AdjustToContents</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="3">
+      <widget class="QSpinBox" name="spinW2rw">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="maximum">
+        <number>999</number>
+       </property>
+      </widget>
+     </item>
+     <item row="28" column="0" colspan="14">
+      <widget class="QWidget" name="labelContainerW7" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_17">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="labelW7Basis">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Basiswaffe Hand</string>
+          </property>
+          <property name="margin">
+           <number>0</number>
+          </property>
+          <property name="indent">
+           <number>14</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelW7Werte">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Werte AT* 10 VT* 10 TP 2W6+2</string>
+          </property>
+          <property name="indent">
+           <number>14</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelW7Mods">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Verbesserungen AT +1</string>
+          </property>
+          <property name="indent">
+           <number>14</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_8">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>467</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="27" column="5">
+      <widget class="QSpinBox" name="spinW7lz">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="2">
+      <layout class="QHBoxLayout" name="horizontalLayout_7">
        <property name="spacing">
         <number>8</number>
        </property>
        <item>
-        <widget class="QSpinBox" name="spinW4w6">
+        <widget class="QSpinBox" name="spinW3w6">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -2283,14 +868,14 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="labelW4seiten">
+        <widget class="QLabel" name="labelW3seiten">
          <property name="text">
           <string>W6 +</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QSpinBox" name="spinW4plus">
+        <widget class="QSpinBox" name="spinW3plus">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -2322,682 +907,9 @@
        </item>
       </layout>
      </item>
-     <item row="15" column="11">
-      <widget class="QLabel" name="labelW4RightFrame">
-       <property name="minimumSize">
-        <size>
-         <width>5</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>4</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="23" column="0">
-      <widget class="QLabel" name="labelW6LeftFrame">
-       <property name="minimumSize">
-        <size>
-         <width>5</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>4</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="27" column="9">
-      <layout class="QVBoxLayout" name="verticalLayout_8">
-       <property name="spacing">
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QPushButton" name="buttonW7Up">
-         <property name="toolTip">
-          <string>Waffe eine Zeile nach oben schieben</string>
-         </property>
-         <property name="text">
-          <string>Up</string>
-         </property>
-         <property name="class" stdset="0">
-          <string>iconTopDownArrow</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="buttonW7Down">
-         <property name="toolTip">
-          <string>Waffe eine Zeile nach unten schieben</string>
-         </property>
-         <property name="text">
-          <string>Down</string>
-         </property>
-         <property name="class" stdset="0">
-          <string>iconTopDownArrow</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="31" column="0">
-      <widget class="QLabel" name="labelW8LeftFrame">
-       <property name="minimumSize">
-        <size>
-         <width>5</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>4</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="18" column="0" colspan="12">
-      <widget class="QLabel" name="labelW5TopFrame">
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>8</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="23" column="8">
-      <widget class="QComboBox" name="comboStil6">
-       <property name="minimumSize">
-        <size>
-         <width>160</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="sizeAdjustPolicy">
-        <enum>QComboBox::AdjustToContents</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="19" column="6">
-      <widget class="QSpinBox" name="spinW5h">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="minimum">
-        <number>0</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
-       </property>
-       <property name="value">
-        <number>6</number>
-       </property>
-      </widget>
-     </item>
-     <item row="31" column="4">
-      <widget class="QSpinBox" name="spinW8wm">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="readOnly">
-        <bool>false</bool>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="minimum">
-        <number>-99</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
-       </property>
-      </widget>
-     </item>
-     <item row="15" column="0">
-      <widget class="QLabel" name="labelW4LeftFrame">
-       <property name="minimumSize">
-        <size>
-         <width>5</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>4</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="27" column="3">
-      <widget class="QSpinBox" name="spinW7rw">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="maximum">
-        <number>999</number>
-       </property>
-      </widget>
-     </item>
-     <item row="11" column="10">
-      <widget class="QPushButton" name="addW3">
-       <property name="text">
-        <string>+</string>
-       </property>
-       <property name="class" stdset="0">
-        <string>iconSmall</string>
-       </property>
-      </widget>
-     </item>
-     <item row="27" column="6">
-      <widget class="QSpinBox" name="spinW7h">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="minimum">
-        <number>0</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
-       </property>
-       <property name="value">
-        <number>6</number>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="5">
-      <widget class="QSpinBox" name="spinW1lz">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="minimum">
-        <number>0</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="10">
-      <widget class="QPushButton" name="addW1">
-       <property name="text">
-        <string>+</string>
-       </property>
-       <property name="class" stdset="0">
-        <string>iconSmall</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="6">
-      <widget class="QSpinBox" name="spinW1h">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="minimum">
-        <number>0</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
-       </property>
-       <property name="value">
-        <number>6</number>
-       </property>
-      </widget>
-     </item>
-     <item row="27" column="8">
-      <widget class="QComboBox" name="comboStil7">
-       <property name="minimumSize">
-        <size>
-         <width>160</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="sizeAdjustPolicy">
-        <enum>QComboBox::AdjustToContents</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="7">
-      <widget class="QLabel" name="labelEigenschaften">
-       <property name="font">
-        <font>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Eigenschaften</string>
-       </property>
-       <property name="class" stdset="0">
-        <string>h4</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <spacer name="verticalSpacer_10">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>8</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="7" column="10">
-      <widget class="QPushButton" name="addW2">
-       <property name="text">
-        <string>+</string>
-       </property>
-       <property name="class" stdset="0">
-        <string>iconSmall</string>
-       </property>
-      </widget>
-     </item>
-     <item row="10" column="0" colspan="12">
-      <widget class="QLabel" name="labelW3TopFrame">
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>8</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="22" column="0" colspan="12">
-      <widget class="QLabel" name="labelW6TopFrame">
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>8</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="14" column="0" colspan="12">
-      <widget class="QLabel" name="labelW4TopFrame">
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>8</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="3">
-      <widget class="QSpinBox" name="spinW1rw">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="maximum">
-        <number>999</number>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="4">
-      <widget class="QSpinBox" name="spinW2wm">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="minimum">
-        <number>-99</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
-       </property>
-      </widget>
-     </item>
-     <item row="15" column="6">
-      <widget class="QSpinBox" name="spinW4h">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="minimum">
-        <number>0</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
-       </property>
-       <property name="value">
-        <number>6</number>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="9">
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <property name="spacing">
-        <number>0</number>
-       </property>
-       <item>
-        <spacer name="verticalSpacer_4">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>10</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="buttonW1Down">
-         <property name="toolTip">
-          <string>Waffe eine Zeile nach unten schieben</string>
-         </property>
-         <property name="text">
-          <string>Down</string>
-         </property>
-         <property name="class" stdset="0">
-          <string>iconTopDownArrow</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="31" column="7">
-      <widget class="QLineEdit" name="editW8eig">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="readOnly">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="11" column="7">
-      <widget class="QLineEdit" name="editW3eig"/>
-     </item>
-     <item row="31" column="11">
-      <widget class="QLabel" name="labelW8RightFrame">
-       <property name="minimumSize">
-        <size>
-         <width>5</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>4</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="8">
-      <widget class="QLabel" name="labelKampfstil">
-       <property name="font">
-        <font>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Kampfstil</string>
-       </property>
-       <property name="class" stdset="0">
-        <string>h4</string>
-       </property>
-      </widget>
-     </item>
-     <item row="27" column="11">
-      <widget class="QLabel" name="labelW7RightFrame">
-       <property name="minimumSize">
-        <size>
-         <width>5</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>4</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="19" column="3">
-      <widget class="QSpinBox" name="spinW5rw">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="maximum">
-        <number>999</number>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="3">
-      <widget class="QSpinBox" name="spinW2rw">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="maximum">
-        <number>999</number>
-       </property>
-      </widget>
-     </item>
-     <item row="7" column="6">
-      <widget class="QSpinBox" name="spinW2h">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="minimum">
-        <number>0</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
-       </property>
-       <property name="value">
-        <number>6</number>
-       </property>
-      </widget>
-     </item>
-     <item row="29" column="1">
-      <spacer name="verticalSpacer_9">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>12</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="27" column="7">
-      <widget class="QLineEdit" name="editW7eig"/>
-     </item>
-     <item row="7" column="5">
-      <widget class="QSpinBox" name="spinW2lz">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="minimum">
-        <number>0</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
-       </property>
-      </widget>
-     </item>
-     <item row="15" column="1">
-      <widget class="QLineEdit" name="editW4name">
-       <property name="maximumSize">
-        <size>
-         <width>200</width>
-         <height>16777215</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item row="12" column="0" colspan="12">
-      <widget class="QWidget" name="labelContainerW3" native="true">
-       <layout class="QHBoxLayout" name="horizontalLayout_6">
+     <item row="20" column="0" colspan="14">
+      <widget class="QWidget" name="labelContainerW5" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_15">
         <property name="spacing">
          <number>0</number>
         </property>
@@ -3014,7 +926,7 @@
          <number>0</number>
         </property>
         <item>
-         <widget class="QLabel" name="labelW3Basis">
+         <widget class="QLabel" name="labelW5Basis">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -3033,7 +945,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="labelW3Werte">
+         <widget class="QLabel" name="labelW5Werte">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -3049,7 +961,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="labelW3Mods">
+         <widget class="QLabel" name="labelW5Mods">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -3065,13 +977,13 @@
          </widget>
         </item>
         <item>
-         <spacer name="horizontalSpacer_4">
+         <spacer name="horizontalSpacer_6">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>424</width>
+            <width>467</width>
             <height>20</height>
            </size>
           </property>
@@ -3080,30 +992,109 @@
        </layout>
       </widget>
      </item>
-     <item row="23" column="5">
-      <widget class="QSpinBox" name="spinW6lz">
-       <property name="minimumSize">
-        <size>
-         <width>44</width>
-         <height>0</height>
-        </size>
+     <item row="24" column="0" colspan="14">
+      <widget class="QWidget" name="labelContainerW6" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_16">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="labelW6Basis">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Basiswaffe Hand</string>
+          </property>
+          <property name="margin">
+           <number>0</number>
+          </property>
+          <property name="indent">
+           <number>14</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelW6Werte">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Werte AT* 10 VT* 10 TP 2W6+2</string>
+          </property>
+          <property name="indent">
+           <number>14</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelW6Mods">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Verbesserungen AT +1</string>
+          </property>
+          <property name="indent">
+           <number>14</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_7">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>467</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="labelWName">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
        </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
+       <property name="text">
+        <string>Name</string>
        </property>
-       <property name="buttonSymbols">
-        <enum>QAbstractSpinBox::PlusMinus</enum>
-       </property>
-       <property name="minimum">
-        <number>0</number>
-       </property>
-       <property name="maximum">
-        <number>99</number>
+       <property name="class" stdset="0">
+        <string>h4</string>
        </property>
       </widget>
      </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="labelW1LeftFrame">
+     <item row="7" column="13">
+      <widget class="QLabel" name="labelW2RightFrame">
        <property name="minimumSize">
         <size>
          <width>5</width>
@@ -3121,18 +1112,8 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="1">
-      <widget class="QLineEdit" name="editW1name">
-       <property name="maximumSize">
-        <size>
-         <width>200</width>
-         <height>16777215</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item row="17" column="1">
-      <spacer name="verticalSpacer_6">
+     <item row="13" column="1">
+      <spacer name="verticalSpacer_5">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
@@ -3220,6 +1201,337 @@
        </item>
       </layout>
      </item>
+     <item row="27" column="11">
+      <layout class="QVBoxLayout" name="verticalLayout_8">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="buttonW7Up">
+         <property name="toolTip">
+          <string>Waffe eine Zeile nach oben schieben</string>
+         </property>
+         <property name="text">
+          <string>Up</string>
+         </property>
+         <property name="class" stdset="0">
+          <string>iconTopDownArrow</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="buttonW7Down">
+         <property name="toolTip">
+          <string>Waffe eine Zeile nach unten schieben</string>
+         </property>
+         <property name="text">
+          <string>Down</string>
+         </property>
+         <property name="class" stdset="0">
+          <string>iconTopDownArrow</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="1" column="1">
+      <spacer name="verticalSpacer_10">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>8</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="3" column="5">
+      <widget class="QSpinBox" name="spinW1lz">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+      </widget>
+     </item>
+     <item row="21" column="1">
+      <spacer name="verticalSpacer_7">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>12</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="15" column="4">
+      <widget class="QSpinBox" name="spinW4wm">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>-99</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+      </widget>
+     </item>
+     <item row="23" column="12">
+      <widget class="QPushButton" name="addW6">
+       <property name="text">
+        <string>+</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>iconSmall</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="12">
+      <widget class="QPushButton" name="addW3">
+       <property name="text">
+        <string>+</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>iconSmall</string>
+       </property>
+      </widget>
+     </item>
+     <item row="27" column="6">
+      <widget class="QSpinBox" name="spinW7h">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+       <property name="value">
+        <number>6</number>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="1">
+      <widget class="QLineEdit" name="editW3name">
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>16777215</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="12">
+      <widget class="QPushButton" name="addW1">
+       <property name="text">
+        <string>+</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>iconSmall</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="11">
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="buttonW3Up">
+         <property name="toolTip">
+          <string>Waffe eine Zeile nach oben schieben</string>
+         </property>
+         <property name="text">
+          <string>Up</string>
+         </property>
+         <property name="class" stdset="0">
+          <string>iconTopDownArrow</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="buttonW3Down">
+         <property name="toolTip">
+          <string>Waffe eine Zeile nach unten schieben</string>
+         </property>
+         <property name="text">
+          <string>Down</string>
+         </property>
+         <property name="class" stdset="0">
+          <string>iconTopDownArrow</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="23" column="3">
+      <widget class="QSpinBox" name="spinW6rw">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="maximum">
+        <number>999</number>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0" colspan="14">
+      <widget class="QWidget" name="labelContainerW1" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="labelW1Basis">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Basiswaffe Hand</string>
+          </property>
+          <property name="margin">
+           <number>0</number>
+          </property>
+          <property name="indent">
+           <number>14</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelW1Werte">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Werte AT* 10 VT* 10 TP 2W6+2</string>
+          </property>
+          <property name="indent">
+           <number>14</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelW1Mods">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Verbesserungen AT +1</string>
+          </property>
+          <property name="indent">
+           <number>14</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="19" column="1">
+      <widget class="QLineEdit" name="editW5name">
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>16777215</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="editW1name">
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>16777215</height>
+        </size>
+       </property>
+      </widget>
+     </item>
      <item row="27" column="0">
       <widget class="QLabel" name="labelW7LeftFrame">
        <property name="minimumSize">
@@ -3239,7 +1551,45 @@
        </property>
       </widget>
      </item>
-     <item row="31" column="9">
+     <item row="3" column="9">
+      <widget class="QComboBox" name="comboStil1">
+       <property name="minimumSize">
+        <size>
+         <width>160</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="currentIndex">
+        <number>-1</number>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QComboBox::AdjustToContents</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="7">
+      <widget class="QLineEdit" name="editW4eig"/>
+     </item>
+     <item row="19" column="0">
+      <widget class="QLabel" name="labelW5LeftFrame">
+       <property name="minimumSize">
+        <size>
+         <width>5</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>4</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="31" column="11">
       <layout class="QVBoxLayout" name="verticalLayout_9">
        <property name="spacing">
         <number>0</number>
@@ -3275,6 +1625,712 @@
        </item>
       </layout>
      </item>
+     <item row="19" column="3">
+      <widget class="QSpinBox" name="spinW5rw">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="maximum">
+        <number>999</number>
+       </property>
+      </widget>
+     </item>
+     <item row="23" column="2">
+      <layout class="QHBoxLayout" name="horizontalLayout_10">
+       <property name="spacing">
+        <number>8</number>
+       </property>
+       <item>
+        <widget class="QSpinBox" name="spinW6w6">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>25</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelW6seiten">
+         <property name="text">
+          <string>W6 +</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="spinW6plus">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>25</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="minimum">
+          <number>-99</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="27" column="4">
+      <widget class="QSpinBox" name="spinW7wm">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>-99</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="12">
+      <widget class="QPushButton" name="addW2">
+       <property name="text">
+        <string>+</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>iconSmall</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="9">
+      <widget class="QComboBox" name="comboStil2">
+       <property name="minimumSize">
+        <size>
+         <width>160</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QComboBox::AdjustToContents</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="19" column="2">
+      <layout class="QHBoxLayout" name="horizontalLayout_9">
+       <property name="spacing">
+        <number>8</number>
+       </property>
+       <item>
+        <widget class="QSpinBox" name="spinW5w6">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>25</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelW5seiten">
+         <property name="text">
+          <string>W6 +</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="spinW5plus">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>25</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="minimum">
+          <number>-99</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="23" column="5">
+      <widget class="QSpinBox" name="spinW6lz">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+      </widget>
+     </item>
+     <item row="22" column="0" colspan="14">
+      <widget class="QLabel" name="labelW6TopFrame">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>8</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="7">
+      <widget class="QLineEdit" name="editW1eig"/>
+     </item>
+     <item row="19" column="7">
+      <widget class="QLineEdit" name="editW5eig"/>
+     </item>
+     <item row="29" column="1">
+      <spacer name="verticalSpacer_9">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>12</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="6" column="0" colspan="14">
+      <widget class="QLabel" name="labelW2TopFrame">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>8</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="27" column="1">
+      <widget class="QLineEdit" name="editW7name">
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>16777215</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="3">
+      <widget class="QSpinBox" name="spinW4rw">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="maximum">
+        <number>999</number>
+       </property>
+      </widget>
+     </item>
+     <item row="23" column="1">
+      <widget class="QLineEdit" name="editW6name">
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>16777215</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="31" column="7">
+      <widget class="QLineEdit" name="editW8eig">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="readOnly">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="19" column="6">
+      <widget class="QSpinBox" name="spinW5h">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+       <property name="value">
+        <number>6</number>
+       </property>
+      </widget>
+     </item>
+     <item row="31" column="4">
+      <widget class="QSpinBox" name="spinW8wm">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="readOnly">
+        <bool>false</bool>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>-99</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+      </widget>
+     </item>
+     <item row="26" column="0" colspan="14">
+      <widget class="QLabel" name="labelW7TopFrame">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>8</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0" colspan="14">
+      <widget class="QLabel" name="labelW1TopFrame">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>8</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLabel" name="labelTP">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>Trefferpunkte</string>
+       </property>
+       <property name="text">
+        <string>TP</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="labelW2LeftFrame">
+       <property name="minimumSize">
+        <size>
+         <width>5</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>4</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="18" column="0" colspan="14">
+      <widget class="QLabel" name="labelW5TopFrame">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>8</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="0" colspan="14">
+      <widget class="QLabel" name="labelW4TopFrame">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>8</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="13">
+      <widget class="QLabel" name="labelW3RightFrame">
+       <property name="minimumSize">
+        <size>
+         <width>5</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>4</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="7">
+      <widget class="QLabel" name="labelEigenschaften">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Eigenschaften</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="23" column="11">
+      <layout class="QVBoxLayout" name="verticalLayout_7">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="buttonW6Up">
+         <property name="toolTip">
+          <string>Waffe eine Zeile nach oben schieben</string>
+         </property>
+         <property name="text">
+          <string>Up</string>
+         </property>
+         <property name="class" stdset="0">
+          <string>iconTopDownArrow</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="buttonW6Down">
+         <property name="toolTip">
+          <string>Waffe eine Zeile nach unten schieben</string>
+         </property>
+         <property name="text">
+          <string>Down</string>
+         </property>
+         <property name="class" stdset="0">
+          <string>iconTopDownArrow</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="15" column="12">
+      <widget class="QPushButton" name="addW4">
+       <property name="text">
+        <string>+</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>iconSmall</string>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="2">
+      <layout class="QHBoxLayout" name="horizontalLayout_8">
+       <property name="spacing">
+        <number>8</number>
+       </property>
+       <item>
+        <widget class="QSpinBox" name="spinW4w6">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>25</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelW4seiten">
+         <property name="text">
+          <string>W6 +</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="spinW4plus">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>25</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::NoButtons</enum>
+         </property>
+         <property name="minimum">
+          <number>-99</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="11" column="9">
+      <widget class="QComboBox" name="comboStil3">
+       <property name="minimumSize">
+        <size>
+         <width>160</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QComboBox::AdjustToContents</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="31" column="5">
+      <widget class="QSpinBox" name="spinW8lz">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="readOnly">
+        <bool>false</bool>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="9">
+      <widget class="QLabel" name="labelKampfstil">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Kampfstil</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="31" column="13">
+      <widget class="QLabel" name="labelW8RightFrame">
+       <property name="minimumSize">
+        <size>
+         <width>5</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>4</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="1">
+      <widget class="QLineEdit" name="editW4name">
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>16777215</height>
+        </size>
+       </property>
+      </widget>
+     </item>
      <item row="0" column="5">
       <widget class="QLabel" name="labelLZ">
        <property name="minimumSize">
@@ -3303,6 +2359,1182 @@
        </property>
       </widget>
      </item>
+     <item row="19" column="12">
+      <widget class="QPushButton" name="addW5">
+       <property name="text">
+        <string>+</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>iconSmall</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="1">
+      <spacer name="verticalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>12</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="19" column="5">
+      <widget class="QSpinBox" name="spinW5lz">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="13">
+      <widget class="QLabel" name="labelW4RightFrame">
+       <property name="minimumSize">
+        <size>
+         <width>5</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>4</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="31" column="1">
+      <widget class="QLineEdit" name="editW8name">
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="readOnly">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="labelW1LeftFrame">
+       <property name="minimumSize">
+        <size>
+         <width>5</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>4</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLineEdit" name="editW2name">
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>16777215</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="6">
+      <widget class="QSpinBox" name="spinW1h">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+       <property name="value">
+        <number>6</number>
+       </property>
+      </widget>
+     </item>
+     <item row="19" column="4">
+      <widget class="QSpinBox" name="spinW5wm">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>-99</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+      </widget>
+     </item>
+     <item row="23" column="0">
+      <widget class="QLabel" name="labelW6LeftFrame">
+       <property name="minimumSize">
+        <size>
+         <width>5</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>4</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="0">
+      <widget class="QLabel" name="labelW3LeftFrame">
+       <property name="minimumSize">
+        <size>
+         <width>5</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>4</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="31" column="12">
+      <widget class="QPushButton" name="addW8">
+       <property name="text">
+        <string>+</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>iconSmall</string>
+       </property>
+      </widget>
+     </item>
+     <item row="19" column="11">
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="buttonW5Up">
+         <property name="toolTip">
+          <string>Waffe eine Zeile nach oben schieben</string>
+         </property>
+         <property name="text">
+          <string>Up</string>
+         </property>
+         <property name="class" stdset="0">
+          <string>iconTopDownArrow</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="buttonW5Down">
+         <property name="toolTip">
+          <string>Waffe eine Zeile nach unten schieben</string>
+         </property>
+         <property name="text">
+          <string>Down</string>
+         </property>
+         <property name="class" stdset="0">
+          <string>iconTopDownArrow</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="15" column="9">
+      <widget class="QComboBox" name="comboStil4">
+       <property name="minimumSize">
+        <size>
+         <width>160</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QComboBox::AdjustToContents</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="11">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="buttonW1Down">
+         <property name="toolTip">
+          <string>Waffe eine Zeile nach unten schieben</string>
+         </property>
+         <property name="text">
+          <string>Down</string>
+         </property>
+         <property name="class" stdset="0">
+          <string>iconTopDownArrow</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="25" column="1">
+      <spacer name="verticalSpacer_8">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>12</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="16" column="0" colspan="14">
+      <widget class="QWidget" name="labelContainerW4" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_14">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="labelW4Basis">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Basiswaffe Hand</string>
+          </property>
+          <property name="margin">
+           <number>0</number>
+          </property>
+          <property name="indent">
+           <number>14</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelW4Werte">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Werte AT* 10 VT* 10 TP 2W6+2</string>
+          </property>
+          <property name="indent">
+           <number>14</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelW4Mods">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Verbesserungen AT +1</string>
+          </property>
+          <property name="indent">
+           <number>14</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>467</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="27" column="12">
+      <widget class="QPushButton" name="addW7">
+       <property name="text">
+        <string>+</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>iconSmall</string>
+       </property>
+      </widget>
+     </item>
+     <item row="23" column="7">
+      <widget class="QLineEdit" name="editW6eig"/>
+     </item>
+     <item row="30" column="0" colspan="14">
+      <widget class="QLabel" name="labelW8TopFrame">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>8</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="31" column="3">
+      <widget class="QSpinBox" name="spinW8rw">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="readOnly">
+        <bool>false</bool>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="maximum">
+        <number>999</number>
+       </property>
+      </widget>
+     </item>
+     <item row="15" column="0">
+      <widget class="QLabel" name="labelW4LeftFrame">
+       <property name="minimumSize">
+        <size>
+         <width>5</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>4</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="0" colspan="14">
+      <widget class="QWidget" name="labelContainerW3" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="labelW3Basis">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Basiswaffe Hand</string>
+          </property>
+          <property name="margin">
+           <number>0</number>
+          </property>
+          <property name="indent">
+           <number>14</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelW3Werte">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Werte AT* 10 VT* 10 TP 2W6+2</string>
+          </property>
+          <property name="indent">
+           <number>14</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelW3Mods">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Verbesserungen AT +1</string>
+          </property>
+          <property name="indent">
+           <number>14</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>424</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="23" column="13">
+      <widget class="QLabel" name="labelW6RightFrame">
+       <property name="minimumSize">
+        <size>
+         <width>5</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>4</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="13">
+      <widget class="QLabel" name="labelW1RightFrame">
+       <property name="minimumSize">
+        <size>
+         <width>5</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>4</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="23" column="9">
+      <widget class="QComboBox" name="comboStil6">
+       <property name="minimumSize">
+        <size>
+         <width>160</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QComboBox::AdjustToContents</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="4">
+      <widget class="QSpinBox" name="spinW2wm">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>-99</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="4">
+      <widget class="QLabel" name="labelWM">
+       <property name="minimumSize">
+        <size>
+         <width>45</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>Waffenmodifikator</string>
+       </property>
+       <property name="text">
+        <string>WM</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="6">
+      <widget class="QSpinBox" name="spinW3h">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+       <property name="value">
+        <number>6</number>
+       </property>
+      </widget>
+     </item>
+     <item row="27" column="7">
+      <widget class="QLineEdit" name="editW7eig"/>
+     </item>
+     <item row="7" column="7">
+      <widget class="QLineEdit" name="editW2eig"/>
+     </item>
+     <item row="11" column="3">
+      <widget class="QSpinBox" name="spinW3rw">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="maximum">
+        <number>999</number>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="11">
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="buttonW2Up">
+         <property name="toolTip">
+          <string>Waffe eine Zeile nach oben schieben</string>
+         </property>
+         <property name="text">
+          <string>Up</string>
+         </property>
+         <property name="class" stdset="0">
+          <string>iconTopDownArrow</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="buttonW2Down">
+         <property name="toolTip">
+          <string>Waffe eine Zeile nach unten schieben</string>
+         </property>
+         <property name="text">
+          <string>Down</string>
+         </property>
+         <property name="class" stdset="0">
+          <string>iconTopDownArrow</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="31" column="6">
+      <widget class="QSpinBox" name="spinW8h">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="readOnly">
+        <bool>false</bool>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+       <property name="value">
+        <number>6</number>
+       </property>
+      </widget>
+     </item>
+     <item row="27" column="3">
+      <widget class="QSpinBox" name="spinW7rw">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="maximum">
+        <number>999</number>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="3">
+      <widget class="QSpinBox" name="spinW1rw">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="maximum">
+        <number>999</number>
+       </property>
+      </widget>
+     </item>
+     <item row="19" column="13">
+      <widget class="QLabel" name="labelW5RightFrame">
+       <property name="minimumSize">
+        <size>
+         <width>5</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>4</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="17" column="1">
+      <spacer name="verticalSpacer_6">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>12</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="23" column="6">
+      <widget class="QSpinBox" name="spinW6h">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+       <property name="value">
+        <number>6</number>
+       </property>
+      </widget>
+     </item>
+     <item row="27" column="9">
+      <widget class="QComboBox" name="comboStil7">
+       <property name="minimumSize">
+        <size>
+         <width>160</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QComboBox::AdjustToContents</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="5">
+      <widget class="QSpinBox" name="spinW2lz">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="4">
+      <widget class="QSpinBox" name="spinW3wm">
+       <property name="minimumSize">
+        <size>
+         <width>44</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::PlusMinus</enum>
+       </property>
+       <property name="minimum">
+        <number>-99</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="labelRW">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>Reichweite</string>
+       </property>
+       <property name="text">
+        <string>RW</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="31" column="9">
+      <widget class="QComboBox" name="comboStil8">
+       <property name="minimumSize">
+        <size>
+         <width>160</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QComboBox::AdjustToContents</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="8">
+      <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>BE</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>h4</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="8">
+      <widget class="QComboBox" name="comboBEW1">
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>Keine</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rüstung 1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rüstung 2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rüstung 3</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="7" column="8">
+      <widget class="QComboBox" name="comboBEW2">
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>Keine</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rüstung 1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rüstung 2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rüstung 3</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="11" column="8">
+      <widget class="QComboBox" name="comboBEW3">
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>Keine</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rüstung 1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rüstung 2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rüstung 3</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="15" column="8">
+      <widget class="QComboBox" name="comboBEW4">
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>Keine</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rüstung 1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rüstung 2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rüstung 3</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="19" column="8">
+      <widget class="QComboBox" name="comboBEW5">
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>Keine</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rüstung 1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rüstung 2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rüstung 3</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="23" column="8">
+      <widget class="QComboBox" name="comboBEW6">
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>Keine</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rüstung 1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rüstung 2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rüstung 3</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="27" column="8">
+      <widget class="QComboBox" name="comboBEW7">
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>Keine</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rüstung 1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rüstung 2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rüstung 3</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="31" column="8">
+      <widget class="QComboBox" name="comboBEW8">
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>Keine</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rüstung 1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rüstung 2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Rüstung 3</string>
+        </property>
+       </item>
+      </widget>
+     </item>
     </layout>
    </item>
    <item>
@@ -3329,7 +3561,9 @@
   <tabstop>spinW1lz</tabstop>
   <tabstop>spinW1h</tabstop>
   <tabstop>editW1eig</tabstop>
+  <tabstop>comboBEW1</tabstop>
   <tabstop>comboStil1</tabstop>
+  <tabstop>buttonW1Down</tabstop>
   <tabstop>addW1</tabstop>
   <tabstop>editW2name</tabstop>
   <tabstop>spinW2w6</tabstop>
@@ -3339,7 +3573,10 @@
   <tabstop>spinW2lz</tabstop>
   <tabstop>spinW2h</tabstop>
   <tabstop>editW2eig</tabstop>
+  <tabstop>comboBEW2</tabstop>
   <tabstop>comboStil2</tabstop>
+  <tabstop>buttonW2Up</tabstop>
+  <tabstop>buttonW2Down</tabstop>
   <tabstop>addW2</tabstop>
   <tabstop>editW3name</tabstop>
   <tabstop>spinW3w6</tabstop>
@@ -3349,7 +3586,10 @@
   <tabstop>spinW3lz</tabstop>
   <tabstop>spinW3h</tabstop>
   <tabstop>editW3eig</tabstop>
+  <tabstop>comboBEW3</tabstop>
   <tabstop>comboStil3</tabstop>
+  <tabstop>buttonW3Up</tabstop>
+  <tabstop>buttonW3Down</tabstop>
   <tabstop>addW3</tabstop>
   <tabstop>editW4name</tabstop>
   <tabstop>spinW4w6</tabstop>
@@ -3359,7 +3599,10 @@
   <tabstop>spinW4lz</tabstop>
   <tabstop>spinW4h</tabstop>
   <tabstop>editW4eig</tabstop>
+  <tabstop>comboBEW4</tabstop>
   <tabstop>comboStil4</tabstop>
+  <tabstop>buttonW4Up</tabstop>
+  <tabstop>buttonW4Down</tabstop>
   <tabstop>addW4</tabstop>
   <tabstop>editW5name</tabstop>
   <tabstop>spinW5w6</tabstop>
@@ -3369,7 +3612,10 @@
   <tabstop>spinW5lz</tabstop>
   <tabstop>spinW5h</tabstop>
   <tabstop>editW5eig</tabstop>
+  <tabstop>comboBEW5</tabstop>
   <tabstop>comboStil5</tabstop>
+  <tabstop>buttonW5Up</tabstop>
+  <tabstop>buttonW5Down</tabstop>
   <tabstop>addW5</tabstop>
   <tabstop>editW6name</tabstop>
   <tabstop>spinW6w6</tabstop>
@@ -3379,7 +3625,10 @@
   <tabstop>spinW6lz</tabstop>
   <tabstop>spinW6h</tabstop>
   <tabstop>editW6eig</tabstop>
+  <tabstop>comboBEW6</tabstop>
   <tabstop>comboStil6</tabstop>
+  <tabstop>buttonW6Up</tabstop>
+  <tabstop>buttonW6Down</tabstop>
   <tabstop>addW6</tabstop>
   <tabstop>editW7name</tabstop>
   <tabstop>spinW7w6</tabstop>
@@ -3389,7 +3638,10 @@
   <tabstop>spinW7lz</tabstop>
   <tabstop>spinW7h</tabstop>
   <tabstop>editW7eig</tabstop>
+  <tabstop>comboBEW7</tabstop>
   <tabstop>comboStil7</tabstop>
+  <tabstop>buttonW7Up</tabstop>
+  <tabstop>buttonW7Down</tabstop>
   <tabstop>addW7</tabstop>
   <tabstop>editW8name</tabstop>
   <tabstop>spinW8w6</tabstop>
@@ -3399,7 +3651,9 @@
   <tabstop>spinW8lz</tabstop>
   <tabstop>spinW8h</tabstop>
   <tabstop>editW8eig</tabstop>
+  <tabstop>comboBEW8</tabstop>
   <tabstop>comboStil8</tabstop>
+  <tabstop>buttonW8Up</tabstop>
   <tabstop>addW8</tabstop>
  </tabstops>
  <resources/>

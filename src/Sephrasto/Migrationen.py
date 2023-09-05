@@ -27,7 +27,7 @@ class Migrationen():
         pass
 
     datenbankCodeVersion = 7
-    charakterCodeVersion = 5
+    charakterCodeVersion = 6
 
     hausregelUpdates = []
     charakterUpdates = []
@@ -82,6 +82,7 @@ class Migrationen():
             Migrationen.charakter2zu3,
             Migrationen.charakter3zu4,
             Migrationen.charakter4zu5,
+            Migrationen.charakter5zu6,
         ]
 
         if not migrationen[Migrationen.charakterCodeVersion]:
@@ -633,7 +634,7 @@ class Migrationen():
             else:
                 fer.attrib["exportieren"] = "1"
 
-        objekte = xmlRoot.find('Objekte');
+        objekte = xmlRoot.find('Objekte')
         if objekte.find('Zonensystem') is None:
             etree.SubElement(objekte, 'Zonensystem').text = "True"
 
@@ -803,5 +804,12 @@ class Migrationen():
         charakterbogen = einstellungen.find('Charakterbogen').text
         etree.SubElement(einstellungen, 'DetailsAnzeigen').text = "0" if charakterbogen == "Standard Charakterbogen" else "1"
         etree.SubElement(einstellungen, 'DeaktivierteRegelKategorien').text = ""
+        return []
+
+    def charakter5zu6(xmlRoot):
+        # Weapons now have a new property "be"
+        objekte = xmlRoot.find('Objekte')
+        for waf in objekte.findall('Waffen/Waffe'):
+            waf.attrib["beSlot"] = "1"
         return []
 

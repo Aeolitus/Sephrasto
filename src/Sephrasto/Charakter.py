@@ -188,8 +188,8 @@ class Char():
             'getRüstung' : lambda: copy.deepcopy(self.rüstung), 
             'getWaffen' : lambda: copy.deepcopy(self.waffen), 
             'getAusrüstung' : lambda: copy.deepcopy(self.ausrüstung), 
-            'modifyFertigkeitBasiswert' : lambda name, mod: setattr(self.fertigkeiten[name], 'basiswertMod', self.fertigkeiten[name].basiswertMod + mod), 
-            'modifyÜbernatürlicheFertigkeitBasiswert' : self.API_modifyÜbernatürlicheFertigkeitBasiswert, 
+            'modifyFertigkeitBasiswert' : lambda name, mod: setattr(self.fertigkeiten[name], 'basiswertMod', self.fertigkeiten[name].basiswertMod + mod) if name in self.fertigkeiten else None, 
+            'modifyÜbernatürlicheFertigkeitBasiswert' : lambda name, mod: setattr(self.übernatürlicheFertigkeiten[name], 'basiswertMod', self.übernatürlicheFertigkeiten[name].basiswertMod + mod) if name in self.übernatürlicheFertigkeiten else None, 
             'modifyTalent' : self.API_modifyTalent, 
             'addTalent' : self.API_addTalent, 
 
@@ -295,12 +295,6 @@ class Char():
         if kosten != -1:
             talent.kosten = kosten
 
-    def API_modifyÜbernatürlicheFertigkeitBasiswert (self, name, mod):
-        if not name in self.übernatürlicheFertigkeiten:
-            return
-
-        self.übernatürlicheFertigkeiten[name].basiswertMod += mod
-
     def API_setKampfstil(self, kampfstil, at, vt, plus, rw, be = 0):
         k = self.kampfstilMods[kampfstil]
         k.at = at
@@ -313,34 +307,23 @@ class Char():
         k = self.kampfstilMods[kampfstil]
         self.API_setKampfstil(kampfstil, k.at + at, k.vt + vt, k.plus + plus, k.rw + rw, k.be + be)
 
-    def API_addWaffeneigenschaft(self, talentName, eigenschaft):
-        self.modifyWaffeneigenschaft(talentName, eigenschaft, False)
-
-    def API_removeWaffeneigenschaft(self, talentName, eigenschaft):
-        self.modifyWaffeneigenschaft(talentName, eigenschaft, True)
-
-    def modifyWaffeneigenschaft(self, talentName, eigenschaft, remove):
+    def API_addWaffeneigenschaft(self, waffenName, eigenschaft):
         for waffe in self.waffen:
-            talent = None
-            eigenschaftExists = False
-            if waffe.name in Wolke.DB.waffen:
-                dbWaffe = Wolke.DB.waffen[waffe.name]
-                talent = dbWaffe.talent
-                if (not remove) and (eigenschaft in dbWaffe.eigenschaften):
-                    continue
-                if remove and not (eigenschaft in dbWaffe.eigenschaften):
-                    continue
-            if talent != talentName:
+            if waffe.name != waffenName:
                 continue
-            self.waffenEigenschaftenUndo.append([waffe, eigenschaft, remove])
-            if remove:
-                if not (eigenschaft in waffe.eigenschaften):
-                    continue
-                waffe.eigenschaften.remove(eigenschaft)
-            else:
-                if eigenschaft in waffe.eigenschaften:
-                    continue
-                waffe.eigenschaften.append(eigenschaft)
+            if eigenschaft in waffe.eigenschaften:
+                continue
+            self.waffenEigenschaftenUndo.append([waffe, eigenschaft, False])
+            waffe.eigenschaften.append(eigenschaft)
+
+    def API_removeWaffeneigenschaft(self, waffenName, eigenschaft):
+        for waffe in self.waffen:
+            if waffe.name != waffenName:
+                continue
+            if eigenschaft not in waffe.eigenschaften:
+                continue
+            self.waffenEigenschaftenUndo.append([waffe, eigenschaft, True])
+            waffe.eigenschaften.remove(eigenschaft)
 
     def API_getWaffeneigenschaftParam(self, paramNb):
         match = re.search(r"\((.+?)\)", self.currentEigenschaft, re.UNICODE)
@@ -425,17 +408,17 @@ class Char():
 
         for fert in self.übernatürlicheFertigkeiten.values():
             fert.aktualisieren()
-
-        self.checkVoraussetzungen()
-
+        
         for tal in self.talente.values():
             tal.aktualisieren()
 
+        self.checkVoraussetzungen()
+
+        # Undo previous changes by Vorteil scripts before executing them again
         self.kampfstilMods = {}
         for ks in Wolke.DB.findKampfstile():
             self.kampfstilMods[ks] = KampfstilMod()
 
-        # Undo previous changes by Vorteil scripts before executing them again
         for value in self.waffenEigenschaftenUndo:
             waffe = value[0]
             wEigenschaft = value[1]
@@ -521,6 +504,8 @@ class Char():
             for ab in self.abgeleiteteWerte:
                 scriptAPI['get' + ab + 'Basis'] = lambda ab=ab: self.abgeleiteteWerte[ab].basiswert
                 scriptAPI['get' + ab] = lambda ab=ab: self.abgeleiteteWerte[ab].wert
+
+            scriptAPI['getBEBySlot'] = lambda rüstungsNr: 0 if rüstungsNr < 1 or len(self.rüstung) < rüstungsNr else self.rüstung[rüstungsNr-1].be
 
             try:
                 # Execute global script
@@ -838,6 +823,7 @@ class Char():
             wafNode.set('eigenschaften', ", ".join(waff.eigenschaften))
             wafNode.set('härte', str(waff.härte))
             wafNode.set('rw', str(waff.rw))
+            wafNode.set('beSlot', str(waff.beSlot))
             wafNode.set('kampfstil', waff.kampfstil)
             wafNode.set('wm', str(waff.wm))
             if waff.fernkampf:
@@ -1056,6 +1042,7 @@ class Char():
             if waf.attrib['eigenschaften']:
                 waff.eigenschaften = list(map(str.strip, waf.attrib['eigenschaften'].split(", ")))
             waff.härte = int(waf.attrib['härte'])
+            waff.beSlot = int(waf.attrib['beSlot'])
             waff.kampfstil = waf.attrib['kampfstil']
             self.waffen.append(waff)
 
