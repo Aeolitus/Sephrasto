@@ -47,10 +47,10 @@ Beispiele für besonderen Besitz sind:
 - Verbesserte und magische Waffe, aufladbares Schutzartefakt mit einfachem Auslöser (80 EP).
 - Verbessertes Enduriumschwert, verbesserter Toschkrilpanzer, Reithippogriff (120 EP).
 - Bewaffnetes Handelsschiff, semipermanentes Universalschutzamulett mit intelligentem Auslöser (160 EP).</Vorteil>
-  <Vorteil name="Einkommen I" kosten="20" voraussetzungen="" nachkauf="häufig" typ="0" variableKosten="0" kommentar="0" querverweise="Statusse">Deine Familie, Organisation oder ein persönlicher Mäzen stellt dir ein monatliches Einkommen von 4 Dukaten zur Verfügung, die du beispielsweise über eine Filiale der Nordlandbank oder ein Ordenshaus beziehen kannst. Fern der Zivilisation kannst du nicht auf dein Einkommen zugreifen. Das Einkommen reicht aus, um die Lebenserhaltungskosten eines Angehörigen der Unterschicht zu decken.</Vorteil>
-  <Vorteil name="Einkommen II" kosten="20" voraussetzungen="Vorteil Einkommen I" nachkauf="häufig" typ="0" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Einkommen I" querverweise="Statusse">Deine Familie, Organisation oder ein persönlicher Mäzen stellt dir ein monatliches Einkommen von 16 Dukaten zur Verfügung, die du beispielsweise über eine Filiale der Nordlandbank oder ein Ordenshaus beziehen kannst. Fern der Zivilisation kannst du nicht auf dein Einkommen zugreifen. Das Einkommen reicht aus, um die Lebenserhaltungskosten eines Angehörigen der Mittelschicht zu decken.</Vorteil>
-  <Vorteil name="Einkommen III" kosten="20" voraussetzungen="Vorteil Einkommen II" nachkauf="häufig" typ="0" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Einkommen II" querverweise="Statusse">Deine Familie, Organisation oder ein persönlicher Mäzen stellt dir ein monatliches Einkommen von 64 Dukaten zur Verfügung, die du beispielsweise über eine Filiale der Nordlandbank oder ein Ordenshaus beziehen kannst. Fern der Zivilisation kannst du nicht auf dein Einkommen zugreifen. Das Einkommen reicht aus, um die Lebenserhaltungskosten eines Angehörigen der Oberschicht zu decken.</Vorteil>
-  <Vorteil name="Einkommen IV" kosten="20" voraussetzungen="Vorteil Einkommen III" nachkauf="häufig" typ="0" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Einkommen III" querverweise="Statusse">Deine Familie, Organisation oder ein persönlicher Mäzen stellt dir ein monatliches Einkommen von 256 Dukaten zur Verfügung, die du beispielsweise über eine Filiale der Nordlandbank oder ein Ordenshaus beziehen kannst. Fern der Zivilisation kannst du nicht auf dein Einkommen zugreifen. Das Einkommen reicht aus, um die Lebenserhaltungskosten eines Angehörigen der Elite zu decken.</Vorteil>
+  <Vorteil name="Einkommen I" kosten="20" voraussetzungen="" nachkauf="häufig" typ="0" variableKosten="0" kommentar="0" querverweise="Statusse" info="Wenn Geld in eurem Spiel nicht so wichtig sein soll, könnt ihr den Vorteil Einkommen kostenlos an jeden Spielercharakter vergeben.">Deine Familie, Organisation oder ein persönlicher Mäzen stellt dir ein monatliches Einkommen von 4 Dukaten zur Verfügung, die du beispielsweise über eine Filiale der Nordlandbank oder ein Ordenshaus beziehen kannst. Fern der Zivilisation kannst du nicht auf dein Einkommen zugreifen. Das Einkommen reicht aus, um die Lebenserhaltungskosten eines Angehörigen der Unterschicht zu decken.</Vorteil>
+  <Vorteil name="Einkommen II" kosten="20" voraussetzungen="Vorteil Einkommen I" nachkauf="häufig" typ="0" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Einkommen I" querverweise="Statusse" info="Wenn Geld in eurem Spiel nicht so wichtig sein soll, könnt ihr den Vorteil Einkommen kostenlos an jeden Spielercharakter vergeben.">Deine Familie, Organisation oder ein persönlicher Mäzen stellt dir ein monatliches Einkommen von 16 Dukaten zur Verfügung, die du beispielsweise über eine Filiale der Nordlandbank oder ein Ordenshaus beziehen kannst. Fern der Zivilisation kannst du nicht auf dein Einkommen zugreifen. Das Einkommen reicht aus, um die Lebenserhaltungskosten eines Angehörigen der Mittelschicht zu decken.</Vorteil>
+  <Vorteil name="Einkommen III" kosten="20" voraussetzungen="Vorteil Einkommen II" nachkauf="häufig" typ="0" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Einkommen II" querverweise="Statusse" info="Wenn Geld in eurem Spiel nicht so wichtig sein soll, könnt ihr den Vorteil Einkommen kostenlos an jeden Spielercharakter vergeben.">Deine Familie, Organisation oder ein persönlicher Mäzen stellt dir ein monatliches Einkommen von 64 Dukaten zur Verfügung, die du beispielsweise über eine Filiale der Nordlandbank oder ein Ordenshaus beziehen kannst. Fern der Zivilisation kannst du nicht auf dein Einkommen zugreifen. Das Einkommen reicht aus, um die Lebenserhaltungskosten eines Angehörigen der Oberschicht zu decken.</Vorteil>
+  <Vorteil name="Einkommen IV" kosten="20" voraussetzungen="Vorteil Einkommen III" nachkauf="häufig" typ="0" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Einkommen III" querverweise="Statusse" info="Wenn Geld in eurem Spiel nicht so wichtig sein soll, könnt ihr den Vorteil Einkommen kostenlos an jeden Spielercharakter vergeben.">Deine Familie, Organisation oder ein persönlicher Mäzen stellt dir ein monatliches Einkommen von 256 Dukaten zur Verfügung, die du beispielsweise über eine Filiale der Nordlandbank oder ein Ordenshaus beziehen kannst. Fern der Zivilisation kannst du nicht auf dein Einkommen zugreifen. Das Einkommen reicht aus, um die Lebenserhaltungskosten eines Angehörigen der Elite zu decken.</Vorteil>
   <Vorteil name="Eisenaffine Aura" kosten="40" voraussetzungen="Vorteil Zauberer I" nachkauf="selten" typ="0" variableKosten="0" kommentar="0" querverweise="Regel:Bann des Eisens">Erschwernisse durch den Bann des Eisens (S. 78) sinken um 8 Punkte.</Vorteil>
   <Vorteil name="Gefahreninstinkt" kosten="100" voraussetzungen="" nachkauf="extrem selten" typ="0" variableKosten="0" kommentar="0" querverweise="Talent:Wachsamkeit">Mit der Gabe Gefahreninstinkt kannst du mit dem Talent Wachsamkeit auch Gefahren erfassen, die mit gewöhnlichen Sinnen nicht wahrzunehmen sind. Dazu gehören etwa magische Fallen oder eine bald losbrechende Lawine. Ist die Gefahr auch mit gewöhnlichen Sinnen wahrnehmbar erhältst du eine Erleichterung von +4.</Vorteil>
   <Vorteil name="Geweiht I" kosten="40" voraussetzungen="Kein Vorteil Paktierer I" nachkauf="üblich" typ="0" variableKosten="0" kommentar="0" script="modifyKaPBasis(8)">Du verfügst über 8 Karmapunkte und kannst kirchliche Traditionen erlernen.</Vorteil>
@@ -186,35 +186,35 @@ Nahkampf- und Wurfwaffen können in einer freien Aktion gezogen werden.</Vorteil
   <Vorteil name="Rüstungsgewöhnung" kosten="40" voraussetzungen="Attribut KO 6" nachkauf="häufig" typ="2" variableKosten="0" kommentar="0" script="modifyBE(-1)" csBeschreibung="Die BE aller Rüstungen ist um 1 gesenkt (bereits eingerechnet)." querverweise="Abgeleiteter Wert:BE">Die BE aller Rüstungen ist um 1 gesenkt.</Vorteil>
   <Vorteil name="Atemtechnik" kosten="60" voraussetzungen="Attribut KO 8" nachkauf="häufig" typ="2" variableKosten="0" kommentar="0" querverweise="Regel:Freie Aktion">Du fügst +1W6 Trefferpunkte zu. Du aktivierst den Effekt in einer Freien Aktion. Der Effekt endet, wenn du auf einen Schlag zwei Wunden erleidest oder nach KO Initiativephasen. Dann erleidest du einen Punkt Erschöpfung.</Vorteil>
   <Vorteil name="Verbesserte Rüstungsgewöhnung" kosten="80" voraussetzungen="Attribut KO 10" nachkauf="häufig" typ="2" variableKosten="0" kommentar="0" script="modifyBE(-2)" csBeschreibung="Die BE aller Rüstungen ist um 2 gesenkt (bereits eingerechnet)." linkKategorie="3" linkElement="Rüstungsgewöhnung" querverweise="Abgeleiteter Wert:BE">Die BE aller Rüstungen ist um 2 gesenkt.</Vorteil>
-  <Vorteil name="Beidhändiger Kampf I" kosten="20" voraussetzungen="Attribut GE 4" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Beidhändiger Kampf', 1, 0, 0, 0)" bedingungen="zwei einhändige Waffen, kein Schild, nicht beritten">Du erhältst AT +1.</Vorteil>
-  <Vorteil name="Beidhändiger Kampf II" kosten="40" voraussetzungen="Attribut GE 6, Vorteil Beidhändiger Kampf I" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Beidhändiger Kampf', 1, 0, 0, 0)" linkKategorie="3" linkElement="Beidhändiger Kampf I" querverweise="Regel:Nahkampfmodifikatoren|Regel:Reaktion|Regel:Freie Reaktion">Du erhältst AT +1.
+  <Vorteil name="Beidhändiger Kampf I" kosten="20" voraussetzungen="Attribut GE 4" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Beidhändiger Kampf', 1, 0, 0, 0)" bedingungen="zwei einhändige Waffen, kein Schild, nicht beritten">+1 AT</Vorteil>
+  <Vorteil name="Beidhändiger Kampf II" kosten="40" voraussetzungen="Attribut GE 6, Vorteil Beidhändiger Kampf I" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Beidhändiger Kampf', 1, 0, 0, 0)" linkKategorie="3" linkElement="Beidhändiger Kampf I" querverweise="Regel:Nahkampfmodifikatoren|Regel:Reaktion|Regel:Freie Reaktion">+1 AT
 
 Deine zweite Waffe ignoriert die übliche Erschwernis für Nebenwaffen. Dadurch kannst du den vollen Nutzen aus zwei unterschiedlichen Waffen ziehen. Falls du dennoch zwei identische Waffen nutzt, kannst du den ersten (bzw. mit Wendigen Waffen zweiten) Passierschlag zwischen zwei INI-Phasen als Freie Reaktion ausführen.</Vorteil>
-  <Vorteil name="Beidhändiger Kampf III" kosten="60" voraussetzungen="Attribut GE 8, Vorteil Beidhändiger Kampf II" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Beidhändiger Kampf', 1, 0, 0, 0)" linkKategorie="3" linkElement="Beidhändiger Kampf II" querverweise="Regel:Doppelangriff">Du erhältst AT +1.
+  <Vorteil name="Beidhändiger Kampf III" kosten="60" voraussetzungen="Attribut GE 8, Vorteil Beidhändiger Kampf II" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Beidhändiger Kampf', 1, 0, 0, 0)" linkKategorie="3" linkElement="Beidhändiger Kampf II" querverweise="Regel:Doppelangriff">+1 AT
 
 Erlaubt das Manöver Doppelangriff.</Vorteil>
   <Vorteil name="Beidhändiger Kampf IV" kosten="80" voraussetzungen="MeisterAttribut GE 10, Vorteil Beidhändiger Kampf III" nachkauf="häufig" typ="3" variableKosten="0" kommentar="1" csBeschreibung="Waffenmeister: $kommentar$." linkKategorie="3" linkElement="Beidhändiger Kampf III" info="Für je einen Punkt kannst du die fixe Erschwernis eines Manöver um einen Punkt senken (bis maximal auf die Hälfte), für 4 Punkte die AT oder VT um einen Punkt erhöhen oder für bis zu 4 Punkte ein passendes, neues Manöver erfinden. Besondere Vorteile wie eine geringere Patzerchance, höhere Reichweite oder Schaden sind ebenfalls möglich. Solche Vorteile – wie der Waffenmeister ganz allgemein – und ihre Kosten sollten unbedingt mit der Gruppe und dem Spielleiter abgesprochen werden. Trage die Verbesserungen in das Kommentarfeld ein.">8 Punkte können zur Verbesserung des Kampfstils verwendet werden.</Vorteil>
-  <Vorteil name="Kraftvoller Kampf I" kosten="20" voraussetzungen="Attribut KK 4" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Kraftvoller Kampf', 0, 0, 1, 0)" bedingungen="einzelne Nahkampfwaffe, nicht beritten">Dein Waffenschaden steigt um +1.</Vorteil>
-  <Vorteil name="Kraftvoller Kampf II" kosten="40" voraussetzungen="Attribut KK 6, Vorteil Kraftvoller Kampf I" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Kraftvoller Kampf', 0, 0, 1, 0)" linkKategorie="3" linkElement="Kraftvoller Kampf I" querverweise="Regel:Nahkampfmodifikatoren|Regel:Freie Aktion">Dein Waffenschaden steigt um +1.
+  <Vorteil name="Kraftvoller Kampf I" kosten="20" voraussetzungen="Attribut KK 4" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Kraftvoller Kampf', 0, 0, 1, 0)" bedingungen="einzelne Nahkampfwaffe, nicht beritten">+1 Waffenschaden</Vorteil>
+  <Vorteil name="Kraftvoller Kampf II" kosten="40" voraussetzungen="Attribut KK 6, Vorteil Kraftvoller Kampf I" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Kraftvoller Kampf', 0, 0, 1, 0)" linkKategorie="3" linkElement="Kraftvoller Kampf I" querverweise="Regel:Nahkampfmodifikatoren|Regel:Freie Aktion">+1 Waffenschaden
 
 Du kannst in eine Halbschwertstellung wechseln, um deine Waffe in einer um eins kleineren Reichweite zu führen. Der Wechsel in die Stellung oder zurück geschieht in einer Freien Aktion.</Vorteil>
-  <Vorteil name="Kraftvoller Kampf III" kosten="60" voraussetzungen="Attribut KK 8, Vorteil Kraftvoller Kampf II" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Kraftvoller Kampf', 0, 0, 1, 0)" linkKategorie="3" linkElement="Kraftvoller Kampf II" querverweise="Regel:Befreiungsschlag">Dein Waffenschaden steigt um +1.
+  <Vorteil name="Kraftvoller Kampf III" kosten="60" voraussetzungen="Attribut KK 8, Vorteil Kraftvoller Kampf II" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Kraftvoller Kampf', 0, 0, 1, 0)" linkKategorie="3" linkElement="Kraftvoller Kampf II" querverweise="Regel:Befreiungsschlag">+1 Waffenschaden
 
 Erlaubt das Manöver Befreiungsschlag.</Vorteil>
   <Vorteil name="Kraftvoller Kampf IV" kosten="80" voraussetzungen="MeisterAttribut KK 10, Vorteil Kraftvoller Kampf III" nachkauf="häufig" typ="3" variableKosten="0" kommentar="1" csBeschreibung="Waffenmeister: $kommentar$." linkKategorie="3" linkElement="Kraftvoller Kampf III" info="Für je einen Punkt kannst du die fixe Erschwernis eines Manöver um einen Punkt senken (bis maximal auf die Hälfte), für 4 Punkte die AT oder VT um einen Punkt erhöhen oder für bis zu 4 Punkte ein passendes, neues Manöver erfinden. Besondere Vorteile wie eine geringere Patzerchance, höhere Reichweite oder Schaden sind ebenfalls möglich. Solche Vorteile – wie der Waffenmeister ganz allgemein – und ihre Kosten sollten unbedingt mit der Gruppe und dem Spielleiter abgesprochen werden. Trage die Verbesserungen in das Kommentarfeld ein.">8 Punkte können zur Verbesserung des Kampfstils verwendet werden.</Vorteil>
-  <Vorteil name="Schildkampf I" kosten="20" voraussetzungen="Attribut KK 4" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Schildkampf', 0, 1, 0, 0)" bedingungen="Schild">Du erhältst VT +1.</Vorteil>
-  <Vorteil name="Schildkampf II" kosten="40" voraussetzungen="Attribut KK 6, Vorteil Schildkampf I" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Schildkampf', 0, 1, 0, 0)" linkKategorie="3" linkElement="Schildkampf I" querverweise="Regel:Nahkampfmodifikatoren|Regel:Freie Reaktion">Du erhältst VT +1.
+  <Vorteil name="Schildkampf I" kosten="20" voraussetzungen="Attribut KK 4" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Schildkampf', 0, 1, 0, 0)" bedingungen="Schild">+1 VT</Vorteil>
+  <Vorteil name="Schildkampf II" kosten="40" voraussetzungen="Attribut KK 6, Vorteil Schildkampf I" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Schildkampf', 0, 1, 0, 0)" linkKategorie="3" linkElement="Schildkampf I" querverweise="Regel:Nahkampfmodifikatoren|Regel:Freie Reaktion">+1 VT
 
 Dein Schild ignoriert die übliche Erschwernis für Nebenwaffen (S. 39). Außerdem kannst du die erste VT zwischen zwei Initiativephasen als Freie Reaktion ausführen.</Vorteil>
-  <Vorteil name="Schildkampf III" kosten="60" voraussetzungen="Attribut KK 8, Vorteil Schildkampf II" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Schildkampf', 0, 1, 0, 0)" linkKategorie="3" linkElement="Schildkampf II" querverweise="Regel:Schildwall">Du erhältst VT +1.
+  <Vorteil name="Schildkampf III" kosten="60" voraussetzungen="Attribut KK 8, Vorteil Schildkampf II" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Schildkampf', 0, 1, 0, 0)" linkKategorie="3" linkElement="Schildkampf II" querverweise="Regel:Schildwall">+1 VT
 
 Erlaubt das Manöver Schildwall.</Vorteil>
   <Vorteil name="Schildkampf IV" kosten="80" voraussetzungen="MeisterAttribut KK 10, Vorteil Schildkampf III" nachkauf="häufig" typ="3" variableKosten="0" kommentar="1" csBeschreibung="Waffenmeister: $kommentar$." linkKategorie="3" linkElement="Schildkampf III" info="Für je einen Punkt kannst du die fixe Erschwernis eines Manöver um einen Punkt senken (bis maximal auf die Hälfte), für 4 Punkte die AT oder VT um einen Punkt erhöhen oder für bis zu 4 Punkte ein passendes, neues Manöver erfinden. Besondere Vorteile wie eine geringere Patzerchance, höhere Reichweite oder Schaden sind ebenfalls möglich. Solche Vorteile – wie der Waffenmeister ganz allgemein – und ihre Kosten sollten unbedingt mit der Gruppe und dem Spielleiter abgesprochen werden. Trage die Verbesserungen in das Kommentarfeld ein.">8 Punkte können zur Verbesserung des Kampfstils verwendet werden.</Vorteil>
-  <Vorteil name="Schneller Kampf I" kosten="20" voraussetzungen="Attribut GE 4" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Schneller Kampf', 1, 0, 0, 0)" bedingungen="einzelne Nahkampfwaffe, nicht beritten">Du erhältst AT +1.</Vorteil>
-  <Vorteil name="Schneller Kampf II" kosten="40" voraussetzungen="Attribut GE 6, Vorteil Schneller Kampf I" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Schneller Kampf', 1, 0, 0, 0)" linkKategorie="3" linkElement="Schneller Kampf I" querverweise="Regel:Nahkampfmodifikatoren|Regel:Freie Aktion">Du erhältst AT +1.
+  <Vorteil name="Schneller Kampf I" kosten="20" voraussetzungen="Attribut GE 4" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Schneller Kampf', 1, 0, 0, 0)" bedingungen="einzelne Nahkampfwaffe, nicht beritten">+1 AT</Vorteil>
+  <Vorteil name="Schneller Kampf II" kosten="40" voraussetzungen="Attribut GE 6, Vorteil Schneller Kampf I" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Schneller Kampf', 1, 0, 0, 0)" linkKategorie="3" linkElement="Schneller Kampf I" querverweise="Regel:Nahkampfmodifikatoren|Regel:Freie Aktion">+1 AT
 
 Du kannst in eine Halbschwertstellung wechseln, um deine Waffe in einer um 1 kleineren Reichweite zu führen. Der Wechsel in die Stellung oder zurück geschieht in einer Freien Aktion.</Vorteil>
-  <Vorteil name="Schneller Kampf III" kosten="60" voraussetzungen="Attribut GE 8, Vorteil Schneller Kampf II" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Schneller Kampf', 1, 0, 0, 0)" linkKategorie="3" linkElement="Schneller Kampf II" querverweise="Regel:Unterlaufen">Du erhältst AT +1.
+  <Vorteil name="Schneller Kampf III" kosten="60" voraussetzungen="Attribut GE 8, Vorteil Schneller Kampf II" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Schneller Kampf', 1, 0, 0, 0)" linkKategorie="3" linkElement="Schneller Kampf II" querverweise="Regel:Unterlaufen">+1 AT
 
 Erlaubt das Manöver Unterlaufen.</Vorteil>
   <Vorteil name="Schneller Kampf IV" kosten="80" voraussetzungen="MeisterAttribut GE 10, Vorteil Schneller Kampf III" nachkauf="häufig" typ="3" variableKosten="0" kommentar="1" csBeschreibung="Waffenmeister: $kommentar$." linkKategorie="3" linkElement="Schneller Kampf III" info="Für je einen Punkt kannst du die fixe Erschwernis eines Manöver um einen Punkt senken (bis maximal auf die Hälfte), für 4 Punkte die AT oder VT um einen Punkt erhöhen oder für bis zu 4 Punkte ein passendes, neues Manöver erfinden. Besondere Vorteile wie eine geringere Patzerchance, höhere Reichweite oder Schaden sind ebenfalls möglich. Solche Vorteile – wie der Waffenmeister ganz allgemein – und ihre Kosten sollten unbedingt mit der Gruppe und dem Spielleiter abgesprochen werden. Trage die Verbesserungen in das Kommentarfeld ein.">8 Punkte können zur Verbesserung des Kampfstils verwendet werden.</Vorteil>
@@ -226,13 +226,13 @@ Deine Parierwaffe ignoriert die üblichen Erschwernisse für Nebenwaffen (S. 39)
 
 Erlaubt das Manöver Riposte.</Vorteil>
   <Vorteil name="Parierwaffenkampf IV" kosten="80" voraussetzungen="MeisterAttribut GE 10, Vorteil Parierwaffenkampf III" nachkauf="häufig" typ="3" variableKosten="0" kommentar="1" csBeschreibung="Waffenmeister: $kommentar$." linkKategorie="3" linkElement="Parierwaffenkampf III" info="Für je einen Punkt kannst du die fixe Erschwernis eines Manöver um einen Punkt senken (bis maximal auf die Hälfte), für 4 Punkte die AT oder VT um einen Punkt erhöhen oder für bis zu 4 Punkte ein passendes, neues Manöver erfinden. Besondere Vorteile wie eine geringere Patzerchance, höhere Reichweite oder Schaden sind ebenfalls möglich. Solche Vorteile – wie der Waffenmeister ganz allgemein – und ihre Kosten sollten unbedingt mit der Gruppe und dem Spielleiter abgesprochen werden. Trage die Verbesserungen in das Kommentarfeld ein.">8 Punkte können zur Verbesserung des Kampfstils verwendet werden.</Vorteil>
-  <Vorteil name="Reiterkampf I" kosten="20" voraussetzungen="Attribut GE 4 ODER Attribut KK 4" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Reiterkampf', 1, 1, 1, 0)" querverweise="Regel:Sturmangriff|Waffeneigenschaft:Reittier" bedingungen="beritten">Du erhältst Waffenschaden +1, AT +1 und VT +1.
+  <Vorteil name="Reiterkampf I" kosten="20" voraussetzungen="Attribut GE 4 ODER Attribut KK 4" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Reiterkampf', 1, 1, 1, 0)" querverweise="Regel:Sturmangriff|Waffeneigenschaft:Reittier" bedingungen="beritten">+1 AT, VT, Waffenschaden
 
 Erlaubt das Manöver Sturmangriff mit dem Reittier.</Vorteil>
-  <Vorteil name="Reiterkampf II" kosten="40" voraussetzungen="Attribut GE 6 ODER Attribut KK 6, Vorteil Reiterkampf I" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Reiterkampf', 1, 1, 1, 0, -1)" linkKategorie="3" linkElement="Reiterkampf I" querverweise="Regel:Nahkampfmodifikatoren|Waffeneigenschaft:Reittier|Regel:Fernkampfmodifikatoren">Du erhältst Waffenschaden +1, AT +1 und VT +1.
+  <Vorteil name="Reiterkampf II" kosten="40" voraussetzungen="Attribut GE 6 ODER Attribut KK 6, Vorteil Reiterkampf I" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Reiterkampf', 1, 1, 1, 0, -1)" linkKategorie="3" linkElement="Reiterkampf I" querverweise="Regel:Nahkampfmodifikatoren|Waffeneigenschaft:Reittier|Regel:Fernkampfmodifikatoren">+1 AT, VT, Waffenschaden
 
 Dein Reittier ignoriert die üblichen Erschwernisse für Nebenwaffen (S. 39) und im Reiterkampf ist die BE durch Rüstungen um 1 gesenkt. Außerdem ignorierst du im Fernkampf du den Malus für berittene Schützen (S. 46).</Vorteil>
-  <Vorteil name="Reiterkampf III" kosten="60" voraussetzungen="Attribut GE 8 ODER Attribut KK 8, Vorteil Reiterkampf II" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Reiterkampf', 1, 1, 1, 0)" linkKategorie="3" linkElement="Reiterkampf II" querverweise="Regel:Überrennen|Waffeneigenschaft:Reittier">Du erhältst Waffenschaden +1, AT +1 und VT +1.
+  <Vorteil name="Reiterkampf III" kosten="60" voraussetzungen="Attribut GE 8 ODER Attribut KK 8, Vorteil Reiterkampf II" nachkauf="häufig" typ="3" variableKosten="0" kommentar="0" script="modifyKampfstil('Reiterkampf', 1, 1, 1, 0)" linkKategorie="3" linkElement="Reiterkampf II" querverweise="Regel:Überrennen|Waffeneigenschaft:Reittier">+1 AT, VT, Waffenschaden
 
 Erlaubt das Manöver Überrennen mit dem Reittier.</Vorteil>
   <Vorteil name="Reiterkampf IV" kosten="80" voraussetzungen="MeisterAttribut GE 10 ODER MeisterAttribut KK 10, Vorteil Reiterkampf III" nachkauf="häufig" typ="3" variableKosten="0" kommentar="1" csBeschreibung="Waffenmeister: $kommentar$." linkKategorie="3" linkElement="Reiterkampf III" info="Für je einen Punkt kannst du die fixe Erschwernis eines Manöver um einen Punkt senken (bis maximal auf die Hälfte), für 4 Punkte die AT oder VT um einen Punkt erhöhen oder für bis zu 4 Punkte ein passendes, neues Manöver erfinden. Besondere Vorteile wie eine geringere Patzerchance, höhere Reichweite oder Schaden sind ebenfalls möglich. Solche Vorteile – wie der Waffenmeister ganz allgemein – und ihre Kosten sollten unbedingt mit der Gruppe und dem Spielleiter abgesprochen werden. Trage die Verbesserungen in das Kommentarfeld ein.">8 Punkte können zur Verbesserung des Kampfstils verwendet werden.</Vorteil>
@@ -1330,7 +1330,7 @@ Schattensprung (-8, 4 Aktionen, Wirkungsdauer 16 Initiativephasen, 16 AsP; du ve
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Eigenschaften, Verständigung
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach, Dru, Geo, Hex 20; 60 EP
-Anmerkungen: Gerüchten zufolge gibt es eine Möglichkeit, mit der der Zaubernde den Körper seines Zieles permanent übernehmen kann.</Talent>
+&lt;b&gt;Anmerkungen:&lt;/b&gt; Gerüchten zufolge gibt es eine Möglichkeit, mit der der Zaubernde den Körper seines Zieles permanent übernehmen kann.</Talent>
   <Talent name="Sensattaco Meisterstreich" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Eigenschaften, Hellsicht" variableKosten="0" referenzseite="132" referenzbuch="0">Dein Ziel erkennt intuitiv die Lücken in der Verteidigung des Gegners. Seine AT sind um +2 erleichtert und seine Chance auf einen Triumph bei einer AT steigt um 1 auf dem W20 (zum Beispiel von 20 auf 19-20).
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +1.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
@@ -3049,9 +3049,9 @@ Permanenz (-4, 4 AsP, davon 1 gAsP, Wirkungsdauer bis die Bindung gelöst wird o
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Luft, Umwelt
 &lt;b&gt;Erlernen:&lt;/b&gt; Elf 16; Mag 20, 40 EP</Talent>
   <Talent name="Wettermeisterschaft" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Luft, Umwelt" variableKosten="0" referenzseite="148" referenzbuch="0">Das Wetter in einer Zone von bis zu 1 Meile Radius verändert sich nach deinem Willen. Du kannst folgende Skalen um insgesamt zwei Stufen verändern:
-Niederschlag: trocken/Nieselregen/Regen/starker Regen/Wolkenbruch
-Wind: windstill/leichte Brise/steife Brise/Sturm/Orkan
-Temperatur: heiß/warm/mittel/kühl/kalt.
+&lt;b&gt;Niederschlag:&lt;/b&gt; trocken/Nieselregen/Regen/starker Regen/Wolkenbruch
+&lt;b&gt;Wind:&lt;/b&gt; windstill/leichte Brise/steife Brise/Sturm/Orkan
+&lt;b&gt;Temperatur:&lt;/b&gt; heiß/warm/mittel/kühl/kalt.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Du kannst die Skalen um eine weitere Stufe verändern.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Minuten
@@ -4513,12 +4513,12 @@ Permanenz (-4, Wirkungsdauer bis die Bindung gelöst wird, 16 AsP, davon 2 gAsP)
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Kraft, Geister der Stärkung, Verwandlung
 &lt;b&gt;Erlernen:&lt;/b&gt; Smn 18; 40 EP</Talent>
   <Talent name="Hauch des Elements" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Eis, Erz, Feuer, Humus, Luft, Wasser, Geister der Stärkung" variableKosten="0" referenzseite="162" referenzbuch="0">Du bindest einen elementaren Effekt in ein maximal truhengroßes Objekt. Der Effekt bemisst sich nach dem gewählten Element.
-Eis: Senkt die Temperatur des Objekts und in seinem Inneren um 1 Stufe.
-Erz: Verdoppelt das Gewicht des Objekts und seines Inhaltes.
-Feuer: Erhöht die Temperatur des Objekts und in seinem Inneren um 1 Stufe.
-Humus: Vervierfacht die Wachstumsgeschwindigkeit von Pflanzen.
-Luft: Verringert das Gewicht des Objekts und seines Inhalts um ein Viertel.
-Wasser: Macht einen faustgroßen Teil biegsam wie Wachs.
+&lt;b&gt;Eis:&lt;/b&gt; Senkt die Temperatur des Objekts und in seinem Inneren um 1 Stufe.
+&lt;b&gt;Erz:&lt;/b&gt; Verdoppelt das Gewicht des Objekts und seines Inhaltes.
+&lt;b&gt;Feuer:&lt;/b&gt; Erhöht die Temperatur des Objekts und in seinem Inneren um 1 Stufe.
+&lt;b&gt;Humus:&lt;/b&gt; Vervierfacht die Wachstumsgeschwindigkeit von Pflanzen.
+&lt;b&gt;Luft:&lt;/b&gt; Verringert das Gewicht des Objekts und seines Inhalts um ein Viertel.
+&lt;b&gt;Wasser:&lt;/b&gt; Macht einen faustgroßen Teil biegsam wie Wachs.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Stunde
 &lt;b&gt;Ziel:&lt;/b&gt; Einzelobjekt
@@ -5419,9 +5419,9 @@ Geister vertreiben (Entspricht dem allgemeinen Zauber Geister austreiben (S. 127
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Ringrituale
 &lt;b&gt;Erlernen:&lt;/b&gt; Geo 18; 40 EP</Talent>
   <Talent name="Macht über den Regen" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Geoden I" verbilligt="0" fertigkeiten="Luft, Ringrituale, Umwelt, Wasser" variableKosten="0" referenzseite="170" referenzbuch="0">Das Wetter in einer Zone von bis zu 1 Meile Radius verändert sich nach deinem Willen. Du kannst folgende Skalen um insgesamt zwei Stufen verändern:
-Niederschlag: trocken/Nieselregen/Regen/starker Regen/Wolkenbruch
-Wind: windstill/leichte Brise/steife Brise/Sturm/Orkan
-Temperatur: heiß/warm/mittel/kühl/kalt.
+&lt;b&gt;Niederschlag:&lt;/b&gt; trocken/Nieselregen/Regen/starker Regen/Wolkenbruch
+&lt;b&gt;Wind:&lt;/b&gt; windstill/leichte Brise/steife Brise/Sturm/Orkan
+&lt;b&gt;Temperatur:&lt;/b&gt; heiß/warm/mittel/kühl/kalt.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Du kannst die Skalen um eine weitere Stufe verändern.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Minuten
@@ -6378,7 +6378,7 @@ Große Traumreise (-8, 16 KaP; du kannst mit einigen Gefährten in den Traum rei
 &lt;b&gt;Kosten:&lt;/b&gt; 8 KaP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Ehre, Guter Kampf, Jagd, List, Magie, Tod, Wind und Wogen
 &lt;b&gt;Erlernen:&lt;/b&gt; Fir, Ifi 14; Eff, Ron 16; Bor, Hes, Kor, Phe 18; normalerweise 40 EP
-Anmerkungen: Nur herausragende Geweihte können sich in Tiere verwandeln, die nicht zu den Größenklassen klein oder mittel gehören. Solche Verwandlungen sind prinzipiell um -8 erschwert. Die Lernkosten des Zaubers orientieren sich an der Tierart, wobei fliegende, giftige, sehr starke usw. Tiere teurer sind.</Talent>
+&lt;b&gt;Anmerkungen:&lt;/b&gt; Nur herausragende Geweihte können sich in Tiere verwandeln, die nicht zu den Größenklassen klein oder mittel gehören. Solche Verwandlungen sind prinzipiell um -8 erschwert. Die Lernkosten des Zaubers orientieren sich an der Tierart, wobei fliegende, giftige, sehr starke usw. Tiere teurer sind.</Talent>
   <Talent name="Waffenweihe" spezialTyp="1" kosten="60" voraussetzungen="Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition der Angroschgeweihten I ODER Vorteil Tradition der Praiosgeweihten I ODER Vorteil Tradition der Rondrageweihten I ODER Vorteil Tradition der Korgeweihten I" verbilligt="0" fertigkeiten="Magiebann, Heiliges Feuer, Heerführung, Tod, Gutes Gold" variableKosten="0" referenzseite="180" referenzbuch="0">Du segnest eine Waffe. Diese gilt als geweiht.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Stunde
@@ -6892,6 +6892,7 @@ Selbstlöschung (0 Aktionen, 2 KaP; du löschst dich selbst.)
 &lt;b&gt;Erlernen:&lt;/b&gt; Fir 16; 60 EP
 &lt;b&gt;Anmerkung:&lt;/b&gt; Wenige Hochgeweihte kennen eine Variante, die ganze Gebäude unter Eis begräbt. </Talent>
   <Talent name="Ruf des Asainyf" spezialTyp="1" kosten="20" voraussetzungen="Vorteil Tradition der Firungeweihten I" verbilligt="0" fertigkeiten="Winter" variableKosten="0" referenzseite="186" referenzbuch="0">Du bist immun gegen Eis- und Kälteschaden.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Erweiterter Schutz (-4; der Schutz betrifft auch deine Ausrüstung.)
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 16 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; selbst
@@ -9091,7 +9092,7 @@ Große Traumreise (-8, 16 KaP; du kannst mit einigen Gefährten in den Traum rei
 &lt;b&gt;Kosten:&lt;/b&gt; 8 GuP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dämonische Hilfe (Cpt)
 &lt;b&gt;Erlernen:&lt;/b&gt; Cpt 16; 40 EP
-Anmerkungen: Nur herausragende Paktierere können sich in Tiere verwandeln, die nicht zu den Größenklassen klein oder mittel gehören. Solche Verwandlungen sind prinzipiell um -8 erschwert. Die Lernkosten des Zaubers orientieren sich an der Tierart, wobei fliegende, giftige, sehr starke usw. Tiere teurer sind.</Talent>
+&lt;b&gt;Anmerkungen:&lt;/b&gt; Nur herausragende Paktierere können sich in Tiere verwandeln, die nicht zu den Größenklassen klein oder mittel gehören. Solche Verwandlungen sind prinzipiell um -8 erschwert. Die Lernkosten des Zaubers orientieren sich an der Tierart, wobei fliegende, giftige, sehr starke usw. Tiere teurer sind.</Talent>
   <Talent name="Krakenruf" spezialTyp="2" kosten="60" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variableKosten="0" referenzseite="204" referenzbuch="0">Du rufst ein Seeungeheuer wie eine Krake oder eine Seeschlage aus der Umgebung herbei, das sich so schnell wie möglich nähert, und kannst es um einen Gefallen bitten. Ist kein Ungeheuer in Reichweite, passiert nichts.
 &lt;b&gt;Mächtige Anrufung:&lt;/b&gt; Du rufst 2/4/8/16 Tiere.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
@@ -9830,7 +9831,7 @@ Der &lt;b&gt;Auslöser&lt;/b&gt; kann sich nur auf Umstände beziehen, die das A
     &lt;td align="center"&gt;mildert Krankheit&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
-    Darauf folgen &lt;b&gt;heilungsfördernde Maßnahmen&lt;/b&gt;, wodurch der Patient sofort eine Wunde regeneriert. Pro Patient und Tag darf nur eine Probe abgelegt werden. Eine solche Probe dauert eine halbe Stunde. Außerdem benötigst du heilende Salben o. ä., Verbandsmaterial und sauberes Wasser.
+Darauf folgen &lt;b&gt;heilungsfördernde Maßnahmen&lt;/b&gt;, wodurch der Patient sofort eine Wunde regeneriert. Pro Patient und Tag darf nur eine Probe abgelegt werden. Eine solche Probe dauert eine halbe Stunde. Außerdem benötigst du heilende Salben o. ä., Verbandsmaterial und sauberes Wasser.
 &lt;table&gt;
 &lt;tr&gt;
     &lt;th align="left"&gt;Effekt&lt;/th&gt;
@@ -9856,19 +9857,19 @@ Der &lt;b&gt;Auslöser&lt;/b&gt; kann sich nur auf Umstände beziehen, die das A
     &lt;th align="left"&gt;Wirkung&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;Stufe 1&lt;/b&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;b&gt;Stufe&nbsp;1&lt;/b&gt;&lt;/td&gt;
     &lt;td&gt;Proben -2&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;Stufe 2&lt;/b&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;b&gt;Stufe&nbsp;2&lt;/b&gt;&lt;/td&gt;
     &lt;td&gt;Proben -4 und wenn möglich Rückzug vor Auslöser&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;Stufe 3&lt;/b&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;b&gt;Stufe&nbsp;3&lt;/b&gt;&lt;/td&gt;
     &lt;td&gt;Proben -8 und Flucht, bis Auslöser außer Sicht&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;Stufe 4&lt;/b&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;b&gt;Stufe&nbsp;4&lt;/b&gt;&lt;/td&gt;
     &lt;td&gt;Proben -8 und nur noch zur Flucht erlaubt&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;</Regel>
@@ -9879,19 +9880,19 @@ Der &lt;b&gt;Auslöser&lt;/b&gt; kann sich nur auf Umstände beziehen, die das A
     &lt;th align="left"&gt;Wirkung&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;Stufe 1&lt;/b&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;b&gt;Stufe&nbsp;1&lt;/b&gt;&lt;/td&gt;
     &lt;td&gt;Proben -4 bis zum Ende deiner nächsten INI-Phase&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;Stufe 2&lt;/b&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;b&gt;Stufe&nbsp;2&lt;/b&gt;&lt;/td&gt;
     &lt;td&gt;Sturz, Entwaffnet oder 2W6 TP&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;Stufe 3&lt;/b&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;b&gt;Stufe&nbsp;3&lt;/b&gt;&lt;/td&gt;
     &lt;td&gt;Betäubt oder Umklammern (Ansage -4)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-    &lt;td&gt;&lt;b&gt;Stufe 4&lt;/b&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;b&gt;Stufe&nbsp;4&lt;/b&gt;&lt;/td&gt;
     &lt;td&gt;Umklammern (Ansage -8)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
@@ -10181,7 +10182,8 @@ Die &lt;b&gt;Hauptwaffe&lt;/b&gt; wählst du zu Kampfbeginn, andere sind &lt;b&g
   <Einstellung name="FreieFertigkeiten: Kosten Stufe2" typ="Int" beschreibung="Legt die EP-Kosten für Stufe II von Freien Fertigkeiten fest.">8</Einstellung>
   <Einstellung name="FreieFertigkeiten: Kosten Stufe3" typ="Int" beschreibung="Legt die EP-Kosten für Stufe III von Freien Fertigkeiten fest.">16</Einstellung>
   <Einstellung name="FreieFertigkeiten: Anzahl Kostenlos" typ="Int" beschreibung="Legt die Anzahl kostenloser Freier Fertigkeiten auf Stufe III fest.">1</Einstellung>
-  <Einstellung name="Vorteile: Typen" typ="TextList" separator="," strip="1" beschreibung="Definiert die verfügbaren Typen von Vorteilen im Datenbank-Editor und deren Reihenfolge in der Vorteilsliste des Charaktereditors. Die Angabe erfolgt als kommaseparierte Liste. Achtung: Das Ändern der Reihenfolge erfordert in der Regel ein Überarbeiten aller Vorteile. Ein Umbenennen existierender oder Anfügen weiterer Typen ist dagegen unproblematisch. Bei einer Änderung müssen eventuell auch 'Charsheet: Vorteile Mergescript', 'Regelanhang: Vorteilsnamen ersetzen', 'Regelanhang: Vorteilsbeschreibungen ersetzen' und 'Regelanhang: Reihenfolge' angepasst werden.">Allgemeine Vorteile, Profane Vorteile, Kampfvorteile, Kampfstile, Magische Vorteile, Magische Traditionen, Karmale Vorteile, Karmale Traditionen, Dämonische Traditionen, Tiergeister</Einstellung>
+  <Einstellung name="Vorteile: Typen" typ="TextList" separator="," strip="1" beschreibung="Definiert die verfügbaren Typen von Vorteilen im Datenbank-Editor und deren Reihenfolge in der Vorteilsliste des Charaktereditors. Die Angabe erfolgt als kommaseparierte Liste. Achtung: Das Ändern der Reihenfolge erfordert in der Regel ein Überarbeiten aller Vorteile. Ein Umbenennen existierender oder Anfügen weiterer Typen ist dagegen unproblematisch. Bei einer Änderung müssen eventuell auch 'Vorteile: Kampfstil Typ', 'Charsheet: Vorteile Mergescript', 'Regelanhang: Vorteilsnamen ersetzen', 'Regelanhang: Vorteilsbeschreibungen ersetzen' und 'Regelanhang: Reihenfolge' angepasst werden.">Allgemeine Vorteile, Profane Vorteile, Kampfvorteile, Kampfstile, Magische Vorteile, Magische Traditionen, Karmale Vorteile, Karmale Traditionen, Dämonische Traditionen, Tiergeister</Einstellung>
+  <Einstellung name="Vorteile: Kampfstil Typ" typ="Int" beschreibung="Definiert den Index in der Einstellung 'Vorteile: Typen', der Kampfstile enthält. Diese stehen dann bei den Waffen zur Auswahl.">3</Einstellung>
   <Einstellung name="Charsheet: Vorteile Mergescript" typ="Exec" beschreibung="Das Heldendokument hat drei Vorteilslisten: Allgemein, Kampf und Übernatürlich. Das Pythonscript teilt dem PDF-Generator mit, wie welche Typ-Indices (siehe 'Vorteile: Typen') auf diese drei Listen verteilt werden. In der Standardkonfiguration werden Allgemeine und Profane Vorteile 'Allgemein' zugewiesen, Kampfvorteile und Kampfstile 'Kampf' und der Rest 'Übernatürlich'; eine Ausnahme sind die Vorteile Zauberer, Geweiht und Paktierer, die auch 'Übernatürlich' zugewiesen werden. Es stehen hierfür die Variablen 'char' (Charakter.Char), 'name' (Vorteilsname), 'typ' (Vorteilstyp-Index) und für die Ausgabe 'mergeTo' (0 = Allgemein, 1 = Kampf, 2 = Übernatürlich) zur Verfügung.">if typ &lt; 2:
     if "Zauberer" in name or "Geweiht" in name or "Paktierer" in name:
         mergeTo = 2

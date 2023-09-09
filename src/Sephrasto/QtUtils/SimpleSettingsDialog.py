@@ -33,7 +33,7 @@ class SimpleSettingsDialog(QtWidgets.QDialog):
         if isinstance(settingWidget, QtWidgets.QCheckBox):
             settingWidget.setChecked(Wolke.Settings[settingId])
         elif isinstance(settingWidget, QtWidgets.QComboBox):
-            settingWidget.setCurrentIndex(Wolke.Settings[settingId])
+            settingWidget.setCurrentText(Wolke.Settings[settingId])
         elif isinstance(settingWidget, QtWidgets.QSpinBox):
             settingWidget.setValue(Wolke.Settings[settingId])
         elif isinstance(settingWidget, QtWidgets.QLineEdit):
@@ -47,7 +47,7 @@ class SimpleSettingsDialog(QtWidgets.QDialog):
                 if isinstance(settingWidget, QtWidgets.QCheckBox):
                     Wolke.Settings[settingId] = settingWidget.isChecked()
                 elif isinstance(settingWidget, QtWidgets.QComboBox):
-                    Wolke.Settings[settingId] = settingWidget.currentIndex()
+                    Wolke.Settings[settingId] = settingWidget.currentText()
                 elif isinstance(settingWidget, QtWidgets.QSpinBox):
                     Wolke.Settings[settingId] = settingWidget.value()
                 elif isinstance(settingWidget, QtWidgets.QLineEdit):

@@ -801,7 +801,8 @@ class Datenbank():
         self.loadingErrors = EventBus.applyFilter("datenbank_verify", self.loadingErrors, { "datenbank" : self, "isCharakterEditor" : isCharakterEditor })   
     
     def findKampfstile(self):
-        kampfstilVorteile = [vort for vort in self.vorteile.values() if vort.typ == 3 and vort.name.endswith(" I")]
+        # we are accessing einstellung.text instead of .wert because the function is called before finalize...
+        kampfstilVorteile = [vort for vort in self.vorteile.values() if str(vort.typ) == self.einstellungen["Vorteile: Kampfstil Typ"].text and vort.name.endswith(" I")]
 
         kampfstile = []
         for vort in kampfstilVorteile:
