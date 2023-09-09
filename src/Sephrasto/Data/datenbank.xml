@@ -5208,7 +5208,13 @@ Geister vertreiben (Entspricht dem allgemeinen Zauber Geister austreiben (S. 127
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP, davon 2 gAsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Erz, Kristallmagie, Kraft
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach 14; 40 EP</Talent>
-  <Talent name="Tafelschliff" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Erz, Kristallmagie, Kraft" variableKosten="0" referenzseite="169" referenzbuch="0">Der Zauber gleicht weitgehend dem Rundschliff, aber du kannst die spontane Modifikation Reichweite erhöhen einmal ohne Erschwernis ausführen. Nicht mit anderen Schliffen kombinierbar.
+  <Talent name="Tafelschliff" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Erz, Kristallmagie, Kraft" variableKosten="0" referenzseite="169" referenzbuch="0">Du versiehst einen gebundenen Kristall mit einem Tafelschliff. Wann immer du mit Hilfe dieses Kristalls einen Zauber wirkst, kannst du die spontane Modifikation Reichweite erhöhen einmal ohne Erschwernis ausführen. Nicht mit anderen Schliffen kombinierbar.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
+&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Stunden
+&lt;b&gt;Ziel:&lt;/b&gt; gebundener Kristall
+&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
+&lt;b&gt;Wirkungsdauer:&lt;/b&gt; bis die Bindung gelöst wird
+&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP, davon 2 gAsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Erz, Kristallmagie, Kraft
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach 14; 40 EP</Talent>
   <Talent name="Tropfenschliff" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Erz, Kristallmagie, Kraft" variableKosten="0" referenzseite="169" referenzbuch="0">Du versiehst einen gebundenen Kristall mit einem Tropfenschliff. Wann immer du mit Hilfe dieses Kristalls einen Zauber wirkst, kannst du die spontane Modifikation Wirkungsdauer verlängern einmal ohne Erschwernis ausführen. Nicht mit anderen Schliffen kombinierbar.
@@ -6391,6 +6397,7 @@ Große Traumreise (-8, 16 KaP; du kannst mit einigen Gefährten in den Traum rei
 &lt;b&gt;Anmerkung:&lt;/b&gt; Geweihte Waffen werden nur in seltenen Ausnahmefällen und nach sorgfältiger Überprüfung an Nicht-Geweihte ausgegeben. </Talent>
   <Talent name="Weihe der letzten Ruhestatt" spezialTyp="1" kosten="20" voraussetzungen="Vorteil Tradition der Borongeweihten I" verbilligt="0" fertigkeiten="Tod" variableKosten="0" referenzseite="180" referenzbuch="0">Du segnest einen Boronsanger, der fortan als geweihter Boden gilt und Platz für etwa 32 Gräber bietet. Beschwörungen von unheiligen Wesenheiten sind um -8 erschwert.
 &lt;b&gt;Mächtige Liturgie:&lt;/b&gt; Verdoppelt die Größe.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Stunde
 &lt;b&gt;Ziel:&lt;/b&gt; Zone
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
@@ -7280,6 +7287,7 @@ Selbstlöschung (0 Aktionen, 2 KaP; du löschst dich selbst.)
 &lt;b&gt;Erlernen:&lt;/b&gt; Ang 16; Ing 18; 60 EP
 &lt;b&gt;Anmerkung:&lt;/b&gt; Wenige Hochgeweihte kennen angeblich eine noch mächtigere Variante mit einem deutlich höheren Wirkungsbereich.</Talent>
   <Talent name="Vertrauter der Flamme" spezialTyp="1" kosten="40" voraussetzungen="Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition der Angroschgeweihten I ODER Vorteil Tradition der Traviageweihten I" verbilligt="0" fertigkeiten="Heiliges Feuer, Heim und Herd" variableKosten="0" referenzseite="190" referenzbuch="0">Du bist immun gegen Feuerschaden und Hitze.
+&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Erweiterter Schutz (-4; der Schutz betrifft auch deine Ausrüstung.)
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; selbst
