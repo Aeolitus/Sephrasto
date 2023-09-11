@@ -7,7 +7,8 @@ import webbrowser
 
 class UpdateChecker:
 
-    _downloadLink = "https://dsaforum.de/app.php/dlext/?view=detail&df_id=213"
+    _apiLink = "https://api.github.com/repos/Aeolitus/Sephrasto/releases/latest"
+    _downloadLink = "https://github.com/Aeolitus/Sephrasto/releases/latest"
     _page = None
 
     @staticmethod
@@ -38,7 +39,7 @@ class UpdateChecker:
                 UpdateChecker._page = None
 
         UpdateChecker._page.loadFinished.connect(loadFinished)
-        UpdateChecker._page.load(QtCore.QUrl(UpdateChecker._downloadLink))
+        UpdateChecker._page.load(QtCore.QUrl(UpdateChecker._apiLink))
 
     @staticmethod    
     def showUpdate(version):
@@ -48,7 +49,7 @@ class UpdateChecker:
         messageBox = QtWidgets.QMessageBox()
         messageBox.setIcon(QtWidgets.QMessageBox.Information)
         messageBox.setWindowTitle("Neue Sephrasto-Version")
-        messageBox.setText(f"Eine neue Version von Sephrasto ist verfügbar! Clicke auf Download, um zur Sephrasto-Seite auf dsaforum.de zu gelangen.\n\nInstallierte Version: {Version.toString()}\nNeue Version: {version}")
+        messageBox.setText(f"Eine neue Version von Sephrasto ist verfügbar! Clicke auf Download, um zur Sephrasto-Seite auf github.com zu gelangen.\n\nInstallierte Version: {Version.toString()}\nNeue Version: {version}")
         messageBox.addButton("Download", QtWidgets.QMessageBox.AcceptRole)
         messageBox.addButton("Später", QtWidgets.QMessageBox.AcceptRole)
         messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
