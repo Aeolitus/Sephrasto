@@ -473,8 +473,8 @@ class Char():
             self.waffenwerte.append(waffenwerte)
             waffenwerte.kampfstil = el.kampfstil
             waffenwerte.härte = el.härte
-            if "WS" in Wolke.Char.abgeleiteteWerte and el.name in Wolke.DB.einstellungen["Waffen: Härte WSStern"].wert:
-                waffenwerte.härte = Wolke.Char.abgeleiteteWerte["WS"].finalwert
+            if "WS" in self.abgeleiteteWerte and el.name in Wolke.DB.einstellungen["Waffen: Härte WSStern"].wert:
+                waffenwerte.härte = self.abgeleiteteWerte["WS"].finalwert
             waffenwerte.würfel = el.würfel
 
             if not el.fertigkeit in self.fertigkeiten:
