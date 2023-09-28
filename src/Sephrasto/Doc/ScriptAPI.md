@@ -40,8 +40,8 @@ Die folgenden Funktionen stehen neben Python-Builtins wie 'round' zur Verfügung
 **Hinweis:** Sephrasto stellt die API für alle Abgeleiteten Werte nach obigem Muster automatisch bereit, also auch für in den Hausregeln neu hinzugefügte Abgeleitete Werte.
 <br />
 ### Fertigkeiten und Talente
-- Freie Fertigkeiten: ```getFreieFertigkeiten <Return: { name, kategorie, voraussetzungen[], wert }>```
-- Fertigkeiten: ```getFertigkeit/getÜbernatürlicheFertigkeit <Parameter: Fertigkeits-Name. Return: { name, steigerungsfaktor, text, attribute [], kampffertigkeit, voraussetzungen [], typ, talenteGruppieren, wert, gekaufteTalente[], talentMods {}, attributswerte, basiswert, basiswertMod, probenwert, probenwertTalent, maxWert, addToPdf  }>```
+- Freie Fertigkeiten: ```getFreieFertigkeiten <Return: { definition { name, kategorie, voraussetzungen[] }, wert }>```
+- Fertigkeiten: ```getFertigkeit/getÜbernatürlicheFertigkeit <Parameter: Fertigkeits-Name. Return: { definition { name, steigerungsfaktor, text, attribute [], kampffertigkeit, voraussetzungen [], typ, talenteGruppieren }, wert, gekaufteTalente[], talentMods {}, attributswerte, basiswert, basiswertMod, probenwert, probenwertTalent, maxWert, addToPdf  }>```
 - Fertigkeiten Basis: ```modifyFertigkeitBasiswert : <Parameter: Fertigkeits-Name, Modifikator>```<br />
 Hinweis: Dies ist nützlich, um sich permanente Erleichterungen auf eine Fertigkeit nicht merken zu müssen. Diese Modifikation wird bei Voraussetzungen der Typen "Fertigkeit" und "Talent" nicht eingerechnet!
 - Übernatürliche Fertigkeiten Basis: ```modifyÜbernatürlicheFertigkeitBasiswert : <Parameter: Fertigkeits-Name, Modifikator>```
@@ -55,7 +55,7 @@ Beispiel ohne Bedingung und Kostenveränderung: addTalent("Spurlos Trittlos")<br
 Beispiel mit Kosten auf 0 EP gesetzt und "Gaben des Butgeists" als Bedingung: addTalent("Spurlos Trittlos", 0, "Gaben des Blutgeists")
 <br />
 ### Vorteile
-- Vorteile allgemein: ```getVorteile <Return: { name, kosten, variableKosten, kommentarErlauben, typ, voraussetzungen [], nachkauf, text, cheatsheetAuflisten, cheatsheetBeschreibung, linkKategorie, linkElement, script, scriptPrio, querverweise [], querverweiseResolved {}, kommentar }[]>```
+- Vorteile allgemein: ```getVorteil <Parameter: Vorteils-Name. Return: { definition { name, text, info, bedingungen, kosten, variableKosten, kommentarErlauben, typ, voraussetzungen [], nachkauf,  cheatsheetAuflisten, cheatsheetBeschreibung, linkKategorie, linkElement, script, scriptPrio, querverweise [], querverweiseResolved {}, anzeigenameExt }[]>```
 - Kampfstile: ```getKampfstil <Parameter: Kampfstil-Name. Return: { at, vt, plus, rw, be }>, setKampfstil/modifyKampfstil <Parameter: Kampfstil-Name, at, vt, plus, rw, be>```
 <br />
 ### Ausrüstung

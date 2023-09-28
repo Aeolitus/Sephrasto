@@ -181,10 +181,10 @@ class Char():
             'getEPAusgegeben' : lambda: self.epAusgegeben, 
 
             #Fertigkeiten, Vorteile & Ausrüstung
-            'getFertigkeit' : lambda name: copy.deepcopy(self.fertigkeiten[name]), 
-            'getÜbernatürlicheFertigkeit' : lambda name: copy.deepcopy(self.übernatürlicheFertigkeiten[name]), 
+            'getFertigkeit' : lambda name: copy.deepcopy(self.fertigkeiten[name]) if name in self.fertigkeiten else None, 
+            'getÜbernatürlicheFertigkeit' : lambda name: copy.deepcopy(self.übernatürlicheFertigkeiten[name]) if name in self.übernatürlicheFertigkeiten else None, 
             'getFreieFertigkeiten' : lambda: copy.deepcopy(self.freieFertigkeiten), 
-            'getVorteile' : lambda: copy.deepcopy(self.vorteile.values()), 
+            'getVorteil' : lambda name: copy.deepcopy(self.vorteile[name]) if name in self.vorteile else None, 
             'getRüstung' : lambda: copy.deepcopy(self.rüstung), 
             'getWaffen' : lambda: copy.deepcopy(self.waffen), 
             'getAusrüstung' : lambda: copy.deepcopy(self.ausrüstung), 
