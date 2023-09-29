@@ -194,7 +194,7 @@ class Char():
             'addTalent' : self.API_addTalent, 
 
             #Kampfstil
-            'getKampfstil' : lambda kampfstil: copy.copy(self.kampfstilMods[kampfstil]), 
+            'getKampfstil' : lambda kampfstil: copy.copy(self.kampfstilMods[kampfstil]) if kampfstil in self.kampfstilMods else KampfstilMod(), 
             'setKampfstil' : self.API_setKampfstil, 
             'modifyKampfstil' : self.API_modifyKampfstil, 
 
