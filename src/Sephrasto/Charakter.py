@@ -391,29 +391,6 @@ class Char():
     def aktualisieren(self):
         EventBus.doAction("pre_charakter_aktualisieren", { "charakter" : self })
 
-        '''Berechnet alle abgeleiteten Werte neu'''
-        for attribut in self.attribute.values():
-            attribut.aktualisieren()
-
-        for ab in self.abgeleiteteWerte.values():
-            ab.aktualisieren()
-
-        for en in self.energien.values():
-            en.aktualisieren()
-
-        EventBus.doAction("charakter_aktualisieren_fertigkeiten", { "charakter" : self })
-
-        for fert in self.fertigkeiten.values():
-            fert.aktualisieren()
-
-        for fert in self.übernatürlicheFertigkeiten.values():
-            fert.aktualisieren()
-        
-        for tal in self.talente.values():
-            tal.aktualisieren()
-
-        self.checkVoraussetzungen()
-
         # Undo previous changes by Vorteil scripts before executing them again
         self.kampfstilMods = {}
         for ks in Wolke.DB.findKampfstile():
@@ -437,6 +414,28 @@ class Char():
             self.übernatürlicheFertigkeiten[fert].basiswertMod = 0
             self.übernatürlicheFertigkeiten[fert].talentMods = {}
 
+        # Update attribute, abegeleitet werte, energien
+        for attribut in self.attribute.values():
+            attribut.aktualisieren()
+
+        for ab in self.abgeleiteteWerte.values():
+            ab.aktualisieren()
+
+        for en in self.energien.values():
+            en.aktualisieren()
+
+        EventBus.doAction("charakter_aktualisieren_fertigkeiten", { "charakter" : self })
+
+        # Update fertigkeiten
+        for fert in self.fertigkeiten.values():
+            fert.aktualisieren()
+
+        for fert in self.übernatürlicheFertigkeiten.values():
+            fert.aktualisieren()
+
+        # Requirements check - add automatically unlocked stuff and remove stuff not available anymore
+        self.checkVoraussetzungen()
+
         # Execute Vorteil scripts to modify character stats
         EventBus.doAction("charakter_aktualisieren_vorteilscripts", { "charakter" : self })
         vorteileByPrio = collections.defaultdict(list)
@@ -452,7 +451,12 @@ class Char():
                 vort.executeScript()
         self.currentVorteil = None
 
-        # Update BE, Fertigkeiten and Waffenwerte afterwards because they might be modified by Vorteil scripts
+        # Update talente - this only updates values relevant for display purposes (cached probenwert, hauptfertigkeit),
+        # so its safe to do this late and allows for modifications via vorteil scripts
+        for tal in self.talente.values():
+            tal.aktualisieren()
+
+        # Update abgeleitete werte "*" values - they might have been modified by Vorteil scripts
         for ab in self.abgeleiteteWerte.values():
             ab.aktualisierenFinal() #WS*, GS*, DH*, SchiP*
 
