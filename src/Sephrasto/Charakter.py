@@ -504,8 +504,10 @@ class Char():
             for ab in self.abgeleiteteWerte:
                 scriptAPI['get' + ab + 'Basis'] = lambda ab=ab: self.abgeleiteteWerte[ab].basiswert
                 scriptAPI['get' + ab] = lambda ab=ab: self.abgeleiteteWerte[ab].wert
+                scriptAPI['get' + ab + 'Mod'] = lambda ab=ab: self.abgeleiteteWerte[ab].mod
 
-            scriptAPI['getBEBySlot'] = lambda rüstungsNr: 0 if rüstungsNr < 1 or len(self.rüstung) < rüstungsNr else self.rüstung[rüstungsNr-1].be
+        
+            scriptAPI['getBEBySlot'] = lambda rüstungsNr: 0 if rüstungsNr < 1 or len(self.rüstung) < rüstungsNr else self.rüstung[rüstungsNr-1].getBEFinal(self.abgeleiteteWerte)
 
             try:
                 # Execute global script

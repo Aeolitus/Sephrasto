@@ -454,12 +454,6 @@ class PdfExporter(object):
     def pdfFünfterBlock(self, fields):
         logging.debug("PDF Block 5")
         # Fill three rows of Rüstung
-        scriptAPI = {}
-        for ab in Wolke.Char.abgeleiteteWerte:
-            scriptAPI['get' + ab + 'Basis'] = lambda ab=ab: Wolke.Char.abgeleiteteWerte[ab].basiswert
-            scriptAPI['get' + ab] = lambda ab=ab: Wolke.Char.abgeleiteteWerte[ab].wert
-            scriptAPI['get' + ab + 'Mod'] = lambda ab=ab: Wolke.Char.abgeleiteteWerte[ab].mod
-
         for i in range(0, min(3, len(Wolke.Char.rüstung))):
             el = Wolke.Char.rüstung[i]
             if not el.name and el.getRSGesamtInt() == 0:
@@ -480,26 +474,18 @@ class PdfExporter(object):
                 ws = 0
                 rsmod = 0
                 bemod = 0
-                scriptAPI["rs"] = el.getRSGesamtInt()
-                scriptAPI["be"] = el.be
                 fields[base + 'NA'] = el.name
-                fields[base + 'RS'] = eval(Wolke.DB.einstellungen["Rüstungen: RS Script"].wert, scriptAPI)
-                fields[base + 'BE'] = eval(Wolke.DB.einstellungen["Rüstungen: BE Script"].wert, scriptAPI)
-                fields[base + 'WS'] = eval(Wolke.DB.einstellungen["Rüstungen: WSStern Script"].wert, scriptAPI)
+                fields[base + 'RS'] = el.getRSFinal(Wolke.Char.abgeleiteteWerte)
+                fields[base + 'BE'] = el.getBEFinal(Wolke.Char.abgeleiteteWerte)
+                fields[base + 'WS'] = el.getWSFinal(Wolke.Char.abgeleiteteWerte)
 
                 base += 'RS'
-                scriptAPI["rs"] = el.rs[0]
-                fields[base + 'Bein'] = eval(Wolke.DB.einstellungen["Rüstungen: WSStern Script"].wert, scriptAPI)
-                scriptAPI["rs"] = el.rs[1]
-                fields[base + 'lArm'] = eval(Wolke.DB.einstellungen["Rüstungen: WSStern Script"].wert, scriptAPI)
-                scriptAPI["rs"] = el.rs[2]
-                fields[base + 'rArm'] = eval(Wolke.DB.einstellungen["Rüstungen: WSStern Script"].wert, scriptAPI)
-                scriptAPI["rs"] = el.rs[3]
-                fields[base + 'Bauch'] = eval(Wolke.DB.einstellungen["Rüstungen: WSStern Script"].wert, scriptAPI)
-                scriptAPI["rs"] = el.rs[4]
-                fields[base + 'Brust'] = eval(Wolke.DB.einstellungen["Rüstungen: WSStern Script"].wert, scriptAPI)
-                scriptAPI["rs"] = el.rs[5]
-                fields[base + 'Kopf'] = eval(Wolke.DB.einstellungen["Rüstungen: WSStern Script"].wert, scriptAPI)
+                fields[base + 'Bein'] = el.getRSFinal(Wolke.Char.abgeleiteteWerte, 0)
+                fields[base + 'lArm'] = el.getRSFinal(Wolke.Char.abgeleiteteWerte, 1)
+                fields[base + 'rArm'] = el.getRSFinal(Wolke.Char.abgeleiteteWerte, 2)
+                fields[base + 'Bauch'] = el.getRSFinal(Wolke.Char.abgeleiteteWerte, 3)
+                fields[base + 'Brust'] = el.getRSFinal(Wolke.Char.abgeleiteteWerte, 4)
+                fields[base + 'Kopf'] = el.getRSFinal(Wolke.Char.abgeleiteteWerte, 5)
 
         # Fill eight rows of weapons
         for i in range(0, min(8, len(Wolke.Char.waffen))):

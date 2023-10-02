@@ -1,3 +1,5 @@
+from Wolke import Wolke
+
 # Implementation for Rüstungen. Using the type object pattern.
 # RuestungDefinition: type object, initialized with database values
 # Ruestung: character editor values, initialised with definition but supports overrides.
@@ -115,3 +117,25 @@ class Ruestung:
         if self._rsOverride is not None:
             return int(sum(self._rsOverride) / 6 + 0.5)
         return self.definition.getRSGesamtInt()
+
+    def __getScriptAPI(self, abgeleiteteWerte, zone = -1):
+        scriptAPI = {}
+        for ab in abgeleiteteWerte:
+            scriptAPI['get' + ab + 'Basis'] = lambda ab=ab: abgeleiteteWerte[ab].basiswert
+            scriptAPI['get' + ab] = lambda ab=ab: abgeleiteteWerte[ab].wert
+            scriptAPI['get' + ab + 'Mod'] = lambda ab=ab: abgeleiteteWerte[ab].mod
+        if zone == -1:
+            scriptAPI["rs"] = self.getRSGesamtInt()
+        else:
+            scriptAPI["rs"] = self.rs[zone]
+        scriptAPI["be"] = self.be
+        return scriptAPI
+
+    def getRSFinal(self, abgeleiteteWerte, zone = -1):
+        return eval(Wolke.DB.einstellungen["Rüstungen: RS Script"].wert, self.__getScriptAPI(abgeleiteteWerte, zone))
+
+    def getBEFinal(self, abgeleiteteWerte):
+        return eval(Wolke.DB.einstellungen["Rüstungen: BE Script"].wert, self.__getScriptAPI(abgeleiteteWerte))
+
+    def getWSFinal(self, abgeleiteteWerte):
+        return eval(Wolke.DB.einstellungen["Rüstungen: WSStern Script"].wert, self.__getScriptAPI(abgeleiteteWerte))
