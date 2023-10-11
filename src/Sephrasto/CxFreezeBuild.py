@@ -76,7 +76,6 @@ removeFiles = [
     "lib/PySide6/plugins/networkinformation",
     "lib/PySide6/plugins/iconengines",
     "lib/PySide6/plugins/generic",
-    "lib/PySide6/plugins/imageformats",
     "lib/PySide6/d3dcompiler_47.dll",
     "lib/D3DCOMPILER_47.dll",
 ]
