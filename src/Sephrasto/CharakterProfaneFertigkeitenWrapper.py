@@ -220,11 +220,11 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
 
                 # Add Kosten
                 self.labelRef[el + "KO"] = QtWidgets.QLabel()
-                self.labelRef[el + "KO"].setStyleSheet("margin-left:1.1em;");
+                self.labelRef[el + "KO"].setStyleSheet("width: 100%;");
                 text, tooltip = ProfaneFertigkeitenWrapper.getSteigerungskosten(fert)
                 self.labelRef[el + "KO"].setText(text)
                 self.labelRef[el + "KO"].setToolTip(tooltip)
-                self.labelRef[el + "KO"].setAlignment(QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+                self.labelRef[el + "KO"].setAlignment(QtCore.Qt.AlignCenter|QtCore.Qt.AlignVCenter)
                 self.ui.tableWidget.setCellWidget(count,2,self.labelRef[el + "KO"])
 
                 # Add PW
@@ -399,7 +399,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
             attribute = list(dict.fromkeys(attribute))
             attribute = ", ".join(attribute)
             attribute = attribute[::-1].replace(" ,"," redo ", 1)[::-1] #replace last ", " by " oder "
-            return "<span></span>&nbsp;&nbsp;&nbsp;max", f"Steigere das höchste Attribut von {fert.name} ({attribute} für {kosten} EP), um das Maximum zu erhöhen."
+            return "max", f"Steigere das höchste Attribut von {fert.name} ({attribute} für {kosten} EP), um das Maximum zu erhöhen."
         else:
             kosten, attribute = ProfaneFertigkeitenWrapper.basiswertSteigern(fert, Wolke.Char.attribute)
             if kosten != -1 and kosten <= fert.steigerungskosten():

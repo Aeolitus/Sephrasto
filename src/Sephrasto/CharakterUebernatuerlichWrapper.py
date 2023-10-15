@@ -183,7 +183,7 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
             header.setSectionResizeMode(3, QHeaderView.Fixed)
             header.setSectionResizeMode(4, QHeaderView.Fixed)
             header.setSectionResizeMode(5, QHeaderView.Fixed)
-            self.ui.tableWidget.setColumnWidth(0, Hilfsmethoden.emToPixels(4.5))
+            self.ui.tableWidget.setColumnWidth(0, Hilfsmethoden.emToPixels(5))
             self.ui.tableWidget.setColumnWidth(2, Hilfsmethoden.emToPixels(6.7))
             self.ui.tableWidget.setColumnWidth(3, Hilfsmethoden.emToPixels(8.9))
             self.ui.tableWidget.setColumnWidth(4, Hilfsmethoden.emToPixels(7.3))
@@ -240,12 +240,18 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
                 fert = Wolke.Char.übernatürlicheFertigkeiten[el]
                 fert.aktualisieren()
 
+                # Add centered checkbox for PDF export
+                self.pdfRef[el + "Widget"] = QtWidgets.QWidget()
                 self.pdfRef[el] = QtWidgets.QCheckBox()
-                self.pdfRef[el].setStyleSheet("margin-left:1.1em;");
+                cblayout = QtWidgets.QHBoxLayout(self.pdfRef[el + "Widget"])
+                cblayout.addWidget(self.pdfRef[el])
+                cblayout.setAlignment(QtCore.Qt.AlignCenter)
+                cblayout.setContentsMargins(Hilfsmethoden.emToPixels(1), 0, 0, 0)
                 self.pdfRef[el].setChecked(fert.addToPDF)
                 self.pdfRef[el].stateChanged.connect(partial(self.addToPDFClicked, fert=el))
-                self.ui.tableWidget.setCellWidget(count,0,self.pdfRef[el])
+                self.ui.tableWidget.setCellWidget(count,0,self.pdfRef[el + "Widget"])
 
+                # Add label for name
                 if el in nonOptimalFerts:
                     self.labelRef[el + "Name"] =  QtWidgets.QLabel("<span style='" + Wolke.FontAwesomeCSS + "'>\uf071</span>&nbsp;&nbsp;" + el)
                     self.labelRef[el + "Name"].setToolTip(nonOptimalFerts[el])
@@ -254,7 +260,8 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
                 self.labelRef[el + "Name"].setContentsMargins(3, 0, 0, 0)
                 self.labelRef[el + "Name"].setProperty("name", el)
                 self.ui.tableWidget.setCellWidget(count, 1, self.labelRef[el + "Name"])
-                # Add Spinner for FW
+
+                # Add spinner for FW
                 self.spinRef[el] = QtWidgets.QSpinBox()
                 self.spinRef[el].setFocusPolicy(QtCore.Qt.StrongFocus)
                 self.spinRef[el].installEventFilter(self.mwp)
@@ -268,11 +275,11 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
                 
                 # Add Kosten
                 self.labelRef[el + "KO"] = QtWidgets.QLabel()
-                self.labelRef[el + "KO"].setStyleSheet("margin-left:1.1em;");
+                self.labelRef[el + "KO"].setStyleSheet("width: 100%;");
                 text, tooltip = ProfaneFertigkeitenWrapper.getSteigerungskosten(fert)
                 self.labelRef[el + "KO"].setText(text)
                 self.labelRef[el + "KO"].setToolTip(tooltip)
-                self.labelRef[el + "KO"].setAlignment(QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+                self.labelRef[el + "KO"].setAlignment(QtCore.Qt.AlignCenter|QtCore.Qt.AlignVCenter)
                 self.ui.tableWidget.setCellWidget(count,3,self.labelRef[el + "KO"])
 
                 # Add PW
