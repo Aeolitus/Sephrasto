@@ -127,15 +127,24 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
 
         temp = list(Wolke.Char.übernatürlicheFertigkeiten.keys())
         nonOptimalFerts = self.getNonOptimalFerts(temp)
-        def getType(fert, nonOptimalFerts):
+        def getType(fert):
              return Wolke.Char.übernatürlicheFertigkeiten[fert].typ + (99999 if fert in nonOptimalFerts else 0)
 
-        # sort by type, then by name
-        temp.sort(key = lambda x: (getType(x, nonOptimalFerts), x))
+        temp = []
+        lastType = -1
+        for fert in sorted(Wolke.Char.übernatürlicheFertigkeiten.values(), key = lambda x: (getType(x.name), x.name)):
+            type = getType(fert.name)
+            if type != lastType:
+                lastType = type
+                temp.append("Nicht empfohlen" if fert.name in nonOptimalFerts else fert.definition.typname(Wolke.DB))
+            temp.append(fert.name)
 
         if Hilfsmethoden.ArrayEqual(temp, self.availableFerts):
             for i in range(self.ui.tableWidget.rowCount()):
-                fert = Wolke.Char.übernatürlicheFertigkeiten[self.availableFerts[i]]
+                item = self.ui.tableWidget.cellWidget(i, 1)
+                if item is None or item.property("name") not in Wolke.Char.übernatürlicheFertigkeiten:
+                    continue
+                fert = Wolke.Char.übernatürlicheFertigkeiten[item.property("name")]
                 self.pdfRef[fert.name].setChecked(fert.addToPDF)
                 text, tooltip = ProfaneFertigkeitenWrapper.getSteigerungskosten(fert)
                 self.labelRef[fert.name + "KO"].setText(text)
@@ -149,13 +158,10 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
 
             rowIndicesWithLinePaint = []
             count = 0
-            if len(self.availableFerts) > 0:
-                lastType = getType(self.availableFerts[0], nonOptimalFerts)
-                for el in self.availableFerts:
-                    if getType(el, nonOptimalFerts) != lastType:
-                        rowIndicesWithLinePaint.append(count-1)
-                        lastType = getType(el, nonOptimalFerts)
-                    count += 1
+            for el in self.availableFerts:
+                if el not in Wolke.DB.übernatürlicheFertigkeiten:
+                    rowIndicesWithLinePaint.append(count-1)
+                count += 1
 
             self.ui.tableWidget.clear()
             self.rowRef = {}
@@ -217,9 +223,20 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
     
             count = 0
             
-            font = QtGui.QFont(Wolke.Settings["Font"], Wolke.Settings["FontSize"])
-
+            fontHeader = QtWidgets.QApplication.instance().font()
+            fontHeader.setBold(True)
+            fontHeader.setCapitalization(QtGui.QFont.SmallCaps)
+            fontHeader.setPointSize(Wolke.FontHeadingSizeL3)
+            lastType = -1
             for el in self.availableFerts:
+                if el not in Wolke.Char.übernatürlicheFertigkeiten:
+                    tableWidget = QtWidgets.QTableWidgetItem(el)
+                    tableWidget.setFont(fontHeader)
+                    tableWidget.setFlags(QtCore.Qt.ItemIsEnabled)
+                    self.ui.tableWidget.setItem(count, 1, tableWidget)
+                    count += 1
+                    continue
+
                 fert = Wolke.Char.übernatürlicheFertigkeiten[el]
                 fert.aktualisieren()
 
@@ -235,6 +252,7 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
                 else:
                     self.labelRef[el + "Name"] =  QtWidgets.QLabel(el)
                 self.labelRef[el + "Name"].setContentsMargins(3, 0, 0, 0)
+                self.labelRef[el + "Name"].setProperty("name", el)
                 self.ui.tableWidget.setCellWidget(count, 1, self.labelRef[el + "Name"])
                 # Add Spinner for FW
                 self.spinRef[el] = QtWidgets.QSpinBox()
@@ -289,9 +307,9 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
         
     def tableClicked(self):
         if not self.currentlyLoading:
-            tmp = self.availableFerts[self.ui.tableWidget.currentRow()]
-            if tmp in Wolke.Char.übernatürlicheFertigkeiten:    
-                self.currentFertName = tmp
+            item = self.ui.tableWidget.cellWidget(self.ui.tableWidget.currentRow(), 1)
+            if item is not None and item.property("name") in Wolke.Char.übernatürlicheFertigkeiten:  
+                self.currentFertName = item.property("name")
                 self.updateInfo()
 
     def fwChanged(self, flag = False):

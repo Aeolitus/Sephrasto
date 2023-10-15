@@ -87,14 +87,20 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
     def load(self):
         self.currentlyLoading = True
 
-        temp = list(Wolke.Char.fertigkeiten.keys())
-
-        # sort by type, then by name
-        temp.sort(key = lambda x: (Wolke.Char.fertigkeiten[x].typ, x)) 
+        temp = []
+        lastType = -1
+        for fert in sorted(Wolke.Char.fertigkeiten.values(), key = lambda x: (x.typ, x.name)):
+            if fert.typ != lastType:
+                lastType = fert.typ
+                temp.append(fert.definition.typname(Wolke.DB))
+            temp.append(fert.name)
 
         if Hilfsmethoden.ArrayEqual(temp, self.availableFerts):
             for i in range(self.ui.tableWidget.rowCount()):
-                fert = Wolke.Char.fertigkeiten[self.ui.tableWidget.item(i,0).text()]
+                item = self.ui.tableWidget.item(i,0)
+                if item.text() not in Wolke.Char.fertigkeiten:
+                    continue
+                fert = Wolke.Char.fertigkeiten[item.text()]
                 text, tooltip = ProfaneFertigkeitenWrapper.getSteigerungskosten(fert)
                 self.labelRef[fert.name + "KO"].setText(text)
                 self.labelRef[fert.name + "KO"].setToolTip(tooltip)
@@ -108,13 +114,10 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
             self.availableFerts = temp
             rowIndicesWithLinePaint = []
             count = 0
-            if len(self.availableFerts) > 0:
-                lastType = Wolke.DB.fertigkeiten[self.availableFerts[0]].typ
-                for el in self.availableFerts:
-                    if Wolke.DB.fertigkeiten[el].typ != lastType:
-                        rowIndicesWithLinePaint.append(count-1)
-                        lastType = Wolke.DB.fertigkeiten[el].typ
-                    count += 1
+            for el in self.availableFerts:
+                if el not in Wolke.DB.fertigkeiten:
+                    rowIndicesWithLinePaint.append(count-1)
+                count += 1
 
             self.ui.tableWidget.clear()
             self.rowRef = {}
@@ -180,9 +183,20 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
 
             self.nahkampfFerts = []
 
-            font = QtGui.QFont(Wolke.Settings["Font"], Wolke.Settings["FontSize"])
-
+            fontHeader = QtWidgets.QApplication.instance().font()
+            fontHeader.setBold(True)
+            fontHeader.setCapitalization(QtGui.QFont.SmallCaps)
+            fontHeader.setPointSize(Wolke.FontHeadingSizeL3)
+            lastType = -1
             for el in self.availableFerts:
+                if el not in Wolke.Char.fertigkeiten:
+                    tableWidget = QtWidgets.QTableWidgetItem(el)
+                    tableWidget.setFont(fontHeader)
+                    tableWidget.setFlags(QtCore.Qt.ItemIsEnabled)
+                    self.ui.tableWidget.setItem(count, 0, tableWidget)
+                    count += 1
+                    continue
+
                 fert = Wolke.Char.fertigkeiten[el]
                 fert.aktualisieren()
 
@@ -255,9 +269,9 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         
     def tableClicked(self):
         if not self.currentlyLoading:
-            tmp = self.availableFerts[self.ui.tableWidget.currentRow()]
-            if tmp in Wolke.Char.fertigkeiten:    
-                self.currentFertName = tmp
+            item = self.ui.tableWidget.currentItem()
+            if item is not None and item.text() in Wolke.Char.fertigkeiten:    
+                self.currentFertName = item.text()
                 self.updateInfo()
 
     def fwChanged(self, flag = False):
