@@ -38,7 +38,7 @@ print("Running cxfreeze")
 build_exe_options = {
     "build_exe" : build_path,
     "bin_excludes": ["Qt6Pdf.dll", "Qt6PdfWidgets.dll", "Qt6PdfQuick.dll", "Qt6Svg.dll", "Qt6VirtualKeyboard.dll", "Qt6WebSockets.dll", "Qt6WebEngineQuick.dll"],
-    "includes" : ["multiprocessing", "PySide6.QtPrintSupport", "PySide6.QtWebChannel", "PySide6.QtWebEngineWidgets", "QtUtils.SimpleSettingsDialog"],
+    "includes" : ["multiprocessing", "PySide6.QtPrintSupport", "PySide6.QtWebChannel", "PySide6.QtWebEngineWidgets", "QtUtils.SimpleSettingsDialog", "json"],
     "excludes" : ["tkinter", "distutils", "html", "unittest", "pydoc", "bz2", "pyexpat", "lzma", "email", "xml", "ssl", "socket", "_hashlib", "http", "test", "asyncio", "queue", "select", "xmlrpc", "PySide6.QtSvg", "PySide6.QtVirtualKeyboard", "PySide6.QtWebSockets", "PySide6.QtWebEngineQuick"],
     "optimize" : 2,
     "zip_include_packages" : "*",
