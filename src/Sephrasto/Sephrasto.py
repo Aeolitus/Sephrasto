@@ -291,6 +291,15 @@ class MainWindowWrapper(object):
         if not spath.endswith(".xml"):
             spath = spath + ".xml"
 
+        if not os.path.isfile(spath):
+            messagebox = QtWidgets.QMessageBox()
+            messagebox.setWindowTitle("Datei existiert nicht")
+            messagebox.setText(f"Der Charakter kann nicht geladen werden, da die Datei {spath} nicht mehr existiert. Hast du sie verschoben oder umbenannt?")
+            messagebox.setIcon(QtWidgets.QMessageBox.Warning)
+            messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            messagebox.exec()
+            return
+
         EventBus.doAction("charaktereditor_oeffnet", { "neu" : False, "filepath" : spath })
         self.form.hide()
         self.ed = CharakterEditor.Editor(self._plugins, self.charakterEditorClosedHandler, self.savePathUpdated, spath)
