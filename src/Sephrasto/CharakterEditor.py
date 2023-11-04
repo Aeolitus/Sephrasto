@@ -27,9 +27,10 @@ import logging
 from EventBus import EventBus
 from shutil import which
 from EinstellungenWrapper import EinstellungenWrapper
-from CharakterAssistent import WizardWrapper
-from UI import Wizard
+from UI import CharakterMain
 import platform
+from CharakterAssistent.CharakterMerger import CharakterMerger
+from Core.Waffe import Waffe
 
 class Tab():
     def __init__(self, order, wrapper, form, name):
@@ -43,56 +44,43 @@ class Editor(object):
     Main class for the character editing window. Mostly puts together the
     different parts of the GUI and handles the communication inbetween.
     '''
-    def __init__(self, plugins, onCloseCB, savePathUpdatedCallback, CharacterName=""):
+
+    def __init__(self, plugins, onCloseCB, savePathUpdatedCallback):
         super().__init__()
         self.plugins = plugins
+        self.enabledPlugins = []
         self.onCloseCB = onCloseCB
-        self.savepath = CharacterName
-        self.changed = False
         self.savePathUpdatedCallback = savePathUpdatedCallback
-
+        self.savepath = ""
+        self.changed = False
+        self.pdfExporter = PdfExporter.PdfExporter()
         Wolke.DB = Datenbank.Datenbank()
-        wizardSuccess = False
-        hausregeln = Wolke.Settings['Datenbank']
-        if self.savepath:
-            storedHausregeln = Charakter.Char.xmlHausregelnLesen(self.savepath)
-            availableHausregeln = EinstellungenWrapper.getDatenbanken(Wolke.Settings["Pfad-Regeln"])
-            if storedHausregeln in availableHausregeln:
-                hausregeln = storedHausregeln
-            else:
-                messagebox = QtWidgets.QMessageBox()
-                messagebox.setWindowTitle("Hausregeln nicht gefunden!")
-                messagebox.setText(f"Der Charakter wurde mit den Hausregeln {storedHausregeln} erstellt. Die Datei konnte nicht gefunden werden.\n\n"\
-                    "Bitte wähle aus, mit welchen Hausregeln der Charakter stattdessen geladen werden soll.")
-                messagebox.setIcon(QtWidgets.QMessageBox.Critical )
-                messagebox.addButton("OK", QtWidgets.QMessageBox.YesRole)
-                messagebox.setWindowFlags(QtCore.Qt.CustomizeWindowHint | QtCore.Qt.WindowTitleHint)
-                combo = QtWidgets.QComboBox()
-                combo.addItems(availableHausregeln)
-                messagebox.layout().addWidget(combo, 1, 2)
-                messagebox.exec()
-                hausregeln = combo.currentText()
+
+    def loadCharacter(self, path):
+        self.savepath = path
+        storedHausregeln = Charakter.Char.xmlHausregelnLesen(self.savepath)
+        availableHausregeln = EinstellungenWrapper.getDatenbanken(Wolke.Settings["Pfad-Regeln"])
+        if storedHausregeln in availableHausregeln:
+            hausregeln = storedHausregeln
         else:
-            wizardSuccess = self.showCharacterWizard()
+            messagebox = QtWidgets.QMessageBox()
+            messagebox.setWindowTitle("Hausregeln nicht gefunden!")
+            messagebox.setText(f"Der Charakter wurde mit den Hausregeln {storedHausregeln} erstellt. Die Datei konnte nicht gefunden werden.\n\n"\
+                "Bitte wähle aus, mit welchen Hausregeln der Charakter stattdessen geladen werden soll.")
+            messagebox.setIcon(QtWidgets.QMessageBox.Critical )
+            messagebox.addButton("OK", QtWidgets.QMessageBox.YesRole)
+            messagebox.setWindowFlags(QtCore.Qt.CustomizeWindowHint | QtCore.Qt.WindowTitleHint)
+            combo = QtWidgets.QComboBox()
+            combo.addItems(availableHausregeln)
+            messagebox.layout().addWidget(combo, 1, 2)
+            messagebox.exec()
+            hausregeln = combo.currentText()
 
-        if not wizardSuccess:
-            if not Wolke.DB.xmlLaden(hausregeln = hausregeln, isCharakterEditor = True):
-                messagebox = QtWidgets.QMessageBox()
-                messagebox.setWindowTitle("Fehler!")
-                messagebox.setText(hausregeln + " ist keine valide Datenbank-Datei! Der Charaktereditor wird ohne Hausregeln gestartet.")
-                messagebox.setIcon(QtWidgets.QMessageBox.Critical)  
-                messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-                messagebox.exec()
-            Wolke.Char = Charakter.Char()
-            if self.savepath:
-                Wolke.Char.xmlLesen(self.savepath)
-
-        enabledPlugins = []
-        for pluginData in self.plugins:
-            if pluginData.plugin is not None and hasattr(pluginData.plugin, "changesCharacter") and pluginData.plugin.changesCharacter():
-                enabledPlugins.append(pluginData.name)
+        self.loadDB(hausregeln)
+        Wolke.Char = Charakter.Char()
+        Wolke.Char.xmlLesen(self.savepath)
         
-        missingPlugins = set(Wolke.Char.enabledPlugins) - set(enabledPlugins)
+        missingPlugins = set(Wolke.Char.enabledPlugins) - set(self.enabledPlugins)
         if len(missingPlugins) > 0:
             infoBox = QtWidgets.QMessageBox()
             infoBox.setIcon(QtWidgets.QMessageBox.Warning)
@@ -103,18 +91,76 @@ class Editor(object):
             infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
             infoBox.exec()
 
-        Wolke.Char.enabledPlugins = enabledPlugins
-
+        Wolke.Char.enabledPlugins = self.enabledPlugins.copy()
         Wolke.Char.aktualisieren() # A bit later because it needs access to itself
 
-        self.pdfExporter = PdfExporter.PdfExporter()
-        
-    def wheelEvent(self, ev):
-        if ev.type() == QtCore.QEvent.Wheel:
-            if not self.ui.scrollArea.hasFocus():
-                ev.ignore()
+        self.show()
 
-    def setupMainForm(self):
+    def newCharacter(self):
+        self.loadDB(Wolke.Settings['Datenbank'])
+        Wolke.Char = Charakter.Char()
+        Wolke.Char.enabledPlugins = self.enabledPlugins.copy()
+        Wolke.Char.aktualisieren() # A bit later because it needs access to itself
+        self.show()
+
+    def newCharacterFromWizard(self, wizardConfig):
+        self.loadDB(wizardConfig.hausregeln)
+        Wolke.Char = Charakter.Char()
+
+        if wizardConfig.geschlecht is not None:
+            Wolke.Char.kurzbeschreibung = "Geschlecht: " + wizardConfig.geschlecht
+            Wolke.Char.geschlecht = wizardConfig.geschlecht
+
+        # 1. add default weapons (Sephrasto only adds them if the weapons array is empty, which might not be the case here)
+        for waffe in Wolke.DB.einstellungen["Waffen: Standardwaffen"].wert:
+            if waffe in Wolke.DB.waffen:
+                Wolke.Char.waffen.append(Waffe(Wolke.DB.waffen[waffe]))
+
+        # 2. add selected SKP
+        if wizardConfig.spezies is not None:
+            CharakterMerger.xmlLesen(Wolke.DB, wizardConfig.spezies.path, True, False)
+
+        if wizardConfig.kultur is not None:
+            CharakterMerger.xmlLesen(Wolke.DB, wizardConfig.kultur.path, False, True)
+
+        if wizardConfig.profession is not None:
+            CharakterMerger.xmlLesen(Wolke.DB, wizardConfig.profession.path, False, False)
+
+        # 3. Handle choices afterwards so EP spent can be displayed accurately
+        if wizardConfig.spezies is not None:
+            CharakterMerger.handleChoices(Wolke.DB, wizardConfig.spezies, wizardConfig.geschlecht, True, False, False)
+
+        if wizardConfig.kultur is not None:
+            CharakterMerger.handleChoices(Wolke.DB, wizardConfig.kultur, wizardConfig.geschlecht, False, True, False)
+
+        if wizardConfig.profession is not None:
+            CharakterMerger.handleChoices(Wolke.DB, wizardConfig.profession, wizardConfig.geschlecht, False, False, True)
+
+        Wolke.Char.enabledPlugins = self.enabledPlugins.copy()
+        Wolke.Char.aktualisieren() # A bit later because it needs access to itself
+        self.show()
+
+    def loadDB(self, hausregeln):
+        if Wolke.DB.datei is None or Wolke.DB.hausregelDatei != hausregeln:
+            if not Wolke.DB.xmlLaden(hausregeln = hausregeln, isCharakterEditor = True):
+                messagebox = QtWidgets.QMessageBox()
+                messagebox.setWindowTitle("Fehler!")
+                messagebox.setText(hausregeln + " ist keine valide Datenbank-Datei! Der Charaktereditor wird ohne Hausregeln gestartet.")
+                messagebox.setIcon(QtWidgets.QMessageBox.Critical)  
+                messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+                messagebox.exec()
+        self.enabledPlugins = []
+        for pluginData in self.plugins:
+            if pluginData.plugin is not None and hasattr(pluginData.plugin, "changesCharacter") and pluginData.plugin.changesCharacter():
+                self.enabledPlugins.append(pluginData.name)
+
+    def show(self):
+        self.form = QtWidgets.QWidget()
+        self.ui = CharakterMain.Ui_formMain()
+        self.ui.setupUi(self.form)
+        self.ui.tabs.removeTab(0)
+        self.ui.tabs.removeTab(0)
+        
         windowSize = Wolke.Settings["WindowSize-Charakter"]
         self.form.resize(windowSize[0], windowSize[1])
 
@@ -192,7 +238,13 @@ class Editor(object):
         self.reload(self.ui.tabs.currentIndex())
 
         self.form.closeEvent = self.closeEvent
+        self.form.show()
         
+    def wheelEvent(self, ev):
+        if ev.type() == QtCore.QEvent.Wheel:
+            if not self.ui.scrollArea.hasFocus():
+                ev.ignore()
+
     def cancelDueToPendingChanges(self, action):
         if self.changed:
             messagebox = QtWidgets.QMessageBox()
@@ -292,31 +344,6 @@ Versuchs doch bitte nochmal mit einer anderen Zieldatei.")
             Wolke.Char.xmlSchreiben(self.savepath)
 
         self.changed = False
-
-
-    def showCharacterWizard(self):
-        if not Wolke.Settings['Charakter-Assistent']:
-            return False
-
-        self.wizardEd = WizardWrapper.WizardWrapper()
-        self.wizardEd.loadTemplates()
-        self.wizardEd.form = QtWidgets.QDialog()
-        self.wizardEd.form .setWindowFlags(
-                QtCore.Qt.Window |
-                QtCore.Qt.CustomizeWindowHint |
-                QtCore.Qt.WindowTitleHint |
-                QtCore.Qt.WindowCloseButtonHint)
-
-        self.wizardEd.ui = Wizard.Ui_formMain()
-        self.wizardEd.ui.setupUi(self.wizardEd.form)
-        self.wizardEd.setupMainForm()
-        self.wizardEd.form.setWindowModality(QtCore.Qt.ApplicationModal)
-        self.wizardEd.form.show()
-        result = self.wizardEd.form.exec()
-        self.wizardEd.form.hide()
-        self.wizardEd.form.deleteLater()
-        self.wizardEd = None
-        return result == QtWidgets.QDialog.Accepted
 
     def pdfButton(self):
         if which("pdftk") is None:

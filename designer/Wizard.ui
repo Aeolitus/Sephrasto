@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>506</width>
-    <height>472</height>
+    <width>636</width>
+    <height>473</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -41,15 +41,131 @@
    <property name="verticalSpacing">
     <number>7</number>
    </property>
-   <item row="15" column="0" colspan="2">
+   <item row="2" column="0">
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="label_3">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Hausregeln</string>
+     </property>
+     <property name="class" stdset="0">
+      <string>h4</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="0">
+    <widget class="QLabel" name="lblKultur">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Kultur</string>
+     </property>
+     <property name="class" stdset="0">
+      <string>h4</string>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="1">
+    <widget class="QComboBox" name="cbProfession">
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hier sind manchmal Namen mitangegeben - dies sind vollwertige Archetypen mit Eigenheiten.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="label_4">
+     <property name="text">
+      <string>Neuer Charakter</string>
+     </property>
+     <property name="class" stdset="0">
+      <string>h2</string>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="0">
+    <widget class="QLabel" name="lblProfession">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Profession</string>
+     </property>
+     <property name="class" stdset="0">
+      <string>h4</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="0">
+    <widget class="QLabel" name="lblProfessionKategorie">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Professionskategorie</string>
+     </property>
+     <property name="class" stdset="0">
+      <string>h4</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0">
+    <widget class="QLabel" name="lblSpezies">
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Spezies</string>
+     </property>
+     <property name="class" stdset="0">
+      <string>h4</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QComboBox" name="cbRegeln"/>
+   </item>
+   <item row="17" column="0" colspan="2">
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="16" column="0" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout_3">
-     <item>
-      <widget class="QPushButton" name="btnCancel">
-       <property name="text">
-        <string>Ohne Assistent fortfahren</string>
-       </property>
-      </widget>
-     </item>
      <item>
       <spacer name="horizontalSpacer_2">
        <property name="orientation">
@@ -90,17 +206,42 @@
      </item>
     </layout>
    </item>
-   <item row="3" column="1">
-    <widget class="QComboBox" name="cbBaukasten">
-     <property name="minimumSize">
+   <item row="12" column="0">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
       <size>
-       <width>300</width>
-       <height>0</height>
+       <width>20</width>
+       <height>40</height>
       </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="lblRegeln">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Baukasten</string>
+     </property>
+     <property name="class" stdset="0">
+      <string>h4</string>
      </property>
     </widget>
    </item>
-   <item row="17" column="0" colspan="2">
+   <item row="18" column="0" colspan="2">
     <widget class="QLabel" name="label">
      <property name="minimumSize">
       <size>
@@ -133,30 +274,10 @@
      </property>
     </widget>
    </item>
-   <item row="6" column="1">
-    <widget class="QComboBox" name="cbKultur"/>
+   <item row="8" column="1">
+    <widget class="QComboBox" name="cbProfessionKategorie"/>
    </item>
-   <item row="0" column="0" colspan="2">
-    <layout class="QVBoxLayout" name="verticalLayout_2">
-     <item>
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>Dieser Assistent betreut dich bei der Erstellung deines Charakters. Bei den Professionen sind manchmal Namen mitangegeben - dies sind vollwertige Archetypen mit Eigenheiten. Die angegebenen benötigten Erfahrungspunkte können niedriger oder höher ausfallen.</string>
-       </property>
-       <property name="wordWrap">
-        <bool>true</bool>
-       </property>
-       <property name="margin">
-        <number>0</number>
-       </property>
-       <property name="class" stdset="0">
-        <string>panel</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="4" column="0">
+   <item row="5" column="0">
     <widget class="QLabel" name="lblGeschlecht">
      <property name="font">
       <font>
@@ -172,61 +293,27 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="0">
-    <widget class="QLabel" name="lblRegeln">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>Baukasten</string>
-     </property>
-     <property name="class" stdset="0">
-      <string>h4</string>
-     </property>
-    </widget>
-   </item>
-   <item row="8" column="0">
-    <widget class="QLabel" name="lblProfession">
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>Profession</string>
-     </property>
-     <property name="class" stdset="0">
-      <string>h4</string>
-     </property>
-    </widget>
-   </item>
-   <item row="7" column="0">
-    <widget class="QLabel" name="lblProfessionKategorie">
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>Professionskategorie</string>
-     </property>
-     <property name="class" stdset="0">
-      <string>h4</string>
+   <item row="6" column="1">
+    <widget class="QComboBox" name="cbSpezies">
+     <property name="minimumSize">
+      <size>
+       <width>300</width>
+       <height>0</height>
+      </size>
      </property>
     </widget>
    </item>
    <item row="4" column="1">
+    <widget class="QComboBox" name="cbBaukasten">
+     <property name="minimumSize">
+      <size>
+       <width>300</width>
+       <height>0</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <property name="spacing">
       <number>10</number>
@@ -245,9 +332,9 @@
       </spacer>
      </item>
      <item>
-      <widget class="QRadioButton" name="btnWeiblich">
+      <widget class="QRadioButton" name="btnSkip">
        <property name="text">
-        <string>Weiblich</string>
+        <string>Überspringen</string>
        </property>
        <property name="checked">
         <bool>true</bool>
@@ -258,6 +345,16 @@
       <widget class="QRadioButton" name="btnMaennlich">
        <property name="text">
         <string>Männlich</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QRadioButton" name="btnWeiblich">
+       <property name="text">
+        <string>Weiblich</string>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -273,115 +370,14 @@
      </item>
     </layout>
    </item>
-   <item row="5" column="0">
-    <widget class="QLabel" name="lblSpezies">
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>Spezies</string>
-     </property>
-     <property name="class" stdset="0">
-      <string>h4</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="1">
-    <widget class="QComboBox" name="cbSpezies">
-     <property name="minimumSize">
-      <size>
-       <width>300</width>
-       <height>0</height>
-      </size>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="0">
-    <spacer name="verticalSpacer_2">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeType">
-      <enum>QSizePolicy::Fixed</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="16" column="0" colspan="2">
-    <widget class="Line" name="line">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-   </item>
-   <item row="11" column="0">
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="6" column="0">
-    <widget class="QLabel" name="lblKultur">
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>Kultur</string>
-     </property>
-     <property name="class" stdset="0">
-      <string>h4</string>
-     </property>
-    </widget>
-   </item>
    <item row="7" column="1">
-    <widget class="QComboBox" name="cbProfessionKategorie"/>
-   </item>
-   <item row="8" column="1">
-    <widget class="QComboBox" name="cbProfession"/>
-   </item>
-   <item row="2" column="0">
-    <widget class="QLabel" name="label_3">
-     <property name="font">
-      <font>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>Hausregeln</string>
-     </property>
-     <property name="class" stdset="0">
-      <string>h4</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="1">
-    <widget class="QComboBox" name="cbRegeln"/>
+    <widget class="QComboBox" name="cbKultur"/>
    </item>
   </layout>
  </widget>
  <tabstops>
   <tabstop>cbRegeln</tabstop>
   <tabstop>cbBaukasten</tabstop>
-  <tabstop>btnWeiblich</tabstop>
   <tabstop>btnMaennlich</tabstop>
   <tabstop>btnDivers</tabstop>
   <tabstop>leDivers</tabstop>
@@ -389,7 +385,6 @@
   <tabstop>cbKultur</tabstop>
   <tabstop>cbProfessionKategorie</tabstop>
   <tabstop>cbProfession</tabstop>
-  <tabstop>btnCancel</tabstop>
   <tabstop>btnAccept</tabstop>
  </tabstops>
  <resources/>

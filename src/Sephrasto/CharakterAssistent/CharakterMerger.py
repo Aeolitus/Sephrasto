@@ -77,7 +77,8 @@ class CharakterMerger:
         char = Wolke.Char
 
         if not spezies:
-            char.kurzbeschreibung += ", "
+            if char.kurzbeschreibung:
+                char.kurzbeschreibung += ", "
             if kultur:
                 char.kurzbeschreibung += "Kultur: " + element.name
                 char.kultur = element.name

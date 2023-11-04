@@ -14,7 +14,6 @@ import os.path
 import UI.MainWindow
 import CharakterEditor
 import DatenbankEditor
-import UI.CharakterMain
 import UI.DatenbankMain
 from Wolke import Wolke
 import yaml
@@ -30,6 +29,7 @@ from Hilfsmethoden import Hilfsmethoden
 import platform
 import PathHelper
 from CharakterListe import CharakterListe
+from CharakterAssistent import WizardWrapper
 
 loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
 logging.basicConfig(filename="sephrasto.log", \
@@ -262,18 +262,26 @@ class MainWindowWrapper(object):
         '''
         Creates a new CharakterEditor which is empty and shows it.
         '''
+        wizardConfig = None
+        if Wolke.Settings['Charakter-Assistent']:
+            wizardEd = WizardWrapper.WizardWrapper()
+            result = wizardEd.form.exec()
+            if result == QtWidgets.QDialog.Accepted:
+                wizardConfig = wizardEd.config
+            wizardEd.form.hide()
+            wizardEd.form.deleteLater()
+            if result != QtWidgets.QDialog.Accepted:
+                return
+
         EventBus.doAction("charaktereditor_oeffnet", { "neu" : True, "filepath" : "" })
         self.form.hide()
         self.ed = CharakterEditor.Editor(self._plugins, self.charakterEditorClosedHandler, self.savePathUpdated)
-        self.ed.form = QtWidgets.QWidget()
-        self.ed.ui = UI.CharakterMain.Ui_formMain()
-        self.ed.ui.setupUi(self.ed.form)
-        self.ed.ui.tabs.removeTab(0)
-        self.ed.ui.tabs.removeTab(0)
-        self.ed.setupMainForm()
-        self.savePathUpdated()
-        self.ed.form.show()
-        
+        if wizardConfig is None:
+            self.ed.newCharacter()
+        else:
+            self.ed.newCharacterFromWizard(wizardConfig)
+
+        self.savePathUpdated()        
         EventBus.doAction("charaktereditor_geoeffnet", { "neu" : True, "filepath" : "" })
         
     def editExisting(self, spath = ""):
@@ -302,15 +310,9 @@ class MainWindowWrapper(object):
 
         EventBus.doAction("charaktereditor_oeffnet", { "neu" : False, "filepath" : spath })
         self.form.hide()
-        self.ed = CharakterEditor.Editor(self._plugins, self.charakterEditorClosedHandler, self.savePathUpdated, spath)
-        self.ed.form = QtWidgets.QWidget()
-        self.ed.ui = UI.CharakterMain.Ui_formMain()
-        self.ed.ui.setupUi(self.ed.form)
-        self.ed.ui.tabs.removeTab(0)
-        self.ed.ui.tabs.removeTab(0)
-        self.ed.setupMainForm()
+        self.ed = CharakterEditor.Editor(self._plugins, self.charakterEditorClosedHandler, self.savePathUpdated)
+        self.ed.loadCharacter(spath)
         self.savePathUpdated()
-        self.ed.form.show()
         EventBus.doAction("charaktereditor_geoeffnet", { "neu" : False, "filepath" : spath })
 
     def addRecentChar(self, spath):
