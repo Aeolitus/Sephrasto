@@ -8,25 +8,34 @@ from EventBus import EventBus
 from CharakterAssistent.CharakterMerger import CharakterMerger
 import PathHelper
 import copy
-from Core.Waffe import Waffe
 from Datenbank import Datenbank
 from Charakter import Char
+from UI import CharakterMain, Wizard
 
-class Regeln(object):
+class Regeln():
     def __init__(self):
         self.spezies = {}
         self.kulturen = {}
         self.professionen = {}
 
-class Element(object):
+class Element():
     def __init__(self, path, varPath, name, comboName):
         self.path = path
         self.varPath = varPath
         self.name = name
         self.comboName = comboName
 
+class WizardConfig():
+    def __init__(self, hausregeln, geschlecht, spezies, kultur, profession):
+        self.hausregeln = hausregeln
+        self.geschlecht = geschlecht
+        self.spezies = spezies
+        self.kultur = kultur
+        self.profession = profession
+
 class WizardWrapper(object):
     def __init__(self):
+        self.config = None
         self.regelList = {}
 
         self.baukastenFolders = []
@@ -35,6 +44,42 @@ class WizardWrapper(object):
                 continue
             for baukastenFolders in PathHelper.listdir(dataFolder):
                 self.baukastenFolders.append(os.path.join(dataFolder, baukastenFolders))
+
+        self.loadTemplates()
+        self.form = QtWidgets.QDialog()
+        self.form.setWindowFlags(
+                QtCore.Qt.Window |
+                QtCore.Qt.CustomizeWindowHint |
+                QtCore.Qt.WindowTitleHint |
+                QtCore.Qt.WindowCloseButtonHint)
+
+        self.ui = Wizard.Ui_formMain()
+        self.ui.setupUi(self.form)
+        self.ui.cbRegeln.addItems(EinstellungenWrapper.getDatenbanken(Wolke.Settings["Pfad-Regeln"]))
+        self.ui.cbRegeln.setCurrentText(Wolke.Settings['Datenbank'])
+
+        rl = sorted(list(self.regelList.keys()))
+        if "Ilaris" in rl:
+            rl.remove("Ilaris")
+            rl.insert(0, "Ilaris")
+        self.ui.cbBaukasten.addItems(rl)
+
+        if "CharakterAssistent_Regeln" in Wolke.Settings:
+            regeln = Wolke.Settings["CharakterAssistent_Regeln"]
+            if regeln in rl:
+                self.ui.cbBaukasten.setCurrentIndex(rl.index(regeln))
+
+        self.ui.cbBaukasten.currentIndexChanged.connect(self.regelnChanged)
+        if len(rl) == 1:
+            self.ui.lblRegeln.setVisible(False)
+            self.ui.cbBaukasten.setVisible(False)
+
+        self.ui.cbProfessionKategorie.currentIndexChanged.connect(self.professionKategorieChanged)
+        self.regelnChanged()
+        self.ui.btnAccept.clicked.connect(self.acceptClickedHandler)
+
+        self.form.setWindowModality(QtCore.Qt.ApplicationModal)
+        self.form.show()
 
     def loadTemplates(self):
         for baukastenFolder in self.baukastenFolders:
@@ -112,29 +157,6 @@ class WizardWrapper(object):
                         errors.extend(CharakterMerger.verifyChoices(db, path))
         return errors
 
-
-    def setupMainForm(self):
-        self.ui.cbRegeln.addItems(EinstellungenWrapper.getDatenbanken(Wolke.Settings["Pfad-Regeln"]))
-        self.ui.cbRegeln.setCurrentText(Wolke.Settings['Datenbank'])
-
-        rl = sorted(list(self.regelList.keys()))
-        if "Ilaris" in rl:
-            rl.remove("Ilaris")
-            rl.insert(0, "Ilaris")
-        self.ui.cbBaukasten.addItems(rl)
-
-        if "CharakterAssistent_Regeln" in Wolke.Settings:
-            regeln = Wolke.Settings["CharakterAssistent_Regeln"]
-            if regeln in rl:
-                self.ui.cbBaukasten.setCurrentIndex(rl.index(regeln))
-
-        self.ui.cbBaukasten.currentIndexChanged.connect(self.regelnChanged)
-        self.ui.cbProfessionKategorie.currentIndexChanged.connect(self.professionKategorieChanged)
-
-        self.regelnChanged()
-        self.ui.btnAccept.clicked.connect(self.acceptClickedHandler)
-        self.ui.btnCancel.clicked.connect(self.cancelClickedHandler)
-
     def professionKategorieChanged(self):
         regeln = self.regelList[self.ui.cbBaukasten.currentText()]
 
@@ -172,70 +194,31 @@ class WizardWrapper(object):
         self.ui.cbProfessionKategorie.addItems(sorted(regeln.professionen.keys()))
         self.professionKategorieChanged()
 
-    def cancelClickedHandler(self):
-        self.form.reject()
-
     def acceptClickedHandler(self):
         if not self.ui.cbBaukasten.currentText() in self.regelList:
+            self.config = None
             self.form.reject()
             return
-        if not Wolke.DB.xmlLaden(hausregeln = self.ui.cbRegeln.currentText(), isCharakterEditor = True):
-            messagebox = QtWidgets.QMessageBox()
-            messagebox.setWindowTitle("Fehler!")
-            messagebox.setText(self.ui.cbRegeln.currentText() + " ist keine valide Datenbank-Datei!")
-            messagebox.setIcon(QtWidgets.QMessageBox.Critical)  
-            messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-            messagebox.exec()
-            return
-        Wolke.Char = Char()
-        regeln = self.regelList[self.ui.cbBaukasten.currentText()]
 
-        geschlecht = ""
+        geschlecht = None
         if self.ui.btnWeiblich.isChecked():
             geschlecht = "weiblich"
         elif self.ui.btnMaennlich.isChecked():
             geschlecht = "männlich"
-        else:
+        elif self.ui.btnDivers.isChecked():
             geschlecht = self.ui.leDivers.text()
 
-        Wolke.Char.kurzbeschreibung = "Geschlecht: " + geschlecht
-        Wolke.Char.geschlecht = geschlecht
-
-        # 1. add default weapons (Sephrasto only adds them if the weapons array is empty, which might not be the case here)
-        for waffe in Wolke.DB.einstellungen["Waffen: Standardwaffen"].wert:
-            if waffe in Wolke.DB.waffen:
-                Wolke.Char.waffen.append(Waffe(Wolke.DB.waffen[waffe]))
-
-        # 2. add selected SKP
+        spezies = None
         if self.ui.cbSpezies.currentText() != "Überspringen":
             spezies = self.spezies[self.ui.cbSpezies.currentIndex()-1]
-            CharakterMerger.xmlLesen(Wolke.DB, spezies.path, True, False)
 
+        kultur = None
         if self.ui.cbKultur.currentText() != "Überspringen":
             kultur = self.kulturen[self.ui.cbKultur.currentIndex()-1]
-            CharakterMerger.xmlLesen(Wolke.DB, kultur.path, False, True)
 
-        if self.ui.cbProfessionKategorie.currentText() != "Überspringen":
-            professionKategorie = regeln.professionen[self.ui.cbProfessionKategorie.currentText()]
+        profession = None
+        if self.ui.cbProfessionKategorie.currentText() != "Überspringen" and self.ui.cbProfession.currentText() != "Überspringen":
+            profession = self.professionen[self.ui.cbProfession.currentIndex()-1]
 
-            if self.ui.cbProfession.currentText() != "Überspringen":
-                profession = self.professionen[self.ui.cbProfession.currentIndex()-1]
-                CharakterMerger.xmlLesen(Wolke.DB, profession.path, False, False)
-
-        # 3. Handle choices afterwards so EP spent can be displayed accurately
-        if self.ui.cbSpezies.currentText() != "Überspringen":
-            spezies = self.spezies[self.ui.cbSpezies.currentIndex()-1]
-            CharakterMerger.handleChoices(Wolke.DB, spezies, geschlecht, True, False, False)
-
-        if self.ui.cbKultur.currentText() != "Überspringen":
-            kultur = self.kulturen[self.ui.cbKultur.currentIndex()-1]
-            CharakterMerger.handleChoices(Wolke.DB, kultur, geschlecht, False, True, False)
-
-        if self.ui.cbProfessionKategorie.currentText() != "Überspringen":
-            professionKategorie = regeln.professionen[self.ui.cbProfessionKategorie.currentText()]
-
-            if self.ui.cbProfession.currentText() != "Überspringen":
-                profession = self.professionen[self.ui.cbProfession.currentIndex()-1]
-                CharakterMerger.handleChoices(Wolke.DB, profession, geschlecht, False, False, True)
-
+        self.config = WizardConfig(self.ui.cbRegeln.currentText(), geschlecht, spezies, kultur, profession)
         self.form.accept()
