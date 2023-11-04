@@ -22,7 +22,7 @@ Mitgeliefert werden außerdem:
 
 Die zugehörigen Lizenzen können hier gefunden werden: [Acknowledgements](src/Sephrasto/Doc/Acknowledgements.md)
 
-## Installation Linux (Ubuntu/Debian)
+## Installation Linux
 ```
 sudo apt install python3-pip
 sudo apt install openjdk-11-jdk
@@ -30,7 +30,7 @@ sudo apt install pdftk
 git clone https://github.com/Aeolitus/Sephrasto.git
 pip install -r Sephrasto/requirements.txt
 ```
-Alternativ zu pip stehen auch Poetry files zur Verfügung. OpenJDK wird für pdftk benötigt, ohne diese beiden Pakete können keine Charakterbogen-PDFs erzeugt werden. Statt das Sephrasto Repository mit git zu klonen, kannst du es natürlich auch manuell herunterladen und entpacken (unter "Code" den Punkt "Download zip" auswählen).
+OpenJDK wird für pdftk benötigt, ohne diese beiden Pakete können keine Charakterbogen-PDFs erzeugt werden. Statt das Sephrasto Repository mit git zu klonen, kannst du es natürlich auch manuell herunterladen und entpacken (unter "Code" den Punkt "Download zip" auswählen).
 
 Gestartet wird Sephrasto dann folgendermaßen:
 ```
@@ -41,6 +41,8 @@ Versuche es folgendermaßen, falls das nicht klappt:
 ```
 python3 Sephrasto/src/Sephrasto/Sephrasto.py
 ```
+
+Alternativ gibt es hier aus der Community einen Installer für Void Linux, Ubuntu/Debian und Arch Linux (ohne Gewähr): https://github.com/kgitthoene/multi-linux-sephrasto-installer
 
 ### Sephrasto Userordner ###
 Wenn dich der automatisch generierte Sephrasto-Ordner im Userverzeichnis stört, kannst du ihn von "sephrasto" in ".sephrasto" umbenennen, um ihn zu verstecken. Sephrasto wird dann den "sephrasto" Ordner nicht neu erstellen.
