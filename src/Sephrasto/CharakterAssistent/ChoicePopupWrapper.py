@@ -1,10 +1,9 @@
 from PySide6 import QtCore, QtWidgets, QtGui
 from UI import ChoicePopup
 from CharakterAssistent import Choice
-from Wolke import Wolke
 
 class ChoicePopupWrapper(object):
-    def __init__(self, db, choiceList, windowTitle, currentEP):
+    def __init__(self, char, db, choiceList, windowTitle, currentEP):
         super().__init__()
         self.form = QtWidgets.QDialog()
         self.form.setWindowFlags(
@@ -19,12 +18,12 @@ class ChoicePopupWrapper(object):
         self.buttons = []
         self.ui.labelEP.setText(str(currentEP))
         for choice in choiceList.choices:
-            choiceStr = choice.toString(db)
+            choiceStr = choice.toString(char, db)
             if not choiceStr:
                 continue
 
             button = QtWidgets.QRadioButton(choiceStr)
-            error = choice.getErrorString(db)
+            error = choice.getErrorString(char, db)
             if error:
                 button.setEnabled(False)
             self.buttons.append(button)

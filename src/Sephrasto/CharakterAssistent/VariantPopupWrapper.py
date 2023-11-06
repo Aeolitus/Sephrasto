@@ -1,9 +1,8 @@
 from PySide6 import QtCore, QtWidgets, QtGui
 from UI import ChoicePopup
-from Wolke import Wolke
 
 class VariantPopupWrapper(object):
-    def __init__(self, db, variantListCollection, windowTitle, currentEP):
+    def __init__(self, char, db, variantListCollection, windowTitle, currentEP):
         super().__init__()
         self.form = QtWidgets.QDialog()
         self.form.setWindowFlags(
@@ -20,16 +19,16 @@ class VariantPopupWrapper(object):
         self.ui.labelEP.setText(str(currentEP))
         for variantList in variantListCollection.choiceLists:
             if variantListCollection.chooseOne:
-                button = QtWidgets.QRadioButton(variantList.toString(db))
+                button = QtWidgets.QRadioButton(variantList.toString(char, db))
                 if variantList == variantListCollection.choiceLists[0]:
                     button.setChecked(True)
             else:
-                button = QtWidgets.QCheckBox(variantList.toString(db))
+                button = QtWidgets.QCheckBox(variantList.toString(char, db))
 
             self.buttons.append(button)
             self.ui.verticalLayout.addWidget(button)
 
-            desc = variantList.getDescription(db)
+            desc = variantList.getDescription(char, db)
             if desc:
                 label = QtWidgets.QLabel(desc)
                 self.labels.append(label)

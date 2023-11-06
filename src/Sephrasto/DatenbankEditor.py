@@ -173,9 +173,8 @@ class DatenbankEditor(object):
         self.ui.actionBeenden.triggered.connect(lambda: self.form.close())
 
         self.ui.actionFehlerliste.triggered.connect(self.showErrorLog)
-        self.wizardWrapper = WizardWrapper()
         self.wizardActions = []
-        for baukastenFolder in self.wizardWrapper.baukastenFolders:
+        for baukastenFolder in WizardWrapper.getBaukastenFolders():
             action = QtGui.QAction("Charakter Assistent: " + os.path.basename(baukastenFolder))
             action.triggered.connect(partial(self.showCharakterAssistentErrorLog, baukasten=baukastenFolder))
             self.ui.menuAnalysieren.addAction(action)
@@ -465,6 +464,7 @@ class DatenbankEditor(object):
         for element in table:
             row = []
             iconItem = QtGui.QStandardItem()
+            iconItem.setEditable(False)
             iconItem.setFont(Wolke.FontAwesomeFont)
             iconItem.setTextAlignment(QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
             if self.datenbank.isRemoved(element):
@@ -900,7 +900,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             self.charakterAssistentErrorLog.form.activateWindow()
 
         self.charakterAssistentErrorLog.setTitle("Charakter Assistent Fehler (" + os.path.basename(baukasten) + ")")
-        errors = "<br>".join(self.wizardWrapper.verify(self.datenbank, baukasten))
+        errors = "<br>".join(WizardWrapper.verify(self.datenbank, baukasten))
         if errors:
             self.charakterAssistentErrorLog.setText(errors)
         else:

@@ -30,7 +30,6 @@ from EinstellungenWrapper import EinstellungenWrapper
 from UI import CharakterMain
 import platform
 from CharakterAssistent.CharakterMerger import CharakterMerger
-from Core.Waffe import Waffe
 
 class Tab():
     def __init__(self, order, wrapper, form, name):
@@ -106,36 +105,7 @@ class Editor(object):
     def newCharacterFromWizard(self, wizardConfig):
         self.loadDB(wizardConfig.hausregeln)
         Wolke.Char = Charakter.Char()
-
-        if wizardConfig.geschlecht is not None:
-            Wolke.Char.kurzbeschreibung = "Geschlecht: " + wizardConfig.geschlecht
-            Wolke.Char.geschlecht = wizardConfig.geschlecht
-
-        # 1. add default weapons (Sephrasto only adds them if the weapons array is empty, which might not be the case here)
-        for waffe in Wolke.DB.einstellungen["Waffen: Standardwaffen"].wert:
-            if waffe in Wolke.DB.waffen:
-                Wolke.Char.waffen.append(Waffe(Wolke.DB.waffen[waffe]))
-
-        # 2. add selected SKP
-        if wizardConfig.spezies is not None:
-            CharakterMerger.xmlLesen(Wolke.DB, wizardConfig.spezies.path, True, False)
-
-        if wizardConfig.kultur is not None:
-            CharakterMerger.xmlLesen(Wolke.DB, wizardConfig.kultur.path, False, True)
-
-        if wizardConfig.profession is not None:
-            CharakterMerger.xmlLesen(Wolke.DB, wizardConfig.profession.path, False, False)
-
-        # 3. Handle choices afterwards so EP spent can be displayed accurately
-        if wizardConfig.spezies is not None:
-            CharakterMerger.handleChoices(Wolke.DB, wizardConfig.spezies, wizardConfig.geschlecht, True, False, False)
-
-        if wizardConfig.kultur is not None:
-            CharakterMerger.handleChoices(Wolke.DB, wizardConfig.kultur, wizardConfig.geschlecht, False, True, False)
-
-        if wizardConfig.profession is not None:
-            CharakterMerger.handleChoices(Wolke.DB, wizardConfig.profession, wizardConfig.geschlecht, False, False, True)
-
+        wizardConfig.apply(Wolke.Char, Wolke.DB)
         Wolke.Char.enabledPlugins = self.enabledPlugins.copy()
         Wolke.Char.aktualisieren() # A bit later because it needs access to itself
         self.show()

@@ -83,6 +83,9 @@ def qt_message_handler(mode, context, message):
         logging.warning(message)
         breakIfDebuggerAttached()
     elif mode == QtCore.QtMsgType.QtCriticalMsg:
+        if "Content Security Policy" in message:
+            # many websites violate their own CSP - chromium applies it as configured though, no need to log this
+            return
         logging.error(message)
         breakIfDebuggerAttached()
     elif mode == QtCore.QtMsgType.QtFatalMsg:

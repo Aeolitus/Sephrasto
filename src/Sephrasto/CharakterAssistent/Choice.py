@@ -1,4 +1,3 @@
-from Wolke import Wolke
 from EventBus import EventBus
 from Core.Fertigkeit import KampffertigkeitTyp
 from Core.FreieFertigkeit import FreieFertigkeitDefinition
@@ -12,45 +11,45 @@ class Choice(object):
         self.typ = "Fertigkeit"
         self.kommentar = ""
 
-    def getErrorString(self, db):
+    def getErrorString(self, char, db):
         # Some paths are logging instead of returning the error.
         # These cases may not always be true, i.e. if the choice is bundled with others inside a variant
         # So we're not displaying these errors because it might be more confusing if the displayed a wrong info
         # Usually the commented out parts mean anyways, that the creator of the template made an error
         if self.typ == "Freie-Fertigkeit":
-            for ff in Wolke.Char.freieFertigkeiten:
+            for ff in char.freieFertigkeiten:
                 if self.name == ff.name:
                     if ff.wert == 3:
                         return "bereits Maximum"
                     break
         elif self.typ == "Fertigkeit":
-            if self.name in Wolke.Char.fertigkeiten:
-                if self.wert > 0 and Wolke.Char.fertigkeiten[self.name].wert == Wolke.Char.fertigkeiten[self.name].maxWert:
+            if self.name in char.fertigkeiten:
+                if self.wert > 0 and char.fertigkeiten[self.name].wert == char.fertigkeiten[self.name].maxWert:
                     logging.warn(f"CharakterAssistent: {self.typ} {self.name} bereits Maximum")
                     return None
-                if self.wert < 0 and Wolke.Char.fertigkeiten[self.name].wert == 0:
+                if self.wert < 0 and char.fertigkeiten[self.name].wert == 0:
                     logging.warn(f"CharakterAssistent: {self.typ} {self.name} bereits Minimum")
                     return None
             else:
                 logging.warn(f"CharakterAssistent: {self.typ} {self.name} nicht vorhanden")
                 return None
         elif self.typ == "Übernatürliche-Fertigkeit":
-            if self.name in Wolke.Char.übernatürlicheFertigkeiten:
-                if self.wert > 0 and Wolke.Char.übernatürlicheFertigkeiten[self.name].wert == Wolke.Char.übernatürlicheFertigkeiten[self.name].maxWert:
+            if self.name in char.übernatürlicheFertigkeiten:
+                if self.wert > 0 and char.übernatürlicheFertigkeiten[self.name].wert == char.übernatürlicheFertigkeiten[self.name].maxWert:
                     logging.warn(f"CharakterAssistent: {self.typ} {self.name} bereits Maximum")
                     return None
-                if self.wert < 0 and Wolke.Char.übernatürlicheFertigkeiten[self.name].wert == 0:
+                if self.wert < 0 and char.übernatürlicheFertigkeiten[self.name].wert == 0:
                     logging.warn(f"CharakterAssistent: {self.typ} {self.name} bereits Minimum")
                     return None
             else:
                 logging.warn(f"CharakterAssistent: {self.typ} {self.name} nicht vorhanden")
                 return None
         elif self.typ == "Attribut":
-            if self.name in Wolke.Char.attribute and self.wert < 0 and Wolke.Char.attribute[self.name].wert == 0:
+            if self.name in char.attribute and self.wert < 0 and char.attribute[self.name].wert == 0:
                 return "bereits Minimum"
         elif self.typ == "Vorteil":
-            if self.name in Wolke.Char.vorteile:
-                vorteil = Wolke.Char.vorteile[self.name]
+            if self.name in char.vorteile:
+                vorteil = char.vorteile[self.name]
                 if vorteil.kommentarErlauben and self.kommentar in vorteil.kommentar:
                     return "bereits erworben"
 
@@ -59,12 +58,12 @@ class Choice(object):
             if not self.name in db.vorteile:
                 logging.warn(f"CharakterAssistent: {self.typ} {self.name} unbekannt")
                 return None          
-            if not Wolke.Char.voraussetzungenPrüfen(db.vorteile[self.name]):
+            if not char.voraussetzungenPrüfen(db.vorteile[self.name]):
                 logging.warn(f"CharakterAssistent: {self.typ} {self.name} Voraussetzungen nicht erfüllt")
                 return None
         elif self.typ == "Talent":
-            if self.name in Wolke.Char.talente:
-                talent = Wolke.Char.talente[self.name]
+            if self.name in char.talente:
+                talent = char.talente[self.name]
                 if talent.kommentarErlauben and self.kommentar in talent.kommentar:
                     return "bereits erworben"
 
@@ -74,20 +73,20 @@ class Choice(object):
             if not self.name in db.talente:
                 logging.warn(f"CharakterAssistent: {self.typ} {self.name} unbekannt")
                 return None
-            if not Wolke.Char.voraussetzungenPrüfen(db.talente[self.name]):
+            if not char.voraussetzungenPrüfen(db.talente[self.name]):
                 logging.warn(f"CharakterAssistent: {self.typ} {self.name} Voraussetzungen nicht erfüllt")
                 return None
         elif self.typ == "Eigenheit":
-            if self.name in Wolke.Char.eigenheiten:
+            if self.name in char.eigenheiten:
                 return "bereits vorhanden"
         return None
 
-    def toString(self, db, addEP = True):
+    def toString(self, char, db, addEP = True):
         valueStr = ""
         prefix = ""
         if self.typ == "Freie-Fertigkeit":
             fert = None
-            for ff in Wolke.Char.freieFertigkeiten:
+            for ff in char.freieFertigkeiten:
                 if self.name == ff.name:
                     fert = ff
                     break
@@ -111,27 +110,27 @@ class Choice(object):
 
         elif self.typ == "Fertigkeit":
             wert = self.wert
-            if self.name in Wolke.Char.fertigkeiten:
-                wert = max(min(Wolke.Char.fertigkeiten[self.name].maxWert - Wolke.Char.fertigkeiten[self.name].wert, self.wert), -Wolke.Char.fertigkeiten[self.name].wert)
+            if self.name in char.fertigkeiten:
+                wert = max(min(char.fertigkeiten[self.name].maxWert - char.fertigkeiten[self.name].wert, self.wert), -char.fertigkeiten[self.name].wert)
             if self.wert >= 0:
                 valueStr = " +" + str(wert)
             else:
                 valueStr = " " + str(wert)
 
-            if self.name in Wolke.Char.fertigkeiten:
-                current = Wolke.Char.fertigkeiten[self.name].wert
+            if self.name in char.fertigkeiten:
+                current = char.fertigkeiten[self.name].wert
                 valueStr += " (aktuell FW " + str(current) + ")"
         elif self.typ == "Übernatürliche-Fertigkeit":
             wert = self.wert
-            if self.name in Wolke.Char.übernatürlicheFertigkeiten:
-                wert = max(min(Wolke.Char.übernatürlicheFertigkeiten[self.name].maxWert - Wolke.Char.übernatürlicheFertigkeiten[self.name].wert, self.wert), -Wolke.Char.übernatürlicheFertigkeiten[self.name].wert)
+            if self.name in char.übernatürlicheFertigkeiten:
+                wert = max(min(char.übernatürlicheFertigkeiten[self.name].maxWert - char.übernatürlicheFertigkeiten[self.name].wert, self.wert), -char.übernatürlicheFertigkeiten[self.name].wert)
             if self.wert >= 0:
                 valueStr = " +" + str(wert)
             else:
                 valueStr = " " + str(wert)
 
-            if self.name in Wolke.Char.übernatürlicheFertigkeiten:
-                current = Wolke.Char.übernatürlicheFertigkeiten[self.name].wert
+            if self.name in char.übernatürlicheFertigkeiten:
+                current = char.übernatürlicheFertigkeiten[self.name].wert
                 valueStr += " (aktuell FW " + str(current) + ")"
         elif self.typ == "Attribut":
             if self.wert >= 0:
@@ -139,8 +138,8 @@ class Choice(object):
             else:
                 valueStr = " " + str(self.wert)
 
-            if self.name in Wolke.Char.attribute:
-                current = Wolke.Char.attribute[self.name].wert
+            if self.name in char.attribute:
+                current = char.attribute[self.name].wert
                 valueStr += " (aktuell " + str(current) + ")"
         else:
             prefix = self.typ + " "
@@ -151,13 +150,13 @@ class Choice(object):
         if self.kommentar:
             valueStr += " (" + self.kommentar + ")"
 
-        errorString = self.getErrorString(db)
+        errorString = self.getErrorString(char, db)
         if addEP and self.typ != "Eigenheit" and not errorString:
             if valueStr.endswith(")"):
                 valueStr = valueStr[:-1] + "; "
             else:
                 valueStr += " ("
-            valueStr += str(self.countEP(db)) + " EP)"
+            valueStr += str(self.countEP(char, db)) + " EP)"
 
         if errorString:
             if valueStr.endswith(")"):
@@ -168,11 +167,11 @@ class Choice(object):
 
         return prefix + self.name + valueStr
 
-    def __countEPNahkampf(self, includeChoice = False):
+    def __countEPNahkampf(self, char, includeChoice = False):
         ep = 0
         höchste = None
         höchsteWert = 0
-        for fert in Wolke.Char.fertigkeiten.values():
+        for fert in char.fertigkeiten.values():
             if fert.kampffertigkeit != KampffertigkeitTyp.Nahkampf:
                 continue
             wert = fert.wert
@@ -186,37 +185,37 @@ class Choice(object):
         ep += max(0, 2*sum(range(höchsteWert+1)))
         return ep
 
-    def countEP(self, db):
+    def countEP(self, char, db):
         if self.typ == "Freie-Fertigkeit":
-            for fert in Wolke.Char.freieFertigkeiten:
+            for fert in char.freieFertigkeiten:
                 if self.name == fert.name:
                     return fert.steigerungskosten(self.wert)
             return EventBus.applyFilter("freiefertigkeit_kosten", FreieFertigkeitDefinition.gesamtkosten[self.wert], { "name" : self.name, "wertVon" : 0, "wertAuf" : self.wert })
 
         elif self.typ == "Fertigkeit":
-            if not self.name in Wolke.Char.fertigkeiten:
+            if not self.name in char.fertigkeiten:
                 return 0
-            fert = Wolke.Char.fertigkeiten[self.name]
+            fert = char.fertigkeiten[self.name]
             if fert.kampffertigkeit == KampffertigkeitTyp.Nahkampf:
-                return self.__countEPNahkampf(True) - self.__countEPNahkampf()
+                return self.__countEPNahkampf(char, True) - self.__countEPNahkampf(char)
             oldVal = sum(range(fert.wert+1)) * fert.steigerungsfaktor
             wert = min(fert.maxWert, fert.wert+self.wert)
             newVal = sum(range(wert+1)) * fert.steigerungsfaktor
             return newVal - oldVal
 
         elif self.typ == "Übernatürliche-Fertigkeit":
-            if not self.name in Wolke.Char.übernatürlicheFertigkeiten:
+            if not self.name in char.übernatürlicheFertigkeiten:
                 return 0
-            fert = Wolke.Char.übernatürlicheFertigkeiten[self.name]
+            fert = char.übernatürlicheFertigkeiten[self.name]
             oldVal = sum(range(fert.wert+1)) * fert.steigerungsfaktor
             wert = min(fert.maxWert, fert.wert+self.wert)
             newVal = sum(range(wert+1)) * fert.steigerungsfaktor
             return newVal - oldVal
 
         elif self.typ == "Attribut":
-            if not self.name in Wolke.Char.attribute:
+            if not self.name in char.attribute:
                 return 0
-            attribut = Wolke.Char.attribute[self.name]
+            attribut = char.attribute[self.name]
             return attribut.steigerungskosten(self.wert)
 
         elif self.typ == "Talent":
@@ -224,8 +223,8 @@ class Choice(object):
                 return 0
             talentDefinition = db.talente[self.name]
             if self.wert == -1:
-                if self.name in Wolke.Char.talente:
-                    return -Wolke.Char.talente[self.name].kosten
+                if self.name in char.talente:
+                    return -char.talente[self.name].kosten
                 return 0
             else:
                 if talentDefinition.variableKosten:
@@ -236,8 +235,8 @@ class Choice(object):
                 return 0
             vorteilDefinition = db.vorteile[self.name]
             if self.wert == -1:
-                if self.name in Wolke.Char.vorteile:
-                    return -Wolke.Char.vorteile[self.name].kosten
+                if self.name in char.vorteile:
+                    return -char.vorteile[self.name].kosten
                 return 0
             else:
                 if vorteilDefinition.variableKosten:
@@ -288,19 +287,19 @@ class ChoiceList(object):
     def filter(self, choice):
         self.choices = [c for c in self.choices if not (c.name == choice.name and c.typ == choice.typ and c.kommentar == choice.kommentar)]
 
-    def toString(self, db):
-        return self.name + " (" + str(self.countEP(db)) + " EP)"
+    def toString(self, char, db):
+        return self.name + " (" + str(self.countEP(char, db)) + " EP)"
 
-    def getDescription(self, db):
+    def getDescription(self, char, db):
         if len(self.choices) > 0:
-            return "        " + "\n        ".join([c.toString(db, False) for c in self.choices])
+            return "        " + "\n        ".join([c.toString(char, db, False) for c in self.choices])
         else:
             return None
 
-    def countEP(self, db):
+    def countEP(self, char, db):
         count = 0
         for choice in self.choices:
-            count += choice.countEP(db)
+            count += choice.countEP(char, db)
         return count
 
 class ChoiceListCollection(object):

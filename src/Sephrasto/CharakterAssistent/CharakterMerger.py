@@ -6,7 +6,6 @@ from Core.Ruestung import Ruestung, RuestungDefinition
 from Core.Waffe import Waffe
 from Core.Fertigkeit import Fertigkeit
 from Core.FreieFertigkeit import FreieFertigkeit, FreieFertigkeitDefinition
-from Wolke import Wolke
 import lxml.etree as etree
 import logging
 from Hilfsmethoden import Hilfsmethoden
@@ -19,11 +18,10 @@ class CharakterMerger:
     def __init__(self):
         pass
     
-    def addFreieFertigkeit(db, name, wert, overrideEmpty):
+    def addFreieFertigkeit(char, db, name, wert, overrideEmpty):
         if name == "":
             return
 
-        char = Wolke.Char
         definition = None
         if name in db.freieFertigkeiten:
             definition = db.freieFertigkeiten[name]
@@ -73,9 +71,7 @@ class CharakterMerger:
             errors.append("<hr>")
         return errors
 
-    def handleChoices(db, element, geschlecht, spezies, kultur, profession):
-        char = Wolke.Char
-
+    def handleChoices(char, db, element, geschlecht, spezies, kultur, profession):
         if not spezies:
             if char.kurzbeschreibung:
                 char.kurzbeschreibung += ", "
@@ -108,7 +104,7 @@ class CharakterMerger:
             if (variantListCollection.chooseOne and len(variantListCollection.choiceLists) == 1):
                 choices.append(0)
             else:
-                popup = VariantPopupWrapper.VariantPopupWrapper(db, variantListCollection, element.name, char.epAusgegeben)
+                popup = VariantPopupWrapper.VariantPopupWrapper(char, db, variantListCollection, element.name, char.epAusgegeben)
                 choices = popup.choices
             for index in choices:
                 variantsSelected.append(indexOffset + index)
@@ -121,7 +117,7 @@ class CharakterMerger:
                     description.append(choiceList.beschreibung)
 
                 for choice in choiceList.choices:
-                    CharakterMerger.applyChoiceToChar(db, choice)
+                    CharakterMerger.applyChoiceToChar(char, db, choice)
             indexOffset += len(variantListCollection.choiceLists)
 
         if len(description) > 0:
@@ -145,13 +141,13 @@ class CharakterMerger:
                 continue
 
             #Let user choose via popup or auto-choose if there is only one entry (usually due to removal - see below)
-            popup = ChoicePopupWrapper.ChoicePopupWrapper(db, choiceList, element.name, char.epAusgegeben)
+            popup = ChoicePopupWrapper.ChoicePopupWrapper(char, db, choiceList, element.name, char.epAusgegeben)
             choice = popup.choice
 
             if not choice:
                 continue
             choiceListCollection.filter(i, choice)
-            CharakterMerger.applyChoiceToChar(db, choice)
+            CharakterMerger.applyChoiceToChar(char, db, choice)
 
     def xmlNodeToChoices(db, choiceListCollection, node):
         errors = []
@@ -251,9 +247,7 @@ class CharakterMerger:
             choiceListCollection.choiceLists.append(choiceList)
         return errors
 
-    def applyChoiceToChar(db, choice):
-        char = Wolke.Char
-
+    def applyChoiceToChar(char, db, choice):
         if choice.typ == "Eigenheit":
             if len(char.eigenheiten) == 8:
                 return
@@ -265,7 +259,7 @@ class CharakterMerger:
             char.attribute[choice.name].wert += int(choice.wert)
             char.attribute[choice.name].aktualisieren()
         elif choice.typ == "Freie-Fertigkeit":
-            CharakterMerger.addFreieFertigkeit(db, choice.name, choice.wert, True)
+            CharakterMerger.addFreieFertigkeit(char, db, choice.name, choice.wert, True)
         elif choice.typ == "Fertigkeit":
             if not choice.name in char.fertigkeiten:
                 return
@@ -317,8 +311,7 @@ class CharakterMerger:
                         talent.kommentar = choice.kommentar
         char.aktualisieren()
 
-    def xmlLesen(db, path, spezies, kultur):
-        char = Wolke.Char
+    def xmlLesen(char, db, path, spezies, kultur):
         root = etree.parse(path).getroot()
         Migrationen.charakterMigrieren(root)
 
@@ -424,7 +417,7 @@ class CharakterMerger:
             char.fertigkeiten.update({fert.name: fert})
 
         for fer in root.findall('Fertigkeiten/FreieFertigkeit'):
-            CharakterMerger.addFreieFertigkeit(db, fer.attrib['name'], int(fer.attrib['wert']), False)
+            CharakterMerger.addFreieFertigkeit(char, db, fer.attrib['name'], int(fer.attrib['wert']), False)
 
         objekte = root.find('Objekte');
         for rüs in objekte.findall('Rüstungen/Rüstung'):

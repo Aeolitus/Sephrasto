@@ -11,6 +11,45 @@ import copy
 from Datenbank import Datenbank
 from Charakter import Char
 from UI import CharakterMain, Wizard
+from Core.Waffe import Waffe
+
+class WizardConfig():
+    def __init__(self, hausregeln, geschlecht, spezies, kultur, profession):
+        self.hausregeln = hausregeln
+        self.geschlecht = geschlecht
+        self.spezies = spezies
+        self.kultur = kultur
+        self.profession = profession
+
+    def apply(self, char, db):
+        if self.geschlecht is not None:
+            char.kurzbeschreibung = "Geschlecht: " + self.geschlecht
+            char.geschlecht = self.geschlecht
+
+        # 1. add default weapons (Sephrasto only adds them if the weapons array is empty, which might not be the case here)
+        for waffe in db.einstellungen["Waffen: Standardwaffen"].wert:
+            if waffe in db.waffen:
+                char.waffen.append(Waffe(db.waffen[waffe]))
+
+        # 2. add selected SKP
+        if self.spezies is not None:
+            CharakterMerger.xmlLesen(char, db, self.spezies.path, True, False)
+
+        if self.kultur is not None:
+            CharakterMerger.xmlLesen(char, db, self.kultur.path, False, True)
+
+        if self.profession is not None:
+            CharakterMerger.xmlLesen(char, db, self.profession.path, False, False)
+
+        # 3. Handle choices afterwards so EP spent can be displayed accurately
+        if self.spezies is not None:
+            CharakterMerger.handleChoices(char, db, self.spezies, self.geschlecht, True, False, False)
+
+        if self.kultur is not None:
+            CharakterMerger.handleChoices(char, db, self.kultur, self.geschlecht, False, True, False)
+
+        if self.profession is not None:
+            CharakterMerger.handleChoices(char, db, self.profession, self.geschlecht, False, False, True)
 
 class Regeln():
     def __init__(self):
@@ -25,25 +64,21 @@ class Element():
         self.name = name
         self.comboName = comboName
 
-class WizardConfig():
-    def __init__(self, hausregeln, geschlecht, spezies, kultur, profession):
-        self.hausregeln = hausregeln
-        self.geschlecht = geschlecht
-        self.spezies = spezies
-        self.kultur = kultur
-        self.profession = profession
-
 class WizardWrapper(object):
+    def getBaukastenFolders():
+        baukastenFolders = []
+        for dataFolder in [os.path.join("Data", "CharakterAssistent"), os.path.join(Wolke.Settings['Pfad-Plugins'], "CharakterAssistent")]:
+            if not os.path.isdir(dataFolder):
+                continue
+            for dir in PathHelper.listdir(dataFolder):
+                baukastenFolders.append(os.path.join(dataFolder, dir))
+        return baukastenFolders
+
     def __init__(self):
         self.config = None
         self.regelList = {}
 
-        self.baukastenFolders = []
-        for dataFolder in [os.path.join("Data", "CharakterAssistent"), os.path.join(Wolke.Settings['Pfad-Plugins'], "CharakterAssistent")]:
-            if not os.path.isdir(dataFolder):
-                continue
-            for baukastenFolders in PathHelper.listdir(dataFolder):
-                self.baukastenFolders.append(os.path.join(dataFolder, baukastenFolders))
+        self.baukastenFolders = WizardWrapper.getBaukastenFolders()
 
         self.loadTemplates()
         self.form = QtWidgets.QDialog()
@@ -140,7 +175,7 @@ class WizardWrapper(object):
                         result[elKey] = Element(elPath, elVarPath, elKey, elName)
         return result
 
-    def verify(self, db, baukastenFolder):
+    def verify(db, baukastenFolder):
         errors = []
         foldersToCheck = []
         foldersToCheck.append(os.path.join(baukastenFolder, "Spezies"))
