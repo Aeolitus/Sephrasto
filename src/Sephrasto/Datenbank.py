@@ -232,6 +232,11 @@ class Datenbank():
             e = etree.SubElement(root, 'Einstellung')
             e.set('name', einstellung.name)
             e.text = einstellung.text
+            if merge:
+                e.set('typ', einstellung.typ)
+                e.set('beschreibung', einstellung.beschreibung)
+                e.set('separator', einstellung.separator)
+                e.set('strip', "1" if einstellung.strip else "0")
 
         #Remove list
         if not merge:
@@ -656,7 +661,6 @@ class Datenbank():
             if refDB:
                 de.typ = eNode.get('typ')
                 de.beschreibung = eNode.get('beschreibung')
-                de.split = eNode.get('split') == "1"
                 de.separator = eNode.get('separator') or "\n"
                 de.strip = eNode.get('strip') == "1"
             elif de.name in self.referenceDB[DatenbankEinstellung]:
