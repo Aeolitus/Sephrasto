@@ -4238,7 +4238,7 @@ Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was 
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Krähenruf  (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="134" referenzbuch="0">Du rufst einen Krähenschwarm aus bis zu 100 Meilen Entfernung zur Hilfe, der sofort erscheint und an deiner Seite kämpft (WS 3, Koloss I, INI 6, GS 8, VT 3, RW 2, AT 10, TP 2W6-2, Zusätzliche AT I).
+  <Talent name="Krähenruf (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="134" referenzbuch="0">Du rufst einen Krähenschwarm aus bis zu 100 Meilen Entfernung zur Hilfe, der sofort erscheint und an deiner Seite kämpft (WS 3, Koloss I, INI 6, GS 8, VT 3, RW 2, AT 10, TP 2W6-2, Zusätzliche AT I).
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; WS, AT und TP des Schwarms steigen um je +1.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
