@@ -269,7 +269,8 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         
     def tableClicked(self):
         if not self.currentlyLoading:
-            item = self.ui.tableWidget.currentItem()
+            row = self.ui.tableWidget.currentRow()
+            item = self.ui.tableWidget.item(row, 0)
             if item is not None and item.text() in Wolke.Char.fertigkeiten:    
                 self.currentFertName = item.text()
                 self.updateInfo()
