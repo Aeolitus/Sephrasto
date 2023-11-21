@@ -352,7 +352,8 @@ class Datenbank():
             if not hausregelnValid:
                 self.hausregelDatei = None
 
-        self.verify(isCharakterEditor)
+        if not isCharakterEditor:
+            self.verify()
 
         for table in self.tablesByType.values():
             for element in table.values():
@@ -411,267 +412,223 @@ class Datenbank():
                 continue
             table.pop(name)
 
-        #Attribute
-        attributNodes = root.findall('Attribut')
-        for node in attributNodes:
-            numLoaded += 1
-            A = AttributDefinition()
-            A.name = node.get('name')
-            A.text = node.text or ''
-            A.anzeigename = node.get('anzeigename')
-            A.steigerungsfaktor = int(node.get('steigerungsfaktor'))
-            A.sortorder = int(node.get('sortorder'))
-            self.loadElement(A, refDB, conflictCB)
+        for node in root:
+            if node.tag == 'Attribut':
+                numLoaded += 1
+                A = AttributDefinition()
+                A.name = node.get('name')
+                A.text = node.text or ''
+                A.anzeigename = node.get('anzeigename')
+                A.steigerungsfaktor = int(node.get('steigerungsfaktor'))
+                A.sortorder = int(node.get('sortorder'))
+                self.loadElement(A, refDB, conflictCB)
+            elif node.tag == 'AbgeleiteterWert':
+                numLoaded += 1
+                A = AbgeleiteterWertDefinition()
+                A.name = node.get('name')
+                A.text = node.text or ''
+                A.anzeigename = node.get('anzeigename')
+                A.anzeigen = node.get('anzeigen') == "1"
+                A.formel = node.get('formel')
+                A.script = node.get('script') or ""
+                A.finalscript = node.get('finalscript') or ""
+                A.sortorder = int(node.get('sortorder'))
+                self.loadElement(A, refDB, conflictCB)
+            elif node.tag == 'Energie':
+                numLoaded += 1
+                E = EnergieDefinition()
+                E.name = node.get('name')
+                if 'voraussetzungen' in node.attrib:
+                    E.voraussetzungen = Hilfsmethoden.VorStr2Array(node.get('voraussetzungen'))
+                E.text = node.text or ''
+                E.anzeigename = node.get('anzeigename')
+                E.steigerungsfaktor = int(node.get('steigerungsfaktor'))
+                E.sortorder = int(node.get('sortorder'))
+                self.loadElement(E, refDB, conflictCB)
+            elif node.tag == 'Vorteil':
+                numLoaded += 1
+                V = VorteilDefinition()
+                V.name = node.get('name')
+                V.kosten = int(node.get('kosten'))
+                V.nachkauf = node.get('nachkauf')
+                V.typ = int(node.get('typ'))
+                if 'voraussetzungen' in node.attrib:
+                    V.voraussetzungen = Hilfsmethoden.VorStr2Array(node.get('voraussetzungen'))
+                V.text = node.text or ''
+                V.script = node.get('script') or ""
+                prio = node.get('scriptPrio')
+                if prio:
+                    V.scriptPrio = int(prio)
 
-        #Abgeleitete Werte
-        abNodes = root.findall('AbgeleiteterWert')
-        for node in abNodes:
-            numLoaded += 1
-            A = AbgeleiteterWertDefinition()
-            A.name = node.get('name')
-            A.text = node.text or ''
-            A.anzeigename = node.get('anzeigename')
-            A.anzeigen = node.get('anzeigen') == "1"
-            A.formel = node.get('formel')
-            A.script = node.get('script') or ""
-            A.finalscript = node.get('finalscript') or ""
-            A.sortorder = int(node.get('sortorder'))
-            self.loadElement(A, refDB, conflictCB)
+                if node.get('querverweise'):
+                    V.querverweise = list(map(str.strip, node.get('querverweise').split("|")))
 
-        # Energien
-        energieNodes = root.findall('Energie')
-        for node in energieNodes:
-            numLoaded += 1
-            E = EnergieDefinition()
-            E.name = node.get('name')
-            if 'voraussetzungen' in node.attrib:
-                E.voraussetzungen = Hilfsmethoden.VorStr2Array(node.get('voraussetzungen'))
-            E.text = node.text or ''
-            E.anzeigename = node.get('anzeigename')
-            E.steigerungsfaktor = int(node.get('steigerungsfaktor'))
-            E.sortorder = int(node.get('sortorder'))
-            self.loadElement(E, refDB, conflictCB)
+                if node.get('variableKosten'):
+                    V.variableKosten = int(node.get('variableKosten')) == 1
+                else:
+                    V.variableKosten = False
 
-        #Vorteile
-        vorteilNodes = root.findall('Vorteil')
-        for vort in vorteilNodes:
-            numLoaded += 1
-            V = VorteilDefinition()
-            V.name = vort.get('name')
-            V.kosten = int(vort.get('kosten'))
-            V.nachkauf = vort.get('nachkauf')
-            V.typ = int(vort.get('typ'))
-            if 'voraussetzungen' in vort.attrib:
-                V.voraussetzungen = Hilfsmethoden.VorStr2Array(vort.get('voraussetzungen'))
-            V.text = vort.text or ''
-            V.script = vort.get('script') or ""
-            prio = vort.get('scriptPrio')
-            if prio:
-                V.scriptPrio = int(prio)
+                if node.get('kommentar'):
+                    V.kommentarErlauben = V.variableKosten or int(node.get('kommentar')) == 1
+                else:
+                    V.kommentarErlauben = V.variableKosten
 
-            if vort.get('querverweise'):
-                V.querverweise = list(map(str.strip, vort.get('querverweise').split("|")))
+                if node.get('csAuflisten'):
+                    V.cheatsheetAuflisten = int(node.get('csAuflisten')) == 1
+                if node.get('csBeschreibung'):
+                    V.cheatsheetBeschreibung = node.get('csBeschreibung')
+                if node.get('linkKategorie'):
+                    V.linkKategorie = int(node.get('linkKategorie'))
+                if node.get('linkElement'):
+                    V.linkElement = node.get('linkElement')
+                if node.get('info'):
+                    V.info = node.get('info')
+                if node.get('bedingungen'):
+                    V.bedingungen = node.get('bedingungen')
+                self.loadElement(V, refDB, conflictCB)
+            elif node.tag == 'Fertigkeit':
+                numLoaded += 1
+                F = FertigkeitDefinition()
+                F.name = node.get('name')
+                F.steigerungsfaktor = int(node.get('steigerungsfaktor'))
+                if 'voraussetzungen' in node.attrib:
+                    F.voraussetzungen = Hilfsmethoden.VorStr2Array(node.get('voraussetzungen'))
+                F.text = node.text or ''
+                F.attribute = Hilfsmethoden.AttrStr2Array(node.get('attribute'))
+                F.kampffertigkeit = int(node.get('kampffertigkeit'))
 
-            if vort.get('variableKosten'):
-                V.variableKosten = int(vort.get('variableKosten')) == 1
-            else:
-                V.variableKosten = False
+                typ = node.get('typ')
+                if typ:
+                    F.typ = int(typ)
+                else:
+                    F.typ = -1
+                self.loadElement(F, refDB, conflictCB)
+            elif node.tag == 'ÜbernatürlicheFertigkeit':
+                numLoaded += 1
+                F = UeberFertigkeitDefinition()
+                F.name = node.get('name')
+                F.steigerungsfaktor = int(node.get('steigerungsfaktor'))
+                if 'voraussetzungen' in node.attrib:
+                    F.voraussetzungen = Hilfsmethoden.VorStr2Array(node.get('voraussetzungen'))
+                F.text = node.text or ''
+                F.attribute = Hilfsmethoden.AttrStr2Array(node.get('attribute'))
 
-            if vort.get('kommentar'):
-                V.kommentarErlauben = V.variableKosten or int(vort.get('kommentar')) == 1
-            else:
-                V.kommentarErlauben = V.variableKosten
+                typ = node.get('typ')
+                if typ:
+                    F.typ = int(typ)
+                else:
+                    F.typ = -1
+                if node.get('talentegruppieren'):
+                    F.talenteGruppieren = int(node.get('talentegruppieren')) == 1
+                self.loadElement(F, refDB, conflictCB)
+            elif node.tag == 'Talent':
+                numLoaded += 1
+                T = TalentDefinition()
+                T.name = node.get('name') 
+                T.kosten = int(node.get('kosten'))
+                if 'spezialTyp' in node.attrib:
+                    T.spezialTyp = int(node.get('spezialTyp'))
+                T.verbilligt = int(node.get('verbilligt')) == 1
+                if 'voraussetzungen' in node.attrib:
+                    T.voraussetzungen = Hilfsmethoden.VorStr2Array(node.get('voraussetzungen'))
+                T.text = node.text or ''
+                T.fertigkeiten = Hilfsmethoden.FertStr2Array(node.get('fertigkeiten'), None)
+                T.variableKosten = int(node.get('variableKosten')) == 1
+                if node.get('kommentar'):
+                    T.kommentarErlauben = T.variableKosten or int(node.get('kommentar')) == 1
+                else:
+                    T.kommentarErlauben = T.variableKosten
 
-            if vort.get('csAuflisten'):
-                V.cheatsheetAuflisten = int(vort.get('csAuflisten')) == 1
-            if vort.get('csBeschreibung'):
-                V.cheatsheetBeschreibung = vort.get('csBeschreibung')
-            if vort.get('linkKategorie'):
-                V.linkKategorie = int(vort.get('linkKategorie'))
-            if vort.get('linkElement'):
-                V.linkElement = vort.get('linkElement')
-            if vort.get('info'):
-                V.info = vort.get('info')
-            if vort.get('bedingungen'):
-                V.bedingungen = vort.get('bedingungen')
+                if node.get('csAuflisten'):
+                    T.cheatsheetAuflisten = int(node.get('csAuflisten')) == 1
+                if node.get('referenzbuch'):
+                    T.referenzBuch = int(node.get('referenzbuch'))
+                if node.get('referenzseite'):
+                    T.referenzSeite = int(node.get('referenzseite'))
+                if node.get('info'):
+                    T.info = node.get('info')
+                self.loadElement(T, refDB, conflictCB)    
+            elif node.tag == 'Waffeneigenschaft':
+                numLoaded += 1
+                W = Waffeneigenschaft()
+                W.name = node.get('name')
+                W.text = node.text or ''
+                W.script = node.get('script') or ""
+                prio = node.get('scriptPrio')
+                if prio:
+                    W.scriptPrio = int(prio)
+                self.loadElement(W, refDB, conflictCB)
+            elif node.tag == 'Waffe':
+                numLoaded += 1
+                w = WaffeDefinition()
+                w.fernkampf = node.get('fk') == '1'
+                if w.fernkampf:
+                    w.lz = int(node.get('lz'))
+                w.wm = int(node.get('wm'))
+                w.name = node.get('name')
+                w.rw = int(node.get('rw'))
+                w.würfel = int(node.get('würfel'))
+                w.würfelSeiten = int(node.get('würfelSeiten'))
+                w.plus = int(node.get('plus'))
+                w.härte = int(node.get('härte'))
+                if node.text:
+                    w.eigenschaften = list(map(str.strip, node.text.split(",")))
+                w.fertigkeit = node.get('fertigkeit')
+                w.talent = node.get('talent')
+                kampfstile = node.get('kampfstile')
+                if kampfstile:
+                    w.kampfstile = sorted(list(map(str.strip, kampfstile.split(","))))
+                self.loadElement(w, refDB, conflictCB)
+            elif node.tag == 'Rüstung':
+                numLoaded += 1
+                r = RuestungDefinition()
+                r.name = node.get('name')
+                r.typ = int(node.get('typ'))
+                r.system = int(node.get('system'))
+                r.rs[0] = int(node.get('rsBeine'))
+                r.rs[1] = int(node.get('rsLArm'))
+                r.rs[2] = int(node.get('rsRArm'))
+                r.rs[3] = int(node.get('rsBauch'))
+                r.rs[4] = int(node.get('rsBrust'))
+                r.rs[5] = int(node.get('rsKopf'))
+                r.text = node.text or ''
+                self.loadElement(r, refDB, conflictCB)   
+            elif node.tag == 'Regel':
+                numLoaded += 1
+                r = Regel()
+                r.name = node.get('name')
+                r.probe = node.get('probe')
+                r.typ = int(node.get('typ'))
+                if 'voraussetzungen' in node.attrib:
+                    r.voraussetzungen = Hilfsmethoden.VorStr2Array(node.get('voraussetzungen'))
+                r.text = node.text or ''
+                self.loadElement(r, refDB, conflictCB)
+            elif node.tag == 'FreieFertigkeit':
+                numLoaded += 1
+                ff = FreieFertigkeitDefinition()
+                ff.name = node.get('name')
+                ff.kategorie = node.get('kategorie')
+                if 'voraussetzungen' in node.attrib:
+                    ff.voraussetzungen = Hilfsmethoden.VorStr2Array(node.get('voraussetzungen'))
+                self.loadElement(ff, refDB, conflictCB)
+            elif node.tag == 'Einstellung':
+                numLoaded += 1
+                de = DatenbankEinstellung()
+                de.name = node.get('name')
+                if refDB:
+                    de.typ = node.get('typ')
+                    de.beschreibung = node.get('beschreibung')
+                    de.separator = node.get('separator') or "\n"
+                    de.strip = node.get('strip') == "1"
+                elif de.name in self.referenceDB[DatenbankEinstellung]:
+                    removed = self.referenceDB[DatenbankEinstellung][de.name]
+                    de.typ = removed.typ
+                    de.beschreibung = removed.beschreibung
+                    de.strip = removed.strip
+                    de.separator = removed.separator
 
-            self.loadElement(V, refDB, conflictCB)
-            
-        #Fertigkeiten
-        fertigkeitNodes = root.findall('Fertigkeit')
-        for fer in fertigkeitNodes:
-            numLoaded += 1
-            F = FertigkeitDefinition()
-            F.name = fer.get('name')
-            F.steigerungsfaktor = int(fer.get('steigerungsfaktor'))
-            if 'voraussetzungen' in fer.attrib:
-                F.voraussetzungen = Hilfsmethoden.VorStr2Array(fer.get('voraussetzungen'))
-            F.text = fer.text or ''
-            F.attribute = Hilfsmethoden.AttrStr2Array(fer.get('attribute'))
-            F.kampffertigkeit = int(fer.get('kampffertigkeit'))
-
-            typ = fer.get('typ')
-            if typ:
-                F.typ = int(typ)
-            else:
-                F.typ = -1
-
-            self.loadElement(F, refDB, conflictCB)
-
-        überFertigkeitNodes = root.findall('ÜbernatürlicheFertigkeit')
-        for fer in überFertigkeitNodes:
-            numLoaded += 1
-            F = UeberFertigkeitDefinition()
-            F.name = fer.get('name')
-            F.steigerungsfaktor = int(fer.get('steigerungsfaktor'))
-            if 'voraussetzungen' in fer.attrib:
-                F.voraussetzungen = Hilfsmethoden.VorStr2Array(fer.get('voraussetzungen'))
-            F.text = fer.text or ''
-            F.attribute = Hilfsmethoden.AttrStr2Array(fer.get('attribute'))
-
-            typ = fer.get('typ')
-            if typ:
-                F.typ = int(typ)
-            else:
-                F.typ = -1
-
-            if fer.get('talentegruppieren'):
-                F.talenteGruppieren = int(fer.get('talentegruppieren')) == 1
-
-            self.loadElement(F, refDB, conflictCB)
-
-        #Talente
-        talentNodes = root.findall('Talent')
-        for tal in talentNodes:
-            numLoaded += 1
-            T = TalentDefinition()
-            T.name = tal.get('name') 
-            T.kosten = int(tal.get('kosten'))
-            if 'spezialTyp' in tal.attrib:
-                T.spezialTyp = int(tal.get('spezialTyp'))
-            T.verbilligt = int(tal.get('verbilligt')) == 1
-            if 'voraussetzungen' in tal.attrib:
-                T.voraussetzungen = Hilfsmethoden.VorStr2Array(tal.get('voraussetzungen'))
-            T.text = tal.text or ''
-            T.fertigkeiten = Hilfsmethoden.FertStr2Array(tal.get('fertigkeiten'), None)
-            T.variableKosten = int(tal.get('variableKosten')) == 1
-            if tal.get('kommentar'):
-                T.kommentarErlauben = T.variableKosten or int(tal.get('kommentar')) == 1
-            else:
-                T.kommentarErlauben = T.variableKosten
-
-            if tal.get('csAuflisten'):
-                T.cheatsheetAuflisten = int(tal.get('csAuflisten')) == 1
-            if tal.get('referenzbuch'):
-                T.referenzBuch = int(tal.get('referenzbuch'))
-            if tal.get('referenzseite'):
-                T.referenzSeite = int(tal.get('referenzseite'))
-            if tal.get('info'):
-                T.info = tal.get('info')
-
-            self.loadElement(T, refDB, conflictCB)
-          
-        #Waffeneigenschaften
-        eigenschaftNodes = root.findall('Waffeneigenschaft')
-        for eigenschaft in eigenschaftNodes:
-            numLoaded += 1
-            W = Waffeneigenschaft()
-            W.name = eigenschaft.get('name')
-            W.text = eigenschaft.text or ''
-            W.script = eigenschaft.get('script') or ""
-            prio = eigenschaft.get('scriptPrio')
-            if prio:
-                W.scriptPrio = int(prio)
-
-            self.loadElement(W, refDB, conflictCB)
-
-        #Waffen
-        for wa in root.findall('Waffe'):
-            numLoaded += 1
-            w = WaffeDefinition()
-            w.fernkampf = wa.get('fk') == '1'
-            if w.fernkampf:
-                w.lz = int(wa.get('lz'))
-            w.wm = int(wa.get('wm'))
-            w.name = wa.get('name')
-            w.rw = int(wa.get('rw'))
-            w.würfel = int(wa.get('würfel'))
-            w.würfelSeiten = int(wa.get('würfelSeiten'))
-            w.plus = int(wa.get('plus'))
-            w.härte = int(wa.get('härte'))
-            if wa.text:
-                w.eigenschaften = list(map(str.strip, wa.text.split(",")))
-            w.fertigkeit = wa.get('fertigkeit')
-            w.talent = wa.get('talent')
-            kampfstile = wa.get('kampfstile')
-            if kampfstile:
-                w.kampfstile = sorted(list(map(str.strip, kampfstile.split(","))))
-
-            self.loadElement(w, refDB, conflictCB)
-
-        #Rüstungen
-        for rue in root.findall('Rüstung'):
-            numLoaded += 1
-            r = RuestungDefinition()
-            r.name = rue.get('name')
-            r.typ = int(rue.get('typ'))
-            r.system = int(rue.get('system'))
-            r.rs[0] = int(rue.get('rsBeine'))
-            r.rs[1] = int(rue.get('rsLArm'))
-            r.rs[2] = int(rue.get('rsRArm'))
-            r.rs[3] = int(rue.get('rsBauch'))
-            r.rs[4] = int(rue.get('rsBrust'))
-            r.rs[5] = int(rue.get('rsKopf'))
-            r.text = rue.text or ''
-
-            self.loadElement(r, refDB, conflictCB)
-        
-        #Regeln
-        regelNodes = root.findall('Regel')
-        for regelNode in regelNodes:
-            numLoaded += 1
-            r = Regel()
-            r.name = regelNode.get('name')
-            r.probe = regelNode.get('probe')
-            r.typ = int(regelNode.get('typ'))
-            if 'voraussetzungen' in regelNode.attrib:
-                r.voraussetzungen = Hilfsmethoden.VorStr2Array(regelNode.get('voraussetzungen'))
-            r.text = regelNode.text or ''
-
-            self.loadElement(r, refDB, conflictCB)
-
-        #Freie Fertigkeiten
-        ffNodes = root.findall('FreieFertigkeit')
-        for ffNode in ffNodes:
-            numLoaded += 1
-            ff = FreieFertigkeitDefinition()
-            ff.name = ffNode.get('name')
-            ff.kategorie = ffNode.get('kategorie')
-            if 'voraussetzungen' in ffNode.attrib:
-                ff.voraussetzungen = Hilfsmethoden.VorStr2Array(ffNode.get('voraussetzungen'))
-
-            self.loadElement(ff, refDB, conflictCB)
-
-        #Einstellungen
-        eNodes = root.findall('Einstellung')
-        for eNode in eNodes:
-            numLoaded += 1
-            de = DatenbankEinstellung()
-            de.name = eNode.get('name')
-            if refDB:
-                de.typ = eNode.get('typ')
-                de.beschreibung = eNode.get('beschreibung')
-                de.separator = eNode.get('separator') or "\n"
-                de.strip = eNode.get('strip') == "1"
-            elif de.name in self.referenceDB[DatenbankEinstellung]:
-                removed = self.referenceDB[DatenbankEinstellung][de.name]
-                de.typ = removed.typ
-                de.beschreibung = removed.beschreibung
-                de.strip = removed.strip
-                de.separator = removed.separator
-
-            de.text = eNode.text or ""
-            self.loadElement(de, refDB, conflictCB)
+                de.text = node.text or ""
+                self.loadElement(de, refDB, conflictCB)
 
         # Done
         if numLoaded <1 and refDB:
@@ -680,7 +637,7 @@ class Datenbank():
         root = EventBus.applyFilter("datenbank_xml_laden", root, { "datenbank" : self, "basisdatenbank" : refDB, "conflictCallback" : conflictCB })      
         return True
 
-    def verify(self, isCharakterEditor = False):
+    def verify(self):
         self.loadingErrors = [] 
 
         # Voraussetzungen
@@ -692,8 +649,6 @@ class Datenbank():
                 try:
                     Hilfsmethoden.VerifyVorArray(el.voraussetzungen, self)
                 except VoraussetzungException as e:
-                    if isCharakterEditor:
-                        el.voraussetzungen = []
                     errorStr = f"{dbKey.displayName} {el.name} hat fehlerhafte Voraussetzungen: {str(e)}"
                     self.loadingErrors.append([el, errorStr])
                     logging.warning(errorStr)
@@ -708,9 +663,6 @@ class Datenbank():
             elif V.linkKategorie == VorteilLinkKategorie.Vorteil and not V.linkElement in self.vorteile:
                 errorStr = f"Vorteil {V.name} ist mit einem nicht-existierenden Vorteil verknüpft: {V.linkElement}"
             if errorStr:
-                if isCharakterEditor:
-                    V.linkKategorie = VorteilLinkKategorie.NichtVerknüpfen
-                    V.linkElement = ""
                 self.loadingErrors.append([V, errorStr])
                 logging.warning(errorStr)
 
@@ -765,8 +717,6 @@ class Datenbank():
                     errorStr = f"Talent {T.name} referenziert eine nicht-existierende Fertigkeit: {fert}"
                     self.loadingErrors.append([T, errorStr])
                     logging.warning(errorStr)
-                    if isCharakterEditor:
-                        continue
                 T.fertigkeiten.append(fert)
 
         #Fertigkeiten     
@@ -782,8 +732,6 @@ class Datenbank():
                         errorStr = f"{dbKey.displayName} {el.name} referenziert ein nicht-existierendes Attribut: {attribut}"
                         self.loadingErrors.append([el, errorStr])
                         logging.warning(errorStr)
-                        if isCharakterEditor:
-                            el.attribute[idx] = next(iter(self.attribute.values())).name
 
         #Waffen:
         alleKampfstile = self.findKampfstile()
@@ -802,7 +750,7 @@ class Datenbank():
                     self.loadingErrors.append([wa, errorStr])
                     logging.warning(errorStr)
 
-        self.loadingErrors = EventBus.applyFilter("datenbank_verify", self.loadingErrors, { "datenbank" : self, "isCharakterEditor" : isCharakterEditor })   
+        self.loadingErrors = EventBus.applyFilter("datenbank_verify", self.loadingErrors, { "datenbank" : self })   
     
     def findKampfstile(self):
         # we are accessing einstellung.text instead of .wert because the function is called before finalize...

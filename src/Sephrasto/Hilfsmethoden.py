@@ -113,27 +113,33 @@ class Hilfsmethoden:
                 arrItm = subArr
             else:
                 if strpItm.startswith("Vorteil "):
-                    if Datenbank is not None and not (strpItm[8:] in Datenbank.vorteile):
-                        if Hilfsmethoden.containsWildcard(strpItm[8:]):
+                    name = strpItm[8:]
+                    if Datenbank is not None and not (name in Datenbank.vorteile):
+                        if Hilfsmethoden.containsWildcard(name):
                             match = False
                             for vort in Datenbank.vorteile:
-                                match = match or fnmatch.fnmatchcase(vort, strpItm[8:])
+                                if fnmatch.fnmatchcase(vort, name):
+                                    match = True
+                                    break
                             if not match:
-                                raise VoraussetzungException("Kann keinen Vorteil in der Datenbank finden, welcher der Wildcard-Suche '" + strpItm[8:] + "' entspricht.")
+                                raise VoraussetzungException("Kann keinen Vorteil in der Datenbank finden, welcher der Wildcard-Suche '" + name + "' entspricht.")
                         else:
-                            raise VoraussetzungException("Kann Vorteil '" + strpItm[8:] + "' in der Datenbank nicht finden.")
-                    arrItm = "V" + delim + strpItm[8:] + delim + "1"
+                            raise VoraussetzungException("Kann Vorteil '" + name + "' in der Datenbank nicht finden.")
+                    arrItm = "V" + delim + name + delim + "1"
                 elif strpItm.startswith("Kein Vorteil "):
-                    if Datenbank is not None and not (strpItm[13:] in Datenbank.vorteile):
-                        if Hilfsmethoden.containsWildcard(strpItm[13:]):
+                    name = strpItm[13:]
+                    if Datenbank is not None and not (name in Datenbank.vorteile):
+                        if Hilfsmethoden.containsWildcard(name):
                             match = False
                             for vort in Datenbank.vorteile:
-                                match = match or fnmatch.fnmatchcase(vort, strpItm[13:])
+                                if fnmatch.fnmatchcase(vort, name):
+                                    match = True
+                                    break
                             if not match:
-                                raise VoraussetzungException("Kann keinen Vorteil in der Datenbank finden, welcher der Wildcard-Suche '" + strpItm[13:] + "' entspricht.")
+                                raise VoraussetzungException("Kann keinen Vorteil in der Datenbank finden, welcher der Wildcard-Suche '" + name + "' entspricht.")
                         else:
-                            raise VoraussetzungException("Kann Vorteil '" + strpItm[13:] + "' in der Datenbank nicht finden.")
-                    arrItm = "V" + delim + strpItm[13:] + delim + "0"
+                            raise VoraussetzungException("Kann Vorteil '" + name + "' in der Datenbank nicht finden.")
+                    arrItm = "V" + delim + name + delim + "0"
                 elif strpItm.startswith("Talent "):
                     if not strpItm[7] == "'":
                         raise VoraussetzungException("Der Name eines Talents muss in Apostrophen gefasst werden. . (" + strpItm + ")")
@@ -141,34 +147,35 @@ class Hilfsmethoden:
                     index = strpItm.find("'")
                     if index == -1:
                         raise VoraussetzungException("Der Name einer Fertigkeit muss in Apostrophen gefasst werden. . (" + strpItm + ")")
-                    talent = strpItm[:index]
-                    if Datenbank is not None and not (talent in Datenbank.talente):
+                    name = strpItm[:index]
+                    if Datenbank is not None and not (name in Datenbank.talente):
                         raise VoraussetzungException("Kann Talent '" + strpItm + "' in der Datenbank nicht finden.")
                     try:
                         wert = int(strpItm[index+2:]) if len(strpItm) -1 > index else -1
-                        arrItm = "T" + delim + talent + delim + str(wert)
+                        arrItm = "T" + delim + name + delim + str(wert)
                     except ValueError:
                         raise VoraussetzungException("Der angegebene Talent-PW '" + strpItm[index+2:] + "' ist keine gültige Zahl")
                 elif strpItm.startswith("Waffeneigenschaft "):
-                    if Datenbank is not None and (not (strpItm[18:] in Datenbank.waffeneigenschaften)) and strpItm[18:] != "Nahkampfwaffe" and strpItm[18:] != "Fernkampfwaffe":
-                        raise VoraussetzungException("Kann keine Waffeneigenschaft '" + strpItm[18:] + "' in der Datenbank finden.")
-                    arrItm = "W" + delim + strpItm[18:] + delim + "1"
+                    name = strpItm[18:]
+                    if Datenbank is not None and (not (name in Datenbank.waffeneigenschaften)) and name != "Nahkampfwaffe" and name != "Fernkampfwaffe":
+                        raise VoraussetzungException("Kann keine Waffeneigenschaft '" + name + "' in der Datenbank finden.")
+                    arrItm = "W" + delim + name + delim + "1"
                 elif strpItm.startswith("Attribut "):
-                    attribut = strpItm[9:11]
-                    if Datenbank is not None and attribut not in Datenbank.attribute:
-                        raise VoraussetzungException("Das angegebene Attribut '" + attribut + "' ist ungültig. Unterstützt werden 'KO', 'MU', 'GE', 'KK', 'IN', 'KL', 'CH' und 'FF'")
+                    name = strpItm[9:11]
+                    if Datenbank is not None and name not in Datenbank.attribute:
+                        raise VoraussetzungException("Das angegebene Attribut '" + name + "' ist in der Datenbank nicht vorhanden.")
                     try:
                         wert = int(strpItm[12:])
-                        arrItm = "A" + delim + attribut + delim + str(wert)
+                        arrItm = "A" + delim + name + delim + str(wert)
                     except ValueError:
                         raise VoraussetzungException("Der angegebene Attribut-Wert '" + strpItm[12:] + "' ist keine gültige Zahl.")
                 elif strpItm.startswith("MeisterAttribut "):
-                    attribut = strpItm[16:18]
-                    if Datenbank is not None and attribut not in Datenbank.attribute:
-                        raise VoraussetzungException("Das angegebene Attribut '" + attribut + "' ist ungültig. Unterstützt werden 'KO', 'MU', 'GE', 'KK', 'IN', 'KL', 'CH' und 'FF'")
+                    name = strpItm[16:18]
+                    if Datenbank is not None and name not in Datenbank.attribute:
+                        raise VoraussetzungException("Das angegebene Attribut '" + name + "' ist ist in der Datenbank nicht vorhanden.")
                     try:
                         wert = int(strpItm[19:])
-                        arrItm = "M" + delim + attribut + delim + str(wert)
+                        arrItm = "M" + delim + name + delim + str(wert)
                     except ValueError:
                         raise VoraussetzungException("Der angegebene Attribut-Wert '" + strpItm[19:] + "' ist keine gültige Zahl.")
                 elif strpItm.startswith("Übernatürliche-Fertigkeit "):
@@ -178,13 +185,13 @@ class Hilfsmethoden:
                     index = strpItm.find("'")
                     if index == -1:
                         raise VoraussetzungException("Der Name einer Übernatürlichen Fertigkeit muss in Apostrophen gefasst werden. (" + strpItm + ")")
-                    fertigkeit = strpItm[:index]
+                    name = strpItm[:index]
 
-                    if Datenbank is not None and fertigkeit not in Datenbank.übernatürlicheFertigkeiten:
-                        raise VoraussetzungException("Kann Übernatürliche Fertigkeit '" + fertigkeit + "' in der Datenbank nicht finden.")
+                    if Datenbank is not None and name not in Datenbank.übernatürlicheFertigkeiten:
+                        raise VoraussetzungException("Kann Übernatürliche Fertigkeit '" + name + "' in der Datenbank nicht finden.")
                     try:
                         wert = int(strpItm[index+2:]) if len(strpItm) -1 > index else -1
-                        arrItm = "U" + delim + fertigkeit + delim + str(wert)
+                        arrItm = "U" + delim + name + delim + str(wert)
                     except ValueError:
                         raise VoraussetzungException("Der angegebene Fertigkeitswert '" + strpItm[index+2:] + "' ist keine gültige Zahl")
                 elif strpItm.startswith("Fertigkeit "):
@@ -194,14 +201,14 @@ class Hilfsmethoden:
                     index = strpItm.find("'")
                     if index == -1:
                         raise VoraussetzungException("Der Name einer Fertigkeit muss in Apostrophen gefasst werden. . (" + strpItm + ")")
-                    fertigkeit = strpItm[:index]
+                    name = strpItm[:index]
 
-                    if Datenbank is not None and fertigkeit not in Datenbank.fertigkeiten:
-                        raise VoraussetzungException("Kann Fertigkeit '" + fertigkeit + "' in der Datenbank nicht finden.")
+                    if Datenbank is not None and name not in Datenbank.fertigkeiten:
+                        raise VoraussetzungException("Kann Fertigkeit '" + name + "' in der Datenbank nicht finden.")
 
                     try:
                         wert = int(strpItm[index+2:]) if len(strpItm) -1 > index else -1
-                        arrItm = "F" + delim + fertigkeit + delim + str(wert)
+                        arrItm = "F" + delim + name + delim + str(wert)
                     except ValueError:
                         raise VoraussetzungException("Der angegebene Fertigkeitswert '" + strpItm[index+2:] + "' ist keine gültige Zahl")
                 else:
@@ -446,12 +453,10 @@ class Hilfsmethoden:
                 if Hilfsmethoden.isAttributVoraussetzung(attribut, voraus):
                     return True
             else: 
-                delim = "~"
-                arr = re.split(delim, voraus, re.UNICODE)
-                if arr[0] == 'A':
-                    if arr[1] == attribut:
+                if voraus[0] == 'A':
+                    if voraus[2:4] == attribut:
                         return True
-                elif arr[0] == 'M':
+                elif voraus[0] == 'M':
                     return True
         return False
 

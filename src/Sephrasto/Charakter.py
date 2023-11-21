@@ -896,9 +896,10 @@ class Char():
 
     @staticmethod
     def xmlHausregelnLesen(filename):
-        root = etree.parse(filename).getroot()
-        Migrationen.charakterMigrieren(root)
-        return root.find('Version').find('Hausregeln').text or "Keine"
+        # NutzerDatenbankName and basename are for legacy reasons - this code runs without migration
+        for event, element in etree.iterparse(filename, tag=["Hausregeln", "NutzerDatenbankName"]):
+            return os.path.basename(element.text) or "Keine"
+        return "Keine"
 
     def xmlLesen(self, filename):
         '''Läd ein Charakter-Objekt aus einer XML Datei, deren Dateiname 

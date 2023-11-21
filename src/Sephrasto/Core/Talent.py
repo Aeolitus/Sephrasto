@@ -53,19 +53,29 @@ class TalentDefinition:
                 self.hauptfertigkeit = fert
 
         if self.spezialTalent:
-            def findStat(stat):
-                res = re.findall('<b>' + stat + ':</b>(.*?)(?:$|\n)', self.text, re.UNICODE)
-                if len(res) == 0:
-                    res = re.findall(stat + ':(.*?)(?:$|\n)', self.text, re.UNICODE)
-                if len(res) == 1:
-                    return res[0].strip()
-                return ""
-        
-            self.vorbereitungszeit = findStat("Vorbereitungszeit")
-            self.reichweite = findStat("Reichweite")
-            self.wirkungsdauer = findStat("Wirkungsdauer")
-            self.energieKosten = findStat("Kosten")
-            self.erlernen = findStat("Erlernen")
+            # this is called A LOT so no regex here for perf reasons
+            split = self.text.split("\n")[1:]
+            for s in split:
+                if s.startswith("Vorbereitungszeit:"):
+                    self.vorbereitungszeit = s[len("Vorbereitungszeit:"):].strip()
+                elif s.startswith("<b>Vorbereitungszeit:</b>"):
+                    self.vorbereitungszeit = s[len("<b>Vorbereitungszeit:</b>"):].strip()
+                elif s.startswith("Reichweite:"):
+                    self.reichweite = s[len("Reichweite:"):].strip()
+                elif s.startswith("<b>Reichweite:</b>"):
+                    self.reichweite = s[len("<b>Reichweite:</b>"):].strip() 
+                elif s.startswith("Wirkungsdauer:"):
+                    self.wirkungsdauer = s[len("Wirkungsdauer:"):].strip()
+                elif s.startswith("<b>Wirkungsdauer:</b>"):
+                    self.wirkungsdauer = s[len("<b>Wirkungsdauer:</b>"):].strip() 
+                elif s.startswith("Kosten:"):
+                    self.energieKosten = s[len("Kosten:"):].strip()
+                elif s.startswith("<b>Kosten:</b>"):
+                    self.energieKosten = s[len("<b>Kosten:</b>"):].strip() 
+                elif s.startswith("Erlernen:"):
+                    self.erlernen = s[len("Erlernen:"):].strip()
+                elif s.startswith("<b>Erlernen:</b>"):
+                    self.erlernen = s[len("<b>Erlernen:</b>"):].strip() 
         else:
             steigerungsfaktor = 1
             for fert in fertigkeitenResolved:
