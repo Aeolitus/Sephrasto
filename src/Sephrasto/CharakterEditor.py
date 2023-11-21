@@ -30,6 +30,7 @@ from EinstellungenWrapper import EinstellungenWrapper
 from UI import CharakterMain
 import platform
 from CharakterAssistent.CharakterMerger import CharakterMerger
+import base64
 
 class Tab():
     def __init__(self, order, wrapper, form, name):
@@ -231,11 +232,44 @@ class Editor(object):
                 return True
         return False
 
+    def addRecentChar(self):
+        if not self.savepath:
+            return
+
+        for r in Wolke.Settings['Letzte-Chars']:
+            if r["path"] == self.savepath:
+                Wolke.Settings['Letzte-Chars'].remove(r)
+
+        recent = {}
+        recent["path"] = self.savepath
+        recent["hausregeln"] = Wolke.DB.hausregelnAnzeigeName
+        if Wolke.Char.name:
+            recent["name"] = Wolke.Char.name
+        else:
+            recent["name"] = os.path.splitext(os.path.basename(self.savepath))[0]
+  
+        recent["epGesamt"] = Wolke.Char.epGesamt
+
+        if Wolke.Char.bild:
+            pixmap = QtGui.QPixmap()
+            pixmap.loadFromData(Wolke.Char.bild)     
+            pixmap = pixmap.scaledToWidth(Wolke.CharImageSize[0]/5)  
+            buffer = QtCore.QBuffer()
+            buffer.open(QtCore.QIODevice.WriteOnly)
+            pixmap.save(buffer, "PNG")
+            recent["bild"] = base64.b64encode(buffer.data().data())
+
+        Wolke.Settings['Letzte-Chars'].insert(0, recent)
+        if len(Wolke.Settings['Letzte-Chars']) > 32:
+            Wolke.Settings['Letzte-Chars'].pop()
+
+
     def closeEvent(self,event):
         self.form.setFocus() #make sure editingfinished is called on potential line edits in focus
         if self.cancelDueToPendingChanges("Beenden"):
             event.ignore()
         else:
+            self.addRecentChar()
             Wolke.Settings["WindowSize-Charakter"] = [self.form.size().width(), self.form.size().height()]
             Wolke.Char = None
             Wolke.DB = None

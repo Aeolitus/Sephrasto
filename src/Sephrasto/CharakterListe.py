@@ -6,6 +6,7 @@ from QtUtils.RichTextButton import RichTextPushButton
 from Hilfsmethoden import Hilfsmethoden
 from Wolke import Wolke
 import math
+import base64
 
 class CharWidget(QtWidgets.QAbstractButton):
     def __init__(self, parent = None):
@@ -122,24 +123,27 @@ class CharakterListe(QtWidgets.QWidget):
         wl.setContentsMargins(0, 0, 0, 0)
         count = 0
         for char in chars:
-            if not os.path.isfile(char):
+            if not os.path.isfile(char["path"]):
                 continue
 
             if count % self.numCols == 0 and (count / self.numCols) + 1 >= self.numRows:
                 break
 
-            info = Charakter.CharMinimal(char)
             charWidget = CharWidget()
-            image = QtGui.QPixmap()
-            image.loadFromData(info.bild)
-            charWidget.setPixmap(image)
 
-            text = "<b>" + info.name + "</b>"
-            if info.hausregeln != "Keine":
-                text += "<br>" + os.path.splitext(info.hausregeln)[0]
-            text += "<br>" + str(info.epGesamt) + " EP"
+            if "bild" in char:
+                pixmap = QtGui.QPixmap()
+                pixmap.loadFromData(base64.b64decode(char["bild"]))
+            else:
+                pixmap = QtGui.QPixmap("Data/Images/default_avatar.png")
+            charWidget.setPixmap(pixmap)
+
+            text = "<b>" + char["name"] + "</b>"
+            if char["hausregeln"] != "Keine":
+                text += "<br>" + os.path.splitext(char["hausregeln"])[0]
+            text += "<br>" + str(char["epGesamt"]) + " EP"
             charWidget.setText(text)
-            charWidget.clicked.connect(partial(self.emitLoad, path=char))
+            charWidget.clicked.connect(partial(self.emitLoad, path=char["path"]))
             self.charWidgets.append(charWidget)
             wl.addWidget(charWidget)
             count += 1

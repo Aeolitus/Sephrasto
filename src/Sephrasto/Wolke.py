@@ -51,7 +51,7 @@ class Wolke:
         'WindowSize-Datenbank' : [1056, 738],
         'WindowSize-Einstellungen' : [701, 956],
         'WindowSize-Regelanhang' : _DefaultSettings.WindowSizeDefault1Col,
-        'Recent-Chars' : [],
+        'Letzte-Chars' : [],
     }
     FontHeadingSizeL1 = 0
     FontHeadingSizeL3 = 0

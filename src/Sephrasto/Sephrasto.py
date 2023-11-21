@@ -232,7 +232,7 @@ class MainWindowWrapper(object):
         sys.exit(exitcode)
 
     def updateRecents(self):
-        self.charakterListe.update(Wolke.Settings['Recent-Chars'])
+        self.charakterListe.update(Wolke.Settings['Letzte-Chars'])
         self.ui.scrollArea.setFixedWidth(self.charakterListe.totalWidth)
         self.ui.scrollArea.setMaximumHeight(self.charakterListe.totalHeight)
 
@@ -318,16 +318,7 @@ class MainWindowWrapper(object):
         self.savePathUpdated()
         EventBus.doAction("charaktereditor_geoeffnet", { "neu" : False, "filepath" : spath })
 
-    def addRecentChar(self, spath):
-        if spath in Wolke.Settings['Recent-Chars']:
-            Wolke.Settings['Recent-Chars'].remove(spath)
-        Wolke.Settings['Recent-Chars'].insert(0, spath)
-        if len(Wolke.Settings['Recent-Chars']) > 32:
-            Wolke.Settings['Recent-Chars'].pop()
-        
     def charakterEditorClosedHandler(self):
-        if self.ed.savepath:
-            self.addRecentChar(self.ed.savepath)
         self.ed.form.deleteLater()
         del self.ed
         self.ed = None
