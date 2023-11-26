@@ -99,6 +99,7 @@ class XmlDeserializer:
             else:
                 XmlDeserializer._cache.pop(filePath, None)
         self._currentNode = self._root
+        return True
 
 class Serialization:
     _serializers = {
