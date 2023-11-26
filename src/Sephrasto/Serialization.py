@@ -24,7 +24,10 @@ class XmlSerializer:
             else:
                 self._currentNode.set(name, str(value))
         else:
-            self._currentNode.text = str(value)
+            if not isinstance(value, bytes):
+                self._currentNode.text = str(value)
+            else:
+                self._currentNode.text = value
 
     def writeFile(self, filepath):
         doc = etree.ElementTree(self.root)

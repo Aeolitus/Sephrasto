@@ -20,6 +20,7 @@ import os.path
 import base64
 from Migrationen import Migrationen
 from VoraussetzungenListe import VoraussetzungenListe
+from Serialization import Serialization
 
 class KampfstilMod():
     def __init__(self):
@@ -721,156 +722,171 @@ class Char():
         return Hilfsmethoden.voraussetzungenPrüfen(dbElement, self.vorteile, self.waffen, self.attribute, self.übernatürlicheFertigkeiten, self.fertigkeiten, self.talente)
     
     def xmlSchreiben(self, filename):
-        '''Speichert dieses Charakter-Objekt in einer XML Datei, deren 
-        Dateiname inklusive Pfad als Argument übergeben wird'''
-        #Document Root
-        root = etree.Element('Charakter')
+        _, fileExtension = os.path.splitext(filename)
+        ser = Serialization.getSerializer(fileExtension, 'Charakter')
+        def setText(name, text):
+            ser.begin(name)
+            ser.set('text', text)
+            ser.end()
 
-        versionXml = etree.SubElement(root, 'Version')
-        etree.SubElement(versionXml, 'CharakterVersion').text = str(Migrationen.charakterCodeVersion)
-        etree.SubElement(versionXml, 'Plugins').text = ", ".join(self.enabledPlugins)
-
+        ser.begin('Version')
+        setText('CharakterVersion', Migrationen.charakterCodeVersion)
+        setText('Plugins', ", ".join(self.enabledPlugins))
         if self.neueHausregeln is not None:
-            etree.SubElement(versionXml, 'Hausregeln').text = self.neueHausregeln
+            setText('Hausregeln', self.neueHausregeln)
         else:
-            etree.SubElement(versionXml, 'Hausregeln').text = Wolke.DB.hausregelnAnzeigeName
+            setText('Hausregeln', Wolke.DB.hausregelnAnzeigeName)
+        ser.end() #version
 
         #Erster Block
-        sub =  etree.SubElement(root, 'Beschreibung')
-        etree.SubElement(sub, 'Name').text = self.name
-        etree.SubElement(sub, 'Spezies').text = self.spezies
-        etree.SubElement(sub, 'Status').text = str(self.status)
-        etree.SubElement(sub, 'Kurzbeschreibung').text = self.kurzbeschreibung
-        etree.SubElement(sub, 'Finanzen').text = str(self.finanzen)
-        etree.SubElement(sub, 'Heimat').text = self.heimat
-        eigs = etree.SubElement(sub, 'Eigenheiten')
+        ser.begin('Beschreibung')
+        setText('Name', self.name)
+        setText('Spezies', self.spezies)
+        setText('Status', self.status)
+        setText('Kurzbeschreibung', self.kurzbeschreibung)
+        setText('Finanzen', self.finanzen)
+        setText('Heimat', self.heimat)
+        ser.begin('Eigenheiten')
         for eigenh in self.eigenheiten:
-            etree.SubElement(eigs, 'Eigenheit').text = eigenh
-        #Zweiter Block - abgeleitete nicht notwendig da automatisch neu berechnet
-        atr = etree.SubElement(root, 'Attribute')
+            setText('Eigenheit', eigenh)
+        ser.end() #eigenheiten
+        ser.end() #beschreibung
+
+        ser.begin('Attribute')
         for attr in self.attribute:
-            etree.SubElement(atr, attr).text = str(self.attribute[attr].wert)
-        en = etree.SubElement(root, 'Energien')
+            setText(attr, self.attribute[attr].wert)
+        ser.end() #attribute
+
+        ser.begin('Energien')
         for energie in self.energien:
-            etree.SubElement(en, energie).set('wert', str(self.energien[energie].wert))
-        #Dritter Block    
-        vor = etree.SubElement(root, 'Vorteile')
+            ser.begin(energie)
+            ser.set('wert', self.energien[energie].wert)
+            ser.end() #energie
+        ser.end() #energien
+        
+        ser.begin('Vorteile')
         for vorteil in self.vorteile.values():
-            v = etree.SubElement(vor, 'Vorteil')
-            v.set('name', vorteil.name)
+            ser.begin('Vorteil')
+            ser.set('name', vorteil.name)
             if vorteil.variableKosten:
-                v.set('variableKosten', str(vorteil.kosten))
+                ser.set('variableKosten',vorteil.kosten)
             if vorteil.kommentarErlauben:
-                v.set('kommentar', vorteil.kommentar)
+                ser.set('kommentar', vorteil.kommentar)
+            ser.end() #vorteil
+        ser.end() #vorteile
 
-        #Vierter Block
-        fer = etree.SubElement(root, 'Fertigkeiten')
+        ser.begin('Fertigkeiten')
         for fert in self.fertigkeiten:
-            fertNode = etree.SubElement(fer, 'Fertigkeit')
-            fertNode.set('name', self.fertigkeiten[fert].name)
-            fertNode.set('wert', str(self.fertigkeiten[fert].wert))
-
-        tal = etree.SubElement(root, 'Talente')
-        for talent in self.talente.values():
-            talNode = etree.SubElement(tal, 'Talent')
-            talNode.set('name', talent.name)
-            if talent.variableKosten:
-                talNode.set('variableKosten', str(talent.kosten))
-            if talent.kommentarErlauben:
-                talNode.set('kommentar', talent.kommentar)
+            ser.begin('Fertigkeit')
+            ser.set('name', self.fertigkeiten[fert].name)
+            ser.set('wert', self.fertigkeiten[fert].wert)
+            ser.end() #fertigkeit
 
         for fert in self.freieFertigkeiten:
-            freiNode = etree.SubElement(fer, 'FreieFertigkeit')
-            freiNode.set('name', fert.name)
-            freiNode.set('wert', str(fert.wert))
-        #Fünfter Block
-        aus = etree.SubElement(root, 'Objekte')
+            ser.begin('FreieFertigkeit')
+            ser.set('name', fert.name)
+            ser.set('wert', fert.wert)
+            ser.end() #freiefertigkeit
+        ser.end() #fertigkeiten
 
-        zonenSystem = etree.SubElement(aus, 'Zonensystem')
-        zonenSystem.text = "1" if self.zonenSystemNutzen else "0"
+        ser.begin('Talente')
+        for talent in self.talente.values():
+            ser.begin('Talent')
+            ser.set('name', talent.name)
+            if talent.variableKosten:
+                ser.set('variableKosten', talent.kosten)
+            if talent.kommentarErlauben:
+                ser.set('kommentar', talent.kommentar)
+            ser.end() #talent
+        ser.end() #talente
 
-        rüs = etree.SubElement(aus, 'Rüstungen')
+        ser.begin('Objekte')
+        setText('Zonensystem', "1" if self.zonenSystemNutzen else "0")
+        ser.begin('Rüstungen')
         for rüst in self.rüstung:
-            rüsNode = etree.SubElement(rüs, 'Rüstung')
-            rüsNode.set('name', rüst.name)
-            rüsNode.set('be', str(rüst.be))
-            rüsNode.set('rs', Hilfsmethoden.RsArray2Str(rüst.rs))
+            ser.begin('Rüstung')
+            ser.set('name', rüst.name)
+            ser.set('be', rüst.be)
+            ser.set('rs', Hilfsmethoden.RsArray2Str(rüst.rs))
+            ser.end() #rüstung
+        ser.end() #rüstungen
 
-        waf = etree.SubElement(aus, 'Waffen')
+        ser.begin('Waffen')
         for waff in self.waffen:
-            wafNode = etree.SubElement(waf, 'Waffe')
-            wafNode.set('name', waff.anzeigename)
-            wafNode.set('id', waff.name)
-            wafNode.set('würfel', str(waff.würfel))
-            wafNode.set('würfelSeiten', str(waff.würfelSeiten))
-            wafNode.set('plus', str(waff.plus))
-            wafNode.set('eigenschaften', ", ".join(waff.eigenschaften))
-            wafNode.set('härte', str(waff.härte))
-            wafNode.set('rw', str(waff.rw))
-            wafNode.set('beSlot', str(waff.beSlot))
-            wafNode.set('kampfstil', waff.kampfstil)
-            wafNode.set('wm', str(waff.wm))
+            ser.begin('Waffe')
+            ser.set('name', waff.anzeigename)
+            ser.set('id', waff.name)
+            ser.set('würfel', waff.würfel)
+            ser.set('würfelSeiten', waff.würfelSeiten)
+            ser.set('plus', waff.plus)
+            ser.set('eigenschaften', ", ".join(waff.eigenschaften))
+            ser.set('härte', waff.härte)
+            ser.set('rw', waff.rw)
+            ser.set('beSlot', waff.beSlot)
+            ser.set('kampfstil', waff.kampfstil)
+            ser.set('wm', waff.wm)
             if waff.fernkampf:
-                wafNode.set('lz', str(waff.lz))
+                ser.set('lz', waff.lz)
+            ser.end() #waffe
+        ser.end() #waffen   
 
-        ausrüst = etree.SubElement(aus, 'Ausrüstung')
+        ser.begin('Ausrüstung')
         for ausr in self.ausrüstung:
-            etree.SubElement(ausrüst, 'Ausrüstungsstück').text = ausr
-        #Sechster Block
-        üfer = etree.SubElement(root, 'ÜbernatürlicheFertigkeiten')
-        for fert in self.übernatürlicheFertigkeiten:
-            fertNode = etree.SubElement(üfer, 'ÜbernatürlicheFertigkeit')
-            fertNode.set('name', self.übernatürlicheFertigkeiten[fert].name)
-            fertNode.set('wert', str(self.übernatürlicheFertigkeiten[fert].wert))
-            fertNode.set('exportieren', "1" if self.übernatürlicheFertigkeiten[fert].addToPDF else "0")
-        #Siebter Block
-        epn = etree.SubElement(root, 'Erfahrung')
-        etree.SubElement(epn, 'Gesamt').text = str(self.epGesamt)
-        etree.SubElement(epn, 'Ausgegeben').text = str(self.epAusgegeben)
+            setText('Ausrüstungsstück', ausr)
+        ser.end() #ausrüstung
+        ser.end() #objekte
         
-        #Achter Block
-        notiz =  etree.SubElement(root, 'Notiz')
-        notiz.text = self.notiz
+        ser.begin('ÜbernatürlicheFertigkeiten')
+        for fert in self.übernatürlicheFertigkeiten:
+            ser.begin('ÜbernatürlicheFertigkeit')
+            ser.set('name', self.übernatürlicheFertigkeiten[fert].name)
+            ser.set('wert', self.übernatürlicheFertigkeiten[fert].wert)
+            ser.set('exportieren', self.übernatürlicheFertigkeiten[fert].addToPDF)
+            ser.end() #übernatürlichefertigkeit
+        ser.end() #übernatürlichefertigkeiten
 
-        einstellungen = etree.SubElement(root, 'Einstellungen')
-        etree.SubElement(einstellungen, 'VoraussetzungenPrüfen').text = "1" if self.voraussetzungenPruefen else "0"
-        etree.SubElement(einstellungen, 'Charakterbogen').text = str(self.charakterbogen)
-        etree.SubElement(einstellungen, 'FinanzenAnzeigen').text = "1" if self.finanzenAnzeigen else "0"
-        etree.SubElement(einstellungen, 'ÜbernatürlichesPDFSpalteAnzeigen').text = "1" if self.ueberPDFAnzeigen else "0"
-        etree.SubElement(einstellungen, 'DetailsAnzeigen').text = "1" if self.detailsAnzeigen else "0"
-        etree.SubElement(einstellungen, 'RegelnAnhängen').text = "1" if self.regelnAnhaengen else "0"
-        etree.SubElement(einstellungen, 'RegelnGrösse').text = str(self.regelnGroesse)
-        etree.SubElement(einstellungen, 'DeaktivierteRegelKategorien').text = str(",".join(self.deaktivierteRegelKategorien))
-        etree.SubElement(einstellungen, 'FormularEditierbarkeit').text = "1" if self.formularEditierbar else "0"
+        ser.begin('Erfahrung')
+        setText('Gesamt', self.epGesamt)
+        setText('Ausgegeben', self.epAusgegeben)
+        ser.end() #erfahrung
 
-        #Neunter Block
-        sub =  etree.SubElement(root, 'BeschreibungDetails')
-        etree.SubElement(sub, 'Kultur').text = self.kultur
-        etree.SubElement(sub, 'Profession').text = self.profession
-        etree.SubElement(sub, 'Geschlecht').text = self.geschlecht
-        etree.SubElement(sub, 'Geburtsdatum').text = self.geburtsdatum
-        etree.SubElement(sub, 'Grösse').text = self.groesse
-        etree.SubElement(sub, 'Gewicht').text = self.gewicht
-        etree.SubElement(sub, 'Haarfarbe').text = self.haarfarbe
-        etree.SubElement(sub, 'Augenfarbe').text = self.augenfarbe
-        etree.SubElement(sub, 'Titel').text = self.titel
+        setText('Notiz', self.notiz)
+
+        ser.begin('Einstellungen')
+        setText('VoraussetzungenPrüfen', "1" if self.voraussetzungenPruefen else "0")
+        setText('Charakterbogen', self.charakterbogen)
+        setText('FinanzenAnzeigen', "1" if self.finanzenAnzeigen else "0")
+        setText('ÜbernatürlichesPDFSpalteAnzeigen', "1" if self.ueberPDFAnzeigen else "0")
+        setText('DetailsAnzeigen', "1" if self.detailsAnzeigen else "0")
+        setText('RegelnAnhängen', "1" if self.regelnAnhaengen else "0")
+        setText('RegelnGrösse', self.regelnGroesse)
+        setText('DeaktivierteRegelKategorien', ",".join(self.deaktivierteRegelKategorien))
+        setText('FormularEditierbarkeit', "1" if self.formularEditierbar else "0")
+        ser.end() #einstellungen
+
+        ser.begin('BeschreibungDetails')
+        setText('Kultur', self.kultur)
+        setText('Profession', self.profession)
+        setText('Geschlecht', self.geschlecht)
+        setText('Geburtsdatum', self.geburtsdatum)
+        setText('Grösse', self.groesse)
+        setText('Gewicht', self.gewicht)
+        setText('Haarfarbe', self.haarfarbe)
+        setText('Augenfarbe', self.augenfarbe)
+        setText('Titel', self.titel)
         for i in range(6):
-            etree.SubElement(sub, 'Aussehen' + str(i+1)).text = self.aussehen[i]
+            setText('Aussehen' + str(i+1), self.aussehen[i])
         for i in range(9):
-            etree.SubElement(sub, 'Hintergrund' + str(i)).text = self.hintergrund[i]
+            setText('Hintergrund' + str(i), self.hintergrund[i])
         if self.bild:
-            etree.SubElement(sub, 'Bild').text = base64.b64encode(self.bild)
+            setText('Bild', base64.b64encode(self.bild))
+        ser.end() #beschreibungdetails
 
         #Plugins
-        root = EventBus.applyFilter("charakter_xml_schreiben", root, { "charakter" : self, "filepath" : filename })
+        root = EventBus.applyFilter("charakter_xml_schreiben", ser.root, { "charakter" : self, "filepath" : filename })
 
         #Write XML to file
-        doc = etree.ElementTree(root)
-        with open(filename, 'wb') as file:
-            file.seek(0)
-            file.truncate()
-            doc.write(file, encoding='UTF-8', pretty_print=True)
-            file.truncate()
+        ser.writeFile(filename)
 
     @staticmethod
     def xmlHausregelnLesen(filename):
@@ -1089,7 +1105,7 @@ class Char():
 
         #Neunter Block
         alg = root.find('BeschreibungDetails')
-        self.kultur = alg.find('Kultur').text
+        self.kultur = alg.find('Kultur').text or ''
         self.profession = alg.find('Profession').text or ''
         self.geschlecht = alg.find('Geschlecht').text or ''
         self.geburtsdatum = alg.find('Geburtsdatum').text or ''
