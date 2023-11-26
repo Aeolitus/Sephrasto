@@ -40,6 +40,10 @@ class Migrationen():
             logging.debug("User DB: VersionXML found")
             hausregelnVersion = int(versionXml.text)
 
+        if hausregelnVersion > Migrationen.datenbankCodeVersion:
+            logging.error("Veraltetes Sephrasto: Du hast die Hausregeln mit einer neueren Sephrasto-Version erstellt, diese Version kann sie nicht öffnen")
+            return False
+
         migrationen = [
             lambda xmlRoot: None, #nichts zu tun, initiale db version
             Migrationen.hausregeln0zu1,    
@@ -65,6 +69,8 @@ class Migrationen():
             updateInfo = migrationen[hausregelnVersion](xmlRoot)
             Migrationen.hausregelUpdates.extend(updateInfo)
 
+        return True
+
     def charakterMigrieren(xmlRoot):
         # Die Versionsdaten müssen immer migriert werden.
         versionXml = xmlRoot.find('Version')
@@ -82,6 +88,8 @@ class Migrationen():
                 versionXml.find('NutzerDatenbankName').tag = "Hausregeln"
 
         charakterVersion = int(versionXml.find('CharakterVersion').text)
+        if charakterVersion > Migrationen.charakterCodeVersion:
+            return False
 
         migrationen = [
             lambda xmlRoot: None, #nichts zu tun, initiale db version
@@ -105,6 +113,8 @@ class Migrationen():
             charakterVersion +=1
             updateInfo = migrationen[charakterVersion](xmlRoot)
             Migrationen.charakterUpdates.extend(updateInfo)
+
+        return True
 
     #--------------------------------
     # Hausregeln Migrationsfunktionen

@@ -90,7 +90,8 @@ class Editor(object):
         dlg.setLabelText("Lade Charakter")
         dlg.setValue(40, True)
         Wolke.Char = Charakter.Char()
-        Wolke.Char.xmlLesen(self.savepath)
+        if not Wolke.Char.xmlLesen(self.savepath):
+            self.savepath = ""
 
         dlg.setValue(70, True)    
         missingPlugins = set(Wolke.Char.enabledPlugins) - set(self.enabledPlugins)

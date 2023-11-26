@@ -91,7 +91,8 @@ class XmlDeserializer:
             if dataName is None:
                 dataName = self._root.tag
             if dataName in XmlDeserializer._migrations:
-                XmlDeserializer._migrations[dataName](self._root)
+                if not XmlDeserializer._migrations[dataName](self._root):
+                    return False
 
             if useCache:
                 XmlDeserializer._cache[filePath] = self._root

@@ -176,7 +176,8 @@ class Datenbank():
         _, fileExtension = os.path.splitext(file)
         options = { "useCache" : isCharakterEditor }
         deserializer = Serialization.getDeserializer(fileExtension, options)
-        deserializer.readFile(file, "Datenbank" if refDB else "Hausregeln")
+        if not deserializer.readFile(file, "Datenbank" if refDB else "Hausregeln"):
+            return False
         if deserializer.currentName != "Datenbank":
             return False
 

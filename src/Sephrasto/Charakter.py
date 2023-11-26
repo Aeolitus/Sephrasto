@@ -886,7 +886,16 @@ class Char():
         self.__init__()
         root = etree.parse(filename).getroot()
         logging.debug("Starting Character Migration")
-        Migrationen.charakterMigrieren(root)
+        if not Migrationen.charakterMigrieren(root):
+            messageBox = QtWidgets.QMessageBox()
+            messageBox.setIcon(QtWidgets.QMessageBox.Critical)
+            messageBox.setWindowTitle("Veraltetes Sephrasto")
+            messageBox.setText("Du hast den Charakter mit einer neueren Sephrasto-Version erstellt, diese Version kann ihn nicht öffnen")
+            messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
+            messageBox.exec()
+            return False
+
         if len(Migrationen.charakterUpdates) > 0:
             messageBox = QtWidgets.QMessageBox()
             messageBox.setIcon(QtWidgets.QMessageBox.Information)
@@ -1152,3 +1161,4 @@ class Char():
             messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
             messageBox.exec()
+        return True
