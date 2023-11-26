@@ -10,7 +10,6 @@ class ProgressDialogExt(QtWidgets.QProgressDialog):
         self.canceled.disconnect(self.cancel)
         self.canceled.connect(self.cancelPlease)
         self.setMinimumWidth(400)
-        self.setMinimumHeight(100)
         self.setWindowModality(QtCore.Qt.ApplicationModal)
         self.setValue(0)
         self.setAutoReset(False)
@@ -32,4 +31,12 @@ class ProgressDialogExt(QtWidgets.QProgressDialog):
     def disableCancel(self):
         self.cb = None
         self.setCancelButton(None)
-        self.setWindowFlags(self.windowFlags() & ~QtCore.Qt.WindowCloseButtonHint);
+        self.setWindowFlags(self.windowFlags() & ~QtCore.Qt.WindowCloseButtonHint)
+
+    def setValue(self, value, processEvents = False):
+        super().setValue(value)
+        if processEvents:
+            # process events to prevent the dialog from freezing
+            # sometimes its even required to do this twice...
+            QtWidgets.QApplication.processEvents()
+            QtWidgets.QApplication.processEvents()

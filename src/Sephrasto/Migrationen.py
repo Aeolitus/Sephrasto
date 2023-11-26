@@ -1,10 +1,11 @@
 import lxml.etree as etree
-from Hilfsmethoden import Hilfsmethoden, VoraussetzungException, WaffeneigenschaftException
+from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
 import os.path
 from Wolke import Wolke
 import logging
 from EventBus import EventBus
 import re
+from Serialization import XmlDeserializer
 
 # ACHTUNG: Existierenden Migrationscode nur ändern wenn du 100% weißt, was du tust!
 # Migrationscode verändert die xml nodes von Charakter- oder Hausregeldateien, bevor sie eingelesen werden.
@@ -26,13 +27,19 @@ class Migrationen():
     def __init__(self):
         pass
 
-    datenbankCodeVersion = 7
+    datenbankCodeVersion = 8
     charakterCodeVersion = 6
 
     hausregelUpdates = []
     charakterUpdates = []
 
-    def hausregelnMigrieren(xmlRoot, hausregelnVersion):
+    def hausregelnMigrieren(xmlRoot):
+        hausregelnVersion = 0
+        versionXml = xmlRoot.find('Version')
+        if versionXml is not None:
+            logging.debug("User DB: VersionXML found")
+            hausregelnVersion = int(versionXml.text)
+
         migrationen = [
             lambda xmlRoot: None, #nichts zu tun, initiale db version
             Migrationen.hausregeln0zu1,    
@@ -42,6 +49,7 @@ class Migrationen():
             Migrationen.hausregeln4zu5,
             Migrationen.hausregeln5zu6,
             Migrationen.hausregeln6zu7,
+            Migrationen.hausregeln7zu8,
         ]
 
         if not migrationen[Migrationen.datenbankCodeVersion]:
@@ -552,6 +560,34 @@ class Migrationen():
                "Die Voraussetzungen von allen Tiergeistern und Geweihtentraditionen wurden vereinfacht durch die neuen Wildcards.",
                "Bei Spezialtalenten muss nun angegeben werden, ob es sich um Zauber, Liturgien etc. handelt. Dies wurde für alle Spezialtalente automatisch ermittelt."]
 
+    def hausregeln7zu8(root):
+        # we are not processing Remove tags first anymore, so we need to put them in the front for old databases
+        # they might still have remove tags for overriden elements (old codebase) which would break things
+        for node in root.findall('Remove'):
+            if node.attrib['typ'] == "AbgeleiteterWertDefinition":
+                node.attrib['typ'] = "AbgeleiteterWert"
+            elif node.attrib['typ'] == "AttributDefinition":
+                node.attrib['typ'] = "Attribut"
+            elif node.attrib['typ'] == "EnergieDefinition":
+                node.attrib['typ'] = "Energie"
+            elif node.attrib['typ'] == "FertigkeitDefinition":
+                node.attrib['typ'] = "Fertigkeit"
+            elif node.attrib['typ'] == "UeberFertigkeitDefinition":
+                node.attrib['typ'] = "ÜbernatürlicheFertigkeit"
+            elif node.attrib['typ'] == "FreieFertigkeitDefinition":
+                node.attrib['typ'] = "FreieFertigkeit"
+            elif node.attrib['typ'] == "RuestungDefinition":
+                node.attrib['typ'] = "Rüstung"
+            elif node.attrib['typ'] == "TalentDefinition":
+                node.attrib['typ'] = "Talent"
+            elif node.attrib['typ'] == "VorteilDefinition":
+                node.attrib['typ'] = "Vorteil"
+            elif node.attrib['typ'] == "WaffeDefinition":
+                node.attrib['typ'] = "Waffe"
+
+            root.insert(0, node)
+        return []
+
     #--------------------------------
     # Charakter Migrationsfunktionen
     #--------------------------------
@@ -813,3 +849,6 @@ class Migrationen():
             waf.attrib["beSlot"] = "1"
         return []
 
+
+# Register with appropriate serialiers
+XmlDeserializer.registerMigration("Hausregeln", Migrationen.hausregelnMigrieren)

@@ -6,6 +6,7 @@ import copy
 # AbgeleiteterWert: character editor values, initialised with definition but supports overrides
 class AbgeleiteterWertDefinition:
     displayName = "Abgeleiteter Wert"
+    serializationName = "AbgeleiteterWert"
 
     def __init__(self):
         # Serialized properties
@@ -37,6 +38,28 @@ class AbgeleiteterWertDefinition:
         elif self.script:
             return f"{self.text}\nScript: {self.script}"
         return self.text
+
+    def serialize(self, ser):
+        ser.set('name', self.name)
+        ser.set('text', self.text)
+        ser.set('anzeigename', self.anzeigename)
+        ser.set('anzeigen', self.anzeigen)
+        ser.set('formel', self.formel)
+        if self.script:
+            ser.set('script', self.script)
+        if self.finalscript:
+            ser.set('finalscript', self.finalscript)
+        ser.set('sortorder', self.sortorder)
+
+    def deserialize(self, ser):
+        self.name = ser.get('name')
+        self.text = ser.get('text')
+        self.anzeigename = ser.get('anzeigename')
+        self.anzeigen = ser.getBool('anzeigen')
+        self.formel = ser.get('formel')
+        self.script = ser.get('script', '')
+        self.finalscript = ser.get('finalscript', '')
+        self.sortorder = ser.getInt('sortorder')
 
 class AbgeleiteterWert:
     def __init__(self, definition, charakter):

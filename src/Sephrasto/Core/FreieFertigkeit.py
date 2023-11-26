@@ -1,6 +1,6 @@
 from Wolke import Wolke
 from EventBus import EventBus
-from Hilfsmethoden import Hilfsmethoden
+from VoraussetzungenListe import VoraussetzungenListe
 
 # Implementation for freie Fertigkeiten. Using the type object pattern.
 # FreieFertigkeitDefinition: type object, initialized with database values
@@ -9,6 +9,7 @@ from Hilfsmethoden import Hilfsmethoden
 
 class FreieFertigkeitDefinition:
     displayName = "Freie Fertigkeit"
+    serializationName = "FreieFertigkeit"
     steigerungskosten = None
     gesamtkosten = None
 
@@ -16,7 +17,7 @@ class FreieFertigkeitDefinition:
         # Serialized properties
         self.name = ""
         self.kategorie = ""
-        self.voraussetzungen = []
+        self.voraussetzungen = VoraussetzungenListe()
 
     def deepequals(self, other): 
         if self.__class__ != other.__class__: return False
@@ -39,7 +40,17 @@ class FreieFertigkeitDefinition:
         return self.kategorie
 
     def details(self, db):
-        return Hilfsmethoden.VorArray2Str(self.voraussetzungen)
+        return self.voraussetzungen.text
+
+    def serialize(self, ser):
+        ser.set('name', self.name)
+        ser.set('kategorie', self.kategorie)
+        ser.set('voraussetzungen', self.voraussetzungen.text)
+
+    def deserialize(self, ser):
+        self.name = ser.get('name')
+        self.kategorie = ser.get('kategorie')
+        self.voraussetzungen.compile(ser.get('voraussetzungen', ''))
 
 class FreieFertigkeit:
     def __init__(self, definition, charakter):

@@ -4,6 +4,7 @@
 
 class WaffeDefinition:
     displayName = "Waffe"
+    serializationName = "Waffe"
     keinKampfstil = "Kein Kampfstil"
 
     def __init__(self):
@@ -51,6 +52,44 @@ class WaffeDefinition:
             eigenschaften = ', '.join(self.eigenschaften)
 
         return f"TP {self.würfel}W{self.würfelSeiten}{'+' if self.plus >= 0 else ''}{self.plus} | WM {self.wm} | RW {self.rw} {lz}| Härte {self.härte} | {eigenschaften}"
+
+    def serialize(self, ser):
+        ser.set('name', self.name)
+        ser.set('text', ", ".join(self.eigenschaften))
+        ser.set('würfel', self.würfel)
+        ser.set('würfelSeiten', self.würfelSeiten)
+        ser.set('plus', self.plus)
+        ser.set('härte', self.härte)
+        ser.set('fertigkeit', self.fertigkeit)
+        ser.set('talent', self.talent)
+        ser.set('kampfstile', ", ".join(self.kampfstile))
+        ser.set('rw', self.rw)
+        ser.set('wm', self.wm)
+        if self.fernkampf:
+            ser.set('fk', True)
+            ser.set('lz', self.lz)
+        else:
+            ser.set('fk', False)
+
+    def deserialize(self, ser):
+        self.name = ser.get('name')
+        eigenschaften = ser.get('text')
+        if eigenschaften:
+            self.eigenschaften = list(map(str.strip, eigenschaften.split(",")))
+        self.würfel = ser.getInt('würfel')
+        self.würfelSeiten = ser.getInt('würfelSeiten')
+        self.plus = ser.getInt('plus')
+        self.härte = ser.getInt('härte')
+        self.fertigkeit = ser.get('fertigkeit')
+        self.talent = ser.get('talent')
+        kampfstile = ser.get('kampfstile', '')
+        if kampfstile:
+            self.kampfstile = sorted(list(map(str.strip, kampfstile.split(","))))
+        self.rw = ser.getInt('rw')
+        self.wm = ser.getInt('wm')
+        self.fernkampf = ser.getBool('fk')
+        if self.fernkampf:
+            self.lz = ser.getInt('lz')
 
 class Waffe:
     def __init__(self, definition):

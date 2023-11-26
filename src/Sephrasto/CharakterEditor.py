@@ -31,6 +31,7 @@ from UI import CharakterMain
 import platform
 from CharakterAssistent.CharakterMerger import CharakterMerger
 import base64
+from QtUtils.ProgressDialogExt import ProgressDialogExt
 
 class Tab():
     def __init__(self, order, wrapper, form, name):
@@ -57,9 +58,17 @@ class Editor(object):
         Wolke.DB = Datenbank.Datenbank()
 
     def loadCharacter(self, path):
+        dlg = ProgressDialogExt(minimum = 0, maximum = 100)
+        dlg.disableCancel()
+        dlg.setWindowTitle("Charakter laden")    
+        dlg.show()
+        dlg.setLabelText("Lade Datenbank")
+        dlg.setValue(0, True)
         self.savepath = path
         storedHausregeln = Charakter.Char.xmlHausregelnLesen(self.savepath)
         availableHausregeln = EinstellungenWrapper.getDatenbanken(Wolke.Settings["Pfad-Regeln"])
+        
+        dlg.setValue(10, True)
         if storedHausregeln in availableHausregeln:
             hausregeln = storedHausregeln
         else:
@@ -77,9 +86,13 @@ class Editor(object):
             hausregeln = combo.currentText()
 
         self.loadDB(hausregeln)
+
+        dlg.setLabelText("Lade Charakter")
+        dlg.setValue(40, True)
         Wolke.Char = Charakter.Char()
         Wolke.Char.xmlLesen(self.savepath)
-        
+
+        dlg.setValue(70, True)    
         missingPlugins = set(Wolke.Char.enabledPlugins) - set(self.enabledPlugins)
         if len(missingPlugins) > 0:
             infoBox = QtWidgets.QMessageBox()
@@ -94,22 +107,54 @@ class Editor(object):
         Wolke.Char.enabledPlugins = self.enabledPlugins.copy()
         Wolke.Char.aktualisieren() # A bit later because it needs access to itself
 
+        dlg.setLabelText("Starte Editor")
+        dlg.setValue(80, True)
         self.show()
+        dlg.hide()
+        dlg.deleteLater()
 
     def newCharacter(self):
+        dlg = ProgressDialogExt(minimum = 0, maximum = 100)
+        dlg.disableCancel()
+        dlg.setWindowTitle("Neuen Charakter erstellen")    
+        dlg.show()
+        dlg.setLabelText("Lade Datenbank")
+        dlg.setValue(0, True)
         self.loadDB(Wolke.Settings['Datenbank'])
+
+        dlg.setLabelText("Erstelle Charakter")
+        dlg.setValue(40, True)
         Wolke.Char = Charakter.Char()
         Wolke.Char.enabledPlugins = self.enabledPlugins.copy()
         Wolke.Char.aktualisieren() # A bit later because it needs access to itself
+        dlg.setLabelText("Starte Editor")
+        dlg.setValue(80, True)
         self.show()
+        dlg.hide()
+        dlg.deleteLater()
 
     def newCharacterFromWizard(self, wizardConfig):
+        dlg = ProgressDialogExt(minimum = 0, maximum = 100)
+        dlg.disableCancel()
+        dlg.setWindowTitle("Neuen Charakter erstellen")    
+        dlg.show()
+        dlg.setLabelText("Lade Datenbank")
+        dlg.setValue(0, True)
+
         self.loadDB(wizardConfig.hausregeln)
+
+        dlg.setLabelText("Erstelle Charakter")
+        dlg.setValue(40, True)
         Wolke.Char = Charakter.Char()
         wizardConfig.apply(Wolke.Char, Wolke.DB)
         Wolke.Char.enabledPlugins = self.enabledPlugins.copy()
         Wolke.Char.aktualisieren() # A bit later because it needs access to itself
+
+        dlg.setLabelText("Starte Editor")
+        dlg.setValue(80, True)
         self.show()
+        dlg.hide()
+        dlg.deleteLater()
 
     def loadDB(self, hausregeln):
         if Wolke.DB.datei is None or Wolke.DB.hausregelDatei != hausregeln:

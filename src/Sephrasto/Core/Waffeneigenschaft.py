@@ -1,5 +1,6 @@
 class Waffeneigenschaft():
     displayName = "Waffeneigenschaft"
+    serializationName = "Waffeneigenschaft"
 
     def __init__(self):
         # Serialized properties
@@ -25,3 +26,17 @@ class Waffeneigenschaft():
         if self.script:
             return f"{self.text}\nScript: {self.script}"
         return self.text
+
+    def serialize(self, ser):
+        ser.set('name', self.name)
+        ser.set('text', self.text)
+        if self.script:
+            ser.set('script', self.script)
+        if self.scriptPrio != 0:
+            ser.set('scriptPrio', self.scriptPrio)
+
+    def deserialize(self, ser):
+        self.name = ser.get('name')
+        self.text = ser.get('text')
+        self.script = ser.get('script', '')
+        self.scriptPrio = ser.getInt('scriptPrio', self.scriptPrio)

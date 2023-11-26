@@ -1,5 +1,7 @@
-class DatenbankEinstellung(object):
+class DatenbankEinstellung:
     displayName = "Einstellung"
+    serializationName = "Einstellung"
+
 
     def __init__(self):
         # Serialized properties
@@ -58,3 +60,20 @@ class DatenbankEinstellung(object):
 
     def details(self, db):
         return f"{self.text}\n{self.beschreibung}"
+
+    def serialize(self, ser):
+        ser.set('name', self.name)
+        ser.set('text', self.text)
+        if ser.options["isMerge"]:
+            ser.set('typ', self.typ)
+            ser.set('beschreibung', self.beschreibung)
+            ser.set('separator', self.separator)
+            ser.set('strip', self.strip)
+
+    def deserialize(self, ser):
+        self.name = ser.get('name')
+        self.text = ser.get('text')
+        self.typ = ser.get('typ', self.typ)
+        self.beschreibung = ser.get('beschreibung', self.beschreibung)
+        self.separator = ser.get('separator', "\n")
+        self.strip = ser.getBool('strip', self.strip)

@@ -13,6 +13,7 @@ from EventBus import EventBus
 from CharakterAssistent.ChoiceXmlVerifier import ChoiceXmlVerifier
 from Migrationen import Migrationen
 import os
+from VoraussetzungenListe import VoraussetzungenListe
 
 class CharakterMerger:
     def __init__(self):
@@ -397,9 +398,9 @@ class CharakterMerger:
             if not minderpakt.kommentar in db.vorteile:
                 char.removeVorteil(minderpakt)
             else:
-                minderpakt.voraussetzungen = Hilfsmethoden.VorStr2Array("Vorteil " + minderpakt.kommentar, db)
+                minderpakt.voraussetzungen = VoraussetzungenListe().compile("Vorteil " + minderpakt.kommentar, db)
                 vorteil = char.addVorteil(minderpakt.kommentar)
-                vorteil.voraussetzungen = Hilfsmethoden.VorStr2Array("Vorteil Minderpakt", db)
+                vorteil.voraussetzungen = VoraussetzungenListe().compile("Vorteil Minderpakt", db)
                 vorteil.kosten = 20
 
         for fer in root.findall('Fertigkeiten/Fertigkeit'):

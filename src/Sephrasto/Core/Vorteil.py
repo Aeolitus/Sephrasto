@@ -1,6 +1,7 @@
 from Wolke import Wolke
 import logging
 from EventBus import EventBus
+from VoraussetzungenListe import VoraussetzungenListe
 
 # Implementation for Vorteile. Using the type object pattern.
 # VorteilDefinition: type object, initialized with database values
@@ -14,6 +15,7 @@ class VorteilLinkKategorie:
 
 class VorteilDefinition():
     displayName = "Vorteil"
+    serializationName = "Vorteil"
 
     def __init__(self):
         # Serialized properties
@@ -25,7 +27,7 @@ class VorteilDefinition():
         self.variableKosten = False
         self.kommentarErlauben = False
         self.typ = 0
-        self.voraussetzungen = []
+        self.voraussetzungen = VoraussetzungenListe()
         self.nachkauf = ''
         self.cheatsheetAuflisten = True
         self.cheatsheetBeschreibung = ''
@@ -98,6 +100,57 @@ class VorteilDefinition():
         if self.script:
             text += f"\nScript: {self.script}"
         return text
+
+    def serialize(self, ser):
+        ser.set('name', self.name)
+        ser.set('text', self.text)
+        ser.set('voraussetzungen', self.voraussetzungen.text)
+        ser.set('kosten', self.kosten)
+        ser.set('nachkauf', self.nachkauf)
+        ser.set('typ', self.typ)
+        if self.script:
+            ser.set('script', self.script)
+        if self.scriptPrio != 0:
+            ser.set('scriptPrio', self.scriptPrio)
+        if len(self.querverweise) > 0:
+            ser.set('querverweise', " | ".join(self.querverweise))    
+        ser.set('variableKosten', self.variableKosten)
+        ser.set('kommentar', self.kommentarErlauben)
+        if not self.cheatsheetAuflisten:
+            ser.set('csAuflisten', False)
+        if self.cheatsheetBeschreibung:
+            ser.set('csBeschreibung', self.cheatsheetBeschreibung)
+        if self.linkKategorie > 0:
+            ser.set('linkKategorie', self.linkKategorie)
+        if self.linkElement:
+            ser.set('linkElement', self.linkElement)
+        if self.info:
+            ser.set('info', self.info)
+        if self.bedingungen:
+            ser.set('bedingungen', self.bedingungen)
+
+    def deserialize(self, ser):
+        self.name = ser.get('name')
+        self.text = ser.get('text')
+        self.voraussetzungen.compile(ser.get('voraussetzungen', ''))
+        self.kosten = ser.getInt('kosten')
+        self.nachkauf = ser.get('nachkauf')
+        self.typ = ser.getInt('typ')
+        self.script = ser.get('script', "")
+        self.scriptPrio = ser.getInt('scriptPrio', self.scriptPrio)
+        querverweise = ser.get('querverweise', '')
+        if querverweise:
+            self.querverweise = list(map(str.strip, querverweise.split("|")))
+        self.variableKosten = ser.getBool('variableKosten', self.variableKosten)
+        self.kommentarErlauben = ser.getBool('kommentar', self.kommentarErlauben)
+        if self.variableKosten:
+            self.kommentarErlauben = True
+        self.cheatsheetAuflisten = ser.getBool('csAuflisten', self.cheatsheetAuflisten)
+        self.cheatsheetBeschreibung = ser.get('csBeschreibung', self.cheatsheetBeschreibung)
+        self.linkKategorie = ser.getInt('linkKategorie', self.linkKategorie)
+        self.linkElement = ser.get('linkElement', self.linkElement)
+        self.info = ser.get('info', self.info)
+        self.bedingungen = ser.get('bedingungen', self.bedingungen)
 
 class Vorteil:
     def __init__(self, definition, charakter):

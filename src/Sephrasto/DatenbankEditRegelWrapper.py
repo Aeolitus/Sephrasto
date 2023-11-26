@@ -5,7 +5,7 @@ Created on Thu Apr 19 22:33:21 2018
 @author: Aeolitus
 """
 from DatenbankElementEditorBase import DatenbankElementEditorBase, BeschreibungEditor, VoraussetzungenEditor
-from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
+from Hilfsmethoden import Hilfsmethoden
 import UI.DatenbankEditRegel
 from PySide6 import QtWidgets, QtCore
 from Wolke import Wolke

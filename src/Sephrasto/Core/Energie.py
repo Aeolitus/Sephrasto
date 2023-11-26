@@ -1,10 +1,12 @@
 from EventBus import EventBus
+from VoraussetzungenListe import VoraussetzungenListe
 
 # Implementation for Energien (Karma, AsP, GuP). Using the type object pattern.
 # EnergieDefinition: type object, initialized with database values
 # Energie: character editor values, initialised with definition but supports overrides
 class EnergieDefinition:
     displayName = "Energie"
+    serializationName = "Energie"
 
     def __init__(self):
         # Serialized properties
@@ -12,7 +14,7 @@ class EnergieDefinition:
         self.anzeigename = ""
         self.text = ""
         self.steigerungsfaktor = 1
-        self.voraussetzungen = []
+        self.voraussetzungen = VoraussetzungenListe()
         self.sortorder = 0
 
     def deepequals(self, other): 
@@ -24,6 +26,22 @@ class EnergieDefinition:
 
     def details(self, db):
         return f"SF {self.steigerungsfaktor}. {self.text}"
+
+    def serialize(self, ser):
+        ser.set('name', self.name)
+        ser.set('text', self.text)
+        ser.set('voraussetzungen', self.voraussetzungen.text)
+        ser.set('anzeigename', self.anzeigename)
+        ser.set('steigerungsfaktor', self.steigerungsfaktor)
+        ser.set('sortorder', self.sortorder)
+
+    def deserialize(self, ser):
+        self.name = ser.get('name')
+        self.text = ser.get('text')
+        self.voraussetzungen.compile(ser.get('voraussetzungen', ''))
+        self.anzeigename = ser.get('anzeigename')
+        self.steigerungsfaktor = ser.getInt('steigerungsfaktor')
+        self.sortorder = ser.getInt('sortorder')
 
 class Energie:
     def __init__(self, definition, charakter):

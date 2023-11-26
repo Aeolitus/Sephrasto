@@ -1,11 +1,14 @@
 import re
 from EventBus import EventBus
+from Hilfsmethoden import Hilfsmethoden
+from VoraussetzungenListe import VoraussetzungenListe
 
 # Implementation for Talente. Using the type object pattern.
 # TalentDefinition: type object, initialized with database values
 # Talent: character editor values, initialised with definition but supports overrides.
 class TalentDefinition:
     displayName = "Talent"
+    serializationName = "Talent"
 
     def __init__(self):
         # Serialized properties
@@ -16,7 +19,7 @@ class TalentDefinition:
         self.kosten = 0
         self.verbilligt = False
         self.fertigkeiten = []
-        self.voraussetzungen = []
+        self.voraussetzungen = VoraussetzungenListe()
         self.variableKosten = False
         self.kommentarErlauben = False
         self.cheatsheetAuflisten = True
@@ -113,6 +116,44 @@ class TalentDefinition:
 
     def details(self, db):
         return f"{self.kosten} EP{' (verbilligt)' if self.verbilligt else ''}. {self.text}"
+
+    def serialize(self, ser):
+        ser.set('name', self.name)
+        ser.set('text', self.text)
+        ser.set('voraussetzungen', self.voraussetzungen.text)
+        if self.spezialTalent:
+            ser.set('kosten', self.kosten)
+            ser.set('spezialTyp', self.spezialTyp)
+        else:
+            ser.set('kosten', -1)                
+        ser.set('verbilligt', self.verbilligt)
+        ser.set('fertigkeiten', Hilfsmethoden.FertArray2Str(self.fertigkeiten, None))
+        ser.set('variableKosten', self.variableKosten)
+        ser.set('kommentar', self.kommentarErlauben)
+        ser.set('referenzbuch', self.referenzBuch)
+        ser.set('referenzseite', self.referenzSeite)
+        if not self.cheatsheetAuflisten:
+            ser.set('csAuflisten', False)
+        if self.info:
+            ser.set('info', self.info)
+
+    def deserialize(self, ser):
+        self.name = ser.get('name')
+        self.text = ser.get('text')
+        self.voraussetzungen.compile(ser.get('voraussetzungen', ''))
+        self.kosten = ser.getInt('kosten')
+        self.spezialTyp = ser.getInt('spezialTyp', self.spezialTyp)
+        self.verbilligt = ser.getInt('verbilligt')
+        self.fertigkeiten = Hilfsmethoden.FertStr2Array(ser.get('fertigkeiten'), None)
+        self.variableKosten = ser.getBool('variableKosten')
+        self.kommentarErlauben = ser.getBool('kommentar', self.kommentarErlauben)
+        if self.variableKosten:
+            self.kommentarErlauben = True
+        self.referenzBuch = ser.getInt('referenzbuch', self.referenzBuch)
+        self.referenzSeite = ser.getInt('referenzseite', self.referenzSeite)
+        self.cheatsheetAuflisten = ser.getBool('csAuflisten', self.cheatsheetAuflisten)
+        self.info = ser.get('info', self.info)
+        
 
 class Talent:
     def __init__(self, definition, charakter):

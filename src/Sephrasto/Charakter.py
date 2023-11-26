@@ -19,6 +19,7 @@ from PySide6 import QtWidgets, QtCore, QtGui
 import os.path
 import base64
 from Migrationen import Migrationen
+from VoraussetzungenListe import VoraussetzungenListe
 
 class KampfstilMod():
     def __init__(self):
@@ -37,31 +38,6 @@ class Waffenwerte():
         self.plus = 0
         self.härte = 0
         self.kampfstil = ""
-
-class CharMinimal:
-    def __init__(self, filename):
-        root = etree.parse(filename).getroot()
-        Migrationen.charakterMigrieren(root)
-        self.hausregeln = root.find("Version").find("Hausregeln").text or "Keine"
-        self.name = os.path.splitext(os.path.basename(filename))[0]
-        name = alg = root.find('Beschreibung').find('Name').text
-        if name:
-            self.name = name
-
-        self.bild = None
-        bild = root.find('BeschreibungDetails').find('Bild')
-        if bild is not None:
-            byteArray = bytes(bild.text, 'utf-8')
-            self.bild = base64.b64decode(byteArray)
-        if self.bild is None:
-            pixmap = QtGui.QPixmap("Data/Images/default_avatar.png")
-            buffer = QtCore.QBuffer()
-            buffer.open(QtCore.QIODevice.WriteOnly);
-            pixmap.save(buffer, "PNG")
-            self.bild = buffer.data().data()
-
-        self.epGesamt = int(root.find('Erfahrung/Gesamt').text)
-        self.epAusgegeben = int(root.find('Erfahrung/Ausgegeben').text)
 
 class Char():
     ''' 
@@ -284,14 +260,16 @@ class Char():
             fert.talentMods[talent][condition] += mod
 
     def API_addTalent(self, talent, kosten = -1, requiredÜberFert = None):
-        voraussetzungen = []
+        fertVoraussetzungen = ""
         if requiredÜberFert:
             if requiredÜberFert in self.übernatürlicheFertigkeiten:
-                voraussetzungen = Hilfsmethoden.VorStr2Array("Übernatürliche-Fertigkeit '" + requiredÜberFert + "'", Wolke.DB)
+                fertVoraussetzungen = "Übernatürliche-Fertigkeit '" + requiredÜberFert + "'"
             else:
                 return
         talent = self.addTalent(talent)
-        talent.voraussetzungen = talent.voraussetzungen + Hilfsmethoden.VorStr2Array("Vorteil " + self.currentVorteil, Wolke.DB) + voraussetzungen
+        talent.voraussetzungen = talent.voraussetzungen.add("Vorteil " + self.currentVorteil, Wolke.DB)
+        talent.voraussetzungen = talent.voraussetzungen.add(fertVoraussetzungen, Wolke.DB)
+
         if kosten != -1:
             talent.kosten = kosten
 
@@ -983,9 +961,9 @@ class Char():
                 vIgnored.append("Minderpakt")
                 self.removeVorteil(minderpakt)
             else:
-                minderpakt.voraussetzungen = Hilfsmethoden.VorStr2Array("Vorteil " + minderpakt.kommentar, Wolke.DB)
+                minderpakt.voraussetzungen = VoraussetzungenListe().compile("Vorteil " + minderpakt.kommentar, Wolke.DB)
                 vorteil = self.addVorteil(minderpakt.kommentar)
-                vorteil.voraussetzungen = Hilfsmethoden.VorStr2Array("Vorteil Minderpakt", Wolke.DB)
+                vorteil.voraussetzungen = VoraussetzungenListe().compile("Vorteil Minderpakt", Wolke.DB)
                 vorteil.kosten = 20
 
         #Vierter Block

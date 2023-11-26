@@ -7,7 +7,7 @@ Created on Sat Mar 18 10:52:34 2017
 from DatenbankElementEditorBase import DatenbankElementEditorBase, BeschreibungEditor, VoraussetzungenEditor, ScriptEditor
 from Core.Vorteil import VorteilDefinition, VorteilLinkKategorie
 import UI.DatenbankEditVorteil
-from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
+from Hilfsmethoden import Hilfsmethoden
 from PySide6 import QtWidgets, QtCore, QtGui
 from Wolke import Wolke
 from Datenbank import Datenbank

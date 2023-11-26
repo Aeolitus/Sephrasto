@@ -5,7 +5,7 @@ Created on Sat Mar 18 11:04:21 2017
 @author: Aeolitus
 """
 from DatenbankElementEditorBase import DatenbankElementEditorBase, BeschreibungEditor, VoraussetzungenEditor
-from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
+from Hilfsmethoden import Hilfsmethoden
 import UI.DatenbankEditTalent
 from PySide6 import QtWidgets, QtCore, QtGui
 from QtUtils.TextTagCompleter import TextTagCompleter

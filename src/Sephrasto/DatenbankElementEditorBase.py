@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from PySide6 import QtWidgets, QtCore
 from Wolke import Wolke
-from Hilfsmethoden import Hilfsmethoden, VoraussetzungException
+from Hilfsmethoden import Hilfsmethoden
+from VoraussetzungenListe import VoraussetzungenListe, VoraussetzungException
 
 class DatenbankElementEditorBase():
     def __init__(self):
@@ -131,19 +132,19 @@ class VoraussetzungenEditor:
         self.editor.validator["Voraussetzungen"] = True
 
     def load(self, element):
-        self.editor.ui.teVoraussetzungen.setPlainText(Hilfsmethoden.VorArray2Str(element.voraussetzungen))
+        self.editor.ui.teVoraussetzungen.setPlainText(element.voraussetzungen.text)
         self.editor.ui.teVoraussetzungen.textChanged.connect(self.voraussetzungenTextChanged)
         self.voraussetzungenTextChanged()
 
     def update(self, element):
         try:
-            element.voraussetzungen = Hilfsmethoden.VorStr2Array(self.editor.ui.teVoraussetzungen.toPlainText(), self.editor.datenbank)
+            element.voraussetzungen.compile(self.editor.ui.teVoraussetzungen.toPlainText(), self.editor.datenbank)
         except VoraussetzungException as e:
             element.voraussetzungen = []
 
     def voraussetzungenTextChanged(self):
         try:
-            Hilfsmethoden.VorStr2Array(self.editor.ui.teVoraussetzungen.toPlainText(), self.editor.datenbank)
+            VoraussetzungenListe().compile(self.editor.ui.teVoraussetzungen.toPlainText(), self.editor.datenbank)
             self.editor.ui.teVoraussetzungen.setStyleSheet("")
             self.editor.ui.teVoraussetzungen.setToolTip("")
             self.editor.validator["Voraussetzungen"] = True

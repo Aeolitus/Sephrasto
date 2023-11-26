@@ -34,7 +34,7 @@ class AttrWrapper(QtCore.QObject):
             self.vorteile[attribut] = []
         for vorteil in sorted(Wolke.DB.vorteile.values(), key = lambda v: v.typ):
             for attribut in Wolke.Char.attribute:
-                if Hilfsmethoden.isAttributVoraussetzung(attribut, vorteil.voraussetzungen):
+                if vorteil.voraussetzungen.isAttributVoraussetzung(attribut):
                     self.vorteile[attribut].append(vorteil)
 
         # Init Attribute

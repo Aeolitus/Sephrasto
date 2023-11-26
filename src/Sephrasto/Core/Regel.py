@@ -1,12 +1,15 @@
+from VoraussetzungenListe import VoraussetzungenListe
+
 class Regel():
     displayName = "Regel"
+    serializationName = "Regel"
 
     def __init__(self):
         # Serialized properties
         self.name = ''
         self.text = ''
         self.typ = 0
-        self.voraussetzungen = []
+        self.voraussetzungen = VoraussetzungenListe()
         self.probe = ''
         
         # Derived properties after deserialization
@@ -30,3 +33,18 @@ class Regel():
         if self.probe:
             return f"Probe: {self.probe}. {self.text}"
         return self.text
+
+    def serialize(self, ser):
+        ser.set('name', self.name)
+        ser.set('text', self.text)
+        ser.set('voraussetzungen', self.voraussetzungen.text)
+        ser.set('typ', self.typ)
+        ser.set('probe', self.probe)
+
+
+    def deserialize(self, ser):
+        self.name = ser.get('name')
+        self.text = ser.get('text')
+        self.voraussetzungen.compile(ser.get('voraussetzungen', ''))      
+        self.typ = ser.getInt('typ')
+        self.probe = ser.get('probe')

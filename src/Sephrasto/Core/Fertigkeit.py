@@ -1,5 +1,7 @@
 from Wolke import Wolke
 from EventBus import EventBus
+from Hilfsmethoden import Hilfsmethoden
+from VoraussetzungenListe import VoraussetzungenListe
 
 # Implementation for Fertigkeiten. Using the type object pattern.
 # FertigkeitDefinition: type object, initialized with database values
@@ -12,6 +14,7 @@ class KampffertigkeitTyp():
 
 class FertigkeitDefinition:
     displayName = "Fertigkeit (profan)"
+    serializationName = "Fertigkeit"
 
     def __init__(self):
         # Serialized properties
@@ -20,7 +23,7 @@ class FertigkeitDefinition:
         self.text = ''
         self.attribute = ['KO','KO','KO']
         self.kampffertigkeit = KampffertigkeitTyp.Keine
-        self.voraussetzungen = []
+        self.voraussetzungen = VoraussetzungenListe()
         self.typ = -1
         self.talenteGruppieren = False
 
@@ -37,8 +40,27 @@ class FertigkeitDefinition:
     def details(self, db):
         return f"{'/'.join(self.attribute)}. SF {self.steigerungsfaktor}. {self.text}"
 
+    def serialize(self, ser):
+        ser.set('name', self.name)
+        ser.set('text', self.text)
+        ser.set('voraussetzungen', self.voraussetzungen.text)
+        ser.set('steigerungsfaktor', self.steigerungsfaktor)
+        ser.set('attribute', Hilfsmethoden.AttrArray2Str(self.attribute))
+        ser.set('kampffertigkeit', self.kampffertigkeit)
+        ser.set('typ', self.typ)
+
+    def deserialize(self, ser):
+        self.name = ser.get('name')
+        self.text = ser.get('text')
+        self.voraussetzungen.compile(ser.get('voraussetzungen', ''))
+        self.steigerungsfaktor = ser.getInt('steigerungsfaktor')
+        self.attribute = Hilfsmethoden.AttrStr2Array(ser.get('attribute'))
+        self.kampffertigkeit = ser.getInt('kampffertigkeit')
+        self.typ = ser.getInt('typ', -1)
+
 class UeberFertigkeitDefinition(FertigkeitDefinition):
     displayName = "Fertigkeit (übernatürlich)"
+    serializationName = "ÜbernatürlicheFertigkeit"
 
     def __init__(self):
         super().__init__()
@@ -46,6 +68,24 @@ class UeberFertigkeitDefinition(FertigkeitDefinition):
     def typname(self, db):
         typ = min(self.typ, len(db.einstellungen['Fertigkeiten: Typen übernatürlich'].wert) - 1)
         return db.einstellungen['Fertigkeiten: Typen übernatürlich'].wert[typ]
+
+    def serialize(self, ser):
+        ser.set('name', self.name)
+        ser.set('text', self.text)
+        ser.set('voraussetzungen', self.voraussetzungen.text)
+        ser.set('steigerungsfaktor', self.steigerungsfaktor)
+        ser.set('attribute', Hilfsmethoden.AttrArray2Str(self.attribute))
+        ser.set('typ', self.typ)
+        ser.set('talentegruppieren', self.talenteGruppieren)
+
+    def deserialize(self, ser):
+        self.name = ser.get('name')
+        self.text = ser.get('text')
+        self.voraussetzungen.compile(ser.get('voraussetzungen', ''))
+        self.steigerungsfaktor = ser.getInt('steigerungsfaktor')
+        self.attribute = Hilfsmethoden.AttrStr2Array(ser.get('attribute'))
+        self.typ = ser.getInt('typ', -1)
+        self.talenteGruppieren = ser.getBool('talentegruppieren', self.talenteGruppieren)
 
 class Fertigkeit:
     def __init__(self, definition, charakter):

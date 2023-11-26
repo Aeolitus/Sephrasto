@@ -6,6 +6,7 @@ from EventBus import EventBus
 # Attribut: character editor values, initialised with definition but supports overrides
 class AttributDefinition:
     displayName = "Attribut"
+    serializationName = "Attribut"
 
     def __init__(self):
         # Serialized properties
@@ -24,6 +25,20 @@ class AttributDefinition:
 
     def details(self, db):
         return f"SF {self.steigerungsfaktor}. {self.text}"
+
+    def serialize(self, ser):
+        ser.set('name', self.name)
+        ser.set('text', self.text)
+        ser.set('anzeigename', self.anzeigename)
+        ser.set('steigerungsfaktor', self.steigerungsfaktor)
+        ser.set('sortorder', self.sortorder)
+
+    def deserialize(self, ser):
+        self.name = ser.get('name')
+        self.text = ser.get('text')
+        self.anzeigename = ser.get('anzeigename')
+        self.steigerungsfaktor = ser.getInt('steigerungsfaktor')
+        self.sortorder = ser.getInt('sortorder')
 
 class Attribut:
     def __init__(self, definition, charakter):

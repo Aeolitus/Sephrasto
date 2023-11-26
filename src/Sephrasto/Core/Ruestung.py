@@ -7,6 +7,7 @@ from Wolke import Wolke
 
 class RuestungDefinition:
     displayName = "Rüstung"
+    serializationName = "Rüstung"
 
     def __init__(self):
         # Serialized properties
@@ -40,6 +41,30 @@ class RuestungDefinition:
         elif self.system == 2:
             system = "Zonensystem"
         return f"{system} | RS {self.getRSGesamtInt()} (Bein {self.rs[0]} | L. Arm {self.rs[1]} | R. Arm {self.rs[2]} | Bauch {self.rs[3]} | Brust {self.rs[4]} | Kopf {self.rs[5]}).\n{self.text}"
+
+    def serialize(self, ser):
+        ser.set('name', self.name)
+        ser.set('text', self.text)
+        ser.set('typ', self.typ)
+        ser.set('system', self.system)
+        ser.set('rsBeine', self.rs[0])
+        ser.set('rsLArm', self.rs[1])
+        ser.set('rsRArm', self.rs[2])
+        ser.set('rsBauch', self.rs[3])
+        ser.set('rsBrust', self.rs[4])
+        ser.set('rsKopf', self.rs[5])
+
+    def deserialize(self, ser):
+        self.name = ser.get('name')
+        self.text = ser.get('text')
+        self.typ = ser.getInt('typ')
+        self.system = ser.getInt('system')
+        self.rs[0] = ser.getInt('rsBeine')
+        self.rs[1] = ser.getInt('rsLArm')
+        self.rs[2] = ser.getInt('rsRArm')
+        self.rs[3] = ser.getInt('rsBauch')
+        self.rs[4] = ser.getInt('rsBrust')
+        self.rs[5] = ser.getInt('rsKopf')
 
 class Ruestung:
     def __init__(self, definition):

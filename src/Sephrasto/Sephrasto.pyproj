@@ -73,6 +73,9 @@
     <Compile Include="QtUtils\Section.py" />
     <Compile Include="QtUtils\SimpleSettingsDialog.py" />
     <Compile Include="QtUtils\WebEngineViewPlus.py" />
+    <Compile Include="Serialization.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="UI\CharakterAttribute.py" />
     <Compile Include="CharakterAttributeWrapper.py" />
     <Compile Include="UI\CharakterBeschreibung.py" />
@@ -143,6 +146,9 @@
     <Compile Include="UI\Wizard.py" />
     <Compile Include="UpdateChecker.py" />
     <Compile Include="CharakterWaffenPickerWrapper.py" />
+    <Compile Include="VoraussetzungenListe.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Wolke.py" />
     <Compile Include="DatenbankEditRegelWrapper.py" />
     <Compile Include="CxFreezeBuild.py" />

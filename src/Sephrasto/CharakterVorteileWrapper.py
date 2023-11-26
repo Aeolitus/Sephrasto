@@ -15,6 +15,7 @@ from QtUtils.Section import Section
 from QtUtils.AutoResizingTextBrowser import AutoResizingTextBrowser, TextEditAutoResizer
 from functools import partial
 from Core.Vorteil import Vorteil
+from VoraussetzungenListe import VoraussetzungenListe
 
 class CharakterVorteileWrapper(QtCore.QObject):
     modified = QtCore.Signal()
@@ -237,9 +238,9 @@ class CharakterVorteileWrapper(QtCore.QObject):
         if mpWrapper.minderpakt not in Wolke.Char.vorteile:
             minderpakt = Wolke.Char.vorteile["Minderpakt"]
             minderpakt.kommentar = mpWrapper.minderpakt
-            minderpakt.voraussetzungen = Hilfsmethoden.VorStr2Array("Vorteil " + minderpakt.kommentar, Wolke.DB)
+            minderpakt.voraussetzungen = VoraussetzungenListe().compile("Vorteil " + minderpakt.kommentar, Wolke.DB)
             vorteil = Wolke.Char.addVorteil(minderpakt.kommentar)
-            vorteil.voraussetzungen = Hilfsmethoden.VorStr2Array("Vorteil Minderpakt", Wolke.DB)
+            vorteil.voraussetzungen = VoraussetzungenListe().compile("Vorteil Minderpakt", Wolke.DB)
             vorteil.kosten = 20
            
             minderpaktWidget = self.ui.treeWidget.findItems(vorteil.name, QtCore.Qt.MatchRecursive)[0]
@@ -291,7 +292,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
             self.ui.labelVorteil.setText(vorteil.name)
             self.ui.labelTyp.setText(self.vorteilTypen[vorteil.typ])
             self.ui.labelNachkauf.setText(vorteil.nachkauf)
-            voraussetzungen = Hilfsmethoden.VorArray2AnzeigeStr(vorteil.voraussetzungen, Wolke.DB)
+            voraussetzungen = vorteil.voraussetzungen.anzeigetext(Wolke.DB)
             self.ui.labelVoraussetzungen.setText(voraussetzungen)
 
             text = vorteil.text
