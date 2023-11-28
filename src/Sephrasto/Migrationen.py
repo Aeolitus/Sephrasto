@@ -28,7 +28,7 @@ class Migrationen():
         pass
 
     datenbankCodeVersion = 8
-    charakterCodeVersion = 6
+    charakterCodeVersion = 7
 
     hausregelUpdates = []
     charakterUpdates = []
@@ -99,6 +99,7 @@ class Migrationen():
             Migrationen.charakter3zu4,
             Migrationen.charakter4zu5,
             Migrationen.charakter5zu6,
+            Migrationen.charakter6zu7,
         ]
 
         if not migrationen[Migrationen.charakterCodeVersion]:
@@ -859,6 +860,14 @@ class Migrationen():
             waf.attrib["beSlot"] = "1"
         return []
 
+    def charakter6zu7(xmlRoot):
+        newParent = etree.SubElement(xmlRoot, "FreieFertigkeiten")
+
+        for ff in xmlRoot.findall('Fertigkeiten/FreieFertigkeit'):
+            newParent.append(ff)
+        return []
+
 
 # Register with appropriate serialiers
-XmlDeserializer.registerMigration("Hausregeln", Migrationen.hausregelnMigrieren)
+XmlDeserializer.registerMigration("HausregelDatenbank", Migrationen.hausregelnMigrieren)
+XmlDeserializer.registerMigration("Charakter", Migrationen.charakterMigrieren)

@@ -2,7 +2,6 @@ from PySide6 import QtWidgets, QtCore, QtGui
 import UI.CharakterBeschreibungDetails
 import UI.CharakterBeschreibung
 import CharakterBeschreibungWrapper
-import lxml.etree as etree
 from Wolke import Wolke
 import logging
 import tempfile

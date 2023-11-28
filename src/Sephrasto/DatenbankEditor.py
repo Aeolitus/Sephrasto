@@ -96,7 +96,7 @@ class DatenbankEditor(object):
         self.onCloseCB = onCloseCB
         self.databaseTypes = {}
         self.datenbank = Datenbank()
-        self.datenbank.xmlLaden(hausregeln = Wolke.Settings['Datenbank'])
+        self.datenbank.loadFile(hausregeln = Wolke.Settings['Datenbank'])
         self.showDatabaseMigrationUpdatesPopup()
         self.savepath = self.datenbank.hausregelDatei
         self.changed = False
@@ -741,15 +741,14 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         else:
             # plugins may change their changesDatabase-flag depending on database settings, so update the enabled plugins here
             self.datenbank.enabledPlugins = self.getDatabaseChangingPlugins()
-            self.datenbank.hausregelDatei = self.savepath
-            self.datenbank.xmlSchreiben(merge)
+            self.datenbank.saveFile(self.savepath, merge)
             self.changed = False
     
     def closeDatenbank(self):
         if self.cancelDueToPendingChanges("Datenbank schließen"):
             return
         self.savepath = None
-        self.datenbank.xmlLaden()
+        self.datenbank.loadFile(hausregeln = None)
         self.updateGUI()
         self.updateWindowTitleAndCloseButton()
         self.changed = False
@@ -841,11 +840,11 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
 
         if additiv:
             DatenbankEditor.RememberConflictResult = -1
-            if not self.datenbank.xmlLadenAdditiv(spath, conflictCB):
+            if not self.datenbank.loadFileAdditional(spath, conflictCB):
                 self.showInvalidDatabasePopup(spath)
             DatenbankEditor.RememberConflictResult = -1
         else:
-            if self.datenbank.xmlLaden(hausregeln=spath):
+            if self.datenbank.loadFile(hausregeln=spath):
                 self.savepath = spath
             else:
                 self.savepath = None

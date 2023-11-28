@@ -7,7 +7,6 @@ from Core.Ruestung import Ruestung, RuestungDefinition
 from Core.Talent import Talent
 from Core.Vorteil import Vorteil
 from Core.Waffe import Waffe, WaffeDefinition
-import lxml.etree as etree
 import re
 import copy
 import logging
@@ -721,40 +720,39 @@ class Char():
 
         return Hilfsmethoden.voraussetzungenPrüfen(dbElement, self.vorteile, self.waffen, self.attribute, self.übernatürlicheFertigkeiten, self.fertigkeiten, self.talente)
     
-    def xmlSchreiben(self, filename):
+    def saveFile(self, filename):
         _, fileExtension = os.path.splitext(filename)
-        ser = Serialization.getSerializer(fileExtension, 'Charakter')
-        def setText(name, text):
-            ser.begin(name)
-            ser.set('text', text)
-            ser.end()
+        serializer = Serialization.getSerializer(fileExtension, 'Charakter')
+        self.serialize(serializer, filename)
+        serializer.writeFile(filename)
 
+    def serialize(self, ser, filename = "memory"):      
         ser.begin('Version')
-        setText('CharakterVersion', Migrationen.charakterCodeVersion)
-        setText('Plugins', ", ".join(self.enabledPlugins))
+        ser.setNested('CharakterVersion', Migrationen.charakterCodeVersion)
+        ser.setNested('Plugins', ", ".join(self.enabledPlugins))
         if self.neueHausregeln is not None:
-            setText('Hausregeln', self.neueHausregeln)
+            ser.setNested('Hausregeln', self.neueHausregeln)
         else:
-            setText('Hausregeln', Wolke.DB.hausregelnAnzeigeName)
+            ser.setNested('Hausregeln', Wolke.DB.hausregelnAnzeigeName)
         ser.end() #version
 
         #Erster Block
         ser.begin('Beschreibung')
-        setText('Name', self.name)
-        setText('Spezies', self.spezies)
-        setText('Status', self.status)
-        setText('Kurzbeschreibung', self.kurzbeschreibung)
-        setText('Finanzen', self.finanzen)
-        setText('Heimat', self.heimat)
-        ser.begin('Eigenheiten')
+        ser.setNested('Name', self.name)
+        ser.setNested('Spezies', self.spezies)
+        ser.setNested('Status', self.status)
+        ser.setNested('Kurzbeschreibung', self.kurzbeschreibung)
+        ser.setNested('Finanzen', self.finanzen)
+        ser.setNested('Heimat', self.heimat)
+        ser.beginList('Eigenheiten')
         for eigenh in self.eigenheiten:
-            setText('Eigenheit', eigenh)
+            ser.setNested('Eigenheit', eigenh)
         ser.end() #eigenheiten
         ser.end() #beschreibung
 
         ser.begin('Attribute')
         for attr in self.attribute:
-            setText(attr, self.attribute[attr].wert)
+            ser.setNested(attr, self.attribute[attr].wert)
         ser.end() #attribute
 
         ser.begin('Energien')
@@ -764,7 +762,7 @@ class Char():
             ser.end() #energie
         ser.end() #energien
         
-        ser.begin('Vorteile')
+        ser.beginList('Vorteile')
         for vorteil in self.vorteile.values():
             ser.begin('Vorteil')
             ser.set('name', vorteil.name)
@@ -775,21 +773,23 @@ class Char():
             ser.end() #vorteil
         ser.end() #vorteile
 
-        ser.begin('Fertigkeiten')
+        ser.beginList('Fertigkeiten')
         for fert in self.fertigkeiten:
             ser.begin('Fertigkeit')
             ser.set('name', self.fertigkeiten[fert].name)
             ser.set('wert', self.fertigkeiten[fert].wert)
             ser.end() #fertigkeit
+        ser.end() #fertigkeiten
 
+        ser.beginList('FreieFertigkeiten')
         for fert in self.freieFertigkeiten:
             ser.begin('FreieFertigkeit')
             ser.set('name', fert.name)
             ser.set('wert', fert.wert)
             ser.end() #freiefertigkeit
-        ser.end() #fertigkeiten
+        ser.end() #freiefertigkeiten
 
-        ser.begin('Talente')
+        ser.beginList('Talente')
         for talent in self.talente.values():
             ser.begin('Talent')
             ser.set('name', talent.name)
@@ -801,8 +801,8 @@ class Char():
         ser.end() #talente
 
         ser.begin('Objekte')
-        setText('Zonensystem', "1" if self.zonenSystemNutzen else "0")
-        ser.begin('Rüstungen')
+        ser.setNested('Zonensystem', self.zonenSystemNutzen)
+        ser.beginList('Rüstungen')
         for rüst in self.rüstung:
             ser.begin('Rüstung')
             ser.set('name', rüst.name)
@@ -811,7 +811,7 @@ class Char():
             ser.end() #rüstung
         ser.end() #rüstungen
 
-        ser.begin('Waffen')
+        ser.beginList('Waffen')
         for waff in self.waffen:
             ser.begin('Waffe')
             ser.set('name', waff.anzeigename)
@@ -830,13 +830,13 @@ class Char():
             ser.end() #waffe
         ser.end() #waffen   
 
-        ser.begin('Ausrüstung')
+        ser.beginList('Ausrüstung')
         for ausr in self.ausrüstung:
-            setText('Ausrüstungsstück', ausr)
+            ser.setNested('Ausrüstungsstück', ausr)
         ser.end() #ausrüstung
         ser.end() #objekte
         
-        ser.begin('ÜbernatürlicheFertigkeiten')
+        ser.beginList('ÜbernatürlicheFertigkeiten')
         for fert in self.übernatürlicheFertigkeiten:
             ser.begin('ÜbernatürlicheFertigkeit')
             ser.set('name', self.übernatürlicheFertigkeiten[fert].name)
@@ -846,63 +846,65 @@ class Char():
         ser.end() #übernatürlichefertigkeiten
 
         ser.begin('Erfahrung')
-        setText('Gesamt', self.epGesamt)
-        setText('Ausgegeben', self.epAusgegeben)
+        ser.setNested('Gesamt', self.epGesamt)
+        ser.setNested('Ausgegeben', self.epAusgegeben)
         ser.end() #erfahrung
 
-        setText('Notiz', self.notiz)
+        ser.setNested('Notiz', self.notiz)
 
         ser.begin('Einstellungen')
-        setText('VoraussetzungenPrüfen', "1" if self.voraussetzungenPruefen else "0")
-        setText('Charakterbogen', self.charakterbogen)
-        setText('FinanzenAnzeigen', "1" if self.finanzenAnzeigen else "0")
-        setText('ÜbernatürlichesPDFSpalteAnzeigen', "1" if self.ueberPDFAnzeigen else "0")
-        setText('DetailsAnzeigen', "1" if self.detailsAnzeigen else "0")
-        setText('RegelnAnhängen', "1" if self.regelnAnhaengen else "0")
-        setText('RegelnGrösse', self.regelnGroesse)
-        setText('DeaktivierteRegelKategorien', ",".join(self.deaktivierteRegelKategorien))
-        setText('FormularEditierbarkeit', "1" if self.formularEditierbar else "0")
+        ser.setNested('VoraussetzungenPrüfen', self.voraussetzungenPruefen)
+        ser.setNested('Charakterbogen', self.charakterbogen)
+        ser.setNested('FinanzenAnzeigen', self.finanzenAnzeigen)
+        ser.setNested('ÜbernatürlichesPDFSpalteAnzeigen', self.ueberPDFAnzeigen)
+        ser.setNested('DetailsAnzeigen', self.detailsAnzeigen)
+        ser.setNested('RegelnAnhängen', self.regelnAnhaengen)
+        ser.setNested('RegelnGrösse', self.regelnGroesse)
+        ser.setNested('DeaktivierteRegelKategorien', ",".join(self.deaktivierteRegelKategorien))
+        ser.setNested('FormularEditierbarkeit', self.formularEditierbar)
         ser.end() #einstellungen
 
         ser.begin('BeschreibungDetails')
-        setText('Kultur', self.kultur)
-        setText('Profession', self.profession)
-        setText('Geschlecht', self.geschlecht)
-        setText('Geburtsdatum', self.geburtsdatum)
-        setText('Grösse', self.groesse)
-        setText('Gewicht', self.gewicht)
-        setText('Haarfarbe', self.haarfarbe)
-        setText('Augenfarbe', self.augenfarbe)
-        setText('Titel', self.titel)
+        ser.setNested('Kultur', self.kultur)
+        ser.setNested('Profession', self.profession)
+        ser.setNested('Geschlecht', self.geschlecht)
+        ser.setNested('Geburtsdatum', self.geburtsdatum)
+        ser.setNested('Grösse', self.groesse)
+        ser.setNested('Gewicht', self.gewicht)
+        ser.setNested('Haarfarbe', self.haarfarbe)
+        ser.setNested('Augenfarbe', self.augenfarbe)
+        ser.setNested('Titel', self.titel)
         for i in range(6):
-            setText('Aussehen' + str(i+1), self.aussehen[i])
+            ser.setNested('Aussehen' + str(i+1), self.aussehen[i])
         for i in range(9):
-            setText('Hintergrund' + str(i), self.hintergrund[i])
+            ser.setNested('Hintergrund' + str(i), self.hintergrund[i])
         if self.bild:
-            setText('Bild', base64.b64encode(self.bild))
+            ser.setNested('Bild', base64.b64encode(self.bild))
         ser.end() #beschreibungdetails
-
-        #Plugins
-        root = EventBus.applyFilter("charakter_xml_schreiben", ser.root, { "charakter" : self, "filepath" : filename })
-
-        #Write XML to file
-        ser.writeFile(filename)
+        
+        EventBus.applyFilter("charakter_schreiben", ser, { "charakter" : self, "filepath" : filename })
 
     @staticmethod
     def xmlHausregelnLesen(filename):
+        _, fileExtension = os.path.splitext(filename)
+        options = { "useCache" : False }
+        deserializer = Serialization.getDeserializer(fileExtension, options)
+
         # NutzerDatenbankName and basename are for legacy reasons - this code runs without migration
-        for event, element in etree.iterparse(filename, tag=["Hausregeln", "NutzerDatenbankName"]):
-            return os.path.basename(element.text) or "Keine"
+        for tag in deserializer.readFileStream(filename, ["Hausregeln", "NutzerDatenbankName"]):
+            text = deserializer.get("text")
+            if text:
+                return os.path.basename(text)
+            break
         return "Keine"
 
-    def xmlLesen(self, filename):
+    def loadFile(self, filename):
         '''Läd ein Charakter-Objekt aus einer XML Datei, deren Dateiname 
         inklusive Pfad als Argument übergeben wird'''
-        #Alles bisherige löschen
-        self.__init__()
-        root = etree.parse(filename).getroot()
-        logging.debug("Starting Character Migration")
-        if not Migrationen.charakterMigrieren(root):
+        _, fileExtension = os.path.splitext(filename)
+        options = { "useCache" : False }
+        deserializer = Serialization.getDeserializer(fileExtension, options)
+        if not deserializer.readFile(filename, "Charakter"):
             messageBox = QtWidgets.QMessageBox()
             messageBox.setIcon(QtWidgets.QMessageBox.Critical)
             messageBox.setWindowTitle("Veraltetes Sephrasto")
@@ -922,30 +924,17 @@ class Char():
             messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
             messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
             messageBox.exec()
-        
-        #Erster Block
-        versionXml = root.find('Version')
-        if versionXml.find('Plugins').text:
-            self.enabledPlugins = list(map(str.strip, versionXml.find('Plugins').text.split(",")))
-        letzteHausregeln = versionXml.find("Hausregeln").text or "Keine"
 
-        root = EventBus.applyFilter("charakter_xml_laden", root, { "charakter" : self })
+        return self.deserialize(deserializer)
 
-        alg = root.find('Beschreibung')
-        self.name = alg.find('Name').text or ''
-        self.spezies = alg.find('Spezies').text or ''
-        self.status = int(alg.find('Status').text)
-        self.kurzbeschreibung = alg.find('Kurzbeschreibung').text or ''
-        self.finanzen = int(alg.find('Finanzen').text)
-        self.heimat = alg.find('Heimat').text
-        heimaten = sorted(Wolke.DB.einstellungen["Heimaten"].wert)
-        if not self.heimat in heimaten:
-            if "Mittelreich" in heimaten:
-                self.heimat = "Mittelreich"
-            else:
-                self.heimat = heimaten[0] if len(heimaten) > 0 else ""
-        for eig in alg.findall('Eigenheiten/*'):
-            self.eigenheiten.append(eig.text or "")
+    def deserialize(self, deserializer):
+        ser = deserializer
+
+        if ser.currentTag != "Charakter":
+            return False
+
+        #Alles bisherige löschen
+        self.__init__()
 
         aIgnored = []
         eIgnored = []
@@ -955,30 +944,74 @@ class Char():
         übIgnored = []
         wIgnored = []
 
-        #Zweiter Block
-        for atr in root.findall('Attribute/*'):
-            if not atr.tag in Wolke.DB.attribute:
-                aIgnored.append(atr.tag)
-                continue
-            self.attribute[atr.tag].wert = int(atr.text)
-            self.attribute[atr.tag].aktualisieren()
-        for ene in root.findall('Energien/*'):
-            if not ene.tag in Wolke.DB.energien:
-                eIgnored.append(atr.tag)
-                continue
-            self.energien[ene.tag] = Energie(Wolke.DB.energien[ene.tag], self)
-            self.energien[ene.tag].wert = int(ene.attrib['wert'])
-        #Dritter Block
-        for vor in root.findall('Vorteile/Vorteil'):
-            name = vor.attrib['name']
-            if not name in Wolke.DB.vorteile:
-                vIgnored.append(name)
-                continue
-            vorteil = self.addVorteil(name)
-            if vorteil.variableKosten and 'variableKosten' in vor.attrib:
-                vorteil.kosten = int(vor.get('variableKosten'))
-            if vorteil.kommentarErlauben and 'kommentar' in vor.attrib:
-                vorteil.kommentar = vor.get('kommentar')
+        letzteHausregeln = "Keine"
+        if ser.find('Version'):
+            plugins = ser.getNested('Plugins')
+            if plugins:
+                self.enabledPlugins = list(map(str.strip, plugins.split(",")))
+            hausregeln = ser.getNested("Hausregeln")
+            if hausregeln:
+                letzteHausregeln = hausregeln
+            ser.end() #version
+
+        root = EventBus.applyFilter("charakter_laden", ser, { "charakter" : self })
+
+        if ser.find("Beschreibung"):
+            self.name = ser.getNested('Name', self.name)
+            self.spezies = ser.getNested('Spezies', self.spezies)
+            self.status = ser.getNestedInt("Status", self.status)
+            self.kurzbeschreibung = ser.getNested('Kurzbeschreibung', self.kurzbeschreibung)
+            self.finanzen = ser.getNestedInt('Finanzen', self.finanzen)
+            self.heimat = ser.getNested('Heimat', self.heimat)
+            heimaten = sorted(Wolke.DB.einstellungen["Heimaten"].wert)
+            if not self.heimat in heimaten:
+                if "Mittelreich" in heimaten:
+                    self.heimat = "Mittelreich"
+                else:
+                    self.heimat = heimaten[0] if len(heimaten) > 0 else ""
+
+            if ser.find('Eigenheiten'):
+                for tag in ser.listTags():
+                    eigenheit = ser.getNested(tag)
+                    if eigenheit:
+                        self.eigenheiten.append(eigenheit)
+                ser.end() #eigenheiten
+            ser.end() #beschreibung
+
+        if ser.find('Attribute'):
+            for tag in ser.listTags():
+                if not tag in Wolke.DB.attribute:
+                    aIgnored.append(tag)
+                    continue
+                self.attribute[tag].wert = ser.getNestedInt(tag, self.attribute[tag].wert)
+                self.attribute[tag].aktualisieren()
+            ser.end() #attribute
+
+        if ser.find('Energien'):
+            for tag in ser.listTags():
+                if not tag in Wolke.DB.energien:
+                    eIgnored.append(tag)
+                    continue
+                self.energien[tag] = Energie(Wolke.DB.energien[tag], self)
+                self.energien[tag].wert = ser.getInt("wert", self.energien[tag].wert)
+            ser.end() #energien
+
+        if ser.find('Vorteile'):
+            for tag in ser.listTags():
+                name = ser.get('name')
+                if not name in Wolke.DB.vorteile:
+                    vIgnored.append(name)
+                    continue
+                vorteil = self.addVorteil(name)
+                if vorteil.variableKosten:
+                    variableKosten = ser.getInt('variableKosten')
+                    if variableKosten is not None:
+                        vorteil.kosten = variableKosten
+                if vorteil.kommentarErlauben:
+                    kommentar = ser.get('kommentar')
+                    if kommentar is not None:
+                        vorteil.kommentar = kommentar
+            ser.end() #vorteile
 
         if "Minderpakt" in self.vorteile:
             minderpakt = self.vorteile["Minderpakt"]
@@ -991,139 +1024,159 @@ class Char():
                 vorteil.voraussetzungen = VoraussetzungenListe().compile("Vorteil Minderpakt", Wolke.DB)
                 vorteil.kosten = 20
 
-        #Vierter Block
-        for fer in root.findall('Fertigkeiten/Fertigkeit'):
-            name = fer.attrib['name']
-            if not name in Wolke.DB.fertigkeiten:
-                fIgnored.append(name)
-                continue
+        if ser.find('Fertigkeiten'):
+            for tag in ser.listTags():
+                name = ser.get('name')
+                if not name in Wolke.DB.fertigkeiten:
+                    fIgnored.append(name)
+                    continue
+                fert = Fertigkeit(Wolke.DB.fertigkeiten[name], self)
+                fert.wert = ser.getInt('wert', fert.wert)
+                fert.aktualisieren()
+                self.fertigkeiten.update({fert.name: fert})
+            ser.end() #fertigkeiten
 
-            fert = Fertigkeit(Wolke.DB.fertigkeiten[name], self)
-            fert.wert = int(fer.attrib['wert'])
-            fert.aktualisieren()
-            self.fertigkeiten.update({fert.name: fert})
+        if ser.find('FreieFertigkeiten'):
+            for tag in ser.listTags():
+                name = ser.get('name')
+                definition = None
+                if name in Wolke.DB.freieFertigkeiten:
+                    definition = Wolke.DB.freieFertigkeiten[name]
+                else:
+                    definition = FreieFertigkeitDefinition()
+                    definition.name = name
+                fert = FreieFertigkeit(definition, self)
+                fert.wert = ser.getInt('wert', fert.wert)
+                self.freieFertigkeiten.append(fert)
+            ser.end() #freiefertigkeiten
 
-        for fer in root.findall('Fertigkeiten/FreieFertigkeit'):
-            name = fer.attrib['name']
-            definition = None
-            if name in Wolke.DB.freieFertigkeiten:
-                definition = Wolke.DB.freieFertigkeiten[name]
-            else:
-                definition = FreieFertigkeitDefinition()
-                definition.name = name
-            fert = FreieFertigkeit(definition, self)
-            fert.wert = int(fer.attrib['wert'])
-            self.freieFertigkeiten.append(fert)
+        if ser.find('Objekte'):
+            self.zonenSystemNutzen = ser.getNestedBool('Zonensystem')
+            if ser.find('Rüstungen'):
+                for tag in ser.listTags():
+                    name = ser.get('name')
+                    definition = None
+                    if name in Wolke.DB.rüstungen:
+                        definition = Wolke.DB.rüstungen[name]
+                    else:
+                        definition = RuestungDefinition()
+                        definition.name = name
+                    rüstung = Ruestung(definition)
+                    rüstung.name = name
+                    rüstung.be = ser.getInt('be', rüstung.be)
+                    rüstung.rs = Hilfsmethoden.RsStr2Array(ser.get('rs'))
+                    self.rüstung.append(rüstung)
+                ser.end() #rüstungen
 
-        #Fünfter Block
-        objekte = root.find('Objekte');
-        self.zonenSystemNutzen = objekte.find('Zonensystem').text == "1"
+            if ser.find('Waffen'):
+                for tag in ser.listTags():
+                    name = ser.get('id')
+                    if not name in Wolke.DB.waffen:
+                        self.waffen.append(Waffe(WaffeDefinition()))
+                        if name:
+                            wIgnored.append(name)
+                        continue
+                    waffe = Waffe(Wolke.DB.waffen[name])
+                    if waffe.fernkampf:
+                        waffe.lz = ser.getInt('lz', waffe.lz)
+                    waffe.wm = ser.getInt('wm', waffe.wm)
+                    waffe.anzeigename = ser.get('name', waffe.anzeigename)
+                    waffe.rw = ser.getInt('rw', waffe.rw)
+                    waffe.würfel = ser.getInt('würfel', waffe.würfel)
+                    waffe.würfelSeiten = ser.getInt('würfelSeiten', waffe.würfelSeiten)
+                    waffe.plus = ser.getInt('plus', waffe.plus)
+                    eigenschaften = ser.get('eigenschaften')
+                    if eigenschaften:
+                        waffe.eigenschaften = list(map(str.strip, eigenschaften.split(", ")))
+                    waffe.härte = ser.getInt('härte', waffe.härte)
+                    waffe.beSlot = ser.getInt('beSlot', waffe.beSlot)
+                    waffe.kampfstil = ser.get('kampfstil', waffe.kampfstil)
+                    self.waffen.append(waffe)
+                ser.end() #waffen
 
-        for rüs in objekte.findall('Rüstungen/Rüstung'):
-            name = rüs.attrib['name']
-            definition = None
-            if name in Wolke.DB.rüstungen:
-                definition = Wolke.DB.rüstungen[name]
-            else:
-                definition = RuestungDefinition()
-                definition.name = name
-            rüst = Ruestung(definition)
-            rüst.name = rüs.attrib['name']
-            rüst.be = int(rüs.attrib['be'])
-            rüst.rs = Hilfsmethoden.RsStr2Array(rüs.attrib['rs'])
-            self.rüstung.append(rüst)
+            if ser.find('Ausrüstung'):
+                for tag in ser.listTags():
+                    self.ausrüstung.append(ser.getNested(tag, ""))
+                ser.end() #ausrüstung
 
-        for waf in objekte.findall('Waffen/Waffe'):
-            nam = waf.attrib['id']
-            if not nam in Wolke.DB.waffen:
-                self.waffen.append(Waffe(WaffeDefinition()))
-                if nam:
-                    wIgnored.append(nam)
-                continue
-            waff = Waffe(Wolke.DB.waffen[nam])
-            if waff.fernkampf:
-                waff.lz = int(waf.attrib['lz']) 
-            waff.wm = int(waf.get('wm'))
-            waff.anzeigename = waf.attrib['name']
-            waff.rw = int(waf.attrib['rw'])
-            waff.würfel = int(waf.attrib['würfel'])
-            waff.würfelSeiten = int(waf.attrib['würfelSeiten'])
-            waff.plus = int(waf.attrib['plus'])
-            if waf.attrib['eigenschaften']:
-                waff.eigenschaften = list(map(str.strip, waf.attrib['eigenschaften'].split(", ")))
-            waff.härte = int(waf.attrib['härte'])
-            waff.beSlot = int(waf.attrib['beSlot'])
-            waff.kampfstil = waf.attrib['kampfstil']
-            self.waffen.append(waff)
+            ser.end() #objekte
 
-        for aus in objekte.findall('Ausrüstung/Ausrüstungsstück'):
-            self.ausrüstung.append(aus.text or "")
+        if ser.find('ÜbernatürlicheFertigkeiten'):
+            for tag in ser.listTags():
+                name = ser.get('name')
+                if not name in Wolke.DB.übernatürlicheFertigkeiten:
+                    übIgnored.append(name)
+                    continue
+                fert = Fertigkeit(Wolke.DB.übernatürlicheFertigkeiten[name], self)
+                fert.wert = ser.getInt('wert', fert.wert)
+                fert.addToPDF = ser.getBool('exportieren', fert.addToPDF)
+                fert.aktualisieren()
+                self.übernatürlicheFertigkeiten.update({fert.name: fert})
+            ser.end() #übernatürlichefertigkeiten
 
-        #Sechster Block 
-        for fer in root.findall('ÜbernatürlicheFertigkeiten/ÜbernatürlicheFertigkeit'):
-            nam = fer.attrib['name']
-            if not nam in Wolke.DB.übernatürlicheFertigkeiten:
-                übIgnored.append(nam)
-                continue
-
-            fert = Fertigkeit(Wolke.DB.übernatürlicheFertigkeiten[nam], self)
-            fert.wert = int(fer.attrib['wert'])
-            fert.addToPDF = fer.attrib['exportieren'] == "1"
-            fert.aktualisieren()
-            self.übernatürlicheFertigkeiten.update({fert.name: fert})
-
-        for tal in root.findall('Talente/Talent'):
-            nam = tal.attrib['name']
-            if not nam in Wolke.DB.talente:
-                tIgnored.append(nam)
-                continue
+        if ser.find('Talente'):
+            for tag in ser.listTags():
+                name = ser.get('name')
+                if not name in Wolke.DB.talente:
+                    tIgnored.append(name)
+                    continue
             
-            talent = self.addTalent(nam)
-            if talent.variableKosten and 'variableKosten' in tal.attrib:
-                talent.kosten = int(tal.attrib['variableKosten'])
-            if talent.kommentarErlauben and 'kommentar' in tal.attrib:
-                talent.kommentar = tal.attrib['kommentar']
+                talent = self.addTalent(name)
+                if talent.variableKosten:
+                    variableKosten = ser.getInt('variableKosten')
+                    if variableKosten is not None:
+                        talent.kosten = variableKosten
+                if talent.kommentarErlauben:
+                    kommentar = ser.get('kommentar')
+                    if kommentar is not None:
+                        talent.kommentar = kommentar
+            ser.end() #talente
 
-        #Siebter Block
-        self.epGesamt = int(root.find('Erfahrung/Gesamt').text)
-        self.epAusgegeben = int(root.find('Erfahrung/Ausgegeben').text)   
+        if ser.find('Erfahrung'):
+            self.epGesamt = ser.getNestedInt('Gesamt', self.epGesamt)
+            self.epAusgegeben = ser.getNestedInt('Ausgegeben', self.epAusgegeben)
+            ser.end() #erfahrung
+  
+        self.notiz = ser.getNested('Notiz', self.notiz)
 
-        #Achter Block
-        self.notiz = root.find('Notiz').text
+        if ser.find('Einstellungen'):          
+            self.charakterbogen = ser.getNested('Charakterbogen', self.charakterbogen)
+            self.voraussetzungenPruefen = ser.getNestedBool('VoraussetzungenPrüfen', self.voraussetzungenPruefen)
+            self.finanzenAnzeigen = ser.getNestedBool('FinanzenAnzeigen', self.finanzenAnzeigen)
+            self.ueberPDFAnzeigen = ser.getNestedBool('ÜbernatürlichesPDFSpalteAnzeigen', self.ueberPDFAnzeigen)
+            self.detailsAnzeigen = ser.getNestedBool('DetailsAnzeigen', self.detailsAnzeigen)
+            self.regelnAnhaengen = ser.getNestedBool('RegelnAnhängen', self.regelnAnhaengen)
+            self.regelnGroesse = ser.getNestedInt('RegelnGrösse', self.regelnGroesse)
+            self.formularEditierbar = ser.getNestedBool('FormularEditierbarkeit', self.formularEditierbar)
+            deaktivierteRegelKategorien = ser.getNested('DeaktivierteRegelKategorien')
+            if deaktivierteRegelKategorien:
+                self.deaktivierteRegelKategorien = list(map(str.strip, deaktivierteRegelKategorien.split(",")))
+            ser.end() #einstellungen
 
-        einstellungen = root.find('Einstellungen')
-        self.charakterbogen = einstellungen.find('Charakterbogen').text
-        self.voraussetzungenPruefen = einstellungen.find('VoraussetzungenPrüfen').text == "1"
-        self.finanzenAnzeigen = einstellungen.find('FinanzenAnzeigen').text == "1"
-        self.ueberPDFAnzeigen = einstellungen.find('ÜbernatürlichesPDFSpalteAnzeigen').text == "1"
-        self.detailsAnzeigen = einstellungen.find('DetailsAnzeigen').text == "1"
-        self.regelnAnhaengen = einstellungen.find('RegelnAnhängen').text == "1"
-        self.regelnGroesse = int(einstellungen.find('RegelnGrösse').text)
-        self.formularEditierbar = einstellungen.find('FormularEditierbarkeit').text == "1"
-        if einstellungen.find('DeaktivierteRegelKategorien').text:
-            self.deaktivierteRegelKategorien = list(map(str.strip, einstellungen.find('DeaktivierteRegelKategorien').text.split(",")))
+        if ser.find('BeschreibungDetails'):
+            self.kultur = ser.getNested('Kultur', self.kultur)
+            self.profession = ser.getNested('Profession', self.profession)
+            self.geschlecht = ser.getNested('Geschlecht', self.geschlecht)
+            self.geburtsdatum = ser.getNested('Geburtsdatum', self.geburtsdatum)
+            self.groesse = ser.getNested('Grösse', self.groesse)
+            self.gewicht = ser.getNested('Gewicht', self.gewicht)
+            self.haarfarbe = ser.getNested('Haarfarbe', self.haarfarbe)
+            self.augenfarbe = ser.getNested('Augenfarbe', self.augenfarbe)
+            self.titel = ser.getNested('Titel', self.titel)
+            for i in range(6):
+                self.aussehen[i] = ser.getNested('Aussehen' + str(i+1), self.aussehen[i])
+            for i in range(9):
+                self.hintergrund[i] = ser.getNested('Hintergrund' + str(i), self.hintergrund[i])
 
-        #Neunter Block
-        alg = root.find('BeschreibungDetails')
-        self.kultur = alg.find('Kultur').text or ''
-        self.profession = alg.find('Profession').text or ''
-        self.geschlecht = alg.find('Geschlecht').text or ''
-        self.geburtsdatum = alg.find('Geburtsdatum').text or ''
-        self.groesse = alg.find('Grösse').text or ''
-        self.gewicht = alg.find('Gewicht').text or ''
-        self.haarfarbe = alg.find('Haarfarbe').text or ''
-        self.augenfarbe = alg.find('Augenfarbe').text or ''
-        self.titel = alg.find('Titel').text or ''
-        for i in range(6):
-            self.aussehen[i] = alg.find('Aussehen' + str(i+1)).text or ''
-        for i in range(9):
-            self.hintergrund[i] = alg.find('Hintergrund' + str(i)).text or ''
+            bild = ser.getNested('Bild')
+            if bild is not None:
+                byteArray = bytes(bild, 'utf-8')
+                self.bild = base64.b64decode(byteArray)
 
-        if alg.find('Bild') is not None:
-            byteArray = bytes(alg.find('Bild').text, 'utf-8')
-            self.bild = base64.b64decode(byteArray)
+            ser.end() #beschreibungdetails
 
-        EventBus.doAction("charakter_xml_geladen", { "charakter" : self , "xmlRoot" : root })
+
+        EventBus.doAction("charakter_geladen", { "charakter" : self , "deserializer" : ser })
         hausregelMissmatch = Wolke.DB.hausregelnAnzeigeName != letzteHausregeln
         anyIgnored = aIgnored or eIgnored or vIgnored or fIgnored or tIgnored or übIgnored or wIgnored
         if hausregelMissmatch or anyIgnored:

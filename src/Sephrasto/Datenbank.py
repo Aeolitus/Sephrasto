@@ -31,23 +31,27 @@ class Datenbank():
     def hausregelnAnzeigeName(self):
         return os.path.basename(self.hausregelDatei) if self.hausregelDatei else "Keine"
 
-    def xmlSchreiben(self, merge = False):
-        _, fileExtension = os.path.splitext(self.hausregelDatei)
-        options = { "isMerge" : merge }
-        serializer = Serialization.getSerializer(fileExtension, 'Datenbank', options)
-        serializer.begin('Version')
-        serializer.set('text', Migrationen.datenbankCodeVersion)
-        serializer.end()
-        serializer.begin('Plugins')
-        serializer.set('text', ",".join(self.enabledPlugins))
-        serializer.end()
+    def saveFile(self, filepath = None, merge = False):
+        if filepath is None:
+            filepath = self.hausregelDatei
+        else:
+            self.hausregelDatei = filepath
+        _, fileExtension = os.path.splitext(filepath)
+        options = { "isMerge" : merge, "rootIsList" : True }
+        serializer = Serialization.getSerializer(fileExtension, "Datenbank", options)
+        self.serialize(serializer, merge)
+        serializer.writeFile(filepath)
+
+    def serialize(self, serializer, merge = False):
+        serializer.setNested('Version', Migrationen.datenbankCodeVersion)
+        serializer.setNested('Plugins', ",".join(self.enabledPlugins))
 
         for table in self.tablesByType.values():
             for element in table.values():
                 if not merge and not self.isChangedOrNew(element): continue
                 serializer.begin(element.serializationName)
                 element.serialize(serializer)
-                serializer.end()
+                serializer.end() #element.serializationName
 
         #Remove list
         if not merge:
@@ -56,10 +60,9 @@ class Datenbank():
                     serializer.begin("Remove")
                     serializer.set("name", name)
                     serializer.set("typ", type.serializationName)
-                    serializer.end()
+                    serializer.end() #remove
 
-        root = EventBus.applyFilter("datenbank_xml_schreiben", serializer.root, { "datenbank" : self, "merge" : merge })
-        serializer.writeFile(self.hausregelDatei)
+        EventBus.applyFilter("datenbank_schreiben", serializer, { "datenbank" : self, "merge" : merge })
 
     def insertTable(self, type, table):
         self.tablesByType[type] = table
@@ -95,7 +98,7 @@ class Datenbank():
     def isOverriddenByOther(self, element):
         return self.isChanged(element) and element == self.referenceDB[element.__class__][element.name]
 
-    def xmlLaden(self, datei = os.path.join('Data', 'datenbank.xml'), hausregeln = None, isCharakterEditor = False):
+    def loadFile(self, datei = os.path.join('Data', 'datenbank.xml'), hausregeln = None, isCharakterEditor = False):
         self.datei = datei
         self.hausregelDatei = None
         
@@ -141,7 +144,7 @@ class Datenbank():
 
         if os.path.isfile(self.datei):
             refDB = True
-            if not self.xmlLadenInternal(self.datei, refDB, isCharakterEditor):
+            if not self.__loadFileInternal(self.datei, refDB, isCharakterEditor):
                 self.datei = None
                 return False
 
@@ -150,7 +153,7 @@ class Datenbank():
         hausregelnValid = True
         if self.hausregelDatei and os.path.isfile(self.hausregelDatei):
             refDB = False
-            hausregelnValid = self.xmlLadenInternal(self.hausregelDatei, refDB, isCharakterEditor)
+            hausregelnValid = self.__loadFileInternal(self.hausregelDatei, refDB, isCharakterEditor)
             if not hausregelnValid:
                 self.hausregelDatei = None
 
@@ -164,23 +167,27 @@ class Datenbank():
         EventBus.doAction("datenbank_geladen", { "datenbank" : self, "isCharakterEditor" : isCharakterEditor })
         return hausregelnValid
 
-    def xmlLadenAdditiv(self, file, conflictCB):
-        if not self.xmlLadenInternal(file, refDB = False, isCharakterEditor = False, conflictCB = conflictCB):
+    def loadFileAdditional(self, file, conflictCB):
+        if not self.__loadFileInternal(file, refDB = False, isCharakterEditor = False, conflictCB = conflictCB):
             return False
         for table in self.tablesByType.values():
             for element in table.values():
                 element.finalize(self)
         return True
 
-    def xmlLadenInternal(self, file, refDB, isCharakterEditor, conflictCB = None):
+    def __loadFileInternal(self, file, refDB, isCharakterEditor, conflictCB = None):
         _, fileExtension = os.path.splitext(file)
         options = { "useCache" : isCharakterEditor }
         deserializer = Serialization.getDeserializer(fileExtension, options)
-        if not deserializer.readFile(file, "Datenbank" if refDB else "Hausregeln"):
+        if not deserializer.readFile(file, "Datenbank" if refDB else "HausregelDatenbank"):
             return False
-        if deserializer.currentName != "Datenbank":
+        if not self.deserialize(deserializer, refDB, conflictCB):
             return False
+        return True
 
+    def deserialize(self, deserializer, refDB, conflictCB = None):
+        if deserializer.currentTag != "Datenbank":
+            return False
         if not refDB:
             loadAdditive = conflictCB is not None
             if deserializer.find('Plugins'):         
@@ -188,11 +195,12 @@ class Datenbank():
                     self.enabledPlugins += deserializer.get('text').split(",")
                 else:
                     self.enabledPlugins = deserializer.get('text').split(",")
+                deserializer.end()
             elif not loadAdditive:
                 self.enabledPlugins = []
 
         serializationNameToType = {t.serializationName : t for t in self.tablesByType}
-        for serializationName in deserializer.next():
+        for serializationName in deserializer.listTags():
             t = serializationNameToType.get(serializationName)
             if t is not None:
                 dbElement = t()
@@ -220,8 +228,8 @@ class Datenbank():
                     de.strip = removed.strip
                     de.separator = removed.separator
 
-        # Done
-        root = EventBus.applyFilter("datenbank_xml_laden", deserializer.root, { "datenbank" : self, "basisdatenbank" : refDB, "conflictCallback" : conflictCB })      
+        EventBus.applyFilter("datenbank_laden", deserializer, { "datenbank" : self, "basisdatenbank" : refDB, "conflictCallback" : conflictCB })    
+
         return True
 
     def verify(self):

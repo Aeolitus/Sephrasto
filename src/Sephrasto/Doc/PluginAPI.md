@@ -46,7 +46,7 @@ Zweck: Charakter modifizieren, nachdem er instanziiert, aber bevor er geladen un
 Zweck: Form und Wrapper für eigene Charakter-Editor Tabs initialisieren. Der neu Parameter enthält die Information, ob es sich um einen neuen Charakter handelt. Der filepath Parameter enthält den Pfad der Charakterdatei oder einen leeren string, falls ein neuer Charakter erstellt wird.
 - "charaktereditor_geoeffnet" (Parameter: { "neu" : bool, "filepath" : string })<br />
 Zweck: Beliebige Aktion durchführen, nachdem der CharakterEditor vollständig initialisiert wurde. Der neu Parameter enthält die Information, ob es sich um einen neuen Charakter handelt. Der filepath Parameter enthält den Pfad der Charakterdatei oder einen leeren string, falls ein neuer Charakter erstellt wurde.
-- "charakter_xml_geladen" (Parameter: { "charakter" : Char, "xmlRoot" : etree.Element })<br />
+- "charakter_geladen" (Parameter: { "charakter" : Char, "deserializer" : Serialization.?Deserializer })<br />
 Zweck: Daten aus der Charakterdatei auslesen oder modifizieren, nachdem Sephrasto sie gelesen hat. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
 - "plugins_geladen"<br />
 Zweck: Nach dieser Action sind alle Plugins initialisiert. Kann verwendet werden um mit anderen Plugins zu kommunizieren, um z.B. mit einer Action andere Plugins darüber in Kenntnis zu setzen, dass dieses Plugin vorhanden ist.
@@ -88,13 +88,13 @@ Zweck: Sephrasto fügt zum Schluss alle generierten Einzelseiten zusammen. Diese
 Zweck: von Sephrasto generierte PDF-Felder vor dem Exportieren der PDF modifizieren
 - "pdf_export_extrapage" (Filter: pdfFields : dict of {string : string})<br />
 Zweck: von Sephrasto generierte PDF-Felder vor dem Exportieren der PDF modifizieren. Wird nur für Extraseiten aufgerufen, wenn diese nötig sind. Sie enthalten nur die Felder für übernatürliche Fertigkeiten, Talente und Vorteile.
-- "charakter_xml_laden" (Filter: xmlRoot : etree.Element, Parameter: { "charakter" : Char })<br />
+- "charakter_laden" (Filter: deserializer : Serialization.?Deserializer, Parameter: { "charakter" : Char })<br />
 Zweck: Daten aus der Charakterdatei auslesen oder modifizieren, bevor Sephrasto sie liest. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "charakter_xml_schreiben" (Filter: xmlRoot : etree.Element, Parameter: { "charakter" : Char, "filepath" : string })<br />
-Zweck: Der Charakterdatei Daten hinzufügen oder Daten modifizieren, bevor Sephrasto die Datei schreibt. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "datenbank_xml_laden" (Filter: xmlRoot : etree.Element, Parameter: { "datenbank" : Datenbank, "basisdatenbank" : bool, "conflictCallback" : Python-Funktion })<br />
+- "charakter_schreiben" (Filter: serializer : Serialization.?Serializer, Parameter: { "charakter" : Char, "filepath" : string })<br />
+Zweck: Der Charakterdatei Daten hinzufügen oder Daten modifizieren, bevor Sephrasto die Datei schreibt. Der Parameter filepath kann den Wert "memory" enthalten, wenn der Charakter nicht in eine Datei gespeichert wird. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
+- "datenbank_laden" (Filter: deserializer : Serialization.?Deserializer, Parameter: { "datenbank" : Datenbank, "basisdatenbank" : bool, "conflictCallback" : Python-Funktion })<br />
 Zweck: Datenbank-Datei auslesen, nachdem Sephrasto sie gelesen hat. Der "basisdatenbank"-Parameter enthält die Information, ob es sich um die Basisdatenbank- oder eine Hausregeldatenbank-Datei handelt. Der "conflictCallback"-Parameter ist nur gesetzt wenn basisdatenbank=false und kann ausgeführt werden, um beim Laden mehrerer Hausregeldatenbanken Konflikte eigener Datenbanktypen aufzulösen. Hierzu werden dem Callback der Name des Datenbanktyps, die alte sowie die neue Version des Elements als parameter übergeben, siehe Datenbank.py.
-- "datenbank_xml_schreiben" (Filter: xmlRoot : etree.Element, Parameter: { "datenbank" : Datenbank, "merge" : bool })<br />
+- "datenbank_schreiben" (Filter: serializer : Serialization.?Serializer, Parameter: { "datenbank" : Datenbank, "merge" : bool })<br />
 Zweck: Der Datenbankdatei Daten hinzufügen oder Daten modifizieren, bevor Sephrasto die Datei schreibt.
 - "datenbank_verify", (Filter: loadingErrors : array, Parameter: { "datenbank" : Datenbank }) <br />
 Zweck: Eigene Datentypen verifizieren und bei Fehlern dem loadingErrors array hinzufügen, damit diese in der Fehlerliste des Datenbankeditors erscheinen.

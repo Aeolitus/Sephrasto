@@ -90,7 +90,7 @@ class Editor(object):
         dlg.setLabelText("Lade Charakter")
         dlg.setValue(40, True)
         Wolke.Char = Charakter.Char()
-        if not Wolke.Char.xmlLesen(self.savepath):
+        if not Wolke.Char.loadFile(self.savepath):
             self.savepath = ""
 
         dlg.setValue(70, True)    
@@ -159,7 +159,7 @@ class Editor(object):
 
     def loadDB(self, hausregeln):
         if Wolke.DB.datei is None or Wolke.DB.hausregelDatei != hausregeln:
-            if not Wolke.DB.xmlLaden(hausregeln = hausregeln, isCharakterEditor = True):
+            if not Wolke.DB.loadFile(hausregeln = hausregeln, isCharakterEditor = True):
                 messagebox = QtWidgets.QMessageBox()
                 messagebox.setWindowTitle("Fehler!")
                 messagebox.setText(hausregeln + " ist keine valide Datenbank-Datei! Der Charaktereditor wird ohne Hausregeln gestartet.")
@@ -391,7 +391,7 @@ Versuchs doch bitte nochmal mit einer anderen Zieldatei.")
         if self.savepath == "":
             self.saveButton()
         else:
-            Wolke.Char.xmlSchreiben(self.savepath)
+            Wolke.Char.saveFile(self.savepath)
 
         self.changed = False
 
