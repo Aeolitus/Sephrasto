@@ -904,7 +904,7 @@ class Char():
         _, fileExtension = os.path.splitext(filename)
         options = { "useCache" : False }
         deserializer = Serialization.getDeserializer(fileExtension, options)
-        if not deserializer.readFile(filename, "Charakter"):
+        if not deserializer.readFile(filename):
             messageBox = QtWidgets.QMessageBox()
             messageBox.setIcon(QtWidgets.QMessageBox.Critical)
             messageBox.setWindowTitle("Veraltetes Sephrasto")
