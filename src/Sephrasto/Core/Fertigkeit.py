@@ -149,17 +149,18 @@ class Fertigkeit:
         return self.definition.talenteGruppieren
 
     def diffBasiswert(self, attribute):
-        attributswerte = [attribute[self.attribute[0]].wert, 
-                          attribute[self.attribute[1]].wert,
-                          attribute[self.attribute[2]].wert]
+        attributswerte = []
+        for attribut in self.attribute:
+            attributswerte.append(attribute[attribut].wert)
         scriptAPI = { 'getAttribute' : lambda: attributswerte }
         basiswert = eval(Wolke.DB.einstellungen["Fertigkeiten: BW Script"].wert, scriptAPI)
         return basiswert - self.basiswert
 
     def aktualisieren(self):
-        self.attributswerte = [self.charakter.attribute[self.attribute[0]].wert, 
-                               self.charakter.attribute[self.attribute[1]].wert,
-                               self.charakter.attribute[self.attribute[2]].wert]
+        self.attributswerte = []
+        for attribut in self.attribute:
+            self.attributswerte.append(self.charakter.attribute[attribut].wert)
+
         scriptAPI = { 'getAttribute' : lambda: self.attributswerte }
         self.maxWert = eval(Wolke.DB.einstellungen["Fertigkeiten: Maximalwert Script"].wert, scriptAPI)
         self.basiswert = eval(Wolke.DB.einstellungen["Fertigkeiten: BW Script"].wert, scriptAPI)

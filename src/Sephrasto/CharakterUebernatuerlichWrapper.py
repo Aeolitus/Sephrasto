@@ -383,9 +383,7 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
         fert = Wolke.Char.übernatürlicheFertigkeiten[self.currentFertName]
         fert.aktualisieren()
         self.ui.labelFertigkeit.setText(self.currentFertName)
-        self.ui.labelAttribute.setText(fert.attribute[0] + "/" 
-                                            + fert.attribute[1] + "/" 
-                                            + fert.attribute[2])
+        self.ui.labelAttribute.setText("/".join(fert.attribute))
         self.ui.spinSF.setValue(fert.steigerungsfaktor)
         self.ui.spinBasis.setValue(fert.basiswert + fert.basiswertMod)
         self.ui.spinFW.setMaximum(fert.maxWert)

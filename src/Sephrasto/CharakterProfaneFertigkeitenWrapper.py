@@ -349,7 +349,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         fert = Wolke.Char.fertigkeiten[self.currentFertName]
         fert.aktualisieren()
         self.ui.labelFertigkeit.setText(self.currentFertName)
-        self.ui.labelAttribute.setText(fert.attribute[0] + "/" + fert.attribute[1] + "/" + fert.attribute[2])
+        self.ui.labelAttribute.setText("/".join(fert.attribute))
         if fert == Fertigkeit.getHöchsteKampffertigkeit(Wolke.Char.fertigkeiten):
             self.ui.spinSF.setValue(4)
         else:

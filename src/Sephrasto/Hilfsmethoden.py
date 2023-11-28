@@ -206,15 +206,13 @@ class Hilfsmethoden:
 
     @staticmethod
     def AttrArray2Str(AttrArray):
-        if len(AttrArray) != 3:
-            return ""
-        return AttrArray[0] + "|" + AttrArray[1] + "|" + AttrArray[2]
+        return "|".join(AttrArray)
     
     @staticmethod
     def AttrStr2Array(AttrStr):
         retArr = []
         if len(AttrStr) == 0:
-            return []
+            return retArr
         for el in AttrStr.split("|"):
             if len(el) == 0:
                 continue
