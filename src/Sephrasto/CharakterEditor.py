@@ -285,6 +285,10 @@ class Editor(object):
         for r in Wolke.Settings['Letzte-Chars']:
             if r["path"] == self.savepath:
                 Wolke.Settings['Letzte-Chars'].remove(r)
+                if self.changed:
+                    Wolke.Settings['Letzte-Chars'].insert(0, r)
+                    return
+                break
 
         recent = {}
         recent["path"] = self.savepath
