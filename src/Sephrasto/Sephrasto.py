@@ -456,6 +456,7 @@ QCheckBox::indicator {{ width: {Hilfsmethoden.emToPixels(1.9)}px; height: {Hilfs
 .subtitle {{ font-size: 10pt; color: #ffffff }}
 .icon {{ {Wolke.FontAwesomeCSS} max-width: {Hilfsmethoden.emToPixels(3.2)}px; max-height: {Hilfsmethoden.emToPixels(3.2)}px;}}
 .iconSmall {{ {Wolke.FontAwesomeCSS} max-width: {Hilfsmethoden.emToPixels(2.3)}px; max-height: {Hilfsmethoden.emToPixels(2.3)}px;}}
+.iconTiny {{ {Wolke.FontAwesomeCSS} max-width: {Hilfsmethoden.emToPixels(1.5)}px; max-height: {Hilfsmethoden.emToPixels(1.5)}px;}}
 .iconTopDownArrow {{ {Wolke.FontAwesomeCSS} max-width: {Hilfsmethoden.emToPixels(2.3)}px; max-height: {Hilfsmethoden.emToPixels(1.2)}px;}}
 .charListScrollArea {{ background-color:#44444444; }}
 .charWidget {{ border-image: url(Data/Images/recents_background.png) 0 0 0 0 stretch stretch; }}

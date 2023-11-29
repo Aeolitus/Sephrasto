@@ -24,6 +24,9 @@ class CharWidget(QtWidgets.QAbstractButton):
         self.setLayout(layout)
         self.setProperty("class", "charWidget")
 
+        self.infoLabel = QtWidgets.QLabel(self)
+        self.infoLabel.setProperty("class", "iconTiny")
+
     # Fore some reason this is needed to support style sheets in QWidget subclasses
     def paintEvent(self, pe):    
         o = QtWidgets.QStyleOption()
@@ -54,6 +57,10 @@ class CharWidget(QtWidgets.QAbstractButton):
     def setText(self, text):
         self.label.setText(text)
 
+    def setToolTip(self, text):
+        self.infoLabel.setText("\uf129")
+        self.infoLabel.setToolTip(text)
+
     def setFixedHeight(self, height):
         super().setFixedHeight(height)
         margins = self.layout().contentsMargins()
@@ -62,6 +69,7 @@ class CharWidget(QtWidgets.QAbstractButton):
         self.iconLabel.setFixedSize(width, height)
         if hasattr(self, "pixmap"):
             self.iconLabel.setPixmap(self.pixmap.scaled(self.iconLabel.size(), QtCore.Qt.KeepAspectRatioByExpanding, QtCore.Qt.SmoothTransformation))
+        self.infoLabel.move(self.maximumWidth()-Hilfsmethoden.emToPixels(2), height-Hilfsmethoden.emToPixels(1.3))
 
 class CharakterListe(QtWidgets.QWidget):
     createNew = QtCore.Signal()
@@ -130,6 +138,7 @@ class CharakterListe(QtWidgets.QWidget):
                 break
 
             charWidget = CharWidget()
+            charWidget.setToolTip(char["path"])
 
             if "bild" in char:
                 pixmap = QtGui.QPixmap()
