@@ -92,7 +92,7 @@ class Char():
         self.übernatürlicheFertigkeiten = {}
 
         #Siebter Block: EP
-        self.epGesamt = 0
+        self._epGesamt = 0
         self.epAusgegeben = 0
         
         self.epAttribute = 0
@@ -230,6 +230,16 @@ class Char():
             self.waffenScriptAPI[k] = v
 
         EventBus.doAction("charakter_instanziiert", { "charakter" : self })
+
+    @property
+    def epGesamt(self):
+        return self._epGesamt
+
+    @epGesamt.setter
+    def epGesamt(self, value):
+        oldVal = self._epGesamt
+        self._epGesamt = value
+        EventBus.doAction("charakter_epgesamt_geändert", { "charakter" : self, "epAlt" : oldVal, "epNeu" : value })
 
     @property
     def heimat(self):
@@ -1133,7 +1143,7 @@ class Char():
             ser.end() #talente
 
         if ser.find('Erfahrung'):
-            self.epGesamt = ser.getNestedInt('Gesamt', self.epGesamt)
+            self._epGesamt = ser.getNestedInt('Gesamt', self.epGesamt)
             self.epAusgegeben = ser.getNestedInt('Ausgegeben', self.epAusgegeben)
             ser.end() #erfahrung
   

@@ -50,6 +50,8 @@ Zweck: Beliebige Aktion durchführen, nachdem der CharakterEditor vollständig i
 Zweck: Daten aus der Charakterdatei auslesen oder modifizieren, nachdem Sephrasto sie gelesen hat. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
 - "plugins_geladen"<br />
 Zweck: Nach dieser Action sind alle Plugins initialisiert. Kann verwendet werden um mit anderen Plugins zu kommunizieren, um z.B. mit einer Action andere Plugins darüber in Kenntnis zu setzen, dass dieses Plugin vorhanden ist.
+- "charakter_epgesamt_geändert" (Parameter: { "charakter" : Char, "epAlt" : int, "epNeu": int })<br />
+Zweck: Beliebige Aktion durchführen, nachdem die Gesamt-EP modifiziert wurden.
 - "pre_charakter_aktualisieren" (Parameter: { "charakter" : Char })<br />
 Zweck: Beliebige Aktion durchführen, nachdem die Charakterwerte in irgendeiner Form modifiziert wurden, aber bevor die Veränderungen berechnet werden. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
 - "charakter_aktualisieren_vorteilscripts" (Parameter: { "charakter" : Char })<br />
