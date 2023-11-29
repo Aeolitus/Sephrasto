@@ -30,6 +30,7 @@ import platform
 import PathHelper
 from CharakterListe import CharakterListe
 from CharakterAssistent import WizardWrapper
+import argparse
 
 loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
 logging.basicConfig(filename="sephrasto.log", \
@@ -101,6 +102,10 @@ class MainWindowWrapper(object):
     '''
 
     def __init__(self):
+        parser = argparse.ArgumentParser(prog='Sephrasto', description='Der Charaktergenerator für Ilaris')
+        parser.add_argument('--settingsfile', required = False, help='Overrides the default location of the settings file')
+        Wolke.CmdArgs = parser.parse_args()
+
         sys.excepthook = sephrasto_excepthook
         QtCore.qInstallMessageHandler(qt_message_handler)
 

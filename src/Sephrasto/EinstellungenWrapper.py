@@ -273,8 +273,10 @@ class EinstellungenWrapper():
     def loadPreQt():
         # Do not use any PySide/Qt stuff here, the QApplication isn't initialized yet when this function is called
         # We do a 2-step initialization to read in some settings that we require before the QApp (like DPI)
-        settingsFolder = PathHelper.getSettingsFolder()
-        settingsPath = os.path.join(settingsFolder, 'Sephrasto.ini')
+        settingsPath = Wolke.CmdArgs.settingsfile
+        if settingsPath is None:
+            settingsFolder = PathHelper.getSettingsFolder()
+            settingsPath = os.path.join(settingsFolder, 'Sephrasto.ini')
         if not os.path.isfile(settingsPath):
             return
         with open(settingsPath,'r') as infile:
@@ -353,8 +355,10 @@ class EinstellungenWrapper():
 
     @staticmethod
     def save():
-        settingsFolder = EinstellungenWrapper.createSettingsFolder()
-        settingsPath = os.path.join(settingsFolder, 'Sephrasto.ini')
+        settingsPath = Wolke.CmdArgs.settingsfile
+        if settingsPath is None:
+            settingsFolder = EinstellungenWrapper.createSettingsFolder()
+            settingsPath = os.path.join(settingsFolder, 'Sephrasto.ini')
         with open(settingsPath, 'w') as outfile:
             yaml.dump(Wolke.Settings, outfile)
 

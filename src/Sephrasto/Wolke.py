@@ -14,6 +14,7 @@ class _DefaultSettings:
 class Wolke:
     Char = None
     DB = None
+    CmdArgs = None
     Charakterbögen = {}
     Themes = {}
     Settings = {
