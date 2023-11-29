@@ -63,7 +63,7 @@ class DatenbankTypWrapper:
     def edit(self, datenbank, inp, readonly = False):
         filterName = self.dataType.__name__.lower()
         editorType = EventBus.applyFilter("dbe_class_" + filterName + "_wrapper", self.editorType)
-        editor = self.editorType(datenbank, inp, readonly)
+        editor = editorType(datenbank, inp, readonly)
         return editor.element
 
 class DBESortFilterProxyModel(QtCore.QSortFilterProxyModel):
