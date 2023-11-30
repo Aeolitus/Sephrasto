@@ -246,3 +246,9 @@ class Waffe:
 
     def typname(self, db):
         return self.definition.typname(db)
+
+    def isATVerboten(self, db):
+        return self.definition.isATVerboten(db)
+
+    def isVTVerboten(self, db):
+        return self.definition.isVTVerboten(db)

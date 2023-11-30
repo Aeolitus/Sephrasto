@@ -216,8 +216,6 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
         return diff
 
     def updateWeaponStats(self):
-        atVerboten = Wolke.DB.einstellungen["Waffen: Talente AT verboten"].wert
-        vtVerboten = Wolke.DB.einstellungen["Waffen: Talente VT verboten"].wert
         for index in range(8):
             if index >= len(Wolke.Char.waffen) or not Wolke.Char.waffen[index].name:
                 self.labelBasis[index].setText(f"<span style='{Wolke.FontAwesomeCSS}'>\uf02d</span>&nbsp;&nbsp;-")
@@ -231,12 +229,12 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
 
             at = ww.at
             tp = f"""{ww.würfel}W{str(waffe.würfelSeiten)}{"+" if ww.plus >= 0 else ""}{ww.plus}"""
-            if waffe.name in atVerboten or waffe.talent in atVerboten:
+            if waffe.isATVerboten(Wolke.DB):
                 at = "-"
                 tp = "-"
 
             vt = ww.vt
-            if waffe.name in vtVerboten or waffe.talent in vtVerboten:
+            if waffe.isVTVerboten(Wolke.DB):
                 vt = "-"
             
             diff = self.diffWaffeDefinition(waffe)
@@ -391,7 +389,7 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
         self.refreshDerivedWeaponValues(W, index)
 
         isEmpty = W.name == ""
-        atVerboten = W.name in Wolke.DB.einstellungen["Waffen: Talente AT verboten"].wert or W.talent in Wolke.DB.einstellungen["Waffen: Talente AT verboten"].wert
+        atVerboten = W.isATVerboten(Wolke.DB)
         self.editWName[index].setEnabled(not isEmpty)
         self.editEig[index].setEnabled(not isEmpty)
         self.spinWürfel[index].setEnabled(not isEmpty and not atVerboten)

@@ -517,13 +517,11 @@ class PdfExporter(object):
                 fields[base + 'VTm'] = str(waffenwerte.vt)
                 fields[base + 'RW'] = str(waffenwerte.rw)
                 
-                atVerboten = Wolke.DB.einstellungen["Waffen: Talente AT verboten"].wert
-                if el.talent in atVerboten or el.name in atVerboten:
+                if el.isATVerboten(Wolke.DB):
                     fields[base + 'RW'] = "-"
                     fields[base + 'ATm'] = "-"
 
-                vtVerboten = Wolke.DB.einstellungen["Waffen: Talente VT verboten"].wert
-                if el.talent in vtVerboten or el.name in vtVerboten:
+                if el.isVTVerboten(Wolke.DB):
                     fields[base + 'VTm'] = "-"
 
                 fields[base + 'WM'] = str(el.wm)
