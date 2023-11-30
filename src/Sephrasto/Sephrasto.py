@@ -81,6 +81,10 @@ def qt_message_handler(mode, context, message):
             # we can ignore this warning, we deleted the locales on purpose to save space
             return
 
+        if "crbug/1173575" in message:
+            # we can ignore this warning, apparently it is thrown for no good reason when there is no internet connection
+            return
+
         logging.warning(message)
         breakIfDebuggerAttached()
     elif mode == QtCore.QtMsgType.QtCriticalMsg:
