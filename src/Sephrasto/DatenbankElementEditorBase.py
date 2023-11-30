@@ -19,7 +19,8 @@ class DatenbankElementEditorBase():
         self.dialog.accept = lambda: self.accept()
         self.ui = ui
         self.ui.setupUi(self.dialog)
-        
+        self.onSetupUi()
+
         if readonly:
             self.ui.warning.setText("Gelöschte und überschriebene Elemente können nicht verändert werden.")
             self.ui.warning.setVisible(True)
@@ -59,6 +60,9 @@ class DatenbankElementEditorBase():
             self.element = None
 
     # to be overridden by subclasses
+    def onSetupUi(self):
+        pass
+
     def load(self, element):
         self.ui.leName.setText(element.name)
         self.ui.leName.textChanged.connect(self.nameChanged)
