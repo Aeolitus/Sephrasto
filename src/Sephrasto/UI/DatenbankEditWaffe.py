@@ -54,11 +54,9 @@ class Ui_dialog(object):
 
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.horizontalLayout_5 = QHBoxLayout()
-        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout_5.addItem(self.horizontalSpacer_3)
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_3)
 
         self.spinWM = QSpinBox(dialog)
         self.spinWM.setObjectName(u"spinWM")
@@ -68,10 +66,7 @@ class Ui_dialog(object):
         self.spinWM.setMinimum(-99)
         self.spinWM.setMaximum(99)
 
-        self.horizontalLayout_5.addWidget(self.spinWM)
-
-
-        self.horizontalLayout_3.addLayout(self.horizontalLayout_5)
+        self.horizontalLayout_3.addWidget(self.spinWM)
 
 
         self.gridLayout.addLayout(self.horizontalLayout_3, 5, 1, 1, 1)
@@ -271,10 +266,12 @@ class Ui_dialog(object):
 
         QWidget.setTabOrder(self.leName, self.comboTyp)
         QWidget.setTabOrder(self.comboTyp, self.spinWuerfel)
-        QWidget.setTabOrder(self.spinWuerfel, self.spinPlus)
+        QWidget.setTabOrder(self.spinWuerfel, self.comboWuerfelSeiten)
+        QWidget.setTabOrder(self.comboWuerfelSeiten, self.spinPlus)
         QWidget.setTabOrder(self.spinPlus, self.spinRW1)
         QWidget.setTabOrder(self.spinRW1, self.spinWM)
-        QWidget.setTabOrder(self.spinWM, self.spinHaerte)
+        QWidget.setTabOrder(self.spinWM, self.spinLZ)
+        QWidget.setTabOrder(self.spinLZ, self.spinHaerte)
         QWidget.setTabOrder(self.spinHaerte, self.comboFert)
         QWidget.setTabOrder(self.comboFert, self.comboTalent)
         QWidget.setTabOrder(self.comboTalent, self.teEigenschaften)

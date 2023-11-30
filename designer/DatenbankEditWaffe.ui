@@ -54,43 +54,39 @@
      <item row="5" column="1">
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_5">
-         <item>
-          <spacer name="horizontalSpacer_3">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QSpinBox" name="spinWM">
-           <property name="minimumSize">
-            <size>
-             <width>50</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-           <property name="buttonSymbols">
-            <enum>QAbstractSpinBox::PlusMinus</enum>
-           </property>
-           <property name="minimum">
-            <number>-99</number>
-           </property>
-           <property name="maximum">
-            <number>99</number>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        <spacer name="horizontalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="spinWM">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::PlusMinus</enum>
+         </property>
+         <property name="minimum">
+          <number>-99</number>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -349,7 +345,7 @@
         <string notr="true">background-color: rgb(255, 255, 0); color: black;</string>
        </property>
        <property name="text">
-        <string></string>
+        <string/>
        </property>
        <property name="wordWrap">
         <bool>true</bool>
@@ -424,9 +420,11 @@
   <tabstop>leName</tabstop>
   <tabstop>comboTyp</tabstop>
   <tabstop>spinWuerfel</tabstop>
+  <tabstop>comboWuerfelSeiten</tabstop>
   <tabstop>spinPlus</tabstop>
   <tabstop>spinRW1</tabstop>
   <tabstop>spinWM</tabstop>
+  <tabstop>spinLZ</tabstop>
   <tabstop>spinHaerte</tabstop>
   <tabstop>comboFert</tabstop>
   <tabstop>comboTalent</tabstop>
