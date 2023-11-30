@@ -702,7 +702,7 @@ class Char():
         if not self.voraussetzungenPruefen:
             return []
 
-        vorteile = copy.deepcopy(vorteile or self.vorteile)
+        vorteile = copy.copy(vorteile or self.vorteile)
         waffen = waffen or self.waffen
         attribute = attribute or self.attribute
         übernatürlicheFertigkeiten = übernatürlicheFertigkeiten or self.übernatürlicheFertigkeiten
