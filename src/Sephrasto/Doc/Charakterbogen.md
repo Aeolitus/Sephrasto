@@ -4,7 +4,7 @@
 Du kannst Sephrasto weitere Charakterbögen hinzufügen. Kopiere deinen Bogen hierzu einfach in den Charakterbögen-Ordner, der in den Einstellungen von Sephrasto konfiguriert ist. Du musst Sephrasto allerdings noch ein paar Informationen zu deinem Bogen geben in Form einer Konfigurationsdatei. Diese ist eine Textdatei mit dem gleichen Namen wie die PDF-Datei, aber mit der Endung ".ini". Am einfachsten ist es, wenn du erstmal eine der bestehenden Konfigurationsdateien dorthin kopierst und entsprechend umbenennst. Diese findest du in deinem Sephrasto-Installationsordner im Unterordner Data/Charakterbögen. Alle Konfigurationsmöglichkeiten sind optional.
 <br />
 ## Charakterbogen-Konfiguration
-<br />
+
 Info: "Bester Charakterbogen"<br />
 -> Tooltip, der im Info-Tab angezeigt wird.<br />
 <br />
@@ -18,8 +18,9 @@ Seitenorientierung: Portrait<br />
 -> Legt die Orientierung der Regelanhangseiten fest, mögliche Werte sind "Portrait" und "Landscape".<br />
 <br />
 Seitenbeschreibungen:<br />
-- Deckblatt<br />
-- Kampf<br />
+        - Deckblatt<br />
+        - Kampf
+
 -> Die Beschreibungen werden für die Benennung der PDF-Lesezeichen verwendet. Jeder Eintrag entspricht einer Seite.<br />
 <br />
 MaxVorteile: 24<br />
@@ -68,9 +69,10 @@ ExtraÜberSeiten: True<br />
 -> Hiermit kann die Ausgabe von Extra-Seiten (z.B. bei zu vielen Zaubern) deaktiviert werden. Es wird hierfür immer die Seite [ÜberSeite] verwendet, also die Seite für Übernatürliches.<br />
 <br />
 Bild:<br />
-- [1.0, 115.55, 89.55]<br />
-- []<br />
-- [1.5, 130.8, 74.0]<br />
+        - [1.0, 115.55, 89.55]<br />
+        - []<br />
+        - [1.5, 130.8, 74.0]
+        
 -> Mit diesem Eintrag kannst du das Charakterbild auf einer oder mehreren Seiten an unterschiedlichen Stellen einfügen. Die Seitenzahl entspricht dem Listen-Index +1. Die einzelnen Elemente enthalten einen Array mit 3 Werten: Größenmultiplikator, X-Offset und Y-Offset (jeweils von der Ecke oben-links des Dokuments). Füge einen leeren Array ein, um eine Seite zu überspringen (im Beispiel wird ein Bild auf den Seiten 1 und 3 eingefügt). Es kann ein paar Export-Versuche benötigen, bis du gute Größen- und Offsetwerte für deinen Charakterbogen gefunden hast - nutze zum Testen idealerweise ein einfarbiges Bild mit einer Auflösung von 260 x 340. Nach Änderungen musst du Sephrasto neustarten.<br />
 <br />
 RegelanhangSeitengrösse: A4<br />

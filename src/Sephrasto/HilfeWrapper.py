@@ -1,4 +1,4 @@
-from PySide6 import QtWidgets, QtCore
+from PySide6 import QtWidgets, QtCore, QtGui
 import UI.Hilfe
 import logging
 from PySide6.QtWidgets import QStyle
@@ -31,6 +31,8 @@ class HilfeWrapper(QtCore.QObject):
             self.ui.buttonHome.hide()
             self.ui.teHelp.setOpenLinks(False)
 
+        self.ui.teHelp.document().setDefaultStyleSheet("table {margin-top: 1em; margin-bottom: 1em; border-collapse: collapse;} td { padding: 10px; }");
+        self.ui.teHelp.sourceChanged.connect(self.stylesheetHack)
         self.ui.teHelp.backwardAvailable.connect(self.updateBackwardAvailable)
         self.ui.teHelp.forwardAvailable.connect(self.updateForwardAvailable)
         self.updateBackwardAvailable()
@@ -38,15 +40,21 @@ class HilfeWrapper(QtCore.QObject):
 
         if source is not None:
             self.ui.teHelp.setSearchPaths(searchPaths)
-            self.ui.teHelp.setSource(QUrl(source))
+            self.ui.teHelp.setSource(QUrl(source), QtGui.QTextDocument.MarkdownResource)
 
         self.form.setWindowModality(QtCore.Qt.NonModal)
+
+    def stylesheetHack(self, src):
+        # there is no css support for markdown -.-
+        # convert the markdown document to html and then set it as html
+        html = self.ui.teHelp.toHtml()
+        self.ui.teHelp.setHtml(html)
 
     def setTitle(self, text):
         self.form.setWindowTitle("Sephrasto - " + text)
 
     def setText(self, text):
-        self.ui.teHelp.setText(text)
+        self.ui.teHelp.setMarkdown(text)
 
     def updateBackwardAvailable(self):
         self.ui.buttonBackward.setEnabled(self.ui.teHelp.isBackwardAvailable())
