@@ -76,6 +76,33 @@ Zweck: Aktion durchführen, nachdem die Datenbank inkl. Hausregeldatenbank kompl
 Zweck: Dem Regelanhang weiteren Text hinzufügen. Dies geschieht über den Parameter "appendCallback", einer Pythonfunktion die den Kategorienamen und den Text als Funktionsparameter hat. Der Kategoriename kann auch auf einen leeren string gesetzt werden. Die Action wird mehrmals aufgerufen, der "reihenfolge" Parameter sollte genutzt werden, um den Text an der richtigen Stelle einzufügen. Er entspricht einem Eintrag in der Datenbank-Einstellung "Regelanhang: Reihenfolge".
 - "dbe_menuitems_erstellen" (Parameter: { "addMenuItemCB" : Python-Funktion })<br />
 Zweck: Dem Datenbankeditor-Menu Einträge hinzufügen. Rufe dazu den addMenuItemCB auf. Er benötigt zwei Parameter: Der erste ist der Name des Menus, der zweite eine QAction.
+- Die folgenden Actions haben alle eine Gemeinsamkeit: Sie werden aufgerufen, wenn ein entsprechendes Objekt serialisiert bzw. deserialisiert wurde und können genutzt werden, um diese zu modifizieren. Als Parameter werden das (de-)serialisierte Objekt, sowie der verwendete (De-)Serializer übergeben.
+	* "abgeleiteterwertdefinition_serialize" (Parameter: { "object" : AbgeleiteterWertDefinition, "serializer" : ?Serializer })
+	* "abgeleiteterwertdefinition_deserialize" (Parameter: { "object" : AbgeleiteterWertDefinition, "deserializer" : ?Deserializer })
+    * "attributdefinition_serialize" (Parameter: { "object" : AttributDefinition, "serializer" : ?Serializer })
+	* "attributdefinition_deserialize" (Parameter: { "object" : AttributDefinition, "deserializer" : ?Deserializer })
+    * "datenbankeinstellung_serialize" (Parameter: { "object" : DatenbankEinstellung, "serializer" : ?Serializer })
+	* "datenbankeinstellung_deserialize" (Parameter: { "object" : DatenbankEinstellung, "deserializer" : ?Deserializer })
+    * "energiedefinition_serialize" (Parameter: { "object" : EnergieDefinition, "serializer" : ?Serializer })
+	* "energiedefinition_deserialize" (Parameter: { "object" : EnergieDefinition, "deserializer" : ?Deserializer })
+    * "fertigkeitdefinition_serialize" (Parameter: { "object" : FertigkeitDefinition, "serializer" : ?Serializer })
+	* "fertigkeitdefinition_deserialize" (Parameter: { "object" : FertigkeitDefinition, "deserializer" : ?Deserializer })
+    * "ueberfertigkeitdefinition_serialize" (Parameter: { "object" : UeberFertigkeitDefinition, "serializer" : ?Serializer })
+	* "ueberfertigkeitdefinition_deserialize" (Parameter: { "object" : UeberFertigkeitDefinition, "deserializer" : ?Deserializer })
+    * "freiefertigkeitdefinition_serialize" (Parameter: { "object" : FreieFertigkeitDefinition, "serializer" : ?Serializer })
+	* "freiefertigkeitdefinition_deserialize" (Parameter: { "object" : FreieFertigkeitDefinition, "deserializer" : ?Deserializer })
+    * "regel_serialize" (Parameter: { "object" : Regel, "serializer" : ?Serializer })
+	* "regel_deserialize" (Parameter: { "object" : Regel, "deserializer" : ?Deserializer })
+    * "ruestungdefinition_serialize" (Parameter: { "object" : RuestungDefinition, "serializer" : ?Serializer })
+	* "ruestungdefinition_deserialize" (Parameter: { "object" : RuestungDefinition, "deserializer" : ?Deserializer })
+    * "talentdefinition_serialize" (Parameter: { "object" : TalentDefinition, "serializer" : ?Serializer })
+	* "talentdefinition_deserialize" (Parameter: { "object" : TalentDefinition, "deserializer" : ?Deserializer })
+    * "vorteildefinition_serialize" (Parameter: { "object" : VorteilDefinition, "serializer" : ?Serializer })
+	* "vorteildefinition_deserialize" (Parameter: { "object" : VorteilDefinition, "deserializer" : ?Deserializer })
+    * "waffedefinition_serialize" (Parameter: { "object" : WaffeDefinition, "serializer" : ?Serializer })
+	* "waffedefinition_deserialize" (Parameter: { "object" : WaffeDefinition, "deserializer" : ?Deserializer })
+    * "waffeneigenschaft_serialize" (Parameter: { "object" : WaffenEigenschaft, "serializer" : ?Serializer })
+	* "waffeneigenschaft_deserialize" (Parameter: { "object" : WaffenEigenschaft, "deserializer" : ?Deserializer })
 <br />
 ## Actions, die Sephrasto abonniert
 - "charaktereditor_reload" (Parameter: { "name" : string })<br />
@@ -108,7 +135,7 @@ Zweck: Den vom Nutzer gewählten Charakterbogen modifizieren, z.B. den Pfad der 
 Zweck: Die Kosten für AsP-Steigerungen anpassen. Der "wert" Parameter enthält die Anzahl zugekaufter AsP. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
 - "attribut_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "attribut" : string, "wertVon" : int, "wertAuf" : int })<br />
 Zweck: Die Kosten für Attributs-Steigerungen anpassen. Die Parameter enthalten den Namen des Attributs und dessen Wert. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "fertigkeit_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "name" : string, "wertVon" : int, "wertAuf" : int })<br />
+- "fertigkeit_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "name" : string, "wertVon" : int, "wertAuf" : int })
 - "freiefertigkeit_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "name" : string, "wertVon" : int, "wertAuf" : int })<br />
 Zweck: Die Kosten für freie Fertigkeiten anpassen. Die Parameter enthalten den Namen der freien Fertigkeit und die Stufe. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
 - "talent_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "talent" : string })<br />

@@ -2,6 +2,7 @@ from Wolke import Wolke
 import logging
 from EventBus import EventBus
 from VoraussetzungenListe import VoraussetzungenListe
+import copy
 
 # Implementation for Vorteile. Using the type object pattern.
 # VorteilDefinition: type object, initialized with database values
@@ -128,6 +129,7 @@ class VorteilDefinition():
             ser.set('info', self.info)
         if self.bedingungen:
             ser.set('bedingungen', self.bedingungen)
+        EventBus.doAction("vorteildefinition_serialize", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser):
         self.name = ser.get('name')
@@ -151,6 +153,7 @@ class VorteilDefinition():
         self.linkElement = ser.get('linkElement', self.linkElement)
         self.info = ser.get('info', self.info)
         self.bedingungen = ser.get('bedingungen', self.bedingungen)
+        EventBus.doAction("vorteildefinition_deserialize", { "object" : self, "deserializer" : ser})
 
 class Vorteil:
     def __init__(self, definition, charakter):
@@ -163,13 +166,16 @@ class Vorteil:
         self._updateAnzeigenameExt()
 
     def __deepcopy__(self, memo=""):
-        V = Vorteil(self.definition, self.charakter)
-        V._kostenOverride = self._kostenOverride
-        if self._voraussetzungenOverride:
-            V._voraussetzungenOverride = self._voraussetzungenOverride.copy()
-        V._kommentar = self._kommentar
-        V.anzeigenameExt = self.anzeigenameExt
-        return V
+        # create new object
+        cls = self.__class__
+        result = cls.__new__(cls)
+        # deepcopy everything except for self, charakter and definition
+        memo[id(self)] = result
+        memo[id(self.charakter)] = self.charakter
+        memo[id(self.definition)] = self.definition
+        for k, v in self.__dict__.items():
+            setattr(result, k, copy.deepcopy(v, memo))
+        return result
 
     def executeScript(self):
         self.definition.executeScript(self.charakter.charakterScriptAPI)

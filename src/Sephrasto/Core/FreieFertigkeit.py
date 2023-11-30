@@ -1,6 +1,7 @@
 from Wolke import Wolke
 from EventBus import EventBus
 from VoraussetzungenListe import VoraussetzungenListe
+import copy
 
 # Implementation for freie Fertigkeiten. Using the type object pattern.
 # FreieFertigkeitDefinition: type object, initialized with database values
@@ -46,11 +47,13 @@ class FreieFertigkeitDefinition:
         ser.set('name', self.name)
         ser.set('kategorie', self.kategorie)
         ser.set('voraussetzungen', self.voraussetzungen.text)
+        EventBus.doAction("freiefertigkeitdefinition_serialize", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser):
         self.name = ser.get('name')
         self.kategorie = ser.get('kategorie')
         self.voraussetzungen.compile(ser.get('voraussetzungen', ''))
+        EventBus.doAction("freiefertigkeitdefinition_deserialize", { "object" : self, "deserializer" : ser})
 
 class FreieFertigkeit:
     def __init__(self, definition, charakter):
@@ -60,9 +63,16 @@ class FreieFertigkeit:
         self.wert = 0
 
     def __deepcopy__(self, memo=""):
-        F = FreieFertigkeit(self.definition, self.charakter)
-        F.wert = self.wert
-        return F
+        # create new object
+        cls = self.__class__
+        result = cls.__new__(cls)
+        # deepcopy everything except for self, charakter and definition
+        memo[id(self)] = result
+        memo[id(self.charakter)] = self.charakter
+        memo[id(self.definition)] = self.definition
+        for k, v in self.__dict__.items():
+            setattr(result, k, copy.deepcopy(v, memo))
+        return result
 
     @property
     def name(self):

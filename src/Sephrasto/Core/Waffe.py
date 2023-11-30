@@ -1,3 +1,6 @@
+from EventBus import EventBus
+import copy
+
 # Implementation for Waffen. Using the type object pattern.
 # WaffeDefinition: type object, initialized with database values
 # Waffe: character editor values, initialised with definition but supports overrides.
@@ -53,6 +56,14 @@ class WaffeDefinition:
 
         return f"TP {self.würfel}W{self.würfelSeiten}{'+' if self.plus >= 0 else ''}{self.plus} | WM {self.wm} | RW {self.rw} {lz}| Härte {self.härte} | {eigenschaften}"
 
+    def isATVerboten(self, db):
+        return self.talent in db.einstellungen["Waffen: Talente AT verboten"].wert or \
+            self.name in db.einstellungen["Waffen: Talente AT verboten"].wert
+
+    def isVTVerboten(self, db):
+        return self.talent in db.einstellungen["Waffen: Talente VT verboten"].wert or \
+            self.name in db.einstellungen["Waffen: Talente VT verboten"].wert
+
     def serialize(self, ser):
         ser.set('name', self.name)
         ser.set('text', ", ".join(self.eigenschaften))
@@ -70,6 +81,7 @@ class WaffeDefinition:
             ser.set('lz', self.lz)
         else:
             ser.set('fk', False)
+        EventBus.doAction("waffedefinition_serialize", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser):
         self.name = ser.get('name')
@@ -90,6 +102,7 @@ class WaffeDefinition:
         self.fernkampf = ser.getBool('fk')
         if self.fernkampf:
             self.lz = ser.getInt('lz')
+        EventBus.doAction("waffedefinition_deserialize", { "object" : self, "deserializer" : ser})
 
 class Waffe:
     def __init__(self, definition):
@@ -107,20 +120,15 @@ class Waffe:
         self.beSlot = 1
 
     def __deepcopy__(self, memo=""):
-        W = Waffe(self.definition)
-        W._lzOverride = self._lzOverride
-        W._wmOverride = self._wmOverride
-        W._rwOverride = self._rwOverride
-        W._würfelOverride = self._würfelOverride
-        W._würfelSeitenOverride = self._würfelSeitenOverride
-        W._plusOverride = self._plusOverride
-        if self._eigenschaftenOverride:
-            W._eigenschaftenOverride = self._eigenschaftenOverride.copy()
-        W._härteOverride = self._härteOverride
-        W._anzeigenameOverride = self._anzeigenameOverride
-        W.kampfstil = self.kampfstil
-        W.beSlot = self.beSlot
-        return W
+        # create new object
+        cls = self.__class__
+        result = cls.__new__(cls)
+        # deepcopy everything except for self and definition
+        memo[id(self)] = result
+        memo[id(self.definition)] = self.definition
+        for k, v in self.__dict__.items():
+            setattr(result, k, copy.deepcopy(v, memo))
+        return result
 
     @property
     def name(self):

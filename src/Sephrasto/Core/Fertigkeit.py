@@ -2,6 +2,7 @@ from Wolke import Wolke
 from EventBus import EventBus
 from Hilfsmethoden import Hilfsmethoden
 from VoraussetzungenListe import VoraussetzungenListe
+import copy
 
 # Implementation for Fertigkeiten. Using the type object pattern.
 # FertigkeitDefinition: type object, initialized with database values
@@ -48,6 +49,7 @@ class FertigkeitDefinition:
         ser.set('attribute', Hilfsmethoden.AttrArray2Str(self.attribute))
         ser.set('kampffertigkeit', self.kampffertigkeit)
         ser.set('typ', self.typ)
+        EventBus.doAction("fertigkeitdefinition_serialize", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser):
         self.name = ser.get('name')
@@ -57,6 +59,7 @@ class FertigkeitDefinition:
         self.attribute = Hilfsmethoden.AttrStr2Array(ser.get('attribute'))
         self.kampffertigkeit = ser.getInt('kampffertigkeit')
         self.typ = ser.getInt('typ', -1)
+        EventBus.doAction("fertigkeitdefinition_deserialize", { "object" : self, "deserializer" : ser})
 
 class UeberFertigkeitDefinition(FertigkeitDefinition):
     displayName = "Fertigkeit (übernatürlich)"
@@ -77,6 +80,7 @@ class UeberFertigkeitDefinition(FertigkeitDefinition):
         ser.set('attribute', Hilfsmethoden.AttrArray2Str(self.attribute))
         ser.set('typ', self.typ)
         ser.set('talentegruppieren', self.talenteGruppieren)
+        EventBus.doAction("ueberfertigkeitdefinition_serialize", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser):
         self.name = ser.get('name')
@@ -86,6 +90,7 @@ class UeberFertigkeitDefinition(FertigkeitDefinition):
         self.attribute = Hilfsmethoden.AttrStr2Array(ser.get('attribute'))
         self.typ = ser.getInt('typ', -1)
         self.talenteGruppieren = ser.getBool('talentegruppieren', self.talenteGruppieren)
+        EventBus.doAction("ueberfertigkeitdefinition_deserialize", { "object" : self, "deserializer" : ser})
 
 class Fertigkeit:
     def __init__(self, definition, charakter):
@@ -103,18 +108,16 @@ class Fertigkeit:
         self.addToPDF = False
 
     def __deepcopy__(self, memo=""):
-        F = Fertigkeit(self.definition, self.charakter)
-        F.wert = self.wert
-        F.gekaufteTalente = self.gekaufteTalente.copy()
-        F.talentMods = self.talentMods.copy()
-        F.attributswerte = self.attributswerte.copy()
-        F.basiswert = self.basiswert
-        F.basiswertMod = self.basiswertMod
-        F.probenwert = self.probenwert
-        F.probenwertTalent = self.probenwertTalent
-        F.maxWert = self.maxWert
-        F.addToPDF = self.addToPDF
-        return F
+        # create new object
+        cls = self.__class__
+        result = cls.__new__(cls)
+        # deepcopy everything except for self, charakter and definition
+        memo[id(self)] = result
+        memo[id(self.charakter)] = self.charakter
+        memo[id(self.definition)] = self.definition
+        for k, v in self.__dict__.items():
+            setattr(result, k, copy.deepcopy(v, memo))
+        return result
 
     @property
     def name(self):

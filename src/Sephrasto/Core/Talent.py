@@ -2,6 +2,7 @@ import re
 from EventBus import EventBus
 from Hilfsmethoden import Hilfsmethoden
 from VoraussetzungenListe import VoraussetzungenListe
+import copy
 
 # Implementation for Talente. Using the type object pattern.
 # TalentDefinition: type object, initialized with database values
@@ -136,6 +137,7 @@ class TalentDefinition:
             ser.set('csAuflisten', False)
         if self.info:
             ser.set('info', self.info)
+        EventBus.doAction("talentdefinition_serialize", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser):
         self.name = ser.get('name')
@@ -153,7 +155,7 @@ class TalentDefinition:
         self.referenzSeite = ser.getInt('referenzseite', self.referenzSeite)
         self.cheatsheetAuflisten = ser.getBool('csAuflisten', self.cheatsheetAuflisten)
         self.info = ser.get('info', self.info)
-        
+        EventBus.doAction("talentdefinition_deserialize", { "object" : self, "deserializer" : ser})
 
 class Talent:
     def __init__(self, definition, charakter):
@@ -172,15 +174,16 @@ class Talent:
         self._voraussetzungenOverride = None
 
     def __deepcopy__(self, memo=""):
-        T = Talent(self.definition, self.charakter)
-        T._kommentar = self._kommentar
-        T._kostenOverride = self._kostenOverride
-        if self._voraussetzungenOverride:
-            V._voraussetzungenOverride = self._voraussetzungenOverride.copy()
-        T.anzeigenameExt = self.anzeigenameExt
-        T.probenwert = self.probenwert
-        T._hauptfertigkeitOverride = self._hauptfertigkeitOverride
-        return T
+        # create new object
+        cls = self.__class__
+        result = cls.__new__(cls)
+        # deepcopy everything except for self, charakter and definition
+        memo[id(self)] = result
+        memo[id(self.charakter)] = self.charakter
+        memo[id(self.definition)] = self.definition
+        for k, v in self.__dict__.items():
+            setattr(result, k, copy.deepcopy(v, memo))
+        return result
 
     @property
     def name(self):

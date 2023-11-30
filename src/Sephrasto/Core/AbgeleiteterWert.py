@@ -1,5 +1,6 @@
 from Wolke import Wolke
 import copy
+from EventBus import EventBus
 
 # Implementation for abgeleitete Werte (WS, INI etc.). Using the type object pattern.
 # AbgeleiteterWertDefinition: type object, initialized with database values
@@ -50,6 +51,7 @@ class AbgeleiteterWertDefinition:
         if self.finalscript:
             ser.set('finalscript', self.finalscript)
         ser.set('sortorder', self.sortorder)
+        EventBus.doAction("abgeleiteterwertdefinition_serialize", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser):
         self.name = ser.get('name')
@@ -60,6 +62,7 @@ class AbgeleiteterWertDefinition:
         self.script = ser.get('script', '')
         self.finalscript = ser.get('finalscript', '')
         self.sortorder = ser.getInt('sortorder')
+        EventBus.doAction("abgeleiteterwertdefinition_deserialize", { "object" : self, "deserializer" : ser})
 
 class AbgeleiteterWert:
     def __init__(self, definition, charakter):
@@ -70,11 +73,16 @@ class AbgeleiteterWert:
         self.finalwert = 0
 
     def __deepcopy__(self, memo=""):
-        A = AbgeleiteterWert(self.definition, self.charakter)
-        A.basiswert = self.basiswert
-        A.mod = self.mod
-        A.finalwert = self.finalwert
-        return A
+        # create new object
+        cls = self.__class__
+        result = cls.__new__(cls)
+        # deepcopy everything except for self, charakter and definition
+        memo[id(self)] = result
+        memo[id(self.charakter)] = self.charakter
+        memo[id(self.definition)] = self.definition
+        for k, v in self.__dict__.items():
+            setattr(result, k, copy.deepcopy(v, memo))
+        return result
 
     @property
     def name(self):

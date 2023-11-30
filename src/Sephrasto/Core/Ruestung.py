@@ -1,4 +1,6 @@
 from Wolke import Wolke
+from EventBus import EventBus
+import copy
 
 # Implementation for Rüstungen. Using the type object pattern.
 # RuestungDefinition: type object, initialized with database values
@@ -53,6 +55,7 @@ class RuestungDefinition:
         ser.set('rsBauch', self.rs[3])
         ser.set('rsBrust', self.rs[4])
         ser.set('rsKopf', self.rs[5])
+        EventBus.doAction("ruestungdefinition_serialize", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser):
         self.name = ser.get('name')
@@ -65,6 +68,7 @@ class RuestungDefinition:
         self.rs[3] = ser.getInt('rsBauch')
         self.rs[4] = ser.getInt('rsBrust')
         self.rs[5] = ser.getInt('rsKopf')
+        EventBus.doAction("ruestungdefinition_deserialize", { "object" : self, "deserializer" : ser})
 
 class Ruestung:
     def __init__(self, definition):
@@ -76,13 +80,15 @@ class Ruestung:
         self._rsOverride = definition.rs.copy()
 
     def __deepcopy__(self, memo=""):
-        R = Ruestung(self.definition)
-        R._nameOverride = self._nameOverride
-        R._beOverride = self._beOverride
-        R._typOverride = self._typOverride
-        R._beOverride = self._beOverride
-        R._rsOverride = self._rsOverride.copy()
-        return R
+        # create new object
+        cls = self.__class__
+        result = cls.__new__(cls)
+        # deepcopy everything except for self and definition
+        memo[id(self)] = result
+        memo[id(self.definition)] = self.definition
+        for k, v in self.__dict__.items():
+            setattr(result, k, copy.deepcopy(v, memo))
+        return result
 
     @property
     def name(self):

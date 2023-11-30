@@ -1,5 +1,6 @@
 from Wolke import Wolke
 from EventBus import EventBus
+import copy
 
 # Implementation for Attribute. Using the type object pattern.
 # AttributDefinition: type object, initialized with database values
@@ -32,6 +33,7 @@ class AttributDefinition:
         ser.set('anzeigename', self.anzeigename)
         ser.set('steigerungsfaktor', self.steigerungsfaktor)
         ser.set('sortorder', self.sortorder)
+        EventBus.doAction("attributdefinition_serialize", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser):
         self.name = ser.get('name')
@@ -39,6 +41,7 @@ class AttributDefinition:
         self.anzeigename = ser.get('anzeigename')
         self.steigerungsfaktor = ser.getInt('steigerungsfaktor')
         self.sortorder = ser.getInt('sortorder')
+        EventBus.doAction("attributdefinition_deserialize", { "object" : self, "deserializer" : ser})
 
 class Attribut:
     def __init__(self, definition, charakter):
@@ -48,10 +51,16 @@ class Attribut:
         self.probenwert = 0
 
     def __deepcopy__(self, memo=""):
-        A = Attribut(self.definition, self.charakter)
-        A.wert = self.wert
-        A.probenwert = self.probenwert
-        return A
+        # create new object
+        cls = self.__class__
+        result = cls.__new__(cls)
+        # deepcopy everything except for self, charakter and definition
+        memo[id(self)] = result
+        memo[id(self.charakter)] = self.charakter
+        memo[id(self.definition)] = self.definition
+        for k, v in self.__dict__.items():
+            setattr(result, k, copy.deepcopy(v, memo))
+        return result
 
     @property
     def name(self):
