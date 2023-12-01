@@ -763,14 +763,14 @@ class Char():
         ser.end() #eigenheiten
         ser.end() #beschreibung
 
-        ser.begin('Attribute')
+        ser.beginList('Attribute')
         for attribut in self.attribute.values():
             ser.begin('Attribut')
             attribut.serialize(ser)
             ser.end() #attribut
         ser.end() #attribute
 
-        ser.begin('Energien')
+        ser.beginList('Energien')
         for energie in self.energien:
             ser.begin('Energie')
             energie.serialize(ser)
