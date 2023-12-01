@@ -64,7 +64,7 @@ class Datenbank():
                     serializer.set("typ", type.serializationName)
                     serializer.end() #remove
 
-        EventBus.doAction("datenbank_serialisiert", serializer, { "datenbank" : self, "merge" : merge })
+        EventBus.doAction("datenbank_serialisiert", { "datenbank" : self, "serializer" : serializer, "merge" : merge })
 
     def insertTable(self, type, table):
         self.tablesByType[type] = table
@@ -232,7 +232,7 @@ class Datenbank():
                     de.strip = removed.strip
                     de.separator = removed.separator
 
-        EventBus.doAction("datenbank_serialisiert", { "datenbank" : self, "deserializer" : deserializer, "basisdatenbank" : refDB, "conflictCallback" : conflictCB })    
+        EventBus.doAction("datenbank_deserialisiert", { "datenbank" : self, "deserializer" : deserializer, "basisdatenbank" : refDB, "conflictCallback" : conflictCB })    
 
         return True
 
