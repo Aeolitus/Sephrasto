@@ -43,6 +43,8 @@ class Datenbank():
         serializer.writeFile(filepath)
 
     def serialize(self, serializer, merge = False):
+        serializer = EventBus.applyFilter("datenbank_serialisieren", serializer, { "datenbank" : self, "merge" : merge })
+
         serializer.setNested('Version', Migrationen.datenbankCodeVersion)
         serializer.setNested('Plugins', ",".join(self.enabledPlugins))
 
@@ -62,7 +64,7 @@ class Datenbank():
                     serializer.set("typ", type.serializationName)
                     serializer.end() #remove
 
-        EventBus.applyFilter("datenbank_schreiben", serializer, { "datenbank" : self, "merge" : merge })
+        EventBus.doAction("datenbank_serialisiert", serializer, { "datenbank" : self, "merge" : merge })
 
     def insertTable(self, type, table):
         self.tablesByType[type] = table
@@ -186,6 +188,8 @@ class Datenbank():
         return True
 
     def deserialize(self, deserializer, refDB, conflictCB = None):
+        deserializer = EventBus.applyFilter("datenbank_deserialisieren", deserializer, { "datenbank" : self, "basisdatenbank" : refDB, "conflictCallback" : conflictCB })
+
         if deserializer.currentTag != "Datenbank":
             return False
         if not refDB:
@@ -228,7 +232,7 @@ class Datenbank():
                     de.strip = removed.strip
                     de.separator = removed.separator
 
-        EventBus.applyFilter("datenbank_laden", deserializer, { "datenbank" : self, "basisdatenbank" : refDB, "conflictCallback" : conflictCB })    
+        EventBus.doAction("datenbank_serialisiert", { "datenbank" : self, "deserializer" : deserializer, "basisdatenbank" : refDB, "conflictCallback" : conflictCB })    
 
         return True
 

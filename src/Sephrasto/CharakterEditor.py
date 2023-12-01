@@ -65,7 +65,7 @@ class Editor(object):
         dlg.setLabelText("Lade Datenbank")
         dlg.setValue(0, True)
         self.savepath = path
-        storedHausregeln = Charakter.Char.xmlHausregelnLesen(self.savepath)
+        storedHausregeln = Charakter.Char.hausregelnLesen(self.savepath)
         availableHausregeln = EinstellungenWrapper.getDatenbanken(Wolke.Settings["Pfad-Regeln"])
         
         dlg.setValue(10, True)

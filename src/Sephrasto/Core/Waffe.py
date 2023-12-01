@@ -81,7 +81,7 @@ class WaffeDefinition:
             ser.set('lz', self.lz)
         else:
             ser.set('fk', False)
-        EventBus.doAction("waffedefinition_serialize", { "object" : self, "serializer" : ser})
+        EventBus.doAction("waffedefinition_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser):
         self.name = ser.get('name')
@@ -102,7 +102,7 @@ class WaffeDefinition:
         self.fernkampf = ser.getBool('fk')
         if self.fernkampf:
             self.lz = ser.getInt('lz')
-        EventBus.doAction("waffedefinition_deserialize", { "object" : self, "deserializer" : ser})
+        EventBus.doAction("waffedefinition_deserialisiert", { "object" : self, "deserializer" : ser})
 
 class Waffe:
     def __init__(self, definition):

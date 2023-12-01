@@ -49,7 +49,7 @@ class FertigkeitDefinition:
         ser.set('attribute', Hilfsmethoden.AttrArray2Str(self.attribute))
         ser.set('kampffertigkeit', self.kampffertigkeit)
         ser.set('typ', self.typ)
-        EventBus.doAction("fertigkeitdefinition_serialize", { "object" : self, "serializer" : ser})
+        EventBus.doAction("fertigkeitdefinition_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser):
         self.name = ser.get('name')
@@ -59,7 +59,7 @@ class FertigkeitDefinition:
         self.attribute = Hilfsmethoden.AttrStr2Array(ser.get('attribute'))
         self.kampffertigkeit = ser.getInt('kampffertigkeit')
         self.typ = ser.getInt('typ', -1)
-        EventBus.doAction("fertigkeitdefinition_deserialize", { "object" : self, "deserializer" : ser})
+        EventBus.doAction("fertigkeitdefinition_deserialisiert", { "object" : self, "deserializer" : ser})
 
 class UeberFertigkeitDefinition(FertigkeitDefinition):
     displayName = "Fertigkeit (übernatürlich)"
@@ -80,7 +80,7 @@ class UeberFertigkeitDefinition(FertigkeitDefinition):
         ser.set('attribute', Hilfsmethoden.AttrArray2Str(self.attribute))
         ser.set('typ', self.typ)
         ser.set('talentegruppieren', self.talenteGruppieren)
-        EventBus.doAction("ueberfertigkeitdefinition_serialize", { "object" : self, "serializer" : ser})
+        EventBus.doAction("ueberfertigkeitdefinition_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser):
         self.name = ser.get('name')
@@ -90,7 +90,7 @@ class UeberFertigkeitDefinition(FertigkeitDefinition):
         self.attribute = Hilfsmethoden.AttrStr2Array(ser.get('attribute'))
         self.typ = ser.getInt('typ', -1)
         self.talenteGruppieren = ser.getBool('talentegruppieren', self.talenteGruppieren)
-        EventBus.doAction("ueberfertigkeitdefinition_deserialize", { "object" : self, "deserializer" : ser})
+        EventBus.doAction("ueberfertigkeitdefinition_deserialisiert", { "object" : self, "deserializer" : ser})
 
 class Fertigkeit:
     def __init__(self, definition, charakter):

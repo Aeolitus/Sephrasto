@@ -227,7 +227,8 @@ class MainWindowWrapper(object):
 
         self.dbEditor = None
 
-        EventBus.doAction("plugins_geladen")
+        loadedPlugins = [p.name for p in self._plugins if p.isLoaded()]
+        EventBus.doAction("plugins_geladen", { "plugins" : loadedPlugins})
 
         EventBus.addAction("charaktereditor_reload", self.charakterEditorReloadHook)
         EventBus.addAction("charaktereditor_modified", self.charakterEditorModifiedHook)

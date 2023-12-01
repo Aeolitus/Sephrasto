@@ -47,13 +47,13 @@ class FreieFertigkeitDefinition:
         ser.set('name', self.name)
         ser.set('kategorie', self.kategorie)
         ser.set('voraussetzungen', self.voraussetzungen.text)
-        EventBus.doAction("freiefertigkeitdefinition_serialize", { "object" : self, "serializer" : ser})
+        EventBus.doAction("freiefertigkeitdefinition_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser):
         self.name = ser.get('name')
         self.kategorie = ser.get('kategorie')
         self.voraussetzungen.compile(ser.get('voraussetzungen', ''))
-        EventBus.doAction("freiefertigkeitdefinition_deserialize", { "object" : self, "deserializer" : ser})
+        EventBus.doAction("freiefertigkeitdefinition_deserialisiert", { "object" : self, "deserializer" : ser})
 
 class FreieFertigkeit:
     def __init__(self, definition, charakter):

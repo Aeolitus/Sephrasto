@@ -129,7 +129,7 @@ class VorteilDefinition():
             ser.set('info', self.info)
         if self.bedingungen:
             ser.set('bedingungen', self.bedingungen)
-        EventBus.doAction("vorteildefinition_serialize", { "object" : self, "serializer" : ser})
+        EventBus.doAction("vorteildefinition_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser):
         self.name = ser.get('name')
@@ -153,7 +153,7 @@ class VorteilDefinition():
         self.linkElement = ser.get('linkElement', self.linkElement)
         self.info = ser.get('info', self.info)
         self.bedingungen = ser.get('bedingungen', self.bedingungen)
-        EventBus.doAction("vorteildefinition_deserialize", { "object" : self, "deserializer" : ser})
+        EventBus.doAction("vorteildefinition_deserialisiert", { "object" : self, "deserializer" : ser})
 
 class Vorteil:
     def __init__(self, definition, charakter):

@@ -51,7 +51,7 @@ class AbgeleiteterWertDefinition:
         if self.finalscript:
             ser.set('finalscript', self.finalscript)
         ser.set('sortorder', self.sortorder)
-        EventBus.doAction("abgeleiteterwertdefinition_serialize", { "object" : self, "serializer" : ser})
+        EventBus.doAction("abgeleiteterwertdefinition_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser):
         self.name = ser.get('name')
@@ -62,7 +62,7 @@ class AbgeleiteterWertDefinition:
         self.script = ser.get('script', '')
         self.finalscript = ser.get('finalscript', '')
         self.sortorder = ser.getInt('sortorder')
-        EventBus.doAction("abgeleiteterwertdefinition_deserialize", { "object" : self, "deserializer" : ser})
+        EventBus.doAction("abgeleiteterwertdefinition_deserialisiert", { "object" : self, "deserializer" : ser})
 
 class AbgeleiteterWert:
     def __init__(self, definition, charakter):

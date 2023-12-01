@@ -55,7 +55,7 @@ class RuestungDefinition:
         ser.set('rsBauch', self.rs[3])
         ser.set('rsBrust', self.rs[4])
         ser.set('rsKopf', self.rs[5])
-        EventBus.doAction("ruestungdefinition_serialize", { "object" : self, "serializer" : ser})
+        EventBus.doAction("ruestungdefinition_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser):
         self.name = ser.get('name')
@@ -68,7 +68,7 @@ class RuestungDefinition:
         self.rs[3] = ser.getInt('rsBauch')
         self.rs[4] = ser.getInt('rsBrust')
         self.rs[5] = ser.getInt('rsKopf')
-        EventBus.doAction("ruestungdefinition_deserialize", { "object" : self, "deserializer" : ser})
+        EventBus.doAction("ruestungdefinition_deserialisiert", { "object" : self, "deserializer" : ser})
 
 class Ruestung:
     def __init__(self, definition):

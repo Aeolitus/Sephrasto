@@ -31,6 +31,8 @@ class PluginData(object):
             logging.critical("Couldn't load plugin because class Plugin is missing: " + self.name)
             return False
 
+    def isLoaded(self): return self.plugin is not None
+
 class PluginLoader:
     @staticmethod
     def getPlugins(path):

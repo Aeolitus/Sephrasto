@@ -137,7 +137,7 @@ class TalentDefinition:
             ser.set('csAuflisten', False)
         if self.info:
             ser.set('info', self.info)
-        EventBus.doAction("talentdefinition_serialize", { "object" : self, "serializer" : ser})
+        EventBus.doAction("talentdefinition_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser):
         self.name = ser.get('name')
@@ -155,7 +155,7 @@ class TalentDefinition:
         self.referenzSeite = ser.getInt('referenzseite', self.referenzSeite)
         self.cheatsheetAuflisten = ser.getBool('csAuflisten', self.cheatsheetAuflisten)
         self.info = ser.get('info', self.info)
-        EventBus.doAction("talentdefinition_deserialize", { "object" : self, "deserializer" : ser})
+        EventBus.doAction("talentdefinition_deserialisiert", { "object" : self, "deserializer" : ser})
 
 class Talent:
     def __init__(self, definition, charakter):

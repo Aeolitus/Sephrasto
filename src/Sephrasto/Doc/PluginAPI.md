@@ -39,144 +39,166 @@ def talentKostenFilter(self, val, params):
         return val + 10
 ```
 
-## Actions, die Sephrasto absendet
-- "charakter_instanziiert" (Parameter: { "charakter" : Char })<br />
-Zweck: Charakter modifizieren, nachdem er instanziiert, aber bevor er geladen und aktualisiert wurde. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "charaktereditor_oeffnet" (Parameter: { "neu" : bool, "filepath" : string })<br />
-Zweck: Form und Wrapper für eigene Charakter-Editor Tabs initialisieren. Der neu Parameter enthält die Information, ob es sich um einen neuen Charakter handelt. Der filepath Parameter enthält den Pfad der Charakterdatei oder einen leeren string, falls ein neuer Charakter erstellt wird.
-- "charaktereditor_geoeffnet" (Parameter: { "neu" : bool, "filepath" : string })<br />
-Zweck: Beliebige Aktion durchführen, nachdem der CharakterEditor vollständig initialisiert wurde. Der neu Parameter enthält die Information, ob es sich um einen neuen Charakter handelt. Der filepath Parameter enthält den Pfad der Charakterdatei oder einen leeren string, falls ein neuer Charakter erstellt wurde.
-- "charakter_geladen" (Parameter: { "charakter" : Char, "deserializer" : Serialization.?Deserializer })<br />
-Zweck: Daten aus der Charakterdatei auslesen oder modifizieren, nachdem Sephrasto sie gelesen hat. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "plugins_geladen"<br />
-Zweck: Nach dieser Action sind alle Plugins initialisiert. Kann verwendet werden um mit anderen Plugins zu kommunizieren, um z.B. mit einer Action andere Plugins darüber in Kenntnis zu setzen, dass dieses Plugin vorhanden ist.
-- "charakter_epgesamt_geändert" (Parameter: { "charakter" : Char, "epAlt" : int, "epNeu": int })<br />
-Zweck: Beliebige Aktion durchführen, nachdem die Gesamt-EP modifiziert wurden.
-- "pre_charakter_aktualisieren" (Parameter: { "charakter" : Char })<br />
-Zweck: Beliebige Aktion durchführen, nachdem die Charakterwerte in irgendeiner Form modifiziert wurden, aber bevor die Veränderungen berechnet werden. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "charakter_aktualisieren_vorteilscripts" (Parameter: { "charakter" : Char })<br />
-Zweck: Wird während der Charakteraktualisierung nach der Berechnung des Basiswerte und vor der Ausführung der Vorteilskripte aufgerufen. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "charakter_aktualisieren_fertigkeiten" (Parameter: { "charakter" : Char })<br />
-Zweck: Wird während der Charakteraktualisierung nach der Ausführung der Vorteilskripte und vor der Aktualisierung der Fertigkeiten aufgerufen. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "charakter_aktualisieren_waffenwerte" (Parameter: { "charakter" : Char })<br />
-Zweck: Wird während der Charakteraktualisierung nach allen Berechnungen außer den Waffenwerten aufgerufen. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "post_charakter_aktualisieren" (Parameter: { "charakter" : Char })<br />
-Zweck: Beliebige Aktion durchführen, nachdem die Charakterwerte in irgendeiner Form modifiziert und berechnet wurden. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "vorteil_entfernt" (Parameter:  { "charakter" : Char, "name" : string })<br />
-Zweck: Aktionen durchführen, die nicht mit der Vorteil-Script-API möglich sind. Der "name" Parameter enthält den Namen des Vorteils. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "vorteil_gekauft" (Parameter: { "charakter" : Char, "name" : string })<br />
-Zweck: Aktionen durchführen, die nicht mit der Vorteil-Script-API möglich sind. Der "name" Parameter enthält den Namen des Vorteils. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "pdf_geschrieben" (Parameter: { "filepath" : string })<br />
-Zweck: Aktion durchführen, nachdem die Charakter-PDF geschrieben wurde, z.B. eine weitere PDF schreiben. Der Parameter enthält den Dateinamen der Charakter-PDF mit absolutem Pfad.
-- "basisdatenbank_geladen" (Parameter: { "datenbank" : Datenbank, "isCharakterEditor" : bool })<br />
-Zweck: Elemente der Basisdatenbank anpassen/hinzufügen/löschen, bevor die Hausregel-Datenbank geladen wird. Ein übliches Beispiel ist das Hinzufügen von DatenbankEinstellung-Elementen, mit welchen das Plugin konfiguriert werden kann.
-- "datenbank_geladen" (Parameter: { "datenbank" : Datenbank, "isCharakterEditor" : bool })<br />
-Zweck: Aktion durchführen, nachdem die Datenbank inkl. Hausregeldatenbank komplett geladen wurde. Eine Referenz auf das Datenbank-Objekt erhalten.
-- "regelanhang_anfuegen" (Parameter: { "reihenfolge" : string, "appendCallback" : Python-Funktion })<br />
-Zweck: Dem Regelanhang weiteren Text hinzufügen. Dies geschieht über den Parameter "appendCallback", einer Pythonfunktion die den Kategorienamen und den Text als Funktionsparameter hat. Der Kategoriename kann auch auf einen leeren string gesetzt werden. Die Action wird mehrmals aufgerufen, der "reihenfolge" Parameter sollte genutzt werden, um den Text an der richtigen Stelle einzufügen. Er entspricht einem Eintrag in der Datenbank-Einstellung "Regelanhang: Reihenfolge".
-- "dbe_menuitems_erstellen" (Parameter: { "addMenuItemCB" : Python-Funktion })<br />
-Zweck: Dem Datenbankeditor-Menu Einträge hinzufügen. Rufe dazu den addMenuItemCB auf. Er benötigt zwei Parameter: Der erste ist der Name des Menus, der zweite eine QAction.
-- Die folgenden Actions haben alle eine Gemeinsamkeit: Sie werden aufgerufen, wenn ein entsprechendes Objekt serialisiert bzw. deserialisiert wurde und können genutzt werden, um diese zu modifizieren. Als Parameter werden das (de-)serialisierte Objekt, sowie der verwendete (De-)Serializer übergeben.
-	* "abgeleiteterwertdefinition_serialize" (Parameter: { "object" : AbgeleiteterWertDefinition, "serializer" : ?Serializer })
-	* "abgeleiteterwertdefinition_deserialize" (Parameter: { "object" : AbgeleiteterWertDefinition, "deserializer" : ?Deserializer })
-    * "attributdefinition_serialize" (Parameter: { "object" : AttributDefinition, "serializer" : ?Serializer })
-	* "attributdefinition_deserialize" (Parameter: { "object" : AttributDefinition, "deserializer" : ?Deserializer })
-    * "datenbankeinstellung_serialize" (Parameter: { "object" : DatenbankEinstellung, "serializer" : ?Serializer })
-	* "datenbankeinstellung_deserialize" (Parameter: { "object" : DatenbankEinstellung, "deserializer" : ?Deserializer })
-    * "energiedefinition_serialize" (Parameter: { "object" : EnergieDefinition, "serializer" : ?Serializer })
-	* "energiedefinition_deserialize" (Parameter: { "object" : EnergieDefinition, "deserializer" : ?Deserializer })
-    * "fertigkeitdefinition_serialize" (Parameter: { "object" : FertigkeitDefinition, "serializer" : ?Serializer })
-	* "fertigkeitdefinition_deserialize" (Parameter: { "object" : FertigkeitDefinition, "deserializer" : ?Deserializer })
-    * "ueberfertigkeitdefinition_serialize" (Parameter: { "object" : UeberFertigkeitDefinition, "serializer" : ?Serializer })
-	* "ueberfertigkeitdefinition_deserialize" (Parameter: { "object" : UeberFertigkeitDefinition, "deserializer" : ?Deserializer })
-    * "freiefertigkeitdefinition_serialize" (Parameter: { "object" : FreieFertigkeitDefinition, "serializer" : ?Serializer })
-	* "freiefertigkeitdefinition_deserialize" (Parameter: { "object" : FreieFertigkeitDefinition, "deserializer" : ?Deserializer })
-    * "regel_serialize" (Parameter: { "object" : Regel, "serializer" : ?Serializer })
-	* "regel_deserialize" (Parameter: { "object" : Regel, "deserializer" : ?Deserializer })
-    * "ruestungdefinition_serialize" (Parameter: { "object" : RuestungDefinition, "serializer" : ?Serializer })
-	* "ruestungdefinition_deserialize" (Parameter: { "object" : RuestungDefinition, "deserializer" : ?Deserializer })
-    * "talentdefinition_serialize" (Parameter: { "object" : TalentDefinition, "serializer" : ?Serializer })
-	* "talentdefinition_deserialize" (Parameter: { "object" : TalentDefinition, "deserializer" : ?Deserializer })
-    * "vorteildefinition_serialize" (Parameter: { "object" : VorteilDefinition, "serializer" : ?Serializer })
-	* "vorteildefinition_deserialize" (Parameter: { "object" : VorteilDefinition, "deserializer" : ?Deserializer })
-    * "waffedefinition_serialize" (Parameter: { "object" : WaffeDefinition, "serializer" : ?Serializer })
-	* "waffedefinition_deserialize" (Parameter: { "object" : WaffeDefinition, "deserializer" : ?Deserializer })
-    * "waffeneigenschaft_serialize" (Parameter: { "object" : WaffenEigenschaft, "serializer" : ?Serializer })
-	* "waffeneigenschaft_deserialize" (Parameter: { "object" : WaffenEigenschaft, "deserializer" : ?Deserializer })
-<br />
-## Actions, die Sephrasto abonniert
-- "charaktereditor_reload" (Parameter: { "name" : string })<br />
-Zweck: Einen Toplevel-Tab des Charaktereditors neu initialisieren. Der name Parameter enthält den Namen des Tabs.
-- "charaktereditor_modified"<br />
-Zweck: Aktualisiert den Charakter und die EP und beim Schließen des Charaktereditors wird ein Popup angezeigt, das über ungespeicherte Änderungen mitteilt
-<br />
-## Filter, die Sephrasto absendet
-- "pdf_concat" (Filter: filePaths : array of string)<br />
-Zweck: Sephrasto fügt zum Schluss alle generierten Einzelseiten zusammen. Diese Liste von Einzelseiten kann hiermit manipuliert werden, z.B. um weitere Seiten einzufügen.
-- "pdf_export" (Filter: pdfFields : dict of {string : string})<br />
-Zweck: von Sephrasto generierte PDF-Felder vor dem Exportieren der PDF modifizieren
-- "pdf_export_extrapage" (Filter: pdfFields : dict of {string : string})<br />
-Zweck: von Sephrasto generierte PDF-Felder vor dem Exportieren der PDF modifizieren. Wird nur für Extraseiten aufgerufen, wenn diese nötig sind. Sie enthalten nur die Felder für übernatürliche Fertigkeiten, Talente und Vorteile.
-- "charakter_laden" (Filter: deserializer : Serialization.?Deserializer, Parameter: { "charakter" : Char })<br />
-Zweck: Daten aus der Charakterdatei auslesen oder modifizieren, bevor Sephrasto sie liest. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "charakter_schreiben" (Filter: serializer : Serialization.?Serializer, Parameter: { "charakter" : Char, "filepath" : string })<br />
-Zweck: Der Charakterdatei Daten hinzufügen oder Daten modifizieren, bevor Sephrasto die Datei schreibt. Der Parameter filepath kann den Wert "memory" enthalten, wenn der Charakter nicht in eine Datei gespeichert wird. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "datenbank_laden" (Filter: deserializer : Serialization.?Deserializer, Parameter: { "datenbank" : Datenbank, "basisdatenbank" : bool, "conflictCallback" : Python-Funktion })<br />
-Zweck: Datenbank-Datei auslesen, nachdem Sephrasto sie gelesen hat. Der "basisdatenbank"-Parameter enthält die Information, ob es sich um die Basisdatenbank- oder eine Hausregeldatenbank-Datei handelt. Der "conflictCallback"-Parameter ist nur gesetzt wenn basisdatenbank=false und kann ausgeführt werden, um beim Laden mehrerer Hausregeldatenbanken Konflikte eigener Datenbanktypen aufzulösen. Hierzu werden dem Callback der Name des Datenbanktyps, die alte sowie die neue Version des Elements als parameter übergeben, siehe Datenbank.py.
-- "datenbank_schreiben" (Filter: serializer : Serialization.?Serializer, Parameter: { "datenbank" : Datenbank, "merge" : bool })<br />
-Zweck: Der Datenbankdatei Daten hinzufügen oder Daten modifizieren, bevor Sephrasto die Datei schreibt.
-- "datenbank_verify", (Filter: loadingErrors : array, Parameter: { "datenbank" : Datenbank }) <br />
-Zweck: Eigene Datentypen verifizieren und bei Fehlern dem loadingErrors array hinzufügen, damit diese in der Fehlerliste des Datenbankeditors erscheinen.
-- "datenbank_editor_typen" (Filter: databaseTypes : dict of { Class : DatenbankEdit.DatenbankTypWrapper } )<br />
-Zweck: Dem Datenbankeditor weitere Datentypen hinzufügen. Zusätzlich muss via datenbank_geladen in datenbank.tablesByType die Datenbankelement-Tabelle eingetragenwerden.
-- "set_charakterbogen" (Filter: filePath : string)<br />
-Zweck: Den vom Nutzer gewählten Charakterbogen modifizieren, z.B. den Pfad der Datei anpassen um einen Charakterbogen aus dem Plugin zu verwenden. Achtung: Im Ordner des Charakterbogens muss sich eine gleichnamige Datei mit der Endung ".ini" befinden. Siehe Sephrasto/Data/Charakterbögen/Standard Charakterbogen.ini als Beispiel für deren Inhalt.
-- "energie_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "wertVon" : int, "wertAuf" : int })<br />
-Zweck: Die Kosten für AsP-Steigerungen anpassen. Der "wert" Parameter enthält die Anzahl zugekaufter AsP. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "attribut_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "attribut" : string, "wertVon" : int, "wertAuf" : int })<br />
-Zweck: Die Kosten für Attributs-Steigerungen anpassen. Die Parameter enthalten den Namen des Attributs und dessen Wert. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "fertigkeit_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "name" : string, "wertVon" : int, "wertAuf" : int })
-- "freiefertigkeit_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "name" : string, "wertVon" : int, "wertAuf" : int })<br />
-Zweck: Die Kosten für freie Fertigkeiten anpassen. Die Parameter enthalten den Namen der freien Fertigkeit und die Stufe. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "talent_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "talent" : string })<br />
-Zweck: Die Kosten für Talente anpassen. Der "talent" Parameter enthält den Namen des Talents. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "vorteil_kosten" (Filter: kosten: int, Parameter: { "charakter" : Char, "vorteil" : string })<br />
-Zweck: Die Kosten für Vorteile anpassen. Der "vorteil" Parameter enthält den Namen des Vorteils. Auf den Charakter sollte nur über den "charakter" Parameter zugegriffen werden, nicht über Wolke.Char.
-- "ruestung_be" (Filter: be: int, Parameter: { "name" : string })<br />
-Zweck: Die BE einer Rüstung des Rüstungauswahlfensters anpassen. Achtung: Da Rüstungen ergänzt werden können und die Namen dann konkateniert werden, sollte der name via "in" abgefragt werden (bspw. if "Leichte Platte" in name).
-- "regelanhang_reihenfolge_name" (Filter: name : string)<br />
-Zweck: Wenn der Datenbank-Einstellung "Regelanhang: Reihenfolge" neue Kürzel hinzugefügt werden, kann mit diesem Filter der volle Name für das Kürzel angegeben werden, damit es im Info-Tab bei den Regelanhangkategorien verständlich dargestellt wird. Der anfängliche Filterwert entspricht dem Kürzel.
-- Die folgenden Filter haben alle eine Gemeinsamkeit:  Der Filterwert ist eine Wrapperklasse eines der UI-Tabs oder Auswahlfenster. Im Filter kann der Wrapper komplett ersetzt oder beerbt werden, um die Sephrasto-UI anzupassen.
-	* "class_beschreibung_wrapper" (Filter: BeschrWrapper : class)
-	* "class_beschreibung_details_wrapper" (Filter: CharakterBeschreibungDetailsWrapper : class)
-	* "class_attribute_wrapper" (Filter: AttrWrapper : class)
-	* "class_fertigkeiten_wrapper" (Filter: FertigkeitenWrapper : class)
-	* "class_profanefertigkeiten_wrapper" (Filter: ProfaneFertigkeitenWrapper : class)
-	* "class_freiefertigkeiten_wrapper" (Filter: CharakterFreieFertWrapper : class)
-	* "class_uebernatuerlichefertigkeiten_wrapper" (Filter: UebernatuerlichWrapper : class)
-	* "class_ausruestung_wrapper" (Filter: EquipWrapper : class)
-	* "class_waffen_wrapper" (Filter: CharakterWaffenWrapper : class)
-	* "class_inventar_wrapper" (Filter: CharakterInventarWrapper : class)
-	* "class_vorteile_wrapper" (Filter: CharakterVorteileWrapper : class)
-	* "class_info_wrapper" (Filter: InfoWrapper : class)
-	* "class_waffenpicker_wrapper" (Filter: WaffenPicker : class)
-	* "class_ruestungspicker_wrapper" (Filter: RuestungPicker : class)
-	* "class_freiefertigkeitenpicker_wrapper" (Filter: CharakterFreieFertigkeitenPickerWrapper : class)
-	* "class_talentpicker_wrapper" (Filter: TalentPicker : class)
-- Das gleiche gilt für die Hausregeleditor-Fenster:
-    * "dbe_class_abgeleiteterwertdefinition_wrapper" (Filter: DatenbankEditAbgeleiteterWertWrapper : class)
-    * "dbe_class_attributdefinition_wrapper" (Filter: DatenbankEditAttributWrapper : class)
-    * "dbe_class_datenbankeinstellung_wrapper" (Filter: DatenbankEditEinstellungWrapper : class)
-    * "dbe_class_energiedefinition_wrapper" (Filter: DatenbankEditEnergieWrapper : class)
-    * "dbe_class_profanefertigkeitdefinition_wrapper" (Filter: DatenbankEditProfaneFertigkeitWrapper : class)
-    * "dbe_class_uebernatuelichefertigkeitdefinition_wrapper" (Filter: DatenbankEditUebernatürlicheFertigkeitWrapper : class)
-    * "dbe_class_freiefertigkeitdefinition_wrapper" (Filter: DatenbankEditFreieFertigkeitWrapper : class)
-    * "dbe_class_regel_wrapper" (Filter: DatenbankEditRegelWrapper : class)
-    * "dbe_class_ruestungdefinition_wrapper" (Filter: DatenbankEditRuestungWrapper : class)
-    * "dbe_class_talentdefinition_wrapper" (Filter: DatenbankEditTalentWrapper : class)
-    * "dbe_class_vorteildefinition_wrapper" (Filter: DatenbankEditVorteilWrapper : class)
-    * "dbe_class_waffedefinition_wrapper" (Filter: DatenbankEditWaffeWrapper : class)
-    * "dbe_class_waffeneigenschaftdefinition_wrapper" (Filter: DatenbankEditWaffeneigenschaftWrapper : class)
+Im Folgenden werden alle nutzbaren Actions und Filter erläutert. Sie sind kategorisiert nach Charakter, Charaktereditor, PDF Export, Datenbank, Datenbankeditor und Verschiedenes. Zuletzt gibt es noch ein paar Actions, die Sephrasto selbst abonniert.<br />
+
+### Charakter
+Wichtig: Alle Actions/Filter, die den Charakter betreffen, übergeben den Charakter als Parameter. Auf den Charakter sollte nur über diesen Parameter zugegriffen werden, nicht über Wolke.Char.
+
+| Name | Typ | Filter // Parameter | Zweck |
+|---|---|---|---|
+|**Load/Save**|
+|charakter_instanziiert|Action|{ "charakter" : Char }|Charakter modifizieren, nachdem er instanziiert, aber bevor er geladen und aktualisiert wurde.|
+|charakter_serialisieren|Filter|Serialization.?Serializer // { "charakter" : Char }|Dem Serialisierer Daten hinzufügen, bevor Sephrasto den Charakter hineinschreibt.|
+|charakter_serialisiert|Action|{ "charakter" : Char, "serializer" : Serialization.?Serializer }|Dem Serialisierer Daten hinzufügen oder modifizieren, nachdem Sephrasto den Charakter hineingeschrieben hat.|
+|charakter_deserialisieren|Filter|Serialization.?Deserializer // {"charakter" : Char }|Aus dem Deserialisierer Daten laden oder modifizieren, bevor Sephrasto den Charakter daraus lädt.|
+|charakter_deserialisiert|Action|{ "charakter" : Char, "deserializer" : ?Deserializer }|Aus dem Deserialisierer Daten laden, nachdem Sephrasto den Charakter daraus geladen hat.|
+|charakter_geschrieben|Ation|{ "charakter" : Char, "filepath" : str }|Die Charakterdatei modifizieren oder weitere Dateien erstellen|
+|**Update**|
+|pre_charakter_aktualisieren|Action|{ "charakter" : Char }|Beliebige Aktion durchführen, nachdem die Charakterwerte in irgendeiner Form modifiziert wurden, aber bevor die Veränderungen berechnet werden.|
+|charakter_aktualisieren_vorteilscripts|Action|{ "charakter" : Char }|Wird während der Charakteraktualisierung nach der Berechnung des Basiswerte und vor der Ausführung der Vorteilskripte aufgerufen.|
+|charakter_aktualisieren_fertigkeiten|Action|{ "charakter" : Char }|Wird während der Charakteraktualisierung nach der Ausführung der Vorteilskripte und vor der Aktualisierung der Fertigkeiten aufgerufen.|
+|charakter_aktualisieren_waffenwerte|Action|{ "charakter" : Char }|Wird während der Charakteraktualisierung nach allen Berechnungen außer den Waffenwerten aufgerufen.|
+|post_charakter_aktualisieren|Action|{ "charakter" : Char }|Beliebige Aktion durchführen, nachdem die Charakterwerte in irgendeiner Form modifiziert und berechnet wurden.|
+|vorteil_entfernt|Action|{ "charakter" : Char, "name" : str }|Aktionen durchführen, die nicht mit der Vorteil-Script-API möglich sind. Der "name" Parameter enthält den Namen des Vorteils.|
+|vorteil_gekauft|Action|{ "charakter" : Char, "name" : str }|Aktionen durchführen, die nicht mit der Vorteil-Script-API möglich sind. Der "name" Parameter enthält den Namen des Vorteils.|
+|charakter_epgesamt_geändert|Action|{ "charakter" : Char, "epAlt" : int, "epNeu": int }|Beliebige Aktion durchführen, nachdem die Gesamt-EP modifiziert wurden.|
+|**Kosten**|
+|energie_kosten|Filter|kosten: int // { "charakter" : Char, "energie" : str, "wertVon" : int, "wertAuf" : int }|Die Kosten für Energie-Steigerungen anpassen. Die Parameter enthalten den Namen der Energie und die Ausgangs- und Zielwerte.|
+|attribut_kosten|Filter|kosten: int// { "charakter" : Char, "attribut" : str, "wertVon" : int, "wertAuf" : int }|Die Kosten für Attributs-Steigerungen anpassen. Die Parameter enthalten den Namen des Attributs und die Ausgangs- und Zielwerte.|
+|fertigkeit_kosten|Filter|kosten: int // { "charakter" : Char, "name" : str, "wertVon" : int, "wertAuf" : int }|Die Kosten für Fertigkeits-Steigerungen anpassen. Die Parameter enthalten den Namen der Fertigkeit und die Ausgangs- und Zielwerte.|
+|freiefertigkeit_kosten|Filter|kosten: int // { "charakter" : Char, "name" : str, "wertVon" : int, "wertAuf" : int }|Die Kosten für freie Fertigkeiten anpassen. Die Parameter enthalten den Namen der freien Fertigkeit und die Stufe.|
+|talent_kosten|Filter|kosten: int // { "charakter" : Char, "talent" : str }|Die Kosten für Talente anpassen. Der "talent" Parameter enthält den Namen des Talents.|
+|vorteil_kosten|Filter|kosten: int // { "charakter" : Char, "vorteil" : str }|Die Kosten für Vorteile anpassen. Der "vorteil" Parameter enthält den Namen des Vorteils.|
+
+Die folgenden Actions haben alle eine Gemeinsamkeit: Sie werden aufgerufen, wenn ein entsprechendes Objekt serialisiert bzw. deserialisiert wurde und können genutzt werden, um diese zu modifizieren. Als Parameter werden das (de-)serialisierte Objekt, sowie der verwendete (De-)Serializer übergeben.
+
+| Name | Typ | Parameter | 
+|---|---|---|
+|abgeleiteterwertdefinition_serialisiert|Action|{ "object" : AbgeleiteterWertDefinition, "serializer" : ?Serializer }|
+|abgeleiteterwertdefinition_deserialisiert|Action|{ "object" : AbgeleiteterWertDefinition, "deserializer" : ?Deserializer })|
+|attributdefinition_serialisiert|Action|{ "object" : AttributDefinition, "serializer" : ?Serializer })|
+|attributdefinition_deserialisiert|Action|{ "object" : AttributDefinition, "deserializer" : ?Deserializer })|
+|datenbankeinstellung_serialisiert|Action|{ "object" : DatenbankEinstellung, "serializer" : ?Serializer })|
+|datenbankeinstellung_deserialisiert|Action|{ "object" : DatenbankEinstellung, "deserializer" : ?Deserializer })|
+|energiedefinition_serialisiert|Action|{ "object" : EnergieDefinition, "serializer" : ?Serializer })|
+|energiedefinition_deserialisiert|Action|{ "object" : EnergieDefinition, "deserializer" : ?Deserializer })|
+|fertigkeitdefinition_serialisiert|Action|{ "object" : FertigkeitDefinition, "serializer" : ?Serializer })|
+|fertigkeitdefinition_deserialisiert|Action|{ "object" : FertigkeitDefinition, "deserializer" : ?Deserializer })|
+|ueberfertigkeitdefinition_serialisiert|Action|{ "object" : UeberFertigkeitDefinition, "serializer" : ?Serializer })|
+|ueberfertigkeitdefinition_deserialisiert|Action|{ "object" : UeberFertigkeitDefinition, "deserializer" : ?Deserializer })|
+|freiefertigkeitdefinition_serialisiert|Action|{ "object" : FreieFertigkeitDefinition, "serializer" : ?Serializer })|
+|freiefertigkeitdefinition_deserialisiert|Action|{ "object" : FreieFertigkeitDefinition, "deserializer" : ?Deserializer })|
+|regel_serialisiert|Action|{ "object" : Regel, "serializer" : ?Serializer })|
+|regel_deserialisiert|Action|{ "object" : Regel, "deserializer" : ?Deserializer })|
+|ruestungdefinition_serialisiert|Action|{ "object" : RuestungDefinition, "serializer" : ?Serializer })|
+|ruestungdefinition_deserialisiert|Action|{ "object" : RuestungDefinition, "deserializer" : ?Deserializer })|
+|talentdefinition_serialisiert|Action|{ "object" : TalentDefinition, "serializer" : ?Serializer })|
+|talentdefinition_deserialisiert|Action|{ "object" : TalentDefinition, "deserializer" : ?Deserializer })|
+|vorteildefinition_serialisiert|Action|{ "object" : VorteilDefinition, "serializer" : ?Serializer })|
+|vorteildefinition_deserialisiert|Action|{ "object" : VorteilDefinition, "deserializer" : ?Deserializer })|
+|waffedefinition_serialisiert|Action|{ "object" : WaffeDefinition, "serializer" : ?Serializer })|
+|waffedefinition_deserialisiert|Action|{ "object" : WaffeDefinition, "deserializer" : ?Deserializer })|
+|waffeneigenschaft_serialisiert|Action|{ "object" : WaffenEigenschaft, "serializer" : ?Serializer })|
+|waffeneigenschaft_deserialisiert|Action|{ "object" : WaffenEigenschaft, "deserializer" : ?Deserializer })|
+
+### Charaktereditor
+| Name | Typ | Filter // Parameter | Zweck |
+|---|---|---|---|
+|charaktereditor_oeffnet|Action|{ "neu" : bool, "filepath" : str }|Form und Wrapper für eigene Charakter-Editor Tabs initialisieren. Der neu Parameter enthält die Information, ob es sich um einen neuen Charakter handelt. Der filepath Parameter enthält den Pfad der Charakterdatei oder einen leeren str, falls ein neuer Charakter erstellt wird.|
+|charaktereditor_geoeffnet|Action|{ "neu" : bool, "filepath" : str }|Beliebige Aktion durchführen, nachdem der CharakterEditor vollständig initialisiert wurde. Der neu Parameter enthält die Information, ob es sich um einen neuen Charakter handelt. Der filepath Parameter enthält den Pfad der Charakterdatei oder einen leeren str, falls ein neuer Charakter erstellt wurde.|
+|ruestung_be|Filter|be: int // { "name" : str }|Die BE einer Rüstung des Rüstungauswahlfensters anpassen. Achtung: Da Rüstungen ergänzt werden können und die Namen dann konkateniert werden, sollte der name via "in" abgefragt werden (bspw. if "Leichte Platte" in name).|
+|regelanhang_reihenfolge_name|Filter|name : str // {}|Wenn der Datenbank-Einstellung "Regelanhang: Reihenfolge" neue Kürzel hinzugefügt werden, kann mit diesem Filter der volle Name für das Kürzel angegeben werden, damit es im Info-Tab bei den Regelanhangkategorien verständlich dargestellt wird. Der anfängliche Filterwert entspricht dem Kürzel.|
+
+Die folgenden Filter haben alle eine Gemeinsamkeit:  Der Filterwert ist eine Wrapperklasse eines der UI-Tabs oder Auswahlfenster. Im Filter kann der Wrapper komplett ersetzt oder beerbt werden, um die Sephrasto-UI anzupassen.
+
+| Name | Typ | Filter // Parameter | 
+|---|---|---|
+|class_beschreibung_wrapper|Filter|BeschrWrapper : class // {}|
+|class_beschreibung_details_wrapper|Filter|CharakterBeschreibungDetailsWrapper : class // {}|
+|class_attribute_wrapper|Filter|ttrWrapper : class // {}|
+|class_fertigkeiten_wrapper|Filter|FertigkeitenWrapper : class // {}|
+|class_profanefertigkeiten_wrapper|Filter|ProfaneFertigkeitenWrapper : class // {}|
+|class_freiefertigkeiten_wrapper|Filter|CharakterFreieFertWrapper : class // {}|
+|class_uebernatuerlichefertigkeiten_wrapper|Filter|UebernatuerlichWrapper : class // {}|
+|class_ausruestung_wrapper|Filter|EquipWrapper : class // {}|
+|class_waffen_wrapper|Filter|CharakterWaffenWrapper : class // {}|
+|class_inventar_wrapper|Filter|CharakterInventarWrapper : class // {}|
+|class_vorteile_wrapper|Filter|CharakterVorteileWrapper : class // {}|
+|class_info_wrapper|Filter|InfoWrapper : class // {}|
+|class_waffenpicker_wrapper|Filter|WaffenPicker : class // {}|
+|class_ruestungspicker_wrapper|Filter|RuestungPicker : class // {}|
+|class_freiefertigkeitenpicker_wrapper|Filter|CharakterFreieFertigkeitenPickerWrapper : class // {}|
+|class_talentpicker_wrapper|Filter|TalentPicker : class // {}|
+
+### PDF Export
+| Name | Typ | Filter // Parameter | Zweck |
+|---|---|---|---|
+|pdf_geschrieben|Action|{ "filepath" : str }|Aktion durchführen, nachdem die Charakter-PDF geschrieben wurde, z.B. eine weitere PDF schreiben. Der Parameter enthält den Dateinamen der Charakter-PDF mit absolutem Pfad.
+|regelanhang_anfuegen|Action|{ "reihenfolge" : str, "appendCallback" : Python-Funktion }| Dem Regelanhang weiteren Text hinzufügen. Dies geschieht über den Parameter "appendCallback", einer Pythonfunktion die den Kategorienamen und den Text als Funktionsparameter hat. Der Kategoriename kann auch auf einen leeren str gesetzt werden. Die Action wird mehrmals aufgerufen, der "reihenfolge" Parameter sollte genutzt werden, um den Text an der richtigen Stelle einzufügen. Er entspricht einem Eintrag in der Datenbank-Einstellung "Regelanhang: Reihenfolge".|
+|pdf_concat|Filter|filePaths : [str] // {}|Sephrasto fügt zum Schluss alle generierten Einzelseiten zusammen. Diese Liste von Einzelseiten kann hiermit manipuliert werden, z.B. um weitere Seiten einzufügen.|
+|pdf_export|Filter|pdfFields : {str : str} // {}|Von Sephrasto generierte PDF-Felder vor dem Exportieren der PDF modifizieren|
+|pdf_export_extrapage|Filter|pdfFields : {str : str} // {}|Von Sephrasto generierte PDF-Felder vor dem Exportieren der PDF modifizieren. Wird nur für Extraseiten aufgerufen, wenn diese nötig sind. Sie enthalten nur die Felder für übernatürliche Fertigkeiten, Talente und Vorteile.|
+|set_charakterbogen|Filter|filePath : str // {}|Den vom Nutzer gewählten Charakterbogen modifizieren, z.B. den Pfad der Datei anpassen um einen Charakterbogen aus dem Plugin zu verwenden. Achtung: Im Ordner des Charakterbogens muss sich eine gleichnamige Datei mit der Endung ".ini" befinden. Siehe Sephrasto/Data/Charakterbögen/Standard Charakterbogen.ini als Beispiel für deren Inhalt.|
+
+### Datenbank
+| Name | Typ | Filter // Parameter | Zweck |
+|---|---|---|---|
+|datenbank_serialisieren|Filter|Serialization.?Serializer // { "datenbank" : Datenbank, "merge" : bool }|Dem Serialisierer Daten hinzufügen, bevor Sephrasto die Datenbank hineinschreibt. Der Parameter merge beschreibt, ob die Basisdatenbank mit den Hausregeln zusammengeführt werden soll.|
+|datenbank_serialisiert|Action|{ "datenbank" : Datenbank, "serializer" : Serialization.?Serializer, "merge" : bool }|Dem Serialisierer Daten hinzufügen oder modifizieren, nachdem Sephrasto die Datenbank hineingeschrieben hat. Der Parameter merge beschreibt, ob die Basisdatenbank mit den Hausregeln zusammengeführt werden soll.|
+|datenbank_deserialisieren|Filter|Serialization.?Deserializer // {"datenbank" : Datenbank, "basisdatenbank" : bool, "conflictCallback" : Python-Funktion }|Aus dem Deserialisierer Daten laden oder modifizieren, bevor Sephrasto die Datenbank daraus lädt. Der "basisdatenbank"-Parameter enthält die Information, ob es sich um die Basisdatenbank- oder eine Hausregeldatenbank-Datei handelt. Der "conflictCallback"-Parameter ist nur gesetzt wenn basisdatenbank=false und kann ausgeführt werden, um beim Laden mehrerer Hausregeldatenbanken Konflikte eigener Datenbanktypen aufzulösen. Hierzu werden dem Callback der Name des Datenbanktyps, die alte sowie die neue Version des Elements als parameter übergeben, siehe Datenbank.py.|
+|datenbank_deserialisiert|Action|{ "datenbank" : Datenbank, "deserializer" : ?Deserializer, "basisdatenbank" : bool, "conflictCallback" : Python-Funktion }|Aus dem Deserialisierer Daten laden, nachdem Sephrasto die Datenbank daraus geladen hat. Der "basisdatenbank"-Parameter enthält die Information, ob es sich um die Basisdatenbank- oder eine Hausregeldatenbank-Datei handelt. Der "conflictCallback"-Parameter ist nur gesetzt wenn basisdatenbank=false und kann ausgeführt werden, um beim Laden mehrerer Hausregeldatenbanken Konflikte eigener Datenbanktypen aufzulösen. Hierzu werden dem Callback der Name des Datenbanktyps, die alte sowie die neue Version des Elements als parameter übergeben, siehe Datenbank.py.|
+|basisdatenbank_geladen|Action|{"datenbank" : Datenbank, "isCharakterEditor" : bool }|Elemente der Basisdatenbank anpassen/hinzufügen/löschen, bevor die Hausregel-Datenbank geladen wird. Ein übliches Beispiel ist das Hinzufügen von DatenbankEinstellung-Elementen, mit welchen das Plugin konfiguriert werden kann.|
+|datenbank_geladen|Action|{ "datenbank" : Datenbank, "isCharakterEditor" : bool }|Aktion durchführen, nachdem die Datenbank inkl. Hausregeldatenbank komplett geladen wurde. Eine Referenz auf das Datenbank-Objekt erhalten.|
+|datenbank_verify|Filter|loadingErrors : [[object, str]] // { "datenbank" : Datenbank }|Eigene Datentypen verifizieren und bei Fehlern dem loadingErrors array hinzufügen, damit diese in der Fehlerliste des Datenbankeditors erscheinen.|
+
+### Datenbankeditor
+| Name | Typ | Filter // Parameter | Zweck |
+|---|---|---|---|
+|dbe_menuitems_erstellen|Action|{ "addMenuItemCB" : Python-Funktion }|Dem Datenbankeditor-Menu Einträge hinzufügen. Rufe dazu den addMenuItemCB auf. Er benötigt zwei Parameter: Der erste ist der Name des Menus, der zweite eine QAction.|
+|datenbank_editor_typen|Filter| databaseTypes : { Class : DatenbankTypWrapper } // {}|Dem Datenbankeditor weitere Datentypen hinzufügen. Zusätzlich muss via datenbank_geladen in datenbank.tablesByType die Datenbankelement-Tabelle eingetragenwerden.|
+
+Die folgenden Filter haben alle eine Gemeinsamkeit:  Der Filterwert ist eine Wrapperklasse eines der UI-Tabs oder Auswahlfenster. Im Filter kann der Wrapper komplett ersetzt oder beerbt werden, um die Sephrasto-UI anzupassen.
+
+| Name | Typ | Filter // Parameter |
+|---|---|---|
+|dbe_class_abgeleiteterwertdefinition_wrapper|Filter|DatenbankEditAbgeleiteterWertWrapper : class // {}|
+|dbe_class_attributdefinition_wrapper|Filter|DatenbankEditAttributWrapper : class // {}|
+|dbe_class_datenbankeinstellung_wrapper|Filter|DatenbankEditEinstellungWrapper : class // {}|
+|dbe_class_energiedefinition_wrapper|Filter|DatenbankEditEnergieWrapper : class // {}|
+|dbe_class_profanefertigkeitdefinition_wrapper|Filter|DatenbankEditProfaneFertigkeitWrapper : class // {}|
+|dbe_class_uebernatuelichefertigkeitdefinition_wrapper|Filter|DatenbankEditUebernatürlicheFertigkeitWrapper : class // {}|
+|dbe_class_freiefertigkeitdefinition_wrapper|Filter|DatenbankEditFreieFertigkeitWrapper : class // {}|
+|dbe_class_regel_wrapper|Filter|DatenbankEditRegelWrapper : class // {}|
+|dbe_class_ruestungdefinition_wrapper|Filter|DatenbankEditRuestungWrapper : class // {}|
+|dbe_class_talentdefinition_wrapper|Filter|DatenbankEditTalentWrapper : class // {}|
+|dbe_class_vorteildefinition_wrapper|Filter|DatenbankEditVorteilWrapper : class // {}|
+|dbe_class_waffedefinition_wrapper|Filter|DatenbankEditWaffeWrapper : class // {}|
+|dbe_class_abgeleiteterwertdefinition_wrapper|Filter|DatenbankEditAbgeleiteterWertWrapper : class // {}|
+|dbe_class_attributdefinition_wrapper|Filter|DatenbankEditAttributWrapper : class // {}|
+|dbe_class_datenbankeinstellung_wrapper|Filter|DatenbankEditEinstellungWrapper : class // {}|
+|dbe_class_energiedefinition_wrapper|Filter|DatenbankEditEnergieWrapper : class // {}|
+|dbe_class_profanefertigkeitdefinition_wrapper|Filter|DatenbankEditProfaneFertigkeitWrapper : class // {}|
+|dbe_class_uebernatuelichefertigkeitdefinition_wrapper|Filter|DatenbankEditUebernatürlicheFertigkeitWrapper : class // {}|
+|dbe_class_freiefertigkeitdefinition_wrapper|Filter|DatenbankEditFreieFertigkeitWrapper : class // {}|
+|dbe_class_regel_wrapper|Filter|DatenbankEditRegelWrapper : class // {}|
+|dbe_class_ruestungdefinition_wrapper|Filter|DatenbankEditRuestungWrapper : class // {}|
+|dbe_class_talentdefinition_wrapper|Filter|DatenbankEditTalentWrapper : class // {}|
+|dbe_class_vorteildefinition_wrapper|Filter|DatenbankEditVorteilWrapper : class // {}|
+|dbe_class_waffedefinition_wrapper|Filter|DatenbankEditWaffeWrapper : class // {}|
+|dbe_class_waffeneigenschaftdefinition_wrapper|Filter|DatenbankEditWaffeneigenschaftWrapper : class // {}|DatenbankEditWaffeneigenschaftWrapper : class // {}|
+
+### Verschiedenes
+| Name | Typ | Parameter | Zweck |
+|---|---|---|---|
+|plugins_geladen|Action|{ "plugins" : [str] }|Nach dieser Action sind alle Plugins initialisiert. Kann verwendet werden um mit anderen Plugins über eigene Actions und Filter zu kommunizieren. Der Parameter enthält eine Liste mit den Namen aller aktivierten Plugins.|
+
+### Von Sephrasto abonnierte Actions
+Diese Actions können von Plugins abgesendet werden, um Sephrasto anweisungen zu geben.
+
+| Name | Typ | Parameter | Zweck |
+|---|---|---|---|
+|charaktereditor_reload|Action|{ "name" : str }|Einen Toplevel-Tab des Charaktereditors neu initialisieren. Der name Parameter enthält den Namen des Tabs.|
+|charaktereditor_modified|Action|{}|Aktualisiert den Charakter und die EP und beim Schließen des Charaktereditors wird ein Popup angezeigt, das über ungespeicherte Änderungen mitteilt|
 
 ## Neues Plugin erstellen
 - Gehe in deinen `Dokumente/Sephrasto/Plugins` Ordner

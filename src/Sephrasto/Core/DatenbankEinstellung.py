@@ -71,7 +71,7 @@ class DatenbankEinstellung:
             ser.set('beschreibung', self.beschreibung)
             ser.set('separator', self.separator)
             ser.set('strip', self.strip)
-        EventBus.doAction("datenbankeinstellung_serialize", { "object" : self, "serializer" : ser})
+        EventBus.doAction("datenbankeinstellung_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser):
         self.name = ser.get('name')
@@ -80,4 +80,4 @@ class DatenbankEinstellung:
         self.beschreibung = ser.get('beschreibung', self.beschreibung)
         self.separator = ser.get('separator', "\n")
         self.strip = ser.getBool('strip', self.strip)
-        EventBus.doAction("datenbankeinstellung_deserialize", { "object" : self, "deserializer" : ser})
+        EventBus.doAction("datenbankeinstellung_deserialisiert", { "object" : self, "deserializer" : ser})

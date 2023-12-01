@@ -41,7 +41,7 @@ class Regel():
         ser.set('voraussetzungen', self.voraussetzungen.text)
         ser.set('typ', self.typ)
         ser.set('probe', self.probe)
-        EventBus.doAction("regel_serialize", { "object" : self, "serializer" : ser})
+        EventBus.doAction("regel_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser):
         self.name = ser.get('name')
@@ -49,4 +49,4 @@ class Regel():
         self.voraussetzungen.compile(ser.get('voraussetzungen', ''))      
         self.typ = ser.getInt('typ')
         self.probe = ser.get('probe')
-        EventBus.doAction("regel_deserialize", { "object" : self, "deserializer" : ser})
+        EventBus.doAction("regel_deserialisiert", { "object" : self, "deserializer" : ser})

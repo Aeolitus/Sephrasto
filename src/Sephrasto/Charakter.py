@@ -733,10 +733,13 @@ class Char():
     def saveFile(self, filename):
         _, fileExtension = os.path.splitext(filename)
         serializer = Serialization.getSerializer(fileExtension, 'Charakter')
-        self.serialize(serializer, filename)
+        self.serialize(serializer)
         serializer.writeFile(filename)
+        ser = EventBus.applyFilter("charakter_geschrieben", serializer, { "charakter" : self, "filepath" : filename })
 
-    def serialize(self, ser, filename = "memory"):      
+    def serialize(self, serializer):   
+        ser = EventBus.applyFilter("charakter_serialisieren", serializer, { "charakter" : self })
+
         ser.begin('Version')
         ser.setNested('CharakterVersion', Migrationen.charakterCodeVersion)
         ser.setNested('Plugins', ", ".join(self.enabledPlugins))
@@ -892,10 +895,10 @@ class Char():
             ser.setNested('Bild', base64.b64encode(self.bild))
         ser.end() #beschreibungdetails
         
-        EventBus.applyFilter("charakter_schreiben", ser, { "charakter" : self, "filepath" : filename })
+        EventBus.doAction("charakter_serialisiert", { "charakter" : self, "serializer" : ser })
 
     @staticmethod
-    def xmlHausregelnLesen(filename):
+    def hausregelnLesen(filename):
         _, fileExtension = os.path.splitext(filename)
         options = { "useCache" : False }
         deserializer = Serialization.getDeserializer(fileExtension, options)
@@ -938,7 +941,7 @@ class Char():
         return self.deserialize(deserializer)
 
     def deserialize(self, deserializer):
-        ser = deserializer
+        ser = EventBus.applyFilter("charakter_deserialisieren", deserializer, { "charakter" : self })
 
         if ser.currentTag != "Charakter":
             return False
@@ -963,8 +966,6 @@ class Char():
             if hausregeln:
                 letzteHausregeln = hausregeln
             ser.end() #version
-
-        root = EventBus.applyFilter("charakter_laden", ser, { "charakter" : self })
 
         if ser.find("Beschreibung"):
             self.name = ser.getNested('Name', self.name)
@@ -1185,8 +1186,8 @@ class Char():
 
             ser.end() #beschreibungdetails
 
+        EventBus.doAction("charakter_deserialisiert", { "charakter" : self , "deserializer" : ser })
 
-        EventBus.doAction("charakter_geladen", { "charakter" : self , "deserializer" : ser })
         hausregelMissmatch = Wolke.DB.hausregelnAnzeigeName != letzteHausregeln
         anyIgnored = aIgnored or eIgnored or vIgnored or fIgnored or tIgnored or übIgnored or wIgnored
         if hausregelMissmatch or anyIgnored:
