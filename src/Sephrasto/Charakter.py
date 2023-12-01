@@ -1015,13 +1015,9 @@ class Char():
                     continue
                 vorteil = self.addVorteil(name)
                 if vorteil.variableKosten:
-                    variableKosten = ser.getInt('variableKosten')
-                    if variableKosten is not None:
-                        vorteil.kosten = variableKosten
+                    vorteil.kosten = ser.getInt('variableKosten', vorteil.kosten)
                 if vorteil.kommentarErlauben:
-                    kommentar = ser.get('kommentar')
-                    if kommentar is not None:
-                        vorteil.kommentar = kommentar
+                    vorteil.kommentar = ser.get('kommentar', vorteil.kommentar)
             ser.end() #vorteile
 
         if "Minderpakt" in self.vorteile:
@@ -1134,13 +1130,9 @@ class Char():
             
                 talent = self.addTalent(name)
                 if talent.variableKosten:
-                    variableKosten = ser.getInt('variableKosten')
-                    if variableKosten is not None:
-                        talent.kosten = variableKosten
+                    talent.kosten = ser.getInt('variableKosten', talent.kosten)
                 if talent.kommentarErlauben:
-                    kommentar = ser.get('kommentar')
-                    if kommentar is not None:
-                        talent.kommentar = kommentar
+                    talent.kommentar = ser.get('kommentar', talent.kommentar)
             ser.end() #talente
 
         if ser.find('Erfahrung'):

@@ -171,13 +171,13 @@ class XmlDeserializer(XmlSerializerBase):
         else:
             return self._currentNode.get(name, default)
 
-    def getBool(self, name, default = None):
+    def getBool(self, name, default = False):
         return self._currentNode.get(name, default) == "1"
 
-    def getInt(self, name, default = None):
+    def getInt(self, name, default = 0):
         return int(self._currentNode.get(name, default))
 
-    def getFloat(self, name, default = None):
+    def getFloat(self, name, default = 0.0):
         return float(self._currentNode.get(name, default))
 
     def getNested(self, name, default = None):
@@ -191,13 +191,13 @@ class XmlDeserializer(XmlSerializerBase):
             return val
         return default
 
-    def getNestedBool(self, name, default = None):
+    def getNestedBool(self, name, default = False):
         return self.getNested(name, default) == "1"
 
-    def getNestedInt(self, name, default = None):
+    def getNestedInt(self, name, default = 0):
         return int(self.getNested(name, default))
 
-    def getNestedFloat(self, name, default = None):
+    def getNestedFloat(self, name, default = 0.0):
         return float(self.getNested(name, default))
 
     def readFile(self, filePath, dataName = None):

@@ -58,7 +58,7 @@ class FertigkeitDefinition:
         self.steigerungsfaktor = ser.getInt('steigerungsfaktor')
         self.attribute = Hilfsmethoden.AttrStr2Array(ser.get('attribute'))
         self.kampffertigkeit = ser.getInt('kampffertigkeit')
-        self.typ = ser.getInt('typ', -1)
+        self.typ = ser.getInt('typ', self.typ)
         EventBus.doAction("fertigkeitdefinition_deserialisiert", { "object" : self, "deserializer" : ser})
 
 class UeberFertigkeitDefinition(FertigkeitDefinition):
@@ -88,7 +88,7 @@ class UeberFertigkeitDefinition(FertigkeitDefinition):
         self.voraussetzungen.compile(ser.get('voraussetzungen', ''))
         self.steigerungsfaktor = ser.getInt('steigerungsfaktor')
         self.attribute = Hilfsmethoden.AttrStr2Array(ser.get('attribute'))
-        self.typ = ser.getInt('typ', -1)
+        self.typ = ser.getInt('typ', self.typ)
         self.talenteGruppieren = ser.getBool('talentegruppieren', self.talenteGruppieren)
         EventBus.doAction("ueberfertigkeitdefinition_deserialisiert", { "object" : self, "deserializer" : ser})
 

@@ -41,6 +41,6 @@ class Waffeneigenschaft():
     def deserialize(self, ser):
         self.name = ser.get('name')
         self.text = ser.get('text')
-        self.script = ser.get('script', '')
+        self.script = ser.get('script', self.script)
         self.scriptPrio = ser.getInt('scriptPrio', self.scriptPrio)
         EventBus.doAction("waffeneigenschaft_deserialisiert", { "object" : self, "deserializer" : ser})

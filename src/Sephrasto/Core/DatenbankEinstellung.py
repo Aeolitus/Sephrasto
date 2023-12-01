@@ -11,7 +11,7 @@ class DatenbankEinstellung:
         self.beschreibung = ''     
         self.text = ''
         self.typ = 'Text' #Text, Float, Int, Bool, TextList, IntList, TextDict
-        self.separator = ","
+        self.separator = "\n"
         self.strip = True
 
         # Derived properties after deserialization
@@ -78,6 +78,6 @@ class DatenbankEinstellung:
         self.text = ser.get('text')
         self.typ = ser.get('typ', self.typ)
         self.beschreibung = ser.get('beschreibung', self.beschreibung)
-        self.separator = ser.get('separator', "\n")
+        self.separator = ser.get('separator', self.separator)
         self.strip = ser.getBool('strip', self.strip)
         EventBus.doAction("datenbankeinstellung_deserialisiert", { "object" : self, "deserializer" : ser})
