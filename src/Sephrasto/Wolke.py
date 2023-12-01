@@ -44,6 +44,7 @@ class Wolke:
         'DPI-Skalierung' : False,
         'WindowSize-Main' : [426, 594],
         'WindowSize-Charakter' : [1230, 970],
+        'WindowSize-Hilfe' : [1230, 970],
         'WindowSize-TalentProfan' : [650, 366],
         'WindowSize-TalentUeber' : _DefaultSettings.WindowSizeDefault2Col,
         'WindowSize-FreieFert' : _DefaultSettings.WindowSizeDefault1Col,

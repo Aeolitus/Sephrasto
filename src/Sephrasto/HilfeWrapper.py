@@ -3,6 +3,7 @@ import UI.Hilfe
 import logging
 from PySide6.QtWidgets import QStyle
 from PySide6.QtCore import QUrl
+from Wolke import Wolke
 
 class HilfeWrapper(QtCore.QObject):
     def __init__(self, source="Help.md", enableNavigation = True, searchPaths = ['./Doc/']):
@@ -40,9 +41,15 @@ class HilfeWrapper(QtCore.QObject):
 
         if source is not None:
             self.ui.teHelp.setSearchPaths(searchPaths)
-            self.ui.teHelp.setSource(QUrl(source), QtGui.QTextDocument.MarkdownResource)
+            self.ui.teHelp.setSource(QUrl(source))
 
         self.form.setWindowModality(QtCore.Qt.NonModal)
+        windowSize = Wolke.Settings["WindowSize-Hilfe"]
+        self.form.resize(windowSize[0], windowSize[1])
+        self.form.closeEvent = self.closeEvent
+
+    def closeEvent(self,event):
+        Wolke.Settings["WindowSize-Hilfe"] = [self.form.size().width(), self.form.size().height()]
 
     def stylesheetHack(self, src):
         # there is no css support for markdown -.-
