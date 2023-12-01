@@ -10217,11 +10217,13 @@ getPW() - gibt den PW des Talents der Waffe zurück&#10;
 getKampfstil() - gibt die Modifikatoren des aktiven Kampfstils  mit folgenden Attributen zurück: at, vt, plus, rw, be&#10;
 get&lt;Abgeleiteter Wert&gt;() - gibt den angegebenen Wert zurück, z. B. 'getSB()' für den Schadensbonus&#10;
 getBEBySlot(1) - gibt die Behinderung der entsprechenden Rüstungsnummer zurück, sonst 0&#10;
-setWaffenwerte(at, vt, plus, rw) - diese Funktion muss aufgerufen werden, sie setzt die Waffenwerte">be = max(getBEBySlot(getWaffe().beSlot) + getKampfstil().be, 0)
-at = getPW() + getKampfstil().at + getWaffe().wm - be
-vt = getPW() + getKampfstil().vt + getWaffe().wm - be
-sb = getSB() if getWaffe().fertigkeit not in ["Schusswaffen"] else 0
-plus = getWaffe().plus + getKampfstil().plus + sb
+setWaffenwerte(at, vt, plus, rw) - diese Funktion muss aufgerufen werden, sie setzt die Waffenwerte">waffe = getWaffe()
+kampfstil = getKampfstil()
+be = max(getBEBySlot(waffe.beSlot) + kampfstil.be, 0)
+at = getPW() + kampfstil.at + waffe.wm - be
+vt = getPW() + kampfstil.vt + waffe.wm - be
+sb = getSB() if waffe.fertigkeit not in ["Schusswaffen"] else 0
+plus = waffe.plus + kampfstil.plus + sb
 rw = getWaffe().rw + getKampfstil().rw
 setWaffenwerte(at, vt, plus, rw)</Einstellung>
   <Einstellung name="Waffen: Standardwaffen" typ="TextList" separator="," strip="1" beschreibung="Legt alle Waffen fest, die ein neuer Charakter automatisch erhalten soll. Die Angabe erfolgt als kommaseparierte Liste.">Hand</Einstellung>
