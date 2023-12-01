@@ -220,3 +220,23 @@ class Fertigkeit:
             if self == höchste:
                 kosten += max(0, 2*sum(range(höchste.wert+1)))
         return EventBus.applyFilter("fertigkeit_kosten", kosten, { "charakter" : self.charakter, "name" : self.name, "wertVon" : 0, "wertAuf" : self.wert })
+
+    def serialize(self, ser):
+        ser.set('name', self.name)
+        ser.set('wert', self.wert)
+        if self.definition is UeberFertigkeitDefinition:
+            ser.set('exportieren', self.addToPDF)
+        EventBus.doAction("fertigkeit_serialisiert", { "object" : self, "serializer" : ser})
+
+    def deserialize(self, ser, db, char):
+        name = ser.get('name')
+        if name not in db:
+            self.definition = FertigkeitDefinition()
+            self.definition.name = name
+            return False
+        self.__init__(db[name], char)
+        self.wert = ser.getInt('wert', self.wert)
+        self.addToPDF = ser.getBool('exportieren', self.addToPDF)
+        self.aktualisieren()
+        EventBus.doAction("fertigkeit_deserialisiert", { "object" : self, "deserializer" : ser})
+        return True

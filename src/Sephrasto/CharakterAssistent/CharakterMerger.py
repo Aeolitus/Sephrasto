@@ -346,21 +346,27 @@ class CharakterMerger:
                 char.eigenheiten.append(eig.text)
 
         for atr in root.findall('Attribute/*'):
+            name = atr.get("name")
+            wert = atr.get("wert")
+            if not name in db.attribute:
+                continue
             if not spezies and not kultur:
-                char.attribute[atr.tag].wert = max(char.attribute[atr.tag].wert, int(atr.text))
+                char.attribute[name].wert = max(char.attribute[name].wert, int(wert))
             else:
-                char.attribute[atr.tag].wert += int(atr.text)
-            char.attribute[atr.tag].aktualisieren()
+                char.attribute[name].wert += int(wert)
+            char.attribute[name].aktualisieren()
 
         for ene in root.findall('Energien/*'):
-            if not ene.tag in db.energien:
+            name = atr.get("name")
+            wert = atr.get("wert")
+            if not name in db.energien:
                 continue
-            if ene.tag in char.energien:
-                energie = char.energien[ene.tag].__deepcopy__()
+            if name in char.energien:
+                energie = char.energien[name].__deepcopy__()
             else:
-                energie = Energie(db.energien[ene.tag], char)
+                energie = Energie(db.energien[name], char)
 
-            energie.wert += int(ene.attrib['wert'])
+            energie.wert += int(wert)
             char.energien.update({energie.name: energie})
 
         for vor in root.findall('Vorteile/Vorteil'):
@@ -417,7 +423,7 @@ class CharakterMerger:
             fert.aktualisieren()
             char.fertigkeiten.update({fert.name: fert})
 
-        for fer in root.findall('Fertigkeiten/FreieFertigkeit'):
+        for fer in root.findall('FreieFertigkeiten/FreieFertigkeit'):
             CharakterMerger.addFreieFertigkeit(char, db, fer.attrib['name'], int(fer.attrib['wert']), False)
 
         objekte = root.find('Objekte');

@@ -338,3 +338,26 @@ class Talent:
             self.anzeigenameExt += ep + " EP"
         if kommentar or ep:
             self.anzeigenameExt += ")"
+
+    def serialize(self, ser):
+        ser.set('name', self.name)
+        if self.variableKosten:
+            ser.set('variableKosten', self.kosten)
+        if self.kommentarErlauben:
+            ser.set('kommentar', self.kommentar)
+        EventBus.doAction("talent_serialisiert", { "object" : self, "serializer" : ser})
+
+    def deserialize(self, ser, db, char):
+        name = ser.get('name')
+        if name not in db:
+            self.definition = TalentDefinition()
+            self.definition.name = name
+            return False
+        self.__init__(db[name], char)
+        if self.variableKosten:
+            self.kosten = ser.getInt('variableKosten', self.kosten)
+        if self.kommentarErlauben:
+            self.kommentar = ser.get('kommentar', self.kommentar)
+        self.aktualisieren()
+        EventBus.doAction("talent_deserialisiert", { "object" : self, "deserializer" : ser})
+        return True

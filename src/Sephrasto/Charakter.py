@@ -764,82 +764,60 @@ class Char():
         ser.end() #beschreibung
 
         ser.begin('Attribute')
-        for attr in self.attribute:
-            ser.setNested(attr, self.attribute[attr].wert)
+        for attribut in self.attribute.values():
+            ser.begin('Attribut')
+            attribut.serialize(ser)
+            ser.end() #attribut
         ser.end() #attribute
 
         ser.begin('Energien')
         for energie in self.energien:
-            ser.begin(energie)
-            ser.set('wert', self.energien[energie].wert)
+            ser.begin('Energie')
+            energie.serialize(ser)
             ser.end() #energie
         ser.end() #energien
         
         ser.beginList('Vorteile')
         for vorteil in self.vorteile.values():
             ser.begin('Vorteil')
-            ser.set('name', vorteil.name)
-            if vorteil.variableKosten:
-                ser.set('variableKosten',vorteil.kosten)
-            if vorteil.kommentarErlauben:
-                ser.set('kommentar', vorteil.kommentar)
+            vorteil.serialize(ser)
             ser.end() #vorteil
         ser.end() #vorteile
 
         ser.beginList('Fertigkeiten')
-        for fert in self.fertigkeiten:
+        for fert in self.fertigkeiten.values():
             ser.begin('Fertigkeit')
-            ser.set('name', self.fertigkeiten[fert].name)
-            ser.set('wert', self.fertigkeiten[fert].wert)
+            fert.serialize(ser)
             ser.end() #fertigkeit
         ser.end() #fertigkeiten
 
         ser.beginList('FreieFertigkeiten')
         for fert in self.freieFertigkeiten:
             ser.begin('FreieFertigkeit')
-            ser.set('name', fert.name)
-            ser.set('wert', fert.wert)
+            fert.serialize(ser)
             ser.end() #freiefertigkeit
         ser.end() #freiefertigkeiten
 
         ser.beginList('Talente')
         for talent in self.talente.values():
             ser.begin('Talent')
-            ser.set('name', talent.name)
-            if talent.variableKosten:
-                ser.set('variableKosten', talent.kosten)
-            if talent.kommentarErlauben:
-                ser.set('kommentar', talent.kommentar)
+            talent.serialize(ser)
             ser.end() #talent
         ser.end() #talente
 
         ser.begin('Objekte')
         ser.setNested('Zonensystem', self.zonenSystemNutzen)
         ser.beginList('Rüstungen')
-        for rüst in self.rüstung:
+        for rüstung in self.rüstung:
             ser.begin('Rüstung')
-            ser.set('name', rüst.name)
-            ser.set('be', rüst.be)
-            ser.set('rs', Hilfsmethoden.RsArray2Str(rüst.rs))
+            rüstung.serialize(ser)
             ser.end() #rüstung
         ser.end() #rüstungen
 
         ser.beginList('Waffen')
-        for waff in self.waffen:
+        for waffe in self.waffen:
             ser.begin('Waffe')
-            ser.set('name', waff.anzeigename)
-            ser.set('id', waff.name)
-            ser.set('würfel', waff.würfel)
-            ser.set('würfelSeiten', waff.würfelSeiten)
-            ser.set('plus', waff.plus)
-            ser.set('eigenschaften', ", ".join(waff.eigenschaften))
-            ser.set('härte', waff.härte)
-            ser.set('rw', waff.rw)
-            ser.set('beSlot', waff.beSlot)
-            ser.set('kampfstil', waff.kampfstil)
-            ser.set('wm', waff.wm)
-            if waff.fernkampf:
-                ser.set('lz', waff.lz)
+            waffe.serialize(ser)
             ser.end() #waffe
         ser.end() #waffen   
 
@@ -850,11 +828,9 @@ class Char():
         ser.end() #objekte
         
         ser.beginList('ÜbernatürlicheFertigkeiten')
-        for fert in self.übernatürlicheFertigkeiten:
+        for fert in self.übernatürlicheFertigkeiten.values():
             ser.begin('ÜbernatürlicheFertigkeit')
-            ser.set('name', self.übernatürlicheFertigkeiten[fert].name)
-            ser.set('wert', self.übernatürlicheFertigkeiten[fert].wert)
-            ser.set('exportieren', self.übernatürlicheFertigkeiten[fert].addToPDF)
+            fert.serialize(ser)
             ser.end() #übernatürlichefertigkeit
         ser.end() #übernatürlichefertigkeiten
 
@@ -991,33 +967,29 @@ class Char():
 
         if ser.find('Attribute'):
             for tag in ser.listTags():
-                if not tag in Wolke.DB.attribute:
-                    aIgnored.append(tag)
+                attribut = Attribut.__new__(Attribut)
+                if not attribut.deserialize(ser, Wolke.DB.attribute, self):
+                    aIgnored.append(attribut.name)
                     continue
-                self.attribute[tag].wert = ser.getNestedInt(tag, self.attribute[tag].wert)
-                self.attribute[tag].aktualisieren()
+                self.attribute[attribut.name] = attribut
             ser.end() #attribute
 
         if ser.find('Energien'):
             for tag in ser.listTags():
-                if not tag in Wolke.DB.energien:
-                    eIgnored.append(tag)
+                energie = Energie.__new__(Energie)
+                if not energie.deserialize(ser, Wolke.DB.energien, self):
+                    eIgnored.append(energie.name)
                     continue
-                self.energien[tag] = Energie(Wolke.DB.energien[tag], self)
-                self.energien[tag].wert = ser.getInt("wert", self.energien[tag].wert)
+                self.energien[energie.name] = energie
             ser.end() #energien
 
         if ser.find('Vorteile'):
             for tag in ser.listTags():
-                name = ser.get('name')
-                if not name in Wolke.DB.vorteile:
-                    vIgnored.append(name)
+                vorteil = Vorteil.__new__(Vorteil)
+                if not vorteil.deserialize(ser, Wolke.DB.vorteile, self):
+                    vIgnored.append(vorteil.name)
                     continue
-                vorteil = self.addVorteil(name)
-                if vorteil.variableKosten:
-                    vorteil.kosten = ser.getInt('variableKosten', vorteil.kosten)
-                if vorteil.kommentarErlauben:
-                    vorteil.kommentar = ser.get('kommentar', vorteil.kommentar)
+                self.vorteile[vorteil.name] = vorteil
             ser.end() #vorteile
 
         if "Minderpakt" in self.vorteile:
@@ -1027,33 +999,25 @@ class Char():
                 self.removeVorteil(minderpakt)
             else:
                 minderpakt.voraussetzungen = VoraussetzungenListe().compile("Vorteil " + minderpakt.kommentar, Wolke.DB)
-                vorteil = self.addVorteil(minderpakt.kommentar)
-                vorteil.voraussetzungen = VoraussetzungenListe().compile("Vorteil Minderpakt", Wolke.DB)
-                vorteil.kosten = 20
+                if minderpakt.kommentar in self.vorteile:
+                    vorteil = self.vorteile[minderpakt.kommentar]
+                    vorteil.voraussetzungen = VoraussetzungenListe().compile("Vorteil Minderpakt", Wolke.DB)
+                    vorteil.kosten = 20
 
         if ser.find('Fertigkeiten'):
             for tag in ser.listTags():
-                name = ser.get('name')
-                if not name in Wolke.DB.fertigkeiten:
-                    fIgnored.append(name)
+                fert = Fertigkeit.__new__(Fertigkeit)
+                if not fert.deserialize(ser, Wolke.DB.fertigkeiten, self):
+                    fIgnored.append(fert.name)
                     continue
-                fert = Fertigkeit(Wolke.DB.fertigkeiten[name], self)
-                fert.wert = ser.getInt('wert', fert.wert)
-                fert.aktualisieren()
-                self.fertigkeiten.update({fert.name: fert})
+                self.fertigkeiten[fert.name] = fert
             ser.end() #fertigkeiten
 
         if ser.find('FreieFertigkeiten'):
             for tag in ser.listTags():
-                name = ser.get('name')
-                definition = None
-                if name in Wolke.DB.freieFertigkeiten:
-                    definition = Wolke.DB.freieFertigkeiten[name]
-                else:
-                    definition = FreieFertigkeitDefinition()
-                    definition.name = name
-                fert = FreieFertigkeit(definition, self)
-                fert.wert = ser.getInt('wert', fert.wert)
+                fert = FreieFertigkeit.__new__(FreieFertigkeit)
+                if not fert.deserialize(ser, Wolke.DB.freieFertigkeiten, self):
+                    continue
                 self.freieFertigkeiten.append(fert)
             ser.end() #freiefertigkeiten
 
@@ -1061,43 +1025,20 @@ class Char():
             self.zonenSystemNutzen = ser.getNestedBool('Zonensystem')
             if ser.find('Rüstungen'):
                 for tag in ser.listTags():
-                    name = ser.get('name')
-                    definition = None
-                    if name in Wolke.DB.rüstungen:
-                        definition = Wolke.DB.rüstungen[name]
-                    else:
-                        definition = RuestungDefinition()
-                        definition.name = name
-                    rüstung = Ruestung(definition)
-                    rüstung.name = name
-                    rüstung.be = ser.getInt('be', rüstung.be)
-                    rüstung.rs = Hilfsmethoden.RsStr2Array(ser.get('rs'))
+                    rüstung = Ruestung.__new__(Ruestung)
+                    if not rüstung.deserialize(ser, Wolke.DB.rüstungen, self):
+                        continue
                     self.rüstung.append(rüstung)
                 ser.end() #rüstungen
 
             if ser.find('Waffen'):
                 for tag in ser.listTags():
-                    name = ser.get('id')
-                    if not name in Wolke.DB.waffen:
+                    waffe = Waffe.__new__(Waffe)
+                    if not waffe.deserialize(ser, Wolke.DB.waffen, self):
                         self.waffen.append(Waffe(WaffeDefinition()))
-                        if name:
-                            wIgnored.append(name)
+                        if waffe.name:
+                            wIgnored.append(waffe.name)
                         continue
-                    waffe = Waffe(Wolke.DB.waffen[name])
-                    if waffe.fernkampf:
-                        waffe.lz = ser.getInt('lz', waffe.lz)
-                    waffe.wm = ser.getInt('wm', waffe.wm)
-                    waffe.anzeigename = ser.get('name', waffe.anzeigename)
-                    waffe.rw = ser.getInt('rw', waffe.rw)
-                    waffe.würfel = ser.getInt('würfel', waffe.würfel)
-                    waffe.würfelSeiten = ser.getInt('würfelSeiten', waffe.würfelSeiten)
-                    waffe.plus = ser.getInt('plus', waffe.plus)
-                    eigenschaften = ser.get('eigenschaften')
-                    if eigenschaften:
-                        waffe.eigenschaften = list(map(str.strip, eigenschaften.split(", ")))
-                    waffe.härte = ser.getInt('härte', waffe.härte)
-                    waffe.beSlot = ser.getInt('beSlot', waffe.beSlot)
-                    waffe.kampfstil = ser.get('kampfstil', waffe.kampfstil)
                     self.waffen.append(waffe)
                 ser.end() #waffen
 
@@ -1110,29 +1051,20 @@ class Char():
 
         if ser.find('ÜbernatürlicheFertigkeiten'):
             for tag in ser.listTags():
-                name = ser.get('name')
-                if not name in Wolke.DB.übernatürlicheFertigkeiten:
-                    übIgnored.append(name)
+                fert = Fertigkeit.__new__(Fertigkeit)
+                if not fert.deserialize(ser, Wolke.DB.übernatürlicheFertigkeiten, self):
+                    übIgnored.append(fert.name)
                     continue
-                fert = Fertigkeit(Wolke.DB.übernatürlicheFertigkeiten[name], self)
-                fert.wert = ser.getInt('wert', fert.wert)
-                fert.addToPDF = ser.getBool('exportieren', fert.addToPDF)
-                fert.aktualisieren()
-                self.übernatürlicheFertigkeiten.update({fert.name: fert})
+                self.übernatürlicheFertigkeiten[fert.name] = fert
             ser.end() #übernatürlichefertigkeiten
 
         if ser.find('Talente'):
             for tag in ser.listTags():
-                name = ser.get('name')
-                if not name in Wolke.DB.talente:
+                talent = Talent.__new__(Talent)
+                if not talent.deserialize(ser, Wolke.DB.talente, self):
                     tIgnored.append(name)
                     continue
-            
-                talent = self.addTalent(name)
-                if talent.variableKosten:
-                    talent.kosten = ser.getInt('variableKosten', talent.kosten)
-                if talent.kommentarErlauben:
-                    talent.kommentar = ser.get('kommentar', talent.kommentar)
+                self.talente[talent.name] = talent
             ser.end() #talente
 
         if ser.find('Erfahrung'):

@@ -252,3 +252,44 @@ class Waffe:
 
     def isVTVerboten(self, db):
         return self.definition.isVTVerboten(db)
+
+    def serialize(self, ser):
+        ser.set('name', self.anzeigename)
+        ser.set('id', self.name)
+        ser.set('würfel', self.würfel)
+        ser.set('würfelSeiten', self.würfelSeiten)
+        ser.set('plus', self.plus)
+        ser.set('eigenschaften', ", ".join(self.eigenschaften))
+        ser.set('härte', self.härte)
+        ser.set('rw', self.rw)
+        ser.set('beSlot', self.beSlot)
+        ser.set('kampfstil', self.kampfstil)
+        ser.set('wm', self.wm)
+        if self.fernkampf:
+            ser.set('lz', self.lz)
+        EventBus.doAction("waffe_serialisiert", { "object" : self, "serializer" : ser})
+
+    def deserialize(self, ser, db, char):
+        name = ser.get('id')
+        if name not in db:
+            self.definition = WaffeDefinition()
+            self.definition.name = name
+            return False
+        self.__init__(db[name])
+
+        if self.fernkampf:
+            self.lz = ser.getInt('lz', self.lz)
+        self.wm = ser.getInt('wm', self.wm)
+        self.anzeigename = ser.get('name', self.anzeigename)
+        self.rw = ser.getInt('rw', self.rw)
+        self.würfel = ser.getInt('würfel', self.würfel)
+        self.würfelSeiten = ser.getInt('würfelSeiten', self.würfelSeiten)
+        self.plus = ser.getInt('plus', self.plus)
+        eigenschaften = ser.get('eigenschaften')
+        if eigenschaften:
+            self.eigenschaften = list(map(str.strip, eigenschaften.split(", ")))
+        self.härte = ser.getInt('härte', self.härte)
+        self.beSlot = ser.getInt('beSlot', self.beSlot)
+        self.kampfstil = ser.get('kampfstil', self.kampfstil)
+        EventBus.doAction("waffe_deserialisiert", { "object" : self, "deserializer" : ser})
+        return True

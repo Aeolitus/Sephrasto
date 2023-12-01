@@ -119,3 +119,20 @@ class Energie:
     def aktualisieren(self):
         self.basiswert = 0
         self.mod = 0
+
+    def serialize(self, ser):
+        ser.set("name", self.name)
+        ser.set("wert", self.wert)
+        EventBus.doAction("energie_serialisiert", { "object" : self, "serializer" : ser})
+
+    def deserialize(self, ser, db, char):
+        name = ser.get('name')
+        if name not in db:
+            self.definition = EnergieDefinition()
+            self.definition.name = name
+            return False
+        self.__init__(db[name], char)
+        self.wert = ser.getInt("wert", self.wert)
+        self.aktualisieren()
+        EventBus.doAction("energie_deserialisiert", { "object" : self, "deserializer" : ser})
+        return True

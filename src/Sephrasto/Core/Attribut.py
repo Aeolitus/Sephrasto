@@ -104,7 +104,23 @@ class Attribut:
         kosten *= multiplier
         return EventBus.applyFilter("attribut_kosten", kosten, { "charakter" : self.charakter, "attribut" : self.name, "wertVon" : startWert, "wertAuf" : startWert + numSteigerungen })
 
-
     def kosten(self):
         kosten = sum(range(self.wert+1)) * self.steigerungsfaktor
         return EventBus.applyFilter("attribut_kosten", kosten, { "charakter" : self.charakter, "attribut" : self.name, "wertVon" : 0, "wertAuf" : self.wert })
+
+    def serialize(self, ser):
+        ser.set("name", self.name)
+        ser.set("wert", self.wert)
+        EventBus.doAction("attribut_serialisiert", { "object" : self, "serializer" : ser})
+
+    def deserialize(self, ser, db, char):
+        name = ser.get('name')
+        if name not in db:
+            self.definition = AttributDefinition()
+            self.definition.name = name
+            return False
+        self.__init__(db[name], char)
+        self.wert = ser.getInt("wert", self.wert)
+        self.aktualisieren()
+        EventBus.doAction("attribut_deserialisiert", { "object" : self, "deserializer" : ser})
+        return True

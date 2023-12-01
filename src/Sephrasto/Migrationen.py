@@ -28,7 +28,7 @@ class Migrationen():
         pass
 
     datenbankCodeVersion = 8
-    charakterCodeVersion = 7
+    charakterCodeVersion = 8
 
     hausregelUpdates = []
     charakterUpdates = []
@@ -100,6 +100,7 @@ class Migrationen():
             Migrationen.charakter4zu5,
             Migrationen.charakter5zu6,
             Migrationen.charakter6zu7,
+            Migrationen.charakter7zu8,
         ]
 
         if not migrationen[Migrationen.charakterCodeVersion]:
@@ -867,6 +868,17 @@ class Migrationen():
             newParent.append(ff)
         return []
 
+    def charakter7zu8(xmlRoot):
+        for attribut in xmlRoot.findall('Attribute/*'):
+            attribut.set("name", attribut.tag)
+            attribut.tag = "Attribut"
+            attribut.set("wert", attribut.text)
+            attribut.text = None
+
+        for energie in xmlRoot.findall('Energien/*'):
+            energie.set("name", energie.tag)
+            energie.tag = "Energie"
+        return []
 
 # Register with appropriate serialiers
 XmlDeserializer.registerMigration("HausregelDatenbank", Migrationen.hausregelnMigrieren)

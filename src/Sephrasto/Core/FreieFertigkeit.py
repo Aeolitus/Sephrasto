@@ -101,3 +101,20 @@ class FreieFertigkeit:
             return 0
         kosten = FreieFertigkeitDefinition.gesamtkosten[self.wert]
         return EventBus.applyFilter("freiefertigkeit_kosten", kosten, { "charakter" : self.charakter, "name" : self.name, "wertVon" : 0, "wertAuf" : self.wert })
+
+    def serialize(self, ser):
+        ser.set('name', self.name)
+        ser.set('wert', self.wert)
+        EventBus.doAction("freiefertigkeit_serialisiert", { "object" : self, "serializer" : ser})
+
+    def deserialize(self, ser, db, char):
+        name = ser.get('name')
+        if name in Wolke.DB.freieFertigkeiten:
+            definition = db[name]
+        else:
+            definition = FreieFertigkeitDefinition()
+            definition.name = name
+        self.__init__(definition, char)
+        self.wert = ser.getInt('wert', self.wert)
+        EventBus.doAction("freiefertigkeit_deserialisiert", { "object" : self, "deserializer" : ser})
+        return True

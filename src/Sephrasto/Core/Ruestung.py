@@ -1,6 +1,7 @@
 from Wolke import Wolke
 from EventBus import EventBus
 import copy
+from Hilfsmethoden import Hilfsmethoden
 
 # Implementation for Rüstungen. Using the type object pattern.
 # RuestungDefinition: type object, initialized with database values
@@ -170,3 +171,23 @@ class Ruestung:
 
     def getWSFinal(self, abgeleiteteWerte):
         return eval(Wolke.DB.einstellungen["Rüstungen: WSStern Script"].wert, self.__getScriptAPI(abgeleiteteWerte))
+
+    def serialize(self, ser):
+        ser.set('name', self.name)
+        ser.set('be', self.be)
+        ser.set('rs', Hilfsmethoden.RsArray2Str(self.rs))
+        EventBus.doAction("ruestung_serialisiert", { "object" : self, "serializer" : ser})
+
+    def deserialize(self, ser, db, char):
+        name = ser.get('name')
+        if name in db:
+            definition = db[name]
+        else:
+            definition = RuestungDefinition()
+            definition.name = name
+
+        self.__init__(definition)
+        self.be = ser.getInt('be', self.be)
+        self.rs = Hilfsmethoden.RsStr2Array(ser.get('rs'))
+        EventBus.doAction("ruestung_deserialisiert", { "object" : self, "deserializer" : ser})
+        return True

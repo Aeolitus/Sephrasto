@@ -74,32 +74,22 @@ Die folgenden Actions haben alle eine Gemeinsamkeit: Sie werden aufgerufen, wenn
 
 | Name | Typ | Parameter | 
 |---|---|---|
-|abgeleiteterwertdefinition_serialisiert|Action|{ "object" : AbgeleiteterWertDefinition, "serializer" : ?Serializer }|
-|abgeleiteterwertdefinition_deserialisiert|Action|{ "object" : AbgeleiteterWertDefinition, "deserializer" : ?Deserializer })|
-|attributdefinition_serialisiert|Action|{ "object" : AttributDefinition, "serializer" : ?Serializer })|
-|attributdefinition_deserialisiert|Action|{ "object" : AttributDefinition, "deserializer" : ?Deserializer })|
-|datenbankeinstellung_serialisiert|Action|{ "object" : DatenbankEinstellung, "serializer" : ?Serializer })|
-|datenbankeinstellung_deserialisiert|Action|{ "object" : DatenbankEinstellung, "deserializer" : ?Deserializer })|
-|energiedefinition_serialisiert|Action|{ "object" : EnergieDefinition, "serializer" : ?Serializer })|
-|energiedefinition_deserialisiert|Action|{ "object" : EnergieDefinition, "deserializer" : ?Deserializer })|
-|fertigkeitdefinition_serialisiert|Action|{ "object" : FertigkeitDefinition, "serializer" : ?Serializer })|
-|fertigkeitdefinition_deserialisiert|Action|{ "object" : FertigkeitDefinition, "deserializer" : ?Deserializer })|
-|ueberfertigkeitdefinition_serialisiert|Action|{ "object" : UeberFertigkeitDefinition, "serializer" : ?Serializer })|
-|ueberfertigkeitdefinition_deserialisiert|Action|{ "object" : UeberFertigkeitDefinition, "deserializer" : ?Deserializer })|
-|freiefertigkeitdefinition_serialisiert|Action|{ "object" : FreieFertigkeitDefinition, "serializer" : ?Serializer })|
-|freiefertigkeitdefinition_deserialisiert|Action|{ "object" : FreieFertigkeitDefinition, "deserializer" : ?Deserializer })|
-|regel_serialisiert|Action|{ "object" : Regel, "serializer" : ?Serializer })|
-|regel_deserialisiert|Action|{ "object" : Regel, "deserializer" : ?Deserializer })|
-|ruestungdefinition_serialisiert|Action|{ "object" : RuestungDefinition, "serializer" : ?Serializer })|
-|ruestungdefinition_deserialisiert|Action|{ "object" : RuestungDefinition, "deserializer" : ?Deserializer })|
-|talentdefinition_serialisiert|Action|{ "object" : TalentDefinition, "serializer" : ?Serializer })|
-|talentdefinition_deserialisiert|Action|{ "object" : TalentDefinition, "deserializer" : ?Deserializer })|
-|vorteildefinition_serialisiert|Action|{ "object" : VorteilDefinition, "serializer" : ?Serializer })|
-|vorteildefinition_deserialisiert|Action|{ "object" : VorteilDefinition, "deserializer" : ?Deserializer })|
-|waffedefinition_serialisiert|Action|{ "object" : WaffeDefinition, "serializer" : ?Serializer })|
-|waffedefinition_deserialisiert|Action|{ "object" : WaffeDefinition, "deserializer" : ?Deserializer })|
-|waffeneigenschaft_serialisiert|Action|{ "object" : WaffenEigenschaft, "serializer" : ?Serializer })|
-|waffeneigenschaft_deserialisiert|Action|{ "object" : WaffenEigenschaft, "deserializer" : ?Deserializer })|
+|attribut_serialisiert|Action|{ "object" : Attribut, "serializer" : ?Serializer })|
+|attribut_deserialisiert|Action|{ "object" : Attribut, "deserializer" : ?Deserializer })|
+|energie_serialisiert|Action|{ "object" : Energie, "serializer" : ?Serializer })|
+|energie_deserialisiert|Action|{ "object" : Energie, "deserializer" : ?Deserializer })|
+|fertigkeit_serialisiert|Action|{ "object" : Fertigkeit, "serializer" : ?Serializer })|
+|fertigkeit_deserialisiert|Action|{ "object" : Fertigkeit, "deserializer" : ?Deserializer })|
+|freiefertigkeit_serialisiert|Action|{ "object" : FreieFertigkeit, "serializer" : ?Serializer })|
+|freiefertigkeit_deserialisiert|Action|{ "object" : FreieFertigkeit, "deserializer" : ?Deserializer })|
+|ruestung_serialisiert|Action|{ "object" : Ruestung, "serializer" : ?Serializer })|
+|ruestung_deserialisiert|Action|{ "object" : Ruestung, "deserializer" : ?Deserializer })|
+|talent_serialisiert|Action|{ "object" : Talent, "serializer" : ?Serializer })|
+|talent_deserialisiert|Action|{ "object" : Talent, "deserializer" : ?Deserializer })|
+|vorteil_serialisiert|Action|{ "object" : Vorteil, "serializer" : ?Serializer })|
+|vorteil_deserialisiert|Action|{ "object" : Vorteil, "deserializer" : ?Deserializer })|
+|waffe_serialisiert|Action|{ "object" : Waffe, "serializer" : ?Serializer })|
+|waffe_deserialisiert|Action|{ "object" : Waffe, "deserializer" : ?Deserializer })|
 
 ### Charaktereditor
 | Name | Typ | Filter // Parameter | Zweck |
@@ -150,6 +140,37 @@ Die folgenden Filter haben alle eine Gemeinsamkeit:  Der Filterwert ist eine Wra
 |basisdatenbank_geladen|Action|{"datenbank" : Datenbank, "isCharakterEditor" : bool }|Elemente der Basisdatenbank anpassen/hinzufügen/löschen, bevor die Hausregel-Datenbank geladen wird. Ein übliches Beispiel ist das Hinzufügen von DatenbankEinstellung-Elementen, mit welchen das Plugin konfiguriert werden kann.|
 |datenbank_geladen|Action|{ "datenbank" : Datenbank, "isCharakterEditor" : bool }|Aktion durchführen, nachdem die Datenbank inkl. Hausregeldatenbank komplett geladen wurde. Eine Referenz auf das Datenbank-Objekt erhalten.|
 |datenbank_verify|Filter|loadingErrors : [[object, str]] // { "datenbank" : Datenbank }|Eigene Datentypen verifizieren und bei Fehlern dem loadingErrors array hinzufügen, damit diese in der Fehlerliste des Datenbankeditors erscheinen.|
+
+Die folgenden Actions haben alle eine Gemeinsamkeit: Sie werden aufgerufen, wenn ein entsprechendes Objekt serialisiert bzw. deserialisiert wurde und können genutzt werden, um diese zu modifizieren. Als Parameter werden das (de-)serialisierte Objekt, sowie der verwendete (De-)Serializer übergeben.
+
+| Name | Typ | Parameter | 
+|---|---|---|
+|abgeleiteterwertdefinition_serialisiert|Action|{ "object" : AbgeleiteterWertDefinition, "serializer" : ?Serializer }|
+|abgeleiteterwertdefinition_deserialisiert|Action|{ "object" : AbgeleiteterWertDefinition, "deserializer" : ?Deserializer })|
+|attributdefinition_serialisiert|Action|{ "object" : AttributDefinition, "serializer" : ?Serializer })|
+|attributdefinition_deserialisiert|Action|{ "object" : AttributDefinition, "deserializer" : ?Deserializer })|
+|datenbankeinstellung_serialisiert|Action|{ "object" : DatenbankEinstellung, "serializer" : ?Serializer })|
+|datenbankeinstellung_deserialisiert|Action|{ "object" : DatenbankEinstellung, "deserializer" : ?Deserializer })|
+|energiedefinition_serialisiert|Action|{ "object" : EnergieDefinition, "serializer" : ?Serializer })|
+|energiedefinition_deserialisiert|Action|{ "object" : EnergieDefinition, "deserializer" : ?Deserializer })|
+|fertigkeitdefinition_serialisiert|Action|{ "object" : FertigkeitDefinition, "serializer" : ?Serializer })|
+|fertigkeitdefinition_deserialisiert|Action|{ "object" : FertigkeitDefinition, "deserializer" : ?Deserializer })|
+|ueberfertigkeitdefinition_serialisiert|Action|{ "object" : UeberFertigkeitDefinition, "serializer" : ?Serializer })|
+|ueberfertigkeitdefinition_deserialisiert|Action|{ "object" : UeberFertigkeitDefinition, "deserializer" : ?Deserializer })|
+|freiefertigkeitdefinition_serialisiert|Action|{ "object" : FreieFertigkeitDefinition, "serializer" : ?Serializer })|
+|freiefertigkeitdefinition_deserialisiert|Action|{ "object" : FreieFertigkeitDefinition, "deserializer" : ?Deserializer })|
+|regel_serialisiert|Action|{ "object" : Regel, "serializer" : ?Serializer })|
+|regel_deserialisiert|Action|{ "object" : Regel, "deserializer" : ?Deserializer })|
+|ruestungdefinition_serialisiert|Action|{ "object" : RuestungDefinition, "serializer" : ?Serializer })|
+|ruestungdefinition_deserialisiert|Action|{ "object" : RuestungDefinition, "deserializer" : ?Deserializer })|
+|talentdefinition_serialisiert|Action|{ "object" : TalentDefinition, "serializer" : ?Serializer })|
+|talentdefinition_deserialisiert|Action|{ "object" : TalentDefinition, "deserializer" : ?Deserializer })|
+|vorteildefinition_serialisiert|Action|{ "object" : VorteilDefinition, "serializer" : ?Serializer })|
+|vorteildefinition_deserialisiert|Action|{ "object" : VorteilDefinition, "deserializer" : ?Deserializer })|
+|waffedefinition_serialisiert|Action|{ "object" : WaffeDefinition, "serializer" : ?Serializer })|
+|waffedefinition_deserialisiert|Action|{ "object" : WaffeDefinition, "deserializer" : ?Deserializer })|
+|waffeneigenschaft_serialisiert|Action|{ "object" : WaffenEigenschaft, "serializer" : ?Serializer })|
+|waffeneigenschaft_deserialisiert|Action|{ "object" : WaffenEigenschaft, "deserializer" : ?Deserializer })|
 
 ### Datenbankeditor
 | Name | Typ | Filter // Parameter | Zweck |
