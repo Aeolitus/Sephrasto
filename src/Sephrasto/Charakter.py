@@ -1062,7 +1062,7 @@ class Char():
             for tag in ser.listTags():
                 talent = Talent.__new__(Talent)
                 if not talent.deserialize(ser, Wolke.DB.talente, self):
-                    tIgnored.append(name)
+                    tIgnored.append(talent.name)
                     continue
                 self.talente[talent.name] = talent
             ser.end() #talente
