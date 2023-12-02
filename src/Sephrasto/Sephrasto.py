@@ -108,6 +108,7 @@ class MainWindowWrapper(object):
     def __init__(self):
         parser = argparse.ArgumentParser(prog='Sephrasto', description='Der Charaktergenerator für Ilaris')
         parser.add_argument('--settingsfile', required = False, help='Overrides the default location of the settings file')
+        parser.add_argument('--noplugins', required = False, action='store_true', help='With this option no plugins are loaded, even if they are enabled in the settings')
         Wolke.CmdArgs = parser.parse_args()
 
         sys.excepthook = sephrasto_excepthook
@@ -204,26 +205,28 @@ class MainWindowWrapper(object):
         # Load plugins and add buttons (if any)
         buttons = [self.ui.buttonRules]
         self._plugins = []
-        for pluginData in PluginLoader.getPlugins(Wolke.Settings['Pfad-Plugins']):
-            if pluginData.name in Wolke.Settings['Deaktivierte-Plugins']:
-                self._plugins.append(pluginData)
-                continue
 
-            if pluginData.load():
-                self._plugins.append(pluginData)
-                logging.critical("Plugin: loaded " + pluginData.name)
-                if hasattr(pluginData.plugin, "createMainWindowButtons"):
-                    for button in pluginData.plugin.createMainWindowButtons():
-                        button.setParent(self.form)
-                        self.ui.horizontalLayout.insertWidget(0, button)
-                        buttons.append(button)
-            else:
-                messagebox = QtWidgets.QMessageBox()
-                messagebox.setWindowTitle("Fehler!")
-                messagebox.setText(f"Das Laden des Plugins {pluginData.name} ist fehlgeschlagen.\nEs ist vermutlich nicht mit dieser Sephrastoversion kompatibel, bitte wende dich an den Plugin-Autor.")
-                messagebox.setIcon(QtWidgets.QMessageBox.Critical)
-                messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-                messagebox.exec()
+        if not Wolke.CmdArgs.noplugins:
+            for pluginData in PluginLoader.getPlugins(Wolke.Settings['Pfad-Plugins']):
+                if pluginData.name in Wolke.Settings['Deaktivierte-Plugins']:
+                    self._plugins.append(pluginData)
+                    continue
+
+                if pluginData.load():
+                    self._plugins.append(pluginData)
+                    logging.critical("Plugin: loaded " + pluginData.name)
+                    if hasattr(pluginData.plugin, "createMainWindowButtons"):
+                        for button in pluginData.plugin.createMainWindowButtons():
+                            button.setParent(self.form)
+                            self.ui.horizontalLayout.insertWidget(0, button)
+                            buttons.append(button)
+                else:
+                    messagebox = QtWidgets.QMessageBox()
+                    messagebox.setWindowTitle("Fehler!")
+                    messagebox.setText(f"Das Laden des Plugins {pluginData.name} ist fehlgeschlagen.\nEs ist vermutlich nicht mit dieser Sephrastoversion kompatibel, bitte wende dich an den Plugin-Autor.")
+                    messagebox.setIcon(QtWidgets.QMessageBox.Critical)
+                    messagebox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+                    messagebox.exec()
 
         self.dbEditor = None
 
