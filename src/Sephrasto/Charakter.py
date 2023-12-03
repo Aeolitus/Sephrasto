@@ -14,7 +14,6 @@ import collections
 from EventBus import EventBus
 from Wolke import Wolke
 from Hilfsmethoden import Hilfsmethoden, WaffeneigenschaftException
-from PySide6 import QtWidgets, QtCore, QtGui
 import os.path
 import base64
 from Migrationen import Migrationen
@@ -459,7 +458,6 @@ class Char():
     def updateWaffenwerte(self):
         self.waffenwerte = []
 
-        error = []
         for el in self.waffen:
             waffenwerte = Waffenwerte()
             self.waffenwerte.append(waffenwerte)
@@ -501,42 +499,31 @@ class Char():
         
             scriptAPI['getBEBySlot'] = lambda rüstungsNr: 0 if rüstungsNr < 1 or len(self.rüstung) < rüstungsNr else self.rüstung[rüstungsNr-1].getBEFinal(self.abgeleiteteWerte)
 
-            try:
-                # Execute global script
-                exec(Wolke.DB.einstellungen["Waffen: Waffenwerte Script"].wert, scriptAPI)
+            # Execute global script
+            logging.info("Character: executing Waffenwerte script for " + el.anzeigename)
+            exec(Wolke.DB.einstellungen["Waffen: Waffenwerte Script"].wert, scriptAPI)
 
-                #Execute Waffeneigenschaft scripts
-                self.currentWaffenwerte = waffenwerte
-                eigenschaftenByPrio = collections.defaultdict(list)
-                for weName in el.eigenschaften:
-                    try:
-                        we = Hilfsmethoden.GetWaffeneigenschaft(weName, Wolke.DB)
-                    except WaffeneigenschaftException:
-                        continue #Manually added Eigenschaften are allowed
-                    if not we.script:
-                        continue
-                    eigenschaftenByPrio[we.scriptPrio].append(weName)
+            #Execute Waffeneigenschaft scripts
+            self.currentWaffenwerte = waffenwerte
+            eigenschaftenByPrio = collections.defaultdict(list)
+            for weName in el.eigenschaften:
+                try:
+                    we = Hilfsmethoden.GetWaffeneigenschaft(weName, Wolke.DB)
+                except WaffeneigenschaftException:
+                    continue #Manually added Eigenschaften are allowed
+                if not we.script:
+                    continue
+                eigenschaftenByPrio[we.scriptPrio].append(weName)
 
-                for key in sorted(eigenschaftenByPrio):
-                    for weName in eigenschaftenByPrio[key]:
-                        self.currentEigenschaft = weName
-                        logging.info("Character: applying script for Waffeneigenschaft " + weName)
-                        we = Hilfsmethoden.GetWaffeneigenschaft(weName, Wolke.DB)
-                        we.executeScript(self.waffenScriptAPI)
+            for key in sorted(eigenschaftenByPrio):
+                for weName in eigenschaftenByPrio[key]:
+                    self.currentEigenschaft = weName
+                    logging.info("Character: applying script for Waffeneigenschaft " + weName)
+                    we = Hilfsmethoden.GetWaffeneigenschaft(weName, Wolke.DB)
+                    we.executeScript(self.waffenScriptAPI)
 
-                self.currentWaffenwerte = None
-                self.currentEigenschaft = None
-            except Exception as e:
-                error.append(el.name + ": " + str(e))
-
-        if len(error) > 0:
-            messageBox = QtWidgets.QMessageBox()
-            messageBox.setIcon(QtWidgets.QMessageBox.Warning)
-            messageBox.setWindowTitle("Waffenwerte konnten nicht aktualisiert werden")
-            messageBox.setText("\n\n".join(error))
-            messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-            messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-            messageBox.exec()
+            self.currentWaffenwerte = None
+            self.currentEigenschaft = None
 
     def epZaehlen(self):
         '''Berechnet die bisher ausgegebenen EP'''
@@ -887,6 +874,11 @@ class Char():
             break
         return "Keine"
 
+    LoadResultNone = 0
+    LoadResultInfo = 1
+    LoadResultWarning = 2
+    LoadResultCritical = 3
+
     def loadFile(self, filename):
         '''Läd ein Charakter-Objekt aus einer XML Datei, deren Dateiname 
         inklusive Pfad als Argument übergeben wird'''
@@ -894,33 +886,29 @@ class Char():
         options = { "useCache" : False }
         deserializer = Serialization.getDeserializer(fileExtension, options)
         if not deserializer.readFile(filename):
-            messageBox = QtWidgets.QMessageBox()
-            messageBox.setIcon(QtWidgets.QMessageBox.Critical)
-            messageBox.setWindowTitle("Veraltetes Sephrasto")
-            messageBox.setText("Du hast den Charakter mit einer neueren Sephrasto-Version erstellt, diese Version kann ihn nicht öffnen")
-            messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-            messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-            messageBox.exec()
-            return False
+            result = [Char.LoadResultCritical, "Veraltetes Sephrasto", "Du hast den Charakter mit einer neueren Sephrasto-Version erstellt, diese Version kann ihn nicht öffnen"]
+            return False, result
+
+        success, loadResult = self.deserialize(deserializer)
+        if not success:
+            return False, loadResult
 
         if len(Migrationen.charakterUpdates) > 0:
-            messageBox = QtWidgets.QMessageBox()
-            messageBox.setIcon(QtWidgets.QMessageBox.Information)
-            messageBox.setWindowTitle("Charakter wurde aktualisiert")
-            messageBox.setText(Migrationen.charakterUpdates[0])
+            text = Migrationen.charakterUpdates[0]
             if len(Migrationen.charakterUpdates) > 1:
-                messageBox.setInformativeText("Weitere Informationen:\n- " + "\n- ".join(Migrationen.charakterUpdates[1:]))
-            messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-            messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-            messageBox.exec()
+                   text = "\n\nWeitere Informationen:\n- " + "\n- ".join(Migrationen.charakterUpdates[1:])
 
-        return self.deserialize(deserializer)
+            if loadResult[0] == Char.LoadResultNone:
+                loadResult = [Char.LoadResultInfo, "Charakter wurde aktualisiert", text]
+            else:
+                loadResult[2] += "\n\nDer Charakter wurde außerdem aktualisert: " + text
+        return True, loadResult
 
     def deserialize(self, deserializer):
         ser = EventBus.applyFilter("charakter_deserialisieren", deserializer, { "charakter" : self })
 
         if ser.currentTag != "Charakter":
-            return False
+            return False, [Char.LoadResultCritical, "Charakter laden nicht möglich", "Es handelt sich um keinen validen Charakter."]
 
         #Alles bisherige löschen
         self.__init__()
@@ -1115,10 +1103,6 @@ class Char():
         hausregelMissmatch = Wolke.DB.hausregelnAnzeigeName != letzteHausregeln
         anyIgnored = aIgnored or eIgnored or vIgnored or fIgnored or tIgnored or übIgnored or wIgnored
         if hausregelMissmatch or anyIgnored:
-            messageBox = QtWidgets.QMessageBox()
-            messageBox.setIcon(QtWidgets.QMessageBox.Warning)
-            messageBox.setWindowTitle("Charakter laden - Hausregeln wurden geändert.")
-
             strArr = ["Achtung, die Hausregeln haben sich geändert!"]
 
             if hausregelMissmatch:
@@ -1127,12 +1111,7 @@ class Char():
                 strArr.append("\n- Jetzt: ")
                 strArr.append(Wolke.DB.hausregelnAnzeigeName)
 
-            strArr.append("\n\nDein Charakter wurde an die neuen Regeln angepasst. Überspeichere ihn nur wenn du dir sicher bist, dass alles in Ordnung ist.")
-            text = "".join(strArr)
-            messageBox.setText(text)
-            logging.warning(text)
-
-            strArr = []
+            strArr.append("\n\nDein Charakter wurde an die neuen Regeln angepasst. Überspeichere ihn nur wenn du dir sicher bist, dass alles in Ordnung ist.\n\n")
             if anyIgnored:           
                 strArr.append("Das Folgende war charakterrelevant und wurde aus den Regeln gelöscht:")
                 if aIgnored:
@@ -1159,10 +1138,7 @@ class Char():
             else:
                 strArr.append("Es ist nichts verloren gegangen, alle Vorteile, Talente etc. sind in den neuen Regeln noch vorhanden.")
 
-            text = "".join(strArr)
-            messageBox.setInformativeText(text)
+            text = "\n" + "".join(strArr)
             logging.warning(text)
-            messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-            messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-            messageBox.exec()
-        return True
+            return True, [Char.LoadResultWarning, "Charakter laden - Hausregeln wurden geändert.", text]
+        return True, [Char.LoadResultNone, "", ""]

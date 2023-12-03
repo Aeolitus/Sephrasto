@@ -58,104 +58,121 @@ class Editor(object):
         Wolke.DB = Datenbank.Datenbank()
 
     def loadCharacter(self, path):
-        dlg = ProgressDialogExt(minimum = 0, maximum = 100)
-        dlg.disableCancel()
-        dlg.setWindowTitle("Charakter laden")    
-        dlg.show()
-        dlg.setLabelText("Lade Datenbank")
-        dlg.setValue(0, True)
-        self.savepath = path
-        storedHausregeln = Charakter.Char.hausregelnLesen(self.savepath)
-        availableHausregeln = EinstellungenWrapper.getDatenbanken(Wolke.Settings["Pfad-Regeln"])
+        try:
+            dlg = ProgressDialogExt(minimum = 0, maximum = 100)
+            dlg.disableCancel()
+            dlg.setWindowTitle("Charakter laden")    
+            dlg.show()
+            dlg.setLabelText("Lade Datenbank")
+            dlg.setValue(0, True)
+            self.savepath = path
+            storedHausregeln = Charakter.Char.hausregelnLesen(self.savepath)
+            availableHausregeln = EinstellungenWrapper.getDatenbanken(Wolke.Settings["Pfad-Regeln"])
         
-        dlg.setValue(10, True)
-        if storedHausregeln in availableHausregeln:
-            hausregeln = storedHausregeln
-        else:
-            messagebox = QtWidgets.QMessageBox()
-            messagebox.setWindowTitle("Hausregeln nicht gefunden!")
-            messagebox.setText(f"Der Charakter wurde mit den Hausregeln {storedHausregeln} erstellt. Die Datei konnte nicht gefunden werden.\n\n"\
-                "Bitte wähle aus, mit welchen Hausregeln der Charakter stattdessen geladen werden soll.")
-            messagebox.setIcon(QtWidgets.QMessageBox.Critical )
-            messagebox.addButton("OK", QtWidgets.QMessageBox.YesRole)
-            messagebox.setWindowFlags(QtCore.Qt.CustomizeWindowHint | QtCore.Qt.WindowTitleHint)
-            combo = QtWidgets.QComboBox()
-            combo.addItems(availableHausregeln)
-            messagebox.layout().addWidget(combo, 1, 2)
-            messagebox.exec()
-            hausregeln = combo.currentText()
+            dlg.setValue(10, True)
+            if storedHausregeln in availableHausregeln:
+                hausregeln = storedHausregeln
+            else:
+                messagebox = QtWidgets.QMessageBox()
+                messagebox.setWindowTitle("Hausregeln nicht gefunden!")
+                messagebox.setText(f"Der Charakter wurde mit den Hausregeln {storedHausregeln} erstellt. Die Datei konnte nicht gefunden werden.\n\n"\
+                    "Bitte wähle aus, mit welchen Hausregeln der Charakter stattdessen geladen werden soll.")
+                messagebox.setIcon(QtWidgets.QMessageBox.Critical )
+                messagebox.addButton("OK", QtWidgets.QMessageBox.YesRole)
+                messagebox.setWindowFlags(QtCore.Qt.CustomizeWindowHint | QtCore.Qt.WindowTitleHint)
+                combo = QtWidgets.QComboBox()
+                combo.addItems(availableHausregeln)
+                messagebox.layout().addWidget(combo, 1, 2)
+                messagebox.exec()
+                hausregeln = combo.currentText()
 
-        self.loadDB(hausregeln)
+            self.loadDB(hausregeln)
 
-        dlg.setLabelText("Lade Charakter")
-        dlg.setValue(40, True)
-        Wolke.Char = Charakter.Char()
-        if not Wolke.Char.loadFile(self.savepath):
-            self.savepath = ""
+            dlg.setLabelText("Lade Charakter")
+            dlg.setValue(40, True)
+            Wolke.Char = Charakter.Char()
+            success, loadResult = Wolke.Char.loadFile(self.savepath)
+            if loadResult[0] != Wolke.Char.LoadResultNone:
+                messageBox = QtWidgets.QMessageBox()
+                icon = { 1 : QtWidgets.QMessageBox.Information, 2 : QtWidgets.QMessageBox.Warning, 3 : QtWidgets.QMessageBox.Critical }
+                messageBox.setIcon(icon[loadResult[0]])
+                messageBox.setWindowTitle(loadResult[1])
+                messageBox.setText(loadResult[2])
+                messageBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+                messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
+                messageBox.exec()
 
-        dlg.setValue(70, True)    
-        missingPlugins = set(Wolke.Char.enabledPlugins) - set(self.enabledPlugins)
-        if len(missingPlugins) > 0:
-            infoBox = QtWidgets.QMessageBox()
-            infoBox.setIcon(QtWidgets.QMessageBox.Warning)
-            infoBox.setWindowTitle("Plugin fehlt!")
-            infoBox.setText("Der Charakter wurde mit einem oder mehreren Plugins erstellt, die seine Werte beeinflussen. "\
-            "Nicht alle davon sind aktiv, daher können beim Speichern Daten dieser Plugins verloren gehen:\n\n" + ", ".join(missingPlugins))
-            infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-            infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
-            infoBox.exec()
+            if not success:
+                self.savepath = ""
 
-        Wolke.Char.enabledPlugins = self.enabledPlugins.copy()
-        Wolke.Char.aktualisieren() # A bit later because it needs access to itself
+            dlg.setValue(70, True)    
+            missingPlugins = set(Wolke.Char.enabledPlugins) - set(self.enabledPlugins)
+            if len(missingPlugins) > 0:
+                infoBox = QtWidgets.QMessageBox()
+                infoBox.setIcon(QtWidgets.QMessageBox.Warning)
+                infoBox.setWindowTitle("Plugin fehlt!")
+                infoBox.setText("Der Charakter wurde mit einem oder mehreren Plugins erstellt, die seine Werte beeinflussen. "\
+                "Nicht alle davon sind aktiv, daher können beim Speichern Daten dieser Plugins verloren gehen:\n\n" + ", ".join(missingPlugins))
+                infoBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+                infoBox.setEscapeButton(QtWidgets.QMessageBox.Close)  
+                infoBox.exec()
 
-        dlg.setLabelText("Starte Editor")
-        dlg.setValue(80, True)
-        self.show()
-        dlg.hide()
-        dlg.deleteLater()
+            Wolke.Char.enabledPlugins = self.enabledPlugins.copy()
+            Wolke.Char.aktualisieren() # A bit later because it needs access to itself
+
+            dlg.setLabelText("Starte Editor")
+            dlg.setValue(80, True)
+            self.show()
+        finally:
+            dlg.hide()
+            dlg.deleteLater()
 
     def newCharacter(self):
-        dlg = ProgressDialogExt(minimum = 0, maximum = 100)
-        dlg.disableCancel()
-        dlg.setWindowTitle("Neuen Charakter erstellen")    
-        dlg.show()
-        dlg.setLabelText("Lade Datenbank")
-        dlg.setValue(0, True)
-        self.loadDB(Wolke.Settings['Datenbank'])
+        try:
+            dlg = ProgressDialogExt(minimum = 0, maximum = 100)
+            dlg.disableCancel()
+            dlg.setWindowTitle("Neuen Charakter erstellen")    
+            dlg.show()
+            dlg.setLabelText("Lade Datenbank")
+            dlg.setValue(0, True)
+            self.loadDB(Wolke.Settings['Datenbank'])
 
-        dlg.setLabelText("Erstelle Charakter")
-        dlg.setValue(40, True)
-        Wolke.Char = Charakter.Char()
-        Wolke.Char.enabledPlugins = self.enabledPlugins.copy()
-        Wolke.Char.aktualisieren() # A bit later because it needs access to itself
-        dlg.setLabelText("Starte Editor")
-        dlg.setValue(80, True)
-        self.show()
-        dlg.hide()
-        dlg.deleteLater()
+            dlg.setLabelText("Erstelle Charakter")
+            dlg.setValue(40, True)
+            Wolke.Char = Charakter.Char()
+            Wolke.Char.enabledPlugins = self.enabledPlugins.copy()
+            Wolke.Char.aktualisieren() # A bit later because it needs access to itself
+            dlg.setLabelText("Starte Editor")
+            dlg.setValue(80, True)
+            self.show()
+        finally:
+            dlg.hide()
+            dlg.deleteLater()
 
     def newCharacterFromWizard(self, wizardConfig):
-        dlg = ProgressDialogExt(minimum = 0, maximum = 100)
-        dlg.disableCancel()
-        dlg.setWindowTitle("Neuen Charakter erstellen")    
-        dlg.show()
-        dlg.setLabelText("Lade Datenbank")
-        dlg.setValue(0, True)
+        try:
+            dlg = ProgressDialogExt(minimum = 0, maximum = 100)
+            dlg.disableCancel()
+            dlg.setWindowTitle("Neuen Charakter erstellen")    
+            dlg.show()
+            dlg.setLabelText("Lade Datenbank")
+            dlg.setValue(0, True)
 
-        self.loadDB(wizardConfig.hausregeln)
+            self.loadDB(wizardConfig.hausregeln)
 
-        dlg.setLabelText("Erstelle Charakter")
-        dlg.setValue(40, True)
-        Wolke.Char = Charakter.Char()
-        wizardConfig.apply(Wolke.Char, Wolke.DB)
-        Wolke.Char.enabledPlugins = self.enabledPlugins.copy()
-        Wolke.Char.aktualisieren() # A bit later because it needs access to itself
+            dlg.setLabelText("Erstelle Charakter")
+            dlg.setValue(40, True)
+            Wolke.Char = Charakter.Char()
+            wizardConfig.apply(Wolke.Char, Wolke.DB)
+            Wolke.Char.enabledPlugins = self.enabledPlugins.copy()
+            Wolke.Char.aktualisieren() # A bit later because it needs access to itself
 
-        dlg.setLabelText("Starte Editor")
-        dlg.setValue(80, True)
-        self.show()
-        dlg.hide()
-        dlg.deleteLater()
+            dlg.setLabelText("Starte Editor")
+            dlg.setValue(80, True)
+            self.show()
+        finally:
+            dlg.hide()
+            dlg.deleteLater()
 
     def loadDB(self, hausregeln):
         if Wolke.DB.datei is None or Wolke.DB.hausregelDatei != hausregeln:
