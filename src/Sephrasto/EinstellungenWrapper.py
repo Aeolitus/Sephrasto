@@ -184,8 +184,9 @@ class EinstellungenWrapper():
               
             Wolke.Settings['UpdateCheck_Disable'] = not self.ui.checkUpdate.isChecked()
             Wolke.Settings['Logging'] = self.ui.comboLogging.currentIndex()
-            loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
-            logging.getLogger().setLevel(loglevels[Wolke.Settings['Logging']])
+            if Wolke.CmdArgs.loglevel is None:
+                loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
+                logging.getLogger().setLevel(loglevels[Wolke.Settings['Logging']])
             
             Wolke.Settings['PDF-Open'] = self.ui.checkPDFOpen.isChecked()
 

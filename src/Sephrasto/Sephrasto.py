@@ -109,8 +109,12 @@ class MainWindowWrapper(object):
         parser = argparse.ArgumentParser(prog='Sephrasto', description='Der Charaktergenerator für Ilaris')
         parser.add_argument('--settingsfile', required = False, help='Overrides the default location of the settings file')
         parser.add_argument('--noplugins', required = False, action='store_true', help='With this option no plugins are loaded, even if they are enabled in the settings')
+        parser.add_argument('--debug', required = False, action='store_true', help='This option will forward log messages to the console and enable further debug features')
+        parser.add_argument('--loglevel', required = False, type=int, choices=[0,1,2], help='Sets the loglevel (0 = error, 1 = warning, 2 = debug). This overrides the loglevel configured in setting file.')
         Wolke.CmdArgs = parser.parse_args()
 
+        if Wolke.CmdArgs.debug:
+            logging.getLogger().addHandler(logging.StreamHandler(sys.stdout))
         sys.excepthook = sephrasto_excepthook
         QtCore.qInstallMessageHandler(qt_message_handler)
 
@@ -135,7 +139,10 @@ class MainWindowWrapper(object):
 
         # Get the Settings loaded
         EinstellungenWrapper.loadPreQt()
-        logging.getLogger().setLevel(loglevels[Wolke.Settings['Logging']])
+        if Wolke.CmdArgs.loglevel is not None:
+            logging.getLogger().setLevel(loglevels[Wolke.CmdArgs.loglevel])
+        else:
+            logging.getLogger().setLevel(loglevels[Wolke.Settings['Logging']])
 
         os.environ["QT_ENABLE_HIGHDPI_SCALING"] = "1" if Wolke.Settings['DPI-Skalierung'] else "0"
 
