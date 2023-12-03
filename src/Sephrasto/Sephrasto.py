@@ -31,6 +31,8 @@ import PathHelper
 from CharakterListe import CharakterListe
 from CharakterAssistent import WizardWrapper
 import argparse
+import Charakter
+import Datenbank
 
 loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
 logging.basicConfig(filename="sephrasto.log", \
@@ -107,10 +109,11 @@ class MainWindowWrapper(object):
 
     def __init__(self):
         parser = argparse.ArgumentParser(prog='Sephrasto', description='Der Charaktergenerator für Ilaris')
-        parser.add_argument('--settingsfile', required = False, help='Overrides the default location of the settings file')
+        parser.add_argument('--settingsfile', required = False, help='Requires a path to an .ini file. If it doesnt exist it will be created. Overrides the default location of the settings file')
         parser.add_argument('--noplugins', required = False, action='store_true', help='With this option no plugins are loaded, even if they are enabled in the settings')
         parser.add_argument('--debug', required = False, action='store_true', help='This option will forward log messages to the console and enable further debug features')
         parser.add_argument('--loglevel', required = False, type=int, choices=[0,1,2], help='Sets the loglevel (0 = error, 1 = warning, 2 = debug). This overrides the loglevel configured in setting file.')
+        parser.add_argument('--migrate', required = False, help='Requires a path to a character xml file. Loads and then saves the character, applying any migration without UI interaction. Please make a backup, any loading warnings will be ignored.')
         Wolke.CmdArgs = parser.parse_args()
 
         if Wolke.CmdArgs.debug:
@@ -240,6 +243,11 @@ class MainWindowWrapper(object):
         loadedPlugins = [p.name for p in self._plugins if p.isLoaded()]
         EventBus.doAction("plugins_geladen", { "plugins" : loadedPlugins})
 
+        if Wolke.CmdArgs.migrate is not None:
+            self.migrateCharacter(Wolke.CmdArgs.migrate)
+            sys.exit(0)
+            return
+
         EventBus.addAction("charaktereditor_reload", self.charakterEditorReloadHook)
         EventBus.addAction("charaktereditor_modified", self.charakterEditorModifiedHook)
 
@@ -250,6 +258,30 @@ class MainWindowWrapper(object):
         EinstellungenWrapper.save()
 
         sys.exit(exitcode)
+
+    def migrateCharacter(self, path):
+        if not os.path.isfile(path):
+            print("Path is not a file.")
+            return
+        storedHausregeln = Charakter.Char.hausregelnLesen(path)
+        availableHausregeln = EinstellungenWrapper.getDatenbanken(Wolke.Settings["Pfad-Regeln"])
+        if storedHausregeln not in availableHausregeln:
+            print(f"Character requires a houserule database that is unavailable in the rules path ({storedHausregeln}).")
+            return
+        Wolke.DB = Datenbank.Datenbank()
+        if not Wolke.DB.loadFile(hausregeln = storedHausregeln, isCharakterEditor = True):
+            print("Failed to load database.")
+            return
+
+        char = Charakter.Char()
+        success, result = char.loadFile(path)
+        if result[0] != Charakter.Char.LoadResultNone:
+            print(result[1])
+            print(result[2])
+        if not success:
+            return
+        char.saveFile(path)
+        print("Character saved.")
 
     def updateRecents(self):
         self.charakterListe.update(Wolke.Settings['Letzte-Chars'])
