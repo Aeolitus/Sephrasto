@@ -2,6 +2,8 @@ from lxml import etree
 import json
 
 class JsonSerializer:
+    fileExtension = ".json"
+
     def __init__(self, rootName, options = {}):
         root = {}
         if "rootIsList" in options and options["rootIsList"]:
@@ -72,6 +74,8 @@ class JsonSerializer:
             json.dump(self.root, f, indent=4, ensure_ascii=False)
 
 class XmlSerializerBase:
+    fileExtension = ".xml"
+
     def __init__(self, options = {}):
         self._nodeStack = []
         self._currentNode = None
@@ -165,6 +169,10 @@ class XmlDeserializer(XmlSerializerBase):
         super().__init__(options)
         self._iterating = False
 
+    def initFromSerializer(self, serializer):
+        self._nodeStack = [serializer._nodeStack[0]]
+        self._currentNode = serializer._currentNode
+
     def get(self, name, default = None):
         if name == "text":
             return self._currentNode.text or ''
@@ -226,18 +234,18 @@ class XmlDeserializer(XmlSerializerBase):
 
 class Serialization:
     _serializers = {
-        ".xml" : XmlSerializer,
-        ".json" : JsonSerializer
+        XmlSerializer.fileExtension : XmlSerializer,
+        JsonSerializer.fileExtension : JsonSerializer
     }
     _deserializers = {
-        ".xml" : XmlDeserializer
+        XmlDeserializer.fileExtension : XmlDeserializer
     }
 
-    def registerSerializer(type, fileExtension):
-        Serialization._serializers[fileExtension.lower()] = type
+    def registerSerializer(type):
+        Serialization._serializers[type.fileExtension] = type
 
-    def registerDeserializer(type, fileExtension):
-        Serialization._deserializers[fileExtension.lower()] = type
+    def registerDeserializer(type):
+        Serialization._deserializers[type.fileExtension] = type
 
     def getSerializer(fileExtension, rootName, options = {}):
         return Serialization._serializers[fileExtension.lower()](rootName, options)
