@@ -230,6 +230,18 @@ class Char():
 
         EventBus.doAction("charakter_instanziiert", { "charakter" : self })
 
+    def __deepcopy__(self, memo=""):
+        # regular deep copy is way too error prone, ".charakter"-references would have to be fixed
+        # for all core classes (because they override the id in the memo) and plugin support would be annoying
+        # so we just serialize-deserialize in memory
+        result = self.__class__()
+        serializer = Serialization.getSerializer(".xml", 'Charakter') #todo: switch to .json once we have a deserializer for it
+        self.serialize(serializer)
+        deserializer = Serialization.getDeserializer(".xml", 'Charakter')
+        deserializer.initFromSerializer(serializer)
+        result.deserialize(deserializer)
+        return result
+
     @property
     def epGesamt(self):
         return self._epGesamt
