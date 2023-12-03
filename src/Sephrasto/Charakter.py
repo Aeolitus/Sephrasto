@@ -771,7 +771,7 @@ class Char():
         ser.end() #attribute
 
         ser.beginList('Energien')
-        for energie in self.energien:
+        for energie in self.energien.values():
             ser.begin('Energie')
             energie.serialize(ser)
             ser.end() #energie
