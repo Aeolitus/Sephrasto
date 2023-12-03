@@ -52,7 +52,7 @@ Wichtig: Alle Actions/Filter, die den Charakter betreffen, übergeben den Charak
 |charakter_serialisiert|Action|{ "charakter" : Char, "serializer" : Serialization.?Serializer }|Dem Serialisierer Daten hinzufügen oder modifizieren, nachdem Sephrasto den Charakter hineingeschrieben hat.|
 |charakter_deserialisieren|Filter|Serialization.?Deserializer // {"charakter" : Char }|Aus dem Deserialisierer Daten laden oder modifizieren, bevor Sephrasto den Charakter daraus lädt.|
 |charakter_deserialisiert|Action|{ "charakter" : Char, "deserializer" : ?Deserializer }|Aus dem Deserialisierer Daten laden, nachdem Sephrasto den Charakter daraus geladen hat.|
-|charakter_geschrieben|Ation|{ "charakter" : Char, "filepath" : str }|Die Charakterdatei modifizieren oder weitere Dateien erstellen|
+|charakter_geschrieben|Action|{ "charakter" : Char, "serializer" : ?Serializer, "filepath" : str }|Die Charakterdatei modifizieren oder weitere Dateien erstellen|
 |**Update**|
 |pre_charakter_aktualisieren|Action|{ "charakter" : Char }|Beliebige Aktion durchführen, nachdem die Charakterwerte in irgendeiner Form modifiziert wurden, aber bevor die Veränderungen berechnet werden.|
 |charakter_aktualisieren_vorteilscripts|Action|{ "charakter" : Char }|Wird während der Charakteraktualisierung nach der Berechnung des Basiswerte und vor der Ausführung der Vorteilskripte aufgerufen.|

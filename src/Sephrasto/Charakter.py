@@ -722,7 +722,7 @@ class Char():
         serializer = Serialization.getSerializer(fileExtension, 'Charakter')
         self.serialize(serializer)
         serializer.writeFile(filename)
-        ser = EventBus.applyFilter("charakter_geschrieben", serializer, { "charakter" : self, "filepath" : filename })
+        EventBus.doAction("charakter_geschrieben", { "charakter" : self, "serializer" : serializer, "filepath" : filename })
 
     def serialize(self, serializer):   
         ser = EventBus.applyFilter("charakter_serialisieren", serializer, { "charakter" : self })
