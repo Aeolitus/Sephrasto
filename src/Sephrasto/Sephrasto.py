@@ -280,6 +280,7 @@ class MainWindowWrapper(object):
             print(result[2])
         if not success:
             return
+        char.aktualisieren() #plugins listening to "serialize" might depend on this
         char.saveFile(path)
         print("Character saved.")
 
