@@ -108,6 +108,22 @@ class MainWindowWrapper(object):
     '''
 
     def __init__(self):
+        # on a built windows exe stdout is not available, we need to redirect the output
+        # to a dummy stream so it doesnt crash when something like argparse tries to use it
+        if not hasattr(sys.stdout, "write"):
+            class DummyStream:
+                def __init__(self): pass
+                def write(self,data): pass
+                def read(self,data): pass
+                def flush(self): pass
+                def close(self): pass
+            sys.stdout = DummyStream()
+            sys.stderr = DummyStream()
+            sys.stdin = DummyStream()
+            sys.__stdout__ = DummyStream()
+            sys.__stderr__ = DummyStream()
+            sys.__stdin__ = DummyStream()
+
         parser = argparse.ArgumentParser(prog='Sephrasto', description='Der Charaktergenerator für Ilaris')
         parser.add_argument('--settingsfile', required = False, help='Requires a path to an .ini file. If it doesnt exist it will be created. Overrides the default location of the settings file')
         parser.add_argument('--noplugins', required = False, action='store_true', help='With this option no plugins are loaded, even if they are enabled in the settings')
@@ -138,7 +154,7 @@ class MainWindowWrapper(object):
         if os.path.isfile(os.path.abspath(__file__)):
             os.chdir(os.path.dirname(os.path.abspath(__file__)))
         else:
-            os.chdir(os.path.dirname(sys.argv[0]))
+            os.chdir(os.path.dirname(sys.argv[0]) or ".")
 
         # Get the Settings loaded
         EinstellungenWrapper.loadPreQt()
