@@ -1,203 +1,149 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE xsl:stylesheet [
+   <!ENTITY nbsp "&#160;">
+]>
 <Charakter>
   <Version>
-    <DatenbankVersion>3</DatenbankVersion>
-    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName></NutzerDatenbankName>
+    <CharakterVersion>8</CharakterVersion>
     <Plugins></Plugins>
+    <Hausregeln>Keine</Hausregeln>
   </Version>
   <Beschreibung>
     <Name></Name>
     <Spezies></Spezies>
     <Status>2</Status>
     <Kurzbeschreibung></Kurzbeschreibung>
-    <SchiP>0</SchiP>
     <Finanzen>0</Finanzen>
     <Heimat>Mittelreich</Heimat>
     <Eigenheiten/>
   </Beschreibung>
   <Attribute>
-    <KO>4</KO>
-    <MU>6</MU>
-    <GE>4</GE>
-    <KK>4</KK>
-    <IN>3</IN>
-    <KL>2</KL>
-    <CH>2</CH>
-    <FF>1</FF>
+    <Attribut name="KO" wert="4"/>
+    <Attribut name="MU" wert="6"/>
+    <Attribut name="GE" wert="4"/>
+    <Attribut name="KK" wert="4"/>
+    <Attribut name="IN" wert="3"/>
+    <Attribut name="KL" wert="2"/>
+    <Attribut name="CH" wert="2"/>
+    <Attribut name="FF" wert="1"/>
   </Attribute>
   <Energien>
-    <AsP wert="0"/>
-    <KaP wert="1"/>
+    <Energie name="KaP" wert="1"/>
   </Energien>
-  <Vorteile minderpakt="">
-    <Vorteil>Einkommen I</Vorteil>
-    <Vorteil>Einkommen II</Vorteil>
-    <Vorteil>Geweiht I</Vorteil>
-    <Vorteil>Geweiht II</Vorteil>
-    <Vorteil variableKosten="60" kommentar="Rondrakirche &amp; zahlreiche Gläubige">Verbindungen</Vorteil>
-    <Vorteil>Ausfall</Vorteil>
-    <Vorteil>Schneller Kampf I</Vorteil>
-    <Vorteil>Tradition der Rondrageweihten I</Vorteil>
-    <Vorteil>Gesegnete Waffe</Vorteil>
-    <Vorteil>Tradition der Rondrageweihten II</Vorteil>
-    <Vorteil>Niederwerfen</Vorteil>
-    <Vorteil>Willensstark II</Vorteil>
-    <Vorteil>Privilegien (Krieger)</Vorteil>
-    <Vorteil>Geweiht III</Vorteil>
+  <Vorteile>
+    <Vorteil name="Einkommen I"/>
+    <Vorteil name="Einkommen II"/>
+    <Vorteil name="Geweiht I"/>
+    <Vorteil name="Geweiht II"/>
+    <Vorteil name="Verbindungen" variableKosten="60" kommentar="Rondrakirche &amp; zahlreiche Gläubige"/>
+    <Vorteil name="Ausfall"/>
+    <Vorteil name="Schneller Kampf I"/>
+    <Vorteil name="Tradition der Rondrageweihten I"/>
+    <Vorteil name="Gesegnete Waffe"/>
+    <Vorteil name="Tradition der Rondrageweihten II"/>
+    <Vorteil name="Niederwerfen"/>
+    <Vorteil name="Willensstark II"/>
+    <Vorteil name="Privilegien (Krieger)"/>
+    <Vorteil name="Geweiht III"/>
   </Vorteile>
   <Fertigkeiten>
-    <Fertigkeit name="Handgemenge" wert="5">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Hiebwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Klingenwaffen" wert="8">
-      <Talente>
-        <Talent name="Zweihandklingenwaffen"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Stangenwaffen" wert="3">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Schusswaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Wurfwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Athletik" wert="4">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Heimlichkeit" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Selbstbeherrschung" wert="4">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Wahrnehmung" wert="2">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Autorität" wert="4">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Beeinflussung" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Gebräuche" wert="2">
-      <Talente>
-        <Talent name="Gebräuche: Mittelreich"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Derekunde" wert="1">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Mythenkunde" wert="4">
-      <Talente>
-        <Talent name="Götter und Kulte"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Magiekunde" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Überleben" wert="2">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Verschlagenheit" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Alchemie" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Heilkunde" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Handwerk" wert="0">
-      <Talente/>
-    </Fertigkeit>
+    <Fertigkeit name="Handgemenge" wert="5"/>
+    <Fertigkeit name="Hiebwaffen" wert="0"/>
+    <Fertigkeit name="Klingenwaffen" wert="8"/>
+    <Fertigkeit name="Stangenwaffen" wert="3"/>
+    <Fertigkeit name="Schusswaffen" wert="0"/>
+    <Fertigkeit name="Wurfwaffen" wert="0"/>
+    <Fertigkeit name="Athletik" wert="4"/>
+    <Fertigkeit name="Heimlichkeit" wert="0"/>
+    <Fertigkeit name="Selbstbeherrschung" wert="4"/>
+    <Fertigkeit name="Wahrnehmung" wert="2"/>
+    <Fertigkeit name="Autorität" wert="4"/>
+    <Fertigkeit name="Beeinflussung" wert="0"/>
+    <Fertigkeit name="Gebräuche" wert="2"/>
+    <Fertigkeit name="Derekunde" wert="1"/>
+    <Fertigkeit name="Mythenkunde" wert="4"/>
+    <Fertigkeit name="Magiekunde" wert="0"/>
+    <Fertigkeit name="Überleben" wert="2"/>
+    <Fertigkeit name="Verschlagenheit" wert="0"/>
+    <Fertigkeit name="Alchemie" wert="0"/>
+    <Fertigkeit name="Heilkunde" wert="0"/>
+    <Fertigkeit name="Handwerk" wert="0"/>
+  </Fertigkeiten>
+  <FreieFertigkeiten>
     <FreieFertigkeit name="" wert="3"/>
     <FreieFertigkeit name="Sprache: Garethi" wert="1"/>
     <FreieFertigkeit name="Sprache: Bosparano" wert="1"/>
     <FreieFertigkeit name="Schrift: Kusliker Zeichen" wert="1"/>
     <FreieFertigkeit name="Sprache: Tulamidya" wert="1"/>
-  </Fertigkeiten>
+  </FreieFertigkeiten>
+  <Talente>
+    <Talent name="Gebräuche: Mittelreich"/>
+    <Talent name="Zweihandklingenwaffen"/>
+    <Talent name="Götter und Kulte"/>
+    <Talent name="Eidsegen"/>
+    <Talent name="Feuersegen"/>
+    <Talent name="Geburtssegen"/>
+    <Talent name="Glückssegen"/>
+    <Talent name="Grabsegen"/>
+    <Talent name="Harmoniesegen"/>
+    <Talent name="Heilungssegen"/>
+    <Talent name="Märtyrersegen"/>
+    <Talent name="Schutzsegen"/>
+    <Talent name="Speisesegen"/>
+    <Talent name="Tranksegen"/>
+    <Talent name="Weisheitssegen"/>
+    <Talent name="Ehrenhafter Kampf"/>
+    <Talent name="Heiliger Befehl"/>
+    <Talent name="Mirakel: Selbstbeherrschung"/>
+    <Talent name="Waffenweihe"/>
+    <Talent name="Mirakel: Klingenwaffen"/>
+    <Talent name="Segnung der stählernen Stirn"/>
+    <Talent name="Wundersames Teilen des Martyriums"/>
+    <Talent name="Rondragabunds Führung"/>
+  </Talente>
   <Objekte>
     <Zonensystem>0</Zonensystem>
     <Rüstungen>
       <Rüstung name="Kettenrüstung" be="3" rs="3/3/3/3/3/3"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="Rondrakamm" id="Rondrakamm" würfel="2" würfelSeiten="6" plus="4" eigenschaften="Zweihändig, geweiht" härte="10" rw="2" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
-      <Waffe name="Kurzschwert" id="Kurzschwert" würfel="2" würfelSeiten="6" plus="0" eigenschaften="Wendig" härte="10" rw="0" kampfstil="Schneller Kampf" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="Rondrakamm" id="Rondrakamm" würfel="2" würfelSeiten="6" plus="4" eigenschaften="Zweihändig, geweiht" härte="10" rw="2" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="Kurzschwert" id="Kurzschwert" würfel="2" würfelSeiten="6" plus="0" eigenschaften="Wendig" härte="10" rw="0" beSlot="1" kampfstil="Schneller Kampf" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>Einfache Reiseausrüstung</Ausrüstungsstück>
     </Ausrüstung>
   </Objekte>
   <ÜbernatürlicheFertigkeiten>
-    <ÜbernatürlicheFertigkeit name="Zwölfgöttlicher Ritus" wert="4" exportieren="1">
-      <Talente>
-        <Talent name="Eidsegen"/>
-        <Talent name="Feuersegen"/>
-        <Talent name="Geburtssegen"/>
-        <Talent name="Glückssegen"/>
-        <Talent name="Grabsegen"/>
-        <Talent name="Harmoniesegen"/>
-        <Talent name="Heilungssegen"/>
-        <Talent name="Märtyrersegen"/>
-        <Talent name="Schutzsegen"/>
-        <Talent name="Speisesegen"/>
-        <Talent name="Tranksegen"/>
-        <Talent name="Weisheitssegen"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Ehre" wert="6" exportieren="1">
-      <Talente>
-        <Talent name="Ehrenhafter Kampf"/>
-        <Talent name="Heiliger Befehl"/>
-        <Talent name="Mirakel: Selbstbeherrschung"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Heerführung" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Ehrenhafter Kampf"/>
-        <Talent name="Waffenweihe"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Schutz der Gläubigen" wert="8" exportieren="1">
-      <Talente>
-        <Talent name="Schutzsegen"/>
-        <Talent name="Mirakel: Klingenwaffen"/>
-        <Talent name="Segnung der stählernen Stirn"/>
-        <Talent name="Wundersames Teilen des Martyriums"/>
-        <Talent name="Rondragabunds Führung"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Zwölfgöttlicher Ritus" wert="4" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Ehre" wert="6" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Heerführung" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Schutz der Gläubigen" wert="8" exportieren="1"/>
   </ÜbernatürlicheFertigkeiten>
   <Erfahrung>
     <Gesamt>2500</Gesamt>
     <Ausgegeben>2500</Ausgegeben>
   </Erfahrung>
-  <Notiz/>
+  <Notiz></Notiz>
   <Einstellungen>
     <VoraussetzungenPrüfen>1</VoraussetzungenPrüfen>
     <Charakterbogen>Ilaris Advanced Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
     <ÜbernatürlichesPDFSpalteAnzeigen>0</ÜbernatürlichesPDFSpalteAnzeigen>
+    <DetailsAnzeigen>1</DetailsAnzeigen>
     <RegelnAnhängen>1</RegelnAnhängen>
-    <RegelnGrösse>0</RegelnGrösse>
-    <RegelnKategorien>V0, V1, M9, V2, V3, M5, W, M8, M0, M1, V4, V5, M2, M4, Z, V6, V7, M3, M7, L, V8, M6, A, M10</RegelnKategorien>
-    <FormularEditierbarkeit>0</FormularEditierbarkeit>
-    <Hausregeln></Hausregeln>
+    <RegelnGrösse>8</RegelnGrösse>
+    <DeaktivierteRegelKategorien></DeaktivierteRegelKategorien>
+    <FormularEditierbarkeit>1</FormularEditierbarkeit>
   </Einstellungen>
   <BeschreibungDetails>
-    <Kultur/>
+    <Kultur></Kultur>
     <Profession></Profession>
     <Geschlecht></Geschlecht>
     <Geburtsdatum></Geburtsdatum>

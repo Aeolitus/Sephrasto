@@ -1,16 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE xsl:stylesheet [
+   <!ENTITY nbsp "&#160;">
+]>
 <Charakter>
   <Version>
-    <DatenbankVersion>3</DatenbankVersion>
-    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName></NutzerDatenbankName>
+    <CharakterVersion>8</CharakterVersion>
     <Plugins></Plugins>
+    <Hausregeln>Keine</Hausregeln>
   </Version>
   <Beschreibung>
     <Name>Lanzprecht Parinor von Eslamsgrund-Steynebruck</Name>
     <Spezies></Spezies>
     <Status>1</Status>
     <Kurzbeschreibung>Rechtschaffener Ritter vom Stand</Kurzbeschreibung>
-    <SchiP>2</SchiP>
     <Finanzen>1</Finanzen>
     <Heimat>Mittelreich</Heimat>
     <Eigenheiten>
@@ -20,118 +22,70 @@
     </Eigenheiten>
   </Beschreibung>
   <Attribute>
-    <KO>5</KO>
-    <MU>5</MU>
-    <GE>4</GE>
-    <KK>8</KK>
-    <IN>4</IN>
-    <KL>3</KL>
-    <CH>4</CH>
-    <FF>2</FF>
+    <Attribut name="KO" wert="5"/>
+    <Attribut name="MU" wert="5"/>
+    <Attribut name="GE" wert="4"/>
+    <Attribut name="KK" wert="8"/>
+    <Attribut name="IN" wert="4"/>
+    <Attribut name="KL" wert="3"/>
+    <Attribut name="CH" wert="4"/>
+    <Attribut name="FF" wert="2"/>
   </Attribute>
-  <Energien>
-    <AsP wert="0"/>
-    <KaP wert="0"/>
-  </Energien>
-  <Vorteile minderpakt="">
-    <Vorteil variableKosten="40" kommentar="Schlachtross">Besonderer Besitz</Vorteil>
-    <Vorteil>Eindrucksvoll I</Vorteil>
-    <Vorteil>Kommando: Haltet Stand!</Vorteil>
-    <Vorteil>Niederwerfen</Vorteil>
-    <Vorteil>Kampfreflexe</Vorteil>
-    <Vorteil>Kraftvoller Kampf I</Vorteil>
-    <Vorteil>Kraftvoller Kampf II</Vorteil>
-    <Vorteil>Reiterkampf I</Vorteil>
-    <Vorteil>Reiterkampf II</Vorteil>
-    <Vorteil>Reiterkampf III</Vorteil>
-    <Vorteil>Privilegien (Adel)</Vorteil>
-    <Vorteil>Hammerschlag</Vorteil>
+  <Energien/>
+  <Vorteile>
+    <Vorteil name="Besonderer Besitz" variableKosten="40" kommentar="Schlachtross"/>
+    <Vorteil name="Eindrucksvoll I"/>
+    <Vorteil name="Kommando: Haltet Stand!"/>
+    <Vorteil name="Niederwerfen"/>
+    <Vorteil name="Kampfreflexe"/>
+    <Vorteil name="Kraftvoller Kampf I"/>
+    <Vorteil name="Kraftvoller Kampf II"/>
+    <Vorteil name="Reiterkampf I"/>
+    <Vorteil name="Reiterkampf II"/>
+    <Vorteil name="Reiterkampf III"/>
+    <Vorteil name="Privilegien (Adel)"/>
+    <Vorteil name="Hammerschlag"/>
   </Vorteile>
   <Fertigkeiten>
-    <Fertigkeit name="Handgemenge" wert="5">
-      <Talente>
-        <Talent name="Unbewaffnet"/>
-        <Talent name="Handgemengewaffen"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Hiebwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Klingenwaffen" wert="8">
-      <Talente>
-        <Talent name="Zweihandklingenwaffen"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Stangenwaffen" wert="7">
-      <Talente>
-        <Talent name="Lanzenreiten"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Schusswaffen" wert="3">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Wurfwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Athletik" wert="6">
-      <Talente>
-        <Talent name="Reiten"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Heimlichkeit" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Selbstbeherrschung" wert="5">
-      <Talente>
-        <Talent name="Zähigkeit"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Wahrnehmung" wert="5">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Autorität" wert="5">
-      <Talente>
-        <Talent name="Anführen"/>
-        <Talent name="Einschüchtern"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Beeinflussung" wert="2">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Gebräuche" wert="3">
-      <Talente>
-        <Talent name="Gebräuche: Mittelreich"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Derekunde" wert="1">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Mythenkunde" wert="2">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Magiekunde" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Überleben" wert="4">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Verschlagenheit" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Alchemie" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Heilkunde" wert="1">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Handwerk" wert="0">
-      <Talente/>
-    </Fertigkeit>
+    <Fertigkeit name="Handgemenge" wert="5"/>
+    <Fertigkeit name="Hiebwaffen" wert="0"/>
+    <Fertigkeit name="Klingenwaffen" wert="8"/>
+    <Fertigkeit name="Stangenwaffen" wert="7"/>
+    <Fertigkeit name="Schusswaffen" wert="3"/>
+    <Fertigkeit name="Wurfwaffen" wert="0"/>
+    <Fertigkeit name="Athletik" wert="6"/>
+    <Fertigkeit name="Heimlichkeit" wert="0"/>
+    <Fertigkeit name="Selbstbeherrschung" wert="5"/>
+    <Fertigkeit name="Wahrnehmung" wert="5"/>
+    <Fertigkeit name="Autorität" wert="5"/>
+    <Fertigkeit name="Beeinflussung" wert="2"/>
+    <Fertigkeit name="Gebräuche" wert="3"/>
+    <Fertigkeit name="Derekunde" wert="1"/>
+    <Fertigkeit name="Mythenkunde" wert="2"/>
+    <Fertigkeit name="Magiekunde" wert="0"/>
+    <Fertigkeit name="Überleben" wert="4"/>
+    <Fertigkeit name="Verschlagenheit" wert="0"/>
+    <Fertigkeit name="Alchemie" wert="0"/>
+    <Fertigkeit name="Heilkunde" wert="1"/>
+    <Fertigkeit name="Handwerk" wert="0"/>
+  </Fertigkeiten>
+  <FreieFertigkeiten>
     <FreieFertigkeit name="" wert="3"/>
     <FreieFertigkeit name="Minnesang" wert="1"/>
     <FreieFertigkeit name="Heraldik" wert="1"/>
     <FreieFertigkeit name="Schrift: Kusliker Zeichen" wert="1"/>
-  </Fertigkeiten>
+  </FreieFertigkeiten>
+  <Talente>
+    <Talent name="Gebräuche: Mittelreich"/>
+    <Talent name="Unbewaffnet"/>
+    <Talent name="Handgemengewaffen"/>
+    <Talent name="Zweihandklingenwaffen"/>
+    <Talent name="Lanzenreiten"/>
+    <Talent name="Reiten"/>
+    <Talent name="Zähigkeit"/>
+    <Talent name="Anführen"/>
+    <Talent name="Einschüchtern"/>
+  </Talente>
   <Objekte>
     <Zonensystem>0</Zonensystem>
     <Rüstungen>
@@ -140,14 +94,14 @@
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="Anderthalbhänder (KVK)" id="Anderthalbhänder" würfel="2" würfelSeiten="6" plus="2" eigenschaften="Zweihändig" härte="10" rw="2" kampfstil="Kraftvoller Kampf" wm="1" typ="Nah"/>
-      <Waffe name="Anderthalbhänder (RK)" id="Anderthalbhänder" würfel="2" würfelSeiten="6" plus="2" eigenschaften="Zweihändig" härte="10" rw="2" kampfstil="Reiterkampf" wm="1" typ="Nah"/>
-      <Waffe name="Tralloper Riese" id="Tralloper Riese" würfel="2" würfelSeiten="6" plus="4" eigenschaften="Niederwerfen, Reittier" härte="16" rw="1" kampfstil="Reiterkampf" wm="0" typ="Nah"/>
-      <Waffe name="Kriegslanze" id="Kriegslanze" würfel="3" würfelSeiten="6" plus="1" eigenschaften="" härte="5" rw="2" kampfstil="Reiterkampf" wm="-1" typ="Nah"/>
-      <Waffe name="Scheibendolch (KVK)" id="Scheibendolch" würfel="1" würfelSeiten="6" plus="1" eigenschaften="Rüstungsbrechend" härte="9" rw="0" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="Anderthalbhänder (KVK)" id="Anderthalbhänder" würfel="2" würfelSeiten="6" plus="2" eigenschaften="Zweihändig" härte="10" rw="2" beSlot="1" kampfstil="Kraftvoller Kampf" wm="1"/>
+      <Waffe name="Anderthalbhänder (RK)" id="Anderthalbhänder" würfel="2" würfelSeiten="6" plus="2" eigenschaften="Zweihändig" härte="10" rw="2" beSlot="1" kampfstil="Reiterkampf" wm="1"/>
+      <Waffe name="Tralloper Riese" id="Tralloper Riese" würfel="2" würfelSeiten="6" plus="4" eigenschaften="Niederwerfen, Reittier" härte="16" rw="1" beSlot="1" kampfstil="Reiterkampf" wm="0"/>
+      <Waffe name="Kriegslanze" id="Kriegslanze" würfel="3" würfelSeiten="6" plus="1" eigenschaften="" härte="5" rw="2" beSlot="1" kampfstil="Reiterkampf" wm="-1"/>
+      <Waffe name="Scheibendolch (KVK)" id="Scheibendolch" würfel="1" würfelSeiten="6" plus="1" eigenschaften="Rüstungsbrechend" härte="9" rw="0" beSlot="1" kampfstil="Kraftvoller Kampf" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>Sattel mit Satteltaschen, Zaumzeug, Pferdedecke</Ausrüstungsstück>
@@ -164,20 +118,20 @@
     <Gesamt>3000</Gesamt>
     <Ausgegeben>2995</Ausgegeben>
   </Erfahrung>
-  <Notiz/>
+  <Notiz></Notiz>
   <Einstellungen>
     <VoraussetzungenPrüfen>1</VoraussetzungenPrüfen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
     <ÜbernatürlichesPDFSpalteAnzeigen>0</ÜbernatürlichesPDFSpalteAnzeigen>
+    <DetailsAnzeigen>0</DetailsAnzeigen>
     <RegelnAnhängen>1</RegelnAnhängen>
-    <RegelnGrösse>0</RegelnGrösse>
-    <RegelnKategorien>V0, V1, M9, V2, V3, M5, W, M8, M0, M1, V4, V5, M2, M4, Z, V6, V7, M3, M7, L, V8, M6, A, M10</RegelnKategorien>
-    <FormularEditierbarkeit>0</FormularEditierbarkeit>
-    <Hausregeln></Hausregeln>
+    <RegelnGrösse>8</RegelnGrösse>
+    <DeaktivierteRegelKategorien></DeaktivierteRegelKategorien>
+    <FormularEditierbarkeit>1</FormularEditierbarkeit>
   </Einstellungen>
   <BeschreibungDetails>
-    <Kultur/>
+    <Kultur></Kultur>
     <Profession></Profession>
     <Geschlecht></Geschlecht>
     <Geburtsdatum></Geburtsdatum>

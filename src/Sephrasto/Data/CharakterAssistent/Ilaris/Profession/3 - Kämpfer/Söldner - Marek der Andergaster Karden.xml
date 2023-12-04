@@ -1,16 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE xsl:stylesheet [
+   <!ENTITY nbsp "&#160;">
+]>
 <Charakter>
   <Version>
-    <DatenbankVersion>3</DatenbankVersion>
-    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName></NutzerDatenbankName>
+    <CharakterVersion>8</CharakterVersion>
     <Plugins></Plugins>
+    <Hausregeln>Keine</Hausregeln>
   </Version>
   <Beschreibung>
     <Name>Marek "der Andergaster" Karden</Name>
     <Spezies></Spezies>
     <Status>2</Status>
     <Kurzbeschreibung>Unglücklich verliebter Söldner auf der Suche nach Ruhm</Kurzbeschreibung>
-    <SchiP>4</SchiP>
     <Finanzen>2</Finanzen>
     <Heimat>Mittelreich</Heimat>
     <Eigenheiten>
@@ -21,115 +23,66 @@
     </Eigenheiten>
   </Beschreibung>
   <Attribute>
-    <KO>6</KO>
-    <MU>4</MU>
-    <GE>2</GE>
-    <KK>6</KK>
-    <IN>2</IN>
-    <KL>2</KL>
-    <CH>4</CH>
-    <FF>4</FF>
+    <Attribut name="KO" wert="6"/>
+    <Attribut name="MU" wert="4"/>
+    <Attribut name="GE" wert="2"/>
+    <Attribut name="KK" wert="6"/>
+    <Attribut name="IN" wert="2"/>
+    <Attribut name="KL" wert="2"/>
+    <Attribut name="CH" wert="4"/>
+    <Attribut name="FF" wert="4"/>
   </Attribute>
-  <Energien>
-    <AsP wert="0"/>
-    <KaP wert="0"/>
-  </Energien>
-  <Vorteile minderpakt="">
-    <Vorteil>Zerstörerisch I</Vorteil>
-    <Vorteil>Ausfall</Vorteil>
-    <Vorteil>Niederwerfen</Vorteil>
-    <Vorteil>Ruhige Hand</Vorteil>
-    <Vorteil>Rüstungsgewöhnung</Vorteil>
-    <Vorteil>Schildkampf I</Vorteil>
-    <Vorteil>Schildkampf II</Vorteil>
-    <Vorteil>Waffenloser Kampf</Vorteil>
+  <Energien/>
+  <Vorteile>
+    <Vorteil name="Zerstörerisch I"/>
+    <Vorteil name="Ausfall"/>
+    <Vorteil name="Niederwerfen"/>
+    <Vorteil name="Ruhige Hand"/>
+    <Vorteil name="Rüstungsgewöhnung"/>
+    <Vorteil name="Schildkampf I"/>
+    <Vorteil name="Schildkampf II"/>
+    <Vorteil name="Waffenloser Kampf"/>
   </Vorteile>
   <Fertigkeiten>
-    <Fertigkeit name="Handgemenge" wert="8">
-      <Talente>
-        <Talent name="Schilde"/>
-        <Talent name="Unbewaffnet"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Hiebwaffen" wert="8">
-      <Talente>
-        <Talent name="Einhandhiebwaffen"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Klingenwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Stangenwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Schusswaffen" wert="5">
-      <Talente>
-        <Talent name="Armbrüste"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Wurfwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Athletik" wert="5">
-      <Talente>
-        <Talent name="Laufen"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Heimlichkeit" wert="3">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Selbstbeherrschung" wert="5">
-      <Talente>
-        <Talent name="Zähigkeit"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Wahrnehmung" wert="4">
-      <Talente>
-        <Talent name="Wachsamkeit"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Autorität" wert="1">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Beeinflussung" wert="5">
-      <Talente>
-        <Talent name="Überreden"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Gebräuche" wert="5">
-      <Talente>
-        <Talent name="Gebräuche: Mittelreich"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Derekunde" wert="1">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Mythenkunde" wert="1">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Magiekunde" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Überleben" wert="1">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Verschlagenheit" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Alchemie" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Heilkunde" wert="3">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Handwerk" wert="1">
-      <Talente/>
-    </Fertigkeit>
+    <Fertigkeit name="Handgemenge" wert="8"/>
+    <Fertigkeit name="Hiebwaffen" wert="8"/>
+    <Fertigkeit name="Klingenwaffen" wert="0"/>
+    <Fertigkeit name="Stangenwaffen" wert="0"/>
+    <Fertigkeit name="Schusswaffen" wert="5"/>
+    <Fertigkeit name="Wurfwaffen" wert="0"/>
+    <Fertigkeit name="Athletik" wert="5"/>
+    <Fertigkeit name="Heimlichkeit" wert="3"/>
+    <Fertigkeit name="Selbstbeherrschung" wert="5"/>
+    <Fertigkeit name="Wahrnehmung" wert="4"/>
+    <Fertigkeit name="Autorität" wert="1"/>
+    <Fertigkeit name="Beeinflussung" wert="5"/>
+    <Fertigkeit name="Gebräuche" wert="5"/>
+    <Fertigkeit name="Derekunde" wert="1"/>
+    <Fertigkeit name="Mythenkunde" wert="1"/>
+    <Fertigkeit name="Magiekunde" wert="0"/>
+    <Fertigkeit name="Überleben" wert="1"/>
+    <Fertigkeit name="Verschlagenheit" wert="0"/>
+    <Fertigkeit name="Alchemie" wert="0"/>
+    <Fertigkeit name="Heilkunde" wert="3"/>
+    <Fertigkeit name="Handwerk" wert="1"/>
+  </Fertigkeiten>
+  <FreieFertigkeiten>
     <FreieFertigkeit name="" wert="3"/>
     <FreieFertigkeit name="Sprache: Garethi" wert="2"/>
     <FreieFertigkeit name="Schrift: Kusliker Zeichen" wert="2"/>
     <FreieFertigkeit name=" Tanzen " wert="1"/>
-  </Fertigkeiten>
+  </FreieFertigkeiten>
+  <Talente>
+    <Talent name="Gebräuche: Mittelreich"/>
+    <Talent name="Schilde"/>
+    <Talent name="Unbewaffnet"/>
+    <Talent name="Einhandhiebwaffen"/>
+    <Talent name="Armbrüste"/>
+    <Talent name="Laufen"/>
+    <Talent name="Zähigkeit"/>
+    <Talent name="Wachsamkeit"/>
+    <Talent name="Überreden"/>
+  </Talente>
   <Objekte>
     <Zonensystem>0</Zonensystem>
     <Rüstungen>
@@ -138,14 +91,14 @@
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="Streitaxt" id="Streitaxt" würfel="2" würfelSeiten="6" plus="1" eigenschaften="Kopflastig" härte="8" rw="1" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
-      <Waffe name="Streitaxt (SK)" id="Streitaxt" würfel="2" würfelSeiten="6" plus="1" eigenschaften="Kopflastig" härte="8" rw="1" kampfstil="Schildkampf" wm="0" typ="Nah"/>
-      <Waffe name="Holzschild (SK)" id="Holzschild" würfel="1" würfelSeiten="6" plus="0" eigenschaften="Schild, Stumpf" härte="8" rw="0" kampfstil="Schildkampf" wm="1" typ="Nah"/>
-      <Waffe name="Dolch" id="Dolch (Handgemengewaffen)" würfel="1" würfelSeiten="6" plus="1" eigenschaften="" härte="9" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
-      <Waffe name="Dolch (SK)" id="Dolch (Handgemengewaffen)" würfel="1" würfelSeiten="6" plus="1" eigenschaften="" härte="9" rw="0" kampfstil="Schildkampf" wm="0" typ="Nah"/>
-      <Waffe name="Leichte Armbrust" id="Leichte Armbrust" würfel="3" würfelSeiten="6" plus="1" eigenschaften="Zweihändig" härte="4" rw="32" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="4"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="Streitaxt" id="Streitaxt" würfel="2" würfelSeiten="6" plus="1" eigenschaften="Kopflastig" härte="8" rw="1" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="Streitaxt (SK)" id="Streitaxt" würfel="2" würfelSeiten="6" plus="1" eigenschaften="Kopflastig" härte="8" rw="1" beSlot="1" kampfstil="Schildkampf" wm="0"/>
+      <Waffe name="Holzschild (SK)" id="Holzschild" würfel="1" würfelSeiten="6" plus="0" eigenschaften="Schild, Stumpf" härte="8" rw="0" beSlot="1" kampfstil="Schildkampf" wm="1"/>
+      <Waffe name="Dolch" id="Dolch (Handgemengewaffen)" würfel="1" würfelSeiten="6" plus="1" eigenschaften="" härte="9" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="Dolch (SK)" id="Dolch (Handgemengewaffen)" würfel="1" würfelSeiten="6" plus="1" eigenschaften="" härte="9" rw="0" beSlot="1" kampfstil="Schildkampf" wm="0"/>
+      <Waffe name="Leichte Armbrust" id="Leichte Armbrust" würfel="3" würfelSeiten="6" plus="1" eigenschaften="Zweihändig" härte="4" rw="32" beSlot="1" kampfstil="Kein Kampfstil" wm="0" lz="4"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>10 Bolzen im Köcher</Ausrüstungsstück>
@@ -164,20 +117,20 @@
     <Gesamt>2500</Gesamt>
     <Ausgegeben>2493</Ausgegeben>
   </Erfahrung>
-  <Notiz/>
+  <Notiz></Notiz>
   <Einstellungen>
     <VoraussetzungenPrüfen>1</VoraussetzungenPrüfen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
     <ÜbernatürlichesPDFSpalteAnzeigen>0</ÜbernatürlichesPDFSpalteAnzeigen>
+    <DetailsAnzeigen>0</DetailsAnzeigen>
     <RegelnAnhängen>1</RegelnAnhängen>
-    <RegelnGrösse>0</RegelnGrösse>
-    <RegelnKategorien>V0, V1, M9, V2, V3, M5, W, M8, M0, M1, V4, V5, M2, M4, Z, V6, V7, M3, M7, L, V8, M6, A, M10</RegelnKategorien>
-    <FormularEditierbarkeit>0</FormularEditierbarkeit>
-    <Hausregeln></Hausregeln>
+    <RegelnGrösse>8</RegelnGrösse>
+    <DeaktivierteRegelKategorien></DeaktivierteRegelKategorien>
+    <FormularEditierbarkeit>1</FormularEditierbarkeit>
   </Einstellungen>
   <BeschreibungDetails>
-    <Kultur/>
+    <Kultur></Kultur>
     <Profession></Profession>
     <Geschlecht></Geschlecht>
     <Geburtsdatum></Geburtsdatum>

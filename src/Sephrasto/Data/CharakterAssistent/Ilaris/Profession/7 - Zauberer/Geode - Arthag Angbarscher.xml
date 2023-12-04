@@ -1,16 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE xsl:stylesheet [
+   <!ENTITY nbsp "&#160;">
+]>
 <Charakter>
   <Version>
-    <DatenbankVersion>3</DatenbankVersion>
-    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName></NutzerDatenbankName>
+    <CharakterVersion>8</CharakterVersion>
     <Plugins></Plugins>
+    <Hausregeln>Keine</Hausregeln>
   </Version>
   <Beschreibung>
     <Name>Arthag Angbarscher</Name>
     <Spezies></Spezies>
     <Status>3</Status>
     <Kurzbeschreibung>Melancholischer Wassergeode aus Angbar, der nach der Seele seines Zwillingsbruders fischt.</Kurzbeschreibung>
-    <SchiP>6</SchiP>
     <Finanzen>4</Finanzen>
     <Heimat>Mittelreich</Heimat>
     <Eigenheiten>
@@ -21,109 +23,77 @@
     </Eigenheiten>
   </Beschreibung>
   <Attribute>
-    <KO>4</KO>
-    <MU>1</MU>
-    <GE>1</GE>
-    <KK>4</KK>
-    <IN>6</IN>
-    <KL>4</KL>
-    <CH>6</CH>
-    <FF>4</FF>
+    <Attribut name="KO" wert="4"/>
+    <Attribut name="MU" wert="1"/>
+    <Attribut name="GE" wert="1"/>
+    <Attribut name="KK" wert="4"/>
+    <Attribut name="IN" wert="6"/>
+    <Attribut name="KL" wert="4"/>
+    <Attribut name="CH" wert="6"/>
+    <Attribut name="FF" wert="4"/>
   </Attribute>
   <Energien>
-    <AsP wert="2"/>
-    <KaP wert="0"/>
+    <Energie name="AsP" wert="2"/>
   </Energien>
-  <Vorteile minderpakt="">
-    <Vorteil>Scharfsinnig I</Vorteil>
-    <Vorteil>Zauberer I</Vorteil>
-    <Vorteil>Zauberer II</Vorteil>
-    <Vorteil>Zauberer III</Vorteil>
-    <Vorteil>Zauberer IV</Vorteil>
-    <Vorteil>Tradition der Geoden I</Vorteil>
-    <Vorteil>Tradition der Geoden II</Vorteil>
-    <Vorteil>Bändiger der Elemente</Vorteil>
-    <Vorteil>Kontrolliertes Zaubern</Vorteil>
-    <Vorteil>Astrale Regeneration</Vorteil>
+  <Vorteile>
+    <Vorteil name="Scharfsinnig I"/>
+    <Vorteil name="Zauberer I"/>
+    <Vorteil name="Zauberer II"/>
+    <Vorteil name="Zauberer III"/>
+    <Vorteil name="Zauberer IV"/>
+    <Vorteil name="Tradition der Geoden I" kommentar=""/>
+    <Vorteil name="Tradition der Geoden II"/>
+    <Vorteil name="Bändiger der Elemente"/>
+    <Vorteil name="Kontrolliertes Zaubern"/>
+    <Vorteil name="Astrale Regeneration"/>
   </Vorteile>
   <Fertigkeiten>
-    <Fertigkeit name="Handgemenge" wert="1">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Hiebwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Klingenwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Stangenwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Schusswaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Wurfwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Athletik" wert="5">
-      <Talente>
-        <Talent name="Schwimmen"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Heimlichkeit" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Selbstbeherrschung" wert="1">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Wahrnehmung" wert="5">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Autorität" wert="1">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Beeinflussung" wert="1">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Gebräuche" wert="1">
-      <Talente>
-        <Talent name="Gebräuche: Mittelreich"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Derekunde" wert="5">
-      <Talente>
-        <Talent name="Tierkunde"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Mythenkunde" wert="1">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Magiekunde" wert="5">
-      <Talente>
-        <Talent name="Elementarkunde"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Überleben" wert="1">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Verschlagenheit" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Alchemie" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Heilkunde" wert="1">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Handwerk" wert="1">
-      <Talente/>
-    </Fertigkeit>
+    <Fertigkeit name="Handgemenge" wert="1"/>
+    <Fertigkeit name="Hiebwaffen" wert="0"/>
+    <Fertigkeit name="Klingenwaffen" wert="0"/>
+    <Fertigkeit name="Stangenwaffen" wert="0"/>
+    <Fertigkeit name="Schusswaffen" wert="0"/>
+    <Fertigkeit name="Wurfwaffen" wert="0"/>
+    <Fertigkeit name="Athletik" wert="5"/>
+    <Fertigkeit name="Heimlichkeit" wert="0"/>
+    <Fertigkeit name="Selbstbeherrschung" wert="1"/>
+    <Fertigkeit name="Wahrnehmung" wert="5"/>
+    <Fertigkeit name="Autorität" wert="1"/>
+    <Fertigkeit name="Beeinflussung" wert="1"/>
+    <Fertigkeit name="Gebräuche" wert="1"/>
+    <Fertigkeit name="Derekunde" wert="5"/>
+    <Fertigkeit name="Mythenkunde" wert="1"/>
+    <Fertigkeit name="Magiekunde" wert="5"/>
+    <Fertigkeit name="Überleben" wert="1"/>
+    <Fertigkeit name="Verschlagenheit" wert="0"/>
+    <Fertigkeit name="Alchemie" wert="0"/>
+    <Fertigkeit name="Heilkunde" wert="1"/>
+    <Fertigkeit name="Handwerk" wert="1"/>
+  </Fertigkeiten>
+  <FreieFertigkeiten>
     <FreieFertigkeit name="" wert="3"/>
     <FreieFertigkeit name="Sprache: Rogolan" wert="2"/>
     <FreieFertigkeit name="Schrift: Rogolan-Runen" wert="2"/>
     <FreieFertigkeit name="Sprache: Garethi" wert="2"/>
     <FreieFertigkeit name="Schrift: Kusliker Zeichen" wert="1"/>
-  </Fertigkeiten>
+  </FreieFertigkeiten>
+  <Talente>
+    <Talent name="Gebräuche: Mittelreich"/>
+    <Talent name="Schwimmen"/>
+    <Talent name="Tierkunde"/>
+    <Talent name="Elementarkunde"/>
+    <Talent name="Wellenlauf"/>
+    <Talent name="Tiersinne"/>
+    <Talent name="Bindungspartner finden"/>
+    <Talent name="Manifesto Element"/>
+    <Talent name="Zorn der Elemente"/>
+    <Talent name="Tarnung"/>
+    <Talent name="Bindung des Ringes"/>
+    <Talent name="Bindung des Vertrauten"/>
+    <Talent name="Wasserbann"/>
+    <Talent name="Wachsame Augen"/>
+    <Talent name="Herbeirufung des Wassers"/>
+  </Talente>
   <Objekte>
     <Zonensystem>0</Zonensystem>
     <Rüstungen>
@@ -132,142 +102,57 @@
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
     </Waffen>
     <Ausrüstung/>
   </Objekte>
   <ÜbernatürlicheFertigkeiten>
-    <ÜbernatürlicheFertigkeit name="Antimagie" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Dämonisch" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Eigenschaften" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Wellenlauf"/>
-        <Talent name="Tiersinne"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Einfluss" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Bindungspartner finden"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Eis" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Manifesto Element"/>
-        <Talent name="Zorn der Elemente"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Erz" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Manifesto Element"/>
-        <Talent name="Zorn der Elemente"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Feuer" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Manifesto Element"/>
-        <Talent name="Zorn der Elemente"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Hellsicht" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Humus" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Manifesto Element"/>
-        <Talent name="Zorn der Elemente"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Illusion" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Tarnung"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Kraft" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Bindung des Ringes"/>
-        <Talent name="Bindung des Vertrauten"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Luft" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Manifesto Element"/>
-        <Talent name="Wasserbann"/>
-        <Talent name="Zorn der Elemente"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Temporal" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Umwelt" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Verständigung" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Bindung des Vertrauten"/>
-        <Talent name="Tiersinne"/>
-        <Talent name="Wachsame Augen"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Verwandlung" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Wasser" wert="7" exportieren="1">
-      <Talente>
-        <Talent name="Herbeirufung des Wassers"/>
-        <Talent name="Manifesto Element"/>
-        <Talent name="Wasserbann"/>
-        <Talent name="Wellenlauf"/>
-        <Talent name="Zorn der Elemente"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Dolchzauber" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Ringrituale" wert="1" exportieren="1">
-      <Talente>
-        <Talent name="Wasserbann"/>
-        <Talent name="Bindung des Ringes"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Vertrautenmagie" wert="4" exportieren="1">
-      <Talente>
-        <Talent name="Bindung des Vertrauten"/>
-        <Talent name="Bindungspartner finden"/>
-        <Talent name="Tiersinne"/>
-        <Talent name="Tarnung"/>
-        <Talent name="Wachsame Augen"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Antimagie" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Dämonisch" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Eigenschaften" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Einfluss" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Eis" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Erz" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Feuer" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Hellsicht" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Humus" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Illusion" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Kraft" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Luft" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Temporal" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Umwelt" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Verständigung" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Verwandlung" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Wasser" wert="7" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Dolchzauber" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Ringrituale" wert="1" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Vertrautenmagie" wert="4" exportieren="1"/>
   </ÜbernatürlicheFertigkeiten>
   <Erfahrung>
     <Gesamt>2500</Gesamt>
     <Ausgegeben>2416</Ausgegeben>
   </Erfahrung>
-  <Notiz/>
+  <Notiz></Notiz>
   <Einstellungen>
     <VoraussetzungenPrüfen>1</VoraussetzungenPrüfen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
     <ÜbernatürlichesPDFSpalteAnzeigen>0</ÜbernatürlichesPDFSpalteAnzeigen>
+    <DetailsAnzeigen>0</DetailsAnzeigen>
     <RegelnAnhängen>1</RegelnAnhängen>
-    <RegelnGrösse>0</RegelnGrösse>
-    <RegelnKategorien>V0, V1, M9, V2, V3, M5, W, M8, M0, M1, V4, V5, M2, M4, Z, V6, V7, M3, M7, L, V8, M6, A, M10</RegelnKategorien>
-    <FormularEditierbarkeit>0</FormularEditierbarkeit>
-    <Hausregeln></Hausregeln>
+    <RegelnGrösse>8</RegelnGrösse>
+    <DeaktivierteRegelKategorien></DeaktivierteRegelKategorien>
+    <FormularEditierbarkeit>1</FormularEditierbarkeit>
   </Einstellungen>
   <BeschreibungDetails>
-    <Kultur/>
+    <Kultur></Kultur>
     <Profession></Profession>
     <Geschlecht></Geschlecht>
     <Geburtsdatum></Geburtsdatum>

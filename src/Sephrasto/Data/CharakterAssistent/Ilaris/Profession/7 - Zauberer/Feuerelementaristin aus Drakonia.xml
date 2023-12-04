@@ -1,114 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE xsl:stylesheet [
+   <!ENTITY nbsp "&#160;">
+]>
 <Charakter>
   <Version>
-    <DatenbankVersion>3</DatenbankVersion>
-    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName></NutzerDatenbankName>
+    <CharakterVersion>8</CharakterVersion>
     <Plugins></Plugins>
+    <Hausregeln>Keine</Hausregeln>
   </Version>
   <Beschreibung>
     <Name></Name>
     <Spezies></Spezies>
     <Status>2</Status>
     <Kurzbeschreibung></Kurzbeschreibung>
-    <SchiP>4</SchiP>
     <Finanzen>2</Finanzen>
     <Heimat>Mittelreich</Heimat>
     <Eigenheiten/>
   </Beschreibung>
   <Attribute>
-    <KO>2</KO>
-    <MU>6</MU>
-    <GE>2</GE>
-    <KK>1</KK>
-    <IN>2</IN>
-    <KL>4</KL>
-    <CH>6</CH>
-    <FF>1</FF>
+    <Attribut name="KO" wert="2"/>
+    <Attribut name="MU" wert="6"/>
+    <Attribut name="GE" wert="2"/>
+    <Attribut name="KK" wert="1"/>
+    <Attribut name="IN" wert="2"/>
+    <Attribut name="KL" wert="4"/>
+    <Attribut name="CH" wert="6"/>
+    <Attribut name="FF" wert="1"/>
   </Attribute>
   <Energien>
-    <AsP wert="4"/>
-    <KaP wert="0"/>
+    <Energie name="AsP" wert="4"/>
   </Energien>
-  <Vorteile minderpakt="">
-    <Vorteil>Zauberer I</Vorteil>
-    <Vorteil>Zauberer II</Vorteil>
-    <Vorteil>Tradition der Gildenmagier I</Vorteil>
-    <Vorteil>Zauberer III</Vorteil>
-    <Vorteil>Privilegien (Gildenmagier)</Vorteil>
+  <Vorteile>
+    <Vorteil name="Zauberer I"/>
+    <Vorteil name="Zauberer II"/>
+    <Vorteil name="Tradition der Gildenmagier I"/>
+    <Vorteil name="Zauberer III"/>
+    <Vorteil name="Privilegien (Gildenmagier)"/>
   </Vorteile>
   <Fertigkeiten>
-    <Fertigkeit name="Handgemenge" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Hiebwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Klingenwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Stangenwaffen" wert="7">
-      <Talente>
-        <Talent name="Infanteriewaffen und Speere"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Schusswaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Wurfwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Athletik" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Heimlichkeit" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Selbstbeherrschung" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Wahrnehmung" wert="1">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Autorität" wert="1">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Beeinflussung" wert="8">
-      <Talente>
-        <Talent name="Betören"/>
-        <Talent name="Überreden"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Gebräuche" wert="0">
-      <Talente>
-        <Talent name="Gebräuche: Mittelreich"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Derekunde" wert="1">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Mythenkunde" wert="3">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Magiekunde" wert="7">
-      <Talente>
-        <Talent name="Elementarkunde"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Überleben" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Verschlagenheit" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Alchemie" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Heilkunde" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Handwerk" wert="0">
-      <Talente/>
-    </Fertigkeit>
+    <Fertigkeit name="Handgemenge" wert="0"/>
+    <Fertigkeit name="Hiebwaffen" wert="0"/>
+    <Fertigkeit name="Klingenwaffen" wert="0"/>
+    <Fertigkeit name="Stangenwaffen" wert="7"/>
+    <Fertigkeit name="Schusswaffen" wert="0"/>
+    <Fertigkeit name="Wurfwaffen" wert="0"/>
+    <Fertigkeit name="Athletik" wert="0"/>
+    <Fertigkeit name="Heimlichkeit" wert="0"/>
+    <Fertigkeit name="Selbstbeherrschung" wert="0"/>
+    <Fertigkeit name="Wahrnehmung" wert="1"/>
+    <Fertigkeit name="Autorität" wert="1"/>
+    <Fertigkeit name="Beeinflussung" wert="8"/>
+    <Fertigkeit name="Gebräuche" wert="0"/>
+    <Fertigkeit name="Derekunde" wert="1"/>
+    <Fertigkeit name="Mythenkunde" wert="3"/>
+    <Fertigkeit name="Magiekunde" wert="7"/>
+    <Fertigkeit name="Überleben" wert="0"/>
+    <Fertigkeit name="Verschlagenheit" wert="0"/>
+    <Fertigkeit name="Alchemie" wert="0"/>
+    <Fertigkeit name="Heilkunde" wert="0"/>
+    <Fertigkeit name="Handwerk" wert="0"/>
+  </Fertigkeiten>
+  <FreieFertigkeiten>
     <FreieFertigkeit name="" wert="3"/>
     <FreieFertigkeit name="Sprache: Garethi" wert="2"/>
     <FreieFertigkeit name="Schrift: Kusliker Zeichen" wert="2"/>
@@ -116,119 +68,75 @@
     <FreieFertigkeit name="Schrift: Tulamidya-Zeichen" wert="2"/>
     <FreieFertigkeit name="Sprache: Ur-Tulamidya" wert="2"/>
     <FreieFertigkeit name="Schrift: Ur-Tulamidya-Zeichen" wert="2"/>
-  </Fertigkeiten>
+  </FreieFertigkeiten>
+  <Talente>
+    <Talent name="Gebräuche: Mittelreich"/>
+    <Talent name="Infanteriewaffen und Speere"/>
+    <Talent name="Betören"/>
+    <Talent name="Überreden"/>
+    <Talent name="Elementarkunde"/>
+    <Talent name="Manifesto Element"/>
+    <Talent name="Herbeirufung des Feuers"/>
+    <Talent name="Ignifaxius Flammenstrahl"/>
+    <Talent name="Ignisphaero"/>
+  </Talente>
   <Objekte>
     <Zonensystem>0</Zonensystem>
     <Rüstungen/>
     <Waffen>
-      <Waffe name="Kampfstab" id="Kampfstab" würfel="1" würfelSeiten="6" plus="1" eigenschaften="Wendig, Stumpf, Zweihändig" härte="4" rw="2" kampfstil="Kein Kampfstil" wm="1" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="Kampfstab" id="Kampfstab" würfel="1" würfelSeiten="6" plus="1" eigenschaften="Wendig, Stumpf, Zweihändig" härte="4" rw="2" beSlot="1" kampfstil="Kein Kampfstil" wm="1"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>Goldener Armreif mit gebundenem Feuergeist (4 gAsP)</Ausrüstungsstück>
     </Ausrüstung>
   </Objekte>
   <ÜbernatürlicheFertigkeiten>
-    <ÜbernatürlicheFertigkeit name="Antimagie" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Dämonisch" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Eigenschaften" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Einfluss" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Eis" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Manifesto Element"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Erz" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Manifesto Element"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Feuer" wert="8" exportieren="1">
-      <Talente>
-        <Talent name="Herbeirufung des Feuers"/>
-        <Talent name="Ignifaxius Flammenstrahl"/>
-        <Talent name="Ignisphaero"/>
-        <Talent name="Manifesto Element"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Hellsicht" wert="0" exportieren="0">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Humus" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Manifesto Element"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Illusion" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Kraft" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Luft" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Manifesto Element"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Temporal" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Umwelt" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Verständigung" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Verwandlung" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Wasser" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Manifesto Element"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Kugelzauber" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Schalenzauber" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Stabzauber" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Antimagie" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Dämonisch" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Eigenschaften" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Einfluss" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Eis" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Erz" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Feuer" wert="8" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Hellsicht" wert="0" exportieren="0"/>
+    <ÜbernatürlicheFertigkeit name="Humus" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Illusion" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Kraft" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Luft" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Temporal" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Umwelt" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Verständigung" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Verwandlung" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Wasser" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Kugelzauber" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Schalenzauber" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Stabzauber" wert="0" exportieren="1"/>
   </ÜbernatürlicheFertigkeiten>
   <Erfahrung>
     <Gesamt>2000</Gesamt>
     <Ausgegeben>1999</Ausgegeben>
   </Erfahrung>
-  <Notiz/>
+  <Notiz></Notiz>
   <Einstellungen>
     <VoraussetzungenPrüfen>1</VoraussetzungenPrüfen>
     <Charakterbogen>Ilaris Advanced Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
     <ÜbernatürlichesPDFSpalteAnzeigen>0</ÜbernatürlichesPDFSpalteAnzeigen>
+    <DetailsAnzeigen>1</DetailsAnzeigen>
     <RegelnAnhängen>1</RegelnAnhängen>
-    <RegelnGrösse>0</RegelnGrösse>
-    <RegelnKategorien>V0, V1, M9, V2, V3, M5, W, M8, M0, M1, V4, V5, M2, M4, Z, V6, V7, M3, M7, L, V8, M6, A, M10</RegelnKategorien>
-    <FormularEditierbarkeit>0</FormularEditierbarkeit>
-    <Hausregeln></Hausregeln>
+    <RegelnGrösse>8</RegelnGrösse>
+    <DeaktivierteRegelKategorien></DeaktivierteRegelKategorien>
+    <FormularEditierbarkeit>1</FormularEditierbarkeit>
   </Einstellungen>
   <BeschreibungDetails>
-    <Kultur/>
+    <Kultur></Kultur>
     <Profession></Profession>
     <Geschlecht></Geschlecht>
     <Geburtsdatum></Geburtsdatum>

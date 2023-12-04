@@ -1,16 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE xsl:stylesheet [
+   <!ENTITY nbsp "&#160;">
+]>
 <Charakter>
   <Version>
-    <DatenbankVersion>3</DatenbankVersion>
-    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName></NutzerDatenbankName>
+    <CharakterVersion>8</CharakterVersion>
     <Plugins></Plugins>
+    <Hausregeln>Keine</Hausregeln>
   </Version>
   <Beschreibung>
     <Name>Maline Dorster</Name>
     <Spezies></Spezies>
     <Status>2</Status>
     <Kurzbeschreibung>Naive Alchimistin vom Bund des Roten Salamanders</Kurzbeschreibung>
-    <SchiP>4</SchiP>
     <Finanzen>2</Finanzen>
     <Heimat>Mittelreich</Heimat>
     <Eigenheiten>
@@ -21,109 +23,77 @@
     </Eigenheiten>
   </Beschreibung>
   <Attribute>
-    <KO>4</KO>
-    <MU>1</MU>
-    <GE>4</GE>
-    <KK>1</KK>
-    <IN>4</IN>
-    <KL>6</KL>
-    <CH>4</CH>
-    <FF>6</FF>
+    <Attribut name="KO" wert="4"/>
+    <Attribut name="MU" wert="1"/>
+    <Attribut name="GE" wert="4"/>
+    <Attribut name="KK" wert="1"/>
+    <Attribut name="IN" wert="4"/>
+    <Attribut name="KL" wert="6"/>
+    <Attribut name="CH" wert="4"/>
+    <Attribut name="FF" wert="6"/>
   </Attribute>
   <Energien>
-    <AsP wert="8"/>
-    <KaP wert="0"/>
+    <Energie name="AsP" wert="8"/>
   </Energien>
-  <Vorteile minderpakt="">
-    <Vorteil>Zauberer I</Vorteil>
-    <Vorteil>Zauberer II</Vorteil>
-    <Vorteil>Routiniert I</Vorteil>
-    <Vorteil>Routiniert II</Vorteil>
-    <Vorteil>Scharfsinnig II</Vorteil>
-    <Vorteil>Scharfsinnig I</Vorteil>
-    <Vorteil>Abgehärtet I</Vorteil>
-    <Vorteil variableKosten="20" kommentar="Bund des Roten Salamanders">Verbindungen</Vorteil>
-    <Vorteil>Tradition der Alchemisten I</Vorteil>
-    <Vorteil>Reaktivierung</Vorteil>
-    <Vorteil>Matrixverständnis</Vorteil>
+  <Vorteile>
+    <Vorteil name="Zauberer I"/>
+    <Vorteil name="Zauberer II"/>
+    <Vorteil name="Routiniert I"/>
+    <Vorteil name="Routiniert II"/>
+    <Vorteil name="Scharfsinnig II"/>
+    <Vorteil name="Scharfsinnig I"/>
+    <Vorteil name="Abgehärtet I"/>
+    <Vorteil name="Verbindungen" variableKosten="20" kommentar="Bund des Roten Salamanders"/>
+    <Vorteil name="Tradition der Alchemisten I"/>
+    <Vorteil name="Reaktivierung"/>
+    <Vorteil name="Matrixverständnis"/>
   </Vorteile>
   <Fertigkeiten>
-    <Fertigkeit name="Handgemenge" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Hiebwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Klingenwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Stangenwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Schusswaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Wurfwaffen" wert="1">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Athletik" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Heimlichkeit" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Selbstbeherrschung" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Wahrnehmung" wert="1">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Autorität" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Beeinflussung" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Gebräuche" wert="1">
-      <Talente>
-        <Talent name="Gebräuche: Mittelreich"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Derekunde" wert="1">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Mythenkunde" wert="1">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Magiekunde" wert="5">
-      <Talente>
-        <Talent name="Magietheorie"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Überleben" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Verschlagenheit" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Alchemie" wert="7">
-      <Talente>
-        <Talent name="Alchemistische Analyse"/>
-        <Talent name="Magische Elixiere"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Heilkunde" wert="1">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Handwerk" wert="0">
-      <Talente/>
-    </Fertigkeit>
+    <Fertigkeit name="Handgemenge" wert="0"/>
+    <Fertigkeit name="Hiebwaffen" wert="0"/>
+    <Fertigkeit name="Klingenwaffen" wert="0"/>
+    <Fertigkeit name="Stangenwaffen" wert="0"/>
+    <Fertigkeit name="Schusswaffen" wert="0"/>
+    <Fertigkeit name="Wurfwaffen" wert="1"/>
+    <Fertigkeit name="Athletik" wert="0"/>
+    <Fertigkeit name="Heimlichkeit" wert="0"/>
+    <Fertigkeit name="Selbstbeherrschung" wert="0"/>
+    <Fertigkeit name="Wahrnehmung" wert="1"/>
+    <Fertigkeit name="Autorität" wert="0"/>
+    <Fertigkeit name="Beeinflussung" wert="0"/>
+    <Fertigkeit name="Gebräuche" wert="1"/>
+    <Fertigkeit name="Derekunde" wert="1"/>
+    <Fertigkeit name="Mythenkunde" wert="1"/>
+    <Fertigkeit name="Magiekunde" wert="5"/>
+    <Fertigkeit name="Überleben" wert="0"/>
+    <Fertigkeit name="Verschlagenheit" wert="0"/>
+    <Fertigkeit name="Alchemie" wert="7"/>
+    <Fertigkeit name="Heilkunde" wert="1"/>
+    <Fertigkeit name="Handwerk" wert="0"/>
+  </Fertigkeiten>
+  <FreieFertigkeiten>
     <FreieFertigkeit name="" wert="3"/>
     <FreieFertigkeit name="Schrift: Nanduria-Zeichen" wert="3"/>
     <FreieFertigkeit name="Sprache: Bosparano" wert="2"/>
     <FreieFertigkeit name="Schrift: Kusliker Zeichen" wert="2"/>
     <FreieFertigkeit name="Meisterin der Al'Gebra" wert="1"/>
-  </Fertigkeiten>
+  </FreieFertigkeiten>
+  <Talente>
+    <Talent name="Gebräuche: Mittelreich"/>
+    <Talent name="Magietheorie"/>
+    <Talent name="Alchemistische Analyse"/>
+    <Talent name="Magische Elixiere"/>
+    <Talent name="Attributo"/>
+    <Talent name="Armatrutz"/>
+    <Talent name="Transmutation der Elemente"/>
+    <Talent name="Analys Arcanstruktur"/>
+    <Talent name="Odem Arcanum"/>
+    <Talent name="Balsam Salabunde"/>
+    <Talent name="Klarum Purum"/>
+    <Talent name="Bindung der Schale"/>
+    <Talent name="Arcanovi Artefakt"/>
+    <Talent name="Allegorische Analyse (passiv)"/>
+  </Talente>
   <Objekte>
     <Zonensystem>0</Zonensystem>
     <Rüstungen>
@@ -132,14 +102,14 @@
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="Borndorn" id="Borndorn (Handgemengewaffen)" würfel="1" würfelSeiten="6" plus="2" eigenschaften="" härte="10" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
-      <Waffe name="Borndorn (als Wurfwaffe)" id="Borndorn (Kurze Wurfwaffen)" würfel="1" würfelSeiten="6" plus="2" eigenschaften="" härte="9" rw="4" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="Borndorn" id="Borndorn (Handgemengewaffen)" würfel="1" würfelSeiten="6" plus="2" eigenschaften="" härte="10" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="Borndorn (als Wurfwaffe)" id="Borndorn (Kurze Wurfwaffen)" würfel="1" würfelSeiten="6" plus="2" eigenschaften="" härte="9" rw="4" beSlot="1" kampfstil="Kein Kampfstil" wm="0" lz="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>Lederschutzkleidung (Handschuhe, Schürze, Stiefel, K</Ausrüstungsstück>
@@ -154,111 +124,43 @@
     </Ausrüstung>
   </Objekte>
   <ÜbernatürlicheFertigkeiten>
-    <ÜbernatürlicheFertigkeit name="Antimagie" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Dämonisch" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Eigenschaften" wert="4" exportieren="1">
-      <Talente>
-        <Talent name="Attributo"/>
-        <Talent name="Armatrutz"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Einfluss" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Eis" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Transmutation der Elemente"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Erz" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Transmutation der Elemente"/>
-        <Talent name="Armatrutz"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Feuer" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Transmutation der Elemente"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Hellsicht" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Analys Arcanstruktur"/>
-        <Talent name="Odem Arcanum"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Humus" wert="3" exportieren="1">
-      <Talente>
-        <Talent name="Transmutation der Elemente"/>
-        <Talent name="Balsam Salabunde"/>
-        <Talent name="Klarum Purum"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Illusion" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Kraft" wert="3" exportieren="1">
-      <Talente>
-        <Talent name="Bindung der Schale"/>
-        <Talent name="Analys Arcanstruktur"/>
-        <Talent name="Arcanovi Artefakt"/>
-        <Talent name="Odem Arcanum"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Luft" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Transmutation der Elemente"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Temporal" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Umwelt" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Verständigung" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Verwandlung" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Balsam Salabunde"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Wasser" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Transmutation der Elemente"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Schalenzauber" wert="5" exportieren="1">
-      <Talente>
-        <Talent name="Allegorische Analyse (passiv)"/>
-        <Talent name="Bindung der Schale"/>
-        <Talent name="Transmutation der Elemente"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Antimagie" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Dämonisch" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Eigenschaften" wert="4" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Einfluss" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Eis" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Erz" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Feuer" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Hellsicht" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Humus" wert="3" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Illusion" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Kraft" wert="3" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Luft" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Temporal" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Umwelt" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Verständigung" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Verwandlung" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Wasser" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Schalenzauber" wert="5" exportieren="1"/>
   </ÜbernatürlicheFertigkeiten>
   <Erfahrung>
     <Gesamt>2500</Gesamt>
     <Ausgegeben>2491</Ausgegeben>
   </Erfahrung>
-  <Notiz/>
+  <Notiz></Notiz>
   <Einstellungen>
     <VoraussetzungenPrüfen>1</VoraussetzungenPrüfen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
     <ÜbernatürlichesPDFSpalteAnzeigen>0</ÜbernatürlichesPDFSpalteAnzeigen>
+    <DetailsAnzeigen>0</DetailsAnzeigen>
     <RegelnAnhängen>1</RegelnAnhängen>
-    <RegelnGrösse>0</RegelnGrösse>
-    <RegelnKategorien>V0, V1, M9, V2, V3, M5, W, M8, M0, M1, V4, V5, M2, M4, Z, V6, V7, M3, M7, L, V8, M6, A, M10</RegelnKategorien>
-    <FormularEditierbarkeit>0</FormularEditierbarkeit>
-    <Hausregeln></Hausregeln>
+    <RegelnGrösse>8</RegelnGrösse>
+    <DeaktivierteRegelKategorien></DeaktivierteRegelKategorien>
+    <FormularEditierbarkeit>1</FormularEditierbarkeit>
   </Einstellungen>
   <BeschreibungDetails>
-    <Kultur/>
+    <Kultur></Kultur>
     <Profession></Profession>
     <Geschlecht></Geschlecht>
     <Geburtsdatum></Geburtsdatum>

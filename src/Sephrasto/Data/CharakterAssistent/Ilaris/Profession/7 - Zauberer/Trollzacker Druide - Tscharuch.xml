@@ -1,16 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE xsl:stylesheet [
+   <!ENTITY nbsp "&#160;">
+]>
 <Charakter>
   <Version>
-    <DatenbankVersion>3</DatenbankVersion>
-    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName></NutzerDatenbankName>
+    <CharakterVersion>8</CharakterVersion>
     <Plugins></Plugins>
+    <Hausregeln>Keine</Hausregeln>
   </Version>
   <Beschreibung>
     <Name>Tscharuch iban Kirgamosh</Name>
     <Spezies></Spezies>
     <Status>3</Status>
     <Kurzbeschreibung>Geheimnisvoller Mystiker der Kurga</Kurzbeschreibung>
-    <SchiP>5</SchiP>
     <Finanzen>3</Finanzen>
     <Heimat>Mittelreich</Heimat>
     <Eigenheiten>
@@ -20,110 +22,84 @@
     </Eigenheiten>
   </Beschreibung>
   <Attribute>
-    <KO>5</KO>
-    <MU>4</MU>
-    <GE>3</GE>
-    <KK>4</KK>
-    <IN>4</IN>
-    <KL>6</KL>
-    <CH>5</CH>
-    <FF>3</FF>
+    <Attribut name="KO" wert="5"/>
+    <Attribut name="MU" wert="4"/>
+    <Attribut name="GE" wert="3"/>
+    <Attribut name="KK" wert="4"/>
+    <Attribut name="IN" wert="4"/>
+    <Attribut name="KL" wert="6"/>
+    <Attribut name="CH" wert="5"/>
+    <Attribut name="FF" wert="3"/>
   </Attribute>
   <Energien>
-    <AsP wert="0"/>
-    <KaP wert="0"/>
+    <Energie name="AsP" wert="0"/>
   </Energien>
-  <Vorteile minderpakt="">
-    <Vorteil>Prophezeien</Vorteil>
-    <Vorteil>Resistenz gegen Kälte</Vorteil>
-    <Vorteil>Zauberer I</Vorteil>
-    <Vorteil>Zauberer II</Vorteil>
-    <Vorteil>Zauberer III</Vorteil>
-    <Vorteil>Zauberer IV</Vorteil>
-    <Vorteil>Eindrucksvoll I</Vorteil>
-    <Vorteil>Abgehärtet I</Vorteil>
-    <Vorteil>Willensstark I</Vorteil>
-    <Vorteil>Kraftvoller Kampf I</Vorteil>
-    <Vorteil>Bändiger der Elemente</Vorteil>
-    <Vorteil>Kontrolliertes Zaubern</Vorteil>
-    <Vorteil>Tradition der Druiden I</Vorteil>
-    <Vorteil>Astrale Regeneration</Vorteil>
+  <Vorteile>
+    <Vorteil name="Prophezeien"/>
+    <Vorteil name="Resistenz gegen Kälte"/>
+    <Vorteil name="Zauberer I"/>
+    <Vorteil name="Zauberer II"/>
+    <Vorteil name="Zauberer III"/>
+    <Vorteil name="Zauberer IV"/>
+    <Vorteil name="Eindrucksvoll I"/>
+    <Vorteil name="Abgehärtet I"/>
+    <Vorteil name="Willensstark I"/>
+    <Vorteil name="Kraftvoller Kampf I"/>
+    <Vorteil name="Bändiger der Elemente"/>
+    <Vorteil name="Kontrolliertes Zaubern"/>
+    <Vorteil name="Tradition der Druiden I"/>
+    <Vorteil name="Astrale Regeneration"/>
   </Vorteile>
   <Fertigkeiten>
-    <Fertigkeit name="Handgemenge" wert="3">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Hiebwaffen" wert="5">
-      <Talente>
-        <Talent name="Einhandhiebwaffen"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Klingenwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Stangenwaffen" wert="4">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Schusswaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Wurfwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Athletik" wert="2">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Heimlichkeit" wert="3">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Selbstbeherrschung" wert="4">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Wahrnehmung" wert="3">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Autorität" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Beeinflussung" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Gebräuche" wert="0">
-      <Talente>
-        <Talent name="Gebräuche: Mittelreich"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Derekunde" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Mythenkunde" wert="5">
-      <Talente>
-        <Talent name="Geschichten und Legenden"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Magiekunde" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Überleben" wert="5">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Verschlagenheit" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Alchemie" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Heilkunde" wert="4">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Handwerk" wert="0">
-      <Talente/>
-    </Fertigkeit>
+    <Fertigkeit name="Handgemenge" wert="3"/>
+    <Fertigkeit name="Hiebwaffen" wert="5"/>
+    <Fertigkeit name="Klingenwaffen" wert="0"/>
+    <Fertigkeit name="Stangenwaffen" wert="4"/>
+    <Fertigkeit name="Schusswaffen" wert="0"/>
+    <Fertigkeit name="Wurfwaffen" wert="0"/>
+    <Fertigkeit name="Athletik" wert="2"/>
+    <Fertigkeit name="Heimlichkeit" wert="3"/>
+    <Fertigkeit name="Selbstbeherrschung" wert="4"/>
+    <Fertigkeit name="Wahrnehmung" wert="3"/>
+    <Fertigkeit name="Autorität" wert="0"/>
+    <Fertigkeit name="Beeinflussung" wert="0"/>
+    <Fertigkeit name="Gebräuche" wert="0"/>
+    <Fertigkeit name="Derekunde" wert="0"/>
+    <Fertigkeit name="Mythenkunde" wert="5"/>
+    <Fertigkeit name="Magiekunde" wert="0"/>
+    <Fertigkeit name="Überleben" wert="5"/>
+    <Fertigkeit name="Verschlagenheit" wert="0"/>
+    <Fertigkeit name="Alchemie" wert="0"/>
+    <Fertigkeit name="Heilkunde" wert="4"/>
+    <Fertigkeit name="Handwerk" wert="0"/>
+  </Fertigkeiten>
+  <FreieFertigkeiten>
     <FreieFertigkeit name="" wert="3"/>
     <FreieFertigkeit name="Sprache: Zhulchammaqra" wert="3"/>
     <FreieFertigkeit name="Sprache: Tulamidya" wert="1"/>
     <FreieFertigkeit name="Sprache: Garethi" wert="1"/>
-  </Fertigkeiten>
+  </FreieFertigkeiten>
+  <Talente>
+    <Talent name="Gebräuche: Mittelreich"/>
+    <Talent name="Einhandhiebwaffen"/>
+    <Talent name="Geschichten und Legenden"/>
+    <Talent name="Geisterbann des Dolches"/>
+    <Talent name="Böser Blick"/>
+    <Talent name="Herr über das Tierreich"/>
+    <Talent name="Zwingtanz"/>
+    <Talent name="Manifesto Element"/>
+    <Talent name="Zorn der Elemente"/>
+    <Talent name="Balsam Salabunde"/>
+    <Talent name="Wand aus Dornen"/>
+    <Talent name="Ruhe Körper, Ruhe Geist"/>
+    <Talent name="Aeolitus Windgebraus"/>
+    <Talent name="Herbeirufung der Luft"/>
+    <Talent name="Wettermeisterschaft"/>
+    <Talent name="Windhose"/>
+    <Talent name="Geisterruf"/>
+    <Talent name="Meister minderer Geister"/>
+    <Talent name="Zauberwesen der Natur"/>
+  </Talente>
   <Objekte>
     <Zonensystem>0</Zonensystem>
     <Rüstungen>
@@ -132,14 +108,14 @@
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="Dolch" id="Dolch (Handgemengewaffen)" würfel="1" würfelSeiten="6" plus="1" eigenschaften="" härte="9" rw="0" kampfstil="Kraftvoller Kampf" wm="0" typ="Nah"/>
-      <Waffe name="Keule" id="Keule" würfel="2" würfelSeiten="6" plus="0" eigenschaften="Stumpf, Kopflastig" härte="8" rw="1" kampfstil="Kraftvoller Kampf" wm="-1" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="Dolch" id="Dolch (Handgemengewaffen)" würfel="1" würfelSeiten="6" plus="1" eigenschaften="" härte="9" rw="0" beSlot="1" kampfstil="Kraftvoller Kampf" wm="0"/>
+      <Waffe name="Keule" id="Keule" würfel="2" würfelSeiten="6" plus="0" eigenschaften="Stumpf, Kopflastig" härte="8" rw="1" beSlot="1" kampfstil="Kraftvoller Kampf" wm="-1"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>Sederbeutel</Ausrüstungsstück>
@@ -154,122 +130,43 @@
     </Ausrüstung>
   </Objekte>
   <ÜbernatürlicheFertigkeiten>
-    <ÜbernatürlicheFertigkeit name="Antimagie" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Geisterbann des Dolches"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Dämonisch" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Eigenschaften" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Einfluss" wert="5" exportieren="1">
-      <Talente>
-        <Talent name="Böser Blick"/>
-        <Talent name="Herr über das Tierreich"/>
-        <Talent name="Zwingtanz"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Eis" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Manifesto Element"/>
-        <Talent name="Zorn der Elemente"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Erz" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Manifesto Element"/>
-        <Talent name="Zorn der Elemente"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Feuer" wert="1" exportieren="1">
-      <Talente>
-        <Talent name="Manifesto Element"/>
-        <Talent name="Zorn der Elemente"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Hellsicht" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Humus" wert="3" exportieren="1">
-      <Talente>
-        <Talent name="Manifesto Element"/>
-        <Talent name="Zorn der Elemente"/>
-        <Talent name="Balsam Salabunde"/>
-        <Talent name="Wand aus Dornen"/>
-        <Talent name="Ruhe Körper, Ruhe Geist"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Illusion" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Kraft" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Luft" wert="5" exportieren="1">
-      <Talente>
-        <Talent name="Manifesto Element"/>
-        <Talent name="Zorn der Elemente"/>
-        <Talent name="Aeolitus Windgebraus"/>
-        <Talent name="Herbeirufung der Luft"/>
-        <Talent name="Wettermeisterschaft"/>
-        <Talent name="Windhose"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Temporal" wert="0" exportieren="1">
-      <Talente/>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Umwelt" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Wettermeisterschaft"/>
-        <Talent name="Windhose"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Verständigung" wert="5" exportieren="1">
-      <Talente>
-        <Talent name="Geisterruf"/>
-        <Talent name="Meister minderer Geister"/>
-        <Talent name="Zauberwesen der Natur"/>
-        <Talent name="Geisterbann des Dolches"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Verwandlung" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Balsam Salabunde"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Wasser" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Manifesto Element"/>
-        <Talent name="Zorn der Elemente"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
-    <ÜbernatürlicheFertigkeit name="Dolchzauber" wert="0" exportieren="1">
-      <Talente>
-        <Talent name="Geisterbann des Dolches"/>
-      </Talente>
-    </ÜbernatürlicheFertigkeit>
+    <ÜbernatürlicheFertigkeit name="Antimagie" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Dämonisch" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Eigenschaften" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Einfluss" wert="5" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Eis" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Erz" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Feuer" wert="1" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Hellsicht" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Humus" wert="3" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Illusion" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Kraft" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Luft" wert="5" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Temporal" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Umwelt" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Verständigung" wert="5" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Verwandlung" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Wasser" wert="0" exportieren="1"/>
+    <ÜbernatürlicheFertigkeit name="Dolchzauber" wert="0" exportieren="1"/>
   </ÜbernatürlicheFertigkeiten>
   <Erfahrung>
     <Gesamt>3000</Gesamt>
     <Ausgegeben>2996</Ausgegeben>
   </Erfahrung>
-  <Notiz/>
+  <Notiz></Notiz>
   <Einstellungen>
     <VoraussetzungenPrüfen>1</VoraussetzungenPrüfen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
     <ÜbernatürlichesPDFSpalteAnzeigen>0</ÜbernatürlichesPDFSpalteAnzeigen>
+    <DetailsAnzeigen>0</DetailsAnzeigen>
     <RegelnAnhängen>1</RegelnAnhängen>
-    <RegelnGrösse>0</RegelnGrösse>
-    <RegelnKategorien>V0, V1, M9, V2, V3, M5, W, M8, M0, M1, V4, V5, M2, M4, Z, V6, V7, M3, M7, L, V8, M6, A, M10</RegelnKategorien>
-    <FormularEditierbarkeit>0</FormularEditierbarkeit>
-    <Hausregeln></Hausregeln>
+    <RegelnGrösse>8</RegelnGrösse>
+    <DeaktivierteRegelKategorien></DeaktivierteRegelKategorien>
+    <FormularEditierbarkeit>1</FormularEditierbarkeit>
   </Einstellungen>
   <BeschreibungDetails>
-    <Kultur/>
+    <Kultur></Kultur>
     <Profession></Profession>
     <Geschlecht></Geschlecht>
     <Geburtsdatum></Geburtsdatum>

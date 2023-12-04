@@ -1,16 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE xsl:stylesheet [
+   <!ENTITY nbsp "&#160;">
+]>
 <Charakter>
   <Version>
-    <DatenbankVersion>3</DatenbankVersion>
-    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName></NutzerDatenbankName>
+    <CharakterVersion>8</CharakterVersion>
     <Plugins></Plugins>
+    <Hausregeln>Keine</Hausregeln>
   </Version>
   <Beschreibung>
     <Name>Yezabella Dulcinea Gharbistani</Name>
     <Spezies></Spezies>
     <Status>3</Status>
     <Kurzbeschreibung>Almadanische Troubaroura mit einem Auge für Profit</Kurzbeschreibung>
-    <SchiP>6</SchiP>
     <Finanzen>3</Finanzen>
     <Heimat>Mittelreich</Heimat>
     <Eigenheiten>
@@ -20,109 +22,51 @@
     </Eigenheiten>
   </Beschreibung>
   <Attribute>
-    <KO>3</KO>
-    <MU>3</MU>
-    <GE>5</GE>
-    <KK>3</KK>
-    <IN>6</IN>
-    <KL>4</KL>
-    <CH>7</CH>
-    <FF>6</FF>
+    <Attribut name="KO" wert="3"/>
+    <Attribut name="MU" wert="3"/>
+    <Attribut name="GE" wert="5"/>
+    <Attribut name="KK" wert="3"/>
+    <Attribut name="IN" wert="6"/>
+    <Attribut name="KL" wert="4"/>
+    <Attribut name="CH" wert="7"/>
+    <Attribut name="FF" wert="6"/>
   </Attribute>
-  <Energien>
-    <AsP wert="0"/>
-    <KaP wert="0"/>
-  </Energien>
-  <Vorteile minderpakt="">
-    <Vorteil>Flink I</Vorteil>
-    <Vorteil>Eindrucksvoll II</Vorteil>
-    <Vorteil>Eindrucksvoll I</Vorteil>
-    <Vorteil>Standfest</Vorteil>
-    <Vorteil>Reflexschuss</Vorteil>
-    <Vorteil>Zwergennase</Vorteil>
-    <Vorteil>Glück I</Vorteil>
-    <Vorteil>Vorausschauend I</Vorteil>
-    <Vorteil>Vorausschauend II</Vorteil>
+  <Energien/>
+  <Vorteile>
+    <Vorteil name="Flink I"/>
+    <Vorteil name="Eindrucksvoll II"/>
+    <Vorteil name="Eindrucksvoll I"/>
+    <Vorteil name="Standfest"/>
+    <Vorteil name="Reflexschuss"/>
+    <Vorteil name="Zwergennase"/>
+    <Vorteil name="Glück I"/>
+    <Vorteil name="Vorausschauend I"/>
+    <Vorteil name="Vorausschauend II"/>
   </Vorteile>
   <Fertigkeiten>
-    <Fertigkeit name="Handgemenge" wert="3">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Hiebwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Klingenwaffen" wert="2">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Stangenwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Schusswaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Wurfwaffen" wert="4">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Athletik" wert="4">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Heimlichkeit" wert="6">
-      <Talente>
-        <Talent name="Untertauchen"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Selbstbeherrschung" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Wahrnehmung" wert="6">
-      <Talente>
-        <Talent name="Menschenkenntnis"/>
-        <Talent name="Wachsamkeit"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Autorität" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Beeinflussung" wert="5">
-      <Talente>
-        <Talent name="Betören"/>
-        <Talent name="Überreden"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Gebräuche" wert="6">
-      <Talente>
-        <Talent name="Gebräuche: Mittelreich"/>
-        <Talent name="Gebräuche: Tulamidenlande"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Derekunde" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Mythenkunde" wert="7">
-      <Talente>
-        <Talent name="Geschichten und Legenden"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Magiekunde" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Überleben" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Verschlagenheit" wert="6">
-      <Talente>
-        <Talent name="Stehlen"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Alchemie" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Heilkunde" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Handwerk" wert="0">
-      <Talente/>
-    </Fertigkeit>
+    <Fertigkeit name="Handgemenge" wert="3"/>
+    <Fertigkeit name="Hiebwaffen" wert="0"/>
+    <Fertigkeit name="Klingenwaffen" wert="2"/>
+    <Fertigkeit name="Stangenwaffen" wert="0"/>
+    <Fertigkeit name="Schusswaffen" wert="0"/>
+    <Fertigkeit name="Wurfwaffen" wert="4"/>
+    <Fertigkeit name="Athletik" wert="4"/>
+    <Fertigkeit name="Heimlichkeit" wert="6"/>
+    <Fertigkeit name="Selbstbeherrschung" wert="0"/>
+    <Fertigkeit name="Wahrnehmung" wert="6"/>
+    <Fertigkeit name="Autorität" wert="0"/>
+    <Fertigkeit name="Beeinflussung" wert="5"/>
+    <Fertigkeit name="Gebräuche" wert="6"/>
+    <Fertigkeit name="Derekunde" wert="0"/>
+    <Fertigkeit name="Mythenkunde" wert="7"/>
+    <Fertigkeit name="Magiekunde" wert="0"/>
+    <Fertigkeit name="Überleben" wert="0"/>
+    <Fertigkeit name="Verschlagenheit" wert="6"/>
+    <Fertigkeit name="Alchemie" wert="0"/>
+    <Fertigkeit name="Heilkunde" wert="0"/>
+    <Fertigkeit name="Handwerk" wert="0"/>
+  </Fertigkeiten>
+  <FreieFertigkeiten>
     <FreieFertigkeit name="" wert="3"/>
     <FreieFertigkeit name="Musizieren" wert="2"/>
     <FreieFertigkeit name="Singen" wert="2"/>
@@ -130,7 +74,18 @@
     <FreieFertigkeit name="Schrift: Kusliker Zeichen" wert="1"/>
     <FreieFertigkeit name="Sprache: Atak (+Schrift)" wert="1"/>
     <FreieFertigkeit name="Dichtkunst" wert="2"/>
-  </Fertigkeiten>
+  </FreieFertigkeiten>
+  <Talente>
+    <Talent name="Gebräuche: Mittelreich"/>
+    <Talent name="Untertauchen"/>
+    <Talent name="Menschenkenntnis"/>
+    <Talent name="Wachsamkeit"/>
+    <Talent name="Betören"/>
+    <Talent name="Überreden"/>
+    <Talent name="Gebräuche: Tulamidenlande"/>
+    <Talent name="Geschichten und Legenden"/>
+    <Talent name="Stehlen"/>
+  </Talente>
   <Objekte>
     <Zonensystem>0</Zonensystem>
     <Rüstungen>
@@ -139,14 +94,14 @@
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="Langdolch" id="Langdolch" würfel="1" würfelSeiten="6" plus="2" eigenschaften="Parierwaffe" härte="10" rw="0" kampfstil="Kein Kampfstil" wm="0" typ="Nah"/>
-      <Waffe name="Wurfmesser" id="Wurfmesser" würfel="1" würfelSeiten="6" plus="0" eigenschaften="" härte="8" rw="4" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="Langdolch" id="Langdolch" würfel="1" würfelSeiten="6" plus="2" eigenschaften="Parierwaffe" härte="10" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="Wurfmesser" id="Wurfmesser" würfel="1" würfelSeiten="6" plus="0" eigenschaften="" härte="8" rw="4" beSlot="1" kampfstil="Kein Kampfstil" wm="0" lz="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>Rucksack, Ersatzkleidung</Ausrüstungsstück>
@@ -165,20 +120,20 @@
     <Gesamt>3000</Gesamt>
     <Ausgegeben>2987</Ausgegeben>
   </Erfahrung>
-  <Notiz/>
+  <Notiz></Notiz>
   <Einstellungen>
     <VoraussetzungenPrüfen>1</VoraussetzungenPrüfen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
     <ÜbernatürlichesPDFSpalteAnzeigen>0</ÜbernatürlichesPDFSpalteAnzeigen>
+    <DetailsAnzeigen>0</DetailsAnzeigen>
     <RegelnAnhängen>1</RegelnAnhängen>
-    <RegelnGrösse>0</RegelnGrösse>
-    <RegelnKategorien>V0, V1, M9, V2, V3, M5, W, M8, M0, M1, V4, V5, M2, M4, Z, V6, V7, M3, M7, L, V8, M6, A, M10</RegelnKategorien>
-    <FormularEditierbarkeit>0</FormularEditierbarkeit>
-    <Hausregeln></Hausregeln>
+    <RegelnGrösse>8</RegelnGrösse>
+    <DeaktivierteRegelKategorien></DeaktivierteRegelKategorien>
+    <FormularEditierbarkeit>1</FormularEditierbarkeit>
   </Einstellungen>
   <BeschreibungDetails>
-    <Kultur/>
+    <Kultur></Kultur>
     <Profession></Profession>
     <Geschlecht></Geschlecht>
     <Geburtsdatum></Geburtsdatum>

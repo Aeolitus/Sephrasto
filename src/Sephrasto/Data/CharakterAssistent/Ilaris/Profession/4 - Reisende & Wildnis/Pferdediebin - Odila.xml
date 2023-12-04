@@ -1,16 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE xsl:stylesheet [
+   <!ENTITY nbsp "&#160;">
+]>
 <Charakter>
   <Version>
-    <DatenbankVersion>3</DatenbankVersion>
-    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName></NutzerDatenbankName>
+    <CharakterVersion>8</CharakterVersion>
     <Plugins></Plugins>
+    <Hausregeln>Keine</Hausregeln>
   </Version>
   <Beschreibung>
     <Name>Odila Sensendengler</Name>
     <Spezies></Spezies>
     <Status>3</Status>
     <Kurzbeschreibung>Pferdediebin und Wilderin auf der Flucht vor ihrer Vergangenheit</Kurzbeschreibung>
-    <SchiP>5</SchiP>
     <Finanzen>3</Finanzen>
     <Heimat>Mittelreich</Heimat>
     <Eigenheiten>
@@ -20,119 +22,68 @@
     </Eigenheiten>
   </Beschreibung>
   <Attribute>
-    <KO>5</KO>
-    <MU>4</MU>
-    <GE>6</GE>
-    <KK>5</KK>
-    <IN>5</IN>
-    <KL>2</KL>
-    <CH>4</CH>
-    <FF>6</FF>
+    <Attribut name="KO" wert="5"/>
+    <Attribut name="MU" wert="4"/>
+    <Attribut name="GE" wert="6"/>
+    <Attribut name="KK" wert="5"/>
+    <Attribut name="IN" wert="5"/>
+    <Attribut name="KL" wert="2"/>
+    <Attribut name="CH" wert="4"/>
+    <Attribut name="FF" wert="6"/>
   </Attribute>
-  <Energien>
-    <AsP wert="0"/>
-    <KaP wert="0"/>
-  </Energien>
-  <Vorteile minderpakt="">
-    <Vorteil>Flink I</Vorteil>
-    <Vorteil>Abgehärtet I</Vorteil>
-    <Vorteil>Reflexschuss</Vorteil>
-    <Vorteil>Ruhige Hand</Vorteil>
-    <Vorteil>Reiterkampf I</Vorteil>
-    <Vorteil>Schildkampf I</Vorteil>
-    <Vorteil>Kampfreflexe</Vorteil>
-    <Vorteil variableKosten="20" kommentar="Reitpferd">Besonderer Besitz</Vorteil>
-    <Vorteil variableKosten="20" kommentar="Pferde">Tierempathie</Vorteil>
+  <Energien/>
+  <Vorteile>
+    <Vorteil name="Flink I"/>
+    <Vorteil name="Abgehärtet I"/>
+    <Vorteil name="Reflexschuss"/>
+    <Vorteil name="Ruhige Hand"/>
+    <Vorteil name="Reiterkampf I"/>
+    <Vorteil name="Schildkampf I"/>
+    <Vorteil name="Kampfreflexe"/>
+    <Vorteil name="Besonderer Besitz" variableKosten="20" kommentar="Reitpferd"/>
+    <Vorteil name="Tierempathie" variableKosten="20" kommentar="Pferde"/>
   </Vorteile>
   <Fertigkeiten>
-    <Fertigkeit name="Handgemenge" wert="5">
-      <Talente>
-        <Talent name="Unbewaffnet"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Hiebwaffen" wert="7">
-      <Talente>
-        <Talent name="Einhandhiebwaffen"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Klingenwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Stangenwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Schusswaffen" wert="7">
-      <Talente>
-        <Talent name="Bögen"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Wurfwaffen" wert="5">
-      <Talente>
-        <Talent name="Schleudern"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Athletik" wert="5">
-      <Talente>
-        <Talent name="Reiten"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Heimlichkeit" wert="5">
-      <Talente>
-        <Talent name="Pirschen"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Selbstbeherrschung" wert="5">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Wahrnehmung" wert="5">
-      <Talente>
-        <Talent name="Sinnenschärfe"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Autorität" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Beeinflussung" wert="3">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Gebräuche" wert="2">
-      <Talente>
-        <Talent name="Gebräuche: Mittelreich"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Derekunde" wert="4">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Mythenkunde" wert="4">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Magiekunde" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Überleben" wert="6">
-      <Talente>
-        <Talent name="Überleben: Mittelaventurien"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Verschlagenheit" wert="4">
-      <Talente>
-        <Talent name="Falschspiel"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Alchemie" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Heilkunde" wert="3">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Handwerk" wert="0">
-      <Talente/>
-    </Fertigkeit>
+    <Fertigkeit name="Handgemenge" wert="5"/>
+    <Fertigkeit name="Hiebwaffen" wert="7"/>
+    <Fertigkeit name="Klingenwaffen" wert="0"/>
+    <Fertigkeit name="Stangenwaffen" wert="0"/>
+    <Fertigkeit name="Schusswaffen" wert="7"/>
+    <Fertigkeit name="Wurfwaffen" wert="5"/>
+    <Fertigkeit name="Athletik" wert="5"/>
+    <Fertigkeit name="Heimlichkeit" wert="5"/>
+    <Fertigkeit name="Selbstbeherrschung" wert="5"/>
+    <Fertigkeit name="Wahrnehmung" wert="5"/>
+    <Fertigkeit name="Autorität" wert="0"/>
+    <Fertigkeit name="Beeinflussung" wert="3"/>
+    <Fertigkeit name="Gebräuche" wert="2"/>
+    <Fertigkeit name="Derekunde" wert="4"/>
+    <Fertigkeit name="Mythenkunde" wert="4"/>
+    <Fertigkeit name="Magiekunde" wert="0"/>
+    <Fertigkeit name="Überleben" wert="6"/>
+    <Fertigkeit name="Verschlagenheit" wert="4"/>
+    <Fertigkeit name="Alchemie" wert="0"/>
+    <Fertigkeit name="Heilkunde" wert="3"/>
+    <Fertigkeit name="Handwerk" wert="0"/>
+  </Fertigkeiten>
+  <FreieFertigkeiten>
     <FreieFertigkeit name="" wert="3"/>
     <FreieFertigkeit name="Rosstäuscher" wert="1"/>
     <FreieFertigkeit name="Sprache: Atak (+Schrift)" wert="1"/>
     <FreieFertigkeit name="Volkslieder" wert="1"/>
-  </Fertigkeiten>
+  </FreieFertigkeiten>
+  <Talente>
+    <Talent name="Gebräuche: Mittelreich"/>
+    <Talent name="Unbewaffnet"/>
+    <Talent name="Einhandhiebwaffen"/>
+    <Talent name="Bögen"/>
+    <Talent name="Schleudern"/>
+    <Talent name="Reiten"/>
+    <Talent name="Pirschen"/>
+    <Talent name="Sinnenschärfe"/>
+    <Talent name="Überleben: Mittelaventurien"/>
+    <Talent name="Falschspiel"/>
+  </Talente>
   <Objekte>
     <Zonensystem>0</Zonensystem>
     <Rüstungen>
@@ -141,14 +92,14 @@
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="Reitpferd (RK)" id="Reitpferd" würfel="2" würfelSeiten="6" plus="0" eigenschaften="Niederwerfen, Reittier" härte="13" rw="1" kampfstil="Reiterkampf" wm="-1" typ="Nah"/>
-      <Waffe name="Streitkolben (RK)" id="Streitkolben" würfel="2" würfelSeiten="6" plus="0" eigenschaften="Stumpf, Kopflastig, Rüstungsbrechend" härte="8" rw="1" kampfstil="Reiterkampf" wm="0" typ="Nah"/>
-      <Waffe name="Streitkolben (SK)" id="Holzschild" würfel="1" würfelSeiten="6" plus="0" eigenschaften="Schild, Stumpf" härte="8" rw="0" kampfstil="Schildkampf" wm="1" typ="Nah"/>
-      <Waffe name="Holzschild" id="Streitkolben" würfel="2" würfelSeiten="6" plus="0" eigenschaften="Stumpf, Kopflastig, Rüstungsbrechend" härte="8" rw="1" kampfstil="Schildkampf" wm="0" typ="Nah"/>
-      <Waffe name="Kurzbogen" id="Kurzbogen" würfel="2" würfelSeiten="6" plus="1" eigenschaften="Zweihändig" härte="3" rw="16" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
-      <Waffe name="Fledermaus" id="Fledermaus" würfel="0" würfelSeiten="6" plus="0" eigenschaften="Umklammern (-2; 12)" härte="3" rw="8" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
-      <Waffe name="Lasso" id="Lasso" würfel="0" würfelSeiten="6" plus="0" eigenschaften="Umklammern (-2; 12)" härte="2" rw="4" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="Reitpferd (RK)" id="Reitpferd" würfel="2" würfelSeiten="6" plus="0" eigenschaften="Niederwerfen, Reittier" härte="13" rw="1" beSlot="1" kampfstil="Reiterkampf" wm="-1"/>
+      <Waffe name="Streitkolben (RK)" id="Streitkolben" würfel="2" würfelSeiten="6" plus="0" eigenschaften="Stumpf, Kopflastig, Rüstungsbrechend" härte="8" rw="1" beSlot="1" kampfstil="Reiterkampf" wm="0"/>
+      <Waffe name="Streitkolben (SK)" id="Holzschild" würfel="1" würfelSeiten="6" plus="0" eigenschaften="Schild, Stumpf" härte="8" rw="0" beSlot="1" kampfstil="Schildkampf" wm="1"/>
+      <Waffe name="Holzschild" id="Streitkolben" würfel="2" würfelSeiten="6" plus="0" eigenschaften="Stumpf, Kopflastig, Rüstungsbrechend" härte="8" rw="1" beSlot="1" kampfstil="Schildkampf" wm="0"/>
+      <Waffe name="Kurzbogen" id="Kurzbogen" würfel="2" würfelSeiten="6" plus="1" eigenschaften="Zweihändig" härte="3" rw="16" beSlot="1" kampfstil="Kein Kampfstil" wm="0" lz="0"/>
+      <Waffe name="Fledermaus" id="Fledermaus" würfel="0" würfelSeiten="6" plus="0" eigenschaften="Umklammern (-2; 12)" härte="3" rw="8" beSlot="1" kampfstil="Kein Kampfstil" wm="0" lz="0"/>
+      <Waffe name="Lasso" id="Lasso" würfel="0" würfelSeiten="6" plus="0" eigenschaften="Umklammern (-2; 12)" härte="2" rw="4" beSlot="1" kampfstil="Kein Kampfstil" wm="0" lz="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>Sattel mit Satteltaschen, Zaumzeug</Ausrüstungsstück>
@@ -166,20 +117,20 @@
     <Gesamt>3000</Gesamt>
     <Ausgegeben>2993</Ausgegeben>
   </Erfahrung>
-  <Notiz/>
+  <Notiz></Notiz>
   <Einstellungen>
     <VoraussetzungenPrüfen>1</VoraussetzungenPrüfen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
     <ÜbernatürlichesPDFSpalteAnzeigen>0</ÜbernatürlichesPDFSpalteAnzeigen>
+    <DetailsAnzeigen>0</DetailsAnzeigen>
     <RegelnAnhängen>1</RegelnAnhängen>
-    <RegelnGrösse>0</RegelnGrösse>
-    <RegelnKategorien>V0, V1, M9, V2, V3, M5, W, M8, M0, M1, V4, V5, M2, M4, Z, V6, V7, M3, M7, L, V8, M6, A, M10</RegelnKategorien>
-    <FormularEditierbarkeit>0</FormularEditierbarkeit>
-    <Hausregeln></Hausregeln>
+    <RegelnGrösse>8</RegelnGrösse>
+    <DeaktivierteRegelKategorien></DeaktivierteRegelKategorien>
+    <FormularEditierbarkeit>1</FormularEditierbarkeit>
   </Einstellungen>
   <BeschreibungDetails>
-    <Kultur/>
+    <Kultur></Kultur>
     <Profession></Profession>
     <Geschlecht></Geschlecht>
     <Geburtsdatum></Geburtsdatum>

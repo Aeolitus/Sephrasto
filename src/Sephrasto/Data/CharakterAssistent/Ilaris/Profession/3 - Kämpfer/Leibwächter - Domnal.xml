@@ -1,16 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE xsl:stylesheet [
+   <!ENTITY nbsp "&#160;">
+]>
 <Charakter>
   <Version>
-    <DatenbankVersion>3</DatenbankVersion>
-    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName></NutzerDatenbankName>
+    <CharakterVersion>8</CharakterVersion>
     <Plugins></Plugins>
+    <Hausregeln>Keine</Hausregeln>
   </Version>
   <Beschreibung>
     <Name>Domnal Arbedan</Name>
     <Spezies></Spezies>
     <Status>3</Status>
     <Kurzbeschreibung>Beinharter Leibwächter von niederem Stand</Kurzbeschreibung>
-    <SchiP>4</SchiP>
     <Finanzen>2</Finanzen>
     <Heimat>Mittelreich</Heimat>
     <Eigenheiten>
@@ -20,117 +22,71 @@
     </Eigenheiten>
   </Beschreibung>
   <Attribute>
-    <KO>6</KO>
-    <MU>4</MU>
-    <GE>6</GE>
-    <KK>6</KK>
-    <IN>4</IN>
-    <KL>2</KL>
-    <CH>3</CH>
-    <FF>4</FF>
+    <Attribut name="KO" wert="6"/>
+    <Attribut name="MU" wert="4"/>
+    <Attribut name="GE" wert="6"/>
+    <Attribut name="KK" wert="6"/>
+    <Attribut name="IN" wert="4"/>
+    <Attribut name="KL" wert="2"/>
+    <Attribut name="CH" wert="3"/>
+    <Attribut name="FF" wert="4"/>
   </Attribute>
-  <Energien>
-    <AsP wert="0"/>
-    <KaP wert="0"/>
-  </Energien>
-  <Vorteile minderpakt="">
-    <Vorteil>Gefahreninstinkt</Vorteil>
-    <Vorteil>Abgehärtet I</Vorteil>
-    <Vorteil>Willensstark I</Vorteil>
-    <Vorteil>Schildkampf I</Vorteil>
-    <Vorteil>Parierwaffenkampf I</Vorteil>
-    <Vorteil>Parierwaffenkampf II</Vorteil>
-    <Vorteil>Waffenloser Kampf</Vorteil>
-    <Vorteil>Kampfreflexe</Vorteil>
-    <Vorteil>Ausfall</Vorteil>
-    <Vorteil>Schildkampf II</Vorteil>
-    <Vorteil>Niederwerfen</Vorteil>
-    <Vorteil>Rüstungsgewöhnung</Vorteil>
-    <Vorteil>Durchatmen</Vorteil>
-    <Vorteil>Vorausschauend I</Vorteil>
+  <Energien/>
+  <Vorteile>
+    <Vorteil name="Gefahreninstinkt"/>
+    <Vorteil name="Abgehärtet I"/>
+    <Vorteil name="Willensstark I"/>
+    <Vorteil name="Schildkampf I"/>
+    <Vorteil name="Parierwaffenkampf I"/>
+    <Vorteil name="Parierwaffenkampf II"/>
+    <Vorteil name="Waffenloser Kampf"/>
+    <Vorteil name="Kampfreflexe"/>
+    <Vorteil name="Ausfall"/>
+    <Vorteil name="Schildkampf II"/>
+    <Vorteil name="Niederwerfen"/>
+    <Vorteil name="Rüstungsgewöhnung"/>
+    <Vorteil name="Durchatmen"/>
+    <Vorteil name="Vorausschauend I"/>
   </Vorteile>
   <Fertigkeiten>
-    <Fertigkeit name="Handgemenge" wert="6">
-      <Talente>
-        <Talent name="Unbewaffnet"/>
-        <Talent name="Handgemengewaffen"/>
-        <Talent name="Schilde"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Hiebwaffen" wert="3">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Klingenwaffen" wert="8">
-      <Talente>
-        <Talent name="Einhandklingenwaffen"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Stangenwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Schusswaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Wurfwaffen" wert="5">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Athletik" wert="4">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Heimlichkeit" wert="3">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Selbstbeherrschung" wert="6">
-      <Talente>
-        <Talent name="Zähigkeit"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Wahrnehmung" wert="5">
-      <Talente>
-        <Talent name="Menschenkenntnis"/>
-        <Talent name="Wachsamkeit"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Autorität" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Beeinflussung" wert="3">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Gebräuche" wert="3">
-      <Talente>
-        <Talent name="Gebräuche: Mittelreich"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Derekunde" wert="2">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Mythenkunde" wert="2">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Magiekunde" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Überleben" wert="4">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Verschlagenheit" wert="3">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Alchemie" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Heilkunde" wert="4">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Handwerk" wert="0">
-      <Talente/>
-    </Fertigkeit>
+    <Fertigkeit name="Handgemenge" wert="6"/>
+    <Fertigkeit name="Hiebwaffen" wert="3"/>
+    <Fertigkeit name="Klingenwaffen" wert="8"/>
+    <Fertigkeit name="Stangenwaffen" wert="0"/>
+    <Fertigkeit name="Schusswaffen" wert="0"/>
+    <Fertigkeit name="Wurfwaffen" wert="5"/>
+    <Fertigkeit name="Athletik" wert="4"/>
+    <Fertigkeit name="Heimlichkeit" wert="3"/>
+    <Fertigkeit name="Selbstbeherrschung" wert="6"/>
+    <Fertigkeit name="Wahrnehmung" wert="5"/>
+    <Fertigkeit name="Autorität" wert="0"/>
+    <Fertigkeit name="Beeinflussung" wert="3"/>
+    <Fertigkeit name="Gebräuche" wert="3"/>
+    <Fertigkeit name="Derekunde" wert="2"/>
+    <Fertigkeit name="Mythenkunde" wert="2"/>
+    <Fertigkeit name="Magiekunde" wert="0"/>
+    <Fertigkeit name="Überleben" wert="4"/>
+    <Fertigkeit name="Verschlagenheit" wert="3"/>
+    <Fertigkeit name="Alchemie" wert="0"/>
+    <Fertigkeit name="Heilkunde" wert="4"/>
+    <Fertigkeit name="Handwerk" wert="0"/>
+  </Fertigkeiten>
+  <FreieFertigkeiten>
     <FreieFertigkeit name="" wert="3"/>
     <FreieFertigkeit name="Imman" wert="1"/>
     <FreieFertigkeit name="Sprache: Thorwalsch" wert="1"/>
     <FreieFertigkeit name="Schrift: Kusliker Zeichen" wert="1"/>
-  </Fertigkeiten>
+  </FreieFertigkeiten>
+  <Talente>
+    <Talent name="Gebräuche: Mittelreich"/>
+    <Talent name="Unbewaffnet"/>
+    <Talent name="Handgemengewaffen"/>
+    <Talent name="Schilde"/>
+    <Talent name="Einhandklingenwaffen"/>
+    <Talent name="Zähigkeit"/>
+    <Talent name="Menschenkenntnis"/>
+    <Talent name="Wachsamkeit"/>
+  </Talente>
   <Objekte>
     <Zonensystem>0</Zonensystem>
     <Rüstungen>
@@ -139,14 +95,14 @@
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="Buckler (PW)" id="Buckler (Handgemengewaffen)" würfel="1" würfelSeiten="6" plus="1" eigenschaften="Parierwaffe, Schild, Stumpf" härte="11" rw="0" kampfstil="Parierwaffenkampf" wm="0" typ="Nah"/>
-      <Waffe name="Schwert (PW)" id="Schwert" würfel="2" würfelSeiten="6" plus="2" eigenschaften="" härte="10" rw="1" kampfstil="Parierwaffenkampf" wm="0" typ="Nah"/>
-      <Waffe name="Buckler (SK)" id="Buckler (Schilde)" würfel="1" würfelSeiten="6" plus="1" eigenschaften="Parierwaffe, Schild, Stumpf" härte="11" rw="0" kampfstil="Schildkampf" wm="0" typ="Nah"/>
-      <Waffe name="Schwert (SK)" id="Schwert" würfel="2" würfelSeiten="6" plus="2" eigenschaften="" härte="10" rw="1" kampfstil="Schildkampf" wm="0" typ="Nah"/>
-      <Waffe name="Langdolch (PW)" id="Langdolch" würfel="1" würfelSeiten="6" plus="2" eigenschaften="Parierwaffe" härte="10" rw="0" kampfstil="Parierwaffenkampf" wm="0" typ="Nah"/>
-      <Waffe name="Wurfmesser" id="Wurfmesser" würfel="1" würfelSeiten="6" plus="0" eigenschaften="" härte="8" rw="4" kampfstil="Kein Kampfstil" wm="0" typ="Fern" lz="0"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="Buckler (PW)" id="Buckler (Handgemengewaffen)" würfel="1" würfelSeiten="6" plus="1" eigenschaften="Parierwaffe, Schild, Stumpf" härte="11" rw="0" beSlot="1" kampfstil="Parierwaffenkampf" wm="0"/>
+      <Waffe name="Schwert (PW)" id="Schwert" würfel="2" würfelSeiten="6" plus="2" eigenschaften="" härte="10" rw="1" beSlot="1" kampfstil="Parierwaffenkampf" wm="0"/>
+      <Waffe name="Buckler (SK)" id="Buckler (Schilde)" würfel="1" würfelSeiten="6" plus="1" eigenschaften="Parierwaffe, Schild, Stumpf" härte="11" rw="0" beSlot="1" kampfstil="Schildkampf" wm="0"/>
+      <Waffe name="Schwert (SK)" id="Schwert" würfel="2" würfelSeiten="6" plus="2" eigenschaften="" härte="10" rw="1" beSlot="1" kampfstil="Schildkampf" wm="0"/>
+      <Waffe name="Langdolch (PW)" id="Langdolch" würfel="1" würfelSeiten="6" plus="2" eigenschaften="Parierwaffe" härte="10" rw="0" beSlot="1" kampfstil="Parierwaffenkampf" wm="0"/>
+      <Waffe name="Wurfmesser" id="Wurfmesser" würfel="1" würfelSeiten="6" plus="0" eigenschaften="" härte="8" rw="4" beSlot="1" kampfstil="Kein Kampfstil" wm="0" lz="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>Wollhosen, Ledergürtel, Wollumhang mit Kaputze</Ausrüstungsstück>
@@ -163,20 +119,20 @@
     <Gesamt>3000</Gesamt>
     <Ausgegeben>2971</Ausgegeben>
   </Erfahrung>
-  <Notiz/>
+  <Notiz></Notiz>
   <Einstellungen>
     <VoraussetzungenPrüfen>1</VoraussetzungenPrüfen>
     <Charakterbogen>Standard Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
     <ÜbernatürlichesPDFSpalteAnzeigen>0</ÜbernatürlichesPDFSpalteAnzeigen>
+    <DetailsAnzeigen>0</DetailsAnzeigen>
     <RegelnAnhängen>1</RegelnAnhängen>
-    <RegelnGrösse>0</RegelnGrösse>
-    <RegelnKategorien>V0, V1, M9, V2, V3, M5, W, M8, M0, M1, V4, V5, M2, M4, Z, V6, V7, M3, M7, L, V8, M6, A, M10</RegelnKategorien>
-    <FormularEditierbarkeit>0</FormularEditierbarkeit>
-    <Hausregeln></Hausregeln>
+    <RegelnGrösse>8</RegelnGrösse>
+    <DeaktivierteRegelKategorien></DeaktivierteRegelKategorien>
+    <FormularEditierbarkeit>1</FormularEditierbarkeit>
   </Einstellungen>
   <BeschreibungDetails>
-    <Kultur/>
+    <Kultur></Kultur>
     <Profession></Profession>
     <Geschlecht></Geschlecht>
     <Geburtsdatum></Geburtsdatum>

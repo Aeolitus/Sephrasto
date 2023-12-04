@@ -1,142 +1,96 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE xsl:stylesheet [
+   <!ENTITY nbsp "&#160;">
+]>
 <Charakter>
   <Version>
-    <DatenbankVersion>3</DatenbankVersion>
-    <NutzerDatenbankCRC>0</NutzerDatenbankCRC>
-    <NutzerDatenbankName></NutzerDatenbankName>
+    <CharakterVersion>8</CharakterVersion>
     <Plugins></Plugins>
+    <Hausregeln>Keine</Hausregeln>
   </Version>
   <Beschreibung>
     <Name></Name>
     <Spezies></Spezies>
     <Status>2</Status>
     <Kurzbeschreibung>Kriegerin des Instituts der hohen Schule der Reiterei zu Gareth</Kurzbeschreibung>
-    <SchiP>0</SchiP>
     <Finanzen>0</Finanzen>
     <Heimat>Mittelreich</Heimat>
     <Eigenheiten/>
   </Beschreibung>
   <Attribute>
-    <KO>4</KO>
-    <MU>4</MU>
-    <GE>4</GE>
-    <KK>6</KK>
-    <IN>2</IN>
-    <KL>2</KL>
-    <CH>2</CH>
-    <FF>1</FF>
+    <Attribut name="KO" wert="4"/>
+    <Attribut name="MU" wert="4"/>
+    <Attribut name="GE" wert="4"/>
+    <Attribut name="KK" wert="6"/>
+    <Attribut name="IN" wert="2"/>
+    <Attribut name="KL" wert="2"/>
+    <Attribut name="CH" wert="2"/>
+    <Attribut name="FF" wert="1"/>
   </Attribute>
-  <Energien>
-    <AsP wert="0"/>
-    <KaP wert="0"/>
-  </Energien>
-  <Vorteile minderpakt="">
-    <Vorteil>Einkommen I</Vorteil>
-    <Vorteil>Einkommen II</Vorteil>
-    <Vorteil>Standfest</Vorteil>
-    <Vorteil>Ausfall</Vorteil>
-    <Vorteil>Niederwerfen</Vorteil>
-    <Vorteil>Waffenloser Kampf</Vorteil>
-    <Vorteil>Reiterkampf I</Vorteil>
-    <Vorteil>Reiterkampf II</Vorteil>
-    <Vorteil>Schildkampf I</Vorteil>
-    <Vorteil>Privilegien (Krieger)</Vorteil>
+  <Energien/>
+  <Vorteile>
+    <Vorteil name="Einkommen I"/>
+    <Vorteil name="Einkommen II"/>
+    <Vorteil name="Standfest"/>
+    <Vorteil name="Ausfall"/>
+    <Vorteil name="Niederwerfen"/>
+    <Vorteil name="Waffenloser Kampf"/>
+    <Vorteil name="Reiterkampf I"/>
+    <Vorteil name="Reiterkampf II"/>
+    <Vorteil name="Schildkampf I"/>
+    <Vorteil name="Privilegien (Krieger)"/>
   </Vorteile>
   <Fertigkeiten>
-    <Fertigkeit name="Handgemenge" wert="3">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Hiebwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Klingenwaffen" wert="6">
-      <Talente>
-        <Talent name="Einhandklingenwaffen"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Stangenwaffen" wert="8">
-      <Talente>
-        <Talent name="Lanzenreiten"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Schusswaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Wurfwaffen" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Athletik" wert="7">
-      <Talente>
-        <Talent name="Reiten"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Heimlichkeit" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Selbstbeherrschung" wert="4">
-      <Talente>
-        <Talent name="Zähigkeit"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Wahrnehmung" wert="3">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Autorität" wert="3">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Beeinflussung" wert="2">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Gebräuche" wert="3">
-      <Talente>
-        <Talent name="Gebräuche: Mittelreich"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Derekunde" wert="2">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Mythenkunde" wert="2">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Magiekunde" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Überleben" wert="4">
-      <Talente>
-        <Talent name="Überleben: Mittelaventurien"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Verschlagenheit" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Alchemie" wert="0">
-      <Talente/>
-    </Fertigkeit>
-    <Fertigkeit name="Heilkunde" wert="4">
-      <Talente>
-        <Talent name="Wundheilung"/>
-      </Talente>
-    </Fertigkeit>
-    <Fertigkeit name="Handwerk" wert="0">
-      <Talente/>
-    </Fertigkeit>
+    <Fertigkeit name="Handgemenge" wert="3"/>
+    <Fertigkeit name="Hiebwaffen" wert="0"/>
+    <Fertigkeit name="Klingenwaffen" wert="6"/>
+    <Fertigkeit name="Stangenwaffen" wert="8"/>
+    <Fertigkeit name="Schusswaffen" wert="0"/>
+    <Fertigkeit name="Wurfwaffen" wert="0"/>
+    <Fertigkeit name="Athletik" wert="7"/>
+    <Fertigkeit name="Heimlichkeit" wert="0"/>
+    <Fertigkeit name="Selbstbeherrschung" wert="4"/>
+    <Fertigkeit name="Wahrnehmung" wert="3"/>
+    <Fertigkeit name="Autorität" wert="3"/>
+    <Fertigkeit name="Beeinflussung" wert="2"/>
+    <Fertigkeit name="Gebräuche" wert="3"/>
+    <Fertigkeit name="Derekunde" wert="2"/>
+    <Fertigkeit name="Mythenkunde" wert="2"/>
+    <Fertigkeit name="Magiekunde" wert="0"/>
+    <Fertigkeit name="Überleben" wert="4"/>
+    <Fertigkeit name="Verschlagenheit" wert="0"/>
+    <Fertigkeit name="Alchemie" wert="0"/>
+    <Fertigkeit name="Heilkunde" wert="4"/>
+    <Fertigkeit name="Handwerk" wert="0"/>
+  </Fertigkeiten>
+  <FreieFertigkeiten>
     <FreieFertigkeit name="" wert="3"/>
     <FreieFertigkeit name="Sprache: Garethi" wert="2"/>
     <FreieFertigkeit name="Schrift: Kusliker Zeichen" wert="2"/>
-  </Fertigkeiten>
+  </FreieFertigkeiten>
+  <Talente>
+    <Talent name="Gebräuche: Mittelreich"/>
+    <Talent name="Einhandklingenwaffen"/>
+    <Talent name="Lanzenreiten"/>
+    <Talent name="Reiten"/>
+    <Talent name="Zähigkeit"/>
+    <Talent name="Überleben: Mittelaventurien"/>
+    <Talent name="Wundheilung"/>
+  </Talente>
   <Objekte>
     <Zonensystem>0</Zonensystem>
     <Rüstungen>
       <Rüstung name="leichte Platte" be="3" rs="3/3/3/3/3/3"/>
     </Rüstungen>
     <Waffen>
-      <Waffe name="Kriegslanze" id="Kriegslanze" würfel="3" würfelSeiten="6" plus="1" eigenschaften="" härte="5" rw="2" kampfstil="Reiterkampf" wm="-1" typ="Nah"/>
-      <Waffe name="Säbel" id="Säbel" würfel="2" würfelSeiten="6" plus="2" eigenschaften="" härte="10" rw="1" kampfstil="Reiterkampf" wm="0" typ="Nah"/>
-      <Waffe name="Großschild" id="Großschild" würfel="1" würfelSeiten="6" plus="-1" eigenschaften="Schild, Stumpf" härte="7" rw="0" kampfstil="Reiterkampf" wm="2" typ="Nah"/>
-      <Waffe name="Kriegspferd" id="Kriegspferd" würfel="2" würfelSeiten="6" plus="2" eigenschaften="Niederwerfen, Reittier" härte="14" rw="1" kampfstil="Reiterkampf" wm="1" typ="Nah"/>
-      <Waffe name="Säbel (zu Fuß)" id="Säbel" würfel="2" würfelSeiten="6" plus="2" eigenschaften="" härte="10" rw="1" kampfstil="Schildkampf" wm="0" typ="Nah"/>
-      <Waffe name="Großschild (zu Fuß)" id="Großschild" würfel="1" würfelSeiten="6" plus="-1" eigenschaften="Schild, Stumpf" härte="7" rw="0" kampfstil="Schildkampf" wm="2" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
-      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" kampfstil="" wm="0" typ="Nah"/>
+      <Waffe name="Kriegslanze" id="Kriegslanze" würfel="3" würfelSeiten="6" plus="1" eigenschaften="" härte="5" rw="2" beSlot="1" kampfstil="Reiterkampf" wm="-1"/>
+      <Waffe name="Säbel" id="Säbel" würfel="2" würfelSeiten="6" plus="2" eigenschaften="" härte="10" rw="1" beSlot="1" kampfstil="Reiterkampf" wm="0"/>
+      <Waffe name="Großschild" id="Großschild" würfel="1" würfelSeiten="6" plus="-1" eigenschaften="Schild, Stumpf" härte="7" rw="0" beSlot="1" kampfstil="Reiterkampf" wm="2"/>
+      <Waffe name="Kriegspferd" id="Kriegspferd" würfel="2" würfelSeiten="6" plus="2" eigenschaften="Niederwerfen, Reittier" härte="14" rw="1" beSlot="1" kampfstil="Reiterkampf" wm="1"/>
+      <Waffe name="Säbel (zu Fuß)" id="Säbel" würfel="2" würfelSeiten="6" plus="2" eigenschaften="" härte="10" rw="1" beSlot="1" kampfstil="Schildkampf" wm="0"/>
+      <Waffe name="Großschild (zu Fuß)" id="Großschild" würfel="1" würfelSeiten="6" plus="-1" eigenschaften="Schild, Stumpf" härte="7" rw="0" beSlot="1" kampfstil="Schildkampf" wm="2"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
+      <Waffe name="" id="" würfel="0" würfelSeiten="6" plus="0" eigenschaften="" härte="6" rw="0" beSlot="1" kampfstil="Kein Kampfstil" wm="0"/>
     </Waffen>
     <Ausrüstung>
       <Ausrüstungsstück>einfache Reiseausrüstung</Ausrüstungsstück>
@@ -147,20 +101,20 @@
     <Gesamt>2000</Gesamt>
     <Ausgegeben>1987</Ausgegeben>
   </Erfahrung>
-  <Notiz/>
+  <Notiz></Notiz>
   <Einstellungen>
     <VoraussetzungenPrüfen>1</VoraussetzungenPrüfen>
     <Charakterbogen>Ilaris Advanced Charakterbogen</Charakterbogen>
     <FinanzenAnzeigen>1</FinanzenAnzeigen>
     <ÜbernatürlichesPDFSpalteAnzeigen>0</ÜbernatürlichesPDFSpalteAnzeigen>
+    <DetailsAnzeigen>1</DetailsAnzeigen>
     <RegelnAnhängen>1</RegelnAnhängen>
-    <RegelnGrösse>0</RegelnGrösse>
-    <RegelnKategorien>V0, V1, M9, V2, V3, M5, W, M8, M0, M1, V4, V5, M2, M4, Z, V6, V7, M3, M7, L, V8, M6, A, M10</RegelnKategorien>
-    <FormularEditierbarkeit>0</FormularEditierbarkeit>
-    <Hausregeln></Hausregeln>
+    <RegelnGrösse>8</RegelnGrösse>
+    <DeaktivierteRegelKategorien></DeaktivierteRegelKategorien>
+    <FormularEditierbarkeit>1</FormularEditierbarkeit>
   </Einstellungen>
   <BeschreibungDetails>
-    <Kultur/>
+    <Kultur></Kultur>
     <Profession></Profession>
     <Geschlecht></Geschlecht>
     <Geburtsdatum></Geburtsdatum>
