@@ -943,14 +943,20 @@ class Char():
                 letzteHausregeln = hausregeln
             ser.end() #version
 
-        heimatNew = ""
         if ser.find("Beschreibung"):
             self.name = ser.getNested('Name', self.name)
             self.spezies = ser.getNested('Spezies', self.spezies)
             self.status = ser.getNestedInt("Status", self.status)
             self.kurzbeschreibung = ser.getNested('Kurzbeschreibung', self.kurzbeschreibung)
             self.finanzen = ser.getNestedInt('Finanzen', self.finanzen)
-            heimatNew = ser.getNested('Heimat', self.heimat) # .heimat is set later on
+            self.heimat = ser.getNested('Heimat', self.heimat)
+            heimaten = sorted(Wolke.DB.einstellungen["Heimaten"].wert)
+            if not self.heimat in heimaten:
+                if "Mittelreich" in heimaten:
+                    self.heimat = "Mittelreich"
+                else:
+                    self.heimat = heimaten[0] if len(heimaten) > 0 else ""
+
             if ser.find('Eigenheiten'):
                 for tag in ser.listTags():
                     eigenheit = ser.getNested(tag)
@@ -1058,6 +1064,8 @@ class Char():
                 if not talent.deserialize(ser, Wolke.DB.talente, self):
                     tIgnored.append(talent.name)
                     continue
+                if talent.name in self.talente: #heimat...
+                    continue
                 self.talente[talent.name] = talent
             ser.end() #talente
 
@@ -1103,17 +1111,6 @@ class Char():
                 self.bild = base64.b64decode(byteArray)
 
             ser.end() #beschreibungdetails
-
-        # Set Heimat last, so its script is executed i.e. AFTER talents are loaded,
-        # otherwise changes by the script might be overridden
-        heimaten = sorted(Wolke.DB.einstellungen["Heimaten"].wert)
-        if not heimatNew in heimaten:
-            if "Mittelreich" in heimaten:
-                heimatNew = "Mittelreich"
-            else:
-                heimatNew = heimaten[0] if len(heimaten) > 0 else ""
-        self._heimat = "" # reset first so the script always gets executed
-        self.heimat = heimatNew
 
         EventBus.doAction("charakter_deserialisiert", { "charakter" : self , "deserializer" : ser })
 
