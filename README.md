@@ -66,6 +66,15 @@ Gestartet wird Sephrasto dann folgendermaßen:
 * Beim ersten Start musst du über System Preferences -> Security & Privacy noch die Ausführung erlauben. Beim ersten PDF-Export das gleiche für cpdf.
 * Optional kannst du im Python Launcher noch "Run in a Terminal window" deaktivieren, um das zusätzliche Terminalfenster loszuwerden
 
+## Kommandozeilenargumente
+|Argument|Parameter|Beschreibung|
+|---|---|---|
+|\-\-settingsfile|"pfad/zu/Sephrasto.ini"|Überschreibt den Pfad der Sephrasto.ini welche die Einstellungen enthält.|
+|\-\-noplugins|kein Parameter|Weist Sephrasto an, keine Plugins zu laden - unabhängig von den Einstellungen.|
+|\-\-debug|kein Parameter|Lognachrichten werden auch in der Konsole ausgegeben und weitere Debugfeatures werden aktiviert.|
+|\-\-loglevel|1, 2 oder 3|Setzt das Loglevel (0 = error, 1 = warning, 2 = debug). Dies überschreibt das in den Einstellungen konfigurierte Loglevel.|
+|\-\-migrate|"pfad/zu/charakter.xml"|Lädt und speichert den angegeben Charakter. Dies kann genutzt werden, um ohne UI-Interaktion Migrationen zu applizieren, z. B. für Charakterassistent-Dateien.|
+
 ## Für Entwickler
 
 ### Erstellen von Windows builds
