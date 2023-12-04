@@ -69,6 +69,7 @@ removeFiles = [
     "lib/PySide6/resources/qtwebengine_devtools_resources.pak",
     "lib/PySide6/resources/qtwebengine_resources_100p.pak",
     "lib/PySide6/resources/qtwebengine_resources_200p.pak",
+    "lib/PySide6/resources/v8_context_snapshot.debug.bin",
     "lib/PySide6/translations",
     "lib/PySide6/bin",
     "lib/PySide6/plugins/tls",
