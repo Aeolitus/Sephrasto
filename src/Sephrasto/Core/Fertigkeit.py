@@ -105,7 +105,7 @@ class Fertigkeit:
         self.probenwert = -1
         self.probenwertTalent = -1
         self.maxWert = -1
-        self.addToPDF = False
+        self.addToPDF = False # only used by ueber fert, bit fishy
 
     def __deepcopy__(self, memo=""):
         # create new object
@@ -224,7 +224,7 @@ class Fertigkeit:
     def serialize(self, ser):
         ser.set('name', self.name)
         ser.set('wert', self.wert)
-        if self.definition is UeberFertigkeitDefinition:
+        if isinstance(self.definition, UeberFertigkeitDefinition):
             ser.set('exportieren', self.addToPDF)
         EventBus.doAction("fertigkeit_serialisiert", { "object" : self, "serializer" : ser})
 

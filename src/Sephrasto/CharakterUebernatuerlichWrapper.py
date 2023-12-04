@@ -349,7 +349,7 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
         self.modified.emit()
     
     def addToPDFClicked(self, state, fert):
-        Wolke.Char.übernatürlicheFertigkeiten[fert].addToPDF = state
+        Wolke.Char.übernatürlicheFertigkeiten[fert].addToPDF = state == QtCore.Qt.Checked.value
         self.modified.emit()
 
     def spinnerClicked(self, value, fert):
