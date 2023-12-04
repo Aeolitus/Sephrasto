@@ -1112,6 +1112,7 @@ class Char():
                 heimatNew = "Mittelreich"
             else:
                 heimatNew = heimaten[0] if len(heimaten) > 0 else ""
+        self._heimat = "" # reset first so the script always gets executed
         self.heimat = heimatNew
 
         EventBus.doAction("charakter_deserialisiert", { "charakter" : self , "deserializer" : ser })
