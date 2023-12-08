@@ -26,7 +26,7 @@ class SimpleSettingsDialog(QtWidgets.QDialog):
     # In this case you still need to provide the widget which contains the setting value
     def addSetting(self, settingId, settingText, settingWidget, layout = None):
         if layout:
-            self.settingsLayout.addRow(settingName, layout)
+            self.settingsLayout.addRow(settingText, layout)
         else:
             self.settingsLayout.addRow(settingText, settingWidget)
         self.settings[settingId] = settingWidget
