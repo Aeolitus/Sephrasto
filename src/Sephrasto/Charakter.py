@@ -28,6 +28,15 @@ class KampfstilMod():
         self.rw = 0
         self.be = 0
 
+    def __add__(self, other):
+        result = KampfstilMod()
+        result.at = self.at + other.at
+        result.vt = self.vt + other.vt
+        result.plus = self.plus + other.plus
+        result.rw = self.rw + other.rw
+        result.be = self.be + other.be
+        return result
+
 class Waffenwerte():
     def __init__(self):
         self.at = 0
@@ -394,6 +403,8 @@ class Char():
         self.kampfstilMods = {}
         for ks in Wolke.DB.findKampfstile():
             self.kampfstilMods[ks] = KampfstilMod()
+        self.kampfstilMods["Nahkampf"] = KampfstilMod() # global mods, added on top of actual kampfstil
+        self.kampfstilMods["Fernkampf"] = KampfstilMod() # global mods, added on top of actual kampfstil
 
         for value in self.waffenEigenschaftenUndo:
             waffe = value[0]
@@ -487,20 +498,18 @@ class Char():
             else:
                 pw = self.fertigkeiten[el.fertigkeit].probenwert
                 
-            kampfstilMods = None
-            if el.kampfstil in self.kampfstilMods:
-                kampfstilMods = self.kampfstilMods[el.kampfstil]
+            kampfstilMods = self.kampfstilMods.get(el.kampfstil, KampfstilMod())
+            if el.nahkampf:
+                kampfstilMods += self.kampfstilMods["Nahkampf"]
             else:
-                kampfstilMods = KampfstilMod()
-                if el.kampfstil != WaffeDefinition.keinKampfstil:
-                    logging.warn("Waffe " + el.name + " referenziert einen nicht existierenden Kampfstil: " + el.kampfstil)
+                kampfstilMods += self.kampfstilMods["Fernkampf"]
 
             # Execute script to calculate weapon stats
             scriptAPI = {
                 'getAttribut' : lambda attribut: self.attribute[attribut].wert,
                 'getWaffe' : lambda: copy.deepcopy(el),
                 'getPW' : lambda: pw,
-                'getKampfstil' : lambda: copy.deepcopy(kampfstilMods),
+                'getKampfstil' : lambda: kampfstilMods,
                 'setWaffenwerte' : lambda at, vt, plus, rw: setattr(waffenwerte, 'at', at) or setattr(waffenwerte, 'vt', vt) or setattr(waffenwerte, 'plus', plus) or setattr(waffenwerte, 'rw', rw)
             }
             for ab in self.abgeleiteteWerte:
