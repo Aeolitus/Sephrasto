@@ -20,16 +20,13 @@ class UpdateChecker:
 
         def onTextDownloaded(text):
             UpdateChecker._page = None
-            res = re.findall("Sephrasto_v(\S*).zip", text)
+            res = re.findall("Sephrasto_(\S*).zip", text)
             if len(res) == 0:
                 return
-
-            version = [int(s) for s in res[0].split(".")]
-
-            while len(version) < 3:
-                version.append(0)
-
-            if Version.isClientLower(version[0], version[1], version[2]):
+            version = Version.disectVersionString(res[0])
+            if not version:
+                return
+            if Version.isClientLower(version):
                 UpdateChecker.showUpdate(res[0])
 
         def loadFinished(ok):

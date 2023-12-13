@@ -224,10 +224,19 @@ Diese Actions können von Plugins abgesendet werden, um Sephrasto anweisungen zu
 ## Neues Plugin erstellen
 - Gehe in deinen `Dokumente/Sephrasto/Plugins` Ordner
 - Lege einen neuen Ordner mit deinem Pluginnamen an (keine Leerzeichen)
+- Erstelle in diesem Ordner eine Datei mit dem Namen `manifest.json` mit folgendem Inhalt:
+```json
+{
+  "name": "Mein Plugin",
+  "description": "Dieses Plugin macht nicht besonders viel.",
+  "author": "Gatsu",
+  "version": "1",
+  "hasSettings": false
+}
+```
 - Erstelle in diesem Ordner eine Datei mit dem Namen `__init__.py`
 - Erstelle in dieser Datei eine Klasse mit dem Namen `Plugin` und importiere den `EventBus`
 - Falls du Action oder Filter Handler registrieren möchtest, stelle sicher, dass sie über die gesamte Programm-Dauer bestehen bleiben. Vermeide es also beispielsweise Handler in einem UI Wrapper zu registrieren, den du jedes mal neu erstellst, wenn ein neuer Charakter geladen wird oder ein Hauptfenster-Button geclickt wird. Stattdessen kannst du den Handler in deiner `__init__.py` registrieren und dann eine Funktion auf dem aktuellen Wrapper aufrufen.
-- Optional: Füge die Funktion getDescription ein und gib einen Beschreibungs-String zurück - dieser wird in den Sephrasto-Einstellungen als Tooltip angezeigt.
 - Optional: Füge die Funktion changesCharacter ein und gib True zurück, falls dein Plugin die Charakterdaten ändert. Falls ein Charakter mit diesem Plugin erstellt wurde und dann ohne Plugin geöffnet wird, erscheint dann ein Warndialog.
 - Optional: Füge die Funktion changesDatabase ein und gib True zurück, falls dein Plugin die Datenbank ändert. Falls Hausregeln mit diesem Plugin erstellt wurden und dann ohne Plugin geöffnet werden, erscheint dann ein Warndialog.
 <br />
@@ -237,10 +246,6 @@ from EventBus import EventBus
 class Plugin:
     def __init__(self):
         EventBus.addAction(...
-		
-	@staticmethod
-	def getDescription():
-		return "Mein erstes Plugin"
 		
 	def changesCharacter(self):
         return True
@@ -370,6 +375,7 @@ class Plugin:
         dlg.addSetting("MeinPlugin_Combobox", "Comboboxoption", combobox)
         dlg.show()
 ```
+In der manifest.json solltest du außerdem "hasSettings" auf true setzen.
 
 ## Existierende UI anpassen
 Implementiere einen der "class_xx_wrapper" Filter, die UI-Wrapper-Klasse wird als Parameter gereicht. Du kannst diesen Parameter im Handler beerben und diese oder eine ganz neue Klasse returnen. Im folgenden Beispiel wird bei den freien Fertigkeiten die dritte Stufe entfernt.

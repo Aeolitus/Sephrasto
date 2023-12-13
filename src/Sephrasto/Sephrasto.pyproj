@@ -66,6 +66,7 @@
     <Compile Include="DatenbankEditEnergieWrapper.py" />
     <Compile Include="DatenbankErrorLogWrapper.py" />
     <Compile Include="Migrationen.py" />
+    <Compile Include="PluginRepository.py" />
     <Compile Include="QtUtils\AutoResizingTextBrowser.py" />
     <Compile Include="QtUtils\HtmlToolbar.py" />
     <Compile Include="QtUtils\ProgressDialogExt.py" />

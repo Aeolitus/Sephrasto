@@ -29,7 +29,6 @@ class Wolke:
         'Pfad-Regeln': '',
         'Pfad-Plugins': '',
         'Pfad-Charakterbögen': '',
-        'Deaktivierte-Plugins': ['CharakterBeschreibungExt'],
         'Logging': 1,
         'PDF-Open': True,
         'UpdateCheck_Disable' : False,
@@ -51,9 +50,10 @@ class Wolke:
         'WindowSize-Waffen' : _DefaultSettings.WindowSizeDefault2Col,
         'WindowSize-Ruestungen' : _DefaultSettings.WindowSizeDefault2Col,
         'WindowSize-Datenbank' : [1056, 738],
-        'WindowSize-Einstellungen' : [701, 956],
+        'WindowSize-Einstellungen' : [701, 640],
         'WindowSize-Regelanhang' : _DefaultSettings.WindowSizeDefault1Col,
         'Letzte-Chars' : [],
+        'Plugin-Repos' : [{"name" : "default", "url" : "https://api.github.com/repos/brzGatsu/SephrastoPlugins/releases"}]
     }
     FontHeadingSizeL1 = 0
     FontHeadingSizeL3 = 0

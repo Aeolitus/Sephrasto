@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'Wizard.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.2
+## Created by: Qt User Interface Compiler version 6.6.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -171,16 +171,16 @@ class Ui_formMain(object):
 
         self.horizontalLayout.addWidget(self.btnSkip)
 
+        self.btnMaennlich = QRadioButton(formMain)
+        self.btnMaennlich.setObjectName(u"btnMaennlich")
+
+        self.horizontalLayout.addWidget(self.btnMaennlich)
+
         self.btnWeiblich = QRadioButton(formMain)
         self.btnWeiblich.setObjectName(u"btnWeiblich")
         self.btnWeiblich.setChecked(False)
 
         self.horizontalLayout.addWidget(self.btnWeiblich)
-
-        self.btnMaennlich = QRadioButton(formMain)
-        self.btnMaennlich.setObjectName(u"btnMaennlich")
-
-        self.horizontalLayout.addWidget(self.btnMaennlich)
 
         self.btnDivers = QRadioButton(formMain)
         self.btnDivers.setObjectName(u"btnDivers")
@@ -201,8 +201,7 @@ class Ui_formMain(object):
         self.gridLayout.addWidget(self.cbKultur, 7, 1, 1, 1)
 
         QWidget.setTabOrder(self.cbRegeln, self.cbBaukasten)
-        QWidget.setTabOrder(self.cbBaukasten, self.btnWeiblich)
-        QWidget.setTabOrder(self.btnWeiblich, self.btnMaennlich)
+        QWidget.setTabOrder(self.cbBaukasten, self.btnMaennlich)
         QWidget.setTabOrder(self.btnMaennlich, self.btnDivers)
         QWidget.setTabOrder(self.btnDivers, self.leDivers)
         QWidget.setTabOrder(self.leDivers, self.cbSpezies)
@@ -244,8 +243,8 @@ class Ui_formMain(object):
         self.lblGeschlecht.setText(QCoreApplication.translate("formMain", u"Geschlecht", None))
         self.lblGeschlecht.setProperty("class", QCoreApplication.translate("formMain", u"h4", None))
         self.btnSkip.setText(QCoreApplication.translate("formMain", u"\u00dcberspringen", None))
-        self.btnWeiblich.setText(QCoreApplication.translate("formMain", u"Weiblich", None))
         self.btnMaennlich.setText(QCoreApplication.translate("formMain", u"M\u00e4nnlich", None))
+        self.btnWeiblich.setText(QCoreApplication.translate("formMain", u"Weiblich", None))
         self.btnDivers.setText("")
     # retranslateUi
 

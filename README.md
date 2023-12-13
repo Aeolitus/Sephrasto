@@ -80,7 +80,7 @@ Gestartet wird Sephrasto dann folgendermaßen:
 ### Erstellen von Windows builds
 Stelle sicher, dass alle Pakete aus der requirements.txt installiert sind. Aktuell nutzen wir außerdem Python 3.9.7 und cx_Freeze 6.15.5 zum Erstellen von Windows builds. Nun solltest du build.bat im Sephrasto root ausführen können.
 
-### Einrichtung von Visual Studio als IDE:
+### Einrichtung von Visual Studio als IDE
 * Installiere VS 2019 Community Edition mit dem Python Workload (kann auch nachträglich über den Installer installiert werden)
 * Setze den Pfad der Python-Umgebung in der Umgebungsvariable PATH (in der Regel C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64)
 * Öffne Sephrasto/src/Sephrasto.sln
@@ -98,6 +98,12 @@ Stelle sicher, dass alle Pakete aus der requirements.txt installiert sind. Aktue
 * Bei Problemen mit convert.bat, stelle sicher, dass:
     * ... der Python Install-Ordner und der Unterordner "Scripts" in deiner PATH-Umgebungsvariable enthalten sind. Dies wird normalerweise vom Python installer automatisch gemacht. (Windows 10: System -> Advanced System Settings -> Environment Variables -> Path - in User oder System)
     * ... "Python/Scripts" die Datei "pyside6-uic.exe" enthält. Diese wird normalerweise durch das Installieren von PySide6 dort angelegt.
+
+### Plugin Repositories
+Sephrasto unterstützt Plugin repositories, um als User die Plugins bequem aus den Einstellungen heraus verwalten zu können. In den Standardeinstellungen ist https://github.com/brzGatsu/SephrastoPlugins voreingetragen und wir empfehlen dir dort für deine Plugins einen PR zu erstellen. Du kannst aber auch ein eigenes Repository anlegen. Aktuell ist Sephrasto hier auf Github beschränkt und du musst folgender Konvention folgen:
+* Der Sephrasto Pluginmanager benötigt eine Github API URL zu deiner /releases page. Beispiel: https://api.github.com/repos/brzGatsu/SephrastoPlugins/releases
+* Du musst den oder die Pluginordner zippen (.zip) und bei Github als Release hochladen (nur diese eine Datei). Der Release muss als Git-Tag die Sephrasto-Target-Version im folgenden Format enthalten: "v4.4.0.0". Die vierte Zahl kannst du für Plugin-Updates innerhalb derselben Sephrastoversion verwenden. Sephrasto-Versionen die älter als das Target sind wird das Plugin(-Update) nicht angezeigt.
+* Es gibt im Einstellungsdialog keine Option für weitere Repos, aber du kannst es händisch in der Sephrasto.ini eintragen unter "Plugin-Repos".
 
 ## Abschlussbemerkung
 Dieses Tool ist das Projekt, an dem ich Python / Qt gelernt habe. Deutliche Schwankungen im Coding-Stil und in der Codequalität sind demnach zu erwarten. Ich werde über die Zeit versuchen, das zu beheben; einige Spuren davon (wie das furchtbare denglisch) werden vermutlich bleiben. 

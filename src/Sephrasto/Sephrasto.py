@@ -140,8 +140,7 @@ class MainWindowWrapper(object):
         '''
         Initializes the GUI and connects the buttons.
         '''
-        self._version_ = "v" + str(Version._sephrasto_version_major) + "." + str(Version._sephrasto_version_minor) + "." + str(Version._sephrasto_version_build)
-        logging.critical("Starte Sephrasto " + self._version_) #critical so it's always printed, independent of the debug level setting
+        logging.critical("Starte Sephrasto " + Version.toString()) #critical so it's always printed, independent of the debug level setting
         logging.critical(f"Qt {QtCore.qVersion()} PySide {PySide6.__version__} (compiled with Qt {QtCore.__version__})") #for people that start from source
 
         super().__init__()
@@ -190,7 +189,7 @@ class MainWindowWrapper(object):
         self.form = QtWidgets.QWidget()
         self.ui = UI.MainWindow.Ui_Form()
         self.ui.setupUi(self.form)
-        self.ui.labelVersion.setText(self._version_ + " - by Aeolitus & Gatsu")
+        self.ui.labelVersion.setText(Version.toString() + " - by Aeolitus & Gatsu")
         self.app.setWindowIcon(QtGui.QIcon('icon_large.png'))
 
         windowSize = Wolke.Settings["WindowSize-Main"]
@@ -235,6 +234,9 @@ class MainWindowWrapper(object):
         if not Wolke.CmdArgs.noplugins:
             for pluginData in PluginLoader.getPlugins(Wolke.Settings['Pfad-Plugins']):
                 if pluginData.name in Wolke.Settings['Deaktivierte-Plugins']:
+                    self._plugins.append(pluginData)
+                    continue
+                if not pluginData.loadable:
                     self._plugins.append(pluginData)
                     continue
 

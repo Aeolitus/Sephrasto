@@ -17,11 +17,29 @@ import PathHelper
 from Hilfsmethoden import Hilfsmethoden
 from PluginLoader import PluginLoader
 from functools import partial
+import Version
+from PluginRepository import PluginRepo
+import shutil
+
+class PluginDataUI:
+    def __init__(self, pd, sephrastoVersion = Version._sephrasto_version):
+        self.pd = pd
+        self.repoPd = pd
+        self.installed = False
+        self.installable = False
+        self.updatable = False
+        self.sephrastoVersion = sephrastoVersion
+
+    @property
+    def name(self): return self.pd.name
+
+    @property
+    def version(self): return self.pd.version
 
 class EinstellungenWrapper():    
     def __init__(self, plugins):
-        super().__init__()
-
+        self.needRestart = False
+        self.plugins = plugins
         self.form = QtWidgets.QDialog()
         self.ui = UI.Einstellungen.Ui_SettingsWindow()
         self.ui.setupUi(self.form)
@@ -32,7 +50,13 @@ class EinstellungenWrapper():
                 QtCore.Qt.WindowCloseButtonHint |
                 QtCore.Qt.WindowMaximizeButtonHint |
                 QtCore.Qt.WindowMinimizeButtonHint)
+        
+        for i in range(self.ui.tabWidget.tabBar().count()):
+            self.ui.tabWidget.tabBar().setTabTextColor(i, QtGui.QColor(Wolke.HeadingColor))
+        self.ui.tabWidget.setStyleSheet('QTabBar { font-size: ' + str(Wolke.Settings["FontHeadingSize"]) + 'pt; font-family: \"' + Wolke.Settings["FontHeading"] + '\"; }')
+
         self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).setText("Abbrechen")
+
         self.ui.checkCheatsheet.setChecked(Wolke.Settings['Cheatsheet'])
 
         boegen = [os.path.basename(os.path.splitext(bogen)[0]) for bogen in Wolke.Charakterbögen]
@@ -55,8 +79,6 @@ class EinstellungenWrapper():
         self.ui.editPlugins.setText(Wolke.Settings['Pfad-Plugins'])
         self.ui.editCharakterboegen.setText(Wolke.Settings['Pfad-Charakterbögen'])
 
-        self.pluginCheckboxes = []
-        self.updatePluginCheckboxes(plugins)
         self.updateComboRegelbasis()
             
         self.ui.checkPDFOpen.setChecked(Wolke.Settings['PDF-Open'])
@@ -66,7 +88,6 @@ class EinstellungenWrapper():
         self.ui.spinCharListCols.setValue(Wolke.Settings['CharListCols'])
         self.ui.spinCharListRows.setValue(Wolke.Settings['CharListRows'])
 
-        # Offer custom themes
         for theme in Wolke.Themes.keys():
             self.ui.comboTheme.addItem(theme)
         self.ui.comboTheme.setCurrentText(Wolke.Settings['Theme'])
@@ -126,6 +147,52 @@ class EinstellungenWrapper():
         self.ui.resetFontOS.clicked.connect(lambda: self.resetFonts(True))
         self.ui.resetFontOS.setText('\uf390')
 
+        self.ui.buttonSettings.setText('\uf013')
+        self.ui.buttonSettings.setVisible(False)
+        self.ui.buttonInstall.setVisible(False)
+        self.ui.buttonUpdate.setVisible(False)
+        self.ui.buttonDelete.setVisible(False)
+        self.ui.buttonSettings.clicked.connect(self.openPluginSettings)
+        self.ui.buttonDelete.clicked.connect(self.deletePlugin)
+        self.ui.buttonInstall.clicked.connect(self.installPlugin)
+        self.ui.buttonUpdate.clicked.connect(self.updatePlugin)
+        self.ui.tbPluginInfo.setOpenExternalLinks(True)
+        self.ui.tablePlugins.currentItemChanged.connect(self.onPluginSelected)
+        self.ui.tablePlugins.currentCellChanged.connect(self.onPluginSelected)
+        self.ui.tablePlugins.cellClicked.connect(self.onPluginSelected) 
+        self.ui.tablePlugins.verticalHeader().setVisible(False)
+        self.ui.tablePlugins.setColumnCount(3)
+
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignLeft)
+        item.setText("Plugin")
+        self.ui.tablePlugins.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        item.setText("Version")
+        self.ui.tablePlugins.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        self.ui.tablePlugins.setHorizontalHeaderItem(2, item)
+
+        header = self.ui.tablePlugins.horizontalHeader()
+        header.setMinimumSectionSize(0)
+        header.setSectionResizeMode(0, QtWidgets.QHeaderView.Stretch)
+        header.setSectionResizeMode(1, QtWidgets.QHeaderView.Fixed)
+        self.ui.tablePlugins.setColumnWidth(1, Hilfsmethoden.emToPixels(10))
+        header.setSectionResizeMode(2, QtWidgets.QHeaderView.Fixed)
+        self.ui.tablePlugins.setColumnWidth(2, Hilfsmethoden.emToPixels(3))
+
+        self.pluginDataUIs = []
+        self.pluginUiReady = False
+        self.pluginUiMutex = QtCore.QMutex()
+        self.pluginRepos = []
+        for repo in Wolke.Settings['Plugin-Repos']:
+            self.pluginRepos.append(PluginRepo(repo["name"], repo["url"]))
+        for repo in self.pluginRepos:
+            repo.ready.connect(self.onPluginRepoReady)
+            repo.update()
+
         windowSize = Wolke.Settings["WindowSize-Einstellungen"]
         self.form.resize(windowSize[0], windowSize[1])
 
@@ -136,8 +203,6 @@ class EinstellungenWrapper():
         Wolke.Settings["WindowSize-Einstellungen"] = [self.form.size().width(), self.form.size().height()]
 
         if self.ret == QtWidgets.QDialog.Accepted:
-            needRestart = False
-
             Wolke.Settings['Bogen'] = self.ui.comboBogen.currentText()
             db = self.ui.comboRegelbasis.currentText()
             if db == 'Keine':
@@ -165,22 +230,14 @@ class EinstellungenWrapper():
                     Wolke.Settings['Pfad-Plugins'] = self.ui.editPlugins.text()
                 else:
                     Wolke.Settings['Pfad-Plugins'] = ''
-                needRestart = True
+                self.needRestart = True
 
             if self.ui.editCharakterboegen.text() != Wolke.Settings['Pfad-Charakterbögen']:
                 if os.path.isdir(self.ui.editCharakterboegen.text()):
                     Wolke.Settings['Pfad-Charakterbögen'] = self.ui.editCharakterboegen.text()
                 else:
                     Wolke.Settings['Pfad-Charakterbögen'] = ''
-                needRestart = True # TODO: reload char sheets so a restart isnt necessary
-
-            for checkbox in self.pluginCheckboxes:
-                if checkbox.isChecked() and (checkbox.text() in Wolke.Settings['Deaktivierte-Plugins']):
-                    Wolke.Settings['Deaktivierte-Plugins'].remove(checkbox.text())
-                    needRestart = True
-                elif not checkbox.isChecked() and not (checkbox.text() in Wolke.Settings['Deaktivierte-Plugins']):
-                    Wolke.Settings['Deaktivierte-Plugins'].append(checkbox.text())
-                    needRestart = True
+                self.needRestart = True # TODO: reload char sheets so a restart isnt necessary
               
             Wolke.Settings['UpdateCheck_Disable'] = not self.ui.checkUpdate.isChecked()
             Wolke.Settings['Logging'] = self.ui.comboLogging.currentIndex()
@@ -192,39 +249,39 @@ class EinstellungenWrapper():
 
             if Wolke.Settings['CharListCols'] != self.ui.spinCharListCols.value():
                 Wolke.Settings['CharListCols'] = self.ui.spinCharListCols.value()
-                needRestart = True
+                self.needRestart = True
 
             if Wolke.Settings['CharListRows'] != self.ui.spinCharListRows.value():
                 Wolke.Settings['CharListRows'] = self.ui.spinCharListRows.value()
-                needRestart = True
+                self.needRestart = True
 
             if Wolke.Settings['Theme'] != self.ui.comboTheme.currentText():
                 Wolke.Settings['Theme'] = self.ui.comboTheme.currentText()
-                needRestart = True
+                self.needRestart = True
 
             if Wolke.Settings['Font'] != self.ui.comboFont.currentText():
                 Wolke.Settings['Font'] = self.ui.comboFont.currentText()
-                needRestart = True
+                self.needRestart = True
 
             if Wolke.Settings['FontSize'] != self.ui.spinAppFontSize.value():
                 Wolke.Settings['FontSize'] = self.ui.spinAppFontSize.value()
-                needRestart = True
+                self.needRestart = True
 
             if Wolke.Settings['FontHeading'] != self.ui.comboFontHeading.currentText():
                 Wolke.Settings['FontHeading'] = self.ui.comboFontHeading.currentText()
-                needRestart = True
+                self.needRestart = True
 
             if Wolke.Settings['FontHeadingSize'] != self.ui.spinAppFontHeadingSize.value():
                 Wolke.Settings['FontHeadingSize'] = self.ui.spinAppFontHeadingSize.value()
-                needRestart = True
+                self.needRestart = True
 
             if Wolke.Settings['DPI-Skalierung'] != self.ui.checkDPI.isChecked():
                 Wolke.Settings['DPI-Skalierung'] = self.ui.checkDPI.isChecked()
-                needRestart = True
+                self.needRestart = True
 
             EinstellungenWrapper.save()
 
-            if needRestart:
+            if self.needRestart:
                 messageBox = QtWidgets.QMessageBox()
                 messageBox.setIcon(QtWidgets.QMessageBox.Information)
                 messageBox.setWindowTitle("Sephrasto neustarten?")
@@ -235,7 +292,162 @@ class EinstellungenWrapper():
                 result = messageBox.exec()
                 if result == 0:
                     EinstellungenWrapper.restartSephrasto()
-    
+   
+    def getSelectedPlugin(self):
+        row = self.ui.tablePlugins.currentRow()
+        if row >= len(self.pluginDataUIs):
+            return None
+        return self.pluginDataUIs[row]
+
+    def refreshPluginTable(self):
+        if not self.pluginUiReady:
+            return
+        self.pluginUiReady = False
+        row = self.ui.tablePlugins.currentRow()
+        self.onPluginRepoReady()
+        if row >= self.ui.tablePlugins.rowCount():
+            row = 0
+        self.ui.tablePlugins.selectRow(row)
+
+    def openPluginSettings(self):
+        pdui = self.getSelectedPlugin()
+        if pdui is None:
+            return
+        pdui.pd.showSettings()
+
+    def installPlugin(self):
+        pdui = self.getSelectedPlugin()
+        if pdui is None or not pdui.installable:
+            return
+        srcPath = os.path.join(pdui.pd.path, pdui.pd.name)
+        dstPath = os.path.join(self.ui.editPlugins.text(), pdui.pd.name)
+        shutil.copytree(srcPath, dstPath, dirs_exist_ok=True)
+        self.needRestart = True
+        self.refreshPluginTable()
+
+    def updatePlugin(self):
+        pdui = self.getSelectedPlugin()
+        if pdui is None or not pdui.updatable:
+            return
+        srcPath = os.path.join(pdui.repoPd.path, pdui.repoPd.name)
+        dstPath = os.path.join(pdui.pd.path, pdui.pd.name)
+        shutil.copytree(srcPath, dstPath, dirs_exist_ok=True) 
+        self.needRestart = True
+        self.refreshPluginTable()
+
+    def deletePlugin(self):
+        pdui = self.getSelectedPlugin()
+        if pdui is None or not pdui.installed:
+            return
+        srcPath = os.path.join(pdui.pd.path, pdui.pd.name)
+        shutil.rmtree(srcPath)
+        self.needRestart = True
+        self.refreshPluginTable()
+
+    def onPluginSelected(self):
+        pdui = self.getSelectedPlugin()
+        if pdui is None:
+            self.ui.buttonSettings.setVisible(False)
+            self.ui.buttonInstall.setVisible(False)
+            self.ui.buttonUpdate.setVisible(False)
+            self.ui.buttonDelete.setVisible(False)
+            return
+      
+        self.ui.buttonSettings.setVisible(pdui.installed and pdui.pd.hasSettings)
+        if pdui.pd.isLoaded():
+            self.ui.buttonSettings.setToolTip("")
+            self.ui.buttonSettings.setEnabled(True)
+        else:
+            self.ui.buttonSettings.setToolTip("Starte Sephrasto neu, um Einstellungen vornehmen zu können")
+            self.ui.buttonSettings.setEnabled(False)
+
+        self.ui.buttonInstall.setVisible(pdui.installable)
+        self.ui.buttonUpdate.setVisible(pdui.updatable)
+        self.ui.buttonDelete.setVisible(pdui.installed)
+
+        text = f"<p><b>{pdui.pd.name}</b><br><i>von {pdui.pd.autor}</i></p>{pdui.pd.beschreibung}"
+
+        self.ui.tbPluginInfo.setText(Hilfsmethoden.fixHtml(text))
+
+
+    def onPluginRepoReady(self):
+        self.pluginUiMutex.lock()
+        if self.pluginUiReady:
+            self.pluginUiMutex.unlock()
+            return
+        for repo in self.pluginRepos:
+            if not repo.isReady:
+                self.pluginUiMutex.unlock()
+                return
+        self.pluginUiReady = True
+        self.pluginUiMutex.unlock()
+
+        installedPluginDataUIs = {}
+        pluginDataUIs = {}
+
+        for pd in PluginLoader.getPlugins(self.ui.editPlugins.text()):
+            for pdLoaded in self.plugins:
+                if pd.name == pdLoaded.name and pd.path == pdLoaded.path and pd.version == pdLoaded.version:
+                    pd = pdLoaded
+                    break  
+            pluginDataUIs[pd.name] = PluginDataUI(pd)
+            pluginDataUIs[pd.name].installed = True
+            installedPluginDataUIs[pd.name] = pluginDataUIs[pd.name]
+
+        for repo in self.pluginRepos:
+            for pd in repo.pluginData:
+                if pd.name in installedPluginDataUIs:
+                    installedPluginDataUIs[pd.name].repoPd = pd
+                    installedPluginDataUIs[pd.name].sephrastoVersion = repo.sephrastoVersion
+                    if Version.isHigher(installedPluginDataUIs[pd.name].version, pd.version):
+                        installedPluginDataUIs[pd.name].updatable = True
+                    continue
+                pluginDataUIs[pd.name] = PluginDataUI(pd, repo.sephrastoVersion)
+                pluginDataUIs[pd.name].installable = True
+
+        self.pluginDataUIs = sorted(pluginDataUIs.values(), key=lambda pdui: pdui.name)
+
+        self.ui.tablePlugins.clearContents()
+        self.ui.tablePlugins.setRowCount(0)
+        for pdui in self.pluginDataUIs:
+            row = self.ui.tablePlugins.rowCount()
+            self.ui.tablePlugins.insertRow(row)
+
+            item = QtWidgets.QTableWidgetItem(pdui.pd.anzeigename)
+            self.ui.tablePlugins.setItem(row, 0, item)
+
+            label = QtWidgets.QLabel()
+            label.setStyleSheet("width: 100%;");
+            label.setAlignment(QtCore.Qt.AlignCenter|QtCore.Qt.AlignVCenter)
+            anzeigeversion = ".".join([str(v) for v in pdui.version])
+            while anzeigeversion.endswith(".0"):
+                anzeigeversion = anzeigeversion[:-2]
+
+            if Version.isClientHigher(pdui.sephrastoVersion):
+                warnIcon = "&nbsp;&nbsp;<span style='" + Wolke.FontAwesomeCSS + "'>\uf071</span>"
+                anzeigeversion += warnIcon
+                sephrastoVersion = ".".join([str(v) for v in pdui.sephrastoVersion[:3]])
+                label.setToolTip(f"Das Plugin wurde für die ältere Sephrasto-Version {sephrastoVersion} entwickelt.\n"\
+                    "Vielleicht macht das nichts, aber es kann auch sein, dass es nicht richtig funktionieren wird.")
+
+            label.setText(anzeigeversion)
+            self.ui.tablePlugins.setCellWidget(row, 1, label)
+
+            label = QtWidgets.QLabel()
+            label.setStyleSheet("width: 100%;");
+            label.setAlignment(QtCore.Qt.AlignCenter|QtCore.Qt.AlignVCenter)
+            label.setProperty("class", "icon")
+            if pdui.updatable:
+                label.setText("\uf0aa")   
+                anzeigeversion = ".".join([str(v) for v in pdui.repoPd.version]).strip(".0")
+                label.setToolTip("Neue Version verfügbar: " + anzeigeversion)
+            elif pdui.installed:
+                label.setText("\uf00c")
+            elif pdui.installable:
+                label.setText("\uf65e")
+            self.ui.tablePlugins.setCellWidget(row, 2, label)
+
+
     @staticmethod
     def restartSephrasto():
         os.chdir(EinstellungenWrapper.oldWorkingDir)
@@ -375,40 +587,6 @@ class EinstellungenWrapper():
         if foundMissingSetting:
             EinstellungenWrapper.save()
 
-    def updatePluginCheckboxes(self, plugins):
-        self.pluginCheckboxes = []
-        self.pluginButtons = []
-
-        layout = self.ui.gbPlugins.layout()
-        for i in reversed(range(layout.count())): 
-            if layout.itemAt(i).widget():
-                layout.itemAt(i).widget().setParent(None)
-            else:
-                layout.removeItem(layout.itemAt(i))
-
-        count = 0
-        for pluginData in plugins:
-            check = QtWidgets.QCheckBox(pluginData.name)
-            if pluginData.description:
-                check.setToolTip(pluginData.description)
-
-            if not (pluginData.name in Wolke.Settings['Deaktivierte-Plugins']):
-                check.setChecked(True)
-            layout.addWidget(check, count, 0)
-            self.pluginCheckboxes.append(check)
-
-            if hasattr(pluginData.plugin, "showSettings"):
-                button = QtWidgets.QPushButton()
-                button.setProperty("class", "icon")
-                button.setText("\uf013")
-                button.setToolTip(pluginData.name + " Einstellungen")
-                button.clicked.connect(partial(pluginData.plugin.showSettings))
-                layout.addWidget(button, count, 1)
-                self.pluginButtons.append(button)
-            count += 1
-
-        self.ui.gbPlugins.setVisible(len(self.pluginCheckboxes) > 0)
-
     @staticmethod
     def getDatenbanken(path):
         optionsList = ['Keine']            
@@ -486,7 +664,7 @@ class EinstellungenWrapper():
             p = os.path.realpath(p)
             if os.path.isdir(p):
                 self.ui.editPlugins.setText(p)
-                self.updatePluginCheckboxes(PluginLoader.getPlugins(p))
+                self.refreshPluginTable()
 
     def setCharakterboegenPath(self):
         p = QtWidgets.QFileDialog.getExistingDirectory(None,
@@ -510,7 +688,7 @@ class EinstellungenWrapper():
     def resetPluginsPath(self):
         p = os.path.join(PathHelper.getDefaultUserFolder(), 'Plugins')
         self.ui.editPlugins.setText(p)
-        self.updatePluginCheckboxes(PluginLoader.getPlugins(p))
+        self.refreshPluginTable()
 
     def resetCharakterboegenPath(self):
         p = os.path.join(PathHelper.getDefaultUserFolder(), 'Charakterbögen')
