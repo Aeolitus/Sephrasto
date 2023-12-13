@@ -53,9 +53,9 @@ class PluginRepo(QtCore.QObject):
         self.__setReady()
         
     def __onPluginDownloadRequested(self, download):
+        self.download = download
         download.accept()
         download.isFinishedChanged.connect(self.__onPluginDownloaded)
-        self.download = download
 
     def __onPluginDownloaded(self):
         self.download.isFinishedChanged.disconnect(self.__onPluginDownloaded)
