@@ -58,14 +58,18 @@ class PluginRepo(QtCore.QObject):
         download.isFinishedChanged.connect(self.__onPluginDownloaded)
 
     def __onPluginDownloaded(self):
-        self.download.isFinishedChanged.disconnect(self.__onPluginDownloaded)
-        if self.download.isFinished:
+        if self.download.state() == QtWebEngineCore.QWebEngineDownloadRequest.DownloadCompleted:
+            self.download.isFinishedChanged.disconnect(self.__onPluginDownloaded)
             filename = self.download.suggestedFileName()
             dirname = os.path.dirname(filename)
             shutil.unpack_archive(filename, dirname)
             self.pluginData = PluginLoader.getPlugins(dirname)
-        self.download = None
-        self.__setReady()
+            self.download = None
+            self.__setReady()
+        elif self.download.state() == QtWebEngineCore.QWebEngineDownloadRequest.DownloadCancelled or self.download.state() == QtWebEngineCore.QWebEngineDownloadRequest.DownloadInterrupted:
+            self.download.isFinishedChanged.disconnect(self.__onPluginDownloaded)
+            self.download = None
+            self.__setReady()
 
     def update(self):
         self.page.load(self.apiLink)
