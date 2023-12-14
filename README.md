@@ -74,6 +74,7 @@ Gestartet wird Sephrasto dann folgendermaßen:
 |\-\-debug|kein Parameter|Lognachrichten werden auch in der Konsole ausgegeben und weitere Debugfeatures werden aktiviert.|
 |\-\-loglevel|0, 1 oder 2|Setzt das Loglevel (0 = error, 1 = warning, 2 = debug). Dies überschreibt das in den Einstellungen konfigurierte Loglevel.|
 |\-\-migrate|"pfad/zu/charakter.xml"|Lädt und speichert den angegeben Charakter. Dies kann genutzt werden, um ohne UI-Interaktion Migrationen zu applizieren, z. B. für Charakterassistent-Dateien.|
+|\-\-prerelease\-plugins|kein Parameter|Weist den Pluginmanager an, die neuesten Prerelease-Plugins herunterzuladen, falls verfügbar.|
 
 ## Für Entwickler
 

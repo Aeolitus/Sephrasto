@@ -153,9 +153,9 @@ class EinstellungenWrapper():
         self.ui.buttonUpdate.setVisible(False)
         self.ui.buttonDelete.setVisible(False)
         self.ui.buttonSettings.clicked.connect(self.openPluginSettings)
-        self.ui.buttonDelete.clicked.connect(self.deletePlugin)
-        self.ui.buttonInstall.clicked.connect(self.installPlugin)
-        self.ui.buttonUpdate.clicked.connect(self.updatePlugin)
+        self.ui.buttonDelete.clicked.connect(lambda: self.deletePlugin(self.getSelectedPlugin()))
+        self.ui.buttonInstall.clicked.connect(lambda: self.installPlugin(self.getSelectedPlugin()))
+        self.ui.buttonUpdate.clicked.connect(lambda: self.updatePlugin(self.getSelectedPlugin()))
         self.ui.tbPluginInfo.setOpenExternalLinks(True)
         self.ui.tablePlugins.currentItemChanged.connect(self.onPluginSelected)
         self.ui.tablePlugins.currentCellChanged.connect(self.onPluginSelected)
@@ -315,9 +315,56 @@ class EinstellungenWrapper():
             return
         pdui.pd.showSettings()
 
-    def installPlugin(self):
-        pdui = self.getSelectedPlugin()
+    def installDependencies(self, pdui):
+        toInstall = []
+        toUpdate = []
+        missing = []
+        for dep in pdui.pd.dependencies:
+            resolved = None
+            for el in self.pluginDataUIs:
+                if el.name == dep["name"]:
+                    resolved = el
+                    break
+            if resolved is None or Version.isHigher(resolved.repoPd.version, dep["version"]):
+                missing.append(dep)
+                continue
+            if resolved.installable:
+                toInstall.append(resolved)
+                continue
+            if resolved.installed and (Version.isEqual(resolved.pd.version, dep["version"]) or Version.isLower(resolved.pd.version, dep["version"])):
+                continue
+            if resolved.updatable:
+                toUpdate.append(resolved)
+        if len(toInstall) == 0 and len(toUpdate) == 0 and len(missing) == 0:
+            return True
+        text = []
+        if len(toInstall) > 0:
+            text.append("Installiere:\n-" + "\n- ".join([f"{pdui.pd.anzeigename} {Version.toString(pdui.version)}" for pdui in toInstall]))
+        if len(toUpdate) > 0:
+            text.append("Aktualisiere:\n-" + "\n- ".join([f"{pdui.pd.anzeigename} {Version.toString(pdui.repoPd.version)}" for pdui in toUpdate]))
+        if len(missing) > 0:
+            text.append(f"Nicht auffindbar:\n-" +
+                        "\n- ".join([f"{dep['name']} {Version.toString(dep['version'])}" for dep in missing]))
+        messageBox = QtWidgets.QMessageBox()
+        messageBox.setIcon(QtWidgets.QMessageBox.Information if len(missing) == 0 else QtWidgets.QMessageBox.Warning)
+        messageBox.setWindowTitle(pdui.pd.anzeigename + " Installation")
+        messageBox.setText(pdui.pd.anzeigename + " benötigt weitere Plugins!")
+        messageBox.setInformativeText("\n\n".join(text))
+        messageBox.addButton("Fortfahren", QtWidgets.QMessageBox.YesRole)
+        messageBox.addButton("Abbrechen", QtWidgets.QMessageBox.RejectRole)
+        result = messageBox.exec()
+        if result == 1:
+            return False
+        for el in toInstall:
+            self.installPlugin(el)
+        for el in toUpdate:
+            self.updatePlugin(el)
+        return True
+
+    def installPlugin(self, pdui):
         if pdui is None or not pdui.installable:
+            return
+        if not self.installDependencies(pdui):
             return
         srcPath = os.path.join(pdui.pd.path, pdui.pd.name)
         dstPath = os.path.join(self.ui.editPlugins.text(), pdui.pd.name)
@@ -325,9 +372,10 @@ class EinstellungenWrapper():
         self.needRestart = True
         self.refreshPluginTable()
 
-    def updatePlugin(self):
-        pdui = self.getSelectedPlugin()
+    def updatePlugin(self, pdui):
         if pdui is None or not pdui.updatable:
+            return
+        if not self.installDependencies(pdui):
             return
         srcPath = os.path.join(pdui.repoPd.path, pdui.repoPd.name)
         dstPath = os.path.join(pdui.pd.path, pdui.pd.name)
@@ -335,8 +383,7 @@ class EinstellungenWrapper():
         self.needRestart = True
         self.refreshPluginTable()
 
-    def deletePlugin(self):
-        pdui = self.getSelectedPlugin()
+    def deletePlugin(self, pdui):
         if pdui is None or not pdui.installed:
             return
         srcPath = os.path.join(pdui.pd.path, pdui.pd.name)
@@ -419,10 +466,7 @@ class EinstellungenWrapper():
             label = QtWidgets.QLabel()
             label.setStyleSheet("width: 100%;");
             label.setAlignment(QtCore.Qt.AlignCenter|QtCore.Qt.AlignVCenter)
-            anzeigeversion = ".".join([str(v) for v in pdui.version])
-            while anzeigeversion.endswith(".0"):
-                anzeigeversion = anzeigeversion[:-2]
-
+            anzeigeversion = Version.toString(pdui.version)
             if Version.isClientHigher(pdui.sephrastoVersion):
                 warnIcon = "&nbsp;&nbsp;<span style='" + Wolke.FontAwesomeCSS + "'>\uf071</span>"
                 anzeigeversion += warnIcon

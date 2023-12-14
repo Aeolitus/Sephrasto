@@ -23,7 +23,7 @@ class UpdateChecker:
             res = re.findall("Sephrasto_(\S*).zip", text)
             if len(res) == 0:
                 return
-            version = Version.disectVersionString(res[0])
+            version = Version.fromString(res[0])
             if not version:
                 return
             if Version.isClientLower(version):
@@ -46,7 +46,7 @@ class UpdateChecker:
         messageBox = QtWidgets.QMessageBox()
         messageBox.setIcon(QtWidgets.QMessageBox.Information)
         messageBox.setWindowTitle("Neue Sephrasto-Version")
-        messageBox.setText(f"Eine neue Version von Sephrasto ist verfügbar! Clicke auf Download, um zur Sephrasto-Seite auf github.com zu gelangen.\n\nInstallierte Version: {Version.toString()}\nNeue Version: {version}")
+        messageBox.setText(f"Eine neue Version von Sephrasto ist verfügbar! Clicke auf Download, um zur Sephrasto-Seite auf github.com zu gelangen.\n\nInstallierte Version: {Version.clientToString()}\nNeue Version: {version}")
         messageBox.addButton("Download", QtWidgets.QMessageBox.AcceptRole)
         messageBox.addButton("Später", QtWidgets.QMessageBox.AcceptRole)
         messageBox.setEscapeButton(QtWidgets.QMessageBox.Close)  

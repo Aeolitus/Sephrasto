@@ -130,6 +130,7 @@ class MainWindowWrapper(object):
         parser.add_argument('--debug', required = False, action='store_true', help='This option will forward log messages to the console and enable further debug features')
         parser.add_argument('--loglevel', required = False, type=int, choices=[0,1,2], help='Sets the loglevel (0 = error, 1 = warning, 2 = debug). This overrides the loglevel configured in setting file.')
         parser.add_argument('--migrate', required = False, help='Requires a path to a character xml file. Loads and then saves the character, applying any migration without UI interaction. Please make a backup, any loading warnings will be ignored.')
+        parser.add_argument('--prerelease-plugins', required = False, action='store_true', help='Instructs the Pluginmanager to download the latest prerelease plugins if available.')
         Wolke.CmdArgs = parser.parse_args()
 
         if Wolke.CmdArgs.debug:
@@ -140,7 +141,7 @@ class MainWindowWrapper(object):
         '''
         Initializes the GUI and connects the buttons.
         '''
-        logging.critical("Starte Sephrasto " + Version.toString()) #critical so it's always printed, independent of the debug level setting
+        logging.critical("Starte Sephrasto " + Version.clientToString()) #critical so it's always printed, independent of the debug level setting
         logging.critical(f"Qt {QtCore.qVersion()} PySide {PySide6.__version__} (compiled with Qt {QtCore.__version__})") #for people that start from source
 
         super().__init__()
@@ -189,7 +190,7 @@ class MainWindowWrapper(object):
         self.form = QtWidgets.QWidget()
         self.ui = UI.MainWindow.Ui_Form()
         self.ui.setupUi(self.form)
-        self.ui.labelVersion.setText(Version.toString() + " - by Aeolitus & Gatsu")
+        self.ui.labelVersion.setText(Version.clientToString() + " - by Aeolitus & Gatsu")
         self.app.setWindowIcon(QtGui.QIcon('icon_large.png'))
 
         windowSize = Wolke.Settings["WindowSize-Main"]

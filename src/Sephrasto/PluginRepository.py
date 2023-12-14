@@ -34,7 +34,11 @@ class PluginRepo(QtCore.QObject):
     def __onReleasesTextReceived(self, text):
         releases = json.loads(text)
         for r in releases:
-            version = Version.disectVersionString(r["tag_name"])
+            if r["draft"]:
+                continue
+            if r["prerelease"] and not Wolke.CmdArgs.prerelease_plugins:
+                continue
+            version = Version.fromString(r["tag_name"])
             if not version:
                 continue
             if Version.isClientLower(version):
@@ -43,7 +47,10 @@ class PluginRepo(QtCore.QObject):
                 continue
             self.sephrastoVersion = version
             filename = os.path.basename(r["assets"][0]["browser_download_url"])
-            targetPath = os.path.join(self.dlDir, r["tag_name"], filename)
+            if r["prerelease"]:
+                targetPath = os.path.join(self.dlDir, r["tag_name"] + "_prerelease", filename)
+            else:
+                targetPath = os.path.join(self.dlDir, r["tag_name"], filename)
             if os.path.isfile(targetPath):
                 self.pluginData = PluginLoader.getPlugins(os.path.join(self.dlDir, r["tag_name"]))
                 self.__setReady()

@@ -18,10 +18,11 @@ class PluginData(object):
         self.autor = "Unbekannt"
         self.version = [1, 0, 0, 0]
         self.hasSettings = False
+        self.dependencies = []
         with open(os.path.join(path, name, "manifest.json"), "r", encoding='utf8') as f:
             manifest = json.load(f)
             if "version" in manifest:
-                self.version = Version.disectVersionString("v" + manifest["version"])
+                self.version = Version.fromString(manifest["version"])
             if "description" in manifest:
                 self.beschreibung = manifest["description"]
             if "name" in manifest:
@@ -30,6 +31,10 @@ class PluginData(object):
                 self.autor = manifest["author"]
             if "hasSettings" in manifest:
                 self.hasSettings = manifest["hasSettings"]
+            if "dependencies" in manifest:
+                self.dependencies = manifest["dependencies"]
+                for dep in self.dependencies:
+                    dep["version"] = Version.fromString(dep["version"])
         self.plugin = None
 
     def load(self):
