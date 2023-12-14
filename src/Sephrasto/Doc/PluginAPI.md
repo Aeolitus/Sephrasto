@@ -234,6 +234,7 @@ Diese Actions können von Plugins abgesendet werden, um Sephrasto anweisungen zu
   "hasSettings": false
 }
 ```
+- Das Feld "version" muss dem Format X.X.X.X folgen, wobei die letzten drei Stellen optional sind.
 - Erstelle in diesem Ordner eine Datei mit dem Namen `__init__.py`
 - Erstelle in dieser Datei eine Klasse mit dem Namen `Plugin` und importiere den `EventBus`
 - Falls du Action oder Filter Handler registrieren möchtest, stelle sicher, dass sie über die gesamte Programm-Dauer bestehen bleiben. Vermeide es also beispielsweise Handler in einem UI Wrapper zu registrieren, den du jedes mal neu erstellst, wenn ein neuer Charakter geladen wird oder ein Hauptfenster-Button geclickt wird. Stattdessen kannst du den Handler in deiner `__init__.py` registrieren und dann eine Funktion auf dem aktuellen Wrapper aufrufen.
