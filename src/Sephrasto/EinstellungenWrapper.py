@@ -191,6 +191,7 @@ class EinstellungenWrapper():
             self.pluginRepos.append(PluginRepo(repo["name"], repo["url"]))
         for repo in self.pluginRepos:
             repo.ready.connect(self.onPluginRepoReady)
+            repo.loadingProgress.connect(self.onPluginLoadingProgress)
             repo.update()
 
         windowSize = Wolke.Settings["WindowSize-Einstellungen"]
@@ -416,6 +417,9 @@ class EinstellungenWrapper():
 
         self.ui.tbPluginInfo.setText(Hilfsmethoden.fixHtml(text))
 
+    def onPluginLoadingProgress(self):
+        progress = min(repo.progress for repo in self.pluginRepos)
+        self.ui.progressBar.setValue(int(progress*100))
 
     def onPluginRepoReady(self):
         self.pluginUiMutex.lock()
@@ -426,6 +430,7 @@ class EinstellungenWrapper():
             if not repo.isReady:
                 self.pluginUiMutex.unlock()
                 return
+        self.ui.progressBar.hide()
         self.pluginUiReady = True
         self.pluginUiMutex.unlock()
 

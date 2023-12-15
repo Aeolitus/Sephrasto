@@ -1,4 +1,5 @@
 from PySide6 import QtWidgets, QtCore, QtGui, QtWebEngineCore
+from PySide6.QtWebEngineCore import QWebEngineDownloadRequest
 from Wolke import Wolke
 import os.path
 import json
@@ -7,6 +8,7 @@ import Version
 from PluginLoader import PluginLoader
 
 class PluginRepo(QtCore.QObject):
+    loadingProgress = QtCore.Signal()
     ready = QtCore.Signal()
 
     def __init__(self, name, apiLink):
@@ -63,20 +65,32 @@ class PluginRepo(QtCore.QObject):
         self.download = download
         download.accept()
         download.isFinishedChanged.connect(self.__onPluginDownloaded)
+        download.receivedBytesChanged.connect(self.__onReceivedBytesChanged)
+
+    def __onReceivedBytesChanged(self):
+        self.loadingProgress.emit()
 
     def __onPluginDownloaded(self):
-        if self.download.state() == QtWebEngineCore.QWebEngineDownloadRequest.DownloadCompleted:
-            self.download.isFinishedChanged.disconnect(self.__onPluginDownloaded)
+        state = self.download.state()
+        if state == QWebEngineDownloadRequest.DownloadRequested or state == QWebEngineDownloadRequest.DownloadInProgress:
+            return
+
+        if state == QWebEngineDownloadRequest.DownloadCompleted:
             filename = self.download.suggestedFileName()
             dirname = os.path.dirname(filename)
             shutil.unpack_archive(filename, dirname)
             self.pluginData = PluginLoader.getPlugins(dirname)
-            self.download = None
-            self.__setReady()
-        elif self.download.state() == QtWebEngineCore.QWebEngineDownloadRequest.DownloadCancelled or self.download.state() == QtWebEngineCore.QWebEngineDownloadRequest.DownloadInterrupted:
-            self.download.isFinishedChanged.disconnect(self.__onPluginDownloaded)
-            self.download = None
-            self.__setReady()
+
+        self.download.isFinishedChanged.disconnect(self.__onPluginDownloaded)
+        self.download.receivedBytesChanged.disconnect(self.__onReceivedBytesChanged)
+        self.download = None
+        self.__setReady()
 
     def update(self):
         self.page.load(self.apiLink)
+
+    @property
+    def progress(self):
+        if self.download is None:
+            return 1.0
+        return  self.download.receivedBytes() / self.download.totalBytes()

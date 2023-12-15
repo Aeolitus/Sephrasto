@@ -18,10 +18,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QAbstractButton, QAbstractItemView, QAbstractSpinBox, QApplication,
     QCheckBox, QComboBox, QDialog, QDialogButtonBox,
     QFrame, QGridLayout, QGroupBox, QHBoxLayout,
-    QHeaderView, QLabel, QLineEdit, QPushButton,
-    QScrollArea, QSizePolicy, QSpacerItem, QSpinBox,
-    QTabWidget, QTableWidget, QTableWidgetItem, QTextBrowser,
-    QVBoxLayout, QWidget)
+    QHeaderView, QLabel, QLineEdit, QProgressBar,
+    QPushButton, QScrollArea, QSizePolicy, QSpacerItem,
+    QSpinBox, QTabWidget, QTableWidget, QTableWidgetItem,
+    QTextBrowser, QVBoxLayout, QWidget)
 
 class Ui_SettingsWindow(object):
     def setupUi(self, SettingsWindow):
@@ -459,40 +459,6 @@ class Ui_SettingsWindow(object):
         self.tab_2.setObjectName(u"tab_2")
         self.gridLayout_6 = QGridLayout(self.tab_2)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
-        self.tbPluginInfo = QTextBrowser(self.tab_2)
-        self.tbPluginInfo.setObjectName(u"tbPluginInfo")
-
-        self.gridLayout_6.addWidget(self.tbPluginInfo, 0, 2, 1, 1)
-
-        self.horizontalLayout_4 = QHBoxLayout()
-        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.buttonSettings = QPushButton(self.tab_2)
-        self.buttonSettings.setObjectName(u"buttonSettings")
-
-        self.horizontalLayout_4.addWidget(self.buttonSettings)
-
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_4.addItem(self.horizontalSpacer_2)
-
-        self.buttonInstall = QPushButton(self.tab_2)
-        self.buttonInstall.setObjectName(u"buttonInstall")
-
-        self.horizontalLayout_4.addWidget(self.buttonInstall)
-
-        self.buttonUpdate = QPushButton(self.tab_2)
-        self.buttonUpdate.setObjectName(u"buttonUpdate")
-
-        self.horizontalLayout_4.addWidget(self.buttonUpdate)
-
-        self.buttonDelete = QPushButton(self.tab_2)
-        self.buttonDelete.setObjectName(u"buttonDelete")
-
-        self.horizontalLayout_4.addWidget(self.buttonDelete)
-
-
-        self.gridLayout_6.addLayout(self.horizontalLayout_4, 1, 2, 1, 1)
-
         self.tablePlugins = QTableWidget(self.tab_2)
         self.tablePlugins.setObjectName(u"tablePlugins")
         self.tablePlugins.setEditTriggers(QAbstractItemView.NoEditTriggers)
@@ -500,7 +466,48 @@ class Ui_SettingsWindow(object):
         self.tablePlugins.setSelectionMode(QAbstractItemView.SingleSelection)
         self.tablePlugins.setSelectionBehavior(QAbstractItemView.SelectRows)
 
-        self.gridLayout_6.addWidget(self.tablePlugins, 0, 0, 3, 1)
+        self.gridLayout_6.addWidget(self.tablePlugins, 1, 0, 2, 1)
+
+        self.layoutPluginButtons = QHBoxLayout()
+        self.layoutPluginButtons.setObjectName(u"layoutPluginButtons")
+        self.buttonSettings = QPushButton(self.tab_2)
+        self.buttonSettings.setObjectName(u"buttonSettings")
+
+        self.layoutPluginButtons.addWidget(self.buttonSettings)
+
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.layoutPluginButtons.addItem(self.horizontalSpacer_2)
+
+        self.buttonInstall = QPushButton(self.tab_2)
+        self.buttonInstall.setObjectName(u"buttonInstall")
+
+        self.layoutPluginButtons.addWidget(self.buttonInstall)
+
+        self.buttonUpdate = QPushButton(self.tab_2)
+        self.buttonUpdate.setObjectName(u"buttonUpdate")
+
+        self.layoutPluginButtons.addWidget(self.buttonUpdate)
+
+        self.buttonDelete = QPushButton(self.tab_2)
+        self.buttonDelete.setObjectName(u"buttonDelete")
+
+        self.layoutPluginButtons.addWidget(self.buttonDelete)
+
+
+        self.gridLayout_6.addLayout(self.layoutPluginButtons, 2, 2, 1, 1)
+
+        self.tbPluginInfo = QTextBrowser(self.tab_2)
+        self.tbPluginInfo.setObjectName(u"tbPluginInfo")
+
+        self.gridLayout_6.addWidget(self.tbPluginInfo, 1, 2, 1, 1)
+
+        self.progressBar = QProgressBar(self.tab_2)
+        self.progressBar.setObjectName(u"progressBar")
+        self.progressBar.setValue(0)
+        self.progressBar.setTextVisible(True)
+
+        self.gridLayout_6.addWidget(self.progressBar, 3, 0, 1, 3)
 
         self.tabWidget.addTab(self.tab_2, "")
 
@@ -516,7 +523,7 @@ class Ui_SettingsWindow(object):
         self.buttonBox.setStandardButtons(QDialogButtonBox.Cancel|QDialogButtonBox.Ok)
         self.buttonBox.setCenterButtons(True)
 
-        self.gridLayout.addWidget(self.buttonBox, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.buttonBox, 2, 0, 1, 1)
 
         QWidget.setTabOrder(self.checkWizard, self.comboRegelbasis)
         QWidget.setTabOrder(self.comboRegelbasis, self.comboBogen)
@@ -550,7 +557,7 @@ class Ui_SettingsWindow(object):
         self.buttonBox.accepted.connect(SettingsWindow.accept)
         self.buttonBox.rejected.connect(SettingsWindow.reject)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(2)
         self.comboLogging.setCurrentIndex(0)
 
 
