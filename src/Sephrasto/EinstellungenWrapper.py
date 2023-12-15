@@ -28,6 +28,7 @@ class PluginDataUI:
         self.installed = False
         self.installable = False
         self.updatable = False
+        self.broken = False
         self.sephrastoVersion = sephrastoVersion
 
     @property
@@ -473,9 +474,12 @@ class EinstellungenWrapper():
                 if pd.name == pdLoaded.name and pd.path == pdLoaded.path and pd.version == pdLoaded.version:
                     pd = pdLoaded
                     break  
-            pluginDataUIs[pd.name] = PluginDataUI(pd)
-            pluginDataUIs[pd.name].installed = True
-            installedPluginDataUIs[pd.name] = pluginDataUIs[pd.name]
+            pdui = PluginDataUI(pd)
+            pdui.installed = True
+            if pdui.installed and pdui.pd.loadable and pdui.pd.plugin is None:
+                pdui.broken = True
+            pluginDataUIs[pd.name] = pdui
+            installedPluginDataUIs[pd.name] = pdui
 
         for repo in self.pluginRepos:
             for pd in repo.pluginData:
@@ -517,7 +521,11 @@ class EinstellungenWrapper():
             label.setStyleSheet("width: 100%;");
             label.setAlignment(QtCore.Qt.AlignCenter|QtCore.Qt.AlignVCenter)
             label.setProperty("class", "icon")
-            if pdui.updatable:
+
+            if pdui.broken:
+                label.setText('\uf071')
+                label.setToolTip(f"Das Plugin hat einen Fehler verursacht. Wahrscheinlich ist ein Update notwendig - sieh am besten nach, ob eines verfügbar ist, ansonsten wende dich bitte an den Plugin-Autor.")
+            elif pdui.updatable:
                 label.setText("\uf0aa")   
                 anzeigeversion = ".".join([str(v) for v in pdui.repoPd.version]).strip(".0")
                 label.setToolTip("Neue Version verfügbar: " + anzeigeversion)
