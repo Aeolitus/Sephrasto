@@ -68,7 +68,7 @@
        <item>
         <widget class="QTabWidget" name="tabWidget">
          <property name="currentIndex">
-          <number>2</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="tab">
           <attribute name="title">
@@ -930,6 +930,13 @@
               <widget class="QPushButton" name="buttonUpdate">
                <property name="text">
                 <string>Update</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="buttonDowngrade">
+               <property name="text">
+                <string>Downgrade</string>
                </property>
               </widget>
              </item>

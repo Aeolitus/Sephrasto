@@ -489,6 +489,11 @@ class Ui_SettingsWindow(object):
 
         self.layoutPluginButtons.addWidget(self.buttonUpdate)
 
+        self.buttonDowngrade = QPushButton(self.tab_2)
+        self.buttonDowngrade.setObjectName(u"buttonDowngrade")
+
+        self.layoutPluginButtons.addWidget(self.buttonDowngrade)
+
         self.buttonDelete = QPushButton(self.tab_2)
         self.buttonDelete.setObjectName(u"buttonDelete")
 
@@ -557,7 +562,7 @@ class Ui_SettingsWindow(object):
         self.buttonBox.accepted.connect(SettingsWindow.accept)
         self.buttonBox.rejected.connect(SettingsWindow.reject)
 
-        self.tabWidget.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(0)
         self.comboLogging.setCurrentIndex(0)
 
 
@@ -680,6 +685,7 @@ class Ui_SettingsWindow(object):
         self.buttonSettings.setProperty("class", QCoreApplication.translate("SettingsWindow", u"icon", None))
         self.buttonInstall.setText(QCoreApplication.translate("SettingsWindow", u"Installieren", None))
         self.buttonUpdate.setText(QCoreApplication.translate("SettingsWindow", u"Update", None))
+        self.buttonDowngrade.setText(QCoreApplication.translate("SettingsWindow", u"Downgrade", None))
         self.buttonDelete.setText(QCoreApplication.translate("SettingsWindow", u"L\u00f6schen", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("SettingsWindow", u"Plugins", None))
     # retranslateUi

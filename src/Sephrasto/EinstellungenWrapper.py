@@ -28,7 +28,7 @@ class PluginDataUI:
         self.installed = False
         self.installable = False
         self.updatable = False
-        self.broken = False
+        self.downgradable = False
         self.sephrastoVersion = sephrastoVersion
 
     @property
@@ -38,9 +38,9 @@ class PluginDataUI:
     def version(self): return self.pd.version
 
 class EinstellungenWrapper():    
-    def __init__(self, plugins):
+    def __init__(self, activePlugins):
         self.needRestart = False
-        self.plugins = plugins
+        self.activePlugins = activePlugins
         self.form = QtWidgets.QDialog()
         self.ui = UI.Einstellungen.Ui_SettingsWindow()
         self.ui.setupUi(self.form)
@@ -152,11 +152,13 @@ class EinstellungenWrapper():
         self.ui.buttonSettings.setVisible(False)
         self.ui.buttonInstall.setVisible(False)
         self.ui.buttonUpdate.setVisible(False)
+        self.ui.buttonDowngrade.setVisible(False)
         self.ui.buttonDelete.setVisible(False)
         self.ui.buttonSettings.clicked.connect(self.openPluginSettings)
         self.ui.buttonDelete.clicked.connect(lambda: self.deletePlugin(self.getSelectedPlugin()))
         self.ui.buttonInstall.clicked.connect(lambda: self.installPlugin(self.getSelectedPlugin()))
         self.ui.buttonUpdate.clicked.connect(lambda: self.updatePlugin(self.getSelectedPlugin()))
+        self.ui.buttonDowngrade.clicked.connect(lambda: self.updatePlugin(self.getSelectedPlugin()))
         self.ui.tbPluginInfo.setOpenExternalLinks(True)
         self.ui.tablePlugins.currentItemChanged.connect(self.onPluginSelected)
         self.ui.tablePlugins.currentCellChanged.connect(self.onPluginSelected)
@@ -375,7 +377,7 @@ class EinstellungenWrapper():
         self.refreshPluginTable()
 
     def updatePlugin(self, pdui):
-        if pdui is None or not pdui.updatable:
+        if pdui is None or not (pdui.updatable or pdui.downgradable):
             return
         if not self.installDependencies(pdui):
             return
@@ -430,6 +432,7 @@ class EinstellungenWrapper():
             self.ui.buttonSettings.setVisible(False)
             self.ui.buttonInstall.setVisible(False)
             self.ui.buttonUpdate.setVisible(False)
+            self.ui.buttonDowngrade.setVisible(False)
             self.ui.buttonDelete.setVisible(False)
             return
       
@@ -443,6 +446,7 @@ class EinstellungenWrapper():
 
         self.ui.buttonInstall.setVisible(pdui.installable)
         self.ui.buttonUpdate.setVisible(pdui.updatable)
+        self.ui.buttonDowngrade.setVisible(pdui.downgradable)
         self.ui.buttonDelete.setVisible(pdui.installed)
 
         text = f"<p><b>{pdui.pd.name}</b><br><i>von {pdui.pd.autor}</i></p>{pdui.pd.beschreibung}"
@@ -470,27 +474,25 @@ class EinstellungenWrapper():
         pluginDataUIs = {}
 
         for pd in PluginLoader.getPlugins(self.ui.editPlugins.text()):
-            isCurrentlyLoaded = False
-            for pdLoaded in self.plugins:
-                if pd.name == pdLoaded.name and pd.path == pdLoaded.path:
-                    isCurrentlyLoaded = pdLoaded.plugin is not None
-                    if pd.version == pdLoaded.version:
-                        pd = pdLoaded
+            for pdLoaded in self.activePlugins:
+                if pd.name == pdLoaded.name and pd.path == pdLoaded.path and pd.version == pdLoaded.version:
+                    pd = pdLoaded
                     break  
             pdui = PluginDataUI(pd)
             pdui.installed = True
-            if not isCurrentlyLoaded and pdui.installed and pdui.pd.loadable and pdui.pd.plugin is None:
-                pdui.broken = True
             pluginDataUIs[pd.name] = pdui
             installedPluginDataUIs[pd.name] = pdui
 
         for repo in self.pluginRepos:
             for pd in repo.pluginData:
                 if pd.name in installedPluginDataUIs:
-                    installedPluginDataUIs[pd.name].repoPd = pd
-                    installedPluginDataUIs[pd.name].sephrastoVersion = repo.sephrastoVersion
-                    if Version.isHigher(installedPluginDataUIs[pd.name].version, pd.version):
-                        installedPluginDataUIs[pd.name].updatable = True
+                    installedPdui = installedPluginDataUIs[pd.name]
+                    installedPdui.repoPd = pd
+                    installedPdui.sephrastoVersion = repo.sephrastoVersion
+                    if Version.isHigher(installedPdui.version, pd.version):
+                        installedPdui.updatable = True
+                    elif Version.isHigher(pd.version, installedPdui.version):
+                        installedPdui.downgradable = True
                     continue
                 pluginDataUIs[pd.name] = PluginDataUI(pd, repo.sephrastoVersion)
                 pluginDataUIs[pd.name].installable = True
@@ -510,11 +512,19 @@ class EinstellungenWrapper():
             label.setStyleSheet("width: 100%;");
             label.setAlignment(QtCore.Qt.AlignCenter|QtCore.Qt.AlignVCenter)
             anzeigeversion = Version.toString(pdui.version)
-            if Version.isClientHigher(pdui.sephrastoVersion):
+
+            if pdui.downgradable:
                 warnIcon = "&nbsp;&nbsp;<span style='" + Wolke.FontAwesomeCSS + "'>\uf071</span>"
                 anzeigeversion += warnIcon
                 sephrastoVersion = ".".join([str(v) for v in pdui.sephrastoVersion[:3]])
-                label.setToolTip(f"Das Plugin wurde für die ältere Sephrasto-Version {sephrastoVersion} entwickelt.\n"\
+                label.setToolTip("Das Plugin wurde für eine neuere Sephrasto-Version entwickelt.\n"\
+                    "Vielleicht macht das nichts, aber es kann auch sein, dass es nicht richtig funktionieren wird.\n"\
+                    f"Es steht eine ältere Version für Sephrasto {sephrastoVersion} zur Verfügung, ein Downgrade wird empfohlen.")
+            elif Version.isClientHigher(pdui.sephrastoVersion):
+                warnIcon = "&nbsp;&nbsp;<span style='" + Wolke.FontAwesomeCSS + "'>\uf071</span>"
+                anzeigeversion += warnIcon
+                sephrastoVersion = ".".join([str(v) for v in pdui.sephrastoVersion[:3]])
+                label.setToolTip(f"Das Plugin wurde für das ältere Sephrasto {sephrastoVersion} entwickelt.\n"\
                     "Vielleicht macht das nichts, aber es kann auch sein, dass es nicht richtig funktionieren wird.")
 
             label.setText(anzeigeversion)
@@ -525,13 +535,14 @@ class EinstellungenWrapper():
             label.setAlignment(QtCore.Qt.AlignCenter|QtCore.Qt.AlignVCenter)
             label.setProperty("class", "icon")
 
-            if pdui.broken:
-                label.setText('\uf071')
-                label.setToolTip(f"Das Plugin hat einen Fehler verursacht. Wahrscheinlich ist ein Update notwendig - sieh am besten nach, ob eines verfügbar ist, ansonsten wende dich bitte an den Plugin-Autor.")
-            elif pdui.updatable:
+            if pdui.updatable:
                 label.setText("\uf0aa")   
                 anzeigeversion = ".".join([str(v) for v in pdui.repoPd.version]).strip(".0")
                 label.setToolTip("Neue Version verfügbar: " + anzeigeversion)
+            elif pdui.downgradable:
+                label.setText("\uf0ab")   
+                anzeigeversion = ".".join([str(v) for v in pdui.repoPd.version]).strip(".0")
+                label.setToolTip("Downgrade auf ältere Version empfohlen: " + anzeigeversion)
             elif pdui.installed:
                 label.setText("\uf00c")
             elif pdui.installable:
