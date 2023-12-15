@@ -49,12 +49,12 @@ class PluginRepo(QtCore.QObject):
                 continue
             self.sephrastoVersion = version
             filename = os.path.basename(r["assets"][0]["browser_download_url"])
+            tag = r["tag_name"]
             if r["prerelease"]:
-                targetPath = os.path.join(self.dlDir, r["tag_name"] + "_prerelease", filename)
-            else:
-                targetPath = os.path.join(self.dlDir, r["tag_name"], filename)
+                tag += "_prerelease"
+            targetPath = os.path.join(self.dlDir, tag, filename)
             if os.path.isfile(targetPath):
-                self.pluginData = PluginLoader.getPlugins(os.path.join(self.dlDir, r["tag_name"]))
+                self.pluginData = PluginLoader.getPlugins(os.path.join(self.dlDir, tag))
                 self.__setReady()
                 return
             self.page.download(QtCore.QUrl(r["assets"][0]["browser_download_url"]), targetPath)
