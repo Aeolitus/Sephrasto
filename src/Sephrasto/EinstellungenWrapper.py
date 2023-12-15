@@ -470,13 +470,16 @@ class EinstellungenWrapper():
         pluginDataUIs = {}
 
         for pd in PluginLoader.getPlugins(self.ui.editPlugins.text()):
+            isCurrentlyLoaded = False
             for pdLoaded in self.plugins:
-                if pd.name == pdLoaded.name and pd.path == pdLoaded.path and pd.version == pdLoaded.version:
-                    pd = pdLoaded
+                if pd.name == pdLoaded.name and pd.path == pdLoaded.path:
+                    isCurrentlyLoaded = pdLoaded.plugin is not None
+                    if pd.version == pdLoaded.version:
+                        pd = pdLoaded
                     break  
             pdui = PluginDataUI(pd)
             pdui.installed = True
-            if pdui.installed and pdui.pd.loadable and pdui.pd.plugin is None:
+            if not isCurrentlyLoaded and pdui.installed and pdui.pd.loadable and pdui.pd.plugin is None:
                 pdui.broken = True
             pluginDataUIs[pd.name] = pdui
             installedPluginDataUIs[pd.name] = pdui
