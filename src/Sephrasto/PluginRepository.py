@@ -35,31 +35,44 @@ class PluginRepo(QtCore.QObject):
 
     def __onReleasesTextReceived(self, text):
         releases = json.loads(text)
-        for r in releases:
-            if r["draft"]:
+
+        release = None
+        for el in releases:
+            if el["draft"]:
                 continue
-            if r["prerelease"] and not Wolke.CmdArgs.prerelease_plugins:
+            if el["prerelease"] and not Wolke.CmdArgs.prerelease_plugins:
                 continue
-            version = Version.fromString(r["tag_name"])
+            version = Version.fromString(el["tag_name"])
             if not version:
                 continue
-            if Version.isClientLower(version):
+            if Version.isClientLower(Version.stripPluginVersion(version)):
                 continue
-            if len(r["assets"]) != 1:
+            if len(el["assets"]) < 1:
                 continue
-            self.sephrastoVersion = version
-            filename = os.path.basename(r["assets"][0]["browser_download_url"])
-            tag = r["tag_name"]
-            if r["prerelease"]:
-                tag += "_prerelease"
-            targetPath = os.path.join(self.dlDir, tag, filename)
-            if os.path.isfile(targetPath):
-                self.pluginData = PluginLoader.getPlugins(os.path.join(self.dlDir, tag))
-                self.__setReady()
-                return
-            self.page.download(QtCore.QUrl(r["assets"][0]["browser_download_url"]), targetPath)
+            if not el["assets"][0]["browser_download_url"].endswith(".zip"):
+                continue
+
+            if release is None or Version.isHigher(Version.fromString(release["tag_name"]), version):
+                release = el
+
+        if release is None:
+            self.__setReady()
             return
-        self.__setReady()
+
+        self.sephrastoVersion = Version.fromString(release["tag_name"])
+        downloadUrl = release["assets"][0]["browser_download_url"]
+        filename = os.path.basename(downloadUrl)
+        tag = release["tag_name"]
+        if release["prerelease"]:
+            tag += "_prerelease"
+        targetPath = os.path.join(self.dlDir, tag, filename)
+        if os.path.isfile(targetPath):
+            self.pluginData = PluginLoader.getPlugins(os.path.join(self.dlDir, tag))
+            self.__setReady()
+            return
+
+        self.page.download(QtCore.QUrl(downloadUrl), targetPath)
+            
         
     def __onPluginDownloadRequested(self, download):
         self.download = download

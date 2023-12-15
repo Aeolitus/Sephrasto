@@ -31,6 +31,11 @@ def isHigher(lh, rh):
 def isLower(lh, rh):
     return not isEqual(lh, rh) and not isHigher(lh, rh)
 
+def stripPluginVersion(version):
+    stripped = version.copy()
+    stripped[3] = 0
+    return stripped
+
 def isClientSame(version):
     return isEqual(version, _sephrasto_version)
 

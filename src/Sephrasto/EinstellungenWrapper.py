@@ -491,7 +491,7 @@ class EinstellungenWrapper():
                     installedPdui.sephrastoVersion = repo.sephrastoVersion
                     if Version.isHigher(installedPdui.version, pd.version):
                         installedPdui.updatable = True
-                    elif Version.isHigher(pd.version, installedPdui.version):
+                    elif Version.isLower(installedPdui.version, pd.version):
                         installedPdui.downgradable = True
                     continue
                 pluginDataUIs[pd.name] = PluginDataUI(pd, repo.sephrastoVersion)
