@@ -387,6 +387,37 @@ class EinstellungenWrapper():
     def deletePlugin(self, pdui):
         if pdui is None or not pdui.installed:
             return
+
+        if pdui.pd == pdui.repoPd:
+            messageBox = QtWidgets.QMessageBox()
+            messageBox.setIcon(QtWidgets.QMessageBox.Warning)
+            messageBox.setWindowTitle(pdui.pd.anzeigename + " löschen")
+            messageBox.setText(f"{pdui.pd.anzeigename} ist in keinem Repository auffindbar, sodass du es nach dem Löschen nicht mehr wiederherstellen kannst.\n\nMit dem Löschen fortfahren?")
+            messageBox.addButton("Ja", QtWidgets.QMessageBox.YesRole)
+            messageBox.addButton("Abbrechen", QtWidgets.QMessageBox.RejectRole)
+            result = messageBox.exec()
+            if result == 1:
+                return
+
+        dependants = []
+        for el in self.pluginDataUIs:
+            if not el.installed:
+                continue
+            for dep in el.pd.dependencies:
+                if pdui.name == dep["name"]:
+                    dependants.append(el.pd.anzeigename)
+                    break
+        if len(dependants) > 0:
+            messageBox = QtWidgets.QMessageBox()
+            messageBox.setIcon(QtWidgets.QMessageBox.Warning)
+            messageBox.setWindowTitle(pdui.pd.anzeigename + " löschen")
+            messageBox.setText(f"Die folgenden Plugins benötigen {pdui.pd.anzeigename} für eine fehlerfreie Funktion: {', '.join(dependants)}.\n\nMit dem Löschen fortfahren?")
+            messageBox.addButton("Ja", QtWidgets.QMessageBox.YesRole)
+            messageBox.addButton("Abbrechen", QtWidgets.QMessageBox.RejectRole)
+            result = messageBox.exec()
+            if result == 1:
+                return
+
         srcPath = os.path.join(pdui.pd.path, pdui.pd.name)
         shutil.rmtree(srcPath)
         self.needRestart = True
