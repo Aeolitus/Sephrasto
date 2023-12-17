@@ -391,6 +391,7 @@ class MainWindowWrapper(object):
         EventBus.doAction("charaktereditor_geoeffnet", { "neu" : False, "filepath" : spath })
 
     def charakterEditorClosedHandler(self):
+        EventBus.doAction("charaktereditor_geschlossen")
         self.ed.form.deleteLater()
         del self.ed
         self.ed = None

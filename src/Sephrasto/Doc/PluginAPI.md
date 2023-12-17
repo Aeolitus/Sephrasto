@@ -96,6 +96,7 @@ Die folgenden Actions haben alle eine Gemeinsamkeit: Sie werden aufgerufen, wenn
 |---|---|---|---|
 |charaktereditor_oeffnet|Action|{ "neu" : bool, "filepath" : str }|Form und Wrapper für eigene Charakter-Editor Tabs initialisieren. Der neu Parameter enthält die Information, ob es sich um einen neuen Charakter handelt. Der filepath Parameter enthält den Pfad der Charakterdatei oder einen leeren str, falls ein neuer Charakter erstellt wird.|
 |charaktereditor_geoeffnet|Action|{ "neu" : bool, "filepath" : str }|Beliebige Aktion durchführen, nachdem der CharakterEditor vollständig initialisiert wurde. Der neu Parameter enthält die Information, ob es sich um einen neuen Charakter handelt. Der filepath Parameter enthält den Pfad der Charakterdatei oder einen leeren str, falls ein neuer Charakter erstellt wurde.|
+|charaktereditor_geschlossen|Action|{}|Referenzen im Plugin auf Form und Wrapper von eigenen Charakter-Editor Tabs aufräumen.|
 |ruestung_be|Filter|be: int // { "name" : str }|Die BE einer Rüstung des Rüstungauswahlfensters anpassen. Achtung: Da Rüstungen ergänzt werden können und die Namen dann konkateniert werden, sollte der name via "in" abgefragt werden (bspw. if "Leichte Platte" in name).|
 |regelanhang_reihenfolge_name|Filter|name : str // {}|Wenn der Datenbank-Einstellung "Regelanhang: Reihenfolge" neue Kürzel hinzugefügt werden, kann mit diesem Filter der volle Name für das Kürzel angegeben werden, damit es im Info-Tab bei den Regelanhangkategorien verständlich dargestellt wird. Der anfängliche Filterwert entspricht dem Kürzel.|
 
