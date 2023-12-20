@@ -149,6 +149,7 @@ class Char():
         #Bei Änderungen nicht vergessen die script docs in ScriptAPI.md anzupassen
         self.currentVorteil = None #used by vorteilScriptAPI during iteration
         self.currentEigenschaft = None #used by waffenScriptAPI during iteration
+        self.currentWaffe = None #used by waffenScriptAPI during iteration
         self.currentWaffenwerte = None #used by waffenScriptAPI during iteration
         self.waffenEigenschaftenUndo = [] #For undoing changes made by Vorteil scripts
 
@@ -212,6 +213,7 @@ class Char():
 
         self.waffenScriptAPI = {
             'getEigenschaftParam' : lambda paramNb: self.API_getWaffeneigenschaftParam(paramNb), 
+            'getWaffe' : lambda: copy.deepcopy(self.currentWaffe),
             'modifyWaffeAT' : lambda atmod: setattr(self.currentWaffenwerte, 'at', self.currentWaffenwerte.at + atmod), 
             'modifyWaffeVT' : lambda vtmod: setattr(self.currentWaffenwerte, 'vt', self.currentWaffenwerte.vt + vtmod), 
             'modifyWaffeTPWürfel' : lambda würfelmod: setattr(self.currentWaffenwerte, 'würfel', self.currentWaffenwerte.würfel + würfelmod), 
@@ -525,6 +527,7 @@ class Char():
             exec(Wolke.DB.einstellungen["Waffen: Waffenwerte Script"].wert, scriptAPI)
 
             #Execute Waffeneigenschaft scripts
+            self.currentWaffe = el
             self.currentWaffenwerte = waffenwerte
             eigenschaftenByPrio = collections.defaultdict(list)
             for weName in el.eigenschaften:
@@ -543,6 +546,7 @@ class Char():
                     we = Hilfsmethoden.GetWaffeneigenschaft(weName, Wolke.DB)
                     we.executeScript(self.waffenScriptAPI)
 
+            self.currentWaffe = None
             self.currentWaffenwerte = None
             self.currentEigenschaft = None
 

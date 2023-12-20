@@ -81,6 +81,7 @@ Die folgenden zusätzlichen Funktionen stehen ausschließlich innerhalb von Waff
 - Parameter dieser WE als string erhalten: ```getEigenschaftParam <Parameter: Parameternummer>```<br />
 Parameter müssen mit Semikolon getrennt werden.  
 - Waffen mit dieser WE modifizieren: ```modifyWaffeAT, modifyWaffeVT, modifyWaffeTPWürfel, modifyWaffeTPPlus, modifyWaffeHäerte, modifyWaffeRW, setWaffeAT, setWaffeVT, setWaffeTPWürfel, setWaffeTPPlus, setWaffeHärte, setWaffeRW```
+- Aktuelle Waffe erhalten: ```getWaffe <Return: { name, würfel, würfelSeiten, plus, eigenschaften[], härte, fertigkeit, talent, beSlot, kampfstile[], kampfstil, rw, wm, lz, fernkampf, nahkampf, anzeigename }>```
 - Aktuelle Werte der Waffe erhalten: ```getWaffenWerte <Return: { at, vt, rw, würfel, plus, härte, kampfstil }>```
 <br />
 ## Beispiele
