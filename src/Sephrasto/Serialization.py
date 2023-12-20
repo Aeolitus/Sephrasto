@@ -59,7 +59,8 @@ class JsonSerializer:
         if isinstance(value, bytes):
             value = str(value)
         self._currentNode[name] = value
-
+    
+    # helper method for adding a key/value pair as a child node
     def setNested(self, name, value):
         if isinstance(value, bytes):
             value = str(value)
@@ -138,6 +139,7 @@ class XmlSerializer(XmlSerializerBase):
             else:
                 self._currentNode.set(name, str(value))
 
+    # helper method for adding a key/value pair as a child node
     def setNested(self, name, value):
         node = etree.SubElement(self._currentNode, name)
         if isinstance(value, bytes):
@@ -180,7 +182,8 @@ class XmlDeserializer(XmlSerializerBase):
             return self._currentNode.get(name, default)
 
     def getBool(self, name, default = False):
-        return self._currentNode.get(name, default) == "1"
+        value = self._currentNode.get(name)
+        return default if value is None else value == "1"
 
     def getInt(self, name, default = 0):
         return int(self._currentNode.get(name, default))
@@ -188,6 +191,7 @@ class XmlDeserializer(XmlSerializerBase):
     def getFloat(self, name, default = 0.0):
         return float(self._currentNode.get(name, default))
 
+    # helper method for getting a key/value pair set as a child node
     def getNested(self, name, default = None):
         if self._iterating:
             if self.currentTag == name:
@@ -200,7 +204,8 @@ class XmlDeserializer(XmlSerializerBase):
         return default
 
     def getNestedBool(self, name, default = False):
-        return self.getNested(name, default) == "1"
+        value = self.getNested(name)
+        return default if value is None else value == "1"
 
     def getNestedInt(self, name, default = 0):
         return int(self.getNested(name, default))
@@ -258,4 +263,3 @@ class Serialization:
 
     def getSupportedDeserializeFileExtensions():
         return list(Serialization._deserializers.keys())
-
