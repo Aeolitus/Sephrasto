@@ -234,9 +234,6 @@ class MainWindowWrapper(object):
 
         if not Wolke.CmdArgs.noplugins:
             for pluginData in PluginLoader.getPlugins(Wolke.Settings['Pfad-Plugins']):
-                if pluginData.name in Wolke.Settings['Deaktivierte-Plugins']:
-                    self._plugins.append(pluginData)
-                    continue
                 if not pluginData.loadable:
                     self._plugins.append(pluginData)
                     continue

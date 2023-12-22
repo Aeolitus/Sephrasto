@@ -449,7 +449,11 @@ class EinstellungenWrapper():
         self.ui.buttonDowngrade.setVisible(pdui.downgradable)
         self.ui.buttonDelete.setVisible(pdui.installed)
 
-        text = f"<p><b>{pdui.pd.name}</b><br><i>von {pdui.pd.autor}</i></p>{pdui.pd.beschreibung}"
+        
+        text = f"<p><b>{pdui.pd.anzeigename}</b><br><i>von {pdui.pd.autor}</i></p>{pdui.pd.beschreibung}"
+        dependencies = ", ".join(dep["name"] for dep in pdui.pd.dependencies)
+        if dependencies:        
+            text += f"<p><i>Verwendet:</i> {dependencies}</p>"
 
         self.ui.tbPluginInfo.setText(Hilfsmethoden.fixHtml(text))
 
@@ -605,8 +609,6 @@ class EinstellungenWrapper():
 
             #Settings migration code goes here, dont forget to increment the base version in Wolke.py too
             if Wolke.Settings['Version'] == 0:
-                if not 'CharakterBeschreibungExt' in Wolke.Settings['Deaktivierte-Plugins']:
-                    Wolke.Settings['Deaktivierte-Plugins'].append('CharakterBeschreibungExt')
                 Wolke.Settings['Version'] += 1
             if Wolke.Settings['Version'] == 1:
                 if Wolke.Settings['Bogen'] == "Standard Ilaris-Charakterbogen" or Wolke.Settings['Bogen'] == "Frag immer nach":
