@@ -19,6 +19,7 @@ class UpdateChecker:
         UpdateChecker._page = QtWebEngineCore.QWebEnginePage()
 
         def onTextDownloaded(text):
+            UpdateChecker._page.deleteLater()
             UpdateChecker._page = None
             res = re.findall("Sephrasto_(\S*).zip", text)
             if len(res) == 0:
@@ -30,9 +31,11 @@ class UpdateChecker:
                 UpdateChecker.showUpdate(res[0])
 
         def loadFinished(ok):
+            UpdateChecker._page.loadFinished.disconnect(loadFinished)
             if ok:
                 UpdateChecker._page.toPlainText(onTextDownloaded)
             else:
+                UpdateChecker._page.deleteLater()
                 UpdateChecker._page = None
 
         UpdateChecker._page.loadFinished.connect(loadFinished)
