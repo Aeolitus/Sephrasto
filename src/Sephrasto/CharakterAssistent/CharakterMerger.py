@@ -362,12 +362,12 @@ class CharakterMerger:
             if not name in db.energien:
                 continue
             if name in char.energien:
-                energie = char.energien[name].__deepcopy__()
+                energie = char.energien[name]
             else:
                 energie = Energie(db.energien[name], char)
 
             energie.wert += int(wert)
-            char.energien.update({energie.name: energie})
+            char.energien[energie.name] = energie
 
         for vor in root.findall('Vorteile/Vorteil'):
             name = vor.attrib['name']
@@ -415,13 +415,13 @@ class CharakterMerger:
                 continue
 
             if nam in char.fertigkeiten:
-                fert = char.fertigkeiten[nam].__deepcopy__()
+                fert = char.fertigkeiten[nam]
             else:
                 fert = Fertigkeit(db.fertigkeiten[nam], char)
 
             fert.wert += int(fer.attrib['wert'])
             fert.aktualisieren()
-            char.fertigkeiten.update({fert.name: fert})
+            char.fertigkeiten[fert.name] = fert
 
         for fer in root.findall('FreieFertigkeiten/FreieFertigkeit'):
             CharakterMerger.addFreieFertigkeit(char, db, fer.attrib['name'], int(fer.attrib['wert']), False)
@@ -491,7 +491,7 @@ class CharakterMerger:
                 continue
 
             if nam in char.übernatürlicheFertigkeiten:
-                fert = char.übernatürlicheFertigkeiten[nam].__deepcopy__()
+                fert = char.übernatürlicheFertigkeiten[nam]
             else:
                 fert = Fertigkeit(db.übernatürlicheFertigkeiten[nam], char)
 
@@ -499,7 +499,7 @@ class CharakterMerger:
             if 'exportieren' in fer.attrib:
                 fert.addToPDF = fer.attrib['exportieren'] == "1"
             fert.aktualisieren()
-            char.übernatürlicheFertigkeiten.update({fert.name: fert})
+            char.übernatürlicheFertigkeiten[fert.name] = fert
 
         for tal in root.findall('Talente/Talent'):
             nam = tal.attrib['name']

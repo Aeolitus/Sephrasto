@@ -71,7 +71,10 @@ class WizardWrapper(object):
             if not os.path.isdir(dataFolder):
                 continue
             for dir in PathHelper.listdir(dataFolder):
-                baukastenFolders.append(os.path.join(dataFolder, dir))
+                dir = os.path.join(dataFolder, dir)
+                if not os.path.isdir(dir):
+                    continue
+                baukastenFolders.append(dir)
         return baukastenFolders
 
     def __init__(self):
