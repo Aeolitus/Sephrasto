@@ -1037,7 +1037,7 @@ Krötenkunde (-4; du kannst den Zauber auf eine bestimmte Art von Echsenwesen be
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dämonisch, Verständigung
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach 16; Bor 18; Mag 20; 40 EP</Talent>
-  <Talent name="Stein wandle!" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Dämonisch" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="129">Du erschaffst einen Golem aus Holz, Stein oder anderen Materialien. Der Golem hat sich nach 1 Stunde an seine Existenz gewöhnt und ist einsatzfähig. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala schwach (z. B. laufende Truhe)/nützlich (z. B. Mephir)/stark (z. B. Homunculus)/mächtig (z. B. Ogerstatue).  Die Beherrschungsprobe wird auf MU abgelegt. Wenn diese misslingt, kannst du es nach 1 Stunde erneut versuchen. Mehr zu Beschwörungen siehe S. 81
+  <Talent name="Stein wandle!" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Dämonisch" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="129">Du erschaffst einen Golem aus Holz, Stein oder anderen Materialien. Der Golem hat sich nach 1 Stunde an seine Existenz gewöhnt und ist einsatzfähig. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala schwach (z. B. laufende Truhe)/nützlich (z. B. Mephir)/stark (z. B. Homunculus)/mächtig (z. B. Ogerstatue). Die Beherrschungsprobe wird auf MU abgelegt. Wenn diese misslingt, kannst du es nach 1 Stunde erneut versuchen. Mehr zu Beschwörungen siehe S. 81
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/20/24/28
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; Material für einen einzelnen Golem
@@ -1791,7 +1791,7 @@ Ferne Zone (-8, Zone, 8 Schritt, 32 AsP)
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Eis, Feuer, Umwelt (Zone), Verwandlung
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach, Dru, Mag 16; Alch, Geo, Srl 18; 60 EP</Talent>
-  <Talent name="Herbeirufung des Eises" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Eis" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="136">Ruft ein Eiselementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Snefnug)/Dschinn (z. B. Firndorn)/Meister (z. B. Glacius).  Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
+  <Talent name="Herbeirufung des Eises" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Eis" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="136">Ruft ein Eiselementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Snefnug)/Dschinn (z. B. Firndorn)/Meister (z. B. Glacius). Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; einzelnes Elementar
@@ -1968,7 +1968,7 @@ Zauberklinge (-4; während der Wirkungsdauer gilt die Waffe als magisch.)
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Erz
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach, Mag 18; Geo, Dru 20; 60 EP</Talent>
-  <Talent name="Herbeirufung des Erzes" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Erz" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="138">Ruft ein Erzelementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Grommur)/Dschinn (z. B. Farlin)/Meister (z. B. Chakharîm).  Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
+  <Talent name="Herbeirufung des Erzes" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Erz" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="138">Ruft ein Erzelementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Grommur)/Dschinn (z. B. Farlin)/Meister (z. B. Chakharîm). Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; einzelnes Elementar
@@ -2031,7 +2031,7 @@ Permanenz (-4, 4 AsP, davon 1 gAsP, Wirkungsdauer bis die Bindung gelöst wird o
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Erz
 &lt;b&gt;Erlernen:&lt;/b&gt; Mag 18; 20 EP</Talent>
-  <Talent name="Staub wandle!" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Erz" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="138">Du erschaffst einen Golem aus Holz, Stein oder anderen Materialien. Der Golem hat sich nach 1 Stunde an seine Existenz gewöhnt und ist einsatzfähig. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala schwach (z. B. laufende Truhe)/nützlich (z. B. Mephir)/stark (z. B. Homunculus)/mächtig (z. B. Ogerstatue).  Die Beherrschungsprobe wird auf CH abgelegt. Wenn diese misslingt, kannst du es nach 1 Stunde erneut versuchen. Mehr zu Beschwörungen siehe S. 81.
+  <Talent name="Staub wandle!" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Erz" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="138">Du erschaffst einen Golem aus Holz, Stein oder anderen Materialien. Der Golem hat sich nach 1 Stunde an seine Existenz gewöhnt und ist einsatzfähig. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala schwach (z. B. laufende Truhe)/nützlich (z. B. Mephir)/stark (z. B. Homunculus)/mächtig (z. B. Ogerstatue). Die Beherrschungsprobe wird auf CH abgelegt. Wenn diese misslingt, kannst du es nach 1 Stunde erneut versuchen. Mehr zu Beschwörungen siehe S. 81.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/20/24/28
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; Material für einen einzelnen Golem
@@ -2070,7 +2070,7 @@ Permanenz (-4, 4 AsP, davon 1 gAsP, Wirkungsdauer bis die Bindung gelöst wird)
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Feuer
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach, Mag 12; Alch, Srl 16; 20 EP</Talent>
-  <Talent name="Herbeirufung des Feuers" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Feuer" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="139">Ruft ein Feuerelementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Flammina)/Dschinn (z. B. Al‘Jallahir)/Meister (z. B. Lagramagmangr).  Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
+  <Talent name="Herbeirufung des Feuers" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Feuer" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="139">Ruft ein Feuerelementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Flammina)/Dschinn (z. B. Al‘Jallahir)/Meister (z. B. Lagramagmangr). Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; einzelnes Elementar
@@ -2357,7 +2357,7 @@ Sofortige Regeneration (-16, 4 Aktionen, 32 AsP; das Ziel erhält für 32 Initia
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Humus, Verwandlung
 &lt;b&gt;Erlernen:&lt;/b&gt; Elf, Mag 8; Ach, Geo 12; Alch, Dru 14; Srl 16; 60 EP</Talent>
-  <Talent name="Herbeirufung des Humus" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Humus" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="142">Ruft ein Humuselementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Kräuterkopf)/Dschinn (z. B. Abu al‘Azilat)/Meister (z. B. Eichbart).  Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
+  <Talent name="Herbeirufung des Humus" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Humus" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="142">Ruft ein Humuselementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Kräuterkopf)/Dschinn (z. B. Abu al‘Azilat)/Meister (z. B. Eichbart). Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; einzelnes Elementar
@@ -2928,7 +2928,7 @@ Kunstflug (-8; das Opfer fliegt Figuren, die du mit deinen Armen vorgibst. Erfor
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Luft, Umwelt, Verwandlung
 &lt;b&gt;Erlernen:&lt;/b&gt; Sch 14; 40 EP</Talent>
-  <Talent name="Herbeirufung der Luft" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Luft" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="147">Ruft ein Luftelementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Emling)/Dschinn (z. B. Sausewind)/Meister (z. B. Brashaidor).  Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
+  <Talent name="Herbeirufung der Luft" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Luft" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="147">Ruft ein Luftelementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Emling)/Dschinn (z. B. Sausewind)/Meister (z. B. Brashaidor). Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; einzelnes Elementar
@@ -2995,7 +2995,7 @@ Begleiter (-4; die Wolke bewegt sich mit dir.)
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Luft
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach, Mag 18; Geo, Dru 20; 60 EP</Talent>
-  <Talent name="Orkanwand" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Luft" variableKosten="0" referenzseite="148" referenzbuch="0">Eine 8 Schritt hohe und bis zu 4 Schritt lange Wand aus rasenden Windhosen wächst entlang einer von dir bestimmten Linie aus dem Boden. Um sich ihr zu nähern, muss dir eine &lt;i&gt;Konterprobe&lt;/i&gt; (KK, 16)  gelingen, sonst wirst du &lt;i&gt;zurückgestoßen&lt;/i&gt; (S. 98). Das Durchqueren verursacht 2 Punkte Erschöpfung.
+  <Talent name="Orkanwand" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Luft" variableKosten="0" referenzseite="148" referenzbuch="0">Eine 8 Schritt hohe und bis zu 4 Schritt lange Wand aus rasenden Windhosen wächst entlang einer von dir bestimmten Linie aus dem Boden. Um sich ihr zu nähern, muss dir eine &lt;i&gt;Konterprobe&lt;/i&gt; (KK, 16) gelingen, sonst wirst du &lt;i&gt;zurückgestoßen&lt;/i&gt; (S. 98). Das Durchqueren verursacht 2 Punkte Erschöpfung.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Die Höhe steigt um 4 Schritt, die Länge steigt um bis zu 2 Schritt und das Durchqueren verursacht 1 weiteren Punkt Erschöpfung.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
@@ -3689,7 +3689,7 @@ Permanenz (-4, Wirkungsdauer bis die Bindung gelöst wird, zusätzlich ein Achte
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Wasser
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach, Mag 18; Geo, Dru 20; 60 EP</Talent>
-  <Talent name="Herbeirufung des Wassers" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Wasser" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="155">Ruft ein Wasserelementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Baromna)/Dschinn (z. B. Baradarasch)/Meister (z. B. Hefashar).  Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
+  <Talent name="Herbeirufung des Wassers" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Wasser" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="155">Ruft ein Wasserelementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Baromna)/Dschinn (z. B. Baradarasch)/Meister (z. B. Hefashar). Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; einzelnes Elementar
@@ -3858,7 +3858,7 @@ Du stellst eine enge magische Bindung zu deinem Ritualgegenstand (ein Dolch für
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dolchzauber, Verständigung
 &lt;b&gt;Erlernen:&lt;/b&gt; Dru 18; 40 EP</Talent>
-  <Talent name="Weg des Dolches" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I" verbilligt="0" fertigkeiten="Dolchzauber, Hellsicht, Umwelt" variableKosten="0" referenzseite="157" referenzbuch="0">Dein Dolch zeigt in die Richtung des Ortes, an dem er geweiht wurde.  Eine Überleben-Proben zur Orientierung ist um +4 Punkte erleichtert.
+  <Talent name="Weg des Dolches" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I" verbilligt="0" fertigkeiten="Dolchzauber, Hellsicht, Umwelt" variableKosten="0" referenzseite="157" referenzbuch="0">Dein Dolch zeigt in die Richtung des Ortes, an dem er geweiht wurde. Eine Überleben-Proben zur Orientierung ist um +4 Punkte erleichtert.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; Zone
@@ -4837,7 +4837,7 @@ Sprechendes Zeichen (-4; das Zeichen kann einen kurzen Satz als Botschaft enthal
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Geister rufen, Verständigung
 &lt;b&gt;Erlernen:&lt;/b&gt; Smn 14; 60 EP</Talent>
-  <Talent name="Macht des Erzes" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Erz, Geister rufen" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="165">Ruft ein Erzelementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Grommur)/Dschinn (z. B. Farlin)/Meister (z. B. Chakharîm).  Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
+  <Talent name="Macht des Erzes" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Erz, Geister rufen" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="165">Ruft ein Erzelementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Grommur)/Dschinn (z. B. Farlin)/Meister (z. B. Chakharîm). Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; einzelnes Elementar
@@ -4846,7 +4846,7 @@ Sprechendes Zeichen (-4; das Zeichen kann einen kurzen Satz als Botschaft enthal
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Erz, Geister rufen
 &lt;b&gt;Erlernen:&lt;/b&gt; Smn 18; 60 EP
 &lt;b&gt;Anmerkung:&lt;/b&gt; Nicht überall sind die Wahren Namen und damit die Beschwörung von elementaren Dienern und vor allem Meistern bekannt.</Talent>
-  <Talent name="Macht des Feuers" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Feuer, Geister rufen" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="165">Ruft ein Feuerelementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Flammina)/Dschinn (z. B. Al‘Jallahir)/Meister (z. B. Lagramagmangr).  Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
+  <Talent name="Macht des Feuers" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Feuer, Geister rufen" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="165">Ruft ein Feuerelementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Flammina)/Dschinn (z. B. Al‘Jallahir)/Meister (z. B. Lagramagmangr). Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; einzelnes Elementar
@@ -4855,7 +4855,7 @@ Sprechendes Zeichen (-4; das Zeichen kann einen kurzen Satz als Botschaft enthal
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Feuer, Geister rufen
 &lt;b&gt;Erlernen:&lt;/b&gt; Smn 18; 60 EP
 &lt;b&gt;Anmerkung:&lt;/b&gt; Nicht überall sind die Wahren Namen und damit die Beschwörung von elementaren Dienern und vor allem Meistern bekannt.</Talent>
-  <Talent name="Macht des Humus" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Humus, Geister rufen" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="165">Ruft ein Humuselementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Kräuterkopf)/Dschinn (z. B. Abu al‘Azilat)/Meister (z. B. Eichbart).  Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
+  <Talent name="Macht des Humus" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Humus, Geister rufen" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="165">Ruft ein Humuselementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Kräuterkopf)/Dschinn (z. B. Abu al‘Azilat)/Meister (z. B. Eichbart). Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; einzelnes Elementar
@@ -4864,7 +4864,7 @@ Sprechendes Zeichen (-4; das Zeichen kann einen kurzen Satz als Botschaft enthal
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Humus, Geister rufen
 &lt;b&gt;Erlernen:&lt;/b&gt; Smn 16; 60 EP
 &lt;b&gt;Anmerkung:&lt;/b&gt; Nicht überall sind die Wahren Namen und damit die Beschwörung von elementaren Dienern und vor allem Meistern bekannt.</Talent>
-  <Talent name="Macht der Luft" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Geister rufen, Luft" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="165">Ruft ein Luftelementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Emling)/Dschinn (z. B. Sausewind)/Meister (z. B. Brashaidor).  Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
+  <Talent name="Macht der Luft" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Geister rufen, Luft" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="165">Ruft ein Luftelementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Emling)/Dschinn (z. B. Sausewind)/Meister (z. B. Brashaidor). Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; einzelnes Elementar
@@ -4873,7 +4873,7 @@ Sprechendes Zeichen (-4; das Zeichen kann einen kurzen Satz als Botschaft enthal
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Geister rufen, Luft
 &lt;b&gt;Erlernen:&lt;/b&gt; Smn 16; 60 EP
 &lt;b&gt;Anmerkung:&lt;/b&gt; Nicht überall sind die Wahren Namen und damit die Beschwörung von elementaren Dienern und vor allem Meistern bekannt.</Talent>
-  <Talent name="Macht des Wassers" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Geister rufen, Wasser" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="165">Ruft ein Wasserelementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Baromna)/Dschinn (z. B. Baradarasch)/Meister (z. B. Hefashar).  Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
+  <Talent name="Macht des Wassers" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Geister rufen, Wasser" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="165">Ruft ein Wasserelementar herbei, das in deiner unmittelbaren Nähe erscheint. Schwierigkeit und Kosten richten sich nach dessen Mächtigkeit auf der Skala Diener (z. B. Baromna)/Dschinn (z. B. Baradarasch)/Meister (z. B. Hefashar). Die Beherrschungsprobe wird auf CH abgelegt. Beim Einsatz von Blutmagie ist diese um -4 erschwert. Mehr zur Beschwörung siehe S. 81.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 16/24/32
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; frei wählbar
 &lt;b&gt;Ziel:&lt;/b&gt; einzelnes Elementar
@@ -5079,7 +5079,7 @@ Geister vertreiben (Probenschwierigkeit 16 bis 28 (nach Mächtigkeit des Geistes
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Eigenschaften, Hexenflüche
 &lt;b&gt;Erlernen:&lt;/b&gt; Hex 12; 20 EP</Talent>
-  <Talent name="Warzen sprießen" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Hexenflüche, Verwandlung" variableKosten="0" referenzseite="167" referenzbuch="0">Eklige Warzen entstellen das Gesicht deines Ziels. Die Vorteile Eindrucksvoll I und II werden aufgehoben und alle Proben auf Autorität, Beeinflussung  und Gebräuche sind um -2 erschwert.
+  <Talent name="Warzen sprießen" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Hexenflüche, Verwandlung" variableKosten="0" referenzseite="167" referenzbuch="0">Eklige Warzen entstellen das Gesicht deines Ziels. Die Vorteile Eindrucksvoll I und II werden aufgehoben und alle Proben auf Autorität, Beeinflussung und Gebräuche sind um -2 erschwert.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Malus steigt um -1.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
@@ -5801,7 +5801,7 @@ Geister vertreiben (Probenschwierigkeit 16 bis 28 (nach Mächtigkeit des Geistes
 &lt;b&gt;Kosten:&lt;/b&gt; 1 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Illusion, Vertrautenmagie
 &lt;b&gt;Erlernen:&lt;/b&gt; Hex 14, Geo 18; 20 EP</Talent>
-  <Talent name="Tiersinne" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Eigenschaften, Verständigung, Vertrautenmagie" variableKosten="0" referenzseite="174" referenzbuch="0">Dein Vertrautentier schließt seine Augen und leiht dir seine Sinne. Deine Wahrnehmung steigt um +4, zusätzlich erhältst du einen Bonus je nach Tier (Katze und Eule  Angepasst II (Dunkelheit), Rabe und Falke Sehsinn +4, Hund und Schlange Geruchssinn +4, Kröte Magiegespür, Affe Gehör +4, Spinne Tastsinn +4). Der Zauber endet, wenn der Vertraute seine Augen öffnet.
+  <Talent name="Tiersinne" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Eigenschaften, Verständigung, Vertrautenmagie" variableKosten="0" referenzseite="174" referenzbuch="0">Dein Vertrautentier schließt seine Augen und leiht dir seine Sinne. Deine Wahrnehmung steigt um +4, zusätzlich erhältst du einen Bonus je nach Tier (Katze und Eule Angepasst II (Dunkelheit), Rabe und Falke Sehsinn +4, Hund und Schlange Geruchssinn +4, Kröte Magiegespür, Affe Gehör +4, Spinne Tastsinn +4). Der Zauber endet, wenn der Vertraute seine Augen öffnet.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
@@ -5821,7 +5821,7 @@ Geister vertreiben (Probenschwierigkeit 16 bis 28 (nach Mächtigkeit des Geistes
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Verständigung, Vertrautenmagie
 &lt;b&gt;Erlernen:&lt;/b&gt; Hex 12; 40 EP</Talent>
-  <Talent name="Wachsame Augen" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Verständigung, Vertrautenmagie" variableKosten="0" referenzseite="174" referenzbuch="0">Dein Vertrautentier ruft Tiere seiner Gattung  aus bis zu 1 Meile herbei, die über deinen Schlaf wachen und dich vor Gefahren warnen.
+  <Talent name="Wachsame Augen" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Verständigung, Vertrautenmagie" variableKosten="0" referenzseite="174" referenzbuch="0">Dein Vertrautentier ruft Tiere seiner Gattung aus bis zu 1 Meile herbei, die über deinen Schlaf wachen und dich vor Gefahren warnen.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; Zone
@@ -6568,7 +6568,7 @@ Selbstlöschung (0 Aktionen, 2 KaP; du löschst dich selbst.)
 &lt;b&gt;Kosten:&lt;/b&gt; 16 KaP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Seefahrt, Wind und Wogen
 &lt;b&gt;Erlernen:&lt;/b&gt; Eff, Swa 14; 40 EP</Talent>
-  <Talent name="Bootssegen" spezialTyp="1" kosten="20" voraussetzungen="Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der Swafnirgeweihten I" verbilligt="0" fertigkeiten="Seefahrt" variableKosten="0" referenzseite="182" referenzbuch="0">Die Besatzung des gesegneten Schiffes geht  dem Glauben nach bei einem Unglück in Efferds Wasserreich ein. Nach Spielleiterentscheid sind Proben, um widernatürlichen Gefahren zu entgehen, um +2 erleichtert.
+  <Talent name="Bootssegen" spezialTyp="1" kosten="20" voraussetzungen="Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der Swafnirgeweihten I" verbilligt="0" fertigkeiten="Seefahrt" variableKosten="0" referenzseite="182" referenzbuch="0">Die Besatzung des gesegneten Schiffes geht dem Glauben nach bei einem Unglück in Efferds Wasserreich ein. Nach Spielleiterentscheid sind Proben, um widernatürlichen Gefahren zu entgehen, um +2 erleichtert.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Stunde
 &lt;b&gt;Ziel:&lt;/b&gt; Zone
@@ -8170,7 +8170,7 @@ Große Traumreise (-8, 16 KaP; du kannst mit einigen Gefährten in den Traum rei
 &lt;b&gt;Kosten:&lt;/b&gt; 8 KaP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Friede
 &lt;b&gt;Erlernen:&lt;/b&gt; Tsa 14; 40 EP</Talent>
-  <Talent name="Tsas Lebensschutz" spezialTyp="1" kosten="60" voraussetzungen="Vorteil Tradition der Tsageweihten I" verbilligt="0" fertigkeiten="Friede, Neubeginn" variableKosten="0" referenzseite="200" referenzbuch="0">Verstirbt der Gesegnete während der Wirkung der Liturgie, erscheint ein überraschend stabiles  Ei an einem sicheren Ort in der Nähe. Nach einer Stunde schlüpft der Gesegnete aus dem Ei und erreicht innerhalb einer Woche seine ursprüngliche Größe (währenddessen Einschränkungen nach Spielleiterentscheid). Das Aussehen ähnelt seinem früheren Aussehen, kleinere Veränderungen wie eine bunte Haarsträhne sind aber wahrscheinlich. Die Wirkung der Liturgie kann nur einmal ausgelöst werden, dann endet ihre Wirkung.
+  <Talent name="Tsas Lebensschutz" spezialTyp="1" kosten="60" voraussetzungen="Vorteil Tradition der Tsageweihten I" verbilligt="0" fertigkeiten="Friede, Neubeginn" variableKosten="0" referenzseite="200" referenzbuch="0">Verstirbt der Gesegnete während der Wirkung der Liturgie, erscheint ein überraschend stabiles Ei an einem sicheren Ort in der Nähe. Nach einer Stunde schlüpft der Gesegnete aus dem Ei und erreicht innerhalb einer Woche seine ursprüngliche Größe (währenddessen Einschränkungen nach Spielleiterentscheid). Das Aussehen ähnelt seinem früheren Aussehen, kleinere Veränderungen wie eine bunte Haarsträhne sind aber wahrscheinlich. Die Wirkung der Liturgie kann nur einmal ausgelöst werden, dann endet ihre Wirkung.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Permanenz (-8, Wirkungsdauer bis die Bindung gelöst wird, Kosten 16 KaP, davon 8 gKaP)
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 16 Aktionen
@@ -9052,7 +9052,7 @@ Große Traumreise (-8, 16 KaP; du kannst mit einigen Gefährten in den Traum rei
 &lt;b&gt;Kosten:&lt;/b&gt; 8 GuP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dämonische Hilfe (Cpt)
 &lt;b&gt;Erlernen:&lt;/b&gt; Cpt 14; 40 EP</Talent>
-  <Talent name="Meister der Maritimen" spezialTyp="2" kosten="40" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variableKosten="0" referenzseite="204" referenzbuch="0">Das  Ziel befolgt einen Charyptorothgefälligen Befehl, wenn ihm keine &lt;i&gt;Konterprobe&lt;/i&gt; (Willenskraft, 20) gelingt.
+  <Talent name="Meister der Maritimen" spezialTyp="2" kosten="40" voraussetzungen="Vorteil Tradition der Paktierer I" verbilligt="0" fertigkeiten="Dämonische Hilfe (Cpt)" variableKosten="0" referenzseite="204" referenzbuch="0">Das Ziel befolgt einen Charyptorothgefälligen Befehl, wenn ihm keine &lt;i&gt;Konterprobe&lt;/i&gt; (Willenskraft, 20) gelingt.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; Einzelperson (nur maritime Humanoide)
@@ -10235,7 +10235,7 @@ setWaffenwerte(at, vt, plus, rw)</Einstellung>
   <Einstellung name="Fertigkeiten: Typen übernatürlich" typ="TextList" separator="," strip="1" beschreibung="Definiert die verfügbaren Typen von übernatürlichen Fertigkeiten im Datenbank-Editor und deren Reihenfolge in der Fertigkeitenliste des Charaktereditors. Die Angabe erfolgt als kommaseparierte Liste. Achtung: Das Ändern der Reihenfolge erfordert in der Regel ein Überarbeiten aller Fertigkeiten. Ein Umbenennen existierender oder Anfügen weiterer Typen ist dagegen unproblematisch.">Allgemeine Zauber, Traditionszauber, Allgemeine Liturgien, Traditionsliturgien, Anrufungen</Einstellung>
   <Einstellung name="Talente: Spezialtalent Typen" typ="TextDict" separator="&#10;" strip="1" beschreibung="Definiert die verfügbaren Typen von Spezialtalenten im Datenbank-Editor und deren Reihenfolge im Charakterbogen. Es kann pro Zeile nach folgendem Format (ohne Anführungszeichen) ein Typ definiert werden: 'TypSingular=TypPlural'. Achtung: Das Ändern der Reihenfolge erfordert in der Regel ein Überarbeiten aller Spezialtalente. Ein Umbenennen existierender oder Anfügen weiterer Typen ist dagegen unproblematisch.">Zauber=Zauber
 Liturgie=Liturgien
-Anrufung=Anrufungen</Einstellung>   
+Anrufung=Anrufungen</Einstellung>
   <Einstellung name="Fertigkeiten: Maximalwert Script" typ="Eval" beschreibung="Das Pythonscript berechnet den Maximalwert von Fertigkeiten. Es steht hierfür die Funktion getAttribute (Array mit den 3 Attributswerten) zur Verfügung.">max(getAttribute())+2</Einstellung>
   <Einstellung name="Fertigkeiten: BW Script" typ="Eval" beschreibung="Das Pythonscript berechnet den Basiswert von Fertigkeiten. Es steht hierfür die Funktion getAttribute (Array mit den 3 Attributswerten) zur Verfügung.">int(sum(getAttribute())/3+0.5)</Einstellung>
   <Einstellung name="Fertigkeiten: PW Script" typ="Eval" beschreibung="Das Pythonscript berechnet den Probenwert (ohne Talent) von Fertigkeiten. Es stehen hierfür die Funktionen getAttribute (Array mit den 3 Attributswerten), getBasiswert und getWert zur Verfügung.">getBasiswert() + int(getWert()/2+0.5)</Einstellung>
