@@ -253,8 +253,15 @@ class Datenbank():
                     logging.warning(errorStr)
 
         #Vorteile
+        self.einstellungen['Vorteile: Typen'].finalize(self)
         for V in self.vorteile.values():
             errorStr = ""
+
+            if V.typ >= len(self.einstellungen['Vorteile: Typen'].wert):
+                errorStr = "Vorteil {V.name} hat einen unbekannten Typ."
+                self.loadingErrors.append([V, errorStr])
+                logging.warning(errorStr)
+
             if V.linkKategorie == VorteilLinkKategorie.Regel and not V.linkElement in self.regeln:
                 errorStr = f"Vorteil {V.name} ist mit einer nicht-existierenden Regel verknüpft: {V.linkElement}"
             elif V.linkKategorie == VorteilLinkKategorie.ÜberTalent and not V.linkElement in self.talente:
@@ -303,7 +310,13 @@ class Datenbank():
                     logging.warning(errorStr)
             
         #Talente
+        self.einstellungen['Talente: Spezialtalent Typen'].finalize(self)
         for T in self.talente.values():
+            if T.spezialTalent and T.spezialTyp >= len(self.einstellungen['Talente: Spezialtalent Typen'].wert):
+                errorStr = f"Talent {fert.name} hat einen unbekannten Typ."
+                self.loadingErrors.append([T, errorStr])
+                logging.warning(errorStr)
+
             if len(T.fertigkeiten) == 0:
                 logging.debug(f"Talent {T.name} hat keine Fertigkeiten.")
             ferts = self.fertigkeiten
@@ -318,19 +331,50 @@ class Datenbank():
                     logging.warning(errorStr)
                 T.fertigkeiten.append(fert)
 
+        #Freie Fertigkeiten
+        self.einstellungen['FreieFertigkeiten: Typen'].finalize(self)
+        for fert in self.freieFertigkeiten.values():
+            if fert.kategorie not in self.einstellungen['FreieFertigkeiten: Typen'].wert:
+                errorStr = f"Freie Fertigkeit {fert.name} hat einen unbekannten Typ: {fert.kategorie}."
+                self.loadingErrors.append([fert, errorStr])
+                logging.warning(errorStr)
+
         #Fertigkeiten     
-        attributeKeys = [FertigkeitDefinition, UeberFertigkeitDefinition]
-        for dbKey in self.tablesByType:
-            if dbKey not in attributeKeys:
-                continue
-            for el in self.tablesByType[dbKey].values():
-                idx = -1
-                for attribut in el.attribute:
-                    idx += 1
-                    if not attribut in self.attribute:
-                        errorStr = f"{dbKey.displayName} {el.name} referenziert ein nicht-existierendes Attribut: {attribut}"
-                        self.loadingErrors.append([el, errorStr])
-                        logging.warning(errorStr)
+        self.einstellungen['Fertigkeiten: Typen profan'].finalize(self)
+        for fert in self.fertigkeiten.values():
+            if fert.typ >= len(self.einstellungen['Fertigkeiten: Typen profan'].wert):
+                errorStr = f"Fertigkeit {fert.name} hat einen unbekannten Typ."
+                self.loadingErrors.append([fert, errorStr])
+                logging.warning(errorStr)
+
+            for attribut in fert.attribute:
+                if not attribut in self.attribute:
+                    errorStr = f"Fertigkeit {fert.name} referenziert ein nicht-existierendes Attribut: {attribut}"
+                    self.loadingErrors.append([fert, errorStr])
+                    logging.warning(errorStr)
+
+        self.einstellungen['Fertigkeiten: Typen übernatürlich'].finalize(self)
+        for fert in self.übernatürlicheFertigkeiten.values():
+            if fert.typ >= len(self.einstellungen['Fertigkeiten: Typen übernatürlich'].wert):
+                errorStr = f"Übernatürliche Fertigkeit {fert.name} hat einen unbekannten Typ."
+                self.loadingErrors.append([fert, errorStr])
+                logging.warning(errorStr)
+
+            for attribut in fert.attribute:
+                if not attribut in self.attribute:
+                    errorStr = f"Übernatürliche Fertigkeit {fert.name} referenziert ein nicht-existierendes Attribut: {attribut}"
+                    self.loadingErrors.append([fert, errorStr])
+                    logging.warning(errorStr)
+
+        #Rüstungen:
+        self.einstellungen['Rüstungen: Typen'].finalize(self)
+        for r in self.rüstungen.values():
+            errorStr = ""
+
+            if r.typ >= len(self.einstellungen['Rüstungen: Typen'].wert):
+                errorStr = "Rüstung {r.name} hat einen unbekannten Typ."
+                self.loadingErrors.append([r, errorStr])
+                logging.warning(errorStr)
 
         #Waffen:
         alleKampfstile = self.findKampfstile()
@@ -348,6 +392,16 @@ class Datenbank():
                     errorStr = f"Waffe {wa.name} referenziert einen nicht-existierenden Kampfstil: {kampfstil}"
                     self.loadingErrors.append([wa, errorStr])
                     logging.warning(errorStr)
+
+        #Regeln:
+        self.einstellungen['Regeln: Typen'].finalize(self)
+        for r in self.regeln.values():
+            errorStr = ""
+
+            if r.typ >= len(self.einstellungen['Regeln: Typen'].wert):
+                errorStr = "Regel {r.name} hat einen unbekannten Typ."
+                self.loadingErrors.append([r, errorStr])
+                logging.warning(errorStr)
 
         self.loadingErrors = EventBus.applyFilter("datenbank_verify", self.loadingErrors, { "datenbank" : self })   
     

@@ -36,7 +36,8 @@ class FertigkeitDefinition:
         pass
 
     def typname(self, db):
-        return db.einstellungen['Fertigkeiten: Typen profan'].wert[self.typ]
+        typ = min(self.typ, len(db.einstellungen['Fertigkeiten: Typen profan'].wert) - 1)
+        return db.einstellungen['Fertigkeiten: Typen profan'].wert[typ]
 
     def details(self, db):
         return f"{'/'.join(self.attribute)}. SF {self.steigerungsfaktor}. {self.text}"
