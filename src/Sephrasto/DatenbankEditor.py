@@ -70,15 +70,18 @@ class DBESortFilterProxyModel(QtCore.QSortFilterProxyModel):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.nameFilter = ""
+        self.fullText = False
         self.statusFilters = []
 
-    def setFilters(self, nameFilter, statusFilters):
+    def setFilters(self, nameFilter, statusFilters, fullText = False):
         self.nameFilter = nameFilter.lower()
         if not self.nameFilter.startswith("*"):
             self.nameFilter = "*" + self.nameFilter
         if not self.nameFilter.endswith("*"):
             self.nameFilter += "*"
+
         self.statusFilters = statusFilters
+        self.fullText = fullText
         self.invalidateFilter()
 
     def filterAcceptsRow(self, sourceRow, sourceParent):
@@ -86,8 +89,11 @@ class DBESortFilterProxyModel(QtCore.QSortFilterProxyModel):
         statusIndex = model.index(sourceRow, 0, sourceParent)
         status = model.data(statusIndex)
         nameIndex = model.index(sourceRow, 1, sourceParent)
-        name = model.data(nameIndex).lower()
-        return fnmatch.fnmatchcase(name, self.nameFilter) and status in self.statusFilters
+        element = model.data(nameIndex, QtCore.Qt.UserRole)
+        if not self.fullText or not hasattr(element, "text"):
+            return fnmatch.fnmatchcase(element.name.lower(), self.nameFilter) and status in self.statusFilters
+        else:
+            return (fnmatch.fnmatchcase(element.name.lower(), self.nameFilter) or fnmatch.fnmatchcase(element.text.lower(), self.nameFilter)) and status in self.statusFilters
 
 class DatenbankEditor(object):
     def __init__(self, plugins, onCloseCB):
@@ -147,6 +153,7 @@ class DatenbankEditor(object):
         # GUI Mods
         self.ui.labelFilterName.setText("\uf002")
         self.ui.nameFilterEdit.textChanged.connect(self.updateFilter)
+        self.ui.checkFullText.stateChanged.connect(self.updateFilter)
 
         self.ui.buttonStatusFilter = RichTextToolButton(None, 2*"&nbsp;" + "<span style='" + Wolke.FontAwesomeCSS + f"'>\uf0b0</span>&nbsp;&nbsp;Status-Filter" + 4*"&nbsp;")
         self.ui.buttonStatusFilter.setPopupMode(QtWidgets.QToolButton.InstantPopup)
@@ -421,7 +428,7 @@ class DatenbankEditor(object):
             allAction.blockSignals(False)
     
         filter = self.filters[self.ui.tabWidget.currentIndex()]
-        filter.setFilters(self.ui.nameFilterEdit.text(), statusses)
+        filter.setFilters(self.ui.nameFilterEdit.text(), statusses, fullText=self.ui.checkFullText.isChecked())
 
     def updateGUI(self):
         dbType = self.databaseTypesByIndex[self.ui.tabWidget.currentIndex()]

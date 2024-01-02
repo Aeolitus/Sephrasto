@@ -127,6 +127,11 @@ class Ui_Form(object):
 
         self.horizontalLayout_3.addWidget(self.labelFilterName)
 
+        self.checkFullText = QCheckBox(self.centralwidget)
+        self.checkFullText.setObjectName(u"checkFullText")
+
+        self.horizontalLayout_3.addWidget(self.checkFullText)
+
         self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
 
         self.horizontalLayout_3.addItem(self.horizontalSpacer_2)
@@ -142,7 +147,7 @@ class Ui_Form(object):
         Form.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(Form)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 853, 26))
+        self.menubar.setGeometry(QRect(0, 0, 853, 21))
         self.menuDatei = QMenu(self.menubar)
         self.menuDatei.setObjectName(u"menuDatei")
         self.menuAnalysieren = QMenu(self.menubar)
@@ -234,6 +239,7 @@ class Ui_Form(object):
         self.nameFilterEdit.setPlaceholderText(QCoreApplication.translate("Form", u"Suchen...", None))
         self.labelFilterName.setText(QCoreApplication.translate("Form", u"Suchen", None))
         self.labelFilterName.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
+        self.checkFullText.setText(QCoreApplication.translate("Form", u"Volltext", None))
         self.checkDetails.setText(QCoreApplication.translate("Form", u"Erweiterte Details", None))
         self.menuDatei.setTitle(QCoreApplication.translate("Form", u"Datei", None))
         self.menuAnalysieren.setTitle(QCoreApplication.translate("Form", u"Analysieren", None))
