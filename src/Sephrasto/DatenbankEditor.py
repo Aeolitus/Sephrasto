@@ -73,6 +73,12 @@ class DBESortFilterProxyModel(QtCore.QSortFilterProxyModel):
         self.fullText = False
         self.statusFilters = []
 
+    def lessThan(self, leftIndex, rightIndex):
+        model = self.sourceModel()
+        left = model.data(leftIndex)
+        right = model.data(rightIndex)
+        return Hilfsmethoden.unicodeCaseInsensitive(left) < Hilfsmethoden.unicodeCaseInsensitive(right)
+
     def setFilters(self, nameFilter, statusFilters, fullText = False):
         self.nameFilter = nameFilter.lower()
         if not self.nameFilter.startswith("*"):
@@ -247,7 +253,7 @@ class DatenbankEditor(object):
         self.databaseTypesByIndex = []
         self.tabLabels = []
 
-        for dbType in sorted(self.databaseTypes, key = lambda t: t.displayName):
+        for dbType in sorted(self.databaseTypes, key = lambda t: Hilfsmethoden.unicodeCaseInsensitive(t.displayName)):
             self.databaseTypesByIndex.append(dbType)
             tableView = QtWidgets.QTableView()
             self.lists.append(tableView)

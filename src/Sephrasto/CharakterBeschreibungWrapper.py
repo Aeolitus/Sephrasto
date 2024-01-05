@@ -136,7 +136,7 @@ class BeschrWrapper(QtCore.QObject):
 
         ''' Fill and set Heimat '''
         self.ui.comboHeimat.clear()
-        heimaten = sorted(Wolke.DB.einstellungen["Heimaten"].wert)
+        heimaten = sorted(Wolke.DB.einstellungen["Heimaten"].wert, key=Hilfsmethoden.unicodeCaseInsensitive)
         self.ui.comboHeimat.addItems(heimaten)
         self.ui.comboHeimat.setCurrentText(Wolke.Char.heimat)
 

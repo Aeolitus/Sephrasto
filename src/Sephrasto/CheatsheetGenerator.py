@@ -28,11 +28,12 @@ class CheatsheetGenerator(object):
             return
         rules.append(category)
         count = 0
-        for weName, waffen in sorted(eigenschaften.items()):
+        for weName in sorted(list(eigenschaften.keys()), key=Hilfsmethoden.unicodeCaseInsensitive):
             we = Wolke.DB.waffeneigenschaften[weName]
             if not we.text:
                 continue
             count += 1
+            waffen = eigenschaften[weName]
             rules.append("<article>" + CheatsheetGenerator.ruleHeading(we.name + " (" + ", ".join(waffen) + ")") + we.text + "</article>")
 
         if count == 0:
@@ -176,10 +177,10 @@ class CheatsheetGenerator(object):
         Wolke.Char.voraussetzungenPruefen = True
 
         sortV = Wolke.Char.vorteile.values()
-        sortV = sorted(sortV, key=lambda vor: vor.name)
+        sortV = sorted(sortV, key=lambda vor: Hilfsmethoden.unicodeCaseInsensitive(vor.name))
 
         sortR = list(Wolke.DB.regeln.keys())
-        sortR = sorted(sortR, key=str.lower)
+        sortR = sorted(sortR, key=Hilfsmethoden.unicodeCaseInsensitive)
 
         waffeneigenschaften = {}
         for waffe in Wolke.Char.waffen:
@@ -218,7 +219,7 @@ class CheatsheetGenerator(object):
             empty = len(regelnGruppiert[mergeTo]) == 0
             regelnGruppiert[mergeTo].extend([el for el in sortR if (Wolke.DB.regeln[el].typ == i)])
             if not empty:
-                regelnGruppiert[mergeTo] = sorted(regelnGruppiert[mergeTo])
+                regelnGruppiert[mergeTo] = sorted(regelnGruppiert[mergeTo], key=Hilfsmethoden.unicodeCaseInsensitive)
 
         lastTitle = ""
         title = ""

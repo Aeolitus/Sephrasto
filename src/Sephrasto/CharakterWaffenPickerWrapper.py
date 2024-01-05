@@ -79,7 +79,7 @@ class WaffenPicker(object):
                         continue
                 if Wolke.DB.waffen[waf].fertigkeit == kind.name:
                     wafs.append(waf)
-            wafs.sort()
+            wafs.sort(key=Hilfsmethoden.unicodeCaseInsensitive)
             if len(wafs) == 0:
                 continue
 

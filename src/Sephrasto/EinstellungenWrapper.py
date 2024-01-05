@@ -501,7 +501,7 @@ class EinstellungenWrapper():
                 pluginDataUIs[pd.name] = PluginDataUI(pd, repo.sephrastoVersion)
                 pluginDataUIs[pd.name].installable = True
 
-        self.pluginDataUIs = sorted(pluginDataUIs.values(), key=lambda pdui: pdui.name)
+        self.pluginDataUIs = sorted(pluginDataUIs.values(), key=lambda pdui: Hilfsmethoden.unicodeCaseInsensitive(pdui.name))
 
         self.ui.tablePlugins.clearContents()
         self.ui.tablePlugins.setRowCount(0)

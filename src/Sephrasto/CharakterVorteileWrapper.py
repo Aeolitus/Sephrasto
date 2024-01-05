@@ -77,7 +77,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
             vortList[idx].append(el)
         
         for vorteile in vortList:
-            vorteile.sort()
+            vorteile.sort(key=Hilfsmethoden.unicodeCaseInsensitive)
 
         for i in range(len(vortList)):
             parent = QtWidgets.QTreeWidgetItem(self.ui.treeWidget)

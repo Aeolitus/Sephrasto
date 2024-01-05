@@ -12,6 +12,8 @@ from Core.Vorteil import Vorteil, VorteilDefinition
 import subprocess
 import sys
 import fnmatch
+import unicodedata
+import locale
 
 class WaffeneigenschaftException(Exception):
     pass
@@ -276,3 +278,11 @@ class Hilfsmethoden:
     @staticmethod
     def emToPixels(em):
         return em * Wolke.Settings['FontSize']
+
+    # see https://docs.python.org/3.9/howto/unicode.html#comparing-strings
+    # added strxfrm to use current locale, i. e. to properly sort german umlauts
+    # using the unicode collation algorithm would be the perfect solution but strxfrm suffices for now
+    def unicodeCaseInsensitive(s):
+        def NFD(s):
+            return unicodedata.normalize('NFD', s)
+        return locale.strxfrm(NFD(NFD(s).casefold()))

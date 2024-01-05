@@ -89,7 +89,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
 
         temp = []
         lastType = -1
-        for fert in sorted(Wolke.Char.fertigkeiten.values(), key = lambda x: (x.typ, x.name)):
+        for fert in sorted(Wolke.Char.fertigkeiten.values(), key = lambda x: (x.typ, Hilfsmethoden.unicodeCaseInsensitive(x.name))):
             if fert.typ != lastType:
                 lastType = fert.typ
                 temp.append(fert.definition.typname(Wolke.DB))

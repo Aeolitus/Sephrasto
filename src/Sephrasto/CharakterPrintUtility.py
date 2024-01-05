@@ -3,12 +3,13 @@ from Core.Vorteil import VorteilLinkKategorie
 import re
 from difflib import SequenceMatcher
 from fractions import Fraction
+from Hilfsmethoden import Hilfsmethoden
 
 class CharakterPrintUtility:
 
     @staticmethod
     def getVorteile(char):
-        return sorted(char.vorteile.values(), key = lambda v: (v.typ, v.name))
+        return sorted(char.vorteile.values(), key = lambda v: (v.typ, Hilfsmethoden.unicodeCaseInsensitive(v.name)))
 
     @staticmethod
     def groupVorteile(char, vorteile, link = True):
@@ -37,9 +38,9 @@ class CharakterPrintUtility:
                 vorteileUeber.append(name)
 
         # sort again, otherwise they are sorted by vorteil type which is confusing if they go into the same table
-        vorteileAllgemein.sort(key = str.lower)
-        vorteileKampf.sort(key = str.lower)
-        vorteileUeber.sort(key = str.lower)
+        vorteileAllgemein.sort(key=Hilfsmethoden.unicodeCaseInsensitive)
+        vorteileKampf.sort(key=Hilfsmethoden.unicodeCaseInsensitive)
+        vorteileUeber.sort(key=Hilfsmethoden.unicodeCaseInsensitive)
 
         return (vorteileAllgemein, vorteileKampf, vorteileUeber)
 
@@ -63,14 +64,14 @@ class CharakterPrintUtility:
 
     @staticmethod
     def getFertigkeiten(char):
-        return sorted(char.fertigkeiten, key = lambda x: (Wolke.DB.fertigkeiten[x].typ, x))
+        return sorted(char.fertigkeiten, key = lambda x: (Wolke.DB.fertigkeiten[x].typ, Hilfsmethoden.unicodeCaseInsensitive(x)))
 
     @staticmethod
     def getTalente(char, fertigkeit, nurHöchsteFertigkeit = False):
         result = []
         talente = [Wolke.DB.talente[t] for t in fertigkeit.gekaufteTalente]
         talente.extend([Wolke.DB.talente[t] for t in fertigkeit.talentMods if not t in fertigkeit.gekaufteTalente])
-        talente = sorted(talente, key = lambda t : t.anzeigename)
+        talente = sorted(talente, key = lambda t : Hilfsmethoden.unicodeCaseInsensitive(t.anzeigename))
 
         for el in talente:
             if nurHöchsteFertigkeit:
@@ -98,7 +99,7 @@ class CharakterPrintUtility:
     @staticmethod
     def getÜberFertigkeiten(char):
         ferts = [f for f in char.übernatürlicheFertigkeiten if char.übernatürlicheFertigkeiten[f].addToPDF]
-        ferts = sorted(ferts, key = lambda f: (Wolke.DB.übernatürlicheFertigkeiten[f].typ, f))
+        ferts = sorted(ferts, key = lambda f: (Wolke.DB.übernatürlicheFertigkeiten[f].typ, Hilfsmethoden.unicodeCaseInsensitive(f)))
         return ferts
 
     @staticmethod
@@ -106,11 +107,11 @@ class CharakterPrintUtility:
         def sortTalente(tal):
             hauptFert = tal.hauptfertigkeit
             if hauptFert is None:
-                return (0, "", tal.name)
+                return (0, "", Hilfsmethoden.unicodeCaseInsensitive(tal.name))
             elif hauptFert.talenteGruppieren:
-               return (hauptFert.typ, hauptFert.name, tal.name)
+               return (hauptFert.typ, Hilfsmethoden.unicodeCaseInsensitive(hauptFert.name), Hilfsmethoden.unicodeCaseInsensitive(tal.name))
             else:
-               return (hauptFert.typ, "", tal.name)
+               return (hauptFert.typ, "", Hilfsmethoden.unicodeCaseInsensitive(tal.name))
 
         talenteByTyp = []
         for typ in range(len(Wolke.DB.einstellungen["Talente: Spezialtalent Typen"].wert)):

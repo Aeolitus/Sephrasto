@@ -70,7 +70,7 @@ class TalentPicker(object):
                 else:
                     self.talentKosten[talent.name] = EventBus.applyFilter("talent_kosten", talent.kosten, { "charakter" : Wolke.Char, "talent" : talent.name })
                     self.talentKommentare[talent.name] = ""
-        talente = sorted(talente)
+        talente = sorted(talente, key=Hilfsmethoden.unicodeCaseInsensitive)
 
         self.rowCount = 0
         for el in talente:

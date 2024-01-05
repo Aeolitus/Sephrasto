@@ -130,7 +130,7 @@ class RuestungPicker(object):
                 if typ2 == typ:
                     ruestungen.append(rues)
 
-            ruestungen.sort()
+            ruestungen.sort(key=Hilfsmethoden.unicodeCaseInsensitive)
             if len(ruestungen) == 0:
                 continue
 

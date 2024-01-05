@@ -133,15 +133,15 @@ class DatenbankEditVorteilWrapper(DatenbankElementEditorBase):
     def verweisKategorieChanged(self):
         self.ui.comboVerweis.clear()
         if self.ui.comboVerweisTyp.currentIndex() == 0: #regel
-            self.ui.comboVerweis.addItems(sorted(self.datenbank.regeln.keys()))
+            self.ui.comboVerweis.addItems(sorted(self.datenbank.regeln.keys(), key=Hilfsmethoden.unicodeCaseInsensitive))
         elif self.ui.comboVerweisTyp.currentIndex() == 1: #talent
-            self.ui.comboVerweis.addItems(sorted(self.datenbank.talente.keys()))
+            self.ui.comboVerweis.addItems(sorted(self.datenbank.talente.keys(), key=Hilfsmethoden.unicodeCaseInsensitive))
         elif self.ui.comboVerweisTyp.currentIndex() == 2: #vorteil
-            self.ui.comboVerweis.addItems(sorted([el for el in self.datenbank.vorteile if el != self.ui.leName.text()]))
+            self.ui.comboVerweis.addItems(sorted([el for el in self.datenbank.vorteile if el != self.ui.leName.text()], key=Hilfsmethoden.unicodeCaseInsensitive))
         elif self.ui.comboVerweisTyp.currentIndex() == 3: #waffeneigenschaft
-            self.ui.comboVerweis.addItems(sorted(self.datenbank.waffeneigenschaften.keys()))
+            self.ui.comboVerweis.addItems(sorted(self.datenbank.waffeneigenschaften.keys(), key=Hilfsmethoden.unicodeCaseInsensitive))
         elif self.ui.comboVerweisTyp.currentIndex() == 4: #abgeleiteter wert
-            self.ui.comboVerweis.addItems(sorted(self.datenbank.abgeleiteteWerte.keys()))
+            self.ui.comboVerweis.addItems(sorted(self.datenbank.abgeleiteteWerte.keys(), key=Hilfsmethoden.unicodeCaseInsensitive))
         elif self.ui.comboVerweisTyp.currentIndex() == 5: #statusse
             self.ui.comboVerweis.addItem("Statusse")
         elif self.ui.comboVerweisTyp.currentIndex() == 6: #finanzen
@@ -194,11 +194,11 @@ class DatenbankEditVorteilWrapper(DatenbankElementEditorBase):
     def linkKategorieChanged(self):
         self.ui.comboLinkElement.clear()
         if self.ui.comboLinkKategorie.currentIndex() == VorteilLinkKategorie.Regel:
-            self.ui.comboLinkElement.addItems(sorted(self.datenbank.regeln.keys()))
+            self.ui.comboLinkElement.addItems(sorted(self.datenbank.regeln.keys(), key=Hilfsmethoden.unicodeCaseInsensitive))
         elif self.ui.comboLinkKategorie.currentIndex() == VorteilLinkKategorie.ÜberTalent:
-            self.ui.comboLinkElement.addItems(sorted([el for el in self.datenbank.talente if self.datenbank.talente[el].spezialTalent]))
+            self.ui.comboLinkElement.addItems(sorted([el for el in self.datenbank.talente if self.datenbank.talente[el].spezialTalent], key=Hilfsmethoden.unicodeCaseInsensitive))
         elif self.ui.comboLinkKategorie.currentIndex() == VorteilLinkKategorie.Vorteil:
-            self.ui.comboLinkElement.addItems(sorted([el for el in self.datenbank.vorteile if el != self.ui.leName.text()]))
+            self.ui.comboLinkElement.addItems(sorted([el for el in self.datenbank.vorteile if el != self.ui.leName.text()], key=Hilfsmethoden.unicodeCaseInsensitive))
 
     def variableKostenChanged(self):
         if self.ui.checkVariable.isChecked():

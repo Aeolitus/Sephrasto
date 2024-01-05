@@ -132,7 +132,7 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
 
         temp = []
         lastType = -1
-        for fert in sorted(Wolke.Char.übernatürlicheFertigkeiten.values(), key = lambda x: (getType(x.name), x.name)):
+        for fert in sorted(Wolke.Char.übernatürlicheFertigkeiten.values(), key = lambda x: (getType(x.name), Hilfsmethoden.unicodeCaseInsensitive(x.name))):
             type = getType(fert.name)
             if type != lastType:
                 lastType = type

@@ -33,6 +33,9 @@ from CharakterAssistent import WizardWrapper
 import argparse
 import Charakter
 import Datenbank
+import locale
+
+locale.setlocale(locale.LC_ALL, "") # set the current locale from the OS
 
 loglevels = {0: logging.ERROR, 1: logging.WARNING, 2: logging.DEBUG}
 logging.basicConfig(filename="sephrasto.log", \
