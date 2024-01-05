@@ -1322,7 +1322,8 @@ Schattensprung (-8, 4 Aktionen, Wirkungsdauer 16 Initiativephasen, 16 AsP; du ve
 &lt;b&gt;Erlernen:&lt;/b&gt; Hex 12; 20 EP</Talent>
   <Talent name="Seelenwanderung" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Eigenschaften, Verständigung" variableKosten="0" referenzseite="132" referenzbuch="0">Wenn du ein Körperteil (z.B. Haare oder Blut) deines Opfers besitzt, kannst du mit ihm den Körper tauschen. Geistige Attribute, Fertigkeiten und Vorteile bleiben erhalten, körperliche werden getauscht. Wird einer der Körper während des Tausches vernichtet, endet der Tausch und der ursprüngliche Besitzer des vernichteten Körpers stirbt.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
-&lt;b&gt;Modifikationen:&lt;/b&gt; Tiersinne (-4, Einzelwesen) Fremdtausch (-8; zwei Ziele tauschen Körper.)
+&lt;b&gt;Modifikationen:&lt;/b&gt; Tiersinne (-4, Einzelwesen)
+Fremdtausch (-8; zwei Ziele tauschen Körper.)
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 16 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
 &lt;b&gt;Reichweite:&lt;/b&gt; 8 Meilen
@@ -2368,7 +2369,7 @@ Sofortige Regeneration (-16, 4 Aktionen, 32 AsP; das Ziel erhält für 32 Initia
 &lt;b&gt;Anmerkung:&lt;/b&gt; Nicht überall sind die Wahren Namen und damit die Beschwörung von elementaren Dienern und vor allem Meistern bekannt.</Talent>
   <Talent name="Fesselranken" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Humus" variableKosten="0" referenzseite="142" referenzbuch="0">Aus dem Boden unter deinem Opfer wachsen Ranken hervor, die es mit einem Umklammern-Manöver (-4) festhalten, aus der es sich mit einer Aktion Konflikt und einer &lt;i&gt;Konterprobe&lt;/i&gt; (GE oder KK, 16) befreien kann. Beachte, dass diese Probe ebenfalls durch das Umklammern erschwert ist.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Dornenfessel (-8; misslungene &lt;i&gt;Konterprobe&lt;/i&gt;n fügen dem Opfer 2W6 TP zu.)
+&lt;b&gt;Modifikationen:&lt;/b&gt; Dornenfessel (-8; misslungene &lt;i&gt;Konterproben&lt;/i&gt; fügen dem Opfer 2W6 TP zu.)
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Aktion
 &lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
 &lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
@@ -3838,8 +3839,7 @@ Du stellst eine enge magische Bindung zu deinem Ritualgegenstand (ein Dolch für
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dolchzauber, Erz
 &lt;b&gt;Erlernen:&lt;/b&gt; Geo 16; Dru 18; 20 EP</Talent>
-  <Talent name="Schutz des Dolches" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I" verbilligt="0" fertigkeiten="Dolchzauber, Umwelt" variableKosten="0" referenzseite="157" referenzbuch="0">Dir steht die Natur schützend zur Seite. Du schwimmst leichter auf Wasser, Schnee bildet wärmende Höhlen und du findest überall Verstecke. Verbergen, Schwimmen,
-Überleben oder andere mit der Natur zusammenhängende Proben sind um +4 erleichtert.
+  <Talent name="Schutz des Dolches" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I" verbilligt="0" fertigkeiten="Dolchzauber, Umwelt" variableKosten="0" referenzseite="157" referenzbuch="0">Dir steht die Natur schützend zur Seite. Du schwimmst leichter auf Wasser, Schnee bildet wärmende Höhlen und du findest überall Verstecke. Verbergen, Schwimmen, Überleben oder andere mit der Natur zusammenhängende Proben sind um +4 erleichtert.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
@@ -4896,7 +4896,8 @@ Wesen (-4; du rufst ein dir bereits bekanntes Wesen aus bis zu 8 Meilen Radius h
 &lt;b&gt;Erlernen:&lt;/b&gt; Smn 14; 60 EP</Talent>
   <Talent name="Geistertausch" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Eigenschaften, Geister rufen, Verständigung" variableKosten="0" referenzseite="165" referenzbuch="0">Wenn du ein Körperteil (z.B. Haare oder Blut) deines Opfers besitzt, kannst du mit ihm den Körper tauschen. Geistige Attribute, Fertigkeiten und Vorteile bleiben erhalten, körperliche werden getauscht. Wird einer der Körper während des Tausches vernichtet, endet der Tausch und der ursprüngliche Besitzer des vernichteten Körpers stirbt.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
-&lt;b&gt;Modifikationen:&lt;/b&gt; Tiersinne (-4, Einzelwesen) Fremdtausch (-8; zwei Ziele tauschen Körper.)
+&lt;b&gt;Modifikationen:&lt;/b&gt; Tiersinne (-4, Einzelwesen)
+Fremdtausch (-8; zwei Ziele tauschen Körper.)
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 16 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
 &lt;b&gt;Reichweite:&lt;/b&gt; 8 Meilen
