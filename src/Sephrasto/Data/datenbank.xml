@@ -2201,7 +2201,7 @@ Fremder Zauber (-8; du kannst während der Wirkungsdauer aus den Augen deines Op
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Hellsicht, Verständigung
 &lt;b&gt;Erlernen:&lt;/b&gt; Dru, Sch 18; Mag 20; 40 EP</Talent>
   <Talent name="Blick in die Gedanken" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Hellsicht" variableKosten="0" referenzseite="140" referenzbuch="0">Du siehst die Gedanken deines Ziels als verschwommene Bilder vor dir. Weiß das Ziel, dass seine Gedanken gelesen werden, kann es dich mit einer &lt;i&gt;Konterprobe&lt;/i&gt; (Willenskraft, 20) in die Irre führen.
-&lt;b&gt;Mächtige Liturgie:&lt;/b&gt; Du erhältst einen deutlichen/klaren Einblick in die Gedanken deines Ziels.
+&lt;b&gt;Mächtige Magie:&lt;/b&gt; Du erhältst einen deutlichen/klaren Einblick in die Gedanken deines Ziels.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
 &lt;b&gt;Modifikationen:&lt;/b&gt; Kampfsinn (nur Elf, -4; du kannst die AT des Gegners vorhersehen, VT gegen diesen Gegner sind um +4 erleichtert.)
 Traumreise (-4, Wirkungsdauer 1 Stunde; du kannst an den Träumen des Ziels teilhaben.)
@@ -7487,7 +7487,7 @@ Ingerimm &amp; Angrosch: Fertigkeiten des ehrbaren Handwerks.
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Wachstum
 &lt;b&gt;Erlernen:&lt;/b&gt; Per 12; 20 EP</Talent>
   <Talent name="Wohlverdiente Rast" spezialTyp="1" kosten="40" voraussetzungen="Vorteil Tradition der Perainegeweihten I ODER Vorteil Tradition der Traviageweihten I" verbilligt="0" fertigkeiten="Sichere Heimkehr, Wachstum" variableKosten="0" referenzseite="192" referenzbuch="0">Du segnest bis zu 4 Personen. Die Gesegneten regenerieren 2 Punkte Erschöpfung.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Regeneriert einen weiteren Punkt Erschöpfung.
+&lt;b&gt;Mächtige Liturgie:&lt;/b&gt; Regeneriert einen weiteren Punkt Erschöpfung.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 16 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; Zone
@@ -7891,7 +7891,7 @@ Große Traumreise (-8, 16 KaP; du kannst mit einigen Gefährten in den Traum rei
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Ehre
 &lt;b&gt;Erlernen:&lt;/b&gt; Ron 14; 40 EP</Talent>
   <Talent name="Schild der Ehre" spezialTyp="1" kosten="40" voraussetzungen="Vorteil Tradition der Rondrageweihten I" verbilligt="0" fertigkeiten="Ehre" variableKosten="0" referenzseite="197" referenzbuch="0">Ungezielte Geschosse (wie in einem Pfeilhagel) treffen dich nicht, Fernkampfangriffe und Zauber auf dich sind um -4 erschwert.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Erhöht den Malus um -2.
+&lt;b&gt;Mächtige Liturgie:&lt;/b&gt; Erhöht den Malus um -2.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Aktion
 &lt;b&gt;Ziel:&lt;/b&gt; selbst
@@ -8273,7 +8273,7 @@ Große Traumreise (-8, 16 KaP; du kannst mit einigen Gefährten in den Traum rei
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Fröhlicher Wanderer
 &lt;b&gt;Erlernen:&lt;/b&gt; Aves 14; 60 EP</Talent>
   <Talent name="Ein Freund in der Not" spezialTyp="1" kosten="40" voraussetzungen="Vorteil Tradition der Avesgeweihten I" verbilligt="0" fertigkeiten="Fröhlicher Wanderer" variableKosten="0" referenzseite="202" referenzbuch="0">Durch Aves‘ Hilfe findest du den Weg zu einer hilfsbereiten Person im Radius von 1 Meile, die dich aus einer Notlage zu befreien versucht. Kommen mehrere Personen in Frage, führt der Weg zu der Person, die du schnell genug erreichen kannst und die dir am besten helfen kann.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Verdoppelt den Radius.
+&lt;b&gt;Mächtige Liturgie:&lt;/b&gt; Verdoppelt den Radius.
 &lt;b&gt;Modifikationen:&lt;/b&gt; Aktiver Helfer (-4; der Helfer bewegt sich zusätzlich unbewusst in deine Richtung, sofern ihm daraus kein bedeutender Nachteil erwächst.)
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
