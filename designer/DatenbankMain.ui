@@ -176,6 +176,9 @@
       </item>
       <item>
        <widget class="QLabel" name="labelFilterName">
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Die Suche unterstützt Wildcards. Dies sind Platzhalter, die verwendet werden können, um Übereinstimmungen mit einer Vielzahl von Suchergebnissen zu ermöglichen. Es gibt die folgenden Wildcards:&lt;/p&gt;&lt;table border=&quot;0&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px;&quot; cellspacing=&quot;2&quot; cellpadding=&quot;0&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;td&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Platzhalter&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;td&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Wirkung&lt;/span&gt;&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tr&gt;&lt;td&gt;&lt;p&gt;*&lt;/p&gt;&lt;/td&gt;&lt;td&gt;&lt;p&gt;Steht für null oder mehr beliebige Zeichen.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;p&gt;?&lt;/p&gt;&lt;/td&gt;&lt;td&gt;&lt;p&gt;Steht für ein beliebiges einzelnes Zeichen.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;p&gt;[seq]&lt;/p&gt;&lt;/td&gt;&lt;td&gt;&lt;p&gt;Steht für ein Zeichen in der angegebenen Sequenz 'seq'.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;p&gt;[!seq]&lt;/p&gt;&lt;/td&gt;&lt;td&gt;&lt;p&gt;Steht für ein Zeichen, das nicht in der angegebenen Sequenz 'seq' enthalten ist.&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
         <property name="text">
          <string>Suchen</string>
         </property>

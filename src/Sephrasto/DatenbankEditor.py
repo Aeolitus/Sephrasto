@@ -67,8 +67,9 @@ class DatenbankTypWrapper:
         return editor.element
 
 class DBESortFilterProxyModel(QtCore.QSortFilterProxyModel):
-    def __init__(self, parent=None):
+    def __init__(self, datenbank, parent=None):
         super().__init__(parent)
+        self.datenbank = datenbank
         self.nameFilter = ""
         self.fullText = False
         self.statusFilters = []
@@ -96,10 +97,10 @@ class DBESortFilterProxyModel(QtCore.QSortFilterProxyModel):
         status = model.data(statusIndex)
         nameIndex = model.index(sourceRow, 1, sourceParent)
         element = model.data(nameIndex, QtCore.Qt.UserRole)
-        if not self.fullText or not hasattr(element, "text"):
+        if not self.fullText:
             return fnmatch.fnmatchcase(element.name.lower(), self.nameFilter) and status in self.statusFilters
         else:
-            return (fnmatch.fnmatchcase(element.name.lower(), self.nameFilter) or fnmatch.fnmatchcase(element.text.lower(), self.nameFilter)) and status in self.statusFilters
+            return (fnmatch.fnmatchcase(element.name.lower(), self.nameFilter) or fnmatch.fnmatchcase(element.details(self.datenbank).lower(), self.nameFilter)) and status in self.statusFilters
 
 class DatenbankEditor(object):
     def __init__(self, plugins, onCloseCB):
@@ -260,7 +261,7 @@ class DatenbankEditor(object):
             model = QtGui.QStandardItemModel(tableView)
             self.models.append(model)
 
-            filterProxy = DBESortFilterProxyModel()
+            filterProxy = DBESortFilterProxyModel(self.datenbank)
             self.filters.append(filterProxy)
             filterProxy.setSourceModel(model)
 
