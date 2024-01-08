@@ -1342,7 +1342,7 @@ Fremdtausch (-8; zwei Ziele tauschen Körper.)
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Eigenschaften, Hellsicht
 &lt;b&gt;Erlernen:&lt;/b&gt; Mag 18; 40 EP</Talent>
-  <Talent name="Spinnenlauf" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Eigenschaften" variableKosten="0" referenzseite="132" referenzbuch="0">Deine Hände und Füße haften an Oberflächen, sodass du mit GS 1 an glatten Wänden und sogar Decken ohne Griffen klettern kannst. Erlaubt &lt;i&gt;Aufrechterhalten&lt;/i&gt;.
+  <Talent name="Spinnenlauf" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Eigenschaften" variableKosten="0" referenzseite="132" referenzbuch="0">Deine Hände und Füße haften an Oberflächen, sodass du mit GS 1 an glatten Wänden und sogar Decken ohne Griffen klettern kannst. Erlaubt &lt;i&gt;Aufrechterhalten&lt;/i&gt;.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Erhöht die GS um +1.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
@@ -4383,7 +4383,7 @@ Fremdbegleiter (-8; die Kugel bewegt sich mit einem Einzelwesen.)
 &lt;b&gt;Reichweite:&lt;/b&gt; 2 Schritt
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Spinnenlauf (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Gebirgsbock)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Deine Hände und Füße haften an Oberflächen, sodass du mit GS 1 an glatten Wänden und sogar Decken ohne Griffen klettern kannst. Erlaubt &lt;i&gt;Aufrechterhalten&lt;/i&gt;.
+  <Talent name="Spinnenlauf (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Gebirgsbock)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Deine Hände und Füße haften an Oberflächen, sodass du mit GS 1 an glatten Wänden und sogar Decken ohne Griffen klettern kannst. Erlaubt &lt;i&gt;Aufrechterhalten&lt;/i&gt;.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Erhöht die GS um +1.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
@@ -5956,7 +5956,7 @@ Geister vertreiben (Probenschwierigkeit 16 bis 28 (nach Mächtigkeit des Geistes
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Eigenschaften, Zaubermelodien
 &lt;b&gt;Erlernen:&lt;/b&gt; Bard 16; 40 EP</Talent>
-  <Talent name="Schriller Klang" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Zauberbarden I" verbilligt="0" fertigkeiten="Eigenschaften, Zaubermelodien" variableKosten="0" referenzseite="175" referenzbuch="0">Du entlockst deinem Instrument einen schrillen Klang, der für dein Ziel hundertfach verstärkt ist. Bis zu deiner nächsten Intitiativephase sind alle Proben des Ziels um -4 erschwert. Der schrille Klang wirkt nicht auf unheilige Wesen und Elementare.
+  <Talent name="Schriller Klang" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Zauberbarden I" verbilligt="0" fertigkeiten="Eigenschaften, Zaubermelodien" variableKosten="0" referenzseite="175" referenzbuch="0">Du entlockst deinem Instrument einen schrillen Klang, der für dein Ziel hundertfach verstärkt ist. Bis zu deiner nächsten Intitiativephase sind alle Proben des Ziels um -4 erschwert. Der schrille Klang wirkt nicht auf unheilige Wesen und Elementare.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Malus steigt um -2.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
