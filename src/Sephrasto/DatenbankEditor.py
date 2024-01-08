@@ -436,6 +436,7 @@ class DatenbankEditor(object):
     
         filter = self.filters[self.ui.tabWidget.currentIndex()]
         filter.setFilters(self.ui.nameFilterEdit.text(), statusses, fullText=self.ui.checkFullText.isChecked())
+        self.ui.labelNumResults.setText(f"{filter.rowCount()} Ergebnisse")
 
     def updateGUI(self):
         dbType = self.databaseTypesByIndex[self.ui.tabWidget.currentIndex()]
@@ -526,6 +527,7 @@ class DatenbankEditor(object):
 
         tableView.selectionModel().blockSignals(False)
         self.listSelectionChanged()
+        self.ui.labelNumResults.setText(f"{filter.rowCount()} Ergebnisse")
                
     def wiederherstellen(self):
         model = self.models[self.ui.tabWidget.currentIndex()]

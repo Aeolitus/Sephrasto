@@ -63,6 +63,11 @@ class Ui_Form(object):
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.labelNumResults = QLabel(self.centralwidget)
+        self.labelNumResults.setObjectName(u"labelNumResults")
+
+        self.horizontalLayout.addWidget(self.labelNumResults)
+
         self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.horizontalLayout.addItem(self.horizontalSpacer)
@@ -196,6 +201,7 @@ class Ui_Form(object):
         self.actionZusaetzlichOeffnen.setText(QCoreApplication.translate("Form", u"Zus\u00e4tzlich \u00f6ffnen", None))
         self.actionCharakterAssistent.setText(QCoreApplication.translate("Form", u"Charakter Assistent Auswahlm\u00f6glichkeiten", None))
         self.actionDBMergen.setText(QCoreApplication.translate("Form", u"Datenbank mergen und exportieren", None))
+        self.labelNumResults.setText(QCoreApplication.translate("Form", u"0 Ergebnisse", None))
 #if QT_CONFIG(tooltip)
         self.buttonHinzufuegen.setToolTip(QCoreApplication.translate("Form", u"Hinzuf\u00fcgen", None))
 #endif // QT_CONFIG(tooltip)
