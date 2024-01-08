@@ -14,7 +14,7 @@ class TalentDefinition:
     def __init__(self):
         # Serialized properties
         self.name = ''
-        self.text = ''
+        self.textSerialized = ''
         self.info = ''
         self.spezialTyp = -1
         self.kosten = 0
@@ -30,6 +30,7 @@ class TalentDefinition:
         # Derived properties after deserialization
         self.hauptfertigkeit = None
         self.anzeigename = ''
+        self.text = ''
         self.vorbereitungszeit = ""
         self.reichweite = ""
         self.wirkungsdauer = ""
@@ -42,6 +43,19 @@ class TalentDefinition:
         return self.__dict__ == other.__dict__
 
     def finalize(self, db):
+        def replaceReference(match):
+            name = match.group(1).strip()
+            if not name in db.talente:
+                return ""
+            ref = db.talente[name]
+            split = ref.text.split("\n")
+            result = []
+            for s in split:
+                if not s.startswith("Fertigkeiten:") and not s.startswith("<b>Fertigkeiten:</b>") and not s.startswith("Erlernen:") and not s.startswith("<b>Erlernen:</b>"):
+                    result.append(s)
+            return "\n".join(result)
+        self.text = re.sub("\$talent:(.*)\$", replaceReference, self.textSerialized, re.UNICODE)
+
         fertigkeitenResolved = []
         ferts = db.fertigkeiten
         if self.spezialTalent:
@@ -120,7 +134,7 @@ class TalentDefinition:
 
     def serialize(self, ser):
         ser.set('name', self.name)
-        ser.set('text', self.text)
+        ser.set('text', self.textSerialized)
         ser.set('voraussetzungen', self.voraussetzungen.text)
         if self.spezialTalent:
             ser.set('kosten', self.kosten)
@@ -141,7 +155,8 @@ class TalentDefinition:
 
     def deserialize(self, ser):
         self.name = ser.get('name')
-        self.text = ser.get('text')
+        self.textSerialized = ser.get('text')
+        self.text = self.textSerialized
         self.voraussetzungen.compile(ser.get('voraussetzungen', ''))
         self.kosten = ser.getInt('kosten')
         self.spezialTyp = ser.getInt('spezialTyp', self.spezialTyp)

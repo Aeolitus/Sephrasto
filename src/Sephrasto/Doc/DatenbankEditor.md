@@ -7,6 +7,8 @@ Mit einem Klick auf **Regelbasis bearbeiten** , öffnet sich ein neues Fenster m
 <br /><br />
 In der linken Hälfte kannst du den Element-Typ auswählen, den du bearbeiten möchtest. Die Liste in der rechten Hälfte, beinhaltet dann alle existierenden und gelöschten Elemente dieses Typs. Standardmäßig haben alle Elemente ein Buch-Icon - dieses steht dafür, dass die Elemente den RAW (rules as written) entsprechen und unerändert sind.
 <br /><br />
+In der Suchleiste kannst du nach Elementen suchen, die dein Suchwort (irgendwo) im Namen haben. Groß- und Kleinschreibung spielt hier keine Rolle. Dabei kannst du auch Wildcards verwenden (siehe Tooltip des Lupen-Icons oder https://docs.python.org/3/library/fnmatch.html). Wenn du einen Haken bei "Volltext" setzt, wird auch die Beschreibung der Elemente nach dem Suchwort durchforstet.
+<br /><br />
 Mit einem Klick auf "Datei" in der Menuleiste kannst du deine Hausregeln speichern oder andere laden. Sephrasto verwendet als Basis immer die mitgelieferte _datenbank.xml_, die im gleichen Ordner wie die _Sephrasto.exe_ abgelegt ist. Alle Änderungen, die du vornimmst, werden in einer separaten Hausregel-Datenbank - ebenfalls eine XML-Datei - gespeichert. Wenn du sie lädst, wird sie über die Basis-Datenbank "drüber" geladen. Diesen Vorgang kannst du mit "Zusätzlich öffnen" wiederholen und so die Daten aus mehreren Hausregel-Datenbanken kombinieren.
 <br /><br />
 Die Buttons in der unteren rechten Ecke erlauben es dir, neue Regeln zu erstellen, die ausgewählte Regel zu bearbeiten sowie Regeln zu duplizieren und zu löschen. Auch ein Doppelklick auf einen Listeneintrag bringt dich zum Bearbeitungsfenster. Du kannst auch mehrere Listeneinträge markieren um die entsprechende Aktion bei allen auf einmal anzuwenden.
@@ -72,7 +74,9 @@ Die Beschreibung wird sowohl im Charaktereditor angezeigt, als auch im Regelanha
   
 Bei Vorteilen und Talenten kannst du außerdem eine **Zusatzinfo** angeben, die im Charaktereditor nach der eigentlichen Beschreibung angezeigt wird. Dies kann Beispielsweise eine Erklärung sein, was der Nutzer in das Kommentarfeld eintragen soll.<br />
 <br />
-Ausschließlich bei Vorteilen kannst du zudem noch eine alternative Beschreibung für den **Regelanhang** angeben. Hier kannst du außerdem das Makro **$kommentar$** verwenden, um Sephrasto den Nutzerkommentar an entsprechender Stelle einfügen zu lassen (falls die Option aktiviert ist). Ebenso hast du bei Vorteilen noch die Möglichkeit **Bedingungen** für die Nutzung des Vorteils anzugeben, beispielsweise benötigte Waffen bei einem Kampfstil oder erforderliche Gesten usw. bei Zaubertraditionen. 
+Ausschließlich bei Vorteilen kannst du zudem noch eine alternative Beschreibung für den **Regelanhang** angeben. Hier kannst du außerdem das Makro **$kommentar$** verwenden, um Sephrasto den Nutzerkommentar an entsprechender Stelle einfügen zu lassen (falls die Option aktiviert ist). Ebenso hast du bei Vorteilen noch die Möglichkeit **Bedingungen** für die Nutzung des Vorteils anzugeben, beispielsweise benötigte Waffen bei einem Kampfstil oder erforderliche Gesten usw. bei Zaubertraditionen.<br />
+<br />
+Ausschließlich bei Talenten kannst du das Makro **$talent:Talentname** verwenden, um die Beschreibung eines anderen Talents einzufügen. Dabei werden Angaben zu Fertigkeiten und Erlernen herausgestrichen, da diese sich fast immer unterscheiden, selbst wenn zwei Talente einander entsprechen. Du kannst diese (und weitere) Angaben einfach in der Zeile nach dem Makro eintragen. Dies wird insbesondere bei den Tiergeist-Varianten der Zauber verwendet.<br />
 <br />
 ### Regelanhang auflisten (Vorteil, Talent)
 Wenn diese Option ausgeschaltet ist, wird das Element nicht im Regelanhang aufgeführt. Dies wird bei Talenten für Mirakel verwendet, deren Regeln repetetiv sind und separat als Element vom Typ Regel eingetragen werden. Ähnlich verhält es sich beispielsweise bei Vorteilen, die nur Manöver oder Modifikationen ermöglichen.

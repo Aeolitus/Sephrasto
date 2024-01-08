@@ -481,9 +481,7 @@ Liturgien sind um 2-8 Punkte erschwert, wenn ihr Einsatz gegen die Prinzipien de
   <Vorteil name="Tradition der Firungeweihten II" kosten="40" voraussetzungen="Attribut MU 6, Vorteil Tradition der Firungeweihten I" nachkauf="häufig" typ="7" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Firungeweihten I">Firungeweihte sind Einzelgänger. Liturgien, von denen nur sie profitieren, sind um +2 erleichtert.</Vorteil>
   <Vorteil name="Tradition der Firungeweihten III" kosten="60" voraussetzungen="Attribut MU 8, Vorteil Tradition der Firungeweihten II" nachkauf="häufig" typ="7" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Firungeweihten II" querverweise="Regel:Opferung (Firun)">Erlaubt die spontane Modifikation Opferung.</Vorteil>
   <Vorteil name="Tradition der Firungeweihten IV" kosten="80" voraussetzungen="MeisterAttribut MU 10, Vorteil Tradition der Firungeweihten III" nachkauf="häufig" typ="7" variableKosten="0" kommentar="1" csBeschreibung="Meisterschaft: $kommentar$." linkKategorie="3" linkElement="Tradition der Firungeweihten III" info="Mit einem Punkt kannst du eine Liturgie um +2 erleichtern (maximal +4) oder eine spontane Modifikation, außer Mächtige Liturgie, um +1 erleichtern (maximal +1). Weitere Vorteile wie ein Schutzsegen mit größerem Wirkungsbereich sind ebenfalls möglich, sollten (mitsamt ihren Kosten) aber mit dem Spielleiter und der Gruppe abgesprochen werden. Trage die Verbesserungen in das Kommentarfeld ein.">8 Punkte können zur Verbesserung der Tradition verwendet werden.</Vorteil>
-  <Vorteil name="Tradition der Hesindegeweihten I" kosten="20" voraussetzungen="Attribut KL 4, Vorteil Geweiht I, Kein Vorteil Tradition der *geweihten I" nachkauf="häufig" typ="7" variableKosten="0" kommentar="0" bedingungen="Sichtkontakt, Geste, gesprochenes oder gesungenes Gebet">
-
-Du kannst Liturgien in der Tradition der Hesindegeweihten erlernen und benutzen. Solche Liturgien findest du unter den allgemeinen Liturgien, unter Magie und Wissen (ab S. 187).
+  <Vorteil name="Tradition der Hesindegeweihten I" kosten="20" voraussetzungen="Attribut KL 4, Vorteil Geweiht I, Kein Vorteil Tradition der *geweihten I" nachkauf="häufig" typ="7" variableKosten="0" kommentar="0" bedingungen="Sichtkontakt, Geste, gesprochenes oder gesungenes Gebet">Du kannst Liturgien in der Tradition der Hesindegeweihten erlernen und benutzen. Solche Liturgien findest du unter den allgemeinen Liturgien, unter Magie und Wissen (ab S. 187).
 
 Liturgien sind um 2-8 Punkte erschwert, wenn ihr Einsatz gegen die Prinzipien des Geweihten verstößt.</Vorteil>
   <Vorteil name="Tradition der Hesindegeweihten II" kosten="40" voraussetzungen="Attribut KL 6, Vorteil Tradition der Hesindegeweihten I" nachkauf="häufig" typ="7" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Hesindegeweihten I">Hesindegeweihte können auch mit mehrfach veränderten Liturgien gut umgehen. Wird eine Liturgie mit mindestens zwei unterschiedlichen Basismodifikationen gewirkt, ist sie zusätzlich um +2 erleichtert.</Vorteil>
@@ -3720,8 +3718,7 @@ Permanenz (-4, 4 AsP, davon 1 gAsP, Wirkungsdauer bis die Bindung gelöst wird o
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Wasser
 &lt;b&gt;Erlernen:&lt;/b&gt; Geo 16; Mag 18; Dru 20; 40 EP</Talent>
-  <Talent name="Bindung des Dolches" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I" verbilligt="0" fertigkeiten="Dolchzauber, Kraft" variableKosten="0" referenzseite="156" referenzbuch="0">
-Du stellst eine enge magische Bindung zu deinem Ritualgegenstand (ein Dolch für Druiden, eine Sichel für Geoden) her, welche die Voraussetzung für alle weiteren Talente dieser Fertigkeit ist. Außerdem wird der Ritualgegenstand unzerbrechlich und gilt als magische Waffe.
+  <Talent name="Bindung des Dolches" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I" verbilligt="0" fertigkeiten="Dolchzauber, Kraft" variableKosten="0" referenzseite="156" referenzbuch="0">Du stellst eine enge magische Bindung zu deinem Ritualgegenstand (ein Dolch für Druiden, eine Sichel für Geoden) her, welche die Voraussetzung für alle weiteren Talente dieser Fertigkeit ist. Außerdem wird der Ritualgegenstand unzerbrechlich und gilt als magische Waffe.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Stunden
 &lt;b&gt;Ziel:&lt;/b&gt; Ritualgegenstand
@@ -4073,405 +4070,54 @@ Du stellst eine enge magische Bindung zu deinem Ritualgegenstand (ein Dolch für
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Verwandlung, Gaben des Odun
 &lt;b&gt;Erlernen:&lt;/b&gt; Dur 16; normalerweise 40 EP
 &lt;b&gt;Anmerkung:&lt;/b&gt; Die Lernkosten des Zaubers orientieren sich an der Tierart, wobei fliegende, giftige, sehr starke usw. Tiere teurer sind.</Talent>
-  <Talent name="Abvenenum reine Speise (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Wildschwein)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="153" referenzbuch="0">Du reinigst eine Mahlzeit für 10 Personen von Verfallserscheinungen, Giften und Krankheitserregern, bis zu einer Gift-/Krankheitsstufe von 20. Der Geschmack ändert sich nicht.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Die maximal aufgehobene Gift-/Krankheitsstufe steigt um 4.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Schutz vor Übelkeit (-4; auch ungefährliche, aber unangenehme Inhalte wie Salz im Meerwasser werden entfernt.)
-Schutz vor Vergiftung (-4, Wirkungsdauer 8 Stunden; du reinigst auch alles, was dem Essen hinzugefügt wird.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelobjekte
-&lt;b&gt;Reichweite:&lt;/b&gt; 2 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Adlerauge Luchsenohr (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Falke) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">Du schärfst deine Sinne auf magische Weise. Alle Proben auf Sinnenschärfe und Wachsamkeit sind um +4 erleichtert.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Einzelsinn (-4, Wirkungsdauer 1 Stunde; nur ein Sinn ist betroffen.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Aeropulvis sanfter Fall (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Falke)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="147" referenzbuch="0">Halbiert die effektive Höhe eines Sturzes oder Sprunges (kumulativ zur Akrobatik-Probe).
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Armatrutz (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Mammut)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">Der RS deines Zieles steigt um 1.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Je zwei Stufen verleihen +1 RS.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Körperschild (-4, 1 AsP; der Armatrutz schützt nur eine Trefferzone.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Aktion
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Atemnot (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">Du entziehst dem Opfer einen Teil seiner Kraft. Es erleidet 2 Punkte Erschöpfung. Du regenerierst die Hälfte der angerichteten Erschöpfung.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Verursacht 1 weiteren Punkt Erschöpfung.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; 4 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Attributo (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Affe) ODER Vorteil Tiergeist (Fuchs) ODER Vorteil Tiergeist (Mungo) ODER Vorteil Tiergeist (Stier)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">Wähle ein Attribut aus. Proben auf dieses Attribut sind um +2, Fertigkeitsproben mit diesem Attribut um +1 erleichtert.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2/+1.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Axxeleratus Blitzgeschwind (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Affe) ODER Vorteil Tiergeist (Falke) ODER Vorteil Tiergeist (Gebirgsbock) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">Die GS deines Zieles erhöht sich um +4 und alle AT und VT sind um +2 erleichtert, Ausweichen um weitere +2.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Die GS steigt um weitere +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; 4 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Blick aufs Wesen (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="140" referenzbuch="0">Der Zauber offenbart dir die Fertigkeiten deines Ziels. Du erhältst einen groben Eindruck von seinen körperlichen, geistigen, handwerklichen, kämpferischen und zauberischen Fähigkeiten.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Du erfährst auch besonders hohe Fertigkeiten/markante Vorteile/Eigenheiten/Vorlieben und Vorgehen.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
-&lt;b&gt;Modifikationen:&lt;/b&gt; Leuchtende Persönlichkeit (-4; du erkennst in einer Gruppe von bis zu 8 Personen diejenige, die in einem von dir gewählten Bereich am meisten heraussticht. Durch eine &lt;i&gt;Konterprobe&lt;/i&gt; (MR, 16) können sich die Personen vor der Entdeckung schützen.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 16 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelwesen
-&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Bärenruhe Winterschlaf (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Bär)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="153" referenzbuch="0">Du versetzt dein Ziel in einen tiefen Winterschlaf. Während des Schlafes benötigt es keine Nahrung, und kein Wasser. Gifte, Krankheiten und Kälte fügen ihm keinen Schaden zu. Dafür regeneriert es auch nicht.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Der lange Schlaf (-4, Wirkungsdauer 1 Monat, 16 AsP)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelwesen
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Tag
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Eins mit der Natur (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Fischotter) ODER Vorteil Tiergeist (Gebirgsbock) ODER Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther) ODER Vorteil Tiergeist (Wildschwein) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Das Ziel kann in der Wildnis kann es natürliche Gefahren wie mit der Gabe Gefahreninstinkt erahnen. Beherrscht es die Gabe bereits, sind damit verbundene Proben um +4 erleichtert. Wirkt nicht unter der Erde, auf dem Meer oder in dämonisch pervertiertem Gebiet.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Überleben-Proben sind um +2 erleichtert.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Tag
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Eiseskälte Kämpferherz (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Bär)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Das Ziel empfindet keinerlei Schmerzen mehr. Es erhält den Vorteil Kalte Wut (S. 43). Proben zum Ignorieren von Wundschmerz sind um +4 erleichtert.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Exposami Lebenskraft (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="141" referenzbuch="0">Du nimmst Lebewesen als grün leuchtende Flecken wahr. Der Zauber kann alle Elemente bis auf Erz und Eis durchdringen.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Du kannst Angehörige verschiedener Spezies/verschiedene Individuen unterscheiden und wiedererkennen.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Reinheit der Aura (-8; der Zauber zeigt den Gesundheitszustand des Ziels, dämonische Verseuchungen usw.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Aktion
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; 16 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 8 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Falkenauge Meisterschuss (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Falke)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Dein nächster Fernkampfangriff ist um +4 erleichtert.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Dauerndes Band (-8, 8 AsP; der Zauber wirkt auf alle Fernkampfangriffe während der Wirkungsdauer.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Aktion
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 8 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Firnlauf (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Gebirgsbock)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Jede noch so dünne Eis- oder Schneeschicht trägt dich wie trockener Boden. Unter diesen Bedingungen erleidest du keinerlei Erschwernisse oder Geschwindigkeitsabzüge.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Verankerung (-4, 2 AsP; du verankerst dich so auf einer Eisfläche, dass du selbst dann nicht stürzt, wenn sie in bedrohliche Schieflage oder schnelle Bewegung gerät.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Foramen Foraminor (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Fischotter)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="150" referenzbuch="0">Du öffnest ein Schloss beliebiger Bauart.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Herstellungsschwierigkeit des Schlosses
-&lt;b&gt;Modifikationen:&lt;/b&gt; Riegel (-4, 8 AsP; auch ein schwerer Riegel wie an einem Stadttor kann hiermit geöffnet werden.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelobjekt
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Harmlose Gestalt (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Fuchs) ODER Vorteil Tiergeist (Mungo)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="133" referenzbuch="0">Mit dieser &lt;i&gt;Illusion&lt;/i&gt; (Sicht, Gehör, Geruch) erscheinst du den Umstehenden als kleines Kind, alter Krüppel, Orkfrau oder als eine andere harmlose Gestalt. Deine Kleidung ist von der Illusion betroffen, zusätzliche Gegenstände wie ein Wanderstab oder ein Rucksack nicht. Erlaubt &lt;i&gt;Aufrechterhalten&lt;/i&gt;.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Hexenkrallen (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Deine Fingernägel werden lang, scharf und hart wie Raubtierklauen. Deine Hände richten 2W6 Waffenschaden an und verlieren die Eigenschaft Zerbrechlich.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Erhöht den Schaden um +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Hilfreiche Tatze, rettende Schwinge (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Fischotter)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="134" referenzbuch="0">Du wählst eine Tierart. Befindet sich ein Tier dieser Art in einem Radius von 1 Meile, eilt es herbei. Du kannst das Tier um einen Gefallen bitten, den dieses wenn möglich erfüllen wird. Dann trollt sich das Tier.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Verdoppelt den Radius.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Zone
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Horriphobus Schreckgestalt (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Stier)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="134" referenzbuch="0">Dein Opfer hat schreckliche Angst vor dir und erleidet einen Furcht-Effekt Stufe 2.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Furcht-Effekt steigt um eine Stufe.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelwesen
-&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Katzenaugen (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Fischotter) ODER Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Du ignorierst eine Stufe Dunkelheit, aber grelles Licht erschwert alle Proben um -2. Bei absoluter Dunkelheit ist der Zauber wirkungslos.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Du ignorierst 2/3 Stufen Dunkelheit.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Krähenruf (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="134" referenzbuch="0">Du rufst einen Krähenschwarm aus bis zu 100 Meilen Entfernung zur Hilfe, der sofort erscheint und an deiner Seite kämpft (WS 3, Koloss I, INI 6, GS 8, VT 3, RW 2, AT 10, TP 2W6-2, Zusätzliche AT I).
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; WS, AT und TP des Schwarms steigen um je +1.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Zone
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Krötensprung (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Der nächste Sprung deines Zieles ist gewaltig. Er kann bis zu 8 Schritt Weite und 4 Schritt Höhe überwinden und die effektive Sturzhöhe (S. 35) sinkt um 4 Schritt.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Die Weite steigt um +4 Schritt,  die (Sturz-)Höhe um +2 Schritt.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Krötengang (-4, Wirkungsdauer 16 Initiativephasen, 8 AsP; dein Ziel kann beliebig oft springen.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Kusch! (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Mammut) ODER Vorteil Tiergeist (Wildschwein) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="134" referenzbuch="0">Das verzauberte Tier flieht vor dir.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
-&lt;b&gt;Modifikationen:&lt;/b&gt; Schrecken des Schwarms (-4; du verscheuchst einen Schwarm Kleintiere.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; einzelnes Tier
-&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Memorans Gedächtniskraft (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Elefant) ODER Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Du kannst dir sämtliche Bilder, Schriftstücke, Inschriften und ähnliches für immer einprägen. Eine Seite eines Buches kostet dich etwa eine Minute.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Drachengedächtnis (-8, Wirkungsdauer 16 Initiativephasen; alles, was du während der Wirkungsdauer siehst, ist dir für immer ins Gedächtnis gebrannt.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; 4 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Motoricus Geisterhand (Tiergeist)" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tiergeist (Affe)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="151" referenzbuch="0">Du kannst einen Gegenstand mit einer KK von 2 anheben und mit maximal 4 Schritt pro Initiativephase durch die Luft fliegen lassen. Besonders komplizierte und feine Bewegungen sind um bis zu 8 Punkte erschwert. Erfordert &lt;i&gt;Konzentration&lt;/i&gt;.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Erhöht KK und die Schritte pro Initiativephase um +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Unsichtbarer Hieb (Wirkungsdauer augenblicklich; der Zauber fügt einem Objekt 2W6 SP zu. Mächtige Magie erhöht den Schaden um +4.)
-Magische Abwehr (-4, wird in einer Reaktion gewirkt, Wirkungsdauer augenblicklich; die Zauberprobe gilt als VT gegen einen Nahkampfangriff in Reichweite.)
-Fesselfeld (-8, 32 AsP; in einer Zone von 4 Schritt Radius wird die Bewegung jedes unbelebten Objekts mit einer KK von 2 behindert, was Kampfhandlungen mit Waffen fast unmöglich macht.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Aktion
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelobjekt
-&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Movimento Dauerlauf (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">Verdoppelt das DH* (S. 34) des Ziels und das Intervall, in dem körperliche Anstrengung Erschöpfung verursacht.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Je zwei Stufen verdreifachen/vervierfachen das DH* und das Intervall.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelwesen
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 8 Stunden
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Nekropathia Seelenreise (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="152" referenzbuch="0">Du nimmst Kontakt mit einer Seele in Borons Hallen auf. Du kannst mit ihr sprechen, doch es bleibt ihr überlassen, ob und wie sie antwortet. Der Tod der Person darf maximal 1 Jahr zurückliegen und du benötigst einen persönlichen Gegenstand.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Verzehnfacht den Abstand zum Todeszeitpunkt.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelobjekt
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Pfeil der Luft (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Falke)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="148" referenzbuch="0">Du verzauberst einen Pfeil (oder Bolzen oder Wurfwaffe), sodass er im Flug die Macht des Elements freisetzt. Der Pfeil verursacht Luftschaden und &lt;i&gt;Zurückstoßen&lt;/i&gt; (S. 98). Die Reichweite für diesen Schuss ist verdoppelt.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Geschütz (-4; du verzauberst ein größeres Geschoss wie das einer Balliste.)
-Permanenz (-4, 4 AsP, davon 1 gAsP, Wirkungsdauer bis die Bindung gelöst wird oder der Pfeil verschossen wurde)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Aktion
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelobjekt
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 8 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Psychostabilis (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Elefant) ODER Vorteil Tiergeist (Mammut) ODER Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="127" referenzbuch="0">Magieresistenz-Proben des Ziels sind um +4 erleichtert.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Erhöht den Bonus um +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Schnellsteigerung (-4; Wirkungsdauer 16 Initiativephasen; verdoppelt die Erleichterung.)
-Stabilisierung (-8; das Ziel darf sofort eine MR-Probe gegen einen auf es wirkenden Zauber wiederholen. Gelingt sie, wird dieser Zauber für die Wirkungsdauer des Psychostabilis unterdrückt.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Ruhe Körper, Ruhe Geist (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Bär)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="143" referenzbuch="0">Dein Ziel sinkt in einen tiefen Schlaf, aus dem es nur mit Gewalt geweckt werden kann. Wird es nicht vorzeitig geweckt, regeneriert es zwei zusätzliche Wunden.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Regeneriert eine weitere Wunde.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 16 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 8 Stunden
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Sanftmut (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Bär)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="135" referenzbuch="0">Das verzauberte Tier verliert seine Angriffslust, solange es nicht angegriffen oder gereizt wird.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Die Lethargie hält sogar dann, wenn das Tier gereizt/leicht verletzt/schwer verletzt wird.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Aktion
-&lt;b&gt;Ziel:&lt;/b&gt; Tier
-&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Seelentier erkennen (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Elefant)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="141" referenzbuch="0">Du erkennst das Seelentier deines Zieles. Wenn dir das Tier und seine assoziierten Eigenschaften bekannt sind, erleichtert dir das alle künftigen gesellschaftlichen Proben dem Ziel gegenüber um +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; 4 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Seidenzunge Elfenwort (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Fuchs) ODER Vorteil Tiergeist (Mungo)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="135" referenzbuch="0">Das Ziel denkt nicht zu genau über deine Worte nach und findet dich überzeugend. Alle Überreden-Proben gegen dein Ziel sind um +4 erleichtert.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Aktion
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; 4 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Sensattaco Meisterstreich (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Stier)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Dein Ziel erkennt intuitiv die Lücken in der Verteidigung des Gegners. Seine AT sind um +2 erleichtert und seine Chance auf einen Triumph bei einer AT steigt um 1 auf dem W20 (zum Beispiel von 20 auf 19-20).
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +1.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Aktion
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Sensibar Empathicus (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Eule) ODER Vorteil Tiergeist (Fuchs) ODER Vorteil Tiergeist (Mungo) ODER Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="141" referenzbuch="0">Du kannst die Gefühle deines Gegenübers erahnen, wodurch deine Menschenkenntnis gegen das Ziel um +4 steigt.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; 4 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Serpentialis Schlangenleib (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="154" referenzbuch="0">Deine Arme verwandeln sich in grüne, 2 Schritt lange Giftschlangen, deren hinteres Ende noch mit deinem Rumpf verbunden ist. Die Schlangen können beide in einer Aktion Konflikt angreifen (WS 3, VT 10, RW 2, AT 10, TP 2W6) und ein Waffengift übertragen (Stufe 20, keine Verzögerung, Intervall 2 INI-Phasen, Wirkungsdauer 2 INI-Phasen, 2W6 SP).
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Die WS der Schlangen steigt um +1, AT, VT und TP um +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Schlangengriff (Wirkungsdauer 4 Minuten, 4 AsP; die Arme verwandeln sich in kampfunfähige, aber geschickte Nattern, deren FF gleich deiner ist.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 16 AsP</Talent>
-  <Talent name="Silentium Schweigekreis (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="151" referenzbuch="0">Der Zauber dämpft alle Geräusche in einer Kugel mit 2 Schritt Radius. Entsprechende Wahrnehmungs-Proben sind um -4 erschwert.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Malus steigt um -2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Begleiter (-4; die Kugel bewegt sich mit dir.)
-Fremdbegleiter (-8; die Kugel bewegt sich mit einem Einzelwesen.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Zone
-&lt;b&gt;Reichweite:&lt;/b&gt; 2 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Spinnenlauf (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Gebirgsbock)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Deine Hände und Füße haften an Oberflächen, sodass du mit GS 1 an glatten Wänden und sogar Decken ohne Griffen klettern kannst. Erlaubt &lt;i&gt;Aufrechterhalten&lt;/i&gt;.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Erhöht die GS um +1.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Spurlos Trittlos (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="151" referenzbuch="0">Du tarnst deine Fährte mit Magie. Alle Proben zur Verfolgung deiner Fährte sind um -4 erschwert.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Malus steigt um -2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Andere Person (-4, Ziel Einzelperson)
-Zone (-4, Zone, 16 AsP; der Zauber betrifft alle in einem Radius von 4 Schritt.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Standfest Katzengleich (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Bär) ODER Vorteil Tiergeist (Gebirgsbock) ODER Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Stier) ODER Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther) ODER Vorteil Tiergeist (Wildschwein)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Deine Geschicklichkeit erhöht sich. Alle Proben, um auf den Beinen zu bleiben, sind um +4 erleichtert und deine Patzerchance im Kampf sinkt um 1 auf dem W20.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Vipernblick (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="136" referenzbuch="0">Du erscheinst deinem Opfer als grauenvolle Gestalt aus den Niederhöllen. Es kann nicht wegsehen und ist vor Angst handlungsunfähig. Wird der Sichtkontakt unterbrochen, endet der Zauber.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
-&lt;b&gt;Modifikationen:&lt;/b&gt; Fremdgestalt (-4; du kannst eine andere Person wählen, die als Alpgestalt erscheint.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelwesen
-&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Kosten:&lt;/b&gt; 16 AsP</Talent>
-  <Talent name="Warmes Blut (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Durch diesen Zauber siehst du die Wärmestrahlung deiner Umgebung. Kaltes erscheint schwarz bis grünblau, Warmblüter sind gelb und Feuer ist orange bis tiefrot.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Wasseratem (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Fischotter)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="155" referenzbuch="0">Du kannst unter Wasser atmen, jedoch nicht mehr an Land. Erlaubt &lt;i&gt;Aufrechterhalten&lt;/i&gt;.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 16 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP</Talent>
-  <Talent name="Wellenlauf (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Fischotter)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Wasser ist für dich ein fester Untergrund. Du erleidest keine Abzüge durch ungünstige Position und wirst nicht durch Wellen und Strömungen beeinflusst. Erlaubt &lt;i&gt;Aufrechterhalten&lt;/i&gt;.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Sinken (-4; du kannst die Zauberwirkung nach Belieben unterdrücken und wieder aktiv werden lassen. Bei Aktivierung unter Wasser wirst du an die Wasseroberfläche gehoben.)
-Wasserwand (-8; du kannst selbst an Wasserfällen hochklettern, wofür einfache Klettern-Proben anfallen.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Wipfellauf (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Affe) ODER Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Du kannst dich durch Baumkronen und Unterholz bewegen, als wären sie eine normale Straße. Unter diesen Bedingungen erleidest du keinerlei Erschwernisse oder Geschwindigkeitsabzüge.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Kopfüber (-8; du kannst selbst kopfüber an Bäumen laufen.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 16 AsP</Talent>
-  <Talent name="Xenographus Schriftenkunde (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Elefant)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="142" referenzbuch="0">Du kannst den Sinn eines geschriebenen Satzes verstehen, auch wenn du Schrift und Sprache nicht kennst.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Verdoppelt die Anzahl der Sätze.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelobjekt
-&lt;b&gt;Reichweite:&lt;/b&gt; 4 Schritt
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Zaubernahrung Hungerbann (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Bär) ODER Vorteil Tiergeist (Mammut) ODER Vorteil Tiergeist (Wildschwein)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">Für einen Tag spürst du keinerlei Hunger und die Kraft des Zaubers ernährt dich. Du musst spätestens vor vier Tagen echtes Essen zu dir genommen haben.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Die letzte echte Mahlzeit kann bis zu zwei Tage länger her sein.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Durstbann (-4, 8 AsP; auch jeglicher Durst wird vom Zauber gestillt.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Minuten
-&lt;b&gt;Ziel:&lt;/b&gt; selbst
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Tag
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
-  <Talent name="Ängste lindern (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Mammut)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="133" referenzbuch="0">Auf dem Ziel lastende Furcht-Effekte sinken um eine Stufe.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
-&lt;b&gt;Kosten:&lt;/b&gt; 4 AsP</Talent>
+  <Talent name="Abvenenum reine Speise (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Wildschwein)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="153" referenzbuch="0">$talent:Abvenenum reine Speise$</Talent>
+  <Talent name="Adlerauge Luchsenohr (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Falke) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">$talent:Adlerauge Luchsenohr$</Talent>
+  <Talent name="Aeropulvis sanfter Fall (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Falke)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="147" referenzbuch="0">$talent:Aeropulvis sanfter Fall$</Talent>
+  <Talent name="Armatrutz (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Mammut)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">$talent:Armatrutz$</Talent>
+  <Talent name="Atemnot (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">$talent:Atemnot$</Talent>
+  <Talent name="Attributo (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Affe) ODER Vorteil Tiergeist (Fuchs) ODER Vorteil Tiergeist (Mungo) ODER Vorteil Tiergeist (Stier)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">$talent:Attributo$</Talent>
+  <Talent name="Axxeleratus Blitzgeschwind (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Affe) ODER Vorteil Tiergeist (Falke) ODER Vorteil Tiergeist (Gebirgsbock) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">$talent:Axxeleratus Blitzgeschwind$</Talent>
+  <Talent name="Blick aufs Wesen (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="140" referenzbuch="0">$talent:Blick aufs Wesen$</Talent>
+  <Talent name="Bärenruhe Winterschlaf (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Bär)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="153" referenzbuch="0">$talent:Bärenruhe Winterschlaf$</Talent>
+  <Talent name="Eins mit der Natur (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Fischotter) ODER Vorteil Tiergeist (Gebirgsbock) ODER Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther) ODER Vorteil Tiergeist (Wildschwein) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">$talent:Eins mit der Natur$</Talent>
+  <Talent name="Eiseskälte Kämpferherz (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Bär)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">$talent:Eiseskälte Kämpferherz$</Talent>
+  <Talent name="Exposami Lebenskraft (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="141" referenzbuch="0">$talent:Exposami Lebenskraft$</Talent>
+  <Talent name="Falkenauge Meisterschuss (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Falke)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">$talent:Falkenauge Meisterschuss$</Talent>
+  <Talent name="Firnlauf (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Gebirgsbock)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">$talent:Firnlauf$</Talent>
+  <Talent name="Foramen Foraminor (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Fischotter)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="150" referenzbuch="0">$talent:Foramen Foraminor$</Talent>
+  <Talent name="Harmlose Gestalt (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Fuchs) ODER Vorteil Tiergeist (Mungo)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="133" referenzbuch="0">$talent:Harmlose Gestalt$</Talent>
+  <Talent name="Hexenkrallen (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">$talent:Hexenkrallen$</Talent>
+  <Talent name="Hilfreiche Tatze, rettende Schwinge (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Fischotter)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="134" referenzbuch="0">$talent:Hilfreiche Tatze, rettende Schwinge$</Talent>
+  <Talent name="Horriphobus Schreckgestalt (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Stier)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="134" referenzbuch="0">$talent:Horriphobus Schreckgestalt$</Talent>
+  <Talent name="Katzenaugen (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Fischotter) ODER Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">$talent:Katzenaugen$</Talent>
+  <Talent name="Krähenruf (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="134" referenzbuch="0">$talent:Krähenruf$</Talent>
+  <Talent name="Krötensprung (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">$talent:Krötensprung$</Talent>
+  <Talent name="Kusch! (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Mammut) ODER Vorteil Tiergeist (Wildschwein) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="134" referenzbuch="0">$talent:Kusch!$</Talent>
+  <Talent name="Memorans Gedächtniskraft (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Elefant) ODER Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">$talent:Memorans Gedächtniskraft$</Talent>
+  <Talent name="Motoricus Geisterhand (Tiergeist)" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tiergeist (Affe)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="151" referenzbuch="0">$talent:Motoricus Geisterhand$</Talent>
+  <Talent name="Movimento Dauerlauf (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="131" referenzbuch="0">$talent:Movimento Dauerlauf$</Talent>
+  <Talent name="Nekropathia Seelenreise (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="152" referenzbuch="0">$talent:Nekropathia Seelenreise$</Talent>
+  <Talent name="Pfeil der Luft (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Falke)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="148" referenzbuch="0">$talent:Pfeil der Luft$</Talent>
+  <Talent name="Psychostabilis (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Elefant) ODER Vorteil Tiergeist (Mammut) ODER Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="127" referenzbuch="0">$talent:Psychostabilis$</Talent>
+  <Talent name="Ruhe Körper, Ruhe Geist (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Bär)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="143" referenzbuch="0">$talent:Ruhe Körper, Ruhe Geist$</Talent>
+  <Talent name="Sanftmut (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Bär)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="135" referenzbuch="0">$talent:Sanftmut$</Talent>
+  <Talent name="Seelentier erkennen (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Elefant)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="141" referenzbuch="0">$talent:Seelentier erkennen$</Talent>
+  <Talent name="Seidenzunge Elfenwort (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Fuchs) ODER Vorteil Tiergeist (Mungo)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="135" referenzbuch="0">$talent:Seidenzunge Elfenwort$</Talent>
+  <Talent name="Sensattaco Meisterstreich (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Stier)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">$talent:Sensattaco Meisterstreich$</Talent>
+  <Talent name="Sensibar Empathicus (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Eule) ODER Vorteil Tiergeist (Fuchs) ODER Vorteil Tiergeist (Mungo) ODER Vorteil Tiergeist (Rabe)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="141" referenzbuch="0">$talent:Sensibar Empathicus$</Talent>
+  <Talent name="Serpentialis Schlangenleib (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="154" referenzbuch="0">$talent:Serpentialis Schlangenleib$</Talent>
+  <Talent name="Silentium Schweigekreis (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Eule)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="151" referenzbuch="0">$talent:Silentium Schweigekreis$</Talent>
+  <Talent name="Spinnenlauf (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Gebirgsbock)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">$talent:Spinnenlauf$</Talent>
+  <Talent name="Spurlos Trittlos (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther) ODER Vorteil Tiergeist (Wolf) ODER Vorteil Tiergeist (Khoramsbestie)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="151" referenzbuch="0">$talent:Spurlos Trittlos$</Talent>
+  <Talent name="Standfest Katzengleich (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Bär) ODER Vorteil Tiergeist (Gebirgsbock) ODER Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Stier) ODER Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther) ODER Vorteil Tiergeist (Wildschwein)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">$talent:Standfest Katzengleich$</Talent>
+  <Talent name="Vipernblick (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="136" referenzbuch="0">$talent:Vipernblick$</Talent>
+  <Talent name="Warmes Blut (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Schlange)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">$talent:Warmes Blut$</Talent>
+  <Talent name="Wasseratem (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Fischotter)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="155" referenzbuch="0">$talent:Wasseratem$</Talent>
+  <Talent name="Wellenlauf (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Fischotter)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">$talent:Wellenlauf$</Talent>
+  <Talent name="Wipfellauf (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Affe) ODER Vorteil Tiergeist (Wildkatze) ODER Vorteil Tiergeist (Panther)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">$talent:Wipfellauf$</Talent>
+  <Talent name="Xenographus Schriftenkunde (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Elefant)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="142" referenzbuch="0">$talent:Xenographus Schriftenkunde$</Talent>
+  <Talent name="Zaubernahrung Hungerbann (Tiergeist)" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tiergeist (Bär) ODER Vorteil Tiergeist (Mammut) ODER Vorteil Tiergeist (Wildschwein)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="132" referenzbuch="0">$talent:Zaubernahrung Hungerbann$</Talent>
+  <Talent name="Ängste lindern (Tiergeist)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tiergeist (Löwe) ODER Vorteil Tiergeist (Mammut)" verbilligt="0" fertigkeiten="Gaben des Odun, Gaben des Blutgeists" variableKosten="0" kommentar="0" referenzseite="133" referenzbuch="0">$talent:Ängste lindern$</Talent>
   <Talent name="Arngrimms Höhle" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Feuer, Geister der Stärkung, Umwelt" variableKosten="0" referenzseite="162" referenzbuch="0">In einem abgeschlossenen Raum wie einer Jurte oder einer kleinen Höhle steigt die Temperaturstufe (S. 35) um +1, bis maximal auf normal.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Für je zwei Stufen steigt die Temperaturstufe um weitere +1.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
