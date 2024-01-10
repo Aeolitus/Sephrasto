@@ -113,7 +113,7 @@ class Ui_dialog(object):
         self.spinSF.setObjectName(u"spinSF")
         self.spinSF.setButtonSymbols(QAbstractSpinBox.PlusMinus)
         self.spinSF.setMinimum(1)
-        self.spinSF.setMaximum(99)
+        self.spinSF.setMaximum(999)
         self.spinSF.setSingleStep(1)
         self.spinSF.setValue(2)
 

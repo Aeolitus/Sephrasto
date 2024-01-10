@@ -86,10 +86,24 @@
         </widget>
        </item>
        <item>
-        <widget class="QSpinBox" name="spinText"/>
+        <widget class="QSpinBox" name="spinText">
+         <property name="minimum">
+          <number>-99999</number>
+         </property>
+         <property name="maximum">
+          <number>99999</number>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QDoubleSpinBox" name="dspinText"/>
+        <widget class="QDoubleSpinBox" name="dspinText">
+         <property name="minimum">
+          <double>-99999.000000000000000</double>
+         </property>
+         <property name="maximum">
+          <double>99999.000000000000000</double>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QPlainTextEdit" name="teText"/>
@@ -118,7 +132,7 @@
         <string notr="true">background-color: rgb(255, 255, 0); color: black;</string>
        </property>
        <property name="text">
-        <string></string>
+        <string/>
        </property>
        <property name="wordWrap">
         <bool>true</bool>

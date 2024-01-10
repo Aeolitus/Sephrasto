@@ -114,7 +114,7 @@
         <string notr="true">background-color: rgb(255, 255, 0); color: black;</string>
        </property>
        <property name="text">
-        <string></string>
+        <string/>
        </property>
        <property name="wordWrap">
         <bool>true</bool>
@@ -181,7 +181,7 @@
           <number>1</number>
          </property>
          <property name="maximum">
-          <number>99</number>
+          <number>999</number>
          </property>
          <property name="singleStep">
           <number>1</number>

@@ -75,6 +75,7 @@ class Ui_dialog(object):
         self.spinSF.setMinimumSize(QSize(52, 0))
         self.spinSF.setButtonSymbols(QAbstractSpinBox.PlusMinus)
         self.spinSF.setMinimum(1)
+        self.spinSF.setMaximum(999)
         self.spinSF.setValue(16)
 
         self.horizontalLayout.addWidget(self.spinSF)
@@ -153,6 +154,12 @@ class Ui_dialog(object):
 
         self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 1, 1)
 
+        QWidget.setTabOrder(self.leName, self.leAnzeigeName)
+        QWidget.setTabOrder(self.leAnzeigeName, self.spinSF)
+        QWidget.setTabOrder(self.spinSF, self.spinSortOrder)
+        QWidget.setTabOrder(self.spinSortOrder, self.tabWidget)
+        QWidget.setTabOrder(self.tabWidget, self.teBeschreibung)
+        QWidget.setTabOrder(self.teBeschreibung, self.tbBeschreibung)
 
         self.retranslateUi(dialog)
         self.buttonBox.accepted.connect(dialog.accept)

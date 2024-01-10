@@ -12,6 +12,7 @@ from Core.Fertigkeit import KampffertigkeitTyp
 from Core.Waffe import WaffeDefinition
 import CharakterEquipmentWrapper
 import copy
+from Hilfsmethoden import Hilfsmethoden
 
 class WaffenPicker(object):
     def __init__(self,waffe=None):

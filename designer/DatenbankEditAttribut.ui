@@ -88,6 +88,9 @@
          <property name="minimum">
           <number>1</number>
          </property>
+         <property name="maximum">
+          <number>999</number>
+         </property>
          <property name="value">
           <number>16</number>
          </property>
@@ -205,7 +208,7 @@
         <string notr="true">background-color: rgb(255, 255, 0); color: black;</string>
        </property>
        <property name="text">
-        <string></string>
+        <string/>
        </property>
        <property name="wordWrap">
         <bool>true</bool>
@@ -225,6 +228,12 @@
  </widget>
  <tabstops>
   <tabstop>leName</tabstop>
+  <tabstop>leAnzeigeName</tabstop>
+  <tabstop>spinSF</tabstop>
+  <tabstop>spinSortOrder</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>teBeschreibung</tabstop>
+  <tabstop>tbBeschreibung</tabstop>
  </tabstops>
  <resources/>
  <connections>

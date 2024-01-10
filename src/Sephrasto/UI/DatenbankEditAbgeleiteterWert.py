@@ -171,6 +171,15 @@ class Ui_dialog(object):
 
         self.gridLayout_2.addWidget(self.buttonBox, 1, 0, 1, 1)
 
+        QWidget.setTabOrder(self.leName, self.leAnzeigeName)
+        QWidget.setTabOrder(self.leAnzeigeName, self.checkShow)
+        QWidget.setTabOrder(self.checkShow, self.spinSortOrder)
+        QWidget.setTabOrder(self.spinSortOrder, self.tabWidget)
+        QWidget.setTabOrder(self.tabWidget, self.teBeschreibung)
+        QWidget.setTabOrder(self.teBeschreibung, self.leFormel)
+        QWidget.setTabOrder(self.leFormel, self.leScript)
+        QWidget.setTabOrder(self.leScript, self.leFinalscript)
+        QWidget.setTabOrder(self.leFinalscript, self.tbBeschreibung)
 
         self.retranslateUi(dialog)
         self.buttonBox.accepted.connect(dialog.accept)

@@ -157,7 +157,7 @@ class VoraussetzungenListe:
 
                     try:
                         wert = int(strpItm[index+2:]) if len(strpItm) -1 > index else -1
-                        arrItm = Voraussetzung("F", name, str(wert))
+                        arrItm = Voraussetzung("F", name, wert)
                     except ValueError:
                         raise VoraussetzungException("Der angegebene Fertigkeitswert '" + strpItm[index+2:] + "' ist keine gültige Zahl")
                 else:

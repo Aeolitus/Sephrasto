@@ -105,7 +105,7 @@
         <string notr="true">background-color: rgb(255, 255, 0); color: black;</string>
        </property>
        <property name="text">
-        <string></string>
+        <string/>
        </property>
        <property name="wordWrap">
         <bool>true</bool>
@@ -244,6 +244,15 @@
  </widget>
  <tabstops>
   <tabstop>leName</tabstop>
+  <tabstop>leAnzeigeName</tabstop>
+  <tabstop>checkShow</tabstop>
+  <tabstop>spinSortOrder</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>teBeschreibung</tabstop>
+  <tabstop>leFormel</tabstop>
+  <tabstop>leScript</tabstop>
+  <tabstop>leFinalscript</tabstop>
+  <tabstop>tbBeschreibung</tabstop>
  </tabstops>
  <resources/>
  <connections>

@@ -74,11 +74,15 @@ class Ui_dialog(object):
 
         self.spinText = QSpinBox(dialog)
         self.spinText.setObjectName(u"spinText")
+        self.spinText.setMinimum(-99999)
+        self.spinText.setMaximum(99999)
 
         self.verticalLayout.addWidget(self.spinText)
 
         self.dspinText = QDoubleSpinBox(dialog)
         self.dspinText.setObjectName(u"dspinText")
+        self.dspinText.setMinimum(-99999.000000000000000)
+        self.dspinText.setMaximum(99999.000000000000000)
 
         self.verticalLayout.addWidget(self.dspinText)
 
