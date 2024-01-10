@@ -194,11 +194,13 @@ class Datenbank():
             return False
         if not refDB:
             loadAdditive = conflictCB is not None
-            if deserializer.find('Plugins'):         
-                if loadAdditive:
-                    self.enabledPlugins += deserializer.get('text').split(",")
-                else:
-                    self.enabledPlugins = deserializer.get('text').split(",")
+            if deserializer.find('Plugins'):
+                text = deserializer.get('text')
+                if text:
+                    if loadAdditive:
+                        self.enabledPlugins += deserializer.get('text').split(",")
+                    else:
+                        self.enabledPlugins = deserializer.get('text').split(",")
                 deserializer.end()
             elif not loadAdditive:
                 self.enabledPlugins = []
