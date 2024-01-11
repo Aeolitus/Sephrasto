@@ -20,15 +20,14 @@ from VoraussetzungenListe import VoraussetzungenListe
 class CharakterVorteileWrapper(QtCore.QObject):
     modified = QtCore.Signal()
     
-    def __init__(self):
+    def __init__(self, supportedTypes = []):
         super().__init__()
         logging.debug("Initializing VorteileWrapper...")
         self.rowHeight = Hilfsmethoden.emToPixels(3.9)
         self.form = QtWidgets.QWidget()
         self.ui = UI.CharakterVorteile.Ui_Form()
         self.ui.setupUi(self.form)
-        
-        self.vorteilTypen = Wolke.DB.einstellungen["Vorteile: Typen"].wert
+
         font = QtWidgets.QApplication.instance().font()
         self.ui.treeWidget.setProperty("class", "treeVorteile")
         self.ui.treeWidget.itemSelectionChanged.connect(self.vortClicked)
@@ -54,6 +53,12 @@ class CharakterVorteileWrapper(QtCore.QObject):
 
         self.ui.checkShowAll.stateChanged.connect(self.onShowAllClicked)
         self.showUnavailable = False
+
+        # Set supported Vorteil Typen - all by default. This increases the reusability and might be useful for plugins.
+        self.supportedTypes = supportedTypes
+        if len(self.supportedTypes) == 0:
+            for i in range(len(Wolke.DB.einstellungen["Vorteile: Typen"].wert)):
+                self.supportedTypes.append(i)
         self.initVorteile()
 
     def onShowAllClicked(self):
@@ -69,11 +74,13 @@ class CharakterVorteileWrapper(QtCore.QObject):
     def initVorteile(self):
         self.ui.treeWidget.blockSignals(True)
         vortList = []
-        for vortTyp in self.vorteilTypen:
+        for vortTyp in Wolke.DB.einstellungen["Vorteile: Typen"].wert:
             vortList.append([])
 
         for el in Wolke.DB.vorteile:
             idx = min(Wolke.DB.vorteile[el].typ, len(vortList) - 1)
+            if idx not in self.supportedTypes:
+                continue
             vortList[idx].append(el)
         
         for vorteile in vortList:
@@ -81,7 +88,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
 
         for i in range(len(vortList)):
             parent = QtWidgets.QTreeWidgetItem(self.ui.treeWidget)
-            parent.setText(0, self.vorteilTypen[i])
+            parent.setText(0, Wolke.DB.einstellungen["Vorteile: Typen"].wert[i])
             parent.setText(1,"")
             parent.setExpanded(True)
             parent.setSizeHint(0, QtCore.QSize(0, self.rowHeight))
@@ -126,15 +133,18 @@ class CharakterVorteileWrapper(QtCore.QObject):
 
         self.ui.treeWidget.blockSignals(True)
         vortList = []
-        for vortTyp in self.vorteilTypen:
+        for vortTyp in Wolke.DB.einstellungen["Vorteile: Typen"].wert:
             vortList.append([])
 
         for vorteil in Wolke.DB.vorteile.values():
+            idx = min(vorteil.typ, len(vortList) -1)
+            if idx not in self.supportedTypes:
+                continue
+
             if vorteil.name in Wolke.Char.vorteile:
                 vorteil = Wolke.Char.vorteile[vorteil.name]
 
             if Wolke.Char.voraussetzungenPrüfen(vorteil):
-                idx = min(vorteil.typ, len(vortList) -1)
                 vortList[idx].append(vorteil.name)
 
         for i in range(len(vortList)):
@@ -145,7 +155,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
                 continue
 
             if self.showUnavailable:
-                itm.setHidden(False)
+                itm.setHidden(itm.childCount() == 0)
             else:
                 itm.setHidden(len(vortList[i]) == 0)
 
@@ -278,7 +288,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
     
     def vortClicked(self):
         for el in self.ui.treeWidget.selectedItems():
-            if el.text(0) in self.vorteilTypen:
+            if el.text(0) in Wolke.DB.einstellungen["Vorteile: Typen"].wert:
                 continue
             self.currentVort = el.text(0)
             break #First one should be all of them
@@ -290,7 +300,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
             if self.currentVort in Wolke.Char.vorteile:
                 vorteil = Wolke.Char.vorteile[self.currentVort]
             self.ui.labelVorteil.setText(vorteil.name)
-            self.ui.labelTyp.setText(self.vorteilTypen[vorteil.typ])
+            self.ui.labelTyp.setText(Wolke.DB.einstellungen["Vorteile: Typen"].wert[vorteil.typ])
             self.ui.labelNachkauf.setText(vorteil.nachkauf)
             voraussetzungen = vorteil.voraussetzungen.anzeigetext(Wolke.DB)
             self.ui.labelVoraussetzungen.setText(voraussetzungen)
