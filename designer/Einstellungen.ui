@@ -91,7 +91,7 @@
               <item row="2" column="2">
                <widget class="QCheckBox" name="checkUpdate">
                 <property name="toolTip">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Falls aktiviert sendet Sephrasto bei jedem Start eine Anfrage an dsaforum.de, um nachzusehen, ob es eine neuere Version gibt.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Falls aktiviert sendet Sephrasto bei jedem Start eine Anfrage an github.com, um nachzusehen, ob es eine neuere Version gibt.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="text">
                  <string/>

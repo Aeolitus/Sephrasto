@@ -574,7 +574,7 @@ class Ui_SettingsWindow(object):
         self.groupBox_5.setTitle(QCoreApplication.translate("SettingsWindow", u"Sonstiges", None))
         self.label_5.setText(QCoreApplication.translate("SettingsWindow", u"Logging", None))
 #if QT_CONFIG(tooltip)
-        self.checkUpdate.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Falls aktiviert sendet Sephrasto bei jedem Start eine Anfrage an dsaforum.de, um nachzusehen, ob es eine neuere Version gibt.</p></body></html>", None))
+        self.checkUpdate.setToolTip(QCoreApplication.translate("SettingsWindow", u"<html><head/><body><p>Falls aktiviert sendet Sephrasto bei jedem Start eine Anfrage an github.com, um nachzusehen, ob es eine neuere Version gibt.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.checkUpdate.setText("")
         self.label_14.setText(QCoreApplication.translate("SettingsWindow", u"Beim Start nach Updates suchen", None))
