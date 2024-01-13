@@ -853,15 +853,7 @@ Stabilisierung (-8; das Ziel darf sofort eine MR-Probe gegen einen auf es wirken
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Feuer, Verwandlung
 &lt;b&gt;Erlernen:&lt;/b&gt; Bor 12; Alch, Geo 14; Ach, Mag 18; Srl 20; 40 EP</Talent>
-  <Talent name="Brenne toter Stoff! (Dämonisch)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Dämonisch, Feuer, Verwandlung" variableKosten="0" kommentar="0" referenzseite="128" referenzbuch="0">Du entzündest ein magisches Feuer, das 2W6 SP pro Initiativephase auf einem unbelebten Ziel anrichtet. Das Feuer brennt auf brennbaren Materialien auch nach dem Ende der Wirkungsdauer weiter.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Je zwei Stufen erhöhen die SP um 1W6.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Flammeninferno (-8, 32 AsP; das Feuer breitet sich mit etwa 1 Schritt pro Initiativephase aus.)
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Aktion
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelobjekt
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 8 Initiativephasen
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
+  <Talent name="Brenne toter Stoff! (Dämonisch)" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Dämonisch, Feuer, Verwandlung" variableKosten="0" kommentar="0" referenzseite="128" referenzbuch="0">$talent:Brenne toter Stoff!$
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dämonisch (nicht in Geo, Mag, Srl), Feuer, Verwandlung
 &lt;b&gt;Erlernen:&lt;/b&gt; Bor 12; Alch, Geo 14; Ach, Mag 18; Srl 20; 40 EP</Talent>
   <Talent name="Chimaeroform Hybridgestalt" kosten="60" spezialTyp="0" voraussetzungen="Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Dämonisch, Verwandlung" variableKosten="0" kommentar="0" referenzbuch="0" referenzseite="128">Du erschaffst eine Chimäre aus zwei oder mehr Lebewesen. Eines dieser Lebewesen kann durch einen Dämon ersetzt werden. Die Chimäre hat sich nach 1 Stunde an ihre Existenz gewöhnt und ist einsatzfähig. Schwierigkeit und Kosten richten sich nach deren Mächtigkeit auf der Skala schwach (z. B. Hundeblume)/nützlich (z. B. Widderhyäne)/stark (z. B. Mantikor)/mächtig (z. B. Drachenchimäre). Die Beherrschungsprobe wird auf MU abgelegt. Wenn diese misslingt, kannst du es nach 1 Stunde erneut versuchen. Mehr zu Beschwörungen siehe S. 81.
@@ -933,14 +925,7 @@ Permanenz (-4, Wirkungsdauer bis die Bindung gelöst wird, 16 AsP, davon 2 gAsP)
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Verwandlung, Wasser
 &lt;b&gt;Erlernen:&lt;/b&gt; Bor 14; Ach, Dru, Geo 16; Alch, Mag 18; 60 EP</Talent>
-  <Talent name="Hartes schmelze! (Dämonisch)" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Dämonisch, Verwandlung, Wasser" variableKosten="0" kommentar="0" referenzseite="128" referenzbuch="0">Du verzauberst eine kopfgroße Menge an hartem Material, sodass es formbar wie Wachs wird. Nach dem Ende der Wirkungsdauer erstarrt das Material in seiner aktuellen Form.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Verdoppelt die Menge.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Aktion
-&lt;b&gt;Ziel:&lt;/b&gt; Einzelobjekt oder Teilobjekt
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 16 Minuten
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
+  <Talent name="Hartes schmelze! (Dämonisch)" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Dämonisch, Verwandlung, Wasser" variableKosten="0" kommentar="0" referenzseite="128" referenzbuch="0">$talent:Hartes schmelze!$
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dämonisch (nicht Geo, Mag), Verwandlung, Wasser
 &lt;b&gt;Erlernen:&lt;/b&gt; Bor 14; Ach, Dru, Geo 16; Alch, Mag 18; 60 EP</Talent>
   <Talent name="Herzschlag ruhe!" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I" verbilligt="0" fertigkeiten="Dämonisch, Eigenschaften, Einfluss" variableKosten="0" referenzseite="128" referenzbuch="0">Das Herz deines Opfers bleibt schlagartig stehen. Nach 4 und 8 Initiativephasen erleidet es eine Wunde.
@@ -1103,14 +1088,7 @@ Schattensprung (-8, 4 Aktionen, Wirkungsdauer 16 Initiativephasen, 16 AsP; du ve
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Erz, Verwandlung
 &lt;b&gt;Erlernen:&lt;/b&gt; Bor 14; Dru, Geo 16; Ach, Alch, Mag 18; 60 EP</Talent>
-  <Talent name="Weiches Erstarre! (Dämonisch)" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Dämonisch, Erz, Verwandlung" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">Du lässt bis zu 8 Raumschritt Luft, Wasser oder ein anderes „weiches“ Material zu einer festen, harten Masse mit einer Härte von 8 erstarren. Lebende Materie, oder Material, das ein Wesen berührt, kann nicht beeinflusst werden.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Die Härte steigt um +4.
-&lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
-&lt;b&gt;Ziel:&lt;/b&gt; Zone
-&lt;b&gt;Reichweite:&lt;/b&gt; Berührung
-&lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Stunde
-&lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
+  <Talent name="Weiches Erstarre! (Dämonisch)" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Dämonisch, Erz, Verwandlung" variableKosten="0" kommentar="0" referenzseite="130" referenzbuch="0">$talent:Weiches Erstarre!$
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Dämonisch (nicht in Geo oder Mag), Erz, Verwandlung
 &lt;b&gt;Erlernen:&lt;/b&gt; Bor 14; Dru, Geo 16; Ach, Alch, Mag 18; 60 EP</Talent>
   <Talent name="Adlerauge Luchsenohr" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Eigenschaften, Hellsicht" variableKosten="0" referenzseite="130" referenzbuch="0">Du schärfst deine Sinne auf magische Weise. Alle Proben auf Sinnenschärfe und Wachsamkeit sind um +4 erleichtert.
@@ -3233,6 +3211,7 @@ Fesselfeld (-8, 32 AsP; in einer Zone von 4 Schritt Radius wird die Bewegung jed
 &lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP
+&lt;b&gt;Fertigkeiten:&lt;/b&gt; Umwelt
 &lt;b&gt;Erlernen:&lt;/b&gt; Hex 8; 60 EP</Talent>
   <Talent name="Holterdipolter" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Umwelt" variableKosten="0" referenzseite="150" referenzbuch="0">In einem Radius von 8 Schritt um dich herum geht alles schief: Menschen stolpern, Knoten öffnen sich und Vasen fallen um. Dabei kommt niemand ernsthaft zu Schaden.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
