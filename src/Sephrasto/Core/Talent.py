@@ -51,7 +51,10 @@ class TalentDefinition:
             split = ref.text.split("\n")
             result = []
             for s in split:
-                if not s.startswith("Fertigkeiten:") and not s.startswith("<b>Fertigkeiten:</b>") and not s.startswith("Erlernen:") and not s.startswith("<b>Erlernen:</b>"):
+                if not s.startswith("Fertigkeiten:") and not s.startswith("<b>Fertigkeiten:</b>") and\
+                    not s.startswith("Erlernen:") and not s.startswith("<b>Erlernen:</b>") and\
+                    not s.startswith("Anmerkung:") and not s.startswith("<b>Anmerkung:</b>") and\
+                    not s.startswith("Anmerkungen:") and not s.startswith("<b>Anmerkungen:</b>"):
                     result.append(s)
             return "\n".join(result)
         self.text = re.sub("\$talent:(.*)\$", replaceReference, self.textSerialized, re.UNICODE)
