@@ -51,11 +51,7 @@ class TalentDefinition:
             split = ref.text.split("\n")
             result = []
             for s in split:
-                add = True
-                for key in ["Kosten:", "Fertigkeiten:", "Erlernen:"]:
-                    if key in s and key in self.textSerialized:
-                        add = False
-                if add:
+                if not s.startswith("Fertigkeiten:") and not s.startswith("<b>Fertigkeiten:</b>") and not s.startswith("Erlernen:") and not s.startswith("<b>Erlernen:</b>"):
                     result.append(s)
             return "\n".join(result)
         self.text = re.sub("\$talent:(.*)\$", replaceReference, self.textSerialized, re.UNICODE)
