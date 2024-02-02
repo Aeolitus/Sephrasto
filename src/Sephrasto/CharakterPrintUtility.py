@@ -89,10 +89,16 @@ class CharakterPrintUtility:
             name = char.talente[el.name].anzeigenameExt if el.name in char.talente else el.anzeigename
             if el.name in fertigkeit.talentMods:
                 for condition,mod in sorted(fertigkeit.talentMods[el.name].items()):
+                    modPrefix = ""
+                    if isinstance(mod, (int, float)):
+                        if mod == 0:
+                            continue
+                        if mod >= 0:
+                            modPrefix = "+"
+
                     if condition:
                         name += " " + condition
-                    if mod != 0:
-                        name += " " + ("+" if mod >= 0 else "") + str(mod)        
+                    name += " " + modPrefix + str(mod)        
             if not el.name in fertigkeit.gekaufteTalente:
                 name = "(" + name + ")"
             result.append(name)
