@@ -80,7 +80,7 @@ Beispiele für besonderen Besitz sind:
   <Vorteil name="Privilegien (Gildenmagier)" kosten="20" voraussetzungen="Vorteil Zauberer I, Vorteil Tradition der Gildenmagier I" nachkauf="selten" typ="0" variableKosten="0" kommentar="0">Du darfst Geld für magische Dienstleistungen verlangen und hast erleichterten Zugang zu Bibliotheken und Lehrmeistern der eigenen Gilde. Von weltlichen Gerichten kannst du nur in deiner Anwesenheit verurteilt werden oder du wirst vor ein Gildengericht gestellt. Im Gegenzug musst du dich den Bedingungen des Codex Albyricus unterwerfen, also stets als Gildenmagier erkenntlich sein. Auch die meisten Waffen und fast alle Rüstungen mit einem RS von mehr als 1 sind verboten. Diese Privilegien gelten im Einflussgebiet des Codex Albyricus, wie im Mittel- und Horasreich, dem Bornland, im Kalifat und in Aranien, sowie eingeschränkt in Südaventurien.</Vorteil>
   <Vorteil name="Privilegien" kosten="20" voraussetzungen="" nachkauf="selten" typ="0" variableKosten="1" kommentar="1" csBeschreibung="Dein Privileg kann spielrelevante Vorteile je nach EP-Wert bringen." info="Wähle am besten direkt den separaten Vorteil Privilegien (Adel, Krieger oder Gildenmagier). Falls du andere Privilegien möchtest, dann wähle diesen Vorteil und trage diese in das Kommentarfeld ein.">Unzählige Privilegien können die Leben ihrer Träger erleichtern, weswegen wir auch nicht jedes einzelne Privileg in Werte kleiden möchten.
 
-Die Kosten eines Privilegs legt der Spielleiter fest, wobei er sich an der Spielrelevanz und dem Geltungsbereich der Privilegien orientieren sollte. Zum Beispiel bringt ein eigenes Wappen keine spielrelevanten Vorteile - ganz im Gegensatz zu der Erlaubnis, in Städten Waffen zu tragen. Doch auch diese Erlaubnis verliert an Wert, wenn sie nur in Albenhus oder  am Markttag gilt.</Vorteil>
+Die Kosten eines Privilegs legt der Spielleiter fest, wobei er sich an der Spielrelevanz und dem Geltungsbereich der Privilegien orientieren sollte. Zum Beispiel bringt ein eigenes Wappen keine spielrelevanten Vorteile - ganz im Gegensatz zu der Erlaubnis, in Städten Waffen zu tragen. Doch auch diese Erlaubnis verliert an Wert, wenn sie nur in Albenhus oder am Markttag gilt.</Vorteil>
   <Vorteil name="Prophezeien" kosten="40" voraussetzungen="" nachkauf="selten" typ="0" variableKosten="0" kommentar="0" querverweise="Talent:Willenskraft">Du kannst das Talent Willenskraft nutzen, um mit Spielkarten, Würfeln, Astrologie, Drogen oder prophetischen Träumen einen vagen und meist mehrdeutigen Blick in die Zukunft zu werfen. Durch den Einsatz der Gabe erleidest du 1 Punkt Erschöpfung.</Vorteil>
   <Vorteil name="Resistenz gegen Gifte" kosten="40" voraussetzungen="" nachkauf="selten" typ="0" variableKosten="0" kommentar="0" querverweise="Regel:Gifte &amp; Krankheiten mildern">Die Auswirkungen von Giften werden gemildert (S. 35).</Vorteil>
   <Vorteil name="Immunität gegen Gifte" kosten="40" voraussetzungen="Vorteil Resistenz gegen Gifte" nachkauf="extrem selten" typ="0" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Resistenz gegen Gifte">Gifte sind gegen dich wirkungslos.</Vorteil>
@@ -368,7 +368,7 @@ Wenn du beim Vorbereiten eines Zaubers gestört wirst, sind entsprechende Willen
 
 Druidische Zauber können nicht schriftlich weitergegeben werden.</Vorteil>
   <Vorteil name="Tradition der Druiden II" kosten="40" voraussetzungen="Attribut KL 6, Vorteil Tradition der Druiden I" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Druiden I">Druiden wissen um Orte von besonderer Kraft. Auf Kraftlinien und -knoten, die sich auch in vielen Städten finden, sind alle druidische Zauber und Rituale um 2-4 Punkte erleichtert.</Vorteil>
-  <Vorteil name="Tradition der Druiden III" kosten="60" voraussetzungen="Attribut KL 8, Vorteil Tradition der Druiden II" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Druiden II"  querverweise="Regel:Erzwingen">Erlaubt die spontane Modifikation Erzwingen.</Vorteil>
+  <Vorteil name="Tradition der Druiden III" kosten="60" voraussetzungen="Attribut KL 8, Vorteil Tradition der Druiden II" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Druiden II" querverweise="Regel:Erzwingen">Erlaubt die spontane Modifikation Erzwingen.</Vorteil>
   <Vorteil name="Tradition der Druiden IV" kosten="80" voraussetzungen="MeisterAttribut KL 10, Vorteil Tradition der Druiden III" nachkauf="häufig" typ="5" variableKosten="0" kommentar="1" csBeschreibung="Meisterschaft: $kommentar$." linkKategorie="3" linkElement="Tradition der Druiden III" info="Für 1 Punkt kann ein Zauber um +2 erleichtert werden (maximal +4). Für 2 Punkte kannst du eine spontane Modifikation außer Mächtige Magie um +1 erleichtern (maximal +1). Spezielle Vorteile wie eine geringere Patzerchance oder länger nachbrennende Feuerzauber sind ebenfalls möglich. Solche Verbesserungen (und ihre Kosten) sollten mit dem Spielleiter und der Gruppe abgesprochen werden. Trage die Verbesserungen in das Kommentarfeld ein.">8 Punkte können zur Verbesserung der Tradition verwendet werden.</Vorteil>
   <Vorteil name="Tradition der Elfen I" kosten="20" voraussetzungen="Attribut IN 4, Vorteil Zauberer I" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" bedingungen="Sichtkontakt, Geste, Gesungene oder gespielte Formel">Du kannst Zauber in der Tradition der Elfen erlernen und benutzen. Solche Zauber findest du unter den allgemeinen Zaubern und unter Elfenlieder (S. 158).
 
@@ -380,7 +380,7 @@ In Umgebungen mit gestörter Harmonie (z.B. dämonische Verseuchung, Geistersche
 
 Die Komponente Bodenkontakt kann nur ignoriert werden, wenn du zumindest über indirekten Bodenkontakt verfügst (z.B. in einem mehrstöckigen Haus).</Vorteil>
   <Vorteil name="Tradition der Hexen II" kosten="40" voraussetzungen="Attribut IN 6, Vorteil Tradition der Hexen I" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Hexen I">Für Hexen gehören Gefühle und Magie untrennbar zusammen. Im Zustand besonders starker, zum Zauber passender Emotionen sind Zauber und Rituale um 2-4 Punkte erleichtert.</Vorteil>
-  <Vorteil name="Tradition der Hexen III" kosten="60" voraussetzungen="Attribut IN 8, Vorteil Tradition der Hexen II" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Hexen II"  querverweise="Regel:Erzwingen">Erlaubt die spontane Modifikation Erzwingen.</Vorteil>
+  <Vorteil name="Tradition der Hexen III" kosten="60" voraussetzungen="Attribut IN 8, Vorteil Tradition der Hexen II" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Hexen II" querverweise="Regel:Erzwingen">Erlaubt die spontane Modifikation Erzwingen.</Vorteil>
   <Vorteil name="Tradition der Hexen IV" kosten="80" voraussetzungen="MeisterAttribut IN 10, Vorteil Tradition der Hexen III" nachkauf="häufig" typ="5" variableKosten="0" kommentar="1" csBeschreibung="Meisterschaft: $kommentar$." linkKategorie="3" linkElement="Tradition der Hexen III" info="Für 1 Punkt kann ein Zauber um +2 erleichtert werden (maximal +4). Für 2 Punkte kannst du eine spontane Modifikation außer Mächtige Magie um +1 erleichtern (maximal +1). Spezielle Vorteile wie eine geringere Patzerchance oder länger nachbrennende Feuerzauber sind ebenfalls möglich. Solche Verbesserungen (und ihre Kosten) sollten mit dem Spielleiter und der Gruppe abgesprochen werden. Trage die Verbesserungen in das Kommentarfeld ein.">8 Punkte können zur Verbesserung der Tradition verwendet werden.</Vorteil>
   <Vorteil name="Tradition der Kristallomanten I" kosten="20" voraussetzungen="Attribut KL 4, Vorteil Zauberer I" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" querverweise="Regel:Vorbereitung verkürzen (M)" bedingungen="Sichtkontakt, Geste, passender gebundender Kristall">Du kannst Zauber in der Tradition der Kristallomanten erlernen und benutzen. Solche Zauber findest du unter den allgemeinen Zaubern und unter Kristallmagie (S. 168).
 
@@ -392,7 +392,7 @@ Wenn du einen Zauber mit der Modifikation Vorbereitung verkürzen wirkst, ist er
 
 Schelmische Zauber können nicht schriftlich weitergegeben werden.</Vorteil>
   <Vorteil name="Tradition der Schelme II" kosten="40" voraussetzungen="Attribut IN 6, Vorteil Tradition der Schelme I" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Schelme I">Schelmenmagie umgeht den geistigen Widerstand ihrer Ziele. Wenn ein Zauber gegen die Magieresistenz wirkt, ist er um +2 erleichtert.</Vorteil>
-  <Vorteil name="Tradition der Schelme III" kosten="60" voraussetzungen="Attribut IN 8, Vorteil Tradition der Schelme II" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Schelme II"  querverweise="Regel:Erzwingen">Erlaubt die spontane Modifikation Erzwingen.</Vorteil>
+  <Vorteil name="Tradition der Schelme III" kosten="60" voraussetzungen="Attribut IN 8, Vorteil Tradition der Schelme II" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" linkKategorie="3" linkElement="Tradition der Schelme II" querverweise="Regel:Erzwingen">Erlaubt die spontane Modifikation Erzwingen.</Vorteil>
   <Vorteil name="Tradition der Schelme IV" kosten="80" voraussetzungen="MeisterAttribut IN 10, Vorteil Tradition der Schelme III" nachkauf="häufig" typ="5" variableKosten="0" kommentar="1" csBeschreibung="Meisterschaft: $kommentar$." linkKategorie="3" linkElement="Tradition der Schelme III" info="Für 1 Punkt kann ein Zauber um +2 erleichtert werden (maximal +4). Für 2 Punkte kannst du eine spontane Modifikation außer Mächtige Magie um +1 erleichtern (maximal +1). Spezielle Vorteile wie eine geringere Patzerchance oder länger nachbrennende Feuerzauber sind ebenfalls möglich. Solche Verbesserungen (und ihre Kosten) sollten mit dem Spielleiter und der Gruppe abgesprochen werden. Trage die Verbesserungen in das Kommentarfeld ein.">8 Punkte können zur Verbesserung der Tradition verwendet werden.</Vorteil>
   <Vorteil name="Tradition der Scharlatane I" kosten="20" voraussetzungen="Attribut CH 4, Vorteil Zauberer I" nachkauf="häufig" typ="5" variableKosten="0" kommentar="0" bedingungen="Sichtkontakt, Geste, laut gesprochene Zauberformel">Du kannst Zauber in der Tradition der Scharlatane erlernen und benutzen. Solche Zauber findest du unter den allgemeinen Zaubern und unter Kugelzauber (S. 169).
 
@@ -650,12 +650,16 @@ Liturgien sind um 2-8 Punkte erschwert, wenn ihr Einsatz gegen die Gebote der Ki
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP, davon 4 gAsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Dämonisch
 &lt;b&gt;Erlernen:&lt;/b&gt; Bor, Mag 18; Ach, Alch, Dru, Geo, Elf 20; 40 EP</Talent>
-  <Talent name="Dämonenbann" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Antimagie, Dämonisch" variableKosten="0" referenzseite="126" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Dämonisch sowie gegen Dämonen und Untote. Du musst eine Modifikation wählen.
-&lt;b&gt;Gegenzauber:&lt;/b&gt; 0 Aktionen, Ziel Zauber in Vorbereitung, 16 Schritt, Wirkungsdauer augenblicklich, 4 AsP; stört einen anderen Zauberer während dessen Zaubervorbereitung. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert. 
-&lt;b&gt;Magie unterdrücken:&lt;/b&gt; 16 Aktionen, 8 Schritt, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Zauber der Fertigkeit um -8 erschwert. Mächtige Magie erhöht den Malus um -4. 
-&lt;b&gt;Zauber aufheben:&lt;/b&gt; 8 Aktionen, Ziel Zauber, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten des Zaubers; hebt einen bereits gewirkten Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
-&lt;b&gt;Wesenheit bannen:&lt;/b&gt; Beschwörungsschwierigkeit des Ziels, 8 Aktionen, Ziel Dämon oder Untoter, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten der Beschwörung; du bannst ein Wesen, in das keine gAsP geflossen sind.
+  <Talent name="Dämonenbann" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Antimagie, Dämonisch" variableKosten="0" referenzseite="126" referenzbuch="0">Du hebst einen bereits gewirkten Zauber der Fertigkeit Dämonisch auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
+&lt;b&gt;Modifikationen:&lt;/b&gt; Gegenzauber (Vorbereitungszeit 0 Aktionen, 16 Schritt, 4 AsP; stört einen anderen Zauberer während er einen Zauber der Fertigkeit Dämonisch vorbereitet. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert.)
+Magie unterdrücken (Vorbereitungszeit 16 Aktionen, Ziel Zone, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Zauber der Fertigkeit Dämonisch um -8 erschwert. Mächtige Magie erhöht den Malus um -4.)
+Wesenheit bannen (Beschwörungsschwierigkeit des Ziels, Ziel Dämon oder Untoter, halbe Basiskosten der Beschwörung; du bannst einen Dämonen oder Untoten, in den keine gAsP geflossen sind.)
+&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
+&lt;b&gt;Ziel:&lt;/b&gt; Zauber
+&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
+&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
+&lt;b&gt;Kosten:&lt;/b&gt; halbe Basiskosten des Zaubers
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Dämonisch
 &lt;b&gt;Erlernen:&lt;/b&gt; Dru, Elf, Mag 14; Hex 16; Geo 18; 60 EP</Talent>
   <Talent name="Destructibo Arcanitas" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Antimagie, Kraft" variableKosten="0" referenzseite="126" referenzbuch="0">Du bannst einen Zauber, in den gAsP geflossen sind (wie ein Artefakt oder ein permanenter Fluch), oder ein Wesen, in das gAsP geflossen sind (wie eine Chimäre oder einen gebundenen Dämon).
@@ -668,26 +672,38 @@ Liturgien sind um 2-8 Punkte erschwert, wenn ihr Einsatz gegen die Gebote der Ki
 &lt;b&gt;Kosten:&lt;/b&gt; halbe Basiskosten des Zaubers oder der Beschwörung
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Kraft
 &lt;b&gt;Erlernen:&lt;/b&gt; Mag 18; Ach, Elf, Dru 20; 40 EP</Talent>
-  <Talent name="Eigenschaft wiederherstellen" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Antimagie, Eigenschaften" variableKosten="0" referenzseite="126" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Eigenschaften. Du musst eine Modifikation wählen.
-&lt;b&gt;Gegenzauber:&lt;/b&gt; 0 Aktionen, Ziel Zauber in Vorbereitung, 16 Schritt, Wirkungsdauer augenblicklich, 4 AsP; stört einen anderen Zauberer während dessen Zaubervorbereitung. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert.
-&lt;b&gt;Magie unterdrücken:&lt;/b&gt; 16 Aktionen, 8 Schritt, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Zauber der Fertigkeit um -8 erschwert. Mächtige Magie erhöht den Malus um -4. 
-&lt;b&gt;Zauber aufheben:&lt;/b&gt; 8 Aktionen, Ziel Zauber, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten des Zaubers; hebt einen bereits gewirkten Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
+  <Talent name="Eigenschaft wiederherstellen" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Antimagie, Eigenschaften" variableKosten="0" referenzseite="126" referenzbuch="0">Du hebst einen bereits gewirkten Eigenschaften-Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
+&lt;b&gt;Modifikationen:&lt;/b&gt; Gegenzauber (Vorbereitungszeit 0 Aktionen, 16 Schritt, 4 AsP; stört einen anderen Zauberer während er einen Eigenschaften-Zauber vorbereitet. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert.)
+Magie unterdrücken (Vorbereitungszeit 16 Aktionen, Ziel Zone, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Eigenschaften-Zauber um -8 erschwert. Mächtige Magie erhöht den Malus um -4.)
+&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
+&lt;b&gt;Ziel:&lt;/b&gt; Zauber
+&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
+&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
+&lt;b&gt;Kosten:&lt;/b&gt; halbe Basiskosten des Zaubers
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Eigenschaften
 &lt;b&gt;Erlernen:&lt;/b&gt; Alch, Hex 12; Ach, Dru, Geo, Mag, Elf 14; 40 EP</Talent>
-  <Talent name="Einfluss bannen" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Antimagie, Einfluss" variableKosten="0" referenzseite="126" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Einfluss. Du musst eine Modifikation wählen.
-&lt;b&gt;Gegenzauber:&lt;/b&gt; 0 Aktionen, Ziel Zauber in Vorbereitung, 16 Schritt, Wirkungsdauer augenblicklich, 4 AsP; stört einen anderen Zauberer während dessen Zaubervorbereitung. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert. 
-&lt;b&gt;Magie unterdrücken:&lt;/b&gt; 16 Aktionen, 8 Schritt, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Zauber der Fertigkeit um -8 erschwert. Mächtige Magie erhöht den Malus um -4. 
-&lt;b&gt;Zauber aufheben:&lt;/b&gt; 8 Aktionen, Ziel Zauber, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten des Zaubers; hebt einen bereits gewirkten Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
+  <Talent name="Einfluss bannen" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Antimagie, Einfluss" variableKosten="0" referenzseite="126" referenzbuch="0">Du hebst einen bereits gewirkten Einfluss-Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
+&lt;b&gt;Modifikationen:&lt;/b&gt; Gegenzauber (Vorbereitungszeit 0 Aktionen, 16 Schritt, 4 AsP; stört einen anderen Zauberer während er einen Einfluss-Zauber vorbereitet. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert.)
+Magie unterdrücken (Vorbereitungszeit 16 Aktionen, Ziel Zone, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Einfluss-Zauber um -8 erschwert. Mächtige Magie erhöht den Malus um -4.)
+&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
+&lt;b&gt;Ziel:&lt;/b&gt; Zauber
+&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
+&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
+&lt;b&gt;Kosten:&lt;/b&gt; halbe Basiskosten des Zaubers
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Einfluss
 &lt;b&gt;Erlernen:&lt;/b&gt; Dru 8; Geo, Hex 12; Ach, Elf, Mag 14; Alch, Sch, Srl 16; 40 EP</Talent>
-  <Talent name="Elementarbann" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Antimagie, Eis, Erz, Feuer, Humus, Luft, Wasser" variableKosten="0" referenzseite="126" referenzbuch="0">Wirkt gegen Zauber der Fertigkeiten Eis, Erz, Feuer, Humus, Luft und Wasser, sowie gegen Elementare. Du musst eine Modifikation wählen.
-&lt;b&gt;Gegenzauber:&lt;/b&gt; 0 Aktionen, Ziel Zauber in Vorbereitung, 16 Schritt, Wirkungsdauer augenblicklich, 4 AsP; stört einen anderen Zauberer während dessen Zaubervorbereitung. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert. 
-&lt;b&gt;Magie unterdrücken:&lt;/b&gt; 16 Aktionen, 8 Schritt, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Zauber der Fertigkeit um -8 erschwert. Mächtige Magie erhöht den Malus um -4. 
-&lt;b&gt;Zauber aufheben:&lt;/b&gt; 8 Aktionen, Ziel Zauber, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten des Zaubers; hebt einen bereits gewirkten Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
-&lt;b&gt;Wesenheit bannen:&lt;/b&gt; Beschwörungsschwierigkeit des Ziels, 8 Aktionen, Ziel Elementar, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten der Beschwörung; du bannst ein Elementar, in das keine gAsP geflossen sind.
+  <Talent name="Elementarbann" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Antimagie, Eis, Erz, Feuer, Humus, Luft, Wasser" variableKosten="0" referenzseite="126" referenzbuch="0">Du hebst einen bereits gewirkten Eis-, Erz-, Feuer-, Humus-, Luft- oder Wasser-Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
+&lt;b&gt;Modifikationen:&lt;/b&gt; Gegenzauber (Vorbereitungszeit 0 Aktionen, 16 Schritt, 4 AsP; stört einen anderen Zauberer während er einen elementaren Zauber vorbereitet. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert.)
+Magie unterdrücken (Vorbereitungszeit 16 Aktionen, Ziel Zone, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen elementaren Zauber um -8 erschwert. Mächtige Magie erhöht den Malus um -4.)
+Wesenheit bannen (Beschwörungsschwierigkeit des Ziels, Ziel Elementar, halbe Basiskosten der Beschwörung; du bannst ein Elementarwesen, in das keine gAsP geflossen sind.)
+&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
+&lt;b&gt;Ziel:&lt;/b&gt; Zauber
+&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
+&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
+&lt;b&gt;Kosten:&lt;/b&gt; halbe Basiskosten des Zaubers
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Eis, Erz, Feuer, Humus, Luft, Wasser
 &lt;b&gt;Erlernen:&lt;/b&gt; Dru, Elf, Geo, Mag 18; 40 EP</Talent>
   <Talent name="Gardianum Zauberschild" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Antimagie, Kraft" variableKosten="0" referenzseite="126" referenzbuch="0">Du erschaffst eine unsichtbare und immaterielle Schutzkuppel mit dir als Zentrum und 2 Schritt Radius. Schadenszauber werden von der Kuppel abgefangen, die nach 8 Beschädigungen zusammenbricht (Härte 2).
@@ -712,25 +728,37 @@ Persönlicher Schild (-4, Wirkungsdauer 1 Stunde; der Zauber legt sich als zweit
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Verständigung
 &lt;b&gt;Erlernen:&lt;/b&gt; Dru 8; Mag 14; Geo, Hex 16; 20 EP</Talent>
-  <Talent name="Hellsicht trüben" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Antimagie, Hellsicht" variableKosten="0" referenzseite="127" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Hellsicht. Du musst eine Modifikation wählen.
-&lt;b&gt;Gegenzauber:&lt;/b&gt; 0 Aktionen, Ziel Zauber in Vorbereitung, 16 Schritt, Wirkungsdauer augenblicklich, 4 AsP; stört einen anderen Zauberer während dessen Zaubervorbereitung. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert. 
-&lt;b&gt;Magie unterdrücken:&lt;/b&gt; 16 Aktionen, 8 Schritt, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Zauber der Fertigkeit um -8 erschwert. Mächtige Magie erhöht den Malus um -4. 
-&lt;b&gt;Zauber aufheben:&lt;/b&gt; 8 Aktionen, Ziel Zauber, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten des Zaubers; hebt einen bereits gewirkten Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
+  <Talent name="Hellsicht trüben" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Antimagie, Hellsicht" variableKosten="0" referenzseite="127" referenzbuch="0">Du hebst einen bereits gewirkten Hellsicht-Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
+&lt;b&gt;Modifikationen:&lt;/b&gt; Gegenzauber (Vorbereitungszeit 0 Aktionen, 16 Schritt, 4 AsP; stört einen anderen Zauberer während er einen Hellsicht-Zauber vorbereitet. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert.)
+Magie unterdrücken (Vorbereitungszeit 16 Aktionen, Ziel Zone, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Hellsicht-Zauber um -8 erschwert. Mächtige Magie erhöht den Malus um -4.)
+&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
+&lt;b&gt;Ziel:&lt;/b&gt; Zauber
+&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
+&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
+&lt;b&gt;Kosten:&lt;/b&gt; halbe Basiskosten des Zaubers
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Hellsicht
 &lt;b&gt;Erlernen:&lt;/b&gt; Dru, Geo 12; Mag, Sch, Srl 14; Ach, Elf, Hex 16; Alch 18; 20 EP</Talent>
-  <Talent name="Illusion auflösen" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Antimagie, Illusion" variableKosten="0" referenzseite="127" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Illusion. Du musst eine Modifikation wählen.
-&lt;b&gt;Gegenzauber:&lt;/b&gt; 0 Aktionen, Ziel Zauber in Vorbereitung, 16 Schritt, Wirkungsdauer augenblicklich, 4 AsP; stört einen anderen Zauberer während dessen Zaubervorbereitung. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert. 
-&lt;b&gt;Magie unterdrücken:&lt;/b&gt; 16 Aktionen, 8 Schritt, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Zauber der Fertigkeit um -8 erschwert. Mächtige Magie erhöht den Malus um -4. 
-&lt;b&gt;Zauber aufheben:&lt;/b&gt; 8 Aktionen, Ziel Zauber, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten des Zaubers; hebt einen bereits gewirkten Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
+  <Talent name="Illusion auflösen" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Antimagie, Illusion" variableKosten="0" referenzseite="127" referenzbuch="0">Du hebst einen bereits gewirkten Illusions-Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
+&lt;b&gt;Modifikationen:&lt;/b&gt; Gegenzauber (Vorbereitungszeit 0 Aktionen, 16 Schritt, 4 AsP; stört einen anderen Zauberer während er einen Illusions-Zauber vorbereitet. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert.)
+Magie unterdrücken (Vorbereitungszeit 16 Aktionen, Ziel Zone, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Illusions-Zauber um -8 erschwert. Mächtige Magie erhöht den Malus um -4.)
+&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
+&lt;b&gt;Ziel:&lt;/b&gt; Zauber
+&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
+&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
+&lt;b&gt;Kosten:&lt;/b&gt; halbe Basiskosten des Zaubers
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Illusion
 &lt;b&gt;Erlernen:&lt;/b&gt; Mag, Srl 14; Hex, Sch 18; 20 EP</Talent>
-  <Talent name="Kraftmagie neutralisieren" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Antimagie, Kraft" variableKosten="0" referenzseite="127" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Kraft. Du musst eine Modifikation wählen.
-&lt;b&gt;Gegenzauber:&lt;/b&gt; 0 Aktionen, Ziel Zauber in Vorbereitung, 16 Schritt, Wirkungsdauer augenblicklich, 4 AsP; stört einen anderen Zauberer während dessen Zaubervorbereitung. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert. 
-&lt;b&gt;Magie unterdrücken:&lt;/b&gt; 16 Aktionen, 8 Schritt, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Zauber der Fertigkeit um -8 erschwert. Mächtige Magie erhöht den Malus um -4. 
-&lt;b&gt;Zauber aufheben:&lt;/b&gt; 8 Aktionen, Ziel Zauber, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten des Zaubers; hebt einen bereits gewirkten Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
+  <Talent name="Kraftmagie neutralisieren" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Antimagie, Kraft" variableKosten="0" referenzseite="127" referenzbuch="0">Du hebst einen bereits gewirkten Kraft-Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
+&lt;b&gt;Modifikationen:&lt;/b&gt; Gegenzauber (Vorbereitungszeit 0 Aktionen, 16 Schritt, 4 AsP; stört einen anderen Zauberer während er einen Kraft-Zauber vorbereitet. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert.)
+Magie unterdrücken (Vorbereitungszeit 16 Aktionen, Ziel Zone, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Kraft-Zauber um -8 erschwert. Mächtige Magie erhöht den Malus um -4.)
+&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
+&lt;b&gt;Ziel:&lt;/b&gt; Zauber
+&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
+&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
+&lt;b&gt;Kosten:&lt;/b&gt; halbe Basiskosten des Zaubers
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Kraft
 &lt;b&gt;Erlernen:&lt;/b&gt; Mag 18; 20 EP</Talent>
   <Talent name="Protectionis Kontrabann" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Borbaradianer I ODER Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Antimagie, Kraft" variableKosten="0" referenzseite="127" referenzbuch="0">Du schützt deinen nächsten, während der Wirkungsdauer begonnenen Zauber vor Antimagie. Jede Antimagie gegen diesen Zauber ist um -4 erschwert.
@@ -820,26 +848,38 @@ Stabilisierung (-8; das Ziel darf sofort eine MR-Probe gegen einen auf es wirken
 &lt;b&gt;Kosten:&lt;/b&gt; 4 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Illusion
 &lt;b&gt;Erlernen:&lt;/b&gt; Mag 20; 20 EP</Talent>
-  <Talent name="Veränderung aufheben" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Antimagie, Umwelt" variableKosten="0" referenzseite="127" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Umwelt. Du musst eine Modifikation wählen.
-&lt;b&gt;Gegenzauber:&lt;/b&gt; 0 Aktionen, Ziel Zauber in Vorbereitung, 16 Schritt, Wirkungsdauer augenblicklich, 4 AsP; stört einen anderen Zauberer während dessen Zaubervorbereitung. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert. 
-&lt;b&gt;Magie unterdrücken:&lt;/b&gt; 16 Aktionen, 8 Schritt, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Zauber der Fertigkeit um -8 erschwert. Mächtige Magie erhöht den Malus um -4. 
-&lt;b&gt;Zauber aufheben:&lt;/b&gt; 8 Aktionen, Ziel Zauber, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten des Zaubers; hebt einen bereits gewirkten Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
+  <Talent name="Veränderung aufheben" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Antimagie, Umwelt" variableKosten="0" referenzseite="127" referenzbuch="0">Du hebst einen bereits gewirkten Umwelt-Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
+&lt;b&gt;Modifikationen:&lt;/b&gt; Gegenzauber (Vorbereitungszeit 0 Aktionen, 16 Schritt, 4 AsP; stört einen anderen Zauberer während er einen Umwelt-Zauber vorbereitet. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert.)
+Magie unterdrücken (Vorbereitungszeit 16 Aktionen, Ziel Zone, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Umwelt-Zauber um -8 erschwert. Mächtige Magie erhöht den Malus um -4.)
+&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
+&lt;b&gt;Ziel:&lt;/b&gt; Zauber
+&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
+&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
+&lt;b&gt;Kosten:&lt;/b&gt; halbe Basiskosten des Zaubers
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Umwelt
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach, Geo, Mag 14; Dru, Elf, Sch 16; Alch 18; 20 EP</Talent>
-  <Talent name="Verwandlung beenden" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Antimagie, Verwandlung" variableKosten="0" referenzseite="127" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Verwandlung und Chimären. Du musst eine Modifikation wählen.
-&lt;b&gt;Gegenzauber:&lt;/b&gt; 0 Aktionen, Ziel Zauber in Vorbereitung, 16 Schritt, Wirkungsdauer augenblicklich, 4 AsP; stört einen anderen Zauberer während dessen Zaubervorbereitung. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert. 
-&lt;b&gt;Magie unterdrücken:&lt;/b&gt; 16 Aktionen, 8 Schritt, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Zauber der Fertigkeit um -8 erschwert. Mächtige Magie erhöht den Malus um -4. 
-&lt;b&gt;Zauber aufheben:&lt;/b&gt; 8 Aktionen, Ziel Zauber, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten des Zaubers; hebt einen bereits gewirkten Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
-&lt;b&gt;Wesenheit bannen:&lt;/b&gt; Beschwörungsschwierigkeit des Ziels, 8 Aktionen, Ziel Chimäre, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten der Beschwörung; du bannst eine Chimäre, in die keine gAsP geflossen sind.
+  <Talent name="Verwandlung beenden" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Antimagie, Verwandlung" variableKosten="0" referenzseite="127" referenzbuch="0">Du hebst einen bereits gewirkten Verwandlungs-Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
+&lt;b&gt;Modifikationen:&lt;/b&gt; Gegenzauber (Vorbereitungszeit 0 Aktionen, 16 Schritt, 4 AsP; stört einen anderen Zauberer während er einen Verwandlungs-Zauber vorbereitet. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert.)
+Magie unterdrücken (Vorbereitungszeit 16 Aktionen, Ziel Zone, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Verwandlungs-Zauber um -8 erschwert. Mächtige Magie erhöht den Malus um -4.)
+Wesenheit bannen (Beschwörungsschwierigkeit des Ziels, Ziel Chimäre, halbe Basiskosten der Beschwörung; du bannst eine Chimäre, in die keine gAsP geflossen sind.)
+&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
+&lt;b&gt;Ziel:&lt;/b&gt; Zauber
+&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
+&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
+&lt;b&gt;Kosten:&lt;/b&gt; halbe Basiskosten des Zaubers
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Verwandlung
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach, Dru, Hex, Mag 14; Elf, Geo, Srl 16; 40 EP</Talent>
-  <Talent name="Verständigung stören" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Antimagie, Verständigung" variableKosten="0" referenzseite="127" referenzbuch="0">Wirkt gegen Zauber der Fertigkeit Verständigung. Du musst eine Modifikation wählen.
-&lt;b&gt;Gegenzauber:&lt;/b&gt; 0 Aktionen, Ziel Zauber in Vorbereitung, 16 Schritt, Wirkungsdauer augenblicklich, 4 AsP; stört einen anderen Zauberer während dessen Zaubervorbereitung. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert. 
-&lt;b&gt;Magie unterdrücken:&lt;/b&gt; 16 Aktionen, 8 Schritt, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Zauber der Fertigkeit um -8 erschwert. Mächtige Magie erhöht den Malus um -4. 
-&lt;b&gt;Zauber aufheben:&lt;/b&gt; 8 Aktionen, Ziel Zauber, 8 Schritt, Wirkungsdauer augenblicklich, halbe Basiskosten des Zaubers; hebt einen bereits gewirkten Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
+  <Talent name="Verständigung stören" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Antimagie, Verständigung" variableKosten="0" referenzseite="127" referenzbuch="0">Du hebst einen bereits gewirkten Verständigungs-Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
+&lt;b&gt;Modifikationen:&lt;/b&gt; Gegenzauber (Vorbereitungszeit 0 Aktionen, 16 Schritt, 4 AsP; stört einen anderen Zauberer während er einen Verständigungs-Zauber vorbereitet. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert.)
+Magie unterdrücken (Vorbereitungszeit 16 Aktionen, Ziel Zone, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Verständigungs-Zauber um -8 erschwert. Mächtige Magie erhöht den Malus um -4.)
+&lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
+&lt;b&gt;Ziel:&lt;/b&gt; Zauber
+&lt;b&gt;Reichweite:&lt;/b&gt; 8 Schritt
+&lt;b&gt;Wirkungsdauer:&lt;/b&gt; augenblicklich
+&lt;b&gt;Kosten:&lt;/b&gt; halbe Basiskosten des Zaubers
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Verständigung
 &lt;b&gt;Erlernen:&lt;/b&gt; Elf 12; Ach, Dru, Mag 14; Geo 16; Hex 18; 20 EP</Talent>
   <Talent name="Brenne toter Stoff!" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Feuer, Verwandlung" variableKosten="0" kommentar="0" referenzseite="128" referenzbuch="0">Du entzündest ein magisches Feuer, das 2W6 SP pro Initiativephase auf einem unbelebten Ziel anrichtet. Das Feuer brennt auf brennbaren Materialien auch nach dem Ende der Wirkungsdauer weiter.
@@ -1245,7 +1285,7 @@ Schattensprung (-8, 4 Aktionen, Wirkungsdauer 16 Initiativephasen, 16 AsP; du ve
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Eigenschaften
 &lt;b&gt;Erlernen:&lt;/b&gt; Hex 16; Elf 18; 20 EP</Talent>
   <Talent name="Krötensprung" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Eigenschaften" variableKosten="0" referenzseite="131" referenzbuch="0">Der nächste Sprung deines Zieles ist gewaltig. Er kann bis zu 8 Schritt Weite und 4 Schritt Höhe überwinden und die effektive Sturzhöhe (S. 34) sinkt um 4 Schritt.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Die Weite steigt um +4 Schritt,  die (Sturz-)Höhe um +2 Schritt.
+&lt;b&gt;Mächtige Magie:&lt;/b&gt; Die Weite steigt um +4 Schritt, die (Sturz-)Höhe um +2 Schritt.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Krötengang (-4, Wirkungsdauer 16 Initiativephasen, 8 AsP; dein Ziel kann beliebig oft springen.)
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 2 Aktionen
@@ -1777,7 +1817,7 @@ Ferne Zone (-8, Zone, 8 Schritt, 32 AsP)
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Eis
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach, Dru, Mag 16; Alch 18; 60 EP
 &lt;b&gt;Anmerkung:&lt;/b&gt; Nicht überall sind die Wahren Namen und damit die Beschwörung von elementaren Dienern und vor allem Meistern bekannt.</Talent>
-  <Talent name="Frigifaxius" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Eis" variableKosten="0" referenzseite="136" referenzbuch="0">Eine Strahl aus elementarem Eis fügt dem Ziel 4W6 TP zu und verursacht &lt;i&gt;Erfrieren&lt;/i&gt; (S. 98). &lt;i&gt;Ballistischer&lt;/i&gt; Zauber.
+  <Talent name="Frigifaxius" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Eis" variableKosten="0" referenzseite="136" referenzbuch="0">Ein Strahl aus elementarem Eis fügt dem Ziel 4W6 TP zu und verursacht &lt;i&gt;Erfrieren&lt;/i&gt; (S. 98). &lt;i&gt;Ballistischer&lt;/i&gt; Zauber.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Die TP steigen um 2W6.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Gezielter Strahl (-4; du kannst die Trefferzone bestimmen.)
@@ -1850,7 +1890,7 @@ Permanenz (-4, ein Viertel der Basiskosten als gAsP; das so geformte Eis schmilz
   <Talent name="Manifesto Element" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I ODER Vorteil Tradition der Scharlatane I" verbilligt="0" fertigkeiten="Eis, Erz, Feuer, Humus, Luft, Wasser" variableKosten="0" referenzseite="137" referenzbuch="0">Du beschwörst eine etwa faustgroße Menge oder kleine Manifestation des Elements herbei, mit dem du den Zauber wirkst. Sie verschwindet nach dem Ende der Wirkungsdauer.
 &lt;b&gt;Fertigkeit Eis:&lt;/b&gt; Du kannst zum Beispiel einen Schneeball oder einen Eiszapfen erscheinen lassen, ein Getränk kühlen, oder deine Körpertemperatur etwas senken.
 &lt;b&gt;Fertigkeit Erz:&lt;/b&gt; Du kannst zum Beispiel eine Hand voll Sand oder einen Stein erscheinen lassen oder das Gewicht eines Gegenstandes kurzzeitig etwas erhöhen.
-&lt;b&gt;Fertigkeit Feuer:&lt;/b&gt; Du kannst zum Beispiel eine kleine Flamme über deiner Hand tanzen lassen, deine Körpertemperatur etwas erhöhen, eine Pfeife anzünden  oder einen Funkenschwarm erzeugen.
+&lt;b&gt;Fertigkeit Feuer:&lt;/b&gt; Du kannst zum Beispiel eine kleine Flamme über deiner Hand tanzen lassen, deine Körpertemperatur etwas erhöhen, eine Pfeife anzünden oder einen Funkenschwarm erzeugen.
 &lt;b&gt;Fertigkeit Humus:&lt;/b&gt; Du kannst zum Beispiel eine Knospe erblühen lassen, eine Hand voll Kuhmist herbeizaubern, ein Gänseblümchen erscheinen lassen, oder einen kleinen Kratzer schließen.
 &lt;b&gt;Fertigkeit Luft:&lt;/b&gt; Du kannst zum Beispiel einen frischen Windhauch rufen, einen Wohlgeruch erzeugen, oder einen kleinen Luftwirbel erschaffen.
 &lt;b&gt;Fertigkeit Wasser:&lt;/b&gt; Du kannst zum Beispiel einen Becher mit Wasser füllen, deine Hände abspülen, eine Pfütze bilden oder tagsüber einen kleinen Regenbogen glitzern lassen.
@@ -1923,7 +1963,7 @@ Zauberklinge (-4; während der Wirkungsdauer gilt die Waffe als magisch.)
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Erz, Verwandlung
 &lt;b&gt;Erlernen:&lt;/b&gt; Ach 12; Geo, Mag 14; Dru 16; Alch 20; 40 EP</Talent>
-  <Talent name="Archofaxius" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Erz" variableKosten="0" referenzseite="138" referenzbuch="0">Eine Strahl aus elementarem Erz fügt dem Ziel 4W6 TP zu und verursacht &lt;i&gt;Niederschmettern&lt;/i&gt; (S. 98). &lt;i&gt;Ballistischer&lt;/i&gt; Zauber.
+  <Talent name="Archofaxius" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Erz" variableKosten="0" referenzseite="138" referenzbuch="0">Ein Strahl aus elementarem Erz fügt dem Ziel 4W6 TP zu und verursacht &lt;i&gt;Niederschmettern&lt;/i&gt; (S. 98). &lt;i&gt;Ballistischer&lt;/i&gt; Zauber.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Die TP steigen um 2W6.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Gezielter Strahl (-4; du kannst die Trefferzone bestimmen.)
@@ -2377,7 +2417,7 @@ Sofortige Regeneration (-16, 4 Aktionen, 32 AsP; das Ziel erhält für 32 Initia
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Humus, Verwandlung
 &lt;b&gt;Erlernen:&lt;/b&gt; Hex 8; 60 EP</Talent>
-  <Talent name="Humofaxius" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Humus" variableKosten="0" referenzseite="142" referenzbuch="0">Eine Strahl aus elementarem Humus fügt dem Ziel 4W6 TP zu und verursacht &lt;i&gt;Fesseln&lt;/i&gt; (S. 98). &lt;i&gt;Ballistischer&lt;/i&gt; Zauber.
+  <Talent name="Humofaxius" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Humus" variableKosten="0" referenzseite="142" referenzbuch="0">Ein Strahl aus elementarem Humus fügt dem Ziel 4W6 TP zu und verursacht &lt;i&gt;Fesseln&lt;/i&gt; (S. 98). &lt;i&gt;Ballistischer&lt;/i&gt; Zauber.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Die TP steigen um 2W6.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Gezielter Strahl (-4; du kannst die Trefferzone bestimmen.)
@@ -2950,7 +2990,7 @@ Begleiter (-4; die Wolke bewegt sich mit dir.)
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Luft, Umwelt, Wasser
 &lt;b&gt;Erlernen:&lt;/b&gt; Elf 12; Ach, Dru, Geo, Srl16; Mag, Hex 20; 40 EP</Talent>
-  <Talent name="Orcanofaxius" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Luft" variableKosten="0" referenzseite="148" referenzbuch="0">Eine Strahl aus elementarer Luft fügt dem Ziel 4W6 TP zu und verursacht &lt;i&gt;Zurückstoßen&lt;/i&gt; (S. 98). &lt;i&gt;Ballistischer&lt;/i&gt; Zauber.
+  <Talent name="Orcanofaxius" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Luft" variableKosten="0" referenzseite="148" referenzbuch="0">Ein Strahl aus elementarer Luft fügt dem Ziel 4W6 TP zu und verursacht &lt;i&gt;Zurückstoßen&lt;/i&gt; (S. 98). &lt;i&gt;Ballistischer&lt;/i&gt; Zauber.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Die TP steigen um 2W6.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Gezielter Strahl (-4; du kannst die Trefferzone bestimmen.)
@@ -3153,7 +3193,7 @@ Lufthaken (-12; du fixierst einen Gegenstand in der Luft.)
   <Talent name="Animatio stummer Diener" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Gildenmagier I" verbilligt="0" fertigkeiten="Umwelt" variableKosten="0" referenzseite="150" referenzbuch="0">Du verzauberst ein Objekt von maximal 4 Stein, sodass es eine einfache Bewegung wiederholt. Du musst die Bewegung während der Vorbereitungszeit sieben Mal eigenhändig ausführen und ein Signal bestimmen (z.B. ein Fingerschnippen oder ein Wort). Gibst du das Signal, führt der Gegenstand die Bewegung aus. Seine KK entspricht deiner KK während der Vorbereitungszeit.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Das maximale Gewicht verdoppelt sich.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt;  Mehrere Objekte (-4; du kannst bis zu FF Objekte gleichzeitig verzaubern, solange ihre Bewegungen zusammengehören.)
+&lt;b&gt;Modifikationen:&lt;/b&gt; Mehrere Objekte (-4; du kannst bis zu FF Objekte gleichzeitig verzaubern, solange ihre Bewegungen zusammengehören.)
 Mehrere Auslösende (-2; eine zusätzliche Person kann das Signal geben. Mehrfach wählbar.)
 Geworfen (-4; du musst das Objekt während der Vorbereitungszeit nicht permanent in der Hand halten.)
 Tagelöhner (4 AsP, Wirkungsdauer 8 Stunden)
@@ -3189,7 +3229,7 @@ Lichtblitz (-8, 8 AsP; du kannst die Kugel in einer Aktion Bereit machen explodi
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
 &lt;b&gt;Kosten:&lt;/b&gt; 1 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Umwelt
-&lt;b&gt;Erlernen:&lt;/b&gt; Ach, Alch, Elf, Mag 8; Dru, Hex 12;  Geo 14; Sch, Srl 16; 20 EP</Talent>
+&lt;b&gt;Erlernen:&lt;/b&gt; Ach, Alch, Elf, Mag 8; Dru, Hex 12; Geo 14; Sch, Srl 16; 20 EP</Talent>
   <Talent name="Foramen Foraminor" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Scharlatane I ODER Vorteil Tradition der Schelme I" verbilligt="0" fertigkeiten="Umwelt" variableKosten="0" referenzseite="150" referenzbuch="0">Du öffnest ein Schloss beliebiger Bauart.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Herstellungsschwierigkeit des Schlosses
 &lt;b&gt;Modifikationen:&lt;/b&gt; Riegel (-4, 8 AsP; auch ein schwerer Riegel wie an einem Stadttor kann hiermit geöffnet werden.)
@@ -3573,7 +3613,8 @@ Winterpelz und Katzenfell (-4; sämtliches Körperhaar kann verändert werden.)
   <Talent name="Salander Mutander" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Alchemisten I ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Verwandlung" variableKosten="0" referenzseite="154" referenzbuch="0">Du verwandelst dein Ziel in ein beliebiges anderes, kleineres und leichteres Tier oder eine solche Pflanze. Du musst das Zielwesen schon einmal gesehen haben, es kann nicht übernatürlich sein. Dein Ziel hat in seiner neuen Form nur noch nebulöse Erinnerungen an sein vorheriges Selbst, behält aber seine alte WS und MR.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; Magieresistenz
 &lt;b&gt;Modifikationen:&lt;/b&gt; Lange Verwandlung (-4, Wirkungsdauer 1 Woche)
-Permanenz (-4, Wirkungsdauer bis die Bindung gelöst wird, 16 AsP, davon 2 gAsP), Bärenfell und Froschschenkel (-8; du kannst einzelne Gliedmaßen verwandeln.)
+Permanenz (-4, Wirkungsdauer bis die Bindung gelöst wird, 16 AsP, davon 2 gAsP)
+Bärenfell und Froschschenkel (-8; du kannst einzelne Gliedmaßen verwandeln.)
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
@@ -3645,7 +3686,7 @@ Permanenz (-4, Wirkungsdauer bis die Bindung gelöst wird, zusätzlich ein Achte
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Verwandlung
 &lt;b&gt;Erlernen:&lt;/b&gt; Elf 12; Alch, Dru, Geo, Mag 20; 20 EP</Talent>
-  <Talent name="Aquafaxius" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Wasser" variableKosten="0" referenzseite="155" referenzbuch="0">Eine Strahl aus elementarem Wasser fügt dem Ziel 4W6 TP zu und verursacht &lt;i&gt;Ertränken&lt;/i&gt; (S. 98). &lt;i&gt;Ballistischer&lt;/i&gt; Zauber.
+  <Talent name="Aquafaxius" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Magiedilettant ODER Vorteil Tradition der Druiden I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Kristallomanten I" verbilligt="0" fertigkeiten="Wasser" variableKosten="0" referenzseite="155" referenzbuch="0">Ein Strahl aus elementarem Wasser fügt dem Ziel 4W6 TP zu und verursacht &lt;i&gt;Ertränken&lt;/i&gt; (S. 98). &lt;i&gt;Ballistischer&lt;/i&gt; Zauber.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Die TP steigen um 2W6.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Gezielter Strahl (-4; du kannst die Trefferzone bestimmen.)
@@ -4008,7 +4049,7 @@ Permanenz (-4, 4 AsP, davon 1 gAsP, Wirkungsdauer bis die Bindung gelöst wird o
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Eigenschaften, Gaben des Odun
 &lt;b&gt;Erlernen:&lt;/b&gt; Dur 4; 40 EP</Talent>
   <Talent name="Haut des (Tieres)" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Durro-dun I" verbilligt="0" fertigkeiten="Verwandlung, Gaben des Odun" variableKosten="0" referenzseite="159" referenzbuch="0">Du setzt eine der bei deinem Tier angegebenen Verwandlungen (S. 160) ein. Du kannst auch beide Verwandlungen gleichzeitig nutzen, dafür musst du den Zauber zwei Mal wirken.
-&lt;b&gt;Mächtige Magie:&lt;/b&gt; Falls zutreffend, geschieht das Folgende: Probenerleichterungen steigen um +2, TP um +2, die Giftstufe um +4, die Flugweiten  und -höhen um 4/2 Schritt. Je zwei Stufen erhöhen einen RS-Bonus um +1.
+&lt;b&gt;Mächtige Magie:&lt;/b&gt; Falls zutreffend, geschieht das Folgende: Probenerleichterungen steigen um +2, TP um +2, die Giftstufe um +4, die Flugweiten und -höhen um 4/2 Schritt. Je zwei Stufen erhöhen einen RS-Bonus um +1.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; selbst
@@ -4206,7 +4247,7 @@ Permanenz (-4, Wirkungsdauer bis die Bindung gelöst wird, 16 AsP, davon 2 gAsP)
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Einfluss, Geister der Stärkung
 &lt;b&gt;Erlernen:&lt;/b&gt; Smn 14; 40 EP
 &lt;b&gt;Anmerkung:&lt;/b&gt; Besonders große und starke Tierarten erhöhen die gAsP auf 4 oder sogar 8.</Talent>
-  <Talent name="Schutz der Jurte" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Antimagie, Geister der Stärkung" variableKosten="0" referenzseite="162" referenzbuch="0">Du schützt einen abgeschlossenen Raum, wie eine Jurte oder einer Höhle, mit bis zu 16 Schritt Radius vor übernatürlichen Wesen. Dämonen, Daimonoiden und Untote können den Raum nicht betreten, wenn ihre Beschwörungsschwierigkeit bei maximal 20 liegt, bei Geistern und Feenwesen entscheidet der Spielleiter. Innerhalb des Raumes erleiden alle genannten Wesenheiten 1 Wunde pro Initiativephase. Wenn ein beweglicher Raum wie eine Jurte verzaubert wird, wirkt der Zauber unabhängig vom Ort, an dem die Jurte steht.
+  <Talent name="Schutz der Jurte" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Antimagie, Geister der Stärkung, Geister vertreiben" variableKosten="0" referenzseite="162" referenzbuch="0">Du schützt einen abgeschlossenen Raum, wie eine Jurte oder einer Höhle, mit bis zu 16 Schritt Radius vor übernatürlichen Wesen. Dämonen, Daimonoiden und Untote können den Raum nicht betreten, wenn ihre Beschwörungsschwierigkeit bei maximal 20 liegt, bei Geistern und Feenwesen entscheidet der Spielleiter. Innerhalb des Raumes erleiden alle genannten Wesenheiten 1 Wunde pro Initiativephase. Wenn ein beweglicher Raum wie eine Jurte verzaubert wird, wirkt der Zauber unabhängig vom Ort, an dem die Jurte steht.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Die maximale Beschwörungsschwierigkeit steigt um +4.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Modifikationen:&lt;/b&gt; Permanenz (-4, Wirkungsdauer bis die Bindung gelöst wird, 16 AsP, davon 2 gAsP)
@@ -4215,8 +4256,7 @@ Permanenz (-4, Wirkungsdauer bis die Bindung gelöst wird, 16 AsP, davon 2 gAsP)
 &lt;b&gt;Reichweite:&lt;/b&gt; Berührung
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Woche
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP
-&lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Geister der Stärkung
-Geister vertreiben
+&lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Geister der Stärkung, Geister vertreiben
 &lt;b&gt;Erlernen:&lt;/b&gt; Smn 14; 40 EP</Talent>
   <Talent name="Schützende Rotte" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Schamanen I" verbilligt="0" fertigkeiten="Antimagie, Geister der Stärkung, Geister vertreiben, Kraft" variableKosten="0" referenzseite="163" referenzbuch="0">Du bemalst einen Schild mit Tieren. Proben zur Abwehr von &lt;i&gt;ballistischen&lt;/i&gt; Zaubern (siehe S. 124) sind mit diesem Schild um +4 erleichtert. Der Schild erleidet dabei keinen Schaden.
 &lt;b&gt;Mächtige Magie:&lt;/b&gt; Der Bonus steigt um +2.
@@ -5170,7 +5210,7 @@ Geister vertreiben (Probenschwierigkeit 16 bis 28 (nach Mächtigkeit des Geistes
   <Talent name="Transmutation der Elemente" spezialTyp="0" kosten="20" voraussetzungen="Vorteil Tradition der Alchemisten I" verbilligt="0" fertigkeiten="Eis, Erz, Feuer, Humus, Luft, Wasser, Schalenzauber" variableKosten="0" referenzseite="171" referenzbuch="0">Du beschwörst eine etwa faustgroße Menge oder kleine Manifestation des Elements herbei, mit dem du den Zauber wirkst. Sie verschwindet nach dem Ende der Wirkungsdauer.
 &lt;b&gt;Fertigkeit Eis:&lt;/b&gt; Du kannst zum Beispiel einen Schneeball oder einen Eiszapfen erscheinen lassen, ein Getränk kühlen, oder deine Körpertemperatur etwas senken.
 &lt;b&gt;Fertigkeit Erz:&lt;/b&gt; Du kannst zum Beispiel eine Hand voll Sand oder einen Stein erscheinen lassen oder das Gewicht eines Gegenstandes kurzzeitig etwas erhöhen.
-&lt;b&gt;Fertigkeit Feuer:&lt;/b&gt; Du kannst zum Beispiel eine kleine Flamme über deiner Hand tanzen lassen, deine Körpertemperatur etwas erhöhen, eine Pfeife anzünden  oder einen Funkenschwarm erzeugen.
+&lt;b&gt;Fertigkeit Feuer:&lt;/b&gt; Du kannst zum Beispiel eine kleine Flamme über deiner Hand tanzen lassen, deine Körpertemperatur etwas erhöhen, eine Pfeife anzünden oder einen Funkenschwarm erzeugen.
 &lt;b&gt;Fertigkeit Humus:&lt;/b&gt; Du kannst zum Beispiel eine Knospe erblühen lassen, eine Hand voll Kuhmist herbeizaubern, ein Gänseblümchen erscheinen lassen, oder einen kleinen Kratzer schließen.
 &lt;b&gt;Fertigkeit Luft:&lt;/b&gt; Du kannst zum Beispiel einen frischen Windhauch rufen, einen Wohlgeruch erzeugen, oder einen kleinen Luftwirbel erschaffen.
 &lt;b&gt;Fertigkeit Wasser:&lt;/b&gt; Du kannst zum Beispiel einen Becher mit Wasser füllen, deine Hände abspülen, eine Pfütze bilden oder tagsüber einen kleinen Regenbogen glitzern lassen.
@@ -5667,7 +5707,7 @@ Geister vertreiben (Probenschwierigkeit 16 bis 28 (nach Mächtigkeit des Geistes
 &lt;b&gt;Kosten:&lt;/b&gt; 8 AsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Einfluss, Verständigung, Zaubertänze
 &lt;b&gt;Erlernen:&lt;/b&gt; Ztz 14; 20 EP</Talent>
-  <Talent name="Tanz der Unantastbarkeit" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Zaubertänzer I" verbilligt="0" fertigkeiten="Eigenschaften, Zaubertänze" variableKosten="0" referenzseite="176" referenzbuch="0">Der Tanz verbessert deinen Gleichgewichtssinn und deine Körperbeherrschung. Du erhältst den Vorteil Körperbeherrschung (S. 58). Besitzt du den Vorteil bereits, erleidest du beim Einsatz des Vorteils keine Erschöpfung.
+  <Talent name="Tanz der Unantastbarkeit" spezialTyp="0" kosten="40" voraussetzungen="Vorteil Tradition der Zaubertänzer I" verbilligt="0" fertigkeiten="Eigenschaften, Zaubertänze" variableKosten="0" referenzseite="176" referenzbuch="0">Der Tanz verbessert deinen Gleichgewichtssinn und deine Körperbeherrschung. Du erhältst den Vorteil Körperbeherrschung (S. 58). Besitzt du den Vorteil bereits, erleidest du bei den ersten vier Einsätzen des Vorteils keine Erschöpfung.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Minuten
 &lt;b&gt;Ziel:&lt;/b&gt; selbst
@@ -5832,7 +5872,7 @@ Unbekannter Empfänger (-8, 16 KaP; die Nachricht kann an einen beliebigen Tempe
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 1 Tag
 &lt;b&gt;Kosten:&lt;/b&gt; 4 KaP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Zwölfgöttlicher Ritus
-&lt;b&gt;Erlernen:&lt;/b&gt; Ang, Aves, Brn, Eff, Fir, Hes, Ifi, Ing,  Kor, Nan, Per, Phe, Pra, Rah, Ron, Tra, Tsa, Swa 8; 20 EP</Talent>
+&lt;b&gt;Erlernen:&lt;/b&gt; Ang, Aves, Brn, Eff, Fir, Hes, Ifi, Ing, Kor, Nan, Per, Phe, Pra, Rah, Ron, Tra, Tsa, Swa 8; 20 EP</Talent>
   <Talent name="Schutzsegen" spezialTyp="1" kosten="40" voraussetzungen="Vorteil Tradition der Avesgeweihten I ODER Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der Efferdgeweihten I ODER Vorteil Tradition der Firungeweihten I ODER Vorteil Tradition der Hesindegeweihten I ODER Vorteil Tradition der Ifirngeweihten I ODER Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition der Angroschgeweihten I ODER Vorteil Tradition der Korgeweihten I ODER Vorteil Tradition der Nandusgeweihten I ODER Vorteil Tradition der Perainegeweihten I ODER Vorteil Tradition der Phexgeweihten I ODER Vorteil Tradition der Praiosgeweihten I ODER Vorteil Tradition der Rahjageweihten I ODER Vorteil Tradition der Rondrageweihten I ODER Vorteil Tradition der Swafnirgeweihten I ODER Vorteil Tradition der Traviageweihten I ODER Vorteil Tradition der Tsageweihten I" verbilligt="0" fertigkeiten="Schutz der Gläubigen, Zwölfgöttlicher Ritus" variableKosten="0" referenzseite="178" referenzbuch="0">Du ziehst einen Kreis von maximal 8 Schritt Radius und nennst eine Kreaturenklasse (Dämon, Daimonoid oder Untoter). Liegt die Beschwörungsschwierigkeit eines dieser Wesen bei maximal 20, kann es die Zone nicht betreten. Der Boden innerhalb des Schutzkreises gilt als geweihter Boden.
 &lt;b&gt;Mächtige Liturgie:&lt;/b&gt; Erhöht die Beschwörungsschwierigkeit um 4.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
