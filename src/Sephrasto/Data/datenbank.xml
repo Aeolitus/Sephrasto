@@ -650,10 +650,10 @@ Liturgien sind um 2-8 Punkte erschwert, wenn ihr Einsatz gegen die Gebote der Ki
 &lt;b&gt;Kosten:&lt;/b&gt; 16 AsP, davon 4 gAsP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Antimagie, Dämonisch
 &lt;b&gt;Erlernen:&lt;/b&gt; Bor, Mag 18; Ach, Alch, Dru, Geo, Elf 20; 40 EP</Talent>
-  <Talent name="Dämonenbann" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Antimagie, Dämonisch" variableKosten="0" referenzseite="126" referenzbuch="0">Du hebst einen bereits gewirkten Zauber der Fertigkeit Dämonisch auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
+  <Talent name="Dämonenbann" spezialTyp="0" kosten="60" voraussetzungen="Vorteil Tradition der Druiden I ODER Vorteil Tradition der Elfen I ODER Vorteil Tradition der Geoden I ODER Vorteil Tradition der Gildenmagier I ODER Vorteil Tradition der Hexen I" verbilligt="0" fertigkeiten="Antimagie, Dämonisch" variableKosten="0" referenzseite="126" referenzbuch="0">Du hebst einen bereits gewirkten dämonischen Zauber auf, in den keine gAsP geflossen sind. Dein Zauber gilt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort aufgehoben wird.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
-&lt;b&gt;Modifikationen:&lt;/b&gt; Gegenzauber (Vorbereitungszeit 0 Aktionen, 16 Schritt, 4 AsP; stört einen anderen Zauberer während er einen Zauber der Fertigkeit Dämonisch vorbereitet. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert.)
-Magie unterdrücken (Vorbereitungszeit 16 Aktionen, Ziel Zone, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen Zauber der Fertigkeit Dämonisch um -8 erschwert. Mächtige Magie erhöht den Malus um -4.)
+&lt;b&gt;Modifikationen:&lt;/b&gt; Gegenzauber (Vorbereitungszeit 0 Aktionen, 16 Schritt, 4 AsP; stört einen anderen Zauberer während er einen dämonischen Zauber vorbereitet. Wirkt als &lt;i&gt;Konterprobe&lt;/i&gt; (12), bei deren Gelingen der Zielzauber sofort scheitert.)
+Magie unterdrücken (Vorbereitungszeit 16 Aktionen, Ziel Zone, Wirkungsdauer 1 Stunde, 8 AsP; in einer Zone von 16 Schritt Radius sind alle zukünftigen dämonischen Zauber um -8 erschwert. Mächtige Magie erhöht den Malus um -4.)
 Wesenheit bannen (Beschwörungsschwierigkeit des Ziels, Ziel Dämon oder Untoter, halbe Basiskosten der Beschwörung; du bannst einen Dämonen oder Untoten, in den keine gAsP geflossen sind.)
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 8 Aktionen
 &lt;b&gt;Ziel:&lt;/b&gt; Zauber
