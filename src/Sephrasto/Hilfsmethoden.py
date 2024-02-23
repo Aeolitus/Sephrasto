@@ -264,14 +264,14 @@ class Hilfsmethoden:
         text = text.replace("$plugins_dir$", "file:///" + Wolke.Settings['Pfad-Plugins'].replace('\\', '/'))
 
         if addCSS:
-            css = """<style>
-            h4 { margin: 0px; margin-top: 1em; }
-            table {margin-top: 1em; margin-bottom: 1em; border-collapse: collapse;}
-            th { border-bottom: 1px solid #4A000B; }
-            td { padding: 0.1em; }
-            ul { padding: 0; margin: 0; }
-            ol { padding: 0; margin: 0; }
-            </style>"""
+            css = f"""<style>
+h4 {{ margin: 0px; margin-top: 1em; }}
+table {{ margin-top: 1em; margin-bottom: 1em; border-collapse: collapse; }}
+th {{ border-bottom: 1px solid #4A000B; }}
+td {{ padding: 0.1em; }}
+ul {{ padding: 0; margin: 0; -qt-list-indent: 0; margin-left: {Hilfsmethoden.emToPixels(1.4)}px; }}
+ol {{ padding: 0; margin: 0; -qt-list-indent: 0; margin-left: {Hilfsmethoden.emToPixels(1.8)}px; }}
+</style>"""
             text = f"<head>{css}</head><body>{text}</body>"
         return text
 
