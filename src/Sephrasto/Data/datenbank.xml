@@ -6585,7 +6585,7 @@ Selbstlöschung (0 Aktionen, 2 KaP; du löschst dich selbst.)
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Winter
 &lt;b&gt;Erlernen:&lt;/b&gt; Fir 16; 40 EP
 &lt;b&gt;Anmerkung:&lt;/b&gt; Hohe Temperaturen können die Wirkungsdauer nach Spielleiterentscheid auf bis zu 1 Stunde senken. </Talent>
-  <Talent name="Winterschlaf" spezialTyp="1" kosten="20" voraussetzungen="Vorteil Tradition der Firungeweihten I" verbilligt="0" fertigkeiten="Winter" variableKosten="0" referenzseite="186" referenzbuch="0">Das gesegnete Ziel fällt in einen tiefen Winterschlaf, in dem sie weder Nahrung noch Atemluft benötigt und jeglichen Schaden durch natürliche Hitze oder Kälte ignoriert. Die Effekte von Giften und Krankheiten werden gestoppt, allerdings regeneriert sie auch nur einmal pro Woche. Die Gesegnete erwacht, wenn sie eine Wunde erleidet.
+  <Talent name="Winterschlaf" spezialTyp="1" kosten="20" voraussetzungen="Vorteil Tradition der Firungeweihten I" verbilligt="0" fertigkeiten="Winter" variableKosten="0" referenzseite="186" referenzbuch="0">Das gesegnete Ziel fällt in einen tiefen Winterschlaf, in dem es weder Nahrung noch Atemluft benötigt und jeglichen Schaden durch natürliche Hitze oder Kälte ignoriert. Die Effekte von Giften und Krankheiten werden gestoppt, allerdings regeneriert es auch nur einmal pro Woche. Das Ziel erwacht, wenn es eine Wunde erleidet.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 1 Stunde
 &lt;b&gt;Ziel:&lt;/b&gt; Einzelperson
