@@ -6049,7 +6049,7 @@ Große Traumreise (-8, 16 KaP; du kannst mit einigen Gefährten in den Traum rei
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Stunden
 &lt;b&gt;Kosten:&lt;/b&gt; 8 KaP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Ehre, Guter Kampf, Jagd, List, Magie, Tod, Wind und Wogen
-&lt;b&gt;Erlernen:&lt;/b&gt; Fir, Ifi 14; Eff, Ron 16; Bor, Hes, Kor, Phe 18; normalerweise 40 EP
+&lt;b&gt;Erlernen:&lt;/b&gt; Fir, Ifi 14; Eff, Ron 16; Brn, Hes, Kor, Phe 18; normalerweise 40 EP
 &lt;b&gt;Anmerkungen:&lt;/b&gt; Nur herausragende Geweihte können sich in Tiere verwandeln, die nicht zu den Größenklassen klein oder mittel gehören. Solche Verwandlungen sind prinzipiell um -8 erschwert. Die Lernkosten des Zaubers orientieren sich an der Tierart, wobei fliegende, giftige, sehr starke usw. Tiere teurer sind.</Talent>
   <Talent name="Waffenweihe" spezialTyp="1" kosten="60" voraussetzungen="Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der Ingerimmgeweihten I ODER Vorteil Tradition der Angroschgeweihten I ODER Vorteil Tradition der Praiosgeweihten I ODER Vorteil Tradition der Rondrageweihten I ODER Vorteil Tradition der Korgeweihten I" verbilligt="0" fertigkeiten="Magiebann, Heiliges Feuer, Heerführung, Tod, Gutes Gold" variableKosten="0" referenzseite="180" referenzbuch="0">Du segnest eine Waffe. Diese gilt als geweiht.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
@@ -6080,7 +6080,7 @@ Große Traumreise (-8, 16 KaP; du kannst mit einigen Gefährten in den Traum rei
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; permanent
 &lt;b&gt;Kosten:&lt;/b&gt; 8 KaP
 &lt;b&gt;Fertigkeiten:&lt;/b&gt; Vergessen
-&lt;b&gt;Erlernen:&lt;/b&gt; Bor 18; 40 EP</Talent>
+&lt;b&gt;Erlernen:&lt;/b&gt; Brn 18; 40 EP</Talent>
   <Talent name="Heiliger Befehl" spezialTyp="1" kosten="60" voraussetzungen="Vorteil Tradition der Borongeweihten I ODER Vorteil Tradition der Praiosgeweihten I ODER Vorteil Tradition der Rahjageweihten I ODER Vorteil Tradition der Rondrageweihten I ODER Vorteil Tradition der Korgeweihten I" verbilligt="0" fertigkeiten="Ehre, Gutes Gold, Ordnung, Rausch, Vergessen" variableKosten="0" referenzseite="181" referenzbuch="0">Das Ziel befolgt einen gottgefälligen Befehl, wenn ihm keine &lt;i&gt;Konterprobe&lt;/i&gt; (Willenskraft, 20) gelingt.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 4 Aktionen
