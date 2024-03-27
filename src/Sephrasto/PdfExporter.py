@@ -38,207 +38,208 @@ class PdfExporter(object):
         self.CharakterBogen = charakterbogen
 
     def pdfErstellen(self, filename, printRules):
-        dlg = ProgressDialogExt(minimum = 0, maximum = 100)
-        dlg.setWindowTitle("Exportiere Charakter")
-        dlg.setLabelText("Befülle Formularfelder")    
-        dlg.show()
-        QtWidgets.QApplication.processEvents() #make sure the dialog immediatelly shows
+        try:
+            dlg = ProgressDialogExt(minimum = 0, maximum = 100)
+            dlg.setWindowTitle("Exportiere Charakter")
+            dlg.setLabelText("Befülle Formularfelder")    
+            dlg.show()
+            QtWidgets.QApplication.processEvents() #make sure the dialog immediatelly shows
 
-        '''
-        This entire subblock is responsible for filling all the fields of the
-        Charakterbogen. It has been broken down into seven subroutines for
-        testing purposes,
-        '''
-        fields = {}
-        self.pdfErsterBlock(fields)
-        self.pdfZweiterBlock(fields)
-        extraVorteile = self.pdfDritterBlock(fields)
-        self.pdfVierterBlock(fields)
-        self.pdfFünfterBlock(fields)
-        (extraUeber, extraTalente) = self.pdfSechsterBlock(fields)
-        self.pdfSiebterBlock(fields)
-        self.pdfAchterBlock(fields)
+            '''
+            This entire subblock is responsible for filling all the fields of the
+            Charakterbogen. It has been broken down into seven subroutines for
+            testing purposes,
+            '''
+            fields = {}
+            self.pdfErsterBlock(fields)
+            self.pdfZweiterBlock(fields)
+            extraVorteile = self.pdfDritterBlock(fields)
+            self.pdfVierterBlock(fields)
+            self.pdfFünfterBlock(fields)
+            (extraUeber, extraTalente) = self.pdfSechsterBlock(fields)
+            self.pdfSiebterBlock(fields)
+            self.pdfAchterBlock(fields)
 
-        # Plugins die felder filtern lassen
-        fields = EventBus.applyFilter("pdf_export", fields)
+            # Plugins die felder filtern lassen
+            fields = EventBus.applyFilter("pdf_export", fields)
 
-        # Mappings des Charakterbogens applizieren
-        for field in self.CharakterBogen.formularMappings:
-            if field in fields:
-                if isinstance(self.CharakterBogen.formularMappings[field], list):
-                    mappings = self.CharakterBogen.formularMappings[field]
-                else:
-                    mappings = [self.CharakterBogen.formularMappings[field]]
+            # Mappings des Charakterbogens applizieren
+            for field in self.CharakterBogen.formularMappings:
+                if field in fields:
+                    if isinstance(self.CharakterBogen.formularMappings[field], list):
+                        mappings = self.CharakterBogen.formularMappings[field]
+                    else:
+                        mappings = [self.CharakterBogen.formularMappings[field]]
 
-                for mapping in mappings:
-                    if mapping in fields and fields[mapping] != "-":
-                        continue
-                    fields[mapping] = fields[field]
+                    for mapping in mappings:
+                        if mapping in fields and fields[mapping] != "-":
+                            continue
+                        fields[mapping] = fields[field]
 
-        if dlg.shouldCancel():
-            return
-        dlg.setValue(10)
+            if dlg.shouldCancel():
+                return
+            dlg.setValue(10)
 
 
-        # PDF erstellen
-        flatten = not Wolke.Char.formularEditierbar
-        bookmarks = []
-        i = 0
-        for i in range(PdfSerializer.getNumPages(self.CharakterBogen.filePath)):
-            text = "Charakterbogen"
-            if i < len(self.CharakterBogen.seitenbeschreibungen):
-                text = self.CharakterBogen.seitenbeschreibungen[i]
-            bookmarks.append(PdfSerializer.PdfBookmark("S. " + str(i+1) + " - " + text, i+1))
-        i += 1
-
-        allPages = [PdfSerializer.write_pdf(self.CharakterBogen.filePath, fields, None, flatten)]
-
-        if dlg.shouldCancel():
-            for page in allPages: os.remove(page)
-            return
-        dlg.setLabelText("Füge zusätzliche Seiten für Übernatürliches an")
-        dlg.setValue(20)
-
-        # Extraseiten
-        extraPageAdded = False
-        if self.CharakterBogen.extraÜberSeiten:
-            extraPage = None
-            if len(extraVorteile) > 0 or len(extraUeber) > 0 or len(extraTalente):
-                extraPageAdded = True
-                extraPage = PdfSerializer.shrink(self.CharakterBogen.filePath, self.CharakterBogen.überSeite, self.CharakterBogen.überSeite)
-
-            pageCount = 0
-            while len(extraVorteile) > 0 or len(extraUeber) > 0 or len(extraTalente) > 0:
-                pageCount += 1
-                fieldsNew = {}
-                self.createExtra(fieldsNew, extraVorteile, extraUeber, extraTalente)
-                fieldsNew = EventBus.applyFilter("pdf_export_extrapage", fieldsNew)
-                allPages.append(PdfSerializer.write_pdf(extraPage, fieldsNew, None, flatten))
+            # PDF erstellen
+            flatten = not Wolke.Char.formularEditierbar
+            bookmarks = []
+            i = 0
+            for i in range(PdfSerializer.getNumPages(self.CharakterBogen.filePath)):
+                text = "Charakterbogen"
+                if i < len(self.CharakterBogen.seitenbeschreibungen):
+                    text = self.CharakterBogen.seitenbeschreibungen[i]
                 bookmarks.append(PdfSerializer.PdfBookmark("S. " + str(i+1) + " - " + text, i+1))
-                i += 1
-                if dlg.shouldCancel():
-                    for page in allPages: os.remove(page)
-                    os.remove(extraPage)
-                    return
-                dlg.setValue(min(30, 20 + 2*pageCount))
+            i += 1
 
-            if extraPage:
-                os.remove(extraPage)
+            allPages = [PdfSerializer.write_pdf(self.CharakterBogen.filePath, fields, None, flatten)]
 
-        #Entferne die Seite für Übernatürliches, falls keine übernatürlichen Fertigkeiten vorhanden sind
-        if self.CharakterBogen.überSeite > 0 and \
-           not ('Uebervorteil1' in fields) and \
-           not ('Ueberfer1NA' in fields) and \
-           not ('Uebertal1NA' in fields) and not extraPageAdded:
             if dlg.shouldCancel():
                 for page in allPages: os.remove(page)
                 return
-            dlg.setValue(30)
-            dlg.setLabelText("Charakter ist profan, entferne Seite für Übernatürliches")
-            shrinked = PdfSerializer.shrink(allPages[0], 1, self.CharakterBogen.überSeite-1)
-            os.remove(allPages[0])
-            allPages[0] = shrinked
-            if len(bookmarks) > 0:
-                bookmarks.pop()
-                i -= 1
+            dlg.setLabelText("Füge zusätzliche Seiten für Übernatürliches an")
+            dlg.setValue(20)
 
-        if printRules:
-            if dlg.shouldCancel():
-                for page in allPages: os.remove(page)
-                return
-            dlg.setLabelText("Erstelle Regelanhang")
-            dlg.setValue(35)
-            rules = self.CheatsheetGenerator.generateRules()
-            if len(rules) != 0:
-                dlg.setValue(40)
-                html = ""
-                with open(self.CharakterBogen.regelanhangPfad, 'r', encoding="utf-8") as infile:
-                    html = infile.read()
-                    html = html.replace("{sephrasto_dir}", "file:///" + os.getcwd().replace('\\', '/'))
-                    html = html.replace("{rules_content}", rules)
-                    html = html.replace("{rules_font_size}", str(Wolke.Char.regelnGroesse))
-                rulesFile = PdfSerializer.convertHtmlToPdf(html, self.CharakterBogen.regelanhangPfad, self.CharakterBogen.getRegelanhangPageLayout(), 100)
+            # Extraseiten
+            extraPageAdded = False
+            if self.CharakterBogen.extraÜberSeiten:
+                extraPage = None
+                if len(extraVorteile) > 0 or len(extraUeber) > 0 or len(extraTalente):
+                    extraPageAdded = True
+                    extraPage = PdfSerializer.shrink(self.CharakterBogen.filePath, self.CharakterBogen.überSeite, self.CharakterBogen.überSeite)
 
-                for j in range(1, PdfSerializer.getNumPages(rulesFile)+1):
-                    bookmarks.append(PdfSerializer.PdfBookmark("S. " + str(i+1) + " - Regelanhang " + str(j), i+1))
+                pageCount = 0
+                while len(extraVorteile) > 0 or len(extraUeber) > 0 or len(extraTalente) > 0:
+                    pageCount += 1
+                    fieldsNew = {}
+                    self.createExtra(fieldsNew, extraVorteile, extraUeber, extraTalente)
+                    fieldsNew = EventBus.applyFilter("pdf_export_extrapage", fieldsNew)
+                    allPages.append(PdfSerializer.write_pdf(extraPage, fieldsNew, None, flatten))
+                    bookmarks.append(PdfSerializer.PdfBookmark("S. " + str(i+1) + " - " + text, i+1))
                     i += 1
+                    if dlg.shouldCancel():
+                        for page in allPages: os.remove(page)
+                        os.remove(extraPage)
+                        return
+                    dlg.setValue(min(30, 20 + 2*pageCount))
 
+                if extraPage:
+                    os.remove(extraPage)
+
+            #Entferne die Seite für Übernatürliches, falls keine übernatürlichen Fertigkeiten vorhanden sind
+            if self.CharakterBogen.überSeite > 0 and \
+               not ('Uebervorteil1' in fields) and \
+               not ('Ueberfer1NA' in fields) and \
+               not ('Uebertal1NA' in fields) and not extraPageAdded:
                 if dlg.shouldCancel():
                     for page in allPages: os.remove(page)
-                    os.remove(rulesFile)
                     return
-                dlg.setValue(50)
-                PdfSerializer.addText(rulesFile,
-                                      "%Page/%EndPage",
-                                      self.CharakterBogen.regelanhangSeitenzahlPosition,
-                                      str(self.CharakterBogen.regelanhangSeitenzahlAbstand),
-                                      "black", "Times-Roman", "10", rulesFile)
-                dlg.setValue(52)
-                PdfSerializer.addText(rulesFile,
-                                      f"{Wolke.Char.name} ({Wolke.Char.epGesamt} EP)",
-                                      self.CharakterBogen.regelanhangSeitenzahlPosition,
-                                      str(self.CharakterBogen.regelanhangSeitenzahlAbstand-10),
-                                      "black", "Times-Roman", "6", rulesFile)
+                dlg.setValue(30)
+                dlg.setLabelText("Charakter ist profan, entferne Seite für Übernatürliches")
+                shrinked = PdfSerializer.shrink(allPages[0], 1, self.CharakterBogen.überSeite-1)
+                os.remove(allPages[0])
+                allPages[0] = shrinked
+                if len(bookmarks) > 0:
+                    bookmarks.pop()
+                    i -= 1
 
+            if printRules:
                 if dlg.shouldCancel():
                     for page in allPages: os.remove(page)
-                    os.remove(rulesFile)
                     return
-                dlg.setValue(55)
-                # Add the background image separately with a pdftk "background" call - this way it will be shared by all pages to decrease file size
-                if self.CharakterBogen.regelanhangHintergrundPfad:
-                    allPages.append(PdfSerializer.addBackground(rulesFile, self.CharakterBogen.regelanhangHintergrundPfad))
-                    os.remove(rulesFile)
-                else:
-                    allPages.append(rulesFile)
+                dlg.setLabelText("Erstelle Regelanhang")
+                dlg.setValue(35)
+                rules = self.CheatsheetGenerator.generateRules()
+                if len(rules) != 0:
+                    dlg.setValue(40)
+                    html = ""
+                    with open(self.CharakterBogen.regelanhangPfad, 'r', encoding="utf-8") as infile:
+                        html = infile.read()
+                        html = html.replace("{sephrasto_dir}", "file:///" + os.getcwd().replace('\\', '/'))
+                        html = html.replace("{rules_content}", rules)
+                        html = html.replace("{rules_font_size}", str(Wolke.Char.regelnGroesse))
+                    rulesFile = PdfSerializer.convertHtmlToPdf(html, self.CharakterBogen.regelanhangPfad, self.CharakterBogen.getRegelanhangPageLayout(), 100)
 
-        if dlg.shouldCancel():
-            for page in allPages: os.remove(page)
-            return
-        dlg.setLabelText("Stemple Charakterbild")
-        dlg.setValue(60)
-        allPages = self.stampImage(allPages)
+                    for j in range(1, PdfSerializer.getNumPages(rulesFile)+1):
+                        bookmarks.append(PdfSerializer.PdfBookmark("S. " + str(i+1) + " - Regelanhang " + str(j), i+1))
+                        i += 1
 
-        if dlg.shouldCancel():
-            for page in allPages: os.remove(page)
-            return
-        dlg.setLabelText("Führe Plugins aus")
-        dlg.setValue(70)
-        allPages = EventBus.applyFilter("pdf_concat", allPages)
+                    if dlg.shouldCancel():
+                        for page in allPages: os.remove(page)
+                        os.remove(rulesFile)
+                        return
+                    dlg.setValue(50)
+                    PdfSerializer.addText(rulesFile,
+                                          "%Page/%EndPage",
+                                          self.CharakterBogen.regelanhangSeitenzahlPosition,
+                                          str(self.CharakterBogen.regelanhangSeitenzahlAbstand),
+                                          "black", "Times-Roman", "10", rulesFile)
+                    dlg.setValue(52)
+                    PdfSerializer.addText(rulesFile,
+                                          f"{Wolke.Char.name} ({Wolke.Char.epGesamt} EP)",
+                                          self.CharakterBogen.regelanhangSeitenzahlPosition,
+                                          str(self.CharakterBogen.regelanhangSeitenzahlAbstand-10),
+                                          "black", "Times-Roman", "6", rulesFile)
 
-        if dlg.shouldCancel():
-            for page in allPages: os.remove(page)
-            return
-        dlg.setLabelText("Füge PDF-Dateien zusammen")
-        dlg.setValue(75)
-        tmp = PdfSerializer.concat(allPages)
+                    if dlg.shouldCancel():
+                        for page in allPages: os.remove(page)
+                        os.remove(rulesFile)
+                        return
+                    dlg.setValue(55)
+                    # Add the background image separately with a pdftk "background" call - this way it will be shared by all pages to decrease file size
+                    if self.CharakterBogen.regelanhangHintergrundPfad:
+                        allPages.append(PdfSerializer.addBackground(rulesFile, self.CharakterBogen.regelanhangHintergrundPfad))
+                        os.remove(rulesFile)
+                    else:
+                        allPages.append(rulesFile)
 
-        dlg.setLabelText("Lösche temporäre Dateien")
-        dlg.setValue(85)
-        for page in allPages:
-            os.remove(page)
+            if dlg.shouldCancel():
+                for page in allPages: os.remove(page)
+                return
+            dlg.setLabelText("Stemple Charakterbild")
+            dlg.setValue(60)
+            allPages = self.stampImage(allPages)
 
-        if dlg.shouldCancel():
+            if dlg.shouldCancel():
+                for page in allPages: os.remove(page)
+                return
+            dlg.setLabelText("Führe Plugins aus")
+            dlg.setValue(70)
+            allPages = EventBus.applyFilter("pdf_concat", allPages)
+
+            if dlg.shouldCancel():
+                for page in allPages: os.remove(page)
+                return
+            dlg.setLabelText("Füge PDF-Dateien zusammen")
+            dlg.setValue(75)
+            tmp = PdfSerializer.concat(allPages)
+
+            dlg.setLabelText("Lösche temporäre Dateien")
+            dlg.setValue(85)
+            for page in allPages:
+                os.remove(page)
+
+            if dlg.shouldCancel():
+                os.remove(tmp)
+                return
+
+            dlg.setLabelText("Füge Lesezeichen hinzu")
+            dlg.setValue(90)
+            PdfSerializer.addBookmarks(tmp, bookmarks, filename)
             os.remove(tmp)
-            return
 
-        dlg.setLabelText("Füge Lesezeichen hinzu")
-        dlg.setValue(90)
-        PdfSerializer.addBookmarks(tmp, bookmarks, filename)
-        os.remove(tmp)
+            if dlg.shouldCancel():
+                os.remove(filename)
+                return
+            dlg.setLabelText("Optimiere Dateigröße")
+            dlg.setValue(95)
+            PdfSerializer.squeeze(filename, filename)
 
-        if dlg.shouldCancel():
-            os.remove(filename)
-            return
-        dlg.setLabelText("Optimiere Dateigröße")
-        dlg.setValue(95)
-        PdfSerializer.squeeze(filename, filename)
-
-        EventBus.doAction("pdf_geschrieben", { "filepath" : filename })
-        dlg.setValue(100)
-
-        dlg.hide()
-        dlg.deleteLater()
+            EventBus.doAction("pdf_geschrieben", { "filepath" : filename })
+            dlg.setValue(100)
+        finally:
+            dlg.hide()
+            dlg.deleteLater()
 
         #Open PDF with default application:
         if Wolke.Settings['PDF-Open']:
