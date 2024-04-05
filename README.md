@@ -79,7 +79,7 @@ Gestartet wird Sephrasto dann folgendermaßen:
 ## Für Entwickler
 
 ### Erstellen von Windows builds
-Stelle sicher, dass alle Pakete aus der requirements.txt installiert sind. Aktuell nutzen wir außerdem Python 3.9.7 und cx_Freeze 6.15.5 zum Erstellen von Windows builds. Nun solltest du build.bat im Sephrasto root ausführen können.
+Stelle sicher, dass alle Pakete aus der requirements.txt installiert sind. Aktuell nutzen wir außerdem Python 3.9.7 und cx_Freeze 6.15.16 zum Erstellen von Windows builds. Nun solltest du build.bat im Sephrasto root ausführen können.
 
 ### Einrichtung von Visual Studio als IDE
 * Installiere VS 2019 Community Edition mit dem Python Workload (kann auch nachträglich über den Installer installiert werden)
@@ -107,4 +107,4 @@ Sephrasto unterstützt Plugin repositories, um als User die Plugins bequem aus d
 * Es gibt im Einstellungsdialog keine Option für weitere Repos, aber du kannst es händisch in der Sephrasto.ini eintragen unter "Plugin-Repos".
 
 ## Abschlussbemerkung
-Dieses Tool ist das Projekt, an dem ich Python / Qt gelernt habe. Deutliche Schwankungen im Coding-Stil und in der Codequalität sind demnach zu erwarten. Ich werde über die Zeit versuchen, das zu beheben; einige Spuren davon (wie das furchtbare denglisch) werden vermutlich bleiben. 
+Der Code ist teilweise von furchtbarem Denglisch durchzogen, da Sephrasto ein ausschließlich deutsches Regelwerk umsetzt. Die Begrifflichkeiten in zu übersetzen wäre aber wenig hilfreich für die Lesbarkeit.

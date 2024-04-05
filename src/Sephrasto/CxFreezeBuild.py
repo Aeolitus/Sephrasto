@@ -63,6 +63,7 @@ print("Removing unneeded files")
 removeFiles = [
     "frozen_application_license.txt", #we already have that in Acknowledgements.md
     "lib/PySide6/opengl32sw.dll",
+    "lib/PySide6/Qt6Designer.dll",
     "lib/PySide6/QtWebSockets.pyd",
     "lib/PySide6/QtSvg.pyd",
     "lib/PySide6/QtWebEngineQuick.pyd",
@@ -72,6 +73,7 @@ removeFiles = [
     "lib/PySide6/resources/v8_context_snapshot.debug.bin",
     "lib/PySide6/translations",
     "lib/PySide6/bin",
+    "lib/PySide6/plugins/designer",
     "lib/PySide6/plugins/tls",
     "lib/PySide6/plugins/platforminputcontexts",
     "lib/PySide6/plugins/networkinformation",

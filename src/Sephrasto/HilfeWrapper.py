@@ -61,7 +61,7 @@ class HilfeWrapper(QtCore.QObject):
         self.form.setWindowTitle("Sephrasto - " + text)
 
     def setText(self, text):
-        self.ui.teHelp.setMarkdown(text)
+        self.ui.teHelp.setText(text)
 
     def updateBackwardAvailable(self):
         self.ui.buttonBackward.setEnabled(self.ui.teHelp.isBackwardAvailable())
