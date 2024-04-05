@@ -8073,7 +8073,7 @@ Große Traumreise (-8, 16 KaP; du kannst mit einigen Gefährten in den Traum rei
 &lt;b&gt;Wirkungsdauer:&lt;/b&gt; 4 Minuten
 &lt;b&gt;Kosten:&lt;/b&gt; 4 KaP
 &lt;b&gt;Erlernen:&lt;/b&gt; 20 EP</Talent>
-  <Talent name="Mirakel: MU" spezialTyp="1" kosten="20" voraussetzungen="Kein Vorteil Tradition der Efferdgeweihten I" verbilligt="0" fertigkeiten="Tod, Wind und Wogen, Wildnis, Heiliges Feuer, Abu al'Mada, Magiebann, Rausch, Ehre, Sichere Heimkehr, Gutes Gold" variableKosten="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf MU ist um +4 Punkte erleichtert.
+  <Talent name="Mirakel: MU" spezialTyp="1" kosten="20" voraussetzungen="Kein Vorteil Tradition der Efferdgeweihten I" verbilligt="0" fertigkeiten="Tod, Wind und Wogen, Wildnis, Abu al'Mada, Magiebann, Rausch, Ehre, Sichere Heimkehr, Gutes Gold" variableKosten="0" kommentar="0" csAuflisten="0" referenzseite="91" referenzbuch="0">Dein nächster Wurf auf MU ist um +4 Punkte erleichtert.
 &lt;b&gt;Mächtige Liturgie:&lt;/b&gt; Erhöht die Erleichterung um +2.
 &lt;b&gt;Probenschwierigkeit:&lt;/b&gt; 12
 &lt;b&gt;Vorbereitungszeit:&lt;/b&gt; 0 Aktionen
