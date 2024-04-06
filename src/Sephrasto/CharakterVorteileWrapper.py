@@ -158,11 +158,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
             if itm == 0: 
                 continue
 
-            if self.showUnavailable:
-                itm.setHidden(itm.childCount() == 0)
-            else:
-                itm.setHidden(len(vortList[i]) == 0)
-
+            hasVisibleItems = False
             for j in range(itm.childCount()):
                 chi = itm.child(j)
                 if type(chi) != QtWidgets.QTreeWidgetItem:
@@ -197,6 +193,8 @@ class CharakterVorteileWrapper(QtCore.QObject):
                         chi.setCheckState(0,QtCore.Qt.Unchecked)
                         chi.setForeground(0, QtGui.QBrush(QtCore.Qt.red))
                         chi.setHidden(isFiltered)
+                        if not isFiltered:
+                            hasVisibleItems = True
                     else:
                         chi.setHidden(True)
                     Wolke.Char.removeVorteil(vorteil.name)
@@ -204,6 +202,10 @@ class CharakterVorteileWrapper(QtCore.QObject):
                     chi.setFlags(QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsSelectable)
                     chi.setForeground(0, QtGui.QBrush())
                     chi.setHidden(isFiltered)
+                    if not isFiltered:
+                        hasVisibleItems = True
+
+            itm.setHidden(not hasVisibleItems)
 
         self.updateInfo()
         self.ui.treeWidget.blockSignals(False)
