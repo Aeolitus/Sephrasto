@@ -84,9 +84,9 @@
     <Talent name="Überreden"/>
   </Talente>
   <Objekte>
-    <Zonensystem>0</Zonensystem>
+    <Zonensystem>1</Zonensystem>
     <Rüstungen>
-      <Rüstung name="Kettenhemd mit Lederteilen" be="2" rs="2/2/2/2/2/2"/>
+      <Rüstung name="Kettenhemd mit Lederteilen" be="2" rs="1/2/2/2/3/2"/>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>

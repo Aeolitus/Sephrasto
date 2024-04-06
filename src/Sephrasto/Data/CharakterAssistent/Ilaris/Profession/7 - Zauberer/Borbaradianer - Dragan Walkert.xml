@@ -89,9 +89,9 @@
     <Talent name="Schwarz und Rot"/>
   </Talente>
   <Objekte>
-    <Zonensystem>0</Zonensystem>
+    <Zonensystem>1</Zonensystem>
     <Rüstungen>
-      <Rüstung name="Lederrüstung" be="1" rs="1/1/1/1/1/1"/>
+      <Rüstung name="Lederrüstung" be="1" rs="1/1/1/1/2/0"/>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>

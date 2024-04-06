@@ -90,9 +90,9 @@
     <Talent name="Anführen"/>
   </Talente>
   <Objekte>
-    <Zonensystem>0</Zonensystem>
+    <Zonensystem>1</Zonensystem>
     <Rüstungen>
-      <Rüstung name="Kettenhemd" be="2" rs="2/2/2/2/2/2"/>
+      <Rüstung name="Kettenhemd" be="2" rs="1/2/2/3/3/1"/>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
       <Rüstung name="" be="0" rs="0/0/0/0/0/0"/>
     </Rüstungen>
