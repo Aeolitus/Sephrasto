@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterTalentPicker.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.6.1
+## Created by: Qt User Interface Compiler version 6.6.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -33,7 +33,7 @@ class Ui_Dialog(object):
         self.splitter.setOrientation(Qt.Horizontal)
         self.listTalente = QListView(self.splitter)
         self.listTalente.setObjectName(u"listTalente")
-        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.listTalente.sizePolicy().hasHeightForWidth())
@@ -72,7 +72,7 @@ class Ui_Dialog(object):
 
         self.spinKosten = QSpinBox(self.scrollAreaWidgetContents)
         self.spinKosten.setObjectName(u"spinKosten")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.spinKosten.sizePolicy().hasHeightForWidth())
@@ -99,7 +99,7 @@ class Ui_Dialog(object):
 
         self.gridLayout_2.addWidget(self.plainText, 9, 0, 1, 3)
 
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.gridLayout_2.addItem(self.horizontalSpacer_2, 6, 1, 1, 1)
 
@@ -118,7 +118,7 @@ class Ui_Dialog(object):
 
         self.gridLayout_2.addWidget(self.labelInfo, 5, 2, 1, 1)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.gridLayout_2.addItem(self.verticalSpacer, 10, 0, 1, 1)
 
@@ -141,7 +141,7 @@ class Ui_Dialog(object):
 
         self.labelTip = QLabel(Dialog)
         self.labelTip.setObjectName(u"labelTip")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
         sizePolicy2.setHorizontalStretch(0)
         sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.labelTip.sizePolicy().hasHeightForWidth())

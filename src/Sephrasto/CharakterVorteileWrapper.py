@@ -61,6 +61,10 @@ class CharakterVorteileWrapper(QtCore.QObject):
                 self.supportedTypes.append(i)
         self.initVorteile()
 
+        self.ui.labelFilter.setText("\uf002")
+        self.ui.nameFilterEdit.setFocus()
+        self.ui.nameFilterEdit.textChanged.connect(self.load)
+
     def onShowAllClicked(self):
         self.showUnavailable = self.ui.checkShowAll.isChecked()
         self.load()
@@ -182,19 +186,24 @@ class CharakterVorteileWrapper(QtCore.QObject):
                 else:
                     chi.setText(1, str(self.kosten(vorteil)) + " EP")
 
+
+                isFiltered = self.ui.nameFilterEdit.text() != "" and \
+                    (not self.ui.nameFilterEdit.text().lower() in vorteil.name.lower()) and \
+                    (not self.ui.nameFilterEdit.text().lower() in itm.text(0).lower())
+
                 if vorteil.name not in vortList[i]:
                     if self.showUnavailable:
                         chi.setFlags(QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsSelectable)
                         chi.setCheckState(0,QtCore.Qt.Unchecked)
                         chi.setForeground(0, QtGui.QBrush(QtCore.Qt.red))
-                        chi.setHidden(False)
+                        chi.setHidden(isFiltered)
                     else:
                         chi.setHidden(True)
                     Wolke.Char.removeVorteil(vorteil.name)
                 else:
                     chi.setFlags(QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsSelectable)
                     chi.setForeground(0, QtGui.QBrush())
-                    chi.setHidden(False)
+                    chi.setHidden(isFiltered)
 
         self.updateInfo()
         self.ui.treeWidget.blockSignals(False)

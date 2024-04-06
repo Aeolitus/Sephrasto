@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterBeschreibung.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.6.1
+## Created by: Qt User Interface Compiler version 6.6.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -47,19 +47,19 @@ class Ui_formBeschreibung(object):
 
         self.gridLayout.addWidget(self.editKurzbeschreibung, 6, 2, 1, 1)
 
-        self.verticalSpacer_7 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer_7 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.gridLayout.addItem(self.verticalSpacer_7, 0, 1, 1, 1)
 
-        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Fixed, QSizePolicy.Minimum)
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
 
         self.gridLayout.addItem(self.horizontalSpacer_3, 1, 3, 1, 1)
 
-        self.horizontalSpacer_2 = QSpacerItem(150, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
+        self.horizontalSpacer_2 = QSpacerItem(150, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
 
         self.gridLayout.addItem(self.horizontalSpacer_2, 1, 5, 1, 1)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.gridLayout.addItem(self.verticalSpacer, 8, 1, 1, 1)
 
@@ -129,7 +129,7 @@ class Ui_formBeschreibung(object):
 
         self.gridLayout.addLayout(self.gridLayout_2, 7, 2, 1, 1)
 
-        self.horizontalSpacer = QSpacerItem(150, 20, QSizePolicy.Preferred, QSizePolicy.Minimum)
+        self.horizontalSpacer = QSpacerItem(150, 20, QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Minimum)
 
         self.gridLayout.addItem(self.horizontalSpacer, 1, 0, 1, 1)
 
@@ -183,7 +183,7 @@ class Ui_formBeschreibung(object):
 
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.horizontalSpacer_4 = QSpacerItem(0, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.horizontalSpacer_4 = QSpacerItem(0, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout.addItem(self.horizontalSpacer_4)
 
@@ -211,7 +211,7 @@ class Ui_formBeschreibung(object):
 
         self.verticalLayout.addLayout(self.horizontalLayout)
 
-        self.horizontalSpacer_5 = QSpacerItem(0, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.horizontalSpacer_5 = QSpacerItem(0, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout.addItem(self.horizontalSpacer_5)
 

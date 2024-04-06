@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterVorteile.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.6.1
+## Created by: Qt User Interface Compiler version 6.6.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -16,9 +16,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractItemView, QApplication, QCheckBox, QFrame,
-    QGridLayout, QHeaderView, QLabel, QScrollArea,
-    QSizePolicy, QSpacerItem, QSplitter, QTextBrowser,
-    QTreeWidget, QTreeWidgetItem, QVBoxLayout, QWidget)
+    QGridLayout, QHBoxLayout, QHeaderView, QLabel,
+    QLineEdit, QScrollArea, QSizePolicy, QSpacerItem,
+    QSplitter, QTextBrowser, QTreeWidget, QTreeWidgetItem,
+    QVBoxLayout, QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -31,12 +32,38 @@ class Ui_Form(object):
         self.splitter = QSplitter(Form)
         self.splitter.setObjectName(u"splitter")
         self.splitter.setOrientation(Qt.Horizontal)
-        self.treeWidget = QTreeWidget(self.splitter)
+        self.verticalLayoutWidget = QWidget(self.splitter)
+        self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
+        self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.nameFilterEdit = QLineEdit(self.verticalLayoutWidget)
+        self.nameFilterEdit.setObjectName(u"nameFilterEdit")
+        self.nameFilterEdit.setClearButtonEnabled(True)
+
+        self.horizontalLayout.addWidget(self.nameFilterEdit)
+
+        self.labelFilter = QLabel(self.verticalLayoutWidget)
+        self.labelFilter.setObjectName(u"labelFilter")
+
+        self.horizontalLayout.addWidget(self.labelFilter)
+
+        self.checkShowAll = QCheckBox(self.verticalLayoutWidget)
+        self.checkShowAll.setObjectName(u"checkShowAll")
+
+        self.horizontalLayout.addWidget(self.checkShowAll)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout)
+
+        self.treeWidget = QTreeWidget(self.verticalLayoutWidget)
         __qtreewidgetitem = QTreeWidgetItem()
         __qtreewidgetitem.setTextAlignment(0, Qt.AlignLeading|Qt.AlignVCenter);
         self.treeWidget.setHeaderItem(__qtreewidgetitem)
         self.treeWidget.setObjectName(u"treeWidget")
-        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.treeWidget.sizePolicy().hasHeightForWidth())
@@ -49,13 +76,16 @@ class Ui_Form(object):
         self.treeWidget.setAnimated(False)
         self.treeWidget.setAllColumnsShowFocus(True)
         self.treeWidget.setHeaderHidden(False)
-        self.splitter.addWidget(self.treeWidget)
         self.treeWidget.header().setVisible(True)
         self.treeWidget.header().setCascadingSectionResizes(False)
         self.treeWidget.header().setMinimumSectionSize(80)
         self.treeWidget.header().setDefaultSectionSize(100)
         self.treeWidget.header().setHighlightSections(False)
         self.treeWidget.header().setStretchLastSection(False)
+
+        self.verticalLayout.addWidget(self.treeWidget)
+
+        self.splitter.addWidget(self.verticalLayoutWidget)
         self.scrollArea = QScrollArea(self.splitter)
         self.scrollArea.setObjectName(u"scrollArea")
         sizePolicy.setHeightForWidth(self.scrollArea.sizePolicy().hasHeightForWidth())
@@ -68,7 +98,7 @@ class Ui_Form(object):
         self.scrollArea.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 340, 394))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 337, 418))
         self.gridLayout_2 = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.labelVorteil = QLabel(self.scrollAreaWidgetContents)
@@ -137,7 +167,7 @@ class Ui_Form(object):
 
         self.gridLayout_2.addWidget(self.labelNachkauf, 4, 1, 1, 1)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.gridLayout_2.addItem(self.verticalSpacer, 7, 0, 1, 1)
 
@@ -146,12 +176,10 @@ class Ui_Form(object):
 
         self.gridLayout.addWidget(self.splitter, 1, 0, 1, 1)
 
-        self.checkShowAll = QCheckBox(Form)
-        self.checkShowAll.setObjectName(u"checkShowAll")
-
-        self.gridLayout.addWidget(self.checkShowAll, 2, 0, 1, 1)
-
+        QWidget.setTabOrder(self.nameFilterEdit, self.checkShowAll)
+        QWidget.setTabOrder(self.checkShowAll, self.treeWidget)
         QWidget.setTabOrder(self.treeWidget, self.scrollArea)
+        QWidget.setTabOrder(self.scrollArea, self.plainText)
 
         self.retranslateUi(Form)
 
@@ -160,6 +188,13 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
+        self.nameFilterEdit.setPlaceholderText(QCoreApplication.translate("Form", u"Suchen...", None))
+        self.labelFilter.setText(QCoreApplication.translate("Form", u"Suchen", None))
+        self.labelFilter.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
+#if QT_CONFIG(tooltip)
+        self.checkShowAll.setToolTip(QCoreApplication.translate("Form", u"Falls diese Option aktiviert ist, werden auch solche Vorteile angezeigt, f\u00fcr die du die Voraussetzungen nicht erf\u00fcllst.", None))
+#endif // QT_CONFIG(tooltip)
+        self.checkShowAll.setText(QCoreApplication.translate("Form", u"Alle Vorteile anzeigen", None))
         ___qtreewidgetitem = self.treeWidget.headerItem()
         ___qtreewidgetitem.setText(1, QCoreApplication.translate("Form", u"Kosten", None));
         ___qtreewidgetitem.setText(0, QCoreApplication.translate("Form", u"Vorteil", None));
@@ -173,9 +208,5 @@ class Ui_Form(object):
         self.label.setText(QCoreApplication.translate("Form", u"Nachkauf:", None))
         self.labelKosten.setText(QCoreApplication.translate("Form", u"20 EP", None))
         self.labelNachkauf.setText(QCoreApplication.translate("Form", u"H\u00e4ufig", None))
-#if QT_CONFIG(tooltip)
-        self.checkShowAll.setToolTip(QCoreApplication.translate("Form", u"Falls diese Option aktiviert ist, werden auch solche Vorteile angezeigt, f\u00fcr die du die Voraussetzungen nicht erf\u00fcllst.", None))
-#endif // QT_CONFIG(tooltip)
-        self.checkShowAll.setText(QCoreApplication.translate("Form", u"Alle Vorteile anzeigen", None))
     # retranslateUi
 

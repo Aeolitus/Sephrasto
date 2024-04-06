@@ -31,71 +31,111 @@
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-     <widget class="QTreeWidget" name="treeWidget">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="editTriggers">
-       <set>QAbstractItemView::NoEditTriggers</set>
-      </property>
-      <property name="tabKeyNavigation">
-       <bool>true</bool>
-      </property>
-      <property name="showDropIndicator" stdset="0">
-       <bool>false</bool>
-      </property>
-      <property name="alternatingRowColors">
-       <bool>true</bool>
-      </property>
-      <property name="animated">
-       <bool>false</bool>
-      </property>
-      <property name="allColumnsShowFocus">
-       <bool>true</bool>
-      </property>
-      <property name="headerHidden">
-       <bool>false</bool>
-      </property>
-      <attribute name="headerVisible">
-       <bool>true</bool>
-      </attribute>
-      <attribute name="headerCascadingSectionResizes">
-       <bool>false</bool>
-      </attribute>
-      <attribute name="headerMinimumSectionSize">
-       <number>80</number>
-      </attribute>
-      <attribute name="headerDefaultSectionSize">
-       <number>100</number>
-      </attribute>
-      <attribute name="headerHighlightSections">
-       <bool>false</bool>
-      </attribute>
-      <attribute name="headerStretchLastSection">
-       <bool>false</bool>
-      </attribute>
-      <column>
-       <property name="text">
-        <string>Vorteil</string>
-       </property>
-       <property name="textAlignment">
-        <set>AlignLeading|AlignVCenter</set>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Kosten</string>
-       </property>
-      </column>
+     <widget class="QWidget" name="verticalLayoutWidget">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QLineEdit" name="nameFilterEdit">
+           <property name="placeholderText">
+            <string>Suchen...</string>
+           </property>
+           <property name="clearButtonEnabled">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelFilter">
+           <property name="text">
+            <string>Suchen</string>
+           </property>
+           <property name="class" stdset="0">
+            <string>icon</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkShowAll">
+           <property name="toolTip">
+            <string>Falls diese Option aktiviert ist, werden auch solche Vorteile angezeigt, für die du die Voraussetzungen nicht erfüllst.</string>
+           </property>
+           <property name="text">
+            <string>Alle Vorteile anzeigen</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QTreeWidget" name="treeWidget">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="editTriggers">
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
+         <property name="tabKeyNavigation">
+          <bool>true</bool>
+         </property>
+         <property name="showDropIndicator" stdset="0">
+          <bool>false</bool>
+         </property>
+         <property name="alternatingRowColors">
+          <bool>true</bool>
+         </property>
+         <property name="animated">
+          <bool>false</bool>
+         </property>
+         <property name="allColumnsShowFocus">
+          <bool>true</bool>
+         </property>
+         <property name="headerHidden">
+          <bool>false</bool>
+         </property>
+         <attribute name="headerVisible">
+          <bool>true</bool>
+         </attribute>
+         <attribute name="headerCascadingSectionResizes">
+          <bool>false</bool>
+         </attribute>
+         <attribute name="headerMinimumSectionSize">
+          <number>80</number>
+         </attribute>
+         <attribute name="headerDefaultSectionSize">
+          <number>100</number>
+         </attribute>
+         <attribute name="headerHighlightSections">
+          <bool>false</bool>
+         </attribute>
+         <attribute name="headerStretchLastSection">
+          <bool>false</bool>
+         </attribute>
+         <column>
+          <property name="text">
+           <string>Vorteil</string>
+          </property>
+          <property name="textAlignment">
+           <set>AlignLeading|AlignVCenter</set>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Kosten</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+      </layout>
      </widget>
      <widget class="QScrollArea" name="scrollArea">
       <property name="sizePolicy">
@@ -133,8 +173,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>340</width>
-         <height>394</height>
+         <width>337</width>
+         <height>418</height>
         </rect>
        </property>
        <layout class="QGridLayout" name="gridLayout_2" columnstretch="0,0">
@@ -272,21 +312,14 @@
      </widget>
     </widget>
    </item>
-   <item row="2" column="0">
-    <widget class="QCheckBox" name="checkShowAll">
-     <property name="toolTip">
-      <string>Falls diese Option aktiviert ist, werden auch solche Vorteile angezeigt, für die du die Voraussetzungen nicht erfüllst.</string>
-     </property>
-     <property name="text">
-      <string>Alle Vorteile anzeigen</string>
-     </property>
-    </widget>
-   </item>
   </layout>
  </widget>
  <tabstops>
+  <tabstop>nameFilterEdit</tabstop>
+  <tabstop>checkShowAll</tabstop>
   <tabstop>treeWidget</tabstop>
   <tabstop>scrollArea</tabstop>
+  <tabstop>plainText</tabstop>
  </tabstops>
  <resources/>
  <connections/>

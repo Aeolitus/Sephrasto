@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterWaffen.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.6.1
+## Created by: Qt User Interface Compiler version 6.6.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -60,7 +60,7 @@ class Ui_formWaffen(object):
         self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
         self.spinW7w6 = QSpinBox(formWaffen)
         self.spinW7w6.setObjectName(u"spinW7w6")
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.spinW7w6.sizePolicy().hasHeightForWidth())
@@ -99,7 +99,7 @@ class Ui_formWaffen(object):
 
         self.Waffen.addWidget(self.labelW7RightFrame, 27, 13, 1, 1)
 
-        self.verticalSpacer_2 = QSpacerItem(20, 12, QSizePolicy.Minimum, QSizePolicy.Fixed)
+        self.verticalSpacer_2 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.Waffen.addItem(self.verticalSpacer_2, 5, 1, 1, 1)
 
@@ -152,7 +152,7 @@ class Ui_formWaffen(object):
 
         self.horizontalLayout_18.addWidget(self.labelW8Mods)
 
-        self.horizontalSpacer_9 = QSpacerItem(467, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_9 = QSpacerItem(467, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_18.addItem(self.horizontalSpacer_9)
 
@@ -241,7 +241,7 @@ class Ui_formWaffen(object):
 
         self.horizontalLayout_5.addWidget(self.labelW2Mods)
 
-        self.horizontalSpacer_3 = QSpacerItem(467, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_3 = QSpacerItem(467, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_5.addItem(self.horizontalSpacer_3)
 
@@ -370,7 +370,7 @@ class Ui_formWaffen(object):
 
         self.horizontalLayout_17.addWidget(self.labelW7Mods)
 
-        self.horizontalSpacer_8 = QSpacerItem(467, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_8 = QSpacerItem(467, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_17.addItem(self.horizontalSpacer_8)
 
@@ -449,7 +449,7 @@ class Ui_formWaffen(object):
 
         self.horizontalLayout_15.addWidget(self.labelW5Mods)
 
-        self.horizontalSpacer_6 = QSpacerItem(467, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_6 = QSpacerItem(467, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_15.addItem(self.horizontalSpacer_6)
 
@@ -484,7 +484,7 @@ class Ui_formWaffen(object):
 
         self.horizontalLayout_16.addWidget(self.labelW6Mods)
 
-        self.horizontalSpacer_7 = QSpacerItem(467, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_7 = QSpacerItem(467, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_16.addItem(self.horizontalSpacer_7)
 
@@ -504,7 +504,7 @@ class Ui_formWaffen(object):
 
         self.Waffen.addWidget(self.labelW2RightFrame, 7, 13, 1, 1)
 
-        self.verticalSpacer_5 = QSpacerItem(20, 12, QSizePolicy.Minimum, QSizePolicy.Fixed)
+        self.verticalSpacer_5 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.Waffen.addItem(self.verticalSpacer_5, 13, 1, 1, 1)
 
@@ -558,7 +558,7 @@ class Ui_formWaffen(object):
 
         self.Waffen.addLayout(self.verticalLayout_8, 27, 11, 1, 1)
 
-        self.verticalSpacer_10 = QSpacerItem(20, 8, QSizePolicy.Minimum, QSizePolicy.Fixed)
+        self.verticalSpacer_10 = QSpacerItem(20, 8, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.Waffen.addItem(self.verticalSpacer_10, 1, 1, 1, 1)
 
@@ -572,7 +572,7 @@ class Ui_formWaffen(object):
 
         self.Waffen.addWidget(self.spinW1lz, 3, 5, 1, 1)
 
-        self.verticalSpacer_7 = QSpacerItem(20, 12, QSizePolicy.Minimum, QSizePolicy.Fixed)
+        self.verticalSpacer_7 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.Waffen.addItem(self.verticalSpacer_7, 21, 1, 1, 1)
 
@@ -671,7 +671,7 @@ class Ui_formWaffen(object):
 
         self.horizontalLayout_2.addWidget(self.labelW1Mods)
 
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_2.addItem(self.horizontalSpacer)
 
@@ -724,7 +724,7 @@ class Ui_formWaffen(object):
 
         self.verticalLayout_9.addWidget(self.buttonW8Up)
 
-        self.verticalSpacer_11 = QSpacerItem(20, 10, QSizePolicy.Minimum, QSizePolicy.Fixed)
+        self.verticalSpacer_11 = QSpacerItem(20, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.verticalLayout_9.addItem(self.verticalSpacer_11)
 
@@ -856,7 +856,7 @@ class Ui_formWaffen(object):
 
         self.Waffen.addWidget(self.editW5eig, 19, 7, 1, 1)
 
-        self.verticalSpacer_9 = QSpacerItem(20, 12, QSizePolicy.Minimum, QSizePolicy.Fixed)
+        self.verticalSpacer_9 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.Waffen.addItem(self.verticalSpacer_9, 29, 1, 1, 1)
 
@@ -1071,7 +1071,7 @@ class Ui_formWaffen(object):
 
         self.Waffen.addWidget(self.addW5, 19, 12, 1, 1)
 
-        self.verticalSpacer_3 = QSpacerItem(20, 12, QSizePolicy.Minimum, QSizePolicy.Fixed)
+        self.verticalSpacer_3 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.Waffen.addItem(self.verticalSpacer_3, 9, 1, 1, 1)
 
@@ -1178,7 +1178,7 @@ class Ui_formWaffen(object):
         self.verticalLayout_2 = QVBoxLayout()
         self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.verticalSpacer_4 = QSpacerItem(20, 10, QSizePolicy.Minimum, QSizePolicy.Fixed)
+        self.verticalSpacer_4 = QSpacerItem(20, 10, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.verticalLayout_2.addItem(self.verticalSpacer_4)
 
@@ -1190,7 +1190,7 @@ class Ui_formWaffen(object):
 
         self.Waffen.addLayout(self.verticalLayout_2, 3, 11, 1, 1)
 
-        self.verticalSpacer_8 = QSpacerItem(20, 12, QSizePolicy.Minimum, QSizePolicy.Fixed)
+        self.verticalSpacer_8 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.Waffen.addItem(self.verticalSpacer_8, 25, 1, 1, 1)
 
@@ -1222,7 +1222,7 @@ class Ui_formWaffen(object):
 
         self.horizontalLayout_14.addWidget(self.labelW4Mods)
 
-        self.horizontalSpacer_5 = QSpacerItem(467, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_5 = QSpacerItem(467, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_14.addItem(self.horizontalSpacer_5)
 
@@ -1290,7 +1290,7 @@ class Ui_formWaffen(object):
 
         self.horizontalLayout_6.addWidget(self.labelW3Mods)
 
-        self.horizontalSpacer_4 = QSpacerItem(424, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_4 = QSpacerItem(424, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         self.horizontalLayout_6.addItem(self.horizontalSpacer_4)
 
@@ -1419,7 +1419,7 @@ class Ui_formWaffen(object):
 
         self.Waffen.addWidget(self.labelW5RightFrame, 19, 13, 1, 1)
 
-        self.verticalSpacer_6 = QSpacerItem(20, 12, QSizePolicy.Minimum, QSizePolicy.Fixed)
+        self.verticalSpacer_6 = QSpacerItem(20, 12, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Fixed)
 
         self.Waffen.addItem(self.verticalSpacer_6, 17, 1, 1, 1)
 
@@ -1556,7 +1556,7 @@ class Ui_formWaffen(object):
 
         self.verticalLayout.addLayout(self.Waffen)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout.addItem(self.verticalSpacer)
 
