@@ -9841,6 +9841,10 @@ Die &lt;b&gt;Hauptwaffe&lt;/b&gt; wählst du zu Kampfbeginn, andere sind &lt;b&g
   <FreieFertigkeit name="Riesen-Sprache" kategorie="Sprache"></FreieFertigkeit>
   <FreieFertigkeit name="Zhayad" kategorie="Sprache"></FreieFertigkeit>
   <FreieFertigkeit name="Zyklopisch" kategorie="Sprache"></FreieFertigkeit>
+  <Einstellung name="FreieFertigkeiten: Beschreibung" typ="Text" beschreibung="Definiert den Erklärtext für die freien Fertigkeiten. Es können die Makros $unerfahren$, $erfahren$ und $meisterlich$ verwendet werden, um die jeweiligen EP-Kosten eintragen zu lassen.">Freie Fertigkeiten sind in drei Stufen geteilt: Unerfahren (I), erfahren (II) und meisterlich (III). Sie entsprechen jeweils einem PW von 6/14/22 und kosten $unerfahren$/$erfahren$/$meisterlich$ EP.
+  
+Der erste Eintrag ist die Muttersprache des Charakters.
+Jeder Charakter beherrscht seine Muttersprache meisterlich, ohne dafür zu bezahlen.</Einstellung>
   <Einstellung name="FreieFertigkeiten: Inoffiziell-Warnung anzeigen" typ="Bool" beschreibung="Legt fest, ob im Auswahl-Fenster für Freie Fertigkeiten die Inoffiziell-Warnung angezeigt werden soll.">True</Einstellung>
   <Einstellung name="Rüstungen: Inoffiziell-Warnung anzeigen" typ="Bool" beschreibung="Legt fest, ob im Auswahl-Fenster für Rüstungen die Inoffiziell-Warnung angezeigt werden soll.">True</Einstellung>
   <Einstellung name="Talente: SteigerungsfaktorMulti Verbilligt" typ="Int" beschreibung="Legt den Steigerungsfaktor-Multiplikator für verbilligte profane Talente fest.">10</Einstellung>

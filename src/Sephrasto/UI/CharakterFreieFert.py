@@ -33,16 +33,16 @@ class Ui_Form(object):
 
         self.gridLayout.addItem(self.verticalSpacer, 0, 0, 1, 1)
 
-        self.label = QLabel(Form)
-        self.label.setObjectName(u"label")
-        self.label.setMinimumSize(QSize(0, 18))
-        self.label.setAlignment(Qt.AlignCenter)
+        self.labelInfo = QLabel(Form)
+        self.labelInfo.setObjectName(u"labelInfo")
+        self.labelInfo.setMinimumSize(QSize(0, 18))
+        self.labelInfo.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout.addWidget(self.label, 4, 0, 1, 1)
+        self.gridLayout.addWidget(self.labelInfo, 3, 0, 1, 1)
 
         self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.gridLayout.addItem(self.verticalSpacer_2, 5, 0, 1, 1)
+        self.gridLayout.addItem(self.verticalSpacer_2, 4, 0, 1, 1)
 
         self.groupBox = QGroupBox(Form)
         self.groupBox.setObjectName(u"groupBox")
@@ -53,12 +53,6 @@ class Ui_Form(object):
         self.freieFertsGrid.setContentsMargins(20, 20, 20, 20)
 
         self.gridLayout.addWidget(self.groupBox, 2, 0, 1, 1)
-
-        self.labelRegeln = QLabel(Form)
-        self.labelRegeln.setObjectName(u"labelRegeln")
-        self.labelRegeln.setAlignment(Qt.AlignCenter)
-
-        self.gridLayout.addWidget(self.labelRegeln, 3, 0, 1, 1)
 
 
         self.gridLayout_3.addLayout(self.gridLayout, 0, 0, 1, 1)
@@ -71,9 +65,10 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
-        self.label.setText(QCoreApplication.translate("Form", u"Der erste Eintrag ist die Muttersprache des Charakters.\n"
+        self.labelInfo.setText(QCoreApplication.translate("Form", u"Freie Fertigkeiten sind in drei Stufen geteilt: Unerfahren (I), erfahren (II) und meisterlich (III). Sie entsprechen jeweils einem PW von 6/14/22 und kosten 4/8/16 EP.\n"
+"\n"
+"Der erste Eintrag ist die Muttersprache des Charakters.\n"
 "Jeder Charakter beherrscht seine Muttersprache meisterlich, ohne daf\u00fcr zu bezahlen.", None))
         self.groupBox.setTitle("")
-        self.labelRegeln.setText(QCoreApplication.translate("Form", u"Freie Fertigkeiten sind in drei Stufen geteilt: Unerfahren (I), erfahren (II) und meisterlich (III).", None))
     # retranslateUi
 

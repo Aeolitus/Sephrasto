@@ -23,7 +23,12 @@ class CharakterFreieFertWrapper(QtCore.QObject):
         self.form = QtWidgets.QWidget()
         self.ui = UI.CharakterFreieFert.Ui_Form()
         self.ui.setupUi(self.form)
-        self.ui.labelRegeln.setText(self.ui.labelRegeln.text() + f" Sie entsprechen jeweils einem PW von 6/14/22 und kosten {FreieFertigkeitDefinition.steigerungskosten[1]}/{FreieFertigkeitDefinition.steigerungskosten[2]}/{FreieFertigkeitDefinition.steigerungskosten[3]} EP.")
+
+        info = Wolke.DB.einstellungen["FreieFertigkeiten: Beschreibung"].wert
+        info = info.replace("$unerfahren$", str(FreieFertigkeitDefinition.steigerungskosten[1]))
+        info = info.replace("$erfahren$", str(FreieFertigkeitDefinition.steigerungskosten[2]))
+        info = info.replace("$meisterlich$", str(FreieFertigkeitDefinition.steigerungskosten[3]))
+        self.ui.labelInfo.setText(info)
 
         self.ffCount = 0
 
