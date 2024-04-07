@@ -29,6 +29,8 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
 
         self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).setText("Abbrechen")
 
+        self.ui.labelUnofficial.setVisible(Wolke.DB.einstellungen["FreieFertigkeiten: Inoffiziell-Warnung anzeigen"].wert)
+
         windowSize = Wolke.Settings["WindowSize-FreieFert"]
         self.form.resize(windowSize[0], windowSize[1])
         

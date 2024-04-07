@@ -42,6 +42,8 @@ class RuestungPicker(object):
         self.autoResizeHelper = TextEditAutoResizer(self.ui.teBeschreibung)
         self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).setText("Abbrechen")
 
+        self.ui.labelUnofficial.setVisible(Wolke.DB.einstellungen["Rüstungen: Inoffiziell-Warnung anzeigen"].wert)
+
         windowSize = Wolke.Settings["WindowSize-Ruestungen"]
         self.form.resize(windowSize[0], windowSize[1])
 

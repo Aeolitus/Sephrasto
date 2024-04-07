@@ -27,7 +27,7 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout2">
       <item>
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="labelUnofficial">
         <property name="text">
          <string>Inoffiziell: Bei den aufgeführten Sprachen und Schriften handelt es sich um an WdS orientierte Vorschläge.</string>
         </property>

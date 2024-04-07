@@ -31,7 +31,7 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout2">
        <item>
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="labelUnofficial">
          <property name="inputMethodHints">
           <set>Qt::ImhNone</set>
          </property>

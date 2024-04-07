@@ -42,12 +42,12 @@ class Ui_Dialog(object):
         self.verticalLayout_2.setSizePolicy(sizePolicy)
         self.verticalLayout2 = QVBoxLayout(self.verticalLayout_2)
         self.verticalLayout2.setObjectName(u"verticalLayout2")
-        self.label = QLabel(self.verticalLayout_2)
-        self.label.setObjectName(u"label")
-        self.label.setInputMethodHints(Qt.ImhNone)
-        self.label.setWordWrap(True)
+        self.labelUnofficial = QLabel(self.verticalLayout_2)
+        self.labelUnofficial.setObjectName(u"labelUnofficial")
+        self.labelUnofficial.setInputMethodHints(Qt.ImhNone)
+        self.labelUnofficial.setWordWrap(True)
 
-        self.verticalLayout2.addWidget(self.label)
+        self.verticalLayout2.addWidget(self.labelUnofficial)
 
         self.filterLayout = QHBoxLayout()
         self.filterLayout.setObjectName(u"filterLayout")
@@ -246,7 +246,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Sephrasto - R\u00fcstung w\u00e4hlen...", None))
-        self.label.setText(QCoreApplication.translate("Dialog", u"Inoffiziell: Bei den hier aufgelisteten R\u00fcstungen handelt es sich um an WdS orientierte Vorschl\u00e4ge. Die Festlegung des RS einer R\u00fcstung obliegt am Ende dem Spielleiter.", None))
+        self.labelUnofficial.setText(QCoreApplication.translate("Dialog", u"Inoffiziell: Bei den hier aufgelisteten R\u00fcstungen handelt es sich um an WdS orientierte Vorschl\u00e4ge. Die Festlegung des RS einer R\u00fcstung obliegt am Ende dem Spielleiter.", None))
         self.nameFilterEdit.setPlaceholderText(QCoreApplication.translate("Dialog", u"Suchen...", None))
         self.labelFilter.setText(QCoreApplication.translate("Dialog", u"Suchen", None))
         self.labelFilter.setProperty("class", QCoreApplication.translate("Dialog", u"icon", None))

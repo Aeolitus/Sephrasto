@@ -9841,6 +9841,8 @@ Die &lt;b&gt;Hauptwaffe&lt;/b&gt; wählst du zu Kampfbeginn, andere sind &lt;b&g
   <FreieFertigkeit name="Riesen-Sprache" kategorie="Sprache"></FreieFertigkeit>
   <FreieFertigkeit name="Zhayad" kategorie="Sprache"></FreieFertigkeit>
   <FreieFertigkeit name="Zyklopisch" kategorie="Sprache"></FreieFertigkeit>
+  <Einstellung name="FreieFertigkeiten: Inoffiziell-Warnung anzeigen" typ="Bool" beschreibung="Legt fest, ob im Auswahl-Fenster für Freie Fertigkeiten die Inoffiziell-Warnung angezeigt werden soll.">True</Einstellung>
+  <Einstellung name="Rüstungen: Inoffiziell-Warnung anzeigen" typ="Bool" beschreibung="Legt fest, ob im Auswahl-Fenster für Rüstungen die Inoffiziell-Warnung angezeigt werden soll.">True</Einstellung>
   <Einstellung name="Talente: SteigerungsfaktorMulti Verbilligt" typ="Int" beschreibung="Legt den Steigerungsfaktor-Multiplikator für verbilligte profane Talente fest.">10</Einstellung>
   <Einstellung name="Talente: SteigerungsfaktorMulti" typ="Int" beschreibung="Legt den Steigerungsfaktor-Multiplikator für profane Talente fest.">20</Einstellung>
   <Einstellung name="Attribute: PW Script" typ="Eval" beschreibung="Das Pythonscript berechnet den Probenwert von Attributen. Es steht hierfür die Funktion getWert zur Verfügung.">getWert()*2</Einstellung>

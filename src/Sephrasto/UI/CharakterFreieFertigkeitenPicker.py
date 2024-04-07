@@ -37,11 +37,11 @@ class Ui_Dialog(object):
         self.verticalLayout_2.setSizePolicy(sizePolicy)
         self.verticalLayout2 = QVBoxLayout(self.verticalLayout_2)
         self.verticalLayout2.setObjectName(u"verticalLayout2")
-        self.label = QLabel(self.verticalLayout_2)
-        self.label.setObjectName(u"label")
-        self.label.setWordWrap(True)
+        self.labelUnofficial = QLabel(self.verticalLayout_2)
+        self.labelUnofficial.setObjectName(u"labelUnofficial")
+        self.labelUnofficial.setWordWrap(True)
 
-        self.verticalLayout2.addWidget(self.label)
+        self.verticalLayout2.addWidget(self.labelUnofficial)
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -100,7 +100,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Sephrasto - Freie Fertigkeit w\u00e4hlen...", None))
-        self.label.setText(QCoreApplication.translate("Dialog", u"Inoffiziell: Bei den aufgef\u00fchrten Sprachen und Schriften handelt es sich um an WdS orientierte Vorschl\u00e4ge.", None))
+        self.labelUnofficial.setText(QCoreApplication.translate("Dialog", u"Inoffiziell: Bei den aufgef\u00fchrten Sprachen und Schriften handelt es sich um an WdS orientierte Vorschl\u00e4ge.", None))
         self.nameFilterEdit.setPlaceholderText(QCoreApplication.translate("Dialog", u"Suchen...", None))
         self.labelFilter.setText(QCoreApplication.translate("Dialog", u"Suchen", None))
         self.labelFilter.setProperty("class", QCoreApplication.translate("Dialog", u"icon", None))
