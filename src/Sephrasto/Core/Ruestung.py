@@ -16,7 +16,7 @@ class RuestungDefinition:
         # Serialized properties
         self.name = ''
         self.text = ''
-        self.typ = 0
+        self.kategorie = 0
         self.system = 0
         self.rs = [0,0,0,0,0,0] # Bein LArm RArm Bauch Brust Kopf
 
@@ -33,9 +33,9 @@ class RuestungDefinition:
     def getRSGesamtInt(self):
         return int(sum(self.rs) / 6 + 0.5)
 
-    def typname(self, db):
-        typ = min(self.typ, len(db.einstellungen['Rüstungen: Typen'].wert) - 1)
-        return db.einstellungen['Rüstungen: Typen'].wert[typ]
+    def kategorieName(self, db):
+        kategorie = min(self.kategorie, len(db.einstellungen['Rüstungen: Kategorien'].wert) - 1)
+        return db.einstellungen['Rüstungen: Kategorien'].wert.keyAtIndex(kategorie)
 
     def details(self, db):
         system = "Beide Systeme"
@@ -48,7 +48,7 @@ class RuestungDefinition:
     def serialize(self, ser):
         ser.set('name', self.name)
         ser.set('text', self.text)
-        ser.set('typ', self.typ)
+        ser.set('kategorie', self.kategorie)
         ser.set('system', self.system)
         ser.set('rsBeine', self.rs[0])
         ser.set('rsLArm', self.rs[1])
@@ -61,7 +61,7 @@ class RuestungDefinition:
     def deserialize(self, ser):
         self.name = ser.get('name')
         self.text = ser.get('text')
-        self.typ = ser.getInt('typ')
+        self.kategorie = ser.getInt('kategorie')
         self.system = ser.getInt('system')
         self.rs[0] = ser.getInt('rsBeine')
         self.rs[1] = ser.getInt('rsLArm')
@@ -76,7 +76,7 @@ class Ruestung:
         self.definition = definition
         self._nameOverride = None
         self._beOverride = None
-        self._typOverride = None
+        self._kategorieOverride = None
         self._beOverride = None
         self._rsOverride = definition.rs.copy()
 
@@ -106,14 +106,14 @@ class Ruestung:
         return self.definition.text
 
     @property
-    def typ(self):
-        if self._typOverride is not None:
-            return self._typOverride
-        return self.definition.typ
+    def kategorie(self):
+        if self._kategorieOverride is not None:
+            return self._kategorieOverride
+        return self.definition.kategorie
 
-    @typ.setter
-    def typ(self, typ):
-        self._typOverride = typ
+    @kategorie.setter
+    def kategorie(self, kategorie):
+        self._kategorieOverride = kategorie
 
     @property
     def system(self):
@@ -137,8 +137,8 @@ class Ruestung:
     def be(self, be):
         self._beOverride = be
 
-    def typname(self, db):
-        return self.definition.typname(db)
+    def kategorieName(self, db):
+        return self.definition.kategorieName(db)
 
     def getRSGesamt(self):
         if self._rsOverride is not None:

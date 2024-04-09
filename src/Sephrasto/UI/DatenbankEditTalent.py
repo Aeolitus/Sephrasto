@@ -18,8 +18,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QAbstractButton, QAbstractSpinBox, QApplication, QCheckBox,
     QComboBox, QDialog, QDialogButtonBox, QGridLayout,
     QHBoxLayout, QLabel, QLineEdit, QPlainTextEdit,
-    QRadioButton, QSizePolicy, QSpacerItem, QSpinBox,
-    QTabWidget, QTextBrowser, QVBoxLayout, QWidget)
+    QSizePolicy, QSpacerItem, QSpinBox, QTabWidget,
+    QTextBrowser, QVBoxLayout, QWidget)
 
 class Ui_dialog(object):
     def setupUi(self, dialog):
@@ -206,39 +206,8 @@ class Ui_dialog(object):
 
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.horizontalLayout_2 = QHBoxLayout()
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.buttonProfan = QRadioButton(dialog)
-        self.buttonProfan.setObjectName(u"buttonProfan")
-        self.buttonProfan.setChecked(True)
-
-        self.horizontalLayout_2.addWidget(self.buttonProfan)
-
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout_2.addItem(self.horizontalSpacer_2)
-
-        self.checkVerbilligt = QCheckBox(dialog)
-        self.checkVerbilligt.setObjectName(u"checkVerbilligt")
-        self.checkVerbilligt.setLayoutDirection(Qt.RightToLeft)
-
-        self.horizontalLayout_2.addWidget(self.checkVerbilligt)
-
-
-        self.verticalLayout.addLayout(self.horizontalLayout_2)
-
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.buttonSpezial = QRadioButton(dialog)
-        self.buttonSpezial.setObjectName(u"buttonSpezial")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.buttonSpezial.sizePolicy().hasHeightForWidth())
-        self.buttonSpezial.setSizePolicy(sizePolicy1)
-
-        self.horizontalLayout.addWidget(self.buttonSpezial)
-
         self.comboTyp = QComboBox(dialog)
         self.comboTyp.setObjectName(u"comboTyp")
 
@@ -248,13 +217,19 @@ class Ui_dialog(object):
 
         self.horizontalLayout.addItem(self.horizontalSpacer_3)
 
+        self.checkVerbilligt = QCheckBox(dialog)
+        self.checkVerbilligt.setObjectName(u"checkVerbilligt")
+        self.checkVerbilligt.setLayoutDirection(Qt.RightToLeft)
+
+        self.horizontalLayout.addWidget(self.checkVerbilligt)
+
         self.spinKosten = QSpinBox(dialog)
         self.spinKosten.setObjectName(u"spinKosten")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.spinKosten.sizePolicy().hasHeightForWidth())
-        self.spinKosten.setSizePolicy(sizePolicy2)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Fixed)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.spinKosten.sizePolicy().hasHeightForWidth())
+        self.spinKosten.setSizePolicy(sizePolicy1)
         self.spinKosten.setMinimumSize(QSize(60, 0))
         self.spinKosten.setAlignment(Qt.AlignCenter)
         self.spinKosten.setButtonSymbols(QAbstractSpinBox.PlusMinus)
@@ -313,23 +288,15 @@ class Ui_dialog(object):
 #endif // QT_CONFIG(tooltip)
         self.label.setText(QCoreApplication.translate("dialog", u"Talentname", None))
         self.checkVariable.setText(QCoreApplication.translate("dialog", u"Kosten sind durch Nutzer \u00e4nderbar", None))
-        self.label_2.setText(QCoreApplication.translate("dialog", u"Typ und Kosten", None))
+        self.label_2.setText(QCoreApplication.translate("dialog", u"Kategorie und Kosten", None))
         self.label_4.setText(QCoreApplication.translate("dialog", u"Voraussetzungen", None))
 #if QT_CONFIG(tooltip)
-        self.buttonProfan.setToolTip(QCoreApplication.translate("dialog", u"Regul\u00e4re Talente k\u00f6nnen nur profanen Fertigkeiten zugewiesen werden und die Kosten richten sich nach deren Steigerungsfaktor.", None))
+        self.comboTyp.setToolTip(QCoreApplication.translate("dialog", u"Spezialtalente k\u00f6nnen nur \u00fcbernat\u00fcrlichen Fertigkeiten zugewiesen werden und sie haben frei w\u00e4hlbare Kosten.", None))
 #endif // QT_CONFIG(tooltip)
-        self.buttonProfan.setText(QCoreApplication.translate("dialog", u"Profanes Talent", None))
 #if QT_CONFIG(tooltip)
         self.checkVerbilligt.setToolTip(QCoreApplication.translate("dialog", u"Verbilligte Talente kosten nur die H\u00e4lfte", None))
 #endif // QT_CONFIG(tooltip)
         self.checkVerbilligt.setText(QCoreApplication.translate("dialog", u"verbilligt", None))
-#if QT_CONFIG(tooltip)
-        self.buttonSpezial.setToolTip(QCoreApplication.translate("dialog", u"Spezialtalente k\u00f6nnen nur \u00fcbernat\u00fcrlichen Fertigkeiten zugewiesen werden und sie haben frei w\u00e4hlbare Kosten.", None))
-#endif // QT_CONFIG(tooltip)
-        self.buttonSpezial.setText("")
-#if QT_CONFIG(tooltip)
-        self.comboTyp.setToolTip(QCoreApplication.translate("dialog", u"Spezialtalente k\u00f6nnen nur \u00fcbernat\u00fcrlichen Fertigkeiten zugewiesen werden und sie haben frei w\u00e4hlbare Kosten.", None))
-#endif // QT_CONFIG(tooltip)
         self.spinKosten.setSuffix(QCoreApplication.translate("dialog", u" EP", None))
     # retranslateUi
 

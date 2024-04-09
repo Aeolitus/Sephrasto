@@ -16,11 +16,12 @@ from QtUtils.AutoResizingTextBrowser import AutoResizingTextBrowser, TextEditAut
 from functools import partial
 from Core.Vorteil import Vorteil
 from VoraussetzungenListe import VoraussetzungenListe
+from Hilfsmethoden import SortedCategoryToListDict
 
 class CharakterVorteileWrapper(QtCore.QObject):
     modified = QtCore.Signal()
     
-    def __init__(self, supportedTypes = []):
+    def __init__(self, supportedCategories = []):
         super().__init__()
         logging.debug("Initializing VorteileWrapper...")
         self.rowHeight = Hilfsmethoden.emToPixels(3.9)
@@ -54,11 +55,11 @@ class CharakterVorteileWrapper(QtCore.QObject):
         self.ui.checkShowAll.stateChanged.connect(self.onShowAllClicked)
         self.showUnavailable = False
 
-        # Set supported Vorteil Typen - all by default. This increases the reusability and might be useful for plugins.
-        self.supportedTypes = supportedTypes
-        if len(self.supportedTypes) == 0:
-            for i in range(len(Wolke.DB.einstellungen["Vorteile: Typen"].wert)):
-                self.supportedTypes.append(i)
+        # Set supported Vorteil Kategorien - all by default. This increases the reusability and might be useful for plugins.
+        self.supportedCategories = supportedCategories
+        if len(self.supportedCategories) == 0:
+            for i in range(len(Wolke.DB.einstellungen["Vorteile: Kategorien"].wert)):
+                self.supportedCategories.append(i)
         self.initVorteile()
 
         self.ui.labelFilter.setText("\uf002")
@@ -77,22 +78,16 @@ class CharakterVorteileWrapper(QtCore.QObject):
 
     def initVorteile(self):
         self.ui.treeWidget.blockSignals(True)
-        vortList = []
-        for vortTyp in Wolke.DB.einstellungen["Vorteile: Typen"].wert:
-            vortList.append([])
 
-        for el in Wolke.DB.vorteile:
-            idx = min(Wolke.DB.vorteile[el].typ, len(vortList) - 1)
-            if idx not in self.supportedTypes:
-                continue
-            vortList[idx].append(el)
-        
-        for vorteile in vortList:
-            vorteile.sort(key=Hilfsmethoden.unicodeCaseInsensitive)
+        vorteileByKategorie = SortedCategoryToListDict(Wolke.DB.einstellungen["Vorteile: Kategorien"].wert)
+        vorteileByKategorie.setCategoryFilter(self.supportedCategories)
+        for vorteil in Wolke.DB.vorteile.values():
+            vorteileByKategorie.append(vorteil.kategorie, vorteil.name)
+        vorteileByKategorie.sortValues()
 
-        for i in range(len(vortList)):
+        for kategorie, vorteile in vorteileByKategorie.items():
             parent = QtWidgets.QTreeWidgetItem(self.ui.treeWidget)
-            parent.setText(0, Wolke.DB.einstellungen["Vorteile: Typen"].wert[i])
+            parent.setText(0, kategorie)
             parent.setText(1,"")
             parent.setExpanded(True)
             parent.setSizeHint(0, QtCore.QSize(0, self.rowHeight))
@@ -102,7 +97,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
             font.setPointSize(Wolke.FontHeadingSizeL3)
             parent.setFont(0, font)
 
-            for el in vortList[i]:
+            for el in vorteile:
                 child = QtWidgets.QTreeWidgetItem(parent)
                 child.setText(0, el)
                 child.setSizeHint(0, QtCore.QSize(0, self.rowHeight))
@@ -136,22 +131,19 @@ class CharakterVorteileWrapper(QtCore.QObject):
         self.ui.checkShowAll.setVisible(Wolke.Char.voraussetzungenPruefen)
 
         self.ui.treeWidget.blockSignals(True)
-        vortList = []
-        for vortTyp in Wolke.DB.einstellungen["Vorteile: Typen"].wert:
-            vortList.append([])
 
+        vorteileByKategorie = SortedCategoryToListDict(Wolke.DB.einstellungen["Vorteile: Kategorien"].wert)
+        vorteileByKategorie.setCategoryFilter(self.supportedCategories)
         for vorteil in Wolke.DB.vorteile.values():
-            idx = min(vorteil.typ, len(vortList) -1)
-            if idx not in self.supportedTypes:
-                continue
-
             if vorteil.name in Wolke.Char.vorteile:
                 vorteil = Wolke.Char.vorteile[vorteil.name]
 
             if Wolke.Char.voraussetzungenPrüfen(vorteil):
-                vortList[idx].append(vorteil.name)
+                vorteileByKategorie.append(vorteil.kategorie, vorteil.name)
 
-        for i in range(len(vortList)):
+        i = -1
+        for vorteile in vorteileByKategorie.values():
+            i += 1
             itm = self.ui.treeWidget.topLevelItem(i)
             if type(itm) != QtWidgets.QTreeWidgetItem:
                 continue
@@ -187,7 +179,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
                     (not self.ui.nameFilterEdit.text().lower() in vorteil.name.lower()) and \
                     (not self.ui.nameFilterEdit.text().lower() in itm.text(0).lower())
 
-                if vorteil.name not in vortList[i]:
+                if vorteil.name not in vorteile:
                     if self.showUnavailable:
                         chi.setFlags(QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsSelectable)
                         chi.setCheckState(0,QtCore.Qt.Unchecked)
@@ -299,7 +291,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
     
     def vortClicked(self):
         for el in self.ui.treeWidget.selectedItems():
-            if el.text(0) in Wolke.DB.einstellungen["Vorteile: Typen"].wert:
+            if el.text(0) in Wolke.DB.einstellungen["Vorteile: Kategorien"].wert:
                 continue
             self.currentVort = el.text(0)
             break #First one should be all of them
@@ -311,7 +303,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
             if self.currentVort in Wolke.Char.vorteile:
                 vorteil = Wolke.Char.vorteile[self.currentVort]
             self.ui.labelVorteil.setText(vorteil.name)
-            self.ui.labelTyp.setText(Wolke.DB.einstellungen["Vorteile: Typen"].wert[vorteil.typ])
+            self.ui.labelTyp.setText(vorteil.kategorieName(Wolke.DB))
             self.ui.labelNachkauf.setText(vorteil.nachkauf)
             voraussetzungen = vorteil.voraussetzungen.anzeigetext(Wolke.DB)
             self.ui.labelVoraussetzungen.setText(voraussetzungen)

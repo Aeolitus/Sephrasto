@@ -458,7 +458,7 @@ class Ui_dialog(object):
 #if QT_CONFIG(tooltip)
         self.teVoraussetzungen.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>Siehe &quot;Datenbank Editor -&gt; Einstellungsm\u00f6glichkeiten -&gt; Voraussetzungen&quot; in der Sephrasto-Hilfe f\u00fcr eine Anleitung.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_6.setText(QCoreApplication.translate("dialog", u"Typ", None))
+        self.label_6.setText(QCoreApplication.translate("dialog", u"Kategorie", None))
         self.label_5.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
         self.label_9.setText(QCoreApplication.translate("dialog", u"Verkn\u00fcpfung", None))
         self.label_11.setText(QCoreApplication.translate("dialog", u"Querverweise", None))

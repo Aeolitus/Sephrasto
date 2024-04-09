@@ -8,7 +8,7 @@ from Wolke import Wolke
 import UI.CharakterMinderpakt
 from PySide6 import QtWidgets, QtCore, QtGui
 import logging
-from Hilfsmethoden import Hilfsmethoden
+from Hilfsmethoden import Hilfsmethoden, SortedCategoryToListDict
 from QtUtils.AutoResizingTextBrowser import TextEditAutoResizer
 
 class CharakterMinderpaktWrapper():    
@@ -33,7 +33,6 @@ class CharakterMinderpaktWrapper():
         width = self.ui.splitter.size().width()
         self.ui.splitter.setSizes([int(width*0.6), int(width*0.4)])
 
-        self.vorteilTypen = Wolke.DB.einstellungen["Vorteile: Typen"].wert
         self.ui.treeWidget.itemSelectionChanged.connect(self.vortClicked)
         self.ui.treeWidget.header().setSectionResizeMode(0,QtWidgets.QHeaderView.Stretch)
 
@@ -55,34 +54,32 @@ class CharakterMinderpaktWrapper():
           
     def initVorteile(self):
         self.ui.treeWidget.blockSignals(True)
-        vortList = []
-        for vortTyp in self.vorteilTypen:
-            vortList.append([])
-        for el in Wolke.DB.vorteile:
-            if Wolke.DB.vorteile[el].kosten > 20 and not Wolke.DB.vorteile[el].variableKosten:
+        vorteileByKategorie = SortedCategoryToListDict(Wolke.DB.einstellungen["Vorteile: Kategorien"].wert)
+        for vorteil in Wolke.DB.vorteile.values():
+            if vorteil.kosten > 20 and not vorteil.variableKosten:
                 continue
-            if Wolke.DB.vorteile[el].kosten < 0:
+            if vorteil.kosten < 0:
                 continue
-            if el in Wolke.Char.vorteile:
+            if vorteil.name in Wolke.Char.vorteile:
                 continue
-            idx = min(Wolke.DB.vorteile[el].typ, len(vortList)-1)
-            vortList[idx].append(el)
+            vorteileByKategorie.append(vorteil.kategorie, vorteil.name)
 
-        for vorteile in vortList:
-            vorteile.sort(key=Hilfsmethoden.unicodeCaseInsensitive)
+        vorteileByKategorie.sortValues()
 
-        for i in range(len(vortList)):
+        for kategorie, vorteile in vorteileByKategorie.items():
+            if len(vorteile) == 0:
+                continue
             parent = QtWidgets.QTreeWidgetItem(self.ui.treeWidget)
-            parent.setText(0, self.vorteilTypen[i])
+            parent.setText(0, kategorie)
             parent.setText(1,"")
             parent.setExpanded(True)
             font = QtGui.QFont(Wolke.Settings["Font"], Wolke.FontHeadingSizeL3)
             font.setBold(True)
             font.setCapitalization(QtGui.QFont.SmallCaps)
             parent.setFont(0, font)
-            for el in vortList[i]:
+            for el in vorteile:
                 child = QtWidgets.QTreeWidgetItem(parent)
-                child.setText(0, Wolke.DB.vorteile[el].name)
+                child.setText(0, el)
                 if Wolke.DB.vorteile[el].variableKosten:
                     child.setText(1, "20 EP")
                 else:
@@ -92,25 +89,25 @@ class CharakterMinderpaktWrapper():
     
     def vortClicked(self):
         for el in self.ui.treeWidget.selectedItems():
-            if el.text(0) in self.vorteilTypen:
+            if el.text(0) in Wolke.DB.einstellungen["Vorteile: Kategorien"].wert:
                 continue
             self.currentVort = el.text(0)
             break #First one should be all of them
         self.updateInfo()
  
     def updateInfo(self):
-        if self.currentVort != "":
-            vorteil = Wolke.DB.vorteile[self.currentVort]
-            self.ui.labelVorteil.setText(vorteil.name)
-            typ = min(vorteil.typ, len(self.vorteilTypen)-1)
-            self.ui.labelTyp.setText(self.vorteilTypen[typ])
-            self.ui.labelNachkauf.setText(vorteil.nachkauf)
+        if self.currentVort == "":
+            return
+        vorteil = Wolke.DB.vorteile[self.currentVort]
+        self.ui.labelVorteil.setText(vorteil.name)
+        self.ui.labelTyp.setText(vorteil.kategorieName(Wolke.DB))
+        self.ui.labelNachkauf.setText(vorteil.nachkauf)
 
-            text = vorteil.text
-            if vorteil.info:
-                text += f"\n\n<b>Sephrasto</b>: {vorteil.info}"
-            self.ui.plainText.setText(Hilfsmethoden.fixHtml(text))
-            if vorteil.variableKosten:
-                self.ui.labelKosten.setText("20 EP")
-            else:
-                self.ui.labelKosten.setText(str(vorteil.kosten) + " EP")
+        text = vorteil.text
+        if vorteil.info:
+            text += f"\n\n<b>Sephrasto</b>: {vorteil.info}"
+        self.ui.plainText.setText(Hilfsmethoden.fixHtml(text))
+        if vorteil.variableKosten:
+            self.ui.labelKosten.setText("20 EP")
+        else:
+            self.ui.labelKosten.setText(str(vorteil.kosten) + " EP")

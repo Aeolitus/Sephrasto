@@ -34,15 +34,11 @@ class DatenbankEditTalentWrapper(DatenbankElementEditorBase):
         self.beschreibungEditor.load(talent)
         self.beschreibungInfoEditor.load(talent)
 
-        self.ui.buttonSpezial.setChecked(talent.spezialTalent)
-
-        spezialTalentTypen = list(self.datenbank.einstellungen["Talente: Spezialtalent Typen"].wert.keys())
-        self.ui.comboTyp.addItems(spezialTalentTypen)
-        if talent.spezialTalent:
-            self.ui.comboTyp.setCurrentIndex(talent.spezialTyp)
+        self.ui.comboTyp.addItems(self.datenbank.einstellungen["Talente: Kategorien"].wert.keyList)
+        self.ui.comboTyp.setCurrentIndex(talent.kategorie)
+        self.ui.comboTyp.currentIndexChanged.connect(self.kostenChanged)
         self.ui.spinKosten.setValue(talent.kosten)
         self.ui.checkCheatsheet.setChecked(talent.cheatsheetAuflisten)
-        self.ui.buttonProfan.setChecked(not talent.spezialTalent)
         self.ui.checkVerbilligt.setChecked(talent.verbilligt)
         self.ui.checkVariable.setChecked(talent.variableKosten)
         self.ui.checkKommentar.setChecked(talent.kommentarErlauben)
@@ -51,8 +47,6 @@ class DatenbankEditTalentWrapper(DatenbankElementEditorBase):
         self.ui.leFertigkeiten.setText(Hilfsmethoden.FertArray2Str(talent.fertigkeiten, None))
         self.ui.leFertigkeiten.textChanged.connect(self.fertigkeitenTextChanged)
         
-        self.ui.buttonProfan.clicked.connect(self.kostenChanged)
-        self.ui.buttonSpezial.clicked.connect(self.kostenChanged)
         self.kostenChanged()
 
         self.ui.checkVariable.clicked.connect(self.variableKostenCheckChanged)
@@ -87,10 +81,7 @@ class DatenbankEditTalentWrapper(DatenbankElementEditorBase):
         self.voraussetzungenEditor.update(talent)
         self.beschreibungEditor.update(talent)
         self.beschreibungInfoEditor.update(talent)
-        if self.ui.buttonSpezial.isChecked():
-            talent.spezialTyp = self.ui.comboTyp.currentIndex()
-        else:
-            talent.spezialTyp = -1
+        talent.kategorie = self.ui.comboTyp.currentIndex()
         talent.kommentarErlauben = self.ui.checkKommentar.isChecked()
         talent.variableKosten = self.ui.checkVariable.isChecked()
         talent.kosten = self.ui.spinKosten.value()
@@ -101,17 +92,18 @@ class DatenbankEditTalentWrapper(DatenbankElementEditorBase):
         talent.referenzSeite = self.ui.spinSeite.value()
 
     def kostenChanged(self):
-        self.ui.spinKosten.setEnabled(self.ui.buttonSpezial.isChecked())
-        self.ui.checkVerbilligt.setEnabled(not self.ui.buttonSpezial.isChecked())
+        isSpezial = self.ui.comboTyp.currentIndex() > 0
+        self.ui.spinKosten.setVisible(isSpezial)
+        self.ui.checkVerbilligt.setVisible(not isSpezial)
         
         wasEnabled = self.ui.checkCheatsheet.isEnabled()
-        self.ui.checkCheatsheet.setEnabled(self.ui.buttonSpezial.isChecked())
-        if not wasEnabled and self.ui.buttonSpezial.isChecked():
+        self.ui.checkCheatsheet.setEnabled(isSpezial)
+        if not wasEnabled and isSpezial:
             self.ui.checkCheatsheet.setChecked(True)
-        elif not self.ui.buttonSpezial.isChecked():
+        elif not isSpezial:
             self.ui.checkCheatsheet.setChecked(False)
 
-        if self.ui.buttonSpezial.isChecked():
+        if isSpezial:
             self.fertigkeitenCompleter.setTags([f for f in self.datenbank.übernatürlicheFertigkeiten.keys()])
         else:
             self.fertigkeitenCompleter.setTags([f for f in self.datenbank.fertigkeiten.keys()])
@@ -138,7 +130,8 @@ class DatenbankEditTalentWrapper(DatenbankElementEditorBase):
         fertigkeiten = Hilfsmethoden.FertStr2Array(self.ui.leFertigkeiten.text(),None)
         self.validator["Fertigkeiten"] = True
         for fertigkeit in fertigkeiten:
-            if self.ui.buttonSpezial.isChecked():
+            isSpezial = self.ui.comboTyp.currentIndex() > 0
+            if isSpezial:
                 if not fertigkeit in self.datenbank.übernatürlicheFertigkeiten:
                     self.ui.leFertigkeiten.setStyleSheet("border: 1px solid red;")
                     self.ui.leFertigkeiten.setToolTip("Unbekannte übernatürliche Fertigkeit '" + fertigkeit + "'. Spezialtalente müssen übernatürlichen Fertigkeiten zugewiesen werden.")

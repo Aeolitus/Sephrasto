@@ -29,15 +29,15 @@ class DatenbankEditRegelWrapper(DatenbankElementEditorBase):
         self.beschreibungEditor.load(regel)
         self.ui.leProbe.setText(regel.probe)
         self.ui.comboTyp.clear()
-        self.ui.comboTyp.addItems(self.datenbank.einstellungen["Regeln: Typen"].wert)
-        self.ui.comboTyp.setCurrentIndex(regel.typ)
+        self.ui.comboTyp.addItems(self.datenbank.einstellungen["Regeln: Kategorien"].wert.keyList)
+        self.ui.comboTyp.setCurrentIndex(regel.kategorie)
 
     def update(self, regel):
         super().update(regel)
         self.voraussetzungenEditor.update(regel)
         self.beschreibungEditor.update(regel)    
         regel.probe = self.ui.leProbe.text()
-        regel.typ = self.ui.comboTyp.currentIndex()
+        regel.kategorie = self.ui.comboTyp.currentIndex()
 
     def nameChanged(self):
         super().nameChanged()

@@ -21,11 +21,10 @@ class DatenbankEditFreieFertigkeitWrapper(DatenbankElementEditorBase):
     def load(self, fertigkeit):
         super().load(fertigkeit)
         self.voraussetzungenEditor.load(fertigkeit)
-        ffTypen = self.datenbank.einstellungen["FreieFertigkeiten: Typen"].wert
-        self.ui.comboTyp.addItems(ffTypen)
-        self.ui.comboTyp.setCurrentText(fertigkeit.kategorie)
+        self.ui.comboTyp.addItems(self.datenbank.einstellungen["FreieFertigkeiten: Kategorien"].wert.keyList)
+        self.ui.comboTyp.setCurrentIndex(fertigkeit.kategorie)
 
     def update(self, fertigkeit):
         super().update(fertigkeit)
         self.voraussetzungenEditor.update(fertigkeit)
-        fertigkeit.kategorie = self.ui.comboTyp.currentText()
+        fertigkeit.kategorie = self.ui.comboTyp.currentIndex()

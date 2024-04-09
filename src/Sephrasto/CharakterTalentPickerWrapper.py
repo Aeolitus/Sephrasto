@@ -153,7 +153,7 @@ class TalentPicker(object):
 
         if talent.spezialTalent:
             self.ui.labelInfo.show()
-            self.ui.labelInfo.setText(talent.typname(Wolke.DB))
+            self.ui.labelInfo.setText(talent.kategorieName(Wolke.DB))
 
         if talent.variableKosten:
             self.ui.spinKosten.setReadOnly(False)

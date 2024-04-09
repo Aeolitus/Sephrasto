@@ -16,7 +16,7 @@ class TalentDefinition:
         self.name = ''
         self.textSerialized = ''
         self.info = ''
-        self.spezialTyp = -1
+        self.kategorie = 0
         self.kosten = 0
         self.verbilligt = False
         self.fertigkeiten = []
@@ -120,17 +120,11 @@ class TalentDefinition:
 
     @property
     def spezialTalent(self):
-        return self.spezialTyp != -1
+        return self.kategorie > 0
 
-    def typname(self, db):
-        typ = "Profan"
-        if self.spezialTalent:
-            typen = list(db.einstellungen["Talente: Spezialtalent Typen"].wert.keys())
-            spezialTyp = min(self.spezialTyp, len(typen) - 1)
-            typ = typen[spezialTyp]
-        if self.hauptfertigkeit is not None:
-            typ += f" ({self.hauptfertigkeit.name})"
-        return typ
+    def kategorieName(self, db):
+        kategorie = min(self.kategorie, len(db.einstellungen['Talente: Kategorien'].wert) - 1)
+        return db.einstellungen['Talente: Kategorien'].wert.keyAtIndex(kategorie)
 
     def details(self, db):
         return f"{self.kosten} EP{' (verbilligt)' if self.verbilligt else ''}. {self.text}"
@@ -139,9 +133,9 @@ class TalentDefinition:
         ser.set('name', self.name)
         ser.set('text', self.textSerialized)
         ser.set('voraussetzungen', self.voraussetzungen.text)
+        ser.set('kategorie', self.kategorie)
         if self.spezialTalent:
             ser.set('kosten', self.kosten)
-            ser.set('spezialTyp', self.spezialTyp)
         else:
             ser.set('kosten', -1)                
         ser.set('verbilligt', self.verbilligt)
@@ -162,7 +156,7 @@ class TalentDefinition:
         self.text = self.textSerialized
         self.voraussetzungen.compile(ser.get('voraussetzungen', ''))
         self.kosten = ser.getInt('kosten')
-        self.spezialTyp = ser.getInt('spezialTyp', self.spezialTyp)
+        self.kategorie = ser.getInt('kategorie', self.kategorie)
         self.verbilligt = ser.getInt('verbilligt')
         self.fertigkeiten = Hilfsmethoden.FertStr2Array(ser.get('fertigkeiten'), None)
         self.variableKosten = ser.getBool('variableKosten')
@@ -294,8 +288,8 @@ class Talent:
         return self.definition.spezialTalent
 
     @property
-    def spezialTyp(self):
-        return self.definition.spezialTyp
+    def kategorie(self):
+        return self.definition.kategorie
 
     @property
     def kommentar(self):
@@ -312,8 +306,8 @@ class Talent:
             return self._hauptfertigkeitOverride
         return self.definition.hauptfertigkeit
 
-    def typname(self, db):
-        return self.definition.typname(db)
+    def kategorieName(self, db):
+        return self.definition.kategorieName(db)
 
     def aktualisieren(self):
         # PW und Hauptferigkeit
@@ -379,3 +373,13 @@ class Talent:
         self.aktualisieren()
         EventBus.doAction("talent_deserialisiert", { "object" : self, "deserializer" : ser})
         return True
+
+    @staticmethod
+    def sorter(tal):
+        hauptFert = tal.hauptfertigkeit
+        if hauptFert is None:
+            return (0, "", Hilfsmethoden.unicodeCaseInsensitive(tal.name))
+        elif hauptFert.talenteGruppieren:
+            return (hauptFert.kategorie, Hilfsmethoden.unicodeCaseInsensitive(hauptFert.name), Hilfsmethoden.unicodeCaseInsensitive(tal.name))
+        else:
+            return (hauptFert.kategorie, "", Hilfsmethoden.unicodeCaseInsensitive(tal.name))

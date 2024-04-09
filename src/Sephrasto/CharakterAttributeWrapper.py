@@ -32,7 +32,7 @@ class AttrWrapper(QtCore.QObject):
         self.vorteile = {}
         for attribut in Wolke.Char.attribute:
             self.vorteile[attribut] = []
-        for vorteil in sorted(Wolke.DB.vorteile.values(), key = lambda v: v.typ):
+        for vorteil in sorted(Wolke.DB.vorteile.values(), key = lambda v: v.kategorie):
             for attribut in Wolke.Char.attribute:
                 if vorteil.voraussetzungen.isAttributVoraussetzung(attribut):
                     self.vorteile[attribut].append(vorteil)
@@ -164,14 +164,14 @@ class AttrWrapper(QtCore.QObject):
                     vortNew.append(vort.name + " erwerbbar")
 
         fertNew = []
-        for fert in sorted(Wolke.Char.fertigkeiten.values(), key = lambda f: f.typ):
+        for fert in sorted(Wolke.Char.fertigkeiten.values(), key = lambda f: f.kategorie):
             diff = fert.diffBasiswert(attribute)
             if diff != 0:
                 fertNew.append(fert.name + " +" + str(diff))
 
         fertsÜberNew = []
         more = 0
-        for fert in sorted(Wolke.Char.übernatürlicheFertigkeiten.values(), key = lambda f: f.typ):
+        for fert in sorted(Wolke.Char.übernatürlicheFertigkeiten.values(), key = lambda f: f.kategorie):
             if len(fert.gekaufteTalente) == 0:
                 more += 1
                 continue

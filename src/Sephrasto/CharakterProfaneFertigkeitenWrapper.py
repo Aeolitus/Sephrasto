@@ -17,6 +17,7 @@ from EventBus import EventBus
 import copy
 from QtUtils.AutoResizingTextBrowser import TextEditAutoResizer
 from functools import partial
+from Hilfsmethoden import SortedCategoryToListDict
 
 # This item delegate is used to draw a seperator line between different fertigkeit types
 class FertigkeitItemDelegate(QtWidgets.QItemDelegate):
@@ -87,15 +88,13 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
     def load(self):
         self.currentlyLoading = True
 
-        temp = []
-        lastType = -1
-        for fert in sorted(Wolke.Char.fertigkeiten.values(), key = lambda x: (x.typ, Hilfsmethoden.unicodeCaseInsensitive(x.name))):
-            if fert.typ != lastType:
-                lastType = fert.typ
-                temp.append(fert.definition.typname(Wolke.DB))
-            temp.append(fert.name)
+        fertigkeitenByKategorie = SortedCategoryToListDict(Wolke.DB.einstellungen["Fertigkeiten: Kategorien profan"].wert)
+        availableFerts = []
+        for fert in Wolke.Char.fertigkeiten.values():
+            fertigkeitenByKategorie.append(fert.kategorie, fert.name)
+            availableFerts.append(fert.name)
 
-        if Hilfsmethoden.ArrayEqual(temp, self.availableFerts):
+        if Hilfsmethoden.ArrayEqual(availableFerts, self.availableFerts):
             for i in range(self.ui.tableWidget.rowCount()):
                 item = self.ui.tableWidget.item(i,0)
                 if item.text() not in Wolke.Char.fertigkeiten:
@@ -110,93 +109,101 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
                     self.labelRef[fert.name + "PW"].setText(str(fert.probenwert + fert.basiswertMod) + "*")
                     self.labelRef[fert.name + "PWT"].setText(str(fert.probenwertTalent + fert.basiswertMod) + "*")
                 self.labelRef[fert.name].setText(str(len(fert.gekaufteTalente)))
-        else:
-            self.availableFerts = temp
-            rowIndicesWithLinePaint = []
-            count = 0
-            for el in self.availableFerts:
-                if el not in Wolke.DB.fertigkeiten:
-                    rowIndicesWithLinePaint.append(count-1)
-                count += 1
+            self.updateInfo()
+            self.updateTalents()    
+            self.currentlyLoading = False
+            return
 
-            self.ui.tableWidget.clear()
-            self.rowRef = {}
-            self.spinRef = {}
-            self.labelRef = {}
-            self.layoutRef = {}
-            self.buttonRef = {}
-            self.widgetRef = {}
-            self.ui.tableWidget.setItemDelegate(FertigkeitItemDelegate(rowIndicesWithLinePaint))
+        self.availableFerts = availableFerts
+        rowIndicesWithLinePaint = []
+        count = 0
+        for kategorie, ferts in fertigkeitenByKategorie.items():
+            if len(ferts) == 0:
+                continue
+            count += 1 + len(ferts)
+            rowIndicesWithLinePaint.append(count-1)
+        if len(rowIndicesWithLinePaint) > 0:
+            rowIndicesWithLinePaint.pop()
+
+        self.ui.tableWidget.clear()
+        self.rowRef = {}
+        self.spinRef = {}
+        self.labelRef = {}
+        self.layoutRef = {}
+        self.buttonRef = {}
+        self.widgetRef = {}
+        self.ui.tableWidget.setItemDelegate(FertigkeitItemDelegate(rowIndicesWithLinePaint))
             
-            self.ui.tableWidget.setRowCount(len(self.availableFerts))
-            self.ui.tableWidget.setColumnCount(6)
-            self.ui.tableWidget.verticalHeader().setVisible(False)
+        self.ui.tableWidget.setRowCount(count)
+        self.ui.tableWidget.setColumnCount(6)
+        self.ui.tableWidget.verticalHeader().setVisible(False)
 
-            header = self.ui.tableWidget.horizontalHeader()
-            header.setMinimumSectionSize(0)
-            header.setSectionResizeMode(0, QHeaderView.Stretch)
-            header.setSectionResizeMode(1, QHeaderView.Fixed)
-            self.ui.tableWidget.setColumnWidth(1, Hilfsmethoden.emToPixels(6.7))
-            header.setSectionResizeMode(2, QHeaderView.Fixed)
-            self.ui.tableWidget.setColumnWidth(2, Hilfsmethoden.emToPixels(8.9))
-            header.setSectionResizeMode(3, QHeaderView.Fixed)
-            self.ui.tableWidget.setColumnWidth(3, Hilfsmethoden.emToPixels(7.3))
-            header.setSectionResizeMode(4, QHeaderView.Fixed)
-            self.ui.tableWidget.setColumnWidth(4, Hilfsmethoden.emToPixels(7.3))
-            header.setSectionResizeMode(4, QHeaderView.Fixed)
-            self.ui.tableWidget.setColumnWidth(5, Hilfsmethoden.emToPixels(10))
+        header = self.ui.tableWidget.horizontalHeader()
+        header.setMinimumSectionSize(0)
+        header.setSectionResizeMode(0, QHeaderView.Stretch)
+        header.setSectionResizeMode(1, QHeaderView.Fixed)
+        self.ui.tableWidget.setColumnWidth(1, Hilfsmethoden.emToPixels(6.7))
+        header.setSectionResizeMode(2, QHeaderView.Fixed)
+        self.ui.tableWidget.setColumnWidth(2, Hilfsmethoden.emToPixels(8.9))
+        header.setSectionResizeMode(3, QHeaderView.Fixed)
+        self.ui.tableWidget.setColumnWidth(3, Hilfsmethoden.emToPixels(7.3))
+        header.setSectionResizeMode(4, QHeaderView.Fixed)
+        self.ui.tableWidget.setColumnWidth(4, Hilfsmethoden.emToPixels(7.3))
+        header.setSectionResizeMode(4, QHeaderView.Fixed)
+        self.ui.tableWidget.setColumnWidth(5, Hilfsmethoden.emToPixels(10))
 
-            vheader = self.ui.tableWidget.verticalHeader()
-            vheader.setSectionResizeMode(QHeaderView.Fixed)
-            vheader.setDefaultSectionSize(Hilfsmethoden.emToPixels(3.4));
-            vheader.setMaximumSectionSize(Hilfsmethoden.emToPixels(3.4));
+        vheader = self.ui.tableWidget.verticalHeader()
+        vheader.setSectionResizeMode(QHeaderView.Fixed)
+        vheader.setDefaultSectionSize(Hilfsmethoden.emToPixels(3.4));
+        vheader.setMaximumSectionSize(Hilfsmethoden.emToPixels(3.4));
 
-            item = QtWidgets.QTableWidgetItem()
-            item.setText("Name")
-            item.setTextAlignment(QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-            self.ui.tableWidget.setHorizontalHeaderItem(0, item)
-            item = QtWidgets.QTableWidgetItem()
-            item.setTextAlignment(QtCore.Qt.AlignCenter)
-            item.setText("FW")
-            item.setToolTip("Fertigkeitswert")
-            self.ui.tableWidget.setHorizontalHeaderItem(1, item)
-            item = QtWidgets.QTableWidgetItem()
-            item.setTextAlignment(QtCore.Qt.AlignCenter)
-            item.setText("Kosten")
-            self.ui.tableWidget.setHorizontalHeaderItem(2, item)
-            item = QtWidgets.QTableWidgetItem()
-            item.setTextAlignment(QtCore.Qt.AlignCenter)
-            item.setText("PW")
-            item.setToolTip("Probenwert")
-            self.ui.tableWidget.setHorizontalHeaderItem(3, item)
-            item = QtWidgets.QTableWidgetItem()
-            item.setTextAlignment(QtCore.Qt.AlignCenter)
-            item.setText("PW(T)")
-            item.setToolTip("Probenwert mit Talent")
-            self.ui.tableWidget.setHorizontalHeaderItem(4, item)
-            item = QtWidgets.QTableWidgetItem()
-            item.setTextAlignment(QtCore.Qt.AlignCenter)
-            item.setText("Talente")
-            self.ui.tableWidget.setHorizontalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setText("Name")
+        item.setTextAlignment(QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.ui.tableWidget.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        item.setText("FW")
+        item.setToolTip("Fertigkeitswert")
+        self.ui.tableWidget.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        item.setText("Kosten")
+        self.ui.tableWidget.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        item.setText("PW")
+        item.setToolTip("Probenwert")
+        self.ui.tableWidget.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        item.setText("PW(T)")
+        item.setToolTip("Probenwert mit Talent")
+        self.ui.tableWidget.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        item.setText("Talente")
+        self.ui.tableWidget.setHorizontalHeaderItem(5, item)
     
-            count = 0
+        count = 0
 
-            self.nahkampfFerts = []
+        self.nahkampfFerts = []
 
-            fontHeader = QtWidgets.QApplication.instance().font()
-            fontHeader.setBold(True)
-            fontHeader.setCapitalization(QtGui.QFont.SmallCaps)
-            fontHeader.setPointSize(Wolke.FontHeadingSizeL3)
-            lastType = -1
-            for el in self.availableFerts:
-                if el not in Wolke.Char.fertigkeiten:
-                    tableWidget = QtWidgets.QTableWidgetItem(el)
-                    tableWidget.setFont(fontHeader)
-                    tableWidget.setFlags(QtCore.Qt.ItemIsEnabled)
-                    self.ui.tableWidget.setItem(count, 0, tableWidget)
-                    count += 1
-                    continue
+        fontHeader = QtWidgets.QApplication.instance().font()
+        fontHeader.setBold(True)
+        fontHeader.setCapitalization(QtGui.QFont.SmallCaps)
+        fontHeader.setPointSize(Wolke.FontHeadingSizeL3)
 
+        for kategorie, ferts in fertigkeitenByKategorie.items():
+            if len(ferts) == 0:
+                continue
+            tableWidget = QtWidgets.QTableWidgetItem(kategorie)
+            tableWidget.setFont(fontHeader)
+            tableWidget.setFlags(QtCore.Qt.ItemIsEnabled)
+            self.ui.tableWidget.setItem(count, 0, tableWidget)
+            count += 1
+            
+            for el in ferts:
                 fert = Wolke.Char.fertigkeiten[el]
                 fert.aktualisieren()
 
@@ -361,7 +368,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         self.ui.spinPW.setValue(fert.probenwert + fert.basiswertMod)
         self.ui.spinPWT.setValue(fert.probenwertTalent + fert.basiswertMod)
         self.ui.plainText.setText(Hilfsmethoden.fixHtml(fert.text))
-        self.ui.labelKategorie.setText(fert.typname(Wolke.DB))
+        self.ui.labelKategorie.setText(fert.kategorieName(Wolke.DB))
         self.updateTalents()
         self.currentlyLoading = False
         

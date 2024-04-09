@@ -440,7 +440,10 @@ class PdfExporter(object):
             else:
                 fields[field] += " | " + freieFerts[i]
 
-        fertigkeiten = CharakterPrintUtility.getFertigkeiten(Wolke.Char)
+        fertigkeiten = []
+        fertigkeitenByKategorie = CharakterPrintUtility.getFertigkeiten(Wolke.Char)
+        for ferts in fertigkeitenByKategorie.values():
+            fertigkeiten.extend(ferts)
 
         while len(fertigkeiten) > self.countMaxFertigkeiten():
             niedrigste = None
@@ -587,8 +590,10 @@ class PdfExporter(object):
 
     def pdfSechsterBlock(self, fields):
         logging.debug("PDF Block 6")
-
-        überFertigkeiten = CharakterPrintUtility.getÜberFertigkeiten(Wolke.Char)
+        überFertigkeiten = []
+        fertigkeitenByKategorie = CharakterPrintUtility.getÜberFertigkeiten(Wolke.Char)
+        for ferts in fertigkeitenByKategorie.values():
+            überFertigkeiten.extend(ferts)
         if not self.CharakterBogen.extraÜberSeiten:
             while len(überFertigkeiten) > self.CharakterBogen.maxÜberFertigkeiten:
                 niedrigste = None
@@ -604,10 +609,10 @@ class PdfExporter(object):
             return ([], [])
         self.printÜberFertigkeiten(fields, überFertigkeiten)
 
-        talenteByTyp = CharakterPrintUtility.getÜberTalente(Wolke.Char)
+        talenteByKategorie = CharakterPrintUtility.getÜberTalente(Wolke.Char)
         überTalenteTmp = []
-        for arr in talenteByTyp:
-            überTalenteTmp.extend(arr)
+        for arr in talenteByKategorie.values():
+            überTalenteTmp.extend([Wolke.Char.talente[t] for t in arr])
         if not self.CharakterBogen.extraÜberSeiten:
             while len(überTalenteTmp) > self.CharakterBogen.maxÜberTalente:
                 niedrigste = None
@@ -621,11 +626,10 @@ class PdfExporter(object):
 
         # Insert fertigkeit names into talente
         lastGroup = None
-        fertigkeitsTypen = Wolke.DB.einstellungen["Fertigkeiten: Typen übernatürlich"].wert
         for talent in überTalenteTmp:
             hauptFert = talent.hauptfertigkeit
             if lastGroup != hauptFert:
-                if lastGroup is None or lastGroup.typ != hauptFert.typ or hauptFert.talenteGruppieren:
+                if lastGroup is None or lastGroup.kategorie != hauptFert.kategorie or hauptFert.talenteGruppieren:
                     if lastGroup is not None:
                         emptyDef = TalentDefinition()
                         emptyDef.finalize(Wolke.DB)
@@ -635,7 +639,7 @@ class PdfExporter(object):
                     talHeaderDef = TalentDefinition()
                     talHeaderDef.name = hauptFert.name.upper()
                     if not hauptFert.talenteGruppieren:
-                        talHeaderDef.name = hauptFert.typname(Wolke.DB).upper()
+                        talHeaderDef.name = hauptFert.kategorieName(Wolke.DB).upper()
                     talHeaderDef.finalize(Wolke.DB)
                     talHeader = Talent(talHeaderDef, Wolke.Char)
                     überTalente.append(talHeader)

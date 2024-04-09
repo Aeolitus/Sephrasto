@@ -43,7 +43,7 @@ class WaffeDefinition:
     def nahkampf(self):
         return not self.fernkampf
 
-    def typname(self, db):
+    def kategorieName(self, db):
         return self.talent
 
     def details(self, db):
@@ -244,8 +244,8 @@ class Waffe:
     def anzeigename(self, anzeigename):
         self._anzeigenameOverride = anzeigename
 
-    def typname(self, db):
-        return self.definition.typname(db)
+    def kategorieName(self, db):
+        return self.definition.kategorieName(db)
 
     def isATVerboten(self, db):
         return self.definition.isATVerboten(db)

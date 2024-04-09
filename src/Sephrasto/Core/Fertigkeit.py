@@ -25,7 +25,7 @@ class FertigkeitDefinition:
         self.attribute = ['KO','KO','KO']
         self.kampffertigkeit = KampffertigkeitTyp.Keine
         self.voraussetzungen = VoraussetzungenListe()
-        self.typ = -1
+        self.kategorie = 0
         self.talenteGruppieren = False
 
     def deepequals(self, other): 
@@ -35,9 +35,9 @@ class FertigkeitDefinition:
     def finalize(self, db):
         pass
 
-    def typname(self, db):
-        typ = min(self.typ, len(db.einstellungen['Fertigkeiten: Typen profan'].wert) - 1)
-        return db.einstellungen['Fertigkeiten: Typen profan'].wert[typ]
+    def kategorieName(self, db):
+        kategorie = min(self.kategorie, len(db.einstellungen['Fertigkeiten: Kategorien profan'].wert) - 1)
+        return db.einstellungen['Fertigkeiten: Kategorien profan'].wert.keyAtIndex(kategorie)
 
     def details(self, db):
         return f"{'/'.join(self.attribute)}. SF {self.steigerungsfaktor}. {self.text}"
@@ -49,7 +49,7 @@ class FertigkeitDefinition:
         ser.set('steigerungsfaktor', self.steigerungsfaktor)
         ser.set('attribute', Hilfsmethoden.AttrArray2Str(self.attribute))
         ser.set('kampffertigkeit', self.kampffertigkeit)
-        ser.set('typ', self.typ)
+        ser.set('kategorie', self.kategorie)
         EventBus.doAction("fertigkeitdefinition_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser):
@@ -59,7 +59,7 @@ class FertigkeitDefinition:
         self.steigerungsfaktor = ser.getInt('steigerungsfaktor')
         self.attribute = Hilfsmethoden.AttrStr2Array(ser.get('attribute'))
         self.kampffertigkeit = ser.getInt('kampffertigkeit')
-        self.typ = ser.getInt('typ', self.typ)
+        self.kategorie = ser.getInt('kategorie', self.kategorie)
         EventBus.doAction("fertigkeitdefinition_deserialisiert", { "object" : self, "deserializer" : ser})
 
 class UeberFertigkeitDefinition(FertigkeitDefinition):
@@ -69,9 +69,9 @@ class UeberFertigkeitDefinition(FertigkeitDefinition):
     def __init__(self):
         super().__init__()
 
-    def typname(self, db):
-        typ = min(self.typ, len(db.einstellungen['Fertigkeiten: Typen übernatürlich'].wert) - 1)
-        return db.einstellungen['Fertigkeiten: Typen übernatürlich'].wert[typ]
+    def kategorieName(self, db):
+        kategorie = min(self.kategorie, len(db.einstellungen['Fertigkeiten: Kategorien übernatürlich'].wert) - 1)
+        return db.einstellungen['Fertigkeiten: Kategorien übernatürlich'].wert.keyAtIndex(kategorie)
 
     def serialize(self, ser):
         ser.set('name', self.name)
@@ -79,7 +79,7 @@ class UeberFertigkeitDefinition(FertigkeitDefinition):
         ser.set('voraussetzungen', self.voraussetzungen.text)
         ser.set('steigerungsfaktor', self.steigerungsfaktor)
         ser.set('attribute', Hilfsmethoden.AttrArray2Str(self.attribute))
-        ser.set('typ', self.typ)
+        ser.set('kategorie', self.kategorie)
         ser.set('talentegruppieren', self.talenteGruppieren)
         EventBus.doAction("ueberfertigkeitdefinition_serialisiert", { "object" : self, "serializer" : ser})
 
@@ -89,7 +89,7 @@ class UeberFertigkeitDefinition(FertigkeitDefinition):
         self.voraussetzungen.compile(ser.get('voraussetzungen', ''))
         self.steigerungsfaktor = ser.getInt('steigerungsfaktor')
         self.attribute = Hilfsmethoden.AttrStr2Array(ser.get('attribute'))
-        self.typ = ser.getInt('typ', self.typ)
+        self.kategorie = ser.getInt('kategorie', self.kategorie)
         self.talenteGruppieren = ser.getBool('talentegruppieren', self.talenteGruppieren)
         EventBus.doAction("ueberfertigkeitdefinition_deserialisiert", { "object" : self, "deserializer" : ser})
 
@@ -145,8 +145,8 @@ class Fertigkeit:
         return self.definition.voraussetzungen
 
     @property
-    def typ(self):
-        return self.definition.typ
+    def kategorie(self):
+        return self.definition.kategorie
 
     @property
     def talenteGruppieren(self):
@@ -211,8 +211,8 @@ class Fertigkeit:
         kosten *= multiplier
         return EventBus.applyFilter("fertigkeit_kosten", kosten, { "charakter" : self.charakter, "name" : self.name, "wertVon" : startWert, "wertAuf" : startWert + numSteigerungen })
 
-    def typname(self, db):
-        return self.definition.typname(db)
+    def kategorieName(self, db):
+        return self.definition.kategorieName(db)
 
     def kosten(self):
         kosten = sum(range(self.wert+1)) * self.steigerungsfaktor

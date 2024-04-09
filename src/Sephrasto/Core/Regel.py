@@ -9,7 +9,7 @@ class Regel():
         # Serialized properties
         self.name = ''
         self.text = ''
-        self.typ = 0
+        self.kategorie = 0
         self.voraussetzungen = VoraussetzungenListe()
         self.probe = ''
         
@@ -26,9 +26,9 @@ class Regel():
             if self.anzeigename.endswith(trim):
                 self.anzeigename = self.anzeigename[:-len(trim)]
 
-    def typname(self, db):
-        typ = min(self.typ, len(db.einstellungen['Regeln: Typen'].wert) - 1)
-        return db.einstellungen['Regeln: Typen'].wert[typ]
+    def kategorieName(self, db):
+        kategorie = min(self.kategorie, len(db.einstellungen['Regeln: Kategorien'].wert) - 1)
+        return db.einstellungen['Regeln: Kategorien'].wert.keyAtIndex(kategorie)
 
     def details(self, db):
         if self.probe:
@@ -39,7 +39,7 @@ class Regel():
         ser.set('name', self.name)
         ser.set('text', self.text)
         ser.set('voraussetzungen', self.voraussetzungen.text)
-        ser.set('typ', self.typ)
+        ser.set('kategorie', self.kategorie)
         ser.set('probe', self.probe)
         EventBus.doAction("regel_serialisiert", { "object" : self, "serializer" : ser})
 
@@ -47,6 +47,6 @@ class Regel():
         self.name = ser.get('name')
         self.text = ser.get('text')
         self.voraussetzungen.compile(ser.get('voraussetzungen', ''))      
-        self.typ = ser.getInt('typ')
+        self.kategorie = ser.getInt('kategorie')
         self.probe = ser.get('probe')
         EventBus.doAction("regel_deserialisiert", { "object" : self, "deserializer" : ser})

@@ -27,7 +27,7 @@ class VorteilDefinition():
         self.kosten = 0
         self.variableKosten = False
         self.kommentarErlauben = False
-        self.typ = 0
+        self.kategorie = 0
         self.voraussetzungen = VoraussetzungenListe()
         self.nachkauf = ''
         self.cheatsheetAuflisten = True
@@ -92,9 +92,9 @@ class VorteilDefinition():
     def executeScript(self, api):
         exec(self.scriptCompiled, api)
 
-    def typname(self, db):
-        typ = min(self.typ, len(db.einstellungen['Vorteile: Typen'].wert) - 1)
-        return db.einstellungen['Vorteile: Typen'].wert[typ]
+    def kategorieName(self, db):
+        kategorie = min(self.kategorie, len(db.einstellungen['Vorteile: Kategorien'].wert) - 1)
+        return db.einstellungen['Vorteile: Kategorien'].wert.keyAtIndex(kategorie)
 
     def details(self, db):
         text = f"{self.kosten} EP. {self.text}"
@@ -108,7 +108,7 @@ class VorteilDefinition():
         ser.set('voraussetzungen', self.voraussetzungen.text)
         ser.set('kosten', self.kosten)
         ser.set('nachkauf', self.nachkauf)
-        ser.set('typ', self.typ)
+        ser.set('kategorie', self.kategorie)
         if self.script:
             ser.set('script', self.script)
         if self.scriptPrio != 0:
@@ -137,7 +137,7 @@ class VorteilDefinition():
         self.voraussetzungen.compile(ser.get('voraussetzungen', ''))
         self.kosten = ser.getInt('kosten')
         self.nachkauf = ser.get('nachkauf')
-        self.typ = ser.getInt('typ')
+        self.kategorie = ser.getInt('kategorie')
         self.script = ser.get('script', "")
         self.scriptPrio = ser.getInt('scriptPrio', self.scriptPrio)
         querverweise = ser.get('querverweise', '')
@@ -205,8 +205,8 @@ class Vorteil:
         return self.definition.kommentarErlauben
 
     @property
-    def typ(self):
-        return self.definition.typ
+    def kategorie(self):
+        return self.definition.kategorie
 
     @property
     def voraussetzungen(self):
@@ -275,8 +275,8 @@ class Vorteil:
         self._kommentar = kommentar
         self._updateAnzeigenameExt()
 
-    def typname(self, db):
-        return self.definition.typname(db)
+    def kategorieName(self, db):
+        return self.definition.kategorieName(db)
 
     def _updateAnzeigenameExt(self):
         self.anzeigenameExt = self.definition.name    

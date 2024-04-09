@@ -214,10 +214,6 @@ class InfoWrapper(QtCore.QObject):
         tree = QtWidgets.QTreeWidget()
         rootLayout.addWidget(tree)
 
-        vorteilTypen = Wolke.DB.einstellungen["Vorteile: Typen"].wert
-        regelnTypen = Wolke.DB.einstellungen["Regeln: Typen"].wert
-        spezialTalentTypen = list(Wolke.DB.einstellungen["Talente: Spezialtalent Typen"].wert.values())
-
         def createItem(parent, name, cat):
             if isinstance(parent, QtWidgets.QTreeWidgetItem) and parent.text(0) == name:
                 parent.setData(0, QtCore.Qt.UserRole, cat)
@@ -244,24 +240,24 @@ class InfoWrapper(QtCore.QObject):
                 parent.setCheckState(0, QtCore.Qt.Checked)
                 parent.setFlags(parent.flags() | QtCore.Qt.ItemIsAutoTristate)
             elif r[0] == "V" and len(r) > 2 and r[2:].isnumeric():
-                typ = int(r[2:])
-                item = createItem(parent, vorteilTypen[typ], r)
+                kategorie = int(r[2:])
+                item = createItem(parent, Wolke.DB.einstellungen["Vorteile: Kategorien"].wert.keyAtIndex(kategorie), r)
                 for v in Wolke.Char.vorteile.values():
-                    if v.cheatsheetAuflisten and v.typ == typ:
+                    if v.cheatsheetAuflisten and v.kategorie == kategorie:
                         createItem(item, v.name, "V:" + v.name)
             elif r[0] == "R" and len(r) > 2 and r[2:].isnumeric():
-                typ = int(r[2:])
-                item = createItem(parent, regelnTypen[typ], r)
+                kategorie = int(r[2:])
+                item = createItem(parent, Wolke.DB.einstellungen["Regeln: Kategorien"].wert.keyAtIndex(kategorie), r)
                 for r in Wolke.DB.regeln.values():
-                    if r.typ == typ and Wolke.Char.voraussetzungenPrüfen(r):
+                    if r.kategorie == kategorie and Wolke.Char.voraussetzungenPrüfen(r):
                         createItem(item, r.anzeigename, "R:" + r.name)
             elif r[0] == "W":
                 createItem(parent, "Waffeneigenschaften", r)
             elif r[0] == "S" and len(r) > 2 and r[2:].isnumeric():
-                typ = int(r[2:])
-                item = createItem(parent, spezialTalentTypen[typ], r)
+                kategorie = int(r[2:])
+                item = createItem(parent, Wolke.DB.einstellungen["Talente: Kategorien"].wert.keyAtIndex(kategorie), r)
                 for t in Wolke.Char.talente.values():
-                    if t.cheatsheetAuflisten and t.spezialTyp == typ:
+                    if t.cheatsheetAuflisten and t.kategorie == kategorie:
                         createItem(item, t.anzeigename, "S:" + t.name)
             else:
                 name = EventBus.applyFilter("regelanhang_reihenfolge_name", r)

@@ -248,7 +248,7 @@ class Ui_dialog(object):
         self.comboSystem.setItemText(2, QCoreApplication.translate("dialog", u"Zonenr\u00fcstungssystem", None))
 
         self.label_2.setText(QCoreApplication.translate("dialog", u"Beine", None))
-        self.label_9.setText(QCoreApplication.translate("dialog", u"Typ", None))
+        self.label_9.setText(QCoreApplication.translate("dialog", u"Kategorie", None))
         self.labelRS.setText(QCoreApplication.translate("dialog", u"0", None))
         self.label_11.setText(QCoreApplication.translate("dialog", u"Verf\u00fcgbarkeit", None))
         self.warning.setText("")

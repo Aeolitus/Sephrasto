@@ -17,7 +17,7 @@ class FreieFertigkeitDefinition:
     def __init__(self):
         # Serialized properties
         self.name = ""
-        self.kategorie = ""
+        self.kategorie = 0
         self.voraussetzungen = VoraussetzungenListe()
 
     def deepequals(self, other): 
@@ -37,8 +37,9 @@ class FreieFertigkeitDefinition:
             FreieFertigkeitDefinition.gesamtkosten[2] += FreieFertigkeitDefinition.gesamtkosten[1]
             FreieFertigkeitDefinition.gesamtkosten[3] += FreieFertigkeitDefinition.gesamtkosten[2]
 
-    def typname(self, db):
-        return self.kategorie
+    def kategorieName(self, db):
+        kategorie = min(self.kategorie, len(db.einstellungen['FreieFertigkeiten: Kategorien'].wert) - 1)
+        return db.einstellungen['FreieFertigkeiten: Kategorien'].wert.keyAtIndex(kategorie)
 
     def details(self, db):
         return self.voraussetzungen.text
@@ -51,7 +52,7 @@ class FreieFertigkeitDefinition:
 
     def deserialize(self, ser):
         self.name = ser.get('name')
-        self.kategorie = ser.get('kategorie')
+        self.kategorie = ser.getInt('kategorie')
         self.voraussetzungen.compile(ser.get('voraussetzungen', ''))
         EventBus.doAction("freiefertigkeitdefinition_deserialisiert", { "object" : self, "deserializer" : ser})
 
@@ -86,8 +87,8 @@ class FreieFertigkeit:
     def voraussetzungen(self):
         return self.definition.voraussetzungen
 
-    def typname(self, db):
-        return self.definition.typname(db)
+    def kategorieName(self, db):
+        return self.definition.kategorieName(db)
 
     def steigerungskosten(self, numSteigerungen = 1):
         if numSteigerungen < 1 or self.wert == 3:

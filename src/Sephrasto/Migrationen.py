@@ -27,7 +27,7 @@ class Migrationen():
     def __init__(self):
         pass
 
-    datenbankCodeVersion = 8
+    datenbankCodeVersion = 9
     charakterCodeVersion = 8
 
     hausregelUpdates = []
@@ -54,6 +54,7 @@ class Migrationen():
             Migrationen.hausregeln5zu6,
             Migrationen.hausregeln6zu7,
             Migrationen.hausregeln7zu8,
+            Migrationen.hausregeln8zu9,
         ]
 
         if not migrationen[Migrationen.datenbankCodeVersion]:
@@ -598,6 +599,52 @@ class Migrationen():
                 node.attrib['typ'] = "Waffe"
 
             root.insert(0, node)
+        return []
+
+    def hausregeln8zu9(root):
+        fertigkeitKategorien = None
+        for node in root.findall('Einstellung'):
+            if node.attrib['name'] in ["Vorteile: Typen", "FreieFertigkeiten: Typen", "Fertigkeiten: Typen profan", "Fertigkeiten: Typen übernatürlich", "Rüstungen: Typen", "Regeln: Typen", "Talente: Spezialtalent Typen"]:
+                if node.attrib['name'] == "Talente: Spezialtalent Typen":
+                    node.attrib['name']  = "Talente: Kategorien"
+                    node.text = "Profan," + node.text
+                
+                if node.text:
+                    typen = list(map(str.strip, node.text.split(",")))
+                    if node.attrib['name'] == "FreieFertigkeiten: Typen":
+                        fertigkeitKategorien = typen.copy()
+                    for i in range(len(typen)):
+                        typen[i] = typen[i] + "=" + str(i*10)
+                    node.text = "\n".join(typen)
+                node.attrib['name'] = node.attrib['name'].replace("Typen", "Kategorien")
+            elif node.attrib['name'] == "FreieFertigkeiten: Typ-Abkürzungen":
+                node.attrib['name'] = "FreieFertigkeiten: Kategorie-Abkürzungen"
+            elif node.attrib['name'] == "Vorteile: Kampfstil Typ":
+                node.attrib['name'] = "Vorteile: Kampfstil Kategorie"
+            elif node.attrib['name'] == "Regelanhang: Reihenfolge":
+                for i in reversed(range(10)): #cant be bothered to do this properly, nobody out there has modified this setting this much
+                    node.text = node.text.replace("S:" + str(i), "S:" + str(i+1))
+
+        if fertigkeitKategorien is not None:
+            for node in root.findall('FreieFertigkeit'):
+                if node.attrib["kategorie"] in fertigkeitKategorien:
+                    node.attrib["kategorie"] = str(fertigkeitKategorien.index(node.attrib["kategorie"]))
+                else:
+                    node.attrib["kategorie"] = "0"
+
+        for node in root.findall('Vorteil') + \
+            root.findall('Rüstung') + \
+            root.findall('Fertigkeit') + \
+            root.findall('ÜbernatürlicheFertigkeit') + \
+            root.findall('Regel'):
+            node.attrib['kategorie'] = node.attrib['typ']
+
+        for node in root.findall('Talent'):
+            if "spezialTyp" in node.attrib:
+                node.attrib['kategorie'] = str(int(node.attrib['spezialTyp'])+1)
+            else:
+                node.attrib['kategorie'] = "0"
+
         return []
 
     #--------------------------------

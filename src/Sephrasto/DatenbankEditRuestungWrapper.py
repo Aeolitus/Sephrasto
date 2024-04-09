@@ -31,8 +31,8 @@ class DatenbankEditRuestungWrapper(DatenbankElementEditorBase):
         self.ui.spinBrust.valueChanged.connect(self.rsChanged)
         self.ui.spinKopf.valueChanged.connect(self.rsChanged)
 
-        self.ui.comboTyp.addItems(self.datenbank.einstellungen["Rüstungen: Typen"].wert)
-        self.ui.comboTyp.setCurrentIndex(rüstung.typ)
+        self.ui.comboTyp.addItems(self.datenbank.einstellungen["Rüstungen: Kategorien"].wert.keyList)
+        self.ui.comboTyp.setCurrentIndex(rüstung.kategorie)
         self.ui.comboSystem.setCurrentIndex(rüstung.system)
         self.ui.spinBeine.setValue(rüstung.rs[0])
         self.ui.spinSchwert.setValue(rüstung.rs[1])
@@ -44,7 +44,7 @@ class DatenbankEditRuestungWrapper(DatenbankElementEditorBase):
     def update(self, rüstung):
         super().update(rüstung)
         self.beschreibungEditor.update(rüstung)   
-        rüstung.typ = self.ui.comboTyp.currentIndex()
+        rüstung.kategorie = self.ui.comboTyp.currentIndex()
         rüstung.system = self.ui.comboSystem.currentIndex()
         rüstung.rs[0] = int(self.ui.spinBeine.value())
         rüstung.rs[1] = int(self.ui.spinSchwert.value())

@@ -286,3 +286,30 @@ ol {{ padding: 0; margin: 0; -qt-list-indent: 0; margin-left: {Hilfsmethoden.emT
         def NFD(s):
             return unicodedata.normalize('NFD', s)
         return locale.strxfrm(NFD(NFD(s).casefold()))
+
+class SortedCategoryToListDict(dict):
+    def __init__(self, categories):
+        self.categories = list(categories.keys())
+        for category in sorted(self.categories, key=lambda category: int(categories[category])):
+            self[category] = []
+        self.categoryFilter = None
+        self.nameFilter = None
+
+    def setCategoryFilter(self, categoryFilter):
+        self.categoryFilter = categoryFilter
+
+    def setNameFilter(self, nameFilter):
+        self.nameFilter = nameFilter.lower()
+
+    def append(self, categoryIndex, value):
+        idx = min(categoryIndex, len(self.categories) -1)
+        if self.categoryFilter is not None and idx not in self.categoryFilter:
+            return
+        categoryName = self.categories[idx]
+        if self.nameFilter and not (self.nameFilter in value.lower() or self.nameFilter in categoryName.lower()):
+            return
+        self[categoryName].append(value)
+
+    def sortValues(self, sortKey=Hilfsmethoden.unicodeCaseInsensitive):
+        for array in self.values():
+            array.sort(key=sortKey)

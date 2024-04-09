@@ -12,6 +12,7 @@ import copy
 from EventBus import EventBus
 from Hilfsmethoden import Hilfsmethoden
 from QtUtils.AutoResizingTextBrowser import TextEditAutoResizer
+from Hilfsmethoden import SortedCategoryToListDict
 
 class RuestungPicker(object):
 
@@ -118,46 +119,37 @@ class RuestungPicker(object):
         currSet = self.current != ""
         self.ui.treeArmors.clear()
 
-        for typ in Wolke.DB.einstellungen["Rüstungen: Typen"].wert:
-            ruestungen = []
-            for rues in Wolke.DB.rüstungen:
-                if Wolke.DB.rüstungen[rues].system != 0 and Wolke.DB.rüstungen[rues].system != self.system:
-                    continue
+        rüstungenByKategorie = SortedCategoryToListDict(Wolke.DB.einstellungen["Rüstungen: Kategorien"].wert)
+        rüstungenByKategorie.setNameFilter(self.ui.nameFilterEdit.text())
+        for r in Wolke.DB.rüstungen.values():
+            if r.system != 0 and r.system != self.system:
+                continue
+            rüstungenByKategorie.append(r.kategorie, r.name)
+        rüstungenByKategorie.sortValues()
 
-                if self.ui.nameFilterEdit.text():
-                    filterText = self.ui.nameFilterEdit.text().lower()
-                    if (not filterText in Wolke.DB.rüstungen[rues].name.lower()):
-                        continue
-                typ2 = Wolke.DB.rüstungen[rues].typname(Wolke.DB)
-                if typ2 == typ:
-                    ruestungen.append(rues)
-
-            ruestungen.sort(key=Hilfsmethoden.unicodeCaseInsensitive)
-            if len(ruestungen) == 0:
+        for kategorie, rüstungen in rüstungenByKategorie.items():
+            if len(rüstungen) == 0:
                 continue
 
             parent = QtWidgets.QTreeWidgetItem(self.ui.treeArmors)
-            parent.setText(0, typ)
+            parent.setText(0, kategorie)
             parent.setExpanded(True)
             font = QtGui.QFont(Wolke.Settings["Font"], Wolke.FontHeadingSizeL3)
             font.setBold(True)
             font.setCapitalization(QtGui.QFont.SmallCaps)
             parent.setFont(0, font)
-            for el in ruestungen:
+            for el in rüstungen:
                 if not currSet:
                     self.current = el
                     currSet = True
                 child = QtWidgets.QTreeWidgetItem(parent)
-                name = Wolke.DB.rüstungen[el].name or el
-                if name.endswith(" (ZRS)"):
-                    name = name[:-6]
-                child.setText(0, name)
-                child.setData(0, QtCore.Qt.UserRole, el) # store key of weapon in user data
-
-        self.ui.treeArmors.sortItems(1,QtCore.Qt.AscendingOrder)
+                if el.endswith(" (ZRS)"):
+                    child.setText(0, el[:-6])
+                else:
+                    child.setText(0, el)
 
         if self.current in Wolke.DB.rüstungen:
-            found = self.ui.treeArmors.findItems(Wolke.DB.rüstungen[self.current].name, QtCore.Qt.MatchExactly | QtCore.Qt.MatchRecursive)
+            found = self.ui.treeArmors.findItems(self.current, QtCore.Qt.MatchExactly | QtCore.Qt.MatchRecursive)
             if len(found) > 0:
                 self.ui.treeArmors.setCurrentItem(found[0], 0, QtCore.QItemSelectionModel.Select | QtCore.QItemSelectionModel.Rows)
         elif self.ui.treeArmors.topLevelItemCount() > 0 and self.ui.treeArmors.topLevelItem(0).childCount() > 0:
@@ -167,9 +159,9 @@ class RuestungPicker(object):
     def changeHandler(self):
         self.current = ""
         for el in self.ui.treeArmors.selectedItems():
-            if el.text(0) in Wolke.DB.einstellungen["Rüstungen: Typen"].wert:
+            if el.text(0) in Wolke.DB.einstellungen["Rüstungen: Kategorien"].wert:
                 continue
-            self.current = el.data(0, QtCore.Qt.UserRole) # contains key of armor
+            self.current = el.text(0)
             break
         self.updateInfo()
         
@@ -194,7 +186,7 @@ class RuestungPicker(object):
             if name.endswith(" (ZRS)"):
                 name = name[:-6]
             self.ui.lblName.setText(name)
-            self.ui.lblTyp.setText(r.typname(Wolke.DB))
+            self.ui.lblTyp.setText(r.kategorieName(Wolke.DB))
 
             if self.system == 1:
                 be = EventBus.applyFilter("ruestung_be", r.getRSGesamtInt(), { "name" : r.name })

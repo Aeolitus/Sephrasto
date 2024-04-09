@@ -1,5 +1,14 @@
 from EventBus import EventBus
 
+class IndexableDict(dict):
+    def updateIndex(self):
+        self.keyList = list(self.keys())
+        self.valueList = list(self.values())
+    def keyAtIndex(self, idx):
+        return self.keyList[idx]
+    def valueAtIndex(self, idx):
+        return self.valueList[idx]
+
 class DatenbankEinstellung:
     displayName = "Einstellung"
     serializationName = "Einstellung"
@@ -43,7 +52,7 @@ class DatenbankEinstellung:
             self.wert = self.__toList()
         elif self.typ == 'TextDict':
             textList = self.__toList()
-            self.wert = {}
+            self.wert = IndexableDict()
             for el in textList:
                 if not el:
                     continue
@@ -52,6 +61,7 @@ class DatenbankEinstellung:
                     self.wert[tmp[0].strip()] = tmp[1].strip()
                 else:
                     self.wert[tmp[0]] = tmp[1]
+            self.wert.updateIndex()
         elif self.typ == 'IntList':
             textList = self.__toList()
             self.wert = [int(el) for el in textList]

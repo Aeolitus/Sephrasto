@@ -95,7 +95,7 @@ Hier können Regeln, Talente, Vorteile und Waffeneigenschaften, Abgeleitete Wert
 <br />
 ## Besondere Datenbank-Elemente
 - Regel: Hier können allgemeine Regeln eingetragen werden. Diese werden hauptsächlich im Regelanhang verwendet, können im Charaktereditor aber auch im Rahmen der Querverweise bei Vorteilen angezeigt werden.
-- Einstellung: Einstellungen definieren die verfügbaren Typen von Vorteilen usw. oder modifizieren das Verhalten von Sephrasto, so können z.B. die EP-Kosten von Freien Fertigkeiten geändert werden. Einstellungen können nicht im Charaktereditor gesehen werden und es können keine eigenen Einstellungen hinzugefügt werden. Wenn eine geänderte Einstellung gelöscht wird, so wird das Original automatisch wiederhergestellt.
+- Einstellung: Einstellungen definieren die verfügbaren Kategorien von Vorteilen usw. oder modifizieren das Verhalten von Sephrasto, so können z.B. die EP-Kosten von Freien Fertigkeiten geändert werden. Einstellungen können nicht im Charaktereditor gesehen werden und es können keine eigenen Einstellungen hinzugefügt werden. Wenn eine geänderte Einstellung gelöscht wird, so wird das Original automatisch wiederhergestellt.
 <br />
 ## Sonderfälle
 Der Datenbankeditor ist sehr vielseitig, aber es gibt ein paar Sonderfälle, diese werden hier erläutert:

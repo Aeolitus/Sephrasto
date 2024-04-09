@@ -176,6 +176,6 @@ class Ui_dialog(object):
         self.comboTyp.setItemText(8, QCoreApplication.translate("dialog", u"Weitere Kampfregeln", None))
         self.comboTyp.setItemText(9, QCoreApplication.translate("dialog", u"Profane Regeln", None))
 
-        self.label_6.setText(QCoreApplication.translate("dialog", u"Typ", None))
+        self.label_6.setText(QCoreApplication.translate("dialog", u"Kategorie", None))
     # retranslateUi
 

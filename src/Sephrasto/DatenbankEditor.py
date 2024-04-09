@@ -54,7 +54,7 @@ class DatenbankTypWrapper:
         self.editorType = editorType
         self.isDeletable = isDeletable
         self.isAddable = isDeletable
-        self.showSubtype = hasattr(dataType, "typname")
+        self.showCategory = hasattr(dataType, "kategorieName")
         self.showDetails = hasattr(dataType, "details")
 
     def add(self, datenbank):
@@ -460,8 +460,8 @@ class DatenbankEditor(object):
         typeWrapper = self.databaseTypes[dbType]
         headerLabels = ["", "Name"]
         setColWidth = False
-        if typeWrapper.showSubtype:
-            headerLabels.append("Typ")
+        if typeWrapper.showCategory:
+            headerLabels.append("Kategorie")
             setColWidth = True
         if typeWrapper.showDetails:
             headerLabels.append("Details")
@@ -504,11 +504,11 @@ class DatenbankEditor(object):
             nameItem.setEditable(False)
             row.append(nameItem)
 
-            if typeWrapper.showSubtype:
-                subTypeText = element.typname(self.datenbank)
-                subTypeItem = QtGui.QStandardItem(subTypeText or "n/a")
-                subTypeItem.setEditable(False)
-                row.append(subTypeItem)
+            if typeWrapper.showCategory:
+                kategorieText = element.kategorieName(self.datenbank)
+                kategorieItem = QtGui.QStandardItem(kategorieText or "n/a")
+                kategorieItem.setEditable(False)
+                row.append(kategorieItem)
 
             if typeWrapper.showDetails:
                 text = element.details(self.datenbank)

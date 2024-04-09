@@ -49,7 +49,7 @@
      <item row="6" column="1">
       <widget class="QCheckBox" name="checkGruppieren">
        <property name="toolTip">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Talente werden grundsätzlich nach Fertigkeitstyp gruppiert. Mit dieser Option werden sie zusätzlich noch nach dem Namen der Fertigkeit gruppiert. Bei Talenten mit mehreren Fertigkeiten werden bei der Gruppierung außerdem Fertigkeiten mit dieser Option priorisiert.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Talente werden grundsätzlich nach Fertigkeitskategorie gruppiert. Mit dieser Option werden sie zusätzlich noch nach dem Namen der Fertigkeit gruppiert. Bei Talenten mit mehreren Fertigkeiten werden bei der Gruppierung außerdem Fertigkeiten mit dieser Option priorisiert.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="text">
         <string>Nach dieser Fertigkeit priorisiert gruppieren</string>
@@ -150,7 +150,7 @@
         </size>
        </property>
        <property name="text">
-        <string>Typ</string>
+        <string>Kategorie</string>
        </property>
       </widget>
      </item>

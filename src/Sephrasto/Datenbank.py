@@ -255,11 +255,11 @@ class Datenbank():
                     logging.warning(errorStr)
 
         #Vorteile
-        self.einstellungen['Vorteile: Typen'].finalize(self)
+        self.einstellungen['Vorteile: Kategorien'].finalize(self)
         for V in self.vorteile.values():
             errorStr = ""
 
-            if V.typ >= len(self.einstellungen['Vorteile: Typen'].wert):
+            if V.kategorie >= len(self.einstellungen['Vorteile: Kategorien'].wert):
                 errorStr = "Vorteil {V.name} hat einen unbekannten Typ."
                 self.loadingErrors.append([V, errorStr])
                 logging.warning(errorStr)
@@ -312,10 +312,10 @@ class Datenbank():
                     logging.warning(errorStr)
             
         #Talente
-        self.einstellungen['Talente: Spezialtalent Typen'].finalize(self)
+        self.einstellungen['Talente: Kategorien'].finalize(self)
         for T in self.talente.values():
-            if T.spezialTalent and T.spezialTyp >= len(self.einstellungen['Talente: Spezialtalent Typen'].wert):
-                errorStr = f"Talent {fert.name} hat einen unbekannten Typ."
+            if T.kategorie >= len(self.einstellungen['Talente: Kategorien'].wert):
+                errorStr = f"Talent {fert.name} hat eine unbekannte Kategorie."
                 self.loadingErrors.append([T, errorStr])
                 logging.warning(errorStr)
 
@@ -334,18 +334,18 @@ class Datenbank():
                 T.fertigkeiten.append(fert)
 
         #Freie Fertigkeiten
-        self.einstellungen['FreieFertigkeiten: Typen'].finalize(self)
+        self.einstellungen['FreieFertigkeiten: Kategorien'].finalize(self)
         for fert in self.freieFertigkeiten.values():
-            if fert.kategorie not in self.einstellungen['FreieFertigkeiten: Typen'].wert:
-                errorStr = f"Freie Fertigkeit {fert.name} hat einen unbekannten Typ: {fert.kategorie}."
+            if fert.kategorie >= len(self.einstellungen['FreieFertigkeiten: Kategorien'].wert):
+                errorStr = f"Freie Fertigkeit {fert.name} hat eine unbekannte Kategorie."
                 self.loadingErrors.append([fert, errorStr])
                 logging.warning(errorStr)
 
         #Fertigkeiten     
-        self.einstellungen['Fertigkeiten: Typen profan'].finalize(self)
+        self.einstellungen['Fertigkeiten: Kategorien profan'].finalize(self)
         for fert in self.fertigkeiten.values():
-            if fert.typ >= len(self.einstellungen['Fertigkeiten: Typen profan'].wert):
-                errorStr = f"Fertigkeit {fert.name} hat einen unbekannten Typ."
+            if fert.kategorie >= len(self.einstellungen['Fertigkeiten: Kategorien profan'].wert):
+                errorStr = f"Fertigkeit {fert.name} hat eine unbekannte Kategorie."
                 self.loadingErrors.append([fert, errorStr])
                 logging.warning(errorStr)
 
@@ -355,10 +355,10 @@ class Datenbank():
                     self.loadingErrors.append([fert, errorStr])
                     logging.warning(errorStr)
 
-        self.einstellungen['Fertigkeiten: Typen übernatürlich'].finalize(self)
+        self.einstellungen['Fertigkeiten: Kategorien übernatürlich'].finalize(self)
         for fert in self.übernatürlicheFertigkeiten.values():
-            if fert.typ >= len(self.einstellungen['Fertigkeiten: Typen übernatürlich'].wert):
-                errorStr = f"Übernatürliche Fertigkeit {fert.name} hat einen unbekannten Typ."
+            if fert.kategorie >= len(self.einstellungen['Fertigkeiten: Kategorien übernatürlich'].wert):
+                errorStr = f"Übernatürliche Fertigkeit {fert.name} hat eine unbekannte Kategorie."
                 self.loadingErrors.append([fert, errorStr])
                 logging.warning(errorStr)
 
@@ -369,12 +369,12 @@ class Datenbank():
                     logging.warning(errorStr)
 
         #Rüstungen:
-        self.einstellungen['Rüstungen: Typen'].finalize(self)
+        self.einstellungen['Rüstungen: Kategorien'].finalize(self)
         for r in self.rüstungen.values():
             errorStr = ""
 
-            if r.typ >= len(self.einstellungen['Rüstungen: Typen'].wert):
-                errorStr = "Rüstung {r.name} hat einen unbekannten Typ."
+            if r.kategorie >= len(self.einstellungen['Rüstungen: Kategorien'].wert):
+                errorStr = "Rüstung {r.name} hat eine unbekannte Kategorie."
                 self.loadingErrors.append([r, errorStr])
                 logging.warning(errorStr)
 
@@ -396,12 +396,12 @@ class Datenbank():
                     logging.warning(errorStr)
 
         #Regeln:
-        self.einstellungen['Regeln: Typen'].finalize(self)
+        self.einstellungen['Regeln: Kategorien'].finalize(self)
         for r in self.regeln.values():
             errorStr = ""
 
-            if r.typ >= len(self.einstellungen['Regeln: Typen'].wert):
-                errorStr = "Regel {r.name} hat einen unbekannten Typ."
+            if r.kategorie >= len(self.einstellungen['Regeln: Kategorien'].wert):
+                errorStr = "Regel {r.name} hat eine unbekannte Kategorie."
                 self.loadingErrors.append([r, errorStr])
                 logging.warning(errorStr)
 
@@ -409,7 +409,7 @@ class Datenbank():
     
     def findKampfstile(self):
         # we are accessing einstellung.text instead of .wert because the function is called before finalize...
-        kampfstilVorteile = [vort for vort in self.vorteile.values() if str(vort.typ) == self.einstellungen["Vorteile: Kampfstil Typ"].text and vort.name.endswith(" I")]
+        kampfstilVorteile = [vort for vort in self.vorteile.values() if str(vort.kategorie) == self.einstellungen["Vorteile: Kampfstil Kategorie"].text and vort.name.endswith(" I")]
 
         kampfstile = []
         for vort in kampfstilVorteile:

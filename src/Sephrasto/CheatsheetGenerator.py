@@ -42,7 +42,7 @@ class CheatsheetGenerator(object):
         return True
 
     def isElementActive(self, r, element):
-        return f"{r}:{element.typ}" not in Wolke.Char.deaktivierteRegelKategorien and f"{r}:{element.name}" not in Wolke.Char.deaktivierteRegelKategorien
+        return f"{r}:{element.kategorie}" not in Wolke.Char.deaktivierteRegelKategorien and f"{r}:{element.name}" not in Wolke.Char.deaktivierteRegelKategorien
 
     def isLinkedToAny(self, vorteil):
         if vorteil.linkKategorie == VorteilLinkKategorie.Regel:
@@ -97,8 +97,8 @@ class CheatsheetGenerator(object):
             return
         rules.append(category)
         count = 0
-        for man in regelList:
-            regel = Wolke.DB.regeln[man]
+        for regelName in regelList:
+            regel = Wolke.DB.regeln[regelName]
             if "R:" + regel.name in Wolke.Char.deaktivierteRegelKategorien:
                 continue
 
@@ -115,7 +115,7 @@ class CheatsheetGenerator(object):
            
             linkedText = []
             for vorteil in Wolke.Char.vorteile.values():
-                if CharakterPrintUtility.isLinkedTo(Wolke.Char, vorteil, VorteilLinkKategorie.Regel, man):
+                if CharakterPrintUtility.isLinkedTo(Wolke.Char, vorteil, VorteilLinkKategorie.Regel, regelName):
                     beschreibung = CharakterPrintUtility.getLinkedDescription(Wolke.Char, vorteil)
                     if not beschreibung:
                         continue
@@ -140,7 +140,8 @@ class CheatsheetGenerator(object):
             return
         rules.append(category)
         count = 0
-        for tal in talente:     
+        for talentName in talente:   
+            tal = Wolke.Char.talente[talentName]
             if "S:" + tal.name in Wolke.Char.deaktivierteRegelKategorien:
                 continue
             if not tal.cheatsheetAuflisten or not tal.text:
@@ -176,12 +177,6 @@ class CheatsheetGenerator(object):
         voraussetzungenPruefen = Wolke.Char.voraussetzungenPruefen
         Wolke.Char.voraussetzungenPruefen = True
 
-        sortV = Wolke.Char.vorteile.values()
-        sortV = sorted(sortV, key=lambda vor: Hilfsmethoden.unicodeCaseInsensitive(vor.name))
-
-        sortR = list(Wolke.DB.regeln.keys())
-        sortR = sorted(sortR, key=Hilfsmethoden.unicodeCaseInsensitive)
-
         waffeneigenschaften = {}
         for waffe in Wolke.Char.waffen:
             for el in waffe.eigenschaften:
@@ -194,30 +189,30 @@ class CheatsheetGenerator(object):
                 except WaffeneigenschaftException:
                     pass    
         
-        talenteByTyp = CharakterPrintUtility.getÜberTalente(Wolke.Char)
+        talenteByKategorie = CharakterPrintUtility.getÜberTalente(Wolke.Char)
 
-        rules = []
+        rules = [] 
 
-        regelMergeScript = Wolke.DB.einstellungen["Regelanhang: Regel Mergescript"].wert
-        vorteilTypen = Wolke.DB.einstellungen["Vorteile: Typen"].wert
-        regelTypen = Wolke.DB.einstellungen["Regeln: Typen"].wert
-        spezialTalentTypen = list(Wolke.DB.einstellungen["Talente: Spezialtalent Typen"].wert.values())
-
+        sortV = Wolke.Char.vorteile.values()
+        sortV = sorted(sortV, key=lambda vor: Hilfsmethoden.unicodeCaseInsensitive(vor.name))
         vorteileGruppiert = []
-        for i in range(len(vorteilTypen)):
-            vorteileGruppiert.append([el for el in sortV if el.typ == i])
+        for i in range(len(Wolke.DB.einstellungen["Vorteile: Kategorien"].wert)):
+            vorteileGruppiert.append([el for el in sortV if el.kategorie == i])
 
+        sortR = list(Wolke.DB.regeln.keys())
+        sortR = sorted(sortR, key=Hilfsmethoden.unicodeCaseInsensitive)
         regelnGruppiert = []
-        for i in range(len(regelTypen)):
+        numRegelKategorien = len(Wolke.DB.einstellungen["Regeln: Kategorien"].wert)
+        for i in range(numRegelKategorien):
             regelnGruppiert.append([])
-        for i in range(len(regelTypen)):
-            scriptVariables = { "char" : Wolke.Char, "typ" : i, "mergeTo" : i }
-            exec(regelMergeScript, scriptVariables)
+        for i in range(numRegelKategorien):
+            scriptVariables = { "char" : Wolke.Char, "kategorie" : i, "mergeTo" : i }
+            exec(Wolke.DB.einstellungen["Regelanhang: Regel Mergescript"].wert, scriptVariables)
             mergeTo = scriptVariables["mergeTo"]
-            if mergeTo >= len(regelTypen):
+            if mergeTo >= numRegelKategorien:
                 mergeTo = i
             empty = len(regelnGruppiert[mergeTo]) == 0
-            regelnGruppiert[mergeTo].extend([el for el in sortR if (Wolke.DB.regeln[el].typ == i)])
+            regelnGruppiert[mergeTo].extend([el for el in sortR if (Wolke.DB.regeln[el].kategorie == i)])
             if not empty:
                 regelnGruppiert[mergeTo] = sorted(regelnGruppiert[mergeTo], key=Hilfsmethoden.unicodeCaseInsensitive)
 
@@ -232,25 +227,28 @@ class CheatsheetGenerator(object):
             if r in Wolke.Char.deaktivierteRegelKategorien:
                 continue
             if r[0] == "V" and len(r) > 2 and r[2:].isnumeric():
-                typ = int(r[2:])
-                if typ >= len(vorteileGruppiert):
+                kategorie = int(r[2:])
+                if kategorie >= len(vorteileGruppiert):
                     continue
-                if self.appendVorteile(rules, CheatsheetGenerator.categoryHeading(title, vorteilTypen[typ]), vorteileGruppiert[typ]):
+                kategorieName = Wolke.DB.einstellungen["Vorteile: Kategorien"].wert.keyAtIndex(kategorie)
+                if self.appendVorteile(rules, CheatsheetGenerator.categoryHeading(title, kategorieName), vorteileGruppiert[kategorie]):
                     title = ""
             elif r[0] == "R" and len(r) > 2 and r[2:].isnumeric():
-                typ = int(r[2:])
-                if typ >= len(regelnGruppiert):
+                kategorie = int(r[2:])
+                if kategorie >= len(regelnGruppiert):
                     continue
-                if self.appendRegeln(rules, CheatsheetGenerator.categoryHeading(title, regelTypen[typ]), regelnGruppiert[typ]):
+                kategorieName = Wolke.DB.einstellungen["Regeln: Kategorien"].wert.keyAtIndex(kategorie)
+                if self.appendRegeln(rules, CheatsheetGenerator.categoryHeading(title, kategorieName), regelnGruppiert[kategorie]):
                     title = ""
             elif r[0] == "W":
                 if self.appendWaffeneigenschaften(rules, CheatsheetGenerator.categoryHeading(title, "Waffeneigenschaften"), waffeneigenschaften):
                     title = ""
             elif r[0] == "S" and len(r) > 2 and r[2:].isnumeric():
-                typ = int(r[2:])
-                if typ >= len(spezialTalentTypen):
+                kategorie = int(r[2:])
+                if kategorie >= len(Wolke.DB.einstellungen["Talente: Kategorien"].wert):
                     continue
-                if self.appendTalente(rules, CheatsheetGenerator.categoryHeading(title, spezialTalentTypen[typ]), talenteByTyp[typ]):
+                kategorieName = Wolke.DB.einstellungen["Talente: Kategorien"].wert.keyAtIndex(kategorie)
+                if self.appendTalente(rules, CheatsheetGenerator.categoryHeading(title, kategorieName), talenteByKategorie[kategorieName]):
                     title = ""
             
             EventBus.doAction("regelanhang_anfuegen", { "reihenfolge" : r, "appendCallback" : lambda text: rules.append(text) })

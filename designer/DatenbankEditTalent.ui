@@ -161,7 +161,7 @@
         <string notr="true">background-color: rgb(255, 255, 0); color: black;</string>
        </property>
        <property name="text">
-        <string></string>
+        <string/>
        </property>
        <property name="wordWrap">
         <bool>true</bool>
@@ -282,7 +282,7 @@
      <item row="2" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>Typ und Kosten</string>
+        <string>Kategorie und Kosten</string>
        </property>
       </widget>
      </item>
@@ -302,22 +302,16 @@
      <item row="2" column="1">
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
-          <widget class="QRadioButton" name="buttonProfan">
+          <widget class="QComboBox" name="comboTyp">
            <property name="toolTip">
-            <string>Reguläre Talente können nur profanen Fertigkeiten zugewiesen werden und die Kosten richten sich nach deren Steigerungsfaktor.</string>
-           </property>
-           <property name="text">
-            <string>Profanes Talent</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
+            <string>Spezialtalente können nur übernatürlichen Fertigkeiten zugewiesen werden und sie haben frei wählbare Kosten.</string>
            </property>
           </widget>
          </item>
          <item>
-          <spacer name="horizontalSpacer_2">
+          <spacer name="horizontalSpacer_3">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
@@ -341,46 +335,6 @@
             <string>verbilligt</string>
            </property>
           </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <item>
-          <widget class="QRadioButton" name="buttonSpezial">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="toolTip">
-            <string>Spezialtalente können nur übernatürlichen Fertigkeiten zugewiesen werden und sie haben frei wählbare Kosten.</string>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="comboTyp">
-           <property name="toolTip">
-            <string>Spezialtalente können nur übernatürlichen Fertigkeiten zugewiesen werden und sie haben frei wählbare Kosten.</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_3">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
          </item>
          <item>
           <widget class="QSpinBox" name="spinKosten">

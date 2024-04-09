@@ -1,15 +1,16 @@
 from Wolke import Wolke
 from Core.Vorteil import VorteilLinkKategorie
+from Core.Talent import Talent
 import re
 from difflib import SequenceMatcher
 from fractions import Fraction
-from Hilfsmethoden import Hilfsmethoden
+from Hilfsmethoden import Hilfsmethoden, SortedCategoryToListDict
 
 class CharakterPrintUtility:
 
     @staticmethod
     def getVorteile(char):
-        return sorted(char.vorteile.values(), key = lambda v: (v.typ, Hilfsmethoden.unicodeCaseInsensitive(v.name)))
+        return sorted(char.vorteile.values(), key = lambda v: (v.kategorie, Hilfsmethoden.unicodeCaseInsensitive(v.name)))
 
     @staticmethod
     def groupVorteile(char, vorteile, link = True):
@@ -28,7 +29,7 @@ class CharakterPrintUtility:
                 name = CharakterPrintUtility.getLinkedName(char, vorteil)
             else:
                 name = vorteil.anzeigenameExt
-            scriptVariables = { "char" : char, "name" : vorteil.name, "typ" : vorteil.typ, "mergeTo" : 0 }
+            scriptVariables = { "char" : char, "name" : vorteil.name, "kategorie" : vorteil.kategorie, "mergeTo" : 0 }
             exec(vorteileMergeScript, scriptVariables)
             if scriptVariables["mergeTo"] == 0:
                 vorteileAllgemein.append(name)
@@ -37,7 +38,7 @@ class CharakterPrintUtility:
             else:
                 vorteileUeber.append(name)
 
-        # sort again, otherwise they are sorted by vorteil type which is confusing if they go into the same table
+        # sort again, otherwise they are sorted by vorteil category which is confusing if they go into the same table
         vorteileAllgemein.sort(key=Hilfsmethoden.unicodeCaseInsensitive)
         vorteileKampf.sort(key=Hilfsmethoden.unicodeCaseInsensitive)
         vorteileUeber.sort(key=Hilfsmethoden.unicodeCaseInsensitive)
@@ -64,7 +65,11 @@ class CharakterPrintUtility:
 
     @staticmethod
     def getFertigkeiten(char):
-        return sorted(char.fertigkeiten, key = lambda x: (Wolke.DB.fertigkeiten[x].typ, Hilfsmethoden.unicodeCaseInsensitive(x)))
+        fertigkeitenByKategorie = SortedCategoryToListDict(Wolke.DB.einstellungen["Fertigkeiten: Kategorien profan"].wert)
+        for fert in char.fertigkeiten.values():
+            fertigkeitenByKategorie.append(fert.kategorie, fert.name)
+        fertigkeitenByKategorie.sortValues()
+        return fertigkeitenByKategorie
 
     @staticmethod
     def getTalente(char, fertigkeit, nurHöchsteFertigkeit = False):
@@ -107,26 +112,22 @@ class CharakterPrintUtility:
 
     @staticmethod
     def getÜberFertigkeiten(char):
-        ferts = [f for f in char.übernatürlicheFertigkeiten if char.übernatürlicheFertigkeiten[f].addToPDF]
-        ferts = sorted(ferts, key = lambda f: (Wolke.DB.übernatürlicheFertigkeiten[f].typ, Hilfsmethoden.unicodeCaseInsensitive(f)))
-        return ferts
+        fertigkeitenByKategorie = SortedCategoryToListDict(Wolke.DB.einstellungen["Fertigkeiten: Kategorien übernatürlich"].wert)
+        for fert in char.übernatürlicheFertigkeiten.values():
+            if fert.addToPDF:
+                fertigkeitenByKategorie.append(fert.kategorie, fert.name)
+        fertigkeitenByKategorie.sortValues()
+        return fertigkeitenByKategorie
 
     @staticmethod
     def getÜberTalente(char):
-        def sortTalente(tal):
-            hauptFert = tal.hauptfertigkeit
-            if hauptFert is None:
-                return (0, "", Hilfsmethoden.unicodeCaseInsensitive(tal.name))
-            elif hauptFert.talenteGruppieren:
-               return (hauptFert.typ, Hilfsmethoden.unicodeCaseInsensitive(hauptFert.name), Hilfsmethoden.unicodeCaseInsensitive(tal.name))
-            else:
-               return (hauptFert.typ, "", Hilfsmethoden.unicodeCaseInsensitive(tal.name))
-
-        talenteByTyp = []
-        for typ in range(len(Wolke.DB.einstellungen["Talente: Spezialtalent Typen"].wert)):
-            talenteByTyp.append([t for t in char.talente.values() if t.spezialTyp == typ])
-            talenteByTyp[-1].sort(key = sortTalente)
-        return talenteByTyp
+        talenteByKategorie = SortedCategoryToListDict(Wolke.DB.einstellungen["Talente: Kategorien"].wert)
+        for t in char.talente.values():
+            if not t.spezialTalent:
+                continue
+            talenteByKategorie.append(t.kategorie, t.name)
+        talenteByKategorie.sortValues(lambda t: Talent.sorter(char.talente[t]))
+        return talenteByKategorie
 
     textToFraction = {
         "ein Achtel" : "1/8",
@@ -267,7 +268,7 @@ class CharakterPrintUtility:
                 name2 = CharakterPrintUtility.getLinkedName(char, vorteil2, descriptionWillFollow)
 
                 #allgemeine vorteile, kampfstile and traditionen only keep the last name (except vorteil is variable with a comment)
-                if (not vorteil.variableKosten) and vorteil2.typ in vorteilsnamenErsetzen:
+                if (not vorteil.variableKosten) and vorteil2.kategorie in vorteilsnamenErsetzen:
                     name = name2
                     if vorteil.kommentarErlauben and vorteil.kommentar:
                         if name.endswith(")"):
@@ -302,7 +303,7 @@ class CharakterPrintUtility:
         beschreibungenErsetzen = Wolke.DB.einstellungen["Regelanhang: Vorteilsbeschreibungen ersetzen"].wert
         for vorteil2 in char.vorteile.values():
             if CharakterPrintUtility.isLinkedTo(char, vorteil2, VorteilLinkKategorie.Vorteil, vorteil.name):
-                if vorteil2.typ in beschreibungenErsetzen:
+                if vorteil2.kategorie in beschreibungenErsetzen:
                     continue
                 bedingungen2 = CharakterPrintUtility.getLinkedBedingungen(char, vorteil2)
                 if bedingungen2:
@@ -324,7 +325,7 @@ class CharakterPrintUtility:
             if CharakterPrintUtility.isLinkedTo(char, vorteil2, VorteilLinkKategorie.Vorteil, vorteil.name):
                 beschreibung2 = CharakterPrintUtility.getLinkedDescription(char, vorteil2)
 
-                if vorteil2.typ in beschreibungenErsetzen:
+                if vorteil2.kategorie in beschreibungenErsetzen:
                     #allgemeine vorteile replace the description of what they link to (except vorteil is variable with a comment)
                     if not vorteil.variableKosten or not (vorteil.kommentarErlauben and vorteil.kommentar):
                         beschreibung = beschreibung2

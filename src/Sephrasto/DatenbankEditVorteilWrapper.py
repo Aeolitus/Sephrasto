@@ -45,8 +45,8 @@ class DatenbankEditVorteilWrapper(DatenbankElementEditorBase):
         self.ui.spinKosten.setValue(vorteil.kosten)
         self.ui.comboNachkauf.setCurrentText(vorteil.nachkauf)
 
-        self.ui.comboTyp.addItems(self.datenbank.einstellungen["Vorteile: Typen"].wert)
-        self.ui.comboTyp.setCurrentIndex(vorteil.typ)
+        self.ui.comboTyp.addItems(self.datenbank.einstellungen["Vorteile: Kategorien"].wert.keyList)
+        self.ui.comboTyp.setCurrentIndex(vorteil.kategorie)
 
         self.ui.checkVariable.setChecked(vorteil.variableKosten)
         self.ui.checkKommentar.setChecked(vorteil.kommentarErlauben)
@@ -112,7 +112,7 @@ class DatenbankEditVorteilWrapper(DatenbankElementEditorBase):
         self.beschreibungInfoEditor.update(vorteil)
         vorteil.kosten = self.ui.spinKosten.value()
         vorteil.nachkauf = self.ui.comboNachkauf.currentText()
-        vorteil.typ = self.ui.comboTyp.currentIndex()
+        vorteil.kategorie = self.ui.comboTyp.currentIndex()
         vorteil.variableKosten = self.ui.checkVariable.isChecked()
         vorteil.kommentarErlauben = self.ui.checkKommentar.isChecked()
         vorteil.scriptPrio = self.ui.spinScriptPrio.value()

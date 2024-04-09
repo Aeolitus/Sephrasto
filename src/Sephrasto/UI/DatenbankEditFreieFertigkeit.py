@@ -97,6 +97,6 @@ class Ui_dialog(object):
 #endif // QT_CONFIG(tooltip)
         self.warning.setText("")
         self.label.setText(QCoreApplication.translate("dialog", u"Name", None))
-        self.label_2.setText(QCoreApplication.translate("dialog", u"Typ", None))
+        self.label_2.setText(QCoreApplication.translate("dialog", u"Kategorie", None))
     # retranslateUi
 

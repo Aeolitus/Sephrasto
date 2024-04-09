@@ -43,16 +43,16 @@ class DatenbankEditFertigkeitWrapper(DatenbankElementEditorBase):
             self.ui.labelKampffertigkeit.setVisible(False)
             self.ui.comboKampffertigkeit.setVisible(False)
             self.ui.checkGruppieren.setChecked(fertigkeit.talenteGruppieren)
-            fertigkeitsTypen = self.datenbank.einstellungen["Fertigkeiten: Typen übernatürlich"].wert
+            fertigkeitsKategorien = self.datenbank.einstellungen["Fertigkeiten: Kategorien übernatürlich"].wert.keyList
         else:
             self.ui.labelGruppieren.setVisible(False)
             self.ui.checkGruppieren.setVisible(False)
             self.ui.comboKampffertigkeit.setCurrentIndex(fertigkeit.kampffertigkeit)
-            fertigkeitsTypen = self.datenbank.einstellungen["Fertigkeiten: Typen profan"].wert
+            fertigkeitsKategorien = self.datenbank.einstellungen["Fertigkeiten: Kategorien profan"].wert.keyList
 
-        self.ui.comboTyp.addItems(fertigkeitsTypen)
-        typ = max(fertigkeit.typ, 0)
-        self.ui.comboTyp.setCurrentIndex(typ)
+        self.ui.comboTyp.addItems(fertigkeitsKategorien)
+        kategorie = max(fertigkeit.kategorie, 0)
+        self.ui.comboTyp.setCurrentIndex(kategorie)
 
     def update(self, fertigkeit):
         super().update(fertigkeit)
@@ -62,7 +62,7 @@ class DatenbankEditFertigkeitWrapper(DatenbankElementEditorBase):
         fertigkeit.attribute = [self.ui.comboAttribut1.currentText(), 
                        self.ui.comboAttribut2.currentText(),
                        self.ui.comboAttribut3.currentText()]    
-        fertigkeit.typ = self.ui.comboTyp.currentIndex()
+        fertigkeit.kategorie = self.ui.comboTyp.currentIndex()
 
         if self.fertigkeitUeber:
             fertigkeit.talenteGruppieren = self.ui.checkGruppieren.isChecked()
