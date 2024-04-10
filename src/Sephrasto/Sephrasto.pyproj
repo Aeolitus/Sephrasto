@@ -73,6 +73,7 @@
     <Compile Include="QtUtils\RichTextButton.py" />
     <Compile Include="QtUtils\Section.py" />
     <Compile Include="QtUtils\SimpleSettingsDialog.py" />
+    <Compile Include="QtUtils\TreeExpansionHelper.py" />
     <Compile Include="QtUtils\WebEngineViewPlus.py" />
     <Compile Include="Serialization.py">
       <SubType>Code</SubType>

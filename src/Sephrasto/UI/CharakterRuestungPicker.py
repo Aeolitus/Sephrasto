@@ -18,9 +18,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QAbstractButton, QAbstractItemView, QApplication, QDialog,
     QDialogButtonBox, QFrame, QGridLayout, QHBoxLayout,
     QHeaderView, QLabel, QLayout, QLineEdit,
-    QScrollArea, QSizePolicy, QSpacerItem, QSplitter,
-    QTextBrowser, QTreeWidget, QTreeWidgetItem, QVBoxLayout,
-    QWidget)
+    QPushButton, QScrollArea, QSizePolicy, QSpacerItem,
+    QSplitter, QTextBrowser, QTreeWidget, QTreeWidgetItem,
+    QVBoxLayout, QWidget)
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -51,6 +51,11 @@ class Ui_Dialog(object):
 
         self.filterLayout = QHBoxLayout()
         self.filterLayout.setObjectName(u"filterLayout")
+        self.buttonExpandToggle = QPushButton(self.verticalLayout_2)
+        self.buttonExpandToggle.setObjectName(u"buttonExpandToggle")
+
+        self.filterLayout.addWidget(self.buttonExpandToggle)
+
         self.nameFilterEdit = QLineEdit(self.verticalLayout_2)
         self.nameFilterEdit.setObjectName(u"nameFilterEdit")
         self.nameFilterEdit.setClearButtonEnabled(True)
@@ -102,7 +107,7 @@ class Ui_Dialog(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 449, 459))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 451, 469))
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout.setObjectName(u"gridLayout")
         self.lblKopf = QLabel(self.scrollAreaWidgetContents)
@@ -247,6 +252,8 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Sephrasto - R\u00fcstung w\u00e4hlen...", None))
         self.labelUnofficial.setText(QCoreApplication.translate("Dialog", u"Inoffiziell: Bei den hier aufgelisteten R\u00fcstungen handelt es sich um an WdS orientierte Vorschl\u00e4ge. Die Festlegung des RS einer R\u00fcstung obliegt am Ende dem Spielleiter.", None))
+        self.buttonExpandToggle.setText(QCoreApplication.translate("Dialog", u"Expand Toggle", None))
+        self.buttonExpandToggle.setProperty("class", QCoreApplication.translate("Dialog", u"icon", None))
         self.nameFilterEdit.setPlaceholderText(QCoreApplication.translate("Dialog", u"Suchen...", None))
         self.labelFilter.setText(QCoreApplication.translate("Dialog", u"Suchen", None))
         self.labelFilter.setProperty("class", QCoreApplication.translate("Dialog", u"icon", None))

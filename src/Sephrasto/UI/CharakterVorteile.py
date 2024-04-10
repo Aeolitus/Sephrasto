@@ -17,9 +17,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractItemView, QApplication, QCheckBox, QFrame,
     QGridLayout, QHBoxLayout, QHeaderView, QLabel,
-    QLineEdit, QScrollArea, QSizePolicy, QSpacerItem,
-    QSplitter, QTextBrowser, QTreeWidget, QTreeWidgetItem,
-    QVBoxLayout, QWidget)
+    QLineEdit, QPushButton, QScrollArea, QSizePolicy,
+    QSpacerItem, QSplitter, QTextBrowser, QTreeWidget,
+    QTreeWidgetItem, QVBoxLayout, QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -39,6 +39,11 @@ class Ui_Form(object):
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.buttonExpandToggle = QPushButton(self.verticalLayoutWidget)
+        self.buttonExpandToggle.setObjectName(u"buttonExpandToggle")
+
+        self.horizontalLayout.addWidget(self.buttonExpandToggle)
+
         self.nameFilterEdit = QLineEdit(self.verticalLayoutWidget)
         self.nameFilterEdit.setObjectName(u"nameFilterEdit")
         self.nameFilterEdit.setClearButtonEnabled(True)
@@ -98,7 +103,7 @@ class Ui_Form(object):
         self.scrollArea.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 337, 418))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 307, 418))
         self.gridLayout_2 = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.labelVorteil = QLabel(self.scrollAreaWidgetContents)
@@ -188,6 +193,8 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
+        self.buttonExpandToggle.setText(QCoreApplication.translate("Form", u"Expand Toggle", None))
+        self.buttonExpandToggle.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
         self.nameFilterEdit.setPlaceholderText(QCoreApplication.translate("Form", u"Suchen...", None))
         self.labelFilter.setText(QCoreApplication.translate("Form", u"Suchen", None))
         self.labelFilter.setProperty("class", QCoreApplication.translate("Form", u"icon", None))

@@ -13,6 +13,7 @@ from Core.Waffe import WaffeDefinition
 import CharakterEquipmentWrapper
 import copy
 from Hilfsmethoden import Hilfsmethoden
+from QtUtils.TreeExpansionHelper import TreeExpansionHelper
 
 class WaffenPicker(object):
     def __init__(self,waffe=None):
@@ -50,6 +51,8 @@ class WaffenPicker(object):
         self.ui.treeWeapons.itemSelectionChanged.connect(self.changeHandler)
         self.ui.treeWeapons.itemDoubleClicked.connect(lambda item, column: self.ui.buttonBox.buttons()[0].click())
         self.ui.treeWeapons.header().setSectionResizeMode(0,QtWidgets.QHeaderView.Stretch)
+
+        self.expansionHelper = TreeExpansionHelper(self.ui.treeWeapons, self.ui.buttonExpandToggle)
 
         self.ui.labelFilter.setText("\uf002")
         self.ui.nameFilterEdit.setFocus()

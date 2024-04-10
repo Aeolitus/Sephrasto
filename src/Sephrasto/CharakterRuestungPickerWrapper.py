@@ -13,6 +13,7 @@ from EventBus import EventBus
 from Hilfsmethoden import Hilfsmethoden
 from QtUtils.AutoResizingTextBrowser import TextEditAutoResizer
 from Hilfsmethoden import SortedCategoryToListDict
+from QtUtils.TreeExpansionHelper import TreeExpansionHelper
 
 class RuestungPicker(object):
 
@@ -64,6 +65,9 @@ class RuestungPicker(object):
         self.ui.treeArmors.itemSelectionChanged.connect(self.changeHandler)
         self.ui.treeArmors.itemDoubleClicked.connect(lambda item, column: self.ui.buttonBox.buttons()[0].click())
         self.ui.treeArmors.header().setSectionResizeMode(0,QtWidgets.QHeaderView.Fixed)
+
+        self.expansionHelper = TreeExpansionHelper(self.ui.treeArmors, self.ui.buttonExpandToggle)
+
         self.ui.labelFilter.setText("\uf002")
         self.ui.nameFilterEdit.setFocus()
         self.updateInfo()

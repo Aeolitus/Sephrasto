@@ -17,8 +17,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractButton, QAbstractItemView, QApplication, QDialog,
     QDialogButtonBox, QGridLayout, QHBoxLayout, QHeaderView,
-    QLabel, QLineEdit, QSizePolicy, QTreeWidget,
-    QTreeWidgetItem, QVBoxLayout, QWidget)
+    QLabel, QLineEdit, QPushButton, QSizePolicy,
+    QTreeWidget, QTreeWidgetItem, QVBoxLayout, QWidget)
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -45,6 +45,11 @@ class Ui_Dialog(object):
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.buttonExpandToggle = QPushButton(self.verticalLayout_2)
+        self.buttonExpandToggle.setObjectName(u"buttonExpandToggle")
+
+        self.horizontalLayout.addWidget(self.buttonExpandToggle)
+
         self.nameFilterEdit = QLineEdit(self.verticalLayout_2)
         self.nameFilterEdit.setObjectName(u"nameFilterEdit")
         self.nameFilterEdit.setClearButtonEnabled(True)
@@ -101,6 +106,8 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Sephrasto - Freie Fertigkeit w\u00e4hlen...", None))
         self.labelUnofficial.setText(QCoreApplication.translate("Dialog", u"Inoffiziell: Bei den aufgef\u00fchrten Sprachen und Schriften handelt es sich um an WdS orientierte Vorschl\u00e4ge.", None))
+        self.buttonExpandToggle.setText(QCoreApplication.translate("Dialog", u"Expand Toggle", None))
+        self.buttonExpandToggle.setProperty("class", QCoreApplication.translate("Dialog", u"icon", None))
         self.nameFilterEdit.setPlaceholderText(QCoreApplication.translate("Dialog", u"Suchen...", None))
         self.labelFilter.setText(QCoreApplication.translate("Dialog", u"Suchen", None))
         self.labelFilter.setProperty("class", QCoreApplication.translate("Dialog", u"icon", None))

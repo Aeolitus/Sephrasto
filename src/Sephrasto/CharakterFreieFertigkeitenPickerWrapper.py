@@ -3,6 +3,7 @@ from Wolke import Wolke
 import UI.CharakterFreieFertigkeitenPicker
 from EventBus import EventBus
 from Hilfsmethoden import SortedCategoryToListDict
+from QtUtils.TreeExpansionHelper import TreeExpansionHelper
 
 class CharakterFreieFertigkeitenPickerWrapper(object):
     def __init__(self, fertigkeit=None):
@@ -41,6 +42,9 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
         self.ui.treeFerts.itemSelectionChanged.connect(self.changeHandler)
         self.ui.treeFerts.itemDoubleClicked.connect(lambda item, column: self.ui.buttonBox.buttons()[0].click())
         self.ui.treeFerts.header().setSectionResizeMode(0, QtWidgets.QHeaderView.Fixed)
+
+        self.expansionHelper = TreeExpansionHelper(self.ui.treeFerts, self.ui.buttonExpandToggle)
+
         self.ui.labelFilter.setText("\uf002")
         self.ui.nameFilterEdit.setFocus()
         self.ui.nameFilterEdit.textChanged.connect(self.populateTree)

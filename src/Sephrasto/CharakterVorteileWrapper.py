@@ -13,6 +13,7 @@ from EventBus import EventBus
 from Hilfsmethoden import Hilfsmethoden
 from QtUtils.Section import Section
 from QtUtils.AutoResizingTextBrowser import AutoResizingTextBrowser, TextEditAutoResizer
+from QtUtils.TreeExpansionHelper import TreeExpansionHelper
 from functools import partial
 from Core.Vorteil import Vorteil
 from VoraussetzungenListe import VoraussetzungenListe
@@ -35,6 +36,8 @@ class CharakterVorteileWrapper(QtCore.QObject):
         self.ui.treeWidget.itemChanged.connect(self.itemChangeHandler)
         self.ui.treeWidget.header().setSectionResizeMode(0,QtWidgets.QHeaderView.Stretch)
         self.ui.treeWidget.header().resizeSection(1, Hilfsmethoden.emToPixels(10))
+
+        self.expansionHelper = TreeExpansionHelper(self.ui.treeWidget, self.ui.buttonExpandToggle)
 
         self.autoResizeHelper = TextEditAutoResizer(self.ui.plainText)
 

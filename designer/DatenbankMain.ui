@@ -135,7 +135,7 @@
          <string>Öffnen</string>
         </property>
         <property name="text">
-         <string>PushButton</string>
+         <string>Öffnen</string>
         </property>
         <property name="class" stdset="0">
          <string>icon</string>
@@ -148,7 +148,7 @@
          <string>Speichern</string>
         </property>
         <property name="text">
-         <string>Quicksave</string>
+         <string>Speichern</string>
         </property>
         <property name="class" stdset="0">
          <string>icon</string>
