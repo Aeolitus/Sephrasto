@@ -2,7 +2,8 @@ from PySide6 import QtWidgets, QtCore, QtGui
 from Wolke import Wolke
 
 class TreeExpansionHelper:
-    def __init__(self, treeWidget, button):
+    def __init__(self, treeWidget, button, singleRoot=False):
+        self.singleRoot = singleRoot
         self.treeWidget = treeWidget
         self.treeWidget.itemExpanded.connect(self.updateButton)
         self.treeWidget.itemCollapsed.connect(self.updateButton)
@@ -20,11 +21,11 @@ class TreeExpansionHelper:
 
         self.shortcutExpand = QtGui.QAction()
         self.shortcutExpand.setShortcut("Ctrl+Down")
-        self.shortcutExpand.triggered.connect(self.treeWidget.expandAll)
+        self.shortcutExpand.triggered.connect(self.expandAll)
         self.treeWidget.addAction(self.shortcutExpand)
         self.shortcutCollapse = QtGui.QAction()
         self.shortcutCollapse.setShortcut("Ctrl+Up")
-        self.shortcutCollapse.triggered.connect(self.treeWidget.collapseAll)
+        self.shortcutCollapse.triggered.connect(self.collapseAll)
         self.treeWidget.addAction(self.shortcutCollapse)
 
     def willExpand(self):
@@ -47,6 +48,14 @@ class TreeExpansionHelper:
 
     def toggleTreeExpansion(self):
         if self.willExpand():
-            self.treeWidget.expandAll()
+            self.expandAll()
         else:
-            self.treeWidget.collapseAll()
+            self.collapseAll()
+
+    def expandAll(self):
+        self.treeWidget.expandAll()
+
+    def collapseAll(self):
+        self.treeWidget.collapseAll()
+        if self.singleRoot:
+            self.treeWidget.topLevelItem(0).setExpanded(True)
