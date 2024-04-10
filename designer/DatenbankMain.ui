@@ -48,12 +48,12 @@
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="buttonHinzufuegen">
+       <widget class="QPushButton" name="buttonNeu">
         <property name="toolTip">
-         <string>Hinzufügen</string>
+         <string>Neu</string>
         </property>
         <property name="text">
-         <string>Hinzufügen</string>
+         <string>Neu</string>
         </property>
         <property name="class" stdset="0">
          <string>icon</string>
@@ -136,6 +136,9 @@
         </property>
         <property name="text">
          <string>Öffnen</string>
+        </property>
+        <property name="shortcut">
+         <string>Ctrl+S</string>
         </property>
         <property name="class" stdset="0">
          <string>icon</string>
@@ -335,10 +338,18 @@
   </action>
  </widget>
  <tabstops>
-  <tabstop>buttonHinzufuegen</tabstop>
+  <tabstop>buttonOpen</tabstop>
+  <tabstop>buttonQuicksave</tabstop>
+  <tabstop>nameFilterEdit</tabstop>
+  <tabstop>checkFullText</tabstop>
+  <tabstop>checkDetails</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>buttonNeu</tabstop>
   <tabstop>buttonEditieren</tabstop>
+  <tabstop>buttonRAW</tabstop>
   <tabstop>buttonDuplizieren</tabstop>
   <tabstop>buttonLoeschen</tabstop>
+  <tabstop>buttonWiederherstellen</tabstop>
  </tabstops>
  <resources/>
  <connections/>

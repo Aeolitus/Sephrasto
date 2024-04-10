@@ -271,9 +271,43 @@ class Editor(object):
 
         self.reload(self.ui.tabs.currentIndex())
 
+        # Add shortcuts for tab cycling
+        # QTabWidget has this builtin but it only works in certain conditions, probably some focus issue
+        self.shortcutNextTab = QtGui.QAction() 
+        self.shortcutNextTab.setShortcut("Ctrl+Tab")
+        self.shortcutNextTab.triggered.connect(self.nextTab)
+        self.ui.tabs.addAction(self.shortcutNextTab)
+
+        self.shortcutPrevTab = QtGui.QAction()
+        self.shortcutPrevTab.setShortcut("Ctrl+Shift+Tab")
+        self.shortcutPrevTab.triggered.connect(self.previousTab)
+        self.ui.tabs.addAction(self.shortcutPrevTab)
+
         self.form.closeEvent = self.closeEvent
         self.form.show()
         
+    def nextTab(self):
+        index = self.ui.tabs.currentIndex() + 1
+        if index >= self.ui.tabs.count():
+            index = 0
+        while not self.ui.tabs.isTabVisible(index):
+            index += 1
+            if index >= self.ui.tabs.count():
+                index = 0
+
+        self.ui.tabs.setCurrentIndex(index)
+
+    def previousTab(self):
+        index = self.ui.tabs.currentIndex() - 1
+        if index < 0:
+            index = self.ui.tabs.count() - 1
+        while not self.ui.tabs.isTabVisible(index):
+            index -= 1
+            if index < 0:
+                index = self.ui.tabs.count()-1
+
+        self.ui.tabs.setCurrentIndex(index)
+
     def wheelEvent(self, ev):
         if ev.type() == QtCore.QEvent.Wheel:
             if not self.ui.scrollArea.hasFocus():

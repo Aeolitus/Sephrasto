@@ -103,7 +103,7 @@ class Ui_Form(object):
         self.scrollArea.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 307, 418))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 268, 418))
         self.gridLayout_2 = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.labelVorteil = QLabel(self.scrollAreaWidgetContents)
@@ -181,6 +181,7 @@ class Ui_Form(object):
 
         self.gridLayout.addWidget(self.splitter, 1, 0, 1, 1)
 
+        QWidget.setTabOrder(self.buttonExpandToggle, self.nameFilterEdit)
         QWidget.setTabOrder(self.nameFilterEdit, self.checkShowAll)
         QWidget.setTabOrder(self.checkShowAll, self.treeWidget)
         QWidget.setTabOrder(self.treeWidget, self.scrollArea)

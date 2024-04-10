@@ -14,6 +14,7 @@ import os
 from EventBus import EventBus
 from Hilfsmethoden import Hilfsmethoden
 import copy
+from QtUtils.TreeExpansionHelper import TreeExpansionHelper
 
 class FocusWatcher(QtCore.QObject):
     def __init__(self, callback):
@@ -212,6 +213,11 @@ class InfoWrapper(QtCore.QObject):
         rootLayout = QtWidgets.QVBoxLayout()
 
         tree = QtWidgets.QTreeWidget()
+
+        button = QtWidgets.QPushButton()
+        button.setProperty("class", "icon")
+
+        rootLayout.addWidget(button)
         rootLayout.addWidget(tree)
 
         def createItem(parent, name, cat):
@@ -266,6 +272,7 @@ class InfoWrapper(QtCore.QObject):
         tree.setHeaderHidden(True)
         tree.header().setSectionResizeMode(0, QtWidgets.QHeaderView.Fixed)
 
+        expansionHelper = TreeExpansionHelper(tree, button)
 
         buttonBox = QtWidgets.QDialogButtonBox()
         buttonBox.addButton("OK", QtWidgets.QDialogButtonBox.YesRole).clicked.connect(lambda: dialog.accept())

@@ -13,21 +13,19 @@ class HtmlToolbar(QtWidgets.QWidget):
 
         self.boldButton = QtWidgets.QPushButton(self)
         self.boldButton.setText("\uf032")
-        self.boldButton.setProperty("class", "icon")
-        self.boldButton.setToolTip("Fett")
+        self.boldButton.setToolTip("Fett (Strg+B)")
         self.boldButton.setShortcut(QtGui.QKeySequence.Bold)
         self.boldButton.clicked.connect(lambda: self.insertTag("<b>", "</b>"))
 
         self.italicButton = QtWidgets.QPushButton(self)
         self.italicButton.setText("\uf033")
-        
-        self.italicButton.setToolTip("Kursiv")
+        self.italicButton.setToolTip("Kursiv (Strg+I)")
         self.italicButton.setShortcut(QtGui.QKeySequence.Italic)
         self.italicButton.clicked.connect(lambda: self.insertTag("<i>", "</i>"))
 
         self.underlineButton = QtWidgets.QPushButton(self)
         self.underlineButton.setText("\uf0cd")
-        self.underlineButton.setToolTip("Unterstrichen")
+        self.underlineButton.setToolTip("Unterstrichen (Strg+U)")
         self.underlineButton.setShortcut(QtGui.QKeySequence.Underline)
         self.underlineButton.clicked.connect(lambda: self.insertTag("<u>", "</u>"))
 
@@ -37,17 +35,20 @@ class HtmlToolbar(QtWidgets.QWidget):
 
         self.ulButton = QtWidgets.QPushButton(self)
         self.ulButton.setText("\uf0ca")
-        self.ulButton.setToolTip("Liste")
+        self.ulButton.setToolTip("Liste (Strg+L)")
+        self.ulButton.setShortcut(QtGui.QKeySequence("Ctrl+L"))
         self.ulButton.clicked.connect(lambda: self.insertTag("<ul>", "</ul>"))
         
         self.olButton = QtWidgets.QPushButton(self)
         self.olButton.setText("\uf0cb")
-        self.olButton.setToolTip("Geordnete Liste")
+        self.olButton.setToolTip("Geordnete Liste (Strg+O)")
+        self.olButton.setShortcut(QtGui.QKeySequence("Ctrl+O"))
         self.olButton.clicked.connect(lambda: self.insertTag("<ol>", "</ol>"))
 
         self.liButton = QtWidgets.QPushButton(self)
         self.liButton.setText("\uf621")
-        self.liButton.setToolTip("Listeneintrag")
+        self.liButton.setToolTip("Listeneintrag (Strg+E)")
+        self.liButton.setShortcut(QtGui.QKeySequence("Ctrl+E"))
         self.liButton.clicked.connect(lambda: self.insertTag("<li>", "</li>"))
 
         self.line2 = QtWidgets.QFrame()
@@ -56,7 +57,8 @@ class HtmlToolbar(QtWidgets.QWidget):
 
         self.tableButton = QtWidgets.QPushButton(self)
         self.tableButton.setText("\uf00a")
-        self.tableButton.setToolTip("Tabelle")
+        self.tableButton.setToolTip("Tabelle (Ctrl+T)")
+        self.tableButton.setShortcut(QtGui.QKeySequence("Ctrl+T"))
         self.tableButton.clicked.connect(self.tablePopup)
 
         self.line3 = QtWidgets.QFrame()

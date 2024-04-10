@@ -70,6 +70,12 @@ class RuestungPicker(object):
 
         self.ui.labelFilter.setText("\uf002")
         self.ui.nameFilterEdit.setFocus()
+
+        self.shortcutSearch = QtGui.QAction()
+        self.shortcutSearch.setShortcut("Ctrl+F")
+        self.shortcutSearch.triggered.connect(self.ui.nameFilterEdit.setFocus)
+        self.ui.nameFilterEdit.addAction(self.shortcutSearch)
+
         self.updateInfo()
         logging.debug("Info Updated...")
         self.ui.nameFilterEdit.textChanged.connect(self.populateTree)

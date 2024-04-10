@@ -162,6 +162,11 @@ class DatenbankEditor(object):
         self.ui.nameFilterEdit.textChanged.connect(self.updateFilter)
         self.ui.checkFullText.stateChanged.connect(self.updateFilter)
 
+        self.shortcutSearch = QtGui.QAction()
+        self.shortcutSearch.setShortcut("Ctrl+F")
+        self.shortcutSearch.triggered.connect(self.ui.nameFilterEdit.setFocus)
+        self.ui.nameFilterEdit.addAction(self.shortcutSearch)
+
         self.ui.buttonStatusFilter = RichTextToolButton(None, 2*"&nbsp;" + "<span style='" + Wolke.FontAwesomeCSS + f"'>\uf0b0</span>&nbsp;&nbsp;Status-Filter" + 4*"&nbsp;")
         self.ui.buttonStatusFilter.setPopupMode(QtWidgets.QToolButton.InstantPopup)
         self.ui.horizontalLayout_3.addWidget(self.ui.buttonStatusFilter)
@@ -200,35 +205,56 @@ class DatenbankEditor(object):
         self.ui.actionScript_API.triggered.connect(self.showScriptHelp)
 
         # Edit buttons
+        self.shortcuts = []
+
         self.ui.buttonOpen.clicked.connect(self.loadDatenbank)
         self.ui.buttonOpen.setText("\uf07c")
+        self.shortcuts.append(self.createButtonShortcut(self.ui.buttonOpen, "Ctrl+O", "Strg+O"))
 
         self.ui.buttonQuicksave.clicked.connect(self.quicksaveDatenbank)
         self.ui.buttonQuicksave.setText("\uf0c7")
+        self.shortcuts.append(self.createButtonShortcut(self.ui.buttonQuicksave, "Ctrl+S", "Strg+S"))
 
         self.ui.buttonEditieren.clicked.connect(self.editSelected)
         self.ui.buttonEditieren.setEnabled(False)
         self.ui.buttonEditieren.setText("\uf044")
+        self.shortcuts.append(self.createButtonShortcut(self.ui.buttonEditieren, "Return", "Enter"))
 
         self.ui.buttonDuplizieren.clicked.connect(self.duplicateSelected)
         self.ui.buttonDuplizieren.setEnabled(False)
         self.ui.buttonDuplizieren.setText("\uf24d")
+        self.shortcuts.append(self.createButtonShortcut(self.ui.buttonDuplizieren, "Ctrl+D", "Strg+D"))
 
         self.ui.buttonLoeschen.clicked.connect(self.deleteSelected)
         self.ui.buttonLoeschen.setEnabled(False)
-        self.ui.buttonLoeschen.setShortcut(QtGui.QKeySequence(QtCore.Qt.Key_Delete))
         self.ui.buttonLoeschen.setText("\uf2ed")
+        self.shortcuts.append(self.createButtonShortcut(self.ui.buttonLoeschen, "Del", "Entf"))
 
-        self.ui.buttonHinzufuegen.clicked.connect(self.hinzufuegen)
-        self.ui.buttonHinzufuegen.setText("\u002b")
+        self.ui.buttonNeu.clicked.connect(self.hinzufuegen)
+        self.ui.buttonNeu.setText("\u002b")
+        self.shortcuts.append(self.createButtonShortcut(self.ui.buttonNeu, "Ctrl+N", "Strg+N"))
 
         self.ui.buttonWiederherstellen.clicked.connect(self.wiederherstellen)
         self.ui.buttonWiederherstellen.setText("\uf829")
+        self.shortcuts.append(self.createButtonShortcut(self.ui.buttonWiederherstellen, "Ctrl+W", "Strg+W"))
 
         self.ui.buttonRAW.clicked.connect(self.vanillaAnsehen)
         self.ui.buttonRAW.setText("\uf02d")
+        self.shortcuts.append(self.createButtonShortcut(self.ui.buttonRAW, "Ctrl+R", "Strg+R"))
 
         self.ui.checkDetails.stateChanged.connect(self.onDetailsClicked)
+
+        # Add shortcuts for tab cycling
+        # QTabWidget has this builtin but it only works in certain conditions, probably some focus issue
+        self.shortcutNextTab = QtGui.QAction() 
+        self.shortcutNextTab.setShortcut("Ctrl+Tab")
+        self.shortcutNextTab.triggered.connect(self.nextTab)
+        self.ui.tabWidget.addAction(self.shortcutNextTab)
+
+        self.shortcutPrevTab = QtGui.QAction()
+        self.shortcutPrevTab.setShortcut("Ctrl+Shift+Tab")
+        self.shortcutPrevTab.triggered.connect(self.previousTab)
+        self.ui.tabWidget.addAction(self.shortcutPrevTab)
 
         self.databaseTypes = {}
         self.databaseTypes[AbgeleiteterWertDefinition] = DatenbankTypWrapper(AbgeleiteterWertDefinition, DatenbankEditAbgeleiteterWertWrapper.DatenbankEditAbgeleiteterWertWrapper, True)
@@ -303,6 +329,39 @@ class DatenbankEditor(object):
         if len(self.datenbank.loadingErrors) > 0:
             QtCore.QTimer.singleShot(0, self.showErrorLog)
 
+    def createButtonShortcut(self, button, shortcutStr, translation):
+        # setting the shortcut in qt creator doesnt work, maybe due to translation...
+        # using the buttons setShortcut also doesn't work, dont know why...
+        # should use qts translation feature, but it seems overkill just for this
+        shortcut = QtGui.QAction()
+        shortcut.setShortcut(shortcutStr)
+        shortcut.triggered.connect(button.click)
+        button.addAction(shortcut)
+        button.setToolTip(f"{button.toolTip()} ({translation})")
+        return shortcut
+
+    def nextTab(self):
+        index = self.ui.tabWidget.currentIndex() + 1
+        if index >= self.ui.tabWidget.count():
+            index = 0
+        while not self.ui.tabWidget.isTabVisible(index):
+            index += 1
+            if index >= self.ui.tabWidget.count():
+                index = 0
+
+        self.ui.tabWidget.setCurrentIndex(index)
+
+    def previousTab(self):
+        index = self.ui.tabWidget.currentIndex() - 1
+        if index < 0:
+            index = self.ui.tabWidget.count() - 1
+        while not self.ui.tabWidget.isTabVisible(index):
+            index -= 1
+            if index < 0:
+                index = self.ui.tabWidget.count()-1
+
+        self.ui.tabWidget.setCurrentIndex(index)
+
     def onDetailsClicked(self):
         dbType = self.databaseTypesByIndex[self.ui.tabWidget.currentIndex()]
         typeWrapper = self.databaseTypes[dbType]
@@ -327,7 +386,7 @@ class DatenbankEditor(object):
         model = self.models[self.ui.tabWidget.currentIndex()]
         filter = self.filters[self.ui.tabWidget.currentIndex()]
         indexes = tableView.selectedIndexes()
-        self.ui.buttonHinzufuegen.setEnabled(self.databaseTypes[dbType].isAddable)
+        self.ui.buttonNeu.setEnabled(self.databaseTypes[dbType].isAddable)
         if not indexes:
             self.ui.buttonEditieren.setEnabled(False)
             self.ui.buttonLoeschen.setEnabled(False)
@@ -736,8 +795,13 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
                 EinstellungenWrapper.save()
         
     def quicksaveDatenbank(self, merge = False):
+        prevText = self.ui.buttonQuicksave.text()
+        self.ui.buttonQuicksave.setText("\uf254")
+        QtWidgets.QApplication.processEvents()
+
         if not self.savepath:
             self.saveDatenbank(merge)
+            self.ui.buttonQuicksave.setText(prevText)
             return
 
         refDatabaseFile = os.getcwd() + os.path.normpath("/Data/datenbank.xml")
@@ -759,6 +823,8 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
             self.datenbank.enabledPlugins = self.getDatabaseChangingPlugins()
             self.datenbank.saveFile(self.savepath, merge)
             self.changed = False
+
+        self.ui.buttonQuicksave.setText(prevText)
     
     def closeDatenbank(self):
         if self.cancelDueToPendingChanges("Datenbank schließen"):

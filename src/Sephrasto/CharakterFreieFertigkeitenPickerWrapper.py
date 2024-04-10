@@ -48,6 +48,11 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
         self.ui.labelFilter.setText("\uf002")
         self.ui.nameFilterEdit.setFocus()
         self.ui.nameFilterEdit.textChanged.connect(self.populateTree)
+        self.shortcutSearch = QtGui.QAction()
+        self.shortcutSearch.setShortcut("Ctrl+F")
+        self.shortcutSearch.triggered.connect(self.ui.nameFilterEdit.setFocus)
+        self.ui.nameFilterEdit.addAction(self.shortcutSearch)
+
         self.form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.form.show()
         self.ret = self.form.exec()

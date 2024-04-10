@@ -67,7 +67,11 @@ class CharakterVorteileWrapper(QtCore.QObject):
 
         self.ui.labelFilter.setText("\uf002")
         self.ui.nameFilterEdit.setFocus()
-        self.ui.nameFilterEdit.textChanged.connect(self.load)
+        self.ui.nameFilterEdit.textChanged.connect(self.load)     
+        self.shortcutSearch = QtGui.QAction()
+        self.shortcutSearch.setShortcut("Ctrl+F")
+        self.shortcutSearch.triggered.connect(self.ui.nameFilterEdit.setFocus)
+        self.ui.nameFilterEdit.addAction(self.shortcutSearch)
 
     def onShowAllClicked(self):
         self.showUnavailable = self.ui.checkShowAll.isChecked()
