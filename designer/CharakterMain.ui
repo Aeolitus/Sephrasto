@@ -30,8 +30,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>1107</width>
-        <height>844</height>
+        <width>1111</width>
+        <height>854</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -229,7 +229,7 @@
         </size>
        </property>
        <property name="text">
-        <string>Speichern</string>
+        <string>&amp;Speichern</string>
        </property>
       </widget>
      </item>
@@ -261,7 +261,7 @@
         </size>
        </property>
        <property name="text">
-        <string>PDF erstellen</string>
+        <string>PDF &amp;erstellen</string>
        </property>
       </widget>
      </item>

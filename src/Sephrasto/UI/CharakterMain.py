@@ -34,7 +34,7 @@ class Ui_formMain(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 1107, 844))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 1111, 854))
         self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -171,8 +171,8 @@ class Ui_formMain(object):
         self.label_2.setText(QCoreApplication.translate("formMain", u"    Verbleibend:    ", None))
         self.label_2.setProperty("class", QCoreApplication.translate("formMain", u"h4", None))
         self.spinRemaining.setSuffix(QCoreApplication.translate("formMain", u" EP", None))
-        self.buttonQuicksave.setText(QCoreApplication.translate("formMain", u"Speichern", None))
+        self.buttonQuicksave.setText(QCoreApplication.translate("formMain", u"&Speichern", None))
         self.buttonSave.setText(QCoreApplication.translate("formMain", u"Speichern unter...", None))
-        self.buttonSavePDF.setText(QCoreApplication.translate("formMain", u"PDF erstellen", None))
+        self.buttonSavePDF.setText(QCoreApplication.translate("formMain", u"PDF &erstellen", None))
     # retranslateUi
 
