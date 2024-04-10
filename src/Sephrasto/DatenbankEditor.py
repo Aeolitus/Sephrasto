@@ -166,6 +166,10 @@ class DatenbankEditor(object):
         self.shortcutSearch.setShortcut("Ctrl+F")
         self.shortcutSearch.triggered.connect(self.ui.nameFilterEdit.setFocus)
         self.ui.nameFilterEdit.addAction(self.shortcutSearch)
+        self.shortcutClearSearch = QtGui.QAction()
+        self.shortcutClearSearch.setShortcut("Esc")
+        self.shortcutClearSearch.triggered.connect(lambda: self.ui.nameFilterEdit.setText("") if self.ui.nameFilterEdit.hasFocus() else None)
+        self.ui.nameFilterEdit.addAction(self.shortcutClearSearch)
 
         self.ui.buttonStatusFilter = RichTextToolButton(None, 2*"&nbsp;" + "<span style='" + Wolke.FontAwesomeCSS + f"'>\uf0b0</span>&nbsp;&nbsp;Status-Filter" + 4*"&nbsp;")
         self.ui.buttonStatusFilter.setPopupMode(QtWidgets.QToolButton.InstantPopup)

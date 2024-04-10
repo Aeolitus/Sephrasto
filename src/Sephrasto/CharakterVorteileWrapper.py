@@ -72,6 +72,10 @@ class CharakterVorteileWrapper(QtCore.QObject):
         self.shortcutSearch.setShortcut("Ctrl+F")
         self.shortcutSearch.triggered.connect(self.ui.nameFilterEdit.setFocus)
         self.ui.nameFilterEdit.addAction(self.shortcutSearch)
+        self.shortcutClearSearch = QtGui.QAction()
+        self.shortcutClearSearch.setShortcut("Esc")
+        self.shortcutClearSearch.triggered.connect(lambda: self.ui.nameFilterEdit.setText("") if self.ui.nameFilterEdit.hasFocus() else None)
+        self.ui.nameFilterEdit.addAction(self.shortcutClearSearch)
 
     def onShowAllClicked(self):
         self.showUnavailable = self.ui.checkShowAll.isChecked()

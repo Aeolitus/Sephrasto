@@ -51,7 +51,11 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
         self.shortcutSearch = QtGui.QAction()
         self.shortcutSearch.setShortcut("Ctrl+F")
         self.shortcutSearch.triggered.connect(self.ui.nameFilterEdit.setFocus)
-        self.ui.nameFilterEdit.addAction(self.shortcutSearch)
+        self.form.addAction(self.shortcutSearch)
+        self.shortcutClearSearch = QtGui.QAction()
+        self.shortcutClearSearch.setShortcut("Esc")
+        self.shortcutClearSearch.triggered.connect(lambda: self.ui.nameFilterEdit.setText("") if self.ui.nameFilterEdit.hasFocus() and self.ui.nameFilterEdit.text() else self.form.reject())
+        self.form.addAction(self.shortcutClearSearch)
 
         self.form.setWindowModality(QtCore.Qt.ApplicationModal)
         self.form.show()
