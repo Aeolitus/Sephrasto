@@ -285,8 +285,13 @@ class Editor(object):
 
         self.shortcutSave = QtGui.QAction() 
         self.shortcutSave.setShortcut("Ctrl+S")
-        self.shortcutSave.triggered.connect(self.saveButton)
+        self.shortcutSave.triggered.connect(self.quicksaveButton)
         self.ui.buttonQuicksave.addAction(self.shortcutSave)
+
+        self.shortcutSaveAs = QtGui.QAction() 
+        self.shortcutSaveAs.setShortcut("Ctrl+Shift+S")
+        self.shortcutSaveAs.triggered.connect(self.saveButton)
+        self.ui.buttonSave.addAction(self.shortcutSaveAs)
 
         self.shortcutExport = QtGui.QAction() 
         self.shortcutExport.setShortcut("Ctrl+E")

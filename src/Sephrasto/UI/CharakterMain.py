@@ -172,7 +172,7 @@ class Ui_formMain(object):
         self.label_2.setProperty("class", QCoreApplication.translate("formMain", u"h4", None))
         self.spinRemaining.setSuffix(QCoreApplication.translate("formMain", u" EP", None))
         self.buttonQuicksave.setText(QCoreApplication.translate("formMain", u"&Speichern", None))
-        self.buttonSave.setText(QCoreApplication.translate("formMain", u"Speichern unter...", None))
+        self.buttonSave.setText(QCoreApplication.translate("formMain", u"&Speichern unter...", None))
         self.buttonSavePDF.setText(QCoreApplication.translate("formMain", u"PDF &erstellen", None))
     # retranslateUi
 

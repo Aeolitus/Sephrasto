@@ -242,7 +242,7 @@
         </size>
        </property>
        <property name="text">
-        <string>Speichern unter...</string>
+        <string>&amp;Speichern unter...</string>
        </property>
       </widget>
      </item>
