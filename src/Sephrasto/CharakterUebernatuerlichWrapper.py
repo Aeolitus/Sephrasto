@@ -139,6 +139,7 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
             else:
                 fertigkeitenByKategorie.append(fert.kategorie, fert.name)
             availableFerts.append(fert.name)
+        fertigkeitenByKategorie.sortValues()
 
         if Hilfsmethoden.ArrayEqual(availableFerts, self.availableFerts):
             for i in range(self.ui.tableWidget.rowCount()):

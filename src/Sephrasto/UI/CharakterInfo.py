@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'CharakterInfo.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.6.3
+## Created by: Qt User Interface Compiler version 6.7.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -24,13 +24,14 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(974, 889)
+        Form.resize(974, 849)
         self.gridLayout = QGridLayout(Form)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setHorizontalSpacing(20)
         self.gridLayout.setVerticalSpacing(10)
         self.gridLayout.setContentsMargins(20, 20, 20, 20)
         self.verticalLayout_4 = QVBoxLayout()
+        self.verticalLayout_4.setSpacing(0)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.labelEinstellungen = QLabel(Form)
         self.labelEinstellungen.setObjectName(u"labelEinstellungen")
@@ -455,7 +456,7 @@ class Ui_Form(object):
 
         self.verticalLayout_4.addWidget(self.groupBox_2)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.verticalSpacer = QSpacerItem(20, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
         self.verticalLayout_4.addItem(self.verticalSpacer)
 

@@ -93,6 +93,7 @@ class ProfaneFertigkeitenWrapper(QtCore.QObject):
         for fert in Wolke.Char.fertigkeiten.values():
             fertigkeitenByKategorie.append(fert.kategorie, fert.name)
             availableFerts.append(fert.name)
+        fertigkeitenByKategorie.sortValues()
 
         if Hilfsmethoden.ArrayEqual(availableFerts, self.availableFerts):
             for i in range(self.ui.tableWidget.rowCount()):
