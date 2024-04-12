@@ -15,11 +15,11 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractItemView, QApplication, QCheckBox, QFrame,
-    QGridLayout, QHBoxLayout, QHeaderView, QLabel,
-    QLineEdit, QPushButton, QScrollArea, QSizePolicy,
-    QSpacerItem, QSplitter, QTextBrowser, QTreeWidget,
-    QTreeWidgetItem, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QAbstractItemView, QApplication, QFrame, QGridLayout,
+    QHBoxLayout, QHeaderView, QLabel, QLineEdit,
+    QPushButton, QScrollArea, QSizePolicy, QSpacerItem,
+    QSplitter, QTextBrowser, QTreeWidget, QTreeWidgetItem,
+    QVBoxLayout, QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -54,11 +54,6 @@ class Ui_Form(object):
         self.labelFilter.setObjectName(u"labelFilter")
 
         self.horizontalLayout.addWidget(self.labelFilter)
-
-        self.checkShowAll = QCheckBox(self.verticalLayoutWidget)
-        self.checkShowAll.setObjectName(u"checkShowAll")
-
-        self.horizontalLayout.addWidget(self.checkShowAll)
 
 
         self.verticalLayout.addLayout(self.horizontalLayout)
@@ -182,8 +177,7 @@ class Ui_Form(object):
         self.gridLayout.addWidget(self.splitter, 1, 0, 1, 1)
 
         QWidget.setTabOrder(self.buttonExpandToggle, self.nameFilterEdit)
-        QWidget.setTabOrder(self.nameFilterEdit, self.checkShowAll)
-        QWidget.setTabOrder(self.checkShowAll, self.treeWidget)
+        QWidget.setTabOrder(self.nameFilterEdit, self.treeWidget)
         QWidget.setTabOrder(self.treeWidget, self.scrollArea)
         QWidget.setTabOrder(self.scrollArea, self.plainText)
 
@@ -199,10 +193,6 @@ class Ui_Form(object):
         self.nameFilterEdit.setPlaceholderText(QCoreApplication.translate("Form", u"Suchen...", None))
         self.labelFilter.setText(QCoreApplication.translate("Form", u"Suchen", None))
         self.labelFilter.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
-#if QT_CONFIG(tooltip)
-        self.checkShowAll.setToolTip(QCoreApplication.translate("Form", u"Falls diese Option aktiviert ist, werden auch solche Vorteile angezeigt, f\u00fcr die du die Voraussetzungen nicht erf\u00fcllst.", None))
-#endif // QT_CONFIG(tooltip)
-        self.checkShowAll.setText(QCoreApplication.translate("Form", u"Alle Vorteile anzeigen", None))
         ___qtreewidgetitem = self.treeWidget.headerItem()
         ___qtreewidgetitem.setText(1, QCoreApplication.translate("Form", u"Kosten", None));
         ___qtreewidgetitem.setText(0, QCoreApplication.translate("Form", u"Vorteil", None));

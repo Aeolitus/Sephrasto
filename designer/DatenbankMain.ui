@@ -50,7 +50,7 @@
       <item>
        <widget class="QPushButton" name="buttonNeu">
         <property name="toolTip">
-         <string>Neu</string>
+         <string>Neues Element hinzufügen</string>
         </property>
         <property name="text">
          <string>Neu</string>
@@ -63,7 +63,7 @@
       <item>
        <widget class="QPushButton" name="buttonEditieren">
         <property name="toolTip">
-         <string>Editieren</string>
+         <string>Element bearbeiten</string>
         </property>
         <property name="text">
          <string>Editieren</string>
@@ -76,7 +76,7 @@
       <item>
        <widget class="QPushButton" name="buttonRAW">
         <property name="toolTip">
-         <string>RAW ansehen</string>
+         <string>Original ansehen - Regeln wie sie im Buch stehen</string>
         </property>
         <property name="text">
          <string>RAW ansehen</string>
@@ -89,7 +89,7 @@
       <item>
        <widget class="QPushButton" name="buttonDuplizieren">
         <property name="toolTip">
-         <string>Duplizieren</string>
+         <string>Element Duplizieren</string>
         </property>
         <property name="text">
          <string>Duplizieren</string>
@@ -102,7 +102,7 @@
       <item>
        <widget class="QPushButton" name="buttonLoeschen">
         <property name="toolTip">
-         <string>Löschen</string>
+         <string>Element Löschen</string>
         </property>
         <property name="text">
          <string>Löschen</string>
@@ -115,7 +115,7 @@
       <item>
        <widget class="QPushButton" name="buttonWiederherstellen">
         <property name="toolTip">
-         <string>Wiederherstellen</string>
+         <string>Element Wiederherstellen</string>
         </property>
         <property name="text">
          <string>Wiederherstellen</string>

@@ -18,6 +18,7 @@ from functools import partial
 from Core.Vorteil import Vorteil
 from VoraussetzungenListe import VoraussetzungenListe
 from Hilfsmethoden import SortedCategoryToListDict
+from QtUtils.RichTextButton import RichTextToolButton
 
 class CharakterVorteileWrapper(QtCore.QObject):
     modified = QtCore.Signal()
@@ -55,9 +56,6 @@ class CharakterVorteileWrapper(QtCore.QObject):
         self.qvTexts = {}
         self.qvSections = {}
 
-        self.ui.checkShowAll.stateChanged.connect(self.onShowAllClicked)
-        self.showUnavailable = False
-
         # Set supported Vorteil Kategorien - all by default. This increases the reusability and might be useful for plugins.
         self.supportedCategories = supportedCategories
         if len(self.supportedCategories) == 0:
@@ -77,8 +75,46 @@ class CharakterVorteileWrapper(QtCore.QObject):
         self.shortcutClearSearch.triggered.connect(lambda: self.ui.nameFilterEdit.setText("") if self.ui.nameFilterEdit.hasFocus() else None)
         self.ui.nameFilterEdit.addAction(self.shortcutClearSearch)
 
-    def onShowAllClicked(self):
-        self.showUnavailable = self.ui.checkShowAll.isChecked()
+        self.ui.buttonFilter = RichTextToolButton(None, 2*"&nbsp;" + "<span style='" + Wolke.FontAwesomeCSS + f"'>\uf0b0</span>&nbsp;&nbsp;Filter" + 4*"&nbsp;")
+        self.ui.buttonFilter.setPopupMode(QtWidgets.QToolButton.InstantPopup)
+        self.ui.horizontalLayout.addWidget(self.ui.buttonFilter)
+        self.filterMenu = QtWidgets.QMenu()
+        action = self.filterMenu.addAction("Gekauft")
+        action.setCheckable(True)
+        action.setChecked(True)
+        action.setShortcut("Ctrl+G")
+        action.triggered.connect(self.load)
+
+        action = self.filterMenu.addAction("Nicht gekauft")
+        action.setCheckable(True)
+        action.setChecked(True)
+        action.setShortcut("Ctrl+N")
+        action.triggered.connect(self.load)
+
+        action = self.filterMenu.addAction("Voraussetzungen nicht erfüllt")
+        action.setCheckable(True)
+        action.setChecked(False)
+        action.setShortcut(QtCore.QCoreApplication.tr("Ctrl+V"))
+        action.triggered.connect(self.load)
+        self.ui.buttonFilter.setMenu(self.filterMenu)
+
+        self.ui.buttonResetFilter = RichTextToolButton(None, "<span style='" + Wolke.FontAwesomeCSS + f"'>\ue17b</span>")
+        self.ui.buttonResetFilter.setToolTip("Filter zurücksetzen (Strg+R)")
+        self.ui.buttonResetFilter.setShortcut("Ctrl+R")
+        self.ui.buttonResetFilter.clicked.connect(self.resetFilter)
+        self.ui.horizontalLayout.addWidget(self.ui.buttonResetFilter)
+
+
+    def resetFilter(self):
+        for action in self.filterMenu.actions():
+            action.blockSignals(True)
+
+        self.filterMenu.actions()[0].setChecked(True)
+        self.filterMenu.actions()[1].setChecked(True)
+        self.filterMenu.actions()[2].setChecked(False)
+
+        for action in self.filterMenu.actions():
+            action.blockSignals(False)
         self.load()
 
     def kosten(self, vorteil):
@@ -139,7 +175,9 @@ class CharakterVorteileWrapper(QtCore.QObject):
         self.ui.treeWidget.blockSignals(False)
         
     def load(self):
-        self.ui.checkShowAll.setVisible(Wolke.Char.voraussetzungenPruefen)
+        showGekauft = self.filterMenu.actions()[0].isChecked()
+        showNichtGekauft = self.filterMenu.actions()[1].isChecked()
+        showNichtVerfügbar = self.filterMenu.actions()[2].isChecked()
 
         self.ui.treeWidget.blockSignals(True)
 
@@ -167,11 +205,17 @@ class CharakterVorteileWrapper(QtCore.QObject):
                 if type(chi) != QtWidgets.QTreeWidgetItem:
                     continue
                 vorteil = Wolke.DB.vorteile[chi.text(0)]
+
+                isFiltered = self.ui.nameFilterEdit.text() != "" and \
+                    (not self.ui.nameFilterEdit.text().lower() in vorteil.name.lower()) and \
+                    (not self.ui.nameFilterEdit.text().lower() in itm.text(0).lower())
+
                 if vorteil.name in Wolke.Char.vorteile:
                     vorteil = Wolke.Char.vorteile[vorteil.name]
                     chi.setCheckState(0, QtCore.Qt.Checked)
                     if vorteil.kommentarErlauben:
                         self.handleAddKommentarWidget(vorteil.name, chi)
+                    chi.setHidden(isFiltered or not showGekauft)
                 else:
                     chi.setCheckState(0, QtCore.Qt.Unchecked)
                     # remove potential kommentar widget (call doesnt do anything if it doesnt exist)
@@ -179,34 +223,28 @@ class CharakterVorteileWrapper(QtCore.QObject):
                     # restore potential widget changes by minderpakt
                     if vorteil.name in self.itemWidgets:
                         self.itemWidgets[vorteil.name].setReadOnly(False)
+                    chi.setHidden(isFiltered or not showNichtGekauft)
 
                 if vorteil.variableKosten:
                     self.itemWidgets[vorteil.name].setValue(self.kosten(vorteil))
                 else:
                     chi.setText(1, str(self.kosten(vorteil)) + " EP")
 
-
-                isFiltered = self.ui.nameFilterEdit.text() != "" and \
-                    (not self.ui.nameFilterEdit.text().lower() in vorteil.name.lower()) and \
-                    (not self.ui.nameFilterEdit.text().lower() in itm.text(0).lower())
-
                 if vorteil.name not in vorteile:
-                    if self.showUnavailable:
+                    if showNichtVerfügbar:
                         chi.setFlags(QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsSelectable)
                         chi.setCheckState(0,QtCore.Qt.Unchecked)
                         chi.setForeground(0, QtGui.QBrush(QtCore.Qt.red))
                         chi.setHidden(isFiltered)
-                        if not isFiltered:
-                            hasVisibleItems = True
                     else:
                         chi.setHidden(True)
                     Wolke.Char.removeVorteil(vorteil.name)
                 else:
                     chi.setFlags(QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsSelectable)
                     chi.setForeground(0, QtGui.QBrush())
-                    chi.setHidden(isFiltered)
-                    if not isFiltered:
-                        hasVisibleItems = True
+
+                if not chi.isHidden():
+                    hasVisibleItems = True
 
             itm.setHidden(not hasVisibleItems)
 

@@ -175,15 +175,38 @@ class DatenbankEditor(object):
         self.ui.buttonStatusFilter.setPopupMode(QtWidgets.QToolButton.InstantPopup)
         self.ui.horizontalLayout_3.addWidget(self.ui.buttonStatusFilter)
         self.statusFilterMenu = QtWidgets.QMenu()
-        for el in ["Alle", "Neu", "Geändert", "RAW", "Gelöscht"]:
-            action = self.statusFilterMenu.addAction(el)
-            action.setCheckable(True)
-            action.setChecked(True)
-            if el != "Alle":
-                action.triggered.connect(self.updateFilter)
 
-        self.statusFilterMenu.actions()[0].triggered.connect(self.filterAllToggled)
+        action = self.statusFilterMenu.addAction("Hinzugefügt")
+        action.setCheckable(True)
+        action.setChecked(True)
+        action.setShortcut("Ctrl+H")
+        action.triggered.connect(self.updateFilter)
+
+        action = self.statusFilterMenu.addAction("Verändert")
+        action.setCheckable(True)
+        action.setChecked(True)
+        action.setShortcut("Ctrl+V")
+        action.triggered.connect(self.updateFilter)
+
+        action = self.statusFilterMenu.addAction("Unverändert")
+        action.setCheckable(True)
+        action.setChecked(True)
+        action.setShortcut("Ctrl+U")
+        action.triggered.connect(self.updateFilter)
+
+        action = self.statusFilterMenu.addAction("Gelöscht")
+        action.setCheckable(True)
+        action.setChecked(True)
+        action.setShortcut("Ctrl+G")
+        action.triggered.connect(self.updateFilter)
+
         self.ui.buttonStatusFilter.setMenu(self.statusFilterMenu)
+
+        self.ui.buttonResetFilter = RichTextToolButton(None, "<span style='" + Wolke.FontAwesomeCSS + f"'>\ue17b</span>")
+        self.ui.buttonResetFilter.setToolTip("Filter zurücksetzen (Strg+R)")
+        self.ui.buttonResetFilter.setShortcut("Ctrl+R")
+        self.ui.buttonResetFilter.clicked.connect(self.resetFilter)
+        self.ui.horizontalLayout_3.addWidget(self.ui.buttonResetFilter)
 
         # Menu actions
         self.ui.actionOeffnen.triggered.connect(lambda: self.loadDatenbank())
@@ -370,12 +393,11 @@ class DatenbankEditor(object):
         if typeWrapper.showDetails:
             self.updateGUI()
 
-    def filterAllToggled(self):
-        checked = self.statusFilterMenu.actions()[0].isChecked()
-        for a in self.statusFilterMenu.actions()[1:]:
-            a.blockSignals(True)
-            a.setChecked(checked)
-            a.blockSignals(False)
+    def resetFilter(self):
+        for action in self.statusFilterMenu.actions():
+            action.blockSignals(True)
+            action.setChecked(True)
+            action.blockSignals(False)
         self.updateFilter()
 
     def currentTabChanged(self):
@@ -481,19 +503,14 @@ class DatenbankEditor(object):
 
     def updateFilter(self):
         statusses = []
-        if self.statusFilterMenu.actions()[1].isChecked():
+        if self.statusFilterMenu.actions()[0].isChecked():
             statusses.append("+")
-        if self.statusFilterMenu.actions()[2].isChecked():
+        if self.statusFilterMenu.actions()[1].isChecked():
             statusses.append("\uf044")
-        if self.statusFilterMenu.actions()[3].isChecked():
+        if self.statusFilterMenu.actions()[2].isChecked():
             statusses.append("\uf02d")
-        if self.statusFilterMenu.actions()[4].isChecked():
+        if self.statusFilterMenu.actions()[3].isChecked():
             statusses.append("\uf068")
-        if len(statusses) < 4:
-            allAction = self.statusFilterMenu.actions()[0]
-            allAction.blockSignals(True)
-            allAction.setChecked(False)
-            allAction.blockSignals(False)
     
         filter = self.filters[self.ui.tabWidget.currentIndex()]
         filter.setFilters(self.ui.nameFilterEdit.text(), statusses, fullText=self.ui.checkFullText.isChecked())
@@ -546,18 +563,18 @@ class DatenbankEditor(object):
             if self.datenbank.isRemoved(element):
                 iconItem.setText("\uf068")
                 iconItem.setForeground(QtGui.QBrush(QtCore.Qt.red))
-                iconItem.setToolTip("<b>Gelöschtes</b> RAW Element.")
+                iconItem.setToolTip("<b>Gelöschtes</b> Original-Element.")
             elif self.datenbank.isNew(element):
                 iconItem.setText("\u002b")
                 iconItem.setForeground(QtGui.QBrush(QtCore.Qt.darkGreen))
-                iconItem.setToolTip("<b>Neues</b> Element.")
+                iconItem.setToolTip("<b>Hinzugefügtes</b> Element.")
             elif self.datenbank.isChanged(element):
                 iconItem.setText('\uf044')
                 iconItem.setForeground(QtGui.QBrush(QtCore.Qt.blue))
-                iconItem.setToolTip("<b>Geändertes</b> RAW Element. Wenn du es löschst, erhältst du die Möglichkeit, die RAW-Daten wiederherzustellen. Unten rechts hast du über den RAW-Button die Möglichkeit diese anzusehen.")
+                iconItem.setToolTip("<b>Verändertes</b> Original-Element. Wenn du es löschst, erhältst du die Möglichkeit, die Original-Daten wiederherzustellen. Unten rechts hast du über den Original-Button die Möglichkeit diese anzusehen.")
             elif not self.datenbank.isOverriddenByOther(element):
                 iconItem.setText("\uf02d")
-                iconItem.setToolTip("<b>RAW</b> Element. Regeln wie sie im Buch stehen.")
+                iconItem.setToolTip("<b>Unverändertes</b> Original-Element. Regeln wie sie im Buch stehen.")
             row.append(iconItem)
 
             nameItem = QtGui.QStandardItem(element.name)     

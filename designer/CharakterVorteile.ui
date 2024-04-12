@@ -65,16 +65,6 @@
            </property>
           </widget>
          </item>
-         <item>
-          <widget class="QCheckBox" name="checkShowAll">
-           <property name="toolTip">
-            <string>Falls diese Option aktiviert ist, werden auch solche Vorteile angezeigt, für die du die Voraussetzungen nicht erfüllst.</string>
-           </property>
-           <property name="text">
-            <string>Alle Vorteile anzeigen</string>
-           </property>
-          </widget>
-         </item>
         </layout>
        </item>
        <item>
@@ -327,7 +317,6 @@
  <tabstops>
   <tabstop>buttonExpandToggle</tabstop>
   <tabstop>nameFilterEdit</tabstop>
-  <tabstop>checkShowAll</tabstop>
   <tabstop>treeWidget</tabstop>
   <tabstop>scrollArea</tabstop>
   <tabstop>plainText</tabstop>
