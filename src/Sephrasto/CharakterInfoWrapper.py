@@ -52,27 +52,28 @@ class InfoWrapper(QtCore.QObject):
         self.ui.checkFormular.stateChanged.connect(self.einstellungenChanged)
         self.ui.checkDetails.stateChanged.connect(self.einstellungenChanged)
 
-        boegen = [bogen for bogen in Wolke.Charakterbögen]
+        boegen = list(Wolke.Charakterbögen.keys())
+        boegen.sort()
+        if "Standard Charakterbogen" in boegen:
+            boegen.insert(0, boegen.pop(boegen.index("Standard Charakterbogen")))
+
         for bogen in boegen:
-            if bogen == "Standard Charakterbogen":
-                self.ui.comboCharsheet.insertItem(0, bogen)
-            elif bogen == "Langer Charakterbogen":
-                self.ui.comboCharsheet.insertItem(0, bogen)
-            else:
-                self.ui.comboCharsheet.addItem(bogen)
+            self.ui.comboCharsheet.addItem(bogen.replace(" Charakterbogen ", "").replace(" Charakterbogen", ""), bogen)
         if not (Wolke.Char.charakterbogen in boegen):
-            Wolke.Char.charakterbogen = self.ui.comboCharsheet.itemText(0)
+            Wolke.Char.charakterbogen = self.ui.comboCharsheet.itemData(0)
         self.ui.comboCharsheet.currentIndexChanged.connect(self.einstellungenChanged)
         self.ui.spinRegelnGroesse.valueChanged.connect(self.einstellungenChanged)
         self.ui.checkReq.stateChanged.connect(self.reqChanged)
+        
+        self.ui.labelRegelnGroesse.setText('\uf031\uf07d')
+        self.ui.labelRegelnGroesse.setEnabled(Wolke.Char.regelnAnhaengen)
+        self.ui.spinRegelnGroesse.setEnabled(Wolke.Char.regelnAnhaengen)
 
         self.ui.buttonRegeln.setText('\uf0ae')
         self.ui.buttonRegeln.clicked.connect(self.showRegelKategorien)
         self.ui.buttonRegeln.setEnabled(Wolke.Char.regelnAnhaengen)
         self.focusWatcher = FocusWatcher(self.notizChanged)
         self.ui.teNotiz.installEventFilter(self.focusWatcher)
-
-        self.ui.spinRegelnGroesse.setEnabled(Wolke.Char.regelnAnhaengen)
 
         self.currentlyLoading = False
 
@@ -100,7 +101,7 @@ class InfoWrapper(QtCore.QObject):
         Wolke.Char.regelnAnhaengen = self.ui.checkRegeln.isChecked()
         Wolke.Char.detailsAnzeigen = self.ui.checkDetails.isChecked()
         Wolke.Char.regelnGroesse = self.ui.spinRegelnGroesse.value()
-        Wolke.Char.charakterbogen = self.ui.comboCharsheet.currentText()
+        Wolke.Char.charakterbogen = self.ui.comboCharsheet.itemData(self.ui.comboCharsheet.currentIndex())
         Wolke.Char.formularEditierbar = self.ui.checkFormular.isChecked()
 
         cbi = InfoWrapper.getCharakterbogen(Wolke.Char.charakterbogen)
@@ -114,6 +115,7 @@ class InfoWrapper(QtCore.QObject):
             self.ui.labelReload.setVisible(True)
             Wolke.Char.neueHausregeln = self.ui.comboHausregeln.currentText()
 
+        self.ui.labelRegelnGroesse.setEnabled(Wolke.Char.regelnAnhaengen)
         self.ui.spinRegelnGroesse.setEnabled(Wolke.Char.regelnAnhaengen)
         self.ui.buttonRegeln.setEnabled(Wolke.Char.regelnAnhaengen)
 
