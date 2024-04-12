@@ -82,6 +82,7 @@ class Char():
         #Dritter Block: Vorteile, gespeichert als String
         self.vorteile = {} #Important: use addVorteil and addRemove functions for modification
         self.kampfstilMods = {}
+        self.vorteilFavoriten = []
 
         #Vierter Block: Fertigkeiten und Freie Fertigkeiten
         self.fertigkeiten = {}
@@ -863,6 +864,7 @@ class Char():
         ser.setNested('RegelnGrösse', self.regelnGroesse)
         ser.setNested('DeaktivierteRegelKategorien', ",".join(self.deaktivierteRegelKategorien))
         ser.setNested('FormularEditierbarkeit', self.formularEditierbar)
+        ser.setNested('VorteilFavoriten', ",".join(self.vorteilFavoriten))
         ser.end() #einstellungen
 
         ser.begin('BeschreibungDetails')
@@ -1101,6 +1103,9 @@ class Char():
             deaktivierteRegelKategorien = ser.getNested('DeaktivierteRegelKategorien')
             if deaktivierteRegelKategorien:
                 self.deaktivierteRegelKategorien = list(map(str.strip, deaktivierteRegelKategorien.split(",")))
+            vorteilFavoriten = ser.getNested('VorteilFavoriten', self.vorteilFavoriten)
+            if vorteilFavoriten:
+                self.vorteilFavoriten = list(map(str.strip, vorteilFavoriten.split(",")))
             ser.end() #einstellungen
 
         if ser.find('BeschreibungDetails'):

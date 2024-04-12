@@ -36,7 +36,10 @@ class CharakterVorteileWrapper(QtCore.QObject):
         self.ui.treeWidget.itemSelectionChanged.connect(self.vortClicked)
         self.ui.treeWidget.itemChanged.connect(self.itemChangeHandler)
         self.ui.treeWidget.header().setSectionResizeMode(0,QtWidgets.QHeaderView.Stretch)
+        self.ui.treeWidget.header().setSectionResizeMode(1,QtWidgets.QHeaderView.Fixed)
         self.ui.treeWidget.header().resizeSection(1, Hilfsmethoden.emToPixels(10))
+        self.ui.treeWidget.header().setSectionResizeMode(2,QtWidgets.QHeaderView.Fixed)
+        self.ui.treeWidget.header().resizeSection(2, Hilfsmethoden.emToPixels(3))
 
         self.expansionHelper = TreeExpansionHelper(self.ui.treeWidget, self.ui.buttonExpandToggle)
 
@@ -91,6 +94,12 @@ class CharakterVorteileWrapper(QtCore.QObject):
         action.setShortcut("Ctrl+N")
         action.triggered.connect(self.load)
 
+        action = self.filterMenu.addAction("Lesezeichen")
+        action.setCheckable(True)
+        action.setChecked(True)
+        action.setShortcut("Ctrl+D")
+        action.triggered.connect(self.load)
+
         action = self.filterMenu.addAction("Voraussetzungen nicht erfüllt")
         action.setCheckable(True)
         action.setChecked(False)
@@ -111,7 +120,8 @@ class CharakterVorteileWrapper(QtCore.QObject):
 
         self.filterMenu.actions()[0].setChecked(True)
         self.filterMenu.actions()[1].setChecked(True)
-        self.filterMenu.actions()[2].setChecked(False)
+        self.filterMenu.actions()[2].setChecked(True)
+        self.filterMenu.actions()[3].setChecked(False)
 
         for action in self.filterMenu.actions():
             action.blockSignals(False)
@@ -169,15 +179,40 @@ class CharakterVorteileWrapper(QtCore.QObject):
                 else:
                     child.setText(1, str(self.kosten(vorteil)) + " EP")
 
+                favoriteButton = QtWidgets.QPushButton()
+                favoriteButton.setText("\uf005")
+                favoriteButton.setFlat(True)
+                favoriteButton.clicked.connect(partial(self.markFavorite, name=vorteil.name))
+                self.itemWidgets[el+"Favorite"] = favoriteButton
+                self.updateFavoriteButton(el)
+                self.ui.treeWidget.setItemWidget(child, 2, favoriteButton)
+
                 if vorteil.kommentarErlauben and child.checkState(0) == QtCore.Qt.Checked:
                     self.handleAddKommentarWidget(el, child)
 
         self.ui.treeWidget.blockSignals(False)
+
+    def markFavorite(self, name):
+        if name in Wolke.Char.vorteilFavoriten:
+            Wolke.Char.vorteilFavoriten.remove(name)
+        else:
+            Wolke.Char.vorteilFavoriten.append(name)
+        self.updateFavoriteButton(name)
+
+    def updateFavoriteButton(self, name):
+        # The full/empty star icons are unfortunatelly different fontawesome fonts
+        # Cannot use class property to switch the font - qt wont update the visuals when the class is changed
+        button = self.itemWidgets[name+"Favorite"]
+        if name in Wolke.Char.vorteilFavoriten:
+            button.setStyleSheet(f"{Wolke.FontAwesomeCSS} max-width: {Hilfsmethoden.emToPixels(3.2)}px; max-height: {Hilfsmethoden.emToPixels(3.2)}px;")
+        else:
+            button.setStyleSheet(f"{Wolke.FontAwesomeRegularCSS} max-width: {Hilfsmethoden.emToPixels(3.2)}px; max-height: {Hilfsmethoden.emToPixels(3.2)}px;")
         
     def load(self):
-        showGekauft = self.filterMenu.actions()[0].isChecked()
-        showNichtGekauft = self.filterMenu.actions()[1].isChecked()
-        showNichtVerfügbar = self.filterMenu.actions()[2].isChecked()
+        showPurchased = self.filterMenu.actions()[0].isChecked()
+        showUnpurchased = self.filterMenu.actions()[1].isChecked()
+        showFavorites = self.filterMenu.actions()[2].isChecked()
+        showUnvailable = self.filterMenu.actions()[3].isChecked()
 
         self.ui.treeWidget.blockSignals(True)
 
@@ -215,7 +250,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
                     chi.setCheckState(0, QtCore.Qt.Checked)
                     if vorteil.kommentarErlauben:
                         self.handleAddKommentarWidget(vorteil.name, chi)
-                    chi.setHidden(isFiltered or not showGekauft)
+                    chi.setHidden(isFiltered or not showPurchased)
                 else:
                     chi.setCheckState(0, QtCore.Qt.Unchecked)
                     # remove potential kommentar widget (call doesnt do anything if it doesnt exist)
@@ -223,7 +258,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
                     # restore potential widget changes by minderpakt
                     if vorteil.name in self.itemWidgets:
                         self.itemWidgets[vorteil.name].setReadOnly(False)
-                    chi.setHidden(isFiltered or not showNichtGekauft)
+                    chi.setHidden(isFiltered or not showUnpurchased)
 
                 if vorteil.variableKosten:
                     self.itemWidgets[vorteil.name].setValue(self.kosten(vorteil))
@@ -231,7 +266,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
                     chi.setText(1, str(self.kosten(vorteil)) + " EP")
 
                 if vorteil.name not in vorteile:
-                    if showNichtVerfügbar:
+                    if showUnvailable:
                         chi.setFlags(QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsSelectable)
                         chi.setCheckState(0,QtCore.Qt.Unchecked)
                         chi.setForeground(0, QtGui.QBrush(QtCore.Qt.red))
@@ -242,6 +277,9 @@ class CharakterVorteileWrapper(QtCore.QObject):
                 else:
                     chi.setFlags(QtCore.Qt.ItemIsUserCheckable | QtCore.Qt.ItemIsEnabled | QtCore.Qt.ItemIsSelectable)
                     chi.setForeground(0, QtGui.QBrush())
+
+                if vorteil.name in Wolke.Char.vorteilFavoriten:
+                    chi.setHidden(not showFavorites)
 
                 if not chi.isHidden():
                     hasVisibleItems = True

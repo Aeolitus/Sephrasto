@@ -516,6 +516,7 @@ class MainWindowWrapper(object):
         standardFont = f"font-family: '{Wolke.Settings['Font']}'"
         headingFont = f"font-family: '{Wolke.Settings['FontHeading']}'; color: {Wolke.HeadingColor}"
         Wolke.FontAwesomeCSS = f"font-size: {Wolke.Settings['FontSize']}pt; font-family: \"Font Awesome 6 Free Solid\"; font-weight: 900;"
+        Wolke.FontAwesomeRegularCSS = f"font-size: {Wolke.Settings['FontSize']}pt; font-family: \"Font Awesome 6 Free Regular\"; font-weight: 400;"
         Wolke.FontAwesomeFont = QtGui.QFont("Font Awesome 6 Free Solid", Wolke.Settings['FontSize'], QtGui.QFont.Black)
         Wolke.FontAwesomeRegularFont = QtGui.QFont("Font Awesome 6 Free Regular", Wolke.Settings['FontSize'], QtGui.QFont.Normal)
         css = f"""*[readOnly=\"true\"] {{ background-color: {Wolke.ReadonlyColor}; border: none; }}
@@ -537,6 +538,7 @@ QCheckBox::indicator {{ width: {Hilfsmethoden.emToPixels(1.9)}px; height: {Hilfs
 .title {{ font-weight: bold; font-size: 16pt; {headingFont}; color: #ffffff }}
 .subtitle {{ font-size: 10pt; color: #ffffff }}
 .icon {{ {Wolke.FontAwesomeCSS} max-width: {Hilfsmethoden.emToPixels(3.2)}px; max-height: {Hilfsmethoden.emToPixels(3.2)}px;}}
+.iconRegular {{ {Wolke.FontAwesomeRegularCSS} max-width: {Hilfsmethoden.emToPixels(3.2)}px; max-height: {Hilfsmethoden.emToPixels(3.2)}px;}}
 .iconSmall {{ {Wolke.FontAwesomeCSS} max-width: {Hilfsmethoden.emToPixels(2.3)}px; max-height: {Hilfsmethoden.emToPixels(2.3)}px;}}
 .iconTiny {{ {Wolke.FontAwesomeCSS} max-width: {Hilfsmethoden.emToPixels(1.5)}px; max-height: {Hilfsmethoden.emToPixels(1.5)}px;}}
 .iconTopDownArrow {{ {Wolke.FontAwesomeCSS} max-width: {Hilfsmethoden.emToPixels(2.3)}px; max-height: {Hilfsmethoden.emToPixels(1.2)}px;}}

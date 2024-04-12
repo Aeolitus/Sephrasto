@@ -64,6 +64,7 @@ class Wolke:
     DefaultOSFont = ""
     DefaultOSFontSize = 9
     FontAwesomeCSS = "" # Qt does not support 'class' in span tags (yet), so we store the style here for reuse in the app
+    FontAwesomeRegularCSS = ""
     FontAwesomeFont = None
     FontAwesomeRegularFont = None
     CharImageSize = [260.0, 340.0]

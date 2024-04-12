@@ -78,7 +78,7 @@ class Ui_Form(object):
         self.treeWidget.setHeaderHidden(False)
         self.treeWidget.header().setVisible(True)
         self.treeWidget.header().setCascadingSectionResizes(False)
-        self.treeWidget.header().setMinimumSectionSize(80)
+        self.treeWidget.header().setMinimumSectionSize(0)
         self.treeWidget.header().setDefaultSectionSize(100)
         self.treeWidget.header().setHighlightSections(False)
         self.treeWidget.header().setStretchLastSection(False)
@@ -98,7 +98,7 @@ class Ui_Form(object):
         self.scrollArea.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 268, 418))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 334, 418))
         self.gridLayout_2 = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.labelVorteil = QLabel(self.scrollAreaWidgetContents)
@@ -194,6 +194,7 @@ class Ui_Form(object):
         self.labelFilter.setText(QCoreApplication.translate("Form", u"Suchen", None))
         self.labelFilter.setProperty("class", QCoreApplication.translate("Form", u"icon", None))
         ___qtreewidgetitem = self.treeWidget.headerItem()
+        ___qtreewidgetitem.setText(2, QCoreApplication.translate("Form", u"\u00a0", None));
         ___qtreewidgetitem.setText(1, QCoreApplication.translate("Form", u"Kosten", None));
         ___qtreewidgetitem.setText(0, QCoreApplication.translate("Form", u"Vorteil", None));
         self.labelVorteil.setText(QCoreApplication.translate("Form", u"Vorteil", None))

@@ -109,7 +109,7 @@
           <bool>false</bool>
          </attribute>
          <attribute name="headerMinimumSectionSize">
-          <number>80</number>
+          <number>0</number>
          </attribute>
          <attribute name="headerDefaultSectionSize">
           <number>100</number>
@@ -131,6 +131,11 @@
          <column>
           <property name="text">
            <string>Kosten</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string> </string>
           </property>
          </column>
         </widget>
@@ -173,7 +178,7 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>268</width>
+         <width>334</width>
          <height>418</height>
         </rect>
        </property>
