@@ -25,6 +25,7 @@ from PluginLoader import PluginLoader
 from UpdateChecker import UpdateChecker
 from PySide6.QtGui import QPalette, QColor
 from PySide6.QtWidgets import QToolTip
+from PySide6.QtCore import QLocale
 from Hilfsmethoden import Hilfsmethoden
 import platform
 import PathHelper
@@ -171,6 +172,14 @@ class MainWindowWrapper(object):
         self.app = QtCore.QCoreApplication.instance()
         if self.app is None:
             self.app = QtWidgets.QApplication(sys.argv)
+
+        # Install translator. We dont have our own translation resource but we can load 
+        # the german resource that qt provides i.e. for default-button and shortcut translations
+        translator = QtCore.QTranslator(self.app)
+        if translator.load(QLocale(QLocale.German, QLocale.Germany), 'qtbase', '_', QtCore.QLibraryInfo.location(QtCore.QLibraryInfo.TranslationsPath)):
+            self.app.installTranslator(translator)
+        else:
+            logging.warning("Failed to load translation resource.")
 
         EinstellungenWrapper.loadPostQt()
 

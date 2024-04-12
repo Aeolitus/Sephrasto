@@ -42,7 +42,6 @@ class RuestungPicker(object):
                 QtCore.Qt.WindowMinimizeButtonHint)
 
         self.autoResizeHelper = TextEditAutoResizer(self.ui.teBeschreibung)
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).setText("Abbrechen")
 
         self.ui.labelUnofficial.setVisible(Wolke.DB.einstellungen["Rüstungen: Inoffiziell-Warnung anzeigen"].wert)
 

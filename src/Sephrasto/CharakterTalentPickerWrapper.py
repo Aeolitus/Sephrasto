@@ -45,7 +45,6 @@ class TalentPicker(object):
                 QtCore.Qt.WindowMinimizeButtonHint)
         
         self.autoResizeHelper = TextEditAutoResizer(self.ui.plainText)
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).setText("Abbrechen")
 
         self.ui.splitter.adjustSize()
         width = self.ui.splitter.size().width()

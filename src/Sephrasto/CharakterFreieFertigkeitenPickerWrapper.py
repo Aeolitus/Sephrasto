@@ -29,8 +29,6 @@ class CharakterFreieFertigkeitenPickerWrapper(object):
                 QtCore.Qt.WindowMaximizeButtonHint |
                 QtCore.Qt.WindowMinimizeButtonHint)
 
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).setText("Abbrechen")
-
         self.ui.labelUnofficial.setVisible(Wolke.DB.einstellungen["FreieFertigkeiten: Inoffiziell-Warnung anzeigen"].wert)
 
         windowSize = Wolke.Settings["WindowSize-FreieFert"]

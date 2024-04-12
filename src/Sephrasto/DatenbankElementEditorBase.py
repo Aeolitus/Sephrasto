@@ -34,9 +34,6 @@ class DatenbankElementEditorBase():
                 QtCore.Qt.WindowMaximizeButtonHint |
                 QtCore.Qt.WindowMinimizeButtonHint)
         
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Save).setText("Speichern")
-        self.ui.buttonBox.button(QtWidgets.QDialogButtonBox.Cancel).setText("Abbrechen")
-
         settingName = "WindowSize-DB" + elementType.__name__
         if not settingName in Wolke.Settings:
             Wolke.Settings[settingName] = [461, 522]

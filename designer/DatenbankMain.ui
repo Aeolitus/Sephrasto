@@ -137,9 +137,6 @@
         <property name="text">
          <string>Öffnen</string>
         </property>
-        <property name="shortcut">
-         <string>Ctrl+S</string>
-        </property>
         <property name="class" stdset="0">
          <string>icon</string>
         </property>

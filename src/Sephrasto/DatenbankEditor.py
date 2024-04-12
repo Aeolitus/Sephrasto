@@ -334,9 +334,7 @@ class DatenbankEditor(object):
             QtCore.QTimer.singleShot(0, self.showErrorLog)
 
     def createButtonShortcut(self, button, shortcutStr, translation):
-        # setting the shortcut in qt creator doesnt work, maybe due to translation...
-        # using the buttons setShortcut also doesn't work, dont know why...
-        # should use qts translation feature, but it seems overkill just for this
+        # Using the buttons setShortcut in qt creator doesnt work, maybe the menu bar kills it...
         shortcut = QtGui.QAction()
         shortcut.setShortcut(shortcutStr)
         shortcut.triggered.connect(button.click)

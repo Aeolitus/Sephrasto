@@ -16,6 +16,9 @@ doc_path = os.path.join(build_path, "Doc")
 bin_path = os.path.join(build_path, "Bin")
 data_path = os.path.join(build_path, "Data")
 
+env_python_path = os.path.dirname(sys.executable)
+env_translations_path = os.path.join(env_python_path, "Lib", "site-packages", "PySide6", "translations")
+
 system = platform.system()
 
 # Clean buildfolder and create build root folder
@@ -44,7 +47,8 @@ build_exe_options = {
     "zip_include_packages" : "*",
     "zip_exclude_packages" : [],
     "include_msvcr" : True,
-    "include_files" : ["Data", "Doc", "icon_large.png", "icon_multi.ico", ["Bin/" + system, "Bin/" + system]]
+    "include_files" : ["Data", "Doc", "icon_large.png", "icon_multi.ico", ["Bin/" + system, "Bin/" + system],
+                       [os.path.join(env_translations_path, "qtbase_de.qm"), os.path.join("lib/Pyside6/translations", "qtbase_de.qm")]]
 }
 
 base = None
@@ -71,7 +75,6 @@ removeFiles = [
     "lib/PySide6/resources/qtwebengine_resources_100p.pak",
     "lib/PySide6/resources/qtwebengine_resources_200p.pak",
     "lib/PySide6/resources/v8_context_snapshot.debug.bin",
-    "lib/PySide6/translations",
     "lib/PySide6/bin",
     "lib/PySide6/plugins/designer",
     "lib/PySide6/plugins/tls",
