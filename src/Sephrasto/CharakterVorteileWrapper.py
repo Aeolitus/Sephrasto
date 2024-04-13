@@ -94,12 +94,6 @@ class CharakterVorteileWrapper(QtCore.QObject):
         action.setShortcut("Ctrl+N")
         action.triggered.connect(self.load)
 
-        action = self.filterMenu.addAction("Lesezeichen")
-        action.setCheckable(True)
-        action.setChecked(True)
-        action.setShortcut("Ctrl+D")
-        action.triggered.connect(self.load)
-
         action = self.filterMenu.addAction("Voraussetzungen nicht erfüllt")
         action.setCheckable(True)
         action.setChecked(False)
@@ -120,7 +114,6 @@ class CharakterVorteileWrapper(QtCore.QObject):
 
         self.filterMenu.actions()[0].setChecked(True)
         self.filterMenu.actions()[1].setChecked(True)
-        self.filterMenu.actions()[2].setChecked(True)
         self.filterMenu.actions()[3].setChecked(False)
 
         for action in self.filterMenu.actions():
@@ -204,15 +197,16 @@ class CharakterVorteileWrapper(QtCore.QObject):
         # Cannot use class property to switch the font - qt wont update the visuals when the class is changed
         button = self.itemWidgets[name+"Favorite"]
         if name in Wolke.Char.vorteilFavoriten:
-            button.setStyleSheet(f"{Wolke.FontAwesomeCSS} max-width: {Hilfsmethoden.emToPixels(3.2)}px; max-height: {Hilfsmethoden.emToPixels(3.2)}px;")
+            button.setStyleSheet(f"QPushButton {{ {Wolke.FontAwesomeCSS} max-width: {Hilfsmethoden.emToPixels(3.2)}px; max-height: {Hilfsmethoden.emToPixels(3.2)}px; }}")
+            button.setToolTip("Klicke, damit der Vorteil nicht mehr als Favorit markiert wird.")
         else:
-            button.setStyleSheet(f"{Wolke.FontAwesomeRegularCSS} max-width: {Hilfsmethoden.emToPixels(3.2)}px; max-height: {Hilfsmethoden.emToPixels(3.2)}px;")
+            button.setStyleSheet(f"QPushButton {{ {Wolke.FontAwesomeRegularCSS} max-width: {Hilfsmethoden.emToPixels(3.2)}px; max-height: {Hilfsmethoden.emToPixels(3.2)}px; }}")
+            button.setToolTip("Klicke, damit der Vorteil als Favorit markiert wird.\nFavoriten werden unabhängig von den Filter-Einstellungen angezeigt.")
         
     def load(self):
         showPurchased = self.filterMenu.actions()[0].isChecked()
         showUnpurchased = self.filterMenu.actions()[1].isChecked()
-        showFavorites = self.filterMenu.actions()[2].isChecked()
-        showUnvailable = self.filterMenu.actions()[3].isChecked()
+        showUnvailable = self.filterMenu.actions()[2].isChecked()
 
         self.ui.treeWidget.blockSignals(True)
 
@@ -279,7 +273,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
                     chi.setForeground(0, QtGui.QBrush())
 
                 if vorteil.name in Wolke.Char.vorteilFavoriten:
-                    chi.setHidden(not showFavorites)
+                    chi.setHidden(False)
 
                 if not chi.isHidden():
                     hasVisibleItems = True
