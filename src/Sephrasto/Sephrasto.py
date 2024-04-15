@@ -176,7 +176,7 @@ class MainWindowWrapper(object):
         # Install translator. We dont have our own translation resource but we can load 
         # the german resource that qt provides i.e. for default-button and shortcut translations
         translator = QtCore.QTranslator(self.app)
-        if translator.load(QLocale(QLocale.German, QLocale.Germany), 'qtbase', '_', QtCore.QLibraryInfo.location(QtCore.QLibraryInfo.TranslationsPath)):
+        if translator.load(QLocale(QLocale.German, QLocale.Germany), 'qtbase', '_', QtCore.QLibraryInfo.path(QtCore.QLibraryInfo.TranslationsPath)):
             self.app.installTranslator(translator)
         else:
             logging.warning("Failed to load translation resource.")
