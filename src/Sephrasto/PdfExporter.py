@@ -571,20 +571,27 @@ class PdfExporter(object):
         koAbbreviations = Wolke.DB.einstellungen["Charsheet: Talent-Abkürzungen Kosten"].wert
 
         for i in range(0, min(self.CharakterBogen.maxÜberTalente, len(überTalente))):
+            talent = überTalente[i]
             base = 'Uebertal' + str(i+1)
-            fields[base + 'NA'] = überTalente[i].anzeigenameExt
-            fields[base + 'SE'] = überTalente[i].referenz
-            pw = überTalente[i].probenwert
+            fields[base + 'NA'] = talent.anzeigenameExt
+            if talent.name in Wolke.Char.talentInfos:
+                fields[base + 'NA'] += "; " + "; ".join(Wolke.Char.talentInfos[talent.name])
+            fields[base + 'SE'] = talent.referenz
+            pw = talent.probenwert
             if pw != -1:
-                fields[base + 'PW'] = str(pw)
-            fields[base + 'VO'] = überTalente[i].vorbereitungszeit
-            fields[base + 'WD'] = überTalente[i].wirkungsdauer
+                suffix = ""
+                if talent.name in Wolke.Char.talentMods:
+                    pw += Wolke.Char.talentMods[talent.name]
+                    suffix = "*"
+                fields[base + 'PW'] = str(pw) + suffix
+            fields[base + 'VO'] = talent.vorbereitungszeit
+            fields[base + 'WD'] = talent.wirkungsdauer
             for a in wdAbbreviations:
                 fields[base + 'WD'] = fields[base + 'WD'].replace(a, wdAbbreviations[a])
-            fields[base + 'KO'] = überTalente[i].energieKosten
+            fields[base + 'KO'] = talent.energieKosten
             for a in koAbbreviations:
                 fields[base + 'KO'] = fields[base + 'KO'].replace(a, koAbbreviations[a])
-            fields[base + 'RE'] = überTalente[i].reichweite
+            fields[base + 'RE'] = talent.reichweite
 
         del überTalente[:min(self.CharakterBogen.maxÜberTalente, len(überTalente))]
 

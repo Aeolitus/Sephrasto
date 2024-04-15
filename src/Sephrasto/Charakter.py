@@ -89,6 +89,8 @@ class Char():
         self.freieFertigkeiten = []
         self.freieFertigkeitenNumKostenlos = Wolke.DB.einstellungen["FreieFertigkeiten: Anzahl Kostenlos"].wert
         self.talente = {}
+        self.talentMods = {}
+        self.talentInfos = {}
 
         #Fünfter Block: Ausrüstung etc
         self.rüstung = []
@@ -176,7 +178,8 @@ class Char():
             'getAusrüstung' : lambda: copy.deepcopy(self.ausrüstung), 
             'modifyFertigkeitBasiswert' : lambda name, mod: setattr(self.fertigkeiten[name], 'basiswertMod', self.fertigkeiten[name].basiswertMod + mod) if name in self.fertigkeiten else None, 
             'modifyÜbernatürlicheFertigkeitBasiswert' : lambda name, mod: setattr(self.übernatürlicheFertigkeiten[name], 'basiswertMod', self.übernatürlicheFertigkeiten[name].basiswertMod + mod) if name in self.übernatürlicheFertigkeiten else None, 
-            'modifyTalent' : self.API_modifyTalent, 
+            'modifyTalentProbenwert' : self.API_modifyTalentProbenwert, 
+            'addTalentInfo' : self.API_addTalentInfo, 
             'addTalent' : self.API_addTalent, 
 
             #Kampfstil
@@ -282,15 +285,21 @@ class Char():
         exec(script, scriptAPI)
         self._heimat = heimat
 
-    def API_modifyTalent(self, fertigkeit, talent, condition, mod):
-        fert = self.fertigkeiten[fertigkeit]
-        if not talent in fert.talentMods:
-            fert.talentMods[talent] = {}
+    def API_modifyTalentProbenwert(self, talent, mod):
+        if talent not in Wolke.DB.talente:
+            return
+        if talent not in self.talentMods:
+            self.talentMods[talent] = 0      
+        self.talentMods[talent] += mod
+        if self.talentMods[talent] == 0:
+            del self.talentMods[talent]
 
-        if not condition in fert.talentMods[talent]:
-            fert.talentMods[talent][condition] = mod
-        else:
-            fert.talentMods[talent][condition] += mod
+    def API_addTalentInfo(self, talent, info):
+        if talent not in Wolke.DB.talente:
+            return
+        if talent not in self.talentInfos:
+            self.talentInfos[talent] = []
+        self.talentInfos[talent].append(info)
 
     def API_addTalent(self, talent, kosten = -1, requiredÜberFert = None):
         fertVoraussetzungen = ""
@@ -421,11 +430,12 @@ class Char():
 
         for fert in self.fertigkeiten:
             self.fertigkeiten[fert].basiswertMod = 0
-            self.fertigkeiten[fert].talentMods = {}
 
         for fert in self.übernatürlicheFertigkeiten:
             self.übernatürlicheFertigkeiten[fert].basiswertMod = 0
-            self.übernatürlicheFertigkeiten[fert].talentMods = {}
+
+        self.talentMods = {} # for vorteil scripts, only used in export { talentnname1 : { condition1 : mod1, condition2 : mod2, ... }, talentname2 : {}, ... 
+        self.talentInfos = {}
 
         # Update attribute, abegeleitet werte, energien
         for attribut in self.attribute.values():

@@ -75,7 +75,18 @@ class CharakterPrintUtility:
     def getTalente(char, fertigkeit, nurHöchsteFertigkeit = False):
         result = []
         talente = [Wolke.DB.talente[t] for t in fertigkeit.gekaufteTalente]
-        talente.extend([Wolke.DB.talente[t] for t in fertigkeit.talentMods if not t in fertigkeit.gekaufteTalente])
+
+        # Profane Talente mit mods hinzufügen, falls nicht gekauft
+        for t in char.talentMods:
+            talent = Wolke.DB.talente[t]
+            if talent.spezialTalent:
+                continue
+            if fertigkeit.name not in talent.fertigkeiten:
+               continue
+            if talent.name in fertigkeit.gekaufteTalente:
+               continue
+            talente.append(talent)
+
         talente = sorted(talente, key = lambda t : Hilfsmethoden.unicodeCaseInsensitive(t.anzeigename))
 
         for el in talente:
@@ -92,19 +103,15 @@ class CharakterPrintUtility:
                     continue
 
             name = char.talente[el.name].anzeigenameExt if el.name in char.talente else el.anzeigename
-            if el.name in fertigkeit.talentMods:
-                for condition,mod in sorted(fertigkeit.talentMods[el.name].items()):
-                    modPrefix = ""
-                    if isinstance(mod, (int, float)):
-                        if mod == 0:
-                            continue
-                        if mod >= 0:
-                            modPrefix = "+"
-
-                    if condition:
-                        name += " " + condition
-                    name += " " + modPrefix + str(mod)        
-            if not el.name in fertigkeit.gekaufteTalente:
+            if el.name in char.talentMods:
+                modPrefix = ""
+                mod = char.talentMods[el.name]
+                if mod >= 0:
+                    modPrefix = "+"
+                name += " " + modPrefix + str(mod)
+            if el.name in char.talentInfos:
+                name += "; " + "; ".join(char.talentInfos[el.name])
+            if el.name not in fertigkeit.gekaufteTalente:
                 name = "(" + name + ")"
             result.append(name)
 

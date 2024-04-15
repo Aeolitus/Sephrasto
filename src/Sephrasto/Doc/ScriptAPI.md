@@ -45,10 +45,12 @@ Die folgenden Funktionen stehen neben Python-Builtins wie 'round' zur Verfügung
 - Fertigkeiten Basis: ```modifyFertigkeitBasiswert : <Parameter: Fertigkeits-Name, Modifikator>```<br />
 Hinweis: Dies ist nützlich, um sich permanente Erleichterungen auf eine Fertigkeit nicht merken zu müssen. Diese Modifikation wird bei Voraussetzungen der Typen "Fertigkeit" und "Talent" nicht eingerechnet!
 - Übernatürliche Fertigkeiten Basis: ```modifyÜbernatürlicheFertigkeitBasiswert : <Parameter: Fertigkeits-Name, Modifikator>```
-- Talente modifizieren: ```modifyTalent : <Parameter: Fertigkeits-Name (profan), Talent-Name, Bedingung, Modifikator>```<br />
-Beispiel mit Bedingung: modifyTalent('Beeinflussung', 'Überreden', 'Rededuell', 2)<br />
-Beispiel ohne Bedingung: modifyTalent('Beeinflussung', 'Überreden', '', 2)<br />
-Hinweis: Dies ist nützlich, um permanente Erleichterungen auf ein Talent (ggf. unter einer bestimmten Bedingung) direkt in der Talentliste aufzuführen. Ist das Talent noch nicht erworben, wird das ganze Talent mit der Modifizierung in Klammern gesetzt. Die Modifizierung wird ausschließlich im Charakterbogen eingerechnet!
+- Talente Probenwert: ```modifyTalentProbenwert : <Parameter: Talent-Name, Modifikator>```<br />
+Beispiel: modifyTalentProbenwert('Überreden', 2)<br />
+Hinweis: Dies ist nützlich, um permanente Erleichterungen auf ein Talent direkt in der Talentliste aufzuführen. Ist das Talent noch nicht erworben, wird das ganze Talent mit der Modifizierung in Klammern gesetzt. Die Modifizierung wird ausschließlich im Charakterbogen eingerechnet!
+- Talente zusätzliche Informationen: ```talentAddInfo : <Parameter: Talent-Name, Infotext>```<br />
+Beispiel: addTalentInfo('Überreden', "Rededuell +2")<br />
+Hinweis: Dies ist nützlich, um besondere Effekte wie beispielsweise von manchen Vorteilen direkt bei den Talenten im Charakterbogen aufzuführen.
 - Talente hinzufügen: ```addTalent : <Parameter: Talent-Name, Kosten (optional), Benötigte übernatürliche Fertigkeit (optional)>```<br />
 Hinweis: Das Script fügt dem Talent den Vorteil zu dem es gehört als Voraussetzung hinzu. Sobald der Vorteil also abgewählt wird, verliert der Charakter auch das Talent. Mit dem Kosten-Parameter können die Standard-Talentkosten geändert werden (bei -1 werden sie nicht verändert). Optional kann außerdem eine übernatürliche Fertigkeit mit angegeben werden, die benötigt wird - falls der Charakter sie nicht besitzt, macht das Script nichts; diese wird dannauch als Voraussetzung hinzugefügt.<br />
 Beispiel ohne Bedingung und Kostenveränderung: addTalent("Spurlos Trittlos")<br />
