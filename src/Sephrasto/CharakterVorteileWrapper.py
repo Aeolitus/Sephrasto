@@ -180,8 +180,8 @@ class CharakterVorteileWrapper(QtCore.QObject):
                 self.updateFavoriteButton(el)
                 self.ui.treeWidget.setItemWidget(child, 2, favoriteButton)
 
-                if vorteil.kommentarErlauben and child.checkState(0) == QtCore.Qt.Checked:
-                    self.handleAddKommentarWidget(el, child)
+                if child.checkState(0) == QtCore.Qt.Checked:
+                    self.handleAddSubwidgets(el, child)
 
         self.ui.treeWidget.blockSignals(False)
 
@@ -242,12 +242,11 @@ class CharakterVorteileWrapper(QtCore.QObject):
                 if vorteil.name in Wolke.Char.vorteile:
                     vorteil = Wolke.Char.vorteile[vorteil.name]
                     chi.setCheckState(0, QtCore.Qt.Checked)
-                    if vorteil.kommentarErlauben:
-                        self.handleAddKommentarWidget(vorteil.name, chi)
+                    self.handleAddSubwidgets(vorteil.name, chi)
                     chi.setHidden(isFiltered or not showPurchased)
                 else:
                     chi.setCheckState(0, QtCore.Qt.Unchecked)
-                    # remove potential kommentar widget (call doesnt do anything if it doesnt exist)
+                    # remove potential subwidgets (call doesnt do anything if it doesnt exist)
                     chi.takeChild(0)
                     # restore potential widget changes by minderpakt
                     if vorteil.name in self.itemWidgets:
@@ -294,31 +293,59 @@ class CharakterVorteileWrapper(QtCore.QObject):
         self.updateInfo()
 
     def kommentarChanged(self, text, name):
-        if name in Wolke.Char.vorteile and Wolke.Char.vorteile[name].kommentarErlauben:
-            Wolke.Char.vorteile[name].kommentar = text
+        vorteil = Wolke.Char.vorteile[name]
+        vorteil.kommentar = text
+        self.currentVort = name
+        self.modified.emit()
+        self.updateInfo()
+        
+    def editorScriptChanged(self, text, name, widget):
+        vorteil = Wolke.Char.vorteile[name]      
+        vorteil.editorScript = text            
         self.currentVort = name
         self.modified.emit()
         self.updateInfo()
 
-    def handleAddKommentarWidget(self, name, parent):
-        if not Wolke.DB.vorteile[name].kommentarErlauben or parent.childCount() > 0:
+        if vorteil.editorScriptFault:
+            widget.setStyleSheet("border: 1px solid red;")
+            widget.setToolTip(vorteil.editorScriptFault)
+        else:
+            widget.setStyleSheet("")
+            widget.setToolTip("")
+
+    def handleAddSubwidgets(self, name, parent):
+        if parent.childCount() > 0 or name not in Wolke.Char.vorteile:
             return
-        kommentar = ""
-        if name in Wolke.Char.vorteile:
-            kommentar = Wolke.Char.vorteile[name].kommentar
+        vorteil = Wolke.Char.vorteile[name]
+
+        if not (vorteil.kommentarErlauben or vorteil.editorScriptErlauben):
+            return
+
+        layout = QtWidgets.QFormLayout()
+        layout.setContentsMargins(0, 0, 0, 0)
+        layout.setFormAlignment(QtCore.Qt.AlignVCenter)
+        rowHeight = 0
+        if vorteil.kommentarErlauben:
+            text = QtWidgets.QLineEdit(vorteil.kommentar)
+            text.setReadOnly(name == "Minderpakt")
+            layout.addRow("Kommentar", text)
+            text.textChanged.connect(partial(self.kommentarChanged, name=name))
+            rowHeight += self.rowHeight
+
+        if vorteil.editorScriptErlauben:
+            text = QtWidgets.QLineEdit(vorteil.editorScript)
+            layout.addRow("Script", text)
+            text.textChanged.connect(partial(self.editorScriptChanged, name=name, widget=text))
+            if vorteil.editorScriptFault:
+                text.setStyleSheet("border: 1px solid red;")
+                text.setToolTip(vorteil.editorScriptFault)
+            rowHeight += self.rowHeight
 
         w = QtWidgets.QWidget()
-        layout = QtWidgets.QHBoxLayout()
-        layout.setContentsMargins(0, 0, 0, 0)
-        label = QtWidgets.QLabel("Kommentar")
-        text = QtWidgets.QLineEdit(kommentar)
-        text.setReadOnly(name == "Minderpakt")
-        layout.addWidget(label)
-        layout.addWidget(text)
         w.setLayout(layout)
-        text.textChanged.connect(partial(self.kommentarChanged, name=name))
         child = QtWidgets.QTreeWidgetItem(parent)
-        child.setSizeHint(0, QtCore.QSize(0, self.rowHeight))
+
+        child.setSizeHint(0, QtCore.QSize(0, rowHeight))
         self.ui.treeWidget.setItemWidget(child,0,w)
         parent.setExpanded(True)
 
@@ -359,7 +386,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
         if cs == QtCore.Qt.Checked and name not in Wolke.Char.vorteile and name != "":
             Wolke.Char.addVorteil(name)
             manualUpdate = self.handleAddMinderpakt(name, item)
-            self.handleAddKommentarWidget(name, item)
+            self.handleAddSubwidgets(name, item)   
         elif cs != QtCore.Qt.Checked and name in Wolke.Char.vorteile:
             Wolke.Char.removeVorteil(name)
 

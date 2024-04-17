@@ -50,6 +50,7 @@ class DatenbankEditVorteilWrapper(DatenbankElementEditorBase):
 
         self.ui.checkVariable.setChecked(vorteil.variableKosten)
         self.ui.checkKommentar.setChecked(vorteil.kommentarErlauben)
+        self.ui.checkScript.setChecked(vorteil.editorScriptErlauben)
         self.ui.checkVariable.clicked.connect(self.variableKostenChanged)
         self.variableKostenChanged()
 
@@ -115,6 +116,7 @@ class DatenbankEditVorteilWrapper(DatenbankElementEditorBase):
         vorteil.kategorie = self.ui.comboTyp.currentIndex()
         vorteil.variableKosten = self.ui.checkVariable.isChecked()
         vorteil.kommentarErlauben = self.ui.checkKommentar.isChecked()
+        vorteil.editorScriptErlauben = self.ui.checkScript.isChecked()
         vorteil.scriptPrio = self.ui.spinScriptPrio.value()
         self.scriptEditor.update(vorteil)
         vorteil.cheatsheetAuflisten = self.ui.checkCheatsheet.isChecked()

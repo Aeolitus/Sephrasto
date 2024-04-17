@@ -463,15 +463,19 @@ class Char():
         EventBus.doAction("charakter_aktualisieren_vorteilscripts", { "charakter" : self })
         vorteileByPrio = collections.defaultdict(list)
         for vorteil in self.vorteile.values():
-            if not vorteil.script:
+            if not (vorteil.script or vorteil.editorScript):
                 continue
             vorteileByPrio[vorteil.scriptPrio].append(vorteil)
 
         for key in sorted(vorteileByPrio):
             for vort in vorteileByPrio[key]:
-                logging.info("Character: applying script for Vorteil " + vort.name)
                 self.currentVorteil = vort.name
-                vort.executeScript()
+                if vort.script:
+                    logging.info(f"Character: applying script for Vorteil {vort.name} ({vort.script})")
+                    vort.executeScript()
+                if vort.editorScript:
+                    logging.info(f"Character: applying editor script for Vorteil {vort.name} ({vort.editorScript})")
+                    vort.executeEditorScript()
         self.currentVorteil = None
 
         # Update talente - this only updates values relevant for display purposes (cached probenwert, hauptfertigkeit),

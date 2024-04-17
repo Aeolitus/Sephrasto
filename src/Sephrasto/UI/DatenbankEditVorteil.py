@@ -27,11 +27,23 @@ class Ui_dialog(object):
         if not dialog.objectName():
             dialog.setObjectName(u"dialog")
         dialog.setWindowModality(Qt.ApplicationModal)
-        dialog.resize(628, 1086)
+        dialog.resize(628, 978)
         self.gridLayout_2 = QGridLayout(dialog)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.gridLayout = QGridLayout()
         self.gridLayout.setObjectName(u"gridLayout")
+        self.label_41 = QLabel(dialog)
+        self.label_41.setObjectName(u"label_41")
+        self.label_41.setMinimumSize(QSize(110, 0))
+
+        self.gridLayout.addWidget(self.label_41, 11, 0, 1, 1)
+
+        self.checkCheatsheet = QCheckBox(dialog)
+        self.checkCheatsheet.setObjectName(u"checkCheatsheet")
+        self.checkCheatsheet.setChecked(True)
+
+        self.gridLayout.addWidget(self.checkCheatsheet, 8, 1, 1, 1)
+
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
@@ -57,11 +69,29 @@ class Ui_dialog(object):
 
         self.gridLayout.addLayout(self.horizontalLayout_2, 4, 1, 1, 1)
 
-        self.label_4 = QLabel(dialog)
-        self.label_4.setObjectName(u"label_4")
-        self.label_4.setMinimumSize(QSize(110, 0))
+        self.label = QLabel(dialog)
+        self.label.setObjectName(u"label")
 
-        self.gridLayout.addWidget(self.label_4, 8, 0, 1, 1)
+        self.gridLayout.addWidget(self.label, 1, 0, 1, 1)
+
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer)
+
+        self.comboNachkauf = QComboBox(dialog)
+        self.comboNachkauf.addItem("")
+        self.comboNachkauf.addItem("")
+        self.comboNachkauf.addItem("")
+        self.comboNachkauf.addItem("")
+        self.comboNachkauf.addItem("")
+        self.comboNachkauf.setObjectName(u"comboNachkauf")
+
+        self.horizontalLayout.addWidget(self.comboNachkauf)
+
+
+        self.gridLayout.addLayout(self.horizontalLayout, 3, 1, 1, 1)
 
         self.groupBox = QGroupBox(dialog)
         self.groupBox.setObjectName(u"groupBox")
@@ -130,140 +160,12 @@ class Ui_dialog(object):
         self.gridLayout_3.addLayout(self.horizontalLayout_3, 1, 0, 1, 1)
 
 
-        self.gridLayout.addWidget(self.groupBox, 12, 1, 1, 1)
+        self.gridLayout.addWidget(self.groupBox, 13, 1, 1, 1)
 
-        self.label_7 = QLabel(dialog)
-        self.label_7.setObjectName(u"label_7")
+        self.label_3 = QLabel(dialog)
+        self.label_3.setObjectName(u"label_3")
 
-        self.gridLayout.addWidget(self.label_7, 6, 0, 1, 1)
-
-        self.horizontalLayout_4 = QHBoxLayout()
-        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.leScript = QLineEdit(dialog)
-        self.leScript.setObjectName(u"leScript")
-
-        self.horizontalLayout_4.addWidget(self.leScript)
-
-        self.spinScriptPrio = QSpinBox(dialog)
-        self.spinScriptPrio.setObjectName(u"spinScriptPrio")
-        self.spinScriptPrio.setButtonSymbols(QAbstractSpinBox.PlusMinus)
-        self.spinScriptPrio.setMinimum(-10)
-        self.spinScriptPrio.setMaximum(10)
-        self.spinScriptPrio.setSingleStep(1)
-        self.spinScriptPrio.setValue(0)
-
-        self.horizontalLayout_4.addWidget(self.spinScriptPrio)
-
-
-        self.gridLayout.addLayout(self.horizontalLayout_4, 10, 1, 1, 1)
-
-        self.horizontalLayout_5 = QHBoxLayout()
-        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
-        self.comboLinkKategorie = QComboBox(dialog)
-        self.comboLinkKategorie.addItem("")
-        self.comboLinkKategorie.addItem("")
-        self.comboLinkKategorie.addItem("")
-        self.comboLinkKategorie.addItem("")
-        self.comboLinkKategorie.setObjectName(u"comboLinkKategorie")
-        self.comboLinkKategorie.setMinimumSize(QSize(150, 0))
-        self.comboLinkKategorie.setMaximumSize(QSize(150, 16777215))
-
-        self.horizontalLayout_5.addWidget(self.comboLinkKategorie)
-
-        self.comboLinkElement = QComboBox(dialog)
-        self.comboLinkElement.setObjectName(u"comboLinkElement")
-
-        self.horizontalLayout_5.addWidget(self.comboLinkElement)
-
-
-        self.gridLayout.addLayout(self.horizontalLayout_5, 11, 1, 1, 1)
-
-        self.checkVariable = QCheckBox(dialog)
-        self.checkVariable.setObjectName(u"checkVariable")
-
-        self.gridLayout.addWidget(self.checkVariable, 5, 1, 1, 1)
-
-        self.checkKommentar = QCheckBox(dialog)
-        self.checkKommentar.setObjectName(u"checkKommentar")
-
-        self.gridLayout.addWidget(self.checkKommentar, 6, 1, 1, 1)
-
-        self.label_41 = QLabel(dialog)
-        self.label_41.setObjectName(u"label_41")
-        self.label_41.setMinimumSize(QSize(110, 0))
-
-        self.gridLayout.addWidget(self.label_41, 10, 0, 1, 1)
-
-        self.horizontalLayout = QHBoxLayout()
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout.addItem(self.horizontalSpacer)
-
-        self.comboNachkauf = QComboBox(dialog)
-        self.comboNachkauf.addItem("")
-        self.comboNachkauf.addItem("")
-        self.comboNachkauf.addItem("")
-        self.comboNachkauf.addItem("")
-        self.comboNachkauf.addItem("")
-        self.comboNachkauf.setObjectName(u"comboNachkauf")
-
-        self.horizontalLayout.addWidget(self.comboNachkauf)
-
-
-        self.gridLayout.addLayout(self.horizontalLayout, 3, 1, 1, 1)
-
-        self.comboTyp = QComboBox(dialog)
-        self.comboTyp.setObjectName(u"comboTyp")
-
-        self.gridLayout.addWidget(self.comboTyp, 2, 1, 1, 1)
-
-        self.label_12 = QLabel(dialog)
-        self.label_12.setObjectName(u"label_12")
-
-        self.gridLayout.addWidget(self.label_12, 5, 0, 1, 1)
-
-        self.teVoraussetzungen = QPlainTextEdit(dialog)
-        self.teVoraussetzungen.setObjectName(u"teVoraussetzungen")
-        self.teVoraussetzungen.setMaximumSize(QSize(16777215, 250))
-
-        self.gridLayout.addWidget(self.teVoraussetzungen, 8, 1, 1, 1)
-
-        self.label_6 = QLabel(dialog)
-        self.label_6.setObjectName(u"label_6")
-
-        self.gridLayout.addWidget(self.label_6, 2, 0, 1, 1)
-
-        self.leName = QLineEdit(dialog)
-        self.leName.setObjectName(u"leName")
-
-        self.gridLayout.addWidget(self.leName, 1, 1, 1, 1)
-
-        self.label_5 = QLabel(dialog)
-        self.label_5.setObjectName(u"label_5")
-
-        self.gridLayout.addWidget(self.label_5, 9, 0, 1, 1)
-
-        self.label_9 = QLabel(dialog)
-        self.label_9.setObjectName(u"label_9")
-        self.label_9.setIndent(0)
-
-        self.gridLayout.addWidget(self.label_9, 11, 0, 1, 1)
-
-        self.label_11 = QLabel(dialog)
-        self.label_11.setObjectName(u"label_11")
-
-        self.gridLayout.addWidget(self.label_11, 12, 0, 1, 1)
-
-        self.label_2 = QLabel(dialog)
-        self.label_2.setObjectName(u"label_2")
-
-        self.gridLayout.addWidget(self.label_2, 4, 0, 1, 1)
-
-        self.label_10 = QLabel(dialog)
-        self.label_10.setObjectName(u"label_10")
-
-        self.gridLayout.addWidget(self.label_10, 7, 0, 1, 1)
+        self.gridLayout.addWidget(self.label_3, 3, 0, 1, 1)
 
         self.tabWidget = QTabWidget(dialog)
         self.tabWidget.setObjectName(u"tabWidget")
@@ -358,12 +260,110 @@ class Ui_dialog(object):
 
         self.tabWidget.addTab(self.tab_3, "")
 
-        self.gridLayout.addWidget(self.tabWidget, 9, 1, 1, 1)
+        self.gridLayout.addWidget(self.tabWidget, 10, 1, 1, 1)
 
-        self.label = QLabel(dialog)
-        self.label.setObjectName(u"label")
+        self.checkKommentar = QCheckBox(dialog)
+        self.checkKommentar.setObjectName(u"checkKommentar")
 
-        self.gridLayout.addWidget(self.label, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.checkKommentar, 6, 1, 1, 1)
+
+        self.label_10 = QLabel(dialog)
+        self.label_10.setObjectName(u"label_10")
+
+        self.gridLayout.addWidget(self.label_10, 8, 0, 1, 1)
+
+        self.checkVariable = QCheckBox(dialog)
+        self.checkVariable.setObjectName(u"checkVariable")
+
+        self.gridLayout.addWidget(self.checkVariable, 5, 1, 1, 1)
+
+        self.label_11 = QLabel(dialog)
+        self.label_11.setObjectName(u"label_11")
+
+        self.gridLayout.addWidget(self.label_11, 13, 0, 1, 1)
+
+        self.horizontalLayout_5 = QHBoxLayout()
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.comboLinkKategorie = QComboBox(dialog)
+        self.comboLinkKategorie.addItem("")
+        self.comboLinkKategorie.addItem("")
+        self.comboLinkKategorie.addItem("")
+        self.comboLinkKategorie.addItem("")
+        self.comboLinkKategorie.setObjectName(u"comboLinkKategorie")
+        self.comboLinkKategorie.setMinimumSize(QSize(150, 0))
+        self.comboLinkKategorie.setMaximumSize(QSize(150, 16777215))
+
+        self.horizontalLayout_5.addWidget(self.comboLinkKategorie)
+
+        self.comboLinkElement = QComboBox(dialog)
+        self.comboLinkElement.setObjectName(u"comboLinkElement")
+
+        self.horizontalLayout_5.addWidget(self.comboLinkElement)
+
+
+        self.gridLayout.addLayout(self.horizontalLayout_5, 12, 1, 1, 1)
+
+        self.label_5 = QLabel(dialog)
+        self.label_5.setObjectName(u"label_5")
+
+        self.gridLayout.addWidget(self.label_5, 10, 0, 1, 1)
+
+        self.comboTyp = QComboBox(dialog)
+        self.comboTyp.setObjectName(u"comboTyp")
+
+        self.gridLayout.addWidget(self.comboTyp, 2, 1, 1, 1)
+
+        self.label_2 = QLabel(dialog)
+        self.label_2.setObjectName(u"label_2")
+
+        self.gridLayout.addWidget(self.label_2, 4, 0, 1, 1)
+
+        self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.leScript = QLineEdit(dialog)
+        self.leScript.setObjectName(u"leScript")
+
+        self.horizontalLayout_4.addWidget(self.leScript)
+
+        self.spinScriptPrio = QSpinBox(dialog)
+        self.spinScriptPrio.setObjectName(u"spinScriptPrio")
+        self.spinScriptPrio.setButtonSymbols(QAbstractSpinBox.PlusMinus)
+        self.spinScriptPrio.setMinimum(-10)
+        self.spinScriptPrio.setMaximum(10)
+        self.spinScriptPrio.setSingleStep(1)
+        self.spinScriptPrio.setValue(0)
+
+        self.horizontalLayout_4.addWidget(self.spinScriptPrio)
+
+
+        self.gridLayout.addLayout(self.horizontalLayout_4, 11, 1, 1, 1)
+
+        self.label_12 = QLabel(dialog)
+        self.label_12.setObjectName(u"label_12")
+
+        self.gridLayout.addWidget(self.label_12, 5, 0, 1, 1)
+
+        self.teVoraussetzungen = QPlainTextEdit(dialog)
+        self.teVoraussetzungen.setObjectName(u"teVoraussetzungen")
+        self.teVoraussetzungen.setMaximumSize(QSize(16777215, 250))
+
+        self.gridLayout.addWidget(self.teVoraussetzungen, 9, 1, 1, 1)
+
+        self.leName = QLineEdit(dialog)
+        self.leName.setObjectName(u"leName")
+
+        self.gridLayout.addWidget(self.leName, 1, 1, 1, 1)
+
+        self.label_9 = QLabel(dialog)
+        self.label_9.setObjectName(u"label_9")
+        self.label_9.setIndent(0)
+
+        self.gridLayout.addWidget(self.label_9, 12, 0, 1, 1)
+
+        self.label_6 = QLabel(dialog)
+        self.label_6.setObjectName(u"label_6")
+
+        self.gridLayout.addWidget(self.label_6, 2, 0, 1, 1)
 
         self.warning = QLabel(dialog)
         self.warning.setObjectName(u"warning")
@@ -373,16 +373,26 @@ class Ui_dialog(object):
 
         self.gridLayout.addWidget(self.warning, 0, 0, 1, 2)
 
-        self.checkCheatsheet = QCheckBox(dialog)
-        self.checkCheatsheet.setObjectName(u"checkCheatsheet")
-        self.checkCheatsheet.setChecked(True)
+        self.label_7 = QLabel(dialog)
+        self.label_7.setObjectName(u"label_7")
 
-        self.gridLayout.addWidget(self.checkCheatsheet, 7, 1, 1, 1)
+        self.gridLayout.addWidget(self.label_7, 6, 0, 1, 1)
 
-        self.label_3 = QLabel(dialog)
-        self.label_3.setObjectName(u"label_3")
+        self.label_4 = QLabel(dialog)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setMinimumSize(QSize(110, 0))
 
-        self.gridLayout.addWidget(self.label_3, 3, 0, 1, 1)
+        self.gridLayout.addWidget(self.label_4, 9, 0, 1, 1)
+
+        self.label_8 = QLabel(dialog)
+        self.label_8.setObjectName(u"label_8")
+
+        self.gridLayout.addWidget(self.label_8, 7, 0, 1, 1)
+
+        self.checkScript = QCheckBox(dialog)
+        self.checkScript.setObjectName(u"checkScript")
+
+        self.gridLayout.addWidget(self.checkScript, 7, 1, 1, 1)
 
 
         self.gridLayout_2.addLayout(self.gridLayout, 2, 0, 1, 1)
@@ -414,8 +424,16 @@ class Ui_dialog(object):
 
     def retranslateUi(self, dialog):
         dialog.setWindowTitle(QCoreApplication.translate("dialog", u"Sephrasto - Vorteil bearbeiten...", None))
+        self.label_41.setText(QCoreApplication.translate("dialog", u"Script / Priorit\u00e4t", None))
+        self.checkCheatsheet.setText(QCoreApplication.translate("dialog", u"Auflisten", None))
         self.spinKosten.setSuffix(QCoreApplication.translate("dialog", u" EP", None))
-        self.label_4.setText(QCoreApplication.translate("dialog", u"Voraussetzungen", None))
+        self.label.setText(QCoreApplication.translate("dialog", u"Vorteilsname", None))
+        self.comboNachkauf.setItemText(0, QCoreApplication.translate("dialog", u"h\u00e4ufig", None))
+        self.comboNachkauf.setItemText(1, QCoreApplication.translate("dialog", u"\u00fcblich", None))
+        self.comboNachkauf.setItemText(2, QCoreApplication.translate("dialog", u"selten", None))
+        self.comboNachkauf.setItemText(3, QCoreApplication.translate("dialog", u"extrem selten", None))
+        self.comboNachkauf.setItemText(4, QCoreApplication.translate("dialog", u"nicht m\u00f6glich", None))
+
         self.groupBox.setTitle("")
         self.buttonVerweisUp.setText(QCoreApplication.translate("dialog", u"^", None))
         self.buttonVerweisUp.setProperty("class", QCoreApplication.translate("dialog", u"icon", None))
@@ -433,37 +451,7 @@ class Ui_dialog(object):
 
         self.buttonVerweisAdd.setText(QCoreApplication.translate("dialog", u"+", None))
         self.buttonVerweisAdd.setProperty("class", QCoreApplication.translate("dialog", u"icon", None))
-        self.label_7.setText(QCoreApplication.translate("dialog", u"Kommentar", None))
-#if QT_CONFIG(tooltip)
-        self.leScript.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>In diesem Feld kannst du ein Python-Skript einf\u00fcgen, die beim Erwerb des Vorteils ausgef\u00fchrt werden. Siehe &quot;Skripte f\u00fcr Abgeleitete Werte, Vorteile und Waffeneigenschaften&quot; in der Sephrasto-Hilfe f\u00fcr verf\u00fcgbare Funktionen und Beispiele.</p></body></html>", None))
-#endif // QT_CONFIG(tooltip)
-#if QT_CONFIG(tooltip)
-        self.spinScriptPrio.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>Die Skript-Priorit\u00e4t legt die Reihenfolge der Auswertung fest. 0 ist Standard, negative Werte werden davor, positive Werte danach ausgewertet. Dies ist relevant, falls bspw. die INI verdoppelt werden soll nachdem Kampfreflexe eingerechnet wurde. In diesem Fall sollte die Skript-Priorit\u00e4t h\u00f6her als die von Kampfreflexe sein.</p></body></html>", None))
-#endif // QT_CONFIG(tooltip)
-        self.comboLinkKategorie.setItemText(0, QCoreApplication.translate("dialog", u"Nicht verkn\u00fcpfen", None))
-        self.comboLinkKategorie.setItemText(1, QCoreApplication.translate("dialog", u"Regel", None))
-        self.comboLinkKategorie.setItemText(2, QCoreApplication.translate("dialog", u"\u00dcbernat. Talent", None))
-        self.comboLinkKategorie.setItemText(3, QCoreApplication.translate("dialog", u"Vorteil", None))
-
-        self.checkVariable.setText(QCoreApplication.translate("dialog", u"Kosten sind durch Nutzer \u00e4nderbar", None))
-        self.checkKommentar.setText(QCoreApplication.translate("dialog", u"Feld f\u00fcr Nutzerkommentare hinzuf\u00fcgen", None))
-        self.label_41.setText(QCoreApplication.translate("dialog", u"Script / Priorit\u00e4t", None))
-        self.comboNachkauf.setItemText(0, QCoreApplication.translate("dialog", u"h\u00e4ufig", None))
-        self.comboNachkauf.setItemText(1, QCoreApplication.translate("dialog", u"\u00fcblich", None))
-        self.comboNachkauf.setItemText(2, QCoreApplication.translate("dialog", u"selten", None))
-        self.comboNachkauf.setItemText(3, QCoreApplication.translate("dialog", u"extrem selten", None))
-        self.comboNachkauf.setItemText(4, QCoreApplication.translate("dialog", u"nicht m\u00f6glich", None))
-
-        self.label_12.setText(QCoreApplication.translate("dialog", u"Variable Kosten", None))
-#if QT_CONFIG(tooltip)
-        self.teVoraussetzungen.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>Siehe &quot;Datenbank Editor -&gt; Einstellungsm\u00f6glichkeiten -&gt; Voraussetzungen&quot; in der Sephrasto-Hilfe f\u00fcr eine Anleitung.</p></body></html>", None))
-#endif // QT_CONFIG(tooltip)
-        self.label_6.setText(QCoreApplication.translate("dialog", u"Kategorie", None))
-        self.label_5.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
-        self.label_9.setText(QCoreApplication.translate("dialog", u"Verkn\u00fcpfung", None))
-        self.label_11.setText(QCoreApplication.translate("dialog", u"Querverweise", None))
-        self.label_2.setText(QCoreApplication.translate("dialog", u"Kosten", None))
-        self.label_10.setText(QCoreApplication.translate("dialog", u"Regelanhang", None))
+        self.label_3.setText(QCoreApplication.translate("dialog", u"Nachkauf", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("dialog", u"HTML", None))
 #if QT_CONFIG(tooltip)
         self.tab_4.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>Manche Vorteile wie Kampfstile und Traditionen haben im Spiel Bedingungen, damit sie genutzt werden k\u00f6nnen. Diese kannst du hier eintragen (optional).</p></body></html>", None))
@@ -483,9 +471,33 @@ class Ui_dialog(object):
         self.comboVorschau.setItemText(3, QCoreApplication.translate("dialog", u"Zusatzinfo", None))
 
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), QCoreApplication.translate("dialog", u"Vorschau", None))
-        self.label.setText(QCoreApplication.translate("dialog", u"Vorteilsname", None))
+        self.checkKommentar.setText(QCoreApplication.translate("dialog", u"Der Nutzer kann Kommentare hinzuf\u00fcgen", None))
+        self.label_10.setText(QCoreApplication.translate("dialog", u"Regelanhang", None))
+        self.checkVariable.setText(QCoreApplication.translate("dialog", u"Der Nutzer kann die EP-Kosten \u00e4ndern", None))
+        self.label_11.setText(QCoreApplication.translate("dialog", u"Querverweise", None))
+        self.comboLinkKategorie.setItemText(0, QCoreApplication.translate("dialog", u"Nicht verkn\u00fcpfen", None))
+        self.comboLinkKategorie.setItemText(1, QCoreApplication.translate("dialog", u"Regel", None))
+        self.comboLinkKategorie.setItemText(2, QCoreApplication.translate("dialog", u"\u00dcbernat. Talent", None))
+        self.comboLinkKategorie.setItemText(3, QCoreApplication.translate("dialog", u"Vorteil", None))
+
+        self.label_5.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
+        self.label_2.setText(QCoreApplication.translate("dialog", u"Kosten", None))
+#if QT_CONFIG(tooltip)
+        self.leScript.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>In diesem Feld kannst du ein Python-Skript einf\u00fcgen, die beim Erwerb des Vorteils ausgef\u00fchrt werden. Siehe &quot;Skripte f\u00fcr Abgeleitete Werte, Vorteile und Waffeneigenschaften&quot; in der Sephrasto-Hilfe f\u00fcr verf\u00fcgbare Funktionen und Beispiele.</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(tooltip)
+        self.spinScriptPrio.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>Die Skript-Priorit\u00e4t legt die Reihenfolge der Auswertung fest. 0 ist Standard, negative Werte werden davor, positive Werte danach ausgewertet. Dies ist relevant, falls bspw. die INI verdoppelt werden soll nachdem Kampfreflexe eingerechnet wurde. In diesem Fall sollte die Skript-Priorit\u00e4t h\u00f6her als die von Kampfreflexe sein.</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.label_12.setText(QCoreApplication.translate("dialog", u"Variable Kosten", None))
+#if QT_CONFIG(tooltip)
+        self.teVoraussetzungen.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>Siehe &quot;Datenbank Editor -&gt; Einstellungsm\u00f6glichkeiten -&gt; Voraussetzungen&quot; in der Sephrasto-Hilfe f\u00fcr eine Anleitung.</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.label_9.setText(QCoreApplication.translate("dialog", u"Verkn\u00fcpfung", None))
+        self.label_6.setText(QCoreApplication.translate("dialog", u"Kategorie", None))
         self.warning.setText("")
-        self.checkCheatsheet.setText(QCoreApplication.translate("dialog", u"Auflisten", None))
-        self.label_3.setText(QCoreApplication.translate("dialog", u"Nachkauf", None))
+        self.label_7.setText(QCoreApplication.translate("dialog", u"Kommentarfeld", None))
+        self.label_4.setText(QCoreApplication.translate("dialog", u"Voraussetzungen", None))
+        self.label_8.setText(QCoreApplication.translate("dialog", u"Scriptfeld", None))
+        self.checkScript.setText(QCoreApplication.translate("dialog", u"Der Nutzer kann Scripts hinzuf\u00fcgen", None))
     # retranslateUi
 

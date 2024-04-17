@@ -27,6 +27,7 @@ class VorteilDefinition():
         self.kosten = 0
         self.variableKosten = False
         self.kommentarErlauben = False
+        self.editorScriptErlauben = False
         self.kategorie = 0
         self.voraussetzungen = VoraussetzungenListe()
         self.nachkauf = ''
@@ -117,6 +118,8 @@ class VorteilDefinition():
             ser.set('querverweise', " | ".join(self.querverweise))    
         ser.set('variableKosten', self.variableKosten)
         ser.set('kommentar', self.kommentarErlauben)
+        if self.editorScriptErlauben:
+            ser.set('editorScript', self.editorScriptErlauben)
         if not self.cheatsheetAuflisten:
             ser.set('csAuflisten', False)
         if self.cheatsheetBeschreibung:
@@ -147,6 +150,7 @@ class VorteilDefinition():
         self.kommentarErlauben = ser.getBool('kommentar', self.kommentarErlauben)
         if self.variableKosten:
             self.kommentarErlauben = True
+        self.editorScriptErlauben = ser.getBool('editorScript', self.editorScriptErlauben)
         self.cheatsheetAuflisten = ser.getBool('csAuflisten', self.cheatsheetAuflisten)
         self.cheatsheetBeschreibung = ser.get('csBeschreibung', self.cheatsheetBeschreibung)
         self.linkKategorie = ser.getInt('linkKategorie', self.linkKategorie)
@@ -164,6 +168,9 @@ class Vorteil:
         self._kommentar = ""
         self.anzeigenameExt = self.definition.name
         self._updateAnzeigenameExt()
+        self._editorScript = ""
+        self._editorScriptCompiled = ""
+        self.editorScriptFault = ""
 
     def __deepcopy__(self, memo=""):
         # create new object
@@ -179,6 +186,12 @@ class Vorteil:
 
     def executeScript(self):
         self.definition.executeScript(self.charakter.charakterScriptAPI)
+
+    def executeEditorScript(self):
+        try:
+            exec(self._editorScriptCompiled, self.charakter.charakterScriptAPI)
+        except Exception as e:
+            self.editorScriptFault = str(e)
 
     @property
     def name(self):
@@ -203,6 +216,10 @@ class Vorteil:
     @property
     def kommentarErlauben(self):
         return self.definition.kommentarErlauben
+
+    @property
+    def editorScriptErlauben(self):
+        return self.definition.editorScriptErlauben
 
     @property
     def kategorie(self):
@@ -299,12 +316,28 @@ class Vorteil:
         if kommentar or ep:
             self.anzeigenameExt += ")"
 
+    @property
+    def editorScript(self):
+        return self._editorScript
+
+    @editorScript.setter
+    def editorScript(self, value):
+        self.editorScriptFault = ""
+        self._editorScript = value
+        try:
+            self._editorScriptCompiled = compile(self._editorScript or "", self.name + " Editorscript", "exec")
+        except SyntaxError as e:
+            self._editorScriptCompiled = ""
+            self.editorScriptFault = f"{e.msg} (at position {e.offset})"
+
     def serialize(self, ser):
         ser.set('name', self.name)
         if self.variableKosten:
             ser.set('variableKosten', self.kosten)
         if self.kommentarErlauben:
             ser.set('kommentar', self.kommentar)
+        if self.editorScriptErlauben:
+            ser.set('editorScript', self.editorScript)
         EventBus.doAction("vorteil_serialisiert", { "object" : self, "serializer" : ser})
 
     def deserialize(self, ser, db, char):
@@ -318,5 +351,10 @@ class Vorteil:
             self.kosten = ser.getInt('variableKosten', self.kosten)
         if self.kommentarErlauben:
             self.kommentar = ser.get('kommentar', self.kommentar)
+        if self.editorScriptErlauben:
+            try:
+                self.editorScript = ser.get('editorScript', self.editorScript)
+            except SyntaxError as e:
+                pass
         EventBus.doAction("vorteil_deserialisiert", { "object" : self, "deserializer" : ser})
         return True
