@@ -151,7 +151,7 @@ class Ruestung:
         return self.definition.getRSGesamtInt()
 
     def __getScriptAPI(self, abgeleiteteWerte, zone = -1):
-        scriptAPI = {}
+        scriptAPI = Hilfsmethoden.createScriptAPI()
         for ab in abgeleiteteWerte:
             scriptAPI['get' + ab + 'Basis'] = lambda ab=ab: abgeleiteteWerte[ab].basiswert
             scriptAPI['get' + ab] = lambda ab=ab: abgeleiteteWerte[ab].wert

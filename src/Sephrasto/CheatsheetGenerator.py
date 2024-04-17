@@ -206,9 +206,10 @@ class CheatsheetGenerator(object):
         for i in range(numRegelKategorien):
             regelnGruppiert.append([])
         for i in range(numRegelKategorien):
-            scriptVariables = { "char" : Wolke.Char, "kategorie" : i, "mergeTo" : i }
-            exec(Wolke.DB.einstellungen["Regelanhang: Regel Mergescript"].wert, scriptVariables)
-            mergeTo = scriptVariables["mergeTo"]
+            scriptAPI = Hilfsmethoden.createScriptAPI()
+            scriptAPI.update({ "char" : Wolke.Char, "kategorie" : i, "mergeTo" : i })
+            exec(Wolke.DB.einstellungen["Regelanhang: Regel Mergescript"].wert, scriptAPI)
+            mergeTo = scriptAPI["mergeTo"]
             if mergeTo >= numRegelKategorien:
                 mergeTo = i
             empty = len(regelnGruppiert[mergeTo]) == 0

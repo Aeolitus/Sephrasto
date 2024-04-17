@@ -14,6 +14,9 @@ import sys
 import fnmatch
 import unicodedata
 import locale
+from RestrictedPython import safe_builtins
+from RestrictedPython.Guards import guarded_unpack_sequence, guarded_iter_unpack_sequence
+from RestrictedPython.Eval import default_guarded_getiter, default_guarded_getitem
 
 class WaffeneigenschaftException(Exception):
     pass
@@ -282,10 +285,35 @@ ol {{ padding: 0; margin: 0; -qt-list-indent: 0; margin-left: {Hilfsmethoden.emT
     # see https://docs.python.org/3.9/howto/unicode.html#comparing-strings
     # added strxfrm to use current locale, i. e. to properly sort german umlauts
     # using the unicode collation algorithm would be the perfect solution but strxfrm suffices for now
+    @staticmethod
     def unicodeCaseInsensitive(s):
         def NFD(s):
             return unicodedata.normalize('NFD', s)
         return locale.strxfrm(NFD(NFD(s).casefold()))
+
+    @staticmethod
+    def createScriptAPI():
+        def writeGuard(obj):
+            if obj.__class__.__name__ in ["AbgeleiteterWert", "Attribut", "Energie", "Fertigkeit", "FreieFertigkeit", "Ruestung", "Talent", "Vorteil", "Waffe"]:
+                return obj
+            if isinstance(obj, dict):
+                return obj
+            if isinstance(obj, list):
+                return obj
+            raise RuntimeError('Cannot write outside whitelisted objects')
+
+        scriptAPI = {
+            "__builtins__" : safe_builtins,
+            "_unpack_sequence_": guarded_unpack_sequence,
+            "_getiter_": default_guarded_getiter,
+            "_iter_unpack_sequence_" : guarded_iter_unpack_sequence,
+            "_getitem_" : default_guarded_getitem,
+            "_write_": writeGuard,
+            "max" : max,
+            "min" : min,
+            "sum" : sum
+        }
+        return scriptAPI
 
 class SortedCategoryToListDict(dict):
     def __init__(self, categories):

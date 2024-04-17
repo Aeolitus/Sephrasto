@@ -156,7 +156,8 @@ class Char():
         self.currentWaffenwerte = None #used by waffenScriptAPI during iteration
         self.waffenEigenschaftenUndo = [] #For undoing changes made by Vorteil scripts
 
-        self.charakterScriptAPI = {
+        self.charakterScriptAPI = Hilfsmethoden.createScriptAPI()
+        self.charakterScriptAPI.update({
             #Hintergrund
             'getName' : lambda: self.name, 
             'getSpezies' : lambda: self.spezies, 
@@ -193,7 +194,7 @@ class Char():
             #Misc
             'addWaffeneigenschaft' : self.API_addWaffeneigenschaft, 
             'removeWaffeneigenschaft' : self.API_removeWaffeneigenschaft
-        }
+        })
 
         #Add Attribute to API (readonly)
         for attribut in self.attribute:
@@ -275,13 +276,16 @@ class Char():
     def heimat(self, heimat):
         if heimat == self._heimat:
             return
-        script = Wolke.DB.einstellungen["Heimaten: Heimat geändert Script"].wert
-        scriptAPI = {
+
+        scriptAPI = Hilfsmethoden.createScriptAPI()
+        scriptAPI.update({
             "heimatAlt" : self._heimat,
             "heimatNeu" : heimat,
             "addTalent" : lambda talent: self.addTalent(talent),
             "removeTalent" : lambda talent: self.removeTalent(talent)
-          }
+        })
+
+        script = Wolke.DB.einstellungen["Heimaten: Heimat geändert Script"].wert
         exec(script, scriptAPI)
         self._heimat = heimat
 
@@ -522,13 +526,14 @@ class Char():
                 kampfstilMods += self.kampfstilMods["Fernkampf"]
 
             # Execute script to calculate weapon stats
-            scriptAPI = {
+            scriptAPI = Hilfsmethoden.createScriptAPI()
+            scriptAPI.update({
                 'getAttribut' : lambda attribut: self.attribute[attribut].wert,
                 'getWaffe' : lambda: copy.deepcopy(el),
                 'getPW' : lambda: pw,
                 'getKampfstil' : lambda: kampfstilMods,
                 'setWaffenwerte' : lambda at, vt, plus, rw: setattr(waffenwerte, 'at', at) or setattr(waffenwerte, 'vt', vt) or setattr(waffenwerte, 'plus', plus) or setattr(waffenwerte, 'rw', rw)
-            }
+            })
             for ab in self.abgeleiteteWerte:
                 scriptAPI['get' + ab + 'Basis'] = lambda ab=ab: self.abgeleiteteWerte[ab].basiswert
                 scriptAPI['get' + ab] = lambda ab=ab: self.abgeleiteteWerte[ab].wert

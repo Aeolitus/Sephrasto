@@ -3,6 +3,7 @@ from PySide6 import QtWidgets, QtCore
 from Wolke import Wolke
 from Hilfsmethoden import Hilfsmethoden
 from VoraussetzungenListe import VoraussetzungenListe, VoraussetzungException
+from RestrictedPython import compile_restricted
 
 class DatenbankElementEditorBase():
     def __init__(self):
@@ -181,7 +182,7 @@ class ScriptEditor:
     def scriptTextChanged(self):
         try:
             text = self.widget.text() if isinstance(self.widget, QtWidgets.QLineEdit) else self.widget.toPlainText()
-            compile(text, self.propertyName, "exec")
+            compile_restricted(text, self.propertyName, "exec")
             self.widget.setStyleSheet("")
             self.widget.setToolTip("")
             self.editor.validator[self.propertyName] = True

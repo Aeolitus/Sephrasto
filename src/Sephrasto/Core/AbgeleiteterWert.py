@@ -1,6 +1,8 @@
 from Wolke import Wolke
 import copy
 from EventBus import EventBus
+from RestrictedPython import compile_restricted
+from Hilfsmethoden import Hilfsmethoden
 
 # Implementation for abgeleitete Werte (WS, INI etc.). Using the type object pattern.
 # AbgeleiteterWertDefinition: type object, initialized with database values
@@ -29,8 +31,8 @@ class AbgeleiteterWertDefinition:
         return self.__dict__ == other.__dict__
 
     def finalize(self, db):
-        self.scriptCompiled = compile(self.script or "0", self.name + " Script", "eval")
-        self.finalscriptCompiled = compile(self.finalscript or "0", self.name + " Finalscript", "eval")
+        self.scriptCompiled = compile_restricted(self.script or "0", self.name + " Script", "eval")
+        self.finalscriptCompiled = compile_restricted(self.finalscript or "0", self.name + " Finalscript", "eval")
 
     def details(self, db):
         details = []
@@ -123,17 +125,19 @@ class AbgeleiteterWert:
     def aktualisieren(self):
         self.mod = 0
         self.finalwert = 0
-        scriptAPI = {
+        scriptAPI = Hilfsmethoden.createScriptAPI()
+        scriptAPI.update({
             'getAttribut' : lambda attribut: self.charakter.attribute[attribut].wert,
             'getRüstung' : lambda: copy.deepcopy(self.charakter.rüstung)
-        }
+        })
         self.basiswert = eval(self.definition.scriptCompiled, scriptAPI)
 
     def diffBasiswert(self, attribute):
-        scriptAPI = {
-            'getAttribut' : lambda attribut: attribute[attribut].wert,
+        scriptAPI = Hilfsmethoden.createScriptAPI()
+        scriptAPI.update({
+            'getAttribut' : lambda attribut: self.charakter.attribute[attribut].wert,
             'getRüstung' : lambda: copy.deepcopy(self.charakter.rüstung)
-        }
+        })
         return eval(self.definition.scriptCompiled, scriptAPI) - self.basiswert
 
     def aktualisierenFinal(self):

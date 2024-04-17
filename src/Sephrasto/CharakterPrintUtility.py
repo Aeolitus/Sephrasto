@@ -29,11 +29,12 @@ class CharakterPrintUtility:
                 name = CharakterPrintUtility.getLinkedName(char, vorteil)
             else:
                 name = vorteil.anzeigenameExt
-            scriptVariables = { "char" : char, "name" : vorteil.name, "kategorie" : vorteil.kategorie, "mergeTo" : 0 }
-            exec(vorteileMergeScript, scriptVariables)
-            if scriptVariables["mergeTo"] == 0:
+            scriptAPI = Hilfsmethoden.createScriptAPI()
+            scriptAPI.update({ "char" : char, "name" : vorteil.name, "kategorie" : vorteil.kategorie, "mergeTo" : 0 })
+            exec(vorteileMergeScript, scriptAPI)
+            if scriptAPI["mergeTo"] == 0:
                 vorteileAllgemein.append(name)
-            elif scriptVariables["mergeTo"] == 1:
+            elif scriptAPI["mergeTo"] == 1:
                 vorteileKampf.append(name)
             else:
                 vorteileUeber.append(name)

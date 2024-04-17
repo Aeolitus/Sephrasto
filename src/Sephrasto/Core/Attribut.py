@@ -1,6 +1,7 @@
 from Wolke import Wolke
 from EventBus import EventBus
 import copy
+from Hilfsmethoden import Hilfsmethoden
 
 # Implementation for Attribute. Using the type object pattern.
 # AttributDefinition: type object, initialized with database values
@@ -83,7 +84,8 @@ class Attribut:
         return self.definition.sortorder
 
     def aktualisieren(self):
-        scriptAPI = { 'getWert' : lambda: self.wert }
+        scriptAPI = Hilfsmethoden.createScriptAPI()
+        scriptAPI.update({ 'getWert' : lambda: self.wert })
         self.probenwert = eval(Wolke.DB.einstellungen["Attribute: PW Script"].wert, scriptAPI)
 
     def steigerungskosten(self, numSteigerungen = 1):

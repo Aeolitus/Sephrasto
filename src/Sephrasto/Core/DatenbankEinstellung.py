@@ -1,4 +1,5 @@
 from EventBus import EventBus
+from RestrictedPython import compile_restricted
 
 class IndexableDict(dict):
     def updateIndex(self):
@@ -66,9 +67,9 @@ class DatenbankEinstellung:
             textList = self.__toList()
             self.wert = [int(el) for el in textList]
         elif self.typ == 'Eval':
-            self.wert = compile(self.text or "0", self.name, "eval")
+            self.wert = compile_restricted(self.text or "0", self.name, "eval")
         elif self.typ == 'Exec':
-            self.wert = compile(self.text or "", self.name, "exec")
+            self.wert = compile_restricted(self.text or "", self.name, "exec")
 
     def details(self, db):
         return f"{self.text}\n{self.beschreibung}"

@@ -1,4 +1,5 @@
 from EventBus import EventBus
+from RestrictedPython import compile_restricted
 
 class Waffeneigenschaft():
     displayName = "Waffeneigenschaft"
@@ -19,7 +20,7 @@ class Waffeneigenschaft():
         return self.__dict__ == other.__dict__
 
     def finalize(self, db):
-        self.scriptCompiled = compile(self.script or "", self.name + " Script", "exec")
+        self.scriptCompiled = compile_restricted(self.script or "", self.name + " Script", "exec")
 
     def executeScript(self, api):
         exec(self.scriptCompiled, api)

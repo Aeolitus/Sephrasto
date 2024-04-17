@@ -3,6 +3,7 @@ import logging
 from EventBus import EventBus
 from VoraussetzungenListe import VoraussetzungenListe
 import copy
+from RestrictedPython import compile_restricted
 
 # Implementation for Vorteile. Using the type object pattern.
 # VorteilDefinition: type object, initialized with database values
@@ -48,7 +49,7 @@ class VorteilDefinition():
         return self.__dict__ == other.__dict__
 
     def finalize(self, db):
-        self.scriptCompiled = compile(self.script or "", self.name + " Script", "exec")
+        self.scriptCompiled = compile_restricted(self.script or "", self.name + " Script", "exec")
 
         for ref in self.querverweise:
             if ref.startswith("Regel:"):
@@ -325,7 +326,7 @@ class Vorteil:
         self.editorScriptFault = ""
         self._editorScript = value
         try:
-            self._editorScriptCompiled = compile(self._editorScript or "", self.name + " Editorscript", "exec")
+            self._editorScriptCompiled = compile_restricted(self._editorScript or "", self.name + " Editorscript", "exec")
         except SyntaxError as e:
             self._editorScriptCompiled = ""
             self.editorScriptFault = f"{e.msg} (at position {e.offset})"
