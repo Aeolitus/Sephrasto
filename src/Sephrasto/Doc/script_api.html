@@ -1,0 +1,999 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="datenbankeditor.html">
+      
+      
+        <link rel="next" href="plugin_api.html">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+    
+    
+      
+        <title>Script API - Sephrasto Hilfe</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="assets/external/unpkg.com/iframe-worker/shim.js"></script>
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#skripte-fur-abgeleitete-werte-vorteile-und-waffeneigenschaften" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Sephrasto Hilfe" class="md-header__button md-logo" aria-label="Sephrasto Hilfe" data-md-component="logo">
+      
+  <img src="assets/images/icon_large.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sephrasto Hilfe
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Script API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Sephrasto Hilfe" class="md-nav__button md-logo" aria-label="Sephrasto Hilfe" data-md-component="logo">
+      
+  <img src="assets/images/icon_large.png" alt="logo">
+
+    </a>
+    Sephrasto Hilfe
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="charaktereditor.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Charaktereditor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="datenbankeditor.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Datenbankeditor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Script API
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="script_api.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Script API
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beschreibung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beschreibung
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attribute
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#energien" class="md-nav__link">
+    <span class="md-ellipsis">
+      Energien
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abgeleitete-werte" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abgeleitete Werte
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fertigkeiten-und-talente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fertigkeiten und Talente
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vorteile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vorteile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ausrustung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ausrüstung
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sonstiges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sonstiges
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#besonderheiten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Besonderheiten
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Besonderheiten">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abgeleitete-werte_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abgeleitete Werte
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waffeneigenschaften-we" class="md-nav__link">
+    <span class="md-ellipsis">
+      Waffeneigenschaften (WE)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beispiele" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beispiele
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Beispiele">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vorteil-waffenloser-kampf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vorteil Waffenloser Kampf
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vorteil-gefa-der-sterne" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vorteil Gefäß der Sterne
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vorteil-reiterkampf-ii" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vorteil Reiterkampf II
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waffeneigenschaft-kopflastig" class="md-nav__link">
+    <span class="md-ellipsis">
+      Waffeneigenschaft Kopflastig
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waffeneigenschaft-schwer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Waffeneigenschaft Schwer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plugin_api.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Eigene Plugins schreiben
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="charakterassistent.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Charakter Assistent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="charakterbogen.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Eigene Charakterbögen erstellen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="theme.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ein eigenes Theme erstellen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="acknowledgements.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Drittanbieter-Lizenzen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    <span class="md-ellipsis">
+      API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beschreibung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beschreibung
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attribute
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#energien" class="md-nav__link">
+    <span class="md-ellipsis">
+      Energien
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abgeleitete-werte" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abgeleitete Werte
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fertigkeiten-und-talente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fertigkeiten und Talente
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vorteile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vorteile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ausrustung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ausrüstung
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sonstiges" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sonstiges
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#besonderheiten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Besonderheiten
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Besonderheiten">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abgeleitete-werte_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abgeleitete Werte
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waffeneigenschaften-we" class="md-nav__link">
+    <span class="md-ellipsis">
+      Waffeneigenschaften (WE)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beispiele" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beispiele
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Beispiele">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vorteil-waffenloser-kampf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vorteil Waffenloser Kampf
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vorteil-gefa-der-sterne" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vorteil Gefäß der Sterne
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vorteil-reiterkampf-ii" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vorteil Reiterkampf II
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waffeneigenschaft-kopflastig" class="md-nav__link">
+    <span class="md-ellipsis">
+      Waffeneigenschaft Kopflastig
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waffeneigenschaft-schwer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Waffeneigenschaft Schwer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="skripte-fur-abgeleitete-werte-vorteile-und-waffeneigenschaften">Skripte für Abgeleitete Werte, Vorteile und Waffeneigenschaften</h1>
+<p>Abgeleitete Werte, Vorteile und Waffeneigenschaften haben im Regelbasis-Editor ein Feld für benutzerdefinierte Skripte. Diese werden verwendet, um Auswirkungen auf die Charakterwerte umzusetzen. Skripte werden in Python geschrieben, wobei alles in eine Zeile geschrieben werden muss.</p>
+<h2 id="api">API</h2>
+<p>Sephrasto bietet eine Reihe von Funktionen an, anhand derer die meisten Skripte mit ein paar wenigen Zeichen umzusetzen sind. Die 'get' Funktionen liefern den entsprechenden Wert zurück, die 'set' Funktionen setzen den Wert auf den übergebenen Ganzzahl-Parameter und die 'modify' Funktionen verändern den gewünschten Wert um den übergebenen Ganzzahl-Parameter. Ausnahmen sind in spitzen Klammern aufgeführt.  Bei komplexeren Vorhaben sollte ein 'one-lined python converter' genutzt werden.</p>
+<p>Die folgenden Funktionen stehen neben Python-Builtins wie 'round' zur Verfügung:</p>
+<h3 id="beschreibung">Beschreibung</h3>
+<ul>
+<li>Hintergrund: <code>getName, getSpezies, getStatus, getKurzbeschreibung, getHeimat, getFinanzen</code></li>
+<li>Eigenheiten: <code>getEigenheiten &lt;Return: string[8]&gt;</code></li>
+<li>EP: <code>getEPGesamt, getEPAusgegeben</code></li>
+</ul>
+<h3 id="attribute">Attribute</h3>
+<ul>
+<li><code>getGE, getKK, getKO, getFF, getMU, getIN, getKL, getCH</code></li>
+<li><code>getAttribut &lt;Parameter: Attribut-Name&gt;</code></li>
+</ul>
+<p><strong>Hinweis:</strong> Sephrasto stellt die API für alle Attribute nach obigem Muster automatisch bereit, also auch für in den Hausregeln neu hinzugefügte Attribute.</p>
+<h3 id="energien">Energien</h3>
+<ul>
+<li>AsP: <code>getAsPBasis, setAsPBasis, modifyAsPBasis, getAsPMod, setAsPMod, modifyAsPMod</code></li>
+<li>KaP: <code>getKaPBasis, setKaPBasis, modifyKaPBasis, getKaPMod, setKaPMod, modifyKaPMod</code></li>
+<li>GuP: <code>getGuPBasis, setGuPBasis, modifyGuPBasis, getGuPMod, setGuPMod, modifyGuPMod</code></li>
+</ul>
+<p><strong>Hinweis:</strong> Sephrasto stellt die API für alle Energien nach obigem Muster automatisch bereit, also auch für in den Hausregeln neu hinzugefügte Energien.</p>
+<h3 id="abgeleitete-werte">Abgeleitete Werte</h3>
+<ul>
+<li>SchiP: <code>getSchiPBasis, getSchiP, setSchiP, modifySchiP</code></li>
+<li>WS: <code>getWSBasis, getWS (ohne RS!), setWS, modifyWS</code></li>
+<li>MR: <code>getMRBasis, getMR, setMR, modifyMR</code></li>
+<li>GS: <code>getGSBasis, getGS (ohne BE!), setGS, modifyGS</code></li>
+<li>DH: <code>getDHBasis, getDH (ohne BE!), setDH, modifyDH</code></li>
+<li>SB: <code>getSBBasis, getSB, setSB, modifySB</code></li>
+<li>INI: <code>getINIBasis, getINI, setINI, modifyINI</code></li>
+<li>RS: <code>getRSBasis, getRS, setRS, modifyRS</code></li>
+<li>BE: <code>getBEBasis, getBE, setBE, modifyBE</code></li>
+</ul>
+<p><strong>Hinweis:</strong> Sephrasto stellt die API für alle Abgeleiteten Werte nach obigem Muster automatisch bereit, also auch für in den Hausregeln neu hinzugefügte Abgeleitete Werte.</p>
+<h3 id="fertigkeiten-und-talente">Fertigkeiten und Talente</h3>
+<ul>
+<li>Freie Fertigkeiten: <code>getFreieFertigkeiten &lt;Return: { definition { name, kategorie, voraussetzungen[] }, wert }&gt;</code></li>
+<li>Fertigkeiten: <code>getFertigkeit/getÜbernatürlicheFertigkeit &lt;Parameter: Fertigkeits-Name. Return: { definition { name, steigerungsfaktor, text, attribute [], kampffertigkeit, voraussetzungen [], kategorie, talenteGruppieren }, wert, gekaufteTalente[], talentMods {}, attributswerte, basiswert, basiswertMod, probenwert, probenwertTalent, maxWert, addToPdf  }&gt;</code></li>
+<li>Fertigkeiten Basis: <code>modifyFertigkeitBasiswert : &lt;Parameter: Fertigkeits-Name, Modifikator&gt;</code>
+Hinweis: Dies ist nützlich, um sich permanente Erleichterungen auf eine Fertigkeit nicht merken zu müssen. Diese Modifikation wird bei Voraussetzungen der Typen "Fertigkeit" und "Talent" nicht eingerechnet!</li>
+<li>Übernatürliche Fertigkeiten Basis: <code>modifyÜbernatürlicheFertigkeitBasiswert : &lt;Parameter: Fertigkeits-Name, Modifikator&gt;</code></li>
+<li>Talente Probenwert: <code>modifyTalentProbenwert : &lt;Parameter: Talent-Name, Modifikator&gt;</code>
+Beispiel: modifyTalentProbenwert('Überreden', 2)
+Hinweis: Dies ist nützlich, um permanente Erleichterungen auf ein Talent direkt in der Talentliste aufzuführen. Ist das Talent noch nicht erworben, wird das ganze Talent mit der Modifizierung in Klammern gesetzt. Die Modifizierung wird ausschließlich im Charakterbogen eingerechnet!</li>
+<li>Talente zusätzliche Informationen: <code>talentAddInfo : &lt;Parameter: Talent-Name, Infotext&gt;</code>
+Beispiel: addTalentInfo('Überreden', "Rededuell +2")
+Hinweis: Dies ist nützlich, um besondere Effekte wie beispielsweise von manchen Vorteilen direkt bei den Talenten im Charakterbogen aufzuführen.</li>
+<li>Talente hinzufügen: <code>addTalent : &lt;Parameter: Talent-Name, Kosten (optional), Benötigte übernatürliche Fertigkeit (optional)&gt;</code>
+Hinweis: Das Script fügt dem Talent den Vorteil zu dem es gehört als Voraussetzung hinzu. Sobald der Vorteil also abgewählt wird, verliert der Charakter auch das Talent. Mit dem Kosten-Parameter können die Standard-Talentkosten geändert werden (bei -1 werden sie nicht verändert). Optional kann außerdem eine übernatürliche Fertigkeit mit angegeben werden, die benötigt wird - falls der Charakter sie nicht besitzt, macht das Script nichts; diese wird dannauch als Voraussetzung hinzugefügt.
+Beispiel ohne Bedingung und Kostenveränderung: addTalent("Spurlos Trittlos")
+Beispiel mit Kosten auf 0 EP gesetzt und "Gaben des Butgeists" als Bedingung: addTalent("Spurlos Trittlos", 0, "Gaben des Blutgeists")</li>
+</ul>
+<h3 id="vorteile">Vorteile</h3>
+<ul>
+<li>Vorteile allgemein: <code>getVorteil &lt;Parameter: Vorteils-Name. Return: { definition { name, text, info, bedingungen, kosten, variableKosten, kommentarErlauben, kategorie, voraussetzungen [], nachkauf,  cheatsheetAuflisten, cheatsheetBeschreibung, linkKategorie, linkElement, script, scriptPrio, querverweise [], querverweiseResolved {}, anzeigenameExt }[]&gt;</code></li>
+<li>Kampfstile: <code>getKampfstil &lt;Parameter: Kampfstil-Name. Return: { at, vt, plus, rw, be }&gt;, setKampfstil/modifyKampfstil &lt;Parameter: Kampfstil-Name, at, vt, plus, rw, be&gt;</code>
+Hinweis: Statt eines Kampfstil-Namens kann auch "Nahkampf" oder "Fernkampf" angegeben werden, um globale Modifikationen für alle Nah-/Fernkampfwaffen anzugeben. Diese werden dann zum tatsächlichen Kampfstil einer Waffe addiert.</li>
+</ul>
+<h3 id="ausrustung">Ausrüstung</h3>
+<ul>
+<li>Inventar: <code>getAusrüstung &lt;Return: string[]&gt;</code></li>
+<li>Rüstung: <code>getRüstung &lt;Return: { name, text, kategorie, system, rs[6], be }[]&gt;</code></li>
+<li>Waffen: <code>getWaffen &lt;Return: { name, würfel, würfelSeiten, plus, eigenschaften[], härte, fertigkeit, talent, beSlot, kampfstile[], kampfstil, rw, wm, lz, fernkampf, nahkampf, anzeigename}[]&gt;</code></li>
+</ul>
+<h3 id="sonstiges">Sonstiges</h3>
+<ul>
+<li><code>addWaffeneigenschaft &lt;Parameter: WaffenName, Eigenschaft&gt;</code>
+Beispiel: addWaffeneigenschaft('Hand', 'Kopflastig')</li>
+<li><code>removeWaffeneigenschaft &lt;Parameter: WaffenName, Eigenschaft&gt;</code>
+Beispiel: removeWaffeneigenschaft('Hand', 'Zerbrechlich')</li>
+</ul>
+<h2 id="besonderheiten">Besonderheiten</h2>
+<h3 id="abgeleitete-werte_1">Abgeleitete Werte</h3>
+<p>Das "Finalwert Script" von Abgeleiteten Werten hat vollen Zugriff auf die API. Das "Script" hat jedoch nur Zugriff auf die folgenden Funktionen: <code>getAttribut, getRüstung</code>.</p>
+<h3 id="waffeneigenschaften-we">Waffeneigenschaften (WE)</h3>
+<p>Waffeneigenschaft-Scripts haben keinen Zugriff auf: <code>setSB, modifySB, setBE, modifyBE, setRS, modifyRS, modifyFertigkeitBasiswert, setKampfstil, modifyKampfstil, addWaffeneigenschaft, removeWaffeneigenschaft</code>.
+Die folgenden zusätzlichen Funktionen stehen ausschließlich innerhalb von Waffeneigenschaft-Scripts zur Verfügung:
+- Parameter dieser WE als string erhalten: <code>getEigenschaftParam &lt;Parameter: Parameternummer&gt;</code>
+Parameter müssen mit Semikolon getrennt werden.<br />
+- Waffen mit dieser WE modifizieren: <code>modifyWaffeAT, modifyWaffeVT, modifyWaffeTPWürfel, modifyWaffeTPPlus, modifyWaffeHäerte, modifyWaffeRW, setWaffeAT, setWaffeVT, setWaffeTPWürfel, setWaffeTPPlus, setWaffeHärte, setWaffeRW</code>
+- Aktuelle Waffe erhalten: <code>getWaffe &lt;Return: { name, würfel, würfelSeiten, plus, eigenschaften[], härte, fertigkeit, talent, beSlot, kampfstile[], kampfstil, rw, wm, lz, fernkampf, nahkampf, anzeigename }&gt;</code>
+- Aktuelle Werte der Waffe erhalten: <code>getWaffenWerte &lt;Return: { at, vt, rw, würfel, plus, härte, kampfstil }&gt;</code></p>
+<h2 id="beispiele">Beispiele</h2>
+<h3 id="vorteil-waffenloser-kampf">Vorteil Waffenloser Kampf</h3>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Beispiel: for waffe in [&#39;Hand&#39;, &#39;Fuß&#39;]: addWaffeneigenschaft(waffe, &#39;Kopflastig&#39;);  addWaffeneigenschaft(waffe, &#39;Wendig&#39;)
+</span></code></pre></div>
+Fügt den Waffen Hand und Fuß die Eigenschaften Kopflastig und Wendig hinzu.</p>
+<h3 id="vorteil-gefa-der-sterne">Vorteil Gefäß der Sterne</h3>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>modifyAsPMod(getCH() + 4).
+</span></code></pre></div>
+Erhöht die AsP um den Charismawert + 4.</p>
+<h3 id="vorteil-reiterkampf-ii">Vorteil Reiterkampf II</h3>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>modifyKampfstil(&#39;Reiterkampf&#39;, 1, 1, 1, 0, -1)
+</span></code></pre></div>
+Erhöht für den Kampfstil Reiterkampf die Werte für AT, VT und TP um +1 und senkt die BE um -1.</p>
+<h3 id="waffeneigenschaft-kopflastig">Waffeneigenschaft Kopflastig</h3>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>modifyWaffeTPPlus(getSB())
+</span></code></pre></div>
+Erhöht die TP aller Waffen mit dieser Eigenschaft um den Schadensbonus.</p>
+<h3 id="waffeneigenschaft-schwer">Waffeneigenschaft Schwer</h3>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>if getKK() &lt; int(getEigenschaftParam(1)): modifyWaffeAT(-2); modifyWaffeVT(-2)
+</span></code></pre></div>
+Verringert AT und VT aller Waffen mit dieser Eigenschaft um 2, falls der Wert der Körperkraft unter dem Wert des ersten Parameters der Eigenschaft liegt (bei Schwer(4) ist dies 4).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="datenbankeditor.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Datenbankeditor">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Datenbankeditor
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="plugin_api.html" class="md-footer__link md-footer__link--next" aria-label="Next: Eigene Plugins schreiben">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Eigene Plugins schreiben
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.footer"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.3220b9d7.min.js"></script>
+      
+        <script src="assets/external/unpkg.com/mermaid@10.7.0/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

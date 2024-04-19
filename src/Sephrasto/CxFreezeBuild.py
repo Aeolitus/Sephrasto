@@ -84,6 +84,7 @@ removeFiles = [
     "lib/PySide6/plugins/generic",
     "lib/PySide6/d3dcompiler_47.dll",
     "lib/D3DCOMPILER_47.dll",
+    "Doc/assets/external/unpkg.com/mermaid@10.7.0"
 ]
 
 for filename in removeFiles:

@@ -1,8 +1,9 @@
 from PySide6 import QtWidgets, QtCore, QtGui
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from PySide6.QtWebChannel import QWebChannel
+from PySide6.QtWebEngineCore import QWebEngineScript
 
-# These classes add a js bridge that provides an init function that should be called in window.onload
+# This class adds can add a js bridge that provides an init function that should be called in window.onload
 # The loadFinished function provided by Qt is executed too early which is bad for printing/screen grabbing
 # Our PdfSerializer automatically uses this new htmlLoaded signal
 # Use like following:
@@ -19,20 +20,44 @@ from PySide6.QtWebChannel import QWebChannel
 # </script>
 
 class JSBridge(QtCore.QObject):
-    def __init__(self, webEngineView):
+    def __init__(self):
         super().__init__()
-        self.webEngineView = webEngineView
+
+    def setWebEngineView(self, view):
+        self.webEngineView = view
 
     @QtCore.Slot()
     def htmlLoaded(self):
         self.webEngineView.htmlLoaded.emit()
 
 class WebEngineViewPlus(QWebEngineView):
-    htmlLoaded = QtCore.Signal()
+    htmlLoaded = QtCore.Signal() #only fired if above bridge is used
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.jsBridge = JSBridge(self)
+
+    def installJSBridge(self, bridge=JSBridge()):
+        self.jsBridge = bridge
+        self.jsBridge.setWebEngineView(self)
         self.channel = QWebChannel(self)
         self.channel.registerObject("Bridge", self.jsBridge)
         self.page().setWebChannel(self.channel)
+
+    def insertStyleSheet(self, name, source, immediately = False):
+        script = QWebEngineScript()
+        s = f"""(function() {{
+css = document.createElement('style');
+css.type = 'text/css';
+css.id = '{name}';
+document.head.appendChild(css);
+css.innerText = `{source}`;
+}})()"""
+        if immediately:
+            self.page().runJavaScript(s, QWebEngineScript.ApplicationWorld)
+
+        script.setName(name)
+        script.setSourceCode(s)
+        script.setInjectionPoint(QWebEngineScript.DocumentReady)
+        script.setRunsOnSubFrames(True)
+        script.setWorldId(QWebEngineScript.ApplicationWorld)
+        self.page().scripts().insert(script)

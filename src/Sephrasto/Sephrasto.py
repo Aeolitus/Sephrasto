@@ -18,7 +18,7 @@ import UI.DatenbankMain
 from Wolke import Wolke
 import yaml
 from EinstellungenWrapper import EinstellungenWrapper
-from HilfeWrapper import HilfeWrapper
+from WebEngineWrapper import WebEngineWrapper
 import Version
 from EventBus import EventBus
 from PluginLoader import PluginLoader
@@ -434,7 +434,7 @@ class MainWindowWrapper(object):
 
     def help(self):
         if not hasattr(self, "hilfe"):
-            self.hilfe = HilfeWrapper()
+            self.hilfe = WebEngineWrapper("Hilfe", "./Doc/index.html", Wolke.MkDocsCSS, "WindowSize-Hilfe")
             self.hilfe.form.show()
         else:
             self.hilfe.form.show()
@@ -553,6 +553,68 @@ QCheckBox::indicator {{ width: {Hilfsmethoden.emToPixels(1.9)}px; height: {Hilfs
         if 'CSS' in theme:
             css += theme['CSS']
         self.app.setStyleSheet(css)
+
+        sephrasto_dir = "file:///" + os.getcwd().replace('\\', '/')
+        Wolke.MkDocsCSS = f"""
+@font-face {{
+	font-family: 'Aniron';
+	src: url('{sephrasto_dir}/Data/Fonts/Aniron/anirb___.ttf') format('truetype');
+}}
+
+@font-face {{
+	font-family: 'Crimson Pro';
+	src: url('{sephrasto_dir}/Data/Fonts/Crimson Pro/CrimsonPro-Regular.ttf') format('truetype');
+	font-style: normal;
+	font-weight: 400;
+}}
+
+@font-face {{
+	font-family: 'Crimson Pro';
+	src: url('{sephrasto_dir}/Data/Fonts/Crimson Pro/CrimsonPro-Italic.ttf') format('truetype');
+	font-style: italic;
+	font-weight: 400;
+}}
+
+@font-face {{
+	font-family: 'Crimson Pro';
+	src: url('{sephrasto_dir}/Data/Fonts/Crimson Pro/CrimsonPro-Bold.ttf') format('truetype');
+	font-weight: 700;
+}}
+
+html {{
+    /* This undoes the invisibility set in docs/stylesheets/extra.css 
+       Sephrastos css is set late which causes flickering otherwise. */
+    visibility: visible;
+    opacity: 1;
+}}
+
+body {{
+    /* Set background and font colors to Sephrasto theme */
+    --md-default-bg-color: {palette.color(QPalette.Base).name()} !important;
+    --md-default-bg-color--light: {palette.color(QPalette.Window).name()} !important;
+
+    --md-default-fg-color: {palette.color(QPalette.Text).name()} !important;
+    --md-default-fg-color--light: {palette.color(QPalette.BrightText).name()} !important;
+    --md-default-fg-color--lightest: {palette.color(QPalette.BrightText).name()} !important;
+    --md-default-fg-color--dark: {palette.color(QPalette.Text).name()} !important;
+
+    /* The following classes are used for code. By default they use the default font color instead of code color, probably a bug.
+       That causes some characters to by invisible in dark mode, so we set them to the code color instead. */
+    --md-code-hl-operator-color: var(--md-code-fg-color) !important;
+    --md-code-hl-punctuation-color: var(--md-code-fg-color) !important;
+    --md-code-hl-comment-color: var(--md-code-fg-color) !important;
+    --md-code-hl-generic-color: var(--md-code-fg-color) !important;
+    --md-code-hl-variable-color: var(--md-code-fg-color) !important;
+
+    --md-text-font: "{Wolke.Settings['Font']}" !important;
+}}
+
+.md-typeset h1 {{ font-weight: bold; font-size: {Wolke.FontHeadingSizeL1}pt; {headingFont}; }}
+.md-header__title, .md-nav__title {{ font-weight: bold; font-size: {Wolke.FontHeadingSizeL1}pt; font-family: '{Wolke.Settings['FontHeading']}'; }}
+.md-typeset h2 {{ font-weight: bold; font-size: {Wolke.Settings['FontHeadingSize']}pt; {headingFont}; }}
+.md-typeset h3 {{ font-weight: bold; font-variant: small-caps; font-size: {Wolke.FontHeadingSizeL3}pt; {standardFont}; color: {Wolke.HeadingColor}; }}
+.md-typeset h4 {{ font-weight: bold; }}
+"""
         
 if __name__ == "__main__":
     itm = MainWindowWrapper()

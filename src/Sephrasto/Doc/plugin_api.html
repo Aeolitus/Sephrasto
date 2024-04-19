@@ -1,0 +1,1846 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="script_api.html">
+      
+      
+        <link rel="next" href="charakterassistent.html">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+    
+    
+      
+        <title>Eigene Plugins schreiben - Sephrasto Hilfe</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="assets/external/unpkg.com/iframe-worker/shim.js"></script>
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#eigene-plugins-schreiben" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Sephrasto Hilfe" class="md-header__button md-logo" aria-label="Sephrasto Hilfe" data-md-component="logo">
+      
+  <img src="assets/images/icon_large.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sephrasto Hilfe
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Eigene Plugins schreiben
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Sephrasto Hilfe" class="md-nav__button md-logo" aria-label="Sephrasto Hilfe" data-md-component="logo">
+      
+  <img src="assets/images/icon_large.png" alt="logo">
+
+    </a>
+    Sephrasto Hilfe
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="charaktereditor.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Charaktereditor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="datenbankeditor.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Datenbankeditor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="script_api.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Script API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Eigene Plugins schreiben
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="plugin_api.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Eigene Plugins schreiben
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vorbereitung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vorbereitung
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actions-und-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actions und Filter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actions und Filter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#charakter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Charakter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#charaktereditor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Charaktereditor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdf-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      PDF Export
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datenbank" class="md-nav__link">
+    <span class="md-ellipsis">
+      Datenbank
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datenbankeditor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Datenbankeditor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verschiedenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verschiedenes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#von-sephrasto-abonnierte-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Von Sephrasto abonnierte Actions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#neues-plugin-erstellen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Neues Plugin erstellen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#charaktereditor-tab-hinzufugen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Charaktereditor Tab hinzufügen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hauptfenster-oder-charaktereditor-button-hinzufugen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hauptfenster oder Charaktereditor Button hinzufügen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datenbankeditor-menueintrag-hinzufugen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Datenbankeditor Menueintrag hinzufügen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dem-plugin-in-den-sephrasto-einstellungen-einen-eigenen-einstellungsdialog-hinzufugen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dem Plugin in den Sephrasto-Einstellungen einen eigenen Einstellungsdialog hinzufügen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#existierende-ui-anpassen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Existierende UI anpassen
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="charakterassistent.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Charakter Assistent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="charakterbogen.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Eigene Charakterbögen erstellen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="theme.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ein eigenes Theme erstellen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="acknowledgements.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Drittanbieter-Lizenzen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vorbereitung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vorbereitung
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actions-und-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actions und Filter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actions und Filter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#charakter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Charakter
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#charaktereditor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Charaktereditor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pdf-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      PDF Export
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datenbank" class="md-nav__link">
+    <span class="md-ellipsis">
+      Datenbank
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datenbankeditor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Datenbankeditor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verschiedenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verschiedenes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#von-sephrasto-abonnierte-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Von Sephrasto abonnierte Actions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#neues-plugin-erstellen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Neues Plugin erstellen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#charaktereditor-tab-hinzufugen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Charaktereditor Tab hinzufügen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hauptfenster-oder-charaktereditor-button-hinzufugen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hauptfenster oder Charaktereditor Button hinzufügen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#datenbankeditor-menueintrag-hinzufugen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Datenbankeditor Menueintrag hinzufügen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dem-plugin-in-den-sephrasto-einstellungen-einen-eigenen-einstellungsdialog-hinzufugen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dem Plugin in den Sephrasto-Einstellungen einen eigenen Einstellungsdialog hinzufügen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#existierende-ui-anpassen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Existierende UI anpassen
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="eigene-plugins-schreiben">Eigene Plugins schreiben</h1>
+<p>Durch die Plugin-Unterstützung kannst du tiefgehende Veränderungen an Sephrasto vornehmen, z.B. den Charaktereditor anpassen oder Berechnungen verändern. Plugins haben vollen Zugriff auf alle Sephrasto-Dateien und können Objekt-Zustände auslesen oder verändern. Für Nutzer-Interaktion können dem Hauptfenster Buttons und dem Charaktereditor Tabs hinzugefügt werden, die mittels Qt eigene UIs darstellen können. Um über künftige Sephrasto-Versionen hinweg und mit anderen Plugins kompatibel zu bleiben, sollten Plugins nach Möglichkeit nur über soganannte Actions und Filter mit Sephrasto interagieren und sonst nur lesend auf die Sephrasto-Objekte zugreifen.</p>
+<h2 id="vorbereitung">Vorbereitung</h2>
+<p>Theoretisch brauchst du nicht mehr als Notepad um loslegen zu können. Kleine Dinge wie die EP-Kosten für AsP oder die Anzahl der kostenlosen freien Fertigkeiten anzupassen geht so ohne Probleme. Sobald du aber etwas aufwändigere Dinge tun möchtest, insbesondere eigene Tabs/Fenster einbauen, solltest du Qt Creator, Python und eine Entwicklungsumgebung installieren und das Sephrasto-Repository klonen, siehe hier: https://github.com/Aeolitus/Sephrasto/blob/master/README.md</p>
+<h2 id="actions-und-filter">Actions und Filter</h2>
+<p>Actions und Filter können verwendet werden auf Vorgänge zu reagieren oder Daten zu manipulieren. Das System funktioniert über die statische EventBus-Klasse. Actions und Filter haben beide als ersten Parameter immer den Namen, der natürlich einzigartig sein sollte. Um Actions oder Filter zu "abonnieren" muss neben dem Namen als zweiter Parameter immer ein Handler/Callback mitgereicht werden.</p>
+<p><strong>Actions</strong> sind einfache Nachrichten, die optional mit einem Parameter-Dictionary versendet werden können.</p>
+<p><strong>Action absenden:</strong>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">EventBus</span><span class="o">.</span><span class="n">doAction</span><span class="p">(</span><span class="s2">&quot;charaktereditor_oeffnet&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="s2">&quot;neu&quot;</span> <span class="p">:</span> <span class="kc">False</span> <span class="p">})</span>
+</span></code></pre></div>
+<strong>Action abonnieren:</strong>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">EventBus</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="s2">&quot;charaktereditor_oeffnet&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">charakterEditorOeffnet</span><span class="p">)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">def</span> <span class="nf">charakterEditorOeffnet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">meinTab</span> <span class="o">=</span> <span class="n">MeinTabWrapper</span><span class="o">.</span><span class="n">MeinTabWrapper</span><span class="p">()</span>
+</span></code></pre></div></p>
+<p><strong>Filter</strong> haben beim Absender als zweiten Parameter immer einen Wert, der durch den Handler modifiziert werden kann und returned werden muss. Optional kann als dritter Parameter ein Parameter-Dictionary mitgesendet werden. Da der zu filternde Wert durch mehrere Handler laufen kann, spielt die Reihenfolge der Filter eine Rolle. Daher kann beim Abonnieren zusätzlich eine Priorität hinzugefügt werden - je niedriger die Zahl, desto früher wird der Filter aufgerufen (default: 0).</p>
+<p><strong>Filter absenden:</strong>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">val</span> <span class="o">=</span> <span class="n">EventBus</span><span class="o">.</span><span class="n">applyFilter</span><span class="p">(</span><span class="s2">&quot;talent_kosten&quot;</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="p">{</span> <span class="s2">&quot;talent&quot;</span><span class="p">:</span> <span class="n">tal</span> <span class="p">})</span>
+</span></code></pre></div>
+<strong>Filter abonnieren:</strong>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">EventBus</span><span class="o">.</span><span class="n">addFilter</span><span class="p">(</span><span class="s2">&quot;talent_kosten&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">talentKostenFilter</span><span class="p">)</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">def</span> <span class="nf">talentKostenFilter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="k">if</span> <span class="n">params</span><span class="p">[</span><span class="s2">&quot;talent&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Schmieden&quot;</span><span class="p">:</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        <span class="k">return</span> <span class="n">val</span> <span class="o">+</span> <span class="mi">10</span>
+</span></code></pre></div></p>
+<p>Im Folgenden werden alle nutzbaren Actions und Filter erläutert. Sie sind kategorisiert nach Charakter, Charaktereditor, PDF Export, Datenbank, Datenbankeditor und Verschiedenes. Zuletzt gibt es noch ein paar Actions, die Sephrasto selbst abonniert.</p>
+<h3 id="charakter">Charakter</h3>
+<p>Wichtig: Alle Actions/Filter, die den Charakter betreffen, übergeben den Charakter als Parameter. Auf den Charakter sollte nur über diesen Parameter zugegriffen werden, nicht über Wolke.Char.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Typ</th>
+<th>Filter // Parameter</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Load/Save</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>charakter_instanziiert</td>
+<td>Action</td>
+<td>{ "charakter" : Char }</td>
+<td>Charakter modifizieren, nachdem er instanziiert, aber bevor er geladen und aktualisiert wurde.</td>
+</tr>
+<tr>
+<td>charakter_serialisieren</td>
+<td>Filter</td>
+<td>Serialization.?Serializer // { "charakter" : Char }</td>
+<td>Dem Serialisierer Daten hinzufügen, bevor Sephrasto den Charakter hineinschreibt.</td>
+</tr>
+<tr>
+<td>charakter_serialisiert</td>
+<td>Action</td>
+<td>{ "charakter" : Char, "serializer" : Serialization.?Serializer }</td>
+<td>Dem Serialisierer Daten hinzufügen oder modifizieren, nachdem Sephrasto den Charakter hineingeschrieben hat.</td>
+</tr>
+<tr>
+<td>charakter_deserialisieren</td>
+<td>Filter</td>
+<td>Serialization.?Deserializer // {"charakter" : Char }</td>
+<td>Aus dem Deserialisierer Daten laden oder modifizieren, bevor Sephrasto den Charakter daraus lädt.</td>
+</tr>
+<tr>
+<td>charakter_deserialisiert</td>
+<td>Action</td>
+<td>{ "charakter" : Char, "deserializer" : ?Deserializer }</td>
+<td>Aus dem Deserialisierer Daten laden, nachdem Sephrasto den Charakter daraus geladen hat.</td>
+</tr>
+<tr>
+<td>charakter_geschrieben</td>
+<td>Action</td>
+<td>{ "charakter" : Char, "serializer" : ?Serializer, "filepath" : str }</td>
+<td>Die Charakterdatei modifizieren oder weitere Dateien erstellen</td>
+</tr>
+<tr>
+<td><strong>Update</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pre_charakter_aktualisieren</td>
+<td>Action</td>
+<td>{ "charakter" : Char }</td>
+<td>Beliebige Aktion durchführen, nachdem die Charakterwerte in irgendeiner Form modifiziert wurden, aber bevor die Veränderungen berechnet werden.</td>
+</tr>
+<tr>
+<td>charakter_aktualisieren_vorteilscripts</td>
+<td>Action</td>
+<td>{ "charakter" : Char }</td>
+<td>Wird während der Charakteraktualisierung nach der Berechnung des Basiswerte und vor der Ausführung der Vorteilskripte aufgerufen.</td>
+</tr>
+<tr>
+<td>charakter_aktualisieren_fertigkeiten</td>
+<td>Action</td>
+<td>{ "charakter" : Char }</td>
+<td>Wird während der Charakteraktualisierung nach der Ausführung der Vorteilskripte und vor der Aktualisierung der Fertigkeiten aufgerufen.</td>
+</tr>
+<tr>
+<td>charakter_aktualisieren_waffenwerte</td>
+<td>Action</td>
+<td>{ "charakter" : Char }</td>
+<td>Wird während der Charakteraktualisierung nach allen Berechnungen außer den Waffenwerten aufgerufen.</td>
+</tr>
+<tr>
+<td>post_charakter_aktualisieren</td>
+<td>Action</td>
+<td>{ "charakter" : Char }</td>
+<td>Beliebige Aktion durchführen, nachdem die Charakterwerte in irgendeiner Form modifiziert und berechnet wurden.</td>
+</tr>
+<tr>
+<td>vorteil_entfernt</td>
+<td>Action</td>
+<td>{ "charakter" : Char, "name" : str }</td>
+<td>Aktionen durchführen, die nicht mit der Vorteil-Script-API möglich sind. Der "name" Parameter enthält den Namen des Vorteils.</td>
+</tr>
+<tr>
+<td>vorteil_gekauft</td>
+<td>Action</td>
+<td>{ "charakter" : Char, "name" : str }</td>
+<td>Aktionen durchführen, die nicht mit der Vorteil-Script-API möglich sind. Der "name" Parameter enthält den Namen des Vorteils.</td>
+</tr>
+<tr>
+<td>charakter_epgesamt_geändert</td>
+<td>Action</td>
+<td>{ "charakter" : Char, "epAlt" : int, "epNeu": int }</td>
+<td>Beliebige Aktion durchführen, nachdem die Gesamt-EP modifiziert wurden.</td>
+</tr>
+<tr>
+<td><strong>Kosten</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>energie_kosten</td>
+<td>Filter</td>
+<td>kosten: int // { "charakter" : Char, "energie" : str, "wertVon" : int, "wertAuf" : int }</td>
+<td>Die Kosten für Energie-Steigerungen anpassen. Die Parameter enthalten den Namen der Energie und die Ausgangs- und Zielwerte.</td>
+</tr>
+<tr>
+<td>attribut_kosten</td>
+<td>Filter</td>
+<td>kosten: int// { "charakter" : Char, "attribut" : str, "wertVon" : int, "wertAuf" : int }</td>
+<td>Die Kosten für Attributs-Steigerungen anpassen. Die Parameter enthalten den Namen des Attributs und die Ausgangs- und Zielwerte.</td>
+</tr>
+<tr>
+<td>fertigkeit_kosten</td>
+<td>Filter</td>
+<td>kosten: int // { "charakter" : Char, "name" : str, "wertVon" : int, "wertAuf" : int }</td>
+<td>Die Kosten für Fertigkeits-Steigerungen anpassen. Die Parameter enthalten den Namen der Fertigkeit und die Ausgangs- und Zielwerte.</td>
+</tr>
+<tr>
+<td>freiefertigkeit_kosten</td>
+<td>Filter</td>
+<td>kosten: int // { "charakter" : Char, "name" : str, "wertVon" : int, "wertAuf" : int }</td>
+<td>Die Kosten für freie Fertigkeiten anpassen. Die Parameter enthalten den Namen der freien Fertigkeit und die Stufe.</td>
+</tr>
+<tr>
+<td>talent_kosten</td>
+<td>Filter</td>
+<td>kosten: int // { "charakter" : Char, "talent" : str }</td>
+<td>Die Kosten für Talente anpassen. Der "talent" Parameter enthält den Namen des Talents.</td>
+</tr>
+<tr>
+<td>vorteil_kosten</td>
+<td>Filter</td>
+<td>kosten: int // { "charakter" : Char, "vorteil" : str }</td>
+<td>Die Kosten für Vorteile anpassen. Der "vorteil" Parameter enthält den Namen des Vorteils.</td>
+</tr>
+</tbody>
+</table>
+<p>Die folgenden Actions haben alle eine Gemeinsamkeit: Sie werden aufgerufen, wenn ein entsprechendes Objekt serialisiert bzw. deserialisiert wurde und können genutzt werden, um diese zu modifizieren. Als Parameter werden das (de-)serialisierte Objekt, sowie der verwendete (De-)Serializer übergeben.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Typ</th>
+<th>Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>attribut_serialisiert</td>
+<td>Action</td>
+<td>{ "object" : Attribut, "serializer" : ?Serializer })</td>
+</tr>
+<tr>
+<td>attribut_deserialisiert</td>
+<td>Action</td>
+<td>{ "object" : Attribut, "deserializer" : ?Deserializer })</td>
+</tr>
+<tr>
+<td>energie_serialisiert</td>
+<td>Action</td>
+<td>{ "object" : Energie, "serializer" : ?Serializer })</td>
+</tr>
+<tr>
+<td>energie_deserialisiert</td>
+<td>Action</td>
+<td>{ "object" : Energie, "deserializer" : ?Deserializer })</td>
+</tr>
+<tr>
+<td>fertigkeit_serialisiert</td>
+<td>Action</td>
+<td>{ "object" : Fertigkeit, "serializer" : ?Serializer })</td>
+</tr>
+<tr>
+<td>fertigkeit_deserialisiert</td>
+<td>Action</td>
+<td>{ "object" : Fertigkeit, "deserializer" : ?Deserializer })</td>
+</tr>
+<tr>
+<td>freiefertigkeit_serialisiert</td>
+<td>Action</td>
+<td>{ "object" : FreieFertigkeit, "serializer" : ?Serializer })</td>
+</tr>
+<tr>
+<td>freiefertigkeit_deserialisiert</td>
+<td>Action</td>
+<td>{ "object" : FreieFertigkeit, "deserializer" : ?Deserializer })</td>
+</tr>
+<tr>
+<td>ruestung_serialisiert</td>
+<td>Action</td>
+<td>{ "object" : Ruestung, "serializer" : ?Serializer })</td>
+</tr>
+<tr>
+<td>ruestung_deserialisiert</td>
+<td>Action</td>
+<td>{ "object" : Ruestung, "deserializer" : ?Deserializer })</td>
+</tr>
+<tr>
+<td>talent_serialisiert</td>
+<td>Action</td>
+<td>{ "object" : Talent, "serializer" : ?Serializer })</td>
+</tr>
+<tr>
+<td>talent_deserialisiert</td>
+<td>Action</td>
+<td>{ "object" : Talent, "deserializer" : ?Deserializer })</td>
+</tr>
+<tr>
+<td>vorteil_serialisiert</td>
+<td>Action</td>
+<td>{ "object" : Vorteil, "serializer" : ?Serializer })</td>
+</tr>
+<tr>
+<td>vorteil_deserialisiert</td>
+<td>Action</td>
+<td>{ "object" : Vorteil, "deserializer" : ?Deserializer })</td>
+</tr>
+<tr>
+<td>waffe_serialisiert</td>
+<td>Action</td>
+<td>{ "object" : Waffe, "serializer" : ?Serializer })</td>
+</tr>
+<tr>
+<td>waffe_deserialisiert</td>
+<td>Action</td>
+<td>{ "object" : Waffe, "deserializer" : ?Deserializer })</td>
+</tr>
+</tbody>
+</table>
+<h3 id="charaktereditor">Charaktereditor</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Typ</th>
+<th>Filter // Parameter</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>charaktereditor_oeffnet</td>
+<td>Action</td>
+<td>{ "neu" : bool, "filepath" : str }</td>
+<td>Form und Wrapper für eigene Charakter-Editor Tabs initialisieren. Der neu Parameter enthält die Information, ob es sich um einen neuen Charakter handelt. Der filepath Parameter enthält den Pfad der Charakterdatei oder einen leeren str, falls ein neuer Charakter erstellt wird.</td>
+</tr>
+<tr>
+<td>charaktereditor_geoeffnet</td>
+<td>Action</td>
+<td>{ "neu" : bool, "filepath" : str }</td>
+<td>Beliebige Aktion durchführen, nachdem der CharakterEditor vollständig initialisiert wurde. Der neu Parameter enthält die Information, ob es sich um einen neuen Charakter handelt. Der filepath Parameter enthält den Pfad der Charakterdatei oder einen leeren str, falls ein neuer Charakter erstellt wurde.</td>
+</tr>
+<tr>
+<td>charaktereditor_geschlossen</td>
+<td>Action</td>
+<td>{}</td>
+<td>Referenzen im Plugin auf Form und Wrapper von eigenen Charakter-Editor Tabs aufräumen.</td>
+</tr>
+<tr>
+<td>ruestung_be</td>
+<td>Filter</td>
+<td>be: int // { "name" : str }</td>
+<td>Die BE einer Rüstung des Rüstungauswahlfensters anpassen. Achtung: Da Rüstungen ergänzt werden können und die Namen dann konkateniert werden, sollte der name via "in" abgefragt werden (bspw. if "Leichte Platte" in name).</td>
+</tr>
+<tr>
+<td>regelanhang_reihenfolge_name</td>
+<td>Filter</td>
+<td>name : str // {}</td>
+<td>Wenn der Datenbank-Einstellung "Regelanhang: Reihenfolge" neue Kürzel hinzugefügt werden, kann mit diesem Filter der volle Name für das Kürzel angegeben werden, damit es im Info-Tab bei den Regelanhangkategorien verständlich dargestellt wird. Der anfängliche Filterwert entspricht dem Kürzel.</td>
+</tr>
+</tbody>
+</table>
+<p>Die folgenden Filter haben alle eine Gemeinsamkeit:  Der Filterwert ist eine Wrapperklasse eines der UI-Tabs oder Auswahlfenster. Im Filter kann der Wrapper komplett ersetzt oder beerbt werden, um die Sephrasto-UI anzupassen.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Typ</th>
+<th>Filter // Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>class_beschreibung_wrapper</td>
+<td>Filter</td>
+<td>BeschrWrapper : class // {}</td>
+</tr>
+<tr>
+<td>class_beschreibung_details_wrapper</td>
+<td>Filter</td>
+<td>CharakterBeschreibungDetailsWrapper : class // {}</td>
+</tr>
+<tr>
+<td>class_attribute_wrapper</td>
+<td>Filter</td>
+<td>ttrWrapper : class // {}</td>
+</tr>
+<tr>
+<td>class_fertigkeiten_wrapper</td>
+<td>Filter</td>
+<td>FertigkeitenWrapper : class // {}</td>
+</tr>
+<tr>
+<td>class_profanefertigkeiten_wrapper</td>
+<td>Filter</td>
+<td>ProfaneFertigkeitenWrapper : class // {}</td>
+</tr>
+<tr>
+<td>class_freiefertigkeiten_wrapper</td>
+<td>Filter</td>
+<td>CharakterFreieFertWrapper : class // {}</td>
+</tr>
+<tr>
+<td>class_uebernatuerlichefertigkeiten_wrapper</td>
+<td>Filter</td>
+<td>UebernatuerlichWrapper : class // {}</td>
+</tr>
+<tr>
+<td>class_ausruestung_wrapper</td>
+<td>Filter</td>
+<td>EquipWrapper : class // {}</td>
+</tr>
+<tr>
+<td>class_waffen_wrapper</td>
+<td>Filter</td>
+<td>CharakterWaffenWrapper : class // {}</td>
+</tr>
+<tr>
+<td>class_inventar_wrapper</td>
+<td>Filter</td>
+<td>CharakterInventarWrapper : class // {}</td>
+</tr>
+<tr>
+<td>class_vorteile_wrapper</td>
+<td>Filter</td>
+<td>CharakterVorteileWrapper : class // {}</td>
+</tr>
+<tr>
+<td>class_info_wrapper</td>
+<td>Filter</td>
+<td>InfoWrapper : class // {}</td>
+</tr>
+<tr>
+<td>class_waffenpicker_wrapper</td>
+<td>Filter</td>
+<td>WaffenPicker : class // {}</td>
+</tr>
+<tr>
+<td>class_ruestungspicker_wrapper</td>
+<td>Filter</td>
+<td>RuestungPicker : class // {}</td>
+</tr>
+<tr>
+<td>class_freiefertigkeitenpicker_wrapper</td>
+<td>Filter</td>
+<td>CharakterFreieFertigkeitenPickerWrapper : class // {}</td>
+</tr>
+<tr>
+<td>class_talentpicker_wrapper</td>
+<td>Filter</td>
+<td>TalentPicker : class // {}</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pdf-export">PDF Export</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Typ</th>
+<th>Filter // Parameter</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pdf_geschrieben</td>
+<td>Action</td>
+<td>{ "filepath" : str }</td>
+<td>Aktion durchführen, nachdem die Charakter-PDF geschrieben wurde, z.B. eine weitere PDF schreiben. Der Parameter enthält den Dateinamen der Charakter-PDF mit absolutem Pfad.</td>
+</tr>
+<tr>
+<td>regelanhang_anfuegen</td>
+<td>Action</td>
+<td>{ "reihenfolge" : str, "appendCallback" : Python-Funktion }</td>
+<td>Dem Regelanhang weiteren Text hinzufügen. Dies geschieht über den Parameter "appendCallback", einer Pythonfunktion die den Kategorienamen und den Text als Funktionsparameter hat. Der Kategoriename kann auch auf einen leeren str gesetzt werden. Die Action wird mehrmals aufgerufen, der "reihenfolge" Parameter sollte genutzt werden, um den Text an der richtigen Stelle einzufügen. Er entspricht einem Eintrag in der Datenbank-Einstellung "Regelanhang: Reihenfolge".</td>
+</tr>
+<tr>
+<td>pdf_concat</td>
+<td>Filter</td>
+<td>filePaths : [str] // {}</td>
+<td>Sephrasto fügt zum Schluss alle generierten Einzelseiten zusammen. Diese Liste von Einzelseiten kann hiermit manipuliert werden, z.B. um weitere Seiten einzufügen.</td>
+</tr>
+<tr>
+<td>pdf_export</td>
+<td>Filter</td>
+<td>pdfFields : {str : str} // {}</td>
+<td>Von Sephrasto generierte PDF-Felder vor dem Exportieren der PDF modifizieren</td>
+</tr>
+<tr>
+<td>pdf_export_extrapage</td>
+<td>Filter</td>
+<td>pdfFields : {str : str} // {}</td>
+<td>Von Sephrasto generierte PDF-Felder vor dem Exportieren der PDF modifizieren. Wird nur für Extraseiten aufgerufen, wenn diese nötig sind. Sie enthalten nur die Felder für übernatürliche Fertigkeiten, Talente und Vorteile.</td>
+</tr>
+<tr>
+<td>set_charakterbogen</td>
+<td>Filter</td>
+<td>filePath : str // {}</td>
+<td>Den vom Nutzer gewählten Charakterbogen modifizieren, z.B. den Pfad der Datei anpassen um einen Charakterbogen aus dem Plugin zu verwenden. Achtung: Im Ordner des Charakterbogens muss sich eine gleichnamige Datei mit der Endung ".ini" befinden. Siehe Sephrasto/Data/Charakterbögen/Standard Charakterbogen.ini als Beispiel für deren Inhalt.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="datenbank">Datenbank</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Typ</th>
+<th>Filter // Parameter</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>datenbank_serialisieren</td>
+<td>Filter</td>
+<td>Serialization.?Serializer // { "datenbank" : Datenbank, "merge" : bool }</td>
+<td>Dem Serialisierer Daten hinzufügen, bevor Sephrasto die Datenbank hineinschreibt. Der Parameter merge beschreibt, ob die Basisdatenbank mit den Hausregeln zusammengeführt werden soll.</td>
+</tr>
+<tr>
+<td>datenbank_serialisiert</td>
+<td>Action</td>
+<td>{ "datenbank" : Datenbank, "serializer" : Serialization.?Serializer, "merge" : bool }</td>
+<td>Dem Serialisierer Daten hinzufügen oder modifizieren, nachdem Sephrasto die Datenbank hineingeschrieben hat. Der Parameter merge beschreibt, ob die Basisdatenbank mit den Hausregeln zusammengeführt werden soll.</td>
+</tr>
+<tr>
+<td>datenbank_deserialisieren</td>
+<td>Filter</td>
+<td>Serialization.?Deserializer // {"datenbank" : Datenbank, "basisdatenbank" : bool, "conflictCallback" : Python-Funktion }</td>
+<td>Aus dem Deserialisierer Daten laden oder modifizieren, bevor Sephrasto die Datenbank daraus lädt. Der "basisdatenbank"-Parameter enthält die Information, ob es sich um die Basisdatenbank- oder eine Hausregeldatenbank-Datei handelt. Der "conflictCallback"-Parameter ist nur gesetzt wenn basisdatenbank=false und kann ausgeführt werden, um beim Laden mehrerer Hausregeldatenbanken Konflikte eigener Datenbanktypen aufzulösen. Hierzu werden dem Callback der Name des Datenbanktyps, die alte sowie die neue Version des Elements als parameter übergeben, siehe Datenbank.py.</td>
+</tr>
+<tr>
+<td>datenbank_deserialisiert</td>
+<td>Action</td>
+<td>{ "datenbank" : Datenbank, "deserializer" : ?Deserializer, "basisdatenbank" : bool, "conflictCallback" : Python-Funktion }</td>
+<td>Aus dem Deserialisierer Daten laden, nachdem Sephrasto die Datenbank daraus geladen hat. Der "basisdatenbank"-Parameter enthält die Information, ob es sich um die Basisdatenbank- oder eine Hausregeldatenbank-Datei handelt. Der "conflictCallback"-Parameter ist nur gesetzt wenn basisdatenbank=false und kann ausgeführt werden, um beim Laden mehrerer Hausregeldatenbanken Konflikte eigener Datenbanktypen aufzulösen. Hierzu werden dem Callback der Name des Datenbanktyps, die alte sowie die neue Version des Elements als parameter übergeben, siehe Datenbank.py.</td>
+</tr>
+<tr>
+<td>basisdatenbank_geladen</td>
+<td>Action</td>
+<td>{"datenbank" : Datenbank, "isCharakterEditor" : bool }</td>
+<td>Elemente der Basisdatenbank anpassen/hinzufügen/löschen, bevor die Hausregel-Datenbank geladen wird. Ein übliches Beispiel ist das Hinzufügen von DatenbankEinstellung-Elementen, mit welchen das Plugin konfiguriert werden kann.</td>
+</tr>
+<tr>
+<td>datenbank_geladen</td>
+<td>Action</td>
+<td>{ "datenbank" : Datenbank, "isCharakterEditor" : bool }</td>
+<td>Aktion durchführen, nachdem die Datenbank inkl. Hausregeldatenbank komplett geladen wurde. Eine Referenz auf das Datenbank-Objekt erhalten.</td>
+</tr>
+<tr>
+<td>datenbank_verify</td>
+<td>Filter</td>
+<td>loadingErrors : [[object, str]] // { "datenbank" : Datenbank }</td>
+<td>Eigene Datentypen verifizieren und bei Fehlern dem loadingErrors array hinzufügen, damit diese in der Fehlerliste des Datenbankeditors erscheinen.</td>
+</tr>
+</tbody>
+</table>
+<p>Die folgenden Actions haben alle eine Gemeinsamkeit: Sie werden aufgerufen, wenn ein entsprechendes Objekt serialisiert bzw. deserialisiert wurde und können genutzt werden, um diese zu modifizieren. Als Parameter werden das (de-)serialisierte Objekt, sowie der verwendete (De-)Serializer übergeben.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Typ</th>
+<th>Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>abgeleiteterwertdefinition_serialisiert</td>
+<td>Action</td>
+<td>{ "object" : AbgeleiteterWertDefinition, "serializer" : ?Serializer }</td>
+</tr>
+<tr>
+<td>abgeleiteterwertdefinition_deserialisiert</td>
+<td>Action</td>
+<td>{ "object" : AbgeleiteterWertDefinition, "deserializer" : ?Deserializer })</td>
+</tr>
+<tr>
+<td>attributdefinition_serialisiert</td>
+<td>Action</td>
+<td>{ "object" : AttributDefinition, "serializer" : ?Serializer })</td>
+</tr>
+<tr>
+<td>attributdefinition_deserialisiert</td>
+<td>Action</td>
+<td>{ "object" : AttributDefinition, "deserializer" : ?Deserializer })</td>
+</tr>
+<tr>
+<td>datenbankeinstellung_serialisiert</td>
+<td>Action</td>
+<td>{ "object" : DatenbankEinstellung, "serializer" : ?Serializer })</td>
+</tr>
+<tr>
+<td>datenbankeinstellung_deserialisiert</td>
+<td>Action</td>
+<td>{ "object" : DatenbankEinstellung, "deserializer" : ?Deserializer })</td>
+</tr>
+<tr>
+<td>energiedefinition_serialisiert</td>
+<td>Action</td>
+<td>{ "object" : EnergieDefinition, "serializer" : ?Serializer })</td>
+</tr>
+<tr>
+<td>energiedefinition_deserialisiert</td>
+<td>Action</td>
+<td>{ "object" : EnergieDefinition, "deserializer" : ?Deserializer })</td>
+</tr>
+<tr>
+<td>fertigkeitdefinition_serialisiert</td>
+<td>Action</td>
+<td>{ "object" : FertigkeitDefinition, "serializer" : ?Serializer })</td>
+</tr>
+<tr>
+<td>fertigkeitdefinition_deserialisiert</td>
+<td>Action</td>
+<td>{ "object" : FertigkeitDefinition, "deserializer" : ?Deserializer })</td>
+</tr>
+<tr>
+<td>ueberfertigkeitdefinition_serialisiert</td>
+<td>Action</td>
+<td>{ "object" : UeberFertigkeitDefinition, "serializer" : ?Serializer })</td>
+</tr>
+<tr>
+<td>ueberfertigkeitdefinition_deserialisiert</td>
+<td>Action</td>
+<td>{ "object" : UeberFertigkeitDefinition, "deserializer" : ?Deserializer })</td>
+</tr>
+<tr>
+<td>freiefertigkeitdefinition_serialisiert</td>
+<td>Action</td>
+<td>{ "object" : FreieFertigkeitDefinition, "serializer" : ?Serializer })</td>
+</tr>
+<tr>
+<td>freiefertigkeitdefinition_deserialisiert</td>
+<td>Action</td>
+<td>{ "object" : FreieFertigkeitDefinition, "deserializer" : ?Deserializer })</td>
+</tr>
+<tr>
+<td>regel_serialisiert</td>
+<td>Action</td>
+<td>{ "object" : Regel, "serializer" : ?Serializer })</td>
+</tr>
+<tr>
+<td>regel_deserialisiert</td>
+<td>Action</td>
+<td>{ "object" : Regel, "deserializer" : ?Deserializer })</td>
+</tr>
+<tr>
+<td>ruestungdefinition_serialisiert</td>
+<td>Action</td>
+<td>{ "object" : RuestungDefinition, "serializer" : ?Serializer })</td>
+</tr>
+<tr>
+<td>ruestungdefinition_deserialisiert</td>
+<td>Action</td>
+<td>{ "object" : RuestungDefinition, "deserializer" : ?Deserializer })</td>
+</tr>
+<tr>
+<td>talentdefinition_serialisiert</td>
+<td>Action</td>
+<td>{ "object" : TalentDefinition, "serializer" : ?Serializer })</td>
+</tr>
+<tr>
+<td>talentdefinition_deserialisiert</td>
+<td>Action</td>
+<td>{ "object" : TalentDefinition, "deserializer" : ?Deserializer })</td>
+</tr>
+<tr>
+<td>vorteildefinition_serialisiert</td>
+<td>Action</td>
+<td>{ "object" : VorteilDefinition, "serializer" : ?Serializer })</td>
+</tr>
+<tr>
+<td>vorteildefinition_deserialisiert</td>
+<td>Action</td>
+<td>{ "object" : VorteilDefinition, "deserializer" : ?Deserializer })</td>
+</tr>
+<tr>
+<td>waffedefinition_serialisiert</td>
+<td>Action</td>
+<td>{ "object" : WaffeDefinition, "serializer" : ?Serializer })</td>
+</tr>
+<tr>
+<td>waffedefinition_deserialisiert</td>
+<td>Action</td>
+<td>{ "object" : WaffeDefinition, "deserializer" : ?Deserializer })</td>
+</tr>
+<tr>
+<td>waffeneigenschaft_serialisiert</td>
+<td>Action</td>
+<td>{ "object" : WaffenEigenschaft, "serializer" : ?Serializer })</td>
+</tr>
+<tr>
+<td>waffeneigenschaft_deserialisiert</td>
+<td>Action</td>
+<td>{ "object" : WaffenEigenschaft, "deserializer" : ?Deserializer })</td>
+</tr>
+</tbody>
+</table>
+<h3 id="datenbankeditor">Datenbankeditor</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Typ</th>
+<th>Filter // Parameter</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dbe_menuitems_erstellen</td>
+<td>Action</td>
+<td>{ "addMenuItemCB" : Python-Funktion }</td>
+<td>Dem Datenbankeditor-Menu Einträge hinzufügen. Rufe dazu den addMenuItemCB auf. Er benötigt zwei Parameter: Der erste ist der Name des Menus, der zweite eine QAction.</td>
+</tr>
+<tr>
+<td>datenbank_editor_typen</td>
+<td>Filter</td>
+<td>databaseTypes : { Class : DatenbankTypWrapper } // {}</td>
+<td>Dem Datenbankeditor weitere Datentypen hinzufügen. Zusätzlich muss via datenbank_geladen in datenbank.tablesByType die Datenbankelement-Tabelle eingetragenwerden.</td>
+</tr>
+</tbody>
+</table>
+<p>Die folgenden Filter haben alle eine Gemeinsamkeit:  Der Filterwert ist eine Wrapperklasse eines der UI-Tabs oder Auswahlfenster. Im Filter kann der Wrapper komplett ersetzt oder beerbt werden, um die Sephrasto-UI anzupassen.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Typ</th>
+<th>Filter // Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dbe_class_abgeleiteterwertdefinition_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditAbgeleiteterWertWrapper : class // {}</td>
+</tr>
+<tr>
+<td>dbe_class_attributdefinition_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditAttributWrapper : class // {}</td>
+</tr>
+<tr>
+<td>dbe_class_datenbankeinstellung_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditEinstellungWrapper : class // {}</td>
+</tr>
+<tr>
+<td>dbe_class_energiedefinition_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditEnergieWrapper : class // {}</td>
+</tr>
+<tr>
+<td>dbe_class_profanefertigkeitdefinition_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditProfaneFertigkeitWrapper : class // {}</td>
+</tr>
+<tr>
+<td>dbe_class_uebernatuelichefertigkeitdefinition_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditUebernatürlicheFertigkeitWrapper : class // {}</td>
+</tr>
+<tr>
+<td>dbe_class_freiefertigkeitdefinition_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditFreieFertigkeitWrapper : class // {}</td>
+</tr>
+<tr>
+<td>dbe_class_regel_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditRegelWrapper : class // {}</td>
+</tr>
+<tr>
+<td>dbe_class_ruestungdefinition_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditRuestungWrapper : class // {}</td>
+</tr>
+<tr>
+<td>dbe_class_talentdefinition_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditTalentWrapper : class // {}</td>
+</tr>
+<tr>
+<td>dbe_class_vorteildefinition_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditVorteilWrapper : class // {}</td>
+</tr>
+<tr>
+<td>dbe_class_waffedefinition_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditWaffeWrapper : class // {}</td>
+</tr>
+<tr>
+<td>dbe_class_abgeleiteterwertdefinition_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditAbgeleiteterWertWrapper : class // {}</td>
+</tr>
+<tr>
+<td>dbe_class_attributdefinition_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditAttributWrapper : class // {}</td>
+</tr>
+<tr>
+<td>dbe_class_datenbankeinstellung_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditEinstellungWrapper : class // {}</td>
+</tr>
+<tr>
+<td>dbe_class_energiedefinition_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditEnergieWrapper : class // {}</td>
+</tr>
+<tr>
+<td>dbe_class_profanefertigkeitdefinition_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditProfaneFertigkeitWrapper : class // {}</td>
+</tr>
+<tr>
+<td>dbe_class_uebernatuelichefertigkeitdefinition_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditUebernatürlicheFertigkeitWrapper : class // {}</td>
+</tr>
+<tr>
+<td>dbe_class_freiefertigkeitdefinition_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditFreieFertigkeitWrapper : class // {}</td>
+</tr>
+<tr>
+<td>dbe_class_regel_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditRegelWrapper : class // {}</td>
+</tr>
+<tr>
+<td>dbe_class_ruestungdefinition_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditRuestungWrapper : class // {}</td>
+</tr>
+<tr>
+<td>dbe_class_talentdefinition_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditTalentWrapper : class // {}</td>
+</tr>
+<tr>
+<td>dbe_class_vorteildefinition_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditVorteilWrapper : class // {}</td>
+</tr>
+<tr>
+<td>dbe_class_waffedefinition_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditWaffeWrapper : class // {}</td>
+</tr>
+<tr>
+<td>dbe_class_waffeneigenschaftdefinition_wrapper</td>
+<td>Filter</td>
+<td>DatenbankEditWaffeneigenschaftWrapper : class // {}</td>
+</tr>
+</tbody>
+</table>
+<h3 id="verschiedenes">Verschiedenes</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Typ</th>
+<th>Parameter</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>plugins_geladen</td>
+<td>Action</td>
+<td>{ "plugins" : [str] }</td>
+<td>Nach dieser Action sind alle Plugins initialisiert. Kann verwendet werden um mit anderen Plugins über eigene Actions und Filter zu kommunizieren. Der Parameter enthält eine Liste mit den Namen aller aktivierten Plugins.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="von-sephrasto-abonnierte-actions">Von Sephrasto abonnierte Actions</h3>
+<p>Diese Actions können von Plugins abgesendet werden, um Sephrasto anweisungen zu geben.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Typ</th>
+<th>Parameter</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>charaktereditor_reload</td>
+<td>Action</td>
+<td>{ "name" : str }</td>
+<td>Einen Toplevel-Tab des Charaktereditors neu initialisieren. Der name Parameter enthält den Namen des Tabs.</td>
+</tr>
+<tr>
+<td>charaktereditor_modified</td>
+<td>Action</td>
+<td>{}</td>
+<td>Aktualisiert den Charakter und die EP und beim Schließen des Charaktereditors wird ein Popup angezeigt, das über ungespeicherte Änderungen mitteilt</td>
+</tr>
+</tbody>
+</table>
+<h2 id="neues-plugin-erstellen">Neues Plugin erstellen</h2>
+<ul>
+<li>Gehe in deinen <code>Dokumente/Sephrasto/Plugins</code> Ordner</li>
+<li>Lege einen neuen Ordner mit deinem Pluginnamen an (keine Leerzeichen)</li>
+<li>Erstelle in diesem Ordner eine Datei mit dem Namen <code>manifest.json</code> mit folgendem Inhalt:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Mein Plugin&quot;</span><span class="p">,</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Dieses Plugin macht nicht besonders viel.&quot;</span><span class="p">,</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Gatsu&quot;</span><span class="p">,</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="nt">&quot;hasSettings&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="nt">&quot;dependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Anderes Plugin&quot;</span><span class="p">,</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">      </span><span class="nt">&quot;version&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.1&quot;</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">  </span><span class="p">]</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="p">}</span>
+</span></code></pre></div></li>
+<li>Manifest Zusatzinfo: Das Feld "version" muss dem Format X.X.X.X folgen, wobei die letzten drei Stellen optional sind. Das Feld "dependencies" ist optional und kann genutzt werden, um ein oder mehrere Plugins anzugeben, von denen dieses Plugin abhängt - sie werden dann von Sephrasto automatisch mitinstalliert.</li>
+<li>Erstelle in diesem Ordner eine Datei mit dem Namen <code>__init__.py</code></li>
+<li>Erstelle in dieser Datei eine Klasse mit dem Namen <code>Plugin</code> und importiere den <code>EventBus</code></li>
+<li>Falls du Action oder Filter Handler registrieren möchtest, stelle sicher, dass sie über die gesamte Programm-Dauer bestehen bleiben. Vermeide es also beispielsweise Handler in einem UI Wrapper zu registrieren, den du jedes mal neu erstellst, wenn ein neuer Charakter geladen wird oder ein Hauptfenster-Button geclickt wird. Stattdessen kannst du den Handler in deiner <code>__init__.py</code> registrieren und dann eine Funktion auf dem aktuellen Wrapper aufrufen.</li>
+<li>Optional: Füge die Funktion changesCharacter ein und gib True zurück, falls dein Plugin die Charakterdaten ändert. Falls ein Charakter mit diesem Plugin erstellt wurde und dann ohne Plugin geöffnet wird, erscheint dann ein Warndialog.</li>
+<li>Optional: Füge die Funktion changesDatabase ein und gib True zurück, falls dein Plugin die Datenbank ändert. Falls Hausregeln mit diesem Plugin erstellt wurden und dann ohne Plugin geöffnet werden, erscheint dann ein Warndialog.</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">EventBus</span> <span class="kn">import</span> <span class="n">EventBus</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">class</span> <span class="nc">Plugin</span><span class="p">:</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>        <span class="n">EventBus</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="o">...</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="k">def</span> <span class="nf">changesCharacter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>        <span class="k">return</span> <span class="kc">True</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="k">def</span> <span class="nf">changesDatabase</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>        <span class="k">return</span> <span class="kc">True</span>
+</span></code></pre></div>
+<h2 id="charaktereditor-tab-hinzufugen">Charaktereditor Tab hinzufügen</h2>
+<p>Implementiere in deiner Plugin-Klasse eine Funktion mit dem Namen <code>createCharakterTabs</code> und returne eine Liste von Tabs. Importiere hierzu die Tab-Klasse aus dem Charaktereditor.
+- Der erste Konstruktor-Parameter der Tabklasse legt die relative Reihenfolge fest, in welcher der Tab eingefügt wird - die Sephrasto Tabs haben Reihenfolge-Werte in 10er-Schritten, beginnend bei 10.
+- Der zweite Parameter ist deine UI-Wrapper-Klasse, die optional ein <code>modified</code> Signal definieren kann. Mit dem Signal kann Sephrasto darüber in Kenntnis gesetzt werden, dass sich etwas am Charakter verändert hat, um bei Bedarf das Warn-Popup zu öffnen, wenn der Charakter geschlossen wird oder um das EP-Widget zu aktualisieren. Zudem kann sie optional die Funktionen load und update implementieren. Beide werden von Sephrasto zu passenden Zeitpunkten aufgerufen und sollten genutzt werden, um die UI Widgets zu befüllen (load) oder den Charakter mit den UI Widget-Werten zu aktualisieren (update).
+- Der dritte Parameter ist die vom QtCreator generierte UI Form.
+- Der vierte Parameter ist der Titel des Tabs.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">EventBus</span> <span class="kn">import</span> <span class="n">EventBus</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">from</span> <span class="nn">MeinPlugin</span> <span class="kn">import</span> <span class="n">MeinTabWrapper</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">class</span> <span class="nc">Plugin</span><span class="p">:</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">meinTab</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>        <span class="n">EventBus</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="s2">&quot;charaktereditor_oeffnet&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">charakterEditorOeffnet</span><span class="p">)</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="k">def</span> <span class="nf">charakterEditorOeffnet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">meinTab</span> <span class="o">=</span> <span class="n">MeinTabWrapper</span><span class="o">.</span><span class="n">MeinTabWrapper</span><span class="p">()</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="k">def</span> <span class="nf">createCharakterTabs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>        <span class="c1">#Füge einen Tab mit Titel &quot;Mein Tab&quot; an zweiter Stelle ein.</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>        <span class="n">tab</span> <span class="o">=</span> <span class="n">Tab</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">meinTab</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">meinTab</span><span class="o">.</span><span class="n">form</span><span class="p">,</span> <span class="s2">&quot;Mein Tab&quot;</span><span class="p">)</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>        <span class="k">return</span> <span class="p">[</span><span class="n">tab</span><span class="p">]</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="c1">#Datei MeinTabWrapper.py im Plugin-Ordner</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="kn">from</span> <span class="nn">PySide6</span> <span class="kn">import</span> <span class="n">QtWidgets</span><span class="p">,</span> <span class="n">QtCore</span><span class="p">,</span> <span class="n">QtGui</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="kn">from</span> <span class="nn">MeinPlugin</span> <span class="kn">import</span> <span class="n">MeinTab</span>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="k">class</span> <span class="nc">MeinTabWrapper</span><span class="p">(</span><span class="n">QtCore</span><span class="o">.</span><span class="n">QObject</span><span class="p">):</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>    <span class="n">modified</span> <span class="o">=</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">Signal</span><span class="p">()</span>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">form</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QWidget</span><span class="p">()</span>
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span> <span class="o">=</span> <span class="n">MeinTab</span><span class="o">.</span><span class="n">Ui_Form</span><span class="p">()</span>
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">setupUi</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">form</span><span class="p">)</span>
+</span><span id="__span-6-29"><a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">lineEditName</span><span class="o">.</span><span class="n">textChanged</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">changed</span><span class="p">)</span>
+</span><span id="__span-6-30"><a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>
+</span><span id="__span-6-31"><a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>    <span class="k">def</span> <span class="nf">changed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-6-32"><a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">modified</span><span class="o">.</span><span class="n">emit</span><span class="p">()</span>
+</span><span id="__span-6-33"><a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>
+</span><span id="__span-6-34"><a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-6-35"><a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a>        <span class="k">pass</span>
+</span><span id="__span-6-36"><a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>
+</span><span id="__span-6-37"><a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-6-38"><a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a>        <span class="k">pass</span>
+</span></code></pre></div>
+<h2 id="hauptfenster-oder-charaktereditor-button-hinzufugen">Hauptfenster oder Charaktereditor Button hinzufügen</h2>
+<p>Implementiere in deiner Plugin-Klasse eine Funktion mit dem Namen <code>createMainWindowButtons</code> oder <code>createCharakterButtons</code> und returne eine Liste von (Button) Widgets. Im <code>clicked</code> Event der widgets kannst du einen Handler registrieren, der dann beispielsweise ein neues Fenster zeigt.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span> <span class="nn">PySide6</span> <span class="kn">import</span> <span class="n">QtWidgets</span><span class="p">,</span> <span class="n">QtCore</span><span class="p">,</span> <span class="n">QtGui</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">from</span> <span class="nn">EventBus</span> <span class="kn">import</span> <span class="n">EventBus</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kn">from</span> <span class="nn">MeinPlugin</span> <span class="kn">import</span> <span class="n">MeinFensterWrapper</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">class</span> <span class="nc">Plugin</span><span class="p">:</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">meinFensterButton</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">meinFenster</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    <span class="k">def</span> <span class="nf">createMainWindowButtons</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">meinFensterButton</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QPushButton</span><span class="p">()</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">meinFensterButton</span><span class="o">.</span><span class="n">setProperty</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;icon&quot;</span><span class="p">)</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">meinFensterButton</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\uf6f0</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1">#font awesome icon</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">meinFensterButton</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">createMeinFenster</span><span class="p">)</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">meinFensterButton</span><span class="p">]</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>    <span class="k">def</span> <span class="nf">createMeinFenster</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">meinFenster</span> <span class="o">=</span> <span class="n">MeinFensterWrapper</span><span class="o">.</span><span class="n">MeinFensterWrapper</span><span class="p">()</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">meinFenster</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="c1">#Datei MeinFensterWrapper.py im Plugin-Ordner</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="kn">from</span> <span class="nn">PySide6</span> <span class="kn">import</span> <span class="n">QtWidgets</span><span class="p">,</span> <span class="n">QtCore</span><span class="p">,</span> <span class="n">QtGui</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="kn">from</span> <span class="nn">MeinPlugin</span> <span class="kn">import</span> <span class="n">MeinFenster</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="k">class</span> <span class="nc">MeinFensterWrapper</span><span class="p">(</span><span class="n">QtCore</span><span class="o">.</span><span class="n">QObject</span><span class="p">):</span>   
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">form</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QWidget</span><span class="p">()</span>
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span> <span class="o">=</span> <span class="n">MeinFenster</span><span class="o">.</span><span class="n">Ui_Form</span><span class="p">()</span> <span class="c1"># mit qt creator erstellte form</span>
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ui</span><span class="o">.</span><span class="n">setupUi</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">form</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="datenbankeditor-menueintrag-hinzufugen">Datenbankeditor Menueintrag hinzufügen</h2>
+<p>Für in deiner Plugin-Klasse einen handler für die Action <code>dbe_menuitems_erstellen</code> hinzu und hole den addMenuItemCB aus den parametern. Mit diesem Callback kannst du QActions in ein beliebiges Menu des Datenbankeditors einfügen.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span> <span class="nn">PySide6</span> <span class="kn">import</span> <span class="n">QtGui</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">from</span> <span class="nn">EventBus</span> <span class="kn">import</span> <span class="n">EventBus</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">class</span> <span class="nc">Plugin</span><span class="p">:</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>        <span class="n">EventBus</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="s2">&quot;dbe_menuitems_erstellen&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">menusErstellen</span><span class="p">)</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="k">def</span> <span class="nf">menusErstellen</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>        <span class="n">addMenuItemCB</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s2">&quot;addMenuItemCB&quot;</span><span class="p">]</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">exportDB</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QAction</span><span class="p">(</span><span class="s2">&quot;Mein Export&quot;</span><span class="p">)</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">exportDB</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">export</span><span class="p">)</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>        <span class="n">addMenuItemCB</span><span class="p">(</span><span class="s2">&quot;Export&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">export</span><span class="p">)</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>    <span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>        <span class="p">[</span><span class="o">...</span><span class="p">]</span>
+</span></code></pre></div>
+<h2 id="dem-plugin-in-den-sephrasto-einstellungen-einen-eigenen-einstellungsdialog-hinzufugen">Dem Plugin in den Sephrasto-Einstellungen einen eigenen Einstellungsdialog hinzufügen</h2>
+<p>Füge die Funktion showSettings ein und zeige ein beliebiges Fenster oder nutze Sephrastos SimpleSettingsDialog. Dieser kümmert sich automatisch um das Darstellen, Laden und Speichern der Einstellungen in der Sephrasto.ini über die <code>addSetting</code> Funktion.</p>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span> <span class="nn">PySide6</span> <span class="kn">import</span> <span class="n">QtWidgets</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kn">from</span> <span class="nn">QtUtils.SimpleSettingsDialog</span> <span class="kn">import</span> <span class="n">SimpleSettingsDialog</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">class</span> <span class="nc">Plugin</span><span class="p">:</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="k">def</span> <span class="nf">showSettings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>        <span class="n">dlg</span> <span class="o">=</span> <span class="n">SimpleSettingsDialog</span><span class="p">(</span><span class="s2">&quot;Mein Plugin Einstellungen&quot;</span><span class="p">)</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>        <span class="n">dlg</span><span class="o">.</span><span class="n">addSetting</span><span class="p">(</span><span class="s2">&quot;MeinPlugin_Checkbox&quot;</span><span class="p">,</span> <span class="s2">&quot;Checkboxoption&quot;</span><span class="p">,</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QCheckBox</span><span class="p">())</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>        <span class="n">dlg</span><span class="o">.</span><span class="n">addSetting</span><span class="p">(</span><span class="s2">&quot;MeinPlugin_Spinbox&quot;</span><span class="p">,</span> <span class="s2">&quot;Spinboxoption&quot;</span><span class="p">,</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QSpinBox</span><span class="p">())</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>        <span class="n">dlg</span><span class="o">.</span><span class="n">addSetting</span><span class="p">(</span><span class="s2">&quot;MeinPlugin_Text&quot;</span><span class="p">,</span> <span class="s2">&quot;Textoption&quot;</span><span class="p">,</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QLineEdit</span><span class="p">())</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>        <span class="n">combobox</span> <span class="o">=</span> <span class="n">QtWidgets</span><span class="o">.</span><span class="n">QComboBox</span><span class="p">()</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>        <span class="n">combobox</span><span class="o">.</span><span class="n">addItems</span><span class="p">([</span><span class="s2">&quot;OptionA&quot;</span><span class="p">,</span> <span class="s2">&quot;Option B&quot;</span><span class="p">,</span> <span class="s2">&quot;Option C&quot;</span><span class="p">])</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>        <span class="n">dlg</span><span class="o">.</span><span class="n">addSetting</span><span class="p">(</span><span class="s2">&quot;MeinPlugin_Combobox&quot;</span><span class="p">,</span> <span class="s2">&quot;Comboboxoption&quot;</span><span class="p">,</span> <span class="n">combobox</span><span class="p">)</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>        <span class="n">dlg</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></code></pre></div>
+In der manifest.json solltest du außerdem "hasSettings" auf true setzen.</p>
+<h2 id="existierende-ui-anpassen">Existierende UI anpassen</h2>
+<p>Implementiere einen der "class_xx_wrapper" Filter, die UI-Wrapper-Klasse wird als Parameter gereicht. Du kannst diesen Parameter im Handler beerben und diese oder eine ganz neue Klasse returnen. Im folgenden Beispiel wird bei den freien Fertigkeiten die dritte Stufe entfernt.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">from</span> <span class="nn">PySide6</span> <span class="kn">import</span> <span class="n">QtWidgets</span><span class="p">,</span> <span class="n">QtCore</span><span class="p">,</span> <span class="n">QtGui</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kn">from</span> <span class="nn">EventBus</span> <span class="kn">import</span> <span class="n">EventBus</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="k">class</span> <span class="nc">Plugin</span><span class="p">:</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    <span class="n">EventBus</span><span class="o">.</span><span class="n">addFilter</span><span class="p">(</span><span class="s2">&quot;class_freiefertigkeiten_wrapper&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">provideFreieFertigkeitenWrapper</span><span class="p">)</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    <span class="k">def</span> <span class="nf">provideFreieFertigkeitenWrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>        <span class="k">class</span> <span class="nc">MeinFreieFertigkeitenWrapper</span><span class="p">(</span><span class="n">base</span><span class="p">):</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>            <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>                <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>                <span class="n">ffCount</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>                <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">):</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>                    <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>                        <span class="n">ffCount</span> <span class="o">+=</span><span class="mi">1</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>                        <span class="n">combo</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">uiFert</span><span class="p">,</span> <span class="s2">&quot;comboFF&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ffCount</span><span class="p">))</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>                        <span class="n">combo</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>                        <span class="n">combo</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;I&quot;</span><span class="p">)</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>                        <span class="n">combo</span><span class="o">.</span><span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;II&quot;</span><span class="p">)</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>        <span class="k">return</span> <span class="n">MeinFreieFertigkeitenWrapper</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="script_api.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Script API">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Script API
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="charakterassistent.html" class="md-footer__link md-footer__link--next" aria-label="Next: Charakter Assistent">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Charakter Assistent
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.footer"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.3220b9d7.min.js"></script>
+      
+        <script src="assets/external/unpkg.com/mermaid@10.7.0/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

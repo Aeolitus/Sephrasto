@@ -1,0 +1,2 @@
+/* Sephrasto loads its theme css late, this prevents flickering */
+html{visibility: hidden;opacity:0;}

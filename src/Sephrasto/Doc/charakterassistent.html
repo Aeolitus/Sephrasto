@@ -1,0 +1,805 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="plugin_api.html">
+      
+      
+        <link rel="next" href="charakterbogen.html">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+    
+    
+      
+        <title>Charakter Assistent - Sephrasto Hilfe</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="assets/external/unpkg.com/iframe-worker/shim.js"></script>
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#charakter-assistent" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Sephrasto Hilfe" class="md-header__button md-logo" aria-label="Sephrasto Hilfe" data-md-component="logo">
+      
+  <img src="assets/images/icon_large.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sephrasto Hilfe
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Charakter Assistent
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Sephrasto Hilfe" class="md-nav__button md-logo" aria-label="Sephrasto Hilfe" data-md-component="logo">
+      
+  <img src="assets/images/icon_large.png" alt="logo">
+
+    </a>
+    Sephrasto Hilfe
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="charaktereditor.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Charaktereditor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="datenbankeditor.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Datenbankeditor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="script_api.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Script API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plugin_api.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Eigene Plugins schreiben
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Charakter Assistent
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="charakterassistent.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Charakter Assistent
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#was-ist-aktuell-enthalten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Was ist aktuell enthalten?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wie-erstelle-ich-eigene-vorlagen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wie erstelle ich eigene Vorlagen?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wie erstelle ich eigene Vorlagen?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ordnerstruktur" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ordnerstruktur
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wie-werden-skp-verschmolzen-und-was-gibt-es-zu-beachten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wie werden S/K/P verschmolzen und was gibt es zu beachten?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tldr-fur-eigene-professionen-im-ilaris-baukasten" class="md-nav__link">
+    <span class="md-ellipsis">
+      tl;dr für eigene Professionen im Ilaris Baukasten?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ich-mochte-andere-baukasten-konvertieren-zb-wdh-wie-stelle-ich-das-an" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ich möchte andere Baukästen konvertieren, z.B. WdH, wie stelle ich das an?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kann-ich-auswahlmoglichkeiten-einbauen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kann ich Auswählmöglichkeiten einbauen?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="charakterbogen.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Eigene Charakterbögen erstellen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="theme.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ein eigenes Theme erstellen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="acknowledgements.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Drittanbieter-Lizenzen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#was-ist-aktuell-enthalten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Was ist aktuell enthalten?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wie-erstelle-ich-eigene-vorlagen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wie erstelle ich eigene Vorlagen?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wie erstelle ich eigene Vorlagen?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ordnerstruktur" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ordnerstruktur
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wie-werden-skp-verschmolzen-und-was-gibt-es-zu-beachten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Wie werden S/K/P verschmolzen und was gibt es zu beachten?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tldr-fur-eigene-professionen-im-ilaris-baukasten" class="md-nav__link">
+    <span class="md-ellipsis">
+      tl;dr für eigene Professionen im Ilaris Baukasten?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ich-mochte-andere-baukasten-konvertieren-zb-wdh-wie-stelle-ich-das-an" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ich möchte andere Baukästen konvertieren, z.B. WdH, wie stelle ich das an?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kann-ich-auswahlmoglichkeiten-einbauen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kann ich Auswählmöglichkeiten einbauen?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="charakter-assistent">Charakter Assistent</h1>
+<p>Der Charakter Assistent betreut dich beim Erstellen eines neuen Charakters. Es erscheint dann ein Popup mit dem man auf Basis von Vorlagen nach dem bekannten Spezies/Kultur/Profession-Prinzip Charaktere mit wenigen Clicks erstellen kann.</p>
+<h2 id="was-ist-aktuell-enthalten">Was ist aktuell enthalten?</h2>
+<ul>
+<li>Ilaris<ul>
+<li>Spezies - enthalten Spezies-Vorteile strikt nach Regelwerk, zusätzlich Halbelfen und Halborks</li>
+<li>Kulturen - enthalten die Heimat und Muttersprache</li>
+<li>Professionen: kleine Basispakete, hauptsächlich interessant für Geweihte wegen den Segnungen; angepasste Professionen aus WeZwanzigs Archetypen-Schmiede, den offiziellen Ilaris Archetypen und den Archetypen von Baal Zephon.</li>
+</ul>
+</li>
+<li>Weitere Kits zum Download:<ul>
+<li><a href="https://dsaforum.de/viewtopic.php?f=180&amp;t=49412">Ilaris Advanced Kit</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="wie-erstelle-ich-eigene-vorlagen">Wie erstelle ich eigene Vorlagen?</h2>
+<p>Neue Spezies/Kulturen/Professionen anzulegen ist trivial - einfach mit Sephrasto erstellen und im entsprechenden Ordner abspeichern (siehe "Ordnerstruktur"). Der Assistent lebt von Communitybeiträgen - sendet gerne eure Kreationen ein, damit wir sie aufnehmen können.</p>
+<h3 id="ordnerstruktur">Ordnerstruktur</h3>
+<p>Damit ihr eigene Kreationen mit dem nächsten Sephrasto-Update nicht verliert, kann der Charakterassistent auch Vorlagen aus eurem persönlichen Plugins-Ordner auslesen. Erstellt dazu in "%userprofile%/Dokumente/Sephrasto/Plugins" einen neuen Ordner "CharakterAssistent". Seht euch die genaue Ordnerstruktur am besten im Data-Ordner der Sephrastoinstallation an, aber hier nochmal der Vollständigkeit halber:</p>
+<ul>
+<li>Alle Dateien müssen in den "CharakterAssistent"-Ordner.</li>
+<li>Jeder Ordner in "CharakterAssistent" ist ein eigener "Baukasten" und erhält einen entsprechenden Eintrag in der ersten Dropdownliste. Er kann beliebig benannt werden.</li>
+<li>Jeder Baukasten benötigt je einen Ordner "Spezies", "Kultur" und "Profession". "Profession" benötigt als einziger weitere (beliebig benannte) Unterordner, die der Dropdownliste "Professionskategorie" entsprechen.</li>
+<li>In die "Spezies"-, "Kultur"- und jeweiligen Professionskategorie-Ordner werden die entsprechenden Sephrasto-XMLs gespeichert.</li>
+</ul>
+<h2 id="wie-werden-skp-verschmolzen-und-was-gibt-es-zu-beachten">Wie werden S/K/P verschmolzen und was gibt es zu beachten?</h2>
+<ul>
+<li>Das Spezies-Feld wird nur von der Spezies übernommen</li>
+<li>Das Heimat-Feld wird nur von der Kultur übernommen</li>
+<li>Name, Status und Finanzen werden nur vom letzten aus der Reihenfolge S/K/P übernommen</li>
+<li>Die Kurzbeschreibung enthält Geschlecht und die S/K/P Namen und wird mit in S/K/P eingetragenen Kurzbeschreibungen zusammengeführt</li>
+<li>Attribute: Attribute aus Spezies und Kultur werden addiert, bei Professionen sind Attribute Mindestwerte. Wenn also bei Spezies und Kultur Charisma jeweils +2 beträgt und bei der Profession +8, dann beträgt der Endwert +8.</li>
+<li>Vorteile und Talente: Alle Vorteile und Talente aus S/K/P werden hinzugefügt. Doppelt vergebene Vorteile/Talente werden ignoriert, außer bei solchen mit variablen Kosten - hier werden die Kosten addiert und die Kommentare zusammengeführt. Sonderfall: Wenn eine Spezies oder Profession das Gebräuche-Talent "Mittelreich" hinzufügen soll, dann muss die Heimat auf irgendetwas anderes gesetzt werden. Das macht nichts, da die Heimat eh nur von der Kultur übernommen wird.</li>
+<li>Fertigkeiten: Alle Fertigkeitswerte aus S/K/P werden addiert. Hierbei wird wie üblich das von den Attributen abhängige FW-Maximum beachtet.</li>
+<li>Freie Fertigkeiten: Alle Freien Fertigkeiten aus S/K/P werden hinzugefügt. Doppelt vergebene Freie Fertigkeiten werden addiert (max III), falls sie exakt gleich benannt sind - verwende für eine konsistente Benennung am besten unverändert die Einträge aus dem Freie Fertigkeiten-Auswahlfenster (falls verfügbar). Die erste (kostenlose) Freie Fertigkeit sollte nur in Kulturen ausgefüllt werden, da Kulturen die Muttersprache bestimmen.</li>
+<li>Eigenheiten und Ausrüstung: Alle werden aus S/K/P hinzugefügt. Doppelt vergebene Einträge werden ignoriert, falls sie exakt gleich benannt sind. In der Datenbank eingestellte Standardwaffen werden von Sephrasto automatisch eingetragen (normalerweise die Waffe Hand) und sollten ausgelassen werden.</li>
+</ul>
+<h2 id="tldr-fur-eigene-professionen-im-ilaris-baukasten">tl;dr für eigene Professionen im Ilaris Baukasten?</h2>
+<ul>
+<li>Lege dein EP-Budget fest. Die meisten Charaktere werden mit 2000 oder 2500 EP erstellt. Ziehe von diesem Budget 160 EP ab, damit genug EP für alle Spezies übrig bleiben (Orks kosten 160 EP).</li>
+<li>Erstelle einen neuen Charakter, speichere ihn ab als \&lt;Name der Profession&gt;.xml in %userprofile%/Dokumente/Sephrasto/Plugins/CharakterAssistent/Ilaris/Profession/\&lt;Professions-Kategoriename&gt;.</li>
+<li>Erstelle den Charakter wie gewöhnlich, mit folgenden Ausnahmen:<ul>
+<li>Lass alle Felder im Beschreibungs-Tab leer/wie sie sind, außer Finanzen. Trage Eigenheiten nur ein, wenn jeder Anhänger dieser Profession sie hat.</li>
+<li>Je nach Geschmack kannst du auch einen vollwertigen Archetyp erstellen und Name und Eigenheiten vollständig ausfüllen. Füge den Charakternamen dann mit Bindestrich dem Dateinamen an.</li>
+<li>Lass bei den Freien Fertigkeiten die erste (kostenlose) Fertigkeit frei, die Muttersprache wird von der Kultur befüllt. Nutze für Sprachen und Schriften unverändert die Eintragungen des Freie Fertigkeiten Auswahlfensters - Dopplungen durch die Muttersprache werden dann automatisch zusammengefasst.</li>
+<li>Die Waffe Hand wird bereits automatisch durch die Spezies eingetragen.</li>
+</ul>
+</li>
+</ul>
+<h2 id="ich-mochte-andere-baukasten-konvertieren-zb-wdh-wie-stelle-ich-das-an">Ich möchte andere Baukästen konvertieren, z.B. WdH, wie stelle ich das an?</h2>
+<ul>
+<li>Spezies und Kulturen brauchen ein Basis-Niveau an Attributen, damit in Sephrasto Fertigkeiten über 2 gesteigert werden können und für dan Fall, dass stimmte Attribute z.B. anhand der Spezies in Relation niedriger ausfallen sollen. In Ilaris ist ein Attributswert von 3 durchschnittlich, dementsprechend setze ich standardmäßig bei <strong>Spezies alle Attribute auf 2 und bei Kulturen alle auf 1</strong>. Dies bietet genügend Spielraum für Attributssenkungen bei bestimmten S/K und für Fertigkeitssteigerungen.</li>
+<li>Manchmal reichen die Attributswerte dennoch nicht aus für den gewünschten FW. Beträgt dieser mindestens 2 Punkte mehr als möglich ist, dann vergebe ich stattdessen ein passendes Talent in der Fertigkeit.</li>
+<li>Manchmal ist man mit hohen Werten nur für ein bestimmtes Talent konfrontiert. Falls der konvertierte FW in diesem Fall 6 oder höher sein soll, dann sollte er stattdessen um 2 gesenkt und das entsprechende Talent gekauft werden. Beispiel: In WdH ist Schwerter +6 angegeben, was du gerne in Klingenwaffen +6 konvertieren würdest. Schwerter bezieht sich in DSA 4 nur auf Einhandwaffen. Der FW sollte also lieber auf +4 gesetzt und das Talent Einhandklingenwaffen gekauft werden. Wenn es sich um ein verbilligtes Talent handelt ggf. schon ab FW 5+ so verfahren.</li>
+<li>Wenn eine Auswahl konvertiert werden soll und eine der Wahlmöglichkeiten bereits komplett von der Vorlage abgedeckt ist, dann sollte die gesamte Auswahl einfach gestrichen werden. Bei einer teilweisen Abdeckung von Fertigkeiten kann der FW der entsprechenden Auswahlmöglichkeit gesenkt werden.</li>
+</ul>
+<h2 id="kann-ich-auswahlmoglichkeiten-einbauen">Kann ich Auswählmöglichkeiten einbauen?</h2>
+<p>Es ist möglich, dem Nutzer Auswahlmöglichkeiten via Popup anzubieten. Dies ist eine zweite XML-Datei, die gleich benannt ist, wie die jeweilige S/K/P, enthält aber zusätzlich "_var" am Ende, z.B. "Halbelf_var.xml". Diese Datei muss leider von Hand geschrieben werden. Die Dateien können auf Korrektheit überprüft werden, indem das Logging-Level in den Sephrasto-Einstellungen auf Debugging-Informationen gestellt wird - Fehler werden dann in sephrasto.log ausgegeben. Es folgen einige Beispiele, weitere können im Ilaris Advanced Baukasten gefunden werden.</p>
+<p><strong>Beispiel 1:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">&lt;Charakter&gt;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&lt;Auswahl&gt;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&lt;Attribut</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;KK&quot;</span><span class="w"> </span><span class="na">wert=</span><span class="s">&quot;3&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&lt;Fertigkeit</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Schusswaffen&quot;</span><span class="w"> </span><span class="na">wert=</span><span class="s">&quot;2&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">&lt;Übernatürliche-Fertigkeit</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Einfluss&quot;</span><span class="w"> </span><span class="na">wert=</span><span class="s">&quot;2&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">&lt;Freie-Fertigkeit</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Sprache: Garethi&quot;</span><span class="w"> </span><span class="na">wert=</span><span class="s">&quot;2&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">&lt;Talent</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Armbrüste&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nt">&lt;Talent</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Adlerschwinge Wolfsgestalt&quot;</span><span class="w"> </span><span class="na">wert=</span><span class="s">&quot;40&quot;</span><span class="w"> </span><span class="na">kommentar=</span><span class="s">&quot;Wolf&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">&lt;Vorteil</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Schildkampf I&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="nt">&lt;Vorteil</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Tierempathie&quot;</span><span class="w"> </span><span class="na">wert=</span><span class="s">&quot;20&quot;</span><span class="w"> </span><span class="na">kommentar=</span><span class="s">&quot;Pferde&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">&lt;Eigenheit</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Streiter der Göttin&quot;</span><span class="nt">/&gt;</span><span class="w"> </span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="nt">&lt;/Auswahl&gt;</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="nt">&lt;Auswahl&gt;</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="nt">&lt;Fertigkeit</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Schusswaffen&quot;</span><span class="w"> </span><span class="na">wert=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="nt">&lt;Fertigkeit</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Athletik&quot;</span><span class="w"> </span><span class="na">wert=</span><span class="s">&quot;2&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="nt">&lt;/Auswahl&gt;</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="nt">&lt;/Charakter&gt;</span>
+</span></code></pre></div></p>
+<p>Es erscheint ein Popup, bei dem der Nutzer sich zwischen KK +3, Schusswaffen +2, etc. entscheiden muss. Die Attribute "wert" und "kommentar" werden nur bei Talenten und Vorteilen mit variablen Kosten benötigt.
+Danach erscheint ein weiteres Popup, bei dem er sich zwischen Schusswaffen +1 und Athletik +2 entscheiden muss. Hat er bei der ersten Auswahl bereits Schusswaffen gewählt, so wird diese Fertigkeit aus Folge-Auswahlen entfernt. Da in diesem Fall die zweite Auswhal nur noch Athletik +2 enthält, wird dies automatisch appliziert und es erscheint kein zweites Popup.</p>
+<p><strong>Beispiel 2, Spezies Halbelf:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">&lt;Charakter&gt;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&lt;Varianten&gt;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&lt;Variante</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Firnelfische Abstammung&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="nt">&lt;Vorteil</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Resistenz gegen Kälte&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">&lt;Fertigkeit</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Überleben&quot;</span><span class="w"> </span><span class="na">wert=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nt">&lt;/Variante&gt;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nt">&lt;Variante</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Nivesische Abstammung&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="nt">&lt;Attribut</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;IN&quot;</span><span class="w"> </span><span class="na">wert=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="nt">&lt;/Variante&gt;</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="nt">&lt;Variante</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Thorwalsche Abstammung&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="nt">&lt;Attribut</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;GE&quot;</span><span class="w"> </span><span class="na">wert=</span><span class="s">&quot;-1&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">      </span><span class="nt">&lt;Attribut</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;KK&quot;</span><span class="w"> </span><span class="na">wert=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="nt">&lt;/Variante&gt;</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="nt">&lt;/Varianten&gt;</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">  </span><span class="nt">&lt;Auswahl</span><span class="w"> </span><span class="na">keine-varianten=</span><span class="s">&quot;0,1&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="nt">&lt;Vorteil</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Gut Aussehend&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">  </span><span class="nt">&lt;/Auswahl&gt;</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">  </span><span class="nt">&lt;Auswahl</span><span class="w"> </span><span class="na">varianten=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="nt">&lt;Vorteil</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Selbstbeherrschung&quot;</span><span class="w"> </span><span class="na">wert=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="nt">&lt;Vorteil</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Athletik&quot;</span><span class="w"> </span><span class="na">wert=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">  </span><span class="nt">&lt;/Auswahl&gt;</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="nt">&lt;/Charakter&gt;</span>
+</span></code></pre></div></p>
+<p>Eine Variante kann nur in einem Varianten-Element existieren. Sie verhält sich gleich wie eine Auswahl, nur werden alle Child-Elemente appliziert. Es erscheint ein Popup, bei dem der Nutzer die drei Varianten Firnelfische, Nivesische und Thorwalsche Abstammung zur Auswahl erhält, hierbei kann er auch keine oder mehrere auswählen.
+Die erste Auswahl hat nur ein Element, zeigt also niemals ein Popup. Durch das Attribut "keine-varianten" wird Gut Aussehend allerdings nur appliziert, wenn nicht die Variante an Index 0 (Firnelfische Abstammung) oder 1 (Nivesische Abstammung) ausgewählt wurde. Es wird auch dann appliziert, wenn garkeine Variante ausgewählt wurde.
+Die zweite Auswahl ist nur aktiv, wenn die Variante an Index 2 (Thorwalsche Abstammung) gewählt wurde - nur dann erscheint ein Popup, bei dem der Nutzer sich zwischen Selbstbeherrschung und Athletik entscheiden muss. Innerhalb von "Variante" ist keine Auswahl möglich (Variante appliziert immer alle Elemente) - mit dieser Methode können auch Varianten Auswahlmöglichkeiten bieten.</p>
+<p><strong>Beispiel 3, Spezies Orks:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">&lt;Charakter&gt;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&lt;Varianten</span><span class="w"> </span><span class="na">pflichtwahl=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&lt;Variante</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Mann&quot;</span><span class="w"> </span><span class="na">beschreibung=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="na">geschlecht=</span><span class="s">&quot;männlich&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">      </span><span class="nt">&lt;Eigenheit</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Jähzorn&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">&lt;/Variante&gt;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nt">&lt;Variante</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Frau&quot;</span><span class="w"> </span><span class="na">beschreibung=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="na">geschlecht=</span><span class="s">&quot;weiblich&quot;</span><span class="nt">&gt;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="nt">&lt;Attribut</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;MU&quot;</span><span class="w"> </span><span class="na">wert=</span><span class="s">&quot;-2&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="nt">&lt;Attribut</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;KO&quot;</span><span class="w"> </span><span class="na">wert=</span><span class="s">&quot;-1&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">      </span><span class="nt">&lt;Attribut</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;KK&quot;</span><span class="w"> </span><span class="na">wert=</span><span class="s">&quot;-1&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="nt">&lt;/Variante&gt;</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">  </span><span class="nt">&lt;/Varianten&gt;</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="nt">&lt;/Charakter&gt;</span>
+</span></code></pre></div></p>
+<p>Durch das Attribut "pflichtwahl" muss eine der Varianten ausgewählt werden, eine Mehrfachauswahl ist nicht möglich.
+Das Attribut "geschlecht" kann mit den "männlich" oder "weiblich" bei Variante und Auswahl genutzt werden, um diese zu entfernen, wenn im Hauptfenster das entsprechende Geschlecht nicht ausgewählt wurde.
+Das Attribut "beschreibung" kann genutzt werden um im Spezies-/Kurzbeschreibungsfeld neben dem Namen eine zusätzliche Beschreibung einzufügen, die nicht um Popup angezeigt wird. Falls das Attribut wie hier mit einem leeren Inhalt eingefügt wird, dann wird die Variante überhaupt nicht in das entsprechende Feld eingetragen.
+Da es sich in diesem Beispiel um eine Pflichtwahl handelt, bei der immer nur eine Variante - Mann oder Frau - bestehen bleiben kann, wird die entsprechende Variante automatisch appliziert und kein Popup angezeigt.</p>
+<p><strong>Beispiel 3, Profession Geode:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">&lt;Charakter&gt;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&lt;Auswahl&gt;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">&lt;Vorteil</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Magieabweisend&quot;</span><span class="w"> </span><span class="na">wert=</span><span class="s">&quot;-1&quot;</span><span class="nt">/&gt;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&lt;/Auswahl&gt;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nt">&lt;/Charakter&gt;</span>
+</span></code></pre></div></p>
+<p>Geoden sind üblicherweise Zwerge, sollten aber den Vorteil Magieabweisend dieser Spezies nicht haben. Bei Vorteilen und Talenten kann der Wert auf -1 gesetzt werden, wodurch diese entfernt werden, falls vorhanden.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="plugin_api.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Eigene Plugins schreiben">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Eigene Plugins schreiben
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="charakterbogen.html" class="md-footer__link md-footer__link--next" aria-label="Next: Eigene Charakterbögen erstellen">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Eigene Charakterbögen erstellen
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.footer"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.3220b9d7.min.js"></script>
+      
+        <script src="assets/external/unpkg.com/mermaid@10.7.0/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

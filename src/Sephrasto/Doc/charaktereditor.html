@@ -1,0 +1,890 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="index.html">
+      
+      
+        <link rel="next" href="datenbankeditor.html">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+    
+    
+      
+        <title>Charaktereditor - Sephrasto Hilfe</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+        <script src="assets/external/unpkg.com/iframe-worker/shim.js"></script>
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#charakter-editor" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Sephrasto Hilfe" class="md-header__button md-logo" aria-label="Sephrasto Hilfe" data-md-component="logo">
+      
+  <img src="assets/images/icon_large.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sephrasto Hilfe
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Charaktereditor
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Sephrasto Hilfe" class="md-nav__button md-logo" aria-label="Sephrasto Hilfe" data-md-component="logo">
+      
+  <img src="assets/images/icon_large.png" alt="logo">
+
+    </a>
+    Sephrasto Hilfe
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Charaktereditor
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="charaktereditor.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Charaktereditor
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#beschreibung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beschreibung
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attribute
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorteile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vorteile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fertigkeiten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fertigkeiten
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#freie-fertigkeiten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Freie Fertigkeiten
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubernaturliche-fertigkeiten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Übernatürliche Fertigkeiten
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ausrustung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ausrüstung
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ausrüstung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#waffen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Waffen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waffenauswahl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Waffenauswahl
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inventar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inventar
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rustungsauswahl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rüstungsauswahl
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#info" class="md-nav__link">
+    <span class="md-ellipsis">
+      Info
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#die-fuzeile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Die Fußzeile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sonderfalle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sonderfälle
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="datenbankeditor.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Datenbankeditor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="script_api.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Script API
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plugin_api.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Eigene Plugins schreiben
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="charakterassistent.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Charakter Assistent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="charakterbogen.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Eigene Charakterbögen erstellen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="theme.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ein eigenes Theme erstellen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="acknowledgements.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Drittanbieter-Lizenzen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#beschreibung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beschreibung
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attribute
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorteile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vorteile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fertigkeiten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fertigkeiten
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#freie-fertigkeiten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Freie Fertigkeiten
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubernaturliche-fertigkeiten" class="md-nav__link">
+    <span class="md-ellipsis">
+      Übernatürliche Fertigkeiten
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ausrustung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ausrüstung
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ausrüstung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#waffen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Waffen
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waffenauswahl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Waffenauswahl
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inventar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inventar
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rustungsauswahl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rüstungsauswahl
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#info" class="md-nav__link">
+    <span class="md-ellipsis">
+      Info
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#die-fuzeile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Die Fußzeile
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sonderfalle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sonderfälle
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="charakter-editor">Charakter-Editor</h1>
+<p>Vom Startfenster aus gibt es zwei Möglichkeiten in den Charaktereditor zu gelangen: </p>
+<ul>
+<li>
+<p>Neuen Charakter erstellen: Mit einem Klick auf <strong>Neuen Charakter erstellen</strong> , öffnet sich ein neues Fenster mit dem Charaktereditor. Dieser besteht größtenteils aus einer Fläche mit verschiedenen Reitern, die Zugriff auf die unterschiedlichen Aspekte eines Charakters geben. Die einzelnen Reiter werden im Weiteren erläutert. Zusätzlich ist im unteren Teil des Fensters eine Steuerungsleiste zu sehen. Diese wird am Ende dieses Abschnitts erläutert.</p>
+</li>
+<li>
+<p>Vorhandenen Charakter bearbeiten: Wählst du diese Option, kannst du einen bereits abgespeicherten Charakter aus seiner XML-Datei einlesen. Sephrasto öffnet dann den oben erläuterten Charakter-Editor und befüllt automatisch alle Felder so, wie du sie ausgefüllt hattest. So kannst du Charaktere über viele Sitzungen hinweg in Sephrasto bearbeiten.</p>
+</li>
+</ul>
+<h2 id="beschreibung">Beschreibung</h2>
+<p>Die Beschreibung eines Charakters stellt das grundlegende Charakterkonzept dar. Für die allermeisten Charaktere wird sie ausgefüllt, bevor über irgendwelche Werte nachgedacht wird. Es handelt sich dabei um ausfüllbare Textfelder und Drop-Down-Menüs, deren Inhalt direkt auf den Charakterbogen übertragen wird. Die gewählten Finanzen beeinflussen dabei die eingetragenen SchiP*, und die als Heimatgebiet gewählte Region macht das entsprechende Gebräuche-Talent kostenlos. Ansonsten haben die Eingaben in diesem Bereich innerhalb von Sephrasto keine weitere Wirkung.</p>
+<p><img alt="Beschreibung" src="assets/images/Beschreibung.jpg" /></p>
+<h2 id="attribute">Attribute</h2>
+<p>Die Attribute deines Charakters bestimmen unter anderem, was für Vorteile er wählen kann. Du kannst in diesem Reiter die acht Attribute setzen, wobei du automatisch den entsprechenden Probenwert und die abgeleiteten Werte angezeigt bekommst. Die Boxen zum editieren des Attributswerts zeigen in einem Tooltip die Auswirkungen einer Steigerung an. Daneben findest du noch die Kosten für eine Steigerung um +1. Zusätzlich kannst du Astralenergie, Karmaenergie und Gunstpunkte dazukaufen, falls du über die entsprechenden Vorteile verfügst.</p>
+<p><img alt="Attribute" src="assets/images/Attribute.jpg" /></p>
+<h2 id="vorteile">Vorteile</h2>
+<p>In diesem Reiter kaufst du die Vorteile, über die dein Charakter verfügen soll. Er teilt sich in zwei Teile: Auf der linken Seite findest du eine tabellarische Aufführung aller für deinen Charakter verfügbaren Vorteile. Jeder Vorteil hat ein Kästchen neben seinem Namen, welches du auswählen kannst, um den Vorteil zu erwerben. Die Vorteile sind in verschiedene Kategorien aufgeteilt, die du aus- und einklappen kannst. Bei jedem Vorteil finden sich außerdem seine EP-Kosten. Für einige Vorteile ist dies ein ausfüllbares Feld: Dabei handelt es sich um Vorteile, die entweder mehrfach wählbar sind, oder die Kosten abhängig von ihrem Spielnutzen haben. Statt die Liste mit einer Vielzahl von Duplikaten zu verstopfen, kannst du so mit deinem Spielleiter absprechen, welche Kosten für deine Stärke des Vorteils angemessen sind. So würde man zum Beispiel für deinen Besonderen Besitz 'Schlachtross' Kosten von 40 EP ermitteln. Möchtest du zusätzlich ein verbessertes Enduriumschwert (120 EP), zahlst du eben insgesamt 160 EP für deinen Besonderen Besitz. In das Kommentarfeld trägst du dann deine konkrete Auswahl ein.</p>
+<p><img alt="Vorteile" src="assets/images/Vorteile.jpg" /></p>
+<p>Auf der rechten Seite des Reiters findest du eine Beschreibung des aktuell ausgewählten Vorteils. Zuoberst sind Name, Kosten und Kategorie des Vorteils zu finden. Dazu findest du die Angaben dazu, wie häufig dieser Vorteil im späteren Spiel erworben wird. Schließlich findest du die komplette Beschreibung des Vorteils, so wie sie im Regelwerk steht. Hier stehen für Vorteile mit variablen Kosten oft auch Vorschläge, was für Kosten angebracht wären.
+Bei manchen Vorteilen werden unterhalb der Beschreibung außerdem noch <strong>Querverweise</strong> aufgeführt, bei denen du für den Vorteil relevante Regeln nachlesen kannst.</p>
+<p>Erwirbst du den Vorteil <strong>Minderpakt</strong>, öffnet sich das ein weiteres Fenster, in welchem du den Vorteil wählen kannst, den du durch den <strong>Minderpakt</strong> erwerben möchtest.</p>
+<p><img alt="Minderpakt" src="assets/images/Minderpakt.jpg" /></p>
+<p>Wähle einen Vorteil in der Liste aus und klicke auf <strong>OK</strong>. Klickst du stattdessen auf <strong>Abbrechen</strong> oder schließt du das Fenster, erhälst du keinen Vorteil.</p>
+<p>Der durch <strong>Minderpakt</strong> gewählte Vorteil bleibt dir erhalten, auch wenn du seine Voraussetzungen nicht erfüllst. Verlernst du den Vorteil oder den Vorteil <strong>Minderpakt</strong> , so verlierst du auch die andere Hälfte. Handelt es sich bei dem Vorteil um einen Vorteil mit variablen Kosten, sind diese fest auf 20 EP gesetzt und lassen sich nicht verändern, solange der Vorteil durch deinen <strong>Minderpakt</strong> erworben ist.</p>
+<p>Durch <strong>Minderpakt</strong> erworbene Vorteile sollten immer zuerst mit dem Meister abgesprochen werden. Vergiss nicht, dir auch die entsprechende Eigenheit hinzuzufügen!</p>
+<h2 id="fertigkeiten">Fertigkeiten</h2>
+<p>In diesem Reiter kannst du die Fertigkeitswerte deines Charakters in den profanen Fertigkeiten setzen und Talente erwerben. Der Reiter teilt sich wieder in einen linken sowie einen rechten Teil.</p>
+<p><img alt="Fertigkeiten" src="assets/images/Fertigkeiten.jpg" /></p>
+<p>Im linken Teil findest du die Liste der profanen Fertigkeiten, geordnet wie im Regelwerk. Um schnell und einfach deine Steigerungen durchführen zu können, kannst du hier auch direkt deinen Fertigkeitswert setzen, die Anzahl der gekauften Talente sehen und mit einem Mausklick neue Talente erwerben. Daneben findest du noch die Kosten für eine Steigerung um +1, den Probenwert ohne (PW) und mit Talent (PW(T)).
+Auf der rechten Seite findest du wieder eine Detailansicht. Hier findest du den Steigerungsfaktor (SF) der Fertigkeit, die Attribute und den ausgerechneten Basiswert (BW), sowie erneut PW und PW(T). Auch hier kannst du den Fertigkeitswert einstellen. Außerdem gibt es eine Liste der bereits erworbenen Talente und ein Textfeld mit der Beschreibung der Fertigkeit aus dem Regelwerk.</p>
+<p>Klickst du auf das Plus in der Tabelle oder über der Liste von Talenten, gelangst du in den Talentauswahlbildschirm. Hier findest du eine Liste aller für diese Fertigkeit verfügbaren Talente. Wieder kannst du durchs Anwählen der Kästchen neue Talente erwerben. Auch hier sind auf der rechten Seite des Fensters die Kosten des Talents sowie die Beschreibung aus dem Regelwerk zu finden. Falls der entsprechende Fertigkeitswert übrigens weniger als 4 beträgt, erscheint eine Warnung, da es sich üblicherweise dann noch nicht lohnt, EP in Talente zu investieren. </p>
+<p><img alt="Talente" src="assets/images/Talente.jpg" /></p>
+<p>Sephrasto sorgt dafür, dass Talente, die zu mehreren Fertigkeiten passen, auch bei allen auftauchen. Weiterhin sorgt das Tool dafür, dass du keine Fertigkeit über ihren Maximalwert hinaus steigerst. Erwirbst du das Gebräuche-Talent der Region, die du im Beschreibungs-Reiter als deine Heimatregion angegeben hast, stellt dir Sephrasto dafür übrigens keine EP in Rechnung!</p>
+<h2 id="freie-fertigkeiten">Freie Fertigkeiten</h2>
+<p>Hier kannst du all die Freien Fertigkeiten deines Charakters eintragen. Der erste Platz ganz oben links ist dabei für deine kostenlose Muttersprache reserviert – die du immer meisterlich beherrschst. Die anderen kannst du ganz nach Belieben füllen. Freigelassene Felder kosten dabei natürlich keine EP.</p>
+<p><img alt="FreieFertigkeiten" src="assets/images/FreieFertigkeiten.jpg" /></p>
+<p>Der <strong>+</strong> -Knopf öffnet ein neues Fenster, in welchem du eine der in Regelbasis hinterlegten Freien Fertigkeiten auswählen kannst, um sie in die jeweilige Zeile einzutragen. In diesem Auswahlmenü findest du eine Liste aller DSA Sprachen und Schriften. Da das Ilaris-Regelwerk allerdings keine vollständige Liste definiert ist diese Liste inoffiziell. Die Sprachen Neckergesang, Drachisch und Koboldisch werden nur angezeigt, wenn der Charakter den Vorteil <strong>Zauberer I</strong> beherrscht.</p>
+<p><img alt="RuestungAuswahl" src="assets/images/FreieFertigkeitenAuswahl.jpg" /></p>
+<h2 id="ubernaturliche-fertigkeiten">Übernatürliche Fertigkeiten</h2>
+<p>Dieser Reiter entspricht fast vollständig dem für Fertigkeiten. Allerdings findest du hier all die Fertigkeiten, welche dir nur mit den entsprechenden Vorteilen zur Verfügung stehen. Verfügst du nicht über die Vorteile <strong>Zauberer I</strong>, <strong>Geweiht I</strong> , oder <strong>Paktierer I</strong> und eine entsprechende Tradition, wird dir dieser Reiter nicht angezeigt. Wenn sich eine Fertigkeit nicht zu steigern lohnt, wird diese in der Liste unten einsortiert und mit einem Warnsymbol versehen - wenn du dir dazu den Tooltip anzeigen lässt, erfährst du den Grund.</p>
+<p>Für Übernatürliche Fertigkeiten gibt es nur Spezialtalente. Da diese alle unterschiedliche Kosten haben, findest du hier in der Talentliste hinter dem Namen des Talents seine Kosten zur einfachen Übersicht.</p>
+<p><img alt="FertigkeitenUeber" src="assets/images/FertigkeitenUeber.jpg" /></p>
+<p>Eine weitere Besonderheit ist, dass auch manche übernatürlichen Talente variable Kosten haben können. Dies ist z.B. beim <strong>Adlerschwinge Wolfsgestalt</strong> der Fall, wo über die Kosten die Anzahl und Gefährlichkeit der Tiere dargestellt wird. In diesem Fall kannst du in der Talentauswahl auf der rechten Seite die EP-Kosten frei einstellen und im Kommentarfeld das gewählte Tier bzw. die Tiere eintragen.</p>
+<p><img alt="TalenteUeber" src="assets/images/TalenteUeber.jpg" /></p>
+<h2 id="ausrustung">Ausrüstung</h2>
+<p>Im Ausrüstungs-Reiter wählst du Waffen und Rüstung für deinen Charakter. Diese kosten keine EP und haben somit keinen Einfluss auf die anderen Bereiche der Charaktererstellung.</p>
+<h3 id="waffen">Waffen</h3>
+<p><img alt="Waffen" src="assets/images/Waffen.jpg" /></p>
+<p>Du kannst du bis zu acht Waffen eingeben, die auf den Charakterbogen sollen.
+- Klicke in einer beliebigen Zeile auf den <strong>+</strong> -Knopf, um eine Waffe auszuwählen (siehe unten).
+- Im ersten Textfeld kannst du den <strong>Namen</strong> der Waffe eintragen.
+- Die Trefferpunkte ( <strong>TP</strong> ) teilen sich auf in Würfelanzahl und Zusatzschaden.
+- Die Reichweite ( <strong>RW</strong> ), der Waffenmodifikator ( <strong>WM</strong> ) bzw. die Ladezeit ( <strong>LZ</strong> ) und die <strong>Härte</strong> der Waffe werden so direkt auf den Charakterbogen übertragen.
+- Im zweiten Textfeld kannst du die <strong>Waffeneigenschaften</strong> eintragen. Wenn du dir den Tooltip zu diesem Feld anzeigen lässt erhältst du den Regeltext zu allen Eigenschaften.
+- Das Dropdown-Menü zum <strong>Kampfstil</strong> bietet dir alle Kampfstile an, für die du den entsprechenden Vorteil erworben hast und welche mit der Waffe verwendbar sind.
+- Unterhalb des Waffennamens siehst du die <strong>Basiswaffe</strong>, auf deren Werten deine Waffe basiert. Hierüber bezieht Sephrasto beispielsweise die Information, ob es eine Nah- oder Fernkampfwaffe ist, unter welchem Talent sie geführt wird und welche Kampfstile verfügbar sind. Daneben siehst du die endgültigen AT*, VT* und TP*, wie sie im Charakterbogen erscheinen werden. Hier werden Probenwert, Schadensbonus (inkl. Kopflastig), der gewählte Kampfstil und die BE zusammengerechnet. Falls du die Waffe außerdem z. B. durch Handwerk verbessert hast, erscheinen an dritter Stelle die vorgenommenen Modifikationen, relativ zur Basiswaffe.</p>
+<h3 id="waffenauswahl">Waffenauswahl</h3>
+<p><img alt="WaffenAuswahl" src="assets/images/WaffenAuswahl.jpg" /></p>
+<p>Der <strong>+</strong> -Knopf bei den Waffen öffnet ein neues Fenster, in welchem du eine der in Regelbasis hinterlegten Waffen auswählen kannst, um sie in die aktuelle Zeile einzutragen. In diesem Waffenauswahlmenü findest du eine vollständige Liste aller im Regelwerk aufgeführten Waffen. Diese sind nach der Fertigkeit und nach dem entsprechenden Talent sortiert. Waffen, welche mit mehreren Fertigkeiten geführt werden können, werden mehrfach aufgeführt.</p>
+<p>Auf der rechten Seite finden sich alle Informationen über die Waffe, inklusive der verfügbaren Kampfstile. Mit einem Klick auf <strong>OK</strong> wird die aktuell ausgewählte Waffe in den Ausrüstungs-Reiter übertragen.</p>
+<p>Wenn du <strong>Hand</strong> oder <strong>Fuß</strong> auswählst, wird als Härte übrigens automatisch die WS* deines Charakters eingetragen!</p>
+<h3 id="inventar">Inventar</h3>
+<p><img alt="Inventar" src="assets/images/Inventar.jpg" /></p>
+<p>Im oberen Bereich des Reiters kannst du bis zu drei Rüstungen eingeben, die du später auf dem Charakterbogen wiederfinden wirst. Wichtig ist hierbei, dass die für die oberste Rüstung eingetragene Behinderung (BE) und Rüstungsschutz (RS) auch die sind, auf deren Basis auf dem Charakter WS* und DH* sowie deine Kampfwerte berechnet werden. Es sollte also deine üblicherweise getragene Rüstung sein!</p>
+<p>Die Auswahlbox in der unteren rechten Ecke des Rüstungsteils ermöglicht es dir, vom Zonenrüstungssystem ins einfache System mit nur BE und RS zu wechseln, wenn ihr ohne Trefferzonen spielt. Im Zonensystem wirst du gewarnt, wenn der ZRS-Gesamtwert kein Vielfaches von 6 ist - hier musst du gegebenenfalls nachjustieren.</p>
+<p>Der <strong>+</strong> -Knopf bei den Rüstungen öffnet ein neues Fenster, in welchem du eine der in Regelbasis hinterlegten Rüstungen auswählen kannst, um sie in die aktuelle Zeile einzutragen. In diesem Rüstungsauswahlmenü findest du eine vollständige Liste aller im Regelwerk aufgeführten Rüstungen. Diese sind nach Rüstungstyp sortiert.</p>
+<p>Unterhalb der Rüstungen stehen dir 20 Textfelder zur Verfügung, in die du Gegenstände eintragen kannst. Sie haben innerhalb von Sephrasto keinen Einfluss, aber werden ebenfalls mit auf den Charakterbogen übertragen.</p>
+<h3 id="rustungsauswahl">Rüstungsauswahl</h3>
+<p><img alt="RuestungAuswahl" src="assets/images/RuestungAuswahl.jpg" /></p>
+<p>Auf der rechten Seite finden sich alle Informationen über die Rüstung. Mit einem Klick auf <strong>OK</strong> wird die aktuell ausgewählte Rüstung in den Ausrüstungs-Reiter übertragen. Wenn die Rüstungszeile bereits eine Rüstung enthält, wird die selektierte Rüstung der existierenden hinzugefügt, RS- und BE- Werte werden addiert. Dies kannst du nutzen um mehrere Rüstungslagen zu kombinieren oder Zusatzrüstungen wie z.B. Lederzeug hinzuzufügen. Falls du das nicht möchtest, dass Rüstungen kombiniert werden, kannst du im Auswahlmenu auf <em>Rüstung ersetzen</em> klicken.
+<strong>Wichtig:</strong> Die aufgelisteten Rüstungen sind nur Beispiele, der Spielleiter hat das letzte Wort.</p>
+<h2 id="info">Info</h2>
+<p>Auf der linken Seite kannst du Notizen eintragen. Normalerweise erscheinen sie nicht auf dem Charakterbogen - eine Ausnahme ist der NSC-Charakterbogen, der die Notizen auf der Meisterinfo-Seite ausgibt. Auf der rechten Seite findest du sowohl Einstellungsmöglichkeiten für deinen Charakter, als auch Informationen zur EP-Verteilung.</p>
+<p><img alt="Info" src="assets/images/Info.jpg" /></p>
+<p>Einstellungsmöglichkeiten:
+- Voraussetzungen überprüfen: Wählst du den Haken ab, prüft Sephrasto nicht mehr automatisch, ob du die Voraussetzungen für deine Vorteile, Talente und Fertigkeiten erfüllst. Das kann praktisch sein, wenn du dir nur einen Überblick verschaffen möchtest, oder wenn du einen nicht regelkonformen Charakter erstellen willst, der zum Beispiel über einen Pakt an sonst nicht verfügbare Vorteile gekommen ist. Aber Achtung! Wählst du das Kästchen wieder an, werden die Voraussetzungen geprüft und alle so ausgewählten Vorteile, Fertigkeiten und Talente werden wieder entfernt.
+- Vor dem ersten Abenteuer: Nach dem ersten Abenteuer kannst du den Haken abwählen. Es werden dann die nicht mehr relevanten Finanzen ausgeblendet und die aktuellen Schicksalspunkte werden nicht mehr ausgegeben, da diese dann händisch verwaltet werden.
+- Hausregeln: Hier kannst du auswählen, ob und welche Hausregeldatei verwendet werden soll. Nach einer Änderung musst du den Charakter neu laden (unbedingt eine Sicherheitskopie erstellen!).
+- Charakterbogen: Für die meisten Spieler ist der Standard-Charakterbogen ausreichend. Falls du aber mehr als 2 Fertigkeiten hinzufügen möchtest, solltest du den langen Bogen verwenden. Er benötigt eine zusätzliche Seite, bietet aber neben der Möglichkeit ein Bild, das Aussehen und den Hintergrund des Charakters einzutragen, zusätzliche Felder für Freie Fertigkeiten und profane Fertigkeiten - damit ist er interessant für Gruppen mit größeren Hausregelsammlungen. Der kurze Charakterbogen benötigt nur eine A5 Seite und ist insbesondere für Begleiter interessant. Der NSC Charakterbogen bietet sich für Spielleiter an. <strong>Hinweis</strong>: Falls du einen der anderen Charakterbögen wählst, erscheint nach erneutem Laden des Charakters ein Details-Reiter unter dem Beschreibungs-Reiter. Dort kannst du zusätzlichen Felder ausfüllen und ein Charakterbild laden.
+- Relevante Regeln anhängen: Neben allgemeinen Regeln u.a. zu Rededuellen und Kampfaktionen werden dir die Regeln zu allen dem Charakter verfügbaren Vorteilen, Waffeneigenschaften, spontanen Modifikationen und übernatürlichen Talenten ausgegeben. In der Regelkategorien-Liste kannst du einzelne dieser Bereiche deaktivieren.
+- Formularfelder editierbar: Wenn du den Haken entfernst, wird der resultierende Charakterbogen keine Formularfelder mehr haben. Dies sorgt für etwas kleinere Dateigrößen. Hauptsächlich ist es aber für Nutzer von Non-Mainstream PDF-Readern gedacht, die mit Formularfeldern Probleme haben können.
+- PDF-Ausgabe von übernatürlichen Fertigkeiten manuell auswählen: Sephrasto gibt standardmäßig nur übernatürliche Fertigkeiten aus, die einen FW &gt; 0 haben und für die mindestens ein Talent erworben wurde. Setze hier einen Haken, wenn du lieber selbst einstellen möchtest, welche ausgegeben werden. Dadurch erscheint im Übernatürliches-Reiter eine PDF-Spalte</p>
+<h2 id="die-fuzeile">Die Fußzeile</h2>
+<p>In der Fußzeile, die in allen Reitern verfügbar ist, findest du die grundlegendsten Parameter deiner Charaktererstellung.</p>
+<p>Zunächst findest du einen Zähler, an dem du die Menge an EP einstellen kannst, über welche dein Charakter verfügt. Sephrasto berechnet stets automatisch die EP-Kosten des Charakters, welchen du gerade erstellst, und passt die Werte für die Ausgegebenen und Verbleibenden EP entsprechend an. Hast du mehr EP ausgegeben, als du zur Verfügung hast, ist der Zähler für die verbleibenden EP rot hinterlegt.</p>
+<p>Schließlich findest du in der unteren rechten Ecke drei Knöpfe. Klickst du auf <strong>Speichern/Speichern unter</strong>, hast du die Möglichkeit, den aktuellen Charakter als XML-Datei auf deinem Computer abzuspeichern und später weiterzumachen.</p>
+<p>Wenn du auf <strong>PDF erstellen</strong> klickst, kannst du einen Speicherort und Namen wählen. Sephrasto erstellt dann für dich einen Charakterbogen, der alle Werte beinhaltet, welche du eingetragen hast.
+Dabei befüllt Sephrasto die Felder sinnvoll sortiert. So werden profane Vorteile auf der ersten Seite, Kampfvorteile auf der Zweiten und Übernatürliche Vorteile auf der dritten Seite eingetragen. Ist dafür nicht genug Platz, werden die übrigen Vorteile in den vorhanden Feldern kombiniert. Wenn auch damit der Platz ausgeht, werden Vorteile in freie Felder auf den anderen Blättern eingetragen. Ist für eine profane Fertigkeit kein Platz mehr, lässt Sephrasto sie weg.</p>
+<h2 id="sonderfalle">Sonderfälle</h2>
+<p>In seltenen Fällen geht Sephrasto einen Sonderweg. Diese sind hier beschrieben:
+- Die große Tiertabelle, die für Blutgeister, Tiergeister und Schutzgeister verwendet wird, wurde in Sephrasto in Form von kostenlosen Vorteilen integriert. Diese schalten entsprechende Zauber frei und geben im Regelanhang die Werte des gewählten Tieres mit aus.
+- Die Zauber Brenne toter Stoff, Hartes Schmelze und Weiches Erstarre stehen Gildenmagiern, Scharlatanen und Geoden nicht unter Dämonisch zur Verfügung. Zur Umsetzung dieser Vorgabe wurden die Zauber dupliziert - eine Variante mit Zugriff auf alle Fertigkeiten und eine ohne Dämonisch. Die genannten Traditionen sehen nur die Variante ohne Dämonisch. Falls aber eine Zweittradition gekauft wird, die Zugriff auf die andere Variante hat, werden beide sichtbar. In diesem Fall sollte die Variante ohne Dämonisch abgewählt und die mit Dämonisch ausgewählt werden.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="index.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Home">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Home
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="datenbankeditor.html" class="md-footer__link md-footer__link--next" aria-label="Next: Datenbankeditor">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Datenbankeditor
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.footer"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.3220b9d7.min.js"></script>
+      
+        <script src="assets/external/unpkg.com/mermaid@10.7.0/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -40,7 +40,7 @@ from Wolke import Wolke
 from copy import copy
 import logging
 from EventBus import EventBus
-from HilfeWrapper import HilfeWrapper
+from WebEngineWrapper import WebEngineWrapper
 from Hilfsmethoden import Hilfsmethoden
 from QtUtils.RichTextButton import RichTextToolButton
 from CharakterAssistent.WizardWrapper import WizardWrapper
@@ -993,7 +993,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
 
     def showCharakterAssistentErrorLog(self, baukasten):
         if not hasattr(self, "charakterAssistentErrorLog"):
-            self.charakterAssistentErrorLog = HilfeWrapper(None, False)
+            self.charakterAssistentErrorLog = WebEngineWrapper()
             self.charakterAssistentErrorLog.form.show()
         else:
             self.charakterAssistentErrorLog.form.show()
@@ -1002,13 +1002,13 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
         self.charakterAssistentErrorLog.setTitle("Charakter Assistent Fehler (" + os.path.basename(baukasten) + ")")
         errors = "<br>".join(WizardWrapper.verify(self.datenbank, baukasten))
         if errors:
-            self.charakterAssistentErrorLog.setText(errors)
+            self.charakterAssistentErrorLog.setHtml(errors)
         else:
-            self.charakterAssistentErrorLog.setText("<b>Keine Fehler gefunden!</b>")
+            self.charakterAssistentErrorLog.setHtml("<b>Keine Fehler gefunden!</b>")
 
     def showEditorHelp(self):
         if not hasattr(self, "editorHelpWindow"):
-            self.editorHelpWindow = HilfeWrapper("DatenbankEditor.md", False)
+            self.editorHelpWindow = WebEngineWrapper("Hilfe", "./Doc/datenbankeditor.html", Wolke.MkDocsCSS)
             self.editorHelpWindow.form.show()
         else:
             self.editorHelpWindow.form.show()
@@ -1016,7 +1016,7 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
 
     def showScriptHelp(self):
         if not hasattr(self, "scriptHelpWindow"):
-            self.scriptHelpWindow = HilfeWrapper("ScriptAPI.md", False)
+            self.scriptHelpWindow = WebEngineWrapper("Hilfe", "./Doc/script_api.html", Wolke.MkDocsCSS)
             self.scriptHelpWindow.form.show()
         else:
             self.scriptHelpWindow.form.show()

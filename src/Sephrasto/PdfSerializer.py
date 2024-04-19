@@ -420,6 +420,7 @@ def convertHtmlToPdf(html, htmlBaseUrl, pageLayout, pageloadDelayMs = 0, backgro
     # deliberatly not using WebEnginePage, seems to have problems with QWebChannel
     if webEngineView is None:
          webEngineView = WebEngineViewPlus()
+         webEngineView.installJSBridge()
 
     webEngineView.page().setBackgroundColor(backgroundColor)
 

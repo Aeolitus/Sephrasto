@@ -1,0 +1,58 @@
+site_name: Sephrasto Hilfe
+site_url: ""
+site_dir: "src/Sephrasto/Doc/"
+use_directory_urls: false
+theme:
+  name: material
+  font: false
+  logo: assets/images/icon_large.png
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch 
+    - navigation.footer    
+plugins:
+  - offline
+  - privacy:
+      assets_exclude: 
+        - unpkg.com/mermaid@*
+extra_css:
+  - assets/stylesheets/extra.css
+extra:
+  generator: false
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  
+nav:
+- Home: index.md
+- Charaktereditor: charaktereditor.md
+- Datenbankeditor: datenbankeditor.md
+- Script API: script_api.md
+- Eigene Plugins schreiben: plugin_api.md
+- Charakter Assistent: charakterassistent.md
+- Eigene Charakterbögen erstellen: charakterbogen.md
+- Ein eigenes Theme erstellen: theme.md
+- Drittanbieter-Lizenzen: acknowledgements.md
