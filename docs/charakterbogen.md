@@ -1,97 +1,148 @@
 # Eigene Charakterbögen erstellen
-Du kannst Sephrasto weitere Charakterbögen hinzufügen. Kopiere deinen Bogen hierzu einfach in den Charakterbögen-Ordner, der in den Einstellungen von Sephrasto konfiguriert ist. Du musst Sephrasto allerdings noch ein paar Informationen zu deinem Bogen geben in Form einer Konfigurationsdatei. Diese ist eine Textdatei mit dem gleichen Namen wie die PDF-Datei, aber mit der Endung ".ini". Am einfachsten ist es, wenn du erstmal eine der bestehenden Konfigurationsdateien dorthin kopierst und entsprechend umbenennst. Diese findest du in deinem Sephrasto-Installationsordner im Unterordner Data/Charakterbögen. Alle Konfigurationsmöglichkeiten sind optional.
+Du kannst Sephrasto weitere Charakterbögen hinzufügen. Kopiere deinen Bogen hierzu einfach in den Charakterbögen-Ordner, der in den Einstellungen von Sephrasto konfiguriert ist. Du musst Sephrasto allerdings noch ein paar Informationen zu deinem Bogen geben - in Form einer Konfigurationsdatei. Diese ist eine Textdatei mit dem gleichen Namen wie die PDF-Datei, aber mit der Endung ".ini". Am einfachsten ist es, wenn du erstmal eine der bestehenden Konfigurationsdateien dorthin kopierst und entsprechend umbenennst. Diese findest du in deinem Sephrasto-Installationsordner im Unterordner Data/Charakterbögen. Alle Konfigurationsmöglichkeiten sind optional.
 
 ## Charakterbogen-Konfiguration
-
+```yml
 Info: "Bester Charakterbogen"
--> Tooltip, der im Info-Tab angezeigt wird.
+```
+Tooltip, der im Info-Tab angezeigt wird.
 
+```yml
 Datei: "Charakterbogen.pdf"
--> Falls der Charakterbogen nicht gleich heisst wie die Konfigurationsdatei, kannst du hiermit den Namen der PDF-Datei angeben. Sie sollte dennoch im gleichen Ordner oder einem Unterordner der Konfig liegen.
+```
+Falls der Charakterbogen nicht gleich heisst wie die Konfigurationsdatei, kannst du hiermit den Namen der PDF-Datei angeben. Sie sollte dennoch im gleichen Ordner oder einem Unterordner der Konfig liegen.
 
+```yml
 Seitengrösse: A4
--> Legt die Seitengröße fest. Die üblichsten Werte sind A4, A5 und Letter - alle weiteren mögliche Werte können hier gefunden werden: <a href="https://doc.qt.io/qt-6/qpagesize.html">QPageSize</a>
+```
+Legt die Seitengröße fest. Die üblichsten Werte sind A4, A5 und Letter - alle weiteren mögliche Werte können hier gefunden werden: <a href="https://doc.qt.io/qt-6/qpagesize.html">QPageSize</a>
 
+```yml
 Seitenorientierung: Portrait
--> Legt die Orientierung der Regelanhangseiten fest, mögliche Werte sind "Portrait" und "Landscape".
+```
+Legt die Orientierung der Regelanhangseiten fest, mögliche Werte sind "Portrait" und "Landscape".
 
+```yml
 Seitenbeschreibungen:
-        - Deckblatt
-        - Kampf
+  - Deckblatt
+  - Kampf
+```
+Die Beschreibungen werden für die Benennung der PDF-Lesezeichen verwendet. Jeder Eintrag entspricht einer Seite.
 
--> Die Beschreibungen werden für die Benennung der PDF-Lesezeichen verwendet. Jeder Eintrag entspricht einer Seite.
-
+```yml
 MaxVorteile: 24
--> Die Anzahl an Formularfeldern für Vorteile.
+```
+Die Anzahl an Formularfeldern für Vorteile.
 
+```yml
 MaxVorteileProFeld: 3
--> Wenn mehr Vorteile als MaxVorteile vorhanden sind, trägt Sephrasto bis zu MaxVorteileProFeld in jedes Feld ein.
+```
+Wenn mehr Vorteile als MaxVorteile vorhanden sind, trägt Sephrasto bis zu MaxVorteileProFeld in jedes Feld ein.
 
+```yml
 MaxKampfVorteile: 16
--> Die Anzahl an Formularfeldern für Kampfvorteile.
+```
+Die Anzahl an Formularfeldern für Kampfvorteile.
 
+```yml
 MaxKampfVorteileProFeld: 3
--> Wenn mehr Kampfvorteile als MaxKampfVorteile vorhanden sind, trägt Sephrasto bis zu MaxKampfVorteileProFeld in jedes Feld ein.
+```
+Wenn mehr Kampfvorteile als MaxKampfVorteile vorhanden sind, trägt Sephrasto bis zu MaxKampfVorteileProFeld in jedes Feld ein.
 
+```yml
 MaxÜbernatürlicheVorteile: 12
--> Die Anzahl an Formularfeldern für Übernatürliche Vorteile.
+```
+Die Anzahl an Formularfeldern für Übernatürliche Vorteile.
 
+```yml
 MaxÜberVorteileProFeld: 3
--> Wenn mehr übernatürliche Vorteile als MaxÜbernatürlicheVorteile vorhanden sind, trägt Sephrasto bis zu MaxÜberVorteileProFeld in jedes Feld ein.
+```
+Wenn mehr übernatürliche Vorteile als MaxÜbernatürlicheVorteile vorhanden sind, trägt Sephrasto bis zu MaxÜberVorteileProFeld in jedes Feld ein.
 
+```yml
 MaxFreieFertigkeiten: 28
--> Die Anzahl an Formularfeldern für Freie Fertigkeiten.
+```
+Die Anzahl an Formularfeldern für Freie Fertigkeiten.
 
+```yml
 MaxFreieProFeld: 3
--> Wenn mehr Freie Fertigkeiten als MaxFreieFertigkeiten vorhanden sind, trägt Sephrasto bis zu MaxFreieProFeld in jedes Feld ein.
+```
+Wenn mehr Freie Fertigkeiten als MaxFreieFertigkeiten vorhanden sind, trägt Sephrasto bis zu MaxFreieProFeld in jedes Feld ein.
 
+```yml
 MaxFertigkeiten: 28
--> Die Anzahl an Formularfeldern für Fertigkeiten.
+```
+Die Anzahl an Formularfeldern für Fertigkeiten.
 
+```yml
 MaxÜbernatürlicheFertigkeiten: 12
--> Die Anzahl an Formularfeldern für Übernatürliche Fertigkeiten.
+```
+Die Anzahl an Formularfeldern für Übernatürliche Fertigkeiten.
 
+```yml
 MaxÜbernatürlicheTalente: 30
--> Die Anzahl an Formularfeldern für übernatürliche Talente.
+```
+Die Anzahl an Formularfeldern für übernatürliche Talente.
 
+```yml
 ÜberSeite: 3
--> Die Seitenzahl der Seite für übernatürliche Fertigkeiten und Vorteile, falls vorhanden. Seiten die darüber hinausgehen werden bei profanen Charakteren abgeschnitten - Sephrasto geht also davon aus, dass übernatürliches zum Schluss kommt.
+```
+Die Seitenzahl der Seite für übernatürliche Fertigkeiten und Vorteile, falls vorhanden. Seiten die darüber hinausgehen werden bei profanen Charakteren abgeschnitten - Sephrasto geht also davon aus, dass übernatürliches zum Schluss kommt.
 
+```yml
 ÜberFertigkeitenZuProfan: False
--> Hiermit werden übernatürliche Fertigkeiten bei den profanen Fertigkeiten eingetragen.
+```
+Hiermit werden übernatürliche Fertigkeiten bei den profanen Fertigkeiten eingetragen.
 
+```yml
 ÜberVorteileZuKampf: False
--> Hiermit werden übernatürliche Vorteile bei den Kampfvorteilen eingetragen.
+```
+Hiermit werden übernatürliche Vorteile bei den Kampfvorteilen eingetragen.
 
+```yml
 ExtraÜberSeiten: True
--> Hiermit kann die Ausgabe von Extra-Seiten (z.B. bei zu vielen Zaubern) deaktiviert werden. Es wird hierfür immer die Seite [ÜberSeite] verwendet, also die Seite für Übernatürliches.
+```
+Hiermit kann die Ausgabe von Extra-Seiten (z.B. bei zu vielen Zaubern) deaktiviert werden. Es wird hierfür immer die Seite [ÜberSeite] verwendet, also die Seite für Übernatürliches.
 
+```yml
 Bild:
-        - [1.0, 115.55, 89.55]
-        - []
-        - [1.5, 130.8, 74.0]
-        
--> Mit diesem Eintrag kannst du das Charakterbild auf einer oder mehreren Seiten an unterschiedlichen Stellen einfügen. Die Seitenzahl entspricht dem Listen-Index +1. Die einzelnen Elemente enthalten einen Array mit 3 Werten: Größenmultiplikator, X-Offset und Y-Offset (jeweils von der Ecke oben-links des Dokuments). Füge einen leeren Array ein, um eine Seite zu überspringen (im Beispiel wird ein Bild auf den Seiten 1 und 3 eingefügt). Es kann ein paar Export-Versuche benötigen, bis du gute Größen- und Offsetwerte für deinen Charakterbogen gefunden hast - nutze zum Testen idealerweise ein einfarbiges Bild mit einer Auflösung von 260 x 340. Nach Änderungen musst du Sephrasto neustarten.
+  - [1.0, 115.55, 89.55]
+  - []
+  - [1.5, 130.8, 74.0]       
+```
+Mit diesem Eintrag kannst du das Charakterbild auf einer oder mehreren Seiten an unterschiedlichen Stellen einfügen. Die Seitenzahl entspricht dem Listen-Index +1. Die einzelnen Elemente enthalten einen Array mit 3 Werten: Größenmultiplikator, X-Offset und Y-Offset (jeweils von der Ecke oben-links des Dokuments). Füge einen leeren Array ein, um eine Seite zu überspringen (im Beispiel wird ein Bild auf den Seiten 1 und 3 eingefügt). Es kann ein paar Export-Versuche benötigen, bis du gute Größen- und Offsetwerte für deinen Charakterbogen gefunden hast - nutze zum Testen idealerweise ein einfarbiges Bild mit einer Auflösung von 260 x 340. Nach Änderungen musst du Sephrasto neustarten.
 
+```yml
 RegelanhangSeitengrösse: A4
--> Legt die Seitengröße für den Regelanhang fest. Die üblichsten Werte sind A4, A5 und Letter - alle weiteren mögliche Werte können hier gefunden werden: <a href="https://doc.qt.io/qt-6/qpagesize.html">QPageSize</a>
+```
+Legt die Seitengröße für den Regelanhang fest. Die üblichsten Werte sind A4, A5 und Letter - alle weiteren mögliche Werte können hier gefunden werden: <a href="https://doc.qt.io/qt-6/qpagesize.html">QPageSize</a>
 
+```yml
 RegelanhangSeitenorientierung: Portrait
--> Legt die Orientierung der Regelanhangseiten fest, mögliche Werte sind "Portrait" und "Landscape".
+```
+Legt die Orientierung der Regelanhangseiten fest, mögliche Werte sind "Portrait" und "Landscape".
 
+```yml
 RegelanhangSeitenabstände: [70, 36, 70, 36]
--> Legt den Abstand des Regelanhangtexts zum Seitenrand in der Einheit Points fest. Die Reihenfolge ist oben, rechts, unten, links.
+```
+Legt den Abstand des Regelanhangtexts zum Seitenrand in der Einheit Points fest. Die Reihenfolge ist oben, rechts, unten, links.
 
+```yml
 RegelanhangSeitenzahlPosition: bottom
--> Legt fest, an welchem Seitenrand die Regelanhang-Seitenzahlen verankert werden sollen. Möglich sind: top, topleft, topright, left, bottomleft, bottom, bottomright, right, diagonal, reverse-diagonal, center.
+```
+Legt fest, an welchem Seitenrand die Regelanhang-Seitenzahlen verankert werden sollen. Möglich sind: top, topleft, topright, left, bottomleft, bottom, bottomright, right, diagonal, reverse-diagonal, center.
 
+```yml
 RegelanhangSeitenzahlAbstand: 40
--> Legt den Abstand der Regelanhang-Seitenzahlen von der gewählten Verankerung in der Einheit Points fest.
+```
+Legt den Abstand der Regelanhang-Seitenzahlen von der gewählten Verankerung in der Einheit Points fest.
 
+```yml
 FormularMappings:
-&nbsp;&nbsp;&nbsp;&nbsp;Status: Statu
-&nbsp;&nbsp;&nbsp;&nbsp;WS: Wundschwelle 
--> Falls die Formularfelder im Charakterbogen nicht so benannt sind, wie Sephrasto das erwartet, können mit dieser Einstellung die Namen angepasst werden. Links vom Doppelpunkt steht der von Sephrasto erwartete Name, rechts der Name des Formularfelds im Charakterbogen.
+  Status: Statu
+  WS: Wundschwelle 
+```
+Falls die Formularfelder im Charakterbogen nicht so benannt sind, wie Sephrasto das erwartet, können mit dieser Einstellung die Namen angepasst werden. Links vom Doppelpunkt steht der von Sephrasto erwartete Name, rechts der Name des Formularfelds im Charakterbogen.
 
 
 ## Formularfelder
@@ -180,5 +231,5 @@ Sephrasto befüllt die folgenden Formularfelder. In Eckigen Klammern befindet si
 
 
 ## Regelanhang anpassen
-Alle Charakterbögen verwenden für den Regelanhang standardmäßig die Dateien Data/Charakterbögen/Regelanhang.html und Data/Charakterbögen/Hintergrund.pdf. Die HTML-Datei wird anhand der Regelanhang-Einstellungen (s. o.) zu einer PDF umgewandelt. Hierbei werden \{rules_content\} und \{rules_font_size\} durch den Regelanhang-Text bzw. die in Sephrasto eingestellte Schriftgröße ersetzt. In der HTML-Datei angegebene Pfade haben immer den Ordner der HTML-Datei als Ausgangsbasis. Der Hintergrund ist separat, um geringere Dateigrößen zu ermöglichen.
+Alle Charakterbögen verwenden für den Regelanhang standardmäßig die Dateien Data/Charakterbögen/Regelanhang.html und Data/Charakterbögen/Hintergrund.pdf. Die HTML-Datei wird anhand der Regelanhang-Einstellungen (s. o.) zu einer PDF umgewandelt. Hierbei werden \{rules_content\} und \{rules_font_size\} durch den Regelanhang-Text bzw. die in Sephrasto eingestellte Schriftgröße ersetzt. In der HTML-Datei angegebene Pfade haben immer den Ordner der HTML-Datei als Ausgangsbasis. Der Hintergrund ist separat, um geringere Dateigrößen zu ermöglichen.<br>
 Wenn dein Charakterbogen auch andere Dokumente verwenden soll, dann benenne sie \[Charakterbogen-Dateiname\]_Regelanhang.html und \[Charakterbogen-Dateiname\]_Hintergrund.pdf und lege sie ebenso in deinen in den Einstellungen festgelegten Charakterbögen-Ordner. Wenn du die Hintergrund-PDF weglässt, wird der Regelanhang entsprechend ohne Hintergrund ausgegeben.

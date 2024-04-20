@@ -15,13 +15,14 @@ Bei Fragen / Änderungswünschen / Feedback einfach Bescheid sagen - im dsaforum
 * PyYAML (https://pyyaml.org/) als yaml-parser
 * RestrictedPython (https://github.com/zopefoundation/RestrictedPython) zum Absichern der durch Benutzer erstellbaren Python Scripts
 * cx_freeze (optional, https://github.com/marcelotduarte/cx_Freeze) um Sephrasto-Builds zu erstellen
+* mkdocs (optional, https://github.com/mkdocs/) und mkdocs-material. Zum Konvertieren der Markdown-Dokumentation in HTML.
 
 Mitgeliefert werden außerdem:
 * fdfgen (https://github.com/ccnmtl/fdfgen) zum Editieren des Charakterbogens
 * cpdf (https://www.coherentpdf.com) zur Reduzierung der Dateigröße des Charakterbogens
 * hyphen (https://github.com/ytiurin/hyphen) für das korrekte Umbrechen von Textzeilen im Regelanhang
 
-Die zugehörigen Lizenzen können hier gefunden werden: [Acknowledgements](src/Sephrasto/Doc/Acknowledgements.md)
+Die zugehörigen Lizenzen können hier gefunden werden: [Acknowledgements](docs/acknowledgements.md)
 
 ## Installation Linux
 ```
@@ -100,6 +101,17 @@ Stelle sicher, dass alle Pakete aus der requirements.txt installiert sind. Aktue
 * Bei Problemen mit convert.bat, stelle sicher, dass:
     * ... der Python Install-Ordner und der Unterordner "Scripts" in deiner PATH-Umgebungsvariable enthalten sind. Dies wird normalerweise vom Python installer automatisch gemacht. (Windows 10: System -> Advanced System Settings -> Environment Variables -> Path - in User oder System)
     * ... "Python/Scripts" die Datei "pyside6-uic.exe" enthält. Diese wird normalerweise durch das Installieren von PySide6 dort angelegt.
+
+### Update der Dokumentation
+Die Markdown-Dokumente in /docs werden für Sephrastos-In-App-Hilfe in HTML konvertiert. Dies muss also nach jeder Änderung der Dokumente durchgeführt werden.
+
+Installation:
+* Installiere mkdocs: ```pip install mkdocs```
+* Installiere mkdocs-material: ```pip install mkdocs-material```
+
+Update der HTML-Dateien:
+* Navigiere auf der Kommandozeile in den Serphasto-Repo-Root.
+* Führe aus: ```mkdocs build```
 
 ### Plugin Repositories
 Sephrasto unterstützt Plugin repositories, um als User die Plugins bequem aus den Einstellungen heraus verwalten zu können. In den Standardeinstellungen ist https://github.com/brzGatsu/SephrastoPlugins voreingetragen und wir empfehlen dir dort für deine Plugins einen PR zu erstellen. Du kannst aber auch ein eigenes Repository anlegen. Aktuell ist Sephrasto hier auf Github beschränkt und du musst folgender Konvention folgen:

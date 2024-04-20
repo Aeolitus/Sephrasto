@@ -801,10 +801,10 @@
 
 
 <h1 id="skripte-fur-abgeleitete-werte-vorteile-und-waffeneigenschaften">Skripte für Abgeleitete Werte, Vorteile und Waffeneigenschaften</h1>
-<p>Abgeleitete Werte, Vorteile und Waffeneigenschaften haben im Regelbasis-Editor ein Feld für benutzerdefinierte Skripte. Diese werden verwendet, um Auswirkungen auf die Charakterwerte umzusetzen. Skripte werden in Python geschrieben, wobei alles in eine Zeile geschrieben werden muss.</p>
+<p>Abgeleitete Werte, Vorteile und Waffeneigenschaften haben im Regelbasis-Editor ein Feld für benutzerdefinierte Skripte. Diese werden verwendet, um Auswirkungen auf die Charakterwerte umzusetzen. Skripte werden in Python geschrieben.</p>
 <h2 id="api">API</h2>
-<p>Sephrasto bietet eine Reihe von Funktionen an, anhand derer die meisten Skripte mit ein paar wenigen Zeichen umzusetzen sind. Die 'get' Funktionen liefern den entsprechenden Wert zurück, die 'set' Funktionen setzen den Wert auf den übergebenen Ganzzahl-Parameter und die 'modify' Funktionen verändern den gewünschten Wert um den übergebenen Ganzzahl-Parameter. Ausnahmen sind in spitzen Klammern aufgeführt.  Bei komplexeren Vorhaben sollte ein 'one-lined python converter' genutzt werden.</p>
-<p>Die folgenden Funktionen stehen neben Python-Builtins wie 'round' zur Verfügung:</p>
+<p>Sephrasto bietet eine Reihe von Funktionen an, anhand derer die meisten Skripte mit ein paar wenigen Zeichen umzusetzen sind. Die 'get' Funktionen liefern den entsprechenden Wert zurück, die 'set' Funktionen setzen den Wert auf den übergebenen Ganzzahl-Parameter und die 'modify' Funktionen verändern den gewünschten Wert um den übergebenen Ganzzahl-Parameter. Ausnahmen sind in spitzen Klammern aufgeführt.</p>
+<p>Die folgenden Funktionen stehen neben Python-Builtins wie <code>min</code> und <code>max</code> zur Verfügung:</p>
 <h3 id="beschreibung">Beschreibung</h3>
 <ul>
 <li>Hintergrund: <code>getName, getSpezies, getStatus, getKurzbeschreibung, getHeimat, getFinanzen</code></li>
@@ -841,24 +841,24 @@
 <ul>
 <li>Freie Fertigkeiten: <code>getFreieFertigkeiten &lt;Return: { definition { name, kategorie, voraussetzungen[] }, wert }&gt;</code></li>
 <li>Fertigkeiten: <code>getFertigkeit/getÜbernatürlicheFertigkeit &lt;Parameter: Fertigkeits-Name. Return: { definition { name, steigerungsfaktor, text, attribute [], kampffertigkeit, voraussetzungen [], kategorie, talenteGruppieren }, wert, gekaufteTalente[], talentMods {}, attributswerte, basiswert, basiswertMod, probenwert, probenwertTalent, maxWert, addToPdf  }&gt;</code></li>
-<li>Fertigkeiten Basis: <code>modifyFertigkeitBasiswert : &lt;Parameter: Fertigkeits-Name, Modifikator&gt;</code>
+<li>Fertigkeiten Basis: <code>modifyFertigkeitBasiswert : &lt;Parameter: Fertigkeits-Name, Modifikator&gt;</code><br>
 Hinweis: Dies ist nützlich, um sich permanente Erleichterungen auf eine Fertigkeit nicht merken zu müssen. Diese Modifikation wird bei Voraussetzungen der Typen "Fertigkeit" und "Talent" nicht eingerechnet!</li>
 <li>Übernatürliche Fertigkeiten Basis: <code>modifyÜbernatürlicheFertigkeitBasiswert : &lt;Parameter: Fertigkeits-Name, Modifikator&gt;</code></li>
-<li>Talente Probenwert: <code>modifyTalentProbenwert : &lt;Parameter: Talent-Name, Modifikator&gt;</code>
-Beispiel: modifyTalentProbenwert('Überreden', 2)
+<li>Talente Probenwert: <code>modifyTalentProbenwert : &lt;Parameter: Talent-Name, Modifikator&gt;</code><br>
+Beispiel: modifyTalentProbenwert('Überreden', 2)<br>
 Hinweis: Dies ist nützlich, um permanente Erleichterungen auf ein Talent direkt in der Talentliste aufzuführen. Ist das Talent noch nicht erworben, wird das ganze Talent mit der Modifizierung in Klammern gesetzt. Die Modifizierung wird ausschließlich im Charakterbogen eingerechnet!</li>
-<li>Talente zusätzliche Informationen: <code>talentAddInfo : &lt;Parameter: Talent-Name, Infotext&gt;</code>
-Beispiel: addTalentInfo('Überreden', "Rededuell +2")
+<li>Talente zusätzliche Informationen: <code>talentAddInfo : &lt;Parameter: Talent-Name, Infotext&gt;</code><br>
+Beispiel: addTalentInfo('Überreden', "Rededuell +2")<br>
 Hinweis: Dies ist nützlich, um besondere Effekte wie beispielsweise von manchen Vorteilen direkt bei den Talenten im Charakterbogen aufzuführen.</li>
-<li>Talente hinzufügen: <code>addTalent : &lt;Parameter: Talent-Name, Kosten (optional), Benötigte übernatürliche Fertigkeit (optional)&gt;</code>
-Hinweis: Das Script fügt dem Talent den Vorteil zu dem es gehört als Voraussetzung hinzu. Sobald der Vorteil also abgewählt wird, verliert der Charakter auch das Talent. Mit dem Kosten-Parameter können die Standard-Talentkosten geändert werden (bei -1 werden sie nicht verändert). Optional kann außerdem eine übernatürliche Fertigkeit mit angegeben werden, die benötigt wird - falls der Charakter sie nicht besitzt, macht das Script nichts; diese wird dannauch als Voraussetzung hinzugefügt.
-Beispiel ohne Bedingung und Kostenveränderung: addTalent("Spurlos Trittlos")
+<li>Talente hinzufügen: <code>addTalent : &lt;Parameter: Talent-Name, Kosten (optional), Benötigte übernatürliche Fertigkeit (optional)&gt;</code><br>
+Hinweis: Das Script fügt dem Talent den Vorteil zu dem es gehört als Voraussetzung hinzu. Sobald der Vorteil also abgewählt wird, verliert der Charakter auch das Talent. Mit dem Kosten-Parameter können die Standard-Talentkosten geändert werden (bei -1 werden sie nicht verändert). Optional kann außerdem eine übernatürliche Fertigkeit mit angegeben werden, die benötigt wird - falls der Charakter sie nicht besitzt, macht das Script nichts; diese wird dannauch als Voraussetzung hinzugefügt.<br>
+Beispiel ohne Bedingung und Kostenveränderung: addTalent("Spurlos Trittlos")<br>
 Beispiel mit Kosten auf 0 EP gesetzt und "Gaben des Butgeists" als Bedingung: addTalent("Spurlos Trittlos", 0, "Gaben des Blutgeists")</li>
 </ul>
 <h3 id="vorteile">Vorteile</h3>
 <ul>
 <li>Vorteile allgemein: <code>getVorteil &lt;Parameter: Vorteils-Name. Return: { definition { name, text, info, bedingungen, kosten, variableKosten, kommentarErlauben, kategorie, voraussetzungen [], nachkauf,  cheatsheetAuflisten, cheatsheetBeschreibung, linkKategorie, linkElement, script, scriptPrio, querverweise [], querverweiseResolved {}, anzeigenameExt }[]&gt;</code></li>
-<li>Kampfstile: <code>getKampfstil &lt;Parameter: Kampfstil-Name. Return: { at, vt, plus, rw, be }&gt;, setKampfstil/modifyKampfstil &lt;Parameter: Kampfstil-Name, at, vt, plus, rw, be&gt;</code>
+<li>Kampfstile: <code>getKampfstil &lt;Parameter: Kampfstil-Name. Return: { at, vt, plus, rw, be }&gt;, setKampfstil/modifyKampfstil &lt;Parameter: Kampfstil-Name, at, vt, plus, rw, be&gt;</code><br>
 Hinweis: Statt eines Kampfstil-Namens kann auch "Nahkampf" oder "Fernkampf" angegeben werden, um globale Modifikationen für alle Nah-/Fernkampfwaffen anzugeben. Diese werden dann zum tatsächlichen Kampfstil einer Waffe addiert.</li>
 </ul>
 <h3 id="ausrustung">Ausrüstung</h3>
@@ -869,41 +869,47 @@ Hinweis: Statt eines Kampfstil-Namens kann auch "Nahkampf" oder "Fernkampf" ange
 </ul>
 <h3 id="sonstiges">Sonstiges</h3>
 <ul>
-<li><code>addWaffeneigenschaft &lt;Parameter: WaffenName, Eigenschaft&gt;</code>
+<li><code>addWaffeneigenschaft &lt;Parameter: WaffenName, Eigenschaft&gt;</code><br>
 Beispiel: addWaffeneigenschaft('Hand', 'Kopflastig')</li>
-<li><code>removeWaffeneigenschaft &lt;Parameter: WaffenName, Eigenschaft&gt;</code>
+<li><code>removeWaffeneigenschaft &lt;Parameter: WaffenName, Eigenschaft&gt;</code><br>
 Beispiel: removeWaffeneigenschaft('Hand', 'Zerbrechlich')</li>
 </ul>
 <h2 id="besonderheiten">Besonderheiten</h2>
 <h3 id="abgeleitete-werte_1">Abgeleitete Werte</h3>
 <p>Das "Finalwert Script" von Abgeleiteten Werten hat vollen Zugriff auf die API. Das "Script" hat jedoch nur Zugriff auf die folgenden Funktionen: <code>getAttribut, getRüstung</code>.</p>
 <h3 id="waffeneigenschaften-we">Waffeneigenschaften (WE)</h3>
-<p>Waffeneigenschaft-Scripts haben keinen Zugriff auf: <code>setSB, modifySB, setBE, modifyBE, setRS, modifyRS, modifyFertigkeitBasiswert, setKampfstil, modifyKampfstil, addWaffeneigenschaft, removeWaffeneigenschaft</code>.
-Die folgenden zusätzlichen Funktionen stehen ausschließlich innerhalb von Waffeneigenschaft-Scripts zur Verfügung:
-- Parameter dieser WE als string erhalten: <code>getEigenschaftParam &lt;Parameter: Parameternummer&gt;</code>
-Parameter müssen mit Semikolon getrennt werden.<br />
-- Waffen mit dieser WE modifizieren: <code>modifyWaffeAT, modifyWaffeVT, modifyWaffeTPWürfel, modifyWaffeTPPlus, modifyWaffeHäerte, modifyWaffeRW, setWaffeAT, setWaffeVT, setWaffeTPWürfel, setWaffeTPPlus, setWaffeHärte, setWaffeRW</code>
-- Aktuelle Waffe erhalten: <code>getWaffe &lt;Return: { name, würfel, würfelSeiten, plus, eigenschaften[], härte, fertigkeit, talent, beSlot, kampfstile[], kampfstil, rw, wm, lz, fernkampf, nahkampf, anzeigename }&gt;</code>
-- Aktuelle Werte der Waffe erhalten: <code>getWaffenWerte &lt;Return: { at, vt, rw, würfel, plus, härte, kampfstil }&gt;</code></p>
+<p>Waffeneigenschaft-Scripts haben keinen Zugriff auf: <code>setSB, modifySB, setBE, modifyBE, setRS, modifyRS, modifyFertigkeitBasiswert, setKampfstil, modifyKampfstil, addWaffeneigenschaft, removeWaffeneigenschaft</code>.</p>
+<p>Die folgenden zusätzlichen Funktionen stehen ausschließlich innerhalb von Waffeneigenschaft-Scripts zur Verfügung:</p>
+<ul>
+<li>Parameter dieser WE als string erhalten: <code>getEigenschaftParam &lt;Parameter: Parameternummer&gt;</code>
+Parameter müssen mit Semikolon getrennt werden.  </li>
+<li>Waffen mit dieser WE modifizieren: <code>modifyWaffeAT, modifyWaffeVT, modifyWaffeTPWürfel, modifyWaffeTPPlus, modifyWaffeHäerte, modifyWaffeRW, setWaffeAT, setWaffeVT, setWaffeTPWürfel, setWaffeTPPlus, setWaffeHärte, setWaffeRW</code></li>
+<li>Aktuelle Waffe erhalten: <code>getWaffe &lt;Return: { name, würfel, würfelSeiten, plus, eigenschaften[], härte, fertigkeit, talent, beSlot, kampfstile[], kampfstil, rw, wm, lz, fernkampf, nahkampf, anzeigename }&gt;</code></li>
+<li>Aktuelle Werte der Waffe erhalten: <code>getWaffenWerte &lt;Return: { at, vt, rw, würfel, plus, härte, kampfstil }&gt;</code></li>
+</ul>
 <h2 id="beispiele">Beispiele</h2>
 <h3 id="vorteil-waffenloser-kampf">Vorteil Waffenloser Kampf</h3>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Beispiel: for waffe in [&#39;Hand&#39;, &#39;Fuß&#39;]: addWaffeneigenschaft(waffe, &#39;Kopflastig&#39;);  addWaffeneigenschaft(waffe, &#39;Wendig&#39;)
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">for</span> <span class="n">waffe</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Hand&#39;</span><span class="p">,</span> <span class="s1">&#39;Fuß&#39;</span><span class="p">]:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">addWaffeneigenschaft</span><span class="p">(</span><span class="n">waffe</span><span class="p">,</span> <span class="s1">&#39;Kopflastig&#39;</span><span class="p">)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">addWaffeneigenschaft</span><span class="p">(</span><span class="n">waffe</span><span class="p">,</span> <span class="s1">&#39;Wendig&#39;</span><span class="p">)</span>
 </span></code></pre></div>
 Fügt den Waffen Hand und Fuß die Eigenschaften Kopflastig und Wendig hinzu.</p>
 <h3 id="vorteil-gefa-der-sterne">Vorteil Gefäß der Sterne</h3>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>modifyAsPMod(getCH() + 4).
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">modifyAsPMod</span><span class="p">(</span><span class="n">getCH</span><span class="p">()</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span>
 </span></code></pre></div>
 Erhöht die AsP um den Charismawert + 4.</p>
 <h3 id="vorteil-reiterkampf-ii">Vorteil Reiterkampf II</h3>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>modifyKampfstil(&#39;Reiterkampf&#39;, 1, 1, 1, 0, -1)
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">modifyKampfstil</span><span class="p">(</span><span class="s1">&#39;Reiterkampf&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </span></code></pre></div>
 Erhöht für den Kampfstil Reiterkampf die Werte für AT, VT und TP um +1 und senkt die BE um -1.</p>
 <h3 id="waffeneigenschaft-kopflastig">Waffeneigenschaft Kopflastig</h3>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>modifyWaffeTPPlus(getSB())
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">modifyWaffeTPPlus</span><span class="p">(</span><span class="n">getSB</span><span class="p">())</span>
 </span></code></pre></div>
 Erhöht die TP aller Waffen mit dieser Eigenschaft um den Schadensbonus.</p>
 <h3 id="waffeneigenschaft-schwer">Waffeneigenschaft Schwer</h3>
-<p><div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>if getKK() &lt; int(getEigenschaftParam(1)): modifyWaffeAT(-2); modifyWaffeVT(-2)
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">if</span> <span class="n">getKK</span><span class="p">()</span> <span class="o">&lt;</span> <span class="nb">int</span><span class="p">(</span><span class="n">getEigenschaftParam</span><span class="p">(</span><span class="mi">1</span><span class="p">)):</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">modifyWaffeAT</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">modifyWaffeVT</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 </span></code></pre></div>
 Verringert AT und VT aller Waffen mit dieser Eigenschaft um 2, falls der Wert der Körperkraft unter dem Wert des ersten Parameters der Eigenschaft liegt (bei Schwer(4) ist dies 4).</p>
 

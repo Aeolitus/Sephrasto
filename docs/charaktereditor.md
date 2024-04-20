@@ -1,9 +1,9 @@
 # Charakter-Editor
-Vom Startfenster aus gibt es zwei Möglichkeiten in den Charaktereditor zu gelangen: 
+Vom Startfenster aus gibt es drei Möglichkeiten in den Charaktereditor zu gelangen: 
 
-- Neuen Charakter erstellen: Mit einem Klick auf **Neuen Charakter erstellen** , öffnet sich ein neues Fenster mit dem Charaktereditor. Dieser besteht größtenteils aus einer Fläche mit verschiedenen Reitern, die Zugriff auf die unterschiedlichen Aspekte eines Charakters geben. Die einzelnen Reiter werden im Weiteren erläutert. Zusätzlich ist im unteren Teil des Fensters eine Steuerungsleiste zu sehen. Diese wird am Ende dieses Abschnitts erläutert.
-
-- Vorhandenen Charakter bearbeiten: Wählst du diese Option, kannst du einen bereits abgespeicherten Charakter aus seiner XML-Datei einlesen. Sephrasto öffnet dann den oben erläuterten Charakter-Editor und befüllt automatisch alle Felder so, wie du sie ausgefüllt hattest. So kannst du Charaktere über viele Sitzungen hinweg in Sephrasto bearbeiten.
+- Neuen Charakter erstellen: Mit einem Klick auf **Neuer Charakter** öffnet sich ein neues Fenster mit dem Charaktereditor. Dieser besteht größtenteils aus einer Fläche mit verschiedenen Reitern, die Zugriff auf die unterschiedlichen Aspekte eines Charakters geben. Die einzelnen Reiter werden im Weiteren erläutert. Zusätzlich ist im unteren Teil des Fensters eine Steuerungsleiste zu sehen. Diese wird am Ende dieses Abschnitts erläutert.
+- Vorhandenen Charakter laden: Mit einem Klick auf **Charakter laden** kannst du einen bereits abgespeicherten Charakter aus seiner XML-Datei einlesen. Sephrasto öffnet dann den oben erläuterten Charakter-Editor und befüllt automatisch alle Felder so, wie du sie ausgefüllt hattest. So kannst du Charaktere über viele Sitzungen hinweg in Sephrasto bearbeiten.
+- Vorhandenen Charakter schnelladen: Wann immer du einen Charakter bearbeitest, erhält er im Startfenster einen eigenen Button. Über diesen kannst du den Charakter sofort laden, ohne seine XML-Datei auswählen zu müssen.
 
 ## Beschreibung
 Die Beschreibung eines Charakters stellt das grundlegende Charakterkonzept dar. Für die allermeisten Charaktere wird sie ausgefüllt, bevor über irgendwelche Werte nachgedacht wird. Es handelt sich dabei um ausfüllbare Textfelder und Drop-Down-Menüs, deren Inhalt direkt auf den Charakterbogen übertragen wird. Die gewählten Finanzen beeinflussen dabei die eingetragenen SchiP\*, und die als Heimatgebiet gewählte Region macht das entsprechende Gebräuche-Talent kostenlos. Ansonsten haben die Eingaben in diesem Bereich innerhalb von Sephrasto keine weitere Wirkung.
@@ -20,7 +20,7 @@ In diesem Reiter kaufst du die Vorteile, über die dein Charakter verfügen soll
 
 ![Vorteile](assets/images/Vorteile.jpg)
 
-Auf der rechten Seite des Reiters findest du eine Beschreibung des aktuell ausgewählten Vorteils. Zuoberst sind Name, Kosten und Kategorie des Vorteils zu finden. Dazu findest du die Angaben dazu, wie häufig dieser Vorteil im späteren Spiel erworben wird. Schließlich findest du die komplette Beschreibung des Vorteils, so wie sie im Regelwerk steht. Hier stehen für Vorteile mit variablen Kosten oft auch Vorschläge, was für Kosten angebracht wären.
+Auf der rechten Seite des Reiters findest du eine Beschreibung des aktuell ausgewählten Vorteils. Zuoberst sind Name, Kosten und Kategorie des Vorteils zu finden. Dazu findest du die Angaben dazu, wie häufig dieser Vorteil im späteren Spiel erworben wird. Schließlich findest du die komplette Beschreibung des Vorteils, so wie sie im Regelwerk steht. Hier stehen für Vorteile mit variablen Kosten oft auch Vorschläge, was für Kosten angebracht wären.<br>
 Bei manchen Vorteilen werden unterhalb der Beschreibung außerdem noch **Querverweise** aufgeführt, bei denen du für den Vorteil relevante Regeln nachlesen kannst.
 
 Erwirbst du den Vorteil **Minderpakt**, öffnet sich das ein weiteres Fenster, in welchem du den Vorteil wählen kannst, den du durch den **Minderpakt** erwerben möchtest.
@@ -38,7 +38,7 @@ In diesem Reiter kannst du die Fertigkeitswerte deines Charakters in den profane
 
 ![Fertigkeiten](assets/images/Fertigkeiten.jpg)
 
-Im linken Teil findest du die Liste der profanen Fertigkeiten, geordnet wie im Regelwerk. Um schnell und einfach deine Steigerungen durchführen zu können, kannst du hier auch direkt deinen Fertigkeitswert setzen, die Anzahl der gekauften Talente sehen und mit einem Mausklick neue Talente erwerben. Daneben findest du noch die Kosten für eine Steigerung um +1, den Probenwert ohne (PW) und mit Talent (PW(T)).
+Im linken Teil findest du die Liste der profanen Fertigkeiten, geordnet wie im Regelwerk. Um schnell und einfach deine Steigerungen durchführen zu können, kannst du hier auch direkt deinen Fertigkeitswert setzen, die Anzahl der gekauften Talente sehen und mit einem Mausklick neue Talente erwerben. Daneben findest du noch die Kosten für eine Steigerung um +1, den Probenwert ohne (PW) und mit Talent (PW(T)).<br>
 Auf der rechten Seite findest du wieder eine Detailansicht. Hier findest du den Steigerungsfaktor (SF) der Fertigkeit, die Attribute und den ausgerechneten Basiswert (BW), sowie erneut PW und PW(T). Auch hier kannst du den Fertigkeitswert einstellen. Außerdem gibt es eine Liste der bereits erworbenen Talente und ein Textfeld mit der Beschreibung der Fertigkeit aus dem Regelwerk.
 
 Klickst du auf das Plus in der Tabelle oder über der Liste von Talenten, gelangst du in den Talentauswahlbildschirm. Hier findest du eine Liste aller für diese Fertigkeit verfügbaren Talente. Wieder kannst du durchs Anwählen der Kästchen neue Talente erwerben. Auch hier sind auf der rechten Seite des Fensters die Kosten des Talents sowie die Beschreibung aus dem Regelwerk zu finden. Falls der entsprechende Fertigkeitswert übrigens weniger als 4 beträgt, erscheint eine Warnung, da es sich üblicherweise dann noch nicht lohnt, EP in Talente zu investieren. 
@@ -74,11 +74,13 @@ Im Ausrüstungs-Reiter wählst du Waffen und Rüstung für deinen Charakter. Die
 ![Waffen](assets/images/Waffen.jpg)
 
 Du kannst du bis zu acht Waffen eingeben, die auf den Charakterbogen sollen.
+
 - Klicke in einer beliebigen Zeile auf den **+** -Knopf, um eine Waffe auszuwählen (siehe unten).
 - Im ersten Textfeld kannst du den **Namen** der Waffe eintragen.
 - Die Trefferpunkte ( **TP** ) teilen sich auf in Würfelanzahl und Zusatzschaden.
 - Die Reichweite ( **RW** ), der Waffenmodifikator ( **WM** ) bzw. die Ladezeit ( **LZ** ) und die **Härte** der Waffe werden so direkt auf den Charakterbogen übertragen.
 - Im zweiten Textfeld kannst du die **Waffeneigenschaften** eintragen. Wenn du dir den Tooltip zu diesem Feld anzeigen lässt erhältst du den Regeltext zu allen Eigenschaften.
+- Mit dem Dropdown-Menu zur **Rüstung** kannst du angeben, welche der bis zu drei hinterlegten Rüstungen für die Berechnung des BE-Abzugs verwendet werden soll.
 - Das Dropdown-Menü zum **Kampfstil** bietet dir alle Kampfstile an, für die du den entsprechenden Vorteil erworben hast und welche mit der Waffe verwendbar sind.
 - Unterhalb des Waffennamens siehst du die **Basiswaffe**, auf deren Werten deine Waffe basiert. Hierüber bezieht Sephrasto beispielsweise die Information, ob es eine Nah- oder Fernkampfwaffe ist, unter welchem Talent sie geführt wird und welche Kampfstile verfügbar sind. Daneben siehst du die endgültigen AT\*, VT\* und TP\*, wie sie im Charakterbogen erscheinen werden. Hier werden Probenwert, Schadensbonus (inkl. Kopflastig), der gewählte Kampfstil und die BE zusammengerechnet. Falls du die Waffe außerdem z. B. durch Handwerk verbessert hast, erscheinen an dritter Stelle die vorgenommenen Modifikationen, relativ zur Basiswaffe.
 
@@ -105,7 +107,7 @@ Unterhalb der Rüstungen stehen dir 20 Textfelder zur Verfügung, in die du Gege
 ### Rüstungsauswahl
 ![RuestungAuswahl](assets/images/RuestungAuswahl.jpg)
 
-Auf der rechten Seite finden sich alle Informationen über die Rüstung. Mit einem Klick auf **OK** wird die aktuell ausgewählte Rüstung in den Ausrüstungs-Reiter übertragen. Wenn die Rüstungszeile bereits eine Rüstung enthält, wird die selektierte Rüstung der existierenden hinzugefügt, RS- und BE- Werte werden addiert. Dies kannst du nutzen um mehrere Rüstungslagen zu kombinieren oder Zusatzrüstungen wie z.B. Lederzeug hinzuzufügen. Falls du das nicht möchtest, dass Rüstungen kombiniert werden, kannst du im Auswahlmenu auf _Rüstung ersetzen_ klicken.
+Auf der rechten Seite finden sich alle Informationen über die Rüstung. Mit einem Klick auf **OK** wird die aktuell ausgewählte Rüstung in den Ausrüstungs-Reiter übertragen. Wenn die Rüstungszeile bereits eine Rüstung enthält, wird die selektierte Rüstung der existierenden hinzugefügt, RS- und BE- Werte werden addiert. Dies kannst du nutzen um mehrere Rüstungslagen zu kombinieren oder Zusatzrüstungen wie z.B. Lederzeug hinzuzufügen. Falls du das nicht möchtest, dass Rüstungen kombiniert werden, kannst du im Auswahlmenu auf _Rüstung ersetzen_ klicken.<br>
 **Wichtig:** Die aufgelisteten Rüstungen sind nur Beispiele, der Spielleiter hat das letzte Wort.
 
 ## Info
@@ -114,13 +116,15 @@ Auf der linken Seite kannst du Notizen eintragen. Normalerweise erscheinen sie n
 ![Info](assets/images/Info.jpg)
 
 Einstellungsmöglichkeiten:
+
 - Voraussetzungen überprüfen: Wählst du den Haken ab, prüft Sephrasto nicht mehr automatisch, ob du die Voraussetzungen für deine Vorteile, Talente und Fertigkeiten erfüllst. Das kann praktisch sein, wenn du dir nur einen Überblick verschaffen möchtest, oder wenn du einen nicht regelkonformen Charakter erstellen willst, der zum Beispiel über einen Pakt an sonst nicht verfügbare Vorteile gekommen ist. Aber Achtung! Wählst du das Kästchen wieder an, werden die Voraussetzungen geprüft und alle so ausgewählten Vorteile, Fertigkeiten und Talente werden wieder entfernt.
 - Vor dem ersten Abenteuer: Nach dem ersten Abenteuer kannst du den Haken abwählen. Es werden dann die nicht mehr relevanten Finanzen ausgeblendet und die aktuellen Schicksalspunkte werden nicht mehr ausgegeben, da diese dann händisch verwaltet werden.
+- Hintergrundangaben: Wenn du hier einen Haken setzt, erscheint ein zusätzlicher Reiter "Hintergrundangaben", bei dem du beispielsweise das Aussehen und Details zum Hintergrund des Charakters angeben kannst. Da der Standard-Charakterbogen für diese Angaben keine Felder hat, ist die Option standardmäßig deaktiviert. Wenn du den langen Charakterbogen verwendest, solltest du die Option aktivieren.
 - Hausregeln: Hier kannst du auswählen, ob und welche Hausregeldatei verwendet werden soll. Nach einer Änderung musst du den Charakter neu laden (unbedingt eine Sicherheitskopie erstellen!).
-- Charakterbogen: Für die meisten Spieler ist der Standard-Charakterbogen ausreichend. Falls du aber mehr als 2 Fertigkeiten hinzufügen möchtest, solltest du den langen Bogen verwenden. Er benötigt eine zusätzliche Seite, bietet aber neben der Möglichkeit ein Bild, das Aussehen und den Hintergrund des Charakters einzutragen, zusätzliche Felder für Freie Fertigkeiten und profane Fertigkeiten - damit ist er interessant für Gruppen mit größeren Hausregelsammlungen. Der kurze Charakterbogen benötigt nur eine A5 Seite und ist insbesondere für Begleiter interessant. Der NSC Charakterbogen bietet sich für Spielleiter an. **Hinweis**: Falls du einen der anderen Charakterbögen wählst, erscheint nach erneutem Laden des Charakters ein Details-Reiter unter dem Beschreibungs-Reiter. Dort kannst du zusätzlichen Felder ausfüllen und ein Charakterbild laden.
-- Relevante Regeln anhängen: Neben allgemeinen Regeln u.a. zu Rededuellen und Kampfaktionen werden dir die Regeln zu allen dem Charakter verfügbaren Vorteilen, Waffeneigenschaften, spontanen Modifikationen und übernatürlichen Talenten ausgegeben. In der Regelkategorien-Liste kannst du einzelne dieser Bereiche deaktivieren.
-- Formularfelder editierbar: Wenn du den Haken entfernst, wird der resultierende Charakterbogen keine Formularfelder mehr haben. Dies sorgt für etwas kleinere Dateigrößen. Hauptsächlich ist es aber für Nutzer von Non-Mainstream PDF-Readern gedacht, die mit Formularfeldern Probleme haben können.
-- PDF-Ausgabe von übernatürlichen Fertigkeiten manuell auswählen: Sephrasto gibt standardmäßig nur übernatürliche Fertigkeiten aus, die einen FW > 0 haben und für die mindestens ein Talent erworben wurde. Setze hier einen Haken, wenn du lieber selbst einstellen möchtest, welche ausgegeben werden. Dadurch erscheint im Übernatürliches-Reiter eine PDF-Spalte
+- Charakterbogen: Für die meisten Spieler ist der Standard-Charakterbogen ausreichend. Falls du aber mehr als 2 Fertigkeiten hinzufügen möchtest, solltest du den langen Bogen verwenden. Er benötigt eine zusätzliche Seite, bietet aber neben der Möglichkeit ein Bild, das Aussehen und den Hintergrund des Charakters einzutragen, zusätzliche Felder für Freie Fertigkeiten und profane Fertigkeiten - damit ist er interessant für Gruppen mit größeren Hausregelsammlungen. Der kurze Charakterbogen benötigt nur eine A5 Seite und ist insbesondere für Begleiter interessant. Der NSC Charakterbogen bietet sich für Spielleiter an.
+- Relevante Regeln anhängen: Neben allgemeinen Regeln u.a. zu Rededuellen und Kampfaktionen werden dir die Regeln zu allen dem Charakter verfügbaren Vorteilen, Waffeneigenschaften, spontanen Modifikationen und übernatürlichen Talenten ausgegeben. Über den Regelkategorien-Button kannst du einzelne dieser Bereiche deaktivieren.
+- Formularfelder editierbar: Wenn du den Haken entfernst, wird der resultierende Charakterbogen keine Formularfelder mehr haben. Dies sorgt für etwas kleinere Dateigrößen. Hauptsächlich ist es aber für Nutzer von unüblichen PDF-Readern gedacht, die mit Formularfeldern Probleme haben können.
+- Export-Option bei übernatürlichen Fertigkeiten: Sephrasto gibt standardmäßig nur übernatürliche Fertigkeiten aus, die einen FW > 0 haben und für die mindestens ein Talent erworben wurde. Setze hier einen Haken, wenn du lieber selbst einstellen möchtest, welche ausgegeben werden. Dadurch erscheint im Übernatürliches-Reiter eine PDF-Spalte
 
 ## Die Fußzeile
 In der Fußzeile, die in allen Reitern verfügbar ist, findest du die grundlegendsten Parameter deiner Charaktererstellung.
@@ -129,10 +133,11 @@ Zunächst findest du einen Zähler, an dem du die Menge an EP einstellen kannst,
 
 Schließlich findest du in der unteren rechten Ecke drei Knöpfe. Klickst du auf **Speichern/Speichern unter**, hast du die Möglichkeit, den aktuellen Charakter als XML-Datei auf deinem Computer abzuspeichern und später weiterzumachen.
 
-Wenn du auf **PDF erstellen** klickst, kannst du einen Speicherort und Namen wählen. Sephrasto erstellt dann für dich einen Charakterbogen, der alle Werte beinhaltet, welche du eingetragen hast.
+Wenn du auf **PDF erstellen** klickst, kannst du einen Speicherort und Namen wählen. Sephrasto erstellt dann für dich einen Charakterbogen, der alle Werte beinhaltet, welche du eingetragen hast.<br>
 Dabei befüllt Sephrasto die Felder sinnvoll sortiert. So werden profane Vorteile auf der ersten Seite, Kampfvorteile auf der Zweiten und Übernatürliche Vorteile auf der dritten Seite eingetragen. Ist dafür nicht genug Platz, werden die übrigen Vorteile in den vorhanden Feldern kombiniert. Wenn auch damit der Platz ausgeht, werden Vorteile in freie Felder auf den anderen Blättern eingetragen. Ist für eine profane Fertigkeit kein Platz mehr, lässt Sephrasto sie weg.
 
 ## Sonderfälle
 In seltenen Fällen geht Sephrasto einen Sonderweg. Diese sind hier beschrieben:
+
 - Die große Tiertabelle, die für Blutgeister, Tiergeister und Schutzgeister verwendet wird, wurde in Sephrasto in Form von kostenlosen Vorteilen integriert. Diese schalten entsprechende Zauber frei und geben im Regelanhang die Werte des gewählten Tieres mit aus.
 - Die Zauber Brenne toter Stoff, Hartes Schmelze und Weiches Erstarre stehen Gildenmagiern, Scharlatanen und Geoden nicht unter Dämonisch zur Verfügung. Zur Umsetzung dieser Vorgabe wurden die Zauber dupliziert - eine Variante mit Zugriff auf alle Fertigkeiten und eine ohne Dämonisch. Die genannten Traditionen sehen nur die Variante ohne Dämonisch. Falls aber eine Zweittradition gekauft wird, die Zugriff auf die andere Variante hat, werden beide sichtbar. In diesem Fall sollte die Variante ohne Dämonisch abgewählt und die mit Dämonisch ausgewählt werden.

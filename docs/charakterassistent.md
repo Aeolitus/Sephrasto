@@ -2,12 +2,9 @@
 Der Charakter Assistent betreut dich beim Erstellen eines neuen Charakters. Es erscheint dann ein Popup mit dem man auf Basis von Vorlagen nach dem bekannten Spezies/Kultur/Profession-Prinzip Charaktere mit wenigen Clicks erstellen kann.
 
 ## Was ist aktuell enthalten?
-- Ilaris
-	* Spezies - enthalten Spezies-Vorteile strikt nach Regelwerk, zusätzlich Halbelfen und Halborks
-	* Kulturen - enthalten die Heimat und Muttersprache
-	* Professionen: kleine Basispakete, hauptsächlich interessant für Geweihte wegen den Segnungen; angepasste Professionen aus WeZwanzigs Archetypen-Schmiede, den offiziellen Ilaris Archetypen und den Archetypen von Baal Zephon.
-- Weitere Kits zum Download:
-	* [Ilaris Advanced Kit](https://dsaforum.de/viewtopic.php?f=180&t=49412)
+- Spezies: enthalten Spezies-Vorteile strikt nach Regelwerk, zusätzlich Halbelfen und Halborks
+- Kulturen: enthalten die Heimat und Muttersprache
+- Professionen: kleine Basispakete, hauptsächlich interessant für Geweihte wegen den Segnungen; angepasste Professionen aus WeZwanzigs Archetypen-Schmiede, den offiziellen Ilaris Archetypen und den Archetypen von Baal Zephon.
 
 ## Wie erstelle ich eigene Vorlagen?
 Neue Spezies/Kulturen/Professionen anzulegen ist trivial - einfach mit Sephrasto erstellen und im entsprechenden Ordner abspeichern (siehe "Ordnerstruktur"). Der Assistent lebt von Communitybeiträgen - sendet gerne eure Kreationen ein, damit wir sie aufnehmen können.
@@ -47,7 +44,7 @@ Damit ihr eigene Kreationen mit dem nächsten Sephrasto-Update nicht verliert, k
 - Wenn eine Auswahl konvertiert werden soll und eine der Wahlmöglichkeiten bereits komplett von der Vorlage abgedeckt ist, dann sollte die gesamte Auswahl einfach gestrichen werden. Bei einer teilweisen Abdeckung von Fertigkeiten kann der FW der entsprechenden Auswahlmöglichkeit gesenkt werden.
 
 ## Kann ich Auswählmöglichkeiten einbauen?
-Es ist möglich, dem Nutzer Auswahlmöglichkeiten via Popup anzubieten. Dies ist eine zweite XML-Datei, die gleich benannt ist, wie die jeweilige S/K/P, enthält aber zusätzlich "_var" am Ende, z.B. "Halbelf_var.xml". Diese Datei muss leider von Hand geschrieben werden. Die Dateien können auf Korrektheit überprüft werden, indem das Logging-Level in den Sephrasto-Einstellungen auf Debugging-Informationen gestellt wird - Fehler werden dann in sephrasto.log ausgegeben. Es folgen einige Beispiele, weitere können im Ilaris Advanced Baukasten gefunden werden.
+Es ist möglich, dem Nutzer Auswahlmöglichkeiten via Popup anzubieten. Dies ist eine zweite XML-Datei, die gleich benannt ist, wie die jeweilige S/K/P, enthält aber zusätzlich "_var" am Ende, z.B. "Halbelf_var.xml". Diese Datei muss leider von Hand geschrieben werden. Du kannst die Dateien auf Korrektheit überprüfen, indem du im Datenbankeditor-Menu "Analysieren -> Charakter Assistent" auswählst.
 
 **Beispiel 1:**
 ```xml
@@ -70,7 +67,7 @@ Es ist möglich, dem Nutzer Auswahlmöglichkeiten via Popup anzubieten. Dies ist
 </Charakter>
 ```
 
-Es erscheint ein Popup, bei dem der Nutzer sich zwischen KK +3, Schusswaffen +2, etc. entscheiden muss. Die Attribute "wert" und "kommentar" werden nur bei Talenten und Vorteilen mit variablen Kosten benötigt.
+Es erscheint ein Popup, bei dem der Nutzer sich zwischen KK +3, Schusswaffen +2, etc. entscheiden muss. Die Attribute "wert" und "kommentar" werden nur bei Talenten und Vorteilen mit variablen Kosten benötigt.<br>
 Danach erscheint ein weiteres Popup, bei dem er sich zwischen Schusswaffen +1 und Athletik +2 entscheiden muss. Hat er bei der ersten Auswahl bereits Schusswaffen gewählt, so wird diese Fertigkeit aus Folge-Auswahlen entfernt. Da in diesem Fall die zweite Auswhal nur noch Athletik +2 enthält, wird dies automatisch appliziert und es erscheint kein zweites Popup.
 
 **Beispiel 2, Spezies Halbelf:**
@@ -101,8 +98,8 @@ Danach erscheint ein weiteres Popup, bei dem er sich zwischen Schusswaffen +1 un
 </Charakter>
 ```
 
-Eine Variante kann nur in einem Varianten-Element existieren. Sie verhält sich gleich wie eine Auswahl, nur werden alle Child-Elemente appliziert. Es erscheint ein Popup, bei dem der Nutzer die drei Varianten Firnelfische, Nivesische und Thorwalsche Abstammung zur Auswahl erhält, hierbei kann er auch keine oder mehrere auswählen.
-Die erste Auswahl hat nur ein Element, zeigt also niemals ein Popup. Durch das Attribut "keine-varianten" wird Gut Aussehend allerdings nur appliziert, wenn nicht die Variante an Index 0 (Firnelfische Abstammung) oder 1 (Nivesische Abstammung) ausgewählt wurde. Es wird auch dann appliziert, wenn garkeine Variante ausgewählt wurde.
+Eine Variante kann nur in einem Varianten-Element existieren. Sie verhält sich gleich wie eine Auswahl, nur werden alle Child-Elemente appliziert. Es erscheint ein Popup, bei dem der Nutzer die drei Varianten Firnelfische, Nivesische und Thorwalsche Abstammung zur Auswahl erhält, hierbei kann er auch keine oder mehrere auswählen.<br>
+Die erste Auswahl hat nur ein Element, zeigt also niemals ein Popup. Durch das Attribut "keine-varianten" wird Gut Aussehend allerdings nur appliziert, wenn nicht die Variante an Index 0 (Firnelfische Abstammung) oder 1 (Nivesische Abstammung) ausgewählt wurde. Es wird auch dann appliziert, wenn garkeine Variante ausgewählt wurde.<br>
 Die zweite Auswahl ist nur aktiv, wenn die Variante an Index 2 (Thorwalsche Abstammung) gewählt wurde - nur dann erscheint ein Popup, bei dem der Nutzer sich zwischen Selbstbeherrschung und Athletik entscheiden muss. Innerhalb von "Variante" ist keine Auswahl möglich (Variante appliziert immer alle Elemente) - mit dieser Methode können auch Varianten Auswahlmöglichkeiten bieten.
 
 **Beispiel 3, Spezies Orks:**
@@ -121,9 +118,9 @@ Die zweite Auswahl ist nur aktiv, wenn die Variante an Index 2 (Thorwalsche Abst
 </Charakter>
 ```
 
-Durch das Attribut "pflichtwahl" muss eine der Varianten ausgewählt werden, eine Mehrfachauswahl ist nicht möglich.
-Das Attribut "geschlecht" kann mit den "männlich" oder "weiblich" bei Variante und Auswahl genutzt werden, um diese zu entfernen, wenn im Hauptfenster das entsprechende Geschlecht nicht ausgewählt wurde.
-Das Attribut "beschreibung" kann genutzt werden um im Spezies-/Kurzbeschreibungsfeld neben dem Namen eine zusätzliche Beschreibung einzufügen, die nicht um Popup angezeigt wird. Falls das Attribut wie hier mit einem leeren Inhalt eingefügt wird, dann wird die Variante überhaupt nicht in das entsprechende Feld eingetragen.
+Durch das Attribut "pflichtwahl" muss eine der Varianten ausgewählt werden, eine Mehrfachauswahl ist nicht möglich.<br>
+Das Attribut "geschlecht" kann mit den "männlich" oder "weiblich" bei Variante und Auswahl genutzt werden, um diese zu entfernen, wenn im Hauptfenster das entsprechende Geschlecht nicht ausgewählt wurde.<br>
+Das Attribut "beschreibung" kann genutzt werden um im Spezies-/Kurzbeschreibungsfeld neben dem Namen eine zusätzliche Beschreibung einzufügen, die nicht um Popup angezeigt wird. Falls das Attribut wie hier mit einem leeren Inhalt eingefügt wird, dann wird die Variante überhaupt nicht in das entsprechende Feld eingetragen.<br>
 Da es sich in diesem Beispiel um eine Pflichtwahl handelt, bei der immer nur eine Variante - Mann oder Frau - bestehen bleiben kann, wird die entsprechende Variante automatisch appliziert und kein Popup angezeigt.
 
 **Beispiel 3, Profession Geode:**

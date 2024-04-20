@@ -459,37 +459,49 @@
 
 
 <h1 id="ein-eigenes-theme-erstellen">Ein eigenes Theme erstellen</h1>
-<p>Du kannst das Aussehen von Sephrasto ohne Programmierkenntnisse nach deinen Wünschen anpassen, indem du ein eigenes Theme kreierst. Dazu musst du eine Text-Datei namens "Mein Theme.ini" in deinem Sephrasto-Konfigurationsordner erstellen. Diesen findest du hier:
-- Windows: "User/Dokumente/Sephrasto"
-- macOS: "User/Library/Preferences/Sephrasto"
-- Linux: "home/user/.config/Sephrasto".</p>
+<p>Du kannst das Aussehen von Sephrasto ohne Programmierkenntnisse nach deinen Wünschen anpassen, indem du ein eigenes Theme kreierst. Dazu musst du eine Text-Datei namens "Mein Theme.ini" in deinem Sephrasto-Konfigurationsordner erstellen. Diesen findest du hier:</p>
+<ul>
+<li>Windows: "User/Dokumente/Sephrasto"</li>
+<li>macOS: "User/Library/Preferences/Sephrasto"</li>
+<li>Linux: "home/user/.config/Sephrasto".</li>
+</ul>
 <p>Am einfachsten ist es, wenn du erstmal eines der bestehenden Themes dorthin kopierst und entsprechend umbenennst. Diese findest du in deinem Sephrasto-Installationsordner im Unterordner Data/Themes. Nun kannst du beispielsweise ein paar der dort festgelegten Farben anpassen. Danach kannst du das Theme in den Einstellungen von Sephrasto aktivieren.</p>
 <h2 id="theme-konfiguration">Theme-Konfiguration</h2>
 <p>Alle der folgenden Einstellungsmöglichkeiten sind optional, bis auf die Einstellung Style.</p>
-<p>Style: fusion
--&gt; Hier trägst du einen der Qt-Styles ein, siehe https://doc.qt.io/qt-6/qtquickcontrols2-styles.html. Es sind leider nicht alle verfügbar, aber Fusion ist sehr gut anpassbar.</p>
-<p>Standardpalette: true
--&gt; Sorgt dafür, dass als Ausgangsbasis statt einer leeren Palette die Standardfarbpalette verwendet wird.</p>
-<p>Palette:
-&nbsp;&nbsp;&nbsp;&nbsp;Window: "#ffffff"
-&nbsp;&nbsp;&nbsp;&nbsp;WindowText: "#000000"
-&nbsp;&nbsp;&nbsp;&nbsp;[...]
--&gt; Optional. Hier kannst du den einzelnen Elementen Farben zuweisen. Eine Liste der möglichen "color roles" findest du hier: https://doc.qt.io/qt-6/qpalette.html#ColorRole-enum</p>
-<p>Palette-Active: [...]
--&gt; Gleiche Funktion wie Palette, die Farben gelten aber, wenn das entsprechende Element Fokus hat.</p>
-<p>Palette-Disabled: [...]
--&gt; Gleiche Funktion wie Palette, die Farben gelten aber, wenn das entsprechende Element deaktiviert ist.</p>
-<p>HeadingColor: "#000000"
--&gt; Legt die Farbe von Überschriften fest.</p>
-<p>BorderColor: "rgba(0,0,0,0.2)"
--&gt; Legt die Farbe vom Rahmen der einzelnen Waffenzeilen fest.</p>
-<p>ReadonlyColor: "#ffffff"
--&gt; Legt die Hintergrundfarbe von nicht-editierbaren Textfeldern fest, wie sie beispielsweise rechts in den Vorteile- und Fertigkeiten-Tabs vorkommen.</p>
-<p>PanelColor: "#b3b3b3"
--&gt; Legt die Huntergrundfarbe von überlagerten Panels fest, wie sie beispielsweise vom Charakterassistent verwendet werden.</p>
-<p>CSS: |
-&nbsp;&nbsp;&nbsp;&nbsp;QPushButton { background-color: #d1bd94; }
--&gt; Hier kannst du via CSS die Qt UI Elemente nach Belieben weiter anpassen. Weitere Infos findest du hier: https://doc.qt.io/qt-6/stylesheet-syntax.html</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Style: fusion
+</span></code></pre></div>
+Hier trägst du einen der Qt-Styles ein, siehe <a href="https://doc.qt.io/qt-6/qtquickcontrols2-styles.html">https://doc.qt.io/qt-6/qtquickcontrols2-styles.html</a>. Es sind leider nicht alle verfügbar, aber Fusion ist sehr gut anpassbar.</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Standardpalette: true
+</span></code></pre></div>
+Sorgt dafür, dass als Ausgangsbasis statt einer leeren Palette die Standardfarbpalette verwendet wird.</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Palette:
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  Window: &quot;#ffffff&quot;
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  WindowText: &quot;#000000&quot;
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  [...]
+</span></code></pre></div>
+Optional. Hier kannst du den einzelnen Elementen Farben zuweisen. Eine Liste der möglichen "color roles" findest du hier: <a href="https://doc.qt.io/qt-6/qpalette.html#ColorRole-enum">https://doc.qt.io/qt-6/qpalette.html#ColorRole-enum</a></p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Palette-Active: [...]
+</span></code></pre></div>
+Gleiche Funktion wie Palette, die Farben gelten aber, wenn das entsprechende Element Fokus hat.</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Palette-Disabled: [...]
+</span></code></pre></div>
+Gleiche Funktion wie Palette, die Farben gelten aber, wenn das entsprechende Element deaktiviert ist.</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>HeadingColor: &quot;#000000&quot;
+</span></code></pre></div>
+Legt die Farbe von Überschriften fest.</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>BorderColor: &quot;rgba(0,0,0,0.2)&quot;
+</span></code></pre></div>
+Legt die Farbe vom Rahmen der einzelnen Waffenzeilen fest.</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ReadonlyColor: &quot;#ffffff&quot;
+</span></code></pre></div>
+Legt die Hintergrundfarbe von nicht-editierbaren Textfeldern fest, wie sie beispielsweise rechts in den Vorteile- und Fertigkeiten-Tabs vorkommen.</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>PanelColor: &quot;#b3b3b3&quot;
+</span></code></pre></div>
+Legt die Huntergrundfarbe von überlagerten Panels fest, wie sie beispielsweise vom Charakterassistent verwendet werden.</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>CSS: |
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    QPushButton { background-color: #d1bd94; }
+</span></code></pre></div>
+Hier kannst du via CSS die Qt UI Elemente nach Belieben weiter anpassen. Weitere Infos findest du hier: <a href="https://doc.qt.io/qt-6/stylesheet-syntax.html">https://doc.qt.io/qt-6/stylesheet-syntax.html</a></p>
 
 
 

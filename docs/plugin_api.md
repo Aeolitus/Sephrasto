@@ -2,7 +2,7 @@
 Durch die Plugin-Unterstützung kannst du tiefgehende Veränderungen an Sephrasto vornehmen, z.B. den Charaktereditor anpassen oder Berechnungen verändern. Plugins haben vollen Zugriff auf alle Sephrasto-Dateien und können Objekt-Zustände auslesen oder verändern. Für Nutzer-Interaktion können dem Hauptfenster Buttons und dem Charaktereditor Tabs hinzugefügt werden, die mittels Qt eigene UIs darstellen können. Um über künftige Sephrasto-Versionen hinweg und mit anderen Plugins kompatibel zu bleiben, sollten Plugins nach Möglichkeit nur über soganannte Actions und Filter mit Sephrasto interagieren und sonst nur lesend auf die Sephrasto-Objekte zugreifen.
 
 ## Vorbereitung
-Theoretisch brauchst du nicht mehr als Notepad um loslegen zu können. Kleine Dinge wie die EP-Kosten für AsP oder die Anzahl der kostenlosen freien Fertigkeiten anzupassen geht so ohne Probleme. Sobald du aber etwas aufwändigere Dinge tun möchtest, insbesondere eigene Tabs/Fenster einbauen, solltest du Qt Creator, Python und eine Entwicklungsumgebung installieren und das Sephrasto-Repository klonen, siehe hier: https://github.com/Aeolitus/Sephrasto/blob/master/README.md
+Theoretisch brauchst du nicht mehr als Notepad um loslegen zu können. Kleine Dinge wie die EP-Kosten für AsP oder die Anzahl der kostenlosen freien Fertigkeiten anzupassen geht so ohne Probleme. Sobald du aber etwas aufwändigere Dinge tun möchtest, insbesondere eigene Tabs/Fenster einbauen, solltest du Qt Creator, Python und eine Entwicklungsumgebung installieren und das Sephrasto-Repository klonen, siehe hier: <a href="https://github.com/Aeolitus/Sephrasto/blob/master/README.md">https://github.com/Aeolitus/Sephrasto/blob/master/README.md</a>
 
 ## Actions und Filter
 Actions und Filter können verwendet werden auf Vorgänge zu reagieren oder Daten zu manipulieren. Das System funktioniert über die statische EventBus-Klasse. Actions und Filter haben beide als ersten Parameter immer den Namen, der natürlich einzigartig sein sollte. Um Actions oder Filter zu "abonnieren" muss neben dem Namen als zweiter Parameter immer ein Handler/Callback mitgereicht werden.
@@ -262,6 +262,7 @@ class Plugin:
 
 ## Charaktereditor Tab hinzufügen
 Implementiere in deiner Plugin-Klasse eine Funktion mit dem Namen `createCharakterTabs` und returne eine Liste von Tabs. Importiere hierzu die Tab-Klasse aus dem Charaktereditor.
+
 - Der erste Konstruktor-Parameter der Tabklasse legt die relative Reihenfolge fest, in welcher der Tab eingefügt wird - die Sephrasto Tabs haben Reihenfolge-Werte in 10er-Schritten, beginnend bei 10.
 - Der zweite Parameter ist deine UI-Wrapper-Klasse, die optional ein `modified` Signal definieren kann. Mit dem Signal kann Sephrasto darüber in Kenntnis gesetzt werden, dass sich etwas am Charakter verändert hat, um bei Bedarf das Warn-Popup zu öffnen, wenn der Charakter geschlossen wird oder um das EP-Widget zu aktualisieren. Zudem kann sie optional die Funktionen load und update implementieren. Beide werden von Sephrasto zu passenden Zeitpunkten aufgerufen und sollten genutzt werden, um die UI Widgets zu befüllen (load) oder den Charakter mit den UI Widget-Werten zu aktualisieren (update).
 - Der dritte Parameter ist die vom QtCreator generierte UI Form.

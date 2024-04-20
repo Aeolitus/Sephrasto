@@ -582,16 +582,9 @@
 <p>Der Charakter Assistent betreut dich beim Erstellen eines neuen Charakters. Es erscheint dann ein Popup mit dem man auf Basis von Vorlagen nach dem bekannten Spezies/Kultur/Profession-Prinzip Charaktere mit wenigen Clicks erstellen kann.</p>
 <h2 id="was-ist-aktuell-enthalten">Was ist aktuell enthalten?</h2>
 <ul>
-<li>Ilaris<ul>
-<li>Spezies - enthalten Spezies-Vorteile strikt nach Regelwerk, zusätzlich Halbelfen und Halborks</li>
-<li>Kulturen - enthalten die Heimat und Muttersprache</li>
+<li>Spezies: enthalten Spezies-Vorteile strikt nach Regelwerk, zusätzlich Halbelfen und Halborks</li>
+<li>Kulturen: enthalten die Heimat und Muttersprache</li>
 <li>Professionen: kleine Basispakete, hauptsächlich interessant für Geweihte wegen den Segnungen; angepasste Professionen aus WeZwanzigs Archetypen-Schmiede, den offiziellen Ilaris Archetypen und den Archetypen von Baal Zephon.</li>
-</ul>
-</li>
-<li>Weitere Kits zum Download:<ul>
-<li><a href="https://dsaforum.de/viewtopic.php?f=180&amp;t=49412">Ilaris Advanced Kit</a></li>
-</ul>
-</li>
 </ul>
 <h2 id="wie-erstelle-ich-eigene-vorlagen">Wie erstelle ich eigene Vorlagen?</h2>
 <p>Neue Spezies/Kulturen/Professionen anzulegen ist trivial - einfach mit Sephrasto erstellen und im entsprechenden Ordner abspeichern (siehe "Ordnerstruktur"). Der Assistent lebt von Communitybeiträgen - sendet gerne eure Kreationen ein, damit wir sie aufnehmen können.</p>
@@ -635,7 +628,7 @@
 <li>Wenn eine Auswahl konvertiert werden soll und eine der Wahlmöglichkeiten bereits komplett von der Vorlage abgedeckt ist, dann sollte die gesamte Auswahl einfach gestrichen werden. Bei einer teilweisen Abdeckung von Fertigkeiten kann der FW der entsprechenden Auswahlmöglichkeit gesenkt werden.</li>
 </ul>
 <h2 id="kann-ich-auswahlmoglichkeiten-einbauen">Kann ich Auswählmöglichkeiten einbauen?</h2>
-<p>Es ist möglich, dem Nutzer Auswahlmöglichkeiten via Popup anzubieten. Dies ist eine zweite XML-Datei, die gleich benannt ist, wie die jeweilige S/K/P, enthält aber zusätzlich "_var" am Ende, z.B. "Halbelf_var.xml". Diese Datei muss leider von Hand geschrieben werden. Die Dateien können auf Korrektheit überprüft werden, indem das Logging-Level in den Sephrasto-Einstellungen auf Debugging-Informationen gestellt wird - Fehler werden dann in sephrasto.log ausgegeben. Es folgen einige Beispiele, weitere können im Ilaris Advanced Baukasten gefunden werden.</p>
+<p>Es ist möglich, dem Nutzer Auswahlmöglichkeiten via Popup anzubieten. Dies ist eine zweite XML-Datei, die gleich benannt ist, wie die jeweilige S/K/P, enthält aber zusätzlich "_var" am Ende, z.B. "Halbelf_var.xml". Diese Datei muss leider von Hand geschrieben werden. Du kannst die Dateien auf Korrektheit überprüfen, indem du im Datenbankeditor-Menu "Analysieren -&gt; Charakter Assistent" auswählst.</p>
 <p><strong>Beispiel 1:</strong>
 <div class="language-xml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">&lt;Charakter&gt;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">&lt;Auswahl&gt;</span>
@@ -655,7 +648,7 @@
 </span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="nt">&lt;/Auswahl&gt;</span>
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="nt">&lt;/Charakter&gt;</span>
 </span></code></pre></div></p>
-<p>Es erscheint ein Popup, bei dem der Nutzer sich zwischen KK +3, Schusswaffen +2, etc. entscheiden muss. Die Attribute "wert" und "kommentar" werden nur bei Talenten und Vorteilen mit variablen Kosten benötigt.
+<p>Es erscheint ein Popup, bei dem der Nutzer sich zwischen KK +3, Schusswaffen +2, etc. entscheiden muss. Die Attribute "wert" und "kommentar" werden nur bei Talenten und Vorteilen mit variablen Kosten benötigt.<br>
 Danach erscheint ein weiteres Popup, bei dem er sich zwischen Schusswaffen +1 und Athletik +2 entscheiden muss. Hat er bei der ersten Auswahl bereits Schusswaffen gewählt, so wird diese Fertigkeit aus Folge-Auswahlen entfernt. Da in diesem Fall die zweite Auswhal nur noch Athletik +2 enthält, wird dies automatisch appliziert und es erscheint kein zweites Popup.</p>
 <p><strong>Beispiel 2, Spezies Halbelf:</strong>
 <div class="language-xml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">&lt;Charakter&gt;</span>
@@ -683,8 +676,8 @@ Danach erscheint ein weiteres Popup, bei dem er sich zwischen Schusswaffen +1 un
 </span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">  </span><span class="nt">&lt;/Auswahl&gt;</span>
 </span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="nt">&lt;/Charakter&gt;</span>
 </span></code></pre></div></p>
-<p>Eine Variante kann nur in einem Varianten-Element existieren. Sie verhält sich gleich wie eine Auswahl, nur werden alle Child-Elemente appliziert. Es erscheint ein Popup, bei dem der Nutzer die drei Varianten Firnelfische, Nivesische und Thorwalsche Abstammung zur Auswahl erhält, hierbei kann er auch keine oder mehrere auswählen.
-Die erste Auswahl hat nur ein Element, zeigt also niemals ein Popup. Durch das Attribut "keine-varianten" wird Gut Aussehend allerdings nur appliziert, wenn nicht die Variante an Index 0 (Firnelfische Abstammung) oder 1 (Nivesische Abstammung) ausgewählt wurde. Es wird auch dann appliziert, wenn garkeine Variante ausgewählt wurde.
+<p>Eine Variante kann nur in einem Varianten-Element existieren. Sie verhält sich gleich wie eine Auswahl, nur werden alle Child-Elemente appliziert. Es erscheint ein Popup, bei dem der Nutzer die drei Varianten Firnelfische, Nivesische und Thorwalsche Abstammung zur Auswahl erhält, hierbei kann er auch keine oder mehrere auswählen.<br>
+Die erste Auswahl hat nur ein Element, zeigt also niemals ein Popup. Durch das Attribut "keine-varianten" wird Gut Aussehend allerdings nur appliziert, wenn nicht die Variante an Index 0 (Firnelfische Abstammung) oder 1 (Nivesische Abstammung) ausgewählt wurde. Es wird auch dann appliziert, wenn garkeine Variante ausgewählt wurde.<br>
 Die zweite Auswahl ist nur aktiv, wenn die Variante an Index 2 (Thorwalsche Abstammung) gewählt wurde - nur dann erscheint ein Popup, bei dem der Nutzer sich zwischen Selbstbeherrschung und Athletik entscheiden muss. Innerhalb von "Variante" ist keine Auswahl möglich (Variante appliziert immer alle Elemente) - mit dieser Methode können auch Varianten Auswahlmöglichkeiten bieten.</p>
 <p><strong>Beispiel 3, Spezies Orks:</strong>
 <div class="language-xml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">&lt;Charakter&gt;</span>
@@ -700,9 +693,9 @@ Die zweite Auswahl ist nur aktiv, wenn die Variante an Index 2 (Thorwalsche Abst
 </span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">  </span><span class="nt">&lt;/Varianten&gt;</span>
 </span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="nt">&lt;/Charakter&gt;</span>
 </span></code></pre></div></p>
-<p>Durch das Attribut "pflichtwahl" muss eine der Varianten ausgewählt werden, eine Mehrfachauswahl ist nicht möglich.
-Das Attribut "geschlecht" kann mit den "männlich" oder "weiblich" bei Variante und Auswahl genutzt werden, um diese zu entfernen, wenn im Hauptfenster das entsprechende Geschlecht nicht ausgewählt wurde.
-Das Attribut "beschreibung" kann genutzt werden um im Spezies-/Kurzbeschreibungsfeld neben dem Namen eine zusätzliche Beschreibung einzufügen, die nicht um Popup angezeigt wird. Falls das Attribut wie hier mit einem leeren Inhalt eingefügt wird, dann wird die Variante überhaupt nicht in das entsprechende Feld eingetragen.
+<p>Durch das Attribut "pflichtwahl" muss eine der Varianten ausgewählt werden, eine Mehrfachauswahl ist nicht möglich.<br>
+Das Attribut "geschlecht" kann mit den "männlich" oder "weiblich" bei Variante und Auswahl genutzt werden, um diese zu entfernen, wenn im Hauptfenster das entsprechende Geschlecht nicht ausgewählt wurde.<br>
+Das Attribut "beschreibung" kann genutzt werden um im Spezies-/Kurzbeschreibungsfeld neben dem Namen eine zusätzliche Beschreibung einzufügen, die nicht um Popup angezeigt wird. Falls das Attribut wie hier mit einem leeren Inhalt eingefügt wird, dann wird die Variante überhaupt nicht in das entsprechende Feld eingetragen.<br>
 Da es sich in diesem Beispiel um eine Pflichtwahl handelt, bei der immer nur eine Variante - Mann oder Frau - bestehen bleiben kann, wird die entsprechende Variante automatisch appliziert und kein Popup angezeigt.</p>
 <p><strong>Beispiel 3, Profession Geode:</strong>
 <div class="language-xml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">&lt;Charakter&gt;</span>
