@@ -993,13 +993,12 @@ die datenbank.xml, aber bleiben bei Updates erhalten!")
 
     def showCharakterAssistentErrorLog(self, baukasten):
         if not hasattr(self, "charakterAssistentErrorLog"):
-            self.charakterAssistentErrorLog = WebEngineWrapper()
+            self.charakterAssistentErrorLog = WebEngineWrapper("Charakter Assistent Fehlerliste")
             self.charakterAssistentErrorLog.form.show()
         else:
             self.charakterAssistentErrorLog.form.show()
             self.charakterAssistentErrorLog.form.activateWindow()
 
-        self.charakterAssistentErrorLog.setTitle("Charakter Assistent Fehler (" + os.path.basename(baukasten) + ")")
         errors = "<br>".join(WizardWrapper.verify(self.datenbank, baukasten))
         if errors:
             self.charakterAssistentErrorLog.setHtml(errors)
