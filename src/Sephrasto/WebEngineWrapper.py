@@ -23,6 +23,7 @@ class WebEngineWrapper(QtCore.QObject):
         self.setTitle(windowTitle)
         self.verticalLayout = QtWidgets.QVBoxLayout(self.form)
         self.webengineView = WebEngineViewPlus()
+        self.webengineView.setOpenLinksExternally(True)
         self.verticalLayout.addWidget(self.webengineView)
 
         self.webengineView.page().setBackgroundColor(backgroundColor)

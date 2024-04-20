@@ -1,4 +1,5 @@
 from PySide6 import QtWidgets, QtCore, QtGui
+from PySide6.QtWebEngineCore import QWebEnginePage
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from PySide6.QtWebChannel import QWebChannel
 from PySide6.QtWebEngineCore import QWebEngineScript
@@ -35,6 +36,20 @@ class WebEngineViewPlus(QWebEngineView):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
+    # when enabled, this setting will cause external links to be opened in the default browser
+    # local file links will continue to be opened inside the view
+    def setOpenLinksExternally(self, enable):
+        if enable:
+            class WebEnginePagePlus(QWebEnginePage):
+                def acceptNavigationRequest(self, url,  _type, isMainFrame):
+                    if not url.isLocalFile() and _type == QWebEnginePage.NavigationTypeLinkClicked:
+                        QtGui.QDesktopServices.openUrl(url);
+                        return False
+                    return True
+            self.setPage(WebEnginePagePlus(self))
+        else:
+            self.setPage(QWebEnginePage(self))
 
     def installJSBridge(self, bridge=JSBridge()):
         self.jsBridge = bridge
