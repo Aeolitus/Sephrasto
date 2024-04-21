@@ -58,4 +58,4 @@ class WebEngineWrapper(QtCore.QObject):
         if url.startswith("./") or url.startswith(".\\"):
             url = os.getcwd() + url[1:]
         url = url.replace('\\', '/')
-        self.webengineView.load(url)
+        self.webengineView.load(QUrl.fromLocalFile(url))
