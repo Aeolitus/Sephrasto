@@ -19,7 +19,7 @@ from PySide6.QtWidgets import (QAbstractItemView, QAbstractSpinBox, QApplication
     QGridLayout, QHBoxLayout, QHeaderView, QLabel,
     QListView, QPushButton, QScrollArea, QSizePolicy,
     QSpacerItem, QSpinBox, QSplitter, QTableWidget,
-    QTableWidgetItem, QTextBrowser, QWidget)
+    QTableWidgetItem, QTextBrowser, QVBoxLayout, QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -28,11 +28,15 @@ class Ui_Form(object):
         Form.resize(872, 571)
         self.gridLayout = QGridLayout(Form)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.gridLayout.setContentsMargins(20, 20, 20, 20)
         self.splitter = QSplitter(Form)
         self.splitter.setObjectName(u"splitter")
         self.splitter.setOrientation(Qt.Horizontal)
-        self.tableWidget = QTableWidget(self.splitter)
+        self.verticalLayoutWidget = QWidget(self.splitter)
+        self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
+        self.verticalLayout_2 = QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.tableWidget = QTableWidget(self.verticalLayoutWidget)
         if (self.tableWidget.columnCount() < 3):
             self.tableWidget.setColumnCount(3)
         __qtablewidgetitem = QTableWidgetItem()
@@ -55,13 +59,39 @@ class Ui_Form(object):
         self.tableWidget.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.tableWidget.setHorizontalScrollMode(QAbstractItemView.ScrollPerPixel)
         self.tableWidget.setShowGrid(True)
-        self.splitter.addWidget(self.tableWidget)
         self.tableWidget.horizontalHeader().setMinimumSectionSize(80)
         self.tableWidget.horizontalHeader().setHighlightSections(False)
         self.tableWidget.verticalHeader().setVisible(False)
         self.tableWidget.verticalHeader().setMinimumSectionSize(30)
         self.tableWidget.verticalHeader().setDefaultSectionSize(30)
         self.tableWidget.verticalHeader().setHighlightSections(True)
+
+        self.verticalLayout_2.addWidget(self.tableWidget)
+
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer)
+
+        self.label_2 = QLabel(self.verticalLayoutWidget)
+        self.label_2.setObjectName(u"label_2")
+
+        self.horizontalLayout.addWidget(self.label_2)
+
+        self.buttonShowAll = QPushButton(self.verticalLayoutWidget)
+        self.buttonShowAll.setObjectName(u"buttonShowAll")
+
+        self.horizontalLayout.addWidget(self.buttonShowAll)
+
+        self.horizontalSpacer_2 = QSpacerItem(10, 20, QSizePolicy.Policy.Fixed, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer_2)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout)
+
+        self.splitter.addWidget(self.verticalLayoutWidget)
         self.scrollArea = QScrollArea(self.splitter)
         self.scrollArea.setObjectName(u"scrollArea")
         self.scrollArea.setMinimumSize(QSize(0, 0))
@@ -70,7 +100,7 @@ class Ui_Form(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 429, 529))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 437, 551))
         self.gridLayout_2 = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.label_6 = QLabel(self.scrollAreaWidgetContents)
@@ -239,6 +269,9 @@ class Ui_Form(object):
         ___qtablewidgetitem1.setText(QCoreApplication.translate("Form", u"FW", None));
         ___qtablewidgetitem2 = self.tableWidget.horizontalHeaderItem(2)
         ___qtablewidgetitem2.setText(QCoreApplication.translate("Form", u"Talente", None));
+        self.label_2.setText(QCoreApplication.translate("Form", u"alle verf\u00fcgbaren Talente anzeigen", None))
+        self.buttonShowAll.setText(QCoreApplication.translate("Form", u"+", None))
+        self.buttonShowAll.setProperty("class", QCoreApplication.translate("Form", u"iconSmall", None))
         self.label_6.setText(QCoreApplication.translate("Form", u"Basis:", None))
         self.label_8.setText(QCoreApplication.translate("Form", u"PW:", None))
         self.label_5.setText(QCoreApplication.translate("Form", u"SF:", None))

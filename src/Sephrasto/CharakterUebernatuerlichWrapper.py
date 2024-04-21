@@ -40,6 +40,9 @@ class UebernatuerlichWrapper(QtCore.QObject):
         self.ui.splitter.setSizes([int(width*0.6), int(width*0.4)])
 
         #Signals
+        self.ui.buttonShowAll.setText('\u002b')
+        self.ui.buttonShowAll.clicked.connect(self.showAllTalents)
+
         self.ui.spinFW.valueChanged.connect(lambda: self.fwChanged(False))
         self.ui.tableWidget.currentCellChanged.connect(self.tableClicked)   
         self.ui.tableWidget.cellClicked.connect(self.tableClicked) 
@@ -420,6 +423,14 @@ Das Warnsymbol verschwindet, sobald du ein Talent erwirbst, das nur mit dieser F
             self.ui.listTalente.contentsMargins().bottom() +\
             self.ui.listTalente.spacing())
         
+    def showAllTalents(self):
+        pickerClass = EventBus.applyFilter("class_talentpicker_wrapper", CharakterTalentPickerWrapper.TalentPicker)
+        tal = pickerClass(None, True)
+        self.updateAddToPDF()
+        if tal.gekaufteTalente is not None:
+            self.modified.emit()
+            self.load()
+
     def editTalents(self):
         if self.currentFertName == "":
             return

@@ -34,7 +34,10 @@ class TalentPicker(object):
             windowSize = Wolke.Settings["WindowSize-TalentProfan"]
             self.form.resize(windowSize[0], windowSize[1])
 
-        self.gekaufteTalente = self.refC[fert].gekaufteTalente.copy()
+        if self.fert is None:
+            self.gekaufteTalente = list(Wolke.Char.talente.keys())
+        else:
+            self.gekaufteTalente = self.refC[fert].gekaufteTalente.copy()
 
         self.form.setWindowFlags(
                 QtCore.Qt.Window |
@@ -61,7 +64,17 @@ class TalentPicker(object):
             talent = Wolke.DB.talente[el]
             if (ueber and not talent.spezialTalent) or (not ueber and talent.spezialTalent):
                 continue
-            if fert in talent.fertigkeiten and Wolke.Char.voraussetzungenPrüfen(talent):
+
+            fertMatch = False
+            if self.fert is None:
+                for f in talent.fertigkeiten:
+                    if f in Wolke.Char.übernatürlicheFertigkeiten:
+                        fertMatch = True
+                        break
+            else:
+                fertMatch = self.fert in talent.fertigkeiten
+
+            if fertMatch and Wolke.Char.voraussetzungenPrüfen(talent):
                 talente.append(talent.name)
                 if talent.name in Wolke.Char.talente:
                     self.talentKosten[talent.name] = Wolke.Char.talente[talent.name].kosten
@@ -94,7 +107,7 @@ class TalentPicker(object):
         self.ui.listTalente.setCurrentIndex(self.model.index(0, 0))
 
         fwWarnung = Wolke.DB.einstellungen["Talente: FW Warnung"].wert
-        if ueber or self.refC[self.fert].wert >= fwWarnung:
+        if self.fert is None or ueber or self.refC[self.fert].wert >= fwWarnung:
             self.ui.labelTip.hide()
         else:
             self.ui.labelTip.setText("<span style='" + Wolke.FontAwesomeCSS + f"'>\uf071</span>&nbsp;&nbsp;Talente lohnen sich üblicherweise erst ab einem Fertigkeitswert von {fwWarnung}.")
@@ -113,6 +126,7 @@ class TalentPicker(object):
             for i in range(self.rowCount):
                 el = self.model.item(i).data(QtCore.Qt.UserRole)
                 if self.model.item(i).checkState() == QtCore.Qt.Checked:  
+                    self.gekaufteTalente.append(el)
                     talent = Wolke.Char.addTalent(el)
                     if talent.variableKosten:
                         talent.kosten = self.talentKosten[el]
@@ -120,8 +134,6 @@ class TalentPicker(object):
                         talent.kommentar = self.talentKommentare[el]
                 else:
                     Wolke.Char.removeTalent(el)
-
-            self.gekaufteTalente = self.refC[fert].gekaufteTalente
         else:
             self.gekaufteTalente = None
 
