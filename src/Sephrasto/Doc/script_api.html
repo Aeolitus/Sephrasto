@@ -808,7 +808,7 @@
 <h3 id="beschreibung">Beschreibung</h3>
 <ul>
 <li>Hintergrund: <code>getName, getSpezies, getStatus, getKurzbeschreibung, getHeimat, getFinanzen</code></li>
-<li>Eigenheiten: <code>getEigenheiten &lt;Return: string[8]&gt;</code></li>
+<li>Eigenheiten: <code>getEigenheit &lt;Parameter: Eigenheitsnummer. Return: string&gt;</code></li>
 <li>EP: <code>getEPGesamt, getEPAusgegeben</code></li>
 </ul>
 <h3 id="attribute">Attribute</h3>
@@ -858,12 +858,12 @@ Beispiel mit Kosten auf 0 EP gesetzt und "Gaben des Butgeists" als Bedingung: ad
 <h3 id="vorteile">Vorteile</h3>
 <ul>
 <li>Vorteile allgemein: <code>getVorteil &lt;Parameter: Vorteils-Name. Return: { definition { name, text, info, bedingungen, kosten, variableKosten, kommentarErlauben, kategorie, voraussetzungen [], nachkauf,  cheatsheetAuflisten, cheatsheetBeschreibung, linkKategorie, linkElement, script, scriptPrio, querverweise [], querverweiseResolved {}, anzeigenameExt }[]&gt;</code></li>
-<li>Kampfstile: <code>getKampfstil &lt;Parameter: Kampfstil-Name. Return: { at, vt, plus, rw, be }&gt;, setKampfstil/modifyKampfstil &lt;Parameter: Kampfstil-Name, at, vt, plus, rw, be&gt;</code><br>
+<li>Kampfstile: <code>getKampfstilAT &lt;Parameter: Kampfstil-Name. Return: int&gt;, getKampfstilVT &lt;Parameter: Kampfstil-Name. Return: int&gt;, getKampfstilPlus &lt;Parameter: Kampfstil-Name. Return: int&gt;, getKampfstilRW &lt;Parameter: Kampfstil-Name. Return: int&gt;, getKampfstilBE &lt;Parameter: Kampfstil-Name. Return: int&gt;, getKampfstil &lt;Parameter: Kampfstil-Name. Return: { at, vt, plus, rw, be }&gt;, setKampfstil/modifyKampfstil &lt;Parameter: Kampfstil-Name, at, vt, plus, rw, be&gt;</code><br>
 Hinweis: Statt eines Kampfstil-Namens kann auch "Nahkampf" oder "Fernkampf" angegeben werden, um globale Modifikationen für alle Nah-/Fernkampfwaffen anzugeben. Diese werden dann zum tatsächlichen Kampfstil einer Waffe addiert.</li>
 </ul>
 <h3 id="ausrustung">Ausrüstung</h3>
 <ul>
-<li>Inventar: <code>getAusrüstung &lt;Return: string[]&gt;</code></li>
+<li>Inventar: <code>getInventar &lt;Parameter: Inventarnummer. Return: string&gt;</code></li>
 <li>Rüstung: <code>getRüstung &lt;Return: { name, text, kategorie, system, rs[6], be }[]&gt;</code></li>
 <li>Waffen: <code>getWaffen &lt;Return: { name, würfel, würfelSeiten, plus, eigenschaften[], härte, fertigkeit, talent, beSlot, kampfstile[], kampfstil, rw, wm, lz, fernkampf, nahkampf, anzeigename}[]&gt;</code></li>
 </ul>
@@ -885,7 +885,7 @@ Beispiel: removeWaffeneigenschaft('Hand', 'Zerbrechlich')</li>
 Parameter müssen mit Semikolon getrennt werden.  </li>
 <li>Waffen mit dieser WE modifizieren: <code>modifyWaffeAT, modifyWaffeVT, modifyWaffeTPWürfel, modifyWaffeTPPlus, modifyWaffeHäerte, modifyWaffeRW, setWaffeAT, setWaffeVT, setWaffeTPWürfel, setWaffeTPPlus, setWaffeHärte, setWaffeRW</code></li>
 <li>Aktuelle Waffe erhalten: <code>getWaffe &lt;Return: { name, würfel, würfelSeiten, plus, eigenschaften[], härte, fertigkeit, talent, beSlot, kampfstile[], kampfstil, rw, wm, lz, fernkampf, nahkampf, anzeigename }&gt;</code></li>
-<li>Aktuelle Werte der Waffe erhalten: <code>getWaffenWerte &lt;Return: { at, vt, rw, würfel, plus, härte, kampfstil }&gt;</code></li>
+<li>Aktuelle Werte der Waffe erhalten: <code>getWaffeAT, getWaffeVT, getWaffeTPWürfel, getWaffeTPPlus, getWaffeHäerte, getWaffeRW, getWaffeKampfstil</code></li>
 </ul>
 <h2 id="beispiele">Beispiele</h2>
 <h3 id="vorteil-waffenloser-kampf">Vorteil Waffenloser Kampf</h3>
