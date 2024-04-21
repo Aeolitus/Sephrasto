@@ -338,6 +338,10 @@ class SortedCategoryToListDict(dict):
             return
         self[categoryName].append(value)
 
+    def appendByName(self, categoryName, value):
+        idx = self.categories.index(categoryName)
+        self.append(idx, value)
+
     def sortValues(self, sortKey=Hilfsmethoden.unicodeCaseInsensitive):
         for array in self.values():
             array.sort(key=sortKey)

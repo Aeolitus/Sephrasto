@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>628</width>
-    <height>978</height>
+    <height>1090</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,77 +19,6 @@
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="2" column="0">
     <layout class="QGridLayout" name="gridLayout">
-     <item row="11" column="0">
-      <widget class="QLabel" name="label_41">
-       <property name="minimumSize">
-        <size>
-         <width>110</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>Script / Priorität</string>
-       </property>
-      </widget>
-     </item>
-     <item row="8" column="1">
-      <widget class="QCheckBox" name="checkCheatsheet">
-       <property name="text">
-        <string>Auflisten</string>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="1">
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
-        <spacer name="horizontalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QSpinBox" name="spinKosten">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="buttonSymbols">
-          <enum>QAbstractSpinBox::PlusMinus</enum>
-         </property>
-         <property name="suffix">
-          <string> EP</string>
-         </property>
-         <property name="minimum">
-          <number>-9999</number>
-         </property>
-         <property name="maximum">
-          <number>9999</number>
-         </property>
-         <property name="singleStep">
-          <number>20</number>
-         </property>
-         <property name="value">
-          <number>40</number>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label">
        <property name="text">
@@ -97,53 +26,58 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="1">
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QComboBox" name="comboNachkauf">
-         <item>
-          <property name="text">
-           <string>häufig</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>üblich</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>selten</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>extrem selten</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>nicht möglich</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-      </layout>
+     <item row="0" column="0" colspan="2">
+      <widget class="QLabel" name="warning">
+       <property name="visible">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 0); color: black;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
-     <item row="13" column="1">
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_12">
+       <property name="text">
+        <string>Variable Kosten</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QCheckBox" name="checkScript">
+       <property name="text">
+        <string>Nutzer können Scripts hinzufügen</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Kosten</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QCheckBox" name="checkKommentar">
+       <property name="text">
+        <string>Nutzer können Kommentare hinzufügen</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QCheckBox" name="checkVariable">
+       <property name="text">
+        <string>Nutzer können die EP-Kosten ändern</string>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="1">
       <widget class="QGroupBox" name="groupBox">
        <property name="title">
         <string/>
@@ -161,40 +95,6 @@
         <property name="bottomMargin">
          <number>5</number>
         </property>
-        <item row="0" column="1">
-         <layout class="QVBoxLayout" name="verticalLayout_6">
-          <item>
-           <widget class="QPushButton" name="buttonVerweisUp">
-            <property name="text">
-             <string>^</string>
-            </property>
-            <property name="class" stdset="0">
-             <string>icon</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="buttonVerweisDown">
-            <property name="text">
-             <string>v</string>
-            </property>
-            <property name="class" stdset="0">
-             <string>icon</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="buttonVerweisDelete">
-            <property name="text">
-             <string>DEL</string>
-            </property>
-            <property name="class" stdset="0">
-             <string>icon</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
         <item row="0" column="0">
          <widget class="QListWidget" name="listVerweise">
           <property name="sizePolicy">
@@ -273,7 +173,41 @@
              <string>+</string>
             </property>
             <property name="class" stdset="0">
-             <string>icon</string>
+             <string>iconSmall</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="0" column="1">
+         <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
+           <widget class="QPushButton" name="buttonVerweisUp">
+            <property name="text">
+             <string>^</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>iconSmall</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="buttonVerweisDown">
+            <property name="text">
+             <string>v</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>iconSmall</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="buttonVerweisDelete">
+            <property name="text">
+             <string>DEL</string>
+            </property>
+            <property name="class" stdset="0">
+             <string>iconSmall</string>
             </property>
            </widget>
           </item>
@@ -282,10 +216,99 @@
        </layout>
       </widget>
      </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_3">
+     <item row="13" column="0">
+      <widget class="QLabel" name="label_9">
        <property name="text">
-        <string>Nachkauf</string>
+        <string>Verknüpfung</string>
+       </property>
+       <property name="indent">
+        <number>0</number>
+       </property>
+      </widget>
+     </item>
+     <item row="12" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QPlainTextEdit" name="teScript"/>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_7">
+         <item>
+          <widget class="QSpinBox" name="spinScriptPrio">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Die Skript-Priorität legt die Reihenfolge der Auswertung fest. 0 ist Standard, negative Werte werden davor, positive Werte danach ausgewertet. Dies ist relevant, falls bspw. die INI verdoppelt werden soll nachdem Kampfreflexe eingerechnet wurde. In diesem Fall sollte die Skript-Priorität höher als die von Kampfreflexe sein.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::PlusMinus</enum>
+           </property>
+           <property name="minimum">
+            <number>-10</number>
+           </property>
+           <property name="maximum">
+            <number>10</number>
+           </property>
+           <property name="singleStep">
+            <number>1</number>
+           </property>
+           <property name="value">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="buttonPickScript">
+           <property name="toolTip">
+            <string>Scripteditor öffnen</string>
+           </property>
+           <property name="text">
+            <string>+</string>
+           </property>
+           <property name="class" stdset="0">
+            <string>iconSmall</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item row="9" column="1">
+      <widget class="QPlainTextEdit" name="teVoraussetzungen">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>250</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Siehe &amp;quot;Datenbank Editor -&amp;gt; Einstellungsmöglichkeiten -&amp;gt; Voraussetzungen&amp;quot; in der Sephrasto-Hilfe für eine Anleitung.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="minimumSize">
+        <size>
+         <width>110</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Voraussetzungen</string>
+       </property>
+      </widget>
+     </item>
+     <item row="14" column="0">
+      <widget class="QLabel" name="label_11">
+       <property name="text">
+        <string>Querverweise</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Beschreibung</string>
        </property>
       </widget>
      </item>
@@ -474,35 +497,82 @@
        </widget>
       </widget>
      </item>
-     <item row="6" column="1">
-      <widget class="QCheckBox" name="checkKommentar">
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_6">
        <property name="text">
-        <string>Der Nutzer kann Kommentare hinzufügen</string>
+        <string>Kategorie</string>
        </property>
       </widget>
      </item>
-     <item row="8" column="0">
-      <widget class="QLabel" name="label_10">
+     <item row="8" column="1">
+      <widget class="QCheckBox" name="checkCheatsheet">
        <property name="text">
-        <string>Regelanhang</string>
+        <string>Auflisten</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
-     <item row="5" column="1">
-      <widget class="QCheckBox" name="checkVariable">
+     <item row="4" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="spinKosten">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::PlusMinus</enum>
+         </property>
+         <property name="suffix">
+          <string> EP</string>
+         </property>
+         <property name="minimum">
+          <number>-9999</number>
+         </property>
+         <property name="maximum">
+          <number>9999</number>
+         </property>
+         <property name="singleStep">
+          <number>20</number>
+         </property>
+         <property name="value">
+          <number>40</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_3">
        <property name="text">
-        <string>Der Nutzer kann die EP-Kosten ändern</string>
+        <string>Nachkauf</string>
        </property>
       </widget>
      </item>
-     <item row="13" column="0">
-      <widget class="QLabel" name="label_11">
-       <property name="text">
-        <string>Querverweise</string>
-       </property>
-      </widget>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="leName"/>
      </item>
-     <item row="12" column="1">
+     <item row="13" column="1">
       <layout class="QHBoxLayout" name="horizontalLayout_5">
        <item>
         <widget class="QComboBox" name="comboLinkKategorie">
@@ -545,111 +615,58 @@
        </item>
       </layout>
      </item>
-     <item row="10" column="0">
-      <widget class="QLabel" name="label_5">
+     <item row="8" column="0">
+      <widget class="QLabel" name="label_10">
        <property name="text">
-        <string>Beschreibung</string>
+        <string>Regelanhang</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="1">
-      <widget class="QComboBox" name="comboTyp"/>
-     </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>Kosten</string>
-       </property>
-      </widget>
-     </item>
-     <item row="11" column="1">
-      <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item row="3" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QLineEdit" name="leScript">
-         <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;In diesem Feld kannst du ein Python-Skript einfügen, die beim Erwerb des Vorteils ausgeführt werden. Siehe &amp;quot;Skripte für Abgeleitete Werte, Vorteile und Waffeneigenschaften&amp;quot; in der Sephrasto-Hilfe für verfügbare Funktionen und Beispiele.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
          </property>
-        </widget>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
        </item>
        <item>
-        <widget class="QSpinBox" name="spinScriptPrio">
-         <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Die Skript-Priorität legt die Reihenfolge der Auswertung fest. 0 ist Standard, negative Werte werden davor, positive Werte danach ausgewertet. Dies ist relevant, falls bspw. die INI verdoppelt werden soll nachdem Kampfreflexe eingerechnet wurde. In diesem Fall sollte die Skript-Priorität höher als die von Kampfreflexe sein.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="buttonSymbols">
-          <enum>QAbstractSpinBox::PlusMinus</enum>
-         </property>
-         <property name="minimum">
-          <number>-10</number>
-         </property>
-         <property name="maximum">
-          <number>10</number>
-         </property>
-         <property name="singleStep">
-          <number>1</number>
-         </property>
-         <property name="value">
-          <number>0</number>
-         </property>
+        <widget class="QComboBox" name="comboNachkauf">
+         <item>
+          <property name="text">
+           <string>häufig</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>üblich</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>selten</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>extrem selten</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>nicht möglich</string>
+          </property>
+         </item>
         </widget>
        </item>
       </layout>
-     </item>
-     <item row="5" column="0">
-      <widget class="QLabel" name="label_12">
-       <property name="text">
-        <string>Variable Kosten</string>
-       </property>
-      </widget>
-     </item>
-     <item row="9" column="1">
-      <widget class="QPlainTextEdit" name="teVoraussetzungen">
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>250</height>
-        </size>
-       </property>
-       <property name="toolTip">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Siehe &amp;quot;Datenbank Editor -&amp;gt; Einstellungsmöglichkeiten -&amp;gt; Voraussetzungen&amp;quot; in der Sephrasto-Hilfe für eine Anleitung.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="leName"/>
-     </item>
-     <item row="12" column="0">
-      <widget class="QLabel" name="label_9">
-       <property name="text">
-        <string>Verknüpfung</string>
-       </property>
-       <property name="indent">
-        <number>0</number>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_6">
-       <property name="text">
-        <string>Kategorie</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0" colspan="2">
-      <widget class="QLabel" name="warning">
-       <property name="visible">
-        <bool>false</bool>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 0); color: black;</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="wordWrap">
-        <bool>true</bool>
-       </property>
-      </widget>
      </item>
      <item row="6" column="0">
       <widget class="QLabel" name="label_7">
@@ -658,18 +675,8 @@
        </property>
       </widget>
      </item>
-     <item row="9" column="0">
-      <widget class="QLabel" name="label_4">
-       <property name="minimumSize">
-        <size>
-         <width>110</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>Voraussetzungen</string>
-       </property>
-      </widget>
+     <item row="2" column="1">
+      <widget class="QComboBox" name="comboTyp"/>
      </item>
      <item row="7" column="0">
       <widget class="QLabel" name="label_8">
@@ -678,10 +685,16 @@
        </property>
       </widget>
      </item>
-     <item row="7" column="1">
-      <widget class="QCheckBox" name="checkScript">
+     <item row="12" column="0">
+      <widget class="QLabel" name="label_41">
+       <property name="minimumSize">
+        <size>
+         <width>110</width>
+         <height>0</height>
+        </size>
+       </property>
        <property name="text">
-        <string>Der Nutzer kann Scripts hinzufügen</string>
+        <string>Script / Priorität</string>
        </property>
       </widget>
      </item>
@@ -704,12 +717,36 @@
  </widget>
  <tabstops>
   <tabstop>leName</tabstop>
-  <tabstop>checkKommentar</tabstop>
+  <tabstop>comboTyp</tabstop>
   <tabstop>comboNachkauf</tabstop>
+  <tabstop>spinKosten</tabstop>
+  <tabstop>checkVariable</tabstop>
+  <tabstop>checkKommentar</tabstop>
+  <tabstop>checkScript</tabstop>
+  <tabstop>checkCheatsheet</tabstop>
   <tabstop>teVoraussetzungen</tabstop>
-  <tabstop>leScript</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>teBeschreibung</tabstop>
+  <tabstop>teScript</tabstop>
   <tabstop>spinScriptPrio</tabstop>
+  <tabstop>buttonPickScript</tabstop>
+  <tabstop>comboLinkKategorie</tabstop>
   <tabstop>comboLinkElement</tabstop>
+  <tabstop>listVerweise</tabstop>
+  <tabstop>comboVerweisTyp</tabstop>
+  <tabstop>comboVerweis</tabstop>
+  <tabstop>buttonVerweisAdd</tabstop>
+  <tabstop>buttonVerweisUp</tabstop>
+  <tabstop>buttonVerweisDown</tabstop>
+  <tabstop>buttonVerweisDelete</tabstop>
+  <tabstop>teBedingungen</tabstop>
+  <tabstop>tbCheatsheet</tabstop>
+  <tabstop>tbBedingungen</tabstop>
+  <tabstop>teInfo</tabstop>
+  <tabstop>teCheatsheet</tabstop>
+  <tabstop>comboVorschau</tabstop>
+  <tabstop>tbInfo</tabstop>
+  <tabstop>tbBeschreibung</tabstop>
  </tabstops>
  <resources/>
  <connections>
@@ -720,8 +757,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>248</x>
-     <y>254</y>
+     <x>257</x>
+     <y>1080</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -736,8 +773,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>316</x>
-     <y>260</y>
+     <x>325</x>
+     <y>1080</y>
     </hint>
     <hint type="destinationlabel">
      <x>286</x>

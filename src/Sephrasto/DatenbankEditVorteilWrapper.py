@@ -12,6 +12,8 @@ from PySide6 import QtWidgets, QtCore, QtGui
 from Wolke import Wolke
 from Datenbank import Datenbank
 from QtUtils.HtmlToolbar import HtmlToolbar
+from ScriptPickerWrapper import ScriptPickerWrapper
+from EventBus import EventBus
 
 class DatenbankEditVorteilWrapper(DatenbankElementEditorBase):
     def __init__(self, datenbank, vorteil=None, readonly=False):
@@ -22,8 +24,13 @@ class DatenbankEditVorteilWrapper(DatenbankElementEditorBase):
         self.beschreibungBedingungenEditor = BeschreibungEditor(self, "bedingungen", "teBedingungen", "tbBedingungen")
         self.beschreibungInfoEditor = BeschreibungEditor(self, "info", "teInfo", "tbInfo")
         self.voraussetzungenEditor = VoraussetzungenEditor(self)
-        self.scriptEditor = ScriptEditor(self, "script")
+        self.scriptEditor = ScriptEditor(self, "script", 2)
         self.setupAndShow(datenbank, UI.DatenbankEditVorteil.Ui_dialog(), VorteilDefinition, vorteil, readonly)
+
+    def onSetupUi(self):
+        super().onSetupUi()
+        self.ui.buttonPickScript.setText("\uf121")
+        self.ui.buttonPickScript.clicked.connect(self.openScriptPicker)
 
     def load(self, vorteil):
         super().load(vorteil)
@@ -261,3 +268,9 @@ class DatenbankEditVorteilWrapper(DatenbankElementEditorBase):
             self.validator["Querverweise"] = True
 
         self.updateSaveButtonState()
+
+    def openScriptPicker(self):
+        pickerClass = EventBus.applyFilter("class_scriptpicker_wrapper", ScriptPickerWrapper)
+        picker = pickerClass(self.datenbank, self.scriptEditor.widget.toPlainText())
+        if picker.script != None:
+            self.scriptEditor.widget.setPlainText(picker.script)

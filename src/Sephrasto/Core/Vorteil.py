@@ -329,7 +329,7 @@ class Vorteil:
             self._editorScriptCompiled = compile_restricted(self._editorScript or "", self.name + " Editorscript", "exec")
         except SyntaxError as e:
             self._editorScriptCompiled = ""
-            self.editorScriptFault = f"{e.msg} (at position {e.offset})"
+            self.editorScriptFault = "\n".join(e.msg)
 
     def serialize(self, ser):
         ser.set('name', self.name)

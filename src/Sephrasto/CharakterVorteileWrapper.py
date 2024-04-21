@@ -19,6 +19,7 @@ from Core.Vorteil import Vorteil
 from VoraussetzungenListe import VoraussetzungenListe
 from Hilfsmethoden import SortedCategoryToListDict
 from QtUtils.RichTextButton import RichTextToolButton
+from ScriptPickerWrapper import ScriptPickerWrapper
 
 class CharakterVorteileWrapper(QtCore.QObject):
     modified = QtCore.Signal()
@@ -26,7 +27,11 @@ class CharakterVorteileWrapper(QtCore.QObject):
     def __init__(self, supportedCategories = []):
         super().__init__()
         logging.debug("Initializing VorteileWrapper...")
-        self.rowHeight = Hilfsmethoden.emToPixels(3.9)
+        self.rowMargin = Hilfsmethoden.emToPixels(1)
+        line = QtWidgets.QLineEdit()
+        self.rowHeight = line.sizeHint().height()
+        line.deleteLater()
+
         self.form = QtWidgets.QWidget()
         self.ui = UI.CharakterVorteile.Ui_Form()
         self.ui.setupUi(self.form)
@@ -140,7 +145,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
             parent.setText(0, kategorie)
             parent.setText(1,"")
             parent.setExpanded(True)
-            parent.setSizeHint(0, QtCore.QSize(0, self.rowHeight))
+            parent.setSizeHint(0, QtCore.QSize(0, self.rowHeight + self.rowMargin))
             font = parent.font(0)
             font.setBold(True)
             font.setCapitalization(QtGui.QFont.SmallCaps)
@@ -150,7 +155,7 @@ class CharakterVorteileWrapper(QtCore.QObject):
             for el in vorteile:
                 child = QtWidgets.QTreeWidgetItem(parent)
                 child.setText(0, el)
-                child.setSizeHint(0, QtCore.QSize(0, self.rowHeight))
+                child.setSizeHint(0, QtCore.QSize(0, self.rowHeight + self.rowMargin))
 
                 vorteil = Wolke.DB.vorteile[el]
                 if el in Wolke.Char.vorteile:
@@ -299,9 +304,9 @@ class CharakterVorteileWrapper(QtCore.QObject):
         self.modified.emit()
         self.updateInfo()
         
-    def editorScriptChanged(self, text, name, widget):
+    def editorScriptChanged(self, name, widget):
         vorteil = Wolke.Char.vorteile[name]      
-        vorteil.editorScript = text            
+        vorteil.editorScript = widget.toPlainText()
         self.currentVort = name
         self.modified.emit()
         self.updateInfo()
@@ -312,6 +317,12 @@ class CharakterVorteileWrapper(QtCore.QObject):
         else:
             widget.setStyleSheet("")
             widget.setToolTip("")
+
+    def openScriptPicker(self, scriptEdit):
+        pickerClass = EventBus.applyFilter("class_scriptpicker_wrapper", ScriptPickerWrapper)
+        picker = pickerClass(Wolke.DB, scriptEdit.toPlainText())
+        if picker.script != None:
+            scriptEdit.setPlainText(picker.script)
 
     def handleAddSubwidgets(self, name, parent):
         if parent.childCount() > 0 or name not in Wolke.Char.vorteile:
@@ -328,24 +339,38 @@ class CharakterVorteileWrapper(QtCore.QObject):
         if vorteil.kommentarErlauben:
             text = QtWidgets.QLineEdit(vorteil.kommentar)
             text.setReadOnly(name == "Minderpakt")
+            text.setFixedHeight(self.rowHeight)
             layout.addRow("Kommentar", text)
             text.textChanged.connect(partial(self.kommentarChanged, name=name))
             rowHeight += self.rowHeight
 
         if vorteil.editorScriptErlauben:
-            text = QtWidgets.QLineEdit(vorteil.editorScript)
-            layout.addRow("Script", text)
+            childLayout = QtWidgets.QHBoxLayout()
+            text = QtWidgets.QPlainTextEdit(vorteil.editorScript)
+            text.setFixedHeight(2 * self.rowHeight)
             text.textChanged.connect(partial(self.editorScriptChanged, name=name, widget=text))
             if vorteil.editorScriptFault:
                 text.setStyleSheet("border: 1px solid red;")
                 text.setToolTip(vorteil.editorScriptFault)
-            rowHeight += self.rowHeight
+
+            button = QtWidgets.QPushButton()
+            button.setProperty("class", "iconSmall")
+            button.setText("\uf121")
+            button.setToolTip("Scripteditor öffnen")
+            button.clicked.connect(partial(self.openScriptPicker, scriptEdit=text))
+            childLayout.addWidget(text)
+            childLayout.addWidget(button)
+            layout.addRow("Script", childLayout)
+
+            if rowHeight != 0:
+                rowHeight += layout.verticalSpacing()
+            rowHeight += 2 * self.rowHeight
 
         w = QtWidgets.QWidget()
         w.setLayout(layout)
         child = QtWidgets.QTreeWidgetItem(parent)
 
-        child.setSizeHint(0, QtCore.QSize(0, rowHeight))
+        child.setSizeHint(0, QtCore.QSize(0, rowHeight + self.rowMargin))
         self.ui.treeWidget.setItemWidget(child,0,w)
         parent.setExpanded(True)
 

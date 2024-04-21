@@ -8,7 +8,7 @@ Die folgenden Funktionen stehen neben Python-Builtins wie ```min``` und ```max``
 
 ### Beschreibung
 - Hintergrund: ```getName, getSpezies, getStatus, getKurzbeschreibung, getHeimat, getFinanzen```
-- Eigenheiten: ```getEigenheiten <Return: string[8]>```
+- Eigenheiten: ```getEigenheit <Parameter: Eigenheitsnummer. Return: string>```
 - EP: ```getEPGesamt, getEPAusgegeben```
 
 ### Attribute
@@ -56,11 +56,11 @@ Beispiel mit Kosten auf 0 EP gesetzt und "Gaben des Butgeists" als Bedingung: ad
 
 ### Vorteile
 - Vorteile allgemein: ```getVorteil <Parameter: Vorteils-Name. Return: { definition { name, text, info, bedingungen, kosten, variableKosten, kommentarErlauben, kategorie, voraussetzungen [], nachkauf,  cheatsheetAuflisten, cheatsheetBeschreibung, linkKategorie, linkElement, script, scriptPrio, querverweise [], querverweiseResolved {}, anzeigenameExt }[]>```
-- Kampfstile: ```getKampfstil <Parameter: Kampfstil-Name. Return: { at, vt, plus, rw, be }>, setKampfstil/modifyKampfstil <Parameter: Kampfstil-Name, at, vt, plus, rw, be>```<br>
+- Kampfstile: ```getKampfstilAT <Parameter: Kampfstil-Name. Return: int>, getKampfstilVT <Parameter: Kampfstil-Name. Return: int>, getKampfstilPlus <Parameter: Kampfstil-Name. Return: int>, getKampfstilRW <Parameter: Kampfstil-Name. Return: int>, getKampfstilBE <Parameter: Kampfstil-Name. Return: int>, getKampfstil <Parameter: Kampfstil-Name. Return: { at, vt, plus, rw, be }>, setKampfstil/modifyKampfstil <Parameter: Kampfstil-Name, at, vt, plus, rw, be>```<br>
 Hinweis: Statt eines Kampfstil-Namens kann auch "Nahkampf" oder "Fernkampf" angegeben werden, um globale Modifikationen für alle Nah-/Fernkampfwaffen anzugeben. Diese werden dann zum tatsächlichen Kampfstil einer Waffe addiert.
 
 ### Ausrüstung
-- Inventar: ```getAusrüstung <Return: string[]>```
+- Inventar: ```getInventar <Parameter: Inventarnummer. Return: string>```
 - Rüstung: ```getRüstung <Return: { name, text, kategorie, system, rs[6], be }[]>```
 - Waffen: ```getWaffen <Return: { name, würfel, würfelSeiten, plus, eigenschaften[], härte, fertigkeit, talent, beSlot, kampfstile[], kampfstil, rw, wm, lz, fernkampf, nahkampf, anzeigename}[]>```
 
@@ -84,7 +84,7 @@ Die folgenden zusätzlichen Funktionen stehen ausschließlich innerhalb von Waff
 Parameter müssen mit Semikolon getrennt werden.  
 - Waffen mit dieser WE modifizieren: ```modifyWaffeAT, modifyWaffeVT, modifyWaffeTPWürfel, modifyWaffeTPPlus, modifyWaffeHäerte, modifyWaffeRW, setWaffeAT, setWaffeVT, setWaffeTPWürfel, setWaffeTPPlus, setWaffeHärte, setWaffeRW```
 - Aktuelle Waffe erhalten: ```getWaffe <Return: { name, würfel, würfelSeiten, plus, eigenschaften[], härte, fertigkeit, talent, beSlot, kampfstile[], kampfstil, rw, wm, lz, fernkampf, nahkampf, anzeigename }>```
-- Aktuelle Werte der Waffe erhalten: ```getWaffenWerte <Return: { at, vt, rw, würfel, plus, härte, kampfstil }>```
+- Aktuelle Werte der Waffe erhalten: ```getWaffeAT, getWaffeVT, getWaffeTPWürfel, getWaffeTPPlus, getWaffeHäerte, getWaffeRW, getWaffeKampfstil```
 
 ## Beispiele
 

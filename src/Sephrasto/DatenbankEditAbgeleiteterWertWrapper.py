@@ -6,6 +6,8 @@ from PySide6 import QtWidgets, QtCore
 from Wolke import Wolke
 from Datenbank import Datenbank
 from QtUtils.HtmlToolbar import HtmlToolbar
+from ScriptPickerWrapper import ScriptPickerWrapper
+from EventBus import EventBus
 
 class DatenbankEditAbgeleiteterWertWrapper(DatenbankElementEditorBase):
     def __init__(self, datenbank, abgeleiteterWert = None, readonly = False):
@@ -14,6 +16,14 @@ class DatenbankEditAbgeleiteterWertWrapper(DatenbankElementEditorBase):
         self.scriptEditor = ScriptEditor(self, "script")
         self.finalscriptEditor = ScriptEditor(self, "finalscript")
         self.setupAndShow(datenbank, UI.DatenbankEditAbgeleiteterWert.Ui_dialog(), AbgeleiteterWertDefinition, abgeleiteterWert, readonly)
+            
+    def onSetupUi(self):
+        super().onSetupUi()
+        self.ui.buttonPickScript.setText("\uf121")
+        self.ui.buttonPickScript.clicked.connect(lambda: self.openScriptPicker(self.ui.teScript))
+
+        self.ui.buttonPickFinalscript.setText("\uf121")
+        self.ui.buttonPickFinalscript.clicked.connect(lambda: self.openScriptPicker(self.ui.teFinalscript))
 
     def load(self, abgeleiteterWert):
         super().load(abgeleiteterWert)
@@ -36,3 +46,9 @@ class DatenbankEditAbgeleiteterWertWrapper(DatenbankElementEditorBase):
         abgeleiteterWert.sortorder = int(self.ui.spinSortOrder.value())
         self.scriptEditor.update(abgeleiteterWert)
         self.finalscriptEditor.update(abgeleiteterWert)
+
+    def openScriptPicker(self, editor):
+        pickerClass = EventBus.applyFilter("class_scriptpicker_wrapper", ScriptPickerWrapper)
+        picker = pickerClass(self.datenbank, editor.toPlainText())
+        if picker.script != None:
+            editor.setPlainText(picker.script)

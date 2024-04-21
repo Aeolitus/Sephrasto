@@ -165,7 +165,7 @@ class Char():
             'getKurzbeschreibung' : lambda: self.kurzbeschreibung, 
             'getHeimat' : lambda: self.heimat, 
             'getFinanzen' : lambda: self.finanzen, 
-            'getEigenheiten' : lambda: copy.deepcopy(self.eigenheiten), 
+            'getEigenheit' : lambda index: self.eigenheiten[index-1], 
             'getEPGesamt' : lambda: self.epGesamt, 
             'getEPAusgegeben' : lambda: self.epAusgegeben, 
 
@@ -176,7 +176,7 @@ class Char():
             'getVorteil' : lambda name: copy.deepcopy(self.vorteile[name]) if name in self.vorteile else None, 
             'getRüstung' : lambda: copy.deepcopy(self.rüstung), 
             'getWaffen' : lambda: copy.deepcopy(self.waffen), 
-            'getAusrüstung' : lambda: copy.deepcopy(self.ausrüstung), 
+            'getInventar' : lambda index: self.ausrüstung[index-1], 
             'modifyFertigkeitBasiswert' : lambda name, mod: setattr(self.fertigkeiten[name], 'basiswertMod', self.fertigkeiten[name].basiswertMod + mod) if name in self.fertigkeiten else None, 
             'modifyÜbernatürlicheFertigkeitBasiswert' : lambda name, mod: setattr(self.übernatürlicheFertigkeiten[name], 'basiswertMod', self.übernatürlicheFertigkeiten[name].basiswertMod + mod) if name in self.übernatürlicheFertigkeiten else None, 
             'modifyTalentProbenwert' : self.API_modifyTalentProbenwert, 
@@ -185,6 +185,11 @@ class Char():
 
             #Kampfstil
             'getKampfstil' : lambda kampfstil: copy.copy(self.kampfstilMods[kampfstil]) if kampfstil in self.kampfstilMods else KampfstilMod(), 
+            'getKampfstilAT' : lambda kampfstil: self.kampfstilMods[kampfstil].at if kampfstil in self.kampfstilMods else 0, 
+            'getKampfstilVT' : lambda kampfstil: self.kampfstilMods[kampfstil].vt if kampfstil in self.kampfstilMods else 0, 
+            'getKampfstilPlus' : lambda kampfstil: self.kampfstilMods[kampfstil].plus if kampfstil in self.kampfstilMods else 0, 
+            'getKampfstilRW' : lambda kampfstil: self.kampfstilMods[kampfstil].rw if kampfstil in self.kampfstilMods else 0, 
+            'getKampfstilBE' : lambda kampfstil: self.kampfstilMods[kampfstil].be if kampfstil in self.kampfstilMods else 0, 
             'setKampfstil' : self.API_setKampfstil, 
             'modifyKampfstil' : self.API_modifyKampfstil, 
 
@@ -219,19 +224,33 @@ class Char():
         self.waffenScriptAPI = {
             'getEigenschaftParam' : lambda paramNb: self.API_getWaffeneigenschaftParam(paramNb), 
             'getWaffe' : lambda: copy.deepcopy(self.currentWaffe),
-            'modifyWaffeAT' : lambda atmod: setattr(self.currentWaffenwerte, 'at', self.currentWaffenwerte.at + atmod), 
-            'modifyWaffeVT' : lambda vtmod: setattr(self.currentWaffenwerte, 'vt', self.currentWaffenwerte.vt + vtmod), 
-            'modifyWaffeTPWürfel' : lambda würfelmod: setattr(self.currentWaffenwerte, 'würfel', self.currentWaffenwerte.würfel + würfelmod), 
-            'modifyWaffeTPPlus' : lambda plusmod: setattr(self.currentWaffenwerte, 'plus', self.currentWaffenwerte.plus + plusmod), 
-            'modifyWaffeHärte' : lambda härtemod: setattr(self.currentWaffenwerte, 'härte', self.currentWaffenwerte.härte + härtemod), 
-            'modifyWaffeRW' : lambda rwmod: setattr(self.currentWaffenwerte, 'rw', self.currentWaffenwerte.rw + rwmod), 
-            'setWaffeAT' : lambda at: setattr(self.currentWaffenwerte, 'at', at), 
-            'setWaffeVT' : lambda vt: setattr(self.currentWaffenwerte, 'vt', vt), 
-            'setWaffeTPWürfel' : lambda würfel: setattr(self.currentWaffenwerte, 'würfel', würfel), 
-            'setWaffeTPPlus' : lambda plus: setattr(self.currentWaffenwerte, 'plus', plus), 
-            'setWaffeHärte' : lambda härte: setattr(self.currentWaffenwerte, 'härte', härte), 
-            'setWaffeRW' : lambda rw: setattr(self.currentWaffenwerte, 'rw', rw), 
             'getWaffenWerte' : lambda: copy.deepcopy(self.currentWaffenwerte), 
+             
+            'getWaffeAT' : lambda: self.currentWaffenwerte.at,
+            'setWaffeAT' : lambda at: setattr(self.currentWaffenwerte, 'at', at),
+            'modifyWaffeAT' : lambda atmod: setattr(self.currentWaffenwerte, 'at', self.currentWaffenwerte.at + atmod), 
+
+            'getWaffeVT' : lambda: self.currentWaffenwerte.vt, 
+            'setWaffeVT' : lambda vt: setattr(self.currentWaffenwerte, 'vt', vt), 
+            'modifyWaffeVT' : lambda vtmod: setattr(self.currentWaffenwerte, 'vt', self.currentWaffenwerte.vt + vtmod), 
+
+            'getWaffeTPWürfel' : lambda: self.currentWaffenwerte.würfel, 
+            'setWaffeTPWürfel' : lambda würfel: setattr(self.currentWaffenwerte, 'würfel', würfel), 
+            'modifyWaffeTPWürfel' : lambda würfelmod: setattr(self.currentWaffenwerte, 'würfel', self.currentWaffenwerte.würfel + würfelmod),
+
+            'getWaffeTPPlus' : lambda: self.currentWaffenwerte.plus, 
+            'setWaffeTPPlus' : lambda plus: setattr(self.currentWaffenwerte, 'plus', plus),
+            'modifyWaffeTPPlus' : lambda plusmod: setattr(self.currentWaffenwerte, 'plus', self.currentWaffenwerte.plus + plusmod), 
+
+            'getWaffeHärte' : lambda: self.currentWaffenwerte.härte, 
+            'setWaffeHärte' : lambda härte: setattr(self.currentWaffenwerte, 'härte', härte),
+            'modifyWaffeHärte' : lambda härtemod: setattr(self.currentWaffenwerte, 'härte', self.currentWaffenwerte.härte + härtemod), 
+
+            'getWaffeRW' : lambda rw: self.currentWaffenwerte.rw, 
+            'setWaffeRW' : lambda rw: setattr(self.currentWaffenwerte, 'rw', rw),
+            'modifyWaffeRW' : lambda rwmod: setattr(self.currentWaffenwerte, 'rw', self.currentWaffenwerte.rw + rwmod),
+
+            'getWaffeKampfstil' : lambda: self.currentWaffenwerte.kampfstil
         }
 
         filter = ['setSB', 'modifySB', 'setBE', 'modifyBE', 'setRS', 'modifyRS',

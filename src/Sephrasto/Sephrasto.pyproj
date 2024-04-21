@@ -72,11 +72,14 @@
     <Compile Include="QtUtils\AutoResizingTextBrowser.py" />
     <Compile Include="QtUtils\HtmlToolbar.py" />
     <Compile Include="QtUtils\ProgressDialogExt.py" />
+    <Compile Include="QtUtils\PyEdit2.py" />
+    <Compile Include="QtUtils\PyEdit2Syntax.py" />
     <Compile Include="QtUtils\RichTextButton.py" />
     <Compile Include="QtUtils\Section.py" />
     <Compile Include="QtUtils\SimpleSettingsDialog.py" />
     <Compile Include="QtUtils\TreeExpansionHelper.py" />
     <Compile Include="QtUtils\WebEngineViewPlus.py" />
+    <Compile Include="ScriptPickerWrapper.py" />
     <Compile Include="Serialization.py">
       <SubType>Code</SubType>
     </Compile>
@@ -135,6 +138,7 @@
     <Compile Include="UI\DatenbankErrorLog.py" />
     <Compile Include="UI\DatenbankMain.py" />
     <Compile Include="Core\Fertigkeit.py" />
+    <Compile Include="UI\ScriptPicker.py" />
     <Compile Include="WebEngineWrapper.py" />
     <Compile Include="Hilfsmethoden.py" />
     <Compile Include="UI\MainWindow.py" />

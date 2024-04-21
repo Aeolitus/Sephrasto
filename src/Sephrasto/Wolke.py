@@ -52,6 +52,7 @@ class Wolke:
         'WindowSize-Datenbank' : [1056, 738],
         'WindowSize-Einstellungen' : [701, 640],
         'WindowSize-Regelanhang' : _DefaultSettings.WindowSizeDefault1Col,
+        'WindowSize-ScriptPicker' : _DefaultSettings.WindowSizeDefault2Col,
         'Letzte-Chars' : [],
         'Plugin-Repos' : [{"name" : "default", "url" : "https://api.github.com/repos/brzGatsu/SephrastoPlugins/releases"}]
     }

@@ -125,20 +125,10 @@ class AbgeleiteterWert:
     def aktualisieren(self):
         self.mod = 0
         self.finalwert = 0
-        scriptAPI = Hilfsmethoden.createScriptAPI()
-        scriptAPI.update({
-            'getAttribut' : lambda attribut: self.charakter.attribute[attribut].wert,
-            'getRüstung' : lambda: copy.deepcopy(self.charakter.rüstung)
-        })
-        self.basiswert = eval(self.definition.scriptCompiled, scriptAPI)
+        self.basiswert = eval(self.definition.scriptCompiled, self.charakter.charakterScriptAPI)
 
     def diffBasiswert(self, attribute):
-        scriptAPI = Hilfsmethoden.createScriptAPI()
-        scriptAPI.update({
-            'getAttribut' : lambda attribut: self.charakter.attribute[attribut].wert,
-            'getRüstung' : lambda: copy.deepcopy(self.charakter.rüstung)
-        })
-        return eval(self.definition.scriptCompiled, scriptAPI) - self.basiswert
+        return eval(self.definition.scriptCompiled, self.charakter.charakterScriptAPI) - self.basiswert
 
     def aktualisierenFinal(self):
         if not self.finalscript:

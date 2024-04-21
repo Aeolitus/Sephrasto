@@ -17,9 +17,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractButton, QAbstractSpinBox, QApplication, QCheckBox,
     QDialog, QDialogButtonBox, QGridLayout, QHBoxLayout,
-    QLabel, QLineEdit, QPlainTextEdit, QSizePolicy,
-    QSpacerItem, QSpinBox, QTabWidget, QTextBrowser,
-    QVBoxLayout, QWidget)
+    QLabel, QLineEdit, QPlainTextEdit, QPushButton,
+    QSizePolicy, QSpacerItem, QSpinBox, QTabWidget,
+    QTextBrowser, QVBoxLayout, QWidget)
 
 class Ui_dialog(object):
     def setupUi(self, dialog):
@@ -31,96 +31,11 @@ class Ui_dialog(object):
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.gridLayout = QGridLayout()
         self.gridLayout.setObjectName(u"gridLayout")
-        self.label_6 = QLabel(dialog)
-        self.label_6.setObjectName(u"label_6")
-
-        self.gridLayout.addWidget(self.label_6, 4, 0, 1, 1)
-
-        self.leScript = QLineEdit(dialog)
-        self.leScript.setObjectName(u"leScript")
-
-        self.gridLayout.addWidget(self.leScript, 7, 1, 1, 1)
-
         self.label_3 = QLabel(dialog)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setMinimumSize(QSize(110, 0))
 
         self.gridLayout.addWidget(self.label_3, 7, 0, 1, 1)
-
-        self.label_8 = QLabel(dialog)
-        self.label_8.setObjectName(u"label_8")
-
-        self.gridLayout.addWidget(self.label_8, 3, 0, 1, 1)
-
-        self.horizontalLayout = QHBoxLayout()
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout.addItem(self.horizontalSpacer)
-
-        self.spinSortOrder = QSpinBox(dialog)
-        self.spinSortOrder.setObjectName(u"spinSortOrder")
-        self.spinSortOrder.setButtonSymbols(QAbstractSpinBox.PlusMinus)
-        self.spinSortOrder.setMinimum(-999)
-        self.spinSortOrder.setMaximum(999)
-
-        self.horizontalLayout.addWidget(self.spinSortOrder)
-
-
-        self.gridLayout.addLayout(self.horizontalLayout, 4, 1, 1, 1)
-
-        self.leName = QLineEdit(dialog)
-        self.leName.setObjectName(u"leName")
-
-        self.gridLayout.addWidget(self.leName, 1, 1, 1, 1)
-
-        self.label_2 = QLabel(dialog)
-        self.label_2.setObjectName(u"label_2")
-
-        self.gridLayout.addWidget(self.label_2, 2, 0, 1, 1)
-
-        self.warning = QLabel(dialog)
-        self.warning.setObjectName(u"warning")
-        self.warning.setVisible(False)
-        self.warning.setStyleSheet(u"background-color: rgb(255, 255, 0); color: black;")
-        self.warning.setWordWrap(True)
-
-        self.gridLayout.addWidget(self.warning, 0, 0, 1, 2)
-
-        self.label = QLabel(dialog)
-        self.label.setObjectName(u"label")
-
-        self.gridLayout.addWidget(self.label, 1, 0, 1, 1)
-
-        self.label_5 = QLabel(dialog)
-        self.label_5.setObjectName(u"label_5")
-
-        self.gridLayout.addWidget(self.label_5, 5, 0, 1, 1)
-
-        self.leFormel = QLineEdit(dialog)
-        self.leFormel.setObjectName(u"leFormel")
-
-        self.gridLayout.addWidget(self.leFormel, 6, 1, 1, 1)
-
-        self.label_4 = QLabel(dialog)
-        self.label_4.setObjectName(u"label_4")
-
-        self.gridLayout.addWidget(self.label_4, 6, 0, 1, 1)
-
-        self.leAnzeigeName = QLineEdit(dialog)
-        self.leAnzeigeName.setObjectName(u"leAnzeigeName")
-
-        self.gridLayout.addWidget(self.leAnzeigeName, 2, 1, 1, 1)
-
-        self.label_7 = QLabel(dialog)
-        self.label_7.setObjectName(u"label_7")
-
-        self.gridLayout.addWidget(self.label_7, 8, 0, 1, 1)
-
-        self.leFinalscript = QLineEdit(dialog)
-        self.leFinalscript.setObjectName(u"leFinalscript")
-
-        self.gridLayout.addWidget(self.leFinalscript, 8, 1, 1, 1)
 
         self.tabWidget = QTabWidget(dialog)
         self.tabWidget.setObjectName(u"tabWidget")
@@ -155,10 +70,115 @@ class Ui_dialog(object):
 
         self.gridLayout.addWidget(self.tabWidget, 5, 1, 1, 1)
 
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer)
+
+        self.spinSortOrder = QSpinBox(dialog)
+        self.spinSortOrder.setObjectName(u"spinSortOrder")
+        self.spinSortOrder.setButtonSymbols(QAbstractSpinBox.PlusMinus)
+        self.spinSortOrder.setMinimum(-999)
+        self.spinSortOrder.setMaximum(999)
+
+        self.horizontalLayout.addWidget(self.spinSortOrder)
+
+
+        self.gridLayout.addLayout(self.horizontalLayout, 4, 1, 1, 1)
+
+        self.leFormel = QLineEdit(dialog)
+        self.leFormel.setObjectName(u"leFormel")
+
+        self.gridLayout.addWidget(self.leFormel, 6, 1, 1, 1)
+
+        self.label_2 = QLabel(dialog)
+        self.label_2.setObjectName(u"label_2")
+
+        self.gridLayout.addWidget(self.label_2, 2, 0, 1, 1)
+
+        self.label_7 = QLabel(dialog)
+        self.label_7.setObjectName(u"label_7")
+
+        self.gridLayout.addWidget(self.label_7, 9, 0, 1, 1)
+
+        self.label_6 = QLabel(dialog)
+        self.label_6.setObjectName(u"label_6")
+
+        self.gridLayout.addWidget(self.label_6, 4, 0, 1, 1)
+
+        self.label = QLabel(dialog)
+        self.label.setObjectName(u"label")
+
+        self.gridLayout.addWidget(self.label, 1, 0, 1, 1)
+
+        self.leAnzeigeName = QLineEdit(dialog)
+        self.leAnzeigeName.setObjectName(u"leAnzeigeName")
+
+        self.gridLayout.addWidget(self.leAnzeigeName, 2, 1, 1, 1)
+
+        self.label_8 = QLabel(dialog)
+        self.label_8.setObjectName(u"label_8")
+
+        self.gridLayout.addWidget(self.label_8, 3, 0, 1, 1)
+
+        self.leName = QLineEdit(dialog)
+        self.leName.setObjectName(u"leName")
+
+        self.gridLayout.addWidget(self.leName, 1, 1, 1, 1)
+
+        self.label_5 = QLabel(dialog)
+        self.label_5.setObjectName(u"label_5")
+
+        self.gridLayout.addWidget(self.label_5, 5, 0, 1, 1)
+
         self.checkShow = QCheckBox(dialog)
         self.checkShow.setObjectName(u"checkShow")
 
         self.gridLayout.addWidget(self.checkShow, 3, 1, 1, 1)
+
+        self.warning = QLabel(dialog)
+        self.warning.setObjectName(u"warning")
+        self.warning.setVisible(False)
+        self.warning.setStyleSheet(u"background-color: rgb(255, 255, 0); color: black;")
+        self.warning.setWordWrap(True)
+
+        self.gridLayout.addWidget(self.warning, 0, 0, 1, 2)
+
+        self.label_4 = QLabel(dialog)
+        self.label_4.setObjectName(u"label_4")
+
+        self.gridLayout.addWidget(self.label_4, 6, 0, 1, 1)
+
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.teFinalscript = QPlainTextEdit(dialog)
+        self.teFinalscript.setObjectName(u"teFinalscript")
+
+        self.horizontalLayout_2.addWidget(self.teFinalscript)
+
+        self.buttonPickFinalscript = QPushButton(dialog)
+        self.buttonPickFinalscript.setObjectName(u"buttonPickFinalscript")
+
+        self.horizontalLayout_2.addWidget(self.buttonPickFinalscript)
+
+
+        self.gridLayout.addLayout(self.horizontalLayout_2, 9, 1, 1, 1)
+
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.teScript = QPlainTextEdit(dialog)
+        self.teScript.setObjectName(u"teScript")
+
+        self.horizontalLayout_3.addWidget(self.teScript)
+
+        self.buttonPickScript = QPushButton(dialog)
+        self.buttonPickScript.setObjectName(u"buttonPickScript")
+
+        self.horizontalLayout_3.addWidget(self.buttonPickScript)
+
+
+        self.gridLayout.addLayout(self.horizontalLayout_3, 7, 1, 1, 1)
 
 
         self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 1, 1)
@@ -177,9 +197,11 @@ class Ui_dialog(object):
         QWidget.setTabOrder(self.spinSortOrder, self.tabWidget)
         QWidget.setTabOrder(self.tabWidget, self.teBeschreibung)
         QWidget.setTabOrder(self.teBeschreibung, self.leFormel)
-        QWidget.setTabOrder(self.leFormel, self.leScript)
-        QWidget.setTabOrder(self.leScript, self.leFinalscript)
-        QWidget.setTabOrder(self.leFinalscript, self.tbBeschreibung)
+        QWidget.setTabOrder(self.leFormel, self.teScript)
+        QWidget.setTabOrder(self.teScript, self.buttonPickScript)
+        QWidget.setTabOrder(self.buttonPickScript, self.teFinalscript)
+        QWidget.setTabOrder(self.teFinalscript, self.buttonPickFinalscript)
+        QWidget.setTabOrder(self.buttonPickFinalscript, self.tbBeschreibung)
 
         self.retranslateUi(dialog)
         self.buttonBox.accepted.connect(dialog.accept)
@@ -193,29 +215,39 @@ class Ui_dialog(object):
 
     def retranslateUi(self, dialog):
         dialog.setWindowTitle(QCoreApplication.translate("dialog", u"Sephrasto - Abgeleiteten Wert bearbeiten...", None))
-        self.label_6.setText(QCoreApplication.translate("dialog", u"Sortierreihenfolge", None))
-#if QT_CONFIG(tooltip)
-        self.leScript.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>In diesem Feld kannst du ein Python-Skript einf\u00fcgen, das den Basiswert berechnet. Siehe &quot;Skripte f\u00fcr Abgeleitete Werte, Vorteile und Waffeneigenschaften&quot; in der Sephrasto-Hilfe f\u00fcr verf\u00fcgbare Funktionen und Beispiele.</p></body></html>", None))
-#endif // QT_CONFIG(tooltip)
         self.label_3.setText(QCoreApplication.translate("dialog", u"Script", None))
-        self.label_8.setText(QCoreApplication.translate("dialog", u"Anzeigen", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("dialog", u"HTML", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("dialog", u"Vorschau", None))
 #if QT_CONFIG(tooltip)
         self.spinSortOrder.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>Die Reihenfolge, in der der Wert im Charaktereditor aufgef\u00fchrt werden soll.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_2.setText(QCoreApplication.translate("dialog", u"Voller Name", None))
-        self.warning.setText("")
-        self.label.setText(QCoreApplication.translate("dialog", u"Name", None))
-        self.label_5.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
 #if QT_CONFIG(tooltip)
         self.leFormel.setToolTip(QCoreApplication.translate("dialog", u"Die Berechnungsformel, die im Charaktereditor neben dem Namen angezeigt werden soll.", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_4.setText(QCoreApplication.translate("dialog", u"Formel", None))
+        self.label_2.setText(QCoreApplication.translate("dialog", u"Voller Name", None))
         self.label_7.setText(QCoreApplication.translate("dialog", u"Finalwert Script", None))
-#if QT_CONFIG(tooltip)
-        self.leFinalscript.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>Manche abgeleitete Werte werden nach allen Berechnungen (erneut) modifiziert, beispielsweise indem die BE noch abgezogen wird. In diesem Feld kannst du ein Python-Skript einf\u00fcgen, das den finalen Wert berechnet. Siehe &quot;Skripte f\u00fcr Abgeleitete Werte, Vorteile und Waffeneigenschaften&quot; in der Sephrasto-Hilfe f\u00fcr verf\u00fcgbare Funktionen und Beispiele.</p></body></html>", None))
-#endif // QT_CONFIG(tooltip)
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("dialog", u"HTML", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("dialog", u"Vorschau", None))
+        self.label_6.setText(QCoreApplication.translate("dialog", u"Sortierreihenfolge", None))
+        self.label.setText(QCoreApplication.translate("dialog", u"Name", None))
+        self.label_8.setText(QCoreApplication.translate("dialog", u"Anzeigen", None))
+        self.label_5.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
         self.checkShow.setText(QCoreApplication.translate("dialog", u"Im Attribute-Tab des Charaktereditors zeigen", None))
+        self.warning.setText("")
+        self.label_4.setText(QCoreApplication.translate("dialog", u"Formel", None))
+#if QT_CONFIG(tooltip)
+        self.teFinalscript.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>Manche abgeleitete Werte werden nach allen Berechnungen (erneut) modifiziert, beispielsweise indem die BE noch abgezogen wird. In diesem Feld kannst du ein Python-Skript einf\u00fcgen, das den finalen Wert berechnet.</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(tooltip)
+        self.buttonPickFinalscript.setToolTip(QCoreApplication.translate("dialog", u"Scripteditor \u00f6ffnen", None))
+#endif // QT_CONFIG(tooltip)
+        self.buttonPickFinalscript.setText(QCoreApplication.translate("dialog", u"+", None))
+        self.buttonPickFinalscript.setProperty("class", QCoreApplication.translate("dialog", u"iconSmall", None))
+#if QT_CONFIG(tooltip)
+        self.teScript.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>In diesem Feld kannst du ein Python-Skript einf\u00fcgen, das den Basiswert berechnet.</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(tooltip)
+        self.buttonPickScript.setToolTip(QCoreApplication.translate("dialog", u"Scripteditor \u00f6ffnen", None))
+#endif // QT_CONFIG(tooltip)
+        self.buttonPickScript.setText(QCoreApplication.translate("dialog", u"+", None))
+        self.buttonPickScript.setProperty("class", QCoreApplication.translate("dialog", u"iconSmall", None))
     # retranslateUi
 

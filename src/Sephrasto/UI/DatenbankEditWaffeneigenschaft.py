@@ -15,17 +15,18 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractButton, QApplication, QDialog, QDialogButtonBox,
-    QGridLayout, QHBoxLayout, QLabel, QLineEdit,
-    QPlainTextEdit, QSizePolicy, QSpinBox, QTabWidget,
-    QTextBrowser, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QAbstractButton, QAbstractSpinBox, QApplication, QDialog,
+    QDialogButtonBox, QGridLayout, QHBoxLayout, QLabel,
+    QLineEdit, QPlainTextEdit, QPushButton, QSizePolicy,
+    QSpinBox, QTabWidget, QTextBrowser, QVBoxLayout,
+    QWidget)
 
 class Ui_dialog(object):
     def setupUi(self, dialog):
         if not dialog.objectName():
             dialog.setObjectName(u"dialog")
         dialog.setWindowModality(Qt.ApplicationModal)
-        dialog.resize(440, 341)
+        dialog.resize(440, 373)
         self.gridLayout_2 = QGridLayout(dialog)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.gridLayout = QGridLayout()
@@ -76,19 +77,30 @@ class Ui_dialog(object):
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.leScript = QLineEdit(dialog)
-        self.leScript.setObjectName(u"leScript")
+        self.teScript = QPlainTextEdit(dialog)
+        self.teScript.setObjectName(u"teScript")
 
-        self.horizontalLayout.addWidget(self.leScript)
+        self.horizontalLayout.addWidget(self.teScript)
 
+        self.verticalLayout_3 = QVBoxLayout()
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.spinScriptPrio = QSpinBox(dialog)
         self.spinScriptPrio.setObjectName(u"spinScriptPrio")
+        self.spinScriptPrio.setButtonSymbols(QAbstractSpinBox.PlusMinus)
         self.spinScriptPrio.setMinimum(-10)
         self.spinScriptPrio.setMaximum(10)
         self.spinScriptPrio.setSingleStep(1)
         self.spinScriptPrio.setValue(0)
 
-        self.horizontalLayout.addWidget(self.spinScriptPrio)
+        self.verticalLayout_3.addWidget(self.spinScriptPrio)
+
+        self.buttonPickScript = QPushButton(dialog)
+        self.buttonPickScript.setObjectName(u"buttonPickScript")
+
+        self.verticalLayout_3.addWidget(self.buttonPickScript)
+
+
+        self.horizontalLayout.addLayout(self.verticalLayout_3)
 
 
         self.gridLayout.addLayout(self.horizontalLayout, 3, 1, 1, 1)
@@ -140,11 +152,13 @@ class Ui_dialog(object):
         self.label_5.setText(QCoreApplication.translate("dialog", u"Beschreibung", None))
         self.label_3.setText(QCoreApplication.translate("dialog", u"Script / Priorit\u00e4t", None))
 #if QT_CONFIG(tooltip)
-        self.leScript.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>In diesem Feld kannst du ein Python-Skript einf\u00fcgen, die bei Erlangen der Waffeneigenschaft ausgef\u00fchrt werden. Siehe &quot;Skripte f\u00fcr Abgeleitete Werte, Vorteile und Waffeneigenschaften&quot; in der Sephrasto-Hilfe f\u00fcr verf\u00fcgbare Funktionen und Beispiele.</p></body></html>", None))
-#endif // QT_CONFIG(tooltip)
-#if QT_CONFIG(tooltip)
         self.spinScriptPrio.setToolTip(QCoreApplication.translate("dialog", u"<html><head/><body><p>Die Skript-Priorit\u00e4t legt die Reihenfolge der Auswertung fest. 0 ist Standard, negative Werte werden davor, positive Werte danach ausgewertet. Dies ist relevant, falls bspw. die INI verdoppelt werden soll nachdem Kampfreflexe eingerechnet wurde. In diesem Fall sollte die Skript-Priorit\u00e4t h\u00f6her als die von Kampfreflexe sein.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(tooltip)
+        self.buttonPickScript.setToolTip(QCoreApplication.translate("dialog", u"Scripteditor \u00f6ffnen", None))
+#endif // QT_CONFIG(tooltip)
+        self.buttonPickScript.setText(QCoreApplication.translate("dialog", u"+", None))
+        self.buttonPickScript.setProperty("class", QCoreApplication.translate("dialog", u"iconSmall", None))
         self.label.setText(QCoreApplication.translate("dialog", u"Name", None))
         self.warning.setText("")
     # retranslateUi

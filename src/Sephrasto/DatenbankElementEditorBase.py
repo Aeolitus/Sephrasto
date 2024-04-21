@@ -157,11 +157,12 @@ class VoraussetzungenEditor:
         self.editor.updateSaveButtonState()
 
 class ScriptEditor:
-    def __init__(self, editor, propertyName):
+    def __init__(self, editor, propertyName, lineLimit = 0):
         self.editor = editor
         self.propertyName = propertyName
         self.widget = None
         self.editor.validator[self.propertyName] = True
+        self.lineLimit = lineLimit
 
     def load(self, element):
         lineEditName = "le" + self.propertyName[0].upper() + self.propertyName[1:]
@@ -172,6 +173,11 @@ class ScriptEditor:
         elif hasattr(self.editor.ui, textEditName):
             self.widget = getattr(self.editor.ui, textEditName)
             self.widget.setPlainText(getattr(element, self.propertyName))
+            if self.lineLimit > 0:
+                line = QtWidgets.QLineEdit()
+                self.widget.setFixedHeight(self.lineLimit * line.sizeHint().height())
+                line.deleteLater()
+        self.toolTip = self.widget.toolTip()
         self.widget.textChanged.connect(self.scriptTextChanged)
         self.scriptTextChanged()
 
@@ -184,13 +190,10 @@ class ScriptEditor:
             text = self.widget.text() if isinstance(self.widget, QtWidgets.QLineEdit) else self.widget.toPlainText()
             compile_restricted(text, self.propertyName, "exec")
             self.widget.setStyleSheet("")
-            self.widget.setToolTip("")
+            self.widget.setToolTip(self.toolTip)
             self.editor.validator[self.propertyName] = True
         except SyntaxError as e:
             self.widget.setStyleSheet("border: 1px solid red;")
-            if isinstance(self.widget, QtWidgets.QLineEdit):
-                self.widget.setToolTip(f"{e.msg} (at position {e.offset})")
-            else:
-                self.widget.setToolTip(f"{e.msg} (at line {e.lineno} position {e.offset})")
+            self.widget.setToolTip("\n".join(e.msg))
             self.editor.validator[self.propertyName] = False
         self.editor.updateSaveButtonState()
