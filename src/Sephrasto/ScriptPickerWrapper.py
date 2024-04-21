@@ -352,6 +352,7 @@ class ScriptPickerWrapper(object):
         # String getters (parameters only support default values)
         # ======================
         scripts = {}
+
         addScript(Script("Name", "getName", "Hintergrund"))
         addScript(Script("Spezies", "getSpezies", "Hintergrund"))
         addScript(Script("Kurzbeschreibung", "getKurzbeschreibung", "Hintergrund"))
@@ -378,6 +379,36 @@ class ScriptPickerWrapper(object):
         # ======================
 
         scripts = {}
+
+        script = Script("Wert abrunden", "roundDown", "Arithmetik")
+        script.beschreibung = "Rundet auf die nächste ganze Zahl in Richtung 0 ab."
+        script.parameter.append(ScriptParameter("Wert", float))
+        addScript(script)
+        script = Script("Wert aufrunden", "roundUp", "Arithmetik")
+        script.beschreibung = "Rundet auf die nächst-größere (positive Zahlen)/-kleinere (negative Zahlen) ganze Zahl auf."
+        script.parameter.append(ScriptParameter("Wert", float))
+        addScript(script)
+        script = Script("Wert runden", "round", "Arithmetik")
+        script.beschreibung = "Rundet kaufmännisch zur nächsten ganzen Zahl (ab .5 auf, darunter ab)."
+        script.parameter.append(ScriptParameter("Wert", float))
+        addScript(script)
+        script = Script("Mindestwert beschränken", "max", "Arithmetik")
+        script.beschreibung = "Wenn der Wert niedriger als das angegebene Minimum ist, wird das Minimum zurückgegeben."
+        script.parameter.append(ScriptParameter("Wert", float))
+        script.parameter.append(ScriptParameter("Minimum", float))
+        addScript(script)
+        script = Script("Maximalwert beschränken", "min", "Arithmetik")
+        script.beschreibung = "Wenn der Wert größer als das angegebene Maximum ist, wird das Maximum zurückgegeben."
+        script.parameter.append(ScriptParameter("Wert", float))
+        script.parameter.append(ScriptParameter("Maximum", float))
+        addScript(script)
+        script = Script("Mindest- und Maximalwert beschränken", "clamp", "Arithmetik")
+        script.beschreibung = "Wenn der Wert niedriger als das angegebene Minimum ist, wird das Minimum zurückgegeben, "\
+            "wenn er größer als das angebene Maximum ist das Maximum."
+        script.parameter.append(ScriptParameter("Wert", float))
+        script.parameter.append(ScriptParameter("Minimum", float))
+        script.parameter.append(ScriptParameter("Maximum", float))
+        addScript(script)
 
         # Abgeleitete Werte
         for ab in self.datenbank.abgeleiteteWerte:

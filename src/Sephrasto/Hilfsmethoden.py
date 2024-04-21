@@ -17,6 +17,7 @@ import locale
 from RestrictedPython import safe_builtins
 from RestrictedPython.Guards import guarded_unpack_sequence, guarded_iter_unpack_sequence
 from RestrictedPython.Eval import default_guarded_getiter, default_guarded_getitem
+import math
 
 class WaffeneigenschaftException(Exception):
     pass
@@ -311,6 +312,10 @@ ol {{ padding: 0; margin: 0; -qt-list-indent: 0; margin-left: {Hilfsmethoden.emT
             "_write_": writeGuard,
             "max" : max,
             "min" : min,
+            "clamp" : lambda val, minimum, maximum: max(min(val, maximum), minimum),
+            "round" : lambda val: math.round(val),
+            "roundDown" : lambda val: int(val),
+            "roundUp" : lambda val: math.ceil(val) if val >= 0 else math.floor(val),
             "sum" : sum
         }
         return scriptAPI
