@@ -118,6 +118,7 @@ Die folgenden Filter haben alle eine Gemeinsamkeit:  Der Filterwert ist eine Wra
 |class_ruestungspicker_wrapper|Filter|RuestungPicker : class // {}|
 |class_freiefertigkeitenpicker_wrapper|Filter|CharakterFreieFertigkeitenPickerWrapper : class // {}|
 |class_talentpicker_wrapper|Filter|TalentPicker : class // {}|
+|class_scriptpicker_wrapper|Filter|ScriptPicker : class // {}|
 
 ### PDF Export
 | Name | Typ | Filter // Parameter | Zweck |

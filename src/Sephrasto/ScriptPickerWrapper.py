@@ -12,7 +12,6 @@ from functools import partial
 from RestrictedPython import compile_restricted
 from QtUtils.PyEdit2 import TextEdit, NumberBar
 from QtUtils.RichTextButton import RichTextPushButton
-from QtUtils.AutoResizingTextBrowser import TextEditAutoResizer
 
 class ScriptParameter:
     def __init__(self, name, typ, defaultValue=None, completionTable = None):
@@ -24,12 +23,13 @@ class ScriptParameter:
             self.completionTable = list(self.completionTable.keys())
 
 class Script:
-    def __init__(self, name, identifier, kategorie = "", beschreibung = ""):
+    def __init__(self, name, identifier, kategorie = "", beschreibung = "", castType=None):
         self.name = name
         self.identifier = identifier
         self.kategorie = kategorie
         self.parameter = []
         self.beschreibung = beschreibung
+        self.castType = castType
 
     # overrides need to be strings and literals need to be already enclosed in quotation marks
     def buildCode(self, paramOverrides = {}):
@@ -42,8 +42,10 @@ class Script:
                 if param.typ == str:
                     value = f'"{value}"'
             paramsEvaluated.append(value)
-        return f"{self.identifier}({', '.join(paramsEvaluated)})"
-
+        code = f"{self.identifier}({', '.join(paramsEvaluated)})"
+        if self.castType is not None:
+            code = f"{self.castType.__name__}({code})"
+        return code
 
 
 class ScriptContext:
@@ -72,7 +74,6 @@ class ScriptPickerWrapper(object):
                 QtCore.Qt.WindowMaximizeButtonHint |
                 QtCore.Qt.WindowMinimizeButtonHint)
 
-        self.autoResizeHelper = TextEditAutoResizer(self.ui.teBeschreibung)
         windowSize = Wolke.Settings["WindowSize-ScriptPicker"]
         self.form.resize(windowSize[0], windowSize[1])
 
@@ -87,17 +88,16 @@ class ScriptPickerWrapper(object):
         self.ui.codeLayout.layout().addWidget(self.numbers)
         self.ui.codeLayout.layout().addWidget(self.editor)
 
+        self.ui.buttonInsert = RichTextPushButton(None, "<span style='" + Wolke.FontAwesomeCSS + f"'>\uf078</span>&nbsp;&nbsp;Einfügen&nbsp;&nbsp;<span style='" + Wolke.FontAwesomeCSS + f"'>\uf078</span>")
+        self.ui.horizontalLayout.addWidget(self.ui.buttonInsert)
+        self.ui.buttonInsert.clicked.connect(self.insertClicked)
+
         self.ui.treeScripts.setHeaderHidden(True)
         self.populateTree()
-        logging.debug("Tree Filled...")
         self.ui.treeScripts.itemSelectionChanged.connect(self.changeHandler)
         self.ui.treeScripts.header().setSectionResizeMode(0,QtWidgets.QHeaderView.Fixed)
 
         self.expansionHelper = TreeExpansionHelper(self.ui.treeScripts, self.ui.buttonExpandToggle)
-
-        self.ui.buttonInsert = RichTextPushButton(None, "<span style='" + Wolke.FontAwesomeCSS + f"'>\uf078</span>&nbsp;&nbsp;Einfügen&nbsp;&nbsp;<span style='" + Wolke.FontAwesomeCSS + f"'>\uf078</span>")
-        self.ui.horizontalLayout.addWidget(self.ui.buttonInsert)
-        self.ui.buttonInsert.clicked.connect(self.insertClicked)
 
         self.editor.setPlainText(script)
         self.editor.textChanged.connect(self.scriptTextChanged)
@@ -115,7 +115,6 @@ class ScriptPickerWrapper(object):
         self.form.addAction(self.shortcutClearSearch)
 
         self.updateInfo()
-        logging.debug("Info Updated...")
         self.ui.nameFilterEdit.textChanged.connect(self.populateTree)
 
         self.form.setWindowModality(QtCore.Qt.ApplicationModal)
@@ -169,20 +168,21 @@ class ScriptPickerWrapper(object):
             break
         self.updateInfo()
 
-    def updateText(self, button, text):
+    def updateText(self, button, text, plusLabel):
         button.setText(text + "  ")
+        plusLabel.setVisible(text != "Konstante")
         
-    def setMenu(self, button, scriptsByKategorie):
+    def setMenu(self, button, plusLabel, scriptsByKategorie):
         menu = QtWidgets.QMenu()
         action = menu.addAction("Konstante")
-        action.triggered.connect(partial(self.updateText, button=button, text="Konstante"))
+        action.triggered.connect(partial(self.updateText, button=button, text="Konstante", plusLabel=plusLabel))
         for kategorie, scripts in scriptsByKategorie.items():
             if len(scripts) == 0:
                 continue
             subMenu = menu.addMenu(kategorie)
             for script in scripts:
                 action = subMenu.addAction(script)
-                action.triggered.connect(partial(self.updateText, button=button, text=script))
+                action.triggered.connect(partial(self.updateText, button=button, text=script, plusLabel=plusLabel))
         button.setMenu(menu)
         self.menus.append(menu)
 
@@ -191,30 +191,38 @@ class ScriptPickerWrapper(object):
         while self.ui.layoutParameter.rowCount() > 0:
             self.ui.layoutParameter.removeRow(0)
         self.completer = []
+        self.menus = []
+
+        self.ui.buttonInsert.setEnabled(self.current != "")
 
         if not self.current:
             return
         script = self.setters[self.current]
 
         self.ui.lblName.setText(script.name)
-        self.ui.teBeschreibung.setText(script.beschreibung)
-        self.menus = []
+        self.ui.teBeschreibung.setText(Hilfsmethoden.fixHtml(script.beschreibung))
+        
         for parameter in script.parameter:
+            layout = QtWidgets.QHBoxLayout()
             getterButton = QtWidgets.QToolButton()
             getterButton.setPopupMode(QtWidgets.QToolButton.InstantPopup)
             getterButton.setText("Konstante  ")
-            layout = QtWidgets.QHBoxLayout()
             layout.addWidget(getterButton)
+
+            plusLabel = QtWidgets.QLabel("+")
+            plusLabel.setVisible(False)
+            plusLabel.setFixedWidth(Hilfsmethoden.emToPixels(2))
+            layout.addWidget(plusLabel)
             
             if parameter.typ == str:
-                self.setMenu(getterButton, self.stringGetterByKategorie)
+                self.setMenu(getterButton, plusLabel, self.stringGetterByKategorie)
                 widget = QtWidgets.QLineEdit()
                 if parameter.completionTable is not None:
                     self.completer.append(TextTagCompleter(widget, parameter.completionTable))
                 if parameter.defaultValue is not None:
                     widget.setText(parameter.defaultValue)
             elif parameter.typ == int or parameter.typ == float:
-                self.setMenu(getterButton, self.numberGetterByKategorie)
+                self.setMenu(getterButton, plusLabel, self.numberGetterByKategorie)
                 widget = QtWidgets.QSpinBox() if parameter.typ == int else QtWidgets.QDoubleSpinBox()
                 widget.setButtonSymbols(QtWidgets.QAbstractSpinBox.PlusMinus)
                 widget.setMinimum(-999)
@@ -238,7 +246,7 @@ class ScriptPickerWrapper(object):
             paramId = layoutItem.widget().text()
             layoutItem = self.ui.layoutParameter.itemAt(i, QtWidgets.QFormLayout.FieldRole)
             getterName = layoutItem.layout().itemAt(0).widget().text().strip()
-            widget = layoutItem.layout().itemAt(1).widget()
+            widget = layoutItem.layout().itemAt(2).widget()
             if isinstance(widget, QtWidgets.QLineEdit):
                 if getterName == "Konstante":
                     params[paramId] = f'"{widget.text()}"'
@@ -312,23 +320,23 @@ class ScriptPickerWrapper(object):
         kampfstile = ["Nahkampf", "Fernkampf"] + self.datenbank.findKampfstile()
         for kampfstil in kampfstile:
             script = Script(f"{kampfstil} AT-Mod.", f"getKampfstilAT", "Kampfstile")
-            script.parameter.append(ScriptParameter("kampfstil", str, kampfstil))
+            script.parameter.append(ScriptParameter("Kampfstil", str, kampfstil))
             addScript(script)
             script = Script(f"{kampfstil} VT-Mod.", f"getKampfstilVT", "Kampfstile")
-            script.parameter.append(ScriptParameter("kampfstil", str, kampfstil))
+            script.parameter.append(ScriptParameter("Kampfstil", str, kampfstil))
             addScript(script)
             script = Script(f"{kampfstil} Bonusschaden-Mod.", f"getKampfstilPlus", "Kampfstile")
-            script.parameter.append(ScriptParameter("kampfstil", str, kampfstil))
+            script.parameter.append(ScriptParameter("Kampfstil", str, kampfstil))
             addScript(script)
             script = Script(f"{kampfstil} Reichweite-Mod.", f"getKampfstilRW", "Kampfstile")
-            script.parameter.append(ScriptParameter("kampfstil", str, kampfstil))
+            script.parameter.append(ScriptParameter("Kampfstil", str, kampfstil))
             addScript(script)
             script = Script(f"{kampfstil} BE-Mod.", f"getKampfstilBE", "Kampfstile")
-            script.parameter.append(ScriptParameter("kampfstil", str, kampfstil))
+            script.parameter.append(ScriptParameter("Kampfstil", str, kampfstil))
             addScript(script)
 
         for i in range(1,4):
-            script = Script("Waffeneigenschaft Parameter {i} (Zahl)", f"getEigenschaftParam", "Waffen")
+            script = Script(f"Waffeneigenschaft Parameter {i} (Zahl)", f"getEigenschaftParam", "Waffen", castType = int)
             script.parameter.append(ScriptParameter("index", int, i))
             addScript(script)
         addScript(Script("Waffe berechnete AT", f"getWaffeAT", "Waffen"))
@@ -358,7 +366,7 @@ class ScriptPickerWrapper(object):
             addScript(script)
 
         for i in range(1,4):
-            script = Script("Waffeneigenschaft Parameter {i} (Text)", f"getEigenschaftParam", "Waffen")
+            script = Script(f"Waffeneigenschaft Parameter {i} (Text)", f"getEigenschaftParam", "Waffen")
             script.parameter.append(ScriptParameter("index", int, i))
             addScript(script)
         addScript(Script("Waffe aktiver Kampfstil", f"getWaffeKampfstil", "Waffen"))
@@ -407,38 +415,39 @@ class ScriptPickerWrapper(object):
 
         # Talente
         script = Script("Talent PW modifizieren", "modifyTalentProbenwert", "Talente")
-        script.beschreibung = "Dies ist nützlich, um permanente Erleichterungen auf ein Talent direkt in der Talentliste aufzuführen. Ist das Talent noch nicht erworben, wird das ganze Talent mit der Modifizierung in Klammern gesetzt. Die Modifizierung wird ausschließlich im Charakterbogen eingerechnet!"
+        script.beschreibung = "Dieses Script ist nützlich, um permanente Erleichterungen auf ein Talent direkt in der Talentliste aufzuführen. "\
+            "Ist das Talent noch nicht erworben, wird das ganze Talent mit der Modifizierung in Klammern gesetzt. Die Modifizierung wird ausschließlich im Charakterbogen eingerechnet!"
         script.parameter.append(ScriptParameter("Talent", str, completionTable = self.datenbank.talente))
         script.parameter.append(ScriptParameter("Modifikator", int))
         addScript(script)
 
         script = Script("Talent Info hinzufügen", "addTalentInfo", "Talente")
-        script.beschreibung = "Dies ist nützlich, um besondere Effekte wie beispielsweise von manchen Vorteilen direkt bei den Talenten im Charakterbogen aufzuführen."
+        script.beschreibung = "Dieses Script ist nützlich, um besondere Effekte wie beispielsweise von manchen Vorteilen direkt bei den Talenten im Charakterbogen aufzuführen."
         script.parameter.append(ScriptParameter("Talent", str, completionTable = self.datenbank.talente))
         script.parameter.append(ScriptParameter("Info", str))
         addScript(script)
 
         script = Script("Talent kaufen", "addTalent", "Talente")
-        script.beschreibung = " Das Script fügt dem Talent den Vorteil, zu dem es gehört, als Voraussetzung hinzu. Sobald der Vorteil also abgewählt wird, verliert der Charakter auch das Talent.\n"\
-        "Mit dem Kosten-Parameter können die Standard-Talentkosten geändert werden (bei -1 werden sie nicht verändert).\n"\
-        "Optional kann außerdem eine übernatürliche Fertigkeit mit angegeben werden, die benötigt wird - falls der Charakter sie nicht besitzt, macht das Script nichts; diese wird dannauch als Voraussetzung hinzugefügt.\n"\
-        "Beispiel ohne Bedingung und Kostenveränderung: addTalent('Spurlos Trittlos')\n"\
-        "Beispiel mit Kosten auf 0 EP gesetzt und 'Gaben des Butgeists' als Bedingung: addTalent('Spurlos Trittlos', 0, 'Gaben des Blutgeists')"
+        script.beschreibung = "Das Script fügt dem Charakter das angegebene Talent zu regulären Kosten hinzu. Wenn es in einem Vorteil verwendet wird, wird der Vorteil dem Talent, als Voraussetzung hinzugefügt. "
+        "Sobald der Vorteil also abgewählt wird, verliert der Charakter auch das Talent.\n"\
+        "<ul><li>Mit dem EP Kosten-Parameter können die Standard-Talentkosten geändert werden. Bei -1 werden sie nicht verändert.</li>"\
+        "<li>Es kann eine übernatürliche Fertigkeit mit angegeben werden, die benötigt wird - falls der Charakter sie nicht besitzt, macht das Script nichts; diese wird dannauch als Voraussetzung hinzugefügt.</li></ul>"
         script.parameter.append(ScriptParameter("Talent", str, completionTable = self.datenbank.talente))
-        script.parameter.append(ScriptParameter("EP Kosten anpassen", int, -1))
-        script.parameter.append(ScriptParameter("Vorrausgesetzte übern. Fertigkeit", str, completionTable = self.datenbank.übernatürlicheFertigkeiten))
+        script.parameter.append(ScriptParameter("EP Kosten anpassen (optional)", int, -1))
+        script.parameter.append(ScriptParameter("Übern. Fertigkeit voraussetzen (optional)", str, completionTable = self.datenbank.übernatürlicheFertigkeiten))
         addScript(script)
 
         # Fertigkeiten
         script = Script("Fertigkeit Basiswert modifizieren", "modifyFertigkeitBasiswert", "Fertigkeiten")
-        script.beschreibung = "Dies ist nützlich, um sich permanente Erleichterungen auf eine Fertigkeit nicht merken zu müssen. "\
+        script.beschreibung = "Dieses Script ist nützlich, um sich permanente Erleichterungen auf eine Fertigkeit nicht merken zu müssen. "\
             "Diese Modifikation wird bei Voraussetzungen der Typen \"Fertigkeit\" und \"Talent\" nicht eingerechnet!"
         script.parameter.append(ScriptParameter("Fertigkeit", str, completionTable = self.datenbank.fertigkeiten))
         script.parameter.append(ScriptParameter("Modifikator", int))
         addScript(script)
 
         script = Script("Übernatürliche Fertigkeit Basiswert modifizieren", "modifyÜbernatürlicheFertigkeitBasiswert", "Fertigkeiten")
-        script.beschreibung = scripts["Fertigkeit Basiswert modifizieren"].beschreibung
+        script.beschreibung = "Dieses Script ist nützlich, um sich permanente Erleichterungen auf eine übernatürliche Fertigkeit nicht merken zu müssen. "\
+            "Diese Modifikation wird bei Voraussetzungen der Typen \"Fertigkeit\" und \"Talent\" nicht eingerechnet!"
         script.parameter.append(ScriptParameter("Fertigkeit", str, completionTable = self.datenbank.übernatürlicheFertigkeiten))
         script.parameter.append(ScriptParameter("Modifikator", int))
         addScript(script)
