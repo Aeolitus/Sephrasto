@@ -13,8 +13,8 @@ class DatenbankEditAbgeleiteterWertWrapper(DatenbankElementEditorBase):
     def __init__(self, datenbank, abgeleiteterWert = None, readonly = False):
         super().__init__()
         self.beschreibungEditor = BeschreibungEditor(self)
-        self.scriptEditor = ScriptEditor(self, "script")
-        self.finalscriptEditor = ScriptEditor(self, "finalscript")
+        self.scriptEditor = ScriptEditor(self)
+        self.finalscriptEditor = ScriptEditor(self, "finalscript", "teFinalscript")
         self.setupAndShow(datenbank, UI.DatenbankEditAbgeleiteterWert.Ui_dialog(), AbgeleiteterWertDefinition, abgeleiteterWert, readonly)
             
     def onSetupUi(self):

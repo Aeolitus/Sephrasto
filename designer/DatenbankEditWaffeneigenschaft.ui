@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>440</width>
-    <height>373</height>
+    <height>401</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -116,10 +116,10 @@
             <enum>QAbstractSpinBox::PlusMinus</enum>
            </property>
            <property name="minimum">
-            <number>-10</number>
+            <number>-999</number>
            </property>
            <property name="maximum">
-            <number>10</number>
+            <number>999</number>
            </property>
            <property name="singleStep">
             <number>1</number>

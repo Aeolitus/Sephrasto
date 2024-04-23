@@ -27,7 +27,7 @@ class Ui_dialog(object):
         if not dialog.objectName():
             dialog.setObjectName(u"dialog")
         dialog.setWindowModality(Qt.ApplicationModal)
-        dialog.resize(628, 1090)
+        dialog.resize(628, 1157)
         self.gridLayout_2 = QGridLayout(dialog)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.gridLayout = QGridLayout()
@@ -157,8 +157,8 @@ class Ui_dialog(object):
         self.spinScriptPrio = QSpinBox(dialog)
         self.spinScriptPrio.setObjectName(u"spinScriptPrio")
         self.spinScriptPrio.setButtonSymbols(QAbstractSpinBox.PlusMinus)
-        self.spinScriptPrio.setMinimum(-10)
-        self.spinScriptPrio.setMaximum(10)
+        self.spinScriptPrio.setMinimum(-999)
+        self.spinScriptPrio.setMaximum(999)
         self.spinScriptPrio.setSingleStep(1)
         self.spinScriptPrio.setValue(0)
 

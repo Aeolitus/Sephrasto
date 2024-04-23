@@ -157,43 +157,38 @@ class VoraussetzungenEditor:
         self.editor.updateSaveButtonState()
 
 class ScriptEditor:
-    def __init__(self, editor, propertyName, lineLimit = 0):
+    def __init__(self, editor, propertyName="script", textEditName = "teScript", lineLimit = 0):
         self.editor = editor
         self.propertyName = propertyName
+        self.textEditName = textEditName
         self.widget = None
         self.editor.validator[self.propertyName] = True
         self.lineLimit = lineLimit
 
     def load(self, element):
-        lineEditName = "le" + self.propertyName[0].upper() + self.propertyName[1:]
-        textEditName = "te" + self.propertyName[0].upper() + self.propertyName[1:]
-        if hasattr(self.editor.ui, lineEditName):
-            self.widget = getattr(self.editor.ui, lineEditName)
-            self.widget.setText(getattr(element, self.propertyName))
-        elif hasattr(self.editor.ui, textEditName):
-            self.widget = getattr(self.editor.ui, textEditName)
-            self.widget.setPlainText(getattr(element, self.propertyName))
-            if self.lineLimit > 0:
-                line = QtWidgets.QLineEdit()
-                self.widget.setFixedHeight(self.lineLimit * line.sizeHint().height())
-                line.deleteLater()
-        self.toolTip = self.widget.toolTip()
-        self.widget.textChanged.connect(self.scriptTextChanged)
+        textEdit = getattr(self.editor.ui, self.textEditName)
+        textEdit.setPlainText(getattr(element, self.propertyName))
+        if self.lineLimit > 0:
+            line = QtWidgets.QLineEdit()
+            textEdit.setFixedHeight(self.lineLimit * line.sizeHint().height())
+            line.deleteLater()
+        self.toolTip = textEdit.toolTip()
+        textEdit.textChanged.connect(self.scriptTextChanged)
         self.scriptTextChanged()
 
     def update(self, element):
-        text = self.widget.text() if isinstance(self.widget, QtWidgets.QLineEdit) else self.widget.toPlainText()
-        setattr(element, self.propertyName, text)
+        textEdit = getattr(self.editor.ui, self.textEditName)
+        setattr(element, self.propertyName, textEdit.toPlainText())
 
     def scriptTextChanged(self):
+        textEdit = getattr(self.editor.ui, self.textEditName)
         try:
-            text = self.widget.text() if isinstance(self.widget, QtWidgets.QLineEdit) else self.widget.toPlainText()
-            compile_restricted(text, self.propertyName, "exec")
-            self.widget.setStyleSheet("")
-            self.widget.setToolTip(self.toolTip)
+            compile_restricted(textEdit.toPlainText(), self.propertyName, "exec")
+            textEdit.setStyleSheet("")
+            textEdit.setToolTip(self.toolTip)
             self.editor.validator[self.propertyName] = True
         except SyntaxError as e:
-            self.widget.setStyleSheet("border: 1px solid red;")
-            self.widget.setToolTip("\n".join(e.msg))
+            textEdit.setStyleSheet("border: 1px solid red;")
+            textEdit.setToolTip("\n".join(e.msg))
             self.editor.validator[self.propertyName] = False
         self.editor.updateSaveButtonState()

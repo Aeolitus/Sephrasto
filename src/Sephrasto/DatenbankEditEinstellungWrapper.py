@@ -4,13 +4,12 @@ from Core.DatenbankEinstellung import DatenbankEinstellung
 from PySide6 import QtWidgets, QtCore
 from Wolke import Wolke
 from Datenbank import Datenbank
+from QtUtils.PyEdit2 import TextEdit, NumberBar
 
 class DatenbankEditEinstellungWrapper(DatenbankElementEditorBase):
     def __init__(self, datenbank, element, readonly=False):
         super().__init__()
-        if element.typ in ["Exec", "Eval"]:
-            self.scriptEditor = ScriptEditor(self, "text")
-        elif element.typ == "TextDict":
+        if element.typ == "TextDict":
             self.validator["Text"] = True
         self.setupAndShow(datenbank, UI.DatenbankEditEinstellung.Ui_dialog(), DatenbankEinstellung, element, readonly)
 
@@ -20,7 +19,7 @@ class DatenbankEditEinstellungWrapper(DatenbankElementEditorBase):
         self.ui.checkText.setVisible(einstellung.typ == 'Bool')
         self.ui.spinText.setVisible(einstellung.typ == 'Int')
         self.ui.dspinText.setVisible(einstellung.typ == 'Float')
-        self.ui.teText.setVisible(einstellung.typ in ['Text', 'TextList', 'IntList', 'TextDict', 'Eval', 'Exec'])
+        self.ui.teText.setVisible(einstellung.typ in ['Text', 'TextList', 'IntList', 'TextDict'])
         if einstellung.typ == 'Int':
             self.ui.spinText.setValue(int(einstellung.text))
         elif einstellung.typ == 'Float':
@@ -28,6 +27,13 @@ class DatenbankEditEinstellungWrapper(DatenbankElementEditorBase):
         elif einstellung.typ == 'Bool':
             self.ui.checkText.setChecked(einstellung.text.lower() == "true" or einstellung.text == '1')
         elif einstellung.typ in ["Exec", "Eval"]:
+            self.ui.teScript = TextEdit()
+            self.ui.numbersScript = NumberBar(self.ui.teScript)
+            layout = QtWidgets.QHBoxLayout()
+            layout.addWidget(self.ui.numbersScript)
+            layout.addWidget(self.ui.teScript)
+            self.ui.verticalLayout.addLayout(layout)
+            self.scriptEditor = ScriptEditor(self, "text", "teScript")
             self.scriptEditor.load(einstellung)
             self.dialog.layout().removeItem(self.ui.verticalSpacer)
         elif einstellung.typ == "TextDict":

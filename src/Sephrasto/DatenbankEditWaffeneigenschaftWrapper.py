@@ -18,7 +18,7 @@ class DatenbankEditWaffeneigenschaftWrapper(DatenbankElementEditorBase):
     def __init__(self, datenbank, waffeneigenschaft=None, readonly = False):
         super().__init__()
         self.beschreibungEditor = BeschreibungEditor(self)
-        self.scriptEditor = ScriptEditor(self, "script", 2)
+        self.scriptEditor = ScriptEditor(self, lineLimit=2)
         self.setupAndShow(datenbank, UI.DatenbankEditWaffeneigenschaft.Ui_dialog(), Waffeneigenschaft, waffeneigenschaft, readonly)
 
     def onSetupUi(self):
@@ -42,6 +42,6 @@ class DatenbankEditWaffeneigenschaftWrapper(DatenbankElementEditorBase):
 
     def openScriptPicker(self):
         pickerClass = EventBus.applyFilter("class_scriptpicker_wrapper", ScriptPickerWrapper)
-        picker = pickerClass(self.datenbank, self.scriptEditor.widget.toPlainText(), ScriptContext.Waffeneigenschaften)
+        picker = pickerClass(self.datenbank, self.ui.teScript.toPlainText(), ScriptContext.Waffeneigenschaften)
         if picker.script != None:
-            self.scriptEditor.widget.setPlainText(picker.script)
+            self.ui.teScript.setPlainText(picker.script)

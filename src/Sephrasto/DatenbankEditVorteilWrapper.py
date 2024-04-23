@@ -24,7 +24,7 @@ class DatenbankEditVorteilWrapper(DatenbankElementEditorBase):
         self.beschreibungBedingungenEditor = BeschreibungEditor(self, "bedingungen", "teBedingungen", "tbBedingungen")
         self.beschreibungInfoEditor = BeschreibungEditor(self, "info", "teInfo", "tbInfo")
         self.voraussetzungenEditor = VoraussetzungenEditor(self)
-        self.scriptEditor = ScriptEditor(self, "script", 2)
+        self.scriptEditor = ScriptEditor(self, lineLimit=2)
         self.setupAndShow(datenbank, UI.DatenbankEditVorteil.Ui_dialog(), VorteilDefinition, vorteil, readonly)
 
     def onSetupUi(self):
@@ -271,6 +271,6 @@ class DatenbankEditVorteilWrapper(DatenbankElementEditorBase):
 
     def openScriptPicker(self):
         pickerClass = EventBus.applyFilter("class_scriptpicker_wrapper", ScriptPickerWrapper)
-        picker = pickerClass(self.datenbank, self.scriptEditor.widget.toPlainText())
+        picker = pickerClass(self.datenbank, self.ui.teScript.toPlainText())
         if picker.script != None:
-            self.scriptEditor.widget.setPlainText(picker.script)
+            self.ui.teScript.setPlainText(picker.script)
