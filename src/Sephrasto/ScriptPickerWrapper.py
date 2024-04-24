@@ -54,10 +54,11 @@ class ScriptContext:
 
 class ScriptPickerWrapper(object):
 
-    def __init__(self, datenbank, script, context = ScriptContext.Charakter):
+    def __init__(self, datenbank, script, context = ScriptContext.Charakter, mode = "exec"):
         super().__init__()
         self.datenbank = datenbank
         self.current = ""
+        self.mode = mode
         self.completer = []
 
         logging.debug("Initializing ScriptPicker...")
@@ -101,6 +102,7 @@ class ScriptPickerWrapper(object):
 
         self.editor.setPlainText(script)
         self.editor.textChanged.connect(self.scriptTextChanged)
+        self.scriptTextChanged()
 
         self.ui.labelFilter.setText("\uf002")
         self.ui.nameFilterEdit.setFocus()
@@ -264,13 +266,19 @@ class ScriptPickerWrapper(object):
             elif isinstance(widget, QtWidgets.QCheckBox):
                 params[paramId] = str(widget.isChecked())
         self.editor.insertPlainText(script.buildCode(params))
+        self.editor.setFocus()
 
     def scriptTextChanged(self):
         error = ""
-        try:
-            compile_restricted(self.editor.toPlainText(), "Script", "exec")
-        except SyntaxError as e:
-            error = "\n".join(e.msg)
+
+        if self.mode == "eval" and "\n" in self.editor.toPlainText():
+            error = "Dieses Script muss einen Ausdruck in einer einzelnen Zeile enthalten."
+
+        if not error:
+            try:
+                compile_restricted(self.editor.toPlainText(), "Script", self.mode)
+            except SyntaxError as e:
+                error = "\n".join(e.msg)
 
         if error:
             self.editor.setError(True)

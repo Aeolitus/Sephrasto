@@ -33,7 +33,7 @@ class DatenbankEditEinstellungWrapper(DatenbankElementEditorBase):
             layout.addWidget(self.ui.numbersScript)
             layout.addWidget(self.ui.teScript)
             self.ui.verticalLayout.addLayout(layout)
-            self.scriptEditor = ScriptEditor(self, "text", "teScript")
+            self.scriptEditor = ScriptEditor(self, "text", "teScript", mode=einstellung.typ.lower())
             self.scriptEditor.load(einstellung)
             self.dialog.layout().removeItem(self.ui.verticalSpacer)
         elif einstellung.typ == "TextDict":

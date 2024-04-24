@@ -313,7 +313,7 @@ ol {{ padding: 0; margin: 0; -qt-list-indent: 0; margin-left: {Hilfsmethoden.emT
             "max" : max,
             "min" : min,
             "clamp" : lambda val, minimum, maximum: max(min(val, maximum), minimum),
-            "round" : lambda val: math.round(val),
+            "round" : round,
             "roundDown" : lambda val: int(val),
             "roundUp" : lambda val: math.ceil(val) if val >= 0 else math.floor(val),
             "sum" : sum

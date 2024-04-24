@@ -13,8 +13,8 @@ class DatenbankEditAbgeleiteterWertWrapper(DatenbankElementEditorBase):
     def __init__(self, datenbank, abgeleiteterWert = None, readonly = False):
         super().__init__()
         self.beschreibungEditor = BeschreibungEditor(self)
-        self.scriptEditor = ScriptEditor(self)
-        self.finalscriptEditor = ScriptEditor(self, "finalscript", "teFinalscript")
+        self.scriptEditor = ScriptEditor(self, mode="eval")
+        self.finalscriptEditor = ScriptEditor(self, "finalscript", "teFinalscript", mode="eval")
         self.setupAndShow(datenbank, UI.DatenbankEditAbgeleiteterWert.Ui_dialog(), AbgeleiteterWertDefinition, abgeleiteterWert, readonly)
             
     def onSetupUi(self):
@@ -49,6 +49,6 @@ class DatenbankEditAbgeleiteterWertWrapper(DatenbankElementEditorBase):
 
     def openScriptPicker(self, editor):
         pickerClass = EventBus.applyFilter("class_scriptpicker_wrapper", ScriptPickerWrapper)
-        picker = pickerClass(self.datenbank, editor.toPlainText())
+        picker = pickerClass(self.datenbank, editor.toPlainText(), mode="eval")
         if picker.script != None:
             editor.setPlainText(picker.script)

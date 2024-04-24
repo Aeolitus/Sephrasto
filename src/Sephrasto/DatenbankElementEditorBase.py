@@ -157,13 +157,14 @@ class VoraussetzungenEditor:
         self.editor.updateSaveButtonState()
 
 class ScriptEditor:
-    def __init__(self, editor, propertyName="script", textEditName = "teScript", lineLimit = 0):
+    def __init__(self, editor, propertyName="script", textEditName = "teScript", lineLimit = 0, mode = "exec"):
         self.editor = editor
         self.propertyName = propertyName
         self.textEditName = textEditName
         self.widget = None
         self.editor.validator[self.propertyName] = True
         self.lineLimit = lineLimit
+        self.mode = mode
 
     def load(self, element):
         textEdit = getattr(self.editor.ui, self.textEditName)
@@ -182,13 +183,18 @@ class ScriptEditor:
 
     def scriptTextChanged(self):
         textEdit = getattr(self.editor.ui, self.textEditName)
-        try:
-            compile_restricted(textEdit.toPlainText(), self.propertyName, "exec")
-            textEdit.setStyleSheet("")
-            textEdit.setToolTip(self.toolTip)
-            self.editor.validator[self.propertyName] = True
-        except SyntaxError as e:
+        if self.mode == "eval" and "\n" in textEdit.toPlainText():
             textEdit.setStyleSheet("border: 1px solid red;")
-            textEdit.setToolTip("\n".join(e.msg))
+            textEdit.setToolTip("Dieses Script muss einen Ausdruck in einer einzelnen Zeile enthalten.")
             self.editor.validator[self.propertyName] = False
+        else:
+            try:
+                compile_restricted(textEdit.toPlainText() or "0", self.propertyName, self.mode)
+                textEdit.setStyleSheet("")
+                textEdit.setToolTip(self.toolTip)
+                self.editor.validator[self.propertyName] = True
+            except SyntaxError as e:
+                textEdit.setStyleSheet("border: 1px solid red;")
+                textEdit.setToolTip("\n".join(e.msg))
+                self.editor.validator[self.propertyName] = False
         self.editor.updateSaveButtonState()
