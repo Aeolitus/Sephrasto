@@ -552,6 +552,13 @@ class Scripts:
         script.parameter.append(ScriptParameter("Modifikator", int))
         addScript(script)
 
+        #Regeln
+        script = Script("Regel Info hinzufügen", "addRegelInfo", "Regeln")
+        script.beschreibung = "Dieses Script ist nützlich, um besondere Effekte wie beispielsweise von manchen Vorteilen direkt bei den Regeln im Regelanhang des Charakterbogens aufzuführen."
+        script.parameter.append(ScriptParameter("Regel", str, completionTable = datenbank.regeln))
+        script.parameter.append(ScriptParameter("Info", str))
+        addScript(script)
+
         setters = EventBus.applyFilter("scripts_setter", scripts) 
 
         return Scripts(setters, stringGetter, numberGetter, boolGetter)

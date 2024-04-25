@@ -72,6 +72,7 @@ class Char():
         self.talente = {}
         self.talentMods = {}  # for scripts, only used in export { talentnname1 : mod, talentname2 : mod, ... 
         self.talentInfos = {} # for scripts, only used in export { talentnname1 : ["Info1", "Info2"], talentname2 : ["Info3"], ... 
+        self.regelInfos = {}
 
         #Fünfter Block: Ausrüstung etc
         self.rüstung = []
@@ -241,6 +242,9 @@ class Char():
 
             'addWaffeneigenschaft' : self.API_addWaffeneigenschaft, 
             'removeWaffeneigenschaft' : self.API_removeWaffeneigenschaft,
+
+            #Regeln
+            'addRegelInfo' : self.API_addRegelInfo,
 
             #Attribute
             'getAttribut' : lambda attribut: self.attribute[attribut].wert,
@@ -424,6 +428,11 @@ class Char():
             raise Exception(f"Die Waffeneigenschaft '{self.currentEigenschaft}' erfordert {paramNb+1} Parameter, aber es wurde(n) nur {len(parameters)} gefunden. Parameter müssen mit Semikolon getrennt werden")
         return parameters[paramNb]
 
+    def API_addRegelInfo(self, regel, info):
+        if regel not in self.regelInfos:
+            self.regelInfos[regel] = []
+        self.regelInfos[regel].append(info)
+
     def addTalent(self, name):
         if name in self.talente:
             return self.talente[name]
@@ -507,6 +516,7 @@ class Char():
 
         self.talentMods = {}
         self.talentInfos = {}
+        self.regelInfos = {}
 
         # Update attribute, abegeleitet werte, energien
         for attribut in self.attribute.values():

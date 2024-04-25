@@ -169,6 +169,11 @@ Sephrasto bietet eine Reihe von Funktionen an, anhand derer die meisten Skripte 
 |addWaffeneigenschaft|-|name : str, eigenschaft : str|Allen Waffen mit der Basiswaffe "name" die Eigenschaft "eigenschaft" hinzufügen.|
 |removeWaffeneigenschaft|-|name : str, eigenschaft : str|Bei allen Waffen mit der Basiswaffe "name" die Eigenschaft "eigenschaft" entfernen.|
 
+### Regeln
+| Script | Rückgabetyp | Parameter | Zweck |
+|---|:---:|:---:|---|
+|addRegelInfo|-|name : str, info : str|Fügt der Regel "name" im Charakterbogen den Informationstext "info" hinzu. Dies ist nützlich, um besondere Effekte wie beispielsweise von manchen Vorteilen direkt bei den Regeln im Regelanhang des Charakterbogens aufzuführen.|
+
 ## Besonderheiten
 
 ### Waffeneigenschaften (WE)

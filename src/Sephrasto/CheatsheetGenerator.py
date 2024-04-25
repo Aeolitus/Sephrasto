@@ -124,6 +124,11 @@ class CheatsheetGenerator(object):
                     linkedText.append(": ")
                     linkedText.append(beschreibung.replace("\n", " "))
                     linkedText.append("</li>")
+
+            if regelName in Wolke.Char.regelInfos:
+                for regelInfo in Wolke.Char.regelInfos[regelName]:
+                    linkedText.append(f"<li class='checkbox'>{regelInfo}</li>")
+
             if len(linkedText) > 0:
                 result.append("<ul>" + "".join(linkedText) + "</ul>")
 
