@@ -28,25 +28,6 @@ class KampfstilMod():
         self.rw = 0
         self.be = 0
 
-    def __add__(self, other):
-        result = KampfstilMod()
-        result.at = self.at + other.at
-        result.vt = self.vt + other.vt
-        result.plus = self.plus + other.plus
-        result.rw = self.rw + other.rw
-        result.be = self.be + other.be
-        return result
-
-class Waffenwerte():
-    def __init__(self):
-        self.at = 0
-        self.vt = 0
-        self.rw = 0
-        self.würfel = 0
-        self.plus = 0
-        self.härte = 0
-        self.kampfstil = ""
-
 class Char():
     ''' 
     Main Workhorse Class. Contains all information about a charakter, performs
@@ -89,13 +70,12 @@ class Char():
         self.freieFertigkeiten = []
         self.freieFertigkeitenNumKostenlos = Wolke.DB.einstellungen["FreieFertigkeiten: Anzahl Kostenlos"].wert
         self.talente = {}
-        self.talentMods = {}
-        self.talentInfos = {}
+        self.talentMods = {}  # for scripts, only used in export { talentnname1 : mod, talentname2 : mod, ... 
+        self.talentInfos = {} # for scripts, only used in export { talentnname1 : ["Info1", "Info2"], talentname2 : ["Info3"], ... 
 
         #Fünfter Block: Ausrüstung etc
         self.rüstung = []
         self.waffen = []
-        self.waffenwerte = []
         self.ausrüstung = []
         self.zonenSystemNutzen = False
 
@@ -152,8 +132,7 @@ class Char():
         #Bei Änderungen nicht vergessen die script docs in ScriptAPI.md anzupassen
         self.currentVorteil = None #used by vorteilScriptAPI during iteration
         self.currentEigenschaft = None #used by waffenScriptAPI during iteration
-        self.currentWaffe = None #used by waffenScriptAPI during iteration
-        self.currentWaffenwerte = None #used by waffenScriptAPI during iteration
+        self.currentWaffeIndex = None
         self.waffenEigenschaftenUndo = [] #For undoing changes made by Vorteil scripts
 
         self.charakterScriptAPI = Hilfsmethoden.createScriptAPI()
@@ -161,56 +140,126 @@ class Char():
             #Hintergrund
             'getName' : lambda: self.name, 
             'getSpezies' : lambda: self.spezies, 
-            'getStatus' : lambda: self.status, 
+            'getStatus' : lambda: Wolke.DB.einstellungen["Statusse"].wert[self.status], 
+            'getStatusIndex' : lambda: self.status, 
             'getKurzbeschreibung' : lambda: self.kurzbeschreibung, 
             'getHeimat' : lambda: self.heimat, 
-            'getFinanzen' : lambda: self.finanzen, 
-            'getEigenheit' : lambda index: self.eigenheiten[index-1], 
-            'getEPGesamt' : lambda: self.epGesamt, 
+            'getFinanzen' : lambda: Wolke.DB.einstellungen["Statusse"].wert[self.finanzen], 
+            'getFinanzenIndex' : lambda: self.finanzen, 
+            'getEigenheit' : lambda index: self.eigenheiten[index], 
+            'getEPGesamt' : lambda: self.epGesamt,
             'getEPAusgegeben' : lambda: self.epAusgegeben, 
 
-            #Fertigkeiten, Vorteile & Ausrüstung
-            'getFertigkeit' : lambda name: copy.deepcopy(self.fertigkeiten[name]) if name in self.fertigkeiten else None, 
-            'getÜbernatürlicheFertigkeit' : lambda name: copy.deepcopy(self.übernatürlicheFertigkeiten[name]) if name in self.übernatürlicheFertigkeiten else None, 
-            'getFreieFertigkeiten' : lambda: copy.deepcopy(self.freieFertigkeiten), 
-            'getVorteil' : lambda name: copy.deepcopy(self.vorteile[name]) if name in self.vorteile else None, 
-            'getRüstung' : lambda: copy.deepcopy(self.rüstung), 
-            'getWaffen' : lambda: copy.deepcopy(self.waffen), 
-            'getInventar' : lambda index: self.ausrüstung[index-1], 
+            #Fertigkeiten
+            'hasFertigkeit' : lambda name: name in self.fertigkeiten,
+            'getFertigkeitBasiswert' : lambda name: self.fertigkeiten[name].basiswert if name in self.fertigkeiten else None, 
+            'getFertigkeitProbenwert' : lambda name: self.fertigkeiten[name].probenwert if name in self.fertigkeiten else None, 
+            'getFertigkeitProbenwertTalent' : lambda name: self.fertigkeiten[name].probenwertTalent if name in self.fertigkeiten else None, 
             'modifyFertigkeitBasiswert' : lambda name, mod: setattr(self.fertigkeiten[name], 'basiswertMod', self.fertigkeiten[name].basiswertMod + mod) if name in self.fertigkeiten else None, 
+
+            'hasÜbernatürlicheFertigkeit' : lambda name: name in self.übernatürlicheFertigkeiten,
+            'getÜbernatürlicheFertigkeitBasiswert' :lambda name: self.übernatürlicheFertigkeiten[name].basiswert if name in self.übernatürlicheFertigkeiten else None, 
+            'getÜbernatürlicheFertigkeitProbenwert' : lambda name: self.übernatürlicheFertigkeiten[name].probenwert if name in self.übernatürlicheFertigkeiten else None, 
+            'getÜbernatürlicheFertigkeitProbenwertTalent' : lambda name: self.übernatürlicheFertigkeiten[name].probenwertTalent if name in self.übernatürlicheFertigkeiten else None, 
             'modifyÜbernatürlicheFertigkeitBasiswert' : lambda name, mod: setattr(self.übernatürlicheFertigkeiten[name], 'basiswertMod', self.übernatürlicheFertigkeiten[name].basiswertMod + mod) if name in self.übernatürlicheFertigkeiten else None, 
+
+            'getFreieFertigkeit' : lambda index: self.freieFertigkeiten[i].name if index >= 0 and index < len(self.freieFertigkeiten) else None,
+            'getFreieFertigkeitWert' : lambda index: self.freieFertigkeiten[i].wert if index >= 0 and index < len(self.freieFertigkeiten) else None,
+            'freieFertigkeitenCount' : lambda: len(self.freieFertigkeiten),
+            
+            #Talente
+            'hasTalent' : lambda name: name in self.talente,
+            'addTalent' : self.API_addTalent, 
             'modifyTalentProbenwert' : self.API_modifyTalentProbenwert, 
             'addTalentInfo' : self.API_addTalentInfo, 
-            'addTalent' : self.API_addTalent, 
 
-            #Kampfstil
-            'getKampfstil' : lambda kampfstil: copy.copy(self.kampfstilMods[kampfstil]) if kampfstil in self.kampfstilMods else KampfstilMod(), 
+            #Vorteile
+            'hasVorteil' : lambda name: name in self.vorteile,
+            'addVorteil' : self.API_addVorteil,
+
+            #Kampfstile
             'getKampfstilAT' : lambda kampfstil: self.kampfstilMods[kampfstil].at if kampfstil in self.kampfstilMods else 0, 
             'getKampfstilVT' : lambda kampfstil: self.kampfstilMods[kampfstil].vt if kampfstil in self.kampfstilMods else 0, 
-            'getKampfstilPlus' : lambda kampfstil: self.kampfstilMods[kampfstil].plus if kampfstil in self.kampfstilMods else 0, 
+            'getKampfstilTPPlus' : lambda kampfstil: self.kampfstilMods[kampfstil].plus if kampfstil in self.kampfstilMods else 0, 
             'getKampfstilRW' : lambda kampfstil: self.kampfstilMods[kampfstil].rw if kampfstil in self.kampfstilMods else 0, 
             'getKampfstilBE' : lambda kampfstil: self.kampfstilMods[kampfstil].be if kampfstil in self.kampfstilMods else 0, 
             'setKampfstil' : self.API_setKampfstil, 
             'modifyKampfstil' : self.API_modifyKampfstil, 
 
+            #Ausrüstung
+            'inventarCount' : lambda: len(self.ausrüstung),
+            'getInventar' : lambda index: self.ausrüstung[index] if index >= 0 and index < len(self.ausrüstung) else None, 
+
+            'rüstungenCount' : lambda: len(self.rüstung),
+            'getRüstung' : lambda index: self.rüstung[index].name if index >= 0 and index < len(self.rüstung) else None, 
+            'getRüstungRS' : lambda index: self.rüstung[index].getRSGesamtInt() if index >= 0 and index < len(self.rüstung) else None, 
+            'getRüstungBE' : lambda index: self.rüstung[index].be if index >= 0 and index < len(self.rüstung) else None, 
+
+            'waffenCount' : lambda:len(self.waffen),
+            'getWaffe' : lambda index: self.API_getWaffeValue(index, "name"), 
+            'isWaffeNahkampf' : lambda index: self.API_getWaffeValue(index, "nahkampf"), 
+            'isWaffeFernkampf' : lambda index: self.API_getWaffeValue(index, "fernkampf"), 
+            'getWaffeEigenschaften' : lambda index: self.waffen[index].eigenschaften.copy() if index >= 0 and index < len(self.waffen) else None, 
+            'getWaffeKampfstil' : lambda index: self.API_getWaffeValue(index, "kampfstil"), 
+            'getWaffeFertigkeit' : lambda index: self.API_getWaffeValue(index, "fertigkeit"), 
+            'getWaffeTalent' : lambda index: self.API_getWaffeValue(index, "talent"), 
+            'getWaffeWM' : lambda index: self.API_getWaffeValue(index, "wm"), 
+            'getWaffeTPWürfelSeiten' : lambda index: self.API_getWaffeValue(index, "würfelSeiten"), 
+
+            'getWaffeATMod' : lambda index: self.API_getWaffeValue(index, "at"), 
+            'setWaffeAT' : lambda index, at: self.API_setWaffeValue(index, "at", at),
+            'modifyWaffeAT' : lambda index, atMod: self.API_modifyWaffeValue(index, "at", atMod),
+
+            'getWaffeVTMod' : lambda index: self.API_getWaffeValue(index, "vt"), 
+            'setWaffeVT' : lambda index, vt: self.API_setWaffeValue(index, "vt", vt), 
+            'modifyWaffeVT' : lambda index, vtMod: self.API_modifyWaffeValue(index, "vt", vtMod),  
+
+            'getWaffeLZ' : lambda index: self.API_getWaffeValue(index, "lz"), 
+            'getWaffeLZMod' : lambda index: self.API_getWaffeValue(index, "lzMod"), 
+            'setWaffeLZ' : lambda index, lz: self.API_setWaffeValue(index, "lzMod", lz), 
+            'modifyWaffeLZ' : lambda index, lzMod: self.API_modifyWaffeValue(index, "lzMod", lzMod),  
+
+            'getWaffeTPWürfel' : lambda index: self.API_getWaffeValue(index, "würfel"), 
+            'getWaffeTPWürfelMod' : lambda index: self.API_getWaffeValue(index, "würfelMod"), 
+            'setWaffeTPWürfel' : lambda index, würfel: self.API_setWaffeValue(index, "würfelMod", würfel), 
+            'modifyWaffeTPWürfel' : lambda index, würfelMod: self.API_modifyWaffeValue(index, "würfelMod", würfelMod),
+
+            'getWaffeTPPlus' : lambda index: self.API_getWaffeValue(index, "plus"), 
+            'getWaffeTPPlusMod' : lambda index: self.API_getWaffeValue(index, "plusMod"), 
+            'setWaffeTPPlus' : lambda index, plus: self.API_setWaffeValue(index, "plusMod", plus),
+            'modifyWaffeTPPlus' : lambda index, plusMod: self.API_modifyWaffeValue(index, "plusMod", plusMod), 
+
+            'getWaffeHärte' : lambda index: self.API_getWaffeValue(index, "härte"), 
+            'getWaffeHärteMod' : lambda index: sself.API_getWaffeValue(index, "härteMod"), 
+            'setWaffeHärte' : lambda index, härte: self.API_setWaffeValue(index, "härteMod", härte),
+            'modifyWaffeHärte' : lambda index, härteMod: self.API_modifyWaffeValue(index, "härteMod", härteMod), 
+
+            'getWaffeRW' : lambda index: self.API_getWaffeValue(index, "rw"), 
+            'getWaffeRWMod' : lambda index: self.API_getWaffeValue(index, "rwMod"), 
+            'setWaffeRW' : lambda index, rw: self.API_setWaffeValue(index, "rwMod", rw),
+            'modifyWaffeRW' : lambda index, rwMod: self.API_modifyWaffeValue(index, "rwMod", rwMod),
+
+            'addWaffeneigenschaft' : self.API_addWaffeneigenschaft, 
+            'removeWaffeneigenschaft' : self.API_removeWaffeneigenschaft,
+
             #Attribute
             'getAttribut' : lambda attribut: self.attribute[attribut].wert,
-
-            #Misc
-            'addWaffeneigenschaft' : self.API_addWaffeneigenschaft, 
-            'removeWaffeneigenschaft' : self.API_removeWaffeneigenschaft
+            'getAttributProbenwert' : lambda attribut: self.attribute[attribut].probenwert,
         })
 
         #Add Attribute to API (readonly)
         for attribut in self.attribute:
             self.charakterScriptAPI["get" + attribut] = lambda attribut=attribut: self.attribute[attribut].wert
+            self.charakterScriptAPI["get" + attribut + "Probenwert"] = lambda attribut=attribut: self.attribute[attribut].probenwert
         
         #Add abgeleitete Werte to API
         for ab in self.abgeleiteteWerte:
             self.charakterScriptAPI['get' + ab + 'Basis'] = lambda ab=ab: self.abgeleiteteWerte[ab].basiswert
-            self.charakterScriptAPI['get' + ab] = lambda ab=ab: self.abgeleiteteWerte[ab].wert
-            self.charakterScriptAPI['set' + ab] = lambda wert, ab=ab: setattr(self.abgeleiteteWerte[ab], 'mod', wert - self.abgeleiteteWerte[ab].basiswert)
+            self.charakterScriptAPI['get' + ab + 'Mod'] = lambda ab=ab: self.abgeleiteteWerte[ab].mod
+            self.charakterScriptAPI['set' + ab + 'Mod'] = lambda wert, ab=ab: setattr(self.abgeleiteteWerte[ab], 'mod', wert)
             self.charakterScriptAPI['modify' + ab] = lambda wert, ab=ab: setattr(self.abgeleiteteWerte[ab], 'mod', self.abgeleiteteWerte[ab].mod + wert)
+            self.charakterScriptAPI['get' + ab] = lambda ab=ab: self.abgeleiteteWerte[ab].wert
+            
 
         #Add Energien to API
         for en in Wolke.DB.energien:
@@ -219,48 +268,18 @@ class Char():
             self.charakterScriptAPI['modify' + en + 'Basis'] = lambda basis, en=en: setattr(self.energien[en], "basiswert", self.energien[en].basiswert + basis) if en in self.energien else None
             self.charakterScriptAPI['get' + en + 'Mod'] = lambda en=en: self.energien[en].mod if en in self.energien else 0
             self.charakterScriptAPI['set' + en + 'Mod'] = lambda mod, en=en: setattr(self.energien[en], "mod", mod) if en in self.energien else None
-            self.charakterScriptAPI['modify' + en + 'Mod'] = lambda mod, en=en: setattr(self.energien[en], "mod", self.energien[en].mod + mod) if en in self.energien else None
+            self.charakterScriptAPI['modify' + en] = lambda mod, en=en: setattr(self.energien[en], "mod", self.energien[en].mod + mod) if en in self.energien else None
+            self.charakterScriptAPI['get' + en] = lambda en=en: self.energien[en].wert if en in self.energien else 0
+            self.charakterScriptAPI['get' + en + 'Final'] = lambda en=en: self.energien[en].wertFinal if en in self.energien else 0
 
         self.waffenScriptAPI = {
-            'getEigenschaftParam' : lambda paramNb: self.API_getWaffeneigenschaftParam(paramNb), 
-            'getWaffe' : lambda: copy.deepcopy(self.currentWaffe),
-            'getWaffenWerte' : lambda: copy.deepcopy(self.currentWaffenwerte), 
-             
-            'getWaffeAT' : lambda: self.currentWaffenwerte.at,
-            'setWaffeAT' : lambda at: setattr(self.currentWaffenwerte, 'at', at),
-            'modifyWaffeAT' : lambda atmod: setattr(self.currentWaffenwerte, 'at', self.currentWaffenwerte.at + atmod), 
-
-            'getWaffeVT' : lambda: self.currentWaffenwerte.vt, 
-            'setWaffeVT' : lambda vt: setattr(self.currentWaffenwerte, 'vt', vt), 
-            'modifyWaffeVT' : lambda vtmod: setattr(self.currentWaffenwerte, 'vt', self.currentWaffenwerte.vt + vtmod), 
-
-            'getWaffeTPWürfel' : lambda: self.currentWaffenwerte.würfel, 
-            'setWaffeTPWürfel' : lambda würfel: setattr(self.currentWaffenwerte, 'würfel', würfel), 
-            'modifyWaffeTPWürfel' : lambda würfelmod: setattr(self.currentWaffenwerte, 'würfel', self.currentWaffenwerte.würfel + würfelmod),
-
-            'getWaffeTPPlus' : lambda: self.currentWaffenwerte.plus, 
-            'setWaffeTPPlus' : lambda plus: setattr(self.currentWaffenwerte, 'plus', plus),
-            'modifyWaffeTPPlus' : lambda plusmod: setattr(self.currentWaffenwerte, 'plus', self.currentWaffenwerte.plus + plusmod), 
-
-            'getWaffeHärte' : lambda: self.currentWaffenwerte.härte, 
-            'setWaffeHärte' : lambda härte: setattr(self.currentWaffenwerte, 'härte', härte),
-            'modifyWaffeHärte' : lambda härtemod: setattr(self.currentWaffenwerte, 'härte', self.currentWaffenwerte.härte + härtemod), 
-
-            'getWaffeRW' : lambda rw: self.currentWaffenwerte.rw, 
-            'setWaffeRW' : lambda rw: setattr(self.currentWaffenwerte, 'rw', rw),
-            'modifyWaffeRW' : lambda rwmod: setattr(self.currentWaffenwerte, 'rw', self.currentWaffenwerte.rw + rwmod),
-
-            'getWaffeKampfstil' : lambda: self.currentWaffenwerte.kampfstil
+            'getEigenschaftParam' : lambda paramNb: self.API_getWaffeneigenschaftParam(paramNb),
+            'getWaffeIndex' : lambda: self.currentWaffeIndex,
         }
 
-        filter = ['setSB', 'modifySB', 'setBE', 'modifyBE', 'setRS', 'modifyRS',
-                  'modifyFertigkeitBasiswert', 'setKampfstil', 'modifyKampfstil', 
-                  'addWaffeneigenschaft', 'removeWaffeneigenschaft']
         for k, v in self.charakterScriptAPI.items():
             if k in self.waffenScriptAPI:
                 assert False, "Duplicate entry"
-            if k in filter:
-                continue
             self.waffenScriptAPI[k] = v
 
         EventBus.doAction("charakter_instanziiert", { "charakter" : self })
@@ -308,6 +327,22 @@ class Char():
         exec(script, scriptAPI)
         self._heimat = heimat
 
+    def API_getWaffeValue(self, index, attrib):
+        if index < 0 or index >= len(self.waffen):
+            return None
+        return getattr(self.waffen[index], attrib)
+    
+    def API_setWaffeValue(self, index, attrib, value):
+        if index < 0 or index >= len(self.waffen):
+            return
+        setattr(self.waffen[index], attrib, value)
+
+    def API_modifyWaffeValue(self, index, attrib, value):
+        if index < 0 or index >= len(self.waffen):
+            return
+        prevValue = getattr(self.waffen[index], attrib)
+        setattr(self.waffen[index], attrib, prevValue + value)
+
     def API_modifyTalentProbenwert(self, talent, mod):
         if talent not in Wolke.DB.talente:
             return
@@ -324,7 +359,7 @@ class Char():
             self.talentInfos[talent] = []
         self.talentInfos[talent].append(info)
 
-    def API_addTalent(self, talent, kosten = -1, requiredÜberFert = None):
+    def API_addTalent(self, talent, kosten = -1, requiredÜberFert = None, kommentar=""):
         fertVoraussetzungen = ""
         if requiredÜberFert:
             if requiredÜberFert in self.übernatürlicheFertigkeiten:
@@ -338,6 +373,17 @@ class Char():
 
         if kosten != -1:
             talent.kosten = kosten
+        if talent.kommentarErlauben and kommentar:
+            talent.kommentar = kommentar
+
+    def API_addVorteil(self, vorteil, kosten = -1, kommentar=""):
+        vorteil = self.addVorteil(vorteil)
+        if self.currentVorteil:
+            vorteil.voraussetzungen = vorteil.voraussetzungen.add("Vorteil " + self.currentVorteil, Wolke.DB)
+        if kosten != -1:
+            vorteil.kosten = kosten
+        if vorteil.kommentarErlauben and kommentar:
+            vorteil.kommentar = kommentar
 
     def API_setKampfstil(self, kampfstil, at, vt, plus, rw, be = 0):
         k = self.kampfstilMods[kampfstil]
@@ -372,11 +418,11 @@ class Char():
     def API_getWaffeneigenschaftParam(self, paramNb):
         match = re.search(r"\((.+?)\)", self.currentEigenschaft, re.UNICODE)
         if not match:
-            raise Exception("Die Waffeneigenschaft '" + self.currentEigenschaft + "' erfordert einen Parameter, beispielsweise Schwer (4), aber es wurde keiner gefunden.")
+            raise Exception(f"Die Waffeneigenschaft '{self.currentEigenschaft}' erfordert einen Parameter, beispielsweise Schwer (4), aber es wurde keiner gefunden.")
         parameters = list(map(str.strip, match.group(1).split(";")))
-        if not len(parameters) >= paramNb:
-            raise Exception("Die Waffeneigenschaft '" + self.currentEigenschaft + "' erfordert " + paramNb + " Parameter, aber es wurde(n) nur " + len(parameters) + " gefunden. Parameter müssen mit Semikolon getrennt werden")
-        return parameters[paramNb-1]
+        if paramNb >= len(parameters):
+            raise Exception(f"Die Waffeneigenschaft '{self.currentEigenschaft}' erfordert {paramNb+1} Parameter, aber es wurde(n) nur {len(parameters)} gefunden. Parameter müssen mit Semikolon getrennt werden")
+        return parameters[paramNb]
 
     def addTalent(self, name):
         if name in self.talente:
@@ -439,8 +485,6 @@ class Char():
         self.kampfstilMods = {}
         for ks in Wolke.DB.findKampfstile():
             self.kampfstilMods[ks] = KampfstilMod()
-        self.kampfstilMods["Nahkampf"] = KampfstilMod() # global mods, added on top of actual kampfstil
-        self.kampfstilMods["Fernkampf"] = KampfstilMod() # global mods, added on top of actual kampfstil
 
         for value in self.waffenEigenschaftenUndo:
             waffe = value[0]
@@ -452,13 +496,16 @@ class Char():
                 waffe.eigenschaften.append(wEigenschaft)
         self.waffenEigenschaftenUndo = []
 
-        for fert in self.fertigkeiten:
-            self.fertigkeiten[fert].basiswertMod = 0
+        for fert in self.fertigkeiten.values():
+            fert.resetScriptValues()
 
-        for fert in self.übernatürlicheFertigkeiten:
-            self.übernatürlicheFertigkeiten[fert].basiswertMod = 0
+        for fert in self.übernatürlicheFertigkeiten.values():
+            fert.resetScriptValues()
 
-        self.talentMods = {} # for vorteil scripts, only used in export { talentnname1 : { condition1 : mod1, condition2 : mod2, ... }, talentname2 : {}, ... 
+        for waffe in self.waffen:
+            waffe.resetScriptValues()
+
+        self.talentMods = {}
         self.talentInfos = {}
 
         # Update attribute, abegeleitet werte, energien
@@ -520,57 +567,44 @@ class Char():
 
 
     def updateWaffenwerte(self):
-        self.waffenwerte = []
+        for i in range(len(self.waffen)):
+            waffe = self.waffen[i]
+            if "WS" in self.abgeleiteteWerte and waffe.name in Wolke.DB.einstellungen["Waffen: Härte WSStern"].wert:
+                waffe.härte = self.abgeleiteteWerte["WS"].finalwert
 
-        for el in self.waffen:
-            waffenwerte = Waffenwerte()
-            self.waffenwerte.append(waffenwerte)
-            waffenwerte.kampfstil = el.kampfstil
-            waffenwerte.härte = el.härte
-            if "WS" in self.abgeleiteteWerte and el.name in Wolke.DB.einstellungen["Waffen: Härte WSStern"].wert:
-                waffenwerte.härte = self.abgeleiteteWerte["WS"].finalwert
-            waffenwerte.würfel = el.würfel
-
-            if not el.fertigkeit in self.fertigkeiten:
+            if not waffe.fertigkeit in self.fertigkeiten:
                 continue
 
-            if el.talent in self.fertigkeiten[el.fertigkeit].gekaufteTalente:
-                pw = self.fertigkeiten[el.fertigkeit].probenwertTalent
+            if waffe.talent in self.fertigkeiten[waffe.fertigkeit].gekaufteTalente:
+                pw = self.fertigkeiten[waffe.fertigkeit].probenwertTalent
             else:
-                pw = self.fertigkeiten[el.fertigkeit].probenwert
+                pw = self.fertigkeiten[waffe.fertigkeit].probenwert
                 
-            kampfstilMods = self.kampfstilMods.get(el.kampfstil, KampfstilMod())
-            if el.nahkampf:
-                kampfstilMods += self.kampfstilMods["Nahkampf"]
-            else:
-                kampfstilMods += self.kampfstilMods["Fernkampf"]
+            kampfstilMods = self.kampfstilMods.get(waffe.kampfstil, KampfstilMod())
 
             # Execute script to calculate weapon stats
             scriptAPI = Hilfsmethoden.createScriptAPI()
             scriptAPI.update({
                 'getAttribut' : lambda attribut: self.attribute[attribut].wert,
-                'getWaffe' : lambda: copy.deepcopy(el),
+                'getWaffe' : lambda: copy.deepcopy(waffe),
                 'getPW' : lambda: pw,
-                'getKampfstil' : lambda: kampfstilMods,
-                'setWaffenwerte' : lambda at, vt, plus, rw: setattr(waffenwerte, 'at', at) or setattr(waffenwerte, 'vt', vt) or setattr(waffenwerte, 'plus', plus) or setattr(waffenwerte, 'rw', rw)
+                'getKampfstil' : lambda: copy.copy(kampfstilMods),
+                'getRüstungBE' : lambda: 0 if waffe.beSlot < 1 or len(self.rüstung) < waffe.beSlot else self.rüstung[waffe.beSlot-1].getBEFinal(self.abgeleiteteWerte),
+                'modifyWaffenwerte' : lambda at, vt, plus, rw: setattr(waffe, 'at', waffe.at + at) or setattr(waffe, 'vt', waffe.vt + vt) or setattr(waffe, 'plusMod', waffe.plusMod + plus) or setattr(waffe, 'rwMod', waffe.rwMod + rw)
             })
             for ab in self.abgeleiteteWerte:
                 scriptAPI['get' + ab + 'Basis'] = lambda ab=ab: self.abgeleiteteWerte[ab].basiswert
                 scriptAPI['get' + ab] = lambda ab=ab: self.abgeleiteteWerte[ab].wert
                 scriptAPI['get' + ab + 'Mod'] = lambda ab=ab: self.abgeleiteteWerte[ab].mod
 
-        
-            scriptAPI['getBEBySlot'] = lambda rüstungsNr: 0 if rüstungsNr < 1 or len(self.rüstung) < rüstungsNr else self.rüstung[rüstungsNr-1].getBEFinal(self.abgeleiteteWerte)
-
             # Execute global script
-            logging.info("Character: executing Waffenwerte script for " + el.anzeigename)
+            logging.info("Character: executing Waffenwerte script for " + waffe.anzeigename)
             exec(Wolke.DB.einstellungen["Waffen: Waffenwerte Script"].wert, scriptAPI)
 
             #Execute Waffeneigenschaft scripts
-            self.currentWaffe = el
-            self.currentWaffenwerte = waffenwerte
+            self.currentWaffeIndex = i
             eigenschaftenByPrio = collections.defaultdict(list)
-            for weName in el.eigenschaften:
+            for weName in waffe.eigenschaften:
                 try:
                     we = Hilfsmethoden.GetWaffeneigenschaft(weName, Wolke.DB)
                 except WaffeneigenschaftException:
@@ -586,8 +620,7 @@ class Char():
                     we = Hilfsmethoden.GetWaffeneigenschaft(weName, Wolke.DB)
                     we.executeScript(self.waffenScriptAPI)
 
-            self.currentWaffe = None
-            self.currentWaffenwerte = None
+            self.currentWaffeIndex = None
             self.currentEigenschaft = None
 
     def epZaehlen(self):

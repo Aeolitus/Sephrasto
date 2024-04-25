@@ -118,6 +118,8 @@ class Waffe:
         self._anzeigenameOverride = None
         self.kampfstil = WaffeDefinition.keinKampfstil
         self.beSlot = 1
+        
+        self.resetScriptValues()
 
     def __deepcopy__(self, memo=""):
         # create new object
@@ -129,6 +131,15 @@ class Waffe:
         for k, v in self.__dict__.items():
             setattr(result, k, copy.deepcopy(v, memo))
         return result
+
+    def resetScriptValues(self):
+        self.at = 0
+        self.vt = 0
+        self.lzMod = 0
+        self.rwMod = 0
+        self.würfelMod = 0
+        self.plusMod = 0
+        self.härteMod = 0
 
     @property
     def name(self):
@@ -143,6 +154,10 @@ class Waffe:
     @würfel.setter
     def würfel(self, würfel):
         self._würfelOverride = würfel
+
+    @property
+    def würfelFinal(self):
+        return max(self.würfel + self.würfelMod, 0)
 
     @property
     def würfelSeiten(self):
@@ -165,6 +180,10 @@ class Waffe:
         self._plusOverride = plus
 
     @property
+    def plusFinal(self):
+        return self.plus + self.plusMod
+
+    @property
     def eigenschaften(self):
         if self._eigenschaftenOverride is not None:
             return self._eigenschaftenOverride
@@ -185,6 +204,10 @@ class Waffe:
         self._härteOverride = härte
 
     @property
+    def härteFinal(self):
+        return max(self.härte + self.härteMod, 1)
+
+    @property
     def rw(self):
         if self._rwOverride is not None:
             return self._rwOverride
@@ -193,6 +216,10 @@ class Waffe:
     @rw.setter
     def rw(self, rw):
         self._rwOverride = rw
+
+    @property
+    def rwFinal(self):
+        return max(self.rw + self.rwMod, 0)
 
     @property
     def wm(self):
@@ -225,6 +252,10 @@ class Waffe:
     @lz.setter
     def lz(self, lz):
         self._lzOverride = lz
+
+    @property
+    def lzFinal(self):
+        return max(self.lz + self.lzMod, 0)
 
     @property
     def fernkampf(self):

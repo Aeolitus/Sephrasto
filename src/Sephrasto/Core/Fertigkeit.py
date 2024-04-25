@@ -101,11 +101,11 @@ class Fertigkeit:
         self.gekaufteTalente = []
         self.attributswerte = [-1,-1,-1]
         self.basiswert = -1
-        self.basiswertMod = 0 # may be set by vorteil scripts, not used in calculations for bw, pw, pwt, only in ui and pdf (requirements checks would be a nightmare)
         self.probenwert = -1
         self.probenwertTalent = -1
         self.maxWert = -1
         self.addToPDF = False # only used by ueber fert, bit fishy
+        self.resetScriptValues()
 
     def __deepcopy__(self, memo=""):
         # create new object
@@ -118,6 +118,10 @@ class Fertigkeit:
         for k, v in self.__dict__.items():
             setattr(result, k, copy.deepcopy(v, memo))
         return result
+
+    def resetScriptValues(self):
+        # only used in ui and pdf (requirements checks would be a nightmare)
+        self.basiswertMod = 0
 
     @property
     def name(self):

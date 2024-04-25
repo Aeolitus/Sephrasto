@@ -50,9 +50,9 @@ class Energie:
     def __init__(self, definition, charakter):
         self.definition = definition
         self.charakter = charakter
-        self.basiswert = 0
-        self.wert = 0
-        self.mod = 0
+        self.basiswert = 0 # Zauberer/Geweiht/Paktierer
+        self.wert = 0 # Steigerung
+        self.mod = 0 # Gefäß der Sterne
 
     def __deepcopy__(self, memo=""):
         # create new object
@@ -91,7 +91,7 @@ class Energie:
         return self.definition.sortorder
 
     @property
-    def gesamtwert(self):
+    def wertFinal(self):
         return self.basiswert + self.wert + self.mod
 
     def steigerungskosten(self, numSteigerungen = 1):

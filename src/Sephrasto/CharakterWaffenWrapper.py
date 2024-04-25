@@ -224,16 +224,15 @@ Du kannst deiner Waffe jederzeit einen eigenen Namen geben, die Basiswaffe ände
                 continue
             self.labelWerte[index].show()
             self.labelMods[index].show()
-            ww = Wolke.Char.waffenwerte[index]
             waffe = Wolke.Char.waffen[index]
 
-            at = ww.at
-            tp = f"""{ww.würfel}W{str(waffe.würfelSeiten)}{"+" if ww.plus >= 0 else ""}{ww.plus}"""
+            at = waffe.at
+            tp = f"""{waffe.würfelFinal}W{str(waffe.würfelSeiten)}{"+" if waffe.plusFinal >= 0 else ""}{waffe.plusFinal}"""
             if waffe.isATVerboten(Wolke.DB):
                 at = "-"
                 tp = "-"
 
-            vt = ww.vt
+            vt = waffe.vt
             if waffe.isVTVerboten(Wolke.DB):
                 vt = "-"
             

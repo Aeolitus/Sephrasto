@@ -283,9 +283,9 @@ class PdfExporter(object):
         self.Energie = ""
         for en in Wolke.Char.energien.values():
             fields[en.name + 'Basis'] = en.basiswert
-            fields[en.name] = en.gesamtwert
+            fields[en.name] = en.wertGesamt
             fields['Mod' + en.name] = en.wert
-            self.Energie += str(en.gesamtwert) + " / "
+            self.Energie += str(en.wertGesamt) + " / "
 
         if self.Energie:
             self.Energie = self.Energie[:-3]
@@ -494,7 +494,6 @@ class PdfExporter(object):
         # Fill eight rows of weapons
         for i in range(0, min(8, len(Wolke.Char.waffen))):
             el = Wolke.Char.waffen[i]
-            waffenwerte = Wolke.Char.waffenwerte[i]
 
             base = 'Waffe' + str(i+1)
             fields[base + 'NA'] = el.anzeigename
@@ -515,11 +514,11 @@ class PdfExporter(object):
 
                 keinSchaden = el.würfel == 0 and el.plus == 0
                 fields[base + 'TP'] = "-" if keinSchaden else str(el.würfel) + "W" + str(el.würfelSeiten) + sg + str(el.plus)
-                fields[base + 'HA'] = str(waffenwerte.härte)
+                fields[base + 'HA'] = str(el.härteFinal)
                 fields[base + 'EI'] = ", ".join(el.eigenschaften)
-                fields[base + 'ATm'] = str(waffenwerte.at)
-                fields[base + 'VTm'] = str(waffenwerte.vt)
-                fields[base + 'RW'] = str(waffenwerte.rw)
+                fields[base + 'ATm'] = str(el.at)
+                fields[base + 'VTm'] = str(el.vt)
+                fields[base + 'RW'] = str(el.rwFinal)
                 
                 if el.isATVerboten(Wolke.DB):
                     fields[base + 'RW'] = "-"
@@ -530,12 +529,12 @@ class PdfExporter(object):
 
                 fields[base + 'WM'] = str(el.wm)
                 if el.fernkampf:
-                    fields[base + 'WM'] += " / " + str(el.lz)
+                    fields[base + 'WM'] += " / " + str(el.lzFinal)
 
                 sg = ""
-                if waffenwerte.plus >= 0:
+                if el.plusFinal >= 0:
                     sg = "+"
-                fields[base + 'TPm'] = "-" if keinSchaden else str(waffenwerte.würfel) + "W" + str(el.würfelSeiten) + sg + str(waffenwerte.plus)
+                fields[base + 'TPm'] = "-" if keinSchaden else str(el.würfelFinal) + "W" + str(el.würfelSeiten) + sg + str(el.plusFinal)
 
         # Fill 20 Cells of Ausrüstung
         count = 1

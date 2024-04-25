@@ -332,7 +332,10 @@ class SortedCategoryToListDict(dict):
         self.categoryFilter = categoryFilter
 
     def setNameFilter(self, nameFilter):
-        self.nameFilter = nameFilter.lower()
+        if nameFilter:
+            self.nameFilter = nameFilter.lower()
+        else:
+            self.nameFilter = None
 
     def append(self, categoryIndex, value):
         idx = min(categoryIndex, len(self.categories) -1)

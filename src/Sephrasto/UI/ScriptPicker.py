@@ -19,8 +19,8 @@ from PySide6.QtWidgets import (QAbstractButton, QAbstractItemView, QApplication,
     QDialogButtonBox, QFormLayout, QFrame, QGridLayout,
     QHBoxLayout, QHeaderView, QLabel, QLayout,
     QLineEdit, QPushButton, QScrollArea, QSizePolicy,
-    QSplitter, QTextBrowser, QTreeWidget, QTreeWidgetItem,
-    QVBoxLayout, QWidget)
+    QSpacerItem, QSplitter, QTextBrowser, QTreeWidget,
+    QTreeWidgetItem, QVBoxLayout, QWidget)
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -100,18 +100,14 @@ class Ui_Dialog(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 447, 453))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 424, 175))
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout.setObjectName(u"gridLayout")
         self.layoutParameter = QFormLayout()
         self.layoutParameter.setObjectName(u"layoutParameter")
+        self.layoutParameter.setVerticalSpacing(14)
 
-        self.gridLayout.addLayout(self.layoutParameter, 1, 0, 1, 2)
-
-        self.teBeschreibung = QTextBrowser(self.scrollAreaWidgetContents)
-        self.teBeschreibung.setObjectName(u"teBeschreibung")
-
-        self.gridLayout.addWidget(self.teBeschreibung, 5, 0, 1, 2)
+        self.gridLayout.addLayout(self.layoutParameter, 3, 0, 1, 1)
 
         self.lblName = QLabel(self.scrollAreaWidgetContents)
         self.lblName.setObjectName(u"lblName")
@@ -121,14 +117,23 @@ class Ui_Dialog(object):
 
         self.gridLayout.addWidget(self.lblName, 0, 0, 1, 2)
 
+        self.teBeschreibung = QTextBrowser(self.scrollAreaWidgetContents)
+        self.teBeschreibung.setObjectName(u"teBeschreibung")
+
+        self.gridLayout.addWidget(self.teBeschreibung, 2, 0, 1, 1)
+
+        self.verticalSpacer = QSpacerItem(20, 0, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout.addItem(self.verticalSpacer, 7, 0, 1, 1)
+
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
         self.verticalLayout.addWidget(self.scrollArea)
 
-        self.horizontalLayout = QHBoxLayout()
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.insertButtonLayout = QHBoxLayout()
+        self.insertButtonLayout.setObjectName(u"insertButtonLayout")
 
-        self.verticalLayout.addLayout(self.horizontalLayout)
+        self.verticalLayout.addLayout(self.insertButtonLayout)
 
         self.codeLayout = QHBoxLayout()
         self.codeLayout.setObjectName(u"codeLayout")
@@ -143,6 +148,8 @@ class Ui_Dialog(object):
 
         self.verticalLayout.addWidget(self.buttonBox)
 
+        self.verticalLayout.setStretch(0, 2)
+        self.verticalLayout.setStretch(2, 3)
         self.splitter.addWidget(self.layoutWidget)
 
         self.gridLayout_2.addWidget(self.splitter, 0, 0, 1, 1)
@@ -150,7 +157,6 @@ class Ui_Dialog(object):
         QWidget.setTabOrder(self.buttonExpandToggle, self.nameFilterEdit)
         QWidget.setTabOrder(self.nameFilterEdit, self.treeScripts)
         QWidget.setTabOrder(self.treeScripts, self.scrollArea)
-        QWidget.setTabOrder(self.scrollArea, self.teBeschreibung)
 
         self.retranslateUi(Dialog)
         self.buttonBox.accepted.connect(Dialog.accept)
