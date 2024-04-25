@@ -1,4 +1,5 @@
 from Hilfsmethoden import Hilfsmethoden, SortedCategoryToListDict
+from EventBus import EventBus
 
 class ScriptParameter:
     def __init__(self, name, typ, defaultValue=None, completionTable = None):
@@ -230,7 +231,7 @@ class Scripts:
 
         addScript(Script("Index der Waffe mit der Eigenschaft", f"getWaffeIndex", "Waffeneigenschaften"))
 
-        numberGetter = scripts
+        numberGetter = EventBus.applyFilter("scripts_numbergetter", scripts) 
 
         # ======================
         # String getters (parameters afters the first only support default values)
@@ -276,7 +277,7 @@ class Scripts:
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
         
-        stringGetter = scripts
+        stringGetter = EventBus.applyFilter("scripts_stringgetter", scripts) 
 
         # ======================
         # Bool getters (parameters afters the first only support default values)
@@ -307,7 +308,7 @@ class Scripts:
         script.parameter.append(ScriptParameter("Index", int))
         addScript(script)
 
-        boolGetter = scripts
+        boolGetter = EventBus.applyFilter("scripts_boolgetter", scripts) 
 
         # ======================
         # Setters
@@ -551,6 +552,6 @@ class Scripts:
         script.parameter.append(ScriptParameter("Modifikator", int))
         addScript(script)
 
-        setters = scripts
+        setters = EventBus.applyFilter("scripts_setter", scripts) 
 
         return Scripts(setters, stringGetter, numberGetter, boolGetter)

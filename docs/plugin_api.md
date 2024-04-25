@@ -209,14 +209,18 @@ Die folgenden Filter haben alle eine Gemeinsamkeit:  Der Filterwert ist eine Wra
 |dbe_class_waffeneigenschaftdefinition_wrapper|Filter|DatenbankEditWaffeneigenschaftWrapper : class // {}|DatenbankEditWaffeneigenschaftWrapper : class // {}|
 
 ### Verschiedenes
-| Name | Typ | Parameter | Zweck |
+| Name | Typ | Filter // Parameter | Zweck |
 |---|---|---|---|
 |plugins_geladen|Action|{ "plugins" : [str] }|Nach dieser Action sind alle Plugins initialisiert. Kann verwendet werden um mit anderen Plugins über eigene Actions und Filter zu kommunizieren. Der Parameter enthält eine Liste mit den Namen aller aktivierten Plugins.|
+|scripts_numbergetter|Filter|dict\<name:str,script:Script\>|Im Scripteditor die verfügbaren Getter-Scripts für zahlen anpassen.|
+|scripts_stringgetter|Filter|dict\<name:str,script:Script\>|Im Scripteditor die verfügbaren Getter-Scripts für strings anpassen.|
+|scripts_boolgetter|Filter|dict\<name:str,script:Script\>|Im Scripteditor die verfügbaren Getter-Scripts für boolsche Werte anpassen.|
+|scripts_setter|Filter|dict\<name:str,script:Script\>|Im Scripteditor die verfügbaren Setter-Scripts anpassen.|
 
 ### Von Sephrasto abonnierte Actions
 Diese Actions können von Plugins abgesendet werden, um Sephrasto anweisungen zu geben.
 
-| Name | Typ | Parameter | Zweck |
+| Name | Typ | Filter // Parameter | Zweck |
 |---|---|---|---|
 |charaktereditor_reload|Action|{ "name" : str }|Einen Toplevel-Tab des Charaktereditors neu initialisieren. Der name Parameter enthält den Namen des Tabs.|
 |charaktereditor_modified|Action|{}|Aktualisiert den Charakter und die EP und beim Schließen des Charaktereditors wird ein Popup angezeigt, das über ungespeicherte Änderungen mitteilt|
