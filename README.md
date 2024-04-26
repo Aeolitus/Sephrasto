@@ -89,6 +89,7 @@ Stelle sicher, dass alle Pakete aus der requirements.txt installiert sind. Aktue
 * Erstelle ein virtual environment
     * Navigiere auf der Kommandozeile in den Sephrasto repository root
     * venv erstellen: ```python -m venv venv```
+	* venv aktivieren: ```venv\Scripts\activate```
 	* pip upgraden: ```python -m pip install --upgrade pip```
 	* Von Sephrasto benötigte Pakete installieren: ```pip install -r requirements.txt```
 * Öffne Sephrasto/src/Sephrasto.sln

@@ -17,7 +17,7 @@ bin_path = os.path.join(build_path, "Bin")
 data_path = os.path.join(build_path, "Data")
 
 env_python_path = os.path.dirname(sys.executable)
-env_translations_path = os.path.join(env_python_path, "Lib", "site-packages", "PySide6", "translations")
+env_translations_path = os.path.join(env_python_path, "..", "Lib", "site-packages", "PySide6", "translations")
 
 system = platform.system()
 
