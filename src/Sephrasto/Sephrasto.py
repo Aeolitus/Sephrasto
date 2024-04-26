@@ -183,12 +183,6 @@ class MainWindowWrapper(object):
 
         EinstellungenWrapper.loadPostQt()
 
-        # Font hinting adjusts font outlines for lining up with the raster grid. This was apparently important for low res which nobody has anymore today.
-        # In my tests it made stuff look worse, especially the fontawesome icons, so we are disabling it
-        font = self.app.font()
-        font.setHintingPreference(QtGui.QFont.HintingPreference.PreferNoHinting)
-        self.app.setFont(font)
-
         # Query system font and font size for settings dialog restore option
         defaultFont = QtGui.QFont()
         Wolke.DefaultOSFont = defaultFont.family() 
