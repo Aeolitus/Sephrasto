@@ -340,7 +340,7 @@ class SortedCategoryToListDict(dict):
         if self.categoryFilter is not None and idx not in self.categoryFilter:
             return
         categoryName = self.categories[idx]
-        if self.nameFilter and not (self.nameFilter in value.lower() or self.nameFilter in categoryName.lower()):
+        if self.nameFilter and not (self.nameFilter in str(value).lower() or self.nameFilter in categoryName.lower()):
             return
         self[categoryName].append(value)
 

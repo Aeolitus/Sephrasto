@@ -19,6 +19,9 @@ class Script:
         self.beschreibung = beschreibung
         self.castType = castType
 
+    def __str__(self):
+        return self.name
+
     # overrides need to be strings and literals need to be already enclosed in quotation marks
     def buildCode(self, paramOverrides = {}):
         paramsEvaluated = []
