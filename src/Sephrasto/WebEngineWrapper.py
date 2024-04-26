@@ -7,11 +7,11 @@ from QtUtils.WebEngineViewPlus import WebEngineViewPlus
 import os
 
 class WebEngineWrapper(QtCore.QObject):
-    def __init__(self, windowTitle, source = "", extraCss = "", sizeSettingKey = "", backgroundColor = QtCore.Qt.transparent):
+    def __init__(self, windowTitle, source = "", extraCss = "", sizeSettingKey = "", backgroundColor = QtCore.Qt.transparent, parent = None):
         super().__init__()
         self.sizeSettingKey = sizeSettingKey
 
-        self.form = QtWidgets.QDialog()
+        self.form = QtWidgets.QDialog(parent=parent)
         self.form.setWindowFlags(
                 QtCore.Qt.Window |
                 QtCore.Qt.CustomizeWindowHint |

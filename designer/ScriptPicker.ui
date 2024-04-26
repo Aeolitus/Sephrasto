@@ -62,6 +62,19 @@
            </property>
           </widget>
          </item>
+         <item>
+          <widget class="QPushButton" name="buttonHelp">
+           <property name="toolTip">
+            <string>Script API Dokumentation öffnen</string>
+           </property>
+           <property name="text">
+            <string>Help</string>
+           </property>
+           <property name="class" stdset="0">
+            <string>icon</string>
+           </property>
+          </widget>
+         </item>
         </layout>
        </item>
        <item>
@@ -141,8 +154,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>424</width>
-            <height>175</height>
+            <width>452</width>
+            <height>180</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout">

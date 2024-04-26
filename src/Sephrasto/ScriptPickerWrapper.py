@@ -13,6 +13,7 @@ from QtUtils.PyEdit2 import TextEdit, NumberBar
 from QtUtils.RichTextButton import RichTextPushButton
 from QtUtils.AutoResizingTextBrowser import TextEditAutoResizer
 from Scripts import Scripts, ScriptContext
+from WebEngineWrapper import WebEngineWrapper
 
 class ParameterWidget(QtWidgets.QWidget):
     def __init__(self, parameter, scripts, showLabel = False):
@@ -176,6 +177,9 @@ class ScriptPickerWrapper(object):
         self.ui.insertButtonLayout.addWidget(self.ui.buttonInsert)
         self.ui.buttonInsert.clicked.connect(self.insertClicked)
 
+        self.ui.buttonHelp.setText("\uf059")
+        self.ui.buttonHelp.clicked.connect(self.helpClicked)
+
         self.ui.treeScripts.setHeaderHidden(True)
         self.populateTree()
         self.ui.treeScripts.itemSelectionChanged.connect(self.changeHandler)
@@ -208,6 +212,10 @@ class ScriptPickerWrapper(object):
         self.ret = self.form.exec()
 
         Wolke.Settings["WindowSize-ScriptPicker"] = [self.form.size().width(), self.form.size().height()]
+
+        if hasattr(self, "hilfe"):
+            self.hilfe.form.hide()
+            self.hilfe.form.deleteLater()
 
         if self.ret == QtWidgets.QDialog.Accepted:
             self.script = self.editor.toPlainText()
@@ -284,6 +292,14 @@ class ScriptPickerWrapper(object):
             params[paramId] = widget.text()
         self.editor.insertPlainText(script.buildCode(params))
         self.editor.setFocus()
+
+    def helpClicked(self):
+        if not hasattr(self, "hilfe"):
+            self.hilfe = WebEngineWrapper("Hilfe", "./Doc/script_api.html", Wolke.MkDocsCSS, "WindowSize-Hilfe", parent=self.form)
+            self.hilfe.form.show()
+        else:
+            self.hilfe.form.show()
+            self.hilfe.form.activateWindow()
 
     def scriptTextChanged(self):
         error = ""

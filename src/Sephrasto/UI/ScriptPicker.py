@@ -60,6 +60,11 @@ class Ui_Dialog(object):
 
         self.filterLayout.addWidget(self.labelFilter)
 
+        self.buttonHelp = QPushButton(self.verticalLayout_2)
+        self.buttonHelp.setObjectName(u"buttonHelp")
+
+        self.filterLayout.addWidget(self.buttonHelp)
+
 
         self.verticalLayout2.addLayout(self.filterLayout)
 
@@ -100,7 +105,7 @@ class Ui_Dialog(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 424, 175))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 452, 180))
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout.setObjectName(u"gridLayout")
         self.layoutParameter = QFormLayout()
@@ -172,6 +177,11 @@ class Ui_Dialog(object):
         self.nameFilterEdit.setPlaceholderText(QCoreApplication.translate("Dialog", u"Suchen...", None))
         self.labelFilter.setText(QCoreApplication.translate("Dialog", u"Suchen", None))
         self.labelFilter.setProperty("class", QCoreApplication.translate("Dialog", u"icon", None))
+#if QT_CONFIG(tooltip)
+        self.buttonHelp.setToolTip(QCoreApplication.translate("Dialog", u"Script API Dokumentation \u00f6ffnen", None))
+#endif // QT_CONFIG(tooltip)
+        self.buttonHelp.setText(QCoreApplication.translate("Dialog", u"Help", None))
+        self.buttonHelp.setProperty("class", QCoreApplication.translate("Dialog", u"icon", None))
         ___qtreewidgetitem = self.treeScripts.headerItem()
         ___qtreewidgetitem.setText(0, QCoreApplication.translate("Dialog", u"Name", None));
         self.lblName.setText(QCoreApplication.translate("Dialog", u"Script", None))
