@@ -406,7 +406,7 @@ class Scripts:
         script.parameter.append(ScriptParameter("Kommentar setzen (optional)", str, ""))
         addScript(script)
 
-        script = Script("Talent entfernen", "removeTalent", "Talent")
+        script = Script("Talent entfernen", "removeTalent", "Talente")
         script.beschreibung = "Entfernt das angegebene Talent, falls der Charakter es besitzt."
         script.parameter.append(ScriptParameter("Talent", str, completionTable = datenbank.talente))
         addScript(script)
