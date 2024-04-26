@@ -373,7 +373,8 @@ class Char():
         talent = self.addTalent(talent)
         if self.currentVorteil:
             talent.voraussetzungen = talent.voraussetzungen.add("Vorteil " + self.currentVorteil, Wolke.DB)
-        talent.voraussetzungen = talent.voraussetzungen.add(fertVoraussetzungen, Wolke.DB)
+        if fertVoraussetzungen:
+            talent.voraussetzungen = talent.voraussetzungen.add(fertVoraussetzungen, Wolke.DB)
 
         if kosten != -1:
             talent.kosten = kosten

@@ -18,28 +18,34 @@ class VoraussetzungenListe:
         for vor in self.compiled:
             yield vor
 
+    # Adds requirements and returns the combined requirements as a new object
+    # Don't worry about duplicate requirements, they will be filtered out
     def add(self, text, datenbank = None):
         ret = VoraussetzungenListe()
-        if text:
-            ret.compile(text, datenbank)
-        if not self.text:
+        if not text:
+            ret.compile(self.text, datenbank)
             return ret
-        if ret.text:
-            ret.text += ", "
-        ret.text += self.text
-        ret.compiled += self.compiled.copy()
+        combined = self.text
+        if combined:
+            combined += ","
+        combined += text
+        ret.compile(combined, datenbank)
         return ret
 
     def compile(self, text, datenbank = None):
         # first reset, because it may throw
         self.compiled = []
         self.text = ""
+
         if text:
-            self.compiled = self.__compileResurive(text, datenbank)
-            self.text = text
+            textLines = dict.fromkeys((map(str.strip, text.split(",")))) #get rid of duplicates and space
+            textLines.pop("", None)
+            textLines = list(textLines.keys())
+            self.compiled = self.__compileResurive(textLines, datenbank)
+            self.text = ",".join(textLines)
         return self
 
-    def __compileResurive(self, text, datenbank = None):
+    def __compileResurive(self, textLines, datenbank = None):
         '''
         Voraussetzungen werden vom User ebenfalls im Fließtext eingetragen.
         Das Format ist dabei im folgenden Illustriert:
@@ -50,19 +56,17 @@ class VoraussetzungenListe:
         Wenn die Datenbank übergeben wird, werden die Voraussetzungen auf Korrektheit geprüft und ggf. Exceptions geworfen
         '''
         retArr = []
-        for itm in text.split(","):
-            if len(itm) == 0:
-                continue
+        for line in textLines:
             arrItm = ""
-            strpItm = itm.strip()
-            if " ODER " in strpItm:
+            if " ODER " in line:
                 subArr = []
-                for entr in strpItm.split(" ODER "):
-                    subArr.append(self.__compileResurive(entr, datenbank))
+                orEntries = list(map(str.strip, line.split(" ODER ")))
+                for orEntry in orEntries:
+                    subArr.append(self.__compileResurive([orEntry], datenbank))
                 arrItm = subArr
             else:
-                if strpItm.startswith("Vorteil "):
-                    name = strpItm[8:]
+                if line.startswith("Vorteil "):
+                    name = line[8:]
                     if datenbank is not None and not (name in datenbank.vorteile):
                         if self.containsWildcard(name):
                             match = False
@@ -75,8 +79,8 @@ class VoraussetzungenListe:
                         else:
                             raise VoraussetzungException("Kann Vorteil '" + name + "' in der Datenbank nicht finden.")
                     arrItm = Voraussetzung("V", name, 1)
-                elif strpItm.startswith("Kein Vorteil "):
-                    name = strpItm[13:]
+                elif line.startswith("Kein Vorteil "):
+                    name = line[13:]
                     if datenbank is not None and not (name in datenbank.vorteile):
                         if self.containsWildcard(name):
                             match = False
@@ -89,79 +93,79 @@ class VoraussetzungenListe:
                         else:
                             raise VoraussetzungException("Kann Vorteil '" + name + "' in der Datenbank nicht finden.")
                     arrItm = Voraussetzung("V", name, 0)
-                elif strpItm.startswith("Talent "):
-                    if not strpItm[7] == "'":
-                        raise VoraussetzungException("Der Name eines Talents muss in Apostrophen gefasst werden. . (" + strpItm + ")")
-                    strpItm = strpItm[8:]
-                    index = strpItm.find("'")
+                elif line.startswith("Talent "):
+                    if not line[7] == "'":
+                        raise VoraussetzungException("Der Name eines Talents muss in Apostrophen gefasst werden. . (" + line + ")")
+                    line = line[8:]
+                    index = line.find("'")
                     if index == -1:
-                        raise VoraussetzungException("Der Name einer Fertigkeit muss in Apostrophen gefasst werden. . (" + strpItm + ")")
-                    name = strpItm[:index]
+                        raise VoraussetzungException("Der Name einer Fertigkeit muss in Apostrophen gefasst werden. . (" + line + ")")
+                    name = line[:index]
                     if datenbank is not None and not (name in datenbank.talente):
-                        raise VoraussetzungException("Kann Talent '" + strpItm + "' in der Datenbank nicht finden.")
+                        raise VoraussetzungException("Kann Talent '" + line + "' in der Datenbank nicht finden.")
                     try:
-                        wert = int(strpItm[index+2:]) if len(strpItm) -1 > index else -1
+                        wert = int(line[index+2:]) if len(line) -1 > index else -1
                         arrItm = Voraussetzung("T", name, wert)
                     except ValueError:
-                        raise VoraussetzungException("Der angegebene Talent-PW '" + strpItm[index+2:] + "' ist keine gültige Zahl")
-                elif strpItm.startswith("Waffeneigenschaft "):
-                    name = strpItm[18:]
+                        raise VoraussetzungException("Der angegebene Talent-PW '" + line[index+2:] + "' ist keine gültige Zahl")
+                elif line.startswith("Waffeneigenschaft "):
+                    name = line[18:]
                     if datenbank is not None and (not (name in datenbank.waffeneigenschaften)) and name != "Nahkampfwaffe" and name != "Fernkampfwaffe":
                         raise VoraussetzungException("Kann keine Waffeneigenschaft '" + name + "' in der Datenbank finden.")
                     arrItm = Voraussetzung("W", name, 1)
-                elif strpItm.startswith("Attribut "):
-                    name = strpItm[9:11]
+                elif line.startswith("Attribut "):
+                    name = line[9:11]
                     if datenbank is not None and name not in datenbank.attribute:
                         raise VoraussetzungException("Das angegebene Attribut '" + name + "' ist in der Datenbank nicht vorhanden.")
                     try:
-                        wert = int(strpItm[12:])
+                        wert = int(line[12:])
                         arrItm = Voraussetzung("A", name, wert)
                     except ValueError:
-                        raise VoraussetzungException("Der angegebene Attribut-Wert '" + strpItm[12:] + "' ist keine gültige Zahl.")
-                elif strpItm.startswith("MeisterAttribut "):
-                    name = strpItm[16:18]
+                        raise VoraussetzungException("Der angegebene Attribut-Wert '" + line[12:] + "' ist keine gültige Zahl.")
+                elif line.startswith("MeisterAttribut "):
+                    name = line[16:18]
                     if datenbank is not None and name not in datenbank.attribute:
                         raise VoraussetzungException("Das angegebene Attribut '" + name + "' ist ist in der Datenbank nicht vorhanden.")
                     try:
-                        wert = int(strpItm[19:])
+                        wert = int(line[19:])
                         arrItm = Voraussetzung("M", name, wert)
                     except ValueError:
-                        raise VoraussetzungException("Der angegebene Attribut-Wert '" + strpItm[19:] + "' ist keine gültige Zahl.")
-                elif strpItm.startswith("Übernatürliche-Fertigkeit "):
-                    if not strpItm[26] == "'":
-                        raise VoraussetzungException("Der Name einer Übernatürlichen Fertigkeit muss in Apostrophen gefasst werden. (" + strpItm + ")")
-                    strpItm = strpItm[27:]
-                    index = strpItm.find("'")
+                        raise VoraussetzungException("Der angegebene Attribut-Wert '" + line[19:] + "' ist keine gültige Zahl.")
+                elif line.startswith("Übernatürliche-Fertigkeit "):
+                    if not line[26] == "'":
+                        raise VoraussetzungException("Der Name einer Übernatürlichen Fertigkeit muss in Apostrophen gefasst werden. (" + line + ")")
+                    line = line[27:]
+                    index = line.find("'")
                     if index == -1:
-                        raise VoraussetzungException("Der Name einer Übernatürlichen Fertigkeit muss in Apostrophen gefasst werden. (" + strpItm + ")")
-                    name = strpItm[:index]
+                        raise VoraussetzungException("Der Name einer Übernatürlichen Fertigkeit muss in Apostrophen gefasst werden. (" + line + ")")
+                    name = line[:index]
 
                     if datenbank is not None and name not in datenbank.übernatürlicheFertigkeiten:
                         raise VoraussetzungException("Kann Übernatürliche Fertigkeit '" + name + "' in der datenbank nicht finden.")
                     try:
-                        wert = int(strpItm[index+2:]) if len(strpItm) -1 > index else -1
+                        wert = int(line[index+2:]) if len(line) -1 > index else -1
                         arrItm = Voraussetzung("U", name, wert)
                     except ValueError:
-                        raise VoraussetzungException("Der angegebene Fertigkeitswert '" + strpItm[index+2:] + "' ist keine gültige Zahl")
-                elif strpItm.startswith("Fertigkeit "):
-                    if not strpItm[11] == "'":
-                        raise VoraussetzungException("Der Name einer Fertigkeit muss in Apostrophen gefasst werden. . (" + strpItm + ")")
-                    strpItm = strpItm[12:]
-                    index = strpItm.find("'")
+                        raise VoraussetzungException("Der angegebene Fertigkeitswert '" + line[index+2:] + "' ist keine gültige Zahl")
+                elif line.startswith("Fertigkeit "):
+                    if not line[11] == "'":
+                        raise VoraussetzungException("Der Name einer Fertigkeit muss in Apostrophen gefasst werden. . (" + line + ")")
+                    line = line[12:]
+                    index = line.find("'")
                     if index == -1:
-                        raise VoraussetzungException("Der Name einer Fertigkeit muss in Apostrophen gefasst werden. . (" + strpItm + ")")
-                    name = strpItm[:index]
+                        raise VoraussetzungException("Der Name einer Fertigkeit muss in Apostrophen gefasst werden. . (" + line + ")")
+                    name = line[:index]
 
                     if datenbank is not None and name not in datenbank.fertigkeiten:
                         raise VoraussetzungException("Kann Fertigkeit '" + name + "' in der Datenbank nicht finden.")
 
                     try:
-                        wert = int(strpItm[index+2:]) if len(strpItm) -1 > index else -1
+                        wert = int(line[index+2:]) if len(line) -1 > index else -1
                         arrItm = Voraussetzung("F", name, wert)
                     except ValueError:
-                        raise VoraussetzungException("Der angegebene Fertigkeitswert '" + strpItm[index+2:] + "' ist keine gültige Zahl")
+                        raise VoraussetzungException("Der angegebene Fertigkeitswert '" + line[index+2:] + "' ist keine gültige Zahl")
                 else:
-                    raise VoraussetzungException("Unbekanntes Schlüsselwort '" + strpItm + "'. Unterstützt werden 'Vorteil', 'Kein Vorteil', 'Waffeneigenschaft', 'Attribut', 'MeisterAttribut', 'Übernatürliche-Fertigkeit' und 'Fertigkeit'.")
+                    raise VoraussetzungException("Unbekanntes Schlüsselwort '" + line + "'. Unterstützt werden 'Vorteil', 'Kein Vorteil', 'Waffeneigenschaft', 'Attribut', 'MeisterAttribut', 'Übernatürliche-Fertigkeit' und 'Fertigkeit'.")
             retArr.append(arrItm)
         return retArr
 
